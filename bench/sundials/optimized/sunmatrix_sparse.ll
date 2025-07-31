@@ -215,7 +215,7 @@ define noundef i32 @SUNMatZero_Sparse(ptr noundef readonly captures(none) %0) #4
   %18 = add nuw nsw i64 %.015, 1
   %19 = load i64, ptr %3, align 8, !tbaa !30
   %20 = icmp slt i64 %18, %19
-  br i1 %20, label %15, label %.preheader
+  br i1 %20, label %15, label %.preheader, !llvm.loop !44
 
 .lr.ph17:                                         ; preds = %.preheader, %.lr.ph17
   %.116 = phi i64 [ %22, %.lr.ph17 ], [ 0, %.preheader ]
@@ -224,7 +224,7 @@ define noundef i32 @SUNMatZero_Sparse(ptr noundef readonly captures(none) %0) #4
   %22 = add nuw nsw i64 %.116, 1
   %23 = load i64, ptr %10, align 8, !tbaa !31
   %24 = icmp slt i64 %22, %23
-  br i1 %24, label %.lr.ph17, label %._crit_edge
+  br i1 %24, label %.lr.ph17, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph17, %.preheader
   %.lcssa = phi i64 [ %11, %.preheader ], [ %23, %.lr.ph17 ]
@@ -297,7 +297,7 @@ define noundef i32 @SUNMatCopy_Sparse(ptr noundef readonly captures(none) %0, pt
   %44 = add nuw nsw i64 %.015.i, 1
   %45 = load i64, ptr %30, align 8, !tbaa !30
   %46 = icmp slt i64 %44, %45
-  br i1 %46, label %41, label %.preheader.i
+  br i1 %46, label %41, label %.preheader.i, !llvm.loop !44
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %.116.i = phi i64 [ %48, %.lr.ph17.i ], [ 0, %.preheader.i ]
@@ -306,7 +306,7 @@ define noundef i32 @SUNMatCopy_Sparse(ptr noundef readonly captures(none) %0, pt
   %48 = add nuw nsw i64 %.116.i, 1
   %49 = load i64, ptr %36, align 8, !tbaa !31
   %50 = icmp slt i64 %48, %49
-  br i1 %50, label %.lr.ph17.i, label %SUNMatZero_Sparse.exit
+  br i1 %50, label %.lr.ph17.i, label %SUNMatZero_Sparse.exit, !llvm.loop !46
 
 SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.preheader.i
   %.lcssa.i = phi i64 [ %37, %.preheader.i ], [ %49, %.lr.ph17.i ]
@@ -350,7 +350,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   store i64 %71, ptr %72, align 8, !tbaa !43
   %73 = add nuw nsw i64 %.038, 1
   %exitcond.not = icmp eq i64 %73, %9
-  br i1 %exitcond.not, label %.preheader, label %66
+  br i1 %exitcond.not, label %.preheader, label %66, !llvm.loop !47
 
 74:                                               ; preds = %.lr.ph40, %74
   %.139 = phi i64 [ 0, %.lr.ph40 ], [ %78, %74 ]
@@ -361,7 +361,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   %78 = add nuw nsw i64 %.139, 1
   %79 = load i64, ptr %61, align 8, !tbaa !31
   %80 = icmp slt i64 %78, %79
-  br i1 %80, label %74, label %._crit_edge
+  br i1 %80, label %74, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %74, %.preheader
   %.lcssa = phi i64 [ %62, %.preheader ], [ %79, %74 ]
@@ -408,7 +408,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 .loopexit261:                                     ; preds = %.lr.ph275, %.preheader260
   %.1250.lcssa = phi i64 [ %.0249277, %.preheader260 ], [ %spec.select, %.lr.ph275 ]
   %exitcond338.not = icmp eq i64 %30, %.0247
-  br i1 %exitcond338.not, label %._crit_edge279, label %.preheader262
+  br i1 %exitcond338.not, label %._crit_edge279, label %.preheader262, !llvm.loop !49
 
 .preheader262:                                    ; preds = %.preheader262.lr.ph, %.loopexit261
   %.0278 = phi i64 [ 0, %.preheader262.lr.ph ], [ %30, %.loopexit261 ]
@@ -438,7 +438,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store i64 %38, ptr %36, align 8, !tbaa !43
   %39 = add nsw i64 %.1232266, 1
   %exitcond.not = icmp eq i64 %39, %32
-  br i1 %exitcond.not, label %._crit_edge269, label %.lr.ph268
+  br i1 %exitcond.not, label %._crit_edge269, label %.lr.ph268, !llvm.loop !50
 
 ._crit_edge269:                                   ; preds = %.lr.ph268, %._crit_edge
   %40 = getelementptr inbounds nuw i64, ptr %18, i64 %.0278
@@ -461,7 +461,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store i64 %49, ptr %47, align 8, !tbaa !43
   %50 = add nsw i64 %.2233270, 1
   %exitcond336.not = icmp eq i64 %50, %43
-  br i1 %exitcond336.not, label %.preheader260, label %.lr.ph272
+  br i1 %exitcond336.not, label %.preheader260, label %.lr.ph272, !llvm.loop !51
 
 .lr.ph275:                                        ; preds = %.preheader260, %.lr.ph275
   %.3234274 = phi i64 [ %54, %.lr.ph275 ], [ 0, %.preheader260 ]
@@ -472,7 +472,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   %spec.select = add nsw i64 %53, %.1250273
   %54 = add nuw nsw i64 %.3234274, 1
   %exitcond337.not = icmp eq i64 %54, %.0248
-  br i1 %exitcond337.not, label %.loopexit261, label %.lr.ph275
+  br i1 %exitcond337.not, label %.loopexit261, label %.lr.ph275, !llvm.loop !52
 
 ._crit_edge279:                                   ; preds = %.loopexit261
   %55 = getelementptr inbounds nuw i64, ptr %11, i64 %.0247
@@ -486,7 +486,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 
 .loopexit:                                        ; preds = %.lr.ph333, %._crit_edge329
   %exitcond347.not = icmp eq i64 %61, %.0247
-  br i1 %exitcond347.not, label %.loopexit254, label %.preheader
+  br i1 %exitcond347.not, label %.loopexit254, label %.preheader, !llvm.loop !53
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.1334 = phi i64 [ 0, %.preheader.lr.ph ], [ %61, %.loopexit ]
@@ -515,7 +515,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %66, ptr %69, align 8, !tbaa !41
   %70 = add nsw i64 %.5326, 1
   %exitcond345.not = icmp eq i64 %70, %63
-  br i1 %exitcond345.not, label %._crit_edge329, label %.lr.ph328
+  br i1 %exitcond345.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !54
 
 ._crit_edge329:                                   ; preds = %.lr.ph328, %._crit_edge325
   %71 = getelementptr inbounds nuw i64, ptr %11, i64 %.1334
@@ -537,7 +537,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %82, ptr %76, align 8, !tbaa !41
   %83 = add nsw i64 %.6331, 1
   %exitcond346.not = icmp eq i64 %83, %74
-  br i1 %exitcond346.not, label %.loopexit, label %.lr.ph333
+  br i1 %exitcond346.not, label %.loopexit, label %.lr.ph333, !llvm.loop !55
 
 84:                                               ; preds = %._crit_edge279
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -585,7 +585,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %100, ptr %101, align 8, !tbaa !41
   %102 = add nsw i64 %.0235283, 1
   %exitcond339.not = icmp eq i64 %102, %.0246297
-  br i1 %exitcond339.not, label %._crit_edge286, label %.lr.ph285
+  br i1 %exitcond339.not, label %._crit_edge286, label %.lr.ph285, !llvm.loop !56
 
 ._crit_edge286:                                   ; preds = %.lr.ph285, %._crit_edge282
   %103 = getelementptr inbounds nuw i64, ptr %18, i64 %.2300
@@ -614,7 +614,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %117, ptr %115, align 8, !tbaa !41
   %118 = add nsw i64 %.1236287, 1
   %exitcond340.not = icmp eq i64 %118, %106
-  br i1 %exitcond340.not, label %.preheader257, label %.lr.ph289
+  br i1 %exitcond340.not, label %.preheader257, label %.lr.ph289, !llvm.loop !57
 
 .lr.ph293:                                        ; preds = %.preheader257, %128
   %.8292.in = phi i64 [ %.8292, %128 ], [ %.0248, %.preheader257 ]
@@ -638,7 +638,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 128:                                              ; preds = %.lr.ph293, %122
   %.2241 = phi i64 [ %123, %122 ], [ %.1240291, %.lr.ph293 ]
   %129 = icmp samesign ugt i64 %.8292.in, 1
-  br i1 %129, label %.lr.ph293, label %._crit_edge294.loopexit
+  br i1 %129, label %.lr.ph293, label %._crit_edge294.loopexit, !llvm.loop !58
 
 ._crit_edge294.loopexit:                          ; preds = %128
   %.pre = load i64, ptr %90, align 8, !tbaa !43
@@ -649,7 +649,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   %.1240.lcssa = phi i64 [ %.0239298, %.preheader257 ], [ %.2241, %._crit_edge294.loopexit ]
   store i64 %.1240.lcssa, ptr %90, align 8, !tbaa !43
   %131 = icmp sgt i64 %.2.in299, 1
-  br i1 %131, label %.preheader258, label %.loopexit254
+  br i1 %131, label %.preheader258, label %.loopexit254, !llvm.loop !59
 
 .lr.ph320:                                        ; preds = %84
   %132 = load i64, ptr %5, align 8, !tbaa !28
@@ -670,7 +670,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 .loopexit256:                                     ; preds = %188, %.preheader255
   %.4243.lcssa = phi i64 [ %.3242317, %.preheader255 ], [ %.5244, %188 ]
   %exitcond344.not = icmp eq i64 %149, %.0247
-  br i1 %exitcond344.not, label %._crit_edge321, label %145
+  br i1 %exitcond344.not, label %._crit_edge321, label %145, !llvm.loop !60
 
 145:                                              ; preds = %.lr.ph320, %.loopexit256
   %.3318 = phi i64 [ 0, %.lr.ph320 ], [ %149, %.loopexit256 ]
@@ -708,7 +708,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %160, ptr %161, align 8, !tbaa !41
   %162 = add nsw i64 %.2237305, 1
   %exitcond341.not = icmp eq i64 %162, %151
-  br i1 %exitcond341.not, label %._crit_edge308, label %.lr.ph307
+  br i1 %exitcond341.not, label %._crit_edge308, label %.lr.ph307, !llvm.loop !61
 
 ._crit_edge308:                                   ; preds = %.lr.ph307, %._crit_edge304
   %163 = getelementptr inbounds nuw i64, ptr %18, i64 %.3318
@@ -737,7 +737,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   store double %177, ptr %175, align 8, !tbaa !41
   %178 = add nsw i64 %.3238310, 1
   %exitcond342.not = icmp eq i64 %178, %166
-  br i1 %exitcond342.not, label %.preheader255, label %.lr.ph312
+  br i1 %exitcond342.not, label %.preheader255, label %.lr.ph312, !llvm.loop !62
 
 .lr.ph315:                                        ; preds = %.preheader255, %188
   %.10314 = phi i64 [ %189, %188 ], [ 0, %.preheader255 ]
@@ -761,7 +761,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   %.5244 = phi i64 [ %186, %182 ], [ %.4243313, %.lr.ph315 ]
   %189 = add nuw nsw i64 %.10314, 1
   %exitcond343.not = icmp eq i64 %189, %.0248
-  br i1 %exitcond343.not, label %.loopexit256, label %.lr.ph315
+  br i1 %exitcond343.not, label %.loopexit256, label %.lr.ph315, !llvm.loop !63
 
 ._crit_edge321:                                   ; preds = %.loopexit256
   %190 = getelementptr inbounds nuw i64, ptr %139, i64 %.0247
@@ -865,7 +865,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   %30 = zext i1 %or.cond to i64
   %.189 = add nuw nsw i64 %.088103, %30
   %exitcond125.not = icmp eq i64 %24, %8
-  br i1 %exitcond125.not, label %._crit_edge107, label %.lr.ph106
+  br i1 %exitcond125.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.lr.ph106, %.lr.ph
   %.084101 = phi i64 [ %38, %.lr.ph ], [ %23, %.lr.ph106 ]
@@ -882,7 +882,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   store double %.sink, ptr %34, align 8, !tbaa !41
   %38 = add nsw i64 %.084101, 1
   %exitcond.not = icmp eq i64 %38, %26
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
 39:                                               ; preds = %._crit_edge107
   %40 = shl i64 %19, 3
@@ -961,7 +961,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   store double %70, ptr %71, align 8, !tbaa !41
   %72 = load i64, ptr %58, align 8, !tbaa !43
   %.not.not = icmp sgt i64 %.0, %72
-  br i1 %.not.not, label %.lr.ph113, label %._crit_edge114.loopexit
+  br i1 %.not.not, label %.lr.ph113, label %._crit_edge114.loopexit, !llvm.loop !66
 
 73:                                               ; preds = %._crit_edge114
   %74 = add nsw i64 %.2118, -1
@@ -978,7 +978,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   %81 = phi i64 [ %61, %._crit_edge114 ], [ %77, %73 ]
   %.3 = phi i64 [ %.2118, %._crit_edge114 ], [ %74, %73 ]
   %82 = icmp sgt i64 %.3, 0
-  br i1 %82, label %.lr.ph122, label %._crit_edge123
+  br i1 %82, label %.lr.ph122, label %._crit_edge123, !llvm.loop !67
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1020,7 +1020,7 @@ define noundef i32 @SUNMatMatvec_Sparse(ptr noundef readonly captures(none) %0, 
 
 .loopexit.i:                                      ; preds = %30, %.lr.ph33.i
   %exitcond34.not.i = icmp eq i64 %25, %22
-  br i1 %exitcond34.not.i, label %Matvec_SparseCSC.exit, label %.lr.ph33.i
+  br i1 %exitcond34.not.i, label %Matvec_SparseCSC.exit, label %.lr.ph33.i, !llvm.loop !68
 
 .lr.ph33.i:                                       ; preds = %.loopexit.i, %.lr.ph33.preheader.i
   %24 = phi i64 [ %27, %.loopexit.i ], [ %.pre.i, %.lr.ph33.preheader.i ]
@@ -1048,7 +1048,7 @@ define noundef i32 @SUNMatMatvec_Sparse(ptr noundef readonly captures(none) %0, 
   store double %38, ptr %36, align 8, !tbaa !41
   %39 = add nsw i64 %.129.i, 1
   %exitcond.not.i = icmp eq i64 %39, %27
-  br i1 %exitcond.not.i, label %.loopexit.i, label %30
+  br i1 %exitcond.not.i, label %.loopexit.i, label %30, !llvm.loop !69
 
 40:                                               ; preds = %3
   br i1 %18, label %.lr.ph33.preheader.i8, label %Matvec_SparseCSC.exit
@@ -1061,7 +1061,7 @@ define noundef i32 @SUNMatMatvec_Sparse(ptr noundef readonly captures(none) %0, 
 
 .loopexit.i11:                                    ; preds = %48, %.lr.ph33.i10
   %exitcond34.not.i12 = icmp eq i64 %43, %17
-  br i1 %exitcond34.not.i12, label %Matvec_SparseCSC.exit, label %.lr.ph33.i10
+  br i1 %exitcond34.not.i12, label %Matvec_SparseCSC.exit, label %.lr.ph33.i10, !llvm.loop !70
 
 .lr.ph33.i10:                                     ; preds = %.loopexit.i11, %.lr.ph33.preheader.i8
   %42 = phi i64 [ %45, %.loopexit.i11 ], [ %.pre.i9, %.lr.ph33.preheader.i8 ]
@@ -1090,7 +1090,7 @@ define noundef i32 @SUNMatMatvec_Sparse(ptr noundef readonly captures(none) %0, 
   store double %56, ptr %47, align 8, !tbaa !41
   %57 = add nsw i64 %.02629.i, 1
   %exitcond.not.i14 = icmp eq i64 %57, %45
-  br i1 %exitcond.not.i14, label %.loopexit.i11, label %48
+  br i1 %exitcond.not.i14, label %.loopexit.i11, label %48, !llvm.loop !71
 
 Matvec_SparseCSC.exit:                            ; preds = %.loopexit.i11, %.loopexit.i, %40, %.preheader.i
   ret i32 0
@@ -1120,9 +1120,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %0, align 8, !tbaa !20
-  %6 = load i64, ptr %5, align 8, !tbaa !44
+  %6 = load i64, ptr %5, align 8, !tbaa !72
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !47
+  %8 = load i64, ptr %7, align 8, !tbaa !75
   %9 = icmp sgt i64 %8, 0
   %10 = icmp sgt i64 %6, 0
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -1130,14 +1130,14 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 
 .preheader77.lr.ph.split.us:                      ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !76
   br label %.preheader77.us
 
 .preheader77.us:                                  ; preds = %._crit_edge.us, %.preheader77.lr.ph.split.us
   %.06881.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %23, %._crit_edge.us ]
   %.07180.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %21, %._crit_edge.us ]
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.06881.us
-  %14 = load ptr, ptr %13, align 8, !tbaa !49
+  %14 = load ptr, ptr %13, align 8, !tbaa !77
   br label %15
 
 15:                                               ; preds = %.preheader77.us, %15
@@ -1151,12 +1151,12 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   %21 = add nsw i64 %.17278.us, %20
   %22 = add nuw nsw i64 %.079.us, 1
   %exitcond.not = icmp eq i64 %22, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %15
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %15
   %23 = add nuw nsw i64 %.06881.us, 1
   %exitcond108.not = icmp eq i64 %23, %8
-  br i1 %exitcond108.not, label %._crit_edge82, label %.preheader77.us, !llvm.loop !50
+  br i1 %exitcond108.not, label %._crit_edge82, label %.preheader77.us, !llvm.loop !79
 
 ._crit_edge82:                                    ; preds = %._crit_edge.us, %3
   %.071.lcssa = phi i64 [ 0, %3 ], [ %21, %._crit_edge.us ]
@@ -1185,7 +1185,7 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 .lr.ph88.split.us:                                ; preds = %.lr.ph88
   %33 = load ptr, ptr %0, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !48
+  %35 = load ptr, ptr %34, align 8, !tbaa !76
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us91, %.lr.ph88.split.us
@@ -1199,7 +1199,7 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   %.27085.us = phi i64 [ 0, %.lr.ph.us ], [ %51, %50 ]
   %.684.us = phi i64 [ %.586.us, %.lr.ph.us ], [ %.7.us, %50 ]
   %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.27085.us
-  %39 = load ptr, ptr %38, align 8, !tbaa !49
+  %39 = load ptr, ptr %38, align 8, !tbaa !77
   %40 = getelementptr inbounds nuw double, ptr %39, i64 %.287.us
   %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = tail call double @llvm.fabs.f64(double %41)
@@ -1220,12 +1220,12 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   %.7.us = phi i64 [ %48, %44 ], [ %.684.us, %37 ]
   %51 = add nuw nsw i64 %.27085.us, 1
   %exitcond109.not = icmp eq i64 %51, %8
-  br i1 %exitcond109.not, label %._crit_edge.us91, label %37
+  br i1 %exitcond109.not, label %._crit_edge.us91, label %37, !llvm.loop !81
 
 ._crit_edge.us91:                                 ; preds = %50
   %52 = add nuw nsw i64 %.287.us, 1
   %exitcond110.not = icmp eq i64 %52, %6
-  br i1 %exitcond110.not, label %._crit_edge89, label %.lr.ph.us, !llvm.loop !52
+  br i1 %exitcond110.not, label %._crit_edge89, label %.lr.ph.us, !llvm.loop !82
 
 .preheader:                                       ; preds = %._crit_edge82
   %.pre114 = load ptr, ptr %25, align 8, !tbaa !20
@@ -1247,7 +1247,7 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 .lr.ph98.split.us:                                ; preds = %.lr.ph98
   %59 = load ptr, ptr %0, align 8, !tbaa !20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !48
+  %61 = load ptr, ptr %60, align 8, !tbaa !76
   br label %.lr.ph.us101
 
 .lr.ph.us101:                                     ; preds = %._crit_edge.us102, %.lr.ph98.split.us
@@ -1256,7 +1256,7 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   %62 = getelementptr inbounds nuw i64, ptr %54, i64 %.16997.us
   store i64 %.27396.us, ptr %62, align 8, !tbaa !43
   %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %.16997.us
-  %64 = load ptr, ptr %63, align 8, !tbaa !49
+  %64 = load ptr, ptr %63, align 8, !tbaa !77
   br label %65
 
 65:                                               ; preds = %.lr.ph.us101, %76
@@ -1282,12 +1282,12 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   %.4.us = phi i64 [ %74, %70 ], [ %.394.us, %65 ]
   %77 = add nuw nsw i64 %.195.us, 1
   %exitcond111.not = icmp eq i64 %77, %6
-  br i1 %exitcond111.not, label %._crit_edge.us102, label %65
+  br i1 %exitcond111.not, label %._crit_edge.us102, label %65, !llvm.loop !83
 
 ._crit_edge.us102:                                ; preds = %76
   %78 = add nuw nsw i64 %.16997.us, 1
   %exitcond112.not = icmp eq i64 %78, %8
-  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph.us101, !llvm.loop !53
+  br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph.us101, !llvm.loop !84
 
 ._crit_edge99:                                    ; preds = %._crit_edge.us102, %.preheader, %.lr.ph98.split.preheader
   %.273.lcssa = phi i64 [ 0, %.lr.ph98.split.preheader ], [ 0, %.preheader ], [ %.4.us, %._crit_edge.us102 ]
@@ -1312,17 +1312,17 @@ declare double @llvm.fabs.f64(double) #8
 define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %0, align 8, !tbaa !20
-  %6 = load i64, ptr %5, align 8, !tbaa !54
+  %6 = load i64, ptr %5, align 8, !tbaa !85
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !56
+  %8 = load i64, ptr %7, align 8, !tbaa !87
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph136, label %._crit_edge137
 
 .lr.ph136:                                        ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !57
+  %11 = load i64, ptr %10, align 8, !tbaa !88
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !58
+  %13 = load i64, ptr %12, align 8, !tbaa !89
   %14 = add nsw i64 %6, -1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1339,10 +1339,10 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   br i1 %.not126130, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %21 = load ptr, ptr %15, align 8, !tbaa !59
+  %21 = load ptr, ptr %15, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0105134
-  %23 = load ptr, ptr %22, align 8, !tbaa !49
-  %24 = load i64, ptr %16, align 8, !tbaa !60
+  %23 = load ptr, ptr %22, align 8, !tbaa !77
+  %24 = load i64, ptr %16, align 8, !tbaa !91
   %invariant.gep = getelementptr double, ptr %23, i64 %24
   br label %25
 
@@ -1358,13 +1358,13 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %31 = add nsw i64 %.1109131, %30
   %32 = add nuw nsw i64 %.0132, 1
   %.not126.not = icmp slt i64 %.0132, %20
-  br i1 %.not126.not, label %25, label %._crit_edge
+  br i1 %.not126.not, label %25, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %25, %17
   %.1109.lcssa = phi i64 [ %.0108133, %17 ], [ %31, %25 ]
   %33 = add nuw nsw i64 %.0105134, 1
   %exitcond.not = icmp eq i64 %33, %8
-  br i1 %exitcond.not, label %._crit_edge137, label %17
+  br i1 %exitcond.not, label %._crit_edge137, label %17, !llvm.loop !93
 
 ._crit_edge137:                                   ; preds = %._crit_edge, %3
   %.0108.lcssa = phi i64 [ 0, %3 ], [ %.1109.lcssa, %._crit_edge ]
@@ -1413,20 +1413,20 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %.2110158 = phi i64 [ 0, %.lr.ph160 ], [ %.3.lcssa, %._crit_edge156 ]
   %59 = getelementptr inbounds nuw i64, ptr %49, i64 %.1106159
   store i64 %.2110158, ptr %59, align 8, !tbaa !43
-  %60 = load i64, ptr %51, align 8, !tbaa !57
+  %60 = load i64, ptr %51, align 8, !tbaa !88
   %61 = sub nsw i64 %.1106159, %60
   %spec.select127 = tail call i64 @llvm.smax.i64(i64 %61, i64 0)
-  %62 = load i64, ptr %52, align 8, !tbaa !58
+  %62 = load i64, ptr %52, align 8, !tbaa !89
   %63 = add nsw i64 %62, %.1106159
   %64 = tail call i64 @llvm.smin.i64(i64 %63, i64 %53)
   %.not124151 = icmp sgt i64 %spec.select127, %64
   br i1 %.not124151, label %._crit_edge156, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %58
-  %65 = load ptr, ptr %54, align 8, !tbaa !59
+  %65 = load ptr, ptr %54, align 8, !tbaa !90
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.1106159
-  %67 = load ptr, ptr %66, align 8, !tbaa !49
-  %.pre168 = load i64, ptr %55, align 8, !tbaa !60
+  %67 = load ptr, ptr %66, align 8, !tbaa !77
+  %.pre168 = load i64, ptr %55, align 8, !tbaa !91
   br label %68
 
 68:                                               ; preds = %.lr.ph155, %86
@@ -1446,14 +1446,14 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %78 = load ptr, ptr %56, align 8, !tbaa !34
   %79 = getelementptr inbounds i64, ptr %78, i64 %.3152
   store i64 %.1153, ptr %79, align 8, !tbaa !43
-  %80 = load i64, ptr %55, align 8, !tbaa !60
+  %80 = load i64, ptr %55, align 8, !tbaa !91
   %81 = getelementptr double, ptr %72, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !41
   %83 = load ptr, ptr %57, align 8, !tbaa !33
   %84 = add nsw i64 %.3152, 1
   %85 = getelementptr inbounds double, ptr %83, i64 %.3152
   store double %82, ptr %85, align 8, !tbaa !41
-  %.pre169 = load i64, ptr %52, align 8, !tbaa !58
+  %.pre169 = load i64, ptr %52, align 8, !tbaa !89
   br label %86
 
 86:                                               ; preds = %68, %77
@@ -1464,13 +1464,13 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %90 = add nsw i64 %87, %.1106159
   %91 = tail call i64 @llvm.smin.i64(i64 %90, i64 %53)
   %.not124.not = icmp slt i64 %.1153, %91
-  br i1 %.not124.not, label %68, label %._crit_edge156
+  br i1 %.not124.not, label %68, label %._crit_edge156, !llvm.loop !94
 
 ._crit_edge156:                                   ; preds = %86, %58
   %.3.lcssa = phi i64 [ %.2110158, %58 ], [ %.4, %86 ]
   %92 = add nuw nsw i64 %.1106159, 1
   %exitcond164.not = icmp eq i64 %92, %8
-  br i1 %exitcond164.not, label %._crit_edge161, label %58
+  br i1 %exitcond164.not, label %._crit_edge161, label %58, !llvm.loop !95
 
 ._crit_edge161:                                   ; preds = %._crit_edge156, %.preheader
   %.2110.lcssa = phi i64 [ 0, %.preheader ], [ %.3.lcssa, %._crit_edge156 ]
@@ -1483,18 +1483,18 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %.5146 = phi i64 [ 0, %.lr.ph148 ], [ %.6.lcssa, %._crit_edge144 ]
   %95 = getelementptr inbounds nuw i64, ptr %39, i64 %.2147
   store i64 %.5146, ptr %95, align 8, !tbaa !43
-  %96 = load i64, ptr %41, align 8, !tbaa !58
+  %96 = load i64, ptr %41, align 8, !tbaa !89
   %97 = sub nsw i64 %.2147, %96
   %spec.select128 = tail call i64 @llvm.smax.i64(i64 %97, i64 0)
-  %98 = load i64, ptr %42, align 8, !tbaa !57
+  %98 = load i64, ptr %42, align 8, !tbaa !88
   %99 = add nsw i64 %98, %.2147
   %100 = tail call i64 @llvm.smin.i64(i64 %99, i64 %43)
   %.not122139 = icmp sgt i64 %spec.select128, %100
   br i1 %.not122139, label %._crit_edge144, label %.lr.ph143
 
 .lr.ph143:                                        ; preds = %94
-  %101 = load ptr, ptr %44, align 8, !tbaa !59
-  %.pre = load i64, ptr %45, align 8, !tbaa !60
+  %101 = load ptr, ptr %44, align 8, !tbaa !90
+  %.pre = load i64, ptr %45, align 8, !tbaa !91
   br label %102
 
 102:                                              ; preds = %.lr.ph143, %122
@@ -1503,7 +1503,7 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %.2107141 = phi i64 [ %spec.select128, %.lr.ph143 ], [ %125, %122 ]
   %.6140 = phi i64 [ %.5146, %.lr.ph143 ], [ %.7, %122 ]
   %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %.2107141
-  %106 = load ptr, ptr %105, align 8, !tbaa !49
+  %106 = load ptr, ptr %105, align 8, !tbaa !77
   %107 = sub nsw i64 %.2147, %.2107141
   %108 = getelementptr double, ptr %106, i64 %107
   %109 = getelementptr double, ptr %108, i64 %104
@@ -1516,14 +1516,14 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %114 = load ptr, ptr %46, align 8, !tbaa !34
   %115 = getelementptr inbounds i64, ptr %114, i64 %.6140
   store i64 %.2107141, ptr %115, align 8, !tbaa !43
-  %116 = load i64, ptr %45, align 8, !tbaa !60
+  %116 = load i64, ptr %45, align 8, !tbaa !91
   %117 = getelementptr double, ptr %108, i64 %116
   %118 = load double, ptr %117, align 8, !tbaa !41
   %119 = load ptr, ptr %47, align 8, !tbaa !33
   %120 = add nsw i64 %.6140, 1
   %121 = getelementptr inbounds double, ptr %119, i64 %.6140
   store double %118, ptr %121, align 8, !tbaa !41
-  %.pre165 = load i64, ptr %42, align 8, !tbaa !57
+  %.pre165 = load i64, ptr %42, align 8, !tbaa !88
   br label %122
 
 122:                                              ; preds = %102, %113
@@ -1534,13 +1534,13 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %126 = add nsw i64 %123, %.2147
   %127 = tail call i64 @llvm.smin.i64(i64 %126, i64 %43)
   %.not122.not = icmp slt i64 %.2107141, %127
-  br i1 %.not122.not, label %102, label %._crit_edge144
+  br i1 %.not122.not, label %102, label %._crit_edge144, !llvm.loop !96
 
 ._crit_edge144:                                   ; preds = %122, %94
   %.6.lcssa = phi i64 [ %.5146, %94 ], [ %.7, %122 ]
   %128 = add nuw nsw i64 %.2147, 1
   %exitcond163.not = icmp eq i64 %128, %6
-  br i1 %exitcond163.not, label %._crit_edge149, label %94
+  br i1 %exitcond163.not, label %._crit_edge149, label %94, !llvm.loop !97
 
 ._crit_edge149:                                   ; preds = %._crit_edge144, %.preheader129
   %.5.lcssa = phi i64 [ 0, %.preheader129 ], [ %.6.lcssa, %._crit_edge144 ]
@@ -1609,7 +1609,7 @@ define noundef i32 @SUNSparseMatrix_ToCSR(ptr noundef readonly captures(none) %0
   store ptr %35, ptr %27, align 8, !tbaa !34
   %36 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #19
   store ptr %36, ptr %29, align 8, !tbaa !35
-  store ptr %11, ptr %1, align 8, !tbaa !61
+  store ptr %11, ptr %1, align 8, !tbaa !98
   tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %11)
   ret i32 0
 }
@@ -1670,7 +1670,7 @@ define internal fastcc void @format_convert(ptr noundef readonly captures(none) 
   %39 = add nuw nsw i64 %.015.i, 1
   %40 = load i64, ptr %31, align 8, !tbaa !30
   %41 = icmp slt i64 %39, %40
-  br i1 %41, label %.lr.ph.i, label %.preheader.i
+  br i1 %41, label %.lr.ph.i, label %.preheader.i, !llvm.loop !44
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %.116.i = phi i64 [ %43, %.lr.ph17.i ], [ 0, %.preheader.i ]
@@ -1679,7 +1679,7 @@ define internal fastcc void @format_convert(ptr noundef readonly captures(none) 
   %43 = add nuw nsw i64 %.116.i, 1
   %44 = load i64, ptr %34, align 8, !tbaa !31
   %45 = icmp slt i64 %43, %44
-  br i1 %45, label %.lr.ph17.i, label %SUNMatZero_Sparse.exit
+  br i1 %45, label %.lr.ph17.i, label %SUNMatZero_Sparse.exit, !llvm.loop !46
 
 SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.preheader.i
   %.lcssa.i = phi i64 [ %35, %.preheader.i ], [ %44, %.lr.ph17.i ]
@@ -1702,7 +1702,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   store i64 %53, ptr %51, align 8, !tbaa !43
   %54 = add nuw nsw i64 %.07082, 1
   %exitcond.not = icmp eq i64 %54, %30
-  br i1 %exitcond.not, label %.preheader80, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader80, label %.lr.ph, !llvm.loop !100
 
 .lr.ph85:                                         ; preds = %.preheader80, %.lr.ph85
   %.07284 = phi i64 [ %58, %.lr.ph85 ], [ 0, %.preheader80 ]
@@ -1713,7 +1713,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   %57 = add nsw i64 %56, %.07583
   %58 = add nuw nsw i64 %.07284, 1
   %exitcond96.not = icmp eq i64 %58, %22
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph85
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader80
   %59 = getelementptr inbounds i64, ptr %24, i64 %22
@@ -1728,7 +1728,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 .loopexit79:                                      ; preds = %.lr.ph88, %.lr.ph91
   %61 = phi i64 [ %65, %.lr.ph91 ], [ %78, %.lr.ph88 ]
   %exitcond97.not = icmp eq i64 %63, %21
-  br i1 %exitcond97.not, label %.preheader, label %.lr.ph91
+  br i1 %exitcond97.not, label %.preheader, label %.lr.ph91, !llvm.loop !102
 
 .preheader:                                       ; preds = %.loopexit79, %._crit_edge
   %.not92 = icmp slt i64 %22, 0
@@ -1761,7 +1761,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   %77 = add nsw i64 %.07186, 1
   %78 = load i64, ptr %64, align 8, !tbaa !43
   %79 = icmp slt i64 %77, %78
-  br i1 %79, label %.lr.ph88, label %.loopexit79
+  br i1 %79, label %.lr.ph88, label %.loopexit79, !llvm.loop !103
 
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %.194 = phi i64 [ %82, %.lr.ph95 ], [ 0, %.preheader ]
@@ -1771,7 +1771,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
   store i64 %.07393, ptr %80, align 8, !tbaa !43
   %82 = add nuw i64 %.194, 1
   %exitcond98.not = icmp eq i64 %.194, %22
-  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph95
+  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph95, !llvm.loop !104
 
 .loopexit:                                        ; preds = %.lr.ph95, %.preheader, %10
   ret void
@@ -1834,7 +1834,7 @@ define noundef i32 @SUNSparseMatrix_ToCSC(ptr noundef readonly captures(none) %0
   store ptr %35, ptr %27, align 8, !tbaa !34
   %36 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #19
   store ptr %36, ptr %29, align 8, !tbaa !35
-  store ptr %11, ptr %1, align 8, !tbaa !61
+  store ptr %11, ptr %1, align 8, !tbaa !98
   tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %11)
   ret i32 0
 }
@@ -1954,7 +1954,7 @@ define void @SUNSparseMatrix_Print(ptr noundef readonly captures(none) %0, ptr n
   %51 = getelementptr inbounds nuw i64, ptr %50, i64 %23
   %52 = load i64, ptr %51, align 8, !tbaa !43
   %53 = icmp slt i64 %47, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph39
   %fputc35 = tail call i32 @fputc(i32 10, ptr %1)
@@ -1962,7 +1962,7 @@ define void @SUNSparseMatrix_Print(ptr noundef readonly captures(none) %0, ptr n
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8, !tbaa !31
   %57 = icmp slt i64 %23, %56
-  br i1 %57, label %.lr.ph39, label %._crit_edge40
+  br i1 %57, label %.lr.ph39, label %._crit_edge40, !llvm.loop !106
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %2
   %fputc34 = tail call i32 @fputc(i32 10, ptr %1)
@@ -2126,22 +2126,66 @@ attributes #20 = { nounwind allocsize(1) }
 !41 = !{!42, !42, i64 0}
 !42 = !{!"double", !6, i64 0}
 !43 = !{!23, !23, i64 0}
-!44 = !{!45, !23, i64 0}
-!45 = !{!"_SUNMatrixContent_Dense", !23, i64 0, !23, i64 8, !24, i64 16, !23, i64 24, !46, i64 32}
-!46 = !{!"p2 double", !5, i64 0}
-!47 = !{!45, !23, i64 8}
-!48 = !{!45, !46, i64 32}
-!49 = !{!24, !24, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !51}
-!53 = distinct !{!53, !51}
-!54 = !{!55, !23, i64 0}
-!55 = !{!"_SUNMatrixContent_Band", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !24, i64 48, !23, i64 56, !46, i64 64}
-!56 = !{!55, !23, i64 8}
-!57 = !{!55, !23, i64 24}
-!58 = !{!55, !23, i64 32}
-!59 = !{!55, !46, i64 64}
-!60 = !{!55, !23, i64 40}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS18_generic_SUNMatrix", !5, i64 0}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}
+!48 = distinct !{!48, !45}
+!49 = distinct !{!49, !45}
+!50 = distinct !{!50, !45}
+!51 = distinct !{!51, !45}
+!52 = distinct !{!52, !45}
+!53 = distinct !{!53, !45}
+!54 = distinct !{!54, !45}
+!55 = distinct !{!55, !45}
+!56 = distinct !{!56, !45}
+!57 = distinct !{!57, !45}
+!58 = distinct !{!58, !45}
+!59 = distinct !{!59, !45}
+!60 = distinct !{!60, !45}
+!61 = distinct !{!61, !45}
+!62 = distinct !{!62, !45}
+!63 = distinct !{!63, !45}
+!64 = distinct !{!64, !45}
+!65 = distinct !{!65, !45}
+!66 = distinct !{!66, !45}
+!67 = distinct !{!67, !45}
+!68 = distinct !{!68, !45}
+!69 = distinct !{!69, !45}
+!70 = distinct !{!70, !45}
+!71 = distinct !{!71, !45}
+!72 = !{!73, !23, i64 0}
+!73 = !{!"_SUNMatrixContent_Dense", !23, i64 0, !23, i64 8, !24, i64 16, !23, i64 24, !74, i64 32}
+!74 = !{!"p2 double", !5, i64 0}
+!75 = !{!73, !23, i64 8}
+!76 = !{!73, !74, i64 32}
+!77 = !{!24, !24, i64 0}
+!78 = distinct !{!78, !45}
+!79 = distinct !{!79, !45, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !45}
+!82 = distinct !{!82, !45, !80}
+!83 = distinct !{!83, !45}
+!84 = distinct !{!84, !45, !80}
+!85 = !{!86, !23, i64 0}
+!86 = !{!"_SUNMatrixContent_Band", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !24, i64 48, !23, i64 56, !74, i64 64}
+!87 = !{!86, !23, i64 8}
+!88 = !{!86, !23, i64 24}
+!89 = !{!86, !23, i64 32}
+!90 = !{!86, !74, i64 64}
+!91 = !{!86, !23, i64 40}
+!92 = distinct !{!92, !45}
+!93 = distinct !{!93, !45}
+!94 = distinct !{!94, !45}
+!95 = distinct !{!95, !45}
+!96 = distinct !{!96, !45}
+!97 = distinct !{!97, !45}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS18_generic_SUNMatrix", !5, i64 0}
+!100 = distinct !{!100, !45}
+!101 = distinct !{!101, !45}
+!102 = distinct !{!102, !45}
+!103 = distinct !{!103, !45}
+!104 = distinct !{!104, !45}
+!105 = distinct !{!105, !45}
+!106 = distinct !{!106, !45}

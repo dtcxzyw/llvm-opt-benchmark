@@ -431,12 +431,12 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr noundef captu
   %10 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = ashr i32 %11, 1
-  %.val15 = load ptr, ptr %7, align 8, !tbaa !32
+  %.val15 = load ptr, ptr %7, align 8, !tbaa !33
   %13 = getelementptr i8, ptr %.val15, i64 8
-  %.val15.val = load ptr, ptr %13, align 8, !tbaa !33
+  %.val15.val = load ptr, ptr %13, align 8, !tbaa !34
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %.val15.val, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = shl i32 %11, 4
@@ -453,7 +453,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr noundef captu
   %.val13 = load i32, ptr %4, align 4, !tbaa !23
   %26 = sext i32 %.val13 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %9, label %.critedge, !llvm.loop !36
+  br i1 %27, label %9, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %9, %3
   %28 = tail call i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef %1)
@@ -470,10 +470,10 @@ define void @Aig_ManJustExperiment(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !37
+  %7 = load i64, ptr %3, align 8, !tbaa !38
   %.neg86 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !39
+  %9 = load i64, ptr %8, align 8, !tbaa !40
   %.neg = sdiv i64 %9, -1000
   %.neg87 = add i64 %.neg, %.neg86
   br label %Abc_Clock.exit
@@ -510,12 +510,12 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.val55 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !27
-  %.val56 = load ptr, ptr %19, align 8, !tbaa !40, !nonnull !41, !noundef !41
+  %.val56 = load ptr, ptr %19, align 8, !tbaa !41, !nonnull !42, !noundef !42
   %22 = getelementptr i8, ptr %.val56, i64 8
-  %.val.i = load ptr, ptr %22, align 8, !tbaa !33
+  %.val.i = load ptr, ptr %22, align 8, !tbaa !34
   %23 = sext i32 %21 to i64
   %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !35
+  %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 8
@@ -632,7 +632,7 @@ Aig_ObjFindSatAssign.exit76:                      ; preds = %60
   %.val54 = load i32, ptr %16, align 4, !tbaa !23
   %67 = sext i32 %.val54 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %Aig_ManObj.exit, label %.critedge.loopexit, !llvm.loop !42
+  br i1 %68, label %Aig_ManObj.exit, label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %66
   %.pre = load ptr, ptr %13, align 8, !tbaa !26
@@ -670,10 +670,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %71
   br i1 %81, label %Abc_Clock.exit79, label %82
 
 82:                                               ; preds = %Vec_IntFree.exit
-  %83 = load i64, ptr %2, align 8, !tbaa !37
+  %83 = load i64, ptr %2, align 8, !tbaa !38
   %84 = mul nsw i64 %83, 1000000
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !39
+  %86 = load i64, ptr %85, align 8, !tbaa !40
   %87 = sdiv i64 %86, 1000
   %88 = add nsw i64 %87, %84
   br label %Abc_Clock.exit79
@@ -744,7 +744,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !44
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -752,7 +752,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !43, !noalias !45
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !44, !noalias !46
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
@@ -832,21 +832,22 @@ attributes #15 = { nounwind willreturn memory(read) }
 !27 = !{!12, !12, i64 0}
 !28 = !{!11, !10, i64 8}
 !29 = !{!11, !10, i64 16}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!4, !9, i64 16}
-!33 = !{!34, !6, i64 8}
-!34 = !{!"Vec_Ptr_t_", !12, i64 0, !12, i64 4, !6, i64 8}
-!35 = !{!6, !6, i64 0}
-!36 = distinct !{!36, !31}
-!37 = !{!38, !20, i64 0}
-!38 = !{!"timespec", !20, i64 0, !20, i64 8}
-!39 = !{!38, !20, i64 8}
-!40 = !{!4, !9, i64 32}
-!41 = !{}
-!42 = distinct !{!42, !31}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"vprintf: argument 0"}
-!47 = distinct !{!47, !"vprintf"}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!4, !9, i64 16}
+!34 = !{!35, !6, i64 8}
+!35 = !{!"Vec_Ptr_t_", !12, i64 0, !12, i64 4, !6, i64 8}
+!36 = !{!6, !6, i64 0}
+!37 = distinct !{!37, !31, !32}
+!38 = !{!39, !20, i64 0}
+!39 = !{!"timespec", !20, i64 0, !20, i64 8}
+!40 = !{!39, !20, i64 8}
+!41 = !{!4, !9, i64 32}
+!42 = !{}
+!43 = distinct !{!43, !31, !32}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"vprintf: argument 0"}
+!48 = distinct !{!48, !"vprintf"}

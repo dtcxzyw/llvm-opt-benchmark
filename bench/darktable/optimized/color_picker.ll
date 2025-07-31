@@ -95,7 +95,7 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   store float %37, ptr %38, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %20, label %26
+  br i1 %exitcond.not, label %20, label %26, !llvm.loop !59
 
 39:                                               ; preds = %57
   ret void
@@ -137,7 +137,7 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   store float %58, ptr %50, align 4, !tbaa !58
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond65.not, label %39, label %40
+  br i1 %exitcond65.not, label %39, label %40, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -196,7 +196,7 @@ define void @dt_color_picker_transform_box(ptr noundef %0, i32 noundef %1, ptr n
   store float %29, ptr %30, align 4, !tbaa !58
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
 31:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
@@ -223,7 +223,7 @@ define void @dt_color_picker_transform_box(ptr noundef %0, i32 noundef %1, ptr n
   store float %44, ptr %45, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %46 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %46, label %36, label %32
+  br i1 %46, label %36, label %32, !llvm.loop !63
 
 _sort_coordinates.exit:                           ; preds = %32
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -318,12 +318,12 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %10 = load i32, ptr %9, align 16, !tbaa !59
+  %10 = load i32, ptr %9, align 16, !tbaa !64
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %151, label %11
 
 11:                                               ; preds = %8, %5
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !62
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 16, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -333,11 +333,11 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   %19 = load i32, ptr %18, align 4, !tbaa !55
   %20 = sitofp i32 %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load i32, ptr %21, align 4, !tbaa !94
+  %22 = load i32, ptr %21, align 4, !tbaa !99
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !95
+  %24 = load i32, ptr %23, align 4, !tbaa !100
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !96
+  %26 = load i32, ptr %25, align 8, !tbaa !101
   %.fr107 = freeze i32 %26
   %27 = icmp eq i32 %.fr107, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
@@ -359,7 +359,7 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   store float %36, ptr %37, align 4, !tbaa !58
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 2
   %38 = icmp samesign ult i64 %indvars.iv110, 6
-  br i1 %38, label %.split.us, label %.split106.us, !llvm.loop !97
+  br i1 %38, label %.split.us, label %.split106.us, !llvm.loop !102
 
 .split:                                           ; preds = %11
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -371,13 +371,13 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
 
 .split106.us:                                     ; preds = %134, %.split.us
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %45 = load ptr, ptr %44, align 16, !tbaa !99
+  %45 = load ptr, ptr %44, align 16, !tbaa !104
   %46 = tail call i32 %45() #14
   %47 = and i32 %46, 131072
   %48 = icmp eq i32 %3, 0
   %49 = load ptr, ptr %13, align 16, !tbaa !6
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %51 = load i32, ptr %50, align 16, !tbaa !110
+  %51 = load i32, ptr %50, align 16, !tbaa !115
   %52 = icmp ne i32 %47, 0
   %53 = and i1 %48, %52
   %.neg = sext i1 %53 to i32
@@ -432,41 +432,41 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   %102 = select i1 %100, float %90, float %96
   %103 = fadd reassoc nsz arcp contract afn float %99, %86
   %104 = fmul reassoc nsz arcp contract afn float %103, 5.000000e-01
-  %105 = load i32, ptr %1, align 4, !tbaa !111
+  %105 = load i32, ptr %1, align 4, !tbaa !116
   %106 = sitofp i32 %105 to float
   %107 = fsub reassoc nsz arcp contract afn float %104, %106
   %108 = fptosi float %107 to i32
-  store i32 %108, ptr %4, align 4, !tbaa !112
+  store i32 %108, ptr %4, align 4, !tbaa !117
   %109 = fadd reassoc nsz arcp contract afn float %102, %89
   %110 = fmul reassoc nsz arcp contract afn float %109, 5.000000e-01
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %112 = load i32, ptr %111, align 4, !tbaa !113
+  %112 = load i32, ptr %111, align 4, !tbaa !118
   %113 = sitofp i32 %112 to float
   %114 = fsub reassoc nsz arcp contract afn float %110, %113
   %115 = fptosi float %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %115, ptr %116, align 4, !tbaa !112
+  store i32 %115, ptr %116, align 4, !tbaa !117
   %117 = fadd reassoc nsz arcp contract afn float %92, %98
   %118 = fmul reassoc nsz arcp contract afn float %117, 5.000000e-01
-  %119 = load i32, ptr %1, align 4, !tbaa !111
+  %119 = load i32, ptr %1, align 4, !tbaa !116
   %120 = sitofp i32 %119 to float
   %121 = fsub reassoc nsz arcp contract afn float %118, %120
   %122 = fptosi float %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %122, ptr %123, align 4, !tbaa !112
+  store i32 %122, ptr %123, align 4, !tbaa !117
   %124 = fadd reassoc nsz arcp contract afn float %95, %101
   %125 = fmul reassoc nsz arcp contract afn float %124, 5.000000e-01
-  %126 = load i32, ptr %111, align 4, !tbaa !113
+  %126 = load i32, ptr %111, align 4, !tbaa !118
   %127 = sitofp i32 %126 to float
   %128 = fsub reassoc nsz arcp contract afn float %125, %127
   %129 = fptosi float %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %131 = add nsw i32 %108, 1
   %. = call i32 @llvm.smax.i32(i32 %131, i32 %122)
-  store i32 %., ptr %123, align 4, !tbaa !112
+  store i32 %., ptr %123, align 4, !tbaa !117
   %132 = add nsw i32 %115, 1
   %133 = call i32 @llvm.smax.i32(i32 %132, i32 %129)
-  store i32 %133, ptr %130, align 4, !tbaa !112
+  store i32 %133, ptr %130, align 4, !tbaa !117
   %.not94 = icmp sgt i32 %22, %108
   %.not95 = icmp sgt i32 %24, %115
   %or.cond103 = select i1 %.not94, i1 %.not95, i1 false
@@ -481,7 +481,7 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   store float %43, ptr %137, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %138 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %138, label %134, label %.split106.us
+  br i1 %138, label %134, label %.split106.us, !llvm.loop !119
 
 139:                                              ; preds = %.split106.us
   %140 = icmp slt i32 %., 0
@@ -491,17 +491,17 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
 
 142:                                              ; preds = %139
   %spec.select = call i32 @llvm.smax.i32(i32 %108, i32 0)
-  store i32 %spec.select, ptr %4, align 4, !tbaa !112
+  store i32 %spec.select, ptr %4, align 4, !tbaa !117
   %spec.select100 = call i32 @llvm.smax.i32(i32 %115, i32 0)
-  store i32 %spec.select100, ptr %116, align 4, !tbaa !112
+  store i32 %spec.select100, ptr %116, align 4, !tbaa !117
   %143 = icmp sgt i32 %., %22
   %spec.select101 = call i32 @llvm.umax.i32(i32 %., i32 1)
   %144 = select i1 %143, i32 %22, i32 %spec.select101
-  store i32 %144, ptr %123, align 4, !tbaa !112
+  store i32 %144, ptr %123, align 4, !tbaa !117
   %145 = icmp sgt i32 %133, %24
   %spec.select102 = call i32 @llvm.umax.i32(i32 %133, i32 1)
   %146 = select i1 %145, i32 %24, i32 %spec.select102
-  store i32 %146, ptr %130, align 4, !tbaa !112
+  store i32 %146, ptr %130, align 4, !tbaa !117
   %.not98 = icmp sgt i32 %144, %spec.select
   br i1 %.not98, label %147, label %150
 
@@ -556,7 +556,7 @@ define void @dt_color_picker_helper(ptr noundef readonly captures(none) %0, ptr 
   %39 = alloca [4 x float], align 16
   %40 = alloca %struct.rusage, align 8
   %41 = alloca %struct.timeval, align 8
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !114
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !120
   %43 = and i32 %42, 16
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %dt_get_perf_times.exit, label %44
@@ -564,21 +564,21 @@ define void @dt_color_picker_helper(ptr noundef readonly captures(none) %0, ptr 
 44:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #14
   %45 = call i32 @gettimeofday(ptr noundef nonnull %41, ptr noundef null) #14
-  %46 = load i64, ptr %41, align 8, !tbaa !115
+  %46 = load i64, ptr %41, align 8, !tbaa !121
   %47 = add nsw i64 %46, -1290608000
   %48 = sitofp i64 %47 to double
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !117
+  %50 = load i64, ptr %49, align 8, !tbaa !123
   %51 = sitofp i64 %50 to double
   %52 = fmul reassoc nsz arcp contract afn double %51, 0x3EB0C6F7A0B5ED8D
   %53 = fadd reassoc nsz arcp contract afn double %52, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #14
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %40) #14
   %54 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %40) #14
-  %55 = load i64, ptr %40, align 8, !tbaa !118
+  %55 = load i64, ptr %40, align 8, !tbaa !124
   %56 = sitofp i64 %55 to double
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !120
+  %58 = load i64, ptr %57, align 8, !tbaa !126
   %59 = sitofp i64 %58 to double
   %60 = fmul reassoc nsz arcp contract afn double %59, 0x3EB0C6F7A0B5ED8D
   %61 = fadd reassoc nsz arcp contract afn double %60, %56
@@ -594,21 +594,21 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
   br label %66
 
 64:                                               ; preds = %66
-  %65 = load i32, ptr %0, align 16, !tbaa !121
+  %65 = load i32, ptr %0, align 16, !tbaa !127
   switch i32 %65, label %835 [
     i32 4, label %70
     i32 1, label %702
   ]
 
 66:                                               ; preds = %dt_get_perf_times.exit, %66
-  %.0179 = phi i64 [ 0, %dt_get_perf_times.exit ], [ %69, %66 ]
-  %67 = getelementptr inbounds nuw [4 x float], ptr %62, i64 0, i64 %.0179
+  %.0180 = phi i64 [ 0, %dt_get_perf_times.exit ], [ %69, %66 ]
+  %67 = getelementptr inbounds nuw [4 x float], ptr %62, i64 0, i64 %.0180
   store float 0x47EFFFFFE0000000, ptr %67, align 4, !tbaa !58
-  %68 = getelementptr inbounds nuw [4 x float], ptr %63, i64 0, i64 %.0179
+  %68 = getelementptr inbounds nuw [4 x float], ptr %63, i64 0, i64 %.0180
   store float 0xC7EFFFFFE0000000, ptr %68, align 4, !tbaa !58
-  %69 = add nuw nsw i64 %.0179, 1
+  %69 = add nuw nsw i64 %.0180, 1
   %exitcond.not = icmp eq i64 %69, 4
-  br i1 %exitcond.not, label %64, label %66
+  br i1 %exitcond.not, label %64, label %66, !llvm.loop !128
 
 70:                                               ; preds = %64
   %.not93 = icmp eq i32 %4, 0
@@ -616,10 +616,10 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %73 = load i32, ptr %72, align 4, !tbaa !94
+  %73 = load i32, ptr %72, align 4, !tbaa !99
   %74 = shl nsw i32 %73, 2
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !95
+  %76 = load i32, ptr %75, align 4, !tbaa !100
   %77 = mul nsw i32 %74, %76
   %78 = sext i32 %77 to i64
   %79 = shl nsw i64 %78, 2
@@ -629,7 +629,7 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
   br i1 %.not94, label %181, label %81
 
 81:                                               ; preds = %71
-  %82 = load i32, ptr %72, align 4, !tbaa !94
+  %82 = load i32, ptr %72, align 4, !tbaa !99
   %83 = shl nsw i32 %82, 2
   %84 = sext i32 %83 to i64
   %85 = shl nsw i64 %84, 2
@@ -637,17 +637,17 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
   %87 = and i64 %86, -64
   %88 = call ptr @dt_alloc_aligned(i64 noundef %87) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 64) ]
-  %89 = load i32, ptr %72, align 4, !tbaa !94
+  %89 = load i32, ptr %72, align 4, !tbaa !99
   %90 = sext i32 %89 to i64
-  %91 = load i32, ptr %75, align 4, !tbaa !95
+  %91 = load i32, ptr %75, align 4, !tbaa !100
   %92 = sext i32 %91 to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %.not.i101 = icmp eq i32 %91, 0
-  br i1 %.not.i101, label %blur_2D_Bspline.exit, label %.lr.ph39.i
+  br i1 %.not.i101, label %blur_2D_Bspline.exit, label %.lr.ph40.i
 
-.lr.ph39.i:                                       ; preds = %81
+.lr.ph40.i:                                       ; preds = %81
   call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 64) ]
   %93 = icmp slt i32 %91, 2
   %94 = shl nsw i64 %90, 2
@@ -656,8 +656,8 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
   %96 = add nsw i64 %90, -1
   br label %97
 
-97:                                               ; preds = %_bspline_horizontal.exit._crit_edge.i, %.lr.ph39.i
-  %.02638.i = phi i64 [ 0, %.lr.ph39.i ], [ %144, %_bspline_horizontal.exit._crit_edge.i ]
+97:                                               ; preds = %._crit_edge.i, %.lr.ph40.i
+  %.02638.i = phi i64 [ 0, %.lr.ph40.i ], [ %144, %._crit_edge.i ]
   %98 = trunc i64 %.02638.i to i32
   br i1 %93, label %dwt_interleave_rows.exit.i, label %99
 
@@ -670,8 +670,8 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
 dwt_interleave_rows.exit.i:                       ; preds = %99, %97
   %.0.i.i = phi i32 [ %102, %99 ], [ %98, %97 ]
   %103 = sext i32 %.0.i.i to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %104 = call i32 @llvm.smax.i32(i32 %.0.i.i, i32 2)
   %105 = add nsw i32 %104, -2
   %106 = zext nneg i32 %105 to i64
@@ -687,7 +687,7 @@ dwt_interleave_rows.exit.i:                       ; preds = %99, %97
   %115 = add nsw i64 %103, 2
   %116 = call i64 @llvm.umin.i64(i64 %115, i64 %95)
   %117 = mul i64 %116, %94
-  br i1 %.not.i.i, label %_bspline_horizontal.exit._crit_edge.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %._crit_edge.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %dwt_interleave_rows.exit.i, %sparse_scalar_product.exit.i.i
   %.036.i.i = phi i64 [ %142, %sparse_scalar_product.exit.i.i ], [ 0, %dwt_interleave_rows.exit.i ]
@@ -704,16 +704,16 @@ dwt_interleave_rows.exit.i:                       ; preds = %99, %97
 126:                                              ; preds = %126, %.lr.ph.i.i
   %.057.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %141, %126 ]
   %127 = getelementptr float, ptr %121, i64 %.057.i.i.i
-  %128 = load float, ptr %127, align 4, !tbaa !58, !alias.scope !134, !noalias !135
+  %128 = load float, ptr %127, align 4, !tbaa !58, !alias.scope !141, !noalias !142
   %129 = getelementptr float, ptr %122, i64 %.057.i.i.i
-  %130 = load float, ptr %129, align 4, !tbaa !58, !alias.scope !134, !noalias !135
+  %130 = load float, ptr %129, align 4, !tbaa !58, !alias.scope !141, !noalias !142
   %131 = getelementptr float, ptr %123, i64 %.057.i.i.i
-  %132 = load float, ptr %131, align 4, !tbaa !58, !alias.scope !134, !noalias !135
+  %132 = load float, ptr %131, align 4, !tbaa !58, !alias.scope !141, !noalias !142
   %133 = fmul reassoc nsz arcp contract afn float %132, 3.750000e-01
   %134 = getelementptr float, ptr %124, i64 %.057.i.i.i
-  %135 = load float, ptr %134, align 4, !tbaa !58, !alias.scope !134, !noalias !135
+  %135 = load float, ptr %134, align 4, !tbaa !58, !alias.scope !141, !noalias !142
   %136 = getelementptr float, ptr %125, i64 %.057.i.i.i
-  %137 = load float, ptr %136, align 4, !tbaa !58, !alias.scope !134, !noalias !135
+  %137 = load float, ptr %136, align 4, !tbaa !58, !alias.scope !141, !noalias !142
   %reass.add.i.i.i = fadd reassoc nsz arcp contract afn float %135, %130
   %reass.mul.i.i.i = fmul reassoc nsz arcp contract afn float %reass.add.i.i.i, 2.500000e-01
   %reass.add55.i.i.i = fadd reassoc nsz arcp contract afn float %137, %128
@@ -721,36 +721,32 @@ dwt_interleave_rows.exit.i:                       ; preds = %99, %97
   %138 = fadd reassoc nsz arcp contract afn float %reass.mul.i.i.i, %133
   %139 = fadd reassoc nsz arcp contract afn float %138, %reass.mul56.i.i.i
   %140 = getelementptr inbounds nuw float, ptr %120, i64 %.057.i.i.i
-  store float %139, ptr %140, align 4, !tbaa !58, !alias.scope !136, !noalias !137
+  store float %139, ptr %140, align 4, !tbaa !58, !alias.scope !143, !noalias !144
   %141 = add nuw nsw i64 %.057.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %141, 4
-  br i1 %exitcond.not.i.i.i, label %sparse_scalar_product.exit.i.i, label %126
+  br i1 %exitcond.not.i.i.i, label %sparse_scalar_product.exit.i.i, label %126, !llvm.loop !145
 
 sparse_scalar_product.exit.i.i:                   ; preds = %126
   %142 = add nuw i64 %.036.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %142, %90
-  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !146
 
 .lr.ph.i:                                         ; preds = %sparse_scalar_product.exit.i.i
   %143 = mul nsw i64 %103, %90
   br label %145
 
-_bspline_horizontal.exit.loopexit.i:              ; preds = %165
-  %exitcond.not.i = icmp eq i64 %157, %90
-  br i1 %exitcond.not.i, label %_bspline_horizontal.exit._crit_edge.i, label %145
-
-_bspline_horizontal.exit._crit_edge.i:            ; preds = %_bspline_horizontal.exit.loopexit.i, %dwt_interleave_rows.exit.i
+._crit_edge.i:                                    ; preds = %_bspline_horizontal.exit.i, %dwt_interleave_rows.exit.i
   %144 = add nuw i64 %.02638.i, 1
-  %exitcond41.not.i = icmp eq i64 %144, %92
-  br i1 %exitcond41.not.i, label %blur_2D_Bspline.exit, label %97
+  %exitcond43.not.i = icmp eq i64 %144, %92
+  br i1 %exitcond43.not.i, label %blur_2D_Bspline.exit, label %97, !llvm.loop !147
 
-145:                                              ; preds = %_bspline_horizontal.exit.loopexit.i, %.lr.ph.i
-  %.037.i = phi i64 [ 0, %.lr.ph.i ], [ %157, %_bspline_horizontal.exit.loopexit.i ]
+145:                                              ; preds = %_bspline_horizontal.exit.i, %.lr.ph.i
+  %.037.i = phi i64 [ 0, %.lr.ph.i ], [ %157, %_bspline_horizontal.exit.i ]
   %146 = add i64 %.037.i, %143
   %.idx.i = shl i64 %146, 4
   %147 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %148 = trunc i64 %.037.i to i32
   %149 = call i32 @llvm.smax.i32(i32 %148, i32 2)
   %150 = shl i32 %149, 2
@@ -777,16 +773,16 @@ _bspline_horizontal.exit._crit_edge.i:            ; preds = %_bspline_horizontal
 165:                                              ; preds = %165, %145
   %.057.i.i30.i = phi i64 [ 0, %145 ], [ %180, %165 ]
   %166 = getelementptr float, ptr %160, i64 %.057.i.i30.i
-  %167 = load float, ptr %166, align 4, !tbaa !58, !alias.scope !143, !noalias !144
+  %167 = load float, ptr %166, align 4, !tbaa !58, !alias.scope !153, !noalias !154
   %168 = getelementptr float, ptr %161, i64 %.057.i.i30.i
-  %169 = load float, ptr %168, align 4, !tbaa !58, !alias.scope !143, !noalias !144
+  %169 = load float, ptr %168, align 4, !tbaa !58, !alias.scope !153, !noalias !154
   %170 = getelementptr float, ptr %162, i64 %.057.i.i30.i
-  %171 = load float, ptr %170, align 4, !tbaa !58, !alias.scope !143, !noalias !144
+  %171 = load float, ptr %170, align 4, !tbaa !58, !alias.scope !153, !noalias !154
   %172 = fmul reassoc nsz arcp contract afn float %171, 3.750000e-01
   %173 = getelementptr float, ptr %163, i64 %.057.i.i30.i
-  %174 = load float, ptr %173, align 4, !tbaa !58, !alias.scope !143, !noalias !144
+  %174 = load float, ptr %173, align 4, !tbaa !58, !alias.scope !153, !noalias !154
   %175 = getelementptr float, ptr %164, i64 %.057.i.i30.i
-  %176 = load float, ptr %175, align 4, !tbaa !58, !alias.scope !143, !noalias !144
+  %176 = load float, ptr %175, align 4, !tbaa !58, !alias.scope !153, !noalias !154
   %reass.add.i.i31.i = fadd reassoc nsz arcp contract afn float %174, %169
   %reass.mul.i.i32.i = fmul reassoc nsz arcp contract afn float %reass.add.i.i31.i, 2.500000e-01
   %reass.add55.i.i33.i = fadd reassoc nsz arcp contract afn float %176, %167
@@ -794,12 +790,16 @@ _bspline_horizontal.exit._crit_edge.i:            ; preds = %_bspline_horizontal
   %177 = fadd reassoc nsz arcp contract afn float %reass.mul.i.i32.i, %172
   %178 = fadd reassoc nsz arcp contract afn float %177, %reass.mul56.i.i34.i
   %179 = getelementptr inbounds nuw float, ptr %147, i64 %.057.i.i30.i
-  store float %178, ptr %179, align 4, !tbaa !58, !alias.scope !145, !noalias !146
+  store float %178, ptr %179, align 4, !tbaa !58, !alias.scope !155, !noalias !156
   %180 = add nuw nsw i64 %.057.i.i30.i, 1
   %exitcond.not.i.i35.i = icmp eq i64 %180, 4
-  br i1 %exitcond.not.i.i35.i, label %_bspline_horizontal.exit.loopexit.i, label %165
+  br i1 %exitcond.not.i.i35.i, label %_bspline_horizontal.exit.i, label %165, !llvm.loop !145
 
-blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal.exit._crit_edge.i, %81
+_bspline_horizontal.exit.i:                       ; preds = %165
+  %exitcond.not.i = icmp eq i64 %157, %90
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %145, !llvm.loop !157
+
+blur_2D_Bspline.exit:                             ; preds = %._crit_edge.i, %81
   call void @free(ptr noundef %88) #14
   br label %182
 
@@ -819,15 +819,15 @@ blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal
 
 187:                                              ; preds = %182
   %188 = getelementptr i8, ptr %2, i64 8
-  %.val = load i32, ptr %188, align 4, !tbaa !94
+  %.val = load i32, ptr %188, align 4, !tbaa !99
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %190 = load i32, ptr %189, align 4, !tbaa !112
+  %190 = load i32, ptr %189, align 4, !tbaa !117
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %192 = load i32, ptr %191, align 4, !tbaa !112
+  %192 = load i32, ptr %191, align 4, !tbaa !117
   %193 = sub nsw i32 %190, %192
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %195 = load i32, ptr %194, align 4, !tbaa !112
-  %196 = load i32, ptr %3, align 4, !tbaa !112
+  %195 = load i32, ptr %194, align 4, !tbaa !117
+  %196 = load i32, ptr %3, align 4, !tbaa !117
   %197 = sub nsw i32 %195, %196
   %198 = mul nsw i32 %197, %193
   %199 = sext i32 %198 to i64
@@ -849,7 +849,7 @@ blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal
 
 .lr.ph.preheader.i:                               ; preds = %187
   %207 = sext i32 %192 to i64
-  %.not.i141 = icmp eq i32 %195, %196
+  %.not.i142 = icmp eq i32 %195, %196
   %208 = sext i32 %190 to i64
   %209 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %210 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -865,9 +865,9 @@ blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal
   %.0291.i = phi i64 [ %248, %_color_picker_lch.exit ], [ %207, %.lr.ph.preheader.i ]
   %214 = mul i64 %.0291.i, %203
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %214
-  br i1 %.not.i141, label %_color_picker_lch.exit, label %.lr.ph.i142
+  br i1 %.not.i142, label %_color_picker_lch.exit, label %.lr.ph.i143
 
-.lr.ph.i142:                                      ; preds = %.lr.ph.i103, %_update_stats_4ch.exit.i
+.lr.ph.i143:                                      ; preds = %.lr.ph.i103, %_update_stats_4ch.exit.i
   %.07.i = phi i64 [ %246, %_update_stats_4ch.exit.i ], [ 0, %.lr.ph.i103 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #14
   %215 = getelementptr inbounds nuw float, ptr %gep.i, i64 %.07.i
@@ -879,26 +879,26 @@ blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal
   %221 = fcmp reassoc nsz arcp contract afn ogt float %220, 0.000000e+00
   br i1 %221, label %222, label %224
 
-222:                                              ; preds = %.lr.ph.i142
+222:                                              ; preds = %.lr.ph.i143
   %223 = fmul reassoc nsz arcp contract afn float %220, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit.i
 
-224:                                              ; preds = %.lr.ph.i142
+224:                                              ; preds = %.lr.ph.i143
   %225 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %220)
   %226 = fmul reassoc nsz arcp contract afn float %225, 0x3FC45F3060000000
   %227 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %226
   br label %dt_Lab_2_LCH.exit.i
 
 dt_Lab_2_LCH.exit.i:                              ; preds = %224, %222
-  %.0.i.i143 = phi nsz float [ %223, %222 ], [ %227, %224 ]
+  %.0.i.i144 = phi nsz float [ %223, %222 ], [ %227, %224 ]
   %228 = load float, ptr %215, align 4, !tbaa !58
   store float %228, ptr %17, align 16, !tbaa !58
   %229 = call reassoc nsz arcp contract afn float @hypotf(float noundef %219, float noundef %217) #15
   store float %229, ptr %209, align 4, !tbaa !58
-  store float %.0.i.i143, ptr %210, align 8, !tbaa !58
-  %230 = fcmp reassoc nsz arcp contract afn olt float %.0.i.i143, 5.000000e-01
+  store float %.0.i.i144, ptr %210, align 8, !tbaa !58
+  %230 = fcmp reassoc nsz arcp contract afn olt float %.0.i.i144, 5.000000e-01
   %.v.i = select i1 %230, float 5.000000e-01, float -5.000000e-01
-  %231 = fadd reassoc nsz arcp contract afn float %.v.i, %.0.i.i143
+  %231 = fadd reassoc nsz arcp contract afn float %.v.i, %.0.i.i144
   store float %231, ptr %211, align 4, !tbaa !58
   br label %232
 
@@ -921,19 +921,19 @@ dt_Lab_2_LCH.exit.i:                              ; preds = %224, %222
   %244 = select reassoc nsz arcp contract afn i1 %243, float %242, float %234
   store float %244, ptr %241, align 4, !tbaa !58
   %245 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i144 = icmp eq i64 %245, 4
-  br i1 %exitcond.not.i.i144, label %_update_stats_4ch.exit.i, label %232
+  %exitcond.not.i.i145 = icmp eq i64 %245, 4
+  br i1 %exitcond.not.i.i145, label %_update_stats_4ch.exit.i, label %232, !llvm.loop !158
 
 _update_stats_4ch.exit.i:                         ; preds = %232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #14
   %246 = add nuw i64 %.07.i, 4
   %247 = icmp ult i64 %246, %201
-  br i1 %247, label %.lr.ph.i142, label %_color_picker_lch.exit
+  br i1 %247, label %.lr.ph.i143, label %_color_picker_lch.exit, !llvm.loop !159
 
 _color_picker_lch.exit:                           ; preds = %_update_stats_4ch.exit.i, %.lr.ph.i103
   %248 = add nuw i64 %.0291.i, 1
   %249 = icmp ult i64 %248, %208
-  br i1 %249, label %.lr.ph.i103, label %.preheader.i
+  br i1 %249, label %.lr.ph.i103, label %.preheader.i, !llvm.loop !160
 
 250:                                              ; preds = %250, %.preheader.i
   %.02.i = phi i64 [ 0, %.preheader.i ], [ %261, %250 ]
@@ -952,7 +952,7 @@ _color_picker_lch.exit:                           ; preds = %_update_stats_4ch.e
   store float %259, ptr %260, align 4, !tbaa !58
   %261 = add nuw nsw i64 %.02.i, 1
   %exitcond.not.i102 = icmp eq i64 %261, 4
-  br i1 %exitcond.not.i102, label %_color_picker_work_4ch.exit, label %250
+  br i1 %exitcond.not.i102, label %_color_picker_work_4ch.exit, label %250, !llvm.loop !161
 
 _color_picker_work_4ch.exit:                      ; preds = %250
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #14
@@ -968,15 +968,15 @@ _color_picker_work_4ch.exit:                      ; preds = %250
 
 265:                                              ; preds = %262
   %266 = getelementptr i8, ptr %2, i64 8
-  %.val96 = load i32, ptr %266, align 4, !tbaa !94
+  %.val96 = load i32, ptr %266, align 4, !tbaa !99
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %268 = load i32, ptr %267, align 4, !tbaa !112
+  %268 = load i32, ptr %267, align 4, !tbaa !117
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %270 = load i32, ptr %269, align 4, !tbaa !112
+  %270 = load i32, ptr %269, align 4, !tbaa !117
   %271 = sub nsw i32 %268, %270
   %272 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %273 = load i32, ptr %272, align 4, !tbaa !112
-  %274 = load i32, ptr %3, align 4, !tbaa !112
+  %273 = load i32, ptr %272, align 4, !tbaa !117
+  %274 = load i32, ptr %3, align 4, !tbaa !117
   %275 = sub nsw i32 %273, %274
   %276 = mul nsw i32 %275, %271
   %277 = sext i32 %276 to i64
@@ -998,7 +998,7 @@ _color_picker_work_4ch.exit:                      ; preds = %250
 
 .lr.ph.preheader.i108:                            ; preds = %265
   %285 = sext i32 %270 to i64
-  %.not.i146 = icmp eq i32 %273, %274
+  %.not.i147 = icmp eq i32 %273, %274
   %286 = sext i32 %268 to i64
   %287 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %288 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1014,12 +1014,12 @@ _color_picker_work_4ch.exit:                      ; preds = %250
   %.0291.i110 = phi i64 [ %350, %_color_picker_hsl.exit ], [ %285, %.lr.ph.preheader.i108 ]
   %292 = mul i64 %.0291.i110, %281
   %gep.i111 = getelementptr float, ptr %invariant.gep.i104, i64 %292
-  br i1 %.not.i146, label %_color_picker_hsl.exit, label %.lr.ph.i147
+  br i1 %.not.i147, label %_color_picker_hsl.exit, label %.lr.ph.i148
 
-.lr.ph.i147:                                      ; preds = %.lr.ph.i109, %_update_stats_4ch.exit.i154
-  %.07.i148 = phi i64 [ %348, %_update_stats_4ch.exit.i154 ], [ 0, %.lr.ph.i109 ]
+.lr.ph.i148:                                      ; preds = %.lr.ph.i109, %_update_stats_4ch.exit.i155
+  %.07.i149 = phi i64 [ %348, %_update_stats_4ch.exit.i155 ], [ 0, %.lr.ph.i109 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
-  %293 = getelementptr inbounds nuw float, ptr %gep.i111, i64 %.07.i148
+  %293 = getelementptr inbounds nuw float, ptr %gep.i111, i64 %.07.i149
   %294 = load float, ptr %293, align 4, !tbaa !58
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 4
   %296 = load float, ptr %295, align 4, !tbaa !58
@@ -1039,7 +1039,7 @@ _color_picker_work_4ch.exit:                      ; preds = %250
   %or.cond.i.i = select i1 %307, i1 %309, i1 false
   br i1 %or.cond.i.i, label %310, label %dt_RGB_2_HSL.exit.i
 
-310:                                              ; preds = %.lr.ph.i147
+310:                                              ; preds = %.lr.ph.i148
   %311 = fcmp reassoc nsz arcp contract afn olt float %305, 5.000000e-01
   %312 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %304
   %.pn.i.i = select i1 %311, float %304, float %312
@@ -1079,50 +1079,50 @@ _dt_RGB_2_Hue.exit.i.i:                           ; preds = %323, %319, %314
   %.2.i.i.i = select nsz i1 %330, float %331, float %.1.i.i.i
   br label %dt_RGB_2_HSL.exit.i
 
-dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.i.i, %.lr.ph.i147
-  %.028.i.i = phi nsz float [ %.2.i.i.i, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph.i147 ]
-  %.0.i.i149 = phi nsz float [ %.1.i.i, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph.i147 ]
+dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.i.i, %.lr.ph.i148
+  %.028.i.i = phi nsz float [ %.2.i.i.i, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph.i148 ]
+  %.0.i.i150 = phi nsz float [ %.1.i.i, %_dt_RGB_2_Hue.exit.i.i ], [ 0.000000e+00, %.lr.ph.i148 ]
   store float %.028.i.i, ptr %16, align 16, !tbaa !58
-  store float %.0.i.i149, ptr %287, align 4, !tbaa !58
+  store float %.0.i.i150, ptr %287, align 4, !tbaa !58
   store float %305, ptr %288, align 8, !tbaa !58
   %332 = fcmp reassoc nsz arcp contract afn olt float %.028.i.i, 5.000000e-01
-  %.v.i150 = select i1 %332, float 5.000000e-01, float -5.000000e-01
-  %333 = fadd reassoc nsz arcp contract afn float %.v.i150, %.028.i.i
+  %.v.i151 = select i1 %332, float 5.000000e-01, float -5.000000e-01
+  %333 = fadd reassoc nsz arcp contract afn float %.v.i151, %.028.i.i
   store float %333, ptr %289, align 4, !tbaa !58
   br label %334
 
 334:                                              ; preds = %334, %dt_RGB_2_HSL.exit.i
-  %.07.i.i151 = phi i64 [ 0, %dt_RGB_2_HSL.exit.i ], [ %347, %334 ]
-  %335 = getelementptr inbounds nuw float, ptr %16, i64 %.07.i.i151
+  %.07.i.i152 = phi i64 [ 0, %dt_RGB_2_HSL.exit.i ], [ %347, %334 ]
+  %335 = getelementptr inbounds nuw float, ptr %16, i64 %.07.i.i152
   %336 = load float, ptr %335, align 4, !tbaa !58
-  %337 = getelementptr inbounds nuw float, ptr %34, i64 %.07.i.i151
+  %337 = getelementptr inbounds nuw float, ptr %34, i64 %.07.i.i152
   %338 = load float, ptr %337, align 4, !tbaa !58
   %339 = fadd reassoc nsz arcp contract afn float %338, %336
   store float %339, ptr %337, align 4, !tbaa !58
-  %340 = getelementptr inbounds nuw float, ptr %35, i64 %.07.i.i151
+  %340 = getelementptr inbounds nuw float, ptr %35, i64 %.07.i.i152
   %341 = load float, ptr %340, align 4, !tbaa !58
   %342 = fcmp reassoc nsz arcp contract afn olt float %341, %336
-  %..i.i.i152 = select reassoc nsz arcp contract afn i1 %342, float %341, float %336
-  store float %..i.i.i152, ptr %340, align 4, !tbaa !58
-  %343 = getelementptr inbounds nuw float, ptr %36, i64 %.07.i.i151
+  %..i.i.i153 = select reassoc nsz arcp contract afn i1 %342, float %341, float %336
+  store float %..i.i.i153, ptr %340, align 4, !tbaa !58
+  %343 = getelementptr inbounds nuw float, ptr %36, i64 %.07.i.i152
   %344 = load float, ptr %343, align 4, !tbaa !58
   %345 = fcmp reassoc nsz arcp contract afn ogt float %344, %336
   %346 = select reassoc nsz arcp contract afn i1 %345, float %344, float %336
   store float %346, ptr %343, align 4, !tbaa !58
-  %347 = add nuw nsw i64 %.07.i.i151, 1
-  %exitcond.not.i.i153 = icmp eq i64 %347, 4
-  br i1 %exitcond.not.i.i153, label %_update_stats_4ch.exit.i154, label %334
+  %347 = add nuw nsw i64 %.07.i.i152, 1
+  %exitcond.not.i.i154 = icmp eq i64 %347, 4
+  br i1 %exitcond.not.i.i154, label %_update_stats_4ch.exit.i155, label %334, !llvm.loop !158
 
-_update_stats_4ch.exit.i154:                      ; preds = %334
+_update_stats_4ch.exit.i155:                      ; preds = %334
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #14
-  %348 = add nuw i64 %.07.i148, 4
+  %348 = add nuw i64 %.07.i149, 4
   %349 = icmp ult i64 %348, %279
-  br i1 %349, label %.lr.ph.i147, label %_color_picker_hsl.exit
+  br i1 %349, label %.lr.ph.i148, label %_color_picker_hsl.exit, !llvm.loop !162
 
-_color_picker_hsl.exit:                           ; preds = %_update_stats_4ch.exit.i154, %.lr.ph.i109
+_color_picker_hsl.exit:                           ; preds = %_update_stats_4ch.exit.i155, %.lr.ph.i109
   %350 = add nuw i64 %.0291.i110, 1
   %351 = icmp ult i64 %350, %286
-  br i1 %351, label %.lr.ph.i109, label %.preheader.i105
+  br i1 %351, label %.lr.ph.i109, label %.preheader.i105, !llvm.loop !160
 
 352:                                              ; preds = %352, %.preheader.i105
   %.02.i106 = phi i64 [ 0, %.preheader.i105 ], [ %363, %352 ]
@@ -1141,7 +1141,7 @@ _color_picker_hsl.exit:                           ; preds = %_update_stats_4ch.e
   store float %361, ptr %362, align 4, !tbaa !58
   %363 = add nuw nsw i64 %.02.i106, 1
   %exitcond.not.i107 = icmp eq i64 %363, 4
-  br i1 %exitcond.not.i107, label %_color_picker_work_4ch.exit112, label %352
+  br i1 %exitcond.not.i107, label %_color_picker_work_4ch.exit112, label %352, !llvm.loop !161
 
 _color_picker_work_4ch.exit112:                   ; preds = %352
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #14
@@ -1156,15 +1156,15 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
 
 366:                                              ; preds = %364
   %367 = getelementptr i8, ptr %2, i64 8
-  %.val97 = load i32, ptr %367, align 4, !tbaa !94
+  %.val97 = load i32, ptr %367, align 4, !tbaa !99
   %368 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %369 = load i32, ptr %368, align 4, !tbaa !112
+  %369 = load i32, ptr %368, align 4, !tbaa !117
   %370 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %371 = load i32, ptr %370, align 4, !tbaa !112
+  %371 = load i32, ptr %370, align 4, !tbaa !117
   %372 = sub nsw i32 %369, %371
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %374 = load i32, ptr %373, align 4, !tbaa !112
-  %375 = load i32, ptr %3, align 4, !tbaa !112
+  %374 = load i32, ptr %373, align 4, !tbaa !117
+  %375 = load i32, ptr %3, align 4, !tbaa !117
   %376 = sub nsw i32 %374, %375
   %377 = mul nsw i32 %376, %372
   %378 = sext i32 %377 to i64
@@ -1185,9 +1185,9 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   br i1 %385, label %.lr.ph.preheader.i117, label %.preheader.i114
 
 .lr.ph.preheader.i117:                            ; preds = %366
-  %.not.i156 = icmp eq i32 %374, %375
+  %.not.i157 = icmp eq i32 %374, %375
   %386 = sext i32 %369 to i64
-  %.not.i.i158 = icmp eq ptr %8, null
+  %.not.i.i159 = icmp eq ptr %8, null
   %387 = getelementptr inbounds nuw i8, ptr %8, i64 896
   %388 = getelementptr inbounds nuw i8, ptr %8, i64 712
   %389 = getelementptr inbounds nuw i8, ptr %8, i64 768
@@ -1208,7 +1208,7 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   %404 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %405 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %406 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  br i1 %.not.i156, label %.preheader.i114, label %.lr.ph.i118.preheader
+  br i1 %.not.i157, label %.preheader.i114, label %.lr.ph.i118.preheader
 
 .lr.ph.i118.preheader:                            ; preds = %.lr.ph.preheader.i117
   %407 = sext i32 %371 to i64
@@ -1225,25 +1225,25 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   %gep.i120 = getelementptr float, ptr %invariant.gep.i113, i64 %410
   br label %411
 
-411:                                              ; preds = %_update_stats_4ch.exit.i164, %.lr.ph.i118
-  %.09.i = phi i64 [ 0, %.lr.ph.i118 ], [ %618, %_update_stats_4ch.exit.i164 ]
+411:                                              ; preds = %_update_stats_4ch.exit.i165, %.lr.ph.i118
+  %.09.i = phi i64 [ 0, %.lr.ph.i118 ], [ %618, %_update_stats_4ch.exit.i165 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #14
   %412 = getelementptr inbounds nuw float, ptr %gep.i120, i64 %.09.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i158, label %515, label %413
+  br i1 %.not.i.i159, label %515, label %413
 
 413:                                              ; preds = %411
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %414 = load i32, ptr %390, align 4, !tbaa !147
+  %414 = load i32, ptr %390, align 4, !tbaa !163
   %.not.i.i.i = icmp eq i32 %414, 0
   br i1 %.not.i.i.i, label %478, label %415
 
 415:                                              ; preds = %413
-  %416 = load i32, ptr %391, align 64, !tbaa !149
+  %416 = load i32, ptr %391, align 64, !tbaa !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
   %417 = add nsw i32 %416, -1
   %418 = sitofp i32 %417 to float
@@ -1254,7 +1254,7 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
 421:                                              ; preds = %458, %415
   %indvars.iv.i.i.i.i = phi i64 [ 0, %415 ], [ %indvars.iv.next.i.i.i.i, %458 ]
   %422 = getelementptr inbounds nuw ptr, ptr %388, i64 %indvars.iv.i.i.i.i
-  %423 = load ptr, ptr %422, align 8, !tbaa !150
+  %423 = load ptr, ptr %422, align 8, !tbaa !166
   %424 = load float, ptr %423, align 4, !tbaa !58
   %425 = fcmp reassoc nsz arcp contract afn ult float %424, 0.000000e+00
   %426 = getelementptr inbounds nuw float, ptr %412, i64 %indvars.iv.i.i.i.i
@@ -1304,7 +1304,7 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   store float %459, ptr %460, align 4, !tbaa !58
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %dt_ioppr_apply_trc.exit.i.i.i, label %421
+  br i1 %exitcond.not.i.i.i.i, label %dt_ioppr_apply_trc.exit.i.i.i, label %421, !llvm.loop !167
 
 dt_ioppr_apply_trc.exit.i.i.i:                    ; preds = %458
   %461 = load float, ptr %11, align 16, !tbaa !58
@@ -1329,7 +1329,7 @@ dt_ioppr_apply_trc.exit.i.i.i:                    ; preds = %458
   store float %475, ptr %476, align 4, !tbaa !58
   %477 = add nuw nsw i64 %.012.i.i.i.i, 1
   %exitcond.not.i9.i.i.i = icmp eq i64 %477, 4
-  br i1 %exitcond.not.i9.i.i.i, label %dt_apply_transposed_color_matrix.exit.i.i.i, label %464
+  br i1 %exitcond.not.i9.i.i.i, label %dt_apply_transposed_color_matrix.exit.i.i.i, label %464, !llvm.loop !168
 
 dt_apply_transposed_color_matrix.exit.i.i.i:      ; preds = %464
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
@@ -1360,7 +1360,7 @@ dt_apply_transposed_color_matrix.exit.i.i.i:      ; preds = %464
   store float %495, ptr %496, align 4, !tbaa !58
   %497 = add nuw nsw i64 %.012.i10.i.i.i, 1
   %exitcond.not.i11.i.i.i = icmp eq i64 %497, 4
-  br i1 %exitcond.not.i11.i.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit.i.i, label %484
+  br i1 %exitcond.not.i11.i.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit.i.i, label %484, !llvm.loop !168
 
 dt_ioppr_rgb_matrix_to_xyz.exit.i.i:              ; preds = %484, %dt_apply_transposed_color_matrix.exit.i.i.i
   %498 = load float, ptr %14, align 16, !tbaa !58
@@ -1384,8 +1384,8 @@ dt_ioppr_rgb_matrix_to_xyz.exit.i.i:              ; preds = %484, %dt_apply_tran
   %513 = getelementptr inbounds nuw float, ptr %12, i64 %.09.i.i.i
   store float %512, ptr %513, align 4, !tbaa !58
   %514 = add nuw nsw i64 %.09.i.i.i, 1
-  %exitcond.not.i.i.i159 = icmp eq i64 %514, 4
-  br i1 %exitcond.not.i.i.i159, label %dt_XYZ_D50_2_XYZ_D65.exit.i.i, label %501
+  %exitcond.not.i.i.i160 = icmp eq i64 %514, 4
+  br i1 %exitcond.not.i.i.i160, label %dt_XYZ_D50_2_XYZ_D65.exit.i.i, label %501, !llvm.loop !169
 
 dt_XYZ_D50_2_XYZ_D65.exit.i.i:                    ; preds = %501
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
@@ -1416,7 +1416,7 @@ dt_XYZ_D50_2_XYZ_D65.exit.i.i:                    ; preds = %501
   store float %532, ptr %533, align 4, !tbaa !58
   %534 = add nuw nsw i64 %.09.i9.i.i, 1
   %exitcond.not.i10.i.i = icmp eq i64 %534, 4
-  br i1 %exitcond.not.i10.i.i, label %dt_XYZ_D50_2_XYZ_D65.exit11.i.i, label %521
+  br i1 %exitcond.not.i10.i.i, label %dt_XYZ_D50_2_XYZ_D65.exit11.i.i, label %521, !llvm.loop !169
 
 dt_XYZ_D50_2_XYZ_D65.exit11.i.i:                  ; preds = %521, %dt_XYZ_D50_2_XYZ_D65.exit.i.i
   %535 = load float, ptr %12, align 16, !tbaa !58
@@ -1449,7 +1449,7 @@ dt_XYZ_D50_2_XYZ_D65.exit11.i.i:                  ; preds = %521, %dt_XYZ_D50_2_
   store float %555, ptr %556, align 4, !tbaa !58
   %557 = add nuw nsw i64 %.012.i.i12.i.i, 1
   %exitcond.not.i.i13.i.i = icmp eq i64 %557, 4
-  br i1 %exitcond.not.i.i13.i.i, label %dt_apply_transposed_color_matrix.exit.i14.i.i, label %544
+  br i1 %exitcond.not.i.i13.i.i, label %dt_apply_transposed_color_matrix.exit.i14.i.i, label %544, !llvm.loop !168
 
 558:                                              ; preds = %dt_apply_transposed_color_matrix.exit.i14.i.i
   %559 = load float, ptr %10, align 16, !tbaa !58
@@ -1474,7 +1474,7 @@ dt_XYZ_D50_2_XYZ_D65.exit11.i.i:                  ; preds = %521, %dt_XYZ_D50_2_
   store float %573, ptr %574, align 4, !tbaa !58
   %575 = add nuw nsw i64 %.012.i15.i.i.i, 1
   %exitcond.not.i16.i.i.i = icmp eq i64 %575, 4
-  br i1 %exitcond.not.i16.i.i.i, label %rgb_to_JzCzhz.exit.i, label %562
+  br i1 %exitcond.not.i16.i.i.i, label %rgb_to_JzCzhz.exit.i, label %562, !llvm.loop !168
 
 dt_apply_transposed_color_matrix.exit.i14.i.i:    ; preds = %544, %dt_apply_transposed_color_matrix.exit.i14.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %dt_apply_transposed_color_matrix.exit.i14.i.i ], [ 0, %544 ]
@@ -1492,7 +1492,7 @@ dt_apply_transposed_color_matrix.exit.i14.i.i:    ; preds = %544, %dt_apply_tran
   store float %586, ptr %576, align 4, !tbaa !58
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i15.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i15.i.i, label %558, label %dt_apply_transposed_color_matrix.exit.i14.i.i
+  br i1 %exitcond.not.i15.i.i, label %558, label %dt_apply_transposed_color_matrix.exit.i14.i.i, !llvm.loop !170
 
 rgb_to_JzCzhz.exit.i:                             ; preds = %562
   %587 = load float, ptr %13, align 16, !tbaa !58
@@ -1517,43 +1517,43 @@ rgb_to_JzCzhz.exit.i:                             ; preds = %562
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
   %602 = fcmp reassoc nsz arcp contract afn olt float %601, 5.000000e-01
-  %.v.i160 = select i1 %602, float 5.000000e-01, float -5.000000e-01
-  %603 = fadd reassoc nsz arcp contract afn float %.v.i160, %601
+  %.v.i161 = select i1 %602, float 5.000000e-01, float -5.000000e-01
+  %603 = fadd reassoc nsz arcp contract afn float %.v.i161, %601
   store float %603, ptr %406, align 4, !tbaa !58
   br label %604
 
 604:                                              ; preds = %604, %rgb_to_JzCzhz.exit.i
-  %.07.i.i161 = phi i64 [ 0, %rgb_to_JzCzhz.exit.i ], [ %617, %604 ]
-  %605 = getelementptr inbounds nuw float, ptr %15, i64 %.07.i.i161
+  %.07.i.i162 = phi i64 [ 0, %rgb_to_JzCzhz.exit.i ], [ %617, %604 ]
+  %605 = getelementptr inbounds nuw float, ptr %15, i64 %.07.i.i162
   %606 = load float, ptr %605, align 4, !tbaa !58
-  %607 = getelementptr inbounds nuw float, ptr %31, i64 %.07.i.i161
+  %607 = getelementptr inbounds nuw float, ptr %31, i64 %.07.i.i162
   %608 = load float, ptr %607, align 4, !tbaa !58
   %609 = fadd reassoc nsz arcp contract afn float %608, %606
   store float %609, ptr %607, align 4, !tbaa !58
-  %610 = getelementptr inbounds nuw float, ptr %32, i64 %.07.i.i161
+  %610 = getelementptr inbounds nuw float, ptr %32, i64 %.07.i.i162
   %611 = load float, ptr %610, align 4, !tbaa !58
   %612 = fcmp reassoc nsz arcp contract afn olt float %611, %606
-  %..i.i.i162 = select reassoc nsz arcp contract afn i1 %612, float %611, float %606
-  store float %..i.i.i162, ptr %610, align 4, !tbaa !58
-  %613 = getelementptr inbounds nuw float, ptr %33, i64 %.07.i.i161
+  %..i.i.i163 = select reassoc nsz arcp contract afn i1 %612, float %611, float %606
+  store float %..i.i.i163, ptr %610, align 4, !tbaa !58
+  %613 = getelementptr inbounds nuw float, ptr %33, i64 %.07.i.i162
   %614 = load float, ptr %613, align 4, !tbaa !58
   %615 = fcmp reassoc nsz arcp contract afn ogt float %614, %606
   %616 = select reassoc nsz arcp contract afn i1 %615, float %614, float %606
   store float %616, ptr %613, align 4, !tbaa !58
-  %617 = add nuw nsw i64 %.07.i.i161, 1
-  %exitcond.not.i.i163 = icmp eq i64 %617, 4
-  br i1 %exitcond.not.i.i163, label %_update_stats_4ch.exit.i164, label %604
+  %617 = add nuw nsw i64 %.07.i.i162, 1
+  %exitcond.not.i.i164 = icmp eq i64 %617, 4
+  br i1 %exitcond.not.i.i164, label %_update_stats_4ch.exit.i165, label %604, !llvm.loop !158
 
-_update_stats_4ch.exit.i164:                      ; preds = %604
+_update_stats_4ch.exit.i165:                      ; preds = %604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
   %618 = add nuw i64 %.09.i, 4
   %619 = icmp ult i64 %618, %380
-  br i1 %619, label %411, label %_color_picker_jzczhz.exit.loopexit
+  br i1 %619, label %411, label %_color_picker_jzczhz.exit.loopexit, !llvm.loop !171
 
-_color_picker_jzczhz.exit.loopexit:               ; preds = %_update_stats_4ch.exit.i164
+_color_picker_jzczhz.exit.loopexit:               ; preds = %_update_stats_4ch.exit.i165
   %620 = add nuw i64 %.0291.i119, 1
   %621 = icmp ult i64 %620, %386
-  br i1 %621, label %.lr.ph.i118, label %.preheader.i114
+  br i1 %621, label %.lr.ph.i118, label %.preheader.i114, !llvm.loop !160
 
 622:                                              ; preds = %622, %.preheader.i114
   %.02.i115 = phi i64 [ 0, %.preheader.i114 ], [ %633, %622 ]
@@ -1572,7 +1572,7 @@ _color_picker_jzczhz.exit.loopexit:               ; preds = %_update_stats_4ch.e
   store float %631, ptr %632, align 4, !tbaa !58
   %633 = add nuw nsw i64 %.02.i115, 1
   %exitcond.not.i116 = icmp eq i64 %633, 4
-  br i1 %exitcond.not.i116, label %_color_picker_work_4ch.exit121, label %622
+  br i1 %exitcond.not.i116, label %_color_picker_work_4ch.exit121, label %622, !llvm.loop !161
 
 _color_picker_work_4ch.exit121:                   ; preds = %622
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #14
@@ -1586,15 +1586,15 @@ _color_picker_work_4ch.exit121:                   ; preds = %622
 
 636:                                              ; preds = %634
   %637 = getelementptr i8, ptr %2, i64 8
-  %.val98 = load i32, ptr %637, align 4, !tbaa !94
+  %.val98 = load i32, ptr %637, align 4, !tbaa !99
   %638 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %639 = load i32, ptr %638, align 4, !tbaa !112
+  %639 = load i32, ptr %638, align 4, !tbaa !117
   %640 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %641 = load i32, ptr %640, align 4, !tbaa !112
+  %641 = load i32, ptr %640, align 4, !tbaa !117
   %642 = sub nsw i32 %639, %641
   %643 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %644 = load i32, ptr %643, align 4, !tbaa !112
-  %645 = load i32, ptr %3, align 4, !tbaa !112
+  %644 = load i32, ptr %643, align 4, !tbaa !117
+  %645 = load i32, ptr %3, align 4, !tbaa !117
   %646 = sub nsw i32 %644, %645
   %647 = mul nsw i32 %646, %642
   %648 = sext i32 %647 to i64
@@ -1615,9 +1615,9 @@ _color_picker_work_4ch.exit121:                   ; preds = %622
   br i1 %655, label %.lr.ph.preheader.i126, label %.preheader.i123
 
 .lr.ph.preheader.i126:                            ; preds = %636
-  %.not.i166 = icmp eq i32 %644, %645
+  %.not.i167 = icmp eq i32 %644, %645
   %656 = sext i32 %639 to i64
-  br i1 %.not.i166, label %.preheader.i123, label %.lr.ph.i127.preheader
+  br i1 %.not.i167, label %.preheader.i123, label %.lr.ph.i127.preheader
 
 .lr.ph.i127.preheader:                            ; preds = %.lr.ph.preheader.i126
   %657 = sext i32 %641 to i64
@@ -1632,9 +1632,9 @@ _color_picker_work_4ch.exit121:                   ; preds = %622
   %.0291.i128 = phi i64 [ %679, %_color_picker_rgb_or_lab.exit.loopexit ], [ %657, %.lr.ph.i127.preheader ]
   %660 = mul i64 %.0291.i128, %652
   %gep.i129 = getelementptr float, ptr %invariant.gep.i122, i64 %660
-  br label %.preheader.i167
+  br label %.preheader.i168
 
-.preheader.i167:                                  ; preds = %.lr.ph.i127, %662
+.preheader.i168:                                  ; preds = %.lr.ph.i127, %662
   %.01113.i = phi i64 [ %663, %662 ], [ 0, %.lr.ph.i127 ]
   %661 = getelementptr inbounds nuw float, ptr %gep.i129, i64 %.01113.i
   br label %665
@@ -1642,10 +1642,10 @@ _color_picker_work_4ch.exit121:                   ; preds = %622
 662:                                              ; preds = %665
   %663 = add nuw i64 %.01113.i, 4
   %664 = icmp ult i64 %663, %650
-  br i1 %664, label %.preheader.i167, label %_color_picker_rgb_or_lab.exit.loopexit
+  br i1 %664, label %.preheader.i168, label %_color_picker_rgb_or_lab.exit.loopexit, !llvm.loop !172
 
-665:                                              ; preds = %665, %.preheader.i167
-  %.012.i = phi i64 [ 0, %.preheader.i167 ], [ %678, %665 ]
+665:                                              ; preds = %665, %.preheader.i168
+  %.012.i = phi i64 [ 0, %.preheader.i168 ], [ %678, %665 ]
   %666 = getelementptr inbounds nuw float, ptr %661, i64 %.012.i
   %667 = load float, ptr %666, align 4, !tbaa !58
   %668 = getelementptr inbounds nuw float, ptr %28, i64 %.012.i
@@ -1655,21 +1655,21 @@ _color_picker_work_4ch.exit121:                   ; preds = %622
   %671 = getelementptr inbounds nuw float, ptr %29, i64 %.012.i
   %672 = load float, ptr %671, align 4, !tbaa !58
   %673 = fcmp reassoc nsz arcp contract afn olt float %672, %667
-  %..i.i168 = select reassoc nsz arcp contract afn i1 %673, float %672, float %667
-  store float %..i.i168, ptr %671, align 4, !tbaa !58
+  %..i.i169 = select reassoc nsz arcp contract afn i1 %673, float %672, float %667
+  store float %..i.i169, ptr %671, align 4, !tbaa !58
   %674 = getelementptr inbounds nuw float, ptr %30, i64 %.012.i
   %675 = load float, ptr %674, align 4, !tbaa !58
   %676 = fcmp reassoc nsz arcp contract afn ogt float %675, %667
   %677 = select reassoc nsz arcp contract afn i1 %676, float %675, float %667
   store float %677, ptr %674, align 4, !tbaa !58
   %678 = add nuw nsw i64 %.012.i, 1
-  %exitcond.not.i169 = icmp eq i64 %678, 4
-  br i1 %exitcond.not.i169, label %662, label %665
+  %exitcond.not.i170 = icmp eq i64 %678, 4
+  br i1 %exitcond.not.i170, label %662, label %665, !llvm.loop !173
 
 _color_picker_rgb_or_lab.exit.loopexit:           ; preds = %662
   %679 = add nuw i64 %.0291.i128, 1
   %680 = icmp ult i64 %679, %656
-  br i1 %680, label %.lr.ph.i127, label %.preheader.i123
+  br i1 %680, label %.lr.ph.i127, label %.preheader.i123, !llvm.loop !160
 
 681:                                              ; preds = %681, %.preheader.i123
   %.02.i124 = phi i64 [ 0, %.preheader.i123 ], [ %692, %681 ]
@@ -1688,7 +1688,7 @@ _color_picker_rgb_or_lab.exit.loopexit:           ; preds = %662
   store float %690, ptr %691, align 4, !tbaa !58
   %692 = add nuw nsw i64 %.02.i124, 1
   %exitcond.not.i125 = icmp eq i64 %692, 4
-  br i1 %exitcond.not.i125, label %_color_picker_work_4ch.exit130, label %681
+  br i1 %exitcond.not.i125, label %_color_picker_work_4ch.exit130, label %681, !llvm.loop !161
 
 _color_picker_work_4ch.exit130:                   ; preds = %681
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #14
@@ -1702,7 +1702,7 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
 
 695:                                              ; preds = %693
   %696 = getelementptr i8, ptr %2, i64 8
-  %.val99 = load i32, ptr %696, align 4, !tbaa !94
+  %.val99 = load i32, ptr %696, align 4, !tbaa !99
   call fastcc void @_color_picker_work_4ch(ptr noundef %.087, i32 %.val99, ptr noundef %3, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull @_color_picker_rgb_or_lab)
   br label %701
 
@@ -1711,7 +1711,7 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
   %699 = call ptr @dt_iop_colorspace_to_name(i32 noundef %7) #14
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef %698, ptr noundef %699) #14
   %700 = getelementptr i8, ptr %2, i64 8
-  %.val100 = load i32, ptr %700, align 4, !tbaa !94
+  %.val100 = load i32, ptr %700, align 4, !tbaa !99
   call fastcc void @_color_picker_work_4ch(ptr noundef %.087, i32 %.val100, ptr noundef %3, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull @_color_picker_rgb_or_lab)
   br label %701
 
@@ -1721,7 +1721,7 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
 
 702:                                              ; preds = %64
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %704 = load i32, ptr %703, align 8, !tbaa !151
+  %704 = load i32, ptr %703, align 8, !tbaa !174
   switch i32 %704, label %705 [
     i32 9, label %771
     i32 0, label %835
@@ -1729,7 +1729,7 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
 
 705:                                              ; preds = %702
   %706 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %707 = load i32, ptr %706, align 4, !tbaa !94
+  %707 = load i32, ptr %706, align 4, !tbaa !99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #14
@@ -1739,34 +1739,34 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %708 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %709 = load i32, ptr %708, align 4, !tbaa !112
+  %709 = load i32, ptr %708, align 4, !tbaa !117
   %710 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %711 = load i32, ptr %710, align 4, !tbaa !112
+  %711 = load i32, ptr %710, align 4, !tbaa !117
   %712 = icmp ult i32 %709, %711
-  br i1 %712, label %.lr.ph.i133, label %._crit_edge.i
+  br i1 %712, label %.lr.ph.i134, label %._crit_edge.i131
 
-.lr.ph.i133:                                      ; preds = %705
+.lr.ph.i134:                                      ; preds = %705
   %713 = sext i32 %707 to i64
-  %714 = load i32, ptr %3, align 4, !tbaa !112
+  %714 = load i32, ptr %3, align 4, !tbaa !117
   %715 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %716 = load i32, ptr %715, align 4, !tbaa !112
+  %716 = load i32, ptr %715, align 4, !tbaa !117
   %717 = icmp ult i32 %714, %716
   %718 = sext i32 %711 to i64
   %719 = sext i32 %714 to i64
   %720 = sext i32 %716 to i64
-  br i1 %717, label %.lr.ph.i133.split.us, label %._crit_edge.i
+  br i1 %717, label %.lr.ph.i134.split.us, label %._crit_edge.i131
 
-.lr.ph.i133.split.us:                             ; preds = %.lr.ph.i133
+.lr.ph.i134.split.us:                             ; preds = %.lr.ph.i134
   %721 = sext i32 %709 to i64
   %722 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %723 = load i32, ptr %722, align 4, !tbaa !113
+  %723 = load i32, ptr %722, align 4, !tbaa !118
   %724 = zext i32 %723 to i64
-  %725 = load i32, ptr %2, align 4, !tbaa !111
+  %725 = load i32, ptr %2, align 4, !tbaa !116
   %726 = zext i32 %725 to i64
-  br label %.lr.ph.i172.us
+  br label %.lr.ph.i173.us
 
-.lr.ph.i172.us:                                   ; preds = %_color_picker_bayer.exit.loopexit.us, %.lr.ph.i133.split.us
-  %.02123.i.us = phi i64 [ %721, %.lr.ph.i133.split.us ], [ %757, %_color_picker_bayer.exit.loopexit.us ]
+.lr.ph.i173.us:                                   ; preds = %_color_picker_bayer.exit.loopexit.us, %.lr.ph.i134.split.us
+  %.02123.i.us = phi i64 [ %721, %.lr.ph.i134.split.us ], [ %757, %_color_picker_bayer.exit.loopexit.us ]
   %727 = mul i64 %.02123.i.us, %713
   %728 = getelementptr inbounds nuw float, ptr %1, i64 %727
   %729 = add i64 %.02123.i.us, %724
@@ -1774,8 +1774,8 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
   %731 = and i64 %730, 14
   br label %732
 
-732:                                              ; preds = %732, %.lr.ph.i172.us
-  %.017.i.us = phi i64 [ %719, %.lr.ph.i172.us ], [ %755, %732 ]
+732:                                              ; preds = %732, %.lr.ph.i173.us
+  %.017.i.us = phi i64 [ %719, %.lr.ph.i173.us ], [ %755, %732 ]
   %733 = add i64 %.017.i.us, %726
   %734 = and i64 %733, 1
   %735 = or disjoint i64 %731, %734
@@ -1793,37 +1793,37 @@ _color_picker_work_4ch.exit130:                   ; preds = %681
   %745 = getelementptr inbounds nuw float, ptr %25, i64 %741
   %746 = load float, ptr %745, align 4, !tbaa !58
   %747 = fcmp reassoc nsz arcp contract afn olt float %746, %740
-  %..i.i173.us = select reassoc nsz arcp contract afn i1 %747, float %746, float %740
-  store float %..i.i173.us, ptr %745, align 4, !tbaa !58
+  %..i.i174.us = select reassoc nsz arcp contract afn i1 %747, float %746, float %740
+  store float %..i.i174.us, ptr %745, align 4, !tbaa !58
   %748 = getelementptr inbounds nuw float, ptr %26, i64 %741
   %749 = load float, ptr %748, align 4, !tbaa !58
   %750 = fcmp reassoc nsz arcp contract afn ogt float %749, %740
   %751 = select reassoc nsz arcp contract afn i1 %750, float %749, float %740
   store float %751, ptr %748, align 4, !tbaa !58
   %752 = getelementptr inbounds nuw i32, ptr %27, i64 %741
-  %753 = load i32, ptr %752, align 4, !tbaa !112
+  %753 = load i32, ptr %752, align 4, !tbaa !117
   %754 = add i32 %753, 1
-  store i32 %754, ptr %752, align 4, !tbaa !112
+  store i32 %754, ptr %752, align 4, !tbaa !117
   %755 = add nuw i64 %.017.i.us, 1
   %756 = icmp ult i64 %755, %720
-  br i1 %756, label %732, label %_color_picker_bayer.exit.loopexit.us
+  br i1 %756, label %732, label %_color_picker_bayer.exit.loopexit.us, !llvm.loop !175
 
 _color_picker_bayer.exit.loopexit.us:             ; preds = %732
   %757 = add nuw i64 %.02123.i.us, 1
   %758 = icmp ult i64 %757, %718
-  br i1 %758, label %.lr.ph.i172.us, label %._crit_edge.i, !llvm.loop !152
+  br i1 %758, label %.lr.ph.i173.us, label %._crit_edge.i131, !llvm.loop !176
 
-._crit_edge.i:                                    ; preds = %_color_picker_bayer.exit.loopexit.us, %.lr.ph.i133, %705
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa !58, !alias.scope !153
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull readonly align 16 dereferenceable(16) %26, i64 16, i1 false), !tbaa !58, !alias.scope !157
+._crit_edge.i131:                                 ; preds = %_color_picker_bayer.exit.loopexit.us, %.lr.ph.i134, %705
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa !58, !alias.scope !177
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull readonly align 16 dereferenceable(16) %26, i64 16, i1 false), !tbaa !58, !alias.scope !181
   br label %759
 
-759:                                              ; preds = %767, %._crit_edge.i
-  %.024.i = phi i64 [ 0, %._crit_edge.i ], [ %770, %767 ]
+759:                                              ; preds = %767, %._crit_edge.i131
+  %.024.i = phi i64 [ 0, %._crit_edge.i131 ], [ %770, %767 ]
   %760 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 0, i64 %.024.i
-  %761 = load i32, ptr %760, align 4, !tbaa !112
-  %.not.i131 = icmp eq i32 %761, 0
-  br i1 %.not.i131, label %767, label %762
+  %761 = load i32, ptr %760, align 4, !tbaa !117
+  %.not.i132 = icmp eq i32 %761, 0
+  br i1 %.not.i132, label %767, label %762
 
 762:                                              ; preds = %759
   %763 = getelementptr inbounds nuw [4 x float], ptr %24, i64 0, i64 %.024.i
@@ -1837,8 +1837,8 @@ _color_picker_bayer.exit.loopexit.us:             ; preds = %732
   %769 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.024.i
   store float %768, ptr %769, align 4, !tbaa !58
   %770 = add nuw nsw i64 %.024.i, 1
-  %exitcond.not.i132 = icmp eq i64 %770, 4
-  br i1 %exitcond.not.i132, label %_color_picker_work_1ch.exit, label %759
+  %exitcond.not.i133 = icmp eq i64 %770, 4
+  br i1 %exitcond.not.i133, label %_color_picker_work_1ch.exit, label %759, !llvm.loop !185
 
 _color_picker_work_1ch.exit:                      ; preds = %767
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #14
@@ -1850,7 +1850,7 @@ _color_picker_work_1ch.exit:                      ; preds = %767
 771:                                              ; preds = %702
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %773 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %774 = load i32, ptr %773, align 4, !tbaa !94
+  %774 = load i32, ptr %773, align 4, !tbaa !99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #14
@@ -1860,51 +1860,51 @@ _color_picker_work_1ch.exit:                      ; preds = %767
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %775 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %776 = load i32, ptr %775, align 4, !tbaa !112
+  %776 = load i32, ptr %775, align 4, !tbaa !117
   %777 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %778 = load i32, ptr %777, align 4, !tbaa !112
+  %778 = load i32, ptr %777, align 4, !tbaa !117
   %779 = icmp ult i32 %776, %778
-  br i1 %779, label %.lr.ph.i138, label %._crit_edge.i134
+  br i1 %779, label %.lr.ph.i139, label %._crit_edge.i135
 
-.lr.ph.i138:                                      ; preds = %771
+.lr.ph.i139:                                      ; preds = %771
   %780 = sext i32 %774 to i64
-  %781 = load i32, ptr %3, align 4, !tbaa !112
+  %781 = load i32, ptr %3, align 4, !tbaa !117
   %782 = sext i32 %781 to i64
   %783 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %784 = load i32, ptr %783, align 4, !tbaa !112
+  %784 = load i32, ptr %783, align 4, !tbaa !117
   %785 = icmp ult i32 %781, %784
   %786 = sext i32 %778 to i64
   %787 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %788 = sext i32 %784 to i64
-  br i1 %785, label %.lr.ph.i175.us.preheader, label %._crit_edge.i134
+  br i1 %785, label %.lr.ph.i176.us.preheader, label %._crit_edge.i135
 
-.lr.ph.i175.us.preheader:                         ; preds = %.lr.ph.i138
+.lr.ph.i176.us.preheader:                         ; preds = %.lr.ph.i139
   %789 = sext i32 %776 to i64
-  %790 = load i32, ptr %787, align 4, !tbaa !113
+  %790 = load i32, ptr %787, align 4, !tbaa !118
   %invariant.op = add i32 600, %790
-  %791 = load i32, ptr %2, align 4, !tbaa !111
+  %791 = load i32, ptr %2, align 4, !tbaa !116
   %invariant.op.us = add i32 %791, 600
-  br label %.lr.ph.i175.us
+  br label %.lr.ph.i176.us
 
-.lr.ph.i175.us:                                   ; preds = %.lr.ph.i175.us.preheader, %_color_picker_xtrans.exit.us
-  %.02123.i139.us = phi i64 [ %821, %_color_picker_xtrans.exit.us ], [ %789, %.lr.ph.i175.us.preheader ]
-  %792 = mul i64 %.02123.i139.us, %780
+.lr.ph.i176.us:                                   ; preds = %.lr.ph.i176.us.preheader, %_color_picker_xtrans.exit.us
+  %.02123.i140.us = phi i64 [ %821, %_color_picker_xtrans.exit.us ], [ %789, %.lr.ph.i176.us.preheader ]
+  %792 = mul i64 %.02123.i140.us, %780
   %793 = getelementptr inbounds nuw float, ptr %1, i64 %792
-  %794 = trunc i64 %.02123.i139.us to i32
+  %794 = trunc i64 %.02123.i140.us to i32
   %.reass = add i32 %794, %invariant.op
   %795 = srem i32 %.reass, 6
   %796 = sext i32 %795 to i64
   %797 = getelementptr inbounds [6 x i8], ptr %772, i64 %796
   br label %FCxtrans.exit.i.us
 
-FCxtrans.exit.i.us:                               ; preds = %.lr.ph.i175.us, %FCxtrans.exit.i.us
-  %.016.i.us = phi i64 [ %819, %FCxtrans.exit.i.us ], [ %782, %.lr.ph.i175.us ]
+FCxtrans.exit.i.us:                               ; preds = %.lr.ph.i176.us, %FCxtrans.exit.i.us
+  %.016.i.us = phi i64 [ %819, %FCxtrans.exit.i.us ], [ %782, %.lr.ph.i176.us ]
   %798 = trunc i64 %.016.i.us to i32
   %.reass.us = add i32 %invariant.op.us, %798
   %799 = srem i32 %.reass.us, 6
   %800 = sext i32 %799 to i64
   %801 = getelementptr inbounds [6 x i8], ptr %797, i64 0, i64 %800
-  %802 = load i8, ptr %801, align 1, !tbaa !161
+  %802 = load i8, ptr %801, align 1, !tbaa !186
   %803 = getelementptr inbounds nuw float, ptr %793, i64 %.016.i.us
   %804 = load float, ptr %803, align 4, !tbaa !58
   %805 = zext i8 %802 to i64
@@ -1915,40 +1915,40 @@ FCxtrans.exit.i.us:                               ; preds = %.lr.ph.i175.us, %FC
   %809 = getelementptr inbounds nuw float, ptr %21, i64 %805
   %810 = load float, ptr %809, align 4, !tbaa !58
   %811 = fcmp reassoc nsz arcp contract afn olt float %810, %804
-  %..i.i177.us = select reassoc nsz arcp contract afn i1 %811, float %810, float %804
-  store float %..i.i177.us, ptr %809, align 4, !tbaa !58
+  %..i.i178.us = select reassoc nsz arcp contract afn i1 %811, float %810, float %804
+  store float %..i.i178.us, ptr %809, align 4, !tbaa !58
   %812 = getelementptr inbounds nuw float, ptr %22, i64 %805
   %813 = load float, ptr %812, align 4, !tbaa !58
   %814 = fcmp reassoc nsz arcp contract afn ogt float %813, %804
   %815 = select reassoc nsz arcp contract afn i1 %814, float %813, float %804
   store float %815, ptr %812, align 4, !tbaa !58
   %816 = getelementptr inbounds nuw i32, ptr %23, i64 %805
-  %817 = load i32, ptr %816, align 4, !tbaa !112
+  %817 = load i32, ptr %816, align 4, !tbaa !117
   %818 = add i32 %817, 1
-  store i32 %818, ptr %816, align 4, !tbaa !112
+  store i32 %818, ptr %816, align 4, !tbaa !117
   %819 = add nuw i64 %.016.i.us, 1
   %820 = icmp ult i64 %819, %788
-  br i1 %820, label %FCxtrans.exit.i.us, label %_color_picker_xtrans.exit.us
+  br i1 %820, label %FCxtrans.exit.i.us, label %_color_picker_xtrans.exit.us, !llvm.loop !187
 
 _color_picker_xtrans.exit.us:                     ; preds = %FCxtrans.exit.i.us
-  %821 = add nuw i64 %.02123.i139.us, 1
+  %821 = add nuw i64 %.02123.i140.us, 1
   %822 = icmp ult i64 %821, %786
-  br i1 %822, label %.lr.ph.i175.us, label %._crit_edge.i134, !llvm.loop !162
+  br i1 %822, label %.lr.ph.i176.us, label %._crit_edge.i135, !llvm.loop !188
 
-._crit_edge.i134:                                 ; preds = %_color_picker_xtrans.exit.us, %.lr.ph.i138, %771
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %21, i64 16, i1 false), !tbaa !58, !alias.scope !163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull readonly align 16 dereferenceable(16) %22, i64 16, i1 false), !tbaa !58, !alias.scope !167
+._crit_edge.i135:                                 ; preds = %_color_picker_xtrans.exit.us, %.lr.ph.i139, %771
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %21, i64 16, i1 false), !tbaa !58, !alias.scope !189
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull readonly align 16 dereferenceable(16) %22, i64 16, i1 false), !tbaa !58, !alias.scope !193
   br label %823
 
-823:                                              ; preds = %831, %._crit_edge.i134
-  %.024.i135 = phi i64 [ 0, %._crit_edge.i134 ], [ %834, %831 ]
-  %824 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %.024.i135
-  %825 = load i32, ptr %824, align 4, !tbaa !112
-  %.not.i136 = icmp eq i32 %825, 0
-  br i1 %.not.i136, label %831, label %826
+823:                                              ; preds = %831, %._crit_edge.i135
+  %.024.i136 = phi i64 [ 0, %._crit_edge.i135 ], [ %834, %831 ]
+  %824 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %.024.i136
+  %825 = load i32, ptr %824, align 4, !tbaa !117
+  %.not.i137 = icmp eq i32 %825, 0
+  br i1 %.not.i137, label %831, label %826
 
 826:                                              ; preds = %823
-  %827 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.024.i135
+  %827 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.024.i136
   %828 = load float, ptr %827, align 4, !tbaa !58
   %829 = uitofp i32 %825 to float
   %830 = fdiv reassoc nsz arcp contract afn float %828, %829
@@ -1956,13 +1956,13 @@ _color_picker_xtrans.exit.us:                     ; preds = %FCxtrans.exit.i.us
 
 831:                                              ; preds = %826, %823
   %832 = phi reassoc nsz arcp contract afn float [ %830, %826 ], [ 0.000000e+00, %823 ]
-  %833 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.024.i135
+  %833 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.024.i136
   store float %832, ptr %833, align 4, !tbaa !58
-  %834 = add nuw nsw i64 %.024.i135, 1
-  %exitcond.not.i137 = icmp eq i64 %834, 4
-  br i1 %exitcond.not.i137, label %_color_picker_work_1ch.exit140, label %823
+  %834 = add nuw nsw i64 %.024.i136, 1
+  %exitcond.not.i138 = icmp eq i64 %834, 4
+  br i1 %exitcond.not.i138, label %_color_picker_work_1ch.exit141, label %823, !llvm.loop !185
 
-_color_picker_work_1ch.exit140:                   ; preds = %831
+_color_picker_work_1ch.exit141:                   ; preds = %831
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #14
@@ -1973,34 +1973,34 @@ _color_picker_work_1ch.exit140:                   ; preds = %831
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 518, ptr noundef nonnull @__FUNCTION__.dt_color_picker_helper) #14
   unreachable
 
-836:                                              ; preds = %701, %_color_picker_work_1ch.exit140, %_color_picker_work_1ch.exit
-  %837 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !114
+836:                                              ; preds = %701, %_color_picker_work_1ch.exit141, %_color_picker_work_1ch.exit
+  %837 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !120
   %838 = and i32 %837, 16
   %.not95.not = icmp eq i32 %838, 0
   br i1 %.not95.not, label %873, label %839
 
 839:                                              ; preds = %836
-  %840 = load i32, ptr %0, align 16, !tbaa !121
+  %840 = load i32, ptr %0, align 16, !tbaa !127
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %842 = load i32, ptr %841, align 8, !tbaa !151
+  %842 = load i32, ptr %841, align 8, !tbaa !174
   %843 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %844 = load i32, ptr %843, align 4, !tbaa !112
+  %844 = load i32, ptr %843, align 4, !tbaa !117
   %845 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %846 = load i32, ptr %845, align 4, !tbaa !112
+  %846 = load i32, ptr %845, align 4, !tbaa !117
   %847 = sub nsw i32 %844, %846
   %848 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %849 = load i32, ptr %848, align 4, !tbaa !112
-  %850 = load i32, ptr %3, align 4, !tbaa !112
+  %849 = load i32, ptr %848, align 4, !tbaa !117
+  %850 = load i32, ptr %3, align 4, !tbaa !117
   %851 = sub nsw i32 %849, %850
   %852 = mul nsw i32 %851, %847
   %853 = sext i32 %852 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #14
   %854 = call i32 @gettimeofday(ptr noundef nonnull %19, ptr noundef null) #14
-  %855 = load i64, ptr %19, align 8, !tbaa !115
+  %855 = load i64, ptr %19, align 8, !tbaa !121
   %856 = add nsw i64 %855, -1290608000
   %857 = sitofp i64 %856 to double
   %858 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %859 = load i64, ptr %858, align 8, !tbaa !117
+  %859 = load i64, ptr %858, align 8, !tbaa !123
   %860 = sitofp i64 %859 to double
   %861 = fmul reassoc nsz arcp contract afn double %860, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #14
@@ -2008,10 +2008,10 @@ _color_picker_work_1ch.exit140:                   ; preds = %831
   %863 = fadd reassoc nsz arcp contract afn double %862, %861
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18) #14
   %864 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %18) #14
-  %865 = load i64, ptr %18, align 8, !tbaa !118
+  %865 = load i64, ptr %18, align 8, !tbaa !124
   %866 = sitofp i64 %865 to double
   %867 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %868 = load i64, ptr %867, align 8, !tbaa !120
+  %868 = load i64, ptr %867, align 8, !tbaa !126
   %869 = sitofp i64 %868 to double
   %870 = fmul reassoc nsz arcp contract afn double %869, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18) #14
@@ -2038,13 +2038,13 @@ define internal fastcc void @_color_picker_work_4ch(ptr noundef %0, i32 %.8.val,
   %7 = alloca [4 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !112
+  %10 = load i32, ptr %9, align 4, !tbaa !117
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !112
+  %12 = load i32, ptr %11, align 4, !tbaa !117
   %13 = sub nsw i32 %10, %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !112
-  %16 = load i32, ptr %1, align 4, !tbaa !112
+  %15 = load i32, ptr %14, align 4, !tbaa !117
+  %16 = load i32, ptr %1, align 4, !tbaa !117
   %17 = sub nsw i32 %15, %16
   %18 = mul nsw i32 %17, %13
   %19 = sext i32 %18 to i64
@@ -2079,12 +2079,12 @@ define internal fastcc void @_color_picker_work_4ch(ptr noundef %0, i32 %.8.val,
   %.0291 = phi i64 [ %33, %.lr.ph ], [ %27, %.lr.ph.preheader ]
   %32 = mul i64 %.0291, %23
   %gep = getelementptr float, ptr %invariant.gep, i64 %32
-  call void %4(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %gep, i64 noundef %21, ptr noundef %3) #14, !callees !171
+  call void %4(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %gep, i64 noundef %21, ptr noundef %3) #14, !callees !197
   %33 = add nuw i64 %.0291, 1
-  %34 = load i32, ptr %9, align 4, !tbaa !112
+  %34 = load i32, ptr %9, align 4, !tbaa !117
   %35 = sext i32 %34 to i64
   %36 = icmp ult i64 %33, %35
-  br i1 %36, label %.lr.ph, label %.preheader
+  br i1 %36, label %.lr.ph, label %.preheader, !llvm.loop !160
 
 37:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
@@ -2109,7 +2109,7 @@ define internal fastcc void @_color_picker_work_4ch(ptr noundef %0, i32 %.8.val,
   store float %47, ptr %48, align 4, !tbaa !58
   %49 = add nuw nsw i64 %.02, 1
   %exitcond.not = icmp eq i64 %49, 4
-  br i1 %exitcond.not, label %37, label %38
+  br i1 %exitcond.not, label %37, label %38, !llvm.loop !161
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2128,7 +2128,7 @@ define internal void @_color_picker_rgb_or_lab(ptr noundef captures(none) %0, pt
 8:                                                ; preds = %11
   %9 = add i64 %.01113, 4
   %10 = icmp ult i64 %9, %4
-  br i1 %10, label %.preheader, label %._crit_edge
+  br i1 %10, label %.preheader, label %._crit_edge, !llvm.loop !172
 
 11:                                               ; preds = %.preheader, %11
   %.012 = phi i64 [ 0, %.preheader ], [ %24, %11 ]
@@ -2150,7 +2150,7 @@ define internal void @_color_picker_rgb_or_lab(ptr noundef captures(none) %0, pt
   store float %23, ptr %20, align 4, !tbaa !58
   %24 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %24, 4
-  br i1 %exitcond.not, label %8, label %11
+  br i1 %exitcond.not, label %8, label %11, !llvm.loop !173
 }
 
 declare ptr @dt_iop_colorspace_to_name(i32 noundef) local_unnamed_addr #2
@@ -2277,116 +2277,142 @@ attributes #15 = { nounwind willreturn memory(none) }
 !56 = !{!47, !8, i64 156}
 !57 = !{!47, !8, i64 160}
 !58 = !{!16, !16, i64 0}
-!59 = !{!60, !8, i64 48}
-!60 = !{!"dt_colorpicker_sample_t", !9, i64 0, !9, i64 8, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !9, i64 64, !9, i64 112, !9, i64 160, !9, i64 208, !61, i64 224, !40, i64 256, !40, i64 264, !40, i64 272}
-!61 = !{!"_GdkRGBA", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!62 = !{!63, !67, i64 64}
-!63 = !{!"darktable_t", !64, i64 0, !8, i64 4, !8, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !65, i64 48, !66, i64 56, !67, i64 64, !68, i64 72, !69, i64 80, !70, i64 88, !71, i64 96, !72, i64 104, !73, i64 112, !74, i64 120, !75, i64 128, !76, i64 136, !77, i64 144, !78, i64 152, !79, i64 160, !80, i64 168, !81, i64 176, !82, i64 184, !83, i64 192, !84, i64 200, !85, i64 208, !86, i64 216, !87, i64 224, !9, i64 232, !28, i64 2792, !28, i64 2832, !28, i64 2872, !28, i64 2912, !28, i64 2952, !22, i64 2992, !22, i64 3000, !22, i64 3008, !22, i64 3016, !22, i64 3024, !22, i64 3032, !22, i64 3040, !22, i64 3048, !22, i64 3056, !22, i64 3064, !22, i64 3072, !22, i64 3080, !22, i64 3088, !88, i64 3096, !26, i64 3104, !12, i64 3112, !26, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !89, i64 3328, !90, i64 3336, !91, i64 3344, !92, i64 3384, !93, i64 3416}
-!64 = !{!"dt_codepath_t", !8, i64 0}
-!65 = !{!"p1 _ZTS11_JsonParser", !11, i64 0}
-!66 = !{!"p1 _ZTS9dt_conf_t", !11, i64 0}
-!67 = !{!"p1 _ZTS12dt_develop_t", !11, i64 0}
-!68 = !{!"p1 _ZTS8dt_lib_t", !11, i64 0}
-!69 = !{!"p1 _ZTS17dt_view_manager_t", !11, i64 0}
-!70 = !{!"p1 _ZTS12dt_control_t", !11, i64 0}
-!71 = !{!"p1 _ZTS19dt_control_signal_t", !11, i64 0}
-!72 = !{!"p1 _ZTS12dt_gui_gtk_t", !11, i64 0}
-!73 = !{!"p1 _ZTS17dt_mipmap_cache_t", !11, i64 0}
-!74 = !{!"p1 _ZTS16dt_image_cache_t", !11, i64 0}
-!75 = !{!"p1 _ZTS12dt_bauhaus_t", !11, i64 0}
-!76 = !{!"p1 _ZTS13dt_database_t", !11, i64 0}
-!77 = !{!"p1 _ZTS14dt_pwstorage_t", !11, i64 0}
-!78 = !{!"p1 _ZTS11dt_camctl_t", !11, i64 0}
-!79 = !{!"p1 _ZTS15dt_collection_t", !11, i64 0}
-!80 = !{!"p1 _ZTS14dt_selection_t", !11, i64 0}
-!81 = !{!"p1 _ZTS11dt_points_t", !11, i64 0}
-!82 = !{!"p1 _ZTS12dt_imageio_t", !11, i64 0}
-!83 = !{!"p1 _ZTS11dt_opencl_t", !11, i64 0}
-!84 = !{!"p1 _ZTS9dt_dbus_t", !11, i64 0}
-!85 = !{!"p1 _ZTS9dt_undo_t", !11, i64 0}
-!86 = !{!"p1 _ZTS16dt_colorspaces_t", !11, i64 0}
-!87 = !{!"p1 _ZTS9dt_l10n_t", !11, i64 0}
-!88 = !{!"", !8, i64 0}
-!89 = !{!"p1 _ZTS10_GTimeZone", !11, i64 0}
-!90 = !{!"p1 _ZTS10_GDateTime", !11, i64 0}
-!91 = !{!"dt_sys_resources_t", !17, i64 0, !17, i64 8, !29, i64 16, !29, i64 24, !8, i64 32}
-!92 = !{!"dt_backthumb_t", !12, i64 0, !12, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
-!93 = !{!"dt_gimp_t", !8, i64 0, !22, i64 8, !22, i64 16, !8, i64 24, !8, i64 28}
-!94 = !{!54, !8, i64 8}
-!95 = !{!54, !8, i64 12}
-!96 = !{!60, !8, i64 40}
-!97 = distinct !{!97, !98}
-!98 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!99 = !{!100, !11, i64 64}
-!100 = !{!"dt_iop_module_t", !8, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !11, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !11, i64 440, !101, i64 448, !9, i64 456, !8, i64 476, !8, i64 480, !8, i64 484, !8, i64 488, !8, i64 492, !8, i64 496, !8, i64 500, !9, i64 512, !9, i64 528, !9, i64 544, !9, i64 560, !9, i64 576, !9, i64 592, !29, i64 608, !102, i64 616, !9, i64 640, !8, i64 656, !8, i64 660, !67, i64 664, !8, i64 672, !8, i64 676, !11, i64 680, !11, i64 688, !8, i64 696, !11, i64 704, !28, i64 712, !11, i64 752, !103, i64 760, !103, i64 768, !11, i64 776, !104, i64 784, !40, i64 816, !40, i64 824, !40, i64 832, !40, i64 840, !40, i64 848, !40, i64 856, !40, i64 864, !8, i64 872, !40, i64 880, !40, i64 888, !40, i64 896, !108, i64 904, !108, i64 912, !40, i64 920, !40, i64 928, !8, i64 936, !109, i64 944, !8, i64 952, !9, i64 956, !8, i64 1084, !40, i64 1088, !11, i64 1096, !8, i64 1104}
-!101 = !{!"p1 _ZTS8_GModule", !11, i64 0}
-!102 = !{!"dt_dev_histogram_stats_t", !8, i64 0, !17, i64 8, !8, i64 16, !8, i64 20}
-!103 = !{!"p1 _ZTS25dt_develop_blend_params_t", !11, i64 0}
-!104 = !{!"", !105, i64 0, !107, i64 16}
-!105 = !{!"", !106, i64 0, !106, i64 8}
-!106 = !{!"p1 _ZTS11_GHashTable", !11, i64 0}
-!107 = !{!"", !13, i64 0, !8, i64 8}
-!108 = !{!"p1 _ZTS7_GSList", !11, i64 0}
-!109 = !{!"p1 _ZTS18dt_iop_module_so_t", !11, i64 0}
-!110 = !{!100, !8, i64 480}
-!111 = !{!54, !8, i64 0}
-!112 = !{!8, !8, i64 0}
-!113 = !{!54, !8, i64 4}
-!114 = !{!63, !8, i64 8}
-!115 = !{!116, !17, i64 0}
-!116 = !{!"timeval", !17, i64 0, !17, i64 8}
-!117 = !{!116, !17, i64 8}
-!118 = !{!119, !17, i64 0}
-!119 = !{!"rusage", !116, i64 0, !116, i64 16, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136}
-!120 = !{!119, !17, i64 8}
-!121 = !{!18, !8, i64 0}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"blur_2D_Bspline: argument 0"}
-!124 = distinct !{!124, !"blur_2D_Bspline"}
-!125 = !{!126}
-!126 = distinct !{!126, !124, !"blur_2D_Bspline: argument 1"}
-!127 = !{!128}
-!128 = distinct !{!128, !124, !"blur_2D_Bspline: argument 2"}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !60}
+!62 = distinct !{!62, !60}
+!63 = distinct !{!63, !60}
+!64 = !{!65, !8, i64 48}
+!65 = !{!"dt_colorpicker_sample_t", !9, i64 0, !9, i64 8, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !9, i64 64, !9, i64 112, !9, i64 160, !9, i64 208, !66, i64 224, !40, i64 256, !40, i64 264, !40, i64 272}
+!66 = !{!"_GdkRGBA", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!67 = !{!68, !72, i64 64}
+!68 = !{!"darktable_t", !69, i64 0, !8, i64 4, !8, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !70, i64 48, !71, i64 56, !72, i64 64, !73, i64 72, !74, i64 80, !75, i64 88, !76, i64 96, !77, i64 104, !78, i64 112, !79, i64 120, !80, i64 128, !81, i64 136, !82, i64 144, !83, i64 152, !84, i64 160, !85, i64 168, !86, i64 176, !87, i64 184, !88, i64 192, !89, i64 200, !90, i64 208, !91, i64 216, !92, i64 224, !9, i64 232, !28, i64 2792, !28, i64 2832, !28, i64 2872, !28, i64 2912, !28, i64 2952, !22, i64 2992, !22, i64 3000, !22, i64 3008, !22, i64 3016, !22, i64 3024, !22, i64 3032, !22, i64 3040, !22, i64 3048, !22, i64 3056, !22, i64 3064, !22, i64 3072, !22, i64 3080, !22, i64 3088, !93, i64 3096, !26, i64 3104, !12, i64 3112, !26, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !94, i64 3328, !95, i64 3336, !96, i64 3344, !97, i64 3384, !98, i64 3416}
+!69 = !{!"dt_codepath_t", !8, i64 0}
+!70 = !{!"p1 _ZTS11_JsonParser", !11, i64 0}
+!71 = !{!"p1 _ZTS9dt_conf_t", !11, i64 0}
+!72 = !{!"p1 _ZTS12dt_develop_t", !11, i64 0}
+!73 = !{!"p1 _ZTS8dt_lib_t", !11, i64 0}
+!74 = !{!"p1 _ZTS17dt_view_manager_t", !11, i64 0}
+!75 = !{!"p1 _ZTS12dt_control_t", !11, i64 0}
+!76 = !{!"p1 _ZTS19dt_control_signal_t", !11, i64 0}
+!77 = !{!"p1 _ZTS12dt_gui_gtk_t", !11, i64 0}
+!78 = !{!"p1 _ZTS17dt_mipmap_cache_t", !11, i64 0}
+!79 = !{!"p1 _ZTS16dt_image_cache_t", !11, i64 0}
+!80 = !{!"p1 _ZTS12dt_bauhaus_t", !11, i64 0}
+!81 = !{!"p1 _ZTS13dt_database_t", !11, i64 0}
+!82 = !{!"p1 _ZTS14dt_pwstorage_t", !11, i64 0}
+!83 = !{!"p1 _ZTS11dt_camctl_t", !11, i64 0}
+!84 = !{!"p1 _ZTS15dt_collection_t", !11, i64 0}
+!85 = !{!"p1 _ZTS14dt_selection_t", !11, i64 0}
+!86 = !{!"p1 _ZTS11dt_points_t", !11, i64 0}
+!87 = !{!"p1 _ZTS12dt_imageio_t", !11, i64 0}
+!88 = !{!"p1 _ZTS11dt_opencl_t", !11, i64 0}
+!89 = !{!"p1 _ZTS9dt_dbus_t", !11, i64 0}
+!90 = !{!"p1 _ZTS9dt_undo_t", !11, i64 0}
+!91 = !{!"p1 _ZTS16dt_colorspaces_t", !11, i64 0}
+!92 = !{!"p1 _ZTS9dt_l10n_t", !11, i64 0}
+!93 = !{!"", !8, i64 0}
+!94 = !{!"p1 _ZTS10_GTimeZone", !11, i64 0}
+!95 = !{!"p1 _ZTS10_GDateTime", !11, i64 0}
+!96 = !{!"dt_sys_resources_t", !17, i64 0, !17, i64 8, !29, i64 16, !29, i64 24, !8, i64 32}
+!97 = !{!"dt_backthumb_t", !12, i64 0, !12, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
+!98 = !{!"dt_gimp_t", !8, i64 0, !22, i64 8, !22, i64 16, !8, i64 24, !8, i64 28}
+!99 = !{!54, !8, i64 8}
+!100 = !{!54, !8, i64 12}
+!101 = !{!65, !8, i64 40}
+!102 = distinct !{!102, !60, !103}
+!103 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!104 = !{!105, !11, i64 64}
+!105 = !{!"dt_iop_module_t", !8, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !11, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !11, i64 440, !106, i64 448, !9, i64 456, !8, i64 476, !8, i64 480, !8, i64 484, !8, i64 488, !8, i64 492, !8, i64 496, !8, i64 500, !9, i64 512, !9, i64 528, !9, i64 544, !9, i64 560, !9, i64 576, !9, i64 592, !29, i64 608, !107, i64 616, !9, i64 640, !8, i64 656, !8, i64 660, !72, i64 664, !8, i64 672, !8, i64 676, !11, i64 680, !11, i64 688, !8, i64 696, !11, i64 704, !28, i64 712, !11, i64 752, !108, i64 760, !108, i64 768, !11, i64 776, !109, i64 784, !40, i64 816, !40, i64 824, !40, i64 832, !40, i64 840, !40, i64 848, !40, i64 856, !40, i64 864, !8, i64 872, !40, i64 880, !40, i64 888, !40, i64 896, !113, i64 904, !113, i64 912, !40, i64 920, !40, i64 928, !8, i64 936, !114, i64 944, !8, i64 952, !9, i64 956, !8, i64 1084, !40, i64 1088, !11, i64 1096, !8, i64 1104}
+!106 = !{!"p1 _ZTS8_GModule", !11, i64 0}
+!107 = !{!"dt_dev_histogram_stats_t", !8, i64 0, !17, i64 8, !8, i64 16, !8, i64 20}
+!108 = !{!"p1 _ZTS25dt_develop_blend_params_t", !11, i64 0}
+!109 = !{!"", !110, i64 0, !112, i64 16}
+!110 = !{!"", !111, i64 0, !111, i64 8}
+!111 = !{!"p1 _ZTS11_GHashTable", !11, i64 0}
+!112 = !{!"", !13, i64 0, !8, i64 8}
+!113 = !{!"p1 _ZTS7_GSList", !11, i64 0}
+!114 = !{!"p1 _ZTS18dt_iop_module_so_t", !11, i64 0}
+!115 = !{!105, !8, i64 480}
+!116 = !{!54, !8, i64 0}
+!117 = !{!8, !8, i64 0}
+!118 = !{!54, !8, i64 4}
+!119 = distinct !{!119, !60}
+!120 = !{!68, !8, i64 8}
+!121 = !{!122, !17, i64 0}
+!122 = !{!"timeval", !17, i64 0, !17, i64 8}
+!123 = !{!122, !17, i64 8}
+!124 = !{!125, !17, i64 0}
+!125 = !{!"rusage", !122, i64 0, !122, i64 16, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136}
+!126 = !{!125, !17, i64 8}
+!127 = !{!18, !8, i64 0}
+!128 = distinct !{!128, !60}
 !129 = !{!130}
-!130 = distinct !{!130, !131, !"_bspline_vertical_pass: argument 0"}
-!131 = distinct !{!131, !"_bspline_vertical_pass"}
+!130 = distinct !{!130, !131, !"blur_2D_Bspline: argument 0"}
+!131 = distinct !{!131, !"blur_2D_Bspline"}
 !132 = !{!133}
-!133 = distinct !{!133, !131, !"_bspline_vertical_pass: argument 1"}
-!134 = !{!130, !123}
-!135 = !{!133, !126, !128}
-!136 = !{!133, !128}
-!137 = !{!130, !123, !126}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_bspline_horizontal: argument 0"}
-!140 = distinct !{!140, !"_bspline_horizontal"}
-!141 = !{!142}
-!142 = distinct !{!142, !140, !"_bspline_horizontal: argument 1"}
-!143 = !{!139, !128}
-!144 = !{!142, !123, !126}
-!145 = !{!142, !126}
-!146 = !{!139, !123, !128}
-!147 = !{!148, !8, i64 852}
-!148 = !{!"dt_iop_order_iccprofile_info_t", !8, i64 0, !9, i64 4, !8, i64 516, !9, i64 576, !9, i64 640, !8, i64 704, !9, i64 712, !9, i64 736, !9, i64 768, !9, i64 816, !8, i64 852, !16, i64 856, !9, i64 896, !9, i64 960, !9, i64 1024, !9, i64 1048}
-!149 = !{!148, !8, i64 704}
-!150 = !{!51, !51, i64 0}
-!151 = !{!18, !8, i64 8}
-!152 = distinct !{!152, !98}
-!153 = !{!154, !156}
-!154 = distinct !{!154, !155, !"copy_pixel: argument 0"}
-!155 = distinct !{!155, !"copy_pixel"}
-!156 = distinct !{!156, !155, !"copy_pixel: argument 1"}
-!157 = !{!158, !160}
-!158 = distinct !{!158, !159, !"copy_pixel: argument 0"}
-!159 = distinct !{!159, !"copy_pixel"}
-!160 = distinct !{!160, !159, !"copy_pixel: argument 1"}
-!161 = !{!9, !9, i64 0}
-!162 = distinct !{!162, !98}
-!163 = !{!164, !166}
-!164 = distinct !{!164, !165, !"copy_pixel: argument 0"}
-!165 = distinct !{!165, !"copy_pixel"}
-!166 = distinct !{!166, !165, !"copy_pixel: argument 1"}
-!167 = !{!168, !170}
-!168 = distinct !{!168, !169, !"copy_pixel: argument 0"}
-!169 = distinct !{!169, !"copy_pixel"}
-!170 = distinct !{!170, !169, !"copy_pixel: argument 1"}
-!171 = distinct !{null, null, null, ptr @_color_picker_rgb_or_lab}
+!133 = distinct !{!133, !131, !"blur_2D_Bspline: argument 1"}
+!134 = !{!135}
+!135 = distinct !{!135, !131, !"blur_2D_Bspline: argument 2"}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_bspline_vertical_pass: argument 0"}
+!138 = distinct !{!138, !"_bspline_vertical_pass"}
+!139 = !{!140}
+!140 = distinct !{!140, !138, !"_bspline_vertical_pass: argument 1"}
+!141 = !{!137, !130}
+!142 = !{!140, !133, !135}
+!143 = !{!140, !135}
+!144 = !{!137, !130, !133}
+!145 = distinct !{!145, !60}
+!146 = distinct !{!146, !60}
+!147 = distinct !{!147, !60}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_bspline_horizontal: argument 0"}
+!150 = distinct !{!150, !"_bspline_horizontal"}
+!151 = !{!152}
+!152 = distinct !{!152, !150, !"_bspline_horizontal: argument 1"}
+!153 = !{!149, !135}
+!154 = !{!152, !130, !133}
+!155 = !{!152, !133}
+!156 = !{!149, !130, !135}
+!157 = distinct !{!157, !60}
+!158 = distinct !{!158, !60}
+!159 = distinct !{!159, !60}
+!160 = distinct !{!160, !60}
+!161 = distinct !{!161, !60}
+!162 = distinct !{!162, !60}
+!163 = !{!164, !8, i64 852}
+!164 = !{!"dt_iop_order_iccprofile_info_t", !8, i64 0, !9, i64 4, !8, i64 516, !9, i64 576, !9, i64 640, !8, i64 704, !9, i64 712, !9, i64 736, !9, i64 768, !9, i64 816, !8, i64 852, !16, i64 856, !9, i64 896, !9, i64 960, !9, i64 1024, !9, i64 1048}
+!165 = !{!164, !8, i64 704}
+!166 = !{!51, !51, i64 0}
+!167 = distinct !{!167, !60}
+!168 = distinct !{!168, !60}
+!169 = distinct !{!169, !60}
+!170 = distinct !{!170, !60}
+!171 = distinct !{!171, !60}
+!172 = distinct !{!172, !60}
+!173 = distinct !{!173, !60}
+!174 = !{!18, !8, i64 8}
+!175 = distinct !{!175, !60}
+!176 = distinct !{!176, !60, !103}
+!177 = !{!178, !180}
+!178 = distinct !{!178, !179, !"copy_pixel: argument 0"}
+!179 = distinct !{!179, !"copy_pixel"}
+!180 = distinct !{!180, !179, !"copy_pixel: argument 1"}
+!181 = !{!182, !184}
+!182 = distinct !{!182, !183, !"copy_pixel: argument 0"}
+!183 = distinct !{!183, !"copy_pixel"}
+!184 = distinct !{!184, !183, !"copy_pixel: argument 1"}
+!185 = distinct !{!185, !60}
+!186 = !{!9, !9, i64 0}
+!187 = distinct !{!187, !60}
+!188 = distinct !{!188, !60, !103}
+!189 = !{!190, !192}
+!190 = distinct !{!190, !191, !"copy_pixel: argument 0"}
+!191 = distinct !{!191, !"copy_pixel"}
+!192 = distinct !{!192, !191, !"copy_pixel: argument 1"}
+!193 = !{!194, !196}
+!194 = distinct !{!194, !195, !"copy_pixel: argument 0"}
+!195 = distinct !{!195, !"copy_pixel"}
+!196 = distinct !{!196, !195, !"copy_pixel: argument 1"}
+!197 = distinct !{null, null, null, ptr @_color_picker_rgb_or_lab}

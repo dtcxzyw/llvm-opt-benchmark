@@ -572,7 +572,7 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
   %239 = icmp samesign ult i64 %indvars.iv.next, %233
   %240 = icmp ne i32 %.053, %167
   %241 = select i1 %239, i1 %240, i1 false
-  br i1 %241, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !7
+  br i1 %241, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !8
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv144 = phi i64 [ %236, %.lr.ph136.preheader ], [ %indvars.iv.next145, %.lr.ph136 ]
@@ -583,7 +583,7 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
   store i32 %243, ptr %245, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph136, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph136, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph136, %.preheader
   %246 = sub nsw i32 %189, %.054.lcssa
@@ -670,7 +670,7 @@ _Z7inRangePKfS0_ff.exit98.thread:                 ; preds = %221, %_Z7inRangePKf
   %294 = icmp slt i32 %292, 2047
   %.not80 = icmp ne i32 %.1, 0
   %or.cond87 = select i1 %.not80, i1 %294, i1 false
-  br i1 %or.cond87, label %129, label %.critedge, !llvm.loop !9
+  br i1 %or.cond87, label %129, label %.critedge, !llvm.loop !10
 
 295:                                              ; preds = %63, %60, %54
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 2360
@@ -1474,7 +1474,7 @@ define dso_local void @_ZN17NavMeshTesterTool10handleMenuEv(ptr noundef nonnull 
 126:                                              ; preds = %110, %114
   %127 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %127, 64
-  br i1 %exitcond.not, label %.loopexit15, label %110, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit15, label %110, !llvm.loop !11
 
 .loopexit15:                                      ; preds = %126, %100
   %128 = load i8, ptr %79, align 8
@@ -1531,7 +1531,7 @@ define dso_local void @_ZN17NavMeshTesterTool10handleMenuEv(ptr noundef nonnull 
 162:                                              ; preds = %144, %150
   %163 = add nuw nsw i32 %.0817, 1
   %exitcond18.not = icmp eq i32 %163, 64
-  br i1 %exitcond18.not, label %.loopexit, label %144, !llvm.loop !11
+  br i1 %exitcond18.not, label %.loopexit, label %144, !llvm.loop !12
 
 .loopexit:                                        ; preds = %162, %.loopexit15
   call void @_Z14imguiSeparatorv()
@@ -2015,7 +2015,7 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
   %182 = icmp samesign ult i64 %indvars.iv.next, %176
   %183 = icmp ne i32 %.027, %172
   %184 = select i1 %182, i1 %183, i1 false
-  br i1 %184, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !12
+  br i1 %184, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !13
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv73 = phi i64 [ %179, %.lr.ph67.preheader ], [ %indvars.iv.next74, %.lr.ph67 ]
@@ -2028,7 +2028,7 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
   %189 = load i32, ptr %79, align 8
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next74, %190
-  br i1 %191, label %.lr.ph67, label %._crit_edge, !llvm.loop !13
+  br i1 %191, label %.lr.ph67, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph67, %.preheader
   %.lcssa = phi i32 [ %171, %.preheader ], [ %189, %.lr.ph67 ]
@@ -2181,7 +2181,7 @@ define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryP
   store float %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph40, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph40, label %.lr.ph, !llvm.loop !15
 
 .loopexit36:                                      ; preds = %17
   %32 = icmp sgt i32 %16, 0
@@ -2316,7 +2316,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   %29 = getelementptr inbounds nuw %struct.dtLink, ptr %17, i64 %19, i32 1
   %.042 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %.042, -1
-  br i1 %.not, label %.preheader.lr.ph, label %18, !llvm.loop !15
+  br i1 %.not, label %.preheader.lr.ph, label %18, !llvm.loop !16
 
 .preheader.lr.ph:                                 ; preds = %28
   %30 = icmp sgt i32 %.144, 0
@@ -2339,7 +2339,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 36:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge55.us, label %37, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge55.us, label %37, !llvm.loop !17
 
 37:                                               ; preds = %.preheader.us, %36
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %36 ]
@@ -2354,7 +2354,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   %41 = icmp sgt i32 %35, 2
   %42 = icmp eq i32 %.1.us, 0
   %43 = and i1 %41, %42
-  br i1 %43, label %.preheader.us, label %._crit_edge61, !llvm.loop !17
+  br i1 %43, label %.preheader.us, label %._crit_edge61, !llvm.loop !18
 
 ._crit_edge61:                                    ; preds = %._crit_edge55.us
   %44 = icmp sgt i32 %.1.us, 1
@@ -2380,7 +2380,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   store i32 %50, ptr %51, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph65, !llvm.loop !19
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph65, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph65, %13, %.preheader.lr.ph, %45, %._crit_edge61, %8, %3
   %.037 = phi i32 [ %1, %3 ], [ %1, %8 ], [ %1, %._crit_edge61 ], [ %47, %45 ], [ %1, %.preheader.lr.ph ], [ %1, %13 ], [ %47, %.lr.ph65 ]
@@ -2547,7 +2547,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %21 = load atomic i8, ptr @_ZGVZN17NavMeshTesterTool12handleRenderEvE8startCol acquire, align 8
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %26, !prof !20
+  br i1 %22, label %23, label %26, !prof !21
 
 23:                                               ; preds = %1
   %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17NavMeshTesterTool12handleRenderEvE8startCol) #14
@@ -2562,7 +2562,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 26:                                               ; preds = %25, %23, %1
   %27 = load atomic i8, ptr @_ZGVZN17NavMeshTesterTool12handleRenderEvE6endCol acquire, align 8
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %32, !prof !20
+  br i1 %28, label %29, label %32, !prof !21
 
 29:                                               ; preds = %26
   %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17NavMeshTesterTool12handleRenderEvE6endCol) #14
@@ -2577,7 +2577,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 32:                                               ; preds = %31, %29, %26
   %33 = load atomic i8, ptr @_ZGVZN17NavMeshTesterTool12handleRenderEvE7pathCol acquire, align 8
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %38, !prof !20
+  br i1 %34, label %35, label %38, !prof !21
 
 35:                                               ; preds = %32
   %36 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17NavMeshTesterTool12handleRenderEvE7pathCol) #14
@@ -2743,7 +2743,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next543, %125
-  br i1 %126, label %112, label %.loopexit, !llvm.loop !21
+  br i1 %126, label %112, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %123, %100
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 31308
@@ -2788,7 +2788,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %153 = load i32, ptr %127, align 4
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next546, %154
-  br i1 %155, label %139, label %._crit_edge475, !llvm.loop !22
+  br i1 %155, label %139, label %._crit_edge475, !llvm.loop !23
 
 ._crit_edge475:                                   ; preds = %139, %129
   %156 = load ptr, ptr %20, align 8
@@ -2937,7 +2937,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %272 = add nsw i32 %271, -1
   %273 = sext i32 %272 to i64
   %274 = icmp slt i64 %indvars.iv.next549, %273
-  br i1 %274, label %244, label %._crit_edge479, !llvm.loop !23
+  br i1 %274, label %244, label %._crit_edge479, !llvm.loop !24
 
 ._crit_edge479:                                   ; preds = %244, %165
   %275 = load ptr, ptr %20, align 8
@@ -2996,7 +2996,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
   %306 = sext i32 %305 to i64
   %307 = icmp slt i64 %indvars.iv.next534, %306
-  br i1 %307, label %293, label %.loopexit415, !llvm.loop !24
+  br i1 %307, label %293, label %.loopexit415, !llvm.loop !25
 
 .loopexit415:                                     ; preds = %304, %281
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 6716
@@ -3062,7 +3062,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %352 = add nsw i32 %351, -1
   %353 = sext i32 %352 to i64
   %354 = icmp slt i64 %indvars.iv.next537, %353
-  br i1 %354, label %321, label %._crit_edge465, !llvm.loop !25
+  br i1 %354, label %321, label %._crit_edge465, !llvm.loop !26
 
 ._crit_edge465:                                   ; preds = %321, %310
   %355 = load ptr, ptr %20, align 8
@@ -3132,7 +3132,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %392 = load i32, ptr %308, align 4
   %393 = sext i32 %392 to i64
   %394 = icmp slt i64 %indvars.iv.next540, %393
-  br i1 %394, label %365, label %._crit_edge469, !llvm.loop !26
+  br i1 %394, label %365, label %._crit_edge469, !llvm.loop !27
 
 ._crit_edge469:                                   ; preds = %378, %._crit_edge465
   %395 = load ptr, ptr %20, align 8
@@ -3178,7 +3178,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %416 = load i32, ptr %407, align 8
   %417 = sext i32 %416 to i64
   %418 = icmp slt i64 %indvars.iv.next525, %417
-  br i1 %418, label %411, label %._crit_edge451, !llvm.loop !27
+  br i1 %418, label %411, label %._crit_edge451, !llvm.loop !28
 
 ._crit_edge451:                                   ; preds = %411, %.preheader416
   %419 = load ptr, ptr %20, align 8
@@ -3236,7 +3236,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %459 = add nsw i32 %458, -1
   %460 = sext i32 %459 to i64
   %461 = icmp slt i64 %indvars.iv.next528, %460
-  br i1 %461, label %431, label %._crit_edge455, !llvm.loop !28
+  br i1 %461, label %431, label %._crit_edge455, !llvm.loop !29
 
 ._crit_edge455:                                   ; preds = %431, %._crit_edge451
   %462 = load ptr, ptr %20, align 8
@@ -3275,7 +3275,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %485 = load i32, ptr %405, align 4
   %486 = sext i32 %485 to i64
   %487 = icmp slt i64 %indvars.iv.next531, %486
-  br i1 %487, label %471, label %._crit_edge459, !llvm.loop !29
+  br i1 %487, label %471, label %._crit_edge459, !llvm.loop !30
 
 ._crit_edge459:                                   ; preds = %471, %._crit_edge455
   %488 = load ptr, ptr %20, align 8
@@ -3453,7 +3453,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %614 = fadd float %600, %613
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next.i, %598
-  br i1 %exitcond519.not, label %._crit_edge.loopexit.i, label %599, !llvm.loop !30
+  br i1 %exitcond519.not, label %._crit_edge.loopexit.i, label %599, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %599
   %615 = uitofp i8 %593 to float
@@ -3521,7 +3521,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit:            ; preds = %583, %._crit_edge.i
   %650 = fadd float %636, %649
   %indvars.iv.next.i327 = add nuw nsw i64 %indvars.iv.i325, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next.i327, %634
-  br i1 %exitcond520.not, label %._crit_edge.loopexit.i328, label %635, !llvm.loop !30
+  br i1 %exitcond520.not, label %._crit_edge.loopexit.i328, label %635, !llvm.loop !31
 
 ._crit_edge.loopexit.i328:                        ; preds = %635
   %651 = uitofp i8 %629 to float
@@ -3560,7 +3560,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %666 = load i32, ptr %95, align 8
   %667 = sext i32 %666 to i64
   %668 = icmp slt i64 %indvars.iv.next522, %667
-  br i1 %668, label %573, label %._crit_edge448, !llvm.loop !31
+  br i1 %668, label %573, label %._crit_edge448, !llvm.loop !32
 
 ._crit_edge448:                                   ; preds = %662, %.preheader417
   %669 = load i8, ptr %57, align 8
@@ -3666,7 +3666,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %737 = fadd float %723, %736
   %indvars.iv.next.i340 = add nuw nsw i64 %indvars.iv.i338, 1
   %exitcond510.not = icmp eq i64 %indvars.iv.next.i340, %721
-  br i1 %exitcond510.not, label %._crit_edge.loopexit.i341, label %722, !llvm.loop !30
+  br i1 %exitcond510.not, label %._crit_edge.loopexit.i341, label %722, !llvm.loop !31
 
 ._crit_edge.loopexit.i341:                        ; preds = %722
   %738 = uitofp i8 %716 to float
@@ -3734,7 +3734,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit344:         ; preds = %706, %._crit_edge.i
   %773 = fadd float %759, %772
   %indvars.iv.next.i353 = add nuw nsw i64 %indvars.iv.i351, 1
   %exitcond511.not = icmp eq i64 %indvars.iv.next.i353, %757
-  br i1 %exitcond511.not, label %._crit_edge.loopexit.i354, label %758, !llvm.loop !30
+  br i1 %exitcond511.not, label %._crit_edge.loopexit.i354, label %758, !llvm.loop !31
 
 ._crit_edge.loopexit.i354:                        ; preds = %758
   %774 = uitofp i8 %752 to float
@@ -3773,7 +3773,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %789 = load i32, ptr %90, align 8
   %790 = sext i32 %789 to i64
   %791 = icmp slt i64 %indvars.iv.next513, %790
-  br i1 %791, label %696, label %._crit_edge443, !llvm.loop !32
+  br i1 %791, label %696, label %._crit_edge443, !llvm.loop !33
 
 ._crit_edge443:                                   ; preds = %785, %.preheader418
   %792 = load i8, ptr %57, align 8
@@ -3813,7 +3813,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   call void %815(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %809, i32 noundef -603975616)
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond518.not = icmp eq i64 %indvars.iv.next516, 4
-  br i1 %exitcond518.not, label %816, label %804, !llvm.loop !33
+  br i1 %exitcond518.not, label %816, label %804, !llvm.loop !34
 
 816:                                              ; preds = %804
   %817 = load ptr, ptr %20, align 8
@@ -3893,7 +3893,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %864 = fadd float %850, %863
   %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i364, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i366, %848
-  br i1 %exitcond.not, label %._crit_edge.loopexit.i367, label %849, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.loopexit.i367, label %849, !llvm.loop !31
 
 ._crit_edge.loopexit.i367:                        ; preds = %849
   %865 = uitofp i8 %843 to float
@@ -3961,7 +3961,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit370:         ; preds = %833, %._crit_edge.i
   %900 = fadd float %886, %899
   %indvars.iv.next.i379 = add nuw nsw i64 %indvars.iv.i377, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next.i379, %884
-  br i1 %exitcond505.not, label %._crit_edge.loopexit.i380, label %885, !llvm.loop !30
+  br i1 %exitcond505.not, label %._crit_edge.loopexit.i380, label %885, !llvm.loop !31
 
 ._crit_edge.loopexit.i380:                        ; preds = %885
   %901 = uitofp i8 %879 to float
@@ -4113,7 +4113,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit383:         ; preds = %_ZL13getPolyCenterP
   %1006 = load i32, ptr %16, align 4
   %1007 = sext i32 %1006 to i64
   %1008 = icmp slt i64 %indvars.iv.next, %1007
-  br i1 %1008, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %1008, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %1005, %912
   %1009 = load ptr, ptr %20, align 8
@@ -4128,7 +4128,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit383:         ; preds = %_ZL13getPolyCenterP
   %1015 = load i32, ptr %79, align 8
   %1016 = sext i32 %1015 to i64
   %1017 = icmp slt i64 %indvars.iv.next508, %1016
-  br i1 %1017, label %823, label %._crit_edge440, !llvm.loop !35
+  br i1 %1017, label %823, label %._crit_edge440, !llvm.loop !36
 
 ._crit_edge440:                                   ; preds = %._crit_edge, %.preheader419
   %1018 = load i8, ptr %57, align 8
@@ -4194,7 +4194,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit383:         ; preds = %_ZL13getPolyCenterP
   %1060 = load i32, ptr %1038, align 8
   %1061 = sext i32 %1060 to i64
   %1062 = icmp slt i64 %indvars.iv.next552, %1061
-  br i1 %1062, label %1048, label %._crit_edge483, !llvm.loop !36
+  br i1 %1062, label %1048, label %._crit_edge483, !llvm.loop !37
 
 ._crit_edge483:                                   ; preds = %1048, %1041
   %1063 = load ptr, ptr %20, align 8
@@ -4478,35 +4478,36 @@ attributes #15 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !6}
-!20 = !{!"branch_weights", i32 1, i32 1048575}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !6, !7}
+!21 = !{!"branch_weights", i32 1, i32 1048575}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}

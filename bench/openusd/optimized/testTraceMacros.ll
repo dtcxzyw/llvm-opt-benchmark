@@ -1165,7 +1165,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %405 = xor i64 %404, %379
   %406 = icmp ult i64 %405, 8
   %407 = select i1 %402, i1 %406, i1 false
-  br i1 %407, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
+  br i1 %407, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 .lr.ph.i.i.i.i:                                   ; preds = %389, %400
   %.018.i.i.i.i = phi ptr [ %408, %400 ], [ %390, %389 ]
@@ -1178,10 +1178,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %411 = load i64, ptr %410, align 8
   %412 = urem i64 %411, %384
   %.not17.i.i.i.i = icmp eq i64 %412, %385
-  br i1 %.not17.i.i.i.i, label %400, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !22
+  br i1 %.not17.i.i.i.i, label %400, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !23
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %409
-  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit, !llvm.loop !22
+  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit, !llvm.loop !23
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit: ; preds = %.lr.ph.i.i.i.i, %400, %371, %370, %..loopexit_crit_edge21.i.i.i.i, %389, %377
   %.pre-phi = phi i64 [ %379, %..loopexit_crit_edge21.i.i.i.i ], [ %379, %389 ], [ %379, %377 ], [ %369, %370 ], [ %369, %371 ], [ %379, %400 ], [ %379, %.lr.ph.i.i.i.i ]
@@ -1275,7 +1275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNKSt13unord
   %464 = xor i64 %463, %438
   %465 = icmp ult i64 %464, 8
   %466 = select i1 %461, i1 %465, i1 false
-  br i1 %466, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139, label %.lr.ph.i.i.i.i130, !llvm.loop !22
+  br i1 %466, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139, label %.lr.ph.i.i.i.i130, !llvm.loop !23
 
 .lr.ph.i.i.i.i130:                                ; preds = %448, %459
   %.018.i.i.i.i131 = phi ptr [ %467, %459 ], [ %449, %448 ]
@@ -1288,10 +1288,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNKSt13unord
   %470 = load i64, ptr %469, align 8
   %471 = urem i64 %470, %443
   %.not17.i.i.i.i133 = icmp eq i64 %471, %444
-  br i1 %.not17.i.i.i.i133, label %459, label %..loopexit_crit_edge21.i.i.i.i134, !llvm.loop !22
+  br i1 %.not17.i.i.i.i133, label %459, label %..loopexit_crit_edge21.i.i.i.i134, !llvm.loop !23
 
 ..loopexit_crit_edge21.i.i.i.i134:                ; preds = %468
-  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139, !llvm.loop !22
+  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139, !llvm.loop !23
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139: ; preds = %.lr.ph.i.i.i.i130, %459, %430, %429, %..loopexit_crit_edge21.i.i.i.i134, %448, %436
   %.pre-phi320 = phi i64 [ %438, %..loopexit_crit_edge21.i.i.i.i134 ], [ %438, %448 ], [ %438, %436 ], [ %428, %429 ], [ %428, %430 ], [ %438, %459 ], [ %438, %.lr.ph.i.i.i.i130 ]
@@ -1414,7 +1414,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %504 = ptrtoint ptr %503 to i64
   %505 = xor i64 %504, %499
   %506 = icmp ult i64 %505, 8
-  br i1 %506, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %500, !llvm.loop !23
+  br i1 %506, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %500, !llvm.loop !24
 
 507:                                              ; preds = %493
   %508 = load ptr, ptr %48, align 8
@@ -1452,7 +1452,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %535 = xor i64 %534, %509
   %536 = icmp ult i64 %535, 8
   %537 = select i1 %532, i1 %536, i1 false
-  br i1 %537, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i160, !llvm.loop !24
+  br i1 %537, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i160, !llvm.loop !25
 
 .lr.ph.i.i.i.i160:                                ; preds = %519, %530
   %.018.i.i.i.i161 = phi ptr [ %538, %530 ], [ %520, %519 ]
@@ -1465,10 +1465,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %541 = load i64, ptr %540, align 8
   %542 = urem i64 %541, %514
   %.not17.i.i.i.i163 = icmp eq i64 %542, %515
-  br i1 %.not17.i.i.i.i163, label %530, label %..loopexit_crit_edge21.i.i.i.i164, !llvm.loop !24
+  br i1 %.not17.i.i.i.i163, label %530, label %..loopexit_crit_edge21.i.i.i.i164, !llvm.loop !25
 
 ..loopexit_crit_edge21.i.i.i.i164:                ; preds = %539
-  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, !llvm.loop !24
+  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, !llvm.loop !25
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i160, %530, %501, %500, %..loopexit_crit_edge21.i.i.i.i164, %519, %507
   %.pre-phi321 = phi i64 [ %509, %..loopexit_crit_edge21.i.i.i.i164 ], [ %509, %519 ], [ %509, %507 ], [ %499, %500 ], [ %499, %501 ], [ %509, %530 ], [ %509, %.lr.ph.i.i.i.i160 ]
@@ -1516,7 +1516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   %559 = ptrtoint ptr %558 to i64
   %560 = xor i64 %559, %554
   %561 = icmp ult i64 %560, 8
-  br i1 %561, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, label %555, !llvm.loop !23
+  br i1 %561, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, label %555, !llvm.loop !24
 
 562:                                              ; preds = %549
   %563 = load ptr, ptr %49, align 8
@@ -1554,7 +1554,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   %590 = xor i64 %589, %564
   %591 = icmp ult i64 %590, 8
   %592 = select i1 %587, i1 %591, i1 false
-  br i1 %592, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, label %.lr.ph.i.i.i.i175, !llvm.loop !24
+  br i1 %592, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, label %.lr.ph.i.i.i.i175, !llvm.loop !25
 
 .lr.ph.i.i.i.i175:                                ; preds = %574, %585
   %.018.i.i.i.i176 = phi ptr [ %593, %585 ], [ %575, %574 ]
@@ -1567,10 +1567,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   %596 = load i64, ptr %595, align 8
   %597 = urem i64 %596, %569
   %.not17.i.i.i.i178 = icmp eq i64 %597, %570
-  br i1 %.not17.i.i.i.i178, label %585, label %..loopexit_crit_edge21.i.i.i.i179, !llvm.loop !24
+  br i1 %.not17.i.i.i.i178, label %585, label %..loopexit_crit_edge21.i.i.i.i179, !llvm.loop !25
 
 ..loopexit_crit_edge21.i.i.i.i179:                ; preds = %594
-  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, !llvm.loop !24
+  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, !llvm.loop !25
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184: ; preds = %.lr.ph.i.i.i.i175, %585, %556, %555, %..loopexit_crit_edge21.i.i.i.i179, %574, %562
   %.pre-phi322 = phi i64 [ %564, %..loopexit_crit_edge21.i.i.i.i179 ], [ %564, %574 ], [ %564, %562 ], [ %554, %555 ], [ %554, %556 ], [ %564, %585 ], [ %564, %.lr.ph.i.i.i.i175 ]
@@ -2420,8 +2420,9 @@ attributes #15 = { noreturn nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode8GetChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
 !19 = distinct !{!19, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode8GetChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = distinct !{!25, !21, !22}

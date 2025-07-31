@@ -261,14 +261,14 @@ define internal void @simple_draw(ptr noundef readonly captures(none) %0) #0 {
   %77 = getelementptr i8, ptr %.143, i64 24
   %78 = load i32, ptr %41, align 8
   %79 = icmp ult i32 %76, %78
-  br i1 %79, label %.lr.ph45, label %._crit_edge46, !llvm.loop !9
+  br i1 %79, label %.lr.ph45, label %._crit_edge46, !llvm.loop !10
 
 ._crit_edge46:                                    ; preds = %75, %.lr.ph45, %42
   %80 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.2)
   %81 = add nuw i32 %.03848, 1
   %82 = load i32, ptr %39, align 4
   %83 = icmp ult i32 %81, %82
-  br i1 %83, label %42, label %._crit_edge51, !llvm.loop !10
+  br i1 %83, label %42, label %._crit_edge51, !llvm.loop !11
 
 ._crit_edge51:                                    ; preds = %._crit_edge46, %.lr.ph54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -279,7 +279,7 @@ define internal void @simple_draw(ptr noundef readonly captures(none) %0) #0 {
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next, %89
-  br i1 %90, label %.lr.ph54, label %._crit_edge55, !llvm.loop !11
+  br i1 %90, label %.lr.ph54, label %._crit_edge55, !llvm.loop !12
 
 ._crit_edge55:                                    ; preds = %._crit_edge51, %._crit_edge
   %91 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.3)
@@ -326,8 +326,9 @@ attributes #8 = { allocsize(0) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

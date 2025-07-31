@@ -403,7 +403,7 @@ dissect_ehdlc_xid.exit:                           ; preds = %144, %dissect_ehdlc
   %.1 = add i32 %.pn, %.0124
   %151 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %switch.lookup, label %._crit_edge
+  br i1 %152, label %switch.lookup, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %150, %4
   %153 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -505,4 +505,6 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

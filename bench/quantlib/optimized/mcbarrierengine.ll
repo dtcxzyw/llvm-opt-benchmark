@@ -1024,7 +1024,7 @@ invoke.cont.i.thread:                             ; preds = %_ZNK8QuantLib23Rand
 
 cond.true.i.i.i.i:                                ; preds = %_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSequenceEv.exit
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !60
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, !prof !61
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
@@ -1103,7 +1103,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %39 = load double, ptr %arrayidx.i.i, align 8, !tbaa !54
   %40 = load ptr, ptr %diffProcess_, align 8, !tbaa !42
   %cmp.not.i = icmp eq ptr %40, null
-  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont37, !prof !60
+  br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont37, !prof !61
 
 cond.false.i:                                     ; preds = %for.body
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
@@ -1129,20 +1129,20 @@ invoke.cont41:                                    ; preds = %invoke.cont37
   %add.ptr.i.i137 = getelementptr inbounds nuw double, ptr %45, i64 %i.0356
   %46 = load double, ptr %add.ptr.i.i137, align 8, !tbaa !54
   %div = fdiv double %39, %asset_price.0355
-  %call45 = tail call double @log(double noundef %div) #19, !tbaa !61
+  %call45 = tail call double @log(double noundef %div) #19, !tbaa !62
   %mul46 = fmul double %call42, 2.000000e+00
   %mul47 = fmul double %call42, %mul46
   %mul48 = fmul double %mul47, %46
   %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i253, i64 %i.0356
   %47 = load double, ptr %add.ptr.i, align 8, !tbaa !54
-  %call50 = tail call double @log(double noundef %47) #19, !tbaa !61
+  %call50 = tail call double @log(double noundef %47) #19, !tbaa !62
   %48 = fneg double %call50
   %neg = fmul double %mul48, %48
   %49 = tail call double @llvm.fmuladd.f64(double %call45, double %call45, double %neg)
-  %call52 = tail call double @sqrt(double noundef %49) #19, !tbaa !61
+  %call52 = tail call double @sqrt(double noundef %49) #19, !tbaa !62
   %sub53 = fsub double %call45, %call52
   %mul = fmul double %sub53, 5.000000e-01
-  %call54 = tail call double @exp(double noundef %mul) #19, !tbaa !61
+  %call54 = tail call double @exp(double noundef %mul) #19, !tbaa !62
   %mul55 = fmul double %asset_price.0355, %call54
   %50 = load double, ptr %barrier_, align 8, !tbaa !40
   %cmp56 = fcmp ole double %mul55, %50
@@ -1153,7 +1153,7 @@ invoke.cont41:                                    ; preds = %invoke.cont37
   %52 = select i1 %cmp56, i1 %cmp58, i1 false
   %knockNode.1 = select i1 %52, i64 %add, i64 %knockNode.0354
   %exitcond369.not = icmp eq i64 %add, %sub
-  br i1 %exitcond369.not, label %sw.epilog, label %for.body, !llvm.loop !63
+  br i1 %exitcond369.not, label %sw.epilog, label %for.body, !llvm.loop !64
 
 lpad34.loopexit:                                  ; preds = %invoke.cont37, %cond.false.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1191,7 +1191,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %54 = load double, ptr %arrayidx.i.i139, align 8, !tbaa !54
   %55 = load ptr, ptr %diffProcess_71, align 8, !tbaa !42
   %cmp.not.i140 = icmp eq ptr %55, null
-  br i1 %cmp.not.i140, label %cond.false.i141, label %invoke.cont72, !prof !60
+  br i1 %cmp.not.i140, label %cond.false.i141, label %invoke.cont72, !prof !61
 
 cond.false.i141:                                  ; preds = %for.body67
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
@@ -1217,21 +1217,21 @@ invoke.cont78:                                    ; preds = %invoke.cont72
   %add.ptr.i.i147 = getelementptr inbounds nuw double, ptr %60, i64 %i.1348
   %61 = load double, ptr %add.ptr.i.i147, align 8, !tbaa !54
   %div82 = fdiv double %54, %asset_price.2347
-  %call83 = tail call double @log(double noundef %div82) #19, !tbaa !61
+  %call83 = tail call double @log(double noundef %div82) #19, !tbaa !62
   %mul85 = fmul double %call79, 2.000000e+00
   %mul86 = fmul double %call79, %mul85
   %mul87 = fmul double %mul86, %61
   %add.ptr.i148 = getelementptr inbounds nuw double, ptr %cond.i.i.i.i253, i64 %i.1348
   %62 = load double, ptr %add.ptr.i148, align 8, !tbaa !54
   %sub89 = fsub double 1.000000e+00, %62
-  %call90 = tail call double @log(double noundef %sub89) #19, !tbaa !61
+  %call90 = tail call double @log(double noundef %sub89) #19, !tbaa !62
   %63 = fneg double %call90
   %neg92 = fmul double %mul87, %63
   %64 = tail call double @llvm.fmuladd.f64(double %call83, double %call83, double %neg92)
-  %call93 = tail call double @sqrt(double noundef %64) #19, !tbaa !61
+  %call93 = tail call double @sqrt(double noundef %64) #19, !tbaa !62
   %add94 = fadd double %call83, %call93
   %mul95 = fmul double %add94, 5.000000e-01
-  %call96 = tail call double @exp(double noundef %mul95) #19, !tbaa !61
+  %call96 = tail call double @exp(double noundef %mul95) #19, !tbaa !62
   %mul97 = fmul double %asset_price.2347, %call96
   %65 = load double, ptr %barrier_98, align 8, !tbaa !40
   %cmp99 = fcmp oge double %mul97, %65
@@ -1242,7 +1242,7 @@ invoke.cont78:                                    ; preds = %invoke.cont72
   %67 = select i1 %cmp99, i1 %cmp101, i1 false
   %knockNode.4 = select i1 %67, i64 %add68, i64 %knockNode.3346
   %exitcond368.not = icmp eq i64 %add68, %sub65
-  br i1 %exitcond368.not, label %sw.epilog, label %for.body67, !llvm.loop !64
+  br i1 %exitcond368.not, label %sw.epilog, label %for.body67, !llvm.loop !65
 
 for.body113:                                      ; preds = %for.body113.lr.ph, %invoke.cont124
   %i.2340 = phi i64 [ 0, %for.body113.lr.ph ], [ %add114, %invoke.cont124 ]
@@ -1255,7 +1255,7 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   %69 = load double, ptr %arrayidx.i.i150, align 8, !tbaa !54
   %70 = load ptr, ptr %diffProcess_117, align 8, !tbaa !42
   %cmp.not.i151 = icmp eq ptr %70, null
-  br i1 %cmp.not.i151, label %cond.false.i152, label %invoke.cont118, !prof !60
+  br i1 %cmp.not.i151, label %cond.false.i152, label %invoke.cont118, !prof !61
 
 cond.false.i152:                                  ; preds = %for.body113
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
@@ -1281,20 +1281,20 @@ invoke.cont124:                                   ; preds = %invoke.cont118
   %add.ptr.i.i158 = getelementptr inbounds nuw double, ptr %75, i64 %i.2340
   %76 = load double, ptr %add.ptr.i.i158, align 8, !tbaa !54
   %div128 = fdiv double %69, %asset_price.3339
-  %call129 = tail call double @log(double noundef %div128) #19, !tbaa !61
+  %call129 = tail call double @log(double noundef %div128) #19, !tbaa !62
   %mul131 = fmul double %call125, 2.000000e+00
   %mul132 = fmul double %call125, %mul131
   %mul133 = fmul double %mul132, %76
   %add.ptr.i159 = getelementptr inbounds nuw double, ptr %cond.i.i.i.i253, i64 %i.2340
   %77 = load double, ptr %add.ptr.i159, align 8, !tbaa !54
-  %call135 = tail call double @log(double noundef %77) #19, !tbaa !61
+  %call135 = tail call double @log(double noundef %77) #19, !tbaa !62
   %78 = fneg double %call135
   %neg137 = fmul double %mul133, %78
   %79 = tail call double @llvm.fmuladd.f64(double %call129, double %call129, double %neg137)
-  %call138 = tail call double @sqrt(double noundef %79) #19, !tbaa !61
+  %call138 = tail call double @sqrt(double noundef %79) #19, !tbaa !62
   %sub139 = fsub double %call129, %call138
   %mul140 = fmul double %sub139, 5.000000e-01
-  %call141 = tail call double @exp(double noundef %mul140) #19, !tbaa !61
+  %call141 = tail call double @exp(double noundef %mul140) #19, !tbaa !62
   %mul142 = fmul double %asset_price.3339, %call141
   %80 = load double, ptr %barrier_143, align 8, !tbaa !40
   %cmp144 = fcmp ugt double %mul142, %80
@@ -1305,7 +1305,7 @@ invoke.cont124:                                   ; preds = %invoke.cont118
   %isOptionActive.6 = select i1 %cmp144, i1 %isOptionActive.5337, i1 false
   %knockNode.6 = select i1 %cmp144, i64 %knockNode.5338, i64 %spec.select115
   %exitcond367.not = icmp eq i64 %add114, %sub111
-  br i1 %exitcond367.not, label %sw.epilog, label %for.body113, !llvm.loop !65
+  br i1 %exitcond367.not, label %sw.epilog, label %for.body113, !llvm.loop !66
 
 for.body158:                                      ; preds = %for.body158.lr.ph, %invoke.cont169
   %i.3333 = phi i64 [ 0, %for.body158.lr.ph ], [ %add159, %invoke.cont169 ]
@@ -1318,7 +1318,7 @@ for.body158:                                      ; preds = %for.body158.lr.ph, 
   %83 = load double, ptr %arrayidx.i.i161, align 8, !tbaa !54
   %84 = load ptr, ptr %diffProcess_162, align 8, !tbaa !42
   %cmp.not.i162 = icmp eq ptr %84, null
-  br i1 %cmp.not.i162, label %cond.false.i163, label %invoke.cont163, !prof !60
+  br i1 %cmp.not.i162, label %cond.false.i163, label %invoke.cont163, !prof !61
 
 cond.false.i163:                                  ; preds = %for.body158
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv, ptr noundef nonnull @.str.15, i64 noundef 784)
@@ -1344,21 +1344,21 @@ invoke.cont169:                                   ; preds = %invoke.cont163
   %add.ptr.i.i169 = getelementptr inbounds nuw double, ptr %89, i64 %i.3333
   %90 = load double, ptr %add.ptr.i.i169, align 8, !tbaa !54
   %div173 = fdiv double %83, %asset_price.4332
-  %call174 = tail call double @log(double noundef %div173) #19, !tbaa !61
+  %call174 = tail call double @log(double noundef %div173) #19, !tbaa !62
   %mul176 = fmul double %call170, 2.000000e+00
   %mul177 = fmul double %call170, %mul176
   %mul178 = fmul double %mul177, %90
   %add.ptr.i170 = getelementptr inbounds nuw double, ptr %cond.i.i.i.i253, i64 %i.3333
   %91 = load double, ptr %add.ptr.i170, align 8, !tbaa !54
   %sub180 = fsub double 1.000000e+00, %91
-  %call181 = tail call double @log(double noundef %sub180) #19, !tbaa !61
+  %call181 = tail call double @log(double noundef %sub180) #19, !tbaa !62
   %92 = fneg double %call181
   %neg183 = fmul double %mul178, %92
   %93 = tail call double @llvm.fmuladd.f64(double %call174, double %call174, double %neg183)
-  %call184 = tail call double @sqrt(double noundef %93) #19, !tbaa !61
+  %call184 = tail call double @sqrt(double noundef %93) #19, !tbaa !62
   %add185 = fadd double %call174, %call184
   %mul186 = fmul double %add185, 5.000000e-01
-  %call187 = tail call double @exp(double noundef %mul186) #19, !tbaa !61
+  %call187 = tail call double @exp(double noundef %mul186) #19, !tbaa !62
   %mul188 = fmul double %asset_price.4332, %call187
   %94 = load double, ptr %barrier_189, align 8, !tbaa !40
   %cmp190 = fcmp ult double %mul188, %94
@@ -1369,7 +1369,7 @@ invoke.cont169:                                   ; preds = %invoke.cont163
   %isOptionActive.8 = select i1 %cmp190, i1 %isOptionActive.7330, i1 false
   %knockNode.8 = select i1 %cmp190, i64 %knockNode.7331, i64 %spec.select116
   %exitcond.not = icmp eq i64 %add159, %sub156
-  br i1 %exitcond.not, label %sw.epilog, label %for.body158, !llvm.loop !66
+  br i1 %exitcond.not, label %sw.epilog, label %for.body158, !llvm.loop !67
 
 do.body200:                                       ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream201) #19
@@ -1823,11 +1823,11 @@ invoke.cont:
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %barrierType_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %barrierType, ptr %barrierType_, align 8, !tbaa !67
+  store i32 %barrierType, ptr %barrierType_, align 8, !tbaa !68
   %barrier_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store double %barrier, ptr %barrier_, align 8, !tbaa !69
+  store double %barrier, ptr %barrier_, align 8, !tbaa !70
   %rebate_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store double %rebate, ptr %rebate_, align 8, !tbaa !70
+  store double %rebate, ptr %rebate_, align 8, !tbaa !71
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !50
@@ -2415,7 +2415,7 @@ do.end:                                           ; preds = %init.end
   %values_.i = getelementptr inbounds nuw i8, ptr %path, i64 72
   %26 = load ptr, ptr %values_.i, align 8, !tbaa !53
   %barrierType_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %27 = load i32, ptr %barrierType_, align 8, !tbaa !67
+  %27 = load i32, ptr %barrierType_, align 8, !tbaa !68
   switch i32 %27, label %do.body84 [
     i32 0, label %for.body.lr.ph
     i32 1, label %for.body42.lr.ph
@@ -2425,22 +2425,22 @@ do.end:                                           ; preds = %init.end
 
 for.body72.lr.ph:                                 ; preds = %do.end
   %barrier_74 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %28 = load double, ptr %barrier_74, align 8, !tbaa !69
+  %28 = load double, ptr %barrier_74, align 8, !tbaa !70
   br label %for.body72
 
 for.body57.lr.ph:                                 ; preds = %do.end
   %barrier_59 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %29 = load double, ptr %barrier_59, align 8, !tbaa !69
+  %29 = load double, ptr %barrier_59, align 8, !tbaa !70
   br label %for.body57
 
 for.body42.lr.ph:                                 ; preds = %do.end
   %barrier_44 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %30 = load double, ptr %barrier_44, align 8, !tbaa !69
+  %30 = load double, ptr %barrier_44, align 8, !tbaa !70
   br label %for.body42
 
 for.body.lr.ph:                                   ; preds = %do.end
   %barrier_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %31 = load double, ptr %barrier_, align 8, !tbaa !69
+  %31 = load double, ptr %barrier_, align 8, !tbaa !70
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2456,7 +2456,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %knockNode.1 = select i1 %33, i64 %i.0204, i64 %knockNode.0203
   %inc = add nuw i64 %i.0204, 1
   %exitcond216.not = icmp eq i64 %inc, %sub.ptr.div.i.i.i
-  br i1 %exitcond216.not, label %sw.epilog, label %for.body, !llvm.loop !71
+  br i1 %exitcond216.not, label %sw.epilog, label %for.body, !llvm.loop !72
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.body42
   %i.1197 = phi i64 [ 1, %for.body42.lr.ph ], [ %inc52, %for.body42 ]
@@ -2471,7 +2471,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %knockNode.4 = select i1 %35, i64 %i.1197, i64 %knockNode.3196
   %inc52 = add nuw i64 %i.1197, 1
   %exitcond215.not = icmp eq i64 %inc52, %sub.ptr.div.i.i.i
-  br i1 %exitcond215.not, label %sw.epilog, label %for.body42, !llvm.loop !72
+  br i1 %exitcond215.not, label %sw.epilog, label %for.body42, !llvm.loop !73
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.body57
   %i.2190 = phi i64 [ 1, %for.body57.lr.ph ], [ %inc67, %for.body57 ]
@@ -2486,7 +2486,7 @@ for.body57:                                       ; preds = %for.body57.lr.ph, %
   %knockNode.6 = select i1 %cmp60, i64 %knockNode.5189, i64 %spec.select50
   %inc67 = add nuw i64 %i.2190, 1
   %exitcond214.not = icmp eq i64 %inc67, %sub.ptr.div.i.i.i
-  br i1 %exitcond214.not, label %sw.epilog, label %for.body57, !llvm.loop !73
+  br i1 %exitcond214.not, label %sw.epilog, label %for.body57, !llvm.loop !74
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.body72
   %i.3184 = phi i64 [ 1, %for.body72.lr.ph ], [ %inc82, %for.body72 ]
@@ -2501,7 +2501,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %knockNode.8 = select i1 %cmp75, i64 %knockNode.7183, i64 %spec.select51
   %inc82 = add nuw i64 %i.3184, 1
   %exitcond.not = icmp eq i64 %inc82, %sub.ptr.div.i.i.i
-  br i1 %exitcond.not, label %sw.epilog, label %for.body72, !llvm.loop !74
+  br i1 %exitcond.not, label %sw.epilog, label %for.body72, !llvm.loop !75
 
 do.body84:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream85) #19
@@ -2678,7 +2678,7 @@ if.then122:                                       ; preds = %sw.epilog
 if.else:                                          ; preds = %sw.epilog
   %switch = icmp ult i32 %27, 2
   %rebate_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %61 = load double, ptr %rebate_, align 8, !tbaa !70
+  %61 = load double, ptr %rebate_, align 8, !tbaa !71
   br i1 %switch, label %sw.bb126, label %sw.bb130
 
 sw.bb126:                                         ; preds = %if.else
@@ -3060,20 +3060,21 @@ attributes #23 = { builtin allocsize(0) }
 !55 = !{!24, !22, i64 5032}
 !56 = !{!24, !9, i64 0}
 !57 = !{!25, !9, i64 4992}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"int", !6, i64 0}
-!63 = distinct !{!63, !59}
-!64 = distinct !{!64, !59}
-!65 = distinct !{!65, !59}
-!66 = distinct !{!66, !59}
-!67 = !{!68, !21, i64 8}
-!68 = !{!"_ZTSN8QuantLib23BiasedBarrierPathPricerE", !20, i64 0, !21, i64 8, !22, i64 16, !22, i64 24, !35, i64 32, !27, i64 56}
-!69 = !{!68, !22, i64 16}
-!70 = !{!68, !22, i64 24}
-!71 = distinct !{!71, !59}
-!72 = distinct !{!72, !59}
-!73 = distinct !{!73, !59}
-!74 = distinct !{!74, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"int", !6, i64 0}
+!64 = distinct !{!64, !59, !60}
+!65 = distinct !{!65, !59, !60}
+!66 = distinct !{!66, !59, !60}
+!67 = distinct !{!67, !59, !60}
+!68 = !{!69, !21, i64 8}
+!69 = !{!"_ZTSN8QuantLib23BiasedBarrierPathPricerE", !20, i64 0, !21, i64 8, !22, i64 16, !22, i64 24, !35, i64 32, !27, i64 56}
+!70 = !{!69, !22, i64 16}
+!71 = !{!69, !22, i64 24}
+!72 = distinct !{!72, !59, !60}
+!73 = distinct !{!73, !59, !60}
+!74 = distinct !{!74, !59, !60}
+!75 = distinct !{!75, !59, !60}

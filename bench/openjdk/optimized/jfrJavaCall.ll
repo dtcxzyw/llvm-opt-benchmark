@@ -28,7 +28,7 @@ define hidden void @_ZN16JfrJavaArguments10ParametersC2Ev(ptr noundef nonnull wr
   store i8 99, ptr %.ptr, align 8
   %.add = add nuw nsw i64 %.idx, 16
   %3 = icmp eq i64 %.add, 256
-  br i1 %3, label %4, label %2
+  br i1 %3, label %4, label %2, !llvm.loop !6
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -509,7 +509,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit22:            ; preds = %108, %_ZN10HandleAr
   %150 = load i32, ptr %36, align 8
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next, %151
-  br i1 %152, label %43, label %._crit_edge, !llvm.loop !6
+  br i1 %152, label %43, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %149, %35
   ret void
@@ -528,7 +528,7 @@ define hidden void @_ZN16JfrJavaArgumentsC2EP9JavaValue(ptr noundef nonnull writ
   store i8 99, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 16
   %4 = icmp eq i64 %.add.i, 256
-  br i1 %4, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %3
+  br i1 %4, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %3, !llvm.loop !6
 
 _ZN16JfrJavaArguments10ParametersC2Ev.exit:       ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -555,7 +555,7 @@ define hidden void @_ZN16JfrJavaArgumentsC2EP9JavaValuePKcS3_S3_P10JavaThread(pt
   store i8 99, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 16
   %8 = icmp eq i64 %.add.i, 256
-  br i1 %8, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %7
+  br i1 %8, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %7, !llvm.loop !6
 
 _ZN16JfrJavaArguments10ParametersC2Ev.exit:       ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -666,7 +666,7 @@ define hidden void @_ZN16JfrJavaArgumentsC2EP9JavaValuePK5KlassPK6SymbolS7_(ptr 
   store i8 99, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 16
   %7 = icmp eq i64 %.add.i, 256
-  br i1 %7, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %6
+  br i1 %7, label %_ZN16JfrJavaArguments10ParametersC2Ev.exit, label %6, !llvm.loop !6
 
 _ZN16JfrJavaArguments10ParametersC2Ev.exit:       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1321,4 +1321,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}

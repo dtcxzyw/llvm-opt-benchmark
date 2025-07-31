@@ -769,7 +769,7 @@ _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13Her
   %45 = load i64, ptr %arrayidx.i.i58, align 8
   %conv.i.i68 = trunc i64 %45 to i32
   %cmp = icmp ult i32 %inc, %conv.i.i68
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, %if.end74
   %46 = load i64, ptr %arrayidx.i.i, align 8
@@ -885,6 +885,7 @@ attributes #5 = { nounwind }
 !12 = distinct !{!12, !"_ZSt22__uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_St26random_access_iterator_tag"}
 !13 = distinct !{!13, !14, !"_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_: %agg.result"}
 !14 = distinct !{!14, !"_ZSt20uninitialized_copy_nISt16reverse_iteratorIPN6hermes2vm17PinnedHermesValueEEjS5_ET1_T_T0_S6_"}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

@@ -359,26 +359,26 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit17: ; preds = 
   br i1 %69, label %70, label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
 70:                                               ; preds = %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit17
-  %.sroa.067.0.copyload.i = load double, ptr %2, align 8, !noalias !21
+  %.sroa.067.0.copyload.i = load double, ptr %2, align 8, !noalias !22
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !21
+  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !22
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !21
+  %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !22
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.9.0.copyload.i = load double, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !21
+  %.sroa.9.0.copyload.i = load double, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !22
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sroa.11.0.copyload.i = load double, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !21
+  %.sroa.11.0.copyload.i = load double, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !22
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.sroa.13.0.copyload.i = load double, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !21
+  %.sroa.13.0.copyload.i = load double, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !22
   %71 = fsub double %.sroa.067.0.copyload.i, %.sroa.7.0.copyload.i
   %72 = fsub double %.sroa.5.0.copyload.i, %.sroa.9.0.copyload.i
   %73 = fadd double %71, %.sroa.11.0.copyload.i
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %75 = load double, ptr %74, align 8, !tbaa !16, !noalias !21
+  %75 = load double, ptr %74, align 8, !tbaa !16, !noalias !22
   %76 = fadd double %72, %75
   %77 = fsub double %73, %.sroa.13.0.copyload.i
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %79 = load double, ptr %78, align 8, !tbaa !16, !noalias !21
+  %79 = load double, ptr %78, align 8, !tbaa !16, !noalias !22
   %80 = fsub double %76, %79
   %81 = fcmp oeq double %77, 0.000000e+00
   %82 = fcmp oeq double %80, 0.000000e+00
@@ -424,26 +424,26 @@ _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdE
   %.sink73.i = phi double [ %107, %89 ], [ %86, %84 ]
   %.sink72.i = phi double [ %111, %89 ], [ %88, %84 ]
   %.sink.i = phi double [ %103, %89 ], [ 0.000000e+00, %84 ]
-  %.sroa.067.0.copyload.i18 = load double, ptr %1, align 8, !noalias !24
+  %.sroa.067.0.copyload.i18 = load double, ptr %1, align 8, !noalias !25
   %.sroa.5.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload.i20 = load double, ptr %.sroa.5.0..sroa_idx.i19, align 8, !noalias !24
+  %.sroa.5.0.copyload.i20 = load double, ptr %.sroa.5.0..sroa_idx.i19, align 8, !noalias !25
   %.sroa.7.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.7.0.copyload.i22 = load double, ptr %.sroa.7.0..sroa_idx.i21, align 8, !noalias !24
+  %.sroa.7.0.copyload.i22 = load double, ptr %.sroa.7.0..sroa_idx.i21, align 8, !noalias !25
   %.sroa.9.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.9.0.copyload.i24 = load double, ptr %.sroa.9.0..sroa_idx.i23, align 8, !noalias !24
+  %.sroa.9.0.copyload.i24 = load double, ptr %.sroa.9.0..sroa_idx.i23, align 8, !noalias !25
   %.sroa.11.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.11.0.copyload.i26 = load double, ptr %.sroa.11.0..sroa_idx.i25, align 8, !noalias !24
+  %.sroa.11.0.copyload.i26 = load double, ptr %.sroa.11.0..sroa_idx.i25, align 8, !noalias !25
   %.sroa.13.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.13.0.copyload.i28 = load double, ptr %.sroa.13.0..sroa_idx.i27, align 8, !noalias !24
+  %.sroa.13.0.copyload.i28 = load double, ptr %.sroa.13.0..sroa_idx.i27, align 8, !noalias !25
   %112 = fsub double %.sroa.067.0.copyload.i18, %.sroa.7.0.copyload.i22
   %113 = fsub double %.sroa.5.0.copyload.i20, %.sroa.9.0.copyload.i24
   %114 = fadd double %112, %.sroa.11.0.copyload.i26
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %116 = load double, ptr %115, align 8, !tbaa !16, !noalias !24
+  %116 = load double, ptr %115, align 8, !tbaa !16, !noalias !25
   %117 = fadd double %113, %116
   %118 = fsub double %114, %.sroa.13.0.copyload.i28
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %120 = load double, ptr %119, align 8, !tbaa !16, !noalias !24
+  %120 = load double, ptr %119, align 8, !tbaa !16, !noalias !25
   %121 = fsub double %117, %120
   %122 = fcmp oeq double %118, 0.000000e+00
   %123 = fcmp oeq double %121, 0.000000e+00
@@ -538,22 +538,22 @@ _ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdE
   %199 = fmul double %.sink.i, %166
   %200 = tail call double @llvm.fmuladd.f64(double %.sink75.i, double %160, double %199)
   %201 = fadd double %174, %200
-  store double %177, ptr %0, align 8, !tbaa !27
+  store double %177, ptr %0, align 8, !tbaa !28
   %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %186, ptr %.sroa.455.0..sroa_idx, align 8, !tbaa !27
+  store double %186, ptr %.sroa.455.0..sroa_idx, align 8, !tbaa !28
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %195, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
+  store double %195, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !28
   %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %180, ptr %.sroa.656.0..sroa_idx, align 8, !tbaa !27
+  store double %180, ptr %.sroa.656.0..sroa_idx, align 8, !tbaa !28
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %189, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !27
+  store double %189, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !28
   %.sroa.857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %198, ptr %.sroa.857.0..sroa_idx, align 8, !tbaa !27
+  store double %198, ptr %.sroa.857.0..sroa_idx, align 8, !tbaa !28
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %183, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !27
+  store double %183, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !28
   %.sroa.1058.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %192, ptr %.sroa.1058.0..sroa_idx, align 8, !tbaa !27
-  store double %201, ptr %4, align 8, !tbaa !27
+  store double %192, ptr %.sroa.1058.0..sroa_idx, align 8, !tbaa !28
+  store double %201, ptr %4, align 8, !tbaa !28
   br label %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread
 
 _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit.thread: ; preds = %33, %65, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit17, %_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE.exit35
@@ -625,12 +625,13 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !16 = !{!17, !5, i64 8}
 !17 = !{!"_ZTSN5ZXing6PointTIdEE", !5, i64 0, !5, i64 8}
 !18 = !{!17, !5, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE: argument 0"}
-!23 = distinct !{!23, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE: argument 0"}
-!26 = distinct !{!26, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE"}
-!27 = !{!5, !5, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE: argument 0"}
+!24 = distinct !{!24, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE: argument 0"}
+!27 = distinct !{!27, !"_ZN5ZXing20PerspectiveTransform12UnitSquareToERKNS_13QuadrilateralINS_6PointTIdEEEE"}
+!28 = !{!5, !5, i64 0}

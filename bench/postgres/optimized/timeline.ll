@@ -65,7 +65,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %.092, i64 1
   %19 = load i8, ptr %18, align 1
   %.not68 = icmp eq i8 %19, 0
-  br i1 %.not68, label %.thread, label %20, !llvm.loop !6
+  br i1 %.not68, label %.thread, label %20, !llvm.loop !7
 
 20:                                               ; preds = %.lr.ph, %17
   %21 = phi i8 [ %14, %.lr.ph ], [ %19, %17 ]
@@ -144,7 +144,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  br i1 %.1, label %52, label %7
+  br i1 %.1, label %52, label %7, !llvm.loop !8
 
 52:                                               ; preds = %.thread
   %.not = icmp eq ptr %.158, null
@@ -222,6 +222,8 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !6}

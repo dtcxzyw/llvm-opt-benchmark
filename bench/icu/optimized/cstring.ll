@@ -85,7 +85,7 @@ define noundef ptr @T_CString_toUpperCase_77(ptr noundef returned captures(addre
   store i8 %spec.select.i, ptr %.0, align 1, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not7 = icmp eq i8 %spec.select.i, 0
-  br i1 %.not7, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not7, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret ptr %0
@@ -127,7 +127,7 @@ define i32 @T_CString_integerToString_77(ptr noundef %0, i32 noundef %1, i32 nou
   store i8 %18, ptr %19, align 1, !tbaa !3
   %20 = udiv i32 %.1, %2
   %.not = icmp ugt i32 %2, %.1
-  br i1 %.not, label %21, label %11, !llvm.loop !9
+  br i1 %.not, label %21, label %11, !llvm.loop !10
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
@@ -182,7 +182,7 @@ define i32 @T_CString_int64ToString_77(ptr noundef %0, i64 noundef %1, i32 nound
   store i8 %20, ptr %21, align 1, !tbaa !3
   %22 = udiv i64 %.1, %11
   %.not = icmp ult i64 %.1, %11
-  br i1 %.not, label %23, label %12, !llvm.loop !10
+  br i1 %.not, label %23, label %12, !llvm.loop !11
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
@@ -264,7 +264,7 @@ define range(i32 -254, 255) i32 @uprv_stricmp_77(ptr noundef readonly captures(a
   %26 = load i8, ptr %24, align 1, !tbaa !3
   %27 = load i8, ptr %25, align 1, !tbaa !3
   %28 = icmp eq i8 %26, 0
-  br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %._crit_edge, %6, %4
   %.0 = phi i32 [ %., %4 ], [ 1, %6 ], [ %.19, %._crit_edge ], [ %22, %15 ], [ 1, %.lr.ph ]
@@ -327,7 +327,7 @@ define range(i32 -254, 255) i32 @uprv_strnicmp_77(ptr noundef readonly captures(
   %26 = getelementptr inbounds nuw i8, ptr %.01729, i64 1
   %27 = getelementptr inbounds nuw i8, ptr %.01828, i64 1
   %.not.not = icmp eq i32 %9, 0
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %17, %15, %.preheader, %13, %7, %5
   %.016 = phi i32 [ %., %5 ], [ 1, %7 ], [ %.24, %13 ], [ 0, %.preheader ], [ 0, %25 ], [ %24, %17 ], [ 1, %15 ]
@@ -418,10 +418,11 @@ attributes #14 = { allocsize(0) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

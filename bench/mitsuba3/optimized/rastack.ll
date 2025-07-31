@@ -250,7 +250,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %114 = load i32, ptr %113, align 4, !tbaa !22
   %115 = icmp ugt i32 %112, %114
-  br i1 %115, label %104, label %split, !llvm.loop !30
+  br i1 %115, label %104, label %split, !llvm.loop !31
 
 split:                                            ; preds = %107, %._crit_edge
   %116 = phi ptr [ %.pre, %._crit_edge ], [ %109, %107 ]
@@ -262,7 +262,7 @@ split:                                            ; preds = %107, %._crit_edge
   %120 = load ptr, ptr %103, align 8, !tbaa !27
   store ptr %116, ptr %103, align 8, !tbaa !27
   store ptr %120, ptr %117, align 8, !tbaa !27
-  br label %87, !llvm.loop !31
+  br label %87, !llvm.loop !32
 
 121:                                              ; preds = %split
   %122 = load ptr, ptr %44, align 8, !tbaa !27
@@ -322,13 +322,13 @@ split:                                            ; preds = %107, %._crit_edge
 .loopexit33:                                      ; preds = %157, %148, %141
   %155 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %156 = icmp ult ptr %155, %45
-  br i1 %156, label %141, label %.loopexit34, !llvm.loop !32
+  br i1 %156, label %141, label %.loopexit34, !llvm.loop !33
 
 157:                                              ; preds = %148
   store ptr %145, ptr %150, align 8, !tbaa !27
   store ptr %151, ptr %149, align 8, !tbaa !27
   %158 = icmp ugt ptr %150, %44
-  br i1 %158, label %148, label %.loopexit33, !llvm.loop !33
+  br i1 %158, label %148, label %.loopexit33, !llvm.loop !34
 
 .loopexit34:                                      ; preds = %.loopexit33, %136
   %159 = icmp eq ptr %46, %2
@@ -345,7 +345,7 @@ split:                                            ; preds = %107, %._crit_edge
   %.be = phi ptr [ %132, %129 ], [ %164, %160 ]
   %.be89 = phi ptr [ %133, %129 ], [ %162, %160 ]
   %.be90 = phi ptr [ %135, %129 ], [ %163, %160 ]
-  br label %43, !llvm.loop !34
+  br label %43, !llvm.loop !35
 
 165:                                              ; preds = %.loopexit34
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #6
@@ -425,7 +425,7 @@ split:                                            ; preds = %107, %._crit_edge
   store i32 %219, ptr %220, align 4, !tbaa !22
   %221 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %222 = icmp eq ptr %221, %9
-  br i1 %222, label %.loopexit36, label %.preheader35
+  br i1 %222, label %.loopexit36, label %.preheader35, !llvm.loop !36
 
 .preheader32:                                     ; preds = %165, %313
   %223 = phi i32 [ %314, %313 ], [ 0, %165 ]
@@ -451,7 +451,7 @@ split:                                            ; preds = %107, %._crit_edge
   br i1 %240, label %241, label %.loopexit31
 
 241:                                              ; preds = %230
-  %242 = call noundef i32 @llvm.cttz.i32(i32 %239, i1 true), !range !35
+  %242 = call noundef i32 @llvm.cttz.i32(i32 %239, i1 true), !range !37
   %243 = zext nneg i32 %242 to i64
   br label %244
 
@@ -466,7 +466,7 @@ split:                                            ; preds = %107, %._crit_edge
 250:                                              ; preds = %244
   %251 = add nuw nsw i64 %245, 1
   %252 = icmp eq i64 %251, 6
-  br i1 %252, label %.loopexit31, label %244, !llvm.loop !36
+  br i1 %252, label %.loopexit31, label %244, !llvm.loop !38
 
 .loopexit31:                                      ; preds = %250, %230
   %253 = icmp eq i32 %223, %237
@@ -477,13 +477,13 @@ split:                                            ; preds = %107, %._crit_edge
 256:                                              ; preds = %244
   %257 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %258 = add i32 %248, -1
-  store i32 %258, ptr %257, align 8, !tbaa !9, !noalias !37
-  %259 = load ptr, ptr %246, align 8, !tbaa !26, !noalias !37
+  store i32 %258, ptr %257, align 8, !tbaa !9, !noalias !39
+  %259 = load ptr, ptr %246, align 8, !tbaa !26, !noalias !39
   %260 = zext i32 %258 to i64
   %261 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RAStackGap", ptr %259, i64 %260
-  %262 = load i32, ptr %261, align 4, !tbaa !40, !noalias !37
+  %262 = load i32, ptr %261, align 4, !tbaa !42, !noalias !39
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 4
-  %264 = load i32, ptr %263, align 4, !tbaa !42, !noalias !37
+  %264 = load i32, ptr %263, align 4, !tbaa !44, !noalias !39
   %265 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i32 %262, ptr %265, align 4, !tbaa !23
   %266 = sub i32 %264, %239
@@ -505,7 +505,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 .preheader:                                       ; preds = %274, %296
   %277 = phi i32 [ %307, %296 ], [ %270, %274 ]
-  %278 = call noundef i32 @llvm.cttz.i32(i32 %277, i1 true), !range !35
+  %278 = call noundef i32 @llvm.cttz.i32(i32 %277, i1 true), !range !37
   %279 = shl nuw i32 1, %278
   %280 = sub i32 %275, %277
   %281 = icmp ult i32 %280, %279
@@ -546,7 +546,7 @@ split:                                            ; preds = %107, %._crit_edge
   store i32 %306, ptr %285, align 8, !tbaa !9
   %307 = add i32 %279, %277
   %308 = icmp ult i32 %307, %275
-  br i1 %308, label %.preheader, label %.loopexit
+  br i1 %308, label %.preheader, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %296, %.preheader, %274, %268
   br i1 %271, label %313, label %309
@@ -562,7 +562,7 @@ split:                                            ; preds = %107, %._crit_edge
   %314 = phi i32 [ %312, %309 ], [ %272, %.loopexit ], [ %223, %.preheader32 ]
   %315 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %316 = icmp eq ptr %315, %169
-  br i1 %316, label %317, label %.preheader32
+  br i1 %316, label %317, label %.preheader32, !llvm.loop !46
 
 317:                                              ; preds = %313
   %318 = add i32 %314, -1
@@ -576,7 +576,7 @@ split:                                            ; preds = %107, %._crit_edge
   %324 = sub i32 0, %322
   %325 = and i32 %323, %324
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %325, ptr %326, align 4, !tbaa !43
+  store i32 %325, ptr %326, align 4, !tbaa !47
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %290, %319
@@ -624,7 +624,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator17adjustSlotOff
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %28 = add nuw nsw i64 %16, 1
   %29 = icmp eq i64 %28, %13
-  br i1 %29, label %.loopexit3, label %.preheader2, !llvm.loop !44
+  br i1 %29, label %.loopexit3, label %.preheader2, !llvm.loop !48
 
 .loopexit3:                                       ; preds = %26, %10
   %30 = phi ptr [ %4, %10 ], [ %27, %26 ]
@@ -701,7 +701,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator17adjustSlotOff
 75:                                               ; preds = %71, %64
   %76 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %77 = icmp eq ptr %76, %8
-  br i1 %77, label %.loopexit, label %.preheader
+  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !50
 }
 
 ; Function Attrs: nounwind
@@ -763,21 +763,26 @@ attributes #6 = { nounwind }
 !25 = !{!11, !8, i64 16}
 !26 = !{!4, !5, i64 0}
 !27 = !{!5, !5, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = distinct !{!32, !29}
-!33 = distinct !{!33, !29}
-!34 = distinct !{!34, !29}
-!35 = !{i32 0, i32 33}
-!36 = distinct !{!36, !29}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv: argument 0"}
-!39 = distinct !{!39, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv"}
-!40 = !{!41, !8, i64 0}
-!41 = !{!"_ZTSN6asmjit9_abi_1_1010RAStackGapE", !8, i64 0, !8, i64 4}
-!42 = !{!41, !8, i64 4}
-!43 = !{!11, !8, i64 12}
-!44 = distinct !{!44, !45}
-!45 = !{!"llvm.loop.unroll.disable"}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}
+!33 = distinct !{!33, !29, !30}
+!34 = distinct !{!34, !29, !30}
+!35 = distinct !{!35, !29, !30}
+!36 = distinct !{!36, !30}
+!37 = !{i32 0, i32 33}
+!38 = distinct !{!38, !29, !30}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv: argument 0"}
+!41 = distinct !{!41, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv"}
+!42 = !{!43, !8, i64 0}
+!43 = !{!"_ZTSN6asmjit9_abi_1_1010RAStackGapE", !8, i64 0, !8, i64 4}
+!44 = !{!43, !8, i64 4}
+!45 = distinct !{!45, !30}
+!46 = distinct !{!46, !30}
+!47 = !{!11, !8, i64 12}
+!48 = distinct !{!48, !49, !30}
+!49 = !{!"llvm.loop.unroll.disable"}
+!50 = distinct !{!50, !30}

@@ -367,7 +367,7 @@ nstrace_set_start_time.exit.thread129:            ; preds = %123
   %146 = zext i16 %143 to i32
   %147 = add i32 %.14880.i.i, %146
   %148 = icmp ult i32 %147, %.051.i.i
-  br i1 %148, label %116, label %._crit_edge.i.i, !llvm.loop !8
+  br i1 %148, label %116, label %._crit_edge.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %145, %120, %114
   %149 = zext i32 %.051.i.i to i64
@@ -408,7 +408,7 @@ nstrace_set_start_time.exit.thread.thread:        ; preds = %165
 nstrace_read_page.exit.i.i:                       ; preds = %165
   %167 = getelementptr inbounds nuw i8, ptr %155, i64 28
   store i32 %160, ptr %167, align 4
-  br label %114, !llvm.loop !9
+  br label %114, !llvm.loop !10
 
 168:                                              ; preds = %103
   %169 = tail call fastcc zeroext i1 @nstrace_set_start_time_v20(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2)
@@ -910,7 +910,7 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
   %209 = sub i32 %.0179, %207
   %210 = icmp ugt i32 %209, 1
   %211 = and i1 %208, %210
-  br i1 %211, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %211, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %205, %20
   %212 = zext i32 %.0179 to i64
@@ -951,7 +951,7 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
 nstrace_read_page.exit:                           ; preds = %228
   %231 = getelementptr inbounds nuw i8, ptr %218, i64 28
   store i32 %223, ptr %231, align 4
-  br label %20, !llvm.loop !11
+  br label %20, !llvm.loop !12
 
 .critedge:                                        ; preds = %._crit_edge, %230, %225, %.thread232, %nstrace_ensure_buflen.exit227, %.thread230, %nstrace_ensure_buflen.exit225, %.thread, %nstrace_ensure_buflen.exit, %97, %140, %142, %36, %76, %78, %91, %30
   %.2 = phi i1 [ false, %30 ], [ false, %91 ], [ false, %36 ], [ false, %76 ], [ true, %78 ], [ false, %97 ], [ false, %140 ], [ true, %142 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit225 ], [ false, %nstrace_ensure_buflen.exit227 ], [ false, %.thread ], [ false, %.thread230 ], [ false, %.thread232 ], [ false, %225 ], [ false, %230 ], [ false, %._crit_edge ]
@@ -3583,7 +3583,7 @@ nstrace_ensure_buflen.exit1135:                   ; preds = %1356
 1379:                                             ; preds = %1376, %1352, %1302, %1355
   %.3987 = phi i32 [ %1378, %1376 ], [ %1297, %1302 ], [ %1354, %1352 ], [ %.0990., %1355 ]
   %1380 = icmp ult i32 %.3987, %.0990
-  br i1 %1380, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %1380, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %1379, %20
   %1381 = zext i32 %.0990 to i64
@@ -3624,7 +3624,7 @@ nstrace_ensure_buflen.exit1135:                   ; preds = %1356
 nstrace_read_page.exit:                           ; preds = %1397
   %1400 = getelementptr inbounds nuw i8, ptr %1387, i64 28
   store i32 %1392, ptr %1400, align 4
-  br label %20, !llvm.loop !13
+  br label %20, !llvm.loop !14
 
 .critedge:                                        ; preds = %._crit_edge, %1399, %1394, %1328, %nstrace_ensure_buflen.exit1129, %1286, %.thread1152, %nstrace_ensure_buflen.exit1135, %nstrace_ensure_buflen.exit1131, %nstrace_ensure_buflen.exit, %1181, %1197, %1245, %1265, %1094, %1110, %1155, %1175, %1005, %1021, %1068, %1088, %919, %935, %979, %999, %833, %849, %893, %913, %750, %766, %807, %827, %667, %683, %724, %744, %587, %603, %641, %661, %491, %507, %561, %581, %398, %414, %465, %485, %303, %319, %372, %392, %211, %227, %277, %297, %118, %134, %185, %205, %28, %44, %92, %112
   %.3 = phi i1 [ false, %28 ], [ false, %44 ], [ false, %92 ], [ true, %112 ], [ false, %118 ], [ false, %134 ], [ false, %185 ], [ true, %205 ], [ false, %211 ], [ false, %227 ], [ false, %277 ], [ true, %297 ], [ false, %303 ], [ false, %319 ], [ false, %372 ], [ true, %392 ], [ false, %398 ], [ false, %414 ], [ false, %465 ], [ true, %485 ], [ false, %491 ], [ false, %507 ], [ false, %561 ], [ true, %581 ], [ false, %587 ], [ false, %603 ], [ false, %641 ], [ true, %661 ], [ false, %667 ], [ false, %683 ], [ false, %724 ], [ true, %744 ], [ false, %750 ], [ false, %766 ], [ false, %807 ], [ true, %827 ], [ false, %833 ], [ false, %849 ], [ false, %893 ], [ true, %913 ], [ false, %919 ], [ false, %935 ], [ false, %979 ], [ true, %999 ], [ false, %1005 ], [ false, %1021 ], [ false, %1068 ], [ true, %1088 ], [ false, %1094 ], [ false, %1110 ], [ false, %1155 ], [ true, %1175 ], [ false, %1181 ], [ false, %1197 ], [ false, %1245 ], [ true, %1265 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit1131 ], [ false, %nstrace_ensure_buflen.exit1135 ], [ false, %.thread1152 ], [ false, %1286 ], [ false, %nstrace_ensure_buflen.exit1129 ], [ false, %1328 ], [ false, %1394 ], [ false, %1399 ], [ false, %._crit_edge ]
@@ -4837,7 +4837,7 @@ define internal noundef zeroext i1 @nstrace_read_v30(ptr noundef readonly captur
   %139 = getelementptr i8, ptr %15, i64 %indvars.iv582
   store i8 %138, ptr %139, align 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next583, 52
-  br i1 %exitcond599.not, label %140, label %133, !llvm.loop !14
+  br i1 %exitcond599.not, label %140, label %133, !llvm.loop !15
 
 140:                                              ; preds = %136
   %141 = trunc nuw i64 %indvars.iv.next581 to i32
@@ -4901,7 +4901,7 @@ define internal noundef zeroext i1 @nstrace_read_v30(ptr noundef readonly captur
   %166 = getelementptr i8, ptr %15, i64 %165
   store i8 %163, ptr %166, align 1
   %167 = icmp samesign ult i64 %indvars.iv.next601, %159
-  br i1 %167, label %.lr.ph471, label %._crit_edge472, !llvm.loop !15
+  br i1 %167, label %.lr.ph471, label %._crit_edge472, !llvm.loop !16
 
 ._crit_edge472:                                   ; preds = %.lr.ph471, %.preheader399
   %.2340.lcssa = phi i32 [ %.1339475, %.preheader399 ], [ %164, %.lr.ph471 ]
@@ -4937,7 +4937,7 @@ select.unfold:                                    ; preds = %._crit_edge472
   %183 = getelementptr i8, ptr %15, i64 %indvars.iv603
   store i8 %182, ptr %183, align 1
   %exitcond607.not = icmp eq i64 %indvars.iv.next604, %wide.trip.count606
-  br i1 %exitcond607.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !16
+  br i1 %exitcond607.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !17
 
 ._crit_edge484:                                   ; preds = %.lr.ph483, %.preheader
   %.5.lcssa = phi i32 [ %.3.lcssa, %.preheader ], [ %179, %.lr.ph483 ]
@@ -5075,7 +5075,7 @@ select.unfold:                                    ; preds = %._crit_edge472
   %250 = getelementptr i8, ptr %15, i64 %indvars.iv550
   store i8 %249, ptr %250, align 1
   %exitcond564.not = icmp eq i64 %indvars.iv.next551, 35
-  br i1 %exitcond564.not, label %251, label %244, !llvm.loop !17
+  br i1 %exitcond564.not, label %251, label %244, !llvm.loop !18
 
 251:                                              ; preds = %247
   %252 = trunc nuw i64 %indvars.iv.next to i32
@@ -5139,7 +5139,7 @@ select.unfold:                                    ; preds = %._crit_edge472
   %277 = getelementptr i8, ptr %15, i64 %276
   store i8 %274, ptr %277, align 1
   %278 = icmp samesign ult i64 %indvars.iv.next566, %270
-  br i1 %278, label %.lr.ph454, label %._crit_edge, !llvm.loop !18
+  br i1 %278, label %.lr.ph454, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph454, %.preheader401
   %.6344.lcssa = phi i32 [ %.5343456, %.preheader401 ], [ %275, %.lr.ph454 ]
@@ -5175,7 +5175,7 @@ select.unfold394:                                 ; preds = %._crit_edge
   %294 = getelementptr i8, ptr %15, i64 %indvars.iv568
   store i8 %293, ptr %294, align 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count571
-  br i1 %exitcond572.not, label %._crit_edge465, label %.lr.ph464, !llvm.loop !19
+  br i1 %exitcond572.not, label %._crit_edge465, label %.lr.ph464, !llvm.loop !20
 
 ._crit_edge465:                                   ; preds = %.lr.ph464, %.preheader400
   %.9.lcssa = phi i32 [ %.7.lcssa, %.preheader400 ], [ %290, %.lr.ph464 ]
@@ -5300,7 +5300,7 @@ select.unfold394:                                 ; preds = %._crit_edge
 365:                                              ; preds = %362, %351, %316
   %.10 = phi i32 [ %364, %362 ], [ %310, %316 ], [ %353, %351 ]
   %366 = icmp ult i32 %.10, 16384
-  br i1 %366, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %366, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph, %365, %38
   %367 = zext i32 %.0333 to i64
@@ -5318,7 +5318,7 @@ select.unfold394:                                 ; preds = %._crit_edge
   %376 = icmp ne i32 %375, 0
   %377 = icmp eq i32 %371, 16384
   %378 = or i1 %377, %376
-  br i1 %378, label %20, label %.critedge11.thread, !llvm.loop !21
+  br i1 %378, label %20, label %.critedge11.thread, !llvm.loop !22
 
 .critedge11:                                      ; preds = %.critedge
   %379 = icmp slt i32 %371, 0
@@ -5792,7 +5792,7 @@ nstrace_ensure_buflen.exit67:                     ; preds = %24
 65:                                               ; preds = %60
   %66 = add i32 %61, %.15482
   %67 = icmp ult i32 %66, %.057
-  br i1 %67, label %15, label %._crit_edge, !llvm.loop !22
+  br i1 %67, label %15, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %20, %65, %13
   %68 = zext i32 %.057 to i64
@@ -5833,7 +5833,7 @@ nstrace_ensure_buflen.exit67:                     ; preds = %24
 nstrace_read_page.exit:                           ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 28
   store i32 %79, ptr %87, align 4
-  br label %13, !llvm.loop !23
+  br label %13, !llvm.loop !24
 
 .critedge:                                        ; preds = %._crit_edge, %86, %81, %nstrace_ensure_buflen.exit67, %46, %63, %nstrace_ensure_buflen.exit
   %.2 = phi i1 [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit67 ], [ true, %46 ], [ false, %63 ], [ false, %81 ], [ false, %86 ], [ false, %._crit_edge ]
@@ -5910,7 +5910,7 @@ define internal noundef zeroext i1 @nstrace_dump(ptr noundef %0, ptr noundef rea
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %21 = load i8, ptr %20, align 4, !range !24, !noundef !25
+  %21 = load i8, ptr %20, align 4, !range !25, !noundef !26
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %nstrace_add_abstime.exit.thread
 
@@ -6485,23 +6485,24 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{i8 0, i8 2}
-!25 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = !{i8 0, i8 2}
+!26 = !{}

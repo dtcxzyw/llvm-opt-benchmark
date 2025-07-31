@@ -94,10 +94,10 @@ define noundef i32 @H5_buffer_dump(ptr noundef captures(none) %0, i32 noundef %1
   %48 = getelementptr i8, ptr %17, i64 %.154
   %49 = load i8, ptr %48, align 1, !tbaa !10
   %50 = tail call ptr @__ctype_b_loc() #5
-  %51 = load ptr, ptr %50, align 8, !tbaa !13
+  %51 = load ptr, ptr %50, align 8, !tbaa !14
   %52 = zext i8 %49 to i64
   %53 = getelementptr inbounds nuw i16, ptr %51, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !16
+  %54 = load i16, ptr %53, align 2, !tbaa !17
   %55 = and i16 %54, 16384
   %.not51 = icmp eq i16 %55, 0
   %56 = zext i8 %49 to i32
@@ -120,13 +120,13 @@ define noundef i32 @H5_buffer_dump(ptr noundef captures(none) %0, i32 noundef %1
 62:                                               ; preds = %58, %60
   %63 = add nuw nsw i64 %.154, 1
   %exitcond57.not = icmp eq i64 %63, 16
-  br i1 %exitcond57.not, label %64, label %41, !llvm.loop !18
+  br i1 %exitcond57.not, label %64, label %41, !llvm.loop !19
 
 64:                                               ; preds = %62
   %65 = tail call i32 @fputc(i32 noundef 10, ptr noundef %0)
   %66 = add i64 %.04755, 16
   %67 = icmp ult i64 %66, %5
-  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %64, %13, %6
   ret i32 0
@@ -164,12 +164,13 @@ attributes #5 = { nounwind willreturn memory(none) }
 !8 = !{}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 short", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !5, i64 0}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 short", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !5, i64 0}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}

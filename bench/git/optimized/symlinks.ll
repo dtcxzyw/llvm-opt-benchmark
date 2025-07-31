@@ -190,7 +190,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %30, %35,
   %spec.select = select i1 %41, i32 %42, i32 %.01828
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %longest_path_match.exit
   %.018.lcssa = phi i32 [ %.234.i, %longest_path_match.exit ], [ %spec.select, %.lr.ph ]
@@ -203,7 +203,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %30, %35,
   br i1 %46, label %.lr.ph.i24, label %68
 
 .lr.ph.i24.loopexit:                              ; preds = %65
-  br label %.lr.ph.i24, !llvm.loop !22
+  br label %.lr.ph.i24, !llvm.loop !23
 
 .lr.ph.i24:                                       ; preds = %44, %.lr.ph.i24.loopexit
   %47 = phi ptr [ %60, %.lr.ph.i24.loopexit ], [ %9, %44 ]
@@ -238,7 +238,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %30, %35,
   br label %lstat_cache_aware_rmdir.exit.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %59, %57
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !23
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !24
   %.promoted.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8, !tbaa !17
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br label %61
@@ -254,7 +254,7 @@ lstat_cache_aware_rmdir.exit.i:                   ; preds = %59, %57
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 %63
   %67 = load i8, ptr %66, align 1, !tbaa !18
   %.not8.i = icmp eq i8 %67, 47
-  br i1 %.not8.i, label %.lr.ph.i24.loopexit, label %61, !llvm.loop !22
+  br i1 %.not8.i, label %.lr.ph.i24.loopexit, label %61, !llvm.loop !23
 
 do_remove_scheduled_dirs.exit:                    ; preds = %53, %55, %61
   store i64 %45, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8, !tbaa !17
@@ -293,7 +293,7 @@ define dso_local void @remove_scheduled_dirs() local_unnamed_addr #4 {
   br label %.lr.ph.i
 
 .lr.ph.i.loopexit:                                ; preds = %19
-  br label %.lr.ph.i, !llvm.loop !22
+  br label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.loopexit, %.lr.ph.preheader.i
   %2 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i.loopexit ]
@@ -328,7 +328,7 @@ define dso_local void @remove_scheduled_dirs() local_unnamed_addr #4 {
   br label %lstat_cache_aware_rmdir.exit.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %14, %12
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !23
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !24
   %.promoted.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8, !tbaa !17
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 16), align 8
   br label %16
@@ -344,7 +344,7 @@ lstat_cache_aware_rmdir.exit.i:                   ; preds = %14, %12
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %21 = load i8, ptr %20, align 1, !tbaa !18
   %.not8.i = icmp eq i8 %21, 47
-  br i1 %.not8.i, label %.lr.ph.i.loopexit, label %16, !llvm.loop !22
+  br i1 %.not8.i, label %.lr.ph.i.loopexit, label %16, !llvm.loop !23
 
 do_remove_scheduled_dirs.exit:                    ; preds = %8, %10, %16, %0
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @removal, i64 8), align 8, !tbaa !17
@@ -363,7 +363,7 @@ define dso_local void @invalidate_lstat_cache() local_unnamed_addr #5 {
   br label %reset_lstat_cache.exit
 
 reset_lstat_cache.exit:                           ; preds = %0, %2
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !23
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !24
   ret void
 }
 
@@ -384,7 +384,7 @@ define dso_local noundef i32 @lstat_cache_aware_rmdir(ptr noundef readonly captu
   br label %invalidate_lstat_cache.exit
 
 invalidate_lstat_cache.exit:                      ; preds = %3, %5
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !23
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8, !tbaa !24
   br label %6
 
 6:                                                ; preds = %invalidate_lstat_cache.exit, %1
@@ -399,13 +399,13 @@ define internal fastcc i32 @lstat_cache_matchlen(ptr noundef %0, ptr noundef rea
   %7 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !25
+  %9 = load i32, ptr %8, align 4, !tbaa !26
   %.not = icmp eq i32 %9, %4
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !26
+  %12 = load i32, ptr %11, align 8, !tbaa !27
   %.not105 = icmp eq i32 %12, %5
   br i1 %.not105, label %20, label %13
 
@@ -419,23 +419,23 @@ define internal fastcc i32 @lstat_cache_matchlen(ptr noundef %0, ptr noundef rea
 
 17:                                               ; preds = %13
   store i8 0, ptr %16, align 1, !tbaa !18
-  %.pre.pre = load i64, ptr %14, align 8, !tbaa !27
+  %.pre.pre = load i64, ptr %14, align 8, !tbaa !28
   br label %reset_lstat_cache.exit
 
 reset_lstat_cache.exit:                           ; preds = %13, %17
   %.pre = phi i64 [ 0, %13 ], [ %.pre.pre, %17 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %18, align 8, !tbaa !23
-  store i32 %4, ptr %8, align 4, !tbaa !25
+  store i32 0, ptr %18, align 8, !tbaa !24
+  store i32 %4, ptr %8, align 4, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %5, ptr %19, align 8, !tbaa !26
+  store i32 %5, ptr %19, align 8, !tbaa !27
   br label %61
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !27
+  %24 = load i64, ptr %23, align 8, !tbaa !28
   %25 = trunc i64 %24 to i32
   %26 = icmp slt i32 %2, %25
   %27 = tail call i32 @llvm.smin.i32(i32 %2, i32 %25)
@@ -502,7 +502,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %.234.i = phi i32 [ %.0.lcssa.i, %50 ], [ %.032.lcssa.i, %49 ], [ %.032.lcssa.i, %44 ], [ %.03242.i, %.lr.ph.i ]
   %.2.i = phi i32 [ %.032.lcssa.i, %50 ], [ %.031.lcssa.i, %49 ], [ %.031.lcssa.i, %44 ], [ %.03143.i, %.lr.ph.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load i32, ptr %51, align 8, !tbaa !23
+  %52 = load i32, ptr %51, align 8, !tbaa !24
   %53 = and i32 %4, 6
   %54 = and i32 %53, %52
   store i32 %54, ptr %3, align 4, !tbaa !4
@@ -567,7 +567,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %79
   %76 = phi i8 [ %.pre167, %.preheader.us.preheader ], [ %81, %79 ]
   %indvars.iv = phi i64 [ %75, %.preheader.us.preheader ], [ %indvars.iv.next, %79 ]
-  %77 = load ptr, ptr %69, align 8, !tbaa !28
+  %77 = load ptr, ptr %69, align 8, !tbaa !29
   %78 = getelementptr inbounds i8, ptr %77, i64 %indvars.iv
   store i8 %76, ptr %78, align 1, !tbaa !18
   %exitcond.not = icmp eq i64 %indvars.iv, %72
@@ -578,24 +578,24 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %80 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %81 = load i8, ptr %80, align 1, !tbaa !18
   %.not109.us = icmp eq i8 %81, 47
-  br i1 %.not109.us, label %..critedge.us_crit_edge, label %.preheader.us, !llvm.loop !29
+  br i1 %.not109.us, label %..critedge.us_crit_edge, label %.preheader.us, !llvm.loop !30
 
 ..critedge.us_crit_edge:                          ; preds = %79
   %82 = trunc nsw i64 %indvars.iv.next to i32
   %83 = trunc nsw i64 %indvars.iv to i32
   %sext172 = shl i64 %indvars.iv.next, 32
   %.pre171 = ashr exact i64 %sext172, 32
-  br label %.critedge.us, !llvm.loop !29
+  br label %.critedge.us, !llvm.loop !30
 
 .critedge.us:                                     ; preds = %.preheader.us, %..critedge.us_crit_edge
   %.pre-phi = phi i64 [ %.pre171, %..critedge.us_crit_edge ], [ %63, %.preheader.us ]
   %.4.us.lcssa = phi i32 [ %83, %..critedge.us_crit_edge ], [ %71, %.preheader.us ]
   %.lcssa153 = phi i32 [ %82, %..critedge.us_crit_edge ], [ %2, %.preheader.us ]
-  %84 = load ptr, ptr %69, align 8, !tbaa !28
+  %84 = load ptr, ptr %69, align 8, !tbaa !29
   %85 = getelementptr inbounds i8, ptr %84, i64 %.pre-phi
   store i8 0, ptr %85, align 1, !tbaa !18
   %.not112.not.us = icmp slt i32 %.4.us.lcssa, %5
-  %86 = load ptr, ptr %69, align 8, !tbaa !28
+  %86 = load ptr, ptr %69, align 8, !tbaa !29
   br i1 %.not112.not.us, label %89, label %87
 
 87:                                               ; preds = %.critedge.us
@@ -612,13 +612,13 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br i1 %.not113.us, label %92, label %.split133.us
 
 92:                                               ; preds = %91
-  %93 = load i32, ptr %70, align 8, !tbaa !30
+  %93 = load i32, ptr %70, align 8, !tbaa !31
   %94 = trunc i32 %93 to i16
   %trunc.us = and i16 %94, -4096
   switch i16 %trunc.us, label %.loopexit.sink.split.loopexit235 [
     i16 16384, label %.split.us
     i16 -24576, label %.loopexit.sink.split
-  ], !llvm.loop !33
+  ], !llvm.loop !34
 
 .split:                                           ; preds = %.split.preheader, %118
   %.089 = phi i32 [ %103, %118 ], [ %.090, %.split.preheader ]
@@ -634,7 +634,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 .preheader:                                       ; preds = %.preheader.preheader, %100
   %97 = phi i8 [ %.pre169, %.preheader.preheader ], [ %102, %100 ]
   %indvars.iv162 = phi i64 [ %96, %.preheader.preheader ], [ %indvars.iv.next163, %100 ]
-  %98 = load ptr, ptr %69, align 8, !tbaa !28
+  %98 = load ptr, ptr %69, align 8, !tbaa !29
   %99 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv162
   store i8 %97, ptr %99, align 1, !tbaa !18
   %exitcond165.not = icmp eq i64 %indvars.iv162, %73
@@ -645,7 +645,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %101 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next163
   %102 = load i8, ptr %101, align 1, !tbaa !18
   %.not109 = icmp eq i8 %102, 47
-  br i1 %.not109, label %.critedge, label %.preheader, !llvm.loop !29
+  br i1 %.not109, label %.critedge, label %.preheader, !llvm.loop !30
 
 .critedge:                                        ; preds = %100
   %103 = trunc nsw i64 %indvars.iv.next163 to i32
@@ -654,13 +654,13 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 
 104:                                              ; preds = %.critedge
   %105 = trunc nsw i64 %indvars.iv162 to i32
-  %106 = load ptr, ptr %69, align 8, !tbaa !28
+  %106 = load ptr, ptr %69, align 8, !tbaa !29
   %sext201 = shl i64 %indvars.iv.next163, 32
   %107 = ashr exact i64 %sext201, 32
   %108 = getelementptr inbounds i8, ptr %106, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !18
   %.not112.not = icmp sgt i32 %5, %105
-  %109 = load ptr, ptr %69, align 8, !tbaa !28
+  %109 = load ptr, ptr %69, align 8, !tbaa !29
   br i1 %.not112.not, label %110, label %112
 
 110:                                              ; preds = %104
@@ -687,13 +687,13 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br label %.loopexit.sink.split
 
 118:                                              ; preds = %114
-  %119 = load i32, ptr %70, align 8, !tbaa !30
+  %119 = load i32, ptr %70, align 8, !tbaa !31
   %120 = trunc i32 %119 to i16
   %trunc = and i16 %120, -4096
   switch i16 %trunc, label %.loopexit.sink.split.loopexit225 [
     i16 16384, label %.split
     i16 -24576, label %.loopexit.sink.split
-  ]
+  ], !llvm.loop !36
 
 .loopexit.sink.split.loopexit225:                 ; preds = %118
   br label %.loopexit.sink.split
@@ -723,11 +723,11 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br i1 %or.cond, label %126, label %130
 
 126:                                              ; preds = %.loopexit
-  %127 = load ptr, ptr %69, align 8, !tbaa !28
+  %127 = load ptr, ptr %69, align 8, !tbaa !29
   %128 = zext nneg i32 %.3 to i64
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
   store i8 0, ptr %129, align 1, !tbaa !18
-  store i64 %128, ptr %64, align 8, !tbaa !27
+  store i64 %128, ptr %64, align 8, !tbaa !28
   br label %reset_lstat_cache.exit119
 
 130:                                              ; preds = %.loopexit
@@ -738,11 +738,11 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br i1 %or.cond3, label %134, label %138
 
 134:                                              ; preds = %130
-  %135 = load ptr, ptr %69, align 8, !tbaa !28
+  %135 = load ptr, ptr %69, align 8, !tbaa !29
   %136 = zext nneg i32 %.089128 to i64
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
   store i8 0, ptr %137, align 1, !tbaa !18
-  store i64 %136, ptr %64, align 8, !tbaa !27
+  store i64 %136, ptr %64, align 8, !tbaa !28
   br label %reset_lstat_cache.exit119
 
 138:                                              ; preds = %130
@@ -758,7 +758,7 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
 reset_lstat_cache.exit119:                        ; preds = %140, %138, %134, %126
   %.sink = phi i32 [ 1, %134 ], [ %123, %126 ], [ 0, %138 ], [ 0, %140 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %141, align 8, !tbaa !23
+  store i32 %.sink, ptr %141, align 8, !tbaa !24
   %.not114 = icmp eq i32 %.0, 0
   br i1 %.not114, label %144, label %142
 
@@ -833,19 +833,21 @@ attributes #13 = { nounwind willreturn memory(read) }
 !16 = !{!"long", !6, i64 0}
 !17 = !{!15, !16, i64 8}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = !{!24, !5, i64 24}
-!24 = !{!"cache_def", !15, i64 0, !5, i64 24, !5, i64 28, !5, i64 32}
-!25 = !{!24, !5, i64 28}
-!26 = !{!24, !5, i64 32}
-!27 = !{!24, !16, i64 8}
-!28 = !{!24, !13, i64 16}
-!29 = distinct !{!29, !20}
-!30 = !{!31, !5, i64 24}
-!31 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !32, i64 72, !32, i64 88, !32, i64 104, !6, i64 120}
-!32 = !{!"timespec", !16, i64 0, !16, i64 8}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = !{!25, !5, i64 24}
+!25 = !{!"cache_def", !15, i64 0, !5, i64 24, !5, i64 28, !5, i64 32}
+!26 = !{!25, !5, i64 28}
+!27 = !{!25, !5, i64 32}
+!28 = !{!25, !16, i64 8}
+!29 = !{!25, !13, i64 16}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!32, !5, i64 24}
+!32 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !33, i64 72, !33, i64 88, !33, i64 104, !6, i64 120}
+!33 = !{!"timespec", !16, i64 0, !16, i64 8}
+!34 = distinct !{!34, !21, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !21}

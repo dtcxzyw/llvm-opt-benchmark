@@ -249,7 +249,7 @@ define hidden zeroext range(i8 0, 2) i8 @bagEnumerateOver(ptr noundef readonly c
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %.01213, i64 %13
   %18 = icmp ult ptr %17, %11
-  br i1 %18, label %14, label %._crit_edge, !llvm.loop !8
+  br i1 %18, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %14, %16, %3
   %.0 = phi i8 [ 1, %3 ], [ 1, %16 ], [ 0, %14 ]
@@ -274,6 +274,7 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

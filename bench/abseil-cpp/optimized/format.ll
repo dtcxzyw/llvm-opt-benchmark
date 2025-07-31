@@ -245,9 +245,9 @@ define dso_local noundef zeroext i1 @_ZN4absl9ParseTimeESt17basic_string_viewIcS
 23:                                               ; preds = %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit", %.critedge44
   %.024.idx100 = phi i64 [ 0, %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit" ], [ %.024.add, %.critedge44 ]
   %.024.ptr101 = getelementptr inbounds nuw i8, ptr @_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE8literals, i64 %.024.idx100
-  %24 = load ptr, ptr %.024.ptr101, align 16, !tbaa !18
+  %24 = load ptr, ptr %.024.ptr101, align 16, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %.024.ptr101, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !24
+  %26 = load i64, ptr %25, align 8, !tbaa !25
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread, label %28
 
@@ -286,13 +286,13 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread: 
 
 .loopexit:                                        ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread, %38
   %42 = getelementptr inbounds nuw i8, ptr %.024.ptr101, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 16 dereferenceable(12) %42, i64 12, i1 false), !tbaa.struct !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 16 dereferenceable(12) %42, i64 12, i1 false), !tbaa.struct !26
   br label %162
 
 .critedge44:                                      ; preds = %.lr.ph.i49, %28, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
   %.024.add = add nuw nsw i64 %.024.idx100, 32
   %.not = icmp eq i64 %.024.add, 64
-  br i1 %.not, label %43, label %23
+  br i1 %.not, label %43, label %23, !llvm.loop !28
 
 43:                                               ; preds = %.critedge44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #10
@@ -461,12 +461,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 
 95:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
   %.val = load i64, ptr %11, align 8, !tbaa !14
-  %.val47 = load i64, ptr %80, align 8, !tbaa !27
+  %.val47 = load i64, ptr %80, align 8, !tbaa !29
   %96 = sdiv i64 %.val47, 250000
   %97 = trunc i64 %96 to i32
   store i64 %.val, ptr %5, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %97, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !26
+  store i32 %97, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !27
   br label %151
 
 98:                                               ; preds = %.noexc.i.i.i, %49
@@ -556,7 +556,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %133 = icmp ult i64 %132, 16
   call void @llvm.assume(i1 %133)
   %.not22.i = icmp eq ptr %10, %6
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %134, !prof !29
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %134, !prof !31
 
 134:                                              ; preds = %130
   switch i64 %132, label %137 [
@@ -749,17 +749,19 @@ attributes #15 = { noreturn }
 !13 = !{!8, !8, i64 0}
 !14 = !{!12, !12, i64 0}
 !15 = !{!11, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"_ZTSZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE7Literal", !6, i64 0, !12, i64 8, !20, i64 16}
-!20 = !{!"_ZTSN4absl4TimeE", !21, i64 0}
-!21 = !{!"_ZTSN4absl8DurationE", !22, i64 0, !23, i64 8}
-!22 = !{!"_ZTSN4absl8Duration5HiRepE", !23, i64 0, !23, i64 4}
-!23 = !{!"int", !8, i64 0}
-!24 = !{!19, !12, i64 8}
-!25 = !{i64 0, i64 4, !26, i64 4, i64 4, !26, i64 8, i64 4, !26}
-!26 = !{!23, !23, i64 0}
-!27 = !{!28, !12, i64 0}
-!28 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE", !12, i64 0}
-!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTSZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE7Literal", !6, i64 0, !12, i64 8, !21, i64 16}
+!21 = !{!"_ZTSN4absl4TimeE", !22, i64 0}
+!22 = !{!"_ZTSN4absl8DurationE", !23, i64 0, !24, i64 8}
+!23 = !{!"_ZTSN4absl8Duration5HiRepE", !24, i64 0, !24, i64 4}
+!24 = !{!"int", !8, i64 0}
+!25 = !{!20, !12, i64 8}
+!26 = !{i64 0, i64 4, !27, i64 4, i64 4, !27, i64 8, i64 4, !27}
+!27 = !{!24, !24, i64 0}
+!28 = distinct !{!28, !18}
+!29 = !{!30, !12, i64 0}
+!30 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE", !12, i64 0}
+!31 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -218,7 +218,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Tune4initERNS_10OptionsMapE(pt
   store ptr %0, ptr @_ZN9Stockfish4Tune7optionsE, align 8
   %2 = load atomic i8, ptr @_ZGVZN9Stockfish4Tune8instanceEvE1t acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN9Stockfish4Tune8instanceEv.exit, !prof !7
+  br i1 %3, label %4, label %_ZN9Stockfish4Tune8instanceEv.exit, !prof !8
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9Stockfish4Tune8instanceEvE1t) #12
@@ -247,12 +247,12 @@ _ZN9Stockfish4Tune8instanceEv.exit:               ; preds = %1, %4, %6
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %14, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN9Stockfish4Tune8instanceEv.exit
   %15 = load atomic i8, ptr @_ZGVZN9Stockfish4Tune8instanceEvE1t acquire, align 8
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %_ZN9Stockfish4Tune8instanceEv.exit.i, !prof !7
+  br i1 %16, label %17, label %_ZN9Stockfish4Tune8instanceEv.exit.i, !prof !8
 
 17:                                               ; preds = %._crit_edge
   %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9Stockfish4Tune8instanceEvE1t) #12
@@ -281,7 +281,7 @@ _ZN9Stockfish4Tune8instanceEv.exit.i:             ; preds = %19, %17, %._crit_ed
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #12
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 8
   %.not.i4 = icmp eq ptr %27, %22
-  br i1 %.not.i4, label %_ZN9Stockfish4Tune12read_optionsEv.exit, label %.lr.ph.i
+  br i1 %.not.i4, label %_ZN9Stockfish4Tune12read_optionsEv.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN9Stockfish4Tune12read_optionsEv.exit:          ; preds = %.lr.ph.i, %_ZN9Stockfish4Tune8instanceEv.exit.i
   ret void
@@ -374,7 +374,7 @@ _ZSt8_DestroyISt10unique_ptrIN9Stockfish4Tune9EntryBaseESt14default_deleteIS3_EE
   store ptr null, ptr %.05.i.i.i.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9Stockfish4Tune9EntryBaseESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9Stockfish4Tune9EntryBaseESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPSt10unique_ptrIN9Stockfish4Tune9EntryBaseESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN9Stockfish4Tune9EntryBaseESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8
@@ -526,7 +526,7 @@ _ZNSt10_HashtableIN9Stockfish4Eval4NNUE7NetSizeESt4pairIKS3_NS1_8EvalFileEESaIS7
 63:                                               ; preds = %62, %.lr.ph
   %.022 = load ptr, ptr %.02229, align 8
   %.not24 = icmp eq ptr %.022, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %63, %22, %19
   ret void
@@ -679,7 +679,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish10ThreadPoolD2Ev(ptr noundef no
   %22 = getelementptr inbounds i8, ptr %21, i64 -8
   store ptr %22, ptr %3, align 8
   %.not1 = icmp eq ptr %22, %20
-  br i1 %.not1, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not1, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %19, %6, %1
   %23 = phi ptr [ %9, %6 ], [ %5, %1 ], [ %20, %19 ]
@@ -716,7 +716,7 @@ _ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EED2Ev.exit: ; preds = %.loopexit, %24
   tail call void @_ZdlPvSt11align_val_t(ptr noundef %36, i64 noundef 64) #13
   %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %38 = icmp ult ptr %.06.i.i.i.i.i, %33
-  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i.i, !llvm.loop !11
+  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i.i, !llvm.loop !14
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %26, align 8
@@ -776,7 +776,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %12) #12
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9Stockfish6OptionEESt10_Select1stISA_ENS8_19CaseInsensitiveLessESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -819,11 +819,14 @@ attributes #15 = { builtin nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"branch_weights", i32 1, i32 1048575}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"branch_weights", i32 1, i32 1048575}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

@@ -526,7 +526,7 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   %indvars.iv = phi i64 [ 0, %.lr.ph507.preheader ], [ %indvars.iv.next, %266 ]
   %258 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %260 = load i8, ptr %259, align 2, !range !6, !noundef !7
+  %260 = load i8, ptr %259, align 2, !range !7, !noundef !8
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %262, label %266
 
@@ -544,7 +544,7 @@ _bt_afternewitemoff.exit:                         ; preds = %249
 266:                                              ; preds = %262, %.lr.ph507
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph507, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph507, !llvm.loop !9
 
 .loopexit:                                        ; preds = %266, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %246, %243, %249, %BTreeTupleIsPosting.exit.i201, %209, %203, %195, %190, %193
   %.0415.shrunk = phi i1 [ true, %193 ], [ %47, %190 ], [ false, %195 ], [ false, %203 ], [ false, %209 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %249 ], [ false, %243 ], [ false, %246 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %266 ]
@@ -589,7 +589,7 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   store i16 %spec.select.us.i, ptr %273, align 2
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next26.i, %272
-  br i1 %exitcond514.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.us.i, !llvm.loop !9
+  br i1 %exitcond514.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -603,7 +603,7 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   store i16 %spec.select.i, ptr %284, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond513.not = icmp eq i64 %indvars.iv.next.i, %272
-  br i1 %exitcond513.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %exitcond513.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.i, !llvm.loop !12
 
 _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i206, %.._crit_edge_crit_edge.i ], [ %272, %.lr.ph.split.us.i ], [ %272, %.lr.ph.split.i ]
@@ -648,7 +648,7 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
 310:                                              ; preds = %304
   %indvars.iv.next.i210 = add nuw nsw i64 %indvars.iv.i209, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i210, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_bt_defaultinterval.exit, label %.lr.ph.i208, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_bt_defaultinterval.exit, label %.lr.ph.i208, !llvm.loop !13
 
 .thread40.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i208
   %311 = trunc nuw nsw i64 %indvars.iv.i209 to i32
@@ -701,9 +701,9 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
 
 333:                                              ; preds = %329
   %334 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  %335 = load i8, ptr %334, align 2, !range !6, !noundef !7
+  %335 = load i8, ptr %334, align 2, !range !7, !noundef !8
   %336 = trunc nuw i8 %335 to i1
-  %337 = load i8, ptr %.sroa.4243.0..sroa_idx, align 2, !range !6, !noundef !7
+  %337 = load i8, ptr %.sroa.4243.0..sroa_idx, align 2, !range !7, !noundef !8
   %338 = trunc nuw i8 %337 to i1
   br i1 %336, label %342, label %339
 
@@ -764,11 +764,11 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
   %.be536 = phi ptr [ null, %.thread48.i.i ], [ %349, %.critedge.i.i ]
   %.be537 = phi ptr [ null, %.thread48.i.i ], [ %350, %.critedge.i.i ]
   %.051.i.i.be = phi i32 [ %.0.i.i, %.thread48.i.i ], [ %.0.old.i.i, %.critedge.i.i ]
-  br label %.backedge.i.i, !llvm.loop !13
+  br label %.backedge.i.i, !llvm.loop !14
 
 _bt_interval_edges.exit.i:                        ; preds = %.thread48.i.i
   %352 = getelementptr inbounds nuw i8, ptr %.413.i, i64 8
-  %353 = load i8, ptr %352, align 2, !range !6, !noundef !7
+  %353 = load i8, ptr %352, align 2, !range !7, !noundef !8
   %354 = trunc nuw i8 %353 to i1
   %355 = getelementptr inbounds nuw i8, ptr %.413.i, i64 6
   %356 = load i16, ptr %355, align 2
@@ -791,7 +791,7 @@ _bt_interval_edges.exit.i:                        ; preds = %.thread48.i.i
 _bt_split_lastleft.exit.i:                        ; preds = %_bt_interval_edges.exit.i, %._crit_edge.i42.i
   %.0.i43.i = phi ptr [ %365, %._crit_edge.i42.i ], [ %4, %_bt_interval_edges.exit.i ]
   %366 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
-  %367 = load i8, ptr %366, align 2, !range !6, !noundef !7
+  %367 = load i8, ptr %366, align 2, !range !7, !noundef !8
   %368 = trunc nuw i8 %367 to i1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 6
   %.pre.i44.i = load i16, ptr %.phi.trans.insert.i.i, align 2
@@ -899,7 +899,7 @@ _bt_split_firstright.exit57.i:                    ; preds = %_bt_split_lastleft.
   store i16 %spec.select.us.i224, ptr %408, align 2
   %indvars.iv.next26.i225 = add nuw nsw i64 %indvars.iv25.i223, 1
   %exitcond515.not = icmp eq i64 %indvars.iv.next26.i225, %407
-  br i1 %exitcond515.not, label %_bt_deltasortsplits.exit226, label %.lr.ph.split.us.i222, !llvm.loop !9
+  br i1 %exitcond515.not, label %_bt_deltasortsplits.exit226, label %.lr.ph.split.us.i222, !llvm.loop !10
 
 _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i222, %.._crit_edge_crit_edge.i218
   %.pre-phi.i220 = phi i64 [ %.pre.i219, %.._crit_edge_crit_edge.i218 ], [ %407, %.lr.ph.split.us.i222 ]
@@ -937,7 +937,7 @@ _bt_strategy.exit.thread438:                      ; preds = %_bt_defaultinterval
   %.03346.us.i = phi i32 [ %spec.select.us.i234, %441 ], [ 0, %.lr.ph.split.us.i231 ]
   %425 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv.i233
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
-  %427 = load i8, ptr %426, align 2, !range !6, !noundef !7
+  %427 = load i8, ptr %426, align 2, !range !7, !noundef !8
   %428 = trunc nuw i8 %427 to i1
   %429 = getelementptr inbounds nuw i8, ptr %425, i64 6
   %430 = load i16, ptr %429, align 2
@@ -968,7 +968,7 @@ _bt_split_penalty.exit.us.i:                      ; preds = %424, %._crit_edge.i
   %spec.select41.us.i = tail call i32 @llvm.smin.i32(i32 %.1.i.us.i, i32 %.048.us.i)
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i233, 1
   %exitcond.not.i236 = icmp eq i64 %indvars.iv.next.i235, %wide.trip.count.i232
-  br i1 %exitcond.not.i236, label %._crit_edge.i.thread, label %424, !llvm.loop !14
+  br i1 %exitcond.not.i236, label %._crit_edge.i.thread, label %424, !llvm.loop !15
 
 442:                                              ; preds = %.lr.ph.split.preheader.i, %476
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next54.i, %476 ]
@@ -976,7 +976,7 @@ _bt_split_penalty.exit.us.i:                      ; preds = %424, %._crit_edge.i
   %.03346.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %spec.select.i239, %476 ]
   %443 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv53.i
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
-  %445 = load i8, ptr %444, align 2, !range !6, !noundef !7
+  %445 = load i8, ptr %444, align 2, !range !7, !noundef !8
   %446 = trunc nuw i8 %445 to i1
   %447 = getelementptr inbounds nuw i8, ptr %443, i64 6
   %448 = load i16, ptr %447, align 2
@@ -1034,7 +1034,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
   %spec.select41.i = tail call i32 @llvm.smin.i32(i32 %473, i32 %.048.i)
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
-  br i1 %exitcond57.not.i, label %._crit_edge.i.loopexit, label %442, !llvm.loop !15
+  br i1 %exitcond57.not.i, label %._crit_edge.i.loopexit, label %442, !llvm.loop !16
 
 ._crit_edge.i.thread:                             ; preds = %_bt_split_penalty.exit.us.i, %441
   %477 = sext i32 %spec.select.us.i234 to i64
@@ -1052,7 +1052,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
 
 481:                                              ; preds = %._crit_edge.i
   %482 = getelementptr inbounds nuw i8, ptr %480, i64 8
-  %483 = load i8, ptr %482, align 2, !range !6, !noundef !7
+  %483 = load i8, ptr %482, align 2, !range !7, !noundef !8
   %484 = trunc nuw i8 %483 to i1
   br i1 %484, label %_bt_bestsplitloc.exit, label %485
 
@@ -1071,7 +1071,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
 _bt_bestsplitloc.exit:                            ; preds = %._crit_edge.i.thread, %._crit_edge.i, %_bt_strategy.exit.thread438, %481, %485
   %.032.i = phi ptr [ %480, %481 ], [ %480, %._crit_edge.i ], [ %spec.select45.i, %485 ], [ %50, %_bt_strategy.exit.thread438 ], [ %478, %._crit_edge.i.thread ]
   %492 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
-  %493 = load i8, ptr %492, align 2, !range !6, !noundef !7
+  %493 = load i8, ptr %492, align 2, !range !7, !noundef !8
   store i8 %493, ptr %5, align 1
   %494 = getelementptr inbounds nuw i8, ptr %.032.i, i64 6
   %495 = load i16, ptr %494, align 2
@@ -1141,16 +1141,17 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !10}
-!15 = distinct !{!15, !5, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6, !11}
+!16 = distinct !{!16, !5, !6, !17}
+!17 = !{!"llvm.loop.unswitch.partial.disable"}

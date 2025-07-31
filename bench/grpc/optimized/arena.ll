@@ -59,13 +59,13 @@ define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef captures(none) %0, ptr n
   %.017.in23 = phi i64 [ %28, %.lr.ph25 ], [ %22, %.lr.ph31 ]
   %.017 = inttoptr i64 %.017.in23 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %.017, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !8
+  %24 = load i32, ptr %23, align 8, !tbaa !9
   %25 = zext i32 %24 to i64
   %26 = add i64 %.124, 16
   %27 = add i64 %26, %25
   %28 = load atomic i64, ptr %.017 monotonic, align 8
   %.not20 = icmp eq i64 %28, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph25, !llvm.loop !11
+  br i1 %.not20, label %._crit_edge, label %.lr.ph25, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph25, %.lr.ph31
   %.1.lcssa = phi i64 [ %.01529, %.lr.ph31 ], [ %27, %.lr.ph25 ]
@@ -74,14 +74,14 @@ define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef captures(none) %0, ptr n
   %31 = inttoptr i64 %30 to ptr
   %32 = add i64 %.01628, 1
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !12
+  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !13
 
 ._crit_edge32:                                    ; preds = %._crit_edge
   %.not19 = icmp eq ptr %1, null
   br i1 %.not19, label %34, label %33
 
 33:                                               ; preds = %._crit_edge32
-  store i64 %32, ptr %1, align 8, !tbaa !13
+  store i64 %32, ptr %1, align 8, !tbaa !14
   br label %34
 
 34:                                               ; preds = %33, %._crit_edge32
@@ -104,7 +104,7 @@ define hidden noundef zeroext i1 @_upb_Arena_Contains_dont_copy_me__upb_internal
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.01522, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !8
+  %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = zext i32 %8 to i64
   %10 = add i64 %.015.in21, %9
   %11 = icmp ugt i64 %10, %5
@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @_upb_Arena_Contains_dont_copy_me__upb_internal
 12:                                               ; preds = %6, %.lr.ph
   %13 = load atomic i64, ptr %.01522 monotonic, align 8
   %.not.not = icmp eq i64 %13, 0
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %12, %6, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %6 ], [ false, %12 ]
@@ -135,7 +135,7 @@ define hidden i32 @upb_Arena_DebugRefCount(ptr noundef readonly captures(none) %
   %8 = load atomic i64, ptr %7 acquire, align 8
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ %3, %1 ], [ %8, %.lr.ph ]
@@ -153,7 +153,7 @@ define hidden ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr
 
 tailrecurse:                                      ; preds = %29, %2
   %.tr7 = phi i64 [ %1, %2 ], [ %37, %29 ]
-  %6 = load i64, ptr %3, align 8, !tbaa !17
+  %6 = load i64, ptr %3, align 8, !tbaa !18
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %upb_Arena_Malloc.exit, label %7
 
@@ -165,7 +165,7 @@ tailrecurse:                                      ; preds = %29, %2
 9:                                                ; preds = %7
   %10 = inttoptr i64 %8 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !8
+  %12 = load i32, ptr %11, align 8, !tbaa !9
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 1
   br label %15
@@ -184,10 +184,10 @@ tailrecurse:                                      ; preds = %29, %2
   %22 = phi i64 [ %20, %19 ], [ %16, %15 ]
   %23 = tail call i64 @llvm.umax.i64(i64 %.tr7, i64 %22)
   %24 = add i64 %23, 16
-  %.val.i = load i64, ptr %3, align 8, !tbaa !17
+  %.val.i = load i64, ptr %3, align 8, !tbaa !18
   %25 = and i64 %.val.i, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %26, align 8, !tbaa !19
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = tail call ptr %27(ptr noundef nonnull %26, ptr noundef null, i64 noundef 0, i64 noundef %24) #6
   %.not22.not.i = icmp eq ptr %28, null
   br i1 %.not22.not.i, label %upb_Arena_Malloc.exit, label %29
@@ -195,24 +195,24 @@ tailrecurse:                                      ; preds = %29, %2
 29:                                               ; preds = %21
   %30 = trunc i64 %24 to i32
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 %30, ptr %31, align 8, !tbaa !8
-  %32 = load atomic ptr, ptr %4 seq_cst, align 8, !tbaa !22
+  store i32 %30, ptr %31, align 8, !tbaa !9
+  %32 = load atomic ptr, ptr %4 seq_cst, align 8, !tbaa !23
   store ptr %32, ptr %28, align 8, !tbaa !3
   %33 = ptrtoint ptr %28 to i64
   store atomic i64 %33, ptr %4 release, align 8
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %34, ptr %0, align 8, !tbaa !23
+  store ptr %34, ptr %0, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  store ptr %35, ptr %5, align 8, !tbaa !26
+  store ptr %35, ptr %5, align 8, !tbaa !27
   %36 = add i64 %.tr7, 7
   %37 = and i64 %36, -8
   %38 = icmp ult i64 %23, %37
-  br i1 %38, label %tailrecurse, label %39, !prof !27
+  br i1 %38, label %tailrecurse, label %39, !prof !28
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %37
-  store ptr %41, ptr %0, align 8, !tbaa !23
+  store ptr %41, ptr %0, align 8, !tbaa !24
   br label %upb_Arena_Malloc.exit
 
 upb_Arena_Malloc.exit:                            ; preds = %21, %tailrecurse, %39
@@ -232,7 +232,7 @@ define hidden noundef ptr @upb_Arena_Init(ptr noundef %0, i64 noundef %1, ptr no
   %8 = sub i64 %7, %5
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %8)
   %10 = icmp ult i64 %9, 56
-  br i1 %10, label %.thread, label %12, !prof !28
+  br i1 %10, label %.thread, label %12, !prof !29
 
 .thread:                                          ; preds = %3, %4
   %11 = tail call fastcc ptr @_upb_Arena_InitSlow(ptr noundef %2)
@@ -254,10 +254,10 @@ define hidden noundef ptr @upb_Arena_Init(ptr noundef %0, i64 noundef %1, ptr no
   store ptr null, ptr %21, align 8, !tbaa !3
   %22 = ptrtoint ptr %2 to i64
   %23 = or i64 %22, 1
-  store i64 %23, ptr %17, align 8, !tbaa !29
-  store ptr %14, ptr %16, align 8, !tbaa !31
+  store i64 %23, ptr %17, align 8, !tbaa !30
+  store ptr %14, ptr %16, align 8, !tbaa !32
   %24 = getelementptr i8, ptr %15, i64 -48
-  store ptr %16, ptr %24, align 8, !tbaa !32
+  store ptr %16, ptr %24, align 8, !tbaa !33
   br label %25
 
 25:                                               ; preds = %12, %.thread
@@ -271,7 +271,7 @@ define internal fastcc noundef ptr @_upb_Arena_InitSlow(ptr noundef %0) unnamed_
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call ptr %3(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 328) #6
   %.not19 = icmp eq ptr %4, null
   br i1 %.not19, label %18, label %5
@@ -280,7 +280,7 @@ define internal fastcc noundef ptr @_upb_Arena_InitSlow(ptr noundef %0) unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %7 = ptrtoint ptr %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  store i64 %7, ptr %8, align 8, !tbaa !29
+  store i64 %7, ptr %8, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i64 3, ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 304
@@ -290,15 +290,15 @@ define internal fastcc noundef ptr @_upb_Arena_InitSlow(ptr noundef %0) unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 320
   store ptr null, ptr %12, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 272, ptr %13, align 8, !tbaa !8
-  %14 = load atomic ptr, ptr %12 seq_cst, align 8, !tbaa !22
+  store i32 272, ptr %13, align 8, !tbaa !9
+  %14 = load atomic ptr, ptr %12 seq_cst, align 8, !tbaa !23
   store ptr %14, ptr %4, align 8, !tbaa !3
   %15 = ptrtoint ptr %4 to i64
   store atomic i64 %15, ptr %12 release, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %16, ptr %6, align 8, !tbaa !23
+  store ptr %16, ptr %6, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store ptr %6, ptr %17, align 8, !tbaa !26
+  store ptr %6, ptr %17, align 8, !tbaa !27
   br label %18
 
 18:                                               ; preds = %1, %2, %5
@@ -327,7 +327,7 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
   %10 = load atomic i64, ptr %9 acquire, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.114.lcssa = phi i64 [ %.013, %5 ], [ %10, %.lr.ph ]
@@ -341,14 +341,14 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph19.i
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_upb_Arena_DoFree.exit, label %.lr.ph19.i, !llvm.loop !34
+  br i1 %.not.i, label %_upb_Arena_DoFree.exit, label %.lr.ph19.i, !llvm.loop !35
 
 .lr.ph19.i:                                       ; preds = %14, %.loopexit.i
   %.018.i = phi ptr [ %17, %.loopexit.i ], [ %.1.lcssa, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = inttoptr i64 %16 to ptr
-  %.0.val.i = load i64, ptr %.018.i, align 8, !tbaa !17
+  %.0.val.i = load i64, ptr %.018.i, align 8, !tbaa !18
   %18 = and i64 %.0.val.i, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
@@ -360,10 +360,10 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
   %.013.in16.i = phi i64 [ %22, %.lr.ph.i ], [ %21, %.lr.ph19.i ]
   %.013.i = inttoptr i64 %.013.in16.i to ptr
   %22 = load atomic i64, ptr %.013.i acquire, align 8
-  %23 = load ptr, ptr %19, align 8, !tbaa !19
+  %23 = load ptr, ptr %19, align 8, !tbaa !20
   %24 = tail call ptr %23(ptr noundef nonnull %19, ptr noundef nonnull %.013.i, i64 noundef 0, i64 noundef 0) #6
   %.not14.i = icmp eq i64 %22, 0
-  br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !36
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
@@ -371,7 +371,7 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
   %28 = cmpxchg weak ptr %26, i64 %.114.lcssa, i64 %27 release acquire, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   %30 = extractvalue { i64, i1 } %28, 0
-  br i1 %29, label %_upb_Arena_DoFree.exit, label %5
+  br i1 %29, label %_upb_Arena_DoFree.exit, label %5, !llvm.loop !37
 
 _upb_Arena_DoFree.exit:                           ; preds = %25, %.loopexit.i, %14
   ret void
@@ -385,13 +385,13 @@ define hidden noundef zeroext i1 @upb_Arena_Fuse(ptr noundef %0, ptr noundef %1)
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val = load i64, ptr %5, align 8, !tbaa !17
+  %.val = load i64, ptr %5, align 8, !tbaa !18
   %7 = and i64 %.val, 1
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %_upb_Arena_FixupRefs.exit.thread
 
 8:                                                ; preds = %4
-  %.val15 = load i64, ptr %6, align 8, !tbaa !17
+  %.val15 = load i64, ptr %6, align 8, !tbaa !18
   %9 = and i64 %.val15, 1
   %.not26 = icmp eq i64 %9, 0
   br i1 %.not26, label %.preheader, label %_upb_Arena_FixupRefs.exit.thread
@@ -496,7 +496,7 @@ _upb_Arena_FindRoot.exit37.i:                     ; preds = %.lr.ph.i34.i, %.lr.
 
 60:                                               ; preds = %55
   %61 = add i64 %50, %.018.ph
-  br label %.critedge.outer
+  br label %.critedge.outer, !llvm.loop !38
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i, i64 24
@@ -518,7 +518,7 @@ _upb_Arena_FindRoot.exit37.i:                     ; preds = %.lr.ph.i34.i, %.lr.
   %68 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
   %69 = load atomic i64, ptr %68 monotonic, align 8
   %.not.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i38.i, !llvm.loop !36
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i38.i, !llvm.loop !39
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i38.i, %65
   %.1.lcssa.i.i = phi ptr [ %.018.i.i, %65 ], [ %.019.i.i, %.lr.ph.i38.i ]
@@ -529,7 +529,7 @@ _upb_Arena_FindRoot.exit37.i:                     ; preds = %.lr.ph.i34.i, %.lr.
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %75 = load atomic i64, ptr %74 monotonic, align 8
   %.not21.i.i = icmp eq i64 %72, 0
-  br i1 %.not21.i.i, label %_upb_Arena_DoFuseArenaLists.exit.i, label %65, !llvm.loop !37
+  br i1 %.not21.i.i, label %_upb_Arena_DoFuseArenaLists.exit.i, label %65, !llvm.loop !40
 
 _upb_Arena_DoFuseArenaLists.exit.i:               ; preds = %._crit_edge.i.i
   store atomic i64 %75, ptr %63 monotonic, align 8
@@ -547,7 +547,7 @@ _upb_Arena_DoFuse.exit:                           ; preds = %_upb_Arena_DoFuseAr
   br i1 %80, label %.critedge.backedge, label %_upb_Arena_FixupRefs.exit
 
 .critedge.backedge:                               ; preds = %76, %49, %_upb_Arena_FixupRefs.exit
-  br label %.critedge
+  br label %.critedge, !llvm.loop !38
 
 _upb_Arena_FixupRefs.exit:                        ; preds = %76
   %81 = sub i64 %78, %.018.ph
@@ -563,7 +563,7 @@ _upb_Arena_FixupRefs.exit.thread:                 ; preds = %_upb_Arena_DoFuse.e
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @upb_Arena_IncRefFor(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load i64, ptr %3, align 8, !tbaa !17
+  %.val = load i64, ptr %3, align 8, !tbaa !18
   %4 = and i64 %.val, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.preheader, label %.loopexit
@@ -607,7 +607,7 @@ _upb_Arena_FindRoot.exit:                         ; preds = %.lr.ph.i, %.lr.ph.i
   %25 = add i64 %24, 2
   %26 = cmpxchg weak ptr %23, i64 %.014.lcssa.i, i64 %25 release acquire, align 8
   %27 = extractvalue { i64, i1 } %26, 1
-  br i1 %27, label %.loopexit, label %6
+  br i1 %27, label %.loopexit, label %6, !llvm.loop !41
 
 .loopexit:                                        ; preds = %_upb_Arena_FindRoot.exit, %2
   ret i1 %.not
@@ -637,7 +637,7 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
   %11 = load atomic i64, ptr %10 acquire, align 8
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %6
   %.114.lcssa.i = phi i64 [ %.013.i, %6 ], [ %11, %.lr.ph.i ]
@@ -651,14 +651,14 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph19.i.i
   %.not.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i, label %upb_Arena_Free.exit, label %.lr.ph19.i.i, !llvm.loop !34
+  br i1 %.not.i.i, label %upb_Arena_Free.exit, label %.lr.ph19.i.i, !llvm.loop !35
 
 .lr.ph19.i.i:                                     ; preds = %15, %.loopexit.i.i
   %.018.i.i = phi ptr [ %18, %.loopexit.i.i ], [ %.1.lcssa.i, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
   %17 = load atomic i64, ptr %16 acquire, align 8
   %18 = inttoptr i64 %17 to ptr
-  %.0.val.i.i = load i64, ptr %.018.i.i, align 8, !tbaa !17
+  %.0.val.i.i = load i64, ptr %.018.i.i, align 8, !tbaa !18
   %19 = and i64 %.0.val.i.i, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 32
@@ -670,10 +670,10 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
   %.013.in16.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ %22, %.lr.ph19.i.i ]
   %.013.i.i = inttoptr i64 %.013.in16.i.i to ptr
   %23 = load atomic i64, ptr %.013.i.i acquire, align 8
-  %24 = load ptr, ptr %20, align 8, !tbaa !19
+  %24 = load ptr, ptr %20, align 8, !tbaa !20
   %25 = tail call ptr %24(ptr noundef nonnull %20, ptr noundef nonnull %.013.i.i, i64 noundef 0, i64 noundef 0) #6
   %.not14.i.i = icmp eq i64 %23, 0
-  br i1 %.not14.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !35
+  br i1 %.not14.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !36
 
 26:                                               ; preds = %._crit_edge.i
   %27 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 8
@@ -681,7 +681,7 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
   %29 = cmpxchg weak ptr %27, i64 %.114.lcssa.i, i64 %28 release acquire, align 8
   %30 = extractvalue { i64, i1 } %29, 1
   %31 = extractvalue { i64, i1 } %29, 0
-  br i1 %30, label %upb_Arena_Free.exit, label %6
+  br i1 %30, label %upb_Arena_Free.exit, label %6, !llvm.loop !37
 
 upb_Arena_Free.exit:                              ; preds = %26, %.loopexit.i.i, %15
   ret void
@@ -691,9 +691,9 @@ upb_Arena_Free.exit:                              ; preds = %26, %.loopexit.i.i,
 define hidden void @_upb_Arena_SwapIn_dont_copy_me__upb_internal_use_only(ptr noundef writeonly captures(none) initializes((0, 24), (48, 56)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !38
-  %5 = load i64, ptr %4, align 8, !tbaa !17
-  store i64 %5, ptr %3, align 8, !tbaa !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !42
+  %5 = load i64, ptr %4, align 8, !tbaa !18
+  store i64 %5, ptr %3, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load atomic i64, ptr %6 monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -704,7 +704,7 @@ define hidden void @_upb_Arena_SwapIn_dont_copy_me__upb_internal_use_only(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_upb_Arena_SwapOut_dont_copy_me__upb_internal_use_only(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !42
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -734,37 +734,41 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !10, i64 8}
-!9 = !{!"upb_MemBlock", !4, i64 0, !10, i64 8}
-!10 = !{!"int", !4, i64 0}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !4, i64 0}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!18, !14, i64 0}
-!18 = !{!"upb_ArenaInternal", !14, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"upb_alloc", !21, i64 0}
-!21 = !{!"any pointer", !4, i64 0}
-!22 = !{!18, !4, i64 32}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"upb_Arena", !25, i64 0, !25, i64 8}
-!25 = !{!"p1 omnipotent char", !21, i64 0}
-!26 = !{!24, !25, i64 8}
-!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!29 = !{!30, !14, i64 16}
-!30 = !{!"", !24, i64 0, !18, i64 16}
-!31 = !{!30, !25, i64 0}
-!32 = !{!30, !25, i64 8}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = !{i64 0, i64 8, !39, i64 8, i64 8, !39}
-!39 = !{!25, !25, i64 0}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"upb_MemBlock", !4, i64 0, !11, i64 8}
+!11 = !{!"int", !4, i64 0}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !4, i64 0}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!19, !15, i64 0}
+!19 = !{!"upb_ArenaInternal", !15, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"upb_alloc", !22, i64 0}
+!22 = !{!"any pointer", !4, i64 0}
+!23 = !{!19, !4, i64 32}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"upb_Arena", !26, i64 0, !26, i64 8}
+!26 = !{!"p1 omnipotent char", !22, i64 0}
+!27 = !{!25, !26, i64 8}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!29 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!30 = !{!31, !15, i64 16}
+!31 = !{!"", !25, i64 0, !19, i64 16}
+!32 = !{!31, !26, i64 0}
+!33 = !{!31, !26, i64 8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !8}
+!38 = distinct !{!38, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !8}
+!42 = !{i64 0, i64 8, !43, i64 8, i64 8, !43}
+!43 = !{!26, !26, i64 0}

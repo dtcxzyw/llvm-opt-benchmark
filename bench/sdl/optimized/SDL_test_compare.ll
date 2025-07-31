@@ -236,7 +236,7 @@ define dso_local i32 @SDLTest_CompareSurfaces(ptr noundef %0, ptr noundef %1, i3
   %.sroa.9.1.lcssa = phi i8 [ %.sroa.9.0120, %.preheader ], [ %.sroa.9.2, %._crit_edge.loopexit ]
   %83 = add nuw nsw i32 %.068109, 1
   %84 = icmp slt i32 %83, %81
-  br i1 %84, label %.preheader, label %._crit_edge121.loopexit, !llvm.loop !6
+  br i1 %84, label %.preheader, label %._crit_edge121.loopexit, !llvm.loop !7
 
 ._crit_edge121.loopexit:                          ; preds = %._crit_edge
   %85 = zext i8 %.sroa.02.1.lcssa to i32
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
   %.2 = add i64 %.17079, %.pn
   %49 = add nuw nsw i64 %.06780, 1
   %exitcond.not = icmp eq i64 %49, 16
-  br i1 %exitcond.not, label %50, label %35, !llvm.loop !8
+  br i1 %exitcond.not, label %50, label %35, !llvm.loop !9
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 %.2
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
   %71 = add i64 %.381, %70
   %72 = add nuw nsw i64 %.182, 1
   %exitcond87.not = icmp eq i64 %72, 16
-  br i1 %exitcond87.not, label %73, label %56, !llvm.loop !9
+  br i1 %exitcond87.not, label %73, label %56, !llvm.loop !10
 
 73:                                               ; preds = %66
   br i1 %31, label %74, label %79
@@ -468,13 +468,13 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
   %76 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %75, i64 noundef 149, ptr noundef nonnull @.str.24) #6
   %77 = sext i32 %76 to i64
   %78 = add i64 %71, %77
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !11
 
 79:                                               ; preds = %73
   call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.18, ptr noundef nonnull %6) #6
   %80 = add i64 %.17585, 16
   %81 = icmp ult i64 %80, %7
-  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %79, %.critedge, %16
   %.173 = phi i32 [ 0, %16 ], [ 1, %.critedge ], [ 1, %79 ]
@@ -514,11 +514,12 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

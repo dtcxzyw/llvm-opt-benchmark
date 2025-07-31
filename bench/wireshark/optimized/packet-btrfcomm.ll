@@ -1238,7 +1238,7 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
 514:                                              ; preds = %515
   %indvars.iv.next.i244 = add nuw nsw i64 %indvars.iv.i243, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i244, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_proto_by_channel.exit.thread, label %515, !llvm.loop !10
+  br i1 %exitcond.not.i, label %find_proto_by_channel.exit.thread, label %515, !llvm.loop !11
 
 515:                                              ; preds = %514, %.lr.ph.i
   %indvars.iv.i243 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i244, %514 ]
@@ -1394,7 +1394,7 @@ define internal i32 @dissect_btdun(ptr noundef %0, ptr noundef %1, ptr noundef %
   %15 = add nuw i32 %.03032, 1
   %16 = icmp ult i32 %15, %5
   %17 = select i1 %16, i1 %14, i1 false
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %14, label %.critedge, label %29
@@ -1492,7 +1492,7 @@ define internal i32 @dissect_btspp(ptr noundef %0, ptr noundef readonly captures
   %16 = add nuw nsw i32 %.026, 1
   %17 = icmp samesign ult i32 %16, %13
   %18 = select i1 %17, i1 %15, i1 false
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %15, label %.critedge, label %30
@@ -1818,8 +1818,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

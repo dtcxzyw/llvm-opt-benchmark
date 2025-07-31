@@ -565,7 +565,7 @@ tsdn_witness_tsdp_get.exit:
   %38 = lshr i64 %.val17.i, 12
   %39 = add i64 %38, %.01521.i
   %40 = icmp ult i64 %39, %7
-  br i1 %40, label %18, label %pac_stash_decayed.exit.thread
+  br i1 %40, label %18, label %pac_stash_decayed.exit.thread, !llvm.loop !62
 
 pac_stash_decayed.exit:                           ; preds = %18
   %.not = icmp eq i64 %.01521.i, 0
@@ -641,7 +641,7 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %.lr.ph.split.us.pre
   tail call void @duckdb_je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %48) #9
   %70 = add i64 %67, %.0414.us.i
   %.not.us.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i, !llvm.loop !62
+  br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i, !llvm.loop !64
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %100
   %71 = phi ptr [ %.sroa.0.2, %100 ], [ %.sroa.0.128, %.lr.ph.i ]
@@ -684,7 +684,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
   %90 = lshr i64 %.042.val.i, 12
   %91 = add i64 %.05.i, 1
   %92 = add i64 %90, %.0433.i
-  %93 = load i32, ptr %46, align 8, !tbaa !64
+  %93 = load i32, ptr %46, align 8, !tbaa !66
   %switch.not.i = icmp eq i32 %93, 1
   br i1 %switch.not.i, label %94, label %98
 
@@ -705,7 +705,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
 100:                                              ; preds = %98, %97
   %.1.i = phi i64 [ %99, %98 ], [ %.0414.i, %97 ]
   %.not.i = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i
+  br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i, !llvm.loop !67
 
 pac_decay_stashed.exit:                           ; preds = %100, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
   %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %69, %edata_list_inactive_remove.exit.us.i ], [ %92, %100 ]
@@ -797,7 +797,7 @@ define zeroext i1 @duckdb_je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %19
   %29 = getelementptr i8, ptr %2, i64 160
-  %.val = load i64, ptr %29, align 8, !tbaa !65
+  %.val = load i64, ptr %29, align 8, !tbaa !68
   %30 = icmp ugt i64 %24, %.val
   br i1 %30, label %31, label %pac_decay_try_purge.exit
 
@@ -914,7 +914,7 @@ define void @duckdb_je_pac_destroy(ptr noundef %0, ptr noundef %1) local_unnamed
   tail call void @duckdb_je_extent_destroy_wrapper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %7) #9
   %8 = tail call ptr @duckdb_je_ecache_evict(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %5, i64 noundef 0) #9
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1046,6 +1046,10 @@ attributes #9 = { nounwind }
 !60 = !{!28, !23, i64 112}
 !61 = !{!6, !6, i64 0}
 !62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = !{!17, !5, i64 19424}
-!65 = !{!28, !22, i64 160}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !63, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = !{!17, !5, i64 19424}
+!67 = distinct !{!67, !63}
+!68 = !{!28, !22, i64 160}
+!69 = distinct !{!69, !63}

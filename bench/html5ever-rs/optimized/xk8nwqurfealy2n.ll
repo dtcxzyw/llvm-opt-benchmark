@@ -36,7 +36,7 @@ define noundef i32 @_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember
 16:                                               ; preds = %11, %7
   %17 = add i32 %.011, 1
   %.not = icmp eq ptr %8, %4
-  br i1 %.not, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bc61bb89f4ae26dE.exit.thread", label %7
+  br i1 %.not, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bc61bb89f4ae26dE.exit.thread", label %7, !llvm.loop !8
 }
 
 attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -52,3 +52,5 @@ attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: re
 !5 = distinct !{!5, !6, !"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bc61bb89f4ae26dE: argument 0"}
 !6 = distinct !{!6, !"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9bc61bb89f4ae26dE"}
 !7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

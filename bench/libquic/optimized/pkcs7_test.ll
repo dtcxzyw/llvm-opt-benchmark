@@ -335,7 +335,7 @@ define internal fastcc range(i32 0, 2) i32 @test_cert_reparse(ptr noundef %0, i6
   %43 = add nuw i64 %.02336, 1
   %44 = call i64 @sk_num(ptr noundef %9) #7
   %45 = icmp ult i64 %43, %44
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %46 = call i32 @CBB_init(ptr noundef nonnull %4, i64 noundef %1) #7
@@ -477,6 +477,7 @@ attributes #9 = { cold nounwind }
 !12 = !{!"p1 omnipotent char", !8, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !9, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

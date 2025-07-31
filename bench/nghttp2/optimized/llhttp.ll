@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 
 .backedge:                                        ; preds = %26, %26, %30
   %29 = icmp eq ptr %28, %2
-  br i1 %29, label %.thread, label %26
+  br i1 %29, label %.thread, label %26, !llvm.loop !29
 
 30:                                               ; preds = %26
   %31 = load i16, ptr %25, align 2, !tbaa !17
@@ -1152,7 +1152,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 22, ptr %36, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str, ptr %37, align 8, !tbaa !29
+  store ptr @.str, ptr %37, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.23557, ptr %38, align 8, !tbaa !27
   store ptr inttoptr (i64 2 to ptr), ptr %4, align 8, !tbaa !23
@@ -1347,7 +1347,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %106, align 8, !tbaa !24
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.1, ptr %107, align 8, !tbaa !29
+  store ptr @.str.1, ptr %107, align 8, !tbaa !31
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.253580, ptr %108, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1375,7 +1375,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %119, align 8, !tbaa !24
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.2, ptr %120, align 8, !tbaa !29
+  store ptr @.str.2, ptr %120, align 8, !tbaa !31
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.283583, ptr %121, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1396,7 +1396,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 126:                                              ; preds = %.lr.ph6828
   %127 = getelementptr inbounds nuw i8, ptr %.2735826827, i64 1
   %128 = icmp eq ptr %127, %2
-  br i1 %128, label %.thread, label %.lr.ph6828
+  br i1 %128, label %.thread, label %.lr.ph6828, !llvm.loop !32
 
 129:                                              ; preds = %.lr.ph6828
   %130 = getelementptr inbounds nuw i8, ptr %.2735826827, i64 1
@@ -1424,7 +1424,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %139, align 8, !tbaa !24
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.4, ptr %140, align 8, !tbaa !29
+  store ptr @.str.4, ptr %140, align 8, !tbaa !31
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.303585, ptr %141, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1447,7 +1447,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 146:                                              ; preds = %.lr.ph6826
   %147 = getelementptr inbounds nuw i8, ptr %.3135866825, i64 1
   %148 = icmp eq ptr %147, %2
-  br i1 %148, label %.thread, label %.lr.ph6826
+  br i1 %148, label %.thread, label %.lr.ph6826, !llvm.loop !33
 
 149:                                              ; preds = %.lr.ph6826
   %150 = getelementptr inbounds nuw i8, ptr %.3135866825, i64 1
@@ -1479,7 +1479,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %159, align 8, !tbaa !24
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.6, ptr %160, align 8, !tbaa !29
+  store ptr @.str.6, ptr %160, align 8, !tbaa !31
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.333588, ptr %161, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1502,7 +1502,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 166:                                              ; preds = %.lr.ph6824
   %167 = getelementptr inbounds nuw i8, ptr %.3435896823, i64 1
   %168 = icmp eq ptr %167, %2
-  br i1 %168, label %.thread, label %.lr.ph6824
+  br i1 %168, label %.thread, label %.lr.ph6824, !llvm.loop !34
 
 169:                                              ; preds = %176, %3
   %.353590 = phi ptr [ %.193574, %176 ], [ %1, %3 ]
@@ -1533,7 +1533,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %180, align 8, !tbaa !24
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.42, ptr %181, align 8, !tbaa !29
+  store ptr @.str.42, ptr %181, align 8, !tbaa !31
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %179, ptr %182, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %185, align 8, !tbaa !24
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.42, ptr %186, align 8, !tbaa !29
+  store ptr @.str.42, ptr %186, align 8, !tbaa !31
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %184, ptr %187, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1798,7 +1798,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %261, align 8, !tbaa !24
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.8, ptr %262, align 8, !tbaa !29
+  store ptr @.str.8, ptr %262, align 8, !tbaa !31
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.483603, ptr %263, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1827,7 +1827,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 271:                                              ; preds = %.lr.ph6830
   %272 = getelementptr inbounds nuw i8, ptr %.5136066829, i64 1
   %273 = icmp eq ptr %272, %2
-  br i1 %273, label %.thread, label %.lr.ph6830
+  br i1 %273, label %.thread, label %.lr.ph6830, !llvm.loop !35
 
 .thread6438:                                      ; preds = %277, %2615, %3, %2620, %2611
   %.533608 = phi ptr [ %.593614, %2615 ], [ %.593614, %2611 ], [ %.593614, %2620 ], [ %1, %3 ], [ %.553610, %277 ]
@@ -1922,14 +1922,14 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 304:                                              ; preds = %.lr.ph6855
   %305 = getelementptr inbounds nuw i8, ptr %.6236176854, i64 1
   %306 = icmp eq ptr %305, %2
-  br i1 %306, label %.thread, label %.lr.ph6855
+  br i1 %306, label %.thread, label %.lr.ph6855, !llvm.loop !36
 
 .thread6450:                                      ; preds = %2672, %3
   %.633618 = phi ptr [ %1, %3 ], [ %.643619, %2672 ]
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %307, align 8, !tbaa !24
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.9, ptr %308, align 8, !tbaa !29
+  store ptr @.str.9, ptr %308, align 8, !tbaa !31
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.633618, ptr %309, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -1961,7 +1961,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 317:                                              ; preds = %.lr.ph6851
   %318 = getelementptr inbounds nuw i8, ptr %.6536206850, i64 1
   %319 = icmp eq ptr %318, %2
-  br i1 %319, label %.thread, label %.lr.ph6851
+  br i1 %319, label %.thread, label %.lr.ph6851, !llvm.loop !37
 
 320:                                              ; preds = %.lr.ph6851
   %321 = getelementptr inbounds nuw i8, ptr %.6536206850, i64 1
@@ -1980,7 +1980,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
 323:                                              ; preds = %.lr.ph6849
   %324 = getelementptr inbounds nuw i8, ptr %.6736226848, i64 1
   %325 = icmp eq ptr %324, %2
-  br i1 %325, label %.thread, label %.lr.ph6849
+  br i1 %325, label %.thread, label %.lr.ph6849, !llvm.loop !38
 
 326:                                              ; preds = %.lr.ph6849
   %327 = getelementptr inbounds nuw i8, ptr %.6736226848, i64 1
@@ -1999,7 +1999,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br i1 %331, label %.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %330
-  %332 = load i32, ptr %0, align 8, !tbaa !30
+  %332 = load i32, ptr %0, align 8, !tbaa !39
   %333 = ptrtoint ptr %2 to i64
   %334 = ptrtoint ptr %.683623 to i64
   %335 = sub i64 %333, %334
@@ -2034,13 +2034,13 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %.1.i = select i1 %342, i32 %343, i32 %.01832.i
   %346 = getelementptr inbounds nuw i8, ptr %.01930.i, i64 1
   %.not.i = icmp eq ptr %346, %2
-  br i1 %.not.i, label %.loopexit.sink.split.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not.i, label %.loopexit.sink.split.i, label %.lr.ph.i, !llvm.loop !40
 
 .loopexit.sink.split.i:                           ; preds = %345, %.lr.ph.i
   %.sink.i = phi i32 [ %.1.i, %345 ], [ 0, %.lr.ph.i ]
   %.01927.ph.i = phi ptr [ %scevgep.i, %345 ], [ %.01930.i, %.lr.ph.i ]
   %.sroa.0.2.ph.i = phi i32 [ 1, %345 ], [ %.sroa.0.1.i, %.lr.ph.i ]
-  store i32 %.sink.i, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit
 
 llparse__match_sequence_to_lower.exit:            ; preds = %.lr.ph.i, %.loopexit.sink.split.i
@@ -2062,7 +2062,7 @@ llparse__match_sequence_to_lower.exit:            ; preds = %.lr.ph.i, %.loopexi
   br i1 %349, label %.thread, label %.lr.ph.preheader.i4505
 
 .lr.ph.preheader.i4505:                           ; preds = %348
-  %350 = load i32, ptr %0, align 8, !tbaa !30
+  %350 = load i32, ptr %0, align 8, !tbaa !39
   %351 = ptrtoint ptr %2 to i64
   %352 = ptrtoint ptr %.703625 to i64
   %353 = sub i64 %351, %352
@@ -2097,13 +2097,13 @@ llparse__match_sequence_to_lower.exit:            ; preds = %.lr.ph.i, %.loopexi
   %.1.i4525 = select i1 %360, i32 %361, i32 %.01832.i4508
   %364 = getelementptr inbounds nuw i8, ptr %.01930.i4510, i64 1
   %.not.i4526 = icmp eq ptr %364, %2
-  br i1 %.not.i4526, label %.loopexit.sink.split.i4517, label %.lr.ph.i4507, !llvm.loop !31
+  br i1 %.not.i4526, label %.loopexit.sink.split.i4517, label %.lr.ph.i4507, !llvm.loop !40
 
 .loopexit.sink.split.i4517:                       ; preds = %363, %.lr.ph.i4507
   %.sink.i4518 = phi i32 [ %.1.i4525, %363 ], [ 0, %.lr.ph.i4507 ]
   %.01927.ph.i4519 = phi ptr [ %scevgep.i4506, %363 ], [ %.01930.i4510, %.lr.ph.i4507 ]
   %.sroa.0.2.ph.i4520 = phi i32 [ 1, %363 ], [ %.sroa.0.1.i4515, %.lr.ph.i4507 ]
-  store i32 %.sink.i4518, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4518, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4527
 
 llparse__match_sequence_to_lower.exit4527:        ; preds = %.lr.ph.i4507, %.loopexit.sink.split.i4517
@@ -2125,7 +2125,7 @@ llparse__match_sequence_to_lower.exit4527:        ; preds = %.lr.ph.i4507, %.loo
   br i1 %367, label %.thread, label %.lr.ph.preheader.i4529
 
 .lr.ph.preheader.i4529:                           ; preds = %366
-  %368 = load i32, ptr %0, align 8, !tbaa !30
+  %368 = load i32, ptr %0, align 8, !tbaa !39
   %369 = ptrtoint ptr %2 to i64
   %370 = ptrtoint ptr %.723627 to i64
   %371 = sub i64 %369, %370
@@ -2160,13 +2160,13 @@ llparse__match_sequence_to_lower.exit4527:        ; preds = %.lr.ph.i4507, %.loo
   %.1.i4549 = select i1 %378, i32 %379, i32 %.01832.i4532
   %382 = getelementptr inbounds nuw i8, ptr %.01930.i4534, i64 1
   %.not.i4550 = icmp eq ptr %382, %2
-  br i1 %.not.i4550, label %.loopexit.sink.split.i4541, label %.lr.ph.i4531, !llvm.loop !31
+  br i1 %.not.i4550, label %.loopexit.sink.split.i4541, label %.lr.ph.i4531, !llvm.loop !40
 
 .loopexit.sink.split.i4541:                       ; preds = %381, %.lr.ph.i4531
   %.sink.i4542 = phi i32 [ %.1.i4549, %381 ], [ 0, %.lr.ph.i4531 ]
   %.01927.ph.i4543 = phi ptr [ %scevgep.i4530, %381 ], [ %.01930.i4534, %.lr.ph.i4531 ]
   %.sroa.0.2.ph.i4544 = phi i32 [ 1, %381 ], [ %.sroa.0.1.i4539, %.lr.ph.i4531 ]
-  store i32 %.sink.i4542, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4542, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4551
 
 llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loopexit.sink.split.i4541
@@ -2205,7 +2205,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 .backedge6556:                                    ; preds = %.lr.ph6847, %.lr.ph6847
   %.663621.be = getelementptr inbounds nuw i8, ptr %.6636216846, i64 1
   %388 = icmp eq ptr %.663621.be, %2
-  br i1 %388, label %.thread, label %.lr.ph6847
+  br i1 %388, label %.thread, label %.lr.ph6847, !llvm.loop !42
 
 389:                                              ; preds = %.lr.ph6847
   %390 = getelementptr inbounds nuw i8, ptr %.6636216846, i64 1
@@ -2224,7 +2224,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 11, ptr %395, align 8, !tbaa !24
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.11, ptr %396, align 8, !tbaa !29
+  store ptr @.str.11, ptr %396, align 8, !tbaa !31
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.743629, ptr %397, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -2235,7 +2235,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 11, ptr %398, align 8, !tbaa !24
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.12, ptr %399, align 8, !tbaa !29
+  store ptr @.str.12, ptr %399, align 8, !tbaa !31
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.753630, ptr %400, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -2253,7 +2253,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 402:                                              ; preds = %.lr.ph6845
   %403 = getelementptr inbounds nuw i8, ptr %.7636316844, i64 1
   %404 = icmp eq ptr %403, %2
-  br i1 %404, label %.thread, label %.lr.ph6845
+  br i1 %404, label %.thread, label %.lr.ph6845, !llvm.loop !43
 
 405:                                              ; preds = %.lr.ph6843, %llhttp__internal__c_mul_add_content_length_1.exit
   %.7736326842 = phi ptr [ %.773632.ph, %.lr.ph6843 ], [ %.783633, %llhttp__internal__c_mul_add_content_length_1.exit ]
@@ -2272,7 +2272,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %410, align 8, !tbaa !24
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.13, ptr %411, align 8, !tbaa !29
+  store ptr @.str.13, ptr %411, align 8, !tbaa !31
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.793634, ptr %412, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -2283,7 +2283,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %414, align 8, !tbaa !24
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.13, ptr %415, align 8, !tbaa !29
+  store ptr @.str.13, ptr %415, align 8, !tbaa !31
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.803635, ptr %416, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -2300,7 +2300,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 .backedge6564:                                    ; preds = %.lr.ph6840, %.lr.ph6840
   %.813636.be = getelementptr inbounds nuw i8, ptr %.8136366839, i64 1
   %418 = icmp eq ptr %.813636.be, %2
-  br i1 %418, label %.thread, label %.lr.ph6840
+  br i1 %418, label %.thread, label %.lr.ph6840, !llvm.loop !44
 
 .lr.ph6853:                                       ; preds = %.preheader6546, %423
   %.8336386852 = phi ptr [ %424, %423 ], [ %.833638.ph, %.preheader6546 ]
@@ -2314,7 +2314,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 423:                                              ; preds = %.lr.ph6853
   %424 = getelementptr inbounds nuw i8, ptr %.8336386852, i64 1
   %425 = icmp eq ptr %424, %2
-  br i1 %425, label %.thread, label %.lr.ph6853
+  br i1 %425, label %.thread, label %.lr.ph6853, !llvm.loop !45
 
 .lr.ph6838:                                       ; preds = %.preheader6565, %430
   %.8436396837 = phi ptr [ %431, %430 ], [ %.843639.ph, %.preheader6565 ]
@@ -2330,7 +2330,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 430:                                              ; preds = %.lr.ph6838
   %431 = getelementptr inbounds nuw i8, ptr %.8436396837, i64 1
   %432 = icmp eq ptr %431, %2
-  br i1 %432, label %.thread, label %.lr.ph6838
+  br i1 %432, label %.thread, label %.lr.ph6838, !llvm.loop !46
 
 433:                                              ; preds = %.lr.ph6838
   %434 = getelementptr inbounds nuw i8, ptr %.8436396837, i64 1
@@ -2354,7 +2354,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 437:                                              ; preds = %.lr.ph6836
   %438 = getelementptr inbounds nuw i8, ptr %.8636416835, i64 1
   %439 = icmp eq ptr %438, %2
-  br i1 %439, label %.thread, label %.lr.ph6836
+  br i1 %439, label %.thread, label %.lr.ph6836, !llvm.loop !47
 
 .loopexit6563:                                    ; preds = %.lr.ph6840, %2735, %2738, %3, %2743
   %.823637 = phi ptr [ %.883643, %2743 ], [ %.8636416835, %2738 ], [ %.8636416835, %2735 ], [ %1, %3 ], [ %.8136366839, %.lr.ph6840 ]
@@ -2362,7 +2362,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
   br i1 %440, label %.thread, label %.lr.ph.preheader.i4552
 
 .lr.ph.preheader.i4552:                           ; preds = %.loopexit6563
-  %441 = load i32, ptr %0, align 8, !tbaa !30
+  %441 = load i32, ptr %0, align 8, !tbaa !39
   %442 = ptrtoint ptr %2 to i64
   %443 = ptrtoint ptr %.823637 to i64
   %444 = sub i32 6, %441
@@ -2393,19 +2393,19 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 459:                                              ; preds = %456
   %460 = getelementptr inbounds nuw i8, ptr %.0166.i, i64 1
   %.not.i4558 = icmp eq ptr %460, %2
-  br i1 %.not.i4558, label %llparse__match_sequence_to_lower_unsafe.exit.thread5801, label %.lr.ph.i4554, !llvm.loop !33
+  br i1 %.not.i4558, label %llparse__match_sequence_to_lower_unsafe.exit.thread5801, label %.lr.ph.i4554, !llvm.loop !48
 
 llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
-  store i32 %449, ptr %0, align 8, !tbaa !30
+  store i32 %449, ptr %0, align 8, !tbaa !39
   br label %.thread
 
 .thread7081:                                      ; preds = %456
-  store i32 0, ptr %0, align 8, !tbaa !30
+  store i32 0, ptr %0, align 8, !tbaa !39
   %461 = getelementptr inbounds nuw i8, ptr %scevgep18.i, i64 1
   br label %.preheader6568
 
 462:                                              ; preds = %.lr.ph.i4554
-  store i32 0, ptr %0, align 8, !tbaa !30
+  store i32 0, ptr %0, align 8, !tbaa !39
   br label %.preheader6565
 
 .loopexit6572:                                    ; preds = %.lr.ph6834, %2604, %3, %2599
@@ -2450,7 +2450,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
 .backedge6573:                                    ; preds = %.lr.ph6834, %.lr.ph6834
   %.893644.be = getelementptr inbounds nuw i8, ptr %.8936446833, i64 1
   %472 = icmp eq ptr %.893644.be, %2
-  br i1 %472, label %.thread, label %.lr.ph6834
+  br i1 %472, label %.thread, label %.lr.ph6834, !llvm.loop !49
 
 473:                                              ; preds = %.lr.ph6834
   %474 = getelementptr inbounds nuw i8, ptr %.8936446833, i64 1
@@ -2503,7 +2503,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
 492:                                              ; preds = %.lr.ph6832
   %493 = getelementptr inbounds nuw i8, ptr %.9336486831, i64 1
   %494 = icmp eq ptr %493, %2
-  br i1 %494, label %.thread, label %.lr.ph6832
+  br i1 %494, label %.thread, label %.lr.ph6832, !llvm.loop !50
 
 .loopexit6579:                                    ; preds = %.lr.ph6830, %3, %.thread5818
   %.523607 = phi ptr [ %2823, %.thread5818 ], [ %1, %3 ], [ %.5136066829, %.lr.ph6830 ]
@@ -2523,7 +2523,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
   br i1 %499, label %.thread, label %.lr.ph.preheader.i4561
 
 .lr.ph.preheader.i4561:                           ; preds = %498
-  %500 = load i32, ptr %0, align 8, !tbaa !30
+  %500 = load i32, ptr %0, align 8, !tbaa !39
   %501 = ptrtoint ptr %2 to i64
   %502 = ptrtoint ptr %.943649 to i64
   %503 = sub i64 %501, %502
@@ -2558,13 +2558,13 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
   %.1.i4581 = select i1 %510, i32 %511, i32 %.01832.i4564
   %514 = getelementptr inbounds nuw i8, ptr %.01930.i4566, i64 1
   %.not.i4582 = icmp eq ptr %514, %2
-  br i1 %.not.i4582, label %.loopexit.sink.split.i4573, label %.lr.ph.i4563, !llvm.loop !31
+  br i1 %.not.i4582, label %.loopexit.sink.split.i4573, label %.lr.ph.i4563, !llvm.loop !40
 
 .loopexit.sink.split.i4573:                       ; preds = %513, %.lr.ph.i4563
   %.sink.i4574 = phi i32 [ %.1.i4581, %513 ], [ 0, %.lr.ph.i4563 ]
   %.01927.ph.i4575 = phi ptr [ %scevgep.i4562, %513 ], [ %.01930.i4566, %.lr.ph.i4563 ]
   %.sroa.0.2.ph.i4576 = phi i32 [ 1, %513 ], [ %.sroa.0.1.i4571, %.lr.ph.i4563 ]
-  store i32 %.sink.i4574, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4574, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4583
 
 llparse__match_sequence_to_lower.exit4583:        ; preds = %.lr.ph.i4563, %.loopexit.sink.split.i4573
@@ -2586,7 +2586,7 @@ llparse__match_sequence_to_lower.exit4583:        ; preds = %.lr.ph.i4563, %.loo
   br i1 %517, label %.thread, label %.lr.ph.preheader.i4585
 
 .lr.ph.preheader.i4585:                           ; preds = %516
-  %518 = load i32, ptr %0, align 8, !tbaa !30
+  %518 = load i32, ptr %0, align 8, !tbaa !39
   %519 = ptrtoint ptr %2 to i64
   %520 = ptrtoint ptr %.983653 to i64
   %521 = sub i64 %519, %520
@@ -2621,13 +2621,13 @@ llparse__match_sequence_to_lower.exit4583:        ; preds = %.lr.ph.i4563, %.loo
   %.1.i4605 = select i1 %528, i32 %529, i32 %.01832.i4588
   %532 = getelementptr inbounds nuw i8, ptr %.01930.i4590, i64 1
   %.not.i4606 = icmp eq ptr %532, %2
-  br i1 %.not.i4606, label %.loopexit.sink.split.i4597, label %.lr.ph.i4587, !llvm.loop !31
+  br i1 %.not.i4606, label %.loopexit.sink.split.i4597, label %.lr.ph.i4587, !llvm.loop !40
 
 .loopexit.sink.split.i4597:                       ; preds = %531, %.lr.ph.i4587
   %.sink.i4598 = phi i32 [ %.1.i4605, %531 ], [ 0, %.lr.ph.i4587 ]
   %.01927.ph.i4599 = phi ptr [ %scevgep.i4586, %531 ], [ %.01930.i4590, %.lr.ph.i4587 ]
   %.sroa.0.2.ph.i4600 = phi i32 [ 1, %531 ], [ %.sroa.0.1.i4595, %.lr.ph.i4587 ]
-  store i32 %.sink.i4598, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4598, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4607
 
 llparse__match_sequence_to_lower.exit4607:        ; preds = %.lr.ph.i4587, %.loopexit.sink.split.i4597
@@ -2673,7 +2673,7 @@ llparse__match_sequence_to_lower.exit4607:        ; preds = %.lr.ph.i4587, %.loo
   br i1 %545, label %.thread, label %.lr.ph.preheader.i4609
 
 .lr.ph.preheader.i4609:                           ; preds = %544
-  %546 = load i32, ptr %0, align 8, !tbaa !30
+  %546 = load i32, ptr %0, align 8, !tbaa !39
   %547 = ptrtoint ptr %2 to i64
   %548 = ptrtoint ptr %.1013656 to i64
   %549 = sub i64 %547, %548
@@ -2708,13 +2708,13 @@ llparse__match_sequence_to_lower.exit4607:        ; preds = %.lr.ph.i4587, %.loo
   %.1.i4629 = select i1 %556, i32 %557, i32 %.01832.i4612
   %560 = getelementptr inbounds nuw i8, ptr %.01930.i4614, i64 1
   %.not.i4630 = icmp eq ptr %560, %2
-  br i1 %.not.i4630, label %.loopexit.sink.split.i4621, label %.lr.ph.i4611, !llvm.loop !31
+  br i1 %.not.i4630, label %.loopexit.sink.split.i4621, label %.lr.ph.i4611, !llvm.loop !40
 
 .loopexit.sink.split.i4621:                       ; preds = %559, %.lr.ph.i4611
   %.sink.i4622 = phi i32 [ %.1.i4629, %559 ], [ 0, %.lr.ph.i4611 ]
   %.01927.ph.i4623 = phi ptr [ %scevgep.i4610, %559 ], [ %.01930.i4614, %.lr.ph.i4611 ]
   %.sroa.0.2.ph.i4624 = phi i32 [ 1, %559 ], [ %.sroa.0.1.i4619, %.lr.ph.i4611 ]
-  store i32 %.sink.i4622, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4622, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4631
 
 llparse__match_sequence_to_lower.exit4631:        ; preds = %.lr.ph.i4611, %.loopexit.sink.split.i4621
@@ -2740,7 +2740,7 @@ llparse__match_sequence_to_lower.exit4631:        ; preds = %.lr.ph.i4611, %.loo
   br i1 %564, label %.thread, label %.lr.ph.preheader.i4633
 
 .lr.ph.preheader.i4633:                           ; preds = %563
-  %565 = load i32, ptr %0, align 8, !tbaa !30
+  %565 = load i32, ptr %0, align 8, !tbaa !39
   %566 = ptrtoint ptr %2 to i64
   %567 = ptrtoint ptr %.1033658 to i64
   %568 = sub i64 %566, %567
@@ -2775,13 +2775,13 @@ llparse__match_sequence_to_lower.exit4631:        ; preds = %.lr.ph.i4611, %.loo
   %.1.i4653 = select i1 %575, i32 %576, i32 %.01832.i4636
   %579 = getelementptr inbounds nuw i8, ptr %.01930.i4638, i64 1
   %.not.i4654 = icmp eq ptr %579, %2
-  br i1 %.not.i4654, label %.loopexit.sink.split.i4645, label %.lr.ph.i4635, !llvm.loop !31
+  br i1 %.not.i4654, label %.loopexit.sink.split.i4645, label %.lr.ph.i4635, !llvm.loop !40
 
 .loopexit.sink.split.i4645:                       ; preds = %578, %.lr.ph.i4635
   %.sink.i4646 = phi i32 [ %.1.i4653, %578 ], [ 0, %.lr.ph.i4635 ]
   %.01927.ph.i4647 = phi ptr [ %scevgep.i4634, %578 ], [ %.01930.i4638, %.lr.ph.i4635 ]
   %.sroa.0.2.ph.i4648 = phi i32 [ 1, %578 ], [ %.sroa.0.1.i4643, %.lr.ph.i4635 ]
-  store i32 %.sink.i4646, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4646, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4655
 
 llparse__match_sequence_to_lower.exit4655:        ; preds = %.lr.ph.i4635, %.loopexit.sink.split.i4645
@@ -2803,7 +2803,7 @@ llparse__match_sequence_to_lower.exit4655:        ; preds = %.lr.ph.i4635, %.loo
   br i1 %582, label %.thread, label %.lr.ph.preheader.i4657
 
 .lr.ph.preheader.i4657:                           ; preds = %581
-  %583 = load i32, ptr %0, align 8, !tbaa !30
+  %583 = load i32, ptr %0, align 8, !tbaa !39
   %584 = ptrtoint ptr %2 to i64
   %585 = ptrtoint ptr %.1053660 to i64
   %586 = sub i64 %584, %585
@@ -2838,13 +2838,13 @@ llparse__match_sequence_to_lower.exit4655:        ; preds = %.lr.ph.i4635, %.loo
   %.1.i4677 = select i1 %593, i32 %594, i32 %.01832.i4660
   %597 = getelementptr inbounds nuw i8, ptr %.01930.i4662, i64 1
   %.not.i4678 = icmp eq ptr %597, %2
-  br i1 %.not.i4678, label %.loopexit.sink.split.i4669, label %.lr.ph.i4659, !llvm.loop !31
+  br i1 %.not.i4678, label %.loopexit.sink.split.i4669, label %.lr.ph.i4659, !llvm.loop !40
 
 .loopexit.sink.split.i4669:                       ; preds = %596, %.lr.ph.i4659
   %.sink.i4670 = phi i32 [ %.1.i4677, %596 ], [ 0, %.lr.ph.i4659 ]
   %.01927.ph.i4671 = phi ptr [ %scevgep.i4658, %596 ], [ %.01930.i4662, %.lr.ph.i4659 ]
   %.sroa.0.2.ph.i4672 = phi i32 [ 1, %596 ], [ %.sroa.0.1.i4667, %.lr.ph.i4659 ]
-  store i32 %.sink.i4670, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4670, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4679
 
 llparse__match_sequence_to_lower.exit4679:        ; preds = %.lr.ph.i4659, %.loopexit.sink.split.i4669
@@ -2866,7 +2866,7 @@ llparse__match_sequence_to_lower.exit4679:        ; preds = %.lr.ph.i4659, %.loo
   br i1 %600, label %.thread, label %.lr.ph.preheader.i4681
 
 .lr.ph.preheader.i4681:                           ; preds = %599
-  %601 = load i32, ptr %0, align 8, !tbaa !30
+  %601 = load i32, ptr %0, align 8, !tbaa !39
   %602 = ptrtoint ptr %2 to i64
   %603 = ptrtoint ptr %.1073662 to i64
   %604 = sub i64 %602, %603
@@ -2901,13 +2901,13 @@ llparse__match_sequence_to_lower.exit4679:        ; preds = %.lr.ph.i4659, %.loo
   %.1.i4701 = select i1 %611, i32 %612, i32 %.01832.i4684
   %615 = getelementptr inbounds nuw i8, ptr %.01930.i4686, i64 1
   %.not.i4702 = icmp eq ptr %615, %2
-  br i1 %.not.i4702, label %.loopexit.sink.split.i4693, label %.lr.ph.i4683, !llvm.loop !31
+  br i1 %.not.i4702, label %.loopexit.sink.split.i4693, label %.lr.ph.i4683, !llvm.loop !40
 
 .loopexit.sink.split.i4693:                       ; preds = %614, %.lr.ph.i4683
   %.sink.i4694 = phi i32 [ %.1.i4701, %614 ], [ 0, %.lr.ph.i4683 ]
   %.01927.ph.i4695 = phi ptr [ %scevgep.i4682, %614 ], [ %.01930.i4686, %.lr.ph.i4683 ]
   %.sroa.0.2.ph.i4696 = phi i32 [ 1, %614 ], [ %.sroa.0.1.i4691, %.lr.ph.i4683 ]
-  store i32 %.sink.i4694, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4694, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_to_lower.exit4703
 
 llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loopexit.sink.split.i4693
@@ -3161,7 +3161,7 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %711, align 8, !tbaa !24
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.17, ptr %712, align 8, !tbaa !29
+  store ptr @.str.17, ptr %712, align 8, !tbaa !31
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1243679, ptr %713, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -3172,7 +3172,7 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %714, align 8, !tbaa !24
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.18, ptr %715, align 8, !tbaa !29
+  store ptr @.str.18, ptr %715, align 8, !tbaa !31
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1253680, ptr %716, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -3230,7 +3230,7 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   %730 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %730, align 8, !tbaa !24
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.19, ptr %731, align 8, !tbaa !29
+  store ptr @.str.19, ptr %731, align 8, !tbaa !31
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1283683, ptr %732, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -3255,7 +3255,7 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   %739 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %739, align 8, !tbaa !24
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.20, ptr %740, align 8, !tbaa !29
+  store ptr @.str.20, ptr %740, align 8, !tbaa !31
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1303685, ptr %741, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -3290,7 +3290,7 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   br i1 %753, label %.thread, label %.lr.ph.preheader.i4706
 
 .lr.ph.preheader.i4706:                           ; preds = %752
-  %754 = load i32, ptr %0, align 8, !tbaa !30
+  %754 = load i32, ptr %0, align 8, !tbaa !39
   %755 = ptrtoint ptr %2 to i64
   %756 = ptrtoint ptr %.1343689 to i64
   %757 = sub i64 %755, %756
@@ -3321,13 +3321,13 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   %.1.i4719 = select i1 %762, i32 %763, i32 %.01528.i
   %766 = getelementptr inbounds nuw i8, ptr %.01626.i, i64 1
   %.not.i4720 = icmp eq ptr %766, %2
-  br i1 %.not.i4720, label %.loopexit.sink.split.i4713, label %.lr.ph.i4708, !llvm.loop !34
+  br i1 %.not.i4720, label %.loopexit.sink.split.i4713, label %.lr.ph.i4708, !llvm.loop !51
 
 .loopexit.sink.split.i4713:                       ; preds = %765, %.lr.ph.i4708
   %.sink.i4714 = phi i32 [ %.1.i4719, %765 ], [ 0, %.lr.ph.i4708 ]
   %.01623.ph.i = phi ptr [ %scevgep.i4707, %765 ], [ %.01626.i, %.lr.ph.i4708 ]
   %.sroa.0.2.ph.i4715 = phi i32 [ 1, %765 ], [ %.sroa.0.1.i4711, %.lr.ph.i4708 ]
-  store i32 %.sink.i4714, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4714, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit
 
 llparse__match_sequence_id.exit:                  ; preds = %.lr.ph.i4708, %.loopexit.sink.split.i4713
@@ -3349,7 +3349,7 @@ llparse__match_sequence_id.exit:                  ; preds = %.lr.ph.i4708, %.loo
   br i1 %769, label %.thread, label %.lr.ph.preheader.i4722
 
 .lr.ph.preheader.i4722:                           ; preds = %768
-  %770 = load i32, ptr %0, align 8, !tbaa !30
+  %770 = load i32, ptr %0, align 8, !tbaa !39
   %771 = ptrtoint ptr %2 to i64
   %772 = ptrtoint ptr %.1373692 to i64
   %773 = sub i64 %771, %772
@@ -3380,13 +3380,13 @@ llparse__match_sequence_id.exit:                  ; preds = %.lr.ph.i4708, %.loo
   %.1.i4740 = select i1 %778, i32 %779, i32 %.01528.i4725
   %782 = getelementptr inbounds nuw i8, ptr %.01626.i4727, i64 1
   %.not.i4741 = icmp eq ptr %782, %2
-  br i1 %.not.i4741, label %.loopexit.sink.split.i4732, label %.lr.ph.i4724, !llvm.loop !34
+  br i1 %.not.i4741, label %.loopexit.sink.split.i4732, label %.lr.ph.i4724, !llvm.loop !51
 
 .loopexit.sink.split.i4732:                       ; preds = %781, %.lr.ph.i4724
   %.sink.i4733 = phi i32 [ %.1.i4740, %781 ], [ 0, %.lr.ph.i4724 ]
   %.01623.ph.i4734 = phi ptr [ %scevgep.i4723, %781 ], [ %.01626.i4727, %.lr.ph.i4724 ]
   %.sroa.0.2.ph.i4735 = phi i32 [ 1, %781 ], [ %.sroa.0.1.i4730, %.lr.ph.i4724 ]
-  store i32 %.sink.i4733, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4733, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4742
 
 llparse__match_sequence_id.exit4742:              ; preds = %.lr.ph.i4724, %.loopexit.sink.split.i4732
@@ -3408,7 +3408,7 @@ llparse__match_sequence_id.exit4742:              ; preds = %.lr.ph.i4724, %.loo
   br i1 %785, label %.thread, label %.lr.ph.preheader.i4744
 
 .lr.ph.preheader.i4744:                           ; preds = %784
-  %786 = load i32, ptr %0, align 8, !tbaa !30
+  %786 = load i32, ptr %0, align 8, !tbaa !39
   %787 = ptrtoint ptr %2 to i64
   %788 = ptrtoint ptr %.1393694 to i64
   %789 = sub i64 %787, %788
@@ -3439,13 +3439,13 @@ llparse__match_sequence_id.exit4742:              ; preds = %.lr.ph.i4724, %.loo
   %.1.i4762 = select i1 %794, i32 %795, i32 %.01528.i4747
   %798 = getelementptr inbounds nuw i8, ptr %.01626.i4749, i64 1
   %.not.i4763 = icmp eq ptr %798, %2
-  br i1 %.not.i4763, label %.loopexit.sink.split.i4754, label %.lr.ph.i4746, !llvm.loop !34
+  br i1 %.not.i4763, label %.loopexit.sink.split.i4754, label %.lr.ph.i4746, !llvm.loop !51
 
 .loopexit.sink.split.i4754:                       ; preds = %797, %.lr.ph.i4746
   %.sink.i4755 = phi i32 [ %.1.i4762, %797 ], [ 0, %.lr.ph.i4746 ]
   %.01623.ph.i4756 = phi ptr [ %scevgep.i4745, %797 ], [ %.01626.i4749, %.lr.ph.i4746 ]
   %.sroa.0.2.ph.i4757 = phi i32 [ 1, %797 ], [ %.sroa.0.1.i4752, %.lr.ph.i4746 ]
-  store i32 %.sink.i4755, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4755, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4764
 
 llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loopexit.sink.split.i4754
@@ -3474,7 +3474,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 801:                                              ; preds = %.lr.ph6822
   %802 = getelementptr inbounds nuw i8, ptr %.14136966821, i64 1
   %803 = icmp eq ptr %802, %2
-  br i1 %803, label %.thread, label %.lr.ph6822
+  br i1 %803, label %.thread, label %.lr.ph6822, !llvm.loop !52
 
 804:                                              ; preds = %.lr.ph6822
   %805 = getelementptr inbounds nuw i8, ptr %.14136966821, i64 1
@@ -3542,7 +3542,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 828:                                              ; preds = %.lr.ph6820
   %829 = getelementptr inbounds nuw i8, ptr %.14436996819, i64 1
   %830 = icmp eq ptr %829, %2
-  br i1 %830, label %.thread, label %.lr.ph6820
+  br i1 %830, label %.thread, label %.lr.ph6820, !llvm.loop !53
 
 .loopexit6596:                                    ; preds = %.lr.ph6818, %3
   %.1453700 = phi ptr [ %1, %3 ], [ %.14637016817, %.lr.ph6818 ]
@@ -3575,7 +3575,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 840:                                              ; preds = %.lr.ph6818
   %841 = getelementptr inbounds nuw i8, ptr %.14637016817, i64 1
   %842 = icmp eq ptr %841, %2
-  br i1 %842, label %.thread, label %.lr.ph6818
+  br i1 %842, label %.thread, label %.lr.ph6818, !llvm.loop !54
 
 .loopexit6599:                                    ; preds = %.lr.ph6816, %3
   %.1473702 = phi ptr [ %1, %3 ], [ %.14837036815, %.lr.ph6816 ]
@@ -3628,7 +3628,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 860:                                              ; preds = %.lr.ph6816
   %861 = getelementptr inbounds nuw i8, ptr %.14837036815, i64 1
   %862 = icmp eq ptr %861, %2
-  br i1 %862, label %.thread, label %.lr.ph6816
+  br i1 %862, label %.thread, label %.lr.ph6816, !llvm.loop !55
 
 863:                                              ; preds = %941, %3
   %.1493704 = phi ptr [ %.1593714, %941 ], [ %1, %3 ]
@@ -3695,7 +3695,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %889, align 8, !tbaa !24
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.83, ptr %890, align 8, !tbaa !29
+  store ptr @.str.83, ptr %890, align 8, !tbaa !31
   %891 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %888, ptr %891, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -3725,7 +3725,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 898:                                              ; preds = %.lr.ph6814
   %899 = getelementptr inbounds nuw i8, ptr %.15337086813, i64 1
   %900 = icmp eq ptr %899, %2
-  br i1 %900, label %.thread, label %.lr.ph6814
+  br i1 %900, label %.thread, label %.lr.ph6814, !llvm.loop !56
 
 901:                                              ; preds = %.lr.ph6814
   %902 = getelementptr inbounds nuw i8, ptr %.15337086813, i64 1
@@ -3817,7 +3817,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 936:                                              ; preds = %.lr.ph6812
   %937 = getelementptr inbounds nuw i8, ptr %.15837136811, i64 1
   %938 = icmp eq ptr %937, %2
-  br i1 %938, label %.thread, label %.lr.ph6812
+  br i1 %938, label %.thread, label %.lr.ph6812, !llvm.loop !57
 
 939:                                              ; preds = %3, %951
   %.1593714 = phi ptr [ %.1603715, %951 ], [ %1, %3 ]
@@ -3917,7 +3917,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
 976:                                              ; preds = %.lr.ph6810
   %977 = getelementptr inbounds nuw i8, ptr %.16437196809, i64 1
   %978 = icmp eq ptr %977, %2
-  br i1 %978, label %.thread, label %.lr.ph6810
+  br i1 %978, label %.thread, label %.lr.ph6810, !llvm.loop !58
 
 979:                                              ; preds = %.thread6534, %.thread6510, %3
   %.1653720 = phi ptr [ %.3083863, %.thread6534 ], [ %.1663721, %.thread6510 ], [ %1, %3 ]
@@ -3961,7 +3961,7 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
   br i1 %993, label %.thread, label %.lr.ph.preheader.i4766
 
 .lr.ph.preheader.i4766:                           ; preds = %992
-  %994 = load i32, ptr %0, align 8, !tbaa !30
+  %994 = load i32, ptr %0, align 8, !tbaa !39
   %995 = ptrtoint ptr %2 to i64
   %996 = ptrtoint ptr %.1703725 to i64
   %997 = sub i64 %995, %996
@@ -3992,13 +3992,13 @@ llparse__match_sequence_id.exit4764:              ; preds = %.lr.ph.i4746, %.loo
   %.1.i4784 = select i1 %1002, i32 %1003, i32 %.01528.i4769
   %1006 = getelementptr inbounds nuw i8, ptr %.01626.i4771, i64 1
   %.not.i4785 = icmp eq ptr %1006, %2
-  br i1 %.not.i4785, label %.loopexit.sink.split.i4776, label %.lr.ph.i4768, !llvm.loop !34
+  br i1 %.not.i4785, label %.loopexit.sink.split.i4776, label %.lr.ph.i4768, !llvm.loop !51
 
 .loopexit.sink.split.i4776:                       ; preds = %1005, %.lr.ph.i4768
   %.sink.i4777 = phi i32 [ %.1.i4784, %1005 ], [ 0, %.lr.ph.i4768 ]
   %.01623.ph.i4778 = phi ptr [ %scevgep.i4767, %1005 ], [ %.01626.i4771, %.lr.ph.i4768 ]
   %.sroa.0.2.ph.i4779 = phi i32 [ 1, %1005 ], [ %.sroa.0.1.i4774, %.lr.ph.i4768 ]
-  store i32 %.sink.i4777, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4777, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4786
 
 llparse__match_sequence_id.exit4786:              ; preds = %.lr.ph.i4768, %.loopexit.sink.split.i4776
@@ -4044,7 +4044,7 @@ llparse__match_sequence_id.exit4786:              ; preds = %.lr.ph.i4768, %.loo
   br i1 %1018, label %.thread, label %.lr.ph.preheader.i4788
 
 .lr.ph.preheader.i4788:                           ; preds = %1017
-  %1019 = load i32, ptr %0, align 8, !tbaa !30
+  %1019 = load i32, ptr %0, align 8, !tbaa !39
   %1020 = ptrtoint ptr %2 to i64
   %1021 = ptrtoint ptr %.1733728 to i64
   %1022 = sub i64 %1020, %1021
@@ -4075,13 +4075,13 @@ llparse__match_sequence_id.exit4786:              ; preds = %.lr.ph.i4768, %.loo
   %.1.i4806 = select i1 %1027, i32 %1028, i32 %.01528.i4791
   %1031 = getelementptr inbounds nuw i8, ptr %.01626.i4793, i64 1
   %.not.i4807 = icmp eq ptr %1031, %2
-  br i1 %.not.i4807, label %.loopexit.sink.split.i4798, label %.lr.ph.i4790, !llvm.loop !34
+  br i1 %.not.i4807, label %.loopexit.sink.split.i4798, label %.lr.ph.i4790, !llvm.loop !51
 
 .loopexit.sink.split.i4798:                       ; preds = %1030, %.lr.ph.i4790
   %.sink.i4799 = phi i32 [ %.1.i4806, %1030 ], [ 0, %.lr.ph.i4790 ]
   %.01623.ph.i4800 = phi ptr [ %scevgep.i4789, %1030 ], [ %.01626.i4793, %.lr.ph.i4790 ]
   %.sroa.0.2.ph.i4801 = phi i32 [ 1, %1030 ], [ %.sroa.0.1.i4796, %.lr.ph.i4790 ]
-  store i32 %.sink.i4799, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4799, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4808
 
 llparse__match_sequence_id.exit4808:              ; preds = %.lr.ph.i4790, %.loopexit.sink.split.i4798
@@ -4107,7 +4107,7 @@ llparse__match_sequence_id.exit4808:              ; preds = %.lr.ph.i4790, %.loo
   br i1 %1035, label %.thread, label %.lr.ph.preheader.i4810
 
 .lr.ph.preheader.i4810:                           ; preds = %1034
-  %1036 = load i32, ptr %0, align 8, !tbaa !30
+  %1036 = load i32, ptr %0, align 8, !tbaa !39
   %1037 = ptrtoint ptr %2 to i64
   %1038 = ptrtoint ptr %.1753730 to i64
   %1039 = sub i64 %1037, %1038
@@ -4138,13 +4138,13 @@ llparse__match_sequence_id.exit4808:              ; preds = %.lr.ph.i4790, %.loo
   %.1.i4828 = select i1 %1044, i32 %1045, i32 %.01528.i4813
   %1048 = getelementptr inbounds nuw i8, ptr %.01626.i4815, i64 1
   %.not.i4829 = icmp eq ptr %1048, %2
-  br i1 %.not.i4829, label %.loopexit.sink.split.i4820, label %.lr.ph.i4812, !llvm.loop !34
+  br i1 %.not.i4829, label %.loopexit.sink.split.i4820, label %.lr.ph.i4812, !llvm.loop !51
 
 .loopexit.sink.split.i4820:                       ; preds = %1047, %.lr.ph.i4812
   %.sink.i4821 = phi i32 [ %.1.i4828, %1047 ], [ 0, %.lr.ph.i4812 ]
   %.01623.ph.i4822 = phi ptr [ %scevgep.i4811, %1047 ], [ %.01626.i4815, %.lr.ph.i4812 ]
   %.sroa.0.2.ph.i4823 = phi i32 [ 1, %1047 ], [ %.sroa.0.1.i4818, %.lr.ph.i4812 ]
-  store i32 %.sink.i4821, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4821, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4830
 
 llparse__match_sequence_id.exit4830:              ; preds = %.lr.ph.i4812, %.loopexit.sink.split.i4820
@@ -4170,7 +4170,7 @@ llparse__match_sequence_id.exit4830:              ; preds = %.lr.ph.i4812, %.loo
   br i1 %1052, label %.thread, label %.lr.ph.preheader.i4832
 
 .lr.ph.preheader.i4832:                           ; preds = %1051
-  %1053 = load i32, ptr %0, align 8, !tbaa !30
+  %1053 = load i32, ptr %0, align 8, !tbaa !39
   %1054 = ptrtoint ptr %2 to i64
   %1055 = ptrtoint ptr %.1773732 to i64
   %1056 = sub i64 %1054, %1055
@@ -4201,13 +4201,13 @@ llparse__match_sequence_id.exit4830:              ; preds = %.lr.ph.i4812, %.loo
   %.1.i4850 = select i1 %1061, i32 %1062, i32 %.01528.i4835
   %1065 = getelementptr inbounds nuw i8, ptr %.01626.i4837, i64 1
   %.not.i4851 = icmp eq ptr %1065, %2
-  br i1 %.not.i4851, label %.loopexit.sink.split.i4842, label %.lr.ph.i4834, !llvm.loop !34
+  br i1 %.not.i4851, label %.loopexit.sink.split.i4842, label %.lr.ph.i4834, !llvm.loop !51
 
 .loopexit.sink.split.i4842:                       ; preds = %1064, %.lr.ph.i4834
   %.sink.i4843 = phi i32 [ %.1.i4850, %1064 ], [ 0, %.lr.ph.i4834 ]
   %.01623.ph.i4844 = phi ptr [ %scevgep.i4833, %1064 ], [ %.01626.i4837, %.lr.ph.i4834 ]
   %.sroa.0.2.ph.i4845 = phi i32 [ 1, %1064 ], [ %.sroa.0.1.i4840, %.lr.ph.i4834 ]
-  store i32 %.sink.i4843, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4843, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4852
 
 llparse__match_sequence_id.exit4852:              ; preds = %.lr.ph.i4834, %.loopexit.sink.split.i4842
@@ -4287,7 +4287,7 @@ llparse__match_sequence_id.exit4852:              ; preds = %.lr.ph.i4834, %.loo
   br i1 %1091, label %.thread, label %.lr.ph.preheader.i4854
 
 .lr.ph.preheader.i4854:                           ; preds = %1090
-  %1092 = load i32, ptr %0, align 8, !tbaa !30
+  %1092 = load i32, ptr %0, align 8, !tbaa !39
   %1093 = ptrtoint ptr %2 to i64
   %1094 = ptrtoint ptr %.1823737 to i64
   %1095 = sub i64 %1093, %1094
@@ -4318,13 +4318,13 @@ llparse__match_sequence_id.exit4852:              ; preds = %.lr.ph.i4834, %.loo
   %.1.i4872 = select i1 %1100, i32 %1101, i32 %.01528.i4857
   %1104 = getelementptr inbounds nuw i8, ptr %.01626.i4859, i64 1
   %.not.i4873 = icmp eq ptr %1104, %2
-  br i1 %.not.i4873, label %.loopexit.sink.split.i4864, label %.lr.ph.i4856, !llvm.loop !34
+  br i1 %.not.i4873, label %.loopexit.sink.split.i4864, label %.lr.ph.i4856, !llvm.loop !51
 
 .loopexit.sink.split.i4864:                       ; preds = %1103, %.lr.ph.i4856
   %.sink.i4865 = phi i32 [ %.1.i4872, %1103 ], [ 0, %.lr.ph.i4856 ]
   %.01623.ph.i4866 = phi ptr [ %scevgep.i4855, %1103 ], [ %.01626.i4859, %.lr.ph.i4856 ]
   %.sroa.0.2.ph.i4867 = phi i32 [ 1, %1103 ], [ %.sroa.0.1.i4862, %.lr.ph.i4856 ]
-  store i32 %.sink.i4865, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4865, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4874
 
 llparse__match_sequence_id.exit4874:              ; preds = %.lr.ph.i4856, %.loopexit.sink.split.i4864
@@ -4350,7 +4350,7 @@ llparse__match_sequence_id.exit4874:              ; preds = %.lr.ph.i4856, %.loo
   br i1 %1108, label %.thread, label %.lr.ph.preheader.i4876
 
 .lr.ph.preheader.i4876:                           ; preds = %1107
-  %1109 = load i32, ptr %0, align 8, !tbaa !30
+  %1109 = load i32, ptr %0, align 8, !tbaa !39
   %1110 = ptrtoint ptr %2 to i64
   %1111 = ptrtoint ptr %.1843739 to i64
   %1112 = sub i64 %1110, %1111
@@ -4381,13 +4381,13 @@ llparse__match_sequence_id.exit4874:              ; preds = %.lr.ph.i4856, %.loo
   %.1.i4894 = select i1 %1117, i32 %1118, i32 %.01528.i4879
   %1121 = getelementptr inbounds nuw i8, ptr %.01626.i4881, i64 1
   %.not.i4895 = icmp eq ptr %1121, %2
-  br i1 %.not.i4895, label %.loopexit.sink.split.i4886, label %.lr.ph.i4878, !llvm.loop !34
+  br i1 %.not.i4895, label %.loopexit.sink.split.i4886, label %.lr.ph.i4878, !llvm.loop !51
 
 .loopexit.sink.split.i4886:                       ; preds = %1120, %.lr.ph.i4878
   %.sink.i4887 = phi i32 [ %.1.i4894, %1120 ], [ 0, %.lr.ph.i4878 ]
   %.01623.ph.i4888 = phi ptr [ %scevgep.i4877, %1120 ], [ %.01626.i4881, %.lr.ph.i4878 ]
   %.sroa.0.2.ph.i4889 = phi i32 [ 1, %1120 ], [ %.sroa.0.1.i4884, %.lr.ph.i4878 ]
-  store i32 %.sink.i4887, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4887, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4896
 
 llparse__match_sequence_id.exit4896:              ; preds = %.lr.ph.i4878, %.loopexit.sink.split.i4886
@@ -4447,7 +4447,7 @@ llparse__match_sequence_id.exit4896:              ; preds = %.lr.ph.i4878, %.loo
   br i1 %1139, label %.thread, label %.lr.ph.preheader.i4898
 
 .lr.ph.preheader.i4898:                           ; preds = %1138
-  %1140 = load i32, ptr %0, align 8, !tbaa !30
+  %1140 = load i32, ptr %0, align 8, !tbaa !39
   %1141 = ptrtoint ptr %2 to i64
   %1142 = ptrtoint ptr %.1883743 to i64
   %1143 = sub i64 %1141, %1142
@@ -4478,13 +4478,13 @@ llparse__match_sequence_id.exit4896:              ; preds = %.lr.ph.i4878, %.loo
   %.1.i4916 = select i1 %1148, i32 %1149, i32 %.01528.i4901
   %1152 = getelementptr inbounds nuw i8, ptr %.01626.i4903, i64 1
   %.not.i4917 = icmp eq ptr %1152, %2
-  br i1 %.not.i4917, label %.loopexit.sink.split.i4908, label %.lr.ph.i4900, !llvm.loop !34
+  br i1 %.not.i4917, label %.loopexit.sink.split.i4908, label %.lr.ph.i4900, !llvm.loop !51
 
 .loopexit.sink.split.i4908:                       ; preds = %1151, %.lr.ph.i4900
   %.sink.i4909 = phi i32 [ %.1.i4916, %1151 ], [ 0, %.lr.ph.i4900 ]
   %.01623.ph.i4910 = phi ptr [ %scevgep.i4899, %1151 ], [ %.01626.i4903, %.lr.ph.i4900 ]
   %.sroa.0.2.ph.i4911 = phi i32 [ 1, %1151 ], [ %.sroa.0.1.i4906, %.lr.ph.i4900 ]
-  store i32 %.sink.i4909, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4909, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4918
 
 llparse__match_sequence_id.exit4918:              ; preds = %.lr.ph.i4900, %.loopexit.sink.split.i4908
@@ -4510,7 +4510,7 @@ llparse__match_sequence_id.exit4918:              ; preds = %.lr.ph.i4900, %.loo
   br i1 %1156, label %.thread, label %.lr.ph.preheader.i4920
 
 .lr.ph.preheader.i4920:                           ; preds = %1155
-  %1157 = load i32, ptr %0, align 8, !tbaa !30
+  %1157 = load i32, ptr %0, align 8, !tbaa !39
   %1158 = ptrtoint ptr %2 to i64
   %1159 = ptrtoint ptr %.1903745 to i64
   %1160 = sub i64 %1158, %1159
@@ -4541,13 +4541,13 @@ llparse__match_sequence_id.exit4918:              ; preds = %.lr.ph.i4900, %.loo
   %.1.i4938 = select i1 %1165, i32 %1166, i32 %.01528.i4923
   %1169 = getelementptr inbounds nuw i8, ptr %.01626.i4925, i64 1
   %.not.i4939 = icmp eq ptr %1169, %2
-  br i1 %.not.i4939, label %.loopexit.sink.split.i4930, label %.lr.ph.i4922, !llvm.loop !34
+  br i1 %.not.i4939, label %.loopexit.sink.split.i4930, label %.lr.ph.i4922, !llvm.loop !51
 
 .loopexit.sink.split.i4930:                       ; preds = %1168, %.lr.ph.i4922
   %.sink.i4931 = phi i32 [ %.1.i4938, %1168 ], [ 0, %.lr.ph.i4922 ]
   %.01623.ph.i4932 = phi ptr [ %scevgep.i4921, %1168 ], [ %.01626.i4925, %.lr.ph.i4922 ]
   %.sroa.0.2.ph.i4933 = phi i32 [ 1, %1168 ], [ %.sroa.0.1.i4928, %.lr.ph.i4922 ]
-  store i32 %.sink.i4931, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4931, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4940
 
 llparse__match_sequence_id.exit4940:              ; preds = %.lr.ph.i4922, %.loopexit.sink.split.i4930
@@ -4587,7 +4587,7 @@ llparse__match_sequence_id.exit4940:              ; preds = %.lr.ph.i4922, %.loo
   br i1 %1179, label %.thread, label %.lr.ph.preheader.i4942
 
 .lr.ph.preheader.i4942:                           ; preds = %1178
-  %1180 = load i32, ptr %0, align 8, !tbaa !30
+  %1180 = load i32, ptr %0, align 8, !tbaa !39
   %1181 = ptrtoint ptr %2 to i64
   %1182 = ptrtoint ptr %.1933748 to i64
   %1183 = sub i64 %1181, %1182
@@ -4618,13 +4618,13 @@ llparse__match_sequence_id.exit4940:              ; preds = %.lr.ph.i4922, %.loo
   %.1.i4960 = select i1 %1188, i32 %1189, i32 %.01528.i4945
   %1192 = getelementptr inbounds nuw i8, ptr %.01626.i4947, i64 1
   %.not.i4961 = icmp eq ptr %1192, %2
-  br i1 %.not.i4961, label %.loopexit.sink.split.i4952, label %.lr.ph.i4944, !llvm.loop !34
+  br i1 %.not.i4961, label %.loopexit.sink.split.i4952, label %.lr.ph.i4944, !llvm.loop !51
 
 .loopexit.sink.split.i4952:                       ; preds = %1191, %.lr.ph.i4944
   %.sink.i4953 = phi i32 [ %.1.i4960, %1191 ], [ 0, %.lr.ph.i4944 ]
   %.01623.ph.i4954 = phi ptr [ %scevgep.i4943, %1191 ], [ %.01626.i4947, %.lr.ph.i4944 ]
   %.sroa.0.2.ph.i4955 = phi i32 [ 1, %1191 ], [ %.sroa.0.1.i4950, %.lr.ph.i4944 ]
-  store i32 %.sink.i4953, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4953, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4962
 
 llparse__match_sequence_id.exit4962:              ; preds = %.lr.ph.i4944, %.loopexit.sink.split.i4952
@@ -4650,7 +4650,7 @@ llparse__match_sequence_id.exit4962:              ; preds = %.lr.ph.i4944, %.loo
   br i1 %1196, label %.thread, label %.lr.ph.preheader.i4964
 
 .lr.ph.preheader.i4964:                           ; preds = %1195
-  %1197 = load i32, ptr %0, align 8, !tbaa !30
+  %1197 = load i32, ptr %0, align 8, !tbaa !39
   %1198 = ptrtoint ptr %2 to i64
   %1199 = ptrtoint ptr %.1953750 to i64
   %1200 = sub i64 %1198, %1199
@@ -4681,13 +4681,13 @@ llparse__match_sequence_id.exit4962:              ; preds = %.lr.ph.i4944, %.loo
   %.1.i4982 = select i1 %1205, i32 %1206, i32 %.01528.i4967
   %1209 = getelementptr inbounds nuw i8, ptr %.01626.i4969, i64 1
   %.not.i4983 = icmp eq ptr %1209, %2
-  br i1 %.not.i4983, label %.loopexit.sink.split.i4974, label %.lr.ph.i4966, !llvm.loop !34
+  br i1 %.not.i4983, label %.loopexit.sink.split.i4974, label %.lr.ph.i4966, !llvm.loop !51
 
 .loopexit.sink.split.i4974:                       ; preds = %1208, %.lr.ph.i4966
   %.sink.i4975 = phi i32 [ %.1.i4982, %1208 ], [ 0, %.lr.ph.i4966 ]
   %.01623.ph.i4976 = phi ptr [ %scevgep.i4965, %1208 ], [ %.01626.i4969, %.lr.ph.i4966 ]
   %.sroa.0.2.ph.i4977 = phi i32 [ 1, %1208 ], [ %.sroa.0.1.i4972, %.lr.ph.i4966 ]
-  store i32 %.sink.i4975, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4975, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit4984
 
 llparse__match_sequence_id.exit4984:              ; preds = %.lr.ph.i4966, %.loopexit.sink.split.i4974
@@ -4713,7 +4713,7 @@ llparse__match_sequence_id.exit4984:              ; preds = %.lr.ph.i4966, %.loo
   br i1 %1213, label %.thread, label %.lr.ph.preheader.i4986
 
 .lr.ph.preheader.i4986:                           ; preds = %1212
-  %1214 = load i32, ptr %0, align 8, !tbaa !30
+  %1214 = load i32, ptr %0, align 8, !tbaa !39
   %1215 = ptrtoint ptr %2 to i64
   %1216 = ptrtoint ptr %.1973752 to i64
   %1217 = sub i64 %1215, %1216
@@ -4744,13 +4744,13 @@ llparse__match_sequence_id.exit4984:              ; preds = %.lr.ph.i4966, %.loo
   %.1.i5004 = select i1 %1222, i32 %1223, i32 %.01528.i4989
   %1226 = getelementptr inbounds nuw i8, ptr %.01626.i4991, i64 1
   %.not.i5005 = icmp eq ptr %1226, %2
-  br i1 %.not.i5005, label %.loopexit.sink.split.i4996, label %.lr.ph.i4988, !llvm.loop !34
+  br i1 %.not.i5005, label %.loopexit.sink.split.i4996, label %.lr.ph.i4988, !llvm.loop !51
 
 .loopexit.sink.split.i4996:                       ; preds = %1225, %.lr.ph.i4988
   %.sink.i4997 = phi i32 [ %.1.i5004, %1225 ], [ 0, %.lr.ph.i4988 ]
   %.01623.ph.i4998 = phi ptr [ %scevgep.i4987, %1225 ], [ %.01626.i4991, %.lr.ph.i4988 ]
   %.sroa.0.2.ph.i4999 = phi i32 [ 1, %1225 ], [ %.sroa.0.1.i4994, %.lr.ph.i4988 ]
-  store i32 %.sink.i4997, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i4997, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5006
 
 llparse__match_sequence_id.exit5006:              ; preds = %.lr.ph.i4988, %.loopexit.sink.split.i4996
@@ -4776,7 +4776,7 @@ llparse__match_sequence_id.exit5006:              ; preds = %.lr.ph.i4988, %.loo
   br i1 %1230, label %.thread, label %.lr.ph.preheader.i5008
 
 .lr.ph.preheader.i5008:                           ; preds = %1229
-  %1231 = load i32, ptr %0, align 8, !tbaa !30
+  %1231 = load i32, ptr %0, align 8, !tbaa !39
   %1232 = ptrtoint ptr %2 to i64
   %1233 = ptrtoint ptr %.1993754 to i64
   %1234 = sub i64 %1232, %1233
@@ -4807,13 +4807,13 @@ llparse__match_sequence_id.exit5006:              ; preds = %.lr.ph.i4988, %.loo
   %.1.i5026 = select i1 %1239, i32 %1240, i32 %.01528.i5011
   %1243 = getelementptr inbounds nuw i8, ptr %.01626.i5013, i64 1
   %.not.i5027 = icmp eq ptr %1243, %2
-  br i1 %.not.i5027, label %.loopexit.sink.split.i5018, label %.lr.ph.i5010, !llvm.loop !34
+  br i1 %.not.i5027, label %.loopexit.sink.split.i5018, label %.lr.ph.i5010, !llvm.loop !51
 
 .loopexit.sink.split.i5018:                       ; preds = %1242, %.lr.ph.i5010
   %.sink.i5019 = phi i32 [ %.1.i5026, %1242 ], [ 0, %.lr.ph.i5010 ]
   %.01623.ph.i5020 = phi ptr [ %scevgep.i5009, %1242 ], [ %.01626.i5013, %.lr.ph.i5010 ]
   %.sroa.0.2.ph.i5021 = phi i32 [ 1, %1242 ], [ %.sroa.0.1.i5016, %.lr.ph.i5010 ]
-  store i32 %.sink.i5019, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5019, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5028
 
 llparse__match_sequence_id.exit5028:              ; preds = %.lr.ph.i5010, %.loopexit.sink.split.i5018
@@ -4859,7 +4859,7 @@ llparse__match_sequence_id.exit5028:              ; preds = %.lr.ph.i5010, %.loo
   br i1 %1255, label %.thread, label %.lr.ph.preheader.i5030
 
 .lr.ph.preheader.i5030:                           ; preds = %1254
-  %1256 = load i32, ptr %0, align 8, !tbaa !30
+  %1256 = load i32, ptr %0, align 8, !tbaa !39
   %1257 = ptrtoint ptr %2 to i64
   %1258 = ptrtoint ptr %.2023757 to i64
   %1259 = sub i64 %1257, %1258
@@ -4890,13 +4890,13 @@ llparse__match_sequence_id.exit5028:              ; preds = %.lr.ph.i5010, %.loo
   %.1.i5048 = select i1 %1264, i32 %1265, i32 %.01528.i5033
   %1268 = getelementptr inbounds nuw i8, ptr %.01626.i5035, i64 1
   %.not.i5049 = icmp eq ptr %1268, %2
-  br i1 %.not.i5049, label %.loopexit.sink.split.i5040, label %.lr.ph.i5032, !llvm.loop !34
+  br i1 %.not.i5049, label %.loopexit.sink.split.i5040, label %.lr.ph.i5032, !llvm.loop !51
 
 .loopexit.sink.split.i5040:                       ; preds = %1267, %.lr.ph.i5032
   %.sink.i5041 = phi i32 [ %.1.i5048, %1267 ], [ 0, %.lr.ph.i5032 ]
   %.01623.ph.i5042 = phi ptr [ %scevgep.i5031, %1267 ], [ %.01626.i5035, %.lr.ph.i5032 ]
   %.sroa.0.2.ph.i5043 = phi i32 [ 1, %1267 ], [ %.sroa.0.1.i5038, %.lr.ph.i5032 ]
-  store i32 %.sink.i5041, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5041, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5050
 
 llparse__match_sequence_id.exit5050:              ; preds = %.lr.ph.i5032, %.loopexit.sink.split.i5040
@@ -4922,7 +4922,7 @@ llparse__match_sequence_id.exit5050:              ; preds = %.lr.ph.i5032, %.loo
   br i1 %1272, label %.thread, label %.lr.ph.preheader.i5052
 
 .lr.ph.preheader.i5052:                           ; preds = %1271
-  %1273 = load i32, ptr %0, align 8, !tbaa !30
+  %1273 = load i32, ptr %0, align 8, !tbaa !39
   %1274 = ptrtoint ptr %2 to i64
   %1275 = ptrtoint ptr %.2043759 to i64
   %1276 = sub i64 %1274, %1275
@@ -4953,13 +4953,13 @@ llparse__match_sequence_id.exit5050:              ; preds = %.lr.ph.i5032, %.loo
   %.1.i5070 = select i1 %1281, i32 %1282, i32 %.01528.i5055
   %1285 = getelementptr inbounds nuw i8, ptr %.01626.i5057, i64 1
   %.not.i5071 = icmp eq ptr %1285, %2
-  br i1 %.not.i5071, label %.loopexit.sink.split.i5062, label %.lr.ph.i5054, !llvm.loop !34
+  br i1 %.not.i5071, label %.loopexit.sink.split.i5062, label %.lr.ph.i5054, !llvm.loop !51
 
 .loopexit.sink.split.i5062:                       ; preds = %1284, %.lr.ph.i5054
   %.sink.i5063 = phi i32 [ %.1.i5070, %1284 ], [ 0, %.lr.ph.i5054 ]
   %.01623.ph.i5064 = phi ptr [ %scevgep.i5053, %1284 ], [ %.01626.i5057, %.lr.ph.i5054 ]
   %.sroa.0.2.ph.i5065 = phi i32 [ 1, %1284 ], [ %.sroa.0.1.i5060, %.lr.ph.i5054 ]
-  store i32 %.sink.i5063, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5063, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5072
 
 llparse__match_sequence_id.exit5072:              ; preds = %.lr.ph.i5054, %.loopexit.sink.split.i5062
@@ -4985,7 +4985,7 @@ llparse__match_sequence_id.exit5072:              ; preds = %.lr.ph.i5054, %.loo
   br i1 %1289, label %.thread, label %.lr.ph.preheader.i5074
 
 .lr.ph.preheader.i5074:                           ; preds = %1288
-  %1290 = load i32, ptr %0, align 8, !tbaa !30
+  %1290 = load i32, ptr %0, align 8, !tbaa !39
   %1291 = ptrtoint ptr %2 to i64
   %1292 = ptrtoint ptr %.2063761 to i64
   %1293 = sub i64 %1291, %1292
@@ -5016,13 +5016,13 @@ llparse__match_sequence_id.exit5072:              ; preds = %.lr.ph.i5054, %.loo
   %.1.i5092 = select i1 %1298, i32 %1299, i32 %.01528.i5077
   %1302 = getelementptr inbounds nuw i8, ptr %.01626.i5079, i64 1
   %.not.i5093 = icmp eq ptr %1302, %2
-  br i1 %.not.i5093, label %.loopexit.sink.split.i5084, label %.lr.ph.i5076, !llvm.loop !34
+  br i1 %.not.i5093, label %.loopexit.sink.split.i5084, label %.lr.ph.i5076, !llvm.loop !51
 
 .loopexit.sink.split.i5084:                       ; preds = %1301, %.lr.ph.i5076
   %.sink.i5085 = phi i32 [ %.1.i5092, %1301 ], [ 0, %.lr.ph.i5076 ]
   %.01623.ph.i5086 = phi ptr [ %scevgep.i5075, %1301 ], [ %.01626.i5079, %.lr.ph.i5076 ]
   %.sroa.0.2.ph.i5087 = phi i32 [ 1, %1301 ], [ %.sroa.0.1.i5082, %.lr.ph.i5076 ]
-  store i32 %.sink.i5085, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5085, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5094
 
 llparse__match_sequence_id.exit5094:              ; preds = %.lr.ph.i5076, %.loopexit.sink.split.i5084
@@ -5048,7 +5048,7 @@ llparse__match_sequence_id.exit5094:              ; preds = %.lr.ph.i5076, %.loo
   br i1 %1306, label %.thread, label %.lr.ph.preheader.i5096
 
 .lr.ph.preheader.i5096:                           ; preds = %1305
-  %1307 = load i32, ptr %0, align 8, !tbaa !30
+  %1307 = load i32, ptr %0, align 8, !tbaa !39
   %1308 = ptrtoint ptr %2 to i64
   %1309 = ptrtoint ptr %.2083763 to i64
   %1310 = sub i64 %1308, %1309
@@ -5079,13 +5079,13 @@ llparse__match_sequence_id.exit5094:              ; preds = %.lr.ph.i5076, %.loo
   %.1.i5114 = select i1 %1315, i32 %1316, i32 %.01528.i5099
   %1319 = getelementptr inbounds nuw i8, ptr %.01626.i5101, i64 1
   %.not.i5115 = icmp eq ptr %1319, %2
-  br i1 %.not.i5115, label %.loopexit.sink.split.i5106, label %.lr.ph.i5098, !llvm.loop !34
+  br i1 %.not.i5115, label %.loopexit.sink.split.i5106, label %.lr.ph.i5098, !llvm.loop !51
 
 .loopexit.sink.split.i5106:                       ; preds = %1318, %.lr.ph.i5098
   %.sink.i5107 = phi i32 [ %.1.i5114, %1318 ], [ 0, %.lr.ph.i5098 ]
   %.01623.ph.i5108 = phi ptr [ %scevgep.i5097, %1318 ], [ %.01626.i5101, %.lr.ph.i5098 ]
   %.sroa.0.2.ph.i5109 = phi i32 [ 1, %1318 ], [ %.sroa.0.1.i5104, %.lr.ph.i5098 ]
-  store i32 %.sink.i5107, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5107, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5116
 
 llparse__match_sequence_id.exit5116:              ; preds = %.lr.ph.i5098, %.loopexit.sink.split.i5106
@@ -5165,7 +5165,7 @@ llparse__match_sequence_id.exit5116:              ; preds = %.lr.ph.i5098, %.loo
   br i1 %1345, label %.thread, label %.lr.ph.preheader.i5118
 
 .lr.ph.preheader.i5118:                           ; preds = %1344
-  %1346 = load i32, ptr %0, align 8, !tbaa !30
+  %1346 = load i32, ptr %0, align 8, !tbaa !39
   %1347 = ptrtoint ptr %2 to i64
   %1348 = ptrtoint ptr %.2133768 to i64
   %1349 = sub i64 %1347, %1348
@@ -5196,13 +5196,13 @@ llparse__match_sequence_id.exit5116:              ; preds = %.lr.ph.i5098, %.loo
   %.1.i5136 = select i1 %1354, i32 %1355, i32 %.01528.i5121
   %1358 = getelementptr inbounds nuw i8, ptr %.01626.i5123, i64 1
   %.not.i5137 = icmp eq ptr %1358, %2
-  br i1 %.not.i5137, label %.loopexit.sink.split.i5128, label %.lr.ph.i5120, !llvm.loop !34
+  br i1 %.not.i5137, label %.loopexit.sink.split.i5128, label %.lr.ph.i5120, !llvm.loop !51
 
 .loopexit.sink.split.i5128:                       ; preds = %1357, %.lr.ph.i5120
   %.sink.i5129 = phi i32 [ %.1.i5136, %1357 ], [ 0, %.lr.ph.i5120 ]
   %.01623.ph.i5130 = phi ptr [ %scevgep.i5119, %1357 ], [ %.01626.i5123, %.lr.ph.i5120 ]
   %.sroa.0.2.ph.i5131 = phi i32 [ 1, %1357 ], [ %.sroa.0.1.i5126, %.lr.ph.i5120 ]
-  store i32 %.sink.i5129, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5129, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5138
 
 llparse__match_sequence_id.exit5138:              ; preds = %.lr.ph.i5120, %.loopexit.sink.split.i5128
@@ -5258,7 +5258,7 @@ llparse__match_sequence_id.exit5138:              ; preds = %.lr.ph.i5120, %.loo
   br i1 %1374, label %.thread, label %.lr.ph.preheader.i5140
 
 .lr.ph.preheader.i5140:                           ; preds = %1373
-  %1375 = load i32, ptr %0, align 8, !tbaa !30
+  %1375 = load i32, ptr %0, align 8, !tbaa !39
   %1376 = ptrtoint ptr %2 to i64
   %1377 = ptrtoint ptr %.2163771 to i64
   %1378 = sub i64 %1376, %1377
@@ -5289,13 +5289,13 @@ llparse__match_sequence_id.exit5138:              ; preds = %.lr.ph.i5120, %.loo
   %.1.i5158 = select i1 %1383, i32 %1384, i32 %.01528.i5143
   %1387 = getelementptr inbounds nuw i8, ptr %.01626.i5145, i64 1
   %.not.i5159 = icmp eq ptr %1387, %2
-  br i1 %.not.i5159, label %.loopexit.sink.split.i5150, label %.lr.ph.i5142, !llvm.loop !34
+  br i1 %.not.i5159, label %.loopexit.sink.split.i5150, label %.lr.ph.i5142, !llvm.loop !51
 
 .loopexit.sink.split.i5150:                       ; preds = %1386, %.lr.ph.i5142
   %.sink.i5151 = phi i32 [ %.1.i5158, %1386 ], [ 0, %.lr.ph.i5142 ]
   %.01623.ph.i5152 = phi ptr [ %scevgep.i5141, %1386 ], [ %.01626.i5145, %.lr.ph.i5142 ]
   %.sroa.0.2.ph.i5153 = phi i32 [ 1, %1386 ], [ %.sroa.0.1.i5148, %.lr.ph.i5142 ]
-  store i32 %.sink.i5151, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5151, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5160
 
 llparse__match_sequence_id.exit5160:              ; preds = %.lr.ph.i5142, %.loopexit.sink.split.i5150
@@ -5321,7 +5321,7 @@ llparse__match_sequence_id.exit5160:              ; preds = %.lr.ph.i5142, %.loo
   br i1 %1391, label %.thread, label %.lr.ph.preheader.i5162
 
 .lr.ph.preheader.i5162:                           ; preds = %1390
-  %1392 = load i32, ptr %0, align 8, !tbaa !30
+  %1392 = load i32, ptr %0, align 8, !tbaa !39
   %1393 = ptrtoint ptr %2 to i64
   %1394 = ptrtoint ptr %.2183773 to i64
   %1395 = sub i64 %1393, %1394
@@ -5352,13 +5352,13 @@ llparse__match_sequence_id.exit5160:              ; preds = %.lr.ph.i5142, %.loo
   %.1.i5180 = select i1 %1400, i32 %1401, i32 %.01528.i5165
   %1404 = getelementptr inbounds nuw i8, ptr %.01626.i5167, i64 1
   %.not.i5181 = icmp eq ptr %1404, %2
-  br i1 %.not.i5181, label %.loopexit.sink.split.i5172, label %.lr.ph.i5164, !llvm.loop !34
+  br i1 %.not.i5181, label %.loopexit.sink.split.i5172, label %.lr.ph.i5164, !llvm.loop !51
 
 .loopexit.sink.split.i5172:                       ; preds = %1403, %.lr.ph.i5164
   %.sink.i5173 = phi i32 [ %.1.i5180, %1403 ], [ 0, %.lr.ph.i5164 ]
   %.01623.ph.i5174 = phi ptr [ %scevgep.i5163, %1403 ], [ %.01626.i5167, %.lr.ph.i5164 ]
   %.sroa.0.2.ph.i5175 = phi i32 [ 1, %1403 ], [ %.sroa.0.1.i5170, %.lr.ph.i5164 ]
-  store i32 %.sink.i5173, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5173, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5182
 
 llparse__match_sequence_id.exit5182:              ; preds = %.lr.ph.i5164, %.loopexit.sink.split.i5172
@@ -5384,7 +5384,7 @@ llparse__match_sequence_id.exit5182:              ; preds = %.lr.ph.i5164, %.loo
   br i1 %1408, label %.thread, label %.lr.ph.preheader.i5184
 
 .lr.ph.preheader.i5184:                           ; preds = %1407
-  %1409 = load i32, ptr %0, align 8, !tbaa !30
+  %1409 = load i32, ptr %0, align 8, !tbaa !39
   %1410 = ptrtoint ptr %2 to i64
   %1411 = ptrtoint ptr %.2203775 to i64
   %1412 = sub i64 %1410, %1411
@@ -5415,13 +5415,13 @@ llparse__match_sequence_id.exit5182:              ; preds = %.lr.ph.i5164, %.loo
   %.1.i5202 = select i1 %1417, i32 %1418, i32 %.01528.i5187
   %1421 = getelementptr inbounds nuw i8, ptr %.01626.i5189, i64 1
   %.not.i5203 = icmp eq ptr %1421, %2
-  br i1 %.not.i5203, label %.loopexit.sink.split.i5194, label %.lr.ph.i5186, !llvm.loop !34
+  br i1 %.not.i5203, label %.loopexit.sink.split.i5194, label %.lr.ph.i5186, !llvm.loop !51
 
 .loopexit.sink.split.i5194:                       ; preds = %1420, %.lr.ph.i5186
   %.sink.i5195 = phi i32 [ %.1.i5202, %1420 ], [ 0, %.lr.ph.i5186 ]
   %.01623.ph.i5196 = phi ptr [ %scevgep.i5185, %1420 ], [ %.01626.i5189, %.lr.ph.i5186 ]
   %.sroa.0.2.ph.i5197 = phi i32 [ 1, %1420 ], [ %.sroa.0.1.i5192, %.lr.ph.i5186 ]
-  store i32 %.sink.i5195, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5195, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5204
 
 llparse__match_sequence_id.exit5204:              ; preds = %.lr.ph.i5186, %.loopexit.sink.split.i5194
@@ -5447,7 +5447,7 @@ llparse__match_sequence_id.exit5204:              ; preds = %.lr.ph.i5186, %.loo
   br i1 %1425, label %.thread, label %.lr.ph.preheader.i5206
 
 .lr.ph.preheader.i5206:                           ; preds = %1424
-  %1426 = load i32, ptr %0, align 8, !tbaa !30
+  %1426 = load i32, ptr %0, align 8, !tbaa !39
   %1427 = ptrtoint ptr %2 to i64
   %1428 = ptrtoint ptr %.2223777 to i64
   %1429 = sub i64 %1427, %1428
@@ -5478,13 +5478,13 @@ llparse__match_sequence_id.exit5204:              ; preds = %.lr.ph.i5186, %.loo
   %.1.i5224 = select i1 %1434, i32 %1435, i32 %.01528.i5209
   %1438 = getelementptr inbounds nuw i8, ptr %.01626.i5211, i64 1
   %.not.i5225 = icmp eq ptr %1438, %2
-  br i1 %.not.i5225, label %.loopexit.sink.split.i5216, label %.lr.ph.i5208, !llvm.loop !34
+  br i1 %.not.i5225, label %.loopexit.sink.split.i5216, label %.lr.ph.i5208, !llvm.loop !51
 
 .loopexit.sink.split.i5216:                       ; preds = %1437, %.lr.ph.i5208
   %.sink.i5217 = phi i32 [ %.1.i5224, %1437 ], [ 0, %.lr.ph.i5208 ]
   %.01623.ph.i5218 = phi ptr [ %scevgep.i5207, %1437 ], [ %.01626.i5211, %.lr.ph.i5208 ]
   %.sroa.0.2.ph.i5219 = phi i32 [ 1, %1437 ], [ %.sroa.0.1.i5214, %.lr.ph.i5208 ]
-  store i32 %.sink.i5217, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5217, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5226
 
 llparse__match_sequence_id.exit5226:              ; preds = %.lr.ph.i5208, %.loopexit.sink.split.i5216
@@ -5530,7 +5530,7 @@ llparse__match_sequence_id.exit5226:              ; preds = %.lr.ph.i5208, %.loo
   br i1 %1450, label %.thread, label %.lr.ph.preheader.i5228
 
 .lr.ph.preheader.i5228:                           ; preds = %1449
-  %1451 = load i32, ptr %0, align 8, !tbaa !30
+  %1451 = load i32, ptr %0, align 8, !tbaa !39
   %1452 = ptrtoint ptr %2 to i64
   %1453 = ptrtoint ptr %.2253780 to i64
   %1454 = sub i64 %1452, %1453
@@ -5561,13 +5561,13 @@ llparse__match_sequence_id.exit5226:              ; preds = %.lr.ph.i5208, %.loo
   %.1.i5246 = select i1 %1459, i32 %1460, i32 %.01528.i5231
   %1463 = getelementptr inbounds nuw i8, ptr %.01626.i5233, i64 1
   %.not.i5247 = icmp eq ptr %1463, %2
-  br i1 %.not.i5247, label %.loopexit.sink.split.i5238, label %.lr.ph.i5230, !llvm.loop !34
+  br i1 %.not.i5247, label %.loopexit.sink.split.i5238, label %.lr.ph.i5230, !llvm.loop !51
 
 .loopexit.sink.split.i5238:                       ; preds = %1462, %.lr.ph.i5230
   %.sink.i5239 = phi i32 [ %.1.i5246, %1462 ], [ 0, %.lr.ph.i5230 ]
   %.01623.ph.i5240 = phi ptr [ %scevgep.i5229, %1462 ], [ %.01626.i5233, %.lr.ph.i5230 ]
   %.sroa.0.2.ph.i5241 = phi i32 [ 1, %1462 ], [ %.sroa.0.1.i5236, %.lr.ph.i5230 ]
-  store i32 %.sink.i5239, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5239, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5248
 
 llparse__match_sequence_id.exit5248:              ; preds = %.lr.ph.i5230, %.loopexit.sink.split.i5238
@@ -5593,7 +5593,7 @@ llparse__match_sequence_id.exit5248:              ; preds = %.lr.ph.i5230, %.loo
   br i1 %1467, label %.thread, label %.lr.ph.preheader.i5250
 
 .lr.ph.preheader.i5250:                           ; preds = %1466
-  %1468 = load i32, ptr %0, align 8, !tbaa !30
+  %1468 = load i32, ptr %0, align 8, !tbaa !39
   %1469 = ptrtoint ptr %2 to i64
   %1470 = ptrtoint ptr %.2273782 to i64
   %1471 = sub i64 %1469, %1470
@@ -5624,13 +5624,13 @@ llparse__match_sequence_id.exit5248:              ; preds = %.lr.ph.i5230, %.loo
   %.1.i5268 = select i1 %1476, i32 %1477, i32 %.01528.i5253
   %1480 = getelementptr inbounds nuw i8, ptr %.01626.i5255, i64 1
   %.not.i5269 = icmp eq ptr %1480, %2
-  br i1 %.not.i5269, label %.loopexit.sink.split.i5260, label %.lr.ph.i5252, !llvm.loop !34
+  br i1 %.not.i5269, label %.loopexit.sink.split.i5260, label %.lr.ph.i5252, !llvm.loop !51
 
 .loopexit.sink.split.i5260:                       ; preds = %1479, %.lr.ph.i5252
   %.sink.i5261 = phi i32 [ %.1.i5268, %1479 ], [ 0, %.lr.ph.i5252 ]
   %.01623.ph.i5262 = phi ptr [ %scevgep.i5251, %1479 ], [ %.01626.i5255, %.lr.ph.i5252 ]
   %.sroa.0.2.ph.i5263 = phi i32 [ 1, %1479 ], [ %.sroa.0.1.i5258, %.lr.ph.i5252 ]
-  store i32 %.sink.i5261, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5261, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5270
 
 llparse__match_sequence_id.exit5270:              ; preds = %.lr.ph.i5252, %.loopexit.sink.split.i5260
@@ -5656,7 +5656,7 @@ llparse__match_sequence_id.exit5270:              ; preds = %.lr.ph.i5252, %.loo
   br i1 %1484, label %.thread, label %.lr.ph.preheader.i5272
 
 .lr.ph.preheader.i5272:                           ; preds = %1483
-  %1485 = load i32, ptr %0, align 8, !tbaa !30
+  %1485 = load i32, ptr %0, align 8, !tbaa !39
   %1486 = ptrtoint ptr %2 to i64
   %1487 = ptrtoint ptr %.2293784 to i64
   %1488 = sub i64 %1486, %1487
@@ -5687,13 +5687,13 @@ llparse__match_sequence_id.exit5270:              ; preds = %.lr.ph.i5252, %.loo
   %.1.i5290 = select i1 %1493, i32 %1494, i32 %.01528.i5275
   %1497 = getelementptr inbounds nuw i8, ptr %.01626.i5277, i64 1
   %.not.i5291 = icmp eq ptr %1497, %2
-  br i1 %.not.i5291, label %.loopexit.sink.split.i5282, label %.lr.ph.i5274, !llvm.loop !34
+  br i1 %.not.i5291, label %.loopexit.sink.split.i5282, label %.lr.ph.i5274, !llvm.loop !51
 
 .loopexit.sink.split.i5282:                       ; preds = %1496, %.lr.ph.i5274
   %.sink.i5283 = phi i32 [ %.1.i5290, %1496 ], [ 0, %.lr.ph.i5274 ]
   %.01623.ph.i5284 = phi ptr [ %scevgep.i5273, %1496 ], [ %.01626.i5277, %.lr.ph.i5274 ]
   %.sroa.0.2.ph.i5285 = phi i32 [ 1, %1496 ], [ %.sroa.0.1.i5280, %.lr.ph.i5274 ]
-  store i32 %.sink.i5283, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5283, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5292
 
 llparse__match_sequence_id.exit5292:              ; preds = %.lr.ph.i5274, %.loopexit.sink.split.i5282
@@ -5719,7 +5719,7 @@ llparse__match_sequence_id.exit5292:              ; preds = %.lr.ph.i5274, %.loo
   br i1 %1501, label %.thread, label %.lr.ph.preheader.i5294
 
 .lr.ph.preheader.i5294:                           ; preds = %1500
-  %1502 = load i32, ptr %0, align 8, !tbaa !30
+  %1502 = load i32, ptr %0, align 8, !tbaa !39
   %1503 = ptrtoint ptr %2 to i64
   %1504 = ptrtoint ptr %.2313786 to i64
   %1505 = sub i64 %1503, %1504
@@ -5750,13 +5750,13 @@ llparse__match_sequence_id.exit5292:              ; preds = %.lr.ph.i5274, %.loo
   %.1.i5312 = select i1 %1510, i32 %1511, i32 %.01528.i5297
   %1514 = getelementptr inbounds nuw i8, ptr %.01626.i5299, i64 1
   %.not.i5313 = icmp eq ptr %1514, %2
-  br i1 %.not.i5313, label %.loopexit.sink.split.i5304, label %.lr.ph.i5296, !llvm.loop !34
+  br i1 %.not.i5313, label %.loopexit.sink.split.i5304, label %.lr.ph.i5296, !llvm.loop !51
 
 .loopexit.sink.split.i5304:                       ; preds = %1513, %.lr.ph.i5296
   %.sink.i5305 = phi i32 [ %.1.i5312, %1513 ], [ 0, %.lr.ph.i5296 ]
   %.01623.ph.i5306 = phi ptr [ %scevgep.i5295, %1513 ], [ %.01626.i5299, %.lr.ph.i5296 ]
   %.sroa.0.2.ph.i5307 = phi i32 [ 1, %1513 ], [ %.sroa.0.1.i5302, %.lr.ph.i5296 ]
-  store i32 %.sink.i5305, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5305, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5314
 
 llparse__match_sequence_id.exit5314:              ; preds = %.lr.ph.i5296, %.loopexit.sink.split.i5304
@@ -5836,7 +5836,7 @@ llparse__match_sequence_id.exit5314:              ; preds = %.lr.ph.i5296, %.loo
   br i1 %1540, label %.thread, label %.lr.ph.preheader.i5316
 
 .lr.ph.preheader.i5316:                           ; preds = %1539
-  %1541 = load i32, ptr %0, align 8, !tbaa !30
+  %1541 = load i32, ptr %0, align 8, !tbaa !39
   %1542 = ptrtoint ptr %2 to i64
   %1543 = ptrtoint ptr %.2363791 to i64
   %1544 = sub i64 %1542, %1543
@@ -5867,13 +5867,13 @@ llparse__match_sequence_id.exit5314:              ; preds = %.lr.ph.i5296, %.loo
   %.1.i5334 = select i1 %1549, i32 %1550, i32 %.01528.i5319
   %1553 = getelementptr inbounds nuw i8, ptr %.01626.i5321, i64 1
   %.not.i5335 = icmp eq ptr %1553, %2
-  br i1 %.not.i5335, label %.loopexit.sink.split.i5326, label %.lr.ph.i5318, !llvm.loop !34
+  br i1 %.not.i5335, label %.loopexit.sink.split.i5326, label %.lr.ph.i5318, !llvm.loop !51
 
 .loopexit.sink.split.i5326:                       ; preds = %1552, %.lr.ph.i5318
   %.sink.i5327 = phi i32 [ %.1.i5334, %1552 ], [ 0, %.lr.ph.i5318 ]
   %.01623.ph.i5328 = phi ptr [ %scevgep.i5317, %1552 ], [ %.01626.i5321, %.lr.ph.i5318 ]
   %.sroa.0.2.ph.i5329 = phi i32 [ 1, %1552 ], [ %.sroa.0.1.i5324, %.lr.ph.i5318 ]
-  store i32 %.sink.i5327, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5327, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5336
 
 llparse__match_sequence_id.exit5336:              ; preds = %.lr.ph.i5318, %.loopexit.sink.split.i5326
@@ -5954,7 +5954,7 @@ llparse__match_sequence_id.exit5336:              ; preds = %.lr.ph.i5318, %.loo
   br i1 %1579, label %.thread, label %.lr.ph.preheader.i5338
 
 .lr.ph.preheader.i5338:                           ; preds = %1578
-  %1580 = load i32, ptr %0, align 8, !tbaa !30
+  %1580 = load i32, ptr %0, align 8, !tbaa !39
   %1581 = ptrtoint ptr %2 to i64
   %1582 = ptrtoint ptr %.2403795 to i64
   %1583 = sub i64 %1581, %1582
@@ -5985,13 +5985,13 @@ llparse__match_sequence_id.exit5336:              ; preds = %.lr.ph.i5318, %.loo
   %.1.i5356 = select i1 %1588, i32 %1589, i32 %.01528.i5341
   %1592 = getelementptr inbounds nuw i8, ptr %.01626.i5343, i64 1
   %.not.i5357 = icmp eq ptr %1592, %2
-  br i1 %.not.i5357, label %.loopexit.sink.split.i5348, label %.lr.ph.i5340, !llvm.loop !34
+  br i1 %.not.i5357, label %.loopexit.sink.split.i5348, label %.lr.ph.i5340, !llvm.loop !51
 
 .loopexit.sink.split.i5348:                       ; preds = %1591, %.lr.ph.i5340
   %.sink.i5349 = phi i32 [ %.1.i5356, %1591 ], [ 0, %.lr.ph.i5340 ]
   %.01623.ph.i5350 = phi ptr [ %scevgep.i5339, %1591 ], [ %.01626.i5343, %.lr.ph.i5340 ]
   %.sroa.0.2.ph.i5351 = phi i32 [ 1, %1591 ], [ %.sroa.0.1.i5346, %.lr.ph.i5340 ]
-  store i32 %.sink.i5349, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5349, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5358
 
 llparse__match_sequence_id.exit5358:              ; preds = %.lr.ph.i5340, %.loopexit.sink.split.i5348
@@ -6017,7 +6017,7 @@ llparse__match_sequence_id.exit5358:              ; preds = %.lr.ph.i5340, %.loo
   br i1 %1596, label %.thread, label %.lr.ph.preheader.i5360
 
 .lr.ph.preheader.i5360:                           ; preds = %1595
-  %1597 = load i32, ptr %0, align 8, !tbaa !30
+  %1597 = load i32, ptr %0, align 8, !tbaa !39
   %1598 = ptrtoint ptr %2 to i64
   %1599 = ptrtoint ptr %.2423797 to i64
   %1600 = sub i64 %1598, %1599
@@ -6048,13 +6048,13 @@ llparse__match_sequence_id.exit5358:              ; preds = %.lr.ph.i5340, %.loo
   %.1.i5378 = select i1 %1605, i32 %1606, i32 %.01528.i5363
   %1609 = getelementptr inbounds nuw i8, ptr %.01626.i5365, i64 1
   %.not.i5379 = icmp eq ptr %1609, %2
-  br i1 %.not.i5379, label %.loopexit.sink.split.i5370, label %.lr.ph.i5362, !llvm.loop !34
+  br i1 %.not.i5379, label %.loopexit.sink.split.i5370, label %.lr.ph.i5362, !llvm.loop !51
 
 .loopexit.sink.split.i5370:                       ; preds = %1608, %.lr.ph.i5362
   %.sink.i5371 = phi i32 [ %.1.i5378, %1608 ], [ 0, %.lr.ph.i5362 ]
   %.01623.ph.i5372 = phi ptr [ %scevgep.i5361, %1608 ], [ %.01626.i5365, %.lr.ph.i5362 ]
   %.sroa.0.2.ph.i5373 = phi i32 [ 1, %1608 ], [ %.sroa.0.1.i5368, %.lr.ph.i5362 ]
-  store i32 %.sink.i5371, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5371, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5380
 
 llparse__match_sequence_id.exit5380:              ; preds = %.lr.ph.i5362, %.loopexit.sink.split.i5370
@@ -6080,7 +6080,7 @@ llparse__match_sequence_id.exit5380:              ; preds = %.lr.ph.i5362, %.loo
   br i1 %1613, label %.thread, label %.lr.ph.preheader.i5382
 
 .lr.ph.preheader.i5382:                           ; preds = %1612
-  %1614 = load i32, ptr %0, align 8, !tbaa !30
+  %1614 = load i32, ptr %0, align 8, !tbaa !39
   %1615 = ptrtoint ptr %2 to i64
   %1616 = ptrtoint ptr %.2443799 to i64
   %1617 = sub i64 %1615, %1616
@@ -6111,13 +6111,13 @@ llparse__match_sequence_id.exit5380:              ; preds = %.lr.ph.i5362, %.loo
   %.1.i5400 = select i1 %1622, i32 %1623, i32 %.01528.i5385
   %1626 = getelementptr inbounds nuw i8, ptr %.01626.i5387, i64 1
   %.not.i5401 = icmp eq ptr %1626, %2
-  br i1 %.not.i5401, label %.loopexit.sink.split.i5392, label %.lr.ph.i5384, !llvm.loop !34
+  br i1 %.not.i5401, label %.loopexit.sink.split.i5392, label %.lr.ph.i5384, !llvm.loop !51
 
 .loopexit.sink.split.i5392:                       ; preds = %1625, %.lr.ph.i5384
   %.sink.i5393 = phi i32 [ %.1.i5400, %1625 ], [ 0, %.lr.ph.i5384 ]
   %.01623.ph.i5394 = phi ptr [ %scevgep.i5383, %1625 ], [ %.01626.i5387, %.lr.ph.i5384 ]
   %.sroa.0.2.ph.i5395 = phi i32 [ 1, %1625 ], [ %.sroa.0.1.i5390, %.lr.ph.i5384 ]
-  store i32 %.sink.i5393, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5393, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5402
 
 llparse__match_sequence_id.exit5402:              ; preds = %.lr.ph.i5384, %.loopexit.sink.split.i5392
@@ -6143,7 +6143,7 @@ llparse__match_sequence_id.exit5402:              ; preds = %.lr.ph.i5384, %.loo
   br i1 %1630, label %.thread, label %.lr.ph.preheader.i5404
 
 .lr.ph.preheader.i5404:                           ; preds = %1629
-  %1631 = load i32, ptr %0, align 8, !tbaa !30
+  %1631 = load i32, ptr %0, align 8, !tbaa !39
   %1632 = ptrtoint ptr %2 to i64
   %1633 = ptrtoint ptr %.2463801 to i64
   %1634 = sub i64 %1632, %1633
@@ -6174,13 +6174,13 @@ llparse__match_sequence_id.exit5402:              ; preds = %.lr.ph.i5384, %.loo
   %.1.i5422 = select i1 %1639, i32 %1640, i32 %.01528.i5407
   %1643 = getelementptr inbounds nuw i8, ptr %.01626.i5409, i64 1
   %.not.i5423 = icmp eq ptr %1643, %2
-  br i1 %.not.i5423, label %.loopexit.sink.split.i5414, label %.lr.ph.i5406, !llvm.loop !34
+  br i1 %.not.i5423, label %.loopexit.sink.split.i5414, label %.lr.ph.i5406, !llvm.loop !51
 
 .loopexit.sink.split.i5414:                       ; preds = %1642, %.lr.ph.i5406
   %.sink.i5415 = phi i32 [ %.1.i5422, %1642 ], [ 0, %.lr.ph.i5406 ]
   %.01623.ph.i5416 = phi ptr [ %scevgep.i5405, %1642 ], [ %.01626.i5409, %.lr.ph.i5406 ]
   %.sroa.0.2.ph.i5417 = phi i32 [ 1, %1642 ], [ %.sroa.0.1.i5412, %.lr.ph.i5406 ]
-  store i32 %.sink.i5415, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5415, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5424
 
 llparse__match_sequence_id.exit5424:              ; preds = %.lr.ph.i5406, %.loopexit.sink.split.i5414
@@ -6206,7 +6206,7 @@ llparse__match_sequence_id.exit5424:              ; preds = %.lr.ph.i5406, %.loo
   br i1 %1647, label %.thread, label %.lr.ph.preheader.i5426
 
 .lr.ph.preheader.i5426:                           ; preds = %1646
-  %1648 = load i32, ptr %0, align 8, !tbaa !30
+  %1648 = load i32, ptr %0, align 8, !tbaa !39
   %1649 = ptrtoint ptr %2 to i64
   %1650 = ptrtoint ptr %.2483803 to i64
   %1651 = sub i64 %1649, %1650
@@ -6237,13 +6237,13 @@ llparse__match_sequence_id.exit5424:              ; preds = %.lr.ph.i5406, %.loo
   %.1.i5444 = select i1 %1656, i32 %1657, i32 %.01528.i5429
   %1660 = getelementptr inbounds nuw i8, ptr %.01626.i5431, i64 1
   %.not.i5445 = icmp eq ptr %1660, %2
-  br i1 %.not.i5445, label %.loopexit.sink.split.i5436, label %.lr.ph.i5428, !llvm.loop !34
+  br i1 %.not.i5445, label %.loopexit.sink.split.i5436, label %.lr.ph.i5428, !llvm.loop !51
 
 .loopexit.sink.split.i5436:                       ; preds = %1659, %.lr.ph.i5428
   %.sink.i5437 = phi i32 [ %.1.i5444, %1659 ], [ 0, %.lr.ph.i5428 ]
   %.01623.ph.i5438 = phi ptr [ %scevgep.i5427, %1659 ], [ %.01626.i5431, %.lr.ph.i5428 ]
   %.sroa.0.2.ph.i5439 = phi i32 [ 1, %1659 ], [ %.sroa.0.1.i5434, %.lr.ph.i5428 ]
-  store i32 %.sink.i5437, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5437, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5446
 
 llparse__match_sequence_id.exit5446:              ; preds = %.lr.ph.i5428, %.loopexit.sink.split.i5436
@@ -6313,7 +6313,7 @@ llparse__match_sequence_id.exit5446:              ; preds = %.lr.ph.i5428, %.loo
   br i1 %1682, label %.thread, label %.lr.ph.preheader.i5448
 
 .lr.ph.preheader.i5448:                           ; preds = %1681
-  %1683 = load i32, ptr %0, align 8, !tbaa !30
+  %1683 = load i32, ptr %0, align 8, !tbaa !39
   %1684 = ptrtoint ptr %2 to i64
   %1685 = ptrtoint ptr %.2523807 to i64
   %1686 = sub i64 %1684, %1685
@@ -6344,13 +6344,13 @@ llparse__match_sequence_id.exit5446:              ; preds = %.lr.ph.i5428, %.loo
   %.1.i5466 = select i1 %1691, i32 %1692, i32 %.01528.i5451
   %1695 = getelementptr inbounds nuw i8, ptr %.01626.i5453, i64 1
   %.not.i5467 = icmp eq ptr %1695, %2
-  br i1 %.not.i5467, label %.loopexit.sink.split.i5458, label %.lr.ph.i5450, !llvm.loop !34
+  br i1 %.not.i5467, label %.loopexit.sink.split.i5458, label %.lr.ph.i5450, !llvm.loop !51
 
 .loopexit.sink.split.i5458:                       ; preds = %1694, %.lr.ph.i5450
   %.sink.i5459 = phi i32 [ %.1.i5466, %1694 ], [ 0, %.lr.ph.i5450 ]
   %.01623.ph.i5460 = phi ptr [ %scevgep.i5449, %1694 ], [ %.01626.i5453, %.lr.ph.i5450 ]
   %.sroa.0.2.ph.i5461 = phi i32 [ 1, %1694 ], [ %.sroa.0.1.i5456, %.lr.ph.i5450 ]
-  store i32 %.sink.i5459, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5459, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5468
 
 llparse__match_sequence_id.exit5468:              ; preds = %.lr.ph.i5450, %.loopexit.sink.split.i5458
@@ -6390,7 +6390,7 @@ llparse__match_sequence_id.exit5468:              ; preds = %.lr.ph.i5450, %.loo
   br i1 %1705, label %.thread, label %.lr.ph.preheader.i5470
 
 .lr.ph.preheader.i5470:                           ; preds = %1704
-  %1706 = load i32, ptr %0, align 8, !tbaa !30
+  %1706 = load i32, ptr %0, align 8, !tbaa !39
   %1707 = ptrtoint ptr %2 to i64
   %1708 = ptrtoint ptr %.2553810 to i64
   %1709 = sub i64 %1707, %1708
@@ -6421,13 +6421,13 @@ llparse__match_sequence_id.exit5468:              ; preds = %.lr.ph.i5450, %.loo
   %.1.i5488 = select i1 %1714, i32 %1715, i32 %.01528.i5473
   %1718 = getelementptr inbounds nuw i8, ptr %.01626.i5475, i64 1
   %.not.i5489 = icmp eq ptr %1718, %2
-  br i1 %.not.i5489, label %.loopexit.sink.split.i5480, label %.lr.ph.i5472, !llvm.loop !34
+  br i1 %.not.i5489, label %.loopexit.sink.split.i5480, label %.lr.ph.i5472, !llvm.loop !51
 
 .loopexit.sink.split.i5480:                       ; preds = %1717, %.lr.ph.i5472
   %.sink.i5481 = phi i32 [ %.1.i5488, %1717 ], [ 0, %.lr.ph.i5472 ]
   %.01623.ph.i5482 = phi ptr [ %scevgep.i5471, %1717 ], [ %.01626.i5475, %.lr.ph.i5472 ]
   %.sroa.0.2.ph.i5483 = phi i32 [ 1, %1717 ], [ %.sroa.0.1.i5478, %.lr.ph.i5472 ]
-  store i32 %.sink.i5481, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5481, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5490
 
 llparse__match_sequence_id.exit5490:              ; preds = %.lr.ph.i5472, %.loopexit.sink.split.i5480
@@ -6493,7 +6493,7 @@ llparse__match_sequence_id.exit5490:              ; preds = %.lr.ph.i5472, %.loo
   br i1 %1738, label %.thread, label %.lr.ph.preheader.i5492
 
 .lr.ph.preheader.i5492:                           ; preds = %1737
-  %1739 = load i32, ptr %0, align 8, !tbaa !30
+  %1739 = load i32, ptr %0, align 8, !tbaa !39
   %1740 = ptrtoint ptr %2 to i64
   %1741 = ptrtoint ptr %.2593814 to i64
   %1742 = sub i64 %1740, %1741
@@ -6524,13 +6524,13 @@ llparse__match_sequence_id.exit5490:              ; preds = %.lr.ph.i5472, %.loo
   %.1.i5510 = select i1 %1747, i32 %1748, i32 %.01528.i5495
   %1751 = getelementptr inbounds nuw i8, ptr %.01626.i5497, i64 1
   %.not.i5511 = icmp eq ptr %1751, %2
-  br i1 %.not.i5511, label %.loopexit.sink.split.i5502, label %.lr.ph.i5494, !llvm.loop !34
+  br i1 %.not.i5511, label %.loopexit.sink.split.i5502, label %.lr.ph.i5494, !llvm.loop !51
 
 .loopexit.sink.split.i5502:                       ; preds = %1750, %.lr.ph.i5494
   %.sink.i5503 = phi i32 [ %.1.i5510, %1750 ], [ 0, %.lr.ph.i5494 ]
   %.01623.ph.i5504 = phi ptr [ %scevgep.i5493, %1750 ], [ %.01626.i5497, %.lr.ph.i5494 ]
   %.sroa.0.2.ph.i5505 = phi i32 [ 1, %1750 ], [ %.sroa.0.1.i5500, %.lr.ph.i5494 ]
-  store i32 %.sink.i5503, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5503, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5512
 
 llparse__match_sequence_id.exit5512:              ; preds = %.lr.ph.i5494, %.loopexit.sink.split.i5502
@@ -6556,7 +6556,7 @@ llparse__match_sequence_id.exit5512:              ; preds = %.lr.ph.i5494, %.loo
   br i1 %1755, label %.thread, label %.lr.ph.preheader.i5514
 
 .lr.ph.preheader.i5514:                           ; preds = %1754
-  %1756 = load i32, ptr %0, align 8, !tbaa !30
+  %1756 = load i32, ptr %0, align 8, !tbaa !39
   %1757 = ptrtoint ptr %2 to i64
   %1758 = ptrtoint ptr %.2613816 to i64
   %1759 = sub i64 %1757, %1758
@@ -6587,13 +6587,13 @@ llparse__match_sequence_id.exit5512:              ; preds = %.lr.ph.i5494, %.loo
   %.1.i5532 = select i1 %1764, i32 %1765, i32 %.01528.i5517
   %1768 = getelementptr inbounds nuw i8, ptr %.01626.i5519, i64 1
   %.not.i5533 = icmp eq ptr %1768, %2
-  br i1 %.not.i5533, label %.loopexit.sink.split.i5524, label %.lr.ph.i5516, !llvm.loop !34
+  br i1 %.not.i5533, label %.loopexit.sink.split.i5524, label %.lr.ph.i5516, !llvm.loop !51
 
 .loopexit.sink.split.i5524:                       ; preds = %1767, %.lr.ph.i5516
   %.sink.i5525 = phi i32 [ %.1.i5532, %1767 ], [ 0, %.lr.ph.i5516 ]
   %.01623.ph.i5526 = phi ptr [ %scevgep.i5515, %1767 ], [ %.01626.i5519, %.lr.ph.i5516 ]
   %.sroa.0.2.ph.i5527 = phi i32 [ 1, %1767 ], [ %.sroa.0.1.i5522, %.lr.ph.i5516 ]
-  store i32 %.sink.i5525, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5525, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5534
 
 llparse__match_sequence_id.exit5534:              ; preds = %.lr.ph.i5516, %.loopexit.sink.split.i5524
@@ -6644,7 +6644,7 @@ llparse__match_sequence_id.exit5534:              ; preds = %.lr.ph.i5516, %.loo
   br i1 %1782, label %.thread, label %.lr.ph.preheader.i5536
 
 .lr.ph.preheader.i5536:                           ; preds = %1781
-  %1783 = load i32, ptr %0, align 8, !tbaa !30
+  %1783 = load i32, ptr %0, align 8, !tbaa !39
   %1784 = ptrtoint ptr %2 to i64
   %1785 = ptrtoint ptr %.2643819 to i64
   %1786 = sub i64 %1784, %1785
@@ -6675,13 +6675,13 @@ llparse__match_sequence_id.exit5534:              ; preds = %.lr.ph.i5516, %.loo
   %.1.i5554 = select i1 %1791, i32 %1792, i32 %.01528.i5539
   %1795 = getelementptr inbounds nuw i8, ptr %.01626.i5541, i64 1
   %.not.i5555 = icmp eq ptr %1795, %2
-  br i1 %.not.i5555, label %.loopexit.sink.split.i5546, label %.lr.ph.i5538, !llvm.loop !34
+  br i1 %.not.i5555, label %.loopexit.sink.split.i5546, label %.lr.ph.i5538, !llvm.loop !51
 
 .loopexit.sink.split.i5546:                       ; preds = %1794, %.lr.ph.i5538
   %.sink.i5547 = phi i32 [ %.1.i5554, %1794 ], [ 0, %.lr.ph.i5538 ]
   %.01623.ph.i5548 = phi ptr [ %scevgep.i5537, %1794 ], [ %.01626.i5541, %.lr.ph.i5538 ]
   %.sroa.0.2.ph.i5549 = phi i32 [ 1, %1794 ], [ %.sroa.0.1.i5544, %.lr.ph.i5538 ]
-  store i32 %.sink.i5547, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5547, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5556
 
 llparse__match_sequence_id.exit5556:              ; preds = %.lr.ph.i5538, %.loopexit.sink.split.i5546
@@ -6707,7 +6707,7 @@ llparse__match_sequence_id.exit5556:              ; preds = %.lr.ph.i5538, %.loo
   br i1 %1799, label %.thread, label %.lr.ph.preheader.i5558
 
 .lr.ph.preheader.i5558:                           ; preds = %1798
-  %1800 = load i32, ptr %0, align 8, !tbaa !30
+  %1800 = load i32, ptr %0, align 8, !tbaa !39
   %1801 = ptrtoint ptr %2 to i64
   %1802 = ptrtoint ptr %.2663821 to i64
   %1803 = sub i64 %1801, %1802
@@ -6738,13 +6738,13 @@ llparse__match_sequence_id.exit5556:              ; preds = %.lr.ph.i5538, %.loo
   %.1.i5576 = select i1 %1808, i32 %1809, i32 %.01528.i5561
   %1812 = getelementptr inbounds nuw i8, ptr %.01626.i5563, i64 1
   %.not.i5577 = icmp eq ptr %1812, %2
-  br i1 %.not.i5577, label %.loopexit.sink.split.i5568, label %.lr.ph.i5560, !llvm.loop !34
+  br i1 %.not.i5577, label %.loopexit.sink.split.i5568, label %.lr.ph.i5560, !llvm.loop !51
 
 .loopexit.sink.split.i5568:                       ; preds = %1811, %.lr.ph.i5560
   %.sink.i5569 = phi i32 [ %.1.i5576, %1811 ], [ 0, %.lr.ph.i5560 ]
   %.01623.ph.i5570 = phi ptr [ %scevgep.i5559, %1811 ], [ %.01626.i5563, %.lr.ph.i5560 ]
   %.sroa.0.2.ph.i5571 = phi i32 [ 1, %1811 ], [ %.sroa.0.1.i5566, %.lr.ph.i5560 ]
-  store i32 %.sink.i5569, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5569, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5578
 
 llparse__match_sequence_id.exit5578:              ; preds = %.lr.ph.i5560, %.loopexit.sink.split.i5568
@@ -6790,7 +6790,7 @@ llparse__match_sequence_id.exit5578:              ; preds = %.lr.ph.i5560, %.loo
   br i1 %1824, label %.thread, label %.lr.ph.preheader.i5580
 
 .lr.ph.preheader.i5580:                           ; preds = %1823
-  %1825 = load i32, ptr %0, align 8, !tbaa !30
+  %1825 = load i32, ptr %0, align 8, !tbaa !39
   %1826 = ptrtoint ptr %2 to i64
   %1827 = ptrtoint ptr %.2693824 to i64
   %1828 = sub i64 %1826, %1827
@@ -6821,13 +6821,13 @@ llparse__match_sequence_id.exit5578:              ; preds = %.lr.ph.i5560, %.loo
   %.1.i5598 = select i1 %1833, i32 %1834, i32 %.01528.i5583
   %1837 = getelementptr inbounds nuw i8, ptr %.01626.i5585, i64 1
   %.not.i5599 = icmp eq ptr %1837, %2
-  br i1 %.not.i5599, label %.loopexit.sink.split.i5590, label %.lr.ph.i5582, !llvm.loop !34
+  br i1 %.not.i5599, label %.loopexit.sink.split.i5590, label %.lr.ph.i5582, !llvm.loop !51
 
 .loopexit.sink.split.i5590:                       ; preds = %1836, %.lr.ph.i5582
   %.sink.i5591 = phi i32 [ %.1.i5598, %1836 ], [ 0, %.lr.ph.i5582 ]
   %.01623.ph.i5592 = phi ptr [ %scevgep.i5581, %1836 ], [ %.01626.i5585, %.lr.ph.i5582 ]
   %.sroa.0.2.ph.i5593 = phi i32 [ 1, %1836 ], [ %.sroa.0.1.i5588, %.lr.ph.i5582 ]
-  store i32 %.sink.i5591, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5591, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5600
 
 llparse__match_sequence_id.exit5600:              ; preds = %.lr.ph.i5582, %.loopexit.sink.split.i5590
@@ -6853,7 +6853,7 @@ llparse__match_sequence_id.exit5600:              ; preds = %.lr.ph.i5582, %.loo
   br i1 %1841, label %.thread, label %.lr.ph.preheader.i5602
 
 .lr.ph.preheader.i5602:                           ; preds = %1840
-  %1842 = load i32, ptr %0, align 8, !tbaa !30
+  %1842 = load i32, ptr %0, align 8, !tbaa !39
   %1843 = ptrtoint ptr %2 to i64
   %1844 = ptrtoint ptr %.2713826 to i64
   %1845 = sub i64 %1843, %1844
@@ -6884,13 +6884,13 @@ llparse__match_sequence_id.exit5600:              ; preds = %.lr.ph.i5582, %.loo
   %.1.i5620 = select i1 %1850, i32 %1851, i32 %.01528.i5605
   %1854 = getelementptr inbounds nuw i8, ptr %.01626.i5607, i64 1
   %.not.i5621 = icmp eq ptr %1854, %2
-  br i1 %.not.i5621, label %.loopexit.sink.split.i5612, label %.lr.ph.i5604, !llvm.loop !34
+  br i1 %.not.i5621, label %.loopexit.sink.split.i5612, label %.lr.ph.i5604, !llvm.loop !51
 
 .loopexit.sink.split.i5612:                       ; preds = %1853, %.lr.ph.i5604
   %.sink.i5613 = phi i32 [ %.1.i5620, %1853 ], [ 0, %.lr.ph.i5604 ]
   %.01623.ph.i5614 = phi ptr [ %scevgep.i5603, %1853 ], [ %.01626.i5607, %.lr.ph.i5604 ]
   %.sroa.0.2.ph.i5615 = phi i32 [ 1, %1853 ], [ %.sroa.0.1.i5610, %.lr.ph.i5604 ]
-  store i32 %.sink.i5613, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5613, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5622
 
 llparse__match_sequence_id.exit5622:              ; preds = %.lr.ph.i5604, %.loopexit.sink.split.i5612
@@ -6916,7 +6916,7 @@ llparse__match_sequence_id.exit5622:              ; preds = %.lr.ph.i5604, %.loo
   br i1 %1858, label %.thread, label %.lr.ph.preheader.i5624
 
 .lr.ph.preheader.i5624:                           ; preds = %1857
-  %1859 = load i32, ptr %0, align 8, !tbaa !30
+  %1859 = load i32, ptr %0, align 8, !tbaa !39
   %1860 = ptrtoint ptr %2 to i64
   %1861 = ptrtoint ptr %.2733828 to i64
   %1862 = sub i64 %1860, %1861
@@ -6947,13 +6947,13 @@ llparse__match_sequence_id.exit5622:              ; preds = %.lr.ph.i5604, %.loo
   %.1.i5642 = select i1 %1867, i32 %1868, i32 %.01528.i5627
   %1871 = getelementptr inbounds nuw i8, ptr %.01626.i5629, i64 1
   %.not.i5643 = icmp eq ptr %1871, %2
-  br i1 %.not.i5643, label %.loopexit.sink.split.i5634, label %.lr.ph.i5626, !llvm.loop !34
+  br i1 %.not.i5643, label %.loopexit.sink.split.i5634, label %.lr.ph.i5626, !llvm.loop !51
 
 .loopexit.sink.split.i5634:                       ; preds = %1870, %.lr.ph.i5626
   %.sink.i5635 = phi i32 [ %.1.i5642, %1870 ], [ 0, %.lr.ph.i5626 ]
   %.01623.ph.i5636 = phi ptr [ %scevgep.i5625, %1870 ], [ %.01626.i5629, %.lr.ph.i5626 ]
   %.sroa.0.2.ph.i5637 = phi i32 [ 1, %1870 ], [ %.sroa.0.1.i5632, %.lr.ph.i5626 ]
-  store i32 %.sink.i5635, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5635, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5644
 
 llparse__match_sequence_id.exit5644:              ; preds = %.lr.ph.i5626, %.loopexit.sink.split.i5634
@@ -6999,7 +6999,7 @@ llparse__match_sequence_id.exit5644:              ; preds = %.lr.ph.i5626, %.loo
   br i1 %1883, label %.thread, label %.lr.ph.preheader.i5646
 
 .lr.ph.preheader.i5646:                           ; preds = %1882
-  %1884 = load i32, ptr %0, align 8, !tbaa !30
+  %1884 = load i32, ptr %0, align 8, !tbaa !39
   %1885 = ptrtoint ptr %2 to i64
   %1886 = ptrtoint ptr %.2763831 to i64
   %1887 = sub i64 %1885, %1886
@@ -7030,13 +7030,13 @@ llparse__match_sequence_id.exit5644:              ; preds = %.lr.ph.i5626, %.loo
   %.1.i5664 = select i1 %1892, i32 %1893, i32 %.01528.i5649
   %1896 = getelementptr inbounds nuw i8, ptr %.01626.i5651, i64 1
   %.not.i5665 = icmp eq ptr %1896, %2
-  br i1 %.not.i5665, label %.loopexit.sink.split.i5656, label %.lr.ph.i5648, !llvm.loop !34
+  br i1 %.not.i5665, label %.loopexit.sink.split.i5656, label %.lr.ph.i5648, !llvm.loop !51
 
 .loopexit.sink.split.i5656:                       ; preds = %1895, %.lr.ph.i5648
   %.sink.i5657 = phi i32 [ %.1.i5664, %1895 ], [ 0, %.lr.ph.i5648 ]
   %.01623.ph.i5658 = phi ptr [ %scevgep.i5647, %1895 ], [ %.01626.i5651, %.lr.ph.i5648 ]
   %.sroa.0.2.ph.i5659 = phi i32 [ 1, %1895 ], [ %.sroa.0.1.i5654, %.lr.ph.i5648 ]
-  store i32 %.sink.i5657, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5657, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5666
 
 llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loopexit.sink.split.i5656
@@ -7241,7 +7241,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
 1971:                                             ; preds = %.lr.ph6808
   %1972 = getelementptr inbounds nuw i8, ptr %.28538406807, i64 1
   %1973 = icmp eq ptr %1972, %2
-  br i1 %1973, label %.thread, label %.lr.ph6808
+  br i1 %1973, label %.thread, label %.lr.ph6808, !llvm.loop !59
 
 1974:                                             ; preds = %3, %1990
   %.2863841 = phi ptr [ %1991, %1990 ], [ %1, %3 ]
@@ -7346,7 +7346,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   %2015 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2015, align 8, !tbaa !24
   %2016 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.17, ptr %2016, align 8, !tbaa !29
+  store ptr @.str.17, ptr %2016, align 8, !tbaa !31
   %2017 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2963851, ptr %2017, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7357,7 +7357,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   %2018 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2018, align 8, !tbaa !24
   %2019 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.18, ptr %2019, align 8, !tbaa !29
+  store ptr @.str.18, ptr %2019, align 8, !tbaa !31
   %2020 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2973852, ptr %2020, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7415,7 +7415,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   %2034 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2034, align 8, !tbaa !24
   %2035 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.19, ptr %2035, align 8, !tbaa !29
+  store ptr @.str.19, ptr %2035, align 8, !tbaa !31
   %2036 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3003855, ptr %2036, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7440,7 +7440,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   %2043 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2043, align 8, !tbaa !24
   %2044 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.20, ptr %2044, align 8, !tbaa !29
+  store ptr @.str.20, ptr %2044, align 8, !tbaa !31
   %2045 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3023857, ptr %2045, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7475,7 +7475,7 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   br i1 %2057, label %.thread, label %.lr.ph.preheader.i5670
 
 .lr.ph.preheader.i5670:                           ; preds = %2056
-  %2058 = load i32, ptr %0, align 8, !tbaa !30
+  %2058 = load i32, ptr %0, align 8, !tbaa !39
   %2059 = ptrtoint ptr %2 to i64
   %2060 = ptrtoint ptr %.3063861 to i64
   %2061 = sub i64 %2059, %2060
@@ -7506,13 +7506,13 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   %.1.i5688 = select i1 %2066, i32 %2067, i32 %.01528.i5673
   %2070 = getelementptr inbounds nuw i8, ptr %.01626.i5675, i64 1
   %.not.i5689 = icmp eq ptr %2070, %2
-  br i1 %.not.i5689, label %.loopexit.sink.split.i5680, label %.lr.ph.i5672, !llvm.loop !34
+  br i1 %.not.i5689, label %.loopexit.sink.split.i5680, label %.lr.ph.i5672, !llvm.loop !51
 
 .loopexit.sink.split.i5680:                       ; preds = %2069, %.lr.ph.i5672
   %.sink.i5681 = phi i32 [ %.1.i5688, %2069 ], [ 0, %.lr.ph.i5672 ]
   %.01623.ph.i5682 = phi ptr [ %scevgep.i5671, %2069 ], [ %.01626.i5675, %.lr.ph.i5672 ]
   %.sroa.0.2.ph.i5683 = phi i32 [ 1, %2069 ], [ %.sroa.0.1.i5678, %.lr.ph.i5672 ]
-  store i32 %.sink.i5681, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5681, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5690
 
 llparse__match_sequence_id.exit5690:              ; preds = %.lr.ph.i5672, %.loopexit.sink.split.i5680
@@ -7546,7 +7546,7 @@ llparse__match_sequence_id.exit5690:              ; preds = %.lr.ph.i5672, %.loo
   br i1 %2075, label %.thread, label %.lr.ph.preheader.i5692
 
 .lr.ph.preheader.i5692:                           ; preds = %2074
-  %2076 = load i32, ptr %0, align 8, !tbaa !30
+  %2076 = load i32, ptr %0, align 8, !tbaa !39
   %2077 = ptrtoint ptr %2 to i64
   %2078 = ptrtoint ptr %.3093864 to i64
   %2079 = sub i64 %2077, %2078
@@ -7577,13 +7577,13 @@ llparse__match_sequence_id.exit5690:              ; preds = %.lr.ph.i5672, %.loo
   %.1.i5710 = select i1 %2084, i32 %2085, i32 %.01528.i5695
   %2088 = getelementptr inbounds nuw i8, ptr %.01626.i5697, i64 1
   %.not.i5711 = icmp eq ptr %2088, %2
-  br i1 %.not.i5711, label %.loopexit.sink.split.i5702, label %.lr.ph.i5694, !llvm.loop !34
+  br i1 %.not.i5711, label %.loopexit.sink.split.i5702, label %.lr.ph.i5694, !llvm.loop !51
 
 .loopexit.sink.split.i5702:                       ; preds = %2087, %.lr.ph.i5694
   %.sink.i5703 = phi i32 [ %.1.i5710, %2087 ], [ 0, %.lr.ph.i5694 ]
   %.01623.ph.i5704 = phi ptr [ %scevgep.i5693, %2087 ], [ %.01626.i5697, %.lr.ph.i5694 ]
   %.sroa.0.2.ph.i5705 = phi i32 [ 1, %2087 ], [ %.sroa.0.1.i5700, %.lr.ph.i5694 ]
-  store i32 %.sink.i5703, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5703, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5712
 
 llparse__match_sequence_id.exit5712:              ; preds = %.lr.ph.i5694, %.loopexit.sink.split.i5702
@@ -7611,7 +7611,7 @@ llparse__match_sequence_id.exit5712:              ; preds = %.lr.ph.i5694, %.loo
   br i1 %2092, label %.thread, label %.lr.ph.preheader.i5714
 
 .lr.ph.preheader.i5714:                           ; preds = %2091
-  %2093 = load i32, ptr %0, align 8, !tbaa !30
+  %2093 = load i32, ptr %0, align 8, !tbaa !39
   %2094 = ptrtoint ptr %2 to i64
   %2095 = ptrtoint ptr %.3133868 to i64
   %2096 = sub i64 %2094, %2095
@@ -7642,13 +7642,13 @@ llparse__match_sequence_id.exit5712:              ; preds = %.lr.ph.i5694, %.loo
   %.1.i5732 = select i1 %2101, i32 %2102, i32 %.01528.i5717
   %2105 = getelementptr inbounds nuw i8, ptr %.01626.i5719, i64 1
   %.not.i5733 = icmp eq ptr %2105, %2
-  br i1 %.not.i5733, label %.loopexit.sink.split.i5724, label %.lr.ph.i5716, !llvm.loop !34
+  br i1 %.not.i5733, label %.loopexit.sink.split.i5724, label %.lr.ph.i5716, !llvm.loop !51
 
 .loopexit.sink.split.i5724:                       ; preds = %2104, %.lr.ph.i5716
   %.sink.i5725 = phi i32 [ %.1.i5732, %2104 ], [ 0, %.lr.ph.i5716 ]
   %.01623.ph.i5726 = phi ptr [ %scevgep.i5715, %2104 ], [ %.01626.i5719, %.lr.ph.i5716 ]
   %.sroa.0.2.ph.i5727 = phi i32 [ 1, %2104 ], [ %.sroa.0.1.i5722, %.lr.ph.i5716 ]
-  store i32 %.sink.i5725, ptr %0, align 8, !tbaa !30
+  store i32 %.sink.i5725, ptr %0, align 8, !tbaa !39
   br label %llparse__match_sequence_id.exit5734
 
 llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loopexit.sink.split.i5724
@@ -7750,7 +7750,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
 .backedge6612:                                    ; preds = %.lr.ph, %.lr.ph
   %.3213876.be = getelementptr inbounds nuw i8, ptr %.32138766806, i64 1
   %2137 = icmp eq ptr %.3213876.be, %2
-  br i1 %2137, label %.thread, label %.lr.ph
+  br i1 %2137, label %.thread, label %.lr.ph, !llvm.loop !60
 
 2138:                                             ; preds = %3
   tail call void @abort() #10
@@ -7761,7 +7761,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %2140, align 8, !tbaa !24
   %2141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.28, ptr %2141, align 8, !tbaa !29
+  store ptr @.str.28, ptr %2141, align 8, !tbaa !31
   %2142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1133668, ptr %2142, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7783,7 +7783,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2149 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 5, ptr %2149, align 8, !tbaa !24
   %2150 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.29, ptr %2150, align 8, !tbaa !29
+  store ptr @.str.29, ptr %2150, align 8, !tbaa !31
   %2151 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %28, ptr %2151, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7802,7 +7802,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2158, align 8, !tbaa !24
   %2159 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.30, ptr %2159, align 8, !tbaa !29
+  store ptr @.str.30, ptr %2159, align 8, !tbaa !31
   %2160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.43559, ptr %2160, align 8, !tbaa !27
   store ptr inttoptr (i64 4 to ptr), ptr %4, align 8, !tbaa !23
@@ -7812,7 +7812,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 18, ptr %2162, align 8, !tbaa !24
   %2163 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.31, ptr %2163, align 8, !tbaa !29
+  store ptr @.str.31, ptr %2163, align 8, !tbaa !31
   %2164 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.43559, ptr %2164, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7822,7 +7822,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2166 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2166, align 8, !tbaa !24
   %2167 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.32, ptr %2167, align 8, !tbaa !29
+  store ptr @.str.32, ptr %2167, align 8, !tbaa !31
   %2168 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %641, ptr %2168, align 8, !tbaa !27
   store ptr inttoptr (i64 5 to ptr), ptr %4, align 8, !tbaa !23
@@ -7832,7 +7832,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2170 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 20, ptr %2170, align 8, !tbaa !24
   %2171 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.33, ptr %2171, align 8, !tbaa !29
+  store ptr @.str.33, ptr %2171, align 8, !tbaa !31
   %2172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %641, ptr %2172, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7849,7 +7849,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2176, align 8, !tbaa !24
   %2177 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.30, ptr %2177, align 8, !tbaa !29
+  store ptr @.str.30, ptr %2177, align 8, !tbaa !31
   %2178 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.473602, ptr %2178, align 8, !tbaa !27
   store ptr inttoptr (i64 3 to ptr), ptr %4, align 8, !tbaa !23
@@ -7859,7 +7859,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 18, ptr %2180, align 8, !tbaa !24
   %2181 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.31, ptr %2181, align 8, !tbaa !29
+  store ptr @.str.31, ptr %2181, align 8, !tbaa !31
   %2182 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.473602, ptr %2182, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7870,13 +7870,13 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2184 = load i16, ptr %204, align 2, !tbaa !17
   %2185 = and i16 %2184, 512
   %cond47.not = icmp eq i16 %2185, 0
-  br i1 %cond47.not, label %2186, label %188
+  br i1 %cond47.not, label %2186, label %188, !llvm.loop !61
 
 2186:                                             ; preds = %2183
   %2187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 12, ptr %2187, align 8, !tbaa !24
   %2188 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.35, ptr %2188, align 8, !tbaa !29
+  store ptr @.str.35, ptr %2188, align 8, !tbaa !31
   %2189 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.373592, ptr %2189, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7894,7 +7894,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2193 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2193, align 8, !tbaa !24
   %2194 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.32, ptr %2194, align 8, !tbaa !29
+  store ptr @.str.32, ptr %2194, align 8, !tbaa !31
   %2195 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.63561, ptr %2195, align 8, !tbaa !27
   store ptr inttoptr (i64 36 to ptr), ptr %4, align 8, !tbaa !23
@@ -7904,7 +7904,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 20, ptr %2197, align 8, !tbaa !24
   %2198 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.33, ptr %2198, align 8, !tbaa !29
+  store ptr @.str.33, ptr %2198, align 8, !tbaa !31
   %2199 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.63561, ptr %2199, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7914,7 +7914,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2201 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2201, align 8, !tbaa !24
   %2202 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.36, ptr %2202, align 8, !tbaa !29
+  store ptr @.str.36, ptr %2202, align 8, !tbaa !31
   %2203 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %53, ptr %2203, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7932,7 +7932,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2209 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2209, align 8, !tbaa !24
   %2210 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.37, ptr %2210, align 8, !tbaa !29
+  store ptr @.str.37, ptr %2210, align 8, !tbaa !31
   %2211 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.73562, ptr %2211, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -7973,7 +7973,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2226 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2226, align 8, !tbaa !24
   %2227 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.38, ptr %2227, align 8, !tbaa !29
+  store ptr @.str.38, ptr %2227, align 8, !tbaa !31
   %2228 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.143569, ptr %2228, align 8, !tbaa !27
   store ptr inttoptr (i64 10 to ptr), ptr %4, align 8, !tbaa !23
@@ -7983,7 +7983,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2230 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 19, ptr %2230, align 8, !tbaa !24
   %2231 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.39, ptr %2231, align 8, !tbaa !29
+  store ptr @.str.39, ptr %2231, align 8, !tbaa !31
   %2232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.143569, ptr %2232, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8000,7 +8000,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2238, align 8, !tbaa !24
   %2239 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.40, ptr %2239, align 8, !tbaa !29
+  store ptr @.str.40, ptr %2239, align 8, !tbaa !31
   %2240 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.133568, ptr %2240, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8010,7 +8010,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2242 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2242, align 8, !tbaa !24
   %2243 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.41, ptr %2243, align 8, !tbaa !29
+  store ptr @.str.41, ptr %2243, align 8, !tbaa !31
   %2244 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %193, ptr %2244, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8020,7 +8020,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2246 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2246, align 8, !tbaa !24
   %2247 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.43, ptr %2247, align 8, !tbaa !29
+  store ptr @.str.43, ptr %2247, align 8, !tbaa !31
   %2248 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.153570, ptr %2248, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8030,7 +8030,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2250 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2250, align 8, !tbaa !24
   %2251 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.44, ptr %2251, align 8, !tbaa !29
+  store ptr @.str.44, ptr %2251, align 8, !tbaa !31
   %2252 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.163571, ptr %2252, align 8, !tbaa !27
   store ptr inttoptr (i64 12 to ptr), ptr %4, align 8, !tbaa !23
@@ -8040,7 +8040,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2254 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 34, ptr %2254, align 8, !tbaa !24
   %2255 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.45, ptr %2255, align 8, !tbaa !29
+  store ptr @.str.45, ptr %2255, align 8, !tbaa !31
   %2256 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.163571, ptr %2256, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8066,7 +8066,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2265 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2265, align 8, !tbaa !24
   %2266 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.44, ptr %2266, align 8, !tbaa !29
+  store ptr @.str.44, ptr %2266, align 8, !tbaa !31
   %2267 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.173572, ptr %2267, align 8, !tbaa !27
   store ptr inttoptr (i64 11 to ptr), ptr %4, align 8, !tbaa !23
@@ -8076,7 +8076,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2269 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 34, ptr %2269, align 8, !tbaa !24
   %2270 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.45, ptr %2270, align 8, !tbaa !29
+  store ptr @.str.45, ptr %2270, align 8, !tbaa !31
   %2271 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.173572, ptr %2271, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8107,7 +8107,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2282 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2282, align 8, !tbaa !24
   %2283 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.44, ptr %2283, align 8, !tbaa !29
+  store ptr @.str.44, ptr %2283, align 8, !tbaa !31
   %2284 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.183573, ptr %2284, align 8, !tbaa !27
   store ptr inttoptr (i64 32 to ptr), ptr %4, align 8, !tbaa !23
@@ -8117,7 +8117,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2286 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 34, ptr %2286, align 8, !tbaa !24
   %2287 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.45, ptr %2287, align 8, !tbaa !29
+  store ptr @.str.45, ptr %2287, align 8, !tbaa !31
   %2288 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.183573, ptr %2288, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8148,7 +8148,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2299 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2299, align 8, !tbaa !24
   %2300 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.46, ptr %2300, align 8, !tbaa !29
+  store ptr @.str.46, ptr %2300, align 8, !tbaa !31
   %2301 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.203575, ptr %2301, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8158,7 +8158,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2303 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2303, align 8, !tbaa !24
   %2304 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.47, ptr %2304, align 8, !tbaa !29
+  store ptr @.str.47, ptr %2304, align 8, !tbaa !31
   %2305 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.213576, ptr %2305, align 8, !tbaa !27
   store ptr inttoptr (i64 16 to ptr), ptr %4, align 8, !tbaa !23
@@ -8168,7 +8168,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2307 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 35, ptr %2307, align 8, !tbaa !24
   %2308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.48, ptr %2308, align 8, !tbaa !29
+  store ptr @.str.48, ptr %2308, align 8, !tbaa !31
   %2309 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.213576, ptr %2309, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8194,7 +8194,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2318 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2318, align 8, !tbaa !24
   %2319 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.47, ptr %2319, align 8, !tbaa !29
+  store ptr @.str.47, ptr %2319, align 8, !tbaa !31
   %2320 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.223577, ptr %2320, align 8, !tbaa !27
   store ptr inttoptr (i64 11 to ptr), ptr %4, align 8, !tbaa !23
@@ -8204,7 +8204,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2322 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 35, ptr %2322, align 8, !tbaa !24
   %2323 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.48, ptr %2323, align 8, !tbaa !29
+  store ptr @.str.48, ptr %2323, align 8, !tbaa !31
   %2324 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.223577, ptr %2324, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8242,7 +8242,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2339 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2339, align 8, !tbaa !24
   %2340 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.46, ptr %2340, align 8, !tbaa !29
+  store ptr @.str.46, ptr %2340, align 8, !tbaa !31
   %2341 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.233578, ptr %2341, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8252,7 +8252,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2343 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2343, align 8, !tbaa !24
   %2344 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.49, ptr %2344, align 8, !tbaa !29
+  store ptr @.str.49, ptr %2344, align 8, !tbaa !31
   %2345 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.233578, ptr %2345, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8262,7 +8262,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2347 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2347, align 8, !tbaa !24
   %2348 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.47, ptr %2348, align 8, !tbaa !29
+  store ptr @.str.47, ptr %2348, align 8, !tbaa !31
   %2349 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.243579, ptr %2349, align 8, !tbaa !27
   store ptr inttoptr (i64 19 to ptr), ptr %4, align 8, !tbaa !23
@@ -8272,7 +8272,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2351 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 35, ptr %2351, align 8, !tbaa !24
   %2352 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.48, ptr %2352, align 8, !tbaa !29
+  store ptr @.str.48, ptr %2352, align 8, !tbaa !31
   %2353 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.243579, ptr %2353, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8332,7 +8332,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2376 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2376, align 8, !tbaa !24
   %2377 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.47, ptr %2377, align 8, !tbaa !29
+  store ptr @.str.47, ptr %2377, align 8, !tbaa !31
   %2378 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.293584, ptr %2378, align 8, !tbaa !27
   store ptr inttoptr (i64 32 to ptr), ptr %4, align 8, !tbaa !23
@@ -8342,7 +8342,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2380 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 35, ptr %2380, align 8, !tbaa !24
   %2381 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.48, ptr %2381, align 8, !tbaa !29
+  store ptr @.str.48, ptr %2381, align 8, !tbaa !31
   %2382 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.293584, ptr %2382, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8394,7 +8394,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2402 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2402, align 8, !tbaa !24
   %2403 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.44, ptr %2403, align 8, !tbaa !29
+  store ptr @.str.44, ptr %2403, align 8, !tbaa !31
   %2404 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.323587, ptr %2404, align 8, !tbaa !27
   store ptr inttoptr (i64 27 to ptr), ptr %4, align 8, !tbaa !23
@@ -8404,7 +8404,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2406 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 34, ptr %2406, align 8, !tbaa !24
   %2407 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.45, ptr %2407, align 8, !tbaa !29
+  store ptr @.str.45, ptr %2407, align 8, !tbaa !31
   %2408 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.323587, ptr %2408, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8456,7 +8456,7 @@ llparse__match_sequence_id.exit5734:              ; preds = %.lr.ph.i5716, %.loo
   %2428 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 12, ptr %2428, align 8, !tbaa !24
   %2429 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.35, ptr %2429, align 8, !tbaa !29
+  store ptr @.str.35, ptr %2429, align 8, !tbaa !31
   %2430 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.363591, ptr %2430, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8481,7 +8481,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2439 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 12, ptr %2439, align 8, !tbaa !24
   %2440 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.34, ptr %2440, align 8, !tbaa !29
+  store ptr @.str.34, ptr %2440, align 8, !tbaa !31
   %2441 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2432, ptr %2441, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8491,7 +8491,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2443 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 12, ptr %2443, align 8, !tbaa !24
   %2444 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.35, ptr %2444, align 8, !tbaa !29
+  store ptr @.str.35, ptr %2444, align 8, !tbaa !31
   %2445 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.403595, ptr %2445, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8522,7 +8522,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2456 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %2456, align 8, !tbaa !24
   %2457 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.50, ptr %2457, align 8, !tbaa !29
+  store ptr @.str.50, ptr %2457, align 8, !tbaa !31
   %2458 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.473602, ptr %2458, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8539,7 +8539,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2462 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2462, align 8, !tbaa !24
   %2463 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.30, ptr %2463, align 8, !tbaa !29
+  store ptr @.str.30, ptr %2463, align 8, !tbaa !31
   %2464 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.473602, ptr %2464, align 8, !tbaa !27
   store ptr inttoptr (i64 2 to ptr), ptr %4, align 8, !tbaa !23
@@ -8549,7 +8549,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2466 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 18, ptr %2466, align 8, !tbaa !24
   %2467 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.31, ptr %2467, align 8, !tbaa !29
+  store ptr @.str.31, ptr %2467, align 8, !tbaa !31
   %2468 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.473602, ptr %2468, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8573,7 +8573,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2477 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2477, align 8, !tbaa !24
   %2478 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.51, ptr %2478, align 8, !tbaa !29
+  store ptr @.str.51, ptr %2478, align 8, !tbaa !31
   %2479 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %641, ptr %2479, align 8, !tbaa !27
   store ptr inttoptr (i64 41 to ptr), ptr %4, align 8, !tbaa !23
@@ -8583,7 +8583,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2481 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 17, ptr %2481, align 8, !tbaa !24
   %2482 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.52, ptr %2482, align 8, !tbaa !29
+  store ptr @.str.52, ptr %2482, align 8, !tbaa !31
   %2483 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %641, ptr %2483, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8617,7 +8617,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2494 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2494, align 8, !tbaa !24
   %2495 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.32, ptr %2495, align 8, !tbaa !29
+  store ptr @.str.32, ptr %2495, align 8, !tbaa !31
   %2496 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.503605, ptr %2496, align 8, !tbaa !27
   store ptr inttoptr (i64 5 to ptr), ptr %4, align 8, !tbaa !23
@@ -8627,7 +8627,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2498 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 20, ptr %2498, align 8, !tbaa !24
   %2499 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.33, ptr %2499, align 8, !tbaa !29
+  store ptr @.str.33, ptr %2499, align 8, !tbaa !31
   %2500 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.503605, ptr %2500, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8651,7 +8651,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2509 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2509, align 8, !tbaa !24
   %2510 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.51, ptr %2510, align 8, !tbaa !29
+  store ptr @.str.51, ptr %2510, align 8, !tbaa !31
   %2511 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.503605, ptr %2511, align 8, !tbaa !27
   store ptr inttoptr (i64 41 to ptr), ptr %4, align 8, !tbaa !23
@@ -8661,7 +8661,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2513 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 17, ptr %2513, align 8, !tbaa !24
   %2514 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.52, ptr %2514, align 8, !tbaa !29
+  store ptr @.str.52, ptr %2514, align 8, !tbaa !31
   %2515 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.503605, ptr %2515, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8703,7 +8703,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2530 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2530, align 8, !tbaa !24
   %2531 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.53, ptr %2531, align 8, !tbaa !29
+  store ptr @.str.53, ptr %2531, align 8, !tbaa !31
   %2532 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.493604, ptr %2532, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8713,7 +8713,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2534 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %2534, align 8, !tbaa !24
   %2535 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.54, ptr %2535, align 8, !tbaa !29
+  store ptr @.str.54, ptr %2535, align 8, !tbaa !31
   %2536 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.543609, ptr %2536, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8764,7 +8764,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2556 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %2556, align 8, !tbaa !24
   %2557 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.9, ptr %2557, align 8, !tbaa !29
+  store ptr @.str.9, ptr %2557, align 8, !tbaa !31
   %2558 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.573612, ptr %2558, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8774,7 +8774,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2560 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2560, align 8, !tbaa !24
   %2561 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.57, ptr %2561, align 8, !tbaa !29
+  store ptr @.str.57, ptr %2561, align 8, !tbaa !31
   %2562 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.533608, ptr %2562, align 8, !tbaa !27
   store ptr inttoptr (i64 88 to ptr), ptr %4, align 8, !tbaa !23
@@ -8784,7 +8784,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2564 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 29, ptr %2564, align 8, !tbaa !24
   %2565 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.58, ptr %2565, align 8, !tbaa !29
+  store ptr @.str.58, ptr %2565, align 8, !tbaa !31
   %2566 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.533608, ptr %2566, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8835,7 +8835,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2584 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 11, ptr %2584, align 8, !tbaa !24
   %2585 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.56, ptr %2585, align 8, !tbaa !29
+  store ptr @.str.56, ptr %2585, align 8, !tbaa !31
   %2586 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.563611, ptr %2586, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8845,7 +8845,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2588 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %2588, align 8, !tbaa !24
   %2589 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.9, ptr %2589, align 8, !tbaa !29
+  store ptr @.str.9, ptr %2589, align 8, !tbaa !31
   %2590 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %474, ptr %2590, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8862,7 +8862,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2596 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2596, align 8, !tbaa !24
   %2597 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.59, ptr %2597, align 8, !tbaa !29
+  store ptr @.str.59, ptr %2597, align 8, !tbaa !31
   %2598 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.583613, ptr %2598, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8889,7 +8889,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2608 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %2608, align 8, !tbaa !24
   %2609 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.60, ptr %2609, align 8, !tbaa !29
+  store ptr @.str.60, ptr %2609, align 8, !tbaa !31
   %2610 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.593614, ptr %2610, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8931,7 +8931,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2625 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 3, ptr %2625, align 8, !tbaa !24
   %2626 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.61, ptr %2626, align 8, !tbaa !29
+  store ptr @.str.61, ptr %2626, align 8, !tbaa !31
   %2627 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.603615, ptr %2627, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -8941,7 +8941,7 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   %2629 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %2629, align 8, !tbaa !24
   %2630 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.62, ptr %2630, align 8, !tbaa !29
+  store ptr @.str.62, ptr %2630, align 8, !tbaa !31
   %2631 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.613616, ptr %2631, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9103,7 +9103,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2698 = add i64 %2694, %.pre.i5746
   store i64 %2698, ptr %2759, align 8, !tbaa !20
   %2699 = icmp eq ptr %.783633, %2
-  br i1 %2699, label %.thread, label %405
+  br i1 %2699, label %.thread, label %405, !llvm.loop !62
 
 2700:                                             ; preds = %switch.lookup, %2693
   %2701 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9140,7 +9140,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2716 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 4, ptr %2716, align 8, !tbaa !24
   %2717 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.63, ptr %2717, align 8, !tbaa !29
+  store ptr @.str.63, ptr %2717, align 8, !tbaa !31
   %2718 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.883643, ptr %2718, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9263,7 +9263,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2769 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 11, ptr %2769, align 8, !tbaa !24
   %2770 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.55, ptr %2770, align 8, !tbaa !29
+  store ptr @.str.55, ptr %2770, align 8, !tbaa !31
   %2771 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.903645, ptr %2771, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9287,7 +9287,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2781 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %2781, align 8, !tbaa !24
   %2782 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.64, ptr %2782, align 8, !tbaa !29
+  store ptr @.str.64, ptr %2782, align 8, !tbaa !31
   %2783 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.903645, ptr %2783, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9316,7 +9316,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2794 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2794, align 8, !tbaa !24
   %2795 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.65, ptr %2795, align 8, !tbaa !29
+  store ptr @.str.65, ptr %2795, align 8, !tbaa !31
   %2796 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.913646, ptr %2796, align 8, !tbaa !27
   store ptr inttoptr (i64 74 to ptr), ptr %4, align 8, !tbaa !23
@@ -9326,7 +9326,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2798 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 28, ptr %2798, align 8, !tbaa !24
   %2799 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.66, ptr %2799, align 8, !tbaa !29
+  store ptr @.str.66, ptr %2799, align 8, !tbaa !31
   %2800 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.913646, ptr %2800, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9378,7 +9378,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2820 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %2820, align 8, !tbaa !24
   %2821 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.54, ptr %2821, align 8, !tbaa !29
+  store ptr @.str.54, ptr %2821, align 8, !tbaa !31
   %2822 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.923647, ptr %2822, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9396,7 +9396,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2826 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 30, ptr %2826, align 8, !tbaa !24
   %2827 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.67, ptr %2827, align 8, !tbaa !29
+  store ptr @.str.67, ptr %2827, align 8, !tbaa !31
   %2828 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %652, ptr %2828, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9406,7 +9406,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2830 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2830, align 8, !tbaa !24
   %2831 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.68, ptr %2831, align 8, !tbaa !29
+  store ptr @.str.68, ptr %2831, align 8, !tbaa !31
   %2832 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1123667, ptr %2832, align 8, !tbaa !27
   store ptr inttoptr (i64 89 to ptr), ptr %4, align 8, !tbaa !23
@@ -9416,7 +9416,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2834 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 26, ptr %2834, align 8, !tbaa !24
   %2835 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.69, ptr %2835, align 8, !tbaa !29
+  store ptr @.str.69, ptr %2835, align 8, !tbaa !31
   %2836 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1123667, ptr %2836, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9454,7 +9454,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2849 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %2849, align 8, !tbaa !24
   %2850 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.70, ptr %2850, align 8, !tbaa !29
+  store ptr @.str.70, ptr %2850, align 8, !tbaa !31
   %2851 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1163671, ptr %2851, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9481,7 +9481,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2861 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 23, ptr %2861, align 8, !tbaa !24
   %2862 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.71, ptr %2862, align 8, !tbaa !29
+  store ptr @.str.71, ptr %2862, align 8, !tbaa !31
   %2863 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2860, ptr %2863, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9491,7 +9491,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2865 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2865, align 8, !tbaa !24
   %2866 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.72, ptr %2866, align 8, !tbaa !29
+  store ptr @.str.72, ptr %2866, align 8, !tbaa !31
   %2867 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %688, ptr %2867, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9508,7 +9508,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2873 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %2873, align 8, !tbaa !24
   %2874 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.73, ptr %2874, align 8, !tbaa !29
+  store ptr @.str.73, ptr %2874, align 8, !tbaa !31
   %2875 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1203675, ptr %2875, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9518,7 +9518,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2877 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2877, align 8, !tbaa !24
   %2878 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.73, ptr %2878, align 8, !tbaa !29
+  store ptr @.str.73, ptr %2878, align 8, !tbaa !31
   %2879 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %701, ptr %2879, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9528,7 +9528,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2881 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %2881, align 8, !tbaa !24
   %2882 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.73, ptr %2882, align 8, !tbaa !29
+  store ptr @.str.73, ptr %2882, align 8, !tbaa !31
   %2883 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1213676, ptr %2883, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9538,7 +9538,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2885 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2885, align 8, !tbaa !24
   %2886 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.74, ptr %2886, align 8, !tbaa !29
+  store ptr @.str.74, ptr %2886, align 8, !tbaa !31
   %2887 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1233678, ptr %2887, align 8, !tbaa !27
   store ptr inttoptr (i64 97 to ptr), ptr %4, align 8, !tbaa !23
@@ -9548,7 +9548,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   %2889 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 33, ptr %2889, align 8, !tbaa !24
   %2890 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.75, ptr %2890, align 8, !tbaa !29
+  store ptr @.str.75, ptr %2890, align 8, !tbaa !31
   %2891 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1233678, ptr %2891, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9719,7 +9719,7 @@ switch.lookup7541:                                ; preds = %744
   %2944 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %2944, align 8, !tbaa !24
   %2945 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.76, ptr %2945, align 8, !tbaa !29
+  store ptr @.str.76, ptr %2945, align 8, !tbaa !31
   %2946 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2940, ptr %2946, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9730,7 +9730,7 @@ switch.lookup7541:                                ; preds = %744
   %2947 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %2947, align 8, !tbaa !24
   %2948 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.77, ptr %2948, align 8, !tbaa !29
+  store ptr @.str.77, ptr %2948, align 8, !tbaa !31
   %2949 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1363691, ptr %2949, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9747,7 +9747,7 @@ switch.lookup7541:                                ; preds = %744
   %2955 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %2955, align 8, !tbaa !24
   %2956 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.78, ptr %2956, align 8, !tbaa !29
+  store ptr @.str.78, ptr %2956, align 8, !tbaa !31
   %2957 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2951, ptr %2957, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9778,7 +9778,7 @@ switch.lookup7541:                                ; preds = %744
   %2963 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %2963, align 8, !tbaa !24
   %2964 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.79, ptr %2964, align 8, !tbaa !29
+  store ptr @.str.79, ptr %2964, align 8, !tbaa !31
   %2965 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2959, ptr %2965, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9800,7 +9800,7 @@ switch.lookup7541:                                ; preds = %744
   %2970 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %2970, align 8, !tbaa !24
   %2971 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.68, ptr %2971, align 8, !tbaa !29
+  store ptr @.str.68, ptr %2971, align 8, !tbaa !31
   %2972 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1423697, ptr %2972, align 8, !tbaa !27
   store ptr inttoptr (i64 110 to ptr), ptr %4, align 8, !tbaa !23
@@ -9810,7 +9810,7 @@ switch.lookup7541:                                ; preds = %744
   %2974 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 26, ptr %2974, align 8, !tbaa !24
   %2975 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.69, ptr %2975, align 8, !tbaa !29
+  store ptr @.str.69, ptr %2975, align 8, !tbaa !31
   %2976 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1423697, ptr %2976, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9884,7 +9884,7 @@ switch.lookup7541:                                ; preds = %744
   %3006 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3006, align 8, !tbaa !24
   %3007 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.80, ptr %3007, align 8, !tbaa !29
+  store ptr @.str.80, ptr %3007, align 8, !tbaa !31
   %3008 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.14436996819, ptr %3008, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9942,7 +9942,7 @@ switch.lookup7541:                                ; preds = %744
   %3031 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3031, align 8, !tbaa !24
   %3032 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.81, ptr %3032, align 8, !tbaa !29
+  store ptr @.str.81, ptr %3032, align 8, !tbaa !31
   %3033 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.14637016817, ptr %3033, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -9952,7 +9952,7 @@ switch.lookup7541:                                ; preds = %744
   %3035 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3035, align 8, !tbaa !24
   %3036 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.82, ptr %3036, align 8, !tbaa !29
+  store ptr @.str.82, ptr %3036, align 8, !tbaa !31
   %3037 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1473702, ptr %3037, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10058,7 +10058,7 @@ switch.lookup7541:                                ; preds = %744
   %3081 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3081, align 8, !tbaa !24
   %3082 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.84, ptr %3082, align 8, !tbaa !29
+  store ptr @.str.84, ptr %3082, align 8, !tbaa !31
   %3083 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1523707, ptr %3083, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10068,7 +10068,7 @@ switch.lookup7541:                                ; preds = %744
   %3085 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3085, align 8, !tbaa !24
   %3086 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.84, ptr %3086, align 8, !tbaa !29
+  store ptr @.str.84, ptr %3086, align 8, !tbaa !31
   %3087 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.15337086813, ptr %3087, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10079,7 +10079,7 @@ switch.lookup7541:                                ; preds = %744
   %3089 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3089, align 8, !tbaa !24
   %3090 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.85, ptr %3090, align 8, !tbaa !29
+  store ptr @.str.85, ptr %3090, align 8, !tbaa !31
   %3091 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1553710, ptr %3091, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10089,7 +10089,7 @@ switch.lookup7541:                                ; preds = %744
   %3093 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3093, align 8, !tbaa !24
   %3094 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.85, ptr %3094, align 8, !tbaa !29
+  store ptr @.str.85, ptr %3094, align 8, !tbaa !31
   %3095 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.15837136811, ptr %3095, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10099,7 +10099,7 @@ switch.lookup7541:                                ; preds = %744
   %3097 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %3097, align 8, !tbaa !24
   %3098 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.86, ptr %3098, align 8, !tbaa !29
+  store ptr @.str.86, ptr %3098, align 8, !tbaa !31
   %3099 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1593714, ptr %3099, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10115,7 +10115,7 @@ switch.lookup7541:                                ; preds = %744
   %3104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 6, ptr %3104, align 8, !tbaa !24
   %3105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.87, ptr %3105, align 8, !tbaa !29
+  store ptr @.str.87, ptr %3105, align 8, !tbaa !31
   %3106 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1653720, ptr %3106, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10125,7 +10125,7 @@ switch.lookup7541:                                ; preds = %744
   %3108 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3108, align 8, !tbaa !24
   %3109 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.88, ptr %3109, align 8, !tbaa !29
+  store ptr @.str.88, ptr %3109, align 8, !tbaa !31
   %3110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1663721, ptr %3110, align 8, !tbaa !27
   store ptr inttoptr (i64 133 to ptr), ptr %4, align 8, !tbaa !23
@@ -10135,7 +10135,7 @@ switch.lookup7541:                                ; preds = %744
   %3112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 32, ptr %3112, align 8, !tbaa !24
   %3113 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.89, ptr %3113, align 8, !tbaa !29
+  store ptr @.str.89, ptr %3113, align 8, !tbaa !31
   %3114 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1663721, ptr %3114, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10166,7 +10166,7 @@ switch.lookup7541:                                ; preds = %744
   %3124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 6, ptr %3124, align 8, !tbaa !24
   %3125 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.90, ptr %3125, align 8, !tbaa !29
+  store ptr @.str.90, ptr %3125, align 8, !tbaa !31
   %3126 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.1693724, ptr %3126, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10184,7 +10184,7 @@ switch.lookup7541:                                ; preds = %744
   %3130 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3130, align 8, !tbaa !24
   %3131 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.92, ptr %3131, align 8, !tbaa !29
+  store ptr @.str.92, ptr %3131, align 8, !tbaa !31
   %3132 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2833838, ptr %3132, align 8, !tbaa !27
   store ptr inttoptr (i64 89 to ptr), ptr %4, align 8, !tbaa !23
@@ -10194,7 +10194,7 @@ switch.lookup7541:                                ; preds = %744
   %3134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 27, ptr %3134, align 8, !tbaa !24
   %3135 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.93, ptr %3135, align 8, !tbaa !29
+  store ptr @.str.93, ptr %3135, align 8, !tbaa !31
   %3136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2833838, ptr %3136, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10204,7 +10204,7 @@ switch.lookup7541:                                ; preds = %744
   %3138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3138, align 8, !tbaa !24
   %3139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.94, ptr %3139, align 8, !tbaa !29
+  store ptr @.str.94, ptr %3139, align 8, !tbaa !31
   %3140 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1984, ptr %3140, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10221,7 +10221,7 @@ switch.lookup7541:                                ; preds = %744
   %3146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %3146, align 8, !tbaa !24
   %3147 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.59, ptr %3147, align 8, !tbaa !29
+  store ptr @.str.59, ptr %3147, align 8, !tbaa !31
   %3148 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2823837, ptr %3148, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10231,7 +10231,7 @@ switch.lookup7541:                                ; preds = %744
   %3150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 25, ptr %3150, align 8, !tbaa !24
   %3151 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.95, ptr %3151, align 8, !tbaa !29
+  store ptr @.str.95, ptr %3151, align 8, !tbaa !31
   %3152 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2843839, ptr %3152, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10283,7 +10283,7 @@ switch.lookup7541:                                ; preds = %744
   %3172 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3172, align 8, !tbaa !24
   %3173 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.94, ptr %3173, align 8, !tbaa !29
+  store ptr @.str.94, ptr %3173, align 8, !tbaa !31
   %3174 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2873842, ptr %3174, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10315,7 +10315,7 @@ llhttp__internal__c_mul_add_status_code.exit:     ; preds = %3178
   %3186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3186, align 8, !tbaa !24
   %3187 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3187, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3187, align 8, !tbaa !31
   %3188 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2893844, ptr %3188, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10325,7 +10325,7 @@ llhttp__internal__c_mul_add_status_code.exit:     ; preds = %3178
   %3190 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3190, align 8, !tbaa !24
   %3191 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3191, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3191, align 8, !tbaa !31
   %3192 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2883843, ptr %3192, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10357,7 +10357,7 @@ llhttp__internal__c_mul_add_status_code.exit5760: ; preds = %3196
   %3204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3204, align 8, !tbaa !24
   %3205 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3205, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3205, align 8, !tbaa !31
   %3206 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2913846, ptr %3206, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10367,7 +10367,7 @@ llhttp__internal__c_mul_add_status_code.exit5760: ; preds = %3196
   %3208 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3208, align 8, !tbaa !24
   %3209 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3209, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3209, align 8, !tbaa !31
   %3210 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2903845, ptr %3210, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10399,7 +10399,7 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   %3222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3222, align 8, !tbaa !24
   %3223 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3223, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3223, align 8, !tbaa !31
   %3224 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2933848, ptr %3224, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10409,7 +10409,7 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   %3226 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3226, align 8, !tbaa !24
   %3227 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.91, ptr %3227, align 8, !tbaa !29
+  store ptr @.str.91, ptr %3227, align 8, !tbaa !31
   %3228 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2923847, ptr %3228, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10419,7 +10419,7 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   %3230 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 9, ptr %3230, align 8, !tbaa !24
   %3231 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.96, ptr %3231, align 8, !tbaa !29
+  store ptr @.str.96, ptr %3231, align 8, !tbaa !31
   %3232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2943849, ptr %3232, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10429,7 +10429,7 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   %3234 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3234, align 8, !tbaa !24
   %3235 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.74, ptr %3235, align 8, !tbaa !29
+  store ptr @.str.74, ptr %3235, align 8, !tbaa !31
   %3236 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2953850, ptr %3236, align 8, !tbaa !27
   store ptr inttoptr (i64 215 to ptr), ptr %4, align 8, !tbaa !23
@@ -10439,7 +10439,7 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   %3238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 33, ptr %3238, align 8, !tbaa !24
   %3239 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.75, ptr %3239, align 8, !tbaa !29
+  store ptr @.str.75, ptr %3239, align 8, !tbaa !31
   %3240 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.2953850, ptr %3240, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10567,7 +10567,7 @@ switch.lookup7552:                                ; preds = %2048
   %3289 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %3289, align 8, !tbaa !24
   %3290 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.77, ptr %3290, align 8, !tbaa !29
+  store ptr @.str.77, ptr %3290, align 8, !tbaa !31
   %3291 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.01623.i5684, ptr %3291, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10577,7 +10577,7 @@ switch.lookup7552:                                ; preds = %2048
   %3293 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3293, align 8, !tbaa !24
   %3294 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.88, ptr %3294, align 8, !tbaa !29
+  store ptr @.str.88, ptr %3294, align 8, !tbaa !31
   %3295 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3083863, ptr %3295, align 8, !tbaa !27
   store ptr inttoptr (i64 133 to ptr), ptr %4, align 8, !tbaa !23
@@ -10587,7 +10587,7 @@ switch.lookup7552:                                ; preds = %2048
   %3297 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 32, ptr %3297, align 8, !tbaa !24
   %3298 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.89, ptr %3298, align 8, !tbaa !29
+  store ptr @.str.89, ptr %3298, align 8, !tbaa !31
   %3299 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3083863, ptr %3299, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10619,7 +10619,7 @@ switch.lookup7552:                                ; preds = %2048
   %3310 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %3310, align 8, !tbaa !24
   %3311 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.97, ptr %3311, align 8, !tbaa !29
+  store ptr @.str.97, ptr %3311, align 8, !tbaa !31
   %3312 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3113866, ptr %3312, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10651,7 +10651,7 @@ switch.lookup7552:                                ; preds = %2048
   %3324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3324, align 8, !tbaa !24
   %3325 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.98, ptr %3325, align 8, !tbaa !29
+  store ptr @.str.98, ptr %3325, align 8, !tbaa !31
   %3326 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3203875, ptr %3326, align 8, !tbaa !27
   store ptr inttoptr (i64 234 to ptr), ptr %4, align 8, !tbaa !23
@@ -10661,7 +10661,7 @@ switch.lookup7552:                                ; preds = %2048
   %3328 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 16, ptr %3328, align 8, !tbaa !24
   %3329 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.99, ptr %3329, align 8, !tbaa !29
+  store ptr @.str.99, ptr %3329, align 8, !tbaa !31
   %3330 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.3203875, ptr %3330, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10671,7 +10671,7 @@ switch.lookup7552:                                ; preds = %2048
   %3332 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 21, ptr %3332, align 8, !tbaa !24
   %3333 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.100, ptr %3333, align 8, !tbaa !29
+  store ptr @.str.100, ptr %3333, align 8, !tbaa !31
   %3334 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.32138766806, ptr %3334, align 8, !tbaa !27
   store ptr inttoptr (i64 235 to ptr), ptr %4, align 8, !tbaa !23
@@ -10681,7 +10681,7 @@ switch.lookup7552:                                ; preds = %2048
   %3336 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 31, ptr %3336, align 8, !tbaa !24
   %3337 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.101, ptr %3337, align 8, !tbaa !29
+  store ptr @.str.101, ptr %3337, align 8, !tbaa !31
   %3338 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.32138766806, ptr %3338, align 8, !tbaa !27
   store ptr null, ptr %4, align 8, !tbaa !23
@@ -10734,7 +10734,7 @@ declare i32 @llhttp__on_header_field(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #7 {
-  %6 = load i32, ptr %0, align 8, !tbaa !30
+  %6 = load i32, ptr %0, align 8, !tbaa !39
   %.not25 = icmp eq ptr %1, %2
   br i1 %.not25, label %.loopexit.sink.split, label %.lr.ph.preheader
 
@@ -10769,13 +10769,13 @@ define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr noundef capt
   %.1 = select i1 %14, i32 %15, i32 %.01528
   %18 = getelementptr inbounds nuw i8, ptr %.01626, i64 1
   %.not = icmp eq ptr %18, %2
-  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !51
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %17, %5
   %.sink = phi i32 [ %6, %5 ], [ %.1, %17 ], [ 0, %.lr.ph ]
   %.01623.ph = phi ptr [ %1, %5 ], [ %scevgep, %17 ], [ %.01626, %.lr.ph ]
   %.sroa.0.2.ph = phi i32 [ 1, %5 ], [ 1, %17 ], [ %.sroa.0.1, %.lr.ph ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !30
+  store i32 %.sink, ptr %0, align 8, !tbaa !39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split
@@ -10860,9 +10860,37 @@ attributes #10 = { noreturn nounwind }
 !26 = !{!4, !8, i64 16}
 !27 = !{!4, !9, i64 40}
 !28 = !{!6, !6, i64 0}
-!29 = !{!4, !9, i64 32}
-!30 = !{!4, !5, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
-!34 = distinct !{!34, !32}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!4, !9, i64 32}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}
+!34 = distinct !{!34, !30}
+!35 = distinct !{!35, !30}
+!36 = distinct !{!36, !30}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = !{!4, !5, i64 0}
+!40 = distinct !{!40, !41, !30}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !30}
+!43 = distinct !{!43, !30}
+!44 = distinct !{!44, !30}
+!45 = distinct !{!45, !30}
+!46 = distinct !{!46, !30}
+!47 = distinct !{!47, !30}
+!48 = distinct !{!48, !41, !30}
+!49 = distinct !{!49, !30}
+!50 = distinct !{!50, !30}
+!51 = distinct !{!51, !41, !30}
+!52 = distinct !{!52, !30}
+!53 = distinct !{!53, !30}
+!54 = distinct !{!54, !30}
+!55 = distinct !{!55, !30}
+!56 = distinct !{!56, !30}
+!57 = distinct !{!57, !30}
+!58 = distinct !{!58, !30}
+!59 = distinct !{!59, !30}
+!60 = distinct !{!60, !30}
+!61 = distinct !{!61, !30}
+!62 = distinct !{!62, !30}

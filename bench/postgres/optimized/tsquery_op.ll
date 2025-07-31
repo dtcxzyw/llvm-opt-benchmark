@@ -1060,7 +1060,7 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr noundef readonly capture
   %39 = getelementptr inbounds nuw i8, ptr %.026.i, i64 12
   %40 = add nuw nsw i32 %.02324.i, 1
   %41 = icmp slt i32 %40, %38
-  br i1 %41, label %.lr.ph.i, label %collectTSQueryValues.exit, !llvm.loop !6
+  br i1 %41, label %.lr.ph.i, label %collectTSQueryValues.exit, !llvm.loop !7
 
 collectTSQueryValues.exit:                        ; preds = %37, %1
   %.022.lcssa.i = phi i32 [ 0, %1 ], [ %.1.i, %37 ]
@@ -1113,7 +1113,7 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   %73 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 12
   %74 = add nuw nsw i32 %.02324.i24, 1
   %75 = icmp slt i32 %74, %72
-  br i1 %75, label %.lr.ph.i21, label %collectTSQueryValues.exit27, !llvm.loop !6
+  br i1 %75, label %.lr.ph.i21, label %collectTSQueryValues.exit27, !llvm.loop !7
 
 collectTSQueryValues.exit27:                      ; preds = %71, %collectTSQueryValues.exit
   %.022.lcssa.i20 = phi i32 [ 0, %collectTSQueryValues.exit ], [ %.1.i25, %71 ]
@@ -1151,7 +1151,7 @@ collectTSQueryValues.exit27:                      ; preds = %71, %collectTSQuery
   %.1.i28 = phi i64 [ %87, %88 ], [ %.0231.i, %86 ], [ %.02.i, %.preheader.i ]
   %92 = add nuw i64 %.0231.i, 1
   %exitcond.not.i = icmp eq i64 %92, %76
-  br i1 %exitcond.not.i, label %93, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %93, label %.preheader.i, !llvm.loop !8
 
 93:                                               ; preds = %91
   %94 = trunc i64 %.1.i28 to i32
@@ -1194,7 +1194,7 @@ qunique.exit:                                     ; preds = %collectTSQueryValue
   %.1.i34 = phi i64 [ %107, %108 ], [ %.0231.i31, %106 ], [ %.02.i30, %.preheader.i29 ]
   %112 = add nuw i64 %.0231.i31, 1
   %exitcond.not.i35 = icmp eq i64 %112, %96
-  br i1 %exitcond.not.i35, label %113, label %.preheader.i29, !llvm.loop !7
+  br i1 %exitcond.not.i35, label %113, label %.preheader.i29, !llvm.loop !8
 
 113:                                              ; preds = %111
   %114 = trunc i64 %.1.i34 to i32
@@ -1218,7 +1218,7 @@ qunique.exit37:                                   ; preds = %qunique.exit, %113
 118:                                              ; preds = %._crit_edge
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader.preheader, %118
   %indvars.iv56 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next57, %118 ]
@@ -1243,7 +1243,7 @@ qunique.exit37:                                   ; preds = %qunique.exit, %113
 128:                                              ; preds = %123
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %117
-  br i1 %exitcond.not, label %.loopexit, label %123, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %123, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %123
   %129 = trunc nsw i64 %indvars.iv to i32
@@ -1315,9 +1315,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

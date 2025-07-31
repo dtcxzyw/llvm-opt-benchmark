@@ -499,7 +499,7 @@ _bt_begin_parallel.exit.i:                        ; preds = %_bt_leader_particip
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store i8 0, ptr %269, align 4
   tail call void @ConditionVariableSleep(ptr noundef nonnull %271, i32 noundef 134217767) #10
-  br label %272
+  br label %272, !llvm.loop !9
 
 _bt_parallel_heapscan.exit.i:                     ; preds = %276
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 166
@@ -514,7 +514,7 @@ _bt_parallel_heapscan.exit.i:                     ; preds = %276
   store i8 %286, ptr %280, align 1
   %287 = getelementptr inbounds nuw i8, ptr %266, i64 48
   %288 = load double, ptr %287, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store i8 0, ptr %269, align 4
   %289 = tail call zeroext i1 @ConditionVariableCancelSleep() #10
   br label %290
@@ -673,7 +673,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   call void @PrepareSortSupportFromIndexRel(ptr noundef nonnull %309, i16 noundef signext %370, ptr noundef nonnull %353) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader212.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.preheader212.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 371:                                              ; preds = %540, %.preheader212.i.i
   %.0132.i.i = phi i64 [ %541, %540 ], [ 0, %.preheader212.i.i ]
@@ -921,7 +921,7 @@ ApplySortComparator.exit.i.i:                     ; preds = %493, %486
 .thread188.thread205.i.i:                         ; preds = %.thread188.i.i, %index_getattr.exit150.thread.i.i
   %indvars.iv.next252.i.i = add nuw nsw i64 %indvars.iv251.i.i, 1
   %exitcond255.not.i.i = icmp eq i64 %indvars.iv.next252.i.i, %wide.trip.count254.i.i
-  br i1 %exitcond255.not.i.i, label %.loopexit278.i.i, label %380, !llvm.loop !12
+  br i1 %exitcond255.not.i.i, label %.loopexit278.i.i, label %380, !llvm.loop !14
 
 .loopexit278.i.i:                                 ; preds = %.thread188.thread205.i.i, %.preheader211.i.i
   %497 = call i32 @ItemPointerCompare(ptr noundef nonnull %.0119.i.i, ptr noundef nonnull %.0121.i.i) #10
@@ -1013,7 +1013,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %524, %500
   %.1120.i.i = phi ptr [ %536, %534 ], [ %.0119.i.i, %537 ]
   %541 = add i64 %.0132.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %541) #10
-  br label %371
+  br label %371, !llvm.loop !15
 
 542:                                              ; preds = %339
   br i1 %340, label %.thread198.i.i, label %.preheader.i.i
@@ -1175,7 +1175,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %603, %602
   %620 = load ptr, ptr %301, align 8
   %621 = call ptr @tuplesort_getindextuple(ptr noundef %620, i1 noundef zeroext true) #10
   %.not142.i.i = icmp eq ptr %621, null
-  br i1 %.not142.i.i, label %._crit_edge.i.i, label %.lr.ph238.i.i, !llvm.loop !13
+  br i1 %.not142.i.i, label %._crit_edge.i.i, label %.lr.ph238.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %618
   %622 = load i32, ptr %552, align 4
@@ -1291,7 +1291,7 @@ _bt_pagestate.exit164.i.i:                        ; preds = %667, %643
   %678 = load ptr, ptr %301, align 8
   %679 = call ptr @tuplesort_getindextuple(ptr noundef %678, i1 noundef zeroext true) #10
   %.not141.i.i = icmp eq ptr %679, null
-  br i1 %.not141.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph233.i.i, !llvm.loop !14
+  br i1 %.not141.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph233.i.i, !llvm.loop !17
 
 .loopexit.i.i:                                    ; preds = %374
   call void @pfree(ptr noundef %348) #10
@@ -1380,7 +1380,7 @@ _bt_slideleft.exit.i.i.i:                         ; preds = %.lr.ph.preheader.i.
   store ptr null, ptr %.036.i.i.i, align 8
   %722 = load ptr, ptr %682, align 8
   %.not.i.i.i = icmp eq ptr %722, null
-  br i1 %.not.i.i.i, label %_bt_leafbuild.exit, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_bt_leafbuild.exit, label %.lr.ph.i.i.i, !llvm.loop !18
 
 _bt_leafbuild.exit:                               ; preds = %_bt_slideleft.exit.i.i.i, %.preheader.i.i, %.loopexit.i.thread.i, %.loopexit.i.i
   %.030.lcssa.i.i.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %.preheader.i.i ], [ 0, %.loopexit.i.thread.i ], [ %.131.i.i.i, %_bt_slideleft.exit.i.i.i ]
@@ -1468,7 +1468,7 @@ define internal fastcc void @_bt_end_parallel(ptr noundef readonly captures(none
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %9, label %._crit_edge, !llvm.loop !16
+  br i1 %18, label %9, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %9, %1
   %19 = phi ptr [ %3, %1 ], [ %14, %9 ]
@@ -1728,7 +1728,7 @@ define internal fastcc void @_bt_parallel_scan_and_sort(ptr noundef initializes(
   br label %90
 
 90:                                               ; preds = %80, %88
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   store i8 0, ptr %65, align 4
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @ConditionVariableSignal(ptr noundef nonnull %91) #10
@@ -1869,7 +1869,7 @@ define internal fastcc void @_bt_buildadd(ptr noundef nonnull captures(none) %0,
   %6 = alloca %struct.IndexTupleData, align 8
   %7 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %9, label %8, !prof !18
+  br i1 %.not, label %9, label %8, !prof !21
 
 8:                                                ; preds = %4
   tail call void @ProcessInterrupts() #10
@@ -1903,7 +1903,7 @@ define internal fastcc void @_bt_buildadd(ptr noundef nonnull captures(none) %0,
   %30 = and i64 %29, 9223372036854775800
   %31 = add nsw i64 %30, -8
   %32 = icmp ult i64 %31, %21
-  br i1 %32, label %33, label %37, !prof !19
+  br i1 %32, label %33, label %37, !prof !22
 
 33:                                               ; preds = %9
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2291,14 +2291,17 @@ attributes #12 = { nounwind willreturn memory(read) }
 !6 = !{i64 2151103051}
 !7 = !{i64 2131541, i64 2131557}
 !8 = !{i64 2151104688}
-!9 = !{i64 2151104567}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = !{i64 2151106069}
-!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2151104567}
+!12 = distinct !{!12, !13, !10}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !13, !10}
+!17 = distinct !{!17, !13, !10}
+!18 = distinct !{!18, !13, !10}
+!19 = distinct !{!19, !13, !10}
+!20 = !{i64 2151106069}
+!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}

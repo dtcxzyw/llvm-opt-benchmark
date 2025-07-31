@@ -248,11 +248,11 @@ print_link_prop.exit177:                          ; preds = %83, %96, %105
   %.0157213 = phi i32 [ 0, %.lr.ph215 ], [ %128, %188 ]
   %.0159212 = phi i64 [ 0, %.lr.ph215 ], [ %134, %188 ]
   %.0161211 = phi i32 [ 0, %.lr.ph215 ], [ %189, %188 ]
-  %113 = load ptr, ptr %31, align 8, !tbaa !57
+  %113 = load ptr, ptr %31, align 8, !tbaa !58
   %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv237
   %115 = load ptr, ptr %114, align 8, !tbaa !34
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !58
+  %117 = load ptr, ptr %116, align 8, !tbaa !59
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !19
   %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %119) #6
@@ -375,7 +375,7 @@ print_link_prop.exit185:                          ; preds = %164, %177, %186
   %190 = load i32, ptr %29, align 8, !tbaa !32
   %191 = zext i32 %190 to i64
   %192 = icmp samesign ult i64 %indvars.iv.next238, %191
-  br i1 %192, label %112, label %._crit_edge.loopexit, !llvm.loop !59
+  br i1 %192, label %112, label %._crit_edge.loopexit, !llvm.loop !60
 
 ._crit_edge.loopexit:                             ; preds = %188
   %193 = trunc i64 %134 to i32
@@ -544,12 +544,12 @@ print_link_prop.exit189:                          ; preds = %252, %265, %274
   br i1 %294, label %295, label %351
 
 295:                                              ; preds = %292
-  %296 = load ptr, ptr %217, align 8, !tbaa !57
+  %296 = load ptr, ptr %217, align 8, !tbaa !58
   %297 = zext i32 %227 to i64
   %298 = getelementptr inbounds nuw ptr, ptr %296, i64 %297
   %299 = load ptr, ptr %298, align 8, !tbaa !34
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %301 = load ptr, ptr %300, align 8, !tbaa !58
+  %301 = load ptr, ptr %300, align 8, !tbaa !59
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %303 = load ptr, ptr %302, align 8, !tbaa !19
   %304 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #6
@@ -618,7 +618,7 @@ print_link_prop.exit194:                          ; preds = %319, %332, %341
   %344 = add i32 %343, %316
   %345 = sub i32 %344, %342
   call void @av_bprint_chars(ptr noundef nonnull %0, i8 noundef signext 45, i32 noundef %345) #5
-  %346 = load ptr, ptr %300, align 8, !tbaa !58
+  %346 = load ptr, ptr %300, align 8, !tbaa !59
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %348 = load ptr, ptr %347, align 8, !tbaa !19
   %349 = load ptr, ptr %305, align 8, !tbaa !47
@@ -630,7 +630,7 @@ print_link_prop.exit194:                          ; preds = %319, %332, %341
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #5
   %352 = add nuw i32 %.2220, 1
   %exitcond.not = icmp eq i32 %352, %spec.select195
-  br i1 %exitcond.not, label %353, label %219, !llvm.loop !60
+  br i1 %exitcond.not, label %353, label %219, !llvm.loop !61
 
 353:                                              ; preds = %351
   call void @av_bprint_chars(ptr noundef nonnull %0, i8 noundef signext 32, i32 noundef %200) #5
@@ -642,7 +642,7 @@ print_link_prop.exit194:                          ; preds = %319, %332, %341
   %354 = load i32, ptr %7, align 8, !tbaa !11
   %355 = zext i32 %354 to i64
   %356 = icmp samesign ult i64 %indvars.iv.next241, %355
-  br i1 %356, label %11, label %._crit_edge224, !llvm.loop !61
+  br i1 %356, label %11, label %._crit_edge224, !llvm.loop !62
 
 ._crit_edge224:                                   ; preds = %353, %2
   ret void
@@ -739,10 +739,11 @@ attributes #6 = { nounwind willreturn memory(read) }
 !52 = !{!37, !10, i64 48}
 !53 = !{!37, !10, i64 52}
 !54 = !{!37, !10, i64 64}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!20, !23, i64 56}
-!58 = !{!37, !18, i64 16}
-!59 = distinct !{!59, !56}
-!60 = distinct !{!60, !56}
-!61 = distinct !{!61, !56}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!20, !23, i64 56}
+!59 = !{!37, !18, i64 16}
+!60 = distinct !{!60, !56, !57}
+!61 = distinct !{!61, !56, !57}
+!62 = distinct !{!62, !56, !57}

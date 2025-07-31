@@ -239,7 +239,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   %gep = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 428), i64 %indvars.iv.next
   %94 = load i32, ptr %gep, align 4, !tbaa !21
   %.not71 = icmp ult i32 %94, %89
-  br i1 %.not71, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not71, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !26
 
 ..loopexit_crit_edge:                             ; preds = %.lr.ph
   %95 = trunc nsw i64 %indvars.iv.next to i32
@@ -338,7 +338,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   %indvars.iv.next84 = add nuw nsw i32 %indvars.iv83, 1
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !27
 
 8:                                                ; preds = %.preheader
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -358,13 +358,13 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
   %.not67 = icmp eq ptr %16, null
   br i1 %.not67, label %17, label %23
 
 17:                                               ; preds = %14
   %18 = tail call ptr @av_realloc(ptr noundef null, i64 noundef 256) #7
-  store ptr %18, ptr %15, align 8, !tbaa !27
+  store ptr %18, ptr %15, align 8, !tbaa !28
   %.not68 = icmp eq ptr %18, null
   br i1 %.not68, label %19, label %20
 
@@ -375,9 +375,9 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 20:                                               ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 0, i64 256, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 256, ptr %21, align 8, !tbaa !31
+  store i64 256, ptr %21, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i16 10, ptr %22, align 8, !tbaa !32
+  store i16 10, ptr %22, align 8, !tbaa !33
   br label %23
 
 23:                                               ; preds = %20, %14
@@ -396,19 +396,19 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   br i1 %.not69, label %28, label %31
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %15, align 8, !tbaa !27
+  %29 = load ptr, ptr %15, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw %struct.ElsRungNode, ptr %29, i64 %26
   br label %67
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.05480, i64 2
-  %33 = load i16, ptr %32, align 2, !tbaa !33
+  %33 = load i16, ptr %32, align 2, !tbaa !34
   %.not70 = icmp eq i16 %33, 0
   br i1 %.not70, label %34, label %60
 
 34:                                               ; preds = %31
-  %35 = load i64, ptr %24, align 8, !tbaa !31
-  %36 = load i16, ptr %25, align 8, !tbaa !32
+  %35 = load i64, ptr %24, align 8, !tbaa !32
+  %36 = load i16, ptr %25, align 8, !tbaa !33
   %37 = zext i16 %36 to i64
   %38 = shl nuw nsw i64 %37, 2
   %39 = add nuw nsw i64 %38, 8
@@ -416,7 +416,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   br i1 %.not71, label %56, label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr %15, align 8, !tbaa !27
+  %41 = load ptr, ptr %15, align 8, !tbaa !28
   %42 = add nuw nsw i64 %35, 256
   %43 = tail call i32 @av_reallocp(ptr noundef nonnull %15, i64 noundef %42) #7
   store i32 %43, ptr %3, align 4, !tbaa !15
@@ -427,30 +427,30 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %46 = ptrtoint ptr %.05480 to i64
   %47 = ptrtoint ptr %41 to i64
   %48 = sub i64 %46, %47
-  %49 = load ptr, ptr %15, align 8, !tbaa !27
-  %50 = load i64, ptr %24, align 8, !tbaa !31
+  %49 = load ptr, ptr %15, align 8, !tbaa !28
+  %50 = load i64, ptr %24, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %51, i8 0, i64 256, i1 false)
-  %52 = load i64, ptr %24, align 8, !tbaa !31
+  %52 = load i64, ptr %24, align 8, !tbaa !32
   %53 = add i64 %52, 256
-  store i64 %53, ptr %24, align 8, !tbaa !31
-  %54 = load ptr, ptr %15, align 8, !tbaa !27
+  store i64 %53, ptr %24, align 8, !tbaa !32
+  %54 = load ptr, ptr %15, align 8, !tbaa !28
   %55 = getelementptr inbounds i8, ptr %54, i64 %48
-  %.pre = load i16, ptr %25, align 8, !tbaa !32
+  %.pre = load i16, ptr %25, align 8, !tbaa !33
   br label %56
 
 56:                                               ; preds = %45, %34
   %57 = phi i16 [ %.pre, %45 ], [ %36, %34 ]
   %.357 = phi ptr [ %55, %45 ], [ %.05480, %34 ]
   %58 = getelementptr inbounds nuw i8, ptr %.357, i64 2
-  store i16 %57, ptr %58, align 2, !tbaa !33
+  store i16 %57, ptr %58, align 2, !tbaa !34
   %59 = add i16 %57, 2
-  store i16 %59, ptr %25, align 8, !tbaa !32
+  store i16 %59, ptr %25, align 8, !tbaa !33
   br label %60
 
 60:                                               ; preds = %56, %31
   %61 = phi i16 [ %33, %31 ], [ %57, %56 ]
-  %62 = load ptr, ptr %15, align 8, !tbaa !27
+  %62 = load ptr, ptr %15, align 8, !tbaa !28
   %63 = zext i16 %61 to i32
   %64 = add nsw i32 %.05979, %63
   %65 = sext i32 %64 to i64
@@ -469,7 +469,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %72 = add nsw i32 %68, %71
   %73 = add nuw nsw i32 %.06277, 1
   %exitcond86.not = icmp eq i32 %73, %umax
-  br i1 %exitcond86.not, label %74, label %27, !llvm.loop !35
+  br i1 %exitcond86.not, label %74, label %27, !llvm.loop !36
 
 74:                                               ; preds = %70
   %notmask = shl nsw i32 -1, %9
@@ -532,16 +532,17 @@ attributes #7 = { nounwind }
 !20 = !{!"Ladder", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
 !21 = !{!11, !11, i64 0}
 !22 = !{!20, !5, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = !{!28, !29, i64 16}
-!28 = !{!"ElsUnsignedRung", !5, i64 0, !29, i64 16, !12, i64 24, !30, i64 32}
-!29 = !{!"p1 _ZTS11ElsRungNode", !10, i64 0}
-!30 = !{!"short", !5, i64 0}
-!31 = !{!28, !12, i64 24}
-!32 = !{!28, !30, i64 32}
-!33 = !{!34, !30, i64 2}
-!34 = !{!"ElsRungNode", !5, i64 0, !30, i64 2}
-!35 = distinct !{!35, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = !{!29, !30, i64 16}
+!29 = !{!"ElsUnsignedRung", !5, i64 0, !30, i64 16, !12, i64 24, !31, i64 32}
+!30 = !{!"p1 _ZTS11ElsRungNode", !10, i64 0}
+!31 = !{!"short", !5, i64 0}
+!32 = !{!29, !12, i64 24}
+!33 = !{!29, !31, i64 32}
+!34 = !{!35, !31, i64 2}
+!35 = !{!"ElsRungNode", !5, i64 0, !31, i64 2}
+!36 = distinct !{!36, !24, !25}

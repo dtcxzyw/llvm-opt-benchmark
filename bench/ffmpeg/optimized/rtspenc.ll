@@ -163,12 +163,12 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !57
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = call i32 @avio_close_dyn_buf(ptr noundef %9, ptr noundef nonnull %3) #6
-  store ptr null, ptr %8, align 8, !tbaa !57
+  store ptr null, ptr %8, align 8, !tbaa !58
   %11 = icmp sgt i32 %10, 4
   %.pre51 = load ptr, ptr %3, align 8, !tbaa !35
   br i1 %11, label %.lr.ph, label %.thread
@@ -180,7 +180,7 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
 13:                                               ; preds = %.lr.ph, %19
   %.03449 = phi ptr [ %.pre51, %.lr.ph ], [ %34, %19 ]
   %.03548 = phi i32 [ %10, %.lr.ph ], [ %35, %19 ]
-  %14 = load i32, ptr %.03449, align 1, !tbaa !58
+  %14 = load i32, ptr %.03449, align 1, !tbaa !59
   %15 = call i32 @llvm.bswap.i32(i32 %14)
   %16 = add nsw i32 %.03548, -4
   %17 = icmp ugt i32 %15, %16
@@ -191,7 +191,7 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.03449, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %.03449, i64 5
-  %22 = load i8, ptr %21, align 1, !tbaa !58
+  %22 = load i8, ptr %21, align 1, !tbaa !59
   %23 = and i8 %22, -4
   %or.cond41 = icmp eq i8 %23, -64
   %24 = add i8 %22, 56
@@ -200,22 +200,22 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   %.033.in.v = select i1 %or.cond47, i64 24, i64 20
   %.033.in = getelementptr inbounds nuw i8, ptr %1, i64 %.033.in.v
   %.033 = load i32, ptr %.033.in, align 4, !tbaa !31
-  store i8 36, ptr %.03449, align 1, !tbaa !58
+  store i8 36, ptr %.03449, align 1, !tbaa !59
   %25 = trunc i32 %.033 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.03449, i64 1
-  store i8 %25, ptr %26, align 1, !tbaa !58
+  store i8 %25, ptr %26, align 1, !tbaa !59
   %27 = lshr i32 %14, 16
   %28 = trunc nuw i32 %27 to i16
   %29 = getelementptr inbounds nuw i8, ptr %.03449, i64 2
-  store i16 %28, ptr %29, align 1, !tbaa !58
-  %30 = load ptr, ptr %12, align 8, !tbaa !59
+  store i16 %28, ptr %29, align 1, !tbaa !59
+  %30 = load ptr, ptr %12, align 8, !tbaa !60
   %31 = add nuw nsw i32 %15, 4
   %32 = call i32 @ffurl_write2(ptr noundef %30, ptr noundef nonnull %.03449, i32 noundef range(i32 6, -2147483648) %31) #6
   %33 = zext nneg i32 %15 to i64
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %33
   %35 = sub nuw nsw i32 %16, %15
   %36 = icmp samesign ugt i32 %35, 4
-  br i1 %36, label %13, label %.thread.loopexit
+  br i1 %36, label %13, label %.thread.loopexit, !llvm.loop !67
 
 .thread.loopexit:                                 ; preds = %13, %19
   %.pre = load ptr, ptr %3, align 8, !tbaa !35
@@ -225,7 +225,7 @@ define i32 @ff_rtsp_tcp_write_packet(ptr noundef readonly captures(none) %0, ptr
   %37 = phi ptr [ %.pre, %.thread.loopexit ], [ %.pre51, %2 ]
   call void @av_free(ptr noundef %37) #6
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 9000
-  %39 = load i32, ptr %38, align 8, !tbaa !66
+  %39 = load i32, ptr %38, align 8, !tbaa !68
   %40 = call i32 @ffio_open_dyn_packet_buf(ptr noundef nonnull %8, i32 noundef %39) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %40
@@ -258,7 +258,7 @@ define internal i32 @rtsp_write_header(ptr noundef %0) #0 {
 
 rtsp_write_record.exit.thread:                    ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 1, ptr %12, align 8, !tbaa !67
+  store i32 1, ptr %12, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 6960, ptr nonnull %2) #6
   br label %16
@@ -288,13 +288,13 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !68
+  %8 = load ptr, ptr %7, align 8, !tbaa !70
   %9 = tail call i32 @ffurl_get_file_handle(ptr noundef %8) #6
-  store i32 %9, ptr %3, align 4, !tbaa !69
+  store i32 %9, ptr %3, align 4, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 1, ptr %10, align 4, !tbaa !71
+  store i16 1, ptr %10, align 4, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 0, ptr %11, align 2, !tbaa !72
+  store i16 0, ptr %11, align 2, !tbaa !74
   %12 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 0) #6
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -304,7 +304,7 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %15
 
 15:                                               ; preds = %.lr.ph, %28
-  %16 = load i16, ptr %11, align 2, !tbaa !72
+  %16 = load i16, ptr %11, align 2, !tbaa !74
   %17 = and i16 %16, 1
   %.not = icmp eq i16 %17, 0
   br i1 %.not, label %28, label %18
@@ -330,7 +330,7 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.loopexit
 
 26:                                               ; preds = %21, %23
-  %27 = load i32, ptr %14, align 8, !tbaa !67
+  %27 = load i32, ptr %14, align 8, !tbaa !69
   %.not32 = icmp eq i32 %27, 1
   call void @llvm.lifetime.end.p0(i64 6960, ptr nonnull %4) #6
   br i1 %.not32, label %28, label %.loopexit
@@ -338,35 +338,35 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 28:                                               ; preds = %26, %15
   %29 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef 0) #6
   %30 = icmp slt i32 %29, 1
-  br i1 %30, label %._crit_edge, label %15
+  br i1 %30, label %._crit_edge, label %15, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %28, %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %32 = load i32, ptr %31, align 4, !tbaa !73
+  %32 = load i32, ptr %31, align 4, !tbaa !76
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !78
+  %36 = load i32, ptr %35, align 8, !tbaa !81
   %.not33 = icmp slt i32 %32, %36
   br i1 %.not33, label %37, label %.loopexit
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !79
+  %39 = load ptr, ptr %38, align 8, !tbaa !82
   %40 = zext nneg i32 %32 to i64
   %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !80
+  %42 = load ptr, ptr %41, align 8, !tbaa !83
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !56
+  %44 = load ptr, ptr %43, align 8, !tbaa !57
   %45 = call i32 @ff_write_chained(ptr noundef %44, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0) #6
   %.not34 = icmp eq i32 %45, 0
   br i1 %.not34, label %46, label %.loopexit
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 580
-  %48 = load i32, ptr %47, align 4, !tbaa !82
+  %48 = load i32, ptr %47, align 4, !tbaa !85
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %.loopexit
 
@@ -491,32 +491,35 @@ attributes #7 = { nounwind willreturn memory(read) }
 !51 = !{!"p2 _ZTS10RTSPSource", !15, i64 0}
 !52 = !{!"p1 _ZTS25RTPDynamicProtocolHandler", !7, i64 0}
 !53 = !{!"p1 _ZTS14PayloadContext", !7, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!47, !7, i64 8}
-!57 = !{!5, !12, i64 32}
-!58 = !{!8, !8, i64 0}
-!59 = !{!60, !48, i64 8880}
-!60 = !{!"RTSPState", !6, i64 0, !48, i64 8, !13, i64 16, !61, i64 24, !13, i64 32, !19, i64 40, !13, i64 48, !8, i64 52, !13, i64 564, !19, i64 568, !13, i64 576, !13, i64 580, !13, i64 584, !8, i64 588, !8, i64 652, !62, i64 780, !8, i64 1644, !7, i64 3696, !13, i64 3704, !7, i64 3712, !7, i64 3720, !8, i64 3728, !42, i64 4752, !19, i64 4760, !8, i64 4768, !64, i64 8864, !13, i64 8872, !13, i64 8876, !48, i64 8880, !13, i64 8888, !13, i64 8892, !18, i64 8896, !13, i64 8904, !19, i64 8912, !65, i64 8920, !13, i64 8928, !13, i64 8932, !13, i64 8936, !13, i64 8940, !13, i64 8944, !13, i64 8948, !13, i64 8952, !13, i64 8956, !13, i64 8960, !13, i64 8964, !19, i64 8968, !13, i64 8976, !18, i64 8984, !8, i64 8992, !13, i64 8996, !13, i64 9000, !18, i64 9008}
-!61 = !{!"p2 _ZTS10RTSPStream", !15, i64 0}
-!62 = !{!"HTTPAuthState", !13, i64 0, !8, i64 4, !63, i64 204, !13, i64 860}
-!63 = !{!"DigestParams", !8, i64 0, !8, i64 300, !8, i64 310, !8, i64 340, !8, i64 640, !13, i64 652}
-!64 = !{!"p1 _ZTS13MpegTSContext", !7, i64 0}
-!65 = !{!"p1 _ZTS6pollfd", !7, i64 0}
-!66 = !{!60, !13, i64 9000}
-!67 = !{!60, !13, i64 32}
-!68 = !{!60, !48, i64 8}
-!69 = !{!70, !13, i64 0}
-!70 = !{!"pollfd", !13, i64 0, !50, i64 4, !50, i64 6}
-!71 = !{!70, !50, i64 4}
-!72 = !{!70, !50, i64 6}
-!73 = !{!74, !13, i64 36}
-!74 = !{!"AVPacket", !75, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !76, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !75, i64 88, !77, i64 96}
-!75 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!76 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!77 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!78 = !{!60, !13, i64 16}
-!79 = !{!60, !61, i64 24}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTS10RTSPStream", !7, i64 0}
-!82 = !{!60, !13, i64 580}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!47, !7, i64 8}
+!58 = !{!5, !12, i64 32}
+!59 = !{!8, !8, i64 0}
+!60 = !{!61, !48, i64 8880}
+!61 = !{!"RTSPState", !6, i64 0, !48, i64 8, !13, i64 16, !62, i64 24, !13, i64 32, !19, i64 40, !13, i64 48, !8, i64 52, !13, i64 564, !19, i64 568, !13, i64 576, !13, i64 580, !13, i64 584, !8, i64 588, !8, i64 652, !63, i64 780, !8, i64 1644, !7, i64 3696, !13, i64 3704, !7, i64 3712, !7, i64 3720, !8, i64 3728, !42, i64 4752, !19, i64 4760, !8, i64 4768, !65, i64 8864, !13, i64 8872, !13, i64 8876, !48, i64 8880, !13, i64 8888, !13, i64 8892, !18, i64 8896, !13, i64 8904, !19, i64 8912, !66, i64 8920, !13, i64 8928, !13, i64 8932, !13, i64 8936, !13, i64 8940, !13, i64 8944, !13, i64 8948, !13, i64 8952, !13, i64 8956, !13, i64 8960, !13, i64 8964, !19, i64 8968, !13, i64 8976, !18, i64 8984, !8, i64 8992, !13, i64 8996, !13, i64 9000, !18, i64 9008}
+!62 = !{!"p2 _ZTS10RTSPStream", !15, i64 0}
+!63 = !{!"HTTPAuthState", !13, i64 0, !8, i64 4, !64, i64 204, !13, i64 860}
+!64 = !{!"DigestParams", !8, i64 0, !8, i64 300, !8, i64 310, !8, i64 340, !8, i64 640, !13, i64 652}
+!65 = !{!"p1 _ZTS13MpegTSContext", !7, i64 0}
+!66 = !{!"p1 _ZTS6pollfd", !7, i64 0}
+!67 = distinct !{!67, !56}
+!68 = !{!61, !13, i64 9000}
+!69 = !{!61, !13, i64 32}
+!70 = !{!61, !48, i64 8}
+!71 = !{!72, !13, i64 0}
+!72 = !{!"pollfd", !13, i64 0, !50, i64 4, !50, i64 6}
+!73 = !{!72, !50, i64 4}
+!74 = !{!72, !50, i64 6}
+!75 = distinct !{!75, !56}
+!76 = !{!77, !13, i64 36}
+!77 = !{!"AVPacket", !78, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !79, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !78, i64 88, !80, i64 96}
+!78 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!79 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!80 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!81 = !{!61, !13, i64 16}
+!82 = !{!61, !62, i64 24}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS10RTSPStream", !7, i64 0}
+!85 = !{!61, !13, i64 580}

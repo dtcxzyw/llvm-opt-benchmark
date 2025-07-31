@@ -178,7 +178,7 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr noundef readonly captures(none)
 22:                                               ; preds = %.lr.ph
   %23 = add i64 %.01520, -1
   %.not17 = icmp eq i64 %23, 0
-  br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %22, %15
   %.015.lcssa = phi i64 [ 0, %15 ], [ 0, %22 ], [ %.01520, %.lr.ph ]
@@ -186,7 +186,7 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr noundef readonly captures(none)
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.critedge
-  %26 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %26 = load i8, ptr %2, align 1, !range !8, !noundef !9
   %27 = zext nneg i8 %26 to i64
   br label %35
 
@@ -264,15 +264,15 @@ define dso_local i64 @boolsend(ptr noundef readonly captures(none) %0) local_unn
   call void @pq_begintypsend(ptr noundef nonnull %2) #13
   %6 = zext i1 %5 to i8
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %7 = load ptr, ptr %2, align 8, !alias.scope !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %7 = load ptr, ptr %2, align 8, !alias.scope !10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i32, ptr %8, align 8, !alias.scope !9
+  %9 = load i32, ptr %8, align 8, !alias.scope !10
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  store i8 %6, ptr %11, align 1, !noalias !9
+  store i8 %6, ptr %11, align 1, !noalias !10
   %12 = add i32 %9, 1
-  store i32 %12, ptr %8, align 8, !alias.scope !9
+  store i32 %12, ptr %8, align 8, !alias.scope !10
   %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
@@ -439,7 +439,7 @@ define dso_local range(i64 0, 2) i64 @boolor_statefunc(ptr noundef readonly capt
 define dso_local i64 @bool_accum(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %.thread, label %6
 
@@ -473,7 +473,7 @@ makeBoolAggState.exit:                            ; preds = %.thread
 17:                                               ; preds = %makeBoolAggState.exit, %6
   %.0 = phi ptr [ %16, %makeBoolAggState.exit ], [ %9, %6 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load i8, ptr %18, align 8, !range !7, !noundef !8
+  %19 = load i8, ptr %18, align 8, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %30, label %21
 
@@ -501,7 +501,7 @@ makeBoolAggState.exit:                            ; preds = %.thread
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 1, 0) i64 @bool_accum_inv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.thread, label %5
 
@@ -521,7 +521,7 @@ define dso_local range(i64 1, 0) i64 @bool_accum_inv(ptr noundef readonly captur
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i8, ptr %13, align 8, !range !7, !noundef !8
+  %14 = load i8, ptr %13, align 8, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %25, label %16
 
@@ -555,7 +555,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @bool_alltrue(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.thread, label %5
 
@@ -591,7 +591,7 @@ define dso_local range(i64 0, 2) i64 @bool_alltrue(ptr noundef captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @bool_anytrue(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.thread, label %5
 
@@ -669,11 +669,12 @@ attributes #15 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"pq_writeint8: argument 0"}
-!11 = distinct !{!11, !"pq_writeint8"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"pq_writeint8: argument 0"}
+!12 = distinct !{!12, !"pq_writeint8"}

@@ -172,7 +172,7 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
   %34 = select i1 %.not54, ptr @_sodium_escrypt_kdf_nosse, ptr @_sodium_escrypt_kdf_sse
   %35 = load i32, ptr %9, align 4
   %36 = load i32, ptr %10, align 4
-  %37 = call i32 %34(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13, i64 noundef %.045, i64 noundef %17, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %7, i64 noundef 32) #8, !callees !6
+  %37 = call i32 %34(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13, i64 noundef %.045, i64 noundef %17, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %7, i64 noundef 32) #8, !callees !7
   %.not55 = icmp eq i32 %37, 0
   br i1 %.not55, label %38, label %70
 
@@ -206,7 +206,7 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
   %51 = icmp samesign ult i32 %.021.i, 16
   %52 = icmp samesign ult i64 %.125.i, 31
   %53 = and i1 %52, %51
-  br i1 %53, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %53, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i, %55
   %.016.i.i = phi i32 [ %63, %55 ], [ 0, %.preheader.i ]
@@ -227,7 +227,7 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
   %62 = lshr i32 %.01015.i.i, 6
   %63 = add nuw nsw i32 %.016.i.i, 6
   %64 = icmp samesign ult i32 %63, %50
-  br i1 %64, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !8
+  br i1 %64, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !9
 
 encode64_uint32.exit.i:                           ; preds = %55
   %.not.not.i = icmp eq ptr %60, null
@@ -235,7 +235,7 @@ encode64_uint32.exit.i:                           ; preds = %55
   %66 = ptrtoint ptr %.026.i to i64
   %.neg.i = add i64 %.028.i, %66
   %67 = sub i64 %.neg.i, %65
-  br i1 %.not.not.i, label %encode64.exit, label %42, !llvm.loop !9
+  br i1 %.not.not.i, label %encode64.exit, label %42, !llvm.loop !10
 
 encode64.exit:                                    ; preds = %42, %encode64_uint32.exit.i, %.lr.ph.i.i
   %.2.i = phi ptr [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ %.026.i, %42 ]
@@ -330,7 +330,7 @@ define hidden noundef ptr @_sodium_escrypt_gensalt_r(i32 noundef %0, i32 noundef
   %38 = lshr i32 %.01015.i, 6
   %39 = add nuw nsw i32 %.016.i, 6
   %40 = icmp samesign ult i32 %.016.i, 24
-  br i1 %40, label %.lr.ph.i, label %encode64_uint32.exit, !llvm.loop !8
+  br i1 %40, label %.lr.ph.i, label %encode64_uint32.exit, !llvm.loop !9
 
 encode64_uint32.exit:                             ; preds = %31
   %.not = icmp eq ptr %36, null
@@ -361,7 +361,7 @@ encode64_uint32.exit:                             ; preds = %31
   %52 = lshr i32 %.01015.i61, 6
   %53 = add nuw nsw i32 %.016.i60, 6
   %54 = icmp samesign ult i32 %.016.i60, 24
-  br i1 %54, label %.lr.ph.i59, label %encode64_uint32.exit65, !llvm.loop !8
+  br i1 %54, label %.lr.ph.i59, label %encode64_uint32.exit65, !llvm.loop !9
 
 encode64_uint32.exit65:                           ; preds = %45
   %.not50 = icmp eq ptr %50, null
@@ -393,7 +393,7 @@ encode64_uint32.exit65:                           ; preds = %45
   %67 = icmp samesign ult i32 %.021.i, 16
   %68 = icmp ult i64 %60, %4
   %69 = and i1 %68, %67
-  br i1 %69, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %69, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i, %71
   %.016.i.i = phi i32 [ %79, %71 ], [ 0, %.preheader.i ]
@@ -414,7 +414,7 @@ encode64_uint32.exit65:                           ; preds = %45
   %78 = lshr i32 %.01015.i.i, 6
   %79 = add nuw nsw i32 %.016.i.i, 6
   %80 = icmp samesign ult i32 %79, %66
-  br i1 %80, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !8
+  br i1 %80, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !9
 
 encode64_uint32.exit.i:                           ; preds = %71
   %.not.not.i = icmp eq ptr %76, null
@@ -422,7 +422,7 @@ encode64_uint32.exit.i:                           ; preds = %71
   %82 = ptrtoint ptr %.026.i to i64
   %.neg.i = add i64 %.028.i, %82
   %83 = sub i64 %.neg.i, %81
-  br i1 %.not.not.i, label %encode64_uint32.exit.thread, label %58, !llvm.loop !9
+  br i1 %.not.not.i, label %encode64_uint32.exit.thread, label %58, !llvm.loop !10
 
 encode64.exit:                                    ; preds = %58
   %84 = getelementptr i8, ptr %5, i64 %6
@@ -450,7 +450,7 @@ define dso_local i32 @crypto_pwhash_scryptsalsa208sha256_ll(ptr noundef nonnull 
   %13 = call i32 @sodium_runtime_has_sse2() #8
   %.not11 = icmp eq i32 %13, 0
   %14 = select i1 %.not11, ptr @_sodium_escrypt_kdf_nosse, ptr @_sodium_escrypt_kdf_sse
-  %15 = call i32 %14(ptr noundef nonnull %10, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7, i64 noundef %8) #8, !callees !6
+  %15 = call i32 %14(ptr noundef nonnull %10, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7, i64 noundef %8) #8, !callees !7
   %16 = call i32 @_sodium_escrypt_free_local(ptr noundef nonnull %10) #8
   %.not12 = icmp eq i32 %16, 0
   %. = select i1 %.not12, i32 %15, i32 -1
@@ -489,9 +489,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{ptr @_sodium_escrypt_kdf_nosse, ptr @_sodium_escrypt_kdf_sse}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{ptr @_sodium_escrypt_kdf_nosse, ptr @_sodium_escrypt_kdf_sse}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

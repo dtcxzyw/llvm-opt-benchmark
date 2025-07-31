@@ -801,32 +801,32 @@ define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31shared_
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !29
-  store ptr %12, ptr %1, align 8, !tbaa !42
+  store ptr %12, ptr %1, align 8, !tbaa !43
   %13 = load i64, ptr %7, align 8, !tbaa !30
   br label %17
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %6, align 8, !tbaa !6
-  store ptr %15, ptr %1, align 8, !tbaa !42
+  store ptr %15, ptr %1, align 8, !tbaa !43
   %16 = tail call noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   br label %17
 
 17:                                               ; preds = %14, %10
   %storemerge = phi i64 [ %16, %14 ], [ %13, %10 ]
-  store i64 %storemerge, ptr %2, align 8, !tbaa !43
+  store i64 %storemerge, ptr %2, align 8, !tbaa !44
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31shared_message_memory_allocatorEE13resize_bufferEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %1, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %3, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31shared_message_memory_allocatorEE6decodeEPKhmRm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 {
-  store i64 0, ptr %3, align 8, !tbaa !43
+  store i64 0, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = icmp eq ptr %1, %6
@@ -840,7 +840,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.elt41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load i64, ptr %8, align 8, !tbaa !43
+  %.pre = load i64, ptr %8, align 8, !tbaa !44
   br label %43
 
 10:                                               ; preds = %4
@@ -866,7 +866,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
   store ptr %21, ptr %5, align 8, !tbaa !29
   %22 = sub i64 %19, %2
   store i64 %22, ptr %11, align 8, !tbaa !30
-  store i64 %2, ptr %3, align 8, !tbaa !43
+  store i64 %2, ptr %3, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.elt48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %24
@@ -897,16 +897,16 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
 
 36:                                               ; preds = %34, %29
   %37 = phi ptr [ %33, %29 ], [ %35, %34 ]
-  %38 = load i64, ptr %3, align 8, !tbaa !43
+  %38 = load i64, ptr %3, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(208) %27, ptr noundef %39)
   %.not51.not = icmp eq i32 %40, 0
-  br i1 %.not51.not, label %24, label %.thread
+  br i1 %.not51.not, label %24, label %.thread, !llvm.loop !46
 
 .loopexit:                                        ; preds = %57
-  %41 = load i64, ptr %3, align 8, !tbaa !43
+  %41 = load i64, ptr %3, align 8, !tbaa !44
   %42 = icmp ult i64 %41, %2
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.thread, !llvm.loop !47
 
 43:                                               ; preds = %.lr.ph, %.loopexit
   %44 = phi i64 [ %.pre, %.lr.ph ], [ %58, %.loopexit ]
@@ -931,9 +931,9 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
   store ptr %53, ptr %5, align 8, !tbaa !29
   %54 = sub i64 %51, %.sroa.speculated
   store i64 %54, ptr %8, align 8, !tbaa !30
-  %55 = load i64, ptr %3, align 8, !tbaa !43
+  %55 = load i64, ptr %3, align 8, !tbaa !44
   %56 = add i64 %55, %.sroa.speculated
-  store i64 %56, ptr %3, align 8, !tbaa !43
+  store i64 %56, ptr %3, align 8, !tbaa !44
   br label %57
 
 57:                                               ; preds = %70, %50
@@ -962,11 +962,11 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
 
 70:                                               ; preds = %68, %63
   %71 = phi ptr [ %67, %63 ], [ %69, %68 ]
-  %72 = load i64, ptr %3, align 8, !tbaa !43
+  %72 = load i64, ptr %3, align 8, !tbaa !44
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 %72
   %74 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(208) %61, ptr noundef %73)
   %.not44 = icmp eq i32 %74, 0
-  br i1 %.not44, label %57, label %.thread, !llvm.loop !45
+  br i1 %.not44, label %57, label %.thread, !llvm.loop !48
 
 .thread:                                          ; preds = %.loopexit, %70, %36, %24, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %40, %36 ], [ %74, %70 ], [ 0, %.loopexit ]
@@ -1083,9 +1083,12 @@ attributes #18 = { builtin nounwind }
 !37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !38 = !{!13, !10, i64 0}
 !39 = !{!13, !14, i64 24}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!10, !10, i64 0}
-!43 = !{!12, !12, i64 0}
-!44 = !{!13, !12, i64 8}
-!45 = distinct !{!45, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!10, !10, i64 0}
+!44 = !{!12, !12, i64 0}
+!45 = !{!13, !12, i64 8}
+!46 = distinct !{!46, !42}
+!47 = distinct !{!47, !42}
+!48 = distinct !{!48, !41, !42}

@@ -730,5 +730,6 @@ attributes #17 = { builtin nounwind }
 !41 = !{!"_ZTSSt5tupleIJPdSt14default_deleteIA_dEEE", !42, i64 0}
 !42 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !43, i64 0}
 !43 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
+!46 = !{!"llvm.loop.estimated_trip_count"}

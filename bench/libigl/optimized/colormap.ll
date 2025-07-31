@@ -221,7 +221,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 39:                                               ; preds = %41
   %40 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
-  br i1 %.not.i.i.i.i.i.i.i, label %49, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i.i.i, label %49, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !22
 
 41:                                               ; preds = %41, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %48, %41 ]
@@ -234,7 +234,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   store i32 %47, ptr %42, align 4, !tbaa !8
   %48 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %48, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %39, label %41, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %39, label %41, !llvm.loop !23
 
 49:                                               ; preds = %39
   %50 = load i32, ptr %6, align 16, !tbaa !8
@@ -250,7 +250,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %54 = tail call noundef i32 @llvm.smin.i32(i32 %53, i32 %.177.i.i.i.i)
   %55 = add nsw i64 %.05578.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %55, %10
-  br i1 %exitcond.not.i.i.i.i, label %.thread35, label %.lr.ph80.i.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i, label %.thread35, label %.lr.ph80.i.i.i.i, !llvm.loop !24
 
 56:                                               ; preds = %7
   %57 = load i32, ptr %8, align 4, !tbaa !8
@@ -265,7 +265,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %61 = tail call noundef i32 @llvm.smin.i32(i32 %60, i32 %.382.i.i.i.i)
   %62 = add nuw nsw i64 %.083.i.i.i.i, 1
   %exitcond92.not.i.i.i.i = icmp eq i64 %62, %10
-  br i1 %exitcond92.not.i.i.i.i, label %.thread35.thread, label %.lr.ph85.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond92.not.i.i.i.i, label %.thread35.thread, label %.lr.ph85.i.i.i.i, !llvm.loop !25
 
 .thread35:                                        ; preds = %.lr.ph80.i.i.i.i, %49
   %.in = phi i32 [ %50, %49 ], [ %54, %.lr.ph80.i.i.i.i ]
@@ -302,7 +302,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %78 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %73, <4 x i32> %77)
   %.057.i.i.i.i30 = add nuw nsw i64 %.05775.i.i.i.i26, 8
   %79 = icmp slt i64 %.057.i.i.i.i30, %12
-  br i1 %79, label %.lr.ph.i.i.i.i25, label %._crit_edge.i.i.i.i22, !llvm.loop !25
+  br i1 %79, label %.lr.ph.i.i.i.i25, label %._crit_edge.i.i.i.i22, !llvm.loop !26
 
 80:                                               ; preds = %._crit_edge.i.i.i.i22
   %81 = getelementptr inbounds nuw i32, ptr %8, i64 %12
@@ -324,7 +324,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 86:                                               ; preds = %88
   %87 = lshr i64 %.01012.i.i.i.i.i.i.i12, 1
   %.not.i.i.i.i.i.i.i15 = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i12, 2
-  br i1 %.not.i.i.i.i.i.i.i15, label %96, label %.preheader.i.i.i.i.i.i.i11, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i.i.i15, label %96, label %.preheader.i.i.i.i.i.i.i11, !llvm.loop !22
 
 88:                                               ; preds = %88, %.preheader.i.i.i.i.i.i.i11
   %.011.i.i.i.i.i.i.i13 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i11 ], [ %95, %88 ]
@@ -337,7 +337,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   store i32 %94, ptr %89, align 4, !tbaa !8
   %95 = add nuw nsw i64 %.011.i.i.i.i.i.i.i13, 1
   %exitcond.not.i.i.i.i.i.i.i14 = icmp eq i64 %95, %.01012.i.i.i.i.i.i.i12
-  br i1 %exitcond.not.i.i.i.i.i.i.i14, label %86, label %88, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i.i.i.i.i14, label %86, label %88, !llvm.loop !23
 
 96:                                               ; preds = %86
   %97 = load i32, ptr %5, align 16, !tbaa !8
@@ -353,7 +353,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i19, i32 %100)
   %102 = add nsw i64 %.05578.i.i.i.i18, 1
   %exitcond.not.i.i.i.i20 = icmp eq i64 %102, %10
-  br i1 %exitcond.not.i.i.i.i20, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i17, !llvm.loop !26
+  br i1 %exitcond.not.i.i.i.i20, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i17, !llvm.loop !27
 
 .thread35.thread:                                 ; preds = %.lr.ph85.i.i.i.i, %56
   %.in.ph = phi i32 [ %57, %56 ], [ %61, %.lr.ph85.i.i.i.i ]
@@ -368,7 +368,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %106 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i33, i32 %105)
   %107 = add nuw nsw i64 %.083.i.i.i.i32, 1
   %exitcond92.not.i.i.i.i34 = icmp eq i64 %107, %10
-  br i1 %exitcond92.not.i.i.i.i34, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i31, !llvm.loop !27
+  br i1 %exitcond92.not.i.i.i.i34, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i31, !llvm.loop !28
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i17, %.lr.ph85.i.i.i.i31, %96, %.thread35.thread
   %.in72 = phi i32 [ %.in.ph, %.thread35.thread ], [ %.in, %96 ], [ %.in.ph, %.lr.ph85.i.i.i.i31 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
@@ -387,7 +387,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; pr
 
 115:                                              ; preds = %.thread
   %116 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %116, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %116, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -413,9 +413,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %128 = sitofp i32 %127 to double
   %129 = fsub double %128, %111
   %130 = fdiv double %129, %120
-  %131 = load ptr, ptr %3, align 8, !tbaa !30
+  %131 = load ptr, ptr %3, align 8, !tbaa !31
   %132 = getelementptr double, ptr %131, i64 %indvars.iv.i
-  %133 = load i64, ptr %123, align 8, !tbaa !33
+  %133 = load i64, ptr %123, align 8, !tbaa !34
   %134 = getelementptr double, ptr %132, i64 %133
   %.idx.i = shl i64 %133, 4
   %135 = getelementptr i8, ptr %132, i64 %.idx.i
@@ -423,7 +423,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %136 = load i64, ptr %113, align 8, !tbaa !12
   %137 = icmp sgt i64 %136, %indvars.iv.next.i
-  br i1 %137, label %124, label %_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !34
+  br i1 %137, label %124, label %_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !35
 
 _ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %124, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   ret void
@@ -441,7 +441,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -470,9 +470,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %22 = sitofp i32 %21 to double
   %23 = fsub double %22, %2
   %24 = fdiv double %23, %14
-  %25 = load ptr, ptr %4, align 8, !tbaa !30
+  %25 = load ptr, ptr %4, align 8, !tbaa !31
   %26 = getelementptr double, ptr %25, i64 %indvars.iv
-  %27 = load i64, ptr %17, align 8, !tbaa !33
+  %27 = load i64, ptr %17, align 8, !tbaa !34
   %28 = getelementptr double, ptr %26, i64 %27
   %.idx = shl i64 %27, 4
   %29 = getelementptr i8, ptr %26, i64 %.idx
@@ -480,7 +480,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i64, ptr %6, align 8, !tbaa !12
   %31 = icmp sgt i64 %30, %indvars.iv.next
-  br i1 %31, label %18, label %._crit_edge, !llvm.loop !34
+  br i1 %31, label %18, label %._crit_edge, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -489,13 +489,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE(i32 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, double noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !35
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %8 = icmp sgt i64 %7, 3074457345618258602
   br i1 %8, label %9, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -505,7 +505,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = fsub double %3, %2
   %13 = fcmp oeq double %12, 0.000000e+00
   %14 = select i1 %13, double 1.000000e+00, double %12
-  %15 = load i64, ptr %6, align 8, !tbaa !35
+  %15 = load i64, ptr %6, align 8, !tbaa !36
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -518,23 +518,23 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %1, align 8, !tbaa !38
+  %19 = load ptr, ptr %1, align 8, !tbaa !39
   %20 = getelementptr float, ptr %19, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !10
   %22 = fpext float %21 to double
   %23 = fsub double %22, %2
   %24 = fdiv double %23, %14
-  %25 = load ptr, ptr %4, align 8, !tbaa !30
+  %25 = load ptr, ptr %4, align 8, !tbaa !31
   %26 = getelementptr double, ptr %25, i64 %indvars.iv
-  %27 = load i64, ptr %17, align 8, !tbaa !33
+  %27 = load i64, ptr %17, align 8, !tbaa !34
   %28 = getelementptr double, ptr %26, i64 %27
   %.idx = shl i64 %27, 4
   %29 = getelementptr i8, ptr %26, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i64, ptr %6, align 8, !tbaa !35
+  %30 = load i64, ptr %6, align 8, !tbaa !36
   %31 = icmp sgt i64 %30, %indvars.iv.next
-  br i1 %31, label %18, label %._crit_edge, !llvm.loop !39
+  br i1 %31, label %18, label %._crit_edge, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -618,13 +618,13 @@ switch.lookup:                                    ; preds = %5
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE(i32 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, double noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !40
+  %7 = load i64, ptr %6, align 8, !tbaa !41
   %8 = icmp sgt i64 %7, 3074457345618258602
   br i1 %8, label %9, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -634,7 +634,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = fsub double %3, %2
   %13 = fcmp oeq double %12, 0.000000e+00
   %14 = select i1 %13, double 1.000000e+00, double %12
-  %15 = load i64, ptr %6, align 8, !tbaa !40
+  %15 = load i64, ptr %6, align 8, !tbaa !41
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -647,22 +647,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %1, align 8, !tbaa !42
+  %19 = load ptr, ptr %1, align 8, !tbaa !43
   %20 = getelementptr double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !4
   %22 = fsub double %21, %2
   %23 = fdiv double %22, %14
-  %24 = load ptr, ptr %4, align 8, !tbaa !30
+  %24 = load ptr, ptr %4, align 8, !tbaa !31
   %25 = getelementptr double, ptr %24, i64 %indvars.iv
-  %26 = load i64, ptr %17, align 8, !tbaa !33
+  %26 = load i64, ptr %17, align 8, !tbaa !34
   %27 = getelementptr double, ptr %25, i64 %26
   %.idx = shl i64 %26, 4
   %28 = getelementptr i8, ptr %25, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i64, ptr %6, align 8, !tbaa !40
+  %29 = load i64, ptr %6, align 8, !tbaa !41
   %30 = icmp sgt i64 %29, %indvars.iv.next
-  br i1 %30, label %18, label %._crit_edge, !llvm.loop !43
+  br i1 %30, label %18, label %._crit_edge, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -671,13 +671,13 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
 
 ._ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit_crit_edge: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !40
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !41
   br label %_ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !42
+  %6 = load ptr, ptr %1, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %8 = load i64, ptr %7, align 8, !tbaa !41
   %9 = sdiv i64 %8, 4
   %10 = shl nsw i64 %9, 2
   %11 = sdiv i64 %8, 2
@@ -701,7 +701,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %16
   %.072.lcssa.i.i.i.i = phi <2 x double> [ %18, %16 ], [ %26, %.lr.ph.i.i.i.i ]
   %.170.lcssa.i.i.i.i = phi <2 x double> [ %14, %16 ], [ %24, %.lr.ph.i.i.i.i ]
-  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !44
+  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !45
   %21 = icmp sgt i64 %12, %10
   br i1 %21, label %28, label %32
 
@@ -712,18 +712,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %.07274.i.i.i.i = phi <2 x double> [ %26, %.lr.ph.i.i.i.i ], [ %18, %16 ]
   %22 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
   %23 = load <2 x double>, ptr %22, align 16, !tbaa !18
-  %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !44
+  %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !45
   %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in76.i.i.i.i
   %25 = load <2 x double>, ptr %gep.i.i.i.i, align 16, !tbaa !18
-  %26 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %25) #14, !srcloc !44
+  %26 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %25) #14, !srcloc !45
   %.054.i.i.i.i = add nuw nsw i64 %.05477.i.i.i.i, 4
   %27 = icmp slt i64 %.054.i.i.i.i, %10
-  br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !45
+  br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !46
 
 28:                                               ; preds = %._crit_edge.i.i.i.i
   %29 = getelementptr inbounds nuw double, ptr %6, i64 %10
   %30 = load <2 x double>, ptr %29, align 16, !tbaa !18
-  %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %30) #14, !srcloc !44
+  %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %30) #14, !srcloc !45
   br label %32
 
 32:                                               ; preds = %28, %._crit_edge.i.i.i.i, %13
@@ -744,7 +744,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %39 = select i1 %38, double %37, double %.179.i.i.i.i
   %40 = add nsw i64 %.05280.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %40, %8
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %32
   %.ph.ph = phi double [ %34, %32 ], [ %39, %.lr.ph82.i.i.i.i ]
@@ -762,7 +762,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
 ._crit_edge.i.i.i.i19:                            ; preds = %.lr.ph.i.i.i.i22, %43
   %.072.lcssa.i.i.i.i20 = phi <2 x double> [ %45, %43 ], [ %53, %.lr.ph.i.i.i.i22 ]
   %.170.lcssa.i.i.i.i21 = phi <2 x double> [ %41, %43 ], [ %51, %.lr.ph.i.i.i.i22 ]
-  %47 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !47
+  %47 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !48
   %48 = icmp sgt i64 %12, %10
   br i1 %48, label %55, label %59
 
@@ -773,18 +773,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %.07274.i.i.i.i26 = phi <2 x double> [ %53, %.lr.ph.i.i.i.i22 ], [ %45, %43 ]
   %49 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i23
   %50 = load <2 x double>, ptr %49, align 16, !tbaa !18
-  %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %50) #14, !srcloc !47
+  %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %50) #14, !srcloc !48
   %gep.i.i.i.i27 = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i18, i64 %.054.in76.i.i.i.i24
   %52 = load <2 x double>, ptr %gep.i.i.i.i27, align 16, !tbaa !18
-  %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %52) #14, !srcloc !47
+  %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %52) #14, !srcloc !48
   %.054.i.i.i.i28 = add nuw nsw i64 %.05477.i.i.i.i23, 4
   %54 = icmp slt i64 %.054.i.i.i.i28, %10
-  br i1 %54, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !48
+  br i1 %54, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !49
 
 55:                                               ; preds = %._crit_edge.i.i.i.i19
   %56 = getelementptr inbounds nuw double, ptr %6, i64 %10
   %57 = load <2 x double>, ptr %56, align 16, !tbaa !18
-  %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47, <2 x double> %57) #14, !srcloc !47
+  %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47, <2 x double> %57) #14, !srcloc !48
   br label %59
 
 59:                                               ; preds = %55, %._crit_edge.i.i.i.i19, %.loopexit
@@ -805,7 +805,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %66 = select i1 %65, double %64, double %.179.i.i.i.i16
   %67 = add nsw i64 %.05280.i.i.i.i15, 1
   %exitcond.not.i.i.i.i17 = icmp eq i64 %67, %8
-  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !49
+  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !50
 
 _ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit.thread: ; preds = %5
   %68 = load double, ptr %6, align 8, !tbaa !4
@@ -820,7 +820,7 @@ _ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit: ; pre
 
 73:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit
   %74 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %74, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %74, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -834,7 +834,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %80 = fsub double %75, %76
   %81 = fcmp oeq double %80, 0.000000e+00
   %82 = select i1 %81, double 1.000000e+00, double %80
-  %83 = load i64, ptr %78, align 8, !tbaa !40
+  %83 = load i64, ptr %78, align 8, !tbaa !41
   %84 = icmp sgt i64 %83, 0
   br i1 %84, label %.lr.ph.i, label %_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit
 
@@ -844,22 +844,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 86:                                               ; preds = %86, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
-  %87 = load ptr, ptr %1, align 8, !tbaa !42
+  %87 = load ptr, ptr %1, align 8, !tbaa !43
   %88 = getelementptr double, ptr %87, i64 %indvars.iv.i
   %89 = load double, ptr %88, align 8, !tbaa !4
   %90 = fsub double %89, %76
   %91 = fdiv double %90, %82
-  %92 = load ptr, ptr %3, align 8, !tbaa !30
+  %92 = load ptr, ptr %3, align 8, !tbaa !31
   %93 = getelementptr double, ptr %92, i64 %indvars.iv.i
-  %94 = load i64, ptr %85, align 8, !tbaa !33
+  %94 = load i64, ptr %85, align 8, !tbaa !34
   %95 = getelementptr double, ptr %93, i64 %94
   %.idx.i = shl i64 %94, 4
   %96 = getelementptr i8, ptr %93, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %91, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %97 = load i64, ptr %78, align 8, !tbaa !40
+  %97 = load i64, ptr %78, align 8, !tbaa !41
   %98 = icmp sgt i64 %97, %indvars.iv.next.i
-  br i1 %98, label %86, label %_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !50
+  br i1 %98, label %86, label %_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !51
 
 _ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %86, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   ret void
@@ -890,13 +890,13 @@ define weak_odr dso_local void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_PS2_(i3
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_EEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE(i32 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, double noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !33
+  %7 = load i64, ptr %6, align 8, !tbaa !34
   %8 = icmp sgt i64 %7, 3074457345618258602
   br i1 %8, label %9, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -906,7 +906,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = fsub double %3, %2
   %13 = fcmp oeq double %12, 0.000000e+00
   %14 = select i1 %13, double 1.000000e+00, double %12
-  %15 = load i64, ptr %6, align 8, !tbaa !33
+  %15 = load i64, ptr %6, align 8, !tbaa !34
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -919,22 +919,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %1, align 8, !tbaa !30
+  %19 = load ptr, ptr %1, align 8, !tbaa !31
   %20 = getelementptr double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !4
   %22 = fsub double %21, %2
   %23 = fdiv double %22, %14
-  %24 = load ptr, ptr %4, align 8, !tbaa !30
+  %24 = load ptr, ptr %4, align 8, !tbaa !31
   %25 = getelementptr double, ptr %24, i64 %indvars.iv
-  %26 = load i64, ptr %17, align 8, !tbaa !33
+  %26 = load i64, ptr %17, align 8, !tbaa !34
   %27 = getelementptr double, ptr %25, i64 %26
   %.idx = shl i64 %26, 4
   %28 = getelementptr i8, ptr %25, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i64, ptr %6, align 8, !tbaa !33
+  %29 = load i64, ptr %6, align 8, !tbaa !34
   %30 = icmp sgt i64 %29, %indvars.iv.next
-  br i1 %30, label %18, label %._crit_edge, !llvm.loop !51
+  br i1 %30, label %18, label %._crit_edge, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -943,15 +943,15 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 
 ._ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit_crit_edge: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !33
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !30
+  %6 = load ptr, ptr %1, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !52
+  %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = mul nsw i64 %10, %8
   %12 = sdiv i64 %11, 4
   %13 = shl nsw i64 %12, 2
@@ -976,7 +976,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
   %.072.lcssa.i.i.i.i = phi <2 x double> [ %21, %19 ], [ %29, %.lr.ph.i.i.i.i ]
   %.170.lcssa.i.i.i.i = phi <2 x double> [ %17, %19 ], [ %27, %.lr.ph.i.i.i.i ]
-  %23 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !44
+  %23 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !45
   %24 = icmp sgt i64 %15, %13
   br i1 %24, label %31, label %35
 
@@ -987,18 +987,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.07274.i.i.i.i = phi <2 x double> [ %29, %.lr.ph.i.i.i.i ], [ %21, %19 ]
   %25 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
   %26 = load <2 x double>, ptr %25, align 16, !tbaa !18
-  %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !44
+  %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !45
   %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in76.i.i.i.i
   %28 = load <2 x double>, ptr %gep.i.i.i.i, align 16, !tbaa !18
-  %29 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %28) #14, !srcloc !44
+  %29 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %28) #14, !srcloc !45
   %.054.i.i.i.i = add nuw nsw i64 %.05477.i.i.i.i, 4
   %30 = icmp slt i64 %.054.i.i.i.i, %13
-  br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !53
+  br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !54
 
 31:                                               ; preds = %._crit_edge.i.i.i.i
   %32 = getelementptr inbounds nuw double, ptr %6, i64 %13
   %33 = load <2 x double>, ptr %32, align 16, !tbaa !18
-  %34 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %33) #14, !srcloc !44
+  %34 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %33) #14, !srcloc !45
   br label %35
 
 35:                                               ; preds = %31, %._crit_edge.i.i.i.i, %16
@@ -1019,7 +1019,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %42 = select i1 %41, double %40, double %.179.i.i.i.i
   %43 = add nsw i64 %.05280.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %43, %11
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %35
   %.ph.ph = phi double [ %37, %35 ], [ %42, %.lr.ph82.i.i.i.i ]
@@ -1037,7 +1037,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 ._crit_edge.i.i.i.i19:                            ; preds = %.lr.ph.i.i.i.i22, %46
   %.072.lcssa.i.i.i.i20 = phi <2 x double> [ %48, %46 ], [ %56, %.lr.ph.i.i.i.i22 ]
   %.170.lcssa.i.i.i.i21 = phi <2 x double> [ %44, %46 ], [ %54, %.lr.ph.i.i.i.i22 ]
-  %50 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !47
+  %50 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !48
   %51 = icmp sgt i64 %15, %13
   br i1 %51, label %58, label %62
 
@@ -1048,18 +1048,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.07274.i.i.i.i26 = phi <2 x double> [ %56, %.lr.ph.i.i.i.i22 ], [ %48, %46 ]
   %52 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i23
   %53 = load <2 x double>, ptr %52, align 16, !tbaa !18
-  %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %53) #14, !srcloc !47
+  %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %53) #14, !srcloc !48
   %gep.i.i.i.i27 = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i18, i64 %.054.in76.i.i.i.i24
   %55 = load <2 x double>, ptr %gep.i.i.i.i27, align 16, !tbaa !18
-  %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %55) #14, !srcloc !47
+  %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %55) #14, !srcloc !48
   %.054.i.i.i.i28 = add nuw nsw i64 %.05477.i.i.i.i23, 4
   %57 = icmp slt i64 %.054.i.i.i.i28, %13
-  br i1 %57, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !55
+  br i1 %57, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !56
 
 58:                                               ; preds = %._crit_edge.i.i.i.i19
   %59 = getelementptr inbounds nuw double, ptr %6, i64 %13
   %60 = load <2 x double>, ptr %59, align 16, !tbaa !18
-  %61 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50, <2 x double> %60) #14, !srcloc !47
+  %61 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50, <2 x double> %60) #14, !srcloc !48
   br label %62
 
 62:                                               ; preds = %58, %._crit_edge.i.i.i.i19, %.loopexit
@@ -1080,7 +1080,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %69 = select i1 %68, double %67, double %.179.i.i.i.i16
   %70 = add nsw i64 %.05280.i.i.i.i15, 1
   %exitcond.not.i.i.i.i17 = icmp eq i64 %70, %11
-  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !56
+  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !57
 
 71:                                               ; preds = %5
   %72 = load double, ptr %6, align 8, !tbaa !4
@@ -1096,7 +1096,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit: ; 
 
 78:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit
   %79 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %79, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %79, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %79, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -1106,7 +1106,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %81 = fsub double %75, %74
   %82 = fcmp oeq double %81, 0.000000e+00
   %83 = select i1 %82, double 1.000000e+00, double %81
-  %84 = load i64, ptr %76, align 8, !tbaa !33
+  %84 = load i64, ptr %76, align 8, !tbaa !34
   %85 = icmp sgt i64 %84, 0
   br i1 %85, label %.lr.ph.i, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_EEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit
 
@@ -1116,22 +1116,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 87:                                               ; preds = %87, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %87 ]
-  %88 = load ptr, ptr %1, align 8, !tbaa !30
+  %88 = load ptr, ptr %1, align 8, !tbaa !31
   %89 = getelementptr double, ptr %88, i64 %indvars.iv.i
   %90 = load double, ptr %89, align 8, !tbaa !4
   %91 = fsub double %90, %74
   %92 = fdiv double %91, %83
-  %93 = load ptr, ptr %3, align 8, !tbaa !30
+  %93 = load ptr, ptr %3, align 8, !tbaa !31
   %94 = getelementptr double, ptr %93, i64 %indvars.iv.i
-  %95 = load i64, ptr %86, align 8, !tbaa !33
+  %95 = load i64, ptr %86, align 8, !tbaa !34
   %96 = getelementptr double, ptr %94, i64 %95
   %.idx.i = shl i64 %95, 4
   %97 = getelementptr i8, ptr %94, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %92, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %97)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %98 = load i64, ptr %76, align 8, !tbaa !33
+  %98 = load i64, ptr %76, align 8, !tbaa !34
   %99 = icmp sgt i64 %98, %indvars.iv.next.i
-  br i1 %99, label %87, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_EEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !51
+  br i1 %99, label %87, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_EEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !52
 
 _ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_EEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %87, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   ret void
@@ -1143,13 +1143,13 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
 
 ._ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit_crit_edge: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !40
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !41
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !42
+  %6 = load ptr, ptr %1, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %8 = load i64, ptr %7, align 8, !tbaa !41
   %9 = sdiv i64 %8, 4
   %10 = shl nsw i64 %9, 2
   %11 = sdiv i64 %8, 2
@@ -1173,7 +1173,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %16
   %.072.lcssa.i.i.i.i = phi <2 x double> [ %18, %16 ], [ %26, %.lr.ph.i.i.i.i ]
   %.170.lcssa.i.i.i.i = phi <2 x double> [ %14, %16 ], [ %24, %.lr.ph.i.i.i.i ]
-  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !44
+  %20 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !45
   %21 = icmp sgt i64 %12, %10
   br i1 %21, label %28, label %32
 
@@ -1184,18 +1184,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %.07274.i.i.i.i = phi <2 x double> [ %26, %.lr.ph.i.i.i.i ], [ %18, %16 ]
   %22 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
   %23 = load <2 x double>, ptr %22, align 16, !tbaa !18
-  %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !44
+  %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !45
   %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in76.i.i.i.i
   %25 = load <2 x double>, ptr %gep.i.i.i.i, align 16, !tbaa !18
-  %26 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %25) #14, !srcloc !44
+  %26 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %25) #14, !srcloc !45
   %.054.i.i.i.i = add nuw nsw i64 %.05477.i.i.i.i, 4
   %27 = icmp slt i64 %.054.i.i.i.i, %10
-  br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !57
+  br i1 %27, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !58
 
 28:                                               ; preds = %._crit_edge.i.i.i.i
   %29 = getelementptr inbounds nuw double, ptr %6, i64 %10
   %30 = load <2 x double>, ptr %29, align 16, !tbaa !18
-  %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %30) #14, !srcloc !44
+  %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %30) #14, !srcloc !45
   br label %32
 
 32:                                               ; preds = %28, %._crit_edge.i.i.i.i, %13
@@ -1216,7 +1216,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %39 = select i1 %38, double %37, double %.179.i.i.i.i
   %40 = add nsw i64 %.05280.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %40, %8
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %32
   %.ph.ph = phi double [ %34, %32 ], [ %39, %.lr.ph82.i.i.i.i ]
@@ -1234,7 +1234,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
 ._crit_edge.i.i.i.i19:                            ; preds = %.lr.ph.i.i.i.i22, %43
   %.072.lcssa.i.i.i.i20 = phi <2 x double> [ %45, %43 ], [ %53, %.lr.ph.i.i.i.i22 ]
   %.170.lcssa.i.i.i.i21 = phi <2 x double> [ %41, %43 ], [ %51, %.lr.ph.i.i.i.i22 ]
-  %47 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !47
+  %47 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !48
   %48 = icmp sgt i64 %12, %10
   br i1 %48, label %55, label %59
 
@@ -1245,18 +1245,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %.07274.i.i.i.i26 = phi <2 x double> [ %53, %.lr.ph.i.i.i.i22 ], [ %45, %43 ]
   %49 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i23
   %50 = load <2 x double>, ptr %49, align 16, !tbaa !18
-  %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %50) #14, !srcloc !47
+  %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %50) #14, !srcloc !48
   %gep.i.i.i.i27 = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i18, i64 %.054.in76.i.i.i.i24
   %52 = load <2 x double>, ptr %gep.i.i.i.i27, align 16, !tbaa !18
-  %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %52) #14, !srcloc !47
+  %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %52) #14, !srcloc !48
   %.054.i.i.i.i28 = add nuw nsw i64 %.05477.i.i.i.i23, 4
   %54 = icmp slt i64 %.054.i.i.i.i28, %10
-  br i1 %54, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !59
+  br i1 %54, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !60
 
 55:                                               ; preds = %._crit_edge.i.i.i.i19
   %56 = getelementptr inbounds nuw double, ptr %6, i64 %10
   %57 = load <2 x double>, ptr %56, align 16, !tbaa !18
-  %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47, <2 x double> %57) #14, !srcloc !47
+  %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %47, <2 x double> %57) #14, !srcloc !48
   br label %59
 
 59:                                               ; preds = %55, %._crit_edge.i.i.i.i19, %.loopexit
@@ -1277,7 +1277,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %66 = select i1 %65, double %64, double %.179.i.i.i.i16
   %67 = add nsw i64 %.05280.i.i.i.i15, 1
   %exitcond.not.i.i.i.i17 = icmp eq i64 %67, %8
-  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !60
+  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !61
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit.thread: ; preds = %5
   %68 = load double, ptr %6, align 8, !tbaa !4
@@ -1292,7 +1292,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit: ; pr
 
 73:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8minCoeffEv.exit
   %74 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %74, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %74, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -1306,7 +1306,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %80 = fsub double %75, %76
   %81 = fcmp oeq double %80, 0.000000e+00
   %82 = select i1 %81, double 1.000000e+00, double %80
-  %83 = load i64, ptr %78, align 8, !tbaa !40
+  %83 = load i64, ptr %78, align 8, !tbaa !41
   %84 = icmp sgt i64 %83, 0
   br i1 %84, label %.lr.ph.i, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit
 
@@ -1316,22 +1316,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 86:                                               ; preds = %86, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
-  %87 = load ptr, ptr %1, align 8, !tbaa !42
+  %87 = load ptr, ptr %1, align 8, !tbaa !43
   %88 = getelementptr double, ptr %87, i64 %indvars.iv.i
   %89 = load double, ptr %88, align 8, !tbaa !4
   %90 = fsub double %89, %76
   %91 = fdiv double %90, %82
-  %92 = load ptr, ptr %3, align 8, !tbaa !30
+  %92 = load ptr, ptr %3, align 8, !tbaa !31
   %93 = getelementptr double, ptr %92, i64 %indvars.iv.i
-  %94 = load i64, ptr %85, align 8, !tbaa !33
+  %94 = load i64, ptr %85, align 8, !tbaa !34
   %95 = getelementptr double, ptr %93, i64 %94
   %.idx.i = shl i64 %94, 4
   %96 = getelementptr i8, ptr %93, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %91, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %97 = load i64, ptr %78, align 8, !tbaa !40
+  %97 = load i64, ptr %78, align 8, !tbaa !41
   %98 = icmp sgt i64 %97, %indvars.iv.next.i
-  br i1 %98, label %86, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !43
+  br i1 %98, label %86, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !44
 
 _ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %86, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   ret void
@@ -1394,7 +1394,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %31 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %30, <4 x i32> %26)
   %.057.i.i.i.i = add nuw nsw i64 %.05775.i.i.i.i, 8
   %32 = icmp slt i64 %.057.i.i.i.i, %12
-  br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
+  br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !62
 
 33:                                               ; preds = %._crit_edge.i.i.i.i
   %34 = getelementptr inbounds nuw i32, ptr %8, i64 %12
@@ -1416,7 +1416,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 39:                                               ; preds = %41
   %40 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
-  br i1 %.not.i.i.i.i.i.i.i, label %49, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i.i.i, label %49, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !22
 
 41:                                               ; preds = %41, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %48, %41 ]
@@ -1429,7 +1429,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   store i32 %47, ptr %42, align 4, !tbaa !8
   %48 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %48, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %39, label %41, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %39, label %41, !llvm.loop !23
 
 49:                                               ; preds = %39
   %50 = load i32, ptr %6, align 16, !tbaa !8
@@ -1445,7 +1445,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %54 = tail call noundef i32 @llvm.smin.i32(i32 %53, i32 %.177.i.i.i.i)
   %55 = add nsw i64 %.05578.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %55, %10
-  br i1 %exitcond.not.i.i.i.i, label %.thread35, label %.lr.ph80.i.i.i.i, !llvm.loop !62
+  br i1 %exitcond.not.i.i.i.i, label %.thread35, label %.lr.ph80.i.i.i.i, !llvm.loop !63
 
 56:                                               ; preds = %7
   %57 = load i32, ptr %8, align 4, !tbaa !8
@@ -1460,7 +1460,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %61 = tail call noundef i32 @llvm.smin.i32(i32 %60, i32 %.382.i.i.i.i)
   %62 = add nuw nsw i64 %.083.i.i.i.i, 1
   %exitcond92.not.i.i.i.i = icmp eq i64 %62, %10
-  br i1 %exitcond92.not.i.i.i.i, label %.thread35.thread, label %.lr.ph85.i.i.i.i, !llvm.loop !63
+  br i1 %exitcond92.not.i.i.i.i, label %.thread35.thread, label %.lr.ph85.i.i.i.i, !llvm.loop !64
 
 .thread35:                                        ; preds = %.lr.ph80.i.i.i.i, %49
   %.in = phi i32 [ %50, %49 ], [ %54, %.lr.ph80.i.i.i.i ]
@@ -1497,7 +1497,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %78 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %73, <4 x i32> %77)
   %.057.i.i.i.i30 = add nuw nsw i64 %.05775.i.i.i.i26, 8
   %79 = icmp slt i64 %.057.i.i.i.i30, %12
-  br i1 %79, label %.lr.ph.i.i.i.i25, label %._crit_edge.i.i.i.i22, !llvm.loop !64
+  br i1 %79, label %.lr.ph.i.i.i.i25, label %._crit_edge.i.i.i.i22, !llvm.loop !65
 
 80:                                               ; preds = %._crit_edge.i.i.i.i22
   %81 = getelementptr inbounds nuw i32, ptr %8, i64 %12
@@ -1519,7 +1519,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 86:                                               ; preds = %88
   %87 = lshr i64 %.01012.i.i.i.i.i.i.i12, 1
   %.not.i.i.i.i.i.i.i15 = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i12, 2
-  br i1 %.not.i.i.i.i.i.i.i15, label %96, label %.preheader.i.i.i.i.i.i.i11, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i.i.i15, label %96, label %.preheader.i.i.i.i.i.i.i11, !llvm.loop !22
 
 88:                                               ; preds = %88, %.preheader.i.i.i.i.i.i.i11
   %.011.i.i.i.i.i.i.i13 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i11 ], [ %95, %88 ]
@@ -1532,7 +1532,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   store i32 %94, ptr %89, align 4, !tbaa !8
   %95 = add nuw nsw i64 %.011.i.i.i.i.i.i.i13, 1
   %exitcond.not.i.i.i.i.i.i.i14 = icmp eq i64 %95, %.01012.i.i.i.i.i.i.i12
-  br i1 %exitcond.not.i.i.i.i.i.i.i14, label %86, label %88, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i.i.i.i.i14, label %86, label %88, !llvm.loop !23
 
 96:                                               ; preds = %86
   %97 = load i32, ptr %5, align 16, !tbaa !8
@@ -1548,7 +1548,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i19, i32 %100)
   %102 = add nsw i64 %.05578.i.i.i.i18, 1
   %exitcond.not.i.i.i.i20 = icmp eq i64 %102, %10
-  br i1 %exitcond.not.i.i.i.i20, label %_ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i17, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i20, label %_ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph80.i.i.i.i17, !llvm.loop !66
 
 .thread35.thread:                                 ; preds = %.lr.ph85.i.i.i.i, %56
   %.in.ph = phi i32 [ %57, %56 ], [ %61, %.lr.ph85.i.i.i.i ]
@@ -1563,7 +1563,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %106 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i33, i32 %105)
   %107 = add nuw nsw i64 %.083.i.i.i.i32, 1
   %exitcond92.not.i.i.i.i34 = icmp eq i64 %107, %10
-  br i1 %exitcond92.not.i.i.i.i34, label %_ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i31, !llvm.loop !66
+  br i1 %exitcond92.not.i.i.i.i34, label %_ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i31, !llvm.loop !67
 
 _ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i17, %.lr.ph85.i.i.i.i31, %96, %.thread35.thread
   %.in72 = phi i32 [ %.in.ph, %.thread35.thread ], [ %.in, %96 ], [ %.in.ph, %.lr.ph85.i.i.i.i31 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
@@ -1582,7 +1582,7 @@ _ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; pre
 
 115:                                              ; preds = %.thread
   %116 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %116, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %116, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -1608,9 +1608,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %128 = sitofp i32 %127 to double
   %129 = fsub double %128, %111
   %130 = fdiv double %129, %120
-  %131 = load ptr, ptr %3, align 8, !tbaa !30
+  %131 = load ptr, ptr %3, align 8, !tbaa !31
   %132 = getelementptr double, ptr %131, i64 %indvars.iv.i
-  %133 = load i64, ptr %123, align 8, !tbaa !33
+  %133 = load i64, ptr %123, align 8, !tbaa !34
   %134 = getelementptr double, ptr %132, i64 %133
   %.idx.i = shl i64 %133, 4
   %135 = getelementptr i8, ptr %132, i64 %.idx.i
@@ -1618,7 +1618,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %136 = load i64, ptr %113, align 8, !tbaa !12
   %137 = icmp sgt i64 %136, %indvars.iv.next.i
-  br i1 %137, label %124, label %_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !67
+  br i1 %137, label %124, label %_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !68
 
 _ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %124, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   ret void
@@ -1630,15 +1630,15 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 
 ._ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit_crit_edge: ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !33
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !30
+  %6 = load ptr, ptr %1, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !52
+  %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = mul nsw i64 %10, %8
   %12 = sdiv i64 %11, 4
   %13 = shl nsw i64 %12, 2
@@ -1663,7 +1663,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
   %.072.lcssa.i.i.i.i = phi <2 x double> [ %21, %19 ], [ %29, %.lr.ph.i.i.i.i ]
   %.170.lcssa.i.i.i.i = phi <2 x double> [ %17, %19 ], [ %27, %.lr.ph.i.i.i.i ]
-  %23 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !44
+  %23 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i, <2 x double> %.072.lcssa.i.i.i.i) #14, !srcloc !45
   %24 = icmp sgt i64 %15, %13
   br i1 %24, label %31, label %35
 
@@ -1674,18 +1674,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.07274.i.i.i.i = phi <2 x double> [ %29, %.lr.ph.i.i.i.i ], [ %21, %19 ]
   %25 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
   %26 = load <2 x double>, ptr %25, align 16, !tbaa !18
-  %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !44
+  %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !45
   %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in76.i.i.i.i
   %28 = load <2 x double>, ptr %gep.i.i.i.i, align 16, !tbaa !18
-  %29 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %28) #14, !srcloc !44
+  %29 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %28) #14, !srcloc !45
   %.054.i.i.i.i = add nuw nsw i64 %.05477.i.i.i.i, 4
   %30 = icmp slt i64 %.054.i.i.i.i, %13
-  br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !53
+  br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !54
 
 31:                                               ; preds = %._crit_edge.i.i.i.i
   %32 = getelementptr inbounds nuw double, ptr %6, i64 %13
   %33 = load <2 x double>, ptr %32, align 16, !tbaa !18
-  %34 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %33) #14, !srcloc !44
+  %34 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %33) #14, !srcloc !45
   br label %35
 
 35:                                               ; preds = %31, %._crit_edge.i.i.i.i, %16
@@ -1706,7 +1706,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %42 = select i1 %41, double %40, double %.179.i.i.i.i
   %43 = add nsw i64 %.05280.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %43, %11
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %.lr.ph82.i.i.i.i, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %35
   %.ph.ph = phi double [ %37, %35 ], [ %42, %.lr.ph82.i.i.i.i ]
@@ -1724,7 +1724,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 ._crit_edge.i.i.i.i19:                            ; preds = %.lr.ph.i.i.i.i22, %46
   %.072.lcssa.i.i.i.i20 = phi <2 x double> [ %48, %46 ], [ %56, %.lr.ph.i.i.i.i22 ]
   %.170.lcssa.i.i.i.i21 = phi <2 x double> [ %44, %46 ], [ %54, %.lr.ph.i.i.i.i22 ]
-  %50 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !47
+  %50 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.170.lcssa.i.i.i.i21, <2 x double> %.072.lcssa.i.i.i.i20) #14, !srcloc !48
   %51 = icmp sgt i64 %15, %13
   br i1 %51, label %58, label %62
 
@@ -1735,18 +1735,18 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.07274.i.i.i.i26 = phi <2 x double> [ %56, %.lr.ph.i.i.i.i22 ], [ %48, %46 ]
   %52 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i23
   %53 = load <2 x double>, ptr %52, align 16, !tbaa !18
-  %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %53) #14, !srcloc !47
+  %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i25, <2 x double> %53) #14, !srcloc !48
   %gep.i.i.i.i27 = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i18, i64 %.054.in76.i.i.i.i24
   %55 = load <2 x double>, ptr %gep.i.i.i.i27, align 16, !tbaa !18
-  %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %55) #14, !srcloc !47
+  %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i26, <2 x double> %55) #14, !srcloc !48
   %.054.i.i.i.i28 = add nuw nsw i64 %.05477.i.i.i.i23, 4
   %57 = icmp slt i64 %.054.i.i.i.i28, %13
-  br i1 %57, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !55
+  br i1 %57, label %.lr.ph.i.i.i.i22, label %._crit_edge.i.i.i.i19, !llvm.loop !56
 
 58:                                               ; preds = %._crit_edge.i.i.i.i19
   %59 = getelementptr inbounds nuw double, ptr %6, i64 %13
   %60 = load <2 x double>, ptr %59, align 16, !tbaa !18
-  %61 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50, <2 x double> %60) #14, !srcloc !47
+  %61 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %50, <2 x double> %60) #14, !srcloc !48
   br label %62
 
 62:                                               ; preds = %58, %._crit_edge.i.i.i.i19, %.loopexit
@@ -1767,7 +1767,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %69 = select i1 %68, double %67, double %.179.i.i.i.i16
   %70 = add nsw i64 %.05280.i.i.i.i15, 1
   %exitcond.not.i.i.i.i17 = icmp eq i64 %70, %11
-  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !56
+  br i1 %exitcond.not.i.i.i.i17, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit, label %.lr.ph82.i.i.i.i14, !llvm.loop !57
 
 71:                                               ; preds = %5
   %72 = load double, ptr %6, align 8, !tbaa !4
@@ -1782,7 +1782,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit: ; 
   %77 = fsub double %75, %74
   %78 = fcmp oeq double %77, 0.000000e+00
   %79 = select i1 %78, double 1.000000e+00, double %77
-  %80 = load i64, ptr %76, align 8, !tbaa !33
+  %80 = load i64, ptr %76, align 8, !tbaa !34
   %81 = icmp sgt i64 %80, 0
   br i1 %81, label %.lr.ph.i, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit
 
@@ -1792,22 +1792,22 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit: ; 
 
 83:                                               ; preds = %83, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %83 ]
-  %84 = load ptr, ptr %1, align 8, !tbaa !30
+  %84 = load ptr, ptr %1, align 8, !tbaa !31
   %85 = getelementptr double, ptr %84, i64 %indvars.iv.i
   %86 = load double, ptr %85, align 8, !tbaa !4
   %87 = fsub double %86, %74
   %88 = fdiv double %87, %79
-  %89 = load ptr, ptr %3, align 8, !tbaa !68
+  %89 = load ptr, ptr %3, align 8, !tbaa !69
   %90 = getelementptr double, ptr %89, i64 %indvars.iv.i
-  %91 = load i64, ptr %82, align 8, !tbaa !70
+  %91 = load i64, ptr %82, align 8, !tbaa !71
   %92 = getelementptr double, ptr %90, i64 %91
   %.idx.i = shl i64 %91, 4
   %93 = getelementptr i8, ptr %90, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %88, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(8) %93)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %94 = load i64, ptr %76, align 8, !tbaa !33
+  %94 = load i64, ptr %76, align 8, !tbaa !34
   %95 = icmp sgt i64 %94, %indvars.iv.next.i
-  br i1 %95, label %83, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !71
+  br i1 %95, label %83, label %_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit, !llvm.loop !72
 
 _ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE.exit: ; preds = %83, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit
   ret void
@@ -1816,15 +1816,15 @@ _ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !33
+  %6 = load i64, ptr %5, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !52
+  %8 = load i64, ptr %7, align 8, !tbaa !53
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8, !tbaa !30
+  %11 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @free(ptr noundef %11) #12
   %12 = icmp sgt i64 %1, 0
   br i1 %12, label %13, label %.sink.split
@@ -1835,7 +1835,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0E
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -1847,18 +1847,18 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i: ; preds = %13
 
 20:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
 .sink.split:                                      ; preds = %10, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i
   %.sink = phi ptr [ %18, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i ], [ null, %10 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !30
+  store ptr %.sink, ptr %0, align 8, !tbaa !31
   br label %22
 
 22:                                               ; preds = %.sink.split, %4
-  store i64 %2, ptr %5, align 8, !tbaa !33
-  store i64 %3, ptr %7, align 8, !tbaa !52
+  store i64 %2, ptr %5, align 8, !tbaa !34
+  store i64 %3, ptr %7, align 8, !tbaa !53
   ret void
 }
 
@@ -1897,20 +1897,20 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1E
 
 9:                                                ; preds = %6
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; preds = %3, %6
   %11 = mul nsw i64 %2, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !70
+  %13 = load i64, ptr %12, align 8, !tbaa !71
   %14 = mul nsw i64 %13, 3
   %.not.i = icmp eq i64 %11, %14
   br i1 %.not.i, label %_ZN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EE6resizeElll.exit, label %15
 
 15:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit
-  %16 = load ptr, ptr %0, align 8, !tbaa !68
+  %16 = load ptr, ptr %0, align 8, !tbaa !69
   tail call void @free(ptr noundef %16) #12
   %17 = icmp sgt i64 %11, 0
   br i1 %17, label %18, label %.sink.split.i
@@ -1921,7 +1921,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; pr
 
 20:                                               ; preds = %18
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
@@ -1933,17 +1933,17 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %18
 
 25:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8, !tbaa !29
   tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
 .sink.split.i:                                    ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %15
   %.sink.i = phi ptr [ %23, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ], [ null, %15 ]
-  store ptr %.sink.i, ptr %0, align 8, !tbaa !68
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !69
   br label %_ZN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EE6resizeElll.exit
 
 _ZN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EE6resizeElll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit, %.sink.split.i
-  store i64 %1, ptr %12, align 8, !tbaa !70
+  store i64 %1, ptr %12, align 8, !tbaa !71
   ret void
 }
 
@@ -2006,56 +2006,57 @@ attributes #15 = { nounwind allocsize(0) }
 !16 = !{!"long", !6, i64 0}
 !17 = !{!13, !14, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"vtable pointer", !7, i64 0}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !32, i64 0, !16, i64 8, !16, i64 16}
-!32 = !{!"p1 double", !15, i64 0}
-!33 = !{!31, !16, i64 8}
-!34 = distinct !{!34, !20}
-!35 = !{!36, !16, i64 8}
-!36 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EEE", !37, i64 0, !16, i64 8}
-!37 = !{!"p1 float", !15, i64 0}
-!38 = !{!36, !37, i64 0}
-!39 = distinct !{!39, !20}
-!40 = !{!41, !16, i64 8}
-!41 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !32, i64 0, !16, i64 8}
-!42 = !{!41, !32, i64 0}
-!43 = distinct !{!43, !20}
-!44 = !{i64 6150515}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
-!47 = !{i64 6152408}
-!48 = distinct !{!48, !20}
-!49 = distinct !{!49, !20}
-!50 = distinct !{!50, !20}
-!51 = distinct !{!51, !20}
-!52 = !{!31, !16, i64 16}
-!53 = distinct !{!53, !20}
-!54 = distinct !{!54, !20}
-!55 = distinct !{!55, !20}
-!56 = distinct !{!56, !20}
-!57 = distinct !{!57, !20}
-!58 = distinct !{!58, !20}
-!59 = distinct !{!59, !20}
-!60 = distinct !{!60, !20}
-!61 = distinct !{!61, !20}
-!62 = distinct !{!62, !20}
-!63 = distinct !{!63, !20}
-!64 = distinct !{!64, !20}
-!65 = distinct !{!65, !20}
-!66 = distinct !{!66, !20}
-!67 = distinct !{!67, !20}
-!68 = !{!69, !32, i64 0}
-!69 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !32, i64 0, !16, i64 8}
-!70 = !{!69, !16, i64 8}
-!71 = distinct !{!71, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"vtable pointer", !7, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !33, i64 0, !16, i64 8, !16, i64 16}
+!33 = !{!"p1 double", !15, i64 0}
+!34 = !{!32, !16, i64 8}
+!35 = distinct !{!35, !20, !21}
+!36 = !{!37, !16, i64 8}
+!37 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EEE", !38, i64 0, !16, i64 8}
+!38 = !{!"p1 float", !15, i64 0}
+!39 = !{!37, !38, i64 0}
+!40 = distinct !{!40, !20, !21}
+!41 = !{!42, !16, i64 8}
+!42 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !33, i64 0, !16, i64 8}
+!43 = !{!42, !33, i64 0}
+!44 = distinct !{!44, !20, !21}
+!45 = !{i64 6150515}
+!46 = distinct !{!46, !20, !21}
+!47 = distinct !{!47, !20, !21}
+!48 = !{i64 6152408}
+!49 = distinct !{!49, !20, !21}
+!50 = distinct !{!50, !20, !21}
+!51 = distinct !{!51, !20, !21}
+!52 = distinct !{!52, !20, !21}
+!53 = !{!32, !16, i64 16}
+!54 = distinct !{!54, !20, !21}
+!55 = distinct !{!55, !20, !21}
+!56 = distinct !{!56, !20, !21}
+!57 = distinct !{!57, !20, !21}
+!58 = distinct !{!58, !20, !21}
+!59 = distinct !{!59, !20, !21}
+!60 = distinct !{!60, !20, !21}
+!61 = distinct !{!61, !20, !21}
+!62 = distinct !{!62, !20, !21}
+!63 = distinct !{!63, !20, !21}
+!64 = distinct !{!64, !20, !21}
+!65 = distinct !{!65, !20, !21}
+!66 = distinct !{!66, !20, !21}
+!67 = distinct !{!67, !20, !21}
+!68 = distinct !{!68, !20, !21}
+!69 = !{!70, !33, i64 0}
+!70 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !33, i64 0, !16, i64 8}
+!71 = !{!70, !16, i64 8}
+!72 = distinct !{!72, !20, !21}

@@ -463,7 +463,7 @@ _ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
 _ZN8rawspeed23PanasonicV7Decompressor15decompressBlockENS_10ByteStreamENS_17CroppedArray1DRefItEE.exit: ; preds = %_ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 80:                                               ; preds = %.invoke
   %81 = landingpad { ptr, i32 }
@@ -492,7 +492,7 @@ declare void @llvm.assume(i1 noundef) #8
 define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor10decompressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %4 = load i32, ptr %3, align 4, !tbaa !125
+  %4 = load i32, ptr %3, align 4, !tbaa !126
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -505,9 +505,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor10decompressEv(ptr nou
   %6 = add nuw nsw i32 %.03, 1
   %7 = load ptr, ptr %0, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %9 = load i32, ptr %8, align 4, !tbaa !125
+  %9 = load i32, ptr %8, align 4, !tbaa !126
   %10 = icmp slt i32 %6, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !126
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !127
 }
 
 ; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
@@ -790,8 +790,9 @@ attributes #22 = { cold }
 !119 = distinct !{!119, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
 !120 = !{!121, !121, i64 0}
 !121 = !{!"short", !10, i64 0}
-!122 = distinct !{!122, !123}
+!122 = distinct !{!122, !123, !124}
 !123 = !{!"llvm.loop.mustprogress"}
-!124 = distinct !{!124, !123}
-!125 = !{!26, !18, i64 44}
-!126 = distinct !{!126, !123}
+!124 = !{!"llvm.loop.estimated_trip_count"}
+!125 = distinct !{!125, !123, !124}
+!126 = !{!26, !18, i64 44}
+!127 = distinct !{!127, !123, !124}

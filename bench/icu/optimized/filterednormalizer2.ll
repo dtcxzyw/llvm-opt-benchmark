@@ -326,7 +326,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   %34 = getelementptr inbounds i8, ptr %.02644.us, i64 %33
   %35 = sub nsw i32 %.02743.us, %15
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph.split.us, label %.thread, !llvm.loop !20
+  br i1 %36, label %.lr.ph.split.us, label %.thread, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not36, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -360,7 +360,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   %50 = getelementptr inbounds i8, ptr %.02644.us46, i64 %49
   %51 = sub nsw i32 %.02743.us47, %38
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !22
+  br i1 %52, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !23
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %66
   %.02644 = phi ptr [ %68, %66 ], [ %2, %.lr.ph.split ]
@@ -398,7 +398,7 @@ define void @_ZNK6icu_7719FilteredNormalizer213normalizeUTF8EjPKciRNS_8ByteSinkE
   %68 = getelementptr inbounds i8, ptr %.02644, i64 %67
   %69 = sub nsw i32 %.02743, %54
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph.split.split, label %.thread
+  br i1 %70, label %.lr.ph.split.split, label %.thread, !llvm.loop !24
 
 .thread:                                          ; preds = %66, %59, %48, %41, %32, %18, %8
   ret void
@@ -895,7 +895,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %54 = load i32, ptr %13, align 4
   %55 = select i1 %51, i32 %54, i32 %53
   %.not30.not = icmp slt i32 %34, %55
-  br i1 %.not30.not, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.critedge32, !llvm.loop !23
+  br i1 %.not30.not, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.critedge32, !llvm.loop !25
 
 .critedge32:                                      ; preds = %44, %49, %11, %3, %.critedge, %.preheader
   %.0 = phi i8 [ 0, %.critedge ], [ 1, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ 1, %49 ], [ 0, %44 ]
@@ -944,7 +944,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719FilteredNormalizer216isNo
   %24 = getelementptr inbounds i8, ptr %.02229, i64 %23
   %25 = sub nsw i32 %.02030, %12
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %10, label %.critedge, !llvm.loop !24
+  br i1 %26, label %10, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %14, %22, %.preheader, %4
   %.016 = phi i8 [ 0, %4 ], [ 1, %.preheader ], [ 0, %14 ], [ 1, %22 ]
@@ -1013,7 +1013,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %32 = sub nsw i32 %25, %.0.i
   %33 = call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %31, i32 noundef %32, i32 noundef %.035)
   %34 = add nsw i32 %33, %.0.i
-  br i1 %19, label %18, label %35, !llvm.loop !25
+  br i1 %19, label %18, label %35, !llvm.loop !27
 
 35:                                               ; preds = %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit
   %36 = load ptr, ptr %17, align 8, !tbaa !17
@@ -1035,7 +1035,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %or.cond.not = and i1 %45, %44
   %46 = icmp eq i32 %41, 2
   %spec.select = select i1 %46, i32 2, i32 %.029.ph
-  br i1 %or.cond.not, label %.outer, label %.loopexit, !llvm.loop !25
+  br i1 %or.cond.not, label %.outer, label %.loopexit, !llvm.loop !27
 
 47:                                               ; preds = %35
   %48 = landingpad { ptr, i32 }
@@ -1145,7 +1145,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %55 = load i32, ptr %13, align 4
   %56 = select i1 %52, i32 %55, i32 %54
   %.not38 = icmp slt i32 %34, %56
-  br i1 %.not38, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread54, !llvm.loop !26
+  br i1 %.not38, label %_ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit, label %.thread54, !llvm.loop !28
 
 .thread54:                                        ; preds = %43, %50, %11, %3, %.preheader
   %.0 = phi i32 [ %19, %.preheader ], [ 0, %3 ], [ 0, %11 ], [ %44, %43 ], [ %56, %50 ]
@@ -1246,9 +1246,9 @@ define noundef ptr @unorm2_openFiltered_77(ptr noundef %0, ptr noundef %1, ptr n
 12:                                               ; preds = %9
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN6icu_7719FilteredNormalizer2E, i64 16), ptr %10, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %13, align 8, !tbaa !27
+  store ptr %0, ptr %13, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %1, ptr %14, align 8, !tbaa !28
+  store ptr %1, ptr %14, align 8, !tbaa !30
   br label %16
 
 15:                                               ; preds = %9
@@ -1307,14 +1307,16 @@ attributes #6 = { nounwind }
 !15 = !{!"any pointer", !5, i64 0}
 !16 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !15, i64 0}
 !17 = !{!11, !14, i64 8}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = !{!14, !14, i64 0}
-!28 = !{!16, !16, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !20, !22}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = !{!14, !14, i64 0}
+!30 = !{!16, !16, i64 0}

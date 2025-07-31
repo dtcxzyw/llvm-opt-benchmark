@@ -2277,7 +2277,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib10SouthKorea7KrxImplEEEPT_.exit: ; pr
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !31
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib10SouthKorea7KrxImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !42
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !43
   %6 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %6, null
@@ -2380,7 +2380,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib10SouthKorea7KrxImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !42
+  %0 = load ptr, ptr %px_, align 8, !tbaa !43
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib10SouthKorea7KrxImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -2513,7 +2513,8 @@ attributes #24 = { builtin nounwind }
 !37 = !{!"_ZTSN8QuantLib4DateE", !11, i64 0}
 !38 = !{!6, !10, i64 24}
 !39 = !{!6, !10, i64 16}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!43, !10, i64 16}
-!43 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib10SouthKorea7KrxImplEEE", !29, i64 0, !10, i64 16}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!44, !10, i64 16}
+!44 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib10SouthKorea7KrxImplEEE", !29, i64 0, !10, i64 16}

@@ -558,7 +558,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
   store i64 %84, ptr %91, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %92 = icmp samesign ult i64 %indvars.iv.next, %69
-  br i1 %92, label %.lr.ph118, label %.preheader.loopexit, !llvm.loop !26
+  br i1 %92, label %.lr.ph118, label %.preheader.loopexit, !llvm.loop !27
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv125 = phi i64 [ %72, %.lr.ph121.preheader ], [ %indvars.iv.next126, %.lr.ph121 ]
@@ -570,7 +570,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
   store i64 0, ptr %96, align 8, !tbaa !6
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
-  br i1 %exitcond128.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !27
+  br i1 %exitcond128.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !28
 
 ._crit_edge122:                                   ; preds = %.lr.ph121, %.preheader
   tail call void @bn_correct_top(ptr noundef nonnull %1) #6
@@ -633,7 +633,8 @@ attributes #6 = { nounwind }
 !21 = !{!"p1 _ZTS14bn_mont_ctx_st", !14, i64 0}
 !22 = !{!11, !15, i64 32}
 !23 = !{!11, !13, i64 24}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = distinct !{!28, !25, !26}

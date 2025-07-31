@@ -1636,7 +1636,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   %.0.add = add nuw nsw i64 %.0.idx17, 4
   %.not = icmp eq i64 %.0.add, 16
-  br i1 %.not, label %20, label %24
+  br i1 %.not, label %20, label %24, !llvm.loop !116
 
 55:                                               ; preds = %24
   %56 = landingpad { ptr, i32 }
@@ -2002,17 +2002,17 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImp
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i8, ptr %7, align 4, !tbaa !45, !range !50, !noundef !51
   %9 = trunc nuw i8 %8 to i1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  store ptr null, ptr %0, align 8, !tbaa !119, !alias.scope !116
-  %10 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #26, !noalias !116
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  store ptr null, ptr %0, align 8, !tbaa !121, !alias.scope !118
+  %10 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #26, !noalias !118
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %11, align 8, !tbaa !21, !noalias !116
+  store i32 1, ptr %11, align 8, !tbaa !21, !noalias !118
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1, ptr %12, align 4, !tbaa !23, !noalias !116
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !tbaa !24, !noalias !116
+  store i32 1, ptr %12, align 4, !tbaa !23, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !tbaa !24, !noalias !118
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   invoke void @_ZN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEEb(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext %9)
-          to label %_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !116
+          to label %_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !118
 
 common.resume:                                    ; preds = %31, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %14, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %32, %31 ]
@@ -2021,17 +2021,17 @@ common.resume:                                    ; preds = %31, %_ZNSt15__alloc
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i: ; preds = %2
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 160) #27, !noalias !116
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 160) #27, !noalias !118
   br label %common.resume
 
 _ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.exit: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %15, align 8, !tbaa !17, !alias.scope !116
-  store ptr %13, ptr %0, align 8, !tbaa !122, !alias.scope !116
+  store ptr %10, ptr %15, align 8, !tbaa !17, !alias.scope !118
+  store ptr %13, ptr %0, align 8, !tbaa !124, !alias.scope !118
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %18 = load i8, ptr %16, align 8, !tbaa !123, !range !50, !noundef !51
-  store i8 %18, ptr %17, align 8, !tbaa !123
+  %18 = load i8, ptr %16, align 8, !tbaa !125, !range !50, !noundef !51
+  store i8 %18, ptr %17, align 8, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
@@ -2131,7 +2131,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplC2ER
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 16), ptr %0, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 72), ptr %8, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %9, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %9, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !126
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRenderC1ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(936) %10, i32 noundef %2)
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %10, ptr noundef nonnull align 8 dereferenceable(248) %9)
@@ -2153,9 +2153,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplC2ER
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 16), ptr %0, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 72), ptr %8, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %9, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %9, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !126
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(936) %10, ptr noundef nonnull align 8 dereferenceable(936) %2, i64 936, i1 false), !tbaa.struct !125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(936) %10, ptr noundef nonnull align 8 dereferenceable(936) %2, i64 936, i1 false), !tbaa.struct !127
   ret void
 }
 
@@ -2165,28 +2165,28 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl18c
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i8, ptr %5, align 4, !tbaa !45, !range !50, !noundef !51
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = tail call noalias noundef nonnull dereferenceable(1224) ptr @_Znwm(i64 noundef 1224) #26, !noalias !128
+  %8 = tail call noalias noundef nonnull dereferenceable(1224) ptr @_Znwm(i64 noundef 1224) #26, !noalias !130
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !21, !noalias !128
+  store i32 1, ptr %9, align 8, !tbaa !21, !noalias !130
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 1, ptr %10, align 4, !tbaa !23, !noalias !128
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !tbaa !24, !noalias !128
+  store i32 1, ptr %10, align 4, !tbaa !23, !noalias !130
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !tbaa !24, !noalias !130
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 5, ptr %12, align 8, !tbaa !52, !noalias !128
+  store i32 5, ptr %12, align 8, !tbaa !52, !noalias !130
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i8 %6, ptr %13, align 4, !tbaa !45, !noalias !128
+  store i8 %6, ptr %13, align 4, !tbaa !45, !noalias !130
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 16), ptr %11, align 8, !tbaa !24, !noalias !128
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 72), ptr %14, align 8, !tbaa !24, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 16), ptr %11, align 8, !tbaa !24, !noalias !130
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE, i64 72), ptr %14, align 8, !tbaa !24, !noalias !130
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %15, ptr noundef nonnull readonly align 8 dereferenceable(248) %3, i64 248, i1 false), !tbaa.struct !124, !noalias !128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %15, ptr noundef nonnull readonly align 8 dereferenceable(248) %3, i64 248, i1 false), !tbaa.struct !126, !noalias !130
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 288
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(936) %16, ptr noundef nonnull readonly align 8 dereferenceable(936) %4, i64 936, i1 false), !tbaa.struct !125, !noalias !128
-  store ptr %8, ptr %7, align 8, !tbaa !17, !alias.scope !128
-  store ptr %11, ptr %0, align 8, !tbaa !131, !alias.scope !128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(936) %16, ptr noundef nonnull readonly align 8 dereferenceable(936) %4, i64 936, i1 false), !tbaa.struct !127, !noalias !130
+  store ptr %8, ptr %7, align 8, !tbaa !17, !alias.scope !130
+  store ptr %11, ptr %0, align 8, !tbaa !133, !alias.scope !130
   ret void
 }
 
@@ -2194,7 +2194,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl18c
 define hidden void @_ZN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(1208) initializes((24, 272)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #0 align 2 {
   tail call void @_ZNK19OpenColorIO_v2_5dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !126
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %4, ptr noundef nonnull align 8 dereferenceable(248) %3)
   ret void
@@ -2206,7 +2206,7 @@ declare void @_ZNK19OpenColorIO_v2_5dev11GradingTone8validateEv(ptr noundef nonn
 define hidden void @_ZThn16_N19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef initializes((8, 256)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #10 align 2 {
   tail call void @_ZNK19OpenColorIO_v2_5dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, ptr noundef nonnull align 8 dereferenceable(248) %1, i64 248, i1 false), !tbaa.struct !126
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %4, ptr noundef nonnull align 8 dereferenceable(248) %3)
   ret void
@@ -2992,7 +2992,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !133
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3049,7 +3049,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !133
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3158,7 +3158,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !133
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3217,7 +3217,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !133
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3402,23 +3402,25 @@ attributes #27 = { builtin nounwind }
 !113 = !{!114, !115, i64 0}
 !114 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EE", !115, i64 0, !12, i64 8}
 !115 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev19GradingBSplineCurveE", !9, i64 0}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
-!118 = distinct !{!118, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!119 = !{!120, !121, i64 0}
-!120 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EE", !121, i64 0, !12, i64 8}
-!121 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplE", !9, i64 0}
-!122 = !{!121, !121, i64 0}
-!123 = !{!102, !49, i64 0}
-!124 = !{i64 0, i64 8, !76, i64 8, i64 8, !76, i64 16, i64 8, !76, i64 24, i64 8, !76, i64 32, i64 8, !76, i64 40, i64 8, !76, i64 48, i64 8, !76, i64 56, i64 8, !76, i64 64, i64 8, !76, i64 72, i64 8, !76, i64 80, i64 8, !76, i64 88, i64 8, !76, i64 96, i64 8, !76, i64 104, i64 8, !76, i64 112, i64 8, !76, i64 120, i64 8, !76, i64 128, i64 8, !76, i64 136, i64 8, !76, i64 144, i64 8, !76, i64 152, i64 8, !76, i64 160, i64 8, !76, i64 168, i64 8, !76, i64 176, i64 8, !76, i64 184, i64 8, !76, i64 192, i64 8, !76, i64 200, i64 8, !76, i64 208, i64 8, !76, i64 216, i64 8, !76, i64 224, i64 8, !76, i64 232, i64 8, !76, i64 240, i64 8, !76}
-!125 = !{i64 0, i64 8, !76, i64 8, i64 8, !76, i64 16, i64 8, !76, i64 24, i64 8, !76, i64 32, i64 8, !76, i64 40, i64 8, !76, i64 48, i64 8, !76, i64 56, i64 8, !76, i64 64, i64 96, !18, i64 160, i64 96, !18, i64 256, i64 96, !18, i64 352, i64 96, !18, i64 448, i64 96, !18, i64 544, i64 64, !18, i64 608, i64 64, !18, i64 672, i64 64, !18, i64 736, i64 64, !18, i64 800, i64 32, !18, i64 832, i64 32, !18, i64 864, i64 32, !18, i64 896, i64 16, !18, i64 912, i64 4, !126, i64 916, i64 4, !126, i64 920, i64 4, !126, i64 924, i64 4, !126, i64 928, i64 1, !78, i64 932, i64 4, !82}
-!126 = !{!127, !127, i64 0}
-!127 = !{!"float", !10, i64 0}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEJRKNS0_11GradingToneERKNS0_20GradingTonePreRenderEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
-!130 = distinct !{!130, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEJRKNS0_11GradingToneERKNS0_20GradingTonePreRenderEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE", !9, i64 0}
-!133 = !{!134, !135, i64 8}
-!134 = !{!"_ZTSSt9type_info", !135, i64 8}
-!135 = !{!"p1 omnipotent char", !9, i64 0}
+!116 = distinct !{!116, !117}
+!117 = !{!"llvm.loop.estimated_trip_count"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!120 = distinct !{!120, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!121 = !{!122, !123, i64 0}
+!122 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EE", !123, i64 0, !12, i64 8}
+!123 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplE", !9, i64 0}
+!124 = !{!123, !123, i64 0}
+!125 = !{!102, !49, i64 0}
+!126 = !{i64 0, i64 8, !76, i64 8, i64 8, !76, i64 16, i64 8, !76, i64 24, i64 8, !76, i64 32, i64 8, !76, i64 40, i64 8, !76, i64 48, i64 8, !76, i64 56, i64 8, !76, i64 64, i64 8, !76, i64 72, i64 8, !76, i64 80, i64 8, !76, i64 88, i64 8, !76, i64 96, i64 8, !76, i64 104, i64 8, !76, i64 112, i64 8, !76, i64 120, i64 8, !76, i64 128, i64 8, !76, i64 136, i64 8, !76, i64 144, i64 8, !76, i64 152, i64 8, !76, i64 160, i64 8, !76, i64 168, i64 8, !76, i64 176, i64 8, !76, i64 184, i64 8, !76, i64 192, i64 8, !76, i64 200, i64 8, !76, i64 208, i64 8, !76, i64 216, i64 8, !76, i64 224, i64 8, !76, i64 232, i64 8, !76, i64 240, i64 8, !76}
+!127 = !{i64 0, i64 8, !76, i64 8, i64 8, !76, i64 16, i64 8, !76, i64 24, i64 8, !76, i64 32, i64 8, !76, i64 40, i64 8, !76, i64 48, i64 8, !76, i64 56, i64 8, !76, i64 64, i64 96, !18, i64 160, i64 96, !18, i64 256, i64 96, !18, i64 352, i64 96, !18, i64 448, i64 96, !18, i64 544, i64 64, !18, i64 608, i64 64, !18, i64 672, i64 64, !18, i64 736, i64 64, !18, i64 800, i64 32, !18, i64 832, i64 32, !18, i64 864, i64 32, !18, i64 896, i64 16, !18, i64 912, i64 4, !128, i64 916, i64 4, !128, i64 920, i64 4, !128, i64 924, i64 4, !128, i64 928, i64 1, !78, i64 932, i64 4, !82}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"float", !10, i64 0}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEJRKNS0_11GradingToneERKNS0_20GradingTonePreRenderEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
+!132 = distinct !{!132, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEJRKNS0_11GradingToneERKNS0_20GradingTonePreRenderEbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE", !9, i64 0}
+!135 = !{!136, !137, i64 8}
+!136 = !{!"_ZTSSt9type_info", !137, i64 8}
+!137 = !{!"p1 omnipotent char", !9, i64 0}

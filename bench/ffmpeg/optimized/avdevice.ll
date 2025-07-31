@@ -231,15 +231,15 @@ define i32 @avdevice_list_input_sources(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  store ptr null, ptr %6, align 8, !tbaa !46
+  store ptr null, ptr %6, align 8, !tbaa !47
   %7 = call i32 @ff_alloc_input_device_context(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1) #4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %6, align 8, !tbaa !46
+  %10 = load ptr, ptr %6, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !48
+  store ptr null, ptr %5, align 8, !tbaa !49
   %11 = call i32 @av_dict_copy(ptr noundef nonnull %5, ptr noundef %2, i32 noundef 0) #4
   %12 = call i32 @av_opt_set_dict2(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 1) #4
   %13 = icmp slt i32 %12, 0
@@ -269,15 +269,15 @@ define i32 @avdevice_list_output_sinks(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  store ptr null, ptr %6, align 8, !tbaa !46
+  store ptr null, ptr %6, align 8, !tbaa !47
   %7 = call i32 @avformat_alloc_output_context2(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, ptr noundef null) #4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %6, align 8, !tbaa !46
+  %10 = load ptr, ptr %6, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !48
+  store ptr null, ptr %5, align 8, !tbaa !49
   %11 = call i32 @av_dict_copy(ptr noundef nonnull %5, ptr noundef %2, i32 noundef 0) #4
   %12 = call i32 @av_opt_set_dict2(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 1) #4
   %13 = icmp slt i32 %12, 0
@@ -367,8 +367,9 @@ attributes #5 = { noreturn nounwind }
 !41 = !{!37, !38, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"p1 _ZTS12AVDeviceInfo", !7, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!48 = !{!21, !21, i64 0}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!49 = !{!21, !21, i64 0}

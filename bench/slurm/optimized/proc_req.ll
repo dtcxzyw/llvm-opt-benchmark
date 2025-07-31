@@ -1409,54 +1409,54 @@ _validate_operator.exit:                          ; preds = %10
   %.not498 = icmp eq ptr %36, null
   br i1 %.not498, label %.critedge12, label %.lr.ph
 
-.loopexit:                                        ; preds = %50
-  %37 = call ptr @list_next(ptr noundef %33) #10
-  %.not49 = icmp eq ptr %37, null
-  br i1 %.not49, label %.critedge, label %.lr.ph, !llvm.loop !10
+.lr.ph:                                           ; preds = %31, %52
+  %37 = phi ptr [ %53, %52 ], [ %36, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 304
+  %39 = load ptr, ptr %38, align 8
+  %.not50 = icmp eq ptr %39, null
+  br i1 %.not50, label %43, label %40
 
-.lr.ph:                                           ; preds = %31, %.loopexit
-  %38 = phi ptr [ %37, %.loopexit ], [ %36, %31 ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 304
-  %40 = load ptr, ptr %39, align 8
-  %.not50 = icmp eq ptr %40, null
-  br i1 %.not50, label %44, label %41
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %42 = load ptr, ptr %41, align 8
+  br label %46
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %43 = load ptr, ptr %42, align 8
-  br label %47
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 248
+  %45 = load ptr, ptr %44, align 8
+  %.not51 = icmp eq ptr %45, null
+  %spec.select = select i1 %.not51, ptr @.str.30, ptr %45
+  br label %46
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 248
-  %46 = load ptr, ptr %45, align 8
-  %.not51 = icmp eq ptr %46, null
-  %spec.select = select i1 %.not51, ptr @.str.30, ptr %46
-  br label %47
-
-47:                                               ; preds = %44, %41
-  %.035 = phi ptr [ %43, %41 ], [ %spec.select, %44 ]
+46:                                               ; preds = %43, %40
+  %.035 = phi ptr [ %42, %40 ], [ %spec.select, %43 ]
   call void @list_iterator_reset(ptr noundef %35) #10
-  br label %48
+  br label %47
 
-48:                                               ; preds = %50, %47
-  %49 = call ptr @list_next(ptr noundef %35) #10
-  %.not52 = icmp eq ptr %49, null
-  br i1 %.not52, label %.critedge12, label %50
+47:                                               ; preds = %49, %46
+  %48 = call ptr @list_next(ptr noundef %35) #10
+  %.not52 = icmp eq ptr %48, null
+  br i1 %.not52, label %.critedge12, label %49
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr %49, align 8
-  %52 = call i32 @xstrcasecmp(ptr noundef %51, ptr noundef %.035) #10
-  %.not53 = icmp eq i32 %52, 0
-  br i1 %.not53, label %.loopexit, label %48, !llvm.loop !10
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %48, align 8
+  %51 = call i32 @xstrcasecmp(ptr noundef %50, ptr noundef %.035) #10
+  %.not53 = icmp eq i32 %51, 0
+  br i1 %.not53, label %52, label %47, !llvm.loop !10
 
-.critedge:                                        ; preds = %.loopexit
+52:                                               ; preds = %49
+  %53 = call ptr @list_next(ptr noundef %33) #10
+  %.not49 = icmp eq ptr %53, null
+  br i1 %.not49, label %.critedge, label %.lr.ph, !llvm.loop !14
+
+.critedge:                                        ; preds = %52
   call void @list_iterator_destroy(ptr noundef %35) #10
   call void @list_iterator_destroy(ptr noundef %33) #10
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #10
   %.pre = load ptr, ptr %0, align 8
   br label %_validate_operator.exit.thread
 
-.critedge12:                                      ; preds = %48, %31
+.critedge12:                                      ; preds = %47, %31
   call void @list_iterator_destroy(ptr noundef %35) #10
   call void @list_iterator_destroy(ptr noundef %33) #10
   br label %.thread
@@ -1464,29 +1464,29 @@ _validate_operator.exit:                          ; preds = %10
 .thread:                                          ; preds = %26, %29, %19, %.critedge12
   %.str.29.sink = phi ptr [ @.str.21, %.critedge12 ], [ @.str.29, %19 ], [ @.str.21, %29 ], [ @.str.21, %26 ]
   %.041.ph = phi i32 [ 2002, %.critedge12 ], [ -1, %19 ], [ 2002, %29 ], [ 2002, %26 ]
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 60
-  %55 = load i32, ptr %54, align 4
-  %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, i32 noundef %55, ptr noundef nonnull %.str.29.sink) #10
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 60
+  %56 = load i32, ptr %55, align 4
+  %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, i32 noundef %56, ptr noundef nonnull %.str.29.sink) #10
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #10
-  br label %64
+  br label %65
 
 _validate_operator.exit.thread:                   ; preds = %10, %.critedge, %_validate_operator.exit
-  %57 = phi ptr [ %11, %10 ], [ %.pre, %.critedge ], [ %.pre10, %_validate_operator.exit ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = load ptr, ptr %.8.val, align 8
-  %63 = call i32 @acct_storage_g_add_assocs(ptr noundef %59, i32 noundef %61, ptr noundef %62) #10
-  br label %64
+  %58 = phi ptr [ %11, %10 ], [ %.pre, %.critedge ], [ %.pre10, %_validate_operator.exit ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = load ptr, ptr %.8.val, align 8
+  %64 = call i32 @acct_storage_g_add_assocs(ptr noundef %60, i32 noundef %62, ptr noundef %63) #10
+  br label %65
 
-64:                                               ; preds = %_validate_operator.exit.thread, %.thread
-  %.142 = phi i32 [ %63, %_validate_operator.exit.thread ], [ %.041.ph, %.thread ]
+65:                                               ; preds = %_validate_operator.exit.thread, %.thread
+  %.142 = phi i32 [ %64, %_validate_operator.exit.thread ], [ %.041.ph, %.thread ]
   %.2 = phi ptr [ null, %_validate_operator.exit.thread ], [ %.str.29.sink, %.thread ]
-  %65 = load ptr, ptr %0, align 8
-  %66 = call ptr @slurm_persist_make_rc_msg(ptr noundef %65, i32 noundef %.142, ptr noundef %.2, i16 noundef zeroext 1404) #10
-  store ptr %66, ptr %1, align 8
+  %66 = load ptr, ptr %0, align 8
+  %67 = call ptr @slurm_persist_make_rc_msg(ptr noundef %66, i32 noundef %.142, ptr noundef %.2, i16 noundef zeroext 1404) #10
+  store ptr %67, ptr %1, align 8
   ret i32 %.142
 }
 
@@ -6918,7 +6918,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_job_start(ptr noundef %0
   tail call fastcc void @_process_job_start(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %19)
   %20 = tail call ptr @list_next(ptr noundef %16) #10
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   tail call void @list_iterator_destroy(ptr noundef %16) #10
@@ -7283,7 +7283,7 @@ define internal fastcc noundef i32 @_step_start(ptr noundef %0, ptr %.8.val, ptr
 
 35:                                               ; preds = %34, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !14
+  br label %.preheader.i, !llvm.loop !16
 
 _replace_double_quotes.exit:                      ; preds = %.preheader.i, %29
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7818,7 +7818,7 @@ define internal fastcc void @_add_registered_cluster(ptr noundef %0) unnamed_add
   %.not54 = icmp eq ptr %41, null
   %42 = icmp eq ptr %0, %41
   %or.cond = or i1 %.not54, %42
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %40, %13
   %.not54.lcssa = phi i1 [ %.not5461, %13 ], [ %.not54, %40 ]
@@ -8033,7 +8033,7 @@ define internal fastcc void @_process_job_start(ptr noundef %0, ptr noundef read
 
 14:                                               ; preds = %13, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !14
+  br label %.preheader.i, !llvm.loop !16
 
 _replace_double_quotes.exit:                      ; preds = %.preheader.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8109,7 +8109,7 @@ _replace_double_quotes.exit:                      ; preds = %.preheader.i, %3
 
 56:                                               ; preds = %55, %.preheader.i76
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
-  br label %.preheader.i76, !llvm.loop !14
+  br label %.preheader.i76, !llvm.loop !16
 
 _replace_double_quotes.exit79:                    ; preds = %.preheader.i76, %37
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -8150,7 +8150,7 @@ _replace_double_quotes.exit79:                    ; preds = %.preheader.i76, %37
 
 75:                                               ; preds = %74, %.preheader.i81
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
-  br label %.preheader.i81, !llvm.loop !14
+  br label %.preheader.i81, !llvm.loop !16
 
 _replace_double_quotes.exit84:                    ; preds = %.preheader.i81, %_replace_double_quotes.exit79
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 464
@@ -8175,7 +8175,7 @@ _replace_double_quotes.exit84:                    ; preds = %.preheader.i81, %_r
 
 82:                                               ; preds = %81, %.preheader.i86
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
-  br label %.preheader.i86, !llvm.loop !14
+  br label %.preheader.i86, !llvm.loop !16
 
 _replace_double_quotes.exit89:                    ; preds = %.preheader.i86, %_replace_double_quotes.exit84
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 536
@@ -8200,7 +8200,7 @@ _replace_double_quotes.exit89:                    ; preds = %.preheader.i86, %_r
 
 89:                                               ; preds = %88, %.preheader.i91
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
-  br label %.preheader.i91, !llvm.loop !14
+  br label %.preheader.i91, !llvm.loop !16
 
 _replace_double_quotes.exit94:                    ; preds = %.preheader.i91, %_replace_double_quotes.exit89
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 544
@@ -8314,7 +8314,7 @@ _replace_double_quotes.exit94:                    ; preds = %.preheader.i91, %_r
 
 163:                                              ; preds = %162, %.preheader.i96
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  br label %.preheader.i96, !llvm.loop !14
+  br label %.preheader.i96, !llvm.loop !16
 
 _replace_double_quotes.exit99:                    ; preds = %.preheader.i96, %_replace_double_quotes.exit94
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 1120
@@ -8339,7 +8339,7 @@ _replace_double_quotes.exit99:                    ; preds = %.preheader.i96, %_r
 
 170:                                              ; preds = %169, %.preheader.i101
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
-  br label %.preheader.i101, !llvm.loop !14
+  br label %.preheader.i101, !llvm.loop !16
 
 _replace_double_quotes.exit104:                   ; preds = %.preheader.i101, %_replace_double_quotes.exit99
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 488
@@ -8372,7 +8372,7 @@ _replace_double_quotes.exit104:                   ; preds = %.preheader.i101, %_
 
 183:                                              ; preds = %182, %.preheader.i106
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
-  br label %.preheader.i106, !llvm.loop !14
+  br label %.preheader.i106, !llvm.loop !16
 
 _replace_double_quotes.exit109:                   ; preds = %.preheader.i106, %_replace_double_quotes.exit104
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -8599,9 +8599,11 @@ attributes #12 = { nounwind willreturn memory(none) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}

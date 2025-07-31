@@ -287,7 +287,7 @@ for.inc:                                          ; preds = %if.end11, %land.lhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = zext i32 %7 to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %return
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end4, %if.end, %entry
   %retval.0 = phi i32 [ %call, %entry ], [ %call1, %if.end ], [ %call5, %if.end4 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
@@ -427,3 +427,5 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

@@ -693,7 +693,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store double %.pre, ptr %arrayidx.i, align 8, !tbaa !26
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
+  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -918,3 +918,5 @@ attributes #25 = { noreturn nounwind }
 !36 = !{!10, !10, i64 0}
 !37 = !{!34, !16, i64 0}
 !38 = !{!20, !16, i64 0}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.estimated_trip_count"}

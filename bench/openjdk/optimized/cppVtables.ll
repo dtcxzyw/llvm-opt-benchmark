@@ -350,7 +350,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI12ConstantPoolE23al
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !8
+  br i1 %.not.i, label %5, label %10, !llvm.loop !9
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -417,7 +417,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI13InstanceKlassE23a
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !9
+  br i1 %.not.i, label %5, label %10, !llvm.loop !10
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -484,7 +484,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI24InstanceClassLoad
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !10
+  br i1 %.not.i, label %5, label %10, !llvm.loop !11
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -551,7 +551,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI19InstanceMirrorKla
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !11
+  br i1 %.not.i, label %5, label %10, !llvm.loop !12
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -618,7 +618,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI16InstanceRefKlassE
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !12
+  br i1 %.not.i, label %5, label %10, !llvm.loop !13
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -685,7 +685,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI23InstanceStackChun
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !13
+  br i1 %.not.i, label %5, label %10, !llvm.loop !14
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -752,7 +752,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI13ObjArrayKlassE23a
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !14
+  br i1 %.not.i, label %5, label %10, !llvm.loop !15
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -819,7 +819,7 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI14TypeArrayKlassE23
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %5, label %10, !llvm.loop !15
+  br i1 %.not.i, label %5, label %10, !llvm.loop !16
 
 10:                                               ; preds = %5
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -900,7 +900,7 @@ define hidden void @_ZN10CppVtables9serializeEP16SerializeClosure(ptr noundef %0
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %20) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %24, label %19, !llvm.loop !16
+  br i1 %exitcond.not, label %24, label %19, !llvm.loop !17
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
@@ -1184,7 +1184,7 @@ define hidden noundef ptr @_ZN10CppVtables19get_archived_vtableEN12MetaspaceObj4
 19:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %20, label %15, !llvm.loop !17
+  br i1 %exitcond.not, label %20, label %15, !llvm.loop !18
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @g_assert_poison, align 8
@@ -1226,7 +1226,7 @@ define hidden void @_ZN10CppVtables21zero_archived_vtablesEv() local_unnamed_add
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %4, i8 0, i64 %6, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %7, label %1, !llvm.loop !18
+  br i1 %exitcond.not, label %7, label %1, !llvm.loop !19
 
 7:                                                ; preds = %1
   ret void
@@ -1810,16 +1810,17 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

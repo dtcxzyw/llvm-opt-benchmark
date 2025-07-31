@@ -321,8 +321,8 @@ define internal range(i32 -2147483648, 2) i32 @qt_rtp_parse_packet(ptr noundef %
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %187 = load i32, ptr %186, align 8, !tbaa !83
-  %188 = load i32, ptr %4, align 4, !tbaa !84
+  %187 = load i32, ptr %186, align 8, !tbaa !84
+  %188 = load i32, ptr %4, align 4, !tbaa !85
   %189 = icmp eq i32 %187, %188
   br i1 %189, label %190, label %200
 
@@ -366,9 +366,9 @@ define internal range(i32 -2147483648, 2) i32 @qt_rtp_parse_packet(ptr noundef %
 208:                                              ; preds = %200
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 32
   store i32 0, ptr %209, align 8, !tbaa !12
-  %210 = load i32, ptr %4, align 4, !tbaa !84
+  %210 = load i32, ptr %4, align 4, !tbaa !85
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %210, ptr %211, align 8, !tbaa !83
+  store i32 %210, ptr %211, align 8, !tbaa !84
   br label %.thread239
 
 .thread239:                                       ; preds = %..thread239_crit_edge, %208
@@ -652,7 +652,8 @@ attributes #7 = { nounwind }
 !78 = !{!"p1 _ZTS16AVEncryptionInfo", !7, i64 0}
 !79 = !{!"p1 _ZTS18MOVEncryptionIndex", !7, i64 0}
 !80 = !{!"p1 _ZTS16IAMFDemuxContext", !7, i64 0}
-!81 = distinct !{!81, !82}
+!81 = distinct !{!81, !82, !83}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!5, !10, i64 16}
-!84 = !{!10, !10, i64 0}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = !{!5, !10, i64 16}
+!85 = !{!10, !10, i64 0}

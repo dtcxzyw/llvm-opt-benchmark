@@ -169,7 +169,7 @@ define i32 @Rwr_GetBushSumOfVolumes(ptr noundef %0, i32 noundef %1) local_unname
   %22 = getelementptr inbounds nuw i8, ptr %.01116, i64 40
   %.011 = load ptr, ptr %22, align 8, !tbaa !26
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %21, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %21 ]
@@ -179,7 +179,7 @@ define i32 @Rwr_GetBushSumOfVolumes(ptr noundef %0, i32 noundef %1) local_unname
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Rwr_NodePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
-  %.pre = load i32, ptr %1, align 8, !tbaa !32
+  %.pre = load i32, ptr %1, align 8, !tbaa !33
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %59, %2
@@ -212,7 +212,7 @@ tailrecurse:                                      ; preds = %59, %2
 16:                                               ; preds = %11
   %17 = and i64 %14, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %19 = load i32, ptr %18, align 8, !tbaa !33
   %20 = icmp slt i32 %19, 5
   br i1 %20, label %21, label %22
 
@@ -232,7 +232,7 @@ tailrecurse:                                      ; preds = %59, %2
   br label %37
 
 28:                                               ; preds = %11
-  %29 = load i32, ptr %13, align 8, !tbaa !32
+  %29 = load i32, ptr %13, align 8, !tbaa !33
   %30 = icmp slt i32 %29, 5
   br i1 %30, label %31, label %32
 
@@ -271,7 +271,7 @@ tailrecurse:                                      ; preds = %59, %2
 46:                                               ; preds = %41
   %47 = and i64 %44, -2
   %48 = inttoptr i64 %47 to ptr
-  %49 = load i32, ptr %48, align 8, !tbaa !32
+  %49 = load i32, ptr %48, align 8, !tbaa !33
   %50 = icmp slt i32 %49, 5
   br i1 %50, label %51, label %52
 
@@ -295,7 +295,7 @@ common.ret99:                                     ; preds = %9, %5, %62, %52, %5
   br label %common.ret99
 
 59:                                               ; preds = %41
-  %60 = load i32, ptr %43, align 8, !tbaa !32
+  %60 = load i32, ptr %43, align 8, !tbaa !33
   %61 = icmp slt i32 %60, 5
   br i1 %61, label %tailrecurse, label %62
 
@@ -318,7 +318,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define void @Rwr_NodePrint(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  %5 = load i32, ptr %2, align 8, !tbaa !32
+  %5 = load i32, ptr %2, align 8, !tbaa !33
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %8 = load i32, ptr %7, align 2
@@ -377,9 +377,9 @@ define void @Rwr_ManPrint(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %20, label %.loopexit
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %9, align 8, !tbaa !33
+  %21 = load ptr, ptr %9, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !tbaa !34
+  %23 = load i8, ptr %22, align 1, !tbaa !35
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %.03042, 1
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.15, i32 noundef %24, i32 noundef %.03042) #7
@@ -460,7 +460,7 @@ Rwr_GetBushVolume.exit:                           ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 40
   %.011.i = load ptr, ptr %53, align 8, !tbaa !26
   %.not.i36 = icmp eq ptr %.011.i, null
-  br i1 %.not.i36, label %Rwr_GetBushSumOfVolumes.exit, label %.lr.ph.i34, !llvm.loop !31
+  br i1 %.not.i36, label %Rwr_GetBushSumOfVolumes.exit, label %.lr.ph.i34, !llvm.loop !32
 
 Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVolume.exit.thread, %Rwr_GetBushVolume.exit
   %.0.lcssa.i49 = phi i32 [ %.1.i, %Rwr_GetBushVolume.exit ], [ 0, %Rwr_GetBushVolume.exit.thread ], [ %.1.i, %52 ]
@@ -493,7 +493,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
 
 68:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  %69 = load i32, ptr %.03141, align 8, !tbaa !32
+  %69 = load i32, ptr %.03141, align 8, !tbaa !33
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7, i32 noundef %69) #7
   %71 = load i32, ptr %59, align 2
   %72 = and i32 %71, 65535
@@ -519,13 +519,13 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   %84 = getelementptr inbounds nuw i8, ptr %.03141, i64 40
   %.031 = load ptr, ptr %84, align 8, !tbaa !26
   %.not32 = icmp eq ptr %.031, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %83, %Rwr_GetBushSumOfVolumes.exit, %15, %10
   %.1 = phi i32 [ %.03042, %10 ], [ %.03042, %15 ], [ %25, %Rwr_GetBushSumOfVolumes.exit ], [ %25, %83 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %85, label %10, !llvm.loop !36
+  br i1 %exitcond.not, label %85, label %10, !llvm.loop !37
 
 85:                                               ; preds = %.loopexit
   %86 = call i32 @fclose(ptr noundef %6)
@@ -585,11 +585,12 @@ attributes #7 = { nounwind }
 !26 = !{!9, !9, i64 0}
 !27 = !{!12, !13, i64 8}
 !28 = !{!8, !8, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!4, !5, i64 0}
-!33 = !{!12, !14, i64 32}
-!34 = !{!6, !6, i64 0}
-!35 = distinct !{!35, !30}
-!36 = distinct !{!36, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = !{!4, !5, i64 0}
+!34 = !{!12, !14, i64 32}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !30, !31}
+!37 = distinct !{!37, !30, !31}

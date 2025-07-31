@@ -522,7 +522,7 @@ rb_scan_args_set.exit:                            ; preds = %30
   %38 = load i64, ptr %5, align 8, !tbaa !6
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !26
+  %41 = load i64, ptr %40, align 8, !tbaa !27
   %.not = icmp eq i64 %41, 8
   br i1 %.not, label %44, label %42
 
@@ -532,7 +532,7 @@ rb_scan_args_set.exit:                            ; preds = %30
   unreachable
 
 44:                                               ; preds = %36
-  %45 = load i64, ptr %39, align 8, !tbaa !10, !noalias !28
+  %45 = load i64, ptr %39, align 8, !tbaa !10, !noalias !29
   %46 = and i64 %45, 8192
   %.not.i.i = icmp eq i64 %46, 0
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -601,7 +601,7 @@ RSTRING_PTR.exit:                                 ; preds = %48, %44, %rb_scan_a
   %75 = call ptr @EVP_CIPHER_CTX_cipher(ptr noundef nonnull %71) #11
   %76 = load i64, ptr %4, align 8, !tbaa !6
   %77 = inttoptr i64 %76 to ptr
-  %78 = load i64, ptr %77, align 8, !tbaa !10, !noalias !31
+  %78 = load i64, ptr %77, align 8, !tbaa !10, !noalias !32
   %79 = and i64 %78, 8192
   %.not.i.i16 = icmp eq i64 %79, 0
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -614,7 +614,7 @@ RSTRING_PTR.exit:                                 ; preds = %48, %44, %rb_scan_a
 RSTRING_PTR.exit19:                               ; preds = %74, %81
   %.sroa.2.0.i18 = phi ptr [ %.sroa.2.0.copyload.i17, %81 ], [ %80, %74 ]
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !26
+  %83 = load i64, ptr %82, align 8, !tbaa !27
   %84 = add i64 %83, 2147483648
   %.not.i.i20 = icmp ult i64 %84, 4294967296
   br i1 %.not.i.i20, label %RSTRING_LENINT.exit, label %85
@@ -702,7 +702,7 @@ rb_scan_args_set.exit:                            ; preds = %15
   %24 = call i64 @rb_string_value(ptr noundef nonnull %5) #11
   %25 = load i64, ptr %5, align 8, !tbaa !6
   %26 = inttoptr i64 %25 to ptr
-  %27 = load i64, ptr %26, align 8, !tbaa !10, !noalias !34
+  %27 = load i64, ptr %26, align 8, !tbaa !10, !noalias !35
   %28 = and i64 %27, 8192
   %.not.i.i = icmp eq i64 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -715,7 +715,7 @@ rb_scan_args_set.exit:                            ; preds = %15
 RSTRING_PTR.exit:                                 ; preds = %23, %30
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %30 ], [ %29, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !26
+  %32 = load i64, ptr %31, align 8, !tbaa !27
   %33 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #11
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %36
@@ -739,7 +739,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %30
   br i1 %16, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = call i64 @rb_str_new(ptr noundef null, i64 noundef %41) #11, !callees !37
+  %43 = call i64 @rb_str_new(ptr noundef null, i64 noundef %41) #11, !callees !38
   store i64 %43, ptr %6, align 8, !tbaa !6
   br label %54
 
@@ -757,7 +757,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %30
 49:                                               ; preds = %44
   %50 = inttoptr i64 %46 to ptr
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !26
+  %52 = load i64, ptr %51, align 8, !tbaa !27
   %53 = sub nsw i64 %41, %52
   call void @rb_str_modify_expand(i64 noundef %46, i64 noundef %53) #11
   br label %54
@@ -765,7 +765,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %30
 54:                                               ; preds = %48, %49, %42
   %55 = load i64, ptr %6, align 8, !tbaa !6
   %56 = inttoptr i64 %55 to ptr
-  %57 = load i64, ptr %56, align 8, !tbaa !10, !noalias !38
+  %57 = load i64, ptr %56, align 8, !tbaa !10, !noalias !39
   %58 = and i64 %57, 8192
   %.not.i.i14 = icmp eq i64 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -804,7 +804,7 @@ RSTRING_PTR.exit17:                               ; preds = %54
   %68 = getelementptr inbounds i8, ptr %.022.us.i, i64 %67
   %69 = add nsw i64 %.024.us.i, -1073741824
   %70 = icmp sgt i64 %.024.us.i, 1073741824
-  br i1 %70, label %.split.us.i, label %.loopexit25, !llvm.loop !41
+  br i1 %70, label %.split.us.i, label %.loopexit25, !llvm.loop !42
 
 .split.i:                                         ; preds = %.split.i.preheader, %75
   %.024.i = phi i64 [ %81, %75 ], [ %32, %.split.i.preheader ]
@@ -826,7 +826,7 @@ RSTRING_PTR.exit17:                               ; preds = %54
   %80 = getelementptr inbounds i8, ptr %.022.i, i64 %79
   %81 = add nsw i64 %.024.i, -1073741824
   %82 = icmp sgt i64 %.024.i, 1073741824
-  br i1 %82, label %.split.i, label %.loopexit25, !llvm.loop !43
+  br i1 %82, label %.split.i, label %.loopexit25, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.split.us.i, %.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
@@ -863,7 +863,7 @@ define internal i64 @ossl_cipher_final(i64 noundef %0) #0 {
   %8 = sext i32 %7 to i64
   %9 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %8) #11
   %10 = inttoptr i64 %9 to ptr
-  %11 = load i64, ptr %10, align 8, !tbaa !10, !noalias !44
+  %11 = load i64, ptr %10, align 8, !tbaa !10, !noalias !45
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -885,7 +885,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %14
   unreachable
 
 18:                                               ; preds = %RSTRING_PTR.exit
-  %19 = load i32, ptr %2, align 4, !tbaa !47
+  %19 = load i32, ptr %2, align 4, !tbaa !48
   %20 = sext i32 %19 to i64
   call void @rb_str_set_len(i64 noundef %9, i64 noundef %20) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
@@ -929,7 +929,7 @@ define internal i64 @ossl_cipher_set_key(i64 noundef %0, i64 noundef %1) #0 {
   %10 = load i64, ptr %3, align 8, !tbaa !6
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !26
+  %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = sext i32 %9 to i64
   %.not6 = icmp eq i64 %13, %14
   br i1 %.not6, label %17, label %15
@@ -940,7 +940,7 @@ define internal i64 @ossl_cipher_set_key(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 17:                                               ; preds = %8
-  %18 = load i64, ptr %11, align 8, !tbaa !10, !noalias !49
+  %18 = load i64, ptr %11, align 8, !tbaa !10, !noalias !50
   %19 = and i64 %18, 8192
   %.not.i.i = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -976,7 +976,7 @@ define internal i64 @ossl_cipher_set_auth_data(i64 noundef %0, i64 noundef %1) #
   %5 = call i64 @rb_string_value(ptr noundef nonnull %4) #11
   %6 = load i64, ptr %4, align 8, !tbaa !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = load i64, ptr %7, align 8, !tbaa !10, !noalias !52
+  %8 = load i64, ptr %7, align 8, !tbaa !10, !noalias !53
   %9 = and i64 %8, 8192
   %.not.i.i = icmp eq i64 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -989,7 +989,7 @@ define internal i64 @ossl_cipher_set_auth_data(i64 noundef %0, i64 noundef %1) #
 RSTRING_PTR.exit:                                 ; preds = %2, %11
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %11 ], [ %10, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !26
+  %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #11
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %17
@@ -1030,7 +1030,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   %29 = getelementptr inbounds i8, ptr %.022.us.i, i64 %28
   %30 = add nsw i64 %.024.us.i, -1073741824
   %31 = icmp sgt i64 %.024.us.i, 1073741824
-  br i1 %31, label %.split.us.i, label %34, !llvm.loop !41
+  br i1 %31, label %.split.us.i, label %34, !llvm.loop !42
 
 32:                                               ; preds = %.split.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
@@ -1051,7 +1051,7 @@ define internal i64 @ossl_cipher_set_auth_tag(i64 noundef %0, i64 noundef %1) #0
   %4 = call i64 @rb_string_value(ptr noundef nonnull %3) #11
   %5 = load i64, ptr %3, align 8, !tbaa !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %6, align 8, !tbaa !10, !noalias !55
+  %7 = load i64, ptr %6, align 8, !tbaa !10, !noalias !56
   %8 = and i64 %7, 8192
   %.not.i.i = icmp eq i64 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1064,7 +1064,7 @@ define internal i64 @ossl_cipher_set_auth_tag(i64 noundef %0, i64 noundef %1) #0
 RSTRING_PTR.exit:                                 ; preds = %2, %10
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %10 ], [ %9, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !26
+  %12 = load i64, ptr %11, align 8, !tbaa !27
   %13 = add i64 %12, 2147483648
   %.not.i.i7 = icmp ult i64 %13, 4294967296
   br i1 %.not.i.i7, label %RSTRING_LENINT.exit, label %14
@@ -1181,9 +1181,9 @@ rb_num2int_inline.exit:                           ; preds = %13, %15
 
 28:                                               ; preds = %22
   %29 = sext i32 %.0 to i64
-  %30 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %29) #11, !callees !37
+  %30 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %29) #11, !callees !38
   %31 = inttoptr i64 %30 to ptr
-  %32 = load i64, ptr %31, align 8, !tbaa !10, !noalias !58
+  %32 = load i64, ptr %31, align 8, !tbaa !10, !noalias !59
   %33 = and i64 %32, 8192
   %.not.i.i = icmp eq i64 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -1381,7 +1381,7 @@ define internal i64 @ossl_cipher_set_iv(i64 noundef %0, i64 noundef %1) #0 {
   %18 = load i64, ptr %3, align 8, !tbaa !6
   %19 = inttoptr i64 %18 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !26
+  %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = sext i32 %.1 to i64
   %.not11 = icmp eq i64 %21, %22
   br i1 %.not11, label %25, label %23
@@ -1392,7 +1392,7 @@ define internal i64 @ossl_cipher_set_iv(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 25:                                               ; preds = %17
-  %26 = load i64, ptr %19, align 8, !tbaa !10, !noalias !61
+  %26 = load i64, ptr %19, align 8, !tbaa !10, !noalias !62
   %27 = and i64 %26, 8192
   %.not.i.i = icmp eq i64 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -1641,7 +1641,7 @@ declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) loca
 define internal void @add_cipher_name_to_ary(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = tail call i64 @rb_str_new_cstr(ptr noundef %5) #11
   %7 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %6) #11
   ret void
@@ -1744,13 +1744,13 @@ rb_scan_args_set.exit:                            ; preds = %25
   %41 = load i64, ptr %8, align 8, !tbaa !6
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !26
+  %44 = load i64, ptr %43, align 8, !tbaa !27
   %45 = icmp slt i64 %44, 16
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #11
-  %47 = load i64, ptr %42, align 8, !tbaa !10, !noalias !67
+  %47 = load i64, ptr %42, align 8, !tbaa !10, !noalias !68
   %48 = and i64 %47, 8192
   %.not.i.i = icmp eq i64 %48, 0
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -1762,11 +1762,11 @@ rb_scan_args_set.exit:                            ; preds = %25
 
 RSTRING_PTR.exit:                                 ; preds = %46, %50
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %50 ], [ %49, %46 ]
-  %51 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.2.0.i, i64 noundef %44, i64 noundef 16) #11, !alias.scope !70
+  %51 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.2.0.i, i64 noundef %44, i64 noundef 16) #11, !alias.scope !71
   br label %57
 
 52:                                               ; preds = %39
-  %53 = load i64, ptr %42, align 8, !tbaa !10, !noalias !74
+  %53 = load i64, ptr %42, align 8, !tbaa !10, !noalias !75
   %54 = and i64 %53, 8192
   %.not.i.i24 = icmp eq i64 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -1786,7 +1786,7 @@ RSTRING_PTR.exit27:                               ; preds = %52, %56
   %59 = call ptr @EVP_md5() #11
   %60 = load i64, ptr %7, align 8, !tbaa !6
   %61 = inttoptr i64 %60 to ptr
-  %62 = load i64, ptr %61, align 8, !tbaa !10, !noalias !77
+  %62 = load i64, ptr %61, align 8, !tbaa !10, !noalias !78
   %63 = and i64 %62, 8192
   %.not.i.i28 = icmp eq i64 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -1799,7 +1799,7 @@ RSTRING_PTR.exit27:                               ; preds = %52, %56
 RSTRING_PTR.exit31:                               ; preds = %57, %65
   %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %65 ], [ %64, %57 ]
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !26
+  %67 = load i64, ptr %66, align 8, !tbaa !27
   %68 = add i64 %67, 2147483648
   %.not.i.i32 = icmp ult i64 %68, 4294967296
   br i1 %.not.i.i32, label %RSTRING_LENINT.exit, label %69
@@ -1969,59 +1969,60 @@ attributes #15 = { cold nounwind }
 !21 = !{!"branch_weights", i32 4001, i32 1}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 long", !18, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !7, i64 16}
-!27 = !{!"RString", !11, i64 0, !7, i64 16, !8, i64 24}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"rbimpl_rstring_getmem: argument 0"}
-!30 = distinct !{!30, !"rbimpl_rstring_getmem"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"rbimpl_rstring_getmem: argument 0"}
-!33 = distinct !{!33, !"rbimpl_rstring_getmem"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
-!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
-!37 = distinct !{ptr @rb_str_new, null}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"rbimpl_rstring_getmem: argument 0"}
-!40 = distinct !{!40, !"rbimpl_rstring_getmem"}
-!41 = distinct !{!41, !25, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !25}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
-!46 = distinct !{!46, !"rbimpl_rstring_getmem"}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"int", !8, i64 0}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"rbimpl_rstring_getmem: argument 0"}
-!51 = distinct !{!51, !"rbimpl_rstring_getmem"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"rbimpl_rstring_getmem: argument 0"}
-!54 = distinct !{!54, !"rbimpl_rstring_getmem"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"rbimpl_rstring_getmem: argument 0"}
-!57 = distinct !{!57, !"rbimpl_rstring_getmem"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"rbimpl_rstring_getmem: argument 0"}
-!60 = distinct !{!60, !"rbimpl_rstring_getmem"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"rbimpl_rstring_getmem: argument 0"}
-!63 = distinct !{!63, !"rbimpl_rstring_getmem"}
-!64 = !{!65, !66, i64 8}
-!65 = !{!"obj_name_st", !48, i64 0, !48, i64 4, !66, i64 8, !66, i64 16}
-!66 = !{!"p1 omnipotent char", !18, i64 0}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"rbimpl_rstring_getmem: argument 0"}
-!69 = distinct !{!69, !"rbimpl_rstring_getmem"}
-!70 = !{!71, !73}
-!71 = distinct !{!71, !72, !"memcpy.inline: argument 0"}
-!72 = distinct !{!72, !"memcpy.inline"}
-!73 = distinct !{!73, !72, !"memcpy.inline: argument 1"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"rbimpl_rstring_getmem: argument 0"}
-!76 = distinct !{!76, !"rbimpl_rstring_getmem"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"rbimpl_rstring_getmem: argument 0"}
-!79 = distinct !{!79, !"rbimpl_rstring_getmem"}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !7, i64 16}
+!28 = !{!"RString", !11, i64 0, !7, i64 16, !8, i64 24}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
+!31 = distinct !{!31, !"rbimpl_rstring_getmem"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
+!34 = distinct !{!34, !"rbimpl_rstring_getmem"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"rbimpl_rstring_getmem: argument 0"}
+!37 = distinct !{!37, !"rbimpl_rstring_getmem"}
+!38 = distinct !{ptr @rb_str_new, null}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"rbimpl_rstring_getmem: argument 0"}
+!41 = distinct !{!41, !"rbimpl_rstring_getmem"}
+!42 = distinct !{!42, !25, !26, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !25, !26}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"rbimpl_rstring_getmem: argument 0"}
+!47 = distinct !{!47, !"rbimpl_rstring_getmem"}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"int", !8, i64 0}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"rbimpl_rstring_getmem: argument 0"}
+!52 = distinct !{!52, !"rbimpl_rstring_getmem"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"rbimpl_rstring_getmem: argument 0"}
+!55 = distinct !{!55, !"rbimpl_rstring_getmem"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"rbimpl_rstring_getmem: argument 0"}
+!58 = distinct !{!58, !"rbimpl_rstring_getmem"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"rbimpl_rstring_getmem: argument 0"}
+!61 = distinct !{!61, !"rbimpl_rstring_getmem"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"rbimpl_rstring_getmem: argument 0"}
+!64 = distinct !{!64, !"rbimpl_rstring_getmem"}
+!65 = !{!66, !67, i64 8}
+!66 = !{!"obj_name_st", !49, i64 0, !49, i64 4, !67, i64 8, !67, i64 16}
+!67 = !{!"p1 omnipotent char", !18, i64 0}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"rbimpl_rstring_getmem: argument 0"}
+!70 = distinct !{!70, !"rbimpl_rstring_getmem"}
+!71 = !{!72, !74}
+!72 = distinct !{!72, !73, !"memcpy.inline: argument 0"}
+!73 = distinct !{!73, !"memcpy.inline"}
+!74 = distinct !{!74, !73, !"memcpy.inline: argument 1"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"rbimpl_rstring_getmem: argument 0"}
+!77 = distinct !{!77, !"rbimpl_rstring_getmem"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"rbimpl_rstring_getmem: argument 0"}
+!80 = distinct !{!80, !"rbimpl_rstring_getmem"}

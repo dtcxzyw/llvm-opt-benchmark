@@ -82,7 +82,7 @@ define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) loca
   %38 = add i32 %33, 3
   %39 = and i32 %38, -4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !18
+  store i32 %39, ptr %40, align 4, !tbaa !19
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %.lr.ph, %._crit_edge, %17, %24, %20, %8, %1
@@ -117,16 +117,16 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !18
+  %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = add i32 %11, -4
   %13 = zext i32 %12 to i64
   %14 = lshr i32 %12, 2
   %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %1, align 1, !tbaa !19
+  store i8 %15, ptr %1, align 1, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 0, ptr %16, align 1, !tbaa !19
+  store i8 0, ptr %16, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 2, ptr %3, align 8, !tbaa !20
+  store i64 2, ptr %3, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !11
   %.not = icmp eq i64 %18, -1
@@ -138,9 +138,9 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br i1 %.not55, label %21, label %.loopexit
 
 21:                                               ; preds = %19
-  %22 = load i8, ptr %16, align 1, !tbaa !19
+  %22 = load i8, ptr %16, align 1, !tbaa !20
   %23 = or i8 %22, 64
-  store i8 %23, ptr %16, align 1, !tbaa !19
+  store i8 %23, ptr %16, align 1, !tbaa !20
   br label %24
 
 24:                                               ; preds = %21, %9
@@ -154,9 +154,9 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br i1 %.not57, label %28, label %.loopexit
 
 28:                                               ; preds = %26
-  %29 = load i8, ptr %16, align 1, !tbaa !19
+  %29 = load i8, ptr %16, align 1, !tbaa !20
   %30 = or i8 %29, -128
-  store i8 %30, ptr %16, align 1, !tbaa !19
+  store i8 %30, ptr %16, align 1, !tbaa !20
   br label %31
 
 31:                                               ; preds = %28, %24
@@ -188,14 +188,14 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   %46 = getelementptr inbounds nuw %struct.lzma_filter, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %.not59 = icmp eq i64 %47, -1
-  br i1 %.not59, label %48, label %.preheader, !llvm.loop !21
+  br i1 %.not59, label %48, label %.preheader, !llvm.loop !22
 
 48:                                               ; preds = %43
-  %49 = load i8, ptr %16, align 1, !tbaa !19
+  %49 = load i8, ptr %16, align 1, !tbaa !20
   %50 = trunc i64 %.045 to i8
   %51 = or i8 %49, %50
-  store i8 %51, ptr %16, align 1, !tbaa !19
-  %52 = load i64, ptr %3, align 8, !tbaa !20
+  store i8 %51, ptr %16, align 1, !tbaa !20
+  %52 = load i64, ptr %3, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %52
   %54 = sub i64 %13, %52
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %54, i1 false)
@@ -255,9 +255,10 @@ attributes #6 = { nounwind }
 !13 = !{!5, !10, i64 32}
 !14 = !{!15, !9, i64 0}
 !15 = !{!"", !9, i64 0, !10, i64 8}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!5, !6, i64 4}
-!19 = !{!7, !7, i64 0}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!5, !6, i64 4}
+!20 = !{!7, !7, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = distinct !{!22, !17, !18}

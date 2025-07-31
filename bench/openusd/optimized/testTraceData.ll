@@ -399,7 +399,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit17
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEED2Ev.exit36
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.037.042, i64 8
   %.not = icmp eq ptr %56, %54
-  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit17, %55
   %.sroa.037.042 = phi ptr [ %56, %55 ], [ %52, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit17 ]
@@ -1050,7 +1050,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %150 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i) #18
   %151 = add nuw nsw i64 %.06.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq ptr %150, %149
-  br i1 %.not.i.i.i.i, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit: ; preds = %.lr.ph.i.i.i.i
   %152 = icmp eq i64 %.06.i.i.i.i, 0
@@ -1164,7 +1164,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %184 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i100) #18
   %185 = add nuw nsw i64 %.06.i.i.i.i99, 1
   %.not.i.i.i.i101 = icmp eq ptr %184, %183
-  br i1 %.not.i.i.i.i101, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit104, label %.lr.ph.i.i.i.i98, !llvm.loop !18
+  br i1 %.not.i.i.i.i101, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit104, label %.lr.ph.i.i.i.i98, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit104: ; preds = %.lr.ph.i.i.i.i98
   %186 = icmp eq i64 %.06.i.i.i.i99, 0
@@ -1278,7 +1278,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %218 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i118) #18
   %219 = add nuw nsw i64 %.06.i.i.i.i117, 1
   %.not.i.i.i.i119 = icmp eq ptr %218, %217
-  br i1 %.not.i.i.i.i119, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit122, label %.lr.ph.i.i.i.i116, !llvm.loop !18
+  br i1 %.not.i.i.i.i119, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit122, label %.lr.ph.i.i.i.i116, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit122: ; preds = %.lr.ph.i.i.i.i116
   %220 = icmp eq i64 %.06.i.i.i.i117, 0
@@ -1583,7 +1583,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %319 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i173) #18
   %320 = add nuw nsw i64 %.06.i.i.i.i172, 1
   %.not.i.i.i.i174 = icmp eq ptr %319, %318
-  br i1 %.not.i.i.i.i174, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit177, label %.lr.ph.i.i.i.i171, !llvm.loop !18
+  br i1 %.not.i.i.i.i174, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit177, label %.lr.ph.i.i.i.i171, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit177: ; preds = %.lr.ph.i.i.i.i171
   %321 = icmp eq i64 %.06.i.i.i.i172, 0
@@ -1748,7 +1748,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %370 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i197) #18
   %371 = add nuw nsw i64 %.06.i.i.i.i196, 1
   %.not.i.i.i.i198 = icmp eq ptr %370, %369
-  br i1 %.not.i.i.i.i198, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit201, label %.lr.ph.i.i.i.i195, !llvm.loop !18
+  br i1 %.not.i.i.i.i198, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit201, label %.lr.ph.i.i.i.i195, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit201: ; preds = %.lr.ph.i.i.i.i195
   %372 = icmp eq i64 %.06.i.i.i.i196, 0
@@ -1862,7 +1862,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %404 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i215) #18
   %405 = add nuw nsw i64 %.06.i.i.i.i214, 1
   %.not.i.i.i.i216 = icmp eq ptr %404, %403
-  br i1 %.not.i.i.i.i216, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit219, label %.lr.ph.i.i.i.i213, !llvm.loop !18
+  br i1 %.not.i.i.i.i216, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit219, label %.lr.ph.i.i.i.i213, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit219: ; preds = %.lr.ph.i.i.i.i213
   %406 = icmp eq i64 %.06.i.i.i.i214, 0
@@ -2219,7 +2219,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %522 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i285) #18
   %523 = add nuw nsw i64 %.06.i.i.i.i284, 1
   %.not.i.i.i.i286 = icmp eq ptr %522, %521
-  br i1 %.not.i.i.i.i286, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit289, label %.lr.ph.i.i.i.i283, !llvm.loop !18
+  br i1 %.not.i.i.i.i286, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit289, label %.lr.ph.i.i.i.i283, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit289: ; preds = %.lr.ph.i.i.i.i283
   %524 = icmp eq i64 %.06.i.i.i.i284, 0
@@ -2333,7 +2333,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %556 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i303) #18
   %557 = add nuw nsw i64 %.06.i.i.i.i302, 1
   %.not.i.i.i.i304 = icmp eq ptr %556, %555
-  br i1 %.not.i.i.i.i304, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit307, label %.lr.ph.i.i.i.i301, !llvm.loop !18
+  br i1 %.not.i.i.i.i304, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit307, label %.lr.ph.i.i.i.i301, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit307: ; preds = %.lr.ph.i.i.i.i301
   %558 = icmp eq i64 %.06.i.i.i.i302, 0
@@ -2447,7 +2447,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %590 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i321) #18
   %591 = add nuw nsw i64 %.06.i.i.i.i320, 1
   %.not.i.i.i.i322 = icmp eq ptr %590, %589
-  br i1 %.not.i.i.i.i322, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit325, label %.lr.ph.i.i.i.i319, !llvm.loop !18
+  br i1 %.not.i.i.i.i322, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit325, label %.lr.ph.i.i.i.i319, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit325: ; preds = %.lr.ph.i.i.i.i319
   %592 = icmp eq i64 %.06.i.i.i.i320, 0
@@ -2770,7 +2770,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %692 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i377) #18
   %693 = add nuw nsw i64 %.06.i.i.i.i376, 1
   %.not.i.i.i.i378 = icmp eq ptr %692, %691
-  br i1 %.not.i.i.i.i378, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit381, label %.lr.ph.i.i.i.i375, !llvm.loop !18
+  br i1 %.not.i.i.i.i378, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit381, label %.lr.ph.i.i.i.i375, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit381: ; preds = %.lr.ph.i.i.i.i375
   %694 = icmp eq i64 %.06.i.i.i.i376, 0
@@ -2935,7 +2935,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %743 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i401) #18
   %744 = add nuw nsw i64 %.06.i.i.i.i400, 1
   %.not.i.i.i.i402 = icmp eq ptr %743, %742
-  br i1 %.not.i.i.i.i402, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit405, label %.lr.ph.i.i.i.i399, !llvm.loop !18
+  br i1 %.not.i.i.i.i402, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit405, label %.lr.ph.i.i.i.i399, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit405: ; preds = %.lr.ph.i.i.i.i399
   %745 = icmp eq i64 %.06.i.i.i.i400, 0
@@ -3049,7 +3049,7 @@ _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventData
   %777 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i.i.i419) #18
   %778 = add nuw nsw i64 %.06.i.i.i.i418, 1
   %.not.i.i.i.i420 = icmp eq ptr %777, %776
-  br i1 %.not.i.i.i.i420, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit423, label %.lr.ph.i.i.i.i417, !llvm.loop !18
+  br i1 %.not.i.i.i.i420, label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit423, label %.lr.ph.i.i.i.i417, !llvm.loop !20
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE5countERS6_.exit423: ; preds = %.lr.ph.i.i.i.i417
   %779 = icmp eq i64 %.06.i.i.i.i418, 0
@@ -4591,7 +4591,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
   %99 = getelementptr inbounds nuw i8, ptr %.016.i, i64 %.sink.i
   %.1.i = load ptr, ptr %99, align 8
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit28.thread
   %.08.lcssa.i = phi ptr [ %.063, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit28.thread ], [ %.19.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread.i ]
@@ -4662,7 +4662,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
   %131 = getelementptr inbounds nuw i8, ptr %.016.i31, i64 %.sink.i37
   %.1.i39 = load ptr, ptr %131, align 8
   %.not.i40 = icmp eq ptr %.1.i39, null
-  br i1 %.not.i40, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i30, !llvm.loop !21
+  br i1 %.not.i40, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i30, !llvm.loop !23
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread48: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit28, %40, %44, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit, %12, %16
   %.sink = phi i64 [ 24, %16 ], [ 24, %12 ], [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit ], [ 16, %44 ], [ 16, %40 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit28 ]
@@ -4670,7 +4670,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
   %132 = getelementptr inbounds nuw i8, ptr %.063, i64 %.sink
   %.0 = load ptr, ptr %132, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph, !llvm.loop !24
 
 _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread48, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread11.i36, %2, %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit
   %.sroa.046.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread11.i36 ], [ %.123, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread48 ]
@@ -4757,7 +4757,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
   %37 = getelementptr inbounds nuw i8, ptr %.016.i, i64 %.sink.i
   %.1.i = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS3_.exit: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread.i
   %38 = icmp eq ptr %.19.i, %5
@@ -4884,7 +4884,9 @@ attributes #18 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !17, !"_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv: argument 0"}
 !17 = distinct !{!17, !"_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv"}
 !18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !21, !19}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21, !19}
+!23 = distinct !{!23, !21, !19}
+!24 = distinct !{!24, !21, !19}

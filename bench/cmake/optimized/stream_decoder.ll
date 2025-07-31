@@ -397,7 +397,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   %139 = and i64 %138, 3
   store i64 %139, ptr %14, align 8, !tbaa !33
   %exitcond.not = icmp eq i64 %136, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 140:                                              ; preds = %.lr.ph
   %141 = load i64, ptr %14, align 8, !tbaa !33
@@ -423,7 +423,7 @@ stream_decoder_reset.exit.thread:                 ; preds = %144
 
 .backedge:                                        ; preds = %stream_decoder_reset.exit.thread, %102, %67
   %.be = phi i32 [ 4, %67 ], [ 1, %102 ], [ 0, %stream_decoder_reset.exit.thread ]
-  br label %34
+  br label %34, !llvm.loop !49
 
 .thread:                                          ; preds = %144, %45, %93, %97, %53, %105, %34, %108, %103, %72, %58, %36, %55, %40, %42, %.thread199, %.thread189, %._crit_edge, %142, %128
   %.6 = phi i32 [ %131, %128 ], [ 9, %142 ], [ 0, %._crit_edge ], [ %.10.ph, %.thread189 ], [ %.15.ph, %.thread199 ], [ %spec.select, %42 ], [ %41, %40 ], [ 5, %144 ], [ 2, %45 ], [ %101, %97 ], [ %96, %93 ], [ 3, %53 ], [ %107, %105 ], [ 11, %34 ], [ 0, %108 ], [ 0, %103 ], [ 0, %72 ], [ 0, %58 ], [ 0, %36 ], [ 4, %55 ]
@@ -487,9 +487,9 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = tail call i32 @lzma_stream_decoder_init(ptr noundef %7, ptr noundef %9, i64 noundef %1, i32 noundef %2)
   %.not16.not = icmp eq i32 %10, 0
   br i1 %.not16.not, label %12, label %11
@@ -499,11 +499,11 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
   br label %16
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %6, align 8, !tbaa !47
+  %13 = load ptr, ptr %6, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store i8 1, ptr %14, align 8, !tbaa !52
+  store i8 1, ptr %14, align 8, !tbaa !55
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 99
-  store i8 1, ptr %15, align 1, !tbaa !52
+  store i8 1, ptr %15, align 1, !tbaa !55
   br label %16
 
 16:                                               ; preds = %11, %3, %12
@@ -627,9 +627,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !44 = !{!12, !6, i64 8}
 !45 = !{!12, !9, i64 112}
 !46 = !{!15, !9, i64 8}
-!47 = !{!48, !50, i64 56}
-!48 = !{!"", !49, i64 0, !9, i64 8, !9, i64 16, !49, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !50, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
-!49 = !{!"p1 omnipotent char", !6, i64 0}
-!50 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
-!51 = !{!48, !6, i64 48}
-!52 = !{!17, !17, i64 0}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !48}
+!50 = !{!51, !53, i64 56}
+!51 = !{!"", !52, i64 0, !9, i64 8, !9, i64 16, !52, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !53, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
+!52 = !{!"p1 omnipotent char", !6, i64 0}
+!53 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
+!54 = !{!51, !6, i64 48}
+!55 = !{!17, !17, i64 0}

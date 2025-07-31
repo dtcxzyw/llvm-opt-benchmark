@@ -7328,7 +7328,7 @@ _ZN7QStringD2Ev.exit594:                          ; preds = %766, %_ZN17QArrayDa
   %773 = getelementptr inbounds nuw i8, ptr %.0661063, i64 8
   %774 = load ptr, ptr %773, align 8
   %.not121 = icmp eq ptr %774, null
-  br i1 %.not121, label %._crit_edge1066, label %.lr.ph1065, !llvm.loop !17
+  br i1 %.not121, label %._crit_edge1066, label %.lr.ph1065, !llvm.loop !18
 
 ._crit_edge1066:                                  ; preds = %772, %752
   %775 = load ptr, ptr %80, align 8
@@ -8682,7 +8682,7 @@ define noundef ptr @_ZN22SCTPAssocAnalyseDialog18findAssocForPacketEP13_capture_
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @sctp_stat_get_info()
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i8, ptr %7, align 8, !range !18, !noundef !19
+  %8 = load i8, ptr %7, align 8, !range !19, !noundef !20
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %12
 
@@ -8724,7 +8724,7 @@ define noundef ptr @_ZN22SCTPAssocAnalyseDialog18findAssocForPacketEP13_capture_
   %28 = getelementptr inbounds nuw i8, ptr %.02945, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not33 = icmp eq ptr %29, null
-  br i1 %.not33, label %._crit_edge, label %22, !llvm.loop !20
+  br i1 %.not33, label %._crit_edge, label %22, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph49
   %30 = getelementptr inbounds nuw i8, ptr %.02747, i64 8
@@ -11921,7 +11921,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QWidgetFbvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !19
+  %17 = load ptr, ptr %16, align 8, !nosanitize !20
   br label %_ZN9QtPrivate15FunctionPointerIM7QWidgetFbvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -12004,9 +12004,10 @@ attributes #13 = { builtin nounwind }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN7QObject7connectIM16QDialogButtonBoxFvP15QAbstractButtonEM7QWidgetFbvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
 !14 = distinct !{!14, !"_ZN7QObject7connectIM16QDialogButtonBoxFvP15QAbstractButtonEM7QWidgetFbvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !16, !17}

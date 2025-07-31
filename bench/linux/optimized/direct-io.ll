@@ -1039,7 +1039,7 @@ define dso_local ptr @__iomap_dio_rw(ptr noundef %0, ptr noundef %1, ptr noundef
 
 355:                                              ; preds = %354
   %356 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %357 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %356, i32 2, ptr nonnull elementtype(i32) %356) #11, !srcloc !46
+  %357 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %356, i32 2, ptr nonnull elementtype(i32) %356) #11, !srcloc !47
   %358 = load volatile ptr, ptr %67, align 8
   %359 = icmp eq ptr %358, null
   br i1 %359, label %.loopexit, label %.preheader
@@ -1052,10 +1052,10 @@ define dso_local ptr @__iomap_dio_rw(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .preheader:                                       ; preds = %355, %.preheader
   call void @blk_io_schedule() #11
-  %363 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %356, i32 2, ptr nonnull elementtype(i32) %356) #11, !srcloc !46
+  %363 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %356, i32 2, ptr nonnull elementtype(i32) %356) #11, !srcloc !47
   %364 = load volatile ptr, ptr %67, align 8
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %365, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %355
   store volatile i32 0, ptr %356, align 8
@@ -1104,7 +1104,7 @@ define internal fastcc void @trace_iomap_dio_rw_queued(ptr noundef %0, i64 nound
           to label %24 [label %4], !srcloc !8
 
 4:                                                ; preds = %3
-  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !48
+  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !49
   %6 = zext i32 %5 to i64
   %7 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %6) #11, !srcloc !10
   %8 = icmp ult i8 %7, 2
@@ -1114,7 +1114,7 @@ define internal fastcc void @trace_iomap_dio_rw_queued(ptr noundef %0, i64 nound
 
 10:                                               ; preds = %4
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !49
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !50
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_iomap_dio_rw_queued, i64 72), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
@@ -1126,7 +1126,7 @@ define internal fastcc void @trace_iomap_dio_rw_queued(ptr noundef %0, i64 nound
   br label %17
 
 17:                                               ; preds = %13, %10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !50
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !51
   %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !14
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -1135,7 +1135,7 @@ define internal fastcc void @trace_iomap_dio_rw_queued(ptr noundef %0, i64 nound
 
 21:                                               ; preds = %17
   %22 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #11, !srcloc !51
+  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #11, !srcloc !52
   tail call void @llvm.write_register.i64(metadata !0, i64 %23)
   br label %24
 
@@ -1635,7 +1635,7 @@ define internal fastcc i64 @iomap_dio_bio_iter(ptr noundef %0, ptr noundef nonnu
 274:                                              ; preds = %270, %271
   %275 = add i64 %178, %214
   %276 = icmp eq i32 %242, 0
-  br i1 %276, label %.loopexit, label %177, !llvm.loop !52
+  br i1 %276, label %.loopexit, label %177, !llvm.loop !53
 
 .loopexit:                                        ; preds = %274, %.thread15
   %277 = phi i64 [ %180, %.thread15 ], [ %230, %274 ]
@@ -1900,13 +1900,14 @@ attributes #14 = { cold nounwind }
 !40 = !{i64 2156399029, i64 2156398838, i64 2156398890, i64 2156398936, i64 2156398964}
 !41 = !{i64 2156399103, i64 2156399132, i64 2156399178, i64 2156399236, i64 2156399290, i64 2156399344, i64 2156399399, i64 2156399430, i64 2156399738, i64 2156399744, i64 2156399791, i64 2156399814, i64 2156399840}
 !42 = !{i64 2156400293, i64 2156400104, i64 2156400154, i64 2156400200, i64 2156400228}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44, !45, !46}
 !44 = !{!"llvm.loop.mustprogress"}
 !45 = !{!"llvm.loop.unroll.disable"}
-!46 = !{i64 2156402621}
-!47 = distinct !{!47, !45}
-!48 = !{i64 2156017592}
-!49 = !{i64 2156020466}
-!50 = !{i64 2156027137}
-!51 = !{i64 2156027296}
-!52 = distinct !{!52, !44, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{i64 2156402621}
+!48 = distinct !{!48, !45, !46}
+!49 = !{i64 2156017592}
+!50 = !{i64 2156020466}
+!51 = !{i64 2156027137}
+!52 = !{i64 2156027296}
+!53 = distinct !{!53, !44, !45, !46}

@@ -384,8 +384,8 @@ define internal range(i32 0, 2) i32 @test_fp(i32 noundef %0) #1 {
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = load i32, ptr %3, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 8, !tbaa !7
+  %8 = load i32, ptr %3, align 16, !tbaa !14
   %9 = tail call fastcc i32 @dofptest(i32 noundef %0, i32 noundef 0, double noundef 0.000000e+00, ptr noundef %7, i32 noundef %8)
   %10 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 228, ptr noundef nonnull @.str.28, i32 noundef %9) #9
   %.not = icmp eq i32 %10, 0
@@ -466,11 +466,11 @@ define internal range(i32 0, 2) i32 @test_zu(i32 noundef %0) #1 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %7 = load i64, ptr %4, align 8, !tbaa !18
   %8 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 79, ptr noundef %6, i64 noundef %7) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 136, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.278, ptr noundef nonnull %2, ptr noundef %10) #9
   %.not = icmp ne i32 %11, 0
   %. = zext i1 %.not to i32
@@ -485,11 +485,11 @@ define internal range(i32 0, 2) i32 @test_j(i32 noundef %0) #1 {
   %4 = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
-  %7 = load i64, ptr %4, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %7 = load i64, ptr %4, align 8, !tbaa !22
   %8 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 79, ptr noundef %6, i64 noundef %7) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 164, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.278, ptr noundef nonnull %2, ptr noundef %10) #9
   %.not = icmp ne i32 %11, 0
   %. = zext i1 %.not to i32
@@ -507,7 +507,7 @@ define dso_local void @test_open_streams() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @test_adjust_streams_tap_level(i32 noundef %0) local_unnamed_addr #4 {
-  store i32 %0, ptr @tap_level, align 4, !tbaa !23
+  store i32 %0, ptr @tap_level, align 4, !tbaa !24
   ret void
 }
 
@@ -518,10 +518,10 @@ define dso_local void @test_close_streams() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local i32 @test_vprintf_stdout(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !24
-  %4 = load i32, ptr @tap_level, align 4, !tbaa !23
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !25
+  %4 = load i32, ptr @tap_level, align 4, !tbaa !24
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.20, i32 noundef %4, ptr noundef nonnull @.str.21) #9
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !24
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !25
   %7 = tail call i32 @vfprintf(ptr noundef %6, ptr noundef %0, ptr noundef %1) #9
   %8 = add nsw i32 %7, %5
   ret i32 %8
@@ -535,10 +535,10 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 
 ; Function Attrs: cold nofree nounwind uwtable
 define dso_local i32 @test_vprintf_stderr(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %4 = load i32, ptr @tap_level, align 4, !tbaa !23
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %4 = load i32, ptr @tap_level, align 4, !tbaa !24
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.20, i32 noundef %4, ptr noundef nonnull @.str.21) #10
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !25
   %7 = tail call i32 @vfprintf(ptr noundef %6, ptr noundef %0, ptr noundef %1) #10
   %8 = add nsw i32 %7, %5
   ret i32 %8
@@ -546,7 +546,7 @@ define dso_local i32 @test_vprintf_stderr(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @test_flush_stdout() local_unnamed_addr #5 {
-  %1 = load ptr, ptr @stdout, align 8, !tbaa !24
+  %1 = load ptr, ptr @stdout, align 8, !tbaa !25
   %2 = tail call i32 @fflush(ptr noundef %1)
   ret i32 %2
 }
@@ -556,17 +556,17 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @test_flush_stderr() local_unnamed_addr #5 {
-  %1 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %1 = load ptr, ptr @stderr, align 8, !tbaa !25
   %2 = tail call i32 @fflush(ptr noundef %1)
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local i32 @test_vprintf_tapout(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !24
-  %4 = load i32, ptr @tap_level, align 4, !tbaa !23
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !25
+  %4 = load i32, ptr @tap_level, align 4, !tbaa !24
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.21) #9
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !24
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !25
   %7 = tail call i32 @vfprintf(ptr noundef %6, ptr noundef %0, ptr noundef %1) #9
   %8 = add nsw i32 %7, %5
   ret i32 %8
@@ -574,10 +574,10 @@ define dso_local i32 @test_vprintf_tapout(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: cold nofree nounwind uwtable
 define dso_local i32 @test_vprintf_taperr(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %4 = load i32, ptr @tap_level, align 4, !tbaa !23
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %4 = load i32, ptr @tap_level, align 4, !tbaa !24
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.21) #10
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !25
   %7 = tail call i32 @vfprintf(ptr noundef %6, ptr noundef %0, ptr noundef %1) #10
   %8 = add nsw i32 %7, %5
   ret i32 %8
@@ -585,14 +585,14 @@ define dso_local i32 @test_vprintf_taperr(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @test_flush_tapout() local_unnamed_addr #5 {
-  %1 = load ptr, ptr @stdout, align 8, !tbaa !24
+  %1 = load ptr, ptr @stdout, align 8, !tbaa !25
   %2 = tail call i32 @fflush(ptr noundef %1)
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @test_flush_taperr() local_unnamed_addr #5 {
-  %1 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %1 = load ptr, ptr @stderr, align 8, !tbaa !25
   %2 = tail call i32 @fflush(ptr noundef %1)
   ret i32 %2
 }
@@ -623,7 +623,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %28 ], [ 0, %5 ]
   %.024.us = phi i32 [ %.1.us, %28 ], [ 1, %5 ]
   %13 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv29
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %3, i32 noundef %4, ptr noundef %14) #9
   %16 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
   %.b22.us = load i1, ptr @justprint, align 4
@@ -631,7 +631,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
 
 17:                                               ; preds = %.split.us
   %18 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %indvars.iv29
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %19, ptr noundef nonnull %7) #9
   %.not.us = icmp eq i32 %20, 0
   br i1 %.not.us, label %21, label %28
@@ -656,13 +656,13 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   %.1.us = phi i32 [ %.024.us, %26 ], [ %.024.us, %24 ], [ %.024.us, %17 ], [ 0, %21 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 5
-  br i1 %exitcond32.not, label %.split26.us, label %.split.us, !llvm.loop !27
+  br i1 %exitcond32.not, label %.split26.us, label %.split.us, !llvm.loop !28
 
 .split:                                           ; preds = %5, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %5 ]
   %.024 = phi i32 [ %.1, %44 ], [ 1, %5 ]
   %29 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.48, ptr noundef %3, ptr noundef %30) #9
   %32 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
   %.b22 = load i1, ptr @justprint, align 4
@@ -682,7 +682,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
 
 39:                                               ; preds = %.split
   %40 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !26
+  %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %41, ptr noundef nonnull %7) #9
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %43, label %44
@@ -695,7 +695,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   %.1 = phi i32 [ %.024, %35 ], [ %.024, %37 ], [ %.024, %39 ], [ 0, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.split26.us, label %.split, !llvm.loop !29
+  br i1 %exitcond.not, label %.split26.us, label %.split, !llvm.loop !30
 
 .split26.us:                                      ; preds = %44, %28
   %.us-phi = phi i32 [ %.1.us, %28 ], [ %.1, %44 ]
@@ -737,29 +737,30 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !11, i64 8}
-!7 = !{!"pw_st", !8, i64 0, !11, i64 8}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !9, i64 0}
-!13 = !{!7, !8, i64 0}
-!14 = !{!15, !11, i64 8}
-!15 = !{!"z_data_st", !16, i64 0, !11, i64 8, !11, i64 16}
-!16 = !{!"long", !9, i64 0}
-!17 = !{!15, !16, i64 0}
-!18 = !{!15, !11, i64 16}
-!19 = !{!20, !11, i64 8}
-!20 = !{!"j_data_st", !16, i64 0, !11, i64 8, !11, i64 16}
-!21 = !{!20, !16, i64 0}
-!22 = !{!20, !11, i64 16}
-!23 = !{!8, !8, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!26 = !{!11, !11, i64 0}
-!27 = distinct !{!27, !5, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !12, i64 8}
+!8 = !{!"pw_st", !9, i64 0, !12, i64 8}
+!9 = !{!"int", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !10, i64 0}
+!14 = !{!8, !9, i64 0}
+!15 = !{!16, !12, i64 8}
+!16 = !{!"z_data_st", !17, i64 0, !12, i64 8, !12, i64 16}
+!17 = !{!"long", !10, i64 0}
+!18 = !{!16, !17, i64 0}
+!19 = !{!16, !12, i64 16}
+!20 = !{!21, !12, i64 8}
+!21 = !{!"j_data_st", !17, i64 0, !12, i64 8, !12, i64 16}
+!22 = !{!21, !17, i64 0}
+!23 = !{!21, !12, i64 16}
+!24 = !{!9, !9, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!27 = !{!12, !12, i64 0}
+!28 = distinct !{!28, !5, !6, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !5, !6}

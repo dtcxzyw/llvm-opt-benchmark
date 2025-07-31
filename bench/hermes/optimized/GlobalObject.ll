@@ -636,7 +636,7 @@ for.inc.us:                                       ; preds = %if.then.i210.us
   %realEnd.sroa.7.1.idx.us = select i1 %tobool.not.i.i193.us, i64 2, i64 0
   %realEnd.sroa.7.1.us = getelementptr inbounds nuw i8, ptr %realEnd.sroa.7.0.us, i64 %realEnd.sroa.7.1.idx.us
   %realEnd.sroa.0.0.us.be = select i1 %tobool.not.i.i193.us, ptr null, ptr %incdec.ptr.i213.us
-  br label %for.cond.us, !llvm.loop !9
+  br label %for.cond.us, !llvm.loop !10
 
 for.cond.us451.preheader:                         ; preds = %if.end95, %if.else.i182, %if.then.i179
   %sign.0531563591 = phi double [ %sign.0532538, %if.then.i179 ], [ %sign.0532538, %if.else.i182 ], [ %sign.0531, %if.end95 ]
@@ -688,7 +688,7 @@ for.inc.us468:                                    ; preds = %_ZNK6hermes2vm10Str
   %realEnd.sroa.7.1.idx.us470 = select i1 %tobool.not.i.i193.us454, i64 2, i64 0
   %realEnd.sroa.7.1.us471 = getelementptr inbounds nuw i8, ptr %realEnd.sroa.7.0.us452, i64 %realEnd.sroa.7.1.idx.us470
   %realEnd.sroa.0.0.us453.be = select i1 %tobool.not.i.i193.us454, ptr null, ptr %incdec.ptr.i213.us469
-  br label %for.cond.us451, !llvm.loop !11
+  br label %for.cond.us451, !llvm.loop !12
 
 for.end:                                          ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit208.us, %if.then.i210.us, %if.end.i209.us464
   %radix.1.fr574 = phi i32 [ %radix.1.fr575588, %if.end.i209.us464 ], [ %radix.0, %if.then.i210.us ], [ %radix.0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit208.us ]
@@ -1178,7 +1178,7 @@ while.body:                                       ; preds = %_ZNK6hermes2vm10Str
   %begin.sroa.7.1.idx = select i1 %tobool.not.i.i90, i64 2, i64 0
   %begin.sroa.7.1 = getelementptr inbounds nuw i8, ptr %begin.sroa.7.0, i64 %begin.sroa.7.1.idx
   %begin.sroa.0.0.be = select i1 %tobool.not.i.i90, ptr null, ptr %incdec.ptr.i
-  br label %while.cond, !llvm.loop !12
+  br label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit98, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit
   %tobool.not.i.i90.lcssa = phi i1 [ %tobool.not.i.i90, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit98 ], [ false, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread ], [ true, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit ]
@@ -1594,7 +1594,7 @@ if.then106:                                       ; preds = %lor.lhs.false96, %l
   %__begin2.sroa.5.1.idx = select i1 %tobool.not.i.i248, i64 2, i64 0
   %__begin2.sroa.5.1 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.5.0, i64 %__begin2.sroa.5.1.idx
   %__begin2.sroa.0.0.be = select i1 %tobool.not.i.i248, ptr null, ptr %incdec.ptr.i266
-  br label %for.cond
+  br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %lor.lhs.false96, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit257.thread, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit257
   %cmp112 = icmp eq i32 %i.0, 0
@@ -1993,7 +1993,7 @@ for.inc:                                          ; preds = %_ZNK6hermes2vm10Str
   %first2.sroa.4.1 = getelementptr inbounds nuw i8, ptr %first2.sroa.4.0, i64 %first2.sroa.4.1.idx
   %first2.sroa.0.1 = select i1 %tobool.not.i133, ptr null, ptr %incdec.ptr.i145
   %first1.sroa.0.0.be = select i1 %tobool.not.i.i131, ptr null, ptr %incdec.ptr.i
-  br label %for.cond, !llvm.loop !13
+  br label %for.cond, !llvm.loop !15
 
 return:                                           ; preds = %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit138, %entry
   %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.thread ], [ true, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit ], [ false, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit138 ]
@@ -3259,10 +3259,12 @@ attributes #12 = { noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8, !10}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !9, !11}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !8, !9}

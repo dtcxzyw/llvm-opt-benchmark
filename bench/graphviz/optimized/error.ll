@@ -124,9 +124,9 @@ define void @errorv(ptr noundef %0, i32 noundef %1, ptr noundef readonly capture
 32:                                               ; preds = %30
   %33 = load ptr, ptr @stderr, align 8, !tbaa !14
   %34 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 9, i64 1, ptr %33) #13
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 12), align 4, !tbaa !19
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 12), align 4, !tbaa !20
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 12), align 4, !tbaa !19
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @error_info, i64 12), align 4, !tbaa !20
   br label %44
 
 37:                                               ; preds = %30
@@ -152,7 +152,7 @@ define void @errorv(ptr noundef %0, i32 noundef %1, ptr noundef readonly capture
   br i1 %.not33, label %53, label %48
 
 48:                                               ; preds = %46
-  %49 = load i8, ptr %47, align 1, !tbaa !20
+  %49 = load i8, ptr %47, align 1, !tbaa !21
   %.not34 = icmp eq i8 %49, 0
   br i1 %.not34, label %53, label %50
 
@@ -178,7 +178,7 @@ define void @errorv(ptr noundef %0, i32 noundef %1, ptr noundef readonly capture
 61:                                               ; preds = %57
   %62 = load ptr, ptr @stderr, align 8, !tbaa !14
   %63 = tail call ptr @__errno_location() #14
-  %64 = load i32, ptr %63, align 4, !tbaa !21
+  %64 = load i32, ptr %63, align 4, !tbaa !22
   %65 = tail call ptr @strerror(i32 noundef %64) #15
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.8, ptr noundef %65) #12
   br label %67
@@ -250,7 +250,7 @@ define void @errorf(ptr noundef %0, ptr noundef readnone captures(address_is_nul
   br i1 %or.cond, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !22
+  %9 = load ptr, ptr %0, align 8, !tbaa !23
   br label %10
 
 10:                                               ; preds = %4, %8
@@ -311,9 +311,10 @@ attributes #17 = { noreturn nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !16 = !{!4, !5, i64 4}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!4, !5, i64 12}
-!20 = !{!6, !6, i64 0}
-!21 = !{!5, !5, i64 0}
-!22 = !{!8, !8, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!4, !5, i64 12}
+!21 = !{!6, !6, i64 0}
+!22 = !{!5, !5, i64 0}
+!23 = !{!8, !8, i64 0}

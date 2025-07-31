@@ -739,7 +739,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
 
 92:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !70
+  %94 = load ptr, ptr %93, align 8, !tbaa !71
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %91 to i64
   %97 = sub i64 %95, %96
@@ -878,7 +878,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i61: ; preds 
 
 141:                                              ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i61
   %142 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !70
+  %143 = load ptr, ptr %142, align 8, !tbaa !71
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %140 to i64
   %146 = sub i64 %144, %145
@@ -933,7 +933,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit63: ; preds = %_ZSt8_D
 
 162:                                              ; preds = %4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %164 = load ptr, ptr %163, align 8, !tbaa !71
+  %164 = load ptr, ptr %163, align 8, !tbaa !72
   %165 = icmp eq ptr %164, null
   br i1 %2, label %166, label %.critedge
 
@@ -1074,7 +1074,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i80: ; preds 
 
 218:                                              ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i80
   %219 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %220 = load ptr, ptr %219, align 8, !tbaa !70
+  %220 = load ptr, ptr %219, align 8, !tbaa !71
   %221 = ptrtoint ptr %220 to i64
   %222 = ptrtoint ptr %217 to i64
   %223 = sub i64 %221, %222
@@ -1109,27 +1109,27 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit82: ; preds = %_ZSt8_D
 229:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #23
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %231 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !72
-  %232 = load ptr, ptr %230, align 8, !tbaa !22, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %231 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !73
+  %232 = load ptr, ptr %230, align 8, !tbaa !22, !noalias !73
   %.not.i.i83 = icmp eq ptr %232, null
   br i1 %.not.i.i83, label %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %233
 
 233:                                              ; preds = %229
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %235 = atomicrmw add ptr %234, i64 1 monotonic, align 8, !noalias !72
-  %.pre.i.i = load ptr, ptr %230, align 8, !tbaa !22, !noalias !72
+  %235 = atomicrmw add ptr %234, i64 1 monotonic, align 8, !noalias !73
+  %.pre.i.i = load ptr, ptr %230, align 8, !tbaa !22, !noalias !73
   %.pre = load ptr, ptr %168, align 8, !tbaa !25
   br label %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %229, %233
   %236 = phi ptr [ %.pre, %233 ], [ %169, %229 ]
   %237 = phi ptr [ %.pre.i.i, %233 ], [ null, %229 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherE, i64 16), ptr %231, align 8, !tbaa !8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherE, i64 16), ptr %231, align 8, !tbaa !8, !noalias !73
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store ptr %237, ptr %238, align 8, !tbaa !22, !noalias !72
-  store ptr %231, ptr %22, align 8, !tbaa !75, !alias.scope !72
-  store ptr %231, ptr %163, align 8, !tbaa !71
+  store ptr %237, ptr %238, align 8, !tbaa !22, !noalias !73
+  store ptr %231, ptr %22, align 8, !tbaa !76, !alias.scope !73
+  store ptr %231, ptr %163, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #23
   %239 = load ptr, ptr %236, align 8, !tbaa !8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
@@ -1139,8 +1139,8 @@ _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13Ref
 
 242:                                              ; preds = %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %243 = load ptr, ptr %23, align 8, !tbaa !22
-  store ptr null, ptr %22, align 8, !tbaa !75
-  store ptr %231, ptr %24, align 8, !tbaa !77
+  store ptr null, ptr %22, align 8, !tbaa !76
+  store ptr %231, ptr %24, align 8, !tbaa !78
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %245 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %245, ptr %25, align 8, !tbaa !28
@@ -1187,19 +1187,19 @@ _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13Ref
   store i8 0, ptr %260, align 1, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %261 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 1, ptr %261, align 8, !tbaa !79
+  store i8 1, ptr %261, align 8, !tbaa !80
   %262 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i8 0, ptr %262, align 8, !tbaa !79
+  store i8 0, ptr %262, align 8, !tbaa !80
   invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %243, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26)
           to label %263 unwind label %313
 
 263:                                              ; preds = %256
-  %264 = load i8, ptr %262, align 8, !tbaa !79, !range !62, !noundef !63
+  %264 = load i8, ptr %262, align 8, !tbaa !80, !range !62, !noundef !63
   %265 = trunc nuw i8 %264 to i1
   br i1 %265, label %266, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 266:                                              ; preds = %263
-  store i8 0, ptr %262, align 8, !tbaa !79
+  store i8 0, ptr %262, align 8, !tbaa !80
   %267 = load ptr, ptr %26, align 8, !tbaa !32
   %268 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %269 = icmp eq ptr %267, %268
@@ -1219,12 +1219,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit: ; preds = %263, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  %275 = load i8, ptr %261, align 8, !tbaa !79, !range !62, !noundef !63
+  %275 = load i8, ptr %261, align 8, !tbaa !80, !range !62, !noundef !63
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %277, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit86
 
 277:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
-  store i8 0, ptr %261, align 8, !tbaa !79
+  store i8 0, ptr %261, align 8, !tbaa !80
   %278 = load ptr, ptr %25, align 8, !tbaa !32
   %279 = icmp eq ptr %278, %245
   br i1 %279, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84
@@ -1242,7 +1242,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit86
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit86: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i84
-  %284 = load ptr, ptr %24, align 8, !tbaa !81
+  %284 = load ptr, ptr %24, align 8, !tbaa !82
   %.not.i = icmp eq ptr %284, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i
 
@@ -1254,7 +1254,7 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
   br label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit86, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i
-  store ptr null, ptr %24, align 8, !tbaa !81
+  store ptr null, ptr %24, align 8, !tbaa !82
   %288 = load ptr, ptr %23, align 8, !tbaa !22
   %.not.i87 = icmp eq ptr %288, null
   br i1 %.not.i87, label %_ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit, label %289
@@ -1274,7 +1274,7 @@ _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInt
 
 _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit, %289, %293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #23
-  %297 = load ptr, ptr %22, align 8, !tbaa !75
+  %297 = load ptr, ptr %22, align 8, !tbaa !76
   %.not.i88 = icmp eq ptr %297, null
   br i1 %.not.i88, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherESt14default_deleteIS2_EED2Ev.exit, label %298
 
@@ -1318,12 +1318,12 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherESt14default
 313:                                              ; preds = %256
   %314 = landingpad { ptr, i32 }
           cleanup
-  %315 = load i8, ptr %262, align 8, !tbaa !79, !range !62, !noundef !63
+  %315 = load i8, ptr %262, align 8, !tbaa !80, !range !62, !noundef !63
   %316 = trunc nuw i8 %315 to i1
   br i1 %316, label %317, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92
 
 317:                                              ; preds = %313
-  store i8 0, ptr %262, align 8, !tbaa !79
+  store i8 0, ptr %262, align 8, !tbaa !80
   %318 = load ptr, ptr %26, align 8, !tbaa !32
   %319 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %320 = icmp eq ptr %318, %319
@@ -1343,12 +1343,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92: ; preds = %313, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i90
-  %326 = load i8, ptr %261, align 8, !tbaa !79, !range !62, !noundef !63
+  %326 = load i8, ptr %261, align 8, !tbaa !80, !range !62, !noundef !63
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %328, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit95
 
 328:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92
-  store i8 0, ptr %261, align 8, !tbaa !79
+  store i8 0, ptr %261, align 8, !tbaa !80
   %329 = load ptr, ptr %25, align 8, !tbaa !32
   %330 = icmp eq ptr %329, %245
   br i1 %330, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i93
@@ -1367,7 +1367,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i94, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92, %311
   %.pn28 = phi { ptr, i32 } [ %312, %311 ], [ %314, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit92 ], [ %314, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i94 ], [ %314, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i93 ]
-  %335 = load ptr, ptr %24, align 8, !tbaa !81
+  %335 = load ptr, ptr %24, align 8, !tbaa !82
   %.not.i96 = icmp eq ptr %335, null
   br i1 %.not.i96, label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit98, label %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i97
 
@@ -1379,7 +1379,7 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
   br label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit98
 
 _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit98: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit95, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i97
-  store ptr null, ptr %24, align 8, !tbaa !81
+  store ptr null, ptr %24, align 8, !tbaa !82
   %339 = load ptr, ptr %23, align 8, !tbaa !22
   %.not.i99 = icmp eq ptr %339, null
   br i1 %.not.i99, label %_ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit100, label %340
@@ -1426,7 +1426,7 @@ _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit100: ; 
   %354 = load ptr, ptr %353, align 8
   call void %354(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.0") align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %350)
   %355 = load ptr, ptr %28, align 8, !tbaa !22
-  %356 = load ptr, ptr %163, align 8, !tbaa !71
+  %356 = load ptr, ptr %163, align 8, !tbaa !72
   invoke void @_ZN32grpc_tls_certificate_distributor26CancelTlsCertificatesWatchEPNS_31TlsCertificatesWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(160) %355, ptr noundef %356)
           to label %357 unwind label %367
 
@@ -1450,7 +1450,7 @@ _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit100: ; 
 
 _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit102: ; preds = %357, %359, %363
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #23
-  store ptr null, ptr %163, align 8, !tbaa !71
+  store ptr null, ptr %163, align 8, !tbaa !72
   br label %378
 
 367:                                              ; preds = %.critedge41
@@ -1479,7 +1479,7 @@ _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit104: ; 
 
 378:                                              ; preds = %166, %.critedge, %_ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit102, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit82, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherESt14default_deleteIS2_EED2Ev.exit
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %380 = load ptr, ptr %379, align 8, !tbaa !82
+  %380 = load ptr, ptr %379, align 8, !tbaa !83
   %381 = icmp eq ptr %380, null
   br i1 %3, label %382, label %.critedge43
 
@@ -1596,7 +1596,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i117: ; preds
 
 424:                                              ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i117
   %425 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %426 = load ptr, ptr %425, align 8, !tbaa !70
+  %426 = load ptr, ptr %425, align 8, !tbaa !71
   %427 = ptrtoint ptr %426 to i64
   %428 = ptrtoint ptr %423 to i64
   %429 = sub i64 %427, %428
@@ -1652,27 +1652,27 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit119: ; preds = %_ZSt8_
 445:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #23
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %447 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !83
-  %448 = load ptr, ptr %446, align 8, !tbaa !22, !noalias !83
+  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  %447 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !84
+  %448 = load ptr, ptr %446, align 8, !tbaa !22, !noalias !84
   %.not.i.i122 = icmp eq ptr %448, null
   br i1 %.not.i.i122, label %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %449
 
 449:                                              ; preds = %445
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  %451 = atomicrmw add ptr %450, i64 1 monotonic, align 8, !noalias !83
-  %.pre.i.i123 = load ptr, ptr %446, align 8, !tbaa !22, !noalias !83
+  %451 = atomicrmw add ptr %450, i64 1 monotonic, align 8, !noalias !84
+  %.pre.i.i123 = load ptr, ptr %446, align 8, !tbaa !22, !noalias !84
   %.pre170 = load ptr, ptr %384, align 8, !tbaa !25
   br label %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %445, %449
   %452 = phi ptr [ %.pre170, %449 ], [ %385, %445 ]
   %453 = phi ptr [ %.pre.i.i123, %449 ], [ null, %445 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherE, i64 16), ptr %447, align 8, !tbaa !8, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherE, i64 16), ptr %447, align 8, !tbaa !8, !noalias !84
   %454 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  store ptr %453, ptr %454, align 8, !tbaa !22, !noalias !83
-  store ptr %447, ptr %34, align 8, !tbaa !86, !alias.scope !83
-  store ptr %447, ptr %379, align 8, !tbaa !82
+  store ptr %453, ptr %454, align 8, !tbaa !22, !noalias !84
+  store ptr %447, ptr %34, align 8, !tbaa !87, !alias.scope !84
+  store ptr %447, ptr %379, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #23
   %455 = load ptr, ptr %452, align 8, !tbaa !8
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
@@ -1682,10 +1682,10 @@ _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_1
 
 458:                                              ; preds = %_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %459 = load ptr, ptr %35, align 8, !tbaa !22
-  store ptr null, ptr %34, align 8, !tbaa !86
-  store ptr %447, ptr %36, align 8, !tbaa !77
+  store ptr null, ptr %34, align 8, !tbaa !87
+  store ptr %447, ptr %36, align 8, !tbaa !78
   %460 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store i8 0, ptr %460, align 8, !tbaa !79
+  store i8 0, ptr %460, align 8, !tbaa !80
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %462 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %462, ptr %38, align 8, !tbaa !28
@@ -1732,17 +1732,17 @@ _ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_1
   store i8 0, ptr %477, align 1, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   %478 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store i8 1, ptr %478, align 8, !tbaa !79
+  store i8 1, ptr %478, align 8, !tbaa !80
   invoke void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %459, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38)
           to label %479 unwind label %529
 
 479:                                              ; preds = %473
-  %480 = load i8, ptr %478, align 8, !tbaa !79, !range !62, !noundef !63
+  %480 = load i8, ptr %478, align 8, !tbaa !80, !range !62, !noundef !63
   %481 = trunc nuw i8 %480 to i1
   br i1 %481, label %482, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit130
 
 482:                                              ; preds = %479
-  store i8 0, ptr %478, align 8, !tbaa !79
+  store i8 0, ptr %478, align 8, !tbaa !80
   %483 = load ptr, ptr %38, align 8, !tbaa !32
   %484 = icmp eq ptr %483, %462
   br i1 %484, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i128
@@ -1760,12 +1760,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit130
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit130: ; preds = %479, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i128
-  %489 = load i8, ptr %460, align 8, !tbaa !79, !range !62, !noundef !63
+  %489 = load i8, ptr %460, align 8, !tbaa !80, !range !62, !noundef !63
   %490 = trunc nuw i8 %489 to i1
   br i1 %490, label %491, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit133
 
 491:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit130
-  store i8 0, ptr %460, align 8, !tbaa !79
+  store i8 0, ptr %460, align 8, !tbaa !80
   %492 = load ptr, ptr %37, align 8, !tbaa !32
   %493 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %494 = icmp eq ptr %492, %493
@@ -1785,7 +1785,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit133
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit133: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i131
-  %500 = load ptr, ptr %36, align 8, !tbaa !81
+  %500 = load ptr, ptr %36, align 8, !tbaa !82
   %.not.i134 = icmp eq ptr %500, null
   br i1 %.not.i134, label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit136, label %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i135
 
@@ -1797,7 +1797,7 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
   br label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit136
 
 _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit136: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit133, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i135
-  store ptr null, ptr %36, align 8, !tbaa !81
+  store ptr null, ptr %36, align 8, !tbaa !82
   %504 = load ptr, ptr %35, align 8, !tbaa !22
   %.not.i137 = icmp eq ptr %504, null
   br i1 %.not.i137, label %_ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit138, label %505
@@ -1817,7 +1817,7 @@ _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInt
 
 _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit138: ; preds = %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit136, %505, %509
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #23
-  %513 = load ptr, ptr %34, align 8, !tbaa !86
+  %513 = load ptr, ptr %34, align 8, !tbaa !87
   %.not.i139 = icmp eq ptr %513, null
   br i1 %.not.i139, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherESt14default_deleteIS2_EED2Ev.exit, label %514
 
@@ -1861,12 +1861,12 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherESt14def
 529:                                              ; preds = %473
   %530 = landingpad { ptr, i32 }
           cleanup
-  %531 = load i8, ptr %478, align 8, !tbaa !79, !range !62, !noundef !63
+  %531 = load i8, ptr %478, align 8, !tbaa !80, !range !62, !noundef !63
   %532 = trunc nuw i8 %531 to i1
   br i1 %532, label %533, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit143
 
 533:                                              ; preds = %529
-  store i8 0, ptr %478, align 8, !tbaa !79
+  store i8 0, ptr %478, align 8, !tbaa !80
   %534 = load ptr, ptr %38, align 8, !tbaa !32
   %535 = icmp eq ptr %534, %462
   br i1 %535, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i142, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i141
@@ -1885,12 +1885,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit143: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i142, %529, %527
   %.pn34 = phi { ptr, i32 } [ %528, %527 ], [ %530, %529 ], [ %530, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i142 ], [ %530, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i141 ]
-  %540 = load i8, ptr %460, align 8, !tbaa !79, !range !62, !noundef !63
+  %540 = load i8, ptr %460, align 8, !tbaa !80, !range !62, !noundef !63
   %541 = trunc nuw i8 %540 to i1
   br i1 %541, label %542, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit146
 
 542:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit143
-  store i8 0, ptr %460, align 8, !tbaa !79
+  store i8 0, ptr %460, align 8, !tbaa !80
   %543 = load ptr, ptr %37, align 8, !tbaa !32
   %544 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %545 = icmp eq ptr %543, %544
@@ -1910,7 +1910,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit146
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit146: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit143, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i144
-  %551 = load ptr, ptr %36, align 8, !tbaa !81
+  %551 = load ptr, ptr %36, align 8, !tbaa !82
   %.not.i147 = icmp eq ptr %551, null
   br i1 %.not.i147, label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit149, label %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i148
 
@@ -1922,7 +1922,7 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
   br label %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit149
 
 _ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit149: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit146, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i148
-  store ptr null, ptr %36, align 8, !tbaa !81
+  store ptr null, ptr %36, align 8, !tbaa !82
   %555 = load ptr, ptr %35, align 8, !tbaa !22
   %.not.i150 = icmp eq ptr %555, null
   br i1 %.not.i150, label %_ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit151, label %556
@@ -1969,7 +1969,7 @@ _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit151: ; 
   %570 = load ptr, ptr %569, align 8
   call void %570(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.0") align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %566)
   %571 = load ptr, ptr %40, align 8, !tbaa !22
-  %572 = load ptr, ptr %379, align 8, !tbaa !82
+  %572 = load ptr, ptr %379, align 8, !tbaa !83
   invoke void @_ZN32grpc_tls_certificate_distributor26CancelTlsCertificatesWatchEPNS_31TlsCertificatesWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(160) %571, ptr noundef %572)
           to label %573 unwind label %583
 
@@ -1993,7 +1993,7 @@ _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit151: ; 
 
 _ZN9grpc_core13RefCountedPtrI32grpc_tls_certificate_distributorED2Ev.exit153: ; preds = %573, %575, %579
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #23
-  store ptr null, ptr %379, align 8, !tbaa !82
+  store ptr null, ptr %379, align 8, !tbaa !83
   br label %_ZNSt14_Optional_baseIN4absl12lts_202407226StatusELb0ELb0EED2Ev.exit65
 
 583:                                              ; preds = %.critedge45
@@ -2039,7 +2039,7 @@ define linkonce_odr void @_ZNSt6vectorIN9grpc_core13StringMatcherESaIS1_EED2Ev(p
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %16, %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %6 = load ptr, ptr %5, align 8, !tbaa !89
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i
 
@@ -2049,7 +2049,7 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.
   br label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %5, align 8, !tbaa !88
+  store ptr null, ptr %5, align 8, !tbaa !89
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
@@ -2072,7 +2072,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !51
@@ -2106,32 +2106,32 @@ define void @_ZN9grpc_core22XdsCertificateProviderC2ENS_13RefCountedPtrI29grpc_t
   store i64 1, ptr %12, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN9grpc_core22XdsCertificateProviderE, i64 16), ptr %0, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %14 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #21
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %15, i8 0, i64 96, i1 false), !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %15, i8 0, i64 96, i1 false), !noalias !92
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 1, ptr %16, align 8, !tbaa !3, !noalias !91
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %14, align 8, !tbaa !8, !noalias !91
+  store i64 1, ptr %16, align 8, !tbaa !3, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %14, align 8, !tbaa !8, !noalias !92
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !91
-  store ptr %18, ptr %19, align 8, !tbaa !13, !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !92
+  store ptr %18, ptr %19, align 8, !tbaa !13, !noalias !92
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr %18, ptr %20, align 8, !tbaa !19, !noalias !91
+  store ptr %18, ptr %20, align 8, !tbaa !19, !noalias !92
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  store ptr null, ptr %23, align 8, !tbaa !20, !noalias !91
+  store ptr null, ptr %23, align 8, !tbaa !20, !noalias !92
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false), !noalias !91
-  store ptr %22, ptr %24, align 8, !tbaa !13, !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false), !noalias !92
+  store ptr %22, ptr %24, align 8, !tbaa !13, !noalias !92
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store ptr %22, ptr %25, align 8, !tbaa !19, !noalias !91
+  store ptr %22, ptr %25, align 8, !tbaa !19, !noalias !92
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  store i64 0, ptr %26, align 8, !tbaa !21, !noalias !91
-  store ptr %14, ptr %13, align 8, !tbaa !22, !alias.scope !91
+  store i64 0, ptr %26, align 8, !tbaa !21, !noalias !92
+  store ptr %14, ptr %13, align 8, !tbaa !22, !alias.scope !92
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %27, align 8, !tbaa !25
   %28 = load ptr, ptr %1, align 8, !tbaa !25
@@ -2502,7 +2502,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFvNS
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt14_Function_baseD2Ev.exit, %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %33, %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i.i ], [ %.pre, %_ZNSt14_Function_baseD2Ev.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
+  %23 = load ptr, ptr %22, align 8, !tbaa !89
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i
 
@@ -2512,7 +2512,7 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.
   br label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  store ptr null, ptr %22, align 8, !tbaa !88
+  store ptr null, ptr %22, align 8, !tbaa !89
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
@@ -2535,7 +2535,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %33, %.pre10
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 _ZSt8_DestroyIPN9grpc_core13StringMatcherES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN9grpc_core13StringMatcherEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %21, align 8, !tbaa !51
@@ -2688,7 +2688,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 define { i64, ptr } @_ZNK9grpc_core22XdsCertificateProvider4typeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZNK9grpc_core22XdsCertificateProvider4typeEvE8kFactory acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %8, !prof !94
+  br i1 %3, label %4, label %8, !prof !95
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK9grpc_core22XdsCertificateProvider4typeEvE8kFactory) #23
@@ -2704,7 +2704,7 @@ define { i64, ptr } @_ZNK9grpc_core22XdsCertificateProvider4typeEv(ptr nonnull r
   br label %8
 
 8:                                                ; preds = %7, %4, %1
-  %9 = load ptr, ptr @_ZZNK9grpc_core22XdsCertificateProvider4typeEvE8kFactory, align 8, !tbaa !95
+  %9 = load ptr, ptr @_ZZNK9grpc_core22XdsCertificateProvider4typeEvE8kFactory, align 8, !tbaa !96
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !35
@@ -2780,7 +2780,7 @@ define linkonce_odr void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_stri
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  store ptr %5, ptr %0, align 8, !tbaa !95
+  store ptr %5, ptr %0, align 8, !tbaa !96
   ret void
 
 23:                                               ; preds = %.noexc.i.i.i, %9
@@ -2899,7 +2899,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit: ; preds = %_
 
 14:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %16 = load ptr, ptr %15, align 8, !tbaa !71
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -2914,7 +2914,7 @@ declare void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !75
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
 
@@ -2942,7 +2942,7 @@ _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEEclEPS
   br label %14
 
 14:                                               ; preds = %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !75
+  store ptr null, ptr %0, align 8, !tbaa !76
   ret void
 }
 
@@ -2956,7 +2956,7 @@ declare void @_ZN32grpc_tls_certificate_distributor26CancelTlsCertificatesWatchE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !86
+  %2 = load ptr, ptr %0, align 8, !tbaa !87
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
 
@@ -2984,7 +2984,7 @@ _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEEc
   br label %14
 
 14:                                               ; preds = %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !86
+  store ptr null, ptr %0, align 8, !tbaa !87
   ret void
 }
 
@@ -3066,7 +3066,7 @@ define linkonce_odr void @_ZN32grpc_tls_certificate_distributorD2Ev(ptr noundef 
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32grpc_tls_certificate_distributor15CertificateInfoESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !98
+  %9 = load ptr, ptr %8, align 8, !tbaa !99
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %10
 
@@ -3118,7 +3118,7 @@ define linkonce_odr void @_ZN32grpc_tls_certificate_distributorD0Ev(ptr noundef 
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32grpc_tls_certificate_distributor15CertificateInfoESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !98
+  %9 = load ptr, ptr %8, align 8, !tbaa !99
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %10
 
@@ -3161,10 +3161,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32grpc_tls_certificate_distributor15CertificateInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32grpc_tls_certificate_distributor15CertificateInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32grpc_tls_certificate_distributor15CertificateInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %6 = load ptr, ptr %5, align 8, !tbaa !102
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   tail call void @_ZN32grpc_tls_certificate_distributor15CertificateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %8) #23
@@ -3189,7 +3189,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32grpc_tls_certificate_distributor15CertificateInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 232) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32grpc_tls_certificate_distributor15CertificateInfoEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -3264,9 +3264,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZNSt3setIPN32grpc_
 
 _ZN4absl12lts_202407226StatusD2Ev.exit3:          ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !103
+  %31 = load ptr, ptr %30, align 8, !tbaa !104
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !106
+  %33 = load ptr, ptr %32, align 8, !tbaa !107
   %.not4.i.i.i.i = icmp eq ptr %31, %33
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -3313,10 +3313,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %51, %33
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !108
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %30, align 8, !tbaa !103
+  %.pr.i = load ptr, ptr %30, align 8, !tbaa !104
   br label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZN4absl12lts_202407226StatusD2Ev.exit3
@@ -3326,7 +3326,7 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i: ; preds = 
 
 53:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = load ptr, ptr %54, align 8, !tbaa !108
+  %55 = load ptr, ptr %54, align 8, !tbaa !109
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %52 to i64
   %58 = sub i64 %56, %57
@@ -3364,13 +3364,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31T
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void @_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %6 = load ptr, ptr %5, align 8, !tbaa !102
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3424,7 +3424,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
   %.not.i = icmp eq ptr %20, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN9grpc_core14PemKeyCertPairEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !107
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN9grpc_core14PemKeyCertPairEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !108
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN9grpc_core14PemKeyCertPairEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i, %2
   ret void
@@ -3438,19 +3438,19 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31T
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void @_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %6 = load ptr, ptr %5, align 8, !tbaa !102
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 120
-  %9 = load i8, ptr %8, align 8, !tbaa !79, !range !62, !noundef !63
+  %9 = load i8, ptr %8, align 8, !tbaa !80, !range !62, !noundef !63
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i.i.i.i.i
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.07, i64 88
-  store i8 0, ptr %8, align 8, !tbaa !79
+  store i8 0, ptr %8, align 8, !tbaa !80
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %.07, i64 104
   %15 = icmp eq ptr %13, %14
@@ -3471,13 +3471,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %.07, i64 80
-  %22 = load i8, ptr %21, align 8, !tbaa !79, !range !62, !noundef !63
+  %22 = load i8, ptr %21, align 8, !tbaa !80, !range !62, !noundef !63
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit3.i.i.i.i.i.i
 
 24:                                               ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.07, i64 48
-  store i8 0, ptr %21, align 8, !tbaa !79
+  store i8 0, ptr %21, align 8, !tbaa !80
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   %28 = icmp eq ptr %26, %27
@@ -3497,7 +3497,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit3.i.i.i.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit3.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i1.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i2.i.i.i.i.i.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i.i.i.i.i
-  %34 = load ptr, ptr %7, align 8, !tbaa !81
+  %34 = load ptr, ptr %7, align 8, !tbaa !82
   %.not.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i.i.i.i.i.i.i
 
@@ -3511,7 +3511,7 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
 _ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit3.i.i.i.i.i.i, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 128) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, %2
   ret void
@@ -3523,10 +3523,10 @@ declare void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212)) 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvS5_bbEJPSC_EEEE9_M_invokeERKSt9_Any_dataOS5_ObSM_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !111
+  %6 = load ptr, ptr %0, align 8, !tbaa !112
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %8 = load ptr, ptr %7, align 8, !tbaa !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !114
   %.unpack.i.i.i.i.i.i.i = load i64, ptr %6, align 8, !tbaa !34
   %.elt6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.unpack7.i.i.i.i.i.i.i = load i64, ptr %.elt6.i.i.i.i.i.i.i, align 8, !tbaa !34
@@ -3580,9 +3580,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store ptr %22, ptr %1, align 8, !tbaa !32
   store i64 0, ptr %31, align 8, !tbaa !35
   store i8 0, ptr %22, align 8, !tbaa !34
-  %33 = load i8, ptr %2, align 1, !tbaa !115, !range !62, !noundef !63
+  %33 = load i8, ptr %2, align 1, !tbaa !116, !range !62, !noundef !63
   %34 = trunc nuw i8 %33 to i1
-  %35 = load i8, ptr %3, align 1, !tbaa !115, !range !62, !noundef !63
+  %35 = load i8, ptr %3, align 1, !tbaa !116, !range !62, !noundef !63
   %36 = trunc nuw i8 %35 to i1
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef nonnull %5, i1 noundef zeroext %34, i1 noundef zeroext %36)
           to label %37 unwind label %44
@@ -3641,23 +3641,23 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvNSt7__cxx1112
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS4_EEE, ptr %0, align 8, !tbaa !116
+  store ptr @_ZTIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS4_EEE, ptr %0, align 8, !tbaa !117
   br label %_ZNSt14_Function_base13_Base_managerIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS6_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %1, align 8, !tbaa !111
-  store ptr %6, ptr %0, align 8, !tbaa !111
+  %6 = load ptr, ptr %1, align 8, !tbaa !112
+  store ptr %6, ptr %0, align 8, !tbaa !112
   br label %_ZNSt14_Function_base13_Base_managerIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS6_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %1, align 8, !tbaa !111
+  %8 = load ptr, ptr %1, align 8, !tbaa !112
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  store ptr %9, ptr %0, align 8, !tbaa !111
+  store ptr %9, ptr %0, align 8, !tbaa !112
   br label %_ZNSt14_Function_base13_Base_managerIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS6_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %0, align 8, !tbaa !111
+  %11 = load ptr, ptr %0, align 8, !tbaa !112
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNSt14_Function_base13_Base_managerIN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS6_EEEE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit, label %13
 
@@ -3726,7 +3726,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_123RootCertificatesWatcher21OnCe
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::optional.102", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i8, ptr %9, align 8, !tbaa !118, !range !62, !noundef !63
+  %10 = load i8, ptr %9, align 8, !tbaa !119, !range !62, !noundef !63
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %._crit_edge.i.i, label %123
 
@@ -3826,22 +3826,22 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9
   store i64 0, ptr %30, align 8, !tbaa !35
   store i8 0, ptr %16, align 8, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 1, ptr %43, align 8, !tbaa !79
+  store i8 1, ptr %43, align 8, !tbaa !80
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i8 0, ptr %44, align 8, !tbaa !120
+  store i8 0, ptr %44, align 8, !tbaa !121
   invoke void @_ZN32grpc_tls_certificate_distributor15SetKeyMaterialsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ES8_ISt6vectorIN9grpc_core14PemKeyCertPairESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(160) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6, ptr noundef nonnull %8)
           to label %45 unwind label %100
 
 45:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS5_JSD_EESt14is_convertibleISD_S5_EEEbE4typeELb1EEEOSD_.exit
-  %46 = load i8, ptr %44, align 8, !tbaa !120, !range !62, !noundef !63
+  %46 = load i8, ptr %44, align 8, !tbaa !121, !range !62, !noundef !63
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
 
 48:                                               ; preds = %45
-  store i8 0, ptr %44, align 8, !tbaa !120
-  %49 = load ptr, ptr %8, align 8, !tbaa !103
+  store i8 0, ptr %44, align 8, !tbaa !121
+  %49 = load ptr, ptr %8, align 8, !tbaa !104
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !106
+  %51 = load ptr, ptr %50, align 8, !tbaa !107
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %49, %51
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -3888,10 +3888,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %69, %51
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !108
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !103
+  %.pr.i.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !104
   br label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, %48
@@ -3901,7 +3901,7 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
 
 71:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !108
+  %73 = load ptr, ptr %72, align 8, !tbaa !109
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %70 to i64
   %76 = sub i64 %74, %75
@@ -3909,12 +3909,12 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
   br label %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit: ; preds = %45, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %71
-  %77 = load i8, ptr %43, align 8, !tbaa !79, !range !62, !noundef !63
+  %77 = load i8, ptr %43, align 8, !tbaa !80, !range !62, !noundef !63
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 79:                                               ; preds = %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
-  store i8 0, ptr %43, align 8, !tbaa !79
+  store i8 0, ptr %43, align 8, !tbaa !80
   %80 = load ptr, ptr %6, align 8, !tbaa !32
   %81 = icmp eq ptr %80, %33
   br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
@@ -3979,12 +3979,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %102 = load i8, ptr %43, align 8, !tbaa !79, !range !62, !noundef !63
+  %102 = load i8, ptr %43, align 8, !tbaa !80, !range !62, !noundef !63
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %104, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit16
 
 104:                                              ; preds = %100
-  store i8 0, ptr %43, align 8, !tbaa !79
+  store i8 0, ptr %43, align 8, !tbaa !80
   %105 = load ptr, ptr %6, align 8, !tbaa !32
   %106 = icmp eq ptr %105, %33
   br i1 %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i14
@@ -4184,15 +4184,15 @@ declare void @_ZN32grpc_tls_certificate_distributor15SetKeyMaterialsERKNSt7__cxx
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !tbaa !120, !range !62, !noundef !63
+  %3 = load i8, ptr %2, align 8, !tbaa !121, !range !62, !noundef !63
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt17_Optional_payloadISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
-  store i8 0, ptr %2, align 8, !tbaa !120
-  %6 = load ptr, ptr %0, align 8, !tbaa !103
+  store i8 0, ptr %2, align 8, !tbaa !121
+  %6 = load ptr, ptr %0, align 8, !tbaa !104
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %8 = load ptr, ptr %7, align 8, !tbaa !107
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4239,10 +4239,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, %8
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !108
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i
-  %.pr.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !103
+  %.pr.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !104
   br label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i, %5
@@ -4252,7 +4252,7 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; pr
 
 28:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !108
+  %30 = load ptr, ptr %29, align 8, !tbaa !109
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
@@ -4318,7 +4318,7 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcher21
   %5 = alloca %"class.std::optional.32", align 8
   %6 = alloca %"class.std::optional.102", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i8, ptr %7, align 8, !tbaa !120, !range !62, !noundef !63
+  %8 = load i8, ptr %7, align 8, !tbaa !121, !range !62, !noundef !63
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE12_M_constructIJRKS4_EEEvDpOT_.exit.i.i.i.i.i, label %87
 
@@ -4332,27 +4332,27 @@ _ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE12_
   store i64 0, ptr %13, align 8, !tbaa !35
   store i8 0, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 0, ptr %14, align 8, !tbaa !79
+  store i8 0, ptr %14, align 8, !tbaa !80
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 0, ptr %15, align 8, !tbaa !120
+  store i8 0, ptr %15, align 8, !tbaa !121
   invoke void @_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2ERKS5_.exit unwind label %65
 
 _ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2ERKS5_.exit: ; preds = %_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE12_M_constructIJRKS4_EEEvDpOT_.exit.i.i.i.i.i
-  store i8 1, ptr %15, align 8, !tbaa !120
+  store i8 1, ptr %15, align 8, !tbaa !121
   invoke void @_ZN32grpc_tls_certificate_distributor15SetKeyMaterialsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ES8_ISt6vectorIN9grpc_core14PemKeyCertPairESaISC_EEE(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %16 unwind label %67
 
 16:                                               ; preds = %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2ERKS5_.exit
-  %17 = load i8, ptr %15, align 8, !tbaa !120, !range !62, !noundef !63
+  %17 = load i8, ptr %15, align 8, !tbaa !121, !range !62, !noundef !63
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
 
 19:                                               ; preds = %16
-  store i8 0, ptr %15, align 8, !tbaa !120
-  %20 = load ptr, ptr %6, align 8, !tbaa !103
+  store i8 0, ptr %15, align 8, !tbaa !121
+  %20 = load ptr, ptr %6, align 8, !tbaa !104
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !106
+  %22 = load ptr, ptr %21, align 8, !tbaa !107
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %20, %22
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -4399,10 +4399,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 _ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %40, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !108
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core14PemKeyCertPairEEvPT_.exit.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !103
+  %.pr.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !104
   br label %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
 
 _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, %19
@@ -4412,7 +4412,7 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
 
 42:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !108
+  %44 = load ptr, ptr %43, align 8, !tbaa !109
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %41 to i64
   %47 = sub i64 %45, %46
@@ -4420,12 +4420,12 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
   br label %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit: ; preds = %16, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %42
-  %48 = load i8, ptr %14, align 8, !tbaa !79, !range !62, !noundef !63
+  %48 = load i8, ptr %14, align 8, !tbaa !80, !range !62, !noundef !63
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 50:                                               ; preds = %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit
-  store i8 0, ptr %14, align 8, !tbaa !79
+  store i8 0, ptr %14, align 8, !tbaa !80
   %51 = load ptr, ptr %5, align 8, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %53 = icmp eq ptr %51, %52
@@ -4478,12 +4478,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 69:                                               ; preds = %67, %65
   %.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %70 = load i8, ptr %14, align 8, !tbaa !79, !range !62, !noundef !63
+  %70 = load i8, ptr %14, align 8, !tbaa !80, !range !62, !noundef !63
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit9
 
 72:                                               ; preds = %69
-  store i8 0, ptr %14, align 8, !tbaa !79
+  store i8 0, ptr %14, align 8, !tbaa !80
   %73 = load ptr, ptr %5, align 8, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %75 = icmp eq ptr %73, %74
@@ -4664,8 +4664,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !106
-  %5 = load ptr, ptr %1, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !107
+  %5 = load ptr, ptr %1, align 8, !tbaa !104
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -4687,14 +4687,14 @@ _ZNSt16allocator_traitsISaIN9grpc_core14PemKeyCertPairEEE8allocateERS2_m.exit.i.
 
 12:                                               ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core14PemKeyCertPairEEE8allocateERS2_m.exit.i.i.i, %2
   %13 = phi ptr [ null, %2 ], [ %11, %_ZNSt16allocator_traitsISaIN9grpc_core14PemKeyCertPairEEE8allocateERS2_m.exit.i.i.i ]
-  store ptr %13, ptr %0, align 8, !tbaa !103
+  store ptr %13, ptr %0, align 8, !tbaa !104
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !106
+  store ptr %13, ptr %14, align 8, !tbaa !107
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !108
-  %17 = load ptr, ptr %1, align 8, !tbaa !122
-  %18 = load ptr, ptr %3, align 8, !tbaa !122
+  store ptr %15, ptr %16, align 8, !tbaa !109
+  %17 = load ptr, ptr %1, align 8, !tbaa !123
+  %18 = load ptr, ptr %3, align 8, !tbaa !123
   %.not12.i.i.i.i = icmp eq ptr %17, %18
   br i1 %.not12.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN9grpc_core14PemKeyCertPairESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -4708,7 +4708,7 @@ _ZSt10_ConstructIN9grpc_core14PemKeyCertPairEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN9grpc_core14PemKeyCertPairESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !123
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN9grpc_core14PemKeyCertPairESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !124
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -4740,16 +4740,16 @@ _ZSt10_ConstructIN9grpc_core14PemKeyCertPairEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN9grpc_core14PemKeyCertPairESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN9grpc_core14PemKeyCertPairEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %12
   %.0.lcssa.i.i.i.i = phi ptr [ %13, %12 ], [ %20, %_ZSt10_ConstructIN9grpc_core14PemKeyCertPairEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i, ptr %14, align 8, !tbaa !106
+  store ptr %.0.lcssa.i.i.i.i, ptr %14, align 8, !tbaa !107
   ret void
 
 .body:                                            ; preds = %26
-  %32 = load ptr, ptr %0, align 8, !tbaa !103
+  %32 = load ptr, ptr %0, align 8, !tbaa !104
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core14PemKeyCertPairESaIS1_EED2Ev.exit, label %33
 
 33:                                               ; preds = %.body
-  %34 = load ptr, ptr %16, align 8, !tbaa !108
+  %34 = load ptr, ptr %16, align 8, !tbaa !109
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
@@ -4994,59 +4994,60 @@ attributes #26 = { cold }
 !65 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_202407226StatusESaIS2_EE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
 !66 = !{!"p1 _ZTSN4absl12lts_202407226StatusE", !18, i64 0}
 !67 = !{!65, !66, i64 8}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!65, !66, i64 16}
-!71 = !{!37, !49, i64 144}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!74 = distinct !{!74, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"p1 _ZTSN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherE", !18, i64 0}
-!77 = !{!78, !49, i64 0}
-!78 = !{!"_ZTSSt10_Head_baseILm0EPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceELb0EE", !49, i64 0}
-!79 = !{!80, !43, i64 32}
-!80 = !{!"_ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !6, i64 0, !43, i64 32}
-!81 = !{!49, !49, i64 0}
-!82 = !{!37, !49, i64 152}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!85 = distinct !{!85, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!86 = !{!87, !87, i64 0}
-!87 = !{!"p1 _ZTSN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherE", !18, i64 0}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"p1 _ZTSN3re23RE2E", !18, i64 0}
-!90 = distinct !{!90, !69}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN9grpc_core14MakeRefCountedI32grpc_tls_certificate_distributorJEEENS_13RefCountedPtrIT_EEDpOT0_: argument 0"}
-!93 = distinct !{!93, !"_ZN9grpc_core14MakeRefCountedI32grpc_tls_certificate_distributorJEEENS_13RefCountedPtrIT_EEDpOT0_"}
-!94 = !{!"branch_weights", i32 1, i32 1048575}
-!95 = !{!96, !97, i64 0}
-!96 = !{!"_ZTSN9grpc_core14UniqueTypeName7FactoryE", !97, i64 0}
-!97 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !18, i64 0}
-!98 = !{!99, !18, i64 16}
-!99 = !{!"_ZTSSt14_Function_base", !6, i64 0, !18, i64 16}
-!100 = !{!15, !17, i64 24}
-!101 = !{!15, !17, i64 16}
-!102 = distinct !{!102, !69}
-!103 = !{!104, !105, i64 0}
-!104 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core14PemKeyCertPairESaIS1_EE17_Vector_impl_dataE", !105, i64 0, !105, i64 8, !105, i64 16}
-!105 = !{!"p1 _ZTSN9grpc_core14PemKeyCertPairE", !18, i64 0}
-!106 = !{!104, !105, i64 8}
-!107 = distinct !{!107, !69}
-!108 = !{!104, !105, i64 16}
-!109 = distinct !{!109, !69}
-!110 = distinct !{!110, !69}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"p1 _ZTSN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS4_EEE", !18, i64 0}
-!113 = !{!114, !114, i64 0}
-!114 = !{!"p1 _ZTSN9grpc_core22XdsCertificateProviderE", !18, i64 0}
-!115 = !{!43, !43, i64 0}
-!116 = !{!117, !117, i64 0}
-!117 = !{!"p1 _ZTSSt9type_info", !18, i64 0}
-!118 = !{!119, !43, i64 16}
-!119 = !{!"_ZTSSt22_Optional_payload_baseISt17basic_string_viewIcSt11char_traitsIcEEE", !6, i64 0, !43, i64 16}
-!120 = !{!121, !43, i64 24}
-!121 = !{!"_ZTSSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE", !6, i64 0, !43, i64 24}
-!122 = !{!105, !105, i64 0}
-!123 = distinct !{!123, !69}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!65, !66, i64 16}
+!72 = !{!37, !49, i64 144}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!75 = distinct !{!75, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTSN9grpc_core12_GLOBAL__N_123RootCertificatesWatcherE", !18, i64 0}
+!78 = !{!79, !49, i64 0}
+!79 = !{!"_ZTSSt10_Head_baseILm0EPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceELb0EE", !49, i64 0}
+!80 = !{!81, !43, i64 32}
+!81 = !{!"_ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !6, i64 0, !43, i64 32}
+!82 = !{!49, !49, i64 0}
+!83 = !{!37, !49, i64 152}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!86 = distinct !{!86, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherEJRNS0_13RefCountedPtrI32grpc_tls_certificate_distributorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTSN9grpc_core12_GLOBAL__N_127IdentityCertificatesWatcherE", !18, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSN3re23RE2E", !18, i64 0}
+!91 = distinct !{!91, !69, !70}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN9grpc_core14MakeRefCountedI32grpc_tls_certificate_distributorJEEENS_13RefCountedPtrIT_EEDpOT0_: argument 0"}
+!94 = distinct !{!94, !"_ZN9grpc_core14MakeRefCountedI32grpc_tls_certificate_distributorJEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!95 = !{!"branch_weights", i32 1, i32 1048575}
+!96 = !{!97, !98, i64 0}
+!97 = !{!"_ZTSN9grpc_core14UniqueTypeName7FactoryE", !98, i64 0}
+!98 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !18, i64 0}
+!99 = !{!100, !18, i64 16}
+!100 = !{!"_ZTSSt14_Function_base", !6, i64 0, !18, i64 16}
+!101 = !{!15, !17, i64 24}
+!102 = !{!15, !17, i64 16}
+!103 = distinct !{!103, !69, !70}
+!104 = !{!105, !106, i64 0}
+!105 = !{!"_ZTSNSt12_Vector_baseIN9grpc_core14PemKeyCertPairESaIS1_EE17_Vector_impl_dataE", !106, i64 0, !106, i64 8, !106, i64 16}
+!106 = !{!"p1 _ZTSN9grpc_core14PemKeyCertPairE", !18, i64 0}
+!107 = !{!105, !106, i64 8}
+!108 = distinct !{!108, !69, !70}
+!109 = !{!105, !106, i64 16}
+!110 = distinct !{!110, !69, !70}
+!111 = distinct !{!111, !69, !70}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSN4absl12lts_2024072219functional_internal11FrontBinderIMN9grpc_core22XdsCertificateProviderEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbEJPS4_EEE", !18, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 _ZTSN9grpc_core22XdsCertificateProviderE", !18, i64 0}
+!116 = !{!43, !43, i64 0}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTSSt9type_info", !18, i64 0}
+!119 = !{!120, !43, i64 16}
+!120 = !{!"_ZTSSt22_Optional_payload_baseISt17basic_string_viewIcSt11char_traitsIcEEE", !6, i64 0, !43, i64 16}
+!121 = !{!122, !43, i64 24}
+!122 = !{!"_ZTSSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE", !6, i64 0, !43, i64 24}
+!123 = !{!106, !106, i64 0}
+!124 = distinct !{!124, !69, !70}

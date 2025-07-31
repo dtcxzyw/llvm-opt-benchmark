@@ -95,7 +95,7 @@ define internal void @local_queue_fetch_file(ptr noundef readonly captures(none)
   %18 = add i64 %15, %.01727
   %19 = call i64 @read(i32 noundef %9, ptr noundef nonnull %4, i64 noundef 8192) #8
   %20 = icmp slt i64 %19, 0
-  br i1 %20, label %._crit_edge, label %.lr.ph
+  br i1 %20, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 21:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %.01727, %2
@@ -185,7 +185,7 @@ define internal void @local_queue_fetch_range(ptr noundef readonly captures(none
   %28 = add i64 %21, %.02429
   %29 = sub i64 %9, %28
   %30 = icmp sgt i64 %29, 0
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %27, %18
   %31 = call i32 @close(i32 noundef %11) #8
@@ -266,4 +266,6 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5}
+!7 = !{!"llvm.loop.mustprogress"}

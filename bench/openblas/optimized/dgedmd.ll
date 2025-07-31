@@ -651,7 +651,7 @@ default.unreachable:                              ; preds = %142
   %337 = load i32, ptr %31, align 4, !tbaa !3
   %338 = sext i32 %337 to i64
   %.not960.not = icmp slt i64 %indvars.iv1143, %338
-  br i1 %.not960.not, label %.lr.ph1071, label %.loopexit1058, !llvm.loop !12
+  br i1 %.not960.not, label %.lr.ph1071, label %.loopexit1058, !llvm.loop !13
 
 .loopexit1058:                                    ; preds = %336, %302, %.thread1032
   %.0864 = phi i32 [ 0, %.thread1032 ], [ 0, %302 ], [ %.2866, %336 ]
@@ -740,7 +740,7 @@ default.unreachable:                              ; preds = %142
   %378 = load i32, ptr %31, align 4, !tbaa !3
   %379 = sext i32 %378 to i64
   %.not961.not = icmp slt i64 %indvars.iv1146, %379
-  br i1 %.not961.not, label %.lr.ph1077, label %._crit_edge1078, !llvm.loop !13
+  br i1 %.not961.not, label %.lr.ph1077, label %._crit_edge1078, !llvm.loop !14
 
 ._crit_edge1078:                                  ; preds = %377
   %.pre1184 = load i32, ptr %6, align 4, !tbaa !3
@@ -809,7 +809,7 @@ default.unreachable:                              ; preds = %142
   %411 = load i32, ptr %31, align 4, !tbaa !3
   %412 = sext i32 %411 to i64
   %.not962.not = icmp slt i64 %indvars.iv1149, %412
-  br i1 %.not962.not, label %.lr.ph1089, label %.loopexit1057.loopexit, !llvm.loop !14
+  br i1 %.not962.not, label %.lr.ph1089, label %.loopexit1057.loopexit, !llvm.loop !15
 
 .loopexit1057.loopexit:                           ; preds = %410
   %.pre1185 = load i32, ptr %6, align 4, !tbaa !3
@@ -952,7 +952,7 @@ default.unreachable:                              ; preds = %142
   store i32 %484, ptr %13, align 4, !tbaa !3
   %indvars.iv.next1156 = add nuw nsw i64 %indvars.iv1155, 1
   %exitcond1159.not = icmp eq i64 %indvars.iv.next1156, %wide.trip.count1158
-  br i1 %exitcond1159.not, label %.loopexit1054, label %477, !llvm.loop !15
+  br i1 %exitcond1159.not, label %.loopexit1054, label %477, !llvm.loop !16
 
 485:                                              ; preds = %470
   %486 = load i32, ptr %45, align 4, !tbaa !3
@@ -983,7 +983,7 @@ default.unreachable:                              ; preds = %142
   %498 = add nuw nsw i32 %490, 1
   store i32 %498, ptr %13, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next1153, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit1054, label %489, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit1054, label %489, !llvm.loop !17
 
 499:                                              ; preds = %470
   %500 = load i32, ptr %11, align 4, !tbaa !3
@@ -1009,7 +1009,7 @@ default.unreachable:                              ; preds = %142
   store i32 %507, ptr %13, align 4, !tbaa !3
   %indvars.iv.next1161 = add nuw nsw i64 %indvars.iv1160, 1
   %exitcond1164.not = icmp eq i64 %indvars.iv.next1161, %wide.trip.count1163
-  br i1 %exitcond1164.not, label %.loopexit1054, label %.lr.ph1104, !llvm.loop !17
+  br i1 %exitcond1164.not, label %.loopexit1054, label %.lr.ph1104, !llvm.loop !18
 
 .loopexit1054:                                    ; preds = %497, %489, %477, %483, %506, %.lr.ph1104, %485, %472, %499
   %508 = call i32 @lsame_(ptr noundef nonnull %44, ptr noundef nonnull @.str.6) #5
@@ -1041,7 +1041,7 @@ default.unreachable:                              ; preds = %142
   %518 = load i32, ptr %31, align 4, !tbaa !3
   %519 = sext i32 %518 to i64
   %.not970.not = icmp slt i64 %indvars.iv1165, %519
-  br i1 %.not970.not, label %.lr.ph1111, label %.loopexit1052, !llvm.loop !18
+  br i1 %.not970.not, label %.lr.ph1111, label %.loopexit1052, !llvm.loop !19
 
 520:                                              ; preds = %.loopexit1054
   %.not9671112 = icmp slt i32 %509, 1
@@ -1065,7 +1065,7 @@ default.unreachable:                              ; preds = %142
   store double %527, ptr %gep1195, align 8, !tbaa !7
   %indvars.iv.next1169 = add nuw nsw i64 %indvars.iv1168, 1
   %exitcond1172.not = icmp eq i64 %indvars.iv.next1169, %wide.trip.count1171
-  br i1 %exitcond1172.not, label %._crit_edge1116.thread, label %524, !llvm.loop !19
+  br i1 %exitcond1172.not, label %._crit_edge1116.thread, label %524, !llvm.loop !20
 
 ._crit_edge1116:                                  ; preds = %520
   store i32 %.pre1188, ptr %31, align 4, !tbaa !3
@@ -1103,12 +1103,12 @@ default.unreachable:                              ; preds = %142
   store double %536, ptr %gep1199, align 8, !tbaa !7
   %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
   %exitcond1177.not = icmp eq i64 %indvars.iv.next1174, %wide.trip.count1176
-  br i1 %exitcond1177.not, label %._crit_edge1121, label %533, !llvm.loop !20
+  br i1 %exitcond1177.not, label %._crit_edge1121, label %533, !llvm.loop !21
 
 ._crit_edge1121:                                  ; preds = %533
   %indvars.iv.next1179 = add nuw nsw i64 %indvars.iv1178, 1
   %exitcond1182.not = icmp eq i64 %indvars.iv.next1179, %wide.trip.count1181
-  br i1 %exitcond1182.not, label %..loopexit1052_crit_edge, label %.lr.ph1120, !llvm.loop !21
+  br i1 %exitcond1182.not, label %..loopexit1052_crit_edge, label %.lr.ph1120, !llvm.loop !22
 
 ..loopexit1052_crit_edge:                         ; preds = %._crit_edge1121, %._crit_edge1116
   store i32 %509, ptr %32, align 4, !tbaa !3
@@ -1273,7 +1273,7 @@ default.unreachable:                              ; preds = %142
   %617 = add nuw nsw i32 %.101137, %.sink1200
   %618 = load i32, ptr %13, align 4, !tbaa !3
   %.not977 = icmp sgt i32 %617, %618
-  br i1 %.not977, label %.loopexit, label %585, !llvm.loop !22
+  br i1 %.not977, label %.loopexit, label %585, !llvm.loop !23
 
 .loopexit:                                        ; preds = %616, %.preheader, %580, %562
   %619 = load i32, ptr %4, align 4, !tbaa !3
@@ -1394,16 +1394,17 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}

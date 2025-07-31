@@ -135,10 +135,10 @@ compute_correction.exit:                          ; preds = %28, %._crit_edge.lo
   %.018.lcssa.i = phi float [ 0.000000e+00, %28 ], [ %43, %._crit_edge.loopexit.i ]
   %53 = fdiv nsz float %.020.lcssa.i, %.018.lcssa.i
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store float %53, ptr %54, align 4, !tbaa !56
+  store float %53, ptr %54, align 4, !tbaa !57
   %55 = fdiv nsz float %.019.lcssa.i, %.018.lcssa.i
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store float %55, ptr %56, align 8, !tbaa !57
+  store float %55, ptr %56, align 8, !tbaa !58
   %57 = load i32, ptr %30, align 4, !tbaa !35
   %58 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #9
   %59 = call i32 @llvm.smin.i32(i32 %57, i32 %58)
@@ -149,11 +149,11 @@ compute_correction.exit:                          ; preds = %28, %._crit_edge.lo
 
 62:                                               ; preds = %compute_correction.exit
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !58
+  %64 = load ptr, ptr %63, align 8, !tbaa !59
   %65 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %66 = load i32, ptr %65, align 4, !tbaa !53
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !58
+  %68 = load ptr, ptr %67, align 8, !tbaa !59
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 76
   %70 = load i32, ptr %69, align 4, !tbaa !53
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -188,7 +188,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %11 = mul i32 %10, %9
   %12 = sext i32 %11 to i64
   %13 = tail call ptr @av_malloc_array(i64 noundef %12, i64 noundef 4) #8
-  store ptr %13, ptr %5, align 8, !tbaa !59
+  store ptr %13, ptr %5, align 8, !tbaa !60
   %14 = load i32, ptr %6, align 4, !tbaa !35
   %15 = sext i32 %14 to i64
   %16 = tail call ptr @av_malloc_array(i64 noundef %15, i64 noundef 4) #8
@@ -200,7 +200,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %21 = tail call ptr @av_malloc_array(i64 noundef %20, i64 noundef 4) #8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !47
-  %23 = load ptr, ptr %5, align 8, !tbaa !59
+  %23 = load ptr, ptr %5, align 8, !tbaa !60
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %26, label %24
 
@@ -254,14 +254,14 @@ define internal noundef i32 @convert_frame(ptr noundef readonly captures(none) %
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !58
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %25 = load ptr, ptr %18, align 8, !tbaa !58
+  %25 = load ptr, ptr %18, align 8, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !58
+  %27 = load ptr, ptr %26, align 8, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %29 = load ptr, ptr %20, align 8, !tbaa !59
+  %29 = load ptr, ptr %20, align 8, !tbaa !60
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 44
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -322,7 +322,7 @@ define internal noundef i32 @convert_frame(ptr noundef readonly captures(none) %
   %70 = phi i32 [ %57, %37 ], [ %116, %.lr.ph ]
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge77, label %37, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge77, label %37, !llvm.loop !61
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %71 = phi i32 [ 0, %.lr.ph.preheader ], [ %115, %.lr.ph ]
@@ -384,7 +384,7 @@ define internal noundef i32 @convert_frame(ptr noundef readonly captures(none) %
   %116 = load i32, ptr %30, align 8, !tbaa !34
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -410,12 +410,12 @@ define internal noundef i32 @correct_frame(ptr noundef readonly captures(none) %
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !4
-  %20 = load ptr, ptr %6, align 8, !tbaa !58
+  %20 = load ptr, ptr %6, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !58
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
-  %25 = load ptr, ptr %19, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %25 = load ptr, ptr %19, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %27 = load i32, ptr %26, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 44
@@ -471,9 +471,9 @@ define internal noundef i32 @correct_frame(ptr noundef readonly captures(none) %
   %63 = load float, ptr %.05058.us, align 4, !tbaa !52
   %64 = getelementptr inbounds nuw i8, ptr %.04959.us, i64 4
   %65 = load float, ptr %.04959.us, align 4, !tbaa !52
-  %66 = load float, ptr %36, align 4, !tbaa !56
+  %66 = load float, ptr %36, align 4, !tbaa !57
   %67 = fsub nsz float %63, %66
-  %68 = load float, ptr %37, align 8, !tbaa !57
+  %68 = load float, ptr %37, align 8, !tbaa !58
   %69 = fsub nsz float %65, %68
   %70 = fmul nsz float %67, 0x3FDA20C4A0000000
   %71 = tail call nsz float @llvm.fmuladd.f32(float %61, float 0x3FE279A6C0000000, float %70)
@@ -502,12 +502,12 @@ define internal noundef i32 @correct_frame(ptr noundef readonly captures(none) %
   store float %88, ptr %91, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !63
 
 ._crit_edge.us:                                   ; preds = %59
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge64, label %.lr.ph.us, !llvm.loop !63
+  br i1 %exitcond71.not, label %._crit_edge64, label %.lr.ph.us, !llvm.loop !64
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us, %.lr.ph63, %4
   ret i32 0
@@ -603,14 +603,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !51 = !{!48, !50, i64 8}
 !52 = !{!44, !44, i64 0}
 !53 = !{!15, !15, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!43, !44, i64 20}
-!57 = !{!43, !44, i64 24}
-!58 = !{!11, !11, i64 0}
-!59 = !{!48, !49, i64 0}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55}
-!62 = distinct !{!62, !55}
-!63 = distinct !{!63, !55, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!43, !44, i64 20}
+!58 = !{!43, !44, i64 24}
+!59 = !{!11, !11, i64 0}
+!60 = !{!48, !49, i64 0}
+!61 = distinct !{!61, !55, !56}
+!62 = distinct !{!62, !55, !56}
+!63 = distinct !{!63, !55, !56}
+!64 = distinct !{!64, !55, !56, !65}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}

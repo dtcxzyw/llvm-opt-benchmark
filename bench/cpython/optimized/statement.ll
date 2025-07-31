@@ -229,7 +229,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
 
 .critedge4:                                       ; preds = %20, %22
   %25 = getelementptr i8, ptr %.3, i64 1
-  br label %20, !llvm.loop !31
+  br label %20, !llvm.loop !32
 
 .loopexit.loopexit52:                             ; preds = %22
   %26 = getelementptr i8, ptr %.3, i64 1
@@ -238,7 +238,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
 .loopexit:                                        ; preds = %10, %.loopexit.loopexit52, %2, %2, %2, %2, %2
   %.2 = phi ptr [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %26, %.loopexit.loopexit52 ], [ %.1, %10 ]
   %27 = getelementptr i8, ptr %.2, i64 1
-  br label %2, !llvm.loop !32
+  br label %2, !llvm.loop !33
 
 .critedge2.thread.loopexit66:                     ; preds = %2
   br label %.critedge2.thread
@@ -278,7 +278,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal void @stmt_dealloc(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %2, align 8, !tbaa !33
+  %.val = load ptr, ptr %2, align 8, !tbaa !34
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -295,7 +295,7 @@ define internal void @stmt_dealloc(ptr noundef %0) #0 {
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   tail call void %11(ptr noundef nonnull %0) #5
   %12 = load i32, ptr %.val, align 8, !tbaa !28
   %.not.i = icmp sgt i32 %12, -1
@@ -318,7 +318,7 @@ Py_DECREF.exit:                                   ; preds = %9, %13, %16
 ; Function Attrs: nounwind uwtable
 define internal i32 @stmt_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !33
+  %.val = load ptr, ptr %4, align 8, !tbaa !34
   %.not = icmp eq ptr %.val, null
   br i1 %.not, label %7, label %5
 
@@ -380,15 +380,16 @@ attributes #6 = { nounwind willreturn memory(read) }
 !26 = !{!"", !5, i64 0, !24, i64 16, !11, i64 24}
 !27 = !{!26, !11, i64 24}
 !28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = distinct !{!32, !30}
-!33 = !{!5, !8, i64 8}
-!34 = !{!35, !9, i64 320}
-!35 = !{!"_typeobject", !36, i64 0, !12, i64 24, !13, i64 32, !13, i64 40, !9, i64 48, !13, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !13, i64 168, !12, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !13, i64 208, !9, i64 216, !9, i64 224, !37, i64 232, !38, i64 240, !39, i64 248, !8, i64 256, !14, i64 264, !9, i64 272, !9, i64 280, !13, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !14, i64 336, !14, i64 344, !14, i64 352, !9, i64 360, !14, i64 368, !9, i64 376, !11, i64 384, !9, i64 392, !9, i64 400, !6, i64 408, !40, i64 410}
-!36 = !{!"", !5, i64 0, !13, i64 16}
-!37 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
-!38 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
-!39 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
-!40 = !{!"short", !6, i64 0}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = distinct !{!33, !30, !31}
+!34 = !{!5, !8, i64 8}
+!35 = !{!36, !9, i64 320}
+!36 = !{!"_typeobject", !37, i64 0, !12, i64 24, !13, i64 32, !13, i64 40, !9, i64 48, !13, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !13, i64 168, !12, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !13, i64 208, !9, i64 216, !9, i64 224, !38, i64 232, !39, i64 240, !40, i64 248, !8, i64 256, !14, i64 264, !9, i64 272, !9, i64 280, !13, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !14, i64 336, !14, i64 344, !14, i64 352, !9, i64 360, !14, i64 368, !9, i64 376, !11, i64 384, !9, i64 392, !9, i64 400, !6, i64 408, !41, i64 410}
+!37 = !{!"", !5, i64 0, !13, i64 16}
+!38 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
+!39 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
+!40 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
+!41 = !{!"short", !6, i64 0}

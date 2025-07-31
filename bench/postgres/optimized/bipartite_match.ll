@@ -163,13 +163,13 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %.5.i = phi i32 [ %78, %75 ], [ %.450.i, %.lr.ph51.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
   %82 = icmp sgt i64 %indvars.iv57.i, 1
-  br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !6
+  br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %81, %61, %57, %.lr.ph55.i
   %.3.i = phi i32 [ %.254.i, %.lr.ph55.i ], [ %.254.i, %61 ], [ %.254.i, %57 ], [ %.5.i, %81 ]
   %83 = sext i32 %.3.i to i64
   %84 = icmp slt i64 %indvars.iv.next61.i, %83
-  br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !7
+  br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !8
 
 hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preheader.i
   %.pr = load i16, ptr %32, align 2
@@ -201,12 +201,12 @@ hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preh
 95:                                               ; preds = %.lr.ph, %92, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %95, %.preheader
   %96 = load volatile i32, ptr @InterruptPending, align 4
   %.not35 = icmp eq i32 %96, 0
-  br i1 %.not35, label %98, label %97, !prof !9
+  br i1 %.not35, label %98, label %97, !prof !10
 
 97:                                               ; preds = %._crit_edge
   tail call void @ProcessInterrupts() #5
@@ -218,7 +218,7 @@ hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preh
   %101 = load ptr, ptr %24, align 8
   store i16 32767, ptr %101, align 2
   %.not46.i = icmp slt i32 %99, 1
-  br i1 %.not46.i, label %hk_breadth_search.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not46.i, label %hk_breadth_search.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 hk_breadth_search.exit.thread:                    ; preds = %hk_breadth_search.exit, %98, %9
   ret ptr %4
@@ -306,7 +306,7 @@ define internal fastcc noundef zeroext i1 @hk_depth_search(ptr noundef readonly 
 43:                                               ; preds = %37, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 1
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %43, %24
   store i16 32767, ptr %21, align 2
@@ -361,11 +361,12 @@ attributes #6 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

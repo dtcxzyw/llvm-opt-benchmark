@@ -175,7 +175,7 @@ if.end27.us:                                      ; preds = %do.body.us, %land.l
   %add.ptr6.i35.us = getelementptr inbounds nuw i8, ptr %Pos.3.ph70.us, i64 %.sink.i34.us
   %inc29.us = add i32 %10, 1
   store i32 %inc29.us, ptr %LineNumber2898, align 4
-  br label %for.cond.us, !llvm.loop !6
+  br label %for.cond.us, !llvm.loop !7
 
 while.cond.preheader:                             ; preds = %if.else.thread, %if.else
   %LineNumber7 = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -202,7 +202,7 @@ while.body:                                       ; preds = %land.lhs.true.i9, %
   %add.ptr6.i15 = getelementptr inbounds nuw i8, ptr %Pos.1, i64 %.sink.i14
   %inc8 = add i32 %15, 1
   store i32 %inc8, ptr %LineNumber7, align 4
-  br label %while.cond, !llvm.loop !8
+  br label %while.cond, !llvm.loop !9
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end27
   %18 = phi i32 [ %inc29, %if.end27 ], [ %LineNumber28.promoted, %for.cond.preheader ]
@@ -261,7 +261,7 @@ if.end27:                                         ; preds = %do.body, %land.lhs.
   %add.ptr6.i35 = getelementptr inbounds nuw i8, ptr %Pos.3.ph70, i64 %.sink.i34
   %inc29 = add i32 %18, 1
   store i32 %inc29, ptr %LineNumber28, align 4
-  br label %for.cond, !llvm.loop !9
+  br label %for.cond, !llvm.loop !10
 
 if.end31:                                         ; preds = %if.end24, %if.end24.us, %while.cond
   %24 = phi i8 [ %16, %while.cond ], [ %11, %if.end24.us ], [ %19, %if.end24 ]
@@ -299,7 +299,7 @@ while.body45:                                     ; preds = %while.cond37, %land
   %inc46 = add i64 %Length.0, 1
   %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %Pos.0117, i64 %inc46
   %.pre = load i8, ptr %arrayidx.phi.trans.insert, align 1
-  br label %while.cond37, !llvm.loop !10
+  br label %while.cond37, !llvm.loop !11
 
 while.end47:                                      ; preds = %while.cond37, %while.cond37, %land.lhs.true.i37
   store ptr %Pos.0117, ptr %CurrentLine, align 8
@@ -322,10 +322,11 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

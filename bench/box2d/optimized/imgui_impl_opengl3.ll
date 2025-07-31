@@ -315,7 +315,7 @@ _ZL10load_procsPFPFvvEPKcE.exit.i:                ; preds = %_ZL8get_procPKc.exi
   tail call void %73(i32 noundef 33307, ptr noundef nonnull @_ZL7version)
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   tail call void %75(i32 noundef 33308, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4))
-  %76 = load i32, ptr @_ZL7version, align 4, !tbaa !13
+  %76 = load i32, ptr @_ZL7version, align 4, !tbaa !14
   %77 = icmp eq i32 %76, 0
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4), align 4
   %79 = icmp eq i32 %78, 0
@@ -333,7 +333,7 @@ _ZL10load_procsPFPFvvEPKcE.exit.i:                ; preds = %_ZL8get_procPKc.exi
   br label %85
 
 85:                                               ; preds = %83, %80, %74
-  %86 = load i32, ptr @_ZL7version, align 4, !tbaa !13
+  %86 = load i32, ptr @_ZL7version, align 4, !tbaa !14
   %87 = icmp slt i32 %86, 2
   %..i.i = select i1 %87, i32 -3, i32 0
   br label %imgl3wInit2.exit
@@ -408,7 +408,7 @@ _ZL10load_procsPFPFvvEPKcE.exit:                  ; preds = %2
   tail call void %8(i32 noundef 33307, ptr noundef nonnull @_ZL7version)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   tail call void %10(i32 noundef 33308, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4))
-  %11 = load i32, ptr @_ZL7version, align 4, !tbaa !13
+  %11 = load i32, ptr @_ZL7version, align 4, !tbaa !14
   %12 = icmp eq i32 %11, 0
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4), align 4
   %14 = icmp eq i32 %13, 0
@@ -426,7 +426,7 @@ _ZL10load_procsPFPFvvEPKcE.exit:                  ; preds = %2
   br label %20
 
 20:                                               ; preds = %18, %15, %9
-  %21 = load i32, ptr @_ZL7version, align 4, !tbaa !13
+  %21 = load i32, ptr @_ZL7version, align 4, !tbaa !14
   %22 = icmp slt i32 %21, 2
   %..i = select i1 %22, i32 -3, i32 0
   br label %_ZL13parse_versionv.exit
@@ -445,12 +445,12 @@ define dso_local range(i32 0, 2) i32 @imgl3wIsSupported(i32 noundef %0, i32 noun
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr @_ZL7version, align 4, !tbaa !13
+  %5 = load i32, ptr @_ZL7version, align 4, !tbaa !14
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4), align 4, !tbaa !16
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4), align 4, !tbaa !17
   %9 = icmp sge i32 %8, %1
   br label %12
 
@@ -508,7 +508,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !18
   %11 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 36, i64 1, ptr %10) #18
   br label %87
 
@@ -516,20 +516,20 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %13 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 104)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  store ptr %13, ptr %14, align 8, !tbaa !19
+  store ptr %13, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store ptr @.str.2, ptr %15, align 8, !tbaa !31
+  store ptr @.str.2, ptr %15, align 8, !tbaa !32
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 312), align 8, !tbaa !10
   %17 = tail call noundef ptr %16(i32 noundef 7938)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  store i32 0, ptr %2, align 4, !tbaa !32
+  store i32 0, ptr %2, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  store i32 0, ptr %3, align 4, !tbaa !32
+  store i32 0, ptr %3, align 4, !tbaa !33
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %18(i32 noundef 33307, ptr noundef nonnull %2)
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %19(i32 noundef 33308, ptr noundef nonnull %3)
-  %20 = load i32, ptr %2, align 4, !tbaa !32
+  %20 = load i32, ptr %2, align 4, !tbaa !33
   %21 = icmp eq i32 %20, 0
   %22 = load i32, ptr %3, align 4
   %23 = icmp eq i32 %22, 0
@@ -538,8 +538,8 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
 
 24:                                               ; preds = %12
   %25 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
-  %.pre = load i32, ptr %2, align 4, !tbaa !32
-  %.pre34 = load i32, ptr %3, align 4, !tbaa !32
+  %.pre = load i32, ptr %2, align 4, !tbaa !33
+  %.pre34 = load i32, ptr %3, align 4, !tbaa !33
   br label %26
 
 26:                                               ; preds = %24, %12
@@ -548,7 +548,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %29 = mul nsw i32 %28, 100
   %30 = mul nsw i32 %27, 10
   %31 = add nsw i32 %30, %29
-  store i32 %31, ptr %13, align 8, !tbaa !33
+  store i32 %31, ptr %13, align 8, !tbaa !34
   %32 = icmp ugt i32 %31, 319
   br i1 %32, label %33, label %36
 
@@ -560,33 +560,33 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
 
 36:                                               ; preds = %33, %26
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %38 = load i32, ptr %37, align 8, !tbaa !36
+  %38 = load i32, ptr %37, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 38
   %40 = trunc i32 %38 to i8
   %41 = lshr i8 %40, 1
   %42 = and i8 %41, 1
-  store i8 %42, ptr %39, align 2, !tbaa !37
+  store i8 %42, ptr %39, align 2, !tbaa !38
   %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.4, i64 noundef 11) #19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 37
-  store i8 1, ptr %46, align 1, !tbaa !38
+  store i8 1, ptr %46, align 1, !tbaa !39
   br label %47
 
 47:                                               ; preds = %45, %36
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 98
-  store i8 0, ptr %48, align 2, !tbaa !39
-  %49 = load i32, ptr %13, align 8, !tbaa !33
+  store i8 0, ptr %48, align 2, !tbaa !40
+  %49 = load i32, ptr %13, align 8, !tbaa !34
   %50 = icmp ugt i32 %49, 319
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !40
+  %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = or i32 %53, 8
-  store i32 %54, ptr %52, align 4, !tbaa !40
+  store i32 %54, ptr %52, align 4, !tbaa !41
   br label %55
 
 55:                                               ; preds = %51, %47
@@ -601,30 +601,30 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %59(i32 noundef 32873, ptr noundef nonnull %4)
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %61 = load i8, ptr %60, align 4, !tbaa !41, !range !42, !noundef !43
+  %61 = load i8, ptr %60, align 4, !tbaa !42, !range !43, !noundef !44
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 37
-  %65 = load i8, ptr %64, align 1, !tbaa !38, !range !42, !noundef !43
+  %65 = load i8, ptr %64, align 1, !tbaa !39, !range !43, !noundef !44
   %66 = xor i8 %65, 1
   br label %67
 
 67:                                               ; preds = %63, %55
   %68 = phi i8 [ 0, %55 ], [ %66, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store i8 %68, ptr %69, align 8, !tbaa !44
-  %70 = load i32, ptr %13, align 8, !tbaa !33
+  store i8 %68, ptr %69, align 8, !tbaa !45
+  %70 = load i32, ptr %13, align 8, !tbaa !34
   %71 = icmp ugt i32 %70, 449
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 97
   %73 = zext i1 %71 to i8
-  store i8 %73, ptr %72, align 1, !tbaa !45
+  store i8 %73, ptr %72, align 1, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  store i32 0, ptr %5, align 4, !tbaa !32
+  store i32 0, ptr %5, align 4, !tbaa !33
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %74(i32 noundef 33309, ptr noundef nonnull %5)
-  %75 = load i32, ptr %5, align 4, !tbaa !32
+  %75 = load i32, ptr %5, align 4, !tbaa !33
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph, label %._crit_edge
 
@@ -648,14 +648,14 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %79
-  store i8 1, ptr %72, align 1, !tbaa !45
+  store i8 1, ptr %72, align 1, !tbaa !46
   br label %83
 
 83:                                               ; preds = %82, %79, %.lr.ph
   %84 = add nuw nsw i32 %.03033, 1
-  %85 = load i32, ptr %5, align 4, !tbaa !32
+  %85 = load i32, ptr %5, align 4, !tbaa !33
   %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 87:                                               ; preds = %._crit_edge, %9
   ret i1 %.not
@@ -693,7 +693,7 @@ define dso_local void @_Z26ImGui_ImplOpenGL3_Shutdownv() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %2
@@ -701,13 +701,13 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %2
   %7 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   tail call void @_Z38ImGui_ImplOpenGL3_DestroyDeviceObjectsv()
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  store ptr null, ptr %8, align 8, !tbaa !31
+  store ptr null, ptr %8, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store ptr null, ptr %9, align 8, !tbaa !19
+  store ptr null, ptr %9, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !40
+  %11 = load i32, ptr %10, align 4, !tbaa !41
   %12 = and i32 %11, -9
-  store i32 %12, ptr %10, align 4, !tbaa !40
+  store i32 %12, ptr %10, align 4, !tbaa !41
   %.not.i4 = icmp eq ptr %6, null
   br i1 %.not.i4, label %_Z9IM_DELETEI22ImGui_ImplOpenGL3_DataEvPT_.exit, label %13
 
@@ -727,40 +727,40 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   tail call void @llvm.assume(i1 %.not.i)
   %1 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load i32, ptr %4, align 8, !tbaa !47
+  %5 = load i32, ptr %4, align 8, !tbaa !48
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 128), align 8, !tbaa !10
   tail call void %7(i32 noundef 1, ptr noundef nonnull %4)
-  store i32 0, ptr %4, align 8, !tbaa !47
+  store i32 0, ptr %4, align 8, !tbaa !48
   br label %8
 
 8:                                                ; preds = %6, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  %10 = load i32, ptr %9, align 4, !tbaa !48
+  %10 = load i32, ptr %9, align 4, !tbaa !49
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %13, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 128), align 8, !tbaa !10
   tail call void %12(i32 noundef 1, ptr noundef nonnull %9)
-  store i32 0, ptr %9, align 4, !tbaa !48
+  store i32 0, ptr %9, align 4, !tbaa !49
   br label %13
 
 13:                                               ; preds = %11, %8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !49
+  %15 = load i32, ptr %14, align 8, !tbaa !50
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %18, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 136), align 8, !tbaa !10
   tail call void %17(i32 noundef %15)
-  store i32 0, ptr %14, align 8, !tbaa !49
+  store i32 0, ptr %14, align 8, !tbaa !50
   br label %18
 
 18:                                               ; preds = %16, %13
@@ -770,9 +770,9 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   tail call void @llvm.assume(i1 %.not.i.i)
   %21 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
-  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 44
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %.not.i11 = icmp eq i32 %25, 0
   br i1 %.not.i11, label %_Z37ImGui_ImplOpenGL3_DestroyFontsTexturev.exit, label %26
 
@@ -780,10 +780,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 152), align 8, !tbaa !10
   tail call void %27(i32 noundef 1, ptr noundef nonnull %24)
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !51
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr null, ptr %30, align 8, !tbaa !52
-  store i32 0, ptr %24, align 4, !tbaa !50
+  store ptr null, ptr %30, align 8, !tbaa !53
+  store i32 0, ptr %24, align 4, !tbaa !51
   br label %_Z37ImGui_ImplOpenGL3_DestroyFontsTexturev.exit
 
 _Z37ImGui_ImplOpenGL3_DestroyFontsTexturev.exit:  ; preds = %18, %26
@@ -798,9 +798,9 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   tail call void @llvm.assume(i1 %.not.i)
   %1 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %5 = load i32, ptr %4, align 8, !tbaa !50
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
 
@@ -810,7 +810,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
 
 8:                                                ; preds = %6, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %10 = load i32, ptr %9, align 4, !tbaa !50
+  %10 = load i32, ptr %9, align 4, !tbaa !51
   %.not2 = icmp eq i32 %10, 0
   br i1 %.not2, label %11, label %13
 
@@ -841,7 +841,7 @@ define dso_local noundef zeroext i1 @_Z37ImGui_ImplOpenGL3_CreateDeviceObjectsv(
 12:                                               ; preds = %0
   %13 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
@@ -853,8 +853,8 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %18(i32 noundef 34964, ptr noundef nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  store i32 0, ptr %6, align 4, !tbaa !32
-  %19 = load i32, ptr %16, align 8, !tbaa !33
+  store i32 0, ptr %6, align 4, !tbaa !33
+  %19 = load i32, ptr %16, align 8, !tbaa !34
   %20 = icmp ugt i32 %19, 209
   br i1 %20, label %21, label %24
 
@@ -870,10 +870,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %25(i32 noundef 34229, ptr noundef nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  store i32 130, ptr %8, align 4, !tbaa !32
+  store i32 130, ptr %8, align 4, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #17
-  %28 = load i32, ptr %8, align 4, !tbaa !32
+  %28 = load i32, ptr %8, align 4, !tbaa !33
   %29 = icmp slt i32 %28, 130
   br i1 %29, label %34, label %30
 
@@ -915,16 +915,16 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 112), align 8, !tbaa !10
   %46 = call noundef i32 %45()
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store i32 %46, ptr %47, align 8, !tbaa !49
+  store i32 %46, ptr %47, align 8, !tbaa !50
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 8), align 8, !tbaa !10
   call void %48(i32 noundef %46, i32 noundef %37)
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 8), align 8, !tbaa !10
-  %50 = load i32, ptr %47, align 8, !tbaa !49
+  %50 = load i32, ptr %47, align 8, !tbaa !50
   call void %49(i32 noundef %50, i32 noundef %42)
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 368), align 8, !tbaa !10
-  %52 = load i32, ptr %47, align 8, !tbaa !49
+  %52 = load i32, ptr %47, align 8, !tbaa !50
   call void %51(i32 noundef %52)
-  %53 = load i32, ptr %47, align 8, !tbaa !49
+  %53 = load i32, ptr %47, align 8, !tbaa !50
   %54 = call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i, label %55
@@ -932,32 +932,32 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
 55:                                               ; preds = %34
   %56 = call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 152
-  %58 = load ptr, ptr %57, align 8, !tbaa !19
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i:    ; preds = %55, %34
   %59 = phi ptr [ %58, %55 ], [ null, %34 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #17
-  store i32 0, ptr %1, align 4, !tbaa !32
+  store i32 0, ptr %1, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  store i32 0, ptr %2, align 4, !tbaa !32
+  store i32 0, ptr %2, align 4, !tbaa !33
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 288), align 8, !tbaa !10
   call void %60(i32 noundef %53, i32 noundef 35714, ptr noundef nonnull %1)
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 288), align 8, !tbaa !10
   call void %61(i32 noundef %53, i32 noundef 35716, ptr noundef nonnull %2)
-  %62 = load i32, ptr %1, align 4, !tbaa !32
+  %62 = load i32, ptr %1, align 4, !tbaa !33
   %63 = and i32 %62, 255
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !18
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.19, ptr noundef nonnull %67) #20
   br label %69
 
 69:                                               ; preds = %65, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i
-  %70 = load i32, ptr %2, align 4, !tbaa !32
+  %70 = load i32, ptr %2, align 4, !tbaa !33
   %71 = icmp sgt i32 %70, 1
   br i1 %71, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i, label %_ZL12CheckProgramjPKc.exit
 
@@ -973,16 +973,16 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
 76:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre.pre.i = load i32, ptr %2, align 4, !tbaa !32
-  store ptr %75, ptr %78, align 8, !tbaa !62
-  store i32 %73, ptr %77, align 4, !tbaa !64
-  store i32 %72, ptr %3, align 8, !tbaa !65
+  %.pre.pre.i = load i32, ptr %2, align 4, !tbaa !33
+  store ptr %75, ptr %78, align 8, !tbaa !63
+  store i32 %73, ptr %77, align 4, !tbaa !65
+  store i32 %72, ptr %3, align 8, !tbaa !66
   %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 280), align 8, !tbaa !10
   invoke void %79(i32 noundef %53, i32 noundef %.pre.pre.i, ptr noundef null, ptr noundef %75)
           to label %80 unwind label %87
 
 80:                                               ; preds = %76
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !18
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.93, ptr noundef %75) #20
   %.not.i7.i = icmp eq ptr %75, null
   br i1 %.not.i7.i, label %_ZN8ImVectorIcED2Ev.exit.i, label %83
@@ -1015,40 +1015,40 @@ _ZL12CheckProgramjPKc.exit:                       ; preds = %69, %_ZN8ImVectorIc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #17
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
-  %90 = load i32, ptr %47, align 8, !tbaa !49
+  %90 = load i32, ptr %47, align 8, !tbaa !50
   call void %89(i32 noundef %90, i32 noundef %37)
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
-  %92 = load i32, ptr %47, align 8, !tbaa !49
+  %92 = load i32, ptr %47, align 8, !tbaa !50
   call void %91(i32 noundef %92, i32 noundef %42)
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
   call void %93(i32 noundef %37)
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
   call void %94(i32 noundef %42)
   %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
-  %96 = load i32, ptr %47, align 8, !tbaa !49
+  %96 = load i32, ptr %47, align 8, !tbaa !50
   %97 = call noundef i32 %95(i32 noundef %96, ptr noundef nonnull @.str.20)
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  store i32 %97, ptr %98, align 4, !tbaa !66
+  store i32 %97, ptr %98, align 4, !tbaa !67
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
-  %100 = load i32, ptr %47, align 8, !tbaa !49
+  %100 = load i32, ptr %47, align 8, !tbaa !50
   %101 = call noundef i32 %99(i32 noundef %100, ptr noundef nonnull @.str.21)
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i32 %101, ptr %102, align 8, !tbaa !67
+  store i32 %101, ptr %102, align 8, !tbaa !68
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %104 = load i32, ptr %47, align 8, !tbaa !49
+  %104 = load i32, ptr %47, align 8, !tbaa !50
   %105 = call noundef i32 %103(i32 noundef %104, ptr noundef nonnull @.str.22)
   %106 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i32 %105, ptr %106, align 4, !tbaa !68
+  store i32 %105, ptr %106, align 4, !tbaa !69
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %108 = load i32, ptr %47, align 8, !tbaa !49
+  %108 = load i32, ptr %47, align 8, !tbaa !50
   %109 = call noundef i32 %107(i32 noundef %108, ptr noundef nonnull @.str.23)
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i32 %109, ptr %110, align 8, !tbaa !69
+  store i32 %109, ptr %110, align 8, !tbaa !70
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %112 = load i32, ptr %47, align 8, !tbaa !49
+  %112 = load i32, ptr %47, align 8, !tbaa !50
   %113 = call noundef i32 %111(i32 noundef %112, ptr noundef nonnull @.str.24)
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i32 %113, ptr %114, align 4, !tbaa !70
+  store i32 %113, ptr %114, align 4, !tbaa !71
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 232), align 8, !tbaa !10
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void %115(i32 noundef 1, ptr noundef nonnull %116)
@@ -1057,24 +1057,24 @@ _ZL12CheckProgramjPKc.exit:                       ; preds = %69, %_ZN8ImVectorIc
   call void %117(i32 noundef 1, ptr noundef nonnull %118)
   %119 = call noundef zeroext i1 @_Z36ImGui_ImplOpenGL3_CreateFontsTexturev()
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
-  %121 = load i32, ptr %4, align 4, !tbaa !32
+  %121 = load i32, ptr %4, align 4, !tbaa !33
   call void %120(i32 noundef 3553, i32 noundef %121)
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
-  %123 = load i32, ptr %5, align 4, !tbaa !32
+  %123 = load i32, ptr %5, align 4, !tbaa !33
   call void %122(i32 noundef 34962, i32 noundef %123)
-  %124 = load i32, ptr %16, align 8, !tbaa !33
+  %124 = load i32, ptr %16, align 8, !tbaa !34
   %125 = icmp ugt i32 %124, 209
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %_ZL12CheckProgramjPKc.exit
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
-  %128 = load i32, ptr %6, align 4, !tbaa !32
+  %128 = load i32, ptr %6, align 4, !tbaa !33
   call void %127(i32 noundef 35052, i32 noundef %128)
   br label %129
 
 129:                                              ; preds = %126, %_ZL12CheckProgramjPKc.exit
   %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 40), align 8, !tbaa !10
-  %131 = load i32, ptr %7, align 4, !tbaa !32
+  %131 = load i32, ptr %7, align 4, !tbaa !33
   call void %130(i32 noundef %131)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
@@ -1100,7 +1100,7 @@ define dso_local noundef zeroext i1 @_Z36ImGui_ImplOpenGL3_CreateFontsTexturev()
 7:                                                ; preds = %0
   %8 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
@@ -1109,7 +1109,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   call void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %13, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
@@ -1118,7 +1118,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 44
   call void %15(i32 noundef 1, ptr noundef nonnull %16)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
-  %18 = load i32, ptr %16, align 4, !tbaa !50
+  %18 = load i32, ptr %16, align 4, !tbaa !51
   call void %17(i32 noundef 3553, i32 noundef %18)
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 424), align 8, !tbaa !10
   call void %19(i32 noundef 3553, i32 noundef 10241, i32 noundef 9729)
@@ -1127,18 +1127,18 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 376), align 8, !tbaa !10
   call void %21(i32 noundef 3314, i32 noundef 0)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 416), align 8, !tbaa !10
-  %23 = load i32, ptr %2, align 4, !tbaa !32
-  %24 = load i32, ptr %3, align 4, !tbaa !32
+  %23 = load i32, ptr %2, align 4, !tbaa !33
+  %24 = load i32, ptr %3, align 4, !tbaa !33
   %25 = load ptr, ptr %1, align 8, !tbaa !8
   call void %22(i32 noundef 3553, i32 noundef 0, i32 noundef 6408, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %25)
-  %26 = load ptr, ptr %12, align 8, !tbaa !51
-  %27 = load i32, ptr %16, align 4, !tbaa !50
+  %26 = load ptr, ptr %12, align 8, !tbaa !52
+  %27 = load i32, ptr %16, align 4, !tbaa !51
   %28 = zext i32 %27 to i64
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !52
+  store ptr %29, ptr %30, align 8, !tbaa !53
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
-  %32 = load i32, ptr %4, align 4, !tbaa !32
+  %32 = load i32, ptr %4, align 4, !tbaa !33
   call void %31(i32 noundef 3553, i32 noundef %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
@@ -1166,15 +1166,15 @@ define dso_local void @_Z32ImGui_ImplOpenGL3_RenderDrawDataP10ImDrawData(ptr nou
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load float, ptr %18, align 8, !tbaa !71
+  %19 = load float, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load float, ptr %20, align 8, !tbaa !76
+  %21 = load float, ptr %20, align 8, !tbaa !77
   %22 = fmul float %19, %21
   %23 = fptosi float %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %25 = load float, ptr %24, align 4, !tbaa !77
+  %25 = load float, ptr %24, align 4, !tbaa !78
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %27 = load float, ptr %26, align 4, !tbaa !78
+  %27 = load float, ptr %26, align 4, !tbaa !79
   %28 = fmul float %25, %27
   %29 = fptosi float %28 to i32
   %30 = icmp slt i32 %23, 1
@@ -1190,7 +1190,7 @@ define dso_local void @_Z32ImGui_ImplOpenGL3_RenderDrawDataP10ImDrawData(ptr nou
 34:                                               ; preds = %32
   %35 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
-  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
@@ -1207,13 +1207,13 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %42(i32 noundef 32873, ptr noundef nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  %43 = load i32, ptr %38, align 8, !tbaa !33
+  %43 = load i32, ptr %38, align 8, !tbaa !34
   %44 = icmp ugt i32 %43, 329
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 37
-  %47 = load i8, ptr %46, align 1, !tbaa !38, !range !42, !noundef !43
+  %47 = load i8, ptr %46, align 1, !tbaa !39, !range !43, !noundef !44
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %51
 
@@ -1223,7 +1223,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br label %52
 
 51:                                               ; preds = %45
-  store i32 0, ptr %5, align 4, !tbaa !32
+  store i32 0, ptr %5, align 4, !tbaa !33
   br label %52
 
 52:                                               ; preds = %51, %49
@@ -1235,7 +1235,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   call void %54(i32 noundef 34229, ptr noundef nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %56 = load i8, ptr %55, align 8, !tbaa !44, !range !42, !noundef !43
+  %56 = load i8, ptr %55, align 8, !tbaa !45, !range !43, !noundef !44
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %60
 
@@ -1279,7 +1279,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %76 = call noundef zeroext i8 %75(i32 noundef 2960)
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 352), align 8, !tbaa !10
   %78 = call noundef zeroext i8 %77(i32 noundef 3089)
-  %79 = load i32, ptr %38, align 8, !tbaa !33
+  %79 = load i32, ptr %38, align 8, !tbaa !34
   %80 = icmp ugt i32 %79, 309
   br i1 %80, label %81, label %85
 
@@ -1292,19 +1292,19 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 85:                                               ; preds = %60, %81
   %.not102 = phi i1 [ %84, %81 ], [ true, %60 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #17
-  store i32 0, ptr %17, align 4, !tbaa !32
+  store i32 0, ptr %17, align 4, !tbaa !33
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 248), align 8, !tbaa !10
   call void %86(i32 noundef 1, ptr noundef nonnull %17)
-  %87 = load i32, ptr %17, align 4, !tbaa !32
+  %87 = load i32, ptr %17, align 4, !tbaa !33
   call fastcc void @_ZL34ImGui_ImplOpenGL3_SetupRenderStateP10ImDrawDataiij(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %29, i32 noundef %87)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.039.0.copyload = load float, ptr %88, align 8, !tbaa !79
+  %.sroa.039.0.copyload = load float, ptr %88, align 8, !tbaa !80
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %.sroa.541.0.copyload = load float, ptr %.sroa.541.0..sroa_idx, align 4, !tbaa !79
-  %.sroa.0.0.copyload = load float, ptr %20, align 8, !tbaa !79
-  %.sroa.5.0.copyload = load float, ptr %26, align 4, !tbaa !79
+  %.sroa.541.0.copyload = load float, ptr %.sroa.541.0..sroa_idx, align 4, !tbaa !80
+  %.sroa.0.0.copyload = load float, ptr %20, align 8, !tbaa !80
+  %.sroa.5.0.copyload = load float, ptr %26, align 4, !tbaa !80
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !80
+  %90 = load i32, ptr %89, align 4, !tbaa !81
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %.lr.ph110, label %._crit_edge111
 
@@ -1319,45 +1319,45 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 ._crit_edge111:                                   ; preds = %._crit_edge, %85
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 160), align 8, !tbaa !10
   call void %97(i32 noundef 1, ptr noundef nonnull %17)
-  %98 = load i32, ptr %3, align 4, !tbaa !32
+  %98 = load i32, ptr %3, align 4, !tbaa !33
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %206, label %203
 
 100:                                              ; preds = %.lr.ph110, %._crit_edge
   %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %._crit_edge ]
-  %101 = load ptr, ptr %92, align 8, !tbaa !81
+  %101 = load ptr, ptr %92, align 8, !tbaa !82
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv113
-  %103 = load ptr, ptr %102, align 8, !tbaa !82
+  %103 = load ptr, ptr %102, align 8, !tbaa !83
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %105 = load i32, ptr %104, align 8, !tbaa !84
+  %105 = load i32, ptr %104, align 8, !tbaa !85
   %106 = sext i32 %105 to i64
   %107 = mul nsw i64 %106, 20
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %109 = load i32, ptr %108, align 8, !tbaa !101
+  %109 = load i32, ptr %108, align 8, !tbaa !102
   %110 = sext i32 %109 to i64
   %111 = shl nsw i64 %110, 1
-  %112 = load i8, ptr %93, align 2, !tbaa !39, !range !42, !noundef !43
+  %112 = load i8, ptr %93, align 2, !tbaa !40, !range !43, !noundef !44
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %131
 
 114:                                              ; preds = %100
-  %115 = load i64, ptr %94, align 8, !tbaa !102
+  %115 = load i64, ptr %94, align 8, !tbaa !103
   %116 = icmp slt i64 %115, %107
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
-  store i64 %107, ptr %94, align 8, !tbaa !102
+  store i64 %107, ptr %94, align 8, !tbaa !103
   %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 72), align 8, !tbaa !10
   call void %118(i32 noundef 34962, i64 noundef %107, ptr noundef null, i32 noundef 35040)
   br label %119
 
 119:                                              ; preds = %117, %114
-  %120 = load i64, ptr %95, align 8, !tbaa !103
+  %120 = load i64, ptr %95, align 8, !tbaa !104
   %121 = icmp slt i64 %120, %111
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %119
-  store i64 %111, ptr %95, align 8, !tbaa !103
+  store i64 %111, ptr %95, align 8, !tbaa !104
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 72), align 8, !tbaa !10
   call void %123(i32 noundef 34963, i64 noundef %111, ptr noundef null, i32 noundef 35040)
   br label %124
@@ -1365,27 +1365,27 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 124:                                              ; preds = %122, %119
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 80), align 8, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %127 = load ptr, ptr %126, align 8, !tbaa !104
+  %127 = load ptr, ptr %126, align 8, !tbaa !105
   call void %125(i32 noundef 34962, i64 noundef 0, i64 noundef %107, ptr noundef %127)
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 80), align 8, !tbaa !10
   %129 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %130 = load ptr, ptr %129, align 8, !tbaa !105
+  %130 = load ptr, ptr %129, align 8, !tbaa !106
   call void %128(i32 noundef 34963, i64 noundef 0, i64 noundef %111, ptr noundef %130)
   br label %138
 
 131:                                              ; preds = %100
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 72), align 8, !tbaa !10
   %133 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %134 = load ptr, ptr %133, align 8, !tbaa !104
+  %134 = load ptr, ptr %133, align 8, !tbaa !105
   call void %132(i32 noundef 34962, i64 noundef %107, ptr noundef %134, i32 noundef 35040)
   %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 72), align 8, !tbaa !10
   %136 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %137 = load ptr, ptr %136, align 8, !tbaa !105
+  %137 = load ptr, ptr %136, align 8, !tbaa !106
   call void %135(i32 noundef 34963, i64 noundef %111, ptr noundef %137, i32 noundef 35040)
   br label %138
 
 138:                                              ; preds = %131, %124
-  %139 = load i32, ptr %103, align 8, !tbaa !106
+  %139 = load i32, ptr %103, align 8, !tbaa !107
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %.lr.ph, label %._crit_edge
 
@@ -1395,17 +1395,17 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 
 ._crit_edge:                                      ; preds = %.critedge, %138
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %142 = load i32, ptr %89, align 4, !tbaa !80
+  %142 = load i32, ptr %89, align 4, !tbaa !81
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next114, %143
-  br i1 %144, label %100, label %._crit_edge111, !llvm.loop !107
+  br i1 %144, label %100, label %._crit_edge111, !llvm.loop !108
 
 145:                                              ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %146 = load ptr, ptr %141, align 8, !tbaa !108
+  %146 = load ptr, ptr %141, align 8, !tbaa !109
   %147 = getelementptr inbounds nuw %struct.ImDrawCmd, ptr %146, i64 %indvars.iv
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
-  %149 = load ptr, ptr %148, align 8, !tbaa !109
+  %149 = load ptr, ptr %148, align 8, !tbaa !110
   %magicptr = ptrtoint ptr %149 to i64
   switch i64 %magicptr, label %152 [
     i64 0, label %153
@@ -1413,7 +1413,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   ]
 
 150:                                              ; preds = %145
-  %151 = load i32, ptr %17, align 4, !tbaa !32
+  %151 = load i32, ptr %17, align 4, !tbaa !33
   call fastcc void @_ZL34ImGui_ImplOpenGL3_SetupRenderStateP10ImDrawDataiij(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %29, i32 noundef %151)
   br label %.critedge
 
@@ -1422,19 +1422,19 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br label %.critedge
 
 153:                                              ; preds = %145
-  %154 = load float, ptr %147, align 8, !tbaa !111
+  %154 = load float, ptr %147, align 8, !tbaa !112
   %155 = fsub float %154, %.sroa.039.0.copyload
   %156 = fmul float %.sroa.0.0.copyload, %155
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %158 = load float, ptr %157, align 4, !tbaa !112
+  %158 = load float, ptr %157, align 4, !tbaa !113
   %159 = fsub float %158, %.sroa.541.0.copyload
   %160 = fmul float %.sroa.5.0.copyload, %159
   %161 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %162 = load float, ptr %161, align 8, !tbaa !113
+  %162 = load float, ptr %161, align 8, !tbaa !114
   %163 = fsub float %162, %.sroa.039.0.copyload
   %164 = fmul float %.sroa.0.0.copyload, %163
   %165 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  %166 = load float, ptr %165, align 4, !tbaa !114
+  %166 = load float, ptr %165, align 4, !tbaa !115
   %167 = fsub float %166, %.sroa.541.0.copyload
   %168 = fmul float %.sroa.5.0.copyload, %167
   %169 = fcmp ugt float %164, %156
@@ -1454,16 +1454,16 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   call void %172(i32 noundef %173, i32 noundef %175, i32 noundef %177, i32 noundef %179)
   %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
   %181 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %182 = load ptr, ptr %181, align 8, !tbaa !115
+  %182 = load ptr, ptr %181, align 8, !tbaa !116
   %183 = ptrtoint ptr %182 to i64
   %184 = trunc i64 %183 to i32
   call void %180(i32 noundef 3553, i32 noundef %184)
-  %185 = load i32, ptr %38, align 8, !tbaa !33
+  %185 = load i32, ptr %38, align 8, !tbaa !34
   %186 = icmp ugt i32 %185, 319
   %187 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %188 = load i32, ptr %187, align 8, !tbaa !116
+  %188 = load i32, ptr %187, align 8, !tbaa !117
   %189 = getelementptr inbounds nuw i8, ptr %147, i64 28
-  %190 = load i32, ptr %189, align 4, !tbaa !117
+  %190 = load i32, ptr %189, align 4, !tbaa !118
   %191 = zext i32 %190 to i64
   %192 = shl nuw nsw i64 %191, 1
   %193 = inttoptr i64 %192 to ptr
@@ -1472,7 +1472,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 194:                                              ; preds = %171
   %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 200), align 8, !tbaa !10
   %196 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %197 = load i32, ptr %196, align 8, !tbaa !118
+  %197 = load i32, ptr %196, align 8, !tbaa !119
   call void %195(i32 noundef 4, i32 noundef %188, i32 noundef 5123, ptr noundef %193, i32 noundef %197)
   br label %.critedge
 
@@ -1483,10 +1483,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 
 .critedge:                                        ; preds = %153, %198, %194, %152, %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %200 = load i32, ptr %103, align 8, !tbaa !106
+  %200 = load i32, ptr %103, align 8, !tbaa !107
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next, %201
-  br i1 %202, label %145, label %._crit_edge, !llvm.loop !119
+  br i1 %202, label %145, label %._crit_edge, !llvm.loop !120
 
 203:                                              ; preds = %._crit_edge111
   %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 360), align 8, !tbaa !10
@@ -1495,7 +1495,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br i1 %.not, label %209, label %._crit_edge116
 
 ._crit_edge116:                                   ; preds = %203
-  %.pre = load i32, ptr %3, align 4, !tbaa !32
+  %.pre = load i32, ptr %3, align 4, !tbaa !33
   br label %206
 
 206:                                              ; preds = %._crit_edge116, %._crit_edge111
@@ -1506,43 +1506,43 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 
 209:                                              ; preds = %206, %203
   %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
-  %211 = load i32, ptr %4, align 4, !tbaa !32
+  %211 = load i32, ptr %4, align 4, !tbaa !33
   call void %210(i32 noundef 3553, i32 noundef %211)
-  %212 = load i32, ptr %38, align 8, !tbaa !33
+  %212 = load i32, ptr %38, align 8, !tbaa !34
   %213 = icmp ugt i32 %212, 329
   br i1 %213, label %218, label %214
 
 214:                                              ; preds = %209
   %215 = getelementptr inbounds nuw i8, ptr %38, i64 37
-  %216 = load i8, ptr %215, align 1, !tbaa !38, !range !42, !noundef !43
+  %216 = load i8, ptr %215, align 1, !tbaa !39, !range !43, !noundef !44
   %217 = trunc nuw i8 %216 to i1
   br i1 %217, label %218, label %221
 
 218:                                              ; preds = %214, %209
   %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 24), align 8, !tbaa !10
-  %220 = load i32, ptr %5, align 4, !tbaa !32
+  %220 = load i32, ptr %5, align 4, !tbaa !33
   call void %219(i32 noundef 0, i32 noundef %220)
   br label %221
 
 221:                                              ; preds = %218, %214
   %222 = load ptr, ptr @imgl3wProcs, align 8, !tbaa !10
-  %223 = load i32, ptr %2, align 4, !tbaa !32
+  %223 = load i32, ptr %2, align 4, !tbaa !33
   call void %222(i32 noundef %223)
   %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 40), align 8, !tbaa !10
-  %225 = load i32, ptr %7, align 4, !tbaa !32
+  %225 = load i32, ptr %7, align 4, !tbaa !33
   call void %224(i32 noundef %225)
   %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
-  %227 = load i32, ptr %6, align 4, !tbaa !32
+  %227 = load i32, ptr %6, align 4, !tbaa !33
   call void %226(i32 noundef 34962, i32 noundef %227)
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 56), align 8, !tbaa !10
-  %229 = load i32, ptr %15, align 4, !tbaa !32
-  %230 = load i32, ptr %16, align 4, !tbaa !32
+  %229 = load i32, ptr %15, align 4, !tbaa !33
+  %230 = load i32, ptr %16, align 4, !tbaa !33
   call void %228(i32 noundef %229, i32 noundef %230)
   %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 64), align 8, !tbaa !10
-  %232 = load i32, ptr %11, align 4, !tbaa !32
-  %233 = load i32, ptr %12, align 4, !tbaa !32
-  %234 = load i32, ptr %13, align 4, !tbaa !32
-  %235 = load i32, ptr %14, align 4, !tbaa !32
+  %232 = load i32, ptr %11, align 4, !tbaa !33
+  %233 = load i32, ptr %12, align 4, !tbaa !33
+  %234 = load i32, ptr %13, align 4, !tbaa !33
+  %235 = load i32, ptr %14, align 4, !tbaa !33
   call void %231(i32 noundef %232, i32 noundef %233, i32 noundef %234, i32 noundef %235)
   %.not97 = icmp eq i8 %70, 0
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 176), align 8
@@ -1569,7 +1569,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8
   %.sink120 = select i1 %.not101, ptr %244, ptr %245
   call void %.sink120(i32 noundef 3089)
-  %246 = load i32, ptr %38, align 8, !tbaa !33
+  %246 = load i32, ptr %38, align 8, !tbaa !34
   %247 = icmp ugt i32 %246, 309
   br i1 %247, label %.sink.split, label %250
 
@@ -1581,55 +1581,55 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br label %250
 
 250:                                              ; preds = %.sink.split, %221
-  %251 = load i8, ptr %55, align 8, !tbaa !44, !range !42, !noundef !43
+  %251 = load i8, ptr %55, align 8, !tbaa !45, !range !43, !noundef !44
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %253, label %269
 
 253:                                              ; preds = %250
-  %254 = load i32, ptr %38, align 8, !tbaa !33
+  %254 = load i32, ptr %38, align 8, !tbaa !34
   %255 = icmp ult i32 %254, 311
   br i1 %255, label %260, label %256
 
 256:                                              ; preds = %253
   %257 = getelementptr inbounds nuw i8, ptr %38, i64 38
-  %258 = load i8, ptr %257, align 2, !tbaa !37, !range !42, !noundef !43
+  %258 = load i8, ptr %257, align 2, !tbaa !38, !range !43, !noundef !44
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %266
 
 260:                                              ; preds = %256, %253
   %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 384), align 8, !tbaa !10
-  %262 = load i32, ptr %8, align 4, !tbaa !32
+  %262 = load i32, ptr %8, align 4, !tbaa !33
   call void %261(i32 noundef 1028, i32 noundef %262)
   %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 384), align 8, !tbaa !10
   %264 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %265 = load i32, ptr %264, align 4, !tbaa !32
+  %265 = load i32, ptr %264, align 4, !tbaa !33
   call void %263(i32 noundef 1029, i32 noundef %265)
   br label %269
 
 266:                                              ; preds = %256
   %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 384), align 8, !tbaa !10
-  %268 = load i32, ptr %8, align 4, !tbaa !32
+  %268 = load i32, ptr %8, align 4, !tbaa !33
   call void %267(i32 noundef 1032, i32 noundef %268)
   br label %269
 
 269:                                              ; preds = %260, %266, %250
   %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 464), align 8, !tbaa !10
-  %271 = load i32, ptr %9, align 16, !tbaa !32
+  %271 = load i32, ptr %9, align 16, !tbaa !33
   %272 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %273 = load i32, ptr %272, align 4, !tbaa !32
+  %273 = load i32, ptr %272, align 4, !tbaa !33
   %274 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %275 = load i32, ptr %274, align 8, !tbaa !32
+  %275 = load i32, ptr %274, align 8, !tbaa !33
   %276 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %277 = load i32, ptr %276, align 4, !tbaa !32
+  %277 = load i32, ptr %276, align 4, !tbaa !33
   call void %270(i32 noundef %271, i32 noundef %273, i32 noundef %275, i32 noundef %277)
   %278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 400), align 8, !tbaa !10
-  %279 = load i32, ptr %10, align 16, !tbaa !32
+  %279 = load i32, ptr %10, align 16, !tbaa !33
   %280 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %281 = load i32, ptr %280, align 4, !tbaa !32
+  %281 = load i32, ptr %280, align 4, !tbaa !33
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %283 = load i32, ptr %282, align 8, !tbaa !32
+  %283 = load i32, ptr %282, align 8, !tbaa !33
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %285 = load i32, ptr %284, align 4, !tbaa !32
+  %285 = load i32, ptr %284, align 4, !tbaa !33
   call void %278(i32 noundef %279, i32 noundef %281, i32 noundef %283, i32 noundef %285)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
@@ -1664,7 +1664,7 @@ define internal fastcc void @_ZL34ImGui_ImplOpenGL3_SetupRenderStateP10ImDrawDat
 8:                                                ; preds = %4
   %9 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
@@ -1683,7 +1683,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   tail call void %18(i32 noundef 2960)
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 208), align 8, !tbaa !10
   tail call void %19(i32 noundef 3089)
-  %20 = load i32, ptr %12, align 8, !tbaa !33
+  %20 = load i32, ptr %12, align 8, !tbaa !34
   %21 = icmp ugt i32 %20, 309
   br i1 %21, label %22, label %24
 
@@ -1694,7 +1694,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
 
 24:                                               ; preds = %22, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %26 = load i8, ptr %25, align 8, !tbaa !44, !range !42, !noundef !43
+  %26 = load i8, ptr %25, align 8, !tbaa !45, !range !43, !noundef !44
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
 
@@ -1705,16 +1705,16 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
 
 30:                                               ; preds = %28, %24
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 97
-  %32 = load i8, ptr %31, align 1, !tbaa !45, !range !42, !noundef !43
+  %32 = load i8, ptr %31, align 1, !tbaa !46, !range !43, !noundef !44
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  store i32 0, ptr %5, align 4, !tbaa !32
+  store i32 0, ptr %5, align 4, !tbaa !33
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %35(i32 noundef 37724, ptr noundef nonnull %5)
-  %36 = load i32, ptr %5, align 4, !tbaa !32
+  %36 = load i32, ptr %5, align 4, !tbaa !33
   %.fr = freeze i32 %36
   %37 = icmp ne i32 %.fr, 36002
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -1725,66 +1725,66 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 464), align 8, !tbaa !10
   call void %39(i32 noundef 0, i32 noundef 0, i32 noundef %1, i32 noundef %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load float, ptr %40, align 8, !tbaa !120
+  %41 = load float, ptr %40, align 8, !tbaa !121
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load float, ptr %42, align 8, !tbaa !71
+  %43 = load float, ptr %42, align 8, !tbaa !72
   %44 = fadd float %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %46 = load float, ptr %45, align 4, !tbaa !121
+  %46 = load float, ptr %45, align 4, !tbaa !122
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %48 = load float, ptr %47, align 4, !tbaa !77
+  %48 = load float, ptr %47, align 4, !tbaa !78
   %49 = fadd float %46, %48
   %50 = select i1 %.0, float %46, float %49
   %51 = select i1 %.0, float %49, float %46
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
   %52 = fsub float %44, %41
   %53 = fdiv float 2.000000e+00, %52
-  store float %53, ptr %6, align 16, !tbaa !79
+  store float %53, ptr %6, align 16, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %56 = fsub float %50, %51
   %57 = fdiv float 2.000000e+00, %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store float %57, ptr %55, align 4, !tbaa !79
+  store float %57, ptr %55, align 4, !tbaa !80
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  store float -1.000000e+00, ptr %59, align 8, !tbaa !79
+  store float -1.000000e+00, ptr %59, align 8, !tbaa !80
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store float 0.000000e+00, ptr %60, align 4, !tbaa !79
+  store float 0.000000e+00, ptr %60, align 4, !tbaa !80
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %62 = fadd float %41, %44
   %63 = fsub float %41, %44
   %64 = fdiv float %62, %63
-  store float %64, ptr %61, align 16, !tbaa !79
+  store float %64, ptr %61, align 16, !tbaa !80
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %66 = fadd float %46, %49
   %67 = fsub float %51, %50
   %68 = fdiv float %66, %67
-  store float %68, ptr %65, align 4, !tbaa !79
+  store float %68, ptr %65, align 4, !tbaa !80
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store float 0.000000e+00, ptr %69, align 8, !tbaa !79
+  store float 0.000000e+00, ptr %69, align 8, !tbaa !80
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store float 1.000000e+00, ptr %70, align 4, !tbaa !79
+  store float 1.000000e+00, ptr %70, align 4, !tbaa !80
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 448), align 8, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %73 = load i32, ptr %72, align 8, !tbaa !49
+  %73 = load i32, ptr %72, align 8, !tbaa !50
   call void %71(i32 noundef %73)
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 432), align 8, !tbaa !10
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %76 = load i32, ptr %75, align 4, !tbaa !66
+  %76 = load i32, ptr %75, align 4, !tbaa !67
   call void %74(i32 noundef %76, i32 noundef 0)
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 440), align 8, !tbaa !10
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %79 = load i32, ptr %78, align 8, !tbaa !67
+  %79 = load i32, ptr %78, align 8, !tbaa !68
   call void %77(i32 noundef %79, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %6)
-  %80 = load i32, ptr %12, align 8, !tbaa !33
+  %80 = load i32, ptr %12, align 8, !tbaa !34
   %81 = icmp ugt i32 %80, 329
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %38
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 37
-  %84 = load i8, ptr %83, align 1, !tbaa !38, !range !42, !noundef !43
+  %84 = load i8, ptr %83, align 1, !tbaa !39, !range !43, !noundef !44
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %88
 
@@ -1798,32 +1798,32 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   call void %89(i32 noundef %3)
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %92 = load i32, ptr %91, align 8, !tbaa !47
+  %92 = load i32, ptr %91, align 8, !tbaa !48
   call void %90(i32 noundef 34962, i32 noundef %92)
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 76
-  %95 = load i32, ptr %94, align 4, !tbaa !48
+  %95 = load i32, ptr %94, align 4, !tbaa !49
   call void %93(i32 noundef 34963, i32 noundef %95)
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 216), align 8, !tbaa !10
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  %98 = load i32, ptr %97, align 4, !tbaa !68
+  %98 = load i32, ptr %97, align 4, !tbaa !69
   call void %96(i32 noundef %98)
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 216), align 8, !tbaa !10
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %101 = load i32, ptr %100, align 8, !tbaa !69
+  %101 = load i32, ptr %100, align 8, !tbaa !70
   call void %99(i32 noundef %101)
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 216), align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  %104 = load i32, ptr %103, align 4, !tbaa !70
+  %104 = load i32, ptr %103, align 4, !tbaa !71
   call void %102(i32 noundef %104)
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 456), align 8, !tbaa !10
-  %106 = load i32, ptr %97, align 4, !tbaa !68
+  %106 = load i32, ptr %97, align 4, !tbaa !69
   call void %105(i32 noundef %106, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 20, ptr noundef null)
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 456), align 8, !tbaa !10
-  %108 = load i32, ptr %100, align 8, !tbaa !69
+  %108 = load i32, ptr %100, align 8, !tbaa !70
   call void %107(i32 noundef %108, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 20, ptr noundef nonnull inttoptr (i64 8 to ptr))
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 456), align 8, !tbaa !10
-  %110 = load i32, ptr %103, align 4, !tbaa !70
+  %110 = load i32, ptr %103, align 4, !tbaa !71
   call void %109(i32 noundef %110, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 20, ptr noundef nonnull inttoptr (i64 16 to ptr))
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
   ret void
@@ -1840,9 +1840,9 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   tail call void @llvm.assume(i1 %.not.i)
   %2 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %6 = load i32, ptr %5, align 4, !tbaa !50
+  %6 = load i32, ptr %5, align 4, !tbaa !51
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
@@ -1850,10 +1850,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 152), align 8, !tbaa !10
   tail call void %8(i32 noundef 1, ptr noundef nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr null, ptr %11, align 8, !tbaa !52
-  store i32 0, ptr %5, align 4, !tbaa !50
+  store ptr null, ptr %11, align 8, !tbaa !53
+  store i32 0, ptr %5, align 4, !tbaa !51
   br label %12
 
 12:                                               ; preds = %7, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
@@ -1872,32 +1872,32 @@ define internal fastcc void @_ZL11CheckShaderjPKc(i32 noundef %0, ptr noundef %1
 7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   br label %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  store i32 0, ptr %3, align 4, !tbaa !32
+  store i32 0, ptr %3, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  store i32 0, ptr %4, align 4, !tbaa !32
+  store i32 0, ptr %4, align 4, !tbaa !33
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 304), align 8, !tbaa !10
   call void %12(i32 noundef %0, i32 noundef 35713, ptr noundef nonnull %3)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 304), align 8, !tbaa !10
   call void %13(i32 noundef %0, i32 noundef 35716, ptr noundef nonnull %4)
-  %14 = load i32, ptr %3, align 4, !tbaa !32
+  %14 = load i32, ptr %3, align 4, !tbaa !33
   %15 = and i32 %14, 255
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef nonnull %19) #20
   br label %21
 
 21:                                               ; preds = %17, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
-  %22 = load i32, ptr %4, align 4, !tbaa !32
+  %22 = load i32, ptr %4, align 4, !tbaa !33
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %41
 
@@ -1913,16 +1913,16 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
 28:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.pre = load i32, ptr %4, align 4, !tbaa !32
-  store ptr %27, ptr %30, align 8, !tbaa !62
-  store i32 %25, ptr %29, align 4, !tbaa !64
-  store i32 %24, ptr %5, align 8, !tbaa !65
+  %.pre.pre = load i32, ptr %4, align 4, !tbaa !33
+  store ptr %27, ptr %30, align 8, !tbaa !63
+  store i32 %25, ptr %29, align 4, !tbaa !65
+  store i32 %24, ptr %5, align 8, !tbaa !66
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 296), align 8, !tbaa !10
   invoke void %31(i32 noundef %0, i32 noundef %.pre.pre, ptr noundef null, ptr noundef %27)
           to label %32 unwind label %39
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !18
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.93, ptr noundef %27) #20
   %.not.i7 = icmp eq ptr %27, null
   br i1 %.not.i7, label %_ZN8ImVectorIcED2Ev.exit, label %35
@@ -1974,7 +1974,7 @@ declare noundef ptr @_ZN5ImGui17GetCurrentContextEv() local_unnamed_addr #5
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -2055,114 +2055,115 @@ attributes #21 = { noreturn nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 omnipotent char", !5, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"_ZTS3$_0", !15, i64 0, !15, i64 4}
-!15 = !{!"int", !6, i64 0}
-!16 = !{!14, !15, i64 4}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!19 = !{!20, !5, i64 152}
-!20 = !{!"_ZTS7ImGuiIO", !15, i64 0, !15, i64 4, !21, i64 8, !22, i64 16, !22, i64 20, !9, i64 24, !9, i64 32, !5, i64 40, !23, i64 48, !22, i64 56, !24, i64 60, !25, i64 64, !21, i64 72, !24, i64 80, !24, i64 81, !24, i64 82, !24, i64 83, !24, i64 84, !24, i64 85, !24, i64 86, !24, i64 87, !24, i64 88, !24, i64 89, !22, i64 92, !22, i64 96, !22, i64 100, !22, i64 104, !22, i64 108, !22, i64 112, !24, i64 116, !24, i64 117, !24, i64 118, !24, i64 119, !24, i64 120, !24, i64 121, !24, i64 122, !24, i64 123, !24, i64 124, !24, i64 125, !9, i64 128, !9, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !24, i64 168, !24, i64 169, !24, i64 170, !24, i64 171, !24, i64 172, !24, i64 173, !24, i64 174, !22, i64 176, !15, i64 180, !15, i64 184, !15, i64 188, !15, i64 192, !21, i64 196, !26, i64 208, !21, i64 216, !6, i64 224, !22, i64 232, !22, i64 236, !27, i64 240, !24, i64 244, !24, i64 245, !24, i64 246, !24, i64 247, !15, i64 248, !6, i64 252, !24, i64 2716, !21, i64 2720, !6, i64 2728, !6, i64 2768, !6, i64 2808, !6, i64 2813, !6, i64 2818, !6, i64 2828, !6, i64 2838, !6, i64 2843, !6, i64 2848, !24, i64 2853, !24, i64 2854, !6, i64 2856, !6, i64 2876, !6, i64 2896, !22, i64 2916, !24, i64 2920, !24, i64 2921, !6, i64 2922, !24, i64 2923, !28, i64 2924, !29, i64 2928}
-!21 = !{!"_ZTS6ImVec2", !22, i64 0, !22, i64 4}
-!22 = !{!"float", !6, i64 0}
-!23 = !{!"p1 _ZTS11ImFontAtlas", !5, i64 0}
-!24 = !{!"bool", !6, i64 0}
-!25 = !{!"p1 _ZTS6ImFont", !5, i64 0}
-!26 = !{!"p1 _ZTS12ImGuiContext", !5, i64 0}
-!27 = !{!"_ZTS16ImGuiMouseSource", !6, i64 0}
-!28 = !{!"short", !6, i64 0}
-!29 = !{!"_ZTS8ImVectorItE", !15, i64 0, !15, i64 4, !30, i64 8}
-!30 = !{!"p1 short", !5, i64 0}
-!31 = !{!20, !9, i64 136}
-!32 = !{!15, !15, i64 0}
-!33 = !{!34, !15, i64 0}
-!34 = !{!"_ZTS22ImGui_ImplOpenGL3_Data", !15, i64 0, !6, i64 4, !24, i64 36, !24, i64 37, !24, i64 38, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !35, i64 80, !35, i64 88, !24, i64 96, !24, i64 97, !24, i64 98}
-!35 = !{!"long", !6, i64 0}
-!36 = !{!34, !15, i64 40}
-!37 = !{!34, !24, i64 38}
-!38 = !{!34, !24, i64 37}
-!39 = !{!34, !24, i64 98}
-!40 = !{!20, !15, i64 4}
-!41 = !{!34, !24, i64 36}
-!42 = !{i8 0, i8 2}
-!43 = !{}
-!44 = !{!34, !24, i64 96}
-!45 = !{!34, !24, i64 97}
-!46 = distinct !{!46, !12}
-!47 = !{!34, !15, i64 72}
-!48 = !{!34, !15, i64 76}
-!49 = !{!34, !15, i64 48}
-!50 = !{!34, !15, i64 44}
-!51 = !{!20, !23, i64 48}
-!52 = !{!53, !5, i64 8}
-!53 = !{!"_ZTS11ImFontAtlas", !15, i64 0, !5, i64 8, !15, i64 16, !15, i64 20, !24, i64 24, !5, i64 32, !24, i64 40, !24, i64 41, !9, i64 48, !54, i64 56, !15, i64 64, !15, i64 68, !21, i64 72, !21, i64 80, !55, i64 88, !57, i64 104, !59, i64 120, !6, i64 136, !61, i64 1160, !15, i64 1168, !15, i64 1172, !15, i64 1176}
-!54 = !{!"p1 int", !5, i64 0}
-!55 = !{!"_ZTS8ImVectorIP6ImFontE", !15, i64 0, !15, i64 4, !56, i64 8}
-!56 = !{!"p2 _ZTS6ImFont", !5, i64 0}
-!57 = !{!"_ZTS8ImVectorI21ImFontAtlasCustomRectE", !15, i64 0, !15, i64 4, !58, i64 8}
-!58 = !{!"p1 _ZTS21ImFontAtlasCustomRect", !5, i64 0}
-!59 = !{!"_ZTS8ImVectorI12ImFontConfigE", !15, i64 0, !15, i64 4, !60, i64 8}
-!60 = !{!"p1 _ZTS12ImFontConfig", !5, i64 0}
-!61 = !{!"p1 _ZTS15ImFontBuilderIO", !5, i64 0}
-!62 = !{!63, !9, i64 8}
-!63 = !{!"_ZTS8ImVectorIcE", !15, i64 0, !15, i64 4, !9, i64 8}
-!64 = !{!63, !15, i64 4}
-!65 = !{!63, !15, i64 0}
-!66 = !{!34, !15, i64 52}
-!67 = !{!34, !15, i64 56}
-!68 = !{!34, !15, i64 60}
-!69 = !{!34, !15, i64 64}
-!70 = !{!34, !15, i64 68}
-!71 = !{!72, !22, i64 40}
-!72 = !{!"_ZTS10ImDrawData", !24, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !73, i64 16, !21, i64 32, !21, i64 40, !21, i64 48, !75, i64 56}
-!73 = !{!"_ZTS8ImVectorIP10ImDrawListE", !15, i64 0, !15, i64 4, !74, i64 8}
-!74 = !{!"p2 _ZTS10ImDrawList", !5, i64 0}
-!75 = !{!"p1 _ZTS13ImGuiViewport", !5, i64 0}
-!76 = !{!72, !22, i64 48}
-!77 = !{!72, !22, i64 44}
-!78 = !{!72, !22, i64 52}
-!79 = !{!22, !22, i64 0}
-!80 = !{!72, !15, i64 4}
-!81 = !{!73, !74, i64 8}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"p1 _ZTS10ImDrawList", !5, i64 0}
-!84 = !{!85, !15, i64 32}
-!85 = !{!"_ZTS10ImDrawList", !86, i64 0, !29, i64 16, !88, i64 32, !15, i64 48, !15, i64 52, !90, i64 56, !89, i64 64, !30, i64 72, !91, i64 80, !93, i64 96, !95, i64 128, !98, i64 152, !100, i64 168, !22, i64 184, !9, i64 192}
-!86 = !{!"_ZTS8ImVectorI9ImDrawCmdE", !15, i64 0, !15, i64 4, !87, i64 8}
-!87 = !{!"p1 _ZTS9ImDrawCmd", !5, i64 0}
-!88 = !{!"_ZTS8ImVectorI10ImDrawVertE", !15, i64 0, !15, i64 4, !89, i64 8}
-!89 = !{!"p1 _ZTS10ImDrawVert", !5, i64 0}
-!90 = !{!"p1 _ZTS20ImDrawListSharedData", !5, i64 0}
-!91 = !{!"_ZTS8ImVectorI6ImVec2E", !15, i64 0, !15, i64 4, !92, i64 8}
-!92 = !{!"p1 _ZTS6ImVec2", !5, i64 0}
-!93 = !{!"_ZTS15ImDrawCmdHeader", !94, i64 0, !5, i64 16, !15, i64 24}
-!94 = !{!"_ZTS6ImVec4", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12}
-!95 = !{!"_ZTS18ImDrawListSplitter", !15, i64 0, !15, i64 4, !96, i64 8}
-!96 = !{!"_ZTS8ImVectorI13ImDrawChannelE", !15, i64 0, !15, i64 4, !97, i64 8}
-!97 = !{!"p1 _ZTS13ImDrawChannel", !5, i64 0}
-!98 = !{!"_ZTS8ImVectorI6ImVec4E", !15, i64 0, !15, i64 4, !99, i64 8}
-!99 = !{!"p1 _ZTS6ImVec4", !5, i64 0}
-!100 = !{!"_ZTS8ImVectorIPvE", !15, i64 0, !15, i64 4, !5, i64 8}
-!101 = !{!85, !15, i64 16}
-!102 = !{!34, !35, i64 80}
-!103 = !{!34, !35, i64 88}
-!104 = !{!85, !89, i64 40}
-!105 = !{!85, !30, i64 24}
-!106 = !{!85, !15, i64 0}
-!107 = distinct !{!107, !12}
-!108 = !{!86, !87, i64 8}
-!109 = !{!110, !5, i64 40}
-!110 = !{!"_ZTS9ImDrawCmd", !94, i64 0, !5, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !5, i64 40, !5, i64 48}
-!111 = !{!110, !22, i64 0}
-!112 = !{!110, !22, i64 4}
-!113 = !{!110, !22, i64 8}
-!114 = !{!110, !22, i64 12}
-!115 = !{!110, !5, i64 16}
-!116 = !{!110, !15, i64 32}
-!117 = !{!110, !15, i64 28}
-!118 = !{!110, !15, i64 24}
-!119 = distinct !{!119, !12}
-!120 = !{!72, !22, i64 32}
-!121 = !{!72, !22, i64 36}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTS3$_0", !16, i64 0, !16, i64 4}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!15, !16, i64 4}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!20 = !{!21, !5, i64 152}
+!21 = !{!"_ZTS7ImGuiIO", !16, i64 0, !16, i64 4, !22, i64 8, !23, i64 16, !23, i64 20, !9, i64 24, !9, i64 32, !5, i64 40, !24, i64 48, !23, i64 56, !25, i64 60, !26, i64 64, !22, i64 72, !25, i64 80, !25, i64 81, !25, i64 82, !25, i64 83, !25, i64 84, !25, i64 85, !25, i64 86, !25, i64 87, !25, i64 88, !25, i64 89, !23, i64 92, !23, i64 96, !23, i64 100, !23, i64 104, !23, i64 108, !23, i64 112, !25, i64 116, !25, i64 117, !25, i64 118, !25, i64 119, !25, i64 120, !25, i64 121, !25, i64 122, !25, i64 123, !25, i64 124, !25, i64 125, !9, i64 128, !9, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !25, i64 168, !25, i64 169, !25, i64 170, !25, i64 171, !25, i64 172, !25, i64 173, !25, i64 174, !23, i64 176, !16, i64 180, !16, i64 184, !16, i64 188, !16, i64 192, !22, i64 196, !27, i64 208, !22, i64 216, !6, i64 224, !23, i64 232, !23, i64 236, !28, i64 240, !25, i64 244, !25, i64 245, !25, i64 246, !25, i64 247, !16, i64 248, !6, i64 252, !25, i64 2716, !22, i64 2720, !6, i64 2728, !6, i64 2768, !6, i64 2808, !6, i64 2813, !6, i64 2818, !6, i64 2828, !6, i64 2838, !6, i64 2843, !6, i64 2848, !25, i64 2853, !25, i64 2854, !6, i64 2856, !6, i64 2876, !6, i64 2896, !23, i64 2916, !25, i64 2920, !25, i64 2921, !6, i64 2922, !25, i64 2923, !29, i64 2924, !30, i64 2928}
+!22 = !{!"_ZTS6ImVec2", !23, i64 0, !23, i64 4}
+!23 = !{!"float", !6, i64 0}
+!24 = !{!"p1 _ZTS11ImFontAtlas", !5, i64 0}
+!25 = !{!"bool", !6, i64 0}
+!26 = !{!"p1 _ZTS6ImFont", !5, i64 0}
+!27 = !{!"p1 _ZTS12ImGuiContext", !5, i64 0}
+!28 = !{!"_ZTS16ImGuiMouseSource", !6, i64 0}
+!29 = !{!"short", !6, i64 0}
+!30 = !{!"_ZTS8ImVectorItE", !16, i64 0, !16, i64 4, !31, i64 8}
+!31 = !{!"p1 short", !5, i64 0}
+!32 = !{!21, !9, i64 136}
+!33 = !{!16, !16, i64 0}
+!34 = !{!35, !16, i64 0}
+!35 = !{!"_ZTS22ImGui_ImplOpenGL3_Data", !16, i64 0, !6, i64 4, !25, i64 36, !25, i64 37, !25, i64 38, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !36, i64 80, !36, i64 88, !25, i64 96, !25, i64 97, !25, i64 98}
+!36 = !{!"long", !6, i64 0}
+!37 = !{!35, !16, i64 40}
+!38 = !{!35, !25, i64 38}
+!39 = !{!35, !25, i64 37}
+!40 = !{!35, !25, i64 98}
+!41 = !{!21, !16, i64 4}
+!42 = !{!35, !25, i64 36}
+!43 = !{i8 0, i8 2}
+!44 = !{}
+!45 = !{!35, !25, i64 96}
+!46 = !{!35, !25, i64 97}
+!47 = distinct !{!47, !12, !13}
+!48 = !{!35, !16, i64 72}
+!49 = !{!35, !16, i64 76}
+!50 = !{!35, !16, i64 48}
+!51 = !{!35, !16, i64 44}
+!52 = !{!21, !24, i64 48}
+!53 = !{!54, !5, i64 8}
+!54 = !{!"_ZTS11ImFontAtlas", !16, i64 0, !5, i64 8, !16, i64 16, !16, i64 20, !25, i64 24, !5, i64 32, !25, i64 40, !25, i64 41, !9, i64 48, !55, i64 56, !16, i64 64, !16, i64 68, !22, i64 72, !22, i64 80, !56, i64 88, !58, i64 104, !60, i64 120, !6, i64 136, !62, i64 1160, !16, i64 1168, !16, i64 1172, !16, i64 1176}
+!55 = !{!"p1 int", !5, i64 0}
+!56 = !{!"_ZTS8ImVectorIP6ImFontE", !16, i64 0, !16, i64 4, !57, i64 8}
+!57 = !{!"p2 _ZTS6ImFont", !5, i64 0}
+!58 = !{!"_ZTS8ImVectorI21ImFontAtlasCustomRectE", !16, i64 0, !16, i64 4, !59, i64 8}
+!59 = !{!"p1 _ZTS21ImFontAtlasCustomRect", !5, i64 0}
+!60 = !{!"_ZTS8ImVectorI12ImFontConfigE", !16, i64 0, !16, i64 4, !61, i64 8}
+!61 = !{!"p1 _ZTS12ImFontConfig", !5, i64 0}
+!62 = !{!"p1 _ZTS15ImFontBuilderIO", !5, i64 0}
+!63 = !{!64, !9, i64 8}
+!64 = !{!"_ZTS8ImVectorIcE", !16, i64 0, !16, i64 4, !9, i64 8}
+!65 = !{!64, !16, i64 4}
+!66 = !{!64, !16, i64 0}
+!67 = !{!35, !16, i64 52}
+!68 = !{!35, !16, i64 56}
+!69 = !{!35, !16, i64 60}
+!70 = !{!35, !16, i64 64}
+!71 = !{!35, !16, i64 68}
+!72 = !{!73, !23, i64 40}
+!73 = !{!"_ZTS10ImDrawData", !25, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !74, i64 16, !22, i64 32, !22, i64 40, !22, i64 48, !76, i64 56}
+!74 = !{!"_ZTS8ImVectorIP10ImDrawListE", !16, i64 0, !16, i64 4, !75, i64 8}
+!75 = !{!"p2 _ZTS10ImDrawList", !5, i64 0}
+!76 = !{!"p1 _ZTS13ImGuiViewport", !5, i64 0}
+!77 = !{!73, !23, i64 48}
+!78 = !{!73, !23, i64 44}
+!79 = !{!73, !23, i64 52}
+!80 = !{!23, !23, i64 0}
+!81 = !{!73, !16, i64 4}
+!82 = !{!74, !75, i64 8}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS10ImDrawList", !5, i64 0}
+!85 = !{!86, !16, i64 32}
+!86 = !{!"_ZTS10ImDrawList", !87, i64 0, !30, i64 16, !89, i64 32, !16, i64 48, !16, i64 52, !91, i64 56, !90, i64 64, !31, i64 72, !92, i64 80, !94, i64 96, !96, i64 128, !99, i64 152, !101, i64 168, !23, i64 184, !9, i64 192}
+!87 = !{!"_ZTS8ImVectorI9ImDrawCmdE", !16, i64 0, !16, i64 4, !88, i64 8}
+!88 = !{!"p1 _ZTS9ImDrawCmd", !5, i64 0}
+!89 = !{!"_ZTS8ImVectorI10ImDrawVertE", !16, i64 0, !16, i64 4, !90, i64 8}
+!90 = !{!"p1 _ZTS10ImDrawVert", !5, i64 0}
+!91 = !{!"p1 _ZTS20ImDrawListSharedData", !5, i64 0}
+!92 = !{!"_ZTS8ImVectorI6ImVec2E", !16, i64 0, !16, i64 4, !93, i64 8}
+!93 = !{!"p1 _ZTS6ImVec2", !5, i64 0}
+!94 = !{!"_ZTS15ImDrawCmdHeader", !95, i64 0, !5, i64 16, !16, i64 24}
+!95 = !{!"_ZTS6ImVec4", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12}
+!96 = !{!"_ZTS18ImDrawListSplitter", !16, i64 0, !16, i64 4, !97, i64 8}
+!97 = !{!"_ZTS8ImVectorI13ImDrawChannelE", !16, i64 0, !16, i64 4, !98, i64 8}
+!98 = !{!"p1 _ZTS13ImDrawChannel", !5, i64 0}
+!99 = !{!"_ZTS8ImVectorI6ImVec4E", !16, i64 0, !16, i64 4, !100, i64 8}
+!100 = !{!"p1 _ZTS6ImVec4", !5, i64 0}
+!101 = !{!"_ZTS8ImVectorIPvE", !16, i64 0, !16, i64 4, !5, i64 8}
+!102 = !{!86, !16, i64 16}
+!103 = !{!35, !36, i64 80}
+!104 = !{!35, !36, i64 88}
+!105 = !{!86, !90, i64 40}
+!106 = !{!86, !31, i64 24}
+!107 = !{!86, !16, i64 0}
+!108 = distinct !{!108, !12, !13}
+!109 = !{!87, !88, i64 8}
+!110 = !{!111, !5, i64 40}
+!111 = !{!"_ZTS9ImDrawCmd", !95, i64 0, !5, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !5, i64 40, !5, i64 48}
+!112 = !{!111, !23, i64 0}
+!113 = !{!111, !23, i64 4}
+!114 = !{!111, !23, i64 8}
+!115 = !{!111, !23, i64 12}
+!116 = !{!111, !5, i64 16}
+!117 = !{!111, !16, i64 32}
+!118 = !{!111, !16, i64 28}
+!119 = !{!111, !16, i64 24}
+!120 = distinct !{!120, !12, !13}
+!121 = !{!73, !23, i64 32}
+!122 = !{!73, !23, i64 36}

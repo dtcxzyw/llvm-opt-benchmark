@@ -278,7 +278,7 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
   %30 = phi i32 [ %28, %for.inc25.loopexit ], [ %8, %for.body ]
   %inc26 = add nuw nsw i32 %y.0378, 1
   %cmp = icmp slt i32 %inc26, %29
-  br i1 %cmp, label %for.body, label %for.end27, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end27, !llvm.loop !8
 
 for.end27:                                        ; preds = %for.inc25, %for.body.lr.ph, %entry
   %31 = load double, ptr %invRange, align 8
@@ -313,7 +313,7 @@ for.cond37.loopexit:                              ; preds = %for.cond37.loopexit
   %39 = phi i32 [ %62, %for.cond37.loopexit.loopexit ], [ %41, %for.body41 ]
   %sub39 = add nsw i32 %38, -1
   %cmp40 = icmp slt i32 %add43, %sub39
-  br i1 %cmp40, label %for.body41, label %for.end78, !llvm.loop !9
+  br i1 %cmp40, label %for.body41, label %for.end78, !llvm.loop !10
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.cond37.loopexit
   %40 = phi i32 [ %38, %for.cond37.loopexit ], [ %35, %for.body41.lr.ph ]
@@ -453,7 +453,7 @@ if.end70:                                         ; preds = %if.then.i213, %land
   %inc74 = add nuw nsw i32 %x45.0380, 1
   %62 = load i32, ptr %width.i143, align 8
   %cmp48 = icmp slt i32 %inc74, %62
-  br i1 %cmp48, label %for.body49, label %for.cond37.loopexit.loopexit, !llvm.loop !10
+  br i1 %cmp48, label %for.body49, label %for.cond37.loopexit.loopexit, !llvm.loop !11
 
 for.end78:                                        ; preds = %for.cond37.loopexit, %for.body41.lr.ph, %for.end27
   %63 = load double, ptr %invRange, align 8
@@ -488,7 +488,7 @@ for.cond88.loopexit:                              ; preds = %for.cond88.loopexit
   %71 = phi i32 [ %116, %for.cond88.loopexit.loopexit ], [ %73, %for.body92 ]
   %sub90 = add nsw i32 %70, -1
   %cmp91 = icmp slt i32 %add95, %sub90
-  br i1 %cmp91, label %for.body92, label %for.end158, !llvm.loop !11
+  br i1 %cmp91, label %for.body92, label %for.end158, !llvm.loop !12
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.cond88.loopexit
   %72 = phi i32 [ %70, %for.cond88.loopexit ], [ %67, %for.body92.lr.ph ]
@@ -763,7 +763,7 @@ if.end148:                                        ; preds = %if.end134.if.end148
   %116 = load i32, ptr %width.i219, align 8
   %sub102 = add nsw i32 %116, -1
   %cmp103 = icmp slt i32 %inc154.pre-phi, %sub102
-  br i1 %cmp103, label %for.body104, label %for.cond88.loopexit.loopexit, !llvm.loop !12
+  br i1 %cmp103, label %for.body104, label %for.cond88.loopexit.loopexit, !llvm.loop !13
 
 for.end158:                                       ; preds = %for.cond88.loopexit, %for.body92.lr.ph, %for.end78
   ret void
@@ -1109,7 +1109,7 @@ if.end:                                           ; preds = %for.body8.if.end_cr
   %28 = load i32, ptr %width.i, align 8
   %sub = add nsw i32 %28, -1
   %cmp7 = icmp slt i32 %inc.pre-phi, %sub
-  br i1 %cmp7, label %for.body8, label %for.inc25.loopexit, !llvm.loop !13
+  br i1 %cmp7, label %for.body8, label %for.inc25.loopexit, !llvm.loop !14
 
 for.inc25.loopexit:                               ; preds = %if.end
   %.pre405 = load i32, ptr %height, align 4
@@ -1120,7 +1120,7 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
   %30 = phi i32 [ %28, %for.inc25.loopexit ], [ %8, %for.body ]
   %inc26 = add nuw nsw i32 %y.0378, 1
   %cmp = icmp slt i32 %inc26, %29
-  br i1 %cmp, label %for.body, label %for.end27, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end27, !llvm.loop !15
 
 for.end27:                                        ; preds = %for.inc25, %for.body.lr.ph, %entry
   %31 = load double, ptr %invRange, align 8
@@ -1155,7 +1155,7 @@ for.cond37.loopexit:                              ; preds = %for.cond37.loopexit
   %39 = phi i32 [ %62, %for.cond37.loopexit.loopexit ], [ %41, %for.body41 ]
   %sub39 = add nsw i32 %38, -1
   %cmp40 = icmp slt i32 %add43, %sub39
-  br i1 %cmp40, label %for.body41, label %for.end78, !llvm.loop !15
+  br i1 %cmp40, label %for.body41, label %for.end78, !llvm.loop !16
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.cond37.loopexit
   %40 = phi i32 [ %38, %for.cond37.loopexit ], [ %35, %for.body41.lr.ph ]
@@ -1295,7 +1295,7 @@ if.end70:                                         ; preds = %if.then.i213, %land
   %inc74 = add nuw nsw i32 %x45.0380, 1
   %62 = load i32, ptr %width.i143, align 8
   %cmp48 = icmp slt i32 %inc74, %62
-  br i1 %cmp48, label %for.body49, label %for.cond37.loopexit.loopexit, !llvm.loop !16
+  br i1 %cmp48, label %for.body49, label %for.cond37.loopexit.loopexit, !llvm.loop !17
 
 for.end78:                                        ; preds = %for.cond37.loopexit, %for.body41.lr.ph, %for.end27
   %63 = load double, ptr %invRange, align 8
@@ -1330,7 +1330,7 @@ for.cond88.loopexit:                              ; preds = %for.cond88.loopexit
   %71 = phi i32 [ %116, %for.cond88.loopexit.loopexit ], [ %73, %for.body92 ]
   %sub90 = add nsw i32 %70, -1
   %cmp91 = icmp slt i32 %add95, %sub90
-  br i1 %cmp91, label %for.body92, label %for.end158, !llvm.loop !17
+  br i1 %cmp91, label %for.body92, label %for.end158, !llvm.loop !18
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.cond88.loopexit
   %72 = phi i32 [ %70, %for.cond88.loopexit ], [ %67, %for.body92.lr.ph ]
@@ -1605,7 +1605,7 @@ if.end148:                                        ; preds = %if.end134.if.end148
   %116 = load i32, ptr %width.i219, align 8
   %sub102 = add nsw i32 %116, -1
   %cmp103 = icmp slt i32 %inc154.pre-phi, %sub102
-  br i1 %cmp103, label %for.body104, label %for.cond88.loopexit.loopexit, !llvm.loop !18
+  br i1 %cmp103, label %for.body104, label %for.cond88.loopexit.loopexit, !llvm.loop !19
 
 for.end158:                                       ; preds = %for.cond88.loopexit, %for.body92.lr.ph, %for.end78
   ret void
@@ -2606,7 +2606,7 @@ lor.end:                                          ; preds = %if.then.i.i694, %_Z
   %inc = add nuw nsw i32 %x.0742, 1
   %83 = load i32, ptr %width, align 8
   %cmp21 = icmp slt i32 %inc, %83
-  br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !19
+  br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !20
 
 for.inc117.loopexit:                              ; preds = %lor.end
   %.pre746 = load i32, ptr %height, align 4
@@ -2617,7 +2617,7 @@ for.inc117:                                       ; preds = %for.cond20.preheade
   %84 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
   %85 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %83, %for.inc117.loopexit ]
   %cmp = icmp slt i32 %inc118.pre-phi, %84
-  br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !20
+  br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !21
 
 for.end119:                                       ; preds = %for.inc117, %for.cond20.preheader.lr.ph, %entry
   ret void
@@ -3743,7 +3743,7 @@ lor.end:                                          ; preds = %if.then.i.i694, %_Z
   %inc = add nuw nsw i32 %x.0742, 1
   %83 = load i32, ptr %width, align 8
   %cmp21 = icmp slt i32 %inc, %83
-  br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !21
+  br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !22
 
 for.inc117.loopexit:                              ; preds = %lor.end
   %.pre746 = load i32, ptr %height, align 4
@@ -3754,7 +3754,7 @@ for.inc117:                                       ; preds = %for.cond20.preheade
   %84 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
   %85 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %83, %for.inc117.loopexit ]
   %cmp = icmp slt i32 %inc118.pre-phi, %84
-  br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !22
+  br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !23
 
 for.end119:                                       ; preds = %for.inc117, %for.cond20.preheader.lr.ph, %entry
   ret void
@@ -4028,9 +4028,9 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   %mul2.i126 = mul nsw i32 %add.i125, 3
   %idx.ext.i127 = sext i32 %mul2.i126 to i64
   %add.ptr.i128 = getelementptr inbounds float, ptr %48, i64 %idx.ext.i127
-  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !23
-  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !23
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !23
+  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !24
+  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !24
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !24
   store double -1.000000e+00, ptr %direction3.i.i, align 8
   store double 0.000000e+00, ptr %ref.tmp69.sroa.2.0.direction3.i.i.sroa_idx, align 8
   %49 = load float, ptr %add.ptr.i128, align 4
@@ -4378,12 +4378,12 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   %mul2.i136 = mul nsw i32 %add.i135, 3
   %idx.ext.i137 = sext i32 %mul2.i136 to i64
   %add.ptr.i138 = getelementptr inbounds float, ptr %85, i64 %idx.ext.i137
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %86 = load i8, ptr %protectedFlag, align 8, !noalias !26
+  call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  %86 = load i8, ptr %protectedFlag, align 8, !noalias !27
   %frombool.i.i.i141 = and i8 %86, 1
-  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !26
-  store i8 %frombool.i.i.i141, ptr %protectedFlag3.i.i.i142, align 8, !alias.scope !26
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i143, align 8, !alias.scope !26
+  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !27
+  store i8 %frombool.i.i.i141, ptr %protectedFlag3.i.i.i142, align 8, !alias.scope !27
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i143, align 8, !alias.scope !27
   store double 0.000000e+00, ptr %direction3.i.i144, align 8
   store double -1.000000e+00, ptr %ref.tmp80.sroa.2.0.direction3.i.i144.sroa_idx, align 8
   %87 = load float, ptr %add.ptr.i138, align 4
@@ -4558,12 +4558,12 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   %mul2.i179 = mul nsw i32 %add.i178, 3
   %idx.ext.i180 = sext i32 %mul2.i179 to i64
   %add.ptr.i181 = getelementptr inbounds float, ptr %107, i64 %idx.ext.i180
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %108 = load i8, ptr %protectedFlag, align 8, !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  %108 = load i8, ptr %protectedFlag, align 8, !noalias !30
   %frombool.i.i.i184 = and i8 %108, 1
-  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !29
-  store i8 %frombool.i.i.i184, ptr %protectedFlag3.i.i.i185, align 8, !alias.scope !29
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i186, align 8, !alias.scope !29
+  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !30
+  store i8 %frombool.i.i.i184, ptr %protectedFlag3.i.i.i185, align 8, !alias.scope !30
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i186, align 8, !alias.scope !30
   store double 1.000000e+00, ptr %direction3.i.i187, align 8
   store double 0.000000e+00, ptr %ref.tmp94.sroa.2.0.direction3.i.i187.sroa_idx, align 8
   %109 = load float, ptr %add.ptr.i181, align 4
@@ -4642,12 +4642,12 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   %mul2.i222 = mul nsw i32 %add.i221, 3
   %idx.ext.i223 = sext i32 %mul2.i222 to i64
   %add.ptr.i224 = getelementptr inbounds float, ptr %125, i64 %idx.ext.i223
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %126 = load i8, ptr %protectedFlag, align 8, !noalias !32
+  call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %126 = load i8, ptr %protectedFlag, align 8, !noalias !33
   %frombool.i.i.i227 = and i8 %126, 1
-  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !32
-  store i8 %frombool.i.i.i227, ptr %protectedFlag3.i.i.i228, align 8, !alias.scope !32
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i229, align 8, !alias.scope !32
+  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !33
+  store i8 %frombool.i.i.i227, ptr %protectedFlag3.i.i.i228, align 8, !alias.scope !33
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i229, align 8, !alias.scope !33
   store double 0.000000e+00, ptr %direction3.i.i230, align 8
   store double 1.000000e+00, ptr %ref.tmp108.sroa.2.0.direction3.i.i230.sroa_idx, align 8
   %127 = load float, ptr %add.ptr.i224, align 4
@@ -4718,12 +4718,12 @@ lor.lhs.false113:                                 ; preds = %invoke.cont111.lor.
   br i1 %or.cond, label %invoke.cont121, label %lor.lhs.false128
 
 invoke.cont121:                                   ; preds = %lor.lhs.false113
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %142 = load i8, ptr %protectedFlag, align 8, !noalias !35
+  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %142 = load i8, ptr %protectedFlag, align 8, !noalias !36
   %frombool.i.i.i264 = and i8 %142, 1
-  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !35
-  store i8 %frombool.i.i.i264, ptr %protectedFlag3.i.i.i265, align 8, !alias.scope !35
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i266, align 8, !alias.scope !35
+  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !36
+  store i8 %frombool.i.i.i264, ptr %protectedFlag3.i.i.i265, align 8, !alias.scope !36
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i266, align 8, !alias.scope !36
   store double -1.000000e+00, ptr %direction3.i.i267, align 8
   store double -1.000000e+00, ptr %ref.tmp119.sroa.2.0.direction3.i.i267.sroa_idx, align 8
   %sub122 = add nsw i32 %col.0531, -1
@@ -4751,12 +4751,12 @@ lor.lhs.false128:                                 ; preds = %invoke.cont126.lor.
   br i1 %or.cond1, label %invoke.cont138, label %lor.lhs.false145
 
 invoke.cont138:                                   ; preds = %lor.lhs.false128
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %145 = load i8, ptr %protectedFlag, align 8, !noalias !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %145 = load i8, ptr %protectedFlag, align 8, !noalias !39
   %frombool.i.i.i276 = and i8 %145, 1
-  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !38
-  store i8 %frombool.i.i.i276, ptr %protectedFlag3.i.i.i277, align 8, !alias.scope !38
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i278, align 8, !alias.scope !38
+  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !39
+  store i8 %frombool.i.i.i276, ptr %protectedFlag3.i.i.i277, align 8, !alias.scope !39
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i278, align 8, !alias.scope !39
   store double 1.000000e+00, ptr %direction3.i.i279, align 8
   store double -1.000000e+00, ptr %ref.tmp136.sroa.2.0.direction3.i.i279.sroa_idx, align 8
   %add139 = add nuw nsw i32 %col.0531, 1
@@ -4782,12 +4782,12 @@ land.lhs.true147:                                 ; preds = %lor.lhs.false145
   br i1 %cmp150, label %invoke.cont155, label %lor.rhs
 
 invoke.cont155:                                   ; preds = %land.lhs.true147
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %148 = load i8, ptr %protectedFlag, align 8, !noalias !41
+  call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %148 = load i8, ptr %protectedFlag, align 8, !noalias !42
   %frombool.i.i.i288 = and i8 %148, 1
-  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !41
-  store i8 %frombool.i.i.i288, ptr %protectedFlag3.i.i.i289, align 8, !alias.scope !41
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i290, align 8, !alias.scope !41
+  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !42
+  store i8 %frombool.i.i.i288, ptr %protectedFlag3.i.i.i289, align 8, !alias.scope !42
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i290, align 8, !alias.scope !42
   store double -1.000000e+00, ptr %direction3.i.i291, align 8
   store double 1.000000e+00, ptr %ref.tmp153.sroa.2.0.direction3.i.i291.sroa_idx, align 8
   %sub156 = add nsw i32 %col.0531, -1
@@ -4817,12 +4817,12 @@ land.lhs.true165:                                 ; preds = %lor.rhs
   br i1 %cmp168, label %invoke.cont172, label %lor.end
 
 invoke.cont172:                                   ; preds = %land.lhs.true165
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %153 = load i8, ptr %protectedFlag, align 8, !noalias !44
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %153 = load i8, ptr %protectedFlag, align 8, !noalias !45
   %frombool.i.i.i300 = and i8 %153, 1
-  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !44
-  store i8 %frombool.i.i.i300, ptr %protectedFlag3.i.i.i301, align 8, !alias.scope !44
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i302, align 8, !alias.scope !44
+  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !45
+  store i8 %frombool.i.i.i300, ptr %protectedFlag3.i.i.i301, align 8, !alias.scope !45
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i302, align 8, !alias.scope !45
   store double 1.000000e+00, ptr %direction3.i.i303, align 8
   store double 1.000000e+00, ptr %ref.tmp170.sroa.2.0.direction3.i.i303.sroa_idx, align 8
   %add173 = add nuw nsw i32 %col.0531, 1
@@ -4854,7 +4854,7 @@ for.inc:                                          ; preds = %cond.end33, %lor.en
   %160 = phi i32 [ %30, %cond.end33 ], [ %.pre552, %lor.end ]
   %inc = add nuw nsw i32 %col.0531, 1
   %cmp25 = icmp slt i32 %inc, %160
-  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !47
+  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !48
 
 for.inc188.loopexit:                              ; preds = %for.inc
   %.pre553 = load i32, ptr %height, align 4
@@ -4866,7 +4866,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   %163 = phi i32 [ %160, %for.inc188.loopexit ], [ %27, %for.body ]
   %inc189 = add nuw nsw i32 %y.0533, 1
   %cmp = icmp slt i32 %inc189, %161
-  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !48
+  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !49
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EEC2ERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdd.exit
   %164 = load ptr, ptr %shapeEdgeCache.i.i, align 8
@@ -5281,9 +5281,9 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   %mul2.i126 = shl nsw i32 %add.i125, 2
   %idx.ext.i127 = sext i32 %mul2.i126 to i64
   %add.ptr.i128 = getelementptr inbounds float, ptr %48, i64 %idx.ext.i127
-  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !49
-  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !49
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !49
+  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !50
+  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !50
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !50
   store double -1.000000e+00, ptr %direction3.i.i, align 8
   store double 0.000000e+00, ptr %ref.tmp69.sroa.2.0.direction3.i.i.sroa_idx, align 8
   %49 = load float, ptr %add.ptr.i128, align 4
@@ -5631,12 +5631,12 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   %mul2.i136 = shl nsw i32 %add.i135, 2
   %idx.ext.i137 = sext i32 %mul2.i136 to i64
   %add.ptr.i138 = getelementptr inbounds float, ptr %85, i64 %idx.ext.i137
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %86 = load i8, ptr %protectedFlag, align 8, !noalias !52
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %86 = load i8, ptr %protectedFlag, align 8, !noalias !53
   %frombool.i.i.i141 = and i8 %86, 1
-  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !52
-  store i8 %frombool.i.i.i141, ptr %protectedFlag3.i.i.i142, align 8, !alias.scope !52
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i143, align 8, !alias.scope !52
+  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !53
+  store i8 %frombool.i.i.i141, ptr %protectedFlag3.i.i.i142, align 8, !alias.scope !53
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i143, align 8, !alias.scope !53
   store double 0.000000e+00, ptr %direction3.i.i144, align 8
   store double -1.000000e+00, ptr %ref.tmp80.sroa.2.0.direction3.i.i144.sroa_idx, align 8
   %87 = load float, ptr %add.ptr.i138, align 4
@@ -5811,12 +5811,12 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   %mul2.i179 = shl nsw i32 %add.i178, 2
   %idx.ext.i180 = sext i32 %mul2.i179 to i64
   %add.ptr.i181 = getelementptr inbounds float, ptr %107, i64 %idx.ext.i180
-  call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %108 = load i8, ptr %protectedFlag, align 8, !noalias !55
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %108 = load i8, ptr %protectedFlag, align 8, !noalias !56
   %frombool.i.i.i184 = and i8 %108, 1
-  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !55
-  store i8 %frombool.i.i.i184, ptr %protectedFlag3.i.i.i185, align 8, !alias.scope !55
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i186, align 8, !alias.scope !55
+  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !56
+  store i8 %frombool.i.i.i184, ptr %protectedFlag3.i.i.i185, align 8, !alias.scope !56
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i186, align 8, !alias.scope !56
   store double 1.000000e+00, ptr %direction3.i.i187, align 8
   store double 0.000000e+00, ptr %ref.tmp94.sroa.2.0.direction3.i.i187.sroa_idx, align 8
   %109 = load float, ptr %add.ptr.i181, align 4
@@ -5895,12 +5895,12 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   %mul2.i222 = shl nsw i32 %add.i221, 2
   %idx.ext.i223 = sext i32 %mul2.i222 to i64
   %add.ptr.i224 = getelementptr inbounds float, ptr %125, i64 %idx.ext.i223
-  call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %126 = load i8, ptr %protectedFlag, align 8, !noalias !58
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  %126 = load i8, ptr %protectedFlag, align 8, !noalias !59
   %frombool.i.i.i227 = and i8 %126, 1
-  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !58
-  store i8 %frombool.i.i.i227, ptr %protectedFlag3.i.i.i228, align 8, !alias.scope !58
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i229, align 8, !alias.scope !58
+  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !59
+  store i8 %frombool.i.i.i227, ptr %protectedFlag3.i.i.i228, align 8, !alias.scope !59
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i229, align 8, !alias.scope !59
   store double 0.000000e+00, ptr %direction3.i.i230, align 8
   store double 1.000000e+00, ptr %ref.tmp108.sroa.2.0.direction3.i.i230.sroa_idx, align 8
   %127 = load float, ptr %add.ptr.i224, align 4
@@ -5971,12 +5971,12 @@ lor.lhs.false113:                                 ; preds = %invoke.cont111.lor.
   br i1 %or.cond, label %invoke.cont121, label %lor.lhs.false128
 
 invoke.cont121:                                   ; preds = %lor.lhs.false113
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %142 = load i8, ptr %protectedFlag, align 8, !noalias !61
+  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %142 = load i8, ptr %protectedFlag, align 8, !noalias !62
   %frombool.i.i.i264 = and i8 %142, 1
-  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !61
-  store i8 %frombool.i.i.i264, ptr %protectedFlag3.i.i.i265, align 8, !alias.scope !61
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i266, align 8, !alias.scope !61
+  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !62
+  store i8 %frombool.i.i.i264, ptr %protectedFlag3.i.i.i265, align 8, !alias.scope !62
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i266, align 8, !alias.scope !62
   store double -1.000000e+00, ptr %direction3.i.i267, align 8
   store double -1.000000e+00, ptr %ref.tmp119.sroa.2.0.direction3.i.i267.sroa_idx, align 8
   %sub122 = add nsw i32 %col.0531, -1
@@ -6004,12 +6004,12 @@ lor.lhs.false128:                                 ; preds = %invoke.cont126.lor.
   br i1 %or.cond1, label %invoke.cont138, label %lor.lhs.false145
 
 invoke.cont138:                                   ; preds = %lor.lhs.false128
-  call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %145 = load i8, ptr %protectedFlag, align 8, !noalias !64
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  %145 = load i8, ptr %protectedFlag, align 8, !noalias !65
   %frombool.i.i.i276 = and i8 %145, 1
-  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !64
-  store i8 %frombool.i.i.i276, ptr %protectedFlag3.i.i.i277, align 8, !alias.scope !64
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i278, align 8, !alias.scope !64
+  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !65
+  store i8 %frombool.i.i.i276, ptr %protectedFlag3.i.i.i277, align 8, !alias.scope !65
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i278, align 8, !alias.scope !65
   store double 1.000000e+00, ptr %direction3.i.i279, align 8
   store double -1.000000e+00, ptr %ref.tmp136.sroa.2.0.direction3.i.i279.sroa_idx, align 8
   %add139 = add nuw nsw i32 %col.0531, 1
@@ -6035,12 +6035,12 @@ land.lhs.true147:                                 ; preds = %lor.lhs.false145
   br i1 %cmp150, label %invoke.cont155, label %lor.rhs
 
 invoke.cont155:                                   ; preds = %land.lhs.true147
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %148 = load i8, ptr %protectedFlag, align 8, !noalias !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %148 = load i8, ptr %protectedFlag, align 8, !noalias !68
   %frombool.i.i.i288 = and i8 %148, 1
-  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !67
-  store i8 %frombool.i.i.i288, ptr %protectedFlag3.i.i.i289, align 8, !alias.scope !67
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i290, align 8, !alias.scope !67
+  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !68
+  store i8 %frombool.i.i.i288, ptr %protectedFlag3.i.i.i289, align 8, !alias.scope !68
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i290, align 8, !alias.scope !68
   store double -1.000000e+00, ptr %direction3.i.i291, align 8
   store double 1.000000e+00, ptr %ref.tmp153.sroa.2.0.direction3.i.i291.sroa_idx, align 8
   %sub156 = add nsw i32 %col.0531, -1
@@ -6070,12 +6070,12 @@ land.lhs.true165:                                 ; preds = %lor.rhs
   br i1 %cmp168, label %invoke.cont172, label %lor.end
 
 invoke.cont172:                                   ; preds = %land.lhs.true165
-  call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %153 = load i8, ptr %protectedFlag, align 8, !noalias !70
+  call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  %153 = load i8, ptr %protectedFlag, align 8, !noalias !71
   %frombool.i.i.i300 = and i8 %153, 1
-  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !70
-  store i8 %frombool.i.i.i300, ptr %protectedFlag3.i.i.i301, align 8, !alias.scope !70
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i302, align 8, !alias.scope !70
+  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !71
+  store i8 %frombool.i.i.i300, ptr %protectedFlag3.i.i.i301, align 8, !alias.scope !71
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i302, align 8, !alias.scope !71
   store double 1.000000e+00, ptr %direction3.i.i303, align 8
   store double 1.000000e+00, ptr %ref.tmp170.sroa.2.0.direction3.i.i303.sroa_idx, align 8
   %add173 = add nuw nsw i32 %col.0531, 1
@@ -6107,7 +6107,7 @@ for.inc:                                          ; preds = %cond.end33, %lor.en
   %160 = phi i32 [ %30, %cond.end33 ], [ %.pre552, %lor.end ]
   %inc = add nuw nsw i32 %col.0531, 1
   %cmp25 = icmp slt i32 %inc, %160
-  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !73
+  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !74
 
 for.inc188.loopexit:                              ; preds = %for.inc
   %.pre553 = load i32, ptr %height, align 4
@@ -6119,7 +6119,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   %163 = phi i32 [ %160, %for.inc188.loopexit ], [ %27, %for.body ]
   %inc189 = add nuw nsw i32 %y.0533, 1
   %cmp = icmp slt i32 %inc189, %161
-  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !74
+  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !75
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EEC2ERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdd.exit
   %164 = load ptr, ptr %shapeEdgeCache.i.i, align 8
@@ -6480,9 +6480,9 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   %mul2.i122 = mul nsw i32 %add.i121, 3
   %idx.ext.i123 = sext i32 %mul2.i122 to i64
   %add.ptr.i124 = getelementptr inbounds float, ptr %43, i64 %idx.ext.i123
-  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !75
-  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !75
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !75
+  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !76
+  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !76
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !76
   store double -1.000000e+00, ptr %direction3.i.i, align 8
   store double 0.000000e+00, ptr %ref.tmp69.sroa.2.0.direction3.i.i.sroa_idx, align 8
   %44 = load float, ptr %add.ptr.i124, align 4
@@ -6830,12 +6830,12 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   %mul2.i132 = mul nsw i32 %add.i131, 3
   %idx.ext.i133 = sext i32 %mul2.i132 to i64
   %add.ptr.i134 = getelementptr inbounds float, ptr %80, i64 %idx.ext.i133
-  call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %81 = load i8, ptr %protectedFlag, align 8, !noalias !78
+  call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %81 = load i8, ptr %protectedFlag, align 8, !noalias !79
   %frombool.i.i.i137 = and i8 %81, 1
-  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !78
-  store i8 %frombool.i.i.i137, ptr %protectedFlag3.i.i.i138, align 8, !alias.scope !78
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i139, align 8, !alias.scope !78
+  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !79
+  store i8 %frombool.i.i.i137, ptr %protectedFlag3.i.i.i138, align 8, !alias.scope !79
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i139, align 8, !alias.scope !79
   store double 0.000000e+00, ptr %direction3.i.i140, align 8
   store double -1.000000e+00, ptr %ref.tmp80.sroa.2.0.direction3.i.i140.sroa_idx, align 8
   %82 = load float, ptr %add.ptr.i134, align 4
@@ -7010,12 +7010,12 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   %mul2.i175 = mul nsw i32 %add.i174, 3
   %idx.ext.i176 = sext i32 %mul2.i175 to i64
   %add.ptr.i177 = getelementptr inbounds float, ptr %102, i64 %idx.ext.i176
-  call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %103 = load i8, ptr %protectedFlag, align 8, !noalias !81
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  %103 = load i8, ptr %protectedFlag, align 8, !noalias !82
   %frombool.i.i.i180 = and i8 %103, 1
-  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !81
-  store i8 %frombool.i.i.i180, ptr %protectedFlag3.i.i.i181, align 8, !alias.scope !81
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i182, align 8, !alias.scope !81
+  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !82
+  store i8 %frombool.i.i.i180, ptr %protectedFlag3.i.i.i181, align 8, !alias.scope !82
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i182, align 8, !alias.scope !82
   store double 1.000000e+00, ptr %direction3.i.i183, align 8
   store double 0.000000e+00, ptr %ref.tmp94.sroa.2.0.direction3.i.i183.sroa_idx, align 8
   %104 = load float, ptr %add.ptr.i177, align 4
@@ -7094,12 +7094,12 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   %mul2.i218 = mul nsw i32 %add.i217, 3
   %idx.ext.i219 = sext i32 %mul2.i218 to i64
   %add.ptr.i220 = getelementptr inbounds float, ptr %120, i64 %idx.ext.i219
-  call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %121 = load i8, ptr %protectedFlag, align 8, !noalias !84
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %121 = load i8, ptr %protectedFlag, align 8, !noalias !85
   %frombool.i.i.i223 = and i8 %121, 1
-  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !84
-  store i8 %frombool.i.i.i223, ptr %protectedFlag3.i.i.i224, align 8, !alias.scope !84
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !84
+  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !85
+  store i8 %frombool.i.i.i223, ptr %protectedFlag3.i.i.i224, align 8, !alias.scope !85
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !85
   store double 0.000000e+00, ptr %direction3.i.i226, align 8
   store double 1.000000e+00, ptr %ref.tmp108.sroa.2.0.direction3.i.i226.sroa_idx, align 8
   %122 = load float, ptr %add.ptr.i220, align 4
@@ -7170,12 +7170,12 @@ lor.lhs.false113:                                 ; preds = %invoke.cont111.lor.
   br i1 %or.cond, label %invoke.cont121, label %lor.lhs.false128
 
 invoke.cont121:                                   ; preds = %lor.lhs.false113
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %137 = load i8, ptr %protectedFlag, align 8, !noalias !87
+  call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  %137 = load i8, ptr %protectedFlag, align 8, !noalias !88
   %frombool.i.i.i260 = and i8 %137, 1
-  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !87
-  store i8 %frombool.i.i.i260, ptr %protectedFlag3.i.i.i261, align 8, !alias.scope !87
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i262, align 8, !alias.scope !87
+  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !88
+  store i8 %frombool.i.i.i260, ptr %protectedFlag3.i.i.i261, align 8, !alias.scope !88
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i262, align 8, !alias.scope !88
   store double -1.000000e+00, ptr %direction3.i.i263, align 8
   store double -1.000000e+00, ptr %ref.tmp119.sroa.2.0.direction3.i.i263.sroa_idx, align 8
   %sub122 = add nsw i32 %col.0519, -1
@@ -7203,12 +7203,12 @@ lor.lhs.false128:                                 ; preds = %invoke.cont126.lor.
   br i1 %or.cond1, label %invoke.cont138, label %lor.lhs.false145
 
 invoke.cont138:                                   ; preds = %lor.lhs.false128
-  call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %140 = load i8, ptr %protectedFlag, align 8, !noalias !90
+  call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  %140 = load i8, ptr %protectedFlag, align 8, !noalias !91
   %frombool.i.i.i272 = and i8 %140, 1
-  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !90
-  store i8 %frombool.i.i.i272, ptr %protectedFlag3.i.i.i273, align 8, !alias.scope !90
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i274, align 8, !alias.scope !90
+  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !91
+  store i8 %frombool.i.i.i272, ptr %protectedFlag3.i.i.i273, align 8, !alias.scope !91
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i274, align 8, !alias.scope !91
   store double 1.000000e+00, ptr %direction3.i.i275, align 8
   store double -1.000000e+00, ptr %ref.tmp136.sroa.2.0.direction3.i.i275.sroa_idx, align 8
   %add139 = add nuw nsw i32 %col.0519, 1
@@ -7234,12 +7234,12 @@ land.lhs.true147:                                 ; preds = %lor.lhs.false145
   br i1 %cmp150, label %invoke.cont155, label %lor.rhs
 
 invoke.cont155:                                   ; preds = %land.lhs.true147
-  call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %143 = load i8, ptr %protectedFlag, align 8, !noalias !93
+  call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %143 = load i8, ptr %protectedFlag, align 8, !noalias !94
   %frombool.i.i.i284 = and i8 %143, 1
-  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !93
-  store i8 %frombool.i.i.i284, ptr %protectedFlag3.i.i.i285, align 8, !alias.scope !93
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i286, align 8, !alias.scope !93
+  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !94
+  store i8 %frombool.i.i.i284, ptr %protectedFlag3.i.i.i285, align 8, !alias.scope !94
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i286, align 8, !alias.scope !94
   store double -1.000000e+00, ptr %direction3.i.i287, align 8
   store double 1.000000e+00, ptr %ref.tmp153.sroa.2.0.direction3.i.i287.sroa_idx, align 8
   %sub156 = add nsw i32 %col.0519, -1
@@ -7269,12 +7269,12 @@ land.lhs.true165:                                 ; preds = %lor.rhs
   br i1 %cmp168, label %invoke.cont172, label %lor.end
 
 invoke.cont172:                                   ; preds = %land.lhs.true165
-  call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %148 = load i8, ptr %protectedFlag, align 8, !noalias !96
+  call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  %148 = load i8, ptr %protectedFlag, align 8, !noalias !97
   %frombool.i.i.i296 = and i8 %148, 1
-  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !96
-  store i8 %frombool.i.i.i296, ptr %protectedFlag3.i.i.i297, align 8, !alias.scope !96
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i298, align 8, !alias.scope !96
+  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !97
+  store i8 %frombool.i.i.i296, ptr %protectedFlag3.i.i.i297, align 8, !alias.scope !97
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i298, align 8, !alias.scope !97
   store double 1.000000e+00, ptr %direction3.i.i299, align 8
   store double 1.000000e+00, ptr %ref.tmp170.sroa.2.0.direction3.i.i299.sroa_idx, align 8
   %add173 = add nuw nsw i32 %col.0519, 1
@@ -7306,7 +7306,7 @@ for.inc:                                          ; preds = %cond.end33, %lor.en
   %155 = phi i32 [ %26, %cond.end33 ], [ %.pre540, %lor.end ]
   %inc = add nuw nsw i32 %col.0519, 1
   %cmp25 = icmp slt i32 %inc, %155
-  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !99
+  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !100
 
 for.inc188.loopexit:                              ; preds = %for.inc
   %.pre541 = load i32, ptr %height, align 4
@@ -7318,7 +7318,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   %158 = phi i32 [ %155, %for.inc188.loopexit ], [ %23, %for.body ]
   %inc189 = add nuw nsw i32 %y.0521, 1
   %cmp = icmp slt i32 %inc189, %156
-  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !100
+  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !101
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %entry
   %shapeEdgeCache.i.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 120
@@ -7806,9 +7806,9 @@ invoke.cont71:                                    ; preds = %invoke.cont62
   %mul2.i122 = shl nsw i32 %add.i121, 2
   %idx.ext.i123 = sext i32 %mul2.i122 to i64
   %add.ptr.i124 = getelementptr inbounds float, ptr %43, i64 %idx.ext.i123
-  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !101
-  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !101
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !101
+  store double %mul, ptr %ref.tmp68, align 8, !alias.scope !102
+  store i8 %.lobit, ptr %protectedFlag3.i.i.i, align 8, !alias.scope !102
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i, align 8, !alias.scope !102
   store double -1.000000e+00, ptr %direction3.i.i, align 8
   store double 0.000000e+00, ptr %ref.tmp69.sroa.2.0.direction3.i.i.sroa_idx, align 8
   %44 = load float, ptr %add.ptr.i124, align 4
@@ -8156,12 +8156,12 @@ invoke.cont82:                                    ; preds = %lor.lhs.false
   %mul2.i132 = shl nsw i32 %add.i131, 2
   %idx.ext.i133 = sext i32 %mul2.i132 to i64
   %add.ptr.i134 = getelementptr inbounds float, ptr %80, i64 %idx.ext.i133
-  call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %81 = load i8, ptr %protectedFlag, align 8, !noalias !104
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  %81 = load i8, ptr %protectedFlag, align 8, !noalias !105
   %frombool.i.i.i137 = and i8 %81, 1
-  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !104
-  store i8 %frombool.i.i.i137, ptr %protectedFlag3.i.i.i138, align 8, !alias.scope !104
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i139, align 8, !alias.scope !104
+  store double %mul11, ptr %ref.tmp79, align 8, !alias.scope !105
+  store i8 %frombool.i.i.i137, ptr %protectedFlag3.i.i.i138, align 8, !alias.scope !105
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i139, align 8, !alias.scope !105
   store double 0.000000e+00, ptr %direction3.i.i140, align 8
   store double -1.000000e+00, ptr %ref.tmp80.sroa.2.0.direction3.i.i140.sroa_idx, align 8
   %82 = load float, ptr %add.ptr.i134, align 4
@@ -8336,12 +8336,12 @@ invoke.cont96:                                    ; preds = %lor.lhs.false85
   %mul2.i175 = shl nsw i32 %add.i174, 2
   %idx.ext.i176 = sext i32 %mul2.i175 to i64
   %add.ptr.i177 = getelementptr inbounds float, ptr %102, i64 %idx.ext.i176
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  %103 = load i8, ptr %protectedFlag, align 8, !noalias !107
+  call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  %103 = load i8, ptr %protectedFlag, align 8, !noalias !108
   %frombool.i.i.i180 = and i8 %103, 1
-  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !107
-  store i8 %frombool.i.i.i180, ptr %protectedFlag3.i.i.i181, align 8, !alias.scope !107
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i182, align 8, !alias.scope !107
+  store double %mul, ptr %ref.tmp93, align 8, !alias.scope !108
+  store i8 %frombool.i.i.i180, ptr %protectedFlag3.i.i.i181, align 8, !alias.scope !108
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i182, align 8, !alias.scope !108
   store double 1.000000e+00, ptr %direction3.i.i183, align 8
   store double 0.000000e+00, ptr %ref.tmp94.sroa.2.0.direction3.i.i183.sroa_idx, align 8
   %104 = load float, ptr %add.ptr.i177, align 4
@@ -8420,12 +8420,12 @@ invoke.cont110:                                   ; preds = %lor.lhs.false99
   %mul2.i218 = shl nsw i32 %add.i217, 2
   %idx.ext.i219 = sext i32 %mul2.i218 to i64
   %add.ptr.i220 = getelementptr inbounds float, ptr %120, i64 %idx.ext.i219
-  call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %121 = load i8, ptr %protectedFlag, align 8, !noalias !110
+  call void @llvm.experimental.noalias.scope.decl(metadata !111)
+  %121 = load i8, ptr %protectedFlag, align 8, !noalias !111
   %frombool.i.i.i223 = and i8 %121, 1
-  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !110
-  store i8 %frombool.i.i.i223, ptr %protectedFlag3.i.i.i224, align 8, !alias.scope !110
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !110
+  store double %mul11, ptr %ref.tmp107, align 8, !alias.scope !111
+  store i8 %frombool.i.i.i223, ptr %protectedFlag3.i.i.i224, align 8, !alias.scope !111
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i225, align 8, !alias.scope !111
   store double 0.000000e+00, ptr %direction3.i.i226, align 8
   store double 1.000000e+00, ptr %ref.tmp108.sroa.2.0.direction3.i.i226.sroa_idx, align 8
   %122 = load float, ptr %add.ptr.i220, align 4
@@ -8496,12 +8496,12 @@ lor.lhs.false113:                                 ; preds = %invoke.cont111.lor.
   br i1 %or.cond, label %invoke.cont121, label %lor.lhs.false128
 
 invoke.cont121:                                   ; preds = %lor.lhs.false113
-  call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  %137 = load i8, ptr %protectedFlag, align 8, !noalias !113
+  call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  %137 = load i8, ptr %protectedFlag, align 8, !noalias !114
   %frombool.i.i.i260 = and i8 %137, 1
-  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !113
-  store i8 %frombool.i.i.i260, ptr %protectedFlag3.i.i.i261, align 8, !alias.scope !113
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i262, align 8, !alias.scope !113
+  store double %mul19, ptr %ref.tmp118, align 8, !alias.scope !114
+  store i8 %frombool.i.i.i260, ptr %protectedFlag3.i.i.i261, align 8, !alias.scope !114
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i262, align 8, !alias.scope !114
   store double -1.000000e+00, ptr %direction3.i.i263, align 8
   store double -1.000000e+00, ptr %ref.tmp119.sroa.2.0.direction3.i.i263.sroa_idx, align 8
   %sub122 = add nsw i32 %col.0519, -1
@@ -8529,12 +8529,12 @@ lor.lhs.false128:                                 ; preds = %invoke.cont126.lor.
   br i1 %or.cond1, label %invoke.cont138, label %lor.lhs.false145
 
 invoke.cont138:                                   ; preds = %lor.lhs.false128
-  call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %140 = load i8, ptr %protectedFlag, align 8, !noalias !116
+  call void @llvm.experimental.noalias.scope.decl(metadata !117)
+  %140 = load i8, ptr %protectedFlag, align 8, !noalias !117
   %frombool.i.i.i272 = and i8 %140, 1
-  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !116
-  store i8 %frombool.i.i.i272, ptr %protectedFlag3.i.i.i273, align 8, !alias.scope !116
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i274, align 8, !alias.scope !116
+  store double %mul19, ptr %ref.tmp135, align 8, !alias.scope !117
+  store i8 %frombool.i.i.i272, ptr %protectedFlag3.i.i.i273, align 8, !alias.scope !117
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i274, align 8, !alias.scope !117
   store double 1.000000e+00, ptr %direction3.i.i275, align 8
   store double -1.000000e+00, ptr %ref.tmp136.sroa.2.0.direction3.i.i275.sroa_idx, align 8
   %add139 = add nuw nsw i32 %col.0519, 1
@@ -8560,12 +8560,12 @@ land.lhs.true147:                                 ; preds = %lor.lhs.false145
   br i1 %cmp150, label %invoke.cont155, label %lor.rhs
 
 invoke.cont155:                                   ; preds = %land.lhs.true147
-  call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %143 = load i8, ptr %protectedFlag, align 8, !noalias !119
+  call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  %143 = load i8, ptr %protectedFlag, align 8, !noalias !120
   %frombool.i.i.i284 = and i8 %143, 1
-  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !119
-  store i8 %frombool.i.i.i284, ptr %protectedFlag3.i.i.i285, align 8, !alias.scope !119
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i286, align 8, !alias.scope !119
+  store double %mul19, ptr %ref.tmp152, align 8, !alias.scope !120
+  store i8 %frombool.i.i.i284, ptr %protectedFlag3.i.i.i285, align 8, !alias.scope !120
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i286, align 8, !alias.scope !120
   store double -1.000000e+00, ptr %direction3.i.i287, align 8
   store double 1.000000e+00, ptr %ref.tmp153.sroa.2.0.direction3.i.i287.sroa_idx, align 8
   %sub156 = add nsw i32 %col.0519, -1
@@ -8595,12 +8595,12 @@ land.lhs.true165:                                 ; preds = %lor.rhs
   br i1 %cmp168, label %invoke.cont172, label %lor.end
 
 invoke.cont172:                                   ; preds = %land.lhs.true165
-  call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %148 = load i8, ptr %protectedFlag, align 8, !noalias !122
+  call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  %148 = load i8, ptr %protectedFlag, align 8, !noalias !123
   %frombool.i.i.i296 = and i8 %148, 1
-  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !122
-  store i8 %frombool.i.i.i296, ptr %protectedFlag3.i.i.i297, align 8, !alias.scope !122
-  store ptr %shapeDistanceChecker, ptr %parent2.i.i298, align 8, !alias.scope !122
+  store double %mul19, ptr %ref.tmp169, align 8, !alias.scope !123
+  store i8 %frombool.i.i.i296, ptr %protectedFlag3.i.i.i297, align 8, !alias.scope !123
+  store ptr %shapeDistanceChecker, ptr %parent2.i.i298, align 8, !alias.scope !123
   store double 1.000000e+00, ptr %direction3.i.i299, align 8
   store double 1.000000e+00, ptr %ref.tmp170.sroa.2.0.direction3.i.i299.sroa_idx, align 8
   %add173 = add nuw nsw i32 %col.0519, 1
@@ -8632,7 +8632,7 @@ for.inc:                                          ; preds = %cond.end33, %lor.en
   %155 = phi i32 [ %26, %cond.end33 ], [ %.pre540, %lor.end ]
   %inc = add nuw nsw i32 %col.0519, 1
   %cmp25 = icmp slt i32 %inc, %155
-  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !125
+  br i1 %cmp25, label %cond.end33, label %for.inc188.loopexit, !llvm.loop !126
 
 for.inc188.loopexit:                              ; preds = %for.inc
   %.pre541 = load i32, ptr %height, align 4
@@ -8644,7 +8644,7 @@ for.inc188:                                       ; preds = %for.inc188.loopexit
   %158 = phi i32 [ %155, %for.inc188.loopexit ], [ %23, %for.body ]
   %inc189 = add nuw nsw i32 %y.0521, 1
   %cmp = icmp slt i32 %inc189, %156
-  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !126
+  br i1 %cmp, label %for.body, label %for.end190, !llvm.loop !127
 
 for.end190:                                       ; preds = %for.inc188, %for.body.lr.ph, %entry
   %shapeEdgeCache.i.i = getelementptr inbounds nuw i8, ptr %shapeDistanceChecker, i64 120
@@ -8960,7 +8960,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %add.ptr = getelementptr inbounds nuw i8, ptr %texel.014, i64 12
   %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %mul
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !127
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !128
 
 for.end:                                          ; preds = %if.end, %entry
   ret void
@@ -9015,7 +9015,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %add.ptr = getelementptr inbounds nuw i8, ptr %texel.014, i64 16
   %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %mul
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !128
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !129
 
 for.end:                                          ; preds = %if.end, %entry
   ret void
@@ -9242,13 +9242,13 @@ if.end101:                                        ; preds = %if.then28, %land.lh
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.057, i64 8
   %36 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i30.not = icmp eq ptr %incdec.ptr.i, %36
-  br i1 %cmp.i30.not, label %for.inc106, label %for.body23, !llvm.loop !129
+  br i1 %cmp.i30.not, label %for.inc106, label %for.body23, !llvm.loop !130
 
 for.inc106:                                       ; preds = %if.end101, %if.then, %for.body
   %incdec.ptr.i46 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.060, i64 24
   %37 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i46, %37
-  br i1 %cmp.i.not, label %for.end108, label %for.body, !llvm.loop !130
+  br i1 %cmp.i.not, label %for.end108, label %for.body, !llvm.loop !131
 
 for.end108:                                       ; preds = %for.inc106, %entry
   ret void
@@ -9284,7 +9284,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %4, ptr %mask.04, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %mask.04, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !131
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !132
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -9787,7 +9787,7 @@ if.end68:                                         ; preds = %_ZNK7msdfgen22BaseA
 for.inc:                                          ; preds = %for.body, %if.end68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !132
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !133
 
 return:                                           ; preds = %if.end68, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %if.end68 ]
@@ -9841,7 +9841,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 56
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !133
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !134
 
 invoke.cont2.i.i.i.i:                             ; preds = %for.body.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -10232,7 +10232,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %conv3.i75, ptr %arrayidx32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !134
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !135
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -10304,7 +10304,7 @@ for.body52:                                       ; preds = %if.then, %for.body5
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i, %13
-  br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !135
+  br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !136
 
 for.inc56:                                        ; preds = %for.body52, %if.then, %for.body
   %edgeCache.2 = phi ptr [ %edgeCache.032, %for.body ], [ %edgeCache.032, %if.then ], [ %incdec.ptr, %for.body52 ]
@@ -10313,7 +10313,7 @@ for.inc56:                                        ; preds = %for.body52, %if.the
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i12, %15
-  br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !136
+  br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !137
 
 for.end58:                                        ; preds = %for.inc56, %entry
   %call60 = tail call noundef double @_ZNK7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner)
@@ -10635,7 +10635,7 @@ if.end68:                                         ; preds = %_ZNK7msdfgen22BaseA
 for.inc:                                          ; preds = %for.body, %if.end68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !137
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !138
 
 return:                                           ; preds = %if.end68, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %if.end68 ]
@@ -10976,7 +10976,7 @@ for.body:                                         ; preds = %entry, %for.body
   store float %conv3.i75, ptr %arrayidx32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !138
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !139
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -11289,7 +11289,7 @@ if.end68:                                         ; preds = %_ZNK7msdfgen22BaseA
 for.inc:                                          ; preds = %for.body, %if.end68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !139
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !140
 
 return:                                           ; preds = %if.end68, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %if.end68 ]
@@ -11599,7 +11599,7 @@ for.body52:                                       ; preds = %if.then, %for.body5
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.025, i64 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i, %13
-  br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !140
+  br i1 %cmp.i11.not, label %for.inc56, label %for.body52, !llvm.loop !141
 
 for.inc56:                                        ; preds = %for.body52, %if.then, %for.body
   %edgeCache.2 = phi ptr [ %edgeCache.032, %for.body ], [ %edgeCache.032, %if.then ], [ %incdec.ptr, %for.body52 ]
@@ -11608,7 +11608,7 @@ for.inc56:                                        ; preds = %for.body52, %if.the
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i12, %15
-  br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !141
+  br i1 %cmp.i.not, label %for.end58, label %for.body, !llvm.loop !142
 
 for.end58:                                        ; preds = %for.inc56, %entry
   %call60 = tail call noundef double @_ZNK7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %contourCombiner)
@@ -11928,7 +11928,7 @@ if.end68:                                         ; preds = %_ZNK7msdfgen22BaseA
 for.inc:                                          ; preds = %for.body, %if.end68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !142
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !143
 
 return:                                           ; preds = %if.end68, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %if.end68 ]
@@ -12480,7 +12480,7 @@ if.end68:                                         ; preds = %_ZNK7msdfgen22BaseA
 for.inc:                                          ; preds = %for.body, %if.end68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !143
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !144
 
 return:                                           ; preds = %if.end68, %for.inc, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %if.end68 ]
@@ -12534,142 +12534,143 @@ attributes #23 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !6, !8}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6, !8}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6, !8}
-!15 = distinct !{!15, !6, !8}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6, !8}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6, !8}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6, !8}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!25 = distinct !{!25, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!28 = distinct !{!28, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!31 = distinct !{!31, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!34 = distinct !{!34, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!37 = distinct !{!37, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!40 = distinct !{!40, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!43 = distinct !{!43, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!46 = distinct !{!46, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6, !8}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!51 = distinct !{!51, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!54 = distinct !{!54, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!57 = distinct !{!57, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!60 = distinct !{!60, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!63 = distinct !{!63, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!66 = distinct !{!66, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!69 = distinct !{!69, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!72 = distinct !{!72, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!73 = distinct !{!73, !6}
-!74 = distinct !{!74, !6, !8}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!77 = distinct !{!77, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!80 = distinct !{!80, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!83 = distinct !{!83, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!86 = distinct !{!86, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!89 = distinct !{!89, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!92 = distinct !{!92, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!95 = distinct !{!95, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!98 = distinct !{!98, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
-!99 = distinct !{!99, !6}
-!100 = distinct !{!100, !6, !8}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!103 = distinct !{!103, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!106 = distinct !{!106, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!109 = distinct !{!109, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!112 = distinct !{!112, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!115 = distinct !{!115, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!118 = distinct !{!118, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!121 = distinct !{!121, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
-!124 = distinct !{!124, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
-!125 = distinct !{!125, !6}
-!126 = distinct !{!126, !6, !8}
-!127 = distinct !{!127, !6}
-!128 = distinct !{!128, !6}
-!129 = distinct !{!129, !6}
-!130 = distinct !{!130, !6}
-!131 = distinct !{!131, !6}
-!132 = distinct !{!132, !6}
-!133 = distinct !{!133, !6}
-!134 = distinct !{!134, !6}
-!135 = distinct !{!135, !6}
-!136 = distinct !{!136, !6}
-!137 = distinct !{!137, !6}
-!138 = distinct !{!138, !6}
-!139 = distinct !{!139, !6}
-!140 = distinct !{!140, !6}
-!141 = distinct !{!141, !6}
-!142 = distinct !{!142, !6}
-!143 = distinct !{!143, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !6, !7, !9}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7, !9}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7, !9}
+!16 = distinct !{!16, !6, !7, !9}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7, !9}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7, !9}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7, !9}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!26 = distinct !{!26, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!29 = distinct !{!29, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!32 = distinct !{!32, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!35 = distinct !{!35, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!38 = distinct !{!38, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!41 = distinct !{!41, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!44 = distinct !{!44, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!47 = distinct !{!47, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!48 = distinct !{!48, !6, !7}
+!49 = distinct !{!49, !6, !7, !9}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!52 = distinct !{!52, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!55 = distinct !{!55, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!58 = distinct !{!58, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!61 = distinct !{!61, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!64 = distinct !{!64, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!67 = distinct !{!67, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!70 = distinct !{!70, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!73 = distinct !{!73, !"_ZN7msdfgen20ShapeDistanceCheckerINS_21SimpleContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!74 = distinct !{!74, !6, !7}
+!75 = distinct !{!75, !6, !7, !9}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!78 = distinct !{!78, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!81 = distinct !{!81, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!84 = distinct !{!84, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!87 = distinct !{!87, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!90 = distinct !{!90, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!93 = distinct !{!93, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!96 = distinct !{!96, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!99 = distinct !{!99, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi3EE10classifierERKNS_7Vector2Ed"}
+!100 = distinct !{!100, !6, !7}
+!101 = distinct !{!101, !6, !7, !9}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!104 = distinct !{!104, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!107 = distinct !{!107, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!110 = distinct !{!110, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!113 = distinct !{!113, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!116 = distinct !{!116, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!119 = distinct !{!119, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!122 = distinct !{!122, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed: %agg.result"}
+!125 = distinct !{!125, !"_ZN7msdfgen20ShapeDistanceCheckerINS_26OverlappingContourCombinerELi4EE10classifierERKNS_7Vector2Ed"}
+!126 = distinct !{!126, !6, !7}
+!127 = distinct !{!127, !6, !7, !9}
+!128 = distinct !{!128, !6, !7}
+!129 = distinct !{!129, !6, !7}
+!130 = distinct !{!130, !6, !7}
+!131 = distinct !{!131, !6, !7}
+!132 = distinct !{!132, !6, !7}
+!133 = distinct !{!133, !6, !7}
+!134 = distinct !{!134, !6, !7}
+!135 = distinct !{!135, !6, !7}
+!136 = distinct !{!136, !6, !7}
+!137 = distinct !{!137, !6, !7}
+!138 = distinct !{!138, !6, !7}
+!139 = distinct !{!139, !6, !7}
+!140 = distinct !{!140, !6, !7}
+!141 = distinct !{!141, !6, !7}
+!142 = distinct !{!142, !6, !7}
+!143 = distinct !{!143, !6, !7}
+!144 = distinct !{!144, !6, !7}

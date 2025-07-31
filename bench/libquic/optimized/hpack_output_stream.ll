@@ -374,5 +374,6 @@ attributes #10 = { nounwind }
 !14 = !{!"_ZTSN3net17HpackOutputStreamE", !10, i64 0, !11, i64 32}
 !15 = !{!10, !5, i64 0}
 !16 = !{}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!"llvm.loop.estimated_trip_count"}

@@ -351,7 +351,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   br i1 %85, label %calculatePrimaryColorsApproximation.exit.i, label %64, !llvm.loop !6
 
 .split.us.us.i.i:                                 ; preds = %82
-  br i1 %63, label %.preheader.us.i.i, label %.split50.us.i.i, !llvm.loop !9
+  br i1 %63, label %.preheader.us.i.i, label %.split50.us.i.i, !llvm.loop !10
 
 .preheader.i.i:                                   ; preds = %.split.i.i, %.preheader.i.preheader.i
   %86 = phi i1 [ false, %.split.i.i ], [ true, %.preheader.i.preheader.i ]
@@ -385,7 +385,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
 
 101:                                              ; preds = %98
   %102 = icmp samesign ugt i32 %93, 5
-  br i1 %102, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.us.i.i, !llvm.loop !10
+  br i1 %102, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.us.i.i, !llvm.loop !11
 
 .preheader.split.split.i.i:                       ; preds = %.preheader.i.i, %115
   %103 = phi i1 [ false, %115 ], [ true, %.preheader.i.i ]
@@ -409,17 +409,17 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
 
 115:                                              ; preds = %114
   %116 = icmp samesign ugt i32 %109, 5
-  br i1 %116, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.i.i, !llvm.loop !11
+  br i1 %116, label %calculatePrimaryColorsApproximation.exit.i, label %.preheader.split.split.i.i, !llvm.loop !12
 
 117:                                              ; preds = %114
   %118 = icmp samesign ult i32 %109, 250
   br i1 %118, label %calculatePrimaryColorsApproximation.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %117, %99
-  br i1 %86, label %.preheader.i.i, label %.split50.us.i.i, !llvm.loop !12
+  br i1 %86, label %.preheader.i.i, label %.split50.us.i.i, !llvm.loop !13
 
 .split50.us.i.i:                                  ; preds = %.split.i.i, %.split.us.us.i.i
-  br i1 %62, label %.preheader43.i.i, label %calculatePrimaryColorsApproximation.exit.i, !llvm.loop !13
+  br i1 %62, label %.preheader43.i.i, label %calculatePrimaryColorsApproximation.exit.i, !llvm.loop !14
 
 calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %117, %99, %82, %115, %.preheader.split.split.i.i, %101, %.preheader.split.split.us.i.i, %84, %79, %77, %64
   %.0.i.i = phi i32 [ 0, %64 ], [ 0, %77 ], [ 0, %79 ], [ 0, %84 ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %101 ], [ 0, %.preheader.split.split.i.i ], [ 0, %115 ], [ 0, %82 ], [ 0, %99 ], [ 0, %117 ], [ 1, %.split50.us.i.i ]
@@ -778,11 +778,12 @@ attributes #7 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

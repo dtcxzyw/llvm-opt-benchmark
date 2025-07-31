@@ -1147,7 +1147,7 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #4
   %260 = call fastcc zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef %258, ptr noundef nonnull %6)
-  br i1 %260, label %54, label %._crit_edge
+  br i1 %260, label %54, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %257, %proto_item_set_hidden.exit
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #4
@@ -1726,7 +1726,7 @@ define internal fastcc void @zebra_route(ptr noundef %0, i1 noundef zeroext %1, 
   %164 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %163, ptr noundef %2, i32 noundef %.01719.i, i32 noundef 4, i32 noundef 0)
   %165 = add i32 %.01719.i, 4
   %.not.i = icmp eq i16 %162, 0
-  br i1 %.not.i, label %zebra_route_ifindex.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %zebra_route_ifindex.exit, label %.lr.ph.i, !llvm.loop !8
 
 zebra_route_ifindex.exit:                         ; preds = %.lr.ph.i, %154, %152
   %.5 = phi i32 [ %.4, %152 ], [ %160, %154 ], [ %165, %.lr.ph.i ]
@@ -1935,7 +1935,7 @@ define internal fastcc void @zebra_nexthop_register(ptr noundef %0, ptr noundef 
   %.1 = phi i32 [ %18, %.lr.ph ], [ %22, %.sink.split ]
   %24 = sub i32 %.1, %2
   %25 = icmp sgt i32 %7, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %23, %5
   ret void
@@ -2109,12 +2109,12 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %.9171, i32 noundef 4, i32 noundef 0)
   %81 = add i32 %.9171, 4
   %.not153 = icmp eq i8 %78, 0
-  br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %72, %71
   %.8 = phi i32 [ %.7, %71 ], [ %77, %72 ], [ %81, %.lr.ph ]
   %.not = icmp eq i8 %44, 0
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %32
   ret void
@@ -2383,7 +2383,7 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroe
   %.1141162174220 = phi i8 [ 6, %88 ], [ %.1141162174216, %86 ], [ %.1141162174218, %71 ]
   %.8 = phi i32 [ %91, %88 ], [ %.7, %86 ], [ %75, %71 ]
   %.not145 = icmp eq i16 %30, 0
-  br i1 %.not145, label %.loopexit, label %29, !llvm.loop !11
+  br i1 %.not145, label %.loopexit, label %29, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread211, %20
   %.0139 = phi i32 [ %21, %20 ], [ %.8, %.thread211 ]
@@ -2411,8 +2411,10 @@ attributes #4 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9, !7}

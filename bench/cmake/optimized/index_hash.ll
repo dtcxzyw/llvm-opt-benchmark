@@ -382,7 +382,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   %132 = phi i32 [ 5, %88 ], [ %storemerge.sink, %.sink.split ]
   %133 = load i64, ptr %2, align 8, !tbaa !18
   %134 = icmp ult i64 %133, %3
-  br i1 %134, label %21, label %._crit_edge, !llvm.loop !33
+  br i1 %134, label %21, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %28, %131, %36
   %.289.ph = phi i32 [ %29, %28 ], [ 0, %131 ], [ %39, %36 ]
@@ -478,6 +478,7 @@ attributes #11 = { nounwind willreturn memory(none) }
 !28 = !{!5, !10, i64 168}
 !29 = !{!5, !10, i64 160}
 !30 = !{!5, !6, i64 312}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}

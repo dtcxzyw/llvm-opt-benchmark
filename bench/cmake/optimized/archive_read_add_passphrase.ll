@@ -123,14 +123,14 @@ define dso_local ptr @__archive_read_next_passphrase(ptr noundef %0) local_unnam
 10:                                               ; preds = %8
   %11 = add nsw i32 %4, -1
   store i32 %11, ptr %3, align 8, !tbaa !32
-  %12 = load ptr, ptr %2, align 8, !tbaa !35
+  %12 = load ptr, ptr %2, align 8, !tbaa !36
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %remove_passphrases_from_head.exit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %2, align 8, !tbaa !35
+  store ptr %15, ptr %2, align 8, !tbaa !36
   br label %remove_passphrases_from_head.exit
 
 remove_passphrases_from_head.exit:                ; preds = %10, %13
@@ -140,7 +140,7 @@ remove_passphrases_from_head.exit:                ; preds = %10, %13
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %18, ptr %16, align 8, !tbaa !12
   store ptr null, ptr %18, align 8, !tbaa !29
-  %.1.pre = load ptr, ptr %2, align 8, !tbaa !35
+  %.1.pre = load ptr, ptr %2, align 8, !tbaa !36
   br label %27
 
 19:                                               ; preds = %8
@@ -149,14 +149,14 @@ remove_passphrases_from_head.exit:                ; preds = %10, %13
 
 21:                                               ; preds = %19
   store i32 0, ptr %3, align 8, !tbaa !32
-  %22 = load ptr, ptr %2, align 8, !tbaa !35
+  %22 = load ptr, ptr %2, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !29
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.thread, label %remove_passphrases_from_head.exit47
 
 remove_passphrases_from_head.exit47:              ; preds = %21
-  store ptr %24, ptr %2, align 8, !tbaa !35
+  store ptr %24, ptr %2, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   store ptr %22, ptr %26, align 8, !tbaa !28
@@ -206,10 +206,10 @@ new_read_passphrase.exit.thread:                  ; preds = %36, %42
   br label %49
 
 new_read_passphrase.exit:                         ; preds = %39
-  %43 = load ptr, ptr %2, align 8, !tbaa !35
+  %43 = load ptr, ptr %2, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !29
-  store ptr %37, ptr %2, align 8, !tbaa !35
+  store ptr %37, ptr %2, align 8, !tbaa !36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %46 = load ptr, ptr %45, align 8, !tbaa !12
   %47 = icmp eq ptr %2, %46
@@ -282,6 +282,7 @@ attributes #7 = { nounwind allocsize(0) }
 !30 = !{!13, !10, i64 2120}
 !31 = !{!13, !10, i64 2128}
 !32 = !{!13, !15, i64 2112}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!13, !11, i64 2096}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!13, !11, i64 2096}

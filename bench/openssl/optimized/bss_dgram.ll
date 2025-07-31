@@ -1273,8 +1273,8 @@ translate_msg.exit:                               ; preds = %56, %59, %60
   %78 = load i32, ptr %77, align 4, !tbaa !17
   store i32 %78, ptr %76, align 4, !tbaa !17
   %79 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store i32 0, ptr %79, align 8, !tbaa !54
-  store i32 0, ptr %75, align 8, !tbaa !57
+  store i32 0, ptr %79, align 8, !tbaa !55
+  store i32 0, ptr %75, align 8, !tbaa !58
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %81 = load i16, ptr %80, align 2, !tbaa !29
   %.not39.i = icmp eq i16 %81, 0
@@ -1293,9 +1293,9 @@ translate_msg.exit:                               ; preds = %56, %59, %60
   store i32 50, ptr %86, align 4, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !59
   %89 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 0, ptr %89, align 8, !tbaa !59
+  store i32 0, ptr %89, align 8, !tbaa !60
   %90 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !29
   %.not.i54 = icmp eq i16 %91, 0
@@ -1338,7 +1338,7 @@ pack_local.exit.sink.split:                       ; preds = %94, %97, %72, %82
 pack_local.exit:                                  ; preds = %pack_local.exit.sink.split, %translate_msg.exit
   %99 = add nuw nsw i64 %.04657, 1
   %exitcond.not = icmp eq i64 %99, %spec.store.select1
-  br i1 %exitcond.not, label %.split61.us, label %.split, !llvm.loop !62
+  br i1 %exitcond.not, label %.split61.us, label %.split, !llvm.loop !63
 
 .split61.us:                                      ; preds = %pack_local.exit, %pack_local.exit.us
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1364,17 +1364,17 @@ pack_local.exit:                                  ; preds = %pack_local.exit.sin
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.162 = phi i64 [ %116, %.lr.ph ], [ 0, %.preheader ]
   %109 = getelementptr inbounds nuw [64 x %struct.mmsghdr], ptr %7, i64 0, i64 %.162, i32 1
-  %110 = load i32, ptr %109, align 8, !tbaa !63
+  %110 = load i32, ptr %109, align 8, !tbaa !64
   %111 = zext i32 %110 to i64
   %112 = mul i64 %.162, %2
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 %111, ptr %114, align 8, !tbaa !38
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  store i64 0, ptr %115, align 8, !tbaa !65
+  store i64 0, ptr %115, align 8, !tbaa !66
   %116 = add nuw nsw i64 %.162, 1
   %exitcond65.not = icmp eq i64 %116, %105
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %6, %106, %.loopexit, %.split59.us
   %.sink68 = phi i64 [ 0, %106 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 0, %6 ], [ %105, %.preheader ], [ %105, %.lr.ph ]
@@ -1433,7 +1433,7 @@ define internal range(i32 0, 2) i32 @dgram_recvmmsg(ptr noundef readonly capture
 32:                                               ; preds = %translate_msg.exit.us
   %33 = add nuw nsw i64 %.05062.us, 1
   %exitcond81.not = icmp eq i64 %33, %spec.store.select2
-  br i1 %exitcond81.not, label %.split64.us, label %.split.us, !llvm.loop !67
+  br i1 %exitcond81.not, label %.split64.us, label %.split.us, !llvm.loop !68
 
 34:                                               ; preds = %.split.us
   %.val31.val.i.us = load i16, ptr %20, align 8, !tbaa !29
@@ -1501,12 +1501,12 @@ translate_msg.exit.us67:                          ; preds = %.split, %translate_
   store i32 0, ptr %63, align 16, !tbaa !50
   %64 = add nuw nsw i64 %.05062.us68, 1
   %exitcond80.not = icmp eq i64 %64, %spec.store.select2
-  br i1 %exitcond80.not, label %.split64.us, label %translate_msg.exit.us67, !llvm.loop !68
+  br i1 %exitcond80.not, label %.split64.us, label %translate_msg.exit.us67, !llvm.loop !69
 
 65:                                               ; preds = %translate_msg.exit
   %66 = add nuw nsw i64 %.05062, 1
   %exitcond.not = icmp eq i64 %66, %spec.store.select2
-  br i1 %exitcond.not, label %.split64.us, label %translate_msg.exit, !llvm.loop !69
+  br i1 %exitcond.not, label %.split64.us, label %translate_msg.exit, !llvm.loop !70
 
 translate_msg.exit:                               ; preds = %.split, %65
   %.05062 = phi i64 [ %66, %65 ], [ 0, %.split ]
@@ -1576,14 +1576,14 @@ translate_msg.exit:                               ; preds = %.split, %65
   %.171 = phi i64 [ 0, %.lr.ph ], [ %173, %extract_local.exit ]
   %97 = getelementptr inbounds nuw [64 x %struct.mmsghdr], ptr %7, i64 0, i64 %.171
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %99 = load i32, ptr %98, align 8, !tbaa !63
+  %99 = load i32, ptr %98, align 8, !tbaa !64
   %100 = zext i32 %99 to i64
   %101 = mul i64 %.171, %2
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 %100, ptr %103, align 8, !tbaa !38
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  store i64 0, ptr %104, align 8, !tbaa !65
+  store i64 0, ptr %104, align 8, !tbaa !66
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !47
   %.not = icmp eq ptr %106, null
@@ -1650,7 +1650,7 @@ translate_msg.exit:                               ; preds = %.split, %65
   %134 = and i64 %133, -8
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 %134
   %136 = icmp ugt ptr %135, %116
-  br i1 %136, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !70
+  br i1 %136, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !71
 
 .lr.ph.split.us5.i:                               ; preds = %.lr.ph.split.us5.i.preheader, %151
   %.0274.us6.i = phi ptr [ %148, %151 ], [ %114, %.lr.ph.split.us5.i.preheader ]
@@ -1684,7 +1684,7 @@ translate_msg.exit:                               ; preds = %.split, %65
   %154 = and i64 %153, -8
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 %154
   %156 = icmp ugt ptr %155, %115
-  br i1 %156, label %.loopexit, label %.lr.ph.split.us5.i, !llvm.loop !71
+  br i1 %156, label %.loopexit, label %.lr.ph.split.us5.i, !llvm.loop !72
 
 .split.us.i:                                      ; preds = %119
   %157 = getelementptr inbounds nuw i8, ptr %106, i64 4
@@ -1701,7 +1701,7 @@ translate_msg.exit:                               ; preds = %.split, %65
 .split12.us.i:                                    ; preds = %139
   %163 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %.0274.us6.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !59
   store i16 10, ptr %106, align 4, !tbaa !29
   %165 = getelementptr inbounds nuw i8, ptr %.val56, i64 114
   %166 = load i16, ptr %165, align 2, !tbaa !29
@@ -1723,7 +1723,7 @@ translate_msg.exit:                               ; preds = %.split, %65
 extract_local.exit:                               ; preds = %.split12.us.i, %.split.us.i, %96, %.loopexit
   %173 = add nuw nsw i64 %.171, 1
   %exitcond82.not = icmp eq i64 %173, %91
-  br i1 %exitcond82.not, label %._crit_edge, label %96, !llvm.loop !72
+  br i1 %exitcond82.not, label %._crit_edge, label %96, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %extract_local.exit, %.preheader, %6, %93, %.split66.us
   %.sink = phi i64 [ 0, %93 ], [ 0, %.split66.us ], [ 0, %6 ], [ %91, %.preheader ], [ %91, %extract_local.exit ]
@@ -1926,25 +1926,26 @@ attributes #14 = { noreturn nounwind }
 !48 = !{!41, !6, i64 32}
 !49 = !{!41, !14, i64 40}
 !50 = !{!41, !11, i64 48}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52, !53, !54}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = !{!55, !11, i64 8}
-!55 = !{!"in_pktinfo", !11, i64 0, !56, i64 4, !56, i64 8}
-!56 = !{!"in_addr", !11, i64 0}
-!57 = !{!55, !11, i64 0}
-!58 = !{i64 0, i64 16, !29}
-!59 = !{!60, !11, i64 16}
-!60 = !{!"in6_pktinfo", !61, i64 0, !11, i64 16}
-!61 = !{!"in6_addr", !7, i64 0}
-!62 = distinct !{!62, !52}
-!63 = !{!64, !11, i64 56}
-!64 = !{!"mmsghdr", !41, i64 0, !11, i64 56}
-!65 = !{!34, !14, i64 32}
-!66 = distinct !{!66, !52}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = !{!56, !11, i64 8}
+!56 = !{!"in_pktinfo", !11, i64 0, !57, i64 4, !57, i64 8}
+!57 = !{!"in_addr", !11, i64 0}
+!58 = !{!56, !11, i64 0}
+!59 = !{i64 0, i64 16, !29}
+!60 = !{!61, !11, i64 16}
+!61 = !{!"in6_pktinfo", !62, i64 0, !11, i64 16}
+!62 = !{!"in6_addr", !7, i64 0}
+!63 = distinct !{!63, !52, !53}
+!64 = !{!65, !11, i64 56}
+!65 = !{!"mmsghdr", !41, i64 0, !11, i64 56}
+!66 = !{!34, !14, i64 32}
 !67 = distinct !{!67, !52, !53}
-!68 = distinct !{!68, !52, !53}
-!69 = distinct !{!69, !52}
+!68 = distinct !{!68, !52, !53, !54}
+!69 = distinct !{!69, !52, !53, !54}
 !70 = distinct !{!70, !52, !53}
-!71 = distinct !{!71, !52, !53}
-!72 = distinct !{!72, !52}
+!71 = distinct !{!71, !52, !53, !54}
+!72 = distinct !{!72, !52, !53, !54}
+!73 = distinct !{!73, !52, !53}

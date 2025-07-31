@@ -154,7 +154,7 @@ define void @ff_h264_parse_framesize(ptr noundef writeonly captures(none) %0, pt
   %5 = load i8, ptr %.024, align 1, !tbaa !4
   %cond = icmp eq i8 %5, 32
   %6 = getelementptr inbounds nuw i8, ptr %.024, i64 1
-  br i1 %cond, label %4, label %.critedge, !llvm.loop !15
+  br i1 %cond, label %4, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %4, %8
   %7 = phi i8 [ %.pr, %8 ], [ %5, %4 ]
@@ -170,14 +170,14 @@ define void @ff_h264_parse_framesize(ptr noundef writeonly captures(none) %0, pt
 8:                                                ; preds = %.critedge
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pr = load i8, ptr %9, align 1, !tbaa !4
-  br label %.critedge, !llvm.loop !16
+  br label %.critedge, !llvm.loop !17
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
   %.2 = phi ptr [ %11, %.critedge2 ], [ %.1, %.critedge2.preheader ]
   %10 = load i8, ptr %.2, align 1, !tbaa !4
   %cond34 = icmp eq i8 %10, 32
   %11 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br i1 %cond34, label %.critedge2, label %.critedge4.preheader, !llvm.loop !17
+  br i1 %cond34, label %.critedge2, label %.critedge4.preheader, !llvm.loop !18
 
 .critedge4.preheader:                             ; preds = %.critedge2
   %12 = ptrtoint ptr %3 to i64
@@ -203,19 +203,19 @@ define void @ff_h264_parse_framesize(ptr noundef writeonly captures(none) %0, pt
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %13, ptr %.0, align 1, !tbaa !4
   %.pr35 = load i8, ptr %19, align 1, !tbaa !4
-  br label %.critedge4, !llvm.loop !18
+  br label %.critedge4, !llvm.loop !19
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4, %14
   store i8 0, ptr %.0, align 1, !tbaa !4
   %21 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #10
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %22, ptr %23, align 8, !tbaa !19
+  store i32 %22, ptr %23, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %25 = call i64 @strtol(ptr noundef nonnull captures(none) %24, ptr noundef null, i32 noundef 10) #10
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %26, ptr %27, align 4, !tbaa !25
+  store i32 %26, ptr %27, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #10
   ret void
 }
@@ -239,8 +239,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %10, align 8, !tbaa !26
-  br label %.preheader.us, !llvm.loop !29
+  %16 = load ptr, ptr %10, align 8, !tbaa !27
+  br label %.preheader.us, !llvm.loop !30
 
 .lr.ph.split.split.us109:                         ; preds = %.lr.ph.split.us108, %21
   %.04384.us104 = phi i32 [ %36, %21 ], [ %4, %.lr.ph.split.us108 ]
@@ -302,7 +302,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   %48 = getelementptr inbounds i8, ptr %43, i64 %47
   %49 = sub nsw i32 %40, %46
   %50 = icmp sgt i32 %49, 2
-  br i1 %50, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !31
+  br i1 %50, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !32
 
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us108, %55
   %.04384.us89.us = phi i32 [ %63, %55 ], [ %4, %.lr.ph.split.us108 ]
@@ -327,7 +327,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   %62 = getelementptr inbounds i8, ptr %56, i64 %61
   %63 = sub nsw i32 %53, %60
   %64 = icmp sgt i32 %63, 2
-  br i1 %64, label %.lr.ph.split.split.us.us, label %._crit_edge.us, !llvm.loop !32
+  br i1 %64, label %.lr.ph.split.split.us.us, label %._crit_edge.us, !llvm.loop !33
 
 .thread:                                          ; preds = %.lr.ph.split.split.us109, %.lr.ph.split.split.us.us, %.lr.ph.split.us.us
   %.us-phi = phi i32 [ %40, %.lr.ph.split.us.us ], [ %53, %.lr.ph.split.split.us.us ], [ %19, %.lr.ph.split.split.us109 ]
@@ -362,9 +362,9 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_frag_packet(ptr noundef %0,
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
   store i32 16777216, ptr %14, align 1
-  %15 = load ptr, ptr %13, align 8, !tbaa !26
+  %15 = load ptr, ptr %13, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = sext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %17, i1 false)
@@ -374,7 +374,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_frag_packet(ptr noundef %0,
 19:                                               ; preds = %12, %11
   %.0 = phi i64 [ %18, %12 ], [ 0, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !26
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = getelementptr inbounds i8, ptr %21, i64 %.0
   %23 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %1, i64 %23, i1 false)
@@ -396,17 +396,17 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !48
   %14 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %43, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = load ptr, ptr %6, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #10
   br label %19
@@ -416,7 +416,7 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   %20 = load i8, ptr %.024.i, align 1, !tbaa !4
   %cond.i = icmp eq i8 %20, 32
   %21 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  br i1 %cond.i, label %19, label %.critedge.i, !llvm.loop !15
+  br i1 %cond.i, label %19, label %.critedge.i, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %19, %23
   %22 = phi i8 [ %.pr.i, %23 ], [ %20, %19 ]
@@ -432,14 +432,14 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
 23:                                               ; preds = %.critedge.i
   %24 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.pr.i = load i8, ptr %24, align 1, !tbaa !4
-  br label %.critedge.i, !llvm.loop !16
+  br label %.critedge.i, !llvm.loop !17
 
 .critedge2.i:                                     ; preds = %.critedge2.i.preheader, %.critedge2.i
   %.2.i = phi ptr [ %26, %.critedge2.i ], [ %.1.i, %.critedge2.i.preheader ]
   %25 = load i8, ptr %.2.i, align 1, !tbaa !4
   %cond34.i = icmp eq i8 %25, 32
   %26 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  br i1 %cond34.i, label %.critedge2.i, label %.critedge4.preheader.i, !llvm.loop !17
+  br i1 %cond34.i, label %.critedge2.i, label %.critedge4.preheader.i, !llvm.loop !18
 
 .critedge4.preheader.i:                           ; preds = %.critedge2.i
   %27 = ptrtoint ptr %5 to i64
@@ -465,19 +465,19 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %28, ptr %.0.i, align 1, !tbaa !4
   %.pr35.i = load i8, ptr %34, align 1, !tbaa !4
-  br label %.critedge4.i, !llvm.loop !18
+  br label %.critedge4.i, !llvm.loop !19
 
 ff_h264_parse_framesize.exit:                     ; preds = %.critedge4.i, %.critedge4.i, %29
   store i8 0, ptr %.0.i, align 1, !tbaa !4
   %36 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #10
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i32 %37, ptr %38, align 8, !tbaa !19
+  store i32 %37, ptr %38, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #10
   %41 = trunc i64 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 76
-  store i32 %41, ptr %42, align 4, !tbaa !25
+  store i32 %41, ptr %42, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #10
   br label %51
 
@@ -543,9 +543,9 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
 20:                                               ; preds = %16
   %21 = sext i32 %6 to i64
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   store i32 16777216, ptr %23, align 1
-  %24 = load ptr, ptr %22, align 8, !tbaa !26
+  %24 = load ptr, ptr %22, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %5, i64 %21, i1 false)
   br label %ff_h264_handle_aggregated_packet.exit
@@ -569,8 +569,8 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   br i1 %34, label %ff_h264_handle_aggregated_packet.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %30, align 8, !tbaa !26
-  br label %.preheader.us.i, !llvm.loop !29
+  %36 = load ptr, ptr %30, align 8, !tbaa !27
+  br label %.preheader.us.i, !llvm.loop !30
 
 ._crit_edge.us.i:                                 ; preds = %53, %41
   %.us-phi87.us.i = phi i32 [ %44, %41 ], [ %.053101.us.i, %53 ]
@@ -595,7 +595,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
   %47 = sub nuw nsw i32 %39, %40
   %48 = icmp sgt i32 %47, 2
-  br i1 %48, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !31
+  br i1 %48, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !32
 
 .lr.ph.split.split.us.us.i:                       ; preds = %.preheader.us.i, %53
   %.04384.us89.us.i = phi i32 [ %59, %53 ], [ %28, %.preheader.us.i ]
@@ -618,7 +618,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %56
   %59 = sub nuw nsw i32 %51, %52
   %60 = icmp sgt i32 %59, 2
-  br i1 %60, label %.lr.ph.split.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !32
+  br i1 %60, label %.lr.ph.split.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !33
 
 .thread.i:                                        ; preds = %.lr.ph.split.split.us.us.i, %.lr.ph.split.us.us.i
   %.us-phi.i = phi i32 [ %39, %.lr.ph.split.us.us.i ], [ %51, %.lr.ph.split.split.us.us.i ]
@@ -629,7 +629,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
 .critedge:                                        ; preds = %26
   %61 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef 0) #10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %61, i32 0)
-  br label %ff_h264_handle_aggregated_packet.exit, !llvm.loop !52
+  br label %ff_h264_handle_aggregated_packet.exit, !llvm.loop !53
 
 62:                                               ; preds = %11, %11, %11, %11
   tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %15) #10
@@ -663,9 +663,9 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !26
+  %80 = load ptr, ptr %79, align 8, !tbaa !27
   store i32 16777216, ptr %80, align 1
-  %81 = load ptr, ptr %79, align 8, !tbaa !26
+  %81 = load ptr, ptr %79, align 8, !tbaa !27
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i8 %71, ptr %82, align 1
   br label %83
@@ -673,7 +673,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
 83:                                               ; preds = %78, %77
   %.0.i.i = phi i64 [ 5, %78 ], [ 0, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !26
+  %85 = load ptr, ptr %84, align 8, !tbaa !27
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.0.i.i
   %87 = zext nneg i32 %72 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull readonly align 1 %73, i64 %87, i1 false)
@@ -686,9 +686,9 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
 ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.i, %32, %.critedge, %83, %66, %65, %.thread.i, %88, %62, %20
   %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.critedge ], [ %33, %32 ], [ 0, %._crit_edge.us.i ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !53
+  %90 = load i32, ptr %89, align 8, !tbaa !54
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %90, ptr %91, align 4, !tbaa !54
+  store i32 %90, ptr %91, align 4, !tbaa !55
   br label %92
 
 92:                                               ; preds = %16, %ff_h264_handle_aggregated_packet.exit, %10
@@ -707,7 +707,7 @@ declare i32 @ff_parse_fmtp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [3 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @.str.6) #11
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %18
@@ -719,7 +719,7 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #10
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %14, ptr %15, align 4, !tbaa !55
+  store i32 %14, ptr %15, align 4, !tbaa !56
   %16 = icmp sgt i32 %14, 1
   br i1 %16, label %17, label %69
 
@@ -772,11 +772,11 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
   %47 = trunc i64 %41 to i32
   %48 = and i32 %47, 255
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %44, i32 noundef %46, i32 noundef %48) #10
-  store i8 %30, ptr %2, align 4, !tbaa !57
+  store i8 %30, ptr %2, align 4, !tbaa !58
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %36, ptr %49, align 1, !tbaa !58
+  store i8 %36, ptr %49, align 1, !tbaa !59
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %42, ptr %50, align 2, !tbaa !59
+  store i8 %42, ptr %50, align 2, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #10
   br label %69
 
@@ -804,12 +804,12 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %64, align 8, !tbaa !60
+  store i32 0, ptr %64, align 8, !tbaa !61
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @av_freep(ptr noundef nonnull %65) #10
   %66 = tail call i32 @ff_h264_parse_sprop_parameter_sets(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %64, ptr noundef nonnull %4)
-  %67 = load ptr, ptr %65, align 8, !tbaa !61
-  %68 = load i32, ptr %64, align 8, !tbaa !60
+  %67 = load ptr, ptr %65, align 8, !tbaa !62
+  %68 = load i32, ptr %64, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.12, ptr noundef %67, i32 noundef %68) #10
   br label %69
 
@@ -857,57 +857,58 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !5, i64 0}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = !{!20, !13, i64 72}
-!20 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !10, i64 16, !13, i64 24, !21, i64 32, !13, i64 40, !13, i64 44, !22, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !23, i64 80, !23, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !24, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!21 = !{!"p1 _ZTS16AVPacketSideData", !11, i64 0}
-!22 = !{!"long", !5, i64 0}
-!23 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!24 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !5, i64 8, !11, i64 16}
-!25 = !{!20, !13, i64 76}
-!26 = !{!27, !10, i64 24}
-!27 = !{!"AVPacket", !28, i64 0, !22, i64 8, !22, i64 16, !10, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !21, i64 48, !13, i64 56, !22, i64 64, !22, i64 72, !11, i64 80, !28, i64 88, !23, i64 96}
-!28 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
-!29 = distinct !{!29, !8, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !30}
-!32 = distinct !{!32, !30}
-!33 = !{!34, !39, i64 48}
-!34 = !{!"AVFormatContext", !35, i64 0, !36, i64 8, !37, i64 16, !11, i64 24, !38, i64 32, !13, i64 40, !13, i64 44, !39, i64 48, !13, i64 56, !41, i64 64, !13, i64 72, !42, i64 80, !10, i64 88, !22, i64 96, !22, i64 104, !22, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !22, i64 136, !22, i64 144, !10, i64 152, !13, i64 160, !13, i64 164, !43, i64 168, !13, i64 176, !13, i64 180, !13, i64 184, !13, i64 188, !44, i64 192, !22, i64 200, !13, i64 208, !13, i64 212, !45, i64 216, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !22, i64 248, !13, i64 256, !13, i64 260, !13, i64 264, !13, i64 268, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !22, i64 304, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !13, i64 368, !46, i64 376, !46, i64 384, !46, i64 392, !46, i64 400, !13, i64 408, !11, i64 416, !11, i64 424, !22, i64 432, !10, i64 440, !11, i64 448, !11, i64 456, !22, i64 464}
-!35 = !{!"p1 _ZTS7AVClass", !11, i64 0}
-!36 = !{!"p1 _ZTS13AVInputFormat", !11, i64 0}
-!37 = !{!"p1 _ZTS14AVOutputFormat", !11, i64 0}
-!38 = !{!"p1 _ZTS11AVIOContext", !11, i64 0}
-!39 = !{!"p2 _ZTS8AVStream", !40, i64 0}
-!40 = !{!"any p2 pointer", !11, i64 0}
-!41 = !{!"p2 _ZTS13AVStreamGroup", !40, i64 0}
-!42 = !{!"p2 _ZTS9AVChapter", !40, i64 0}
-!43 = !{!"p2 _ZTS9AVProgram", !40, i64 0}
-!44 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
-!45 = !{!"AVIOInterruptCB", !11, i64 0, !11, i64 8}
-!46 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS8AVStream", !11, i64 0}
-!49 = !{!50, !51, i64 16}
-!50 = !{!"AVStream", !35, i64 0, !13, i64 8, !13, i64 12, !51, i64 16, !11, i64 24, !23, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !13, i64 64, !13, i64 68, !23, i64 72, !44, i64 80, !23, i64 88, !27, i64 96, !13, i64 200, !23, i64 204, !13, i64 212}
-!51 = !{!"p1 _ZTS17AVCodecParameters", !11, i64 0}
-!52 = distinct !{!52, !8}
-!53 = !{!50, !13, i64 8}
-!54 = !{!27, !13, i64 36}
-!55 = !{!56, !13, i64 4}
-!56 = !{!"PayloadContext", !5, i64 0, !5, i64 1, !5, i64 2, !13, i64 4}
-!57 = !{!56, !5, i64 0}
-!58 = !{!56, !5, i64 1}
-!59 = !{!56, !5, i64 2}
-!60 = !{!20, !13, i64 24}
-!61 = !{!20, !10, i64 16}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15, !8}
+!17 = distinct !{!17, !15, !8}
+!18 = distinct !{!18, !15, !8}
+!19 = distinct !{!19, !15, !8}
+!20 = !{!21, !13, i64 72}
+!21 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !10, i64 16, !13, i64 24, !22, i64 32, !13, i64 40, !13, i64 44, !23, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !24, i64 80, !24, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !25, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!22 = !{!"p1 _ZTS16AVPacketSideData", !11, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!25 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !5, i64 8, !11, i64 16}
+!26 = !{!21, !13, i64 76}
+!27 = !{!28, !10, i64 24}
+!28 = !{!"AVPacket", !29, i64 0, !23, i64 8, !23, i64 16, !10, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !22, i64 48, !13, i64 56, !23, i64 64, !23, i64 72, !11, i64 80, !29, i64 88, !24, i64 96}
+!29 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
+!30 = distinct !{!30, !15, !8, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !31}
+!33 = distinct !{!33, !31}
+!34 = !{!35, !40, i64 48}
+!35 = !{!"AVFormatContext", !36, i64 0, !37, i64 8, !38, i64 16, !11, i64 24, !39, i64 32, !13, i64 40, !13, i64 44, !40, i64 48, !13, i64 56, !42, i64 64, !13, i64 72, !43, i64 80, !10, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !13, i64 120, !13, i64 124, !13, i64 128, !23, i64 136, !23, i64 144, !10, i64 152, !13, i64 160, !13, i64 164, !44, i64 168, !13, i64 176, !13, i64 180, !13, i64 184, !13, i64 188, !45, i64 192, !23, i64 200, !13, i64 208, !13, i64 212, !46, i64 216, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !23, i64 248, !13, i64 256, !13, i64 260, !13, i64 264, !13, i64 268, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !23, i64 304, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !13, i64 368, !47, i64 376, !47, i64 384, !47, i64 392, !47, i64 400, !13, i64 408, !11, i64 416, !11, i64 424, !23, i64 432, !10, i64 440, !11, i64 448, !11, i64 456, !23, i64 464}
+!36 = !{!"p1 _ZTS7AVClass", !11, i64 0}
+!37 = !{!"p1 _ZTS13AVInputFormat", !11, i64 0}
+!38 = !{!"p1 _ZTS14AVOutputFormat", !11, i64 0}
+!39 = !{!"p1 _ZTS11AVIOContext", !11, i64 0}
+!40 = !{!"p2 _ZTS8AVStream", !41, i64 0}
+!41 = !{!"any p2 pointer", !11, i64 0}
+!42 = !{!"p2 _ZTS13AVStreamGroup", !41, i64 0}
+!43 = !{!"p2 _ZTS9AVChapter", !41, i64 0}
+!44 = !{!"p2 _ZTS9AVProgram", !41, i64 0}
+!45 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
+!46 = !{!"AVIOInterruptCB", !11, i64 0, !11, i64 8}
+!47 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS8AVStream", !11, i64 0}
+!50 = !{!51, !52, i64 16}
+!51 = !{!"AVStream", !36, i64 0, !13, i64 8, !13, i64 12, !52, i64 16, !11, i64 24, !24, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !13, i64 64, !13, i64 68, !24, i64 72, !45, i64 80, !24, i64 88, !28, i64 96, !13, i64 200, !24, i64 204, !13, i64 212}
+!52 = !{!"p1 _ZTS17AVCodecParameters", !11, i64 0}
+!53 = distinct !{!53, !15, !8}
+!54 = !{!51, !13, i64 8}
+!55 = !{!28, !13, i64 36}
+!56 = !{!57, !13, i64 4}
+!57 = !{!"PayloadContext", !5, i64 0, !5, i64 1, !5, i64 2, !13, i64 4}
+!58 = !{!57, !5, i64 0}
+!59 = !{!57, !5, i64 1}
+!60 = !{!57, !5, i64 2}
+!61 = !{!21, !13, i64 24}
+!62 = !{!21, !10, i64 16}

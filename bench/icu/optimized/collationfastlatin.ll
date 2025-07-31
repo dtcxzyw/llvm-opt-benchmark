@@ -170,7 +170,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
   store i16 %.070, ptr %89, align 2, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next, 384
-  br i1 %exitcond161.not, label %79, label %81, !llvm.loop !31
+  br i1 %exitcond161.not, label %79, label %81, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %79
   %scevgep = getelementptr i8, ptr %2, i64 96
@@ -201,8 +201,8 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store i32 %4, ptr %8, align 4, !tbaa !32
-  store i32 %6, ptr %9, align 4, !tbaa !32
+  store i32 %4, ptr %8, align 4, !tbaa !33
+  store i32 %6, ptr %9, align 4, !tbaa !33
   %12 = load i16, ptr %0, align 2, !tbaa !25
   %13 = and i16 %12, 255
   %14 = zext nneg i16 %13 to i64
@@ -210,9 +210,9 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %10, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  store i32 0, ptr %11, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
   %invariant.gep = getelementptr i8, ptr %15, i64 -15616
   %18 = and i32 %2, 2
   %.not416 = icmp eq i32 %18, 0
@@ -225,17 +225,17 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   br i1 %19, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
 .lr.ph:                                           ; preds = %.backedge675, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
-  %20 = load i32, ptr %10, align 4, !tbaa !32
-  %21 = load i32, ptr %8, align 4, !tbaa !32
+  %20 = load i32, ptr %10, align 4, !tbaa !33
+  %21 = load i32, ptr %8, align 4, !tbaa !33
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = add nsw i32 %20, 1
-  store i32 %24, ptr %10, align 4, !tbaa !32
+  store i32 %24, ptr %10, align 4, !tbaa !33
   %25 = sext i32 %20 to i64
   %26 = getelementptr inbounds i16, ptr %3, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !33
+  %27 = load i16, ptr %26, align 2, !tbaa !34
   %28 = zext i16 %27 to i32
   %29 = icmp ult i16 %27, 384
   br i1 %29, label %30, label %42
@@ -349,17 +349,17 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br i1 %76, label %.lr.ph695, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread
 
 .lr.ph695:                                        ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442
-  %77 = load i32, ptr %11, align 4, !tbaa !32
-  %78 = load i32, ptr %9, align 4, !tbaa !32
+  %77 = load i32, ptr %11, align 4, !tbaa !33
+  %78 = load i32, ptr %9, align 4, !tbaa !33
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread, label %80
 
 80:                                               ; preds = %.lr.ph695
   %81 = add nsw i32 %77, 1
-  store i32 %81, ptr %11, align 4, !tbaa !32
+  store i32 %81, ptr %11, align 4, !tbaa !33
   %82 = sext i32 %77 to i64
   %83 = getelementptr inbounds i16, ptr %5, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !33
+  %84 = load i16, ptr %83, align 2, !tbaa !34
   %85 = zext i16 %84 to i32
   %86 = icmp ult i16 %84, 384
   br i1 %86, label %87, label %99
@@ -479,7 +479,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread: ; preds = %_ZN6i
 .backedge675.backedge:                            ; preds = %134, %143
   %.0315.be = phi i32 [ %145, %143 ], [ 0, %134 ]
   %.0288.be = phi i32 [ %144, %143 ], [ 0, %134 ]
-  br label %.backedge675, !llvm.loop !35
+  br label %.backedge675, !llvm.loop !36
 
 136:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread
   %137 = and i32 %.2290, 65535
@@ -506,8 +506,8 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread: ; preds = %_ZN6i
   br i1 %.not665, label %.thread599, label %146
 
 146:                                              ; preds = %.thread577
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   br label %.backedge672
 
 .backedge672:                                     ; preds = %.backedge672.backedge, %146
@@ -517,17 +517,17 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit442.thread: ; preds = %_ZN6i
   br i1 %147, label %.lr.ph703, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
 .lr.ph703:                                        ; preds = %.backedge672, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
-  %148 = load i32, ptr %10, align 4, !tbaa !32
-  %149 = load i32, ptr %8, align 4, !tbaa !32
+  %148 = load i32, ptr %10, align 4, !tbaa !33
+  %149 = load i32, ptr %8, align 4, !tbaa !33
   %150 = icmp eq i32 %148, %149
   br i1 %150, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %151
 
 151:                                              ; preds = %.lr.ph703
   %152 = add nsw i32 %148, 1
-  store i32 %152, ptr %10, align 4, !tbaa !32
+  store i32 %152, ptr %10, align 4, !tbaa !33
   %153 = sext i32 %148 to i64
   %154 = getelementptr inbounds i16, ptr %3, i64 %153
-  %155 = load i16, ptr %154, align 2, !tbaa !33
+  %155 = load i16, ptr %154, align 2, !tbaa !34
   %156 = zext i16 %155 to i32
   %157 = icmp ult i16 %155, 384
   br i1 %157, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit449.sink.split, label %158
@@ -610,7 +610,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit449.thread: ; preds = %161, %_ZN6
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %186, %188
   %.10298 = phi i32 [ %..i451, %188 ], [ %spec.select862, %186 ]
   %192 = icmp eq i32 %.10298, 0
-  br i1 %192, label %.lr.ph703, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
+  br i1 %192, label %.lr.ph703, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, !llvm.loop !37
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit828: ; preds = %188
   %193 = and i32 %174, 65012704
@@ -623,17 +623,17 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   br i1 %195, label %.lr.ph712, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread
 
 .lr.ph712:                                        ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466
-  %196 = load i32, ptr %11, align 4, !tbaa !32
-  %197 = load i32, ptr %9, align 4, !tbaa !32
+  %196 = load i32, ptr %11, align 4, !tbaa !33
+  %197 = load i32, ptr %9, align 4, !tbaa !33
   %198 = icmp eq i32 %196, %197
   br i1 %198, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread, label %199
 
 199:                                              ; preds = %.lr.ph712
   %200 = add nsw i32 %196, 1
-  store i32 %200, ptr %11, align 4, !tbaa !32
+  store i32 %200, ptr %11, align 4, !tbaa !33
   %201 = sext i32 %196 to i64
   %202 = getelementptr inbounds i16, ptr %5, i64 %201
-  %203 = load i16, ptr %202, align 2, !tbaa !33
+  %203 = load i16, ptr %202, align 2, !tbaa !34
   %204 = zext i16 %203 to i32
   %205 = icmp ult i16 %203, 384
   br i1 %205, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit459.sink.split, label %206
@@ -716,7 +716,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit459.thread: ; preds = %209, %_ZN6
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466: ; preds = %234, %236
   %.10325 = phi i32 [ %..i461, %236 ], [ %spec.select864, %234 ]
   %240 = icmp eq i32 %.10325, 0
-  br i1 %240, label %.lr.ph712, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread
+  br i1 %240, label %.lr.ph712, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread, !llvm.loop !38
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread.loopexit.split.loop.exit838: ; preds = %236
   %241 = and i32 %222, 65012704
@@ -735,7 +735,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread: ; preds = %_ZN
 .backedge672.backedge:                            ; preds = %244, %256
   %.6321.be = phi i32 [ %258, %256 ], [ 0, %244 ]
   %.6294.be = phi i32 [ %257, %256 ], [ 0, %244 ]
-  br label %.backedge672, !llvm.loop !36
+  br label %.backedge672, !llvm.loop !39
 
 246:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread
   %247 = and i32 %.8296, 65535
@@ -768,8 +768,8 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread: ; preds = %_ZN
   br i1 %.not422, label %.thread625, label %260
 
 260:                                              ; preds = %.thread599
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   br label %.backedge671
 
 .backedge671:                                     ; preds = %.backedge671.backedge, %260
@@ -779,17 +779,17 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit466.thread: ; preds = %_ZN
   br i1 %261, label %.lr.ph719, label %._crit_edge
 
 .lr.ph719:                                        ; preds = %.backedge671, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
-  %262 = load i32, ptr %10, align 4, !tbaa !32
-  %263 = load i32, ptr %8, align 4, !tbaa !32
+  %262 = load i32, ptr %10, align 4, !tbaa !33
+  %263 = load i32, ptr %8, align 4, !tbaa !33
   %264 = icmp eq i32 %262, %263
   br i1 %264, label %._crit_edge, label %265
 
 265:                                              ; preds = %.lr.ph719
   %266 = add nsw i32 %262, 1
-  store i32 %266, ptr %10, align 4, !tbaa !32
+  store i32 %266, ptr %10, align 4, !tbaa !33
   %267 = sext i32 %262 to i64
   %268 = getelementptr inbounds i16, ptr %3, i64 %267
-  %269 = load i16, ptr %268, align 2, !tbaa !33
+  %269 = load i16, ptr %268, align 2, !tbaa !34
   %270 = zext i16 %269 to i32
   %271 = icmp ult i16 %269, 384
   br i1 %271, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit473.sink.split, label %272
@@ -870,7 +870,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit473.thread: ; preds = %274, %_ZN6
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %290, %284, %301, %297, %299
   %.1.i475 = phi i32 [ %298, %297 ], [ %300, %299 ], [ 0, %301 ], [ %285, %284 ], [ %spec.select866, %290 ]
   %303 = icmp eq i32 %.1.i475, 0
-  br i1 %303, label %.lr.ph719, label %._crit_edge, !llvm.loop !37
+  br i1 %303, label %.lr.ph719, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge.loopexit.split.loop.exit844:          ; preds = %284
   %304 = or disjoint i32 %285, 524288
@@ -882,17 +882,17 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %290, %284, %301, %2
   br i1 %305, label %.lr.ph726, label %._crit_edge727
 
 .lr.ph726:                                        ; preds = %._crit_edge, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit493
-  %306 = load i32, ptr %11, align 4, !tbaa !32
-  %307 = load i32, ptr %9, align 4, !tbaa !32
+  %306 = load i32, ptr %11, align 4, !tbaa !33
+  %307 = load i32, ptr %9, align 4, !tbaa !33
   %308 = icmp eq i32 %306, %307
   br i1 %308, label %._crit_edge727, label %309
 
 309:                                              ; preds = %.lr.ph726
   %310 = add nsw i32 %306, 1
-  store i32 %310, ptr %11, align 4, !tbaa !32
+  store i32 %310, ptr %11, align 4, !tbaa !33
   %311 = sext i32 %306 to i64
   %312 = getelementptr inbounds i16, ptr %5, i64 %311
-  %313 = load i16, ptr %312, align 2, !tbaa !33
+  %313 = load i16, ptr %312, align 2, !tbaa !34
   %314 = zext i16 %313 to i32
   %315 = icmp ult i16 %313, 384
   br i1 %315, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit485.sink.split, label %316
@@ -973,7 +973,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit485.thread: ; preds = %318, %_ZN6
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit493: ; preds = %334, %328, %345, %341, %343
   %.1.i487 = phi i32 [ %342, %341 ], [ %344, %343 ], [ 0, %345 ], [ %329, %328 ], [ %spec.select868, %334 ]
   %347 = icmp eq i32 %.1.i487, 0
-  br i1 %347, label %.lr.ph726, label %._crit_edge727, !llvm.loop !38
+  br i1 %347, label %.lr.ph726, label %._crit_edge727, !llvm.loop !41
 
 ._crit_edge727.loopexit.split.loop.exit853:       ; preds = %328
   %348 = or disjoint i32 %329, 524288
@@ -991,7 +991,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit493: ; preds = %334, %328, %345,
 .backedge671.backedge:                            ; preds = %350, %365
   %.12327.be = phi i32 [ %367, %365 ], [ 0, %350 ]
   %.12300.be = phi i32 [ %366, %365 ], [ 0, %350 ]
-  br label %.backedge671, !llvm.loop !39
+  br label %.backedge671, !llvm.loop !42
 
 352:                                              ; preds = %._crit_edge727
   %353 = and i32 %.14302, 65535
@@ -1029,8 +1029,8 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit493: ; preds = %334, %328, %345,
 369:                                              ; preds = %.thread625
   %370 = and i32 %2, 1536
   %.not668 = icmp eq i32 %370, 512
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   %spec.select35.v.i = select i1 %.not668, i32 2621480, i32 2097184
   %.2.v.i = select i1 %.not668, i32 2031647, i32 458759
   %spec.select34.v.i = select i1 %.not668, i32 40, i32 32
@@ -1043,17 +1043,17 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit493: ; preds = %334, %328, %345,
   br i1 %371, label %.lr.ph734, label %._crit_edge735
 
 .lr.ph734:                                        ; preds = %.backedge670, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
-  %372 = load i32, ptr %10, align 4, !tbaa !32
-  %373 = load i32, ptr %8, align 4, !tbaa !32
+  %372 = load i32, ptr %10, align 4, !tbaa !33
+  %373 = load i32, ptr %8, align 4, !tbaa !33
   %374 = icmp eq i32 %372, %373
   br i1 %374, label %._crit_edge735, label %375
 
 375:                                              ; preds = %.lr.ph734
   %376 = add nsw i32 %372, 1
-  store i32 %376, ptr %10, align 4, !tbaa !32
+  store i32 %376, ptr %10, align 4, !tbaa !33
   %377 = sext i32 %372 to i64
   %378 = getelementptr inbounds i16, ptr %3, i64 %377
-  %379 = load i16, ptr %378, align 2, !tbaa !33
+  %379 = load i16, ptr %378, align 2, !tbaa !34
   %380 = zext i16 %379 to i32
   %381 = icmp ult i16 %379, 384
   br i1 %381, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit500.sink.split, label %382
@@ -1146,7 +1146,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit500.thread: ; preds = %384, %_ZN6
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %405, %412
   %.1.i501 = phi i32 [ 0, %412 ], [ %spec.select870, %405 ]
   %416 = icmp eq i32 %.1.i501, 0
-  br i1 %416, label %.lr.ph734, label %._crit_edge735, !llvm.loop !40
+  br i1 %416, label %.lr.ph734, label %._crit_edge735, !llvm.loop !43
 
 ._crit_edge735:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph734, %414, %410, %403, %399, %397, %.backedge670
   %.19307 = phi i32 [ %.17305, %.backedge670 ], [ %spec.select35.i, %414 ], [ %411, %410 ], [ %spec.select34.i, %403 ], [ %spec.select33.i, %399 ], [ %spec.select.i, %397 ], [ 2, %.lr.ph734 ], [ %.1.i501, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
@@ -1154,17 +1154,17 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %405, %412
   br i1 %417, label %.lr.ph742, label %._crit_edge743
 
 .lr.ph742:                                        ; preds = %._crit_edge735, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526
-  %418 = load i32, ptr %11, align 4, !tbaa !32
-  %419 = load i32, ptr %9, align 4, !tbaa !32
+  %418 = load i32, ptr %11, align 4, !tbaa !33
+  %419 = load i32, ptr %9, align 4, !tbaa !33
   %420 = icmp eq i32 %418, %419
   br i1 %420, label %._crit_edge743, label %421
 
 421:                                              ; preds = %.lr.ph742
   %422 = add nsw i32 %418, 1
-  store i32 %422, ptr %11, align 4, !tbaa !32
+  store i32 %422, ptr %11, align 4, !tbaa !33
   %423 = sext i32 %418 to i64
   %424 = getelementptr inbounds i16, ptr %5, i64 %423
-  %425 = load i16, ptr %424, align 2, !tbaa !33
+  %425 = load i16, ptr %424, align 2, !tbaa !34
   %426 = zext i16 %425 to i32
   %427 = icmp ult i16 %425, 384
   br i1 %427, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit509.sink.split, label %428
@@ -1257,7 +1257,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit509.thread: ; preds = %430, %_ZN6
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526: ; preds = %451, %458
   %.1.i510 = phi i32 [ 0, %458 ], [ %spec.select872, %451 ]
   %462 = icmp eq i32 %.1.i510, 0
-  br i1 %462, label %.lr.ph742, label %._crit_edge743, !llvm.loop !41
+  br i1 %462, label %.lr.ph742, label %._crit_edge743, !llvm.loop !44
 
 ._crit_edge743:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526, %.lr.ph742, %460, %456, %449, %445, %443, %._crit_edge735
   %.19334 = phi i32 [ %.17332, %._crit_edge735 ], [ %spec.select35.i513, %460 ], [ %457, %456 ], [ %spec.select34.i520, %449 ], [ %spec.select33.i525, %445 ], [ %spec.select.i523, %443 ], [ 2, %.lr.ph742 ], [ %.1.i510, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526 ]
@@ -1271,7 +1271,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526: ; preds = %451, %458
 .backedge670.backedge:                            ; preds = %464, %480
   %.17332.be = phi i32 [ %482, %480 ], [ 0, %464 ]
   %.17305.be = phi i32 [ %481, %480 ], [ 0, %464 ]
-  br label %.backedge670, !llvm.loop !42
+  br label %.backedge670, !llvm.loop !45
 
 466:                                              ; preds = %._crit_edge743
   %467 = and i32 %.19307, 65535
@@ -1314,8 +1314,8 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526: ; preds = %451, %458
   br i1 %483, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread557, label %484
 
 484:                                              ; preds = %.thread642
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %484
@@ -1325,17 +1325,17 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit526: ; preds = %451, %458
   br i1 %485, label %.lr.ph750, label %._crit_edge751
 
 .lr.ph750:                                        ; preds = %.backedge, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
-  %486 = load i32, ptr %10, align 4, !tbaa !32
-  %487 = load i32, ptr %8, align 4, !tbaa !32
+  %486 = load i32, ptr %10, align 4, !tbaa !33
+  %487 = load i32, ptr %8, align 4, !tbaa !33
   %488 = icmp eq i32 %486, %487
   br i1 %488, label %._crit_edge751, label %489
 
 489:                                              ; preds = %.lr.ph750
   %490 = add nsw i32 %486, 1
-  store i32 %490, ptr %10, align 4, !tbaa !32
+  store i32 %490, ptr %10, align 4, !tbaa !33
   %491 = sext i32 %486 to i64
   %492 = getelementptr inbounds i16, ptr %3, i64 %491
-  %493 = load i16, ptr %492, align 2, !tbaa !33
+  %493 = load i16, ptr %492, align 2, !tbaa !34
   %494 = zext i16 %493 to i32
   %495 = icmp ult i16 %493, 384
   br i1 %495, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit533.sink.split, label %496
@@ -1400,7 +1400,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit533.thread: ; preds = %498, %_ZN6
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %516, %513
   %.0.i535 = phi i32 [ %519, %516 ], [ %spec.select.i536, %513 ]
   %520 = icmp eq i32 %.0.i535, 0
-  br i1 %520, label %.lr.ph750, label %._crit_edge751, !llvm.loop !43
+  br i1 %520, label %.lr.ph750, label %._crit_edge751, !llvm.loop !46
 
 ._crit_edge751:                                   ; preds = %516, %511, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit, %.lr.ph750, %508, %.backedge
   %.24 = phi i32 [ %.22310, %.backedge ], [ %..i537, %508 ], [ -67044352, %516 ], [ 64512, %511 ], [ 2, %.lr.ph750 ], [ %.0.i535, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit ]
@@ -1408,17 +1408,17 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %516, %513
   br i1 %521, label %.lr.ph758, label %._crit_edge759
 
 .lr.ph758:                                        ; preds = %._crit_edge751, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549
-  %522 = load i32, ptr %11, align 4, !tbaa !32
-  %523 = load i32, ptr %9, align 4, !tbaa !32
+  %522 = load i32, ptr %11, align 4, !tbaa !33
+  %523 = load i32, ptr %9, align 4, !tbaa !33
   %524 = icmp eq i32 %522, %523
   br i1 %524, label %._crit_edge759, label %525
 
 525:                                              ; preds = %.lr.ph758
   %526 = add nsw i32 %522, 1
-  store i32 %526, ptr %11, align 4, !tbaa !32
+  store i32 %526, ptr %11, align 4, !tbaa !33
   %527 = sext i32 %522 to i64
   %528 = getelementptr inbounds i16, ptr %5, i64 %527
-  %529 = load i16, ptr %528, align 2, !tbaa !33
+  %529 = load i16, ptr %528, align 2, !tbaa !34
   %530 = zext i16 %529 to i32
   %531 = icmp ult i16 %529, 384
   br i1 %531, label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit544.sink.split, label %532
@@ -1483,7 +1483,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit544.thread: ; preds = %534, %_ZN6
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549: ; preds = %552, %549
   %.0.i546 = phi i32 [ %555, %552 ], [ %spec.select.i547, %549 ]
   %556 = icmp eq i32 %.0.i546, 0
-  br i1 %556, label %.lr.ph758, label %._crit_edge759, !llvm.loop !44
+  br i1 %556, label %.lr.ph758, label %._crit_edge759, !llvm.loop !47
 
 ._crit_edge759:                                   ; preds = %552, %547, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549, %.lr.ph758, %544, %._crit_edge751
   %.24339 = phi i32 [ %.22337, %._crit_edge751 ], [ %..i548, %544 ], [ -67044352, %552 ], [ 64512, %547 ], [ 2, %.lr.ph758 ], [ %.0.i546, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549 ]
@@ -1497,7 +1497,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549: ; preds = %552, %549
 .backedge.backedge:                               ; preds = %558, %567
   %.22337.be = phi i32 [ %569, %567 ], [ 0, %558 ]
   %.22310.be = phi i32 [ %568, %567 ], [ 0, %558 ]
-  br label %.backedge, !llvm.loop !45
+  br label %.backedge, !llvm.loop !48
 
 560:                                              ; preds = %._crit_edge759
   %561 = and i32 %.24, 65535
@@ -1578,15 +1578,15 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br i1 %or.cond141, label %21, label %24
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %5, align 4, !tbaa !32
+  %22 = load i32, ptr %5, align 4, !tbaa !33
   %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %6, align 4, !tbaa !32
+  store i32 %23, ptr %6, align 4, !tbaa !33
   br label %.critedge144
 
 24:                                               ; preds = %17
   %25 = and i32 %2, 1023
   %26 = add nuw nsw i32 %25, 448
-  %27 = load i32, ptr %5, align 4, !tbaa !32
+  %27 = load i32, ptr %5, align 4, !tbaa !33
   %.not = icmp eq i32 %27, %19
   br i1 %.not, label %.critedge, label %28
 
@@ -1598,7 +1598,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i16, ptr %3, i64 %30
-  %33 = load i16, ptr %32, align 2, !tbaa !33
+  %33 = load i16, ptr %32, align 2, !tbaa !34
   %34 = zext i16 %33 to i32
   %35 = icmp ugt i16 %33, 383
   br i1 %35, label %36, label %86
@@ -1704,7 +1704,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br i1 %brmerge.not, label %88, label %.thread
 
 88:                                               ; preds = %86
-  store i32 %27, ptr %6, align 4, !tbaa !32
+  store i32 %27, ptr %6, align 4, !tbaa !33
   br label %.thread
 
 .thread:                                          ; preds = %86, %84, %40, %88
@@ -1727,14 +1727,14 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %99 = zext i16 %98 to i32
   %100 = and i32 %99, 511
   %101 = icmp slt i32 %100, %.5124
-  br i1 %101, label %93, label %102, !llvm.loop !46
+  br i1 %101, label %93, label %102, !llvm.loop !49
 
 102:                                              ; preds = %93
   %103 = icmp eq i32 %100, %.5124
   br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %102
-  store i32 %.0115148, ptr %5, align 4, !tbaa !32
+  store i32 %.0115148, ptr %5, align 4, !tbaa !33
   br label %.critedge
 
 .critedge:                                        ; preds = %104, %102, %24
@@ -1979,8 +1979,8 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store i32 %4, ptr %8, align 4, !tbaa !32
-  store i32 %6, ptr %9, align 4, !tbaa !32
+  store i32 %4, ptr %8, align 4, !tbaa !33
+  store i32 %6, ptr %9, align 4, !tbaa !33
   %12 = load i16, ptr %0, align 2, !tbaa !25
   %13 = and i16 %12, 255
   %14 = zext nneg i16 %13 to i64
@@ -1988,9 +1988,9 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %10, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  store i32 0, ptr %11, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
   %invariant.gep = getelementptr inbounds nuw i8, ptr %15, i64 512
   %18 = and i32 %2, 2
   %.not452 = icmp eq i32 %18, 0
@@ -2003,14 +2003,14 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   br i1 %19, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
 .lr.ph:                                           ; preds = %.backedge724, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
-  %20 = load i32, ptr %10, align 4, !tbaa !32
-  %21 = load i32, ptr %8, align 4, !tbaa !32
+  %20 = load i32, ptr %10, align 4, !tbaa !33
+  %21 = load i32, ptr %8, align 4, !tbaa !33
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = add nsw i32 %20, 1
-  store i32 %24, ptr %10, align 4, !tbaa !32
+  store i32 %24, ptr %10, align 4, !tbaa !33
   %25 = sext i32 %20 to i64
   %26 = getelementptr inbounds i8, ptr %3, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !28
@@ -2058,7 +2058,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
 48:                                               ; preds = %44
   %49 = zext i8 %47 to i32
   %50 = add nsw i32 %20, 2
-  store i32 %50, ptr %10, align 4, !tbaa !32
+  store i32 %50, ptr %10, align 4, !tbaa !33
   %51 = shl nuw nsw i32 %28, 6
   %52 = add nsw i32 %51, -12416
   %53 = add nuw nsw i32 %52, %49
@@ -2093,7 +2093,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %72 = getelementptr inbounds i8, ptr %3, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !28
   %74 = add nsw i32 %20, 3
-  store i32 %74, ptr %10, align 4, !tbaa !32
+  store i32 %74, ptr %10, align 4, !tbaa !33
   %75 = icmp eq i8 %27, -30
   %76 = icmp eq i8 %70, -128
   %or.cond4.i = select i1 %75, i1 %76, i1 false
@@ -2178,14 +2178,14 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br i1 %107, label %.lr.ph742, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
 .lr.ph742:                                        ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
-  %108 = load i32, ptr %11, align 4, !tbaa !32
-  %109 = load i32, ptr %9, align 4, !tbaa !32
+  %108 = load i32, ptr %11, align 4, !tbaa !33
+  %109 = load i32, ptr %9, align 4, !tbaa !33
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread, label %111
 
 111:                                              ; preds = %.lr.ph742
   %112 = add nsw i32 %108, 1
-  store i32 %112, ptr %11, align 4, !tbaa !32
+  store i32 %112, ptr %11, align 4, !tbaa !33
   %113 = sext i32 %108 to i64
   %114 = getelementptr inbounds i8, ptr %5, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !28
@@ -2233,7 +2233,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 136:                                              ; preds = %132
   %137 = zext i8 %135 to i32
   %138 = add nsw i32 %108, 2
-  store i32 %138, ptr %11, align 4, !tbaa !32
+  store i32 %138, ptr %11, align 4, !tbaa !33
   %139 = shl nuw nsw i32 %116, 6
   %140 = add nsw i32 %139, -12416
   %141 = add nuw nsw i32 %140, %137
@@ -2268,7 +2268,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   %160 = getelementptr inbounds i8, ptr %5, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !28
   %162 = add nsw i32 %108, 3
-  store i32 %162, ptr %11, align 4, !tbaa !32
+  store i32 %162, ptr %11, align 4, !tbaa !33
   %163 = icmp eq i8 %115, -30
   %164 = icmp eq i8 %158, -128
   %or.cond4.i474 = select i1 %163, i1 %164, i1 false
@@ -2359,7 +2359,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6i
 .backedge724.backedge:                            ; preds = %196, %205
   %.0341.be = phi i32 [ %207, %205 ], [ 0, %196 ]
   %.0314.be = phi i32 [ %206, %205 ], [ 0, %196 ]
-  br label %.backedge724, !llvm.loop !47
+  br label %.backedge724, !llvm.loop !50
 
 198:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
   %199 = and i32 %.2316, 65535
@@ -2386,8 +2386,8 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6i
   br i1 %.not709, label %.thread619, label %208
 
 208:                                              ; preds = %.thread591
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   %invariant.gep746 = getelementptr i8, ptr %3, i64 1
   %invariant.gep755 = getelementptr i8, ptr %5, i64 1
   br label %.backedge721
@@ -2399,14 +2399,14 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6i
   br i1 %209, label %.lr.ph750, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
 .lr.ph750:                                        ; preds = %.backedge721, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
-  %210 = load i32, ptr %10, align 4, !tbaa !32
-  %211 = load i32, ptr %8, align 4, !tbaa !32
+  %210 = load i32, ptr %10, align 4, !tbaa !33
+  %211 = load i32, ptr %8, align 4, !tbaa !33
   %212 = icmp eq i32 %210, %211
   br i1 %212, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %213
 
 213:                                              ; preds = %.lr.ph750
   %214 = add nsw i32 %210, 1
-  store i32 %214, ptr %10, align 4, !tbaa !32
+  store i32 %214, ptr %10, align 4, !tbaa !33
   %215 = sext i32 %210 to i64
   %216 = getelementptr inbounds i8, ptr %3, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !28
@@ -2427,7 +2427,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6i
   %226 = shl nuw nsw i32 %218, 6
   %227 = add nsw i32 %226, -12416
   %228 = add nsw i32 %210, 2
-  store i32 %228, ptr %10, align 4, !tbaa !32
+  store i32 %228, ptr %10, align 4, !tbaa !33
   %229 = sext i32 %214 to i64
   %230 = getelementptr inbounds i8, ptr %3, i64 %229
   %231 = load i8, ptr %230, align 1, !tbaa !28
@@ -2442,7 +2442,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6i
   %gep747 = getelementptr i8, ptr %invariant.gep746, i64 %237
   %238 = load i8, ptr %gep747, align 1, !tbaa !28
   %239 = add nsw i32 %210, 3
-  store i32 %239, ptr %10, align 4, !tbaa !32
+  store i32 %239, ptr %10, align 4, !tbaa !33
   %240 = icmp eq i8 %217, -30
   br i1 %240, label %241, label %243
 
@@ -2514,7 +2514,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599: ; pre
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %265, %267
   %.10324 = phi i32 [ %..i488, %267 ], [ %spec.select935, %265 ]
   %271 = icmp eq i32 %.10324, 0
-  br i1 %271, label %.lr.ph750, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
+  br i1 %271, label %.lr.ph750, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, !llvm.loop !51
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit897: ; preds = %267
   %272 = and i32 %253, 65012704
@@ -2527,14 +2527,14 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   br i1 %274, label %.lr.ph759, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
 
 .lr.ph759:                                        ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
-  %275 = load i32, ptr %11, align 4, !tbaa !32
-  %276 = load i32, ptr %9, align 4, !tbaa !32
+  %275 = load i32, ptr %11, align 4, !tbaa !33
+  %276 = load i32, ptr %9, align 4, !tbaa !33
   %277 = icmp eq i32 %275, %276
   br i1 %277, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %278
 
 278:                                              ; preds = %.lr.ph759
   %279 = add nsw i32 %275, 1
-  store i32 %279, ptr %11, align 4, !tbaa !32
+  store i32 %279, ptr %11, align 4, !tbaa !33
   %280 = sext i32 %275 to i64
   %281 = getelementptr inbounds i8, ptr %5, i64 %280
   %282 = load i8, ptr %281, align 1, !tbaa !28
@@ -2555,7 +2555,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   %291 = shl nuw nsw i32 %283, 6
   %292 = add nsw i32 %291, -12416
   %293 = add nsw i32 %275, 2
-  store i32 %293, ptr %11, align 4, !tbaa !32
+  store i32 %293, ptr %11, align 4, !tbaa !33
   %294 = sext i32 %279 to i64
   %295 = getelementptr inbounds i8, ptr %5, i64 %294
   %296 = load i8, ptr %295, align 1, !tbaa !28
@@ -2570,7 +2570,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   %gep756 = getelementptr i8, ptr %invariant.gep755, i64 %302
   %303 = load i8, ptr %gep756, align 1, !tbaa !28
   %304 = add nsw i32 %275, 3
-  store i32 %304, ptr %11, align 4, !tbaa !32
+  store i32 %304, ptr %11, align 4, !tbaa !33
   %305 = icmp eq i8 %282, -30
   br i1 %305, label %306, label %308
 
@@ -2642,7 +2642,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608: ; 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500: ; preds = %330, %332
   %.10351 = phi i32 [ %..i495, %332 ], [ %spec.select936, %330 ]
   %336 = icmp eq i32 %.10351, 0
-  br i1 %336, label %.lr.ph759, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+  br i1 %336, label %.lr.ph759, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, !llvm.loop !52
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit907: ; preds = %332
   %337 = and i32 %318, 65012704
@@ -2661,7 +2661,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN
 .backedge721.backedge:                            ; preds = %340, %352
   %.6347.be = phi i32 [ %354, %352 ], [ 0, %340 ]
   %.6320.be = phi i32 [ %353, %352 ], [ 0, %340 ]
-  br label %.backedge721, !llvm.loop !48
+  br label %.backedge721, !llvm.loop !53
 
 342:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
   %343 = and i32 %.8322, 65535
@@ -2694,8 +2694,8 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN
   br i1 %.not460, label %.thread649, label %356
 
 356:                                              ; preds = %.thread619
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   %invariant.gep764 = getelementptr i8, ptr %3, i64 1
   %invariant.gep772 = getelementptr i8, ptr %5, i64 1
   br label %.backedge720
@@ -2707,14 +2707,14 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN
   br i1 %357, label %.lr.ph768, label %._crit_edge
 
 .lr.ph768:                                        ; preds = %.backedge720, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
-  %358 = load i32, ptr %10, align 4, !tbaa !32
-  %359 = load i32, ptr %8, align 4, !tbaa !32
+  %358 = load i32, ptr %10, align 4, !tbaa !33
+  %359 = load i32, ptr %8, align 4, !tbaa !33
   %360 = icmp eq i32 %358, %359
   br i1 %360, label %._crit_edge, label %361
 
 361:                                              ; preds = %.lr.ph768
   %362 = add nsw i32 %358, 1
-  store i32 %362, ptr %10, align 4, !tbaa !32
+  store i32 %362, ptr %10, align 4, !tbaa !33
   %363 = sext i32 %358 to i64
   %364 = getelementptr inbounds i8, ptr %3, i64 %363
   %365 = load i8, ptr %364, align 1, !tbaa !28
@@ -2735,7 +2735,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN
   %374 = shl nuw nsw i32 %366, 6
   %375 = add nsw i32 %374, -12416
   %376 = add nsw i32 %358, 2
-  store i32 %376, ptr %10, align 4, !tbaa !32
+  store i32 %376, ptr %10, align 4, !tbaa !33
   %377 = sext i32 %362 to i64
   %378 = getelementptr inbounds i8, ptr %3, i64 %377
   %379 = load i8, ptr %378, align 1, !tbaa !28
@@ -2750,7 +2750,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN
   %gep765 = getelementptr i8, ptr %invariant.gep764, i64 %385
   %386 = load i8, ptr %gep765, align 1, !tbaa !28
   %387 = add nsw i32 %358, 3
-  store i32 %387, ptr %10, align 4, !tbaa !32
+  store i32 %387, ptr %10, align 4, !tbaa !33
   %388 = icmp eq i8 %365, -30
   br i1 %388, label %389, label %391
 
@@ -2822,7 +2822,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread: ; pre
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %404, %.thread627.thread, %415, %411, %413
   %.1.i505 = phi i32 [ %412, %411 ], [ %414, %413 ], [ 0, %415 ], [ %399, %.thread627.thread ], [ %spec.select937, %404 ]
   %417 = icmp eq i32 %.1.i505, 0
-  br i1 %417, label %.lr.ph768, label %._crit_edge, !llvm.loop !49
+  br i1 %417, label %.lr.ph768, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit913:          ; preds = %.thread627.thread
   %418 = or disjoint i32 %399, 524288
@@ -2834,14 +2834,14 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %404, %.thread627.th
   br i1 %419, label %.lr.ph777, label %._crit_edge778
 
 .lr.ph777:                                        ; preds = %._crit_edge, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
-  %420 = load i32, ptr %11, align 4, !tbaa !32
-  %421 = load i32, ptr %9, align 4, !tbaa !32
+  %420 = load i32, ptr %11, align 4, !tbaa !33
+  %421 = load i32, ptr %9, align 4, !tbaa !33
   %422 = icmp eq i32 %420, %421
   br i1 %422, label %._crit_edge778, label %423
 
 423:                                              ; preds = %.lr.ph777
   %424 = add nsw i32 %420, 1
-  store i32 %424, ptr %11, align 4, !tbaa !32
+  store i32 %424, ptr %11, align 4, !tbaa !33
   %425 = sext i32 %420 to i64
   %426 = getelementptr inbounds i8, ptr %5, i64 %425
   %427 = load i8, ptr %426, align 1, !tbaa !28
@@ -2862,7 +2862,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %404, %.thread627.th
   %436 = shl nuw nsw i32 %428, 6
   %437 = add nsw i32 %436, -12416
   %438 = add nsw i32 %420, 2
-  store i32 %438, ptr %11, align 4, !tbaa !32
+  store i32 %438, ptr %11, align 4, !tbaa !33
   %439 = sext i32 %424 to i64
   %440 = getelementptr inbounds i8, ptr %5, i64 %439
   %441 = load i8, ptr %440, align 1, !tbaa !28
@@ -2877,7 +2877,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %404, %.thread627.th
   %gep773 = getelementptr i8, ptr %invariant.gep772, i64 %447
   %448 = load i8, ptr %gep773, align 1, !tbaa !28
   %449 = add nsw i32 %420, 3
-  store i32 %449, ptr %11, align 4, !tbaa !32
+  store i32 %449, ptr %11, align 4, !tbaa !33
   %450 = icmp eq i8 %427, -30
   br i1 %450, label %451, label %453
 
@@ -2949,7 +2949,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread: ; pre
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633.thread, %477, %473, %475
   %.1.i513 = phi i32 [ %474, %473 ], [ %476, %475 ], [ 0, %477 ], [ %461, %.thread633.thread ], [ %spec.select938, %466 ]
   %479 = icmp eq i32 %.1.i513, 0
-  br i1 %479, label %.lr.ph777, label %._crit_edge778, !llvm.loop !50
+  br i1 %479, label %.lr.ph777, label %._crit_edge778, !llvm.loop !55
 
 ._crit_edge778.loopexit.split.loop.exit924:       ; preds = %.thread633.thread
   %480 = or disjoint i32 %461, 524288
@@ -2967,7 +2967,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633
 .backedge720.backedge:                            ; preds = %482, %497
   %.12353.be = phi i32 [ %499, %497 ], [ 0, %482 ]
   %.12326.be = phi i32 [ %498, %497 ], [ 0, %482 ]
-  br label %.backedge720, !llvm.loop !51
+  br label %.backedge720, !llvm.loop !56
 
 484:                                              ; preds = %._crit_edge778
   %485 = and i32 %.14328, 65535
@@ -3005,8 +3005,8 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633
 501:                                              ; preds = %.thread649
   %502 = and i32 %2, 1536
   %.not715 = icmp eq i32 %502, 512
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   %invariant.gep782 = getelementptr i8, ptr %3, i64 1
   %spec.select35.v.i = select i1 %.not715, i32 2621480, i32 2097184
   %.2.v.i = select i1 %.not715, i32 2031647, i32 458759
@@ -3021,14 +3021,14 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633
   br i1 %503, label %.lr.ph787, label %._crit_edge788
 
 .lr.ph787:                                        ; preds = %.backedge719, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
-  %504 = load i32, ptr %10, align 4, !tbaa !32
-  %505 = load i32, ptr %8, align 4, !tbaa !32
+  %504 = load i32, ptr %10, align 4, !tbaa !33
+  %505 = load i32, ptr %8, align 4, !tbaa !33
   %506 = icmp eq i32 %504, %505
   br i1 %506, label %._crit_edge788, label %507
 
 507:                                              ; preds = %.lr.ph787
   %508 = add nsw i32 %504, 1
-  store i32 %508, ptr %10, align 4, !tbaa !32
+  store i32 %508, ptr %10, align 4, !tbaa !33
   %509 = sext i32 %504 to i64
   %510 = getelementptr inbounds i8, ptr %3, i64 %509
   %511 = load i8, ptr %510, align 1, !tbaa !28
@@ -3049,7 +3049,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633
   %520 = shl nuw nsw i32 %512, 6
   %521 = add nsw i32 %520, -12416
   %522 = add nsw i32 %504, 2
-  store i32 %522, ptr %10, align 4, !tbaa !32
+  store i32 %522, ptr %10, align 4, !tbaa !33
   %523 = sext i32 %508 to i64
   %524 = getelementptr inbounds i8, ptr %3, i64 %523
   %525 = load i8, ptr %524, align 1, !tbaa !28
@@ -3064,7 +3064,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633
   %gep783 = getelementptr i8, ptr %invariant.gep782, i64 %531
   %532 = load i8, ptr %gep783, align 1, !tbaa !28
   %533 = add nsw i32 %504, 3
-  store i32 %533, ptr %10, align 4, !tbaa !32
+  store i32 %533, ptr %10, align 4, !tbaa !33
   %534 = icmp eq i8 %511, -30
   br i1 %534, label %535, label %537
 
@@ -3149,7 +3149,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread: ; pre
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %555, %562
   %.1.i523 = phi i32 [ 0, %562 ], [ %spec.select939, %555 ]
   %566 = icmp eq i32 %.1.i523, 0
-  br i1 %566, label %.lr.ph787, label %._crit_edge788, !llvm.loop !52
+  br i1 %566, label %.lr.ph787, label %._crit_edge788, !llvm.loop !57
 
 ._crit_edge788:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph787, %564, %560, %553, %549, %547, %.backedge719
   %.19333 = phi i32 [ %.17331, %.backedge719 ], [ %spec.select35.i, %564 ], [ %561, %560 ], [ %spec.select34.i, %553 ], [ %spec.select33.i, %549 ], [ %spec.select.i, %547 ], [ 2, %.lr.ph787 ], [ %.1.i523, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
@@ -3157,14 +3157,14 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %555, %562
   br i1 %567, label %.lr.ph797, label %._crit_edge798
 
 .lr.ph797:                                        ; preds = %._crit_edge788, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
-  %568 = load i32, ptr %11, align 4, !tbaa !32
-  %569 = load i32, ptr %9, align 4, !tbaa !32
+  %568 = load i32, ptr %11, align 4, !tbaa !33
+  %569 = load i32, ptr %9, align 4, !tbaa !33
   %570 = icmp eq i32 %568, %569
   br i1 %570, label %._crit_edge798, label %571
 
 571:                                              ; preds = %.lr.ph797
   %572 = add nsw i32 %568, 1
-  store i32 %572, ptr %11, align 4, !tbaa !32
+  store i32 %572, ptr %11, align 4, !tbaa !33
   %573 = sext i32 %568 to i64
   %574 = getelementptr inbounds i8, ptr %5, i64 %573
   %575 = load i8, ptr %574, align 1, !tbaa !28
@@ -3185,7 +3185,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %555, %562
   %584 = shl nuw nsw i32 %576, 6
   %585 = add nsw i32 %584, -12416
   %586 = add nsw i32 %568, 2
-  store i32 %586, ptr %11, align 4, !tbaa !32
+  store i32 %586, ptr %11, align 4, !tbaa !33
   %587 = sext i32 %572 to i64
   %588 = getelementptr inbounds i8, ptr %5, i64 %587
   %589 = load i8, ptr %588, align 1, !tbaa !28
@@ -3200,7 +3200,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %555, %562
   %gep793 = getelementptr i8, ptr %invariant.gep792, i64 %595
   %596 = load i8, ptr %gep793, align 1, !tbaa !28
   %597 = add nsw i32 %568, 3
-  store i32 %597, ptr %11, align 4, !tbaa !32
+  store i32 %597, ptr %11, align 4, !tbaa !33
   %598 = icmp eq i8 %575, -30
   br i1 %598, label %599, label %601
 
@@ -3285,7 +3285,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread: ; pre
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
   %.1.i528 = phi i32 [ 0, %626 ], [ %spec.select940, %619 ]
   %630 = icmp eq i32 %.1.i528, 0
-  br i1 %630, label %.lr.ph797, label %._crit_edge798, !llvm.loop !53
+  br i1 %630, label %.lr.ph797, label %._crit_edge798, !llvm.loop !58
 
 ._crit_edge798:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544, %.lr.ph797, %628, %624, %617, %613, %611, %._crit_edge788
   %.19360 = phi i32 [ %.17358, %._crit_edge788 ], [ %spec.select35.i531, %628 ], [ %625, %624 ], [ %spec.select34.i538, %617 ], [ %spec.select33.i543, %613 ], [ %spec.select.i541, %611 ], [ 2, %.lr.ph797 ], [ %.1.i528, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544 ]
@@ -3299,7 +3299,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
 .backedge719.backedge:                            ; preds = %632, %648
   %.17358.be = phi i32 [ %650, %648 ], [ 0, %632 ]
   %.17331.be = phi i32 [ %649, %648 ], [ 0, %632 ]
-  br label %.backedge719, !llvm.loop !54
+  br label %.backedge719, !llvm.loop !59
 
 634:                                              ; preds = %._crit_edge798
   %635 = and i32 %.19333, 65535
@@ -3342,8 +3342,8 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
   br i1 %651, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %652
 
 652:                                              ; preds = %.thread670
-  store i32 0, ptr %11, align 4, !tbaa !32
-  store i32 0, ptr %10, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !33
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %652
@@ -3353,14 +3353,14 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
   br i1 %653, label %.lr.ph807, label %._crit_edge808
 
 .lr.ph807:                                        ; preds = %.backedge, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
-  %654 = load i32, ptr %10, align 4, !tbaa !32
-  %655 = load i32, ptr %8, align 4, !tbaa !32
+  %654 = load i32, ptr %10, align 4, !tbaa !33
+  %655 = load i32, ptr %8, align 4, !tbaa !33
   %656 = icmp eq i32 %654, %655
   br i1 %656, label %._crit_edge808, label %657
 
 657:                                              ; preds = %.lr.ph807
   %658 = add nsw i32 %654, 1
-  store i32 %658, ptr %10, align 4, !tbaa !32
+  store i32 %658, ptr %10, align 4, !tbaa !33
   %659 = sext i32 %654 to i64
   %660 = getelementptr inbounds i8, ptr %3, i64 %659
   %661 = load i8, ptr %660, align 1, !tbaa !28
@@ -3381,7 +3381,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
   %670 = shl nuw nsw i32 %662, 6
   %671 = add nsw i32 %670, -12416
   %672 = add nsw i32 %654, 2
-  store i32 %672, ptr %10, align 4, !tbaa !32
+  store i32 %672, ptr %10, align 4, !tbaa !33
   %673 = sext i32 %658 to i64
   %674 = getelementptr inbounds i8, ptr %3, i64 %673
   %675 = load i8, ptr %674, align 1, !tbaa !28
@@ -3396,7 +3396,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
   %gep803 = getelementptr i8, ptr %invariant.gep782, i64 %681
   %682 = load i8, ptr %gep803, align 1, !tbaa !28
   %683 = add nsw i32 %654, 3
-  store i32 %683, ptr %10, align 4, !tbaa !32
+  store i32 %683, ptr %10, align 4, !tbaa !33
   %684 = icmp eq i8 %661, -30
   br i1 %684, label %685, label %687
 
@@ -3453,7 +3453,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread: ; pre
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %702, %699
   %.0.i549 = phi i32 [ %705, %702 ], [ %spec.select.i550, %699 ]
   %706 = icmp eq i32 %.0.i549, 0
-  br i1 %706, label %.lr.ph807, label %._crit_edge808, !llvm.loop !55
+  br i1 %706, label %.lr.ph807, label %._crit_edge808, !llvm.loop !60
 
 ._crit_edge808:                                   ; preds = %702, %697, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit, %.lr.ph807, %.thread678.thread, %.backedge
   %.24 = phi i32 [ %.22336, %.backedge ], [ %..i551, %.thread678.thread ], [ -67044352, %702 ], [ 64512, %697 ], [ 2, %.lr.ph807 ], [ %.0.i549, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit ]
@@ -3461,14 +3461,14 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %702, %699
   br i1 %707, label %.lr.ph817, label %._crit_edge818
 
 .lr.ph817:                                        ; preds = %._crit_edge808, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
-  %708 = load i32, ptr %11, align 4, !tbaa !32
-  %709 = load i32, ptr %9, align 4, !tbaa !32
+  %708 = load i32, ptr %11, align 4, !tbaa !33
+  %709 = load i32, ptr %9, align 4, !tbaa !33
   %710 = icmp eq i32 %708, %709
   br i1 %710, label %._crit_edge818, label %711
 
 711:                                              ; preds = %.lr.ph817
   %712 = add nsw i32 %708, 1
-  store i32 %712, ptr %11, align 4, !tbaa !32
+  store i32 %712, ptr %11, align 4, !tbaa !33
   %713 = sext i32 %708 to i64
   %714 = getelementptr inbounds i8, ptr %5, i64 %713
   %715 = load i8, ptr %714, align 1, !tbaa !28
@@ -3489,7 +3489,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %702, %699
   %724 = shl nuw nsw i32 %716, 6
   %725 = add nsw i32 %724, -12416
   %726 = add nsw i32 %708, 2
-  store i32 %726, ptr %11, align 4, !tbaa !32
+  store i32 %726, ptr %11, align 4, !tbaa !33
   %727 = sext i32 %712 to i64
   %728 = getelementptr inbounds i8, ptr %5, i64 %727
   %729 = load i8, ptr %728, align 1, !tbaa !28
@@ -3504,7 +3504,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %702, %699
   %gep813 = getelementptr i8, ptr %invariant.gep792, i64 %735
   %736 = load i8, ptr %gep813, align 1, !tbaa !28
   %737 = add nsw i32 %708, 3
-  store i32 %737, ptr %11, align 4, !tbaa !32
+  store i32 %737, ptr %11, align 4, !tbaa !33
   %738 = icmp eq i8 %715, -30
   br i1 %738, label %739, label %741
 
@@ -3561,7 +3561,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread: ; pre
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559: ; preds = %756, %753
   %.0.i556 = phi i32 [ %759, %756 ], [ %spec.select.i557, %753 ]
   %760 = icmp eq i32 %.0.i556, 0
-  br i1 %760, label %.lr.ph817, label %._crit_edge818, !llvm.loop !56
+  br i1 %760, label %.lr.ph817, label %._crit_edge818, !llvm.loop !61
 
 ._crit_edge818:                                   ; preds = %756, %751, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559, %.lr.ph817, %.thread684.thread, %._crit_edge808
   %.24365 = phi i32 [ %.22363, %._crit_edge808 ], [ %..i558, %.thread684.thread ], [ -67044352, %756 ], [ 64512, %751 ], [ 2, %.lr.ph817 ], [ %.0.i556, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559 ]
@@ -3575,7 +3575,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559: ; preds = %756, %753
 .backedge.backedge:                               ; preds = %762, %771
   %.22363.be = phi i32 [ %773, %771 ], [ 0, %762 ]
   %.22336.be = phi i32 [ %772, %771 ], [ 0, %762 ]
-  br label %.backedge, !llvm.loop !57
+  br label %.backedge, !llvm.loop !62
 
 764:                                              ; preds = %._crit_edge818
   %765 = and i32 %.24, 65535
@@ -3606,7 +3606,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569: ; preds = %92, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
-  %6 = load i32, ptr %3, align 4, !tbaa !32
+  %6 = load i32, ptr %3, align 4, !tbaa !33
   %7 = add nsw i32 %6, 1
   %8 = icmp slt i32 %7, %4
   %9 = icmp slt i32 %4, 0
@@ -3621,7 +3621,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !28
   %17 = add nsw i32 %6, 2
-  store i32 %17, ptr %3, align 4, !tbaa !32
+  store i32 %17, ptr %3, align 4, !tbaa !33
   %18 = icmp eq i32 %1, 226
   %19 = icmp eq i8 %13, -128
   %or.cond4 = select i1 %18, i1 %19, i1 false
@@ -3663,9 +3663,9 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
 6:                                                ; preds = %4
   %7 = shl i32 %1, 6
   %8 = add i32 %7, -12416
-  %9 = load i32, ptr %3, align 4, !tbaa !32
+  %9 = load i32, ptr %3, align 4, !tbaa !33
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %3, align 4, !tbaa !32
+  store i32 %10, ptr %3, align 4, !tbaa !33
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds i8, ptr %2, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !28
@@ -3678,13 +3678,13 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
   br label %36
 
 20:                                               ; preds = %4
-  %21 = load i32, ptr %3, align 4, !tbaa !32
+  %21 = load i32, ptr %3, align 4, !tbaa !33
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %2, i64 %22
   %24 = getelementptr i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1, !tbaa !28
   %26 = add nsw i32 %21, 2
-  store i32 %26, ptr %3, align 4, !tbaa !32
+  store i32 %26, ptr %3, align 4, !tbaa !33
   %27 = icmp eq i32 %1, 226
   br i1 %27, label %28, label %34
 
@@ -3753,32 +3753,37 @@ attributes #9 = { nounwind }
 !26 = !{!"short", !7, i64 0}
 !27 = !{!19, !15, i64 32}
 !28 = !{!7, !7, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!14, !14, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"char16_t", !7, i64 0}
-!35 = distinct !{!35, !30}
-!36 = distinct !{!36, !30}
-!37 = distinct !{!37, !30}
-!38 = distinct !{!38, !30}
-!39 = distinct !{!39, !30}
-!40 = distinct !{!40, !30}
-!41 = distinct !{!41, !30}
-!42 = distinct !{!42, !30}
-!43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
-!45 = distinct !{!45, !30}
-!46 = distinct !{!46, !30}
-!47 = distinct !{!47, !30}
-!48 = distinct !{!48, !30}
-!49 = distinct !{!49, !30}
-!50 = distinct !{!50, !30}
-!51 = distinct !{!51, !30}
-!52 = distinct !{!52, !30}
-!53 = distinct !{!53, !30}
-!54 = distinct !{!54, !30}
-!55 = distinct !{!55, !30}
-!56 = distinct !{!56, !30}
-!57 = distinct !{!57, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = !{!14, !14, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"char16_t", !7, i64 0}
+!36 = distinct !{!36, !30, !31}
+!37 = distinct !{!37, !31}
+!38 = distinct !{!38, !31}
+!39 = distinct !{!39, !30, !31}
+!40 = distinct !{!40, !30, !31}
+!41 = distinct !{!41, !30, !31}
+!42 = distinct !{!42, !30, !31}
+!43 = distinct !{!43, !30, !31}
+!44 = distinct !{!44, !30, !31}
+!45 = distinct !{!45, !30, !31}
+!46 = distinct !{!46, !30, !31}
+!47 = distinct !{!47, !30, !31}
+!48 = distinct !{!48, !30, !31}
+!49 = distinct !{!49, !30, !31}
+!50 = distinct !{!50, !30, !31}
+!51 = distinct !{!51, !31}
+!52 = distinct !{!52, !31}
+!53 = distinct !{!53, !30, !31}
+!54 = distinct !{!54, !30, !31}
+!55 = distinct !{!55, !30, !31}
+!56 = distinct !{!56, !30, !31}
+!57 = distinct !{!57, !30, !31}
+!58 = distinct !{!58, !30, !31}
+!59 = distinct !{!59, !30, !31}
+!60 = distinct !{!60, !30, !31}
+!61 = distinct !{!61, !30, !31}
+!62 = distinct !{!62, !30, !31}

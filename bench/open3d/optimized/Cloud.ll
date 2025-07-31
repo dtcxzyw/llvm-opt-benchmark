@@ -44,7 +44,7 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9max_pointESt6vectorINS1_8Po
   %.sroa.6.1 = select i1 %7, float %.sroa.7.0.copyload, float %.sroa.6.016
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
   %.not = icmp eq ptr %8, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable
@@ -86,7 +86,7 @@ define { <2 x float>, float } @_ZN6open3d2ml7contrib9min_pointESt6vectorINS1_8Po
   %.sroa.6.1 = select i1 %7, float %.sroa.7.0.copyload, float %.sroa.6.016
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 12
   %.not = icmp eq ptr %8, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -106,3 +106,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn m
 !10 = !{!11, !11, i64 0}
 !11 = !{!"float", !8, i64 0}
 !12 = !{!6, !6, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !14}

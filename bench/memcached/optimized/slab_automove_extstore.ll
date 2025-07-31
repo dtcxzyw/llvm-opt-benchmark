@@ -140,7 +140,7 @@ memcheck.exit:                                    ; preds = %18
   %30 = fptoui double %29 to i32
   %spec.select.i = call i32 @llvm.umax.i32(i32 %30, i32 2)
   store i32 %spec.select.i, ptr %5, align 4, !tbaa !28
-  store i32 %spec.select.i, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 324), align 4, !tbaa !38
+  store i32 %spec.select.i, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 324), align 4, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -160,7 +160,7 @@ memcheck.exit:                                    ; preds = %18
   %.099127 = phi i32 [ 0, %memcheck.exit ], [ %.1100114, %119 ]
   %38 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %31, i64 0, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !39
+  %40 = load i32, ptr %39, align 4, !tbaa !40
   %41 = load i32, ptr %32, align 8, !tbaa !25
   %42 = icmp ult i32 %40, %41
   %43 = load i32, ptr %33, align 8, !tbaa !20
@@ -173,7 +173,7 @@ memcheck.exit:                                    ; preds = %18
   %50 = getelementptr inbounds nuw %struct.window_data, ptr %37, i64 %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   %51 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %14, i64 0, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 8, !tbaa !40
+  %52 = load i32, ptr %51, align 8, !tbaa !41
   %53 = shl i32 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !34
@@ -189,25 +189,25 @@ memcheck.exit:                                    ; preds = %18
 60:                                               ; preds = %36
   %61 = add i32 %.097128, %56
   %62 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %13, i64 0, i64 %indvars.iv
-  %63 = load i64, ptr %62, align 8, !tbaa !41
+  %63 = load i64, ptr %62, align 8, !tbaa !42
   %64 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %34, i64 0, i64 %indvars.iv
-  %65 = load i64, ptr %64, align 8, !tbaa !41
+  %65 = load i64, ptr %64, align 8, !tbaa !42
   %66 = icmp sgt i64 %63, %65
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !43
+  %69 = load i64, ptr %68, align 8, !tbaa !44
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %71 = load i64, ptr %70, align 8, !tbaa !43
+  %71 = load i64, ptr %70, align 8, !tbaa !44
   %72 = icmp sgt i64 %69, %71
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %67, %60
   %74 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i64 1, ptr %74, align 8, !tbaa !44
+  store i64 1, ptr %74, align 8, !tbaa !45
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 1, ptr %75, align 8, !tbaa !46
+  store i64 1, ptr %75, align 8, !tbaa !47
   br label %76
 
 76:                                               ; preds = %73, %67
@@ -218,29 +218,29 @@ memcheck.exit:                                    ; preds = %18
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 1, ptr %81, align 8, !tbaa !46
+  store i64 1, ptr %81, align 8, !tbaa !47
   br label %82
 
 82:                                               ; preds = %57, %76, %80
   %.198116 = phi i32 [ %61, %76 ], [ %61, %80 ], [ %.097128, %57 ]
   %.1100114 = phi i32 [ %.099127, %76 ], [ %.099127, %80 ], [ %.2101, %57 ]
   %83 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !47
+  %84 = load i64, ptr %83, align 8, !tbaa !48
   %85 = zext i32 %53 to i64
   %86 = icmp sgt i64 %84, %85
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i32 1, ptr %88, align 8, !tbaa !48
+  store i32 1, ptr %88, align 8, !tbaa !49
   br label %89
 
 89:                                               ; preds = %87, %82
   %.idx = mul nuw nsw i64 %indvars.iv, 24
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %90 = load i32, ptr %gep, align 8, !tbaa !49
+  %90 = load i32, ptr %gep, align 8, !tbaa !50
   %91 = zext i32 %90 to i64
-  store i64 %91, ptr %50, align 8, !tbaa !50
+  store i64 %91, ptr %50, align 8, !tbaa !51
   %92 = load ptr, ptr %0, align 8, !tbaa !16
   %93 = sext i32 %45 to i64
   %94 = getelementptr inbounds %struct.window_data, ptr %92, i64 %93
@@ -258,17 +258,17 @@ memcheck.exit:                                    ; preds = %18
   %98 = phi i64 [ 0, %.lr.ph.i ], [ %105, %96 ]
   %99 = phi i64 [ 0, %.lr.ph.i ], [ %102, %96 ]
   %100 = getelementptr inbounds nuw %struct.window_data, ptr %94, i64 %indvars.iv.i105
-  %101 = load i64, ptr %100, align 8, !tbaa !50
+  %101 = load i64, ptr %100, align 8, !tbaa !51
   %102 = add i64 %101, %99
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !46
+  %104 = load i64, ptr %103, align 8, !tbaa !47
   %105 = add i64 %104, %98
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %107 = load i32, ptr %106, align 8, !tbaa !48
+  %107 = load i32, ptr %106, align 8, !tbaa !49
   %108 = add i32 %107, %97
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i
-  br i1 %exitcond.not.i107, label %window_sum.exit, label %96, !llvm.loop !51
+  br i1 %exitcond.not.i107, label %window_sum.exit, label %96, !llvm.loop !52
 
 window_sum.exit:                                  ; preds = %96
   %109 = icmp ne i64 %105, 0
@@ -309,7 +309,7 @@ window_sum.exit.thread:                           ; preds = %89, %window_sum.exi
   %.1 = phi i32 [ %.089131, %window_sum.exit ], [ %.089131, %112 ], [ %spec.select104, %117 ], [ %.089131, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %120, label %36, !llvm.loop !52
+  br i1 %exitcond.not, label %120, label %36, !llvm.loop !53
 
 120:                                              ; preds = %119
   %121 = add i32 %.1100114, %7
@@ -319,7 +319,7 @@ window_sum.exit.thread:                           ; preds = %89, %window_sum.exi
   %125 = fdiv float %124, %123
   %126 = fmul float %125, 1.000000e+02
   call void @STATS_LOCK() #10
-  store float %126, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 32), align 8, !tbaa !53
+  store float %126, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 32), align 8, !tbaa !54
   call void @STATS_UNLOCK() #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %34, ptr noundef nonnull align 8 dereferenceable(1536) %13, i64 1536, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %31, ptr noundef nonnull align 8 dereferenceable(1536) %14, i64 1536, i1 false)
@@ -409,23 +409,24 @@ attributes #10 = { nounwind }
 !33 = !{!17, !9, i64 20}
 !34 = !{!35, !6, i64 16}
 !35 = !{!"", !9, i64 0, !9, i64 4, !6, i64 8, !6, i64 16}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!5, !9, i64 324}
-!39 = !{!35, !9, i64 4}
-!40 = !{!35, !9, i64 0}
-!41 = !{!42, !6, i64 0}
-!42 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16}
-!43 = !{!42, !6, i64 8}
-!44 = !{!45, !6, i64 16}
-!45 = !{!"window_data", !6, i64 0, !6, i64 8, !6, i64 16, !9, i64 24, !9, i64 28}
-!46 = !{!45, !6, i64 8}
-!47 = !{!35, !6, i64 8}
-!48 = !{!45, !9, i64 24}
-!49 = !{!42, !9, i64 16}
-!50 = !{!45, !6, i64 0}
-!51 = distinct !{!51, !37}
-!52 = distinct !{!52, !37}
-!53 = !{!54, !55, i64 32}
-!54 = !{!"stats_state", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !55, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !13, i64 52, !13, i64 53, !13, i64 54, !13, i64 55}
-!55 = !{!"float", !7, i64 0}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!5, !9, i64 324}
+!40 = !{!35, !9, i64 4}
+!41 = !{!35, !9, i64 0}
+!42 = !{!43, !6, i64 0}
+!43 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16}
+!44 = !{!43, !6, i64 8}
+!45 = !{!46, !6, i64 16}
+!46 = !{!"window_data", !6, i64 0, !6, i64 8, !6, i64 16, !9, i64 24, !9, i64 28}
+!47 = !{!46, !6, i64 8}
+!48 = !{!35, !6, i64 8}
+!49 = !{!46, !9, i64 24}
+!50 = !{!43, !9, i64 16}
+!51 = !{!46, !6, i64 0}
+!52 = distinct !{!52, !37, !38}
+!53 = distinct !{!53, !37, !38}
+!54 = !{!55, !56, i64 32}
+!55 = !{!"stats_state", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !56, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !13, i64 52, !13, i64 53, !13, i64 54, !13, i64 55}
+!56 = !{!"float", !7, i64 0}

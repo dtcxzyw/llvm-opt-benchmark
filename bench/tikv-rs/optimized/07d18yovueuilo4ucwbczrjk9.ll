@@ -61,7 +61,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTra
   %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %3, i64 %.sroa.0.0.i.i
   %10 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9)
-          to label %6 unwind label %13, !noalias !4
+          to label %6 unwind label %13, !noalias !4, !llvm.loop !7
 
 11:                                               ; preds = %15, %13
   %.sroa.0.1.i.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -77,7 +77,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTra
   %16 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %3, i64 %.sroa.0.1.i.i
   %17 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16) #6
-          to label %11 unwind label %18, !noalias !4
+          to label %11 unwind label %18, !noalias !4, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
@@ -126,7 +126,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_allo
   %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %.val, i64 %.sroa.0.0.i.i
   %8 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
-          to label %4 unwind label %11
+          to label %4 unwind label %11, !llvm.loop !7
 
 9:                                                ; preds = %13, %11
   %.sroa.0.1.i.i = phi i64 [ %8, %11 ], [ %15, %13 ]
@@ -142,7 +142,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$tikv_allo
   %14 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, [1 x i64] }, i64 }, ptr %.val, i64 %.sroa.0.1.i.i
   %15 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tikv_alloc..trace..MemoryTraceSnapshot$GT$17ha97129df953dc57eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #6
-          to label %9 unwind label %16
+          to label %9 unwind label %16, !llvm.loop !9
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -205,3 +205,6 @@ attributes #7 = { cold noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E: argument 0"}
 !6 = distinct !{!6, !"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbc0a0e049761306E"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

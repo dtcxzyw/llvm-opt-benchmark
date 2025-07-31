@@ -822,7 +822,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -832,9 +832,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -848,15 +848,15 @@ define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.016.sink, align 8, !tbaa !63
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.016.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -913,7 +913,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 nound
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -923,9 +923,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 nound
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -939,15 +939,15 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.016.sink, align 8, !tbaa !63
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.016.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -1003,7 +1003,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1013,9 +1013,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1029,15 +1029,15 @@ define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.016.sink, align 8, !tbaa !63
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.016.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -1092,7 +1092,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1102,9 +1102,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1118,15 +1118,15 @@ define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.016.sink, align 8, !tbaa !63
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.016.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -1176,7 +1176,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 n
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1186,9 +1186,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 n
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1202,15 +1202,15 @@ define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.016.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.016.sink, align 8, !tbaa !63
+  %.016.sink = load ptr, ptr %.016.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.016.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.016.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -1257,7 +1257,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %9 = load i32, ptr %8, align 8, !tbaa !54
+  %9 = load i32, ptr %8, align 8, !tbaa !55
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
@@ -1267,9 +1267,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load i32, ptr %15, align 8, !tbaa !56
+  %16 = load i32, ptr %15, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
@@ -1283,17 +1283,17 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.024.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %20 = load i32, ptr %.024.sink, align 8, !tbaa !63
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %20 = load i32, ptr %.024.sink, align 8, !tbaa !64
   %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !67
   %25 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !67
+  %26 = load ptr, ptr %25, align 8, !tbaa !68
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -1303,9 +1303,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %2, ptr %30, align 8, !tbaa !68
+  store ptr %2, ptr %30, align 8, !tbaa !69
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %3, ptr %31, align 8, !tbaa !70
+  store ptr %3, ptr %31, align 8, !tbaa !71
   %32 = icmp eq ptr %2, null
   %33 = icmp eq ptr %24, null
   br i1 %32, label %34, label %44
@@ -1366,42 +1366,42 @@ IDASpilsSetPreconditioner.exit:                   ; preds = %51, %50, %45, %41, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsPrecSolveB(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1816
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !72
+  %18 = load i32, ptr %17, align 8, !tbaa !73
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %24 = load ptr, ptr %23, align 8, !tbaa !74
+  %24 = load ptr, ptr %23, align 8, !tbaa !75
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %26 = load ptr, ptr %25, align 8, !tbaa !75
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
   %27 = tail call i32 %22(ptr noundef nonnull %8, double noundef %0, ptr noundef %24, ptr noundef %26, ptr noundef null, ptr noundef null) #5
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %31, label %28
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %30, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43) #5
   br label %41
 
 31:                                               ; preds = %20, %10
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !70
+  %33 = load ptr, ptr %32, align 8, !tbaa !71
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %35 = load ptr, ptr %34, align 8, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %37 = load ptr, ptr %36, align 8, !tbaa !75
+  %37 = load ptr, ptr %36, align 8, !tbaa !76
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %39 = load ptr, ptr %38, align 8, !tbaa !76
+  %39 = load ptr, ptr %38, align 8, !tbaa !77
   %40 = tail call i32 %33(double noundef %0, ptr noundef %35, ptr noundef %37, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, ptr noundef %39, ptr noundef %9) #5
   br label %41
 
@@ -1413,42 +1413,42 @@ define internal i32 @IDAAspilsPrecSolveB(double noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsPrecSetupB(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1816
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !71
+  %13 = load ptr, ptr %12, align 8, !tbaa !72
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %15 = load ptr, ptr %14, align 8, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  %17 = load i32, ptr %16, align 8, !tbaa !72
+  %17 = load i32, ptr %16, align 8, !tbaa !73
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %21 = load ptr, ptr %20, align 8, !tbaa !73
+  %21 = load ptr, ptr %20, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %23 = load ptr, ptr %22, align 8, !tbaa !74
+  %23 = load ptr, ptr %22, align 8, !tbaa !75
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  %25 = load ptr, ptr %24, align 8, !tbaa !75
+  %25 = load ptr, ptr %24, align 8, !tbaa !76
   %26 = tail call i32 %21(ptr noundef nonnull %5, double noundef %0, ptr noundef %23, ptr noundef %25, ptr noundef null, ptr noundef null) #5
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %30, label %27
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !66
+  %29 = load ptr, ptr %28, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %29, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #5
   br label %40
 
 30:                                               ; preds = %19, %9
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %38 = load ptr, ptr %37, align 8, !tbaa !77
   %39 = tail call i32 %32(double noundef %0, ptr noundef %34, ptr noundef %36, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, ptr noundef %38, ptr noundef %6, ptr noundef %7, ptr noundef %8) #5
   br label %40
 
@@ -1468,7 +1468,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %9 = load i32, ptr %8, align 8, !tbaa !54
+  %9 = load i32, ptr %8, align 8, !tbaa !55
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
@@ -1478,9 +1478,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load i32, ptr %15, align 8, !tbaa !56
+  %16 = load i32, ptr %15, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
@@ -1494,17 +1494,17 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.024.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %20 = load i32, ptr %.024.sink, align 8, !tbaa !63
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %20 = load i32, ptr %.024.sink, align 8, !tbaa !64
   %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 128
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !67
   %25 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !67
+  %26 = load ptr, ptr %25, align 8, !tbaa !68
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -1514,9 +1514,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %2, ptr %30, align 8, !tbaa !77
+  store ptr %2, ptr %30, align 8, !tbaa !78
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %3, ptr %31, align 8, !tbaa !78
+  store ptr %3, ptr %31, align 8, !tbaa !79
   %32 = icmp eq ptr %2, null
   %33 = icmp eq ptr %24, null
   br i1 %32, label %34, label %44
@@ -1577,33 +1577,33 @@ IDASpilsSetPreconditioner.exit:                   ; preds = %51, %50, %45, %41, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsPrecSolveBS(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1816
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !72
+  %18 = load i32, ptr %17, align 8, !tbaa !73
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 164
-  %22 = load i32, ptr %21, align 4, !tbaa !79
+  %22 = load i32, ptr %21, align 4, !tbaa !80
   %.not = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !73
+  %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %26 = load ptr, ptr %25, align 8, !tbaa !74
+  %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %28 = load ptr, ptr %27, align 8, !tbaa !75
+  %28 = load ptr, ptr %27, align 8, !tbaa !76
   br i1 %.not, label %35, label %29
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %31 = load ptr, ptr %30, align 8, !tbaa !80
+  %31 = load ptr, ptr %30, align 8, !tbaa !81
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 344
-  %33 = load ptr, ptr %32, align 8, !tbaa !81
+  %33 = load ptr, ptr %32, align 8, !tbaa !82
   %34 = tail call i32 %24(ptr noundef nonnull %8, double noundef %0, ptr noundef %26, ptr noundef %28, ptr noundef %31, ptr noundef %33) #5
   br label %37
 
@@ -1618,23 +1618,23 @@ define internal i32 @IDAAspilsPrecSolveBS(double noundef %0, ptr noundef %1, ptr
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %40, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.43) #5
   br label %55
 
 41:                                               ; preds = %37, %10
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !78
+  %43 = load ptr, ptr %42, align 8, !tbaa !79
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %45 = load ptr, ptr %44, align 8, !tbaa !74
+  %45 = load ptr, ptr %44, align 8, !tbaa !75
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %47 = load ptr, ptr %46, align 8, !tbaa !75
+  %47 = load ptr, ptr %46, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %49 = load ptr, ptr %48, align 8, !tbaa !80
+  %49 = load ptr, ptr %48, align 8, !tbaa !81
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 344
-  %51 = load ptr, ptr %50, align 8, !tbaa !81
+  %51 = load ptr, ptr %50, align 8, !tbaa !82
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %53 = load ptr, ptr %52, align 8, !tbaa !76
+  %53 = load ptr, ptr %52, align 8, !tbaa !77
   %54 = tail call i32 %43(double noundef %0, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, double noundef %7, ptr noundef %53, ptr noundef %9) #5
   br label %55
 
@@ -1646,33 +1646,33 @@ define internal i32 @IDAAspilsPrecSolveBS(double noundef %0, ptr noundef %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsPrecSetupBS(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1816
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !71
+  %13 = load ptr, ptr %12, align 8, !tbaa !72
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %15 = load ptr, ptr %14, align 8, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  %17 = load i32, ptr %16, align 8, !tbaa !72
+  %17 = load i32, ptr %16, align 8, !tbaa !73
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %40
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 164
-  %21 = load i32, ptr %20, align 4, !tbaa !79
+  %21 = load i32, ptr %20, align 4, !tbaa !80
   %.not = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %23 = load ptr, ptr %22, align 8, !tbaa !73
+  %23 = load ptr, ptr %22, align 8, !tbaa !74
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %25 = load ptr, ptr %24, align 8, !tbaa !75
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  %27 = load ptr, ptr %26, align 8, !tbaa !75
+  %27 = load ptr, ptr %26, align 8, !tbaa !76
   br i1 %.not, label %34, label %28
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 336
-  %30 = load ptr, ptr %29, align 8, !tbaa !80
+  %30 = load ptr, ptr %29, align 8, !tbaa !81
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %32 = load ptr, ptr %31, align 8, !tbaa !81
+  %32 = load ptr, ptr %31, align 8, !tbaa !82
   %33 = tail call i32 %23(ptr noundef nonnull %5, double noundef %0, ptr noundef %25, ptr noundef %27, ptr noundef %30, ptr noundef %32) #5
   br label %36
 
@@ -1687,23 +1687,23 @@ define internal i32 @IDAAspilsPrecSetupBS(double noundef %0, ptr noundef %1, ptr
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !66
+  %39 = load ptr, ptr %38, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %39, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43) #5
   br label %54
 
 40:                                               ; preds = %36, %9
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !77
+  %42 = load ptr, ptr %41, align 8, !tbaa !78
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %44 = load ptr, ptr %43, align 8, !tbaa !74
+  %44 = load ptr, ptr %43, align 8, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 328
-  %46 = load ptr, ptr %45, align 8, !tbaa !75
+  %46 = load ptr, ptr %45, align 8, !tbaa !76
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 336
-  %48 = load ptr, ptr %47, align 8, !tbaa !80
+  %48 = load ptr, ptr %47, align 8, !tbaa !81
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %50 = load ptr, ptr %49, align 8, !tbaa !81
+  %50 = load ptr, ptr %49, align 8, !tbaa !82
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %52 = load ptr, ptr %51, align 8, !tbaa !76
+  %52 = load ptr, ptr %51, align 8, !tbaa !77
   %53 = tail call i32 %42(double noundef %0, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, ptr noundef %52, ptr noundef %6, ptr noundef %7, ptr noundef %8) #5
   br label %54
 
@@ -1723,7 +1723,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1733,9 +1733,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1749,17 +1749,17 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.024.sink, align 8, !tbaa !63
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.024.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !67
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -1768,7 +1768,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
   br label %IDASpilsSetJacTimesVecFn.exit
 
 28:                                               ; preds = %._crit_edge
-  store ptr %2, ptr %25, align 8, !tbaa !82
+  store ptr %2, ptr %25, align 8, !tbaa !83
   %.not29 = icmp eq ptr %2, null
   %29 = icmp eq ptr %23, null
   br i1 %.not29, label %40, label %30
@@ -1827,41 +1827,41 @@ IDASpilsSetJacTimesVecFn.exit:                    ; preds = %47, %46, %41, %37, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsJacTimesVecB(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 1816
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !72
+  %18 = load i32, ptr %17, align 8, !tbaa !73
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %24 = load ptr, ptr %23, align 8, !tbaa !74
+  %24 = load ptr, ptr %23, align 8, !tbaa !75
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %26 = load ptr, ptr %25, align 8, !tbaa !75
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
   %27 = tail call i32 %22(ptr noundef nonnull %7, double noundef %0, ptr noundef %24, ptr noundef %26, ptr noundef null, ptr noundef null) #5
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %31, label %28
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !66
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %30, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.43) #5
   br label %40
 
 31:                                               ; preds = %20, %10
-  %32 = load ptr, ptr %16, align 8, !tbaa !82
+  %32 = load ptr, ptr %16, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %38 = load ptr, ptr %37, align 8, !tbaa !77
   %39 = tail call i32 %32(double noundef %0, ptr noundef %34, ptr noundef %36, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %38, ptr noundef %8, ptr noundef %9) #5
   br label %40
 
@@ -1881,7 +1881,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i32, ptr %7, align 8, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !55
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1891,9 +1891,9 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1907,17 +1907,17 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !61, !nonnull !62, !noundef !62
-  %19 = load i32, ptr %.024.sink, align 8, !tbaa !63
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
+  %19 = load i32, ptr %.024.sink, align 8, !tbaa !64
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 128
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !67
+  %25 = load ptr, ptr %24, align 8, !tbaa !68
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -1927,7 +1927,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
 
 28:                                               ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %2, ptr %29, align 8, !tbaa !83
+  store ptr %2, ptr %29, align 8, !tbaa !84
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
   br i1 %.not29, label %41, label %31
@@ -1986,33 +1986,33 @@ IDASpilsSetJacTimesVecFn.exit:                    ; preds = %48, %47, %42, %38, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAAspilsJacTimesVecBS(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 1816
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %18 = load i32, ptr %17, align 8, !tbaa !72
+  %18 = load i32, ptr %17, align 8, !tbaa !73
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 164
-  %22 = load i32, ptr %21, align 4, !tbaa !79
+  %22 = load i32, ptr %21, align 4, !tbaa !80
   %.not = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !73
+  %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %26 = load ptr, ptr %25, align 8, !tbaa !74
+  %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %28 = load ptr, ptr %27, align 8, !tbaa !75
+  %28 = load ptr, ptr %27, align 8, !tbaa !76
   br i1 %.not, label %35, label %29
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %31 = load ptr, ptr %30, align 8, !tbaa !80
+  %31 = load ptr, ptr %30, align 8, !tbaa !81
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 344
-  %33 = load ptr, ptr %32, align 8, !tbaa !81
+  %33 = load ptr, ptr %32, align 8, !tbaa !82
   %34 = tail call i32 %24(ptr noundef nonnull %7, double noundef %0, ptr noundef %26, ptr noundef %28, ptr noundef %31, ptr noundef %33) #5
   br label %37
 
@@ -2027,23 +2027,23 @@ define internal i32 @IDAAspilsJacTimesVecBS(double noundef %0, ptr noundef %1, p
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %40, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43) #5
   br label %55
 
 41:                                               ; preds = %37, %10
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !83
+  %43 = load ptr, ptr %42, align 8, !tbaa !84
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %45 = load ptr, ptr %44, align 8, !tbaa !74
+  %45 = load ptr, ptr %44, align 8, !tbaa !75
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %47 = load ptr, ptr %46, align 8, !tbaa !75
+  %47 = load ptr, ptr %46, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %49 = load ptr, ptr %48, align 8, !tbaa !80
+  %49 = load ptr, ptr %48, align 8, !tbaa !81
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 344
-  %51 = load ptr, ptr %50, align 8, !tbaa !81
+  %51 = load ptr, ptr %50, align 8, !tbaa !82
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %53 = load ptr, ptr %52, align 8, !tbaa !76
+  %53 = load ptr, ptr %52, align 8, !tbaa !77
   %54 = tail call i32 %43(double noundef %0, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr noundef %53, ptr noundef %8, ptr noundef %9) #5
   br label %55
 
@@ -2117,35 +2117,36 @@ attributes #6 = { nounwind allocsize(0) }
 !49 = !{!4, !10, i64 600}
 !50 = !{!4, !8, i64 8}
 !51 = !{!4, !8, i64 16}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!4, !9, i64 1824}
-!55 = !{!4, !16, i64 1816}
-!56 = !{!57, !9, i64 40}
-!57 = !{!"IDAadjMemRec", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !58, i64 32, !9, i64 40, !58, i64 48, !9, i64 56, !59, i64 64, !59, i64 72, !9, i64 80, !14, i64 88, !60, i64 96, !14, i64 104, !9, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !9, i64 168, !6, i64 176, !6, i64 224, !6, i64 272, !10, i64 320, !10, i64 328, !13, i64 336, !13, i64 344, !14, i64 352}
-!58 = !{!"p1 _ZTS10IDABMemRec", !8, i64 0}
-!59 = !{!"p1 _ZTS11CkpntMemRec", !8, i64 0}
-!60 = !{!"p2 _ZTS11DtpntMemRec", !8, i64 0}
-!61 = !{!58, !58, i64 0}
-!62 = !{}
-!63 = !{!64, !9, i64 0}
-!64 = !{!"IDABMemRec", !9, i64 0, !5, i64 8, !65, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !10, i64 120, !58, i64 128}
-!65 = !{!"p1 _ZTS9IDAMemRec", !8, i64 0}
-!66 = !{!64, !65, i64 16}
-!67 = !{!64, !8, i64 72}
-!68 = !{!69, !8, i64 16}
-!69 = !{!"IDASpilsMemRecB", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
-!70 = !{!69, !8, i64 32}
-!71 = !{!57, !58, i64 48}
-!72 = !{!57, !9, i64 168}
-!73 = !{!57, !8, i64 128}
-!74 = !{!57, !10, i64 320}
-!75 = !{!57, !10, i64 328}
-!76 = !{!64, !8, i64 64}
-!77 = !{!69, !8, i64 24}
-!78 = !{!69, !8, i64 40}
-!79 = !{!57, !9, i64 164}
-!80 = !{!57, !13, i64 336}
-!81 = !{!57, !13, i64 344}
-!82 = !{!69, !8, i64 0}
-!83 = !{!69, !8, i64 8}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!4, !9, i64 1824}
+!56 = !{!4, !16, i64 1816}
+!57 = !{!58, !9, i64 40}
+!58 = !{!"IDAadjMemRec", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !59, i64 32, !9, i64 40, !59, i64 48, !9, i64 56, !60, i64 64, !60, i64 72, !9, i64 80, !14, i64 88, !61, i64 96, !14, i64 104, !9, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !9, i64 168, !6, i64 176, !6, i64 224, !6, i64 272, !10, i64 320, !10, i64 328, !13, i64 336, !13, i64 344, !14, i64 352}
+!59 = !{!"p1 _ZTS10IDABMemRec", !8, i64 0}
+!60 = !{!"p1 _ZTS11CkpntMemRec", !8, i64 0}
+!61 = !{!"p2 _ZTS11DtpntMemRec", !8, i64 0}
+!62 = !{!59, !59, i64 0}
+!63 = !{}
+!64 = !{!65, !9, i64 0}
+!65 = !{!"IDABMemRec", !9, i64 0, !5, i64 8, !66, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !10, i64 120, !59, i64 128}
+!66 = !{!"p1 _ZTS9IDAMemRec", !8, i64 0}
+!67 = !{!65, !66, i64 16}
+!68 = !{!65, !8, i64 72}
+!69 = !{!70, !8, i64 16}
+!70 = !{!"IDASpilsMemRecB", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
+!71 = !{!70, !8, i64 32}
+!72 = !{!58, !59, i64 48}
+!73 = !{!58, !9, i64 168}
+!74 = !{!58, !8, i64 128}
+!75 = !{!58, !10, i64 320}
+!76 = !{!58, !10, i64 328}
+!77 = !{!65, !8, i64 64}
+!78 = !{!70, !8, i64 24}
+!79 = !{!70, !8, i64 40}
+!80 = !{!58, !9, i64 164}
+!81 = !{!58, !13, i64 336}
+!82 = !{!58, !13, i64 344}
+!83 = !{!70, !8, i64 0}
+!84 = !{!70, !8, i64 8}

@@ -112,7 +112,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr noundef 
   %40 = getelementptr i8, ptr %17, i64 8
   %41 = add nuw i32 %16, 1
   %42 = icmp eq i32 %41, %9
-  br i1 %42, label %.loopexit5, label %14, !llvm.loop !8
+  br i1 %42, label %.loopexit5, label %14, !llvm.loop !9
 
 43:                                               ; preds = %34
   %44 = icmp eq i32 %9, 1
@@ -161,12 +161,12 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr noundef 
   %75 = trunc i64 %74 to i32
   %76 = icmp ugt i32 %49, %75
   %77 = trunc i64 %51 to i32
-  br i1 %76, label %78, label %50, !llvm.loop !9
+  br i1 %76, label %78, label %50, !llvm.loop !10
 
 78:                                               ; preds = %73
   %79 = add nuw i32 %49, 1
   %80 = icmp eq i32 %79, %9
-  br i1 %80, label %.loopexit, label %48, !llvm.loop !10
+  br i1 %80, label %.loopexit, label %48, !llvm.loop !11
 
 .loopexit:                                        ; preds = %78, %43
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -191,7 +191,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr noundef capt
   ]
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @acpi_ns_repair_HID(ptr noundef %0, ptr noundef %1), !range !11
+  %7 = tail call i32 @acpi_ns_repair_HID(ptr noundef %0, ptr noundef %1), !range !12
   br label %.loopexit
 
 8:                                                ; preds = %2
@@ -211,7 +211,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr noundef capt
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %20 = load i16, ptr %19, align 2
-  %21 = tail call i32 @acpi_ns_repair_HID(ptr noundef %0, ptr noundef %17), !range !11
+  %21 = tail call i32 @acpi_ns_repair_HID(ptr noundef %0, ptr noundef %17), !range !12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.loopexit
 
@@ -230,7 +230,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr noundef capt
   %30 = add nuw i32 %16, 1
   %31 = load i32, ptr %9, align 4
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %15, label %.loopexit, !llvm.loop !12
+  br i1 %32, label %15, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %28, %15, %8, %6, %2
   %33 = phi i32 [ %7, %6 ], [ 0, %2 ], [ 0, %8 ], [ %21, %15 ], [ 0, %28 ]
@@ -318,7 +318,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef 
   %53 = getelementptr i8, ptr %44, i64 8
   %54 = add nuw i32 %42, 1
   %55 = icmp eq i32 %54, %39
-  br i1 %55, label %.loopexit12, label %.preheader, !llvm.loop !13
+  br i1 %55, label %.loopexit12, label %.preheader, !llvm.loop !14
 
 .loopexit12:                                      ; preds = %51, %38
   %56 = phi ptr [ %40, %38 ], [ %52, %51 ]
@@ -332,7 +332,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef 
   %60 = phi i32 [ %58, %.loopexit12 ], [ %14, %26 ]
   %61 = phi i32 [ %13, %.loopexit12 ], [ %16, %26 ]
   %62 = icmp ult i32 %61, %60
-  br i1 %62, label %12, label %.loopexit13.loopexit, !llvm.loop !14
+  br i1 %62, label %12, label %.loopexit13.loopexit, !llvm.loop !15
 
 .loopexit13.loopexit:                             ; preds = %59
   %63 = zext i32 %60 to i64
@@ -398,7 +398,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef 
   %105 = getelementptr i8, ptr %82, i64 8
   %106 = add nuw i32 %81, 1
   %107 = icmp eq i32 %106, %78
-  br i1 %107, label %.loopexit11, label %79, !llvm.loop !8
+  br i1 %107, label %.loopexit11, label %79, !llvm.loop !16
 
 108:                                              ; preds = %99
   %109 = icmp eq i32 %78, 1
@@ -447,12 +447,12 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef 
   %140 = trunc i64 %139 to i32
   %141 = icmp ugt i32 %114, %140
   %142 = trunc i64 %116 to i32
-  br i1 %141, label %143, label %115, !llvm.loop !9
+  br i1 %141, label %143, label %115, !llvm.loop !17
 
 143:                                              ; preds = %138
   %144 = add nuw i32 %114, 1
   %145 = icmp eq i32 %144, %78
-  br i1 %145, label %.loopexit, label %113, !llvm.loop !10
+  br i1 %145, label %.loopexit, label %113, !llvm.loop !18
 
 .loopexit:                                        ; preds = %143, %108
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -515,7 +515,7 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr noundef 
   %33 = getelementptr i8, ptr %29, i64 1
   %34 = add nuw nsw i32 %27, 1
   %35 = icmp eq i32 %34, 5
-  br i1 %35, label %36, label %26, !llvm.loop !15
+  br i1 %35, label %36, label %26, !llvm.loop !19
 
 36:                                               ; preds = %26
   tail call void @acpi_ut_remove_reference(ptr noundef %3) #4
@@ -606,7 +606,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr noundef capt
   %52 = getelementptr i8, ptr %43, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.loopexit, label %40, !llvm.loop !16
+  br i1 %54, label %.loopexit, label %40, !llvm.loop !20
 
 .loopexit:                                        ; preds = %40, %33
   tail call void @acpi_ut_remove_reference(ptr noundef %3) #4
@@ -674,7 +674,7 @@ define internal noundef i32 @acpi_ns_repair_PRT(ptr noundef captures(none) %0, p
   %38 = add nuw i32 %14, 1
   %39 = getelementptr i8, ptr %15, i64 8
   %40 = icmp eq i32 %38, %5
-  br i1 %40, label %.loopexit, label %13, !llvm.loop !17
+  br i1 %40, label %.loopexit, label %13, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %2
   ret i32 0
@@ -775,18 +775,18 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr noundef 
   %67 = trunc i64 %66 to i32
   %68 = icmp ugt i32 %43, %67
   %69 = trunc i64 %45 to i32
-  br i1 %68, label %70, label %44, !llvm.loop !9
+  br i1 %68, label %70, label %44, !llvm.loop !22
 
 70:                                               ; preds = %65
   %71 = add nuw i32 %43, 1
   %72 = icmp eq i32 %71, %9
-  br i1 %72, label %.loopexit8, label %42, !llvm.loop !10
+  br i1 %72, label %.loopexit8, label %42, !llvm.loop !23
 
 73:                                               ; preds = %33
   %74 = getelementptr i8, ptr %17, i64 8
   %75 = add nuw i32 %16, 1
   %76 = icmp eq i32 %75, %9
-  br i1 %76, label %.loopexit8.thread, label %14, !llvm.loop !8
+  br i1 %76, label %.loopexit8.thread, label %14, !llvm.loop !24
 
 .loopexit8:                                       ; preds = %70, %37
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -833,7 +833,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr noundef 
   %103 = getelementptr i8, ptr %88, i64 8
   %104 = add nuw i32 %86, 1
   %105 = icmp eq i32 %104, %81
-  br i1 %105, label %.thread, label %85, !llvm.loop !18
+  br i1 %105, label %.thread, label %85, !llvm.loop !25
 
 .thread:                                          ; preds = %14, %22, %26, %102, %7, %2, %.loopexit8
   %106 = phi i32 [ 0, %.loopexit8 ], [ 12299, %7 ], [ 12291, %2 ], [ 0, %102 ], [ 12291, %26 ], [ 12299, %22 ], [ 12291, %14 ]
@@ -845,7 +845,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr noundef 
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr null, ptr %3, align 8, !annotation !19
+  store ptr null, ptr %3, align 8, !annotation !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_ns_get_node(ptr noundef %6, ptr noundef nonnull @.str.9, i32 noundef 0, ptr noundef nonnull %3) #4
@@ -948,12 +948,12 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr noundef 
   %76 = trunc i64 %75 to i32
   %77 = icmp ugt i32 %50, %76
   %78 = trunc i64 %52 to i32
-  br i1 %77, label %79, label %51, !llvm.loop !9
+  br i1 %77, label %79, label %51, !llvm.loop !27
 
 79:                                               ; preds = %74
   %80 = add nuw i32 %50, 1
   %81 = icmp eq i32 %80, %15
-  br i1 %81, label %.loopexit, label %49, !llvm.loop !10
+  br i1 %81, label %.loopexit, label %49, !llvm.loop !28
 
 .loopexit:                                        ; preds = %79, %44
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -966,7 +966,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr noundef 
   %86 = getelementptr i8, ptr %23, i64 8
   %87 = add nuw i32 %22, 1
   %88 = icmp eq i32 %87, %15
-  br i1 %88, label %.loopexit5, label %20, !llvm.loop !8
+  br i1 %88, label %.loopexit5, label %20, !llvm.loop !29
 
 .loopexit5:                                       ; preds = %85, %32, %28, %20, %.loopexit, %13, %9, %2
   %89 = phi i32 [ 0, %2 ], [ 0, %.loopexit ], [ 12291, %9 ], [ 12299, %13 ], [ 12291, %20 ], [ 12299, %28 ], [ 12291, %32 ], [ 0, %85 ]
@@ -1002,18 +1002,28 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i32 0, i32 5}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{i32 0, i32 5}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = !{!"auto-init"}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}

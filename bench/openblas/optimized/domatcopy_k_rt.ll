@@ -216,7 +216,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %140 = getelementptr inbounds double, ptr %.0, i64 %15
   %141 = add nsw i64 %.0298, -1
   %142 = icmp samesign ugt i64 %.0298, 1
-  br i1 %142, label %76, label %.loopexit328, !llvm.loop !10
+  br i1 %142, label %76, label %.loopexit328, !llvm.loop !11
 
 .loopexit328:                                     ; preds = %76
   %143 = getelementptr inbounds i8, ptr %.1296, i64 %.idx
@@ -294,7 +294,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 190:                                              ; preds = %178, %177
   %191 = add nsw i64 %.0301, -1
   %192 = icmp sgt i64 %.0301, 1
-  br i1 %192, label %.preheader327, label %.loopexit330, !llvm.loop !11
+  br i1 %192, label %.preheader327, label %.loopexit330, !llvm.loop !12
 
 .loopexit330:                                     ; preds = %190, %67, %10
   %.0295 = phi ptr [ %3, %10 ], [ %19, %67 ], [ %143, %190 ]
@@ -369,7 +369,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %235 = getelementptr inbounds double, ptr %.1, i64 %202
   %236 = add nsw i64 %.1299, -1
   %237 = icmp samesign ugt i64 %.1299, 1
-  br i1 %237, label %203, label %.loopexit326, !llvm.loop !12
+  br i1 %237, label %203, label %.loopexit326, !llvm.loop !13
 
 .loopexit326:                                     ; preds = %203, %194
   %.3289 = phi ptr [ %.0295, %194 ], [ %230, %203 ]
@@ -469,7 +469,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %287 = getelementptr inbounds double, ptr %.2, i64 %270
   %288 = add nsw i64 %.2300, -1
   %289 = icmp samesign ugt i64 %.2300, 1
-  br i1 %289, label %271, label %.loopexit, !llvm.loop !13
+  br i1 %289, label %271, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %271, %265
   %.6292 = phi ptr [ %.2297, %265 ], [ %283, %271 ]
@@ -520,10 +520,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

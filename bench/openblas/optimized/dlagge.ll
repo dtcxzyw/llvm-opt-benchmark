@@ -100,7 +100,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %47, ptr %51, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond675.not = icmp eq i64 %indvars.iv.next, %wide.trip.count674
-  br i1 %exitcond675.not, label %._crit_edge632, label %45, !llvm.loop !11
+  br i1 %exitcond675.not, label %._crit_edge632, label %45, !llvm.loop !12
 
 ._crit_edge632:                                   ; preds = %45
   %52 = or i32 %25, %27
@@ -256,7 +256,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 131:                                              ; preds = %94, %116
   %indvars.iv.next677 = add nsw i64 %indvars.iv676, -1
   %132 = icmp sgt i64 %indvars.iv676, 1
-  br i1 %132, label %57, label %._crit_edge644, !llvm.loop !12
+  br i1 %132, label %57, label %._crit_edge644, !llvm.loop !13
 
 ._crit_edge644:                                   ; preds = %131
   %.pre = load i32, ptr %0, align 4, !tbaa !3
@@ -776,7 +776,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double 0.000000e+00, ptr %gep728, align 8, !tbaa !7
   %lftr.wideiv = trunc i64 %indvars.iv.next688 to i32
   %exitcond690.not = icmp eq i32 %439, %lftr.wideiv
-  br i1 %exitcond690.not, label %.loopexit, label %.lr.ph652, !llvm.loop !13
+  br i1 %exitcond690.not, label %.loopexit, label %.lr.ph652, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph652, %454, %.loopexit619
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
@@ -784,7 +784,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %461 = sext i32 %460 to i64
   %.not581.not = icmp slt i64 %indvars.iv682, %461
   %indvar.next680 = add nuw nsw i32 %indvar679, 1
-  br i1 %.not581.not, label %.lr.ph657, label %.loopexit620, !llvm.loop !14
+  br i1 %.not581.not, label %.lr.ph657, label %.loopexit620, !llvm.loop !15
 
 .loopexit620:                                     ; preds = %.loopexit, %._crit_edge632, %._crit_edge644, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
@@ -842,9 +842,10 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

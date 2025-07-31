@@ -71,7 +71,7 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
   br label %4, !llvm.loop !4
 
 .loopexit64:                                      ; preds = %4, %15
-  %6 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %6 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef %3) #2
   br label %.loopexit
 
@@ -118,20 +118,20 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 27:                                               ; preds = %24
   %28 = tail call ptr @OPENSSL_sk_new_null() #2
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !11
+  store ptr %28, ptr %29, align 8, !tbaa !12
   %30 = icmp eq ptr %28, null
   br i1 %30, label %.loopexit, label %.preheader62
 
 .preheader62:                                     ; preds = %27, %33
   %31 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %18, ptr noundef null, ptr noundef null, ptr noundef null) #2
   %.not58 = icmp eq ptr %31, null
-  %32 = load ptr, ptr %29, align 8, !tbaa !11
+  %32 = load ptr, ptr %29, align 8, !tbaa !12
   br i1 %.not58, label %35, label %33
 
 33:                                               ; preds = %.preheader62
   %34 = tail call i32 @OPENSSL_sk_push(ptr noundef %32, ptr noundef nonnull %31) #2
   %.not60 = icmp eq i32 %34, 0
-  br i1 %.not60, label %.loopexit, label %.preheader62, !llvm.loop !15
+  br i1 %.not60, label %.loopexit, label %.preheader62, !llvm.loop !16
 
 35:                                               ; preds = %.preheader62
   %36 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #2
@@ -139,9 +139,9 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
   br i1 %.not59, label %37, label %41
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %38 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %39 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %3, ptr noundef %.038.ph114) #2
-  %40 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %40 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %40) #2
   br label %.loopexit
 
@@ -156,29 +156,29 @@ define dso_local range(i32 0, 2) i32 @nseq_main(i32 noundef %0, ptr noundef %1) 
 
 .preheader:                                       ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !11
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
   %48 = tail call i32 @OPENSSL_sk_num(ptr noundef %47) #2
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph, label %.loopexit
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %51 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.22, ptr noundef %3, ptr noundef %.038.ph114) #2
-  %53 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %53 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %53) #2
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.04075 = phi i32 [ %57, %.lr.ph ], [ 0, %.preheader ]
-  %54 = load ptr, ptr %46, align 8, !tbaa !11
+  %54 = load ptr, ptr %46, align 8, !tbaa !12
   %55 = tail call ptr @OPENSSL_sk_value(ptr noundef %54, i32 noundef %.04075) #2
   tail call void @dump_cert_text(ptr noundef nonnull %21, ptr noundef %55) #2
   %56 = tail call i32 @PEM_write_bio_X509(ptr noundef nonnull %21, ptr noundef %55) #2
   %57 = add nuw nsw i32 %.04075, 1
-  %58 = load ptr, ptr %46, align 8, !tbaa !11
+  %58 = load ptr, ptr %46, align 8, !tbaa !12
   %59 = tail call i32 @OPENSSL_sk_num(ptr noundef %58) #2
   %60 = icmp slt i32 %57, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %13, %33, %.lr.ph, %.preheader, %27, %24, %20, %17, %50, %41, %37, %8, %.loopexit64
   %.045 = phi ptr [ null, %.loopexit64 ], [ null, %8 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ %25, %27 ], [ %25, %41 ], [ %25, %37 ], [ null, %50 ], [ %44, %.preheader ], [ %44, %.lr.ph ], [ %25, %33 ], [ null, %13 ]
@@ -245,16 +245,17 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !14, i64 8}
-!12 = !{!"Netscape_certificate_sequence", !13, i64 0, !14, i64 8}
-!13 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
-!14 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !15, i64 8}
+!13 = !{!"Netscape_certificate_sequence", !14, i64 0, !15, i64 8}
+!14 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!15 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

@@ -381,7 +381,7 @@ define void @dfilter_free(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %5, align 8
   %11 = zext i32 %10 to i64
   %12 = icmp samesign ult i64 %indvars.iv.next.i, %11
-  br i1 %12, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !8
+  br i1 %12, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !9
 
 free_insns.exit:                                  ; preds = %.lr.ph.i, %4
   %13 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %3, i32 noundef 1)
@@ -1023,7 +1023,7 @@ define internal fastcc zeroext i1 @dfwork_parse(ptr noundef %0, ptr noundef %1) 
   store ptr null, ptr %19, align 8
   %27 = load ptr, ptr %1, align 8
   %.not19 = icmp eq ptr %27, null
-  br i1 %.not19, label %20, label %28
+  br i1 %.not19, label %20, label %28, !llvm.loop !10
 
 28:                                               ; preds = %24, %20
   %29 = load ptr, ptr @ParserObj, align 8
@@ -1128,7 +1128,7 @@ define internal fastcc void @dfwork_free(ptr noundef %0) unnamed_addr #0 {
   %34 = load i32, ptr %29, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !8
+  br i1 %36, label %.lr.ph.i, label %free_insns.exit, !llvm.loop !9
 
 free_insns.exit:                                  ; preds = %.lr.ph.i, %28
   %37 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %27, i32 noundef 1)
@@ -1226,7 +1226,7 @@ define hidden void @dfilter_prime_proto_tree(ptr noundef readonly captures(none)
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !9
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -1259,7 +1259,7 @@ define hidden void @dfilter_prime_proto_tree_print(ptr noundef readonly captures
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !10
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1294,7 +1294,7 @@ define hidden noundef zeroext i1 @dfilter_interested_in_field(ptr noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !11
+  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %8, %2
   %.lcssa = phi i1 [ false, %2 ], [ %11, %8 ]
@@ -1334,7 +1334,7 @@ define hidden noundef zeroext i1 @dfilter_interested_in_proto(ptr noundef readon
   %17 = load i32, ptr %3, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %7, label %._crit_edge, !llvm.loop !12
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %14, %12, %.critedge, %2
   %.lcssa = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %12 ], [ true, %14 ]
@@ -1395,7 +1395,7 @@ define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly capture
   %24 = load i32, ptr %10, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next.i, %25
-  br i1 %26, label %14, label %dfilter_interested_in_proto.exit, !llvm.loop !12
+  br i1 %26, label %14, label %dfilter_interested_in_proto.exit, !llvm.loop !14
 
 dfilter_interested_in_proto.exit:                 ; preds = %.critedge.i, %21, %19, %8, %1
   %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ true, %21 ], [ true, %19 ], [ false, %.critedge.i ]
@@ -1483,7 +1483,7 @@ define void @dfilter_log_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %.not = icmp eq ptr %6, null
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %16 = load ptr, ptr %15, align 8
-  br i1 %.not, label %17, label %18, !prof !13
+  br i1 %.not, label %17, label %18, !prof !15
 
 17:                                               ; preds = %13
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_write_always_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull @.str.55, ptr noundef %16, ptr noundef %14)
@@ -1554,7 +1554,7 @@ define internal fastcc void @load_references(ptr noundef %0, ptr noundef %1, i1 
   call void @g_ptr_array_sort(ptr noundef %12, ptr noundef nonnull @compare_ref_layer)
   %13 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not.us = icmp eq i32 %13, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph20.split.us, !llvm.loop !14
+  br i1 %.not.us, label %.loopexit, label %.lr.ph20.split.us, !llvm.loop !16
 
 .lr.ph17.us:                                      ; preds = %.lr.ph20.split.us, %.backedge.us.us
   %14 = phi ptr [ %.be.us.us, %.backedge.us.us ], [ %.pr.us, %.lr.ph20.split.us ]
@@ -1580,7 +1580,7 @@ define internal fastcc void @load_references(ptr noundef %0, ptr noundef %1, i1 
   %.be.us.us = load ptr, ptr %.be.us.us.in, align 8
   store ptr %.be.us.us, ptr %5, align 8
   %.not13.us.us = icmp eq ptr %.be.us.us, null
-  br i1 %.not13.us.us, label %._crit_edge18.split.us.us, label %.lr.ph17.us, !llvm.loop !16
+  br i1 %.not13.us.us, label %._crit_edge18.split.us.us, label %.lr.ph17.us, !llvm.loop !18
 
 reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %reference_new.exit.us.us.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %reference_new.exit.us.us.us ], [ 0, %.preheader.us.us ]
@@ -1603,7 +1603,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
   %33 = load i32, ptr %20, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next27, %34
-  br i1 %35, label %reference_new.exit.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !17
+  br i1 %35, label %reference_new.exit.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !19
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %._crit_edge18.split
   %36 = load ptr, ptr %6, align 8
@@ -1632,7 +1632,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
   %.be = load ptr, ptr %.be.in, align 8
   store ptr %.be, ptr %5, align 8
   %.not13 = icmp eq ptr %.be, null
-  br i1 %.not13, label %._crit_edge18.split, label %.lr.ph17, !llvm.loop !18
+  br i1 %.not13, label %._crit_edge18.split, label %.lr.ph17, !llvm.loop !20
 
 ._crit_edge.split:                                ; preds = %reference_new.exit, %.preheader
   %44 = call ptr @g_ptr_array_free(ptr noundef nonnull %40, i32 noundef 1)
@@ -1661,14 +1661,14 @@ reference_new.exit:                               ; preds = %.preheader, %refere
   %58 = load i32, ptr %42, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %reference_new.exit, label %._crit_edge.split, !llvm.loop !19
+  br i1 %60, label %reference_new.exit, label %._crit_edge.split, !llvm.loop !21
 
 ._crit_edge18.split:                              ; preds = %.backedge, %.lr.ph20.split
   %61 = load ptr, ptr %6, align 8
   call void @g_ptr_array_sort(ptr noundef %61, ptr noundef nonnull @compare_ref_layer)
   %62 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph20.split, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph20.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge18.split, %._crit_edge18.split.us.us, %9, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -2088,18 +2088,20 @@ attributes #21 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !15}
-!17 = distinct !{!17, !7, !15}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7, !8, !17}
+!19 = distinct !{!19, !7, !8, !17}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

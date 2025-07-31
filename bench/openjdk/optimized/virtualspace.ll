@@ -440,7 +440,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us65:      ; preds = %_Z24exact_unit_for_
   %51 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us56) #13
   %52 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %53 = icmp ugt i64 %51, %52
-  br i1 %53, label %.preheader.split.split.us, label %.split54.us, !llvm.loop !9
+  br i1 %53, label %.preheader.split.split.us, label %.split54.us, !llvm.loop !10
 
 .preheader.split.split:                           ; preds = %.preheader.split
   br i1 %or.cond14.i.i, label %.preheader.split.split.split.us.preheader, label %.preheader.split.split.split
@@ -469,7 +469,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us83:      ; preds = %.thread.i.us75, %.p
   %57 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us73) #13
   %58 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %59 = icmp ugt i64 %57, %58
-  br i1 %59, label %.preheader.split.split.split.us, label %.split54.us, !llvm.loop !10
+  br i1 %59, label %.preheader.split.split.split.us, label %.split54.us, !llvm.loop !11
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split
   br i1 %or.cond14.i14.i, label %.preheader.split.split.split.split.us, label %.preheader.split.split.split.split
@@ -493,7 +493,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us98:      ; preds = %_Z24exact_unit_for_
   %63 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us91) #13
   %64 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %65 = icmp ugt i64 %63, %64
-  br i1 %65, label %.preheader.split.split.split.split.us, label %.split54.us, !llvm.loop !11
+  br i1 %65, label %.preheader.split.split.split.split.us, label %.split54.us, !llvm.loop !12
 
 .preheader.split.split.split.split:               ; preds = %.preheader.split.split.split, %68
   %.1 = phi i64 [ %69, %68 ], [ %3, %.preheader.split.split.split ]
@@ -514,7 +514,7 @@ _ZL22reserve_memory_specialPcmmmb.exit:           ; preds = %.preheader.split.sp
   %69 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1) #13
   %70 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %71 = icmp ugt i64 %69, %70
-  br i1 %71, label %.preheader.split.split.split.split, label %.split54.us, !llvm.loop !12
+  br i1 %71, label %.preheader.split.split.split.split, label %.split54.us, !llvm.loop !13
 
 .split54.us:                                      ; preds = %68, %62, %56, %50, %44
   %.us-phi55 = phi i64 [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ]
@@ -1112,7 +1112,7 @@ define hidden void @_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm(pt
   %.not = icmp ult ptr %33, %2
   %.not28 = icmp ugt ptr %33, %1
   %or.cond = or i1 %.not, %.not28
-  br i1 %or.cond, label %.critedge, label %27, !llvm.loop !13
+  br i1 %or.cond, label %.critedge, label %27, !llvm.loop !14
 
 .critedge:                                        ; preds = %.critedge2, %27, %24
   ret void
@@ -1281,7 +1281,7 @@ _ZN13ReservedSpace7releaseEv.exit.thread:         ; preds = %_ZN13ReservedSpace7
   %.not.i83 = icmp ult ptr %91, %71
   %.not28.i = icmp ugt ptr %91, %67
   %or.cond.i = or i1 %.not.i83, %.not28.i
-  br i1 %or.cond.i, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit, label %85, !llvm.loop !13
+  br i1 %or.cond.i, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit, label %85, !llvm.loop !14
 
 _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit: ; preds = %.critedge2.i, %85, %82, %_ZN13ReservedSpace7releaseEv.exit.thread
   %92 = load i64, ptr @OopEncodingHeapMax, align 8
@@ -1355,7 +1355,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit: ; preds = %.crit
   %.not.i90 = icmp ult ptr %136, %116
   %.not28.i91 = icmp ugt ptr %136, %105
   %or.cond.i92 = or i1 %.not.i90, %.not28.i91
-  br i1 %or.cond.i92, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %130, !llvm.loop !13
+  br i1 %or.cond.i92, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %130, !llvm.loop !14
 
 _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.critedge2.i89, %130, %127, %94, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit
   %137 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -1374,7 +1374,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
 
 142:                                              ; preds = %.critedge2.i96
   %or.cond.i95 = icmp ult i64 %146, %invariant.umax.i
-  br i1 %or.cond.i95, label %.critedge2.i96, label %.lr.ph27.i, !llvm.loop !14
+  br i1 %or.cond.i95, label %.critedge2.i96, label %.lr.ph27.i, !llvm.loop !15
 
 .critedge2.i96:                                   ; preds = %.lr.ph.i94, %142
   %.020.i107 = phi i32 [ %143, %142 ], [ 0, %.lr.ph.i94 ]
@@ -1383,7 +1383,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   %145 = getelementptr inbounds nuw [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %144
   %146 = load i64, ptr %145, align 8
   %.not.i97 = icmp eq i64 %146, 0
-  br i1 %.not.i97, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %142, !llvm.loop !14
+  br i1 %.not.i97, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %142, !llvm.loop !15
 
 .lr.ph27.i:                                       ; preds = %142, %.lr.ph.i94
   %.lcssa103 = phi i64 [ 0, %.lr.ph.i94 ], [ %144, %142 ]
@@ -1401,13 +1401,13 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   %151 = getelementptr inbounds nuw [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %150
   %152 = load i64, ptr %151, align 8
   %.not15.i = icmp eq i64 %152, 0
-  br i1 %.not15.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %153, !llvm.loop !15
+  br i1 %.not15.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %153, !llvm.loop !16
 
 153:                                              ; preds = %.lr.ph
   %154 = add i32 %.126.i109, 1
   %155 = zext i32 %154 to i64
   %156 = icmp eq i64 %148, %155
-  br i1 %156, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %156, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %153, %.lr.ph27.i
   %.lcssa = phi i64 [ %147, %.lr.ph27.i ], [ %150, %153 ]
@@ -1456,7 +1456,7 @@ _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.
   %174 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv.next
   %175 = load ptr, ptr %174, align 8
   %.not81 = icmp eq ptr %175, null
-  br i1 %.not81, label %.critedge, label %161, !llvm.loop !16
+  br i1 %.not81, label %.critedge, label %161, !llvm.loop !17
 
 .critedge:                                        ; preds = %171, %166, %.critedge2, %_ZL38get_attach_addresses_for_disjoint_modev.exit
   %176 = load ptr, ptr %0, align 8
@@ -2538,14 +2538,15 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

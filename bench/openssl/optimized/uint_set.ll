@@ -32,15 +32,15 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_uint_set_insert(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = load i64, ptr %1, align 8, !tbaa !16
+  %3 = load i64, ptr %1, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp ugt i64 %3, %5
-  br i1 %.not, label %create_set_item.exit.thread, label %6, !prof !18
+  br i1 %.not, label %create_set_item.exit.thread, label %6, !prof !19
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 16
-  %.val118 = load i64, ptr %7, align 8, !tbaa !19
+  %.val118 = load i64, ptr %7, align 8, !tbaa !20
   %.not139 = icmp eq i64 %.val118, 0
   br i1 %.not139, label %8, label %25
 
@@ -51,43 +51,43 @@ define range(i32 0, 2) i32 @ossl_uint_set_insert(ptr noundef captures(none) %0, 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %3, ptr %12, align 8, !tbaa !20
+  store i64 %3, ptr %12, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %5, ptr %13, align 8, !tbaa !21
+  store i64 %5, ptr %13, align 8, !tbaa !22
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %9, ptr %16, align 8, !tbaa !22
+  store ptr %9, ptr %16, align 8, !tbaa !23
   br label %17
 
 17:                                               ; preds = %15, %11
   store ptr %14, ptr %9, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %18, align 8, !tbaa !22
+  store ptr null, ptr %18, align 8, !tbaa !23
   store ptr %9, ptr %0, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %ossl_list_uint_set_insert_head.exit
 
 22:                                               ; preds = %17
-  store ptr %9, ptr %19, align 8, !tbaa !23
+  store ptr %9, ptr %19, align 8, !tbaa !24
   br label %ossl_list_uint_set_insert_head.exit
 
 ossl_list_uint_set_insert_head.exit:              ; preds = %17, %22
-  %23 = load i64, ptr %7, align 8, !tbaa !19
+  %23 = load i64, ptr %7, align 8, !tbaa !20
   %24 = add i64 %23, 1
-  store i64 %24, ptr %7, align 8, !tbaa !19
+  store i64 %24, ptr %7, align 8, !tbaa !20
   br label %create_set_item.exit.thread
 
 25:                                               ; preds = %6
   %26 = getelementptr i8, ptr %0, i64 8
-  %.val119 = load ptr, ptr %26, align 8, !tbaa !23
+  %.val119 = load ptr, ptr %26, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %.val119, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !21
+  %28 = load i64, ptr %27, align 8, !tbaa !22
   %29 = icmp ugt i64 %3, %28
   br i1 %29, label %30, label %49
 
@@ -97,7 +97,7 @@ ossl_list_uint_set_insert_head.exit:              ; preds = %17, %22
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  store i64 %5, ptr %27, align 8, !tbaa !21
+  store i64 %5, ptr %27, align 8, !tbaa !22
   br label %create_set_item.exit.thread
 
 34:                                               ; preds = %30
@@ -107,10 +107,10 @@ ossl_list_uint_set_insert_head.exit:              ; preds = %17, %22
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 %3, ptr %38, align 8, !tbaa !20
+  store i64 %3, ptr %38, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i64 %5, ptr %39, align 8, !tbaa !21
-  %40 = load ptr, ptr %26, align 8, !tbaa !23
+  store i64 %5, ptr %39, align 8, !tbaa !22
+  %40 = load ptr, ptr %26, align 8, !tbaa !24
   %.not.i129 = icmp eq ptr %40, null
   br i1 %.not.i129, label %42, label %41
 
@@ -120,9 +120,9 @@ ossl_list_uint_set_insert_head.exit:              ; preds = %17, %22
 
 42:                                               ; preds = %41, %37
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %40, ptr %43, align 8, !tbaa !22
+  store ptr %40, ptr %43, align 8, !tbaa !23
   store ptr null, ptr %35, align 8, !tbaa !10
-  store ptr %35, ptr %26, align 8, !tbaa !23
+  store ptr %35, ptr %26, align 8, !tbaa !24
   %44 = load ptr, ptr %0, align 8, !tbaa !3
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %ossl_list_uint_set_insert_tail.exit
@@ -132,24 +132,24 @@ ossl_list_uint_set_insert_head.exit:              ; preds = %17, %22
   br label %ossl_list_uint_set_insert_tail.exit
 
 ossl_list_uint_set_insert_tail.exit:              ; preds = %42, %46
-  %47 = load i64, ptr %7, align 8, !tbaa !19
+  %47 = load i64, ptr %7, align 8, !tbaa !20
   %48 = add i64 %47, 1
-  store i64 %48, ptr %7, align 8, !tbaa !19
+  store i64 %48, ptr %7, align 8, !tbaa !20
   br label %create_set_item.exit.thread
 
 49:                                               ; preds = %25
   %.val116 = load ptr, ptr %0, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %.val116, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !20
+  %51 = load i64, ptr %50, align 8, !tbaa !21
   %.not105 = icmp ugt i64 %3, %51
   %.not106 = icmp ult i64 %5, %28
   %or.cond = or i1 %.not106, %.not105
   br i1 %or.cond, label %.lr.ph167.preheader, label %52
 
 52:                                               ; preds = %49
-  store i64 %3, ptr %50, align 8, !tbaa !20
+  store i64 %3, ptr %50, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %.val116, i64 24
-  store i64 %5, ptr %53, align 8, !tbaa !21
+  store i64 %5, ptr %53, align 8, !tbaa !22
   %.val117 = load ptr, ptr %.val116, align 8, !tbaa !10
   %.not115159 = icmp eq ptr %.val117, null
   br i1 %.not115159, label %create_set_item.exit.thread, label %.lr.ph
@@ -166,14 +166,14 @@ ossl_list_uint_set_insert_tail.exit:              ; preds = %42, %46
   br label %57
 
 57:                                               ; preds = %56, %.lr.ph
-  %58 = load ptr, ptr %26, align 8, !tbaa !23
+  %58 = load ptr, ptr %26, align 8, !tbaa !24
   %59 = icmp eq ptr %58, %.093160
   %60 = getelementptr inbounds nuw i8, ptr %.093160, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !22
+  %61 = load ptr, ptr %60, align 8, !tbaa !23
   br i1 %59, label %62, label %._crit_edge.i
 
 62:                                               ; preds = %57
-  store ptr %61, ptr %26, align 8, !tbaa !23
+  store ptr %61, ptr %26, align 8, !tbaa !24
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %62, %57
@@ -190,12 +190,12 @@ ossl_list_uint_set_insert_tail.exit:              ; preds = %42, %46
 
 ossl_list_uint_set_remove.exit:                   ; preds = %64
   %65 = getelementptr inbounds nuw i8, ptr %.093.val, i64 8
-  store ptr %61, ptr %65, align 8, !tbaa !22
-  %66 = load i64, ptr %7, align 8, !tbaa !19
+  store ptr %61, ptr %65, align 8, !tbaa !23
+  %66 = load i64, ptr %7, align 8, !tbaa !20
   %67 = add i64 %66, -1
-  store i64 %67, ptr %7, align 8, !tbaa !19
+  store i64 %67, ptr %7, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.093160, i8 0, i64 16, i1 false)
-  br label %.lr.ph, !llvm.loop !24
+  br label %.lr.ph, !llvm.loop !25
 
 .lr.ph167.preheader:                              ; preds = %49
   %68 = icmp ult i64 %5, %51
@@ -205,12 +205,12 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %142
   %.094166 = phi ptr [ %.094.val, %142 ], [ %69, %.lr.ph167.preheader ]
   %70 = getelementptr i8, ptr %.094166, i64 8
-  %.094.val = load ptr, ptr %70, align 8, !tbaa !22
+  %.094.val = load ptr, ptr %70, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %.094166, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !20
+  %72 = load i64, ptr %71, align 8, !tbaa !21
   %.not108 = icmp ugt i64 %72, %3
   %.phi.trans.insert = getelementptr i8, ptr %.094166, i64 24
-  %.val121.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
+  %.val121.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !18
   %.not109 = icmp ult i64 %.val121.pre, %5
   %or.cond224 = select i1 %.not108, i1 true, i1 %.not109
   br i1 %or.cond224, label %.lr.ph167._crit_edge, label %create_set_item.exit.thread
@@ -225,21 +225,21 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   %76 = getelementptr inbounds nuw i8, ptr %.094166, i64 16
   %77 = getelementptr i8, ptr %.094166, i64 24
   %78 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %.val121.pre)
-  store i64 %78, ptr %77, align 8, !tbaa !21
+  store i64 %78, ptr %77, align 8, !tbaa !22
   %.not112169 = icmp eq ptr %.094.val, null
   br i1 %.not112169, label %.critedge.thread, label %.lr.ph172
 
 .critedge.thread:                                 ; preds = %75
   %79 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %72)
-  store i64 %79, ptr %76, align 8, !tbaa !20
+  store i64 %79, ptr %76, align 8, !tbaa !21
   br label %create_set_item.exit.thread
 
 .lr.ph172:                                        ; preds = %75
-  %.val127 = load i64, ptr %4, align 8, !tbaa !17
+  %.val127 = load i64, ptr %4, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %.094.val, i64 16
-  %.val124241 = load i64, ptr %80, align 8, !tbaa !16
+  %.val124241 = load i64, ptr %80, align 8, !tbaa !17
   %81 = getelementptr i8, ptr %.094.val, i64 24
-  %.val125242 = load i64, ptr %81, align 8, !tbaa !17
+  %.val125242 = load i64, ptr %81, align 8, !tbaa !18
   %82 = tail call noundef i64 @llvm.umin.i64(i64 %.val125242, i64 %.val127)
   %83 = tail call noundef i64 @llvm.umax.i64(i64 %.val124241, i64 %3)
   %.not141243 = icmp ult i64 %82, %83
@@ -247,30 +247,30 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
 
 84:                                               ; preds = %.lr.ph245
   %85 = getelementptr inbounds nuw i8, ptr %.095.val, i64 16
-  %.val124 = load i64, ptr %85, align 8, !tbaa !16
+  %.val124 = load i64, ptr %85, align 8, !tbaa !17
   %86 = getelementptr i8, ptr %.095.val, i64 24
-  %.val125 = load i64, ptr %86, align 8, !tbaa !17
+  %.val125 = load i64, ptr %86, align 8, !tbaa !18
   %87 = tail call noundef i64 @llvm.umin.i64(i64 %.val125, i64 %.val127)
   %88 = tail call noundef i64 @llvm.umax.i64(i64 %.val124, i64 %3)
   %.not141 = icmp ult i64 %87, %88
-  br i1 %.not141, label %.critedge, label %.lr.ph245, !llvm.loop !25
+  br i1 %.not141, label %.critedge, label %.lr.ph245, !llvm.loop !26
 
 .lr.ph245:                                        ; preds = %.lr.ph172, %84
   %.095170244 = phi ptr [ %.095.val, %84 ], [ %.094.val, %.lr.ph172 ]
   %89 = getelementptr i8, ptr %.095170244, i64 8
-  %.095.val = load ptr, ptr %89, align 8, !tbaa !22
+  %.095.val = load ptr, ptr %89, align 8, !tbaa !23
   %.not112 = icmp eq ptr %.095.val, null
-  br i1 %.not112, label %..critedge_crit_edge246, label %84, !llvm.loop !25
+  br i1 %.not112, label %..critedge_crit_edge246, label %84, !llvm.loop !26
 
 ..critedge_crit_edge246:                          ; preds = %.lr.ph245
-  br label %.critedge, !llvm.loop !25
+  br label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %84, %..critedge_crit_edge246, %.lr.ph172
   %.1.lcssa.ph = phi ptr [ %.095170244, %..critedge_crit_edge246 ], [ %.094166, %.lr.ph172 ], [ %.095170244, %84 ]
   %.phi.trans.insert192 = getelementptr inbounds nuw i8, ptr %.1.lcssa.ph, i64 16
-  %.pre = load i64, ptr %.phi.trans.insert192, align 8, !tbaa !20
+  %.pre = load i64, ptr %.phi.trans.insert192, align 8, !tbaa !21
   %90 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.pre)
-  store i64 %90, ptr %76, align 8, !tbaa !20
+  store i64 %90, ptr %76, align 8, !tbaa !21
   %.not114175 = icmp eq ptr %.1.lcssa.ph, %.094166
   br i1 %.not114175, label %create_set_item.exit.thread, label %.lr.ph177
 
@@ -286,14 +286,14 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   br label %94
 
 94:                                               ; preds = %93, %.lr.ph177
-  %95 = load ptr, ptr %26, align 8, !tbaa !23
+  %95 = load ptr, ptr %26, align 8, !tbaa !24
   %96 = icmp eq ptr %95, %.2176
   %97 = getelementptr inbounds nuw i8, ptr %.2176, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !22
+  %98 = load ptr, ptr %97, align 8, !tbaa !23
   br i1 %96, label %99, label %._crit_edge.i131
 
 99:                                               ; preds = %94
-  store ptr %98, ptr %26, align 8, !tbaa !23
+  store ptr %98, ptr %26, align 8, !tbaa !24
   br label %._crit_edge.i131
 
 ._crit_edge.i131:                                 ; preds = %99, %94
@@ -310,17 +310,17 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
 
 102:                                              ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %.2.val, i64 8
-  store ptr %98, ptr %103, align 8, !tbaa !22
+  store ptr %98, ptr %103, align 8, !tbaa !23
   br label %ossl_list_uint_set_remove.exit135
 
 ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
-  %104 = load i64, ptr %7, align 8, !tbaa !19
+  %104 = load i64, ptr %7, align 8, !tbaa !20
   %105 = add i64 %104, -1
-  store i64 %105, ptr %7, align 8, !tbaa !19
+  store i64 %105, ptr %7, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2176, i8 0, i64 16, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %.2176, ptr noundef nonnull @.str, i32 noundef 218) #6
   %.not114 = icmp eq ptr %.2.val, %.094166
-  br i1 %.not114, label %create_set_item.exit.thread, label %.lr.ph177, !llvm.loop !26
+  br i1 %.not114, label %create_set_item.exit.thread, label %.lr.ph177, !llvm.loop !27
 
 106:                                              ; preds = %.lr.ph167._crit_edge
   %107 = icmp ult i64 %5, %72
@@ -332,7 +332,7 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %.094.val, i64 24
-  %112 = load i64, ptr %111, align 8, !tbaa !21
+  %112 = load i64, ptr %111, align 8, !tbaa !22
   %113 = icmp ugt i64 %3, %112
   br i1 %113, label %.thread, label %142
 
@@ -349,7 +349,7 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
 
 120:                                              ; preds = %.thread, %114
   %121 = getelementptr inbounds nuw i8, ptr %.094166, i64 16
-  store i64 %3, ptr %121, align 8, !tbaa !20
+  store i64 %3, ptr %121, align 8, !tbaa !21
   tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %0, ptr noundef %.094166)
   br label %create_set_item.exit.thread
 
@@ -359,7 +359,7 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %122
-  store i64 %5, ptr %117, align 8, !tbaa !21
+  store i64 %5, ptr %117, align 8, !tbaa !22
   tail call fastcc void @uint_set_merge_adjacent(ptr noundef nonnull %0, ptr noundef %.094166)
   br label %create_set_item.exit.thread
 
@@ -371,13 +371,13 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  store i64 %3, ptr %131, align 8, !tbaa !20
+  store i64 %3, ptr %131, align 8, !tbaa !21
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  store i64 %5, ptr %132, align 8, !tbaa !21
+  store i64 %5, ptr %132, align 8, !tbaa !22
   store ptr %.094166, ptr %128, align 8, !tbaa !10
-  %133 = load ptr, ptr %127, align 8, !tbaa !22
+  %133 = load ptr, ptr %127, align 8, !tbaa !23
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr %133, ptr %134, align 8, !tbaa !22
+  store ptr %133, ptr %134, align 8, !tbaa !23
   %.not.i137 = icmp eq ptr %133, null
   br i1 %.not.i137, label %136, label %135
 
@@ -386,7 +386,7 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
   br label %136
 
 136:                                              ; preds = %135, %130
-  store ptr %128, ptr %127, align 8, !tbaa !22
+  store ptr %128, ptr %127, align 8, !tbaa !23
   %137 = load ptr, ptr %0, align 8, !tbaa !3
   %138 = icmp eq ptr %137, %.094166
   br i1 %138, label %139, label %ossl_list_uint_set_insert_before.exit
@@ -396,19 +396,19 @@ ossl_list_uint_set_remove.exit135:                ; preds = %101, %102
   br label %ossl_list_uint_set_insert_before.exit
 
 ossl_list_uint_set_insert_before.exit:            ; preds = %136, %139
-  %140 = load i64, ptr %7, align 8, !tbaa !19
+  %140 = load i64, ptr %7, align 8, !tbaa !20
   %141 = add i64 %140, 1
-  store i64 %141, ptr %7, align 8, !tbaa !19
+  store i64 %141, ptr %7, align 8, !tbaa !20
   br label %create_set_item.exit.thread
 
 142:                                              ; preds = %110, %106
   %.not107 = icmp eq ptr %.094.val, null
-  br i1 %.not107, label %create_set_item.exit.thread, label %.lr.ph167, !llvm.loop !27
+  br i1 %.not107, label %create_set_item.exit.thread, label %.lr.ph167, !llvm.loop !28
 
 create_set_item.exit.thread.loopexit179:          ; preds = %64
-  %143 = load i64, ptr %7, align 8, !tbaa !19
+  %143 = load i64, ptr %7, align 8, !tbaa !20
   %144 = add i64 %143, -1
-  store i64 %144, ptr %7, align 8, !tbaa !19
+  store i64 %144, ptr %7, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.093160, i8 0, i64 16, i1 false)
   br label %create_set_item.exit.thread
 
@@ -420,23 +420,23 @@ create_set_item.exit.thread:                      ; preds = %142, %.lr.ph167, %o
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @uint_set_merge_adjacent(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %3, align 8, !tbaa !22
+  %.val = load ptr, ptr %3, align 8, !tbaa !23
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !20
+  %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = add i64 %7, -1
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !21
+  %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not = icmp eq i64 %8, %10
   br i1 %.not, label %11, label %32
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !20
-  store i64 %13, ptr %6, align 8, !tbaa !20
+  %13 = load i64, ptr %12, align 8, !tbaa !21
+  store i64 %13, ptr %6, align 8, !tbaa !21
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = icmp eq ptr %14, %.val
   br i1 %15, label %16, label %18
@@ -448,14 +448,14 @@ define internal fastcc void @uint_set_merge_adjacent(ptr noundef captures(none) 
 
 18:                                               ; preds = %16, %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = icmp eq ptr %20, %.val
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
   br i1 %21, label %24, label %._crit_edge.i
 
 24:                                               ; preds = %18
-  store ptr %23, ptr %19, align 8, !tbaa !23
+  store ptr %23, ptr %19, align 8, !tbaa !24
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %24, %18
@@ -473,14 +473,14 @@ define internal fastcc void @uint_set_merge_adjacent(ptr noundef captures(none) 
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 8
-  store ptr %23, ptr %28, align 8, !tbaa !22
+  store ptr %23, ptr %28, align 8, !tbaa !23
   br label %ossl_list_uint_set_remove.exit
 
 ossl_list_uint_set_remove.exit:                   ; preds = %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !19
+  %30 = load i64, ptr %29, align 8, !tbaa !20
   %31 = add i64 %30, -1
-  store i64 %31, ptr %29, align 8, !tbaa !19
+  store i64 %31, ptr %29, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val, i8 0, i64 16, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %.val, ptr noundef nonnull @.str, i32 noundef 88) #6
   br label %32
@@ -491,15 +491,15 @@ ossl_list_uint_set_remove.exit:                   ; preds = %26, %27
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = load i64, ptr %1, align 8, !tbaa !16
+  %3 = load i64, ptr %1, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp ugt i64 %3, %5
-  br i1 %.not, label %.loopexit, label %6, !prof !18
+  br i1 %.not, label %.loopexit, label %6, !prof !19
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %7, align 8, !tbaa !23
+  %.val = load ptr, ptr %7, align 8, !tbaa !24
   %.not4459 = icmp eq ptr %.val, null
   br i1 %.not4459, label %.loopexit, label %.lr.ph
 
@@ -511,15 +511,15 @@ define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr noundef captures(none) %0, 
 10:                                               ; preds = %.lr.ph, %58
   %.03860 = phi ptr [ %.val, %.lr.ph ], [ %.038.val, %58 ]
   %11 = getelementptr i8, ptr %.03860, i64 8
-  %.038.val = load ptr, ptr %11, align 8, !tbaa !22
+  %.038.val = load ptr, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %.03860, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %.03860, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !21
+  %14 = load i64, ptr %13, align 8, !tbaa !22
   %15 = icmp ugt i64 %3, %14
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %10
-  %17 = load i64, ptr %12, align 8, !tbaa !20
+  %17 = load i64, ptr %12, align 8, !tbaa !21
   %.not45 = icmp ugt i64 %3, %17
   %.not46 = icmp ult i64 %5, %14
   %or.cond = or i1 %.not46, %.not45
@@ -536,12 +536,12 @@ define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr noundef captures(none) %0, 
   br label %23
 
 23:                                               ; preds = %21, %18
-  %24 = load ptr, ptr %7, align 8, !tbaa !23
+  %24 = load ptr, ptr %7, align 8, !tbaa !24
   %25 = icmp eq ptr %24, %.03860
   br i1 %25, label %26, label %._crit_edge.i
 
 26:                                               ; preds = %23
-  store ptr %.038.val, ptr %7, align 8, !tbaa !23
+  store ptr %.038.val, ptr %7, align 8, !tbaa !24
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26, %23
@@ -559,13 +559,13 @@ define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr noundef captures(none) %0, 
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 8
-  store ptr %.038.val, ptr %30, align 8, !tbaa !22
+  store ptr %.038.val, ptr %30, align 8, !tbaa !23
   br label %ossl_list_uint_set_remove.exit
 
 ossl_list_uint_set_remove.exit:                   ; preds = %28, %29
-  %31 = load i64, ptr %8, align 8, !tbaa !19
+  %31 = load i64, ptr %8, align 8, !tbaa !20
   %32 = add i64 %31, -1
-  store i64 %32, ptr %8, align 8, !tbaa !19
+  store i64 %32, ptr %8, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03860, i8 0, i64 16, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %.03860, ptr noundef nonnull @.str, i32 noundef 280) #6
   br label %58
@@ -576,7 +576,7 @@ ossl_list_uint_set_remove.exit:                   ; preds = %28, %29
   br i1 %or.cond50, label %35, label %34
 
 34:                                               ; preds = %33
-  store i64 %9, ptr %12, align 8, !tbaa !20
+  store i64 %9, ptr %12, align 8, !tbaa !21
   br label %58
 
 35:                                               ; preds = %33
@@ -585,7 +585,7 @@ ossl_list_uint_set_remove.exit:                   ; preds = %28, %29
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %.03860, i64 24
   %38 = add i64 %3, -1
-  store i64 %38, ptr %37, align 8, !tbaa !21
+  store i64 %38, ptr %37, align 8, !tbaa !22
   br label %.loopexit
 
 39:                                               ; preds = %35
@@ -599,14 +599,14 @@ ossl_list_uint_set_remove.exit:                   ; preds = %28, %29
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %9, ptr %45, align 8, !tbaa !20
+  store i64 %9, ptr %45, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store i64 %14, ptr %46, align 8, !tbaa !21
+  store i64 %14, ptr %46, align 8, !tbaa !22
   br label %create_set_item.exit
 
 create_set_item.exit:                             ; preds = %40, %44
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %.03860, ptr %47, align 8, !tbaa !22
+  store ptr %.03860, ptr %47, align 8, !tbaa !23
   %48 = load ptr, ptr %.03860, align 8, !tbaa !10
   store ptr %48, ptr %42, align 8, !tbaa !10
   %.not.i52 = icmp eq ptr %48, null
@@ -614,30 +614,30 @@ create_set_item.exit:                             ; preds = %40, %44
 
 49:                                               ; preds = %create_set_item.exit
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %42, ptr %50, align 8, !tbaa !22
+  store ptr %42, ptr %50, align 8, !tbaa !23
   br label %51
 
 51:                                               ; preds = %49, %create_set_item.exit
   store ptr %42, ptr %.03860, align 8, !tbaa !10
-  %52 = load ptr, ptr %7, align 8, !tbaa !23
+  %52 = load ptr, ptr %7, align 8, !tbaa !24
   %53 = icmp eq ptr %52, %.03860
   br i1 %53, label %54, label %ossl_list_uint_set_insert_after.exit
 
 54:                                               ; preds = %51
-  store ptr %42, ptr %7, align 8, !tbaa !23
+  store ptr %42, ptr %7, align 8, !tbaa !24
   br label %ossl_list_uint_set_insert_after.exit
 
 ossl_list_uint_set_insert_after.exit:             ; preds = %51, %54
-  %55 = load i64, ptr %8, align 8, !tbaa !19
+  %55 = load i64, ptr %8, align 8, !tbaa !20
   %56 = add i64 %55, 1
-  store i64 %56, ptr %8, align 8, !tbaa !19
+  store i64 %56, ptr %8, align 8, !tbaa !20
   %57 = add i64 %3, -1
-  store i64 %57, ptr %41, align 8, !tbaa !21
+  store i64 %57, ptr %41, align 8, !tbaa !22
   br label %.loopexit
 
 58:                                               ; preds = %ossl_list_uint_set_remove.exit, %39, %34
   %.not44 = icmp eq ptr %.038.val, null
-  br i1 %.not44, label %.loopexit, label %10, !llvm.loop !28
+  br i1 %.not44, label %.loopexit, label %10, !llvm.loop !29
 
 .loopexit:                                        ; preds = %10, %58, %6, %36, %ossl_list_uint_set_insert_after.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_list_uint_set_insert_after.exit ], [ 1, %36 ], [ 1, %6 ], [ 1, %58 ], [ 1, %10 ]
@@ -647,23 +647,23 @@ ossl_list_uint_set_insert_after.exit:             ; preds = %51, %54
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ossl_uint_set_query(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load i64, ptr %3, align 8, !tbaa !19
+  %.val = load i64, ptr %3, align 8, !tbaa !20
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %8
   %.pn = phi ptr [ %.0, %8 ], [ %0, %2 ]
   %.0.in = getelementptr i8, ptr %.pn, i64 8
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !29
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !30
   %.not12 = icmp eq ptr %.0, null
   br i1 %.not12, label %.loopexit, label %4
 
 4:                                                ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !20
+  %6 = load i64, ptr %5, align 8, !tbaa !21
   %.not13 = icmp ugt i64 %6, %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !21
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !22
   br i1 %.not13, label %8, label %7
 
 7:                                                ; preds = %4
@@ -673,7 +673,7 @@ define range(i32 0, 2) i32 @ossl_uint_set_query(ptr noundef readonly captures(no
 
 8:                                                ; preds = %4
   %9 = icmp ult i64 %.pre, %1
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %8, %7, %2
   %.010 = phi i32 [ 0, %2 ], [ %spec.select, %7 ], [ 0, %8 ], [ 0, %.preheader ]
@@ -715,20 +715,21 @@ attributes #6 = { nounwind }
 !11 = !{!"uint_set_item_st", !12, i64 0, !13, i64 16}
 !12 = !{!"", !5, i64 0, !5, i64 8}
 !13 = !{!"uint_range_st", !9, i64 0, !9, i64 8}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!13, !9, i64 0}
-!17 = !{!13, !9, i64 8}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = !{!4, !9, i64 16}
-!20 = !{!11, !9, i64 16}
-!21 = !{!11, !9, i64 24}
-!22 = !{!11, !5, i64 8}
-!23 = !{!4, !5, i64 8}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = !{!5, !5, i64 0}
-!30 = distinct !{!30, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!13, !9, i64 0}
+!18 = !{!13, !9, i64 8}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = !{!4, !9, i64 16}
+!21 = !{!11, !9, i64 16}
+!22 = !{!11, !9, i64 24}
+!23 = !{!11, !5, i64 8}
+!24 = !{!4, !5, i64 8}
+!25 = distinct !{!25, !15, !16}
+!26 = distinct !{!26, !15, !16}
+!27 = distinct !{!27, !15, !16}
+!28 = distinct !{!28, !15, !16}
+!29 = distinct !{!29, !15, !16}
+!30 = !{!5, !5, i64 0}
+!31 = distinct !{!31, !15, !16}

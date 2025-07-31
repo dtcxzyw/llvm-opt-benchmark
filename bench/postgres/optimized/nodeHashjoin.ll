@@ -799,7 +799,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
 
 .backedge.backedge:                               ; preds = %279, %281, %285, %287, %291, %294, %328, %330, %370, %372, %471, %187, %213, %217, %221, %240, %245, %336
   %.0141.i.be = phi ptr [ %.1142.i, %187 ], [ %.1142.i, %213 ], [ %.2143.i, %221 ], [ %.2143.i, %240 ], [ %.2143.i, %245 ], [ %.2143.i, %217 ], [ %.0141.i, %336 ], [ %.2143.i, %281 ], [ %.2143.i, %279 ], [ %.2143.i, %287 ], [ %.2143.i, %285 ], [ %.0141.i, %291 ], [ %.0141.i, %330 ], [ %.0141.i, %328 ], [ %.0141.i, %294 ], [ %.0141.i, %372 ], [ %.0141.i, %370 ], [ %.0141.i, %471 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 281:                                              ; preds = %279
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 248
@@ -1086,7 +1086,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %379, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %ExecHashJoinImpl.exit, label %406, !llvm.loop !7
+  br i1 %exitcond.not.i, label %ExecHashJoinImpl.exit, label %406, !llvm.loop !9
 
 428:                                              ; preds = %.thread.i8, %415, %413, %.critedge2.i, %411
   %429 = trunc nsw i64 %indvars.iv.i to i32
@@ -1156,7 +1156,7 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
 
 458:                                              ; preds = %ExecHashJoinGetSavedTuple.exit.i6
   call void @ExecHashTableInsert(ptr noundef nonnull %377, ptr noundef nonnull %440, i32 noundef %450) #6
-  br label %.preheader.i, !llvm.loop !9
+  br label %.preheader.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %ExecHashJoinGetSavedTuple.exit.i6, %ExecHashJoinGetSavedTuple.exit.thread.i7
   call void @BufFileClose(ptr noundef nonnull %433) #6
@@ -1631,7 +1631,7 @@ define internal noundef ptr @ExecParallelHashJoin(ptr noundef %0) #0 {
   %77 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %61, i32 noundef 0) #6
   %78 = call i32 @BarrierPhase(ptr noundef nonnull %61) #6
   %79 = icmp slt i32 %78, 4
-  br i1 %79, label %.lr.ph, label %ExecHashJoinImpl.exit, !llvm.loop !10
+  br i1 %79, label %.lr.ph, label %ExecHashJoinImpl.exit, !llvm.loop !12
 
 80:                                               ; preds = %72, %66
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 64
@@ -1739,7 +1739,7 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
 
 134:                                              ; preds = %133, %131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  br label %98
+  br label %98, !llvm.loop !13
 
 .critedge.i3:                                     ; preds = %104, %ExecProcNode.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
@@ -1758,7 +1758,7 @@ ExecProcNode.exit.i:                              ; preds = %100, %98
   %141 = load i32, ptr %135, align 8
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next.i, %142
-  br i1 %143, label %.lr.ph.i, label %ExecParallelHashJoinPartitionOuter.exit, !llvm.loop !11
+  br i1 %143, label %.lr.ph.i, label %ExecParallelHashJoinPartitionOuter.exit, !llvm.loop !14
 
 ExecParallelHashJoinPartitionOuter.exit:          ; preds = %.lr.ph.i, %.critedge.i3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
@@ -2114,7 +2114,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
 
 .backedge.backedge:                               ; preds = %313, %315, %319, %321, %325, %328, %362, %364, %404, %406, %.loopexit, %216, %217, %218, %.critedge.i, %247, %251, %255, %274, %279, %370
   %.0141.i.be = phi ptr [ %.0141.i, %247 ], [ %.0141.i, %255 ], [ %.0141.i, %274 ], [ %.0141.i, %279 ], [ %.0141.i, %251 ], [ %.0141.i, %370 ], [ %67, %.critedge.i ], [ %.0141.i, %218 ], [ %.0141.i, %217 ], [ %.0141.i, %216 ], [ %.0141.i, %.loopexit ], [ %.0141.i, %406 ], [ %.0141.i, %404 ], [ %.0141.i, %364 ], [ %.0141.i, %362 ], [ %.0141.i, %328 ], [ %.0141.i, %325 ], [ %.0141.i, %321 ], [ %.0141.i, %319 ], [ %.0141.i, %315 ], [ %.0141.i, %313 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 315:                                              ; preds = %313
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 248
@@ -2301,7 +2301,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %421 = getelementptr inbounds nuw i8, ptr %411, i64 216
   %422 = load ptr, ptr %421, align 8
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 188
-  %424 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %423, i32 1, ptr nonnull elementtype(i32) %423) #6, !srcloc !12
+  %424 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %423, i32 1, ptr nonnull elementtype(i32) %423) #6, !srcloc !15
   %425 = getelementptr inbounds nuw i8, ptr %411, i64 64
   %426 = load i32, ptr %425, align 8
   %427 = urem i32 %424, %426
@@ -2363,7 +2363,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   call void @ExecParallelHashTableInsertCurrentBatch(ptr noundef nonnull %411, ptr noundef %450, i32 noundef %451) #6
   %452 = call ptr @sts_parallel_scan_next(ptr noundef %446, ptr noundef nonnull %2) #6
   %.not.i11 = icmp eq ptr %452, null
-  br i1 %.not.i11, label %._crit_edge.i12, label %.lr.ph.i10, !llvm.loop !13
+  br i1 %.not.i11, label %._crit_edge.i12, label %.lr.ph.i10, !llvm.loop !16
 
 ._crit_edge.i12:                                  ; preds = %.lr.ph.i10, %.loopexit63.i
   call void @sts_end_parallel_scan(ptr noundef %446) #6
@@ -2400,7 +2400,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %227, %237
   %468 = srem i32 %466, %467
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   %.not56.i = icmp eq i32 %468, %427
-  br i1 %.not56.i, label %ExecHashJoinImpl.exit, label %429, !llvm.loop !14
+  br i1 %.not56.i, label %ExecHashJoinImpl.exit, label %429, !llvm.loop !17
 
 .loopexit:                                        ; preds = %436, %._crit_edge.i12
   call void @ExecParallelHashTableSetCurrentBatch(ptr noundef nonnull %411, i32 noundef %.052.i) #6
@@ -2597,10 +2597,13 @@ attributes #7 = { cold nounwind }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{i64 2167860, i64 2167877}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!14 = distinct !{!14, !10, !8}
+!15 = !{i64 2167860, i64 2167877}
+!16 = distinct !{!16, !10, !8}
+!17 = distinct !{!17, !10, !8}

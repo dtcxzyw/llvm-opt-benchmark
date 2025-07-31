@@ -339,7 +339,7 @@ define hidden noundef ptr @_ZN10duckdb_re27utfruneEPKci(ptr noundef readonly %0,
 .backedge:                                        ; preds = %11, %_ZN10duckdb_re210chartoruneEPiPKc.exit
   %.sink = phi i64 [ %.0.i, %_ZN10duckdb_re210chartoruneEPiPKc.exit ], [ 1, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %.015, i64 %.sink
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !11
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %.015, i64 1
@@ -446,6 +446,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

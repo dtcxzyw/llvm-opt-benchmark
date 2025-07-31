@@ -1007,7 +1007,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   store double %45, ptr %gep175, align 8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %22
-  br i1 %exitcond153.not, label %.lr.ph139.preheader, label %.lr.ph131, !llvm.loop !7
+  br i1 %exitcond153.not, label %.lr.ph139.preheader, label %.lr.ph131, !llvm.loop !8
 
 .lr.ph139.preheader:                              ; preds = %.lr.ph131
   %46 = getelementptr inbounds double, ptr %17, i64 %37
@@ -1042,7 +1042,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   store double %57, ptr %gep179, align 8
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %22
-  br i1 %exitcond158.not, label %._crit_edge136, label %53, !llvm.loop !8
+  br i1 %exitcond158.not, label %._crit_edge136, label %53, !llvm.loop !9
 
 ._crit_edge136:                                   ; preds = %53
   %58 = load double, ptr %46, align 8
@@ -1056,12 +1056,12 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
 63:                                               ; preds = %.lr.ph139, %._crit_edge136
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %22
-  br i1 %exitcond163.not, label %._crit_edge140, label %.lr.ph139, !llvm.loop !9
+  br i1 %exitcond163.not, label %._crit_edge140, label %.lr.ph139, !llvm.loop !10
 
 ._crit_edge140:                                   ; preds = %63
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %22
-  br i1 %exitcond168.not, label %.lr.ph143.preheader, label %.lr.ph128.preheader, !llvm.loop !10
+  br i1 %exitcond168.not, label %.lr.ph143.preheader, label %.lr.ph128.preheader, !llvm.loop !11
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv169 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next170, %.lr.ph143 ]
@@ -1074,7 +1074,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   store double %68, ptr %69, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !11
+  br i1 %exitcond173.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !12
 
 ._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %4, %.preheader121
   %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
@@ -1125,10 +1125,11 @@ attributes #16 = { builtin nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

@@ -410,7 +410,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
   %308 = load float, ptr %307, align 4
   %309 = getelementptr inbounds nuw i8, ptr %.2441454, i64 4
   %.not449 = icmp ugt ptr %309, %127
-  br i1 %.not449, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not449, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph514, %.preheader451, %.preheader
   %.1440 = phi ptr [ %54, %.preheader ], [ %54, %.preheader451 ], [ %220, %.lr.ph514 ], [ %309, %.lr.ph ]
@@ -474,7 +474,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %346, %1
   ret i32 0
@@ -774,7 +774,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %226 = load float, ptr %225, align 4
   %227 = getelementptr inbounds nuw i8, ptr %.0524, i64 8
   %.not460 = icmp ugt ptr %227, %107
-  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !10
+  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
   %.2484 = phi ptr [ %320, %.lr.ph ], [ %111, %.preheader461 ]
@@ -892,7 +892,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %319 = load float, ptr %318, align 4
   %320 = getelementptr inbounds nuw i8, ptr %.2484, i64 8
   %.not459 = icmp ugt ptr %320, %107
-  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph525, %.preheader461, %.preheader
   %.1453 = phi ptr [ %123, %.preheader ], [ %123, %.preheader461 ], [ %219, %.lr.ph525 ], [ %312, %.lr.ph ]
@@ -950,13 +950,13 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %355 = tail call float @llvm.fmuladd.f32(float %340, float %.2421, float %354)
   %356 = tail call float @llvm.fmuladd.f32(float %352, float %.2418, float %355)
   store float %356, ptr %.1, align 4
-  br i1 %109, label %108, label %.loopexit463, !llvm.loop !12
+  br i1 %109, label %108, label %.loopexit463, !llvm.loop !13
 
 .loopexit463:                                     ; preds = %.loopexit, %50
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next601 to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit463, %1
   ret i32 0
@@ -1252,7 +1252,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   %225 = load float, ptr %224, align 4
   %226 = getelementptr inbounds nuw i8, ptr %.0524, i64 12
   %.not460 = icmp ugt ptr %226, %107
-  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !14
+  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
   %.2484 = phi ptr [ %319, %.lr.ph ], [ %110, %.preheader461 ]
@@ -1370,7 +1370,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   %318 = load float, ptr %317, align 4
   %319 = getelementptr inbounds nuw i8, ptr %.2484, i64 12
   %.not459 = icmp ugt ptr %319, %107
-  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph525, %.preheader461, %.preheader
   %.1453 = phi ptr [ %122, %.preheader ], [ %122, %.preheader461 ], [ %218, %.lr.ph525 ], [ %311, %.lr.ph ]
@@ -1430,13 +1430,13 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   store float %355, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit463, label %108, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit463, label %108, !llvm.loop !17
 
 .loopexit463:                                     ; preds = %.loopexit, %50
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next601 to i32
   %exitcond603.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond603.not, label %._crit_edge, label %35, !llvm.loop !17
+  br i1 %exitcond603.not, label %._crit_edge, label %35, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit463, %1
   ret i32 0
@@ -1732,7 +1732,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   %225 = load float, ptr %224, align 4
   %226 = getelementptr inbounds nuw i8, ptr %.0524, i64 16
   %.not460 = icmp ugt ptr %226, %107
-  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !18
+  br i1 %.not460, label %.loopexit, label %.lr.ph525, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader461, %.lr.ph
   %.2484 = phi ptr [ %319, %.lr.ph ], [ %110, %.preheader461 ]
@@ -1850,7 +1850,7 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   %318 = load float, ptr %317, align 4
   %319 = getelementptr inbounds nuw i8, ptr %.2484, i64 16
   %.not459 = icmp ugt ptr %319, %107
-  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not459, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph525, %.preheader461, %.preheader
   %.1453 = phi ptr [ %122, %.preheader ], [ %122, %.preheader461 ], [ %218, %.lr.ph525 ], [ %311, %.lr.ph ]
@@ -1910,13 +1910,13 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   store float %355, ptr %.1, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit463, label %108, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit463, label %108, !llvm.loop !21
 
 .loopexit463:                                     ; preds = %.loopexit, %50
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next601 to i32
   %exitcond603.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond603.not, label %._crit_edge, label %35, !llvm.loop !21
+  br i1 %exitcond603.not, label %._crit_edge, label %35, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit463, %1
   ret i32 0
@@ -1933,19 +1933,20 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

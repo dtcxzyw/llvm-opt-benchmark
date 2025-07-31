@@ -931,7 +931,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %250 = add nuw nsw i32 %.3532600.i, 4
   %251 = add nsw i32 %.3601.i, -4
   %252 = icmp samesign ugt i32 %.3601.i, 4
-  br i1 %252, label %.lr.ph602.i, label %dissect_hip_tlv.exit, !llvm.loop !12
+  br i1 %252, label %.lr.ph602.i, label %dissect_hip_tlv.exit, !llvm.loop !13
 
 253:                                              ; preds = %.lr.ph
   %254 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %117)
@@ -986,7 +986,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %290 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %119, i32 noundef %287, ptr noundef %0, i32 noundef %.4533597.i, i32 noundef 2, i32 noundef %288, ptr noundef nonnull @.str.291, i32 noundef %288, ptr noundef %289)
   %291 = add nuw nsw i32 %.4533597.i, 2
   %292 = icmp samesign ugt i32 %.4.in598.i, 4
-  br i1 %292, label %.lr.ph599.i, label %dissect_hip_tlv.exit, !llvm.loop !13
+  br i1 %292, label %.lr.ph599.i, label %dissect_hip_tlv.exit, !llvm.loop !14
 
 .lr.ph596.i:                                      ; preds = %.preheader569.i, %.lr.ph596.i
   %.5595.i = phi i32 [ %298, %.lr.ph596.i ], [ %112, %.preheader569.i ]
@@ -999,7 +999,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %298 = add nsw i32 %.5595.i, -2
   %299 = add nuw nsw i32 %.5534594.i, 2
   %300 = icmp samesign ugt i32 %.5595.i, 2
-  br i1 %300, label %.lr.ph596.i, label %dissect_hip_tlv.exit, !llvm.loop !14
+  br i1 %300, label %.lr.ph596.i, label %dissect_hip_tlv.exit, !llvm.loop !15
 
 301:                                              ; preds = %.lr.ph
   %302 = load i32, ptr @hf_hip_tlv_esp_reserved, align 4
@@ -1022,7 +1022,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %310 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %119, i32 noundef %307, ptr noundef %0, i32 noundef %.6535591.i, i32 noundef 2, i32 noundef %308, ptr noundef nonnull @.str.291, i32 noundef %308, ptr noundef %309)
   %311 = add nuw nsw i32 %.6535591.i, 2
   %312 = icmp samesign ugt i32 %.6.in592.i, 4
-  br i1 %312, label %.lr.ph593.i, label %dissect_hip_tlv.exit, !llvm.loop !15
+  br i1 %312, label %.lr.ph593.i, label %dissect_hip_tlv.exit, !llvm.loop !16
 
 313:                                              ; preds = %.lr.ph
   %314 = load i32, ptr @hf_hip_tlv_transaction_minta, align 4
@@ -1046,7 +1046,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %325 = add nsw i32 %.7589.i, -2
   %326 = add nuw nsw i32 %.7536588.i, 2
   %327 = icmp samesign ugt i32 %.7589.i, 2
-  br i1 %327, label %.lr.ph590.i, label %dissect_hip_tlv.exit, !llvm.loop !16
+  br i1 %327, label %.lr.ph590.i, label %dissect_hip_tlv.exit, !llvm.loop !17
 
 .lr.ph587.i:                                      ; preds = %.preheader574.i, %.lr.ph587.i
   %.8586.i = phi i32 [ %330, %.lr.ph587.i ], [ %112, %.preheader574.i ]
@@ -1056,7 +1056,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %330 = add nsw i32 %.8586.i, -1
   %331 = add nuw nsw i32 %.8537585.i, 1
   %.not.i = icmp eq i32 %330, 0
-  br i1 %.not.i, label %dissect_hip_tlv.exit, label %.lr.ph587.i, !llvm.loop !17
+  br i1 %.not.i, label %dissect_hip_tlv.exit, label %.lr.ph587.i, !llvm.loop !18
 
 332:                                              ; preds = %.lr.ph
   %333 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %117)
@@ -1263,7 +1263,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %473 = add nsw i32 %.10582.i, -1
   %474 = add nuw nsw i32 %.11540581.i, 1
   %475 = icmp samesign ugt i32 %.10582.i, 1
-  br i1 %475, label %.lr.ph583.i, label %dissect_hip_tlv.exit, !llvm.loop !18
+  br i1 %475, label %.lr.ph583.i, label %dissect_hip_tlv.exit, !llvm.loop !19
 
 476:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %477 = load i32, ptr @hf_hip_tlv_hmac, align 4
@@ -1295,7 +1295,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %494 = add nsw i32 %.11580.i, -16
   %495 = add nuw nsw i32 %.12579.i, 16
   %496 = icmp samesign ugt i32 %.11580.i, 16
-  br i1 %496, label %.lr.ph.i, label %dissect_hip_tlv.exit, !llvm.loop !19
+  br i1 %496, label %.lr.ph.i, label %dissect_hip_tlv.exit, !llvm.loop !20
 
 497:                                              ; preds = %.lr.ph
   %498 = load i32, ptr @hf_hip_tlv_relay_from_port, align 4
@@ -1346,7 +1346,7 @@ dissect_hip_tlv.exit:                             ; preds = %.lr.ph583.i, %.lr.p
   %536 = add i32 %535, %112
   %537 = sub i32 %536, %534
   %538 = icmp samesign ult i32 %537, %104
-  br i1 %538, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %538, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %dissect_hip_tlv.exit, %97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
@@ -1432,14 +1432,15 @@ attributes #4 = { nounwind memory(none) }
 !7 = !{}
 !8 = !{i64 2150842104}
 !9 = !{i64 2150843581}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}

@@ -834,7 +834,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %12, %18
 25:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit55
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count142
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !33
 
 26:                                               ; preds = %.lr.ph, %25
   %indvars.iv136 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next137, %25 ]
@@ -921,7 +921,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit61:       ; preds = %_ZNK6icu_779UVector
   %.2 = phi i32 [ %42, %.thread ], [ %.0130, %_ZNK6icu_779UVector3210elementAtiEi.exit ], [ %.0130, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %12, !llvm.loop !33
+  br i1 %exitcond143.not, label %._crit_edge, label %12, !llvm.loop !34
 
 73:                                               ; preds = %._crit_edge
   %74 = load i32, ptr %6, align 8, !tbaa !22
@@ -1331,7 +1331,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit73.us:    ; preds = %61, %_ZNK6icu_779UV
   %brmerge.not = select i1 %exitcond.not, i1 %.1.us, i1 false
   %indvars.iv.next.mux = select i1 %exitcond.not, i64 0, i64 %indvars.iv.next
   %.1.us.mux = select i1 %exitcond.not, i1 true, i1 %.1.us
-  br i1 %brmerge.not, label %.split78.us, label %.lr.ph.us, !llvm.loop !34
+  br i1 %brmerge.not, label %.split78.us, label %.lr.ph.us, !llvm.loop !35
 
 .split78.us:                                      ; preds = %.thread.us, %1
   ret void
@@ -1393,8 +1393,9 @@ attributes #13 = { noreturn nounwind }
 !27 = !{!"_ZTSN6icu_7724ConstrainedFieldPositionE", !28, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !7, i64 24}
 !28 = !{!"long", !7, i64 0}
 !29 = !{!23, !25, i64 24}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = distinct !{!33, !31}
-!34 = distinct !{!34, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = distinct !{!34, !31, !32}
+!35 = distinct !{!35, !31, !32}

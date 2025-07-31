@@ -933,7 +933,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %242 = load ptr, ptr %241, align 8, !tbaa !78
   %243 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %244 = load i32, ptr %243, align 8, !tbaa !81
+  %244 = load i32, ptr %243, align 8, !tbaa !82
   %245 = getelementptr inbounds nuw i8, ptr %45, i64 132
   %246 = load i32, ptr %245, align 4, !tbaa !70
   %247 = mul nsw i32 %246, %244
@@ -1088,7 +1088,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %343 = getelementptr inbounds i8, ptr %.064.i, i64 %339
   %344 = add nsw i32 %spec.select.i, %.05463.i
   %345 = icmp sgt i32 %342, 0
-  br i1 %345, label %326, label %rtp_send_samples.exit, !llvm.loop !82
+  br i1 %345, label %326, label %rtp_send_samples.exit, !llvm.loop !83
 
 346:                                              ; preds = %318
   store i8 0, ptr %314, align 1, !tbaa !65
@@ -1146,7 +1146,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %373 = load ptr, ptr %372, align 8, !tbaa !78
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %375 = load i32, ptr %374, align 8, !tbaa !83
+  %375 = load i32, ptr %374, align 8, !tbaa !84
   %376 = and i32 %375, 1
   tail call void @ff_rtp_send_av1(ptr noundef nonnull %0, ptr noundef %373, i32 noundef %10, i32 noundef %376) #7
   br label %rtp_send_samples.exit
@@ -1208,13 +1208,13 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %410 = phi ptr [ %408, %407 ], [ %401, %388 ]
   %411 = phi ptr [ %408, %407 ], [ %400, %388 ]
   %412 = icmp sgt i32 %398, 187
-  br i1 %412, label %388, label %rtp_send_samples.exit, !llvm.loop !84
+  br i1 %412, label %388, label %rtp_send_samples.exit, !llvm.loop !85
 
 413:                                              ; preds = %36
   %414 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %415 = load ptr, ptr %414, align 8, !tbaa !78
   %416 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  %417 = load i32, ptr %416, align 8, !tbaa !85
+  %417 = load i32, ptr %416, align 8, !tbaa !86
   %.not123 = icmp ne i32 %417, 1
   %418 = zext i1 %.not123 to i32
   tail call void @ff_rtp_send_vc2hq(ptr noundef nonnull %0, ptr noundef %415, i32 noundef %10, i32 noundef %418) #7
@@ -1244,7 +1244,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %430 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %3) #7
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %432 = load ptr, ptr %431, align 8, !tbaa !78
-  %433 = load i64, ptr %3, align 8, !tbaa !86
+  %433 = load i64, ptr %3, align 8, !tbaa !87
   %434 = trunc i64 %433 to i32
   call void @ff_rtp_send_h263_rfc2190(ptr noundef nonnull %0, ptr noundef %432, i32 noundef %10, ptr noundef %430, i32 noundef %434) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
@@ -1306,7 +1306,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %470 = getelementptr inbounds nuw i8, ptr %453, i64 104
   %471 = sext i32 %461 to i64
   %472 = getelementptr inbounds nuw i8, ptr %453, i64 112
-  %.pre.i169 = load i32, ptr %464, align 4, !tbaa !87
+  %.pre.i169 = load i32, ptr %464, align 4, !tbaa !88
   br label %473
 
 473:                                              ; preds = %515, %.lr.ph.i168
@@ -1321,7 +1321,7 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %478 = load i32, ptr %466, align 4, !tbaa !30
   %479 = sub i32 %477, %478
   %480 = zext i32 %479 to i64
-  %481 = load i32, ptr %468, align 4, !tbaa !88
+  %481 = load i32, ptr %468, align 4, !tbaa !89
   %482 = sext i32 %481 to i64
   %483 = load i64, ptr %467, align 8
   %484 = tail call i32 @av_compare_ts(i64 noundef %480, i64 %483, i64 noundef %482, i64 4294967296000001) #7
@@ -1336,11 +1336,11 @@ define internal range(i32 -22, 1) i32 @rtp_write_packet(ptr noundef %0, ptr noun
   %490 = sub i64 %488, %489
   %491 = trunc i64 %490 to i32
   tail call void @ff_rtp_send_data(ptr noundef nonnull %0, ptr noundef %486, i32 noundef %491, i32 noundef 1)
-  store i32 0, ptr %464, align 4, !tbaa !87
+  store i32 0, ptr %464, align 4, !tbaa !88
   br label %494
 
 thread-pre-split.i:                               ; preds = %476
-  %.pr.i = load i32, ptr %464, align 4, !tbaa !87
+  %.pr.i = load i32, ptr %464, align 4, !tbaa !88
   br label %492
 
 492:                                              ; preds = %thread-pre-split.i, %473
@@ -1363,9 +1363,9 @@ thread-pre-split.i:                               ; preds = %476
   %498 = phi ptr [ %.pre44.i, %._crit_edge43.i ], [ %495, %494 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %498, ptr align 1 %.042.i, i64 %471, i1 false)
   %499 = add nsw i32 %.03941.i, -1
-  %500 = load i32, ptr %464, align 4, !tbaa !87
+  %500 = load i32, ptr %464, align 4, !tbaa !88
   %501 = add nsw i32 %500, 1
-  store i32 %501, ptr %464, align 4, !tbaa !87
+  store i32 %501, ptr %464, align 4, !tbaa !88
   %502 = load ptr, ptr %470, align 8, !tbaa !61
   %503 = getelementptr inbounds i8, ptr %502, i64 %471
   store ptr %503, ptr %470, align 8, !tbaa !61
@@ -1384,13 +1384,13 @@ thread-pre-split.i:                               ; preds = %476
   %513 = sub i64 %511, %512
   %514 = trunc i64 %513 to i32
   tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %510, i32 noundef %514, i32 noundef 1)
-  store i32 0, ptr %464, align 4, !tbaa !87
+  store i32 0, ptr %464, align 4, !tbaa !88
   br label %515
 
 515:                                              ; preds = %509, %497
   %516 = phi i32 [ 0, %509 ], [ %501, %497 ]
   %517 = icmp samesign ugt i32 %.03941.i, 1
-  br i1 %517, label %473, label %rtp_send_samples.exit, !llvm.loop !89
+  br i1 %517, label %473, label %rtp_send_samples.exit, !llvm.loop !90
 
 518:                                              ; preds = %36
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1400,7 +1400,7 @@ thread-pre-split.i:                               ; preds = %476
 
 521:                                              ; preds = %36, %36
   %522 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  %523 = load i32, ptr %522, align 8, !tbaa !85
+  %523 = load i32, ptr %522, align 8, !tbaa !86
   %524 = icmp ne i32 %523, 1
   %525 = zext i1 %524 to i32
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1450,7 +1450,7 @@ thread-pre-split.i:                               ; preds = %476
   %549 = getelementptr inbounds i8, ptr %.021.i, i64 %548
   %550 = sub nsw i32 %.01820.i, %spec.select.i173
   %551 = icmp sgt i32 %550, 0
-  br i1 %551, label %544, label %rtp_send_samples.exit, !llvm.loop !90
+  br i1 %551, label %544, label %rtp_send_samples.exit, !llvm.loop !91
 
 rtp_send_samples.exit:                            ; preds = %515, %409, %326, %268, %215, %167, %119, %71, %544, %535, %450, %377, %.thread61.i, %.preheader.i, %262, %259, %209, %192, %161, %144, %113, %96, %65, %48, %357, %368, %371, %413, %419, %422, %429, %435, %438, %441, %444, %447, %518, %367, %366, %528, %521, %534
   %.0 = phi i32 [ -22, %534 ], [ 0, %521 ], [ 0, %528 ], [ 0, %366 ], [ 0, %367 ], [ 0, %518 ], [ 0, %447 ], [ 0, %444 ], [ 0, %441 ], [ 0, %438 ], [ 0, %435 ], [ 0, %429 ], [ 0, %422 ], [ 0, %419 ], [ 0, %413 ], [ 0, %371 ], [ 0, %368 ], [ 0, %357 ], [ -22, %48 ], [ 0, %65 ], [ -22, %96 ], [ 0, %113 ], [ -22, %144 ], [ 0, %161 ], [ -22, %192 ], [ 0, %209 ], [ -22, %259 ], [ 0, %262 ], [ 0, %.preheader.i ], [ 0, %.thread61.i ], [ 0, %377 ], [ 0, %450 ], [ 0, %535 ], [ 0, %544 ], [ 0, %71 ], [ 0, %119 ], [ 0, %167 ], [ 0, %215 ], [ 0, %268 ], [ 0, %326 ], [ 0, %409 ], [ 0, %515 ]
@@ -1556,7 +1556,7 @@ define internal fastcc void @rtcp_send_sr(ptr noundef %0, i64 noundef %1, i32 no
   %45 = load i32, ptr %44, align 4, !tbaa !32
   tail call void @avio_wb32(ptr noundef %43, i32 noundef %45) #7
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !91
+  %47 = load ptr, ptr %46, align 8, !tbaa !92
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.loopexit, label %48
 
@@ -1580,7 +1580,7 @@ define internal fastcc void @rtcp_send_sr(ptr noundef %0, i64 noundef %1, i32 no
   %58 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @avio_w8(ptr noundef %58, i32 noundef %spec.select) #7
   %59 = load ptr, ptr %24, align 8, !tbaa !24
-  %60 = load ptr, ptr %46, align 8, !tbaa !91
+  %60 = load ptr, ptr %46, align 8, !tbaa !92
   tail call void @avio_write(ptr noundef %59, ptr noundef %60, i32 noundef %spec.select) #7
   %61 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @avio_w8(ptr noundef %61, i32 noundef 0) #7
@@ -1599,7 +1599,7 @@ define internal fastcc void @rtcp_send_sr(ptr noundef %0, i64 noundef %1, i32 no
   %65 = add i32 %.058, 1
   %66 = and i32 %65, 3
   %.not54 = icmp eq i32 %66, 0
-  br i1 %.not54, label %.loopexit, label %.lr.ph, !llvm.loop !92
+  br i1 %.not54, label %.loopexit, label %.lr.ph, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %3
   %.not55 = icmp eq i32 %2, 0
@@ -1775,17 +1775,18 @@ attributes #9 = { nounwind willreturn memory(read) }
 !76 = !{!26, !13, i64 124}
 !77 = !{!41, !19, i64 8}
 !78 = !{!41, !18, i64 24}
-!79 = distinct !{!79, !80}
+!79 = distinct !{!79, !80, !81}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!45, !13, i64 56}
-!82 = distinct !{!82, !80}
-!83 = !{!41, !13, i64 40}
-!84 = distinct !{!84, !80}
-!85 = !{!45, !13, i64 96}
-!86 = !{!19, !19, i64 0}
-!87 = !{!26, !13, i64 60}
-!88 = !{!5, !13, i64 124}
-!89 = distinct !{!89, !80}
-!90 = distinct !{!90, !80}
-!91 = !{!26, !18, i64 32}
-!92 = distinct !{!92, !80}
+!81 = !{!"llvm.loop.estimated_trip_count"}
+!82 = !{!45, !13, i64 56}
+!83 = distinct !{!83, !80, !81}
+!84 = !{!41, !13, i64 40}
+!85 = distinct !{!85, !80, !81}
+!86 = !{!45, !13, i64 96}
+!87 = !{!19, !19, i64 0}
+!88 = !{!26, !13, i64 60}
+!89 = !{!5, !13, i64 124}
+!90 = distinct !{!90, !80, !81}
+!91 = distinct !{!91, !80, !81}
+!92 = !{!26, !18, i64 32}
+!93 = distinct !{!93, !80, !81}

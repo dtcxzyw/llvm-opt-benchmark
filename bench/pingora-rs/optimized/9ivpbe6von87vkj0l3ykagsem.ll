@@ -136,10 +136,10 @@ define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_ve
   %11 = getelementptr i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !9, !noundef !8
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %6, label %13
+  br i1 %.not.i, label %6, label %13, !llvm.loop !12
 
 13:                                               ; preds = %9
-  %.val.i = load ptr, ptr %7, align 8, !alias.scope !12, !noundef !8
+  %.val.i = load ptr, ptr %7, align 8, !alias.scope !14, !noundef !8
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E.exit": ; preds = %6, %13
@@ -201,7 +201,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4gr
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 6664
   %25 = cmpxchg ptr %24, ptr null, ptr %5 acq_rel acquire, align 8
   %.not = extractvalue { ptr, i1 } %25, 1
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -220,11 +220,11 @@ define hidden noundef nonnull align 8 dereferenceable(232) ptr @"_ZN9once_cell4s
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !15
+  br i1 %.not, label %8, label %5, !prof !18
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd65ae1120f7cec90E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !16, !noundef !8
+  %6 = load i64, ptr %4, align 8, !range !19, !noundef !8
   %7 = icmp ne i64 %6, 3
   tail call void @llvm.assume(i1 %7)
   br label %8
@@ -238,7 +238,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load atomic ptr, ptr %3 acquire, align 8
   %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %8, label %5, !prof !15
+  br i1 %.not, label %8, label %5, !prof !18
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h42f88872ec67ef8aE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
@@ -323,8 +323,11 @@ attributes #13 = { noreturn }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9d52b343c7897733E: argument 0"}
 !11 = distinct !{!11, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9d52b343c7897733E"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E: argument 0"}
-!14 = distinct !{!14, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E"}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = !{i64 0, i64 4}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E: argument 0"}
+!16 = distinct !{!16, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E"}
+!17 = distinct !{!17, !13}
+!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!19 = !{i64 0, i64 4}

@@ -1164,7 +1164,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %41 = phi ptr [ %36, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %19, %18 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 4
   %.not28 = icmp eq ptr %42, %10
-  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13
+  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13, !llvm.loop !125
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1307,14 +1307,14 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br i1 %.not, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE5clearEv.exit, label %9
 
 9:                                                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %10 = load ptr, ptr %8, align 8, !tbaa !125
+  %10 = load ptr, ptr %8, align 8, !tbaa !127
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !127
+  %12 = load ptr, ptr %11, align 8, !tbaa !129
   %.not.i.i1 = icmp eq ptr %12, %10
   br i1 %.not.i.i1, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE5clearEv.exit, label %13
 
 13:                                               ; preds = %9
-  store ptr %10, ptr %11, align 8, !tbaa !127
+  store ptr %10, ptr %11, align 8, !tbaa !129
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE5clearEv.exit: ; preds = %13, %9, %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -1382,8 +1382,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector
 
 30:                                               ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !127
-  %33 = load ptr, ptr %29, align 8, !tbaa !125
+  %32 = load ptr, ptr %31, align 8, !tbaa !129
+  %33 = load ptr, ptr %29, align 8, !tbaa !127
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -1398,7 +1398,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !128
+  %43 = load ptr, ptr %42, align 8, !tbaa !130
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %35
   %46 = ashr exact i64 %45, 2
@@ -1424,11 +1424,11 @@ _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
   br label %_ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %52, %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %49, ptr %29, align 8, !tbaa !125
+  store ptr %49, ptr %29, align 8, !tbaa !127
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
-  store ptr %53, ptr %31, align 8, !tbaa !127
+  store ptr %53, ptr %31, align 8, !tbaa !129
   %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
-  store ptr %54, ptr %42, align 8, !tbaa !128
+  store ptr %54, ptr %42, align 8, !tbaa !130
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE13_M_deallocateEPS1_m.exit.i, %41, %_ZNSt6vectorIiSaIiEE7reserveEm.exit
@@ -1522,20 +1522,20 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %13, %_ZNSt6vectorIi
 40:                                               ; preds = %37
   %41 = load i32, ptr %1, align 4, !tbaa !121
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !127
+  %43 = load ptr, ptr %42, align 8, !tbaa !129
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !128
+  %45 = load ptr, ptr %44, align 8, !tbaa !130
   %.not.i.i = icmp eq ptr %43, %45
   br i1 %.not.i.i, label %48, label %46
 
 46:                                               ; preds = %40
   store i32 %41, ptr %43, align 4, !tbaa !102
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store ptr %47, ptr %42, align 8, !tbaa !127
+  store ptr %47, ptr %42, align 8, !tbaa !129
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE9push_backEOS1_.exit
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr %39, align 8, !tbaa !125
+  %49 = load ptr, ptr %39, align 8, !tbaa !127
   %50 = ptrtoint ptr %43 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
@@ -1576,10 +1576,10 @@ _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %61, ptr %39, align 8, !tbaa !125
-  store ptr %65, ptr %42, align 8, !tbaa !127
+  store ptr %61, ptr %39, align 8, !tbaa !127
+  store ptr %65, ptr %42, align 8, !tbaa !129
   %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
-  store ptr %67, ptr %44, align 8, !tbaa !128
+  store ptr %67, ptr %44, align 8, !tbaa !130
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %46, %37
@@ -1600,23 +1600,23 @@ define linkonce_odr dso_local noundef ptr @_ZNK3gmx10EnumOptionINS_21NbnxmBenchM
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !129
+  %9 = load ptr, ptr %8, align 8, !tbaa !131
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %9, align 4, !tbaa !130
+  %11 = load i32, ptr %9, align 4, !tbaa !132
   br label %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit
 
 _ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit: ; preds = %2, %10
   %12 = phi i32 [ %11, %10 ], [ -1, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !131
+  %14 = load ptr, ptr %13, align 8, !tbaa !133
   %.not.i2 = icmp eq ptr %14, null
   br i1 %.not.i2, label %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3, label %15
 
 15:                                               ; preds = %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit
-  %16 = load i32, ptr %14, align 4, !tbaa !130
+  %16 = load i32, ptr %14, align 4, !tbaa !132
   br label %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3
 
 _ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3: ; preds = %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit, %15
@@ -1624,10 +1624,10 @@ _ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3: ; pr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !67
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !132
-  %22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !133
+  %21 = load ptr, ptr %20, align 8, !tbaa !134
+  %22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !135
   invoke void @_ZN3gmx8internal14EnumIndexStoreINS_21NbnxmBenchMarkCoulombEEC2EPS2_PSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %19, ptr noundef %21)
-          to label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %23, !noalias !133
+          to label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %23, !noalias !135
 
 common.resume:                                    ; preds = %31, %_ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7, %23
   %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %32, %_ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7 ], [ %32, %31 ]
@@ -1636,7 +1636,7 @@ common.resume:                                    ; preds = %31, %_ZNKSt14defaul
 23:                                               ; preds = %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #15, !noalias !133
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #15, !noalias !135
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN3gmx10EnumOptionINS_21NbnxmBenchMarkCoulombEE12convertToIntEPKS1_.exit3
@@ -1680,9 +1680,9 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_21NbnxmB
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %5, align 8, !tbaa !136
+  store ptr %1, ptr %5, align 8, !tbaa !138
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %6, align 8, !tbaa !138
+  store ptr %2, ptr %6, align 8, !tbaa !140
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %43, label %7
 
@@ -1703,7 +1703,7 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_21NbnxmB
   %15 = phi ptr [ null, %.lr.ph ], [ %40, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %16 = phi ptr [ null, %.lr.ph ], [ %41, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.sroa.025.030 = phi ptr [ %8, %.lr.ph ], [ %42, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %17 = load i32, ptr %.sroa.025.030, align 4, !tbaa !130
+  %17 = load i32, ptr %.sroa.025.030, align 4, !tbaa !132
   %.not.i.i = icmp eq ptr %16, %15
   br i1 %.not.i.i, label %20, label %18
 
@@ -1772,7 +1772,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %41 = phi ptr [ %36, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %19, %18 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 4
   %.not28 = icmp eq ptr %42, %10
-  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13
+  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13, !llvm.loop !141
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1790,7 +1790,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not9, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i13
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i13: ; preds = %43
-  %44 = load i32, ptr %1, align 4, !tbaa !130
+  %44 = load i32, ptr %1, align 4, !tbaa !132
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #14
@@ -1910,19 +1910,19 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_21NbnxmB
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !138
+  %8 = load ptr, ptr %7, align 8, !tbaa !140
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE5clearEv.exit, label %9
 
 9:                                                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %10 = load ptr, ptr %8, align 8, !tbaa !139
+  %10 = load ptr, ptr %8, align 8, !tbaa !142
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !141
+  %12 = load ptr, ptr %11, align 8, !tbaa !144
   %.not.i.i1 = icmp eq ptr %12, %10
   br i1 %.not.i.i1, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE5clearEv.exit, label %13
 
 13:                                               ; preds = %9
-  store ptr %10, ptr %11, align 8, !tbaa !141
+  store ptr %10, ptr %11, align 8, !tbaa !144
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE5clearEv.exit: ; preds = %13, %9, %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -1984,14 +1984,14 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !138
+  %29 = load ptr, ptr %28, align 8, !tbaa !140
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE7reserveEm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !141
-  %33 = load ptr, ptr %29, align 8, !tbaa !139
+  %32 = load ptr, ptr %31, align 8, !tbaa !144
+  %33 = load ptr, ptr %29, align 8, !tbaa !142
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -2006,7 +2006,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !142
+  %43 = load ptr, ptr %42, align 8, !tbaa !145
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %35
   %46 = ashr exact i64 %45, 2
@@ -2032,11 +2032,11 @@ _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
   br label %_ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %52, %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %49, ptr %29, align 8, !tbaa !139
+  store ptr %49, ptr %29, align 8, !tbaa !142
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
-  store ptr %53, ptr %31, align 8, !tbaa !141
+  store ptr %53, ptr %31, align 8, !tbaa !144
   %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
-  store ptr %54, ptr %42, align 8, !tbaa !142
+  store ptr %54, ptr %42, align 8, !tbaa !145
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE13_M_deallocateEPS1_m.exit.i, %41, %_ZNSt6vectorIiSaIiEE7reserveEm.exit
@@ -2111,39 +2111,39 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %13, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !136
+  %33 = load ptr, ptr %32, align 8, !tbaa !138
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %37, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %35 = load i32, ptr %1, align 4, !tbaa !121
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %9
-  store i32 %35, ptr %36, align 4, !tbaa !130
+  store i32 %35, ptr %36, align 4, !tbaa !132
   br label %37
 
 37:                                               ; preds = %34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !138
+  %39 = load ptr, ptr %38, align 8, !tbaa !140
   %.not5 = icmp eq ptr %39, null
   br i1 %.not5, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE9push_backEOS1_.exit, label %40
 
 40:                                               ; preds = %37
   %41 = load i32, ptr %1, align 4, !tbaa !121
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !141
+  %43 = load ptr, ptr %42, align 8, !tbaa !144
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !142
+  %45 = load ptr, ptr %44, align 8, !tbaa !145
   %.not.i.i = icmp eq ptr %43, %45
   br i1 %.not.i.i, label %48, label %46
 
 46:                                               ; preds = %40
-  store i32 %41, ptr %43, align 4, !tbaa !130
+  store i32 %41, ptr %43, align 4, !tbaa !132
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store ptr %47, ptr %42, align 8, !tbaa !141
+  store ptr %47, ptr %42, align 8, !tbaa !144
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE9push_backEOS1_.exit
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr %39, align 8, !tbaa !139
+  %49 = load ptr, ptr %39, align 8, !tbaa !142
   %50 = ptrtoint ptr %43 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
@@ -2166,7 +2166,7 @@ _ZNKSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE12_M_check_lenEmPKc.exit.i.i.
   %60 = shl nuw nsw i64 %59, 2
   %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #14
   %62 = getelementptr inbounds i8, ptr %61, i64 %52
-  store i32 %41, ptr %62, align 4, !tbaa !130
+  store i32 %41, ptr %62, align 4, !tbaa !132
   %63 = icmp sgt i64 %52, 0
   br i1 %63, label %64, label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
@@ -2184,10 +2184,10 @@ _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %61, ptr %39, align 8, !tbaa !139
-  store ptr %65, ptr %42, align 8, !tbaa !141
+  store ptr %61, ptr %39, align 8, !tbaa !142
+  store ptr %65, ptr %42, align 8, !tbaa !144
   %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
-  store ptr %67, ptr %44, align 8, !tbaa !142
+  store ptr %67, ptr %44, align 8, !tbaa !145
   br label %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %46, %37
@@ -2208,23 +2208,23 @@ define linkonce_odr dso_local noundef ptr @_ZNK3gmx10EnumOptionINS_22NbnxmBenchM
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !81
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !143
+  %9 = load ptr, ptr %8, align 8, !tbaa !146
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %9, align 4, !tbaa !144
+  %11 = load i32, ptr %9, align 4, !tbaa !147
   br label %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit
 
 _ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit: ; preds = %2, %10
   %12 = phi i32 [ %11, %10 ], [ -1, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !145
+  %14 = load ptr, ptr %13, align 8, !tbaa !148
   %.not.i2 = icmp eq ptr %14, null
   br i1 %.not.i2, label %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3, label %15
 
 15:                                               ; preds = %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit
-  %16 = load i32, ptr %14, align 4, !tbaa !144
+  %16 = load i32, ptr %14, align 4, !tbaa !147
   br label %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3
 
 _ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3: ; preds = %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit, %15
@@ -2232,10 +2232,10 @@ _ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3: ; p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !146
-  %22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !147
+  %21 = load ptr, ptr %20, align 8, !tbaa !149
+  %22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !150
   invoke void @_ZN3gmx8internal14EnumIndexStoreINS_22NbnxmBenchMarkCombRuleEEC2EPS2_PSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %19, ptr noundef %21)
-          to label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %23, !noalias !147
+          to label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %23, !noalias !150
 
 common.resume:                                    ; preds = %31, %_ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7, %23
   %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %32, %_ZNKSt14default_deleteIN3gmx17IOptionValueStoreIiEEEclEPS2_.exit.i7 ], [ %32, %31 ]
@@ -2244,7 +2244,7 @@ common.resume:                                    ; preds = %31, %_ZNKSt14defaul
 23:                                               ; preds = %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #15, !noalias !147
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #15, !noalias !150
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN3gmx10EnumOptionINS_22NbnxmBenchMarkCombRuleEE12convertToIntEPKS1_.exit3
@@ -2288,9 +2288,9 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_22NbnxmB
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %5, align 8, !tbaa !150
+  store ptr %1, ptr %5, align 8, !tbaa !153
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %6, align 8, !tbaa !152
+  store ptr %2, ptr %6, align 8, !tbaa !155
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %43, label %7
 
@@ -2311,7 +2311,7 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_22NbnxmB
   %15 = phi ptr [ null, %.lr.ph ], [ %40, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %16 = phi ptr [ null, %.lr.ph ], [ %41, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.sroa.025.030 = phi ptr [ %8, %.lr.ph ], [ %42, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %17 = load i32, ptr %.sroa.025.030, align 4, !tbaa !144
+  %17 = load i32, ptr %.sroa.025.030, align 4, !tbaa !147
   %.not.i.i = icmp eq ptr %16, %15
   br i1 %.not.i.i, label %20, label %18
 
@@ -2380,7 +2380,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %41 = phi ptr [ %36, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %19, %18 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 4
   %.not28 = icmp eq ptr %42, %10
-  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13
+  br i1 %.not28, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %13, !llvm.loop !156
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2398,7 +2398,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not9, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i13
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i13: ; preds = %43
-  %44 = load i32, ptr %1, align 4, !tbaa !144
+  %44 = load i32, ptr %1, align 4, !tbaa !147
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #14
@@ -2518,19 +2518,19 @@ define linkonce_odr dso_local void @_ZN3gmx8internal14EnumIndexStoreINS_22NbnxmB
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !152
+  %8 = load ptr, ptr %7, align 8, !tbaa !155
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE5clearEv.exit, label %9
 
 9:                                                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %10 = load ptr, ptr %8, align 8, !tbaa !153
+  %10 = load ptr, ptr %8, align 8, !tbaa !157
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !155
+  %12 = load ptr, ptr %11, align 8, !tbaa !159
   %.not.i.i1 = icmp eq ptr %12, %10
   br i1 %.not.i.i1, label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE5clearEv.exit, label %13
 
 13:                                               ; preds = %9
-  store ptr %10, ptr %11, align 8, !tbaa !155
+  store ptr %10, ptr %11, align 8, !tbaa !159
   br label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE5clearEv.exit: ; preds = %13, %9, %_ZNSt6vectorIiSaIiEE5clearEv.exit
@@ -2592,14 +2592,14 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !152
+  %29 = load ptr, ptr %28, align 8, !tbaa !155
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE7reserveEm.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !155
-  %33 = load ptr, ptr %29, align 8, !tbaa !153
+  %32 = load ptr, ptr %31, align 8, !tbaa !159
+  %33 = load ptr, ptr %29, align 8, !tbaa !157
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -2614,7 +2614,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %14, %_ZNSt12_Vector
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !156
+  %43 = load ptr, ptr %42, align 8, !tbaa !160
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %35
   %46 = ashr exact i64 %45, 2
@@ -2640,11 +2640,11 @@ _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
   br label %_ZNSt12_Vector_baseIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %52, %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %49, ptr %29, align 8, !tbaa !153
+  store ptr %49, ptr %29, align 8, !tbaa !157
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
-  store ptr %53, ptr %31, align 8, !tbaa !155
+  store ptr %53, ptr %31, align 8, !tbaa !159
   %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
-  store ptr %54, ptr %42, align 8, !tbaa !156
+  store ptr %54, ptr %42, align 8, !tbaa !160
   br label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE13_M_deallocateEPS1_m.exit.i, %41, %_ZNSt6vectorIiSaIiEE7reserveEm.exit
@@ -2719,39 +2719,39 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %13, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !150
+  %33 = load ptr, ptr %32, align 8, !tbaa !153
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %37, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %35 = load i32, ptr %1, align 4, !tbaa !121
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %9
-  store i32 %35, ptr %36, align 4, !tbaa !144
+  store i32 %35, ptr %36, align 4, !tbaa !147
   br label %37
 
 37:                                               ; preds = %34, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !152
+  %39 = load ptr, ptr %38, align 8, !tbaa !155
   %.not5 = icmp eq ptr %39, null
   br i1 %.not5, label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE9push_backEOS1_.exit, label %40
 
 40:                                               ; preds = %37
   %41 = load i32, ptr %1, align 4, !tbaa !121
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !155
+  %43 = load ptr, ptr %42, align 8, !tbaa !159
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !156
+  %45 = load ptr, ptr %44, align 8, !tbaa !160
   %.not.i.i = icmp eq ptr %43, %45
   br i1 %.not.i.i, label %48, label %46
 
 46:                                               ; preds = %40
-  store i32 %41, ptr %43, align 4, !tbaa !144
+  store i32 %41, ptr %43, align 4, !tbaa !147
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store ptr %47, ptr %42, align 8, !tbaa !155
+  store ptr %47, ptr %42, align 8, !tbaa !159
   br label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE9push_backEOS1_.exit
 
 48:                                               ; preds = %40
-  %49 = load ptr, ptr %39, align 8, !tbaa !153
+  %49 = load ptr, ptr %39, align 8, !tbaa !157
   %50 = ptrtoint ptr %43 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
@@ -2774,7 +2774,7 @@ _ZNKSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %60 = shl nuw nsw i64 %59, 2
   %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #14
   %62 = getelementptr inbounds i8, ptr %61, i64 %52
-  store i32 %41, ptr %62, align 4, !tbaa !144
+  store i32 %41, ptr %62, align 4, !tbaa !147
   %63 = icmp sgt i64 %52, 0
   br i1 %63, label %64, label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
@@ -2792,10 +2792,10 @@ _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
   br label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %61, ptr %39, align 8, !tbaa !153
-  store ptr %65, ptr %42, align 8, !tbaa !155
+  store ptr %61, ptr %39, align 8, !tbaa !157
+  store ptr %65, ptr %42, align 8, !tbaa !159
   %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
-  store ptr %67, ptr %44, align 8, !tbaa !156
+  store ptr %67, ptr %44, align 8, !tbaa !160
   br label %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %46, %37
@@ -2964,35 +2964,39 @@ attributes #17 = { noreturn }
 !122 = !{!118, !58, i64 8}
 !123 = !{!118, !58, i64 0}
 !124 = !{!118, !58, i64 16}
-!125 = !{!126, !24, i64 0}
-!126 = !{!"_ZTSNSt12_Vector_baseIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!127 = !{!126, !24, i64 8}
-!128 = !{!126, !24, i64 16}
-!129 = !{!68, !24, i64 48}
-!130 = !{!20, !20, i64 0}
-!131 = !{!68, !24, i64 56}
-!132 = !{!68, !69, i64 80}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!135 = distinct !{!135, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!136 = !{!137, !24, i64 32}
-!137 = !{!"_ZTSN3gmx8internal14EnumIndexStoreINS_21NbnxmBenchMarkCoulombEEE", !114, i64 0, !115, i64 8, !24, i64 32, !69, i64 40}
-!138 = !{!137, !69, i64 40}
-!139 = !{!140, !24, i64 0}
-!140 = !{!"_ZTSNSt12_Vector_baseIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!141 = !{!140, !24, i64 8}
-!142 = !{!140, !24, i64 16}
-!143 = !{!77, !24, i64 48}
-!144 = !{!18, !18, i64 0}
-!145 = !{!77, !24, i64 56}
-!146 = !{!77, !78, i64 80}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!149 = distinct !{!149, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!150 = !{!151, !24, i64 32}
-!151 = !{!"_ZTSN3gmx8internal14EnumIndexStoreINS_22NbnxmBenchMarkCombRuleEEE", !114, i64 0, !115, i64 8, !24, i64 32, !78, i64 40}
-!152 = !{!151, !78, i64 40}
-!153 = !{!154, !24, i64 0}
-!154 = !{!"_ZTSNSt12_Vector_baseIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!155 = !{!154, !24, i64 8}
-!156 = !{!154, !24, i64 16}
+!125 = distinct !{!125, !126}
+!126 = !{!"llvm.loop.estimated_trip_count"}
+!127 = !{!128, !24, i64 0}
+!128 = !{!"_ZTSNSt12_Vector_baseIN3gmx21NbnxmBenchMarkKernelsESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!129 = !{!128, !24, i64 8}
+!130 = !{!128, !24, i64 16}
+!131 = !{!68, !24, i64 48}
+!132 = !{!20, !20, i64 0}
+!133 = !{!68, !24, i64 56}
+!134 = !{!68, !69, i64 80}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!137 = distinct !{!137, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_21NbnxmBenchMarkCoulombEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!138 = !{!139, !24, i64 32}
+!139 = !{!"_ZTSN3gmx8internal14EnumIndexStoreINS_21NbnxmBenchMarkCoulombEEE", !114, i64 0, !115, i64 8, !24, i64 32, !69, i64 40}
+!140 = !{!139, !69, i64 40}
+!141 = distinct !{!141, !126}
+!142 = !{!143, !24, i64 0}
+!143 = !{!"_ZTSNSt12_Vector_baseIN3gmx21NbnxmBenchMarkCoulombESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!144 = !{!143, !24, i64 8}
+!145 = !{!143, !24, i64 16}
+!146 = !{!77, !24, i64 48}
+!147 = !{!18, !18, i64 0}
+!148 = !{!77, !24, i64 56}
+!149 = !{!77, !78, i64 80}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!152 = distinct !{!152, !"_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_22NbnxmBenchMarkCombRuleEEEJPS3_PSt6vectorIS3_SaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!153 = !{!154, !24, i64 32}
+!154 = !{!"_ZTSN3gmx8internal14EnumIndexStoreINS_22NbnxmBenchMarkCombRuleEEE", !114, i64 0, !115, i64 8, !24, i64 32, !78, i64 40}
+!155 = !{!154, !78, i64 40}
+!156 = distinct !{!156, !126}
+!157 = !{!158, !24, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseIN3gmx22NbnxmBenchMarkCombRuleESaIS1_EE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!159 = !{!158, !24, i64 8}
+!160 = !{!158, !24, i64 16}

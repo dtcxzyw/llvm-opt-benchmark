@@ -1130,7 +1130,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %176 = add i32 %.2.i, 1
   %177 = add i32 %.1354.i, -1
   %178 = icmp ugt i32 %177, 1
-  br i1 %178, label %166, label %dissect_sapms_opcode.exit.thread, !llvm.loop !8
+  br i1 %178, label %166, label %dissect_sapms_opcode.exit.thread, !llvm.loop !9
 
 179:                                              ; preds = %94
   %180 = load i32, ptr @hf_sapms_file_reload, align 4
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %214 = add i32 %.3402.i, 48
   %215 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %214)
   %216 = icmp sgt i32 %215, 47
-  br i1 %216, label %.lr.ph.i, label %dissect_sapms_opcode.exit.thread, !llvm.loop !9
+  br i1 %216, label %.lr.ph.i, label %dissect_sapms_opcode.exit.thread, !llvm.loop !10
 
 217:                                              ; preds = %94, %94, %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
@@ -1474,7 +1474,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_sapms_opcode.exit.thread
 
 399:                                              ; preds = %94
-  %400 = load i8, ptr @global_sapms_highlight_items, align 1, !range !10, !noundef !11
+  %400 = load i8, ptr @global_sapms_highlight_items, align 1, !range !11, !noundef !12
   %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %402, label %dissect_sapms_opcode.exit.thread
 
@@ -1723,7 +1723,7 @@ define internal fastcc void @dissect_sapms_adm_record(ptr noundef %0, ptr nounde
 70:                                               ; preds = %.lr.ph
   %71 = load i32, ptr @hf_sapms_adm_record_value, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %71, ptr noundef %0, i32 noundef %24, i32 noundef 100, i32 noundef 0)
-  %73 = load i8, ptr @global_sapms_highlight_items, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr @global_sapms_highlight_items, align 1, !range !11, !noundef !12
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
 
@@ -1735,7 +1735,7 @@ define internal fastcc void @dissect_sapms_adm_record(ptr noundef %0, ptr nounde
   %.1 = add i32 %.0119, 104
   %.1116 = add nsw i32 %.0115118, -104
   %78 = icmp ugt i32 %.1116, 103
-  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %77, %4
   ret void
@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 0, 161) i32 @dissect_sapms_client(ptr noundef %
   br i1 %10, label %switch.lookup, label %11
 
 11:                                               ; preds = %9
-  %12 = load i8, ptr @global_sapms_highlight_items, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr @global_sapms_highlight_items, align 1, !range !11, !noundef !12
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
@@ -1952,10 +1952,11 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}

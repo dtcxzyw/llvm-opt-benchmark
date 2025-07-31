@@ -89,11 +89,11 @@ define internal i32 @truemotion2rt_decode_frame(ptr noundef %0, ptr noundef %1, 
   %.pre4.i = load i8, ptr %.phi.trans.insert3.i, align 1, !tbaa !31
   %28 = zext i8 %.pre4.i to i32
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %28, ptr %29, align 8, !tbaa !34
+  store i32 %28, ptr %29, align 8, !tbaa !35
   %.not41.i = icmp eq i8 %.pre6.i, 0
   %30 = select i1 %.not41.i, i32 1, i32 2
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 %30, ptr %31, align 4, !tbaa !37
+  store i32 %30, ptr %31, align 4, !tbaa !38
   %32 = add i8 %.pre4.i, -5
   %or.cond.i = icmp ult i8 %32, -3
   br i1 %or.cond.i, label %truemotion2rt_decode_header.exit.thread, label %33
@@ -118,15 +118,15 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %17) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %44 = load i32, ptr %43, align 8, !tbaa !38
-  %45 = load i32, ptr %31, align 4, !tbaa !37
+  %44 = load i32, ptr %43, align 8, !tbaa !39
+  %45 = load i32, ptr %31, align 4, !tbaa !38
   %46 = add i32 %44, -1
   %47 = add i32 %46, %45
   %48 = sdiv i32 %47, %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %50 = load i32, ptr %49, align 4, !tbaa !39
+  %50 = load i32, ptr %49, align 4, !tbaa !40
   %51 = mul nsw i32 %50, %48
-  %52 = load i32, ptr %29, align 8, !tbaa !34
+  %52 = load i32, ptr %29, align 8, !tbaa !35
   %53 = mul nsw i32 %51, %52
   %54 = sext i32 %53 to i64
   %55 = load i32, ptr %9, align 8, !tbaa !30
@@ -146,18 +146,18 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %64
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %61
   %65 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %7, align 8, !tbaa !40
+  store ptr %.017.i.i, ptr %7, align 8, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %.018.i.i, ptr %66, align 4, !tbaa !41
+  store i32 %.018.i.i, ptr %66, align 4, !tbaa !42
   %67 = add nuw nsw i32 %.018.i.i, 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %67, ptr %68, align 8, !tbaa !42
+  store i32 %67, ptr %68, align 8, !tbaa !43
   %69 = zext nneg i32 %65 to i64
   %70 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %70, ptr %71, align 8, !tbaa !43
+  store ptr %70, ptr %71, align 8, !tbaa !44
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %72, align 8, !tbaa !44
+  store i32 0, ptr %72, align 8, !tbaa !45
   br i1 %or.cond.i.i, label %490, label %73
 
 73:                                               ; preds = %59
@@ -166,14 +166,14 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %75, label %490, label %76
 
 76:                                               ; preds = %73
-  %77 = load i32, ptr %72, align 8, !tbaa !44
-  %78 = load i32, ptr %68, align 8, !tbaa !42
+  %77 = load i32, ptr %72, align 8, !tbaa !45
+  %78 = load i32, ptr %68, align 8, !tbaa !43
   %79 = add i32 %77, 32
   %80 = tail call i32 @llvm.umin.i32(i32 %78, i32 %79)
-  store i32 %80, ptr %72, align 8, !tbaa !44
-  %81 = load i32, ptr %29, align 8, !tbaa !34
+  store i32 %80, ptr %72, align 8, !tbaa !45
+  %81 = load i32, ptr %29, align 8, !tbaa !35
   %82 = add nsw i32 %81, -2
-  %83 = load i32, ptr %49, align 4, !tbaa !39
+  %83 = load i32, ptr %49, align 4, !tbaa !40
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.preheader230.lr.ph, label %._crit_edge236
 
@@ -181,12 +181,12 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %85 = sext i32 %82 to i64
   %86 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %88 = load i32, ptr %43, align 8, !tbaa !38
+  %88 = load i32, ptr %43, align 8, !tbaa !39
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.preheader230.preheader, label %._crit_edge236
 
 .preheader230.preheader:                          ; preds = %.preheader230.lr.ph
-  %90 = load ptr, ptr %1, align 8, !tbaa !45
+  %90 = load ptr, ptr %1, align 8, !tbaa !46
   br label %.preheader230
 
 .preheader230:                                    ; preds = %.preheader230.preheader, %._crit_edge
@@ -197,17 +197,17 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %92, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader230
-  %93 = load ptr, ptr %86, align 8, !tbaa !46
+  %93 = load ptr, ptr %86, align 8, !tbaa !47
   %.not203 = icmp eq i32 %.0179235, 0
   br i1 %.not203, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0177232.us = phi i32 [ %113, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.0180231.us = phi i32 [ %119, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %94 = load i32, ptr %29, align 8, !tbaa !34
-  %95 = load i32, ptr %72, align 8, !tbaa !44
-  %96 = load i32, ptr %68, align 8, !tbaa !42
-  %97 = load ptr, ptr %7, align 8, !tbaa !40
+  %94 = load i32, ptr %29, align 8, !tbaa !35
+  %95 = load i32, ptr %72, align 8, !tbaa !45
+  %96 = load i32, ptr %68, align 8, !tbaa !43
+  %97 = load ptr, ptr %7, align 8, !tbaa !41
   %98 = lshr i32 %95, 3
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
@@ -219,10 +219,10 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %106 = and i32 %103, %105
   %107 = add i32 %95, %94
   %108 = tail call i32 @llvm.umin.i32(i32 %96, i32 %107)
-  store i32 %108, ptr %72, align 8, !tbaa !44
+  store i32 %108, ptr %72, align 8, !tbaa !45
   %109 = zext i32 %106 to i64
   %110 = getelementptr inbounds nuw i16, ptr %93, i64 %109
-  %111 = load i16, ptr %110, align 2, !tbaa !47
+  %111 = load i16, ptr %110, align 2, !tbaa !48
   %112 = sext i16 %111 to i32
   %113 = add nsw i32 %.0177232.us, %112
   %.not.i.us = icmp ult i32 %113, 256
@@ -233,19 +233,19 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %116 = sext i32 %.0180231.us to i64
   %117 = getelementptr inbounds i8, ptr %.0189233, i64 %116
   store i8 %.0.i.us, ptr %117, align 1, !tbaa !31
-  %118 = load i32, ptr %31, align 4, !tbaa !37
+  %118 = load i32, ptr %31, align 4, !tbaa !38
   %119 = add nsw i32 %118, %.0180231.us
-  %120 = load i32, ptr %43, align 8, !tbaa !38
+  %120 = load i32, ptr %43, align 8, !tbaa !39
   %121 = icmp slt i32 %119, %120
-  br i1 %121, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !49
+  br i1 %121, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.0177232 = phi i32 [ %141, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.0180231 = phi i32 [ %154, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %122 = load i32, ptr %29, align 8, !tbaa !34
-  %123 = load i32, ptr %72, align 8, !tbaa !44
-  %124 = load i32, ptr %68, align 8, !tbaa !42
-  %125 = load ptr, ptr %7, align 8, !tbaa !40
+  %122 = load i32, ptr %29, align 8, !tbaa !35
+  %123 = load i32, ptr %72, align 8, !tbaa !45
+  %124 = load i32, ptr %68, align 8, !tbaa !43
+  %125 = load ptr, ptr %7, align 8, !tbaa !41
   %126 = lshr i32 %123, 3
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 %127
@@ -257,13 +257,13 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %134 = and i32 %131, %133
   %135 = add i32 %123, %122
   %136 = tail call i32 @llvm.umin.i32(i32 %124, i32 %135)
-  store i32 %136, ptr %72, align 8, !tbaa !44
+  store i32 %136, ptr %72, align 8, !tbaa !45
   %137 = zext i32 %134 to i64
   %138 = getelementptr inbounds nuw i16, ptr %93, i64 %137
-  %139 = load i16, ptr %138, align 2, !tbaa !47
+  %139 = load i16, ptr %138, align 2, !tbaa !48
   %140 = sext i16 %139 to i32
   %141 = add nsw i32 %.0177232, %140
-  %142 = load i32, ptr %87, align 8, !tbaa !51
+  %142 = load i32, ptr %87, align 8, !tbaa !52
   %143 = sub nsw i32 %.0180231, %142
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds i8, ptr %.0189233, i64 %144
@@ -278,25 +278,25 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %151 = sext i32 %.0180231 to i64
   %152 = getelementptr inbounds i8, ptr %.0189233, i64 %151
   store i8 %.0.i, ptr %152, align 1, !tbaa !31
-  %153 = load i32, ptr %31, align 4, !tbaa !37
+  %153 = load i32, ptr %31, align 4, !tbaa !38
   %154 = add nsw i32 %153, %.0180231
-  %155 = load i32, ptr %43, align 8, !tbaa !38
+  %155 = load i32, ptr %43, align 8, !tbaa !39
   %156 = icmp slt i32 %154, %155
-  br i1 %156, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
+  br i1 %156, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader230
   %157 = phi i32 [ %91, %.preheader230 ], [ %120, %.lr.ph.split.us ], [ %155, %.lr.ph.split ]
-  %158 = load i32, ptr %87, align 8, !tbaa !51
+  %158 = load i32, ptr %87, align 8, !tbaa !52
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %.0189233, i64 %159
   %161 = add nuw nsw i32 %.0179235, 1
-  %162 = load i32, ptr %49, align 4, !tbaa !39
+  %162 = load i32, ptr %49, align 4, !tbaa !40
   %163 = icmp slt i32 %161, %162
-  br i1 %163, label %.preheader230, label %._crit_edge236, !llvm.loop !53
+  br i1 %163, label %.preheader230, label %._crit_edge236, !llvm.loop !54
 
 ._crit_edge236:                                   ; preds = %._crit_edge, %.preheader230.lr.ph, %76
   %164 = phi i32 [ %83, %76 ], [ %83, %.preheader230.lr.ph ], [ %162, %._crit_edge ]
-  %165 = load i32, ptr %31, align 4, !tbaa !37
+  %165 = load i32, ptr %31, align 4, !tbaa !38
   %166 = icmp sgt i32 %165, 1
   br i1 %166, label %167, label %.loopexit229
 
@@ -306,12 +306,12 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 
 .preheader228.lr.ph:                              ; preds = %167
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %170 = load i32, ptr %43, align 8, !tbaa !38
+  %170 = load i32, ptr %43, align 8, !tbaa !39
   %171 = icmp sgt i32 %170, 1
   br i1 %171, label %.preheader228.preheader, label %.preheader227.lr.ph
 
 .preheader228.preheader:                          ; preds = %.preheader228.lr.ph
-  %172 = load ptr, ptr %1, align 8, !tbaa !45
+  %172 = load ptr, ptr %1, align 8, !tbaa !46
   br label %.preheader228
 
 .preheader228:                                    ; preds = %.preheader228.preheader, %._crit_edge239
@@ -329,25 +329,25 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %178 = getelementptr i8, ptr %177, i64 -1
   %179 = load i8, ptr %178, align 1, !tbaa !31
   store i8 %179, ptr %177, align 1, !tbaa !31
-  %180 = load i32, ptr %31, align 4, !tbaa !37
+  %180 = load i32, ptr %31, align 4, !tbaa !38
   %181 = add nsw i32 %180, %.1181237
-  %182 = load i32, ptr %43, align 8, !tbaa !38
+  %182 = load i32, ptr %43, align 8, !tbaa !39
   %183 = icmp slt i32 %181, %182
-  br i1 %183, label %.lr.ph238, label %._crit_edge239.loopexit, !llvm.loop !55
+  br i1 %183, label %.lr.ph238, label %._crit_edge239.loopexit, !llvm.loop !56
 
 ._crit_edge239.loopexit:                          ; preds = %.lr.ph238
-  %.pre = load i32, ptr %49, align 4, !tbaa !39
+  %.pre = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge239
 
 ._crit_edge239:                                   ; preds = %._crit_edge239.loopexit, %.preheader228
   %184 = phi i32 [ %.pre, %._crit_edge239.loopexit ], [ %173, %.preheader228 ]
   %185 = phi i32 [ %182, %._crit_edge239.loopexit ], [ %174, %.preheader228 ]
-  %186 = load i32, ptr %169, align 8, !tbaa !51
+  %186 = load i32, ptr %169, align 8, !tbaa !52
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds i8, ptr %.1190240, i64 %187
   %189 = add nuw nsw i32 %.1241, 1
   %190 = icmp slt i32 %189, %184
-  br i1 %190, label %.preheader228, label %.loopexit229, !llvm.loop !56
+  br i1 %190, label %.preheader228, label %.loopexit229, !llvm.loop !57
 
 .loopexit229:                                     ; preds = %._crit_edge239, %._crit_edge236
   %191 = phi i32 [ %164, %._crit_edge236 ], [ %184, %._crit_edge239 ]
@@ -355,7 +355,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %192, label %.preheader227.lr.phthread-pre-split, label %._crit_edge247.thread
 
 .preheader227.lr.phthread-pre-split:              ; preds = %.loopexit229
-  %.pr = load i32, ptr %43, align 8, !tbaa !38
+  %.pr = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader227.lr.ph
 
 .preheader227.lr.ph:                              ; preds = %.preheader228.lr.ph, %.preheader227.lr.phthread-pre-split
@@ -366,7 +366,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %196, label %.preheader227.preheader, label %._crit_edge247
 
 .preheader227.preheader:                          ; preds = %.preheader227.lr.ph
-  %197 = load ptr, ptr %1, align 8, !tbaa !45
+  %197 = load ptr, ptr %1, align 8, !tbaa !46
   br label %.preheader227
 
 .preheader227:                                    ; preds = %.preheader227.preheader, %._crit_edge244
@@ -393,24 +393,24 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %.0.i206 = select i1 %.not.i204, i8 %207, i8 %206
   store i8 %.0.i206, ptr %201, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %208 = load i32, ptr %43, align 8, !tbaa !38
+  %208 = load i32, ptr %43, align 8, !tbaa !39
   %209 = sext i32 %208 to i64
   %210 = icmp slt i64 %indvars.iv.next, %209
-  br i1 %210, label %.lr.ph243, label %._crit_edge244.loopexit, !llvm.loop !57
+  br i1 %210, label %.lr.ph243, label %._crit_edge244.loopexit, !llvm.loop !58
 
 ._crit_edge244.loopexit:                          ; preds = %.lr.ph243
-  %.pre299 = load i32, ptr %49, align 4, !tbaa !39
+  %.pre299 = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge244
 
 ._crit_edge244:                                   ; preds = %._crit_edge244.loopexit, %.preheader227
   %211 = phi i32 [ %.pre299, %._crit_edge244.loopexit ], [ %198, %.preheader227 ]
   %212 = phi i32 [ %208, %._crit_edge244.loopexit ], [ %199, %.preheader227 ]
-  %213 = load i32, ptr %195, align 8, !tbaa !51
+  %213 = load i32, ptr %195, align 8, !tbaa !52
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i8, ptr %.2191245, i64 %214
   %216 = add nuw nsw i32 %.2246, 1
   %217 = icmp slt i32 %216, %211
-  br i1 %217, label %.preheader227, label %._crit_edge247, !llvm.loop !58
+  br i1 %217, label %.preheader227, label %._crit_edge247, !llvm.loop !59
 
 ._crit_edge247.thread:                            ; preds = %.loopexit229, %167
   %.ph = phi i32 [ %191, %.loopexit229 ], [ %164, %167 ]
@@ -424,11 +424,11 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %221, label %.preheader226.lr.ph, label %._crit_edge255
 
 .preheader226.lr.ph:                              ; preds = %._crit_edge247
-  %222 = load ptr, ptr %220, align 8, !tbaa !45
+  %222 = load ptr, ptr %220, align 8, !tbaa !46
   %223 = sext i32 %82 to i64
   %224 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %.pre300 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre300 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader226
 
 .preheader226:                                    ; preds = %.preheader226.lr.ph, %._crit_edge251
@@ -439,17 +439,17 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %227, label %.lr.ph250, label %._crit_edge251
 
 .lr.ph250:                                        ; preds = %.preheader226
-  %228 = load ptr, ptr %224, align 8, !tbaa !46
+  %228 = load ptr, ptr %224, align 8, !tbaa !47
   %.not202 = icmp eq i32 %.3254, 0
   br i1 %.not202, label %.lr.ph250.split.us, label %.lr.ph250.split
 
 .lr.ph250.split.us:                               ; preds = %.lr.ph250, %.lr.ph250.split.us
   %.0176249.us = phi i32 [ %248, %.lr.ph250.split.us ], [ 0, %.lr.ph250 ]
   %.3183248.us = phi i32 [ %255, %.lr.ph250.split.us ], [ 0, %.lr.ph250 ]
-  %229 = load i32, ptr %29, align 8, !tbaa !34
-  %230 = load i32, ptr %72, align 8, !tbaa !44
-  %231 = load i32, ptr %68, align 8, !tbaa !42
-  %232 = load ptr, ptr %7, align 8, !tbaa !40
+  %229 = load i32, ptr %29, align 8, !tbaa !35
+  %230 = load i32, ptr %72, align 8, !tbaa !45
+  %231 = load i32, ptr %68, align 8, !tbaa !43
+  %232 = load ptr, ptr %7, align 8, !tbaa !41
   %233 = lshr i32 %230, 3
   %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 %234
@@ -461,10 +461,10 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %241 = and i32 %238, %240
   %242 = add i32 %230, %229
   %243 = tail call i32 @llvm.umin.i32(i32 %231, i32 %242)
-  store i32 %243, ptr %72, align 8, !tbaa !44
+  store i32 %243, ptr %72, align 8, !tbaa !45
   %244 = zext i32 %241 to i64
   %245 = getelementptr inbounds nuw i16, ptr %228, i64 %244
-  %246 = load i16, ptr %245, align 2, !tbaa !47
+  %246 = load i16, ptr %245, align 2, !tbaa !48
   %247 = sext i16 %246 to i32
   %248 = add nsw i32 %.0176249.us, %247
   %249 = add nsw i32 %248, 128
@@ -476,20 +476,20 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %252 = sext i32 %.3183248.us to i64
   %253 = getelementptr inbounds i8, ptr %.3192252, i64 %252
   store i8 %.0.i209.us, ptr %253, align 1, !tbaa !31
-  %254 = load i32, ptr %31, align 4, !tbaa !37
+  %254 = load i32, ptr %31, align 4, !tbaa !38
   %255 = add nsw i32 %254, %.3183248.us
-  %256 = load i32, ptr %43, align 8, !tbaa !38
+  %256 = load i32, ptr %43, align 8, !tbaa !39
   %257 = ashr i32 %256, 2
   %258 = icmp slt i32 %255, %257
-  br i1 %258, label %.lr.ph250.split.us, label %._crit_edge251, !llvm.loop !59
+  br i1 %258, label %.lr.ph250.split.us, label %._crit_edge251, !llvm.loop !60
 
 .lr.ph250.split:                                  ; preds = %.lr.ph250, %.lr.ph250.split
   %.0176249 = phi i32 [ %278, %.lr.ph250.split ], [ 0, %.lr.ph250 ]
   %.3183248 = phi i32 [ %291, %.lr.ph250.split ], [ 0, %.lr.ph250 ]
-  %259 = load i32, ptr %29, align 8, !tbaa !34
-  %260 = load i32, ptr %72, align 8, !tbaa !44
-  %261 = load i32, ptr %68, align 8, !tbaa !42
-  %262 = load ptr, ptr %7, align 8, !tbaa !40
+  %259 = load i32, ptr %29, align 8, !tbaa !35
+  %260 = load i32, ptr %72, align 8, !tbaa !45
+  %261 = load i32, ptr %68, align 8, !tbaa !43
+  %262 = load ptr, ptr %7, align 8, !tbaa !41
   %263 = lshr i32 %260, 3
   %264 = zext nneg i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 %264
@@ -501,13 +501,13 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %271 = and i32 %268, %270
   %272 = add i32 %260, %259
   %273 = tail call i32 @llvm.umin.i32(i32 %261, i32 %272)
-  store i32 %273, ptr %72, align 8, !tbaa !44
+  store i32 %273, ptr %72, align 8, !tbaa !45
   %274 = zext i32 %271 to i64
   %275 = getelementptr inbounds nuw i16, ptr %228, i64 %274
-  %276 = load i16, ptr %275, align 2, !tbaa !47
+  %276 = load i16, ptr %275, align 2, !tbaa !48
   %277 = sext i16 %276 to i32
   %278 = add nsw i32 %.0176249, %277
-  %279 = load i32, ptr %225, align 4, !tbaa !51
+  %279 = load i32, ptr %225, align 4, !tbaa !52
   %280 = sub nsw i32 %.3183248, %279
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %.3192252, i64 %281
@@ -522,28 +522,28 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %288 = sext i32 %.3183248 to i64
   %289 = getelementptr inbounds i8, ptr %.3192252, i64 %288
   store i8 %.0.i209, ptr %289, align 1, !tbaa !31
-  %290 = load i32, ptr %31, align 4, !tbaa !37
+  %290 = load i32, ptr %31, align 4, !tbaa !38
   %291 = add nsw i32 %290, %.3183248
-  %292 = load i32, ptr %43, align 8, !tbaa !38
+  %292 = load i32, ptr %43, align 8, !tbaa !39
   %293 = ashr i32 %292, 2
   %294 = icmp slt i32 %291, %293
-  br i1 %294, label %.lr.ph250.split, label %._crit_edge251, !llvm.loop !60
+  br i1 %294, label %.lr.ph250.split, label %._crit_edge251, !llvm.loop !61
 
 ._crit_edge251:                                   ; preds = %.lr.ph250.split, %.lr.ph250.split.us, %.preheader226
   %295 = phi i32 [ %226, %.preheader226 ], [ %256, %.lr.ph250.split.us ], [ %292, %.lr.ph250.split ]
-  %296 = load i32, ptr %225, align 4, !tbaa !51
+  %296 = load i32, ptr %225, align 4, !tbaa !52
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i8, ptr %.3192252, i64 %297
   %299 = add nuw nsw i32 %.3254, 1
-  %300 = load i32, ptr %49, align 4, !tbaa !39
+  %300 = load i32, ptr %49, align 4, !tbaa !40
   %301 = ashr i32 %300, 2
   %302 = icmp slt i32 %299, %301
-  br i1 %302, label %.preheader226, label %._crit_edge255, !llvm.loop !61
+  br i1 %302, label %.preheader226, label %._crit_edge255, !llvm.loop !62
 
 ._crit_edge255:                                   ; preds = %._crit_edge251, %._crit_edge247.thread, %._crit_edge247
   %303 = phi ptr [ %220, %._crit_edge247 ], [ %218, %._crit_edge247.thread ], [ %220, %._crit_edge251 ]
   %304 = phi i32 [ %219, %._crit_edge247 ], [ %.ph, %._crit_edge247.thread ], [ %300, %._crit_edge251 ]
-  %305 = load i32, ptr %31, align 4, !tbaa !37
+  %305 = load i32, ptr %31, align 4, !tbaa !38
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %307, label %.loopexit225
 
@@ -552,9 +552,9 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %308, label %.preheader224.lr.ph, label %._crit_edge266.thread
 
 .preheader224.lr.ph:                              ; preds = %307
-  %309 = load ptr, ptr %303, align 8, !tbaa !45
+  %309 = load ptr, ptr %303, align 8, !tbaa !46
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %.pre301 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre301 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader224
 
 .preheader224:                                    ; preds = %.preheader224.lr.ph, %._crit_edge258
@@ -572,27 +572,27 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %316 = getelementptr i8, ptr %315, i64 -1
   %317 = load i8, ptr %316, align 1, !tbaa !31
   store i8 %317, ptr %315, align 1, !tbaa !31
-  %318 = load i32, ptr %31, align 4, !tbaa !37
+  %318 = load i32, ptr %31, align 4, !tbaa !38
   %319 = add nsw i32 %318, %.4184256
-  %320 = load i32, ptr %43, align 8, !tbaa !38
+  %320 = load i32, ptr %43, align 8, !tbaa !39
   %321 = ashr i32 %320, 2
   %322 = icmp slt i32 %319, %321
-  br i1 %322, label %.lr.ph257, label %._crit_edge258.loopexit, !llvm.loop !62
+  br i1 %322, label %.lr.ph257, label %._crit_edge258.loopexit, !llvm.loop !63
 
 ._crit_edge258.loopexit:                          ; preds = %.lr.ph257
-  %.pre302 = load i32, ptr %49, align 4, !tbaa !39
+  %.pre302 = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge258
 
 ._crit_edge258:                                   ; preds = %._crit_edge258.loopexit, %.preheader224
   %323 = phi i32 [ %.pre302, %._crit_edge258.loopexit ], [ %311, %.preheader224 ]
   %324 = phi i32 [ %320, %._crit_edge258.loopexit ], [ %312, %.preheader224 ]
-  %325 = load i32, ptr %310, align 4, !tbaa !51
+  %325 = load i32, ptr %310, align 4, !tbaa !52
   %326 = sext i32 %325 to i64
   %327 = getelementptr inbounds i8, ptr %.4193259, i64 %326
   %328 = add nuw nsw i32 %.4260, 1
   %329 = ashr i32 %323, 2
   %330 = icmp slt i32 %328, %329
-  br i1 %330, label %.preheader224, label %.loopexit225, !llvm.loop !63
+  br i1 %330, label %.preheader224, label %.loopexit225, !llvm.loop !64
 
 .loopexit225:                                     ; preds = %._crit_edge258, %._crit_edge255
   %331 = phi i32 [ %304, %._crit_edge255 ], [ %323, %._crit_edge258 ]
@@ -600,9 +600,9 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %332, label %.preheader223.lr.ph, label %._crit_edge266.thread
 
 .preheader223.lr.ph:                              ; preds = %.loopexit225
-  %333 = load ptr, ptr %303, align 8, !tbaa !45
+  %333 = load ptr, ptr %303, align 8, !tbaa !46
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %.pre303 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre303 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader223
 
 .preheader223:                                    ; preds = %.preheader223.lr.ph, %._crit_edge263
@@ -622,26 +622,26 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %341 = add i8 %340, %339
   store i8 %341, ptr %338, align 1, !tbaa !31
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %342 = load i32, ptr %43, align 8, !tbaa !38
+  %342 = load i32, ptr %43, align 8, !tbaa !39
   %343 = ashr i32 %342, 2
   %344 = sext i32 %343 to i64
   %345 = icmp slt i64 %indvars.iv.next294, %344
-  br i1 %345, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !64
+  br i1 %345, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !65
 
 ._crit_edge263.loopexit:                          ; preds = %.lr.ph262
-  %.pre304 = load i32, ptr %49, align 4, !tbaa !39
+  %.pre304 = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge263
 
 ._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %.preheader223
   %346 = phi i32 [ %.pre304, %._crit_edge263.loopexit ], [ %335, %.preheader223 ]
   %347 = phi i32 [ %342, %._crit_edge263.loopexit ], [ %336, %.preheader223 ]
-  %348 = load i32, ptr %334, align 4, !tbaa !51
+  %348 = load i32, ptr %334, align 4, !tbaa !52
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds i8, ptr %.5194264, i64 %349
   %351 = add nuw nsw i32 %.5265, 1
   %352 = ashr i32 %346, 2
   %353 = icmp slt i32 %351, %352
-  br i1 %353, label %.preheader223, label %._crit_edge266, !llvm.loop !65
+  br i1 %353, label %.preheader223, label %._crit_edge266, !llvm.loop !66
 
 ._crit_edge266.thread:                            ; preds = %.loopexit225, %307
   %.ph311 = phi i32 [ %331, %.loopexit225 ], [ %304, %307 ]
@@ -654,11 +654,11 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %356, label %.preheader222.lr.ph, label %._crit_edge274
 
 .preheader222.lr.ph:                              ; preds = %._crit_edge266
-  %357 = load ptr, ptr %355, align 8, !tbaa !45
+  %357 = load ptr, ptr %355, align 8, !tbaa !46
   %358 = sext i32 %82 to i64
   %359 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %358
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre305 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre305 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader222
 
 .preheader222:                                    ; preds = %.preheader222.lr.ph, %._crit_edge270
@@ -669,17 +669,17 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %362, label %.lr.ph269, label %._crit_edge270
 
 .lr.ph269:                                        ; preds = %.preheader222
-  %363 = load ptr, ptr %359, align 8, !tbaa !46
+  %363 = load ptr, ptr %359, align 8, !tbaa !47
   %.not = icmp eq i32 %.6273, 0
   br i1 %.not, label %.lr.ph269.split.us, label %.lr.ph269.split
 
 .lr.ph269.split.us:                               ; preds = %.lr.ph269, %.lr.ph269.split.us
   %.0268.us = phi i32 [ %383, %.lr.ph269.split.us ], [ 0, %.lr.ph269 ]
   %.6186267.us = phi i32 [ %390, %.lr.ph269.split.us ], [ 0, %.lr.ph269 ]
-  %364 = load i32, ptr %29, align 8, !tbaa !34
-  %365 = load i32, ptr %72, align 8, !tbaa !44
-  %366 = load i32, ptr %68, align 8, !tbaa !42
-  %367 = load ptr, ptr %7, align 8, !tbaa !40
+  %364 = load i32, ptr %29, align 8, !tbaa !35
+  %365 = load i32, ptr %72, align 8, !tbaa !45
+  %366 = load i32, ptr %68, align 8, !tbaa !43
+  %367 = load ptr, ptr %7, align 8, !tbaa !41
   %368 = lshr i32 %365, 3
   %369 = zext nneg i32 %368 to i64
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 %369
@@ -691,10 +691,10 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %376 = and i32 %373, %375
   %377 = add i32 %365, %364
   %378 = tail call i32 @llvm.umin.i32(i32 %366, i32 %377)
-  store i32 %378, ptr %72, align 8, !tbaa !44
+  store i32 %378, ptr %72, align 8, !tbaa !45
   %379 = zext i32 %376 to i64
   %380 = getelementptr inbounds nuw i16, ptr %363, i64 %379
-  %381 = load i16, ptr %380, align 2, !tbaa !47
+  %381 = load i16, ptr %380, align 2, !tbaa !48
   %382 = sext i16 %381 to i32
   %383 = add nsw i32 %.0268.us, %382
   %384 = add nsw i32 %383, 128
@@ -706,20 +706,20 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %387 = sext i32 %.6186267.us to i64
   %388 = getelementptr inbounds i8, ptr %.6195271, i64 %387
   store i8 %.0.i212.us, ptr %388, align 1, !tbaa !31
-  %389 = load i32, ptr %31, align 4, !tbaa !37
+  %389 = load i32, ptr %31, align 4, !tbaa !38
   %390 = add nsw i32 %389, %.6186267.us
-  %391 = load i32, ptr %43, align 8, !tbaa !38
+  %391 = load i32, ptr %43, align 8, !tbaa !39
   %392 = ashr i32 %391, 2
   %393 = icmp slt i32 %390, %392
-  br i1 %393, label %.lr.ph269.split.us, label %._crit_edge270, !llvm.loop !66
+  br i1 %393, label %.lr.ph269.split.us, label %._crit_edge270, !llvm.loop !67
 
 .lr.ph269.split:                                  ; preds = %.lr.ph269, %.lr.ph269.split
   %.0268 = phi i32 [ %413, %.lr.ph269.split ], [ 0, %.lr.ph269 ]
   %.6186267 = phi i32 [ %426, %.lr.ph269.split ], [ 0, %.lr.ph269 ]
-  %394 = load i32, ptr %29, align 8, !tbaa !34
-  %395 = load i32, ptr %72, align 8, !tbaa !44
-  %396 = load i32, ptr %68, align 8, !tbaa !42
-  %397 = load ptr, ptr %7, align 8, !tbaa !40
+  %394 = load i32, ptr %29, align 8, !tbaa !35
+  %395 = load i32, ptr %72, align 8, !tbaa !45
+  %396 = load i32, ptr %68, align 8, !tbaa !43
+  %397 = load ptr, ptr %7, align 8, !tbaa !41
   %398 = lshr i32 %395, 3
   %399 = zext nneg i32 %398 to i64
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 %399
@@ -731,13 +731,13 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %406 = and i32 %403, %405
   %407 = add i32 %395, %394
   %408 = tail call i32 @llvm.umin.i32(i32 %396, i32 %407)
-  store i32 %408, ptr %72, align 8, !tbaa !44
+  store i32 %408, ptr %72, align 8, !tbaa !45
   %409 = zext i32 %406 to i64
   %410 = getelementptr inbounds nuw i16, ptr %363, i64 %409
-  %411 = load i16, ptr %410, align 2, !tbaa !47
+  %411 = load i16, ptr %410, align 2, !tbaa !48
   %412 = sext i16 %411 to i32
   %413 = add nsw i32 %.0268, %412
-  %414 = load i32, ptr %360, align 8, !tbaa !51
+  %414 = load i32, ptr %360, align 8, !tbaa !52
   %415 = sub nsw i32 %.6186267, %414
   %416 = sext i32 %415 to i64
   %417 = getelementptr inbounds i8, ptr %.6195271, i64 %416
@@ -752,28 +752,28 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %423 = sext i32 %.6186267 to i64
   %424 = getelementptr inbounds i8, ptr %.6195271, i64 %423
   store i8 %.0.i212, ptr %424, align 1, !tbaa !31
-  %425 = load i32, ptr %31, align 4, !tbaa !37
+  %425 = load i32, ptr %31, align 4, !tbaa !38
   %426 = add nsw i32 %425, %.6186267
-  %427 = load i32, ptr %43, align 8, !tbaa !38
+  %427 = load i32, ptr %43, align 8, !tbaa !39
   %428 = ashr i32 %427, 2
   %429 = icmp slt i32 %426, %428
-  br i1 %429, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !67
+  br i1 %429, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !68
 
 ._crit_edge270:                                   ; preds = %.lr.ph269.split, %.lr.ph269.split.us, %.preheader222
   %430 = phi i32 [ %361, %.preheader222 ], [ %391, %.lr.ph269.split.us ], [ %427, %.lr.ph269.split ]
-  %431 = load i32, ptr %360, align 8, !tbaa !51
+  %431 = load i32, ptr %360, align 8, !tbaa !52
   %432 = sext i32 %431 to i64
   %433 = getelementptr inbounds i8, ptr %.6195271, i64 %432
   %434 = add nuw nsw i32 %.6273, 1
-  %435 = load i32, ptr %49, align 4, !tbaa !39
+  %435 = load i32, ptr %49, align 4, !tbaa !40
   %436 = ashr i32 %435, 2
   %437 = icmp slt i32 %434, %436
-  br i1 %437, label %.preheader222, label %._crit_edge274, !llvm.loop !68
+  br i1 %437, label %.preheader222, label %._crit_edge274, !llvm.loop !69
 
 ._crit_edge274:                                   ; preds = %._crit_edge270, %._crit_edge266.thread, %._crit_edge266
   %438 = phi ptr [ %355, %._crit_edge266 ], [ %354, %._crit_edge266.thread ], [ %355, %._crit_edge270 ]
   %439 = phi i32 [ %346, %._crit_edge266 ], [ %.ph311, %._crit_edge266.thread ], [ %435, %._crit_edge270 ]
-  %440 = load i32, ptr %31, align 4, !tbaa !37
+  %440 = load i32, ptr %31, align 4, !tbaa !38
   %441 = icmp sgt i32 %440, 1
   br i1 %441, label %442, label %.loopexit
 
@@ -782,9 +782,9 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %443, label %.preheader221.lr.ph, label %._crit_edge285
 
 .preheader221.lr.ph:                              ; preds = %442
-  %444 = load ptr, ptr %438, align 8, !tbaa !45
+  %444 = load ptr, ptr %438, align 8, !tbaa !46
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre306 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre306 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader221
 
 .preheader221:                                    ; preds = %.preheader221.lr.ph, %._crit_edge277
@@ -802,27 +802,27 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %451 = getelementptr i8, ptr %450, i64 -1
   %452 = load i8, ptr %451, align 1, !tbaa !31
   store i8 %452, ptr %450, align 1, !tbaa !31
-  %453 = load i32, ptr %31, align 4, !tbaa !37
+  %453 = load i32, ptr %31, align 4, !tbaa !38
   %454 = add nsw i32 %453, %.7187275
-  %455 = load i32, ptr %43, align 8, !tbaa !38
+  %455 = load i32, ptr %43, align 8, !tbaa !39
   %456 = ashr i32 %455, 2
   %457 = icmp slt i32 %454, %456
-  br i1 %457, label %.lr.ph276, label %._crit_edge277.loopexit, !llvm.loop !69
+  br i1 %457, label %.lr.ph276, label %._crit_edge277.loopexit, !llvm.loop !70
 
 ._crit_edge277.loopexit:                          ; preds = %.lr.ph276
-  %.pre307 = load i32, ptr %49, align 4, !tbaa !39
+  %.pre307 = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge277
 
 ._crit_edge277:                                   ; preds = %._crit_edge277.loopexit, %.preheader221
   %458 = phi i32 [ %.pre307, %._crit_edge277.loopexit ], [ %446, %.preheader221 ]
   %459 = phi i32 [ %455, %._crit_edge277.loopexit ], [ %447, %.preheader221 ]
-  %460 = load i32, ptr %445, align 8, !tbaa !51
+  %460 = load i32, ptr %445, align 8, !tbaa !52
   %461 = sext i32 %460 to i64
   %462 = getelementptr inbounds i8, ptr %.7196278, i64 %461
   %463 = add nuw nsw i32 %.7279, 1
   %464 = ashr i32 %458, 2
   %465 = icmp slt i32 %463, %464
-  br i1 %465, label %.preheader221, label %.loopexit, !llvm.loop !70
+  br i1 %465, label %.preheader221, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %._crit_edge277, %._crit_edge274
   %466 = phi i32 [ %439, %._crit_edge274 ], [ %458, %._crit_edge277 ]
@@ -830,9 +830,9 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %467, label %.preheader.lr.ph, label %._crit_edge285
 
 .preheader.lr.ph:                                 ; preds = %.loopexit
-  %468 = load ptr, ptr %438, align 8, !tbaa !45
+  %468 = load ptr, ptr %438, align 8, !tbaa !46
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre308 = load i32, ptr %43, align 8, !tbaa !38
+  %.pre308 = load i32, ptr %43, align 8, !tbaa !39
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge282
@@ -852,29 +852,29 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   %476 = add i8 %475, %474
   store i8 %476, ptr %473, align 1, !tbaa !31
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %477 = load i32, ptr %43, align 8, !tbaa !38
+  %477 = load i32, ptr %43, align 8, !tbaa !39
   %478 = ashr i32 %477, 2
   %479 = sext i32 %478 to i64
   %480 = icmp slt i64 %indvars.iv.next297, %479
-  br i1 %480, label %.lr.ph281, label %._crit_edge282.loopexit, !llvm.loop !71
+  br i1 %480, label %.lr.ph281, label %._crit_edge282.loopexit, !llvm.loop !72
 
 ._crit_edge282.loopexit:                          ; preds = %.lr.ph281
-  %.pre309 = load i32, ptr %49, align 4, !tbaa !39
+  %.pre309 = load i32, ptr %49, align 4, !tbaa !40
   br label %._crit_edge282
 
 ._crit_edge282:                                   ; preds = %._crit_edge282.loopexit, %.preheader
   %481 = phi i32 [ %.pre309, %._crit_edge282.loopexit ], [ %470, %.preheader ]
   %482 = phi i32 [ %477, %._crit_edge282.loopexit ], [ %471, %.preheader ]
-  %483 = load i32, ptr %469, align 8, !tbaa !51
+  %483 = load i32, ptr %469, align 8, !tbaa !52
   %484 = sext i32 %483 to i64
   %485 = getelementptr inbounds i8, ptr %.8197283, i64 %484
   %486 = add nuw nsw i32 %.8284, 1
   %487 = ashr i32 %481, 2
   %488 = icmp slt i32 %486, %487
-  br i1 %488, label %.preheader, label %._crit_edge285, !llvm.loop !72
+  br i1 %488, label %.preheader, label %._crit_edge285, !llvm.loop !73
 
 ._crit_edge285:                                   ; preds = %._crit_edge282, %442, %.loopexit
-  store i32 1, ptr %2, align 4, !tbaa !51
+  store i32 1, ptr %2, align 4, !tbaa !52
   %489 = load i32, ptr %9, align 8, !tbaa !30
   br label %490
 
@@ -943,44 +943,45 @@ attributes #6 = { nounwind }
 !29 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !30 = !{!29, !10, i64 32}
 !31 = !{!8, !8, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!35, !10, i64 32}
-!35 = !{!"TrueMotion2RTContext", !36, i64 0, !10, i64 32, !10, i64 36}
-!36 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!37 = !{!35, !10, i64 36}
-!38 = !{!5, !10, i64 112}
-!39 = !{!5, !10, i64 116}
-!40 = !{!36, !14, i64 0}
-!41 = !{!36, !10, i64 20}
-!42 = !{!36, !10, i64 24}
-!43 = !{!36, !14, i64 8}
-!44 = !{!36, !10, i64 16}
-!45 = !{!14, !14, i64 0}
-!46 = !{!17, !17, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"short", !8, i64 0}
-!49 = distinct !{!49, !33, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = !{!10, !10, i64 0}
-!52 = distinct !{!52, !33}
-!53 = distinct !{!53, !33, !54}
-!54 = !{!"llvm.loop.unswitch.partial.disable"}
-!55 = distinct !{!55, !33}
-!56 = distinct !{!56, !33, !54}
-!57 = distinct !{!57, !33}
-!58 = distinct !{!58, !33, !54}
-!59 = distinct !{!59, !33, !50}
-!60 = distinct !{!60, !33}
-!61 = distinct !{!61, !33}
-!62 = distinct !{!62, !33}
-!63 = distinct !{!63, !33}
-!64 = distinct !{!64, !33}
-!65 = distinct !{!65, !33}
-!66 = distinct !{!66, !33, !50}
-!67 = distinct !{!67, !33}
-!68 = distinct !{!68, !33}
-!69 = distinct !{!69, !33}
-!70 = distinct !{!70, !33}
-!71 = distinct !{!71, !33}
-!72 = distinct !{!72, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !10, i64 32}
+!36 = !{!"TrueMotion2RTContext", !37, i64 0, !10, i64 32, !10, i64 36}
+!37 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
+!38 = !{!36, !10, i64 36}
+!39 = !{!5, !10, i64 112}
+!40 = !{!5, !10, i64 116}
+!41 = !{!37, !14, i64 0}
+!42 = !{!37, !10, i64 20}
+!43 = !{!37, !10, i64 24}
+!44 = !{!37, !14, i64 8}
+!45 = !{!37, !10, i64 16}
+!46 = !{!14, !14, i64 0}
+!47 = !{!17, !17, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"short", !8, i64 0}
+!50 = distinct !{!50, !33, !34, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!10, !10, i64 0}
+!53 = distinct !{!53, !33, !34}
+!54 = distinct !{!54, !33, !34, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = distinct !{!56, !33, !34}
+!57 = distinct !{!57, !33, !34, !55}
+!58 = distinct !{!58, !33, !34}
+!59 = distinct !{!59, !33, !34, !55}
+!60 = distinct !{!60, !33, !34, !51}
+!61 = distinct !{!61, !33, !34}
+!62 = distinct !{!62, !33, !34}
+!63 = distinct !{!63, !33, !34}
+!64 = distinct !{!64, !33, !34}
+!65 = distinct !{!65, !33, !34}
+!66 = distinct !{!66, !33, !34}
+!67 = distinct !{!67, !33, !34, !51}
+!68 = distinct !{!68, !33, !34}
+!69 = distinct !{!69, !33, !34}
+!70 = distinct !{!70, !33, !34}
+!71 = distinct !{!71, !33, !34}
+!72 = distinct !{!72, !33, !34}
+!73 = distinct !{!73, !33, !34}

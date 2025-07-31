@@ -158,7 +158,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %100 = or disjoint i64 %99, 15
   %101 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %101, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
@@ -225,7 +225,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %158 = or disjoint i64 %157, 15
   %159 = add nuw i32 %.035.i, 1
   %exitcond.not.i43 = icmp eq i32 %159, %15
-  br i1 %exitcond.not.i43, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE1EE11StoreMaskedEPhDv16_fS4_S4_S4_j.exit, label %.lr.ph.i42, !llvm.loop !9
+  br i1 %exitcond.not.i43, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE1EE11StoreMaskedEPhDv16_fS4_S4_S4_j.exit, label %.lr.ph.i42, !llvm.loop !10
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE1EE11StoreMaskedEPhDv16_fS4_S4_S4_j.exit: ; preds = %.lr.ph.i42
   %160 = shufflevector <16 x float> %122, <16 x float> %123, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -389,7 +389,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %96 = getelementptr inbounds nuw i8, ptr %.02884, i64 128
   %97 = add nuw nsw i32 %.086, 16
   %98 = icmp slt i32 %97, %13
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.025.i = phi i64 [ %100, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -398,7 +398,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %100 = or disjoint i64 %99, 15
   %101 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %101, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
@@ -465,7 +465,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %158 = or disjoint i64 %157, 15
   %159 = add nuw i32 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %159, %15
-  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE2EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE2EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE2EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit: ; preds = %.lr.ph.i.i
   %160 = shufflevector <16 x float> %122, <16 x float> %123, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -629,7 +629,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %96 = getelementptr inbounds nuw i8, ptr %.02884, i64 128
   %97 = add nuw nsw i32 %.086, 16
   %98 = icmp slt i32 %97, %13
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.025.i = phi i64 [ %100, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -638,7 +638,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %100 = or disjoint i64 %99, 15
   %101 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %101, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
@@ -705,7 +705,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %158 = or disjoint i64 %157, 15
   %159 = add nuw i32 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %159, %15
-  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE3EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE3EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE3EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit: ; preds = %.lr.ph.i.i
   %160 = shufflevector <16 x float> %122, <16 x float> %123, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -869,7 +869,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %96 = getelementptr inbounds nuw i8, ptr %.02884, i64 128
   %97 = add nuw nsw i32 %.086, 16
   %98 = icmp slt i32 %97, %13
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.025.i = phi i64 [ %100, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -878,7 +878,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %100 = or disjoint i64 %99, 15
   %101 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %101, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %102 = trunc i64 %100 to i16
@@ -945,7 +945,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %158 = or disjoint i64 %157, 15
   %159 = add nuw i32 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %159, %15
-  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE5EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE5EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE5EE11StoreMaskedEPtDv16_fS4_S4_S4_j.exit: ; preds = %.lr.ph.i.i
   %160 = shufflevector <16 x float> %122, <16 x float> %123, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -1098,7 +1098,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %87 = getelementptr inbounds nuw i8, ptr %.02888, i64 128
   %88 = add nuw nsw i32 %.090, 16
   %89 = icmp slt i32 %88, %13
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.025.i = phi i64 [ %91, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -1107,7 +1107,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %91 = or disjoint i64 %90, 15
   %92 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %92, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %93 = trunc i64 %91 to i16
@@ -1174,7 +1174,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %149 = or disjoint i64 %148, 3
   %150 = add nuw i32 %.01523.i, 1
   %exitcond.not.i43 = icmp eq i32 %150, %15
-  br i1 %exitcond.not.i43, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE7EE11StoreMaskedEPN9Imath_3_14halfEDv16_fS6_S6_S6_j.exit, label %.lr.ph.i42, !llvm.loop !17
+  br i1 %exitcond.not.i43, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE7EE11StoreMaskedEPN9Imath_3_14halfEDv16_fS6_S6_S6_j.exit, label %.lr.ph.i42, !llvm.loop !18
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE7EE11StoreMaskedEPN9Imath_3_14halfEDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i42
   %151 = shufflevector <16 x float> %113, <16 x float> %114, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -1314,7 +1314,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %83 = getelementptr inbounds nuw i8, ptr %.02681, i64 256
   %84 = add nuw nsw i32 %.083, 16
   %85 = icmp slt i32 %84, %13
-  br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.025.i = phi i64 [ %87, %.lr.ph.i ], [ 0, %._crit_edge ]
@@ -1323,7 +1323,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %87 = or disjoint i64 %86, 15
   %88 = add nuw i32 %.02324.i, 1
   %exitcond.not.i = icmp eq i32 %88, %15
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit: ; preds = %.lr.ph.i
   %89 = trunc i64 %87 to i16
@@ -1390,7 +1390,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %145 = or disjoint i64 %144, 15
   %146 = add nuw i32 %.028.i, 1
   %exitcond.not.i41 = icmp eq i32 %146, %15
-  br i1 %exitcond.not.i41, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit, label %.lr.ph.i40, !llvm.loop !19
+  br i1 %exitcond.not.i41, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit, label %.lr.ph.i40, !llvm.loop !20
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit: ; preds = %.lr.ph.i40
   %147 = shufflevector <16 x float> %109, <16 x float> %110, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -1503,17 +1503,18 @@ attributes #12 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

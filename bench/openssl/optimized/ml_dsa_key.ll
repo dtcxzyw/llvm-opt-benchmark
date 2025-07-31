@@ -868,10 +868,10 @@ define internal fastcc range(i32 0, 2) i32 @public_from_private(ptr noundef %0, 
   store i64 %25, ptr %26, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw %struct.poly_st, ptr %24, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %28, align 8, !tbaa !36
+  store i64 %22, ptr %28, align 8, !tbaa !37
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %25, ptr %29, align 8, !tbaa !38
-  store ptr %27, ptr %5, align 8, !tbaa !39
+  store i64 %25, ptr %29, align 8, !tbaa !39
+  store ptr %27, ptr %5, align 8, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -895,7 +895,7 @@ define internal fastcc range(i32 0, 2) i32 @public_from_private(ptr noundef %0, 
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %38) #9
   %39 = add nuw nsw i64 %.04.i, 1
   %40 = icmp samesign ult i64 %39, %25
-  br i1 %40, label %.lr.ph.i, label %vector_ntt.exit, !llvm.loop !40
+  br i1 %40, label %.lr.ph.i, label %vector_ntt.exit, !llvm.loop !41
 
 vector_ntt.exit:                                  ; preds = %.lr.ph.i, %34
   call void @ossl_ml_dsa_matrix_mult_vector(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
@@ -911,7 +911,7 @@ vector_ntt.exit:                                  ; preds = %.lr.ph.i, %34
   %44 = add nuw i64 %.04.i31, 1
   %45 = load i64, ptr %23, align 8
   %46 = icmp ult i64 %44, %45
-  br i1 %46, label %.lr.ph.i30, label %vector_ntt_inverse.exit, !llvm.loop !41
+  br i1 %46, label %.lr.ph.i30, label %vector_ntt_inverse.exit, !llvm.loop !42
 
 vector_ntt_inverse.exit:                          ; preds = %.lr.ph.i30
   %.val26 = load ptr, ptr %7, align 8
@@ -932,29 +932,29 @@ vector_ntt_inverse.exit:                          ; preds = %.lr.ph.i30
 52:                                               ; preds = %52, %49
   %indvars.iv.i.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.i, %52 ]
   %53 = getelementptr inbounds nuw [256 x i32], ptr %50, i64 0, i64 %indvars.iv.i.i
-  %54 = load i32, ptr %53, align 4, !tbaa !42
+  %54 = load i32, ptr %53, align 4, !tbaa !43
   %55 = getelementptr inbounds nuw [256 x i32], ptr %51, i64 0, i64 %indvars.iv.i.i
-  %56 = load i32, ptr %55, align 4, !tbaa !42
+  %56 = load i32, ptr %55, align 4, !tbaa !43
   %57 = add i32 %56, %54
   %58 = add i32 %57, -8380417
   %59 = xor i32 %57, -1
   %60 = and i32 %58, %59
   %.neg.i.i.i.i.i = ashr i32 %60, 31
-  %61 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !43
+  %61 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !44
   %62 = and i32 %61, %57
   %63 = xor i32 %.neg.i.i.i.i.i, -1
-  %64 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %63) #10, !srcloc !43
+  %64 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %63) #10, !srcloc !44
   %65 = and i32 %64, %58
   %66 = or i32 %65, %62
-  store i32 %66, ptr %53, align 4, !tbaa !42
+  store i32 %66, ptr %53, align 4, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i.i, label %poly_add.exit.i, label %52, !llvm.loop !44
+  br i1 %exitcond.not.i.i, label %poly_add.exit.i, label %52, !llvm.loop !45
 
 poly_add.exit.i:                                  ; preds = %52
   %67 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %67, %45
-  br i1 %exitcond.not.i, label %.lr.ph.i35, label %49, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.lr.ph.i35, label %49, !llvm.loop !46
 
 .lr.ph.i35:                                       ; preds = %poly_add.exit.i, %poly_power2_round.exit.i
   %.08.i = phi i64 [ %79, %poly_power2_round.exit.i ], [ 0, %poly_add.exit.i ]
@@ -969,19 +969,19 @@ poly_add.exit.i:                                  ; preds = %52
 74:                                               ; preds = %74, %.lr.ph.i35
   %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i.i37, %74 ]
   %75 = getelementptr inbounds nuw [256 x i32], ptr %69, i64 0, i64 %indvars.iv.i.i36
-  %76 = load i32, ptr %75, align 4, !tbaa !42
+  %76 = load i32, ptr %75, align 4, !tbaa !43
   %77 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i.i36
   %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i36
   call void @ossl_ml_dsa_key_compress_power2_round(i32 noundef %76, ptr noundef %77, ptr noundef %78) #9
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 256
-  br i1 %exitcond.not.i.i38, label %poly_power2_round.exit.i, label %74, !llvm.loop !46
+  br i1 %exitcond.not.i.i38, label %poly_power2_round.exit.i, label %74, !llvm.loop !47
 
 poly_power2_round.exit.i:                         ; preds = %74
   %79 = add nuw i64 %.08.i, 1
   %80 = load i64, ptr %23, align 8, !tbaa !29
   %81 = icmp ult i64 %79, %80
-  br i1 %81, label %.lr.ph.i35, label %vector_power2_round.exit, !llvm.loop !47
+  br i1 %81, label %.lr.ph.i35, label %vector_power2_round.exit, !llvm.loop !48
 
 vector_power2_round.exit:                         ; preds = %poly_power2_round.exit.i, %vector_ntt.exit, %vector_ntt_inverse.exit
   %82 = load ptr, ptr %6, align 8, !tbaa !28
@@ -1228,12 +1228,12 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_generate_key(ptr noundef %0) local_unnam
   %63 = load i64, ptr %62, align 8, !tbaa !27
   %64 = trunc i64 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 %64, ptr %65, align 16, !tbaa !48
+  store i8 %64, ptr %65, align 16, !tbaa !49
   %66 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %67 = load i64, ptr %66, align 8, !tbaa !30
   %68 = trunc i64 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  store i8 %68, ptr %69, align 1, !tbaa !48
+  store i8 %68, ptr %69, align 1, !tbaa !49
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !25
   %72 = tail call i32 @EVP_DigestInit_ex2(ptr noundef nonnull %26, ptr noundef %71, ptr noundef null) #9
@@ -1257,7 +1257,7 @@ shake_xof.exit.i:                                 ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 16 dereferenceable(32) %20, i64 32, i1 false)
   %81 = load ptr, ptr %70, align 8, !tbaa !25
   %82 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %83 = load i32, ptr %82, align 8, !tbaa !49
+  %83 = load i32, ptr %82, align 8, !tbaa !50
   %84 = call i32 @ossl_ml_dsa_vector_expand_S(ptr noundef nonnull %26, ptr noundef %81, i32 noundef %83, ptr noundef nonnull %19, ptr noundef nonnull %45, ptr noundef nonnull %55) #9
   %.not41.i = icmp eq i32 %84, 0
   br i1 %.not41.i, label %ossl_ml_dsa_key_pub_alloc.exit.thread.i, label %85
@@ -1339,7 +1339,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_matches(ptr noundef readonly capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !50
+  %6 = load i32, ptr %5, align 8, !tbaa !51
   %7 = icmp eq i32 %6, %1
   %8 = zext i1 %7 to i32
   ret i32 %8
@@ -1359,7 +1359,7 @@ define range(i64 -2147483648, 2147483648) i64 @ossl_ml_dsa_key_get_collision_str
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !51
+  %5 = load i32, ptr %4, align 8, !tbaa !52
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
@@ -1378,7 +1378,7 @@ define i64 @ossl_ml_dsa_key_get_sig_len(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %5 = load i64, ptr %4, align 8, !tbaa !52
+  %5 = load i64, ptr %4, align 8, !tbaa !53
   ret i64 %5
 }
 
@@ -1400,7 +1400,7 @@ define ptr @ossl_ml_dsa_key_get0_libctx(ptr noundef readonly captures(address_is
 define ptr @ossl_ml_dsa_key_get_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   ret ptr %4
 }
 
@@ -1480,23 +1480,24 @@ attributes #10 = { nounwind memory(none) }
 !31 = !{!4, !14, i64 240}
 !32 = !{!4, !15, i64 248}
 !33 = !{!22, !15, i64 72}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !15, i64 8}
-!37 = !{!"matrix_st", !14, i64 0, !15, i64 8, !15, i64 16}
-!38 = !{!37, !15, i64 16}
-!39 = !{!37, !14, i64 0}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
-!42 = !{!12, !12, i64 0}
-!43 = !{i64 1761676}
-!44 = distinct !{!44, !35}
-!45 = distinct !{!45, !35}
-!46 = distinct !{!46, !35}
-!47 = distinct !{!47, !35}
-!48 = !{!7, !7, i64 0}
-!49 = !{!22, !12, i64 48}
-!50 = !{!22, !12, i64 8}
-!51 = !{!22, !12, i64 16}
-!52 = !{!22, !15, i64 80}
-!53 = !{!22, !11, i64 0}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !15, i64 8}
+!38 = !{!"matrix_st", !14, i64 0, !15, i64 8, !15, i64 16}
+!39 = !{!38, !15, i64 16}
+!40 = !{!38, !14, i64 0}
+!41 = distinct !{!41, !35, !36}
+!42 = distinct !{!42, !35, !36}
+!43 = !{!12, !12, i64 0}
+!44 = !{i64 1761676}
+!45 = distinct !{!45, !35, !36}
+!46 = distinct !{!46, !35, !36}
+!47 = distinct !{!47, !35, !36}
+!48 = distinct !{!48, !35, !36}
+!49 = !{!7, !7, i64 0}
+!50 = !{!22, !12, i64 48}
+!51 = !{!22, !12, i64 8}
+!52 = !{!22, !12, i64 16}
+!53 = !{!22, !15, i64 80}
+!54 = !{!22, !11, i64 0}

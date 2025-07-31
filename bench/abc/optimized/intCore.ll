@@ -1552,7 +1552,7 @@ Abc_Clock.exit390:                                ; preds = %Abc_Clock.exit388, 
   %758 = add nsw i64 %756, %757
   store i64 %758, ptr %116, align 8, !tbaa !37
   %759 = add nuw nsw i32 %.0242, 1
-  br label %360
+  br label %360, !llvm.loop !74
 
 760:                                              ; preds = %417
   %761 = add nsw i32 %415, %.0242
@@ -1560,7 +1560,7 @@ Abc_Clock.exit390:                                ; preds = %Abc_Clock.exit388, 
   call void @Inter_ManClean(ptr noundef nonnull %87) #15
   call void @Inter_CheckStop(ptr noundef %.1235) #15
   %762 = add nuw nsw i32 %.0240, 1
-  br label %179
+  br label %179, !llvm.loop !76
 
 .thread:                                          ; preds = %Abc_Clock.exit382, %Abc_Clock.exit378, %Abc_Clock.exit355, %Abc_Clock.exit351, %Abc_Clock.exit347, %442, %Abc_Clock.exit337, %85
   %.0 = phi i32 [ 0, %85 ], [ -1, %Abc_Clock.exit382 ], [ 1, %Abc_Clock.exit378 ], [ 1, %Abc_Clock.exit355 ], [ -1, %Abc_Clock.exit351 ], [ -1, %Abc_Clock.exit347 ], [ 0, %442 ], [ -1, %Abc_Clock.exit337 ]
@@ -1612,7 +1612,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #15
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !74
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !77
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #15
@@ -1620,7 +1620,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !74, !noalias !76
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !77, !noalias !79
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #15
   br label %17
 
@@ -1794,8 +1794,11 @@ attributes #18 = { nounwind willreturn memory(read) }
 !71 = !{!20, !21, i64 24}
 !72 = !{!23, !22, i64 8}
 !73 = !{!20, !22, i64 48}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"vprintf: argument 0"}
-!78 = distinct !{!78, !"vprintf"}
+!74 = distinct !{!74, !75}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = distinct !{!76, !75}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"vprintf: argument 0"}
+!81 = distinct !{!81, !"vprintf"}

@@ -288,7 +288,7 @@ newRegisNode.exit69:                              ; preds = %34
   %98 = getelementptr inbounds i8, ptr %.05779, i64 %97
   %99 = load i8, ptr %98, align 1
   %.not = icmp eq i8 %99, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %95
   %100 = icmp eq i32 %.159, 4
@@ -321,7 +321,7 @@ newRegisNode.exit69:                              ; preds = %34
   %110 = getelementptr inbounds nuw i8, ptr %.483, i64 8
   %.4 = load ptr, ptr %110, align 8
   %.not62 = icmp eq ptr %.4, null
-  br i1 %.not62, label %._crit_edge85, label %104, !llvm.loop !7
+  br i1 %.not62, label %._crit_edge85, label %104, !llvm.loop !8
 
 ._crit_edge85:                                    ; preds = %104, %.preheader
   ret void
@@ -348,7 +348,7 @@ define dso_local void @RS_free(ptr noundef captures(none) %0) local_unnamed_addr
   %4 = load ptr, ptr %3, align 8
   tail call void @pfree(ptr noundef nonnull %.07) #7
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %0, align 8
@@ -373,7 +373,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %8 = getelementptr inbounds i8, ptr %.02550, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %5, %.lr.ph ]
@@ -400,7 +400,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %.252, i64 %21
   %23 = icmp samesign ugt i32 %.153, 1
-  br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !10
+  br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph55, %15
   %.126 = phi ptr [ %1, %15 ], [ %22, %.lr.ph55 ]
@@ -443,14 +443,14 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %38 = getelementptr inbounds i8, ptr %.359, i64 %35
   %39 = load i8, ptr %38, align 1
   %.not19.i = icmp eq i8 %37, %39
-  br i1 %.not19.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !11
+  br i1 %.not19.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %33, %.lr.ph.i
   %40 = sext i32 %31 to i64
   %41 = getelementptr inbounds i8, ptr %.01520.i, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !12
+  br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !13
 
 44:                                               ; preds = %.lr.ph61
   %45 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
@@ -478,14 +478,14 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   %56 = getelementptr inbounds i8, ptr %.359, i64 %53
   %57 = load i8, ptr %56, align 1
   %.not19.i39 = icmp eq i8 %55, %57
-  br i1 %.not19.i39, label %.preheader.i36, label %.loopexit.i34, !llvm.loop !11
+  br i1 %.not19.i39, label %.preheader.i36, label %.loopexit.i34, !llvm.loop !12
 
 .loopexit.i34:                                    ; preds = %51, %.lr.ph.i32
   %58 = sext i32 %49 to i64
   %59 = getelementptr inbounds i8, ptr %.01520.i33, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
-  br i1 %61, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !12
+  br i1 %61, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !13
 
 62:                                               ; preds = %.lr.ph61
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -503,7 +503,7 @@ mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.pr
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %.359, i64 %70
   %.not31 = icmp eq ptr %68, null
-  br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !13
+  br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !14
 
 mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %26, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
   %.028 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit ], [ false, %.preheader.i36 ], [ false, %.loopexit.i ], [ true, %mb_strchr.exit ], [ false, %26 ]
@@ -532,13 +532,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

@@ -54,7 +54,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h439cdb546578af0
   %23 = xor i64 %22, %21
   %24 = mul i64 %23, 5871781006564002453
   %25 = icmp eq ptr %19, %11
-  br i1 %25, label %_ZN4core4hash6Hasher9write_str17h8f32af80a532631cE.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %25, label %_ZN4core4hash6Hasher9write_str17h8f32af80a532631cE.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha4925b18c0b9e916E.exit.i.i.i.i.i": ; preds = %7, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha4925b18c0b9e916E.exit.i.i.i.i.i"
   %.sroa.0.041.i.i.i.i.i = phi i64 [ %28, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha4925b18c0b9e916E.exit.i.i.i.i.i" ], [ 0, %7 ]
@@ -67,7 +67,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h439cdb546578af0
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.040.i.i.i.i.i, i64 8
   %30 = add i64 %.sroa.8.039.i.i.i.i.i, -8
   %31 = icmp ugt i64 %30, 7
-  br i1 %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha4925b18c0b9e916E.exit.i.i.i.i.i", label %._crit_edge.i.i.i.i.i
+  br i1 %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha4925b18c0b9e916E.exit.i.i.i.i.i", label %._crit_edge.i.i.i.i.i, !llvm.loop !21
 
 _ZN4core4hash6Hasher9write_str17h8f32af80a532631cE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %10
   %.sroa.0.2.lcssa.i.i.i.i.i = phi i64 [ %.sroa.0.1.i.i.i.i.i, %10 ], [ %24, %.lr.ph.i.i.i.i.i ]
@@ -113,3 +113,6 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !16 = distinct !{!16, !13, !"_ZN4core4hash6Hasher9write_str17h8f32af80a532631cE: argument 0"}
 !17 = distinct !{!17, !18, !"_ZN58_$LT$tikv_alloc..trace..Id$u20$as$u20$core..hash..Hash$GT$4hash17h191e2bdf51cc3ef4E: argument 0"}
 !18 = distinct !{!18, !"_ZN58_$LT$tikv_alloc..trace..Id$u20$as$u20$core..hash..Hash$GT$4hash17h191e2bdf51cc3ef4E"}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}

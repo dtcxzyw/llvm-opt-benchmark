@@ -315,7 +315,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !49
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !50
   ret void
 
 19:                                               ; preds = %13
@@ -358,20 +358,20 @@ define linkonce_odr hidden void @_ZN6google7logging8internal13CheckOpStringD2Ev(
   br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = load ptr, ptr %2, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !53
+  %8 = load i64, ptr %7, align 8, !tbaa !54
   %9 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %9)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %3
-  %10 = load i64, ptr %5, align 8, !tbaa !54
+  %10 = load i64, ptr %5, align 8, !tbaa !55
   %11 = add i64 %10, 1
   tail call void @_ZdlPvm(ptr noundef %4, i64 noundef %11) #23
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -396,9 +396,9 @@ define internal fastcc void @_ZL16CheckStackTrace1i(i32 noundef range(i32 0, -21
   %8 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
   %9 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %9, ptr %2, align 8, !tbaa !55
+  store ptr %9, ptr %2, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !55, !noalias !56
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !56, !noalias !57
   %11 = icmp ult ptr %10, %9
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
@@ -416,7 +416,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8, !tbaa !42
   %14 = icmp ugt ptr %12, %13
   br i1 %14, label %24, label %28
@@ -454,7 +454,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
-  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  %27 = load ptr, ptr %2, align 8, !tbaa !56
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8, !tbaa !42
   br label %28
 
@@ -520,7 +520,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   unreachable
 
 40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !59
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !60
   br label %41
 
 41:                                               ; preds = %40, %41
@@ -528,10 +528,10 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   call fastcc void @_ZL16CheckStackTrace2i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
   %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !60
+  br i1 %.not25, label %43, label %41, !llvm.loop !61
 
 43:                                               ; preds = %41
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !61
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !62
   ret void
 
 44:                                               ; preds = %35, %20
@@ -548,8 +548,8 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
 
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
-  store i8 1, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !62
-  %3 = load ptr, ptr %1, align 8, !tbaa !63
+  store i8 1, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !63
+  %3 = load ptr, ptr %1, align 8, !tbaa !64
   tail call void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef %3)
   tail call void @_Z15CheckStackTracei(i32 noundef 0)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -706,9 +706,9 @@ define internal fastcc void @_ZL16CheckStackTrace2i(i32 noundef range(i32 0, -21
   %8 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
   %9 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %9, ptr %2, align 8, !tbaa !55
+  store ptr %9, ptr %2, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !55, !noalias !64
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !56, !noalias !65
   %11 = icmp ult ptr %10, %9
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
@@ -726,7 +726,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8, !tbaa !42
   %14 = icmp ugt ptr %12, %13
   br i1 %14, label %24, label %28
@@ -764,7 +764,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
-  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  %27 = load ptr, ptr %2, align 8, !tbaa !56
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8, !tbaa !42
   br label %28
 
@@ -830,7 +830,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   unreachable
 
 40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !67
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !68
   br label %41
 
 41:                                               ; preds = %40, %41
@@ -838,10 +838,10 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   call fastcc void @_ZL16CheckStackTrace3i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
   %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !68
+  br i1 %.not25, label %43, label %41, !llvm.loop !69
 
 43:                                               ; preds = %41
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !69
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !70
   ret void
 
 44:                                               ; preds = %35, %20
@@ -861,8 +861,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load ptr, ptr %1, align 8, !tbaa !56
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
 
@@ -871,7 +871,7 @@ _ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit: ; preds 
           to label %10 unwind label %14
 
 10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
-  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %11 = load ptr, ptr %2, align 8, !tbaa !56
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit unwind label %14
 
@@ -914,9 +914,9 @@ define internal fastcc void @_ZL16CheckStackTrace3i(i32 noundef range(i32 0, -21
   %8 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
   %9 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %9, ptr %2, align 8, !tbaa !55
+  store ptr %9, ptr %2, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !55, !noalias !73
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !56, !noalias !74
   %11 = icmp ult ptr %10, %9
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
@@ -934,7 +934,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8, !tbaa !42
   %14 = icmp ugt ptr %12, %13
   br i1 %14, label %24, label %28
@@ -972,7 +972,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
-  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  %27 = load ptr, ptr %2, align 8, !tbaa !56
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8, !tbaa !42
   br label %28
 
@@ -1038,7 +1038,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   unreachable
 
 40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit19
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !76
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !77
   br label %41
 
 41:                                               ; preds = %40, %41
@@ -1046,10 +1046,10 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit19: ; preds = %_ZNSt10unique_
   call fastcc void @_ZL16CheckStackTrace4i(i32 noundef %.021)
   %42 = add nsw i32 %.021, -1
   %.not25 = icmp eq i32 %.021, 0
-  br i1 %.not25, label %43, label %41, !llvm.loop !77
+  br i1 %.not25, label %43, label %41, !llvm.loop !78
 
 43:                                               ; preds = %41
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !78
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !79
   ret void
 
 44:                                               ; preds = %35, %20
@@ -1075,9 +1075,9 @@ define internal fastcc void @_ZL16CheckStackTrace4i(i32 noundef range(i32 0, -21
   %8 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
   %9 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %9, ptr %2, align 8, !tbaa !55
+  store ptr %9, ptr %2, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !55, !noalias !79
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !56, !noalias !80
   %11 = icmp ult ptr %10, %9
   br i1 %11, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
@@ -1095,7 +1095,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  %12 = load ptr, ptr %2, align 8, !tbaa !55
+  %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8, !tbaa !42
   %14 = icmp ugt ptr %12, %13
   br i1 %14, label %24, label %28
@@ -1133,7 +1133,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 24:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %25, ptr noundef %13, ptr noundef %25, ptr noundef nonnull %12)
-  %27 = load ptr, ptr %2, align 8, !tbaa !55
+  %27 = load ptr, ptr %2, align 8, !tbaa !56
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8, !tbaa !42
   br label %28
 
@@ -1199,7 +1199,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit18: ; preds = %_ZNSt10unique_
   unreachable
 
 40:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit18
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !82
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !83
   br label %41
 
 41:                                               ; preds = %40, %41
@@ -1207,10 +1207,10 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit18: ; preds = %_ZNSt10unique_
   call fastcc void @_ZL19CheckStackTraceLeafv()
   %42 = add nsw i32 %.020, -1
   %.not24 = icmp eq i32 %.020, 0
-  br i1 %.not24, label %43, label %41, !llvm.loop !83
+  br i1 %.not24, label %43, label %41, !llvm.loop !84
 
 43:                                               ; preds = %41
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !84
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !85
   ret void
 
 44:                                               ; preds = %35, %20
@@ -1255,9 +1255,9 @@ define internal fastcc void @_ZL19CheckStackTraceLeafv() unnamed_addr #4 persona
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #20
   %26 = tail call ptr @llvm.returnaddress(i32 0)
-  store ptr %26, ptr %13, align 8, !tbaa !55
+  store ptr %26, ptr %13, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #20
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !55, !noalias !85
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !56, !noalias !86
   %28 = icmp ult ptr %27, %26
   br i1 %28, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, !prof !43
 
@@ -1275,7 +1275,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #20
-  %29 = load ptr, ptr %13, align 8, !tbaa !55
+  %29 = load ptr, ptr %13, align 8, !tbaa !56
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8, !tbaa !42
   %31 = icmp ugt ptr %29, %30
   br i1 %31, label %41, label %45
@@ -1313,7 +1313,7 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
 41:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16, !tbaa !40
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %42, ptr noundef %30, ptr noundef %42, ptr noundef nonnull %29)
-  %44 = load ptr, ptr %13, align 8, !tbaa !55
+  %44 = load ptr, ptr %13, align 8, !tbaa !56
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8, !tbaa !42
   br label %45
 
@@ -1371,16 +1371,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit36: ; preds = %_ZNSt10unique_
   br label %.invoke
 
 56:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit36
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !88
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !89
   %57 = call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull %12, i32 noundef 10, i32 noundef 0)
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %57)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  store i32 %57, ptr %10, align 4, !tbaa !89, !noalias !90
-  store i32 1, ptr %11, align 4, !tbaa !89, !noalias !90
+  store i32 %57, ptr %10, align 4, !tbaa !90, !noalias !91
+  store i32 1, ptr %11, align 4, !tbaa !90, !noalias !91
   %.not.i.i37 = icmp slt i32 %57, 1
-  br i1 %.not.i.i37, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47, !prof !93
+  br i1 %.not.i.i37, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42, label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47, !prof !94
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42: ; preds = %56
   call void @_ZN6google7logging8internal17MakeCheckOpStringIiiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS9_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %21, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull @.str.15)
@@ -1407,10 +1407,10 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit47: ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  store i32 %57, ptr %8, align 4, !tbaa !89, !noalias !94
-  store i32 10, ptr %9, align 4, !tbaa !89, !noalias !94
+  store i32 %57, ptr %8, align 4, !tbaa !90, !noalias !95
+  store i32 10, ptr %9, align 4, !tbaa !90, !noalias !95
   %.not.i.i48 = icmp samesign ugt i32 %57, 10
-  br i1 %.not.i.i48, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread, !prof !97
+  br i1 %.not.i.i48, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread, !prof !98
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53.thread: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit47.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -1513,13 +1513,13 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit58: ; preds = %_ZNSt10unique_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %82 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
-  %83 = load ptr, ptr %82, align 8, !tbaa !63
+  %83 = load ptr, ptr %82, align 8, !tbaa !64
   %84 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv
-  %85 = load ptr, ptr %84, align 8, !tbaa !55
+  %85 = load ptr, ptr %84, align 8, !tbaa !56
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %83, ptr noundef %85)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 87:                                               ; preds = %._crit_edge, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
   %indvars.iv67 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next68, %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit ]
@@ -1528,20 +1528,20 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit58: ; preds = %_ZNSt10unique_
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !42
   %92 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv67
-  %93 = load ptr, ptr %92, align 8, !tbaa !55
+  %93 = load ptr, ptr %92, align 8, !tbaa !56
   %94 = trunc nuw nsw i64 %indvars.iv67 to i32
   %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %94, ptr noundef %89, ptr noundef %91, ptr noundef %93)
-  %96 = load ptr, ptr @stdout, align 8, !tbaa !99
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !100
   %97 = call i32 @fflush(ptr noundef %96)
-  %98 = load ptr, ptr %92, align 8, !tbaa !55
+  %98 = load ptr, ptr %92, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %98, ptr %1, align 8, !tbaa !55
+  store ptr %98, ptr %1, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
-  %99 = load ptr, ptr %88, align 16, !tbaa !55, !noalias !101
+  %99 = load ptr, ptr %88, align 16, !tbaa !56, !noalias !102
   %.not.i.i59 = icmp ult ptr %98, %99
-  br i1 %.not.i.i59, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i, !prof !93
+  br i1 %.not.i.i59, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i, !prof !94
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i: ; preds = %87
   store ptr null, ptr %3, align 8, !tbaa !44
@@ -1556,16 +1556,16 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not.i60, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge, label %102
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i
-  %.pre74 = load ptr, ptr %1, align 8, !tbaa !55, !noalias !104
+  %.pre74 = load ptr, ptr %1, align 8, !tbaa !56, !noalias !105
   br label %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i
   %100 = phi ptr [ %.pre74, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i._ZN6google7logging8internal13CheckOpStringD2Ev.exit.i_crit_edge ], [ %98, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  %101 = load ptr, ptr %90, align 8, !tbaa !55, !noalias !104
+  %101 = load ptr, ptr %90, align 8, !tbaa !56, !noalias !105
   %.not.i6.i = icmp ugt ptr %100, %101
-  br i1 %.not.i6.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i, label %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit, !prof !93
+  br i1 %.not.i6.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i, label %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit, !prof !94
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11.i: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit.i
   call void @_ZN6google7logging8internal17MakeCheckOpStringIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.22)
@@ -1660,10 +1660,10 @@ _ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit: ; preds = %_ZN6google7logg
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 6
-  br i1 %exitcond70.not, label %124, label %87, !llvm.loop !107
+  br i1 %exitcond70.not, label %124, label %87, !llvm.loop !108
 
 124:                                              ; preds = %_ZL24CheckRetAddrIsInFunctionPvRK12AddressRange.exit
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !108
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !109
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #20
   ret void
 
@@ -1696,8 +1696,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load i32, ptr %1, align 4, !tbaa !89
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load i32, ptr %1, align 4, !tbaa !90
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit unwind label %14
 
@@ -1706,7 +1706,7 @@ _ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit: ; preds = 
           to label %10 unwind label %14
 
 10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit
-  %11 = load i32, ptr %2, align 4, !tbaa !89
+  %11 = load i32, ptr %2, align 4, !tbaa !90
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %11)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIiEEvPSoRKT_.exit4 unwind label %14
 
@@ -1734,8 +1734,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load ptr, ptr %1, align 8, !tbaa !56
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit unwind label %14
 
@@ -1744,7 +1744,7 @@ _ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit: ; preds =
           to label %10 unwind label %14
 
 10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPvEEvPSoRKT_.exit
-  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %11 = load ptr, ptr %2, align 8, !tbaa !56
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
 
@@ -1775,8 +1775,8 @@ define linkonce_odr hidden void @_ZN6google7logging8internal17MakeCheckOpStringI
   %5 = alloca %"class.google::logging::internal::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   call void @_ZN6google7logging8internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %3)
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load ptr, ptr %1, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load ptr, ptr %1, align 8, !tbaa !56
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit unwind label %14
 
@@ -1785,7 +1785,7 @@ _ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit: ; preds 
           to label %10 unwind label %14
 
 10:                                               ; preds = %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit
-  %11 = load ptr, ptr %2, align 8, !tbaa !55
+  %11 = load ptr, ptr %2, align 8, !tbaa !56
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
           to label %_ZN6google7logging8internal22MakeCheckOpValueStringIPKvEEvPSoRKT_.exit4 unwind label %14
 
@@ -1886,65 +1886,66 @@ attributes #23 = { builtin nounwind }
 !44 = !{!45, !45, i64 0}
 !45 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !10, i64 0}
 !46 = !{i64 2150958961}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{i64 2150959116}
-!50 = !{!51, !9, i64 0}
-!51 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !52, i64 0, !20, i64 8, !11, i64 16}
-!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
-!53 = !{!51, !20, i64 8}
-!54 = !{!11, !11, i64 0}
-!55 = !{!10, !10, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!58 = distinct !{!58, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!59 = !{i64 2150957334}
-!60 = distinct !{!60, !48}
-!61 = !{i64 2150957489}
-!62 = !{!33, !33, i64 0}
-!63 = !{!9, !9, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!66 = distinct !{!66, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!67 = !{i64 2150954128}
-!68 = distinct !{!68, !48}
-!69 = !{i64 2150954283}
-!70 = !{!71, !72, i64 0}
-!71 = !{!"_ZTSN6google7logging8internal21CheckOpMessageBuilderE", !72, i64 0}
-!72 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !10, i64 0}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!75 = distinct !{!75, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!76 = !{i64 2150950922}
-!77 = distinct !{!77, !48}
-!78 = !{i64 2150951077}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!81 = distinct !{!81, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!82 = !{i64 2150947716}
-!83 = distinct !{!83, !48}
-!84 = !{i64 2150947871}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!87 = distinct !{!87, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!88 = !{i64 2150943027}
-!89 = !{!30, !30, i64 0}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc: argument 0"}
-!92 = distinct !{!92, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc"}
-!93 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc: argument 0"}
-!96 = distinct !{!96, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc"}
-!97 = !{!"branch_weights", !"expected", i32 1073742, i32 2146409906}
-!98 = distinct !{!98, !48}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!103 = distinct !{!103, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
-!106 = distinct !{!106, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
-!107 = distinct !{!107, !48}
-!108 = !{i64 2150944665}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{i64 2150959116}
+!51 = !{!52, !9, i64 0}
+!52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !53, i64 0, !20, i64 8, !11, i64 16}
+!53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!54 = !{!52, !20, i64 8}
+!55 = !{!11, !11, i64 0}
+!56 = !{!10, !10, i64 0}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!59 = distinct !{!59, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!60 = !{i64 2150957334}
+!61 = distinct !{!61, !48, !49}
+!62 = !{i64 2150957489}
+!63 = !{!33, !33, i64 0}
+!64 = !{!9, !9, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!67 = distinct !{!67, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!68 = !{i64 2150954128}
+!69 = distinct !{!69, !48, !49}
+!70 = !{i64 2150954283}
+!71 = !{!72, !73, i64 0}
+!72 = !{!"_ZTSN6google7logging8internal21CheckOpMessageBuilderE", !73, i64 0}
+!73 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !10, i64 0}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!76 = distinct !{!76, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!77 = !{i64 2150950922}
+!78 = distinct !{!78, !48, !49}
+!79 = !{i64 2150951077}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!82 = distinct !{!82, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!83 = !{i64 2150947716}
+!84 = distinct !{!84, !48, !49}
+!85 = !{i64 2150947871}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!88 = distinct !{!88, !"_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!89 = !{i64 2150943027}
+!90 = !{!30, !30, i64 0}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc: argument 0"}
+!93 = distinct !{!93, !"_ZN6google7logging8internal12Check_GEImplB5cxx11EiiPKc"}
+!94 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc: argument 0"}
+!97 = distinct !{!97, !"_ZN6google7logging8internal12Check_LEImplB5cxx11EiiPKc"}
+!98 = !{!"branch_weights", !"expected", i32 1073742, i32 2146409906}
+!99 = distinct !{!99, !48, !49}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!104 = distinct !{!104, !"_ZN6google7logging8internal12Check_GEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc: argument 0"}
+!107 = distinct !{!107, !"_ZN6google7logging8internal12Check_LEImplIPvPKvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc"}
+!108 = distinct !{!108, !48, !49}
+!109 = !{i64 2150944665}

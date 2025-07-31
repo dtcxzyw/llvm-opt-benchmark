@@ -214,5 +214,6 @@ attributes #9 = { cold }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!"llvm.loop.estimated_trip_count"}

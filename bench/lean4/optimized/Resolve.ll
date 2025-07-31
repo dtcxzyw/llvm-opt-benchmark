@@ -4645,7 +4645,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit44
   %.041.be = phi ptr [ %.0, %lean_dec.exit44 ], [ %76, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !17
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -8814,7 +8814,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit131
   %44 = ptrtoint ptr %1 to i64
   %45 = and i64 %44, 1
   %.not224 = icmp eq i64 %45, 0
-  br i1 %.not224, label %lean_nat_lt.exit, label %46, !prof !17
+  br i1 %.not224, label %lean_nat_lt.exit, label %46, !prof !19
 
 46:                                               ; preds = %lean_alloc_closure.exit
   %47 = icmp ult ptr %1, %35
@@ -9114,7 +9114,7 @@ lean_alloc_closure.exit209:                       ; preds = %lean_dec.exit117
   %158 = ptrtoint ptr %1 to i64
   %159 = and i64 %158, 1
   %.not217 = icmp eq i64 %159, 0
-  br i1 %.not217, label %lean_nat_lt.exit189, label %160, !prof !17
+  br i1 %.not217, label %lean_nat_lt.exit189, label %160, !prof !19
 
 160:                                              ; preds = %lean_alloc_closure.exit209
   %161 = icmp ult ptr %1, %149
@@ -17808,7 +17808,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !20
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -17911,7 +17911,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !20
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -19657,7 +19657,7 @@ lean_dec.exit169:                                 ; preds = %35, %34, %32, %lean
   %40 = ptrtoint ptr %0 to i64
   %41 = and i64 %40, 1
   %.not306 = icmp eq i64 %41, 0
-  br i1 %.not306, label %lean_nat_lt.exit, label %42, !prof !17
+  br i1 %.not306, label %lean_nat_lt.exit, label %42, !prof !19
 
 42:                                               ; preds = %lean_dec.exit169
   %43 = icmp ult ptr %0, %39
@@ -20055,7 +20055,7 @@ lean_dec.exit147:                                 ; preds = %183, %182, %180, %l
   %188 = ptrtoint ptr %0 to i64
   %189 = and i64 %188, 1
   %.not294 = icmp eq i64 %189, 0
-  br i1 %.not294, label %lean_nat_lt.exit261, label %190, !prof !17
+  br i1 %.not294, label %lean_nat_lt.exit261, label %190, !prof !19
 
 190:                                              ; preds = %lean_dec.exit147
   %191 = icmp ult ptr %0, %187
@@ -23514,7 +23514,7 @@ define ptr @l___private_Lake_Load_Resolve_0__Lake_Workspace_runResolveT___at___p
 17:                                               ; preds = %16, %13
   %.val.i.i = phi i32 [ %.val.i.i.pr, %16 ], [ %14, %13 ]
   %18 = icmp sgt i32 %.val.i.i, 0
-  br i1 %18, label %19, label %21, !prof !18
+  br i1 %18, label %19, label %21, !prof !21
 
 19:                                               ; preds = %17
   %20 = add nuw i32 %.val.i.i, 2
@@ -24372,7 +24372,7 @@ lean_dec_ref.exit621:                             ; preds = %92, %91, %89, %lean
 103:                                              ; preds = %102, %99
   %.val.i645 = phi i32 [ %.val.i645.pr, %102 ], [ %100, %99 ]
   %104 = icmp sgt i32 %.val.i645, 0
-  br i1 %104, label %105, label %107, !prof !18
+  br i1 %104, label %105, label %107, !prof !21
 
 105:                                              ; preds = %103
   %106 = add nuw i32 %.val.i645, 1
@@ -70832,7 +70832,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !22
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -70935,7 +70935,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !22
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -79876,7 +79876,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !23
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -79979,7 +79979,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !23
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -88584,7 +88584,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !24
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -88687,7 +88687,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !24
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -99161,7 +99161,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !25
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -99264,7 +99264,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !25
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -111477,7 +111477,7 @@ lean_inc.exit161:                                 ; preds = %20
   %.val.i249 = phi i32 [ %.val.i249.pr, %30 ], [ %27, %26 ]
   %33 = load ptr, ptr @l_Lake_loadDepPackage___closed__1, align 8, !tbaa !4
   %34 = icmp sgt i32 %.val.i249, 0
-  br i1 %34, label %35, label %37, !prof !18
+  br i1 %34, label %35, label %37, !prof !21
 
 35:                                               ; preds = %32
   %36 = add nuw i32 %.val.i249, 1
@@ -125540,7 +125540,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit122
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %73
-  br label %6
+  br label %6, !llvm.loop !26
 
 75:                                               ; preds = %62
   %76 = ptrtoint ptr %69 to i64
@@ -125643,7 +125643,7 @@ lean_alloc_ctor.exit150:                          ; preds = %103
 .outer.backedge:                                  ; preds = %lean_alloc_ctor.exit150, %lean_alloc_ctor.exit151, %209, %224
   %.0115.ph.be = phi ptr [ %.0, %224 ], [ %.0113, %209 ], [ %111, %lean_alloc_ctor.exit151 ], [ %104, %lean_alloc_ctor.exit150 ]
   %.0114.ph.be = phi ptr [ %121, %224 ], [ %121, %209 ], [ %67, %lean_alloc_ctor.exit151 ], [ %67, %lean_alloc_ctor.exit150 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !26
 
 110:                                              ; preds = %lean_dec.exit121
   store ptr %69, ptr %66, align 8, !tbaa !4
@@ -131093,7 +131093,7 @@ lean_dec_ref.exit:                                ; preds = %57, %59, %60
   %89 = ptrtoint ptr %88 to i64
   %90 = and i64 %89, 1
   %.not.i37 = icmp eq i64 %90, 0
-  br i1 %.not.i37, label %.critedge.i.i, label %91, !prof !17
+  br i1 %.not.i37, label %.critedge.i.i, label %91, !prof !19
 
 91:                                               ; preds = %lean_dec_ref.exit
   %92 = icmp ugt ptr %88, inttoptr (i64 1 to ptr)
@@ -131113,7 +131113,7 @@ _init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__
   store i8 %95, ptr @l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__6, align 1, !tbaa !14
   %96 = and i64 %.pre-phi, 1
   %.not.i38 = icmp eq i64 %96, 0
-  br i1 %.not.i38, label %.critedge.i.i40, label %_init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__7.exit, !prof !17
+  br i1 %.not.i38, label %.critedge.i.i40, label %_init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__7.exit, !prof !19
 
 .critedge.i.i40:                                  ; preds = %_init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__6.exit
   %97 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %94, ptr noundef %94) #5
@@ -131176,7 +131176,7 @@ _init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__
   %117 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.25, i64 noundef 3, i64 noundef 3) #5
   store ptr %117, ptr @l___private_Lake_Load_Resolve_0__Lake_validateDep___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %117) #5
-  store i32 4, ptr @l_Lake_restartCode, align 4, !tbaa !19
+  store i32 4, ptr @l_Lake_restartCode, align 4, !tbaa !27
   %118 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.26, i64 noundef 3, i64 noundef 3) #5
   store ptr %118, ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_updateToolchain___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %118) #5
@@ -131192,7 +131192,7 @@ _init_l___private_Lake_Load_Resolve_0__Lake_reuseManifest___lambda__2___closed__
   %122 = tail call fastcc ptr @_init_l_Lake_Workspace_updateToolchain___lambda__1___closed__3()
   store ptr %122, ptr @l_Lake_Workspace_updateToolchain___lambda__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %122) #5
-  %123 = load i32, ptr @l_Lake_restartCode, align 4, !tbaa !19
+  %123 = load i32, ptr @l_Lake_restartCode, align 4, !tbaa !27
   %124 = trunc i32 %123 to i8
   store i8 %124, ptr @l_Lake_Workspace_updateToolchain___lambda__1___closed__4, align 1, !tbaa !14
   %125 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.30, i64 noundef 56, i64 noundef 56) #5
@@ -131791,6 +131791,14 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!6, !6, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !6, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!10, !10, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = distinct !{!20, !18}
+!21 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = !{!10, !10, i64 0}

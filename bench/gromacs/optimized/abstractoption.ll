@@ -479,7 +479,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -591,7 +591,7 @@ define void @_ZN3gmx21AbstractOptionStorage8startSetEv(ptr noundef nonnull align
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load i8, ptr %5, align 8, !tbaa !28, !range !58, !noundef !59
+  %6 = load i8, ptr %5, align 8, !tbaa !28, !range !59, !noundef !60
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -763,9 +763,9 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !60
+  store i32 0, ptr %5, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !62
+  store i32 0, ptr %10, align 4, !tbaa !63
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -793,7 +793,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !63
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !64
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
@@ -807,7 +807,7 @@ _ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx21AbstractOptionStorage11appendValueERKNS_3AnyE(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i8, ptr %3, align 8, !tbaa !28, !range !58, !noundef !59
+  %4 = load i8, ptr %3, align 8, !tbaa !28, !range !59, !noundef !60
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -903,7 +903,7 @@ define void @_ZN3gmx21AbstractOptionStorage9markAsSetEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx21AbstractOptionStorage9finishSetEv(ptr noundef nonnull align 8 dereferenceable(98) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i8, ptr %2, align 8, !tbaa !28, !range !58, !noundef !59
+  %3 = load i8, ptr %2, align 8, !tbaa !28, !range !59, !noundef !60
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %6, label %5
 
@@ -928,7 +928,7 @@ define void @_ZN3gmx21AbstractOptionStorage9finishSetEv(ptr noundef nonnull alig
 
 _ZN3gmx21AbstractOptionStorage9markAsSetEv.exit:  ; preds = %6, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  %14 = load i8, ptr %13, align 1, !tbaa !29, !range !58, !noundef !59
+  %14 = load i8, ptr %13, align 1, !tbaa !29, !range !59, !noundef !60
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %20, label %16
 
@@ -958,7 +958,7 @@ define void @_ZN3gmx21AbstractOptionStorage6finishEv(ptr noundef nonnull align 8
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load i8, ptr %5, align 8, !tbaa !28, !range !58, !noundef !59
+  %6 = load i8, ptr %5, align 8, !tbaa !28, !range !59, !noundef !60
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -1271,7 +1271,7 @@ define void @_ZN3gmx21AbstractOptionStorage16setMaxValueCountEi(ptr noundef nonn
 define void @_ZN3gmx10OptionInfoC2EPNS_21AbstractOptionStorageE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #16 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx10OptionInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %3, align 8, !tbaa !65
   ret void
 }
 
@@ -1293,7 +1293,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !15
   %6 = and i64 %5, 1
@@ -1304,7 +1304,7 @@ define noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx10OptionInfo8isHiddenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !15
   %6 = and i64 %5, 64
@@ -1315,7 +1315,7 @@ define noundef zeroext i1 @_ZNK3gmx10OptionInfo8isHiddenEv(ptr noundef nonnull r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx10OptionInfo10isRequiredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !15
   %6 = and i64 %5, 16
@@ -1326,7 +1326,7 @@ define noundef zeroext i1 @_ZNK3gmx10OptionInfo10isRequiredEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK3gmx10OptionInfo13minValueCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !15
   %6 = and i64 %5, 2048
@@ -1346,7 +1346,7 @@ define noundef i32 @_ZNK3gmx10OptionInfo13minValueCountEv(ptr noundef nonnull re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK3gmx10OptionInfo13maxValueCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %5 = load i32, ptr %4, align 4, !tbaa !27
   ret i32 %5
@@ -1355,7 +1355,7 @@ define noundef i32 @_ZNK3gmx10OptionInfo13maxValueCountEv(ptr noundef nonnull re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3gmx10OptionInfo4nameB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   ret ptr %4
 }
@@ -1363,7 +1363,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3gmx10OptionInfo4nam
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx10OptionInfo4typeB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1376,7 +1376,7 @@ define void @_ZNK3gmx10OptionInfo17formatDescriptionB5cxx11Ev(ptr dead_on_unwind
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !6
@@ -1420,7 +1420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %22, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
-  %23 = load ptr, ptr %5, align 8, !tbaa !66
+  %23 = load ptr, ptr %5, align 8, !tbaa !67
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -1524,7 +1524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx10OptionInfo13defaultValuesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.19") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -1535,7 +1535,7 @@ define void @_ZNK3gmx10OptionInfo13defaultValuesEv(ptr dead_on_unwind noalias wr
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx10OptionInfo22defaultValuesAsStringsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.24") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1546,7 +1546,7 @@ define void @_ZNK3gmx10OptionInfo22defaultValuesAsStringsB5cxx11Ev(ptr dead_on_u
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx10OptionInfo15normalizeValuesERKSt6vectorINS_3AnyESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.19") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -1742,16 +1742,17 @@ attributes #33 = { noreturn nounwind }
 !52 = !{!50, !51, i64 8}
 !53 = !{!54, !9, i64 0}
 !54 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!50, !51, i64 16}
-!58 = !{i8 0, i8 2}
-!59 = !{}
-!60 = !{!61, !19, i64 8}
-!61 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
-!62 = !{!61, !19, i64 12}
-!63 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTSN3gmx21AbstractOptionStorageE", !9, i64 0}
-!66 = !{!67, !65, i64 8}
-!67 = !{!"_ZTSN3gmx10OptionInfoE", !65, i64 8}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!50, !51, i64 16}
+!59 = !{i8 0, i8 2}
+!60 = !{}
+!61 = !{!62, !19, i64 8}
+!62 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
+!63 = !{!62, !19, i64 12}
+!64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSN3gmx21AbstractOptionStorageE", !9, i64 0}
+!67 = !{!68, !66, i64 8}
+!68 = !{!"_ZTSN3gmx10OptionInfoE", !66, i64 8}

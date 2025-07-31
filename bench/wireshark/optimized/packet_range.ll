@@ -307,7 +307,7 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 72
   %153 = load i32, ptr %152, align 8
   %.not105.i = icmp ugt i32 %150, %153
-  br i1 %.not105.i, label %._crit_edge.i, label %.lr.ph137.i, !llvm.loop !8
+  br i1 %.not105.i, label %._crit_edge.i, label %.lr.ph137.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %149, %.preheader.i, %.preheader125.i
   %154 = load ptr, ptr %7, align 8
@@ -439,7 +439,7 @@ define internal fastcc void @packet_range_calc_user(ptr noundef captures(none) i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %56 = load i32, ptr %55, align 8
   %.not29 = icmp ugt i32 %53, %56
-  br i1 %.not29, label %._crit_edge, label %16, !llvm.loop !9
+  br i1 %.not29, label %._crit_edge, label %16, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %52, %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -552,7 +552,7 @@ define internal fastcc void @packet_range_calc_selection(ptr noundef captures(no
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load i32, ptr %54, align 8
   %.not28 = icmp ugt i32 %52, %55
-  br i1 %.not28, label %._crit_edge, label %15, !llvm.loop !10
+  br i1 %.not28, label %._crit_edge, label %15, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -648,7 +648,7 @@ define hidden void @packet_range_process_init(ptr noundef captures(none) initial
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i8, ptr %3, align 4, !range !11, !noundef !12
+  %4 = load i8, ptr %3, align 4, !range !12, !noundef !13
   %5 = icmp eq i8 %4, 0
   %. = select i1 %5, i64 48, i64 108
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
@@ -666,13 +666,13 @@ define hidden zeroext i1 @packet_range_process_all(ptr noundef readonly captures
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i8, ptr %5, align 4, !range !11, !noundef !12
+  %6 = load i8, ptr %5, align 4, !range !12, !noundef !13
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %10 = load i8, ptr %9, align 1, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 1, !range !12, !noundef !13
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   br label %13
@@ -685,7 +685,7 @@ define hidden zeroext i1 @packet_range_process_all(ptr noundef readonly captures
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %4 = load i8, ptr %3, align 1, !range !11, !noundef !12
+  %4 = load i8, ptr %3, align 1, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %10
 
@@ -698,7 +698,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %12 = load i8, ptr %11, align 2, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 2, !range !12, !noundef !13
   %13 = trunc nuw i8 %12 to i1
   %14 = load i32, ptr %0, align 8
   br i1 %13, label %15, label %87
@@ -714,7 +714,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = load i8, ptr %17, align 4, !range !11, !noundef !12
+  %18 = load i8, ptr %17, align 4, !range !12, !noundef !13
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %86
 
@@ -727,7 +727,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i8, ptr %26, align 4, !range !11, !noundef !12
+  %27 = load i8, ptr %26, align 4, !range !12, !noundef !13
   %28 = trunc nuw i8 %27 to i1
   %29 = load i32, ptr %1, align 8
   %30 = zext i32 %29 to i64
@@ -750,7 +750,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 40:                                               ; preds = %15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %42 = load i8, ptr %41, align 4, !range !11, !noundef !12
+  %42 = load i8, ptr %41, align 4, !range !12, !noundef !13
   %43 = trunc nuw i8 %42 to i1
   %44 = load i32, ptr %1, align 8
   %45 = zext i32 %44 to i64
@@ -773,7 +773,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 55:                                               ; preds = %15
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %57 = load i8, ptr %56, align 4, !range !11, !noundef !12
+  %57 = load i8, ptr %56, align 4, !range !12, !noundef !13
   %58 = trunc nuw i8 %57 to i1
   %59 = load i32, ptr %1, align 8
   %60 = zext i32 %59 to i64
@@ -796,7 +796,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 70:                                               ; preds = %15
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %72 = load i8, ptr %71, align 4, !range !11, !noundef !12
+  %72 = load i8, ptr %71, align 4, !range !12, !noundef !13
   %73 = trunc nuw i8 %72 to i1
   %74 = load i32, ptr %1, align 8
   %75 = zext i32 %74 to i64
@@ -866,13 +866,13 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
   br label %108
 
 106:                                              ; preds = %102
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !11
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !12
   %107 = icmp eq i8 %.pre, 0
   br i1 %107, label %packet_range_process_packet_include_depends.exit, label %108
 
 108:                                              ; preds = %.thread, %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %110 = load i8, ptr %109, align 4, !range !11, !noundef !12
+  %110 = load i8, ptr %109, align 4, !range !12, !noundef !13
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %115
 
@@ -900,7 +900,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
 
 123:                                              ; preds = %117, %112, %115, %93, %88, %87
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %125 = load i8, ptr %124, align 4, !range !11, !noundef !12
+  %125 = load i8, ptr %124, align 4, !range !12, !noundef !13
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %132
 
@@ -1064,19 +1064,19 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i8, ptr %4, align 4, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 4, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %9 = load i8, ptr %8, align 2, !range !11, !noundef !12
+  %9 = load i8, ptr %8, align 2, !range !12, !noundef !13
   %10 = trunc nuw i8 %9 to i1
   %.0.in.v = select i1 %10, i64 100, i64 96
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
   %.0 = load i32, ptr %.0.in, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %12 = load i8, ptr %11, align 1, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 1, !range !12, !noundef !13
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %121
 
@@ -1092,7 +1092,7 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %24 = load i8, ptr %23, align 1, !range !11, !noundef !12
+  %24 = load i8, ptr %23, align 1, !range !12, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %121
 
@@ -1104,13 +1104,13 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
 
 30:                                               ; preds = %1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %32 = load i8, ptr %31, align 4, !range !11, !noundef !12
+  %32 = load i8, ptr %31, align 4, !range !12, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %35 = load i8, ptr %34, align 2, !range !11, !noundef !12
+  %35 = load i8, ptr %34, align 2, !range !12, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %38 = load i8, ptr %37, align 1, !range !11, !noundef !12
+  %38 = load i8, ptr %37, align 1, !range !12, !noundef !13
   %39 = trunc nuw i8 %38 to i1
   br i1 %33, label %40, label %45
 
@@ -1140,10 +1140,10 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %52 = load i8, ptr %51, align 4, !range !11, !noundef !12
+  %52 = load i8, ptr %51, align 4, !range !12, !noundef !13
   %53 = trunc nuw i8 %52 to i1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %55 = load i8, ptr %54, align 2, !range !11, !noundef !12
+  %55 = load i8, ptr %54, align 2, !range !12, !noundef !13
   %56 = trunc nuw i8 %55 to i1
   br i1 %53, label %57, label %65
 
@@ -1152,7 +1152,7 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
   %.4.in = getelementptr inbounds nuw i8, ptr %0, i64 %.4.in.v
   %.4 = load i32, ptr %.4.in, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
+  %59 = load i8, ptr %58, align 1, !range !12, !noundef !13
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %121
 
@@ -1179,7 +1179,7 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
   %.5.in = phi ptr [ %67, %66 ], [ %71, %68 ]
   %.5 = load i32, ptr %.5.in, align 4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %74 = load i8, ptr %73, align 1, !range !11, !noundef !12
+  %74 = load i8, ptr %73, align 1, !range !12, !noundef !13
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %121
 
@@ -1191,13 +1191,13 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
 
 80:                                               ; preds = %1
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %82 = load i8, ptr %81, align 4, !range !11, !noundef !12
+  %82 = load i8, ptr %81, align 4, !range !12, !noundef !13
   %83 = trunc nuw i8 %82 to i1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %85 = load i8, ptr %84, align 2, !range !11, !noundef !12
+  %85 = load i8, ptr %84, align 2, !range !12, !noundef !13
   %86 = trunc nuw i8 %85 to i1
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %88 = load i8, ptr %87, align 1, !range !11, !noundef !12
+  %88 = load i8, ptr %87, align 1, !range !12, !noundef !13
   %89 = trunc nuw i8 %88 to i1
   br i1 %83, label %90, label %95
 
@@ -1227,13 +1227,13 @@ define hidden i32 @packet_range_count(ptr noundef readonly captures(none) %0) lo
 
 100:                                              ; preds = %1
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %102 = load i8, ptr %101, align 4, !range !11, !noundef !12
+  %102 = load i8, ptr %101, align 4, !range !12, !noundef !13
   %103 = trunc nuw i8 %102 to i1
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %105 = load i8, ptr %104, align 2, !range !11, !noundef !12
+  %105 = load i8, ptr %104, align 2, !range !12, !noundef !13
   %106 = trunc nuw i8 %105 to i1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %108 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %108 = load i8, ptr %107, align 1, !range !12, !noundef !13
   %109 = trunc nuw i8 %108 to i1
   br i1 %103, label %110, label %115
 
@@ -1318,7 +1318,7 @@ define internal fastcc void @depended_frames_add(ptr noundef %0, ptr noundef %1,
   call fastcc void @depended_frames_add(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef %19)
   %25 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null)
   %.not10 = icmp eq i32 %25, 0
-  br i1 %.not10, label %._crit_edge, label %20, !llvm.loop !13
+  br i1 %.not10, label %._crit_edge, label %20, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %20, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -1370,11 +1370,12 @@ attributes #10 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}

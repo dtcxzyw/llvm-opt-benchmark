@@ -402,7 +402,7 @@ define dso_local void @WalSndErrorCleanup() local_unnamed_addr #0 {
 
 30:                                               ; preds = %28, %25
   store i32 0, ptr %22, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %26, align 4
   br label %WalSndSetState.exit
 
@@ -447,7 +447,7 @@ define dso_local void @WalSndSetState(i32 noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %6, %9
   store i32 %0, ptr %3, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %7, align 4
   br label %12
 
@@ -539,7 +539,7 @@ define dso_local noundef zeroext i1 @exec_replication_command(ptr noundef %0) lo
 
 39:                                               ; preds = %37, %34
   store i32 4, ptr %31, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %35, align 4
   %.pre = load ptr, ptr @MyWalSnd, align 8
   br label %WalSndSetState.exit
@@ -563,7 +563,7 @@ WalSndSetState.exit:                              ; preds = %39, %30, %1
   tail call void @SnapBuildClearExportedSnapshot() #17
   %49 = load volatile i32, ptr @InterruptPending, align 4
   %.not41 = icmp eq i32 %49, 0
-  br i1 %.not41, label %51, label %50, !prof !10
+  br i1 %.not41, label %51, label %50, !prof !11
 
 50:                                               ; preds = %48
   tail call void @ProcessInterrupts() #17
@@ -614,7 +614,7 @@ WalSndSetState.exit:                              ; preds = %39, %30, %1
   call void @replication_scanner_finish(ptr noundef %72) #17
   store ptr %0, ptr @debug_query_string, align 8
   call void @pgstat_report_activity(i32 noundef 2, ptr noundef %0) #17
-  %73 = load i8, ptr @log_replication_commands, align 1, !range !11, !noundef !12
+  %73 = load i8, ptr @log_replication_commands, align 1, !range !12, !noundef !13
   %74 = trunc nuw i8 %73 to i1
   %75 = select i1 %74, i32 15, i32 14
   %76 = call zeroext i1 @errstart(i32 noundef %75, ptr noundef null) #17
@@ -640,7 +640,7 @@ WalSndSetState.exit:                              ; preds = %39, %30, %1
 85:                                               ; preds = %79
   %86 = load volatile i32, ptr @InterruptPending, align 4
   %.not43 = icmp eq i32 %86, 0
-  br i1 %.not43, label %88, label %87, !prof !10
+  br i1 %.not43, label %88, label %87, !prof !11
 
 87:                                               ; preds = %85
   call void @ProcessInterrupts() #17
@@ -785,7 +785,7 @@ IdentifySystem.exit:                              ; preds = %127, %131
 
 143:                                              ; preds = %133
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 1
-  %145 = load i8, ptr %144, align 1, !range !11, !noundef !12
+  %145 = load i8, ptr %144, align 1, !range !12, !noundef !13
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %150, label %147
 
@@ -821,7 +821,7 @@ IdentifySystem.exit:                              ; preds = %127, %131
   store volatile i64 %.sroa.410.0.copyload.i, ptr %.sroa.410.i, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %141, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.9.i, ptr nonnull align 8 %.sroa.9.0..sroa_idx.i, i64 168, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   store i8 0, ptr %141, align 8
   %155 = load ptr, ptr @MainLWLockArray, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4736
@@ -1110,7 +1110,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   %281 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %284 = load i8, ptr %283, align 8, !range !11, !noundef !12
+  %284 = load i8, ptr %283, align 8, !range !12, !noundef !13
   %285 = shl nuw nsw i8 %284, 1
   %286 = zext nneg i8 %285 to i32
   call void @ReplicationSlotCreate(ptr noundef %282, i1 noundef zeroext false, i32 noundef %286, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #17
@@ -1119,7 +1119,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
 287:                                              ; preds = %280
   call void @ReplicationSlotReserveWal() #17
   call void @ReplicationSlotMarkDirty() #17
-  %288 = load i8, ptr %283, align 8, !range !11, !noundef !12
+  %288 = load i8, ptr %283, align 8, !range !12, !noundef !13
   %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %349, label %290
 
@@ -1132,7 +1132,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   %292 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %293 = load ptr, ptr %292, align 8
   %294 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %295 = load i8, ptr %294, align 8, !range !11, !noundef !12
+  %295 = load i8, ptr %294, align 8, !range !12, !noundef !13
   %296 = trunc nuw i8 %295 to i1
   %297 = select i1 %296, i32 2, i32 1
   call void @ReplicationSlotCreate(ptr noundef %293, i1 noundef zeroext true, i32 noundef %297, i1 noundef zeroext %.244.i, i1 noundef zeroext %.241.i, i1 noundef zeroext false) #17
@@ -1176,7 +1176,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   unreachable
 
 313:                                              ; preds = %308
-  %314 = load i8, ptr @XactReadOnly, align 1, !range !11, !noundef !12
+  %314 = load i8, ptr @XactReadOnly, align 1, !range !12, !noundef !13
   %315 = trunc nuw i8 %314 to i1
   br i1 %315, label %319, label %316
 
@@ -1188,7 +1188,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   unreachable
 
 319:                                              ; preds = %313
-  %320 = load i8, ptr @FirstSnapshotSet, align 1, !range !11, !noundef !12
+  %320 = load i8, ptr @FirstSnapshotSet, align 1, !range !12, !noundef !13
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %322, label %325
 
@@ -1244,7 +1244,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
 345:                                              ; preds = %340, %336, %330
   %.1.i = phi ptr [ %339, %336 ], [ null, %340 ], [ null, %330 ]
   call void @FreeDecodingContext(ptr noundef %335) #17
-  %346 = load i8, ptr %294, align 8, !range !11, !noundef !12
+  %346 = load i8, ptr %294, align 8, !range !12, !noundef !13
   %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %349, label %348
 
@@ -1326,7 +1326,7 @@ CreateReplicationSlot.exit:                       ; preds = %376, %380
   %384 = getelementptr i8, ptr %383, i64 8
   %.val = load ptr, ptr %384, align 8
   %385 = getelementptr i8, ptr %383, i64 16
-  %.val44 = load i8, ptr %385, align 8, !range !11, !noundef !12
+  %.val44 = load i8, ptr %385, align 8, !range !12, !noundef !13
   %386 = trunc nuw i8 %.val44 to i1
   %387 = xor i1 %386, true
   call void @ReplicationSlotDrop(ptr noundef %.val, i1 noundef zeroext %387) #17
@@ -1464,7 +1464,7 @@ AlterReplicationSlot.exit:                        ; preds = %388, %.split101.us.
   %447 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %448 = load ptr, ptr %447, align 8
   call void @ReplicationSlotAcquire(ptr noundef %448, i1 noundef zeroext true, i1 noundef zeroext true) #17
-  %449 = load i8, ptr @am_cascading_walsender, align 1, !range !11, !noundef !12
+  %449 = load i8, ptr @am_cascading_walsender, align 1, !range !12, !noundef !13
   %450 = trunc nuw i8 %449 to i1
   br i1 %450, label %451, label %458
 
@@ -1518,31 +1518,31 @@ AlterReplicationSlot.exit:                        ; preds = %388, %.split101.us.
 
 477:                                              ; preds = %475, %472
   store i32 2, ptr %469, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %473, align 4
   br label %WalSndSetState.exit.i
 
 WalSndSetState.exit.i:                            ; preds = %477, %458
   call void @pq_beginmessage(ptr noundef nonnull %7, i8 noundef signext 87) #17
   call void @enlargeStringInfo(ptr noundef nonnull %7, i32 noundef 1) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %478 = load ptr, ptr %7, align 8, !alias.scope !14
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  %478 = load ptr, ptr %7, align 8, !alias.scope !15
   %479 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %480 = load i32, ptr %479, align 8, !alias.scope !14
+  %480 = load i32, ptr %479, align 8, !alias.scope !15
   %481 = sext i32 %480 to i64
   %482 = getelementptr inbounds i8, ptr %478, i64 %481
-  store i8 0, ptr %482, align 1, !noalias !14
+  store i8 0, ptr %482, align 1, !noalias !15
   %483 = add i32 %480, 1
-  store i32 %483, ptr %479, align 8, !alias.scope !14
+  store i32 %483, ptr %479, align 8, !alias.scope !15
   call void @enlargeStringInfo(ptr noundef nonnull %7, i32 noundef 2) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %484 = load ptr, ptr %7, align 8, !alias.scope !17
-  %485 = load i32, ptr %479, align 8, !alias.scope !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  %484 = load ptr, ptr %7, align 8, !alias.scope !18
+  %485 = load i32, ptr %479, align 8, !alias.scope !18
   %486 = sext i32 %485 to i64
   %487 = getelementptr inbounds i8, ptr %484, i64 %486
-  store i16 0, ptr %487, align 1, !noalias !17
+  store i16 0, ptr %487, align 1, !noalias !18
   %488 = add i32 %485, 2
-  store i32 %488, ptr %479, align 8, !alias.scope !17
+  store i32 %488, ptr %479, align 8, !alias.scope !18
   call void @pq_endmessage(ptr noundef nonnull %7) #17
   %489 = load ptr, ptr @PqCommMethods, align 8
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
@@ -1578,7 +1578,7 @@ WalSndSetState.exit.i:                            ; preds = %477, %458
   %513 = load ptr, ptr @MyWalSnd, align 8
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
   store i64 %512, ptr %514, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %515 = load ptr, ptr @MyWalSnd, align 8
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 76
   store i8 0, ptr %516, align 4
@@ -1616,7 +1616,7 @@ WalSndSetState.exit.i:                            ; preds = %477, %458
 
 530:                                              ; preds = %528, %525
   store i32 0, ptr %522, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %526, align 4
   br label %StartLogicalReplication.exit
 
@@ -1651,27 +1651,27 @@ StartLogicalReplication.exit:                     ; preds = %520, %530
   call void %542(ptr noundef %534, i32 noundef 1, ptr noundef %535) #17
   call void @pq_beginmessage(ptr noundef nonnull %3, i8 noundef signext 68) #17
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 2) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %543 = load ptr, ptr %3, align 8, !alias.scope !21
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %543 = load ptr, ptr %3, align 8, !alias.scope !22
   %544 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %545 = load i32, ptr %544, align 8, !alias.scope !21
+  %545 = load i32, ptr %544, align 8, !alias.scope !22
   %546 = sext i32 %545 to i64
   %547 = getelementptr inbounds i8, ptr %543, i64 %546
-  store i16 512, ptr %547, align 1, !noalias !21
+  store i16 512, ptr %547, align 1, !noalias !22
   %548 = add i32 %545, 2
-  store i32 %548, ptr %544, align 8, !alias.scope !21
+  store i32 %548, ptr %544, align 8, !alias.scope !22
   %549 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
   %550 = trunc i64 %549 to i32
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 4) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %551 = call i32 @llvm.bswap.i32(i32 %550)
-  %552 = load ptr, ptr %3, align 8, !alias.scope !24
-  %553 = load i32, ptr %544, align 8, !alias.scope !24
+  %552 = load ptr, ptr %3, align 8, !alias.scope !25
+  %553 = load i32, ptr %544, align 8, !alias.scope !25
   %554 = sext i32 %553 to i64
   %555 = getelementptr inbounds i8, ptr %552, i64 %554
-  store i32 %551, ptr %555, align 1, !noalias !24
+  store i32 %551, ptr %555, align 1, !noalias !25
   %556 = add i32 %553, 4
-  store i32 %556, ptr %544, align 8, !alias.scope !24
+  store i32 %556, ptr %544, align 8, !alias.scope !25
   call void @pq_sendbytes(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %550) #17
   %557 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #17
   %558 = icmp slt i32 %557, 0
@@ -1714,15 +1714,15 @@ StartLogicalReplication.exit:                     ; preds = %520, %530
 576:                                              ; preds = %570
   %577 = trunc i64 %564 to i32
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 4) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %578 = call i32 @llvm.bswap.i32(i32 %577)
-  %579 = load ptr, ptr %3, align 8, !alias.scope !27
-  %580 = load i32, ptr %544, align 8, !alias.scope !27
+  %579 = load ptr, ptr %3, align 8, !alias.scope !28
+  %580 = load i32, ptr %544, align 8, !alias.scope !28
   %581 = sext i32 %580 to i64
   %582 = getelementptr inbounds i8, ptr %579, i64 %581
-  store i32 %578, ptr %582, align 1, !noalias !27
+  store i32 %578, ptr %582, align 1, !noalias !28
   %583 = add i32 %580, 4
-  store i32 %583, ptr %544, align 8, !alias.scope !27
+  store i32 %583, ptr %544, align 8, !alias.scope !28
   %.not31.i54 = icmp eq i64 %564, 0
   br i1 %.not31.i54, label %._crit_edge.i, label %.lr.ph.i55
 
@@ -1764,7 +1764,7 @@ StartLogicalReplication.exit:                     ; preds = %520, %530
   %601 = sub nsw i64 %.030.i, %600
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6) #17
   %602 = icmp sgt i64 %601, 0
-  br i1 %602, label %.lr.ph.i55, label %._crit_edge.i, !llvm.loop !30
+  br i1 %602, label %.lr.ph.i55, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %599, %576
   %603 = call i32 @CloseTransientFile(i32 noundef %557) #17
@@ -1808,24 +1808,24 @@ SendTimeLineHistory.exit:                         ; preds = %._crit_edge.i
   %617 = call ptr @CreateIncrementalBackupInfo(ptr noundef %616) #17
   call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 71) #17
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %618 = load ptr, ptr %2, align 8, !alias.scope !31
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %618 = load ptr, ptr %2, align 8, !alias.scope !32
   %619 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %620 = load i32, ptr %619, align 8, !alias.scope !31
+  %620 = load i32, ptr %619, align 8, !alias.scope !32
   %621 = sext i32 %620 to i64
   %622 = getelementptr inbounds i8, ptr %618, i64 %621
-  store i8 0, ptr %622, align 1, !noalias !31
+  store i8 0, ptr %622, align 1, !noalias !32
   %623 = add i32 %620, 1
-  store i32 %623, ptr %619, align 8, !alias.scope !31
+  store i32 %623, ptr %619, align 8, !alias.scope !32
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %624 = load ptr, ptr %2, align 8, !alias.scope !34
-  %625 = load i32, ptr %619, align 8, !alias.scope !34
+  call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %624 = load ptr, ptr %2, align 8, !alias.scope !35
+  %625 = load i32, ptr %619, align 8, !alias.scope !35
   %626 = sext i32 %625 to i64
   %627 = getelementptr inbounds i8, ptr %624, i64 %626
-  store i16 0, ptr %627, align 1, !noalias !34
+  store i16 0, ptr %627, align 1, !noalias !35
   %628 = add i32 %625, 2
-  store i32 %628, ptr %619, align 8, !alias.scope !34
+  store i32 %628, ptr %619, align 8, !alias.scope !35
   call void @pq_endmessage_reuse(ptr noundef nonnull %2) #17
   %629 = load ptr, ptr @PqCommMethods, align 8
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 8
@@ -1899,7 +1899,7 @@ HandleUploadManifestPacket.exit.i:                ; preds = %HandleUploadManifes
   br label %HandleUploadManifestPacket.exit.i.backedge
 
 HandleUploadManifestPacket.exit.i.backedge:       ; preds = %654, %651, %651
-  br label %HandleUploadManifestPacket.exit.i, !llvm.loop !37
+  br label %HandleUploadManifestPacket.exit.i, !llvm.loop !38
 
 657:                                              ; preds = %651
   %658 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2139,7 +2139,7 @@ define internal fastcc void @StartReplication(ptr noundef readonly captures(none
 71:                                               ; preds = %47, %53, %48
   %storemerge = phi i64 [ 0, %47 ], [ %51, %53 ], [ 0, %48 ]
   store i64 %storemerge, ptr @sendTimeLineValidUpto, align 8
-  %.pre = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !11
+  %.pre = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !12
   %72 = trunc nuw i8 %.pre to i1
   store i1 false, ptr @streamingDoneReceiving, align 1
   store i1 false, ptr @streamingDoneSending, align 1
@@ -2170,31 +2170,31 @@ define internal fastcc void @StartReplication(ptr noundef readonly captures(none
 
 87:                                               ; preds = %85, %82
   store i32 2, ptr %79, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %83, align 4
   br label %WalSndSetState.exit
 
 WalSndSetState.exit:                              ; preds = %77, %87
   call void @pq_beginmessage(ptr noundef nonnull %4, i8 noundef signext 87) #17
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 1) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %88 = load ptr, ptr %4, align 8, !alias.scope !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  %88 = load ptr, ptr %4, align 8, !alias.scope !39
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %90 = load i32, ptr %89, align 8, !alias.scope !38
+  %90 = load i32, ptr %89, align 8, !alias.scope !39
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %88, i64 %91
-  store i8 0, ptr %92, align 1, !noalias !38
+  store i8 0, ptr %92, align 1, !noalias !39
   %93 = add i32 %90, 1
-  store i32 %93, ptr %89, align 8, !alias.scope !38
+  store i32 %93, ptr %89, align 8, !alias.scope !39
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 2) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %94 = load ptr, ptr %4, align 8, !alias.scope !41
-  %95 = load i32, ptr %89, align 8, !alias.scope !41
+  call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %94 = load ptr, ptr %4, align 8, !alias.scope !42
+  %95 = load i32, ptr %89, align 8, !alias.scope !42
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %94, i64 %96
-  store i16 0, ptr %97, align 1, !noalias !41
+  store i16 0, ptr %97, align 1, !noalias !42
   %98 = add i32 %95, 2
-  store i32 %98, ptr %89, align 8, !alias.scope !41
+  store i32 %98, ptr %89, align 8, !alias.scope !42
   call void @pq_endmessage(ptr noundef nonnull %4) #17
   %99 = load ptr, ptr @PqCommMethods, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -2238,7 +2238,7 @@ WalSndSetState.exit:                              ; preds = %77, %87
   %126 = load ptr, ptr @MyWalSnd, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i64 %125, ptr %127, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !45
   %128 = load ptr, ptr @MyWalSnd, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 76
   store i8 0, ptr %129, align 4
@@ -2273,7 +2273,7 @@ WalSndSetState.exit:                              ; preds = %77, %87
 
 142:                                              ; preds = %140, %137
   store i32 0, ptr %134, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %138, align 4
   br label %WalSndSetState.exit42
 
@@ -2287,7 +2287,7 @@ WalSndSetState.exit42:                            ; preds = %142, %132, %73
   br label %145
 
 145:                                              ; preds = %144, %WalSndSetState.exit42
-  %146 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !11, !noundef !12
+  %146 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !12, !noundef !13
   %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %148, label %162
 
@@ -2391,13 +2391,13 @@ define dso_local void @WalSndRqstFileReload() local_unnamed_addr #0 {
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !45
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !46
   br label %16
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %15, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   br label %16
 
 16:                                               ; preds = %14, %13
@@ -2406,7 +2406,7 @@ define dso_local void @WalSndRqstFileReload() local_unnamed_addr #0 {
   %17 = load i32, ptr @max_wal_senders, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %16, %0
   ret void
@@ -2492,7 +2492,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   %5 = tail call i64 @add_size(i64 noundef 112, i64 noundef %4) #17
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.18, i64 noundef %5, ptr noundef nonnull %1) #17
   store ptr %6, ptr @WalSndCtl, align 8
-  %7 = load i8, ptr %1, align 1, !range !11, !noundef !12
+  %7 = load i8, ptr %1, align 1, !range !12, !noundef !13
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %45, label %9
 
@@ -2549,12 +2549,12 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   store ptr %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %.loopexit, !llvm.loop !48
+  br i1 %exitcond.not, label %.preheader, label %.loopexit, !llvm.loop !49
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.lr.ph27 ], [ 0, %.preheader ]
   %33 = load ptr, ptr @WalSndCtl, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !49
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !50
   %.idx = mul nuw nsw i64 %indvars.iv29, 96
   %34 = getelementptr i8, ptr %33, i64 188
   %35 = getelementptr i8, ptr %34, i64 %.idx
@@ -2563,7 +2563,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   %36 = load i32, ptr @max_wal_senders, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next30, %37
-  br i1 %38, label %.lr.ph27, label %._crit_edge, !llvm.loop !50
+  br i1 %38, label %.lr.ph27, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %.preheader
   %39 = load ptr, ptr @WalSndCtl, align 8
@@ -2634,7 +2634,7 @@ define dso_local void @WalSndInitStopping() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %8
   %11 = load i32, ptr %5, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !51
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
   store i8 0, ptr %6, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %15, label %13
@@ -2648,7 +2648,7 @@ define dso_local void @WalSndInitStopping() local_unnamed_addr #0 {
   %16 = load i32, ptr @max_wal_senders, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %15, %0
   ret void
@@ -2682,7 +2682,7 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   br i1 %12, label %.thread, label %13
 
 .thread:                                          ; preds = %10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !53
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
   store i8 0, ptr %6, align 4
   br label %16
 
@@ -2703,7 +2703,7 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
 
 .lr.ph.backedge:                                  ; preds = %16, %.critedge29
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.critedge29 ]
-  br label %.lr.ph, !llvm.loop !54
+  br label %.lr.ph, !llvm.loop !55
 
 .critedge29:                                      ; preds = %13
   tail call void @pg_usleep(i64 noundef 10000) #17
@@ -2781,7 +2781,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !56
   store i8 0, ptr %37, align 4
   br label %131
 
@@ -2806,7 +2806,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %65 = load i64, ptr %64, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !56
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !57
   store i8 0, ptr %37, align 4
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -2831,7 +2831,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
 76:                                               ; preds = %67, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %76, %73, %45
   %.lcssa.not = phi i1 [ true, %45 ], [ false, %73 ], [ true, %76 ]
@@ -2998,7 +2998,7 @@ WalSndGetStateString.exit:                        ; preds = %81, %switch.lookup
   %132 = load i32, ptr @max_wal_senders, align 4
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next103, %133
-  br i1 %134, label %33, label %._crit_edge100, !llvm.loop !58
+  br i1 %134, label %33, label %._crit_edge100, !llvm.loop !59
 
 ._crit_edge100:                                   ; preds = %131, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
@@ -3096,7 +3096,7 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @MyReplicationSlot, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 202
-  %21 = load i8, ptr %20, align 2, !range !11, !noundef !12
+  %21 = load i8, ptr %20, align 2, !range !12, !noundef !13
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %WalSndWaitForWal.exit
 
@@ -3114,7 +3114,7 @@ NeedToWaitForWal.exit.thread.i:                   ; preds = %NeedToWaitForWal.ex
   tail call void @ResetLatch(ptr noundef %25) #17
   %26 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %28, label %27, !prof !10
+  br i1 %.not.i, label %28, label %27, !prof !11
 
 27:                                               ; preds = %NeedToWaitForWal.exit.thread.i
   tail call void @ProcessInterrupts() #17
@@ -3179,7 +3179,7 @@ NeedToWaitForWal.exit.thread.i:                   ; preds = %NeedToWaitForWal.ex
 49:                                               ; preds = %44
   %50 = load ptr, ptr @MyReplicationSlot, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 202
-  %52 = load i8, ptr %51, align 2, !range !11, !noundef !12
+  %52 = load i8, ptr %51, align 2, !range !12, !noundef !13
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %131
 
@@ -3227,7 +3227,7 @@ NeedToWaitForStandbys.exit.thread.i:              ; preds = %54, %42
 74:                                               ; preds = %70
   %75 = load ptr, ptr @MyReplicationSlot, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 202
-  %77 = load i8, ptr %76, align 2, !range !11, !noundef !12
+  %77 = load i8, ptr %76, align 2, !range !12, !noundef !13
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %131
 
@@ -3346,7 +3346,7 @@ NeedToWaitForStandbys.exit.i:                     ; preds = %124, %WalSndKeepali
   %130 = tail call zeroext i1 %129() #17
   %spec.select.i = select i1 %130, i32 6, i32 2
   tail call fastcc void @WalSndWait(i32 noundef %spec.select.i, i64 noundef %.04.i.i, i32 noundef %.4.i)
-  br label %NeedToWaitForWal.exit.thread.i
+  br label %NeedToWaitForWal.exit.thread.i, !llvm.loop !60
 
 131:                                              ; preds = %87, %79, %74, %70, %54, %49, %44
   %132 = load ptr, ptr @MyLatch, align 8
@@ -3427,7 +3427,7 @@ define internal void @WalSndSegmentOpen(ptr noundef captures(none) initializes((
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #17
   %6 = load i32, ptr @sendTimeLine, align 4
   store i32 %6, ptr %2, align 4
-  %7 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !11, !noundef !12
+  %7 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !12, !noundef !13
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %18
 
@@ -3501,50 +3501,50 @@ define internal void @WalSndPrepareWrite(ptr noundef readonly captures(none) %0,
   tail call void @resetStringInfo(ptr noundef %6) #17
   %7 = load ptr, ptr %5, align 8
   tail call void @enlargeStringInfo(ptr noundef %7, i32 noundef 1) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !59
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  %8 = load ptr, ptr %7, align 8, !alias.scope !61
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load i32, ptr %9, align 8, !alias.scope !59
+  %10 = load i32, ptr %9, align 8, !alias.scope !61
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  store i8 119, ptr %12, align 1, !noalias !59
+  store i8 119, ptr %12, align 1, !noalias !61
   %13 = add i32 %10, 1
-  store i32 %13, ptr %9, align 8, !alias.scope !59
+  store i32 %13, ptr %9, align 8, !alias.scope !61
   %14 = load ptr, ptr %5, align 8
   tail call void @enlargeStringInfo(ptr noundef %14, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %15 = tail call i64 @llvm.bswap.i64(i64 %1)
   %16 = select i1 %3, i64 %15, i64 0
-  %17 = load ptr, ptr %14, align 8, !alias.scope !62
+  %17 = load ptr, ptr %14, align 8, !alias.scope !64
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load i32, ptr %18, align 8, !alias.scope !62
+  %19 = load i32, ptr %18, align 8, !alias.scope !64
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  store i64 %16, ptr %21, align 1, !noalias !62
+  store i64 %16, ptr %21, align 1, !noalias !64
   %22 = add i32 %19, 8
-  store i32 %22, ptr %18, align 8, !alias.scope !62
+  store i32 %22, ptr %18, align 8, !alias.scope !64
   %23 = load ptr, ptr %5, align 8
   tail call void @enlargeStringInfo(ptr noundef %23, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %24 = load ptr, ptr %23, align 8, !alias.scope !65
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %24 = load ptr, ptr %23, align 8, !alias.scope !67
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i32, ptr %25, align 8, !alias.scope !65
+  %26 = load i32, ptr %25, align 8, !alias.scope !67
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  store i64 %16, ptr %28, align 1, !noalias !65
+  store i64 %16, ptr %28, align 1, !noalias !67
   %29 = add i32 %26, 8
-  store i32 %29, ptr %25, align 8, !alias.scope !65
+  store i32 %29, ptr %25, align 8, !alias.scope !67
   %30 = load ptr, ptr %5, align 8
   tail call void @enlargeStringInfo(ptr noundef %30, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %31 = load ptr, ptr %30, align 8, !alias.scope !68
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  %31 = load ptr, ptr %30, align 8, !alias.scope !70
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i32, ptr %32, align 8, !alias.scope !68
+  %33 = load i32, ptr %32, align 8, !alias.scope !70
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  store i64 0, ptr %35, align 1, !noalias !68
+  store i64 0, ptr %35, align 1, !noalias !70
   %36 = add i32 %33, 8
-  store i32 %36, ptr %32, align 8, !alias.scope !68
+  store i32 %36, ptr %32, align 8, !alias.scope !70
   ret void
 }
 
@@ -3553,15 +3553,15 @@ define internal void @WalSndWriteData(ptr noundef readonly captures(none) %0, i6
   tail call void @resetStringInfo(ptr noundef nonnull @tmpbuf) #17
   %5 = tail call i64 @GetCurrentTimestamp() #17
   tail call void @enlargeStringInfo(ptr noundef nonnull @tmpbuf, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)
-  %7 = load ptr, ptr @tmpbuf, align 8, !alias.scope !71
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !71
+  %7 = load ptr, ptr @tmpbuf, align 8, !alias.scope !73
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !73
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  store i64 %6, ptr %10, align 1, !noalias !71
+  store i64 %6, ptr %10, align 1, !noalias !73
   %11 = add i32 %8, 8
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !71
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !73
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -3580,7 +3580,7 @@ define internal void @WalSndWriteData(ptr noundef readonly captures(none) %0, i6
   tail call void %20(i8 noundef signext 100, ptr noundef %22, i64 noundef %25) #17
   %26 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %28, label %27, !prof !10
+  br i1 %.not, label %28, label %27, !prof !11
 
 27:                                               ; preds = %4
   tail call void @ProcessInterrupts() #17
@@ -3627,7 +3627,7 @@ define internal void @WalSndWriteData(ptr noundef readonly captures(none) %0, i6
 define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
   %5 = tail call i64 @GetCurrentTimestamp() #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %7 = load i8, ptr %6, align 4, !range !11, !noundef !12
+  %7 = load i8, ptr %6, align 4, !range !12, !noundef !13
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %41
 
@@ -3637,7 +3637,7 @@ define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %
   br i1 %11, label %12, label %41
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr @am_walsender, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr @am_walsender, align 1, !range !12, !noundef !13
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %LagTrackerWrite.exit
 
@@ -3665,7 +3665,7 @@ define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %
   %spec.select.i = select i1 %28, i1 true, i1 %.01115.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %29, label %25, !llvm.loop !74
+  br i1 %exitcond.not.i, label %29, label %25, !llvm.loop !76
 
 29:                                               ; preds = %25
   br i1 %spec.select.i, label %.sink.split.i, label %32
@@ -3709,7 +3709,7 @@ LagTrackerWrite.exit:                             ; preds = %12, %15, %32
 46:                                               ; preds = %41
   %47 = load ptr, ptr @WalSndCtl, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %49 = load volatile i8, ptr %48, align 8, !range !11, !noundef !12
+  %49 = load volatile i8, ptr %48, align 8, !range !12, !noundef !13
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %.critedge
 
@@ -3943,7 +3943,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %73 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %72
   %74 = load i64, ptr %73, align 8
   %.not38.i.i.i = icmp ugt i64 %74, %37
-  br i1 %.not38.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i, !llvm.loop !75
+  br i1 %.not38.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i, !llvm.loop !77
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %71
   %75 = phi ptr [ %73, %71 ], [ %69, %.lr.ph.i.i.i ]
@@ -3955,7 +3955,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %80 = srem i32 %79, 8192
   store i32 %80, ptr %63, align 4
   %.not.i.i.i = icmp eq i32 %80, %65
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %71, !llvm.loop !75
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %71, !llvm.loop !77
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i, %60
   %.030.lcssa.i.i.i = phi i64 [ 0, %60 ], [ %78, %.lr.ph.i.i ]
@@ -4049,7 +4049,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   %125 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %118, i64 0, i64 %124
   %126 = load i64, ptr %125, align 8
   %.not38.i59.i.i = icmp ugt i64 %126, %38
-  br i1 %.not38.i59.i.i, label %.critedge.i63.i.i, label %.lr.ph111.i.i, !llvm.loop !75
+  br i1 %.not38.i59.i.i, label %.critedge.i63.i.i, label %.lr.ph111.i.i, !llvm.loop !77
 
 .lr.ph111.i.i:                                    ; preds = %.lr.ph.i57.i.i, %123
   %127 = phi ptr [ %125, %123 ], [ %121, %.lr.ph.i57.i.i ]
@@ -4061,7 +4061,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   %132 = srem i32 %131, 8192
   store i32 %132, ptr %117, align 4
   %.not.i60.i.i = icmp eq i32 %132, %65
-  br i1 %.not.i60.i.i, label %._crit_edge.i61.i.i, label %123, !llvm.loop !75
+  br i1 %.not.i60.i.i, label %._crit_edge.i61.i.i, label %123, !llvm.loop !77
 
 ._crit_edge.i61.i.i:                              ; preds = %.lr.ph111.i.i, %LagTrackerRead.exit.i.i
   %.030.lcssa.i62.i.i = phi i64 [ 0, %LagTrackerRead.exit.i.i ], [ %130, %.lr.ph111.i.i ]
@@ -4155,7 +4155,7 @@ LagTrackerRead.exit74.i.i:                        ; preds = %167, %144, %.thread
   %177 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %170, i64 0, i64 %176
   %178 = load i64, ptr %177, align 8
   %.not38.i79.i.i = icmp ugt i64 %178, %39
-  br i1 %.not38.i79.i.i, label %.critedge.i83.i.i, label %.lr.ph115.i.i, !llvm.loop !75
+  br i1 %.not38.i79.i.i, label %.critedge.i83.i.i, label %.lr.ph115.i.i, !llvm.loop !77
 
 .lr.ph115.i.i:                                    ; preds = %.lr.ph.i77.i.i, %175
   %179 = phi ptr [ %177, %175 ], [ %173, %.lr.ph.i77.i.i ]
@@ -4167,7 +4167,7 @@ LagTrackerRead.exit74.i.i:                        ; preds = %167, %144, %.thread
   %184 = srem i32 %183, 8192
   store i32 %184, ptr %169, align 4
   %.not.i80.i.i = icmp eq i32 %184, %65
-  br i1 %.not.i80.i.i, label %._crit_edge.i81.i.i, label %175, !llvm.loop !75
+  br i1 %.not.i80.i.i, label %._crit_edge.i81.i.i, label %175, !llvm.loop !77
 
 ._crit_edge.i81.i.i:                              ; preds = %.lr.ph115.i.i, %LagTrackerRead.exit74.i.i
   %.030.lcssa.i82.i.i = phi i64 [ 0, %LagTrackerRead.exit74.i.i ], [ %182, %.lr.ph115.i.i ]
@@ -4303,9 +4303,9 @@ LagTrackerRead.exit94.i.i:                        ; preds = %219, %196, %.thread
 245:                                              ; preds = %243, %241
   %246 = getelementptr inbounds nuw i8, ptr %225, i64 80
   store i64 %40, ptr %246, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !76
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !78
   store i8 0, ptr %226, align 4
-  %247 = load i8, ptr @am_cascading_walsender, align 1, !range !11, !noundef !12
+  %247 = load i8, ptr @am_cascading_walsender, align 1, !range !12, !noundef !13
   %248 = trunc nuw i8 %247 to i1
   br i1 %248, label %250, label %249
 
@@ -4347,7 +4347,7 @@ LagTrackerRead.exit94.i.i:                        ; preds = %219, %196, %.thread
 
 265:                                              ; preds = %262
   store i64 %38, ptr %263, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !77
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !79
   store i8 0, ptr %251, align 8
   call void @ReplicationSlotMarkDirty() #17
   call void @ReplicationSlotsComputeRequiredLSN() #17
@@ -4367,7 +4367,7 @@ LagTrackerRead.exit94.i.i:                        ; preds = %219, %196, %.thread
   br label %ProcessStandbyMessage.exit
 
 .critedge.i96.i.i:                                ; preds = %262
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !77
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !79
   store i8 0, ptr %251, align 8
   br label %ProcessStandbyMessage.exit
 
@@ -4409,7 +4409,7 @@ LagTrackerRead.exit94.i.i:                        ; preds = %219, %196, %.thread
 294:                                              ; preds = %292, %288
   %295 = getelementptr inbounds nuw i8, ptr %289, i64 80
   store i64 %275, ptr %295, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !78
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !80
   store i8 0, ptr %290, align 4
   %296 = icmp ugt i32 %276, 2
   %297 = icmp ugt i32 %278, 2
@@ -4543,7 +4543,7 @@ TransactionIdInRecentPast.exit37.i.i:             ; preds = %320, %319
 ProcessStandbyMessage.exit:                       ; preds = %.thread41.i.i, %329, %326, %TransactionIdInRecentPast.exit37.i.i, %320, %319, %TransactionIdInRecentPast.exit.i.i, %310, %309, %302, %298, %.critedge.i96.i.i, %271, %267, %265, %257, %250, %31
   %.1.ph = phi i1 [ true, %.thread41.i.i ], [ true, %329 ], [ true, %326 ], [ true, %TransactionIdInRecentPast.exit37.i.i ], [ true, %320 ], [ true, %319 ], [ true, %TransactionIdInRecentPast.exit.i.i ], [ true, %310 ], [ true, %309 ], [ true, %302 ], [ true, %298 ], [ true, %.critedge.i96.i.i ], [ true, %271 ], [ true, %267 ], [ true, %265 ], [ true, %257 ], [ true, %250 ], [ %.026, %31 ]
   %.b7.pr = load i1, ptr @streamingDoneReceiving, align 1
-  br i1 %.b7.pr, label %.loopexit, label %.lr.ph, !llvm.loop !79
+  br i1 %.b7.pr, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .loopexit:                                        ; preds = %ProcessStandbyMessage.exit
   br i1 %.1.ph, label %346, label %.critedge
@@ -4574,48 +4574,48 @@ define internal fastcc void @WalSndKeepalive(i1 noundef zeroext %0, i64 noundef 
 6:                                                ; preds = %2, %4
   tail call void @resetStringInfo(ptr noundef nonnull @output_message) #17
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %7 = load ptr, ptr @output_message, align 8, !alias.scope !80
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !80
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  %7 = load ptr, ptr @output_message, align 8, !alias.scope !82
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !82
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
-  store i8 107, ptr %10, align 1, !noalias !80
+  store i8 107, ptr %10, align 1, !noalias !82
   %11 = add i32 %8, 1
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !80
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !82
   %12 = icmp eq i64 %1, 0
   %13 = load i64, ptr @sentPtr, align 8
   %14 = select i1 %12, i64 %13, i64 %1
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
-  %16 = load ptr, ptr @output_message, align 8, !alias.scope !83
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !83
+  %16 = load ptr, ptr @output_message, align 8, !alias.scope !85
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !85
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  store i64 %15, ptr %19, align 1, !noalias !83
+  store i64 %15, ptr %19, align 1, !noalias !85
   %20 = add i32 %17, 8
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !83
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !85
   %21 = tail call i64 @GetCurrentTimestamp() #17
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
-  %23 = load ptr, ptr @output_message, align 8, !alias.scope !86
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !86
+  %23 = load ptr, ptr @output_message, align 8, !alias.scope !88
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !88
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
-  store i64 %22, ptr %26, align 1, !noalias !86
+  store i64 %22, ptr %26, align 1, !noalias !88
   %27 = add i32 %24, 8
-  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !86
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !88
   %28 = zext i1 %0 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %29 = load ptr, ptr @output_message, align 8, !alias.scope !89
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !89
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  %29 = load ptr, ptr @output_message, align 8, !alias.scope !91
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !91
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  store i8 %28, ptr %32, align 1, !noalias !89
+  store i8 %28, ptr %32, align 1, !noalias !91
   %33 = add i32 %30, 1
-  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !89
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !91
   %34 = load ptr, ptr @PqCommMethods, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
@@ -4785,12 +4785,12 @@ define internal fastcc void @PhysicalReplicationSlotNewXmin(i32 noundef %0, i32 
   store i32 %1, ptr %19, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %1, ptr %25, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !92
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !94
   store i8 0, ptr %3, align 8
   br label %27
 
 26:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !92
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !94
   store i8 0, ptr %3, align 8
   br i1 %.0, label %27, label %28
 
@@ -4941,7 +4941,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %33, %39
   tail call void @ResetLatch(ptr noundef %42) #17
   %43 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %45, label %44, !prof !10
+  br i1 %.not, label %45, label %44, !prof !11
 
 44:                                               ; preds = %WalSndComputeSleeptime.exit
   tail call void @ProcessInterrupts() #17
@@ -4964,7 +4964,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %33, %39
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %51() #17
   %.not3 = icmp eq i32 %52, 0
-  br i1 %.not3, label %1, label %53
+  br i1 %.not3, label %1, label %53, !llvm.loop !95
 
 53:                                               ; preds = %48
   tail call fastcc void @WalSndShutdown() #21
@@ -5010,7 +5010,7 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
   tail call void @ResetLatch(ptr noundef %6) #17
   %7 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %9, label %8, !prof !10
+  br i1 %.not, label %9, label %8, !prof !11
 
 8:                                                ; preds = %5
   tail call void @ProcessInterrupts() #17
@@ -5049,7 +5049,7 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %18
-  tail call void %0() #17, !callees !93
+  tail call void %0() #17, !callees !96
   br label %25
 
 24:                                               ; preds = %18
@@ -5115,7 +5115,7 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %
 
 57:                                               ; preds = %55, %52
   store i32 3, ptr %49, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %53, align 4
   br label %WalSndSetState.exit
 
@@ -5125,7 +5125,7 @@ WalSndSetState.exit:                              ; preds = %57, %47, %37
   br i1 %.not20, label %WalSndDone.exit, label %59
 
 59:                                               ; preds = %WalSndSetState.exit
-  tail call void %0() #17, !callees !93
+  tail call void %0() #17, !callees !96
   %60 = load ptr, ptr @MyWalSnd, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i64, ptr %61, align 8
@@ -5279,7 +5279,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %116, %122
   br label %.backedge
 
 .backedge:                                        ; preds = %WalSndComputeSleeptime.exit, %111
-  br label %5
+  br label %5, !llvm.loop !97
 
 130:                                              ; preds = %13
   ret void
@@ -5315,7 +5315,7 @@ define internal void @XLogSendPhysical() #0 {
 
 16:                                               ; preds = %14, %11
   store i32 4, ptr %8, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   store i8 0, ptr %12, align 4
   br label %WalSndSetState.exit
 
@@ -5328,7 +5328,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   br label %214
 
 18:                                               ; preds = %WalSndSetState.exit
-  %19 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !11, !noundef !12
+  %19 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !12, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %23
 
@@ -5337,7 +5337,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   br label %43
 
 23:                                               ; preds = %18
-  %24 = load i8, ptr @am_cascading_walsender, align 1, !range !11, !noundef !12
+  %24 = load i8, ptr @am_cascading_walsender, align 1, !range !12, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %41
 
@@ -5384,7 +5384,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 43:                                               ; preds = %32, %36, %41, %21
   %.0 = phi i64 [ %22, %21 ], [ %42, %41 ], [ %40, %36 ], [ %.0.i, %32 ]
   %44 = call i64 @GetCurrentTimestamp() #17
-  %45 = load i8, ptr @am_walsender, align 1, !range !11, !noundef !12
+  %45 = load i8, ptr @am_walsender, align 1, !range !12, !noundef !13
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %LagTrackerWrite.exit
 
@@ -5412,7 +5412,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   %spec.select.i = select i1 %60, i1 true, i1 %.01115.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %61, label %57, !llvm.loop !74
+  br i1 %exitcond.not.i, label %61, label %57, !llvm.loop !76
 
 61:                                               ; preds = %57
   br i1 %spec.select.i, label %.sink.split.i, label %64
@@ -5441,7 +5441,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   br label %LagTrackerWrite.exit
 
 LagTrackerWrite.exit:                             ; preds = %43, %47, %64
-  %73 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !11, !noundef !12
+  %73 = load i8, ptr @sendTimeLineIsHistoric, align 1, !range !12, !noundef !13
   %74 = trunc nuw i8 %73 to i1
   %.pre = load i64, ptr @sentPtr, align 8
   %75 = load i64, ptr @sendTimeLineValidUpto, align 8
@@ -5502,43 +5502,43 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %102 = sub i64 %.042, %.pre
   call void @resetStringInfo(ptr noundef nonnull @output_message) #17
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %103 = load ptr, ptr @output_message, align 8, !alias.scope !94
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !94
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  %103 = load ptr, ptr @output_message, align 8, !alias.scope !98
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i8, ptr %103, i64 %105
-  store i8 119, ptr %106, align 1, !noalias !94
+  store i8 119, ptr %106, align 1, !noalias !98
   %107 = add i32 %104, 1
-  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !94
+  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %108 = call i64 @llvm.bswap.i64(i64 %.pre)
-  %109 = load ptr, ptr @output_message, align 8, !alias.scope !97
-  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !97
+  %109 = load ptr, ptr @output_message, align 8, !alias.scope !101
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %109, i64 %111
-  store i64 %108, ptr %112, align 1, !noalias !97
+  store i64 %108, ptr %112, align 1, !noalias !101
   %113 = add i32 %110, 8
-  store i32 %113, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !97
+  store i32 %113, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %114 = call i64 @llvm.bswap.i64(i64 %.0)
-  %115 = load ptr, ptr @output_message, align 8, !alias.scope !100
-  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !100
+  %115 = load ptr, ptr @output_message, align 8, !alias.scope !104
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !104
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i8, ptr %115, i64 %117
-  store i64 %114, ptr %118, align 1, !noalias !100
+  store i64 %114, ptr %118, align 1, !noalias !104
   %119 = add i32 %116, 8
-  store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !100
+  store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !104
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %120 = load ptr, ptr @output_message, align 8, !alias.scope !103
-  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !103
+  call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  %120 = load ptr, ptr @output_message, align 8, !alias.scope !107
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !107
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds i8, ptr %120, i64 %122
-  store i64 0, ptr %123, align 1, !noalias !103
+  store i64 0, ptr %123, align 1, !noalias !107
   %124 = add i32 %121, 8
-  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !103
+  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !107
   %125 = trunc i64 %102 to i32
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef %125) #17
   br label %126
@@ -5586,7 +5586,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 1224
   %156 = load i32, ptr %155, align 8
   call void @CheckXLogRemoved(i64 noundef %154, i32 noundef %156) #17
-  %157 = load i8, ptr @am_cascading_walsender, align 1, !range !11, !noundef !12
+  %157 = load i8, ptr @am_cascading_walsender, align 1, !range !12, !noundef !13
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %159, label %.thread
 
@@ -5603,10 +5603,10 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 165:                                              ; preds = %159, %163
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %167 = load i8, ptr %166, align 8, !range !11, !noundef !12
+  %167 = load i8, ptr %166, align 8, !range !12, !noundef !13
   %168 = trunc nuw i8 %167 to i1
   store i8 0, ptr %166, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !106
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !110
   store i8 0, ptr %161, align 4
   br i1 %168, label %169, label %.thread
 
@@ -5619,7 +5619,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 174:                                              ; preds = %169
   call void @wal_segment_close(ptr noundef nonnull %170) #17
-  br label %126
+  br label %126, !llvm.loop !111
 
 .thread:                                          ; preds = %165, %169, %149
   %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
@@ -5633,15 +5633,15 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void @resetStringInfo(ptr noundef nonnull @tmpbuf) #17
   %181 = call i64 @GetCurrentTimestamp() #17
   call void @enlargeStringInfo(ptr noundef nonnull @tmpbuf, i32 noundef 8) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %182 = call i64 @llvm.bswap.i64(i64 %181)
-  %183 = load ptr, ptr @tmpbuf, align 8, !alias.scope !107
-  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !107
+  %183 = load ptr, ptr @tmpbuf, align 8, !alias.scope !112
+  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !112
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr %183, i64 %185
-  store i64 %182, ptr %186, align 1, !noalias !107
+  store i64 %182, ptr %186, align 1, !noalias !112
   %187 = add i32 %184, 8
-  store i32 %187, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !107
+  store i32 %187, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !112
   %188 = load ptr, ptr @output_message, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 17
   %190 = load ptr, ptr @tmpbuf, align 8
@@ -5668,9 +5668,9 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %203 = load i64, ptr @sentPtr, align 8
   %204 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i64 %203, ptr %204, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !110
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !115
   store i8 0, ptr %198, align 4
-  %205 = load i8, ptr @update_process_title, align 1, !range !11, !noundef !12
+  %205 = load i8, ptr @update_process_title, align 1, !range !12, !noundef !13
   %206 = trunc nuw i8 %205 to i1
   br i1 %206, label %207, label %214
 
@@ -5746,7 +5746,7 @@ define internal void @XLogSendLogical() #0 {
   br i1 %.not6, label %43, label %32
 
 32:                                               ; preds = %26, %23
-  %33 = load i8, ptr @am_cascading_walsender, align 1, !range !11, !noundef !12
+  %33 = load i8, ptr @am_cascading_walsender, align 1, !range !12, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %41
 
@@ -5815,7 +5815,7 @@ define internal void @XLogSendLogical() #0 {
   %61 = load i64, ptr @sentPtr, align 8
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %61, ptr %62, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !111
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !116
   store i8 0, ptr %56, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret void
@@ -5879,7 +5879,7 @@ define internal void @WalSndKill(i32 %0, i64 %1) #0 {
 
 8:                                                ; preds = %2, %6
   store i32 0, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !112
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !117
   store i8 0, ptr %4, align 4
   ret void
 }
@@ -5928,109 +5928,114 @@ attributes #22 = { nounwind willreturn memory(none) }
 !4 = !{i64 3019784, i64 3019800}
 !5 = !{i64 2151656916}
 !6 = !{i64 2151656779}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2151668613}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{i64 2151585091}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"pq_writeint8: argument 0"}
-!16 = distinct !{!16, !"pq_writeint8"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"pq_writeint16: argument 0"}
-!19 = distinct !{!19, !"pq_writeint16"}
-!20 = !{i64 2151630380}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint16: argument 0"}
-!23 = distinct !{!23, !"pq_writeint16"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"pq_writeint32: argument 0"}
-!26 = distinct !{!26, !"pq_writeint32"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"pq_writeint32: argument 0"}
-!29 = distinct !{!29, !"pq_writeint32"}
-!30 = distinct !{!30, !8}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"pq_writeint8: argument 0"}
-!33 = distinct !{!33, !"pq_writeint8"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"pq_writeint16: argument 0"}
-!36 = distinct !{!36, !"pq_writeint16"}
-!37 = distinct !{!37, !8}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"pq_writeint8: argument 0"}
-!40 = distinct !{!40, !"pq_writeint8"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"pq_writeint16: argument 0"}
-!43 = distinct !{!43, !"pq_writeint16"}
-!44 = !{i64 2151609659}
-!45 = !{i64 2151666195}
-!46 = !{i64 2151666314}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
-!49 = !{i64 2151667469}
-!50 = distinct !{!50, !8}
-!51 = !{i64 2151667785}
-!52 = distinct !{!52, !8}
-!53 = !{i64 2151668080}
-!54 = distinct !{!54, !8}
-!55 = !{i64 2151668937}
-!56 = !{i64 2151669054}
-!57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"pq_writeint8: argument 0"}
-!61 = distinct !{!61, !"pq_writeint8"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"pq_writeint64: argument 0"}
-!64 = distinct !{!64, !"pq_writeint64"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"pq_writeint64: argument 0"}
-!67 = distinct !{!67, !"pq_writeint64"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"pq_writeint64: argument 0"}
-!70 = distinct !{!70, !"pq_writeint64"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"pq_writeint64: argument 0"}
-!73 = distinct !{!73, !"pq_writeint64"}
-!74 = distinct !{!74, !8}
-!75 = distinct !{!75, !8}
-!76 = !{i64 2151651767}
-!77 = !{i64 2151646090}
-!78 = !{i64 2151654004}
-!79 = distinct !{!79, !8}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"pq_writeint8: argument 0"}
-!82 = distinct !{!82, !"pq_writeint8"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"pq_writeint64: argument 0"}
-!85 = distinct !{!85, !"pq_writeint64"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"pq_writeint64: argument 0"}
-!88 = distinct !{!88, !"pq_writeint64"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"pq_writeint8: argument 0"}
-!91 = distinct !{!91, !"pq_writeint8"}
-!92 = !{i64 2151652436}
-!93 = !{ptr @XLogSendLogical, ptr @XLogSendPhysical}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"pq_writeint8: argument 0"}
-!96 = distinct !{!96, !"pq_writeint8"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"pq_writeint64: argument 0"}
-!99 = distinct !{!99, !"pq_writeint64"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"pq_writeint64: argument 0"}
-!102 = distinct !{!102, !"pq_writeint64"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"pq_writeint64: argument 0"}
-!105 = distinct !{!105, !"pq_writeint64"}
-!106 = !{i64 2151663474}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2151668613}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{i64 2151585091}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"pq_writeint8: argument 0"}
+!17 = distinct !{!17, !"pq_writeint8"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"pq_writeint16: argument 0"}
+!20 = distinct !{!20, !"pq_writeint16"}
+!21 = !{i64 2151630380}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"pq_writeint16: argument 0"}
+!24 = distinct !{!24, !"pq_writeint16"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"pq_writeint32: argument 0"}
+!27 = distinct !{!27, !"pq_writeint32"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"pq_writeint32: argument 0"}
+!30 = distinct !{!30, !"pq_writeint32"}
+!31 = distinct !{!31, !8, !9}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"pq_writeint8: argument 0"}
+!34 = distinct !{!34, !"pq_writeint8"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"pq_writeint16: argument 0"}
+!37 = distinct !{!37, !"pq_writeint16"}
+!38 = distinct !{!38, !8, !9}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"pq_writeint8: argument 0"}
+!41 = distinct !{!41, !"pq_writeint8"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"pq_writeint16: argument 0"}
+!44 = distinct !{!44, !"pq_writeint16"}
+!45 = !{i64 2151609659}
+!46 = !{i64 2151666195}
+!47 = !{i64 2151666314}
+!48 = distinct !{!48, !8, !9}
+!49 = distinct !{!49, !8, !9}
+!50 = !{i64 2151667469}
+!51 = distinct !{!51, !8, !9}
+!52 = !{i64 2151667785}
+!53 = distinct !{!53, !8, !9}
+!54 = !{i64 2151668080}
+!55 = distinct !{!55, !9}
+!56 = !{i64 2151668937}
+!57 = !{i64 2151669054}
+!58 = distinct !{!58, !8, !9}
+!59 = distinct !{!59, !8, !9}
+!60 = distinct !{!60, !9}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"pq_writeint8: argument 0"}
+!63 = distinct !{!63, !"pq_writeint8"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"pq_writeint64: argument 0"}
+!66 = distinct !{!66, !"pq_writeint64"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"pq_writeint64: argument 0"}
+!69 = distinct !{!69, !"pq_writeint64"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"pq_writeint64: argument 0"}
+!72 = distinct !{!72, !"pq_writeint64"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"pq_writeint64: argument 0"}
+!75 = distinct !{!75, !"pq_writeint64"}
+!76 = distinct !{!76, !8, !9}
+!77 = distinct !{!77, !8, !9}
+!78 = !{i64 2151651767}
+!79 = !{i64 2151646090}
+!80 = !{i64 2151654004}
+!81 = distinct !{!81, !8, !9}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"pq_writeint8: argument 0"}
+!84 = distinct !{!84, !"pq_writeint8"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"pq_writeint64: argument 0"}
+!87 = distinct !{!87, !"pq_writeint64"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"pq_writeint64: argument 0"}
+!90 = distinct !{!90, !"pq_writeint64"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"pq_writeint8: argument 0"}
+!93 = distinct !{!93, !"pq_writeint8"}
+!94 = !{i64 2151652436}
+!95 = distinct !{!95, !9}
+!96 = !{ptr @XLogSendLogical, ptr @XLogSendPhysical}
+!97 = distinct !{!97, !9}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"pq_writeint8: argument 0"}
+!100 = distinct !{!100, !"pq_writeint8"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"pq_writeint64: argument 0"}
+!103 = distinct !{!103, !"pq_writeint64"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"pq_writeint64: argument 0"}
+!106 = distinct !{!106, !"pq_writeint64"}
 !107 = !{!108}
 !108 = distinct !{!108, !109, !"pq_writeint64: argument 0"}
 !109 = distinct !{!109, !"pq_writeint64"}
-!110 = !{i64 2151663852}
-!111 = !{i64 2151665776}
-!112 = !{i64 2151657239}
+!110 = !{i64 2151663474}
+!111 = distinct !{!111, !9}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"pq_writeint64: argument 0"}
+!114 = distinct !{!114, !"pq_writeint64"}
+!115 = !{i64 2151663852}
+!116 = !{i64 2151665776}
+!117 = !{i64 2151657239}

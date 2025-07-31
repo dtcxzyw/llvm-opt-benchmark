@@ -163,7 +163,7 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
 34:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %35 = icmp sgt i64 %indvars.iv, 1
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge.split.loop.exit176:                   ; preds = %.lr.ph
   %36 = trunc nuw nsw i64 %indvars.iv to i32
@@ -248,13 +248,13 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
   %65 = trunc i32 %59 to i8
   %66 = or i8 %64, %65
   store i8 %66, ptr %gep181, align 1, !tbaa !12
-  br i1 %57, label %56, label %67, !llvm.loop !16
+  br i1 %57, label %56, label %67, !llvm.loop !17
 
 67:                                               ; preds = %62
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge122, label %.preheader, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge122, label %.preheader, !llvm.loop !18
 
 ._crit_edge122:                                   ; preds = %67, %54
   br i1 %26, label %68, label %.loopexit96
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %0, ptr noundef writeonl
 68:                                               ; preds = %._crit_edge122
   %69 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %3) #3
   %70 = icmp slt i32 %69, 1
-  br i1 %70, label %.loopexit, label %.lr.ph130
+  br i1 %70, label %.loopexit, label %.lr.ph130, !llvm.loop !19
 
 .loopexit96:                                      ; preds = %._crit_edge122, %4
   %.180 = phi ptr [ null, %4 ], [ %.281, %._crit_edge122 ]
@@ -321,8 +321,10 @@ attributes #3 = { nounwind }
 !10 = !{!"long", !6, i64 0}
 !11 = !{!4, !8, i64 8}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !15}

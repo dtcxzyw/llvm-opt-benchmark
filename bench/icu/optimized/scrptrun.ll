@@ -97,21 +97,21 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun10sameSc
 define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1064) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1060
-  %4 = load i32, ptr %3, align 4, !tbaa !10
+  %4 = load i32, ptr %3, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !tbaa !16
+  store i32 0, ptr %2, align 4, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %6 = load i32, ptr %5, align 4, !tbaa !18
+  %6 = load i32, ptr %5, align 4, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !19
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   %.not = icmp slt i32 %6, %8
   br i1 %.not, label %.lr.ph68, label %.loopexit64
 
 .lr.ph68:                                         ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %9, align 8, !tbaa !20
+  store i32 0, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %6, ptr %10, align 8, !tbaa !21
+  store i32 %6, ptr %10, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -121,10 +121,10 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %15 = phi i32 [ %8, %.lr.ph68 ], [ %102, %99 ]
   %16 = phi i32 [ %6, %.lr.ph68 ], [ %101, %99 ]
   %.03367 = phi i32 [ %4, %.lr.ph68 ], [ %.6.ph, %99 ]
-  %17 = load ptr, ptr %11, align 8, !tbaa !22
+  %17 = load ptr, ptr %11, align 8, !tbaa !23
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds i16, ptr %17, i64 %18
-  %20 = load i16, ptr %19, align 2, !tbaa !23
+  %20 = load i16, ptr %19, align 2, !tbaa !24
   %21 = zext i16 %20 to i32
   %22 = and i16 %20, -1024
   %or.cond = icmp eq i16 %22, -10240
@@ -137,7 +137,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %26 = add nsw i32 %16, 1
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i16, ptr %17, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !23
+  %29 = load i16, ptr %28, align 2, !tbaa !24
   %30 = and i16 %29, -1024
   %or.cond5 = icmp eq i16 %30, -9216
   br i1 %or.cond5, label %31, label %36
@@ -147,7 +147,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %33 = shl nuw nsw i32 %21, 10
   %34 = add nsw i32 %33, -56613888
   %35 = add nuw nsw i32 %34, %32
-  store i32 %26, ptr %5, align 4, !tbaa !18
+  store i32 %26, ptr %5, align 4, !tbaa !19
   br label %36
 
 36:                                               ; preds = %25, %31, %14
@@ -183,19 +183,19 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
 50:                                               ; preds = %_ZN6icu_779ScriptRun12getPairIndexEi.exit
   %51 = and i32 %spec.store.select.i, 1
   %52 = icmp eq i32 %51, 0
-  %53 = load i32, ptr %3, align 4, !tbaa !10
+  %53 = load i32, ptr %3, align 4, !tbaa !11
   br i1 %52, label %54, label %59
 
 54:                                               ; preds = %50
   %55 = add nsw i32 %53, 1
-  store i32 %55, ptr %3, align 4, !tbaa !10
+  store i32 %55, ptr %3, align 4, !tbaa !11
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds [128 x %"struct.icu_77::ParenStackEntry"], ptr %12, i64 0, i64 %56
-  store i32 %spec.store.select.i, ptr %57, align 4, !tbaa !25
-  %58 = load i32, ptr %9, align 8, !tbaa !20
+  store i32 %spec.store.select.i, ptr %57, align 4, !tbaa !26
+  %58 = load i32, ptr %9, align 8, !tbaa !21
   %.idx50 = shl nsw i64 %56, 3
   %gep = getelementptr i8, ptr %13, i64 %.idx50
-  store i32 %58, ptr %gep, align 8, !tbaa !27
+  store i32 %58, ptr %gep, align 8, !tbaa !28
   br label %74
 
 59:                                               ; preds = %50
@@ -210,15 +210,15 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   %64 = phi i32 [ %53, %61 ], [ %69, %68 ]
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds nuw [128 x %"struct.icu_77::ParenStackEntry"], ptr %12, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !25
+  %67 = load i32, ptr %66, align 4, !tbaa !26
   %.not49 = icmp eq i32 %67, %62
   br i1 %.not49, label %71, label %68
 
 68:                                               ; preds = %63
   %69 = add nsw i32 %64, -1
-  store i32 %69, ptr %3, align 4, !tbaa !10
+  store i32 %69, ptr %3, align 4, !tbaa !11
   %70 = icmp sgt i32 %64, 0
-  br i1 %70, label %63, label %.critedge, !llvm.loop !28
+  br i1 %70, label %63, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %68
   %spec.select = call i32 @llvm.smin.i32(i32 %.03367, i32 -1)
@@ -228,13 +228,13 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   %spec.select58 = call i32 @llvm.smin.i32(i32 %64, i32 %.03367)
   %.idx = shl nuw nsw i64 %65, 3
   %72 = getelementptr i8, ptr %13, i64 %.idx
-  %73 = load i32, ptr %72, align 8, !tbaa !27
+  %73 = load i32, ptr %72, align 8, !tbaa !28
   br label %74
 
 74:                                               ; preds = %.critedge, %71, %54, %59, %_ZN6icu_779ScriptRun12getPairIndexEi.exit
   %.034 = phi i32 [ %37, %54 ], [ %37, %59 ], [ %37, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %73, %71 ], [ %37, %.critedge ]
   %.1 = phi i32 [ %.03367, %54 ], [ %.03367, %59 ], [ %.03367, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %spec.select58, %71 ], [ %spec.select, %.critedge ]
-  %75 = load i32, ptr %9, align 8, !tbaa !20
+  %75 = load i32, ptr %9, align 8, !tbaa !21
   %76 = icmp slt i32 %75, 2
   %77 = icmp slt i32 %.034, 2
   %78 = icmp eq i32 %75, %.034
@@ -248,8 +248,8 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   br i1 %or.cond7, label %82, label %.loopexit
 
 82:                                               ; preds = %80
-  store i32 %.034, ptr %9, align 8, !tbaa !20
-  %83 = load i32, ptr %3, align 4, !tbaa !10
+  store i32 %.034, ptr %9, align 8, !tbaa !21
+  %83 = load i32, ptr %3, align 4, !tbaa !11
   %84 = icmp slt i32 %.1, %83
   br i1 %84, label %.lr.ph.preheader, label %.loopexit
 
@@ -263,9 +263,9 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.idx53 = shl nsw i64 %indvars.iv.next, 3
   %86 = getelementptr i8, ptr %13, i64 %.idx53
-  store i32 %.034, ptr %86, align 8, !tbaa !27
+  store i32 %.034, ptr %86, align 8, !tbaa !28
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %82, %80
   %.3 = phi i32 [ %.1, %80 ], [ %.1, %82 ], [ %83, %.lr.ph ]
@@ -274,13 +274,13 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   br i1 %or.cond57.not, label %88, label %99
 
 88:                                               ; preds = %.loopexit
-  %89 = load i32, ptr %3, align 4, !tbaa !10
+  %89 = load i32, ptr %3, align 4, !tbaa !11
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %99
 
 91:                                               ; preds = %88
   %92 = add nsw i32 %89, -1
-  store i32 %92, ptr %3, align 4, !tbaa !10
+  store i32 %92, ptr %3, align 4, !tbaa !11
   %93 = add nsw i32 %.3, -1
   br label %99
 
@@ -289,19 +289,19 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   br i1 %95, label %96, label %.loopexit64
 
 96:                                               ; preds = %94
-  %97 = load i32, ptr %5, align 4, !tbaa !18
+  %97 = load i32, ptr %5, align 4, !tbaa !19
   %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %5, align 4, !tbaa !18
+  store i32 %98, ptr %5, align 4, !tbaa !19
   br label %.loopexit64
 
 99:                                               ; preds = %.loopexit, %88, %91
   %.6.ph = phi i32 [ %.3, %.loopexit ], [ %.3, %88 ], [ %93, %91 ]
-  %100 = load i32, ptr %5, align 4, !tbaa !18
+  %100 = load i32, ptr %5, align 4, !tbaa !19
   %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %5, align 4, !tbaa !18
-  %102 = load i32, ptr %7, align 4, !tbaa !19
+  store i32 %101, ptr %5, align 4, !tbaa !19
+  %102 = load i32, ptr %7, align 4, !tbaa !20
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %14, label %.loopexit64, !llvm.loop !30
+  br i1 %103, label %14, label %.loopexit64, !llvm.loop !31
 
 .loopexit64:                                      ; preds = %99, %96, %94, %1
   %.0 = phi i8 [ 0, %1 ], [ 1, %94 ], [ 1, %96 ], [ 1, %99 ]
@@ -332,26 +332,27 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !5, i64 1060}
-!11 = !{!"_ZTSN6icu_779ScriptRunE", !12, i64 0, !5, i64 8, !5, i64 12, !13, i64 16, !5, i64 24, !5, i64 28, !15, i64 32, !6, i64 36, !5, i64 1060}
-!12 = !{!"_ZTSN6icu_777UObjectE"}
-!13 = !{!"p1 char16_t", !14, i64 0}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = !{!"_ZTS11UScriptCode", !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"_ZTS10UErrorCode", !6, i64 0}
-!18 = !{!11, !5, i64 28}
-!19 = !{!11, !5, i64 12}
-!20 = !{!11, !15, i64 32}
-!21 = !{!11, !5, i64 24}
-!22 = !{!11, !13, i64 16}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"char16_t", !6, i64 0}
-!25 = !{!26, !5, i64 0}
-!26 = !{!"_ZTSN6icu_7715ParenStackEntryE", !5, i64 0, !15, i64 4}
-!27 = !{!26, !15, i64 4}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !5, i64 1060}
+!12 = !{!"_ZTSN6icu_779ScriptRunE", !13, i64 0, !5, i64 8, !5, i64 12, !14, i64 16, !5, i64 24, !5, i64 28, !16, i64 32, !6, i64 36, !5, i64 1060}
+!13 = !{!"_ZTSN6icu_777UObjectE"}
+!14 = !{!"p1 char16_t", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!"_ZTS11UScriptCode", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!19 = !{!12, !5, i64 28}
+!20 = !{!12, !5, i64 12}
+!21 = !{!12, !16, i64 32}
+!22 = !{!12, !5, i64 24}
+!23 = !{!12, !14, i64 16}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"char16_t", !6, i64 0}
+!26 = !{!27, !5, i64 0}
+!27 = !{!"_ZTSN6icu_7715ParenStackEntryE", !5, i64 0, !16, i64 4}
+!28 = !{!27, !16, i64 4}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

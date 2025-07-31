@@ -180,7 +180,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %84 = zext i8 %83 to i64
   %85 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %84) #3
   %.not59 = icmp eq i32 %85, 0
-  br i1 %.not59, label %50, label %.loopexit, !llvm.loop !15
+  br i1 %.not59, label %50, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %80, %._crit_edge, %54, %50, %.split.backedge, %76, %74, %72, %62, %60, %.split.preheader, %33, %70, %37, %31, %29
   %.037 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %39, %37 ], [ %71, %70 ], [ -4, %33 ], [ %49, %.split.preheader ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %63, %62 ], [ %61, %60 ], [ %85, %.split.backedge ], [ %51, %50 ], [ %55, %54 ], [ -4, %._crit_edge ], [ -4, %80 ]
@@ -655,6 +655,7 @@ attributes #3 = { nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !7, i64 0}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

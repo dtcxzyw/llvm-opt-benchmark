@@ -151,12 +151,12 @@ define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %
   br i1 %exitcond.not, label %26, label %19, !llvm.loop !20
 
 26:                                               ; preds = %19
-  %27 = load ptr, ptr %17, align 8, !tbaa !22
+  %27 = load ptr, ptr %17, align 8, !tbaa !23
   tail call void %27(ptr noundef nonnull %14, ptr noundef nonnull %18) #6
   %28 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %29 = add i64 %.06571, -16
   %30 = icmp ugt i64 %29, 15
-  br i1 %30, label %.preheader69, label %._crit_edge, !llvm.loop !23
+  br i1 %30, label %.preheader69, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %26, %13
   %.065.lcssa = phi i64 [ %2, %13 ], [ %29, %26 ]
@@ -174,28 +174,28 @@ define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %
   store i8 %35, ptr %33, align 1, !tbaa !12
   %36 = add nuw i64 %.174, 1
   %exitcond76.not = icmp eq i64 %36, %.065.lcssa
-  br i1 %exitcond76.not, label %37, label %.preheader, !llvm.loop !24
+  br i1 %exitcond76.not, label %37, label %.preheader, !llvm.loop !25
 
 37:                                               ; preds = %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %39 = load ptr, ptr %38, align 8, !tbaa !22
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %39(ptr noundef nonnull %14, ptr noundef nonnull %40) #6
   br label %41
 
 41:                                               ; preds = %37, %._crit_edge
   %42 = shl i64 %2, 3
-  %43 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %42) #7, !srcloc !25
+  %43 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %42) #7, !srcloc !26
   %44 = load i64, ptr %15, align 8, !tbaa !12
   %45 = xor i64 %44, %43
   store i64 %45, ptr %15, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %47 = load ptr, ptr %46, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %47(ptr noundef nonnull %14, ptr noundef nonnull %48) #6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %50 = load i32, ptr %49, align 4, !tbaa !12
-  %51 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #7, !srcloc !26
+  %51 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #7, !srcloc !27
   %52 = load i64, ptr %14, align 8, !tbaa !12
   store i64 %52, ptr %0, align 8, !tbaa !12
   %53 = load i64, ptr %15, align 8, !tbaa !12
@@ -214,7 +214,7 @@ define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %62 = load ptr, ptr %61, align 8, !tbaa !11
   tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef %62) #6
-  %63 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.066) #7, !srcloc !27
+  %63 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.066) #7, !srcloc !28
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %63, ptr %64, align 4, !tbaa !12
   ret void
@@ -269,7 +269,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   %27 = icmp ne i32 %26, 15
   %28 = icmp ne i64 %23, 0
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %16, label %._crit_edge, !llvm.loop !28
+  br i1 %29, label %16, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %16
   %30 = and i32 %.163, 15
@@ -278,7 +278,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %34(ptr noundef nonnull %35, ptr noundef nonnull %36) #6
@@ -293,7 +293,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %41(ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef %.049, i64 noundef %38) #6
@@ -321,7 +321,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   store i8 %54, ptr %52, align 1, !tbaa !12
   %55 = add nuw i64 %.04566, 1
   %exitcond.not = icmp eq i64 %55, %.248
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %49
   %56 = trunc nuw nsw i64 %.248 to i32
@@ -366,7 +366,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %23(ptr noundef nonnull %24, ptr noundef nonnull %25) #6
@@ -385,7 +385,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %.0159 = phi i32 [ 16, %26 ], [ %16, %14 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !12
-  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #7, !srcloc !31
+  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #7, !srcloc !32
   %33 = and i32 %.0159, 15
   %.not173 = icmp eq i32 %33, 0
   br i1 %.not173, label %54, label %.preheader188
@@ -423,7 +423,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %50 = icmp ne i32 %.1153190, 15
   %51 = icmp ne i64 %47, 0
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %36, label %._crit_edge, !llvm.loop !32
+  br i1 %52, label %36, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %36
   %53 = icmp eq i32 %.1153190, 15
@@ -446,7 +446,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %.0140185.ph = phi ptr [ %43, %._crit_edge ], [ %2, %54 ]
   %.0146184.ph = phi i64 [ %47, %._crit_edge ], [ %3, %54 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -484,31 +484,31 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %.0167199 = phi i64 [ 3072, %.preheader187 ], [ %82, %.critedge ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %65, ptr noundef %10) #6
   %70 = add i32 %.1156200, 1
-  %71 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #7, !srcloc !33
+  %71 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #7, !srcloc !34
   store i32 %71, ptr %30, align 4, !tbaa !12
-  %72 = load i64, ptr %.3202, align 1, !tbaa !34
+  %72 = load i64, ptr %.3202, align 1, !tbaa !35
   %73 = load i64, ptr %65, align 8, !tbaa !12
   %74 = xor i64 %73, %72
-  store i64 %74, ptr %.3143201, align 1, !tbaa !34
+  store i64 %74, ptr %.3143201, align 1, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %.3202, i64 8
-  %76 = load i64, ptr %75, align 1, !tbaa !34
+  %76 = load i64, ptr %75, align 1, !tbaa !35
   %77 = load i64, ptr %69, align 8, !tbaa !12
   %78 = xor i64 %77, %76
   %79 = getelementptr inbounds nuw i8, ptr %.3143201, i64 8
-  store i64 %78, ptr %79, align 1, !tbaa !34
+  store i64 %78, ptr %79, align 1, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %.3143201, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.3202, i64 16
   %82 = add nsw i64 %.0167199, -16
   %.not177 = icmp eq i64 %82, 0
-  br i1 %.not177, label %83, label %.critedge, !llvm.loop !36
+  br i1 %.not177, label %83, label %.critedge, !llvm.loop !37
 
 83:                                               ; preds = %.critedge
-  %84 = load ptr, ptr %66, align 8, !tbaa !29
+  %84 = load ptr, ptr %66, align 8, !tbaa !30
   %85 = getelementptr inbounds i8, ptr %.3143201, i64 -3056
   tail call void %84(ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %85, i64 noundef 3072) #6
   %86 = add nsw i64 %.2148204, -3072
   %87 = icmp ugt i64 %86, 3071
-  br i1 %87, label %.preheader187, label %._crit_edge207, !llvm.loop !37
+  br i1 %87, label %.preheader187, label %._crit_edge207, !llvm.loop !38
 
 ._crit_edge207:                                   ; preds = %83, %63
   %.0155.lcssa = phi i32 [ %32, %63 ], [ %70, %83 ]
@@ -531,27 +531,27 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %.3158213 = phi i32 [ %.0155.lcssa, %.lr.ph217 ], [ %91, %.critedge275 ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %10) #6
   %91 = add i32 %.3158213, 1
-  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #7, !srcloc !38
+  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #7, !srcloc !39
   store i32 %92, ptr %30, align 4, !tbaa !12
-  %93 = load i64, ptr %.5216, align 1, !tbaa !34
+  %93 = load i64, ptr %.5216, align 1, !tbaa !35
   %94 = load i64, ptr %89, align 8, !tbaa !12
   %95 = xor i64 %94, %93
-  store i64 %95, ptr %.5145215, align 1, !tbaa !34
+  store i64 %95, ptr %.5145215, align 1, !tbaa !35
   %96 = getelementptr inbounds nuw i8, ptr %.5216, i64 8
-  %97 = load i64, ptr %96, align 1, !tbaa !34
+  %97 = load i64, ptr %96, align 1, !tbaa !35
   %98 = load i64, ptr %90, align 8, !tbaa !12
   %99 = xor i64 %98, %97
   %100 = getelementptr inbounds nuw i8, ptr %.5145215, i64 8
-  store i64 %99, ptr %100, align 1, !tbaa !34
+  store i64 %99, ptr %100, align 1, !tbaa !35
   %101 = getelementptr inbounds nuw i8, ptr %.5145215, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %.5216, i64 16
   %103 = add nsw i64 %.4150214, -16
   %104 = icmp ugt i64 %103, 15
-  br i1 %104, label %.critedge275, label %._crit_edge218, !llvm.loop !39
+  br i1 %104, label %.critedge275, label %._crit_edge218, !llvm.loop !40
 
 ._crit_edge218:                                   ; preds = %.critedge275
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %106 = load ptr, ptr %105, align 8, !tbaa !29
+  %106 = load ptr, ptr %105, align 8, !tbaa !30
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %109 = sub nsw i64 0, %88
@@ -571,7 +571,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %113, ptr noundef %10) #6
   %114 = add i32 %.2157, 1
-  %115 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %114) #7, !srcloc !40
+  %115 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %114) #7, !srcloc !41
   store i32 %115, ptr %30, align 4, !tbaa !12
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %117
@@ -595,7 +595,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   store i8 %124, ptr %128, align 1, !tbaa !12
   %129 = add i32 %.2154224, 1
   %.not176 = icmp eq i64 %118, 0
-  br i1 %.not176, label %.loopexit, label %117, !llvm.loop !41
+  br i1 %.not176, label %.loopexit, label %117, !llvm.loop !42
 
 .loopexit:                                        ; preds = %117, %111
   %.4163 = phi i32 [ %.3162, %111 ], [ %126, %117 ]
@@ -636,7 +636,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %23(ptr noundef nonnull %24, ptr noundef nonnull %25) #6
@@ -655,7 +655,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %.0157 = phi i32 [ 16, %26 ], [ %16, %14 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !12
-  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #7, !srcloc !42
+  %32 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #7, !srcloc !43
   %33 = and i32 %.0157, 15
   %.not171 = icmp eq i32 %33, 0
   br i1 %.not171, label %54, label %.preheader
@@ -693,7 +693,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %50 = icmp ne i32 %.1151187, 15
   %51 = icmp ne i64 %47, 0
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %36, label %._crit_edge, !llvm.loop !43
+  br i1 %52, label %36, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %36
   %53 = icmp eq i32 %.1151187, 15
@@ -716,7 +716,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %.0138183.ph = phi ptr [ %46, %._crit_edge ], [ %2, %54 ]
   %.0144182.ph = phi i64 [ %47, %._crit_edge ], [ %3, %54 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %.2140202 = phi ptr [ %.0138183, %.lr.ph205 ], [ %82, %85 ]
   %.2146201 = phi i64 [ %.0144182, %.lr.ph205 ], [ %86, %85 ]
   %.0153200 = phi i32 [ %32, %.lr.ph205 ], [ %72, %85 ]
-  %71 = load ptr, ptr %65, align 8, !tbaa !29
+  %71 = load ptr, ptr %65, align 8, !tbaa !30
   tail call void %71(ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %.2203, i64 noundef 3072) #6
   br label %.critedge
 
@@ -756,28 +756,28 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %.0165196 = phi i64 [ 3072, %70 ], [ %84, %.critedge ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef %10) #6
   %72 = add i32 %.1154197, 1
-  %73 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #7, !srcloc !44
+  %73 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #7, !srcloc !45
   store i32 %73, ptr %30, align 4, !tbaa !12
-  %74 = load i64, ptr %.3199, align 1, !tbaa !34
+  %74 = load i64, ptr %.3199, align 1, !tbaa !35
   %75 = load i64, ptr %68, align 8, !tbaa !12
   %76 = xor i64 %75, %74
-  store i64 %76, ptr %.3141198, align 1, !tbaa !34
+  store i64 %76, ptr %.3141198, align 1, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %.3199, i64 8
-  %78 = load i64, ptr %77, align 1, !tbaa !34
+  %78 = load i64, ptr %77, align 1, !tbaa !35
   %79 = load i64, ptr %69, align 8, !tbaa !12
   %80 = xor i64 %79, %78
   %81 = getelementptr inbounds nuw i8, ptr %.3141198, i64 8
-  store i64 %80, ptr %81, align 1, !tbaa !34
+  store i64 %80, ptr %81, align 1, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %.3141198, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %.3199, i64 16
   %84 = add nsw i64 %.0165196, -16
   %.not175 = icmp eq i64 %84, 0
-  br i1 %.not175, label %85, label %.critedge, !llvm.loop !45
+  br i1 %.not175, label %85, label %.critedge, !llvm.loop !46
 
 85:                                               ; preds = %.critedge
   %86 = add nsw i64 %.2146201, -3072
   %87 = icmp ugt i64 %86, 3071
-  br i1 %87, label %70, label %._crit_edge206, !llvm.loop !46
+  br i1 %87, label %70, label %._crit_edge206, !llvm.loop !47
 
 ._crit_edge206:                                   ; preds = %85, %63
   %.0153.lcssa = phi i32 [ %32, %63 ], [ %72, %85 ]
@@ -790,7 +790,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
 
 .lr.ph217:                                        ; preds = %._crit_edge206
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %90 = load ptr, ptr %89, align 8, !tbaa !29
+  %90 = load ptr, ptr %89, align 8, !tbaa !30
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %90(ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef %.2.lcssa, i64 noundef %88) #6
@@ -805,23 +805,23 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %.3156212 = phi i32 [ %.0153.lcssa, %.lr.ph217 ], [ %95, %.critedge274 ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef %10) #6
   %95 = add i32 %.3156212, 1
-  %96 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %95) #7, !srcloc !47
+  %96 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %95) #7, !srcloc !48
   store i32 %96, ptr %30, align 4, !tbaa !12
-  %97 = load i64, ptr %.5215, align 1, !tbaa !34
+  %97 = load i64, ptr %.5215, align 1, !tbaa !35
   %98 = load i64, ptr %93, align 8, !tbaa !12
   %99 = xor i64 %98, %97
-  store i64 %99, ptr %.5143214, align 1, !tbaa !34
+  store i64 %99, ptr %.5143214, align 1, !tbaa !35
   %100 = getelementptr inbounds nuw i8, ptr %.5215, i64 8
-  %101 = load i64, ptr %100, align 1, !tbaa !34
+  %101 = load i64, ptr %100, align 1, !tbaa !35
   %102 = load i64, ptr %94, align 8, !tbaa !12
   %103 = xor i64 %102, %101
   %104 = getelementptr inbounds nuw i8, ptr %.5143214, i64 8
-  store i64 %103, ptr %104, align 1, !tbaa !34
+  store i64 %103, ptr %104, align 1, !tbaa !35
   %105 = getelementptr inbounds nuw i8, ptr %.5143214, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %.5215, i64 16
   %107 = add nsw i64 %.4148213, -16
   %108 = icmp ugt i64 %107, 15
-  br i1 %108, label %.critedge274, label %.loopexit185, !llvm.loop !48
+  br i1 %108, label %.critedge274, label %.loopexit185, !llvm.loop !49
 
 .loopexit185:                                     ; preds = %.critedge274, %._crit_edge206
   %.2155 = phi i32 [ %.0153.lcssa, %._crit_edge206 ], [ %95, %.critedge274 ]
@@ -835,7 +835,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef %10) #6
   %111 = add i32 %.2155, 1
-  %112 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %111) #7, !srcloc !49
+  %112 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %111) #7, !srcloc !50
   store i32 %112, ptr %30, align 4, !tbaa !12
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %114
@@ -859,7 +859,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   store i8 %124, ptr %125, align 1, !tbaa !12
   %126 = add i32 %.2152223, 1
   %.not174 = icmp eq i64 %115, 0
-  br i1 %.not174, label %.loopexit, label %114, !llvm.loop !50
+  br i1 %.not174, label %.loopexit, label %114, !llvm.loop !51
 
 .loopexit:                                        ; preds = %114, %.loopexit185
   %.4161 = phi i32 [ %.3160, %.loopexit185 ], [ %119, %114 ]
@@ -898,7 +898,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %22(ptr noundef nonnull %23, ptr noundef nonnull %24) #6
@@ -917,7 +917,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %.0135 = phi i32 [ 16, %25 ], [ %15, %13 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !12
-  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #7, !srcloc !51
+  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #7, !srcloc !52
   %32 = and i32 %.0135, 15
   %.not145 = icmp eq i32 %32, 0
   br i1 %.not145, label %53, label %.preheader
@@ -955,7 +955,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %49 = icmp ne i32 %.1131159, 15
   %50 = icmp ne i64 %46, 0
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %35, label %._crit_edge, !llvm.loop !52
+  br i1 %51, label %35, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %35
   %52 = icmp eq i32 %.1131159, 15
@@ -978,7 +978,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %.0122156.ph = phi ptr [ %42, %._crit_edge ], [ %2, %53 ]
   %.0126155.ph = phi i64 [ %46, %._crit_edge ], [ %3, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %57 = load ptr, ptr %56, align 8, !tbaa !29
+  %57 = load ptr, ptr %56, align 8, !tbaa !30
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -1007,15 +1007,15 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %.0133167 = phi i32 [ %31, %.lr.ph172 ], [ %68, %67 ]
   tail call void %4(ptr noundef %.2170, ptr noundef %.2124169, i64 noundef 192, ptr noundef %9, ptr noundef nonnull %0) #6
   %68 = add i32 %.0133167, 192
-  %69 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #7, !srcloc !53
+  %69 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #7, !srcloc !54
   store i32 %69, ptr %29, align 4, !tbaa !12
-  %70 = load ptr, ptr %64, align 8, !tbaa !29
+  %70 = load ptr, ptr %64, align 8, !tbaa !30
   tail call void %70(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef %.2124169, i64 noundef 3072) #6
   %71 = getelementptr inbounds nuw i8, ptr %.2124169, i64 3072
   %72 = getelementptr inbounds nuw i8, ptr %.2170, i64 3072
   %73 = add nsw i64 %.2128168, -3072
   %74 = icmp ugt i64 %73, 3071
-  br i1 %74, label %67, label %._crit_edge173, !llvm.loop !54
+  br i1 %74, label %67, label %._crit_edge173, !llvm.loop !55
 
 ._crit_edge173:                                   ; preds = %67, %62
   %.0133.lcssa = phi i32 [ %31, %62 ], [ %68, %67 ]
@@ -1031,12 +1031,12 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   tail call void %4(ptr noundef %.2.lcssa, ptr noundef %.2124.lcssa, i64 noundef %77, ptr noundef %9, ptr noundef nonnull %0) #6
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = add i32 %.0133.lcssa, %78
-  %80 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %79) #7, !srcloc !55
+  %80 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %79) #7, !srcloc !56
   store i32 %80, ptr %29, align 4, !tbaa !12
   %81 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 %75
   %82 = and i64 %.2128.lcssa, 15
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %84 = load ptr, ptr %83, align 8, !tbaa !29
+  %84 = load ptr, ptr %83, align 8, !tbaa !30
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %84(ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef %.2124.lcssa, i64 noundef %75) #6
@@ -1057,7 +1057,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %91(ptr noundef nonnull %0, ptr noundef nonnull %92, ptr noundef %9) #6
   %93 = add i32 %.1134, 1
-  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #7, !srcloc !56
+  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #7, !srcloc !57
   store i32 %94, ptr %29, align 4, !tbaa !12
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %96
@@ -1081,7 +1081,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   store i8 %103, ptr %107, align 1, !tbaa !12
   %108 = add i32 %.2132179, 1
   %.not148 = icmp eq i64 %97, 0
-  br i1 %.not148, label %.loopexit, label %96, !llvm.loop !57
+  br i1 %.not148, label %.loopexit, label %96, !llvm.loop !58
 
 .loopexit:                                        ; preds = %96, %88
   %.4139 = phi i32 [ %.3138, %88 ], [ %105, %96 ]
@@ -1120,7 +1120,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %22(ptr noundef nonnull %23, ptr noundef nonnull %24) #6
@@ -1139,7 +1139,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %.0135 = phi i32 [ 16, %25 ], [ %15, %13 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !12
-  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #7, !srcloc !58
+  %31 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #7, !srcloc !59
   %32 = and i32 %.0135, 15
   %.not145 = icmp eq i32 %32, 0
   br i1 %.not145, label %53, label %.preheader
@@ -1177,7 +1177,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %49 = icmp ne i32 %.1131159, 15
   %50 = icmp ne i64 %46, 0
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %35, label %._crit_edge, !llvm.loop !59
+  br i1 %51, label %35, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %35
   %52 = icmp eq i32 %.1131159, 15
@@ -1200,7 +1200,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %.0122156.ph = phi ptr [ %45, %._crit_edge ], [ %2, %53 ]
   %.0126155.ph = phi i64 [ %46, %._crit_edge ], [ %3, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %57 = load ptr, ptr %56, align 8, !tbaa !29
+  %57 = load ptr, ptr %56, align 8, !tbaa !30
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -1227,17 +1227,17 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %.2124169 = phi ptr [ %.0122156, %.lr.ph172 ], [ %71, %67 ]
   %.2128168 = phi i64 [ %.0126155, %.lr.ph172 ], [ %73, %67 ]
   %.0133167 = phi i32 [ %31, %.lr.ph172 ], [ %69, %67 ]
-  %68 = load ptr, ptr %64, align 8, !tbaa !29
+  %68 = load ptr, ptr %64, align 8, !tbaa !30
   tail call void %68(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef %.2170, i64 noundef 3072) #6
   tail call void %4(ptr noundef %.2170, ptr noundef %.2124169, i64 noundef 192, ptr noundef %9, ptr noundef nonnull %0) #6
   %69 = add i32 %.0133167, 192
-  %70 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %69) #7, !srcloc !60
+  %70 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %69) #7, !srcloc !61
   store i32 %70, ptr %29, align 4, !tbaa !12
   %71 = getelementptr inbounds nuw i8, ptr %.2124169, i64 3072
   %72 = getelementptr inbounds nuw i8, ptr %.2170, i64 3072
   %73 = add nsw i64 %.2128168, -3072
   %74 = icmp ugt i64 %73, 3071
-  br i1 %74, label %67, label %._crit_edge173, !llvm.loop !61
+  br i1 %74, label %67, label %._crit_edge173, !llvm.loop !62
 
 ._crit_edge173:                                   ; preds = %67, %62
   %.0133.lcssa = phi i32 [ %31, %62 ], [ %69, %67 ]
@@ -1251,14 +1251,14 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
 76:                                               ; preds = %._crit_edge173
   %77 = lshr i64 %.2128.lcssa, 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
+  %79 = load ptr, ptr %78, align 8, !tbaa !30
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %79(ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef %.2.lcssa, i64 noundef %75) #6
   tail call void %4(ptr noundef %.2.lcssa, ptr noundef %.2124.lcssa, i64 noundef %77, ptr noundef %9, ptr noundef nonnull %0) #6
   %82 = trunc nuw nsw i64 %77 to i32
   %83 = add i32 %.0133.lcssa, %82
-  %84 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %83) #7, !srcloc !62
+  %84 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %83) #7, !srcloc !63
   store i32 %84, ptr %29, align 4, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %.2124.lcssa, i64 %75
   %86 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 %75
@@ -1279,7 +1279,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %91(ptr noundef nonnull %0, ptr noundef nonnull %92, ptr noundef %9) #6
   %93 = add i32 %.1134, 1
-  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #7, !srcloc !63
+  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #7, !srcloc !64
   store i32 %94, ptr %29, align 4, !tbaa !12
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %96
@@ -1303,7 +1303,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   store i8 %106, ptr %107, align 1, !tbaa !12
   %108 = add i32 %.2132179, 1
   %.not148 = icmp eq i64 %97, 0
-  br i1 %.not148, label %.loopexit, label %96, !llvm.loop !64
+  br i1 %.not148, label %.loopexit, label %96, !llvm.loop !65
 
 .loopexit:                                        ; preds = %96, %88
   %.4139 = phi i32 [ %.3138, %88 ], [ %101, %96 ]
@@ -1342,7 +1342,7 @@ define i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
+  %23 = load ptr, ptr %22, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %23(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %15, i64 noundef 48) #6
@@ -1361,7 +1361,7 @@ define i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %33(ptr noundef nonnull %34, ptr noundef nonnull %35) #6
@@ -1369,8 +1369,8 @@ define i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 36:                                               ; preds = %28, %31, %26
   %.1 = phi i64 [ %27, %26 ], [ 0, %31 ], [ 0, %28 ]
-  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %6) #7, !srcloc !65
-  %38 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %9) #7, !srcloc !66
+  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %6) #7, !srcloc !66
+  %38 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %9) #7, !srcloc !67
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.1
   store i64 %37, ptr %40, align 1
@@ -1378,7 +1378,7 @@ define i32 @CRYPTO_gcm128_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   store i64 %38, ptr %.sroa.4.0..sroa_idx, align 1
   %41 = add nuw nsw i64 %.1, 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %43 = load ptr, ptr %42, align 8, !tbaa !29
+  %43 = load ptr, ptr %42, align 8, !tbaa !30
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %46 = and i64 %41, 4294967295
@@ -1435,7 +1435,7 @@ define void @CRYPTO_gcm128_tag(ptr noundef %0, ptr noundef writeonly captures(no
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %21(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %13, i64 noundef 48) #6
@@ -1454,7 +1454,7 @@ define void @CRYPTO_gcm128_tag(ptr noundef %0, ptr noundef writeonly captures(no
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %31 = load ptr, ptr %30, align 8, !tbaa !22
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void %31(ptr noundef nonnull %32, ptr noundef nonnull %33) #6
@@ -1464,8 +1464,8 @@ CRYPTO_gcm128_finish.exit:                        ; preds = %24, %26, %29
   %.1.i = phi i64 [ %25, %24 ], [ 0, %29 ], [ 0, %26 ]
   %34 = shl i64 %7, 3
   %35 = shl i64 %5, 3
-  %36 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %35) #7, !srcloc !65
-  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %34) #7, !srcloc !66
+  %36 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %35) #7, !srcloc !66
+  %37 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %34) #7, !srcloc !67
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.1.i
   store i64 %36, ptr %39, align 1
@@ -1473,7 +1473,7 @@ CRYPTO_gcm128_finish.exit:                        ; preds = %24, %26, %29
   store i64 %37, ptr %.sroa.4.0..sroa_idx.i, align 1
   %40 = add nuw nsw i64 %.1.i, 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = and i64 %40, 4294967295
@@ -1560,13 +1560,13 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @gcm_init_4bit(ptr noundef writeonly captures(none) initializes((0, 256)) %0, ptr noundef readonly captures(none) %1) #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i64, ptr %1, align 8, !tbaa !67
+  %3 = load i64, ptr %1, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !67
+  %5 = load i64, ptr %4, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %3, ptr %6, align 8, !tbaa !67
+  store i64 %3, ptr %6, align 8, !tbaa !68
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %5, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !67
+  store i64 %5, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !68
   %7 = and i64 %5, 1
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i64 0, i64 -2233785415175766016
@@ -1574,9 +1574,9 @@ define internal void @gcm_init_4bit(ptr noundef writeonly captures(none) initial
   %11 = lshr i64 %3, 1
   %12 = xor i64 %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %12, ptr %13, align 8, !tbaa !67
+  store i64 %12, ptr %13, align 8, !tbaa !68
   %.sroa.29.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %10, ptr %.sroa.29.0..sroa_idx24, align 8, !tbaa !67
+  store i64 %10, ptr %.sroa.29.0..sroa_idx24, align 8, !tbaa !68
   %14 = and i64 %10, 1
   %15 = icmp eq i64 %14, 0
   %16 = select i1 %15, i64 0, i64 -2233785415175766016
@@ -1584,9 +1584,9 @@ define internal void @gcm_init_4bit(ptr noundef writeonly captures(none) initial
   %18 = lshr i64 %12, 1
   %19 = xor i64 %18, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %19, ptr %20, align 8, !tbaa !67
+  store i64 %19, ptr %20, align 8, !tbaa !68
   %.sroa.29.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %17, ptr %.sroa.29.0..sroa_idx26, align 8, !tbaa !67
+  store i64 %17, ptr %.sroa.29.0..sroa_idx26, align 8, !tbaa !68
   %21 = and i64 %17, 1
   %22 = icmp eq i64 %21, 0
   %23 = select i1 %22, i64 0, i64 -2233785415175766016
@@ -1594,75 +1594,75 @@ define internal void @gcm_init_4bit(ptr noundef writeonly captures(none) initial
   %25 = lshr i64 %19, 1
   %26 = xor i64 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %26, ptr %27, align 8, !tbaa !67
+  store i64 %26, ptr %27, align 8, !tbaa !68
   %.sroa.29.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %24, ptr %.sroa.29.0..sroa_idx28, align 8, !tbaa !67
+  store i64 %24, ptr %.sroa.29.0..sroa_idx28, align 8, !tbaa !68
   %28 = xor i64 %26, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %28, ptr %29, align 8, !tbaa !69
+  store i64 %28, ptr %29, align 8, !tbaa !70
   %30 = xor i64 %24, %17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %30, ptr %31, align 8, !tbaa !71
+  store i64 %30, ptr %31, align 8, !tbaa !72
   %32 = xor i64 %26, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %32, ptr %33, align 8, !tbaa !69
+  store i64 %32, ptr %33, align 8, !tbaa !70
   %34 = xor i64 %24, %10
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %34, ptr %35, align 8, !tbaa !71
+  store i64 %34, ptr %35, align 8, !tbaa !72
   %36 = xor i64 %19, %12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %36, ptr %37, align 8, !tbaa !69
+  store i64 %36, ptr %37, align 8, !tbaa !70
   %38 = xor i64 %17, %10
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %38, ptr %39, align 8, !tbaa !71
+  store i64 %38, ptr %39, align 8, !tbaa !72
   %40 = xor i64 %28, %12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %40, ptr %41, align 8, !tbaa !69
+  store i64 %40, ptr %41, align 8, !tbaa !70
   %42 = xor i64 %30, %10
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %42, ptr %43, align 8, !tbaa !71
+  store i64 %42, ptr %43, align 8, !tbaa !72
   %44 = xor i64 %26, %3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %44, ptr %45, align 8, !tbaa !69
+  store i64 %44, ptr %45, align 8, !tbaa !70
   %46 = xor i64 %24, %5
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %46, ptr %47, align 8, !tbaa !71
+  store i64 %46, ptr %47, align 8, !tbaa !72
   %48 = xor i64 %19, %3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %48, ptr %49, align 8, !tbaa !69
+  store i64 %48, ptr %49, align 8, !tbaa !70
   %50 = xor i64 %17, %5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %50, ptr %51, align 8, !tbaa !71
+  store i64 %50, ptr %51, align 8, !tbaa !72
   %52 = xor i64 %28, %3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 %52, ptr %53, align 8, !tbaa !69
+  store i64 %52, ptr %53, align 8, !tbaa !70
   %54 = xor i64 %30, %5
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %54, ptr %55, align 8, !tbaa !71
+  store i64 %54, ptr %55, align 8, !tbaa !72
   %56 = xor i64 %12, %3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %56, ptr %57, align 8, !tbaa !69
+  store i64 %56, ptr %57, align 8, !tbaa !70
   %58 = xor i64 %10, %5
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %58, ptr %59, align 8, !tbaa !71
+  store i64 %58, ptr %59, align 8, !tbaa !72
   %60 = xor i64 %32, %3
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %60, ptr %61, align 8, !tbaa !69
+  store i64 %60, ptr %61, align 8, !tbaa !70
   %62 = xor i64 %34, %5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %62, ptr %63, align 8, !tbaa !71
+  store i64 %62, ptr %63, align 8, !tbaa !72
   %64 = xor i64 %36, %3
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %64, ptr %65, align 8, !tbaa !69
+  store i64 %64, ptr %65, align 8, !tbaa !70
   %66 = xor i64 %38, %5
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %66, ptr %67, align 8, !tbaa !71
+  store i64 %66, ptr %67, align 8, !tbaa !72
   %68 = xor i64 %40, %3
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %68, ptr %69, align 8, !tbaa !69
+  store i64 %68, ptr %69, align 8, !tbaa !70
   %70 = xor i64 %42, %5
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %70, ptr %71, align 8, !tbaa !71
+  store i64 %70, ptr %71, align 8, !tbaa !72
   ret void
 }
 
@@ -1719,55 +1719,56 @@ attributes #7 = { nounwind memory(none) }
 !17 = !{!9, !10, i64 8}
 !18 = !{!8, !4, i64 380}
 !19 = !{!8, !4, i64 376}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!8, !10, i64 368}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = !{i64 2148798444}
-!26 = !{i64 2148798679}
-!27 = !{i64 2148798870}
-!28 = distinct !{!28, !21}
-!29 = !{!8, !10, i64 360}
-!30 = distinct !{!30, !21}
-!31 = !{i64 2148799363}
-!32 = distinct !{!32, !21}
-!33 = !{i64 2148799724}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"long", !5, i64 0}
-!36 = distinct !{!36, !21}
-!37 = distinct !{!37, !21}
-!38 = !{i64 2148800020}
-!39 = distinct !{!39, !21}
-!40 = !{i64 2148800275}
-!41 = distinct !{!41, !21}
-!42 = !{i64 2148800902}
-!43 = distinct !{!43, !21}
-!44 = !{i64 2148801347}
-!45 = distinct !{!45, !21}
-!46 = distinct !{!46, !21}
-!47 = !{i64 2148801606}
-!48 = distinct !{!48, !21}
-!49 = !{i64 2148801788}
-!50 = distinct !{!50, !21}
-!51 = !{i64 2148802415}
-!52 = distinct !{!52, !21}
-!53 = !{i64 2148802785}
-!54 = distinct !{!54, !21}
-!55 = !{i64 2148803079}
-!56 = !{i64 2148803330}
-!57 = distinct !{!57, !21}
-!58 = !{i64 2148803688}
-!59 = distinct !{!59, !21}
-!60 = !{i64 2148804142}
-!61 = distinct !{!61, !21}
-!62 = !{i64 2148804419}
-!63 = !{i64 2148804601}
-!64 = distinct !{!64, !21}
-!65 = !{i64 2148805021}
-!66 = !{i64 2148805180}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"long long", !5, i64 0}
-!69 = !{!70, !68, i64 0}
-!70 = !{!"", !68, i64 0, !68, i64 8}
-!71 = !{!70, !68, i64 8}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!8, !10, i64 368}
+!24 = distinct !{!24, !21, !22}
+!25 = distinct !{!25, !21, !22}
+!26 = !{i64 2148798444}
+!27 = !{i64 2148798679}
+!28 = !{i64 2148798870}
+!29 = distinct !{!29, !21, !22}
+!30 = !{!8, !10, i64 360}
+!31 = distinct !{!31, !21, !22}
+!32 = !{i64 2148799363}
+!33 = distinct !{!33, !21, !22}
+!34 = !{i64 2148799724}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !5, i64 0}
+!37 = distinct !{!37, !21, !22}
+!38 = distinct !{!38, !21, !22}
+!39 = !{i64 2148800020}
+!40 = distinct !{!40, !21, !22}
+!41 = !{i64 2148800275}
+!42 = distinct !{!42, !21, !22}
+!43 = !{i64 2148800902}
+!44 = distinct !{!44, !21, !22}
+!45 = !{i64 2148801347}
+!46 = distinct !{!46, !21, !22}
+!47 = distinct !{!47, !21, !22}
+!48 = !{i64 2148801606}
+!49 = distinct !{!49, !21, !22}
+!50 = !{i64 2148801788}
+!51 = distinct !{!51, !21, !22}
+!52 = !{i64 2148802415}
+!53 = distinct !{!53, !21, !22}
+!54 = !{i64 2148802785}
+!55 = distinct !{!55, !21, !22}
+!56 = !{i64 2148803079}
+!57 = !{i64 2148803330}
+!58 = distinct !{!58, !21, !22}
+!59 = !{i64 2148803688}
+!60 = distinct !{!60, !21, !22}
+!61 = !{i64 2148804142}
+!62 = distinct !{!62, !21, !22}
+!63 = !{i64 2148804419}
+!64 = !{i64 2148804601}
+!65 = distinct !{!65, !21, !22}
+!66 = !{i64 2148805021}
+!67 = !{i64 2148805180}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"long long", !5, i64 0}
+!70 = !{!71, !69, i64 0}
+!71 = !{!"", !69, i64 0, !69, i64 8}
+!72 = !{!71, !69, i64 8}

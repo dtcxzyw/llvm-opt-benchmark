@@ -75,9 +75,9 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %.397.in = phi i64 [ %29, %32 ], [ %10, %5 ]
   %.397 = add nuw i64 %.397.in, 5
   %35 = getelementptr inbounds nuw i8, ptr %.0100147, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %36 = load ptr, ptr %35, align 8, !tbaa !23
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %34
   %37 = icmp ugt i64 %.397.in, -11
@@ -92,7 +92,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %._crit_edge.thread
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 %38
-  store ptr %42, ptr %3, align 8, !tbaa !24
+  store ptr %42, ptr %3, align 8, !tbaa !25
   br i1 %.not146, label %._crit_edge154, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %41, %79
@@ -166,7 +166,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %.1101150, i64 80
-  %81 = load ptr, ptr %80, align 8, !tbaa !22
+  %81 = load ptr, ptr %80, align 8, !tbaa !23
   %82 = add i64 %76, %.098151
   %.not125 = icmp eq ptr %81, null
   br i1 %.not125, label %._crit_edge154, label %.lr.ph153
@@ -190,7 +190,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %93 = sub i64 0, %92
   %94 = getelementptr inbounds i8, ptr %42, i64 %93
   %95 = call i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 3, i32 noundef 0, ptr noundef nonnull %94, i64 noundef %92) #5
-  %96 = load ptr, ptr %3, align 8, !tbaa !24
+  %96 = load ptr, ptr %3, align 8, !tbaa !25
   %97 = icmp ult ptr %96, %39
   %spec.store.select = select i1 %97, i32 -102, i32 %95
   br label %.thread133
@@ -258,8 +258,9 @@ attributes #6 = { nounwind allocsize(0,1) }
 !17 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !10, i64 0}
 !18 = !{!13, !15, i64 32}
 !19 = !{!13, !17, i64 48}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!4, !9, i64 80}
-!23 = distinct !{!23, !21}
-!24 = !{!16, !16, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!4, !9, i64 80}
+!24 = distinct !{!24, !21, !22}
+!25 = !{!16, !16, i64 0}

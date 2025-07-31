@@ -195,7 +195,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %104, ptr %101, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @dcopy_(ptr noundef nonnull %3, ptr noundef %18, ptr noundef nonnull @c__1, ptr noundef %5, ptr noundef nonnull @c__1) #4
@@ -232,7 +232,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %22, align 4, !tbaa !3
   %.not430.not = icmp slt i32 %117, %108
-  br i1 %.not430.not, label %.lr.ph464, label %._crit_edge465, !llvm.loop !12
+  br i1 %.not430.not, label %.lr.ph464, label %._crit_edge465, !llvm.loop !13
 
 ._crit_edge465:                                   ; preds = %116
   %.pre = load i32, ptr %3, align 4, !tbaa !3
@@ -311,7 +311,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %156, ptr %136, align 8, !tbaa !7
   %indvars.iv.next540 = add nuw nsw i64 %indvars.iv539, 1
   %exitcond543.not = icmp eq i64 %indvars.iv.next540, %indvars.iv544
-  br i1 %exitcond543.not, label %.preheader.loopexit, label %142, !llvm.loop !13
+  br i1 %exitcond543.not, label %.preheader.loopexit, label %142, !llvm.loop !14
 
 157:                                              ; preds = %.lr.ph474, %157
   %158 = phi double [ %139, %.lr.ph474 ], [ %170, %157 ]
@@ -334,7 +334,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %170, ptr %136, align 8, !tbaa !7
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond550.not = icmp eq i64 %indvars.iv.next547, %wide.trip.count549
-  br i1 %exitcond550.not, label %._crit_edge475, label %157, !llvm.loop !14
+  br i1 %exitcond550.not, label %._crit_edge475, label %157, !llvm.loop !15
 
 ._crit_edge475:                                   ; preds = %157, %.preheader
   %171 = phi double [ %139, %.preheader ], [ %170, %157 ]
@@ -354,7 +354,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %180, ptr %136, align 8, !tbaa !7
   %indvars.iv.next545 = add nuw nsw i64 %indvars.iv544, 1
   %.not431.not = icmp samesign ult i64 %indvars.iv544, %122
-  br i1 %.not431.not, label %123, label %._crit_edge481, !llvm.loop !15
+  br i1 %.not431.not, label %123, label %._crit_edge481, !llvm.loop !16
 
 ._crit_edge481:                                   ; preds = %._crit_edge475
   %.pre589 = load i32, ptr %3, align 4, !tbaa !3
@@ -410,7 +410,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %202, ptr %gep611, align 8, !tbaa !7
   %indvars.iv.next553 = add nuw nsw i64 %indvars.iv552, 1
   %exitcond556.not = icmp eq i64 %indvars.iv.next553, %wide.trip.count555
-  br i1 %exitcond556.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !16
+  br i1 %exitcond556.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !17
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %.lr.ph503
   %storemerge439.lcssa = phi i32 [ 2, %.lr.ph503 ], [ %193, %.lr.ph485 ]
@@ -444,14 +444,14 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %215, ptr %gep615, align 8, !tbaa !7
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %exitcond561.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count560
-  br i1 %exitcond561.not, label %._crit_edge492, label %.lr.ph491, !llvm.loop !17
+  br i1 %exitcond561.not, label %._crit_edge492, label %.lr.ph491, !llvm.loop !18
 
 ._crit_edge492:                                   ; preds = %.lr.ph491, %._crit_edge486
   %storemerge441.lcssa = phi i32 [ 2, %._crit_edge486 ], [ %208, %.lr.ph491 ]
   store i32 %storemerge441.lcssa, ptr %22, align 4, !tbaa !3
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %.not432.not = icmp samesign ult i64 %indvars.iv562, %184
-  br i1 %.not432.not, label %.lr.ph503, label %._crit_edge504, !llvm.loop !18
+  br i1 %.not432.not, label %.lr.ph503, label %._crit_edge504, !llvm.loop !19
 
 ._crit_edge504:                                   ; preds = %._crit_edge492
   %216 = icmp eq i32 %207, 2
@@ -594,14 +594,14 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %299, ptr %gep617, align 8, !tbaa !7
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
-  br i1 %exitcond569.not, label %._crit_edge509, label %.lr.ph508, !llvm.loop !19
+  br i1 %exitcond569.not, label %._crit_edge509, label %.lr.ph508, !llvm.loop !20
 
 ._crit_edge509:                                   ; preds = %.lr.ph508, %.lr.ph516
   %storemerge437.lcssa = phi i32 [ 2, %.lr.ph516 ], [ %292, %.lr.ph508 ]
   store i32 %storemerge437.lcssa, ptr %22, align 4, !tbaa !3
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %.not433.not = icmp samesign ult i64 %indvars.iv570, %286
-  br i1 %.not433.not, label %.lr.ph516, label %._crit_edge517, !llvm.loop !20
+  br i1 %.not433.not, label %.lr.ph516, label %._crit_edge517, !llvm.loop !21
 
 ._crit_edge517:                                   ; preds = %._crit_edge509
   %301 = icmp eq i32 %291, 2
@@ -673,7 +673,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %334, ptr %gep623, align 8, !tbaa !7
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
   %exitcond578.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count577
-  br i1 %exitcond578.not, label %._crit_edge522, label %333, !llvm.loop !21
+  br i1 %exitcond578.not, label %._crit_edge522, label %333, !llvm.loop !22
 
 ._crit_edge522:                                   ; preds = %333, %327
   %335 = load i32, ptr %23, align 4, !tbaa !3
@@ -699,7 +699,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv.next580 = add nsw i64 %indvars.iv579, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next580 to i32
   %exitcond582.not = icmp eq i32 %339, %lftr.wideiv
-  br i1 %exitcond582.not, label %.loopexit455, label %.lr.ph528, !llvm.loop !22
+  br i1 %exitcond582.not, label %.loopexit455, label %.lr.ph528, !llvm.loop !23
 
 .loopexit455:                                     ; preds = %.lr.ph528, %._crit_edge522, %320
   %342 = load i32, ptr %307, align 4, !tbaa !3
@@ -778,17 +778,18 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}

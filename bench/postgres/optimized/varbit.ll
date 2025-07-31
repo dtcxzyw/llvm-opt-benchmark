@@ -231,7 +231,7 @@ define dso_local noundef i64 @bit_in(ptr noundef readonly captures(none) %0) loc
   %82 = getelementptr inbounds nuw i8, ptr %.2113, i64 1
   %83 = load i8, ptr %82, align 1
   %.not92 = icmp eq i8 %83, 0
-  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %81, %.preheader, %.preheader106
   %84 = ptrtoint ptr %39 to i64
@@ -297,13 +297,13 @@ define dso_local i64 @bit_out(ptr noundef readonly captures(none) %0) local_unna
   %17 = shl i8 %.02935.i, 1
   %18 = add nuw nsw i32 %.02636.i, 1
   %exitcond.not.i = icmp eq i32 %18, 8
-  br i1 %exitcond.not.i, label %19, label %14, !llvm.loop !7
+  br i1 %exitcond.not.i, label %19, label %14, !llvm.loop !8
 
 19:                                               ; preds = %14
   %20 = add i32 %.02840.i, 8
   %21 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 1
   %.not.i = icmp sgt i32 %20, %12
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %19, %1
   %.031.lcssa.i = phi ptr [ %11, %1 ], [ %21, %19 ]
@@ -327,7 +327,7 @@ define dso_local i64 @bit_out(ptr noundef readonly captures(none) %0) local_unna
   %28 = shl i8 %.13044.i, 1
   %29 = add nsw i32 %.12745.i, 1
   %exitcond50.not.i = icmp eq i32 %29, %7
-  br i1 %exitcond50.not.i, label %varbit_out.exit, label %25, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %varbit_out.exit, label %25, !llvm.loop !10
 
 varbit_out.exit:                                  ; preds = %25, %._crit_edge.i
   %.2.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %27, %25 ]
@@ -370,13 +370,13 @@ define dso_local i64 @varbit_out(ptr noundef readonly captures(none) %0) local_u
   %17 = shl i8 %.02935, 1
   %18 = add nuw nsw i32 %.02636, 1
   %exitcond.not = icmp eq i32 %18, 8
-  br i1 %exitcond.not, label %19, label %14, !llvm.loop !7
+  br i1 %exitcond.not, label %19, label %14, !llvm.loop !8
 
 19:                                               ; preds = %14
   %20 = add i32 %.02840, 8
   %21 = getelementptr inbounds nuw i8, ptr %.03139, i64 1
   %.not = icmp sgt i32 %20, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %1
   %.031.lcssa = phi ptr [ %11, %1 ], [ %21, %19 ]
@@ -400,7 +400,7 @@ define dso_local i64 @varbit_out(ptr noundef readonly captures(none) %0) local_u
   %28 = shl i8 %.13044, 1
   %29 = add nsw i32 %.12745, 1
   %exitcond50.not = icmp eq i32 %29, %7
-  br i1 %exitcond50.not, label %.loopexit, label %25, !llvm.loop !9
+  br i1 %exitcond50.not, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %._crit_edge
   %.2 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %27, %25 ]
@@ -505,16 +505,16 @@ define dso_local i64 @bit_send(ptr noundef readonly captures(none) %0) local_unn
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
-  %10 = load ptr, ptr %2, align 8, !alias.scope !10
+  %10 = load ptr, ptr %2, align 8, !alias.scope !11
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !alias.scope !10
+  %12 = load i32, ptr %11, align 8, !alias.scope !11
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
-  store i32 %9, ptr %14, align 1, !noalias !10
+  store i32 %9, ptr %14, align 1, !noalias !11
   %15 = add i32 %12, 4
-  store i32 %15, ptr %11, align 8, !alias.scope !10
+  store i32 %15, ptr %11, align 8, !alias.scope !11
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %6, align 4
   %18 = lshr i32 %17, 2
@@ -538,16 +538,16 @@ define dso_local i64 @varbit_send(ptr noundef readonly captures(none) %0) local_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
-  %10 = load ptr, ptr %2, align 8, !alias.scope !13
+  %10 = load ptr, ptr %2, align 8, !alias.scope !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !alias.scope !13
+  %12 = load i32, ptr %11, align 8, !alias.scope !14
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
-  store i32 %9, ptr %14, align 1, !noalias !13
+  store i32 %9, ptr %14, align 1, !noalias !14
   %15 = add i32 %12, 4
-  store i32 %15, ptr %11, align 8, !alias.scope !13
+  store i32 %15, ptr %11, align 8, !alias.scope !14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %6, align 4
   %18 = lshr i32 %17, 2
@@ -844,7 +844,7 @@ define dso_local noundef i64 @varbit_in(ptr noundef readonly captures(none) %0) 
   %spec.select100.idx = zext i1 %58 to i64
   %spec.select100 = getelementptr inbounds nuw i8, ptr %.075, i64 %spec.select100.idx
   %59 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader107, %83
   %60 = phi i8 [ %85, %83 ], [ %45, %.preheader107 ]
@@ -907,7 +907,7 @@ define dso_local noundef i64 @varbit_in(ptr noundef readonly captures(none) %0) 
   %84 = getelementptr inbounds nuw i8, ptr %.2114, i64 1
   %85 = load i8, ptr %84, align 1
   %.not = icmp eq i8 %85, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %83, %.preheader, %.preheader107
   %86 = ptrtoint ptr %40 to i64
@@ -1021,7 +1021,7 @@ define dso_local i64 @varbit_support(ptr noundef readonly captures(none) %0) loc
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %19 = load i8, ptr %18, align 8, !range !18, !noundef !19
+  %19 = load i8, ptr %18, align 8, !range !19, !noundef !20
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %33, label %21
 
@@ -1712,7 +1712,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr noundef readonly captures(n
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
   %77 = icmp ult ptr %72, %76
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %71, %47, %45, %37
   ret ptr %18
@@ -1856,7 +1856,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly captures(a
   %74 = getelementptr inbounds nuw i8, ptr %.05766, i64 1
   %75 = add nuw nsw i32 %.05965, 1
   %exitcond.not = icmp eq i32 %75, %33
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %56, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %56, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %73
   %.pre = load i32, ptr %35, align 4
@@ -2013,7 +2013,7 @@ define dso_local i64 @bit_bit_count(ptr noundef readonly captures(none) %0) loca
   %17 = zext i8 %16 to i64
   %18 = add i64 %.015.i, %17
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !23
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr @pg_popcount_optimized, align 8
@@ -2115,7 +2115,7 @@ define dso_local noundef i64 @bit_and(ptr noundef readonly captures(none) %0) lo
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2187,7 +2187,7 @@ define dso_local noundef i64 @bit_or(ptr noundef readonly captures(none) %0) loc
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2259,7 +2259,7 @@ define dso_local noundef i64 @bitxor(ptr noundef readonly captures(none) %0) loc
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2305,7 +2305,7 @@ define dso_local noundef i64 @bitnot(ptr noundef readonly captures(none) %0) loc
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   %27 = icmp ult ptr %22, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 4
@@ -2519,7 +2519,7 @@ define dso_local i64 @bitshiftleft(ptr noundef readonly captures(none) %0) #0 {
   %108 = getelementptr inbounds nuw i8, ptr %.08495, i64 1
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi109
   %110 = icmp ult ptr %95, %109
-  br i1 %110, label %90, label %.preheader.loopexit, !llvm.loop !27
+  br i1 %110, label %90, label %.preheader.loopexit, !llvm.loop !28
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.198 = phi ptr [ %111, %.lr.ph99 ], [ %.084.lcssa, %.preheader ]
@@ -2530,7 +2530,7 @@ define dso_local i64 @bitshiftleft(ptr noundef readonly captures(none) %0) #0 {
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 %114
   %116 = icmp ult ptr %111, %115
-  br i1 %116, label %.lr.ph99, label %.loopexit93, !llvm.loop !28
+  br i1 %116, label %.lr.ph99, label %.loopexit93, !llvm.loop !29
 
 .loopexit93:                                      ; preds = %.lr.ph99, %84, %73, %.preheader, %.lr.ph101.preheader, %49, %41, %.lr.ph.preheader, %10
   %.0 = phi i64 [ %15, %10 ], [ %21, %.lr.ph.preheader ], [ %21, %41 ], [ %21, %49 ], [ %21, %.lr.ph101.preheader ], [ %21, %.preheader ], [ %21, %73 ], [ %21, %84 ], [ %21, %.lr.ph99 ]
@@ -2714,7 +2714,7 @@ define dso_local i64 @bitshiftright(ptr noundef readonly captures(none) %0) #0 {
   %105 = getelementptr inbounds nuw i8, ptr %.089107, i64 1
   %106 = getelementptr inbounds nuw i8, ptr %20, i64 %.pre-phi116
   %107 = icmp ult ptr %92, %106
-  br i1 %107, label %85, label %.loopexit, !llvm.loop !29
+  br i1 %107, label %85, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %103, %79, %73
   %108 = phi i32 [ %.pre113, %73 ], [ %23, %79 ], [ %104, %103 ]
@@ -2820,7 +2820,7 @@ define dso_local noundef i64 @bitfromint4(ptr noundef readonly captures(none) %0
   %42 = getelementptr inbounds nuw i8, ptr %.24552, i64 1
   store i8 %41, ptr %.24552, align 1
   %43 = icmp samesign ugt i32 %.253, 15
-  br i1 %43, label %.lr.ph55, label %._crit_edge56, !llvm.loop !30
+  br i1 %43, label %.lr.ph55, label %._crit_edge56, !llvm.loop !31
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %37
   %.245.lcssa = phi ptr [ %.144, %37 ], [ %42, %.lr.ph55 ]
@@ -2880,7 +2880,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bittoint4(ptr noundef r
   %23 = or disjoint i32 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %25 = icmp ult ptr %24, %17
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.013.lcssa = phi i32 [ 0, %13 ], [ %23, %.lr.ph ]
@@ -2973,7 +2973,7 @@ define dso_local noundef i64 @bitfromint8(ptr noundef readonly captures(none) %0
   %43 = getelementptr inbounds nuw i8, ptr %.24552, i64 1
   store i8 %42, ptr %.24552, align 1
   %44 = icmp samesign ugt i64 %indvars.iv, 15
-  br i1 %44, label %.lr.ph55, label %._crit_edge56.loopexit, !llvm.loop !32
+  br i1 %44, label %.lr.ph55, label %._crit_edge56.loopexit, !llvm.loop !33
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55
   %45 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3038,7 +3038,7 @@ define dso_local i64 @bittoint8(ptr noundef readonly captures(none) %0) local_un
   %23 = or disjoint i64 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %25 = icmp ult ptr %24, %17
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.013.lcssa = phi i64 [ 0, %13 ], [ %23, %.lr.ph ]
@@ -3207,7 +3207,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
   %99 = and i32 %97, %98
   %100 = icmp eq i32 %99, 0
   %101 = getelementptr inbounds nuw i8, ptr %.082103, i64 1
-  br i1 %100, label %59, label %.critedge.thread, !llvm.loop !34
+  br i1 %100, label %59, label %.critedge.thread, !llvm.loop !35
 
 .critedge:                                        ; preds = %81
   %102 = lshr i32 254, %56
@@ -3225,13 +3225,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
 .critedge.thread:                                 ; preds = %89, %69, %94, %74, %.critedge
   %109 = add nuw nsw i32 %.083107, 1
   %exitcond.not = icmp eq i32 %109, 8
-  br i1 %exitcond.not, label %110, label %49, !llvm.loop !35
+  br i1 %exitcond.not, label %110, label %49, !llvm.loop !36
 
 110:                                              ; preds = %.critedge.thread
   %111 = add i32 %.076109, 1
   %112 = sext i32 %111 to i64
   %113 = icmp ugt i64 %31, %112
-  br i1 %113, label %.preheader, label %.loopexit, !llvm.loop !36
+  br i1 %113, label %.preheader, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %110, %18, %16, %1, %.critedge.thread92
   %.075 = phi i64 [ %108, %.critedge.thread92 ], [ 0, %1 ], [ 1, %16 ], [ 0, %18 ], [ 0, %110 ]
@@ -3417,36 +3417,37 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"pq_writeint32: argument 0"}
-!12 = distinct !{!12, !"pq_writeint32"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"pq_writeint32: argument 0"}
-!15 = distinct !{!15, !"pq_writeint32"}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"pq_writeint32: argument 0"}
+!13 = distinct !{!13, !"pq_writeint32"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
+!16 = distinct !{!16, !"pq_writeint32"}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}

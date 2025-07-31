@@ -181,7 +181,7 @@ define void @av_uuid_unparse(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %21, ptr %17, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !9
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -273,6 +273,7 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

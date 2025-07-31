@@ -138,11 +138,11 @@ define dso_local i32 @aeGetSetSize(ptr noundef readonly captures(none) %0) local
 define dso_local void @aeSetDontWait(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i32, ptr %3, align 8, !tbaa !31
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = and i32 %4, -5
   %masksel = select i1 %.not, i32 0, i32 4
   %.sink = or disjoint i32 %5, %masksel
-  store i32 %.sink, ptr %3, align 8, !tbaa !31
+  store i32 %.sink, ptr %3, align 8, !tbaa !32
   ret void
 }
 
@@ -219,22 +219,22 @@ define dso_local void @aeDeleteEventLoop(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %20
   %.016 = phi ptr [ %14, %20 ], [ %12, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %.016, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %20, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   tail call void %16(ptr noundef %0, ptr noundef %19) #16
   br label %20
 
 20:                                               ; preds = %17, %.lr.ph
   tail call void @zfree(ptr noundef nonnull %.016) #16
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %20, %1
   tail call void @zfree(ptr noundef %0) #16
@@ -258,14 +258,14 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #19
-  store i32 34, ptr %10, align 4, !tbaa !38
+  store i32 34, ptr %10, align 4, !tbaa !39
   br label %66
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !5
   %.not52 = icmp slt i32 %1, %13
-  br i1 %.not52, label %33, label %14, !prof !39
+  br i1 %.not52, label %33, label %14, !prof !40
 
 14:                                               ; preds = %11
   %15 = shl nsw i32 %13, 1
@@ -302,7 +302,7 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
   store i32 0, ptr %32, align 8, !tbaa !27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !41
 
 33:                                               ; preds = %._crit_edge, %11
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -324,7 +324,7 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
   %45 = icmp eq i32 %40, 0
   %46 = select i1 %45, i32 1, i32 3
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %1, ptr %47, align 4, !tbaa !41
+  store i32 %1, ptr %47, align 4, !tbaa !42
   %48 = load i32, ptr %.val55, align 8, !tbaa !25
   %49 = call i32 @epoll_ctl(i32 noundef %48, i32 noundef %46, i32 noundef %1, ptr noundef nonnull %6) #16
   %50 = icmp eq i32 %49, -1
@@ -341,7 +341,7 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %3, ptr %56, align 8, !tbaa !42
+  store ptr %3, ptr %56, align 8, !tbaa !43
   br label %57
 
 57:                                               ; preds = %55, %51
@@ -351,12 +351,12 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %3, ptr %60, align 8, !tbaa !43
+  store ptr %3, ptr %60, align 8, !tbaa !44
   br label %61
 
 61:                                               ; preds = %59, %57
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %4, ptr %62, align 8, !tbaa !44
+  store ptr %4, ptr %62, align 8, !tbaa !45
   %63 = load i32, ptr %0, align 8, !tbaa !21
   %64 = icmp sgt i32 %1, %63
   br i1 %64, label %65, label %66
@@ -402,14 +402,14 @@ define dso_local void @aeDeleteFileEvent(ptr noundef captures(none) %0, i32 noun
   %19 = xor i32 %spec.select, -1
   %20 = and i32 %12, %19
   %21 = and i32 %20, 1
-  store i32 %21, ptr %4, align 4, !tbaa !45
+  store i32 %21, ptr %4, align 4, !tbaa !46
   %22 = and i32 %20, 2
   %.not11.i = icmp eq i32 %22, 0
   br i1 %.not11.i, label %24, label %.thread.i
 
 .thread.i:                                        ; preds = %14
   %23 = or disjoint i32 %21, 4
-  store i32 %23, ptr %4, align 4, !tbaa !45
+  store i32 %23, ptr %4, align 4, !tbaa !46
   br label %aeApiDelEvent.exit
 
 24:                                               ; preds = %14
@@ -419,7 +419,7 @@ define dso_local void @aeDeleteFileEvent(ptr noundef captures(none) %0, i32 noun
 
 aeApiDelEvent.exit:                               ; preds = %.thread.i, %24
   %.sink2.i = phi i32 [ 3, %.thread.i ], [ %spec.select.i, %24 ]
-  store i32 %1, ptr %18, align 4, !tbaa !41
+  store i32 %1, ptr %18, align 4, !tbaa !42
   %25 = load i32, ptr %.val27, align 8, !tbaa !25
   %26 = call i32 @epoll_ctl(i32 noundef %25, i32 noundef %.sink2.i, i32 noundef %1, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #16
@@ -451,7 +451,7 @@ aeApiDelEvent.exit:                               ; preds = %.thread.i, %24
   %39 = getelementptr inbounds nuw %struct.aeFileEvent, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !27
   %.not26 = icmp eq i32 %40, 0
-  br i1 %.not26, label %.preheader, label %.split.loop.exit, !llvm.loop !47
+  br i1 %.not26, label %.preheader, label %.split.loop.exit, !llvm.loop !48
 
 .split.loop.exit:                                 ; preds = %36
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -484,7 +484,7 @@ define dso_local ptr @aeGetFileClientData(ptr noundef readonly captures(none) %0
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %14 = load ptr, ptr %13, align 8, !tbaa !45
   br label %15
 
 15:                                               ; preds = %12, %5, %2
@@ -523,33 +523,33 @@ define dso_local i64 @aeCreateTimeEvent(ptr noundef captures(none) %0, i64 nound
   br i1 %10, label %28, label %11
 
 11:                                               ; preds = %5
-  store i64 %7, ptr %9, align 8, !tbaa !48
-  %12 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !49
+  store i64 %7, ptr %9, align 8, !tbaa !49
+  %12 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !50
   %13 = tail call i64 %12() #16
   %14 = mul nsw i64 %1, 1000
   %15 = add i64 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !50
+  store i64 %15, ptr %16, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %2, ptr %17, align 8, !tbaa !51
+  store ptr %2, ptr %17, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %4, ptr %18, align 8, !tbaa !35
+  store ptr %4, ptr %18, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %3, ptr %19, align 8, !tbaa !36
+  store ptr %3, ptr %19, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %20, align 8, !tbaa !52
+  store ptr null, ptr %20, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %22, ptr %23, align 8, !tbaa !32
+  store ptr %22, ptr %23, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 0, ptr %24, align 8, !tbaa !53
+  store i32 0, ptr %24, align 8, !tbaa !54
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr %9, ptr %26, align 8, !tbaa !52
+  store ptr %9, ptr %26, align 8, !tbaa !53
   br label %27
 
 27:                                               ; preds = %25, %11
@@ -564,25 +564,25 @@ define dso_local i64 @aeCreateTimeEvent(ptr noundef captures(none) %0, i64 nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @aeDeleteTimeEvent(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.08 = load ptr, ptr %3, align 8, !tbaa !54
+  %.08 = load ptr, ptr %3, align 8, !tbaa !55
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
   %.010 = phi ptr [ %.0, %7 ], [ %.08, %2 ]
-  %4 = load i64, ptr %.010, align 8, !tbaa !48
+  %4 = load i64, ptr %.010, align 8, !tbaa !49
   %5 = icmp eq i64 %4, %1
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %.lr.ph
-  store i64 -1, ptr %.010, align 8, !tbaa !48
+  store i64 -1, ptr %.010, align 8, !tbaa !49
   br label %.loopexit
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.010, i64 48
-  %.0 = load ptr, ptr %8, align 8, !tbaa !54
+  %.0 = load ptr, ptr %8, align 8, !tbaa !55
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %7, %2, %6
   %.06 = phi i32 [ 0, %6 ], [ -1, %2 ], [ -1, %7 ]
@@ -608,7 +608,7 @@ define dso_local i32 @aeProcessEvents(ptr noundef %0, i32 noundef %1) local_unna
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %.not86 = icmp eq ptr %11, null
   %12 = and i32 %1, 8
   %.not87 = icmp eq i32 %12, 0
@@ -626,7 +626,7 @@ define dso_local i32 @aeProcessEvents(ptr noundef %0, i32 noundef %1) local_unna
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load i32, ptr %17, align 8, !tbaa !31
+  %18 = load i32, ptr %17, align 8, !tbaa !32
   %19 = and i32 %18, 4
   %.not89 = icmp ne i32 %19, 0
   %brmerge = or i1 %.not89, %.not.not
@@ -648,14 +648,14 @@ define dso_local i32 @aeProcessEvents(ptr noundef %0, i32 noundef %1) local_unna
 
 23:                                               ; preds = %.preheader.i
   %24 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %25 = load i64, ptr %24, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %.0132.i, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !50
+  %27 = load i64, ptr %26, align 8, !tbaa !51
   %28 = icmp ult i64 %25, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %23, %.preheader.i
-  %30 = load i64, ptr %.0141.i, align 8, !tbaa !48
+  %30 = load i64, ptr %.0141.i, align 8, !tbaa !49
   %.not20.i = icmp eq i64 %30, -1
   %spec.select.i = select i1 %.not20.i, ptr %.0132.i, ptr %.0141.i
   br label %31
@@ -663,15 +663,15 @@ define dso_local i32 @aeProcessEvents(ptr noundef %0, i32 noundef %1) local_unna
 31:                                               ; preds = %29, %23
   %.1.i = phi ptr [ %.0132.i, %23 ], [ %spec.select.i, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %usUntilEarliestTimer.exit, label %.preheader.i, !llvm.loop !57
+  br i1 %.not.i, label %usUntilEarliestTimer.exit, label %.preheader.i, !llvm.loop !58
 
 usUntilEarliestTimer.exit:                        ; preds = %31
-  %34 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !49
+  %34 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !50
   %35 = tail call i64 %34() #16
   %36 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !50
+  %37 = load i64, ptr %36, align 8, !tbaa !51
   %spec.select21.i = tail call i64 @llvm.usub.sat.i64(i64 %37, i64 %35)
   %38 = icmp sgt i64 %spec.select21.i, -1
   br i1 %38, label %39, label %.thread
@@ -710,7 +710,7 @@ usUntilEarliestTimer.exit:                        ; preds = %31
 57:                                               ; preds = %57, %.preheader.i106
   %indvars.iv.i = phi i64 [ 0, %.preheader.i106 ], [ %indvars.iv.next.i, %57 ]
   %58 = getelementptr inbounds nuw %struct.epoll_event, ptr %54, i64 %indvars.iv.i
-  %59 = load i32, ptr %58, align 1, !tbaa !45
+  %59 = load i32, ptr %58, align 1, !tbaa !46
   %60 = and i32 %59, 1
   %61 = lshr i32 %59, 1
   %62 = and i32 %61, 2
@@ -719,14 +719,14 @@ usUntilEarliestTimer.exit:                        ; preds = %31
   %64 = icmp eq i32 %63, 0
   %.3.i = select i1 %64, i32 %.1.i107, i32 3
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %66 = load i32, ptr %65, align 1, !tbaa !41
+  %66 = load i32, ptr %65, align 1, !tbaa !42
   %67 = getelementptr inbounds nuw %struct.aeFiredEvent, ptr %56, i64 %indvars.iv.i
-  store i32 %66, ptr %67, align 4, !tbaa !58
+  store i32 %66, ptr %67, align 4, !tbaa !59
   %68 = getelementptr inbounds nuw %struct.aeFiredEvent, ptr %56, i64 %indvars.iv.i, i32 1
-  store i32 %.3.i, ptr %68, align 4, !tbaa !60
+  store i32 %.3.i, ptr %68, align 4, !tbaa !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %aeApiPoll.exit, label %57, !llvm.loop !61
+  br i1 %exitcond.not.i, label %aeApiPoll.exit, label %57, !llvm.loop !62
 
 69:                                               ; preds = %.thread
   %70 = icmp eq i32 %52, -1
@@ -734,7 +734,7 @@ usUntilEarliestTimer.exit:                        ; preds = %31
 
 71:                                               ; preds = %69
   %72 = tail call ptr @__errno_location() #19
-  %73 = load i32, ptr %72, align 4, !tbaa !38
+  %73 = load i32, ptr %72, align 4, !tbaa !39
   %.not35.i = icmp eq i32 %73, 4
   br i1 %.not35.i, label %aeApiPoll.exit, label %74
 
@@ -748,7 +748,7 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %.0.i105 = phi i32 [ 0, %71 ], [ 0, %69 ], [ %52, %57 ]
   %.not90 = icmp ne i32 %4, 0
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %77 = load ptr, ptr %76, align 8, !tbaa !62
+  %77 = load ptr, ptr %76, align 8, !tbaa !63
   %.not91 = icmp eq ptr %77, null
   %78 = and i32 %1, 16
   %.not92 = icmp eq i32 %78, 0
@@ -774,12 +774,12 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread129 ]
   %87 = load ptr, ptr %83, align 8, !tbaa !16
   %88 = getelementptr inbounds nuw %struct.aeFiredEvent, ptr %87, i64 %indvars.iv
-  %89 = load i32, ptr %88, align 4, !tbaa !58
+  %89 = load i32, ptr %88, align 4, !tbaa !59
   %90 = load ptr, ptr %84, align 8, !tbaa !15
   %91 = sext i32 %89 to i64
   %92 = getelementptr inbounds %struct.aeFileEvent, ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !60
+  %94 = load i32, ptr %93, align 4, !tbaa !61
   %95 = load i32, ptr %92, align 8, !tbaa !27
   %96 = and i32 %95, 4
   %.not93 = icmp eq i32 %96, 0
@@ -799,14 +799,14 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
 
 ._crit_edge139:                                   ; preds = %100
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !43
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
   br label %117
 
 .thread116:                                       ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !42
+  %104 = load ptr, ptr %103, align 8, !tbaa !43
   %105 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !44
+  %106 = load ptr, ptr %105, align 8, !tbaa !45
   tail call void %104(ptr noundef nonnull %0, i32 noundef %89, ptr noundef %106, i32 noundef %94) #16
   %107 = load ptr, ptr %84, align 8, !tbaa !15
   %108 = getelementptr inbounds %struct.aeFileEvent, ptr %107, i64 %91
@@ -818,9 +818,9 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
 
 112:                                              ; preds = %.thread116
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !43
+  %114 = load ptr, ptr %113, align 8, !tbaa !44
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !42
+  %116 = load ptr, ptr %115, align 8, !tbaa !43
   %.not97 = icmp eq ptr %114, %116
   br i1 %.not97, label %.thread129, label %117
 
@@ -828,7 +828,7 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %118 = phi ptr [ %114, %112 ], [ %.pre, %._crit_edge139 ]
   %119 = phi ptr [ %107, %112 ], [ %90, %._crit_edge139 ]
   %120 = getelementptr inbounds %struct.aeFileEvent, ptr %119, i64 %91, i32 3
-  %121 = load ptr, ptr %120, align 8, !tbaa !44
+  %121 = load ptr, ptr %120, align 8, !tbaa !45
   tail call void %118(ptr noundef nonnull %0, i32 noundef %89, ptr noundef %121, i32 noundef %94) #16
   br label %122
 
@@ -850,28 +850,28 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
 
 ._crit_edge140:                                   ; preds = %129
   %.phi.trans.insert141 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %.pre142 = load ptr, ptr %.phi.trans.insert141, align 8, !tbaa !42
+  %.pre142 = load ptr, ptr %.phi.trans.insert141, align 8, !tbaa !43
   br label %135
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !43
+  %132 = load ptr, ptr %131, align 8, !tbaa !44
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !42
+  %134 = load ptr, ptr %133, align 8, !tbaa !43
   %.not100 = icmp eq ptr %132, %134
   br i1 %.not100, label %.thread129, label %135
 
 135:                                              ; preds = %._crit_edge140, %130
   %136 = phi ptr [ %.pre142, %._crit_edge140 ], [ %134, %130 ]
   %137 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %138 = load ptr, ptr %137, align 8, !tbaa !44
+  %138 = load ptr, ptr %137, align 8, !tbaa !45
   tail call void %136(ptr noundef nonnull %0, i32 noundef %89, ptr noundef %138, i32 noundef %94) #16
   br label %.thread129
 
 .thread129:                                       ; preds = %112, %.thread116, %123, %130, %135, %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %139, label %86, label %._crit_edge.loopexit, !llvm.loop !63
+  br i1 %139, label %86, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %.thread129
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -886,7 +886,7 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %142 = load ptr, ptr %141, align 8, !tbaa !18
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !19
-  %145 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !49
+  %145 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !50
   %146 = tail call i64 %145() #16
   %.not58.i = icmp eq ptr %142, null
   br i1 %.not58.i, label %processTimeEvents.exit, label %.lr.ph.i
@@ -895,28 +895,28 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %.061.i = phi i32 [ %.1.i109, %202 ], [ 0, %140 ]
   %.04060.i = phi ptr [ %.242.i, %202 ], [ %142, %140 ]
   %.04359.i = phi i64 [ %.3.i108, %202 ], [ %146, %140 ]
-  %147 = load i64, ptr %.04060.i, align 8, !tbaa !48
+  %147 = load i64, ptr %.04060.i, align 8, !tbaa !49
   %148 = icmp eq i64 %147, -1
   br i1 %148, label %149, label %173
 
 149:                                              ; preds = %.lr.ph.i
   %150 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 48
-  %151 = load ptr, ptr %150, align 8, !tbaa !32
+  %151 = load ptr, ptr %150, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 56
-  %153 = load i32, ptr %152, align 8, !tbaa !53
+  %153 = load i32, ptr %152, align 8, !tbaa !54
   %.not54.i = icmp eq i32 %153, 0
-  br i1 %.not54.i, label %154, label %202, !llvm.loop !64
+  br i1 %.not54.i, label %154, label %202, !llvm.loop !65
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 40
-  %156 = load ptr, ptr %155, align 8, !tbaa !52
+  %156 = load ptr, ptr %155, align 8, !tbaa !53
   %.not55.i = icmp eq ptr %156, null
   br i1 %.not55.i, label %159, label %157
 
 157:                                              ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 48
-  store ptr %151, ptr %158, align 8, !tbaa !32
-  %.pre.i = load ptr, ptr %150, align 8, !tbaa !32
+  store ptr %151, ptr %158, align 8, !tbaa !33
+  %.pre.i = load ptr, ptr %150, align 8, !tbaa !33
   br label %160
 
 159:                                              ; preds = %154
@@ -930,27 +930,27 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
 
 162:                                              ; preds = %160
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 40
-  store ptr %156, ptr %163, align 8, !tbaa !52
+  store ptr %156, ptr %163, align 8, !tbaa !53
   br label %164
 
 164:                                              ; preds = %162, %160
   %165 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 24
-  %166 = load ptr, ptr %165, align 8, !tbaa !35
+  %166 = load ptr, ptr %165, align 8, !tbaa !36
   %.not57.i = icmp eq ptr %166, null
   br i1 %.not57.i, label %172, label %167
 
 167:                                              ; preds = %164
   %168 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !36
+  %169 = load ptr, ptr %168, align 8, !tbaa !37
   tail call void %166(ptr noundef nonnull %0, ptr noundef %169) #16
-  %170 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !49
+  %170 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !50
   %171 = tail call i64 %170() #16
   br label %172
 
 172:                                              ; preds = %167, %164
   %.245.i = phi i64 [ %171, %167 ], [ %.04359.i, %164 ]
   tail call void @zfree(ptr noundef nonnull %.04060.i) #16
-  br label %202, !llvm.loop !64
+  br label %202, !llvm.loop !65
 
 173:                                              ; preds = %.lr.ph.i
   %.not51.i = icmp slt i64 %147, %144
@@ -958,30 +958,30 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
 
 174:                                              ; preds = %173
   %175 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 48
-  %176 = load ptr, ptr %175, align 8, !tbaa !32
-  br label %202, !llvm.loop !64
+  %176 = load ptr, ptr %175, align 8, !tbaa !33
+  br label %202, !llvm.loop !65
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 8
-  %179 = load i64, ptr %178, align 8, !tbaa !50
+  %179 = load i64, ptr %178, align 8, !tbaa !51
   %.not52.i = icmp ugt i64 %179, %.04359.i
   br i1 %.not52.i, label %199, label %180
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 56
-  %182 = load i32, ptr %181, align 8, !tbaa !53
+  %182 = load i32, ptr %181, align 8, !tbaa !54
   %183 = add nsw i32 %182, 1
-  store i32 %183, ptr %181, align 8, !tbaa !53
+  store i32 %183, ptr %181, align 8, !tbaa !54
   %184 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 16
-  %185 = load ptr, ptr %184, align 8, !tbaa !51
+  %185 = load ptr, ptr %184, align 8, !tbaa !52
   %186 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !36
+  %187 = load ptr, ptr %186, align 8, !tbaa !37
   %188 = tail call i32 %185(ptr noundef nonnull %0, i64 noundef %147, ptr noundef %187) #16
-  %189 = load i32, ptr %181, align 8, !tbaa !53
+  %189 = load i32, ptr %181, align 8, !tbaa !54
   %190 = add nsw i32 %189, -1
-  store i32 %190, ptr %181, align 8, !tbaa !53
+  store i32 %190, ptr %181, align 8, !tbaa !54
   %191 = add nsw i32 %.061.i, 1
-  %192 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !49
+  %192 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !50
   %193 = tail call i64 %192() #16
   %.not53.i = icmp eq i32 %188, -1
   br i1 %.not53.i, label %198, label %194
@@ -990,18 +990,18 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %195 = sext i32 %188 to i64
   %196 = mul nsw i64 %195, 1000
   %197 = add i64 %193, %196
-  store i64 %197, ptr %178, align 8, !tbaa !50
+  store i64 %197, ptr %178, align 8, !tbaa !51
   br label %199
 
 198:                                              ; preds = %180
-  store i64 -1, ptr %.04060.i, align 8, !tbaa !48
+  store i64 -1, ptr %.04060.i, align 8, !tbaa !49
   br label %199
 
 199:                                              ; preds = %198, %194, %177
   %.4.i = phi i64 [ %.04359.i, %177 ], [ %193, %198 ], [ %193, %194 ]
   %.2.i = phi i32 [ %.061.i, %177 ], [ %191, %198 ], [ %191, %194 ]
   %200 = getelementptr inbounds nuw i8, ptr %.04060.i, i64 48
-  %201 = load ptr, ptr %200, align 8, !tbaa !32
+  %201 = load ptr, ptr %200, align 8, !tbaa !33
   br label %202
 
 202:                                              ; preds = %199, %174, %172, %149
@@ -1009,7 +1009,7 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   %.242.i = phi ptr [ %176, %174 ], [ %201, %199 ], [ %151, %172 ], [ %151, %149 ]
   %.1.i109 = phi i32 [ %.061.i, %174 ], [ %.2.i, %199 ], [ %.061.i, %172 ], [ %.061.i, %149 ]
   %.not.i110 = icmp eq ptr %.242.i, null
-  br i1 %.not.i110, label %processTimeEvents.exit, label %.lr.ph.i
+  br i1 %.not.i110, label %processTimeEvents.exit, label %.lr.ph.i, !llvm.loop !66
 
 processTimeEvents.exit:                           ; preds = %202, %140
   %.0.lcssa.i = phi i32 [ 0, %140 ], [ %.1.i109, %202 ]
@@ -1026,14 +1026,14 @@ define dso_local i32 @aeWait(i32 noundef %0, i32 noundef %1, i64 noundef %2) loc
   %4 = alloca %struct.pollfd, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 0, ptr %4, align 8
-  store i32 %0, ptr %4, align 8, !tbaa !65
+  store i32 %0, ptr %4, align 8, !tbaa !67
   %5 = and i32 %1, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 1, ptr %7, align 4, !tbaa !68
+  store i16 1, ptr %7, align 4, !tbaa !70
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -1044,7 +1044,7 @@ define dso_local i32 @aeWait(i32 noundef %0, i32 noundef %1, i64 noundef %2) loc
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 %9, ptr %12, align 4, !tbaa !68
+  store i16 %9, ptr %12, align 4, !tbaa !70
   br label %13
 
 13:                                               ; preds = %11, %8
@@ -1055,7 +1055,7 @@ define dso_local i32 @aeWait(i32 noundef %0, i32 noundef %1, i64 noundef %2) loc
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %19 = load i16, ptr %18, align 2, !tbaa !69
+  %19 = load i16, ptr %18, align 2, !tbaa !71
   %20 = and i16 %19, 1
   %21 = lshr i16 %19, 1
   %22 = and i16 %21, 2
@@ -1085,7 +1085,7 @@ define dso_local void @aeMain(ptr noundef initializes((48, 52)) %0) local_unname
   %4 = tail call i32 @aeProcessEvents(ptr noundef nonnull %0, i32 noundef 27)
   %.pr = load i32, ptr %2, align 8, !tbaa !20
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %3, label %5, !llvm.loop !70
+  br i1 %.not, label %3, label %5, !llvm.loop !72
 
 5:                                                ; preds = %3
   ret void
@@ -1099,14 +1099,14 @@ define dso_local noundef nonnull ptr @aeGetApiName() local_unnamed_addr #12 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @aeSetBeforeSleepProc(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @aeSetAfterSleepProc(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %3, align 8, !tbaa !63
   ret void
 }
 
@@ -1192,45 +1192,47 @@ attributes #20 = { noreturn nounwind }
 !26 = !{!6, !12, i64 56}
 !27 = !{!28, !7, i64 0}
 !28 = !{!"aeFileEvent", !7, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!6, !7, i64 80}
-!32 = !{!33, !14, i64 48}
-!33 = !{!"aeTimeEvent", !10, i64 0, !34, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !14, i64 40, !14, i64 48, !7, i64 56}
-!34 = !{!"long", !8, i64 0}
-!35 = !{!33, !12, i64 24}
-!36 = !{!33, !12, i64 32}
-!37 = distinct !{!37, !30}
-!38 = !{!7, !7, i64 0}
-!39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!40 = distinct !{!40, !30}
-!41 = !{!8, !8, i64 0}
-!42 = !{!28, !12, i64 8}
-!43 = !{!28, !12, i64 16}
-!44 = !{!28, !12, i64 24}
-!45 = !{!46, !7, i64 0}
-!46 = !{!"epoll_event", !7, i64 0, !8, i64 4}
-!47 = distinct !{!47, !30}
-!48 = !{!33, !10, i64 0}
-!49 = !{!12, !12, i64 0}
-!50 = !{!33, !34, i64 8}
-!51 = !{!33, !12, i64 16}
-!52 = !{!33, !14, i64 40}
-!53 = !{!33, !7, i64 56}
-!54 = !{!14, !14, i64 0}
-!55 = distinct !{!55, !30}
-!56 = !{!6, !12, i64 64}
-!57 = distinct !{!57, !30}
-!58 = !{!59, !7, i64 0}
-!59 = !{!"aeFiredEvent", !7, i64 0, !7, i64 4}
-!60 = !{!59, !7, i64 4}
-!61 = distinct !{!61, !30}
-!62 = !{!6, !12, i64 72}
-!63 = distinct !{!63, !30}
-!64 = distinct !{!64, !30}
-!65 = !{!66, !7, i64 0}
-!66 = !{!"pollfd", !7, i64 0, !67, i64 4, !67, i64 6}
-!67 = !{!"short", !8, i64 0}
-!68 = !{!66, !67, i64 4}
-!69 = !{!66, !67, i64 6}
-!70 = distinct !{!70, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!6, !7, i64 80}
+!33 = !{!34, !14, i64 48}
+!34 = !{!"aeTimeEvent", !10, i64 0, !35, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !14, i64 40, !14, i64 48, !7, i64 56}
+!35 = !{!"long", !8, i64 0}
+!36 = !{!34, !12, i64 24}
+!37 = !{!34, !12, i64 32}
+!38 = distinct !{!38, !30, !31}
+!39 = !{!7, !7, i64 0}
+!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!8, !8, i64 0}
+!43 = !{!28, !12, i64 8}
+!44 = !{!28, !12, i64 16}
+!45 = !{!28, !12, i64 24}
+!46 = !{!47, !7, i64 0}
+!47 = !{!"epoll_event", !7, i64 0, !8, i64 4}
+!48 = distinct !{!48, !30, !31}
+!49 = !{!34, !10, i64 0}
+!50 = !{!12, !12, i64 0}
+!51 = !{!34, !35, i64 8}
+!52 = !{!34, !12, i64 16}
+!53 = !{!34, !14, i64 40}
+!54 = !{!34, !7, i64 56}
+!55 = !{!14, !14, i64 0}
+!56 = distinct !{!56, !30, !31}
+!57 = !{!6, !12, i64 64}
+!58 = distinct !{!58, !30, !31}
+!59 = !{!60, !7, i64 0}
+!60 = !{!"aeFiredEvent", !7, i64 0, !7, i64 4}
+!61 = !{!60, !7, i64 4}
+!62 = distinct !{!62, !30, !31}
+!63 = !{!6, !12, i64 72}
+!64 = distinct !{!64, !30, !31}
+!65 = distinct !{!65, !30}
+!66 = distinct !{!66, !31}
+!67 = !{!68, !7, i64 0}
+!68 = !{!"pollfd", !7, i64 0, !69, i64 4, !69, i64 6}
+!69 = !{!"short", !8, i64 0}
+!70 = !{!68, !69, i64 4}
+!71 = !{!68, !69, i64 6}
+!72 = distinct !{!72, !30, !31}

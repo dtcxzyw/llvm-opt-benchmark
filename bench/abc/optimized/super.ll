@@ -372,7 +372,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   %15 = add nsw i32 %9, 1
   store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !3
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !12
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !13
 
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -384,11 +384,11 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   %24 = add nsw i32 %18, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !3
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer44, !llvm.loop !12
+  br i1 %25, label %.loopexit, label %.outer44, !llvm.loop !13
 
 26:                                               ; preds = %6
   %27 = xor i32 %.021, 1
-  br label %6, !llvm.loop !12
+  br label %6, !llvm.loop !13
 
 28:                                               ; preds = %6
   tail call void @Super2_Precompute(i32 noundef %.024.ph, i32 noundef %.022.ph45, i32 noundef %.021) #6
@@ -477,6 +477,7 @@ attributes #6 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

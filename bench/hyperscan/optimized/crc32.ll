@@ -38,7 +38,7 @@ define hidden i32 @Crc32c_ComputeBuf(i32 noundef %0, ptr noundef %1, i64 noundef
   %14 = load i8, ptr %.025.i5, align 1
   %15 = tail call i32 @llvm.x86.sse42.crc32.32.8(i32 %.027.i4, i8 %14)
   %exitcond.not = icmp eq ptr %13, %scevgep
-  br i1 %exitcond.not, label %.preheader3, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader3, label %.lr.ph, !llvm.loop !5
 
 .preheader:                                       ; preds = %.lr.ph10, %.preheader3
   %.128.i.lcssa = phi i32 [ %.027.i.lcssa, %.preheader3 ], [ %19, %.lr.ph10 ]
@@ -57,7 +57,7 @@ define hidden i32 @Crc32c_ComputeBuf(i32 noundef %0, ptr noundef %1, i64 noundef
   %20 = getelementptr inbounds nuw i8, ptr %.1.i9, i64 8
   %21 = add nuw nsw i64 %.026.i8, 1
   %exitcond23.not = icmp eq i64 %21, %umax
-  br i1 %exitcond23.not, label %.preheader, label %.lr.ph10
+  br i1 %exitcond23.not, label %.preheader, label %.lr.ph10, !llvm.loop !7
 
 .lr.ph16:                                         ; preds = %.preheader, %.lr.ph16
   %.0.i15 = phi i64 [ %25, %.lr.ph16 ], [ 0, %.preheader ]
@@ -68,7 +68,7 @@ define hidden i32 @Crc32c_ComputeBuf(i32 noundef %0, ptr noundef %1, i64 noundef
   %24 = tail call i32 @llvm.x86.sse42.crc32.32.8(i32 %.229.i13, i8 %23)
   %25 = add nuw nsw i64 %.0.i15, 1
   %exitcond24.not = icmp eq i64 %25, %10
-  br i1 %exitcond24.not, label %crc32c_sse42.exit, label %.lr.ph16
+  br i1 %exitcond24.not, label %crc32c_sse42.exit, label %.lr.ph16, !llvm.loop !8
 
 crc32c_sse42.exit:                                ; preds = %.lr.ph16, %.preheader
   %.229.i.lcssa = phi i32 [ %.128.i.lcssa, %.preheader ], [ %24, %.lr.ph16 ]
@@ -95,3 +95,7 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

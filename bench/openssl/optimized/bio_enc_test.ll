@@ -348,7 +348,7 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
   %87 = call i32 @BIO_read(ptr noundef %71, ptr noundef nonnull %86, i32 noundef %.113260) #5
   %.not162 = icmp eq i32 %87, 0
   %88 = add nsw i32 %87, %.0129
-  br i1 %.not162, label %89, label %84, !llvm.loop !9
+  br i1 %.not162, label %89, label %84, !llvm.loop !10
 
 89:                                               ; preds = %84
   call void @BIO_free_all(ptr noundef %71) #5
@@ -363,7 +363,7 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
 92:                                               ; preds = %89
   %93 = add nuw nsw i32 %.113260, 1
   %exitcond115.not = icmp eq i32 %93, %smax
-  br i1 %exitcond115.not, label %._crit_edge, label %69, !llvm.loop !10
+  br i1 %exitcond115.not, label %._crit_edge, label %69, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %92, %.preheader14.thread, %.preheader14
   %94 = phi i1 [ false, %.preheader14.thread ], [ false, %.preheader14 ], [ true, %92 ]
@@ -480,7 +480,7 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
 148:                                              ; preds = %139
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %.preheader, label %.lr.ph63, !llvm.loop !11
+  br i1 %exitcond120.not, label %.preheader, label %.lr.ph63, !llvm.loop !12
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %171
   %.313464 = phi i32 [ %172, %171 ], [ 1, %.lr.ph65.preheader ]
@@ -520,7 +520,7 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
   %166 = call i32 @BIO_read(ptr noundef %150, ptr noundef nonnull %165, i32 noundef %.313464) #5
   %.not152 = icmp eq i32 %166, 0
   %167 = add nsw i32 %166, %.1130
-  br i1 %.not152, label %168, label %163, !llvm.loop !12
+  br i1 %.not152, label %168, label %163, !llvm.loop !13
 
 168:                                              ; preds = %163
   call void @BIO_free_all(ptr noundef %150) #5
@@ -535,7 +535,7 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
 171:                                              ; preds = %168
   %172 = add nuw nsw i32 %.313464, 1
   %exitcond122.not = icmp eq i32 %172, %smax121
-  br i1 %exitcond122.not, label %.thread, label %.lr.ph65, !llvm.loop !13
+  br i1 %exitcond122.not, label %.thread, label %.lr.ph65, !llvm.loop !14
 
 .thread3:                                         ; preds = %57, %42, %39, %79, %123, %158, %157, %78, %104, %99, %16, %11, %138, %121, %56, %37
   %.0126 = phi ptr [ %30, %56 ], [ %30, %37 ], [ %114, %138 ], [ %114, %121 ], [ %97, %104 ], [ %97, %99 ], [ %9, %16 ], [ %9, %11 ], [ %71, %78 ], [ %150, %157 ], [ %150, %158 ], [ %114, %123 ], [ %71, %79 ], [ %30, %39 ], [ %30, %42 ], [ %30, %57 ]
@@ -617,10 +617,11 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

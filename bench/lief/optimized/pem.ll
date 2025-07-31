@@ -348,9 +348,9 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly captures(addres
 
 .thread176:                                       ; preds = %158, %156, %._crit_edge
   %163 = phi i64 [ %.pre, %._crit_edge ], [ %157, %156 ], [ %157, %158 ]
-  store ptr %120, ptr %0, align 8, !tbaa !10
+  store ptr %120, ptr %0, align 8, !tbaa !11
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %163, ptr %164, align 8, !tbaa !14
+  store i64 %163, ptr %164, align 8, !tbaa !15
   br label %165
 
 165:                                              ; preds = %.loopexit, %111, %119, %116, %110, %103, %102, %94, %99, %92, %86, %70, %75, %58, %63, %44, %16, %14, %11, %7, %.thread176, %148, %130, %124
@@ -410,7 +410,7 @@ define internal fastcc range(i32 -4608, 1) i32 @pem_get_iv(ptr noundef nonnull r
   %24 = add nuw nsw i64 %.02432, 1
   %25 = getelementptr inbounds nuw i8, ptr %.02531, i64 1
   %exitcond.not = icmp eq i64 %24, %4
-  br i1 %exitcond.not, label %26, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %26, label %5, !llvm.loop !16
 
 26:                                               ; preds = %13, %11
   %.0 = phi i32 [ -4608, %11 ], [ 0, %13 ]
@@ -522,19 +522,19 @@ define hidden void @mbedtls_pem_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !10
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %7 = load i64, ptr %6, align 8, !tbaa !15
   tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %4, i64 noundef %7) #12
   br label %8
 
 8:                                                ; preds = %5, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   tail call void @free(ptr noundef %10) #12
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 24) #12
   br label %11
@@ -609,7 +609,7 @@ define hidden i32 @mbedtls_pem_write_buffer(ptr noundef readonly captures(none) 
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 10, ptr %35, align 1, !tbaa !3
   %.not53 = icmp eq i64 %34, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.0.lcssa = phi ptr [ %31, %28 ], [ %37, %.lr.ph ]
@@ -794,13 +794,14 @@ attributes #14 = { nounwind allocsize(0,1) }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"long", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"mbedtls_pem_context", !12, i64 0, !7, i64 8, !12, i64 16}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!11, !7, i64 8}
-!15 = distinct !{!15, !9}
-!16 = !{!11, !12, i64 16}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"mbedtls_pem_context", !13, i64 0, !7, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !4, i64 0}
+!15 = !{!12, !7, i64 8}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!12, !13, i64 16}
+!18 = distinct !{!18, !9, !10}

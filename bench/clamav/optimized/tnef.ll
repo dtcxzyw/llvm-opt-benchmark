@@ -337,7 +337,7 @@ fmap_readn.exit78.i:                              ; preds = %113
   %122 = sub i32 %.06287.i, %121
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #7
   %.not.i60 = icmp eq i32 %122, 0
-  br i1 %.not.i60, label %.loopexit.i, label %111
+  br i1 %.not.i60, label %.loopexit.i, label %111, !llvm.loop !28
 
 .thread.i:                                        ; preds = %113, %111
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #7
@@ -382,7 +382,7 @@ tnef_attachment.exit:                             ; preds = %125
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %134 = load ptr, ptr %133, align 8, !tbaa !28
+  %134 = load ptr, ptr %133, align 8, !tbaa !30
   %135 = call ptr @cli_gentemp(ptr noundef %134) #7
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #7
   %.not47 = icmp eq ptr %135, null
@@ -426,7 +426,7 @@ fmap_readn.exit67:                                ; preds = %.lr.ph242
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 88
   %156 = load i64, ptr %155, align 8, !tbaa !23
   %or.cond182.not = icmp ult i64 %152, %156
-  br i1 %or.cond182.not, label %.lr.ph242, label %fmap_readn.exit67.thread
+  br i1 %or.cond182.not, label %.lr.ph242, label %fmap_readn.exit67.thread, !llvm.loop !31
 
 fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, %151, %.lr.ph242, %139
   %157 = call i32 @close(i32 noundef %137) #7
@@ -445,7 +445,7 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 88
   %161 = load i64, ptr %160, align 8, !tbaa !23
   %or.cond44.not.i = icmp ult i64 %.1107, %161
-  br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit
+  br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 .thread169:                                       ; preds = %.loopexit, %.loopexit183, %129, %.thread165, %.loopexit184, %76, %64
   %.2180 = phi i32 [ 26, %129 ], [ 26, %.thread165 ], [ 26, %.loopexit184 ], [ 26, %76 ], [ 26, %64 ], [ 0, %.loopexit ], [ 0, %.loopexit183 ]
@@ -561,4 +561,8 @@ attributes #7 = { nounwind }
 !25 = !{!24, !6, i64 104}
 !26 = !{!14, !14, i64 0}
 !27 = !{!7, !7, i64 0}
-!28 = !{!4, !5, i64 16}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!4, !5, i64 16}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}

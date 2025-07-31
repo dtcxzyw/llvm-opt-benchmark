@@ -834,11 +834,11 @@ skip_put_bytes.exit.i:                            ; preds = %342
   %365 = sub i64 %.072133.i, %343
   %366 = getelementptr inbounds nuw i8, ptr %.073132.i, i64 %343
   %exitcond.not.i = icmp eq i32 %352, %311
-  br i1 %exitcond.not.i, label %.loopexit.i, label %342, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.loopexit.i, label %342, !llvm.loop !47
 
 .loopexit.i:                                      ; preds = %skip_put_bytes.exit.i, %flush_put_bits.exit.i, %305, %303
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %368 = load i32, ptr %367, align 8, !tbaa !47
+  %368 = load i32, ptr %367, align 8, !tbaa !48
   %369 = and i32 %368, 8388608
   %.not80.i = icmp eq i32 %369, 0
   br i1 %.not80.i, label %370, label %439
@@ -984,13 +984,13 @@ put_bits.exit119.i:                               ; preds = %429, %put_marker.ex
 
 441:                                              ; preds = %439, %439, %439
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %443 = load i32, ptr %442, align 4, !tbaa !48
+  %443 = load i32, ptr %442, align 4, !tbaa !49
   %.not81.i = icmp eq i32 %443, 2
   br i1 %.not81.i, label %jpeg_put_comments.exit, label %446
 
 444:                                              ; preds = %439
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !48
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !49
   %445 = icmp eq i32 %.pre.i, 1
   br i1 %445, label %446, label %jpeg_put_comments.exit
 
@@ -1138,7 +1138,7 @@ jpeg_put_comments.exit:                           ; preds = %441, %444, %put_bit
   %516 = icmp ne i32 %bcmp, 0
   %.pre.pre.i = load i32, ptr %1, align 8, !tbaa !33
   %517 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %518 = load i32, ptr %517, align 4, !tbaa !49
+  %518 = load i32, ptr %517, align 4, !tbaa !50
   %.not65.i = icmp ne i32 %518, 0
   %519 = select i1 %.not65.i, i1 true, i1 %516
   %520 = load i32, ptr %28, align 4, !tbaa !35
@@ -1357,7 +1357,7 @@ put_bits.exit74.i:                                ; preds = %629, %624, %613
   %638 = load i8, ptr %637, align 1, !tbaa !38
   %639 = zext i8 %638 to i64
   %640 = getelementptr inbounds nuw i16, ptr %6, i64 %639
-  %641 = load i16, ptr %640, align 2, !tbaa !52
+  %641 = load i16, ptr %640, align 2, !tbaa !53
   %642 = zext i16 %641 to i32
   %643 = icmp sgt i32 %635, 8
   br i1 %643, label %644, label %647
@@ -1400,7 +1400,7 @@ put_bits.exit78.i:                                ; preds = %662, %654, %644
   store i32 %664, ptr %28, align 4, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i95, label %633, label %634, !llvm.loop !54
+  br i1 %exitcond.not.i95, label %633, label %634, !llvm.loop !55
 
 665:                                              ; preds = %633
   %666 = icmp sgt i32 %664, 4
@@ -1487,7 +1487,7 @@ put_bits.exit86.i:                                ; preds = %702, %694, %684
   %708 = load i8, ptr %707, align 1, !tbaa !38
   %709 = zext i8 %708 to i64
   %710 = getelementptr inbounds nuw i16, ptr %7, i64 %709
-  %711 = load i16, ptr %710, align 2, !tbaa !52
+  %711 = load i16, ptr %710, align 2, !tbaa !53
   %712 = zext i16 %711 to i32
   %713 = icmp sgt i32 %705, 8
   br i1 %713, label %714, label %717
@@ -1530,7 +1530,7 @@ put_bits.exit90.i:                                ; preds = %732, %724, %714
   store i32 %733, ptr %28, align 4, !tbaa !35
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
   %exitcond7.not.i = icmp eq i64 %indvars.iv.next5.i, 64
-  br i1 %exitcond7.not.i, label %.loopexit.i96.loopexit, label %704, !llvm.loop !55
+  br i1 %exitcond7.not.i, label %.loopexit.i96.loopexit, label %704, !llvm.loop !56
 
 .loopexit.i96.loopexit:                           ; preds = %put_bits.exit90.i
   %734 = zext i1 %516 to i32
@@ -1668,7 +1668,7 @@ put_bits.exit100.i:                               ; preds = %803, %795, %783
   store i32 %.026.i.i98.i, ptr %1, align 8, !tbaa !33
   store i32 %804, ptr %28, align 4, !tbaa !35
   %805 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %806 = load i32, ptr %805, align 8, !tbaa !56
+  %806 = load i32, ptr %805, align 8, !tbaa !57
   %807 = add nsw i32 %806, -1
   %808 = shl nuw nsw i32 %.sroa.0275.0, 3
   %809 = sdiv i32 %807, %808
@@ -1845,7 +1845,7 @@ put_bits.exit114.i:                               ; preds = %892, %put_marker.ex
   br i1 %.not, label %902, label %922
 
 902:                                              ; preds = %put_bits.exit114.i
-  %903 = load i32, ptr %3, align 8, !tbaa !57
+  %903 = load i32, ptr %3, align 8, !tbaa !58
   %904 = icmp eq i32 %903, 1
   br i1 %904, label %905, label %922
 
@@ -2195,7 +2195,7 @@ put_bits.exit116:                                 ; preds = %1091, %1099, %1069,
   store i32 %storemerge282, ptr %1, align 8, !tbaa !33
   store i32 %1100, ptr %28, align 4, !tbaa !35
   %1101 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %1102 = load i32, ptr %1101, align 4, !tbaa !58
+  %1102 = load i32, ptr %1101, align 4, !tbaa !59
   %1103 = icmp sgt i32 %1100, 16
   br i1 %1103, label %1104, label %1107
 
@@ -2237,7 +2237,7 @@ put_bits.exit124:                                 ; preds = %1115, %1123, %1104
   store i32 %.026.i.i122, ptr %1, align 8, !tbaa !33
   store i32 %1124, ptr %28, align 4, !tbaa !35
   %1125 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1126 = load i32, ptr %1125, align 8, !tbaa !56
+  %1126 = load i32, ptr %1125, align 8, !tbaa !57
   %1127 = icmp sgt i32 %1124, 16
   br i1 %1127, label %1128, label %1131
 
@@ -3764,7 +3764,7 @@ declare void @abort() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @ff_mjpeg_escape_FF(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = sext i32 %1 to i64
   %.fr99 = freeze ptr %4
   %6 = getelementptr i8, ptr %.fr99, i64 %5
@@ -3872,7 +3872,7 @@ thread-pre-split:                                 ; preds = %2, %put_bits.exit
 flush_put_bits.exit:                              ; preds = %53, %thread-pre-split
   store i32 32, ptr %14, align 4, !tbaa !35
   store i32 0, ptr %0, align 8, !tbaa !33
-  %.val = load ptr, ptr %3, align 8, !tbaa !59
+  %.val = load ptr, ptr %3, align 8, !tbaa !60
   %.val78 = load ptr, ptr %11, align 8, !tbaa !37
   %62 = ptrtoint ptr %.val78 to i64
   %63 = ptrtoint ptr %.val to i64
@@ -3909,7 +3909,7 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   %spec.select = add nuw nsw i32 %.07082, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader81, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.preheader81, label %.lr.ph, !llvm.loop !61
 
 .preheader.loopexit:                              ; preds = %.lr.ph87
   %76 = trunc nuw nsw i64 %indvars.iv.next104 to i32
@@ -3969,7 +3969,7 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   %117 = add nsw i32 %116, %.27285
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 16
   %118 = icmp samesign ult i64 %indvars.iv.next104, %71
-  br i1 %118, label %.lr.ph87, label %.preheader.loopexit, !llvm.loop !61
+  br i1 %118, label %.lr.ph87, label %.preheader.loopexit, !llvm.loop !62
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %indvars.iv106 = phi i64 [ %78, %.lr.ph92.preheader ], [ %indvars.iv.next107, %.lr.ph92 ]
@@ -3981,7 +3981,7 @@ flush_put_bits.exit:                              ; preds = %53, %thread-pre-spl
   %spec.select77 = add nsw i32 %.37390, %122
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %123 = icmp samesign ult i64 %indvars.iv.next107, %79
-  br i1 %123, label %.lr.ph92, label %._crit_edge, !llvm.loop !62
+  br i1 %123, label %.lr.ph92, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph92, %.preheader
   %.373.lcssa = phi i32 [ %.272.lcssa, %.preheader ], [ %spec.select77, %.lr.ph92 ]
@@ -4032,7 +4032,7 @@ skip_put_bytes.exit:                              ; preds = %125
   %146 = getelementptr i8, ptr %145, i64 %144
   store i8 %136, ptr %146, align 1, !tbaa !38
   %.not76 = icmp eq i32 %.6, 0
-  br i1 %.not76, label %.loopexit, label %134, !llvm.loop !63
+  br i1 %.not76, label %.loopexit, label %134, !llvm.loop !64
 
 .loopexit:                                        ; preds = %143, %._crit_edge
   ret void
@@ -4070,7 +4070,7 @@ define void @ff_mjpeg_build_huffman_codes(ptr noundef writeonly captures(none) %
   %13 = shl i16 %.118.lcssa, 1
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next29, 17
-  br i1 %exitcond30.not, label %5, label %6, !llvm.loop !64
+  br i1 %exitcond30.not, label %5, label %6, !llvm.loop !65
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %14 ]
@@ -4083,11 +4083,11 @@ define void @ff_mjpeg_build_huffman_codes(ptr noundef writeonly captures(none) %
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   store i8 %10, ptr %18, align 1, !tbaa !38
   %19 = getelementptr inbounds nuw i16, ptr %1, i64 %17
-  store i16 %.11820, ptr %19, align 2, !tbaa !52
+  store i16 %.11820, ptr %19, align 2, !tbaa !53
   %20 = add i16 %.11820, 1
   %21 = add nuw nsw i32 %.01621, 1
   %exitcond.not = icmp eq i32 %21, %9
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !66
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4188,7 +4188,7 @@ define void @ff_mjpeg_encode_dc(ptr noundef captures(none) %0, i32 noundef %1, p
 6:                                                ; preds = %4
   %7 = load i8, ptr %2, align 1, !tbaa !38
   %8 = zext i8 %7 to i32
-  %9 = load i16, ptr %3, align 2, !tbaa !52
+  %9 = load i16, ptr %3, align 2, !tbaa !53
   %10 = zext i16 %9 to i32
   %11 = load i32, ptr %0, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4261,7 +4261,7 @@ put_bits.exit:                                    ; preds = %15, %37
   %50 = load i8, ptr %49, align 1, !tbaa !38
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds nuw i16, ptr %3, i64 %48
-  %53 = load i16, ptr %52, align 2, !tbaa !52
+  %53 = load i16, ptr %52, align 2, !tbaa !53
   %54 = zext i16 %53 to i32
   %55 = load i32, ptr %0, align 8, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4370,13 +4370,13 @@ put_sbits.exit:                                   ; preds = %86, %108
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @ff_mjpeg_encode_check_pix_fmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %3 = load i32, ptr %2, align 4, !tbaa !66
+  %3 = load i32, ptr %2, align 4, !tbaa !67
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !49
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %14, label %8
 
@@ -4558,7 +4558,7 @@ put_bits.exit27:                                  ; preds = %75, %83, %65
   store i32 %84, ptr %7, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %.preheader, label %57, !llvm.loop !67
+  br i1 %exitcond.not, label %.preheader, label %57, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %put_bits.exit31, %.preheader
   %85 = add nuw nsw i32 %63, 17
@@ -4612,7 +4612,7 @@ put_bits.exit31:                                  ; preds = %103, %111, %93
   store i32 %112, ptr %7, align 4, !tbaa !35
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
-  br i1 %exitcond39.not, label %._crit_edge, label %86, !llvm.loop !68
+  br i1 %exitcond39.not, label %._crit_edge, label %86, !llvm.loop !69
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
@@ -4690,28 +4690,29 @@ attributes #9 = { noreturn nounwind }
 !41 = !{!20, !6, i64 0}
 !42 = !{!20, !6, i64 4}
 !43 = !{!5, !9, i64 8}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = !{!16, !6, i64 64}
-!48 = !{!16, !6, i64 156}
-!49 = !{!50, !6, i64 4}
-!50 = !{!"MJpegContext", !6, i64 0, !6, i64 4, !7, i64 8, !7, i64 20, !7, i64 44, !7, i64 56, !7, i64 80, !7, i64 336, !7, i64 848, !7, i64 1104, !7, i64 1616, !7, i64 9808, !7, i64 18000, !7, i64 18017, !7, i64 18029, !7, i64 18046, !7, i64 18058, !7, i64 18075, !7, i64 18331, !7, i64 18348, !11, i64 18608, !51, i64 18616}
-!51 = !{!"p1 _ZTS16MJpegHuffmanCode", !10, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"short", !7, i64 0}
-!54 = distinct !{!54, !45}
-!55 = distinct !{!55, !45}
-!56 = !{!16, !6, i64 112}
-!57 = !{!50, !6, i64 0}
-!58 = !{!16, !6, i64 116}
-!59 = !{!34, !9, i64 8}
-!60 = distinct !{!60, !45}
-!61 = distinct !{!61, !45}
-!62 = distinct !{!62, !45}
-!63 = distinct !{!63, !45}
-!64 = distinct !{!64, !45}
-!65 = distinct !{!65, !45}
-!66 = !{!16, !6, i64 516}
-!67 = distinct !{!67, !45}
-!68 = distinct !{!68, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = !{!16, !6, i64 64}
+!49 = !{!16, !6, i64 156}
+!50 = !{!51, !6, i64 4}
+!51 = !{!"MJpegContext", !6, i64 0, !6, i64 4, !7, i64 8, !7, i64 20, !7, i64 44, !7, i64 56, !7, i64 80, !7, i64 336, !7, i64 848, !7, i64 1104, !7, i64 1616, !7, i64 9808, !7, i64 18000, !7, i64 18017, !7, i64 18029, !7, i64 18046, !7, i64 18058, !7, i64 18075, !7, i64 18331, !7, i64 18348, !11, i64 18608, !52, i64 18616}
+!52 = !{!"p1 _ZTS16MJpegHuffmanCode", !10, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"short", !7, i64 0}
+!55 = distinct !{!55, !45, !46}
+!56 = distinct !{!56, !45, !46}
+!57 = !{!16, !6, i64 112}
+!58 = !{!51, !6, i64 0}
+!59 = !{!16, !6, i64 116}
+!60 = !{!34, !9, i64 8}
+!61 = distinct !{!61, !45, !46}
+!62 = distinct !{!62, !45, !46}
+!63 = distinct !{!63, !45, !46}
+!64 = distinct !{!64, !45, !46}
+!65 = distinct !{!65, !45, !46}
+!66 = distinct !{!66, !45, !46}
+!67 = !{!16, !6, i64 516}
+!68 = distinct !{!68, !45, !46}
+!69 = distinct !{!69, !45, !46}

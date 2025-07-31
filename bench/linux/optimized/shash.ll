@@ -723,7 +723,7 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
   %60 = add nuw nsw i64 %7, 1
   %61 = icmp eq i64 %60, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %61, label %.loopexit, label %6, !llvm.loop !16
+  br i1 %61, label %.loopexit, label %6, !llvm.loop !17
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv16 = phi i64 [ %58, %.preheader.preheader ], [ %indvars.iv.next17, %.preheader ]
@@ -731,7 +731,7 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
   tail call void @crypto_unregister_alg(ptr noundef %62) #8
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
   %.not10 = icmp eq i64 %indvars.iv16, 0
-  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %59, %.preheader, %.thread9, %2
   %63 = phi i32 [ %54, %.thread9 ], [ 0, %2 ], [ %54, %.preheader ], [ 0, %59 ]
@@ -754,7 +754,7 @@ define dso_local void @crypto_unregister_shashes(ptr noundef %0, i32 noundef %1)
   tail call void @crypto_unregister_alg(ptr noundef %9) #8
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -767,9 +767,9 @@ define dso_local i32 @shash_register_instance(ptr noundef %0, ptr noundef %1) #1
   br i1 %4, label %5, label %6, !prof !8
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "458: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 458b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 458) #8, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 465, i32 2305, i64 12) #8, !srcloc !20
-  tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_end\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #8, !srcloc !21
+  tail call void asm sideeffect "458: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 458b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 458) #8, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 465, i32 2305, i64 12) #8, !srcloc !21
+  tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_end\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #8, !srcloc !22
   br label %.thread4
 
 6:                                                ; preds = %2
@@ -972,12 +972,13 @@ attributes #8 = { nounwind }
 !10 = !{i64 2155754560, i64 2155754589, i64 2155754635, i64 2155754693, i64 2155754747, i64 2155754801, i64 2155754856, i64 2155754887, i64 2155755195, i64 2155755201, i64 2155755248, i64 2155755271, i64 2155755297}
 !11 = !{i64 2155755744, i64 2155755555, i64 2155755605, i64 2155755651, i64 2155755679}
 !12 = !{i64 2148946134, i64 2148946173, i64 2148946194, i64 2148946231, i64 2148946254, i64 2148946263, i64 2148946561}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = !{i64 2155777446, i64 2155777255, i64 2155777307, i64 2155777353, i64 2155777381}
-!20 = !{i64 2155777520, i64 2155777549, i64 2155777595, i64 2155777653, i64 2155777707, i64 2155777761, i64 2155777816, i64 2155777847, i64 2155778155, i64 2155778161, i64 2155778208, i64 2155778231, i64 2155778257}
-!21 = !{i64 2155778704, i64 2155778515, i64 2155778565, i64 2155778611, i64 2155778639}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = distinct !{!19, !14, !15, !16}
+!20 = !{i64 2155777446, i64 2155777255, i64 2155777307, i64 2155777353, i64 2155777381}
+!21 = !{i64 2155777520, i64 2155777549, i64 2155777595, i64 2155777653, i64 2155777707, i64 2155777761, i64 2155777816, i64 2155777847, i64 2155778155, i64 2155778161, i64 2155778208, i64 2155778231, i64 2155778257}
+!22 = !{i64 2155778704, i64 2155778515, i64 2155778565, i64 2155778611, i64 2155778639}

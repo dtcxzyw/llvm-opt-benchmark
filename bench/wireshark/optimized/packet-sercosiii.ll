@@ -922,7 +922,7 @@ define internal i32 @dissect_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = call ptr @proto_tree_add_bitmask(ptr noundef %86, ptr noundef %84, i32 noundef 0, i32 noundef %87, i32 noundef %88, ptr noundef nonnull @dissect_siii_at_devstat.status, i32 noundef -2147483648)
   %90 = add nuw nsw i32 %.01.i.i, 1
   %exitcond.not.i31.i = icmp eq i32 %90, 128
-  br i1 %exitcond.not.i31.i, label %dissect_siii_at.exit, label %71, !llvm.loop !8
+  br i1 %exitcond.not.i31.i, label %dissect_siii_at.exit, label %71, !llvm.loop !9
 
 91:                                               ; preds = %33, %33
   %92 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 6)
@@ -1039,7 +1039,7 @@ dissect_siii_mdt_svc.exit.i.i:                    ; preds = %151, %137
   %165 = call ptr @proto_tree_add_bitmask(ptr noundef %162, ptr noundef %160, i32 noundef 0, i32 noundef %163, i32 noundef %164, ptr noundef nonnull @dissect_siii_mdt_devctrl.ctrl_fields, i32 noundef -2147483648)
   %166 = add nuw nsw i32 %.01.i.i29, 1
   %exitcond.not.i.i30 = icmp eq i32 %166, 128
-  br i1 %exitcond.not.i.i30, label %dissect_siii_at.exit, label %137, !llvm.loop !9
+  br i1 %exitcond.not.i.i30, label %dissect_siii_at.exit, label %137, !llvm.loop !10
 
 167:                                              ; preds = %122, %122
   %168 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 6)
@@ -1200,7 +1200,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

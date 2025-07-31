@@ -120,7 +120,7 @@ define internal void @x8_setup_spatial_compensation(ptr noalias noundef readonly
   %35 = tail call i32 @llvm.smax.i32(i32 %.384102, i32 %32)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, 8
-  br i1 %exitcond.not, label %36, label %29, !llvm.loop !17
+  br i1 %exitcond.not, label %36, label %29, !llvm.loop !18
 
 36:                                               ; preds = %29
   %37 = and i32 %5, 4
@@ -238,18 +238,18 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %4, i64 0, i64 %19
   %21 = getelementptr inbounds nuw [8 x i16], ptr %20, i64 0, i64 %indvars.iv
-  %22 = load i16, ptr %21, align 2, !tbaa !18
+  %22 = load i16, ptr %21, align 2, !tbaa !19
   %23 = trunc nuw nsw i32 %17 to i16
   %24 = add i16 %22, %23
-  store i16 %24, ptr %21, align 2, !tbaa !18
+  store i16 %24, ptr %21, align 2, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %25, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %25, label %12, !llvm.loop !21
 
 25:                                               ; preds = %12
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 8
-  br i1 %exitcond99.not, label %.preheader78, label %6, !llvm.loop !21
+  br i1 %exitcond99.not, label %.preheader78, label %6, !llvm.loop !22
 
 26:                                               ; preds = %.preheader78, %43
   %indvars.iv104 = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next105, %43 ]
@@ -270,18 +270,18 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %5, i64 0, i64 %37
   %39 = getelementptr inbounds nuw [8 x i16], ptr %38, i64 0, i64 %indvars.iv100
-  %40 = load i16, ptr %39, align 2, !tbaa !18
+  %40 = load i16, ptr %39, align 2, !tbaa !19
   %41 = trunc nuw nsw i32 %35 to i16
   %42 = add i16 %40, %41
-  store i16 %42, ptr %39, align 2, !tbaa !18
+  store i16 %42, ptr %39, align 2, !tbaa !19
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 8
-  br i1 %exitcond103.not, label %43, label %30, !llvm.loop !22
+  br i1 %exitcond103.not, label %43, label %30, !llvm.loop !23
 
 43:                                               ; preds = %30
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 8
-  br i1 %exitcond107.not, label %.lr.ph, label %26, !llvm.loop !23
+  br i1 %exitcond107.not, label %.lr.ph, label %26, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %43, %58
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %58 ], [ 8, %43 ]
@@ -300,18 +300,18 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %52 = and i64 %48, 1
   %53 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %5, i64 0, i64 %52
   %54 = getelementptr inbounds nuw [8 x i16], ptr %53, i64 0, i64 %indvars.iv108
-  %55 = load i16, ptr %54, align 2, !tbaa !18
+  %55 = load i16, ptr %54, align 2, !tbaa !19
   %56 = trunc nuw nsw i32 %51 to i16
   %57 = add i16 %55, %56
-  store i16 %57, ptr %54, align 2, !tbaa !18
+  store i16 %57, ptr %54, align 2, !tbaa !19
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 8
-  br i1 %exitcond111.not, label %58, label %47, !llvm.loop !24
+  br i1 %exitcond111.not, label %58, label %47, !llvm.loop !25
 
 58:                                               ; preds = %47
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 10
-  br i1 %exitcond115.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond115.not, label %.critedge, label %.lr.ph, !llvm.loop !26
 
 .preheader75:                                     ; preds = %.critedge
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -330,65 +330,65 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   %67 = lshr i32 %63, %66
   %68 = and i64 %64, 1
   %69 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %5, i64 0, i64 %68, i64 7
-  %70 = load i16, ptr %69, align 2, !tbaa !18
+  %70 = load i16, ptr %69, align 2, !tbaa !19
   %71 = trunc nuw nsw i32 %67 to i16
   %72 = add i16 %70, %71
-  store i16 %72, ptr %69, align 2, !tbaa !18
+  store i16 %72, ptr %69, align 2, !tbaa !19
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 12
-  br i1 %exitcond119.not, label %.preheader75, label %.critedge, !llvm.loop !26
+  br i1 %exitcond119.not, label %.preheader75, label %.critedge, !llvm.loop !27
 
 73:                                               ; preds = %.preheader75, %73
   %indvars.iv120 = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next121, %73 ]
   %74 = getelementptr inbounds nuw [8 x i16], ptr %59, i64 0, i64 %indvars.iv120
-  %75 = load i16, ptr %74, align 2, !tbaa !18
+  %75 = load i16, ptr %74, align 2, !tbaa !19
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %76, 181
   %78 = add nuw nsw i32 %77, 128
   %79 = lshr i32 %78, 8
   %80 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 0, i64 %indvars.iv120
-  %81 = load i16, ptr %80, align 2, !tbaa !18
+  %81 = load i16, ptr %80, align 2, !tbaa !19
   %82 = trunc nuw i32 %79 to i16
   %83 = add i16 %81, %82
-  store i16 %83, ptr %80, align 2, !tbaa !18
+  store i16 %83, ptr %80, align 2, !tbaa !19
   %84 = getelementptr inbounds nuw [8 x i16], ptr %60, i64 0, i64 %indvars.iv120
-  %85 = load i16, ptr %84, align 2, !tbaa !18
+  %85 = load i16, ptr %84, align 2, !tbaa !19
   %86 = zext i16 %85 to i32
   %87 = mul nuw nsw i32 %86, 181
   %88 = add nuw nsw i32 %87, 128
   %89 = lshr i32 %88, 8
   %90 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv120
-  %91 = load i16, ptr %90, align 2, !tbaa !18
+  %91 = load i16, ptr %90, align 2, !tbaa !19
   %92 = trunc nuw i32 %89 to i16
   %93 = add i16 %91, %92
-  store i16 %93, ptr %90, align 2, !tbaa !18
+  store i16 %93, ptr %90, align 2, !tbaa !19
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 8
-  br i1 %exitcond123.not, label %.preheader, label %73, !llvm.loop !27
+  br i1 %exitcond123.not, label %.preheader, label %73, !llvm.loop !28
 
 .preheader:                                       ; preds = %73, %118
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %118 ], [ 0, %73 ]
   %.07392 = phi ptr [ %119, %118 ], [ %1, %73 ]
   %94 = shl nuw nsw i64 %indvars.iv128, 4
   %95 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv128
-  %96 = load i16, ptr %95, align 2, !tbaa !18
+  %96 = load i16, ptr %95, align 2, !tbaa !19
   %97 = zext i16 %96 to i32
   br label %98
 
 98:                                               ; preds = %.preheader, %98
   %indvars.iv124 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next125, %98 ]
   %99 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 0, i64 %indvars.iv124
-  %100 = load i16, ptr %99, align 2, !tbaa !18
+  %100 = load i16, ptr %99, align 2, !tbaa !19
   %101 = zext i16 %100 to i32
   %102 = shl nuw nsw i64 %indvars.iv124, 1
   %103 = add nuw nsw i64 %102, %94
   %104 = getelementptr inbounds nuw [128 x i16], ptr @zero_prediction_weights, i64 0, i64 %103
-  %105 = load i16, ptr %104, align 4, !tbaa !18
+  %105 = load i16, ptr %104, align 4, !tbaa !19
   %106 = zext i16 %105 to i32
   %107 = mul nuw i32 %106, %101
   %108 = or disjoint i64 %103, 1
   %109 = getelementptr inbounds nuw [128 x i16], ptr @zero_prediction_weights, i64 0, i64 %108
-  %110 = load i16, ptr %109, align 2, !tbaa !18
+  %110 = load i16, ptr %109, align 2, !tbaa !19
   %111 = zext i16 %110 to i32
   %112 = mul nuw i32 %111, %97
   %113 = add nuw i32 %107, 32768
@@ -399,13 +399,13 @@ define internal void @spatial_compensation_0(ptr noalias noundef readonly captur
   store i8 %116, ptr %117, align 1, !tbaa !14
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 8
-  br i1 %exitcond127.not, label %118, label %98, !llvm.loop !28
+  br i1 %exitcond127.not, label %118, label %98, !llvm.loop !29
 
 118:                                              ; preds = %98
   %119 = getelementptr inbounds i8, ptr %.07392, i64 %2
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 8
-  br i1 %exitcond131.not, label %120, label %.preheader, !llvm.loop !29
+  br i1 %exitcond131.not, label %120, label %.preheader, !llvm.loop !30
 
 120:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
@@ -436,13 +436,13 @@ define internal void @spatial_compensation_1(ptr noalias noundef readonly captur
   store i8 %10, ptr %11, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %5, !llvm.loop !30
+  br i1 %exitcond.not, label %12, label %5, !llvm.loop !31
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %.01316, i64 %2
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %14, label %.preheader, !llvm.loop !31
+  br i1 %exitcond22.not, label %14, label %.preheader, !llvm.loop !32
 
 14:                                               ; preds = %12
   ret void
@@ -465,7 +465,7 @@ define internal void @spatial_compensation_2(ptr noalias noundef readonly captur
   %9 = getelementptr inbounds i8, ptr %.067, i64 %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !32
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !33
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -487,7 +487,7 @@ define internal void @spatial_compensation_3(ptr noalias noundef readonly captur
   store i64 %11, ptr %.067, align 1, !tbaa !14
   %12 = getelementptr inbounds i8, ptr %.067, i64 %2
   %exitcond.not = icmp eq i32 %7, 8
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !33
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -516,13 +516,13 @@ define internal void @spatial_compensation_4(ptr noalias noundef readonly captur
   store i8 %15, ptr %16, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %4, !llvm.loop !34
+  br i1 %exitcond.not, label %17, label %4, !llvm.loop !35
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %.01214, i64 %2
   %19 = add nuw nsw i32 %.015, 1
   %exitcond17.not = icmp eq i32 %19, 8
-  br i1 %exitcond17.not, label %20, label %.preheader, !llvm.loop !35
+  br i1 %exitcond17.not, label %20, label %.preheader, !llvm.loop !36
 
 20:                                               ; preds = %17
   ret void
@@ -554,12 +554,12 @@ define internal void @spatial_compensation_5(ptr noalias noundef readonly captur
   store i8 %.sink, ptr %11, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %6, !llvm.loop !36
+  br i1 %exitcond.not, label %12, label %6, !llvm.loop !37
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %.01820, i64 %2
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 8
-  br i1 %exitcond29.not, label %14, label %.preheader, !llvm.loop !37
+  br i1 %exitcond29.not, label %14, label %.preheader, !llvm.loop !38
 
 14:                                               ; preds = %12
   ret void
@@ -583,7 +583,7 @@ define internal void @spatial_compensation_6(ptr noalias noundef readonly captur
   %10 = getelementptr inbounds i8, ptr %.067, i64 %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !38
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -634,13 +634,13 @@ define internal void @spatial_compensation_7(ptr noalias noundef readonly captur
   store i8 %.sink, ptr %24, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %25, label %6, !llvm.loop !39
+  br i1 %exitcond.not, label %25, label %6, !llvm.loop !40
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %.02123, i64 %2
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 8
-  br i1 %exitcond33.not, label %27, label %.preheader, !llvm.loop !40
+  br i1 %exitcond33.not, label %27, label %.preheader, !llvm.loop !41
 
 27:                                               ; preds = %25
   ret void
@@ -669,7 +669,7 @@ define internal void @spatial_compensation_8(ptr noalias noundef readonly captur
   %16 = getelementptr inbounds i8, ptr %.01214, i64 %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !41
+  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !42
 
 17:                                               ; preds = %.preheader
   ret void
@@ -697,13 +697,13 @@ define internal void @spatial_compensation_9(ptr noalias noundef readonly captur
   store i8 %11, ptr %12, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !42
+  br i1 %exitcond.not, label %13, label %4, !llvm.loop !43
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %.01315, i64 %2
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 8
-  br i1 %exitcond21.not, label %15, label %.preheader, !llvm.loop !43
+  br i1 %exitcond21.not, label %15, label %.preheader, !llvm.loop !44
 
 15:                                               ; preds = %13
   ret void
@@ -741,13 +741,13 @@ define internal void @spatial_compensation_10(ptr noalias noundef readonly captu
   store i8 %19, ptr %20, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %8, !llvm.loop !44
+  br i1 %exitcond.not, label %21, label %8, !llvm.loop !45
 
 21:                                               ; preds = %8
   %22 = getelementptr inbounds i8, ptr %.01416, i64 %2
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %23, label %.preheader, !llvm.loop !45
+  br i1 %exitcond22.not, label %23, label %.preheader, !llvm.loop !46
 
 23:                                               ; preds = %21
   ret void
@@ -785,13 +785,13 @@ define internal void @spatial_compensation_11(ptr noalias noundef readonly captu
   store i8 %19, ptr %20, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %13, !llvm.loop !46
+  br i1 %exitcond.not, label %21, label %13, !llvm.loop !47
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %.01416, i64 %2
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %23, label %.preheader, !llvm.loop !47
+  br i1 %exitcond22.not, label %23, label %.preheader, !llvm.loop !48
 
 23:                                               ; preds = %21
   ret void
@@ -1018,7 +1018,7 @@ define internal fastcc void @x8_loop_filter(ptr noundef captures(none) %0, i64 n
   %182 = add nuw nsw i32 %.0225268, 1
   %183 = getelementptr inbounds i8, ptr %.0269, i64 %2
   %exitcond.not = icmp eq i32 %182, 8
-  br i1 %exitcond.not, label %184, label %16, !llvm.loop !48
+  br i1 %exitcond.not, label %184, label %16, !llvm.loop !49
 
 184:                                              ; preds = %181
   ret void
@@ -1083,37 +1083,38 @@ attributes #7 = { nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !7, i64 0}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !7, i64 0}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16}
-!26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = distinct !{!36, !16}
-!37 = distinct !{!37, !16}
-!38 = distinct !{!38, !16}
-!39 = distinct !{!39, !16}
-!40 = distinct !{!40, !16}
-!41 = distinct !{!41, !16}
-!42 = distinct !{!42, !16}
-!43 = distinct !{!43, !16}
-!44 = distinct !{!44, !16}
-!45 = distinct !{!45, !16}
-!46 = distinct !{!46, !16}
-!47 = distinct !{!47, !16}
-!48 = distinct !{!48, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !7, i64 0}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
+!26 = distinct !{!26, !16, !17}
+!27 = distinct !{!27, !16, !17}
+!28 = distinct !{!28, !16, !17}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16, !17}
+!31 = distinct !{!31, !16, !17}
+!32 = distinct !{!32, !16, !17}
+!33 = distinct !{!33, !16, !17}
+!34 = distinct !{!34, !16, !17}
+!35 = distinct !{!35, !16, !17}
+!36 = distinct !{!36, !16, !17}
+!37 = distinct !{!37, !16, !17}
+!38 = distinct !{!38, !16, !17}
+!39 = distinct !{!39, !16, !17}
+!40 = distinct !{!40, !16, !17}
+!41 = distinct !{!41, !16, !17}
+!42 = distinct !{!42, !16, !17}
+!43 = distinct !{!43, !16, !17}
+!44 = distinct !{!44, !16, !17}
+!45 = distinct !{!45, !16, !17}
+!46 = distinct !{!46, !16, !17}
+!47 = distinct !{!47, !16, !17}
+!48 = distinct !{!48, !16, !17}
+!49 = distinct !{!49, !16, !17}

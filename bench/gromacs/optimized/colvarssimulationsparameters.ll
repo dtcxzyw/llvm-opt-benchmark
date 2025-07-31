@@ -380,7 +380,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -489,7 +489,7 @@ define void @_ZN3gmx28ColvarsSimulationsParameters11setTopologyERK10gmx_mtop_t(p
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #19
   call void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.t_atoms) align 8 %3, ptr noundef nonnull align 1 %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !tbaa.struct !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !tbaa.struct !68
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #19
   ret void
 }
@@ -499,18 +499,18 @@ declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writabl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK3gmx28ColvarsSimulationsParameters8topologyEv(ptr dead_on_unwind noalias writable writeonly sret(%struct.t_atoms) align 8 captures(none) initializes((0, 72)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !tbaa.struct !67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !tbaa.struct !68
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx28ColvarsSimulationsParameters32setPeriodicBoundaryConditionTypeERK7PbcType(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21, !noalias !73
-  %4 = load i32, ptr %1, align 4, !tbaa !76, !noalias !73
-  store i32 %4, ptr %3, align 4, !tbaa !76, !noalias !73
+  %3 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21, !noalias !74
+  %4 = load i32, ptr %1, align 4, !tbaa !77, !noalias !74
+  store i32 %4, ptr %3, align 4, !tbaa !77, !noalias !74
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !78
-  store ptr %3, ptr %5, align 8, !tbaa !78
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
+  store ptr %3, ptr %5, align 8, !tbaa !79
   %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI7PbcTypeSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI7PbcTypeEclEPS0_.exit.i.i.i.i
 
@@ -528,7 +528,7 @@ define noundef i32 @_ZN3gmx28ColvarsSimulationsParameters29periodicBoundaryCondi
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !78
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %18
 
@@ -592,7 +592,7 @@ define noundef i32 @_ZN3gmx28ColvarsSimulationsParameters29periodicBoundaryCondi
   br label %20
 
 18:                                               ; preds = %1
-  %19 = load i32, ptr %6, align 4, !tbaa !76
+  %19 = load i32, ptr %6, align 4, !tbaa !77
   ret i32 %19
 
 20:                                               ; preds = %15, %17
@@ -606,21 +606,21 @@ define noundef i32 @_ZN3gmx28ColvarsSimulationsParameters29periodicBoundaryCondi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx28ColvarsSimulationsParameters21setSimulationTimeStepEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %1, ptr %3, align 8, !tbaa !79
+  store double %1, ptr %3, align 8, !tbaa !80
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK3gmx28ColvarsSimulationsParameters18simulationTimeStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load double, ptr %2, align 8, !tbaa !79
+  %3 = load double, ptr %2, align 8, !tbaa !80
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx28ColvarsSimulationsParameters7setCommERK9t_commrec(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((96, 104)) %0, ptr noundef nonnull align 8 dereferenceable(132) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %1, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %3, align 8, !tbaa !81
   ret void
 }
 
@@ -630,7 +630,7 @@ define noundef nonnull ptr @_ZNK3gmx28ColvarsSimulationsParameters4commEv(ptr no
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !80
+  %6 = load ptr, ptr %5, align 8, !tbaa !81
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %19
 
@@ -707,28 +707,28 @@ define noundef nonnull ptr @_ZNK3gmx28ColvarsSimulationsParameters4commEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx28ColvarsSimulationsParameters11setMultisimEPK14gmx_multisim_t(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %1, ptr %3, align 8, !tbaa !81
+  store ptr %1, ptr %3, align 8, !tbaa !82
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK3gmx28ColvarsSimulationsParameters2msEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8, !tbaa !82
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx28ColvarsSimulationsParameters9setLoggerERKNS_8MDLoggerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((112, 120)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %1, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %3, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK3gmx28ColvarsSimulationsParameters6loggerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -839,22 +839,23 @@ attributes #22 = { builtin nounwind }
 !61 = !{!59, !60, i64 8}
 !62 = !{!63, !7, i64 0}
 !63 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !7, i64 0}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!59, !60, i64 16}
-!67 = !{i64 0, i64 4, !33, i64 8, i64 8, !68, i64 16, i64 8, !69, i64 24, i64 8, !69, i64 32, i64 8, !69, i64 40, i64 4, !33, i64 48, i64 8, !70, i64 56, i64 8, !71, i64 64, i64 1, !72, i64 65, i64 1, !72, i64 66, i64 1, !72, i64 67, i64 1, !72, i64 68, i64 1, !72}
-!68 = !{!19, !19, i64 0}
-!69 = !{!20, !20, i64 0}
-!70 = !{!23, !23, i64 0}
-!71 = !{!24, !24, i64 0}
-!72 = !{!25, !25, i64 0}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt11make_uniqueI7PbcTypeJRKS0_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!75 = distinct !{!75, !"_ZSt11make_uniqueI7PbcTypeJRKS0_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"_ZTS7PbcType", !8, i64 0}
-!78 = !{!7, !7, i64 0}
-!79 = !{!5, !16, i64 16}
-!80 = !{!5, !26, i64 96}
-!81 = !{!5, !27, i64 104}
-!82 = !{!5, !28, i64 112}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = !{!59, !60, i64 16}
+!68 = !{i64 0, i64 4, !33, i64 8, i64 8, !69, i64 16, i64 8, !70, i64 24, i64 8, !70, i64 32, i64 8, !70, i64 40, i64 4, !33, i64 48, i64 8, !71, i64 56, i64 8, !72, i64 64, i64 1, !73, i64 65, i64 1, !73, i64 66, i64 1, !73, i64 67, i64 1, !73, i64 68, i64 1, !73}
+!69 = !{!19, !19, i64 0}
+!70 = !{!20, !20, i64 0}
+!71 = !{!23, !23, i64 0}
+!72 = !{!24, !24, i64 0}
+!73 = !{!25, !25, i64 0}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZSt11make_uniqueI7PbcTypeJRKS0_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!76 = distinct !{!76, !"_ZSt11make_uniqueI7PbcTypeJRKS0_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"_ZTS7PbcType", !8, i64 0}
+!79 = !{!7, !7, i64 0}
+!80 = !{!5, !16, i64 16}
+!81 = !{!5, !26, i64 96}
+!82 = !{!5, !27, i64 104}
+!83 = !{!5, !28, i64 112}

@@ -566,7 +566,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %162, %.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %176 = load ptr, ptr %22, align 8, !noundef !4
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit._crit_edge", label %48
+  br i1 %177, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit._crit_edge", label %48, !llvm.loop !53
 
 178:                                              ; preds = %56, %.body69, %180
   %179 = landingpad { ptr, i32 }
@@ -710,3 +710,5 @@ attributes #11 = { cold noreturn nounwind }
 !50 = distinct !{!50, !51, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h498f93bc5e0e8cb2E: argument 0"}
 !51 = distinct !{!51, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h498f93bc5e0e8cb2E"}
 !52 = !{!50, !47}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.estimated_trip_count"}

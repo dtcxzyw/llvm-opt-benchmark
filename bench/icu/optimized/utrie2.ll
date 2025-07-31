@@ -804,7 +804,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   %.1106122 = phi ptr [ %43, %.preheader119 ], [ %47, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %.1106122, i64 2
   store i16 %41, ptr %.1106122, align 2, !tbaa !14
-  br i1 %46, label %45, label %.preheader118, !llvm.loop !45
+  br i1 %46, label %45, label %.preheader118, !llvm.loop !46
 
 .preheader118:                                    ; preds = %45, %.preheader118
   %.2125 = phi i32 [ %49, %.preheader118 ], [ 2, %45 ]
@@ -813,7 +813,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i16 %24, ptr %.2107124, align 2, !tbaa !14
   %49 = add nuw nsw i32 %.2125, 1
   %exitcond149.not = icmp eq i32 %49, 32
-  br i1 %exitcond149.not, label %50, label %.preheader118, !llvm.loop !46
+  br i1 %exitcond149.not, label %50, label %.preheader118, !llvm.loop !47
 
 50:                                               ; preds = %.preheader118
   %trunc = trunc nuw i32 %0 to i1
@@ -838,7 +838,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i16 %54, ptr %.3108126, align 2, !tbaa !14
   %58 = add nuw nsw i32 %.3127, 1
   %exitcond150.not = icmp eq i32 %58, 128
-  br i1 %exitcond150.not, label %.lr.ph, label %56, !llvm.loop !47
+  br i1 %exitcond150.not, label %.lr.ph, label %56, !llvm.loop !48
 
 59:                                               ; preds = %.lr.ph, %59
   %.4129 = phi i32 [ 128, %.lr.ph ], [ %61, %59 ]
@@ -847,7 +847,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i16 %55, ptr %.4109128, align 2, !tbaa !14
   %61 = add nuw nsw i32 %.4129, 1
   %exitcond151.not = icmp eq i32 %61, 192
-  br i1 %exitcond151.not, label %.preheader115, label %59, !llvm.loop !48
+  br i1 %exitcond151.not, label %.preheader115, label %59, !llvm.loop !49
 
 .preheader115:                                    ; preds = %59, %.preheader115
   %.5131 = phi i32 [ %63, %.preheader115 ], [ 0, %59 ]
@@ -856,7 +856,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i16 %54, ptr %.5110130, align 2, !tbaa !14
   %63 = add nuw nsw i32 %.5131, 1
   %exitcond152.not = icmp eq i32 %63, 4
-  br i1 %exitcond152.not, label %.loopexit, label %.preheader115, !llvm.loop !49
+  br i1 %exitcond152.not, label %.loopexit, label %.preheader115, !llvm.loop !50
 
 64:                                               ; preds = %50
   store ptr null, ptr %51, align 8, !tbaa !3
@@ -870,7 +870,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i32 %1, ptr %.0102132, align 4, !tbaa !19
   %67 = add nuw nsw i32 %.6133, 1
   %exitcond153.not = icmp eq i32 %67, 128
-  br i1 %exitcond153.not, label %.lr.ph136, label %65, !llvm.loop !50
+  br i1 %exitcond153.not, label %.lr.ph136, label %65, !llvm.loop !51
 
 .lr.ph136:                                        ; preds = %65, %.lr.ph136
   %.7135 = phi i32 [ %69, %.lr.ph136 ], [ 128, %65 ]
@@ -879,7 +879,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i32 %2, ptr %.1103134, align 4, !tbaa !19
   %69 = add nuw nsw i32 %.7135, 1
   %exitcond154.not = icmp eq i32 %69, 192
-  br i1 %exitcond154.not, label %.preheader, label %.lr.ph136, !llvm.loop !51
+  br i1 %exitcond154.not, label %.preheader, label %.lr.ph136, !llvm.loop !52
 
 .preheader:                                       ; preds = %.lr.ph136, %.preheader
   %.8139 = phi i32 [ %71, %.preheader ], [ 0, %.lr.ph136 ]
@@ -888,7 +888,7 @@ define noundef ptr @utrie2_openDummy_77(i32 noundef %0, i32 noundef %1, i32 noun
   store i32 %1, ptr %.2104138, align 4, !tbaa !19
   %71 = add nuw nsw i32 %.8139, 1
   %exitcond155.not = icmp eq i32 %71, 4
-  br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit.sink.split:                             ; preds = %8, %7, %17
   %.sink = phi i32 [ 7, %17 ], [ 1, %7 ], [ 7, %8 ]
@@ -1044,9 +1044,9 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 144128
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 144160
-  %25 = load i32, ptr %24, align 8, !tbaa !53
+  %25 = load i32, ptr %24, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 144164
-  %27 = load i32, ptr %26, align 4, !tbaa !54
+  %27 = load i32, ptr %26, align 4, !tbaa !55
   br label %28
 
 28:                                               ; preds = %22, %13
@@ -1054,7 +1054,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %.0183.in = phi ptr [ %15, %13 ], [ %23, %22 ]
   %.0161 = phi i32 [ %18, %13 ], [ %25, %22 ]
   %.0156 = phi i32 [ %21, %13 ], [ %27, %22 ]
-  %.0183 = load ptr, ptr %.0183.in, align 8, !tbaa !55
+  %.0183 = load ptr, ptr %.0183.in, align 8, !tbaa !56
   %.0183.fr = freeze ptr %.0183
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %30 = load i32, ptr %29, align 4, !tbaa !16
@@ -1125,7 +1125,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %62 = sub nsw i32 %.0174292, %.0167293
   %63 = icmp sgt i32 %62, 2047
   %or.cond = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond, label %.thread229, label %64, !llvm.loop !56
+  br i1 %or.cond, label %.thread229, label %64, !llvm.loop !57
 
 64:                                               ; preds = %45, %60, %43
   %.0164 = phi i32 [ %44, %43 ], [ %.1165, %60 ], [ %., %45 ]
@@ -1236,7 +1236,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %.5.us = phi i32 [ %.4282.us, %106 ], [ %.0156, %104 ], [ %.0160.us, %116 ]
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
-  br i1 %exitcond323.not, label %.thread229, label %.lr.ph.split.us, !llvm.loop !57
+  br i1 %exitcond323.not, label %.thread229, label %.lr.ph.split.us, !llvm.loop !58
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %116
   %indvars.iv315 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next316, %116 ]
@@ -1266,7 +1266,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %117 = add nsw i32 %.6180273.us.us, 1
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next316, 32
-  br i1 %exitcond318.not, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond318.not, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit.split
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.loopexit.split ], [ %79, %.lr.ph ]
@@ -1358,7 +1358,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %153 = add nsw i32 %.6180273, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit.split, label %.preheader, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit.split, label %.preheader, !llvm.loop !61
 
 .loopexit.split:                                  ; preds = %152, %143, %132
   %.5189 = phi i32 [ %.4188279, %132 ], [ %33, %143 ], [ %.9193, %152 ]
@@ -1367,7 +1367,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %.5 = phi i32 [ %.4282, %132 ], [ %.0156, %143 ], [ %.0160, %152 ]
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count322
-  br i1 %exitcond314.not, label %.thread229, label %.lr.ph.split, !llvm.loop !61
+  br i1 %exitcond314.not, label %.thread229, label %.lr.ph.split, !llvm.loop !62
 
 .thread229:                                       ; preds = %.loopexit.split, %.loopexit.split.us.us, %72, %67, %69, %66, %60
   %.1185 = phi i32 [ %.0184291, %60 ], [ %33, %66 ], [ %33, %69 ], [ %33, %67 ], [ %.0184291, %72 ], [ %.5189.us, %.loopexit.split.us.us ], [ %.5189, %.loopexit.split ]
@@ -1470,18 +1470,18 @@ define void @utrie2_enumForLeadSurrogate_77(ptr noundef readonly captures(none) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7728BackwardUTrie2StringIterator10previous16Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((16, 28)) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %4, align 8, !tbaa !66
+  store ptr %3, ptr %4, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !68
   %.not = icmp ult ptr %6, %3
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -1, ptr %8, align 8, !tbaa !69
-  %9 = load ptr, ptr %0, align 8, !tbaa !70
+  store i32 -1, ptr %8, align 8, !tbaa !70
+  %9 = load ptr, ptr %0, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = trunc i32 %11 to i16
@@ -1489,11 +1489,11 @@ define noundef zeroext i16 @_ZN6icu_7728BackwardUTrie2StringIterator10previous16
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %3, i64 -2
-  store ptr %14, ptr %2, align 8, !tbaa !62
-  %15 = load i16, ptr %14, align 2, !tbaa !71
+  store ptr %14, ptr %2, align 8, !tbaa !63
+  %15 = load i16, ptr %14, align 2, !tbaa !72
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %16, ptr %17, align 8, !tbaa !69
+  store i32 %16, ptr %17, align 8, !tbaa !70
   %18 = and i32 %16, 64512
   %19 = icmp ne i32 %18, 56320
   %20 = icmp eq ptr %14, %6
@@ -1502,14 +1502,14 @@ define noundef zeroext i16 @_ZN6icu_7728BackwardUTrie2StringIterator10previous16
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %3, i64 -4
-  %23 = load i16, ptr %22, align 2, !tbaa !71
+  %23 = load i16, ptr %22, align 2, !tbaa !72
   %24 = zext i16 %23 to i32
   %25 = and i32 %24, 64512
   %26 = icmp eq i32 %25, 55296
   br i1 %26, label %43, label %27
 
 27:                                               ; preds = %21, %13
-  %28 = load ptr, ptr %0, align 8, !tbaa !70
+  %28 = load ptr, ptr %0, align 8, !tbaa !71
   %29 = load ptr, ptr %28, align 8, !tbaa !13
   %30 = icmp eq i32 %18, 55296
   %31 = select i1 %30, i32 320, i32 0
@@ -1527,12 +1527,12 @@ define noundef zeroext i16 @_ZN6icu_7728BackwardUTrie2StringIterator10previous16
   br label %75
 
 43:                                               ; preds = %21
-  store ptr %22, ptr %2, align 8, !tbaa !62
+  store ptr %22, ptr %2, align 8, !tbaa !63
   %44 = shl nuw nsw i32 %24, 10
   %45 = add nuw nsw i32 %16, -56613888
   %46 = add nsw i32 %45, %44
-  store i32 %46, ptr %17, align 8, !tbaa !69
-  %47 = load ptr, ptr %0, align 8, !tbaa !70
+  store i32 %46, ptr %17, align 8, !tbaa !70
+  %47 = load ptr, ptr %0, align 8, !tbaa !71
   %48 = load ptr, ptr %47, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %50 = load i32, ptr %49, align 4, !tbaa !16
@@ -1582,18 +1582,18 @@ define noundef zeroext i16 @_ZN6icu_7728BackwardUTrie2StringIterator10previous16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7727ForwardUTrie2StringIterator6next16Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 16), (24, 28)) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !62
+  store ptr %3, ptr %4, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !73
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %7 = icmp eq ptr %3, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -1, ptr %9, align 8, !tbaa !69
-  %10 = load ptr, ptr %0, align 8, !tbaa !70
+  store i32 -1, ptr %9, align 8, !tbaa !70
+  %10 = load ptr, ptr %0, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !20
   %13 = trunc i32 %12 to i16
@@ -1601,17 +1601,17 @@ define noundef zeroext i16 @_ZN6icu_7727ForwardUTrie2StringIterator6next16Ev(ptr
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %15, ptr %2, align 8, !tbaa !66
-  %16 = load i16, ptr %3, align 2, !tbaa !71
+  store ptr %15, ptr %2, align 8, !tbaa !67
+  %16 = load i16, ptr %3, align 2, !tbaa !72
   %17 = zext i16 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %17, ptr %18, align 8, !tbaa !69
+  store i32 %17, ptr %18, align 8, !tbaa !70
   %19 = and i32 %17, 64512
   %20 = icmp eq i32 %19, 55296
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %0, align 8, !tbaa !70
+  %22 = load ptr, ptr %0, align 8, !tbaa !71
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = lshr i32 %17, 5
   %25 = zext nneg i32 %24 to i64
@@ -1630,14 +1630,14 @@ define noundef zeroext i16 @_ZN6icu_7727ForwardUTrie2StringIterator6next16Ev(ptr
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %34
-  %37 = load i16, ptr %15, align 2, !tbaa !71
+  %37 = load i16, ptr %15, align 2, !tbaa !72
   %38 = zext i16 %37 to i32
   %39 = and i32 %38, 64512
   %40 = icmp eq i32 %39, 56320
   br i1 %40, label %55, label %41
 
 41:                                               ; preds = %36, %34
-  %42 = load ptr, ptr %0, align 8, !tbaa !70
+  %42 = load ptr, ptr %0, align 8, !tbaa !71
   %43 = load ptr, ptr %42, align 8, !tbaa !13
   %44 = lshr i32 %17, 5
   %45 = zext nneg i32 %44 to i64
@@ -1654,12 +1654,12 @@ define noundef zeroext i16 @_ZN6icu_7727ForwardUTrie2StringIterator6next16Ev(ptr
 
 55:                                               ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store ptr %56, ptr %2, align 8, !tbaa !66
+  store ptr %56, ptr %2, align 8, !tbaa !67
   %57 = shl nuw nsw i32 %17, 10
   %58 = add nsw i32 %57, -56613888
   %59 = add nuw nsw i32 %58, %38
-  store i32 %59, ptr %18, align 8, !tbaa !69
-  %60 = load ptr, ptr %0, align 8, !tbaa !70
+  store i32 %59, ptr %18, align 8, !tbaa !70
+  %60 = load ptr, ptr %0, align 8, !tbaa !71
   %61 = load ptr, ptr %60, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %63 = load i32, ptr %62, align 4, !tbaa !16
@@ -1774,35 +1774,36 @@ attributes #13 = { allocsize(0) }
 !40 = !{!4, !10, i64 28}
 !41 = !{!4, !11, i64 32}
 !42 = !{!4, !11, i64 34}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = distinct !{!46, !44}
-!47 = distinct !{!47, !44}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44}
-!51 = distinct !{!51, !44}
-!52 = distinct !{!52, !44}
-!53 = !{!23, !10, i64 144160}
-!54 = !{!23, !10, i64 144164}
-!55 = !{!9, !9, i64 0}
-!56 = distinct !{!56, !44}
-!57 = distinct !{!57, !44, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !44, !58}
-!60 = distinct !{!60, !44}
-!61 = distinct !{!61, !44}
-!62 = !{!63, !65, i64 8}
-!63 = !{!"_ZTSN6icu_7720UTrie2StringIteratorE", !64, i64 0, !65, i64 8, !65, i64 16, !10, i64 24}
-!64 = !{!"p1 _ZTS6UTrie2", !6, i64 0}
-!65 = !{!"p1 char16_t", !6, i64 0}
-!66 = !{!63, !65, i64 16}
-!67 = !{!68, !65, i64 32}
-!68 = !{!"_ZTSN6icu_7728BackwardUTrie2StringIteratorE", !63, i64 0, !65, i64 32}
-!69 = !{!63, !10, i64 24}
-!70 = !{!63, !64, i64 0}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"char16_t", !7, i64 0}
-!73 = !{!74, !65, i64 32}
-!74 = !{!"_ZTSN6icu_7727ForwardUTrie2StringIteratorE", !63, i64 0, !65, i64 32}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !44, !45}
+!47 = distinct !{!47, !44, !45}
+!48 = distinct !{!48, !44, !45}
+!49 = distinct !{!49, !44, !45}
+!50 = distinct !{!50, !44, !45}
+!51 = distinct !{!51, !44, !45}
+!52 = distinct !{!52, !44, !45}
+!53 = distinct !{!53, !44, !45}
+!54 = !{!23, !10, i64 144160}
+!55 = !{!23, !10, i64 144164}
+!56 = !{!9, !9, i64 0}
+!57 = distinct !{!57, !44}
+!58 = distinct !{!58, !44, !45, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !44, !45, !59}
+!61 = distinct !{!61, !44, !45}
+!62 = distinct !{!62, !44, !45}
+!63 = !{!64, !66, i64 8}
+!64 = !{!"_ZTSN6icu_7720UTrie2StringIteratorE", !65, i64 0, !66, i64 8, !66, i64 16, !10, i64 24}
+!65 = !{!"p1 _ZTS6UTrie2", !6, i64 0}
+!66 = !{!"p1 char16_t", !6, i64 0}
+!67 = !{!64, !66, i64 16}
+!68 = !{!69, !66, i64 32}
+!69 = !{!"_ZTSN6icu_7728BackwardUTrie2StringIteratorE", !64, i64 0, !66, i64 32}
+!70 = !{!64, !10, i64 24}
+!71 = !{!64, !65, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"char16_t", !7, i64 0}
+!74 = !{!75, !66, i64 32}
+!75 = !{!"_ZTSN6icu_7727ForwardUTrie2StringIteratorE", !64, i64 0, !66, i64 32}

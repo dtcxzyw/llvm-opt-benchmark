@@ -59,7 +59,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   %.124 = phi i32 [ %17, %16 ], [ %.02329, %20 ]
   %.1 = phi i32 [ %.02230, %16 ], [ %21, %20 ]
   %.not = icmp slt i32 %.1, %.124
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %26, %1, %22, %7
   %.0 = phi i32 [ %8, %7 ], [ %25, %22 ], [ %0, %1 ], [ -1, %26 ]
@@ -79,3 +79,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!4, !5, i64 2}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}

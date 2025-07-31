@@ -233,7 +233,7 @@ define internal fastcc void @widget_tree_free(ptr noundef captures(none) %0) unn
   %19 = getelementptr i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %21, label %.loopexit.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre = load ptr, ptr %11, align 8
@@ -281,7 +281,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hda_widget_sysfs_reinit(ptr noun
 12:                                               ; preds = %9
   %13 = add i32 %2, 1
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.thread, label %16, !prof !9
+  br i1 %14, label %.thread, label %16, !prof !10
 
 .thread:                                          ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -351,7 +351,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hda_widget_sysfs_reinit(ptr noun
   %52 = add nuw i32 %36, 1
   %53 = add i16 %37, 1
   %54 = icmp ult i32 %52, %51
-  br i1 %54, label %34, label %.loopexit8, !llvm.loop !10
+  br i1 %54, label %34, label %.loopexit8, !llvm.loop !11
 
 55:                                               ; preds = %add_widget_node.exit, %31
   %56 = phi i64 [ 0, %31 ], [ %90, %add_widget_node.exit ]
@@ -420,7 +420,7 @@ add_widget_node.exit:                             ; preds = %81, %80, %76, %65, 
   %90 = add nuw nsw i64 %56, 1
   %91 = add i16 %57, 1
   %92 = icmp eq i64 %90, %33
-  br i1 %92, label %.loopexit, label %55, !llvm.loop !11
+  br i1 %92, label %.loopexit, label %55, !llvm.loop !12
 
 .loopexit:                                        ; preds = %add_widget_node.exit, %.loopexit8
   %93 = load ptr, ptr %6, align 8
@@ -565,7 +565,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pcm_caps_show(ptr nounde
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %15 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %16 = load i32, ptr %6, align 4
   %17 = icmp sgt i32 %15, -1
@@ -579,7 +579,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pcm_caps_show(ptr nounde
 
 23:                                               ; preds = %14, %10, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %24 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 10, ptr noundef nonnull %5) #8
   %25 = load i32, ptr %5, align 4
   %26 = icmp sgt i32 %24, -1
@@ -614,7 +614,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pcm_formats_show(ptr nou
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %15 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %16 = load i32, ptr %6, align 4
   %17 = icmp sgt i32 %15, -1
@@ -628,7 +628,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pcm_formats_show(ptr nou
 
 23:                                               ; preds = %14, %10, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %24 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 11, ptr noundef nonnull %5) #8
   %25 = load i32, ptr %5, align 4
   %26 = icmp sgt i32 %24, -1
@@ -654,7 +654,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @amp_in_caps_show(ptr nou
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %11 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %12 = load i32, ptr %6, align 4
   %13 = icmp sgt i32 %11, -1
@@ -666,7 +666,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @amp_in_caps_show(ptr nou
 
 17:                                               ; preds = %10, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %18 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 13, ptr noundef nonnull %5) #8
   %19 = load i32, ptr %5, align 4
   %20 = icmp sgt i32 %18, -1
@@ -692,7 +692,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @amp_out_caps_show(ptr no
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %11 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %12 = load i32, ptr %6, align 4
   %13 = icmp sgt i32 %11, -1
@@ -704,7 +704,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @amp_out_caps_show(ptr no
 
 17:                                               ; preds = %10, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %18 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 18, ptr noundef nonnull %5) #8
   %19 = load i32, ptr %5, align 4
   %20 = icmp sgt i32 %18, -1
@@ -730,7 +730,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @power_caps_show(ptr noun
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %11 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %12 = load i32, ptr %6, align 4
   %13 = icmp sgt i32 %11, -1
@@ -742,7 +742,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @power_caps_show(ptr noun
 
 17:                                               ; preds = %10, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %18 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 15, ptr noundef nonnull %5) #8
   %19 = load i32, ptr %5, align 4
   %20 = icmp sgt i32 %18, -1
@@ -761,7 +761,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @power_caps_show(ptr noun
 define internal range(i64 -2147483648, 2147483648) i64 @gpio_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %6 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 17, ptr noundef nonnull %5) #8
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %6, -1
@@ -782,7 +782,7 @@ declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnam
 define internal range(i64 -2147483648, 2147483648) i64 @caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %6 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %5) #8
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %6, -1
@@ -798,7 +798,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pin_caps_show(ptr nounde
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   %7 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %6) #8
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %7, -1
@@ -810,7 +810,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pin_caps_show(ptr nounde
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %14 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 12, ptr noundef nonnull %5) #8
   %15 = load i32, ptr %5, align 4
   %16 = icmp sgt i32 %14, -1
@@ -830,9 +830,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @pin_cfg_show(ptr noundef
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !12
+  store i32 0, ptr %6, align 4, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %7 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 9, ptr noundef nonnull %5) #8
   %8 = load i32, ptr %5, align 4
   %9 = icmp sgt i32 %7, -1
@@ -866,7 +866,7 @@ declare dso_local i32 @snd_hdac_read(ptr noundef, i16 noundef zeroext, i32 nound
 define internal i64 @connections_show(ptr noundef %0, i16 noundef zeroext %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [32 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !13
   %6 = call i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %5, i32 noundef 32) #8
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %10, label %8
@@ -893,7 +893,7 @@ define internal i64 @connections_show(ptr noundef %0, i16 noundef zeroext %1, pt
   %23 = add i64 %14, %22
   %24 = add nuw nsw i64 %13, 1
   %25 = icmp eq i64 %24, %9
-  br i1 %25, label %26, label %12, !llvm.loop !13
+  br i1 %25, label %26, label %12, !llvm.loop !14
 
 26:                                               ; preds = %12
   %27 = trunc i64 %23 to i32
@@ -946,7 +946,7 @@ define internal i64 @widget_attr_show(ptr noundef readonly captures(none) %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  store i32 0, ptr %4, align 4, !annotation !12
+  store i32 0, ptr %4, align 4, !annotation !13
   %13 = load ptr, ptr %0, align 8
   %14 = call i32 @kstrtoint(ptr noundef %13, i32 noundef 16, ptr noundef nonnull %4) #8
   %15 = icmp slt i32 %14, 0
@@ -986,7 +986,7 @@ define internal i64 @widget_attr_store(ptr noundef readonly captures(none) %0, p
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !annotation !12
+  store i32 0, ptr %5, align 4, !annotation !13
   %14 = load ptr, ptr %0, align 8
   %15 = call i32 @kstrtoint(ptr noundef %14, i32 noundef 16, ptr noundef nonnull %5) #8
   %16 = icmp slt i32 %15, 0
@@ -1034,12 +1034,13 @@ attributes #10 = { nounwind allocsize(1) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!"auto-init"}
-!13 = distinct !{!13, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !6, !7, !8}

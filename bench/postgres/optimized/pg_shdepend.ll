@@ -341,7 +341,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %32 = load i32, ptr %31, align 4
   %.not27.us = icmp eq i32 %32, %6
-  br i1 %.not27.us, label %33, label %40, !llvm.loop !6
+  br i1 %.not27.us, label %33, label %40, !llvm.loop !7
 
 33:                                               ; preds = %30, %.lr.ph.split.us
   br i1 %.not28, label %38, label %34
@@ -351,7 +351,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %36 = load i8, ptr %35, align 4
   %37 = sext i8 %36 to i32
   %.not29.us = icmp eq i32 %7, %37
-  br i1 %.not29.us, label %38, label %40, !llvm.loop !6
+  br i1 %.not29.us, label %38, label %40, !llvm.loop !7
 
 38:                                               ; preds = %34, %33
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -361,7 +361,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
 40:                                               ; preds = %38, %34, %30
   %41 = call ptr @systable_getnext(ptr noundef %22) #8
   %.not.us = icmp eq ptr %41, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -377,7 +377,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 4
   %.not25.us = icmp eq i32 %49, %5
-  br i1 %.not25.us, label %50, label %57, !llvm.loop !6
+  br i1 %.not25.us, label %50, label %57, !llvm.loop !7
 
 50:                                               ; preds = %.lr.ph.split.split.us
   br i1 %.not28, label %55, label %51
@@ -387,7 +387,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %53 = load i8, ptr %52, align 4
   %54 = sext i8 %53 to i32
   %.not29.us32 = icmp eq i32 %7, %54
-  br i1 %.not29.us32, label %55, label %57, !llvm.loop !6
+  br i1 %.not29.us32, label %55, label %57, !llvm.loop !7
 
 55:                                               ; preds = %51, %50
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -397,7 +397,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
 57:                                               ; preds = %55, %51, %.lr.ph.split.split.us
   %58 = call ptr @systable_getnext(ptr noundef %22) #8
   %.not.us33 = icmp eq ptr %58, null
-  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
+  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not28, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -413,13 +413,13 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 4
   %.not25.us35 = icmp eq i32 %66, %5
-  br i1 %.not25.us35, label %67, label %72, !llvm.loop !6
+  br i1 %.not25.us35, label %67, label %72, !llvm.loop !7
 
 67:                                               ; preds = %.lr.ph.split.split.split.us
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %69 = load i32, ptr %68, align 4
   %.not27.us36 = icmp eq i32 %69, %6
-  br i1 %.not27.us36, label %70, label %72, !llvm.loop !6
+  br i1 %.not27.us36, label %70, label %72, !llvm.loop !7
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -429,7 +429,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
 72:                                               ; preds = %70, %67, %.lr.ph.split.split.split.us
   %73 = call ptr @systable_getnext(ptr noundef %22) #8
   %.not.us37 = icmp eq ptr %73, null
-  br i1 %.not.us37, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !10
+  br i1 %.not.us37, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !11
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %91
   %74 = phi ptr [ %92, %91 ], [ %23, %.lr.ph.split.split ]
@@ -442,20 +442,20 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i32, ptr %80, align 4
   %.not25 = icmp eq i32 %81, %5
-  br i1 %.not25, label %82, label %91, !llvm.loop !6
+  br i1 %.not25, label %82, label %91, !llvm.loop !7
 
 82:                                               ; preds = %.lr.ph.split.split.split
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %84 = load i32, ptr %83, align 4
   %.not27 = icmp eq i32 %84, %6
-  br i1 %.not27, label %85, label %91, !llvm.loop !6
+  br i1 %.not27, label %85, label %91, !llvm.loop !7
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %87 = load i8, ptr %86, align 4
   %88 = sext i8 %87 to i32
   %.not29 = icmp eq i32 %7, %88
-  br i1 %.not29, label %89, label %91, !llvm.loop !6
+  br i1 %.not29, label %89, label %91, !llvm.loop !7
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -465,7 +465,7 @@ define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1,
 91:                                               ; preds = %85, %82, %.lr.ph.split.split.split, %89
   %92 = call ptr @systable_getnext(ptr noundef %22) #8
   %.not = icmp eq ptr %92, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %91, %72, %57, %40, %21
   call void @systable_endscan(ptr noundef %22) #8
@@ -578,7 +578,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %.138.i = phi i32 [ %.03750.i, %22 ], [ %29, %27 ], [ %.03750.i, %32 ]
   %.1.i = phi i32 [ %.051.i, %22 ], [ %.051.i, %27 ], [ %34, %32 ]
   %38 = icmp slt i32 %.144.i, %5
-  br i1 %38, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
+  br i1 %38, label %.lr.ph.i, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %37, %.lr.ph.i
   %.043.lcssa.ph.i = phi i32 [ %.04348.i, %.lr.ph.i ], [ %.144.i, %37 ]
@@ -616,7 +616,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %49 = getelementptr inbounds i32, ptr %6, i64 %48
   store i32 %46, ptr %49, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %41
-  br i1 %exitcond.not, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !14
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv70.i = phi i64 [ %43, %.lr.ph66.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph66.i ]
@@ -629,7 +629,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %54 = getelementptr inbounds i32, ptr %8, i64 %53
   store i32 %51, ptr %54, align 4
   %exitcond58.not = icmp eq i64 %indvars.iv.next71.i, %44
-  br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !13
+  br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !15
 
 getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.0.lcssa78.i, %.preheader.i ], [ %52, %.lr.ph66.i ]
@@ -680,7 +680,7 @@ getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.prehe
 76:                                               ; preds = %75, %.lr.ph53.split.us
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count69
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph53.split.us, !llvm.loop !14
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph53.split.us, !llvm.loop !16
 
 77:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
@@ -734,7 +734,7 @@ shdepLockAndCheckObject.exit:                     ; preds = %83
 96:                                               ; preds = %81, %77, %shdepLockAndCheckObject.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond60.not, label %.preheader, label %77, !llvm.loop !15
+  br i1 %exitcond60.not, label %.preheader, label %77, !llvm.loop !17
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %103
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %103 ], [ 0, %.lr.ph53 ]
@@ -754,7 +754,7 @@ shdepLockAndCheckObject.exit:                     ; preds = %83
 103:                                              ; preds = %100, %.lr.ph53.split, %102
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph53.split, !llvm.loop !16
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph53.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %76, %103, %.preheader
   call void @table_close(ptr noundef %58, i32 noundef 3) #8
@@ -943,7 +943,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %.1101 = phi ptr [ %.0100141, %55 ], [ %79, %.critedge ], [ %.0100141, %.split ]
   %81 = call ptr @systable_getnext(ptr noundef %23) #8
   %.not = icmp eq ptr %81, null
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %80, %17
   %.0111.lcssa = phi ptr [ %18, %17 ], [ %.2113, %80 ]
@@ -1018,7 +1018,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   call fastcc void @storeObjectDescription(ptr noundef %8, i32 noundef %108, ptr noundef %106, i32 noundef %111, i32 noundef 0)
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %.preheader, label %.lr.ph151, !llvm.loop !18
+  br i1 %exitcond167.not, label %.preheader, label %.lr.ph151, !llvm.loop !20
 
 .lr.ph176:                                        ; preds = %.lr.ph157, %storeObjectDescription.exit125
   %.098154175 = phi i32 [ %.199, %storeObjectDescription.exit125 ], [ 0, %.lr.ph157 ]
@@ -1452,7 +1452,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   %.164 = phi i32 [ 0, %89 ], [ %87, %21 ]
   %91 = call ptr @systable_getnext(ptr noundef %10) #8
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %90
   %92 = icmp sgt i32 %.164, 0
@@ -1486,7 +1486,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   call void @ExecDropSingleTupleTableSlot(ptr noundef %96) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !22
 }
 
 declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #2
@@ -1519,7 +1519,7 @@ define dso_local void @dropDatabaseDependencies(i32 noundef %0) local_unnamed_ad
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %8) #8
   %9 = call ptr @systable_getnext(ptr noundef %5) #8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @systable_endscan(ptr noundef %5) #8
@@ -1688,7 +1688,7 @@ define dso_local void @shdepDropOwned(ptr noundef readonly captures(address_is_n
   %.not51 = icmp eq i32 %36, %37
   %.not52 = icmp eq i32 %36, 0
   %or.cond = or i1 %.not52, %.not51
-  br i1 %or.cond, label %38, label %82, !llvm.loop !22
+  br i1 %or.cond, label %38, label %82, !llvm.loop !24
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -1792,7 +1792,7 @@ define dso_local void @shdepDropOwned(ptr noundef readonly captures(address_is_n
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #8
   %83 = call ptr @systable_getnext(ptr noundef %28) #8
   %.not50 = icmp eq ptr %83, null
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %82, %26
   call void @systable_endscan(ptr noundef %28) #8
@@ -1892,7 +1892,7 @@ define dso_local void @shdepReassignOwned(ptr noundef readonly captures(address_
   %.not30 = icmp eq i32 %32, %33
   %.not31 = icmp eq i32 %32, 0
   %or.cond = or i1 %.not31, %.not30
-  br i1 %or.cond, label %34, label %88, !llvm.loop !23
+  br i1 %or.cond, label %34, label %88, !llvm.loop !26
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2031,7 +2031,7 @@ shdepReassignOwned_Owner.exit:                    ; preds = %67, %64, %61, %58, 
 88:                                               ; preds = %.lr.ph, %shdepReassignOwned_Owner.exit
   %89 = call ptr @systable_getnext(ptr noundef %24) #8
   %.not29 = icmp eq ptr %89, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %88, %22
   call void @systable_endscan(ptr noundef %24) #8
@@ -2103,23 +2103,27 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !8}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6, !9}
+!11 = distinct !{!11, !6, !9}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6, !9}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !6}

@@ -635,7 +635,7 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
 
 42:                                               ; preds = %41
   tail call void @ConditionVariableSleep(ptr noundef nonnull %33, i32 noundef 134217766) #7
-  br label %34
+  br label %34, !llvm.loop !9
 
 BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
   %43 = tail call zeroext i1 @ConditionVariableCancelSleep() #7
@@ -692,7 +692,7 @@ BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
 
 BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
   store i32 2, ptr %32, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store i8 0, ptr %31, align 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %33) #7
   br label %69
@@ -790,7 +790,7 @@ BitmapAdjustPrefetchTarget.exit:                  ; preds = %369, %347, %345, %3
   %115 = load i8, ptr @bsysscan, align 1, !range !5
   %116 = trunc nuw i8 %115 to i1
   %.not3.i66 = select i1 %114, i1 true, i1 %116
-  br i1 %.not3.i66, label %table_scan_bitmap_next_tuple.exit.lr.ph, label %._crit_edge, !prof !10
+  br i1 %.not3.i66, label %table_scan_bitmap_next_tuple.exit.lr.ph, label %._crit_edge, !prof !12
 
 table_scan_bitmap_next_tuple.exit.lr.ph:          ; preds = %BitmapAdjustPrefetchTarget.exit
   %.not52 = icmp eq ptr %4, null
@@ -832,7 +832,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 142:                                              ; preds = %table_scan_bitmap_next_tuple.exit
   %143 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %143, 0
-  br i1 %.not, label %145, label %144, !prof !11
+  br i1 %.not, label %145, label %144, !prof !13
 
 144:                                              ; preds = %142
   call void @ProcessInterrupts() #7
@@ -878,7 +878,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br label %165
 
 165:                                              ; preds = %159, %163
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
   store i8 0, ptr %119, align 8
   br label %166
 
@@ -945,7 +945,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   %193 = load i32, ptr %127, align 8
   %194 = load i32, ptr %120, align 4
   %195 = icmp slt i32 %193, %194
-  br i1 %195, label %.lr.ph.i, label %BitmapPrefetch.exit
+  br i1 %195, label %.lr.ph.i, label %BitmapPrefetch.exit, !llvm.loop !15
 
 196:                                              ; preds = %166
   %197 = getelementptr inbounds nuw i8, ptr %167, i64 20
@@ -982,14 +982,14 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 212:                                              ; preds = %208
   %213 = add nsw i32 %209, 1
   store i32 %213, ptr %197, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   store i8 0, ptr %203, align 8
   %214 = call ptr @tbm_iterate(ptr noundef nonnull %121) #7
   %215 = icmp eq ptr %214, null
   br i1 %215, label %216, label %217
 
 .critedge55.i:                                    ; preds = %208
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   store i8 0, ptr %203, align 8
   br label %BitmapPrefetch.exit
 
@@ -1029,7 +1029,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge57.i, %225
-  br label %204
+  br label %204, !llvm.loop !17
 
 BitmapPrefetch.exit:                              ; preds = %192, %169, %.preheader.i, %.thread.i, %196, %202, %.critedge55.i, %216
   %232 = load i8, ptr %128, align 8, !range !5, !noundef !6
@@ -1085,7 +1085,7 @@ ExecQualAndReset.exit:                            ; preds = %234
   %256 = load i8, ptr @bsysscan, align 1, !range !5
   %257 = trunc nuw i8 %256 to i1
   %.not3.i = select i1 %255, i1 true, i1 %257
-  br i1 %.not3.i, label %table_scan_bitmap_next_tuple.exit, label %._crit_edge, !prof !14, !llvm.loop !15
+  br i1 %.not3.i, label %table_scan_bitmap_next_tuple.exit, label %._crit_edge, !prof !18, !llvm.loop !19
 
 .loopexit:                                        ; preds = %table_scan_bitmap_next_tuple.exit, %BitmapTableScanSetup.exit
   %.047 = phi ptr [ %112, %BitmapTableScanSetup.exit ], [ %.1, %table_scan_bitmap_next_tuple.exit ]
@@ -1152,12 +1152,12 @@ ExecQualAndReset.exit:                            ; preds = %234
 290:                                              ; preds = %286
   %291 = add nsw i32 %288, -1
   store i32 %291, ptr %287, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !21
   store i8 0, ptr %282, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
 292:                                              ; preds = %286
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   store i8 0, ptr %282, align 8
   %293 = getelementptr i8, ptr %0, i64 272
   %.val.i59 = load ptr, ptr %293, align 8
@@ -1186,7 +1186,7 @@ BitmapAdjustPrefetchIterator.exit:                ; preds = %265, %267, %273, %2
   %304 = load i8, ptr @bsysscan, align 1, !range !5
   %305 = trunc nuw i8 %304 to i1
   %.not6.i = select i1 %303, i1 true, i1 %305
-  br i1 %.not6.i, label %table_scan_bitmap_next_block.exit, label %306, !prof !11
+  br i1 %.not6.i, label %table_scan_bitmap_next_block.exit, label %306, !prof !13
 
 306:                                              ; preds = %BitmapAdjustPrefetchIterator.exit
   %307 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -1312,7 +1312,7 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
   br label %369
 
 369:                                              ; preds = %.sink.split.i, %358
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
   store i8 0, ptr %354, align 8
   br label %BitmapAdjustPrefetchTarget.exit
 
@@ -1417,14 +1417,18 @@ attributes #8 = { cold nounwind }
 !6 = !{}
 !7 = !{i64 1872081, i64 1872097}
 !8 = !{i64 2150989402}
-!9 = !{i64 2150987060}
-!10 = !{!"branch_weights", i32 127, i32 1}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{i64 2150985623}
-!13 = !{i64 2150988310}
-!14 = !{!"branch_weights", i32 255873, i32 127}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{i64 2150987388}
-!18 = !{i64 2150987505}
-!19 = !{i64 2150987833}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2150987060}
+!12 = !{!"branch_weights", i32 127, i32 1}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{i64 2150985623}
+!15 = distinct !{!15, !10}
+!16 = !{i64 2150988310}
+!17 = distinct !{!17, !10}
+!18 = !{!"branch_weights", i32 255873, i32 127}
+!19 = distinct !{!19, !20, !10}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{i64 2150987388}
+!22 = !{i64 2150987505}
+!23 = !{i64 2150987833}

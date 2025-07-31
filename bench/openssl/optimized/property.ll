@@ -451,8 +451,8 @@ ossl_property_unlock.exit91.thread:               ; preds = %41, %53, %48
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %97, %ossl_property_unlock.exit91.thread, %ossl_property_unlock.exit, %ossl_property_unlock.exit.thread
-  %.val.i94 = load ptr, ptr %17, align 8, !tbaa !36
-  %.val3.i95 = load ptr, ptr %19, align 8, !tbaa !37
+  %.val.i94 = load ptr, ptr %17, align 8, !tbaa !37
+  %.val3.i95 = load ptr, ptr %19, align 8, !tbaa !38
   tail call void %.val3.i95(ptr noundef %.val.i94) #8
   br label %.sink.split
 
@@ -484,7 +484,7 @@ define internal fastcc ptr @lh_QUERY_new() unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @query_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = tail call i64 @OPENSSL_LH_strhash(ptr noundef %3) #8
   ret i64 %4
 }
@@ -492,20 +492,20 @@ define internal i64 @query_hash(ptr noundef readonly captures(none) %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @query_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !41
+  %10 = load ptr, ptr %0, align 8, !tbaa !42
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %1, align 8, !tbaa !41
+  %12 = load ptr, ptr %1, align 8, !tbaa !42
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %18, label %13
 
@@ -528,9 +528,9 @@ define internal void @impl_free(ptr noundef %0) #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !36
+  %.val = load ptr, ptr %3, align 8, !tbaa !37
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !37
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !38
   tail call void %.val3(ptr noundef %.val) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 207) #8
   br label %5
@@ -601,7 +601,7 @@ ossl_method_cache_flush.exit:                     ; preds = %10, %14
 
 ossl_property_unlock.exit38:                      ; preds = %.lr.ph
   %33 = getelementptr i8, ptr %30, i64 32
-  %.val3.i = load ptr, ptr %33, align 8, !tbaa !37
+  %.val3.i = load ptr, ptr %33, align 8, !tbaa !38
   tail call void %.val3.i(ptr noundef %32) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %30, ptr noundef nonnull @.str, i32 noundef 207) #8
   %34 = load ptr, ptr %25, align 8, !tbaa !18
@@ -613,7 +613,7 @@ ossl_property_unlock.exit38:                      ; preds = %.lr.ph
   %37 = load ptr, ptr %25, align 8, !tbaa !18
   %38 = tail call i32 @OPENSSL_sk_num(ptr noundef %37) #8
   %39 = icmp slt i32 %36, %38
-  br i1 %39, label %.lr.ph, label %.sink.split, !llvm.loop !42
+  br i1 %39, label %.lr.ph, label %.sink.split, !llvm.loop !43
 
 .sink.split:                                      ; preds = %.critedge, %.preheader, %ossl_method_cache_flush.exit, %ossl_property_unlock.exit38
   %.0.ph = phi i32 [ 1, %ossl_property_unlock.exit38 ], [ 0, %ossl_method_cache_flush.exit ], [ 0, %.preheader ], [ 0, %.critedge ]
@@ -642,8 +642,8 @@ ossl_property_write_lock.exit:                    ; preds = %2
 
 ossl_property_unlock.exit:                        ; preds = %ossl_property_write_lock.exit
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %7, align 8, !tbaa !43
-  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %7, align 8, !tbaa !44
+  store ptr %0, ptr %3, align 8, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   call void @ossl_sa_doall_arg(ptr noundef %9, ptr noundef nonnull @alg_cleanup_by_provider, ptr noundef nonnull %3) #8
@@ -676,7 +676,7 @@ define internal void @alg_cleanup_by_provider(i64 %0, ptr noundef readonly captu
   %11 = load ptr, ptr %4, align 8, !tbaa !18
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %10) #8
   %13 = load ptr, ptr %12, align 8, !tbaa !30
-  %14 = load ptr, ptr %8, align 8, !tbaa !43
+  %14 = load ptr, ptr %8, align 8, !tbaa !44
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %impl_free.exit, label %21
 
@@ -685,9 +685,9 @@ impl_free.exit:                                   ; preds = %9
   %17 = tail call ptr @OPENSSL_sk_delete(ptr noundef %16, i32 noundef %10) #8
   %18 = add nsw i32 %.01314, 1
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.val.i = load ptr, ptr %19, align 8, !tbaa !36
+  %.val.i = load ptr, ptr %19, align 8, !tbaa !37
   %20 = getelementptr i8, ptr %12, i64 32
-  %.val3.i = load ptr, ptr %20, align 8, !tbaa !37
+  %.val3.i = load ptr, ptr %20, align 8, !tbaa !38
   tail call void %.val3.i(ptr noundef %.val.i) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %12, ptr noundef nonnull @.str, i32 noundef 207) #8
   br label %21
@@ -695,14 +695,14 @@ impl_free.exit:                                   ; preds = %9
 21:                                               ; preds = %impl_free.exit, %9
   %.1 = phi i32 [ %18, %impl_free.exit ], [ %.01314, %9 ]
   %22 = icmp samesign ugt i32 %.in, 1
-  br i1 %22, label %9, label %._crit_edge, !llvm.loop !47
+  br i1 %22, label %9, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %21
   %23 = icmp sgt i32 %.1, 0
   br i1 %23, label %24, label %._crit_edge.thread
 
 24:                                               ; preds = %._crit_edge
-  %25 = load ptr, ptr %2, align 8, !tbaa !46
+  %25 = load ptr, ptr %2, align 8, !tbaa !47
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = tail call i64 @OPENSSL_LH_num_items(ptr noundef %27) #8
@@ -774,12 +774,12 @@ ossl_property_unlock.exit30:                      ; preds = %7
   tail call void %1(i32 noundef %.val27, ptr noundef %.val28, ptr noundef %2) #8
   %29 = add nuw nsw i32 %.02331, 1
   %exitcond.not = icmp eq i32 %29, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph33
   %30 = add nuw nsw i32 %.032, 1
   %exitcond35.not = icmp eq i32 %30, %19
-  br i1 %exitcond35.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !49
+  br i1 %exitcond35.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !50
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %ossl_property_unlock.exit30
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %12) #8
@@ -801,7 +801,7 @@ define range(i32 0, 2) i32 @ossl_method_store_fetch(ptr noundef readonly capture
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr %3, align 8, !tbaa !50
+  %7 = load ptr, ptr %3, align 8, !tbaa !51
   %8 = freeze ptr %7
   br label %9
 
@@ -862,7 +862,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   br i1 %.not96, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %34, align 8, !tbaa !51
+  %36 = load ptr, ptr %34, align 8, !tbaa !52
   %.not97 = icmp eq ptr %36, null
   br i1 %.not97, label %42, label %37
 
@@ -903,7 +903,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   %53 = load ptr, ptr %44, align 8, !tbaa !18
   %54 = tail call i32 @OPENSSL_sk_num(ptr noundef %53) #8
   %55 = icmp slt i32 %52, %54
-  br i1 %55, label %.lr.ph156.split.us, label %ossl_property_unlock.exit107, !llvm.loop !52
+  br i1 %55, label %.lr.ph156.split.us, label %ossl_property_unlock.exit107, !llvm.loop !53
 
 .lr.ph156.split:                                  ; preds = %.lr.ph156, %61
   %.066155 = phi i32 [ %62, %61 ], [ 0, %.lr.ph156 ]
@@ -922,7 +922,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   %63 = load ptr, ptr %44, align 8, !tbaa !18
   %64 = tail call i32 @OPENSSL_sk_num(ptr noundef %63) #8
   %65 = icmp slt i32 %62, %64
-  br i1 %65, label %.lr.ph156.split, label %ossl_property_unlock.exit107, !llvm.loop !54
+  br i1 %65, label %.lr.ph156.split, label %ossl_property_unlock.exit107, !llvm.loop !55
 
 .thread:                                          ; preds = %39, %37, %42
   %.172111 = phi ptr [ %.071, %42 ], [ %40, %39 ], [ %36, %37 ]
@@ -969,7 +969,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   %81 = load ptr, ptr %67, align 8, !tbaa !18
   %82 = tail call i32 @OPENSSL_sk_num(ptr noundef %81) #8
   %83 = icmp slt i32 %80, %82
-  br i1 %83, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
+  br i1 %83, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not99, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -998,7 +998,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   %96 = load ptr, ptr %67, align 8, !tbaa !18
   %97 = tail call i32 @OPENSSL_sk_num(ptr noundef %96) #8
   %98 = icmp slt i32 %95, %97
-  br i1 %98, label %.lr.ph.split.split.us, label %ossl_property_unlock.exit107, !llvm.loop !56
+  br i1 %98, label %.lr.ph.split.split.us, label %ossl_property_unlock.exit107, !llvm.loop !57
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %110
   %.1135 = phi ptr [ %.2, %110 ], [ null, %.lr.ph.split ]
@@ -1033,7 +1033,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   %112 = load ptr, ptr %67, align 8, !tbaa !18
   %113 = tail call i32 @OPENSSL_sk_num(ptr noundef %112) #8
   %114 = icmp slt i32 %111, %113
-  br i1 %114, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !57
+  br i1 %114, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %110, %79
   %.169.lcssa = phi i32 [ %.270.us, %79 ], [ %.270, %110 ]
@@ -1045,21 +1045,21 @@ ossl_property_unlock.exit:                        ; preds = %21
   %.063120 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %50, %.lr.ph156.split.us ], [ %57, %58 ], [ %73, %74 ], [ %85, %89 ]
   %.275118 = phi ptr [ %.174110, %._crit_edge ], [ null, %.lr.ph156.split.us ], [ null, %58 ], [ %.174110, %74 ], [ %.174110, %89 ]
   %115 = getelementptr inbounds nuw i8, ptr %.063120, i64 16
-  %.val = load ptr, ptr %115, align 8, !tbaa !36
+  %.val = load ptr, ptr %115, align 8, !tbaa !37
   %116 = getelementptr i8, ptr %.063120, i64 24
-  %.val103 = load ptr, ptr %116, align 8, !tbaa !58
+  %.val103 = load ptr, ptr %116, align 8, !tbaa !59
   %117 = tail call i32 %.val103(ptr noundef %.val) #8
   %.not102 = icmp eq i32 %117, 0
   br i1 %.not102, label %ossl_property_unlock.exit107, label %118
 
 118:                                              ; preds = %.thread113
   %119 = load ptr, ptr %115, align 8, !tbaa !24
-  store ptr %119, ptr %4, align 8, !tbaa !59
+  store ptr %119, ptr %4, align 8, !tbaa !60
   br i1 %.not, label %ossl_property_unlock.exit107, label %120
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr %.063120, align 8, !tbaa !30
-  store ptr %121, ptr %3, align 8, !tbaa !50
+  store ptr %121, ptr %3, align 8, !tbaa !51
   br label %ossl_property_unlock.exit107
 
 ossl_property_unlock.exit107:                     ; preds = %94, %61, %51, %.thread, %.preheader, %39, %._crit_edge, %.thread113, %120, %118
@@ -1150,8 +1150,8 @@ define range(i32 0, 2) i32 @ossl_method_store_cache_get(ptr noundef readonly cap
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %19, align 8, !tbaa !38
-  store ptr %1, ptr %6, align 8, !tbaa !41
+  store ptr %3, ptr %19, align 8, !tbaa !39
+  store ptr %1, ptr %6, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = call ptr @OPENSSL_LH_retrieve(ptr noundef %21, ptr noundef nonnull %6) #8
@@ -1160,16 +1160,16 @@ define range(i32 0, 2) i32 @ossl_method_store_cache_get(ptr noundef readonly cap
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.val = load ptr, ptr %25, align 8, !tbaa !36
+  %.val = load ptr, ptr %25, align 8, !tbaa !37
   %26 = getelementptr i8, ptr %22, i64 24
-  %.val26 = load ptr, ptr %26, align 8, !tbaa !58
+  %.val26 = load ptr, ptr %26, align 8, !tbaa !59
   %27 = call i32 %.val26(ptr noundef %.val) #8
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %ossl_property_unlock.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %25, align 8, !tbaa !60
-  store ptr %29, ptr %4, align 8, !tbaa !59
+  %29 = load ptr, ptr %25, align 8, !tbaa !61
+  store ptr %29, ptr %4, align 8, !tbaa !60
   br label %ossl_property_unlock.exit
 
 ossl_property_unlock.exit:                        ; preds = %24, %28, %18, %13
@@ -1196,7 +1196,7 @@ define range(i32 0, 2) i32 @ossl_method_store_cache_set(ptr noundef captures(add
   %or.cond3 = or i1 %or.cond, %12
   %.not = icmp eq ptr %1, null
   %or.cond63 = or i1 %.not, %or.cond3
-  br i1 %or.cond63, label %85, label %ossl_property_write_lock.exit, !prof !61
+  br i1 %or.cond63, label %85, label %ossl_property_write_lock.exit, !prof !62
 
 ossl_property_write_lock.exit:                    ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1207,42 +1207,42 @@ ossl_property_write_lock.exit:                    ; preds = %7
 
 16:                                               ; preds = %ossl_property_write_lock.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !62
+  %18 = load i32, ptr %17, align 8, !tbaa !63
   %.not57 = icmp eq i32 %18, 0
   br i1 %.not57, label %36, label %19
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !63
+  store i64 0, ptr %20, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i8 0, ptr %21, align 4, !tbaa !65
+  store i8 0, ptr %21, align 4, !tbaa !66
   %22 = tail call i32 @OPENSSL_rdtsc() #8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %22, ptr %23, align 8, !tbaa !66
+  store i32 %22, ptr %23, align 8, !tbaa !67
   %24 = icmp eq i32 %22, 0
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  store i8 1, ptr %21, align 4, !tbaa !65
+  store i8 1, ptr %21, align 4, !tbaa !66
   %26 = load atomic i32, ptr @ossl_method_cache_flush_some.global_seed monotonic, align 4
-  store i32 %26, ptr %23, align 8, !tbaa !66
+  store i32 %26, ptr %23, align 8, !tbaa !67
   br label %27
 
 27:                                               ; preds = %25, %19
-  store i32 0, ptr %17, align 8, !tbaa !62
+  store i32 0, ptr %17, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   call void @ossl_sa_doall_arg(ptr noundef %29, ptr noundef nonnull @impl_cache_flush_one_alg, ptr noundef nonnull %8) #8
-  %30 = load i64, ptr %20, align 8, !tbaa !63
+  %30 = load i64, ptr %20, align 8, !tbaa !64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %30, ptr %31, align 8, !tbaa !31
-  %32 = load i8, ptr %21, align 4, !tbaa !65
+  %32 = load i8, ptr %21, align 4, !tbaa !66
   %.not.i68 = icmp eq i8 %32, 0
   br i1 %.not.i68, label %ossl_method_cache_flush_some.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = load i32, ptr %23, align 8, !tbaa !66
+  %34 = load i32, ptr %23, align 8, !tbaa !67
   %35 = atomicrmw add ptr @ossl_method_cache_flush_some.global_seed, i32 %34 monotonic, align 4
   br label %ossl_method_cache_flush_some.exit
 
@@ -1264,8 +1264,8 @@ ossl_method_cache_flush_some.exit:                ; preds = %27, %33
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %3, ptr %44, align 8, !tbaa !38
-  store ptr %1, ptr %9, align 8, !tbaa !41
+  store ptr %3, ptr %44, align 8, !tbaa !39
+  store ptr %1, ptr %9, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = call ptr @OPENSSL_LH_delete(ptr noundef %46, ptr noundef nonnull %9) #8
@@ -1274,9 +1274,9 @@ ossl_method_cache_flush_some.exit:                ; preds = %27, %33
 
 impl_cache_free.exit:                             ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %.val.i = load ptr, ptr %48, align 8, !tbaa !36
+  %.val.i = load ptr, ptr %48, align 8, !tbaa !37
   %49 = getelementptr i8, ptr %47, i64 32
-  %.val3.i = load ptr, ptr %49, align 8, !tbaa !37
+  %.val3.i = load ptr, ptr %49, align 8, !tbaa !38
   call void %.val3.i(ptr noundef %.val.i) #8
   call void @CRYPTO_free(ptr noundef nonnull %47, ptr noundef nonnull @.str, i32 noundef 215) #8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1295,20 +1295,20 @@ impl_cache_free.exit:                             ; preds = %43
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %58, ptr %59, align 8, !tbaa !38
-  store ptr %1, ptr %56, align 8, !tbaa !41
+  store ptr %58, ptr %59, align 8, !tbaa !39
+  store ptr %1, ptr %56, align 8, !tbaa !42
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %4, ptr %60, align 8, !tbaa !60
+  store ptr %4, ptr %60, align 8, !tbaa !61
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr %5, ptr %61, align 8, !tbaa !67
+  store ptr %5, ptr %61, align 8, !tbaa !68
   %62 = getelementptr i8, ptr %56, i64 32
-  store ptr %6, ptr %62, align 8, !tbaa !68
+  store ptr %6, ptr %62, align 8, !tbaa !69
   %63 = call i32 %5(ptr noundef nonnull %4) #8
   %.not59 = icmp eq i32 %63, 0
   br i1 %.not59, label %82, label %64
 
 64:                                               ; preds = %57
-  %65 = load ptr, ptr %59, align 8, !tbaa !38
+  %65 = load ptr, ptr %59, align 8, !tbaa !39
   %66 = add i64 %54, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull align 1 %3, i64 %66, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -1319,9 +1319,9 @@ impl_cache_free.exit:                             ; preds = %43
 
 impl_cache_free.exit73:                           ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %.val.i71 = load ptr, ptr %70, align 8, !tbaa !36
+  %.val.i71 = load ptr, ptr %70, align 8, !tbaa !37
   %71 = getelementptr i8, ptr %69, i64 32
-  %.val3.i72 = load ptr, ptr %71, align 8, !tbaa !37
+  %.val3.i72 = load ptr, ptr %71, align 8, !tbaa !38
   call void %.val3.i72(ptr noundef %.val.i71) #8
   call void @CRYPTO_free(ptr noundef nonnull %69, ptr noundef nonnull @.str, i32 noundef 215) #8
   br label %ossl_property_unlock.exit
@@ -1341,12 +1341,12 @@ impl_cache_free.exit73:                           ; preds = %64
   br i1 %79, label %80, label %ossl_property_unlock.exit
 
 80:                                               ; preds = %75
-  store i32 1, ptr %17, align 8, !tbaa !62
+  store i32 1, ptr %17, align 8, !tbaa !63
   br label %ossl_property_unlock.exit
 
 81:                                               ; preds = %72
-  %.val = load ptr, ptr %60, align 8, !tbaa !36
-  %.val64 = load ptr, ptr %62, align 8, !tbaa !37
+  %.val = load ptr, ptr %60, align 8, !tbaa !37
+  %.val64 = load ptr, ptr %62, align 8, !tbaa !38
   call void %.val64(ptr noundef %.val) #8
   br label %82
 
@@ -1374,9 +1374,9 @@ define internal void @impl_cache_free(ptr noundef %0) #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !36
+  %.val = load ptr, ptr %3, align 8, !tbaa !37
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !37
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !38
   tail call void %.val3(ptr noundef %.val) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 215) #8
   br label %5
@@ -1474,9 +1474,9 @@ define internal void @impl_cache_flush_one_alg(i64 %0, ptr noundef readonly capt
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = tail call i64 @OPENSSL_LH_get_down_load(ptr noundef %5) #8
   %7 = load ptr, ptr %4, align 8, !tbaa !22
-  store ptr %7, ptr %2, align 8, !tbaa !69
+  store ptr %7, ptr %2, align 8, !tbaa !70
   tail call void @OPENSSL_LH_set_down_load(ptr noundef %7, i64 noundef 0) #8
-  %8 = load ptr, ptr %2, align 8, !tbaa !69
+  %8 = load ptr, ptr %2, align 8, !tbaa !70
   tail call void @OPENSSL_LH_doall_arg_thunk(ptr noundef %8, ptr noundef nonnull @lh_QUERY_doall_IMPL_CACHE_FLUSH_thunk, ptr noundef nonnull @impl_cache_flush_cache, ptr noundef nonnull %2) #8
   %9 = load ptr, ptr %4, align 8, !tbaa !22
   tail call void @OPENSSL_LH_set_down_load(ptr noundef %9, i64 noundef %6) #8
@@ -1486,38 +1486,38 @@ define internal void @impl_cache_flush_one_alg(i64 %0, ptr noundef readonly capt
 ; Function Attrs: nounwind uwtable
 define internal void @impl_cache_flush_cache(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !66
+  %4 = load i32, ptr %3, align 8, !tbaa !67
   %5 = shl i32 %4, 13
   %6 = xor i32 %5, %4
   %7 = lshr i32 %6, 17
   %8 = xor i32 %7, %6
   %9 = shl i32 %8, 5
   %10 = xor i32 %9, %8
-  store i32 %10, ptr %3, align 8, !tbaa !66
+  store i32 %10, ptr %3, align 8, !tbaa !67
   %11 = and i32 %8, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %1, align 8, !tbaa !69
+  %13 = load ptr, ptr %1, align 8, !tbaa !70
   %14 = tail call ptr @OPENSSL_LH_delete(ptr noundef %13, ptr noundef %0) #8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %impl_cache_free.exit, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.val.i = load ptr, ptr %16, align 8, !tbaa !36
+  %.val.i = load ptr, ptr %16, align 8, !tbaa !37
   %17 = getelementptr i8, ptr %14, i64 32
-  %.val3.i = load ptr, ptr %17, align 8, !tbaa !37
+  %.val3.i = load ptr, ptr %17, align 8, !tbaa !38
   tail call void %.val3.i(ptr noundef %.val.i) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef 215) #8
   br label %impl_cache_free.exit
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !63
+  %20 = load i64, ptr %19, align 8, !tbaa !64
   %21 = add i64 %20, 1
-  store i64 %21, ptr %19, align 8, !tbaa !63
+  store i64 %21, ptr %19, align 8, !tbaa !64
   br label %impl_cache_free.exit
 
 impl_cache_free.exit:                             ; preds = %15, %12, %18
@@ -1592,39 +1592,40 @@ attributes #9 = { nounwind willreturn memory(read) }
 !31 = !{!11, !14, i64 32}
 !32 = !{!25, !5, i64 8}
 !33 = !{!19, !9, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!27, !6, i64 0}
-!37 = !{!27, !6, i64 16}
-!38 = !{!39, !40, i64 8}
-!39 = !{!"", !26, i64 0, !40, i64 8, !27, i64 16, !7, i64 40}
-!40 = !{!"p1 omnipotent char", !6, i64 0}
-!41 = !{!39, !26, i64 0}
-!42 = distinct !{!42, !35}
-!43 = !{!44, !26, i64 8}
-!44 = !{!"alg_cleanup_by_provider_data_st", !45, i64 0, !26, i64 8}
-!45 = !{!"p1 _ZTS20ossl_method_store_st", !6, i64 0}
-!46 = !{!44, !45, i64 0}
-!47 = distinct !{!47, !35}
-!48 = distinct !{!48, !35}
-!49 = distinct !{!49, !35}
-!50 = !{!26, !26, i64 0}
-!51 = !{!5, !5, i64 0}
-!52 = distinct !{!52, !35, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !35}
-!55 = distinct !{!55, !35, !53}
-!56 = distinct !{!56, !35, !53}
-!57 = distinct !{!57, !35}
-!58 = !{!27, !6, i64 8}
-!59 = !{!6, !6, i64 0}
-!60 = !{!39, !6, i64 16}
-!61 = !{!"branch_weights", i32 2002, i32 2000}
-!62 = !{!11, !9, i64 40}
-!63 = !{!64, !14, i64 8}
-!64 = !{!"", !21, i64 0, !14, i64 8, !9, i64 16, !7, i64 20}
-!65 = !{!64, !7, i64 20}
-!66 = !{!64, !9, i64 16}
-!67 = !{!39, !6, i64 24}
-!68 = !{!39, !6, i64 32}
-!69 = !{!64, !21, i64 0}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!27, !6, i64 0}
+!38 = !{!27, !6, i64 16}
+!39 = !{!40, !41, i64 8}
+!40 = !{!"", !26, i64 0, !41, i64 8, !27, i64 16, !7, i64 40}
+!41 = !{!"p1 omnipotent char", !6, i64 0}
+!42 = !{!40, !26, i64 0}
+!43 = distinct !{!43, !35, !36}
+!44 = !{!45, !26, i64 8}
+!45 = !{!"alg_cleanup_by_provider_data_st", !46, i64 0, !26, i64 8}
+!46 = !{!"p1 _ZTS20ossl_method_store_st", !6, i64 0}
+!47 = !{!45, !46, i64 0}
+!48 = distinct !{!48, !35, !36}
+!49 = distinct !{!49, !35, !36}
+!50 = distinct !{!50, !35, !36}
+!51 = !{!26, !26, i64 0}
+!52 = !{!5, !5, i64 0}
+!53 = distinct !{!53, !35, !36, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !35, !36}
+!56 = distinct !{!56, !35, !36, !54}
+!57 = distinct !{!57, !35, !36, !54}
+!58 = distinct !{!58, !35, !36}
+!59 = !{!27, !6, i64 8}
+!60 = !{!6, !6, i64 0}
+!61 = !{!40, !6, i64 16}
+!62 = !{!"branch_weights", i32 2002, i32 2000}
+!63 = !{!11, !9, i64 40}
+!64 = !{!65, !14, i64 8}
+!65 = !{!"", !21, i64 0, !14, i64 8, !9, i64 16, !7, i64 20}
+!66 = !{!65, !7, i64 20}
+!67 = !{!65, !9, i64 16}
+!68 = !{!40, !6, i64 24}
+!69 = !{!40, !6, i64 32}
+!70 = !{!65, !21, i64 0}

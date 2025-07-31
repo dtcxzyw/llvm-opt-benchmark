@@ -38,7 +38,7 @@ define internal ptr @x509_ext_d2i_SCT_LIST(ptr noundef %0, ptr noundef %1, i64 n
 
 set_sct_list_source.exit:                         ; preds = %.lr.ph.i
   tail call void @SCT_LIST_free(ptr noundef nonnull %4) #2
-  store ptr null, ptr %0, align 8, !tbaa !5
+  store ptr null, ptr %0, align 8, !tbaa !6
   br label %set_sct_list_source.exit.thread
 
 set_sct_list_source.exit.thread:                  ; preds = %7, %.preheader.i, %3, %set_sct_list_source.exit
@@ -94,7 +94,7 @@ define internal ptr @ocsp_ext_d2i_SCT_LIST(ptr noundef %0, ptr noundef %1, i64 n
 
 set_sct_list_source.exit:                         ; preds = %.lr.ph.i
   tail call void @SCT_LIST_free(ptr noundef nonnull %4) #2
-  store ptr null, ptr %0, align 8, !tbaa !5
+  store ptr null, ptr %0, align 8, !tbaa !6
   br label %set_sct_list_source.exit.thread
 
 set_sct_list_source.exit.thread:                  ; preds = %7, %.preheader.i, %3, %set_sct_list_source.exit
@@ -125,10 +125,11 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"p1 _ZTS12stack_st_SCT", !7, i64 0}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS12stack_st_SCT", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}

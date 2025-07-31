@@ -173,7 +173,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   %.337.us = phi ptr [ %24, %20 ], [ %17, %13 ], [ %.03452.us, %11 ], [ %32, %29 ], [ %.03452.us, %26 ]
   %33 = add nuw nsw i32 %.03154.us, 1
   %34 = icmp ugt ptr %.337.us, %0
-  br i1 %34, label %.lr.ph.split.us, label %.critedge, !llvm.loop !8
+  br i1 %34, label %.lr.ph.split.us, label %.critedge, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %.056 = phi i32 [ %.251, %55 ], [ 0, %.lr.ph ]
@@ -232,7 +232,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   %.13349 = phi i64 [ %42, %52 ], [ %42, %41 ], [ %40, %.thread ], [ %.13349.ph, %.sink.split ]
   %.337 = phi ptr [ %.03452, %52 ], [ %.03452, %41 ], [ %48, %.thread ], [ %54, %.sink.split ]
   %57 = icmp ugt ptr %.337, %0
-  br i1 %57, label %.lr.ph.split, label %.critedge, !llvm.loop !10
+  br i1 %57, label %.lr.ph.split, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %.thread.us, %.lr.ph.split, %55, %4
   %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %55 ], [ %.03452, %.lr.ph.split ], [ %.337.us, %.thread.us ], [ %.03452.us, %.lr.ph.split.us ]
@@ -259,7 +259,7 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
 9:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.thread20.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread20.loopexit, label %.preheader, !llvm.loop !12
 
 .split:                                           ; preds = %2
   tail call fastcc void @png_default_warning(ptr noundef %1)
@@ -473,7 +473,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   %8 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.03148.us
   store i8 %5, ptr %8, align 1
   %exitcond53.not = icmp eq i64 %7, 191
-  br i1 %exitcond53.not, label %.critedge, label %.split.us, !llvm.loop !12
+  br i1 %exitcond53.not, label %.critedge, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %3, %.backedge
   %.049 = phi ptr [ %.0.be, %.backedge ], [ %2, %3 ]
@@ -498,7 +498,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   %.not40 = icmp eq i64 %indvars.iv, 9
   %or.cond42 = or i1 %.not40, %.not39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond42, label %.critedge2, label %.preheader, !llvm.loop !13
+  br i1 %or.cond42, label %.critedge2, label %.preheader, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.preheader
   %15 = icmp samesign ult i64 %indvars.iv, 8
@@ -525,7 +525,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   %22 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.13244
   store i8 %18, ptr %22, align 1
   %exitcond.not = icmp eq i64 %.029.add, %17
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph, !llvm.loop !15
 
 .critedge4:                                       ; preds = %20, %.lr.ph
   %.132.lcssa.ph = phi i64 [ 191, %20 ], [ %.13244, %.lr.ph ]
@@ -536,7 +536,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   %.031.be = phi i64 [ %.132.lcssa.ph, %.critedge4 ], [ %27, %.critedge2._crit_edge ]
   %.0.be = phi ptr [ %23, %.critedge4 ], [ %26, %.critedge2._crit_edge ]
   %24 = icmp ult i64 %.031.be, 191
-  br i1 %24, label %.split, label %.critedge, !llvm.loop !15
+  br i1 %24, label %.split, label %.critedge, !llvm.loop !16
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.split, %10
   %25 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
@@ -551,29 +551,29 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   %.us-phi = phi i64 [ 191, %.backedge.us ], [ %.03148.us, %.split.us ], [ %.031.be, %.backedge ], [ %.03148, %.split ]
   %29 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.us-phi
   store i8 0, ptr %29, align 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.split.i, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = load i8, ptr %4, align 16, !noalias !16
+  %31 = load i8, ptr %4, align 16, !noalias !17
   %32 = icmp eq i8 %31, 35
   br i1 %32, label %.preheader.i, label %.thread20.i
 
 .preheader.i:                                     ; preds = %30, %36
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 1, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
-  %34 = load i8, ptr %33, align 1, !noalias !16
+  %34 = load i8, ptr %33, align 1, !noalias !17
   %35 = icmp eq i8 %34, 32
   br i1 %35, label %.thread20.loopexit.i, label %36
 
 36:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .split.i:                                         ; preds = %.critedge
-  call fastcc void @png_default_warning(ptr noundef nonnull %4), !noalias !16
+  call fastcc void @png_default_warning(ptr noundef nonnull %4), !noalias !17
   br label %png_warning.exit
 
 .thread20.loopexit.i:                             ; preds = %36, %.preheader.i
@@ -584,13 +584,13 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %30
   %.022.i = phi i64 [ 0, %30 ], [ %37, %.thread20.loopexit.i ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %39 = load ptr, ptr %38, align 8, !alias.scope !16
+  %39 = load ptr, ptr %38, align 8, !alias.scope !17
   %.not17.i = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %41
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %40), !noalias !16
+  call fastcc void @png_default_warning(ptr noundef nonnull %40), !noalias !17
   br label %png_warning.exit
 
 41:                                               ; preds = %.thread20.i
@@ -627,22 +627,22 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
   br label %png_warning.exit
 
 14:                                               ; preds = %9, %10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %15 = load i8, ptr %1, align 1, !noalias !19
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %15 = load i8, ptr %1, align 1, !noalias !20
   %16 = icmp eq i8 %15, 35
   br i1 %16, label %.preheader.i, label %.thread20.i
 
 .preheader.i:                                     ; preds = %14, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 1, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %18 = load i8, ptr %17, align 1, !noalias !19
+  %18 = load i8, ptr %17, align 1, !noalias !20
   %19 = icmp eq i8 %18, 32
   br i1 %19, label %.thread20.loopexit.i, label %20
 
 20:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .thread20.loopexit.i:                             ; preds = %20, %.preheader.i
   %.022.ph.i = phi i64 [ 15, %20 ], [ %indvars.iv.i, %.preheader.i ]
@@ -652,13 +652,13 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %14
   %.022.i = phi i64 [ 0, %14 ], [ %21, %.thread20.loopexit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %23 = load ptr, ptr %22, align 8, !alias.scope !19
+  %23 = load ptr, ptr %22, align 8, !alias.scope !20
   %.not17.i = icmp eq ptr %23, null
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %25
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %24), !noalias !19
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %24), !noalias !20
   br label %png_warning.exit
 
 25:                                               ; preds = %.thread20.i
@@ -693,7 +693,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call fastcc void @png_default_warning(ptr noundef %1), !noalias !22
+  tail call fastcc void @png_default_warning(ptr noundef %1), !noalias !23
   br label %png_warning.exit
 
 6:                                                ; preds = %2
@@ -747,7 +747,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
 37:                                               ; preds = %32, %16
   %.1.i = phi i32 [ %30, %16 ], [ %34, %32 ]
   %.not11.i = icmp eq i32 %.0391.i, 0
-  br i1 %.not11.i, label %38, label %8, !llvm.loop !25
+  br i1 %.not11.i, label %38, label %8, !llvm.loop !26
 
 38:                                               ; preds = %37
   %39 = icmp eq ptr %1, null
@@ -782,7 +782,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   %52 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv5.i
   store i8 %50, ptr %52, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 195
-  br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !27
 
 .critedge.split.loop.exit12.i:                    ; preds = %48
   %53 = trunc nsw i64 %indvars.iv5.i to i32
@@ -796,22 +796,22 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   br label %56
 
 56:                                               ; preds = %.critedge.i, %42
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %57 = load i8, ptr %3, align 16, !noalias !27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  %57 = load i8, ptr %3, align 16, !noalias !28
   %58 = icmp eq i8 %57, 35
   br i1 %58, label %.preheader.i, label %.thread20.i
 
 .preheader.i:                                     ; preds = %56, %62
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %62 ], [ 1, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i7
-  %60 = load i8, ptr %59, align 1, !noalias !27
+  %60 = load i8, ptr %59, align 1, !noalias !28
   %61 = icmp eq i8 %60, 32
   br i1 %61, label %.thread20.loopexit.i, label %62
 
 62:                                               ; preds = %.preheader.i
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 15
-  br i1 %exitcond.not.i9, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i9, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .thread20.loopexit.i:                             ; preds = %62, %.preheader.i
   %.022.ph.i = phi i64 [ 15, %62 ], [ %indvars.iv.i7, %.preheader.i ]
@@ -821,13 +821,13 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %56
   %.022.i = phi i64 [ 0, %56 ], [ %63, %.thread20.loopexit.i ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %65 = load ptr, ptr %64, align 8, !alias.scope !27
+  %65 = load ptr, ptr %64, align 8, !alias.scope !28
   %.not17.i = icmp eq ptr %65, null
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %67
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %66), !noalias !27
+  call fastcc void @png_default_warning(ptr noundef nonnull %66), !noalias !28
   br label %png_warning.exit
 
 67:                                               ; preds = %.thread20.i
@@ -865,22 +865,22 @@ define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) loca
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %7 = load i8, ptr %1, align 1, !noalias !30
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %7 = load i8, ptr %1, align 1, !noalias !31
   %8 = icmp eq i8 %7, 35
   br i1 %8, label %.preheader.i, label %.thread20.i
 
 .preheader.i:                                     ; preds = %6, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 1, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %10 = load i8, ptr %9, align 1, !noalias !30
+  %10 = load i8, ptr %9, align 1, !noalias !31
   %11 = icmp eq i8 %10, 32
   br i1 %11, label %.thread20.loopexit.i, label %12
 
 12:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .thread20.loopexit.i:                             ; preds = %12, %.preheader.i
   %.022.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
@@ -890,13 +890,13 @@ define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) loca
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %6
   %.022.i = phi i64 [ 0, %6 ], [ %13, %.thread20.loopexit.i ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %15 = load ptr, ptr %14, align 8, !alias.scope !30
+  %15 = load ptr, ptr %14, align 8, !alias.scope !31
   %.not17.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !30
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !31
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -920,22 +920,22 @@ define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %7 = load i8, ptr %1, align 1, !noalias !33
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %7 = load i8, ptr %1, align 1, !noalias !34
   %8 = icmp eq i8 %7, 35
   br i1 %8, label %.preheader.i, label %.thread20.i
 
 .preheader.i:                                     ; preds = %6, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 1, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %10 = load i8, ptr %9, align 1, !noalias !33
+  %10 = load i8, ptr %9, align 1, !noalias !34
   %11 = icmp eq i8 %10, 32
   br i1 %11, label %.thread20.loopexit.i, label %12
 
 12:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .thread20.loopexit.i:                             ; preds = %12, %.preheader.i
   %.022.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
@@ -945,13 +945,13 @@ define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_
 .thread20.i:                                      ; preds = %.thread20.loopexit.i, %6
   %.022.i = phi i64 [ 0, %6 ], [ %13, %.thread20.loopexit.i ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %15 = load ptr, ptr %14, align 8, !alias.scope !33
+  %15 = load ptr, ptr %14, align 8, !alias.scope !34
   %.not17.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.022.i
   br i1 %.not17.i, label %.split14.i, label %17
 
 .split14.i:                                       ; preds = %.thread20.i
-  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !33
+  tail call fastcc void @png_default_warning(ptr noundef nonnull %16), !noalias !34
   br label %png_warning.exit
 
 17:                                               ; preds = %.thread20.i
@@ -1016,7 +1016,7 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnul
 32:                                               ; preds = %27, %11
   %.1 = phi i32 [ %25, %11 ], [ %29, %27 ]
   %.not11 = icmp eq i32 %.0391, 0
-  br i1 %.not11, label %33, label %3, !llvm.loop !25
+  br i1 %.not11, label %33, label %3, !llvm.loop !26
 
 33:                                               ; preds = %32
   %34 = icmp eq ptr %1, null
@@ -1051,7 +1051,7 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnul
   %47 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv5
   store i8 %45, ptr %47, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
-  br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !27
 
 .critedge.split.loop.exit12:                      ; preds = %43
   %48 = trunc nsw i64 %indvars.iv5 to i32
@@ -1092,7 +1092,7 @@ define hidden void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load i32, ptr %6, align 8, !alias.scope !36
+  %7 = load i32, ptr %6, align 8, !alias.scope !37
   %8 = and i32 %7, 1048576
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %png_chunk_benign_error.exit
@@ -1126,7 +1126,7 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
   store i8 %5, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.preheader
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.preheader, !llvm.loop !40
 
 .critedge.loopexit:                               ; preds = %6, %.preheader
   %.0.ph = phi i64 [ 195, %6 ], [ %indvars.iv, %.preheader ]
@@ -1195,14 +1195,14 @@ define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i6
   br i1 %.not28, label %27, label %23
 
 23:                                               ; preds = %22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %25 = load ptr, ptr %24, align 8, !alias.scope !39
+  %25 = load ptr, ptr %24, align 8, !alias.scope !41
   %.not17.i = icmp eq ptr %25, null
   br i1 %.not17.i, label %.split14.i, label %26
 
 .split14.i:                                       ; preds = %23
-  tail call fastcc void @png_default_warning(ptr noundef nonnull @.str.2), !noalias !39
+  tail call fastcc void @png_default_warning(ptr noundef nonnull @.str.2), !noalias !41
   br label %png_warning.exit
 
 26:                                               ; preds = %23
@@ -1561,39 +1561,41 @@ attributes #24 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"png_warning: argument 0"}
-!18 = distinct !{!18, !"png_warning"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"png_warning: argument 0"}
-!21 = distinct !{!21, !"png_warning"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"png_warning: argument 0"}
-!24 = distinct !{!24, !"png_warning"}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"png_warning: argument 0"}
-!29 = distinct !{!29, !"png_warning"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"png_warning: argument 0"}
-!32 = distinct !{!32, !"png_warning"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"png_warning: argument 0"}
-!35 = distinct !{!35, !"png_warning"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"png_chunk_benign_error: argument 0"}
-!38 = distinct !{!38, !"png_chunk_benign_error"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"png_warning: argument 0"}
-!41 = distinct !{!41, !"png_warning"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !10}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"png_warning: argument 0"}
+!19 = distinct !{!19, !"png_warning"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"png_warning: argument 0"}
+!22 = distinct !{!22, !"png_warning"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"png_warning: argument 0"}
+!25 = distinct !{!25, !"png_warning"}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"png_warning: argument 0"}
+!30 = distinct !{!30, !"png_warning"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"png_warning: argument 0"}
+!33 = distinct !{!33, !"png_warning"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"png_warning: argument 0"}
+!36 = distinct !{!36, !"png_warning"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"png_chunk_benign_error: argument 0"}
+!39 = distinct !{!39, !"png_chunk_benign_error"}
+!40 = distinct !{!40, !8}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"png_warning: argument 0"}
+!43 = distinct !{!43, !"png_warning"}

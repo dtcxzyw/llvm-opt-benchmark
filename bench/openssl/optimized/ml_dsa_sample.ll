@@ -118,7 +118,7 @@ rej_ntt_poly.exit.thread:                         ; preds = %shake_xof.exit.i, %
   %.1.lcssa = phi ptr [ %.024, %.preheader ], [ %44, %._crit_edge.loopexit ]
   %50 = add nuw i64 %.01423, 1
   %51 = icmp ult i64 %50, %48
-  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %4, %rej_ntt_poly.exit.thread
   %.015 = phi i32 [ 0, %rej_ntt_poly.exit.thread ], [ 1, %4 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
@@ -139,9 +139,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [66 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !20
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %7) #6
   %12 = icmp eq i32 %2, 4
   %13 = select i1 %12, ptr @coeff_from_nibble_4, ptr @coeff_from_nibble_2
@@ -159,7 +159,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %6, %19
   %.02023 = phi i64 [ %22, %19 ], [ 0, %6 ]
-  %16 = load ptr, ptr %4, align 8, !tbaa !22
+  %16 = load ptr, ptr %4, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw %struct.poly_st, ptr %16, i64 %.02023
   %18 = call fastcc i32 @rej_bounded_poly(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %17)
   %.not21 = icmp eq i32 %18, 0
@@ -171,11 +171,11 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
   store i8 %21, ptr %14, align 16, !tbaa !12
   %22 = add nuw i64 %.02023, 1
   %exitcond.not = icmp eq i64 %22, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !24
 
 .lr.ph25:                                         ; preds = %.preheader, %26
   %.124 = phi i64 [ %29, %26 ], [ 0, %.preheader ]
-  %23 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = load ptr, ptr %5, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw %struct.poly_st, ptr %23, i64 %.124
   %25 = call fastcc i32 @rej_bounded_poly(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %24)
   %.not = icmp eq i32 %25, 0
@@ -187,7 +187,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
   store i8 %28, ptr %14, align 16, !tbaa !12
   %29 = add nuw i64 %.124, 1
   %exitcond31.not = icmp eq i64 %29, %11
-  br i1 %exitcond31.not, label %.loopexit, label %.lr.ph25, !llvm.loop !24
+  br i1 %exitcond31.not, label %.loopexit, label %.lr.ph25, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %26, %.preheader
   %.0 = phi i32 [ 1, %.preheader ], [ 0, %.lr.ph25 ], [ 1, %26 ], [ 0, %.lr.ph ]
@@ -199,7 +199,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
 define internal range(i32 0, 2) i32 @coeff_from_nibble_4(i32 noundef %0, ptr noundef writeonly captures(none) %1) #3 {
   %3 = icmp ult i32 %0, 9
   %4 = zext i1 %3 to i32
-  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %4) #7, !srcloc !25
+  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %4) #7, !srcloc !26
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
@@ -209,10 +209,10 @@ define internal range(i32 0, 2) i32 @coeff_from_nibble_4(i32 noundef %0, ptr nou
   %9 = add i32 %0, -8380422
   %10 = and i32 %8, %9
   %.neg.i.i.i.i = ashr i32 %10, 31
-  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !25
+  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !26
   %12 = and i32 %11, %7
   %13 = xor i32 %.neg.i.i.i.i, -1
-  %14 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #7, !srcloc !25
+  %14 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #7, !srcloc !26
   %15 = and i32 %14, %8
   %16 = or i32 %15, %12
   store i32 %16, ptr %1, align 4, !tbaa !13
@@ -227,7 +227,7 @@ define internal range(i32 0, 2) i32 @coeff_from_nibble_4(i32 noundef %0, ptr nou
 define internal range(i32 0, 2) i32 @coeff_from_nibble_2(i32 noundef %0, ptr noundef writeonly captures(none) %1) #3 {
   %3 = icmp ult i32 %0, 15
   %4 = zext i1 %3 to i32
-  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %4) #7, !srcloc !25
+  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %4) #7, !srcloc !26
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
@@ -241,10 +241,10 @@ define internal range(i32 0, 2) i32 @coeff_from_nibble_2(i32 noundef %0, ptr nou
   %12 = add i32 %9, -8380420
   %13 = and i32 %11, %12
   %.neg.i.i.i.i = ashr i32 %13, 31
-  %14 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !25
+  %14 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !26
   %15 = and i32 %14, %10
   %16 = xor i32 %.neg.i.i.i.i, -1
-  %17 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %16) #7, !srcloc !25
+  %17 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %16) #7, !srcloc !26
   %18 = and i32 %17, %11
   %19 = or i32 %18, %15
   store i32 %19, ptr %1, align 4, !tbaa !13
@@ -283,7 +283,7 @@ shake_xof.exit:                                   ; preds = %9
   %16 = lshr i32 %14, 4
   %17 = sext i32 %.130 to i64
   %18 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %17
-  %19 = call i32 %2(i32 noundef %15, ptr noundef %18) #6, !callees !26
+  %19 = call i32 %2(i32 noundef %15, ptr noundef %18) #6, !callees !27
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %23, label %20
 
@@ -300,7 +300,7 @@ shake_xof.exit:                                   ; preds = %9
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %17, %.preheader ]
   %.2 = phi i32 [ %22, %._crit_edge ], [ %.130, %.preheader ]
   %24 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %.pre-phi
-  %25 = call i32 %2(i32 noundef %16, ptr noundef %24) #6, !callees !26
+  %25 = call i32 %2(i32 noundef %16, ptr noundef %24) #6, !callees !27
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %29, label %26
 
@@ -317,7 +317,7 @@ shake_xof.exit:                                   ; preds = %9
 
 .preheader.backedge:                              ; preds = %29, %30
   %.020.idx31.be = phi i64 [ %.020.add, %29 ], [ 0, %30 ]
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader, !llvm.loop !28
 
 30:                                               ; preds = %29
   %31 = call i32 @EVP_DigestSqueeze(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 136) #6
@@ -418,7 +418,7 @@ shake_xof.exit:                                   ; preds = %10
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = zext i8 %27 to i64
   %.not27 = icmp samesign ult i64 %.02135, %28
-  br i1 %.not27, label %19, label %29
+  br i1 %.not27, label %19, label %29, !llvm.loop !29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %28
@@ -431,17 +431,17 @@ shake_xof.exit:                                   ; preds = %10
   %35 = sub nuw nsw i32 8380418, %34
   %36 = sub nsw i32 1, %34
   %.neg.i.i.i.i = ashr i32 %36, 31
-  %37 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !25
+  %37 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #7, !srcloc !26
   %38 = and i32 %37, %35
   %39 = xor i32 %.neg.i.i.i.i, -1
-  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %39) #7, !srcloc !25
+  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %39) #7, !srcloc !26
   %41 = and i32 %40, %36
   %42 = or i32 %41, %38
   store i32 %42, ptr %30, align 4, !tbaa !13
   %43 = lshr i64 %.02933, 1
   %44 = add nuw nsw i64 %.02135, 1
   %exitcond.not = icmp eq i64 %44, 256
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !30
 
 .critedge:                                        ; preds = %29, %21, %15, %6, %10, %shake_xof.exit
   %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %10 ], [ 0, %6 ], [ 1, %15 ], [ 0, %21 ], [ 1, %29 ]
@@ -485,16 +485,18 @@ attributes #7 = { nounwind memory(none) }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !7, i64 0}
 !15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = !{!21, !9, i64 8}
-!21 = !{!"vector_st", !5, i64 0, !9, i64 8}
-!22 = !{!21, !5, i64 0}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = !{i64 385755}
-!26 = !{ptr @coeff_from_nibble_2, ptr @coeff_from_nibble_4}
-!27 = distinct !{!27, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !18, !16}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18, !16, !20}
+!20 = !{!"llvm.loop.unswitch.partial.disable"}
+!21 = !{!22, !9, i64 8}
+!22 = !{!"vector_st", !5, i64 0, !9, i64 8}
+!23 = !{!22, !5, i64 0}
+!24 = distinct !{!24, !18, !16}
+!25 = distinct !{!25, !18, !16}
+!26 = !{i64 385755}
+!27 = !{ptr @coeff_from_nibble_2, ptr @coeff_from_nibble_4}
 !28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}
+!30 = distinct !{!30, !18, !16}

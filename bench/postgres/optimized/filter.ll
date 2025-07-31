@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %29 = and i32 %28, 8192
   %.not.i = icmp eq i32 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
-  br i1 %.not.i, label %31, label %.preheader, !llvm.loop !6
+  br i1 %.not.i, label %31, label %.preheader, !llvm.loop !7
 
 31:                                               ; preds = %.preheader
   %32 = and i32 %28, 1024
@@ -252,7 +252,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.not17.i = icmp ne i16 %37, 0
   %38 = icmp eq i8 %33, 95
   %or.cond.i = or i1 %38, %.not17.i
-  br i1 %or.cond.i, label %.critedge.i, label %41, !llvm.loop !7
+  br i1 %or.cond.i, label %.critedge.i, label %41, !llvm.loop !8
 
 .thread:                                          ; preds = %31
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
@@ -310,7 +310,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %65 = and i32 %64, 8192
   %.not.i42 = icmp eq i32 %65, 0
   %66 = getelementptr inbounds nuw i8, ptr %.015.i41, i64 1
-  br i1 %.not.i42, label %67, label %59, !llvm.loop !6
+  br i1 %.not.i42, label %67, label %59, !llvm.loop !7
 
 67:                                               ; preds = %59
   %68 = and i32 %64, 1024
@@ -328,7 +328,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.not17.i47 = icmp ne i16 %73, 0
   %74 = icmp eq i8 %69, 95
   %or.cond.i48 = or i1 %74, %.not17.i47
-  br i1 %or.cond.i48, label %.critedge.i44, label %.split, !llvm.loop !7
+  br i1 %or.cond.i48, label %.critedge.i44, label %.split, !llvm.loop !8
 
 .split:                                           ; preds = %.critedge.i44
   %75 = ptrtoint ptr %.2.i46 to i64
@@ -371,7 +371,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %94 = and i16 %93, 8192
   %.not42.i = icmp eq i16 %94, 0
   %95 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
-  br i1 %.not42.i, label %96, label %89, !llvm.loop !8
+  br i1 %.not42.i, label %96, label %89, !llvm.loop !9
 
 96:                                               ; preds = %89
   %97 = icmp eq i8 %90, 0
@@ -392,7 +392,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   br label %104
 
 .loopexit.i:                                      ; preds = %167
-  br label %104, !llvm.loop !9
+  br label %104, !llvm.loop !10
 
 104:                                              ; preds = %.loopexit.i, %101
   %105 = phi i8 [ %.pre.i, %101 ], [ %168, %.loopexit.i ]
@@ -441,7 +441,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext %118) #9
   %.pr.i = load i8, ptr %119, align 1
   %.not45.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not45.i, label %read_quoted_string.exit.i, label %.preheader.i, !llvm.loop !10
+  br i1 %.not45.i, label %read_quoted_string.exit.i, label %.preheader.i, !llvm.loop !11
 
 .critedge2.i:                                     ; preds = %112, %.preheader.i
   switch i8 %106, label %160 [
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
 
 .backedge.i.i.backedge:                           ; preds = %156, %154, %148, %125
   %.0.i.i.be = phi ptr [ %126, %125 ], [ %149, %148 ], [ %155, %154 ], [ %157, %156 ]
-  br label %.backedge.i.i
+  br label %.backedge.i.i, !llvm.loop !12
 
 158:                                              ; preds = %.critedge2.i
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.31) #9
@@ -595,7 +595,7 @@ read_quoted_string.exit.i:                        ; preds = %117, %read_quoted_s
   %172 = and i16 %171, 8192
   %.not54.i = icmp eq i16 %172, 0
   %173 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
-  br i1 %.not54.i, label %.loopexit.i, label %167, !llvm.loop !11
+  br i1 %.not54.i, label %.loopexit.i, label %167, !llvm.loop !13
 
 read_pattern.exit:                                ; preds = %104, %104
   %174 = load ptr, ptr %5, align 8
@@ -744,11 +744,13 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}

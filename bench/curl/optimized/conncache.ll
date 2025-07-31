@@ -164,9 +164,9 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
 
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %.066.i, i64 56
-  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !97
+  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !98
   %39 = getelementptr i8, ptr %.066.i, i64 64
-  %.val17.i.i = load i64, ptr %39, align 8, !tbaa !106
+  %.val17.i.i = load i64, ptr %39, align 8, !tbaa !107
   %40 = call ptr @Curl_hash_pick(ptr noundef nonnull %0, ptr noundef %.val.i.i, i64 noundef %.val17.i.i) #8
   %41 = icmp eq ptr %36, %40
   br i1 %41, label %42, label %cpool_remove_conn.exit.i
@@ -184,7 +184,7 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !107
+  %50 = load i64, ptr %49, align 8, !tbaa !108
   %51 = call i32 @Curl_hash_delete(ptr noundef nonnull %0, ptr noundef nonnull %48, i64 noundef %50) #8
   br label %52
 
@@ -192,9 +192,9 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
   %53 = load i64, ptr %43, align 8
   %54 = and i64 %53, -8589934593
   store i64 %54, ptr %43, align 8
-  %55 = load i64, ptr %34, align 8, !tbaa !109
+  %55 = load i64, ptr %34, align 8, !tbaa !110
   %56 = add i64 %55, -1
-  store i64 %56, ptr %34, align 8, !tbaa !109
+  store i64 %56, ptr %34, align 8, !tbaa !110
   br label %cpool_remove_conn.exit.i
 
 cpool_remove_conn.exit.i:                         ; preds = %52, %37, %35
@@ -204,7 +204,7 @@ cpool_remove_conn.exit.i:                         ; preds = %52, %37, %35
   %60 = lshr i64 %59, 34
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 1
-  %63 = load i8, ptr %15, align 8, !tbaa !84, !range !110, !noundef !111
+  %63 = load i8, ptr %15, align 8, !tbaa !84, !range !111, !noundef !112
   %64 = zext nneg i8 %63 to i32
   %.not.i36.i = icmp eq i32 %62, %64
   br i1 %.not.i36.i, label %sigpipe_apply.exit.i, label %65
@@ -232,8 +232,8 @@ sigpipe_restore.exit.i.i:                         ; preds = %67, %65
 73:                                               ; preds = %sigpipe_restore.exit.i.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #8
   %74 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %10) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !113
+  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !114
   %75 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %8, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #8
   br label %sigpipe_apply.exit.i
@@ -269,7 +269,7 @@ cpool_get_live_conn.exit43.i:                     ; preds = %.lr.ph.i38.i
   %83 = call ptr @Curl_node_elem(ptr noundef nonnull %80) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
   %.not32.i = icmp eq ptr %83, null
-  br i1 %.not32.i, label %._crit_edge.i, label %35, !llvm.loop !115
+  br i1 %.not32.i, label %._crit_edge.i, label %35, !llvm.loop !116
 
 ._crit_edge.i:                                    ; preds = %cpool_get_live_conn.exit43.i, %cpool_get_live_conn.exit43.thread.i, %cpool_get_live_conn.exit.i, %cpool_get_live_conn.exit.thread.i
   %84 = load i8, ptr %24, align 8
@@ -298,7 +298,7 @@ cpool_get_live_conn.exit43.i:                     ; preds = %.lr.ph.i38.i
   %98 = lshr i64 %97, 34
   %99 = trunc nuw nsw i64 %98 to i32
   %100 = and i32 %99, 1
-  %101 = load i8, ptr %15, align 8, !tbaa !84, !range !110, !noundef !111
+  %101 = load i8, ptr %15, align 8, !tbaa !84, !range !111, !noundef !112
   %102 = zext nneg i8 %101 to i32
   %.not.i44.i = icmp eq i32 %100, %102
   br i1 %.not.i44.i, label %sigpipe_apply.exit50.i, label %103
@@ -326,8 +326,8 @@ sigpipe_restore.exit.i47.i:                       ; preds = %105, %103
 111:                                              ; preds = %sigpipe_restore.exit.i47.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #8
   %112 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %10) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !113
+  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !114
   %113 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #8
   br label %sigpipe_apply.exit50.i
@@ -392,9 +392,9 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
 
 132:                                              ; preds = %130
   %133 = getelementptr i8, ptr %.046.i.i, i64 56
-  %.val.i.i.i = load ptr, ptr %133, align 8, !tbaa !97
+  %.val.i.i.i = load ptr, ptr %133, align 8, !tbaa !98
   %134 = getelementptr i8, ptr %.046.i.i, i64 64
-  %.val17.i.i.i = load i64, ptr %134, align 8, !tbaa !106
+  %.val17.i.i.i = load i64, ptr %134, align 8, !tbaa !107
   %135 = call ptr @Curl_hash_pick(ptr noundef nonnull %0, ptr noundef %.val.i.i.i, i64 noundef %.val17.i.i.i) #8
   %136 = icmp eq ptr %131, %135
   br i1 %136, label %137, label %cpool_remove_conn.exit.i.i
@@ -412,7 +412,7 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
 142:                                              ; preds = %137
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %145 = load i64, ptr %144, align 8, !tbaa !107
+  %145 = load i64, ptr %144, align 8, !tbaa !108
   %146 = call i32 @Curl_hash_delete(ptr noundef nonnull %0, ptr noundef nonnull %143, i64 noundef %145) #8
   br label %147
 
@@ -420,9 +420,9 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
   %148 = load i64, ptr %138, align 8
   %149 = and i64 %148, -8589934593
   store i64 %149, ptr %138, align 8
-  %150 = load i64, ptr %126, align 8, !tbaa !109
+  %150 = load i64, ptr %126, align 8, !tbaa !110
   %151 = add i64 %150, -1
-  store i64 %151, ptr %126, align 8, !tbaa !109
+  store i64 %151, ptr %126, align 8, !tbaa !110
   br label %cpool_remove_conn.exit.i.i
 
 cpool_remove_conn.exit.i.i:                       ; preds = %147, %132, %130
@@ -454,7 +454,7 @@ cpool_get_live_conn.exit34.i.i:                   ; preds = %.lr.ph.i29.i.i
   %158 = call ptr @Curl_node_elem(ptr noundef nonnull %155) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
   %.not23.i.i = icmp eq ptr %158, null
-  br i1 %.not23.i.i, label %.preheader.i.i, label %130, !llvm.loop !116
+  br i1 %.not23.i.i, label %.preheader.i.i, label %130, !llvm.loop !117
 
 159:                                              ; preds = %169, %.lr.ph48.i.i
   call fastcc void @cpool_perform(ptr noundef nonnull %0)
@@ -487,8 +487,8 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %167
 169:                                              ; preds = %167
   %170 = trunc i64 %165 to i32
   %171 = sub nsw i32 0, %170
-  %172 = load ptr, ptr %3, align 8, !tbaa !117
-  %173 = load i32, ptr %129, align 8, !tbaa !120
+  %172 = load ptr, ptr %3, align 8, !tbaa !118
+  %173 = load i32, ptr %129, align 8, !tbaa !121
   %174 = call i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %171, i32 1000)
   %175 = sext i32 %174 to i64
   %176 = call i32 @Curl_poll(ptr noundef %172, i32 noundef %173, i64 noundef %175) #8
@@ -497,7 +497,7 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %167
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #8
   %177 = call ptr @Curl_llist_head(ptr noundef nonnull %127) #8
   %.not24.i.i = icmp eq ptr %177, null
-  br i1 %.not24.i.i, label %.thread.i.i, label %159
+  br i1 %.not24.i.i, label %.thread.i.i, label %159, !llvm.loop !122
 
 .thread.i.i:                                      ; preds = %169, %161, %159, %cpool_shutdown_wait.exit.i.i, %.preheader.i.i
   %178 = call ptr @Curl_llist_head(ptr noundef nonnull %127) #8
@@ -511,7 +511,7 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %167
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %179, ptr noundef null, i1 noundef zeroext false)
   %180 = call ptr @Curl_llist_head(ptr noundef nonnull %127) #8
   %.not9.i37.i.i = icmp eq ptr %180, null
-  br i1 %.not9.i37.i.i, label %cpool_shutdown_all.exit.i, label %.preheader.i.i.i, !llvm.loop !121
+  br i1 %.not9.i37.i.i, label %cpool_shutdown_all.exit.i, label %.preheader.i.i.i, !llvm.loop !123
 
 cpool_shutdown_all.exit.i:                        ; preds = %.preheader.i.i.i, %.thread.i.i, %sigpipe_apply.exit50.i
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -526,14 +526,14 @@ cpool_shutdown_all.exit.i:                        ; preds = %.preheader.i.i.i, %
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %183, ptr noundef null, i1 noundef zeroext false)
   %184 = call ptr @Curl_llist_head(ptr noundef nonnull %181) #8
   %.not9.i56.i = icmp eq ptr %184, null
-  br i1 %.not9.i56.i, label %cpool_shutdown_discard_all.exit.i, label %.preheader.i55.i, !llvm.loop !121
+  br i1 %.not9.i56.i, label %cpool_shutdown_discard_all.exit.i, label %.preheader.i55.i, !llvm.loop !123
 
 cpool_shutdown_discard_all.exit.i:                ; preds = %.preheader.i55.i, %cpool_shutdown_all.exit.i
   %185 = load ptr, ptr %12, align 8, !tbaa !3
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 192
-  %187 = load ptr, ptr %186, align 8, !tbaa !122
+  %187 = load ptr, ptr %186, align 8, !tbaa !124
   call void @Curl_hostcache_clean(ptr noundef %185, ptr noundef %187) #8
-  %188 = load i8, ptr %15, align 8, !tbaa !84, !range !110, !noundef !111
+  %188 = load i8, ptr %15, align 8, !tbaa !84, !range !111, !noundef !112
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %cpool_close_and_destroy_all.exit, label %190
 
@@ -589,7 +589,7 @@ define hidden void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null) %
 
 11:                                               ; preds = %5, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %13 = load ptr, ptr %12, align 8, !tbaa !123
+  %13 = load ptr, ptr %12, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %13, null
   br i1 %.not15.i, label %16, label %14
 
@@ -630,31 +630,31 @@ define hidden void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null) %
   %34 = or i8 %33, 1
   store i8 %34, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 64
-  %36 = load i64, ptr %35, align 8, !tbaa !124
+  %36 = load i64, ptr %35, align 8, !tbaa !126
   %37 = add nsw i64 %36, 1
-  store i64 %37, ptr %35, align 8, !tbaa !124
+  store i64 %37, ptr %35, align 8, !tbaa !126
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %36, ptr %38, align 8, !tbaa !125
+  store i64 %36, ptr %38, align 8, !tbaa !127
   %39 = icmp slt i64 %36, 0
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %31
-  store i64 0, ptr %35, align 8, !tbaa !124
+  store i64 0, ptr %35, align 8, !tbaa !126
   br label %41
 
 41:                                               ; preds = %40, %31
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  store i64 -1, ptr %42, align 8, !tbaa !126
+  store i64 -1, ptr %42, align 8, !tbaa !128
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %44 = load i32, ptr %43, align 8, !tbaa !127
+  %44 = load i32, ptr %43, align 8, !tbaa !129
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
   %46 = load ptr, ptr %45, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2528
-  store i32 %44, ptr %47, align 8, !tbaa !127
+  store i32 %44, ptr %47, align 8, !tbaa !129
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2540
-  %49 = load i32, ptr %48, align 4, !tbaa !128
+  %49 = load i32, ptr %48, align 4, !tbaa !130
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 2540
-  store i32 %49, ptr %50, align 4, !tbaa !128
+  store i32 %49, ptr %50, align 4, !tbaa !130
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %52 = load i64, ptr %51, align 2
   %53 = and i64 %52, 17179869184
@@ -684,9 +684,9 @@ define hidden void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null) %
 
 cpool_get_instance.exit:                          ; preds = %16, %1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %68, align 8, !tbaa !125
+  store i64 0, ptr %68, align 8, !tbaa !127
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  store i64 -1, ptr %69, align 8, !tbaa !126
+  store i64 -1, ptr %69, align 8, !tbaa !128
   br label %70
 
 70:                                               ; preds = %65, %61, %41, %cpool_get_instance.exit
@@ -727,7 +727,7 @@ define hidden range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, ptr n
 
 12:                                               ; preds = %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !123
+  %14 = load ptr, ptr %13, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %17, label %15
 
@@ -751,9 +751,9 @@ define hidden range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, ptr n
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 576
-  %26 = load i64, ptr %25, align 8, !tbaa !129
+  %26 = load i64, ptr %25, align 8, !tbaa !131
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 584
-  %28 = load i64, ptr %27, align 8, !tbaa !131
+  %28 = load i64, ptr %27, align 8, !tbaa !133
   br label %29
 
 29:                                               ; preds = %24, %21
@@ -792,9 +792,9 @@ define hidden range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, ptr n
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %1, i64 56
-  %.val = load ptr, ptr %48, align 8, !tbaa !97
+  %.val = load ptr, ptr %48, align 8, !tbaa !98
   %49 = getelementptr i8, ptr %1, i64 64
-  %.val102 = load i64, ptr %49, align 8, !tbaa !106
+  %.val102 = load i64, ptr %49, align 8, !tbaa !107
   %50 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val, i64 noundef %.val102) #8
   %.not89 = icmp eq ptr %50, null
   br i1 %.not89, label %53, label %51
@@ -805,7 +805,7 @@ define hidden range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, ptr n
 
 53:                                               ; preds = %47, %51
   %54 = phi i64 [ %52, %51 ], [ 0, %47 ]
-  %55 = load ptr, ptr %48, align 8, !tbaa !97
+  %55 = load ptr, ptr %48, align 8, !tbaa !98
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 88
   %57 = tail call ptr @Curl_llist_head(ptr noundef nonnull %56) #8
   %.not9.i = icmp eq ptr %57, null
@@ -816,14 +816,14 @@ define hidden range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, ptr n
   %.0710.i = phi ptr [ %63, %.lr.ph.i ], [ %57, %53 ]
   %58 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.0710.i) #8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !97
+  %60 = load ptr, ptr %59, align 8, !tbaa !98
   %61 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %60) #9
   %.not8.i = icmp eq i32 %61, 0
   %62 = zext i1 %.not8.i to i64
   %spec.select.i105 = add i64 %.011.i, %62
   %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.0710.i) #8
   %.not.i106 = icmp eq ptr %63, null
-  br i1 %.not.i106, label %cpool_shutdown_dest_count.exit, label %.lr.ph.i, !llvm.loop !132
+  br i1 %.not.i106, label %cpool_shutdown_dest_count.exit, label %.lr.ph.i, !llvm.loop !134
 
 cpool_shutdown_dest_count.exit:                   ; preds = %.lr.ph.i, %53
   %.0.lcssa.i = phi i64 [ 0, %53 ], [ %spec.select.i105, %.lr.ph.i ]
@@ -872,7 +872,7 @@ cpool_shutdown_dest_count.exit:                   ; preds = %.lr.ph.i, %53
   %.1.i = phi i64 [ %.01220.i, %.lr.ph.i107 ], [ %spec.select17.i, %74 ]
   %82 = tail call ptr @Curl_node_next(ptr noundef nonnull %.021.i) #8
   %.not.i109 = icmp eq ptr %82, null
-  br i1 %.not.i109, label %cpool_bundle_get_oldest_idle.exit, label %.lr.ph.i107, !llvm.loop !133
+  br i1 %.not.i109, label %cpool_bundle_get_oldest_idle.exit, label %.lr.ph.i107, !llvm.loop !135
 
 cpool_bundle_get_oldest_idle.exit:                ; preds = %81
   %.not91 = icmp eq ptr %.114.i, null
@@ -880,8 +880,8 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %81
 
 83:                                               ; preds = %cpool_bundle_get_oldest_idle.exit
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %.114.i, i1 noundef zeroext false)
-  %.val103 = load ptr, ptr %48, align 8, !tbaa !97
-  %.val104 = load i64, ptr %49, align 8, !tbaa !106
+  %.val103 = load ptr, ptr %48, align 8, !tbaa !98
+  %.val104 = load i64, ptr %49, align 8, !tbaa !107
   %84 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val103, i64 noundef %.val104) #8
   %.not92 = icmp eq ptr %84, null
   br i1 %.not92, label %87, label %85
@@ -892,7 +892,7 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %81
 
 87:                                               ; preds = %83, %85
   %88 = phi i64 [ %86, %85 ], [ 0, %83 ]
-  %89 = load ptr, ptr %48, align 8, !tbaa !97
+  %89 = load ptr, ptr %48, align 8, !tbaa !98
   %90 = tail call ptr @Curl_llist_head(ptr noundef nonnull %56) #8
   %.not9.i111 = icmp eq ptr %90, null
   br i1 %.not9.i111, label %cpool_shutdown_dest_count.exit119, label %.lr.ph.i112
@@ -902,21 +902,21 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %81
   %.0710.i114 = phi ptr [ %96, %.lr.ph.i112 ], [ %90, %87 ]
   %91 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.0710.i114) #8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
-  %93 = load ptr, ptr %92, align 8, !tbaa !97
+  %93 = load ptr, ptr %92, align 8, !tbaa !98
   %94 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %93) #9
   %.not8.i115 = icmp eq i32 %94, 0
   %95 = zext i1 %.not8.i115 to i64
   %spec.select.i116 = add i64 %.011.i113, %95
   %96 = tail call ptr @Curl_node_next(ptr noundef nonnull %.0710.i114) #8
   %.not.i117 = icmp eq ptr %96, null
-  br i1 %.not.i117, label %cpool_shutdown_dest_count.exit119, label %.lr.ph.i112, !llvm.loop !132
+  br i1 %.not.i117, label %cpool_shutdown_dest_count.exit119, label %.lr.ph.i112, !llvm.loop !134
 
 cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %.271 = phi i64 [ 0, %87 ], [ %spec.select.i116, %.lr.ph.i112 ]
   %97 = icmp eq i64 %.271, 0
   %98 = icmp ne ptr %84, null
   %or.cond3 = and i1 %98, %97
-  br i1 %or.cond3, label %.lr.ph, label %.critedge
+  br i1 %or.cond3, label %.lr.ph, label %.critedge, !llvm.loop !136
 
 .critedge:                                        ; preds = %.lr.ph, %cpool_shutdown_dest_count.exit119, %cpool_bundle_get_oldest_idle.exit, %66, %cpool_shutdown_dest_count.exit
   %.062.lcssa = phi i64 [ %54, %cpool_shutdown_dest_count.exit ], [ %.062135, %66 ], [ %.062135, %cpool_bundle_get_oldest_idle.exit ], [ %88, %cpool_shutdown_dest_count.exit119 ], [ %.062135, %.lr.ph ]
@@ -935,7 +935,7 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 88
   %103 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %105 = load i64, ptr %104, align 8, !tbaa !109
+  %105 = load i64, ptr %104, align 8, !tbaa !110
   %106 = add i64 %105, %103
   %.not94145 = icmp ult i64 %106, %.072
   br i1 %.not94145, label %.thread, label %.lr.ph147.preheader
@@ -948,11 +948,11 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
 .lr.ph147:                                        ; preds = %.lr.ph157
   %108 = tail call fastcc ptr @cpool_get_oldest_idle(ptr noundef %.0.i.ph)
   %.not95 = icmp eq ptr %108, null
-  br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157
+  br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157, !llvm.loop !137
 
 .lr.ph147..thread.loopexit_crit_edge:             ; preds = %.lr.ph147, %.lr.ph147.preheader
   %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %112, %.lr.ph147 ]
-  %.pre.pre = load i64, ptr %104, align 8, !tbaa !109
+  %.pre.pre = load i64, ptr %104, align 8, !tbaa !110
   %.pre153 = add i64 %.pre.pre, %.3146.lcssa
   %109 = icmp ult i64 %.pre153, %.072
   %110 = select i1 %109, i32 0, i32 2
@@ -962,10 +962,10 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %111 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %111, i1 noundef zeroext false)
   %112 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
-  %113 = load i64, ptr %104, align 8, !tbaa !109
+  %113 = load i64, ptr %104, align 8, !tbaa !110
   %114 = add i64 %113, %112
   %.not94 = icmp ult i64 %114, %.072
-  br i1 %.not94, label %.thread, label %.lr.ph147
+  br i1 %.not94, label %.thread, label %.lr.ph147, !llvm.loop !137
 
 .thread:                                          ; preds = %.lr.ph157, %101, %.lr.ph147..thread.loopexit_crit_edge, %.critedge, %100
   %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph157 ]
@@ -1020,7 +1020,7 @@ define hidden void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 nou
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !123
+  %15 = load ptr, ptr %14, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -1090,9 +1090,9 @@ define hidden void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 nou
 
 50:                                               ; preds = %48
   %51 = getelementptr i8, ptr %1, i64 56
-  %.val.i = load ptr, ptr %51, align 8, !tbaa !97
+  %.val.i = load ptr, ptr %51, align 8, !tbaa !98
   %52 = getelementptr i8, ptr %1, i64 64
-  %.val17.i = load i64, ptr %52, align 8, !tbaa !106
+  %.val17.i = load i64, ptr %52, align 8, !tbaa !107
   %53 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val.i, i64 noundef %.val17.i) #8
   %54 = icmp eq ptr %49, %53
   br i1 %54, label %55, label %cpool_remove_conn.exit
@@ -1109,7 +1109,7 @@ define hidden void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 nou
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !107
+  %62 = load i64, ptr %61, align 8, !tbaa !108
   %63 = tail call i32 @Curl_hash_delete(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %60, i64 noundef %62) #8
   br label %64
 
@@ -1118,9 +1118,9 @@ define hidden void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 nou
   %66 = and i64 %65, -8589934593
   store i64 %66, ptr %45, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %68 = load i64, ptr %67, align 8, !tbaa !109
+  %68 = load i64, ptr %67, align 8, !tbaa !110
   %69 = add i64 %68, -1
-  store i64 %69, ptr %67, align 8, !tbaa !109
+  store i64 %69, ptr %67, align 8, !tbaa !110
   br label %cpool_remove_conn.exit
 
 cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
@@ -1141,20 +1141,20 @@ cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %81 = load ptr, ptr %80, align 8, !tbaa !134
+  %81 = load ptr, ptr %80, align 8, !tbaa !138
   %.not65 = icmp eq ptr %81, null
   br i1 %.not65, label %86, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !135
+  %84 = load i32, ptr %83, align 8, !tbaa !139
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %82, %79
   %87 = select i1 %72, ptr @.str.2, ptr @.str.3
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %89 = load i64, ptr %88, align 8, !tbaa !137
+  %89 = load i64, ptr %88, align 8, !tbaa !141
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %87, i64 noundef %89) #8
   %.pre73 = load ptr, ptr %73, align 8, !tbaa !20
   br label %90
@@ -1170,19 +1170,19 @@ cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
 
 94:                                               ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %96 = load ptr, ptr %95, align 8, !tbaa !134
+  %96 = load ptr, ptr %95, align 8, !tbaa !138
   %.not62 = icmp eq ptr %96, null
   br i1 %.not62, label %101, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !135
+  %99 = load i32, ptr %98, align 8, !tbaa !139
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %97, %94
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %103 = load i64, ptr %102, align 8, !tbaa !137
+  %103 = load i64, ptr %102, align 8, !tbaa !141
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef %103) #8
   br label %104
 
@@ -1261,7 +1261,7 @@ define internal fastcc ptr @cpool_get_oldest_idle(ptr noundef nonnull %0) unname
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 1413
-  %19 = load i8, ptr %18, align 1, !tbaa !138
+  %19 = load i8, ptr %18, align 1, !tbaa !142
   %.not26 = icmp eq i8 %19, 0
   br i1 %.not26, label %20, label %27
 
@@ -1281,14 +1281,14 @@ define internal fastcc ptr @cpool_get_oldest_idle(ptr noundef nonnull %0) unname
   %.2 = phi ptr [ %.130, %.lr.ph ], [ %.130, %13 ], [ %.130, %17 ], [ %spec.select27, %20 ]
   %28 = call ptr @Curl_node_next(ptr noundef nonnull %.031) #8
   %.not23 = icmp eq ptr %28, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !139
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph38
   %.120.lcssa = phi i64 [ %.01934, %.lr.ph38 ], [ %.221, %27 ]
   %.1.lcssa = phi ptr [ %.01835, %.lr.ph38 ], [ %.2, %27 ]
   %29 = call ptr @Curl_hash_next_element(ptr noundef nonnull %2) #8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !140
+  br i1 %.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !144
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %1
   %.018.lcssa = phi ptr [ null, %1 ], [ %.1.lcssa, %._crit_edge ]
@@ -1320,7 +1320,7 @@ define hidden range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly cap
 
 12:                                               ; preds = %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !123
+  %14 = load ptr, ptr %13, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %17, label %15
 
@@ -1361,16 +1361,16 @@ define hidden range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly cap
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   %36 = getelementptr i8, ptr %1, i64 56
-  %.val = load ptr, ptr %36, align 8, !tbaa !97
+  %.val = load ptr, ptr %36, align 8, !tbaa !98
   %37 = getelementptr i8, ptr %1, i64 64
-  %.val37 = load i64, ptr %37, align 8, !tbaa !106
+  %.val37 = load i64, ptr %37, align 8, !tbaa !107
   %38 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val, i64 noundef %.val37) #8
   %.not33 = icmp eq ptr %38, null
   br i1 %.not33, label %39, label %cpool_add_bundle.exit
 
 39:                                               ; preds = %32
-  %.val38 = load ptr, ptr %36, align 8, !tbaa !97
-  %.val39 = load i64, ptr %37, align 8, !tbaa !106
+  %.val38 = load ptr, ptr %36, align 8, !tbaa !98
+  %.val39 = load i64, ptr %37, align 8, !tbaa !107
   %40 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !83
   %41 = add i64 %.val39, 48
   %42 = tail call ptr %40(i64 noundef 1, i64 noundef %41) #8
@@ -1380,7 +1380,7 @@ define hidden range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly cap
 43:                                               ; preds = %39
   tail call void @Curl_llist_init(ptr noundef nonnull %42, ptr noundef null) #8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store i64 %.val39, ptr %44, align 8, !tbaa !107
+  store i64 %.val39, ptr %44, align 8, !tbaa !108
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr readonly align 1 %.val38, i64 %.val39, i1 false)
   %46 = tail call ptr @Curl_hash_add(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %45, i64 noundef %.val39, ptr noundef nonnull %42) #8
@@ -1400,15 +1400,15 @@ cpool_add_bundle.exit:                            ; preds = %43, %32
   %51 = or i64 %50, 8589934592
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
-  %53 = load i64, ptr %52, align 8, !tbaa !141
+  %53 = load i64, ptr %52, align 8, !tbaa !145
   %54 = add nsw i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !141
+  store i64 %54, ptr %52, align 8, !tbaa !145
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %53, ptr %55, align 8, !tbaa !137
+  store i64 %53, ptr %55, align 8, !tbaa !141
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !109
+  %57 = load i64, ptr %56, align 8, !tbaa !110
   %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8, !tbaa !109
+  store i64 %58, ptr %56, align 8, !tbaa !110
   br label %cpool_add_bundle.exit.thread
 
 cpool_add_bundle.exit.thread:                     ; preds = %39, %47, %cpool_add_bundle.exit
@@ -1443,13 +1443,13 @@ define hidden zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr noundef w
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 644
-  %6 = load i32, ptr %5, align 4, !tbaa !142
+  %6 = load i32, ptr %5, align 4, !tbaa !146
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !143
+  %9 = load i32, ptr %8, align 4, !tbaa !147
   %10 = shl i32 %9, 2
   br label %11
 
@@ -1473,7 +1473,7 @@ define hidden zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr noundef w
 
 21:                                               ; preds = %15, %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %23 = load ptr, ptr %22, align 8, !tbaa !123
+  %23 = load ptr, ptr %22, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %23, null
   br i1 %.not15.i, label %26, label %24
 
@@ -1491,9 +1491,9 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
   %29 = tail call { i64, i32 } @Curl_now() #8
   %30 = extractvalue { i64, i32 } %29, 0
   %31 = extractvalue { i64, i32 } %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !144
+  store i64 %30, ptr %28, align 8, !tbaa !148
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 560
-  store i32 %31, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i32 %31, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !115
   %.not56 = icmp eq i32 %12, 0
   br i1 %.not56, label %87, label %32
 
@@ -1532,7 +1532,7 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
 
 50:                                               ; preds = %47, %32
   %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %52 = load i64, ptr %51, align 8, !tbaa !109
+  %52 = load i64, ptr %51, align 8, !tbaa !110
   %53 = zext i32 %12 to i64
   %54 = icmp ugt i64 %52, %53
   br i1 %54, label %55, label %73
@@ -1546,13 +1546,13 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %61 = load ptr, ptr %60, align 8, !tbaa !134
+  %61 = load ptr, ptr %60, align 8, !tbaa !138
   %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %66, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !135
+  %64 = load i32, ptr %63, align 8, !tbaa !139
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %67
 
@@ -1634,7 +1634,7 @@ define hidden zeroext i1 @Curl_cpool_find(ptr noundef readonly captures(address_
 
 16:                                               ; preds = %10, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %18 = load ptr, ptr %17, align 8, !tbaa !123
+  %18 = load ptr, ptr %17, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %21, label %19
 
@@ -1691,7 +1691,7 @@ define hidden zeroext i1 @Curl_cpool_find(ptr noundef readonly captures(address_
   %45 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.029) #8
   %46 = tail call ptr @Curl_node_next(ptr noundef nonnull %.029) #8
   %47 = tail call zeroext i1 %3(ptr noundef %45, ptr noundef %5) #8
-  br i1 %47, label %.loopexit, label %43
+  br i1 %47, label %.loopexit, label %43, !llvm.loop !149
 
 .loopexit:                                        ; preds = %44, %43, %36
   %.031 = phi i8 [ 0, %36 ], [ 0, %43 ], [ 1, %44 ]
@@ -1758,7 +1758,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1413
-  %14 = load i8, ptr %13, align 1, !tbaa !138
+  %14 = load i8, ptr %13, align 1, !tbaa !142
   %.not = icmp ne i8 %14, 0
   %spec.select = or i1 %3, %.not
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 952
@@ -1773,7 +1773,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   tail call void @Curl_attach_connection(ptr noundef %1, ptr noundef nonnull %2) #8
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %8)
   tail call void @Curl_detach_connection(ptr noundef %1) #8
-  %.pre = load i8, ptr %8, align 1, !tbaa !145, !range !110
+  %.pre = load i8, ptr %8, align 1, !tbaa !150, !range !111
   %21 = trunc nuw i8 %.pre to i1
   br i1 %21, label %.thread42, label %22
 
@@ -1789,13 +1789,13 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 584
-  %27 = load i64, ptr %26, align 8, !tbaa !131
+  %27 = load i64, ptr %26, align 8, !tbaa !133
   %28 = icmp sgt i64 %27, 0
   br i1 %28, label %29, label %cpool_shutdown_destroy_oldest.exit
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load i64, ptr %30, align 8, !tbaa !109
+  %31 = load i64, ptr %30, align 8, !tbaa !110
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = tail call i64 @Curl_llist_count(ptr noundef nonnull %32) #8
   %34 = add i64 %33, %31
@@ -1826,15 +1826,15 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   store i8 0, ptr %39, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #8
   %46 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !113
+  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !114
   %47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #8
   br label %sigpipe_apply.exit.i
 
 sigpipe_apply.exit.i:                             ; preds = %45, %37
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %38, ptr noundef null, i1 noundef zeroext false)
-  %48 = load i8, ptr %39, align 8, !tbaa !84, !range !110, !noundef !111
+  %48 = load i8, ptr %39, align 8, !tbaa !84, !range !111, !noundef !112
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %sigpipe_restore.exit.i, label %50
 
@@ -1853,7 +1853,7 @@ cpool_shutdown_destroy_oldest.exit:               ; preds = %sigpipe_restore.exi
 
 52:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
   %53 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
-  %54 = load ptr, ptr %53, align 8, !tbaa !146
+  %54 = load ptr, ptr %53, align 8, !tbaa !151
   %.not38 = icmp eq ptr %54, null
   br i1 %.not38, label %cpool_shutdown_destroy_oldest.exit.thread, label %55
 
@@ -1915,7 +1915,7 @@ define internal fastcc void @cpool_close_and_destroy(ptr noundef readonly captur
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !147
+  %15 = load ptr, ptr %14, align 8, !tbaa !152
   %.not14.i = icmp eq ptr %15, null
   br i1 %.not14.i, label %17, label %16
 
@@ -1926,13 +1926,13 @@ define internal fastcc void @cpool_close_and_destroy(ptr noundef readonly captur
 17:                                               ; preds = %16, %13
   tail call void @Curl_http_auth_cleanup_ntlm(ptr noundef nonnull %1) #8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  %19 = load ptr, ptr %18, align 8, !tbaa !148
+  %19 = load ptr, ptr %18, align 8, !tbaa !153
   %.not15.i = icmp eq ptr %19, null
   br i1 %.not15.i, label %28, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !149
+  %22 = load ptr, ptr %21, align 8, !tbaa !154
   %.not16.i = icmp eq ptr %22, null
   br i1 %.not16.i, label %28, label %23
 
@@ -2078,7 +2078,7 @@ define internal fastcc i32 @cpool_add_pollfds(ptr noundef %0, ptr noundef %1) un
 16:                                               ; preds = %9
   %17 = call ptr @Curl_node_next(ptr noundef nonnull %.01522) #8
   %.not19 = icmp eq ptr %17, null
-  br i1 %.not19, label %.loopexit, label %9, !llvm.loop !151
+  br i1 %.not19, label %.loopexit, label %9, !llvm.loop !156
 
 .loopexit:                                        ; preds = %16, %6, %15
   %.1 = phi i32 [ %14, %15 ], [ 0, %6 ], [ 0, %16 ]
@@ -2153,7 +2153,7 @@ define hidden i32 @Curl_cpool_add_waitfds(ptr noundef %0, ptr noundef %1) local_
   %31 = add i32 %30, %.034
   %32 = call ptr @Curl_node_next(ptr noundef nonnull %.02133) #8
   %.not29 = icmp eq ptr %32, null
-  br i1 %.not29, label %._crit_edge, label %25, !llvm.loop !152
+  br i1 %.not29, label %._crit_edge, label %25, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %25, %22
   %.0.lcssa = phi i32 [ 0, %22 ], [ %31, %25 ]
@@ -2259,7 +2259,7 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
   call void @Curl_conn_adjust_pollset(ptr noundef %32, ptr noundef nonnull %5) #8
   %33 = load ptr, ptr %26, align 8, !tbaa !3
   call void @Curl_detach_connection(ptr noundef %33) #8
-  %34 = load i32, ptr %27, align 4, !tbaa !153
+  %34 = load i32, ptr %27, align 4, !tbaa !158
   %.not53 = icmp eq i32 %34, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2270,23 +2270,23 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
   %35 = getelementptr inbounds nuw [5 x i8], ptr %28, i64 0, i64 %indvars.iv
-  %36 = load i8, ptr %35, align 1, !tbaa !113
+  %36 = load i8, ptr %35, align 1, !tbaa !114
   %37 = and i8 %36, 1
   %.not44 = icmp eq i8 %37, 0
   br i1 %.not44, label %49, label %38
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %40 = load i32, ptr %39, align 4, !tbaa !114
+  %40 = load i32, ptr %39, align 4, !tbaa !115
   %41 = srem i32 %40, 64
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw i64 1, %42
   %44 = sdiv i32 %40, 64
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds [16 x i64], ptr %1, i64 0, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !144
+  %47 = load i64, ptr %46, align 8, !tbaa !148
   %48 = or i64 %43, %47
-  store i64 %48, ptr %46, align 8, !tbaa !144
+  store i64 %48, ptr %46, align 8, !tbaa !148
   br label %49
 
 49:                                               ; preds = %38, %.lr.ph
@@ -2296,16 +2296,16 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4, !tbaa !114
+  %53 = load i32, ptr %52, align 4, !tbaa !115
   %54 = srem i32 %53, 64
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw i64 1, %55
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !144
+  %60 = load i64, ptr %59, align 8, !tbaa !148
   %61 = or i64 %56, %60
-  store i64 %61, ptr %59, align 8, !tbaa !144
+  store i64 %61, ptr %59, align 8, !tbaa !148
   br label %62
 
 62:                                               ; preds = %51, %49
@@ -2315,25 +2315,25 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4, !tbaa !114
-  %67 = load i32, ptr %3, align 4, !tbaa !114
+  %66 = load i32, ptr %65, align 4, !tbaa !115
+  %67 = load i32, ptr %3, align 4, !tbaa !115
   %68 = icmp sgt i32 %66, %67
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %64
-  store i32 %66, ptr %3, align 4, !tbaa !114
+  store i32 %66, ptr %3, align 4, !tbaa !115
   br label %70
 
 70:                                               ; preds = %62, %64, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %70, %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
   %71 = call ptr @Curl_node_next(ptr noundef nonnull %.049) #8
   %.not41 = icmp eq ptr %71, null
-  br i1 %.not41, label %._crit_edge52, label %29, !llvm.loop !155
+  br i1 %.not41, label %._crit_edge52, label %29, !llvm.loop !160
 
 ._crit_edge52:                                    ; preds = %._crit_edge
   br i1 %.not, label %85, label %.thread
@@ -2369,7 +2369,7 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
 define hidden void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %4 = load ptr, ptr %3, align 8, !tbaa !156
+  %4 = load ptr, ptr %3, align 8, !tbaa !161
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
 
@@ -2382,7 +2382,7 @@ define hidden void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_addr 
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %11 = load ptr, ptr %10, align 8, !tbaa !157
+  %11 = load ptr, ptr %10, align 8, !tbaa !162
   %12 = tail call i32 @Curl_share_lock(ptr noundef %11, i32 noundef 5, i32 noundef 2) #8
   br label %13
 
@@ -2395,7 +2395,7 @@ define hidden void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_addr 
   %17 = load i8, ptr %14, align 8
   %18 = and i8 %17, -2
   store i8 %18, ptr %14, align 8
-  %19 = load ptr, ptr %3, align 8, !tbaa !156
+  %19 = load ptr, ptr %3, align 8, !tbaa !161
   %.not13 = icmp eq ptr %19, null
   br i1 %.not13, label %28, label %20
 
@@ -2408,7 +2408,7 @@ define hidden void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_addr 
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %26 = load ptr, ptr %25, align 8, !tbaa !157
+  %26 = load ptr, ptr %25, align 8, !tbaa !162
   %27 = tail call i32 @Curl_share_unlock(ptr noundef %26, i32 noundef 5) #8
   br label %28
 
@@ -2442,7 +2442,7 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   call void @Curl_attach_connection(ptr noundef %5, ptr noundef %10) #8
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %5, ptr noundef %10, ptr noundef %3)
   call void @Curl_detach_connection(ptr noundef %5) #8
-  %11 = load i8, ptr %3, align 1, !tbaa !145, !range !110, !noundef !111
+  %11 = load i8, ptr %3, align 1, !tbaa !150, !range !111, !noundef !112
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %14
 
@@ -2459,8 +2459,8 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   %16 = call { i64, i32 } @Curl_now() #8
   %17 = extractvalue { i64, i32 } %16, 0
   %18 = extractvalue { i64, i32 } %16, 1
-  store i64 %17, ptr %2, align 8, !tbaa !144
-  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i64 %17, ptr %2, align 8, !tbaa !148
+  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !115
   br label %19
 
 19:                                               ; preds = %15, %14
@@ -2475,7 +2475,7 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   %.126 = phi i64 [ %.02533, %13 ], [ %spec.select, %19 ]
   %.1 = phi ptr [ %.02434, %13 ], [ %.2, %19 ]
   %.not29 = icmp eq ptr %9, null
-  br i1 %.not29, label %23, label %8, !llvm.loop !158
+  br i1 %.not29, label %23, label %8, !llvm.loop !163
 
 23:                                               ; preds = %22
   %.not30 = icmp eq i64 %.126, 0
@@ -2529,13 +2529,13 @@ define hidden void @Curl_cpool_multi_socket(ptr noundef %0, i32 noundef %1, i32 
   %.040 = phi ptr [ %39, %38 ], [ %22, %17 ]
   %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.040) #8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 568
-  %25 = load i32, ptr %24, align 8, !tbaa !114
+  %25 = load i32, ptr %24, align 8, !tbaa !115
   %26 = icmp eq i32 %1, %25
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 572
-  %29 = load i32, ptr %28, align 4, !tbaa !114
+  %29 = load i32, ptr %28, align 4, !tbaa !115
   %30 = icmp eq i32 %1, %29
   br i1 %30, label %31, label %38
 
@@ -2543,7 +2543,7 @@ define hidden void @Curl_cpool_multi_socket(ptr noundef %0, i32 noundef %1, i32 
   tail call void @Curl_attach_connection(ptr noundef %8, ptr noundef nonnull %23) #8
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %8, ptr noundef nonnull %23, ptr noundef %5)
   tail call void @Curl_detach_connection(ptr noundef %8) #8
-  %32 = load i8, ptr %5, align 1, !tbaa !145, !range !110, !noundef !111
+  %32 = load i8, ptr %5, align 1, !tbaa !150, !range !111, !noundef !112
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %37, label %34
 
@@ -2575,7 +2575,7 @@ cpool_update_shutdown_ev.exit:                    ; preds = %34
 38:                                               ; preds = %27
   %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.040) #8
   %.not34 = icmp eq ptr %39, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !159
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !164
 
 .loopexit:                                        ; preds = %38, %17, %cpool_update_shutdown_ev.exit.thread, %37
   %40 = load i8, ptr %18, align 8
@@ -2616,7 +2616,7 @@ define internal fastcc void @cpool_run_conn_shutdown(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !147
+  %11 = load ptr, ptr %10, align 8, !tbaa !152
   %.not14.i = icmp eq ptr %11, null
   br i1 %.not14.i, label %13, label %12
 
@@ -2627,13 +2627,13 @@ define internal fastcc void @cpool_run_conn_shutdown(ptr noundef %0, ptr noundef
 13:                                               ; preds = %12, %9
   tail call void @Curl_http_auth_cleanup_ntlm(ptr noundef nonnull %1) #8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  %15 = load ptr, ptr %14, align 8, !tbaa !148
+  %15 = load ptr, ptr %14, align 8, !tbaa !153
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %24, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !149
+  %18 = load ptr, ptr %17, align 8, !tbaa !154
   %.not16.i = icmp eq ptr %18, null
   br i1 %.not16.i, label %24, label %19
 
@@ -2658,12 +2658,12 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
-  store i8 1, ptr %2, align 1, !tbaa !145
+  store i8 1, ptr %2, align 1, !tbaa !150
   br label %58
 
 30:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1413
-  %32 = load i8, ptr %31, align 1, !tbaa !138
+  %32 = load i8, ptr %31, align 1, !tbaa !142
   %.not16 = icmp eq i8 %32, 0
   br i1 %.not16, label %33, label %38
 
@@ -2677,12 +2677,12 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br label %39
 
 38:                                               ; preds = %33, %30
-  store i8 1, ptr %4, align 1, !tbaa !145
+  store i8 1, ptr %4, align 1, !tbaa !150
   br label %39
 
 39:                                               ; preds = %38, %35
   %.015 = phi i1 [ false, %38 ], [ %37, %35 ]
-  %40 = load i8, ptr %31, align 1, !tbaa !138
+  %40 = load i8, ptr %31, align 1, !tbaa !142
   %.not17 = icmp eq i8 %40, 0
   br i1 %.not17, label %41, label %46
 
@@ -2696,7 +2696,7 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br label %47
 
 46:                                               ; preds = %41, %39
-  store i8 1, ptr %5, align 1, !tbaa !145
+  store i8 1, ptr %5, align 1, !tbaa !150
   br label %47
 
 47:                                               ; preds = %46, %43
@@ -2705,17 +2705,17 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br i1 %or.cond, label %.critedge, label %48
 
 48:                                               ; preds = %47
-  %49 = load i8, ptr %4, align 1, !tbaa !145, !range !110, !noundef !111
+  %49 = load i8, ptr %4, align 1, !tbaa !150, !range !111, !noundef !112
   %50 = trunc nuw i8 %49 to i1
-  %51 = load i8, ptr %5, align 1, !range !110
+  %51 = load i8, ptr %5, align 1, !range !111
   %52 = trunc nuw i8 %51 to i1
   %53 = select i1 %50, i1 %52, i1 false
   %54 = zext i1 %53 to i8
-  store i8 %54, ptr %2, align 1, !tbaa !145
+  store i8 %54, ptr %2, align 1, !tbaa !150
   br i1 %53, label %55, label %58
 
 .critedge:                                        ; preds = %47
-  store i8 1, ptr %2, align 1, !tbaa !145
+  store i8 1, ptr %2, align 1, !tbaa !150
   br label %55
 
 55:                                               ; preds = %.critedge, %48
@@ -2758,7 +2758,7 @@ define hidden void @Curl_cpool_prune_dead(ptr noundef %0) local_unnamed_addr #0 
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !123
+  %15 = load ptr, ptr %14, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -2783,9 +2783,9 @@ cpool_get_instance.exit:                          ; preds = %18, %1
   %23 = tail call { i64, i32 } @Curl_now() #8
   %24 = extractvalue { i64, i32 } %23, 0
   %25 = extractvalue { i64, i32 } %23, 1
-  store i64 %24, ptr %3, align 8, !tbaa !144
+  store i64 %24, ptr %3, align 8, !tbaa !148
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i32 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !115
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !81
   %.not18 = icmp eq ptr %27, null
@@ -2830,7 +2830,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1
 
 .lr.ph.i.backedge:                                ; preds = %.critedge.loopexit.i, %cpool_foreach.exit
   %.01525.i.be = phi ptr [ %49, %.critedge.loopexit.i ], [ %55, %cpool_foreach.exit ]
-  br label %.lr.ph.i, !llvm.loop !160
+  br label %.lr.ph.i, !llvm.loop !165
 
 .lr.ph.i:                                         ; preds = %.preheader, %.lr.ph.i.backedge
   %.01525.i = phi ptr [ %.01525.i.be, %.lr.ph.i.backedge ], [ %46, %.preheader ]
@@ -2849,7 +2849,7 @@ cpool_reap_dead_cb.exit:                          ; preds = %51, %.lr.ph.i
   %52 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i) #8
   %53 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #8
   %54 = call zeroext i1 @Curl_conn_seems_dead(ptr noundef %52, ptr noundef nonnull %0, ptr noundef nonnull %3) #8
-  br i1 %54, label %cpool_foreach.exit, label %cpool_reap_dead_cb.exit, !llvm.loop !161
+  br i1 %54, label %cpool_foreach.exit, label %cpool_reap_dead_cb.exit, !llvm.loop !166
 
 cpool_foreach.exit:                               ; preds = %51
   call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef %52, i1 noundef zeroext false)
@@ -2862,7 +2862,7 @@ cpool_foreach.exit:                               ; preds = %51
 
 .loopexit:                                        ; preds = %cpool_foreach.exit, %.critedge.loopexit.i, %.preheader
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !167
   br label %56
 
 56:                                               ; preds = %.loopexit, %36
@@ -2919,7 +2919,7 @@ define hidden noundef i32 @Curl_cpool_upkeep(ptr noundef %0) local_unnamed_addr 
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !123
+  %15 = load ptr, ptr %14, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -2979,7 +2979,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1, %11, %16
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph, %.lr.ph.i
   %.not.not.i = icmp eq ptr %44, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !168
 
 .lr.ph.i:                                         ; preds = %37, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %44, %.critedge.loopexit.i ], [ %41, %37 ]
@@ -2996,7 +2996,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1, %11, %16
   %47 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i21) #8
   %48 = call i32 @Curl_conn_upkeep(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %3) #8
   %.not20.i = icmp eq ptr %47, null
-  br i1 %.not20.i, label %.critedge.loopexit.i, label %.lr.ph, !llvm.loop !161
+  br i1 %.not20.i, label %.critedge.loopexit.i, label %.lr.ph, !llvm.loop !166
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
@@ -3050,7 +3050,7 @@ define hidden ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !123
+  %15 = load ptr, ptr %14, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -3099,7 +3099,7 @@ define hidden ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_
 
 .critedge.loopexit.i:                             ; preds = %43, %.lr.ph.i
   %.not.not.i = icmp eq ptr %41, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !168
 
 .lr.ph.i:                                         ; preds = %33, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %41, %.critedge.loopexit.i ], [ %38, %33 ]
@@ -3112,16 +3112,16 @@ define hidden ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_
 
 43:                                               ; preds = %cpool_find_conn.exit
   %.not20.i = icmp eq ptr %45, null
-  br i1 %.not20.i, label %.critedge.loopexit.i, label %cpool_find_conn.exit, !llvm.loop !161
+  br i1 %.not20.i, label %.critedge.loopexit.i, label %cpool_find_conn.exit, !llvm.loop !166
 
 cpool_find_conn.exit:                             ; preds = %.lr.ph.i, %43
   %.016.i32 = phi ptr [ %45, %43 ], [ %42, %.lr.ph.i ]
   %44 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i32) #8
   %45 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i32) #8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %47 = load i64, ptr %46, align 8, !tbaa !137
+  %47 = load i64, ptr %46, align 8, !tbaa !141
   %48 = icmp eq i64 %47, %1
-  br i1 %48, label %cpool_foreach.exit, label %43, !llvm.loop !163
+  br i1 %48, label %cpool_foreach.exit, label %43, !llvm.loop !168
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %cpool_find_conn.exit, %33
   %.sroa.4.2 = phi ptr [ null, %33 ], [ %44, %cpool_find_conn.exit ], [ null, %.critedge.loopexit.i ]
@@ -3175,7 +3175,7 @@ define hidden void @Curl_cpool_do_by_id(ptr noundef %0, i64 noundef %1, ptr noun
 
 15:                                               ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %17 = load ptr, ptr %16, align 8, !tbaa !123
+  %17 = load ptr, ptr %16, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %17, null
   br i1 %.not15.i, label %20, label %18
 
@@ -3223,7 +3223,7 @@ define hidden void @Curl_cpool_do_by_id(ptr noundef %0, i64 noundef %1, ptr noun
 
 .critedge.loopexit.i:                             ; preds = %cpool_do_conn.exit
   %.not.not.i = icmp eq ptr %42, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !168
 
 .lr.ph.i:                                         ; preds = %35, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %42, %.critedge.loopexit.i ], [ %39, %35 ]
@@ -3242,13 +3242,13 @@ cpool_do_conn.exit:                               ; preds = %44, %.lr.ph.i
   %45 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i) #8
   %46 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %48 = load i64, ptr %47, align 8, !tbaa !137
+  %48 = load i64, ptr %47, align 8, !tbaa !141
   %49 = icmp eq i64 %48, %1
-  br i1 %49, label %50, label %cpool_do_conn.exit, !llvm.loop !161
+  br i1 %49, label %50, label %cpool_do_conn.exit, !llvm.loop !166
 
 50:                                               ; preds = %44
   call void %2(ptr noundef nonnull %45, ptr noundef nonnull %0, ptr noundef %3) #8
-  br label %cpool_foreach.exit, !llvm.loop !163
+  br label %cpool_foreach.exit, !llvm.loop !168
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %35, %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
@@ -3300,7 +3300,7 @@ define hidden void @Curl_cpool_do_locked(ptr noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %8, %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %16 = load ptr, ptr %15, align 8, !tbaa !123
+  %16 = load ptr, ptr %15, align 8, !tbaa !125
   %.not15.i = icmp eq ptr %16, null
   br i1 %.not15.i, label %19, label %17
 
@@ -3542,72 +3542,77 @@ attributes #9 = { nounwind willreturn memory(read) }
 !92 = !{!"p1 _ZTS10psl_ctx_st", !7, i64 0}
 !93 = !{!94, !7, i64 32}
 !94 = !{!"Curl_hash_element", !23, i64 0, !7, i64 32, !7, i64 40, !10, i64 48, !8, i64 56}
-!95 = distinct !{!95, !96}
+!95 = distinct !{!95, !96, !97}
 !96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!98, !36, i64 56}
-!98 = !{!"connectdata", !23, i64 0, !7, i64 32, !7, i64 40, !10, i64 48, !36, i64 56, !10, i64 64, !66, i64 72, !99, i64 80, !100, i64 88, !36, i64 120, !36, i64 128, !100, i64 136, !101, i64 168, !101, i64 224, !77, i64 280, !77, i64 380, !36, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !36, i64 512, !11, i64 520, !11, i64 536, !11, i64 552, !8, i64 568, !8, i64 576, !8, i64 592, !8, i64 608, !102, i64 624, !26, i64 664, !49, i64 696, !49, i64 824, !103, i64 952, !104, i64 960, !104, i64 968, !11, i64 976, !12, i64 992, !12, i64 996, !13, i64 1000, !12, i64 1032, !12, i64 1036, !105, i64 1040, !105, i64 1064, !8, i64 1088, !36, i64 1368, !36, i64 1376, !51, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !51, i64 1404, !51, i64 1406, !8, i64 1408, !8, i64 1409, !8, i64 1410, !8, i64 1411, !8, i64 1412, !8, i64 1413, !8, i64 1414}
-!99 = !{!"p1 _ZTS16Curl_sockaddr_ex", !7, i64 0}
-!100 = !{!"hostname", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24}
-!101 = !{!"proxy_info", !100, i64 0, !12, i64 32, !8, i64 36, !36, i64 40, !36, i64 48}
-!102 = !{!"", !8, i64 0, !12, i64 32}
-!103 = !{!"ConnectBits", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 4}
-!104 = !{!"p1 _ZTS12Curl_handler", !7, i64 0}
-!105 = !{!"ntlmdata", !12, i64 0, !8, i64 4, !12, i64 12, !7, i64 16}
-!106 = !{!98, !10, i64 64}
-!107 = !{!108, !10, i64 32}
-!108 = !{!"cpool_bundle", !13, i64 0, !10, i64 32, !8, i64 40}
-!109 = !{!4, !10, i64 48}
-!110 = !{i8 0, i8 2}
-!111 = !{}
-!112 = !{i64 0, i64 8, !113, i64 8, i64 128, !113, i64 136, i64 4, !114, i64 144, i64 8, !83}
-!113 = !{!8, !8, i64 0}
-!114 = !{!12, !12, i64 0}
-!115 = distinct !{!115, !96}
-!116 = distinct !{!116, !96}
-!117 = !{!118, !119, i64 0}
-!118 = !{!"curl_pollfds", !119, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!119 = !{!"p1 _ZTS6pollfd", !7, i64 0}
-!120 = !{!118, !12, i64 8}
-!121 = distinct !{!121, !96}
-!122 = !{!21, !28, i64 192}
-!123 = !{!21, !16, i64 216}
-!124 = !{!4, !10, i64 64}
-!125 = !{!21, !10, i64 8}
-!126 = !{!21, !10, i64 3144}
-!127 = !{!21, !12, i64 2528}
-!128 = !{!21, !12, i64 2540}
-!129 = !{!130, !10, i64 576}
-!130 = !{!"Curl_multi", !12, i64 0, !12, i64 4, !12, i64 8, !13, i64 16, !13, i64 48, !13, i64 80, !13, i64 112, !10, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !5, i64 184, !62, i64 232, !91, i64 240, !69, i64 264, !36, i64 272, !10, i64 280, !36, i64 288, !10, i64 296, !36, i64 304, !10, i64 312, !5, i64 320, !5, i64 368, !4, i64 416, !10, i64 576, !10, i64 584, !7, i64 592, !7, i64 600, !10, i64 608, !11, i64 616, !8, i64 632, !12, i64 640, !12, i64 644, !8, i64 648, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649}
-!131 = !{!130, !10, i64 584}
-!132 = distinct !{!132, !96}
-!133 = distinct !{!133, !96}
-!134 = !{!21, !72, i64 4864}
-!135 = !{!136, !12, i64 8}
-!136 = !{!"curl_trc_feat", !36, i64 0, !12, i64 8}
-!137 = !{!98, !10, i64 48}
-!138 = !{!98, !8, i64 1413}
-!139 = distinct !{!139, !96}
-!140 = distinct !{!140, !96}
-!141 = !{!4, !10, i64 56}
-!142 = !{!130, !12, i64 644}
-!143 = !{!130, !12, i64 4}
-!144 = !{!10, !10, i64 0}
-!145 = !{!88, !88, i64 0}
-!146 = !{!130, !7, i64 152}
-!147 = !{!98, !66, i64 72}
-!148 = !{!98, !104, i64 960}
-!149 = !{!150, !7, i64 96}
-!150 = !{!"Curl_handler", !36, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !12, i64 144, !12, i64 148, !12, i64 152, !12, i64 156}
-!151 = distinct !{!151, !96}
-!152 = distinct !{!152, !96}
-!153 = !{!26, !12, i64 20}
-!154 = distinct !{!154, !96}
-!155 = distinct !{!155, !96}
-!156 = !{!130, !17, i64 552}
-!157 = !{!130, !15, i64 536}
-!158 = distinct !{!158, !96}
-!159 = distinct !{!159, !96}
-!160 = distinct !{!160, !96}
-!161 = distinct !{!161, !96}
-!162 = !{i64 0, i64 8, !144, i64 8, i64 4, !114}
-!163 = distinct !{!163, !96}
+!97 = !{!"llvm.loop.estimated_trip_count"}
+!98 = !{!99, !36, i64 56}
+!99 = !{!"connectdata", !23, i64 0, !7, i64 32, !7, i64 40, !10, i64 48, !36, i64 56, !10, i64 64, !66, i64 72, !100, i64 80, !101, i64 88, !36, i64 120, !36, i64 128, !101, i64 136, !102, i64 168, !102, i64 224, !77, i64 280, !77, i64 380, !36, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !36, i64 512, !11, i64 520, !11, i64 536, !11, i64 552, !8, i64 568, !8, i64 576, !8, i64 592, !8, i64 608, !103, i64 624, !26, i64 664, !49, i64 696, !49, i64 824, !104, i64 952, !105, i64 960, !105, i64 968, !11, i64 976, !12, i64 992, !12, i64 996, !13, i64 1000, !12, i64 1032, !12, i64 1036, !106, i64 1040, !106, i64 1064, !8, i64 1088, !36, i64 1368, !36, i64 1376, !51, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !51, i64 1404, !51, i64 1406, !8, i64 1408, !8, i64 1409, !8, i64 1410, !8, i64 1411, !8, i64 1412, !8, i64 1413, !8, i64 1414}
+!100 = !{!"p1 _ZTS16Curl_sockaddr_ex", !7, i64 0}
+!101 = !{!"hostname", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24}
+!102 = !{!"proxy_info", !101, i64 0, !12, i64 32, !8, i64 36, !36, i64 40, !36, i64 48}
+!103 = !{!"", !8, i64 0, !12, i64 32}
+!104 = !{!"ConnectBits", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 4}
+!105 = !{!"p1 _ZTS12Curl_handler", !7, i64 0}
+!106 = !{!"ntlmdata", !12, i64 0, !8, i64 4, !12, i64 12, !7, i64 16}
+!107 = !{!99, !10, i64 64}
+!108 = !{!109, !10, i64 32}
+!109 = !{!"cpool_bundle", !13, i64 0, !10, i64 32, !8, i64 40}
+!110 = !{!4, !10, i64 48}
+!111 = !{i8 0, i8 2}
+!112 = !{}
+!113 = !{i64 0, i64 8, !114, i64 8, i64 128, !114, i64 136, i64 4, !115, i64 144, i64 8, !83}
+!114 = !{!8, !8, i64 0}
+!115 = !{!12, !12, i64 0}
+!116 = distinct !{!116, !96, !97}
+!117 = distinct !{!117, !96, !97}
+!118 = !{!119, !120, i64 0}
+!119 = !{!"curl_pollfds", !120, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!120 = !{!"p1 _ZTS6pollfd", !7, i64 0}
+!121 = !{!119, !12, i64 8}
+!122 = distinct !{!122, !97}
+!123 = distinct !{!123, !96, !97}
+!124 = !{!21, !28, i64 192}
+!125 = !{!21, !16, i64 216}
+!126 = !{!4, !10, i64 64}
+!127 = !{!21, !10, i64 8}
+!128 = !{!21, !10, i64 3144}
+!129 = !{!21, !12, i64 2528}
+!130 = !{!21, !12, i64 2540}
+!131 = !{!132, !10, i64 576}
+!132 = !{!"Curl_multi", !12, i64 0, !12, i64 4, !12, i64 8, !13, i64 16, !13, i64 48, !13, i64 80, !13, i64 112, !10, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !5, i64 184, !62, i64 232, !91, i64 240, !69, i64 264, !36, i64 272, !10, i64 280, !36, i64 288, !10, i64 296, !36, i64 304, !10, i64 312, !5, i64 320, !5, i64 368, !4, i64 416, !10, i64 576, !10, i64 584, !7, i64 592, !7, i64 600, !10, i64 608, !11, i64 616, !8, i64 632, !12, i64 640, !12, i64 644, !8, i64 648, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649, !12, i64 649}
+!133 = !{!132, !10, i64 584}
+!134 = distinct !{!134, !96, !97}
+!135 = distinct !{!135, !96, !97}
+!136 = distinct !{!136, !97}
+!137 = distinct !{!137, !97}
+!138 = !{!21, !72, i64 4864}
+!139 = !{!140, !12, i64 8}
+!140 = !{!"curl_trc_feat", !36, i64 0, !12, i64 8}
+!141 = !{!99, !10, i64 48}
+!142 = !{!99, !8, i64 1413}
+!143 = distinct !{!143, !96, !97}
+!144 = distinct !{!144, !96, !97}
+!145 = !{!4, !10, i64 56}
+!146 = !{!132, !12, i64 644}
+!147 = !{!132, !12, i64 4}
+!148 = !{!10, !10, i64 0}
+!149 = distinct !{!149, !97}
+!150 = !{!88, !88, i64 0}
+!151 = !{!132, !7, i64 152}
+!152 = !{!99, !66, i64 72}
+!153 = !{!99, !105, i64 960}
+!154 = !{!155, !7, i64 96}
+!155 = !{!"Curl_handler", !36, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !12, i64 144, !12, i64 148, !12, i64 152, !12, i64 156}
+!156 = distinct !{!156, !96, !97}
+!157 = distinct !{!157, !96, !97}
+!158 = !{!26, !12, i64 20}
+!159 = distinct !{!159, !96, !97}
+!160 = distinct !{!160, !96, !97}
+!161 = !{!132, !17, i64 552}
+!162 = !{!132, !15, i64 536}
+!163 = distinct !{!163, !96, !97}
+!164 = distinct !{!164, !96, !97}
+!165 = distinct !{!165, !96, !97}
+!166 = distinct !{!166, !96, !97}
+!167 = !{i64 0, i64 8, !148, i64 8, i64 4, !115}
+!168 = distinct !{!168, !97}

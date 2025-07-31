@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly captures(address_is_
   %40 = fdiv double %36, %38
   store double %40, ptr %39, align 8, !tbaa !16
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %.loopexit, label %.lr.ph39, !llvm.loop !20
+  br i1 %exitcond45.not, label %.loopexit, label %.lr.ph39, !llvm.loop !21
 
 .loopexit:                                        ; preds = %._crit_edge, %8, %2, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %._crit_edge ]
@@ -113,6 +113,7 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !15 = !{!5, !5, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}

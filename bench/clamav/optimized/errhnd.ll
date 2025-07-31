@@ -62,7 +62,7 @@ _ZN12ErrorHandler14MemoryErrorMsgEv.exit:         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store i32 7, ptr %6, align 8, !tbaa !17
+  store i32 7, ptr %6, align 8, !tbaa !18
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #18
   store i32 8, ptr %0, align 4, !tbaa !3
@@ -76,7 +76,7 @@ _ZN12ErrorHandler14MemoryErrorMsgEv.exit:         ; preds = %3
   %11 = add i32 %10, 1
   store i32 %11, ptr %7, align 4, !tbaa !10
   %12 = call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 8, ptr %12, align 16, !tbaa !20
+  store i32 8, ptr %12, align 16, !tbaa !21
   call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 }
@@ -99,7 +99,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store i32 7, ptr %6, align 8, !tbaa !17
+  store i32 7, ptr %6, align 8, !tbaa !18
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #18
   store i32 8, ptr %0, align 4, !tbaa !3
@@ -122,7 +122,7 @@ define void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 captur
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !tbaa !11, !range !21, !noundef !22
+  %6 = load i8, ptr %5, align 4, !tbaa !11, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.split3.i, label %_ZN12ErrorHandler5ThrowE8RAR_EXIT.exit
 
@@ -144,7 +144,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit.i: ; preds = %.sink.split.i.i, %.
 
 13:                                               ; preds = %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit.i, %.split.i
   %14 = tail call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 %1, ptr %14, align 16, !tbaa !20
+  store i32 %1, ptr %14, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 
@@ -161,7 +161,7 @@ define void @_ZN12ErrorHandler9OpenErrorEPKw(ptr noundef nonnull readnone align 
 define void @_ZN12ErrorHandler10CloseErrorEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !23, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !24, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %13, label %7
 
@@ -181,9 +181,9 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  store i32 10, ptr %11, align 8, !tbaa !17
+  store i32 10, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 1, ptr %12, align 8, !tbaa !24
+  store i32 1, ptr %12, align 8, !tbaa !25
   store ptr %1, ptr %3, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #18
@@ -257,7 +257,7 @@ define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr noundef nonnull align 4 capture
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4, !tbaa !10
   %6 = tail call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 12, ptr %6, align 16, !tbaa !20
+  store i32 12, ptr %6, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 }
@@ -269,7 +269,7 @@ define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull al
   %7 = load i32, ptr %6, align 4, !tbaa !10
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !10
-  store i8 1, ptr %2, align 1, !tbaa !25
+  store i8 1, ptr %2, align 1, !tbaa !26
   ret void
 }
 
@@ -282,7 +282,7 @@ define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr noundef nonnull align 4 ca
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 4, !tbaa !10
   %7 = tail call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 5, ptr %7, align 16, !tbaa !20
+  store i32 5, ptr %7, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 }
@@ -296,7 +296,7 @@ define noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr noundef no
 define void @_ZN12ErrorHandler9SeekErrorEPKw(ptr noundef nonnull align 4 captures(none) dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !23, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !24, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %13, label %7
 
@@ -316,9 +316,9 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  store i32 11, ptr %11, align 8, !tbaa !17
+  store i32 11, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 1, ptr %12, align 8, !tbaa !24
+  store i32 1, ptr %12, align 8, !tbaa !25
   store ptr %1, ptr %3, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #18
@@ -340,7 +340,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %13, %.sink.split.i
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !10
   %18 = call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 2, ptr %18, align 16, !tbaa !20
+  store i32 2, ptr %18, align 16, !tbaa !21
   call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 }
@@ -369,9 +369,9 @@ _Z5uiMsgIJRA1024_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  store i32 1, ptr %10, align 8, !tbaa !17
+  store i32 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 1, ptr %11, align 8, !tbaa !24
+  store i32 1, ptr %11, align 8, !tbaa !25
   store ptr %5, ptr %3, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #18
@@ -414,10 +414,10 @@ _ZN12ErrorHandler12OpenErrorMsgEPKwS1_.exit:      ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store i32 8, ptr %7, align 8, !tbaa !17
+  store i32 8, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8, !tbaa !12
-  store i32 2, ptr %8, align 8, !tbaa !24
+  store i32 2, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -449,10 +449,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 8, ptr %8, align 8, !tbaa !17
+  store i32 8, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -486,10 +486,10 @@ _ZN12ErrorHandler14CreateErrorMsgEPKwS1_.exit:    ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store i32 9, ptr %7, align 8, !tbaa !17
+  store i32 9, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8, !tbaa !12
-  store i32 2, ptr %8, align 8, !tbaa !24
+  store i32 2, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -520,10 +520,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 9, ptr %8, align 8, !tbaa !17
+  store i32 9, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -554,10 +554,10 @@ _ZN12ErrorHandler12ReadErrorMsgEPKwS1_.exit:      ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store i32 12, ptr %7, align 8, !tbaa !17
+  store i32 12, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8, !tbaa !12
-  store i32 2, ptr %8, align 8, !tbaa !24
+  store i32 2, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -588,10 +588,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 12, ptr %8, align 8, !tbaa !17
+  store i32 12, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -622,10 +622,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 13, ptr %8, align 8, !tbaa !17
+  store i32 13, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -656,9 +656,9 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store i32 25, ptr %7, align 8, !tbaa !17
+  store i32 25, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 1, ptr %8, align 8, !tbaa !24
+  store i32 1, ptr %8, align 8, !tbaa !25
   store ptr %1, ptr %3, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #18
@@ -696,10 +696,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 3, ptr %8, align 8, !tbaa !17
+  store i32 3, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -738,10 +738,10 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  store i32 33, ptr %8, align 8, !tbaa !17
+  store i32 33, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8, !tbaa !12
-  store i32 2, ptr %9, align 8, !tbaa !24
+  store i32 2, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !12
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -774,7 +774,7 @@ define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr noundef nonnull align 4 captu
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 4, !tbaa !11, !range !21, !noundef !22
+  %6 = load i8, ptr %5, align 4, !tbaa !11, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.split3, label %13
 
@@ -799,18 +799,18 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %.split3, %.sink.spl
 
 14:                                               ; preds = %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit, %.split
   %15 = tail call ptr @__cxa_allocate_exception(i64 4) #18
-  store i32 %1, ptr %15, align 16, !tbaa !20
+  store i32 %1, ptr %15, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTI8RAR_EXIT, ptr null) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z13ProcessSignali(i32 %0) #10 {
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 12), align 4, !tbaa !23
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 10), align 2, !tbaa !26
-  %2 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4, !tbaa !27
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 12), align 4, !tbaa !24
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 10), align 2, !tbaa !27
+  %2 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4, !tbaa !28
   %3 = add i32 %2, 1
-  store i32 %3, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4, !tbaa !27
+  store i32 %3, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4, !tbaa !28
   %4 = icmp ugt i32 %3, 1
   br i1 %4, label %5, label %6
 
@@ -852,7 +852,7 @@ define noundef zeroext i1 @_ZN12ErrorHandler12GetSysErrMsgEPwm(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN12ErrorHandler18GetSystemErrorCodeEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0) local_unnamed_addr #14 align 2 {
   %2 = tail call ptr @__errno_location() #21
-  %3 = load i32, ptr %2, align 4, !tbaa !27
+  %3 = load i32, ptr %2, align 4, !tbaa !28
   ret i32 %3
 }
 
@@ -862,7 +862,7 @@ declare ptr @__errno_location() local_unnamed_addr #15
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define void @_ZN12ErrorHandler18SetSystemErrorCodeEi(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(14) %0, i32 noundef %1) local_unnamed_addr #16 align 2 {
   %3 = tail call ptr @__errno_location() #21
-  store i32 %1, ptr %3, align 4, !tbaa !27
+  store i32 %1, ptr %3, align 4, !tbaa !28
   ret void
 }
 
@@ -911,16 +911,17 @@ attributes #21 = { nounwind willreturn memory(none) }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 wchar_t", !14, i64 0}
 !14 = !{!"any pointer", !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !19, i64 104}
-!18 = !{!"_ZTS10uiMsgStore", !6, i64 0, !6, i64 64, !8, i64 96, !8, i64 100, !19, i64 104}
-!19 = !{!"_ZTS14UIMESSAGE_CODE", !6, i64 0}
-!20 = !{!5, !5, i64 0}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{!4, !9, i64 12}
-!24 = !{!18, !8, i64 96}
-!25 = !{!9, !9, i64 0}
-!26 = !{!4, !9, i64 10}
-!27 = !{!8, !8, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !20, i64 104}
+!19 = !{!"_ZTS10uiMsgStore", !6, i64 0, !6, i64 64, !8, i64 96, !8, i64 100, !20, i64 104}
+!20 = !{!"_ZTS14UIMESSAGE_CODE", !6, i64 0}
+!21 = !{!5, !5, i64 0}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{!4, !9, i64 12}
+!25 = !{!19, !8, i64 96}
+!26 = !{!9, !9, i64 0}
+!27 = !{!4, !9, i64 10}
+!28 = !{!8, !8, i64 0}

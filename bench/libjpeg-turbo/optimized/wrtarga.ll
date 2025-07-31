@@ -341,7 +341,7 @@ define internal void @calc_buffer_dimensions_tga(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %6 = load i32, ptr %5, align 4, !tbaa !64
+  %6 = load i32, ptr %5, align 4, !tbaa !65
   %7 = mul i32 %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %7, ptr %8, align 8, !tbaa !47
@@ -384,7 +384,7 @@ define internal void @put_demapped_gray(ptr noundef readonly captures(none) %0, 
   store i8 %18, ptr %.01315, align 1, !tbaa !35
   %20 = add i32 %.017, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %7, align 8, !tbaa !48
@@ -458,7 +458,7 @@ define internal void @put_pixel_rows(ptr noundef readonly captures(none) %0, ptr
   %19 = getelementptr inbounds nuw i8, ptr %.01620, i64 3
   %20 = add i32 %.021, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %4, align 8, !tbaa !48
@@ -565,8 +565,9 @@ attributes #9 = { nounwind }
 !59 = !{!41, !43, i64 32}
 !60 = !{!5, !15, i64 160}
 !61 = !{!19, !19, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!5, !12, i64 148}
-!65 = distinct !{!65, !63}
-!66 = distinct !{!66, !63}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!5, !12, i64 148}
+!66 = distinct !{!66, !63, !64}
+!67 = distinct !{!67, !63, !64}

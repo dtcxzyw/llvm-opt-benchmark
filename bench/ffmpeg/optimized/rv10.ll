@@ -1431,7 +1431,7 @@ rv10_decode_packet.exit:                          ; preds = %643, %645, %.._crit
   %spec.select = select i1 %656, i32 %31, i32 %.094166
   %657 = add nsw i32 %spec.select, 1
   %.not110.not = icmp slt i32 %spec.select, %14
-  br i1 %.not110.not, label %25, label %658, !llvm.loop !120
+  br i1 %.not110.not, label %25, label %658, !llvm.loop !121
 
 658:                                              ; preds = %655
   %659 = getelementptr inbounds nuw i8, ptr %8, i64 1160
@@ -1484,9 +1484,9 @@ rv10_decode_packet.exit:                          ; preds = %643, %645, %.._crit
 
 .sink.split:                                      ; preds = %683, %675
   %.sink302.in = phi ptr [ %660, %675 ], [ %681, %683 ]
-  %.sink302 = load ptr, ptr %.sink302.in, align 8, !tbaa !121
+  %.sink302 = load ptr, ptr %.sink302.in, align 8, !tbaa !122
   tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink302, ptr noundef %1) #8
-  %.sink = load ptr, ptr %.sink302.in, align 8, !tbaa !121
+  %.sink = load ptr, ptr %.sink302.in, align 8, !tbaa !122
   %687 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %.sink, i32 noundef 0) #8
   br label %688
 
@@ -1534,13 +1534,13 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold nounwind optsize uwtable
 define internal void @rv10_init_static() #3 {
   store ptr @rv10_init_static.table, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  store i32 1472, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 20), align 4, !tbaa !122
+  store i32 1472, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 20), align 4, !tbaa !123
   tail call fastcc void @rv10_build_vlc(ptr noundef nonnull @rv_dc_lum, ptr noundef nonnull @rv_lum_len_count, i32 noundef 19) #11
   br label %4
 
 .critedge:                                        ; preds = %4
   store ptr getelementptr inbounds nuw (i8, ptr @rv10_init_static.table, i64 5888), ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
-  store i32 992, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 20), align 4, !tbaa !122
+  store i32 992, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 20), align 4, !tbaa !123
   tail call fastcc void @rv10_build_vlc(ptr noundef nonnull @rv_dc_chrom, ptr noundef nonnull @rv_chrom_len_count, i32 noundef 17) #11
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2040
@@ -1560,7 +1560,7 @@ define internal void @rv10_init_static() #3 {
   store i16 18, ptr %9, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !123
+  br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !124
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
@@ -1592,7 +1592,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %.1.lcssa = phi i32 [ %.05, %6 ], [ %18, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !124
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !125
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.13 = phi i32 [ %18, %.lr.ph ], [ %.05, %.lr.ph.preheader ]
@@ -1601,10 +1601,10 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %15 = and i16 %.0272, 255
   %16 = zext i32 %.13 to i64
   %17 = getelementptr inbounds nuw [1023 x i16], ptr %4, i64 0, i64 %16
-  store i16 %15, ptr %17, align 2, !tbaa !125
+  store i16 %15, ptr %17, align 2, !tbaa !126
   %18 = add i32 %.13, 1
   %.not = icmp ugt i32 %18, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 19:                                               ; preds = %._crit_edge9
   %20 = call i32 @ff_vlc_init_from_lengths(ptr noundef %0, i32 noundef 9, i32 noundef %.126.lcssa, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 3, ptr noundef null) #8
@@ -1616,7 +1616,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge9 ], [ 0, %._crit_edge ]
   %.02511 = phi i32 [ %.126.lcssa, %._crit_edge9 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv20
-  %22 = load i16, ptr %21, align 2, !tbaa !125
+  %22 = load i16, ptr %21, align 2, !tbaa !126
   %23 = zext i16 %22 to i32
   %24 = add i32 %.02511, %23
   %25 = icmp ult i32 %.02511, %24
@@ -1638,7 +1638,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %.126.lcssa = phi i32 [ %.02511, %.preheader ], [ %32, %.lr.ph8 ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 15
-  br i1 %exitcond23.not, label %19, label %.preheader, !llvm.loop !127
+  br i1 %exitcond23.not, label %19, label %.preheader, !llvm.loop !128
 }
 
 declare i32 @ff_vlc_init_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1834,13 +1834,14 @@ attributes #11 = { cold }
 !115 = !{!18, !10, i64 2968}
 !116 = !{!18, !10, i64 2972}
 !117 = !{!18, !28, i64 4288}
-!118 = distinct !{!118, !119}
+!118 = distinct !{!118, !119, !120}
 !119 = !{!"llvm.loop.mustprogress"}
-!120 = distinct !{!120, !119}
-!121 = !{!26, !26, i64 0}
-!122 = !{!15, !10, i64 20}
-!123 = distinct !{!123, !119}
-!124 = distinct !{!124, !119}
-!125 = !{!37, !37, i64 0}
-!126 = distinct !{!126, !119}
-!127 = distinct !{!127, !119}
+!120 = !{!"llvm.loop.estimated_trip_count"}
+!121 = distinct !{!121, !119, !120}
+!122 = !{!26, !26, i64 0}
+!123 = !{!15, !10, i64 20}
+!124 = distinct !{!124, !119, !120}
+!125 = distinct !{!125, !119, !120}
+!126 = !{!37, !37, i64 0}
+!127 = distinct !{!127, !119, !120}
+!128 = distinct !{!128, !119, !120}

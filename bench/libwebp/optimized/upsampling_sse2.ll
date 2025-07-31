@@ -327,15 +327,15 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %247 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %241
   %248 = load i8, ptr %247, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %246, i8 %248, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !10, !noalias !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !11, !noalias !18
   %250 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !10, !noalias !17
-  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !13, !noalias !18
+  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !11, !noalias !18
+  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !14, !noalias !19
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !13, !noalias !18
+  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !14, !noalias !19
   %255 = bitcast <2 x i64> %249 to <16 x i8>
   %256 = bitcast <2 x i64> %254 to <16 x i8>
   %257 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %256)
@@ -370,17 +370,17 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %283 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %258, <16 x i8> %281)
   %284 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %285 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !16, !noalias !20
   %286 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !16, !noalias !20
   %287 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %259, <16 x i8> %281)
   %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %275)
   %289 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %290 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %291 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !16, !noalias !20
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !15, !noalias !19
+  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !16, !noalias !20
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -397,15 +397,15 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %299 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %241
   %300 = load i8, ptr %299, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 %300, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !20, !noalias !27
+  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !21, !noalias !28
   %302 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !20, !noalias !27
-  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !23, !noalias !28
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !21, !noalias !28
+  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !24, !noalias !29
   %305 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !23, !noalias !28
+  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !24, !noalias !29
   %307 = bitcast <2 x i64> %301 to <16 x i8>
   %308 = bitcast <2 x i64> %306 to <16 x i8>
   %309 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %308)
@@ -440,17 +440,17 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %335 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %310, <16 x i8> %333)
   %336 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %337 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !26, !noalias !30
   %338 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !26, !noalias !30
   %339 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %311, <16 x i8> %333)
   %340 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %327)
   %341 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %342 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %343 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !26, !noalias !30
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !25, !noalias !29
+  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !26, !noalias !30
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %345 = zext nneg i32 %.0255.lcssa to i64
@@ -758,7 +758,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %225 = add i32 %224, 33
   %.not259 = icmp sgt i32 %225, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !30
+  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %223
   %226 = trunc nuw nsw i64 %indvars.iv to i32
@@ -797,15 +797,15 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %247 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %241
   %248 = load i8, ptr %247, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %246, i8 %248, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !31, !noalias !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !32, !noalias !39
   %250 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !31, !noalias !38
-  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !34, !noalias !39
+  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !32, !noalias !39
+  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !35, !noalias !40
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !34, !noalias !39
+  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !35, !noalias !40
   %255 = bitcast <2 x i64> %249 to <16 x i8>
   %256 = bitcast <2 x i64> %254 to <16 x i8>
   %257 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %256)
@@ -840,17 +840,17 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %283 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %258, <16 x i8> %281)
   %284 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %285 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !37, !noalias !41
   %286 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !37, !noalias !41
   %287 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %259, <16 x i8> %281)
   %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %275)
   %289 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %290 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %291 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !37, !noalias !41
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !36, !noalias !40
+  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !37, !noalias !41
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -867,15 +867,15 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %299 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %241
   %300 = load i8, ptr %299, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 %300, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !41, !noalias !48
+  call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !42, !noalias !49
   %302 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !41, !noalias !48
-  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !44, !noalias !49
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !42, !noalias !49
+  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !45, !noalias !50
   %305 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !44, !noalias !49
+  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !45, !noalias !50
   %307 = bitcast <2 x i64> %301 to <16 x i8>
   %308 = bitcast <2 x i64> %306 to <16 x i8>
   %309 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %308)
@@ -910,17 +910,17 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %335 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %310, <16 x i8> %333)
   %336 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %337 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !47, !noalias !51
   %338 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !47, !noalias !51
   %339 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %311, <16 x i8> %333)
   %340 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %327)
   %341 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %342 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %343 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !47, !noalias !51
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !46, !noalias !50
+  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !47, !noalias !51
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %345 = zext nneg i32 %.0255.lcssa to i64
@@ -1224,7 +1224,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %223 = add i32 %222, 33
   %.not259 = icmp sgt i32 %223, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !51
+  br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %221
   %224 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1263,15 +1263,15 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %245 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %239
   %246 = load i8, ptr %245, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 %246, i64 %243, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !52, !noalias !59
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !53, !noalias !60
   %248 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !52, !noalias !59
-  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !55, !noalias !60
+  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !53, !noalias !60
+  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !56, !noalias !61
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !55, !noalias !60
+  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !56, !noalias !61
   %253 = bitcast <2 x i64> %247 to <16 x i8>
   %254 = bitcast <2 x i64> %252 to <16 x i8>
   %255 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %254)
@@ -1306,17 +1306,17 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %279)
   %282 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %283 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !57, !noalias !61
+  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !58, !noalias !62
   %284 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !57, !noalias !61
+  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !58, !noalias !62
   %285 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %257, <16 x i8> %279)
   %286 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %254, <16 x i8> %273)
   %287 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %288 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %289 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !57, !noalias !61
+  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !58, !noalias !62
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !57, !noalias !61
+  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !58, !noalias !62
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -1333,15 +1333,15 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %297 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %239
   %298 = load i8, ptr %297, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %296, i8 %298, i64 %243, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !62, !noalias !69
+  call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !63, !noalias !70
   %300 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !62, !noalias !69
-  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !65, !noalias !70
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !63, !noalias !70
+  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !66, !noalias !71
   %303 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !65, !noalias !70
+  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !66, !noalias !71
   %305 = bitcast <2 x i64> %299 to <16 x i8>
   %306 = bitcast <2 x i64> %304 to <16 x i8>
   %307 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %306)
@@ -1376,17 +1376,17 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %331)
   %334 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %335 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !67, !noalias !71
+  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !68, !noalias !72
   %336 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !67, !noalias !71
+  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !68, !noalias !72
   %337 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %309, <16 x i8> %331)
   %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %306, <16 x i8> %325)
   %339 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %340 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %341 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !67, !noalias !71
+  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !68, !noalias !72
   %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !67, !noalias !71
+  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !68, !noalias !72
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %343 = zext nneg i32 %.0255.lcssa to i64
@@ -1690,7 +1690,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %223 = add i32 %222, 33
   %.not259 = icmp sgt i32 %223, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !72
+  br i1 %.not259, label %._crit_edge.loopexit, label %128, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %221
   %224 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1729,15 +1729,15 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %245 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %239
   %246 = load i8, ptr %245, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 %246, i64 %243, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !73, !noalias !80
+  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %247 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !74, !noalias !81
   %248 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !73, !noalias !80
-  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !76, !noalias !81
+  %249 = load <2 x i64>, ptr %248, align 1, !tbaa !7, !alias.scope !74, !noalias !81
+  %250 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !77, !noalias !82
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !76, !noalias !81
+  %252 = load <2 x i64>, ptr %251, align 1, !tbaa !7, !alias.scope !77, !noalias !82
   %253 = bitcast <2 x i64> %247 to <16 x i8>
   %254 = bitcast <2 x i64> %252 to <16 x i8>
   %255 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %253, <16 x i8> %254)
@@ -1772,17 +1772,17 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %281 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %279)
   %282 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %283 = shufflevector <16 x i8> %280, <16 x i8> %281, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !78, !noalias !82
+  store <16 x i8> %282, ptr %18, align 16, !tbaa !7, !alias.scope !79, !noalias !83
   %284 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !78, !noalias !82
+  store <16 x i8> %283, ptr %284, align 16, !tbaa !7, !alias.scope !79, !noalias !83
   %285 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %257, <16 x i8> %279)
   %286 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %254, <16 x i8> %273)
   %287 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %288 = shufflevector <16 x i8> %285, <16 x i8> %286, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %289 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !78, !noalias !82
+  store <16 x i8> %287, ptr %289, align 16, !tbaa !7, !alias.scope !79, !noalias !83
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !78, !noalias !82
+  store <16 x i8> %288, ptr %290, align 16, !tbaa !7, !alias.scope !79, !noalias !83
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -1799,15 +1799,15 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %297 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %239
   %298 = load i8, ptr %297, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %296, i8 %298, i64 %243, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !83, !noalias !90
+  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  %299 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !84, !noalias !91
   %300 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !83, !noalias !90
-  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !86, !noalias !91
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !7, !alias.scope !84, !noalias !91
+  %302 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !87, !noalias !92
   %303 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !86, !noalias !91
+  %304 = load <2 x i64>, ptr %303, align 1, !tbaa !7, !alias.scope !87, !noalias !92
   %305 = bitcast <2 x i64> %299 to <16 x i8>
   %306 = bitcast <2 x i64> %304 to <16 x i8>
   %307 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %305, <16 x i8> %306)
@@ -1842,17 +1842,17 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noalias noundef %0, ptr noali
   %333 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %331)
   %334 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %335 = shufflevector <16 x i8> %332, <16 x i8> %333, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !88, !noalias !92
+  store <16 x i8> %334, ptr %19, align 16, !tbaa !7, !alias.scope !89, !noalias !93
   %336 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !88, !noalias !92
+  store <16 x i8> %335, ptr %336, align 16, !tbaa !7, !alias.scope !89, !noalias !93
   %337 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %309, <16 x i8> %331)
   %338 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %306, <16 x i8> %325)
   %339 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %340 = shufflevector <16 x i8> %337, <16 x i8> %338, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %341 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !88, !noalias !92
+  store <16 x i8> %339, ptr %341, align 16, !tbaa !7, !alias.scope !89, !noalias !93
   %342 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !88, !noalias !92
+  store <16 x i8> %340, ptr %342, align 16, !tbaa !7, !alias.scope !89, !noalias !93
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %343 = zext nneg i32 %.0255.lcssa to i64
@@ -2160,7 +2160,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %225 = add i32 %224, 33
   %.not259 = icmp sgt i32 %225, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !93
+  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !94
 
 ._crit_edge.loopexit:                             ; preds = %223
   %226 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2199,15 +2199,15 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %247 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %241
   %248 = load i8, ptr %247, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %246, i8 %248, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !94, !noalias !101
+  call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !95, !noalias !102
   %250 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !94, !noalias !101
-  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !97, !noalias !102
+  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !95, !noalias !102
+  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !98, !noalias !103
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !97, !noalias !102
+  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !98, !noalias !103
   %255 = bitcast <2 x i64> %249 to <16 x i8>
   %256 = bitcast <2 x i64> %254 to <16 x i8>
   %257 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %256)
@@ -2242,17 +2242,17 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %283 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %258, <16 x i8> %281)
   %284 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %285 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !99, !noalias !103
+  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !100, !noalias !104
   %286 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !99, !noalias !103
+  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !100, !noalias !104
   %287 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %259, <16 x i8> %281)
   %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %275)
   %289 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %290 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %291 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !99, !noalias !103
+  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !100, !noalias !104
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !99, !noalias !103
+  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !100, !noalias !104
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -2269,15 +2269,15 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %299 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %241
   %300 = load i8, ptr %299, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 %300, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !104, !noalias !111
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !105, !noalias !112
   %302 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !104, !noalias !111
-  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !107, !noalias !112
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !105, !noalias !112
+  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !108, !noalias !113
   %305 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !107, !noalias !112
+  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !108, !noalias !113
   %307 = bitcast <2 x i64> %301 to <16 x i8>
   %308 = bitcast <2 x i64> %306 to <16 x i8>
   %309 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %308)
@@ -2312,17 +2312,17 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noalias noundef %0, ptr noal
   %335 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %310, <16 x i8> %333)
   %336 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %337 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !109, !noalias !113
+  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !110, !noalias !114
   %338 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !109, !noalias !113
+  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !110, !noalias !114
   %339 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %311, <16 x i8> %333)
   %340 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %327)
   %341 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %342 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %343 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !109, !noalias !113
+  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !110, !noalias !114
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !109, !noalias !113
+  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !110, !noalias !114
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %345 = zext nneg i32 %.0255.lcssa to i64
@@ -2632,7 +2632,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %231 = add i32 %230, 33
   %.not259 = icmp sgt i32 %231, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %136, !llvm.loop !114
+  br i1 %.not259, label %._crit_edge.loopexit, label %136, !llvm.loop !115
 
 ._crit_edge.loopexit:                             ; preds = %229
   %232 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2671,15 +2671,15 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %253 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %247
   %254 = load i8, ptr %253, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %252, i8 %254, i64 %251, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %255 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !115, !noalias !122
+  call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  call void @llvm.experimental.noalias.scope.decl(metadata !121)
+  %255 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !116, !noalias !123
   %256 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %257 = load <2 x i64>, ptr %256, align 1, !tbaa !7, !alias.scope !115, !noalias !122
-  %258 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !118, !noalias !123
+  %257 = load <2 x i64>, ptr %256, align 1, !tbaa !7, !alias.scope !116, !noalias !123
+  %258 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !119, !noalias !124
   %259 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %260 = load <2 x i64>, ptr %259, align 1, !tbaa !7, !alias.scope !118, !noalias !123
+  %260 = load <2 x i64>, ptr %259, align 1, !tbaa !7, !alias.scope !119, !noalias !124
   %261 = bitcast <2 x i64> %255 to <16 x i8>
   %262 = bitcast <2 x i64> %260 to <16 x i8>
   %263 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %261, <16 x i8> %262)
@@ -2714,17 +2714,17 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %289 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %264, <16 x i8> %287)
   %290 = shufflevector <16 x i8> %288, <16 x i8> %289, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %291 = shufflevector <16 x i8> %288, <16 x i8> %289, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %290, ptr %18, align 16, !tbaa !7, !alias.scope !120, !noalias !124
+  store <16 x i8> %290, ptr %18, align 16, !tbaa !7, !alias.scope !121, !noalias !125
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %291, ptr %292, align 16, !tbaa !7, !alias.scope !120, !noalias !124
+  store <16 x i8> %291, ptr %292, align 16, !tbaa !7, !alias.scope !121, !noalias !125
   %293 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %265, <16 x i8> %287)
   %294 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %262, <16 x i8> %281)
   %295 = shufflevector <16 x i8> %293, <16 x i8> %294, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %296 = shufflevector <16 x i8> %293, <16 x i8> %294, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %297 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %295, ptr %297, align 16, !tbaa !7, !alias.scope !120, !noalias !124
+  store <16 x i8> %295, ptr %297, align 16, !tbaa !7, !alias.scope !121, !noalias !125
   %298 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %296, ptr %298, align 16, !tbaa !7, !alias.scope !120, !noalias !124
+  store <16 x i8> %296, ptr %298, align 16, !tbaa !7, !alias.scope !121, !noalias !125
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -2741,15 +2741,15 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %305 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %247
   %306 = load i8, ptr %305, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %304, i8 %306, i64 %251, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %307 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !125, !noalias !132
+  call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  %307 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !126, !noalias !133
   %308 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %309 = load <2 x i64>, ptr %308, align 1, !tbaa !7, !alias.scope !125, !noalias !132
-  %310 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !128, !noalias !133
+  %309 = load <2 x i64>, ptr %308, align 1, !tbaa !7, !alias.scope !126, !noalias !133
+  %310 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !129, !noalias !134
   %311 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %312 = load <2 x i64>, ptr %311, align 1, !tbaa !7, !alias.scope !128, !noalias !133
+  %312 = load <2 x i64>, ptr %311, align 1, !tbaa !7, !alias.scope !129, !noalias !134
   %313 = bitcast <2 x i64> %307 to <16 x i8>
   %314 = bitcast <2 x i64> %312 to <16 x i8>
   %315 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %313, <16 x i8> %314)
@@ -2784,17 +2784,17 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noalias noundef %0, ptr no
   %341 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %316, <16 x i8> %339)
   %342 = shufflevector <16 x i8> %340, <16 x i8> %341, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %343 = shufflevector <16 x i8> %340, <16 x i8> %341, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %342, ptr %19, align 16, !tbaa !7, !alias.scope !130, !noalias !134
+  store <16 x i8> %342, ptr %19, align 16, !tbaa !7, !alias.scope !131, !noalias !135
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %343, ptr %344, align 16, !tbaa !7, !alias.scope !130, !noalias !134
+  store <16 x i8> %343, ptr %344, align 16, !tbaa !7, !alias.scope !131, !noalias !135
   %345 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %317, <16 x i8> %339)
   %346 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %314, <16 x i8> %333)
   %347 = shufflevector <16 x i8> %345, <16 x i8> %346, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %348 = shufflevector <16 x i8> %345, <16 x i8> %346, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %349 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %347, ptr %349, align 16, !tbaa !7, !alias.scope !130, !noalias !134
+  store <16 x i8> %347, ptr %349, align 16, !tbaa !7, !alias.scope !131, !noalias !135
   %350 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %348, ptr %350, align 16, !tbaa !7, !alias.scope !130, !noalias !134
+  store <16 x i8> %348, ptr %350, align 16, !tbaa !7, !alias.scope !131, !noalias !135
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %351 = zext nneg i32 %.0255.lcssa to i64
@@ -3098,7 +3098,7 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %225 = add i32 %224, 33
   %.not259 = icmp sgt i32 %225, %8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 32
-  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !135
+  br i1 %.not259, label %._crit_edge.loopexit, label %130, !llvm.loop !136
 
 ._crit_edge.loopexit:                             ; preds = %223
   %226 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3137,15 +3137,15 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %247 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %241
   %248 = load i8, ptr %247, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %246, i8 %248, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !136, !noalias !143
+  call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  call void @llvm.experimental.noalias.scope.decl(metadata !142)
+  %249 = load <2 x i64>, ptr %11, align 16, !tbaa !7, !alias.scope !137, !noalias !144
   %250 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !136, !noalias !143
-  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !139, !noalias !144
+  %251 = load <2 x i64>, ptr %250, align 1, !tbaa !7, !alias.scope !137, !noalias !144
+  %252 = load <2 x i64>, ptr %12, align 16, !tbaa !7, !alias.scope !140, !noalias !145
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !139, !noalias !144
+  %254 = load <2 x i64>, ptr %253, align 1, !tbaa !7, !alias.scope !140, !noalias !145
   %255 = bitcast <2 x i64> %249 to <16 x i8>
   %256 = bitcast <2 x i64> %254 to <16 x i8>
   %257 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %255, <16 x i8> %256)
@@ -3180,17 +3180,17 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %283 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %258, <16 x i8> %281)
   %284 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %285 = shufflevector <16 x i8> %282, <16 x i8> %283, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !141, !noalias !145
+  store <16 x i8> %284, ptr %18, align 16, !tbaa !7, !alias.scope !142, !noalias !146
   %286 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !141, !noalias !145
+  store <16 x i8> %285, ptr %286, align 16, !tbaa !7, !alias.scope !142, !noalias !146
   %287 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %259, <16 x i8> %281)
   %288 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %256, <16 x i8> %275)
   %289 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %290 = shufflevector <16 x i8> %287, <16 x i8> %288, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %291 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !141, !noalias !145
+  store <16 x i8> %289, ptr %291, align 16, !tbaa !7, !alias.scope !142, !noalias !146
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !141, !noalias !145
+  store <16 x i8> %290, ptr %292, align 16, !tbaa !7, !alias.scope !142, !noalias !146
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11) #9
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13) #9
@@ -3207,15 +3207,15 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %299 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %241
   %300 = load i8, ptr %299, align 1, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 %300, i64 %245, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  call void @llvm.experimental.noalias.scope.decl(metadata !149)
-  call void @llvm.experimental.noalias.scope.decl(metadata !151)
-  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !146, !noalias !153
+  call void @llvm.experimental.noalias.scope.decl(metadata !147)
+  call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  %301 = load <2 x i64>, ptr %13, align 16, !tbaa !7, !alias.scope !147, !noalias !154
   %302 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !146, !noalias !153
-  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !149, !noalias !154
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !7, !alias.scope !147, !noalias !154
+  %304 = load <2 x i64>, ptr %14, align 16, !tbaa !7, !alias.scope !150, !noalias !155
   %305 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !149, !noalias !154
+  %306 = load <2 x i64>, ptr %305, align 1, !tbaa !7, !alias.scope !150, !noalias !155
   %307 = bitcast <2 x i64> %301 to <16 x i8>
   %308 = bitcast <2 x i64> %306 to <16 x i8>
   %309 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %307, <16 x i8> %308)
@@ -3250,17 +3250,17 @@ define internal void @UpsampleRgba4444LinePair_SSE2(ptr noalias noundef %0, ptr 
   %335 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %310, <16 x i8> %333)
   %336 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %337 = shufflevector <16 x i8> %334, <16 x i8> %335, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !151, !noalias !155
+  store <16 x i8> %336, ptr %19, align 16, !tbaa !7, !alias.scope !152, !noalias !156
   %338 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !151, !noalias !155
+  store <16 x i8> %337, ptr %338, align 16, !tbaa !7, !alias.scope !152, !noalias !156
   %339 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %311, <16 x i8> %333)
   %340 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %308, <16 x i8> %327)
   %341 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %342 = shufflevector <16 x i8> %339, <16 x i8> %340, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %343 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !151, !noalias !155
+  store <16 x i8> %341, ptr %343, align 16, !tbaa !7, !alias.scope !152, !noalias !156
   %344 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !151, !noalias !155
+  store <16 x i8> %342, ptr %344, align 16, !tbaa !7, !alias.scope !152, !noalias !156
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13) #9
   %345 = zext nneg i32 %.0255.lcssa to i64
@@ -3338,7 +3338,7 @@ define internal void @Yuv444ToRgba_SSE2(ptr noalias noundef %0, ptr noalias noun
   tail call void @VP8YuvToRgba32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !156
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !157
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3385,7 +3385,7 @@ define internal void @Yuv444ToBgra_SSE2(ptr noalias noundef %0, ptr noalias noun
   tail call void @VP8YuvToBgra32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !157
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !158
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3432,7 +3432,7 @@ define internal void @Yuv444ToRgb_SSE2(ptr noalias noundef %0, ptr noalias nound
   tail call void @VP8YuvToRgb32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !158
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !159
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3479,7 +3479,7 @@ define internal void @Yuv444ToBgr_SSE2(ptr noalias noundef %0, ptr noalias nound
   tail call void @VP8YuvToBgr32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !159
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3526,7 +3526,7 @@ define internal void @Yuv444ToArgb_SSE2(ptr noalias noundef %0, ptr noalias noun
   tail call void @VP8YuvToArgb32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !161
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3573,7 +3573,7 @@ define internal void @Yuv444ToRgba4444_SSE2(ptr noalias noundef %0, ptr noalias 
   tail call void @VP8YuvToRgba444432_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !161
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3620,7 +3620,7 @@ define internal void @Yuv444ToRgb565_SSE2(ptr noalias noundef %0, ptr noalias no
   tail call void @VP8YuvToRgb56532_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !163
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3714,158 +3714,159 @@ attributes #9 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"Upsample32Pixels_SSE2: argument 0"}
-!12 = distinct !{!12, !"Upsample32Pixels_SSE2"}
-!13 = !{!14}
-!14 = distinct !{!14, !12, !"Upsample32Pixels_SSE2: argument 1"}
-!15 = !{!16}
-!16 = distinct !{!16, !12, !"Upsample32Pixels_SSE2: argument 2"}
-!17 = !{!14, !16}
-!18 = !{!11, !16}
-!19 = !{!11, !14}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"Upsample32Pixels_SSE2: argument 0"}
-!22 = distinct !{!22, !"Upsample32Pixels_SSE2"}
-!23 = !{!24}
-!24 = distinct !{!24, !22, !"Upsample32Pixels_SSE2: argument 1"}
-!25 = !{!26}
-!26 = distinct !{!26, !22, !"Upsample32Pixels_SSE2: argument 2"}
-!27 = !{!24, !26}
-!28 = !{!21, !26}
-!29 = !{!21, !24}
-!30 = distinct !{!30, !9}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"Upsample32Pixels_SSE2: argument 0"}
-!33 = distinct !{!33, !"Upsample32Pixels_SSE2"}
-!34 = !{!35}
-!35 = distinct !{!35, !33, !"Upsample32Pixels_SSE2: argument 1"}
-!36 = !{!37}
-!37 = distinct !{!37, !33, !"Upsample32Pixels_SSE2: argument 2"}
-!38 = !{!35, !37}
-!39 = !{!32, !37}
-!40 = !{!32, !35}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"Upsample32Pixels_SSE2: argument 0"}
-!43 = distinct !{!43, !"Upsample32Pixels_SSE2"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"Upsample32Pixels_SSE2: argument 1"}
-!46 = !{!47}
-!47 = distinct !{!47, !43, !"Upsample32Pixels_SSE2: argument 2"}
-!48 = !{!45, !47}
-!49 = !{!42, !47}
-!50 = !{!42, !45}
-!51 = distinct !{!51, !9}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"Upsample32Pixels_SSE2: argument 0"}
-!54 = distinct !{!54, !"Upsample32Pixels_SSE2"}
-!55 = !{!56}
-!56 = distinct !{!56, !54, !"Upsample32Pixels_SSE2: argument 1"}
-!57 = !{!58}
-!58 = distinct !{!58, !54, !"Upsample32Pixels_SSE2: argument 2"}
-!59 = !{!56, !58}
-!60 = !{!53, !58}
-!61 = !{!53, !56}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"Upsample32Pixels_SSE2: argument 0"}
-!64 = distinct !{!64, !"Upsample32Pixels_SSE2"}
-!65 = !{!66}
-!66 = distinct !{!66, !64, !"Upsample32Pixels_SSE2: argument 1"}
-!67 = !{!68}
-!68 = distinct !{!68, !64, !"Upsample32Pixels_SSE2: argument 2"}
-!69 = !{!66, !68}
-!70 = !{!63, !68}
-!71 = !{!63, !66}
-!72 = distinct !{!72, !9}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"Upsample32Pixels_SSE2: argument 0"}
-!75 = distinct !{!75, !"Upsample32Pixels_SSE2"}
-!76 = !{!77}
-!77 = distinct !{!77, !75, !"Upsample32Pixels_SSE2: argument 1"}
-!78 = !{!79}
-!79 = distinct !{!79, !75, !"Upsample32Pixels_SSE2: argument 2"}
-!80 = !{!77, !79}
-!81 = !{!74, !79}
-!82 = !{!74, !77}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"Upsample32Pixels_SSE2: argument 0"}
-!85 = distinct !{!85, !"Upsample32Pixels_SSE2"}
-!86 = !{!87}
-!87 = distinct !{!87, !85, !"Upsample32Pixels_SSE2: argument 1"}
-!88 = !{!89}
-!89 = distinct !{!89, !85, !"Upsample32Pixels_SSE2: argument 2"}
-!90 = !{!87, !89}
-!91 = !{!84, !89}
-!92 = !{!84, !87}
-!93 = distinct !{!93, !9}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"Upsample32Pixels_SSE2: argument 0"}
-!96 = distinct !{!96, !"Upsample32Pixels_SSE2"}
-!97 = !{!98}
-!98 = distinct !{!98, !96, !"Upsample32Pixels_SSE2: argument 1"}
-!99 = !{!100}
-!100 = distinct !{!100, !96, !"Upsample32Pixels_SSE2: argument 2"}
-!101 = !{!98, !100}
-!102 = !{!95, !100}
-!103 = !{!95, !98}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"Upsample32Pixels_SSE2: argument 0"}
-!106 = distinct !{!106, !"Upsample32Pixels_SSE2"}
-!107 = !{!108}
-!108 = distinct !{!108, !106, !"Upsample32Pixels_SSE2: argument 1"}
-!109 = !{!110}
-!110 = distinct !{!110, !106, !"Upsample32Pixels_SSE2: argument 2"}
-!111 = !{!108, !110}
-!112 = !{!105, !110}
-!113 = !{!105, !108}
-!114 = distinct !{!114, !9}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"Upsample32Pixels_SSE2: argument 0"}
-!117 = distinct !{!117, !"Upsample32Pixels_SSE2"}
-!118 = !{!119}
-!119 = distinct !{!119, !117, !"Upsample32Pixels_SSE2: argument 1"}
-!120 = !{!121}
-!121 = distinct !{!121, !117, !"Upsample32Pixels_SSE2: argument 2"}
-!122 = !{!119, !121}
-!123 = !{!116, !121}
-!124 = !{!116, !119}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"Upsample32Pixels_SSE2: argument 0"}
-!127 = distinct !{!127, !"Upsample32Pixels_SSE2"}
-!128 = !{!129}
-!129 = distinct !{!129, !127, !"Upsample32Pixels_SSE2: argument 1"}
-!130 = !{!131}
-!131 = distinct !{!131, !127, !"Upsample32Pixels_SSE2: argument 2"}
-!132 = !{!129, !131}
-!133 = !{!126, !131}
-!134 = !{!126, !129}
-!135 = distinct !{!135, !9}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"Upsample32Pixels_SSE2: argument 0"}
-!138 = distinct !{!138, !"Upsample32Pixels_SSE2"}
-!139 = !{!140}
-!140 = distinct !{!140, !138, !"Upsample32Pixels_SSE2: argument 1"}
-!141 = !{!142}
-!142 = distinct !{!142, !138, !"Upsample32Pixels_SSE2: argument 2"}
-!143 = !{!140, !142}
-!144 = !{!137, !142}
-!145 = !{!137, !140}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"Upsample32Pixels_SSE2: argument 0"}
-!148 = distinct !{!148, !"Upsample32Pixels_SSE2"}
-!149 = !{!150}
-!150 = distinct !{!150, !148, !"Upsample32Pixels_SSE2: argument 1"}
-!151 = !{!152}
-!152 = distinct !{!152, !148, !"Upsample32Pixels_SSE2: argument 2"}
-!153 = !{!150, !152}
-!154 = !{!147, !152}
-!155 = !{!147, !150}
-!156 = distinct !{!156, !9}
-!157 = distinct !{!157, !9}
-!158 = distinct !{!158, !9}
-!159 = distinct !{!159, !9}
-!160 = distinct !{!160, !9}
-!161 = distinct !{!161, !9}
-!162 = distinct !{!162, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"Upsample32Pixels_SSE2: argument 0"}
+!13 = distinct !{!13, !"Upsample32Pixels_SSE2"}
+!14 = !{!15}
+!15 = distinct !{!15, !13, !"Upsample32Pixels_SSE2: argument 1"}
+!16 = !{!17}
+!17 = distinct !{!17, !13, !"Upsample32Pixels_SSE2: argument 2"}
+!18 = !{!15, !17}
+!19 = !{!12, !17}
+!20 = !{!12, !15}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"Upsample32Pixels_SSE2: argument 0"}
+!23 = distinct !{!23, !"Upsample32Pixels_SSE2"}
+!24 = !{!25}
+!25 = distinct !{!25, !23, !"Upsample32Pixels_SSE2: argument 1"}
+!26 = !{!27}
+!27 = distinct !{!27, !23, !"Upsample32Pixels_SSE2: argument 2"}
+!28 = !{!25, !27}
+!29 = !{!22, !27}
+!30 = !{!22, !25}
+!31 = distinct !{!31, !9, !10}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"Upsample32Pixels_SSE2: argument 0"}
+!34 = distinct !{!34, !"Upsample32Pixels_SSE2"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"Upsample32Pixels_SSE2: argument 1"}
+!37 = !{!38}
+!38 = distinct !{!38, !34, !"Upsample32Pixels_SSE2: argument 2"}
+!39 = !{!36, !38}
+!40 = !{!33, !38}
+!41 = !{!33, !36}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"Upsample32Pixels_SSE2: argument 0"}
+!44 = distinct !{!44, !"Upsample32Pixels_SSE2"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"Upsample32Pixels_SSE2: argument 1"}
+!47 = !{!48}
+!48 = distinct !{!48, !44, !"Upsample32Pixels_SSE2: argument 2"}
+!49 = !{!46, !48}
+!50 = !{!43, !48}
+!51 = !{!43, !46}
+!52 = distinct !{!52, !9, !10}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"Upsample32Pixels_SSE2: argument 0"}
+!55 = distinct !{!55, !"Upsample32Pixels_SSE2"}
+!56 = !{!57}
+!57 = distinct !{!57, !55, !"Upsample32Pixels_SSE2: argument 1"}
+!58 = !{!59}
+!59 = distinct !{!59, !55, !"Upsample32Pixels_SSE2: argument 2"}
+!60 = !{!57, !59}
+!61 = !{!54, !59}
+!62 = !{!54, !57}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"Upsample32Pixels_SSE2: argument 0"}
+!65 = distinct !{!65, !"Upsample32Pixels_SSE2"}
+!66 = !{!67}
+!67 = distinct !{!67, !65, !"Upsample32Pixels_SSE2: argument 1"}
+!68 = !{!69}
+!69 = distinct !{!69, !65, !"Upsample32Pixels_SSE2: argument 2"}
+!70 = !{!67, !69}
+!71 = !{!64, !69}
+!72 = !{!64, !67}
+!73 = distinct !{!73, !9, !10}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"Upsample32Pixels_SSE2: argument 0"}
+!76 = distinct !{!76, !"Upsample32Pixels_SSE2"}
+!77 = !{!78}
+!78 = distinct !{!78, !76, !"Upsample32Pixels_SSE2: argument 1"}
+!79 = !{!80}
+!80 = distinct !{!80, !76, !"Upsample32Pixels_SSE2: argument 2"}
+!81 = !{!78, !80}
+!82 = !{!75, !80}
+!83 = !{!75, !78}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"Upsample32Pixels_SSE2: argument 0"}
+!86 = distinct !{!86, !"Upsample32Pixels_SSE2"}
+!87 = !{!88}
+!88 = distinct !{!88, !86, !"Upsample32Pixels_SSE2: argument 1"}
+!89 = !{!90}
+!90 = distinct !{!90, !86, !"Upsample32Pixels_SSE2: argument 2"}
+!91 = !{!88, !90}
+!92 = !{!85, !90}
+!93 = !{!85, !88}
+!94 = distinct !{!94, !9, !10}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"Upsample32Pixels_SSE2: argument 0"}
+!97 = distinct !{!97, !"Upsample32Pixels_SSE2"}
+!98 = !{!99}
+!99 = distinct !{!99, !97, !"Upsample32Pixels_SSE2: argument 1"}
+!100 = !{!101}
+!101 = distinct !{!101, !97, !"Upsample32Pixels_SSE2: argument 2"}
+!102 = !{!99, !101}
+!103 = !{!96, !101}
+!104 = !{!96, !99}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"Upsample32Pixels_SSE2: argument 0"}
+!107 = distinct !{!107, !"Upsample32Pixels_SSE2"}
+!108 = !{!109}
+!109 = distinct !{!109, !107, !"Upsample32Pixels_SSE2: argument 1"}
+!110 = !{!111}
+!111 = distinct !{!111, !107, !"Upsample32Pixels_SSE2: argument 2"}
+!112 = !{!109, !111}
+!113 = !{!106, !111}
+!114 = !{!106, !109}
+!115 = distinct !{!115, !9, !10}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"Upsample32Pixels_SSE2: argument 0"}
+!118 = distinct !{!118, !"Upsample32Pixels_SSE2"}
+!119 = !{!120}
+!120 = distinct !{!120, !118, !"Upsample32Pixels_SSE2: argument 1"}
+!121 = !{!122}
+!122 = distinct !{!122, !118, !"Upsample32Pixels_SSE2: argument 2"}
+!123 = !{!120, !122}
+!124 = !{!117, !122}
+!125 = !{!117, !120}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"Upsample32Pixels_SSE2: argument 0"}
+!128 = distinct !{!128, !"Upsample32Pixels_SSE2"}
+!129 = !{!130}
+!130 = distinct !{!130, !128, !"Upsample32Pixels_SSE2: argument 1"}
+!131 = !{!132}
+!132 = distinct !{!132, !128, !"Upsample32Pixels_SSE2: argument 2"}
+!133 = !{!130, !132}
+!134 = !{!127, !132}
+!135 = !{!127, !130}
+!136 = distinct !{!136, !9, !10}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"Upsample32Pixels_SSE2: argument 0"}
+!139 = distinct !{!139, !"Upsample32Pixels_SSE2"}
+!140 = !{!141}
+!141 = distinct !{!141, !139, !"Upsample32Pixels_SSE2: argument 1"}
+!142 = !{!143}
+!143 = distinct !{!143, !139, !"Upsample32Pixels_SSE2: argument 2"}
+!144 = !{!141, !143}
+!145 = !{!138, !143}
+!146 = !{!138, !141}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"Upsample32Pixels_SSE2: argument 0"}
+!149 = distinct !{!149, !"Upsample32Pixels_SSE2"}
+!150 = !{!151}
+!151 = distinct !{!151, !149, !"Upsample32Pixels_SSE2: argument 1"}
+!152 = !{!153}
+!153 = distinct !{!153, !149, !"Upsample32Pixels_SSE2: argument 2"}
+!154 = !{!151, !153}
+!155 = !{!148, !153}
+!156 = !{!148, !151}
+!157 = distinct !{!157, !9, !10}
+!158 = distinct !{!158, !9, !10}
+!159 = distinct !{!159, !9, !10}
+!160 = distinct !{!160, !9, !10}
+!161 = distinct !{!161, !9, !10}
+!162 = distinct !{!162, !9, !10}
+!163 = distinct !{!163, !9, !10}

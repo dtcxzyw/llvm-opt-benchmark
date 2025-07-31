@@ -1828,7 +1828,7 @@ define hidden noundef zeroext i1 @_ZN14G1BarrierSetC218is_g1_pre_val_loadEP4Node
   %.1 = phi i32 [ %35, %34 ], [ %.01622, %36 ], [ %spec.select, %39 ]
   %.sroa.3.021.add = add nuw nsw i64 %.sroa.3.021.idx, 8
   %46 = icmp samesign ult i64 %.sroa.3.021.idx, 16
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %45
   %47 = icmp eq i32 %.1, 3
@@ -1922,7 +1922,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC222is_gc_pre_barrier_nodeEP
   %.1.i = phi i32 [ %36, %35 ], [ %.01622.i, %37 ], [ %spec.select.i, %40 ]
   %.sroa.3.021.add.i = add nuw nsw i64 %.sroa.3.021.idx.i, 8
   %47 = icmp samesign ult i64 %.sroa.3.021.idx.i, 16
-  br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %46
   %48 = icmp eq i32 %.1.i, 3
@@ -2016,7 +2016,7 @@ define hidden void @_ZNK14G1BarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpa
   %.1.i = phi i32 [ %37, %36 ], [ %.01622.i, %38 ], [ %spec.select.i, %41 ]
   %.sroa.3.021.add.i = add nuw nsw i64 %.sroa.3.021.idx.i, 8
   %48 = icmp samesign ult i64 %.sroa.3.021.idx.i, 16
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %47
   %49 = icmp eq i32 %.1.i, 3
@@ -2390,7 +2390,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %76 = load i32, ptr %24, align 8
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %30, label %.loopexit, !llvm.loop !9
+  br i1 %78, label %30, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %75, %.lr.ph63, %18, %23
   %.4 = phi ptr [ %.162, %23 ], [ %.162, %18 ], [ %.162, %.lr.ph63 ], [ %.3, %75 ]
@@ -2399,7 +2399,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ult i64 %indvars.iv.next67, %81
-  br i1 %82, label %.lr.ph63, label %.loopexit55, !llvm.loop !10
+  br i1 %82, label %.lr.ph63, label %.loopexit55, !llvm.loop !11
 
 .loopexit55:                                      ; preds = %.loopexit, %2, %5, %10, %71
   %.0 = phi ptr [ %74, %71 ], [ %1, %10 ], [ %1, %5 ], [ %1, %2 ], [ %.4, %.loopexit ]
@@ -2700,8 +2700,9 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

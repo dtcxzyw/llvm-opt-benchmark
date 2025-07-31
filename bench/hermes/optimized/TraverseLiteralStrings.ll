@@ -159,7 +159,7 @@ for.inc:                                          ; preds = %_ZNKSt8functionIFvN
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
   ret void
@@ -241,7 +241,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__begin2.sroa.0.015, %8
-  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !6
+  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %if.end
   %idx.ext.i.i.i.i = zext i32 %4 to i64
@@ -288,7 +288,7 @@ for.inc:                                          ; preds = %_ZNK4llvh12DenseMap
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -354,7 +354,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit: ; preds = %if.then
 for.inc:                                          ; preds = %for.body, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.048, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
@@ -498,25 +498,25 @@ _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N
 for.inc56:                                        ; preds = %for.body45, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
   %inc = add nuw nsw i32 %i.050, 1
   %exitcond.not = icmp eq i32 %inc, %call43
-  br i1 %exitcond.not, label %for.inc58, label %for.body45, !llvm.loop !8
+  br i1 %exitcond.not, label %for.inc58, label %for.body45, !llvm.loop !12
 
 for.inc58:                                        ; preds = %for.inc56, %for.body41
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.054, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i25.not = icmp eq ptr %__begin4.sroa.0.0, %InstList.i
-  br i1 %cmp.i25.not, label %for.inc61, label %for.body41
+  br i1 %cmp.i25.not, label %for.inc61, label %for.body41, !llvm.loop !13
 
 for.inc61:                                        ; preds = %for.inc58, %for.body33
   %Next.i.i.i36 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.057, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i36, align 8
   %cmp.i23.not = icmp eq ptr %__begin3.sroa.0.0, %BasicBlockList.i
-  br i1 %cmp.i23.not, label %for.inc64, label %for.body33
+  br i1 %cmp.i23.not, label %for.inc64, label %for.body33, !llvm.loop !14
 
 for.inc64:                                        ; preds = %for.inc61, %if.end26, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
   %Next.i.i.i37 = getelementptr inbounds nuw i8, ptr %__begin214.sroa.0.060, i64 8
   %__begin214.sroa.0.0 = load ptr, ptr %Next.i.i.i37, align 8
   %cmp.i16.not = icmp eq ptr %__begin214.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i16.not, label %for.end66, label %for.body22
+  br i1 %cmp.i16.not, label %for.end66, label %for.body22, !llvm.loop !15
 
 for.end66:                                        ; preds = %for.inc64, %for.end
   ret void
@@ -548,8 +548,15 @@ attributes #5 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!4 = distinct !{!4, !5, !6}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !9, !5}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !9, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

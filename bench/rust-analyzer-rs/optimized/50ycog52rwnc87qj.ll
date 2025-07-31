@@ -142,7 +142,7 @@ define noundef zeroext i1 @"_ZN61_$LT$span..map..RealSpanMap$u20$as$u20$core..fm
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %36 = icmp eq ptr %35, %20
-  br i1 %36, label %.loopexit, label %29
+  br i1 %36, label %.loopexit, label %29, !llvm.loop !19
 
 37:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -215,14 +215,14 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   %17 = icmp ult i64 %16, %14
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds { i32, i32 }, ptr %12, i64 %16
-  %.val23.i = load i32, ptr %18, align 4, !alias.scope !19, !noalias !22, !noundef !4
+  %.val23.i = load i32, ptr %18, align 4, !alias.scope !21, !noalias !24, !noundef !4
   %.not.i.not.i = icmp ugt i32 %.val23.i, %2
   %19 = add nuw i64 %16, 1
   %.022.i = select i1 %.not.i.not.i, i64 %.01925.i, i64 %19
   %.021.i = select i1 %.not.i.not.i, i64 %16, i64 %.02024.i
   %20 = sub i64 %.021.i, %.022.i
   %21 = icmp ult i64 %.022.i, %.021.i
-  br i1 %21, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E.exit"
+  br i1 %21, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E.exit", !llvm.loop !26
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E.exit": ; preds = %.lr.ph.i, %.critedge
   %.019.lcssa.i = phi i64 [ 0, %.critedge ], [ %.022.i, %.lr.ph.i ]
@@ -230,7 +230,7 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   tail call void @llvm.assume(i1 %22)
   %23 = add i64 %.019.lcssa.i, -1
   %24 = icmp ult i64 %23, %14
-  br i1 %24, label %33, label %36, !prof !24
+  br i1 %24, label %33, label %36, !prof !27
 
 25:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -242,15 +242,15 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   store ptr %9, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN62_$LT$text_size..size..TextSize$u20$as$u20$core..fmt..Debug$GT$3fmt17h529ccf4d9a89eb29E", ptr %28, align 8
-  store ptr @anon.bbc08e4a0ad45b4c16936c5ac9d7ecee.21, ptr %6, align 8, !alias.scope !25, !noalias !28
+  store ptr @anon.bbc08e4a0ad45b4c16936c5ac9d7ecee.21, ptr %6, align 8, !alias.scope !28, !noalias !31
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %29, align 8, !alias.scope !25, !noalias !28
+  store i64 2, ptr %29, align 8, !alias.scope !28, !noalias !31
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %30, align 8, !alias.scope !25, !noalias !28
+  store ptr null, ptr %30, align 8, !alias.scope !28, !noalias !31
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %31, align 8, !alias.scope !25, !noalias !28
+  store ptr %5, ptr %31, align 8, !alias.scope !28, !noalias !31
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %32, align 8, !alias.scope !25, !noalias !28
+  store i64 2, ptr %32, align 8, !alias.scope !28, !noalias !31
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbc08e4a0ad45b4c16936c5ac9d7ecee.23) #10
   unreachable
 
@@ -371,15 +371,18 @@ attributes #10 = { noreturn }
 !16 = !{!17, !18}
 !17 = distinct !{!17, !15, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !18 = distinct !{!18, !15, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E: argument 0"}
-!21 = distinct !{!21, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E"}
-!22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E: argument 1"}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!27 = distinct !{!27, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!28 = !{!29, !30}
-!29 = distinct !{!29, !27, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!30 = distinct !{!30, !27, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E: argument 0"}
+!23 = distinct !{!23, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E"}
+!24 = !{!25}
+!25 = distinct !{!25, !23, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E: argument 1"}
+!26 = distinct !{!26, !20}
+!27 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!30 = distinct !{!30, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!31 = !{!32, !33}
+!32 = distinct !{!32, !30, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!33 = distinct !{!33, !30, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}

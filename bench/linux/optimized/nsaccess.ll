@@ -343,12 +343,12 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %48 = zext i8 %47 to i32
   %49 = tail call i32 @acpi_ns_opens_scope(i32 noundef %48) #4
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.preheader23, label %.loopexit24, !llvm.loop !8
+  br i1 %50, label %.preheader23, label %.loopexit24, !llvm.loop !9
 
 .loopexit24:                                      ; preds = %43, %.preheader23, %33, %30, %20, %18
   %51 = phi ptr [ %22, %30 ], [ %16, %20 ], [ %16, %18 ], [ %22, %33 ], [ %40, %.preheader23 ], [ %45, %43 ]
-  store ptr null, ptr %8, align 8, !annotation !9
-  store i32 0, ptr %10, align 4, !annotation !9
+  store ptr null, ptr %8, align 8, !annotation !10
+  store i32 0, ptr %10, align 4, !annotation !10
   %52 = icmp eq ptr %1, null
   br i1 %52, label %53, label %55
 
@@ -375,7 +375,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %61 = getelementptr i8, ptr %64, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 94
-  br i1 %63, label %.preheader, label %.loopexit22, !llvm.loop !10
+  br i1 %63, label %.preheader, label %.loopexit22, !llvm.loop !11
 
 .preheader:                                       ; preds = %55, %60
   %64 = phi ptr [ %61, %60 ], [ %1, %55 ]
@@ -383,7 +383,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %60, !llvm.loop !10
+  br i1 %68, label %69, label %60, !llvm.loop !12
 
 69:                                               ; preds = %.preheader
   store ptr null, ptr %9, align 8
@@ -506,7 +506,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %140 = phi ptr [ %138, %137 ], [ %.pre58, %131 ], [ %124, %123 ]
   %141 = getelementptr i8, ptr %114, i64 4
   %.not.us = icmp eq ptr %140, null
-  br i1 %.not.us, label %.thread, label %.split.us, !llvm.loop !11
+  br i1 %.not.us, label %.thread, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %102, %191
   %142 = phi ptr [ %192, %191 ], [ %80, %102 ]
@@ -608,7 +608,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   %192 = phi ptr [ %172, %171 ], [ %.pre57, %165 ], [ %158, %157 ]
   %193 = getelementptr i8, ptr %145, i64 4
   %.not = icmp eq ptr %192, null
-  br i1 %.not, label %.thread, label %.split, !llvm.loop !13
+  br i1 %.not, label %.thread, label %.split, !llvm.loop !15
 
 .thread:                                          ; preds = %191, %139, %.split33.us, %.split33.us, %.split33.us, %184, %186, %53, %84, %95
   %194 = phi i32 [ %2, %95 ], [ %2, %53 ], [ %87, %84 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
@@ -682,12 +682,14 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"auto-init"}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !6, !7, !8}

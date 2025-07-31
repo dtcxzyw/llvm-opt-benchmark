@@ -52,7 +52,7 @@ Msat_SolverVarRescaleActivity.exit:               ; preds = %21, %17
 
 27:                                               ; preds = %Msat_SolverVarRescaleActivity.exit, %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !28
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
   tail call void @Msat_OrderUpdate(ptr noundef %29, i32 noundef %7) #4
   br label %30
 
@@ -116,16 +116,16 @@ define void @Msat_SolverClaBumpActivity(ptr noundef captures(none) %0, ptr nound
   %3 = tail call float @Msat_ClauseReadActivity(ptr noundef %1) #4
   %4 = fpext float %3 to double
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load double, ptr %5, align 8, !tbaa !29
+  %6 = load double, ptr %5, align 8, !tbaa !30
   %7 = fadd double %6, %4
   %8 = fcmp ogt double %7, 1.000000e+20
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %11) #4
-  %13 = load ptr, ptr %10, align 8, !tbaa !30
+  %13 = load ptr, ptr %10, align 8, !tbaa !31
   %14 = tail call ptr @Msat_ClauseVecReadArray(ptr noundef %13) #4
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph.preheader.i, label %Msat_SolverClaRescaleActivity.exit
@@ -137,21 +137,21 @@ define void @Msat_SolverClaBumpActivity(ptr noundef captures(none) %0, ptr nound
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = tail call float @Msat_ClauseReadActivity(ptr noundef %17) #4
-  %19 = load ptr, ptr %16, align 8, !tbaa !31
+  %19 = load ptr, ptr %16, align 8, !tbaa !32
   %20 = fmul float %18, 0x3BC79CA100000000
   tail call void @Msat_ClauseWriteActivity(ptr noundef %19, float noundef %20) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Msat_SolverClaRescaleActivity.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %Msat_SolverClaRescaleActivity.exit, label %.lr.ph.i, !llvm.loop !34
 
 Msat_SolverClaRescaleActivity.exit:               ; preds = %.lr.ph.i, %9
-  %21 = load double, ptr %5, align 8, !tbaa !29
+  %21 = load double, ptr %5, align 8, !tbaa !30
   %22 = fmul double %21, 0x3BC79CA10C924223
-  store double %22, ptr %5, align 8, !tbaa !29
+  store double %22, ptr %5, align 8, !tbaa !30
   %23 = tail call float @Msat_ClauseReadActivity(ptr noundef %1) #4
-  %.pre = load double, ptr %5, align 8, !tbaa !29
+  %.pre = load double, ptr %5, align 8, !tbaa !30
   br label %24
 
 24:                                               ; preds = %Msat_SolverClaRescaleActivity.exit, %2
@@ -168,9 +168,9 @@ declare float @Msat_ClauseReadActivity(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @Msat_SolverClaRescaleActivity(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %3) #4
-  %5 = load ptr, ptr %2, align 8, !tbaa !30
+  %5 = load ptr, ptr %2, align 8, !tbaa !31
   %6 = tail call ptr @Msat_ClauseVecReadArray(ptr noundef %5) #4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -182,20 +182,20 @@ define void @Msat_SolverClaRescaleActivity(ptr noundef captures(none) %0) local_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = tail call float @Msat_ClauseReadActivity(ptr noundef %9) #4
-  %11 = load ptr, ptr %8, align 8, !tbaa !31
+  %11 = load ptr, ptr %8, align 8, !tbaa !32
   %12 = fmul float %10, 0x3BC79CA100000000
   tail call void @Msat_ClauseWriteActivity(ptr noundef %11, float noundef %12) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load double, ptr %13, align 8, !tbaa !29
+  %14 = load double, ptr %13, align 8, !tbaa !30
   %15 = fmul double %14, 0x3BC79CA10C924223
-  store double %15, ptr %13, align 8, !tbaa !29
+  store double %15, ptr %13, align 8, !tbaa !30
   ret void
 }
 
@@ -204,11 +204,11 @@ declare void @Msat_ClauseWriteActivity(ptr noundef, float noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Msat_SolverClaDecayActivity(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load double, ptr %2, align 8, !tbaa !34
+  %3 = load double, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load double, ptr %4, align 8, !tbaa !29
+  %5 = load double, ptr %4, align 8, !tbaa !30
   %6 = fmul double %3, %5
-  store double %6, ptr %4, align 8, !tbaa !29
+  store double %6, ptr %4, align 8, !tbaa !30
   ret void
 }
 
@@ -250,12 +250,13 @@ attributes #4 = { nounwind }
 !23 = !{!4, !11, i64 40}
 !24 = !{!10, !10, i64 0}
 !25 = !{!4, !5, i64 96}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!4, !13, i64 72}
-!29 = !{!4, !10, i64 24}
-!30 = !{!4, !8, i64 16}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
-!33 = distinct !{!33, !27}
-!34 = !{!4, !10, i64 32}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!4, !13, i64 72}
+!30 = !{!4, !10, i64 24}
+!31 = !{!4, !8, i64 16}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
+!34 = distinct !{!34, !27, !28}
+!35 = !{!4, !10, i64 32}

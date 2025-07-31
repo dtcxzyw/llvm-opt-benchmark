@@ -111,7 +111,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 
 .loopexit69.i.i:                                  ; preds = %49
   %43 = icmp slt i32 %.250.i.i, %35
-  br i1 %43, label %44, label %.loopexit.i, !llvm.loop !8
+  br i1 %43, label %44, label %.loopexit.i, !llvm.loop !9
 
 44:                                               ; preds = %.loopexit69.i.i, %40
   %.04887.i.i = phi i32 [ 0, %40 ], [ %.250.i.i, %.loopexit69.i.i ]
@@ -125,7 +125,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 49:                                               ; preds = %.loopexit.i.i
   %50 = add nuw nsw i32 %.06183.i.i, 1
   %exitcond93.not.i.i = icmp eq i32 %50, 8
-  br i1 %exitcond93.not.i.i, label %.loopexit69.i.i, label %51, !llvm.loop !9
+  br i1 %exitcond93.not.i.i, label %.loopexit69.i.i, label %51, !llvm.loop !10
 
 51:                                               ; preds = %49, %44
   %.14985.i.i = phi i32 [ %47, %44 ], [ %.250.i.i, %49 ]
@@ -162,7 +162,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   %68 = add nsw i32 %.05179.i.i, -1
   %69 = lshr i32 %.05977.i.i, 1
   %70 = icmp ugt i32 %.05977.i.i, 31
-  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
+  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %61
   %.052.lcssa.i.i = phi i32 [ 4095, %61 ], [ %67, %.lr.ph.i.i ]
@@ -193,7 +193,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
   %81 = add nuw nsw i32 %.06081.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.06081.i.i, %74
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %75, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %75, !llvm.loop !12
 
 .loopexit.i.i:                                    ; preds = %79, %56
   %.255.i.i = phi i32 [ %60, %56 ], [ %80, %79 ]
@@ -214,7 +214,7 @@ uncompress_chunk.exit.i:                          ; preds = %76, %75
 .loopexit33.i:                                    ; preds = %.preheader.i, %.loopexit.i
   %.2.i = phi i32 [ %83, %.loopexit.i ], [ %38, %.preheader.i ]
   %84 = icmp slt i32 %.2.i, %2
-  br i1 %84, label %.lr.ph.i, label %do_uncompress.exit, !llvm.loop !12
+  br i1 %84, label %.lr.ph.i, label %do_uncompress.exit, !llvm.loop !13
 
 do_uncompress.exit:                               ; preds = %.loopexit33.i, %26, %27, %.preheader35.i, %uncompress_chunk.exit.i
   %.0.i = phi i8 [ 0, %26 ], [ 0, %27 ], [ 0, %uncompress_chunk.exit.i ], [ 1, %.preheader35.i ], [ 1, %.loopexit33.i ]
@@ -263,7 +263,7 @@ do_uncompress.exit:                               ; preds = %.loopexit33.i, %26,
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.0..0..0..0.23 = load volatile i8, ptr %7, align 1, !range !13, !noundef !14
+  %.0..0..0..0.23 = load volatile i8, ptr %7, align 1, !range !14, !noundef !15
   %98 = trunc nuw i8 %.0..0..0..0.23 to i1
   br i1 %98, label %99, label %105
 
@@ -384,12 +384,13 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i8 0, i8 2}
+!15 = !{}

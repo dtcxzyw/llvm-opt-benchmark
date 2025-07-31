@@ -150,7 +150,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   ]
 
 .critedge.thread.i:                               ; preds = %49, %.critedge.i, %.critedge.i, %.critedge.i, %.preheader110.i
-  br label %206, !llvm.loop !6
+  br label %206, !llvm.loop !7
 
 .lr.ph147.i:                                      ; preds = %.critedge.i, %176
   %54 = phi i8 [ %180, %176 ], [ %43, %.critedge.i ]
@@ -402,7 +402,7 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   %179 = getelementptr inbounds i8, ptr %.182142.i, i64 %178
   %180 = load i8, ptr %179, align 1
   %.not96.i = icmp eq i8 %180, 0
-  br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph147.i, !llvm.loop !7
+  br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph147.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %176
   %181 = icmp eq i32 %.180.i, 4
@@ -464,7 +464,7 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   call void @pfree(ptr noundef nonnull %39) #10
   %207 = call ptr @tsearch_readline(ptr noundef nonnull %3) #10
   %.not.i = icmp eq ptr %207, null
-  br i1 %.not.i, label %thesaurusRead.exit, label %.preheader110.i
+  br i1 %.not.i, label %thesaurusRead.exit, label %.preheader110.i, !llvm.loop !9
 
 thesaurusRead.exit:                               ; preds = %206, %.preheader111.i
   %.086.lcssa.i = phi i32 [ 0, %.preheader111.i ], [ %.187.i, %206 ]
@@ -683,7 +683,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %318 = getelementptr inbounds nuw i8, ptr %.083.pn153.i, i64 40
   %319 = load ptr, ptr %318, align 8
   %.not96.i38 = icmp eq ptr %319, null
-  br i1 %.not96.i38, label %.lr.ph164.preheader.i, label %.lr.ph.i33, !llvm.loop !8
+  br i1 %.not96.i38, label %.lr.ph164.preheader.i, label %.lr.ph.i33, !llvm.loop !10
 
 .lr.ph164.preheader.i:                            ; preds = %316, %.lr.ph.i33, %.lr.ph179.i
   %.081.lcssa.i = phi i16 [ 1, %.lr.ph179.i ], [ %317, %316 ], [ %.081154.i, %.lr.ph.i33 ]
@@ -754,7 +754,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %338, %333
   %353 = getelementptr inbounds nuw i8, ptr %.1162.i, i64 24
   %354 = load ptr, ptr %353, align 8
   %.not98.i37 = icmp eq ptr %354, null
-  br i1 %.not98.i37, label %.critedge.i35, label %.lr.ph164.i, !llvm.loop !9
+  br i1 %.not98.i37, label %.critedge.i35, label %.lr.ph164.i, !llvm.loop !11
 
 .critedge.i35:                                    ; preds = %addCompiledLexeme.exit101.i, %.lr.ph164.i
   %.3132.lcssa.ph.i = phi i32 [ %.3132159.i, %.lr.ph164.i ], [ %351, %addCompiledLexeme.exit101.i ]
@@ -764,7 +764,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %338, %333
   %355 = getelementptr inbounds nuw i8, ptr %.1.lcssa.ph.i, i64 8
   %356 = load ptr, ptr %355, align 8
   %.not95.i36 = icmp eq ptr %356, null
-  br i1 %.not95.i36, label %.loopexit.i, label %.lr.ph179.i, !llvm.loop !10
+  br i1 %.not95.i36, label %.loopexit.i, label %.lr.ph179.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.critedge.i35, %addCompiledLexeme.exit.i
   %.1130.i = phi i32 [ %275, %addCompiledLexeme.exit.i ], [ %.3132.lcssa.ph.i, %.critedge.i35 ]
@@ -782,7 +782,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %338, %333
   %363 = load i32, ptr %243, align 8
   %364 = sext i32 %363 to i64
   %365 = icmp slt i64 %indvars.iv.next.i, %364
-  br i1 %365, label %sub_0.i, label %._crit_edge187.i, !llvm.loop !11
+  br i1 %365, label %sub_0.i, label %._crit_edge187.i, !llvm.loop !13
 
 ._crit_edge187.i:                                 ; preds = %.loopexit.i, %237
   %.0129.lcssa.i = phi i32 [ 0, %237 ], [ %.1130.i, %.loopexit.i ]
@@ -907,7 +907,7 @@ cmpLexeme.exit.thread.i:                          ; preds = %cmpLexeme.exit.i, %
   %420 = load i32, ptr %243, align 8
   %421 = sext i32 %420 to i64
   %422 = icmp slt i64 %419, %421
-  br i1 %422, label %.lr.ph196.i, label %._crit_edge197.loopexit.i, !llvm.loop !12
+  br i1 %422, label %.lr.ph196.i, label %._crit_edge197.loopexit.i, !llvm.loop !14
 
 ._crit_edge197.loopexit.i:                        ; preds = %414
   %.pre208.i = ptrtoint ptr %.5.i to i64
@@ -1053,7 +1053,7 @@ compileTheLexeme.exit:                            ; preds = %369, %._crit_edge19
   %496 = getelementptr inbounds nuw i8, ptr %.173104.i, i64 24
   %497 = load ptr, ptr %496, align 8
   %.not87.i = icmp eq ptr %497, null
-  br i1 %.not87.i, label %._crit_edge.i43, label %.lr.ph.i40, !llvm.loop !13
+  br i1 %.not87.i, label %._crit_edge.i43, label %.lr.ph.i40, !llvm.loop !15
 
 ._crit_edge.i43:                                  ; preds = %490
   %.not86.i = icmp eq ptr %.071110.i107, %467
@@ -1114,7 +1114,7 @@ compileTheLexeme.exit:                            ; preds = %369, %._crit_edge19
   %530 = getelementptr inbounds nuw i8, ptr %.077108.i109, i64 24
   %531 = load ptr, ptr %530, align 8
   %.not82.i = icmp eq ptr %531, null
-  br i1 %.not82.i, label %.critedge.i44, label %.lr.ph110, !llvm.loop !14
+  br i1 %.not82.i, label %.critedge.i44, label %.lr.ph110, !llvm.loop !16
 
 .critedge.i44:                                    ; preds = %.lr.ph112.i, %.lr.ph112.i.preheader, %436
   %.071.lcssa.i = phi ptr [ %440, %436 ], [ %440, %.lr.ph112.i.preheader ], [ %494, %.lr.ph112.i ]
@@ -1148,7 +1148,7 @@ compileTheLexeme.exit:                            ; preds = %369, %._crit_edge19
   %550 = load i32, ptr %430, align 8
   %551 = sext i32 %550 to i64
   %552 = icmp slt i64 %indvars.iv.next144, %551
-  br i1 %552, label %436, label %compileTheSubstitute.exit, !llvm.loop !15
+  br i1 %552, label %436, label %compileTheSubstitute.exit, !llvm.loop !17
 
 compileTheSubstitute.exit:                        ; preds = %543, %compileTheLexeme.exit
   %553 = ptrtoint ptr %6 to i64
@@ -1208,7 +1208,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   unreachable
 
 15:                                               ; preds = %1
-  %16 = load i8, ptr %7, align 8, !range !16, !noundef !17
+  %16 = load i8, ptr %7, align 8, !range !18, !noundef !19
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %197, label %18
 
@@ -1229,7 +1229,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = load i8, ptr %28, align 4, !range !16, !noundef !17
+  %29 = load i8, ptr %28, align 4, !range !18, !noundef !19
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %34, label %31
 
@@ -1288,7 +1288,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   %57 = getelementptr inbounds nuw i8, ptr %.162134, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not74 = icmp eq ptr %58, null
-  br i1 %.not74, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not74, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %54
   %.162.lcssa.ph = phi ptr [ %.162134, %.lr.ph ], [ %56, %54 ]
@@ -1302,7 +1302,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
 62:                                               ; preds = %findTheLexeme.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %59
-  br i1 %exitcond.not, label %.critedge76, label %.lr.ph141, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge76, label %.lr.ph141, !llvm.loop !21
 
 .lr.ph141:                                        ; preds = %.critedge, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.critedge ]
@@ -1331,7 +1331,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
 cmpLexemeQ.exit.thread.us.i:                      ; preds = %.lr.ph.i.us.i
   %76 = add nuw i64 %72, 1
   %77 = icmp ult i64 %76, %69
-  br i1 %77, label %.lr.ph.i.us.i, label %findTheLexeme.exit.thread, !llvm.loop !20
+  br i1 %77, label %.lr.ph.i.us.i, label %findTheLexeme.exit.thread, !llvm.loop !22
 
 .lr.ph.i.i:                                       ; preds = %67, %cmpLexemeQ.exit.thread.i
   %.01621.i.i = phi i64 [ %.1.i.i, %cmpLexemeQ.exit.thread.i ], [ 0, %67 ]
@@ -1361,7 +1361,7 @@ cmpLexemeQ.exit.thread.i:                         ; preds = %87, %cmpLexemeQ.exi
   %.118.i.i = phi i64 [ %.01720.i.i, %87 ], [ %79, %cmpLexemeQ.exit.i ], [ %79, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %88, %87 ], [ %.01621.i.i, %cmpLexemeQ.exit.i ], [ %.01621.i.i, %.lr.ph.i.i ]
   %89 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %89, label %.lr.ph.i.i, label %findTheLexeme.exit.thread, !llvm.loop !22
+  br i1 %89, label %.lr.ph.i.i, label %findTheLexeme.exit.thread, !llvm.loop !24
 
 findTheLexeme.exit.thread:                        ; preds = %.lr.ph141, %cmpLexemeQ.exit.thread.i, %cmpLexemeQ.exit.thread.us.i
   %90 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
@@ -1380,7 +1380,7 @@ findTheLexeme.exit:                               ; preds = %86, %.lr.ph.i.us.i
 
 .loopexit:                                        ; preds = %findTheLexeme.exit, %findTheLexeme.exit.thread
   tail call void @pfree(ptr noundef nonnull %61) #10
-  br label %98, !llvm.loop !23
+  br label %98, !llvm.loop !25
 
 .critedge76:                                      ; preds = %62, %.critedge
   %96 = zext i16 %.058.lcssa.ph to i32
@@ -1392,7 +1392,7 @@ findTheLexeme.exit:                               ; preds = %86, %.lr.ph.i.us.i
   %99 = getelementptr inbounds nuw i8, ptr %.162.lcssa.ph, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not71 = icmp eq ptr %100, null
-  br i1 %.not71, label %.critedge78, label %.lr.ph.preheader
+  br i1 %.not71, label %.critedge78, label %.lr.ph.preheader, !llvm.loop !26
 
 101:                                              ; preds = %45
   %102 = load i32, ptr %49, align 8
@@ -1418,7 +1418,7 @@ findTheLexeme.exit:                               ; preds = %86, %.lr.ph.i.us.i
 cmpLexemeQ.exit.thread.us.i82:                    ; preds = %.lr.ph.i.us.i79
   %113 = add nuw i64 %109, 1
   %114 = icmp ult i64 %113, %107
-  br i1 %114, label %.lr.ph.i.us.i79, label %.preheader85.lr.ph.us.i, !llvm.loop !20
+  br i1 %114, label %.lr.ph.i.us.i79, label %.preheader85.lr.ph.us.i, !llvm.loop !22
 
 bsearch.exit.i84:                                 ; preds = %.lr.ph.i.us.i79
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 %110
@@ -1449,7 +1449,7 @@ bsearch.exit.i84:                                 ; preds = %.lr.ph.i.us.i79
   %122 = getelementptr inbounds nuw i8, ptr %.058.i.us.i, i64 16
   %123 = load ptr, ptr %122, align 8
   %.not7.i.us.i = icmp eq ptr %123, null
-  br i1 %.not7.i.us.i, label %.lr.ph112.us.preheader.i, label %.preheader.i.us.i, !llvm.loop !24
+  br i1 %.not7.i.us.i, label %.lr.ph112.us.preheader.i, label %.preheader.i.us.i, !llvm.loop !27
 
 .loopexit.us.i:                                   ; preds = %.preheader.i.us.i, %118
   %124 = icmp eq ptr %.068.us.i, null
@@ -1465,7 +1465,7 @@ bsearch.exit.i84:                                 ; preds = %.lr.ph.i.us.i79
   %128 = getelementptr inbounds nuw i8, ptr %.058.i78.us.i, i64 16
   %129 = load ptr, ptr %128, align 8
   %.not7.i79.us.i = icmp eq ptr %129, null
-  br i1 %.not7.i79.us.i, label %matchIdSubst.exit81.us.i, label %.preheader.i77.us.i, !llvm.loop !24
+  br i1 %.not7.i79.us.i, label %matchIdSubst.exit81.us.i, label %.preheader.i77.us.i, !llvm.loop !27
 
 matchIdSubst.exit81.us.i:                         ; preds = %127, %.loopexit.us.i
   %130 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -1474,7 +1474,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %127, %.loopexit.us.
 
 .lr.ph112.us.preheader.i:                         ; preds = %121, %.preheader.i77.us.i, %._crit_edge.us.i, %matchIdSubst.exit81.us.i
   %.270.us.i = phi ptr [ %131, %matchIdSubst.exit81.us.i ], [ %.068.us.i, %._crit_edge.us.i ], [ %.068.us.i, %.preheader.i77.us.i ], [ %.068.us.i, %121 ]
-  br label %.preheader85.lr.ph.us.i.sink.split, !llvm.loop !25
+  br label %.preheader85.lr.ph.us.i.sink.split, !llvm.loop !28
 
 .preheader.us.i:                                  ; preds = %.lr.ph.us.i.preheader, %142
   %.lcssa155160 = phi ptr [ %144, %142 ], [ %.lcssa155158, %.lr.ph.us.i.preheader ]
@@ -1499,7 +1499,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %127, %.loopexit.us.
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.critedge78, label %.preheader.us.i, !llvm.loop !26
+  br i1 %145, label %.critedge78, label %.preheader.us.i, !llvm.loop !29
 
 select.unfold:                                    ; preds = %138
   %146 = add i32 %.063105.us.i, 1
@@ -1509,7 +1509,7 @@ select.unfold:                                    ; preds = %138
   %147 = phi i32 [ %.pre, %select.unfold ], [ %132, %.preheader.us.i ]
   %.164.us.i = phi i32 [ %146, %select.unfold ], [ 0, %.preheader.us.i ]
   %.not84.us.i = icmp slt i32 %.164.us.i, 1
-  br i1 %.not84.us.i, label %.preheader85.us.i, label %._crit_edge.us.i, !llvm.loop !27
+  br i1 %.not84.us.i, label %.preheader85.us.i, label %._crit_edge.us.i, !llvm.loop !30
 
 .preheader85.us.i:                                ; preds = %._crit_edge.i, %.preheader85.lr.ph.us.i
   %.lcssa155158 = phi ptr [ %.lcssa155161, %.preheader85.lr.ph.us.i ], [ %.lcssa155160, %._crit_edge.i ]
@@ -1559,7 +1559,7 @@ select.unfold:                                    ; preds = %138
   %167 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %154, i64 %166
   %168 = load i16, ptr %167, align 8
   %169 = icmp eq i16 %168, %.063
-  br i1 %169, label %._crit_edge, label %.lr.ph287, !llvm.loop !28
+  br i1 %169, label %._crit_edge, label %.lr.ph287, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %162, %152
   %.092.lcssa = phi i8 [ 0, %152 ], [ 1, %162 ]
@@ -1596,7 +1596,7 @@ select.unfold:                                    ; preds = %138
   %187 = load i16, ptr %170, align 2
   %188 = zext i16 %187 to i64
   %189 = icmp samesign ult i64 %indvars.iv.next.i.i, %188
-  br i1 %189, label %178, label %checkMatch.exit.thread99, !llvm.loop !29
+  br i1 %189, label %178, label %checkMatch.exit.thread99, !llvm.loop !32
 
 checkMatch.exit.thread99:                         ; preds = %178
   %190 = getelementptr inbounds nuw %struct.TSLexeme, ptr %175, i64 %188, i32 2
@@ -1606,7 +1606,7 @@ checkMatch.exit.thread99:                         ; preds = %178
 .lr.ph287:                                        ; preds = %152, %162
   %.not11.i286 = phi i1 [ %.not11.i, %162 ], [ %.not11.i285, %152 ]
   %191 = phi ptr [ %164, %162 ], [ %156, %152 ]
-  br i1 %.not11.i286, label %checkMatch.exit.thread, label %162, !llvm.loop !28
+  br i1 %.not11.i286, label %checkMatch.exit.thread, label %162, !llvm.loop !31
 
 checkMatch.exit:                                  ; preds = %._crit_edge
   %192 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -1666,7 +1666,7 @@ define internal fastcc ptr @findVariant(ptr noundef %0, ptr noundef readonly cap
   %12 = getelementptr inbounds nuw i8, ptr %.058.i.us, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not7.i.us = icmp eq ptr %13, null
-  br i1 %.not7.i.us, label %.lr.ph112.us.preheader, label %.preheader.i.us, !llvm.loop !24
+  br i1 %.not7.i.us, label %.lr.ph112.us.preheader, label %.preheader.i.us, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %.preheader.i.us, %7
   %14 = icmp eq ptr %.068.us, null
@@ -1682,7 +1682,7 @@ define internal fastcc ptr @findVariant(ptr noundef %0, ptr noundef readonly cap
   %18 = getelementptr inbounds nuw i8, ptr %.058.i78.us, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not7.i79.us = icmp eq ptr %19, null
-  br i1 %.not7.i79.us, label %matchIdSubst.exit81.us, label %.preheader.i77.us, !llvm.loop !24
+  br i1 %.not7.i79.us, label %matchIdSubst.exit81.us, label %.preheader.i77.us, !llvm.loop !27
 
 matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %20 = getelementptr inbounds nuw i8, ptr %.1.us, i64 16
@@ -1702,7 +1702,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   store ptr %24, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread.us, label %.lr.ph112.us, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge.thread.us, label %.lr.ph112.us, !llvm.loop !33
 
 .lr.ph.us:                                        ; preds = %.preheader85.us, %50
   %25 = phi ptr [ %52, %50 ], [ %55, %.preheader85.us ]
@@ -1740,7 +1740,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %54, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.split114.us, label %.preheader.us, !llvm.loop !26
+  br i1 %46, label %.split114.us, label %.preheader.us, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.preheader.us, %38
   %47 = add i32 %.063105.us, 1
@@ -1751,17 +1751,17 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %.164.us = phi i32 [ 0, %.critedge.us ], [ %48, %._crit_edge ]
   %.1.us = phi ptr [ %25, %.critedge.us ], [ %30, %._crit_edge ]
   %.not84.us = icmp slt i32 %.164.us, %4
-  br i1 %.not84.us, label %.preheader85.us, label %._crit_edge.us, !llvm.loop !27
+  br i1 %.not84.us, label %.preheader85.us, label %._crit_edge.us, !llvm.loop !30
 
 50:                                               ; preds = %.lr.ph.us
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %54, align 8
   %.not.us = icmp eq ptr %52, null
-  br i1 %.not.us, label %.split114.us, label %.lr.ph.us, !llvm.loop !31
+  br i1 %.not.us, label %.split114.us, label %.lr.ph.us, !llvm.loop !34
 
 .critedge.thread.us:                              ; preds = %.lr.ph112.us
-  br label %.preheader85.lr.ph.us, !llvm.loop !25
+  br label %.preheader85.lr.ph.us, !llvm.loop !28
 
 .preheader85.us:                                  ; preds = %.preheader85.lr.ph.us, %49
   %.062106.us = phi ptr [ %6, %.preheader85.lr.ph.us ], [ %.1.us, %49 ]
@@ -1792,7 +1792,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %62 = getelementptr inbounds nuw i8, ptr %.058.i.us117, i64 16
   %63 = load ptr, ptr %62, align 8
   %.not7.i.us118 = icmp eq ptr %63, null
-  br i1 %.not7.i.us118, label %.critedge.thread.loopexit87.us126, label %.preheader.i.us116, !llvm.loop !24
+  br i1 %.not7.i.us118, label %.critedge.thread.loopexit87.us126, label %.preheader.i.us116, !llvm.loop !27
 
 .loopexit.us131:                                  ; preds = %.preheader.i.us116, %.split.split.split.us
   %64 = icmp eq ptr %.068.us115, null
@@ -1808,7 +1808,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %68 = getelementptr inbounds nuw i8, ptr %.058.i78.us120, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not7.i79.us121 = icmp eq ptr %69, null
-  br i1 %.not7.i79.us121, label %matchIdSubst.exit81.us122, label %.preheader.i77.us119, !llvm.loop !24
+  br i1 %.not7.i79.us121, label %matchIdSubst.exit81.us122, label %.preheader.i77.us119, !llvm.loop !27
 
 matchIdSubst.exit81.us122:                        ; preds = %67, %.loopexit.us131
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -1817,7 +1817,7 @@ matchIdSubst.exit81.us122:                        ; preds = %67, %.loopexit.us13
 
 .critedge.thread.loopexit87.us126:                ; preds = %61, %.preheader.i77.us119, %matchIdSubst.exit81.us122
   %.270.us124 = phi ptr [ %57, %matchIdSubst.exit81.us122 ], [ %.068.us115, %.preheader.i77.us119 ], [ %.068.us115, %61 ]
-  br label %.split.split.split.us, !llvm.loop !32
+  br label %.split.split.split.us, !llvm.loop !35
 
 .split114.us:                                     ; preds = %.preheader85.us, %50, %43
   ret ptr %.068.us
@@ -2060,32 +2060,35 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !21}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !6, !23}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !23}

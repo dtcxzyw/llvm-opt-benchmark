@@ -1372,13 +1372,13 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
   %263 = add i32 %.1.i.i.i.i, %248
   %264 = add nuw i16 %.05663.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i16 %264, %227
-  br i1 %exitcond.not.i.i.i.i, label %dissect_saphdb_gss_authentication_fields.exit.i.i.i, label %232, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i, label %dissect_saphdb_gss_authentication_fields.exit.i.i.i, label %232, !llvm.loop !11
 
 dissect_saphdb_gss_authentication_fields.exit.i.i.i: ; preds = %262, %224, %222
   %265 = add i32 %.166.i.i.i, %213
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %192
-  br i1 %exitcond.not.i.i.i, label %dissect_saphdb_part_buffer.exit.i, label %197, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %dissect_saphdb_part_buffer.exit.i, label %197, !llvm.loop !12
 
 266:                                              ; preds = %151
   %.not.i.i = icmp eq i32 %156, 0
@@ -1420,7 +1420,7 @@ dissect_saphdb_gss_authentication_fields.exit.i.i.i: ; preds = %262, %224, %222
   %.1.i131.i.i = phi i32 [ %284, %281 ], [ %279, %275 ]
   %286 = add nsw i16 %.0231.i.i.i, -1
   %287 = icmp sgt i16 %.0231.i.i.i, 1
-  br i1 %287, label %.lr.ph.i130.i.i, label %dissect_saphdb_part_buffer.exit.i, !llvm.loop !12
+  br i1 %287, label %.lr.ph.i130.i.i, label %dissect_saphdb_part_buffer.exit.i, !llvm.loop !13
 
 288:                                              ; preds = %151
   %289 = call fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %155, i32 noundef %129, i16 noundef signext %117, i8 noundef zeroext 27, ptr noundef nonnull @saphdb_part_command_info_vals)
@@ -1487,7 +1487,7 @@ dissect_saphdb_part.exit:                         ; preds = %148, %dissect_saphd
   %316 = add nuw i16 %.05, 1
   %317 = zext i16 %316 to i32
   %.not153.not = icmp ult i16 %.05, %23
-  br i1 %.not153.not, label %99, label %.critedge, !llvm.loop !13
+  br i1 %.not153.not, label %99, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %99, %dissect_saphdb_part.exit, %90
   %.1 = phi i32 [ 24, %90 ], [ %315, %dissect_saphdb_part.exit ], [ %.24, %99 ]
@@ -1564,15 +1564,15 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not12.i = icmp eq ptr %27, null
-  br i1 %.not12.i, label %.opv_to_opi.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not12.i, label %.opv_to_opi.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %28 = load i8, ptr %25, align 8
   %29 = icmp eq i8 %28, %17
-  br i1 %29, label %opv_to_opi.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %29, label %opv_to_opi.exit, label %.lr.ph, !llvm.loop !15
 
 .opv_to_opi.exit.loopexit_crit_edge:              ; preds = %.lr.ph
-  br label %opv_to_opi.exit, !llvm.loop !14
+  br label %opv_to_opi.exit, !llvm.loop !15
 
 opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.opv_to_opi.exit.loopexit_crit_edge, %16, %.preheader.i
   %.010.i = phi ptr [ @.str.337, %16 ], [ @.str.337, %.preheader.i ], [ @.str.337, %.opv_to_opi.exit.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %27, %.lr.ph.i ]
@@ -1597,7 +1597,7 @@ opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not10.i = icmp eq ptr %43, null
-  br i1 %.not10.i, label %opv_to_opt.exit, label %.lr.ph.i116, !llvm.loop !15
+  br i1 %.not10.i, label %opv_to_opt.exit, label %.lr.ph.i116, !llvm.loop !16
 
 .lr.ph.i116:                                      ; preds = %.preheader.i115, %38
   %44 = phi ptr [ %41, %38 ], [ %6, %.preheader.i115 ]
@@ -1640,7 +1640,7 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i115
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not10.i122 = icmp eq ptr %64, null
-  br i1 %.not10.i122, label %opv_to_opt.exit124, label %.lr.ph.i120, !llvm.loop !15
+  br i1 %.not10.i122, label %opv_to_opt.exit124, label %.lr.ph.i120, !llvm.loop !16
 
 .lr.ph.i120:                                      ; preds = %opv_to_opt.exit, %59
   %65 = phi ptr [ %62, %59 ], [ %6, %opv_to_opt.exit ]
@@ -1767,7 +1767,7 @@ opv_to_opt.exit124:                               ; preds = %59, %opv_to_opt.exi
   %.1 = phi i32 [ %35, %131 ], [ %35, %128 ], [ %78, %74 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %105, %99 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %111, %106 ], [ %111, %115 ]
   %134 = add nsw i16 %.0110136, -1
   %135 = icmp sgt i16 %.0110136, 1
-  br i1 %135, label %12, label %.critedge, !llvm.loop !16
+  br i1 %135, label %12, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %12, %133, %7
   %.0.lcssa = phi i32 [ 0, %7 ], [ %.1, %133 ], [ %.0137, %12 ]
@@ -1816,12 +1816,13 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

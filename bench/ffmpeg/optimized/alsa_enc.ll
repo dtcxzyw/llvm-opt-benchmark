@@ -176,17 +176,17 @@ define internal void @audio_get_output_timestamp(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store i64 0, ptr %5, align 8, !tbaa !57
+  store i64 0, ptr %5, align 8, !tbaa !58
   %8 = tail call i64 @av_gettime() #4
-  store i64 %8, ptr %3, align 8, !tbaa !57
+  store i64 %8, ptr %3, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   %11 = call i32 @snd_pcm_delay(ptr noundef %10, ptr noundef nonnull %5) #4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %13 = load i64, ptr %12, align 8, !tbaa !50
-  %14 = load i64, ptr %5, align 8, !tbaa !57
+  %14 = load i64, ptr %5, align 8, !tbaa !58
   %15 = sub nsw i64 %13, %14
-  store i64 %15, ptr %2, align 8, !tbaa !57
+  store i64 %15, ptr %2, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret void
 }
@@ -210,30 +210,30 @@ define internal range(i32 -22, 1) i32 @audio_write_frame(ptr noundef %0, i32 nou
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  %18 = load i32, ptr %17, align 4, !tbaa !58
+  %18 = load i32, ptr %17, align 4, !tbaa !59
   %19 = tail call i32 @av_sample_fmt_is_planar(i32 noundef %18) #4
   %.not10 = icmp eq i32 %19, 0
   %20 = select i1 %.not10, i32 0, i32 -22
   br label %38
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %2, align 8, !tbaa !59
-  %23 = load ptr, ptr %22, align 8, !tbaa !61
+  %22 = load ptr, ptr %2, align 8, !tbaa !60
+  %23 = load ptr, ptr %22, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %23, ptr %24, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  %26 = load i32, ptr %25, align 8, !tbaa !62
+  %26 = load i32, ptr %25, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !48
   %29 = mul nsw i32 %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %29, ptr %30, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  %32 = load i64, ptr %31, align 8, !tbaa !67
+  %32 = load i64, ptr %31, align 8, !tbaa !68
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %32, ptr %33, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 408
-  %35 = load i64, ptr %34, align 8, !tbaa !68
+  %35 = load i64, ptr %34, align 8, !tbaa !69
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %35, ptr %36, align 8, !tbaa !51
   %37 = call i32 @audio_write_packet(ptr noundef nonnull %0, ptr noundef nonnull %5)
@@ -346,17 +346,18 @@ attributes #4 = { nounwind }
 !52 = !{!42, !7, i64 72}
 !53 = !{!42, !13, i64 88}
 !54 = !{!42, !7, i64 80}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!19, !19, i64 0}
-!58 = !{!36, !13, i64 44}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!61 = !{!18, !18, i64 0}
-!62 = !{!63, !13, i64 112}
-!63 = !{!"AVFrame", !8, i64 0, !8, i64 64, !64, i64 96, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !31, i64 124, !19, i64 136, !19, i64 144, !31, i64 152, !13, i64 160, !7, i64 168, !13, i64 176, !13, i64 180, !8, i64 184, !65, i64 248, !13, i64 256, !66, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !19, i64 304, !21, i64 312, !13, i64 320, !33, i64 328, !33, i64 336, !19, i64 344, !19, i64 352, !19, i64 360, !19, i64 368, !7, i64 376, !37, i64 384, !19, i64 408}
-!64 = !{!"p2 omnipotent char", !15, i64 0}
-!65 = !{!"p2 _ZTS11AVBufferRef", !15, i64 0}
-!66 = !{!"p2 _ZTS15AVFrameSideData", !15, i64 0}
-!67 = !{!63, !19, i64 144}
-!68 = !{!63, !19, i64 408}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!19, !19, i64 0}
+!59 = !{!36, !13, i64 44}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!62 = !{!18, !18, i64 0}
+!63 = !{!64, !13, i64 112}
+!64 = !{!"AVFrame", !8, i64 0, !8, i64 64, !65, i64 96, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !31, i64 124, !19, i64 136, !19, i64 144, !31, i64 152, !13, i64 160, !7, i64 168, !13, i64 176, !13, i64 180, !8, i64 184, !66, i64 248, !13, i64 256, !67, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !19, i64 304, !21, i64 312, !13, i64 320, !33, i64 328, !33, i64 336, !19, i64 344, !19, i64 352, !19, i64 360, !19, i64 368, !7, i64 376, !37, i64 384, !19, i64 408}
+!65 = !{!"p2 omnipotent char", !15, i64 0}
+!66 = !{!"p2 _ZTS11AVBufferRef", !15, i64 0}
+!67 = !{!"p2 _ZTS15AVFrameSideData", !15, i64 0}
+!68 = !{!64, !19, i64 144}
+!69 = !{!64, !19, i64 408}

@@ -944,7 +944,7 @@ define internal void @remove_tempfiles_on_exit() #0 {
 remove_template_directory.exit.us.i:              ; preds = %16, %.split13.us.i, %2, %.lr.ph.split.us.i
   %.0.us.i = load volatile ptr, ptr %.025.us.i, align 8, !tbaa !26
   %.not.us.i = icmp eq ptr %.0.us.i, @tempfile_list
-  br i1 %.not.us.i, label %remove_tempfiles.exit, label %.lr.ph.split.us.i, !llvm.loop !33
+  br i1 %.not.us.i, label %remove_tempfiles.exit, label %.lr.ph.split.us.i, !llvm.loop !34
 
 remove_tempfiles.exit:                            ; preds = %remove_template_directory.exit.us.i, %0
   ret void
@@ -1024,7 +1024,8 @@ attributes #17 = { noreturn nounwind }
 !28 = !{!13, !15, i64 16}
 !29 = !{!13, !14, i64 0}
 !30 = !{!9, !9, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}

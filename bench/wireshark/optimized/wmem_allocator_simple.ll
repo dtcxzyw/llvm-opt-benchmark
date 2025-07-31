@@ -143,7 +143,7 @@ define internal void @wmem_simple_free(ptr noundef captures(none) %0, ptr nounde
 22:                                               ; preds = %9
   %23 = add nsw i32 %.019, -1
   %24 = icmp sgt i32 %.019, 0
-  br i1 %24, label %9, label %._crit_edge, !llvm.loop !9
+  br i1 %24, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %22, %2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 66, ptr noundef nonnull @__func__.wmem_simple_free, ptr noundef null) #8
@@ -171,7 +171,7 @@ define internal void @wmem_simple_free_all(ptr noundef captures(none) %0) #0 {
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %12, label %6, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %6, %1
   store i32 0, ptr %2, align 4
@@ -220,7 +220,8 @@ attributes #8 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

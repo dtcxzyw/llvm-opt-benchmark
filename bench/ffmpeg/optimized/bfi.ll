@@ -132,7 +132,7 @@ bytestream2_init.exit:                            ; preds = %19
   %58 = sdiv i32 %57, 3
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next202, %59
-  br i1 %60, label %43, label %._crit_edge, !llvm.loop !49
+  br i1 %60, label %43, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %55, %37
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -321,7 +321,7 @@ bytestream2_get_le16.exit:                        ; preds = %110, %108, %95, %by
   %144 = getelementptr inbounds nuw i8, ptr %.3181, i64 1
   store i8 %143, ptr %.3181, align 1, !tbaa !46
   %.not116 = icmp eq i32 %141, 0
-  br i1 %.not116, label %.loopexit, label %.lr.ph183, !llvm.loop !50
+  br i1 %.not116, label %.loopexit, label %.lr.ph183, !llvm.loop !51
 
 145:                                              ; preds = %122
   %146 = zext nneg i32 %.0 to i64
@@ -368,7 +368,7 @@ bytestream2_get_byte.exit126:                     ; preds = %bytestream2_get_byt
   %162 = getelementptr inbounds nuw i8, ptr %.4176, i64 2
   store i8 %.0.i125, ptr %161, align 1, !tbaa !46
   %.not115 = icmp eq i32 %160, 0
-  br i1 %.not115, label %.loopexit, label %.lr.ph178, !llvm.loop !51
+  br i1 %.not115, label %.loopexit, label %.lr.ph178, !llvm.loop !52
 
 default.unreachable209:                           ; preds = %122
   unreachable
@@ -405,7 +405,7 @@ default.unreachable209:                           ; preds = %122
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds i8, ptr %.5194, i64 %174
   %.not118 = icmp eq i32 %168, 0
-  br i1 %.not118, label %._crit_edge196, label %166, !llvm.loop !52
+  br i1 %.not118, label %._crit_edge196, label %166, !llvm.loop !53
 
 ._crit_edge196:                                   ; preds = %166, %.thread165
   store i32 1, ptr %2, align 4, !tbaa !45
@@ -502,9 +502,10 @@ attributes #7 = { noreturn nounwind }
 !44 = !{!5, !14, i64 72}
 !45 = !{!10, !10, i64 0}
 !46 = !{!8, !8, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
-!50 = distinct !{!50, !48}
-!51 = distinct !{!51, !48}
-!52 = distinct !{!52, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = distinct !{!50, !48, !49}
+!51 = distinct !{!51, !48, !49}
+!52 = distinct !{!52, !48, !49}
+!53 = distinct !{!53, !48, !49}

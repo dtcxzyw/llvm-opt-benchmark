@@ -169,7 +169,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; pre
   %52 = icmp ne ptr %.149.lcssa103, %3
   %53 = icmp ne ptr %51, %6
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.lr.ph77, label %._crit_edge78, !llvm.loop !14
+  br i1 %54, label %.lr.ph77, label %._crit_edge78, !llvm.loop !15
 
 ._crit_edge78:                                    ; preds = %50, %8
   %.050.lcssa = phi ptr [ %5, %8 ], [ %51, %50 ]
@@ -250,7 +250,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   %41 = icmp ne i32 %40, %.0.i.i
   %42 = icmp ne ptr %.149, %6
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.057, 2
@@ -277,7 +277,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   %51 = icmp ne ptr %50, %3
   %52 = icmp ne ptr %.149.lcssa, %6
   %53 = and i1 %51, %52
-  br i1 %53, label %.lr.ph64, label %._crit_edge65, !llvm.loop !16
+  br i1 %53, label %.lr.ph64, label %._crit_edge65, !llvm.loop !17
 
 ._crit_edge65:                                    ; preds = %49, %8
   %.048.lcssa = phi ptr [ %5, %8 ], [ %.149.lcssa, %49 ]
@@ -372,7 +372,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet15get_octet_countEh.exit: ; preds = 
   %27 = icmp ult i64 %26, %4
   %28 = icmp ult ptr %25, %3
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %10, label %._crit_edge, !llvm.loop !17
+  br i1 %29, label %10, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN5boost7archive6detail18utf8_codecvt_facet15get_octet_countEh.exit, %24, %5
   %.0.lcssa = phi ptr [ %2, %5 ], [ %25, %24 ], [ %.019, %_ZN5boost7archive6detail18utf8_codecvt_facet15get_octet_countEh.exit ]
@@ -469,9 +469,10 @@ attributes #9 = { builtin nounwind }
 !9 = !{!"any pointer", !7, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"wchar_t", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}

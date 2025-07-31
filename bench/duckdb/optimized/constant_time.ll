@@ -93,16 +93,16 @@ define hidden void @_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh(i64 noundef %0, p
 8:                                                ; preds = %.lr.ph, %8
   %.011 = phi i64 [ 0, %.lr.ph ], [ %16, %8 ]
   %9 = getelementptr inbounds nuw i64, ptr %2, i64 %.011
-  %10 = load i64, ptr %9, align 8, !tbaa !8
+  %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = and i64 %10, %6
   %12 = getelementptr inbounds nuw i64, ptr %1, i64 %.011
-  %13 = load i64, ptr %12, align 8, !tbaa !8
+  %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = and i64 %13, %7
   %15 = or i64 %14, %11
-  store i64 %15, ptr %12, align 8, !tbaa !8
+  store i64 %15, ptr %12, align 8, !tbaa !9
   %16 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %16, %0
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %8, %4
   ret void
@@ -209,14 +209,14 @@ define hidden noundef signext i8 @_Z27mbedtls_ct_base64_dec_valueh(i8 noundef ze
 define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = zext i8 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !11
+  %6 = load i64, ptr %5, align 8, !tbaa !12
   %7 = tail call i32 @mbedtls_mpi_grow(ptr noundef %0, i64 noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %1, align 8, !tbaa !16
-  %10 = load i32, ptr %0, align 8, !tbaa !16
+  %9 = load i32, ptr %1, align 8, !tbaa !17
+  %10 = load i32, ptr %0, align 8, !tbaa !17
   %11 = add nsw i32 %9, 1
   %12 = add nsw i32 %10, 1
   %13 = zext i8 %2 to i32
@@ -226,12 +226,12 @@ define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef read
   %17 = and i32 %11, %14
   %18 = add nsw i32 %17, -1
   %19 = add i32 %18, %16
-  store i32 %19, ptr %0, align 8, !tbaa !16
-  %20 = load i64, ptr %5, align 8, !tbaa !11
+  store i32 %19, ptr %0, align 8, !tbaa !17
+  %20 = load i64, ptr %5, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !17
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = sub nsw i64 0, %4
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit, label %.lr.ph.i
@@ -243,25 +243,25 @@ define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef read
 27:                                               ; preds = %27, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %27 ]
   %28 = getelementptr inbounds nuw i64, ptr %24, i64 %.011.i
-  %29 = load i64, ptr %28, align 8, !tbaa !8
+  %29 = load i64, ptr %28, align 8, !tbaa !9
   %30 = and i64 %29, %25
   %31 = getelementptr inbounds nuw i64, ptr %22, i64 %.011.i
-  %32 = load i64, ptr %31, align 8, !tbaa !8
+  %32 = load i64, ptr %31, align 8, !tbaa !9
   %33 = and i64 %32, %26
   %34 = or i64 %33, %30
-  store i64 %34, ptr %31, align 8, !tbaa !8
+  store i64 %34, ptr %31, align 8, !tbaa !9
   %35 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %35, %20
-  br i1 %exitcond.not.i, label %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit.loopexit, label %27, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit.loopexit, label %27, !llvm.loop !11
 
 _Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit.loopexit: ; preds = %27
-  %.pre = load i64, ptr %5, align 8, !tbaa !11
+  %.pre = load i64, ptr %5, align 8, !tbaa !12
   br label %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit
 
 _Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit:  ; preds = %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit.loopexit, %8
   %36 = phi i64 [ %.pre, %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit.loopexit ], [ 0, %8 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !11
+  %38 = load i64, ptr %37, align 8, !tbaa !12
   %39 = icmp uge i64 %36, %38
   %40 = icmp eq i8 %2, 0
   %or.cond = or i1 %39, %40
@@ -270,11 +270,11 @@ _Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit:  ; preds = %_Z31mbedtls_ct_mpi_
 .lr.ph.split:                                     ; preds = %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit, %.lr.ph.split
   %.018 = phi i64 [ %42, %.lr.ph.split ], [ %36, %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit ]
   %41 = getelementptr inbounds nuw i64, ptr %22, i64 %.018
-  store i64 0, ptr %41, align 8, !tbaa !8
+  store i64 0, ptr %41, align 8, !tbaa !9
   %42 = add nuw i64 %.018, 1
-  %43 = load i64, ptr %37, align 8, !tbaa !11
+  %43 = load i64, ptr %37, align 8, !tbaa !12
   %44 = icmp ult i64 %42, %43
-  br i1 %44, label %.lr.ph.split, label %.loopexit, !llvm.loop !18
+  br i1 %44, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph.split, %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit, %3
   ret i32 %7
@@ -290,21 +290,21 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 5:                                                ; preds = %3
   %.not44 = icmp eq i8 %2, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = tail call i32 @mbedtls_mpi_grow(ptr noundef %0, i64 noundef %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !11
+  %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = tail call i32 @mbedtls_mpi_grow(ptr noundef nonnull %1, i64 noundef %11)
   %.not43 = icmp eq i32 %12, 0
   br i1 %.not43, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr %0, align 8, !tbaa !16
-  %15 = load i32, ptr %1, align 8, !tbaa !16
+  %14 = load i32, ptr %0, align 8, !tbaa !17
+  %15 = load i32, ptr %1, align 8, !tbaa !17
   %16 = add nsw i32 %15, 1
   %17 = add nsw i32 %14, 1
   %18 = zext i8 %2 to i32
@@ -314,37 +314,37 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
   %22 = and i32 %16, %19
   %23 = add i32 %21, -1
   %24 = add i32 %23, %22
-  store i32 %24, ptr %0, align 8, !tbaa !16
-  %25 = load i32, ptr %1, align 8, !tbaa !16
+  store i32 %24, ptr %0, align 8, !tbaa !17
+  %25 = load i32, ptr %1, align 8, !tbaa !17
   %26 = add nsw i32 %25, 1
   %27 = and i32 %26, %20
   %28 = and i32 %17, %19
   %29 = add nsw i32 %28, -1
   %30 = add i32 %29, %27
-  store i32 %30, ptr %1, align 8, !tbaa !16
-  %31 = load i64, ptr %10, align 8, !tbaa !11
+  store i32 %30, ptr %1, align 8, !tbaa !17
+  %31 = load i64, ptr %10, align 8, !tbaa !12
   %.not46 = icmp eq i64 %31, 0
   br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !17
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !17
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
   br i1 %.not44, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03845 = phi i64 [ %40, %.lr.ph.split ], [ 0, %.lr.ph ]
   %36 = getelementptr inbounds nuw i64, ptr %33, i64 %.03845
-  %37 = load i64, ptr %36, align 8, !tbaa !8
+  %37 = load i64, ptr %36, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i64, ptr %35, i64 %.03845
-  %39 = load i64, ptr %38, align 8, !tbaa !8
-  store i64 %39, ptr %36, align 8, !tbaa !8
-  store i64 %37, ptr %38, align 8, !tbaa !8
+  %39 = load i64, ptr %38, align 8, !tbaa !9
+  store i64 %39, ptr %36, align 8, !tbaa !9
+  store i64 %37, ptr %38, align 8, !tbaa !9
   %40 = add nuw i64 %.03845, 1
-  %41 = load i64, ptr %10, align 8, !tbaa !11
+  %41 = load i64, ptr %10, align 8, !tbaa !12
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
+  br i1 %42, label %.lr.ph.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph, %13, %5, %9, %3
   %.0 = phi i32 [ 0, %3 ], [ %8, %5 ], [ %12, %9 ], [ 0, %13 ], [ 0, %.lr.ph ], [ 0, %.lr.ph.split ]
@@ -354,29 +354,29 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !11
+  %5 = load i64, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %7 = load i64, ptr %6, align 8, !tbaa !12
   %.not = icmp eq i64 %5, %7
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %0, align 8, !tbaa !16
+  %9 = load i32, ptr %0, align 8, !tbaa !17
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 1
-  %12 = load i32, ptr %1, align 8, !tbaa !16
+  %12 = load i32, ptr %1, align 8, !tbaa !17
   %13 = xor i32 %12, %9
   %14 = lshr i32 %13, 1
   %15 = and i32 %14, %11
-  store i32 %15, ptr %2, align 4, !tbaa !20
+  store i32 %15, ptr %2, align 4, !tbaa !21
   %.not3536 = icmp eq i64 %5, 0
   br i1 %.not3536, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %19 = load ptr, ptr %18, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -385,9 +385,9 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %.03437 = phi i32 [ %14, %.lr.ph ], [ %49, %20 ]
   %22 = add i64 %.03338, -1
   %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
-  %24 = load i64, ptr %23, align 8, !tbaa !8
+  %24 = load i64, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i64, ptr %19, i64 %22
-  %26 = load i64, ptr %25, align 8, !tbaa !8
+  %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = xor i64 %26, %24
   %28 = sub i64 %24, %26
   %29 = xor i64 %27, -1
@@ -413,10 +413,10 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %48 = or i32 %38, %47
   %49 = or i32 %39, %45
   %.not35 = icmp eq i64 %22, 0
-  br i1 %.not35, label %..loopexit_crit_edge, label %20, !llvm.loop !21
+  br i1 %.not35, label %..loopexit_crit_edge, label %20, !llvm.loop !22
 
 ..loopexit_crit_edge:                             ; preds = %20
-  store i32 %48, ptr %2, align 4, !tbaa !20
+  store i32 %48, ptr %2, align 4, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %..loopexit_crit_edge, %3
@@ -453,7 +453,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %24 = add i64 %.05664, %23
   %25 = add nuw i64 %.05763, 1
   %exitcond.not = icmp eq i64 %25, %1
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %26 = icmp eq i8 %18, 0
@@ -524,7 +524,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %62 = load volatile i8, ptr %61, align 1, !tbaa !3
   store volatile i8 %62, ptr %58, align 1, !tbaa !3
   %exitcond.not.i = icmp eq i64 %60, %54
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us31.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us31.i, !llvm.loop !24
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph.split.us31.i, %.lr.ph.split.us.us.i
   %63 = load volatile i8, ptr %55, align 1, !tbaa !3
@@ -533,7 +533,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   store volatile i8 %65, ptr %55, align 1, !tbaa !3
   %66 = add nuw i64 %.028.us.i, 1
   %exitcond35.not.i = icmp eq i64 %66, %7
-  br i1 %exitcond35.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.lr.ph.us.i, !llvm.loop !24
+  br i1 %exitcond35.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.lr.ph.us.i, !llvm.loop !25
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i, %.lr.ph.split.us.us.i
   %.02427.us.us.i = phi i64 [ %69, %.lr.ph.split.us.us.i ], [ 0, %.lr.ph.us.i ]
@@ -544,7 +544,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %71 = load volatile i8, ptr %70, align 1, !tbaa !3
   store volatile i8 %68, ptr %67, align 1, !tbaa !3
   %exitcond34.not.i = icmp eq i64 %69, %54
-  br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !26
+  br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !27
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %.028.i = phi i64 [ %76, %.preheader.split.i ], [ 0, %.preheader.i ]
@@ -555,7 +555,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   store volatile i8 %75, ptr %55, align 1, !tbaa !3
   %76 = add nuw i64 %.028.i, 1
   %exitcond36.not.i = icmp eq i64 %76, %7
-  br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !27
+  br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !28
 
 _ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i, %._crit_edge70
   %.not = icmp eq i64 %3, 0
@@ -568,7 +568,7 @@ _ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %
 78:                                               ; preds = %77, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
   %.neg = select i1 %42, i32 0, i32 -17408
   %.neg60 = select i1 %38, i32 %.neg, i32 -16640
-  store i64 %49, ptr %4, align 8, !tbaa !8
+  store i64 %49, ptr %4, align 8, !tbaa !9
   ret i32 %.neg60
 }
 
@@ -600,25 +600,26 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = distinct !{!10, !7}
-!11 = !{!12, !9, i64 8}
-!12 = !{!"_ZTS11mbedtls_mpi", !13, i64 0, !9, i64 8, !14, i64 16}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!"p1 long", !15, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
-!16 = !{!12, !13, i64 0}
-!17 = !{!12, !14, i64 16}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = !{!13, !13, i64 0}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !7, !25}
-!27 = distinct !{!27, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !4, i64 0}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!13, !10, i64 8}
+!13 = !{!"_ZTS11mbedtls_mpi", !14, i64 0, !10, i64 8, !15, i64 16}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!"p1 long", !16, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
+!17 = !{!13, !14, i64 0}
+!18 = !{!13, !15, i64 16}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = !{!14, !14, i64 0}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7, !8, !26}
+!28 = distinct !{!28, !7, !8}

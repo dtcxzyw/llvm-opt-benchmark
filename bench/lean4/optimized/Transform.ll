@@ -97328,7 +97328,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.sink.
   %.150 = phi ptr [ %31, %27 ], [ %38, %34 ], [ %45, %41 ], [ %54, %57 ], [ %62, %lean_dec.exit.sink.split ]
   %63 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.150) #4
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %lean_dec.exit.thread, label %.lr.ph
+  br i1 %64, label %lean_dec.exit.thread, label %.lr.ph, !llvm.loop !18
 
 lean_dec.exit.thread:                             ; preds = %lean_dec.exit, %48, %lean_obj_tag.exit, %27, %34, %41, %57, %2, %13, %23, %25, %26
   %.177 = phi i8 [ %17, %13 ], [ %17, %23 ], [ %17, %25 ], [ %17, %26 ], [ 0, %2 ], [ 1, %57 ], [ 1, %41 ], [ 1, %34 ], [ 1, %27 ], [ 0, %lean_obj_tag.exit ], [ 1, %48 ], [ 0, %lean_dec.exit ]
@@ -119717,7 +119717,7 @@ lean_dec.exit2029:                                ; preds = %lean_dec.exit2029.b
   %34 = and i64 %33, 1
   %35 = icmp ne i64 %34, 0
   %or.cond = select i1 %32, i1 %35, i1 false
-  br i1 %or.cond, label %36, label %lean_nat_lt.exit, !prof !18
+  br i1 %or.cond, label %36, label %lean_nat_lt.exit, !prof !20
 
 36:                                               ; preds = %lean_dec.exit2029
   %37 = icmp ult ptr %.01441, %29
@@ -137765,7 +137765,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %37 = and i64 %36, 1
   %38 = icmp ne i64 %37, 0
   %or.cond = select i1 %35, i1 %38, i1 false
-  br i1 %or.cond, label %39, label %lean_nat_lt.exit, !prof !18
+  br i1 %or.cond, label %39, label %lean_nat_lt.exit, !prof !20
 
 39:                                               ; preds = %lean_dec.exit
   %40 = icmp ult ptr %.03234, %32
@@ -197467,4 +197467,6 @@ attributes #5 = { noreturn nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !6, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!"branch_weights", i32 4000000, i32 4001}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!"branch_weights", i32 4000000, i32 4001}

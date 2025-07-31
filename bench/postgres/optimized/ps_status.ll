@@ -96,7 +96,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   %27 = getelementptr inbounds ptr, ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge80.loopexit, label %.lr.ph79, !llvm.loop !6
+  br i1 %.not, label %._crit_edge80.loopexit, label %.lr.ph79, !llvm.loop !7
 
 ._crit_edge80.loopexit:                           ; preds = %24
   %29 = add i32 %.15578, 2
@@ -132,7 +132,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
   %41 = getelementptr inbounds ptr, ptr %16, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not65 = icmp eq ptr %42, null
-  br i1 %.not65, label %._crit_edge87, label %.lr.ph86, !llvm.loop !7
+  br i1 %.not65, label %._crit_edge87, label %.lr.ph86, !llvm.loop !8
 
 .lr.ph86:                                         ; preds = %.preheader70, %38
   %43 = phi ptr [ %42, %38 ], [ %17, %.preheader70 ]
@@ -173,7 +173,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 54:                                               ; preds = %.lr.ph90
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !8
+  br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !9
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %54
   %indvars.iv95 = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next96, %54 ]
@@ -227,7 +227,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2, %1
   %.06 = phi ptr [ %0, %1 ], [ %4, %2 ]
-  %6 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %6 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
   %7 = trunc nuw i8 %6 to i1
   %.not10 = xor i1 %7, true
   %8 = load ptr, ptr @save_argv, align 8
@@ -262,7 +262,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %13, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !12
 
 20:                                               ; preds = %._crit_edge
   %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef %17, ptr noundef nonnull @.str.1, ptr noundef %.06) #15
@@ -277,8 +277,8 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #13
   store i64 %26, ptr @ps_buffer_fixed_size, align 8
   store i64 %26, ptr @ps_buffer_cur_len, align 8
-  %27 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
-  %28 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %27 = load i8, ptr @update_process_title, align 1, !range !10, !noundef !11
+  %28 = load i8, ptr @IsUnderPostmaster, align 1, !range !10
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %set_ps_display.exit
 
@@ -361,9 +361,9 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_suffix(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
+  %2 = load i8, ptr @update_process_title, align 1, !range !10, !noundef !11
   %3 = trunc nuw i8 %2 to i1
-  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !10
   %5 = trunc nuw i8 %4 to i1
   %or.cond.i = select i1 %3, i1 %5, i1 false
   %6 = load ptr, ptr @ps_buffer, align 8
@@ -476,9 +476,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_remove_suffix() local_unnamed_addr #8 {
-  %1 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
+  %1 = load i8, ptr @update_process_title, align 1, !range !10, !noundef !11
   %2 = trunc nuw i8 %1 to i1
-  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !10
   %4 = trunc nuw i8 %3 to i1
   %or.cond.i = select i1 %2, i1 %4, i1 false
   br i1 %or.cond.i, label %update_ps_display_precheck.exit, label %update_ps_display_precheck.exit.thread
@@ -542,9 +542,9 @@ update_ps_display_precheck.exit.thread:           ; preds = %0, %update_ps_displ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_with_len(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
-  %3 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
+  %3 = load i8, ptr @update_process_title, align 1, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1
-  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !10
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %4, i1 %6, i1 false
   %7 = load ptr, ptr @ps_buffer, align 8
@@ -669,11 +669,12 @@ attributes #16 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}

@@ -259,7 +259,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 124:                                              ; preds = %.lr.ph
   %125 = add nuw nsw i32 %.03956, 1
   %exitcond.not = icmp eq i32 %125, %122
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %124
   %.63457 = phi i32 [ %132, %124 ], [ %.4326292, %.lr.ph.preheader ]
@@ -281,7 +281,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   %134 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %133, ptr noundef nonnull %5) #12
   %135 = load i32, ptr %5, align 4
   %136 = icmp slt i32 %135, 0
-  br i1 %136, label %.loopexit53.split, label %.lr.ph93, !llvm.loop !11
+  br i1 %136, label %.loopexit53.split, label %.lr.ph93, !llvm.loop !12
 
 .loopexit53.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %100
   %.331 = phi i32 [ %.129, %100 ], [ %.129, %.split ], [ %132, %.lr.ph ], [ %.533, %.loopexit ]
@@ -295,7 +295,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   %.3 = phi i32 [ %.2, %96 ], [ %.4, %.loopexit53.split ]
   %140 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
   %141 = icmp slt i32 %140, 0
-  br i1 %141, label %.loopexit55, label %.preheader54.split, !llvm.loop !12
+  br i1 %141, label %.loopexit55, label %.preheader54.split, !llvm.loop !13
 
 .loopexit55:                                      ; preds = %139, %.preheader54.split, %68, %49, %.thread
   %.735 = phi i32 [ %.028, %.thread ], [ %.129.us, %49 ], [ %.230.us, %68 ], [ %.129, %.preheader54.split ], [ %.230, %139 ]
@@ -881,9 +881,10 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{ptr @deviceInfoIterator}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

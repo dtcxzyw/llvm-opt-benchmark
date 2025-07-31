@@ -168,7 +168,7 @@ define dso_local range(i32 0, 13) i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr 
   switch i32 %15, label %.preheader [
     i32 -1, label %.loopexit14.loopexit19
     i32 3, label %.loopexit14
-  ]
+  ], !llvm.loop !15
 
 .loopexit14.loopexit19:                           ; preds = %.preheader
   br label %.loopexit14
@@ -209,5 +209,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !9 = !{!"", !5, i64 0, !5, i64 4}
 !10 = !{!9, !5, i64 4}
 !11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !14}

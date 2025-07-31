@@ -518,7 +518,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 27:                                               ; preds = %.lr.ph.i
   %28 = load ptr, ptr %.09.i, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %27, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %0, label %29, label %31
@@ -549,7 +549,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %45 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %44
   %46 = load volatile ptr, ptr %45, align 8
   store ptr %46, ptr %.1, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   store volatile ptr %.1, ptr %45, align 8
   %47 = load i8, ptr @PrintAdapterHandlers, align 1
   %48 = trunc i8 %47 to i1
@@ -659,7 +659,7 @@ define hidden noundef ptr @_ZN11VtableStubs6lookupEbi(i1 noundef zeroext %0, i32
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %.09, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %25, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %25 ], [ %.09, %.lr.ph ]
@@ -686,7 +686,7 @@ define hidden void @_ZN11VtableStubs5enterEbiP10VtableStub(i1 noundef zeroext %0
   %15 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
   store ptr %16, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   store volatile ptr %2, ptr %15, align 8
   ret void
 }
@@ -740,7 +740,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.not9 = icmp eq ptr %24, %0
   %or.cond = select i1 %.not, i1 true, i1 %.not9
-  br i1 %or.cond, label %.critedge10, label %.lr.ph, !llvm.loop !10
+  br i1 %or.cond, label %.critedge10, label %.lr.ph, !llvm.loop !11
 
 .critedge10:                                      ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %.0.lcssa = phi ptr [ %21, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %23, %.lr.ph ]
@@ -762,7 +762,7 @@ define hidden noundef zeroext i1 @_ZN11VtableStubs8containsEPh(ptr noundef readn
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %3 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %indvars.iv.i
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %.not12.i = icmp eq ptr %4, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -793,12 +793,12 @@ _ZNK10VtableStub8containsEPh.exit.i:              ; preds = %5
 _ZNK10VtableStub8containsEPh.exit.thread.i:       ; preds = %_ZNK10VtableStub8containsEPh.exit.i, %5
   %16 = load ptr, ptr %.013.i, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %._crit_edge.i, label %5, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %5, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %_ZNK10VtableStub8containsEPh.exit.thread.i, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %_ZN11VtableStubs15stub_containingEPh.exit, label %2, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11VtableStubs15stub_containingEPh.exit, label %2, !llvm.loop !13
 
 _ZN11VtableStubs15stub_containingEPh.exit:        ; preds = %._crit_edge.i, %_ZNK10VtableStub8containsEPh.exit.i
   %.09.i = phi i1 [ true, %_ZNK10VtableStub8containsEPh.exit.i ], [ false, %._crit_edge.i ]
@@ -813,7 +813,7 @@ define hidden noundef ptr @_ZN11VtableStubs15stub_containingEPh(ptr noundef read
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %3 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %.not12 = icmp eq ptr %4, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -844,12 +844,12 @@ _ZNK10VtableStub8containsEPh.exit:                ; preds = %5
 _ZNK10VtableStub8containsEPh.exit.thread:         ; preds = %5, %_ZNK10VtableStub8containsEPh.exit
   %16 = load ptr, ptr %.013, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZNK10VtableStub8containsEPh.exit.thread, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK10VtableStub8containsEPh.exit
   %.09 = phi ptr [ %.013, %_ZNK10VtableStub8containsEPh.exit ], [ null, %._crit_edge ]
@@ -898,7 +898,7 @@ define hidden void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr nound
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %3 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %.not7 = icmp eq ptr %4, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -907,12 +907,12 @@ define hidden void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr nound
   tail call void %0(ptr noundef nonnull %.08) #7
   %5 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !15
 
 6:                                                ; preds = %._crit_edge
   ret void
@@ -1056,12 +1056,13 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2145392468}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2145392468}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

@@ -580,7 +580,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %61
 
 67:                                               ; preds = %_ZN6icu_7713UnicodeString6insertEii.exit
   %.not64 = icmp eq i8 %66, 0
-  br i1 %.not64, label %57, label %.loopexit72, !llvm.loop !29
+  br i1 %.not64, label %57, label %.loopexit72, !llvm.loop !30
 
 .loopexit72:                                      ; preds = %42, %59, %67, %50
   %68 = phi ptr [ %37, %50 ], [ %35, %67 ], [ %35, %59 ], [ %37, %42 ]
@@ -820,6 +820,7 @@ attributes #5 = { nounwind }
 !24 = !{!"int", !9, i64 0}
 !25 = !{!23, !8, i64 48}
 !26 = !{!23, !8, i64 40}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !28, !29}

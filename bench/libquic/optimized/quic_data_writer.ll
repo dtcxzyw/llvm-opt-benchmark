@@ -416,5 +416,6 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !9 = !{!"long", !7, i64 0}
 !10 = !{!4, !9, i64 8}
 !11 = !{!4, !9, i64 16}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!"llvm.loop.estimated_trip_count"}

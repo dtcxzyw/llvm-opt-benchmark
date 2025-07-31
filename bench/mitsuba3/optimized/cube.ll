@@ -471,7 +471,7 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 94:                                               ; preds = %._crit_edge, %.noexc.i
   %.sroa.0261.0 = phi ptr [ null, %._crit_edge ], [ %93, %.noexc.i ]
   %.pre-phi.i = phi i64 [ 0, %._crit_edge ], [ %92, %.noexc.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0261.0, ptr nonnull align 1 %16, i64 %.pre-phi.i, i1 false), !noalias !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0261.0, ptr nonnull align 1 %16, i64 %.pre-phi.i, i1 false), !noalias !7
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %96 = load ptr, ptr %95, align 16
   store ptr %.sroa.0261.0, ptr %95, align 16
@@ -506,7 +506,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit:              ; preds = %94, %102
 107:                                              ; preds = %_ZN5drjit12DynamicArrayIjED2Ev.exit, %.noexc.i209
   %.sroa.0256.0 = phi ptr [ null, %_ZN5drjit12DynamicArrayIjED2Ev.exit ], [ %106, %.noexc.i209 ]
   %.pre-phi.i210 = phi i64 [ 0, %_ZN5drjit12DynamicArrayIjED2Ev.exit ], [ %105, %.noexc.i209 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0256.0, ptr nonnull align 1 %23, i64 %.pre-phi.i210, i1 false), !noalias !9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0256.0, ptr nonnull align 1 %23, i64 %.pre-phi.i210, i1 false), !noalias !10
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %109 = load ptr, ptr %108, align 8
   store ptr %.sroa.0256.0, ptr %108, align 8
@@ -541,7 +541,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %107, %115
 120:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit, %.noexc.i212
   %.sroa.0251.0 = phi ptr [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ %119, %.noexc.i212 ]
   %.pre-phi.i213 = phi i64 [ 0, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ %118, %.noexc.i212 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0251.0, ptr nonnull align 1 %25, i64 %.pre-phi.i213, i1 false), !noalias !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0251.0, ptr nonnull align 1 %25, i64 %.pre-phi.i213, i1 false), !noalias !13
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %122 = load ptr, ptr %121, align 16
   store ptr %.sroa.0251.0, ptr %121, align 16
@@ -575,7 +575,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit216:           ; preds = %120, %128
 135:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit216, %.noexc.i217
   %.sroa.0.0 = phi ptr [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit216 ], [ %134, %.noexc.i217 ]
   %.pre-phi.i218 = phi i64 [ 0, %_ZN5drjit12DynamicArrayIfED2Ev.exit216 ], [ %133, %.noexc.i217 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr nonnull align 1 %30, i64 %.pre-phi.i218, i1 false), !noalias !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0.0, ptr nonnull align 1 %30, i64 %.pre-phi.i218, i1 false), !noalias !16
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %137 = load ptr, ptr %136, align 8
   store ptr %.sroa.0.0, ptr %136, align 8
@@ -692,10 +692,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 11:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit12
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i64 16), ptr %4, align 16, !alias.scope !18
-  store ptr %4, ptr %12, align 16, !alias.scope !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i64 16), ptr %4, align 16, !alias.scope !19
+  store ptr %4, ptr %12, align 16, !alias.scope !19
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %13, align 16, !alias.scope !21
+  store ptr null, ptr %13, align 16, !alias.scope !22
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.3, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
 
@@ -1063,23 +1063,24 @@ attributes #15 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN5drjit12DynamicArrayIjE5load_EPKvm: argument 0"}
-!8 = distinct !{!8, !"_ZN5drjit12DynamicArrayIjE5load_EPKvm"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
-!11 = distinct !{!11, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
-!14 = distinct !{!14, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
-!17 = distinct !{!17, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN7mitsuba6detail21get_construct_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv: argument 0"}
-!20 = distinct !{!20, !"_ZN7mitsuba6detail21get_construct_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN7mitsuba6detail23get_unserialize_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv: argument 0"}
-!23 = distinct !{!23, !"_ZN7mitsuba6detail23get_unserialize_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN5drjit12DynamicArrayIjE5load_EPKvm: argument 0"}
+!9 = distinct !{!9, !"_ZN5drjit12DynamicArrayIjE5load_EPKvm"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
+!12 = distinct !{!12, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
+!15 = distinct !{!15, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm: argument 0"}
+!18 = distinct !{!18, !"_ZN5drjit12DynamicArrayIfE5load_EPKvm"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN7mitsuba6detail21get_construct_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv: argument 0"}
+!21 = distinct !{!21, !"_ZN7mitsuba6detail21get_construct_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIX18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESE_EEEv"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN7mitsuba6detail23get_unserialize_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv: argument 0"}
+!24 = distinct !{!24, !"_ZN7mitsuba6detail23get_unserialize_functorINS_4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS9_8functionIFPNS_6ObjectESD_EEEv"}

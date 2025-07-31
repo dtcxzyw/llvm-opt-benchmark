@@ -133,7 +133,7 @@ st_mult.exit91:                                   ; preds = %6
 
 ..loopexit_crit_edge.us:                          ; preds = %64, %.lr.ph95.split.us.us
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph95.us, !llvm.loop !11
+  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph95.us, !llvm.loop !12
 
 .lr.ph95.split.us.us:                             ; preds = %.lr.ph95.us, %.lr.ph95.split.us.us
   %65 = phi i32 [ %spec.store.select111, %.lr.ph95.split.us.us ], [ %23, %.lr.ph95.us ]
@@ -157,7 +157,7 @@ st_mult.exit91:                                   ; preds = %6
   %spec.store.select111 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %77)
   store i32 %spec.store.select111, ptr %73, align 4
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %..loopexit_crit_edge.us, label %.lr.ph95.split.us.us, !llvm.loop !13
+  br i1 %exitcond126.not, label %..loopexit_crit_edge.us, label %.lr.ph95.split.us.us, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -167,7 +167,7 @@ st_mult.exit91:                                   ; preds = %6
   store i32 %80, ptr %78, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph102, %.loopexit
   %.0101 = phi ptr [ %.08396, %.loopexit ], [ %16, %.lr.ph102 ]
@@ -178,7 +178,7 @@ st_mult.exit91:                                   ; preds = %6
   %82 = mul nsw i32 %81, %5
   store i32 %82, ptr %.08298, align 4, !tbaa !4
   %exitcond116.not = icmp eq i32 %81, %8
-  br i1 %exitcond116.not, label %._crit_edge, label %.loopexit, !llvm.loop !15
+  br i1 %exitcond116.not, label %._crit_edge, label %.loopexit, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.us, %.preheader
   %.083.lcssa = phi ptr [ %17, %.preheader ], [ %.08298.us, %..loopexit_crit_edge.us ], [ %.08298, %.loopexit ]
@@ -228,10 +228,11 @@ attributes #8 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !10, !12}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !10, !11, !13}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

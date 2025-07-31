@@ -65,7 +65,7 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i: ; preds = %.lr.ph.i.
   %33 = shl nuw i64 %.011.i.i.i.i, 10
   %34 = add nsw i32 %.0810.i.i.i.i, -10
   %35 = icmp ult i64 %.011.i.i.i.i, 17592186044416
-  br i1 %35, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !5
+  br i1 %35, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !6
 
 .lr.ph15.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %.lr.ph15.i.i.i.i
   %.114.i.i.i.i = phi i64 [ %36, %.lr.ph15.i.i.i.i ], [ %33, %.preheader.i.i.i.i ]
@@ -73,7 +73,7 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i: ; preds = %.lr.ph.i.
   %36 = shl nuw i64 %.114.i.i.i.i, 1
   %37 = add nsw i32 %.1913.i.i.i.i, -1
   %38 = icmp sgt i64 %36, -1
-  br i1 %38, label %.lr.ph15.i.i.i.i, label %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i, !llvm.loop !6
+  br i1 %38, label %.lr.ph15.i.i.i.i, label %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i, !llvm.loop !7
 
 _ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; preds = %.lr.ph15.i.i.i.i, %.preheader.i.i.i.i
   %.19.lcssa.i.i.i.i = phi i32 [ %34, %.preheader.i.i.i.i ], [ %37, %.lr.ph15.i.i.i.i ]
@@ -117,7 +117,7 @@ _ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %61 = shl nuw i64 %.011.i.i.i43.i, 10
   %62 = add nsw i32 %.0810.i.i.i44.i, -10
   %63 = icmp ult i64 %.011.i.i.i43.i, 17592186044416
-  br i1 %63, label %.lr.ph.i.i.i42.i, label %.preheader.i.i.i45.i, !llvm.loop !5
+  br i1 %63, label %.lr.ph.i.i.i42.i, label %.preheader.i.i.i45.i, !llvm.loop !6
 
 .lr.ph15.i.i.i53.i:                               ; preds = %.preheader.i.i.i45.i, %.lr.ph15.i.i.i53.i
   %.114.i.i.i54.i = phi i64 [ %64, %.lr.ph15.i.i.i53.i ], [ %61, %.preheader.i.i.i45.i ]
@@ -125,7 +125,7 @@ _ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %64 = shl nuw i64 %.114.i.i.i54.i, 1
   %65 = add nsw i32 %.1913.i.i.i55.i, -1
   %66 = icmp sgt i64 %64, -1
-  br i1 %66, label %.lr.ph15.i.i.i53.i, label %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i, !llvm.loop !6
+  br i1 %66, label %.lr.ph15.i.i.i53.i, label %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i, !llvm.loop !7
 
 _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; preds = %.lr.ph15.i.i.i53.i, %.preheader.i.i.i45.i
   %.19.lcssa.i.i.i46.i = phi i32 [ %62, %.preheader.i.i.i45.i ], [ %65, %.lr.ph15.i.i.i53.i ]
@@ -149,16 +149,16 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %75 = zext nneg i32 %.sink135.i to i64
   %76 = shl i64 %.sroa.012.0.i49.sink.i, %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
-  store i64 0, ptr %10, align 8, !tbaa !7
+  store i64 0, ptr %10, align 8, !tbaa !8
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %77, align 8, !tbaa !13
+  store i32 0, ptr %77, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
   %78 = sub nsw i32 -113, %.0.lcssa.i.i
   %79 = sub nsw i32 -85, %.0.lcssa.i.i
   call void @_ZN17double_conversion16PowersOfTenCache36GetCachedPowerForBinaryExponentRangeEiiPNS_5DiyFpEPi(i32 noundef %78, i32 noundef %79, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %80 = lshr i64 %26, 32
   %81 = and i64 %26, 4294965248
-  %82 = load i64, ptr %10, align 8, !tbaa !7
+  %82 = load i64, ptr %10, align 8, !tbaa !8
   %83 = lshr i64 %82, 32
   %84 = and i64 %82, 4294967295
   %85 = mul nuw i64 %83, %80
@@ -171,7 +171,7 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %92 = add nuw nsw i64 %90, 2147483648
   %93 = add nuw nsw i64 %92, %89
   %94 = add nuw nsw i64 %93, %91
-  %95 = load i32, ptr %77, align 8, !tbaa !13
+  %95 = load i32, ptr %77, align 8, !tbaa !14
   %96 = add i32 %.0.lcssa.i.i, 53
   %97 = add i32 %96, %95
   %98 = lshr i64 %87, 32
@@ -229,13 +229,13 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %150 = add nsw i32 %149, 1
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds [11 x i32], ptr @_ZN17double_conversionL17kSmallPowersOfTenE, i64 0, i64 %151
-  %153 = load i32, ptr %152, align 4, !tbaa !14
+  %153 = load i32, ptr %152, align 4, !tbaa !15
   %154 = icmp ugt i32 %153, %144
   %spec.select.i.i.i = select i1 %154, i32 %149, i32 %150
   %155 = sext i32 %spec.select.i.i.i to i64
   %156 = getelementptr inbounds [11 x i32], ptr @_ZN17double_conversionL17kSmallPowersOfTenE, i64 0, i64 %155
-  %157 = load i32, ptr %156, align 4, !tbaa !14
-  store i32 0, ptr %5, align 4, !tbaa !14
+  %157 = load i32, ptr %156, align 4, !tbaa !15
+  store i32 0, ptr %5, align 4, !tbaa !15
   %158 = add nuw i64 %98, %85
   %159 = add nuw i64 %158, %99
   %160 = add nuw i64 %159, %100
@@ -259,13 +259,13 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %168 = udiv i32 %.048.i.i, %.037.i.i
   %169 = trunc i32 %168 to i8
   %170 = add i8 %169, 48
-  %171 = load i32, ptr %5, align 4, !tbaa !14
+  %171 = load i32, ptr %5, align 4, !tbaa !15
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds i8, ptr %3, i64 %172
-  store i8 %170, ptr %173, align 1, !tbaa !15
-  %174 = load i32, ptr %5, align 4, !tbaa !14
+  store i8 %170, ptr %173, align 1, !tbaa !16
+  %174 = load i32, ptr %5, align 4, !tbaa !15
   %175 = add nsw i32 %174, 1
-  store i32 %175, ptr %5, align 4, !tbaa !14
+  store i32 %175, ptr %5, align 4, !tbaa !15
   %176 = urem i32 %.048.i.i, %.037.i.i
   %177 = add nsw i32 %.0.i, -1
   %178 = zext i32 %176 to i64
@@ -301,14 +301,14 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   br i1 %.not46.i.i.i, label %.critedge.i.i.i, label %.critedge2.i.i.i
 
 .critedge2.i.i.i:                                 ; preds = %190, %187
-  %193 = load i8, ptr %gep.i.i.i, align 1, !tbaa !15
+  %193 = load i8, ptr %gep.i.i.i, align 1, !tbaa !16
   %194 = add i8 %193, -1
-  store i8 %194, ptr %gep.i.i.i, align 1, !tbaa !15
+  store i8 %194, ptr %gep.i.i.i, align 1, !tbaa !16
   %195 = icmp uge i64 %188, %162
   %196 = sub i64 %139, %188
   %.not.i.i.i = icmp ult i64 %196, %183
   %or.cond.i.i.i = or i1 %195, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %187, !llvm.loop !16
+  br i1 %or.cond.i.i.i, label %.critedge.i.i.i, label %187, !llvm.loop !17
 
 .critedge.i.i.i:                                  ; preds = %.critedge2.i.i.i, %190, %181
   %.040.lcssa.i.i.i = phi i64 [ %180, %181 ], [ %.04052.i.i.i, %190 ], [ %188, %.critedge2.i.i.i ]
@@ -341,7 +341,7 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
 _ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i: ; preds = %208, %205, %201, %198
   %.138.i.i = phi i32 [ %209, %208 ], [ %.037.i.i, %198 ], [ %.037.i.i, %201 ], [ %.037.i.i, %205 ]
   %.1.i.i = phi i1 [ %.0.i.i, %208 ], [ false, %198 ], [ false, %201 ], [ %207, %205 ]
-  br i1 %.not54.i.i, label %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, label %165, !llvm.loop !17
+  br i1 %.not54.i.i, label %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, label %165, !llvm.loop !18
 
 .preheader.i.i:                                   ; preds = %165, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i
   %.1.i = phi i32 [ %222, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i ], [ %smin.i, %165 ]
@@ -355,13 +355,13 @@ _ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i: ; preds = %208,
   %213 = lshr i64 %210, %141
   %214 = trunc i64 %213 to i8
   %215 = add i8 %214, 48
-  %216 = load i32, ptr %5, align 4, !tbaa !14
+  %216 = load i32, ptr %5, align 4, !tbaa !15
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds i8, ptr %3, i64 %217
-  store i8 %215, ptr %218, align 1, !tbaa !15
-  %219 = load i32, ptr %5, align 4, !tbaa !14
+  store i8 %215, ptr %218, align 1, !tbaa !16
+  %219 = load i32, ptr %5, align 4, !tbaa !15
   %220 = add nsw i32 %219, 1
-  store i32 %220, ptr %5, align 4, !tbaa !14
+  store i32 %220, ptr %5, align 4, !tbaa !15
   %221 = and i64 %210, %145
   %222 = add nsw i32 %.1.i, -1
   %.not.i.i = icmp ult i64 %221, %212
@@ -395,14 +395,14 @@ _ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i: ; preds = %208,
   br i1 %.not46.i71.i.i, label %.critedge.i75.i.i, label %.critedge2.i72.i.i
 
 .critedge2.i72.i.i:                               ; preds = %233, %230
-  %236 = load i8, ptr %gep.i69.i.i, align 1, !tbaa !15
+  %236 = load i8, ptr %gep.i69.i.i, align 1, !tbaa !16
   %237 = add i8 %236, -1
-  store i8 %237, ptr %gep.i69.i.i, align 1, !tbaa !15
+  store i8 %237, ptr %gep.i69.i.i, align 1, !tbaa !16
   %238 = icmp uge i64 %231, %225
   %239 = sub i64 %212, %231
   %.not.i73.i.i = icmp ult i64 %239, %142
   %or.cond.i74.i.i = or i1 %238, %.not.i73.i.i
-  br i1 %or.cond.i74.i.i, label %.critedge.i75.i.i, label %230, !llvm.loop !16
+  br i1 %or.cond.i74.i.i, label %.critedge.i75.i.i, label %230, !llvm.loop !17
 
 .critedge.i75.i.i:                                ; preds = %.critedge2.i72.i.i, %233, %223
   %.040.lcssa.i76.i.i = phi i64 [ %221, %223 ], [ %.04052.i70.i.i, %233 ], [ %231, %.critedge2.i72.i.i ]
@@ -433,12 +433,12 @@ _ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i: ; preds = %208,
 
 _ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i: ; preds = %248, %244, %241, %.preheader.i.i
   %.4.i.i = phi i1 [ %.3.i.i, %.preheader.i.i ], [ %252, %248 ], [ false, %244 ], [ false, %241 ]
-  br i1 %.not.i.i, label %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, label %.preheader.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, label %.preheader.i.i, !llvm.loop !19
 
 _ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit: ; preds = %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i
   %.2.i = phi i32 [ %222, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i ], [ %177, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i ]
   %.2.i.i = phi i1 [ %.4.i.i, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit81.i.i ], [ %.1.i.i, %_ZN17double_conversionL9RoundWeedENS_6VectorIcEEimmmmm.exit.i.i ]
-  %253 = load i32, ptr %11, align 4, !tbaa !14
+  %253 = load i32, ptr %11, align 4, !tbaa !15
   %254 = sub nsw i32 %.2.i, %253
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
@@ -469,16 +469,16 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %.0.lcssa.i.i16 = phi i32 [ %263, %255 ], [ %265, %.lr.ph.i.i25 ]
   %268 = shl i64 %.07.lcssa.i.i15, 11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
-  store i64 0, ptr %8, align 8, !tbaa !7
+  store i64 0, ptr %8, align 8, !tbaa !8
   %269 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %269, align 8, !tbaa !13
+  store i32 0, ptr %269, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   %270 = sub nsw i32 -113, %.0.lcssa.i.i16
   %271 = sub nsw i32 -85, %.0.lcssa.i.i16
   call void @_ZN17double_conversion16PowersOfTenCache36GetCachedPowerForBinaryExponentRangeEiiPNS_5DiyFpEPi(i32 noundef %270, i32 noundef %271, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %272 = lshr i64 %268, 32
   %273 = and i64 %268, 4294965248
-  %274 = load i64, ptr %8, align 8, !tbaa !7
+  %274 = load i64, ptr %8, align 8, !tbaa !8
   %275 = lshr i64 %274, 32
   %276 = and i64 %274, 4294967295
   %277 = mul nuw i64 %275, %272
@@ -491,7 +491,7 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %284 = add nuw nsw i64 %282, 2147483648
   %285 = add nuw nsw i64 %284, %281
   %286 = add nuw nsw i64 %285, %283
-  %287 = load i32, ptr %269, align 8, !tbaa !13
+  %287 = load i32, ptr %269, align 8, !tbaa !14
   %288 = add i32 %.0.lcssa.i.i16, 53
   %289 = add i32 %288, %287
   %290 = lshr i64 %279, 32
@@ -513,13 +513,13 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %306 = add nsw i32 %305, 1
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds [11 x i32], ptr @_ZN17double_conversionL17kSmallPowersOfTenE, i64 0, i64 %307
-  %309 = load i32, ptr %308, align 4, !tbaa !14
+  %309 = load i32, ptr %308, align 4, !tbaa !15
   %310 = icmp ugt i32 %309, %300
   %spec.select.i.i.i17 = select i1 %310, i32 %305, i32 %306
   %311 = sext i32 %spec.select.i.i.i17 to i64
   %312 = getelementptr inbounds [11 x i32], ptr @_ZN17double_conversionL17kSmallPowersOfTenE, i64 0, i64 %311
-  %313 = load i32, ptr %312, align 4, !tbaa !14
-  store i32 0, ptr %5, align 4, !tbaa !14
+  %313 = load i32, ptr %312, align 4, !tbaa !15
+  store i32 0, ptr %5, align 4, !tbaa !15
   %314 = icmp sgt i32 %spec.select.i.i.i17, 0
   br i1 %314, label %.lr.ph.i21.i, label %._crit_edge.i.i
 
@@ -534,10 +534,10 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %318 = add i8 %317, 48
   %319 = sext i32 %315 to i64
   %320 = getelementptr inbounds i8, ptr %3, i64 %319
-  store i8 %318, ptr %320, align 1, !tbaa !15
-  %321 = load i32, ptr %5, align 4, !tbaa !14
+  store i8 %318, ptr %320, align 1, !tbaa !16
+  %321 = load i32, ptr %5, align 4, !tbaa !15
   %322 = add nsw i32 %321, 1
-  store i32 %322, ptr %5, align 4, !tbaa !14
+  store i32 %322, ptr %5, align 4, !tbaa !15
   %323 = add nsw i32 %.04095.i.i, -1
   %324 = urem i32 %.04294.i.i, %.07793.i.i
   %325 = add nsw i32 %.4.i, -1
@@ -547,7 +547,7 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
 327:                                              ; preds = %.lr.ph.i21.i
   %328 = udiv i32 %.07793.i.i, 10
   %329 = icmp samesign ugt i32 %.4.i, 1
-  br i1 %329, label %.lr.ph.i21.i, label %._crit_edge.i.i
+  br i1 %329, label %.lr.ph.i21.i, label %._crit_edge.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %327, %_ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14
   %.pr.i = phi i32 [ 0, %_ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14 ], [ %322, %327 ]
@@ -602,16 +602,16 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %352 = add nsw i32 %334, -1
   %353 = sext i32 %352 to i64
   %354 = getelementptr inbounds i8, ptr %3, i64 %353
-  %355 = load i8, ptr %354, align 1, !tbaa !15
+  %355 = load i8, ptr %354, align 1, !tbaa !16
   %356 = add i8 %355, 1
-  store i8 %356, ptr %354, align 1, !tbaa !15
+  store i8 %356, ptr %354, align 1, !tbaa !16
   %357 = icmp sgt i32 %334, 1
   br i1 %357, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %351
   %.phi.trans.insert.i.i.i = zext nneg i32 %352 to i64
   %.phi.trans.insert41.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.phi.trans.insert.i.i.i
-  %.pre.i.i.i = load i8, ptr %.phi.trans.insert41.i.i.i, align 1, !tbaa !15
+  %.pre.i.i.i = load i8, ptr %.phi.trans.insert41.i.i.i, align 1, !tbaa !16
   br label %.lr.ph.i.i.i24
 
 .lr.ph.i.i.i24:                                   ; preds = %359, %.lr.ph.preheader.i.i.i
@@ -622,17 +622,17 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
 
 359:                                              ; preds = %.lr.ph.i.i.i24
   %360 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv117.i.i
-  store i8 48, ptr %360, align 1, !tbaa !15
+  store i8 48, ptr %360, align 1, !tbaa !16
   %indvars.iv.next118.i.i = add nsw i64 %indvars.iv117.i.i, -1
   %361 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next118.i.i
-  %362 = load i8, ptr %361, align 1, !tbaa !15
+  %362 = load i8, ptr %361, align 1, !tbaa !16
   %363 = add i8 %362, 1
-  store i8 %363, ptr %361, align 1, !tbaa !15
+  store i8 %363, ptr %361, align 1, !tbaa !16
   %364 = icmp sgt i64 %indvars.iv117.i.i, 1
-  br i1 %364, label %.lr.ph.i.i.i24, label %._crit_edge.i.i.i, !llvm.loop !19
+  br i1 %364, label %.lr.ph.i.i.i24, label %._crit_edge.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %359, %.lr.ph.i.i.i24, %351
-  %365 = load i8, ptr %3, align 1, !tbaa !15
+  %365 = load i8, ptr %3, align 1, !tbaa !16
   %366 = icmp eq i8 %365, 58
   br i1 %366, label %_ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i.i, label %.thread35
 
@@ -649,17 +649,17 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
   %372 = add i8 %371, 48
   %373 = sext i32 %367 to i64
   %374 = getelementptr inbounds i8, ptr %3, i64 %373
-  store i8 %372, ptr %374, align 1, !tbaa !15
-  %375 = load i32, ptr %5, align 4, !tbaa !14
+  store i8 %372, ptr %374, align 1, !tbaa !16
+  %375 = load i32, ptr %5, align 4, !tbaa !15
   %376 = add nsw i32 %375, 1
-  store i32 %376, ptr %5, align 4, !tbaa !14
+  store i32 %376, ptr %5, align 4, !tbaa !15
   %377 = add nsw i32 %.2100.i.i, -1
   %378 = and i64 %368, %301
   %379 = add nsw i32 %.1.i21, -1
   %380 = icmp samesign ugt i32 %.2100.i.i, 1
   %381 = icmp ugt i64 %378, %369
   %382 = select i1 %380, i1 %381, i1 false
-  br i1 %382, label %.lr.ph101.i.i, label %._crit_edge102.i.i, !llvm.loop !20
+  br i1 %382, label %.lr.ph101.i.i, label %._crit_edge102.i.i, !llvm.loop !22
 
 ._crit_edge102.i.i:                               ; preds = %.lr.ph101.i.i
   %383 = icmp eq i32 %377, 0
@@ -697,9 +697,9 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
 397:                                              ; preds = %394
   %398 = sext i32 %375 to i64
   %399 = getelementptr inbounds i8, ptr %3, i64 %398
-  %400 = load i8, ptr %399, align 1, !tbaa !15
+  %400 = load i8, ptr %399, align 1, !tbaa !16
   %401 = add i8 %400, 1
-  store i8 %401, ptr %399, align 1, !tbaa !15
+  store i8 %401, ptr %399, align 1, !tbaa !16
   %402 = icmp sgt i32 %375, 0
   br i1 %402, label %.lr.ph.preheader.i52.i.i, label %._crit_edge.i51.i.i
 
@@ -715,23 +715,23 @@ _ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %.lr.ph.
 
 404:                                              ; preds = %.lr.ph.i56.i.i
   %405 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
-  store i8 48, ptr %405, align 1, !tbaa !15
+  store i8 48, ptr %405, align 1, !tbaa !16
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %406 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i.i
-  %407 = load i8, ptr %406, align 1, !tbaa !15
+  %407 = load i8, ptr %406, align 1, !tbaa !16
   %408 = add i8 %407, 1
-  store i8 %408, ptr %406, align 1, !tbaa !15
+  store i8 %408, ptr %406, align 1, !tbaa !16
   %409 = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %409, label %.lr.ph.i56.i.i, label %._crit_edge.i51.i.i, !llvm.loop !19
+  br i1 %409, label %.lr.ph.i56.i.i, label %._crit_edge.i51.i.i, !llvm.loop !21
 
 ._crit_edge.i51.i.i:                              ; preds = %404, %.lr.ph.i56.i.i, %397
-  %410 = load i8, ptr %3, align 1, !tbaa !15
+  %410 = load i8, ptr %3, align 1, !tbaa !16
   %411 = icmp eq i8 %410, 58
   br i1 %411, label %_ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i.i, label %.thread35
 
 _ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i.i: ; preds = %._crit_edge.i51.i.i, %._crit_edge.i.i.i
   %.2.i22 = phi i32 [ %.3.i, %._crit_edge.i.i.i ], [ %379, %._crit_edge.i51.i.i ]
-  store i8 49, ptr %3, align 1, !tbaa !15
+  store i8 49, ptr %3, align 1, !tbaa !16
   %412 = add nsw i32 %.2.i22, 1
   br label %.thread35
 
@@ -746,14 +746,14 @@ _ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i
 
 .thread35:                                        ; preds = %_ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i.i, %._crit_edge.i.i.i, %343, %._crit_edge.i51.i.i
   %.5.i.ph = phi i32 [ %379, %._crit_edge.i51.i.i ], [ %.3.i, %343 ], [ %.3.i, %._crit_edge.i.i.i ], [ %412, %_ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i.i ]
-  %414 = load i32, ptr %9, align 4, !tbaa !14
+  %414 = load i32, ptr %9, align 4, !tbaa !15
   %415 = sub nsw i32 %.5.i.ph, %414
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
   br label %419
 
 416:                                              ; preds = %389
-  %417 = load i32, ptr %9, align 4, !tbaa !14
+  %417 = load i32, ptr %9, align 4, !tbaa !15
   %418 = sub nsw i32 %379, %417
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
@@ -761,13 +761,13 @@ _ZN17double_conversionL16RoundWeedCountedENS_6VectorIcEEimmmPi.exit.sink.split.i
 
 419:                                              ; preds = %.thread35, %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, %416
   %.029 = phi i32 [ %254, %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit ], [ %418, %416 ], [ %415, %.thread35 ]
-  %420 = load i32, ptr %5, align 4, !tbaa !14
+  %420 = load i32, ptr %5, align 4, !tbaa !15
   %421 = add nsw i32 %420, %.029
-  store i32 %421, ptr %6, align 4, !tbaa !14
-  %422 = load i32, ptr %5, align 4, !tbaa !14
+  store i32 %421, ptr %6, align 4, !tbaa !15
+  %422 = load i32, ptr %5, align 4, !tbaa !15
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds i8, ptr %3, i64 %423
-  store i8 0, ptr %424, align 1, !tbaa !15
+  store i8 0, ptr %424, align 1, !tbaa !16
   br label %425
 
 425:                                              ; preds = %.thread, %_ZN17double_conversionL6Grisu3EdNS_12FastDtoaModeENS_6VectorIcEEPiS3_.exit, %419, %416
@@ -802,21 +802,23 @@ attributes #6 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"_ZTSN17double_conversion5DiyFpE", !9, i64 0, !12, i64 8}
-!9 = !{!"long", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!8, !12, i64 8}
-!14 = !{!12, !12, i64 0}
-!15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN17double_conversion5DiyFpE", !10, i64 0, !13, i64 8}
+!10 = !{!"long", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C++ TBAA"}
+!13 = !{!"int", !11, i64 0}
+!14 = !{!9, !13, i64 8}
+!15 = !{!13, !13, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}

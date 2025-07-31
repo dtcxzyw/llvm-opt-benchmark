@@ -265,7 +265,7 @@ _ZNK11ZMountPoint14get_mountpointEPKcS1_.exit:    ; preds = %22, %25
 31:                                               ; preds = %29, %_ZNK11ZMountPoint14get_mountpointEPKcS1_.exit
   %32 = call i64 @getline(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
   %.not = icmp eq i64 %32, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %31, %15
   %33 = load ptr, ptr %8, align 8
@@ -355,7 +355,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !9
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !10
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -371,7 +371,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !10
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !11
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #12
@@ -441,7 +441,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph: ; preds = %4
 
 ..loopexit_crit_edge:                             ; preds = %16
   %.not29 = icmp eq i64 %13, %11
-  br i1 %.not29, label %._crit_edge, label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit, !llvm.loop !11
+  br i1 %.not29, label %._crit_edge, label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit, !llvm.loop !12
 
 _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph, %..loopexit_crit_edge
   %.sroa.017.034 = phi i64 [ %13, %..loopexit_crit_edge ], [ 0, %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph ]
@@ -454,7 +454,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18ZArrayIterator
   %17 = getelementptr inbounds nuw i8, ptr %.01032, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %..loopexit_crit_edge, label %19, !llvm.loop !12
+  br i1 %.not, label %..loopexit_crit_edge, label %19, !llvm.loop !13
 
 19:                                               ; preds = %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit, %16
   %20 = phi ptr [ %12, %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit ], [ %18, %16 ]
@@ -492,7 +492,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18ZArrayIterator
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i15, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.8, ptr noundef %32)
   %.not30 = icmp eq i64 %30, %28
-  br i1 %.not30, label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit14, label %29, !llvm.loop !13
+  br i1 %.not30, label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit14, label %29, !llvm.loop !14
 
 _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit14: ; preds = %29, %._crit_edge, %22
   %.0 = phi ptr [ %23, %22 ], [ null, %._crit_edge ], [ null, %29 ]
@@ -580,11 +580,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

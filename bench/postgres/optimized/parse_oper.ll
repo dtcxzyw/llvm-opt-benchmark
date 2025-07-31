@@ -1096,7 +1096,7 @@ define internal void @InvalidateOprCacheCallBack(i64 %0, i32 %1, i32 %2) #0 {
   %9 = load ptr, ptr @OprCacheHash, align 8
   %10 = call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #9
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %6, !llvm.loop !6
+  br i1 %11, label %12, label %6, !llvm.loop !7
 
 12:                                               ; preds = %8
   %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1139,6 +1139,7 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

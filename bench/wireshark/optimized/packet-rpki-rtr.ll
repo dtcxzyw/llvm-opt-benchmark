@@ -585,7 +585,7 @@ define internal i32 @dissect_rpkirtr_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   %.1 = phi i32 [ %223, %222 ], [ %37, %28 ], [ %44, %38 ], [ %51, %45 ], [ %80, %52 ], [ %109, %81 ], [ %129, %120 ], [ %119, %110 ], [ %26, %132 ], [ %155, %134 ], [ %176, %156 ], [ %26, %179 ], [ %.2.lcssa, %._crit_edge ]
   %225 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %10, label %._crit_edge270, !llvm.loop !8
+  br i1 %226, label %10, label %._crit_edge270, !llvm.loop !9
 
 ._crit_edge270:                                   ; preds = %224, %4, %220
   %227 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -644,6 +644,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

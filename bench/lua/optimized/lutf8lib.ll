@@ -104,7 +104,7 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
 29:                                               ; preds = %.lr.ph
   %30 = add nsw i64 %.175, -1
   %31 = icmp sgt i64 %.175, 1
-  br i1 %31, label %.lr.ph, label %.critedge.thread
+  br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !10
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %3, i64 %.056
@@ -151,19 +151,19 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !9
   %52 = icmp slt i8 %51, -64
-  br i1 %52, label %45, label %.critedge2
+  br i1 %52, label %45, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %48
   %53 = add nsw i64 %.14571, 1
   %54 = icmp slt i64 %.14571, -1
-  br i1 %54, label %.preheader58, label %.critedge
+  br i1 %54, label %.preheader58, label %.critedge, !llvm.loop !13
 
 .loopexit62:                                      ; preds = %58
   %.246 = add nsw i64 %.24669, -1
   %55 = icmp samesign ugt i64 %.24669, 1
   %56 = icmp slt i64 %59, %40
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.preheader61, label %.critedge
+  br i1 %57, label %.preheader61, label %.critedge, !llvm.loop !14
 
 .preheader61:                                     ; preds = %.preheader63, %.loopexit62
   %.24669 = phi i64 [ %.246, %.loopexit62 ], [ %.24667, %.preheader63 ]
@@ -176,7 +176,7 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   %60 = getelementptr inbounds i8, ptr %3, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !9
   %62 = icmp slt i8 %61, -64
-  br i1 %62, label %58, label %.loopexit62
+  br i1 %62, label %58, label %.loopexit62, !llvm.loop !14
 
 .critedge:                                        ; preds = %.loopexit62, %.critedge2, %.critedge2.thread, %.preheader63
   %.044 = phi i64 [ %.24667, %.preheader63 ], [ %47, %.critedge2.thread ], [ %53, %.critedge2 ], [ %.246, %.loopexit62 ]
@@ -207,7 +207,7 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   %gep = getelementptr i8, ptr %invariant.gep, i64 %67
   %68 = load i8, ptr %gep, align 1, !tbaa !9
   %69 = icmp slt i8 %68, -64
-  br i1 %69, label %66, label %.loopexit.loopexit
+  br i1 %69, label %66, label %.loopexit.loopexit, !llvm.loop !15
 
 .loopexit.loopexit:                               ; preds = %66
   %.pre = add nsw i64 %.8, 2
@@ -265,7 +265,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   %.0.i41 = phi i64 [ %21, %19 ], [ %13, %u_posrelat.exit ], [ 0, %16 ]
   %22 = call i32 @lua_toboolean(ptr noundef %0, i32 noundef 4) #3
   %23 = icmp sgt i64 %.0.i, 0
-  br i1 %23, label %26, label %24, !prof !10
+  br i1 %23, label %26, label %24, !prof !16
 
 24:                                               ; preds = %u_posrelat.exit42
   %25 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.9) #3
@@ -274,7 +274,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
 26:                                               ; preds = %24, %u_posrelat.exit42
   %27 = load i64, ptr %2, align 8, !tbaa !4
   %.not = icmp sgt i64 %.0.i41, %27
-  br i1 %.not, label %28, label %30, !prof !11
+  br i1 %.not, label %28, label %30, !prof !17
 
 28:                                               ; preds = %26
   %29 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.9) #3
@@ -336,7 +336,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   %55 = shl i32 %.04054.i.us, 1
   %56 = and i32 %.04054.i.us, 32
   %.not.i.us = icmp eq i32 %56, 0
-  br i1 %.not.i.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i.us
+  br i1 %.not.i.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i.us, !llvm.loop !18
 
 ._crit_edge.loopexit.i.us:                        ; preds = %51
   %57 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
@@ -358,7 +358,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
 64:                                               ; preds = %._crit_edge.i.us
   %65 = zext nneg i32 %.035.lcssa.i.us to i64
   %66 = getelementptr inbounds nuw [6 x i32], ptr @utf8_decode.limits, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !12
+  %67 = load i32, ptr %66, align 4, !tbaa !19
   %68 = icmp ult i32 %61, %67
   br i1 %68, label %.loopexit.sink.split, label %69
 
@@ -381,7 +381,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %76) #3
   %77 = add nuw nsw i32 %.03364.us, 1
   %78 = icmp ult ptr %75, %38
-  br i1 %78, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %78, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.03364 = phi i32 [ %111, %108 ], [ 0, %.lr.ph ]
@@ -415,7 +415,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   %92 = shl i32 %.04054.i, 1
   %93 = and i32 %.04054.i, 32
   %.not.i = icmp eq i32 %93, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %88
   %94 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -437,7 +437,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
 101:                                              ; preds = %._crit_edge.i
   %102 = zext nneg i32 %.035.lcssa.i to i64
   %103 = getelementptr inbounds nuw [6 x i32], ptr @utf8_decode.limits, i64 0, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !12
+  %104 = load i32, ptr %103, align 4, !tbaa !19
   %105 = icmp ult i32 %98, %104
   br i1 %105, label %.loopexit.sink.split, label %106
 
@@ -453,7 +453,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %110) #3
   %111 = add nuw nsw i32 %.03364, 1
   %112 = icmp ult ptr %109, %38
-  br i1 %112, label %.lr.ph.split, label %.loopexit
+  br i1 %112, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %101, %._crit_edge.i, %.lr.ph.i, %._crit_edge.i.us, %64, %71, %.lr.ph.i.us, %32
   %.str.11.sink = phi ptr [ @.str.10, %32 ], [ @.str.11, %.lr.ph.i.us ], [ @.str.11, %71 ], [ @.str.11, %64 ], [ @.str.11, %._crit_edge.i.us ], [ @.str.11, %.lr.ph.i ], [ @.str.11, %._crit_edge.i ], [ @.str.11, %101 ]
@@ -476,7 +476,7 @@ define internal noundef i32 @utfchar(ptr noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #3
   %7 = icmp ult i64 %6, 2147483648
-  br i1 %7, label %pushutfchar.exit, label %8, !prof !10
+  br i1 %7, label %pushutfchar.exit, label %8, !prof !16
 
 8:                                                ; preds = %5
   %9 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.12) #3
@@ -496,7 +496,7 @@ pushutfchar.exit:                                 ; preds = %5, %8
   %.011 = phi i32 [ %17, %pushutfchar.exit9 ], [ 1, %11 ]
   %12 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %.011) #3
   %13 = icmp ult i64 %12, 2147483648
-  br i1 %13, label %pushutfchar.exit9, label %14, !prof !10
+  br i1 %13, label %pushutfchar.exit9, label %14, !prof !16
 
 14:                                               ; preds = %.lr.ph
   %15 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %.011, ptr noundef nonnull @.str.12) #3
@@ -507,7 +507,7 @@ pushutfchar.exit9:                                ; preds = %.lr.ph, %14
   call void @luaL_addvalue(ptr noundef nonnull %2) #3
   %17 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %pushutfchar.exit9, %11
   call void @luaL_pushresult(ptr noundef nonnull %2) #3
@@ -564,7 +564,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %26 = icmp sle i64 %24, %25
   %.027 = select i1 %23, i64 %24, i64 %.0.i
   %27 = select i1 %23, i1 %26, i1 false
-  br i1 %27, label %30, label %28, !prof !10
+  br i1 %27, label %30, label %28, !prof !16
 
 28:                                               ; preds = %u_posrelat.exit37
   %29 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #3
@@ -574,7 +574,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
 30:                                               ; preds = %28, %u_posrelat.exit37
   %31 = phi i64 [ %.pre, %28 ], [ %25, %u_posrelat.exit37 ]
   %.not = icmp sgt i64 %.0.i36, %31
-  br i1 %.not, label %32, label %34, !prof !11
+  br i1 %.not, label %32, label %34, !prof !17
 
 32:                                               ; preds = %30
   %33 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.15) #3
@@ -623,7 +623,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %50 = shl i32 %.04054.i.us, 1
   %51 = and i32 %.04054.i.us, 32
   %.not.i.us = icmp eq i32 %51, 0
-  br i1 %.not.i.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i.us
+  br i1 %.not.i.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i.us, !llvm.loop !18
 
 ._crit_edge.loopexit.i.us:                        ; preds = %46
   %52 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
@@ -645,7 +645,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
 59:                                               ; preds = %._crit_edge.i.us
   %60 = zext nneg i32 %.035.lcssa.i.us to i64
   %61 = getelementptr inbounds nuw [6 x i32], ptr @utf8_decode.limits, i64 0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !12
+  %62 = load i32, ptr %61, align 4, !tbaa !19
   %63 = icmp ult i32 %56, %62
   br i1 %63, label %.thread, label %64
 
@@ -668,7 +668,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %72 = sub i64 %71, %35
   %73 = add nuw nsw i64 %.02555.us, 1
   %.not33.not.us = icmp slt i64 %72, %.0.i36
-  br i1 %.not33.not.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %.not33.not.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %.02555 = phi i64 [ %108, %104 ], [ 0, %.lr.ph ]
@@ -703,7 +703,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %88 = shl i32 %.04054.i, 1
   %89 = and i32 %.04054.i, 32
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %84
   %90 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -725,7 +725,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
 97:                                               ; preds = %._crit_edge.i
   %98 = zext nneg i32 %.035.lcssa.i to i64
   %99 = getelementptr inbounds nuw [6 x i32], ptr @utf8_decode.limits, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !12
+  %100 = load i32, ptr %99, align 4, !tbaa !19
   %101 = icmp ult i32 %94, %100
   br i1 %101, label %.thread, label %102
 
@@ -740,7 +740,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %107 = sub i64 %106, %35
   %108 = add nuw nsw i64 %.02555, 1
   %.not33.not = icmp slt i64 %107, %.0.i36
-  br i1 %.not33.not, label %.lr.ph.split, label %._crit_edge
+  br i1 %.not33.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
 .thread:                                          ; preds = %._crit_edge.i, %97, %.lr.ph.i, %66, %59, %._crit_edge.i.us, %.lr.ph.i.us
   %.12852 = phi i64 [ %.12854.us, %.lr.ph.i.us ], [ %.12854.us, %._crit_edge.i.us ], [ %.12854.us, %59 ], [ %.12854.us, %66 ], [ %.12854, %.lr.ph.i ], [ %.12854, %97 ], [ %.12854, %._crit_edge.i ]
@@ -762,7 +762,7 @@ define internal noundef i32 @iter_codes(ptr noundef %0) #0 {
   %3 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #3
   %4 = load i8, ptr %3, align 1, !tbaa !9
   %5 = icmp sgt i8 %4, -65
-  br i1 %5, label %8, label %6, !prof !10
+  br i1 %5, label %8, label %6, !prof !16
 
 6:                                                ; preds = %1
   %7 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.11) #3
@@ -843,7 +843,7 @@ define internal fastcc i32 @iter_aux(ptr noundef %0, i32 noundef range(i32 0, 2)
   %9 = load i8, ptr %8, align 1, !tbaa !9
   %10 = icmp slt i8 %9, -64
   %11 = add i64 %.117, 1
-  br i1 %10, label %.preheader, label %.loopexit
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.016 = phi i64 [ %5, %2 ], [ %.117, %.preheader ]
@@ -881,7 +881,7 @@ define internal fastcc i32 @iter_aux(ptr noundef %0, i32 noundef range(i32 0, 2)
   %27 = shl i32 %.04054.i, 1
   %28 = and i32 %.04054.i, 32
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %23
   %29 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -903,7 +903,7 @@ define internal fastcc i32 @iter_aux(ptr noundef %0, i32 noundef range(i32 0, 2)
 36:                                               ; preds = %._crit_edge.i
   %37 = zext nneg i32 %.035.lcssa.i to i64
   %38 = getelementptr inbounds nuw [6 x i32], ptr @utf8_decode.limits, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %39 = load i32, ptr %38, align 4, !tbaa !19
   %40 = icmp ult i32 %33, %39
   br i1 %40, label %utf8_decode.exit.thread, label %41
 
@@ -966,10 +966,21 @@ attributes #3 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !9 = !{!6, !6, i64 0}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !15}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !11}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !6, i64 0}
+!21 = distinct !{!21, !11, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11, !22}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !11}

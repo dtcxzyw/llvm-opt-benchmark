@@ -1672,7 +1672,7 @@ define hidden noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef
 
 27:                                               ; preds = %19
   %28 = icmp eq ptr %25, %0
-  br i1 %28, label %29, label %10, !llvm.loop !19
+  br i1 %28, label %29, label %10, !llvm.loop !20
 
 29:                                               ; preds = %27
   %30 = load i16, ptr %20, align 2
@@ -1693,9 +1693,9 @@ define hidden noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef
   br i1 %.not.i3, label %_ZN13RelocIterator17static_call_relocEv.exit, label %37
 
 37:                                               ; preds = %35
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !20
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !20
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !20
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !21
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !21
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !21
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_call_relocEvE5proto) #14
   br label %_ZN13RelocIterator17static_call_relocEv.exit
 
@@ -1720,9 +1720,9 @@ _ZN13RelocIterator17static_call_relocEv.exit:     ; preds = %32, %35, %37
   br i1 %.not.i4, label %_ZN13RelocIterator22opt_virtual_call_relocEv.exit, label %47
 
 47:                                               ; preds = %45
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !23
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !23
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !23
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !24
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto) #14
   br label %_ZN13RelocIterator22opt_virtual_call_relocEv.exit
 
@@ -1944,12 +1944,13 @@ attributes #15 = { noreturn nounwind }
 !14 = distinct !{!14, !15, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
 !15 = distinct !{!15, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_"}
 !16 = !{i64 2145392468}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_: argument 0"}
-!22 = distinct !{!22, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
-!25 = distinct !{!25, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_"}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_: argument 0"}
+!23 = distinct !{!23, !"_ZN16RelocationHolder9constructI22static_call_RelocationJEEES_DpRKT0_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_: argument 0"}
+!26 = distinct !{!26, !"_ZN16RelocationHolder9constructI27opt_virtual_call_RelocationJEEES_DpRKT0_"}

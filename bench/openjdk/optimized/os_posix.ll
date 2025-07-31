@@ -393,7 +393,7 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   %.2 = phi i32 [ %.14352, %30 ], [ %38, %35 ]
   %42 = add nuw nsw i64 %.053, 1
   %exitcond.not = icmp eq i64 %42, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %39, %.critedge49
   %43 = phi ptr [ %.promoted, %.critedge49 ], [ %40, %39 ]
@@ -401,7 +401,7 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   %44 = getelementptr inbounds i8, ptr %.04160, i64 %14
   %45 = add nuw nsw i32 %.03962, 1
   %.not = icmp slt i32 %45, %10
-  br i1 %.not, label %.lr.ph64, label %._crit_edge65, !llvm.loop !9
+  br i1 %.not, label %.lr.ph64, label %._crit_edge65, !llvm.loop !10
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %30
   %.143.lcssa71 = phi i32 [ %.14352, %30 ], [ %.143.lcssa, %._crit_edge ]
@@ -488,7 +488,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr noundef writeonly 
   %34 = icmp ne ptr %33, null
   %35 = icmp slt i32 %.2, %1
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %13, label %._crit_edge, !llvm.loop !10
+  br i1 %36, label %13, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %32, %30, %26, %22, %3
   %.113 = phi i32 [ 0, %3 ], [ %.2, %22 ], [ %.2, %26 ], [ %.2, %30 ], [ %.2, %32 ]
@@ -572,7 +572,7 @@ define hidden void @breakpoint() local_unnamed_addr #8 {
 define hidden noundef zeroext i1 @_ZN2os23have_special_privilegesEv() local_unnamed_addr #1 align 2 {
   %1 = load atomic i8, ptr @_ZGVZN2os23have_special_privilegesEvE10privileges acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %15, !prof !11
+  br i1 %2, label %3, label %15, !prof !12
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2os23have_special_privilegesEvE10privileges) #28
@@ -764,7 +764,7 @@ sub_2:                                            ; preds = %sub_115
 .preheader.backedge:                              ; preds = %.tail, %sub_2
   %16 = tail call ptr @readdir64(ptr noundef nonnull %2) #28
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.critedge, label %sub_0, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %sub_0, !llvm.loop !13
 
 .critedge:                                        ; preds = %.preheader.backedge, %sub_2, %sub_115, %sub_0, %.preheader.preheader
   %.not.lcssa = phi i1 [ true, %.preheader.preheader ], [ true, %.preheader.backedge ], [ false, %sub_2 ], [ false, %sub_115 ], [ false, %sub_0 ]
@@ -1077,7 +1077,7 @@ define hidden void @_ZN2os5Posix17print_uptime_infoEP12outputStream(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.24, ptr noundef nonnull dereferenceable(1) %6) #30
   %.not6 = icmp eq i32 %7, 0
-  br i1 %.not6, label %8, label %3, !llvm.loop !13
+  br i1 %.not6, label %8, label %3, !llvm.loop !14
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 340
@@ -1291,7 +1291,7 @@ define hidden void @_ZN2os19print_active_localeEP12outputStream(ptr noundef nonn
   %9 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 0, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %11, label %2, !llvm.loop !14
+  br i1 %exitcond, label %11, label %2, !llvm.loop !15
 
 11:                                               ; preds = %2
   ret void
@@ -1562,7 +1562,7 @@ define hidden noundef i64 @_ZN2os8pd_writeEiPKvm(i32 noundef %0, ptr noundef rea
   %9 = tail call ptr @__errno_location() #29
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %4, label %.critedge, !llvm.loop !15
+  br i1 %11, label %4, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %4, %8
   ret i64 %5
@@ -1638,7 +1638,7 @@ define hidden noundef i64 @_ZN2os4recvEiPcmj(i32 noundef %0, ptr noundef %1, i64
   %10 = tail call ptr @__errno_location() #29
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge, !llvm.loop !16
+  br i1 %12, label %5, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %5, %9
   ret i64 %6
@@ -1660,7 +1660,7 @@ define hidden noundef i64 @_ZN2os4sendEiPcmj(i32 noundef %0, ptr noundef %1, i64
   %10 = tail call ptr @__errno_location() #29
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge, !llvm.loop !17
+  br i1 %12, label %5, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %5, %9
   ret i64 %6
@@ -1682,7 +1682,7 @@ define hidden noundef i64 @_ZN2os8raw_sendEiPcmj(i32 noundef %0, ptr noundef %1,
   %10 = tail call ptr @__errno_location() #29
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %_ZN2os4sendEiPcmj.exit, !llvm.loop !17
+  br i1 %12, label %5, label %_ZN2os4sendEiPcmj.exit, !llvm.loop !18
 
 _ZN2os4sendEiPcmj.exit:                           ; preds = %5, %9
   ret i64 %6
@@ -1701,7 +1701,7 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN2os7connectEiP8
   %8 = tail call ptr @__errno_location() #29
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %4, label %.critedge, !llvm.loop !18
+  br i1 %10, label %4, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %4, %7
   %11 = sext i32 %5 to i64
@@ -1818,7 +1818,7 @@ define hidden void @_ZN2os14infinite_sleepEv() local_unnamed_addr #15 align 2 {
 
 1:                                                ; preds = %1, %0
   %2 = tail call i32 @sleep(i32 noundef 100) #28
-  br label %1, !llvm.loop !19
+  br label %1, !llvm.loop !20
 }
 
 declare i32 @sleep(i32 noundef) local_unnamed_addr #2
@@ -2127,7 +2127,7 @@ define hidden noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThr
   %32 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
   %.0.i.i = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !21
 
 .loopexit:                                        ; preds = %31, %27
   %33 = ptrtoint ptr %20 to i64
@@ -2740,9 +2740,9 @@ define hidden void @_ZN13PlatformEvent4parkEv(ptr noundef nonnull align 8 derefe
 3:                                                ; preds = %3, %1
   %4 = load volatile i32, ptr %2, align 8
   %5 = add nsw i32 %4, -1
-  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %4, ptr nonnull %2) #28, !srcloc !21
+  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %4, ptr nonnull %2) #28, !srcloc !22
   %7 = icmp eq i32 %6, %4
-  br i1 %7, label %8, label %3, !llvm.loop !22
+  br i1 %7, label %8, label %3, !llvm.loop !23
 
 8:                                                ; preds = %3
   %9 = icmp sgt i32 %4, -1
@@ -2788,7 +2788,7 @@ define hidden void @_ZN13PlatformEvent4parkEv(ptr noundef nonnull align 8 derefe
   %29 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %27, ptr noundef nonnull %15) #28
   %30 = load volatile i32, ptr %2, align 8
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %28, label %._crit_edge, !llvm.loop !23
+  br i1 %31, label %28, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %28, %22
   %32 = load volatile i32, ptr %17, align 4
@@ -2796,8 +2796,8 @@ define hidden void @_ZN13PlatformEvent4parkEv(ptr noundef nonnull align 8 derefe
   store volatile i32 %33, ptr %17, align 4
   store volatile i32 0, ptr %2, align 8
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #28
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   br label %35
 
 35:                                               ; preds = %12, %._crit_edge
@@ -2842,9 +2842,9 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN13PlatformEvent10park_nanosEl(ptr
 6:                                                ; preds = %6, %2
   %7 = load volatile i32, ptr %5, align 8
   %8 = add nsw i32 %7, -1
-  %9 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %7, ptr nonnull %5) #28, !srcloc !21
+  %9 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %7, ptr nonnull %5) #28, !srcloc !22
   %10 = icmp eq i32 %9, %7
-  br i1 %10, label %11, label %6, !llvm.loop !26
+  br i1 %10, label %11, label %6, !llvm.loop !27
 
 11:                                               ; preds = %6
   %12 = icmp sgt i32 %7, -1
@@ -2925,7 +2925,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31
 49:                                               ; preds = %46
   %50 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %45, ptr noundef nonnull %35, ptr noundef nonnull %4) #28
   %51 = icmp eq i32 %50, 110
-  br i1 %51, label %52, label %46, !llvm.loop !27
+  br i1 %51, label %52, label %46, !llvm.loop !28
 
 52:                                               ; preds = %49, %46
   %53 = load volatile i32, ptr %37, align 4
@@ -2936,8 +2936,8 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31
   %spec.select = select i1 %.inv, i32 -3, i32 0
   store volatile i32 0, ptr %5, align 8
   %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #28
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   br label %57
 
 57:                                               ; preds = %15, %52
@@ -2950,7 +2950,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13PlatformEvent6unparkEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %2) #28, !srcloc !28
+  %3 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %2) #28, !srcloc !29
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %14, label %5
 
@@ -3010,7 +3010,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #0
 define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %6 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %0) #28, !srcloc !28
+  %6 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %0) #28, !srcloc !29
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %8
 
@@ -3087,7 +3087,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
 39:                                               ; preds = %_ZL10to_abstimeP8timespeclbb.exit, %15
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #28
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 1092
   store volatile i32 10, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3103,8 +3103,8 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
 47:                                               ; preds = %44
   store volatile i32 0, ptr %0, align 8
   %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %42) #28
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   br label %67
 
 49:                                               ; preds = %44
@@ -3136,18 +3136,18 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
   store i32 -1, ptr %65, align 4
   store volatile i32 0, ptr %0, align 8
   %66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %42) #28
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   store volatile i32 %52, ptr %51, align 8
   br label %67
 
 67:                                               ; preds = %39, %64, %47
   store volatile i32 6, ptr %41, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 1096
   %69 = load volatile i64, ptr %68, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   %70 = and i64 %69, 1
   %.not.i.i14 = icmp eq i64 %70, 0
   br i1 %.not.i.i14, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %71
@@ -3172,7 +3172,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
 
 79:                                               ; preds = %76, %73, %71
   %80 = load volatile i64, ptr %68, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !26
   %81 = and i64 %80, 1
   %.not.i1.i = icmp eq i64 %81, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %82
@@ -3341,7 +3341,7 @@ define hidden noundef i32 @_ZN2os13fork_and_execEPKc(ptr noundef %0) local_unnam
   switch i32 %16, label %.loopexit [
     i32 10, label %.loopexit.loopexit
     i32 4, label %.preheader
-  ], !llvm.loop !29
+  ], !llvm.loop !30
 
 17:                                               ; preds = %.preheader
   %18 = load i32, ptr %4, align 4
@@ -3394,7 +3394,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.91, i64 noundef 1) #28
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 78
-  br i1 %exitcond.not, label %13, label %11, !llvm.loop !30
+  br i1 %exitcond.not, label %13, label %11, !llvm.loop !31
 
 13:                                               ; preds = %11
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
@@ -3408,7 +3408,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.39, i64 noundef 1) #28
   %16 = add nuw nsw i32 %.18, 1
   %exitcond10.not = icmp eq i32 %16, 78
-  br i1 %exitcond10.not, label %17, label %15, !llvm.loop !31
+  br i1 %exitcond10.not, label %17, label %15, !llvm.loop !32
 
 17:                                               ; preds = %15
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
@@ -3422,7 +3422,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.91, i64 noundef 1) #28
   %20 = add nuw nsw i32 %.29, 1
   %exitcond11.not = icmp eq i32 %20, 78
-  br i1 %exitcond11.not, label %21, label %19, !llvm.loop !32
+  br i1 %exitcond11.not, label %21, label %19, !llvm.loop !33
 
 21:                                               ; preds = %19
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
@@ -3434,7 +3434,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   %24 = call i32 @sleep(i32 noundef 100) #28
   %25 = call i64 @read(i32 noundef 0, ptr noundef nonnull %4, i64 noundef 16) #28
   %26 = icmp slt i64 %25, 1
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %27 = load i8, ptr %4, align 16
@@ -3846,31 +3846,32 @@ attributes #32 = { noreturn }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{!"branch_weights", i32 1, i32 1048575}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = !{i64 2145411161}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{i64 2145392998}
-!25 = !{i64 2145392468}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = !{i64 2145410032}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"branch_weights", i32 1, i32 1048575}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = !{i64 2145411161}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = !{i64 2145392998}
+!26 = !{i64 2145392468}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = !{i64 2145410032}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}

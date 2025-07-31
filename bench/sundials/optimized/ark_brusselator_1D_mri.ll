@@ -182,7 +182,7 @@ check_retval.exit241:                             ; preds = %28
   store double %69, ptr %70, align 8, !tbaa !25
   %71 = add nuw nsw i64 %.025.i, 1
   %exitcond.not.i = icmp eq i64 %71, %49
-  br i1 %exitcond.not.i, label %check_retval.exit243, label %56
+  br i1 %exitcond.not.i, label %check_retval.exit243, label %56, !llvm.loop !26
 
 check_retval.exit243:                             ; preds = %56, %48
   %72 = call ptr @N_VClone(ptr noundef nonnull %44) #10
@@ -232,7 +232,7 @@ check_retval.exit251:                             ; preds = %86, %check_retval.e
   store double 1.000000e+00, ptr %91, align 8, !tbaa !25
   %92 = add nuw nsw i64 %.0375, 1
   %exitcond.not = icmp eq i64 %92, 200
-  br i1 %exitcond.not, label %93, label %check_retval.exit251
+  br i1 %exitcond.not, label %93, label %check_retval.exit251, !llvm.loop !28
 
 93:                                               ; preds = %check_retval.exit251
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %77) #10
@@ -256,7 +256,7 @@ check_retval.exit253:                             ; preds = %check_retval.exit25
   store double 1.000000e+00, ptr %gep, align 8, !tbaa !25
   %98 = add nuw nsw i64 %.1376, 1
   %exitcond398.not = icmp eq i64 %98, 200
-  br i1 %exitcond398.not, label %99, label %check_retval.exit253
+  br i1 %exitcond398.not, label %99, label %check_retval.exit253, !llvm.loop !29
 
 99:                                               ; preds = %check_retval.exit253
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %82) #10
@@ -280,7 +280,7 @@ check_retval.exit255:                             ; preds = %check_retval.exit25
   store double 1.000000e+00, ptr %gep378, align 8, !tbaa !25
   %104 = add nuw nsw i64 %.2379, 1
   %exitcond399.not = icmp eq i64 %104, 200
-  br i1 %exitcond399.not, label %105, label %check_retval.exit255
+  br i1 %exitcond399.not, label %105, label %check_retval.exit255, !llvm.loop !30
 
 105:                                              ; preds = %check_retval.exit255
   %106 = load ptr, ptr %18, align 8, !tbaa !21
@@ -421,7 +421,7 @@ check_retval.exit279:                             ; preds = %165
   %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.24, double noundef %175) #10
   %177 = add nuw nsw i64 %.3380, 1
   %exitcond400.not = icmp eq i64 %177, 201
-  br i1 %exitcond400.not, label %178, label %172
+  br i1 %exitcond400.not, label %178, label %172, !llvm.loop !31
 
 178:                                              ; preds = %172
   %179 = call i32 @fclose(ptr noundef %171)
@@ -445,7 +445,7 @@ check_retval.exit281:                             ; preds = %178, %check_retval.
   %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.28, double noundef %188) #10
   %190 = add nuw nsw i64 %.4381, 1
   %exitcond401.not = icmp eq i64 %190, 200
-  br i1 %exitcond401.not, label %191, label %check_retval.exit281
+  br i1 %exitcond401.not, label %191, label %check_retval.exit281, !llvm.loop !32
 
 191:                                              ; preds = %check_retval.exit281
   %192 = load double, ptr %183, align 8, !tbaa !25
@@ -462,7 +462,7 @@ check_retval.exit281:                             ; preds = %178, %check_retval.
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.28, double noundef %195) #10
   %197 = add nuw nsw i64 %.5384, 1
   %exitcond402.not = icmp eq i64 %197, 200
-  br i1 %exitcond402.not, label %198, label %194
+  br i1 %exitcond402.not, label %198, label %194, !llvm.loop !33
 
 198:                                              ; preds = %194
   %199 = load double, ptr %invariant.gep382, align 8, !tbaa !25
@@ -479,7 +479,7 @@ check_retval.exit281:                             ; preds = %178, %check_retval.
   %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.28, double noundef %202) #10
   %204 = add nuw nsw i64 %.6387, 1
   %exitcond403.not = icmp eq i64 %204, 200
-  br i1 %exitcond403.not, label %205, label %201
+  br i1 %exitcond403.not, label %205, label %201, !llvm.loop !34
 
 205:                                              ; preds = %201
   %206 = load double, ptr %invariant.gep385, align 8, !tbaa !25
@@ -533,7 +533,7 @@ check_retval.exit283:                             ; preds = %208
   %234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.28, double noundef %233) #10
   %235 = add nuw nsw i64 %.7388, 1
   %exitcond404.not = icmp eq i64 %235, 200
-  br i1 %exitcond404.not, label %236, label %231
+  br i1 %exitcond404.not, label %236, label %231, !llvm.loop !35
 
 236:                                              ; preds = %231
   %237 = load double, ptr %183, align 8, !tbaa !25
@@ -549,7 +549,7 @@ check_retval.exit283:                             ; preds = %208
   %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.28, double noundef %240) #10
   %242 = add nuw nsw i64 %.8391, 1
   %exitcond405.not = icmp eq i64 %242, 200
-  br i1 %exitcond405.not, label %243, label %239
+  br i1 %exitcond405.not, label %243, label %239, !llvm.loop !36
 
 243:                                              ; preds = %239
   %244 = load double, ptr %invariant.gep382, align 8, !tbaa !25
@@ -565,7 +565,7 @@ check_retval.exit283:                             ; preds = %208
   %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.28, double noundef %247) #10
   %249 = add nuw nsw i64 %.9394, 1
   %exitcond406.not = icmp eq i64 %249, 200
-  br i1 %exitcond406.not, label %250, label %246
+  br i1 %exitcond406.not, label %250, label %246, !llvm.loop !37
 
 250:                                              ; preds = %246
   %251 = load double, ptr %invariant.gep385, align 8, !tbaa !25
@@ -576,7 +576,7 @@ check_retval.exit283:                             ; preds = %208
   %255 = select i1 %254, double 1.000000e+01, double %253
   %256 = add nuw nsw i32 %.0193396, 1
   %exitcond407.not = icmp eq i32 %256, 100
-  br i1 %exitcond407.not, label %.loopexit, label %208
+  br i1 %exitcond407.not, label %.loopexit, label %208, !llvm.loop !38
 
 .loopexit:                                        ; preds = %250, %check_retval.exit283
   %puts230 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -694,25 +694,25 @@ check_retval.exit303:                             ; preds = %check_retval.exit30
 
 check_retval.exit305:                             ; preds = %check_retval.exit303, %312
   %puts231 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %315 = load i64, ptr %7, align 8, !tbaa !26
+  %315 = load i64, ptr %7, align 8, !tbaa !39
   %316 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %315)
-  %317 = load i64, ptr %8, align 8, !tbaa !26
-  %318 = load i64, ptr %9, align 8, !tbaa !26
+  %317 = load i64, ptr %8, align 8, !tbaa !39
+  %318 = load i64, ptr %9, align 8, !tbaa !39
   %319 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %317, i64 noundef %318)
-  %320 = load i64, ptr %11, align 8, !tbaa !26
-  %321 = load i64, ptr %12, align 8, !tbaa !26
+  %320 = load i64, ptr %11, align 8, !tbaa !39
+  %321 = load i64, ptr %12, align 8, !tbaa !39
   %322 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %320, i64 noundef %321)
-  %323 = load i64, ptr %10, align 8, !tbaa !26
+  %323 = load i64, ptr %10, align 8, !tbaa !39
   %324 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %323)
-  %325 = load i64, ptr %13, align 8, !tbaa !26
+  %325 = load i64, ptr %13, align 8, !tbaa !39
   %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i64 noundef %325)
-  %327 = load i64, ptr %15, align 8, !tbaa !26
+  %327 = load i64, ptr %15, align 8, !tbaa !39
   %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i64 noundef %327)
-  %329 = load i64, ptr %14, align 8, !tbaa !26
+  %329 = load i64, ptr %14, align 8, !tbaa !39
   %330 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i64 noundef %329)
-  %331 = load i64, ptr %16, align 8, !tbaa !26
+  %331 = load i64, ptr %16, align 8, !tbaa !39
   %332 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i64 noundef %331)
-  %333 = load i64, ptr %17, align 8, !tbaa !26
+  %333 = load i64, ptr %17, align 8, !tbaa !39
   %334 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i64 noundef %333)
   call void @free(ptr noundef %24) #10
   call void @ARKodeFree(ptr noundef nonnull %4) #10
@@ -826,7 +826,7 @@ check_retval.exit43:                              ; preds = %check_retval.exit43
   store double %40, ptr %41, align 8, !tbaa !25
   %42 = add nuw nsw i64 %.048, 1
   %exitcond.not = icmp eq i64 %42, %5
-  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit43
+  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit43, !llvm.loop !40
 
 .loopexit.sink.split:                             ; preds = %14, %4
   %43 = load ptr, ptr @stderr, align 8, !tbaa !10
@@ -862,11 +862,11 @@ check_retval.exit.preheader:                      ; preds = %8
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %check_retval.exit.preheader
-  %15 = load ptr, ptr %3, align 8, !tbaa !27
+  %15 = load ptr, ptr %3, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %19 = load i64, ptr %18, align 8, !tbaa !34
+  %19 = load i64, ptr %18, align 8, !tbaa !48
   %20 = fdiv double -1.000000e+00, %11
   br label %check_retval.exit
 
@@ -891,7 +891,7 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %28, double %34)
   %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
-  %37 = load ptr, ptr %36, align 8, !tbaa !35
+  %37 = load ptr, ptr %36, align 8, !tbaa !49
   %38 = getelementptr inbounds double, ptr %37, i64 %19
   store double %35, ptr %38, align 8, !tbaa !25
   %39 = fneg double %32
@@ -903,7 +903,7 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   store double %42, ptr %43, align 8, !tbaa !25
   %44 = fmul double %25, %25
   %45 = getelementptr inbounds nuw ptr, ptr %17, i64 %26
-  %46 = load ptr, ptr %45, align 8, !tbaa !35
+  %46 = load ptr, ptr %45, align 8, !tbaa !49
   %47 = getelementptr double, ptr %46, i64 %19
   %48 = getelementptr i8, ptr %47, i64 -8
   store double %44, ptr %48, align 8, !tbaa !25
@@ -911,7 +911,7 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   %50 = fmul double %25, %49
   store double %50, ptr %47, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
-  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = getelementptr double, ptr %52, i64 %19
   %54 = getelementptr i8, ptr %53, i64 -16
   store double %49, ptr %54, align 8, !tbaa !25
@@ -921,7 +921,7 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   store double %56, ptr %53, align 8, !tbaa !25
   %57 = add nuw nsw i64 %.06972, 1
   %exitcond.not = icmp eq i64 %57, %9
-  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit
+  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %check_retval.exit, %check_retval.exit.preheader, %check_retval.exit.thread
   %.0 = phi i32 [ 1, %check_retval.exit.thread ], [ 0, %check_retval.exit.preheader ], [ 0, %check_retval.exit ]
@@ -1023,7 +1023,7 @@ check_retval.exit98:                              ; preds = %14
   store double %67, ptr %68, align 8, !tbaa !25
   %69 = add nuw nsw i64 %.0105, 1
   %exitcond108.not = icmp eq i64 %69, %5
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph107
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph107, !llvm.loop !51
 
 70:                                               ; preds = %19
   %71 = fcmp olt double %7, 0.000000e+00
@@ -1066,7 +1066,7 @@ check_retval.exit98:                              ; preds = %14
   %98 = getelementptr inbounds nuw double, ptr %15, i64 %93
   store double %97, ptr %98, align 8, !tbaa !25
   %exitcond.not = icmp eq i64 %74, %72
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %99 = mul nsw i64 %72, 3
@@ -1210,13 +1210,30 @@ attributes #12 = { nounwind allocsize(0) }
 !23 = !{!24, !24, i64 0}
 !24 = !{!"int", !6, i64 0}
 !25 = !{!15, !15, i64 0}
-!26 = !{!14, !14, i64 0}
-!27 = !{!28, !5, i64 0}
-!28 = !{!"_generic_SUNMatrix", !5, i64 0, !29, i64 8, !22, i64 16}
-!29 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
-!30 = !{!31, !33, i64 64}
-!31 = !{!"_SUNMatrixContent_Band", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !32, i64 48, !14, i64 56, !33, i64 64}
-!32 = !{!"p1 double", !5, i64 0}
-!33 = !{!"p2 double", !5, i64 0}
-!34 = !{!31, !14, i64 40}
-!35 = !{!32, !32, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27}
+!30 = distinct !{!30, !27}
+!31 = distinct !{!31, !27}
+!32 = distinct !{!32, !27}
+!33 = distinct !{!33, !27}
+!34 = distinct !{!34, !27}
+!35 = distinct !{!35, !27}
+!36 = distinct !{!36, !27}
+!37 = distinct !{!37, !27}
+!38 = distinct !{!38, !27}
+!39 = !{!14, !14, i64 0}
+!40 = distinct !{!40, !27}
+!41 = !{!42, !5, i64 0}
+!42 = !{!"_generic_SUNMatrix", !5, i64 0, !43, i64 8, !22, i64 16}
+!43 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!44 = !{!45, !47, i64 64}
+!45 = !{!"_SUNMatrixContent_Band", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !46, i64 48, !14, i64 56, !47, i64 64}
+!46 = !{!"p1 double", !5, i64 0}
+!47 = !{!"p2 double", !5, i64 0}
+!48 = !{!45, !14, i64 40}
+!49 = !{!46, !46, i64 0}
+!50 = distinct !{!50, !27}
+!51 = distinct !{!51, !27}
+!52 = distinct !{!52, !27}

@@ -673,7 +673,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %197
   %.1 = phi ptr [ %.076145, %10 ], [ %.076145, %210 ], [ %spec.select, %121 ]
   %216 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not = icmp eq ptr %216, %2
-  br i1 %.not, label %._crit_edge.loopexit, label %10
+  br i1 %.not, label %._crit_edge.loopexit, label %10, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %215
   %.pre156 = load ptr, ptr %4, align 8, !tbaa !40
@@ -1350,3 +1350,5 @@ attributes #5 = { nounwind }
 !39 = !{!5, !11, i64 160}
 !40 = !{!5, !11, i64 152}
 !41 = !{!5, !6, i64 8}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}

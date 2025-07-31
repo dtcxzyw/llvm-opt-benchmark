@@ -119,7 +119,7 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %65 = add nuw i64 %.04859.i, 16
   %66 = icmp ult i64 %65, %3
   %indvars.iv.next.i = add i64 %indvars.iv.i, -16
-  br i1 %66, label %.preheader53.i, label %.preheader.i, !llvm.loop !11
+  br i1 %66, label %.preheader53.i, label %.preheader.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %45, %.critedge.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge.i ], [ 0, %45 ]
@@ -141,7 +141,7 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %82 = select i1 %79, i64 %81, i64 4
   %83 = select i1 %78, i64 %82, i64 8
   %84 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv67.i
-  %85 = load i64, ptr %84, align 8, !tbaa !12
+  %85 = load i64, ptr %84, align 8, !tbaa !13
   %86 = lshr i32 %68, 16
   %87 = trunc i32 %86 to i8
   %88 = icmp ult i8 %87, 16
@@ -160,25 +160,25 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %101 = add i64 %100, %75
   %102 = add i64 %101, %93
   %103 = add i64 %102, %83
-  store i64 %103, ptr %84, align 8, !tbaa !12
+  store i64 %103, ptr %84, align 8, !tbaa !13
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
-  br i1 %exitcond70.not.i, label %62, label %.critedge.i, !llvm.loop !14
+  br i1 %exitcond70.not.i, label %62, label %.critedge.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %62, %.preheader.i
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader.i ], [ 1, %62 ]
   %.04362.i = phi i32 [ %111, %.preheader.i ], [ 0, %62 ]
   %104 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv71.i
-  %105 = load i64, ptr %104, align 8, !tbaa !12
+  %105 = load i64, ptr %104, align 8, !tbaa !13
   %106 = zext nneg i32 %.04362.i to i64
   %107 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %106
-  %108 = load i64, ptr %107, align 8, !tbaa !12
+  %108 = load i64, ptr %107, align 8, !tbaa !13
   %109 = icmp ult i64 %105, %108
   %110 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %111 = select i1 %109, i32 %110, i32 %.04362.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 8
-  br i1 %exitcond74.not.i, label %_ZN7meshoptL14estimateRotateEPKhmmmm.exit, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond74.not.i, label %_ZN7meshoptL14estimateRotateEPKhmmmm.exit, label %.preheader.i, !llvm.loop !16
 
 _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #12
@@ -233,12 +233,12 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
 136:                                              ; preds = %139
   %137 = add i64 %.06894.i, %39
   %138 = icmp ult i64 %137, %3
-  br i1 %138, label %115, label %.preheader.i104, !llvm.loop !16
+  br i1 %138, label %115, label %.preheader.i104, !llvm.loop !17
 
 139:                                              ; preds = %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond106.not.i = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i
-  br i1 %exitcond106.not.i, label %136, label %.preheader85.i, !llvm.loop !17
+  br i1 %exitcond106.not.i, label %136, label %.preheader85.i, !llvm.loop !18
 
 140:                                              ; preds = %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i, %.preheader85.i
   %.07092.i = phi i64 [ 0, %.preheader85.i ], [ %217, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i ]
@@ -273,7 +273,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %151 = getelementptr inbounds nuw i8, ptr %.03436.i.i.i, i64 %4
   %152 = add nuw i64 %.03337.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %152, %119
-  br i1 %exitcond.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 153:                                              ; preds = %140
   %.tr.i.i.i = trunc i64 %.07092.i to i16
@@ -317,7 +317,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %180 = getelementptr inbounds nuw i8, ptr %.03438.i.i.i, i64 %4
   %181 = add nuw i64 %.03339.i.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %181, %119
-  br i1 %exitcond.not.i23.i.i, label %.lr.ph.i, label %.lr.ph.i21.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i23.i.i, label %.lr.ph.i, label %.lr.ph.i21.i.i, !llvm.loop !20
 
 182:                                              ; preds = %140
   %183 = and i64 %141, -4
@@ -348,7 +348,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %197 = or i32 %196, %.038.i.i.i
   %198 = add nuw nsw i64 %.03637.i.i.i, 1
   %exitcond.not.i24.i.i = icmp eq i64 %198, 4
-  br i1 %exitcond.not.i24.i.i, label %187, label %191, !llvm.loop !20
+  br i1 %exitcond.not.i24.i.i, label %187, label %191, !llvm.loop !21
 
 .lr.ph.i28.i.i:                                   ; preds = %201, %.lr.ph.preheader.i27.i.i
   %.143.i.i.i = phi i32 [ %215, %201 ], [ %197, %.lr.ph.preheader.i27.i.i ]
@@ -368,7 +368,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %207 = getelementptr inbounds nuw i8, ptr %.03541.i.i.i, i64 %4
   %208 = add nuw i64 %.03442.i.i.i, 1
   %exitcond46.not.i.i.i = icmp eq i64 %208, %119
-  br i1 %exitcond46.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i28.i.i, !llvm.loop !21
+  br i1 %exitcond46.not.i.i.i, label %.lr.ph.i, label %.lr.ph.i28.i.i, !llvm.loop !22
 
 209:                                              ; preds = %209, %.lr.ph.i28.i.i
   %.03240.i.i.i = phi i64 [ 1, %.lr.ph.i28.i.i ], [ %216, %209 ]
@@ -382,7 +382,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %215 = or i32 %214, %.03339.i29.i.i
   %216 = add nuw nsw i64 %.03240.i.i.i, 1
   %exitcond45.not.i.i.i = icmp eq i64 %216, 4
-  br i1 %exitcond45.not.i.i.i, label %201, label %209, !llvm.loop !22
+  br i1 %exitcond45.not.i.i.i, label %201, label %209, !llvm.loop !23
 
 default.unreachable36.i.i:                        ; preds = %140
   unreachable
@@ -391,17 +391,17 @@ _ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i:   ; preds = %140
   br i1 %.not.i26.i.i, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %201, %.lr.ph.i21.i.i, %.lr.ph.i.i.i, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i
-  %.promoted.i = load i64, ptr %135, align 8, !tbaa !12
+  %.promoted.i = load i64, ptr %135, align 8, !tbaa !13
   br label %218
 
 ._crit_edge.i:                                    ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i
-  store i64 %243, ptr %135, align 8, !tbaa !12
+  store i64 %243, ptr %135, align 8, !tbaa !13
   br label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i
 
 _ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i: ; preds = %._crit_edge.i, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i, %187, %153, %142
   %217 = add nuw nsw i64 %.07092.i, 1
   %exitcond.not.i102 = icmp eq i64 %217, 4
-  br i1 %exitcond.not.i102, label %139, label %140, !llvm.loop !23
+  br i1 %exitcond.not.i102, label %139, label %140, !llvm.loop !24
 
 218:                                              ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i, %.lr.ph.i
   %219 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %243, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i ]
@@ -419,7 +419,7 @@ _ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i: ; preds = %._crit_edge.i,
   %226 = add i64 %.01316.i.i, %225
   %227 = add nuw nsw i64 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %227, 16
-  br i1 %exitcond.not.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i, label %221, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i, label %221, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i: ; preds = %221, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i
   %.017.i75.i = phi i64 [ %233, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i ], [ 0, %221 ]
@@ -431,7 +431,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i: ; preds = %221, %_ZN7meshoptL
   %232 = add i64 %.01316.i76.i, %231
   %233 = add nuw nsw i64 %.017.i75.i, 1
   %exitcond.not.i77.i = icmp eq i64 %233, 16
-  br i1 %exitcond.not.i77.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i, !llvm.loop !24
+  br i1 %exitcond.not.i77.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i
   %.017.i79.i = phi i64 [ %239, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i ], [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i ]
@@ -443,7 +443,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i: ; preds = %_ZN7meshoptL23en
   %238 = add i64 %.01316.i80.i, %237
   %239 = add nuw nsw i64 %.017.i79.i, 1
   %exitcond.not.i81.i = icmp eq i64 %239, 16
-  br i1 %exitcond.not.i81.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i, !llvm.loop !24
+  br i1 %exitcond.not.i81.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit78.i
   %240 = tail call i64 @llvm.umin.i64(i64 %226, i64 %232)
@@ -452,22 +452,22 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i: ; preds = %_ZN7meshoptL23en
   %243 = add i64 %242, %219
   %244 = add nuw i64 %.07190.i, 16
   %245 = icmp ult i64 %244, %119
-  br i1 %245, label %218, label %._crit_edge.i, !llvm.loop !25
+  br i1 %245, label %218, label %._crit_edge.i, !llvm.loop !26
 
 .preheader.i104:                                  ; preds = %136, %.preheader.i104
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.preheader.i104 ], [ 1, %136 ]
   %.06795.i = phi i32 [ %253, %.preheader.i104 ], [ 0, %136 ]
   %246 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %indvars.iv107.i
-  %247 = load i64, ptr %246, align 8, !tbaa !12
+  %247 = load i64, ptr %246, align 8, !tbaa !13
   %248 = zext nneg i32 %.06795.i to i64
   %249 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %248
-  %250 = load i64, ptr %249, align 8, !tbaa !12
+  %250 = load i64, ptr %249, align 8, !tbaa !13
   %251 = icmp ult i64 %247, %250
   %252 = trunc nuw nsw i64 %indvars.iv107.i to i32
   %253 = select i1 %251, i32 %252, i32 %.06795.i
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count.i
-  br i1 %exitcond111.not.i, label %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit, label %.preheader.i104, !llvm.loop !26
+  br i1 %exitcond111.not.i, label %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit, label %.preheader.i104, !llvm.loop !27
 
 _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %254 = icmp eq i32 %253, 2
@@ -482,7 +482,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   store i8 %257, ptr %259, align 1, !tbaa !8
   %260 = add i64 %.091179, 4
   %261 = icmp ult i64 %260, %4
-  br i1 %261, label %41, label %.loopexit149, !llvm.loop !27
+  br i1 %261, label %41, label %.loopexit149, !llvm.loop !28
 
 .loopexit149:                                     ; preds = %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit, %25
   %262 = icmp eq i32 %20, 0
@@ -564,7 +564,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %300 = getelementptr inbounds nuw i8, ptr %.03436.i.i.i139, i64 %4
   %301 = add nuw i64 %.03337.i.i.i138, 1
   %exitcond.not.i.i.i141 = icmp eq i64 %301, %272
-  br i1 %exitcond.not.i.i.i141, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126, label %.lr.ph.i.i.i136, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i141, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126, label %.lr.ph.i.i.i136, !llvm.loop !19
 
 302:                                              ; preds = %286
   %.tr.i.i.i127 = trunc i64 %.054129.i to i16
@@ -608,7 +608,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %329 = getelementptr inbounds nuw i8, ptr %.03438.i.i.i132, i64 %4
   %330 = add nuw i64 %.03339.i.i.i131, 1
   %exitcond.not.i23.i.i134 = icmp eq i64 %330, %272
-  br i1 %exitcond.not.i23.i.i134, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107, label %.lr.ph.i21.i.i129, !llvm.loop !19
+  br i1 %exitcond.not.i23.i.i134, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107, label %.lr.ph.i21.i.i129, !llvm.loop !20
 
 331:                                              ; preds = %286
   %332 = and i64 %.054129.i, -4
@@ -640,7 +640,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %347 = or i32 %346, %.038.i.i.i111
   %348 = add nuw nsw i64 %.03637.i.i.i112, 1
   %exitcond.not.i24.i.i114 = icmp eq i64 %348, 4
-  br i1 %exitcond.not.i24.i.i114, label %336, label %341, !llvm.loop !20
+  br i1 %exitcond.not.i24.i.i114, label %336, label %341, !llvm.loop !21
 
 .lr.ph.i28.i.i117:                                ; preds = %351, %.lr.ph.preheader.i27.i.i116
   %.143.i.i.i118 = phi i32 [ %365, %351 ], [ %347, %.lr.ph.preheader.i27.i.i116 ]
@@ -660,7 +660,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %357 = getelementptr inbounds nuw i8, ptr %.03541.i.i.i120, i64 %4
   %358 = add nuw i64 %.03442.i.i.i119, 1
   %exitcond46.not.i.i.i125 = icmp eq i64 %358, %272
-  br i1 %exitcond46.not.i.i.i125, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126, label %.lr.ph.i28.i.i117, !llvm.loop !21
+  br i1 %exitcond46.not.i.i.i125, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126, label %.lr.ph.i28.i.i117, !llvm.loop !22
 
 359:                                              ; preds = %359, %.lr.ph.i28.i.i117
   %.03240.i.i.i121 = phi i64 [ 1, %.lr.ph.i28.i.i117 ], [ %366, %359 ]
@@ -674,7 +674,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %365 = or i32 %364, %.03339.i29.i.i122
   %366 = add nuw nsw i64 %.03240.i.i.i121, 1
   %exitcond45.not.i.i.i124 = icmp eq i64 %366, 4
-  br i1 %exitcond45.not.i.i.i124, label %351, label %359, !llvm.loop !22
+  br i1 %exitcond45.not.i.i.i124, label %351, label %359, !llvm.loop !23
 
 default.unreachable:                              ; preds = %286
   unreachable
@@ -688,7 +688,7 @@ _ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107: ; preds = %.lr.ph.i21.
 367:                                              ; preds = %.lr.ph.i.i71.i
   %368 = add nuw i64 %.069.i.i.i, 16
   %.not.i.i73.i = icmp ult i64 %368, %276
-  br i1 %.not.i.i73.i, label %.lr.ph.i.i71.i, label %.thread86.i, !llvm.loop !28
+  br i1 %.not.i.i73.i, label %.lr.ph.i.i71.i, label %.thread86.i, !llvm.loop !29
 
 .lr.ph.i.i71.i:                                   ; preds = %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107, %367
   %.069.i.i.i = phi i64 [ %368, %367 ], [ 0, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107 ]
@@ -756,7 +756,7 @@ _ZN7meshoptL19estimateControlZeroEPKhm.exit.i.i:  ; preds = %.lr.ph.i.i71.i
   %400 = add i64 %.01316.i.i.i, %399
   %401 = add nuw nsw i64 %.017.i.i.i, 1
   %exitcond.not.i.i72.i = icmp eq i64 %401, 16
-  br i1 %exitcond.not.i.i72.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, label %395, !llvm.loop !24
+  br i1 %exitcond.not.i.i72.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, label %395, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %395, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i
   %.017.i48.i.i = phi i64 [ %407, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ], [ 0, %395 ]
@@ -768,7 +768,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %395, %_ZN7meshop
   %406 = add i64 %.01316.i49.i.i, %405
   %407 = add nuw nsw i64 %.017.i48.i.i, 1
   %exitcond.not.i50.i.i = icmp eq i64 %407, 16
-  br i1 %exitcond.not.i50.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i50.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i
   %.017.i52.i.i = phi i64 [ %413, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i ], [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
@@ -780,7 +780,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i: ; preds = %_ZN7meshoptL23
   %412 = add i64 %.01316.i53.i.i, %411
   %413 = add nuw nsw i64 %.017.i52.i.i, 1
   %exitcond.not.i54.i.i = icmp eq i64 %413, 16
-  br i1 %exitcond.not.i54.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i54.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i
   %414 = or i64 %.val15.i.i.i, %.val.i47.i.i
@@ -794,7 +794,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23
   %422 = add i64 %421, %.04460.i.i
   %423 = add nuw i64 %.04559.i.i, 16
   %424 = icmp ult i64 %423, %276
-  br i1 %424, label %.preheader131.i, label %380, !llvm.loop !29
+  br i1 %424, label %.preheader131.i, label %380, !llvm.loop !30
 
 .thread86.i:                                      ; preds = %367, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i107, %336, %302
   %.054.tr88.i = trunc i64 %.054129.i to i8
@@ -887,7 +887,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23
   %474 = add i64 %.01316.i.i81.i, %473
   %475 = add nuw nsw i64 %.017.i.i80.i, 1
   %exitcond.not.i.i82.i = icmp eq i64 %475, 16
-  br i1 %exitcond.not.i.i82.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i, label %.preheader.i110, !llvm.loop !24
+  br i1 %exitcond.not.i.i82.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i, label %.preheader.i110, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i110, %464, %462
   %.012.i.i.i = phi i64 [ %468, %464 ], [ 16, %462 ], [ %474, %.preheader.i110 ]
@@ -949,7 +949,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   store i8 %.144.us.i.i.i, ptr %.04152.us.i.i.i, align 1, !tbaa !8
   %508 = add nsw i64 %.04551.us.i.i.i, %494
   %509 = icmp ult i64 %508, 16
-  br i1 %509, label %.preheader48.us.i.i.i, label %.preheader.i.i.i, !llvm.loop !30
+  br i1 %509, label %.preheader48.us.i.i.i, label %.preheader.i.i.i, !llvm.loop !31
 
 510:                                              ; preds = %510, %.preheader48.us.i.i.i
   %.04250.us.i.i.i = phi i64 [ 0, %.preheader48.us.i.i.i ], [ %517, %510 ]
@@ -963,7 +963,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   %516 = or i8 %..us.i.i.i, %515
   %517 = add nuw i64 %.04250.us.i.i.i, 1
   %exitcond.not.i65.i.i = icmp eq i64 %517, %494
-  br i1 %exitcond.not.i65.i.i, label %._crit_edge.us.i.i.i, label %510, !llvm.loop !32
+  br i1 %exitcond.not.i65.i.i, label %._crit_edge.us.i.i.i, label %510, !llvm.loop !33
 
 ._crit_edge.us.i.i.i:                             ; preds = %510
   br i1 %497, label %499, label %506
@@ -994,7 +994,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   %524 = getelementptr inbounds nuw i8, ptr %.158.i.i.i, i64 %523
   %525 = add nuw nsw i64 %.04059.i.i.i, 1
   %exitcond64.not.i.i.i = icmp eq i64 %525, 16
-  br i1 %exitcond64.not.i.i.i, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, label %.preheader.i.i.i, !llvm.loop !33
+  br i1 %exitcond64.not.i.i.i, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, label %.preheader.i.i.i, !llvm.loop !34
 
 _ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %.preheader.i.i.i, %490, %477
   %.0.i.i.i = phi ptr [ %491, %490 ], [ %.05089.i.i, %477 ], [ %524, %.preheader.i.i.i ]
@@ -1004,7 +1004,7 @@ _ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %.preheader.i.i.i, %
   %528 = sub i64 %16, %527
   %529 = icmp ult i64 %528, 24
   %or.cond.i75.i = select i1 %.not61.i.i, i1 true, i1 %529
-  br i1 %or.cond.i75.i, label %.loopexit.i, label %462, !llvm.loop !34
+  br i1 %or.cond.i75.i, label %.loopexit.i, label %462, !llvm.loop !35
 
 530:                                              ; preds = %561, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i ], [ %indvars.iv.next.i.i, %561 ]
@@ -1045,7 +1045,7 @@ _ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %.preheader.i.i.i, %
   %549 = add i64 %.01316.i71.i.i, %548
   %550 = add nuw nsw i64 %.017.i70.i.i, 1
   %exitcond.not.i72.i.i = icmp eq i64 %550, 16
-  br i1 %exitcond.not.i72.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i, label %543, !llvm.loop !24
+  br i1 %exitcond.not.i72.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i, label %543, !llvm.loop !25
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %543, %533, %530
   %.012.i66.i.i = phi i64 [ %536, %533 ], [ 16, %530 ], [ %549, %543 ]
@@ -1074,7 +1074,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %543, %533, %53
   %.155.i.i = phi i64 [ %.012.i66.i.i, %559 ], [ %.05483.i.i, %555 ], [ %.05483.i.i, %552 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i109 = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i109, label %477, label %530, !llvm.loop !35
+  br i1 %exitcond.not.i.i109, label %477, label %530, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, %450
   %.050.lcssa.i.i = phi ptr [ %451, %450 ], [ %.0.i.i.i, %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i ]
@@ -1087,7 +1087,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %543, %533, %53
   %.26099.i = phi ptr [ %.050.lcssa.i.i, %.loopexit.i ], [ %.058128.i, %.thread86.i ], [ %444, %443 ]
   %562 = add nuw i64 %.054129.i, 1
   %exitcond.not.i108 = icmp eq i64 %562, %4
-  br i1 %exitcond.not.i108, label %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit, label %285, !llvm.loop !36
+  br i1 %exitcond.not.i108, label %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit, label %285, !llvm.loop !37
 
 _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread: ; preds = %268, %.thread83.i, %.thread92.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
@@ -1101,7 +1101,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit: ; preds = %.thread96.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
   %.not100.not = icmp eq ptr %.26099.i, null
   %566 = add i64 %272, %.092
-  br i1 %.not100.not, label %.loopexit, label %266, !llvm.loop !37
+  br i1 %.not100.not, label %.loopexit, label %266, !llvm.loop !38
 
 567:                                              ; preds = %266
   %568 = add i64 %264, %4
@@ -1282,10 +1282,10 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeVertexBuffer(ptr noundef %0
   %43 = select i1 %41, i64 %36, i64 %42
   %44 = mul i64 %.054, %2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
-  %46 = call noundef ptr %_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1_i._ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(ptr noundef nonnull %.056, ptr noundef nonnull %9, ptr noundef %45, i64 noundef %43, i64 noundef %2, ptr noundef nonnull %6, ptr noundef %32, i32 noundef %18), !callees !38
+  %46 = call noundef ptr %_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1_i._ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(ptr noundef nonnull %.056, ptr noundef nonnull %9, ptr noundef %45, i64 noundef %43, i64 noundef %2, ptr noundef nonnull %6, ptr noundef %32, i32 noundef %18), !callees !39
   %.not63.not = icmp eq ptr %46, null
   %47 = add i64 %43, %.054
-  br i1 %.not63.not, label %.loopexit, label %37, !llvm.loop !39
+  br i1 %.not63.not, label %.loopexit, label %37, !llvm.loop !40
 
 48:                                               ; preds = %37
   %49 = ptrtoint ptr %.056 to i64
@@ -2102,7 +2102,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %587, %584, %537, %
   %620 = sub i64 %16, %619
   %621 = icmp ugt i64 %620, 95
   %622 = select i1 %618, i1 %621, i1 false
-  br i1 %622, label %.lr.ph.i, label %.preheader.i, !llvm.loop !40
+  br i1 %622, label %.lr.ph.i, label %.preheader.i, !llvm.loop !41
 
 .lr.ph93.i:                                       ; preds = %.preheader.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i
   %.15192.i = phi ptr [ %.0.i74.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i ], [ %.050.lcssa.i, %.preheader.i ]
@@ -2292,7 +2292,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %.0.i74.i = phi ptr [ %.15192.i, %638 ], [ %690, %639 ], [ %737, %691 ], [ %740, %738 ], [ %770, %741 ]
   %771 = add nuw i64 %.15391.i, 16
   %772 = icmp ult i64 %771, %12
-  br i1 %772, label %.lr.ph93.i, label %.loopexit, !llvm.loop !41
+  br i1 %772, label %.lr.ph93.i, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i, %.preheader.i
   %.0.i = phi ptr [ %.050.lcssa.i, %.preheader.i ], [ %.0.i74.i, %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i ]
@@ -2303,7 +2303,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %.483109 = phi ptr [ %.0.i, %.loopexit ], [ %.281144, %48 ], [ %47, %44 ]
   %773 = add nuw nsw i64 %.091143, 1
   %exitcond = icmp eq i64 %773, 4
-  br i1 %exitcond, label %.thread118, label %36, !llvm.loop !42
+  br i1 %exitcond, label %.thread118, label %36, !llvm.loop !43
 
 .thread118:                                       ; preds = %.thread
   br i1 %13, label %.thread123, label %774
@@ -2494,7 +2494,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %924 = getelementptr inbounds nuw i8, ptr %921, i64 %4
   %925 = add nuw i64 %.011412.i, 16
   %926 = icmp ult i64 %925, %12
-  br i1 %926, label %784, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !43
+  br i1 %926, label %784, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !44
 
 927:                                              ; preds = %774
   br i1 %.not.i105, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, label %.lr.ph.i101
@@ -2641,7 +2641,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 %4
   %1045 = add nuw i64 %.011412.i104, 16
   %1046 = icmp ult i64 %1045, %12
-  br i1 %1046, label %932, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !44
+  br i1 %1046, label %932, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !45
 
 1047:                                             ; preds = %774
   br i1 %.not.i105, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, label %.lr.ph.i106
@@ -2806,7 +2806,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %1180 = getelementptr inbounds nuw i8, ptr %1177, i64 %4
   %1181 = add nuw i64 %.011818.i, 16
   %1182 = icmp ult i64 %1181, %12
-  br i1 %1182, label %1056, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !45
+  br i1 %1182, label %1056, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !46
 
 default.unreachable156:                           ; preds = %774
   unreachable
@@ -2814,7 +2814,7 @@ default.unreachable156:                           ; preds = %774
 _ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit: ; preds = %1056, %932, %784, %1047, %927, %.thread123
   %1183 = add i64 %.092146, 4
   %.not = icmp ult i64 %1183, %4
-  br i1 %.not, label %28, label %.critedge.thread, !llvm.loop !46
+  br i1 %.not, label %28, label %.critedge.thread, !llvm.loop !47
 
 .critedge.thread:                                 ; preds = %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, %20
   %.079.lcssa = phi ptr [ %21, %20 ], [ %.483109, %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit ]
@@ -3411,7 +3411,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %431 = sub i64 %16, %430
   %432 = icmp ult i64 %431, 24
   %or.cond.i = select i1 %.not.i, i1 true, i1 %432
-  br i1 %or.cond.i, label %433, label %.lr.ph.i, !llvm.loop !47
+  br i1 %or.cond.i, label %433, label %.lr.ph.i, !llvm.loop !48
 
 433:                                              ; preds = %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
   %.not.not159 = icmp ne ptr %.0.i.i, null
@@ -3427,7 +3427,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %.480106 = phi ptr [ %.0.i.i, %433 ], [ %59, %.thread120 ], [ %.278142, %46 ], [ %45, %42 ]
   %434 = add nuw nsw i64 %.082141, 1
   %exitcond = icmp eq i64 %434, 4
-  br i1 %exitcond, label %.thread117, label %34, !llvm.loop !48
+  br i1 %exitcond, label %.thread117, label %34, !llvm.loop !49
 
 .thread117:                                       ; preds = %.thread
   br i1 %13, label %.thread128, label %435
@@ -3476,14 +3476,14 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %452 = add i64 %.04248.us.i, %4
   %453 = add nuw i64 %.03950.us.i, 1
   %exitcond.not.i = icmp eq i64 %453, %3
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.critedge.us.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.critedge.us.i, !llvm.loop !50
 
 ._crit_edge.us.i:                                 ; preds = %.critedge.us.i
   %454 = getelementptr inbounds nuw i8, ptr %.04452.us.i, i64 %3
   %455 = getelementptr inbounds nuw i8, ptr %.04551.us.i, i64 1
   %456 = add nuw nsw i64 %.04353.us.i, 1
   %exitcond57.not.i = icmp eq i64 %456, 4
-  br i1 %exitcond57.not.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, label %.critedge.lr.ph.us.i, !llvm.loop !50
+  br i1 %exitcond57.not.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, label %.critedge.lr.ph.us.i, !llvm.loop !51
 
 457:                                              ; preds = %435
   %458 = getelementptr inbounds nuw i8, ptr %10, i64 %.088144
@@ -3523,12 +3523,12 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %476 = add i64 %.04251.us.i, %4
   %477 = add nuw i64 %.03953.us.i, 1
   %exitcond.not.i99 = icmp eq i64 %477, %3
-  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge132, !llvm.loop !51
+  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge132, !llvm.loop !52
 
 ._crit_edge.us.i100:                              ; preds = %.critedge132
   %478 = getelementptr inbounds nuw i8, ptr %.04455.us.i, i64 %25
   %479 = getelementptr inbounds nuw i8, ptr %.04554.us.i, i64 2
-  br i1 %460, label %.split.us.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, !llvm.loop !52
+  br i1 %460, label %.split.us.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, !llvm.loop !53
 
 480:                                              ; preds = %435
   %481 = getelementptr inbounds nuw i8, ptr %5, i64 %.088144
@@ -3553,7 +3553,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %492 = or i32 %491, %.04249.i
   %493 = add nuw nsw i64 %.04150.i, 1
   %exitcond.not.i101 = icmp eq i64 %493, 4
-  br i1 %exitcond.not.i101, label %.preheader.i, label %486, !llvm.loop !53
+  br i1 %exitcond.not.i101, label %.preheader.i, label %486, !llvm.loop !54
 
 .lr.ph.i103:                                      ; preds = %.preheader.i, %510
   %.04056.i = phi i64 [ %512, %510 ], [ 0, %.preheader.i ]
@@ -3583,13 +3583,13 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %508 = or i32 %507, %.03951.i
   %509 = add nuw nsw i64 %.03852.i, 1
   %exitcond58.not.i = icmp eq i64 %509, 4
-  br i1 %exitcond58.not.i, label %497, label %501, !llvm.loop !54
+  br i1 %exitcond58.not.i, label %497, label %501, !llvm.loop !55
 
 510:                                              ; preds = %513
   %511 = add i64 %.04354.i, %4
   %512 = add nuw i64 %.04056.i, 1
   %exitcond60.not.i = icmp eq i64 %512, %3
-  br i1 %exitcond60.not.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, label %.lr.ph.i103, !llvm.loop !55
+  br i1 %exitcond60.not.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, label %.lr.ph.i103, !llvm.loop !56
 
 513:                                              ; preds = %513, %497
   %.053.i = phi i64 [ 0, %497 ], [ %518, %513 ]
@@ -3601,7 +3601,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   store i8 %516, ptr %517, align 1, !tbaa !8
   %518 = add nuw nsw i64 %.053.i, 1
   %exitcond59.not.i = icmp eq i64 %518, 4
-  br i1 %exitcond59.not.i, label %510, label %513, !llvm.loop !56
+  br i1 %exitcond59.not.i, label %510, label %513, !llvm.loop !57
 
 default.unreachable152:                           ; preds = %435
   unreachable
@@ -3609,7 +3609,7 @@ default.unreachable152:                           ; preds = %435
 _ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit: ; preds = %510, %._crit_edge.us.i100, %._crit_edge.us.i, %.preheader.i, %457, %.thread128
   %519 = add i64 %.088144, 4
   %.not95 = icmp ult i64 %519, %4
-  br i1 %.not95, label %26, label %.critedge.thread, !llvm.loop !57
+  br i1 %.not95, label %26, label %.critedge.thread, !llvm.loop !58
 
 .critedge.thread:                                 ; preds = %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, %20
   %.076.lcssa = phi ptr [ %21, %20 ], [ %.480106, %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit ]
@@ -3654,7 +3654,7 @@ define internal void @_GLOBAL__sub_I_vertexcodec.cpp() #10 section ".text.startu
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %indvars.iv.next20.i.i, 256
-  br i1 %exitcond22.not.i.i, label %__cxx_global_var_init.exit, label %2, !llvm.loop !58
+  br i1 %exitcond22.not.i.i, label %__cxx_global_var_init.exit, label %2, !llvm.loop !59
 
 8:                                                ; preds = %8, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %8 ]
@@ -3670,10 +3670,10 @@ define internal void @_GLOBAL__sub_I_vertexcodec.cpp() #10 section ".text.startu
   %15 = add i8 %.01516.i.i, %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %4, label %8, !llvm.loop !59
+  br i1 %exitcond.not.i.i, label %4, label %8, !llvm.loop !60
 
 __cxx_global_var_init.exit:                       ; preds = %4
-  %16 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #13, !srcloc !60
+  %16 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #13, !srcloc !61
   %17 = extractvalue { i32, i32, i32, i32 } %16, 2
   store i32 %17, ptr @_ZN7meshoptL5cpuidE, align 4, !tbaa !4
   ret void
@@ -3723,55 +3723,56 @@ attributes #13 = { nounwind memory(none) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = distinct !{!37, !10}
-!38 = !{ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i, ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1_i}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10, !31}
-!51 = distinct !{!51, !10}
-!52 = distinct !{!52, !10, !31}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
-!55 = distinct !{!55, !10}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10}
-!58 = distinct !{!58, !10}
-!59 = distinct !{!59, !10}
-!60 = !{i64 2148739224, i64 2148739260, i64 2148739284}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11}
+!38 = distinct !{!38, !10, !11}
+!39 = !{ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i, ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_S1_i}
+!40 = distinct !{!40, !10, !11}
+!41 = distinct !{!41, !10, !11}
+!42 = distinct !{!42, !10, !11}
+!43 = distinct !{!43, !10, !11}
+!44 = distinct !{!44, !10, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = distinct !{!46, !10, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = distinct !{!51, !10, !11, !32}
+!52 = distinct !{!52, !10, !11}
+!53 = distinct !{!53, !10, !11, !32}
+!54 = distinct !{!54, !10, !11}
+!55 = distinct !{!55, !10, !11}
+!56 = distinct !{!56, !10, !11}
+!57 = distinct !{!57, !10, !11}
+!58 = distinct !{!58, !10, !11}
+!59 = distinct !{!59, !10, !11}
+!60 = distinct !{!60, !10, !11}
+!61 = !{i64 2148739224, i64 2148739260, i64 2148739284}

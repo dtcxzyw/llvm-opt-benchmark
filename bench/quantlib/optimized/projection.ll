@@ -1282,7 +1282,7 @@ for.inc:                                          ; preds = %invoke.cont32, %if.
   %i.1 = phi i64 [ %i.055, %invoke.cont32 ], [ %inc, %if.then34 ]
   %inc40 = add nuw i64 %j.056, 1
   %cmp29 = icmp ult i64 %inc40, %0
-  br i1 %cmp29, label %invoke.cont32, label %nrvo.skipdtor, !llvm.loop !43
+  br i1 %cmp29, label %invoke.cont32, label %nrvo.skipdtor, !llvm.loop !44
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %_ZN8QuantLib5ArrayC2Em.exit
   ret void
@@ -1517,7 +1517,7 @@ for.inc:                                          ; preds = %invoke.cont30, %if.
   %i.1 = phi i64 [ %i.048, %invoke.cont30 ], [ %inc, %if.then32 ]
   %inc38 = add nuw i64 %j.049, 1
   %exitcond.not = icmp eq i64 %inc38, %23
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %invoke.cont30, !llvm.loop !44
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %invoke.cont30, !llvm.loop !45
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread
   ret void
@@ -1747,7 +1747,8 @@ attributes #20 = { noreturn nounwind }
 !38 = !{!"_ZTSN5boost6detail12shared_countE", !17, i64 0}
 !39 = !{!40, !40, i64 0}
 !40 = !{!"double", !9, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43}
+!45 = distinct !{!45, !42, !43}

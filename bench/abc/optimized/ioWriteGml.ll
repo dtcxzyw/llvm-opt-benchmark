@@ -89,7 +89,7 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %.lr.ph, %25
   %fputc96 = tail call i32 @fputc(i32 10, ptr nonnull %3)
   %41 = getelementptr i8, ptr %0, i64 40
-  %.val109125 = load ptr, ptr %41, align 8, !tbaa !38
+  %.val109125 = load ptr, ptr %41, align 8, !tbaa !39
   %42 = getelementptr i8, ptr %.val109125, i64 4
   %.val109.val126 = load i32, ptr %42, align 4, !tbaa !32
   %43 = icmp sgt i32 %.val109.val126, 0
@@ -109,17 +109,17 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %51 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 52, i64 1, ptr nonnull %3)
   %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 6, i64 1, ptr nonnull %3)
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %.val109 = load ptr, ptr %41, align 8, !tbaa !38
+  %.val109 = load ptr, ptr %41, align 8, !tbaa !39
   %53 = getelementptr i8, ptr %.val109, i64 4
   %.val109.val = load i32, ptr %53, align 4, !tbaa !32
   %54 = sext i32 %.val109.val to i64
   %55 = icmp slt i64 %indvars.iv.next144, %54
-  br i1 %55, label %.lr.ph129, label %.critedge2, !llvm.loop !39
+  br i1 %55, label %.lr.ph129, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %.lr.ph129, %.critedge
   %fputc97 = tail call i32 @fputc(i32 10, ptr nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load ptr, ptr %56, align 8, !tbaa !40
+  %57 = load ptr, ptr %56, align 8, !tbaa !41
   %58 = getelementptr i8, ptr %57, i64 4
   %.val104130 = load i32, ptr %58, align 4, !tbaa !32
   %59 = icmp sgt i32 %.val104130, 0
@@ -145,7 +145,7 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i32 noundef %68, ptr noundef %69) #4
   %71 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 53, i64 1, ptr nonnull %3)
   %72 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 6, i64 1, ptr nonnull %3)
-  %.pre = load ptr, ptr %56, align 8, !tbaa !40
+  %.pre = load ptr, ptr %56, align 8, !tbaa !41
   br label %73
 
 73:                                               ; preds = %66, %.lr.ph132
@@ -155,12 +155,12 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val104 = load i32, ptr %75, align 4, !tbaa !32
   %76 = sext i32 %.val104 to i64
   %77 = icmp slt i64 %indvars.iv.next147, %76
-  br i1 %77, label %.lr.ph132, label %.critedge4, !llvm.loop !41
+  br i1 %77, label %.lr.ph132, label %.critedge4, !llvm.loop !42
 
 .critedge4:                                       ; preds = %73, %.critedge2
   %fputc98 = tail call i32 @fputc(i32 10, ptr nonnull %3)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !42
+  %79 = load ptr, ptr %78, align 8, !tbaa !43
   %80 = getelementptr i8, ptr %79, i64 4
   %.val105133 = load i32, ptr %80, align 4, !tbaa !32
   %81 = icmp sgt i32 %.val105133, 0
@@ -190,7 +190,7 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i32 noundef %92, ptr noundef %93) #4
   %95 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 51, i64 1, ptr nonnull %3)
   %96 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 6, i64 1, ptr nonnull %3)
-  %.pre158 = load ptr, ptr %78, align 8, !tbaa !42
+  %.pre158 = load ptr, ptr %78, align 8, !tbaa !43
   br label %97
 
 97:                                               ; preds = %90, %87, %.lr.ph135
@@ -200,11 +200,11 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val105 = load i32, ptr %99, align 4, !tbaa !32
   %100 = sext i32 %.val105 to i64
   %101 = icmp slt i64 %indvars.iv.next150, %100
-  br i1 %101, label %.lr.ph135, label %.critedge6, !llvm.loop !43
+  br i1 %101, label %.lr.ph135, label %.critedge6, !llvm.loop !44
 
 .critedge6:                                       ; preds = %97, %.critedge4
   %fputc99 = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  %102 = load ptr, ptr %78, align 8, !tbaa !42
+  %102 = load ptr, ptr %78, align 8, !tbaa !43
   %103 = getelementptr i8, ptr %102, i64 4
   %.val106139 = load i32, ptr %103, align 4, !tbaa !32
   %104 = icmp sgt i32 %.val106139, 0
@@ -222,7 +222,7 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.lr.ph141
   %110 = getelementptr i8, ptr %108, i64 28
-  %.val116136 = load i32, ptr %110, align 4, !tbaa !44
+  %.val116136 = load i32, ptr %110, align 4, !tbaa !45
   %111 = icmp sgt i32 %.val116136, 0
   br i1 %111, label %.lr.ph138, label %.critedge10
 
@@ -233,14 +233,14 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 114:                                              ; preds = %.lr.ph138, %114
   %indvars.iv152 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next153, %114 ]
-  %.val117 = load ptr, ptr %108, align 8, !tbaa !45
-  %.val118 = load ptr, ptr %112, align 8, !tbaa !46
+  %.val117 = load ptr, ptr %108, align 8, !tbaa !46
+  %.val118 = load ptr, ptr %112, align 8, !tbaa !47
   %115 = getelementptr i8, ptr %.val117, i64 32
-  %.val117.val = load ptr, ptr %115, align 8, !tbaa !42
+  %.val117.val = load ptr, ptr %115, align 8, !tbaa !43
   %116 = getelementptr i8, ptr %.val117.val, i64 8
   %.val117.val.val = load ptr, ptr %116, align 8, !tbaa !34
   %117 = getelementptr inbounds nuw i32, ptr %.val118, i64 %indvars.iv152
-  %118 = load i32, ptr %117, align 4, !tbaa !47
+  %118 = load i32, ptr %117, align 4, !tbaa !48
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %.val117.val.val, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !35
@@ -251,13 +251,13 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %126 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 47, i64 1, ptr nonnull %3)
   %127 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 6, i64 1, ptr nonnull %3)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %.val116 = load i32, ptr %110, align 4, !tbaa !44
+  %.val116 = load i32, ptr %110, align 4, !tbaa !45
   %128 = sext i32 %.val116 to i64
   %129 = icmp slt i64 %indvars.iv.next153, %128
-  br i1 %129, label %114, label %.critedge10.loopexit, !llvm.loop !48
+  br i1 %129, label %114, label %.critedge10.loopexit, !llvm.loop !49
 
 .critedge10.loopexit:                             ; preds = %114
-  %.pre159 = load ptr, ptr %78, align 8, !tbaa !42
+  %.pre159 = load ptr, ptr %78, align 8, !tbaa !43
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge10.loopexit, %.preheader, %.lr.ph141
@@ -267,7 +267,7 @@ define void @Io_WriteGml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val106 = load i32, ptr %131, align 4, !tbaa !32
   %132 = sext i32 %.val106 to i64
   %133 = icmp slt i64 %indvars.iv.next156, %132
-  br i1 %133, label %.lr.ph141, label %.critedge8, !llvm.loop !49
+  br i1 %133, label %.lr.ph141, label %.critedge8, !llvm.loop !50
 
 .critedge8:                                       ; preds = %.critedge10, %.critedge6
   %134 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr nonnull %3)
@@ -344,17 +344,18 @@ attributes #4 = { nounwind }
 !33 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !5, i64 8}
 !34 = !{!33, !5, i64 8}
 !35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!9, !13, i64 40}
-!39 = distinct !{!39, !37}
-!40 = !{!9, !13, i64 80}
-!41 = distinct !{!41, !37}
-!42 = !{!9, !13, i64 32}
-!43 = distinct !{!43, !37}
-!44 = !{!28, !10, i64 28}
-!45 = !{!28, !14, i64 0}
-!46 = !{!28, !18, i64 32}
-!47 = !{!10, !10, i64 0}
-!48 = distinct !{!48, !37}
-!49 = distinct !{!49, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!9, !13, i64 40}
+!40 = distinct !{!40, !37, !38}
+!41 = !{!9, !13, i64 80}
+!42 = distinct !{!42, !37, !38}
+!43 = !{!9, !13, i64 32}
+!44 = distinct !{!44, !37, !38}
+!45 = !{!28, !10, i64 28}
+!46 = !{!28, !14, i64 0}
+!47 = !{!28, !18, i64 32}
+!48 = !{!10, !10, i64 0}
+!49 = distinct !{!49, !37, !38}
+!50 = distinct !{!50, !37, !38}

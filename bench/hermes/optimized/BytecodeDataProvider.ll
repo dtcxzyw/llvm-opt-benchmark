@@ -1509,7 +1509,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %i
   %add = add i32 %retval.0.i, %virtualOffset.05
   %inc = add nuw i32 %i.06, 1
   %exitcond.not = icmp eq i32 %inc, %functionID
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit, %entry
   %virtualOffset.0.lcssa = phi i32 [ 0, %entry ], [ %add, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
@@ -1619,7 +1619,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %4 = extractvalue { ptr, i64 } %call2, 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !7
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19, !noalias !8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #19
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
@@ -1794,7 +1794,7 @@ for.inc:                                          ; preds = %for.body, %if.end
   %nextAbortCheckPoint.1 = phi i32 [ %add, %if.end ], [ %nextAbortCheckPoint.08, %for.body ]
   %add5 = add i32 %i.09, %conv
   %cmp = icmp ult i32 %add5, %size
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.then, %entry
   ret void
@@ -2187,7 +2187,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %inc = add nuw i32 %i.055, 1
   %11 = load i32, ptr %fileRegionCount, align 1
   %cmp = icmp ult i32 %inc, %11
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit
   %12 = phi i32 [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ]
@@ -2201,9 +2201,9 @@ _ZNSt12_Vector_baseIN6hermes16StringTableEntryESaIS1_EE11_M_allocateEm.exit.thre
   br label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.end
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #21, !noalias !12
+  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #21, !noalias !13
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %mul.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i, ptr nonnull align 4 %add.ptr.i, i64 %mul.i, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i, ptr nonnull align 4 %add.ptr.i, i64 %mul.i, i1 false), !noalias !13
   br label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes16StringTableEntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i
@@ -2213,9 +2213,9 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %if.then.i.
   br i1 %cmp.not.i.i.i.i22, label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i23:                  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %call5.i.i.i.i.i.i24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv3) #21, !noalias !15
+  %call5.i.i.i.i.i.i24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv3) #21, !noalias !16
   %add.ptr.i.i.i25 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i24, i64 %conv3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i24, ptr nonnull align 1 %add.ptr.i8, i64 %conv3, i1 false), !noalias !15
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i24, ptr nonnull align 1 %add.ptr.i8, i64 %conv3, i1 false), !noalias !16
   br label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
 
 _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23
@@ -2702,16 +2702,16 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i1, %if
 define linkonce_odr hidden { ptr, i64 } @_ZNK6hermes3hbc20BCProviderFromBuffer17getExceptionTableEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !18
+  %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !19
   %idxprom.i = zext i32 %functionID to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
   %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !18
+  %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !19
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
-  %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !18
+  %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !19
   %2 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %2, 0
-  %bf.load3.i = load i120, ptr %arrayidx.i, align 1, !noalias !18
+  %bf.load3.i = load i120, ptr %arrayidx.i, align 1, !noalias !19
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -2745,12 +2745,12 @@ if.then14.i:                                      ; preds = %if.end.i
   %7 = inttoptr i64 %and.i.i.i to ptr
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 368
-  %8 = load ptr, ptr %end_.i, align 8, !noalias !18
+  %8 = load ptr, ptr %end_.i, align 8, !noalias !19
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %8
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then14.i
-  %9 = load i32, ptr %7, align 4, !noalias !18
+  %9 = load i32, ptr %7, align 4, !noalias !19
   %conv.i = zext i32 %9 to i64
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
@@ -2760,7 +2760,7 @@ lor.rhs.i.i:                                      ; preds = %if.then14.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %if.then14.i
-  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20, !noalias !18
+  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20, !noalias !19
   unreachable
 
 _ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit: ; preds = %lor.rhs.i.i, %if.end.i
@@ -2775,16 +2775,16 @@ _ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit: 
 define linkonce_odr hidden noundef ptr @_ZNK6hermes3hbc20BCProviderFromBuffer15getDebugOffsetsEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !21
+  %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !22
   %idxprom.i = zext i32 %functionID to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
   %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !21
+  %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !22
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
-  %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !21
+  %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !22
   %2 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %2, 0
-  %bf.load3.i = load i120, ptr %arrayidx.i, align 1, !noalias !21
+  %bf.load3.i = load i120, ptr %arrayidx.i, align 1, !noalias !22
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -2817,10 +2817,10 @@ if.then14.i:                                      ; preds = %if.end.i
   %and.i.i.i = and i64 %sub.i.i.i, -4
   %7 = inttoptr i64 %and.i.i.i to ptr
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %8 = load i32, ptr %7, align 4, !noalias !21
+  %8 = load i32, ptr %7, align 4, !noalias !22
   %conv.i = zext i32 %8 to i64
   %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 368
-  %9 = load ptr, ptr %end_.i, align 8, !noalias !21
+  %9 = load ptr, ptr %end_.i, align 8, !noalias !22
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %9
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
@@ -2833,7 +2833,7 @@ lor.rhs.i.i:                                      ; preds = %if.then14.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %if.then14.i
-  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20, !noalias !21
+  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20, !noalias !22
   unreachable
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit.i: ; preds = %lor.rhs.i.i
@@ -3260,23 +3260,24 @@ attributes #23 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
-!9 = distinct !{!9, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK4llvh8ArrayRefIN6hermes16StringTableEntryEEcvSt6vectorIS2_SaIS2_EEEv: %agg.result"}
-!14 = distinct !{!14, !"_ZNK4llvh8ArrayRefIN6hermes16StringTableEntryEEcvSt6vectorIS2_SaIS2_EEEv"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj: %agg.result"}
-!20 = distinct !{!20, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj: %agg.result"}
-!23 = distinct !{!23, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK4llvh9StringRef3strB5cxx11Ev: %agg.result"}
+!10 = distinct !{!10, !"_ZNK4llvh9StringRef3strB5cxx11Ev"}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK4llvh8ArrayRefIN6hermes16StringTableEntryEEcvSt6vectorIS2_SaIS2_EEEv: %agg.result"}
+!15 = distinct !{!15, !"_ZNK4llvh8ArrayRefIN6hermes16StringTableEntryEEcvSt6vectorIS2_SaIS2_EEEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv: %agg.result"}
+!18 = distinct !{!18, !"_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj: %agg.result"}
+!21 = distinct !{!21, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj"}

@@ -166,7 +166,7 @@ define i32 @stb_include_find_includes(ptr noundef %0, ptr noundef writeonly capt
 .critedge:                                        ; preds = %6, %6
   %8 = getelementptr inbounds nuw i8, ptr %.191, i64 1
   %.pr = load i8, ptr %8, align 1, !tbaa !7
-  br label %6, !llvm.loop !18
+  br label %6, !llvm.loop !19
 
 .preheader:                                       ; preds = %6, %.preheader.backedge
   %.191.pn = phi ptr [ %.3, %.preheader.backedge ], [ %.191, %6 ]
@@ -178,7 +178,7 @@ define i32 @stb_include_find_includes(ptr noundef %0, ptr noundef writeonly capt
   ]
 
 .preheader.backedge:                              ; preds = %.preheader, %.preheader
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !20
 
 10:                                               ; preds = %.preheader
   %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.3, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #17
@@ -210,7 +210,7 @@ define i32 @stb_include_find_includes(ptr noundef %0, ptr noundef writeonly capt
 .critedge4:                                       ; preds = %.critedge118, %.critedge118
   %17 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %.pre = load i8, ptr %17, align 1, !tbaa !7
-  br label %.critedge118, !llvm.loop !20
+  br label %.critedge118, !llvm.loop !21
 
 18:                                               ; preds = %.critedge118
   %19 = getelementptr inbounds nuw i8, ptr %.4, i64 1
@@ -228,7 +228,7 @@ define i32 @stb_include_find_includes(ptr noundef %0, ptr noundef writeonly capt
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %.085, i64 1
-  br label %20, !llvm.loop !21
+  br label %20, !llvm.loop !22
 
 24:                                               ; preds = %20
   %25 = ptrtoint ptr %.085 to i64
@@ -252,7 +252,7 @@ define i32 @stb_include_find_includes(ptr noundef %0, ptr noundef writeonly capt
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  br label %31, !llvm.loop !22
+  br label %31, !llvm.loop !23
 
 stb_include_isspace.exit:                         ; preds = %13, %10
   %35 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.3, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #17
@@ -285,7 +285,7 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
 41:                                               ; preds = %stb_include_isspace.exit116.thread
   %42 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %.pre141 = load i8, ptr %42, align 1, !tbaa !7
-  br label %stb_include_isspace.exit116.thread, !llvm.loop !23
+  br label %stb_include_isspace.exit116.thread, !llvm.loop !24
 
 .loopexit119.sink.split:                          ; preds = %31, %31, %31, %stb_include_isspace.exit116.thread, %stb_include_isspace.exit116.thread, %stb_include_isspace.exit116.thread
   %.6.lcssa.sink = phi ptr [ %.7, %stb_include_isspace.exit116.thread ], [ %.7, %stb_include_isspace.exit116.thread ], [ %.7, %stb_include_isspace.exit116.thread ], [ %.6, %31 ], [ %.6, %31 ], [ %.6, %31 ]
@@ -329,7 +329,7 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %.8, i64 1
-  br label %59, !llvm.loop !24
+  br label %59, !llvm.loop !25
 
 .loopexit:                                        ; preds = %59, %59
   %63 = zext nneg i8 %60 to i32
@@ -343,12 +343,12 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
   %.pre142 = load i8, ptr %70, align 1, !tbaa !7
   %71 = add nuw nsw i32 %.0132, 1
   %.not = icmp eq i8 %.pre142, 0
-  br i1 %.not, label %._crit_edge, label %.preheader121, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.preheader121, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %59, %2
   %.087.lcssa = phi i32 [ 0, %2 ], [ %.188, %59 ], [ %.188, %.loopexit ]
   %.086.lcssa = phi ptr [ null, %2 ], [ %.1, %59 ], [ %.1, %.loopexit ]
-  store ptr %.086.lcssa, ptr %1, align 8, !tbaa !26
+  store ptr %.086.lcssa, ptr %1, align 8, !tbaa !27
   ret i32 %.087.lcssa
 }
 
@@ -380,7 +380,7 @@ define void @stb_include_itoa(ptr noundef writeonly captures(none) initializes((
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   %or.cond = select i1 %11, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %12, label %4, !llvm.loop !27
+  br i1 %or.cond, label %12, label %4, !llvm.loop !28
 
 12:                                               ; preds = %4
   ret void
@@ -409,7 +409,7 @@ define noalias noundef ptr @stb_include_string(ptr noundef %0, ptr noundef reado
   %9 = call i32 @stb_include_find_includes(ptr noundef %0, ptr noundef nonnull %8)
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %11 = icmp sgt i32 %9, 0
-  %.pre = load ptr, ptr %8, align 8, !tbaa !26
+  %.pre = load ptr, ptr %8, align 8, !tbaa !27
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -551,7 +551,7 @@ stb_include_file.exit:                            ; preds = %39
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 8
   %or.cond = select i1 %63, i1 true, i1 %exitcond.not.i72
-  br i1 %or.cond, label %stb_include_itoa.exit73, label %56, !llvm.loop !27
+  br i1 %or.cond, label %stb_include_itoa.exit73, label %56, !llvm.loop !28
 
 stb_include_itoa.exit73:                          ; preds = %56
   %strlen62 = call i64 @strlen(ptr nonnull dereferenceable(1) %7)
@@ -568,7 +568,7 @@ stb_include_itoa.exit73:                          ; preds = %56
   %71 = sext i32 %70 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %stb_include_itoa.exit, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %stb_include_itoa.exit, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %stb_include_itoa.exit73, %5
   %.0.lcssa = phi i64 [ 0, %5 ], [ %66, %stb_include_itoa.exit73 ]
@@ -653,12 +653,12 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.027 = phi i64 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %11 = add i64 %10, %.027
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %6
   %12 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #14
@@ -675,13 +675,13 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
   %.129 = phi i64 [ 0, %.lr.ph31.preheader ], [ %20, %.lr.ph31 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.129
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv34
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %17) #16
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #17
   %20 = add i64 %19, %.129
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !31
+  br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !32
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge
   %21 = phi ptr [ %12, %._crit_edge ], [ %14, %.lr.ph31 ]
@@ -727,19 +727,20 @@ attributes #17 = { nounwind willreturn memory(read) }
 !13 = !{!9, !10, i64 4}
 !14 = !{!9, !11, i64 8}
 !15 = !{!9, !10, i64 16}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = !{!12, !12, i64 0}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
-!29 = !{!11, !11, i64 0}
-!30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}
+!26 = distinct !{!26, !17, !18}
+!27 = !{!12, !12, i64 0}
+!28 = distinct !{!28, !17, !18}
+!29 = distinct !{!29, !17, !18}
+!30 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !17, !18}
+!32 = distinct !{!32, !17, !18}

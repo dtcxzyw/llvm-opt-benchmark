@@ -150,7 +150,7 @@ define dso_local void @spawn_subcmd_free(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i32, ptr %16, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next31, %21
-  br i1 %22, label %.lr.ph19, label %._crit_edge20, !llvm.loop !11
+  br i1 %22, label %.lr.ph19, label %._crit_edge20, !llvm.loop !12
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %.preheader13
   tail call void @slurm_xfree(ptr noundef nonnull %14) #10
@@ -177,7 +177,7 @@ define dso_local void @spawn_subcmd_free(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load i32, ptr %26, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next34, %31
-  br i1 %32, label %.lr.ph23, label %._crit_edge24, !llvm.loop !12
+  br i1 %32, label %.lr.ph23, label %._crit_edge24, !llvm.loop !13
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull %24) #10
@@ -236,7 +236,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %7, align 4
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader14
   tail call void @slurm_xfree(ptr noundef nonnull %5) #10
@@ -263,7 +263,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load i32, ptr %17, align 4
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next31, %22
-  br i1 %23, label %.lr.ph19, label %._crit_edge20, !llvm.loop !14
+  br i1 %23, label %.lr.ph19, label %._crit_edge20, !llvm.loop !15
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %.preheader13
   tail call void @slurm_xfree(ptr noundef nonnull %15) #10
@@ -291,7 +291,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load i32, ptr %27, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next34, %33
-  br i1 %34, label %.lr.ph23, label %._crit_edge24, !llvm.loop !15
+  br i1 %34, label %.lr.ph23, label %._crit_edge24, !llvm.loop !16
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull %25) #10
@@ -396,7 +396,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
   %45 = load i32, ptr %21, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %28, label %.preheader, !llvm.loop !16
+  br i1 %47, label %28, label %.preheader, !llvm.loop !17
 
 48:                                               ; preds = %.lr.ph110, %._crit_edge108
   %indvars.iv122 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next123, %._crit_edge108 ]
@@ -451,7 +451,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
   %73 = load i32, ptr %60, align 4
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next117, %74
-  br i1 %75, label %64, label %._crit_edge, !llvm.loop !17
+  br i1 %75, label %64, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %72, %57
   %76 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -502,14 +502,14 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
   %98 = load i32, ptr %76, align 8
   %99 = zext i32 %98 to i64
   %100 = icmp samesign ult i64 %indvars.iv.next120, %99
-  br i1 %100, label %81, label %._crit_edge108, !llvm.loop !18
+  br i1 %100, label %81, label %._crit_edge108, !llvm.loop !19
 
 ._crit_edge108:                                   ; preds = %97, %._crit_edge
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %101 = load i32, ptr %19, align 8
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %indvars.iv.next123, %102
-  br i1 %103, label %48, label %.loopexit, !llvm.loop !19
+  br i1 %103, label %48, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge108, %.preheader, %7
   ret void
@@ -660,7 +660,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %61 = load i32, ptr %42, align 4
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %64, label %.loopexit196, !llvm.loop !20
+  br i1 %63, label %64, label %.loopexit196, !llvm.loop !21
 
 64:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
@@ -740,7 +740,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %96 = load i32, ptr %86, align 4
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next214, %97
-  br i1 %98, label %.lr.ph200, label %.loopexit193, !llvm.loop !21
+  br i1 %98, label %.lr.ph200, label %.loopexit193, !llvm.loop !22
 
 .lr.ph200:                                        ; preds = %.preheader, %95
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %95 ], [ 0, %.preheader ]
@@ -803,7 +803,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %121 = load i32, ptr %102, align 8
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next217, %122
-  br i1 %123, label %124, label %.loopexit, !llvm.loop !22
+  br i1 %123, label %124, label %.loopexit, !llvm.loop !23
 
 124:                                              ; preds = %.lr.ph202, %120
   %indvars.iv216 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next217, %120 ]
@@ -829,7 +829,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %132 = load i32, ptr %31, align 8
   %133 = zext i32 %132 to i64
   %134 = icmp samesign ult i64 %indvars.iv.next220, %133
-  br i1 %134, label %74, label %._crit_edge, !llvm.loop !23
+  br i1 %134, label %74, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit196
   store ptr %25, ptr %0, align 8
@@ -957,7 +957,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_resp_unpack(ptr noundef writeonly c
   %27 = load i32, ptr %17, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
@@ -1069,7 +1069,7 @@ define dso_local void @spawn_resp_pack(ptr noundef readonly captures(none) %0, p
   %23 = load i32, ptr %15, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %19, label %._crit_edge, !llvm.loop !25
+  br i1 %25, label %19, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %19, %14
   ret void
@@ -1161,7 +1161,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_psr_dequeue(i32 noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph24
   %7 = load i32, ptr %storemerge, align 8
   %.not9 = icmp eq i32 %7, %0
-  br i1 %.not9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph24, !llvm.loop !26
+  br i1 %.not9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph24, !llvm.loop !27
 
 .lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %storemerge1523 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge12, %.lr.ph.preheader ]
@@ -1169,7 +1169,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_psr_dequeue(i32 noundef %0, ptr nou
   %storemerge = load ptr, ptr %8, align 8
   store ptr %storemerge, ptr %5, align 8
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %storemerge1523, i64 24
@@ -1284,7 +1284,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %52 = load i32, ptr %34, align 4
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next.i, %53
-  br i1 %54, label %40, label %._crit_edge.i, !llvm.loop !27
+  br i1 %54, label %40, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %40, %19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1329,7 +1329,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
-  %81 = load i8, ptr %80, align 8, !range !28, !noundef !29
+  %81 = load i8, ptr %80, align 8, !range !29, !noundef !30
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %89
 
@@ -1467,7 +1467,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %163 = load i32, ptr %96, align 8
   %164 = zext i32 %163 to i64
   %165 = icmp samesign ult i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %100, label %._crit_edge.i.i, !llvm.loop !30
+  br i1 %165, label %100, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %162, %89
   %.148.lcssa.i.i = phi i32 [ %91, %89 ], [ %.249.i.i, %162 ]
@@ -1500,7 +1500,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %179 = load i32, ptr %67, align 4
   %180 = zext i32 %179 to i64
   %181 = icmp samesign ult i64 %indvars.iv.next79.i.i, %180
-  br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !31
+  br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !32
 
 ._crit_edge64.loopexit.i.i:                       ; preds = %173
   %182 = trunc nsw i64 %indvars.iv76.i.i to i32
@@ -1548,7 +1548,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 200:                                              ; preds = %195, %.lr.ph69.i.i
   %indvars.iv.next84.i.i = add nuw nsw i64 %indvars.iv83.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next84.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !32
+  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !33
 
 _exec_srun_single.exit.i:                         ; preds = %200, %190
   %201 = load ptr, ptr %6, align 8
@@ -1646,7 +1646,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %244 = load i32, ptr %237, align 4
   %245 = zext i32 %244 to i64
   %246 = icmp samesign ult i64 %indvars.iv.next.i26.i, %245
-  br i1 %246, label %240, label %._crit_edge.i27.i, !llvm.loop !33
+  br i1 %246, label %240, label %._crit_edge.i27.i, !llvm.loop !34
 
 ._crit_edge.i27.i:                                ; preds = %240, %236
   call void @slurm_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.48) #10
@@ -1656,7 +1656,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %249 = load i32, ptr %55, align 8
   %250 = zext i32 %249 to i64
   %251 = icmp samesign ult i64 %indvars.iv.next97.i.i, %250
-  br i1 %251, label %218, label %._crit_edge71.i.i, !llvm.loop !34
+  br i1 %251, label %218, label %._crit_edge71.i.i, !llvm.loop !35
 
 ._crit_edge71.i.i:                                ; preds = %._crit_edge.i27.i, %.preheader.i.i
   %.049.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %248, %._crit_edge.i27.i ]
@@ -1727,7 +1727,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   br label %.lr.ph72.split.i.i.backedge
 
 .lr.ph72.split.i.i.backedge:                      ; preds = %275, %272
-  br label %.lr.ph72.split.i.i, !llvm.loop !35
+  br label %.lr.ph72.split.i.i, !llvm.loop !36
 
 .outer._crit_edge.i.i:                            ; preds = %.split.us.i.i, %253
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -1751,7 +1751,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 128
-  %291 = load i8, ptr %290, align 8, !range !28, !noundef !29
+  %291 = load i8, ptr %290, align 8, !range !29, !noundef !30
   %292 = trunc nuw i8 %291 to i1
   br i1 %292, label %293, label %300
 
@@ -1908,7 +1908,7 @@ define dso_local void @spawn_job_wait() local_unnamed_addr #0 {
   %27 = load i32, ptr @spawn_seq, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next.i, %28
-  br i1 %29, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !36
+  br i1 %29, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !37
 
 _wait_for_all.exit:                               ; preds = %25, %10
   %30 = phi i32 [ %12, %10 ], [ %27, %25 ]
@@ -1972,7 +1972,7 @@ _wait_for_all.exit:                               ; preds = %25, %10
   %53 = load i32, ptr @spawn_seq, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next.i22, %54
-  br i1 %55, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !36
+  br i1 %55, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !37
 
 _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %56 = phi i32 [ %38, %.lr.ph ], [ %53, %51 ]
@@ -1984,7 +1984,7 @@ _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %60 = add i32 %56, -1
   %61 = icmp ne i32 %57, %60
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !37
+  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !38
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %69
   %63 = phi i32 [ %35, %.lr.ph30.preheader ], [ %70, %69 ]
@@ -2007,7 +2007,7 @@ _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = zext i32 %70 to i64
   %73 = icmp samesign ult i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph30, label %._crit_edge, !llvm.loop !38
+  br i1 %73, label %.lr.ph30, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   ret void
@@ -2086,34 +2086,35 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = !{i8 0, i8 2}
-!29 = !{}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = !{i8 0, i8 2}
+!30 = !{}
+!31 = distinct !{!31, !9, !10, !11}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !9, !10, !11}
+!34 = distinct !{!34, !9, !10, !11}
+!35 = distinct !{!35, !9, !10, !11}
+!36 = distinct !{!36, !9, !10, !11}
+!37 = distinct !{!37, !9, !10, !11}
+!38 = distinct !{!38, !9, !10, !11}
+!39 = distinct !{!39, !9, !10, !11}

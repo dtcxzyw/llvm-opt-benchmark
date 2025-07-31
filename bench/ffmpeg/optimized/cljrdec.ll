@@ -209,7 +209,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.sroa.10.1.lcssa = phi i32 [ %.sroa.10.069, %.lr.ph72.split ], [ %131, %._crit_edge.loopexit ]
   %139 = add nuw nsw i32 %.04170, 1
   %140 = icmp slt i32 %139, %137
-  br i1 %140, label %.lr.ph72.split, label %._crit_edge73, !llvm.loop !37
+  br i1 %140, label %.lr.ph72.split, label %._crit_edge73, !llvm.loop !38
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %.lr.ph72, %24
   store i32 1, ptr %2, align 4, !tbaa !33
@@ -273,7 +273,8 @@ attributes #4 = { nounwind }
 !32 = !{!14, !14, i64 0}
 !33 = !{!10, !10, i64 0}
 !34 = !{!8, !8, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37, !39}
+!39 = !{!"llvm.loop.unswitch.partial.disable"}

@@ -250,7 +250,7 @@ bytestream2_get_le16.exit.thread:                 ; preds = %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull readonly align 1 %gep56.i, i64 %.038.i, i1 false)
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, 8
-  br i1 %exitcond51.not.i, label %copy_block.exit.thread, label %100, !llvm.loop !46
+  br i1 %exitcond51.not.i, label %copy_block.exit.thread, label %100, !llvm.loop !47
 
 copy_block.exit:                                  ; preds = %81
   %105 = zext i16 %76 to i32
@@ -309,10 +309,10 @@ bytestream2_get_le16.exit184.us.us:               ; preds = %116, %111
   br i1 %or.cond.us.us, label %.thread, label %127
 
 127:                                              ; preds = %122, %bytestream2_get_le16.exit184.us.us
-  br i1 %112, label %111, label %.split408.us.us, !llvm.loop !47
+  br i1 %112, label %111, label %.split408.us.us, !llvm.loop !48
 
 .split408.us.us:                                  ; preds = %127
-  br i1 %.not432, label %.preheader.us, label %copy_block.exit.thread, !llvm.loop !49
+  br i1 %.not432, label %.preheader.us, label %copy_block.exit.thread, !llvm.loop !50
 
 .preheader:                                       ; preds = %108, %.split408
   %.not431 = phi i1 [ false, %.split408 ], [ true, %108 ]
@@ -427,17 +427,17 @@ bytestream2_get_le16.exit184._crit_edge:          ; preds = %bytestream2_get_le1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr nonnull readonly align 1 %gep56.i205, i64 %.038.i202, i1 false)
   %indvars.iv.next48.i206 = add nuw nsw i64 %indvars.iv47.i204, 1
   %exitcond51.not.i207 = icmp eq i64 %indvars.iv.next48.i206, 4
-  br i1 %exitcond51.not.i207, label %.loopexit341, label %168, !llvm.loop !46
+  br i1 %exitcond51.not.i207, label %.loopexit341, label %168, !llvm.loop !47
 
 173:                                              ; preds = %bytestream2_get_le16.exit184._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef range(i32 0, 65536) %.0.i183) #7
   br label %.thread331
 
 .loopexit341:                                     ; preds = %168
-  br i1 %132, label %131, label %.split408, !llvm.loop !50
+  br i1 %132, label %131, label %.split408, !llvm.loop !51
 
 .split408:                                        ; preds = %.loopexit341
-  br i1 %.not431, label %.preheader, label %copy_block.exit.thread, !llvm.loop !51
+  br i1 %.not431, label %.preheader, label %copy_block.exit.thread, !llvm.loop !52
 
 174:                                              ; preds = %bytestream2_get_byte.exit179
   %175 = ptrtoint ptr %.sroa.0.2 to i64
@@ -481,12 +481,12 @@ bytestream2_get_byte.exit181:                     ; preds = %180, %186
   %195 = lshr i32 %.126.us.us.i, 1
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, 8
-  br i1 %exitcond47.not.i, label %.split29.us.us.i, label %190, !llvm.loop !52
+  br i1 %exitcond47.not.i, label %.split29.us.us.i, label %190, !llvm.loop !53
 
 .split29.us.us.i:                                 ; preds = %190
   %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next485, 8
-  br i1 %exitcond487.not, label %copy_block.exit.thread, label %180, !llvm.loop !53
+  br i1 %exitcond487.not, label %copy_block.exit.thread, label %180, !llvm.loop !54
 
 .preheader344:                                    ; preds = %.preheader344.preheader, %.split.us
   %196 = phi i1 [ false, %.split.us ], [ true, %.preheader344.preheader ]
@@ -545,15 +545,15 @@ bytestream2_get_le16.exit186.us:                  ; preds = %207, %.preheader344
   %217 = lshr i32 %.126.us.us.i220.us, 1
   %indvars.iv.next44.i222.us = add nuw nsw i64 %indvars.iv43.i219.us, 1
   %exitcond47.not.i223.us = icmp eq i64 %indvars.iv.next44.i222.us, 4
-  br i1 %exitcond47.not.i223.us, label %.split29.us.us.i224.us, label %212, !llvm.loop !52
+  br i1 %exitcond47.not.i223.us, label %.split29.us.us.i224.us, label %212, !llvm.loop !53
 
 .split29.us.us.i224.us:                           ; preds = %212
   %indvars.iv.next49.i225.us = add nuw nsw i64 %indvars.iv48.i216.us, 1
   %exitcond52.not.i226.us = icmp eq i64 %indvars.iv.next49.i225.us, 4
-  br i1 %exitcond52.not.i226.us, label %draw_n_color.exit227.loopexit342.us, label %.split.us.us.i215.us, !llvm.loop !54
+  br i1 %exitcond52.not.i226.us, label %draw_n_color.exit227.loopexit342.us, label %.split.us.us.i215.us, !llvm.loop !55
 
 draw_n_color.exit227.loopexit342.us:              ; preds = %.split29.us.us.i224.us
-  br i1 %198, label %.preheader344.split.us, label %.split.us, !llvm.loop !55
+  br i1 %198, label %.preheader344.split.us, label %.split.us, !llvm.loop !56
 
 .preheader344.split.us390:                        ; preds = %.preheader344, %draw_n_color.exit227.loopexit343.us
   %218 = phi i1 [ false, %draw_n_color.exit227.loopexit343.us ], [ true, %.preheader344 ]
@@ -600,15 +600,15 @@ bytestream2_get_le32.exit.us:                     ; preds = %227, %.preheader344
   %236 = lshr i32 %.126.us.us.i233.us, 2
   %indvars.iv.next44.i235.us = add nuw nsw i64 %indvars.iv43.i232.us, 1
   %exitcond47.not.i236.us = icmp eq i64 %indvars.iv.next44.i235.us, 4
-  br i1 %exitcond47.not.i236.us, label %.split29.us.us.i237.us, label %231, !llvm.loop !52
+  br i1 %exitcond47.not.i236.us, label %.split29.us.us.i237.us, label %231, !llvm.loop !53
 
 .split29.us.us.i237.us:                           ; preds = %231
   %indvars.iv.next49.i238.us = add nuw nsw i64 %indvars.iv48.i229.us, 1
   %exitcond52.not.i239.us = icmp eq i64 %indvars.iv.next49.i238.us, 4
-  br i1 %exitcond52.not.i239.us, label %draw_n_color.exit227.loopexit343.us, label %.split.us.us.i228.us, !llvm.loop !54
+  br i1 %exitcond52.not.i239.us, label %draw_n_color.exit227.loopexit343.us, label %.split.us.us.i228.us, !llvm.loop !55
 
 draw_n_color.exit227.loopexit343.us:              ; preds = %.split29.us.us.i237.us
-  br i1 %218, label %.preheader344.split.us390, label %.split.us, !llvm.loop !56
+  br i1 %218, label %.preheader344.split.us390, label %.split.us, !llvm.loop !57
 
 .preheader344.split:                              ; preds = %.preheader344, %draw_n_color.exit227.loopexit
   %237 = phi i1 [ false, %draw_n_color.exit227.loopexit ], [ true, %.preheader344 ]
@@ -668,19 +668,19 @@ bytestream2_get_le16.exit188:                     ; preds = %.preheader344.split
   %265 = lshr i32 %.126.i, 1
   %indvars.iv.next.i247 = add nuw nsw i64 %indvars.iv.i244, 1
   %exitcond.not.i248 = icmp eq i64 %indvars.iv.next.i247, 4
-  br i1 %exitcond.not.i248, label %.split29.i, label %257, !llvm.loop !57
+  br i1 %exitcond.not.i248, label %.split29.i, label %257, !llvm.loop !58
 
 .split29.i:                                       ; preds = %257
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %draw_n_color.exit227.loopexit, label %.split.i, !llvm.loop !58
+  br i1 %exitcond42.not.i, label %draw_n_color.exit227.loopexit, label %.split.i, !llvm.loop !59
 
 draw_n_color.exit227.loopexit:                    ; preds = %.split29.i
-  br i1 %237, label %.preheader344.split, label %.split.us, !llvm.loop !59
+  br i1 %237, label %.preheader344.split, label %.split.us, !llvm.loop !60
 
 .split.us:                                        ; preds = %draw_n_color.exit227.loopexit343.us, %draw_n_color.exit227.loopexit342.us, %draw_n_color.exit227.loopexit
   %.us-phi = phi ptr [ %.sroa.0.20, %draw_n_color.exit227.loopexit ], [ %.sroa.0.19.us, %draw_n_color.exit227.loopexit342.us ], [ %.sroa.0.21.us, %draw_n_color.exit227.loopexit343.us ]
-  br i1 %196, label %.preheader344, label %copy_block.exit.thread, !llvm.loop !60
+  br i1 %196, label %.preheader344, label %copy_block.exit.thread, !llvm.loop !61
 
 .preheader348:                                    ; preds = %bytestream2_get_byte.exit179, %.preheader348
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader348 ], [ 0, %bytestream2_get_byte.exit179 ]
@@ -695,7 +695,7 @@ draw_n_color.exit227.loopexit:                    ; preds = %.split29.i
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.0.12382, i64 %271
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %copy_block.exit.thread, label %.preheader348, !llvm.loop !61
+  br i1 %exitcond.not, label %copy_block.exit.thread, label %.preheader348, !llvm.loop !62
 
 bytestream2_get_byte.exit179.thread:              ; preds = %62, %bytestream2_get_byte.exit179
   %273 = phi i32 [ %70, %bytestream2_get_byte.exit179 ], [ 0, %62 ]
@@ -715,12 +715,12 @@ copy_block.exit.thread:                           ; preds = %.preheader348, %.sp
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 8
   %276 = icmp samesign ult i64 %indvars.iv494, 312
-  br i1 %276, label %59, label %277, !llvm.loop !62
+  br i1 %276, label %59, label %277, !llvm.loop !63
 
 277:                                              ; preds = %copy_block.exit.thread
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 8
   %278 = icmp samesign ult i64 %indvars.iv497, 184
-  br i1 %278, label %54, label %279, !llvm.loop !63
+  br i1 %278, label %54, label %279, !llvm.loop !64
 
 279:                                              ; preds = %277
   %280 = and i32 %.0.i312, 1
@@ -764,7 +764,7 @@ bytestream2_get_be24.exit:                        ; preds = %284, %288
   store i32 %.0.i190, ptr %303, align 4, !tbaa !35
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond503.not = icmp eq i64 %indvars.iv.next501, 256
-  br i1 %exitcond503.not, label %.loopexit, label %284, !llvm.loop !64
+  br i1 %exitcond503.not, label %.loopexit, label %284, !llvm.loop !65
 
 304:                                              ; preds = %279
   %305 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -890,24 +890,25 @@ attributes #8 = { noreturn nounwind }
 !41 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !42 = !{!38, !10, i64 276}
 !43 = !{!14, !14, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !45, !48}
-!50 = distinct !{!50, !45}
-!51 = distinct !{!51, !45}
-!52 = distinct !{!52, !45, !48}
-!53 = distinct !{!53, !45}
-!54 = distinct !{!54, !45, !48}
-!55 = distinct !{!55, !45, !48}
-!56 = distinct !{!56, !45, !48}
-!57 = distinct !{!57, !45}
-!58 = distinct !{!58, !45}
-!59 = distinct !{!59, !45}
-!60 = distinct !{!60, !45}
-!61 = distinct !{!61, !45}
-!62 = distinct !{!62, !45}
-!63 = distinct !{!63, !45}
-!64 = distinct !{!64, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !45, !46, !49}
+!51 = distinct !{!51, !45, !46}
+!52 = distinct !{!52, !45, !46}
+!53 = distinct !{!53, !45, !46, !49}
+!54 = distinct !{!54, !45, !46}
+!55 = distinct !{!55, !45, !46, !49}
+!56 = distinct !{!56, !45, !46, !49}
+!57 = distinct !{!57, !45, !46, !49}
+!58 = distinct !{!58, !45, !46}
+!59 = distinct !{!59, !45, !46}
+!60 = distinct !{!60, !45, !46}
+!61 = distinct !{!61, !45, !46}
+!62 = distinct !{!62, !45, !46}
+!63 = distinct !{!63, !45, !46}
+!64 = distinct !{!64, !45, !46}
+!65 = distinct !{!65, !45, !46}

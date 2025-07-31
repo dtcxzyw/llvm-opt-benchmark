@@ -150,9 +150,9 @@ create_ssl_ctx.exit.i:                            ; preds = %34
 .critedge.i.i:                                    ; preds = %.preheader.i.i, %42
   %.0914.i.i = phi ptr [ %.09.i.i, %42 ], [ %.0912.i.i, %.preheader.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !26
+  %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !27
+  %47 = load i32, ptr %46, align 8, !tbaa !28
   %48 = call ptr @evconnlistener_new_bind(ptr noundef %37, ptr noundef nonnull @acceptcb, ptr noundef nonnull %5, i32 noundef 10, i32 noundef 16, ptr noundef %45, i32 noundef %47) #21
   %.not11.i10.i = icmp eq ptr %48, null
   br i1 %.not11.i10.i, label %42, label %run.exit
@@ -241,7 +241,7 @@ define internal void @acceptcb(ptr readnone captures(none) %0, i32 noundef %1, p
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
-  store i32 1, ptr %7, align 4, !tbaa !28
+  store i32 1, ptr %7, align 4, !tbaa !29
   %8 = load ptr, ptr %4, align 8, !tbaa !12
   %9 = tail call ptr @SSL_new(ptr noundef %8) #21
   %.not.i.i = icmp eq ptr %9, null
@@ -256,20 +256,20 @@ define internal void @acceptcb(ptr readnone captures(none) %0, i32 noundef %1, p
 create_http2_session_data.exit:                   ; preds = %5
   %calloc.i = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
-  store ptr %4, ptr %13, align 8, !tbaa !29
+  store ptr %4, ptr %13, align 8, !tbaa !30
   %14 = call i32 @setsockopt(i32 noundef %1, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 4) #21
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = call ptr @bufferevent_openssl_socket_new(ptr noundef %16, i32 noundef %1, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 5) #21
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  store ptr %17, ptr %18, align 8, !tbaa !36
+  store ptr %17, ptr %18, align 8, !tbaa !37
   %19 = call i32 @bufferevent_enable(ptr noundef %17, i16 noundef signext 6) #21
   %20 = call i32 @getnameinfo(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #21
   %.not.i = icmp eq i32 %20, 0
   %..str.8.i = select i1 %.not.i, ptr %6, ptr @.str.8
   %21 = call noalias ptr @strdup(ptr noundef nonnull %..str.8.i) #21
   %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 56
-  store ptr %21, ptr %22, align 8, !tbaa !37
+  store ptr %21, ptr %22, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %6) #21
   call void @bufferevent_setcb(ptr noundef %17, ptr noundef nonnull @readcb, ptr noundef nonnull @writecb, ptr noundef nonnull @eventcb, ptr noundef %calloc.i) #21
@@ -284,12 +284,12 @@ declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal void @readcb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = tail call ptr @bufferevent_get_input(ptr noundef %4) #21
   %6 = tail call i64 @evbuffer_get_length(ptr noundef %5) #21
   %7 = tail call ptr @evbuffer_pullup(ptr noundef %5, i64 noundef -1) #21
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = tail call i64 @nghttp2_session_mem_recv2(ptr noundef %9, ptr noundef %7, i64 noundef %6) #21
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %15
@@ -310,7 +310,7 @@ define internal void @readcb(ptr readnone captures(none) %0, ptr noundef capture
   br label %21
 
 18:                                               ; preds = %15
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !38
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !39
   %19 = tail call i32 @nghttp2_session_send(ptr noundef %.val.i) #21
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %session_recv.exit, label %session_send.exit.i
@@ -337,19 +337,19 @@ define internal void @writecb(ptr noundef %0, ptr noundef captures(none) %1) #0 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = tail call i32 @nghttp2_session_want_read(ptr noundef %7) #21
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %6, align 8, !tbaa !38
+  %11 = load ptr, ptr %6, align 8, !tbaa !39
   %12 = tail call i32 @nghttp2_session_want_write(ptr noundef %11) #21
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %session_send.exit.thread.sink.split, label %14
 
 14:                                               ; preds = %10, %5
-  %.val = load ptr, ptr %6, align 8, !tbaa !38
+  %.val = load ptr, ptr %6, align 8, !tbaa !39
   %15 = tail call i32 @nghttp2_session_send(ptr noundef %.val) #21
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %session_send.exit.thread, label %16
@@ -381,13 +381,13 @@ define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   store ptr null, ptr %6, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
-  store i32 0, ptr %7, align 4, !tbaa !28
+  store i32 0, ptr %7, align 4, !tbaa !29
   %10 = load ptr, ptr @stderr, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.13, ptr noundef %12) #25
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %15) #21
   call void @SSL_get0_alpn_selected(ptr noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
   %17 = load ptr, ptr %6, align 8, !tbaa !10
@@ -404,30 +404,30 @@ define internal void @eventcb(ptr readnone captures(none) %0, i16 noundef signex
 
 22:                                               ; preds = %21, %9
   %23 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %24 = load ptr, ptr %11, align 8, !tbaa !37
+  %24 = load ptr, ptr %11, align 8, !tbaa !38
   %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.15, ptr noundef %24) #25
   br label %session_send.exit.thread.sink.split
 
 26:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   %27 = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %5) #21
-  %28 = load ptr, ptr %5, align 8, !tbaa !39
+  %28 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_set_send_callback2(ptr noundef %28, ptr noundef nonnull @send_callback) #21
-  %29 = load ptr, ptr %5, align 8, !tbaa !39
+  %29 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %29, ptr noundef nonnull @on_frame_recv_callback) #21
-  %30 = load ptr, ptr %5, align 8, !tbaa !39
+  %30 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %30, ptr noundef nonnull @on_stream_close_callback) #21
-  %31 = load ptr, ptr %5, align 8, !tbaa !39
+  %31 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %31, ptr noundef nonnull @on_header_callback) #21
-  %32 = load ptr, ptr %5, align 8, !tbaa !39
+  %32 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %32, ptr noundef nonnull @on_begin_headers_callback) #21
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %34 = load ptr, ptr %5, align 8, !tbaa !39
+  %34 = load ptr, ptr %5, align 8, !tbaa !40
   %35 = call i32 @nghttp2_session_server_new(ptr noundef nonnull %33, ptr noundef %34, ptr noundef nonnull %2) #21
-  %36 = load ptr, ptr %5, align 8, !tbaa !39
+  %36 = load ptr, ptr %5, align 8, !tbaa !40
   call void @nghttp2_session_callbacks_del(ptr noundef %36) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  %.val = load ptr, ptr %33, align 8, !tbaa !38
+  %.val = load ptr, ptr %33, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   store i64 429496729603, ptr %4, align 8
   %37 = call i32 @nghttp2_submit_settings(ptr noundef %.val, i8 noundef zeroext 0, ptr noundef nonnull %4, i64 noundef 1) #21
@@ -442,7 +442,7 @@ send_server_connection_header.exit:               ; preds = %26
 
 39:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  %.val24 = load ptr, ptr %33, align 8, !tbaa !38
+  %.val24 = load ptr, ptr %33, align 8, !tbaa !39
   %40 = call i32 @nghttp2_session_send(ptr noundef %.val24) #21
   %.not.i25 = icmp eq i32 %40, 0
   br i1 %.not.i25, label %session_send.exit.thread, label %session_send.exit
@@ -480,7 +480,7 @@ session_send.exit.thread:                         ; preds = %session_send.exit.t
   %.str.17.sink = phi ptr [ @.str.16, %42 ], [ @.str.17, %44 ], [ @.str.18, %46 ]
   %48 = load ptr, ptr @stderr, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !37
+  %50 = load ptr, ptr %49, align 8, !tbaa !38
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull %.str.17.sink, ptr noundef %50) #25
   br label %52
 
@@ -512,11 +512,11 @@ declare ptr @SSL_new(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: cold nounwind uwtable
 define internal fastcc void @delete_http2_session_data(ptr noundef captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #21
   %5 = load ptr, ptr @stderr, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.12, ptr noundef %7) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %9
@@ -526,22 +526,22 @@ define internal fastcc void @delete_http2_session_data(ptr noundef captures(none
   br label %11
 
 11:                                               ; preds = %9, %1
-  %12 = load ptr, ptr %2, align 8, !tbaa !36
+  %12 = load ptr, ptr %2, align 8, !tbaa !37
   tail call void @bufferevent_free(ptr noundef %12) #21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
   tail call void @nghttp2_session_del(ptr noundef %14) #21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %.not1415 = icmp eq ptr %16, null
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %delete_http2_stream_data.exit
   %.016 = phi ptr [ %18, %delete_http2_stream_data.exit ], [ %16, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !43
+  %20 = load i32, ptr %19, align 4, !tbaa !44
   %.not.i = icmp eq i32 %20, -1
   br i1 %.not.i, label %delete_http2_stream_data.exit, label %21
 
@@ -551,14 +551,14 @@ define internal fastcc void @delete_http2_session_data(ptr noundef captures(none
 
 delete_http2_stream_data.exit:                    ; preds = %.lr.ph, %21
   %23 = getelementptr inbounds nuw i8, ptr %.016, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !44
+  %24 = load ptr, ptr %23, align 8, !tbaa !45
   tail call void @free(ptr noundef %24) #21
   tail call void @free(ptr noundef nonnull %.016) #21
   %.not14 = icmp eq ptr %18, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %delete_http2_stream_data.exit, %11
-  %25 = load ptr, ptr %6, align 8, !tbaa !37
+  %25 = load ptr, ptr %6, align 8, !tbaa !38
   tail call void @free(ptr noundef %25) #21
   tail call void @free(ptr noundef %0) #21
   ret void
@@ -608,7 +608,7 @@ declare void @nghttp2_session_callbacks_set_send_callback2(ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @send_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = tail call ptr @bufferevent_get_output(ptr noundef %7) #21
   %9 = tail call i64 @evbuffer_get_length(ptr noundef %8) #21
   %10 = icmp ugt i64 %9, 65535
@@ -652,7 +652,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.on_request_recv.hdrs, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !44
+  %18 = load ptr, ptr %17, align 8, !tbaa !45
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %21
 
@@ -665,9 +665,9 @@ define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %0, p
 21:                                               ; preds = %16
   %22 = load ptr, ptr @stderr, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.21, ptr noundef %24, ptr noundef nonnull %18) #25
-  %26 = load ptr, ptr %17, align 8, !tbaa !44
+  %26 = load ptr, ptr %17, align 8, !tbaa !45
   %27 = load i8, ptr %26, align 1, !tbaa !9
   %cond.i.i = icmp eq i8 %27, 47
   br i1 %cond.i.i, label %28, label %check_path.exit.thread.i
@@ -715,7 +715,7 @@ check_path.exit.thread.i:                         ; preds = %check_path.exit.i, 
   %44 = load i8, ptr %.0.i, align 1, !tbaa !9
   %45 = icmp eq i8 %44, 47
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %45, label %.preheader.i, label %47, !llvm.loop !46
+  br i1 %45, label %.preheader.i, label %47, !llvm.loop !47
 
 47:                                               ; preds = %.preheader.i
   %48 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.0.i, i32 noundef 0) #21
@@ -730,13 +730,13 @@ check_path.exit.thread.i:                         ; preds = %check_path.exit.i, 
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  store i32 %48, ptr %53, align 4, !tbaa !43
+  store i32 %48, ptr %53, align 4, !tbaa !44
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %55 = load i32, ptr %54, align 8, !tbaa !47
+  %55 = load i32, ptr %54, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   store i32 %48, ptr %4, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @file_read_callback, ptr %56, align 8, !tbaa !48
+  store ptr @file_read_callback, ptr %56, align 8, !tbaa !49
   %57 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %55, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %4) #21
   %.not.i31.i = icmp eq i32 %57, 0
   br i1 %.not.i31.i, label %send_response.exit.thread.i, label %58
@@ -772,20 +772,20 @@ define internal noundef i32 @on_stream_close_callback(ptr noundef %0, i32 nounde
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
-  %9 = load ptr, ptr %5, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %9 = load ptr, ptr %5, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %8, ptr %10, align 8, !tbaa !42
+  store ptr %8, ptr %10, align 8, !tbaa !43
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %remove_stream.exit, label %11
 
 11:                                               ; preds = %6
-  store ptr %9, ptr %8, align 8, !tbaa !50
+  store ptr %9, ptr %8, align 8, !tbaa !51
   br label %remove_stream.exit
 
 remove_stream.exit:                               ; preds = %6, %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !43
+  %13 = load i32, ptr %12, align 4, !tbaa !44
   %.not.i7 = icmp eq i32 %13, -1
   br i1 %.not.i7, label %delete_http2_stream_data.exit, label %14
 
@@ -795,7 +795,7 @@ remove_stream.exit:                               ; preds = %6, %11
 
 delete_http2_stream_data.exit:                    ; preds = %remove_stream.exit, %14
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !44
+  %17 = load ptr, ptr %16, align 8, !tbaa !45
   tail call void @free(ptr noundef %17) #21
   tail call void @free(ptr noundef nonnull %5) #21
   br label %18
@@ -828,7 +828,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !44
+  %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = icmp eq ptr %20, null
   %22 = icmp eq i64 %3, 5
   %or.cond = and i1 %22, %21
@@ -857,7 +857,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
 28:                                               ; preds = %.lr.ph
   %29 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %29, %5
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !52
 
 .critedge:                                        ; preds = %.lr.ph, %28
   %.0.lcssa = phi i64 [ %.021, %.lr.ph ], [ %5, %28 ]
@@ -880,12 +880,12 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
 
 36:                                               ; preds = %.lr.ph.i
   %37 = tail call ptr @__ctype_b_loc() #28
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %38 = load ptr, ptr %37, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !9
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw i16, ptr %38, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !54
+  %43 = load i16, ptr %42, align 2, !tbaa !55
   %44 = and i16 %43, 4096
   %.not34.i = icmp eq i16 %44, 0
   br i1 %.not34.i, label %52, label %45
@@ -895,7 +895,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   %47 = load i8, ptr %46, align 1, !tbaa !9
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw i16, ptr %38, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !54
+  %50 = load i16, ptr %49, align 2, !tbaa !55
   %51 = and i16 %50, 4096
   %.not35.i = icmp eq i16 %51, 0
   br i1 %.not35.i, label %52, label %56
@@ -910,7 +910,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   %.032.be.i = phi i64 [ %53, %52 ], [ %76, %hex_to_uint.exit41.i ]
   %.0.be.i = add i64 %.043.i, 1
   %55 = icmp ult i64 %.032.be.i, %33
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56
+  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !57
 
 56:                                               ; preds = %45
   %57 = add i8 %40, -48
@@ -983,7 +983,7 @@ hex_to_uint.exit41.i:                             ; preds = %71, %69, %hex_to_ui
 
 percent_decode.exit:                              ; preds = %._crit_edge.i, %81
   %84 = phi ptr [ %31, %._crit_edge.i ], [ %82, %81 ]
-  store ptr %84, ptr %19, align 8, !tbaa !44
+  store ptr %84, ptr %19, align 8, !tbaa !45
   br label %85
 
 85:                                               ; preds = %23, %percent_decode.exit, %14, %18, %11, %8
@@ -1010,20 +1010,20 @@ define internal noundef i32 @on_begin_headers_callback(ptr noundef %0, ptr nound
   %11 = load i32, ptr %10, align 8, !tbaa !9
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store i32 %11, ptr %12, align 8, !tbaa !47
+  store i32 %11, ptr %12, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 28
-  store i32 -1, ptr %13, align 4, !tbaa !43
+  store i32 -1, ptr %13, align 4, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  store ptr %15, ptr %16, align 8, !tbaa !42
-  store ptr %calloc.i, ptr %14, align 8, !tbaa !41
-  store ptr %2, ptr %calloc.i, align 8, !tbaa !50
+  store ptr %15, ptr %16, align 8, !tbaa !43
+  store ptr %calloc.i, ptr %14, align 8, !tbaa !42
+  store ptr %2, ptr %calloc.i, align 8, !tbaa !51
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %create_http2_stream_data.exit, label %17
 
 17:                                               ; preds = %9
-  store ptr %calloc.i, ptr %15, align 8, !tbaa !50
+  store ptr %calloc.i, ptr %15, align 8, !tbaa !51
   br label %create_http2_stream_data.exit
 
 create_http2_stream_data.exit:                    ; preds = %9, %17
@@ -1061,7 +1061,7 @@ define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %0, ptr nou
 7:                                                ; preds = %2
   call void (ptr, ...) @warn(ptr noundef nonnull @.str.23) #21
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %9 = load i32, ptr %8, align 8, !tbaa !48
   %10 = call i32 @nghttp2_submit_rst_stream(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %9, i32 noundef 2) #21
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %32, label %11
@@ -1073,12 +1073,12 @@ define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !28
+  %15 = load i32, ptr %14, align 4, !tbaa !29
   %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull @ERROR_HTML, i64 noundef 79) #21
-  %17 = load i32, ptr %14, align 4, !tbaa !28
+  %17 = load i32, ptr %14, align 4, !tbaa !29
   %18 = call i32 @close(i32 noundef %17) #21
   %.not10 = icmp eq i64 %16, 79
-  %19 = load i32, ptr %4, align 4, !tbaa !28
+  %19 = load i32, ptr %4, align 4, !tbaa !29
   br i1 %.not10, label %22, label %20
 
 20:                                               ; preds = %13
@@ -1087,13 +1087,13 @@ define internal fastcc range(i32 -1, 1) i32 @error_reply(ptr noundef %0, ptr nou
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %19, ptr %23, align 4, !tbaa !43
+  store i32 %19, ptr %23, align 4, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !47
+  %25 = load i32, ptr %24, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
   store i32 %19, ptr %3, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @file_read_callback, ptr %26, align 8, !tbaa !48
+  store ptr @file_read_callback, ptr %26, align 8, !tbaa !49
   %27 = call i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %3) #21
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %send_response.exit.thread, label %28
@@ -1106,7 +1106,7 @@ send_response.exit.thread:                        ; preds = %22
   %29 = call ptr @nghttp2_strerror(i32 noundef %27) #21
   call void (ptr, ...) @warnx(ptr noundef nonnull @.str.10, ptr noundef %29) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
-  %30 = load i32, ptr %4, align 4, !tbaa !28
+  %30 = load i32, ptr %4, align 4, !tbaa !29
   %31 = call i32 @close(i32 noundef %30) #21
   br label %32
 
@@ -1174,14 +1174,14 @@ define internal range(i64 0, -1) i64 @file_read_callback(ptr readnone captures(n
 
 11:                                               ; preds = %9
   %12 = tail call ptr @__errno_location() #28
-  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %13 = load i32, ptr %12, align 4, !tbaa !29
   %14 = icmp eq i32 %13, 4
-  br i1 %14, label %9, label %.critedge, !llvm.loop !57
+  br i1 %14, label %9, label %.critedge, !llvm.loop !58
 
 15:                                               ; preds = %9
-  %16 = load i32, ptr %4, align 4, !tbaa !28
+  %16 = load i32, ptr %4, align 4, !tbaa !29
   %17 = or i32 %16, 1
-  store i32 %17, ptr %4, align 4, !tbaa !28
+  store i32 %17, ptr %4, align 4, !tbaa !29
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %11, %15
@@ -1269,37 +1269,38 @@ attributes #28 = { nounwind willreturn memory(none) }
 !21 = !{!"p1 _ZTS8addrinfo", !6, i64 0}
 !22 = !{!18, !19, i64 0}
 !23 = !{!21, !21, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!18, !20, i64 24}
-!27 = !{!18, !19, i64 16}
-!28 = !{!19, !19, i64 0}
-!29 = !{!30, !34, i64 40}
-!30 = !{!"http2_session_data", !31, i64 0, !33, i64 32, !34, i64 40, !35, i64 48, !11, i64 56}
-!31 = !{!"http2_stream_data", !32, i64 0, !32, i64 8, !11, i64 16, !19, i64 24, !19, i64 28}
-!32 = !{!"p1 _ZTS17http2_stream_data", !6, i64 0}
-!33 = !{!"p1 _ZTS11bufferevent", !6, i64 0}
-!34 = !{!"p1 _ZTS11app_context", !6, i64 0}
-!35 = !{!"p1 _ZTS15nghttp2_session", !6, i64 0}
-!36 = !{!30, !33, i64 32}
-!37 = !{!30, !11, i64 56}
-!38 = !{!30, !35, i64 48}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS25nghttp2_session_callbacks", !6, i64 0}
-!41 = !{!30, !32, i64 8}
-!42 = !{!31, !32, i64 8}
-!43 = !{!31, !19, i64 28}
-!44 = !{!31, !11, i64 16}
-!45 = distinct !{!45, !25}
-!46 = distinct !{!46, !25}
-!47 = !{!31, !19, i64 24}
-!48 = !{!49, !6, i64 8}
-!49 = !{!"", !7, i64 0, !6, i64 8}
-!50 = !{!31, !32, i64 0}
-!51 = distinct !{!51, !25}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 short", !6, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"short", !7, i64 0}
-!56 = distinct !{!56, !25}
-!57 = distinct !{!57, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!18, !20, i64 24}
+!28 = !{!18, !19, i64 16}
+!29 = !{!19, !19, i64 0}
+!30 = !{!31, !35, i64 40}
+!31 = !{!"http2_session_data", !32, i64 0, !34, i64 32, !35, i64 40, !36, i64 48, !11, i64 56}
+!32 = !{!"http2_stream_data", !33, i64 0, !33, i64 8, !11, i64 16, !19, i64 24, !19, i64 28}
+!33 = !{!"p1 _ZTS17http2_stream_data", !6, i64 0}
+!34 = !{!"p1 _ZTS11bufferevent", !6, i64 0}
+!35 = !{!"p1 _ZTS11app_context", !6, i64 0}
+!36 = !{!"p1 _ZTS15nghttp2_session", !6, i64 0}
+!37 = !{!31, !34, i64 32}
+!38 = !{!31, !11, i64 56}
+!39 = !{!31, !36, i64 48}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS25nghttp2_session_callbacks", !6, i64 0}
+!42 = !{!31, !33, i64 8}
+!43 = !{!32, !33, i64 8}
+!44 = !{!32, !19, i64 28}
+!45 = !{!32, !11, i64 16}
+!46 = distinct !{!46, !25, !26}
+!47 = distinct !{!47, !25, !26}
+!48 = !{!32, !19, i64 24}
+!49 = !{!50, !6, i64 8}
+!50 = !{!"", !7, i64 0, !6, i64 8}
+!51 = !{!32, !33, i64 0}
+!52 = distinct !{!52, !25, !26}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 short", !6, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"short", !7, i64 0}
+!57 = distinct !{!57, !25, !26}
+!58 = distinct !{!58, !25, !26}

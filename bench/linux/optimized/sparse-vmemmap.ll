@@ -750,7 +750,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 n
 50:                                               ; preds = %53
   %51 = add i64 %54, 4096
   %52 = icmp ult i64 %51, %15
-  br i1 %52, label %53, label %.loopexit8, !llvm.loop !12
+  br i1 %52, label %53, label %.loopexit8, !llvm.loop !16
 
 53:                                               ; preds = %.preheader, %50
   %54 = phi i64 [ %51, %50 ], [ %10, %.preheader ]
@@ -760,7 +760,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 n
 
 .loopexit8:                                       ; preds = %50, %.thread, %48, %43
   %57 = icmp ult i64 %15, %1
-  br i1 %57, label %9, label %.loopexit, !llvm.loop !15
+  br i1 %57, label %9, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %.loopexit8, %21, %18, %9, %53, %4
   %58 = phi i32 [ 0, %4 ], [ -12, %53 ], [ -12, %42 ], [ -12, %9 ], [ -12, %18 ], [ -12, %21 ], [ 0, %.loopexit8 ]
@@ -781,9 +781,9 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
   br i1 %13, label %15, label %14, !prof !7
 
 14:                                               ; preds = %5
-  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 461, i32 2307, i64 12) #7, !srcloc !17
-  tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_end\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #7, !srcloc !18
+  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 461, i32 2307, i64 12) #7, !srcloc !19
+  tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_end\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #7, !srcloc !20
   br label %38
 
 15:                                               ; preds = %5
@@ -877,7 +877,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
 43:                                               ; preds = %.preheader
   %44 = add i64 %46, 4096
   %45 = icmp ult i64 %44, %2
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %29, %43
   %46 = phi i64 [ %44, %43 ], [ %1, %29 ]
@@ -894,7 +894,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
 
 .loopexit9:                                       ; preds = %78, %63
   %54 = icmp ult i64 %56, %2
-  br i1 %54, label %.preheader10, label %.loopexit
+  br i1 %54, label %.preheader10, label %.loopexit, !llvm.loop !22
 
 .preheader10:                                     ; preds = %49, %.loopexit9
   %55 = phi i64 [ %56, %.loopexit9 ], [ %1, %49 ]
@@ -932,13 +932,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
 78:                                               ; preds = %.preheader7
   %79 = add i64 %81, 4096
   %80 = icmp ult i64 %79, %56
-  br i1 %80, label %.preheader7, label %.loopexit9, !llvm.loop !12
+  br i1 %80, label %.preheader7, label %.loopexit9, !llvm.loop !23
 
 .preheader7:                                      ; preds = %63, %78
   %81 = phi i64 [ %79, %78 ], [ %64, %63 ]
   %82 = tail call fastcc ptr @vmemmap_populate_address(i64 noundef %81, i32 noundef %3, ptr noundef null, ptr noundef %76) #9
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.loopexit, label %78, !llvm.loop !19
+  br i1 %83, label %.loopexit, label %78, !llvm.loop !24
 
 .loopexit:                                        ; preds = %59, %.preheader10, %.loopexit9, %.preheader7, %.preheader, %43, %49, %29, %26
   %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ 0, %43 ], [ -12, %.preheader ], [ -12, %.preheader7 ], [ 0, %.loopexit9 ], [ -12, %59 ], [ -12, %.preheader10 ]
@@ -1088,11 +1088,16 @@ attributes #10 = { cold nounwind }
 !9 = !{i64 812718, i64 812762, i64 2148299737, i64 2148299758, i64 2148299784, i64 2148299817, i64 2148299851, i64 2148299875}
 !10 = !{i64 2148984579, i64 2148984618, i64 2148984639, i64 2148984676, i64 2148984699, i64 2148984569}
 !11 = !{i64 2149594745, i64 2149594778, i64 2149594784, i64 2149594800, i64 2149594819, i64 2149594850, i64 2149595803, i64 2149594392, i64 2149595809, i64 2149595857, i64 2149595921, i64 2149595985, i64 2149596042, i64 2149596249, i64 2149596297, i64 2149596361, i64 2149596425, i64 2149596482, i64 2149594510, i64 2149594535, i64 2149596692, i64 2149596820, i64 2149596753, i64 2149596834, i64 2149596848, i64 2149596964, i64 2149596909, i64 2149596978, i64 2149594669, i64 1145570, i64 1145610, i64 1145619, i64 1145669, i64 1145690, i64 1145710}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13, !14, !15}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{i64 2154399691, i64 2154399500, i64 2154399552, i64 2154399598, i64 2154399626}
-!17 = !{i64 2154399765, i64 2154399794, i64 2154399840, i64 2154399898, i64 2154399952, i64 2154400006, i64 2154400061, i64 2154400092, i64 2154400400, i64 2154400406, i64 2154400453, i64 2154400476, i64 2154400502}
-!18 = !{i64 2154400954, i64 2154400765, i64 2154400815, i64 2154400861, i64 2154400889}
-!19 = distinct !{!19, !13, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !13, !14, !15}
+!17 = distinct !{!17, !13, !14, !15}
+!18 = !{i64 2154399691, i64 2154399500, i64 2154399552, i64 2154399598, i64 2154399626}
+!19 = !{i64 2154399765, i64 2154399794, i64 2154399840, i64 2154399898, i64 2154399952, i64 2154400006, i64 2154400061, i64 2154400092, i64 2154400400, i64 2154400406, i64 2154400453, i64 2154400476, i64 2154400502}
+!20 = !{i64 2154400954, i64 2154400765, i64 2154400815, i64 2154400861, i64 2154400889}
+!21 = distinct !{!21, !13, !14, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !13, !14, !15}
+!24 = distinct !{!24, !13, !14}

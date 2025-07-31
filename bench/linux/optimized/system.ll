@@ -93,7 +93,7 @@ define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr readnone captu
   %33 = add i32 %26, 1
   %34 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %33) #6
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %32, %.loopexit6
   ret i32 0
@@ -185,7 +185,8 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}

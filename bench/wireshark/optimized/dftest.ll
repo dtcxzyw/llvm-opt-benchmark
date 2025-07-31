@@ -308,7 +308,7 @@ optarg_to_digit.exit58:                           ; preds = %73
 
 .backedge:                                        ; preds = %84, %83, %82, %optarg_to_digit.exit58, %60, %59, %58, %57, %56, %55, %54, %53, %51, %46, %20
   %.037.be = phi ptr [ %.037, %20 ], [ %.037, %46 ], [ %.037, %51 ], [ %.037, %53 ], [ %.037, %54 ], [ %.037, %55 ], [ %.037, %56 ], [ %.037, %57 ], [ %.037, %58 ], [ %.037, %59 ], [ %.037, %60 ], [ %.037, %optarg_to_digit.exit58 ], [ %.037, %82 ], [ %.037, %83 ], [ %85, %84 ]
-  br label %17
+  br label %17, !llvm.loop !7
 
 86:                                               ; preds = %17
   call void @show_version()
@@ -406,7 +406,7 @@ optarg_to_digit.exit58:                           ; preds = %73
   %121 = load ptr, ptr %5, align 8
   %122 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.52, ptr noundef %121)
   %123 = call zeroext i1 @dfilter_macro_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br i1 %123, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %123, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %116
   %124 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
@@ -457,7 +457,7 @@ print_macros.exit:                                ; preds = %114, %._crit_edge.i
   %144 = load i32, ptr %6, align 4
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next, %145
-  br i1 %146, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %146, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 147:                                              ; preds = %._crit_edge, %131
   %.not54 = icmp eq ptr %.037, null
@@ -509,7 +509,7 @@ fgetline.exit.preheader:                          ; preds = %159
 166:                                              ; preds = %.lr.ph132
   %167 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %.035)
   %.not.i59 = icmp eq ptr %167, null
-  br i1 %.not.i59, label %.fgetline.exit.thread.loopexit_crit_edge, label %fgetline.exit, !llvm.loop !10
+  br i1 %.not.i59, label %.fgetline.exit.thread.loopexit_crit_edge, label %fgetline.exit, !llvm.loop !12
 
 fgetline.exit:                                    ; preds = %166
   %168 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.53) #12
@@ -519,7 +519,7 @@ fgetline.exit:                                    ; preds = %166
   store i8 0, ptr %170, align 1
   %171 = and i64 %168, 2147483648
   %172 = icmp eq i64 %171, 0
-  br i1 %172, label %.critedge, label %fgetline.exit.thread, !llvm.loop !10
+  br i1 %172, label %.critedge, label %fgetline.exit.thread, !llvm.loop !12
 
 .critedge:                                        ; preds = %fgetline.exit
   %173 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
@@ -528,13 +528,13 @@ fgetline.exit:                                    ; preds = %166
 .lr.ph132:                                        ; preds = %fgetline.exit.preheader, %.critedge
   %174 = call fastcc i32 @test_filter(ptr noundef nonnull %7)
   %.not55 = icmp eq i32 %174, 0
-  br i1 %.not55, label %166, label %.fgetline.exit.thread_crit_edge79, !llvm.loop !10
+  br i1 %.not55, label %166, label %.fgetline.exit.thread_crit_edge79, !llvm.loop !12
 
 .fgetline.exit.thread_crit_edge79:                ; preds = %.lr.ph132
-  br label %fgetline.exit.thread, !llvm.loop !10
+  br label %fgetline.exit.thread, !llvm.loop !12
 
 .fgetline.exit.thread.loopexit_crit_edge:         ; preds = %166
-  br label %fgetline.exit.thread, !llvm.loop !10
+  br label %fgetline.exit.thread, !llvm.loop !12
 
 fgetline.exit.thread:                             ; preds = %fgetline.exit, %fgetline.exit.preheader, %.fgetline.exit.thread.loopexit_crit_edge, %.fgetline.exit.thread_crit_edge79, %159
   %.3 = phi i32 [ %174, %.fgetline.exit.thread_crit_edge79 ], [ 1, %159 ], [ 0, %.fgetline.exit.thread.loopexit_crit_edge ], [ 1, %fgetline.exit.preheader ], [ 0, %fgetline.exit ]
@@ -806,14 +806,14 @@ expand_filter.exit.thread:                        ; preds = %1
   %53 = call i32 @fputc(i32 noundef 32, ptr noundef %44)
   %54 = add nuw nsw i64 %.078.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %54, %47
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph11.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph11.i.i
   %.09.i.i = phi i64 [ %56, %.lr.ph11.i.i ], [ %49, %._crit_edge.i.i ]
   %55 = call i32 @fputc(i32 noundef 126, ptr noundef %44)
   %56 = add i64 %.09.i.i, -1
   %57 = icmp ugt i64 %56, 1
-  br i1 %57, label %.lr.ph11.i.i, label %putloc.exit.i, !llvm.loop !12
+  br i1 %57, label %.lr.ph11.i.i, label %putloc.exit.i, !llvm.loop !14
 
 putloc.exit.i:                                    ; preds = %.lr.ph11.i.i, %._crit_edge.i.i
   %58 = call i32 @fputc(i32 noundef 10, ptr noundef %44)
@@ -888,7 +888,7 @@ compile_filter.exit:                              ; preds = %31, %putloc.exit.i
   %87 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not.i = icmp eq ptr %88, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 89:                                               ; preds = %._crit_edge.i
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -908,7 +908,7 @@ compile_filter.exit:                              ; preds = %31, %putloc.exit.i
   %97 = load i32, ptr %90, align 8
   %98 = zext i32 %97 to i64
   %99 = icmp samesign ult i64 %indvars.iv.next.i, %98
-  br i1 %99, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !14
+  br i1 %99, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.lr.ph26.i, %89, %._crit_edge.i
   %.1.i18 = phi i32 [ %.016.lcssa.i, %89 ], [ %.016.lcssa.i, %._crit_edge.i ], [ %96, %.lr.ph26.i ]
@@ -1032,10 +1032,12 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
+!13 = distinct !{!13, !10, !8}
+!14 = distinct !{!14, !10, !8}
+!15 = distinct !{!15, !10, !8}
+!16 = distinct !{!16, !10, !8}

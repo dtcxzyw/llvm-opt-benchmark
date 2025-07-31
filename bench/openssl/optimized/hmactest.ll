@@ -129,7 +129,7 @@ pt.exit:                                          ; preds = %.lr.ph.i, %1
 
 20:                                               ; preds = %pt.exit
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 103, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %.08.i, ptr noundef %22) #5
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
@@ -170,7 +170,7 @@ pt.exit:                                          ; preds = %.lr.ph.i, %0
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %pt.exit
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 472), align 8, !tbaa !15
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 472), align 8, !tbaa !16
   %15 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 211, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %.08.i, ptr noundef %14) #5
   %.not2 = icmp ne i32 %15, 0
   %spec.select = zext i1 %.not2 to i32
@@ -317,14 +317,14 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   br i1 %.not43, label %165, label %48
 
 48:                                               ; preds = %43
-  %49 = load i32, ptr %2, align 4, !tbaa !16
+  %49 = load i32, ptr %2, align 4, !tbaa !17
   %50 = call fastcc ptr @pt(ptr noundef nonnull %1, i32 noundef %49)
   %51 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 152, ptr noundef nonnull @.str.8, ptr noundef %50) #5
   %.not44 = icmp eq i32 %51, 0
   br i1 %.not44, label %165, label %52
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 472), align 8, !tbaa !15
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 472), align 8, !tbaa !16
   %54 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 152, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.20, ptr noundef %50, ptr noundef %53) #5
   %.not45 = icmp eq i32 %54, 0
   br i1 %.not45, label %165, label %55
@@ -374,14 +374,14 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   br i1 %.not50, label %165, label %84
 
 84:                                               ; preds = %79
-  %85 = load i32, ptr %2, align 4, !tbaa !16
+  %85 = load i32, ptr %2, align 4, !tbaa !17
   %86 = call fastcc ptr @pt(ptr noundef nonnull %1, i32 noundef %85)
   %87 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 165, ptr noundef nonnull @.str.8, ptr noundef %86) #5
   %.not51 = icmp eq i32 %87, 0
   br i1 %.not51, label %165, label %88
 
 88:                                               ; preds = %84
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 568), align 8, !tbaa !15
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 568), align 8, !tbaa !16
   %90 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 165, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.34, ptr noundef %86, ptr noundef %89) #5
   %.not52 = icmp eq i32 %90, 0
   br i1 %.not52, label %165, label %91
@@ -414,14 +414,14 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   br i1 %.not55, label %165, label %109
 
 109:                                              ; preds = %104
-  %110 = load i32, ptr %2, align 4, !tbaa !16
+  %110 = load i32, ptr %2, align 4, !tbaa !17
   %111 = call fastcc ptr @pt(ptr noundef nonnull %1, i32 noundef %110)
   %112 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 173, ptr noundef nonnull @.str.8, ptr noundef %111) #5
   %.not56 = icmp eq i32 %112, 0
   br i1 %.not56, label %165, label %113
 
 113:                                              ; preds = %109
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !15
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !16
   %115 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 173, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %111, ptr noundef %114) #5
   %.not57 = icmp eq i32 %115, 0
   br i1 %.not57, label %165, label %116
@@ -453,14 +453,14 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   br i1 %.not60, label %165, label %133
 
 133:                                              ; preds = %128
-  %134 = load i32, ptr %2, align 4, !tbaa !16
+  %134 = load i32, ptr %2, align 4, !tbaa !17
   %135 = call fastcc ptr @pt(ptr noundef nonnull %1, i32 noundef %134)
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 182, ptr noundef nonnull @.str.8, ptr noundef %135) #5
   %.not61 = icmp eq i32 %136, 0
   br i1 %.not61, label %165, label %137
 
 137:                                              ; preds = %133
-  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !15
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !16
   %139 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 182, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %135, ptr noundef %138) #5
   %.not62 = icmp eq i32 %139, 0
   br i1 %.not62, label %165, label %140
@@ -493,14 +493,14 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   br i1 %.not65, label %165, label %158
 
 158:                                              ; preds = %153
-  %159 = load i32, ptr %2, align 4, !tbaa !16
+  %159 = load i32, ptr %2, align 4, !tbaa !17
   %160 = call fastcc ptr @pt(ptr noundef nonnull %1, i32 noundef %159)
   %161 = call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 194, ptr noundef nonnull @.str.8, ptr noundef %160) #5
   %.not66 = icmp eq i32 %161, 0
   br i1 %.not66, label %165, label %162
 
 162:                                              ; preds = %158
-  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !15
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 664), align 8, !tbaa !16
   %164 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 194, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.37, ptr noundef %160, ptr noundef %163) #5
   %.not67 = icmp ne i32 %164, 0
   %spec.select = zext i1 %.not67 to i32
@@ -572,7 +572,7 @@ define internal range(i32 0, 2) i32 @test_hmac_copy() #0 {
   br i1 %.not15, label %46, label %32
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr %2, align 4, !tbaa !16
+  %33 = load i32, ptr %2, align 4, !tbaa !17
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %pt.exit, label %.lr.ph.preheader.i
 
@@ -601,7 +601,7 @@ pt.exit:                                          ; preds = %.lr.ph.i, %32
   br i1 %.not16, label %46, label %43
 
 43:                                               ; preds = %pt.exit
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 760), align 8, !tbaa !15
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @test, i64 760), align 8, !tbaa !16
   %45 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 238, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.43, ptr noundef nonnull @pt.buf, ptr noundef %44) #5
   %.not17 = icmp ne i32 %45, 0
   %spec.select = zext i1 %.not17 to i32
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [12 x %struct.test_chunks_st], ptr @test_chunks, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 16, !tbaa !17
+  %6 = load ptr, ptr %5, align 16, !tbaa !18
   %7 = tail call ptr @EVP_get_digestbyname(ptr noundef %6) #5
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 395, ptr noundef nonnull @.str.50, ptr noundef %7) #5
   %.not = icmp eq i32 %8, 0
@@ -704,7 +704,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %15 = load i32, ptr %14, align 8, !tbaa !20
   %16 = tail call i32 @HMAC_Init_ex(ptr noundef %10, ptr noundef nonnull %13, i32 noundef %15, ptr noundef %7, ptr noundef null) #5
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
@@ -714,7 +714,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %21 = load i32, ptr %20, align 4, !tbaa !20
+  %21 = load i32, ptr %20, align 4, !tbaa !21
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -724,15 +724,15 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
 
 24:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %20, align 4, !tbaa !20
+  %25 = load i32, ptr %20, align 4, !tbaa !21
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %28, label %._crit_edge, !llvm.loop !21
+  br i1 %27, label %28, label %._crit_edge, !llvm.loop !22
 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %29 = getelementptr inbounds nuw [10 x i32], ptr %23, i64 0, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !16
+  %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = icmp slt i32 %30, 32768
   %32 = zext i1 %31 to i32
   %33 = call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 411, ptr noundef nonnull @.str.52, i32 noundef %32) #5
@@ -741,7 +741,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
 
 34:                                               ; preds = %28
   %35 = trunc i64 %indvars.iv to i8
-  %36 = load i32, ptr %29, align 4, !tbaa !16
+  %36 = load i32, ptr %29, align 4, !tbaa !17
   %37 = sext i32 %36 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 %35, i64 %37, i1 false)
   %38 = call i32 @HMAC_Update(ptr noundef %10, ptr noundef nonnull %2, i64 noundef %37) #5
@@ -760,7 +760,7 @@ define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
   br i1 %.not25, label %.loopexit, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = load i32, ptr %3, align 4, !tbaa !16
+  %47 = load i32, ptr %3, align 4, !tbaa !17
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %pt.exit, label %.lr.ph.preheader.i
 
@@ -790,7 +790,7 @@ pt.exit:                                          ; preds = %.lr.ph.i, %46
 
 57:                                               ; preds = %pt.exit
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  %59 = load ptr, ptr %58, align 8, !tbaa !22
+  %59 = load ptr, ptr %58, align 8, !tbaa !23
   %60 = call i32 @test_str_eq(ptr noundef nonnull @.str.7, i32 noundef 422, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.54, ptr noundef nonnull @pt.buf, ptr noundef %59) #5
   %.not27 = icmp ne i32 %60, 0
   %spec.select = zext i1 %.not27 to i32
@@ -926,13 +926,14 @@ attributes #5 = { nounwind }
 !10 = !{!"any pointer", !6, i64 0}
 !11 = !{!5, !8, i64 84}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!5, !9, i64 88}
-!16 = !{!8, !8, i64 0}
-!17 = !{!18, !9, i64 0}
-!18 = !{!"test_chunks_st", !9, i64 0, !6, i64 8, !8, i64 264, !8, i64 268, !6, i64 272, !9, i64 312}
-!19 = !{!18, !8, i64 264}
-!20 = !{!18, !8, i64 268}
-!21 = distinct !{!21, !14}
-!22 = !{!18, !9, i64 312}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!5, !9, i64 88}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !9, i64 0}
+!19 = !{!"test_chunks_st", !9, i64 0, !6, i64 8, !8, i64 264, !8, i64 268, !6, i64 272, !9, i64 312}
+!20 = !{!19, !8, i64 264}
+!21 = !{!19, !8, i64 268}
+!22 = distinct !{!22, !14, !15}
+!23 = !{!19, !9, i64 312}

@@ -891,7 +891,7 @@ default.unreachable:                              ; preds = %37
 81:                                               ; preds = %_set_freq.exit, %_set_freq.exit67, %_set_freq.exit69, %_set_freq.exit71, %39, %59, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %82, label %26, !llvm.loop !11
+  br i1 %exitcond.not, label %82, label %26, !llvm.loop !12
 
 82:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #15
@@ -1185,7 +1185,7 @@ switch.lookup:                                    ; preds = %59
 79:                                               ; preds = %43, %46, %40, %42, %35, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %80, label %32, !llvm.loop !12
+  br i1 %exitcond.not, label %80, label %32, !llvm.loop !13
 
 80:                                               ; preds = %79, %acct_gather_profile_test.exit60
   %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #15
@@ -1228,7 +1228,7 @@ switch.lookup:                                    ; preds = %59
 95:                                               ; preds = %90, %90, %92
   %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #15
   %.not50 = icmp eq i32 %96, 0
-  br i1 %.not50, label %15, label %97, !llvm.loop !13
+  br i1 %.not50, label %15, label %97, !llvm.loop !14
 
 97:                                               ; preds = %95
   %98 = tail call ptr @__errno_location() #16
@@ -1644,9 +1644,10 @@ attributes #17 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

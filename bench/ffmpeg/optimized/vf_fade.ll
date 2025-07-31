@@ -638,7 +638,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %117 = phi i32 [ %36, %.lr.ph104.split ], [ %114, %.lr.ph ]
   %118 = add nsw i32 %.0.i102, 1
   %exitcond.not = icmp eq i32 %118, %13
-  br i1 %exitcond.not, label %filter_rgb_planar.exit, label %.lr.ph104.split, !llvm.loop !79
+  br i1 %exitcond.not, label %filter_rgb_planar.exit, label %.lr.ph104.split, !llvm.loop !80
 
 119:                                              ; preds = %18
   br i1 %20, label %.lr.ph111, label %filter_rgb_planar.exit
@@ -743,7 +743,7 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %192 = phi i32 [ %130, %129 ], [ %189, %.lr.ph107 ]
   %193 = add nsw i32 %.0.i36109, 1
   %exitcond148.not = icmp eq i32 %193, %13
-  br i1 %exitcond148.not, label %filter_rgb_planar.exit, label %129, !llvm.loop !81
+  br i1 %exitcond148.not, label %filter_rgb_planar.exit, label %129, !llvm.loop !82
 
 194:                                              ; preds = %4
   br i1 %.not35, label %287, label %195
@@ -869,13 +869,13 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %282 = add nuw nsw i32 %.046.i112, 1
   %283 = load i32, ptr %207, align 8, !tbaa !74
   %284 = icmp slt i32 %282, %283
-  br i1 %284, label %.lr.ph115, label %._crit_edge116, !llvm.loop !82
+  br i1 %284, label %.lr.ph115, label %._crit_edge116, !llvm.loop !83
 
 ._crit_edge116:                                   ; preds = %.lr.ph115, %.lr.ph119.split
   %285 = phi i32 [ %218, %.lr.ph119.split ], [ %283, %.lr.ph115 ]
   %286 = add nsw i32 %.045.i117, 1
   %exitcond149.not = icmp eq i32 %286, %13
-  br i1 %exitcond149.not, label %filter_rgb_planar.exit, label %.lr.ph119.split, !llvm.loop !83
+  br i1 %exitcond149.not, label %filter_rgb_planar.exit, label %.lr.ph119.split, !llvm.loop !84
 
 287:                                              ; preds = %194
   %288 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -984,13 +984,13 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %359 = add nuw nsw i32 %.046.i41128, 1
   %360 = load i32, ptr %300, align 8, !tbaa !74
   %361 = icmp slt i32 %359, %360
-  br i1 %361, label %.lr.ph131, label %._crit_edge132, !llvm.loop !82
+  br i1 %361, label %.lr.ph131, label %._crit_edge132, !llvm.loop !83
 
 ._crit_edge132:                                   ; preds = %.lr.ph131, %.lr.ph135.split
   %362 = phi i32 [ %309, %.lr.ph135.split ], [ %360, %.lr.ph131 ]
   %363 = add nsw i32 %.045.i40133, 1
   %exitcond151.not = icmp eq i32 %363, %13
-  br i1 %exitcond151.not, label %filter_rgb_planar.exit, label %.lr.ph135.split, !llvm.loop !84
+  br i1 %exitcond151.not, label %filter_rgb_planar.exit, label %.lr.ph135.split, !llvm.loop !85
 
 364:                                              ; preds = %287
   %365 = getelementptr inbounds nuw i8, ptr %6, i64 108
@@ -1091,13 +1091,13 @@ define internal noundef i32 @filter_slice_rgb(ptr noundef readonly captures(none
   %433 = add nuw nsw i32 %.046.i45120, 1
   %434 = load i32, ptr %374, align 8, !tbaa !74
   %435 = icmp slt i32 %433, %434
-  br i1 %435, label %.lr.ph123, label %._crit_edge124, !llvm.loop !82
+  br i1 %435, label %.lr.ph123, label %._crit_edge124, !llvm.loop !83
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.lr.ph127.split
   %436 = phi i32 [ %383, %.lr.ph127.split ], [ %434, %.lr.ph123 ]
   %437 = add nsw i32 %.045.i44125, 1
   %exitcond150.not = icmp eq i32 %437, %13
-  br i1 %exitcond150.not, label %filter_rgb_planar.exit, label %.lr.ph127.split, !llvm.loop !85
+  br i1 %exitcond150.not, label %filter_rgb_planar.exit, label %.lr.ph127.split, !llvm.loop !86
 
 438:                                              ; preds = %287
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 249) #9
@@ -1186,7 +1186,7 @@ define internal noundef i32 @filter_slice_luma(ptr noundef readonly captures(non
   %41 = phi i32 [ %32, %30 ], [ %55, %.lr.ph.us ]
   %42 = add nsw i32 %.03236.us, 1
   %exitcond.not = icmp eq i32 %42, %13
-  br i1 %exitcond.not, label %._crit_edge38.us, label %30, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge38.us, label %30, !llvm.loop !87
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.035.us = phi ptr [ %53, %.lr.ph.us ], [ %39, %.lr.ph.us.preheader ]
@@ -1208,7 +1208,7 @@ define internal noundef i32 @filter_slice_luma(ptr noundef readonly captures(non
   %56 = load i32, ptr %19, align 4, !tbaa !69
   %57 = mul nsw i32 %56, %55
   %58 = icmp slt i32 %54, %57
-  br i1 %58, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !87
+  br i1 %58, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !88
 
 .preheader.us:                                    ; preds = %27
   %59 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
@@ -1219,7 +1219,7 @@ define internal noundef i32 @filter_slice_luma(ptr noundef readonly captures(non
 
 ._crit_edge38.us:                                 ; preds = %._crit_edge.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.us, !llvm.loop !88
+  br label %.split.us, !llvm.loop !89
 
 .split40.us:                                      ; preds = %27, %4
   ret i32 0
@@ -1280,7 +1280,7 @@ define internal noundef i32 @filter_slice_luma16(ptr noundef readonly captures(n
 
 ._crit_edge38.us:                                 ; preds = %._crit_edge.us.us, %.preheader.us
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  br label %29, !llvm.loop !90
+  br label %29, !llvm.loop !91
 
 .lr.ph37.split.us.us:                             ; preds = %.preheader.us
   %38 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv51
@@ -1300,23 +1300,23 @@ define internal noundef i32 @filter_slice_luma16(ptr noundef readonly captures(n
 46:                                               ; preds = %46, %.lr.ph.us.us
   %.035.us.us = phi ptr [ %45, %.lr.ph.us.us ], [ %54, %46 ]
   %.03134.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %55, %46 ]
-  %47 = load i16, ptr %.035.us.us, align 2, !tbaa !91
+  %47 = load i16, ptr %.035.us.us, align 2, !tbaa !92
   %48 = zext i16 %47 to i32
   %49 = sub i32 %48, %40
   %50 = mul i32 %49, %41
   %51 = add i32 %50, %42
   %52 = lshr i32 %51, 16
   %53 = trunc nuw i32 %52 to i16
-  store i16 %53, ptr %.035.us.us, align 2, !tbaa !91
+  store i16 %53, ptr %.035.us.us, align 2, !tbaa !92
   %54 = getelementptr inbounds nuw i8, ptr %.035.us.us, i64 2
   %55 = add nuw nsw i32 %.03134.us.us, 1
   %exitcond.not = icmp eq i32 %55, %26
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %46, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %46, !llvm.loop !94
 
 ._crit_edge.us.us:                                ; preds = %46
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond50.not, label %._crit_edge38.us, label %.lr.ph.us.us, !llvm.loop !94
+  br i1 %exitcond50.not, label %._crit_edge38.us, label %.lr.ph.us.us, !llvm.loop !95
 
 .split43.us:                                      ; preds = %33, %4
   ret i32 0
@@ -1361,7 +1361,7 @@ define internal noundef i32 @filter_slice_chroma(ptr noundef readonly captures(n
 ._crit_edge51.us:                                 ; preds = %._crit_edge.us.us, %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond63.not, label %.split57.us, label %.preheader.us, !llvm.loop !95
+  br i1 %exitcond63.not, label %.split57.us, label %.preheader.us, !llvm.loop !96
 
 .lr.ph.us.us:                                     ; preds = %.preheader.us, %._crit_edge.us.us
   %.04249.us.us = phi i32 [ %47, %._crit_edge.us.us ], [ %22, %.preheader.us ]
@@ -1387,12 +1387,12 @@ define internal noundef i32 @filter_slice_chroma(ptr noundef readonly captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.048.us.us, i64 1
   %46 = add nuw nsw i32 %.04347.us.us, 1
   %exitcond.not = icmp eq i32 %46, %13
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %36, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %36, !llvm.loop !97
 
 ._crit_edge.us.us:                                ; preds = %36
   %47 = add nsw i32 %.04249.us.us, 1
   %exitcond61.not = icmp eq i32 %47, %.
-  br i1 %exitcond61.not, label %._crit_edge51.us, label %.lr.ph.us.us, !llvm.loop !97
+  br i1 %exitcond61.not, label %._crit_edge51.us, label %.lr.ph.us.us, !llvm.loop !98
 
 .split57.us:                                      ; preds = %._crit_edge51.us, %4
   ret i32 0
@@ -1448,7 +1448,7 @@ define internal noundef i32 @filter_slice_chroma16(ptr noundef readonly captures
 ._crit_edge55.us:                                 ; preds = %._crit_edge.us.us, %.preheader.us
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
-  br i1 %exitcond70.not, label %.split61.us, label %.preheader.us, !llvm.loop !98
+  br i1 %exitcond70.not, label %.split61.us, label %.preheader.us, !llvm.loop !99
 
 .lr.ph54.split.us.us:                             ; preds = %.preheader.us
   %37 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv67
@@ -1466,23 +1466,23 @@ define internal noundef i32 @filter_slice_chroma16(ptr noundef readonly captures
 43:                                               ; preds = %43, %.lr.ph.us.us
   %.052.us.us = phi ptr [ %42, %.lr.ph.us.us ], [ %51, %43 ]
   %.04751.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %52, %43 ]
-  %44 = load i16, ptr %.052.us.us, align 2, !tbaa !91
+  %44 = load i16, ptr %.052.us.us, align 2, !tbaa !92
   %45 = zext i16 %44 to i32
   %46 = add nsw i32 %.neg, %45
   %47 = mul nsw i32 %46, %39
   %48 = add nsw i32 %24, %47
   %49 = lshr i32 %48, 16
   %50 = trunc nuw i32 %49 to i16
-  store i16 %50, ptr %.052.us.us, align 2, !tbaa !91
+  store i16 %50, ptr %.052.us.us, align 2, !tbaa !92
   %51 = getelementptr inbounds nuw i8, ptr %.052.us.us, i64 2
   %52 = add nuw nsw i32 %.04751.us.us, 1
   %exitcond.not = icmp eq i32 %52, %13
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %43, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %43, !llvm.loop !100
 
 ._crit_edge.us.us:                                ; preds = %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge55.us, label %.lr.ph.us.us, !llvm.loop !100
+  br i1 %exitcond66.not, label %._crit_edge55.us, label %.lr.ph.us.us, !llvm.loop !101
 
 .split61.us:                                      ; preds = %._crit_edge55.us, %4
   ret i32 0
@@ -1559,13 +1559,13 @@ define internal noundef i32 @filter_slice_alpha(ptr noundef readonly captures(no
   %54 = add nuw nsw i32 %.03133, 1
   %55 = load i32, ptr %22, align 8, !tbaa !74
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %42, label %._crit_edge, !llvm.loop !101
+  br i1 %56, label %42, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph37.split
   %57 = phi i32 [ %28, %.lr.ph37.split ], [ %55, %42 ]
   %58 = add nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %58, %14
-  br i1 %exitcond.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !103
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %4
   ret i32 0
@@ -1628,23 +1628,23 @@ define internal noundef i32 @filter_slice_alpha16(ptr noundef readonly captures(
 43:                                               ; preds = %.lr.ph.us, %43
   %.03034.us = phi ptr [ %42, %.lr.ph.us ], [ %51, %43 ]
   %.03133.us = phi i32 [ 0, %.lr.ph.us ], [ %52, %43 ]
-  %44 = load i16, ptr %.03034.us, align 2, !tbaa !91
+  %44 = load i16, ptr %.03034.us, align 2, !tbaa !92
   %45 = zext i16 %44 to i32
   %46 = sub i32 %45, %32
   %47 = mul i32 %46, %33
   %48 = add i32 %47, %34
   %49 = lshr i32 %48, 16
   %50 = trunc nuw i32 %49 to i16
-  store i16 %50, ptr %.03034.us, align 2, !tbaa !91
+  store i16 %50, ptr %.03034.us, align 2, !tbaa !92
   %51 = getelementptr inbounds nuw i16, ptr %.03034.us, i64 %25
   %52 = add nuw nsw i32 %.03133.us, 1
   %exitcond.not = icmp eq i32 %52, %23
-  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !104
 
 ._crit_edge.us:                                   ; preds = %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !104
+  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !105
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %4
   ret i32 0
@@ -1753,31 +1753,32 @@ attributes #12 = { noreturn nounwind }
 !74 = !{!42, !15, i64 104}
 !75 = !{!15, !15, i64 0}
 !76 = !{!8, !8, i64 0}
-!77 = distinct !{!77, !78}
+!77 = distinct !{!77, !78, !79}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = distinct !{!79, !78, !80}
-!80 = !{!"llvm.loop.unswitch.partial.disable"}
-!81 = distinct !{!81, !78}
-!82 = distinct !{!82, !78}
-!83 = distinct !{!83, !78, !80}
-!84 = distinct !{!84, !78, !80}
-!85 = distinct !{!85, !78, !80}
-!86 = distinct !{!86, !78}
-!87 = distinct !{!87, !78}
-!88 = distinct !{!88, !78, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!90 = distinct !{!90, !78, !89}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"short", !8, i64 0}
-!93 = distinct !{!93, !78}
-!94 = distinct !{!94, !78, !89}
-!95 = distinct !{!95, !78, !89}
-!96 = distinct !{!96, !78}
-!97 = distinct !{!97, !78, !89}
-!98 = distinct !{!98, !78, !89}
-!99 = distinct !{!99, !78}
-!100 = distinct !{!100, !78, !89}
-!101 = distinct !{!101, !78}
-!102 = distinct !{!102, !78, !80}
-!103 = distinct !{!103, !78}
-!104 = distinct !{!104, !78, !89}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = distinct !{!80, !78, !79, !81}
+!81 = !{!"llvm.loop.unswitch.partial.disable"}
+!82 = distinct !{!82, !78, !79}
+!83 = distinct !{!83, !78, !79}
+!84 = distinct !{!84, !78, !79, !81}
+!85 = distinct !{!85, !78, !79, !81}
+!86 = distinct !{!86, !78, !79, !81}
+!87 = distinct !{!87, !78, !79}
+!88 = distinct !{!88, !78, !79}
+!89 = distinct !{!89, !78, !79, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !78, !79, !90}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"short", !8, i64 0}
+!94 = distinct !{!94, !78, !79}
+!95 = distinct !{!95, !78, !79, !90}
+!96 = distinct !{!96, !78, !79, !90}
+!97 = distinct !{!97, !78, !79}
+!98 = distinct !{!98, !78, !79, !90}
+!99 = distinct !{!99, !78, !79, !90}
+!100 = distinct !{!100, !78, !79}
+!101 = distinct !{!101, !78, !79, !90}
+!102 = distinct !{!102, !78, !79}
+!103 = distinct !{!103, !78, !79, !81}
+!104 = distinct !{!104, !78, !79}
+!105 = distinct !{!105, !78, !79, !90}

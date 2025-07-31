@@ -434,7 +434,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %9, !llvm.loop !5
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %9, !llvm.loop !6
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %18 = icmp eq ptr %.19.i.i.i, %5
@@ -525,7 +525,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp7Blender11createMVertEm(i64
   %.add = add nuw nsw i64 %.idx, 56
   %16 = add nuw nsw i64 %.idx, 48
   %17 = icmp eq i64 %16, %4
-  br i1 %17, label %.loopexit, label %.preheader
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %1
   %.ptr5 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -619,7 +619,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender9readMEdgeEPNS0_8ElemBaseEmR
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MEdgeEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MEdgeEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !8
 
 _ZN6Assimp7Blender4readINS0_5MEdgeEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %24 = load ptr, ptr %5, align 8
@@ -702,7 +702,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMEdgeEm(i64 noundef
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit, label %11
+  br i1 %15, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %1
   ret ptr %7
@@ -783,7 +783,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender9readMFaceEPNS0_8ElemBaseEmR
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !10
 
 _ZN6Assimp7Blender4readINS0_5MFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %24 = load ptr, ptr %5, align 8
@@ -870,7 +870,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMFaceEm(i64 noundef
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = icmp eq ptr %18, %14
-  br i1 %19, label %.loopexit, label %15
+  br i1 %19, label %.loopexit, label %15, !llvm.loop !11
 
 .loopexit:                                        ; preds = %15, %1
   ret ptr %11
@@ -959,7 +959,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender10readMTFaceEPNS0_8ElemBaseE
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #22
   %27 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %27, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_6MTFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %22, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_6MTFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %22, !llvm.loop !12
 
 _ZN6Assimp7Blender4readINS0_6MTFaceEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %28 = load ptr, ptr %5, align 8
@@ -1054,7 +1054,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender12createMTFaceEm(i64 nounde
   store i16 0, ptr %21, align 2
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %23 = icmp eq ptr %22, %14
-  br i1 %23, label %.loopexit, label %15
+  br i1 %23, label %.loopexit, label %15, !llvm.loop !13
 
 .loopexit:                                        ; preds = %15, %1
   ret ptr %11
@@ -1135,7 +1135,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender12readMTexPolyEPNS0_8ElemBas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_8MTexPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_8MTexPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !14
 
 _ZN6Assimp7Blender4readINS0_8MTexPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %24 = load ptr, ptr %5, align 8
@@ -1218,7 +1218,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender14createMTexPolyEm(i64 noun
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit, label %11
+  br i1 %15, label %.loopexit, label %11, !llvm.loop !15
 
 .loopexit:                                        ; preds = %11, %1
   ret ptr %7
@@ -1299,7 +1299,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender11readMLoopUVEPNS0_8ElemBase
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_7MLoopUVEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_7MLoopUVEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !16
 
 _ZN6Assimp7Blender4readINS0_7MLoopUVEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %24 = load ptr, ptr %5, align 8
@@ -1382,7 +1382,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender13createMLoopUVEm(i64 nound
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit, label %11
+  br i1 %15, label %.loopexit, label %11, !llvm.loop !17
 
 .loopexit:                                        ; preds = %11, %1
   ret ptr %7
@@ -1464,7 +1464,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender12readMLoopColEPNS0_8ElemBas
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
   %24 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %24, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_8MLoopColEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_8MLoopColEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !18
 
 _ZN6Assimp7Blender4readINS0_8MLoopColEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %25 = load ptr, ptr %5, align 8
@@ -1551,7 +1551,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender14createMLoopColEm(i64 noun
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = icmp eq ptr %18, %14
-  br i1 %19, label %.loopexit, label %15
+  br i1 %19, label %.loopexit, label %15, !llvm.loop !19
 
 .loopexit:                                        ; preds = %15, %1
   ret ptr %11
@@ -1632,7 +1632,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender9readMPolyEPNS0_8ElemBaseEmR
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !20
 
 _ZN6Assimp7Blender4readINS0_5MPolyEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %24 = load ptr, ptr %5, align 8
@@ -1715,7 +1715,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMPolyEm(i64 noundef
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit, label %11
+  br i1 %15, label %.loopexit, label %11, !llvm.loop !21
 
 .loopexit:                                        ; preds = %11, %1
   ret ptr %7
@@ -1797,7 +1797,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender9readMLoopEPNS0_8ElemBaseEmR
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
   %24 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %24, %1
-  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MLoopEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN6Assimp7Blender4readINS0_5MLoopEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit, label %18, !llvm.loop !22
 
 _ZN6Assimp7Blender4readINS0_5MLoopEEEbRKNS0_9StructureEPT_mRKNS0_12FileDatabaseE.exit: ; preds = %.noexc13, %15
   %25 = load ptr, ptr %5, align 8
@@ -1884,7 +1884,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMLoopEm(i64 noundef
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = icmp eq ptr %18, %14
-  br i1 %19, label %.loopexit, label %15
+  br i1 %19, label %.loopexit, label %15, !llvm.loop !23
 
 .loopexit:                                        ; preds = %15, %1
   ret ptr %11
@@ -2085,7 +2085,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EEC2IS
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   %.0.i.i.i.i = phi i32 [ %27, %38 ], [ %41, %40 ]
   %42 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %42, label %43, label %_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !14
+  br i1 %42, label %43, label %_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !24
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
@@ -2153,7 +2153,7 @@ define hidden void @_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS
   %32 = phi ptr [ %.pre, %._crit_edge16 ], [ %9, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.014, i64 16
   %.not = icmp eq ptr %33, %32
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %31, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -2166,59 +2166,59 @@ _ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEEC2ERKS3_.exit.thread: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6Assimp7Blender22getCustomDataLayerDataERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !noalias !16
+  %5 = load ptr, ptr %4, align 8, !noalias !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !noalias !16
+  %7 = load ptr, ptr %6, align 8, !noalias !26
   %.not13.i = icmp eq ptr %5, %7
   br i1 %.not13.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %29
   %8 = phi ptr [ %30, %29 ], [ %7, %3 ]
   %.sroa.04.014.i = phi ptr [ %31, %29 ], [ %5, %3 ]
-  %9 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !16
+  %9 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i32, ptr %10, align 8, !noalias !16
+  %11 = load i32, ptr %10, align 8, !noalias !26
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %14) #22, !noalias !16
+  %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %14) #22, !noalias !26
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %._crit_edge16.i
 
 ._crit_edge16.i:                                  ; preds = %13
-  %.pre.i = load ptr, ptr %6, align 8, !noalias !16
+  %.pre.i = load ptr, ptr %6, align 8, !noalias !26
   br label %29
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !16
+  %18 = load ptr, ptr %.sroa.04.014.i, align 8, !noalias !26
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.014.i, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !16
+  %20 = load ptr, ptr %19, align 8, !noalias !26
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
+  %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !26
   %.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %22, align 4, !noalias !16
+  %25 = load i32, ptr %22, align 4, !noalias !26
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %22, align 4, !noalias !16
+  store i32 %26, ptr %22, align 4, !noalias !26
   br label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 27:                                               ; preds = %21
-  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4, !noalias !16
+  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4, !noalias !26
   br label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 29:                                               ; preds = %._crit_edge16.i, %.lr.ph.i
   %30 = phi ptr [ %.pre.i, %._crit_edge16.i ], [ %8, %.lr.ph.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.014.i, i64 16
   %.not.i = icmp eq ptr %31, %30
-  br i1 %.not.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %17, %24, %27
   %.not = icmp eq ptr %18, null
@@ -2272,7 +2272,7 @@ _ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeER
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %53, %51
   %.0.i.i.i.i = phi i32 [ %40, %51 ], [ %54, %53 ]
   %55 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %55, label %56, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !14
+  br i1 %55, label %56, label %_ZNSt12__shared_ptrIN6Assimp7Blender15CustomDataLayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !24
 
 56:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
@@ -2480,19 +2480,19 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !alias.scope !28
+  store ptr %4, ptr %3, align 8, !alias.scope !38
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !28
-  store i8 0, ptr %4, align 8, !alias.scope !28
+  store i64 0, ptr %5, align 8, !alias.scope !38
+  store i8 0, ptr %4, align 8, !alias.scope !38
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !noalias !28
+  %7 = load ptr, ptr %6, align 8, !noalias !38
   %.not.i.not.i.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !28
+  %9 = load ptr, ptr %8, align 8, !noalias !38
   %10 = icmp ugt ptr %7, %9
   %.08.i.i.i.i = select i1 %10, ptr %7, ptr %9
   %.not5.i.i.i = icmp eq ptr %.08.i.i.i.i, null
@@ -2501,7 +2501,7 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !noalias !28
+  %13 = load ptr, ptr %12, align 8, !noalias !38
   %14 = ptrtoint ptr %.08.i.i.i.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -2511,18 +2511,18 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 18:                                               ; preds = %26, %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %3, align 8, !alias.scope !28
+  %20 = load ptr, ptr %3, align 8, !alias.scope !38
   %21 = icmp eq ptr %20, %4
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
-  %22 = load i64, ptr %5, align 8, !alias.scope !28
+  %22 = load i64, ptr %5, align 8, !alias.scope !38
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
-  %24 = load i64, ptr %4, align 8, !alias.scope !28
+  %24 = load i64, ptr %4, align 8, !alias.scope !38
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #23
   br label %.body
@@ -3160,29 +3160,39 @@ attributes #26 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !4}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!18 = distinct !{!18, !"_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!24 = distinct !{!24, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!27 = distinct !{!27, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!28 = !{!26, !23, !20}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !5}
+!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!25 = distinct !{!25, !4, !5}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!28 = distinct !{!28, !"_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
+!31 = distinct !{!31, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!34 = distinct !{!34, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!37 = distinct !{!37, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!38 = !{!36, !33, !30}

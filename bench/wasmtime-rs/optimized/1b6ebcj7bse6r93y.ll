@@ -95,7 +95,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %35, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph
+  br i1 %36, label %.thread, label %.lr.ph, !llvm.loop !4
 
 37:                                               ; preds = %39, %15
   %38 = landingpad { ptr, i32 }
@@ -200,7 +200,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %35, ptr noundef nonnull align 16 dereferenceable(128) %4, i64 128, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph
+  br i1 %36, label %.thread, label %.lr.ph, !llvm.loop !6
 
 37:                                               ; preds = %39, %15
   %38 = landingpad { ptr, i32 }
@@ -305,7 +305,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %35, ptr noundef nonnull align 16 dereferenceable(128) %4, i64 128, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph
+  br i1 %36, label %.thread, label %.lr.ph, !llvm.loop !7
 
 37:                                               ; preds = %39, %15
   %38 = landingpad { ptr, i32 }
@@ -339,50 +339,50 @@ define void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h7f746af6fbf8a3f6E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %4 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h36880d27106f6191E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h4942d21901dda892E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %4 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h36880d27106f6191E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h5f00ab273ca69de1E"(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !8, !align !9, !noundef !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !noundef !8
   tail call void @_ZN14cranelift_isle3ast7Pattern19make_macro_template17h58c5a8ba228d6187E(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr align 16 %2, ptr nonnull align 8 %4, i64 %6)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h62d9706c9a0a29f8E"(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !8, !align !9, !noundef !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !noundef !8
   tail call void @_ZN14cranelift_isle3ast7Pattern19make_macro_template17h58c5a8ba228d6187E(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr align 16 %2, ptr nonnull align 8 %4, i64 %6)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN14cranelift_isle3ast7Pattern16subst_macro_args28_$u7b$$u7b$closure$u7d$$u7d$17h875fe9ea716452dfE"(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !6, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !8, !align !10, !noundef !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !noundef !8
   tail call void @_ZN14cranelift_isle3ast7Pattern16subst_macro_args17h934a5f3af0affd21E(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr align 16 %2, ptr nonnull align 16 %4, i64 %6)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN14cranelift_isle3ast7Pattern16subst_macro_args28_$u7b$$u7b$closure$u7d$$u7d$17hf220ec9974f9cd75E"(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !6, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !8, !align !10, !noundef !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
+  %6 = load i64, ptr %5, align 8, !noundef !8
   tail call void @_ZN14cranelift_isle3ast7Pattern16subst_macro_args17h934a5f3af0affd21E(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr align 16 %2, ptr nonnull align 16 %4, i64 %6)
   ret void
 }
@@ -482,6 +482,10 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!4 = !{}
-!5 = !{i64 8}
-!6 = !{i64 16}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{}
+!9 = !{i64 8}
+!10 = !{i64 16}

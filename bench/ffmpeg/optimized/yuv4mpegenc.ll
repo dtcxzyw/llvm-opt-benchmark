@@ -358,7 +358,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %68 = getelementptr inbounds i8, ptr %.04754, i64 %67
   %69 = add nuw nsw i32 %.055, 1
   %exitcond.not = icmp eq i32 %69, %.049
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %65, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %65, !llvm.loop !61
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %20
   ret i32 0
@@ -422,7 +422,7 @@ define internal range(i32 -1094995529, 1) i32 @yuv4_init(ptr noundef %0) #0 {
 
 14:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %16 = load i32, ptr %15, align 8, !tbaa !61
+  %16 = load i32, ptr %15, align 8, !tbaa !62
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %18, label %20
 
@@ -527,7 +527,8 @@ attributes #3 = { nounwind }
 !55 = !{!52, !8, i64 10}
 !56 = !{!57, !13, i64 4}
 !57 = !{!"AVComponentDescriptor", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = distinct !{!60, !59}
-!61 = !{!5, !13, i64 272}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !59, !60}
+!62 = !{!5, !13, i64 272}

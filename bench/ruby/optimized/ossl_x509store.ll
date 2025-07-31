@@ -855,9 +855,9 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %4, ptr %8, align 8, !tbaa !23
+  store ptr %4, ptr %8, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %5, ptr %9, align 8, !tbaa !23
+  store ptr %5, ptr %9, align 8, !tbaa !24
   %10 = icmp slt i32 %0, 1
   br i1 %10, label %29, label %.preheader
 
@@ -871,7 +871,7 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %15, null
   br i1 %16, label %17, label %24
@@ -899,7 +899,7 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
 
 26:                                               ; preds = %25, %24, %22
   %.286.i = phi i32 [ %23, %22 ], [ %.185.i24, %25 ], [ %.185.i24, %24 ]
-  br i1 %13, label %12, label %27, !llvm.loop !25
+  br i1 %13, label %12, label %27, !llvm.loop !26
 
 27:                                               ; preds = %26
   %28 = icmp eq i32 %.286.i, %0
@@ -1525,8 +1525,9 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!"p1 _ZTS19rb_data_type_struct", !19, i64 0}
 !19 = !{!"any pointer", !8, i64 0}
 !20 = !{!12, !12, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 long", !19, i64 0}
-!25 = distinct !{!25, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 long", !19, i64 0}
+!26 = distinct !{!26, !22, !23}

@@ -22,7 +22,7 @@ define hidden ptr @SSL_get_curve_name(i16 noundef zeroext %0) local_unnamed_addr
   %.06.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !8
+  %7 = load i16, ptr %6, align 4, !tbaa !9
   %8 = icmp eq i16 %7, %0
   br i1 %8, label %method_from_curve_id.exit, label %2
 
@@ -47,19 +47,19 @@ define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly cap
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %4, 4
-  br i1 %exitcond.not.i, label %method_from_nid.exit.thread, label %5, !llvm.loop !15
+  br i1 %exitcond.not.i, label %method_from_nid.exit.thread, label %5, !llvm.loop !16
 
 5:                                                ; preds = %3, %2
   %.06.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %method_from_nid.exit, label %3
 
 method_from_nid.exit:                             ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %10 = load i16, ptr %9, align 4, !tbaa !8
-  store i16 %10, ptr %0, align 2, !tbaa !17
+  %10 = load i16, ptr %9, align 4, !tbaa !9
+  store i16 %10, ptr %0, align 2, !tbaa !18
   br label %method_from_nid.exit.thread
 
 method_from_nid.exit.thread:                      ; preds = %3, %method_from_nid.exit
@@ -69,13 +69,13 @@ method_from_nid.exit.thread:                      ; preds = %3, %method_from_nid
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_ECDH_CTX_init(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SSL_ECDH_CTX_cleanup.exit.preheader, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   tail call void %7(ptr noundef nonnull %0) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %SSL_ECDH_CTX_cleanup.exit.preheader
@@ -92,7 +92,7 @@ SSL_ECDH_CTX_cleanup.exit:                        ; preds = %SSL_ECDH_CTX_cleanu
   %.06.i = phi i64 [ %9, %8 ], [ 0, %SSL_ECDH_CTX_cleanup.exit.preheader ]
   %10 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = load i16, ptr %11, align 4, !tbaa !8
+  %12 = load i16, ptr %11, align 4, !tbaa !9
   %13 = icmp eq i16 %12, %1
   br i1 %13, label %method_from_curve_id.exit, label %8
 
@@ -101,7 +101,7 @@ SSL_ECDH_CTX_cleanup.exit:                        ; preds = %SSL_ECDH_CTX_cleanu
   br label %15
 
 method_from_curve_id.exit:                        ; preds = %SSL_ECDH_CTX_cleanup.exit
-  store ptr %10, ptr %0, align 8, !tbaa !18
+  store ptr %10, ptr %0, align 8, !tbaa !19
   br label %15
 
 15:                                               ; preds = %method_from_curve_id.exit, %14
@@ -111,13 +111,13 @@ method_from_curve_id.exit:                        ; preds = %SSL_ECDH_CTX_cleanu
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SSL_ECDH_CTX_cleanup(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
   tail call void %6(ptr noundef nonnull %0) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %7
@@ -130,37 +130,37 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SSL_ECDH_CTX_init_for_dhe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SSL_ECDH_CTX_cleanup.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   tail call void %7(ptr noundef nonnull %0) #8
   br label %SSL_ECDH_CTX_cleanup.exit
 
 SSL_ECDH_CTX_cleanup.exit:                        ; preds = %2, %5
-  store ptr @kDHEMethod, ptr %0, align 8, !tbaa !18
+  store ptr @kDHEMethod, ptr %0, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !22
+  store ptr %1, ptr %8, align 8, !tbaa !23
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #3 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !18
+  %7 = load ptr, ptr %0, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
   %10 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #8
   ret i32 %10
 }
@@ -168,7 +168,7 @@ define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %0, ptr noundef %1, p
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_ec_point_cleanup(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @BN_clear_free(ptr noundef %3) #8
   ret void
 }
@@ -181,15 +181,15 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef c
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %6, align 8, !tbaa !22
+  store ptr %3, ptr %6, align 8, !tbaa !23
   %7 = tail call ptr @BN_CTX_new() #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9
 
 9:                                                ; preds = %5
   tail call void @BN_CTX_start(ptr noundef nonnull %7) #8
-  %10 = load ptr, ptr %0, align 8, !tbaa !18
-  %11 = load i32, ptr %10, align 8, !tbaa !16
+  %10 = load ptr, ptr %0, align 8, !tbaa !19
+  %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %11) #8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef c
 18:                                               ; preds = %16
   %19 = tail call i32 @BN_is_zero(ptr noundef nonnull %3) #8
   %.not33 = icmp eq i32 %19, 0
-  br i1 %.not33, label %20, label %16, !llvm.loop !25
+  br i1 %.not33, label %20, label %16, !llvm.loop !26
 
 20:                                               ; preds = %18
   %21 = tail call ptr @EC_POINT_new(ptr noundef nonnull %12) #8
@@ -241,16 +241,16 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef c
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !22
-  store i8 80, ptr %3, align 1, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  store i8 80, ptr %3, align 1, !tbaa !27
   %9 = tail call ptr @BN_CTX_new() #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %42, label %11
 
 11:                                               ; preds = %6
   tail call void @BN_CTX_start(ptr noundef nonnull %9) #8
-  %12 = load ptr, ptr %0, align 8, !tbaa !18
-  %13 = load i32, ptr %12, align 8, !tbaa !16
+  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %13 = load i32, ptr %12, align 8, !tbaa !17
   %14 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %13) #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %41, label %16
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef rea
   br i1 %.not, label %26, label %27
 
 26:                                               ; preds = %24
-  store i8 50, ptr %3, align 1, !tbaa !26
+  store i8 50, ptr %3, align 1, !tbaa !27
   br label %41
 
 27:                                               ; preds = %24
@@ -302,8 +302,8 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef rea
   br i1 %.not57, label %41, label %40
 
 40:                                               ; preds = %38
-  store ptr %36, ptr %1, align 8, !tbaa !27
-  store i64 %35, ptr %2, align 8, !tbaa !29
+  store ptr %36, ptr %1, align 8, !tbaa !28
+  store i64 %35, ptr %2, align 8, !tbaa !30
   br label %41
 
 41:                                               ; preds = %31, %38, %27, %29, %21, %16, %11, %40, %26
@@ -327,13 +327,13 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_x25519_cleanup(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 32) #8
-  %6 = load ptr, ptr %2, align 8, !tbaa !22
+  %6 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @free(ptr noundef %6) #8
   br label %7
 
@@ -346,7 +346,7 @@ define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(
   %3 = alloca [32 x i8], align 16
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !22
+  store ptr %4, ptr %5, align 8, !tbaa !23
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %8
 
@@ -368,7 +368,7 @@ define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
-  store i8 80, ptr %3, align 1, !tbaa !26
+  store i8 80, ptr %3, align 1, !tbaa !27
   %7 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -379,20 +379,20 @@ define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef reado
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = tail call i32 @X25519(ptr noundef nonnull %7, ptr noundef %12, ptr noundef %4) #8
   %.not12 = icmp eq i32 %13, 0
   br i1 %.not12, label %14, label %15
 
 14:                                               ; preds = %10, %9
   tail call void @free(ptr noundef nonnull %7) #8
-  store i8 50, ptr %3, align 1, !tbaa !26
+  store i8 50, ptr %3, align 1, !tbaa !27
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 193) #8
   br label %16
 
 15:                                               ; preds = %10
-  store ptr %7, ptr %1, align 8, !tbaa !27
-  store i64 32, ptr %2, align 8, !tbaa !29
+  store ptr %7, ptr %1, align 8, !tbaa !28
+  store i64 32, ptr %2, align 8, !tbaa !30
   br label %16
 
 16:                                               ; preds = %6, %15, %14
@@ -457,7 +457,7 @@ declare i32 @X25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @DH_free(ptr noundef %3) #8
   ret void
 }
@@ -465,17 +465,17 @@ define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %0) #3
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = tail call i32 @DH_generate_key(ptr noundef %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %4, align 8, !tbaa !31
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
   %8 = tail call i32 @BN_num_bytes(ptr noundef %7) #8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i32 @BN_bn2cbb_padded(ptr noundef %1, i64 noundef %9, ptr noundef %11) #8
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
@@ -489,8 +489,8 @@ define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !22
-  store i8 80, ptr %3, align 1, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  store i8 80, ptr %3, align 1, !tbaa !27
   %9 = tail call ptr @BN_bin2bn(ptr noundef %4, i64 noundef %5, ptr noundef null) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %21, label %11
@@ -508,9 +508,9 @@ define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %16
-  store ptr %14, ptr %1, align 8, !tbaa !27
+  store ptr %14, ptr %1, align 8, !tbaa !28
   %20 = zext nneg i32 %17 to i64
-  store i64 %20, ptr %2, align 8, !tbaa !29
+  store i64 %20, ptr %2, align 8, !tbaa !30
   br label %22
 
 21:                                               ; preds = %6, %11, %16
@@ -562,35 +562,36 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 1}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !13, i64 4}
-!9 = !{!"ssl_ecdh_method_st", !10, i64 0, !13, i64 4, !11, i64 6, !14, i64 16, !14, i64 24, !14, i64 32}
-!10 = !{!"int", !11, i64 0}
-!11 = !{!"omnipotent char", !12, i64 0}
-!12 = !{!"Simple C/C++ TBAA"}
-!13 = !{!"short", !11, i64 0}
-!14 = !{!"any pointer", !11, i64 0}
-!15 = distinct !{!15, !7}
-!16 = !{!9, !10, i64 0}
-!17 = !{!13, !13, i64 0}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"ssl_ecdh_ctx_st", !20, i64 0, !14, i64 8}
-!20 = !{!"p1 _ZTS18ssl_ecdh_method_st", !14, i64 0}
-!21 = !{!9, !14, i64 16}
-!22 = !{!19, !14, i64 8}
-!23 = !{!9, !14, i64 24}
-!24 = !{!9, !14, i64 32}
-!25 = distinct !{!25, !7}
-!26 = !{!11, !11, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 omnipotent char", !14, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"long", !11, i64 0}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"dh_st", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24, !10, i64 32, !11, i64 40, !34, i64 96, !33, i64 104, !33, i64 112, !28, i64 120, !10, i64 128, !33, i64 136, !10, i64 144, !10, i64 148, !35, i64 152}
-!33 = !{!"p1 _ZTS9bignum_st", !14, i64 0}
-!34 = !{!"p1 _ZTS14bn_mont_ctx_st", !14, i64 0}
-!35 = !{!"crypto_ex_data_st", !36, i64 0}
-!36 = !{!"p1 _ZTS13stack_st_void", !14, i64 0}
-!37 = !{!32, !33, i64 16}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !14, i64 4}
+!10 = !{!"ssl_ecdh_method_st", !11, i64 0, !14, i64 4, !12, i64 6, !15, i64 16, !15, i64 24, !15, i64 32}
+!11 = !{!"int", !12, i64 0}
+!12 = !{!"omnipotent char", !13, i64 0}
+!13 = !{!"Simple C/C++ TBAA"}
+!14 = !{!"short", !12, i64 0}
+!15 = !{!"any pointer", !12, i64 0}
+!16 = distinct !{!16, !7, !8}
+!17 = !{!10, !11, i64 0}
+!18 = !{!14, !14, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"ssl_ecdh_ctx_st", !21, i64 0, !15, i64 8}
+!21 = !{!"p1 _ZTS18ssl_ecdh_method_st", !15, i64 0}
+!22 = !{!10, !15, i64 16}
+!23 = !{!20, !15, i64 8}
+!24 = !{!10, !15, i64 24}
+!25 = !{!10, !15, i64 32}
+!26 = distinct !{!26, !7, !8}
+!27 = !{!12, !12, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !15, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"long", !12, i64 0}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"dh_st", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !11, i64 32, !12, i64 40, !35, i64 96, !34, i64 104, !34, i64 112, !29, i64 120, !11, i64 128, !34, i64 136, !11, i64 144, !11, i64 148, !36, i64 152}
+!34 = !{!"p1 _ZTS9bignum_st", !15, i64 0}
+!35 = !{!"p1 _ZTS14bn_mont_ctx_st", !15, i64 0}
+!36 = !{!"crypto_ex_data_st", !37, i64 0}
+!37 = !{!"p1 _ZTS13stack_st_void", !15, i64 0}
+!38 = !{!33, !34, i64 16}

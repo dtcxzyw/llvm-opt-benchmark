@@ -154,7 +154,7 @@ define void @ff_gmc_c(ptr noundef writeonly captures(none) %0, ptr noundef reado
   %118 = add nsw i32 %.0109130, %9
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge, label %.preheader, !llvm.loop !9
+  br i1 %exitcond136.not, label %._crit_edge, label %.preheader, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %116, %14
   ret void
@@ -162,9 +162,9 @@ define void @ff_gmc_c(ptr noundef writeonly captures(none) %0, ptr noundef reado
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_mpeg4videodsp_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #1 {
-  store ptr @gmc1_c, ptr %0, align 8, !tbaa !10
+  store ptr @gmc1_c, ptr %0, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @ff_gmc_c, ptr %2, align 8, !tbaa !13
+  store ptr @ff_gmc_c, ptr %2, align 8, !tbaa !14
   ret void
 }
 
@@ -366,7 +366,7 @@ define internal void @gmc1_c(ptr noundef writeonly captures(none) %0, ptr nounde
   %185 = getelementptr inbounds i8, ptr %.0110113, i64 %15
   %186 = add nuw nsw i32 %.0114, 1
   %exitcond.not = icmp eq i32 %186, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %16, %7
   ret void
@@ -388,11 +388,12 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"Mpeg4VideoDSPContext", !12, i64 0, !12, i64 8}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!11, !12, i64 8}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"Mpeg4VideoDSPContext", !13, i64 0, !13, i64 8}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!12, !13, i64 8}
+!15 = distinct !{!15, !8, !9}

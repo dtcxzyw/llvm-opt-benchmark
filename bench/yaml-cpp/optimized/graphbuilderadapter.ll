@@ -1117,7 +1117,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !87
+  %36 = load i64, ptr %35, align 8, !tbaa !88
   %37 = load ptr, ptr %0, align 8, !tbaa !83
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -1169,7 +1169,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !87
+  %15 = load i64, ptr %14, align 8, !tbaa !88
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -1213,7 +1213,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, !prof !88
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, !prof !89
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -1249,7 +1249,7 @@ _ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26: 
   %56 = load ptr, ptr %0, align 8, !tbaa !83
   tail call void @_ZdlPv(ptr noundef %56) #13
   store ptr %46, ptr %0, align 8, !tbaa !83
-  store i64 %41, ptr %14, align 8, !tbaa !87
+  store i64 %41, ptr %14, align 8, !tbaa !88
   br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26
@@ -1299,7 +1299,7 @@ define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr nound
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 3
@@ -1378,7 +1378,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vec
   %41 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %41, ptr %4, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
-  store ptr %42, ptr %11, align 8, !tbaa !89
+  store ptr %42, ptr %11, align 8, !tbaa !90
   br label %43
 
 43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36, %2
@@ -1501,8 +1501,9 @@ attributes #15 = { builtin allocsize(0) }
 !82 = distinct !{!82, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
 !83 = !{!27, !9, i64 0}
 !84 = !{!27, !9, i64 40}
-!85 = distinct !{!85, !86}
+!85 = distinct !{!85, !86, !87}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!27, !28, i64 8}
-!88 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!89 = !{!33, !10, i64 16}
+!87 = !{!"llvm.loop.estimated_trip_count"}
+!88 = !{!27, !28, i64 8}
+!89 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!90 = !{!33, !10, i64 16}

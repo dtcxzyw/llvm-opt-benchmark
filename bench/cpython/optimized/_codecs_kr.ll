@@ -114,7 +114,7 @@ _getcodec.exit.lr.ph:                             ; preds = %11
 _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %_getcodec.exit.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr %struct._multibyte_codec, ptr %16, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %9) #8
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %21, label %17
@@ -130,56 +130,56 @@ _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.p
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %24
-  store ptr %18, ptr %25, align 8, !tbaa !32
-  %28 = load i32, ptr %0, align 8, !tbaa !34
+  store ptr %18, ptr %25, align 8, !tbaa !33
+  %28 = load i32, ptr %0, align 8, !tbaa !35
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %27
   %31 = add nuw i32 %28, 1
-  store i32 %31, ptr %0, align 8, !tbaa !34
+  store i32 %31, ptr %0, align 8, !tbaa !35
   br label %38
 
 32:                                               ; preds = %24
   %33 = tail call ptr @PyErr_NoMemory() #7
-  %34 = load i32, ptr %22, align 8, !tbaa !34
+  %34 = load i32, ptr %22, align 8, !tbaa !35
   %.not.i.i = icmp sgt i32 %34, -1
   br i1 %.not.i.i, label %35, label %.thread
 
 35:                                               ; preds = %32
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %22, align 8, !tbaa !34
+  store i32 %36, ptr %22, align 8, !tbaa !35
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 38:                                               ; preds = %30, %27
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %0, ptr %39, align 8, !tbaa !35
+  store ptr %0, ptr %39, align 8, !tbaa !36
   %40 = tail call ptr @PyCapsule_New(ptr noundef nonnull %25, ptr noundef nonnull @.str.6, ptr noundef nonnull @destroy_codec_capsule) #7
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
   tail call void @PyMem_Free(ptr noundef nonnull %25) #7
-  %43 = load i32, ptr %22, align 8, !tbaa !34
+  %43 = load i32, ptr %22, align 8, !tbaa !35
   %.not.i18.i = icmp sgt i32 %43, -1
   br i1 %.not.i18.i, label %44, label %.thread
 
 44:                                               ; preds = %42
   %45 = add nsw i32 %43, -1
-  store i32 %45, ptr %22, align 8, !tbaa !34
+  store i32 %45, ptr %22, align 8, !tbaa !35
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 47:                                               ; preds = %38
   %48 = tail call ptr @PyObject_CallOneArg(ptr noundef nonnull %22, ptr noundef nonnull %40) #7
-  %49 = load i32, ptr %40, align 8, !tbaa !34
+  %49 = load i32, ptr %40, align 8, !tbaa !35
   %.not.i20.i = icmp sgt i32 %49, -1
   br i1 %.not.i20.i, label %50, label %Py_DECREF.exit21.i
 
 50:                                               ; preds = %47
   %51 = add nsw i32 %49, -1
-  store i32 %51, ptr %40, align 8, !tbaa !34
+  store i32 %51, ptr %40, align 8, !tbaa !35
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %Py_DECREF.exit21.i
 
@@ -188,13 +188,13 @@ _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.p
   br label %Py_DECREF.exit21.i
 
 Py_DECREF.exit21.i:                               ; preds = %53, %50, %47
-  %54 = load i32, ptr %22, align 8, !tbaa !34
+  %54 = load i32, ptr %22, align 8, !tbaa !35
   %.not.i22.i = icmp sgt i32 %54, -1
   br i1 %.not.i22.i, label %55, label %.thread
 
 55:                                               ; preds = %Py_DECREF.exit21.i
   %56 = add nsw i32 %54, -1
-  store i32 %56, ptr %22, align 8, !tbaa !34
+  store i32 %56, ptr %22, align 8, !tbaa !35
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %Py_DECREF.exit.sink.split.i, label %.thread
 
@@ -234,14 +234,14 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %0) #0 {
   %2 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef nonnull @.str.6) #7
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %5 = load i32, ptr %4, align 8, !tbaa !35
   %.not.i = icmp sgt i32 %5, -1
   br i1 %.not.i, label %6, label %Py_DECREF.exit
 
 6:                                                ; preds = %1
   %7 = add nsw i32 %5, -1
-  store i32 %7, ptr %4, align 8, !tbaa !34
+  store i32 %7, ptr %4, align 8, !tbaa !35
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %Py_DECREF.exit
 
@@ -272,7 +272,7 @@ declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = tail call ptr @PyModule_GetState(ptr noundef %0) #7
-  store i32 3, ptr %3, align 8, !tbaa !36
+  store i32 3, ptr %3, align 8, !tbaa !37
   %4 = tail call ptr @PyMem_Calloc(i64 noundef 3, i64 noundef 24) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !3
@@ -280,23 +280,23 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
   br i1 %6, label %register_maps.exit, label %7
 
 7:                                                ; preds = %1
-  store ptr @.str.11, ptr %4, align 8, !tbaa !37
+  store ptr @.str.11, ptr %4, align 8, !tbaa !38
   %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !tbaa !38
+  store ptr null, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !tbaa !39
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @ksx1001_decmap, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @ksx1001_decmap, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !tbaa !41
   %8 = getelementptr i8, ptr %4, i64 24
-  store ptr @.str.12, ptr %8, align 8, !tbaa !37
+  store ptr @.str.12, ptr %8, align 8, !tbaa !38
   %.sroa.22.0..sroa_idx.i.i = getelementptr i8, ptr %4, i64 32
-  store ptr @cp949_encmap, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !38
+  store ptr @cp949_encmap, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !39
   %.sroa.33.0..sroa_idx.i.i = getelementptr i8, ptr %4, i64 40
-  store ptr null, ptr %.sroa.33.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr null, ptr %.sroa.33.0..sroa_idx.i.i, align 8, !tbaa !41
   %9 = getelementptr i8, ptr %4, i64 48
-  store ptr @.str.13, ptr %9, align 8, !tbaa !37
+  store ptr @.str.13, ptr %9, align 8, !tbaa !38
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %4, i64 56
-  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !38
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !39
   %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %4, i64 64
-  store ptr @cp949ext_decmap, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @cp949ext_decmap, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 3, ptr %10, align 4, !tbaa !26
   %11 = tail call ptr @PyMem_Calloc(i64 noundef 3, i64 noundef 80) #7
@@ -306,41 +306,41 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
   br i1 %13, label %register_maps.exit, label %14
 
 14:                                               ; preds = %7
-  store ptr @.str.17, ptr %11, align 8, !tbaa !37
+  store ptr @.str.17, ptr %11, align 8, !tbaa !38
   %.sroa.214.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr @euc_kr_encode, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @euc_kr_encode, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.517.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.719.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.517.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr @euc_kr_decode, ptr %.sroa.719.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @euc_kr_decode, ptr %.sroa.719.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.820.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.820.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
   %15 = load ptr, ptr %12, align 8, !tbaa !11
   %16 = getelementptr i8, ptr %15, i64 80
-  store ptr @.str.12, ptr %16, align 8, !tbaa !37
+  store ptr @.str.12, ptr %16, align 8, !tbaa !38
   %.sroa.24.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 88
   %.sroa.46.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr @cp949_encode, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @cp949_encode, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.57.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 112
   %.sroa.79.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.57.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr @cp949_decode, ptr %.sroa.79.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @cp949_decode, ptr %.sroa.79.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.810.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.810.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
   %17 = load ptr, ptr %12, align 8, !tbaa !11
   %18 = getelementptr i8, ptr %17, i64 160
-  store ptr @.str.18, ptr %18, align 8, !tbaa !37
+  store ptr @.str.18, ptr %18, align 8, !tbaa !38
   %.sroa.2.0..sroa_idx.i18.i = getelementptr i8, ptr %17, i64 168
   %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i18.i, i8 0, i64 16, i1 false)
-  store ptr @johab_encode, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @johab_encode, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 192
   %.sroa.7.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr @johab_decode, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !42
+  store ptr @johab_decode, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !43
   %.sroa.8.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
   %19 = load i32, ptr %10, align 4, !tbaa !26
@@ -355,13 +355,13 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
 22:                                               ; preds = %22, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %22 ]
   %23 = getelementptr %struct._multibyte_codec, ptr %21, i64 %indvars.iv.i.i, i32 9
-  store ptr %3, ptr %23, align 8, !tbaa !43
+  store ptr %3, ptr %23, align 8, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %add_codecs.exit.i, label %22, !llvm.loop !44
+  br i1 %exitcond.not.i.i, label %add_codecs.exit.i, label %22, !llvm.loop !45
 
 add_codecs.exit.i:                                ; preds = %22, %14
-  %24 = load i32, ptr %3, align 8, !tbaa !36
+  %24 = load i32, ptr %3, align 8, !tbaa !37
   %.not21.i = icmp sgt i32 %24, 0
   br i1 %.not21.i, label %.lr.ph.i, label %register_maps.exit
 
@@ -376,10 +376,10 @@ add_codecs.exit.i:                                ; preds = %22, %14
 
 31:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %32 = load i32, ptr %3, align 8, !tbaa !36
+  %32 = load i32, ptr %3, align 8, !tbaa !37
   %33 = sext i32 %32 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %.not.i, label %34, label %register_maps.exit, !llvm.loop !45
+  br i1 %.not.i, label %34, label %register_maps.exit, !llvm.loop !46
 
 34:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
@@ -393,7 +393,7 @@ add_codecs.exit.i:                                ; preds = %22, %14
   store i8 97, ptr %27, align 1
   store i8 112, ptr %28, align 4
   store i8 95, ptr %29, align 1
-  %37 = load ptr, ptr %36, align 8, !tbaa !46
+  %37 = load ptr, ptr %36, align 8, !tbaa !47
   %38 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %37) #7
   %39 = call ptr @PyCapsule_New(ptr noundef nonnull %36, ptr noundef nonnull @.str.10, ptr noundef null) #7
   %40 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %39) #7
@@ -418,7 +418,7 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i64 -1, 2) i64 @euc_kr_encode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, i32 %8) #6 {
-  %10 = load i64, ptr %4, align 8, !tbaa !48
+  %10 = load i64, ptr %4, align 8, !tbaa !49
   %11 = icmp slt i64 %10, %5
   br i1 %11, label %.lr.ph, label %.thread
 
@@ -432,19 +432,19 @@ define internal range(i64 -1, 2) i64 @euc_kr_encode(ptr readnone captures(none) 
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %3, i64 %12
-  %15 = load i8, ptr %14, align 1, !tbaa !34
+  %15 = load i8, ptr %14, align 1, !tbaa !35
   %16 = zext i8 %15 to i32
   br label %PyUnicode_READ.exit
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr i16, ptr %3, i64 %12
-  %19 = load i16, ptr %18, align 2, !tbaa !49
+  %19 = load i16, ptr %18, align 2, !tbaa !50
   %20 = zext i16 %19 to i32
   br label %PyUnicode_READ.exit
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr i32, ptr %3, i64 %12
-  %23 = load i32, ptr %22, align 4, !tbaa !50
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   br label %PyUnicode_READ.exit
 
 PyUnicode_READ.exit:                              ; preds = %13, %17, %21
@@ -458,9 +458,9 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 27:                                               ; preds = %25
   %28 = trunc nuw nsw i32 %.0.i to i8
-  %29 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %28, ptr %29, align 1, !tbaa !34
-  br label %96, !llvm.loop !51
+  %29 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %28, ptr %29, align 1, !tbaa !35
+  br label %96, !llvm.loop !52
 
 30:                                               ; preds = %PyUnicode_READ.exit
   %31 = icmp ugt i32 %.0.i, 65535
@@ -474,21 +474,21 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %35 = lshr i32 %.0.i, 8
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 16, !tbaa !52
+  %38 = load ptr, ptr %37, align 16, !tbaa !53
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.thread, label %39
 
 39:                                               ; preds = %34
   %40 = and i32 %.0.i, 255
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !55
+  %42 = load i8, ptr %41, align 8, !tbaa !56
   %43 = zext i8 %42 to i32
   %.not60 = icmp samesign ult i32 %40, %43
   br i1 %.not60, label %.thread, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 9
-  %46 = load i8, ptr %45, align 1, !tbaa !56
+  %46 = load i8, ptr %45, align 1, !tbaa !57
   %47 = zext i8 %46 to i32
   %.not61 = icmp samesign ugt i32 %40, %47
   br i1 %.not61, label %.thread, label %48
@@ -497,7 +497,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %49 = sub nsw i32 %40, %43
   %50 = zext i32 %49 to i64
   %51 = getelementptr i16, ptr %38, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !49
+  %52 = load i16, ptr %51, align 2, !tbaa !50
   %.not62 = icmp eq i16 %52, -1
   br i1 %.not62, label %.thread, label %53
 
@@ -509,13 +509,13 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %56 = lshr i16 %52, 8
   %57 = trunc nuw nsw i16 %56 to i8
   %58 = or disjoint i8 %57, -128
-  %59 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %58, ptr %59, align 1, !tbaa !34
+  %59 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %58, ptr %59, align 1, !tbaa !35
   %60 = trunc i16 %52 to i8
   %61 = or i8 %60, -128
-  %62 = load ptr, ptr %6, align 8, !tbaa !37
+  %62 = load ptr, ptr %6, align 8, !tbaa !38
   %63 = getelementptr i8, ptr %62, i64 1
-  store i8 %61, ptr %63, align 1, !tbaa !34
+  store i8 %61, ptr %63, align 1, !tbaa !35
   br label %96
 
 64:                                               ; preds = %53
@@ -523,55 +523,55 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 -92, ptr %67, align 1, !tbaa !34
-  %68 = load ptr, ptr %6, align 8, !tbaa !37
+  %67 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 -92, ptr %67, align 1, !tbaa !35
+  %68 = load ptr, ptr %6, align 8, !tbaa !38
   %69 = getelementptr i8, ptr %68, i64 1
-  store i8 -44, ptr %69, align 1, !tbaa !34
+  store i8 -44, ptr %69, align 1, !tbaa !35
   %70 = add nsw i32 %.0.i, -44032
-  %71 = load ptr, ptr %6, align 8, !tbaa !37
+  %71 = load ptr, ptr %6, align 8, !tbaa !38
   %72 = getelementptr i8, ptr %71, i64 2
-  store i8 -92, ptr %72, align 1, !tbaa !34
+  store i8 -92, ptr %72, align 1, !tbaa !35
   %73 = udiv i32 %70, 588
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr [19 x i8], ptr @u2cgk_choseong, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !34
-  %77 = load ptr, ptr %6, align 8, !tbaa !37
+  %76 = load i8, ptr %75, align 1, !tbaa !35
+  %77 = load ptr, ptr %6, align 8, !tbaa !38
   %78 = getelementptr i8, ptr %77, i64 3
-  store i8 %76, ptr %78, align 1, !tbaa !34
-  %79 = load ptr, ptr %6, align 8, !tbaa !37
+  store i8 %76, ptr %78, align 1, !tbaa !35
+  %79 = load ptr, ptr %6, align 8, !tbaa !38
   %80 = getelementptr i8, ptr %79, i64 4
-  store ptr %80, ptr %6, align 8, !tbaa !37
-  store i8 -92, ptr %80, align 1, !tbaa !34
+  store ptr %80, ptr %6, align 8, !tbaa !38
+  store i8 -92, ptr %80, align 1, !tbaa !35
   %81 = udiv i32 %70, 28
   %82 = urem i32 %81, 21
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr [21 x i8], ptr @u2cgk_jungseong, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !34
-  %86 = load ptr, ptr %6, align 8, !tbaa !37
+  %85 = load i8, ptr %84, align 1, !tbaa !35
+  %86 = load ptr, ptr %6, align 8, !tbaa !38
   %87 = getelementptr i8, ptr %86, i64 1
-  store i8 %85, ptr %87, align 1, !tbaa !34
-  %88 = load ptr, ptr %6, align 8, !tbaa !37
+  store i8 %85, ptr %87, align 1, !tbaa !35
+  %88 = load ptr, ptr %6, align 8, !tbaa !38
   %89 = getelementptr i8, ptr %88, i64 2
-  store i8 -92, ptr %89, align 1, !tbaa !34
+  store i8 -92, ptr %89, align 1, !tbaa !35
   %90 = urem i32 %70, 28
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr [28 x i8], ptr @u2cgk_jongseong, i64 0, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !34
-  %94 = load ptr, ptr %6, align 8, !tbaa !37
+  %93 = load i8, ptr %92, align 1, !tbaa !35
+  %94 = load ptr, ptr %6, align 8, !tbaa !38
   %95 = getelementptr i8, ptr %94, i64 3
-  store i8 %93, ptr %95, align 1, !tbaa !34
+  store i8 %93, ptr %95, align 1, !tbaa !35
   br label %96
 
 96:                                               ; preds = %55, %66, %27
   %.sink87 = phi i64 [ 2, %55 ], [ 4, %66 ], [ 1, %27 ]
   %.sink = phi i64 [ -2, %55 ], [ -8, %66 ], [ -1, %27 ]
-  %97 = load i64, ptr %4, align 8, !tbaa !48
+  %97 = load i64, ptr %4, align 8, !tbaa !49
   %98 = add i64 %97, 1
-  store i64 %98, ptr %4, align 8, !tbaa !48
-  %99 = load ptr, ptr %6, align 8, !tbaa !37
+  store i64 %98, ptr %4, align 8, !tbaa !49
+  %99 = load ptr, ptr %6, align 8, !tbaa !38
   %100 = getelementptr i8, ptr %99, i64 %.sink87
-  store ptr %100, ptr %6, align 8, !tbaa !37
+  store ptr %100, ptr %6, align 8, !tbaa !38
   %101 = add nsw i64 %.05068, %.sink
   %102 = icmp slt i64 %98, %5
   br i1 %102, label %.lr.ph, label %.thread
@@ -587,13 +587,13 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
   br i1 %6, label %.lr.ph.preheader, label %.thread95
 
 .lr.ph.preheader:                                 ; preds = %5
-  %.pre = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre = load ptr, ptr %2, align 8, !tbaa !38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
   %7 = phi ptr [ %102, %100 ], [ %.pre, %.lr.ph.preheader ]
   %.068101 = phi i64 [ %103, %100 ], [ %3, %.lr.ph.preheader ]
-  %8 = load i8, ptr %7, align 1, !tbaa !34
+  %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = zext i8 %8 to i32
   %10 = icmp sgt i8 %8, -1
   br i1 %10, label %11, label %14
@@ -601,7 +601,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %9) #7
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread95, label %100, !llvm.loop !57
+  br i1 %13, label %.thread95, label %100, !llvm.loop !58
 
 14:                                               ; preds = %.lr.ph
   %15 = icmp eq i64 %.068101, 1
@@ -613,7 +613,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 
 18:                                               ; preds = %16
   %19 = getelementptr i8, ptr %7, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !34
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %21 = icmp eq i8 %20, -44
   br i1 %21, label %22, label %76
 
@@ -623,25 +623,25 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %7, i64 2
-  %26 = load i8, ptr %25, align 1, !tbaa !34
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %.not86 = icmp eq i8 %26, -92
   br i1 %.not86, label %27, label %.thread95
 
 27:                                               ; preds = %24
   %28 = getelementptr i8, ptr %7, i64 4
-  %29 = load i8, ptr %28, align 1, !tbaa !34
+  %29 = load i8, ptr %28, align 1, !tbaa !35
   %.not87 = icmp eq i8 %29, -92
   br i1 %.not87, label %30, label %.thread95
 
 30:                                               ; preds = %27
   %31 = getelementptr i8, ptr %7, i64 6
-  %32 = load i8, ptr %31, align 1, !tbaa !34
+  %32 = load i8, ptr %31, align 1, !tbaa !35
   %.not88 = icmp eq i8 %32, -92
   br i1 %.not88, label %33, label %.thread95
 
 33:                                               ; preds = %30
   %34 = getelementptr i8, ptr %7, i64 3
-  %35 = load i8, ptr %34, align 1, !tbaa !34
+  %35 = load i8, ptr %34, align 1, !tbaa !35
   %36 = add i8 %35, 95
   %or.cond = icmp ult i8 %36, 30
   br i1 %or.cond, label %37, label %44
@@ -651,20 +651,20 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
   %39 = add nuw nsw i64 %38, 4294967135
   %40 = and i64 %39, 4294967295
   %41 = getelementptr [30 x i8], ptr @cgk2u_choseong, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !34
+  %42 = load i8, ptr %41, align 1, !tbaa !35
   %43 = zext i8 %42 to i32
   br label %44
 
 44:                                               ; preds = %33, %37
   %.065 = phi i32 [ %43, %37 ], [ 127, %33 ]
   %45 = getelementptr i8, ptr %7, i64 5
-  %46 = load i8, ptr %45, align 1, !tbaa !34
+  %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i32
   %48 = add i8 %46, 65
   %or.cond5 = icmp ult i8 %48, 21
   %49 = add nuw nsw i32 %47, 65345
   %50 = getelementptr i8, ptr %7, i64 7
-  %51 = load i8, ptr %50, align 1, !tbaa !34
+  %51 = load i8, ptr %50, align 1, !tbaa !35
   %52 = zext i8 %51 to i64
   %53 = icmp eq i8 %51, -44
   br i1 %53, label %62, label %54
@@ -678,7 +678,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
   %57 = add nuw nsw i64 %52, 4294967135
   %58 = and i64 %57, 4294967295
   %59 = getelementptr [30 x i8], ptr @cgk2u_jongseong, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !34
+  %60 = load i8, ptr %59, align 1, !tbaa !35
   %61 = zext i8 %60 to i32
   br label %62
 
@@ -707,31 +707,31 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
   %77 = and i32 %9, 127
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %78
-  %80 = load ptr, ptr %79, align 16, !tbaa !58
+  %80 = load ptr, ptr %79, align 16, !tbaa !59
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %.thread95, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr i8, ptr %7, i64 1
-  %83 = load i8, ptr %82, align 1, !tbaa !34
+  %83 = load i8, ptr %82, align 1, !tbaa !35
   %84 = xor i8 %83, -128
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %87 = load i8, ptr %86, align 8, !tbaa !60
+  %87 = load i8, ptr %86, align 8, !tbaa !61
   %88 = zext i8 %87 to i64
   %.not83 = icmp ult i8 %84, %87
   br i1 %.not83, label %.thread95, label %89
 
 89:                                               ; preds = %81
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 9
-  %91 = load i8, ptr %90, align 1, !tbaa !61
+  %91 = load i8, ptr %90, align 1, !tbaa !62
   %.not84 = icmp ugt i8 %84, %91
   br i1 %.not84, label %.thread95, label %92
 
 92:                                               ; preds = %89
   %93 = sub nsw i64 %85, %88
   %94 = getelementptr i16, ptr %80, i64 %93
-  %95 = load i16, ptr %94, align 2, !tbaa !49
+  %95 = load i16, ptr %94, align 2, !tbaa !50
   %.not85 = icmp eq i16 %95, -2
   br i1 %.not85, label %.thread95, label %96
 
@@ -744,9 +744,9 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 100:                                              ; preds = %96, %68, %11
   %.sink130 = phi i64 [ 1, %11 ], [ 8, %68 ], [ 2, %96 ]
   %.sink = phi i64 [ -1, %11 ], [ -8, %68 ], [ -2, %96 ]
-  %101 = load ptr, ptr %2, align 8, !tbaa !37
+  %101 = load ptr, ptr %2, align 8, !tbaa !38
   %102 = getelementptr i8, ptr %101, i64 %.sink130
-  store ptr %102, ptr %2, align 8, !tbaa !37
+  store ptr %102, ptr %2, align 8, !tbaa !38
   %103 = add nsw i64 %.068101, %.sink
   %104 = icmp sgt i64 %103, 0
   br i1 %104, label %.lr.ph, label %.thread95
@@ -758,7 +758,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i64 -1, 2) i64 @cp949_encode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, i32 %8) #6 {
-  %10 = load i64, ptr %4, align 8, !tbaa !48
+  %10 = load i64, ptr %4, align 8, !tbaa !49
   %11 = icmp slt i64 %10, %5
   br i1 %11, label %.lr.ph, label %.thread
 
@@ -772,19 +772,19 @@ define internal range(i64 -1, 2) i64 @cp949_encode(ptr readnone captures(none) %
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %3, i64 %12
-  %15 = load i8, ptr %14, align 1, !tbaa !34
+  %15 = load i8, ptr %14, align 1, !tbaa !35
   %16 = zext i8 %15 to i32
   br label %PyUnicode_READ.exit
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr i16, ptr %3, i64 %12
-  %19 = load i16, ptr %18, align 2, !tbaa !49
+  %19 = load i16, ptr %18, align 2, !tbaa !50
   %20 = zext i16 %19 to i32
   br label %PyUnicode_READ.exit
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr i32, ptr %3, i64 %12
-  %23 = load i32, ptr %22, align 4, !tbaa !50
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   br label %PyUnicode_READ.exit
 
 PyUnicode_READ.exit:                              ; preds = %13, %17, %21
@@ -798,9 +798,9 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 27:                                               ; preds = %25
   %28 = trunc nuw nsw i32 %.0.i to i8
-  %29 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %28, ptr %29, align 1, !tbaa !34
-  br label %62, !llvm.loop !62
+  %29 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %28, ptr %29, align 1, !tbaa !35
+  br label %62, !llvm.loop !63
 
 30:                                               ; preds = %PyUnicode_READ.exit
   %31 = icmp ugt i32 %.0.i, 65535
@@ -814,21 +814,21 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %35 = lshr i32 %.0.i, 8
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 16, !tbaa !52
+  %38 = load ptr, ptr %37, align 16, !tbaa !53
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.thread, label %39
 
 39:                                               ; preds = %34
   %40 = and i32 %.0.i, 255
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !55
+  %42 = load i8, ptr %41, align 8, !tbaa !56
   %43 = zext i8 %42 to i32
   %.not43 = icmp samesign ult i32 %40, %43
   br i1 %.not43, label %.thread, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 9
-  %46 = load i8, ptr %45, align 1, !tbaa !56
+  %46 = load i8, ptr %45, align 1, !tbaa !57
   %47 = zext i8 %46 to i32
   %.not44 = icmp samesign ugt i32 %40, %47
   br i1 %.not44, label %.thread, label %48
@@ -837,7 +837,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %49 = sub nsw i32 %40, %43
   %50 = zext i32 %49 to i64
   %51 = getelementptr i16, ptr %38, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !49
+  %52 = load i16, ptr %51, align 2, !tbaa !50
   %.not45 = icmp eq i16 %52, -1
   br i1 %.not45, label %.thread, label %53
 
@@ -845,26 +845,26 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %54 = lshr i16 %52, 8
   %55 = trunc nuw i16 %54 to i8
   %56 = or i8 %55, -128
-  %57 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %56, ptr %57, align 1, !tbaa !34
+  %57 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %56, ptr %57, align 1, !tbaa !35
   %58 = trunc i16 %52 to i8
   %59 = or i8 %58, -128
   %.not4675 = icmp slt i16 %52, 0
   %.sink = select i1 %.not4675, i8 %58, i8 %59
-  %60 = load ptr, ptr %6, align 8, !tbaa !37
+  %60 = load ptr, ptr %6, align 8, !tbaa !38
   %61 = getelementptr i8, ptr %60, i64 1
-  store i8 %.sink, ptr %61, align 1, !tbaa !34
+  store i8 %.sink, ptr %61, align 1, !tbaa !35
   br label %62
 
 62:                                               ; preds = %53, %27
   %.sink72 = phi i64 [ 2, %53 ], [ 1, %27 ]
   %.sink69 = phi i64 [ -2, %53 ], [ -1, %27 ]
-  %63 = load i64, ptr %4, align 8, !tbaa !48
+  %63 = load i64, ptr %4, align 8, !tbaa !49
   %64 = add i64 %63, 1
-  store i64 %64, ptr %4, align 8, !tbaa !48
-  %65 = load ptr, ptr %6, align 8, !tbaa !37
+  store i64 %64, ptr %4, align 8, !tbaa !49
+  %65 = load ptr, ptr %6, align 8, !tbaa !38
   %66 = getelementptr i8, ptr %65, i64 %.sink72
-  store ptr %66, ptr %6, align 8, !tbaa !37
+  store ptr %66, ptr %6, align 8, !tbaa !38
   %67 = add nsw i64 %.03452, %.sink69
   %68 = icmp slt i64 %64, %5
   br i1 %68, label %.lr.ph, label %.thread
@@ -880,13 +880,13 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
   br i1 %6, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %5
-  %.pre = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre = load ptr, ptr %2, align 8, !tbaa !38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %7 = phi ptr [ %64, %62 ], [ %.pre, %.lr.ph.preheader ]
   %.03256 = phi i64 [ %65, %62 ], [ %3, %.lr.ph.preheader ]
-  %8 = load i8, ptr %7, align 1, !tbaa !34
+  %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = zext i8 %8 to i32
   %10 = icmp sgt i8 %8, -1
   br i1 %10, label %11, label %14
@@ -894,7 +894,7 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %9) #7
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread, label %62, !llvm.loop !63
+  br i1 %13, label %.thread, label %62, !llvm.loop !64
 
 14:                                               ; preds = %.lr.ph
   %15 = icmp eq i64 %.03256, 1
@@ -904,31 +904,31 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
   %17 = and i32 %9, 127
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 16, !tbaa !58
+  %20 = load ptr, ptr %19, align 16, !tbaa !59
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %40, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr i8, ptr %7, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !34
+  %23 = load i8, ptr %22, align 1, !tbaa !35
   %24 = xor i8 %23, -128
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %27 = load i8, ptr %26, align 8, !tbaa !60
+  %27 = load i8, ptr %26, align 8, !tbaa !61
   %28 = zext i8 %27 to i64
   %.not44 = icmp ult i8 %24, %27
   br i1 %.not44, label %40, label %29
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %31 = load i8, ptr %30, align 1, !tbaa !61
+  %31 = load i8, ptr %30, align 1, !tbaa !62
   %.not45 = icmp ugt i8 %24, %31
   br i1 %.not45, label %40, label %32
 
 32:                                               ; preds = %29
   %33 = sub nsw i64 %25, %28
   %34 = getelementptr i16, ptr %20, i64 %33
-  %35 = load i16, ptr %34, align 2, !tbaa !49
+  %35 = load i16, ptr %34, align 2, !tbaa !50
   %.not46 = icmp eq i16 %35, -2
   br i1 %.not46, label %40, label %36
 
@@ -941,30 +941,30 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 40:                                               ; preds = %32, %29, %21, %16
   %41 = zext i8 %8 to i64
   %42 = getelementptr [256 x %struct.dbcs_index], ptr @cp949ext_decmap, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 16, !tbaa !58
+  %43 = load ptr, ptr %42, align 16, !tbaa !59
   %.not47 = icmp eq ptr %43, null
   br i1 %.not47, label %.thread, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr i8, ptr %7, i64 1
-  %46 = load i8, ptr %45, align 1, !tbaa !34
+  %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %49 = load i8, ptr %48, align 8, !tbaa !60
+  %49 = load i8, ptr %48, align 8, !tbaa !61
   %50 = zext i8 %49 to i64
   %.not48 = icmp ult i8 %46, %49
   br i1 %.not48, label %.thread, label %51
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 9
-  %53 = load i8, ptr %52, align 1, !tbaa !61
+  %53 = load i8, ptr %52, align 1, !tbaa !62
   %.not49 = icmp ugt i8 %46, %53
   br i1 %.not49, label %.thread, label %54
 
 54:                                               ; preds = %51
   %55 = sub nsw i64 %47, %50
   %56 = getelementptr i16, ptr %43, i64 %55
-  %57 = load i16, ptr %56, align 2, !tbaa !49
+  %57 = load i16, ptr %56, align 2, !tbaa !50
   %.not50 = icmp eq i16 %57, -2
   br i1 %.not50, label %.thread, label %58
 
@@ -977,9 +977,9 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 62:                                               ; preds = %58, %36, %11
   %.sink75 = phi i64 [ 1, %11 ], [ 2, %36 ], [ 2, %58 ]
   %.sink = phi i64 [ -1, %11 ], [ -2, %36 ], [ -2, %58 ]
-  %63 = load ptr, ptr %2, align 8, !tbaa !37
+  %63 = load ptr, ptr %2, align 8, !tbaa !38
   %64 = getelementptr i8, ptr %63, i64 %.sink75
-  store ptr %64, ptr %2, align 8, !tbaa !37
+  store ptr %64, ptr %2, align 8, !tbaa !38
   %65 = add nsw i64 %.03256, %.sink
   %66 = icmp sgt i64 %65, 0
   br i1 %66, label %.lr.ph, label %.thread
@@ -991,7 +991,7 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i64 -1, 2) i64 @johab_encode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, i32 %8) #6 {
-  %10 = load i64, ptr %4, align 8, !tbaa !48
+  %10 = load i64, ptr %4, align 8, !tbaa !49
   %11 = icmp slt i64 %10, %5
   br i1 %11, label %.lr.ph, label %.thread
 
@@ -1005,19 +1005,19 @@ define internal range(i64 -1, 2) i64 @johab_encode(ptr readnone captures(none) %
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %3, i64 %12
-  %15 = load i8, ptr %14, align 1, !tbaa !34
+  %15 = load i8, ptr %14, align 1, !tbaa !35
   %16 = zext i8 %15 to i32
   br label %PyUnicode_READ.exit
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr i16, ptr %3, i64 %12
-  %19 = load i16, ptr %18, align 2, !tbaa !49
+  %19 = load i16, ptr %18, align 2, !tbaa !50
   %20 = zext i16 %19 to i32
   br label %PyUnicode_READ.exit
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr i32, ptr %3, i64 %12
-  %23 = load i32, ptr %22, align 4, !tbaa !50
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   br label %PyUnicode_READ.exit
 
 PyUnicode_READ.exit:                              ; preds = %13, %17, %21
@@ -1031,9 +1031,9 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 27:                                               ; preds = %25
   %28 = trunc nuw nsw i32 %.0.i to i8
-  %29 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %28, ptr %29, align 1, !tbaa !34
-  br label %116, !llvm.loop !64
+  %29 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %28, ptr %29, align 1, !tbaa !35
+  br label %116, !llvm.loop !65
 
 30:                                               ; preds = %PyUnicode_READ.exit
   %31 = icmp ugt i32 %.0.i, 65535
@@ -1053,20 +1053,20 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %37 = udiv i16 %.lhs.trunc, 588
   %38 = zext nneg i16 %37 to i64
   %39 = getelementptr [32 x i8], ptr @u2johabidx_choseong, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !34
+  %40 = load i8, ptr %39, align 1, !tbaa !35
   %41 = zext i8 %40 to i16
   %42 = shl i16 %41, 10
   %43 = udiv i16 %.lhs.trunc, 28
   %44 = urem i16 %43, 21
   %45 = zext nneg i16 %44 to i64
   %46 = getelementptr [32 x i8], ptr @u2johabidx_jungseong, i64 0, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !34
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = zext i8 %47 to i16
   %49 = shl nuw nsw i16 %48, 5
   %50 = urem i16 %.lhs.trunc, 28
   %51 = zext nneg i16 %50 to i64
   %52 = getelementptr [32 x i8], ptr @u2johabidx_jongseong, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !34
+  %53 = load i8, ptr %52, align 1, !tbaa !35
   %54 = zext i8 %53 to i16
   %55 = or i16 %42, %49
   %56 = or i16 %55, %54
@@ -1081,28 +1081,28 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 60:                                               ; preds = %58
   %61 = zext nneg i32 %59 to i64
   %62 = getelementptr [51 x i16], ptr @u2johabjamo, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !49
+  %63 = load i16, ptr %62, align 2, !tbaa !50
   br label %109
 
 64:                                               ; preds = %58
   %65 = lshr i32 %.0.i, 8
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %66
-  %68 = load ptr, ptr %67, align 16, !tbaa !52
+  %68 = load ptr, ptr %67, align 16, !tbaa !53
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %.thread, label %69
 
 69:                                               ; preds = %64
   %70 = and i32 %.0.i, 255
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !55
+  %72 = load i8, ptr %71, align 8, !tbaa !56
   %73 = zext i8 %72 to i32
   %.not90 = icmp samesign ult i32 %70, %73
   br i1 %.not90, label %.thread, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !56
+  %76 = load i8, ptr %75, align 1, !tbaa !57
   %77 = zext i8 %76 to i32
   %.not91 = icmp samesign ugt i32 %70, %77
   br i1 %.not91, label %.thread, label %78
@@ -1111,7 +1111,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %79 = sub nsw i32 %70, %73
   %80 = zext i32 %79 to i64
   %81 = getelementptr i16, ptr %68, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !49
+  %82 = load i16, ptr %81, align 2, !tbaa !50
   %.not92 = icmp eq i16 %82, -1
   br i1 %.not92, label %.thread, label %83
 
@@ -1151,39 +1151,39 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %99 = add nuw nsw i32 %98, %97
   %100 = lshr i16 %95, 1
   %101 = trunc i16 %100 to i8
-  %102 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %101, ptr %102, align 1, !tbaa !34
+  %102 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %101, ptr %102, align 1, !tbaa !35
   %103 = and i32 %99, 254
   %104 = icmp samesign ult i32 %103, 78
   %.v = select i1 %104, i32 49, i32 67
   %105 = add nuw nsw i32 %.v, %99
   %106 = trunc i32 %105 to i8
-  %107 = load ptr, ptr %6, align 8, !tbaa !37
+  %107 = load ptr, ptr %6, align 8, !tbaa !38
   %108 = getelementptr i8, ptr %107, i64 1
-  store i8 %106, ptr %108, align 1, !tbaa !34
-  br label %116, !llvm.loop !64
+  store i8 %106, ptr %108, align 1, !tbaa !35
+  br label %116, !llvm.loop !65
 
 109:                                              ; preds = %36, %60
   %.077 = phi i16 [ %57, %36 ], [ %63, %60 ]
   %110 = lshr i16 %.077, 8
   %111 = trunc nuw i16 %110 to i8
-  %112 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %111, ptr %112, align 1, !tbaa !34
+  %112 = load ptr, ptr %6, align 8, !tbaa !38
+  store i8 %111, ptr %112, align 1, !tbaa !35
   %113 = trunc i16 %.077 to i8
-  %114 = load ptr, ptr %6, align 8, !tbaa !37
+  %114 = load ptr, ptr %6, align 8, !tbaa !38
   %115 = getelementptr i8, ptr %114, i64 1
-  store i8 %113, ptr %115, align 1, !tbaa !34
+  store i8 %113, ptr %115, align 1, !tbaa !35
   br label %116
 
 116:                                              ; preds = %92, %109, %27
   %.sink130 = phi i64 [ 2, %92 ], [ 2, %109 ], [ 1, %27 ]
   %.sink = phi i64 [ -2, %92 ], [ -2, %109 ], [ -1, %27 ]
-  %117 = load i64, ptr %4, align 8, !tbaa !48
+  %117 = load i64, ptr %4, align 8, !tbaa !49
   %118 = add i64 %117, 1
-  store i64 %118, ptr %4, align 8, !tbaa !48
-  %119 = load ptr, ptr %6, align 8, !tbaa !37
+  store i64 %118, ptr %4, align 8, !tbaa !49
+  %119 = load ptr, ptr %6, align 8, !tbaa !38
   %120 = getelementptr i8, ptr %119, i64 %.sink130
-  store ptr %120, ptr %6, align 8, !tbaa !37
+  store ptr %120, ptr %6, align 8, !tbaa !38
   %121 = add nsw i64 %.074107, %.sink
   %122 = icmp slt i64 %118, %5
   br i1 %122, label %.lr.ph, label %.thread
@@ -1199,13 +1199,13 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   br i1 %6, label %.lr.ph.preheader, label %.thread128
 
 .lr.ph.preheader:                                 ; preds = %5
-  %.pre = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre = load ptr, ptr %2, align 8, !tbaa !38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %131
   %7 = phi ptr [ %133, %131 ], [ %.pre, %.lr.ph.preheader ]
   %.096135 = phi i64 [ %134, %131 ], [ %3, %.lr.ph.preheader ]
-  %8 = load i8, ptr %7, align 1, !tbaa !34
+  %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %14
 
@@ -1213,7 +1213,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %11 = zext nneg i8 %8 to i32
   %12 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %11) #7
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread128, label %131, !llvm.loop !65
+  br i1 %13, label %.thread128, label %131, !llvm.loop !66
 
 14:                                               ; preds = %.lr.ph
   %15 = icmp eq i64 %.096135, 1
@@ -1221,7 +1221,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %7, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !34
+  %18 = load i8, ptr %17, align 1, !tbaa !35
   %.fr = freeze i8 %18
   %19 = icmp samesign ult i8 %8, -40
   br i1 %19, label %20, label %90
@@ -1236,13 +1236,13 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %26 = and i8 %.fr, 31
   %27 = zext nneg i8 %22 to i64
   %28 = getelementptr [32 x i8], ptr @johabidx_choseong, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !34
+  %29 = load i8, ptr %28, align 1, !tbaa !35
   %30 = zext nneg i8 %25 to i64
   %31 = getelementptr [32 x i8], ptr @johabidx_jungseong, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !34
+  %32 = load i8, ptr %31, align 1, !tbaa !35
   %33 = zext nneg i8 %26 to i64
   %34 = getelementptr [32 x i8], ptr @johabidx_jongseong, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !34
+  %35 = load i8, ptr %34, align 1, !tbaa !35
   %36 = zext i8 %29 to i32
   %37 = add nsw i64 %27, -21
   %38 = icmp ult i64 %37, -20
@@ -1276,7 +1276,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
 
 55:                                               ; preds = %51
   %56 = getelementptr [32 x i8], ptr @johabjamo_jongseong, i64 0, i64 %33
-  %57 = load i8, ptr %56, align 1, !tbaa !34
+  %57 = load i8, ptr %56, align 1, !tbaa !35
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %58, 12544
   %60 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %59) #7
@@ -1288,7 +1288,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
 
 63:                                               ; preds = %62
   %64 = getelementptr [32 x i8], ptr @johabjamo_jungseong, i64 0, i64 %30
-  %65 = load i8, ptr %64, align 1, !tbaa !34
+  %65 = load i8, ptr %64, align 1, !tbaa !35
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %66, 12544
   %68 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %67) #7
@@ -1304,7 +1304,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
 
 73:                                               ; preds = %71
   %74 = getelementptr [32 x i8], ptr @johabjamo_choseong, i64 0, i64 %27
-  %75 = load i8, ptr %74, align 1, !tbaa !34
+  %75 = load i8, ptr %74, align 1, !tbaa !35
   %76 = zext i8 %75 to i32
   %77 = or disjoint i32 %76, 12544
   %78 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %77) #7
@@ -1367,7 +1367,7 @@ switch.early.test:                                ; preds = %90
   %108 = add nuw nsw i8 %107, %105
   %109 = zext nneg i8 %108 to i64
   %110 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %109
-  %111 = load ptr, ptr %110, align 16, !tbaa !58
+  %111 = load ptr, ptr %110, align 16, !tbaa !59
   %.not = icmp eq ptr %111, null
   br i1 %.not, label %.thread128, label %112
 
@@ -1377,21 +1377,21 @@ switch.early.test:                                ; preds = %90
   %115 = add nuw nsw i8 %114, 33
   %116 = zext nneg i8 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %118 = load i8, ptr %117, align 8, !tbaa !60
+  %118 = load i8, ptr %117, align 8, !tbaa !61
   %119 = zext i8 %118 to i64
   %.not114 = icmp ult i8 %115, %118
   br i1 %.not114, label %.thread128, label %120
 
 120:                                              ; preds = %112
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 9
-  %122 = load i8, ptr %121, align 1, !tbaa !61
+  %122 = load i8, ptr %121, align 1, !tbaa !62
   %.not115 = icmp ugt i8 %115, %122
   br i1 %.not115, label %.thread128, label %123
 
 123:                                              ; preds = %120
   %124 = sub nsw i64 %116, %119
   %125 = getelementptr i16, ptr %111, i64 %124
-  %126 = load i16, ptr %125, align 2, !tbaa !49
+  %126 = load i16, ptr %125, align 2, !tbaa !50
   %.not116 = icmp eq i16 %126, -2
   br i1 %.not116, label %.thread128, label %127
 
@@ -1404,9 +1404,9 @@ switch.early.test:                                ; preds = %90
 131:                                              ; preds = %127, %63, %52, %55, %80, %73, %10
   %.sink187 = phi i64 [ 1, %10 ], [ 2, %73 ], [ 2, %80 ], [ 2, %55 ], [ 2, %52 ], [ 2, %63 ], [ 2, %127 ]
   %.sink = phi i64 [ -1, %10 ], [ -2, %73 ], [ -2, %80 ], [ -2, %55 ], [ -2, %52 ], [ -2, %63 ], [ -2, %127 ]
-  %132 = load ptr, ptr %2, align 8, !tbaa !37
+  %132 = load ptr, ptr %2, align 8, !tbaa !38
   %133 = getelementptr i8, ptr %132, i64 %.sink187
-  store ptr %133, ptr %2, align 8, !tbaa !37
+  store ptr %133, ptr %2, align 8, !tbaa !38
   %134 = add nsw i64 %.096135, %.sink
   %135 = icmp sgt i64 %134, 0
   br i1 %135, label %.lr.ph, label %.thread128
@@ -1457,42 +1457,43 @@ attributes #8 = { nounwind willreturn memory(read) }
 !24 = !{!"short", !6, i64 0}
 !25 = !{!23, !23, i64 0}
 !26 = !{!4, !5, i64 4}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !19, i64 0}
-!30 = !{!"_multibyte_codec", !19, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !31, i64 72}
-!31 = !{!"p1 _ZTS14_cjk_mod_state", !9, i64 0}
-!32 = !{!33, !10, i64 0}
-!33 = !{!"", !10, i64 0, !23, i64 8}
-!34 = !{!6, !6, i64 0}
-!35 = !{!33, !23, i64 8}
-!36 = !{!4, !5, i64 0}
-!37 = !{!19, !19, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS10unim_index", !9, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS10dbcs_index", !9, i64 0}
-!42 = !{!9, !9, i64 0}
-!43 = !{!30, !31, i64 72}
-!44 = distinct !{!44, !28}
-!45 = distinct !{!45, !28}
-!46 = !{!47, !19, i64 0}
-!47 = !{!"dbcs_map", !19, i64 0, !39, i64 8, !41, i64 16}
-!48 = !{!18, !18, i64 0}
-!49 = !{!24, !24, i64 0}
-!50 = !{!5, !5, i64 0}
-!51 = distinct !{!51, !28}
-!52 = !{!53, !54, i64 0}
-!53 = !{!"unim_index", !54, i64 0, !6, i64 8, !6, i64 9}
-!54 = !{!"p1 short", !9, i64 0}
-!55 = !{!53, !6, i64 8}
-!56 = !{!53, !6, i64 9}
-!57 = distinct !{!57, !28}
-!58 = !{!59, !54, i64 0}
-!59 = !{!"dbcs_index", !54, i64 0, !6, i64 8, !6, i64 9}
-!60 = !{!59, !6, i64 8}
-!61 = !{!59, !6, i64 9}
-!62 = distinct !{!62, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !19, i64 0}
+!31 = !{!"_multibyte_codec", !19, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !32, i64 72}
+!32 = !{!"p1 _ZTS14_cjk_mod_state", !9, i64 0}
+!33 = !{!34, !10, i64 0}
+!34 = !{!"", !10, i64 0, !23, i64 8}
+!35 = !{!6, !6, i64 0}
+!36 = !{!34, !23, i64 8}
+!37 = !{!4, !5, i64 0}
+!38 = !{!19, !19, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS10unim_index", !9, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS10dbcs_index", !9, i64 0}
+!43 = !{!9, !9, i64 0}
+!44 = !{!31, !32, i64 72}
+!45 = distinct !{!45, !28, !29}
+!46 = distinct !{!46, !28, !29}
+!47 = !{!48, !19, i64 0}
+!48 = !{!"dbcs_map", !19, i64 0, !40, i64 8, !42, i64 16}
+!49 = !{!18, !18, i64 0}
+!50 = !{!24, !24, i64 0}
+!51 = !{!5, !5, i64 0}
+!52 = distinct !{!52, !28}
+!53 = !{!54, !55, i64 0}
+!54 = !{!"unim_index", !55, i64 0, !6, i64 8, !6, i64 9}
+!55 = !{!"p1 short", !9, i64 0}
+!56 = !{!54, !6, i64 8}
+!57 = !{!54, !6, i64 9}
+!58 = distinct !{!58, !28}
+!59 = !{!60, !55, i64 0}
+!60 = !{!"dbcs_index", !55, i64 0, !6, i64 8, !6, i64 9}
+!61 = !{!60, !6, i64 8}
+!62 = !{!60, !6, i64 9}
 !63 = distinct !{!63, !28}
 !64 = distinct !{!64, !28}
 !65 = distinct !{!65, !28}
+!66 = distinct !{!66, !28}

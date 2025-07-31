@@ -586,7 +586,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   %174 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %173)
   %175 = icmp slt i32 %.4301, 128
   %176 = select i1 %174, i1 %175, i1 false
-  br i1 %176, label %133, label %._crit_edge, !llvm.loop !8
+  br i1 %176, label %133, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %172
   %177 = sext i32 %.4301 to i64
@@ -888,6 +888,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

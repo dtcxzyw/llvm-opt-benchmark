@@ -55,7 +55,7 @@ define dso_local void @print_tar_number(ptr noundef writeonly captures(none) %0,
   store i8 %22, ptr %23, align 1
   %24 = lshr i64 %.120, 8
   %25 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %19, %8
   ret void
@@ -87,7 +87,7 @@ define dso_local i64 @read_tar_number(ptr noundef readonly captures(none) %0, i3
   %11 = or disjoint i64 %7, %10
   %12 = add i32 %6, -1
   %.not18 = icmp eq i32 %12, 0
-  br i1 %.not18, label %.critedge, label %.lr.ph29, !llvm.loop !7
+  br i1 %.not18, label %.critedge, label %.lr.ph29, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader19, %15
   %.in = phi i32 [ %16, %15 ], [ %1, %.preheader19 ]
@@ -106,7 +106,7 @@ define dso_local i64 @read_tar_number(ptr noundef readonly captures(none) %0, i3
   %19 = or disjoint i64 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %15, %.lr.ph29, %.preheader19, %.preheader
   %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader19 ], [ %11, %.lr.ph29 ], [ %.223, %.lr.ph ], [ %19, %15 ]
@@ -136,7 +136,7 @@ define dso_local i32 @tarChecksum(ptr noundef readonly captures(none) %0) local_
   %.1 = phi i32 [ %9, %5 ], [ %.010, %2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %11, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %11, label %2, !llvm.loop !10
 
 11:                                               ; preds = %10
   ret i32 %.1
@@ -237,7 +237,7 @@ print_tar_number.exit:                            ; preds = %.lr.ph24.i
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %.120.i52, 8
   %48 = icmp samesign ugt i64 %indvars.iv.i51, 2
-  br i1 %48, label %.lr.ph.i50, label %print_tar_number.exit58, !llvm.loop !6
+  br i1 %48, label %.lr.ph.i50, label %print_tar_number.exit58, !llvm.loop !7
 
 print_tar_number.exit58:                          ; preds = %.lr.ph.i50, %.lr.ph24.i54
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -275,7 +275,7 @@ print_tar_number.exit58:                          ; preds = %.lr.ph.i50, %.lr.ph
   store i8 %59, ptr %60, align 1
   %61 = lshr i32 %.120.i62, 8
   %62 = icmp samesign ugt i64 %indvars.iv.i61, 2
-  br i1 %62, label %.lr.ph.i60, label %print_tar_number.exit68, !llvm.loop !6
+  br i1 %62, label %.lr.ph.i60, label %print_tar_number.exit68, !llvm.loop !7
 
 print_tar_number.exit68:                          ; preds = %.lr.ph.i60, %.lr.ph24.i64
   %63 = and i32 %4, 61440
@@ -325,7 +325,7 @@ print_tar_number.exit73.loopexit:                 ; preds = %print_tar_number.ex
   store i8 %77, ptr %78, align 1
   %79 = lshr i64 %.120.i77, 8
   %80 = icmp samesign ugt i64 %indvars.iv.i76, 2
-  br i1 %80, label %.lr.ph.i75, label %print_tar_number.exit73, !llvm.loop !6
+  br i1 %80, label %.lr.ph.i75, label %print_tar_number.exit73, !llvm.loop !7
 
 print_tar_number.exit73:                          ; preds = %.lr.ph.i75, %.lr.ph24.i79, %print_tar_number.exit73.loopexit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -363,7 +363,7 @@ print_tar_number.exit73:                          ; preds = %.lr.ph.i75, %.lr.ph
   store i8 %91, ptr %92, align 1
   %93 = lshr i64 %.120.i87, 8
   %94 = icmp samesign ugt i64 %indvars.iv.i86, 2
-  br i1 %94, label %.lr.ph.i85, label %print_tar_number.exit93, !llvm.loop !6
+  br i1 %94, label %.lr.ph.i85, label %print_tar_number.exit93, !llvm.loop !7
 
 print_tar_number.exit93:                          ; preds = %.lr.ph.i85, %.lr.ph24.i89
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -424,7 +424,7 @@ print_tar_number.exit98:                          ; preds = %100, %101, %96
   %.1.i = phi i32 [ %117, %113 ], [ %.010.i, %110 ]
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i105, 512
-  br i1 %exitcond.not.i, label %tarChecksum.exit, label %110, !llvm.loop !9
+  br i1 %exitcond.not.i, label %tarChecksum.exit, label %110, !llvm.loop !10
 
 tarChecksum.exit:                                 ; preds = %118
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -463,7 +463,7 @@ tarChecksum.exit:                                 ; preds = %118
   store i8 %130, ptr %131, align 1
   %132 = lshr i64 %.120.i109, 8
   %133 = icmp samesign ugt i64 %indvars.iv.i108, 2
-  br i1 %133, label %.lr.ph.i107, label %print_tar_number.exit115, !llvm.loop !6
+  br i1 %133, label %.lr.ph.i107, label %print_tar_number.exit115, !llvm.loop !7
 
 print_tar_number.exit115:                         ; preds = %.lr.ph.i107, %.lr.ph24.i111, %12, %8
   %.0 = phi i32 [ 1, %8 ], [ 2, %12 ], [ 0, %.lr.ph24.i111 ], [ 0, %.lr.ph.i107 ]
@@ -502,9 +502,10 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

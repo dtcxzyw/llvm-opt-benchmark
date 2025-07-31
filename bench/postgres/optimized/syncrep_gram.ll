@@ -38,7 +38,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   %.1 = phi i32 [ %.3, %139 ], [ -2, %64 ]
   %.1183 = sext i8 %.1183.in to i32
   %8 = getelementptr inbounds nuw i8, ptr %.1215, i64 1
-  br label %9
+  br label %9, !llvm.loop !4
 
 9:                                                ; preds = %7, %3
   %.0214 = phi ptr [ %5, %3 ], [ %8, %7 ]
@@ -440,3 +440,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

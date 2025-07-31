@@ -2463,7 +2463,7 @@ define hidden noundef ptr @ssl_find_cipher(i32 noundef %0) local_unnamed_addr #8
   %6 = getelementptr i8, ptr %.07, i64 20
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, -1
-  br i1 %.not, label %8, label %2, !llvm.loop !8
+  br i1 %.not, label %8, label %2, !llvm.loop !9
 
 8:                                                ; preds = %5, %2
   %.05 = phi ptr [ %.07, %2 ], [ null, %5 ]
@@ -2742,7 +2742,7 @@ define hidden noundef zeroext i1 @ssl_generate_pre_master_secret(ptr noundef %0,
   %65 = getelementptr i8, ptr %61, i64 4
   %66 = load ptr, ptr %38, align 8
   %67 = tail call i64 @llvm.usub.sat.i64(i64 %51, i64 %64)
-  %68 = tail call ptr @__memcpy_chk(ptr noundef %65, ptr noundef %66, i64 noundef %58, i64 noundef %67) #31, !alias.scope !9
+  %68 = tail call ptr @__memcpy_chk(ptr noundef %65, ptr noundef %66, i64 noundef %58, i64 noundef %67) #31, !alias.scope !10
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %52, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -2991,7 +2991,7 @@ define internal fastcc noundef zeroext i1 @ssl_restore_master_key(ptr noundef ca
 ssl_data_set.exit:                                ; preds = %19
   %28 = load i32, ptr %21, align 8
   %29 = zext i32 %28 to i64
-  %30 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef nonnull readonly %26, i64 noundef %29, i64 noundef %23) #31, !alias.scope !13
+  %30 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef nonnull readonly %26, i64 noundef %29, i64 noundef %23) #31, !alias.scope !14
   br label %39
 
 31:                                               ; preds = %15
@@ -3076,7 +3076,7 @@ define internal fastcc noundef zeroext i1 @from_hex(ptr noundef captures(none) %
   store i8 %21, ptr %23, align 1
   %24 = add nuw nsw i64 %.02026, 1
   %exitcond.not = icmp eq i64 %24, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %18, %5
   %25 = trunc i64 %2 to i32
@@ -3237,7 +3237,7 @@ ssl_md5_init.exit.i:                              ; preds = %60
   %68 = call ptr @gcry_md_read(ptr noundef %.val8.i, i32 noundef 1)
   %69 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1)
   %70 = zext i32 %69 to i64
-  %71 = call ptr @__memcpy_chk(ptr noundef nonnull %59, ptr noundef %68, i64 noundef %70, i64 noundef 36) #31, !alias.scope !18
+  %71 = call ptr @__memcpy_chk(ptr noundef nonnull %59, ptr noundef %68, i64 noundef %70, i64 noundef 36) #31, !alias.scope !19
   %.val9.i = load ptr, ptr %2, align 8
   call void @gcry_md_close(ptr noundef %.val9.i)
   %72 = call i32 @gcry_md_open(ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0)
@@ -3261,7 +3261,7 @@ ssl_sha_init.exit.i:                              ; preds = %64
   %80 = call ptr @gcry_md_read(ptr noundef %.val11.i, i32 noundef 2)
   %81 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2)
   %82 = zext i32 %81 to i64
-  %83 = call ptr @__memcpy_chk(ptr noundef %79, ptr noundef %80, i64 noundef %82, i64 noundef 20) #31, !alias.scope !22
+  %83 = call ptr @__memcpy_chk(ptr noundef %79, ptr noundef %80, i64 noundef %82, i64 noundef 20) #31, !alias.scope !23
   %.val12.i = load ptr, ptr %3, align 8
   call void @gcry_md_close(ptr noundef %.val12.i)
   br label %tls_handshake_hash.exit
@@ -3553,9 +3553,9 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
 
 .thread257:                                       ; preds = %202
   %205 = load ptr, ptr %13, align 8
-  %206 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %205, i64 noundef %187, i64 noundef 16) #31, !alias.scope !26
+  %206 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %205, i64 noundef %187, i64 noundef 16) #31, !alias.scope !27
   %207 = getelementptr i8, ptr %205, i64 %187
-  %208 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %207, i64 noundef %187, i64 noundef 16) #31, !alias.scope !30
+  %208 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %207, i64 noundef %187, i64 noundef 16) #31, !alias.scope !31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #31
@@ -3849,7 +3849,7 @@ ssl_md_init.exit:                                 ; preds = %3
   %18 = load ptr, ptr %4, align 8
   %19 = call ptr @gcry_md_read(ptr noundef %18, i32 noundef %16)
   %20 = sext i32 %17 to i64
-  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %19, i64 noundef %20, i64 noundef 48) #31, !alias.scope !34
+  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %19, i64 noundef %20, i64 noundef 48) #31, !alias.scope !35
   %.val5 = load ptr, ptr %4, align 8
   call void @gcry_md_close(ptr noundef %.val5)
   %22 = zext i32 %17 to i64
@@ -3999,7 +3999,7 @@ ssl_md5_init.exit.i:                              ; preds = %ssl_md5_init.exit.s
   %53 = call ptr @gcry_md_read(ptr noundef %.val59.i, i32 noundef 2)
   %54 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2)
   %55 = zext i32 %54 to i64
-  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef %53, i64 noundef %55, i64 noundef 20) #31, !alias.scope !38
+  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef %53, i64 noundef %55, i64 noundef 20) #31, !alias.scope !39
   %.val62.i = load ptr, ptr %13, align 8
   call void @gcry_md_reset(ptr noundef %.val62.i)
   %57 = load i32, ptr %24, align 8
@@ -4015,7 +4015,7 @@ ssl_md5_init.exit.i:                              ; preds = %ssl_md5_init.exit.s
   %61 = call ptr @gcry_md_read(ptr noundef %.val51.i, i32 noundef 1)
   %62 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1)
   %63 = zext i32 %62 to i64
-  %64 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %61, i64 noundef %63, i64 noundef 16) #31, !alias.scope !42
+  %64 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %61, i64 noundef %63, i64 noundef 16) #31, !alias.scope !43
   %.val63.i = load ptr, ptr %12, align 8
   call void @gcry_md_reset(ptr noundef %.val63.i)
   %65 = load ptr, ptr %5, align 8
@@ -4028,7 +4028,7 @@ ssl_md5_init.exit.i:                              ; preds = %ssl_md5_init.exit.s
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #31
   %71 = add i32 %.03871.i, 16
   %72 = icmp ult i32 %71, %6
-  br i1 %72, label %30, label %ssl_md5_init.exit._crit_edge.i, !llvm.loop !46
+  br i1 %72, label %30, label %ssl_md5_init.exit._crit_edge.i, !llvm.loop !47
 
 ssl_md5_init.exit._crit_edge.i:                   ; preds = %ssl_md5_init.exit.i, %ssl_md5_init.exit.preheader.i
   %.val60.i = load ptr, ptr %13, align 8
@@ -4113,13 +4113,13 @@ ssl3_prf.exit:                                    ; preds = %ssl_sha_init.exit.i
   %105 = trunc i64 %98 to i32
   %106 = icmp ne i64 %98, -1
   tail call void @llvm.assume(i1 %106)
-  %107 = tail call ptr @__memcpy_chk(ptr noundef %99, ptr noundef readonly %2, i64 noundef %75, i64 noundef %98) #31, !alias.scope !47
+  %107 = tail call ptr @__memcpy_chk(ptr noundef %99, ptr noundef readonly %2, i64 noundef %75, i64 noundef %98) #31, !alias.scope !48
   %108 = getelementptr i8, ptr %99, i64 %75
   %109 = load ptr, ptr %3, align 8
   %110 = load i32, ptr %94, align 8
   %111 = zext i32 %110 to i64
   %112 = tail call i64 @llvm.usub.sat.i64(i64 %98, i64 %75)
-  %113 = tail call ptr @__memcpy_chk(ptr noundef %108, ptr noundef %109, i64 noundef %111, i64 noundef %112) #31, !alias.scope !51
+  %113 = tail call ptr @__memcpy_chk(ptr noundef %108, ptr noundef %109, i64 noundef %111, i64 noundef %112) #31, !alias.scope !52
   %.not56.i = icmp eq i64 %81, 0
   br i1 %.not56.i, label %123, label %114
 
@@ -4131,7 +4131,7 @@ ssl3_prf.exit:                                    ; preds = %ssl_sha_init.exit.i
   %119 = load i32, ptr %118, align 8
   %120 = zext i32 %119 to i64
   %121 = tail call i64 @llvm.usub.sat.i64(i64 %98, i64 %115)
-  %122 = tail call ptr @__memcpy_chk(ptr noundef %116, ptr noundef %117, i64 noundef %120, i64 noundef %121) #31, !alias.scope !55
+  %122 = tail call ptr @__memcpy_chk(ptr noundef %116, ptr noundef %117, i64 noundef %120, i64 noundef %121) #31, !alias.scope !56
   br label %123
 
 123:                                              ; preds = %114, %104
@@ -4210,7 +4210,7 @@ ssl3_prf.exit:                                    ; preds = %ssl_sha_init.exit.i
   store i8 %155, ptr %157, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i35, label %150, !llvm.loop !59
+  br i1 %exitcond.not.i, label %._crit_edge.i35, label %150, !llvm.loop !60
 
 ._crit_edge.i35:                                  ; preds = %150, %.preheader.i
   %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count.i, %150 ]
@@ -4328,7 +4328,7 @@ ssl_md5_init.exit:                                ; preds = %4
   %19 = call ptr @gcry_md_read(ptr noundef %.val9, i32 noundef 1)
   %20 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1)
   %21 = zext i32 %20 to i64
-  %22 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %19, i64 noundef %21, i64 noundef 16) #31, !alias.scope !60
+  %22 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %19, i64 noundef %21, i64 noundef 16) #31, !alias.scope !61
   %.val10 = load ptr, ptr %5, align 8
   call void @gcry_md_close(ptr noundef %.val10)
   %23 = load ptr, ptr %2, align 8
@@ -4414,7 +4414,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   %22 = icmp samesign ult i64 %.02936, 15
   %23 = icmp ult i64 %20, %2
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %14, label %.preheader34, !llvm.loop !64
+  br i1 %24, label %14, label %.preheader34, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %.preheader34, %.lr.ph
   %.137 = phi i64 [ %27, %.lr.ph ], [ %21, %.preheader34 ]
@@ -4422,7 +4422,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   %26 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.706)
   %27 = add nuw nsw i64 %.137, 1
   %28 = icmp samesign ult i64 %.137, 15
-  br i1 %28, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !65
+  br i1 %28, label %.lr.ph, label %.lr.ph41.preheader, !llvm.loop !66
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph, %.preheader34
   %29 = load ptr, ptr @ssl_debug_file, align 8
@@ -4452,7 +4452,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   %43 = add nuw i64 %.13138, 1
   %44 = add nuw nsw i64 %.239, 1
   %exitcond.not = icmp eq i64 %.239, %umin
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph41, !llvm.loop !66
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph41, !llvm.loop !67
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %.342 = phi i64 [ %47, %.lr.ph43 ], [ %11, %.preheader ]
@@ -4460,7 +4460,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   %46 = tail call i32 @fputc(i32 noundef 32, ptr noundef %45)
   %47 = add nuw nsw i64 %.342, 1
   %exitcond50.not = icmp eq i64 %47, 16
-  br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !67
+  br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !68
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %.preheader
   %48 = load ptr, ptr @ssl_debug_file, align 8
@@ -4468,7 +4468,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   %50 = add i64 %.045, 16
   %51 = icmp ult i64 %50, %2
   %indvars.iv.next = add i64 %indvars.iv, -16
-  br i1 %51, label %10, label %.loopexit, !llvm.loop !68
+  br i1 %51, label %10, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %._crit_edge44, %5, %3
   ret void
@@ -4509,7 +4509,7 @@ ssl_data_set.exit:                                ; preds = %17
   %24 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %23, i32 1
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = tail call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %3, i64 noundef %26, i64 noundef 172) #31, !alias.scope !69
+  %27 = tail call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %3, i64 noundef %26, i64 noundef 172) #31, !alias.scope !70
   br label %.sink.split
 
 28:                                               ; preds = %8
@@ -4538,7 +4538,7 @@ ssl_data_set.exit:                                ; preds = %17
 
 ssl_data_set.exit68:                              ; preds = %32
   %36 = zext nneg i32 %7 to i64
-  %37 = tail call ptr @__memcpy_chk(ptr noundef nonnull %33, ptr noundef nonnull readonly %6, i64 noundef %36, i64 noundef 172) #31, !alias.scope !73
+  %37 = tail call ptr @__memcpy_chk(ptr noundef nonnull %33, ptr noundef nonnull readonly %6, i64 noundef %36, i64 noundef 172) #31, !alias.scope !74
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ssl_data_set.exit, %ssl_data_set.exit68
@@ -5245,7 +5245,7 @@ switch.early.test205.i:                           ; preds = %58
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %161 = load i8, ptr %160, align 4, !range !77, !noundef !78
+  %161 = load i8, ptr %160, align 4, !range !78, !noundef !79
   %162 = trunc nuw i8 %161 to i1
   %163 = zext i8 %8 to i32
   %164 = call ptr @wmem_packet_scope()
@@ -5300,7 +5300,7 @@ switch.early.test205.i:                           ; preds = %58
   %200 = getelementptr i8, ptr %168, i64 11
   %201 = zext i8 %8 to i64
   %202 = add nsw i64 %167, -11
-  %203 = call ptr @__memcpy_chk(ptr noundef %200, ptr noundef readonly %7, i64 noundef %201, i64 noundef %202) #31, !alias.scope !79
+  %203 = call ptr @__memcpy_chk(ptr noundef %200, ptr noundef readonly %7, i64 noundef %201, i64 noundef %202) #31, !alias.scope !80
   %204 = getelementptr i8, ptr %168, i64 %201
   %205 = getelementptr i8, ptr %204, i64 11
   store i8 %8, ptr %205, align 1
@@ -5369,7 +5369,7 @@ switch.early.test205.i:                           ; preds = %58
   %251 = getelementptr i8, ptr %215, i64 21
   %252 = zext i8 %8 to i64
   %253 = add nsw i64 %214, -21
-  %254 = call ptr @__memcpy_chk(ptr noundef %251, ptr noundef readonly %7, i64 noundef %252, i64 noundef %253) #31, !alias.scope !83
+  %254 = call ptr @__memcpy_chk(ptr noundef %251, ptr noundef readonly %7, i64 noundef %252, i64 noundef %253) #31, !alias.scope !84
   %255 = getelementptr i8, ptr %251, i64 %252
   %256 = lshr i32 %.0189234.i, 8
   %257 = trunc i32 %256 to i8
@@ -6121,7 +6121,7 @@ ssl_md_init.exit:                                 ; preds = %5
   %59 = load ptr, ptr %6, align 8
   %60 = call ptr @gcry_md_read(ptr noundef %59, i32 noundef %57)
   %61 = sext i32 %58 to i64
-  %62 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %60, i64 noundef %61, i64 noundef 20) #31, !alias.scope !87
+  %62 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %60, i64 noundef %61, i64 noundef 20) #31, !alias.scope !88
   %.val30 = load ptr, ptr %6, align 8
   call void @gcry_md_reset(ptr noundef %.val30)
   %63 = load ptr, ptr %23, align 8
@@ -6140,7 +6140,7 @@ ssl_md_init.exit:                                 ; preds = %5
   %70 = load ptr, ptr %6, align 8
   %71 = call ptr @gcry_md_read(ptr noundef %70, i32 noundef %68)
   %72 = sext i32 %69 to i64
-  %73 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %71, i64 noundef %72, i64 noundef 20) #31, !alias.scope !91
+  %73 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %71, i64 noundef %72, i64 noundef 20) #31, !alias.scope !92
   %.val28 = load ptr, ptr %6, align 8
   call void @gcry_md_close(ptr noundef %.val28)
   %74 = zext i32 %69 to i64
@@ -6269,7 +6269,7 @@ ssl_hmac_final.exit:                              ; preds = %28
   %64 = load ptr, ptr %7, align 8
   %65 = call ptr @gcry_md_read(ptr noundef %64, i32 noundef %61)
   %66 = zext nneg i32 %62 to i64
-  %67 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %65, i64 noundef %66, i64 noundef 48) #31, !alias.scope !95
+  %67 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef %65, i64 noundef %66, i64 noundef 48) #31, !alias.scope !96
   %.val23 = load ptr, ptr %7, align 8
   call void @gcry_md_close(ptr noundef %.val23)
   call void @ssl_print_data(ptr noundef nonnull @.str.1272, ptr noundef nonnull %8, i64 noundef %66)
@@ -6343,7 +6343,7 @@ ssl_hmac_setkey.exit:                             ; preds = %26
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %43 = load i8, ptr %42, align 4, !range !77, !noundef !78
+  %43 = load i8, ptr %42, align 4, !range !78, !noundef !79
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %70, label %45
 
@@ -6443,7 +6443,7 @@ ssl_hmac_setkey.exit:                             ; preds = %26
 
 95:                                               ; preds = %70
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %97 = load i8, ptr %96, align 4, !range !77, !noundef !78
+  %97 = load i8, ptr %96, align 4, !range !78, !noundef !79
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %101
 
@@ -6479,7 +6479,7 @@ ssl_hmac_final.exit:                              ; preds = %101
   %107 = load ptr, ptr %9, align 8
   %108 = call ptr @gcry_md_read(ptr noundef %107, i32 noundef %104)
   %109 = zext nneg i32 %105 to i64
-  %110 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef %108, i64 noundef %109, i64 noundef 48) #31, !alias.scope !99
+  %110 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef %108, i64 noundef %109, i64 noundef 48) #31, !alias.scope !100
   %.val56 = load ptr, ptr %9, align 8
   call void @gcry_md_close(ptr noundef %.val56)
   call void @ssl_print_data(ptr noundef nonnull @.str.1272, ptr noundef nonnull %10, i64 noundef %109)
@@ -7057,7 +7057,7 @@ tls_add_packet_info.exit:                         ; preds = %8, %12
   %39 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  br i1 %.not, label %41, label %38, !llvm.loop !103
+  br i1 %.not, label %41, label %38, !llvm.loop !104
 
 41:                                               ; preds = %38
   store ptr %23, ptr %.0, align 8
@@ -7099,7 +7099,7 @@ define hidden ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %1, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %.01521, i64 40
   %.015 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %.015, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !104
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !105
 
 .loopexit:                                        ; preds = %18, %.preheader, %6, %13
   %.0 = phi ptr [ %17, %13 ], [ null, %6 ], [ null, %.preheader ], [ null, %18 ]
@@ -7203,7 +7203,7 @@ define internal i32 @ssl_hash(ptr noundef readonly captures(none) %0) #16 {
   %8 = add nuw i32 %.0811, 4
   %9 = getelementptr i8, ptr %.012, i64 4
   %10 = icmp ult i32 %8, %3
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.09.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -7568,7 +7568,7 @@ define hidden void @ssl_finalize_decryption(ptr noundef %0, ptr noundef readonly
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  %23 = load i8, ptr %22, align 4, !range !77, !noundef !78
+  %23 = load i8, ptr %22, align 4, !range !78, !noundef !79
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
@@ -7676,7 +7676,7 @@ define internal fastcc void @ssl_save_master_key(ptr noundef %0, ptr noundef %1,
 ssl_data_clone.exit:                              ; preds = %14
   %23 = load i32, ptr %5, align 8
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef nonnull readonly %21, i64 noundef %24, i64 noundef %17) #31, !alias.scope !106
+  %25 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef nonnull readonly %21, i64 noundef %24, i64 noundef %17) #31, !alias.scope !107
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %23, ptr %26, align 8
   %27 = tail call ptr @wmem_file_scope()
@@ -7697,7 +7697,7 @@ ssl_data_clone.exit:                              ; preds = %14
 ssl_data_clone.exit13:                            ; preds = %ssl_data_clone.exit
   %35 = load i32, ptr %10, align 8
   %36 = zext i32 %35 to i64
-  %37 = tail call ptr @__memcpy_chk(ptr noundef %32, ptr noundef nonnull readonly %33, i64 noundef %36, i64 noundef %29) #31, !alias.scope !110
+  %37 = tail call ptr @__memcpy_chk(ptr noundef %32, ptr noundef nonnull readonly %33, i64 noundef %36, i64 noundef %29) #31, !alias.scope !111
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %35, ptr %38, align 8
   %39 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %19, ptr noundef %31)
@@ -7877,7 +7877,7 @@ define hidden void @tls13_change_key(ptr noundef %0, ptr noundef readonly captur
 ssl_data_set.exit:                                ; preds = %21
   %28 = load i32, ptr %22, align 8
   %29 = zext i32 %28 to i64
-  %30 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef nonnull readonly %26, i64 noundef %29, i64 noundef %24) #31, !alias.scope !114
+  %30 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef nonnull readonly %26, i64 noundef %29, i64 noundef %24) #31, !alias.scope !115
   br label %.sink.split
 
 31:                                               ; preds = %15
@@ -8031,7 +8031,7 @@ define hidden void @tls_save_crandom(ptr noundef readonly captures(address_is_nu
 ssl_data_clone.exit:                              ; preds = %7
   %20 = load i32, ptr %12, align 8
   %21 = zext i32 %20 to i64
-  %22 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef nonnull readonly %18, i64 noundef %21, i64 noundef %14) #31, !alias.scope !118
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef nonnull readonly %18, i64 noundef %21, i64 noundef %14) #31, !alias.scope !119
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %20, ptr %23, align 8
   %24 = tail call i32 @g_hash_table_add(ptr noundef %9, ptr noundef %16)
@@ -8284,7 +8284,7 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %58
   store i8 %126, ptr %128, align 1
   %129 = add nuw nsw i64 %.02026.i, 1
   %exitcond.not.i = icmp eq i64 %129, %112
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %123, %110
   %130 = trunc i64 %108 to i32
@@ -8351,7 +8351,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   store i8 %161, ptr %163, align 1
   %164 = add nuw nsw i64 %.02026.i100, 1
   %exitcond.not.i102 = icmp eq i64 %164, %147
-  br i1 %exitcond.not.i102, label %._crit_edge.i103, label %.lr.ph.i99, !llvm.loop !17
+  br i1 %exitcond.not.i102, label %._crit_edge.i103, label %.lr.ph.i99, !llvm.loop !18
 
 ._crit_edge.i103:                                 ; preds = %158, %145
   %165 = trunc i64 %143 to i32
@@ -8364,7 +8364,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   call void @g_free(ptr noundef %137)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.thread122, label %133, !llvm.loop !122
+  br i1 %exitcond.not, label %.thread122, label %133, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph.i99, %140, %._crit_edge.i103
   call void @g_free(ptr noundef nonnull %137)
@@ -8399,7 +8399,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
   %178 = icmp ne ptr %.173, null
   %179 = icmp ult ptr %.173, %67
   %180 = and i1 %178, %179
-  br i1 %180, label %72, label %.loopexit129, !llvm.loop !123
+  br i1 %180, label %72, label %.loopexit129, !llvm.loop !124
 
 .loopexit129:                                     ; preds = %176, %64, %ssl_compile_keyfile_regex.exit.thread, %ssl_compile_keyfile_regex.exit
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #31
@@ -8547,7 +8547,7 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %11
   %44 = load ptr, ptr %1, align 8
   %45 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1110, ptr noundef %44)
   %.not29 = icmp eq ptr %45, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 46:                                               ; preds = %.thread36, %ssl_compile_keyfile_regex.exit.thread, %ssl_compile_keyfile_regex.exit, %28, %8
   ret void
@@ -9006,7 +9006,7 @@ define hidden void @ssl_dissect_change_cipher_spec(ptr noundef %0, ptr noundef %
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  %29 = load i8, ptr %28, align 4, !range !77, !noundef !78
+  %29 = load i8, ptr %28, align 4, !range !78, !noundef !79
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %38
 
@@ -9040,7 +9040,7 @@ define hidden void @ssl_dissect_change_cipher_spec(ptr noundef %0, ptr noundef %
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  %42 = load i8, ptr %41, align 4, !range !77, !noundef !78
+  %42 = load i8, ptr %41, align 4, !range !78, !noundef !79
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %47
 
@@ -9102,7 +9102,7 @@ define hidden noundef i32 @tls_dissect_hnd_certificate_status(ptr noundef %0, pt
   %.132 = phi i32 [ %25, %.lr.ph ], [ %21, %20 ]
   %25 = call fastcc i32 @tls_dissect_ocsp_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.132, i32 noundef %23)
   %26 = icmp ult i32 %25, %23
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !124
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %6, %14, %16
   %.0 = phi i32 [ %5, %16 ], [ %12, %6 ], [ %15, %14 ], [ %21, %20 ], [ %25, %.lr.ph ]
@@ -9313,7 +9313,7 @@ tls_dissect_sct.exit:                             ; preds = %37, %ssl_dissect_di
 ssl_end_vector.exit:                              ; preds = %.thread, %87, %89, %82
   %94 = phi i32 [ %40, %82 ], [ %40, %89 ], [ %40, %.thread ], [ %.0.i, %87 ]
   %95 = icmp ult i32 %94, %5
-  br i1 %95, label %32, label %.loopexit, !llvm.loop !125
+  br i1 %95, label %32, label %.loopexit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %32, %ssl_end_vector.exit, %17, %7
   %.0 = phi i32 [ %5, %7 ], [ %18, %17 ], [ %5, %32 ], [ %94, %ssl_end_vector.exit ]
@@ -9473,7 +9473,7 @@ define hidden i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #31
   %113 = add i32 %99, 4
   %.not.i.i.i = icmp ugt i32 %113, %90
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !126
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !128
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %87
   %.062.lcssa.i.i.i = phi i32 [ %88, %87 ], [ %99, %.lr.ph.i.i.i ]
@@ -9557,7 +9557,7 @@ dissect_ech_echconfig.exit:                       ; preds = %dissect_ech_echconf
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #31
   %154 = add i32 %.pre-phi, %153
   %155 = icmp ult i32 %154, %24
-  br i1 %155, label %52, label %._crit_edge, !llvm.loop !127
+  br i1 %155, label %52, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %dissect_ech_echconfig.exit, %21
   %.027.lcssa = phi i32 [ %22, %21 ], [ %154, %dissect_ech_echconfig.exit ]
@@ -10087,7 +10087,7 @@ tls_scan_client_hello.exit.thread:                ; preds = %.lr.ph.i, %82, %78,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #31
   %165 = add i32 %146, 2
   %.not248 = icmp ugt i32 %165, %133
-  br i1 %.not248, label %._crit_edge, label %145, !llvm.loop !128
+  br i1 %.not248, label %._crit_edge, label %145, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %164, %130
   %.3.lcssa = phi i32 [ %131, %130 ], [ %146, %164 ]
@@ -10169,7 +10169,7 @@ ssl_end_vector.exit:                              ; preds = %175, %167, %173
 213:                                              ; preds = %209, %211, %203
   %214 = add i32 %.5271, 1
   %exitcond.not = icmp eq i32 %214, %188
-  br i1 %exitcond.not, label %._crit_edge274, label %199, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge274, label %199, !llvm.loop !131
 
 ._crit_edge274:                                   ; preds = %213, %185
   %.5.lcssa = phi i32 [ %186, %185 ], [ %188, %213 ]
@@ -10216,7 +10216,7 @@ ssl_end_vector.exit:                              ; preds = %175, %167, %173
   %232 = load i32, ptr %11, align 4
   %233 = call ptr @val_to_str_const(i32 noundef %232, ptr noundef nonnull @ssl_version_ja4_names, ptr noundef nonnull @.str.749)
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %22, ptr noundef nonnull @.str.748, ptr noundef %233)
-  %234 = load i8, ptr %27, align 4, !range !77, !noundef !78
+  %234 = load i8, ptr %27, align 4, !range !78, !noundef !79
   %235 = trunc nuw i8 %234 to i1
   %236 = select i1 %235, ptr @.str.747, ptr @.str.750
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %22, ptr noundef nonnull @.str.748, ptr noundef nonnull %236)
@@ -10295,7 +10295,7 @@ ssl_end_vector.exit:                              ; preds = %175, %167, %173
   %268 = add nuw i32 %.0227277, 1
   %269 = call i32 @wmem_list_count(ptr noundef %253)
   %270 = icmp ult i32 %268, %269
-  br i1 %270, label %.lr.ph279, label %._crit_edge280, !llvm.loop !130
+  br i1 %270, label %.lr.ph279, label %._crit_edge280, !llvm.loop !132
 
 ._crit_edge285:                                   ; preds = %280, %._crit_edge280
   %271 = load ptr, ptr %41, align 8
@@ -10324,7 +10324,7 @@ ssl_end_vector.exit:                              ; preds = %175, %167, %173
   %282 = add nuw i32 %.0226282, 1
   %283 = call i32 @wmem_list_count(ptr noundef %256)
   %284 = icmp ult i32 %282, %283
-  br i1 %284, label %.lr.ph284, label %._crit_edge285, !llvm.loop !131
+  br i1 %284, label %.lr.ph284, label %._crit_edge285, !llvm.loop !133
 
 285:                                              ; preds = %._crit_edge285
   call void @wmem_strbuf_append(ptr noundef %26, ptr noundef nonnull @.str.755)
@@ -10354,7 +10354,7 @@ ssl_end_vector.exit:                              ; preds = %175, %167, %173
   %297 = add nuw i32 %.0287, 1
   %298 = call i32 @wmem_list_count(ptr noundef %271)
   %299 = icmp ult i32 %297, %298
-  br i1 %299, label %.lr.ph289, label %.loopexit, !llvm.loop !132
+  br i1 %299, label %.lr.ph289, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %295, %285, %._crit_edge285
   %300 = call ptr @wmem_strbuf_get_str(ptr noundef %24)
@@ -10569,7 +10569,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr noundef %0,
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %50 = load i8, ptr %49, align 8, !range !77, !noundef !78
+  %50 = load i8, ptr %49, align 8, !range !78, !noundef !79
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %.thread
 
@@ -11157,7 +11157,7 @@ define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr nounde
   %353 = load ptr, ptr %131, align 8
   %354 = load ptr, ptr %65, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %353, i32 noundef 25, ptr noundef nonnull @.str.1663, ptr noundef %354)
-  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 1, !range !77, !noundef !78
+  %355 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 1, !range !78, !noundef !79
   %356 = trunc nuw i8 %355 to i1
   br i1 %356, label %357, label %372
 
@@ -11373,7 +11373,7 @@ ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %397, %400
   %459 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %458, ptr noundef %1, i32 noundef %.03135.i, i32 noundef 2, i32 noundef 0)
   %460 = add i32 %457, 2
   %.not.i = icmp ugt i32 %460, %323
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i435, !llvm.loop !133
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i435, !llvm.loop !135
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i435, %445
   %.031.lcssa.i = phi i32 [ %446, %445 ], [ %457, %.lr.ph.i435 ]
@@ -11572,7 +11572,7 @@ ssl_dissect_hnd_ech_outer_ext.exit:               ; preds = %442, %462, %467, %4
 
 568:                                              ; preds = %566
   %569 = load ptr, ptr %55, align 8
-  %570 = load i8, ptr %248, align 1, !range !77, !noundef !78
+  %570 = load i8, ptr %248, align 1, !range !78, !noundef !79
   %571 = trunc nuw i8 %570 to i1
   br i1 %571, label %577, label %572
 
@@ -11656,7 +11656,7 @@ ssl_dissect_hnd_ech_outer_ext.exit:               ; preds = %442, %462, %467, %4
   br i1 %.not31.i, label %629, label %621
 
 621:                                              ; preds = %620
-  %622 = load i8, ptr %248, align 1, !range !77, !noundef !78
+  %622 = load i8, ptr %248, align 1, !range !78, !noundef !79
   %623 = trunc nuw i8 %622 to i1
   br i1 %623, label %629, label %624
 
@@ -11913,20 +11913,20 @@ ssl_dissect_hnd_ech_outer_ext.exit:               ; preds = %442, %462, %467, %4
   %812 = zext i16 %811 to i32
   %813 = sub i32 %14, %812
   %814 = icmp ugt i32 %813, 3
-  br i1 %814, label %.lr.ph, label %.loopexit, !llvm.loop !134
+  br i1 %814, label %.lr.ph, label %.loopexit, !llvm.loop !136
 
 .loopexit:                                        ; preds = %807, %.preheader, %789
   %.2.i = phi i16 [ %806, %789 ], [ %.0307.i543, %.preheader ], [ %811, %807 ]
   %815 = add i32 %.2310.i541, 2
   %816 = sub i32 %775, %815
   %817 = icmp ugt i32 %816, 1
-  br i1 %817, label %.preheader, label %.loopexit517, !llvm.loop !135
+  br i1 %817, label %.preheader, label %.loopexit517, !llvm.loop !137
 
 .loopexit517:                                     ; preds = %.loopexit, %758, %755, %736
   %.1309.i = phi i32 [ %754, %736 ], [ %.0308.i545, %755 ], [ %764, %758 ], [ %815, %.loopexit ]
   %818 = sub i32 %732, %.1309.i
   %819 = icmp ugt i32 %818, 3
-  br i1 %819, label %.lr.ph546, label %.split312.i, !llvm.loop !136
+  br i1 %819, label %.lr.ph546, label %.split312.i, !llvm.loop !138
 
 .split312.i:                                      ; preds = %.loopexit517, %659
   %820 = load i32, ptr %256, align 8
@@ -11992,7 +11992,7 @@ ssl_dissect_hnd_ech_outer_ext.exit:               ; preds = %442, %462, %467, %4
 863:                                              ; preds = %474
   %864 = load i32, ptr %230, align 4
   %865 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %864, ptr noundef %1, i32 noundef %321, i32 noundef 8, i32 noundef 0)
-  %866 = load i8, ptr %231, align 8, !range !77, !noundef !78
+  %866 = load i8, ptr %231, align 8, !range !78, !noundef !79
   %867 = trunc nuw i8 %866 to i1
   br i1 %867, label %868, label %880
 
@@ -12100,7 +12100,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %550, %474, %475, %4
   %.185.us.i = phi ptr [ %910, %908 ], [ %.084115.us.i, %905 ], [ %.084115.us.i, %900 ]
   %912 = add i32 %903, %901
   %913 = icmp ult i32 %912, %892
-  br i1 %913, label %.lr.ph.split.us.i, label %._crit_edge.i441, !llvm.loop !137
+  br i1 %913, label %.lr.ph.split.us.i, label %._crit_edge.i441, !llvm.loop !139
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i440, %954
   %.083116.i = phi i32 [ %955, %954 ], [ %890, %.lr.ph.i440 ]
@@ -12177,7 +12177,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %550, %474, %475, %4
   %.185.i = phi ptr [ %950, %948 ], [ %.084115.i, %951 ], [ %.084115.i, %947 ]
   %955 = add i32 %919, %917
   %956 = icmp ult i32 %955, %892
-  br i1 %956, label %.lr.ph.split.i, label %._crit_edge.i441, !llvm.loop !139
+  br i1 %956, label %.lr.ph.split.i, label %._crit_edge.i441, !llvm.loop !141
 
 ._crit_edge.i441:                                 ; preds = %954, %911
   %.087.lcssa.i = phi ptr [ %.188.us.i, %911 ], [ %.188.i, %954 ]
@@ -12204,7 +12204,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %550, %474, %475, %4
   br i1 %966, label %.preheader.i, label %.thread105.i
 
 967:                                              ; preds = %.preheader.i
-  br i1 %968, label %.preheader.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, !llvm.loop !140
+  br i1 %968, label %.preheader.i, label %ssl_dissect_hnd_hello_ext_alpn.exit, !llvm.loop !142
 
 .preheader.i:                                     ; preds = %963, %967
   %968 = phi i1 [ false, %967 ], [ true, %963 ]
@@ -12270,7 +12270,7 @@ ssl_dissect_hnd_hello_ext_alpn.exit:              ; preds = %.lr.ph.split.i, %.l
   %.01921.i = phi i32 [ %992, %.lr.ph.i444 ], [ %988, %987 ]
   %992 = call fastcc i32 @ssl_dissect_hnd_hello_ext_status_request(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %306, i32 noundef %.01921.i, i32 noundef %990, i1 noundef zeroext true)
   %993 = icmp ult i32 %992, %990
-  br i1 %993, label %.lr.ph.i444, label %ssl_dissect_hnd_hello_ext_status_request_v2.exit, !llvm.loop !141
+  br i1 %993, label %.lr.ph.i444, label %ssl_dissect_hnd_hello_ext_status_request_v2.exit, !llvm.loop !143
 
 ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i444, %984, %987
   %.0.i443 = phi i32 [ %323, %984 ], [ %988, %987 ], [ %992, %.lr.ph.i444 ]
@@ -12354,7 +12354,7 @@ ssl_dissect_hnd_hello_ext_status_request_v2.exit: ; preds = %.lr.ph.i444, %984, 
   %1025 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %1024, ptr noundef %1, i32 noundef %.0191.i, i32 noundef 2, i32 noundef 0)
   %1026 = add i32 %.0191.i, 2
   %1027 = icmp ult i32 %1026, %1022
-  br i1 %1027, label %.lr.ph.i446, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, !llvm.loop !142
+  br i1 %1027, label %.lr.ph.i446, label %ssl_dissect_hnd_hello_ext_compress_certificate.exit, !llvm.loop !144
 
 ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i446, %1015, %1016, %1019
   %.0.i445 = phi i32 [ %323, %1016 ], [ %321, %1015 ], [ %1020, %1019 ], [ %1026, %.lr.ph.i446 ]
@@ -12395,7 +12395,7 @@ ssl_dissect_hnd_hello_ext_compress_certificate.exit: ; preds = %.lr.ph.i446, %10
   %1050 = call ptr @proto_tree_add_item(ptr noundef %1047, i32 noundef %1049, ptr noundef %1, i32 noundef %.0422.i, i32 noundef 1, i32 noundef 0)
   %1051 = add i32 %.0422.i, 1
   %exitcond.not.i = icmp eq i32 %1051, %1041
-  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %.lr.ph.i449, !llvm.loop !143
+  br i1 %exitcond.not.i, label %ssl_dissect_hnd_hello_ext_token_binding.exit, label %.lr.ph.i449, !llvm.loop !145
 
 ._crit_edge.i448:                                 ; preds = %1038
   %1052 = icmp ugt i32 %1039, %1041
@@ -12850,7 +12850,7 @@ ssl_end_vector.exit.thread14.i:                   ; preds = %1096
   %1287 = load i32, ptr %44, align 4
   %1288 = lshr i32 %1287, 2
   %1289 = icmp samesign ult i32 %1286, %1288
-  br i1 %1289, label %.lr.ph25.i, label %._crit_edge.i454, !llvm.loop !144
+  br i1 %1289, label %.lr.ph25.i, label %._crit_edge.i454, !llvm.loop !146
 
 ._crit_edge.i454:                                 ; preds = %.lr.ph25.i, %1279
   %.7.lcssa.i = phi i32 [ %1282, %1279 ], [ %1285, %.lr.ph25.i ]
@@ -12905,7 +12905,7 @@ ssl_end_vector.exit.thread14.i:                   ; preds = %1096
   %1316 = add i32 %.121.i, 4
   %.8.i = add i32 %.822.i, 4
   %1317 = icmp ult i32 %1316, %1109
-  br i1 %1317, label %.lr.ph.i453, label %.loopexit.i, !llvm.loop !145
+  br i1 %1317, label %.lr.ph.i453, label %.loopexit.i, !llvm.loop !147
 
 1318:                                             ; preds = %1119
   call void @quic_add_grease_quic_bit(ptr noundef %3)
@@ -12978,7 +12978,7 @@ ssl_end_vector.exit.i452:                         ; preds = %1346, %1344, %1339,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #31
   %1351 = icmp ult i32 %.4347.i, %.0350.i
-  br i1 %1351, label %.lr.ph28.i, label %ssl_dissect_hnd_ext_delegated_credentials.exit, !llvm.loop !146
+  br i1 %1351, label %.lr.ph28.i, label %ssl_dissect_hnd_ext_delegated_credentials.exit, !llvm.loop !148
 
 1352:                                             ; preds = %320
   %1353 = icmp ne i32 %322, 0
@@ -13047,7 +13047,7 @@ ssl_dissect_hnd_hello_ext_session_ticket.exit:    ; preds = %1352, %1354
   %.1.i461 = phi ptr [ @.str.1700, %1376 ], [ %.067.i, %.lr.ph.i460 ]
   %1378 = add i32 %1374, 4
   %.not62.i = icmp ugt i32 %1378, %1372
-  br i1 %.not62.i, label %._crit_edge.i462, label %.lr.ph.i460, !llvm.loop !147
+  br i1 %.not62.i, label %._crit_edge.i462, label %.lr.ph.i460, !llvm.loop !149
 
 ._crit_edge.i462:                                 ; preds = %1377, %1369
   %.052.lcssa.i = phi i32 [ %1370, %1369 ], [ %1374, %1377 ]
@@ -13352,7 +13352,7 @@ tls_try_get_version.exit.i:                       ; preds = %.thread30.i.i, %148
 1508:                                             ; preds = %1506, %1501, %1497
   %1509 = add i32 %1463, 2
   %.not.i471 = icmp ugt i32 %1509, %1461
-  br i1 %.not.i471, label %._crit_edge.i472, label %.lr.ph.i469, !llvm.loop !148
+  br i1 %.not.i471, label %._crit_edge.i472, label %.lr.ph.i469, !llvm.loop !150
 
 ._crit_edge.i472:                                 ; preds = %1508
   %1510 = icmp ne i32 %.157.i, 0
@@ -13456,7 +13456,7 @@ ssl_dissect_hnd_hello_ext_cookie.exit:            ; preds = %1538, %1541
   %1556 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %1555, ptr noundef %1, i32 noundef %.01819.i, i32 noundef 1, i32 noundef 0)
   %1557 = add i32 %.01819.i, 1
   %exitcond.not.i479 = icmp eq i32 %1557, %1553
-  br i1 %exitcond.not.i479, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %.lr.ph.i478, !llvm.loop !149
+  br i1 %exitcond.not.i479, label %ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit, label %.lr.ph.i478, !llvm.loop !151
 
 ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i478, %1547, %1550
   %.0.i477 = phi i32 [ %323, %1547 ], [ %1551, %1550 ], [ %1553, %.lr.ph.i478 ]
@@ -13495,7 +13495,7 @@ ssl_dissect_hnd_hello_ext_psk_key_exchange_modes.exit: ; preds = %.lr.ph.i478, %
   %1574 = call ptr @proto_tree_add_item(ptr noundef %1566, i32 noundef %1572, ptr noundef %1, i32 noundef %1571, i32 noundef %1573, i32 noundef 0)
   %1575 = add i32 %1573, %1571
   %1576 = icmp ult i32 %1575, %323
-  br i1 %1576, label %.lr.ph.i482, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !150
+  br i1 %1576, label %.lr.ph.i482, label %ssl_dissect_hnd_hello_ext_npn.exit, !llvm.loop !152
 
 ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i482, %1570, %1562, %1564
   %.0.i481 = phi i32 [ %321, %1562 ], [ %321, %1564 ], [ %1575, %1570 ], [ %323, %.lr.ph.i482 ]
@@ -13536,7 +13536,7 @@ ssl_dissect_hnd_hello_ext_npn.exit:               ; preds = %.lr.ph.i482, %1570,
   %1596 = call ptr @proto_tree_add_item(ptr noundef %1588, i32 noundef %1594, ptr noundef %1, i32 noundef %1593, i32 noundef %1595, i32 noundef 0)
   %1597 = add i32 %1595, %1593
   %1598 = icmp ult i32 %1597, %1584
-  br i1 %1598, label %.lr.ph.i487, label %.loopexit.i485, !llvm.loop !151
+  br i1 %1598, label %.lr.ph.i487, label %.loopexit.i485, !llvm.loop !153
 
 .loopexit.i485:                                   ; preds = %1592, %.lr.ph.i487, %1581, %1578
   %.0.i486 = phi i32 [ %323, %1578 ], [ %1582, %1581 ], [ %1597, %1592 ], [ %1584, %.lr.ph.i487 ]
@@ -13765,7 +13765,7 @@ ssl_dissect_hnd_hello_ext_esni.exit:              ; preds = %1611, %1612, %1626,
   %1708 = add i32 %.0.i498, %.268.i
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %17) #31
   %1709 = icmp ult i32 %1708, %1676
-  br i1 %1709, label %.lr.ph.i497, label %.loopexit.i496, !llvm.loop !152
+  br i1 %1709, label %.lr.ph.i497, label %.loopexit.i496, !llvm.loop !154
 
 .loopexit.i496:                                   ; preds = %1706, %1677, %1673
   %.066.i = phi i32 [ %1674, %1673 ], [ %1674, %1677 ], [ %1708, %1706 ]
@@ -13828,7 +13828,7 @@ ssl_end_vector.exit:                              ; preds = %1723, %1000, %ssl_d
   %1739 = phi i32 [ %323, %1727 ], [ %323, %1734 ], [ %.1418, %1732 ], [ %323, %1577 ], [ %323, %1073 ], [ %323, %ssl_dissect_hnd_hello_ext_session_ticket.exit ], [ %323, %1000 ], [ %323, %1723 ]
   %1740 = sub i32 %83, %1739
   %1741 = icmp ugt i32 %1740, 3
-  br i1 %1741, label %283, label %._crit_edge, !llvm.loop !153
+  br i1 %1741, label %283, label %._crit_edge, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %ssl_end_vector.exit, %86
   %.0417.lcssa = phi i32 [ %81, %86 ], [ %1739, %ssl_end_vector.exit ]
@@ -14003,7 +14003,7 @@ define hidden void @ssl_dissect_hnd_srv_hello(ptr noundef %0, ptr noundef %1, pt
   %60 = getelementptr i8, ptr %.07.i.i, i64 20
   %61 = load i32, ptr %60, align 4
   %.not.i.i = icmp eq i32 %61, -1
-  br i1 %.not.i.i, label %ssl_find_cipher.exit.thread.i, label %56, !llvm.loop !8
+  br i1 %.not.i.i, label %ssl_find_cipher.exit.thread.i, label %56, !llvm.loop !9
 
 ssl_find_cipher.exit.i:                           ; preds = %56
   %.not.i = icmp eq ptr %.07.i.i, null
@@ -14164,7 +14164,7 @@ ssl_md_init.exit:                                 ; preds = %132, %134
   %144 = load ptr, ptr %14, align 8
   %145 = call ptr @gcry_md_read(ptr noundef %144, i32 noundef %142)
   %146 = sext i32 %143 to i64
-  %147 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %145, i64 noundef %146, i64 noundef 48) #31, !alias.scope !154
+  %147 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %145, i64 noundef %146, i64 noundef 48) #31, !alias.scope !156
   %.val239 = load ptr, ptr %14, align 8
   call void @gcry_md_close(ptr noundef %.val239)
   %148 = call ptr @wmem_file_scope()
@@ -14194,7 +14194,7 @@ ssl_md_init.exit:                                 ; preds = %132, %134
   %164 = select i1 %163, i64 0, i64 %162
   %165 = icmp ne i64 %164, -1
   call void @llvm.assume(i1 %165)
-  %166 = call ptr @__memcpy_chk(ptr noundef %160, ptr noundef nonnull %15, i64 noundef %161, i64 noundef %164) #31, !alias.scope !158
+  %166 = call ptr @__memcpy_chk(ptr noundef %160, ptr noundef nonnull %15, i64 noundef %161, i64 noundef %164) #31, !alias.scope !160
   %167 = call i32 @gcry_md_open(ptr noundef nonnull %14, i32 noundef %131, i32 noundef 0)
   %.not.i243 = icmp eq i32 %167, 0
   br i1 %.not.i243, label %ssl_md_init.exit245, label %168
@@ -14383,7 +14383,7 @@ ssl_md_init.exit245:                              ; preds = %140, %168
   %.1211 = phi i32 [ %258, %255 ], [ %269, %.lr.ph._crit_edge ]
   %271 = sub i32 %246, %.1211
   %272 = icmp ugt i32 %271, 3
-  br i1 %272, label %.lr.ph, label %.loopexit, !llvm.loop !162
+  br i1 %272, label %.lr.ph, label %.loopexit, !llvm.loop !164
 
 273:                                              ; preds = %.thread267, %200
   %274 = phi i32 [ %193, %.thread267 ], [ %223, %200 ]
@@ -14408,7 +14408,7 @@ ssl_md_init.exit245:                              ; preds = %140, %168
   %284 = load ptr, ptr %14, align 8
   %285 = call ptr @gcry_md_read(ptr noundef %284, i32 noundef %282)
   %286 = sext i32 %283 to i64
-  %287 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %285, i64 noundef %286, i64 noundef 48) #31, !alias.scope !163
+  %287 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %285, i64 noundef %286, i64 noundef 48) #31, !alias.scope !165
   %.val240 = load ptr, ptr %14, align 8
   call void @gcry_md_close(ptr noundef %.val240)
   %288 = load ptr, ptr %120, align 8
@@ -14872,7 +14872,7 @@ switch.early.test:                                ; preds = %49
 89:                                               ; preds = %87, %80
   %.6.us = phi i32 [ %88, %87 ], [ %85, %80 ]
   %90 = icmp ult i32 %.6.us, %.098
-  br i1 %90, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !167
+  br i1 %90, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !169
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %or.cond5 = and i1 %8, %30
@@ -14903,7 +14903,7 @@ switch.early.test:                                ; preds = %49
 102:                                              ; preds = %100, %93
   %.6.us117 = phi i32 [ %101, %100 ], [ %98, %93 ]
   %103 = icmp ult i32 %.6.us117, %.098
-  br i1 %103, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !168
+  br i1 %103, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !170
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %149
   %.4112 = phi i32 [ %.6, %149 ], [ %.3, %.lr.ph.split ]
@@ -15021,7 +15021,7 @@ ssl_find_private_key_by_pubkey.exit:              ; preds = %113, %117, %141
   %.6 = phi i32 [ %148, %147 ], [ %145, %143 ]
   %150 = add i32 %.099111, 1
   %151 = icmp ult i32 %.6, %.098
-  br i1 %151, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !169
+  br i1 %151, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !171
 
 .critedge109:                                     ; preds = %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #31
@@ -15124,7 +15124,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
   %52 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %1, i32 noundef %.4105, i32 noundef 1, i32 noundef 0)
   %53 = add nuw i32 %.4105, 1
   %exitcond.not = icmp eq i32 %53, %39
-  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !170
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %50, %36
   %.4.lcssa = phi i32 [ %37, %36 ], [ %39, %50 ]
@@ -15220,7 +15220,7 @@ define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr nounde
   tail call fastcc void @tls_dissect_signature_algorithm(ptr noundef %0, ptr noundef %1, ptr noundef %24, i32 noundef %.03237, ptr noundef %6)
   %27 = add i32 %26, 2
   %.not = icmp ugt i32 %27, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !171
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %.032.lcssa = phi i32 [ %13, %12 ], [ %26, %.lr.ph ]
@@ -15336,7 +15336,7 @@ proto_item_set_generated.exit:                    ; preds = %44
   %51 = add i32 %50, %47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   %52 = icmp ult i32 %51, %16
-  br i1 %52, label %29, label %.loopexit, !llvm.loop !172
+  br i1 %52, label %29, label %.loopexit, !llvm.loop !174
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit, %17, %proto_item_set_generated.exit.thread, %13, %6
   %.045 = phi i32 [ %5, %6 ], [ %14, %13 ], [ %16, %proto_item_set_generated.exit.thread ], [ %14, %17 ], [ %51, %proto_item_set_generated.exit ]
@@ -15425,7 +15425,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_oid_filters(ptr noundef %0
   %55 = phi i32 [ %.pre, %49 ], [ 0, %44 ]
   %56 = add i32 %55, %45
   %57 = icmp ult i32 %56, %18
-  br i1 %57, label %25, label %.loopexit, !llvm.loop !173
+  br i1 %57, label %25, label %.loopexit, !llvm.loop !175
 
 .loopexit:                                        ; preds = %25, %31, %54, %15, %6
   %.0 = phi i32 [ %5, %6 ], [ %16, %15 ], [ %18, %25 ], [ %18, %31 ], [ %56, %54 ]
@@ -15554,7 +15554,7 @@ define hidden void @ssl_dissect_hnd_cert_url(ptr noundef readonly captures(none)
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %37, ptr noundef %1, i32 noundef %36, i32 noundef 20, i32 noundef 0)
   %39 = add i32 %33, 21
   %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !174
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %20, %4
   ret void
@@ -16550,13 +16550,13 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
   %23 = trunc i64 %19 to i32
   %24 = icmp ne i64 %19, -1
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef %2, i64 noundef %14, i64 noundef %19) #31, !alias.scope !175
+  %25 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef %2, i64 noundef %14, i64 noundef %19) #31, !alias.scope !177
   %26 = getelementptr i8, ptr %20, i64 %14
   %27 = load ptr, ptr %3, align 8
   %28 = load i32, ptr %15, align 8
   %29 = zext i32 %28 to i64
   %30 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %14)
-  %31 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef %27, i64 noundef %29, i64 noundef %30) #31, !alias.scope !179
+  %31 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef %27, i64 noundef %29, i64 noundef %30) #31, !alias.scope !181
   %.not25 = icmp eq i64 %13, 0
   br i1 %.not25, label %41, label %32
 
@@ -16568,7 +16568,7 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   %39 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %33)
-  %40 = tail call ptr @__memcpy_chk(ptr noundef %34, ptr noundef %35, i64 noundef %38, i64 noundef %39) #31, !alias.scope !183
+  %40 = tail call ptr @__memcpy_chk(ptr noundef %34, ptr noundef %35, i64 noundef %38, i64 noundef %39) #31, !alias.scope !185
   br label %41
 
 41:                                               ; preds = %32, %22
@@ -16668,7 +16668,7 @@ ssl_hmac_final.exit:                              ; preds = %ssl_hmac_setkey.exi
   %31 = load ptr, ptr %7, align 8
   %32 = call ptr @gcry_md_read(ptr noundef %31, i32 noundef %28)
   %33 = zext nneg i32 %29 to i64
-  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %32, i64 noundef %33, i64 noundef 48) #31, !alias.scope !187
+  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %32, i64 noundef %33, i64 noundef 48) #31, !alias.scope !189
   %.val35 = load ptr, ptr %7, align 8
   call void @gcry_md_reset(ptr noundef %.val35)
   %35 = load ptr, ptr %0, align 8
@@ -16704,7 +16704,7 @@ ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.exi
   %46 = load ptr, ptr %7, align 8
   %47 = call ptr @gcry_md_read(ptr noundef %46, i32 noundef %43)
   %48 = zext nneg i32 %44 to i64
-  %49 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %47, i64 noundef %48, i64 noundef 48) #31, !alias.scope !191
+  %49 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %47, i64 noundef %48, i64 noundef 48) #31, !alias.scope !193
   %.val36 = load ptr, ptr %7, align 8
   call void @gcry_md_reset(ptr noundef %.val36)
   %50 = call i32 @llvm.umin.i32(i32 %.02811, i32 %44)
@@ -16713,7 +16713,7 @@ ssl_hmac_final.exit45:                            ; preds = %ssl_hmac_setkey.exi
   %52 = getelementptr i8, ptr %.02910, i64 %51
   %53 = sub i32 %.02811, %50
   %.not30 = icmp eq i32 %53, 0
-  br i1 %.not30, label %ssl_hmac_init.exit._crit_edge, label %18, !llvm.loop !195
+  br i1 %.not30, label %ssl_hmac_init.exit._crit_edge, label %18, !llvm.loop !197
 
 ssl_hmac_init.exit._crit_edge:                    ; preds = %ssl_hmac_final.exit45, %ssl_hmac_init.exit.preheader
   %.val37 = load ptr, ptr %7, align 8
@@ -17153,7 +17153,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_cert_type(ptr noun
   %28 = add i32 %.05056, 1
   %29 = add i8 %.05155, -1
   %.not53 = icmp eq i8 %29, 0
-  br i1 %.not53, label %.loopexit, label %25, !llvm.loop !196
+  br i1 %.not53, label %.loopexit, label %25, !llvm.loop !198
 
 30:                                               ; preds = %8, %8, %8
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %3)
@@ -17237,7 +17237,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   %34 = add i32 %31, 2
   %.not42.us = icmp ugt i32 %34, %5
-  br i1 %.not42.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !197
+  br i1 %.not42.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !199
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %47
   %35 = phi i32 [ %48, %47 ], [ %28, %.lr.ph.split.preheader ]
@@ -17267,7 +17267,7 @@ define internal fastcc i32 @ssl_dissect_hnd_hello_ext_supported_groups(ptr nound
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   %48 = add i32 %35, 2
   %.not42 = icmp ugt i32 %48, %5
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.split, !llvm.loop !198
+  br i1 %.not42, label %._crit_edge, label %.lr.ph.split, !llvm.loop !200
 
 ._crit_edge:                                      ; preds = %47, %.lr.ph.split.us, %.thread, %26
   %.037.lcssa = phi i32 [ %14, %26 ], [ %14, %.thread ], [ %31, %.lr.ph.split.us ], [ %35, %47 ]
@@ -17345,7 +17345,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_ec_point_formats(p
   %25 = add i8 %.02833.us, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   %.not30.us = icmp eq i8 %25, 0
-  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !199
+  br i1 %.not30.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !201
 
 .lr.ph.split:                                     ; preds = %31, %.lr.ph.split.preheader
   %.034 = phi i32 [ %28, %31 ], [ %11, %.lr.ph.split.preheader ]
@@ -17363,7 +17363,7 @@ define internal fastcc noundef i32 @ssl_dissect_hnd_hello_ext_ec_point_formats(p
 31:                                               ; preds = %.lr.ph.split
   call void @wmem_strbuf_append_c(ptr noundef nonnull %4, i8 noundef signext 45)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
-  br label %.lr.ph.split, !llvm.loop !200
+  br label %.lr.ph.split, !llvm.loop !202
 
 ._crit_edge.loopexit35:                           ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
@@ -17583,198 +17583,200 @@ attributes #35 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = distinct !{!17, !7}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
-!24 = distinct !{!24, !"memcpy.inline"}
-!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
-!26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
-!28 = distinct !{!28, !"memcpy.inline"}
-!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
-!30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
-!32 = distinct !{!32, !"memcpy.inline"}
-!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
-!36 = distinct !{!36, !"memcpy.inline"}
-!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
-!40 = distinct !{!40, !"memcpy.inline"}
-!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
-!44 = distinct !{!44, !"memcpy.inline"}
-!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
-!46 = distinct !{!46, !7}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"memcpy.inline: argument 0"}
-!53 = distinct !{!53, !"memcpy.inline"}
-!54 = distinct !{!54, !53, !"memcpy.inline: argument 1"}
-!55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"memcpy.inline: argument 0"}
-!57 = distinct !{!57, !"memcpy.inline"}
-!58 = distinct !{!58, !57, !"memcpy.inline: argument 1"}
-!59 = distinct !{!59, !7}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"memcpy.inline: argument 0"}
-!62 = distinct !{!62, !"memcpy.inline"}
-!63 = distinct !{!63, !62, !"memcpy.inline: argument 1"}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = !{!70, !72}
-!70 = distinct !{!70, !71, !"memcpy.inline: argument 0"}
-!71 = distinct !{!71, !"memcpy.inline"}
-!72 = distinct !{!72, !71, !"memcpy.inline: argument 1"}
-!73 = !{!74, !76}
-!74 = distinct !{!74, !75, !"memcpy.inline: argument 0"}
-!75 = distinct !{!75, !"memcpy.inline"}
-!76 = distinct !{!76, !75, !"memcpy.inline: argument 1"}
-!77 = !{i8 0, i8 2}
-!78 = !{}
-!79 = !{!80, !82}
-!80 = distinct !{!80, !81, !"memcpy.inline: argument 0"}
-!81 = distinct !{!81, !"memcpy.inline"}
-!82 = distinct !{!82, !81, !"memcpy.inline: argument 1"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"memcpy.inline: argument 0"}
-!85 = distinct !{!85, !"memcpy.inline"}
-!86 = distinct !{!86, !85, !"memcpy.inline: argument 1"}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"memcpy.inline: argument 0"}
-!89 = distinct !{!89, !"memcpy.inline"}
-!90 = distinct !{!90, !89, !"memcpy.inline: argument 1"}
-!91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"memcpy.inline: argument 0"}
-!93 = distinct !{!93, !"memcpy.inline"}
-!94 = distinct !{!94, !93, !"memcpy.inline: argument 1"}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"memcpy.inline: argument 0"}
-!97 = distinct !{!97, !"memcpy.inline"}
-!98 = distinct !{!98, !97, !"memcpy.inline: argument 1"}
-!99 = !{!100, !102}
-!100 = distinct !{!100, !101, !"memcpy.inline: argument 0"}
-!101 = distinct !{!101, !"memcpy.inline"}
-!102 = distinct !{!102, !101, !"memcpy.inline: argument 1"}
-!103 = distinct !{!103, !7}
-!104 = distinct !{!104, !7}
-!105 = distinct !{!105, !7}
-!106 = !{!107, !109}
-!107 = distinct !{!107, !108, !"memcpy.inline: argument 0"}
-!108 = distinct !{!108, !"memcpy.inline"}
-!109 = distinct !{!109, !108, !"memcpy.inline: argument 1"}
-!110 = !{!111, !113}
-!111 = distinct !{!111, !112, !"memcpy.inline: argument 0"}
-!112 = distinct !{!112, !"memcpy.inline"}
-!113 = distinct !{!113, !112, !"memcpy.inline: argument 1"}
-!114 = !{!115, !117}
-!115 = distinct !{!115, !116, !"memcpy.inline: argument 0"}
-!116 = distinct !{!116, !"memcpy.inline"}
-!117 = distinct !{!117, !116, !"memcpy.inline: argument 1"}
-!118 = !{!119, !121}
-!119 = distinct !{!119, !120, !"memcpy.inline: argument 0"}
-!120 = distinct !{!120, !"memcpy.inline"}
-!121 = distinct !{!121, !120, !"memcpy.inline: argument 1"}
-!122 = distinct !{!122, !7}
-!123 = distinct !{!123, !7}
-!124 = distinct !{!124, !7}
-!125 = distinct !{!125, !7}
-!126 = distinct !{!126, !7}
-!127 = distinct !{!127, !7}
-!128 = distinct !{!128, !7}
-!129 = distinct !{!129, !7}
-!130 = distinct !{!130, !7}
-!131 = distinct !{!131, !7}
-!132 = distinct !{!132, !7}
-!133 = distinct !{!133, !7}
-!134 = distinct !{!134, !7}
-!135 = distinct !{!135, !7}
-!136 = distinct !{!136, !7}
-!137 = distinct !{!137, !7, !138}
-!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!139 = distinct !{!139, !7}
-!140 = distinct !{!140, !7}
-!141 = distinct !{!141, !7}
-!142 = distinct !{!142, !7}
-!143 = distinct !{!143, !7}
-!144 = distinct !{!144, !7}
-!145 = distinct !{!145, !7}
-!146 = distinct !{!146, !7}
-!147 = distinct !{!147, !7}
-!148 = distinct !{!148, !7}
-!149 = distinct !{!149, !7}
-!150 = distinct !{!150, !7}
-!151 = distinct !{!151, !7}
-!152 = distinct !{!152, !7}
-!153 = distinct !{!153, !7}
-!154 = !{!155, !157}
-!155 = distinct !{!155, !156, !"memcpy.inline: argument 0"}
-!156 = distinct !{!156, !"memcpy.inline"}
-!157 = distinct !{!157, !156, !"memcpy.inline: argument 1"}
-!158 = !{!159, !161}
-!159 = distinct !{!159, !160, !"memcpy.inline: argument 0"}
-!160 = distinct !{!160, !"memcpy.inline"}
-!161 = distinct !{!161, !160, !"memcpy.inline: argument 1"}
-!162 = distinct !{!162, !7}
-!163 = !{!164, !166}
-!164 = distinct !{!164, !165, !"memcpy.inline: argument 0"}
-!165 = distinct !{!165, !"memcpy.inline"}
-!166 = distinct !{!166, !165, !"memcpy.inline: argument 1"}
-!167 = distinct !{!167, !7, !138}
-!168 = distinct !{!168, !7, !138}
-!169 = distinct !{!169, !7}
-!170 = distinct !{!170, !7}
-!171 = distinct !{!171, !7}
-!172 = distinct !{!172, !7}
-!173 = distinct !{!173, !7}
-!174 = distinct !{!174, !7}
-!175 = !{!176, !178}
-!176 = distinct !{!176, !177, !"memcpy.inline: argument 0"}
-!177 = distinct !{!177, !"memcpy.inline"}
-!178 = distinct !{!178, !177, !"memcpy.inline: argument 1"}
-!179 = !{!180, !182}
-!180 = distinct !{!180, !181, !"memcpy.inline: argument 0"}
-!181 = distinct !{!181, !"memcpy.inline"}
-!182 = distinct !{!182, !181, !"memcpy.inline: argument 1"}
-!183 = !{!184, !186}
-!184 = distinct !{!184, !185, !"memcpy.inline: argument 0"}
-!185 = distinct !{!185, !"memcpy.inline"}
-!186 = distinct !{!186, !185, !"memcpy.inline: argument 1"}
-!187 = !{!188, !190}
-!188 = distinct !{!188, !189, !"memcpy.inline: argument 0"}
-!189 = distinct !{!189, !"memcpy.inline"}
-!190 = distinct !{!190, !189, !"memcpy.inline: argument 1"}
-!191 = !{!192, !194}
-!192 = distinct !{!192, !193, !"memcpy.inline: argument 0"}
-!193 = distinct !{!193, !"memcpy.inline"}
-!194 = distinct !{!194, !193, !"memcpy.inline: argument 1"}
-!195 = distinct !{!195, !7}
-!196 = distinct !{!196, !7}
-!197 = distinct !{!197, !7, !138}
-!198 = distinct !{!198, !7}
-!199 = distinct !{!199, !7, !138}
-!200 = distinct !{!200, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = distinct !{!18, !7, !8}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
+!37 = distinct !{!37, !"memcpy.inline"}
+!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
+!41 = distinct !{!41, !"memcpy.inline"}
+!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
+!43 = !{!44, !46}
+!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
+!45 = distinct !{!45, !"memcpy.inline"}
+!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
+!47 = distinct !{!47, !7, !8}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"memcpy.inline: argument 0"}
+!50 = distinct !{!50, !"memcpy.inline"}
+!51 = distinct !{!51, !50, !"memcpy.inline: argument 1"}
+!52 = !{!53, !55}
+!53 = distinct !{!53, !54, !"memcpy.inline: argument 0"}
+!54 = distinct !{!54, !"memcpy.inline"}
+!55 = distinct !{!55, !54, !"memcpy.inline: argument 1"}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"memcpy.inline: argument 0"}
+!58 = distinct !{!58, !"memcpy.inline"}
+!59 = distinct !{!59, !58, !"memcpy.inline: argument 1"}
+!60 = distinct !{!60, !7, !8}
+!61 = !{!62, !64}
+!62 = distinct !{!62, !63, !"memcpy.inline: argument 0"}
+!63 = distinct !{!63, !"memcpy.inline"}
+!64 = distinct !{!64, !63, !"memcpy.inline: argument 1"}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = !{!71, !73}
+!71 = distinct !{!71, !72, !"memcpy.inline: argument 0"}
+!72 = distinct !{!72, !"memcpy.inline"}
+!73 = distinct !{!73, !72, !"memcpy.inline: argument 1"}
+!74 = !{!75, !77}
+!75 = distinct !{!75, !76, !"memcpy.inline: argument 0"}
+!76 = distinct !{!76, !"memcpy.inline"}
+!77 = distinct !{!77, !76, !"memcpy.inline: argument 1"}
+!78 = !{i8 0, i8 2}
+!79 = !{}
+!80 = !{!81, !83}
+!81 = distinct !{!81, !82, !"memcpy.inline: argument 0"}
+!82 = distinct !{!82, !"memcpy.inline"}
+!83 = distinct !{!83, !82, !"memcpy.inline: argument 1"}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"memcpy.inline: argument 0"}
+!86 = distinct !{!86, !"memcpy.inline"}
+!87 = distinct !{!87, !86, !"memcpy.inline: argument 1"}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"memcpy.inline: argument 0"}
+!90 = distinct !{!90, !"memcpy.inline"}
+!91 = distinct !{!91, !90, !"memcpy.inline: argument 1"}
+!92 = !{!93, !95}
+!93 = distinct !{!93, !94, !"memcpy.inline: argument 0"}
+!94 = distinct !{!94, !"memcpy.inline"}
+!95 = distinct !{!95, !94, !"memcpy.inline: argument 1"}
+!96 = !{!97, !99}
+!97 = distinct !{!97, !98, !"memcpy.inline: argument 0"}
+!98 = distinct !{!98, !"memcpy.inline"}
+!99 = distinct !{!99, !98, !"memcpy.inline: argument 1"}
+!100 = !{!101, !103}
+!101 = distinct !{!101, !102, !"memcpy.inline: argument 0"}
+!102 = distinct !{!102, !"memcpy.inline"}
+!103 = distinct !{!103, !102, !"memcpy.inline: argument 1"}
+!104 = distinct !{!104, !7, !8}
+!105 = distinct !{!105, !7, !8}
+!106 = distinct !{!106, !7, !8}
+!107 = !{!108, !110}
+!108 = distinct !{!108, !109, !"memcpy.inline: argument 0"}
+!109 = distinct !{!109, !"memcpy.inline"}
+!110 = distinct !{!110, !109, !"memcpy.inline: argument 1"}
+!111 = !{!112, !114}
+!112 = distinct !{!112, !113, !"memcpy.inline: argument 0"}
+!113 = distinct !{!113, !"memcpy.inline"}
+!114 = distinct !{!114, !113, !"memcpy.inline: argument 1"}
+!115 = !{!116, !118}
+!116 = distinct !{!116, !117, !"memcpy.inline: argument 0"}
+!117 = distinct !{!117, !"memcpy.inline"}
+!118 = distinct !{!118, !117, !"memcpy.inline: argument 1"}
+!119 = !{!120, !122}
+!120 = distinct !{!120, !121, !"memcpy.inline: argument 0"}
+!121 = distinct !{!121, !"memcpy.inline"}
+!122 = distinct !{!122, !121, !"memcpy.inline: argument 1"}
+!123 = distinct !{!123, !7, !8}
+!124 = distinct !{!124, !7, !8}
+!125 = distinct !{!125, !8}
+!126 = distinct !{!126, !7, !8}
+!127 = distinct !{!127, !7, !8}
+!128 = distinct !{!128, !7, !8}
+!129 = distinct !{!129, !7, !8}
+!130 = distinct !{!130, !7, !8}
+!131 = distinct !{!131, !7, !8}
+!132 = distinct !{!132, !7, !8}
+!133 = distinct !{!133, !7, !8}
+!134 = distinct !{!134, !7, !8}
+!135 = distinct !{!135, !7, !8}
+!136 = distinct !{!136, !7, !8}
+!137 = distinct !{!137, !7, !8}
+!138 = distinct !{!138, !7, !8}
+!139 = distinct !{!139, !7, !8, !140}
+!140 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!141 = distinct !{!141, !7, !8}
+!142 = distinct !{!142, !7, !8}
+!143 = distinct !{!143, !7, !8}
+!144 = distinct !{!144, !7, !8}
+!145 = distinct !{!145, !7, !8}
+!146 = distinct !{!146, !7, !8}
+!147 = distinct !{!147, !7, !8}
+!148 = distinct !{!148, !7, !8}
+!149 = distinct !{!149, !7, !8}
+!150 = distinct !{!150, !7, !8}
+!151 = distinct !{!151, !7, !8}
+!152 = distinct !{!152, !7, !8}
+!153 = distinct !{!153, !7, !8}
+!154 = distinct !{!154, !7, !8}
+!155 = distinct !{!155, !7, !8}
+!156 = !{!157, !159}
+!157 = distinct !{!157, !158, !"memcpy.inline: argument 0"}
+!158 = distinct !{!158, !"memcpy.inline"}
+!159 = distinct !{!159, !158, !"memcpy.inline: argument 1"}
+!160 = !{!161, !163}
+!161 = distinct !{!161, !162, !"memcpy.inline: argument 0"}
+!162 = distinct !{!162, !"memcpy.inline"}
+!163 = distinct !{!163, !162, !"memcpy.inline: argument 1"}
+!164 = distinct !{!164, !7, !8}
+!165 = !{!166, !168}
+!166 = distinct !{!166, !167, !"memcpy.inline: argument 0"}
+!167 = distinct !{!167, !"memcpy.inline"}
+!168 = distinct !{!168, !167, !"memcpy.inline: argument 1"}
+!169 = distinct !{!169, !7, !8, !140}
+!170 = distinct !{!170, !7, !8, !140}
+!171 = distinct !{!171, !7, !8}
+!172 = distinct !{!172, !7, !8}
+!173 = distinct !{!173, !7, !8}
+!174 = distinct !{!174, !7, !8}
+!175 = distinct !{!175, !7, !8}
+!176 = distinct !{!176, !7, !8}
+!177 = !{!178, !180}
+!178 = distinct !{!178, !179, !"memcpy.inline: argument 0"}
+!179 = distinct !{!179, !"memcpy.inline"}
+!180 = distinct !{!180, !179, !"memcpy.inline: argument 1"}
+!181 = !{!182, !184}
+!182 = distinct !{!182, !183, !"memcpy.inline: argument 0"}
+!183 = distinct !{!183, !"memcpy.inline"}
+!184 = distinct !{!184, !183, !"memcpy.inline: argument 1"}
+!185 = !{!186, !188}
+!186 = distinct !{!186, !187, !"memcpy.inline: argument 0"}
+!187 = distinct !{!187, !"memcpy.inline"}
+!188 = distinct !{!188, !187, !"memcpy.inline: argument 1"}
+!189 = !{!190, !192}
+!190 = distinct !{!190, !191, !"memcpy.inline: argument 0"}
+!191 = distinct !{!191, !"memcpy.inline"}
+!192 = distinct !{!192, !191, !"memcpy.inline: argument 1"}
+!193 = !{!194, !196}
+!194 = distinct !{!194, !195, !"memcpy.inline: argument 0"}
+!195 = distinct !{!195, !"memcpy.inline"}
+!196 = distinct !{!196, !195, !"memcpy.inline: argument 1"}
+!197 = distinct !{!197, !7, !8}
+!198 = distinct !{!198, !7, !8}
+!199 = distinct !{!199, !7, !8, !140}
+!200 = distinct !{!200, !7, !8}
+!201 = distinct !{!201, !7, !8, !140}
+!202 = distinct !{!202, !7, !8}

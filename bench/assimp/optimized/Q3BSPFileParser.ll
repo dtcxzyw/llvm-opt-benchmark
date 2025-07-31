@@ -358,7 +358,7 @@ _ZN6Assimp15Q3BSPFileParser8getLumpsEv.exit:      ; preds = %_ZNSt6vectorIPN6Ass
   %74 = sub i64 %72, %73
   %75 = ashr exact i64 %74, 3
   %76 = icmp ult i64 %66, %75
-  br i1 %76, label %58, label %_ZN6Assimp15Q3BSPFileParser11getVerticesEv.exit, !llvm.loop !5
+  br i1 %76, label %58, label %_ZN6Assimp15Q3BSPFileParser11getVerticesEv.exit, !llvm.loop !6
 
 _ZN6Assimp15Q3BSPFileParser11getVerticesEv.exit:  ; preds = %58, %_ZN6Assimp15Q3BSPFileParser8getLumpsEv.exit
   %77 = phi ptr [ %47, %_ZN6Assimp15Q3BSPFileParser8getLumpsEv.exit ], [ %67, %58 ]
@@ -450,7 +450,7 @@ _ZN6Assimp15Q3BSPFileParser10getIndicesEv.exit:   ; preds = %96, %98, %100, %102
   %138 = sub i64 %136, %137
   %139 = ashr exact i64 %138, 3
   %140 = icmp ult i64 %130, %139
-  br i1 %140, label %122, label %_ZN6Assimp15Q3BSPFileParser8getFacesEv.exit, !llvm.loop !6
+  br i1 %140, label %122, label %_ZN6Assimp15Q3BSPFileParser8getFacesEv.exit, !llvm.loop !7
 
 _ZN6Assimp15Q3BSPFileParser8getFacesEv.exit:      ; preds = %122, %_ZN6Assimp15Q3BSPFileParser10getIndicesEv.exit
   %141 = phi ptr [ %111, %_ZN6Assimp15Q3BSPFileParser10getIndicesEv.exit ], [ %131, %122 ]
@@ -493,7 +493,7 @@ _ZN6Assimp15Q3BSPFileParser8getFacesEv.exit:      ; preds = %122, %_ZN6Assimp15Q
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 3
   %170 = icmp ult i64 %160, %169
-  br i1 %170, label %152, label %_ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit, !llvm.loop !7
+  br i1 %170, label %152, label %_ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit, !llvm.loop !8
 
 _ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit:  ; preds = %152, %_ZN6Assimp15Q3BSPFileParser8getFacesEv.exit
   %171 = phi ptr [ %141, %_ZN6Assimp15Q3BSPFileParser8getFacesEv.exit ], [ %161, %152 ]
@@ -537,7 +537,7 @@ _ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit:  ; preds = %152, %_ZN6Assimp15Q
   %198 = sub i64 %196, %197
   %199 = ashr exact i64 %198, 3
   %200 = icmp ult i64 %190, %199
-  br i1 %200, label %182, label %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit, !llvm.loop !8
+  br i1 %200, label %182, label %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit, !llvm.loop !9
 
 _ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit: ; preds = %182, %_ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit
   %201 = phi ptr [ %171, %_ZN6Assimp15Q3BSPFileParser11getTexturesEv.exit ], [ %191, %182 ]
@@ -614,7 +614,7 @@ define linkonce_odr hidden void @_ZN6Assimp5Q3BSP10Q3BSPModelD2Ev(ptr noundef no
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
   %26 = icmp ugt i64 %25, %21
-  br i1 %26, label %.lr.ph, label %.preheader42, !llvm.loop !9
+  br i1 %26, label %.lr.ph, label %.preheader42, !llvm.loop !10
 
 .preheader41:                                     ; preds = %38, %.preheader42
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -650,7 +650,7 @@ define linkonce_odr hidden void @_ZN6Assimp5Q3BSP10Q3BSPModelD2Ev(ptr noundef no
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
   %47 = icmp ugt i64 %46, %42
-  br i1 %47, label %.lr.ph55, label %.preheader41, !llvm.loop !10
+  br i1 %47, label %.lr.ph55, label %.preheader41, !llvm.loop !11
 
 .preheader40:                                     ; preds = %59, %.preheader41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -686,7 +686,7 @@ define linkonce_odr hidden void @_ZN6Assimp5Q3BSP10Q3BSPModelD2Ev(ptr noundef no
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 3
   %68 = icmp ugt i64 %67, %63
-  br i1 %68, label %.lr.ph57, label %.preheader40, !llvm.loop !11
+  br i1 %68, label %.lr.ph57, label %.preheader40, !llvm.loop !12
 
 .preheader:                                       ; preds = %80, %.preheader40
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -722,7 +722,7 @@ define linkonce_odr hidden void @_ZN6Assimp5Q3BSP10Q3BSPModelD2Ev(ptr noundef no
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 3
   %89 = icmp ugt i64 %88, %84
-  br i1 %89, label %.lr.ph59, label %.preheader, !llvm.loop !12
+  br i1 %89, label %.lr.ph59, label %.preheader, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %178
   %90 = icmp eq ptr %180, %179
@@ -940,7 +940,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN6Ass
   %185 = sub i64 %183, %184
   %186 = ashr exact i64 %185, 3
   %187 = icmp ugt i64 %186, %182
-  br i1 %187, label %.lr.ph61, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %187, label %.lr.ph61, label %._crit_edge.loopexit, !llvm.loop !14
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1434,7 +1434,7 @@ define hidden void @_ZN6Assimp15Q3BSPFileParser11getVerticesEv(ptr noundef nonnu
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = icmp ult i64 %23, %32
-  br i1 %33, label %15, label %._crit_edge, !llvm.loop !5
+  br i1 %33, label %15, label %._crit_edge, !llvm.loop !6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1540,7 +1540,7 @@ define hidden void @_ZN6Assimp15Q3BSPFileParser8getFacesEv(ptr noundef nonnull r
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = icmp ult i64 %23, %32
-  br i1 %33, label %15, label %._crit_edge, !llvm.loop !6
+  br i1 %33, label %15, label %._crit_edge, !llvm.loop !7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1590,7 +1590,7 @@ define hidden void @_ZN6Assimp15Q3BSPFileParser11getTexturesEv(ptr noundef nonnu
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = icmp ult i64 %23, %32
-  br i1 %33, label %15, label %._crit_edge, !llvm.loop !7
+  br i1 %33, label %15, label %._crit_edge, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1641,7 +1641,7 @@ define hidden void @_ZN6Assimp15Q3BSPFileParser12getLightMapsEv(ptr noundef nonn
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = icmp ult i64 %23, %32
-  br i1 %33, label %15, label %._crit_edge, !llvm.loop !8
+  br i1 %33, label %15, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2326,14 +2326,15 @@ attributes #15 = { noreturn }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

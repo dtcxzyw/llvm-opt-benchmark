@@ -120,12 +120,12 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 78:                                               ; preds = %72, %40, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge, label %36
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %78, %29
   %79 = trunc i32 %4 to i16
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  store i16 %79, ptr %80, align 2, !tbaa !14
+  store i16 %79, ptr %80, align 2, !tbaa !16
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store i64 0, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
@@ -135,7 +135,7 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %86 = load i32, ptr %85, align 1, !tbaa !12
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !15
+  %88 = load i32, ptr %87, align 4, !tbaa !17
   %89 = sub i32 %86, %88
   store i32 %89, ptr %85, align 1, !tbaa !12
   %90 = zext i32 %32 to i64
@@ -420,14 +420,14 @@ yc_bounds_check.exit175:                          ; preds = %28
   %.2 = phi i32 [ %40, %39 ], [ %.1239, %44 ], [ %.1239, %47 ], [ %.1239, %50 ], [ %.1239, %53 ], [ %.1239, %65 ], [ %.1239, %77 ], [ %.1239, %89 ], [ %.1239, %110 ], [ %.1239, %115 ], [ %.1239, %128 ], [ %.1239, %130 ], [ %.1239, %28 ], [ %.1239, %28 ], [ %.1239, %28 ]
   %134 = add nsw i32 %.1139, 1
   %135 = icmp ult i32 %134, 48
-  br i1 %135, label %20, label %136
+  br i1 %135, label %20, label %136, !llvm.loop !18
 
 136:                                              ; preds = %133
   %137 = add i8 %.0140240, -1
   store i8 %.1142, ptr %12, align 1, !tbaa !12
   %138 = add nuw i32 %.0137241, 1
   %exitcond.not = icmp eq i32 %138, %invariant.umin
-  br i1 %exitcond.not, label %.loopexit, label %10
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !19
 
 .loopexit:                                        ; preds = %136, %yc_bounds_check.exit159, %7, %yc_bounds_check.exit173, %yc_bounds_check.exit171, %yc_bounds_check.exit169, %yc_bounds_check.exit167, %yc_bounds_check.exit165, %yc_bounds_check.exit163, %yc_bounds_check.exit161, %yc_bounds_check.exit159.thread, %yc_bounds_check.exit157, %yc_bounds_check.exit, %yc_bounds_check.exit175
   %.0143 = phi i32 [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 2, %yc_bounds_check.exit173 ], [ 2, %yc_bounds_check.exit159.thread ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %136 ]
@@ -468,5 +468,9 @@ attributes #3 = { nounwind }
 !11 = !{!4, !5, i64 32}
 !12 = !{!6, !6, i64 0}
 !13 = !{!4, !5, i64 12}
-!14 = !{!9, !10, i64 6}
-!15 = !{!4, !5, i64 4}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!9, !10, i64 6}
+!17 = !{!4, !5, i64 4}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}

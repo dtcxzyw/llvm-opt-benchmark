@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   store i8 %11, ptr %16, align 1
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next89, 256
-  br i1 %exitcond90.not, label %.preheader, label %.preheader68, !llvm.loop !8
+  br i1 %exitcond90.not, label %.preheader, label %.preheader68, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.05476 = phi ptr [ %35, %.lr.ph ], [ %2, %.preheader ]
@@ -77,7 +77,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %36 = add i32 %.06172, 1
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %3, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %39 = xor i32 %34, -1
@@ -123,7 +123,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %58 = getelementptr i8, ptr %.183, i64 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next92, 4
-  br i1 %exitcond93.not, label %59, label %40, !llvm.loop !10
+  br i1 %exitcond93.not, label %59, label %40, !llvm.loop !11
 
 59:                                               ; preds = %57, %40
   %.0 = phi i32 [ 1, %40 ], [ 0, %57 ]
@@ -154,8 +154,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

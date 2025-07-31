@@ -71,7 +71,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !37
+  %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = icmp slt i32 %8, 7
   br i1 %9, label %210, label %10
 
@@ -83,16 +83,16 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 bytestream2_init.exit:                            ; preds = %10
   %14 = load ptr, ptr %6, align 8, !tbaa !29
-  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load i32, ptr %16, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %19 = load i32, ptr %18, align 4, !tbaa !40
+  %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = mul nsw i32 %19, %17
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = zext nneg i32 %8 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
   %27 = ptrtoint ptr %26 to i64
@@ -139,7 +139,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
 
 .lr.ph.i:                                         ; preds = %bytestream2_get_byte.exit81
   %.not72 = icmp slt i8 %42, 0
-  %45 = load i32, ptr %36, align 8, !tbaa !42
+  %45 = load i32, ptr %36, align 8, !tbaa !43
   %46 = load ptr, ptr %6, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load i32, ptr %47, align 8, !tbaa !34
@@ -174,7 +174,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
 
 60:                                               ; preds = %59, %58
   %61 = icmp sgt i32 %56, 0
-  br i1 %61, label %.lr.ph.split.us.i, label %op.exit, !llvm.loop !43
+  br i1 %61, label %.lr.ph.split.us.i, label %op.exit, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %51, label %.lr.ph.split.split.us.i.cont, label %.lr.ph.split.split.i.cont
@@ -209,7 +209,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
   %.2.us79.i = select i1 %73, i32 %45, i32 %72
   %76 = sub nsw i32 %.04257.us75.i, %63
   %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph.split.split.us.i.cont, label %op.exit, !llvm.loop !45
+  br i1 %77, label %.lr.ph.split.split.us.i.cont, label %op.exit, !llvm.loop !46
 
 .lr.ph.split.split.i.cont:                        ; preds = %.lr.ph.split.i, %90
   %78 = phi ptr [ %91, %90 ], [ %41, %.lr.ph.split.i ]
@@ -241,7 +241,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
   %.2.i = select i1 %89, i32 %45, i32 %88
   %92 = sub nsw i32 %.04257.i, %79
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph.split.split.i.cont, label %op.exit
+  br i1 %93, label %.lr.ph.split.split.i.cont, label %op.exit, !llvm.loop !47
 
 op.exit:                                          ; preds = %90, %74, %60
   %.lcssa248253 = phi ptr [ %41, %60 ], [ %75, %74 ], [ %91, %90 ]
@@ -285,7 +285,7 @@ bytestream2_get_byte.exit83:                      ; preds = %.thread, %97
 bytestream2_get_byte.exit85:                      ; preds = %bytestream2_get_byte.exit83, %103
   %.lcssa248254 = phi ptr [ %104, %103 ], [ %26, %bytestream2_get_byte.exit83 ]
   %.0.i84 = phi i8 [ %105, %103 ], [ 0, %bytestream2_get_byte.exit83 ]
-  %106 = load i32, ptr %36, align 8, !tbaa !42
+  %106 = load i32, ptr %36, align 8, !tbaa !43
   %107 = sub nsw i32 %106, %.0152
   %.not216 = icmp eq i32 %.0.i82, 0
   br i1 %.not216, label %op.exit105.thread, label %.lr.ph.i92
@@ -325,7 +325,7 @@ bytestream2_get_byte.exit85:                      ; preds = %bytestream2_get_byt
 
 121:                                              ; preds = %120, %119
   %122 = icmp sgt i32 %117, 0
-  br i1 %122, label %.lr.ph.split.us.i95, label %op.exit105.thread, !llvm.loop !43
+  br i1 %122, label %.lr.ph.split.us.i95, label %op.exit105.thread, !llvm.loop !44
 
 op.exit105.thread:                                ; preds = %121, %bytestream2_get_byte.exit85
   %.8.ph = phi ptr [ %.0154, %bytestream2_get_byte.exit85 ], [ %storemerge.us.i101, %121 ]
@@ -381,7 +381,7 @@ bytestream2_get_byte.exit87:                      ; preds = %137, %141, %135
   %146 = icmp eq i32 %130, 1
   %spec.select = select i1 %146, i32 %128, i32 %129
   %.not215 = icmp eq i32 %130, 2
-  %147 = load i32, ptr %36, align 8, !tbaa !42
+  %147 = load i32, ptr %36, align 8, !tbaa !43
   %148 = load ptr, ptr %6, align 8, !tbaa !29
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
   %150 = load i32, ptr %149, align 8, !tbaa !34
@@ -425,7 +425,7 @@ bytestream2_get_byte.exit87:                      ; preds = %137, %141, %135
 
 165:                                              ; preds = %164, %163
   %166 = icmp sgt i32 %161, 0
-  br i1 %166, label %.lr.ph.split.us.i130, label %.loopexit, !llvm.loop !43
+  br i1 %166, label %.lr.ph.split.us.i130, label %.loopexit, !llvm.loop !44
 
 .lr.ph.split.i111:                                ; preds = %bytestream2_get_byte.exit87
   br i1 %155, label %.lr.ph.split.split.us.i120.cont, label %.lr.ph.split.split.i112.cont
@@ -460,7 +460,7 @@ bytestream2_get_byte.exit87:                      ; preds = %137, %141, %135
   %.2.us79.i126 = select i1 %178, i32 %147, i32 %177
   %181 = sub nsw i32 %.04257.us75.i122, %168
   %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph.split.split.us.i120.cont, label %.loopexit, !llvm.loop !45
+  br i1 %182, label %.lr.ph.split.split.us.i120.cont, label %.loopexit, !llvm.loop !46
 
 .lr.ph.split.split.i112.cont:                     ; preds = %.lr.ph.split.i111, %195
   %183 = phi ptr [ %196, %195 ], [ %.lcssa248250, %.lr.ph.split.i111 ]
@@ -492,7 +492,7 @@ bytestream2_get_byte.exit87:                      ; preds = %137, %141, %135
   %.2.i118 = select i1 %194, i32 %147, i32 %193
   %197 = sub nsw i32 %.04257.i114, %184
   %198 = icmp sgt i32 %197, 0
-  br i1 %198, label %.lr.ph.split.split.i112.cont, label %.loopexit
+  br i1 %198, label %.lr.ph.split.split.i112.cont, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %165, %195, %179
   %.lcssa248252 = phi ptr [ %180, %179 ], [ %196, %195 ], [ %.lcssa248250, %165 ]
@@ -509,12 +509,12 @@ bytestream2_get_byte.exit87:                      ; preds = %137, %141, %135
   %200 = sub i64 %27, %199
   %201 = trunc i64 %200 to i32
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %37, label %.thread206, !llvm.loop !46
+  br i1 %202, label %37, label %.thread206, !llvm.loop !48
 
 .thread206:                                       ; preds = %131, %.thread197, %123, %.lr.ph.split.split.i.cont, %84, %.lr.ph.split.split.us.i.cont, %68, %59, %58, %164, %163, %.lr.ph.split.split.i112.cont, %189, %.lr.ph.split.split.us.i120.cont, %173, %120, %119
   %203 = load ptr, ptr %6, align 8, !tbaa !29
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %205 = load ptr, ptr %204, align 8, !tbaa !39
+  %205 = load ptr, ptr %204, align 8, !tbaa !40
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %205, ptr noundef nonnull align 8 dereferenceable(1024) %206, i64 1024, i1 false)
   store i32 1, ptr %2, align 4, !tbaa !34
@@ -611,15 +611,17 @@ attributes #8 = { noreturn nounwind }
 !32 = !{!5, !14, i64 72}
 !33 = !{!8, !8, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38, !10, i64 32}
-!38 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!39 = !{!14, !14, i64 0}
-!40 = !{!5, !10, i64 116}
-!41 = !{!38, !14, i64 24}
-!42 = !{!5, !10, i64 112}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !44}
-!46 = distinct !{!46, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !10, i64 32}
+!39 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!40 = !{!14, !14, i64 0}
+!41 = !{!5, !10, i64 116}
+!42 = !{!39, !14, i64 24}
+!43 = !{!5, !10, i64 112}
+!44 = distinct !{!44, !37, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !37, !45}
+!47 = distinct !{!47, !37}
+!48 = distinct !{!48, !36, !37}

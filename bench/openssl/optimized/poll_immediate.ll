@@ -234,7 +234,7 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   store i64 0, ptr %gep112.i, align 8, !tbaa !25
   %.078.i = add nuw i64 %.078114.i, 1
   %exitcond139.not.i = icmp eq i64 %.078.i, %1
-  br i1 %exitcond139.not.i, label %poll_readout.exit.thread, label %.lr.ph115.i, !llvm.loop !29
+  br i1 %exitcond139.not.i, label %poll_readout.exit.thread, label %.lr.ph115.i, !llvm.loop !30
 
 104:                                              ; preds = %97
   %105 = load i64, ptr %14, align 8, !tbaa !13
@@ -265,7 +265,7 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   store i64 0, ptr %gep107.i, align 8, !tbaa !25
   %.076.i = add nuw i64 %.076109.i, 1
   %exitcond138.not.i = icmp eq i64 %.076.i, %1
-  br i1 %exitcond138.not.i, label %poll_readout.exit.thread, label %.lr.ph110.i, !llvm.loop !30
+  br i1 %exitcond138.not.i, label %poll_readout.exit.thread, label %.lr.ph110.i, !llvm.loop !31
 
 .split97.us:                                      ; preds = %64, %85
   %invariant.gep.i.i192 = phi ptr [ %invariant.gep.i.i203, %85 ], [ %invariant.gep.i.i193, %64 ]
@@ -289,7 +289,7 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   store i64 0, ptr %gep.i, align 8, !tbaa !25
   %.074.i = add nuw i64 %.074105.i, 1
   %exitcond137.not.i = icmp eq i64 %.074.i, %1
-  br i1 %exitcond137.not.i, label %poll_readout.exit.thread, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond137.not.i, label %poll_readout.exit.thread, label %.lr.ph.i, !llvm.loop !32
 
 .split.us:                                        ; preds = %64, %85
   %invariant.gep.i.i196 = phi ptr [ %invariant.gep.i.i203, %85 ], [ %invariant.gep.i.i193, %64 ]
@@ -313,7 +313,7 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   store i64 0, ptr %gep117.i, align 8, !tbaa !25
   %.0.i = add nuw i64 %.0119.i, 1
   %exitcond140.not.i = icmp eq i64 %.0.i, %1
-  br i1 %exitcond140.not.i, label %poll_readout.exit.thread, label %.lr.ph120.i, !llvm.loop !32
+  br i1 %exitcond140.not.i, label %poll_readout.exit.thread, label %.lr.ph120.i, !llvm.loop !33
 
 121:                                              ; preds = %104, %91
   %122 = phi i64 [ 0, %91 ], [ %105, %104 ]
@@ -322,7 +322,7 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   store i64 %122, ptr %123, align 8, !tbaa !25
   %124 = add nuw i64 %.077103.i, 1
   %exitcond.not.i = icmp eq i64 %124, %1
-  br i1 %exitcond.not.i, label %125, label %85, !llvm.loop !33
+  br i1 %exitcond.not.i, label %125, label %85, !llvm.loop !34
 
 poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph110.i, %.lr.ph115.i, %.lr.ph120.i, %.split.us, %.split107.us, %.split102.us, %.split97.us
   %.079102.i59 = phi i64 [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi94, %.lr.ph120.i ], [ %.us-phi109, %.lr.ph115.i ], [ %.us-phi104, %.lr.ph110.i ], [ %.us-phi99, %.lr.ph.i ]
@@ -347,7 +347,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph11
   %129 = call i32 @ossl_rio_poll_builder_init(ptr noundef nonnull %12) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
-  store i32 0, ptr %11, align 4, !tbaa !34
+  store i32 0, ptr %11, align 4, !tbaa !35
   br label %130
 
 130:                                              ; preds = %213, %128
@@ -388,7 +388,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph11
   br i1 %.not45.i.i.i, label %poll_translate_ssl_quic.exit.thread.sink.split.i.i, label %146
 
 146:                                              ; preds = %144
-  %147 = load i32, ptr %7, align 8, !tbaa !35
+  %147 = load i32, ptr %7, align 8, !tbaa !36
   %.not46.i.i.i = icmp eq i32 %147, 1
   br i1 %.not46.i.i.i, label %148, label %poll_translate_ssl_quic.exit.thread.sink.split.i.i
 
@@ -409,7 +409,7 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph11
   br i1 %.not48.i.i.i, label %poll_translate_ssl_quic.exit.thread.sink.split.i.i, label %154
 
 154:                                              ; preds = %152
-  %155 = load i32, ptr %8, align 8, !tbaa !35
+  %155 = load i32, ptr %8, align 8, !tbaa !36
   %.not49.i.i.i = icmp eq i32 %155, 1
   br i1 %.not49.i.i.i, label %156, label %poll_translate_ssl_quic.exit.thread.sink.split.i.i
 
@@ -510,7 +510,7 @@ poll_translate_ssl_quic.exit.thread.i.i:          ; preds = %165, %161, %poll_tr
   store i64 0, ptr %gep213.i.i, align 8, !tbaa !25
   %.0109.i.i = add nuw i64 %.0109215.i.i, 1
   %exitcond288.not.i.i = icmp eq i64 %.0109.i.i, %1
-  br i1 %exitcond288.not.i.i, label %.loopexit.i.i, label %.lr.ph216.i.i, !llvm.loop !36
+  br i1 %exitcond288.not.i.i, label %.loopexit.i.i, label %.lr.ph216.i.i, !llvm.loop !37
 
 180:                                              ; preds = %176, %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
@@ -533,10 +533,10 @@ poll_translate_ssl_quic.exit.thread.i.i:          ; preds = %165, %161, %poll_tr
   store i64 0, ptr %gep209.i.i, align 8, !tbaa !25
   %187 = add nuw i64 %.0110210.i.i, 1
   %exitcond287.not.i.i = icmp eq i64 %187, %1
-  br i1 %exitcond287.not.i.i, label %.lr.ph.i.preheader.i.i, label %.lr.ph211.i.i, !llvm.loop !37
+  br i1 %exitcond287.not.i.i, label %.lr.ph.i.preheader.i.i, label %.lr.ph211.i.i, !llvm.loop !38
 
 188:                                              ; preds = %180
-  %189 = load i32, ptr %11, align 4, !tbaa !34
+  %189 = load i32, ptr %11, align 4, !tbaa !35
   %.not115.i.i = icmp eq i32 %189, 0
   br i1 %.not115.i.i, label %190, label %213
 
@@ -576,7 +576,7 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %194, %190
   store i64 0, ptr %gep204.i.i, align 8, !tbaa !25
   %.099.i.i = add nuw i64 %.099206.i.i, 1
   %exitcond286.not.i.i = icmp eq i64 %.099.i.i, %1
-  br i1 %exitcond286.not.i.i, label %.loopexit.i.i, label %.lr.ph207.i.i, !llvm.loop !38
+  br i1 %exitcond286.not.i.i, label %.loopexit.i.i, label %.lr.ph207.i.i, !llvm.loop !39
 
 204:                                              ; preds = %130
   call void @ERR_new() #4
@@ -595,7 +595,7 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %194, %190
   store i64 0, ptr %gep.i.i, align 8, !tbaa !25
   %.097.i.i = add nuw i64 %.097202.i.i, 1
   %exitcond285.not.i.i = icmp eq i64 %.097.i.i, %1
-  br i1 %exitcond285.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %exitcond285.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
 208:                                              ; preds = %130
   call void @ERR_new() #4
@@ -615,13 +615,13 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %194, %190
   store i64 0, ptr %gep218.i.i, align 8, !tbaa !25
   %.0.i.i = add nuw i64 %.0220.i.i, 1
   %exitcond289.not.i.i = icmp eq i64 %.0.i.i, %1
-  br i1 %exitcond289.not.i.i, label %.loopexit.i.i, label %.lr.ph221.i.i, !llvm.loop !40
+  br i1 %exitcond289.not.i.i, label %.loopexit.i.i, label %.lr.ph221.i.i, !llvm.loop !41
 
 213:                                              ; preds = %ossl_time_from_timeval.exit.i.i, %188, %134
   %.sroa.042.1.i.i = phi i64 [ %.sroa.042.0200.i.i, %134 ], [ %.sroa.042.0200.i.i, %188 ], [ %..i.i.i, %ossl_time_from_timeval.exit.i.i ]
   %214 = add nuw i64 %.0105199.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %214, %1
-  br i1 %exitcond.not.i.i, label %poll_translate.exit.i, label %130, !llvm.loop !41
+  br i1 %exitcond.not.i.i, label %poll_translate.exit.i, label %130, !llvm.loop !42
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph207.i.i, %.lr.ph216.i.i, %.lr.ph221.i.i, %208, %204, %200, %poll_translate_ssl_quic.exit.thread.i.i
   %.not.i118.i.i = icmp eq i64 %.0105199.i.i, 0
@@ -663,7 +663,7 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %194, %190
 postpoll_translation_cleanup_ssl_quic.exit.i.i.i: ; preds = %226, %224, %222, %218, %.lr.ph.i.i.i
   %227 = add nuw i64 %.012.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %227, %.1106292.i.i
-  br i1 %exitcond.not.i.i.i, label %postpoll_translation_cleanup.exit.sink.split.i, label %.lr.ph.i.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i.i, label %postpoll_translation_cleanup.exit.sink.split.i, label %.lr.ph.i.i.i, !llvm.loop !43
 
 poll_translate.exit.i:                            ; preds = %213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
@@ -704,7 +704,7 @@ poll_translate.exit.i:                            ; preds = %213
 postpoll_translation_cleanup_ssl_quic.exit.i.i:   ; preds = %240, %238, %236, %232, %.lr.ph.i9.i
   %241 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i10.i = icmp eq i64 %241, %1
-  br i1 %exitcond.not.i10.i, label %poll_block.exit.loopexit, label %.lr.ph.i9.i, !llvm.loop !42
+  br i1 %exitcond.not.i10.i, label %poll_block.exit.loopexit, label %.lr.ph.i9.i, !llvm.loop !43
 
 postpoll_translation_cleanup.exit.sink.split.i:   ; preds = %postpoll_translation_cleanup_ssl_quic.exit.i.i.i, %.loopexit.i.i, %poll_translate.exit.thread.i
   %.1 = phi i64 [ 0, %poll_translate.exit.thread.i ], [ 1, %.loopexit.i.i ], [ 1, %postpoll_translation_cleanup_ssl_quic.exit.i.i.i ]
@@ -723,7 +723,7 @@ poll_block.exit:                                  ; preds = %poll_block.exit.loo
   call void @ossl_quic_reactor_wait_ctx_cleanup(ptr noundef nonnull %13) #4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #4
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %12) #4
-  br i1 %.0.i38, label %.loopexit, label %ossl_time_from_timeval.exit35.split
+  br i1 %.0.i38, label %.loopexit, label %ossl_time_from_timeval.exit35.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %126, %125, %poll_block.exit, %.loopexit.split.us, %poll_readout.exit.thread, %20, %ossl_time_from_timeval.exit
   %.040 = phi i64 [ 0, %20 ], [ 0, %ossl_time_from_timeval.exit ], [ %.4.i.ph, %poll_readout.exit.thread ], [ %.281.i.us, %.loopexit.split.us ], [ %.281.i, %125 ], [ %.2, %poll_block.exit ], [ 0, %126 ]
@@ -825,20 +825,22 @@ attributes #4 = { nounwind }
 !23 = !{!"p1 _ZTS15ossl_lib_ctx_st", !19, i64 0}
 !24 = !{!"p1 _ZTS13stack_st_void", !19, i64 0}
 !25 = !{!10, !5, i64 24}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27, !28, !29}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = !{!12, !12, i64 0}
-!35 = !{!11, !12, i64 0}
-!36 = distinct !{!36, !27}
-!37 = distinct !{!37, !27}
-!38 = distinct !{!38, !27}
-!39 = distinct !{!39, !27}
-!40 = distinct !{!40, !27}
-!41 = distinct !{!41, !27}
-!42 = distinct !{!42, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = !{!12, !12, i64 0}
+!36 = !{!11, !12, i64 0}
+!37 = distinct !{!37, !27, !28}
+!38 = distinct !{!38, !27, !28}
+!39 = distinct !{!39, !27, !28}
+!40 = distinct !{!40, !27, !28}
+!41 = distinct !{!41, !27, !28}
+!42 = distinct !{!42, !27, !28}
+!43 = distinct !{!43, !27, !28}
+!44 = distinct !{!44, !28}

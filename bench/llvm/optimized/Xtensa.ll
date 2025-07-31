@@ -1865,7 +1865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 32
   %.not = icmp eq ptr %81, %10
-  br i1 %.not, label %._crit_edge, label %13
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !130
 }
 
 declare noundef i32 @_ZNK5clang10TargetInfo22getOpenCLTypeAddrSpaceENS_14OpenCLTypeKindE(ptr noundef nonnull align 8 dereferenceable(489), i8 noundef zeroext) unnamed_addr #3
@@ -1918,7 +1918,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5clang10TargetInfo16getPointerWidthV
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK5clang10TargetInfo16getPointerAlignVENS_6LangASE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %4 = load i8, ptr %3, align 1, !tbaa !130
+  %4 = load i8, ptr %3, align 1, !tbaa !132
   %5 = zext i8 %4 to i64
   ret i64 %5
 }
@@ -1926,7 +1926,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5clang10TargetInfo16getPointerAlignV
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5clang10TargetInfo15getPtrDiffTypeVENS_6LangASE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load i32, ptr %3, align 8, !tbaa !131
+  %4 = load i32, ptr %3, align 8, !tbaa !133
   ret i32 %4
 }
 
@@ -1973,7 +1973,7 @@ declare noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #12
-  %6 = load ptr, ptr %0, align 8, !tbaa !132
+  %6 = load ptr, ptr %0, align 8, !tbaa !134
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !120
@@ -1995,13 +1995,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8, !tbaa !120
-  br label %.preheader.i.i, !llvm.loop !133
+  br label %.preheader.i.i, !llvm.loop !135
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !135
+  %14 = load i32, ptr %13, align 8, !tbaa !137
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !135
+  store i32 %15, ptr %13, align 8, !tbaa !137
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -2018,16 +2018,16 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1, !tbaa !8
-  store i64 %2, ptr %18, align 8, !tbaa !136
+  store i64 %2, ptr %18, align 8, !tbaa !138
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 0, ptr %22, align 8, !tbaa !122
   store ptr %18, ptr %8, align 8, !tbaa !120
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !137
+  %24 = load i32, ptr %23, align 4, !tbaa !139
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !137
+  store i32 %25, ptr %23, align 4, !tbaa !139
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #12
-  %27 = load ptr, ptr %0, align 8, !tbaa !132
+  %27 = load ptr, ptr %0, align 8, !tbaa !134
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
@@ -2043,7 +2043,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !133
+  br label %.preheader.i.i23, !llvm.loop !135
 
 _ZN4llvm17StringMapIteratorIbEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -2228,11 +2228,13 @@ attributes #14 = { noreturn nounwind }
 !127 = !{!128}
 !128 = distinct !{!128, !129, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
 !129 = distinct !{!129, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!130 = !{!12, !5, i64 1}
-!131 = !{!12, !22, i64 136}
-!132 = !{!52, !53, i64 0}
-!133 = distinct !{!133, !134}
-!134 = !{!"llvm.loop.mustprogress"}
-!135 = !{!52, !19, i64 16}
-!136 = !{!124, !33, i64 0}
-!137 = !{!52, !19, i64 12}
+!130 = distinct !{!130, !131}
+!131 = !{!"llvm.loop.estimated_trip_count"}
+!132 = !{!12, !5, i64 1}
+!133 = !{!12, !22, i64 136}
+!134 = !{!52, !53, i64 0}
+!135 = distinct !{!135, !136, !131}
+!136 = !{!"llvm.loop.mustprogress"}
+!137 = !{!52, !19, i64 16}
+!138 = !{!124, !33, i64 0}
+!139 = !{!52, !19, i64 12}

@@ -261,7 +261,7 @@ define hidden void @av1_reset_loop_restoration(ptr noundef writeonly captures(no
   store i32 31, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %6, %2
   ret void
@@ -301,7 +301,7 @@ define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) 
   store i32 %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !8
 
 18:                                               ; preds = %.lr.ph23, %18
   %indvars.iv25 = phi i64 [ %9, %.lr.ph23 ], [ %indvars.iv.next26, %18 ]
@@ -313,7 +313,7 @@ define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) 
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
   %22 = and i64 %indvars.iv.next26, 4294967295
   %exitcond28.not = icmp eq i64 %22, 3
-  br i1 %exitcond28.not, label %._crit_edge, label %18, !llvm.loop !8
+  br i1 %exitcond28.not, label %._crit_edge, label %18, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   ret void
@@ -336,8 +336,9 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

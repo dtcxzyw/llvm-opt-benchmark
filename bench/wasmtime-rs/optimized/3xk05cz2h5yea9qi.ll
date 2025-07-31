@@ -2780,7 +2780,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h1c1f37adb56553
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %23 = add i64 %16, 1
   store i64 %23, ptr %9, align 8
-  br label %11
+  br label %11, !llvm.loop !9
 
 24:                                               ; preds = %33, %20
   %25 = landingpad { ptr, i32 }
@@ -2873,7 +2873,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd69a592a65a010
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %23 = add i64 %16, 1
   store i64 %23, ptr %9, align 8
-  br label %11
+  br label %11, !llvm.loop !11
 
 24:                                               ; preds = %33, %20
   %25 = landingpad { ptr, i32 }
@@ -2950,7 +2950,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfc9c5340f52242
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf914c1babf5e2f6eE"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %5, ptr align 8 %1)
   %18 = load i64, ptr %5, align 8, !range !5, !noundef !4
   %.not = icmp eq i64 %18, -9223372036854775807
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !12
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -4818,3 +4818,7 @@ attributes #18 = { noreturn }
 !6 = !{i64 1}
 !7 = !{i64 8}
 !8 = !{i64 0, i64 -9223372036854775807}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

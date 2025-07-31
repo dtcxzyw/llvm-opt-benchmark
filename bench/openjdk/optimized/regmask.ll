@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr noundef
   %11 = add i32 %.057.i, %10
   %12 = add i32 %.08.i, 1
   %.not.i = icmp ugt i32 %12, %5
-  br i1 %.not.i, label %_ZNK7RegMask4SizeEv.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZNK7RegMask4SizeEv.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
   %13 = icmp eq i32 %11, 2
@@ -122,7 +122,7 @@ _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
 17:                                               ; preds = %23
   %18 = sub i64 %24, %25
   %.not15.i = icmp eq i64 %18, 0
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i1, !llvm.loop !9
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i1, !llvm.loop !10
 
 .lr.ph.i1:                                        ; preds = %.lr.ph25.i, %17
   %.01320.i = phi i64 [ %18, %17 ], [ %16, %.lr.ph25.i ]
@@ -142,7 +142,7 @@ _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
 ._crit_edge.i:                                    ; preds = %17, %.lr.ph25.i
   %28 = add i32 %.01422.i, 1
   %.not.i2 = icmp ugt i32 %28, %5
-  br i1 %.not.i2, label %_ZNK7RegMask4SizeEv.exit.thread, label %.lr.ph25.i, !llvm.loop !10
+  br i1 %.not.i2, label %_ZNK7RegMask4SizeEv.exit.thread, label %.lr.ph25.i, !llvm.loop !11
 
 _ZNK7RegMask4SizeEv.exit.thread:                  ; preds = %._crit_edge.i, %23, %.lr.ph.i1, %1, %_ZNK7RegMask4SizeEv.exit
   %29 = phi i1 [ false, %_ZNK7RegMask4SizeEv.exit ], [ false, %1 ], [ true, %.lr.ph.i1 ], [ true, %23 ], [ false, %._crit_edge.i ]
@@ -169,7 +169,7 @@ define hidden noundef i32 @_ZNK7RegMask4SizeEv(ptr noundef nonnull readonly alig
   %11 = add i32 %.057, %10
   %12 = add i32 %.08, 1
   %.not = icmp ugt i32 %12, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i32 [ 0, %1 ], [ %11, %.lr.ph ]
@@ -196,7 +196,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef n
 9:                                                ; preds = %15
   %10 = sub i64 %16, %17
   %.not15 = icmp eq i64 %10, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph25, %9
   %.01320 = phi i64 [ %10, %9 ], [ %8, %.lr.ph25 ]
@@ -216,7 +216,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef n
 ._crit_edge:                                      ; preds = %9, %.lr.ph25
   %20 = add i32 %.01422, 1
   %.not = icmp ugt i32 %20, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph25, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph25, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge, %15, %.lr.ph, %1
   %.not18 = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ false, %15 ], [ true, %._crit_edge ]
@@ -262,12 +262,12 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %17 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.not14 = icmp eq i64 %18, 0
-  br i1 %.not14, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %.not14, label %.preheader, label %.loopexit, !llvm.loop !12
 
 19:                                               ; preds = %.lr.ph
   %20 = add i32 %.01020, 1
   %.not = icmp ugt i32 %20, %9
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %19, %.preheader, %15, %5, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit, %1
   %.0 = phi i1 [ false, %1 ], [ false, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit ], [ false, %5 ], [ %.not13, %15 ], [ %.not13, %.preheader ], [ false, %19 ]
@@ -334,12 +334,12 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
   %27 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %.not26 = icmp eq i64 %28, 0
-  br i1 %.not26, label %24, label %.loopexit, !llvm.loop !13
+  br i1 %.not26, label %24, label %.loopexit, !llvm.loop !14
 
 29:                                               ; preds = %.lr.ph
   %30 = add i32 %.01732, 1
   %.not = icmp ugt i32 %30, %9
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %29, %24, %25, %5, %17, %20, %15, %1
   %.0 = phi i1 [ false, %1 ], [ false, %15 ], [ false, %20 ], [ false, %17 ], [ true, %5 ], [ %.not25, %25 ], [ %.not25, %24 ], [ true, %29 ]
@@ -441,12 +441,12 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
   %47 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %46
   %48 = load i64, ptr %47, align 8
   %.not35.i = icmp eq i64 %48, 0
-  br i1 %.not35.i, label %44, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !15
+  br i1 %.not35.i, label %44, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !16
 
 49:                                               ; preds = %.lr.ph.i
   %50 = add i32 %.02741.i, 1
   %.not.i = icmp ugt i32 %50, %13
-  br i1 %.not.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i, !llvm.loop !17
 
 51:                                               ; preds = %2
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -486,12 +486,12 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %67 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %66
   %68 = load i64, ptr %67, align 8
   %.not14.i = icmp eq i64 %68, 0
-  br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i9.preheader, !llvm.loop !11
+  br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i9.preheader, !llvm.loop !12
 
 69:                                               ; preds = %.lr.ph.i4
   %70 = add i32 %.01020.i, 1
   %.not.i7 = icmp ugt i32 %70, %59
-  br i1 %.not.i7, label %.lr.ph.i9.preheader, label %.lr.ph.i4, !llvm.loop !12
+  br i1 %.not.i7, label %.lr.ph.i9.preheader, label %.lr.ph.i4, !llvm.loop !13
 
 .lr.ph.i9.preheader:                              ; preds = %69, %65, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
   br label %.lr.ph.i9
@@ -541,12 +541,12 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %88 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %87
   %89 = load i64, ptr %88, align 8
   %.not26.i = icmp eq i64 %89, 0
-  br i1 %.not26.i, label %85, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !13
+  br i1 %.not26.i, label %85, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !14
 
 90:                                               ; preds = %.lr.ph.i9
   %91 = add i32 %.01732.i, 1
   %.not.i14 = icmp ugt i32 %91, %59
-  br i1 %.not.i14, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9, !llvm.loop !14
+  br i1 %.not.i14, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9, !llvm.loop !15
 
 _ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %90, %86, %85, %49, %45, %44, %55, %51, %78, %81, %76, %33, %36, %31, %23, %_ZN7RegMask13num_registersEj.exit, %9
   %.0 = phi i1 [ true, %9 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %23 ], [ false, %31 ], [ false, %36 ], [ false, %33 ], [ false, %76 ], [ false, %81 ], [ false, %78 ], [ false, %51 ], [ true, %55 ], [ %.not34.i, %44 ], [ %.not34.i, %45 ], [ true, %49 ], [ %.not25.i, %85 ], [ %.not25.i, %86 ], [ true, %90 ], [ true, %.preheader.i ]
@@ -631,12 +631,12 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnu
   %44 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %43
   %45 = load i64, ptr %44, align 8
   %.not35 = icmp eq i64 %45, 0
-  br i1 %.not35, label %41, label %.loopexit, !llvm.loop !15
+  br i1 %.not35, label %41, label %.loopexit, !llvm.loop !16
 
 46:                                               ; preds = %.lr.ph
   %47 = add i32 %.02741, 1
   %.not = icmp ugt i32 %47, %10
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %46, %41, %42, %6, %30, %33, %28, %20, %2
   %.0 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %28 ], [ false, %33 ], [ false, %30 ], [ true, %6 ], [ %.not34, %42 ], [ %.not34, %41 ], [ true, %46 ]
@@ -663,7 +663,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr noundef nonn
   %14 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp ne i32 %14, %2
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.lcssa = phi i1 [ true, %3 ], [ %.not.not, %.lr.ph ]
@@ -699,7 +699,7 @@ define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr noundef nonnu
 18:                                               ; preds = %.lr.ph
   %19 = add i32 %.013, 1
   %.not = icmp ugt i32 %19, %7
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %18, %3, %11
   %.08 = phi i32 [ %17, %11 ], [ -1, %3 ], [ -1, %18 ]
@@ -768,7 +768,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   %34 = add i32 %.02632.us, 1
   %35 = load i32, ptr %11, align 4
   %.not.us = icmp ugt i32 %34, %35
-  br i1 %.not.us, label %.loopexit, label %.lr.ph34.split.us, !llvm.loop !19
+  br i1 %.not.us, label %.loopexit, label %.lr.ph34.split.us, !llvm.loop !20
 
 .lr.ph.us:                                        ; preds = %.lr.ph34.split.us, %.lr.ph.us
   %.02530.us = phi i64 [ %.025.us, %.lr.ph.us ], [ %.02528.us, %.lr.ph34.split.us ]
@@ -777,7 +777,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   %37 = add nuw i32 %.029.us, 1
   %.025.us = and i64 %36, %18
   %exitcond48.not = icmp eq i32 %37, %1
-  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !21
+  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !22
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34
   br i1 %.not45, label %.lr.ph34.split.split, label %.lr.ph.us42
@@ -797,7 +797,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   %43 = add nuw i32 %.029.us40, 1
   %.025.us41 = and i64 %42, %40
   %exitcond.not = icmp eq i32 %43, %1
-  br i1 %exitcond.not, label %._crit_edge.us43, label %41, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us43, label %41, !llvm.loop !22
 
 ._crit_edge.us43:                                 ; preds = %41
   %44 = lshr exact i64 %.025.us41, 1
@@ -806,7 +806,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   %46 = add i32 %.02632.us35, 1
   %47 = load i32, ptr %11, align 4
   %.not.us38 = icmp ugt i32 %46, %47
-  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !22
+  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !23
 
 .lr.ph34.split.split:                             ; preds = %.lr.ph34.split, %.lr.ph34.split.split
   %.02632 = phi i32 [ %53, %.lr.ph34.split.split ], [ %10, %.lr.ph34.split ]
@@ -820,7 +820,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   %53 = add i32 %.02632, 1
   %54 = load i32, ptr %11, align 4
   %.not = icmp ugt i32 %53, %54
-  br i1 %.not, label %.loopexit, label %.lr.ph34.split.split, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %.lr.ph34.split.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph34.split.split, %33, %4, %2
   ret void
@@ -883,7 +883,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   %29 = add i32 %.02733.us, 1
   %30 = load i32, ptr %11, align 4
   %.not.us = icmp ugt i32 %29, %30
-  br i1 %.not.us, label %.loopexit, label %.lr.ph35.split.us, !llvm.loop !24
+  br i1 %.not.us, label %.loopexit, label %.lr.ph35.split.us, !llvm.loop !25
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.031.us = phi i32 [ %34, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
@@ -894,7 +894,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   %33 = lshr i64 %.02629.us, 1
   %34 = add nuw i32 %.031.us, 1
   %exitcond49.not = icmp eq i32 %34, %1
-  br i1 %exitcond49.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
+  br i1 %exitcond49.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !26
 
 .lr.ph35.split:                                   ; preds = %.lr.ph35
   br i1 %.not45, label %.lr.ph35.split.split, label %.lr.ph.us42
@@ -915,7 +915,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   %41 = lshr i64 %.02629.us41, 1
   %42 = add nuw i32 %.031.us39, 1
   %exitcond.not = icmp eq i32 %42, %1
-  br i1 %exitcond.not, label %._crit_edge.us43, label %38, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us43, label %38, !llvm.loop !26
 
 ._crit_edge.us43:                                 ; preds = %38
   %43 = shl i64 %40, 1
@@ -924,7 +924,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   %45 = add i32 %.02733.us36, 1
   %46 = load i32, ptr %11, align 4
   %.not.us38 = icmp ugt i32 %45, %46
-  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !26
+  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !27
 
 .lr.ph35.split.split:                             ; preds = %.lr.ph35.split, %.lr.ph35.split.split
   %.02733 = phi i32 [ %49, %.lr.ph35.split.split ], [ %10, %.lr.ph35.split ]
@@ -934,7 +934,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   %49 = add i32 %.02733, 1
   %50 = load i32, ptr %11, align 4
   %.not = icmp ugt i32 %49, %50
-  br i1 %.not, label %.loopexit, label %.lr.ph35.split.split, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph35.split.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph35.split.split, %._crit_edge.us.thread, %4, %2
   ret void
@@ -973,7 +973,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 19:                                               ; preds = %24
   %20 = sub i64 %.02128, %29
   %.not24 = icmp eq i64 %20, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %15, %19
   %.02128 = phi i64 [ %20, %19 ], [ %18, %15 ]
@@ -996,7 +996,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 ._crit_edge:                                      ; preds = %19, %15
   %31 = add i32 %.02030, 1
   %.not = icmp ugt i32 %31, %12
-  br i1 %.not, label %.loopexit, label %15, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %.lr.ph, %4, %2
   %.0 = phi i1 [ true, %2 ], [ true, %4 ], [ false, %.lr.ph ], [ false, %24 ], [ true, %._crit_edge ]
@@ -1035,7 +1035,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull reado
   %20 = or i64 %.fr4, %.01113.i
   %21 = add i32 %.014.i, 1
   %.not.i = icmp ugt i32 %21, %9
-  br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !31
 
 _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i
   %.not = icmp eq i64 %20, 0
@@ -1074,7 +1074,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
   %7 = add nsw i32 %storemerge25.i.i, -1
   store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN7RegMask3AllE, i64 92), align 4
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %__cxx_global_var_init.5.exit, label %1, !llvm.loop !31
+  br i1 %.not.i.i, label %__cxx_global_var_init.5.exit, label %1, !llvm.loop !32
 
 .lr.ph.i.i:                                       ; preds = %1, %11
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %11 ], [ 0, %1 ]
@@ -1088,7 +1088,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
   %12 = trunc nuw i64 %indvars.iv.next.i.i to i32
   store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7RegMask3AllE, i64 88), align 8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %__cxx_global_var_init.5.exit, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %__cxx_global_var_init.5.exit, label %.lr.ph.i.i, !llvm.loop !33
 
 __cxx_global_var_init.5.exit:                     ; preds = %6, %.lr.ph.i.i, %11
   ret void
@@ -1120,30 +1120,31 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !20}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !20}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7, !20}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8, !21}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8, !21}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8, !21}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}

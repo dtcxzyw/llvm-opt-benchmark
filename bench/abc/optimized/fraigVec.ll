@@ -406,7 +406,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   store ptr %38, ptr %gep, align 8, !tbaa !12
   %.0 = add nsw i32 %.019, -1
   %42 = icmp sgt i32 %.019, 1
-  br i1 %42, label %35, label %._crit_edge, !llvm.loop !16
+  br i1 %42, label %35, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %41, %35, %Fraig_NodeVecPush.exit
   ret void
@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr noundef captures(no
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !18
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -534,12 +534,12 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !18
+  %45 = load i32, ptr %44, align 8, !tbaa !19
   %46 = ptrtoint ptr %40 to i64
   %47 = and i64 %46, -2
   %48 = inttoptr i64 %47 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !18
+  %50 = load i32, ptr %49, align 8, !tbaa !19
   %.not = icmp sgt i32 %45, %50
   br i1 %.not, label %51, label %._crit_edge
 
@@ -548,7 +548,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   store ptr %38, ptr %gep, align 8, !tbaa !12
   %.0 = add nsw i32 %.017, -1
   %52 = icmp sgt i32 %.017, 1
-  br i1 %52, label %35, label %._crit_edge, !llvm.loop !22
+  br i1 %52, label %35, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %51, %35, %Fraig_NodeVecPush.exit
   ret void
@@ -570,7 +570,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr noundef capt
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !24
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -625,7 +625,7 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
 12:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !25
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %8
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -656,7 +656,7 @@ define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef read
   %24 = trunc nuw i64 %indvars.iv.next29 to i32
   %25 = icmp sgt i32 %4, %24
   %26 = trunc nuw i64 %indvars.iv28 to i32
-  br i1 %25, label %19, label %._crit_edge26, !llvm.loop !25
+  br i1 %25, label %19, label %._crit_edge26, !llvm.loop !26
 
 ._crit_edge26:                                    ; preds = %19, %._crit_edge
   %27 = add nsw i32 %4, -1
@@ -691,13 +691,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr noundef re
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !18
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = load ptr, ptr %1, align 8, !tbaa !12
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !18
+  %14 = load i32, ptr %13, align 8, !tbaa !19
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %14)
   ret i32 %.0
 }
@@ -709,13 +709,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr noundef re
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !18
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = load ptr, ptr %1, align 8, !tbaa !12
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !18
+  %14 = load i32, ptr %13, align 8, !tbaa !19
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %8)
   ret i32 %.0
 }
@@ -726,12 +726,12 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareNumbers(ptr noundef readonly ca
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = load ptr, ptr %1, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = load i32, ptr %11, align 8, !tbaa !26
+  %12 = load i32, ptr %11, align 8, !tbaa !27
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
   ret i32 %.0
 }
@@ -743,13 +743,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr noundef readonly 
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !27
+  %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = load ptr, ptr %1, align 8, !tbaa !12
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !27
+  %14 = load i32, ptr %13, align 4, !tbaa !28
   %15 = icmp slt i32 %8, %14
   br i1 %15, label %26, label %16
 
@@ -759,9 +759,9 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr noundef readonly 
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !18
+  %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !18
+  %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = icmp slt i32 %20, %22
   br i1 %23, label %26, label %24
 
@@ -853,17 +853,18 @@ attributes #19 = { nounwind allocsize(1) }
 !11 = !{!4, !8, i64 8}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS19Fraig_NodeStruct_t_", !9, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!19, !5, i64 8}
-!19 = !{!"Fraig_NodeStruct_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 25, !5, i64 25, !5, i64 25, !5, i64 25, !13, i64 32, !13, i64 40, !20, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !5, i64 96, !5, i64 100, !21, i64 104, !21, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152}
-!20 = !{!"p1 _ZTS22Fraig_NodeVecStruct_t_", !9, i64 0}
-!21 = !{!"p1 int", !9, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = !{!19, !5, i64 0}
-!27 = !{!19, !5, i64 12}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!20, !5, i64 8}
+!20 = !{!"Fraig_NodeStruct_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 25, !5, i64 25, !5, i64 25, !5, i64 25, !13, i64 32, !13, i64 40, !21, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !5, i64 96, !5, i64 100, !22, i64 104, !22, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152}
+!21 = !{!"p1 _ZTS22Fraig_NodeVecStruct_t_", !9, i64 0}
+!22 = !{!"p1 int", !9, i64 0}
+!23 = distinct !{!23, !15, !16}
+!24 = distinct !{!24, !15, !16}
+!25 = distinct !{!25, !15, !16}
+!26 = distinct !{!26, !15, !16}
+!27 = !{!20, !5, i64 0}
+!28 = !{!20, !5, i64 12}

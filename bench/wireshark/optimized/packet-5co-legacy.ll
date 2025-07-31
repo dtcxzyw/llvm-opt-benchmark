@@ -478,7 +478,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %.1.i = add i32 %.pn.i, %.01520.i
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %98, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %98, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %98
   %107 = trunc i16 %32 to i1
@@ -605,7 +605,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %172 = add i16 %.1529, 1
   %173 = add nuw nsw i16 %.0434528, 1
   %exitcond580.not = icmp eq i16 %173, %167
-  br i1 %exitcond580.not, label %._crit_edge.loopexit, label %.lr.ph530, !llvm.loop !9
+  br i1 %exitcond580.not, label %._crit_edge.loopexit, label %.lr.ph530, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph530
   %.pre = zext i16 %172 to i32
@@ -620,12 +620,12 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %176 = add nuw nsw i32 %.pre-phi, 1
   %177 = and i32 %176, 65535
   %178 = icmp samesign ult i32 %177, %33
-  br i1 %178, label %149, label %.critedge, !llvm.loop !10
+  br i1 %178, label %149, label %.critedge, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph525, %.preheader
   %.3.lcssa = phi i16 [ %190, %.preheader ], [ %197, %.lr.ph525 ]
   %179 = icmp ult i16 %.3.lcssa, %32
-  br i1 %179, label %.preheader, label %.critedge, !llvm.loop !11
+  br i1 %179, label %.preheader, label %.critedge, !llvm.loop !12
 
 .preheader:                                       ; preds = %143, %.loopexit
   %.2527 = phi i16 [ %.3.lcssa, %.loopexit ], [ 0, %143 ]
@@ -663,7 +663,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %195, ptr noundef nonnull @.str.125, i32 noundef %201)
   %202 = add i16 %.3524, 1
   %exitcond579.not = icmp eq i16 %202, %197
-  br i1 %exitcond579.not, label %.loopexit, label %.lr.ph525, !llvm.loop !12
+  br i1 %exitcond579.not, label %.loopexit, label %.lr.ph525, !llvm.loop !13
 
 203:                                              ; preds = %143
   %204 = load i32, ptr @hf_fiveco_i2c2scan, align 4
@@ -679,7 +679,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %205, ptr noundef nonnull @.str.125, i32 noundef %209)
   %indvars.iv.next575 = add nuw nsw i32 %indvars.iv574, 1
   %exitcond578.not = icmp eq i32 %indvars.iv.next575, %33
-  br i1 %exitcond578.not, label %.critedge, label %206, !llvm.loop !13
+  br i1 %exitcond578.not, label %.critedge, label %206, !llvm.loop !14
 
 210:                                              ; preds = %143
   %211 = load i32, ptr @hf_fiveco_i2cscaned, align 4
@@ -695,7 +695,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %212, ptr noundef nonnull @.str.125, i32 noundef %216)
   %indvars.iv.next570 = add nuw nsw i32 %indvars.iv569, 1
   %exitcond573.not = icmp eq i32 %indvars.iv.next570, %33
-  br i1 %exitcond573.not, label %.critedge, label %213, !llvm.loop !14
+  br i1 %exitcond573.not, label %.critedge, label %213, !llvm.loop !15
 
 217:                                              ; preds = %143
   %218 = load i32, ptr @hf_fiveco_i2cerror, align 4
@@ -745,7 +745,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0449, ptr noundef nonnull @.str.127, i32 noundef %.pre-phi584)
   %indvars.iv.next566 = add nuw nsw i32 %indvars.iv565, 1
   %exitcond568.not = icmp eq i32 %indvars.iv.next566, %33
-  br i1 %exitcond568.not, label %.critedge, label %.preheader491, !llvm.loop !15
+  br i1 %exitcond568.not, label %.critedge, label %.preheader491, !llvm.loop !16
 
 .lr.ph519.preheader:                              ; preds = %143, %143
   %240 = add nuw nsw i32 %33, %145
@@ -825,7 +825,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %282, ptr noundef nonnull @.str.125, i32 noundef %288)
   %indvars.iv.next562 = add nuw nsw i32 %indvars.iv561, 1
   %exitcond564.not = icmp eq i32 %indvars.iv.next562, %281
-  br i1 %exitcond564.not, label %.loopexit486, label %.lr.ph516, !llvm.loop !16
+  br i1 %exitcond564.not, label %.loopexit486, label %.lr.ph516, !llvm.loop !17
 
 289:                                              ; preds = %245, %.lr.ph519
   %290 = load i32, ptr @hf_fiveco_regreaduk, align 4
@@ -839,7 +839,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %.9 = phi i16 [ %263, %256 ], [ %277, %268 ], [ %242, %278 ], [ %285, %.lr.ph516 ]
   %294 = zext i16 %.9 to i32
   %295 = icmp samesign ugt i32 %240, %294
-  br i1 %295, label %.lr.ph519, label %.critedge, !llvm.loop !17
+  br i1 %295, label %.lr.ph519, label %.critedge, !llvm.loop !18
 
 296:                                              ; preds = %143
   %297 = load i32, ptr @hf_fiveco_EasyIPMAC, align 4
@@ -917,7 +917,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %331, ptr noundef nonnull @.str.125, i32 noundef %338)
   %339 = add nuw nsw i16 %.3437508, 1
   %exitcond560.not = icmp eq i16 %339, %333
-  br i1 %exitcond560.not, label %340, label %334, !llvm.loop !18
+  br i1 %exitcond560.not, label %340, label %334, !llvm.loop !19
 
 340:                                              ; preds = %334
   br i1 %311, label %341, label %354
@@ -947,7 +947,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %355 = zext i16 %325 to i32
   %356 = load i16, ptr %.0444, align 8
   %357 = icmp ult i16 %325, %356
-  br i1 %357, label %313, label %.critedge, !llvm.loop !19
+  br i1 %357, label %313, label %.critedge, !llvm.loop !20
 
 358:                                              ; preds = %305
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %146, ptr noundef nonnull @.str.130)
@@ -1064,7 +1064,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %413, ptr noundef nonnull @.str.125, i32 noundef %419)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %412
-  br i1 %exitcond.not, label %.loopexit487, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit487, label %.lr.ph, !llvm.loop !21
 
 split:                                            ; preds = %372, %369, %._crit_edge585
   %.pre-phi591 = phi i32 [ %.pre590, %._crit_edge585 ], [ %367, %369 ], [ %367, %372 ]
@@ -1079,7 +1079,7 @@ split:                                            ; preds = %372, %369, %._crit_
   %423 = load i16, ptr %.0444, align 8
   %424 = zext i16 %423 to i32
   %425 = icmp samesign ult i32 %indvars.iv.next558, %424
-  br i1 %425, label %366, label %.critedge, !llvm.loop !21
+  br i1 %425, label %366, label %.critedge, !llvm.loop !22
 
 426:                                              ; preds = %143
   %427 = call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %145, i32 noundef 0)
@@ -1116,7 +1116,7 @@ split:                                            ; preds = %372, %369, %._crit_
   %441 = add i16 %440, %32
   %442 = zext i16 %441 to i32
   %443 = icmp ugt i32 %7, %442
-  br i1 %443, label %22, label %444, !llvm.loop !22
+  br i1 %443, label %22, label %444, !llvm.loop !23
 
 444:                                              ; preds = %.critedge
   %445 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1397,20 +1397,21 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

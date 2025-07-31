@@ -73,7 +73,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   store i32 %39, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %27
+  br i1 %exitcond.not.i, label %.preheader.i, label %27, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %27, %51
   %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %51 ], [ 0, %27 ]
@@ -112,7 +112,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.sroa.0.1.i = phi i32 [ -1, %48 ], [ -1, %47 ], [ %spec.select94.i, %44 ]
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %exitcond126.not.i = icmp eq i64 %indvars.iv.next124.i, 8
-  br i1 %exitcond126.not.i, label %52, label %.preheader.i
+  br i1 %exitcond126.not.i, label %52, label %.preheader.i, !llvm.loop !6
 
 52:                                               ; preds = %51
   %.not.i7 = icmp eq i32 %.sroa.0.1.i, -1
@@ -193,7 +193,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.277.i.us = phi ptr [ %84, %83 ], [ %.075119.i.us, %82 ], [ %81, %.thread.i.us ]
   %indvars.iv.next132.i.us = add nuw nsw i64 %indvars.iv131.i.us, 1
   %exitcond134.not.i.us = icmp eq i64 %indvars.iv.next132.i.us, 8
-  br i1 %exitcond134.not.i.us, label %.loopexit.i, label %.split.i.us, !llvm.loop !4
+  br i1 %exitcond134.not.i.us, label %.loopexit.i, label %.split.i.us, !llvm.loop !7
 
 .split.us.i:                                      ; preds = %101, %.split.us.preheader.i
   %indvars.iv127.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next128.i, %101 ]
@@ -237,7 +237,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.277.us.i = phi ptr [ %100, %99 ], [ %.075119.us.i, %97 ], [ %96, %.thread.us.i ]
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 8
-  br i1 %exitcond130.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !6
+  br i1 %exitcond130.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !9
 
 .split.i:                                         ; preds = %.split.preheader.i, %145
   %indvars.iv131.i = phi i64 [ %indvars.iv.next132.i, %145 ], [ 0, %.split.preheader.i ]
@@ -326,7 +326,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.277.i = phi ptr [ %106, %105 ], [ %.075119.i, %104 ], [ %144, %.thread.i ]
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next132.i, 8
-  br i1 %exitcond134.not.i, label %.loopexit.i, label %.split.i
+  br i1 %exitcond134.not.i, label %.loopexit.i, label %.split.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %101, %145, %85, %.thread106.i
   %.176.i = phi ptr [ %136, %.thread106.i ], [ %.277.i.us, %85 ], [ %.277.i, %145 ], [ %.277.us.i, %101 ]
@@ -444,7 +444,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
   %.125.i = phi ptr [ %35, %34 ], [ %.02456.i, %26 ]
   %38 = load i8, ptr %15, align 1
   %.not.i = icmp eq i8 %38, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %36
   %39 = icmp slt i32 %.335.i, 4
@@ -636,7 +636,7 @@ inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, 
   %.125.i.i = phi ptr [ %106, %105 ], [ %.02456.i.i, %97 ]
   %109 = load i8, ptr %86, align 1
   %.not.i.i = icmp eq i8 %109, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %107
   %110 = icmp slt i32 %.335.i.i, 4
@@ -717,7 +717,7 @@ select.unfold118.i:                               ; preds = %77, %72, %.thread.i
   store i8 0, ptr %130, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread127.i, label %.lr.ph180.i
+  br i1 %exitcond.not.i, label %.thread127.i, label %.lr.ph180.i, !llvm.loop !12
 
 134:                                              ; preds = %121
   %.not110.i = icmp eq i64 %.5.idx.i, 16
@@ -787,5 +787,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
 !6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !8}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

@@ -140,17 +140,17 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
 67:                                               ; preds = %69
   %68 = add i64 %.095135, -1
   %.not113 = icmp eq i64 %68, 0
-  br i1 %.not113, label %.critedge122, label %.preheader
+  br i1 %.not113, label %.critedge122, label %.preheader, !llvm.loop !15
 
 69:                                               ; preds = %.preheader, %69
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %69 ]
   %70 = getelementptr float, ptr %gep, i64 %indvars.iv
-  %71 = load i32, ptr %70, align 4, !tbaa !15
-  %72 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %71) #11, !srcloc !17
-  store i32 %72, ptr %70, align 4, !tbaa !15
+  %71 = load i32, ptr %70, align 4, !tbaa !17
+  %72 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %71) #11, !srcloc !19
+  store i32 %72, ptr %70, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %67, label %69
+  br i1 %exitcond.not, label %67, label %69, !llvm.loop !20
 
 .preheader126:                                    ; preds = %.preheader127, %.critedge
   %73 = phi i32 [ %93, %.critedge ], [ %.pre144, %.preheader127 ]
@@ -177,7 +177,7 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
 
 79:                                               ; preds = %78
   %80 = load i32, ptr %8, align 4, !tbaa !12
-  %81 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %80) #11, !srcloc !18
+  %81 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %80) #11, !srcloc !21
   %82 = bitcast i32 %81 to float
   br label %83
 
@@ -189,15 +189,15 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   %88 = add i64 %87, %.096130
   %.idx = mul i64 %88, 12
   %89 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
-  store float %84, ptr %89, align 4, !tbaa !15
+  store float %84, ptr %89, align 4, !tbaa !17
   %90 = getelementptr i8, ptr %89, i64 4
-  store float %84, ptr %90, align 4, !tbaa !15
+  store float %84, ptr %90, align 4, !tbaa !17
   %91 = getelementptr i8, ptr %89, i64 8
-  store float %84, ptr %91, align 4, !tbaa !15
+  store float %84, ptr %91, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   %92 = add nuw i64 %.096130, 1
   %.not110 = icmp ult i64 %92, %86
-  br i1 %.not110, label %.lr.ph, label %.critedge.loopexit
+  br i1 %.not110, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %83
   %.pre143 = load i32, ptr %7, align 4, !tbaa !13
@@ -210,7 +210,7 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   %96 = add nuw i64 %.097132, 1
   %97 = sext i32 %94 to i64
   %.not111 = icmp ult i64 %96, %97
-  br i1 %.not111, label %.preheader126, label %.critedge122
+  br i1 %.not111, label %.preheader126, label %.critedge122, !llvm.loop !23
 
 98:                                               ; preds = %.lr.ph
   %99 = load ptr, ptr @stderr, align 8, !tbaa !7
@@ -267,7 +267,7 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   %128 = sdiv i32 %127, 2
   %129 = sext i32 %128 to i64
   %130 = icmp ult i64 %126, %129
-  br i1 %130, label %.lr.ph137, label %._crit_edge
+  br i1 %130, label %.lr.ph137, label %._crit_edge, !llvm.loop !24
 
 131:                                              ; preds = %._crit_edge
   %132 = load i32, ptr %6, align 4, !tbaa !13
@@ -374,7 +374,7 @@ define dso_local void @write_pfm(ptr noundef readonly captures(none) %0, i32 nou
   %21 = getelementptr inbounds nuw i8, ptr %.03037.us, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %.02938.us, i64 12
   %exitcond.not = icmp eq i32 %20, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %19
+  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %19
   %23 = tail call i64 @fwrite(ptr noundef %11, i64 noundef 12, i64 noundef %8, ptr noundef nonnull %5)
@@ -383,7 +383,7 @@ define dso_local void @write_pfm(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = icmp samesign ult i64 %indvars.iv.next, %14
   %or.cond = select i1 %.not36.us, i1 %25, i1 false
-  br i1 %or.cond, label %.lr.ph.us, label %._crit_edge43, !llvm.loop !19
+  br i1 %or.cond, label %.lr.ph.us, label %._crit_edge43, !llvm.loop !26
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42, %.lr.ph42.split
   %.03140 = phi i32 [ %28, %.lr.ph42.split ], [ 0, %.lr.ph42 ]
@@ -393,7 +393,7 @@ define dso_local void @write_pfm(ptr noundef readonly captures(none) %0, i32 nou
   %28 = add nuw nsw i32 %.03140, 1
   %29 = icmp slt i32 %28, %2
   %or.cond45 = select i1 %.not36, i1 %29, i1 false
-  br i1 %or.cond45, label %.lr.ph42.split, label %._crit_edge43
+  br i1 %or.cond45, label %.lr.ph42.split, label %._crit_edge43, !llvm.loop !28
 
 ._crit_edge43:                                    ; preds = %.lr.ph42.split, %._crit_edge.us, %6
   tail call void @free(ptr noundef %11) #10
@@ -443,9 +443,17 @@ attributes #12 = { nounwind allocsize(0,1) }
 !12 = !{!10, !10, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !10, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !10, i64 0}
-!17 = !{i64 2157549947}
-!18 = !{i64 2157550574}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"float", !10, i64 0}
+!19 = !{i64 2157549947}
+!20 = distinct !{!20, !16}
+!21 = !{i64 2157550574}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !16}

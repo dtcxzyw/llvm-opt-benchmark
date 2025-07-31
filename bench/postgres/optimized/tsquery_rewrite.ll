@@ -168,7 +168,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %74 = load i32, ptr %30, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next.i, %75
-  br i1 %76, label %54, label %.critedge.i
+  br i1 %76, label %54, label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %73, %71, %54, %47
   %.083.lcssa.i = phi i32 [ 0, %47 ], [ %.083109.i, %54 ], [ %.285.i, %73 ], [ %.083109.i, %71 ]
@@ -213,7 +213,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %95 = load i32, ptr %30, align 4
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next122.i, %96
-  br i1 %97, label %82, label %._crit_edge.i, !llvm.loop !7
+  br i1 %97, label %82, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %94, %.preheader.i
   %.3.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.4.i, %94 ]
@@ -330,7 +330,7 @@ findeq.exit.thread:                               ; preds = %115, %44, %35, %110
   %148 = load i32, ptr %132, align 4
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %150, label %136, label %._crit_edge, !llvm.loop !9
+  br i1 %150, label %136, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %136
   store i32 %spec.select, ptr %132, align 4
@@ -551,7 +551,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
 .lr.ph.backedge:                                  ; preds = %101, %._crit_edge
   %.1111.be = phi ptr [ %.2, %101 ], [ %.2119, %._crit_edge ]
   %.082110.be = phi i64 [ %102, %101 ], [ 0, %._crit_edge ]
-  br label %.lr.ph, !llvm.loop !10
+  br label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %97, %101
   %.2119 = phi ptr [ %.2, %101 ], [ null, %97 ]
@@ -814,6 +814,8 @@ attributes #6 = { cold nounwind }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}

@@ -114,7 +114,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
   br i1 %.not14, label %23, label %.backedge24.backedge
 
 .backedge24.backedge:                             ; preds = %18, %51
-  br label %.backedge24, !llvm.loop !8
+  br label %.backedge24, !llvm.loop !9
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @vmDeathLock, align 8
@@ -326,7 +326,7 @@ define internal void @reader(ptr readnone captures(none) %0, ptr readnone captur
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !10
 
 65:                                               ; preds = %.preheader.i
   %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
@@ -343,7 +343,7 @@ define internal void @reader(ptr readnone captures(none) %0, ptr readnone captur
   %switch.and.i = and i8 %70, -5
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
   %narrow.i.not.not = select i1 %69, i1 %switch.selectcmp.i, i1 false
-  br i1 %narrow.i.not.not, label %.thread, label %16, !llvm.loop !10
+  br i1 %narrow.i.not.not, label %.thread, label %16, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %16, %30
   %71 = load ptr, ptr @cmdQueueLock, align 8
@@ -448,8 +448,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

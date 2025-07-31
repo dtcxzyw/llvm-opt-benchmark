@@ -211,7 +211,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i8, ptr %95, i64 %98
   %100 = load ptr, ptr %5, align 8, !tbaa !12
-  %101 = load i16, ptr %99, align 2, !tbaa !19
+  %101 = load i16, ptr %99, align 2, !tbaa !20
   %102 = zext i16 %101 to i32
   %103 = load i32, ptr %10, align 4, !tbaa !10
   %104 = mul nsw i32 %103, %102
@@ -230,7 +230,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %114, ptr %21, align 8, !tbaa !15
   store float 0.000000e+00, ptr %22, align 4, !tbaa !15
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 2
-  %116 = load i16, ptr %115, align 2, !tbaa !19
+  %116 = load i16, ptr %115, align 2, !tbaa !20
   %117 = zext i16 %116 to i32
   %118 = mul nsw i32 %103, %117
   %119 = sext i32 %118 to i64
@@ -248,7 +248,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %128, ptr %25, align 8, !tbaa !15
   store float 0.000000e+00, ptr %26, align 4, !tbaa !15
   %129 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  %130 = load i16, ptr %129, align 2, !tbaa !19
+  %130 = load i16, ptr %129, align 2, !tbaa !20
   %131 = zext i16 %130 to i32
   %132 = mul nsw i32 %103, %131
   %133 = sext i32 %132 to i64
@@ -272,7 +272,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %146 = add nuw nsw i32 %.1238, 1
   %147 = load i32, ptr %12, align 4, !tbaa !10
   %148 = icmp slt i32 %146, %147
-  br i1 %148, label %.lr.ph239, label %.loopexit, !llvm.loop !21
+  br i1 %148, label %.lr.ph239, label %.loopexit, !llvm.loop !22
 
 .lr.ph237:                                        ; preds = %.preheader223, %.lr.ph237
   %.2236 = phi i32 [ %200, %.lr.ph237 ], [ 0, %.preheader223 ]
@@ -282,7 +282,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i8, ptr %149, i64 %152
   %154 = load ptr, ptr %5, align 8, !tbaa !12
-  %155 = load i8, ptr %153, align 1, !tbaa !22
+  %155 = load i8, ptr %153, align 1, !tbaa !23
   %156 = zext i8 %155 to i32
   %157 = load i32, ptr %10, align 4, !tbaa !10
   %158 = mul nsw i32 %157, %156
@@ -301,7 +301,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %168, ptr %21, align 8, !tbaa !15
   store float 0.000000e+00, ptr %22, align 4, !tbaa !15
   %169 = getelementptr inbounds nuw i8, ptr %153, i64 1
-  %170 = load i8, ptr %169, align 1, !tbaa !22
+  %170 = load i8, ptr %169, align 1, !tbaa !23
   %171 = zext i8 %170 to i32
   %172 = mul nsw i32 %157, %171
   %173 = sext i32 %172 to i64
@@ -319,7 +319,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %182, ptr %25, align 8, !tbaa !15
   store float 0.000000e+00, ptr %26, align 4, !tbaa !15
   %183 = getelementptr inbounds nuw i8, ptr %153, i64 2
-  %184 = load i8, ptr %183, align 1, !tbaa !22
+  %184 = load i8, ptr %183, align 1, !tbaa !23
   %185 = zext i8 %184 to i32
   %186 = mul nsw i32 %157, %185
   %187 = sext i32 %186 to i64
@@ -343,7 +343,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %200 = add nuw nsw i32 %.2236, 1
   %201 = load i32, ptr %12, align 4, !tbaa !10
   %202 = icmp slt i32 %200, %201
-  br i1 %202, label %.lr.ph237, label %.loopexit, !llvm.loop !23
+  br i1 %202, label %.lr.ph237, label %.loopexit, !llvm.loop !24
 
 203:                                              ; preds = %31
   %204 = load i32, ptr %9, align 4, !tbaa !7
@@ -381,15 +381,15 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %219 = mul i32 %218, %217
   %220 = zext i32 %219 to i64
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 %220
-  %222 = load double, ptr %221, align 8, !tbaa !24
+  %222 = load double, ptr %221, align 8, !tbaa !25
   %223 = fptrunc double %222 to float
   %224 = fmul float %.sroa.0.0.copyload, %223
   %225 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %226 = load double, ptr %225, align 8, !tbaa !24
+  %226 = load double, ptr %225, align 8, !tbaa !25
   %227 = fptrunc double %226 to float
   %228 = fmul float %.sroa.21.0.copyload, %227
   %229 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %230 = load double, ptr %229, align 8, !tbaa !24
+  %230 = load double, ptr %229, align 8, !tbaa !25
   %231 = fptrunc double %230 to float
   %232 = fmul float %.sroa.39.0.copyload, %231
   store float %224, ptr %13, align 16, !tbaa !15
@@ -401,15 +401,15 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %235 = mul i32 %234, %218
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %216, i64 %236
-  %238 = load double, ptr %237, align 8, !tbaa !24
+  %238 = load double, ptr %237, align 8, !tbaa !25
   %239 = fptrunc double %238 to float
   %240 = fmul float %.sroa.0.0.copyload, %239
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %242 = load double, ptr %241, align 8, !tbaa !24
+  %242 = load double, ptr %241, align 8, !tbaa !25
   %243 = fptrunc double %242 to float
   %244 = fmul float %.sroa.21.0.copyload, %243
   %245 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %246 = load double, ptr %245, align 8, !tbaa !24
+  %246 = load double, ptr %245, align 8, !tbaa !25
   %247 = fptrunc double %246 to float
   %248 = fmul float %.sroa.39.0.copyload, %247
   store float %240, ptr %23, align 16, !tbaa !15
@@ -421,15 +421,15 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %251 = mul i32 %250, %218
   %252 = zext i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %216, i64 %252
-  %254 = load double, ptr %253, align 8, !tbaa !24
+  %254 = load double, ptr %253, align 8, !tbaa !25
   %255 = fptrunc double %254 to float
   %256 = fmul float %.sroa.0.0.copyload, %255
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %258 = load double, ptr %257, align 8, !tbaa !24
+  %258 = load double, ptr %257, align 8, !tbaa !25
   %259 = fptrunc double %258 to float
   %260 = fmul float %.sroa.21.0.copyload, %259
   %261 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %262 = load double, ptr %261, align 8, !tbaa !24
+  %262 = load double, ptr %261, align 8, !tbaa !25
   %263 = fptrunc double %262 to float
   %264 = fmul float %.sroa.39.0.copyload, %263
   store float %256, ptr %27, align 16, !tbaa !15
@@ -443,7 +443,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %268 = add nuw nsw i32 %.3234, 1
   %269 = load i32, ptr %12, align 4, !tbaa !10
   %270 = icmp slt i32 %268, %269
-  br i1 %270, label %.lr.ph235, label %.loopexit, !llvm.loop !26
+  br i1 %270, label %.lr.ph235, label %.loopexit, !llvm.loop !27
 
 .lr.ph233:                                        ; preds = %.preheader227, %.lr.ph233
   %.4232 = phi i32 [ %331, %.lr.ph233 ], [ 0, %.preheader227 ]
@@ -453,21 +453,21 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %271, i64 %274
   %276 = load ptr, ptr %5, align 8, !tbaa !12
-  %277 = load i16, ptr %275, align 2, !tbaa !19
+  %277 = load i16, ptr %275, align 2, !tbaa !20
   %278 = zext i16 %277 to i32
   %279 = load i32, ptr %10, align 4, !tbaa !10
   %280 = mul nsw i32 %279, %278
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %276, i64 %281
-  %283 = load double, ptr %282, align 8, !tbaa !24
+  %283 = load double, ptr %282, align 8, !tbaa !25
   %284 = fptrunc double %283 to float
   %285 = fmul float %.sroa.0.0.copyload, %284
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %287 = load double, ptr %286, align 8, !tbaa !24
+  %287 = load double, ptr %286, align 8, !tbaa !25
   %288 = fptrunc double %287 to float
   %289 = fmul float %.sroa.21.0.copyload, %288
   %290 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  %291 = load double, ptr %290, align 8, !tbaa !24
+  %291 = load double, ptr %290, align 8, !tbaa !25
   %292 = fptrunc double %291 to float
   %293 = fmul float %.sroa.39.0.copyload, %292
   store float %285, ptr %13, align 16, !tbaa !15
@@ -475,20 +475,20 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %293, ptr %21, align 8, !tbaa !15
   store float 0.000000e+00, ptr %22, align 4, !tbaa !15
   %294 = getelementptr inbounds nuw i8, ptr %275, i64 2
-  %295 = load i16, ptr %294, align 2, !tbaa !19
+  %295 = load i16, ptr %294, align 2, !tbaa !20
   %296 = zext i16 %295 to i32
   %297 = mul nsw i32 %279, %296
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds i8, ptr %276, i64 %298
-  %300 = load double, ptr %299, align 8, !tbaa !24
+  %300 = load double, ptr %299, align 8, !tbaa !25
   %301 = fptrunc double %300 to float
   %302 = fmul float %.sroa.0.0.copyload, %301
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %304 = load double, ptr %303, align 8, !tbaa !24
+  %304 = load double, ptr %303, align 8, !tbaa !25
   %305 = fptrunc double %304 to float
   %306 = fmul float %.sroa.21.0.copyload, %305
   %307 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %308 = load double, ptr %307, align 8, !tbaa !24
+  %308 = load double, ptr %307, align 8, !tbaa !25
   %309 = fptrunc double %308 to float
   %310 = fmul float %.sroa.39.0.copyload, %309
   store float %302, ptr %23, align 16, !tbaa !15
@@ -496,20 +496,20 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %310, ptr %25, align 8, !tbaa !15
   store float 0.000000e+00, ptr %26, align 4, !tbaa !15
   %311 = getelementptr inbounds nuw i8, ptr %275, i64 4
-  %312 = load i16, ptr %311, align 2, !tbaa !19
+  %312 = load i16, ptr %311, align 2, !tbaa !20
   %313 = zext i16 %312 to i32
   %314 = mul nsw i32 %279, %313
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds i8, ptr %276, i64 %315
-  %317 = load double, ptr %316, align 8, !tbaa !24
+  %317 = load double, ptr %316, align 8, !tbaa !25
   %318 = fptrunc double %317 to float
   %319 = fmul float %.sroa.0.0.copyload, %318
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %321 = load double, ptr %320, align 8, !tbaa !24
+  %321 = load double, ptr %320, align 8, !tbaa !25
   %322 = fptrunc double %321 to float
   %323 = fmul float %.sroa.21.0.copyload, %322
   %324 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  %325 = load double, ptr %324, align 8, !tbaa !24
+  %325 = load double, ptr %324, align 8, !tbaa !25
   %326 = fptrunc double %325 to float
   %327 = fmul float %.sroa.39.0.copyload, %326
   store float %319, ptr %27, align 16, !tbaa !15
@@ -523,7 +523,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %331 = add nuw nsw i32 %.4232, 1
   %332 = load i32, ptr %12, align 4, !tbaa !10
   %333 = icmp slt i32 %331, %332
-  br i1 %333, label %.lr.ph233, label %.loopexit, !llvm.loop !27
+  br i1 %333, label %.lr.ph233, label %.loopexit, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader229, %.lr.ph
   %.5231 = phi i32 [ %394, %.lr.ph ], [ 0, %.preheader229 ]
@@ -533,21 +533,21 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %337 = sext i32 %336 to i64
   %338 = getelementptr inbounds i8, ptr %334, i64 %337
   %339 = load ptr, ptr %5, align 8, !tbaa !12
-  %340 = load i8, ptr %338, align 1, !tbaa !22
+  %340 = load i8, ptr %338, align 1, !tbaa !23
   %341 = zext i8 %340 to i32
   %342 = load i32, ptr %10, align 4, !tbaa !10
   %343 = mul nsw i32 %342, %341
   %344 = sext i32 %343 to i64
   %345 = getelementptr inbounds i8, ptr %339, i64 %344
-  %346 = load double, ptr %345, align 8, !tbaa !24
+  %346 = load double, ptr %345, align 8, !tbaa !25
   %347 = fptrunc double %346 to float
   %348 = fmul float %.sroa.0.0.copyload, %347
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  %350 = load double, ptr %349, align 8, !tbaa !24
+  %350 = load double, ptr %349, align 8, !tbaa !25
   %351 = fptrunc double %350 to float
   %352 = fmul float %.sroa.21.0.copyload, %351
   %353 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  %354 = load double, ptr %353, align 8, !tbaa !24
+  %354 = load double, ptr %353, align 8, !tbaa !25
   %355 = fptrunc double %354 to float
   %356 = fmul float %.sroa.39.0.copyload, %355
   store float %348, ptr %13, align 16, !tbaa !15
@@ -555,20 +555,20 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %356, ptr %21, align 8, !tbaa !15
   store float 0.000000e+00, ptr %22, align 4, !tbaa !15
   %357 = getelementptr inbounds nuw i8, ptr %338, i64 1
-  %358 = load i8, ptr %357, align 1, !tbaa !22
+  %358 = load i8, ptr %357, align 1, !tbaa !23
   %359 = zext i8 %358 to i32
   %360 = mul nsw i32 %342, %359
   %361 = sext i32 %360 to i64
   %362 = getelementptr inbounds i8, ptr %339, i64 %361
-  %363 = load double, ptr %362, align 8, !tbaa !24
+  %363 = load double, ptr %362, align 8, !tbaa !25
   %364 = fptrunc double %363 to float
   %365 = fmul float %.sroa.0.0.copyload, %364
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  %367 = load double, ptr %366, align 8, !tbaa !24
+  %367 = load double, ptr %366, align 8, !tbaa !25
   %368 = fptrunc double %367 to float
   %369 = fmul float %.sroa.21.0.copyload, %368
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 16
-  %371 = load double, ptr %370, align 8, !tbaa !24
+  %371 = load double, ptr %370, align 8, !tbaa !25
   %372 = fptrunc double %371 to float
   %373 = fmul float %.sroa.39.0.copyload, %372
   store float %365, ptr %23, align 16, !tbaa !15
@@ -576,20 +576,20 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   store float %373, ptr %25, align 8, !tbaa !15
   store float 0.000000e+00, ptr %26, align 4, !tbaa !15
   %374 = getelementptr inbounds nuw i8, ptr %338, i64 2
-  %375 = load i8, ptr %374, align 1, !tbaa !22
+  %375 = load i8, ptr %374, align 1, !tbaa !23
   %376 = zext i8 %375 to i32
   %377 = mul nsw i32 %342, %376
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i8, ptr %339, i64 %378
-  %380 = load double, ptr %379, align 8, !tbaa !24
+  %380 = load double, ptr %379, align 8, !tbaa !25
   %381 = fptrunc double %380 to float
   %382 = fmul float %.sroa.0.0.copyload, %381
   %383 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  %384 = load double, ptr %383, align 8, !tbaa !24
+  %384 = load double, ptr %383, align 8, !tbaa !25
   %385 = fptrunc double %384 to float
   %386 = fmul float %.sroa.21.0.copyload, %385
   %387 = getelementptr inbounds nuw i8, ptr %379, i64 16
-  %388 = load double, ptr %387, align 8, !tbaa !24
+  %388 = load double, ptr %387, align 8, !tbaa !25
   %389 = fptrunc double %388 to float
   %390 = fmul float %.sroa.39.0.copyload, %389
   store float %382, ptr %27, align 16, !tbaa !15
@@ -603,7 +603,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   %394 = add nuw nsw i32 %.5231, 1
   %395 = load i32, ptr %12, align 4, !tbaa !10
   %396 = icmp slt i32 %394, %395
-  br i1 %396, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %396, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph233, %.lr.ph235, %.lr.ph237, %.lr.ph239, %.lr.ph241, %.preheader229, %.preheader227, %.preheader225, %.preheader223, %.preheader221, %.preheader, %203, %36, %31
   %397 = load ptr, ptr %0, align 8, !tbaa !4
@@ -612,7 +612,7 @@ define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTriangle
   call void %399(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.0114242)
   %400 = add nuw nsw i32 %.0114242, 1
   %exitcond.not = icmp eq i32 %400, %17
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #13
@@ -678,8 +678,8 @@ define dso_local void @_ZN23btStridingMeshInterface23calculateAabbBruteForceER9b
           to label %22 unwind label %23
 
 22:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !31
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
   ret void
@@ -712,8 +712,8 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %15, ptr %16, align 8, !tbaa !31
-  store ptr null, ptr %1, align 8, !tbaa !35
+  store i32 %15, ptr %16, align 8, !tbaa !32
+  store ptr null, ptr %1, align 8, !tbaa !36
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %233, label %17
 
@@ -723,12 +723,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 56, i32 noundef %15)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
   %24 = load ptr, ptr %2, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %23)
-  store ptr %27, ptr %1, align 8, !tbaa !35
+  store ptr %27, ptr %1, align 8, !tbaa !36
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
@@ -753,10 +753,10 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   call void %35(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %.0138169)
   %36 = load i32, ptr %11, align 4, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %.0170, i64 48
-  store i32 %36, ptr %37, align 8, !tbaa !38
+  store i32 %36, ptr %37, align 8, !tbaa !39
   %38 = load i32, ptr %10, align 4, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %.0170, i64 52
-  store i32 %38, ptr %39, align 4, !tbaa !46
+  store i32 %38, ptr %39, align 4, !tbaa !47
   %40 = getelementptr inbounds nuw i8, ptr %.0170, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.0170, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %.0170, i64 32
@@ -780,12 +780,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 4, i32 noundef %47)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !36
+  %53 = load ptr, ptr %52, align 8, !tbaa !37
   %54 = load ptr, ptr %2, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %53)
-  store ptr %57, ptr %40, align 8, !tbaa !47
+  store ptr %57, ptr %40, align 8, !tbaa !48
   %58 = load i32, ptr %11, align 4, !tbaa !10
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph159, label %._crit_edge160
@@ -804,23 +804,23 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %67 = load i32, ptr %66, align 4, !tbaa !10
   %.idx = mul nuw nsw i64 %indvars.iv178, 12
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  store i32 %67, ptr %68, align 4, !tbaa !48
+  store i32 %67, ptr %68, align 4, !tbaa !49
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %70, ptr %71, align 4, !tbaa !48
+  store i32 %70, ptr %71, align 4, !tbaa !49
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load i32, ptr %72, align 4, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 %73, ptr %74, align 4, !tbaa !48
+  store i32 %73, ptr %74, align 4, !tbaa !49
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %75 = load i32, ptr %11, align 4, !tbaa !10
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next179, %76
-  br i1 %77, label %61, label %._crit_edge160, !llvm.loop !50
+  br i1 %77, label %61, label %._crit_edge160, !llvm.loop !51
 
 ._crit_edge160:                                   ; preds = %61, %46
-  %78 = load ptr, ptr %52, align 8, !tbaa !36
+  %78 = load ptr, ptr %52, align 8, !tbaa !37
   %79 = load ptr, ptr %2, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8
@@ -837,12 +837,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 8, i32 noundef %36)
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !36
+  %89 = load ptr, ptr %88, align 8, !tbaa !37
   %90 = load ptr, ptr %2, align 8, !tbaa !4
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %89)
-  store ptr %93, ptr %41, align 8, !tbaa !51
+  store ptr %93, ptr %41, align 8, !tbaa !52
   %94 = load i32, ptr %11, align 4, !tbaa !10
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph155, label %._crit_edge156
@@ -855,29 +855,29 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %99 = mul nsw i32 %97, %98
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %96, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !19
+  %102 = load i16, ptr %101, align 2, !tbaa !20
   %103 = getelementptr inbounds nuw %struct.btShortIntIndexTripletData, ptr %89, i64 %indvars.iv175
-  store i16 %102, ptr %103, align 2, !tbaa !19
+  store i16 %102, ptr %103, align 2, !tbaa !20
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  %105 = load i16, ptr %104, align 2, !tbaa !19
+  %105 = load i16, ptr %104, align 2, !tbaa !20
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 2
-  store i16 %105, ptr %106, align 2, !tbaa !19
+  store i16 %105, ptr %106, align 2, !tbaa !20
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %108 = load i16, ptr %107, align 2, !tbaa !19
+  %108 = load i16, ptr %107, align 2, !tbaa !20
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  store i16 %108, ptr %109, align 2, !tbaa !19
+  store i16 %108, ptr %109, align 2, !tbaa !20
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 6
-  store i8 0, ptr %110, align 2, !tbaa !22
+  store i8 0, ptr %110, align 2, !tbaa !23
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 7
-  store i8 0, ptr %111, align 1, !tbaa !22
+  store i8 0, ptr %111, align 1, !tbaa !23
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %112 = load i32, ptr %11, align 4, !tbaa !10
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next176, %113
-  br i1 %114, label %.lr.ph155, label %._crit_edge156, !llvm.loop !52
+  br i1 %114, label %.lr.ph155, label %._crit_edge156, !llvm.loop !53
 
 ._crit_edge156:                                   ; preds = %.lr.ph155, %83
-  %115 = load ptr, ptr %88, align 8, !tbaa !36
+  %115 = load ptr, ptr %88, align 8, !tbaa !37
   %116 = load ptr, ptr %2, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load ptr, ptr %117, align 8
@@ -894,12 +894,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 4, i32 noundef %36)
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !36
+  %126 = load ptr, ptr %125, align 8, !tbaa !37
   %127 = load ptr, ptr %2, align 8, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %126)
-  store ptr %130, ptr %42, align 8, !tbaa !53
+  store ptr %130, ptr %42, align 8, !tbaa !54
   %131 = load i32, ptr %11, align 4, !tbaa !10
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %.lr.ph, label %._crit_edge
@@ -912,27 +912,27 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %136 = mul nsw i32 %134, %135
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %133, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !22
+  %139 = load i8, ptr %138, align 1, !tbaa !23
   %140 = getelementptr inbounds nuw %struct.btCharIndexTripletData, ptr %126, i64 %indvars.iv
-  store i8 %139, ptr %140, align 1, !tbaa !22
+  store i8 %139, ptr %140, align 1, !tbaa !23
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %142 = load i8, ptr %141, align 1, !tbaa !22
+  %142 = load i8, ptr %141, align 1, !tbaa !23
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 1
-  store i8 %142, ptr %143, align 1, !tbaa !22
+  store i8 %142, ptr %143, align 1, !tbaa !23
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %145 = load i8, ptr %144, align 1, !tbaa !22
+  %145 = load i8, ptr %144, align 1, !tbaa !23
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 2
-  store i8 %145, ptr %146, align 1, !tbaa !22
+  store i8 %145, ptr %146, align 1, !tbaa !23
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 3
-  store i8 0, ptr %147, align 1, !tbaa !54
+  store i8 0, ptr %147, align 1, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i32, ptr %11, align 4, !tbaa !10
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !56
+  br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %120
-  %151 = load ptr, ptr %125, align 8, !tbaa !36
+  %151 = load ptr, ptr %125, align 8, !tbaa !37
   %152 = load ptr, ptr %2, align 8, !tbaa !4
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load ptr, ptr %153, align 8
@@ -957,12 +957,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %162 = load ptr, ptr %161, align 8
   %163 = call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 16, i32 noundef %158)
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !36
+  %165 = load ptr, ptr %164, align 8, !tbaa !37
   %166 = load ptr, ptr %2, align 8, !tbaa !4
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 56
   %168 = load ptr, ptr %167, align 8
   %169 = call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %165)
-  store ptr %169, ptr %.0170, align 8, !tbaa !57
+  store ptr %169, ptr %.0170, align 8, !tbaa !58
   %170 = load i32, ptr %10, align 4, !tbaa !10
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %.lr.ph167, label %._crit_edge168
@@ -975,7 +975,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   br label %179
 
 ._crit_edge168:                                   ; preds = %179, %159
-  %175 = load ptr, ptr %164, align 8, !tbaa !36
+  %175 = load ptr, ptr %164, align 8, !tbaa !37
   %176 = load ptr, ptr %2, align 8, !tbaa !4
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %178 = load ptr, ptr %177, align 8
@@ -999,7 +999,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   store float %188, ptr %189, align 4, !tbaa !15
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge168, label %179, !llvm.loop !58
+  br i1 %exitcond188.not, label %._crit_edge168, label %179, !llvm.loop !59
 
 190:                                              ; preds = %155
   %191 = load i32, ptr %10, align 4, !tbaa !10
@@ -1012,12 +1012,12 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %195 = load ptr, ptr %194, align 8
   %196 = call noundef ptr %195(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 32, i32 noundef %191)
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !36
+  %198 = load ptr, ptr %197, align 8, !tbaa !37
   %199 = load ptr, ptr %2, align 8, !tbaa !4
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 56
   %201 = load ptr, ptr %200, align 8
   %202 = call noundef ptr %201(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %198)
-  store ptr %202, ptr %43, align 8, !tbaa !59
+  store ptr %202, ptr %43, align 8, !tbaa !60
   %203 = load i32, ptr %10, align 4, !tbaa !10
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %.lr.ph163, label %._crit_edge164
@@ -1030,7 +1030,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   br label %212
 
 ._crit_edge164:                                   ; preds = %212, %192
-  %208 = load ptr, ptr %197, align 8, !tbaa !36
+  %208 = load ptr, ptr %197, align 8, !tbaa !37
   %209 = load ptr, ptr %2, align 8, !tbaa !4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
   %211 = load ptr, ptr %210, align 8
@@ -1041,20 +1041,20 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %indvars.iv181 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next182, %212 ]
   %213 = mul nsw i64 %indvars.iv181, %207
   %214 = getelementptr inbounds i8, ptr %205, i64 %213
-  %215 = load double, ptr %214, align 8, !tbaa !24
+  %215 = load double, ptr %214, align 8, !tbaa !25
   %216 = getelementptr inbounds nuw %struct.btVector3DoubleData, ptr %198, i64 %indvars.iv181
-  store double %215, ptr %216, align 8, !tbaa !24
+  store double %215, ptr %216, align 8, !tbaa !25
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %218 = load double, ptr %217, align 8, !tbaa !24
+  %218 = load double, ptr %217, align 8, !tbaa !25
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store double %218, ptr %219, align 8, !tbaa !24
+  store double %218, ptr %219, align 8, !tbaa !25
   %220 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %221 = load double, ptr %220, align 8, !tbaa !24
+  %221 = load double, ptr %220, align 8, !tbaa !25
   %222 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  store double %221, ptr %222, align 8, !tbaa !24
+  store double %221, ptr %222, align 8, !tbaa !25
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge164, label %212, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge164, label %212, !llvm.loop !61
 
 223:                                              ; preds = %157, %._crit_edge168, %155, %190, %._crit_edge164
   %224 = load ptr, ptr %0, align 8, !tbaa !4
@@ -1064,10 +1064,10 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %227 = add nuw nsw i32 %.0138169, 1
   %228 = getelementptr inbounds nuw i8, ptr %.0170, i64 56
   %exitcond189.not = icmp eq i32 %227, %31
-  br i1 %exitcond189.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !61
+  br i1 %exitcond189.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !62
 
 ._crit_edge173:                                   ; preds = %223, %17
-  %229 = load ptr, ptr %22, align 8, !tbaa !36
+  %229 = load ptr, ptr %22, align 8, !tbaa !37
   %230 = load ptr, ptr %2, align 8, !tbaa !4
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
   %232 = load ptr, ptr %231, align 8
@@ -1097,7 +1097,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   store float %239, ptr %240, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %237, !llvm.loop !62
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %237, !llvm.loop !63
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %237
   ret ptr @.str.6
@@ -1437,49 +1437,50 @@ attributes #14 = { builtin nounwind }
 !14 = !{!"any pointer", !9, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !9, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !9, i64 0}
-!21 = distinct !{!21, !18}
-!22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !18}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !9, i64 0}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !18}
-!29 = distinct !{!29, !18}
-!30 = !{i64 0, i64 16, !22}
-!31 = !{!32, !11, i64 24}
-!32 = !{!"_ZTS27btStridingMeshInterfaceData", !33, i64 0, !34, i64 8, !11, i64 24, !9, i64 28}
-!33 = !{!"p1 _ZTS14btMeshPartData", !14, i64 0}
-!34 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!35 = !{!32, !33, i64 0}
-!36 = !{!37, !14, i64 8}
-!37 = !{!"_ZTS7btChunk", !11, i64 0, !11, i64 4, !14, i64 8, !11, i64 16, !11, i64 20}
-!38 = !{!39, !11, i64 48}
-!39 = !{!"_ZTS14btMeshPartData", !40, i64 0, !41, i64 8, !42, i64 16, !43, i64 24, !44, i64 32, !45, i64 40, !11, i64 48, !11, i64 52}
-!40 = !{!"p1 _ZTS18btVector3FloatData", !14, i64 0}
-!41 = !{!"p1 _ZTS19btVector3DoubleData", !14, i64 0}
-!42 = !{!"p1 _ZTS14btIntIndexData", !14, i64 0}
-!43 = !{!"p1 _ZTS26btShortIntIndexTripletData", !14, i64 0}
-!44 = !{!"p1 _ZTS22btCharIndexTripletData", !14, i64 0}
-!45 = !{!"p1 _ZTS19btShortIntIndexData", !14, i64 0}
-!46 = !{!39, !11, i64 52}
-!47 = !{!39, !42, i64 16}
-!48 = !{!49, !11, i64 0}
-!49 = !{!"_ZTS14btIntIndexData", !11, i64 0}
-!50 = distinct !{!50, !18}
-!51 = !{!39, !43, i64 24}
-!52 = distinct !{!52, !18}
-!53 = !{!39, !44, i64 32}
-!54 = !{!55, !9, i64 3}
-!55 = !{!"_ZTS22btCharIndexTripletData", !9, i64 0, !9, i64 3}
-!56 = distinct !{!56, !18}
-!57 = !{!39, !40, i64 0}
-!58 = distinct !{!58, !18}
-!59 = !{!39, !41, i64 8}
-!60 = distinct !{!60, !18}
-!61 = distinct !{!61, !18}
-!62 = distinct !{!62, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !9, i64 0}
+!22 = distinct !{!22, !18, !19}
+!23 = !{!9, !9, i64 0}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !9, i64 0}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}
+!29 = distinct !{!29, !18, !19}
+!30 = distinct !{!30, !18, !19}
+!31 = !{i64 0, i64 16, !23}
+!32 = !{!33, !11, i64 24}
+!33 = !{!"_ZTS27btStridingMeshInterfaceData", !34, i64 0, !35, i64 8, !11, i64 24, !9, i64 28}
+!34 = !{!"p1 _ZTS14btMeshPartData", !14, i64 0}
+!35 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!36 = !{!33, !34, i64 0}
+!37 = !{!38, !14, i64 8}
+!38 = !{!"_ZTS7btChunk", !11, i64 0, !11, i64 4, !14, i64 8, !11, i64 16, !11, i64 20}
+!39 = !{!40, !11, i64 48}
+!40 = !{!"_ZTS14btMeshPartData", !41, i64 0, !42, i64 8, !43, i64 16, !44, i64 24, !45, i64 32, !46, i64 40, !11, i64 48, !11, i64 52}
+!41 = !{!"p1 _ZTS18btVector3FloatData", !14, i64 0}
+!42 = !{!"p1 _ZTS19btVector3DoubleData", !14, i64 0}
+!43 = !{!"p1 _ZTS14btIntIndexData", !14, i64 0}
+!44 = !{!"p1 _ZTS26btShortIntIndexTripletData", !14, i64 0}
+!45 = !{!"p1 _ZTS22btCharIndexTripletData", !14, i64 0}
+!46 = !{!"p1 _ZTS19btShortIntIndexData", !14, i64 0}
+!47 = !{!40, !11, i64 52}
+!48 = !{!40, !43, i64 16}
+!49 = !{!50, !11, i64 0}
+!50 = !{!"_ZTS14btIntIndexData", !11, i64 0}
+!51 = distinct !{!51, !18, !19}
+!52 = !{!40, !44, i64 24}
+!53 = distinct !{!53, !18, !19}
+!54 = !{!40, !45, i64 32}
+!55 = !{!56, !9, i64 3}
+!56 = !{!"_ZTS22btCharIndexTripletData", !9, i64 0, !9, i64 3}
+!57 = distinct !{!57, !18, !19}
+!58 = !{!40, !41, i64 0}
+!59 = distinct !{!59, !18, !19}
+!60 = !{!40, !42, i64 8}
+!61 = distinct !{!61, !18, !19}
+!62 = distinct !{!62, !18, !19}
+!63 = distinct !{!63, !18, !19}

@@ -1224,7 +1224,7 @@ lean_inc.exit:                                    ; preds = %61, %60, %58, %lean
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %70, %69, %67, %lean_inc.exit
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1738,7 +1738,7 @@ lean_obj_tag.exit.i:                              ; preds = %204, %201
   %212 = load ptr, ptr %211, align 8, !tbaa !4
   %213 = tail call zeroext i8 @lean_name_eq(ptr noundef %210, ptr noundef %0) #5
   %214 = icmp eq i8 %213, 0
-  br i1 %214, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit
+  br i1 %214, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit, !llvm.loop !16
 
 215:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not.i474, label %216, label %lean_dec.exit365
@@ -1854,7 +1854,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %258 = ptrtoint ptr %176 to i64
   %259 = and i64 %258, 1
   %.not625 = icmp eq i64 %259, 0
-  br i1 %.not625, label %265, label %260, !prof !14
+  br i1 %.not625, label %265, label %260, !prof !17
 
 260:                                              ; preds = %lean_array_uset.exit
   %261 = icmp ult ptr %176, inttoptr (i64 2 to ptr)
@@ -2116,7 +2116,7 @@ lean_obj_tag.exit.i508:                           ; preds = %358, %355
   %366 = load ptr, ptr %365, align 8, !tbaa !4
   %367 = tail call zeroext i8 @lean_name_eq(ptr noundef %364, ptr noundef %0) #5
   %368 = icmp eq i8 %367, 0
-  br i1 %368, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit512
+  br i1 %368, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit512, !llvm.loop !16
 
 369:                                              ; preds = %lean_obj_tag.exit.i508
   br i1 %.not.i502, label %370, label %lean_dec.exit359
@@ -2247,7 +2247,7 @@ lean_ensure_exclusive_array.exit.i518:            ; preds = %404, %l_Std_DHashMa
 
 lean_array_uset.exit522:                          ; preds = %lean_ensure_exclusive_array.exit.i518, %414, %416, %417
   store ptr inttoptr (i64 1 to ptr), ptr %407, align 8, !tbaa !4
-  br i1 %.not619, label %423, label %418, !prof !14
+  br i1 %.not619, label %423, label %418, !prof !17
 
 418:                                              ; preds = %lean_array_uset.exit522
   %419 = icmp ult ptr %176, inttoptr (i64 2 to ptr)
@@ -2633,7 +2633,7 @@ lean_obj_tag.exit.i555:                           ; preds = %564, %561
   %572 = load ptr, ptr %571, align 8, !tbaa !4
   %573 = tail call zeroext i8 @lean_name_eq(ptr noundef %570, ptr noundef %0) #5
   %574 = icmp eq i8 %573, 0
-  br i1 %574, label %lean_array_uget.exit552, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit559
+  br i1 %574, label %lean_array_uget.exit552, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit559, !llvm.loop !16
 
 575:                                              ; preds = %lean_obj_tag.exit.i555
   br i1 %.not.i549, label %576, label %lean_dec.exit353
@@ -2790,7 +2790,7 @@ lean_ensure_exclusive_array.exit.i566:            ; preds = %620, %l_Std_DHashMa
 
 lean_array_uset.exit570:                          ; preds = %lean_ensure_exclusive_array.exit.i566, %630, %632, %633
   store ptr inttoptr (i64 1 to ptr), ptr %623, align 8, !tbaa !4
-  br i1 %.not608, label %639, label %634, !prof !14
+  br i1 %.not608, label %639, label %634, !prof !17
 
 634:                                              ; preds = %lean_array_uset.exit570
   %635 = icmp ult ptr %492, inttoptr (i64 2 to ptr)
@@ -3383,7 +3383,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !16
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -4173,7 +4173,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit, !llvm.loop !16
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -11582,7 +11582,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11601,7 +11601,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !14
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !17
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -11724,7 +11724,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addCandidate___spec__3(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !14
+  br i1 %.not, label %68, label %59, !prof !17
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -12218,7 +12218,7 @@ lean_obj_tag.exit.i:                              ; preds = %35, %32
   %43 = load ptr, ptr %42, align 8, !tbaa !4
   %44 = tail call zeroext i8 @lean_name_eq(ptr noundef %41, ptr noundef %0) #5
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit
+  br i1 %45, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit, !llvm.loop !16
 
 46:                                               ; preds = %lean_obj_tag.exit.i
   %47 = ptrtoint ptr %2 to i64
@@ -12248,7 +12248,7 @@ lean_dec.exit170:                                 ; preds = %55, %54, %52, %46
   %56 = ptrtoint ptr %7 to i64
   %57 = and i64 %56, 1
   %.not296 = icmp eq i64 %57, 0
-  br i1 %.not296, label %68, label %58, !prof !14
+  br i1 %.not296, label %68, label %58, !prof !17
 
 58:                                               ; preds = %lean_dec.exit170
   %59 = lshr i64 %56, 1
@@ -12347,7 +12347,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %98 = ptrtoint ptr %.0.i157280 to i64
   %99 = and i64 %98, 1
   %.not297 = icmp eq i64 %99, 0
-  br i1 %.not297, label %.critedge.i149, label %100, !prof !14
+  br i1 %.not297, label %.critedge.i149, label %100, !prof !17
 
 100:                                              ; preds = %lean_array_uset.exit
   %101 = lshr i64 %98, 1
@@ -12380,7 +12380,7 @@ lean_nat_mul.exit154:                             ; preds = %100, %106, %110, %.
   %113 = ptrtoint ptr %.2.i150 to i64
   %114 = and i64 %113, 1
   %.not.i214 = icmp eq i64 %114, 0
-  br i1 %.not.i214, label %119, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i214, label %119, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit154
   %115 = udiv i64 %113, 6
@@ -12418,7 +12418,7 @@ lean_dec.exit168:                                 ; preds = %126, %125, %123, %l
   %131 = ptrtoint ptr %.1.i215282 to i64
   %132 = and i64 %131, 1
   %.not298 = icmp eq i64 %132, 0
-  br i1 %.not298, label %133, label %lean_dec.exit167.thread, !prof !14
+  br i1 %.not298, label %133, label %lean_dec.exit167.thread, !prof !17
 
 lean_dec.exit167.thread:                          ; preds = %lean_dec.exit168
   %.not302 = icmp ugt ptr %.1.i215282, %130
@@ -12706,7 +12706,7 @@ lean_obj_tag.exit.i241:                           ; preds = %240, %237
   %248 = load ptr, ptr %247, align 8, !tbaa !4
   %249 = tail call zeroext i8 @lean_name_eq(ptr noundef %246, ptr noundef %0) #5
   %250 = icmp eq i8 %249, 0
-  br i1 %250, label %lean_array_uget.exit238, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit245
+  br i1 %250, label %lean_array_uget.exit238, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit245, !llvm.loop !16
 
 251:                                              ; preds = %lean_obj_tag.exit.i241
   %252 = ptrtoint ptr %2 to i64
@@ -12733,7 +12733,7 @@ lean_obj_tag.exit.i241:                           ; preds = %240, %237
   br label %lean_dec.exit163
 
 lean_dec.exit163:                                 ; preds = %260, %259, %257, %251
-  br i1 %.not290, label %271, label %261, !prof !14
+  br i1 %.not290, label %271, label %261, !prof !17
 
 261:                                              ; preds = %lean_dec.exit163
   %262 = lshr i64 %198, 1
@@ -12832,7 +12832,7 @@ lean_array_uset.exit254:                          ; preds = %lean_ensure_exclusi
   %301 = ptrtoint ptr %.0.i286 to i64
   %302 = and i64 %301, 1
   %.not293 = icmp eq i64 %302, 0
-  br i1 %.not293, label %.critedge.i, label %303, !prof !14
+  br i1 %.not293, label %.critedge.i, label %303, !prof !17
 
 303:                                              ; preds = %lean_array_uset.exit254
   %304 = lshr i64 %301, 1
@@ -12865,7 +12865,7 @@ lean_nat_mul.exit:                                ; preds = %303, %309, %313, %.
   %316 = ptrtoint ptr %.2.i to i64
   %317 = and i64 %316, 1
   %.not.i255 = icmp eq i64 %317, 0
-  br i1 %.not.i255, label %322, label %lean_nat_div.exit258.thread, !prof !14
+  br i1 %.not.i255, label %322, label %lean_nat_div.exit258.thread, !prof !17
 
 lean_nat_div.exit258.thread:                      ; preds = %lean_nat_mul.exit
   %318 = udiv i64 %316, 6
@@ -12903,7 +12903,7 @@ lean_dec.exit161:                                 ; preds = %329, %328, %326, %l
   %334 = ptrtoint ptr %.1.i256288 to i64
   %335 = and i64 %334, 1
   %.not294 = icmp eq i64 %335, 0
-  br i1 %.not294, label %336, label %lean_dec.exit160.thread, !prof !14
+  br i1 %.not294, label %336, label %lean_dec.exit160.thread, !prof !17
 
 lean_dec.exit160.thread:                          ; preds = %lean_dec.exit161
   %.not301 = icmp ugt ptr %.1.i256288, %333
@@ -13136,9 +13136,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addCandidate___lambda__1, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 4, ptr %23, align 8, !tbaa !15
+  store i16 4, ptr %23, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 3, ptr %24, align 2, !tbaa !15
+  store i16 3, ptr %24, align 2, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %0, ptr %25, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -13357,7 +13357,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !21
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -13680,7 +13680,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13699,7 +13699,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !14
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !17
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -13822,7 +13822,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__4(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !14
+  br i1 %.not, label %68, label %59, !prof !17
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -14109,13 +14109,13 @@ lean_obj_tag.exit.i:                              ; preds = %83, %80
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   %92 = tail call zeroext i8 @lean_name_eq(ptr noundef %89, ptr noundef %2) #5
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit
+  br i1 %93, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit, !llvm.loop !21
 
 94:                                               ; preds = %lean_obj_tag.exit.i
   %95 = ptrtoint ptr %55 to i64
   %96 = and i64 %95, 1
   %.not621 = icmp eq i64 %96, 0
-  br i1 %.not621, label %107, label %97, !prof !14
+  br i1 %.not621, label %107, label %97, !prof !17
 
 97:                                               ; preds = %94
   %98 = lshr i64 %95, 1
@@ -14214,7 +14214,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %137 = ptrtoint ptr %.0.i333590 to i64
   %138 = and i64 %137, 1
   %.not622 = icmp eq i64 %138, 0
-  br i1 %.not622, label %.critedge.i319, label %139, !prof !14
+  br i1 %.not622, label %.critedge.i319, label %139, !prof !17
 
 139:                                              ; preds = %lean_array_uset.exit
   %140 = lshr i64 %137, 1
@@ -14247,7 +14247,7 @@ lean_nat_mul.exit324:                             ; preds = %139, %145, %149, %.
   %152 = ptrtoint ptr %.2.i320 to i64
   %153 = and i64 %152, 1
   %.not.i456 = icmp eq i64 %153, 0
-  br i1 %.not.i456, label %158, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i456, label %158, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit324
   %154 = udiv i64 %152, 6
@@ -14285,7 +14285,7 @@ lean_dec.exit362:                                 ; preds = %165, %164, %162, %l
   %170 = ptrtoint ptr %.1.i457592 to i64
   %171 = and i64 %170, 1
   %.not623 = icmp eq i64 %171, 0
-  br i1 %.not623, label %172, label %lean_dec.exit361.thread, !prof !14
+  br i1 %.not623, label %172, label %lean_dec.exit361.thread, !prof !17
 
 lean_dec.exit361.thread:                          ; preds = %lean_dec.exit362
   %.not640 = icmp ugt ptr %.1.i457592, %169
@@ -14534,10 +14534,10 @@ lean_obj_tag.exit.i473:                           ; preds = %262, %259
   %270 = load ptr, ptr %269, align 8, !tbaa !4
   %271 = tail call zeroext i8 @lean_name_eq(ptr noundef %268, ptr noundef %2) #5
   %272 = icmp eq i8 %271, 0
-  br i1 %272, label %lean_array_uget.exit470, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit477
+  br i1 %272, label %lean_array_uget.exit470, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit477, !llvm.loop !21
 
 273:                                              ; preds = %lean_obj_tag.exit.i473
-  br i1 %.not614, label %284, label %274, !prof !14
+  br i1 %.not614, label %284, label %274, !prof !17
 
 274:                                              ; preds = %273
   %275 = lshr i64 %222, 1
@@ -14636,7 +14636,7 @@ lean_array_uset.exit486:                          ; preds = %lean_ensure_exclusi
   %314 = ptrtoint ptr %.0.i330596 to i64
   %315 = and i64 %314, 1
   %.not617 = icmp eq i64 %315, 0
-  br i1 %.not617, label %.critedge.i313, label %316, !prof !14
+  br i1 %.not617, label %.critedge.i313, label %316, !prof !17
 
 316:                                              ; preds = %lean_array_uset.exit486
   %317 = lshr i64 %314, 1
@@ -14669,7 +14669,7 @@ lean_nat_mul.exit318:                             ; preds = %316, %322, %326, %.
   %329 = ptrtoint ptr %.2.i314 to i64
   %330 = and i64 %329, 1
   %.not.i487 = icmp eq i64 %330, 0
-  br i1 %.not.i487, label %335, label %lean_nat_div.exit490.thread, !prof !14
+  br i1 %.not.i487, label %335, label %lean_nat_div.exit490.thread, !prof !17
 
 lean_nat_div.exit490.thread:                      ; preds = %lean_nat_mul.exit318
   %331 = udiv i64 %329, 6
@@ -14707,7 +14707,7 @@ lean_dec.exit354:                                 ; preds = %342, %341, %339, %l
   %347 = ptrtoint ptr %.1.i488598 to i64
   %348 = and i64 %347, 1
   %.not618 = icmp eq i64 %348, 0
-  br i1 %.not618, label %349, label %lean_dec.exit353.thread, !prof !14
+  br i1 %.not618, label %349, label %lean_dec.exit353.thread, !prof !17
 
 lean_dec.exit353.thread:                          ; preds = %lean_dec.exit354
   %.not639 = icmp ugt ptr %.1.i488598, %346
@@ -14974,13 +14974,13 @@ lean_obj_tag.exit.i506:                           ; preds = %448, %445
   %456 = load ptr, ptr %455, align 8, !tbaa !4
   %457 = tail call zeroext i8 @lean_name_eq(ptr noundef %454, ptr noundef %1) #5
   %458 = icmp eq i8 %457, 0
-  br i1 %458, label %lean_array_uget.exit503, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit
+  br i1 %458, label %lean_array_uget.exit503, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit, !llvm.loop !16
 
 459:                                              ; preds = %lean_obj_tag.exit.i506
   %460 = ptrtoint ptr %420 to i64
   %461 = and i64 %460, 1
   %.not632 = icmp eq i64 %461, 0
-  br i1 %.not632, label %472, label %462, !prof !14
+  br i1 %.not632, label %472, label %462, !prof !17
 
 462:                                              ; preds = %459
   %463 = lshr i64 %460, 1
@@ -15079,7 +15079,7 @@ lean_array_uset.exit518:                          ; preds = %lean_ensure_exclusi
   %502 = ptrtoint ptr %.0.i327602 to i64
   %503 = and i64 %502, 1
   %.not633 = icmp eq i64 %503, 0
-  br i1 %.not633, label %.critedge.i307, label %504, !prof !14
+  br i1 %.not633, label %.critedge.i307, label %504, !prof !17
 
 504:                                              ; preds = %lean_array_uset.exit518
   %505 = lshr i64 %502, 1
@@ -15112,7 +15112,7 @@ lean_nat_mul.exit312:                             ; preds = %504, %510, %514, %.
   %517 = ptrtoint ptr %.2.i308 to i64
   %518 = and i64 %517, 1
   %.not.i519 = icmp eq i64 %518, 0
-  br i1 %.not.i519, label %523, label %lean_nat_div.exit522.thread, !prof !14
+  br i1 %.not.i519, label %523, label %lean_nat_div.exit522.thread, !prof !17
 
 lean_nat_div.exit522.thread:                      ; preds = %lean_nat_mul.exit312
   %519 = udiv i64 %517, 6
@@ -15150,7 +15150,7 @@ lean_dec.exit347:                                 ; preds = %530, %529, %527, %l
   %535 = ptrtoint ptr %.1.i520604 to i64
   %536 = and i64 %535, 1
   %.not634 = icmp eq i64 %536, 0
-  br i1 %.not634, label %537, label %lean_dec.exit346.thread, !prof !14
+  br i1 %.not634, label %537, label %lean_dec.exit346.thread, !prof !17
 
 lean_dec.exit346.thread:                          ; preds = %lean_dec.exit347
   %.not642 = icmp ugt ptr %.1.i520604, %534
@@ -15438,10 +15438,10 @@ lean_obj_tag.exit.i551:                           ; preds = %644, %641
   %652 = load ptr, ptr %651, align 8, !tbaa !4
   %653 = tail call zeroext i8 @lean_name_eq(ptr noundef %650, ptr noundef %1) #5
   %654 = icmp eq i8 %653, 0
-  br i1 %654, label %lean_array_uget.exit548, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit555
+  br i1 %654, label %lean_array_uget.exit548, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___spec__3.exit555, !llvm.loop !16
 
 655:                                              ; preds = %lean_obj_tag.exit.i551
-  br i1 %.not627, label %666, label %656, !prof !14
+  br i1 %.not627, label %666, label %656, !prof !17
 
 656:                                              ; preds = %655
   %657 = lshr i64 %602, 1
@@ -15540,7 +15540,7 @@ lean_array_uset.exit564:                          ; preds = %lean_ensure_exclusi
   %696 = ptrtoint ptr %.0.i608 to i64
   %697 = and i64 %696, 1
   %.not629 = icmp eq i64 %697, 0
-  br i1 %.not629, label %.critedge.i, label %698, !prof !14
+  br i1 %.not629, label %.critedge.i, label %698, !prof !17
 
 698:                                              ; preds = %lean_array_uset.exit564
   %699 = lshr i64 %696, 1
@@ -15573,7 +15573,7 @@ lean_nat_mul.exit:                                ; preds = %698, %704, %708, %.
   %711 = ptrtoint ptr %.2.i to i64
   %712 = and i64 %711, 1
   %.not.i565 = icmp eq i64 %712, 0
-  br i1 %.not.i565, label %717, label %lean_nat_div.exit568.thread, !prof !14
+  br i1 %.not.i565, label %717, label %lean_nat_div.exit568.thread, !prof !17
 
 lean_nat_div.exit568.thread:                      ; preds = %lean_nat_mul.exit
   %713 = udiv i64 %711, 6
@@ -15611,7 +15611,7 @@ lean_dec.exit341:                                 ; preds = %724, %723, %721, %l
   %729 = ptrtoint ptr %.1.i566610 to i64
   %730 = and i64 %729, 1
   %.not630 = icmp eq i64 %730, 0
-  br i1 %.not630, label %731, label %lean_dec.exit340.thread, !prof !14
+  br i1 %.not630, label %731, label %lean_dec.exit340.thread, !prof !17
 
 lean_dec.exit340.thread:                          ; preds = %lean_dec.exit341
   %.not641 = icmp ugt ptr %.1.i566610, %728
@@ -16065,9 +16065,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___lambda__1, ptr %108, align 8, !tbaa !4
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i16 4, ptr %109, align 8, !tbaa !15
+  store i16 4, ptr %109, align 8, !tbaa !19
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 18
-  store i16 3, ptr %110, align 2, !tbaa !15
+  store i16 3, ptr %110, align 2, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr %88, ptr %111, align 8, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 32
@@ -16116,7 +16116,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit, !llvm.loop !21
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_addDependency___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -17677,9 +17677,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__3___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 10, ptr %8, align 8, !tbaa !15
+  store i16 10, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !15
+  store i16 0, ptr %9, align 2, !tbaa !19
   ret ptr %3
 }
 
@@ -18513,9 +18513,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__2___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 10, ptr %15, align 8, !tbaa !15
+  store i16 10, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 1, ptr %16, align 2, !tbaa !15
+  store i16 1, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = load ptr, ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___closed__1, align 8, !tbaa !4
@@ -18535,9 +18535,9 @@ lean_alloc_closure.exit16:                        ; preds = %lean_alloc_closure.
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__3___rarg, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 10, ptr %24, align 8, !tbaa !15
+  store i16 10, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 2, ptr %25, align 2, !tbaa !15
+  store i16 2, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -20521,7 +20521,7 @@ lean_inc.exit1669:                                ; preds = %387, %386, %384, %3
   br label %lean_dec.exit2170
 
 lean_dec.exit2170:                                ; preds = %lean_inc.exit1669, %391, %393, %394
-  br i1 %.not4026, label %396, label %lean_nat_eq.exit.thread, !prof !14
+  br i1 %.not4026, label %396, label %lean_nat_eq.exit.thread, !prof !17
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit2170
   %395 = icmp eq ptr %379, %132
@@ -20947,7 +20947,7 @@ lean_inc.exit1668:                                ; preds = %530, %529, %527, %5
 542:                                              ; preds = %541, %538
   %543 = phi i32 [ %.pr, %541 ], [ %539, %538 ]
   %544 = icmp sgt i32 %543, 1
-  br i1 %544, label %545, label %547, !prof !17
+  br i1 %544, label %545, label %547, !prof !23
 
 545:                                              ; preds = %542
   %546 = add nsw i32 %543, -1
@@ -21872,7 +21872,7 @@ lean_inc.exit1661:                                ; preds = %862, %861, %859, %8
   br label %lean_dec.exit2117
 
 lean_dec.exit2117:                                ; preds = %lean_inc.exit1661, %866, %868, %869
-  br i1 %.not3981, label %871, label %lean_nat_eq.exit3254.thread, !prof !14
+  br i1 %.not3981, label %871, label %lean_nat_eq.exit3254.thread, !prof !17
 
 lean_nat_eq.exit3254.thread:                      ; preds = %lean_dec.exit2117
   %870 = icmp eq ptr %854, %132
@@ -22300,7 +22300,7 @@ lean_inc.exit1660:                                ; preds = %1008, %1007, %1005,
 1020:                                             ; preds = %1019, %1016
   %1021 = phi i32 [ %.pr3777, %1019 ], [ %1017, %1016 ]
   %1022 = icmp sgt i32 %1021, 1
-  br i1 %1022, label %1023, label %1025, !prof !17
+  br i1 %1022, label %1023, label %1025, !prof !23
 
 1023:                                             ; preds = %1020
   %1024 = add nsw i32 %1021, -1
@@ -23733,7 +23733,7 @@ lean_inc.exit1627:                                ; preds = %1513, %1512, %1510,
   br label %lean_dec.exit1935
 
 lean_dec.exit1935:                                ; preds = %lean_inc.exit1627, %1517, %1519, %1520
-  br i1 %.not3965, label %1522, label %lean_nat_eq.exit3263.thread, !prof !14
+  br i1 %.not3965, label %1522, label %lean_nat_eq.exit3263.thread, !prof !17
 
 lean_nat_eq.exit3263.thread:                      ; preds = %lean_dec.exit1935
   %1521 = icmp eq ptr %1505, %132
@@ -24159,7 +24159,7 @@ lean_inc.exit1626:                                ; preds = %1656, %1655, %1653,
 1668:                                             ; preds = %1667, %1664
   %1669 = phi i32 [ %.pr3783, %1667 ], [ %1665, %1664 ]
   %1670 = icmp sgt i32 %1669, 1
-  br i1 %1670, label %1671, label %1673, !prof !17
+  br i1 %1670, label %1671, label %1673, !prof !23
 
 1671:                                             ; preds = %1668
   %1672 = add nsw i32 %1669, -1
@@ -25084,7 +25084,7 @@ lean_inc.exit1619:                                ; preds = %1988, %1987, %1985,
   br label %lean_dec.exit1882
 
 lean_dec.exit1882:                                ; preds = %lean_inc.exit1619, %1992, %1994, %1995
-  br i1 %.not3955, label %1997, label %lean_nat_eq.exit3266.thread, !prof !14
+  br i1 %.not3955, label %1997, label %lean_nat_eq.exit3266.thread, !prof !17
 
 lean_nat_eq.exit3266.thread:                      ; preds = %lean_dec.exit1882
   %1996 = icmp eq ptr %1980, %132
@@ -25512,7 +25512,7 @@ lean_inc.exit1618:                                ; preds = %2134, %2133, %2131,
 2146:                                             ; preds = %2145, %2142
   %2147 = phi i32 [ %.pr3788, %2145 ], [ %2143, %2142 ]
   %2148 = icmp sgt i32 %2147, 1
-  br i1 %2148, label %2149, label %2151, !prof !17
+  br i1 %2148, label %2149, label %2151, !prof !23
 
 2149:                                             ; preds = %2146
   %2150 = add nsw i32 %2147, -1
@@ -27519,9 +27519,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit1587
   %2836 = getelementptr inbounds nuw i8, ptr %2832, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointFinder_find_go, ptr %2836, align 8, !tbaa !4
   %2837 = getelementptr inbounds nuw i8, ptr %2832, i64 16
-  store i16 9, ptr %2837, align 8, !tbaa !15
+  store i16 9, ptr %2837, align 8, !tbaa !19
   %2838 = getelementptr inbounds nuw i8, ptr %2832, i64 18
-  store i16 1, ptr %2838, align 2, !tbaa !15
+  store i16 1, ptr %2838, align 2, !tbaa !19
   %2839 = getelementptr inbounds nuw i8, ptr %2832, i64 24
   store ptr %2823, ptr %2839, align 8, !tbaa !4
   br i1 %.not3885, label %2840, label %lean_inc.exit1586
@@ -31809,7 +31809,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !24
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -47645,7 +47645,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit, !llvm.loop !24
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -48952,7 +48952,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -48971,7 +48971,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !14
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !17
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -49094,7 +49094,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_JoinPointFinder_replace___spec__4(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !14
+  br i1 %.not, label %68, label %59, !prof !17
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -49746,13 +49746,13 @@ lean_obj_tag.exit.i:                              ; preds = %103, %100
   %111 = load ptr, ptr %110, align 8, !tbaa !4
   %112 = tail call zeroext i8 @lean_name_eq(ptr noundef %109, ptr noundef %28) #5
   %113 = icmp eq i8 %112, 0
-  br i1 %113, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit
+  br i1 %113, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit, !llvm.loop !24
 
 114:                                              ; preds = %lean_obj_tag.exit.i
   %115 = ptrtoint ptr %75 to i64
   %116 = and i64 %115, 1
   %.not590 = icmp eq i64 %116, 0
-  br i1 %.not590, label %127, label %117, !prof !14
+  br i1 %.not590, label %127, label %117, !prof !17
 
 117:                                              ; preds = %114
   %118 = lshr i64 %115, 1
@@ -49834,7 +49834,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %150 = ptrtoint ptr %.0.i318552 to i64
   %151 = and i64 %150, 1
   %.not591 = icmp eq i64 %151, 0
-  br i1 %.not591, label %.critedge.i307, label %152, !prof !14
+  br i1 %.not591, label %.critedge.i307, label %152, !prof !17
 
 152:                                              ; preds = %lean_array_uset.exit
   %153 = lshr i64 %150, 1
@@ -49867,7 +49867,7 @@ lean_nat_mul.exit312:                             ; preds = %152, %158, %162, %.
   %165 = ptrtoint ptr %.2.i308 to i64
   %166 = and i64 %165, 1
   %.not.i418 = icmp eq i64 %166, 0
-  br i1 %.not.i418, label %171, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i418, label %171, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit312
   %167 = udiv i64 %165, 6
@@ -49905,7 +49905,7 @@ lean_dec.exit343:                                 ; preds = %178, %177, %175, %l
   %183 = ptrtoint ptr %.1.i419554 to i64
   %184 = and i64 %183, 1
   %.not592 = icmp eq i64 %184, 0
-  br i1 %.not592, label %185, label %lean_dec.exit342.thread, !prof !14
+  br i1 %.not592, label %185, label %lean_dec.exit342.thread, !prof !17
 
 lean_dec.exit342.thread:                          ; preds = %lean_dec.exit343
   %.not640 = icmp ugt ptr %.1.i419554, %182
@@ -50194,10 +50194,10 @@ lean_obj_tag.exit.i447:                           ; preds = %292, %289
   %300 = load ptr, ptr %299, align 8, !tbaa !4
   %301 = tail call zeroext i8 @lean_name_eq(ptr noundef %298, ptr noundef %28) #5
   %302 = icmp eq i8 %301, 0
-  br i1 %302, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit451
+  br i1 %302, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit451, !llvm.loop !24
 
 303:                                              ; preds = %lean_obj_tag.exit.i447
-  br i1 %.not585, label %314, label %304, !prof !14
+  br i1 %.not585, label %314, label %304, !prof !17
 
 304:                                              ; preds = %303
   %305 = lshr i64 %250, 1
@@ -50279,7 +50279,7 @@ lean_array_uset.exit459:                          ; preds = %lean_ensure_exclusi
   %337 = ptrtoint ptr %.0.i315558 to i64
   %338 = and i64 %337, 1
   %.not587 = icmp eq i64 %338, 0
-  br i1 %.not587, label %.critedge.i301, label %339, !prof !14
+  br i1 %.not587, label %.critedge.i301, label %339, !prof !17
 
 339:                                              ; preds = %lean_array_uset.exit459
   %340 = lshr i64 %337, 1
@@ -50312,7 +50312,7 @@ lean_nat_mul.exit306:                             ; preds = %339, %345, %349, %.
   %352 = ptrtoint ptr %.2.i302 to i64
   %353 = and i64 %352, 1
   %.not.i460 = icmp eq i64 %353, 0
-  br i1 %.not.i460, label %358, label %lean_nat_div.exit463.thread, !prof !14
+  br i1 %.not.i460, label %358, label %lean_nat_div.exit463.thread, !prof !17
 
 lean_nat_div.exit463.thread:                      ; preds = %lean_nat_mul.exit306
   %354 = udiv i64 %352, 6
@@ -50350,7 +50350,7 @@ lean_dec.exit337:                                 ; preds = %365, %364, %362, %l
   %370 = ptrtoint ptr %.1.i461560 to i64
   %371 = and i64 %370, 1
   %.not588 = icmp eq i64 %371, 0
-  br i1 %.not588, label %372, label %lean_dec.exit336.thread, !prof !14
+  br i1 %.not588, label %372, label %lean_dec.exit336.thread, !prof !17
 
 lean_dec.exit336.thread:                          ; preds = %lean_dec.exit337
   %.not639 = icmp ugt ptr %.1.i461560, %369
@@ -50889,10 +50889,10 @@ lean_obj_tag.exit.i513:                           ; preds = %573, %570
   %581 = load ptr, ptr %580, align 8, !tbaa !4
   %582 = tail call zeroext i8 @lean_name_eq(ptr noundef %579, ptr noundef %28) #5
   %583 = icmp eq i8 %582, 0
-  br i1 %583, label %lean_array_uget.exit510, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit517
+  br i1 %583, label %lean_array_uget.exit510, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointFinder_replace_go___spec__1.exit517, !llvm.loop !24
 
 584:                                              ; preds = %lean_obj_tag.exit.i513
-  br i1 %.not573, label %595, label %585, !prof !14
+  br i1 %.not573, label %595, label %585, !prof !17
 
 585:                                              ; preds = %584
   %586 = lshr i64 %502, 1
@@ -50991,7 +50991,7 @@ lean_array_uset.exit526:                          ; preds = %lean_ensure_exclusi
   %625 = ptrtoint ptr %.0.i564 to i64
   %626 = and i64 %625, 1
   %.not576 = icmp eq i64 %626, 0
-  br i1 %.not576, label %.critedge.i, label %627, !prof !14
+  br i1 %.not576, label %.critedge.i, label %627, !prof !17
 
 627:                                              ; preds = %lean_array_uset.exit526
   %628 = lshr i64 %625, 1
@@ -51024,7 +51024,7 @@ lean_nat_mul.exit:                                ; preds = %627, %633, %637, %.
   %640 = ptrtoint ptr %.2.i to i64
   %641 = and i64 %640, 1
   %.not.i527 = icmp eq i64 %641, 0
-  br i1 %.not.i527, label %646, label %lean_nat_div.exit530.thread, !prof !14
+  br i1 %.not.i527, label %646, label %lean_nat_div.exit530.thread, !prof !17
 
 lean_nat_div.exit530.thread:                      ; preds = %lean_nat_mul.exit
   %642 = udiv i64 %640, 6
@@ -51062,7 +51062,7 @@ lean_dec.exit330:                                 ; preds = %653, %652, %650, %l
   %658 = ptrtoint ptr %.1.i528566 to i64
   %659 = and i64 %658, 1
   %.not577 = icmp eq i64 %659, 0
-  br i1 %.not577, label %660, label %lean_dec.exit329.thread, !prof !14
+  br i1 %.not577, label %660, label %lean_dec.exit329.thread, !prof !17
 
 lean_dec.exit329.thread:                          ; preds = %lean_dec.exit330
   %.not638 = icmp ugt ptr %.1.i528566, %657
@@ -51287,7 +51287,7 @@ lean_alloc_ctor.exit549:                          ; preds = %738
 .backedge:                                        ; preds = %743, %702, %691, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Compiler_LCNF_JoinPointFinder_replace___spec__2.exit, %209, %lean_array_uset.exit433, %lean_alloc_ctor.exit468, %lean_alloc_ctor.exit469, %lean_alloc_ctor.exit482
   %.0289.be = phi ptr [ %55, %lean_alloc_ctor.exit482 ], [ %55, %lean_alloc_ctor.exit469 ], [ %55, %lean_alloc_ctor.exit468 ], [ %55, %lean_array_uset.exit433 ], [ %55, %209 ], [ %55, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Compiler_LCNF_JoinPointFinder_replace___spec__2.exit ], [ %482, %691 ], [ %482, %702 ], [ %482, %743 ]
   %.0281.be = phi ptr [ %440, %lean_alloc_ctor.exit482 ], [ %403, %lean_alloc_ctor.exit469 ], [ %396, %lean_alloc_ctor.exit468 ], [ %.0281, %lean_array_uset.exit433 ], [ %.0281, %209 ], [ %.0281, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_Compiler_LCNF_JoinPointFinder_replace___spec__2.exit ], [ %.0299, %691 ], [ %.0298, %702 ], [ %.0, %743 ]
-  br label %8
+  br label %8, !llvm.loop !26
 }
 
 declare ptr @l_Lean_Compiler_LCNF_mkFreshJpName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -51894,9 +51894,9 @@ lean_alloc_ctor.exit272:                          ; preds = %lean_dec.exit198
 
 186:                                              ; preds = %lean_dec.exit205
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %188 = load i8, ptr %187, align 1, !tbaa !18
+  %188 = load i8, ptr %187, align 1, !tbaa !27
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %190 = load i8, ptr %189, align 1, !tbaa !18
+  %190 = load i8, ptr %189, align 1, !tbaa !27
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %192 = load ptr, ptr %191, align 8, !tbaa !4
   %193 = ptrtoint ptr %192 to i64
@@ -52248,9 +52248,9 @@ lean_alloc_ctor.exit305:                          ; preds = %lean_dec_ref.exit24
   store ptr %263, ptr %319, align 8, !tbaa !4
   %320 = getelementptr inbounds nuw i8, ptr %310, i64 48
   store ptr %192, ptr %320, align 8, !tbaa !4
-  store i8 %188, ptr %314, align 1, !tbaa !18
+  store i8 %188, ptr %314, align 1, !tbaa !27
   %321 = getelementptr inbounds nuw i8, ptr %310, i64 57
-  store i8 %190, ptr %321, align 1, !tbaa !18
+  store i8 %190, ptr %321, align 1, !tbaa !27
   %322 = ptrtoint ptr %.0176 to i64
   %323 = and i64 %322, 1
   %.not335 = icmp eq i64 %323, 0
@@ -54791,9 +54791,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidate___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !15
+  store i16 10, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -54839,7 +54839,7 @@ define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_JoinPointC
 25:                                               ; preds = %21, %24
   %.val.i = phi i32 [ %22, %21 ], [ %.val.i.pr, %24 ]
   %26 = icmp sgt i32 %.val.i, 0
-  br i1 %26, label %27, label %29, !prof !17
+  br i1 %26, label %27, label %29, !prof !23
 
 27:                                               ; preds = %25
   %28 = add nuw i32 %.val.i, 1
@@ -55397,9 +55397,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !15
+  store i16 10, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -55717,7 +55717,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !28
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -56040,7 +56040,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -56059,7 +56059,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !14
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !17
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -56182,7 +56182,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__4(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !14
+  br i1 %.not, label %68, label %59, !prof !17
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -56910,7 +56910,7 @@ lean_dec.exit1335:                                ; preds = %117, %116, %114, %l
 129:                                              ; preds = %128, %125
   %130 = phi i32 [ %.pr, %128 ], [ %126, %125 ]
   %131 = icmp sgt i32 %130, 1
-  br i1 %131, label %132, label %134, !prof !17
+  br i1 %131, label %132, label %134, !prof !23
 
 132:                                              ; preds = %129
   %133 = add nsw i32 %130, -1
@@ -57525,7 +57525,7 @@ lean_dec.exit1319:                                ; preds = %373, %372, %370, %l
   %375 = ptrtoint ptr %208 to i64
   %376 = and i64 %375, 1
   %.not2143 = icmp eq i64 %376, 0
-  br i1 %.not2143, label %387, label %377, !prof !14
+  br i1 %.not2143, label %387, label %377, !prof !17
 
 377:                                              ; preds = %lean_dec.exit1319
   %378 = lshr i64 %375, 1
@@ -57575,7 +57575,7 @@ lean_dec.exit1318:                                ; preds = %381, %385, %394, %3
   %400 = ptrtoint ptr %.0.i11421983 to i64
   %401 = and i64 %400, 1
   %.not2144 = icmp eq i64 %401, 0
-  br i1 %.not2144, label %.critedge.i1119, label %402, !prof !14
+  br i1 %.not2144, label %.critedge.i1119, label %402, !prof !17
 
 402:                                              ; preds = %lean_dec.exit1318
   %403 = lshr i64 %400, 1
@@ -57608,7 +57608,7 @@ lean_nat_mul.exit1124:                            ; preds = %402, %408, %412, %.
   %415 = ptrtoint ptr %.2.i1120 to i64
   %416 = and i64 %415, 1
   %.not.i1741 = icmp eq i64 %416, 0
-  br i1 %.not.i1741, label %421, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i1741, label %421, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit1124
   %417 = udiv i64 %415, 6
@@ -57646,7 +57646,7 @@ lean_dec.exit1317:                                ; preds = %428, %427, %425, %l
   %433 = ptrtoint ptr %.1.i1985 to i64
   %434 = and i64 %433, 1
   %.not2145 = icmp eq i64 %434, 0
-  br i1 %.not2145, label %435, label %lean_dec.exit1316.thread, !prof !14
+  br i1 %.not2145, label %435, label %lean_dec.exit1316.thread, !prof !17
 
 lean_dec.exit1316.thread:                         ; preds = %lean_dec.exit1317
   %.not2202 = icmp ugt ptr %.1.i1985, %432
@@ -57859,7 +57859,7 @@ lean_dec.exit1312:                                ; preds = %lean_dec.exit1313
   %517 = ptrtoint ptr %506 to i64
   %518 = and i64 %517, 1
   %.not2168 = icmp eq i64 %518, 0
-  br i1 %.not2168, label %529, label %519, !prof !14
+  br i1 %.not2168, label %529, label %519, !prof !17
 
 519:                                              ; preds = %516
   %520 = lshr i64 %517, 1
@@ -57909,7 +57909,7 @@ lean_dec.exit1311:                                ; preds = %523, %527, %536, %5
   %542 = ptrtoint ptr %.0.i11391988 to i64
   %543 = and i64 %542, 1
   %.not2169 = icmp eq i64 %543, 0
-  br i1 %.not2169, label %.critedge.i1113, label %544, !prof !14
+  br i1 %.not2169, label %.critedge.i1113, label %544, !prof !17
 
 544:                                              ; preds = %lean_dec.exit1311
   %545 = lshr i64 %542, 1
@@ -57942,7 +57942,7 @@ lean_nat_mul.exit1118:                            ; preds = %544, %550, %554, %.
   %557 = ptrtoint ptr %.2.i1114 to i64
   %558 = and i64 %557, 1
   %.not.i1758 = icmp eq i64 %558, 0
-  br i1 %.not.i1758, label %563, label %lean_nat_div.exit1761.thread, !prof !14
+  br i1 %.not.i1758, label %563, label %lean_nat_div.exit1761.thread, !prof !17
 
 lean_nat_div.exit1761.thread:                     ; preds = %lean_nat_mul.exit1118
   %559 = udiv i64 %557, 6
@@ -57980,7 +57980,7 @@ lean_dec.exit1310:                                ; preds = %570, %569, %567, %l
   %575 = ptrtoint ptr %.1.i17591990 to i64
   %576 = and i64 %575, 1
   %.not2170 = icmp eq i64 %576, 0
-  br i1 %.not2170, label %577, label %lean_dec.exit1309.thread, !prof !14
+  br i1 %.not2170, label %577, label %lean_dec.exit1309.thread, !prof !17
 
 lean_dec.exit1309.thread:                         ; preds = %lean_dec.exit1310
   %.not2204 = icmp ugt ptr %.1.i17591990, %574
@@ -58383,7 +58383,7 @@ lean_dec.exit1300:                                ; preds = %lean_inc.exit1186, 
   br i1 %735, label %736, label %864
 
 736:                                              ; preds = %lean_dec.exit1300
-  br i1 %.not2154, label %747, label %737, !prof !14
+  br i1 %.not2154, label %747, label %737, !prof !17
 
 737:                                              ; preds = %736
   %738 = lshr i64 %712, 1
@@ -58433,7 +58433,7 @@ lean_dec.exit1299:                                ; preds = %741, %745, %754, %7
   %760 = ptrtoint ptr %.0.i11361993 to i64
   %761 = and i64 %760, 1
   %.not2158 = icmp eq i64 %761, 0
-  br i1 %.not2158, label %.critedge.i1107, label %762, !prof !14
+  br i1 %.not2158, label %.critedge.i1107, label %762, !prof !17
 
 762:                                              ; preds = %lean_dec.exit1299
   %763 = lshr i64 %760, 1
@@ -58466,7 +58466,7 @@ lean_nat_mul.exit1112:                            ; preds = %762, %768, %772, %.
   %775 = ptrtoint ptr %.2.i1108 to i64
   %776 = and i64 %775, 1
   %.not.i1780 = icmp eq i64 %776, 0
-  br i1 %.not.i1780, label %781, label %lean_nat_div.exit1783.thread, !prof !14
+  br i1 %.not.i1780, label %781, label %lean_nat_div.exit1783.thread, !prof !17
 
 lean_nat_div.exit1783.thread:                     ; preds = %lean_nat_mul.exit1112
   %777 = udiv i64 %775, 6
@@ -58504,7 +58504,7 @@ lean_dec.exit1298:                                ; preds = %788, %787, %785, %l
   %793 = ptrtoint ptr %.1.i17811995 to i64
   %794 = and i64 %793, 1
   %.not2159 = icmp eq i64 %794, 0
-  br i1 %.not2159, label %795, label %lean_dec.exit1297.thread, !prof !14
+  br i1 %.not2159, label %795, label %lean_dec.exit1297.thread, !prof !17
 
 lean_dec.exit1297.thread:                         ; preds = %lean_dec.exit1298
   %.not2203 = icmp ugt ptr %.1.i17811995, %792
@@ -59593,7 +59593,7 @@ lean_inc.exit1174:                                ; preds = %1192, %1191, %1189,
 
 lean_dec.exit1273:                                ; preds = %1201, %1200, %1198, %lean_inc.exit1174
   %1202 = tail call ptr @lean_st_ref_take(ptr noundef %2, ptr noundef %1184) #5
-  br i1 %.not2086, label %1213, label %1203, !prof !14
+  br i1 %.not2086, label %1213, label %1203, !prof !17
 
 1203:                                             ; preds = %lean_dec.exit1273
   %1204 = lshr i64 %1026, 1
@@ -59643,7 +59643,7 @@ lean_dec.exit1272:                                ; preds = %1207, %1211, %1220,
   %1226 = ptrtoint ptr %.0.i11332001 to i64
   %1227 = and i64 %1226, 1
   %.not2101 = icmp eq i64 %1227, 0
-  br i1 %.not2101, label %.critedge.i1101, label %1228, !prof !14
+  br i1 %.not2101, label %.critedge.i1101, label %1228, !prof !17
 
 1228:                                             ; preds = %lean_dec.exit1272
   %1229 = lshr i64 %1226, 1
@@ -59676,7 +59676,7 @@ lean_nat_mul.exit1106:                            ; preds = %1228, %1234, %1238,
   %1241 = ptrtoint ptr %.2.i1102 to i64
   %1242 = and i64 %1241, 1
   %.not.i1835 = icmp eq i64 %1242, 0
-  br i1 %.not.i1835, label %1247, label %lean_nat_div.exit1838.thread, !prof !14
+  br i1 %.not.i1835, label %1247, label %lean_nat_div.exit1838.thread, !prof !17
 
 lean_nat_div.exit1838.thread:                     ; preds = %lean_nat_mul.exit1106
   %1243 = udiv i64 %1241, 6
@@ -59714,7 +59714,7 @@ lean_dec.exit1271:                                ; preds = %1254, %1253, %1251,
   %1259 = ptrtoint ptr %.1.i18362003 to i64
   %1260 = and i64 %1259, 1
   %.not2102 = icmp eq i64 %1260, 0
-  br i1 %.not2102, label %1261, label %lean_dec.exit1270.thread, !prof !14
+  br i1 %.not2102, label %1261, label %lean_dec.exit1270.thread, !prof !17
 
 lean_dec.exit1270.thread:                         ; preds = %lean_dec.exit1271
   %.not2200 = icmp ugt ptr %.1.i18362003, %1258
@@ -59998,7 +59998,7 @@ lean_dec.exit1266:                                ; preds = %1354, %1357, %1359,
   br i1 %1367, label %1368, label %1504
 
 1368:                                             ; preds = %lean_dec.exit1266
-  br i1 %.not2110, label %1379, label %1369, !prof !14
+  br i1 %.not2110, label %1379, label %1369, !prof !17
 
 1369:                                             ; preds = %1368
   %1370 = lshr i64 %1335, 1
@@ -60048,7 +60048,7 @@ lean_dec.exit1265:                                ; preds = %1373, %1377, %1386,
   %1392 = ptrtoint ptr %.0.i11302006 to i64
   %1393 = and i64 %1392, 1
   %.not2115 = icmp eq i64 %1393, 0
-  br i1 %.not2115, label %.critedge.i1095, label %1394, !prof !14
+  br i1 %.not2115, label %.critedge.i1095, label %1394, !prof !17
 
 1394:                                             ; preds = %lean_dec.exit1265
   %1395 = lshr i64 %1392, 1
@@ -60081,7 +60081,7 @@ lean_nat_mul.exit1100:                            ; preds = %1394, %1400, %1404,
   %1407 = ptrtoint ptr %.2.i1096 to i64
   %1408 = and i64 %1407, 1
   %.not.i1860 = icmp eq i64 %1408, 0
-  br i1 %.not.i1860, label %1413, label %lean_nat_div.exit1863.thread, !prof !14
+  br i1 %.not.i1860, label %1413, label %lean_nat_div.exit1863.thread, !prof !17
 
 lean_nat_div.exit1863.thread:                     ; preds = %lean_nat_mul.exit1100
   %1409 = udiv i64 %1407, 6
@@ -60119,7 +60119,7 @@ lean_dec.exit1264:                                ; preds = %1420, %1419, %1417,
   %1425 = ptrtoint ptr %.1.i18612008 to i64
   %1426 = and i64 %1425, 1
   %.not2116 = icmp eq i64 %1426, 0
-  br i1 %.not2116, label %1427, label %lean_dec.exit1263.thread, !prof !14
+  br i1 %.not2116, label %1427, label %lean_dec.exit1263.thread, !prof !17
 
 lean_dec.exit1263.thread:                         ; preds = %lean_dec.exit1264
   %.not2201 = icmp ugt ptr %.1.i18612008, %1424
@@ -61450,7 +61450,7 @@ lean_inc.exit1155:                                ; preds = %1919, %1918, %1916,
 
 lean_dec.exit1236:                                ; preds = %1928, %1927, %1925, %lean_inc.exit1155
   %1929 = tail call ptr @lean_st_ref_take(ptr noundef %2, ptr noundef %1911) #5
-  br i1 %.not2039, label %1940, label %1930, !prof !14
+  br i1 %.not2039, label %1940, label %1930, !prof !17
 
 1930:                                             ; preds = %lean_dec.exit1236
   %1931 = lshr i64 %1712, 1
@@ -61500,7 +61500,7 @@ lean_dec.exit1235:                                ; preds = %1934, %1938, %1947,
   %1953 = ptrtoint ptr %.0.i11272014 to i64
   %1954 = and i64 %1953, 1
   %.not2056 = icmp eq i64 %1954, 0
-  br i1 %.not2056, label %.critedge.i1089, label %1955, !prof !14
+  br i1 %.not2056, label %.critedge.i1089, label %1955, !prof !17
 
 1955:                                             ; preds = %lean_dec.exit1235
   %1956 = lshr i64 %1953, 1
@@ -61533,7 +61533,7 @@ lean_nat_mul.exit1094:                            ; preds = %1955, %1961, %1965,
   %1968 = ptrtoint ptr %.2.i1090 to i64
   %1969 = and i64 %1968, 1
   %.not.i1928 = icmp eq i64 %1969, 0
-  br i1 %.not.i1928, label %1974, label %lean_nat_div.exit1931.thread, !prof !14
+  br i1 %.not.i1928, label %1974, label %lean_nat_div.exit1931.thread, !prof !17
 
 lean_nat_div.exit1931.thread:                     ; preds = %lean_nat_mul.exit1094
   %1970 = udiv i64 %1968, 6
@@ -61571,7 +61571,7 @@ lean_dec.exit1234:                                ; preds = %1981, %1980, %1978,
   %1986 = ptrtoint ptr %.1.i19292016 to i64
   %1987 = and i64 %1986, 1
   %.not2057 = icmp eq i64 %1987, 0
-  br i1 %.not2057, label %1988, label %lean_dec.exit1233.thread, !prof !14
+  br i1 %.not2057, label %1988, label %lean_dec.exit1233.thread, !prof !17
 
 lean_dec.exit1233.thread:                         ; preds = %lean_dec.exit1234
   %.not2198 = icmp ugt ptr %.1.i19292016, %1985
@@ -61871,7 +61871,7 @@ lean_dec.exit1229:                                ; preds = %2086, %2089, %2091,
   br i1 %2099, label %2100, label %2236
 
 2100:                                             ; preds = %lean_dec.exit1229
-  br i1 %.not2066, label %2111, label %2101, !prof !14
+  br i1 %.not2066, label %2111, label %2101, !prof !17
 
 2101:                                             ; preds = %2100
   %2102 = lshr i64 %2067, 1
@@ -61921,7 +61921,7 @@ lean_dec.exit1228:                                ; preds = %2105, %2109, %2118,
   %2124 = ptrtoint ptr %.0.i2019 to i64
   %2125 = and i64 %2124, 1
   %.not2071 = icmp eq i64 %2125, 0
-  br i1 %.not2071, label %.critedge.i, label %2126, !prof !14
+  br i1 %.not2071, label %.critedge.i, label %2126, !prof !17
 
 2126:                                             ; preds = %lean_dec.exit1228
   %2127 = lshr i64 %2124, 1
@@ -61954,7 +61954,7 @@ lean_nat_mul.exit:                                ; preds = %2126, %2132, %2136,
   %2139 = ptrtoint ptr %.2.i to i64
   %2140 = and i64 %2139, 1
   %.not.i1953 = icmp eq i64 %2140, 0
-  br i1 %.not.i1953, label %2145, label %lean_nat_div.exit1956.thread, !prof !14
+  br i1 %.not.i1953, label %2145, label %lean_nat_div.exit1956.thread, !prof !17
 
 lean_nat_div.exit1956.thread:                     ; preds = %lean_nat_mul.exit
   %2141 = udiv i64 %2139, 6
@@ -61992,7 +61992,7 @@ lean_dec.exit1227:                                ; preds = %2152, %2151, %2149,
   %2157 = ptrtoint ptr %.1.i19542021 to i64
   %2158 = and i64 %2157, 1
   %.not2072 = icmp eq i64 %2158, 0
-  br i1 %.not2072, label %2159, label %lean_dec.exit1226.thread, !prof !14
+  br i1 %.not2072, label %2159, label %lean_dec.exit1226.thread, !prof !17
 
 lean_dec.exit1226.thread:                         ; preds = %lean_dec.exit1227
   %.not2199 = icmp ugt ptr %.1.i19542021, %2156
@@ -62923,7 +62923,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #5
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit, !llvm.loop !28
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -65218,9 +65218,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 10, ptr %8, align 8, !tbaa !15
+  store i16 10, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !15
+  store i16 0, ptr %9, align 2, !tbaa !19
   ret ptr %3
 }
 
@@ -66036,9 +66036,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withBackTrackingScope___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__3___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -66060,9 +66060,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__2___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 10, ptr %15, align 8, !tbaa !15
+  store i16 10, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 1, ptr %16, align 2, !tbaa !15
+  store i16 1, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = load ptr, ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___closed__1, align 8, !tbaa !4
@@ -66082,9 +66082,9 @@ lean_alloc_closure.exit16:                        ; preds = %lean_alloc_closure.
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 10, ptr %24, align 8, !tbaa !15
+  store i16 10, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 2, ptr %25, align 2, !tbaa !15
+  store i16 2, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -66111,9 +66111,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__1___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -66142,9 +66142,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -67158,9 +67158,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withBackTrackingScope___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewJpScope___spec__3___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -67182,9 +67182,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__2___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 10, ptr %15, align 8, !tbaa !15
+  store i16 10, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 1, ptr %16, align 2, !tbaa !15
+  store i16 1, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = load ptr, ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___closed__1, align 8, !tbaa !4
@@ -67204,9 +67204,9 @@ lean_alloc_closure.exit16:                        ; preds = %lean_alloc_closure.
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 10, ptr %24, align 8, !tbaa !15
+  store i16 10, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 2, ptr %25, align 2, !tbaa !15
+  store i16 2, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -67233,9 +67233,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewJpScope___spec__2___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -67540,13 +67540,13 @@ lean_obj_tag.exit.i:                              ; preds = %124, %121
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = tail call zeroext i8 @lean_name_eq(ptr noundef %130, ptr noundef %12) #5
   %134 = icmp eq i8 %133, 0
-  br i1 %134, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit
+  br i1 %134, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit, !llvm.loop !28
 
 135:                                              ; preds = %lean_obj_tag.exit.i
   %136 = ptrtoint ptr %96 to i64
   %137 = and i64 %136, 1
   %.not761 = icmp eq i64 %137, 0
-  br i1 %.not761, label %148, label %138, !prof !14
+  br i1 %.not761, label %148, label %138, !prof !17
 
 138:                                              ; preds = %135
   %139 = lshr i64 %136, 1
@@ -67646,7 +67646,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %179 = ptrtoint ptr %.0.i395708 to i64
   %180 = and i64 %179, 1
   %.not762 = icmp eq i64 %180, 0
-  br i1 %.not762, label %.critedge.i384, label %181, !prof !14
+  br i1 %.not762, label %.critedge.i384, label %181, !prof !17
 
 181:                                              ; preds = %lean_array_uset.exit
   %182 = lshr i64 %179, 1
@@ -67679,7 +67679,7 @@ lean_nat_mul.exit389:                             ; preds = %181, %187, %191, %.
   %194 = ptrtoint ptr %.2.i385 to i64
   %195 = and i64 %194, 1
   %.not.i547 = icmp eq i64 %195, 0
-  br i1 %.not.i547, label %200, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i547, label %200, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit389
   %196 = udiv i64 %194, 6
@@ -67717,7 +67717,7 @@ lean_dec.exit440:                                 ; preds = %207, %206, %204, %l
   %212 = ptrtoint ptr %.1.i548710 to i64
   %213 = and i64 %212, 1
   %.not763 = icmp eq i64 %213, 0
-  br i1 %.not763, label %214, label %lean_dec.exit439.thread, !prof !14
+  br i1 %.not763, label %214, label %lean_dec.exit439.thread, !prof !17
 
 lean_dec.exit439.thread:                          ; preds = %lean_dec.exit440
   %.not773 = icmp ugt ptr %.1.i548710, %211
@@ -68147,10 +68147,10 @@ lean_obj_tag.exit.i585:                           ; preds = %380, %377
   %388 = load ptr, ptr %387, align 8, !tbaa !4
   %389 = tail call zeroext i8 @lean_name_eq(ptr noundef %386, ptr noundef %12) #5
   %390 = icmp eq i8 %389, 0
-  br i1 %390, label %lean_array_uget.exit582, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit589
+  br i1 %390, label %lean_array_uget.exit582, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit589, !llvm.loop !28
 
 391:                                              ; preds = %lean_obj_tag.exit.i585
-  br i1 %.not749, label %402, label %392, !prof !14
+  br i1 %.not749, label %402, label %392, !prof !17
 
 392:                                              ; preds = %391
   %393 = lshr i64 %340, 1
@@ -68250,7 +68250,7 @@ lean_array_uset.exit598:                          ; preds = %lean_ensure_exclusi
   %433 = ptrtoint ptr %.0.i392714 to i64
   %434 = and i64 %433, 1
   %.not752 = icmp eq i64 %434, 0
-  br i1 %.not752, label %.critedge.i378, label %435, !prof !14
+  br i1 %.not752, label %.critedge.i378, label %435, !prof !17
 
 435:                                              ; preds = %lean_array_uset.exit598
   %436 = lshr i64 %433, 1
@@ -68283,7 +68283,7 @@ lean_nat_mul.exit383:                             ; preds = %435, %441, %445, %.
   %448 = ptrtoint ptr %.2.i379 to i64
   %449 = and i64 %448, 1
   %.not.i599 = icmp eq i64 %449, 0
-  br i1 %.not.i599, label %454, label %lean_nat_div.exit602.thread, !prof !14
+  br i1 %.not.i599, label %454, label %lean_nat_div.exit602.thread, !prof !17
 
 lean_nat_div.exit602.thread:                      ; preds = %lean_nat_mul.exit383
   %450 = udiv i64 %448, 6
@@ -68321,7 +68321,7 @@ lean_dec.exit431:                                 ; preds = %461, %460, %458, %l
   %466 = ptrtoint ptr %.1.i600716 to i64
   %467 = and i64 %466, 1
   %.not753 = icmp eq i64 %467, 0
-  br i1 %.not753, label %468, label %lean_dec.exit430.thread, !prof !14
+  br i1 %.not753, label %468, label %lean_dec.exit430.thread, !prof !17
 
 lean_dec.exit430.thread:                          ; preds = %lean_dec.exit431
   %.not772 = icmp ugt ptr %.1.i600716, %465
@@ -68679,9 +68679,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit437
   %609 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %609, align 8, !tbaa !4
   %610 = getelementptr inbounds nuw i8, ptr %605, i64 16
-  store i16 10, ptr %610, align 8, !tbaa !15
+  store i16 10, ptr %610, align 8, !tbaa !19
   %611 = getelementptr inbounds nuw i8, ptr %605, i64 18
-  store i16 2, ptr %611, align 2, !tbaa !15
+  store i16 2, ptr %611, align 2, !tbaa !19
   %612 = getelementptr inbounds nuw i8, ptr %605, i64 24
   store ptr %604, ptr %612, align 8, !tbaa !4
   %613 = getelementptr inbounds nuw i8, ptr %605, i64 32
@@ -69033,10 +69033,10 @@ lean_obj_tag.exit.i659:                           ; preds = %744, %741
   %752 = load ptr, ptr %751, align 8, !tbaa !4
   %753 = tail call zeroext i8 @lean_name_eq(ptr noundef %750, ptr noundef %12) #5
   %754 = icmp eq i8 %753, 0
-  br i1 %754, label %lean_array_uget.exit656, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit663
+  br i1 %754, label %lean_array_uget.exit656, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_JoinPointContextExtender_extendByIfNecessary___spec__1.exit663, !llvm.loop !28
 
 755:                                              ; preds = %lean_obj_tag.exit.i659
-  br i1 %.not731, label %766, label %756, !prof !14
+  br i1 %.not731, label %766, label %756, !prof !17
 
 756:                                              ; preds = %755
   %757 = lshr i64 %673, 1
@@ -69136,7 +69136,7 @@ lean_array_uset.exit672:                          ; preds = %lean_ensure_exclusi
   %797 = ptrtoint ptr %.0.i720 to i64
   %798 = and i64 %797, 1
   %.not736 = icmp eq i64 %798, 0
-  br i1 %.not736, label %.critedge.i, label %799, !prof !14
+  br i1 %.not736, label %.critedge.i, label %799, !prof !17
 
 799:                                              ; preds = %lean_array_uset.exit672
   %800 = lshr i64 %797, 1
@@ -69169,7 +69169,7 @@ lean_nat_mul.exit:                                ; preds = %799, %805, %809, %.
   %812 = ptrtoint ptr %.2.i to i64
   %813 = and i64 %812, 1
   %.not.i673 = icmp eq i64 %813, 0
-  br i1 %.not.i673, label %818, label %lean_nat_div.exit676.thread, !prof !14
+  br i1 %.not.i673, label %818, label %lean_nat_div.exit676.thread, !prof !17
 
 lean_nat_div.exit676.thread:                      ; preds = %lean_nat_mul.exit
   %814 = udiv i64 %812, 6
@@ -69207,7 +69207,7 @@ lean_dec.exit421:                                 ; preds = %825, %824, %822, %l
   %830 = ptrtoint ptr %.1.i674722 to i64
   %831 = and i64 %830, 1
   %.not737 = icmp eq i64 %831, 0
-  br i1 %.not737, label %832, label %lean_dec.exit420.thread, !prof !14
+  br i1 %.not737, label %832, label %lean_dec.exit420.thread, !prof !17
 
 lean_dec.exit420.thread:                          ; preds = %lean_dec.exit421
   %.not771 = icmp ugt ptr %.1.i674722, %829
@@ -69595,9 +69595,9 @@ lean_alloc_closure.exit705:                       ; preds = %lean_dec.exit418
   %985 = getelementptr inbounds nuw i8, ptr %981, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %985, align 8, !tbaa !4
   %986 = getelementptr inbounds nuw i8, ptr %981, i64 16
-  store i16 10, ptr %986, align 8, !tbaa !15
+  store i16 10, ptr %986, align 8, !tbaa !19
   %987 = getelementptr inbounds nuw i8, ptr %981, i64 18
-  store i16 2, ptr %987, align 2, !tbaa !15
+  store i16 2, ptr %987, align 2, !tbaa !19
   %988 = getelementptr inbounds nuw i8, ptr %981, i64 24
   store ptr %980, ptr %988, align 8, !tbaa !4
   %989 = getelementptr inbounds nuw i8, ptr %981, i64 32
@@ -69628,9 +69628,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewJpScope___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !15
+  store i16 10, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -70504,9 +70504,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withBackTrackingScope___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewAltScope___spec__1___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -70532,9 +70532,9 @@ lean_alloc_closure.exit:                          ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %18, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 10, ptr %19, align 8, !tbaa !15
+  store i16 10, ptr %19, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !15
+  store i16 2, ptr %20, align 2, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %13, ptr %21, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -70563,9 +70563,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewAltScope___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !15
+  store i16 10, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -70591,9 +70591,9 @@ l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewAltScope___rarg.exit: ; pre
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %18, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 10, ptr %19, align 8, !tbaa !15
+  store i16 10, ptr %19, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 2, ptr %20, align 2, !tbaa !15
+  store i16 2, ptr %20, align 2, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %13, ptr %21, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -71130,7 +71130,7 @@ lean_obj_tag.exit:                                ; preds = %13, %16
 30:                                               ; preds = %29, %26
   %.val.i1177 = phi i32 [ %.val.i1177.pr, %29 ], [ %27, %26 ]
   %31 = icmp sgt i32 %.val.i1177, 0
-  br i1 %31, label %32, label %34, !prof !17
+  br i1 %31, label %32, label %34, !prof !23
 
 32:                                               ; preds = %30
   %33 = add nuw i32 %.val.i1177, 1
@@ -73016,7 +73016,7 @@ lean_inc.exit740:                                 ; preds = %696, %695, %693, %l
 
 lean_inc.exit739:                                 ; preds = %706, %705, %703, %lean_inc.exit740
   %707 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %708 = load i8, ptr %707, align 1, !tbaa !18
+  %708 = load i8, ptr %707, align 1, !tbaa !27
   br i1 %.not.i1174, label %709, label %lean_dec.exit854
 
 709:                                              ; preds = %lean_inc.exit739
@@ -74654,7 +74654,7 @@ lean_inc.exit713:                                 ; preds = %1277, %1276, %1274,
 
 lean_inc.exit712:                                 ; preds = %1287, %1286, %1284, %lean_inc.exit713
   %1288 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1289 = load i8, ptr %1288, align 1, !tbaa !18
+  %1289 = load i8, ptr %1288, align 1, !tbaa !27
   br i1 %.not.i1174, label %1290, label %lean_dec.exit816
 
 1290:                                             ; preds = %lean_inc.exit712
@@ -83289,9 +83289,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit101
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr @l_Lean_Compiler_LCNF_Alt_mapCodeM___at_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___spec__13, ptr %128, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store i16 10, ptr %129, align 8, !tbaa !15
+  store i16 10, ptr %129, align 8, !tbaa !19
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 18
-  store i16 2, ptr %130, align 2, !tbaa !15
+  store i16 2, ptr %130, align 2, !tbaa !19
   %131 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store ptr %93, ptr %131, align 8, !tbaa !4
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 32
@@ -83463,9 +83463,9 @@ l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewAltScope___rarg.exit: ; pre
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_withNewCandidates___rarg___boxed, ptr %182, align 8, !tbaa !4
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store i16 10, ptr %183, align 8, !tbaa !15
+  store i16 10, ptr %183, align 8, !tbaa !19
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 18
-  store i16 2, ptr %184, align 2, !tbaa !15
+  store i16 2, ptr %184, align 2, !tbaa !19
   %185 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store ptr %177, ptr %185, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %178, i64 32
@@ -85785,9 +85785,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit1261
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %200, align 8, !tbaa !4
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  store i16 9, ptr %201, align 8, !tbaa !15
+  store i16 9, ptr %201, align 8, !tbaa !19
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 18
-  store i16 1, ptr %202, align 2, !tbaa !15
+  store i16 1, ptr %202, align 2, !tbaa !19
   %203 = getelementptr inbounds nuw i8, ptr %196, i64 24
   store ptr %30, ptr %203, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -85806,9 +85806,9 @@ lean_alloc_closure.exit2027:                      ; preds = %lean_alloc_closure.
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___lambda__1___boxed, ptr %208, align 8, !tbaa !4
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  store i16 13, ptr %209, align 8, !tbaa !15
+  store i16 13, ptr %209, align 8, !tbaa !19
   %210 = getelementptr inbounds nuw i8, ptr %204, i64 18
-  store i16 4, ptr %210, align 2, !tbaa !15
+  store i16 4, ptr %210, align 2, !tbaa !19
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store ptr %30, ptr %211, align 8, !tbaa !4
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 32
@@ -85833,9 +85833,9 @@ lean_alloc_closure.exit2028:                      ; preds = %lean_alloc_closure.
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %219, align 8, !tbaa !4
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  store i16 10, ptr %220, align 8, !tbaa !15
+  store i16 10, ptr %220, align 8, !tbaa !19
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 18
-  store i16 2, ptr %221, align 2, !tbaa !15
+  store i16 2, ptr %221, align 2, !tbaa !19
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store ptr %196, ptr %222, align 8, !tbaa !4
   %223 = getelementptr inbounds nuw i8, ptr %215, i64 32
@@ -86246,9 +86246,9 @@ lean_alloc_closure.exit2044:                      ; preds = %lean_inc.exit1256
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %366, align 8, !tbaa !4
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 16
-  store i16 9, ptr %367, align 8, !tbaa !15
+  store i16 9, ptr %367, align 8, !tbaa !19
   %368 = getelementptr inbounds nuw i8, ptr %362, i64 18
-  store i16 1, ptr %368, align 2, !tbaa !15
+  store i16 1, ptr %368, align 2, !tbaa !19
   %369 = getelementptr inbounds nuw i8, ptr %362, i64 24
   store ptr %353, ptr %369, align 8, !tbaa !4
   br i1 %.not2577, label %370, label %lean_inc.exit1255
@@ -86288,9 +86288,9 @@ lean_alloc_closure.exit2048:                      ; preds = %lean_inc.exit1255
   %380 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___lambda__2___boxed, ptr %380, align 8, !tbaa !4
   %381 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  store i16 10, ptr %381, align 8, !tbaa !15
+  store i16 10, ptr %381, align 8, !tbaa !19
   %382 = getelementptr inbounds nuw i8, ptr %376, i64 18
-  store i16 1, ptr %382, align 2, !tbaa !15
+  store i16 1, ptr %382, align 2, !tbaa !19
   %383 = getelementptr inbounds nuw i8, ptr %376, i64 24
   store ptr %333, ptr %383, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -86309,9 +86309,9 @@ lean_alloc_closure.exit2049:                      ; preds = %lean_alloc_closure.
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %388, align 8, !tbaa !4
   %389 = getelementptr inbounds nuw i8, ptr %384, i64 16
-  store i16 10, ptr %389, align 8, !tbaa !15
+  store i16 10, ptr %389, align 8, !tbaa !19
   %390 = getelementptr inbounds nuw i8, ptr %384, i64 18
-  store i16 2, ptr %390, align 2, !tbaa !15
+  store i16 2, ptr %390, align 2, !tbaa !19
   %391 = getelementptr inbounds nuw i8, ptr %384, i64 24
   store ptr %362, ptr %391, align 8, !tbaa !4
   %392 = getelementptr inbounds nuw i8, ptr %384, i64 32
@@ -86620,9 +86620,9 @@ lean_alloc_closure.exit2084:                      ; preds = %lean_inc.exit1245
   %500 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %500, align 8, !tbaa !4
   %501 = getelementptr inbounds nuw i8, ptr %496, i64 16
-  store i16 9, ptr %501, align 8, !tbaa !15
+  store i16 9, ptr %501, align 8, !tbaa !19
   %502 = getelementptr inbounds nuw i8, ptr %496, i64 18
-  store i16 1, ptr %502, align 2, !tbaa !15
+  store i16 1, ptr %502, align 2, !tbaa !19
   %503 = getelementptr inbounds nuw i8, ptr %496, i64 24
   store ptr %343, ptr %503, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -86641,9 +86641,9 @@ lean_alloc_closure.exit2085:                      ; preds = %lean_alloc_closure.
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___lambda__3___boxed, ptr %508, align 8, !tbaa !4
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 16
-  store i16 13, ptr %509, align 8, !tbaa !15
+  store i16 13, ptr %509, align 8, !tbaa !19
   %510 = getelementptr inbounds nuw i8, ptr %504, i64 18
-  store i16 4, ptr %510, align 2, !tbaa !15
+  store i16 4, ptr %510, align 2, !tbaa !19
   %511 = getelementptr inbounds nuw i8, ptr %504, i64 24
   store ptr %343, ptr %511, align 8, !tbaa !4
   %512 = getelementptr inbounds nuw i8, ptr %504, i64 32
@@ -86668,9 +86668,9 @@ lean_alloc_closure.exit2086:                      ; preds = %lean_alloc_closure.
   %519 = getelementptr inbounds nuw i8, ptr %515, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %519, align 8, !tbaa !4
   %520 = getelementptr inbounds nuw i8, ptr %515, i64 16
-  store i16 10, ptr %520, align 8, !tbaa !15
+  store i16 10, ptr %520, align 8, !tbaa !19
   %521 = getelementptr inbounds nuw i8, ptr %515, i64 18
-  store i16 2, ptr %521, align 2, !tbaa !15
+  store i16 2, ptr %521, align 2, !tbaa !19
   %522 = getelementptr inbounds nuw i8, ptr %515, i64 24
   store ptr %496, ptr %522, align 8, !tbaa !4
   %523 = getelementptr inbounds nuw i8, ptr %515, i64 32
@@ -87084,9 +87084,9 @@ lean_alloc_closure.exit2103:                      ; preds = %lean_inc.exit1240
   %668 = getelementptr inbounds nuw i8, ptr %664, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %668, align 8, !tbaa !4
   %669 = getelementptr inbounds nuw i8, ptr %664, i64 16
-  store i16 9, ptr %669, align 8, !tbaa !15
+  store i16 9, ptr %669, align 8, !tbaa !19
   %670 = getelementptr inbounds nuw i8, ptr %664, i64 18
-  store i16 1, ptr %670, align 2, !tbaa !15
+  store i16 1, ptr %670, align 2, !tbaa !19
   %671 = getelementptr inbounds nuw i8, ptr %664, i64 24
   store ptr %655, ptr %671, align 8, !tbaa !4
   br i1 %.not2553, label %672, label %lean_inc.exit1239
@@ -87126,9 +87126,9 @@ lean_alloc_closure.exit2107:                      ; preds = %lean_inc.exit1239
   %682 = getelementptr inbounds nuw i8, ptr %678, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___lambda__4___boxed, ptr %682, align 8, !tbaa !4
   %683 = getelementptr inbounds nuw i8, ptr %678, i64 16
-  store i16 10, ptr %683, align 8, !tbaa !15
+  store i16 10, ptr %683, align 8, !tbaa !19
   %684 = getelementptr inbounds nuw i8, ptr %678, i64 18
-  store i16 1, ptr %684, align 2, !tbaa !15
+  store i16 1, ptr %684, align 2, !tbaa !19
   %685 = getelementptr inbounds nuw i8, ptr %678, i64 24
   store ptr %635, ptr %685, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -87147,9 +87147,9 @@ lean_alloc_closure.exit2108:                      ; preds = %lean_alloc_closure.
   %690 = getelementptr inbounds nuw i8, ptr %686, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %690, align 8, !tbaa !4
   %691 = getelementptr inbounds nuw i8, ptr %686, i64 16
-  store i16 10, ptr %691, align 8, !tbaa !15
+  store i16 10, ptr %691, align 8, !tbaa !19
   %692 = getelementptr inbounds nuw i8, ptr %686, i64 18
-  store i16 2, ptr %692, align 2, !tbaa !15
+  store i16 2, ptr %692, align 2, !tbaa !19
   %693 = getelementptr inbounds nuw i8, ptr %686, i64 24
   store ptr %664, ptr %693, align 8, !tbaa !4
   %694 = getelementptr inbounds nuw i8, ptr %686, i64 32
@@ -87593,9 +87593,9 @@ lean_alloc_closure.exit2159:                      ; preds = %lean_inc.exit1225
   %849 = getelementptr inbounds nuw i8, ptr %845, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %849, align 8, !tbaa !4
   %850 = getelementptr inbounds nuw i8, ptr %845, i64 16
-  store i16 9, ptr %850, align 8, !tbaa !15
+  store i16 9, ptr %850, align 8, !tbaa !19
   %851 = getelementptr inbounds nuw i8, ptr %845, i64 18
-  store i16 1, ptr %851, align 2, !tbaa !15
+  store i16 1, ptr %851, align 2, !tbaa !19
   %852 = getelementptr inbounds nuw i8, ptr %845, i64 24
   store ptr %645, ptr %852, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -87614,9 +87614,9 @@ lean_alloc_closure.exit2160:                      ; preds = %lean_alloc_closure.
   %857 = getelementptr inbounds nuw i8, ptr %853, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go___lambda__5___boxed, ptr %857, align 8, !tbaa !4
   %858 = getelementptr inbounds nuw i8, ptr %853, i64 16
-  store i16 13, ptr %858, align 8, !tbaa !15
+  store i16 13, ptr %858, align 8, !tbaa !19
   %859 = getelementptr inbounds nuw i8, ptr %853, i64 18
-  store i16 4, ptr %859, align 2, !tbaa !15
+  store i16 4, ptr %859, align 2, !tbaa !19
   %860 = getelementptr inbounds nuw i8, ptr %853, i64 24
   store ptr %645, ptr %860, align 8, !tbaa !4
   %861 = getelementptr inbounds nuw i8, ptr %853, i64 32
@@ -87641,9 +87641,9 @@ lean_alloc_closure.exit2161:                      ; preds = %lean_alloc_closure.
   %868 = getelementptr inbounds nuw i8, ptr %864, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointContextExtender_withNewFunScope___spec__2___rarg, ptr %868, align 8, !tbaa !4
   %869 = getelementptr inbounds nuw i8, ptr %864, i64 16
-  store i16 10, ptr %869, align 8, !tbaa !15
+  store i16 10, ptr %869, align 8, !tbaa !19
   %870 = getelementptr inbounds nuw i8, ptr %864, i64 18
-  store i16 2, ptr %870, align 2, !tbaa !15
+  store i16 2, ptr %870, align 2, !tbaa !19
   %871 = getelementptr inbounds nuw i8, ptr %864, i64 24
   store ptr %845, ptr %871, align 8, !tbaa !4
   %872 = getelementptr inbounds nuw i8, ptr %864, i64 32
@@ -98034,9 +98034,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit260
 
 344:                                              ; preds = %6
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %346 = load i8, ptr %345, align 1, !tbaa !18
+  %346 = load i8, ptr %345, align 1, !tbaa !27
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %348 = load i8, ptr %347, align 1, !tbaa !18
+  %348 = load i8, ptr %347, align 1, !tbaa !27
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %350 = load ptr, ptr %349, align 8, !tbaa !4
   %351 = ptrtoint ptr %350 to i64
@@ -98769,9 +98769,9 @@ lean_alloc_ctor.exit469:                          ; preds = %lean_dec.exit252
   store ptr %527, ptr %616, align 8, !tbaa !4
   %617 = getelementptr inbounds nuw i8, ptr %607, i64 48
   store ptr %350, ptr %617, align 8, !tbaa !4
-  store i8 %346, ptr %611, align 1, !tbaa !18
+  store i8 %346, ptr %611, align 1, !tbaa !27
   %618 = getelementptr inbounds nuw i8, ptr %607, i64 57
-  store i8 %348, ptr %618, align 1, !tbaa !18
+  store i8 %348, ptr %618, align 1, !tbaa !27
   %619 = tail call ptr @l_Lean_Compiler_LCNF_Decl_pullFunDecls(ptr noundef nonnull %607, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %589) #5
   br label %756
 
@@ -99838,9 +99838,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_ReaderT_pure___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !15
+  store i16 9, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -100595,9 +100595,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 10, ptr %8, align 8, !tbaa !15
+  store i16 10, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !15
+  store i16 0, ptr %9, align 2, !tbaa !19
   ret ptr %3
 }
 
@@ -101413,9 +101413,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__2___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 10, ptr %15, align 8, !tbaa !15
+  store i16 10, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 1, ptr %16, align 2, !tbaa !15
+  store i16 1, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = load ptr, ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___closed__1, align 8, !tbaa !4
@@ -101435,9 +101435,9 @@ lean_alloc_closure.exit16:                        ; preds = %lean_alloc_closure.
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 10, ptr %24, align 8, !tbaa !15
+  store i16 10, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 2, ptr %25, align 2, !tbaa !15
+  store i16 2, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -102359,7 +102359,7 @@ lean_inc.exit575:                                 ; preds = %228, %227, %225, %l
 .backedge.backedge:                               ; preds = %237, %236, %234, %lean_inc.exit575, %lean_inc.exit588, %93, %95, %96
   %.0513.be = phi ptr [ %79, %96 ], [ %79, %95 ], [ %79, %93 ], [ %79, %lean_inc.exit588 ], [ %220, %lean_inc.exit575 ], [ %220, %234 ], [ %220, %236 ], [ %220, %237 ]
   %.0508.be = phi ptr [ %44, %96 ], [ %44, %95 ], [ %44, %93 ], [ %44, %lean_inc.exit588 ], [ %109, %lean_inc.exit575 ], [ %109, %234 ], [ %109, %236 ], [ %109, %237 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !30
 
 238:                                              ; preds = %lean_obj_tag.exit1040
   br i1 %.not1351, label %239, label %lean_dec.exit712
@@ -106092,9 +106092,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_nat_lt.exit
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___lambda__1___boxed, ptr %25, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i16 10, ptr %26, align 8, !tbaa !15
+  store i16 10, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 18
-  store i16 1, ptr %27, align 2, !tbaa !15
+  store i16 1, ptr %27, align 2, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %0, ptr %28, align 8, !tbaa !4
   br i1 %.not94, label %lean_dec.exit75, label %lean_dec.exit
@@ -106137,9 +106137,9 @@ lean_alloc_closure.exit87:                        ; preds = %lean_dec.exit74
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @l_ReaderT_pure___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__1___rarg___boxed, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 9, ptr %41, align 8, !tbaa !15
+  store i16 9, ptr %41, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 1, ptr %42, align 2, !tbaa !15
+  store i16 1, ptr %42, align 2, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %43, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -106184,9 +106184,9 @@ lean_alloc_closure.exit92:                        ; preds = %lean_box_usize.exit
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__5___boxed, ptr %57, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i16 12, ptr %58, align 8, !tbaa !15
+  store i16 12, ptr %58, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 18
-  store i16 4, ptr %59, align 2, !tbaa !15
+  store i16 4, ptr %59, align 2, !tbaa !19
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %11, ptr %60, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -106213,9 +106213,9 @@ lean_alloc_closure.exit88:                        ; preds = %lean_alloc_closure.
   %68 = getelementptr inbounds nuw i8, ptr %.sink108, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %68, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %.sink108, i64 16
-  store i16 10, ptr %69, align 8, !tbaa !15
+  store i16 10, ptr %69, align 8, !tbaa !19
   %70 = getelementptr inbounds nuw i8, ptr %.sink108, i64 18
-  store i16 2, ptr %70, align 2, !tbaa !15
+  store i16 2, ptr %70, align 2, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %.sink108, i64 24
   store ptr %.sink97, ptr %71, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %.sink108, i64 32
@@ -106704,7 +106704,7 @@ lean_obj_tag.exit:                                ; preds = %14, %17
 32:                                               ; preds = %31, %28
   %33 = phi i32 [ %.pr, %31 ], [ %29, %28 ]
   %34 = icmp sgt i32 %33, 1
-  br i1 %34, label %35, label %37, !prof !17
+  br i1 %34, label %35, label %37, !prof !23
 
 35:                                               ; preds = %32
   %36 = add nsw i32 %33, -1
@@ -110709,9 +110709,9 @@ lean_alloc_closure.exit:                          ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @l_Lean_Compiler_LCNF_allFVarM_go___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyze___spec__3, ptr %15, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 10, ptr %16, align 8, !tbaa !15
+  store i16 10, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i16 1, ptr %17, align 2, !tbaa !15
+  store i16 1, ptr %17, align 2, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %0, ptr %18, align 8, !tbaa !4
   %19 = tail call ptr @l_Lean_Compiler_LCNF_Arg_forFVarM___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyze___spec__4(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
@@ -111274,9 +111274,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit313
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_isInJpScope___boxed, ptr %79, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i16 10, ptr %80, align 8, !tbaa !15
+  store i16 10, ptr %80, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 18
-  store i16 1, ptr %81, align 2, !tbaa !15
+  store i16 1, ptr %81, align 2, !tbaa !19
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %0, ptr %82, align 8, !tbaa !4
   br i1 %.not586, label %83, label %lean_inc.exit312
@@ -111499,7 +111499,7 @@ lean_obj_tag.exit:                                ; preds = %134, %137
 152:                                              ; preds = %151, %148
   %153 = phi i32 [ %.pr, %151 ], [ %149, %148 ]
   %154 = icmp sgt i32 %153, 1
-  br i1 %154, label %155, label %157, !prof !17
+  br i1 %154, label %155, label %157, !prof !23
 
 155:                                              ; preds = %152
   %156 = add nsw i32 %153, -1
@@ -111758,7 +111758,7 @@ lean_array_uget.exit487:                          ; preds = %lean_dec.exit345, %
   %257 = ptrtoint ptr %231 to i64
   %258 = and i64 %257, 1
   %.not606 = icmp eq i64 %258, 0
-  br i1 %.not606, label %269, label %259, !prof !14
+  br i1 %.not606, label %269, label %259, !prof !17
 
 259:                                              ; preds = %256
   %260 = lshr i64 %257, 1
@@ -111857,7 +111857,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %299 = ptrtoint ptr %.0.i296556 to i64
   %300 = and i64 %299, 1
   %.not607 = icmp eq i64 %300, 0
-  br i1 %.not607, label %.critedge.i288, label %301, !prof !14
+  br i1 %.not607, label %.critedge.i288, label %301, !prof !17
 
 301:                                              ; preds = %lean_array_uset.exit
   %302 = lshr i64 %299, 1
@@ -111890,7 +111890,7 @@ lean_nat_mul.exit293:                             ; preds = %301, %307, %311, %.
   %314 = ptrtoint ptr %.2.i289 to i64
   %315 = and i64 %314, 1
   %.not.i492 = icmp eq i64 %315, 0
-  br i1 %.not.i492, label %320, label %lean_nat_div.exit.thread, !prof !14
+  br i1 %.not.i492, label %320, label %lean_nat_div.exit.thread, !prof !17
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit293
   %316 = udiv i64 %314, 6
@@ -111928,7 +111928,7 @@ lean_dec.exit343:                                 ; preds = %327, %326, %324, %l
   %332 = ptrtoint ptr %.1.i558 to i64
   %333 = and i64 %332, 1
   %.not608 = icmp eq i64 %333, 0
-  br i1 %.not608, label %334, label %lean_dec.exit342.thread, !prof !14
+  br i1 %.not608, label %334, label %lean_dec.exit342.thread, !prof !17
 
 lean_dec.exit342.thread:                          ; preds = %lean_dec.exit343
   %.not817 = icmp ugt ptr %.1.i558, %331
@@ -112163,7 +112163,7 @@ lean_array_uget.exit516:                          ; preds = %lean_dec.exit339, %
   br i1 %424, label %425, label %524
 
 425:                                              ; preds = %lean_array_uget.exit516
-  br i1 %.not602, label %436, label %426, !prof !14
+  br i1 %.not602, label %436, label %426, !prof !17
 
 426:                                              ; preds = %425
   %427 = lshr i64 %386, 1
@@ -112262,7 +112262,7 @@ lean_array_uset.exit525:                          ; preds = %lean_ensure_exclusi
   %466 = ptrtoint ptr %.0.i561 to i64
   %467 = and i64 %466, 1
   %.not604 = icmp eq i64 %467, 0
-  br i1 %.not604, label %.critedge.i, label %468, !prof !14
+  br i1 %.not604, label %.critedge.i, label %468, !prof !17
 
 468:                                              ; preds = %lean_array_uset.exit525
   %469 = lshr i64 %466, 1
@@ -112295,7 +112295,7 @@ lean_nat_mul.exit:                                ; preds = %468, %474, %478, %.
   %481 = ptrtoint ptr %.2.i to i64
   %482 = and i64 %481, 1
   %.not.i526 = icmp eq i64 %482, 0
-  br i1 %.not.i526, label %487, label %lean_nat_div.exit529.thread, !prof !14
+  br i1 %.not.i526, label %487, label %lean_nat_div.exit529.thread, !prof !17
 
 lean_nat_div.exit529.thread:                      ; preds = %lean_nat_mul.exit
   %483 = udiv i64 %481, 6
@@ -112333,7 +112333,7 @@ lean_dec.exit337:                                 ; preds = %494, %493, %491, %l
   %499 = ptrtoint ptr %.1.i527563 to i64
   %500 = and i64 %499, 1
   %.not605 = icmp eq i64 %500, 0
-  br i1 %.not605, label %501, label %lean_dec.exit336.thread, !prof !14
+  br i1 %.not605, label %501, label %lean_dec.exit336.thread, !prof !17
 
 lean_dec.exit336.thread:                          ; preds = %lean_dec.exit337
   %.not816 = icmp ugt ptr %.1.i527563, %498
@@ -113943,7 +113943,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %239, %237
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %249, %251, %252
   store ptr inttoptr (i64 1 to ptr), ptr %242, align 8, !tbaa !4
-  br i1 %.not295, label %258, label %253, !prof !14
+  br i1 %.not295, label %258, label %253, !prof !17
 
 253:                                              ; preds = %lean_array_uset.exit
   %254 = icmp ult ptr %75, inttoptr (i64 2 to ptr)
@@ -114168,7 +114168,7 @@ lean_ensure_exclusive_array.exit.i268:            ; preds = %323, %321
 
 lean_array_uset.exit272:                          ; preds = %lean_ensure_exclusive_array.exit.i268, %333, %335, %336
   store ptr inttoptr (i64 1 to ptr), ptr %326, align 8, !tbaa !4
-  br i1 %.not295, label %342, label %337, !prof !14
+  br i1 %.not295, label %342, label %337, !prof !17
 
 337:                                              ; preds = %lean_array_uset.exit272
   %338 = icmp ult ptr %75, inttoptr (i64 2 to ptr)
@@ -115196,9 +115196,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__2___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 10, ptr %15, align 8, !tbaa !15
+  store i16 10, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 1, ptr %16, align 2, !tbaa !15
+  store i16 1, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = load ptr, ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___closed__1, align 8, !tbaa !4
@@ -115218,9 +115218,9 @@ lean_alloc_closure.exit16:                        ; preds = %lean_alloc_closure.
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 10, ptr %24, align 8, !tbaa !15
+  store i16 10, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 2, ptr %25, align 2, !tbaa !15
+  store i16 2, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -115346,9 +115346,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_nat_lt.exit
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyze___spec__12___lambda__1___boxed, ptr %54, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i16 10, ptr %55, align 8, !tbaa !15
+  store i16 10, ptr %55, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 18
-  store i16 1, ptr %56, align 2, !tbaa !15
+  store i16 1, ptr %56, align 2, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %39, ptr %57, align 8, !tbaa !4
   br i1 %.not520, label %lean_dec.exit300, label %lean_dec.exit278
@@ -115394,9 +115394,9 @@ lean_alloc_closure.exit386:                       ; preds = %lean_dec.exit299
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr @l_ReaderT_pure___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__1___rarg___boxed, ptr %71, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i16 9, ptr %72, align 8, !tbaa !15
+  store i16 9, ptr %72, align 8, !tbaa !19
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 18
-  store i16 1, ptr %73, align 2, !tbaa !15
+  store i16 1, ptr %73, align 2, !tbaa !19
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %74, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
@@ -115415,9 +115415,9 @@ lean_alloc_closure.exit387:                       ; preds = %lean_alloc_closure.
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %79, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i16 10, ptr %80, align 8, !tbaa !15
+  store i16 10, ptr %80, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 18
-  store i16 2, ptr %81, align 2, !tbaa !15
+  store i16 2, ptr %81, align 2, !tbaa !19
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %67, ptr %82, align 8, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
@@ -115932,9 +115932,9 @@ lean_alloc_closure.exit463:                       ; preds = %lean_box_usize.exit
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__5___boxed, ptr %256, align 8, !tbaa !4
   %257 = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store i16 12, ptr %257, align 8, !tbaa !15
+  store i16 12, ptr %257, align 8, !tbaa !19
   %258 = getelementptr inbounds nuw i8, ptr %252, i64 18
-  store i16 4, ptr %258, align 2, !tbaa !15
+  store i16 4, ptr %258, align 2, !tbaa !19
   %259 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store ptr %48, ptr %259, align 8, !tbaa !4
   %260 = getelementptr inbounds nuw i8, ptr %252, i64 32
@@ -115959,9 +115959,9 @@ lean_alloc_closure.exit464:                       ; preds = %lean_alloc_closure.
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyzeFunDecl___spec__2___rarg, ptr %267, align 8, !tbaa !4
   %268 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  store i16 10, ptr %268, align 8, !tbaa !15
+  store i16 10, ptr %268, align 8, !tbaa !19
   %269 = getelementptr inbounds nuw i8, ptr %263, i64 18
-  store i16 2, ptr %269, align 2, !tbaa !15
+  store i16 2, ptr %269, align 2, !tbaa !19
   %270 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store ptr %252, ptr %270, align 8, !tbaa !4
   %271 = getelementptr inbounds nuw i8, ptr %263, i64 32
@@ -117655,7 +117655,7 @@ lean_dec.exit139:                                 ; preds = %143, %142, %140, %l
 153:                                              ; preds = %152, %149
   %154 = phi i32 [ %.pr, %152 ], [ %150, %149 ]
   %155 = icmp sgt i32 %154, 1
-  br i1 %155, label %156, label %158, !prof !17
+  br i1 %155, label %156, label %158, !prof !23
 
 156:                                              ; preds = %153
   %157 = add nsw i32 %154, -1
@@ -120480,7 +120480,7 @@ lean_inc.exit1819:                                ; preds = %26, %25, %23, %16
 37:                                               ; preds = %36, %33
   %.val.i2824 = phi i32 [ %.val.i2824.pr, %36 ], [ %34, %33 ]
   %38 = icmp sgt i32 %.val.i2824, 0
-  br i1 %38, label %39, label %41, !prof !17
+  br i1 %38, label %39, label %41, !prof !23
 
 39:                                               ; preds = %37
   %40 = add nuw i32 %.val.i2824, 1
@@ -123788,7 +123788,7 @@ lean_dec.exit2048:                                ; preds = %1230, %1229, %1227,
   %1232 = ptrtoint ptr %1231 to i64
   %1233 = and i64 %1232, 1
   %.not3550 = icmp eq i64 %1233, 0
-  br i1 %.not3550, label %lean_dec.exit2047, label %1234, !prof !14
+  br i1 %.not3550, label %lean_dec.exit2047, label %1234, !prof !17
 
 1234:                                             ; preds = %lean_dec.exit2048
   %1235 = icmp eq ptr %1231, %1080
@@ -133483,9 +133483,9 @@ lean_alloc_ctor.exit571:                          ; preds = %lean_dec.exit362
 
 485:                                              ; preds = %6
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %487 = load i8, ptr %486, align 1, !tbaa !18
+  %487 = load i8, ptr %486, align 1, !tbaa !27
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %489 = load i8, ptr %488, align 1, !tbaa !18
+  %489 = load i8, ptr %488, align 1, !tbaa !27
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %491 = load ptr, ptr %490, align 8, !tbaa !4
   %492 = ptrtoint ptr %491 to i64
@@ -134391,9 +134391,9 @@ lean_alloc_ctor.exit653:                          ; preds = %lean_dec_ref.exit49
   store ptr %765, ptr %821, align 8, !tbaa !4
   %822 = getelementptr inbounds nuw i8, ptr %812, i64 48
   store ptr %491, ptr %822, align 8, !tbaa !4
-  store i8 %487, ptr %816, align 1, !tbaa !18
+  store i8 %487, ptr %816, align 1, !tbaa !27
   %823 = getelementptr inbounds nuw i8, ptr %812, i64 57
-  store i8 %489, ptr %823, align 1, !tbaa !18
+  store i8 %489, ptr %823, align 1, !tbaa !27
   %824 = ptrtoint ptr %.0289 to i64
   %825 = and i64 %824, 1
   %.not712 = icmp eq i64 %825, 0
@@ -135526,7 +135526,7 @@ lean_dec.exit559:                                 ; preds = %161, %160, %158, %1
 163:                                              ; preds = %lean_dec.exit559
   %164 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !4
-  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  %166 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %167 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -135548,9 +135548,9 @@ lean_alloc_ctor.exit648:                          ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %167, ptr %174, align 8, !tbaa !4
   %175 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store double %166, ptr %175, align 8, !tbaa !19
+  store double %166, ptr %175, align 8, !tbaa !31
   %176 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store double %166, ptr %176, align 8, !tbaa !19
+  store double %166, ptr %176, align 8, !tbaa !31
   %177 = load ptr, ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -135754,7 +135754,7 @@ lean_inc.exit542:                                 ; preds = %245, %244, %242, %2
   br label %lean_dec.exit556
 
 lean_dec.exit556:                                 ; preds = %252, %251, %249, %lean_inc.exit542
-  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  %253 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %254 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %255 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -135776,9 +135776,9 @@ lean_alloc_ctor.exit661:                          ; preds = %lean_dec.exit556
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %254, ptr %261, align 8, !tbaa !4
   %262 = getelementptr inbounds nuw i8, ptr %255, i64 24
-  store double %253, ptr %262, align 8, !tbaa !19
+  store double %253, ptr %262, align 8, !tbaa !31
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 32
-  store double %253, ptr %263, align 8, !tbaa !19
+  store double %253, ptr %263, align 8, !tbaa !31
   %264 = load ptr, ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %265 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -136288,7 +136288,7 @@ lean_ctor_release.exit704:                        ; preds = %436, %443, %445, %4
 
 lean_dec_ref.exit608:                             ; preds = %452, %451, %449, %lean_ctor_release.exit704
   %.0487 = phi ptr [ %127, %lean_ctor_release.exit704 ], [ inttoptr (i64 1 to ptr), %449 ], [ inttoptr (i64 1 to ptr), %451 ], [ inttoptr (i64 1 to ptr), %452 ]
-  %453 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  %453 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %454 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %455 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -136310,9 +136310,9 @@ lean_alloc_ctor.exit706:                          ; preds = %lean_dec_ref.exit60
   %461 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr %454, ptr %461, align 8, !tbaa !4
   %462 = getelementptr inbounds nuw i8, ptr %455, i64 24
-  store double %453, ptr %462, align 8, !tbaa !19
+  store double %453, ptr %462, align 8, !tbaa !31
   %463 = getelementptr inbounds nuw i8, ptr %455, i64 32
-  store double %453, ptr %463, align 8, !tbaa !19
+  store double %453, ptr %463, align 8, !tbaa !31
   %464 = load ptr, ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %465 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -137149,7 +137149,7 @@ lean_ctor_release.exit782:                        ; preds = %761, %768, %770, %7
 
 lean_dec_ref.exit602:                             ; preds = %777, %776, %774, %lean_ctor_release.exit782
   %.0492 = phi ptr [ %127, %lean_ctor_release.exit782 ], [ inttoptr (i64 1 to ptr), %774 ], [ inttoptr (i64 1 to ptr), %776 ], [ inttoptr (i64 1 to ptr), %777 ]
-  %778 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  %778 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %779 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %780 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -137171,9 +137171,9 @@ lean_alloc_ctor.exit784:                          ; preds = %lean_dec_ref.exit60
   %786 = getelementptr inbounds nuw i8, ptr %780, i64 16
   store ptr %779, ptr %786, align 8, !tbaa !4
   %787 = getelementptr inbounds nuw i8, ptr %780, i64 24
-  store double %778, ptr %787, align 8, !tbaa !19
+  store double %778, ptr %787, align 8, !tbaa !31
   %788 = getelementptr inbounds nuw i8, ptr %780, i64 32
-  store double %778, ptr %788, align 8, !tbaa !19
+  store double %778, ptr %788, align 8, !tbaa !31
   %789 = load ptr, ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %790 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -138351,7 +138351,7 @@ lean_ctor_release.exit887:                        ; preds = %1214, %1221, %1223,
 
 lean_dec_ref.exit594:                             ; preds = %1230, %1229, %1227, %lean_ctor_release.exit887
   %.0493 = phi ptr [ %978, %lean_ctor_release.exit887 ], [ inttoptr (i64 1 to ptr), %1227 ], [ inttoptr (i64 1 to ptr), %1229 ], [ inttoptr (i64 1 to ptr), %1230 ]
-  %1231 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  %1231 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %1232 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %1233 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #5
@@ -138373,9 +138373,9 @@ lean_alloc_ctor.exit889:                          ; preds = %lean_dec_ref.exit59
   %1239 = getelementptr inbounds nuw i8, ptr %1233, i64 16
   store ptr %1232, ptr %1239, align 8, !tbaa !4
   %1240 = getelementptr inbounds nuw i8, ptr %1233, i64 24
-  store double %1231, ptr %1240, align 8, !tbaa !19
+  store double %1231, ptr %1240, align 8, !tbaa !31
   %1241 = getelementptr inbounds nuw i8, ptr %1233, i64 32
-  store double %1231, ptr %1241, align 8, !tbaa !19
+  store double %1231, ptr %1241, align 8, !tbaa !31
   %1242 = load ptr, ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce___closed__1, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #5
   %1243 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
@@ -140107,7 +140107,7 @@ lean_dec_ref.exit42:                              ; preds = %67, %69, %70
   store ptr %150, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %150) #5
   %151 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
-  store double %151, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !19
+  store double %151, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__4, align 8, !tbaa !31
   %152 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef 0) #5
   store ptr %152, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_Decl_findJoinPoints___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %152) #5
@@ -140651,9 +140651,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_JoinPoints_0__Lean_Compiler_LCNF_JoinPointFinder_eraseCandidate___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !15
+  store i16 9, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140675,9 +140675,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_ScopeM_withNewScope___at_Lean_Compiler_LCNF_JoinPointFinder_find_go___spec__2___lambda__1___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 8, ptr %6, align 8, !tbaa !15
+  store i16 8, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140699,9 +140699,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointFinder_find_go, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !15
+  store i16 9, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140746,9 +140746,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointFinder_replace_go, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !15
+  store i16 7, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140794,9 +140794,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_goFVar___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !15
+  store i16 9, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140818,9 +140818,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointContextExtender_extend_go, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !15
+  store i16 9, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140904,9 +140904,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goReduce, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 7, ptr %6, align 8, !tbaa !15
+  store i16 7, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -140930,9 +140930,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_JoinPointCommonArgs_reduce_goAnalyze, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 9, ptr %6, align 8, !tbaa !15
+  store i16 9, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -141022,9 +141022,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_Decl_findJoinPoints, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !15
+  store i16 6, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -141229,9 +141229,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_Decl_extendJoinPointContext, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !15
+  store i16 6, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -141253,9 +141253,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Compiler_LCNF_Decl_commonJoinPointArgs, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 6, ptr %6, align 8, !tbaa !15
+  store i16 6, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !15
+  store i16 0, ptr %7, align 2, !tbaa !19
   ret ptr %1
 }
 
@@ -141286,10 +141286,22 @@ attributes #6 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!18 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !15}
 !19 = !{!20, !20, i64 0}
-!20 = !{!"double", !6, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = !{!6, !6, i64 0}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !6, i64 0}

@@ -241,7 +241,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %108 = getelementptr inbounds nuw i8, ptr %.082, i64 136
   store i64 %107, ptr %108, align 8, !tbaa !32
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %110 = load i64, ptr %109, align 8, !tbaa !60
+  %110 = load i64, ptr %109, align 8, !tbaa !61
   %111 = add nsw i64 %110, %107
   store i64 %111, ptr %106, align 8, !tbaa !40
   %112 = add i32 %40, 1
@@ -261,7 +261,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 118:                                              ; preds = %116
   %119 = load i32, ptr %2, align 4, !tbaa !51
-  %120 = load i64, ptr %3, align 8, !tbaa !61
+  %120 = load i64, ptr %3, align 8, !tbaa !62
   call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef %119, i64 noundef %120) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
@@ -285,14 +285,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !62
+  %2 = load ptr, ptr %0, align 8, !tbaa !63
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !63
+  %9 = load i32, ptr %8, align 4, !tbaa !64
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %10, ptr %11, align 8, !tbaa !53
@@ -376,7 +376,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   store i64 %55, ptr %54, align 8
   %56 = tail call i64 @av_rescale_q(i64 noundef 1, i64 %.sroa.07.0.in, i64 %55) #7
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %56, ptr %57, align 8, !tbaa !60
+  store i64 %56, ptr %57, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i64 noundef %56, i32 noundef %.sroa.07.0, i32 noundef %.sroa.7.0) #6
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %59 = load ptr, ptr %11, align 8, !tbaa !53
@@ -509,9 +509,10 @@ attributes #7 = { nounwind willreturn memory(none) }
 !55 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !24, i64 16, !8, i64 24, !11, i64 104}
 !56 = !{!55, !8, i64 10}
 !57 = !{!55, !8, i64 9}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!21, !24, i64 40}
-!61 = !{!24, !24, i64 0}
-!62 = !{!43, !44, i64 0}
-!63 = !{!43, !15, i64 36}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!21, !24, i64 40}
+!62 = !{!24, !24, i64 0}
+!63 = !{!43, !44, i64 0}
+!64 = !{!43, !15, i64 36}

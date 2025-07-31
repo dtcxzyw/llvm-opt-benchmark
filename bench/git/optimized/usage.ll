@@ -677,7 +677,7 @@ _.exit:                                           ; preds = %14, %17
   %.0.add = add nuw nsw i64 %.0.idx34, 1
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq i64 %.0.add, 4095
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !18
 
 .critedge.loopexit:                               ; preds = %30, %.lr.ph
   %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %30 ]
@@ -848,6 +848,7 @@ attributes #23 = { cold nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !6, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

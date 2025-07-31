@@ -1804,7 +1804,7 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   call void @proto_item_set_len(ptr noundef %.1, i32 noundef %92)
   %93 = add nuw i32 %.0139150, 1
   %exitcond.not = icmp eq i32 %93, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %90, %21
   %.0136.lcssa = phi i32 [ %24, %21 ], [ %91, %90 ]
@@ -3904,6 +3904,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

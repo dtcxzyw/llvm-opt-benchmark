@@ -937,7 +937,7 @@ define internal fastcc void @dissect_fcfcs_gmal(ptr noundef %0, ptr noundef %1, 
   %16 = add nuw i32 %.017, 1
   %17 = load i32, ptr %4, align 4
   %18 = icmp ult i32 %16, %17
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -989,7 +989,7 @@ define internal fastcc void @dissect_fcfcs_gieil(ptr noundef %0, ptr noundef %1,
   %31 = add i32 %27, %.04748
   %32 = load i32, ptr %4, align 4
   %33 = icmp ugt i32 %32, %30
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1036,7 +1036,7 @@ define internal fastcc void @dissect_fcfcs_gpl(ptr noundef %0, ptr noundef %1, i
   %25 = add nuw i32 %.026, 1
   %26 = load i32, ptr %4, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1119,7 +1119,7 @@ define internal fastcc void @dissect_fcfcs_gapnl(ptr noundef %0, ptr noundef %1,
   %22 = add nuw i32 %.023, 1
   %23 = load i32, ptr %4, align 4
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1185,7 +1185,7 @@ define internal fastcc void @dissect_fcfcs_gplnl(ptr noundef %0, ptr noundef %1,
   %20 = add nuw i32 %.02123, 1
   %21 = load i32, ptr %4, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1253,7 +1253,7 @@ define internal fastcc void @dissect_fcfcs_gplml(ptr noundef %0, ptr noundef %1,
   %20 = add nuw i32 %.02123, 1
   %21 = load i32, ptr %4, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1315,7 +1315,7 @@ define internal fastcc void @dissect_fcfcs_gpnl(ptr noundef %0, ptr noundef %1, 
   %18 = add nuw i32 %.01921, 1
   %19 = load i32, ptr %4, align 4
   %20 = icmp ult i32 %18, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1371,7 +1371,7 @@ define internal fastcc void @dissect_fcfcs_rpl(ptr noundef %0, ptr noundef %1, i
   %21 = add nuw i32 %.03538, 1
   %22 = load i32, ptr %4, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ 280, %6 ], [ %20, %.lr.ph ]
@@ -1394,7 +1394,7 @@ define internal fastcc void @dissect_fcfcs_rpl(ptr noundef %0, ptr noundef %1, i
   %31 = add nuw i32 %.13640, 1
   %32 = load i32, ptr %4, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %.lr.ph43, label %.loopexit, !llvm.loop !16
+  br i1 %33, label %.lr.ph43, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph43, %._crit_edge, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -1544,7 +1544,7 @@ define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, 
   %22 = add i32 %.033, 8
   %23 = add nuw nsw i32 %.02932, 1
   %exitcond.not = icmp eq i32 %23, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %21, %5, %3
   ret void
@@ -1588,15 +1588,16 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

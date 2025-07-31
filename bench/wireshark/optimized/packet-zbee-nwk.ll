@@ -1369,7 +1369,7 @@ zbee_get_bit_field.exit333.i:                     ; preds = %.lr.ph.i329.i
   %355 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %339, i32 noundef %352, ptr noundef %0, i32 noundef %.5359.i, i32 noundef 2, i32 noundef %353, ptr noundef nonnull @.str.343, i32 noundef %354, i32 noundef %353)
   %.5.i = add nuw nsw i32 %.5359.i, 2
   %exitcond.not.i = icmp eq i32 %354, %342
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %337, %336, %proto_item_set_hidden.exit305.i, %zbee_get_bit_field.exit290.i
   %356 = phi i16 [ %100, %336 ], [ 0, %zbee_get_bit_field.exit290.i ], [ %100, %337 ], [ %100, %proto_item_set_hidden.exit305.i ], [ %100, %.lr.ph.i ]
@@ -1570,7 +1570,7 @@ dissect_zbee_nwk_route_rep.exit.i.i:              ; preds = %427, %425
   %461 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %373, i32 noundef %458, ptr noundef %.0237.i, i32 noundef %.02122.i.i.i, i32 noundef 2, i32 noundef %459, ptr noundef nonnull @.str.353, i32 noundef %460, i32 noundef %459)
   %462 = add nuw nsw i32 %.02122.i.i.i, 2
   %exitcond.not.i.i.i = icmp eq i32 %460, %455
-  br i1 %exitcond.not.i.i.i, label %dissect_zbee_nwk_route_rec.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %dissect_zbee_nwk_route_rec.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 dissect_zbee_nwk_route_rec.exit.i.i:              ; preds = %.lr.ph.i.i.i, %452
   %.021.lcssa.i.i.i = phi i32 [ 2, %452 ], [ %462, %.lr.ph.i.i.i ]
@@ -1633,7 +1633,7 @@ dissect_zbee_nwk_route_rec.exit.i.i:              ; preds = %.lr.ph.i.i.i, %452
   %498 = call ptr @proto_tree_add_item(ptr noundef %491, i32 noundef %497, ptr noundef %.0237.i, i32 noundef %495, i32 noundef 1, i32 noundef 0)
   %499 = add nuw nsw i32 %.026.i.i.i, 3
   %exitcond.not.i98.i.i = icmp eq i32 %490, %488
-  br i1 %exitcond.not.i98.i.i, label %dissect_zbee_nwk_status.exit.i.i, label %.lr.ph.i97.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i98.i.i, label %dissect_zbee_nwk_status.exit.i.i, label %.lr.ph.i97.i.i, !llvm.loop !11
 
 500:                                              ; preds = %368
   %501 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0237.i, i32 noundef 1)
@@ -1661,7 +1661,7 @@ dissect_zbee_nwk_route_rec.exit.i.i:              ; preds = %.lr.ph.i.i.i, %452
   %517 = add nuw nsw i32 %.14142.i.i.i, 2
   %518 = add nuw nsw i32 %.043.i.i.i, 1
   %exitcond.not.i100.i.i = icmp eq i32 %518, %503
-  br i1 %exitcond.not.i100.i.i, label %.loopexit.i.i.i, label %.lr.ph.i99.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i100.i.i, label %.loopexit.i.i.i, label %.lr.ph.i99.i.i, !llvm.loop !12
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i99.i.i, %500
   %.040.i.i.i = phi i32 [ 10, %500 ], [ %517, %.lr.ph.i99.i.i ]
@@ -1681,7 +1681,7 @@ dissect_zbee_nwk_route_rec.exit.i.i:              ; preds = %.lr.ph.i.i.i, %452
   store i8 %524, ptr %525, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond46.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond46.not.i.i.i, label %526, label %521, !llvm.loop !12
+  br i1 %exitcond46.not.i.i.i, label %526, label %521, !llvm.loop !13
 
 526:                                              ; preds = %521
   %527 = load i32, ptr @hf_zbee_zboss_nwk_cmd_key, align 4
@@ -1728,7 +1728,7 @@ dissect_zbee_nwk_report.exit.i.i:                 ; preds = %526, %.loopexit.i.i
   %553 = add nuw nsw i32 %.135.i.i.i, 2
   %554 = add nuw nsw i32 %.036.i.i.i, 1
   %exitcond.not.i104.i.i = icmp eq i32 %554, %536
-  br i1 %exitcond.not.i104.i.i, label %dissect_zbee_nwk_update.exit.i.i, label %.lr.ph.i103.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i104.i.i, label %dissect_zbee_nwk_update.exit.i.i, label %.lr.ph.i103.i.i, !llvm.loop !14
 
 dissect_zbee_nwk_update.exit.i.i:                 ; preds = %.lr.ph.i103.i.i, %533
   %.034.i.i.i = phi i32 [ 11, %533 ], [ %553, %.lr.ph.i103.i.i ]
@@ -1792,7 +1792,7 @@ dissect_zbee_nwk_update.exit.i.i:                 ; preds = %.lr.ph.i103.i.i, %5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %585, ptr noundef nonnull @.str.365, i32 noundef %595, i32 noundef %591)
   %596 = add nuw nsw i32 %.0361.i.i.i, 1
   %exitcond.not.i107.i.i = icmp eq i32 %596, %579
-  br i1 %exitcond.not.i107.i.i, label %dissect_zbee_nwk_status.exit.i.i, label %.lr.ph.i106.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i107.i.i, label %dissect_zbee_nwk_status.exit.i.i, label %.lr.ph.i106.i.i, !llvm.loop !15
 
 597:                                              ; preds = %368
   %598 = load i32, ptr @hf_zbee_nwk_cmd_association_type, align 4
@@ -2110,7 +2110,7 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
 70:                                               ; preds = %27, %46, %55, %66, %65
   %71 = phi i32 [ %45, %27 ], [ %54, %46 ], [ %64, %55 ], [ %69, %66 ], [ %26, %65 ]
   %72 = icmp ult i32 %71, %7
-  br i1 %72, label %9, label %73, !llvm.loop !15
+  br i1 %72, label %9, label %73, !llvm.loop !16
 
 73:                                               ; preds = %70
   %74 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -2685,13 +2685,14 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

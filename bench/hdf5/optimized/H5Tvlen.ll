@@ -571,7 +571,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %55, i64 %indvars.iv, i32 3
-  %57 = load ptr, ptr %56, align 8, !tbaa !44
+  %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
@@ -582,7 +582,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
 
 62:                                               ; preds = %.lr.ph108
   %63 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %55, i64 %indvars.iv, i32 1
-  %64 = load i64, ptr %63, align 8, !tbaa !47
+  %64 = load i64, ptr %63, align 8, !tbaa !48
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
   %66 = tail call i32 @H5T_reclaim_cb(ptr noundef %65, ptr noundef nonnull %57, i32 noundef 0, ptr noundef null, ptr noundef %2) #13
   %67 = icmp slt i32 %66, 0
@@ -605,7 +605,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %74 = load i32, ptr %73, align 4, !tbaa !32
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph108, label %.loopexit, !llvm.loop !48
+  br i1 %76, label %.lr.ph108, label %.loopexit, !llvm.loop !49
 
 77:                                               ; preds = %10
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -616,7 +616,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   ]
 
 80:                                               ; preds = %77
-  %81 = load i64, ptr %0, align 8, !tbaa !49
+  %81 = load i64, ptr %0, align 8, !tbaa !50
   %.not92 = icmp eq i64 %81, 0
   br i1 %.not92, label %.loopexit, label %82
 
@@ -637,7 +637,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
 
 90:                                               ; preds = %.lr.ph, %105
   %91 = phi i64 [ %81, %.lr.ph ], [ %107, %105 ]
-  %92 = load ptr, ptr %89, align 8, !tbaa !51
+  %92 = load ptr, ptr %89, align 8, !tbaa !52
   %93 = add i64 %91, -1
   %94 = load ptr, ptr %15, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -653,11 +653,11 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   br i1 %104, label %108, label %105
 
 105:                                              ; preds = %90
-  %106 = load i64, ptr %0, align 8, !tbaa !49
+  %106 = load i64, ptr %0, align 8, !tbaa !50
   %107 = add i64 %106, -1
-  store i64 %107, ptr %0, align 8, !tbaa !49
+  store i64 %107, ptr %0, align 8, !tbaa !50
   %.not93 = icmp eq i64 %107, 0
-  br i1 %.not93, label %.thread102, label %90, !llvm.loop !52
+  br i1 %.not93, label %.thread102, label %90, !llvm.loop !53
 
 108:                                              ; preds = %90
   %109 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -668,7 +668,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
 .thread102:                                       ; preds = %105, %82
   %.not94 = icmp eq ptr %12, null
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !51
+  %113 = load ptr, ptr %112, align 8, !tbaa !52
   br i1 %.not94, label %115, label %114
 
 114:                                              ; preds = %.thread102
@@ -681,7 +681,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
 
 116:                                              ; preds = %77
   %.not = icmp eq ptr %12, null
-  %117 = load ptr, ptr %0, align 8, !tbaa !53
+  %117 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %.not, label %119, label %118
 
 118:                                              ; preds = %116
@@ -895,7 +895,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_seq_write(ptr readnone captu
 
 16:                                               ; preds = %15
   %17 = mul i64 %6, %5
-  %18 = load ptr, ptr %1, align 8, !tbaa !54
+  %18 = load ptr, ptr %1, align 8, !tbaa !55
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %38, label %19
 
@@ -906,9 +906,9 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_seq_write(ptr readnone captu
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %1, align 8, !tbaa !54
+  %23 = load ptr, ptr %1, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !55
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = call ptr %23(i64 noundef %17, ptr noundef %25) #13
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #13
   %28 = icmp slt i32 %27, 0
@@ -1057,7 +1057,7 @@ define internal noundef i32 @H5T__vlen_mem_str_read(ptr readnone captures(none) 
   %10 = select i1 %6, i1 true, i1 %9
   %11 = icmp ne i64 %3, 0
   %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %12, label %13, !prof !56
+  br i1 %or.cond, label %12, label %13, !prof !57
 
 12:                                               ; preds = %4
   %.0.copyload = load ptr, ptr %1, align 1
@@ -1080,7 +1080,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_str_write(ptr readnone captu
   br i1 %14, label %15, label %50, !prof !9
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr %1, align 8, !tbaa !54
+  %16 = load ptr, ptr %1, align 8, !tbaa !55
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %38, label %17
 
@@ -1091,11 +1091,11 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_str_write(ptr readnone captu
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %1, align 8, !tbaa !54
+  %21 = load ptr, ptr %1, align 8, !tbaa !55
   %22 = add i64 %5, 1
   %23 = mul i64 %22, %6
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !55
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = call ptr %21(i64 noundef %23, ptr noundef %25) #13
   %27 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #13
   %28 = icmp slt i32 %27, 0
@@ -1203,7 +1203,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_isnull(ptr noundef %0, ptr 
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %4, align 8, !tbaa !57
+  store i32 1, ptr %4, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %13, align 8, !tbaa !32
   %14 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %4) #13
@@ -1247,7 +1247,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_setnull(ptr noundef %0, ptr
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  store i32 0, ptr %4, align 8, !tbaa !57
+  store i32 0, ptr %4, align 8, !tbaa !58
   %17 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %4) #13
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %H5T__vlen_disk_delete.exit, label %19
@@ -1269,7 +1269,7 @@ H5T__vlen_disk_delete.exit:                       ; preds = %15
 H5T__vlen_disk_delete.exit.thread:                ; preds = %13, %H5T__vlen_disk_delete.exit, %12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %1, align 1
-  store i32 2, ptr %5, align 8, !tbaa !57
+  store i32 2, ptr %5, align 8, !tbaa !58
   %27 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #13
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
@@ -1336,7 +1336,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_write(ptr noundef %0, ptr r
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
-  store i32 0, ptr %8, align 8, !tbaa !57
+  store i32 0, ptr %8, align 8, !tbaa !58
   %20 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %8) #13
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %H5T__vlen_disk_delete.exit, label %22
@@ -1386,7 +1386,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   %9 = select i1 %5, i1 true, i1 %8
   %10 = icmp ne ptr %1, null
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %22, !prof !56
+  br i1 %or.cond, label %11, label %22, !prof !57
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %1, align 1
@@ -1396,7 +1396,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  store i32 0, ptr %3, align 8, !tbaa !57
+  store i32 0, ptr %3, align 8, !tbaa !58
   %15 = call i32 @H5VL_blob_specific(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %3) #13
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %21, label %17
@@ -1484,20 +1484,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !39 = !{!40, !20, i64 16}
 !40 = !{!"", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24}
 !41 = !{!40, !20, i64 24}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !28, i64 24}
-!45 = !{!"H5T_cmemb_t", !46, i64 0, !12, i64 8, !12, i64 16, !28, i64 24}
-!46 = !{!"p1 omnipotent char", !20, i64 0}
-!47 = !{!45, !12, i64 8}
-!48 = distinct !{!48, !43}
-!49 = !{!50, !12, i64 0}
-!50 = !{!"", !12, i64 0, !20, i64 8}
-!51 = !{!50, !20, i64 8}
-!52 = distinct !{!52, !43}
-!53 = !{!46, !46, i64 0}
-!54 = !{!40, !20, i64 0}
-!55 = !{!40, !20, i64 8}
-!56 = !{!"branch_weights", i32 2000, i32 2002}
-!57 = !{!58, !18, i64 0}
-!58 = !{!"H5VL_blob_specific_args_t", !18, i64 0, !5, i64 8}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !28, i64 24}
+!46 = !{!"H5T_cmemb_t", !47, i64 0, !12, i64 8, !12, i64 16, !28, i64 24}
+!47 = !{!"p1 omnipotent char", !20, i64 0}
+!48 = !{!46, !12, i64 8}
+!49 = distinct !{!49, !43, !44}
+!50 = !{!51, !12, i64 0}
+!51 = !{!"", !12, i64 0, !20, i64 8}
+!52 = !{!51, !20, i64 8}
+!53 = distinct !{!53, !43, !44}
+!54 = !{!47, !47, i64 0}
+!55 = !{!40, !20, i64 0}
+!56 = !{!40, !20, i64 8}
+!57 = !{!"branch_weights", i32 2000, i32 2002}
+!58 = !{!59, !18, i64 0}
+!59 = !{!"H5VL_blob_specific_args_t", !18, i64 0, !5, i64 8}

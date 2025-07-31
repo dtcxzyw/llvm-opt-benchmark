@@ -3223,7 +3223,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr noundef nonnul
   %28 = getelementptr inbounds nuw [12 x %struct.Data], ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 0, i64 %indvars.iv.next
   %29 = load i32, ptr %28, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond, label %30, label %10, !llvm.loop !8
+  br i1 %exitcond, label %30, label %10, !llvm.loop !9
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %4, i64 %.220
@@ -3414,7 +3414,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr noundef nonn
 
 58:                                               ; preds = %54, %56
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !10
 
 60:                                               ; preds = %46
   %61 = load ptr, ptr @g_assert_poison, align 8
@@ -3507,7 +3507,7 @@ define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 no
   %10 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = fcmp olt double %.1, 0x3FE6666666666666
@@ -3633,7 +3633,7 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
   store ptr %6, ptr %7, align 8
   %8 = add nuw i64 %.01921, 1
   %exitcond.not = icmp eq i64 %8, %3
-  br i1 %exitcond.not, label %.lr.ph24.preheader, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.lr.ph24.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph24.preheader:                               ; preds = %.lr.ph
   tail call void @qsort(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 8, ptr noundef nonnull @_ZL13compare_flagsPKvS0_) #13
@@ -3657,7 +3657,7 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
 15:                                               ; preds = %.lr.ph24, %14
   %16 = add nuw i64 %.022, 1
   %exitcond28.not = icmp eq i64 %16, %3
-  br i1 %exitcond28.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !12
+  br i1 %exitcond28.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !13
 
 ._crit_edge25:                                    ; preds = %15, %._crit_edge.thread
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
@@ -3713,7 +3713,7 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
   store ptr %9, ptr %10, align 8
   %11 = add nuw i64 %.03754, 1
   %exitcond.not = icmp eq i64 %11, %6
-  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !14
 
 .lr.ph57:                                         ; preds = %.lr.ph
   tail call void @qsort(ptr noundef nonnull %8, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @_ZL13compare_flagsPKvS0_) #13
@@ -3749,7 +3749,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %20, %17
 24:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, %20, %17
   %25 = add nuw i64 %.03655.us, 1
   %exitcond65.not = icmp eq i64 %25, %6
-  br i1 %exitcond65.not, label %._crit_edge58, label %.lr.ph57.split.us, !llvm.loop !14
+  br i1 %exitcond65.not, label %._crit_edge58, label %.lr.ph57.split.us, !llvm.loop !15
 
 .lr.ph57.split:                                   ; preds = %.lr.ph57, %41
   %.03655 = phi i64 [ %42, %41 ], [ 0, %.lr.ph57 ]
@@ -3786,7 +3786,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31
 41:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %34, %31, %40
   %42 = add nuw i64 %.03655, 1
   %exitcond66.not = icmp eq i64 %42, %6
-  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split, !llvm.loop !16
+  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split, !llvm.loop !17
 
 ._crit_edge58:                                    ; preds = %24, %41, %._crit_edge.thread
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %8) #13
@@ -3827,7 +3827,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit43.thread:        ; preds = %50, %47
 57:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, %50, %47, %56
   %58 = add nuw i64 %.059, 1
   %exitcond67.not = icmp eq i64 %58, %6
-  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph60, !llvm.loop !17
+  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph60, !llvm.loop !18
 
 .loopexit:                                        ; preds = %57, %.preheader, %._crit_edge58
   ret void
@@ -3975,15 +3975,16 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

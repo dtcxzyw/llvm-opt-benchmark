@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   %45 = load ptr, ptr %27, align 8, !tbaa !22
   %46 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %45, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2
   %.not76 = icmp eq i32 %46, 0
-  br i1 %.not76, label %.loopexit, label %.lr.ph
+  br i1 %.not76, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %20, align 8, !tbaa !3
@@ -119,9 +119,9 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %56 = load i32, ptr %55, align 8, !tbaa !23
+  %56 = load i32, ptr %55, align 8, !tbaa !25
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 8, !tbaa !23
+  store i32 %57, ptr %55, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread81, %12, %54
@@ -231,31 +231,31 @@ define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nounde
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   tail call void @BN_free(ptr noundef %20) #2
   %21 = tail call ptr @BN_dup(ptr noundef nonnull %2) #2
-  store ptr %21, ptr %19, align 8, !tbaa !24
+  store ptr %21, ptr %19, align 8, !tbaa !26
   %22 = icmp eq ptr %21, null
   br i1 %22, label %85, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   tail call void @BN_clear_free(ptr noundef %25) #2
   %26 = tail call ptr @BN_secure_new() #2
-  store ptr %26, ptr %24, align 8, !tbaa !25
+  store ptr %26, ptr %24, align 8, !tbaa !27
   %27 = icmp eq ptr %26, null
   br i1 %27, label %85, label %28
 
 28:                                               ; preds = %23
   tail call void @BN_set_flags(ptr noundef nonnull %26, i32 noundef 4) #2
-  %29 = load ptr, ptr %24, align 8, !tbaa !25
+  %29 = load ptr, ptr %24, align 8, !tbaa !27
   %30 = tail call ptr @BN_mod_inverse(ptr noundef %29, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %3) #2
   %31 = icmp eq ptr %30, null
   br i1 %31, label %85, label %32
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr %24, align 8, !tbaa !25
+  %33 = load ptr, ptr %24, align 8, !tbaa !27
   %34 = tail call i32 @BN_num_bits(ptr noundef %33) #2
   %35 = ashr i32 %1, 1
   %.not94 = icmp sgt i32 %34, %35
@@ -263,13 +263,13 @@ define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nounde
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %36
   %41 = tail call ptr @BN_new() #2
-  store ptr %41, ptr %37, align 8, !tbaa !26
+  store ptr %41, ptr %37, align 8, !tbaa !28
   %42 = icmp eq ptr %41, null
   br i1 %42, label %85, label %.thread
 
@@ -283,59 +283,59 @@ define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nounde
 
 47:                                               ; preds = %.thread, %17
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %49 = load ptr, ptr %48, align 8, !tbaa !29
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %.thread99
 
 51:                                               ; preds = %47
   %52 = tail call ptr @BN_secure_new() #2
-  store ptr %52, ptr %48, align 8, !tbaa !27
+  store ptr %52, ptr %48, align 8, !tbaa !29
   %53 = icmp eq ptr %52, null
   br i1 %53, label %85, label %.thread99
 
 .thread99:                                        ; preds = %47, %51
   %54 = phi ptr [ %52, %51 ], [ %49, %47 ]
   tail call void @BN_set_flags(ptr noundef nonnull %54, i32 noundef 4) #2
-  %55 = load ptr, ptr %48, align 8, !tbaa !27
+  %55 = load ptr, ptr %48, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %57 = load ptr, ptr %56, align 8, !tbaa !27
   %58 = tail call i32 @BN_div(ptr noundef null, ptr noundef %55, ptr noundef %57, ptr noundef %5, ptr noundef %3) #2
   %.not96 = icmp eq i32 %58, 0
   br i1 %.not96, label %85, label %59
 
 59:                                               ; preds = %.thread99
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %61 = load ptr, ptr %60, align 8, !tbaa !28
+  %61 = load ptr, ptr %60, align 8, !tbaa !30
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %.thread100
 
 63:                                               ; preds = %59
   %64 = tail call ptr @BN_secure_new() #2
-  store ptr %64, ptr %60, align 8, !tbaa !28
+  store ptr %64, ptr %60, align 8, !tbaa !30
   %65 = icmp eq ptr %64, null
   br i1 %65, label %85, label %.thread100
 
 .thread100:                                       ; preds = %59, %63
   %66 = phi ptr [ %64, %63 ], [ %61, %59 ]
   tail call void @BN_set_flags(ptr noundef nonnull %66, i32 noundef 4) #2
-  %67 = load ptr, ptr %60, align 8, !tbaa !28
-  %68 = load ptr, ptr %56, align 8, !tbaa !25
+  %67 = load ptr, ptr %60, align 8, !tbaa !30
+  %68 = load ptr, ptr %56, align 8, !tbaa !27
   %69 = tail call i32 @BN_div(ptr noundef null, ptr noundef %67, ptr noundef %68, ptr noundef %6, ptr noundef %3) #2
   %.not97 = icmp eq i32 %69, 0
   br i1 %.not97, label %85, label %70
 
 70:                                               ; preds = %.thread100
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %72 = load ptr, ptr %71, align 8, !tbaa !29
+  %72 = load ptr, ptr %71, align 8, !tbaa !31
   tail call void @BN_free(ptr noundef %72) #2
   %73 = tail call ptr @BN_secure_new() #2
-  store ptr %73, ptr %71, align 8, !tbaa !29
+  store ptr %73, ptr %71, align 8, !tbaa !31
   %74 = icmp eq ptr %73, null
   br i1 %74, label %85, label %75
 
 75:                                               ; preds = %70
   tail call void @BN_set_flags(ptr noundef nonnull %73, i32 noundef 4) #2
-  %76 = load ptr, ptr %71, align 8, !tbaa !29
+  %76 = load ptr, ptr %71, align 8, !tbaa !31
   %77 = load ptr, ptr %14, align 8, !tbaa !22
   %78 = load ptr, ptr %12, align 8, !tbaa !3
   %79 = tail call ptr @BN_mod_inverse(ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %3) #2
@@ -344,37 +344,37 @@ define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nounde
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %83 = load i32, ptr %82, align 8, !tbaa !23
+  %83 = load i32, ptr %82, align 8, !tbaa !25
   %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %82, align 8, !tbaa !23
+  store i32 %84, ptr %82, align 8, !tbaa !25
   br label %98
 
 85:                                               ; preds = %4, %11, %18, %23, %28, %40, %51, %63, %70, %75, %.thread100, %.thread99, %.thread, %32
   %.0.ph = phi i32 [ 0, %32 ], [ -1, %.thread ], [ -1, %.thread99 ], [ -1, %.thread100 ], [ -1, %75 ], [ -1, %70 ], [ -1, %63 ], [ -1, %51 ], [ -1, %40 ], [ -1, %28 ], [ -1, %23 ], [ -1, %18 ], [ -1, %11 ], [ -1, %4 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !24
+  %87 = load ptr, ptr %86, align 8, !tbaa !26
   tail call void @BN_free(ptr noundef %87) #2
-  store ptr null, ptr %86, align 8, !tbaa !24
+  store ptr null, ptr %86, align 8, !tbaa !26
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %89 = load ptr, ptr %88, align 8, !tbaa !25
+  %89 = load ptr, ptr %88, align 8, !tbaa !27
   tail call void @BN_free(ptr noundef %89) #2
-  store ptr null, ptr %88, align 8, !tbaa !25
+  store ptr null, ptr %88, align 8, !tbaa !27
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !26
+  %91 = load ptr, ptr %90, align 8, !tbaa !28
   tail call void @BN_free(ptr noundef %91) #2
-  store ptr null, ptr %90, align 8, !tbaa !26
+  store ptr null, ptr %90, align 8, !tbaa !28
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %93 = load ptr, ptr %92, align 8, !tbaa !29
+  %93 = load ptr, ptr %92, align 8, !tbaa !31
   tail call void @BN_free(ptr noundef %93) #2
-  store ptr null, ptr %92, align 8, !tbaa !29
+  store ptr null, ptr %92, align 8, !tbaa !31
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %95 = load ptr, ptr %94, align 8, !tbaa !28
+  %95 = load ptr, ptr %94, align 8, !tbaa !30
   tail call void @BN_free(ptr noundef %95) #2
-  store ptr null, ptr %94, align 8, !tbaa !28
+  store ptr null, ptr %94, align 8, !tbaa !30
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %97 = load ptr, ptr %96, align 8, !tbaa !27
+  %97 = load ptr, ptr %96, align 8, !tbaa !29
   tail call void @BN_free(ptr noundef %97) #2
-  store ptr null, ptr %96, align 8, !tbaa !27
+  store ptr null, ptr %96, align 8, !tbaa !29
   br label %98
 
 98:                                               ; preds = %81, %85
@@ -408,13 +408,13 @@ declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %1) #2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = tail call ptr @RAND_get0_private(ptr noundef %7) #2
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %40, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %6, align 8, !tbaa !30
+  %10 = load ptr, ptr %6, align 8, !tbaa !32
   %11 = tail call ptr @BN_CTX_new_ex(ptr noundef %10) #2
   %12 = icmp eq ptr %11, null
   br i1 %12, label %40, label %13
@@ -465,7 +465,7 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures
 
 36:                                               ; preds = %33
   %.not45 = icmp eq i32 %34, 0
-  br i1 %.not45, label %23, label %37
+  br i1 %.not45, label %23, label %37, !llvm.loop !33
 
 37:                                               ; preds = %36
   %38 = tail call i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef nonnull %0, ptr noundef nonnull %11)
@@ -515,17 +515,17 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef readonl
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = tail call i32 @BN_mod_exp(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %10, ptr noundef %12, ptr noundef %1) #2
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %.critedge, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = load ptr, ptr %11, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = load ptr, ptr %11, align 8, !tbaa !28
   %18 = tail call i32 @BN_mod_exp(ptr noundef %3, ptr noundef %3, ptr noundef %16, ptr noundef %17, ptr noundef %1) #2
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %.critedge, label %19
@@ -580,11 +580,14 @@ attributes #2 = { nounwind }
 !20 = !{!"p1 _ZTS14bn_mont_ctx_st", !9, i64 0}
 !21 = !{!"p1 _ZTS14bn_blinding_st", !9, i64 0}
 !22 = !{!4, !12, i64 72}
-!23 = !{!4, !5, i64 216}
-!24 = !{!4, !12, i64 48}
-!25 = !{!4, !12, i64 56}
-!26 = !{!4, !12, i64 40}
-!27 = !{!4, !12, i64 80}
-!28 = !{!4, !12, i64 88}
-!29 = !{!4, !12, i64 96}
-!30 = !{!4, !8, i64 8}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!4, !5, i64 216}
+!26 = !{!4, !12, i64 48}
+!27 = !{!4, !12, i64 56}
+!28 = !{!4, !12, i64 40}
+!29 = !{!4, !12, i64 80}
+!30 = !{!4, !12, i64 88}
+!31 = !{!4, !12, i64 96}
+!32 = !{!4, !8, i64 8}
+!33 = distinct !{!33, !24}

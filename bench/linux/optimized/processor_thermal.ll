@@ -130,7 +130,7 @@ define dso_local void @acpi_thermal_cpufreq_exit(ptr noundef readonly captures(n
   %27 = add nuw nsw i64 %10, 1
   %28 = and i64 %27, 127
   %29 = icmp samesign ugt i64 %28, 63
-  br i1 %29, label %.thread, label %3, !prof !6, !llvm.loop !10
+  br i1 %29, label %.thread, label %3, !prof !6, !llvm.loop !11
 
 .thread:                                          ; preds = %3, %26, %9
   ret void
@@ -153,7 +153,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nound
   br i1 %9, label %33, label %10
 
 10:                                               ; preds = %6
-  %11 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
+  %11 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !12, !noundef !13
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %19, label %13
 
@@ -210,7 +210,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nound
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !12, !noundef !13
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %57, label %15
 
@@ -235,7 +235,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nound
   %28 = phi i64 [ 0, %18 ], [ %48, %39 ]
   %29 = and i64 %28, 4294967295
   %30 = icmp samesign ugt i64 %29, 63
-  br i1 %30, label %.thread, label %31, !prof !13
+  br i1 %30, label %.thread, label %31, !prof !14
 
 31:                                               ; preds = %27
   %32 = shl nsw i64 -1, %29
@@ -259,7 +259,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nound
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %25
   %48 = add nuw nsw i64 %36, 1
-  br i1 %47, label %.thread, label %27, !llvm.loop !14
+  br i1 %47, label %.thread, label %27, !llvm.loop !15
 
 .thread:                                          ; preds = %31, %27, %39, %35
   %49 = phi i64 [ %36, %39 ], [ 0, %35 ], [ 0, %27 ], [ 0, %31 ]
@@ -309,7 +309,7 @@ define internal i32 @processor_set_cur_state(ptr noundef readonly captures(none)
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %12 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
+  %12 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !12, !noundef !13
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %14
 
@@ -496,7 +496,7 @@ declare dso_local i32 @acpi_processor_set_throttling(ptr noundef, i32 noundef, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 align 16 {
-  %3 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
+  %3 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !12, !noundef !13
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread11, label %5
 
@@ -521,7 +521,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %18 = phi i64 [ 0, %8 ], [ %38, %29 ]
   %19 = and i64 %18, 4294967295
   %20 = icmp samesign ugt i64 %19, 63
-  br i1 %20, label %.thread, label %21, !prof !13
+  br i1 %20, label %.thread, label %21, !prof !14
 
 21:                                               ; preds = %17
   %22 = shl nsw i64 -1, %19
@@ -545,7 +545,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %15
   %38 = add nuw nsw i64 %26, 1
-  br i1 %37, label %.thread, label %17, !llvm.loop !14
+  br i1 %37, label %.thread, label %17, !llvm.loop !16
 
 .thread:                                          ; preds = %21, %17, %29, %25
   %39 = phi i64 [ %26, %29 ], [ 0, %25 ], [ 0, %17 ], [ 0, %21 ]
@@ -599,7 +599,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %78 = icmp eq ptr %77, null
   %79 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
   %80 = or i1 %78, %79
-  br i1 %80, label %132, label %81, !prof !13
+  br i1 %80, label %132, label %81, !prof !14
 
 81:                                               ; preds = %71
   %82 = tail call ptr @cpufreq_cpu_get(i32 noundef %55) #4
@@ -621,7 +621,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %94 = phi i64 [ 0, %84 ], [ %114, %105 ]
   %95 = and i64 %94, 4294967295
   %96 = icmp samesign ugt i64 %95, 63
-  br i1 %96, label %.thread13, label %97, !prof !13
+  br i1 %96, label %.thread13, label %97, !prof !14
 
 97:                                               ; preds = %93
   %98 = shl nsw i64 -1, %95
@@ -645,7 +645,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, %91
   %114 = add nuw nsw i64 %102, 1
-  br i1 %113, label %.thread13, label %93, !llvm.loop !14
+  br i1 %113, label %.thread13, label %93, !llvm.loop !17
 
 .thread13:                                        ; preds = %97, %93, %105, %101
   %115 = phi i64 [ %102, %105 ], [ 0, %101 ], [ 0, %93 ], [ 0, %97 ]
@@ -674,7 +674,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %133 = add nuw nsw i64 %54, 1
   %134 = and i64 %133, 127
   %135 = icmp samesign ugt i64 %134, 63
-  br i1 %135, label %.thread11, label %47, !prof !6, !llvm.loop !15
+  br i1 %135, label %.thread11, label %47, !prof !6, !llvm.loop !18
 
 .thread11:                                        ; preds = %47, %132, %81, %53, %5, %2
   ret void
@@ -699,12 +699,15 @@ attributes #5 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 300066}
 !6 = !{!"branch_weights", i32 1, i32 1999}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}
+!18 = distinct !{!18, !8, !9, !10}

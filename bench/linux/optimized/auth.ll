@@ -562,7 +562,7 @@ define dso_local void @rpcauth_clear_credcache(ptr noundef %0) local_unnamed_add
   %42 = add i32 %8, 1
   %43 = lshr i32 %42, %5
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %7, label %45, !llvm.loop !14
+  br i1 %44, label %7, label %45, !llvm.loop !15
 
 45:                                               ; preds = %.loopexit7
   call void @_raw_spin_unlock(ptr noundef nonnull %6) #15
@@ -585,7 +585,7 @@ define dso_local void @rpcauth_clear_credcache(ptr noundef %0) local_unnamed_add
   call void @put_rpccred(ptr noundef %49)
   %54 = load volatile ptr, ptr %2, align 8
   %55 = icmp eq ptr %54, %2
-  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
@@ -657,17 +657,17 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
 .preheader28:                                     ; preds = %28, %37
   %32 = phi i32 [ %38, %37 ], [ %30, %28 ]
   %33 = add i32 %32, 1
-  %34 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 %33, ptr nonnull elementtype(i32) %29, i32 %32) #15, !srcloc !16
+  %34 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 %33, ptr nonnull elementtype(i32) %29, i32 %32) #15, !srcloc !17
   %35 = extractvalue { i8, i32 } %34, 0
   %36 = icmp ult i8 %35, 2
   call void @llvm.assume(i1 %36)
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %37, label %.thread, !prof !17
+  br i1 %.not, label %37, label %.thread, !prof !18
 
 37:                                               ; preds = %.preheader28
   %38 = extractvalue { i8, i32 } %34, 1
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %.preheader28, !llvm.loop !18
+  br i1 %39, label %.thread, label %.preheader28, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader28, %37, %28
   %40 = phi i32 [ 0, %28 ], [ %32, %.preheader28 ], [ 0, %37 ]
@@ -687,7 +687,7 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
 47:                                               ; preds = %45, %.preheader30
   %48 = load volatile ptr, ptr %21, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit31, label %.preheader30, !llvm.loop !19
+  br i1 %49, label %.loopexit31, label %.preheader30, !llvm.loop !20
 
 50:                                               ; preds = %45
   call void @__rcu_read_unlock() #15
@@ -730,17 +730,17 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
 .preheader25:                                     ; preds = %69, %78
   %73 = phi i32 [ %79, %78 ], [ %71, %69 ]
   %74 = add i32 %73, 1
-  %75 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %70, i32 %74, ptr nonnull elementtype(i32) %70, i32 %73) #15, !srcloc !16
+  %75 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %70, i32 %74, ptr nonnull elementtype(i32) %70, i32 %73) #15, !srcloc !17
   %76 = extractvalue { i8, i32 } %75, 0
   %77 = icmp ult i8 %76, 2
   call void @llvm.assume(i1 %77)
   %.not24 = icmp eq i8 %76, 0
-  br i1 %.not24, label %78, label %.thread21, !prof !17
+  br i1 %.not24, label %78, label %.thread21, !prof !18
 
 78:                                               ; preds = %.preheader25
   %79 = extractvalue { i8, i32 } %75, 1
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %.thread21, label %.preheader25, !llvm.loop !18
+  br i1 %80, label %.thread21, label %.preheader25, !llvm.loop !21
 
 .thread21:                                        ; preds = %.preheader25, %78, %69
   %81 = phi i32 [ 0, %69 ], [ %73, %.preheader25 ], [ 0, %78 ]
@@ -760,15 +760,15 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
 88:                                               ; preds = %86, %.preheader26
   %89 = load ptr, ptr %62, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.loopexit27, label %.preheader26, !llvm.loop !20
+  br i1 %90, label %.loopexit27, label %.preheader26, !llvm.loop !22
 
 .loopexit27:                                      ; preds = %88, %56
   %91 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %91, i32 4, ptr nonnull elementtype(i8) %91) #15, !srcloc !21
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %91, i32 4, ptr nonnull elementtype(i8) %91) #15, !srcloc !23
   %92 = getelementptr inbounds nuw i8, ptr %54, i64 80
-  %93 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92, i32 1, ptr nonnull elementtype(i32) %92) #15, !srcloc !22
+  %93 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92, i32 1, ptr nonnull elementtype(i32) %92) #15, !srcloc !24
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %99, label %95, !prof !17
+  br i1 %94, label %99, label %95, !prof !18
 
 95:                                               ; preds = %.loopexit27
   %96 = add i32 %93, 1
@@ -788,7 +788,7 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
   store ptr %104, ptr %54, align 8
   %105 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store volatile ptr %103, ptr %105, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
   store volatile ptr %54, ptr %103, align 8
   %106 = icmp eq ptr %104, null
   br i1 %106, label %113, label %107
@@ -873,7 +873,7 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
   call void @put_rpccred(ptr noundef %149)
   %154 = load volatile ptr, ptr %5, align 8
   %155 = icmp eq ptr %154, %5
-  br i1 %155, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %155, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %144, %.loopexit31
   %156 = phi ptr [ %54, %.loopexit31 ], [ %145, %144 ], [ %145, %.preheader ]
@@ -958,7 +958,7 @@ define dso_local void @put_rpccred(ptr noundef %0) #1 align 16 {
   %39 = load volatile i64, ptr %15, align 8
   %40 = and i64 %39, 4
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %.thread8, !prof !17
+  br i1 %41, label %42, label %.thread8, !prof !18
 
 42:                                               ; preds = %38
   tail call fastcc void @rpcauth_lru_remove(ptr noundef nonnull %0)
@@ -1069,7 +1069,7 @@ define dso_local void @put_rpccred(ptr noundef %0) #1 align 16 {
 define dso_local ptr @rpcauth_lookupcred(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca %struct.auth_cred, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !24
+  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !27
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
@@ -1110,7 +1110,7 @@ define dso_local void @rpcauth_init_cred(ptr noundef initializes((0, 16)) %0, pt
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store i32 0, ptr %16, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 1, ptr nonnull elementtype(i64) %13) #15, !srcloc !25
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 1, ptr nonnull elementtype(i64) %13) #15, !srcloc !28
   br label %17
 
 17:                                               ; preds = %15, %4
@@ -1307,17 +1307,17 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
 .preheader:                                       ; preds = %28, %37
   %32 = phi i32 [ %38, %37 ], [ %30, %28 ]
   %33 = add i32 %32, 1
-  %34 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 %33, ptr nonnull elementtype(i32) %29, i32 %32) #15, !srcloc !16
+  %34 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 %33, ptr nonnull elementtype(i32) %29, i32 %32) #15, !srcloc !17
   %35 = extractvalue { i8, i32 } %34, 0
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %37, label %.thread, !prof !17
+  br i1 %.not, label %37, label %.thread, !prof !18
 
 37:                                               ; preds = %.preheader
   %38 = extractvalue { i8, i32 } %34, 1
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %.preheader, !llvm.loop !18
+  br i1 %39, label %.thread, label %.preheader, !llvm.loop !29
 
 .thread:                                          ; preds = %.preheader, %37, %28
   %40 = phi i32 [ 0, %28 ], [ %32, %.preheader ], [ 0, %37 ]
@@ -1413,7 +1413,7 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
   br i1 %98, label %104, label %99
 
 99:                                               ; preds = %81
-  %100 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %97, i64 1, ptr nonnull elementtype(i64) %97) #15, !srcloc !26
+  %100 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %97, i64 1, ptr nonnull elementtype(i64) %97) #15, !srcloc !30
   %101 = icmp ult i8 %100, 2
   call void @llvm.assume(i1 %101)
   %102 = icmp eq i8 %100, 0
@@ -1442,7 +1442,7 @@ define dso_local i32 @rpcauth_refreshcred(ptr noundef %0) local_unnamed_addr #1 
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 80
   %113 = load ptr, ptr %112, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
-  %114 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !24
+  %114 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !27
   %115 = inttoptr i64 %114 to ptr
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1784
   %117 = load ptr, ptr %116, align 8
@@ -1514,7 +1514,7 @@ define dso_local void @rpcauth_invalcred(ptr noundef readonly captures(none) %0)
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i32 -3, ptr nonnull elementtype(i8) %8) #15, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i32 -3, ptr nonnull elementtype(i8) %8) #15, !srcloc !31
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -1636,7 +1636,7 @@ define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef 
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %2
-  store i64 0, ptr %3, align 8, !annotation !28
+  store i64 0, ptr %3, align 8, !annotation !32
   %6 = call i32 @kstrtoull(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %19
@@ -1645,7 +1645,7 @@ define internal noundef range(i32 -22, 1) i32 @param_set_hashtbl_sz(ptr noundef 
   %9 = load i64, ptr %3, align 8
   %10 = trunc i64 %9 to i32
   %11 = add i32 %10, -1
-  %12 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #20, !srcloc !29
+  %12 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #20, !srcloc !33
   %13 = add i32 %12, -14
   %14 = icmp ult i32 %13, -13
   br i1 %14, label %19, label %15
@@ -1843,7 +1843,7 @@ define internal fastcc i64 @rpcauth_cache_do_shrink(i32 noundef %0) unnamed_addr
 71:                                               ; preds = %70, %66, %36, %32, %21, %18
   %72 = phi i64 [ %9, %32 ], [ %67, %66 ], [ %9, %18 ], [ %9, %21 ], [ %9, %36 ], [ %9, %70 ]
   %73 = icmp eq ptr %11, @cred_unused
-  br i1 %73, label %.loopexit8, label %.preheader7, !llvm.loop !30
+  br i1 %73, label %.loopexit8, label %.preheader7, !llvm.loop !34
 
 .loopexit8:                                       ; preds = %71, %.preheader7, %1
   %74 = phi i64 [ 0, %1 ], [ %9, %.preheader7 ], [ %72, %71 ]
@@ -1866,7 +1866,7 @@ define internal fastcc i64 @rpcauth_cache_do_shrink(i32 noundef %0) unnamed_addr
   call void @put_rpccred(ptr noundef %78)
   %83 = load volatile ptr, ptr %2, align 8
   %84 = icmp eq ptr %83, %2
-  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit8
   %85 = icmp eq i64 %74, 0
@@ -1919,23 +1919,28 @@ attributes #20 = { nounwind memory(read) }
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i64 2150237456}
 !10 = !{i64 2148337058, i64 2148337097, i64 2148337118, i64 2148337155, i64 2148337178, i64 2148337187, i64 2148337290}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = !{i64 2148720727, i64 2148720766, i64 2148720787, i64 2148720824, i64 2148720847, i64 2148720856, i64 2148721154}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !12, !13}
-!20 = distinct !{!20, !12, !13}
-!21 = !{i64 2148327705, i64 2148327744, i64 2148327765, i64 2148327802, i64 2148327825, i64 2148327695}
-!22 = !{i64 2148712835, i64 2148712874, i64 2148712895, i64 2148712932, i64 2148712955, i64 2148712964}
-!23 = !{i64 2152079512}
-!24 = !{i64 2147854788}
-!25 = !{i64 2148730546, i64 2148730585, i64 2148730606, i64 2148730643, i64 2148730666, i64 2148730536}
-!26 = !{i64 2148732752, i64 2148732791, i64 2148732812, i64 2148732849, i64 2148732872, i64 2148732881, i64 2148732980}
-!27 = !{i64 2148328993, i64 2148329032, i64 2148329053, i64 2148329090, i64 2148329113, i64 2148328983}
-!28 = !{!"auto-init"}
-!29 = !{i64 839381}
-!30 = distinct !{!30, !12, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !12, !13, !14}
+!16 = distinct !{!16, !12, !13, !14}
+!17 = !{i64 2148720727, i64 2148720766, i64 2148720787, i64 2148720824, i64 2148720847, i64 2148720856, i64 2148721154}
+!18 = !{!"branch_weights", i32 1, i32 2000}
+!19 = distinct !{!19, !12, !13, !14}
+!20 = distinct !{!20, !12, !13, !14}
+!21 = distinct !{!21, !12, !13, !14}
+!22 = distinct !{!22, !12, !13, !14}
+!23 = !{i64 2148327705, i64 2148327744, i64 2148327765, i64 2148327802, i64 2148327825, i64 2148327695}
+!24 = !{i64 2148712835, i64 2148712874, i64 2148712895, i64 2148712932, i64 2148712955, i64 2148712964}
+!25 = !{i64 2152079512}
+!26 = distinct !{!26, !12, !13, !14}
+!27 = !{i64 2147854788}
+!28 = !{i64 2148730546, i64 2148730585, i64 2148730606, i64 2148730643, i64 2148730666, i64 2148730536}
+!29 = distinct !{!29, !12, !13, !14}
+!30 = !{i64 2148732752, i64 2148732791, i64 2148732812, i64 2148732849, i64 2148732872, i64 2148732881, i64 2148732980}
+!31 = !{i64 2148328993, i64 2148329032, i64 2148329053, i64 2148329090, i64 2148329113, i64 2148328983}
+!32 = !{!"auto-init"}
+!33 = !{i64 839381}
+!34 = distinct !{!34, !12, !13, !14}
+!35 = distinct !{!35, !12, !13, !14}

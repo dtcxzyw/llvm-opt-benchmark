@@ -296,7 +296,7 @@ for.body.i44:                                     ; preds = %for.body.i44, %_ZN2
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i46 = add nuw nsw i32 %i.04.i45, 1
   %exitcond.not.i47 = icmp eq i32 %inc.i46, 100000
-  br i1 %exitcond.not.i47, label %for.end.i48, label %for.body.i44, !llvm.loop !7
+  br i1 %exitcond.not.i47, label %for.end.i48, label %for.body.i44, !llvm.loop !8
 
 for.end.i48:                                      ; preds = %for.body.i44
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -348,7 +348,7 @@ for.body.i66:                                     ; preds = %for.body.i66, %_ZN2
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i68 = add nuw nsw i32 %i.04.i67, 1
   %exitcond.not.i69 = icmp eq i32 %inc.i68, 100000
-  br i1 %exitcond.not.i69, label %for.end.i70, label %for.body.i66, !llvm.loop !8
+  br i1 %exitcond.not.i69, label %for.end.i70, label %for.body.i66, !llvm.loop !9
 
 for.end.i70:                                      ; preds = %for.body.i66
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -390,7 +390,7 @@ for.body.i88:                                     ; preds = %for.body.i88, %_ZN2
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i90 = add nuw nsw i32 %i.04.i89, 1
   %exitcond.not.i91 = icmp eq i32 %inc.i90, 100000
-  br i1 %exitcond.not.i91, label %for.end.i92, label %for.body.i88, !llvm.loop !9
+  br i1 %exitcond.not.i91, label %for.end.i92, label %for.body.i88, !llvm.loop !10
 
 for.end.i92:                                      ; preds = %for.body.i88
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -443,7 +443,7 @@ for.body.i111:                                    ; preds = %for.body.i111, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i113 = add nuw nsw i32 %i.04.i112, 1
   %exitcond.not.i114 = icmp eq i32 %inc.i113, 100000
-  br i1 %exitcond.not.i114, label %for.end.i115, label %for.body.i111, !llvm.loop !10
+  br i1 %exitcond.not.i114, label %for.end.i115, label %for.body.i111, !llvm.loop !11
 
 for.end.i115:                                     ; preds = %for.body.i111
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -486,7 +486,7 @@ for.body.i133:                                    ; preds = %for.body.i133, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i135 = add nuw nsw i32 %i.04.i134, 1
   %exitcond.not.i136 = icmp eq i32 %inc.i135, 100000
-  br i1 %exitcond.not.i136, label %for.end.i137, label %for.body.i133, !llvm.loop !11
+  br i1 %exitcond.not.i136, label %for.end.i137, label %for.body.i133, !llvm.loop !12
 
 for.end.i137:                                     ; preds = %for.body.i133
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -539,7 +539,7 @@ for.body.i157:                                    ; preds = %for.body.i157, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i159 = add nuw nsw i32 %i.04.i158, 1
   %exitcond.not.i160 = icmp eq i32 %inc.i159, 100000
-  br i1 %exitcond.not.i160, label %for.end.i161, label %for.body.i157, !llvm.loop !12
+  br i1 %exitcond.not.i160, label %for.end.i161, label %for.body.i157, !llvm.loop !13
 
 for.end.i161:                                     ; preds = %for.body.i157
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -582,7 +582,7 @@ for.body.i180:                                    ; preds = %for.body.i180, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i182 = add nuw nsw i32 %i.04.i181, 1
   %exitcond.not.i183 = icmp eq i32 %inc.i182, 100000
-  br i1 %exitcond.not.i183, label %for.end.i184, label %for.body.i180, !llvm.loop !13
+  br i1 %exitcond.not.i183, label %for.end.i184, label %for.body.i180, !llvm.loop !14
 
 for.end.i184:                                     ; preds = %for.body.i180
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -636,7 +636,7 @@ for.body.i203:                                    ; preds = %for.body.i203, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i205 = add nuw nsw i32 %i.04.i204, 1
   %exitcond.not.i206 = icmp eq i32 %inc.i205, 100000
-  br i1 %exitcond.not.i206, label %for.end.i207, label %for.body.i203, !llvm.loop !14
+  br i1 %exitcond.not.i206, label %for.end.i207, label %for.body.i203, !llvm.loop !15
 
 for.end.i207:                                     ; preds = %for.body.i203
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -680,7 +680,7 @@ for.body.i225:                                    ; preds = %for.body.i225, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i228 = add nuw nsw i32 %i.04.i226, 1
   %exitcond.not.i229 = icmp eq i32 %inc.i228, 100000
-  br i1 %exitcond.not.i229, label %for.end.i230, label %for.body.i225, !llvm.loop !15
+  br i1 %exitcond.not.i229, label %for.end.i230, label %for.body.i225, !llvm.loop !16
 
 for.end.i230:                                     ; preds = %for.body.i225
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -734,7 +734,7 @@ for.body.i249:                                    ; preds = %for.body.i249, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i252 = add nuw nsw i32 %i.04.i250, 1
   %exitcond.not.i253 = icmp eq i32 %inc.i252, 100000
-  br i1 %exitcond.not.i253, label %for.end.i254, label %for.body.i249, !llvm.loop !16
+  br i1 %exitcond.not.i253, label %for.end.i254, label %for.body.i249, !llvm.loop !17
 
 for.end.i254:                                     ; preds = %for.body.i249
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -778,7 +778,7 @@ for.body.i272:                                    ; preds = %for.body.i272, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i275 = add nuw nsw i32 %i.04.i273, 1
   %exitcond.not.i276 = icmp eq i32 %inc.i275, 100000
-  br i1 %exitcond.not.i276, label %for.end.i277, label %for.body.i272, !llvm.loop !17
+  br i1 %exitcond.not.i276, label %for.end.i277, label %for.body.i272, !llvm.loop !18
 
 for.end.i277:                                     ; preds = %for.body.i272
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -832,7 +832,7 @@ for.body.i297:                                    ; preds = %for.body.i297, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i300 = add nuw nsw i32 %i.04.i298, 1
   %exitcond.not.i301 = icmp eq i32 %inc.i300, 100000
-  br i1 %exitcond.not.i301, label %for.end.i302, label %for.body.i297, !llvm.loop !18
+  br i1 %exitcond.not.i301, label %for.end.i302, label %for.body.i297, !llvm.loop !19
 
 for.end.i302:                                     ; preds = %for.body.i297
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -876,7 +876,7 @@ for.body.i320:                                    ; preds = %for.body.i320, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i323 = add nuw nsw i32 %i.04.i321, 1
   %exitcond.not.i324 = icmp eq i32 %inc.i323, 100000
-  br i1 %exitcond.not.i324, label %for.end.i325, label %for.body.i320, !llvm.loop !19
+  br i1 %exitcond.not.i324, label %for.end.i325, label %for.body.i320, !llvm.loop !20
 
 for.end.i325:                                     ; preds = %for.body.i320
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -930,7 +930,7 @@ for.body.i345:                                    ; preds = %for.body.i345, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i348 = add nuw nsw i32 %i.04.i346, 1
   %exitcond.not.i349 = icmp eq i32 %inc.i348, 100000
-  br i1 %exitcond.not.i349, label %for.end.i350, label %for.body.i345, !llvm.loop !20
+  br i1 %exitcond.not.i349, label %for.end.i350, label %for.body.i345, !llvm.loop !21
 
 for.end.i350:                                     ; preds = %for.body.i345
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -974,7 +974,7 @@ for.body.i369:                                    ; preds = %for.body.i369, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i372 = add nuw nsw i32 %i.04.i370, 1
   %exitcond.not.i373 = icmp eq i32 %inc.i372, 100000
-  br i1 %exitcond.not.i373, label %for.end.i374, label %for.body.i369, !llvm.loop !21
+  br i1 %exitcond.not.i373, label %for.end.i374, label %for.body.i369, !llvm.loop !22
 
 for.end.i374:                                     ; preds = %for.body.i369
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1026,7 +1026,7 @@ for.body.i393:                                    ; preds = %for.body.i393, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i395 = add nuw nsw i32 %i.04.i394, 1
   %exitcond.not.i396 = icmp eq i32 %inc.i395, 100000
-  br i1 %exitcond.not.i396, label %for.end.i397, label %for.body.i393, !llvm.loop !22
+  br i1 %exitcond.not.i396, label %for.end.i397, label %for.body.i393, !llvm.loop !23
 
 for.end.i397:                                     ; preds = %for.body.i393
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1068,7 +1068,7 @@ for.body.i415:                                    ; preds = %for.body.i415, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i417 = add nuw nsw i32 %i.04.i416, 1
   %exitcond.not.i418 = icmp eq i32 %inc.i417, 100000
-  br i1 %exitcond.not.i418, label %for.end.i419, label %for.body.i415, !llvm.loop !23
+  br i1 %exitcond.not.i418, label %for.end.i419, label %for.body.i415, !llvm.loop !24
 
 for.end.i419:                                     ; preds = %for.body.i415
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1120,7 +1120,7 @@ for.body.i438:                                    ; preds = %for.body.i438, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i440 = add nuw nsw i32 %i.04.i439, 1
   %exitcond.not.i441 = icmp eq i32 %inc.i440, 100000
-  br i1 %exitcond.not.i441, label %for.end.i442, label %for.body.i438, !llvm.loop !24
+  br i1 %exitcond.not.i441, label %for.end.i442, label %for.body.i438, !llvm.loop !25
 
 for.end.i442:                                     ; preds = %for.body.i438
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1162,7 +1162,7 @@ for.body.i460:                                    ; preds = %for.body.i460, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i462 = add nuw nsw i32 %i.04.i461, 1
   %exitcond.not.i463 = icmp eq i32 %inc.i462, 100000
-  br i1 %exitcond.not.i463, label %for.end.i464, label %for.body.i460, !llvm.loop !25
+  br i1 %exitcond.not.i463, label %for.end.i464, label %for.body.i460, !llvm.loop !26
 
 for.end.i464:                                     ; preds = %for.body.i460
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1214,7 +1214,7 @@ for.body.i483:                                    ; preds = %for.body.i483, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i485 = add nuw nsw i32 %i.04.i484, 1
   %exitcond.not.i486 = icmp eq i32 %inc.i485, 100000
-  br i1 %exitcond.not.i486, label %for.end.i487, label %for.body.i483, !llvm.loop !26
+  br i1 %exitcond.not.i486, label %for.end.i487, label %for.body.i483, !llvm.loop !27
 
 for.end.i487:                                     ; preds = %for.body.i483
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1256,7 +1256,7 @@ for.body.i505:                                    ; preds = %for.body.i505, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i507 = add nuw nsw i32 %i.04.i506, 1
   %exitcond.not.i508 = icmp eq i32 %inc.i507, 100000
-  br i1 %exitcond.not.i508, label %for.end.i509, label %for.body.i505, !llvm.loop !27
+  br i1 %exitcond.not.i508, label %for.end.i509, label %for.body.i505, !llvm.loop !28
 
 for.end.i509:                                     ; preds = %for.body.i505
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1308,7 +1308,7 @@ for.body.i528:                                    ; preds = %for.body.i528, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i530 = add nuw nsw i32 %i.04.i529, 1
   %exitcond.not.i531 = icmp eq i32 %inc.i530, 100000
-  br i1 %exitcond.not.i531, label %for.end.i532, label %for.body.i528, !llvm.loop !28
+  br i1 %exitcond.not.i531, label %for.end.i532, label %for.body.i528, !llvm.loop !29
 
 for.end.i532:                                     ; preds = %for.body.i528
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1350,7 +1350,7 @@ for.body.i550:                                    ; preds = %for.body.i550, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i552 = add nuw nsw i32 %i.04.i551, 1
   %exitcond.not.i553 = icmp eq i32 %inc.i552, 100000
-  br i1 %exitcond.not.i553, label %for.end.i554, label %for.body.i550, !llvm.loop !29
+  br i1 %exitcond.not.i553, label %for.end.i554, label %for.body.i550, !llvm.loop !30
 
 for.end.i554:                                     ; preds = %for.body.i550
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1405,7 +1405,7 @@ for.body.i573:                                    ; preds = %for.body.i573, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset15)
   %inc.i575 = add nuw nsw i32 %i.04.i574, 1
   %exitcond.not.i576 = icmp eq i32 %inc.i575, 100000
-  br i1 %exitcond.not.i576, label %for.end.i577, label %for.body.i573, !llvm.loop !30
+  br i1 %exitcond.not.i576, label %for.end.i577, label %for.body.i573, !llvm.loop !31
 
 for.end.i577:                                     ; preds = %for.body.i573
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1450,7 +1450,7 @@ for.body.i595:                                    ; preds = %for.body.i595, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset15)
   %inc.i598 = add nuw nsw i32 %i.04.i596, 1
   %exitcond.not.i599 = icmp eq i32 %inc.i598, 100000
-  br i1 %exitcond.not.i599, label %for.end.i600, label %for.body.i595, !llvm.loop !31
+  br i1 %exitcond.not.i599, label %for.end.i600, label %for.body.i595, !llvm.loop !32
 
 for.end.i600:                                     ; preds = %for.body.i595
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1505,7 +1505,7 @@ for.body.i619:                                    ; preds = %for.body.i619, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %stdBitset35)
   %inc.i623 = add nuw nsw i32 %i.04.i620, 1
   %exitcond.not.i624 = icmp eq i32 %inc.i623, 100000
-  br i1 %exitcond.not.i624, label %for.end.i625, label %for.body.i619, !llvm.loop !32
+  br i1 %exitcond.not.i624, label %for.end.i625, label %for.body.i619, !llvm.loop !33
 
 for.end.i625:                                     ; preds = %for.body.i619
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1550,7 +1550,7 @@ for.body.i643:                                    ; preds = %for.body.i643, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(8) %eaBitset35)
   %inc.i647 = add nuw nsw i32 %i.04.i644, 1
   %exitcond.not.i648 = icmp eq i32 %inc.i647, 100000
-  br i1 %exitcond.not.i648, label %for.end.i649, label %for.body.i643, !llvm.loop !33
+  br i1 %exitcond.not.i648, label %for.end.i649, label %for.body.i643, !llvm.loop !34
 
 for.end.i649:                                     ; preds = %for.body.i643
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1608,7 +1608,7 @@ for.body.i668:                                    ; preds = %for.body.i668, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %stdBitset75)
   %inc.i672 = add nuw nsw i32 %i.04.i669, 1
   %exitcond.not.i673 = icmp eq i32 %inc.i672, 100000
-  br i1 %exitcond.not.i673, label %for.end.i674, label %for.body.i668, !llvm.loop !34
+  br i1 %exitcond.not.i673, label %for.end.i674, label %for.body.i668, !llvm.loop !35
 
 for.end.i674:                                     ; preds = %for.body.i668
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1656,7 +1656,7 @@ for.body.i692:                                    ; preds = %for.body.i692, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(16) %eaBitset75)
   %inc.i696 = add nuw nsw i32 %i.04.i693, 1
   %exitcond.not.i697 = icmp eq i32 %inc.i696, 100000
-  br i1 %exitcond.not.i697, label %for.end.i698, label %for.body.i692, !llvm.loop !35
+  br i1 %exitcond.not.i697, label %for.end.i698, label %for.body.i692, !llvm.loop !36
 
 for.end.i698:                                     ; preds = %for.body.i692
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1714,7 +1714,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   store i64 %not.i.i.i720, ptr %arrayidx.i.i.i719, align 8
   %inc.i.i.i = add nuw nsw i64 %__i.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 24
-  br i1 %exitcond.not.i.i.i, label %_ZNSt6bitsetILm1500EE4flipEv.exit.i, label %for.body.i.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i, label %_ZNSt6bitsetILm1500EE4flipEv.exit.i, label %for.body.i.i.i, !llvm.loop !37
 
 _ZNSt6bitsetILm1500EE4flipEv.exit.i:              ; preds = %for.body.i.i.i
   %156 = load i64, ptr %arrayidx.i.i.i.i156, align 8
@@ -1723,7 +1723,7 @@ _ZNSt6bitsetILm1500EE4flipEv.exit.i:              ; preds = %for.body.i.i.i
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %stdBitset1500)
   %inc.i722 = add nuw nsw i32 %i.04.i718, 1
   %exitcond.not.i723 = icmp eq i32 %inc.i722, 100000
-  br i1 %exitcond.not.i723, label %for.end.i724, label %for.body.i.i.preheader.i, !llvm.loop !37
+  br i1 %exitcond.not.i723, label %for.end.i724, label %for.body.i.i.preheader.i, !llvm.loop !38
 
 for.end.i724:                                     ; preds = %_ZNSt6bitsetILm1500EE4flipEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1771,7 +1771,7 @@ for.body.i.i.i745:                                ; preds = %for.body.i.i.i745, 
   store i64 %not.i.i.i747, ptr %arrayidx.i.i.i746, align 8
   %inc.i.i.i748 = add nuw nsw i64 %i.04.i.i.i, 1
   %exitcond.not.i.i.i749 = icmp eq i64 %inc.i.i.i748, 24
-  br i1 %exitcond.not.i.i.i749, label %_ZN5eastl6bitsetILm1500EmE4flipEv.exit.i, label %for.body.i.i.i745, !llvm.loop !38
+  br i1 %exitcond.not.i.i.i749, label %_ZN5eastl6bitsetILm1500EmE4flipEv.exit.i, label %for.body.i.i.i745, !llvm.loop !39
 
 _ZN5eastl6bitsetILm1500EmE4flipEv.exit.i:         ; preds = %for.body.i.i.i745
   %162 = load i64, ptr %arrayidx.i.i179, align 8
@@ -1780,7 +1780,7 @@ _ZN5eastl6bitsetILm1500EmE4flipEv.exit.i:         ; preds = %for.body.i.i.i745
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(192) %eaBitset1500)
   %inc.i751 = add nuw nsw i32 %i.04.i744, 1
   %exitcond.not.i752 = icmp eq i32 %inc.i751, 100000
-  br i1 %exitcond.not.i752, label %for.end.i753, label %for.body.i.i.preheader.i743, !llvm.loop !39
+  br i1 %exitcond.not.i752, label %for.end.i753, label %for.body.i.i.preheader.i743, !llvm.loop !40
 
 for.end.i753:                                     ; preds = %_ZN5eastl6bitsetILm1500EmE4flipEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1837,7 +1837,7 @@ for.body.i772:                                    ; preds = %for.body.i772, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i)
   %inc.i773 = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i774 = icmp eq i32 %inc.i773, 100000
-  br i1 %exitcond.not.i774, label %for.end.i775, label %for.body.i772, !llvm.loop !40
+  br i1 %exitcond.not.i774, label %for.end.i775, label %for.body.i772, !llvm.loop !41
 
 for.end.i775:                                     ; preds = %for.body.i772
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1884,7 +1884,7 @@ for.body.i793:                                    ; preds = %for.body.i793, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i797)
   %inc.i798 = add nuw nsw i32 %i.04.i794, 1
   %exitcond.not.i799 = icmp eq i32 %inc.i798, 100000
-  br i1 %exitcond.not.i799, label %for.end.i800, label %for.body.i793, !llvm.loop !41
+  br i1 %exitcond.not.i799, label %for.end.i800, label %for.body.i793, !llvm.loop !42
 
 for.end.i800:                                     ; preds = %for.body.i793
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -1941,7 +1941,7 @@ for.body.i819:                                    ; preds = %for.body.i819, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i823)
   %inc.i824 = add nuw nsw i32 %i.05.i820, 1
   %exitcond.not.i825 = icmp eq i32 %inc.i824, 100000
-  br i1 %exitcond.not.i825, label %for.end.i826, label %for.body.i819, !llvm.loop !42
+  br i1 %exitcond.not.i825, label %for.end.i826, label %for.body.i819, !llvm.loop !43
 
 for.end.i826:                                     ; preds = %for.body.i819
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -1988,7 +1988,7 @@ for.body.i844:                                    ; preds = %for.body.i844, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i848)
   %inc.i849 = add nuw nsw i32 %i.04.i845, 1
   %exitcond.not.i850 = icmp eq i32 %inc.i849, 100000
-  br i1 %exitcond.not.i850, label %for.end.i851, label %for.body.i844, !llvm.loop !43
+  br i1 %exitcond.not.i850, label %for.end.i851, label %for.body.i844, !llvm.loop !44
 
 for.end.i851:                                     ; preds = %for.body.i844
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2045,7 +2045,7 @@ for.body.i870:                                    ; preds = %for.body.i870, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i874)
   %inc.i875 = add nuw nsw i32 %i.05.i871, 1
   %exitcond.not.i876 = icmp eq i32 %inc.i875, 100000
-  br i1 %exitcond.not.i876, label %for.end.i877, label %for.body.i870, !llvm.loop !44
+  br i1 %exitcond.not.i876, label %for.end.i877, label %for.body.i870, !llvm.loop !45
 
 for.end.i877:                                     ; preds = %for.body.i870
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2092,7 +2092,7 @@ for.body.i895:                                    ; preds = %for.body.i895, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i899)
   %inc.i900 = add nuw nsw i32 %i.04.i896, 1
   %exitcond.not.i901 = icmp eq i32 %inc.i900, 100000
-  br i1 %exitcond.not.i901, label %for.end.i902, label %for.body.i895, !llvm.loop !45
+  br i1 %exitcond.not.i901, label %for.end.i902, label %for.body.i895, !llvm.loop !46
 
 for.end.i902:                                     ; preds = %for.body.i895
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2152,7 +2152,7 @@ for.body.i921:                                    ; preds = %for.body.i921, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i926)
   %inc.i927 = add nuw nsw i32 %i.05.i922, 1
   %exitcond.not.i928 = icmp eq i32 %inc.i927, 100000
-  br i1 %exitcond.not.i928, label %for.end.i929, label %for.body.i921, !llvm.loop !46
+  br i1 %exitcond.not.i928, label %for.end.i929, label %for.body.i921, !llvm.loop !47
 
 for.end.i929:                                     ; preds = %for.body.i921
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2202,7 +2202,7 @@ for.body.i947:                                    ; preds = %for.body.i947, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(i32 noundef %conv1.i953)
   %inc.i954 = add nuw nsw i32 %i.04.i948, 1
   %exitcond.not.i955 = icmp eq i32 %inc.i954, 100000
-  br i1 %exitcond.not.i955, label %for.end.i956, label %for.body.i947, !llvm.loop !47
+  br i1 %exitcond.not.i955, label %for.end.i956, label %for.body.i947, !llvm.loop !48
 
 for.end.i956:                                     ; preds = %for.body.i947
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2260,7 +2260,7 @@ for.body.i975:                                    ; preds = %for.body.i975, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i)
   %inc.i976 = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i977 = icmp eq i32 %inc.i976, 100000
-  br i1 %exitcond.not.i977, label %for.end.i978, label %for.body.i975, !llvm.loop !48
+  br i1 %exitcond.not.i977, label %for.end.i978, label %for.body.i975, !llvm.loop !49
 
 for.end.i978:                                     ; preds = %for.body.i975
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2309,7 +2309,7 @@ for.body.i997:                                    ; preds = %for.body.i997, %_ZN
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i985)
   %inc.i1000 = add nuw nsw i32 %i.03.i998, 1
   %exitcond.not.i1001 = icmp eq i32 %inc.i1000, 100000
-  br i1 %exitcond.not.i1001, label %for.end.i1002, label %for.body.i997, !llvm.loop !49
+  br i1 %exitcond.not.i1001, label %for.end.i1002, label %for.body.i997, !llvm.loop !50
 
 for.end.i1002:                                    ; preds = %for.body.i997
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2368,7 +2368,7 @@ for.body.i1022:                                   ; preds = %for.body.i1022, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1010)
   %inc.i1025 = add nuw nsw i32 %i.03.i1023, 1
   %exitcond.not.i1026 = icmp eq i32 %inc.i1025, 100000
-  br i1 %exitcond.not.i1026, label %for.end.i1027, label %for.body.i1022, !llvm.loop !50
+  br i1 %exitcond.not.i1026, label %for.end.i1027, label %for.body.i1022, !llvm.loop !51
 
 for.end.i1027:                                    ; preds = %for.body.i1022
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2417,7 +2417,7 @@ for.body.i1046:                                   ; preds = %for.body.i1046, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1034)
   %inc.i1049 = add nuw nsw i32 %i.03.i1047, 1
   %exitcond.not.i1050 = icmp eq i32 %inc.i1049, 100000
-  br i1 %exitcond.not.i1050, label %for.end.i1051, label %for.body.i1046, !llvm.loop !51
+  br i1 %exitcond.not.i1050, label %for.end.i1051, label %for.body.i1046, !llvm.loop !52
 
 for.end.i1051:                                    ; preds = %for.body.i1046
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2477,7 +2477,7 @@ for.body.i.i.i1073:                               ; preds = %for.body.i.i.i1073,
   %258 = load i64, ptr %__i.05.i.i.i.sroa.phi, align 8
   %259 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %258)
   %add.i.i.i = add i64 %259, %__result.04.i.i.i
-  br i1 %cmp.i.i3.i, label %for.body.i.i.i1073, label %_ZNKSt6bitsetILm75EE5countEv.exit.i, !llvm.loop !52
+  br i1 %cmp.i.i3.i, label %for.body.i.i.i1073, label %_ZNKSt6bitsetILm75EE5countEv.exit.i, !llvm.loop !53
 
 _ZNKSt6bitsetILm75EE5countEv.exit.i:              ; preds = %for.body.i.i.i1073
   %260 = load i64, ptr %temp.i1059, align 8
@@ -2486,7 +2486,7 @@ _ZNKSt6bitsetILm75EE5countEv.exit.i:              ; preds = %for.body.i.i.i1073
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1059)
   %inc.i1076 = add nuw nsw i32 %i.04.i1072, 1
   %exitcond.not.i1077 = icmp eq i32 %inc.i1076, 100000
-  br i1 %exitcond.not.i1077, label %for.end.i1078, label %for.body.i.i.preheader.i1071, !llvm.loop !53
+  br i1 %exitcond.not.i1077, label %for.end.i1078, label %for.body.i.i.preheader.i1071, !llvm.loop !54
 
 for.end.i1078:                                    ; preds = %_ZNKSt6bitsetILm75EE5countEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2538,7 +2538,7 @@ for.body.i1097:                                   ; preds = %for.body.i1097, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1085)
   %inc.i1100 = add nuw nsw i32 %i.03.i1098, 1
   %exitcond.not.i1101 = icmp eq i32 %inc.i1100, 100000
-  br i1 %exitcond.not.i1101, label %for.end.i1102, label %for.body.i1097, !llvm.loop !54
+  br i1 %exitcond.not.i1101, label %for.end.i1102, label %for.body.i1097, !llvm.loop !55
 
 for.end.i1102:                                    ; preds = %for.body.i1097
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2600,7 +2600,7 @@ for.body.i.i.i1124:                               ; preds = %for.body.i.i.i1124,
   %add.i.i.i1128 = add i64 %276, %__result.04.i.i.i1126
   %inc.i.i.i1129 = add nuw nsw i64 %__i.05.i.i.i1125, 1
   %exitcond.not.i.i.i1130 = icmp eq i64 %inc.i.i.i1129, 24
-  br i1 %exitcond.not.i.i.i1130, label %_ZNKSt6bitsetILm1500EE5countEv.exit.i, label %for.body.i.i.i1124, !llvm.loop !55
+  br i1 %exitcond.not.i.i.i1130, label %_ZNKSt6bitsetILm1500EE5countEv.exit.i, label %for.body.i.i.i1124, !llvm.loop !56
 
 _ZNKSt6bitsetILm1500EE5countEv.exit.i:            ; preds = %for.body.i.i.i1124
   %277 = load i64, ptr %temp.i1110, align 8
@@ -2609,7 +2609,7 @@ _ZNKSt6bitsetILm1500EE5countEv.exit.i:            ; preds = %for.body.i.i.i1124
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1110)
   %inc.i1132 = add nuw nsw i32 %i.03.i1123, 1
   %exitcond.not.i1133 = icmp eq i32 %inc.i1132, 100000
-  br i1 %exitcond.not.i1133, label %for.end.i1134, label %for.body.i.i.preheader.i1122, !llvm.loop !56
+  br i1 %exitcond.not.i1133, label %for.end.i1134, label %for.body.i.i.preheader.i1122, !llvm.loop !57
 
 for.end.i1134:                                    ; preds = %_ZNKSt6bitsetILm1500EE5countEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2661,7 +2661,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.i.i1155 = add i64 %283, %n.04.i.i
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 24
-  br i1 %exitcond.not.i.i, label %_ZNK5eastl10BitsetBaseILm24EmE5countEv.exit.i, label %for.body.i.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %_ZNK5eastl10BitsetBaseILm24EmE5countEv.exit.i, label %for.body.i.i, !llvm.loop !58
 
 _ZNK5eastl10BitsetBaseILm24EmE5countEv.exit.i:    ; preds = %for.body.i.i
   %284 = load i64, ptr %temp.i1141, align 8
@@ -2670,7 +2670,7 @@ _ZNK5eastl10BitsetBaseILm24EmE5countEv.exit.i:    ; preds = %for.body.i.i
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1141)
   %inc.i1157 = add nuw nsw i32 %i.03.i1153, 1
   %exitcond.not.i1158 = icmp eq i32 %inc.i1157, 100000
-  br i1 %exitcond.not.i1158, label %for.end.i1159, label %for.body.i.preheader.i, !llvm.loop !58
+  br i1 %exitcond.not.i1158, label %for.end.i1159, label %for.body.i.preheader.i, !llvm.loop !59
 
 for.end.i1159:                                    ; preds = %_ZNK5eastl10BitsetBaseILm24EmE5countEv.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2728,7 +2728,7 @@ for.body.i1179:                                   ; preds = %for.body.i1179, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1167)
   %inc.i1183 = add nuw nsw i32 %i.03.i1180, 1
   %exitcond.not.i1184 = icmp eq i32 %inc.i1183, 100000
-  br i1 %exitcond.not.i1184, label %for.end.i1185, label %for.body.i1179, !llvm.loop !59
+  br i1 %exitcond.not.i1184, label %for.end.i1185, label %for.body.i1179, !llvm.loop !60
 
 for.end.i1185:                                    ; preds = %for.body.i1179
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2775,7 +2775,7 @@ for.body.i1204:                                   ; preds = %for.body.i1204, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1192)
   %inc.i1207 = add nuw nsw i32 %i.03.i1205, 1
   %exitcond.not.i1208 = icmp eq i32 %inc.i1207, 100000
-  br i1 %exitcond.not.i1208, label %for.end.i1209, label %for.body.i1204, !llvm.loop !60
+  br i1 %exitcond.not.i1208, label %for.end.i1209, label %for.body.i1204, !llvm.loop !61
 
 for.end.i1209:                                    ; preds = %for.body.i1204
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2836,7 +2836,7 @@ for.body.i1229:                                   ; preds = %for.body.i1229, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1217)
   %inc.i1233 = add nuw nsw i32 %i.03.i1230, 1
   %exitcond.not.i1234 = icmp eq i32 %inc.i1233, 100000
-  br i1 %exitcond.not.i1234, label %for.end.i1235, label %for.body.i1229, !llvm.loop !61
+  br i1 %exitcond.not.i1234, label %for.end.i1235, label %for.body.i1229, !llvm.loop !62
 
 for.end.i1235:                                    ; preds = %for.body.i1229
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2883,7 +2883,7 @@ for.body.i1254:                                   ; preds = %for.body.i1254, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1242)
   %inc.i1257 = add nuw nsw i32 %i.03.i1255, 1
   %exitcond.not.i1258 = icmp eq i32 %inc.i1257, 100000
-  br i1 %exitcond.not.i1258, label %for.end.i1259, label %for.body.i1254, !llvm.loop !62
+  br i1 %exitcond.not.i1258, label %for.end.i1259, label %for.body.i1254, !llvm.loop !63
 
 for.end.i1259:                                    ; preds = %for.body.i1254
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -2947,7 +2947,7 @@ for.body12.i.i.preheader.i:                       ; preds = %for.body12.i.i.preh
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1267)
   %inc.i1282 = add nuw nsw i32 %i.03.i1279, 1
   %exitcond.not.i1283 = icmp eq i32 %inc.i1282, 100000
-  br i1 %exitcond.not.i1283, label %for.end.i1284, label %for.body12.i.i.preheader.i, !llvm.loop !63
+  br i1 %exitcond.not.i1283, label %for.end.i1284, label %for.body12.i.i.preheader.i, !llvm.loop !64
 
 for.end.i1284:                                    ; preds = %for.body12.i.i.preheader.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -2997,7 +2997,7 @@ for.body.i1304:                                   ; preds = %for.body.i1304, %_Z
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1291)
   %inc.i1307 = add nuw nsw i32 %i.03.i1305, 1
   %exitcond.not.i1308 = icmp eq i32 %inc.i1307, 100000
-  br i1 %exitcond.not.i1308, label %for.end.i1309, label %for.body.i1304, !llvm.loop !64
+  br i1 %exitcond.not.i1308, label %for.end.i1309, label %for.body.i1304, !llvm.loop !65
 
 for.end.i1309:                                    ; preds = %for.body.i1304
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -3064,7 +3064,7 @@ for.body12.i.i.i:                                 ; preds = %for.body12.i.i.i, %
   %or.i.i.i1332 = call i64 @llvm.fshl.i64(i64 %325, i64 %324, i64 63)
   store i64 %or.i.i.i1332, ptr %arrayidx15.i.i.i, align 8
   %exitcond.not.i.i.i1333 = icmp eq i64 %add18.reass.i.i.i, 23
-  br i1 %exitcond.not.i.i.i1333, label %_ZNSt6bitsetILm1500EErSEm.exit.i, label %for.body12.i.i.i, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i1333, label %_ZNSt6bitsetILm1500EErSEm.exit.i, label %for.body12.i.i.i, !llvm.loop !66
 
 _ZNSt6bitsetILm1500EErSEm.exit.i:                 ; preds = %for.body12.i.i.i
   %326 = load i64, ptr %arrayidx.i.i.i.i156, align 8
@@ -3074,7 +3074,7 @@ _ZNSt6bitsetILm1500EErSEm.exit.i:                 ; preds = %for.body12.i.i.i
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1317)
   %inc.i1336 = add nuw nsw i32 %i.03.i1331, 1
   %exitcond.not.i1337 = icmp eq i32 %inc.i1336, 100000
-  br i1 %exitcond.not.i1337, label %for.end.i1338, label %for.body12.i.i.preheader.i1330, !llvm.loop !66
+  br i1 %exitcond.not.i1337, label %for.end.i1338, label %for.body12.i.i.preheader.i1330, !llvm.loop !67
 
 for.end.i1338:                                    ; preds = %_ZNSt6bitsetILm1500EErSEm.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
@@ -3128,7 +3128,7 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %or.i.i.i1360 = call i64 @llvm.fshl.i64(i64 %332, i64 %331, i64 63)
   store i64 %or.i.i.i1360, ptr %arrayidx12.i.i.i, align 8
   %exitcond17.not.i.i.i = icmp eq i64 %add15.i.i.i, 23
-  br i1 %exitcond17.not.i.i.i, label %_ZN5eastl6bitsetILm1500EmErSEm.exit.i, label %for.body10.i.i.i, !llvm.loop !67
+  br i1 %exitcond17.not.i.i.i, label %_ZN5eastl6bitsetILm1500EmErSEm.exit.i, label %for.body10.i.i.i, !llvm.loop !68
 
 _ZN5eastl6bitsetILm1500EmErSEm.exit.i:            ; preds = %for.body10.i.i.i
   %333 = load i64, ptr %arrayidx.i.i179, align 8
@@ -3137,7 +3137,7 @@ _ZN5eastl6bitsetILm1500EmErSEm.exit.i:            ; preds = %for.body10.i.i.i
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1345)
   %inc.i1361 = add nuw nsw i32 %i.03.i1358, 1
   %exitcond.not.i1362 = icmp eq i32 %inc.i1361, 100000
-  br i1 %exitcond.not.i1362, label %for.end.i1363, label %for.body.i1357, !llvm.loop !68
+  br i1 %exitcond.not.i1362, label %for.end.i1363, label %for.body.i1357, !llvm.loop !69
 
 for.end.i1363:                                    ; preds = %_ZN5eastl6bitsetILm1500EmErSEm.exit.i
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
@@ -3155,7 +3155,7 @@ for.inc.thread:                                   ; preds = %for.end.i1363
   br label %for.end
 
 for.inc:                                          ; preds = %for.end.i1363
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !69
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !70
 
 for.end:                                          ; preds = %for.inc, %for.inc.thread
   ret void
@@ -3214,68 +3214,69 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
-!58 = distinct !{!58, !6}
-!59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}
-!62 = distinct !{!62, !6}
-!63 = distinct !{!63, !6}
-!64 = distinct !{!64, !6}
-!65 = distinct !{!65, !6}
-!66 = distinct !{!66, !6}
-!67 = distinct !{!67, !6}
-!68 = distinct !{!68, !6}
-!69 = distinct !{!69, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}
+!38 = distinct !{!38, !6, !7}
+!39 = distinct !{!39, !6, !7}
+!40 = distinct !{!40, !6, !7}
+!41 = distinct !{!41, !6, !7}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}
+!44 = distinct !{!44, !6, !7}
+!45 = distinct !{!45, !6, !7}
+!46 = distinct !{!46, !6, !7}
+!47 = distinct !{!47, !6, !7}
+!48 = distinct !{!48, !6, !7}
+!49 = distinct !{!49, !6, !7}
+!50 = distinct !{!50, !6, !7}
+!51 = distinct !{!51, !6, !7}
+!52 = distinct !{!52, !6, !7}
+!53 = distinct !{!53, !6, !7}
+!54 = distinct !{!54, !6, !7}
+!55 = distinct !{!55, !6, !7}
+!56 = distinct !{!56, !6, !7}
+!57 = distinct !{!57, !6, !7}
+!58 = distinct !{!58, !6, !7}
+!59 = distinct !{!59, !6, !7}
+!60 = distinct !{!60, !6, !7}
+!61 = distinct !{!61, !6, !7}
+!62 = distinct !{!62, !6, !7}
+!63 = distinct !{!63, !6, !7}
+!64 = distinct !{!64, !6, !7}
+!65 = distinct !{!65, !6, !7}
+!66 = distinct !{!66, !6, !7}
+!67 = distinct !{!67, !6, !7}
+!68 = distinct !{!68, !6, !7}
+!69 = distinct !{!69, !6, !7}
+!70 = distinct !{!70, !6, !7}

@@ -465,7 +465,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode3cmpERK4Node(ptr noundef nonnull 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %28, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %18, label %.loopexit, !llvm.loop !8
+  br i1 %or.cond.not, label %18, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %18, %.preheader, %7, %2
   %.011 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %.preheader ], [ %28, %18 ]
@@ -497,7 +497,7 @@ define hidden void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull ali
   %13 = load i32, ptr %6, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %._crit_edge, !llvm.loop !9
+  br i1 %15, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 54
@@ -537,7 +537,7 @@ define hidden void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull ali
 36:                                               ; preds = %21, %27
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge20, label %21, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge20, label %21, !llvm.loop !11
 
 ._crit_edge20:                                    ; preds = %36, %._crit_edge
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -620,7 +620,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8MachNode10in
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #13
   %39 = add i32 %38, %29
   %.not = icmp ult i32 %1, %39
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.018.lcssa = phi i32 [ %6, %19 ], [ %29, %.lr.ph ]
@@ -694,7 +694,7 @@ define hidden noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef n
   %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %7
-  br i1 %22, label %23, label %17, !llvm.loop !12
+  br i1 %22, label %23, label %17, !llvm.loop !13
 
 23:                                               ; preds = %19
   %24 = trunc nsw i64 %indvars.iv.next to i32
@@ -734,7 +734,7 @@ define hidden noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef n
   %47 = add i32 %46, %.01113.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
-  br i1 %exitcond.not.i, label %_ZNK8MachNode13operand_indexEj.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZNK8MachNode13operand_indexEj.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK8MachNode13operand_indexEj.exit:              ; preds = %.lr.ph.i, %23, %.thread, %35
   %.0.i = phi i32 [ -1, %23 ], [ -1, %.thread ], [ %39, %35 ], [ %47, %.lr.ph.i ]
@@ -820,7 +820,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEj(ptr noundef nonnull al
   %27 = add i32 %26, %.01113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %4, %2
   %.0 = phi i32 [ -1, %2 ], [ -1, %4 ], [ %19, %15 ], [ %27, %.lr.ph ]
@@ -1157,7 +1157,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef 
   %21 = load i16, ptr %8, align 2
   %22 = zext i16 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %2
   %.012.lcssa = phi i32 [ %6, %2 ], [ %20, %15 ], [ %.01214, %.lr.ph ]
@@ -1207,7 +1207,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEP4Node(ptr noundef nonnu
 21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !16
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
@@ -1225,7 +1225,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEP4Node(ptr noundef nonnu
   %30 = load i16, ptr %7, align 2
   %31 = zext i16 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next28, %31
-  br i1 %32, label %12, label %.loopexit, !llvm.loop !16
+  br i1 %32, label %12, label %.loopexit, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %22
   %33 = trunc nuw nsw i64 %indvars.iv27 to i32
@@ -1367,7 +1367,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode13rematerializeEv(ptr noundef non
   %77 = or i64 %76, %.057.i
   %78 = add i32 %.08.i, 1
   %.not.i = icmp ugt i32 %78, %73
-  br i1 %.not.i, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZNK7RegMask11is_NotEmptyEv.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   %.not12 = icmp eq i64 %77, 0
@@ -1676,7 +1676,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK17MachSafePoi
   %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #13
   %63 = add i32 %62, %53
   %.not.i = icmp ugt i32 %63, 5
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
   %.018.lcssa.i = phi i32 [ %30, %43 ], [ %53, %.lr.ph.i ]
@@ -2300,15 +2300,16 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

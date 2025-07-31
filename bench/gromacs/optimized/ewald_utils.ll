@@ -30,7 +30,7 @@ define noundef float @_Z17calc_ewaldcoeff_qff(float noundef %0, float noundef %1
   %.019. = select i1 %12, float %.01925, float %9
   %13 = add nuw i32 %.126, 1
   %exitcond.not = icmp eq i32 %13, %indvars.iv
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !11
 
 14:                                               ; preds = %.preheader
   ret float %9
@@ -62,7 +62,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %17 = fptrunc double %16 to float
   %18 = fcmp olt float %1, %17
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %18, label %3, label %.preheader, !llvm.loop !11
+  br i1 %18, label %3, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %3, %.preheader
   %.126 = phi i32 [ %35, %.preheader ], [ 0, %3 ]
@@ -88,7 +88,7 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %.019. = select i1 %34, float %.01925, float %20
   %35 = add nuw nsw i32 %.126, 1
   %exitcond.not = icmp eq i32 %35, %indvars.iv
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !13
 
 36:                                               ; preds = %.preheader
   ret float %20
@@ -113,8 +113,9 @@ attributes #4 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

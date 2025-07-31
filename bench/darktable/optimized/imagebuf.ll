@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
 
 46:                                               ; preds = %43
   store ptr null, ptr %34, align 8, !tbaa !13
-  br label %7
+  br label %7, !llvm.loop !15
 
 47:                                               ; preds = %43
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -168,7 +168,7 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
 
 91:                                               ; preds = %88, %83
   %92 = phi ptr [ %86, %83 ], [ %89, %88 ]
-  %93 = load ptr, ptr %92, align 8, !tbaa !15
+  %93 = load ptr, ptr %92, align 8, !tbaa !17
   br label %94
 
 94:                                               ; preds = %75, %91
@@ -200,58 +200,58 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   ]
 
 103:                                              ; preds = %98
-  %104 = load i32, ptr %50, align 4, !tbaa !17
+  %104 = load i32, ptr %50, align 4, !tbaa !19
   %105 = sext i32 %104 to i64
   %106 = mul nsw i64 %105, %100
-  %107 = load i32, ptr %51, align 4, !tbaa !20
+  %107 = load i32, ptr %51, align 4, !tbaa !22
   %108 = sext i32 %107 to i64
   %109 = mul i64 %106, %108
   br label %143
 
 110:                                              ; preds = %98
-  %111 = load i32, ptr %51, align 4, !tbaa !20
+  %111 = load i32, ptr %51, align 4, !tbaa !22
   %112 = sext i32 %111 to i64
   %113 = mul nsw i64 %112, %100
   br label %143
 
 114:                                              ; preds = %98
-  %115 = load i32, ptr %50, align 4, !tbaa !17
+  %115 = load i32, ptr %50, align 4, !tbaa !19
   %116 = sext i32 %115 to i64
   %117 = mul nsw i64 %116, %100
   br label %143
 
 118:                                              ; preds = %98
-  %119 = load i32, ptr %50, align 4, !tbaa !17
-  %120 = load i32, ptr %51, align 4, !tbaa !20
+  %119 = load i32, ptr %50, align 4, !tbaa !19
+  %120 = load i32, ptr %51, align 4, !tbaa !22
   %. = call i32 @llvm.smax.i32(i32 %119, i32 %120)
   %121 = sext i32 %. to i64
   %122 = mul nsw i64 %121, %100
   br label %143
 
 123:                                              ; preds = %98
-  %124 = load i32, ptr %48, align 4, !tbaa !17
+  %124 = load i32, ptr %48, align 4, !tbaa !19
   %125 = sext i32 %124 to i64
   %126 = mul nsw i64 %125, %100
-  %127 = load i32, ptr %49, align 4, !tbaa !20
+  %127 = load i32, ptr %49, align 4, !tbaa !22
   %128 = sext i32 %127 to i64
   %129 = mul i64 %126, %128
   br label %143
 
 130:                                              ; preds = %98
-  %131 = load i32, ptr %49, align 4, !tbaa !20
+  %131 = load i32, ptr %49, align 4, !tbaa !22
   %132 = sext i32 %131 to i64
   %133 = mul nsw i64 %132, %100
   br label %143
 
 134:                                              ; preds = %98
-  %135 = load i32, ptr %48, align 4, !tbaa !17
+  %135 = load i32, ptr %48, align 4, !tbaa !19
   %136 = sext i32 %135 to i64
   %137 = mul nsw i64 %136, %100
   br label %143
 
 138:                                              ; preds = %98
-  %139 = load i32, ptr %48, align 4, !tbaa !17
-  %140 = load i32, ptr %49, align 4, !tbaa !20
+  %139 = load i32, ptr %48, align 4, !tbaa !19
+  %140 = load i32, ptr %49, align 4, !tbaa !22
   %.107 = call i32 @llvm.smax.i32(i32 %139, i32 %140)
   %141 = sext i32 %.107 to i64
   %142 = mul nsw i64 %141, %100
@@ -266,7 +266,7 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   %146 = add i64 %144, 63
   %147 = and i64 %146, -64
   %148 = lshr exact i64 %147, 2
-  store i64 %148, ptr %95, align 8, !tbaa !21
+  store i64 %148, ptr %95, align 8, !tbaa !23
   %149 = call ptr @dt_alloc_aligned(i64 noundef %147) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %149, i64 64) ]
   store ptr %149, ptr %79, align 8, !tbaa !13
@@ -277,7 +277,7 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   br i1 %or.cond108, label %158, label %151
 
 151:                                              ; preds = %145
-  %152 = load i64, ptr %95, align 8, !tbaa !21
+  %152 = load i64, ptr %95, align 8, !tbaa !23
   %153 = shl i64 %152, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %149, i8 0, i64 %153, i1 false)
   br label %thread-pre-split
@@ -303,7 +303,7 @@ thread-pre-split:                                 ; preds = %151, %157
 158:                                              ; preds = %thread-pre-split, %154, %145
   %159 = phi ptr [ %.pr137, %thread-pre-split ], [ %155, %154 ], [ %149, %145 ]
   %.not101 = icmp eq ptr %159, null
-  br i1 %.not101, label %160, label %52
+  br i1 %.not101, label %160, label %52, !llvm.loop !25
 
 160:                                              ; preds = %158
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -390,7 +390,7 @@ thread-pre-split:                                 ; preds = %151, %157
 203:                                              ; preds = %201
   call void @free(ptr noundef nonnull %202) #14
   store ptr null, ptr %189, align 8, !tbaa !13
-  br label %162
+  br label %162, !llvm.loop !26
 
 204:                                              ; preds = %201, %198
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -445,17 +445,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(none) %3, ptr noalias noundef readonly captures(none) %4) local_unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i32, ptr %8, align 4, !tbaa !17
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !20
+  %13 = load i32, ptr %12, align 4, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !20
+  %15 = load i32, ptr %14, align 4, !tbaa !22
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %23
 
@@ -465,17 +465,17 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   %20 = shl i64 %2, 2
   %21 = mul i64 %20, %18
   %22 = mul i64 %21, %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr readonly align 4 %1, i64 %22, i1 false), !alias.scope !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr readonly align 4 %1, i64 %22, i1 false), !alias.scope !27
   br label %.loopexit
 
 23:                                               ; preds = %11, %5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !30
+  %25 = load i32, ptr %24, align 4, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !30
+  %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = sub i32 %25, %27
-  %29 = load i32, ptr %4, align 4, !tbaa !31
-  %30 = load i32, ptr %3, align 4, !tbaa !31
+  %29 = load i32, ptr %4, align 4, !tbaa !35
+  %30 = load i32, ptr %3, align 4, !tbaa !35
   %31 = sub nsw i32 %29, %30
   %32 = sub nsw i32 %7, %31
   %.not = icmp slt i32 %32, %9
@@ -483,15 +483,15 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
 
 ._crit_edge:                                      ; preds = %23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !20
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !22
   br label %57
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !20
+  %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = sub nsw i32 %35, %28
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !20
+  %38 = load i32, ptr %37, align 4, !tbaa !22
   %.not81 = icmp slt i32 %36, %38
   br i1 %.not81, label %57, label %39
 
@@ -522,7 +522,7 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %55, i64 %42, i1 false)
   %56 = add nuw i64 %.07183, 1
   %exitcond.not = icmp eq i64 %56, %43
-  br i1 %exitcond.not, label %.loopexit, label %48
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !36
 
 57:                                               ; preds = %._crit_edge, %33
   %58 = phi i32 [ %.pre, %._crit_edge ], [ %38, %33 ]
@@ -555,7 +555,7 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
 ._crit_edge88.us:                                 ; preds = %._crit_edge.us.us, %.preheader.us
   %71 = add nuw nsw i32 %.07293.us, 1
   %exitcond112.not = icmp eq i32 %71, %58
-  br i1 %exitcond112.not, label %.loopexit, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond112.not, label %.loopexit, label %.preheader.us, !llvm.loop !37
 
 .lr.ph87.split.us.us:                             ; preds = %.preheader.us, %._crit_edge.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us ], [ 0, %.preheader.us ]
@@ -572,7 +572,7 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
 
 .lr.ph85.us.us:                                   ; preds = %.lr.ph87.split.us.us
   %78 = add nsw i32 %31, %indvars110
-  %79 = load i32, ptr %61, align 4, !tbaa !20
+  %79 = load i32, ptr %61, align 4, !tbaa !22
   %80 = icmp slt i32 %69, %79
   %81 = icmp sgt i32 %78, -1
   %82 = icmp slt i32 %78, %7
@@ -581,17 +581,17 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   br i1 %spec.select.us.us, label %.lr.ph85.split.us.us.us.preheader, label %.lr.ph85.split.us91.us.preheader
 
 .lr.ph85.split.us91.us.preheader:                 ; preds = %.lr.ph87.split.us.us, %.lr.ph85.us.us
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep107, i8 0, i64 %62, i1 false), !tbaa !34
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep107, i8 0, i64 %62, i1 false), !tbaa !39
   br label %._crit_edge.us.us
 
 .lr.ph85.split.us.us.us.preheader:                ; preds = %.lr.ph85.us.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep107, ptr align 4 %scevgep108, i64 %62, i1 false), !tbaa !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep107, ptr align 4 %scevgep108, i64 %62, i1 false), !tbaa !39
   br label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph85.split.us91.us.preheader, %.lr.ph85.split.us.us.us.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond111.not, label %._crit_edge88.us, label %.lr.ph87.split.us.us, !llvm.loop !35
+  br i1 %exitcond111.not, label %._crit_edge88.us, label %.lr.ph87.split.us.us, !llvm.loop !40
 
 .loopexit:                                        ; preds = %48, %._crit_edge88.us, %.preheader.lr.ph, %39, %57, %17
   ret void
@@ -610,13 +610,13 @@ define void @dt_iop_image_scaled_copy(ptr noalias noundef writeonly captures(non
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.010 = phi i64 [ %13, %.lr.ph ], [ 0, %6 ]
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %.010
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !39
   %11 = fmul reassoc nsz arcp contract afn float %10, %2
   %12 = getelementptr inbounds nuw float, ptr %0, i64 %.010
-  store float %11, ptr %12, align 4, !tbaa !34
+  store float %11, ptr %12, align 4, !tbaa !39
   %13 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %13, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -638,10 +638,10 @@ define void @dt_iop_image_fill(ptr noundef writeonly captures(none) %0, float no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.012 = phi i64 [ %12, %.lr.ph ], [ 0, %.preheader ]
   %11 = getelementptr inbounds nuw float, ptr %0, i64 %.012
-  store float %1, ptr %11, align 4, !tbaa !34
+  store float %1, ptr %11, align 4, !tbaa !39
   %12 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %12, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   ret void
@@ -660,12 +660,12 @@ define void @dt_iop_image_add_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !39
   %10 = fadd reassoc nsz arcp contract afn float %9, %1
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !39
   %11 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -681,14 +681,14 @@ define void @dt_iop_image_add_image(ptr noundef captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
-  %11 = load float, ptr %10, align 4, !tbaa !34
+  %11 = load float, ptr %10, align 4, !tbaa !39
   %12 = fadd reassoc nsz arcp contract afn float %11, %9
-  store float %12, ptr %10, align 4, !tbaa !34
+  store float %12, ptr %10, align 4, !tbaa !39
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -704,14 +704,14 @@ define void @dt_iop_image_sub_image(ptr noundef captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
-  %11 = load float, ptr %10, align 4, !tbaa !34
+  %11 = load float, ptr %10, align 4, !tbaa !39
   %12 = fsub reassoc nsz arcp contract afn float %11, %9
-  store float %12, ptr %10, align 4, !tbaa !34
+  store float %12, ptr %10, align 4, !tbaa !39
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -727,12 +727,12 @@ define void @dt_iop_image_invert(ptr noundef captures(none) %0, float noundef %1
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.010
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !39
   %10 = fsub reassoc nsz arcp contract afn float %1, %9
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !39
   %11 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -748,12 +748,12 @@ define void @dt_iop_image_mul_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !39
   %10 = fmul reassoc nsz arcp contract afn float %9, %1
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !39
   %11 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -773,12 +773,12 @@ define void @dt_iop_image_div_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !39
   %11 = fmul reassoc nsz arcp contract afn float %10, %8
-  store float %11, ptr %9, align 4, !tbaa !34
+  store float %11, ptr %9, align 4, !tbaa !39
   %12 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %12, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -794,16 +794,16 @@ define void @dt_iop_image_linear_blend(ptr noalias noundef captures(none) %0, fl
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.014 = phi i64 [ %16, %.lr.ph ], [ 0, %6 ]
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.014
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw float, ptr %2, i64 %.014
-  %12 = load float, ptr %11, align 4, !tbaa !34
+  %12 = load float, ptr %11, align 4, !tbaa !39
   %13 = fsub reassoc nsz arcp contract afn float %10, %12
   %14 = fmul reassoc nsz arcp contract afn float %13, %1
   %15 = fadd reassoc nsz arcp contract afn float %14, %12
-  store float %15, ptr %9, align 4, !tbaa !34
+  store float %15, ptr %9, align 4, !tbaa !39
   %16 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %16, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -861,24 +861,38 @@ attributes #14 = { nounwind }
 !12 = !{!"any pointer", !8, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 float", !12, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 long", !12, i64 0}
-!17 = !{!18, !7, i64 8}
-!18 = !{!"dt_iop_roi_t", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !19, i64 16}
-!19 = !{!"float", !8, i64 0}
-!20 = !{!18, !7, i64 12}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !8, i64 0}
-!23 = !{!24, !26, !27, !29}
-!24 = distinct !{!24, !25, !"dt_iop_image_copy: argument 0"}
-!25 = distinct !{!25, !"dt_iop_image_copy"}
-!26 = distinct !{!26, !25, !"dt_iop_image_copy: argument 1"}
-!27 = distinct !{!27, !28, !"dt_iop_image_copy_by_size: argument 0"}
-!28 = distinct !{!28, !"dt_iop_image_copy_by_size"}
-!29 = distinct !{!29, !28, !"dt_iop_image_copy_by_size: argument 1"}
-!30 = !{!18, !7, i64 4}
-!31 = !{!18, !7, i64 0}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = !{!19, !19, i64 0}
-!35 = distinct !{!35, !33}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 long", !12, i64 0}
+!19 = !{!20, !7, i64 8}
+!20 = !{!"dt_iop_roi_t", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !21, i64 16}
+!21 = !{!"float", !8, i64 0}
+!22 = !{!20, !7, i64 12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !8, i64 0}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}
+!27 = !{!28, !30, !31, !33}
+!28 = distinct !{!28, !29, !"dt_iop_image_copy: argument 0"}
+!29 = distinct !{!29, !"dt_iop_image_copy"}
+!30 = distinct !{!30, !29, !"dt_iop_image_copy: argument 1"}
+!31 = distinct !{!31, !32, !"dt_iop_image_copy_by_size: argument 0"}
+!32 = distinct !{!32, !"dt_iop_image_copy_by_size"}
+!33 = distinct !{!33, !32, !"dt_iop_image_copy_by_size: argument 1"}
+!34 = !{!20, !7, i64 4}
+!35 = !{!20, !7, i64 0}
+!36 = distinct !{!36, !16}
+!37 = distinct !{!37, !16, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = !{!21, !21, i64 0}
+!40 = distinct !{!40, !16, !38}
+!41 = distinct !{!41, !16}
+!42 = distinct !{!42, !16}
+!43 = distinct !{!43, !16}
+!44 = distinct !{!44, !16}
+!45 = distinct !{!45, !16}
+!46 = distinct !{!46, !16}
+!47 = distinct !{!47, !16}
+!48 = distinct !{!48, !16}
+!49 = distinct !{!49, !16}

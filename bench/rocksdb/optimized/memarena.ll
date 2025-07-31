@@ -94,7 +94,7 @@ define noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !21
   %10 = add i64 %9, %1
   %11 = icmp ult i64 %7, %10
   br i1 %11, label %12, label %40
@@ -111,20 +111,20 @@ define noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 
   store ptr %20, ptr %15, align 8, !tbaa !4
   %21 = sext i32 %14 to i64
   %22 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %20, i64 %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !22
   store i32 %17, ptr %13, align 8, !tbaa !14
   %23 = load i64, ptr %6, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !24
+  %25 = load i64, ptr %24, align 8, !tbaa !25
   %26 = add i64 %25, %23
-  store i64 %26, ptr %24, align 8, !tbaa !24
+  store i64 %26, ptr %24, align 8, !tbaa !25
   %27 = load ptr, ptr %0, align 8, !tbaa !16
-  %28 = load i64, ptr %8, align 8, !tbaa !20
+  %28 = load i64, ptr %8, align 8, !tbaa !21
   %29 = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %27, i64 noundef %28)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load i64, ptr %30, align 8, !tbaa !25
+  %31 = load i64, ptr %30, align 8, !tbaa !26
   %32 = add i64 %31, %29
-  store i64 %32, ptr %30, align 8, !tbaa !25
+  store i64 %32, ptr %30, align 8, !tbaa !26
   br label %.thread
 
 .thread:                                          ; preds = %2, %12
@@ -147,7 +147,7 @@ define noundef ptr @_ZN8memarena17malloc_from_arenaEm(ptr noundef nonnull align 
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   %45 = add i64 %41, %1
-  store i64 %45, ptr %43, align 8, !tbaa !20
+  store i64 %45, ptr %43, align 8, !tbaa !21
   ret ptr %44
 }
 
@@ -170,25 +170,25 @@ define void @_ZN8memarena11move_memoryEPS_(ptr noundef nonnull align 8 captures(
   %13 = tail call noundef ptr @_Z13toku_xreallocPvm(ptr noundef %4, i64 noundef %12)
   store ptr %13, ptr %3, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !24
+  %15 = load i64, ptr %14, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = add i64 %17, %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !24
+  %20 = load i64, ptr %19, align 8, !tbaa !25
   %21 = add i64 %18, %20
-  store i64 %21, ptr %19, align 8, !tbaa !24
+  store i64 %21, ptr %19, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load i64, ptr %22, align 8, !tbaa !25
+  %23 = load i64, ptr %22, align 8, !tbaa !26
   %24 = load ptr, ptr %0, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !20
+  %26 = load i64, ptr %25, align 8, !tbaa !21
   %27 = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %24, i64 noundef %26)
   %28 = add i64 %27, %23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %30 = load i64, ptr %29, align 8, !tbaa !25
+  %30 = load i64, ptr %29, align 8, !tbaa !26
   %31 = add i64 %28, %30
-  store i64 %31, ptr %29, align 8, !tbaa !25
+  store i64 %31, ptr %29, align 8, !tbaa !26
   %32 = load i32, ptr %7, align 8, !tbaa !14
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
@@ -204,7 +204,7 @@ define void @_ZN8memarena11move_memoryEPS_(ptr noundef nonnull align 8 captures(
   store i32 %37, ptr %5, align 8, !tbaa !14
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %35, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   tail call void @_Z9toku_freePv(ptr noundef %41)
@@ -224,20 +224,20 @@ define void @_ZN8memarena11move_memoryEPS_(ptr noundef nonnull align 8 captures(
   store i32 %47, ptr %5, align 8, !tbaa !14
   %48 = sext i32 %46 to i64
   %49 = getelementptr inbounds %"struct.memarena::arena_chunk", ptr %45, i64 %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %7, align 8, !tbaa !14
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %42, label %._crit_edge, !llvm.loop !26
+  br i1 %52, label %42, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8memarena17total_memory_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !20
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = sext i32 %7 to i64
@@ -251,9 +251,9 @@ define noundef i64 @_ZNK8memarena17total_memory_sizeEv(ptr noundef nonnull reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !20
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = add i64 %5, %3
   ret i64 %6
 }
@@ -261,11 +261,11 @@ define noundef i64 @_ZNK8memarena17total_size_in_useEv(ptr noundef nonnull reado
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK8memarena15total_footprintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !25
+  %3 = load i64, ptr %2, align 8, !tbaa !26
   %4 = add i64 %3, 56
   %5 = load ptr, ptr %0, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !20
+  %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = tail call noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef %5, i64 noundef %7)
   %9 = add i64 %4, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -279,15 +279,15 @@ define noundef i64 @_ZNK8memarena15total_footprintEv(ptr noundef nonnull readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !27
+  %4 = load i32, ptr %3, align 8, !tbaa !28
   %5 = icmp slt i32 %4, 0
-  %6 = load ptr, ptr %0, align 8, !tbaa !30
+  %6 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %5, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !20
-  store i64 %9, ptr %1, align 8, !tbaa !23
+  %9 = load i64, ptr %8, align 8, !tbaa !21
+  store i64 %9, ptr %1, align 8, !tbaa !24
   %10 = load ptr, ptr %6, align 8, !tbaa !16
   br label %24
 
@@ -302,14 +302,14 @@ define noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = zext nneg i32 %4 to i64
   %19 = getelementptr inbounds nuw %"struct.memarena::arena_chunk", ptr %17, i64 %18, i32 1
-  %20 = load i64, ptr %19, align 8, !tbaa !31
-  store i64 %20, ptr %1, align 8, !tbaa !23
+  %20 = load i64, ptr %19, align 8, !tbaa !32
+  store i64 %20, ptr %1, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw %"struct.memarena::arena_chunk", ptr %17, i64 %18
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   br label %24
 
 23:                                               ; preds = %11
-  store i64 0, ptr %1, align 8, !tbaa !23
+  store i64 0, ptr %1, align 8, !tbaa !24
   br label %24
 
 24:                                               ; preds = %23, %15, %7
@@ -320,18 +320,18 @@ define noundef ptr @_ZNK8memarena14chunk_iterator7currentEPm(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8memarena14chunk_iterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !27
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !27
+  store i32 %4, ptr %2, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK8memarena14chunk_iterator4moreEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !27
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = icmp slt i32 %3, 0
-  %5 = load ptr, ptr %0, align 8, !tbaa !30
+  %5 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %4, label %6, label %9
 
 6:                                                ; preds = %1
@@ -389,17 +389,18 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !15 = !{!5, !11, i64 16}
 !16 = !{!5, !7, i64 0}
 !17 = !{!6, !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!5, !11, i64 8}
-!21 = !{i64 0, i64 8, !22, i64 8, i64 8, !23, i64 16, i64 8, !23}
-!22 = !{!7, !7, i64 0}
-!23 = !{!11, !11, i64 0}
-!24 = !{!5, !11, i64 40}
-!25 = !{!5, !11, i64 48}
-!26 = distinct !{!26, !19}
-!27 = !{!28, !13, i64 8}
-!28 = !{!"_ZTSN8memarena14chunk_iteratorE", !29, i64 0, !13, i64 8}
-!29 = !{!"p1 _ZTS8memarena", !8, i64 0}
-!30 = !{!28, !29, i64 0}
-!31 = !{!6, !11, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!5, !11, i64 8}
+!22 = !{i64 0, i64 8, !23, i64 8, i64 8, !24, i64 16, i64 8, !24}
+!23 = !{!7, !7, i64 0}
+!24 = !{!11, !11, i64 0}
+!25 = !{!5, !11, i64 40}
+!26 = !{!5, !11, i64 48}
+!27 = distinct !{!27, !19, !20}
+!28 = !{!29, !13, i64 8}
+!29 = !{!"_ZTSN8memarena14chunk_iteratorE", !30, i64 0, !13, i64 8}
+!30 = !{!"p1 _ZTS8memarena", !8, i64 0}
+!31 = !{!29, !30, i64 0}
+!32 = !{!6, !11, i64 8}

@@ -223,7 +223,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
 27:                                               ; preds = %25
   %28 = add i64 %.171, -1
   %29 = icmp ugt i64 %28, 1
-  br i1 %29, label %25, label %.critedge, !llvm.loop !6
+  br i1 %29, label %25, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %25, %27, %.preheader
   %.1.lcssa = phi i64 [ 1, %.preheader ], [ 1, %27 ], [ %.171, %25 ]
@@ -353,7 +353,7 @@ define dso_local void @SDLTest_TextWindowClear(ptr noundef captures(none) %0) lo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %._crit_edge, !llvm.loop !7
+  br i1 %17, label %6, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -398,7 +398,7 @@ define dso_local void @SDLTest_TextWindowDestroy(ptr noundef %0) local_unnamed_a
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %18, label %7, label %SDLTest_TextWindowClear.exit, !llvm.loop !7
+  br i1 %18, label %7, label %SDLTest_TextWindowClear.exit, !llvm.loop !8
 
 SDLTest_TextWindowClear.exit:                     ; preds = %15, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -436,7 +436,8 @@ attributes #10 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

@@ -173,7 +173,7 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
   %74 = getelementptr inbounds nuw i8, ptr %.04163, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !24
   %.not56 = icmp eq ptr %75, null
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 76:                                               ; preds = %53
   %77 = load ptr, ptr %0, align 8, !tbaa !8
@@ -188,7 +188,7 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
 
 84:                                               ; preds = %76
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store i32 1, ptr %85, align 1, !tbaa !25
+  store i32 1, ptr %85, align 1, !tbaa !27
   br label %.loopexit
 
 86:                                               ; preds = %76
@@ -218,7 +218,7 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
   %.1.be.in = getelementptr inbounds nuw i8, ptr %.165, i64 48
   %.1.be = load ptr, ptr %.1.be.in, align 8, !tbaa !24
   %.not54 = icmp eq ptr %.1.be, null
-  br i1 %.not54, label %.loopexit, label %.lr.ph66
+  br i1 %.not54, label %.loopexit, label %.lr.ph66, !llvm.loop !28
 
 100:                                              ; preds = %.lr.ph66
   %101 = load i32, ptr @onas_fan_fd, align 4, !tbaa !15
@@ -250,10 +250,10 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
   %117 = load ptr, ptr %116, align 1, !tbaa !17
   %118 = tail call ptr @optget(ptr noundef %117, ptr noundef nonnull @.str.17) #13
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  %120 = load i64, ptr %119, align 8, !tbaa !26
+  %120 = load i64, ptr %119, align 8, !tbaa !29
   %121 = load ptr, ptr %0, align 8, !tbaa !8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 43
-  store i64 %120, ptr %122, align 1, !tbaa !27
+  store i64 %120, ptr %122, align 1, !tbaa !30
   %.not57 = icmp eq i64 %120, 0
   br i1 %.not57, label %125, label %123
 
@@ -330,7 +330,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   %29 = tail call ptr @__errno_location() #15
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = icmp eq i32 %30, 4
-  br i1 %31, label %21, label %.critedge
+  br i1 %31, label %21, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %21, %28
   %32 = call i64 @time(ptr noundef null) #13
@@ -338,13 +338,10 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %.outer116
 
-.outer116.loopexit:                               ; preds = %192, %199
-  br label %.outer116
-
-.outer116:                                        ; preds = %.outer116.loopexit, %.critedge
-  %.072.ph = phi i32 [ 0, %.critedge ], [ %.173.ph.lcssa, %.outer116.loopexit ]
-  %.071.ph = phi i32 [ %26, %.critedge ], [ %197, %.outer116.loopexit ]
-  %.066.ph = phi i64 [ %33, %.critedge ], [ %.066.ph118, %.outer116.loopexit ]
+.outer116:                                        ; preds = %.critedge6, %.critedge
+  %.072.ph = phi i32 [ %.173.ph.lcssa, %.critedge6 ], [ 0, %.critedge ]
+  %.071.ph = phi i32 [ %197, %.critedge6 ], [ %26, %.critedge ]
+  %.066.ph = phi i64 [ %.066.ph118, %.critedge6 ], [ %33, %.critedge ]
   br label %.outer117
 
 .outer117:                                        ; preds = %.outer116, %53
@@ -396,7 +393,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 53:                                               ; preds = %47, %43
   %.167 = phi i64 [ %52, %47 ], [ %.066.ph118, %43 ]
   store i32 0, ptr %.pre, align 4, !tbaa !15
-  br label %.outer117
+  br label %.outer117, !llvm.loop !32
 
 54:                                               ; preds = %41, %.critedge2
   %55 = call ptr @strerror(i32 noundef 13) #13
@@ -406,7 +403,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 
 .backedge119:                                     ; preds = %54, %58
   store i32 0, ptr %.pre, align 4, !tbaa !15
-  br label %35
+  br label %35, !llvm.loop !32
 
 58:                                               ; preds = %41, %.critedge2
   %59 = call ptr @strerror(i32 noundef 24) #13
@@ -418,7 +415,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 63:                                               ; preds = %.lr.ph, %.backedge
   %.077164 = phi ptr [ %.077.ph169, %.lr.ph ], [ %.077.be, %.backedge ]
   %.080163 = phi i64 [ %.080.ph168, %.lr.ph ], [ %.080.be, %.backedge ]
-  %64 = load i32, ptr %.077164, align 8, !tbaa !28
+  %64 = load i32, ptr %.077164, align 8, !tbaa !33
   %65 = icmp ult i32 %64, 24
   %66 = zext i32 %64 to i64
   %.not = icmp samesign ult i64 %.080163, %66
@@ -427,7 +424,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %.077164, i64 4
-  %69 = load i8, ptr %68, align 4, !tbaa !31
+  %69 = load i8, ptr %68, align 4, !tbaa !36
   %.not96 = icmp eq i8 %69, 3
   br i1 %.not96, label %72, label %70
 
@@ -437,7 +434,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %.077164, i64 16
-  %74 = load i32, ptr %73, align 8, !tbaa !32
+  %74 = load i32, ptr %73, align 8, !tbaa !37
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %76, label %.backedge
 
@@ -450,9 +447,9 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br i1 %80, label %81, label %93
 
 81:                                               ; preds = %76
-  %82 = load i32, ptr %73, align 8, !tbaa !32
+  %82 = load i32, ptr %73, align 8, !tbaa !37
   %83 = call i32 @close(i32 noundef %82) #13
-  %84 = load i32, ptr %73, align 8, !tbaa !32
+  %84 = load i32, ptr %73, align 8, !tbaa !37
   %85 = load i32, ptr %.pre, align 4, !tbaa !15
   %86 = call ptr @strerror(i32 noundef %85) #13
   %87 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27, i32 noundef %84, ptr noundef %86) #13
@@ -465,20 +462,20 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %.backedge
 
 .backedge:                                        ; preds = %72, %181, %190, %.thread111, %90
-  %.pn.in = load i32, ptr %.077164, align 8, !tbaa !28
+  %.pn.in = load i32, ptr %.077164, align 8, !tbaa !33
   %.pn = zext i32 %.pn.in to i64
   %.077.be = getelementptr inbounds nuw i8, ptr %.077164, i64 %.pn
   %.080.be = sub nsw i64 %.080163, %.pn
   %92 = icmp sgt i64 %.080.be, 23
-  br i1 %92, label %63, label %.critedge4
+  br i1 %92, label %63, label %.critedge4, !llvm.loop !38
 
 93:                                               ; preds = %76
   %sext = shl i64 %78, 32
   %94 = ashr exact i64 %sext, 32
   %95 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 %94
-  store i8 0, ptr %95, align 1, !tbaa !33
+  store i8 0, ptr %95, align 1, !tbaa !39
   %96 = getelementptr inbounds nuw i8, ptr %.077164, i64 20
-  %97 = load i32, ptr %96, align 4, !tbaa !34
+  %97 = load i32, ptr %96, align 4, !tbaa !40
   %98 = load ptr, ptr %0, align 8, !tbaa !8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 1, !tbaa !17
@@ -495,59 +492,59 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 104:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   %105 = call noalias dereferenceable_or_null(66) ptr @calloc(i64 noundef 1, i64 noundef 66) #16
-  store ptr %105, ptr %6, align 8, !tbaa !35
+  store ptr %105, ptr %6, align 8, !tbaa !41
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %104
-  %108 = load i32, ptr %73, align 8, !tbaa !32
+  %108 = load i32, ptr %73, align 8, !tbaa !37
   %109 = call i32 @close(i32 noundef %108) #13
   br label %.thread.sink.split
 
 110:                                              ; preds = %104
   %111 = load ptr, ptr %0, align 8, !tbaa !8
   %112 = call i32 @onas_map_context_info_to_event_data(ptr noundef %111, ptr noundef nonnull %6) #13
-  %113 = load ptr, ptr %6, align 8, !tbaa !35
+  %113 = load ptr, ptr %6, align 8, !tbaa !41
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 65
-  %115 = load i8, ptr %114, align 1, !tbaa !37
+  %115 = load i8, ptr %114, align 1, !tbaa !43
   %116 = or i8 %115, 24
-  store i8 %116, ptr %114, align 1, !tbaa !37
+  store i8 %116, ptr %114, align 1, !tbaa !43
   %117 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 28
-  store ptr %117, ptr %118, align 1, !tbaa !40
+  store ptr %117, ptr %118, align 1, !tbaa !46
   %119 = icmp eq ptr %117, null
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %110
-  %121 = load i32, ptr %73, align 8, !tbaa !32
+  %121 = load i32, ptr %73, align 8, !tbaa !37
   %122 = call i32 @close(i32 noundef %121) #13
-  %123 = load ptr, ptr %6, align 8, !tbaa !35
+  %123 = load ptr, ptr %6, align 8, !tbaa !41
   call void @free(ptr noundef %123) #13
   br label %.thread.sink.split
 
 124:                                              ; preds = %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %.077164, i64 24, i1 false)
   %125 = call ptr @cli_safer_strdup(ptr noundef nonnull %5) #13
-  %126 = load ptr, ptr %6, align 8, !tbaa !35
+  %126 = load ptr, ptr %6, align 8, !tbaa !41
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %125, ptr %127, align 1, !tbaa !41
+  store ptr %125, ptr %127, align 1, !tbaa !47
   %128 = icmp eq ptr %125, null
   br i1 %128, label %129, label %136
 
 129:                                              ; preds = %124
-  %130 = load i32, ptr %73, align 8, !tbaa !32
+  %130 = load i32, ptr %73, align 8, !tbaa !37
   %131 = call i32 @close(i32 noundef %130) #13
-  %132 = load ptr, ptr %6, align 8, !tbaa !35
+  %132 = load ptr, ptr %6, align 8, !tbaa !41
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 28
-  %134 = load ptr, ptr %133, align 1, !tbaa !40
+  %134 = load ptr, ptr %133, align 1, !tbaa !46
   call void @free(ptr noundef %134) #13
-  %135 = load ptr, ptr %6, align 8, !tbaa !35
+  %135 = load ptr, ptr %6, align 8, !tbaa !41
   call void @free(ptr noundef %135) #13
   br label %.thread.sink.split
 
 136:                                              ; preds = %124
   %137 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.33) #13
-  %138 = load ptr, ptr %6, align 8, !tbaa !35
+  %138 = load ptr, ptr %6, align 8, !tbaa !41
   %139 = call i32 @onas_queue_event(ptr noundef %138) #13
   %.not102 = icmp eq i32 %139, 0
   br i1 %.not102, label %.thread111, label %140
@@ -557,29 +554,29 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %.backedge
 
 140:                                              ; preds = %136
-  %141 = load i32, ptr %73, align 8, !tbaa !32
+  %141 = load i32, ptr %73, align 8, !tbaa !37
   %142 = call i32 @close(i32 noundef %141) #13
-  %143 = load ptr, ptr %6, align 8, !tbaa !35
+  %143 = load ptr, ptr %6, align 8, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load ptr, ptr %144, align 1, !tbaa !41
+  %145 = load ptr, ptr %144, align 1, !tbaa !47
   call void @free(ptr noundef %145) #13
-  %146 = load ptr, ptr %6, align 8, !tbaa !35
+  %146 = load ptr, ptr %6, align 8, !tbaa !41
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 28
-  %148 = load ptr, ptr %147, align 1, !tbaa !40
+  %148 = load ptr, ptr %147, align 1, !tbaa !46
   call void @free(ptr noundef %148) #13
-  %149 = load ptr, ptr %6, align 8, !tbaa !35
+  %149 = load ptr, ptr %6, align 8, !tbaa !41
   call void @free(ptr noundef %149) #13
   %150 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.34) #13
   %151 = load ptr, ptr %0, align 8, !tbaa !8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %153 = load i8, ptr %152, align 1, !tbaa !42
+  %153 = load i8, ptr %152, align 1, !tbaa !48
   %.not103 = icmp eq i8 %153, 0
   br i1 %.not103, label %.thread, label %154
 
 154:                                              ; preds = %140
   %155 = add nsw i32 %.173.ph170, 1
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 41
-  %157 = load i8, ptr %156, align 1, !tbaa !43
+  %157 = load i8, ptr %156, align 1, !tbaa !49
   %158 = zext i8 %157 to i32
   %159 = icmp slt i32 %155, %158
   br i1 %159, label %.outer, label %.thread
@@ -595,7 +592,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 
 .outer:                                           ; preds = %154
   %161 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.35) #13
-  %162 = load i32, ptr %.077164, align 8, !tbaa !28
+  %162 = load i32, ptr %.077164, align 8, !tbaa !33
   %163 = zext i32 %162 to i64
   %164 = sub nsw i64 %.080163, %163
   %165 = getelementptr inbounds nuw i8, ptr %.077164, i64 %163
@@ -611,16 +608,16 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
 
 167:                                              ; preds = %102, %93
   %168 = getelementptr inbounds nuw i8, ptr %.077164, i64 8
-  %169 = load i64, ptr %168, align 8, !tbaa !44
+  %169 = load i64, ptr %168, align 8, !tbaa !50
   %170 = and i64 %169, 196608
   %.not100 = icmp eq i64 %170, 0
   br i1 %.not100, label %181, label %171
 
 171:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
-  %172 = load i32, ptr %73, align 8, !tbaa !32
-  store i32 %172, ptr %7, align 4, !tbaa !45
-  store i32 1, ptr %34, align 4, !tbaa !47
+  %172 = load i32, ptr %73, align 8, !tbaa !37
+  store i32 %172, ptr %7, align 4, !tbaa !51
+  store i32 1, ptr %34, align 4, !tbaa !53
   %173 = load ptr, ptr %0, align 8, !tbaa !8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 28
   %175 = load i32, ptr %174, align 1, !tbaa !11
@@ -629,7 +626,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br i1 %.not101, label %177, label %.critedge106
 
 177:                                              ; preds = %171
-  %178 = load i32, ptr %73, align 8, !tbaa !32
+  %178 = load i32, ptr %73, align 8, !tbaa !37
   %179 = call i32 @close(i32 noundef %178) #13
   %180 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
@@ -640,13 +637,13 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %181
 
 181:                                              ; preds = %.critedge106, %167
-  %182 = load i32, ptr %73, align 8, !tbaa !32
+  %182 = load i32, ptr %73, align 8, !tbaa !37
   %183 = call i32 @close(i32 noundef %182) #13
   %184 = icmp eq i32 %183, -1
   br i1 %184, label %185, label %.backedge
 
 185:                                              ; preds = %181
-  %186 = load i32, ptr %73, align 8, !tbaa !32
+  %186 = load i32, ptr %73, align 8, !tbaa !37
   %187 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.37, i32 noundef %186) #13
   %188 = load i32, ptr %.pre, align 4, !tbaa !15
   %189 = icmp eq i32 %188, 9
@@ -667,12 +664,15 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   %196 = add nsw i32 %195, 1
   %197 = call i32 @select(i32 noundef %196, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %198 = icmp eq i32 %197, -1
-  br i1 %198, label %199, label %.outer116.loopexit
+  br i1 %198, label %199, label %.critedge6
 
 199:                                              ; preds = %192
   %200 = load i32, ptr %.pre, align 4, !tbaa !15
   %201 = icmp eq i32 %200, 4
-  br i1 %201, label %192, label %.outer116.loopexit
+  br i1 %201, label %192, label %.critedge6, !llvm.loop !54
+
+.critedge6:                                       ; preds = %192, %199
+  br label %.outer116, !llvm.loop !32
 
 202:                                              ; preds = %41
   %203 = icmp slt i64 %39, 0
@@ -791,26 +791,33 @@ attributes #17 = { nounwind allocsize(0) }
 !22 = !{!"p2 omnipotent char", !10, i64 0}
 !23 = !{!19, !20, i64 16}
 !24 = !{!19, !13, i64 48}
-!25 = !{!12, !14, i64 24}
-!26 = !{!19, !21, i64 24}
-!27 = !{!12, !5, i64 43}
-!28 = !{!29, !14, i64 0}
-!29 = !{!"fanotify_event_metadata", !14, i64 0, !6, i64 4, !6, i64 5, !30, i64 6, !21, i64 8, !14, i64 16, !14, i64 20}
-!30 = !{!"short", !6, i64 0}
-!31 = !{!29, !6, i64 4}
-!32 = !{!29, !14, i64 16}
-!33 = !{!6, !6, i64 0}
-!34 = !{!29, !14, i64 20}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS15onas_scan_event", !10, i64 0}
-!37 = !{!38, !6, i64 65}
-!38 = !{!"onas_scan_event", !20, i64 0, !5, i64 8, !20, i64 16, !14, i64 24, !39, i64 28, !6, i64 36, !5, i64 37, !14, i64 45, !5, i64 49, !5, i64 57, !6, i64 65}
-!39 = !{!"p1 _ZTS23fanotify_event_metadata", !10, i64 0}
-!40 = !{!38, !39, i64 28}
-!41 = !{!38, !20, i64 16}
-!42 = !{!12, !6, i64 40}
-!43 = !{!12, !6, i64 41}
-!44 = !{!29, !21, i64 8}
-!45 = !{!46, !14, i64 0}
-!46 = !{!"fanotify_response", !14, i64 0, !14, i64 4}
-!47 = !{!46, !14, i64 4}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!12, !14, i64 24}
+!28 = distinct !{!28, !26}
+!29 = !{!19, !21, i64 24}
+!30 = !{!12, !5, i64 43}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = !{!34, !14, i64 0}
+!34 = !{!"fanotify_event_metadata", !14, i64 0, !6, i64 4, !6, i64 5, !35, i64 6, !21, i64 8, !14, i64 16, !14, i64 20}
+!35 = !{!"short", !6, i64 0}
+!36 = !{!34, !6, i64 4}
+!37 = !{!34, !14, i64 16}
+!38 = distinct !{!38, !26}
+!39 = !{!6, !6, i64 0}
+!40 = !{!34, !14, i64 20}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS15onas_scan_event", !10, i64 0}
+!43 = !{!44, !6, i64 65}
+!44 = !{!"onas_scan_event", !20, i64 0, !5, i64 8, !20, i64 16, !14, i64 24, !45, i64 28, !6, i64 36, !5, i64 37, !14, i64 45, !5, i64 49, !5, i64 57, !6, i64 65}
+!45 = !{!"p1 _ZTS23fanotify_event_metadata", !10, i64 0}
+!46 = !{!44, !45, i64 28}
+!47 = !{!44, !20, i64 16}
+!48 = !{!12, !6, i64 40}
+!49 = !{!12, !6, i64 41}
+!50 = !{!34, !21, i64 8}
+!51 = !{!52, !14, i64 0}
+!52 = !{!"fanotify_response", !14, i64 0, !14, i64 4}
+!53 = !{!52, !14, i64 4}
+!54 = distinct !{!54, !26}

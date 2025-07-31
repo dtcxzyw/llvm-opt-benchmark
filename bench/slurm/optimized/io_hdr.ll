@@ -171,7 +171,7 @@ define dso_local range(i32 -1, 11) i32 @io_hdr_read_fd(i32 noundef %0, ptr nound
   %18 = tail call i64 @read(i32 noundef %0, ptr noundef %.021.i, i64 noundef %10) #7
   %19 = trunc i64 %18 to i32
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %15, label %._crit_edge.i
+  br i1 %20, label %15, label %._crit_edge.i, !llvm.loop !8
 
 21:                                               ; preds = %15
   %22 = tail call i32 @get_log_level() #7
@@ -194,7 +194,7 @@ define dso_local range(i32 -1, 11) i32 @io_hdr_read_fd(i32 noundef %0, ptr nound
   %30 = and i64 %.lcssa17.i, 2147483647
   %31 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %30
   %32 = icmp sgt i32 %29, 0
-  br i1 %32, label %.preheader.i, label %_full_read.exit, !llvm.loop !8
+  br i1 %32, label %.preheader.i, label %_full_read.exit, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %25, %21
   %.str.23.sink.i = phi ptr [ @.str.22, %21 ], [ @.str.23, %25 ]
@@ -431,7 +431,7 @@ io_init_msg_pack.exit:                            ; preds = %13
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %56, %53
-  br label %.lr.ph.split, !llvm.loop !11
+  br label %.lr.ph.split, !llvm.loop !13
 
 .thread:                                          ; preds = %.split.us, %.split45.us, %io_init_msg_pack.exit
   %.026 = phi i32 [ -1, %io_init_msg_pack.exit ], [ -1, %.split45.us ], [ 0, %.split.us ]
@@ -571,7 +571,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, 
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %43, %40
-  br label %.lr.ph, !llvm.loop !12
+  br label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %8, %.lr.ph.backedge
   %.049.ph119 = phi ptr [ %38, %.lr.ph.backedge ], [ %4, %8 ]
@@ -751,7 +751,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, 
   br label %.lr.ph122.backedge
 
 .lr.ph122.backedge:                               ; preds = %111, %108
-  br label %.lr.ph122, !llvm.loop !13
+  br label %.lr.ph122, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.split128.us, %.outer80._crit_edge
   %112 = tail call i32 @unpack16(ptr noundef %1, ptr noundef %64) #7
@@ -894,9 +894,11 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !12, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unroll.disable"}
+!13 = distinct !{!13, !11, !12, !9}
+!14 = distinct !{!14, !11, !12, !9}
+!15 = distinct !{!15, !11, !12, !9}

@@ -168,7 +168,7 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
 .critedge2:                                       ; preds = %40, %40, %40
   %42 = getelementptr inbounds nuw i8, ptr %.14899, i64 1
   %43 = icmp ult ptr %42, %39
-  br i1 %43, label %40, label %.critedge, !llvm.loop !5
+  br i1 %43, label %40, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %40, %.critedge2
   %.148.lcssa = phi ptr [ %.14899, %40 ], [ %42, %.critedge2 ]
@@ -186,7 +186,7 @@ SDL_FreeSteamVirtualGamepadInfo.exit:             ; preds = %32, %22
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %.2100, i64 1
   %48 = icmp ult ptr %47, %39
-  br i1 %48, label %.lr.ph, label %.critedge4, !llvm.loop !6
+  br i1 %48, label %.lr.ph, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %46, %.lr.ph, %.lr.ph, %.critedge
   %.2.lcssa = phi ptr [ %.148.lcssa, %.critedge ], [ %.2100, %.lr.ph ], [ %.2100, %.lr.ph ], [ %47, %46 ]
@@ -335,7 +335,7 @@ AddVirtualGamepadInfo.exit:                       ; preds = %74, %72, %67, %55, 
   %.sroa.13.2 = phi i32 [ %.sroa.13.1, %AddVirtualGamepadInfo.exit ], [ %.sroa.13.0109, %78 ], [ %.sroa.13.0109, %84 ], [ %.sroa.13.0109, %89 ], [ %.sroa.13.0109, %95 ], [ %102, %101 ], [ %.sroa.13.0109, %106 ], [ %.sroa.13.0109, %103 ]
   %.1 = phi i32 [ %77, %AddVirtualGamepadInfo.exit ], [ %.0111, %78 ], [ %.0111, %84 ], [ %.0111, %89 ], [ %.0111, %95 ], [ %.0111, %101 ], [ %.0111, %106 ], [ %.0111, %103 ]
   %109 = icmp ult ptr %.2.lcssa, %39
-  br i1 %109, label %.preheader, label %._crit_edge, !llvm.loop !7
+  br i1 %109, label %.preheader, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %108
   %110 = icmp sgt i32 %.1, -1
@@ -548,8 +548,9 @@ attributes #7 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}

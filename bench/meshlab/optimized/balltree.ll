@@ -371,7 +371,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit:       ; preds = %42, %_ZNK3vcg4Box3I
   %64 = add i32 %.042, 1
   %65 = zext i32 %64 to i64
   %66 = icmp ugt i64 %11, %65
-  br i1 %66, label %33, label %._crit_edge, !llvm.loop !7
+  br i1 %66, label %33, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit, %22
   %.sroa.20.0.lcssa = phi float [ %.sroa.20.12.copyload, %22 ], [ %.sroa.20.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
@@ -566,7 +566,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   %25 = fadd float %.073, %24
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.067.072, i64 4
   %.not70 = icmp eq ptr %26, %14
-  br i1 %.not70, label %._crit_edge, label %19, !llvm.loop !8
+  br i1 %.not70, label %._crit_edge, label %19, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %5
   %.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %25, %19 ]
@@ -647,7 +647,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   %84 = load i32, ptr %76, align 8
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph76, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !9
+  br i1 %86, label %.lr.ph76, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !10
 
 87:                                               ; preds = %49
   %88 = fcmp ule float %34, %39
@@ -887,7 +887,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE5splitERKSt6vectorIiSaIiEERKN3vcg4B
   %.1.i = phi float [ %35, %34 ], [ %42, %41 ], [ %.01617.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit, label %27, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit, label %27, !llvm.loop !11
 
 _ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit: ; preds = %43
   %44 = tail call noundef float @sqrtf(float noundef %.1.i) #16
@@ -999,7 +999,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.1.i14 = phi float [ %91, %90 ], [ %98, %97 ], [ %.01617.i13, %92 ]
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 3
-  br i1 %exitcond.not.i16, label %_ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17, label %83, !llvm.loop !10
+  br i1 %exitcond.not.i16, label %_ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17, label %83, !llvm.loop !11
 
 _ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17: ; preds = %99
   %100 = tail call noundef float @sqrtf(float noundef %.1.i14) #16
@@ -1077,7 +1077,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit25:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i24, %112, %_ZN3vcg22PointFilledBoxDistanceIfEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 4
   %.not = icmp eq ptr %135, %9
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit25, %6
   ret void
@@ -1324,16 +1324,16 @@ _ZN7GaelMls12NeighborhoodIdE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   %40 = load i64, ptr %27, align 8
   %41 = mul nsw i64 %40, %39
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = load double, ptr %18, align 8, !noalias !12
-  %44 = load double, ptr %42, align 8, !noalias !12
+  %43 = load double, ptr %18, align 8, !noalias !13
+  %44 = load double, ptr %42, align 8, !noalias !13
   %45 = fsub double %43, %44
-  %46 = load double, ptr %28, align 8, !noalias !12
+  %46 = load double, ptr %28, align 8, !noalias !13
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %48 = load double, ptr %47, align 8, !noalias !12
+  %48 = load double, ptr %47, align 8, !noalias !13
   %49 = fsub double %46, %48
-  %50 = load double, ptr %29, align 8, !noalias !12
+  %50 = load double, ptr %29, align 8, !noalias !13
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %52 = load double, ptr %51, align 8, !noalias !12
+  %52 = load double, ptr %51, align 8, !noalias !13
   %53 = fsub double %50, %52
   %54 = fmul double %49, %49
   %55 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %54)
@@ -1359,7 +1359,7 @@ _ZN7GaelMls12NeighborhoodIdE5clearEv.exit:        ; preds = %_ZNSt6vectorIiSaIiE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %69 = zext i32 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next.i, %69
-  br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit, !llvm.loop !15
+  br i1 %70, label %33, label %_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit, !llvm.loop !16
 
 tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit, %tailrecurse.backedge.i
   %71 = phi i8 [ %80, %tailrecurse.backedge.i ], [ %22, %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit ]
@@ -1533,7 +1533,7 @@ _ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit:       ; preds = %42, %_ZNK3vcg4Box3I
   %64 = add i32 %.042, 1
   %65 = zext i32 %64 to i64
   %66 = icmp ugt i64 %11, %65
-  br i1 %66, label %33, label %._crit_edge, !llvm.loop !16
+  br i1 %66, label %33, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit, %22
   %.sroa.20.0.lcssa = phi double [ %.sroa.20.24.copyload, %22 ], [ %.sroa.20.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
@@ -1626,16 +1626,16 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12Neighb
   %25 = load i64, ptr %12, align 8
   %26 = mul nsw i64 %25, %24
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  %28 = load double, ptr %11, align 8, !noalias !17
-  %29 = load double, ptr %27, align 8, !noalias !17
+  %28 = load double, ptr %11, align 8, !noalias !18
+  %29 = load double, ptr %27, align 8, !noalias !18
   %30 = fsub double %28, %29
-  %31 = load double, ptr %13, align 8, !noalias !17
+  %31 = load double, ptr %13, align 8, !noalias !18
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load double, ptr %32, align 8, !noalias !17
+  %33 = load double, ptr %32, align 8, !noalias !18
   %34 = fsub double %31, %33
-  %35 = load double, ptr %14, align 8, !noalias !17
+  %35 = load double, ptr %14, align 8, !noalias !18
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %37 = load double, ptr %36, align 8, !noalias !17
+  %37 = load double, ptr %36, align 8, !noalias !18
   %38 = fsub double %35, %37
   %39 = fmul double %34, %34
   %40 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %39)
@@ -1661,7 +1661,7 @@ define weak_odr void @_ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12Neighb
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %18, label %._crit_edge, !llvm.loop !15
+  br i1 %55, label %18, label %._crit_edge, !llvm.loop !16
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurse.backedge
   %56 = phi i8 [ %5, %.lr.ph ], [ %65, %tailrecurse.backedge ]
@@ -1717,7 +1717,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %25 = fadd double %.069, %24
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.063.068, i64 4
   %.not66 = icmp eq ptr %26, %14
-  br i1 %.not66, label %._crit_edge, label %19, !llvm.loop !20
+  br i1 %.not66, label %._crit_edge, label %19, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %19, %5
   %.0.lcssa = phi double [ 0.000000e+00, %5 ], [ %25, %19 ]
@@ -1726,18 +1726,18 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %32 = load double, ptr %31, align 8, !noalias !21
-  %33 = load double, ptr %3, align 8, !noalias !21
+  %32 = load double, ptr %31, align 8, !noalias !22
+  %33 = load double, ptr %3, align 8, !noalias !22
   %34 = fsub double %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %36 = load double, ptr %35, align 8, !noalias !21
+  %36 = load double, ptr %35, align 8, !noalias !22
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load double, ptr %37, align 8, !noalias !21
+  %38 = load double, ptr %37, align 8, !noalias !22
   %39 = fsub double %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %41 = load double, ptr %40, align 8, !noalias !21
+  %41 = load double, ptr %40, align 8, !noalias !22
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = load double, ptr %42, align 8, !noalias !21
+  %43 = load double, ptr %42, align 8, !noalias !22
   %44 = fsub double %41, %43
   %45 = trunc i64 %30 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1796,7 +1796,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %81 = load i32, ptr %73, align 8
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph72, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !24
+  br i1 %83, label %.lr.ph72, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, !llvm.loop !25
 
 84:                                               ; preds = %49
   %85 = fcmp ule double %34, %39
@@ -2027,7 +2027,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE5splitERKSt6vectorIiSaIiEERKN3vcg4B
   %.1.i = phi double [ %35, %34 ], [ %42, %41 ], [ %.01619.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit, label %27, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit, label %27, !llvm.loop !26
 
 _ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit: ; preds = %43
   %44 = tail call noundef double @sqrt(double noundef %.1.i) #16
@@ -2139,7 +2139,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.1.i14 = phi double [ %91, %90 ], [ %98, %97 ], [ %.01619.i13, %92 ]
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 3
-  br i1 %exitcond.not.i16, label %_ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17, label %83, !llvm.loop !25
+  br i1 %exitcond.not.i16, label %_ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17, label %83, !llvm.loop !26
 
 _ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17: ; preds = %99
   %100 = tail call noundef double @sqrt(double noundef %.1.i14) #16
@@ -2217,7 +2217,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit25:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i24, %112, %_ZN3vcg22PointFilledBoxDistanceIdEET_RKNS_6Point3IS1_EERKNS_4Box3IS1_EE.exit17
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 4
   %.not = icmp eq ptr %135, %9
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit25, %6
   ret void
@@ -2414,25 +2414,26 @@ attributes #19 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
-!14 = distinct !{!14, !"_ZNK3vcg6Point3IdEmiERKS1_"}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
-!19 = distinct !{!19, !"_ZNK3vcg6Point3IdEmiERKS1_"}
-!20 = distinct !{!20, !6}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
-!23 = distinct !{!23, !"_ZNK3vcg6Point3IdEmiERKS1_"}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
+!15 = distinct !{!15, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
+!20 = distinct !{!20, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!21 = distinct !{!21, !6, !7}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
+!24 = distinct !{!24, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}

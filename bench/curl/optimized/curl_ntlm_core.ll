@@ -362,7 +362,7 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef readonly captures(n
   store i8 0, ptr %21, align 1, !tbaa !3
   %22 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %22, %1
-  br i1 %exitcond.not.i, label %ascii_uppercase_to_unicode_le.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %ascii_uppercase_to_unicode_le.exit, label %.lr.ph.i, !llvm.loop !11
 
 ascii_uppercase_to_unicode_le.exit:               ; preds = %.lr.ph.i, %15
   %23 = shl nuw nsw i64 %1, 1
@@ -402,7 +402,7 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %7 = tail call i64 @time(ptr noundef null) #8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = add i32 %9, 48
   %11 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !6
   %12 = zext i32 %10 to i64
@@ -417,7 +417,7 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef rea
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %.sroa.0.0.extract.trunc = trunc i64 %16 to i32
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %18 = load i32, ptr %8, align 4, !tbaa !11
+  %18 = load i32, ptr %8, align 4, !tbaa !12
   %19 = add i32 %18, 32
   %20 = zext i32 %19 to i64
   %21 = and i32 %.sroa.0.0.extract.trunc, 128
@@ -436,14 +436,14 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef rea
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %35 = load i64, ptr %1, align 1
   store i64 %35, ptr %34, align 1
-  %36 = load i32, ptr %8, align 4, !tbaa !11
+  %36 = load i32, ptr %8, align 4, !tbaa !12
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %42, label %37
 
 37:                                               ; preds = %14
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !14
+  %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = zext i32 %36 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %40, i64 %41, i1 false)
   br label %42
@@ -453,7 +453,7 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef rea
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = load i64, ptr %44, align 4
   store i64 %45, ptr %43, align 1
-  %46 = load i32, ptr %8, align 4, !tbaa !11
+  %46 = load i32, ptr %8, align 4, !tbaa !12
   %47 = add i32 %46, 40
   %48 = zext i32 %47 to i64
   %49 = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %0, i64 noundef 16, ptr noundef nonnull %43, i64 noundef %48, ptr noundef nonnull %6) #8
@@ -467,8 +467,8 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %0, ptr noundef rea
 
 52:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  store ptr %13, ptr %3, align 8, !tbaa !15
-  store i32 %10, ptr %4, align 4, !tbaa !17
+  store ptr %13, ptr %3, align 8, !tbaa !16
+  store i32 %10, ptr %4, align 4, !tbaa !18
   br label %53
 
 53:                                               ; preds = %5, %52, %50
@@ -546,13 +546,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"any pointer", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !13, i64 12}
-!12 = !{!"ntlmdata", !13, i64 0, !4, i64 4, !13, i64 12, !7, i64 16}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!12, !7, i64 16}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !7, i64 0}
-!17 = !{!13, !13, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !14, i64 12}
+!13 = !{!"ntlmdata", !14, i64 0, !4, i64 4, !14, i64 12, !7, i64 16}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!13, !7, i64 16}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !7, i64 0}
+!18 = !{!14, !14, i64 0}

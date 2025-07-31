@@ -4066,7 +4066,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %18, %12
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 46
   store i16 %5, ptr %92, align 2
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 25
-  %94 = load i8, ptr %93, align 1, !range !8, !noundef !9
+  %94 = load i8, ptr %93, align 1, !range !9, !noundef !10
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 44
   store i8 %94, ptr %95, align 4
   br label %96
@@ -4521,7 +4521,7 @@ define hidden i32 @dissect_nt_user_quota(ptr noundef %0, ptr noundef %1, i32 nou
   store i16 %53, ptr %3, align 2
   %.not = icmp eq i32 %9, 0
   %54 = add i32 %9, %.058
-  br i1 %.not, label %55, label %5, !llvm.loop !10
+  br i1 %.not, label %55, label %5, !llvm.loop !11
 
 55:                                               ; preds = %44, %37, %30, %23, %16, %8, %5
   %.0 = phi i32 [ %.058, %5 ], [ %12, %8 ], [ %19, %16 ], [ %26, %23 ], [ %33, %30 ], [ %40, %37 ], [ %50, %44 ]
@@ -4570,7 +4570,7 @@ define hidden i32 @dissect_nt_get_user_quota(ptr noundef %0, ptr noundef %1, i32
   store i32 %24, ptr %3, align 4
   %.not = icmp eq i32 %9, 0
   %25 = add i32 %9, %.030
-  br i1 %.not, label %26, label %5, !llvm.loop !11
+  br i1 %.not, label %26, label %5, !llvm.loop !12
 
 26:                                               ; preds = %16, %8, %5
   %.0 = phi i32 [ %.030, %5 ], [ %12, %8 ], [ %22, %16 ]
@@ -4676,7 +4676,7 @@ define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noun
   %33 = zext i16 %23 to i32
   %34 = tail call i32 @tvb_captured_length(ptr noundef %1)
   %.not.i.i = icmp ugt i32 %32, %34
-  br i1 %.not.i.i, label %smb_find_unicode_null_offset.exit.i, label %35, !prof !12
+  br i1 %.not.i.i, label %smb_find_unicode_null_offset.exit.i, label %35, !prof !13
 
 35:                                               ; preds = %31
   %36 = sub nuw i32 %34, %32
@@ -4696,7 +4696,7 @@ define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noun
   %41 = add i32 %.02328.i.i, 2
   %42 = add i32 %.129.i.i, -2
   %.not26.i.i = icmp eq i32 %42, 0
-  br i1 %.not26.i.i, label %smb_find_unicode_null_offset.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not26.i.i, label %smb_find_unicode_null_offset.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 smb_find_unicode_null_offset.exit.loopexit.i:     ; preds = %40, %.lr.ph.i.i
   %.020.i.ph.i = phi i32 [ -1, %40 ], [ %.02328.i.i, %.lr.ph.i.i ]
@@ -4960,7 +4960,7 @@ define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr noundef rea
   call void @proto_item_set_len(ptr noundef %130, i32 noundef %131)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   %.not108 = icmp eq i16 %51, 0
-  br i1 %.not108, label %132, label %49, !llvm.loop !14
+  br i1 %.not108, label %132, label %49, !llvm.loop !15
 
 132:                                              ; preds = %128
   %133 = load i32, ptr %9, align 4
@@ -5689,7 +5689,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %54, %60
   %88 = phi i16 [ %.pre, %77 ], [ %86, %83 ]
   %.2 = phi i32 [ %66, %77 ], [ %84, %83 ]
   %89 = icmp ult i16 %88, 4
-  br i1 %89, label %._crit_edge, label %12
+  br i1 %89, label %._crit_edge, label %12, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %63, %80, %get_unicode_or_ascii_string.exit, %39, %50, %32, %24, %12, %87, %7
   %.sink = phi i8 [ 1, %7 ], [ 1, %87 ], [ 1, %12 ], [ 1, %24 ], [ 1, %32 ], [ 1, %50 ], [ 1, %39 ], [ 1, %get_unicode_or_ascii_string.exit ], [ 1, %80 ], [ 0, %63 ]
@@ -5774,7 +5774,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) initializes((0, 1)) %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
-  %8 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %43, label %10
 
@@ -6551,7 +6551,7 @@ define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 72:                                               ; preds = %49, %4
   %73 = phi ptr [ %50, %49 ], [ %47, %4 ]
-  %74 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %74 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %88
 
@@ -7121,7 +7121,7 @@ decode_smb_error.exit:                            ; preds = %301, %311, %313, %3
   br i1 %or.cond435, label %353, label %356
 
 353:                                              ; preds = %344
-  %354 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %354 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %355 = trunc nuw i8 %354 to i1
   br i1 %355, label %356, label %357
 
@@ -7289,7 +7289,7 @@ dissect_smb_uid.exit:                             ; preds = %357, %proto_item_se
   call void @tap_queue_packet(i32 noundef %439, ptr noundef %1, ptr noundef %10)
   %440 = load i8, ptr %10, align 8
   call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %438, ptr noundef %39, i8 noundef zeroext %440, i1 noundef zeroext true, ptr noundef %10)
-  %441 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %441 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %442 = trunc nuw i8 %441 to i1
   br i1 %442, label %460, label %443
 
@@ -7351,7 +7351,7 @@ declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @smbstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %7 = load i8, ptr %6, align 1, !range !8, !noundef !9
+  %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %47, label %9
 
@@ -7443,7 +7443,7 @@ define internal void @smbstat_init(ptr readnone captures(none) %0, ptr noundef %
   tail call void @init_srt_table_row(ptr noundef %5, i32 noundef %.013, ptr noundef %9)
   %10 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %10, 256
-  br i1 %exitcond.not, label %11, label %6, !llvm.loop !15
+  br i1 %exitcond.not, label %11, label %6, !llvm.loop !17
 
 11:                                               ; preds = %6
   ret void
@@ -7525,7 +7525,7 @@ define internal noundef i32 @smb_eo_packet(ptr noundef readonly captures(none) %
 40:                                               ; preds = %36, %.lr.ph.i
   %.0.i = add nsw i32 %.02.i, -1
   %41 = icmp sgt i32 %.02.i, 0
-  br i1 %41, label %.lr.ph.i, label %.loopexit, !llvm.loop !16
+  br i1 %41, label %.lr.ph.i, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %40, %21
   %42 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #21
@@ -7566,7 +7566,7 @@ define internal noundef i32 @smb_eo_packet(ptr noundef readonly captures(none) %
 
 64:                                               ; preds = %.loopexit
   tail call fastcc void @insert_chunk(ptr noundef %44, ptr noundef %42, ptr noundef %3)
-  %.pre = load i8, ptr %53, align 8, !range !8
+  %.pre = load i8, ptr %53, align 8, !range !9
   %65 = trunc nuw i8 %.pre to i1
   br i1 %65, label %66, label %.thread
 
@@ -7628,7 +7628,7 @@ find_incoming_file.exit:                          ; preds = %36
   %99 = tail call ptr %96(ptr noundef %98, i32 noundef %.02.i)
   tail call fastcc void @insert_chunk(ptr noundef %91, ptr noundef %99, ptr noundef %3)
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %101 = load i8, ptr %100, align 8, !range !8, !noundef !9
+  %101 = load i8, ptr %100, align 8, !range !9, !noundef !10
   %102 = trunc nuw i8 %101 to i1
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %104 = load i64, ptr %103, align 8
@@ -7695,7 +7695,7 @@ define internal void @smb_eo_cleanup() #0 {
   tail call void @g_free(ptr noundef %6)
   %.0 = add nsw i32 %.010, -1
   %11 = icmp sgt i32 %.010, 0
-  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %10
   %.pre = load ptr, ptr @GSL_active_files, align 8
@@ -7924,7 +7924,7 @@ define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr no
   %38 = phi i16 [ %18, %.lr.ph.split ], [ %32, %36 ], [ %32, %33 ], [ %32, %24 ]
   %39 = add nuw nsw i32 %.01825, 1
   %exitcond.not = icmp eq i32 %39, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %20, %37, %.lr.ph, %14, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #19
@@ -8277,7 +8277,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %18 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   %20 = select i1 %19, ptr @.str.2644, ptr @.str.2645
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.2642, ptr noundef %15, ptr noundef nonnull %20)
@@ -8291,7 +8291,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   %23 = load i32, ptr @ett_smb_command, align 4
   %24 = tail call ptr @val_to_str_ext_const(i32 noundef %11, ptr noundef nonnull @smb_cmd_vals_ext, ptr noundef nonnull @.str.2313)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %26 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %26 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %27 = trunc nuw i8 %26 to i1
   %28 = select i1 %27, ptr @.str.2644, ptr @.str.2645
   %29 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %8, ptr noundef nonnull @.str.2647, ptr noundef %24, ptr noundef nonnull %28, i32 noundef %11)
@@ -8307,9 +8307,9 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   br i1 %.not46, label %.thread, label %35
 
 35:                                               ; preds = %32
-  %36 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %36 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 44
-  %38 = load i8, ptr %37, align 4, !range !8, !noundef !9
+  %38 = load i8, ptr %37, align 4, !range !9, !noundef !10
   %.not47 = icmp eq i8 %36, %38
   br i1 %.not47, label %.thread, label %39
 
@@ -8318,7 +8318,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %35, %39, %32, %22
-  %41 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %41 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %42 = trunc nuw i8 %41 to i1
   %43 = zext i8 %4 to i64
   %44 = getelementptr [256 x %struct._smb_function], ptr @smb_dissector, i64 0, i64 %43
@@ -8409,7 +8409,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr noundef readonl
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = load i8, ptr %30, align 8, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 8, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   %33 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %32, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -8620,7 +8620,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr noundef reado
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %43 = load i8, ptr %42, align 8, !range !8, !noundef !9
+  %43 = load i8, ptr %42, align 8, !range !9, !noundef !10
   %44 = trunc nuw i8 %43 to i1
   %45 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %41, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %44, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %46 = icmp eq ptr %45, null
@@ -8896,7 +8896,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %57 = load i8, ptr %56, align 8, !range !8, !noundef !9
+  %57 = load i8, ptr %56, align 8, !range !9, !noundef !10
   %58 = trunc nuw i8 %57 to i1
   %59 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %55, ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %58, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %10)
   %60 = icmp eq ptr %59, null
@@ -9224,7 +9224,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr noundef rea
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %39 = load i8, ptr %38, align 8, !range !8, !noundef !9
+  %39 = load i8, ptr %38, align 8, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   %41 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %37, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %40, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -9356,7 +9356,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef rea
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %39 = load i8, ptr %38, align 8, !range !8, !noundef !9
+  %39 = load i8, ptr %38, align 8, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   %41 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %37, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %40, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %42 = icmp eq ptr %41, null
@@ -9391,7 +9391,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef rea
   %63 = add i16 %52, -1
   store i16 %63, ptr %9, align 2
   %64 = load ptr, ptr %36, align 8
-  %65 = load i8, ptr %38, align 8, !range !8, !noundef !9
+  %65 = load i8, ptr %38, align 8, !range !9, !noundef !10
   %66 = trunc nuw i8 %65 to i1
   %67 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %64, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %66, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %68 = icmp eq ptr %67, null
@@ -9621,7 +9621,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = load i8, ptr %30, align 8, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 8, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   %33 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %32, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %34 = icmp eq ptr %33, null
@@ -9842,7 +9842,7 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %58 = load i8, ptr %57, align 8, !range !8, !noundef !9
+  %58 = load i8, ptr %57, align 8, !range !9, !noundef !10
   %59 = trunc nuw i8 %58 to i1
   %60 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %56, ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %59, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %10)
   %61 = icmp eq ptr %60, null
@@ -10600,7 +10600,7 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %54 = load i8, ptr %53, align 8, !range !8, !noundef !9
+  %54 = load i8, ptr %53, align 8, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   %56 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %52, ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %55, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %10)
   %57 = icmp eq ptr %56, null
@@ -11897,7 +11897,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   %118 = add i16 %.1334423.us, -10
   %119 = add i16 %98, -1
   %.not379.us = icmp eq i16 %98, 0
-  br i1 %.not379.us, label %.split426.us, label %.split.us, !llvm.loop !20
+  br i1 %.not379.us, label %.split426.us, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %.split.preheader, %169
   %120 = phi i16 [ %170, %169 ], [ %96, %.split.preheader ]
@@ -12040,7 +12040,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   %200 = add i16 %.6339429.us, -10
   %201 = add i16 %180, -1
   %.not381.us = icmp eq i16 %180, 0
-  br i1 %.not381.us, label %.split434.us, label %.split431.us, !llvm.loop !22
+  br i1 %.not381.us, label %.split434.us, label %.split431.us, !llvm.loop !24
 
 .split431:                                        ; preds = %.split431.preheader, %251
   %202 = phi i16 [ %252, %251 ], [ %178, %.split431.preheader ]
@@ -12295,7 +12295,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %23, %26
   %82 = tail call ptr @proto_tree_add_uint64(ptr noundef %68, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %81)
   %.0126 = load ptr, ptr %.0126152, align 8
   %.not143 = icmp eq ptr %.0126, null
-  br i1 %.not143, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not143, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %83 = load i32, ptr @ett_smb_unlock, align 4
@@ -12322,7 +12322,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %23, %26
   %98 = tail call ptr @proto_tree_add_uint64(ptr noundef %84, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %97)
   %.1127 = load ptr, ptr %.1127155, align 8
   %.not144 = icmp eq ptr %.1127, null
-  br i1 %.not144, label %.loopexit, label %.lr.ph157, !llvm.loop !24
+  br i1 %.not144, label %.loopexit, label %.lr.ph157, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph157, %._crit_edge, %15, %11, %8
   %99 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
@@ -12658,7 +12658,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
 
 179:                                              ; preds = %177, %169
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %181 = load i8, ptr %180, align 2, !range !8, !noundef !9
+  %181 = load i8, ptr %180, align 2, !range !9, !noundef !10
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %202, label %183
 
@@ -12734,7 +12734,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %220 = load i8, ptr %219, align 8, !range !8, !noundef !9
+  %220 = load i8, ptr %219, align 8, !range !9, !noundef !10
   %221 = trunc nuw i8 %220 to i1
   %222 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %218, ptr noundef %0, ptr noundef nonnull %15, i1 noundef zeroext %221, ptr noundef nonnull %16, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %17)
   %223 = icmp eq ptr %222, null
@@ -12913,7 +12913,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %321 = load i8, ptr %320, align 8, !range !8, !noundef !9
+  %321 = load i8, ptr %320, align 8, !range !9, !noundef !10
   %322 = trunc nuw i8 %321 to i1
   %323 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %319, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %322, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %324 = icmp eq ptr %323, null
@@ -13010,7 +13010,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %384 = load ptr, ptr %383, align 8
   %385 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %386 = load i8, ptr %385, align 8, !range !8, !noundef !9
+  %386 = load i8, ptr %385, align 8, !range !9, !noundef !10
   %387 = trunc nuw i8 %386 to i1
   %388 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %384, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %387, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %389 = icmp eq ptr %388, null
@@ -13139,7 +13139,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %471 = load i8, ptr %470, align 8, !range !8, !noundef !9
+  %471 = load i8, ptr %470, align 8, !range !9, !noundef !10
   %472 = trunc nuw i8 %471 to i1
   %473 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %469, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %472, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %474 = icmp eq ptr %473, null
@@ -13309,7 +13309,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %571 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %572 = load ptr, ptr %571, align 8
   %573 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %574 = load i8, ptr %573, align 8, !range !8, !noundef !9
+  %574 = load i8, ptr %573, align 8, !range !9, !noundef !10
   %575 = trunc nuw i8 %574 to i1
   %576 = select i1 %575, i32 -2147483644, i32 0
   %577 = call ptr @tvb_get_stringz_enc(ptr noundef %572, ptr noundef %0, i32 noundef %570, ptr noundef nonnull %13, i32 noundef %576)
@@ -13395,7 +13395,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %625 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %626 = load ptr, ptr %625, align 8
   %627 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %628 = load i8, ptr %627, align 8, !range !8, !noundef !9
+  %628 = load i8, ptr %627, align 8, !range !9, !noundef !10
   %629 = trunc nuw i8 %628 to i1
   %630 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %626, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %629, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %631 = icmp eq ptr %630, null
@@ -13589,7 +13589,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %748 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %749 = load ptr, ptr %748, align 8
   %750 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %751 = load i8, ptr %750, align 8, !range !8, !noundef !9
+  %751 = load i8, ptr %750, align 8, !range !9, !noundef !10
   %752 = trunc nuw i8 %751 to i1
   %753 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %749, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %752, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %754 = icmp eq ptr %753, null
@@ -13654,7 +13654,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %792 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %793 = load ptr, ptr %792, align 8
   %794 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %795 = load i8, ptr %794, align 8, !range !8, !noundef !9
+  %795 = load i8, ptr %794, align 8, !range !9, !noundef !10
   %796 = trunc nuw i8 %795 to i1
   %797 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %793, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %796, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %798 = icmp eq ptr %797, null
@@ -13686,7 +13686,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
 
 816:                                              ; preds = %265
   %817 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %818 = load i8, ptr %817, align 8, !range !8, !noundef !9
+  %818 = load i8, ptr %817, align 8, !range !9, !noundef !10
   %819 = trunc nuw i8 %818 to i1
   %820 = call i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %268, i32 noundef %248, ptr noundef nonnull %12, i1 noundef zeroext %819)
   store i32 %820, ptr %11, align 4
@@ -13696,7 +13696,7 @@ proto_item_set_generated.exit375:                 ; preds = %149, %146, %141, %9
   %822 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %823 = load ptr, ptr %822, align 8
   %824 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %825 = load i8, ptr %824, align 8, !range !8, !noundef !9
+  %825 = load i8, ptr %824, align 8, !range !9, !noundef !10
   %826 = trunc nuw i8 %825 to i1
   %827 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %823, ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %826, ptr noundef nonnull %13, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12)
   %828 = icmp eq ptr %827, null
@@ -13901,7 +13901,7 @@ dissect_sfsi_request.exit.thread.i:               ; preds = %883
   %932 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %933 = load ptr, ptr %932, align 8
   %934 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %935 = load i8, ptr %934, align 8, !range !8, !noundef !9
+  %935 = load i8, ptr %934, align 8, !range !9, !noundef !10
   %936 = trunc nuw i8 %935 to i1
   %937 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %933, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %936, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %938 = icmp eq ptr %937, null
@@ -14046,7 +14046,7 @@ dissect_transaction2_request_data.exit:           ; preds = %dissect_sfsi_reques
 998:                                              ; preds = %989, %993, %996
   %.0305 = phi ptr [ %995, %993 ], [ %997, %996 ], [ null, %989 ]
   %999 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %1000 = load i8, ptr %999, align 2, !range !8, !noundef !9
+  %1000 = load i8, ptr %999, align 2, !range !9, !noundef !10
   %1001 = trunc nuw i8 %1000 to i1
   br i1 %1001, label %1020, label %1002
 
@@ -14682,7 +14682,7 @@ proto_item_set_generated.exit526.thread._crit_edge: ; preds = %proto_item_set_ge
 
 261:                                              ; preds = %254
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %263 = load i8, ptr %262, align 8, !range !8, !noundef !9
+  %263 = load i8, ptr %262, align 8, !range !9, !noundef !10
   %264 = zext i16 %.0442 to i32
   %265 = zext i16 %.0411 to i32
   %.not489 = icmp eq i16 %.0442, %.0411
@@ -14692,7 +14692,7 @@ proto_item_set_generated.exit526.thread._crit_edge: ; preds = %proto_item_set_ge
 
 266:                                              ; preds = %261
   store i8 1, ptr %262, align 8
-  %267 = load i8, ptr @smb_trans_reassembly, align 1, !range !8, !noundef !9
+  %267 = load i8, ptr @smb_trans_reassembly, align 1, !range !9, !noundef !10
   %268 = trunc nuw i8 %267 to i1
   br i1 %268, label %269, label %.thread537
 
@@ -15208,9 +15208,9 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
 552:                                              ; preds = %.preheader.i
   %553 = add i32 %.074.i, -1
   %554 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef %.1.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %5)
-  %555 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %555 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %556 = trunc nuw i8 %555 to i1
-  br i1 %556, label %dissect_sfsi_response.exit.i, label %.preheader.i, !llvm.loop !25
+  br i1 %556, label %dissect_sfsi_response.exit.i, label %.preheader.i, !llvm.loop !27
 
 557:                                              ; preds = %549
   %558 = load ptr, ptr %550, align 8
@@ -15240,9 +15240,9 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
 566:                                              ; preds = %565
   %567 = add i32 %.175.i, -1
   %568 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef %.2.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %5)
-  %569 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %569 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %570 = trunc nuw i8 %569 to i1
-  br i1 %570, label %dissect_sfsi_response.exit.i, label %565, !llvm.loop !26
+  br i1 %570, label %dissect_sfsi_response.exit.i, label %565, !llvm.loop !28
 
 571:                                              ; preds = %559
   %572 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15352,7 +15352,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
   %623 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %624 = load ptr, ptr %623, align 8
   %625 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %626 = load i8, ptr %625, align 8, !range !8, !noundef !9
+  %626 = load i8, ptr %625, align 8, !range !9, !noundef !10
   %627 = trunc nuw i8 %626 to i1
   %628 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %624, ptr noundef nonnull %.0426, ptr noundef nonnull %7, i1 noundef zeroext %627, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %11)
   %629 = icmp eq ptr %628, null
@@ -15393,7 +15393,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
 
 653:                                              ; preds = %644
   %654 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %655 = load i8, ptr %654, align 8, !range !8, !noundef !9
+  %655 = load i8, ptr %654, align 8, !range !9, !noundef !10
   %656 = trunc nuw i8 %655 to i1
   br i1 %656, label %657, label %662
 
@@ -15428,7 +15428,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
 
 673:                                              ; preds = %576, %576
   %674 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %675 = load i8, ptr %674, align 8, !range !8, !noundef !9
+  %675 = load i8, ptr %674, align 8, !range !9, !noundef !10
   %676 = zext nneg i8 %675 to i32
   %677 = call i32 @dissect_qfsi_FS_VOLUME_INFO(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef 0, ptr noundef nonnull %11, i32 noundef %676)
   br label %dissect_qfsi_vals.exit.i
@@ -15627,7 +15627,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
   store i16 %804, ptr %11, align 2
   %805 = add nuw i32 %.0232252.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %805, %768
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %799, %788
   %806 = phi i32 [ 40, %788 ], [ %802, %799 ]
@@ -15652,7 +15652,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
   store i16 %817, ptr %11, align 2
   %818 = add nuw i32 %.1233254.i.i, 1
   %exitcond263.not.i.i = icmp eq i32 %818, %775
-  br i1 %exitcond263.not.i.i, label %dissect_qfsi_vals.exit.i, label %.lr.ph256.i.i, !llvm.loop !28
+  br i1 %exitcond263.not.i.i, label %dissect_qfsi_vals.exit.i, label %.lr.ph256.i.i, !llvm.loop !30
 
 819:                                              ; preds = %576
   %820 = icmp ult i16 %575, 8
@@ -15829,7 +15829,7 @@ dissect_qfsi_vals.exit.i:                         ; preds = %.lr.ph.i.i, %815, %
 
 926:                                              ; preds = %543
   %927 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %928 = load i8, ptr %927, align 8, !range !8, !noundef !9
+  %928 = load i8, ptr %927, align 8, !range !9, !noundef !10
   %929 = trunc nuw i8 %928 to i1
   %930 = call i32 @dissect_get_dfs_referral_data(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef 0, ptr noundef nonnull %11, i1 noundef zeroext %929)
   br label %dissect_sfsi_response.exit.i
@@ -15987,7 +15987,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %45 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %45 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %46 = trunc nuw i8 %45 to i1
   %47 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %43, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %46, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %48 = icmp eq ptr %47, null
@@ -16023,7 +16023,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly c
   %71 = add i16 %58, %70
   store i16 %71, ptr %9, align 2
   %72 = load ptr, ptr %42, align 8
-  %73 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %73 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %74 = trunc nuw i8 %73 to i1
   %75 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %72, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %74, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %76 = icmp eq ptr %75, null
@@ -16129,7 +16129,7 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr noundef read
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %38 = load i8, ptr %37, align 8, !range !8, !noundef !9
+  %38 = load i8, ptr %37, align 8, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   %40 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %36, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %39, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %41 = icmp eq ptr %40, null
@@ -16234,7 +16234,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %45 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %45 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %46 = trunc nuw i8 %45 to i1
   %47 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %43, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %46, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %48 = icmp eq ptr %47, null
@@ -16270,7 +16270,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly c
   %71 = add i16 %58, %70
   store i16 %71, ptr %9, align 2
   %72 = load ptr, ptr %42, align 8
-  %73 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %73 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %74 = trunc nuw i8 %73 to i1
   %75 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %72, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %74, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %76 = icmp eq ptr %75, null
@@ -16631,7 +16631,7 @@ dissect_smb_UTIME.exit:                           ; preds = %56, %58
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %95 = load i8, ptr %94, align 8, !range !8, !noundef !9
+  %95 = load i8, ptr %94, align 8, !range !9, !noundef !10
   %96 = trunc nuw i8 %95 to i1
   %97 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %93, ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext %96, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %98 = icmp eq ptr %97, null
@@ -18086,7 +18086,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr noundef re
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = load i8, ptr %30, align 8, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 8, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   %33 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %32, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %34 = icmp eq ptr %33, null
@@ -18138,7 +18138,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr noundef re
   %69 = add i16 %54, %68
   store i16 %69, ptr %9, align 2
   %70 = load ptr, ptr %28, align 8
-  %71 = load i8, ptr %30, align 8, !range !8, !noundef !9
+  %71 = load i8, ptr %30, align 8, !range !9, !noundef !10
   %72 = trunc nuw i8 %71 to i1
   %73 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %70, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %72, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %74 = icmp eq ptr %73, null
@@ -18366,7 +18366,7 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonl
 84:                                               ; preds = %62, %74, %77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   %.not91 = icmp eq i16 %68, 0
-  br i1 %.not91, label %85, label %44
+  br i1 %.not91, label %85, label %44, !llvm.loop !31
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %7, align 8
@@ -18599,7 +18599,7 @@ dissect_negprot_security_mode.exit207:            ; preds = %37
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %158 = load i8, ptr %157, align 8, !range !8, !noundef !9
+  %158 = load i8, ptr %157, align 8, !range !9, !noundef !10
   %159 = trunc nuw i8 %158 to i1
   %160 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %156, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %159, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %161 = icmp eq ptr %160, null
@@ -18647,7 +18647,7 @@ dissect_negprot_security_mode.exit207:            ; preds = %37
   br label %184
 
 181:                                              ; preds = %176
-  %182 = load i8, ptr %180, align 8, !range !8, !noundef !9
+  %182 = load i8, ptr %180, align 8, !range !9, !noundef !10
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %184, label %189
 
@@ -18684,7 +18684,7 @@ dissect_negprot_security_mode.exit207:            ; preds = %37
   %203 = sub i16 %201, %202
   store i16 %203, ptr %9, align 2
   %204 = load ptr, ptr %191, align 8
-  %205 = load i8, ptr %180, align 8, !range !8, !noundef !9
+  %205 = load i8, ptr %180, align 8, !range !9, !noundef !10
   %206 = trunc nuw i8 %205 to i1
   %207 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %204, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %206, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %9)
   %208 = icmp eq ptr %207, null
@@ -18993,7 +18993,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %127 = load i8, ptr %126, align 8, !range !8, !noundef !9
+  %127 = load i8, ptr %126, align 8, !range !9, !noundef !10
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %132
 
@@ -19070,7 +19070,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 171:                                              ; preds = %168, %115
   %172 = phi i32 [ %169, %168 ], [ %106, %115 ]
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %174 = load i8, ptr %173, align 8, !range !8, !noundef !9
+  %174 = load i8, ptr %173, align 8, !range !9, !noundef !10
   %175 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %172, ptr noundef nonnull @.str.2720, i64 noundef 3)
   %176 = icmp ne i32 %175, 0
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -19093,7 +19093,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %190 = trunc i32 %187 to i16
   %191 = sub i16 %189, %190
   store i16 %191, ptr %8, align 2
-  %192 = load i8, ptr %173, align 8, !range !8, !noundef !9
+  %192 = load i8, ptr %173, align 8, !range !9, !noundef !10
   %193 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %188, ptr noundef nonnull @.str.2720, i64 noundef 3)
   %194 = icmp ne i32 %193, 0
   %195 = load ptr, ptr %177, align 8
@@ -19116,7 +19116,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %208 = sub i16 %206, %207
   store i16 %208, ptr %8, align 2
   %209 = load ptr, ptr %177, align 8
-  %210 = load i8, ptr %173, align 8, !range !8, !noundef !9
+  %210 = load i8, ptr %173, align 8, !range !9, !noundef !10
   %211 = trunc nuw i8 %210 to i1
   %212 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %209, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %211, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %213 = icmp eq ptr %212, null
@@ -19202,7 +19202,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %256 = load i8, ptr %255, align 8, !range !8, !noundef !9
+  %256 = load i8, ptr %255, align 8, !range !9, !noundef !10
   %257 = trunc nuw i8 %256 to i1
   %258 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %254, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %257, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %259 = icmp eq ptr %258, null
@@ -19221,7 +19221,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %268 = sub i16 %266, %267
   store i16 %268, ptr %8, align 2
   %269 = load ptr, ptr %253, align 8
-  %270 = load i8, ptr %255, align 8, !range !8, !noundef !9
+  %270 = load i8, ptr %255, align 8, !range !9, !noundef !10
   %271 = trunc nuw i8 %270 to i1
   %272 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %269, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %271, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %273 = icmp eq ptr %272, null
@@ -19269,7 +19269,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
 
 298:                                              ; preds = %290, %288
   %299 = load ptr, ptr %253, align 8
-  %300 = load i8, ptr %255, align 8, !range !8, !noundef !9
+  %300 = load i8, ptr %255, align 8, !range !9, !noundef !10
   %301 = trunc nuw i8 %300 to i1
   %302 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %299, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %301, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %303 = icmp eq ptr %302, null
@@ -19288,7 +19288,7 @@ define internal i32 @dissect_session_setup_andx_request(ptr noundef %0, ptr noun
   %312 = sub i16 %310, %311
   store i16 %312, ptr %8, align 2
   %313 = load ptr, ptr %253, align 8
-  %314 = load i8, ptr %255, align 8, !range !8, !noundef !9
+  %314 = load i8, ptr %255, align 8, !range !9, !noundef !10
   %315 = trunc nuw i8 %314 to i1
   %316 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %313, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %315, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %317 = icmp eq ptr %316, null
@@ -19524,7 +19524,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %103 = load i8, ptr %102, align 8, !range !8, !noundef !9
+  %103 = load i8, ptr %102, align 8, !range !9, !noundef !10
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %108
 
@@ -19550,7 +19550,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %117 = load i8, ptr %116, align 8, !range !8, !noundef !9
+  %117 = load i8, ptr %116, align 8, !range !9, !noundef !10
   %118 = trunc nuw i8 %117 to i1
   %119 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %115, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %118, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %120 = icmp eq ptr %119, null
@@ -19569,7 +19569,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
   %129 = sub i16 %127, %128
   store i16 %129, ptr %8, align 2
   %130 = load ptr, ptr %114, align 8
-  %131 = load i8, ptr %116, align 8, !range !8, !noundef !9
+  %131 = load i8, ptr %116, align 8, !range !9, !noundef !10
   %132 = trunc nuw i8 %131 to i1
   %133 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %130, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %132, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %134 = icmp eq ptr %133, null
@@ -19593,7 +19593,7 @@ define internal i32 @dissect_session_setup_andx_response(ptr noundef %0, ptr nou
 
 145:                                              ; preds = %135
   %146 = load ptr, ptr %114, align 8
-  %147 = load i8, ptr %116, align 8, !range !8, !noundef !9
+  %147 = load i8, ptr %116, align 8, !range !9, !noundef !10
   %148 = trunc nuw i8 %147 to i1
   %149 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %146, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %148, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %150 = icmp eq ptr %149, null
@@ -19846,7 +19846,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %65 = load i8, ptr %64, align 8, !range !8, !noundef !9
+  %65 = load i8, ptr %64, align 8, !range !9, !noundef !10
   %66 = trunc nuw i8 %65 to i1
   %67 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %63, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %66, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   store ptr %67, ptr %10, align 8
@@ -20128,7 +20128,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
 114:                                              ; preds = %113
   %115 = load ptr, ptr %74, align 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %117 = load i8, ptr %116, align 8, !range !8, !noundef !9
+  %117 = load i8, ptr %116, align 8, !range !9, !noundef !10
   %118 = trunc nuw i8 %117 to i1
   %119 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %115, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %118, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   store ptr %119, ptr %10, align 8
@@ -20379,7 +20379,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #19
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %11 = load i8, ptr %10, align 8, !range !8, !noundef !9
+  %11 = load i8, ptr %10, align 8, !range !9, !noundef !10
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %.not318 = icmp eq ptr %5, null
@@ -20483,7 +20483,7 @@ define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef 
   %83 = tail call ptr @val_to_str_ext_const(i32 noundef %78, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2691)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.2674, ptr noundef %83)
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %85 = load i8, ptr %84, align 2, !range !8, !noundef !9
+  %85 = load i8, ptr %84, align 2, !range !9, !noundef !10
   %86 = trunc nuw i8 %85 to i1
   %87 = icmp eq ptr %15, null
   %or.cond.not = select i1 %86, i1 true, i1 %87
@@ -20634,7 +20634,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 
 166:                                              ; preds = %165, %164
   store i8 1, ptr %10, align 8
-  %167 = load i8, ptr @smb_trans_reassembly, align 1, !range !8, !noundef !9
+  %167 = load i8, ptr @smb_trans_reassembly, align 1, !range !9, !noundef !10
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %.thread361
 
@@ -20948,7 +20948,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %107 = load i8, ptr %106, align 8, !range !8, !noundef !9
+  %107 = load i8, ptr %106, align 8, !range !9, !noundef !10
   %.not278 = icmp eq i32 %.0262, 0
   %.not279 = icmp eq i32 %.0262, %.0247
   %or.cond289 = or i1 %.not278, %.not279
@@ -20962,7 +20962,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 
 109:                                              ; preds = %108, %105
   store i8 1, ptr %106, align 8
-  %110 = load i8, ptr @smb_trans_reassembly, align 1, !range !8, !noundef !9
+  %110 = load i8, ptr @smb_trans_reassembly, align 1, !range !9, !noundef !10
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %.thread302
 
@@ -21249,7 +21249,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %107 = load i8, ptr %106, align 8, !range !8, !noundef !9
+  %107 = load i8, ptr %106, align 8, !range !9, !noundef !10
   %108 = trunc nuw i8 %107 to i1
   %109 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %105, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %108, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8)
   %110 = icmp eq ptr %109, null
@@ -21658,7 +21658,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %45 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %45 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %46 = trunc nuw i8 %45 to i1
   %47 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %43, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %46, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %48 = icmp eq ptr %47, null
@@ -21691,7 +21691,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef 
   %68 = add i16 %55, %67
   store i16 %68, ptr %9, align 2
   %69 = load ptr, ptr %42, align 8
-  %70 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %70 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %71 = trunc nuw i8 %70 to i1
   %72 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %69, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %71, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %9)
   %73 = icmp eq ptr %72, null
@@ -21797,7 +21797,7 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr noundef
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %41 = load i8, ptr %40, align 8, !range !8, !noundef !9
+  %41 = load i8, ptr %40, align 8, !range !9, !noundef !10
   %42 = trunc nuw i8 %41 to i1
   %43 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %39, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %42, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %9)
   %44 = icmp eq ptr %43, null
@@ -22181,7 +22181,7 @@ define internal noundef i32 @dissect_get_print_queue_response(ptr noundef %0, pt
   br i1 %77, label %dissect_print_queue_element.exit.thread, label %78
 
 78:                                               ; preds = %71
-  %79 = load i8, ptr %42, align 8, !range !8, !noundef !9
+  %79 = load i8, ptr %42, align 8, !range !9, !noundef !10
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %84
 
@@ -22208,7 +22208,7 @@ dissect_print_queue_element.exit:                 ; preds = %get_unicode_or_asci
   %90 = trunc nuw nsw i32 %.063.i to i16
   %91 = sub i16 %75, %90
   %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %dissect_print_queue_element.exit, %34
   %.076.lcssa = phi i16 [ %40, %34 ], [ %91, %dissect_print_queue_element.exit ]
@@ -22686,7 +22686,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
 15:                                               ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !33
 
 16:                                               ; preds = %12
   %17 = and i64 %indvars.iv, 4294967295
@@ -22792,7 +22792,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %.147 = phi i64 [ %.04662, %59 ], [ %.151, %._crit_edge69 ]
   %62 = add i64 %.147, 3600
   %63 = icmp slt i64 %62, %61
-  br i1 %63, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !31
+  br i1 %63, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !34
 
 .lr.ph66:                                         ; preds = %.preheader, %76
   %64 = phi i64 [ %77, %76 ], [ %44, %.preheader ]
@@ -22831,7 +22831,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %.1 = phi i64 [ %.065, %75 ], [ %.2, %._crit_edge74 ]
   %78 = add i64 %.1, -3600
   %79 = icmp sgt i64 %78, %77
-  br i1 %79, label %.lr.ph66, label %.loopexit, !llvm.loop !32
+  br i1 %79, label %.lr.ph66, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %76, %.preheader, %32, %16
   %.048 = phi i32 [ %19, %16 ], [ %20, %32 ], [ %20, %.preheader ], [ %20, %76 ]
@@ -23019,7 +23019,7 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %36 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %21, %35, %9
   %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.190, %21 ]
@@ -23127,7 +23127,7 @@ tree_ip_str.exit84:                               ; preds = %51, %51, %51, %53
   %82 = phi ptr [ %79, %75 ], [ %69, %.thread86 ]
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i64 %.sink97, ptr %83, align 8
-  %84 = load i8, ptr @eosmb_take_name_as_fid, align 1, !range !8, !noundef !9
+  %84 = load i8, ptr @eosmb_take_name_as_fid, align 1, !range !9, !noundef !10
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %88
 
@@ -23541,7 +23541,7 @@ define internal fastcc void @dissect_trans_data(ptr noundef %0, ptr noundef %1, 
   %16 = add nuw i32 %.02636, 1
   %17 = add i32 %.02537, 2
   %exitcond.not = icmp eq i32 %.02636, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %4
   %.not32 = icmp eq ptr %1, null
@@ -23742,7 +23742,7 @@ define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %10, %10
   %20 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %8)
-  %21 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %21 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %dissect_4_2_16_4.exit, label %23
 
@@ -23825,7 +23825,7 @@ dissect_qsfi_SMB_FILE_ENDOFFILE_INFO.exit:        ; preds = %48, %50
   %59 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %59, align 8
   %60 = getelementptr i8, ptr %6, i64 24
-  %.val140 = load i8, ptr %60, align 8, !range !8, !noundef !9
+  %.val140 = load i8, ptr %60, align 8, !range !9, !noundef !10
   %61 = trunc nuw i8 %.val140 to i1
   br i1 %61, label %62, label %70
 
@@ -23871,7 +23871,7 @@ dissect_4_2_16_13.exit:                           ; preds = %64, %get_unicode_or
   %77 = getelementptr i8, ptr %1, i64 408
   %.val141 = load ptr, ptr %77, align 8
   %78 = getelementptr i8, ptr %6, i64 24
-  %.val142 = load i8, ptr %78, align 8, !range !8, !noundef !9
+  %.val142 = load i8, ptr %78, align 8, !range !9, !noundef !10
   %79 = trunc nuw i8 %.val142 to i1
   br i1 %79, label %80, label %88
 
@@ -23985,7 +23985,7 @@ dissect_4_2_16_13.exit157:                        ; preds = %82, %get_unicode_or
 
 134:                                              ; preds = %124
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %136 = load i8, ptr %135, align 8, !range !8, !noundef !9
+  %136 = load i8, ptr %135, align 8, !range !9, !noundef !10
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %150
 
@@ -24119,7 +24119,7 @@ dissect_sfi_SMB_FILE_PIPE_INFO.exit:              ; preds = %10
 
 dissect_4_2_16_4.exit:                            ; preds = %.sink.split.i, %19, %192, %186, %dissect_sfi_SMB_FILE_PIPE_INFO.exit, %dissect_qsfi_SMB_FILE_MODE_INFO.exit, %dissect_qsfi_SMB_FILE_POSITION_INFO.exit, %dissect_disposition_info.exit, %dissect_rename_info.exit, %106, %104, %102, %100, %98, %96, %94, %dissect_4_2_16_13.exit157, %dissect_4_2_16_13.exit, %56, %dissect_qsfi_SMB_FILE_ENDOFFILE_INFO.exit, %dissect_qsfi_SMB_FILE_ALLOCATION_INFO.exit, %dissect_4_2_19_2.exit, %17, %15, %13
   %.0137 = phi i32 [ %197, %192 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %37, %dissect_4_2_19_2.exit ], [ %.0.i145, %dissect_qsfi_SMB_FILE_ALLOCATION_INFO.exit ], [ %.0.i147, %dissect_qsfi_SMB_FILE_ENDOFFILE_INFO.exit ], [ %57, %56 ], [ %.0.i149, %dissect_4_2_16_13.exit ], [ %.0.i154, %dissect_4_2_16_13.exit157 ], [ %95, %94 ], [ %4, %96 ], [ %4, %98 ], [ %4, %100 ], [ %4, %102 ], [ %4, %104 ], [ %107, %106 ], [ %.0.i162, %dissect_rename_info.exit ], [ %162, %dissect_disposition_info.exit ], [ %.0.i167, %dissect_qsfi_SMB_FILE_POSITION_INFO.exit ], [ %.0.i169, %dissect_qsfi_SMB_FILE_MODE_INFO.exit ], [ %183, %dissect_sfi_SMB_FILE_PIPE_INFO.exit ], [ %191, %186 ], [ %20, %19 ], [ %.0.ph.i, %.sink.split.i ]
-  %198 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %198 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %202
 
@@ -24752,7 +24752,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
   call void @proto_item_set_len(ptr noundef %113, i32 noundef 10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %.not = icmp eq i16 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %112, %28
   %.0119.lcssa = phi i32 [ %31, %28 ], [ %.2121, %112 ]
@@ -25139,7 +25139,7 @@ define internal fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %0, pt
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load i8, ptr %53, align 8, !range !8, !noundef !9
+  %54 = load i8, ptr %53, align 8, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   br label %56
 
@@ -25286,7 +25286,7 @@ thread-pre-split.i:                               ; preds = %70, %56
   %139 = add i16 %138, -1
   store i16 %139, ptr %4, align 2
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %141 = load i8, ptr %140, align 8, !range !8, !noundef !9
+  %141 = load i8, ptr %140, align 8, !range !9, !noundef !10
   %142 = trunc nuw i8 %141 to i1
   %storemerge.v.i = select i1 %142, i32 2, i32 1
   %storemerge.i = add nuw nsw i32 %storemerge.v.i, %134
@@ -25354,7 +25354,7 @@ dissect_4_3_4_1.exit:                             ; preds = %69, %79, %88, %97, 
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %176 = load i8, ptr %175, align 8, !range !8, !noundef !9
+  %176 = load i8, ptr %175, align 8, !range !9, !noundef !10
   %177 = trunc nuw i8 %176 to i1
   br label %178
 
@@ -25518,7 +25518,7 @@ thread-pre-split.i89:                             ; preds = %192, %178
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %273 = load i8, ptr %272, align 8, !range !8, !noundef !9
+  %273 = load i8, ptr %272, align 8, !range !9, !noundef !10
   %274 = trunc nuw i8 %273 to i1
   %275 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %271, ptr noundef nonnull %0, ptr noundef nonnull %31, i1 noundef zeroext %274, ptr noundef nonnull %32, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %4)
   %276 = icmp eq ptr %275, null
@@ -25593,7 +25593,7 @@ dissect_4_3_4_2.exit:                             ; preds = %191, %201, %210, %2
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %312 = load i8, ptr %311, align 8, !range !8, !noundef !9
+  %312 = load i8, ptr %311, align 8, !range !9, !noundef !10
   %313 = trunc nuw i8 %312 to i1
   br label %314
 
@@ -25758,7 +25758,7 @@ thread-pre-split.i92:                             ; preds = %323, %314
   %409 = add i16 %408, -1
   store i16 %409, ptr %4, align 2
   %410 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %411 = load i8, ptr %410, align 8, !range !8, !noundef !9
+  %411 = load i8, ptr %410, align 8, !range !9, !noundef !10
   %412 = trunc nuw i8 %411 to i1
   %storemerge.v.i93 = select i1 %412, i32 2, i32 1
   %storemerge.i94 = add nuw nsw i32 %storemerge.v.i93, %404
@@ -25862,7 +25862,7 @@ dissect_4_3_4_3.exit:                             ; preds = %322, %332, %341, %3
   %466 = add i16 %465, -4
   store i16 %466, ptr %4, align 2
   %467 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %449, i32 noundef %464, ptr noundef %4, ptr noundef %5)
-  %468 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %468 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %469 = trunc nuw i8 %468 to i1
   br i1 %469, label %dissect_4_3_4_4.exit, label %470
 
@@ -25928,7 +25928,7 @@ dissect_4_3_4_3.exit:                             ; preds = %322, %332, %341, %3
   %503 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %504 = load ptr, ptr %503, align 8
   %505 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %506 = load i8, ptr %505, align 8, !range !8, !noundef !9
+  %506 = load i8, ptr %505, align 8, !range !9, !noundef !10
   %507 = trunc nuw i8 %506 to i1
   %508 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %504, ptr noundef nonnull %0, ptr noundef nonnull %25, i1 noundef zeroext %507, ptr noundef nonnull %26, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %509 = icmp eq ptr %508, null
@@ -26055,7 +26055,7 @@ dissect_4_3_4_4.exit:                             ; preds = %436, %452, %460, %4
   %573 = add i16 %572, -4
   store i16 %573, ptr %4, align 2
   %574 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %556, i32 noundef %571, ptr noundef %4, ptr noundef %5)
-  %575 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %575 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %576 = trunc nuw i8 %575 to i1
   br i1 %576, label %dissect_4_3_4_5.exit, label %577
 
@@ -26135,7 +26135,7 @@ dissect_4_3_4_4.exit:                             ; preds = %436, %452, %460, %4
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %621 = load i8, ptr %620, align 8, !range !8, !noundef !9
+  %621 = load i8, ptr %620, align 8, !range !9, !noundef !10
   %622 = trunc nuw i8 %621 to i1
   %623 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %619, ptr noundef nonnull %0, ptr noundef nonnull %22, i1 noundef zeroext %622, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %624 = icmp eq ptr %623, null
@@ -26265,7 +26265,7 @@ dissect_4_3_4_5.exit:                             ; preds = %543, %559, %567, %5
 
 697:                                              ; preds = %687
   %698 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %699 = load i8, ptr %698, align 8, !range !8, !noundef !9
+  %699 = load i8, ptr %698, align 8, !range !9, !noundef !10
   %700 = trunc nuw i8 %699 to i1
   br i1 %700, label %701, label %713
 
@@ -26412,7 +26412,7 @@ dissect_4_3_4_7.exit:                             ; preds = %656, %663, %673, %6
   %772 = add i16 %771, -4
   store i16 %772, ptr %4, align 2
   %773 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %755, i32 noundef %770, ptr noundef %4, ptr noundef %5)
-  %774 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %774 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %775 = trunc nuw i8 %774 to i1
   br i1 %775, label %dissect_4_3_4_6.exit, label %776
 
@@ -26523,7 +26523,7 @@ dissect_4_3_4_7.exit:                             ; preds = %656, %663, %673, %6
   %835 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %836 = load ptr, ptr %835, align 8
   %837 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %838 = load i8, ptr %837, align 8, !range !8, !noundef !9
+  %838 = load i8, ptr %837, align 8, !range !9, !noundef !10
   %839 = trunc nuw i8 %838 to i1
   %840 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %836, ptr noundef nonnull %0, ptr noundef nonnull %17, i1 noundef zeroext %839, ptr noundef nonnull %19, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %841 = icmp eq ptr %840, null
@@ -26544,7 +26544,7 @@ dissect_4_3_4_7.exit:                             ; preds = %656, %663, %673, %6
   %850 = add i16 %849, -24
   store i16 %850, ptr %4, align 2
   %851 = load ptr, ptr %835, align 8
-  %852 = load i8, ptr %837, align 8, !range !8, !noundef !9
+  %852 = load i8, ptr %837, align 8, !range !9, !noundef !10
   %853 = trunc nuw i8 %852 to i1
   %854 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %851, ptr noundef nonnull %0, ptr noundef nonnull %17, i1 noundef zeroext %853, ptr noundef nonnull %18, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %855 = icmp eq ptr %854, null
@@ -26672,7 +26672,7 @@ dissect_4_3_4_6.exit:                             ; preds = %742, %758, %766, %7
   %919 = add i16 %918, -4
   store i16 %919, ptr %4, align 2
   %920 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %902, i32 noundef %917, ptr noundef %4, ptr noundef %5)
-  %921 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %921 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %922 = trunc nuw i8 %921 to i1
   br i1 %922, label %dissect_4_3_4_6full.exit, label %923
 
@@ -26766,7 +26766,7 @@ dissect_4_3_4_6.exit:                             ; preds = %742, %758, %766, %7
   %972 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %973 = load ptr, ptr %972, align 8
   %974 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %975 = load i8, ptr %974, align 8, !range !8, !noundef !9
+  %975 = load i8, ptr %974, align 8, !range !9, !noundef !10
   %976 = trunc nuw i8 %975 to i1
   %977 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %973, ptr noundef nonnull %0, ptr noundef nonnull %14, i1 noundef zeroext %976, ptr noundef nonnull %15, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %978 = icmp eq ptr %977, null
@@ -26894,7 +26894,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %889, %905, %913, %9
   %1042 = add i16 %1041, -4
   store i16 %1042, ptr %4, align 2
   %1043 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %1025, i32 noundef %1040, ptr noundef %4, ptr noundef %5)
-  %1044 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %1044 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %1045 = trunc nuw i8 %1044 to i1
   br i1 %1045, label %dissect_4_3_4_6_id_both.exit, label %1046
 
@@ -27005,7 +27005,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %889, %905, %913, %9
   %1105 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1106 = load ptr, ptr %1105, align 8
   %1107 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %1108 = load i8, ptr %1107, align 8, !range !8, !noundef !9
+  %1108 = load i8, ptr %1107, align 8, !range !9, !noundef !10
   %1109 = trunc nuw i8 %1108 to i1
   %1110 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %1106, ptr noundef nonnull %0, ptr noundef nonnull %10, i1 noundef zeroext %1109, ptr noundef nonnull %12, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %1111 = icmp eq ptr %1110, null
@@ -27054,7 +27054,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %889, %905, %913, %9
   %1136 = add i16 %1135, -8
   store i16 %1136, ptr %4, align 2
   %1137 = load ptr, ptr %1105, align 8
-  %1138 = load i8, ptr %1107, align 8, !range !8, !noundef !9
+  %1138 = load i8, ptr %1107, align 8, !range !9, !noundef !10
   %1139 = trunc nuw i8 %1138 to i1
   %1140 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %1137, ptr noundef nonnull %0, ptr noundef nonnull %10, i1 noundef zeroext %1139, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4)
   %1141 = icmp eq ptr %1140, null
@@ -27155,7 +27155,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1012, %1028, %1036,
   store i16 %1189, ptr %4, align 2
   %1190 = tail call fastcc i32 @dissect_4_2_16_12(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1187, ptr noundef %4, ptr noundef %5)
   store i32 %1190, ptr %8, align 4
-  %1191 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %1191 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %1192 = trunc nuw i8 %1191 to i1
   br i1 %1192, label %dissect_4_3_4_8.exit, label %1193
 
@@ -27163,7 +27163,7 @@ dissect_4_3_4_6_id_both.exit:                     ; preds = %1012, %1028, %1036,
   %1194 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1195 = load ptr, ptr %1194, align 8
   %1196 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %1197 = load i8, ptr %1196, align 8, !range !8, !noundef !9
+  %1197 = load i8, ptr %1196, align 8, !range !9, !noundef !10
   %1198 = trunc nuw i8 %1197 to i1
   %1199 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %1195, ptr noundef nonnull %0, ptr noundef nonnull %8, i1 noundef zeroext %1198, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %4)
   %1200 = icmp eq ptr %1199, null
@@ -27225,7 +27225,7 @@ dissect_4_3_4_8.exit:                             ; preds = %1175, %1183, %1184,
   %1231 = add i16 %1230, -4
   store i16 %1231, ptr %4, align 2
   %1232 = tail call fastcc i32 @dissect_qspi_unix_info2(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1229, ptr noundef %4, ptr noundef %5)
-  %1233 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %1233 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %1234 = trunc nuw i8 %1233 to i1
   br i1 %1234, label %dissect_find_file_unix_info2.exit, label %1235
 
@@ -27251,7 +27251,7 @@ dissect_4_3_4_8.exit:                             ; preds = %1175, %1183, %1184,
 
 1249:                                             ; preds = %1238
   %1250 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %1251 = load i8, ptr %1250, align 8, !range !8, !noundef !9
+  %1251 = load i8, ptr %1250, align 8, !range !9, !noundef !10
   %1252 = trunc nuw i8 %1251 to i1
   br i1 %1252, label %1253, label %1258
 
@@ -27371,7 +27371,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !8
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !9
   %13 = zext nneg i8 %.pre to i32
   br label %187
 
@@ -27391,13 +27391,13 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %21 = getelementptr i8, ptr %1, i64 408
   %.val164 = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %4, i64 24
-  %.val165 = load i8, ptr %22, align 8, !range !8, !noundef !9
+  %.val165 = load i8, ptr %22, align 8, !range !9, !noundef !10
   %23 = call fastcc i32 @dissect_4_2_16_3(ptr noundef %0, ptr %.val164, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %8, i8 %.val165)
   br label %dissect_4_2_16_4.exit
 
 24:                                               ; preds = %10, %10
   %25 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %8)
-  %26 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %26 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %dissect_4_2_16_4.exit, label %28
 
@@ -27448,7 +27448,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
 
 56:                                               ; preds = %10, %10
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %58 = load i8, ptr %57, align 8, !range !8, !noundef !9
+  %58 = load i8, ptr %57, align 8, !range !9, !noundef !10
   %59 = trunc nuw i8 %58 to i1
   %60 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %8, i1 noundef zeroext %59)
   br label %dissect_4_2_16_4.exit
@@ -27493,7 +27493,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   %83 = call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %8)
-  %84 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %84 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %dissect_qfi_SMB_FILE_ALL_INFO.exit, label %86
 
@@ -27593,7 +27593,7 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %154 = load i8, ptr %153, align 8, !range !8, !noundef !9
+  %154 = load i8, ptr %153, align 8, !range !9, !noundef !10
   %155 = trunc nuw i8 %154 to i1
   %156 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %152, ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %155, ptr noundef nonnull %7, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %3)
   %.not.i = icmp eq ptr %156, null
@@ -27644,7 +27644,7 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %141, %134, %127, %1
 
 180:                                              ; preds = %10, %10
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %182 = load i8, ptr %181, align 8, !range !8, !noundef !9
+  %182 = load i8, ptr %181, align 8, !range !9, !noundef !10
   %183 = trunc nuw i8 %182 to i1
   %184 = call i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %8, i1 noundef zeroext %183)
   br label %dissect_4_2_16_4.exit
@@ -27679,7 +27679,7 @@ dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %141, %134, %127, %1
   %199 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %199, align 8
   %200 = getelementptr i8, ptr %4, i64 24
-  %.val163 = load i8, ptr %200, align 8, !range !8, !noundef !9
+  %.val163 = load i8, ptr %200, align 8, !range !9, !noundef !10
   %201 = call fastcc i32 @dissect_4_2_16_13(ptr noundef nonnull %0, ptr %.val, ptr noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %8, i8 %.val163)
   br label %dissect_4_2_16_4.exit
 
@@ -27937,7 +27937,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %43 = load i8, ptr %42, align 8, !range !8, !noundef !9
+  %43 = load i8, ptr %42, align 8, !range !9, !noundef !10
   %44 = trunc nuw i8 %43 to i1
   %45 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %41, ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %44, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %9)
   %46 = icmp eq ptr %45, null
@@ -27982,7 +27982,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noun
 
 74:                                               ; preds = %67
   %75 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %72, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext %5)
-  %76 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %76 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %77 = trunc nuw i8 %76 to i1
   %78 = load i16, ptr %9, align 2
   %79 = icmp eq i16 %78, 0
@@ -28181,7 +28181,7 @@ define internal fastcc noundef i32 @dissect_search_find_response(ptr noundef %0,
   %40 = load i32, ptr @ett_smb_search_dir_info, align 4
   %41 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.221, i32 noundef 43, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.2727)
   %42 = call fastcc i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef readonly %1, ptr noundef %41, i32 noundef %.221, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext %4)
-  %43 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %43 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %.loopexit, label %45
 
@@ -28228,7 +28228,7 @@ dissect_search_dir_info.exit:                     ; preds = %get_unicode_or_asci
   store i16 %72, ptr %7, align 2
   store i8 0, ptr %8, align 1
   %.not = icmp eq i16 %39, 0
-  br i1 %.not, label %.split4.us.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.split4.us.loopexit, label %.lr.ph, !llvm.loop !39
 
 .split4.us.loopexit:                              ; preds = %dissect_search_dir_info.exit, %.split.preheader
   %.2.lcssa = phi i32 [ %36, %.split.preheader ], [ %71, %dissect_search_dir_info.exit ]
@@ -28363,7 +28363,7 @@ define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr 
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %84 = load i8, ptr %83, align 8, !range !8, !noundef !9
+  %84 = load i8, ptr %83, align 8, !range !9, !noundef !10
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %91
 
@@ -28829,7 +28829,7 @@ define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr
   br i1 %143, label %.thread210, label %144
 
 144:                                              ; preds = %141
-  %145 = load i8, ptr %29, align 8, !range !8, !noundef !9
+  %145 = load i8, ptr %29, align 8, !range !9, !noundef !10
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %152
 
@@ -28882,7 +28882,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %147, %152
   %.1203 = phi i16 [ %159, %163 ], [ %169, %167 ]
   %.1 = phi i32 [ %160, %163 ], [ %170, %167 ]
   %.not143 = icmp eq i32 %.1, 0
-  br i1 %.not143, label %.thread210, label %120, !llvm.loop !37
+  br i1 %.not143, label %.thread210, label %120, !llvm.loop !40
 
 173:                                              ; preds = %26
   %174 = load i32, ptr @hf_smb_sec_desc_len, align 4
@@ -29146,7 +29146,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   %.2 = phi i32 [ %.1202, %44 ], [ %.1202, %55 ], [ %63, %67 ], [ %.1202, %70 ], [ %.1202, %80 ], [ %.1202, %79 ]
   %85 = add i32 %.1164, 1
   %86 = icmp slt i32 %85, %.2
-  br i1 %86, label %44, label %.loopexit, !llvm.loop !38
+  br i1 %86, label %44, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %84, %39, %65
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -29183,7 +29183,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %102 = load i8, ptr %101, align 8, !range !8, !noundef !9
+  %102 = load i8, ptr %101, align 8, !range !9, !noundef !10
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %110, label %104
 
@@ -29210,7 +29210,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
 
 110:                                              ; preds = %96, %100, %109, %.thread197, %91, %94
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %112 = load i8, ptr %111, align 8, !range !8, !noundef !9
+  %112 = load i8, ptr %111, align 8, !range !9, !noundef !10
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %121, label %114
 
@@ -29304,36 +29304,39 @@ attributes #21 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8, !21}
+!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}

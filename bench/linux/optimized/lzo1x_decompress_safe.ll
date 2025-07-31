@@ -153,7 +153,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %88 = getelementptr i8, ptr %83, i64 16
   %89 = getelementptr i8, ptr %82, i64 16
   %90 = icmp ult ptr %89, %80
-  br i1 %90, label %81, label %104, !llvm.loop !11
+  br i1 %90, label %81, label %104, !llvm.loop !12
 
 91:                                               ; preds = %67
   %92 = icmp ult i64 %76, %68
@@ -174,7 +174,7 @@ thread-pre-split:                                 ; preds = %9, %14
   store i8 %100, ptr %98, align 1
   %102 = add i64 %96, -1
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %103, label %.loopexit, label %.preheader, !llvm.loop !13
 
 104:                                              ; preds = %81
   %105 = getelementptr i8, ptr %70, i64 %68
@@ -183,7 +183,7 @@ thread-pre-split:                                 ; preds = %9, %14
 .loopexit:                                        ; preds = %.preheader, %104
   %106 = phi ptr [ %80, %104 ], [ %99, %.preheader ]
   %107 = phi ptr [ %105, %104 ], [ %101, %.preheader ]
-  br label %24, !llvm.loop !13
+  br label %24, !llvm.loop !14
 
 108:                                              ; preds = %44
   %109 = and i64 %42, 3
@@ -265,7 +265,7 @@ thread-pre-split:                                 ; preds = %9, %14
 164:                                              ; preds = %.preheader50
   %165 = getelementptr i8, ptr %161, i64 1
   %166 = icmp eq ptr %5, %165
-  br i1 %166, label %.thread36, label %.preheader50, !llvm.loop !14
+  br i1 %166, label %.thread36, label %.preheader50, !llvm.loop !15
 
 167:                                              ; preds = %.preheader50
   %168 = ptrtoint ptr %161 to i64
@@ -312,7 +312,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %201 = icmp ne i64 %200, 24
   %202 = or i1 %201, %199
   %203 = select i1 %202, i1 true, i1 %21
-  br i1 %203, label %221, label %204, !prof !15
+  br i1 %203, label %221, label %204, !prof !16
 
 204:                                              ; preds = %195
   %205 = icmp eq i64 %193, 2
@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %9, %14
 230:                                              ; preds = %.preheader52
   %231 = getelementptr i8, ptr %227, i64 1
   %232 = icmp eq ptr %5, %231
-  br i1 %232, label %.thread36, label %.preheader52, !llvm.loop !16
+  br i1 %232, label %.thread36, label %.preheader52, !llvm.loop !17
 
 233:                                              ; preds = %.preheader52
   %234 = ptrtoint ptr %227 to i64
@@ -430,7 +430,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %284 = getelementptr i8, ptr %279, i64 16
   %285 = getelementptr i8, ptr %278, i64 16
   %286 = icmp ult ptr %284, %273
-  br i1 %286, label %.preheader49, label %287, !llvm.loop !17
+  br i1 %286, label %.preheader49, label %287, !llvm.loop !18
 
 287:                                              ; preds = %.preheader49
   %288 = ptrtoint ptr %265 to i64
@@ -450,7 +450,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %297 = getelementptr i8, ptr %294, i64 1
   store i8 %296, ptr %294, align 1
   %298 = icmp ult ptr %297, %273
-  br i1 %298, label %.preheader47, label %.loopexit46, !llvm.loop !18
+  br i1 %298, label %.preheader47, label %.loopexit46, !llvm.loop !19
 
 .loopexit48:                                      ; preds = %287
   %299 = load i32, ptr %265, align 1
@@ -482,7 +482,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %316 = getelementptr i8, ptr %313, i64 1
   store i8 %315, ptr %313, align 1
   %317 = icmp ult ptr %316, %273
-  br i1 %317, label %311, label %.loopexit46, !llvm.loop !19
+  br i1 %317, label %311, label %.loopexit46, !llvm.loop !20
 
 .loopexit46:                                      ; preds = %287, %311, %.preheader47, %217, %124, %30
   %318 = phi i64 [ %109, %124 ], [ %219, %217 ], [ %34, %30 ], [ %266, %.preheader47 ], [ %266, %311 ], [ %266, %287 ]
@@ -529,12 +529,12 @@ thread-pre-split:                                 ; preds = %9, %14
   store i8 %345, ptr %341, align 1
   %347 = add nsw i64 %343, -1
   %348 = icmp eq i64 %347, 0
-  br i1 %348, label %.loopexit58, label %.preheader57, !llvm.loop !20
+  br i1 %348, label %.loopexit58, label %.preheader57, !llvm.loop !21
 
 .loopexit58:                                      ; preds = %.preheader57, %339, %330
   %349 = phi ptr [ %333, %330 ], [ %319, %339 ], [ %344, %.preheader57 ]
   %350 = phi ptr [ %332, %330 ], [ %320, %339 ], [ %346, %.preheader57 ]
-  br label %24, !llvm.loop !13
+  br label %24, !llvm.loop !14
 
 351:                                              ; preds = %249
   %352 = ptrtoint ptr %39 to i64
@@ -596,16 +596,17 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!"branch_weights", i32 2002, i32 2000}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = !{!"branch_weights", i32 2002, i32 2000}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

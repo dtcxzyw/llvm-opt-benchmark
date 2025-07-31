@@ -3164,7 +3164,7 @@ find_iuup_circuit.exit.i.i:                       ; preds = %89, %73
   %137 = tail call i8 @llvm.fshl.i8(i8 %132, i8 %136, i8 %130)
   store i8 %137, ptr %133, align 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %iuup_proto_tree_add_bits.exit.i.i, label %131, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %iuup_proto_tree_add_bits.exit.i.i, label %131, !llvm.loop !11
 
 iuup_proto_tree_add_bits.exit.i.i:                ; preds = %131, %110
   %.pre-phi.i.i.i = phi i64 [ 0, %110 ], [ %wide.trip.count.i.i.i, %131 ]
@@ -3191,7 +3191,7 @@ iuup_proto_tree_add_bits.exit.i.i:                ; preds = %131, %110
   %.1.i.i = phi i32 [ %151, %iuup_proto_tree_add_bits.exit.i.i ], [ %.04662.i.i, %.lr.ph64.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph64.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph64.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %152, %104
   %.046.lcssa.i.i = phi i32 [ 0, %104 ], [ %.1.i.i, %152 ]
@@ -3202,7 +3202,7 @@ iuup_proto_tree_add_bits.exit.i.i:                ; preds = %131, %110
   %156 = add i32 %153, %.0.i.i
   %157 = add i32 %156, %155
   %.not53.i.i = icmp sgt i32 %157, %62
-  br i1 %.not53.i.i, label %dissect_iuup_data.exit, label %104, !llvm.loop !12
+  br i1 %.not53.i.i, label %dissect_iuup_data.exit, label %104, !llvm.loop !13
 
 .loopexit.sink.split.i.i:                         ; preds = %96, %92, %find_iuup_circuit.exit.i.i, %79
   %158 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %67, ptr noundef nonnull @ei_iuup_payload_undecoded)
@@ -3291,7 +3291,7 @@ iuup_proto_tree_add_bits.exit.i.i:                ; preds = %131, %110
   %202 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %201, ptr noundef %.039, i32 noundef %spec.select.i.i, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, %wide.trip.count.i.i47
-  br i1 %exitcond.not.i.i52, label %dissect_iuup_data.exit, label %.lr.ph.i.i48, !llvm.loop !13
+  br i1 %exitcond.not.i.i52, label %dissect_iuup_data.exit, label %.lr.ph.i.i48, !llvm.loop !14
 
 203:                                              ; preds = %185
   %204 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0101.i, ptr noundef nonnull @ei_iuup_procedure_indicator)
@@ -3430,7 +3430,7 @@ find_iuup_circuit.exit.i.i46:                     ; preds = %212
   %spec.select.i108.i = add i32 %281, %276
   %indvars.iv.next.i109.i = add nuw nsw i64 %indvars.iv.i107.i, 1
   %exitcond.not.i110.i = icmp eq i64 %indvars.iv.next.i109.i, %wide.trip.count.i106.i
-  br i1 %exitcond.not.i110.i, label %282, label %275, !llvm.loop !14
+  br i1 %exitcond.not.i110.i, label %282, label %275, !llvm.loop !15
 
 282:                                              ; preds = %275
   %283 = xor i32 %281, 1
@@ -3452,7 +3452,7 @@ find_iuup_circuit.exit.i.i46:                     ; preds = %212
   %293 = tail call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %292, ptr noundef %.039, i32 noundef %285, i32 noundef 2, i32 noundef 0)
   %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
   %exitcond78.not.i.i = icmp eq i64 %indvars.iv.next76.i.i, 16
-  br i1 %exitcond78.not.i.i, label %294, label %290, !llvm.loop !15
+  br i1 %exitcond78.not.i.i, label %294, label %290, !llvm.loop !16
 
 294:                                              ; preds = %290
   %295 = add i32 %285, 2
@@ -3491,7 +3491,7 @@ dissect_iuup_init.exit.i:                         ; preds = %294, %.thread.i.i
   %309 = tail call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %308, ptr noundef %.039, i32 noundef %spec.select.i118.i, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next.i119.i = add nuw nsw i64 %indvars.iv.i115.i, 1
   %exitcond.not.i120.i = icmp eq i64 %indvars.iv.next.i119.i, %wide.trip.count.i113.i
-  br i1 %exitcond.not.i120.i, label %dissect_iuup_data.exit, label %.lr.ph.i114.i, !llvm.loop !13
+  br i1 %exitcond.not.i120.i, label %dissect_iuup_data.exit, label %.lr.ph.i114.i, !llvm.loop !14
 
 310:                                              ; preds = %211, %185
   %311 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %.039, i32 noundef 4)
@@ -3711,7 +3711,7 @@ define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #9
   %42 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %.018, %11
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %41, %4
   %43 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -3976,7 +3976,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %59 = load i32, ptr %5, align 4
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next8, %60
-  br i1 %61, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
+  br i1 %61, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %62 = phi i32 [ %73, %.lr.ph.split ], [ %42, %.lr.ph ]
@@ -3999,7 +3999,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %74 = load i32, ptr %5, align 4
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %13
   %77 = load ptr, ptr %6, align 8
@@ -4019,7 +4019,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   store ptr %11, ptr %6, align 8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %.not67 = icmp sgt i8 %32, -1
-  br i1 %.not67, label %9, label %82, !llvm.loop !20
+  br i1 %.not67, label %9, label %82, !llvm.loop !21
 
 82:                                               ; preds = %81
   %83 = trunc nuw nsw i64 %indvars.iv10 to i32
@@ -4070,16 +4070,17 @@ attributes #11 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

@@ -266,7 +266,7 @@ delta_decode.exit:                                ; preds = %91
   store i8 %.0.i19.i, ptr %88, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %delta_decode.exit, %.preheader
   %116 = load i32, ptr %66, align 4, !tbaa !42
@@ -274,7 +274,7 @@ delta_decode.exit:                                ; preds = %91
   store i32 %117, ptr %66, align 4, !tbaa !42
   store i32 1, ptr %2, align 4, !tbaa !44
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %119 = load i64, ptr %118, align 8, !tbaa !53
+  %119 = load i64, ptr %118, align 8, !tbaa !54
   %120 = icmp eq i64 %119, 0
   %121 = select i1 %120, i32 2, i32 0
   %122 = add nuw nsw i32 %121, %spec.select
@@ -374,7 +374,8 @@ attributes #5 = { nounwind }
 !47 = !{!"p2 omnipotent char", !26, i64 0}
 !48 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
 !49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51}
-!53 = !{!5, !13, i64 824}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !51, !52}
+!54 = !{!5, !13, i64 824}

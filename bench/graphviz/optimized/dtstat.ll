@@ -68,31 +68,31 @@ define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 
   br i1 %.not18.us.i, label %34, label %28
 
 28:                                               ; preds = %27
-  %29 = load i64, ptr %11, align 8, !tbaa !22
+  %29 = load i64, ptr %11, align 8, !tbaa !23
   %30 = add i64 %29, 1
-  store i64 %30, ptr %11, align 8, !tbaa !22
-  %31 = load i64, ptr %10, align 8, !tbaa !23
+  store i64 %30, ptr %11, align 8, !tbaa !23
+  %31 = load i64, ptr %10, align 8, !tbaa !24
   %32 = icmp ugt i64 %.0.us.i, %31
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %28
-  store i64 %.0.us.i, ptr %10, align 8, !tbaa !23
+  store i64 %.0.us.i, ptr %10, align 8, !tbaa !24
   br label %34
 
 34:                                               ; preds = %33, %28, %27
   %indvars.iv.next6.i = add nsw i64 %indvars.iv5.i, -1
   %35 = icmp sgt i64 %indvars.iv5.i, 0
-  br i1 %35, label %.lr.ph.split.us.i, label %dthstat.exit, !llvm.loop !24
+  br i1 %35, label %.lr.ph.split.us.i, label %dthstat.exit, !llvm.loop !25
 
 dthstat.exit:                                     ; preds = %34, %19
-  %36 = load i64, ptr %10, align 8, !tbaa !23
+  %36 = load i64, ptr %10, align 8, !tbaa !24
   %37 = add i64 %36, 1
-  %38 = load i64, ptr @dtstat.Size, align 8, !tbaa !26
+  %38 = load i64, ptr @dtstat.Size, align 8, !tbaa !27
   %39 = icmp ugt i64 %37, %38
   br i1 %39, label %40, label %dthstat.exit._crit_edge
 
 dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
-  %.pre82 = load ptr, ptr @dtstat.Count, align 8, !tbaa !27
+  %.pre82 = load ptr, ptr @dtstat.Count, align 8, !tbaa !28
   br label %50
 
 40:                                               ; preds = %dthstat.exit
@@ -100,9 +100,9 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %.not58, label %43, label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr @dtstat.Count, align 8, !tbaa !27
+  %42 = load ptr, ptr @dtstat.Count, align 8, !tbaa !28
   tail call void @free(ptr noundef %42) #7
-  %.pre = load i64, ptr %10, align 8, !tbaa !23
+  %.pre = load i64, ptr %10, align 8, !tbaa !24
   br label %43
 
 43:                                               ; preds = %41, %40
@@ -110,13 +110,13 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   %45 = shl i64 %44, 2
   %46 = add i64 %45, 4
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #8
-  store ptr %47, ptr @dtstat.Count, align 8, !tbaa !27
+  store ptr %47, ptr @dtstat.Count, align 8, !tbaa !28
   %.not59 = icmp eq ptr %47, null
   br i1 %.not59, label %107, label %48
 
 48:                                               ; preds = %43
   %49 = add i64 %44, 1
-  store i64 %49, ptr @dtstat.Size, align 8, !tbaa !26
+  store i64 %49, ptr @dtstat.Size, align 8, !tbaa !27
   br label %50
 
 50:                                               ; preds = %dthstat.exit._crit_edge, %48
@@ -149,21 +149,21 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i64, ptr %51, i64 %.0.i
-  %60 = load i64, ptr %59, align 8, !tbaa !26
+  %60 = load i64, ptr %59, align 8, !tbaa !27
   %61 = add i64 %60, 1
-  store i64 %61, ptr %59, align 8, !tbaa !26
+  store i64 %61, ptr %59, align 8, !tbaa !27
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %62 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %62, label %.lr.ph.split.i, label %dthstat.exit74, !llvm.loop !28
+  br i1 %62, label %.lr.ph.split.i, label %dthstat.exit74, !llvm.loop !29
 
 63:                                               ; preds = %50, %63
   %.04477 = phi i64 [ 0, %50 ], [ %65, %63 ]
   %64 = getelementptr inbounds nuw i64, ptr %51, i64 %.04477
-  store i64 0, ptr %64, align 8, !tbaa !26
+  store i64 0, ptr %64, align 8, !tbaa !27
   %65 = add i64 %.04477, 1
-  %66 = load i64, ptr %10, align 8, !tbaa !23
+  %66 = load i64, ptr %10, align 8, !tbaa !24
   %.not60 = icmp ugt i64 %65, %66
-  br i1 %.not60, label %52, label %63, !llvm.loop !29
+  br i1 %.not60, label %52, label %63, !llvm.loop !30
 
 67:                                               ; preds = %17
   %68 = and i32 %15, 12
@@ -172,20 +172,20 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
+  %71 = load ptr, ptr %70, align 8, !tbaa !31
   %.not53 = icmp eq ptr %71, null
   br i1 %.not53, label %dthstat.exit74, label %72
 
 72:                                               ; preds = %69
   tail call fastcc void @dttstat(ptr noundef nonnull %1, ptr noundef nonnull %71, i64 noundef 0, ptr noundef null)
-  %73 = load i64, ptr %11, align 8, !tbaa !22
+  %73 = load i64, ptr %11, align 8, !tbaa !23
   %74 = add i64 %73, 1
-  %75 = load i64, ptr @dtstat.Size, align 8, !tbaa !26
+  %75 = load i64, ptr @dtstat.Size, align 8, !tbaa !27
   %76 = icmp ugt i64 %74, %75
   br i1 %76, label %77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72
-  %.pre84 = load ptr, ptr @dtstat.Count, align 8, !tbaa !27
+  %.pre84 = load ptr, ptr @dtstat.Count, align 8, !tbaa !28
   br label %87
 
 77:                                               ; preds = %72
@@ -193,9 +193,9 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %.not54, label %80, label %78
 
 78:                                               ; preds = %77
-  %79 = load ptr, ptr @dtstat.Count, align 8, !tbaa !27
+  %79 = load ptr, ptr @dtstat.Count, align 8, !tbaa !28
   tail call void @free(ptr noundef %79) #7
-  %.pre83 = load i64, ptr %11, align 8, !tbaa !22
+  %.pre83 = load i64, ptr %11, align 8, !tbaa !23
   br label %80
 
 80:                                               ; preds = %78, %77
@@ -203,13 +203,13 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   %82 = shl i64 %81, 2
   %83 = add i64 %82, 4
   %84 = tail call noalias ptr @malloc(i64 noundef %83) #8
-  store ptr %84, ptr @dtstat.Count, align 8, !tbaa !27
+  store ptr %84, ptr @dtstat.Count, align 8, !tbaa !28
   %.not55 = icmp eq ptr %84, null
   br i1 %.not55, label %107, label %85
 
 85:                                               ; preds = %80
   %86 = add i64 %81, 1
-  store i64 %86, ptr @dtstat.Size, align 8, !tbaa !26
+  store i64 %86, ptr @dtstat.Size, align 8, !tbaa !27
   br label %87
 
 87:                                               ; preds = %._crit_edge, %85
@@ -217,10 +217,10 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br label %93
 
 89:                                               ; preds = %93
-  %90 = load ptr, ptr %70, align 8, !tbaa !30
+  %90 = load ptr, ptr %70, align 8, !tbaa !31
   tail call fastcc void @dttstat(ptr noundef nonnull %1, ptr noundef %90, i64 noundef 0, ptr noundef nonnull %88)
-  %91 = load i64, ptr %11, align 8, !tbaa !22
-  %.promoted = load i64, ptr %10, align 8, !tbaa !23
+  %91 = load i64, ptr %11, align 8, !tbaa !23
+  %.promoted = load i64, ptr %10, align 8, !tbaa !24
   %92 = add i64 %91, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
   br label %97
@@ -228,33 +228,33 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 93:                                               ; preds = %87, %93
   %.04378 = phi i64 [ 0, %87 ], [ %95, %93 ]
   %94 = getelementptr inbounds nuw i64, ptr %88, i64 %.04378
-  store i64 0, ptr %94, align 8, !tbaa !26
+  store i64 0, ptr %94, align 8, !tbaa !27
   %95 = add i64 %.04378, 1
-  %96 = load i64, ptr %11, align 8, !tbaa !22
+  %96 = load i64, ptr %11, align 8, !tbaa !23
   %.not56 = icmp ugt i64 %95, %96
-  br i1 %.not56, label %89, label %93, !llvm.loop !31
+  br i1 %.not56, label %89, label %93, !llvm.loop !32
 
 97:                                               ; preds = %89, %103
   %.079 = phi i64 [ 0, %89 ], [ %105, %103 ]
   %98 = phi i64 [ %.promoted, %89 ], [ %104, %103 ]
   %99 = getelementptr inbounds nuw i64, ptr %88, i64 %.079
-  %100 = load i64, ptr %99, align 8, !tbaa !26
+  %100 = load i64, ptr %99, align 8, !tbaa !27
   %101 = icmp ugt i64 %100, %98
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %97
-  store i64 %100, ptr %10, align 8, !tbaa !23
+  store i64 %100, ptr %10, align 8, !tbaa !24
   br label %103
 
 103:                                              ; preds = %97, %102
   %104 = phi i64 [ %98, %97 ], [ %100, %102 ]
   %105 = add nuw i64 %.079, 1
   %exitcond = icmp eq i64 %105, %umax
-  br i1 %exitcond, label %dthstat.exit74, label %97, !llvm.loop !32
+  br i1 %exitcond, label %dthstat.exit74, label %97, !llvm.loop !33
 
 dthstat.exit74:                                   ; preds = %58, %103, %52, %67, %69
-  %106 = load ptr, ptr @dtstat.Count, align 8, !tbaa !27
-  store ptr %106, ptr %12, align 8, !tbaa !33
+  %106 = load ptr, ptr @dtstat.Count, align 8, !tbaa !28
+  store ptr %106, ptr %12, align 8, !tbaa !34
   br label %107
 
 107:                                              ; preds = %80, %43, %9, %dthstat.exit74
@@ -275,7 +275,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @dttstat(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -285,7 +285,7 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr noundef readonly captur
   br label %9
 
 9:                                                ; preds = %7, %4
-  %10 = load ptr, ptr %1, align 8, !tbaa !35
+  %10 = load ptr, ptr %1, align 8, !tbaa !36
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %13, label %11
 
@@ -296,12 +296,12 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr noundef readonly captur
 
 13:                                               ; preds = %11, %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !22
+  %15 = load i64, ptr %14, align 8, !tbaa !23
   %16 = icmp ugt i64 %2, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  store i64 %2, ptr %14, align 8, !tbaa !22
+  store i64 %2, ptr %14, align 8, !tbaa !23
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -310,9 +310,9 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr noundef readonly captur
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i64, ptr %3, i64 %2
-  %21 = load i64, ptr %20, align 8, !tbaa !26
+  %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8, !tbaa !26
+  store i64 %22, ptr %20, align 8, !tbaa !27
   br label %23
 
 23:                                               ; preds = %19, %18
@@ -357,20 +357,21 @@ attributes #8 = { nounwind allocsize(0) }
 !17 = !{!14, !10, i64 0}
 !18 = !{!9, !10, i64 24}
 !19 = !{!11, !11, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!14, !15, i64 8}
-!23 = !{!14, !15, i64 16}
-!24 = distinct !{!24, !21, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = !{!15, !15, i64 0}
-!27 = !{!16, !16, i64 0}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
-!30 = !{!4, !11, i64 24}
-!31 = distinct !{!31, !21}
-!32 = distinct !{!32, !21}
-!33 = !{!14, !16, i64 24}
-!34 = !{!6, !6, i64 0}
-!35 = !{!36, !11, i64 0}
-!36 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!14, !15, i64 8}
+!24 = !{!14, !15, i64 16}
+!25 = distinct !{!25, !21, !22, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = !{!15, !15, i64 0}
+!28 = !{!16, !16, i64 0}
+!29 = distinct !{!29, !21, !22}
+!30 = distinct !{!30, !21, !22}
+!31 = !{!4, !11, i64 24}
+!32 = distinct !{!32, !21, !22}
+!33 = distinct !{!33, !21, !22}
+!34 = !{!14, !16, i64 24}
+!35 = !{!6, !6, i64 0}
+!36 = !{!37, !11, i64 0}
+!37 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}

@@ -450,7 +450,7 @@ find_egfx_version.exit.i:                         ; preds = %113, %.find_egfx_ve
   %122 = add i32 %108, %.113.i
   %123 = add nuw nsw i32 %.027212.i, 1
   %exitcond.not.i = icmp eq i32 %123, %103
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph15.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph15.i, !llvm.loop !9
 
 124:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
@@ -516,7 +516,7 @@ find_egfx_version.exit.i:                         ; preds = %113, %.find_egfx_ve
   %172 = add nuw i32 %.12735.i, 1
   %173 = load i32, ptr %7, align 4
   %174 = icmp ult i32 %172, %173
-  br i1 %174, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %174, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -967,7 +967,7 @@ proto_item_set_generated.exit316.i:               ; preds = %379, %376, %373, %3
 .loopexit.i:                                      ; preds = %find_egfx_version.exit.i, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %proto_item_set_generated.exit316.i, %proto_item_set_generated.exit310.i, %proto_item_set_generated.exit304.i, %proto_item_set_generated.exit.i, %._crit_edge.i, %124, %96, %92
   %415 = call i32 @tvb_captured_length_remaining(ptr noundef nonnull %.03558, i32 noundef %94)
   %416 = icmp sgt i32 %415, 8
-  br i1 %416, label %74, label %dissect_rdp_egfx_payload.exit, !llvm.loop !10
+  br i1 %416, label %74, label %dissect_rdp_egfx_payload.exit, !llvm.loop !11
 
 dissect_rdp_egfx_payload.exit:                    ; preds = %.loopexit.i, %65, %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
@@ -1124,8 +1124,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

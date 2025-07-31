@@ -186551,7 +186551,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit39
   %.035.be = phi ptr [ %.0, %lean_dec.exit39 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -291570,7 +291570,7 @@ lean_dec_ref.exit22:                              ; preds = %47, %49, %50
   br label %lean_dec_ref.exit
 
 lean_dec_ref.exit:                                ; preds = %57, %59, %60
-  store i32 3, ptr @l_Lake_noBuildCode, align 4, !tbaa !21
+  store i32 3, ptr @l_Lake_noBuildCode, align 4, !tbaa !23
   %61 = load ptr, ptr @l_System_Platform_target, align 8, !tbaa !9
   %62 = tail call i64 @lean_string_hash(ptr noundef %61) #5
   %63 = tail call i64 @lean_uint64_mix_hash(i64 noundef 1723, i64 noundef %62) #5
@@ -291697,7 +291697,7 @@ lean_dec_ref.exit:                                ; preds = %57, %59, %60
   %116 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.10, i64 noundef 22, i64 noundef 22) #5
   store ptr %116, ptr @l_Lake_readTraceFile_x3f___closed__3, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %116) #5
-  %117 = load i32, ptr @l_Lake_noBuildCode, align 4, !tbaa !21
+  %117 = load i32, ptr @l_Lake_noBuildCode, align 4, !tbaa !23
   %118 = trunc i32 %117 to i8
   store i8 %118, ptr @l_Lake_buildUnlessUpToDate_x3f_go___closed__1, align 1, !tbaa !11
   %119 = load ptr, ptr @l_instMonadBaseIO, align 8, !tbaa !9
@@ -292514,4 +292514,6 @@ attributes #7 = { "function-inline-cost-multiplier"="2" }
 !18 = !{!"branch_weights", i32 4001, i32 4000000}
 !19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !20 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!21 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!6, !6, i64 0}

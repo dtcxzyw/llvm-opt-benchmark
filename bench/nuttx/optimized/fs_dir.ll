@@ -368,7 +368,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   %42 = icmp ne ptr %41, null
   %43 = icmp ne i32 %39, %1
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i21, label %._crit_edge.i, !llvm.loop !8
+  br i1 %44, label %.lr.ph.i21, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i21, %33
   %.119.lcssa.i = phi ptr [ %.018.i19, %33 ], [ %41, %.lr.ph.i21 ]
@@ -475,6 +475,7 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

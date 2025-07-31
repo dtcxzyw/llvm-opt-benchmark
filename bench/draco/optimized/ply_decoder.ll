@@ -984,9 +984,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 48:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i
   %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel.v = select i1 %39, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel.v, i64 64
-  %49 = load i32, ptr %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel, align 8, !tbaa !49
+  %49 = load i32, ptr %.19.i.i.i.i.sroa.sel101.v.sroa.sel.v.sroa.sel, align 8, !tbaa !50
   %50 = sext i32 %49 to i64
-  %51 = load ptr, ptr %5, align 8, !tbaa !52
+  %51 = load ptr, ptr %5, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %51, i64 %50
   br label %_ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1142,9 +1142,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 100:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i62
   %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel.v = select i1 %91, ptr %.0811.i.i.i.i47, ptr %.012.i.i.i.i46
   %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel.v, i64 64
-  %101 = load i32, ptr %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel, align 8, !tbaa !49
+  %101 = load i32, ptr %.19.i.i.i.i53.sroa.sel107.v.sroa.sel.v.sroa.sel, align 8, !tbaa !50
   %102 = sext i32 %101 to i64
-  %103 = load ptr, ptr %5, align 8, !tbaa !52
+  %103 = load ptr, ptr %5, align 8, !tbaa !53
   %104 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %103, i64 %102
   br label %_ZNK5draco9PlyReader16GetElementByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit73
 
@@ -1225,8 +1225,8 @@ _ZN5draco6StatusD2Ev.exit82:                      ; preds = %_ZNKSt7__cxx1112bas
 131:                                              ; preds = %_ZN5draco6StatusD2Ev.exit82
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 192
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 200
-  %134 = load ptr, ptr %133, align 8, !tbaa !55
-  %135 = load ptr, ptr %132, align 8, !tbaa !58
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
+  %135 = load ptr, ptr %132, align 8, !tbaa !59
   %136 = ptrtoint ptr %134 to i64
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
@@ -1238,7 +1238,7 @@ _ZN5draco6StatusD2Ev.exit82:                      ; preds = %_ZNKSt7__cxx1112bas
 141:                                              ; preds = %131
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %143 = load ptr, ptr %142, align 8, !tbaa !30
-  %144 = load ptr, ptr %143, align 8, !tbaa !59
+  %144 = load ptr, ptr %143, align 8, !tbaa !60
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(164) %143)
@@ -1360,18 +1360,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
 
 184:                                              ; preds = %148
   %185 = load ptr, ptr %142, align 8, !tbaa !30
-  %186 = load ptr, ptr %185, align 8, !tbaa !59
+  %186 = load ptr, ptr %185, align 8, !tbaa !60
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
   %188 = load ptr, ptr %187, align 8
   invoke void %188(ptr noundef nonnull align 8 dereferenceable(164) %185)
           to label %189 unwind label %12
 
 189:                                              ; preds = %184, %131, %_ZN5draco6StatusD2Ev.exit82
-  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !61
-  store ptr %17, ptr %15, align 8, !tbaa !17, !alias.scope !61
+  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !62
+  store ptr %17, ptr %15, align 8, !tbaa !17, !alias.scope !62
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %190, align 8, !tbaa !23, !alias.scope !61
-  store i8 0, ptr %17, align 8, !tbaa !22, !alias.scope !61
+  store i64 0, ptr %190, align 8, !tbaa !23, !alias.scope !62
+  store i8 0, ptr %17, align 8, !tbaa !22, !alias.scope !62
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
@@ -1408,13 +1408,13 @@ define dso_local void @_ZN5draco10PlyDecoder14DecodeFaceDataEPKNS_10PlyElementE(
   br i1 %16, label %17, label %._crit_edge.i.i
 
 17:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !64
+  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !65
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %19, ptr %18, align 8, !tbaa !17, !alias.scope !64
+  store ptr %19, ptr %18, align 8, !tbaa !17, !alias.scope !65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %20, align 8, !tbaa !23, !alias.scope !64
-  store i8 0, ptr %19, align 8, !tbaa !22, !alias.scope !64
+  store i64 0, ptr %20, align 8, !tbaa !23, !alias.scope !65
+  store i8 0, ptr %19, align 8, !tbaa !22, !alias.scope !65
   br label %257
 
 ._crit_edge.i.i:                                  ; preds = %3
@@ -1502,9 +1502,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
-  %47 = load i32, ptr %46, align 8, !tbaa !49
+  %47 = load i32, ptr %46, align 8, !tbaa !50
   %48 = sext i32 %47 to i64
-  %49 = load ptr, ptr %45, align 8, !tbaa !67
+  %49 = load ptr, ptr %45, align 8, !tbaa !68
   %50 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %49, i64 %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
   %51 = icmp eq ptr %49, null
@@ -1591,9 +1591,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i93: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i80
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %74 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i71, i64 64
-  %75 = load i32, ptr %74, align 8, !tbaa !49
+  %75 = load i32, ptr %74, align 8, !tbaa !50
   %76 = sext i32 %75 to i64
-  %77 = load ptr, ptr %73, align 8, !tbaa !67
+  %77 = load ptr, ptr %73, align 8, !tbaa !68
   %78 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %77, i64 %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
   %79 = icmp eq ptr %77, null
@@ -1602,7 +1602,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 .thread:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i93
   %.0135 = phi ptr [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i93 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %80 = getelementptr inbounds nuw i8, ptr %.0135, i64 88
-  %81 = load i32, ptr %80, align 8, !tbaa !70
+  %81 = load i32, ptr %80, align 8, !tbaa !71
   %.not = icmp eq i32 %81, 0
   br i1 %.not, label %.noexc.i102, label %120
 
@@ -1747,7 +1747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   %.1.i = add i64 %129, %128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit, label %.lr.ph.i, !llvm.loop !83
 
 _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit: ; preds = %.lr.ph.i, %120
   %.0.lcssa.i = phi i64 [ 0, %120 ], [ %.1.i, %.lr.ph.i ]
@@ -1755,8 +1755,8 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #19
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false)
-  %132 = load ptr, ptr %131, align 8, !tbaa !55
-  %133 = load ptr, ptr %130, align 8, !tbaa !58
+  %132 = load ptr, ptr %131, align 8, !tbaa !56
+  %133 = load ptr, ptr %130, align 8, !tbaa !59
   %134 = ptrtoint ptr %132 to i64
   %135 = ptrtoint ptr %133 to i64
   %136 = sub i64 %134, %135
@@ -1779,12 +1779,12 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   br i1 %.not.i.i.i.i112, label %146, label %145
 
 145:                                              ; preds = %143
-  store ptr %144, ptr %131, align 8, !tbaa !55
+  store ptr %144, ptr %131, align 8, !tbaa !56
   br label %146
 
 146:                                              ; preds = %145, %143, %141, %139
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #19
-  %147 = load i64, ptr %123, align 8, !tbaa !83
+  %147 = load i64, ptr %123, align 8, !tbaa !84
   %148 = trunc i64 %147 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #19
   call void @_ZN5draco17PlyPropertyReaderIjEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull %.0135)
@@ -1812,8 +1812,8 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #19
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
-  %158 = load ptr, ptr %157, align 8, !tbaa !55
-  %159 = load ptr, ptr %156, align 8, !tbaa !58
+  %158 = load ptr, ptr %157, align 8, !tbaa !56
+  %159 = load ptr, ptr %156, align 8, !tbaa !59
   %160 = ptrtoint ptr %158 to i64
   %161 = ptrtoint ptr %159 to i64
   %162 = sub i64 %160, %161
@@ -1836,7 +1836,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   br i1 %.not.i.i.i.i113, label %235, label %171
 
 171:                                              ; preds = %169
-  store ptr %170, ptr %157, align 8, !tbaa !55
+  store ptr %170, ptr %157, align 8, !tbaa !56
   br label %235
 
 172:                                              ; preds = %165
@@ -1847,7 +1847,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
 174:                                              ; preds = %.lr.ph, %.loopexit136
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit136 ]
   %.sroa.0.0153 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %.loopexit136 ]
-  %175 = load ptr, ptr %124, align 8, !tbaa !93
+  %175 = load ptr, ptr %124, align 8, !tbaa !94
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx
   %177 = load i64, ptr %176, align 8, !tbaa !19
@@ -1859,8 +1859,8 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
 181:                                              ; preds = %174
   %182 = trunc i64 %177 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  store i32 %182, ptr %6, align 4, !tbaa !94
-  %183 = load ptr, ptr %151, align 8, !tbaa !95
+  store i32 %182, ptr %6, align 4, !tbaa !95
+  %183 = load ptr, ptr %151, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %183, null
   br i1 %.not.i.i.i, label %184, label %_ZNKSt8functionIFjiEEclEi.exit.i
 
@@ -1872,13 +1872,13 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   unreachable
 
 _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %181
-  %185 = load ptr, ptr %153, align 8, !tbaa !97
+  %185 = load ptr, ptr %153, align 8, !tbaa !98
   %186 = invoke noundef i32 %185(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.preheader.preheader unwind label %.loopexit137
 
 .preheader.preheader:                             ; preds = %_ZNKSt8functionIFjiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  store i32 %186, ptr %15, align 4, !tbaa !99
+  store i32 %186, ptr %15, align 4, !tbaa !100
   %187 = add nsw i64 %179, -3
   br label %.preheader
 
@@ -1902,8 +1902,8 @@ _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %181
   %190 = load ptr, ptr %121, align 8, !tbaa !4
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 192
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 200
-  %193 = load ptr, ptr %192, align 8, !tbaa !55
-  %194 = load ptr, ptr %191, align 8, !tbaa !58
+  %193 = load ptr, ptr %192, align 8, !tbaa !56
+  %194 = load ptr, ptr %191, align 8, !tbaa !59
   %195 = ptrtoint ptr %193 to i64
   %196 = ptrtoint ptr %194 to i64
   %197 = sub i64 %195, %196
@@ -1926,7 +1926,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %181
           to label %.noexc119 unwind label %233
 
 .noexc119:                                        ; preds = %204
-  %.pre.pre.i = load ptr, ptr %191, align 8, !tbaa !58
+  %.pre.pre.i = load ptr, ptr %191, align 8, !tbaa !59
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 206:                                              ; preds = %200
@@ -1939,7 +1939,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %181
   br i1 %.not.i.i.i.i118, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %210
 
 210:                                              ; preds = %208
-  store ptr %209, ptr %192, align 8, !tbaa !55
+  store ptr %209, ptr %192, align 8, !tbaa !56
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %210, %208, %206, %.noexc119
@@ -1957,19 +1957,19 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %.05.i.i = phi i64 [ 0, %211 ], [ %219, %215 ]
   %216 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %214, i64 0, i64 %.05.i.i
   %217 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %15, i64 0, i64 %.05.i.i
-  %218 = load i32, ptr %217, align 4, !tbaa !99
-  store i32 %218, ptr %216, align 4, !tbaa !99
+  %218 = load i32, ptr %217, align 4, !tbaa !100
+  store i32 %218, ptr %216, align 4, !tbaa !100
   %219 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %219, 3
-  br i1 %.not.i.i, label %230, label %215, !llvm.loop !101
+  br i1 %.not.i.i, label %230, label %215, !llvm.loop !102
 
 220:                                              ; preds = %.preheader, %227
   %.033150 = phi i64 [ 1, %.preheader ], [ %229, %227 ]
   %221 = add nsw i64 %188, %.033150
   %222 = trunc i64 %221 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %222, ptr %4, align 4, !tbaa !94
-  %223 = load ptr, ptr %151, align 8, !tbaa !95
+  store i32 %222, ptr %4, align 4, !tbaa !95
+  %223 = load ptr, ptr %151, align 8, !tbaa !96
   %.not.i.i.i120 = icmp eq ptr %223, null
   br i1 %.not.i.i.i120, label %224, label %_ZNKSt8functionIFjiEEclEi.exit.i121
 
@@ -1981,17 +1981,17 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   unreachable
 
 _ZNKSt8functionIFjiEEclEi.exit.i121:              ; preds = %220
-  %225 = load ptr, ptr %153, align 8, !tbaa !97
+  %225 = load ptr, ptr %153, align 8, !tbaa !98
   %226 = invoke noundef i32 %225(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %227 unwind label %.loopexit
 
 227:                                              ; preds = %_ZNKSt8functionIFjiEEclEi.exit.i121
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %228 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %15, i64 0, i64 %.033150
-  store i32 %226, ptr %228, align 4, !tbaa !99
+  store i32 %226, ptr %228, align 4, !tbaa !100
   %229 = add nuw nsw i64 %.033150, 1
   %exitcond.not = icmp eq i64 %229, 3
-  br i1 %exitcond.not, label %189, label %220, !llvm.loop !102
+  br i1 %exitcond.not, label %189, label %220, !llvm.loop !103
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFjiEEclEi.exit.i121
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2007,7 +2007,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i121:              ; preds = %220
   %231 = add i32 %.sroa.0.2151, 1
   %232 = add nuw nsw i64 %.034152, 1
   %exitcond156.not = icmp eq i64 %.034152, %187
-  br i1 %exitcond156.not, label %.loopexit136, label %.preheader, !llvm.loop !103
+  br i1 %exitcond156.not, label %.loopexit136, label %.preheader, !llvm.loop !104
 
 233:                                              ; preds = %204
   %234 = landingpad { ptr, i32 }
@@ -2018,20 +2018,20 @@ _ZNKSt8functionIFjiEEclEi.exit.i121:              ; preds = %220
   %.sroa.0.1 = phi i32 [ %.sroa.0.0153, %174 ], [ %231, %230 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond158.not, label %._crit_edge.loopexit, label %174, !llvm.loop !104
+  br i1 %exitcond158.not, label %._crit_edge.loopexit, label %174, !llvm.loop !105
 
 235:                                              ; preds = %165, %167, %169, %171
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #19
-  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !105
+  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !106
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %237, ptr %236, align 8, !tbaa !17, !alias.scope !105
+  store ptr %237, ptr %236, align 8, !tbaa !17, !alias.scope !106
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %238, align 8, !tbaa !23, !alias.scope !105
-  store i8 0, ptr %237, align 8, !tbaa !22, !alias.scope !105
+  store i64 0, ptr %238, align 8, !tbaa !23, !alias.scope !106
+  store i8 0, ptr %237, align 8, !tbaa !22, !alias.scope !106
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #19
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %240 = load ptr, ptr %239, align 8, !tbaa !95
+  %240 = load ptr, ptr %239, align 8, !tbaa !96
   %.not.i.i125 = icmp eq ptr %240, null
   br i1 %.not.i.i125, label %_ZN5draco17PlyPropertyReaderIjED2Ev.exit, label %241
 
@@ -2055,7 +2055,7 @@ _ZN5draco17PlyPropertyReaderIjED2Ev.exit:         ; preds = %235, %241
   %.pn50.pn.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %234, %233 ], [ %lpad.loopexit139, %.loopexit137 ], [ %lpad.loopexit.split-lp140, %.loopexit.split-lp138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #19
   %248 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !95
+  %249 = load ptr, ptr %248, align 8, !tbaa !96
   %.not.i.i126 = icmp eq ptr %249, null
   br i1 %.not.i.i126, label %_ZN5draco17PlyPropertyReaderIjED2Ev.exit127, label %250
 
@@ -2345,9 +2345,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 111:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %113 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
-  %114 = load i32, ptr %113, align 8, !tbaa !49
+  %114 = load i32, ptr %113, align 8, !tbaa !50
   %115 = sext i32 %114 to i64
-  %116 = load ptr, ptr %112, align 8, !tbaa !67
+  %116 = load ptr, ptr %112, align 8, !tbaa !68
   %117 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %116, i64 %115
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240
 
@@ -2434,9 +2434,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 136:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i263
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %138 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i254, i64 64
-  %139 = load i32, ptr %138, align 8, !tbaa !49
+  %139 = load i32, ptr %138, align 8, !tbaa !50
   %140 = sext i32 %139 to i64
-  %141 = load ptr, ptr %137, align 8, !tbaa !67
+  %141 = load ptr, ptr %137, align 8, !tbaa !68
   %142 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %141, i64 %140
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277
 
@@ -2527,9 +2527,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i300
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %162 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i291, i64 64
-  %163 = load i32, ptr %162, align 8, !tbaa !49
+  %163 = load i32, ptr %162, align 8, !tbaa !50
   %164 = sext i32 %163 to i64
-  %165 = load ptr, ptr %161, align 8, !tbaa !67
+  %165 = load ptr, ptr %161, align 8, !tbaa !68
   %166 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %165, i64 %164
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #19
   %167 = icmp ne ptr %.0.i, null
@@ -2655,22 +2655,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337: ; preds = %_Z
 
 208:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314
   %209 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %210 = load i64, ptr %209, align 8, !tbaa !83
+  %210 = load i64, ptr %209, align 8, !tbaa !84
   %211 = trunc i64 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %213 = load ptr, ptr %212, align 8, !tbaa !30
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 160
-  store i32 %211, ptr %214, align 8, !tbaa !108
+  store i32 %211, ptr %214, align 8, !tbaa !109
   %215 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  %216 = load i32, ptr %215, align 8, !tbaa !122
+  %216 = load i32, ptr %215, align 8, !tbaa !123
   %217 = getelementptr inbounds nuw i8, ptr %.0.i265, i64 80
-  %218 = load i32, ptr %217, align 8, !tbaa !122
+  %218 = load i32, ptr %217, align 8, !tbaa !123
   %.not = icmp eq i32 %216, %218
   br i1 %.not, label %219, label %.noexc.i339
 
 219:                                              ; preds = %208
   %220 = getelementptr inbounds nuw i8, ptr %166, i64 80
-  %221 = load i32, ptr %220, align 8, !tbaa !122
+  %221 = load i32, ptr %220, align 8, !tbaa !123
   %.not161 = icmp eq i32 %216, %221
   br i1 %.not161, label %259, label %.noexc.i339
 
@@ -2923,38 +2923,38 @@ _ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pre
           to label %_ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i369 unwind label %323
 
 _ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i369: ; preds = %_ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  store ptr %.0.i, ptr %304, align 8, !tbaa !123
+  store ptr %.0.i, ptr %304, align 8, !tbaa !124
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
-  store ptr %304, ptr %24, align 8, !tbaa !124
-  store ptr %305, ptr %302, align 8, !tbaa !127
-  store ptr %305, ptr %303, align 8, !tbaa !128
+  store ptr %304, ptr %24, align 8, !tbaa !125
+  store ptr %305, ptr %302, align 8, !tbaa !128
+  store ptr %305, ptr %303, align 8, !tbaa !129
   %306 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %_ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit377 unwind label %323
 
 _ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit377: ; preds = %_ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i369
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store ptr %.0.i265, ptr %307, align 8, !tbaa !123
+  store ptr %.0.i265, ptr %307, align 8, !tbaa !124
   %308 = load i64, ptr %304, align 8
   store i64 %308, ptr %306, align 8
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %304, i64 noundef 8) #20
-  store ptr %306, ptr %24, align 8, !tbaa !124
-  store ptr %309, ptr %302, align 8, !tbaa !127
+  store ptr %306, ptr %24, align 8, !tbaa !125
+  store ptr %309, ptr %302, align 8, !tbaa !128
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 16
-  store ptr %310, ptr %303, align 8, !tbaa !128
+  store ptr %310, ptr %303, align 8, !tbaa !129
   %311 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
           to label %.noexc386 unwind label %323
 
 .noexc386:                                        ; preds = %_ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit377
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  store ptr %166, ptr %312, align 8, !tbaa !123
+  store ptr %166, ptr %312, align 8, !tbaa !124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %311, ptr noundef nonnull align 8 dereferenceable(16) %306, i64 16, i1 false)
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 24
   call void @_ZdlPvm(ptr noundef nonnull %306, i64 noundef 16) #20
-  store ptr %311, ptr %24, align 8, !tbaa !124
-  store ptr %313, ptr %302, align 8, !tbaa !127
+  store ptr %311, ptr %24, align 8, !tbaa !125
+  store ptr %313, ptr %302, align 8, !tbaa !128
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 32
-  store ptr %314, ptr %303, align 8, !tbaa !128
+  store ptr %314, ptr %303, align 8, !tbaa !129
   switch i32 %216, label %339 [
     i32 9, label %315
     i32 5, label %331
@@ -2964,21 +2964,21 @@ _ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit377: ; preds = 
   %316 = load ptr, ptr %212, align 8, !tbaa !30
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = sext i32 %301 to i64
-  %319 = load ptr, ptr %317, align 8, !tbaa !129
+  %319 = load ptr, ptr %317, align 8, !tbaa !130
   %320 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %319, i64 %318
-  %321 = load ptr, ptr %320, align 8, !tbaa !130
+  %321 = load ptr, ptr %320, align 8, !tbaa !131
   %322 = invoke noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPropertiesToAttributeIfEEbRKSt6vectorIPKNS_11PlyPropertyESaIS5_EEPNS_14PointAttributeEi(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %321, i32 noundef %211)
           to label %339 unwind label %323
 
 323:                                              ; preds = %_ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EE9push_backERKS3_.exit377, %_ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i369, %_ZNKSt6vectorIPKN5draco11PlyPropertyESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %331, %315
   %324 = landingpad { ptr, i32 }
           cleanup
-  %325 = load ptr, ptr %24, align 8, !tbaa !124
+  %325 = load ptr, ptr %24, align 8, !tbaa !125
   %.not.i.i.i388 = icmp eq ptr %325, null
   br i1 %.not.i.i.i388, label %_ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EED2Ev.exit, label %326
 
 326:                                              ; preds = %323
-  %327 = load ptr, ptr %303, align 8, !tbaa !128
+  %327 = load ptr, ptr %303, align 8, !tbaa !129
   %328 = ptrtoint ptr %327 to i64
   %329 = ptrtoint ptr %325 to i64
   %330 = sub i64 %328, %329
@@ -2994,19 +2994,19 @@ _ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EED2Ev.exit: ; preds = %323, %326
   %332 = load ptr, ptr %212, align 8, !tbaa !30
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = sext i32 %301 to i64
-  %335 = load ptr, ptr %333, align 8, !tbaa !129
+  %335 = load ptr, ptr %333, align 8, !tbaa !130
   %336 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %335, i64 %334
-  %337 = load ptr, ptr %336, align 8, !tbaa !130
+  %337 = load ptr, ptr %336, align 8, !tbaa !131
   %338 = invoke noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPropertiesToAttributeIiEEbRKSt6vectorIPKNS_11PlyPropertyESaIS5_EEPNS_14PointAttributeEi(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %337, i32 noundef %211)
           to label %339 unwind label %323
 
 339:                                              ; preds = %.noexc386, %331, %315
-  %340 = load ptr, ptr %24, align 8, !tbaa !124
+  %340 = load ptr, ptr %24, align 8, !tbaa !125
   %.not.i.i.i389 = icmp eq ptr %340, null
   br i1 %.not.i.i.i389, label %_ZNSt6vectorIPKN5draco11PlyPropertyESaIS3_EED2Ev.exit390, label %341
 
 341:                                              ; preds = %339
-  %342 = load ptr, ptr %303, align 8, !tbaa !128
+  %342 = load ptr, ptr %303, align 8, !tbaa !129
   %343 = ptrtoint ptr %342 to i64
   %344 = ptrtoint ptr %340 to i64
   %345 = sub i64 %343, %344
@@ -3108,9 +3108,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 369:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i413
   %370 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %371 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i404, i64 64
-  %372 = load i32, ptr %371, align 8, !tbaa !49
+  %372 = load i32, ptr %371, align 8, !tbaa !50
   %373 = sext i32 %372 to i64
-  %374 = load ptr, ptr %370, align 8, !tbaa !67
+  %374 = load ptr, ptr %370, align 8, !tbaa !68
   %375 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %374, i64 %373
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427
 
@@ -3193,9 +3193,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 397:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i450
   %398 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %399 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i441, i64 64
-  %400 = load i32, ptr %399, align 8, !tbaa !49
+  %400 = load i32, ptr %399, align 8, !tbaa !50
   %401 = sext i32 %400 to i64
-  %402 = load ptr, ptr %398, align 8, !tbaa !67
+  %402 = load ptr, ptr %398, align 8, !tbaa !68
   %403 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %402, i64 %401
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464
 
@@ -3282,9 +3282,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i487
   %425 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %426 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i478, i64 64
-  %427 = load i32, ptr %426, align 8, !tbaa !49
+  %427 = load i32, ptr %426, align 8, !tbaa !50
   %428 = sext i32 %427 to i64
-  %429 = load ptr, ptr %425, align 8, !tbaa !67
+  %429 = load ptr, ptr %425, align 8, !tbaa !68
   %430 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %429, i64 %428
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #19
   %431 = icmp ne ptr %.0.i415, null
@@ -3296,19 +3296,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %_Z
 
 434:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501
   %435 = getelementptr inbounds nuw i8, ptr %.0.i415, i64 80
-  %436 = load i32, ptr %435, align 8, !tbaa !122
+  %436 = load i32, ptr %435, align 8, !tbaa !123
   %437 = icmp eq i32 %436, 9
   br i1 %437, label %438, label %._crit_edge.i.i534
 
 438:                                              ; preds = %434
   %439 = getelementptr inbounds nuw i8, ptr %.0.i452, i64 80
-  %440 = load i32, ptr %439, align 8, !tbaa !122
+  %440 = load i32, ptr %439, align 8, !tbaa !123
   %441 = icmp eq i32 %440, 9
   br i1 %441, label %442, label %._crit_edge.i.i534
 
 442:                                              ; preds = %438
   %443 = getelementptr inbounds nuw i8, ptr %430, i64 80
-  %444 = load i32, ptr %443, align 8, !tbaa !122
+  %444 = load i32, ptr %443, align 8, !tbaa !123
   %445 = icmp eq i32 %444, 9
   br i1 %445, label %446, label %._crit_edge.i.i534
 
@@ -3355,7 +3355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %_Z
 ._crit_edge:                                      ; preds = %502, %.preheader755
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #19
   %461 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %462 = load ptr, ptr %461, align 8, !tbaa !95
+  %462 = load ptr, ptr %461, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %462, null
   br i1 %.not.i.i, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit, label %463
 
@@ -3374,7 +3374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %_Z
 _ZN5draco17PlyPropertyReaderIfED2Ev.exit:         ; preds = %._crit_edge, %463
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #19
   %469 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %470 = load ptr, ptr %469, align 8, !tbaa !95
+  %470 = load ptr, ptr %469, align 8, !tbaa !96
   %.not.i.i502 = icmp eq ptr %470, null
   br i1 %.not.i.i502, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit503, label %471
 
@@ -3393,7 +3393,7 @@ _ZN5draco17PlyPropertyReaderIfED2Ev.exit:         ; preds = %._crit_edge, %463
 _ZN5draco17PlyPropertyReaderIfED2Ev.exit503:      ; preds = %_ZN5draco17PlyPropertyReaderIfED2Ev.exit, %471
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #19
   %477 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %478 = load ptr, ptr %477, align 8, !tbaa !95
+  %478 = load ptr, ptr %477, align 8, !tbaa !96
   %.not.i.i504 = icmp eq ptr %478, null
   br i1 %.not.i.i504, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit505, label %479
 
@@ -3429,8 +3429,8 @@ _ZN5draco17PlyPropertyReaderIfED2Ev.exit505:      ; preds = %_ZN5draco17PlyPrope
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0730)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %490 = trunc nuw i64 %indvars.iv to i32
-  store i32 %490, ptr %7, align 4, !tbaa !94
-  %491 = load ptr, ptr %451, align 8, !tbaa !95
+  store i32 %490, ptr %7, align 4, !tbaa !95
+  %491 = load ptr, ptr %451, align 8, !tbaa !96
   %.not.i.i.i515 = icmp eq ptr %491, null
   br i1 %.not.i.i.i515, label %.invoke, label %_ZNKSt8functionIFfiEEclEi.exit.i
 
@@ -3442,57 +3442,57 @@ _ZN5draco17PlyPropertyReaderIfED2Ev.exit505:      ; preds = %_ZN5draco17PlyPrope
   unreachable
 
 _ZNKSt8functionIFfiEEclEi.exit.i:                 ; preds = %489
-  %492 = load ptr, ptr %453, align 8, !tbaa !132
+  %492 = load ptr, ptr %453, align 8, !tbaa !133
   %493 = invoke noundef float %492(ptr noundef nonnull align 8 dereferenceable(32) %452, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %494 unwind label %.loopexit756
 
 494:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  store float %493, ptr %.sroa.0730, align 4, !tbaa !134
+  store float %493, ptr %.sroa.0730, align 4, !tbaa !135
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  store i32 %490, ptr %6, align 4, !tbaa !94
-  %495 = load ptr, ptr %454, align 8, !tbaa !95
+  store i32 %490, ptr %6, align 4, !tbaa !95
+  %495 = load ptr, ptr %454, align 8, !tbaa !96
   %.not.i.i.i518 = icmp eq ptr %495, null
   br i1 %.not.i.i.i518, label %.invoke, label %_ZNKSt8functionIFfiEEclEi.exit.i519
 
 _ZNKSt8functionIFfiEEclEi.exit.i519:              ; preds = %494
-  %496 = load ptr, ptr %456, align 8, !tbaa !132
+  %496 = load ptr, ptr %456, align 8, !tbaa !133
   %497 = invoke noundef float %496(ptr noundef nonnull align 8 dereferenceable(32) %455, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %498 unwind label %.loopexit756
 
 498:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i519
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  store float %497, ptr %.sroa.0730.4..sroa_idx844, align 4, !tbaa !134
+  store float %497, ptr %.sroa.0730.4..sroa_idx844, align 4, !tbaa !135
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %490, ptr %5, align 4, !tbaa !94
-  %499 = load ptr, ptr %457, align 8, !tbaa !95
+  store i32 %490, ptr %5, align 4, !tbaa !95
+  %499 = load ptr, ptr %457, align 8, !tbaa !96
   %.not.i.i.i523 = icmp eq ptr %499, null
   br i1 %.not.i.i.i523, label %.invoke, label %_ZNKSt8functionIFfiEEclEi.exit.i524
 
 _ZNKSt8functionIFfiEEclEi.exit.i524:              ; preds = %498
-  %500 = load ptr, ptr %459, align 8, !tbaa !132
+  %500 = load ptr, ptr %459, align 8, !tbaa !133
   %501 = invoke noundef float %500(ptr noundef nonnull align 8 dereferenceable(32) %458, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %502 unwind label %.loopexit756
 
 502:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i524
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  store float %501, ptr %.sroa.0730.8..sroa_idx845, align 4, !tbaa !134
+  store float %501, ptr %.sroa.0730.8..sroa_idx845, align 4, !tbaa !135
   %503 = load ptr, ptr %212, align 8, !tbaa !30
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
-  %505 = load ptr, ptr %504, align 8, !tbaa !129
+  %505 = load ptr, ptr %504, align 8, !tbaa !130
   %506 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %505, i64 %460
-  %507 = load ptr, ptr %506, align 8, !tbaa !130
+  %507 = load ptr, ptr %506, align 8, !tbaa !131
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 40
-  %509 = load i64, ptr %508, align 8, !tbaa !136
+  %509 = load i64, ptr %508, align 8, !tbaa !137
   %510 = mul nsw i64 %509, %indvars.iv
-  %511 = load ptr, ptr %507, align 8, !tbaa !141
-  %512 = load ptr, ptr %511, align 8, !tbaa !142
+  %511 = load ptr, ptr %507, align 8, !tbaa !142
+  %512 = load ptr, ptr %511, align 8, !tbaa !143
   %513 = getelementptr inbounds i8, ptr %512, i64 %510
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %513, ptr nonnull align 4 %.sroa.0730, i64 %509, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0730)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %489, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge, label %489, !llvm.loop !144
 
 .loopexit756:                                     ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i, %_ZNKSt8functionIFfiEEclEi.exit.i519, %_ZNKSt8functionIFfiEEclEi.exit.i524
   %lpad.loopexit758 = landingpad { ptr, i32 }
@@ -3513,7 +3513,7 @@ _ZNKSt8functionIFfiEEclEi.exit.i524:              ; preds = %498
   %.pn215.pn = phi { ptr, i32 } [ %486, %485 ], [ %lpad.phi760, %514 ], [ %488, %487 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %31) #19
   %516 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %517 = load ptr, ptr %516, align 8, !tbaa !95
+  %517 = load ptr, ptr %516, align 8, !tbaa !96
   %.not.i.i528 = icmp eq ptr %517, null
   br i1 %.not.i.i528, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit529, label %518
 
@@ -3532,7 +3532,7 @@ _ZNKSt8functionIFfiEEclEi.exit.i524:              ; preds = %498
 _ZN5draco17PlyPropertyReaderIfED2Ev.exit529:      ; preds = %515, %518
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #19
   %524 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %525 = load ptr, ptr %524, align 8, !tbaa !95
+  %525 = load ptr, ptr %524, align 8, !tbaa !96
   %.not.i.i530 = icmp eq ptr %525, null
   br i1 %.not.i.i530, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit531, label %526
 
@@ -3551,7 +3551,7 @@ _ZN5draco17PlyPropertyReaderIfED2Ev.exit529:      ; preds = %515, %518
 _ZN5draco17PlyPropertyReaderIfED2Ev.exit531:      ; preds = %_ZN5draco17PlyPropertyReaderIfED2Ev.exit529, %526
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #19
   %532 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %533 = load ptr, ptr %532, align 8, !tbaa !95
+  %533 = load ptr, ptr %532, align 8, !tbaa !96
   %.not.i.i532 = icmp eq ptr %533, null
   br i1 %.not.i.i532, label %_ZN5draco17PlyPropertyReaderIfED2Ev.exit533, label %534
 
@@ -3655,9 +3655,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 562:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i556
   %563 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %564 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i547, i64 64
-  %565 = load i32, ptr %564, align 8, !tbaa !49
+  %565 = load i32, ptr %564, align 8, !tbaa !50
   %566 = sext i32 %565 to i64
-  %567 = load ptr, ptr %563, align 8, !tbaa !67
+  %567 = load ptr, ptr %563, align 8, !tbaa !68
   %568 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %567, i64 %566
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit570
 
@@ -3740,9 +3740,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 590:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i593
   %591 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %592 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i584, i64 64
-  %593 = load i32, ptr %592, align 8, !tbaa !49
+  %593 = load i32, ptr %592, align 8, !tbaa !50
   %594 = sext i32 %593 to i64
-  %595 = load ptr, ptr %591, align 8, !tbaa !67
+  %595 = load ptr, ptr %591, align 8, !tbaa !68
   %596 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %595, i64 %594
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607
 
@@ -3825,9 +3825,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 618:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i630
   %619 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %620 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i621, i64 64
-  %621 = load i32, ptr %620, align 8, !tbaa !49
+  %621 = load i32, ptr %620, align 8, !tbaa !50
   %622 = sext i32 %621 to i64
-  %623 = load ptr, ptr %619, align 8, !tbaa !67
+  %623 = load ptr, ptr %619, align 8, !tbaa !68
   %624 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %623, i64 %622
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644
 
@@ -3910,9 +3910,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 646:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i667
   %647 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %648 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i658, i64 64
-  %649 = load i32, ptr %648, align 8, !tbaa !49
+  %649 = load i32, ptr %648, align 8, !tbaa !50
   %650 = sext i32 %649 to i64
-  %651 = load ptr, ptr %647, align 8, !tbaa !67
+  %651 = load ptr, ptr %647, align 8, !tbaa !68
   %652 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %651, i64 %650
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681
 
@@ -3943,7 +3943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681: ; preds = %_Z
 
 657:                                              ; preds = %656
   %658 = getelementptr inbounds nuw i8, ptr %.0.i558833836842, i64 80
-  %659 = load i32, ptr %658, align 8, !tbaa !122
+  %659 = load i32, ptr %658, align 8, !tbaa !123
   %.not186 = icmp eq i32 %659, 2
   br i1 %.not186, label %683, label %660
 
@@ -4020,7 +4020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699: ; preds = %_Z
 
 685:                                              ; preds = %683
   call void @_ZN5draco17PlyPropertyReaderIhEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %684, ptr noundef nonnull %.0.i558833836842)
-  store ptr %684, ptr %39, align 8, !tbaa !144
+  store ptr %684, ptr %39, align 8, !tbaa !145
   invoke void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %686 unwind label %689
 
@@ -4050,7 +4050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699: ; preds = %_Z
 
 693:                                              ; preds = %692
   %694 = getelementptr inbounds nuw i8, ptr %.0.i595837841, i64 80
-  %695 = load i32, ptr %694, align 8, !tbaa !122
+  %695 = load i32, ptr %694, align 8, !tbaa !123
   %.not189 = icmp eq i32 %695, 2
   br i1 %.not189, label %719, label %696
 
@@ -4127,7 +4127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit705: ; preds = %_Z
 
 721:                                              ; preds = %719
   call void @_ZN5draco17PlyPropertyReaderIhEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %720, ptr noundef nonnull %.0.i595837841)
-  store ptr %720, ptr %42, align 8, !tbaa !144
+  store ptr %720, ptr %42, align 8, !tbaa !145
   invoke void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %722 unwind label %725
 
@@ -4157,7 +4157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit705: ; preds = %_Z
 
 729:                                              ; preds = %728
   %730 = getelementptr inbounds nuw i8, ptr %.0.i632843, i64 80
-  %731 = load i32, ptr %730, align 8, !tbaa !122
+  %731 = load i32, ptr %730, align 8, !tbaa !123
   %.not192 = icmp eq i32 %731, 2
   br i1 %.not192, label %755, label %732
 
@@ -4234,7 +4234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711: ; preds = %_Z
 
 757:                                              ; preds = %755
   call void @_ZN5draco17PlyPropertyReaderIhEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %756, ptr noundef nonnull %.0.i632843)
-  store ptr %756, ptr %45, align 8, !tbaa !144
+  store ptr %756, ptr %45, align 8, !tbaa !145
   invoke void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) %45)
           to label %758 unwind label %761
 
@@ -4264,7 +4264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711: ; preds = %_Z
 
 765:                                              ; preds = %764
   %766 = getelementptr inbounds nuw i8, ptr %.0.i669, i64 80
-  %767 = load i32, ptr %766, align 8, !tbaa !122
+  %767 = load i32, ptr %766, align 8, !tbaa !123
   %.not195 = icmp eq i32 %767, 2
   br i1 %.not195, label %791, label %768
 
@@ -4341,7 +4341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %_Z
 
 793:                                              ; preds = %791
   call void @_ZN5draco17PlyPropertyReaderIhEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %792, ptr noundef nonnull %.0.i669)
-  store ptr %792, ptr %48, align 8, !tbaa !144
+  store ptr %792, ptr %48, align 8, !tbaa !145
   invoke void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) %48)
           to label %794 unwind label %797
 
@@ -4415,13 +4415,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %_Z
 
 814:                                              ; preds = %812, %825
   %indvars.iv769 = phi i64 [ 0, %812 ], [ %indvars.iv.next770, %825 ]
-  %815 = load ptr, ptr %36, align 8, !tbaa !146
+  %815 = load ptr, ptr %36, align 8, !tbaa !147
   %816 = getelementptr inbounds nuw %"class.std::unique_ptr.84", ptr %815, i64 %indvars.iv769
-  %817 = load ptr, ptr %816, align 8, !tbaa !144
+  %817 = load ptr, ptr %816, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %813, ptr %4, align 4, !tbaa !94
+  store i32 %813, ptr %4, align 4, !tbaa !95
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 24
-  %819 = load ptr, ptr %818, align 8, !tbaa !95
+  %819 = load ptr, ptr %818, align 8, !tbaa !96
   %.not.i.i.i718 = icmp eq ptr %819, null
   br i1 %.not.i.i.i718, label %820, label %_ZNKSt8functionIFhiEEclEi.exit.i
 
@@ -4435,7 +4435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %_Z
 _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %814
   %821 = getelementptr inbounds nuw i8, ptr %817, i64 8
   %822 = getelementptr inbounds nuw i8, ptr %817, i64 32
-  %823 = load ptr, ptr %822, align 8, !tbaa !149
+  %823 = load ptr, ptr %822, align 8, !tbaa !150
   %824 = invoke noundef zeroext i8 %823(ptr noundef nonnull align 8 dereferenceable(32) %821, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %825 unwind label %.loopexit
 
@@ -4445,7 +4445,7 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %814
   store i8 %824, ptr %826, align 1, !tbaa !22
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %803
-  br i1 %exitcond773.not, label %828, label %814, !llvm.loop !151
+  br i1 %exitcond773.not, label %828, label %814, !llvm.loop !152
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFhiEEclEi.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4465,20 +4465,20 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %814
 828:                                              ; preds = %825
   %829 = load ptr, ptr %212, align 8, !tbaa !30
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 16
-  %831 = load ptr, ptr %830, align 8, !tbaa !129
+  %831 = load ptr, ptr %830, align 8, !tbaa !130
   %832 = getelementptr inbounds nuw %"class.std::unique_ptr.98", ptr %831, i64 %807
-  %833 = load ptr, ptr %832, align 8, !tbaa !130
+  %833 = load ptr, ptr %832, align 8, !tbaa !131
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 40
-  %835 = load i64, ptr %834, align 8, !tbaa !136
+  %835 = load i64, ptr %834, align 8, !tbaa !137
   %836 = mul nsw i64 %835, %indvars.iv774
-  %837 = load ptr, ptr %833, align 8, !tbaa !141
-  %838 = load ptr, ptr %837, align 8, !tbaa !142
+  %837 = load ptr, ptr %833, align 8, !tbaa !142
+  %838 = load ptr, ptr %837, align 8, !tbaa !143
   %839 = getelementptr inbounds i8, ptr %838, i64 %836
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %839, ptr nonnull align 1 %50, i64 %835, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #19
   %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
   %exitcond778.not = icmp eq i64 %indvars.iv.next775, %wide.trip.count777
-  br i1 %exitcond778.not, label %._crit_edge765, label %812, !llvm.loop !152
+  br i1 %exitcond778.not, label %._crit_edge765, label %812, !llvm.loop !153
 
 840:                                              ; preds = %810, %827, %808
   %.pn198.pn.pn = phi { ptr, i32 } [ %809, %808 ], [ %lpad.phi, %827 ], [ %811, %810 ]
@@ -4492,31 +4492,31 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %814
   br label %868
 
 842:                                              ; preds = %._crit_edge765, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit681
-  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !153
+  store i32 0, ptr %0, align 8, !tbaa !24, !alias.scope !154
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %844, ptr %843, align 8, !tbaa !17, !alias.scope !153
+  store ptr %844, ptr %843, align 8, !tbaa !17, !alias.scope !154
   %845 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %845, align 8, !tbaa !23, !alias.scope !153
-  store i8 0, ptr %844, align 8, !tbaa !22, !alias.scope !153
+  store i64 0, ptr %845, align 8, !tbaa !23, !alias.scope !154
+  store i8 0, ptr %844, align 8, !tbaa !22, !alias.scope !154
   br label %867
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit714, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit702, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit696
-  %846 = load ptr, ptr %36, align 8, !tbaa !146
+  %846 = load ptr, ptr %36, align 8, !tbaa !147
   %847 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %848 = load ptr, ptr %847, align 8, !tbaa !156
+  %848 = load ptr, ptr %847, align 8, !tbaa !157
   %.not4.i.i.i.i = icmp eq ptr %846, %848
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i721
 
 .lr.ph.i.i.i.i721:                                ; preds = %.critedge, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %859, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %846, %.critedge ]
-  %849 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !144
+  %849 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !145
   %.not.i.i.i.i.i.i722 = icmp eq ptr %849, null
   br i1 %.not.i.i.i.i.i.i722, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %850
 
 850:                                              ; preds = %.lr.ph.i.i.i.i721
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 24
-  %852 = load ptr, ptr %851, align 8, !tbaa !95
+  %852 = load ptr, ptr %851, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %852, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i.i, label %853
 
@@ -4537,13 +4537,13 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i.i: 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i721
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !144
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !145
   %859 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i723 = icmp eq ptr %859, %848
-  br i1 %.not.i.i.i.i723, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i721, !llvm.loop !157
+  br i1 %.not.i.i.i.i723, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i721, !llvm.loop !158
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %36, align 8, !tbaa !146
+  %.pr.i = load ptr, ptr %36, align 8, !tbaa !147
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, %.critedge
@@ -4553,7 +4553,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS
 
 861:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %862 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %863 = load ptr, ptr %862, align 8, !tbaa !158
+  %863 = load ptr, ptr %862, align 8, !tbaa !159
   %864 = ptrtoint ptr %863 to i64
   %865 = ptrtoint ptr %860 to i64
   %866 = sub i64 %864, %865
@@ -4588,9 +4588,9 @@ define linkonce_odr dso_local void @_ZN5draco9PlyReaderD2Ev(ptr noundef nonnull 
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev.exit: ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !52
+  %8 = load ptr, ptr %0, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !159
+  %10 = load ptr, ptr %9, align 8, !tbaa !160
   %.not4.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -4633,10 +4633,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyIN5draco10PlyElementEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 112
   %.not.i.i.i.i = icmp eq ptr %26, %10
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !161
 
 _ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5draco10PlyElementEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %0, align 8, !tbaa !52
+  %.pr.i = load ptr, ptr %0, align 8, !tbaa !53
   br label %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev.exit
@@ -4646,7 +4646,7 @@ _ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_D
 
 28:                                               ; preds = %_ZSt8_DestroyIPN5draco10PlyElementES1_EvT_S3_RSaIT0_E.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !161
+  %30 = load ptr, ptr %29, align 8, !tbaa !162
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
@@ -4659,11 +4659,11 @@ _ZNSt6vectorIN5draco10PlyElementESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5draco17PlyPropertyReaderIjEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !162
+  store ptr %1, ptr %0, align 8, !tbaa !163
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %5 = load i32, ptr %4, align 8, !tbaa !122
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   switch i32 %5, label %30 [
     i32 2, label %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
     i32 1, label %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -4681,9 +4681,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !165
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4692,9 +4692,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i3.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i3.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !165
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4703,9 +4703,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i5.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i5.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4714,9 +4714,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i7.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i7.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !165
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4725,9 +4725,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i9.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i9.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !165
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4736,9 +4736,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i11.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i11.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !165
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4747,9 +4747,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i13.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i13.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !165
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -4758,9 +4758,9 @@ _ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i15.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i15.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !165
   br label %30
 
 30:                                               ; preds = %2, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFjiEEaSIZN5draco17PlyPropertyReaderIjEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -4786,8 +4786,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !127
-  %10 = load ptr, ptr %1, align 8, !tbaa !124
+  %9 = load ptr, ptr %8, align 8, !tbaa !128
+  %10 = load ptr, ptr %1, align 8, !tbaa !125
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -4812,10 +4812,10 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_del
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %18, ptr %6, align 8, !tbaa !165
-  store ptr %18, ptr %19, align 8, !tbaa !168
+  store ptr %18, ptr %6, align 8, !tbaa !166
+  store ptr %18, ptr %19, align 8, !tbaa !169
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %13
-  store ptr %20, ptr %17, align 8, !tbaa !169
+  store ptr %20, ptr %17, align 8, !tbaa !170
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit: ; preds = %16, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
@@ -4839,14 +4839,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc36:                                         ; preds = %25
   %28 = getelementptr inbounds nuw float, ptr %27, i64 %82
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !134
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !135
   %29 = icmp eq i64 %81, 8
   br i1 %29, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
   %30 = getelementptr i8, ptr %27, i64 4
   %31 = add nsw i64 %26, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !134
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !135
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 32:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
@@ -4866,17 +4866,17 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !123
+  %42 = load ptr, ptr %41, align 8, !tbaa !124
   tail call void @_ZN5draco17PlyPropertyReaderIfEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
-  store ptr %39, ptr %7, align 8, !tbaa !170
+  store ptr %39, ptr %7, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %37, %36
   %43 = ptrtoint ptr %39 to i64
   br i1 %.not.i.i, label %45, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %40
-  store i64 %43, ptr %37, align 8, !tbaa !170
+  store i64 %43, ptr %37, align 8, !tbaa !171
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %44, ptr %23, align 8, !tbaa !168
+  store ptr %44, ptr %23, align 8, !tbaa !169
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
 
 45:                                               ; preds = %40
@@ -4908,23 +4908,23 @@ _ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3
 
 .noexc56:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %48
-  store i64 %43, ptr %58, align 8, !tbaa !170
-  store ptr null, ptr %7, align 8, !tbaa !170
+  store i64 %43, ptr %58, align 8, !tbaa !171
+  store ptr null, ptr %7, align 8, !tbaa !171
   %.not10.i.i.i.i48 = icmp eq ptr %35, %36
   br i1 %.not10.i.i.i.i48, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %.noexc56, %.lr.ph.i.i.i.i49
   %.012.i.i.i.i50 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %57, %.noexc56 ]
   %.0911.i.i.i.i51 = phi ptr [ %60, %.lr.ph.i.i.i.i49 ], [ %35, %.noexc56 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
-  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !170, !alias.scope !175, !noalias !172
-  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !170, !alias.scope !172, !noalias !175
-  store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !170, !alias.scope !175, !noalias !172
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
+  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !171, !alias.scope !176, !noalias !173
+  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !171, !alias.scope !173, !noalias !176
+  store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !171, !alias.scope !176, !noalias !173
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
   %.not.i.i.i.i52 = icmp eq ptr %60, %36
-  br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !177
+  br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !178
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i49, %.noexc56
   %.0.lcssa.i.i.i.i = phi ptr [ %57, %.noexc56 ], [ %61, %.lr.ph.i.i.i.i49 ]
@@ -4937,17 +4937,17 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
-  store ptr %57, ptr %6, align 8, !tbaa !165
-  store ptr %62, ptr %23, align 8, !tbaa !168
+  store ptr %57, ptr %6, align 8, !tbaa !166
+  store ptr %62, ptr %23, align 8, !tbaa !169
   %64 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %57, i64 %55
-  store ptr %64, ptr %17, align 8, !tbaa !169
-  %.pr = load ptr, ptr %7, align 8, !tbaa !170
+  store ptr %64, ptr %17, align 8, !tbaa !170
+  %.pr = load ptr, ptr %7, align 8, !tbaa !171
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit, label %65
 
 65:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
   %66 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !95
+  %67 = load ptr, ptr %66, align 8, !tbaa !96
   %.not.i.i.i.i38 = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i, label %68
 
@@ -4973,14 +4973,14 @@ _ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exi
   %76 = phi ptr [ %44, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %62, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %62, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load ptr, ptr %8, align 8, !tbaa !127
-  %78 = load ptr, ptr %1, align 8, !tbaa !124
+  %77 = load ptr, ptr %8, align 8, !tbaa !128
+  %78 = load ptr, ptr %1, align 8, !tbaa !125
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp ugt i64 %82, %indvars.iv.next
-  br i1 %83, label %34, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !178
+  br i1 %83, label %34, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !179
 
 84:                                               ; preds = %34
   %85 = landingpad { ptr, i32 }
@@ -5023,8 +5023,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorISt10un
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv110 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next111, %._crit_edge ]
-  %91 = load ptr, ptr %8, align 8, !tbaa !127
-  %92 = load ptr, ptr %1, align 8, !tbaa !124
+  %91 = load ptr, ptr %8, align 8, !tbaa !128
+  %92 = load ptr, ptr %1, align 8, !tbaa !125
   %.not101 = icmp eq ptr %91, %92
   br i1 %.not101, label %._crit_edge, label %.lr.ph97.preheader
 
@@ -5049,13 +5049,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge99, %94
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %108, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i118, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
-  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !170
+  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !171
   %.not.i.i.i.i.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %99
 
 99:                                               ; preds = %.lr.ph.i.i.i.i39
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !95
+  %101 = load ptr, ptr %100, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i, label %102
 
@@ -5076,10 +5076,10 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i: 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i39
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !170
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !171
   %108 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i40 = icmp eq ptr %108, %88
-  br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !179
+  br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !180
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit
   %.not.i.i.i41 = icmp eq ptr %.pr.i118, null
@@ -5104,11 +5104,11 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %124
   %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %124 ]
   %115 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %.pr.i118, i64 %indvars.iv107
-  %116 = load ptr, ptr %115, align 8, !tbaa !170
+  %116 = load ptr, ptr %115, align 8, !tbaa !171
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %93, ptr %5, align 4, !tbaa !94
+  store i32 %93, ptr %5, align 4, !tbaa !95
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !95
+  %118 = load ptr, ptr %117, align 8, !tbaa !96
   %.not.i.i.i42 = icmp eq ptr %118, null
   br i1 %.not.i.i.i42, label %119, label %_ZNKSt8functionIFfiEEclEi.exit.i
 
@@ -5122,23 +5122,23 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
 _ZNKSt8functionIFfiEEclEi.exit.i:                 ; preds = %.lr.ph97
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !132
+  %122 = load ptr, ptr %121, align 8, !tbaa !133
   %123 = invoke noundef float %122(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %124 unwind label %.loopexit
 
 124:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %125 = getelementptr inbounds nuw float, ptr %.sroa.058.0, i64 %indvars.iv107
-  store float %123, ptr %125, align 4, !tbaa !134
+  store float %123, ptr %125, align 4, !tbaa !135
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %126 = load ptr, ptr %8, align 8, !tbaa !127
-  %127 = load ptr, ptr %1, align 8, !tbaa !124
+  %126 = load ptr, ptr %8, align 8, !tbaa !128
+  %127 = load ptr, ptr %1, align 8, !tbaa !125
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
   %131 = ashr exact i64 %130, 3
   %132 = icmp ugt i64 %131, %indvars.iv.next108
-  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !180
+  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !181
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5156,15 +5156,15 @@ _ZNKSt8functionIFfiEEclEi.exit.i:                 ; preds = %.lr.ph97
   br i1 %.not.i.i.i45, label %_ZNSt6vectorIfSaIfEED2Ev.exit46, label %139
 
 ._crit_edge:                                      ; preds = %124, %.preheader
-  %134 = load i64, ptr %90, align 8, !tbaa !136
+  %134 = load i64, ptr %90, align 8, !tbaa !137
   %135 = mul nsw i64 %134, %indvars.iv110
-  %136 = load ptr, ptr %2, align 8, !tbaa !141
-  %137 = load ptr, ptr %136, align 8, !tbaa !142
+  %136 = load ptr, ptr %2, align 8, !tbaa !142
+  %137 = load ptr, ptr %136, align 8, !tbaa !143
   %138 = getelementptr inbounds i8, ptr %137, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %.sroa.058.0, i64 %134, i1 false)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !181
+  br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !182
 
 139:                                              ; preds = %133
   %140 = ptrtoint ptr %.sroa.11.0 to i64
@@ -5188,8 +5188,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !127
-  %10 = load ptr, ptr %1, align 8, !tbaa !124
+  %9 = load ptr, ptr %8, align 8, !tbaa !128
+  %10 = load ptr, ptr %1, align 8, !tbaa !125
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -5214,10 +5214,10 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_del
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %18, ptr %6, align 8, !tbaa !182
-  store ptr %18, ptr %19, align 8, !tbaa !185
+  store ptr %18, ptr %6, align 8, !tbaa !183
+  store ptr %18, ptr %19, align 8, !tbaa !186
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %13
-  store ptr %20, ptr %17, align 8, !tbaa !186
+  store ptr %20, ptr %17, align 8, !tbaa !187
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit: ; preds = %16, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
@@ -5241,14 +5241,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc36:                                         ; preds = %25
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %82
-  store i32 0, ptr %27, align 4, !tbaa !94
+  store i32 0, ptr %27, align 4, !tbaa !95
   %29 = icmp eq i64 %81, 8
   br i1 %29, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
   %30 = getelementptr i8, ptr %27, i64 4
   %31 = add nsw i64 %26, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !94
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !95
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 32:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
@@ -5268,17 +5268,17 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !123
+  %42 = load ptr, ptr %41, align 8, !tbaa !124
   tail call void @_ZN5draco17PlyPropertyReaderIiEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
-  store ptr %39, ptr %7, align 8, !tbaa !187
+  store ptr %39, ptr %7, align 8, !tbaa !188
   %.not.i.i = icmp eq ptr %37, %36
   %43 = ptrtoint ptr %39 to i64
   br i1 %.not.i.i, label %45, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %40
-  store i64 %43, ptr %37, align 8, !tbaa !187
+  store i64 %43, ptr %37, align 8, !tbaa !188
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %44, ptr %23, align 8, !tbaa !185
+  store ptr %44, ptr %23, align 8, !tbaa !186
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
 
 45:                                               ; preds = %40
@@ -5310,23 +5310,23 @@ _ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3
 
 .noexc56:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %48
-  store i64 %43, ptr %58, align 8, !tbaa !187
-  store ptr null, ptr %7, align 8, !tbaa !187
+  store i64 %43, ptr %58, align 8, !tbaa !188
+  store ptr null, ptr %7, align 8, !tbaa !188
   %.not10.i.i.i.i48 = icmp eq ptr %35, %36
   br i1 %.not10.i.i.i.i48, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %.noexc56, %.lr.ph.i.i.i.i49
   %.012.i.i.i.i50 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %57, %.noexc56 ]
   %.0911.i.i.i.i51 = phi ptr [ %60, %.lr.ph.i.i.i.i49 ], [ %35, %.noexc56 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !187, !alias.scope !192, !noalias !189
-  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !187, !alias.scope !189, !noalias !192
-  store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !187, !alias.scope !192, !noalias !189
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !188, !alias.scope !193, !noalias !190
+  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !188, !alias.scope !190, !noalias !193
+  store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !188, !alias.scope !193, !noalias !190
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
   %.not.i.i.i.i52 = icmp eq ptr %60, %36
-  br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !194
+  br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !195
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i49, %.noexc56
   %.0.lcssa.i.i.i.i = phi ptr [ %57, %.noexc56 ], [ %61, %.lr.ph.i.i.i.i49 ]
@@ -5339,17 +5339,17 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
-  store ptr %57, ptr %6, align 8, !tbaa !182
-  store ptr %62, ptr %23, align 8, !tbaa !185
+  store ptr %57, ptr %6, align 8, !tbaa !183
+  store ptr %62, ptr %23, align 8, !tbaa !186
   %64 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %57, i64 %55
-  store ptr %64, ptr %17, align 8, !tbaa !186
-  %.pr = load ptr, ptr %7, align 8, !tbaa !187
+  store ptr %64, ptr %17, align 8, !tbaa !187
+  %.pr = load ptr, ptr %7, align 8, !tbaa !188
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit, label %65
 
 65:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
   %66 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !95
+  %67 = load ptr, ptr %66, align 8, !tbaa !96
   %.not.i.i.i.i38 = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i, label %68
 
@@ -5375,14 +5375,14 @@ _ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exi
   %76 = phi ptr [ %44, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %62, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %62, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load ptr, ptr %8, align 8, !tbaa !127
-  %78 = load ptr, ptr %1, align 8, !tbaa !124
+  %77 = load ptr, ptr %8, align 8, !tbaa !128
+  %78 = load ptr, ptr %1, align 8, !tbaa !125
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp ugt i64 %82, %indvars.iv.next
-  br i1 %83, label %34, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !195
+  br i1 %83, label %34, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !196
 
 84:                                               ; preds = %34
   %85 = landingpad { ptr, i32 }
@@ -5425,8 +5425,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorISt10un
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv110 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next111, %._crit_edge ]
-  %91 = load ptr, ptr %8, align 8, !tbaa !127
-  %92 = load ptr, ptr %1, align 8, !tbaa !124
+  %91 = load ptr, ptr %8, align 8, !tbaa !128
+  %92 = load ptr, ptr %1, align 8, !tbaa !125
   %.not101 = icmp eq ptr %91, %92
   br i1 %.not101, label %._crit_edge, label %.lr.ph97.preheader
 
@@ -5451,13 +5451,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge99, %94
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %108, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i118, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !187
+  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !188
   %.not.i.i.i.i.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %99
 
 99:                                               ; preds = %.lr.ph.i.i.i.i39
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !95
+  %101 = load ptr, ptr %100, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i, label %102
 
@@ -5478,10 +5478,10 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i: 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i39
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !187
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !188
   %108 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i40 = icmp eq ptr %108, %88
-  br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !196
+  br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !197
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.not.i.i.i41 = icmp eq ptr %.pr.i118, null
@@ -5506,11 +5506,11 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %124
   %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %124 ]
   %115 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %.pr.i118, i64 %indvars.iv107
-  %116 = load ptr, ptr %115, align 8, !tbaa !187
+  %116 = load ptr, ptr %115, align 8, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %93, ptr %5, align 4, !tbaa !94
+  store i32 %93, ptr %5, align 4, !tbaa !95
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !95
+  %118 = load ptr, ptr %117, align 8, !tbaa !96
   %.not.i.i.i42 = icmp eq ptr %118, null
   br i1 %.not.i.i.i42, label %119, label %_ZNKSt8functionIFiiEEclEi.exit.i
 
@@ -5524,23 +5524,23 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
 _ZNKSt8functionIFiiEEclEi.exit.i:                 ; preds = %.lr.ph97
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !197
+  %122 = load ptr, ptr %121, align 8, !tbaa !198
   %123 = invoke noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %124 unwind label %.loopexit
 
 124:                                              ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %125 = getelementptr inbounds nuw i32, ptr %.sroa.058.0, i64 %indvars.iv107
-  store i32 %123, ptr %125, align 4, !tbaa !94
+  store i32 %123, ptr %125, align 4, !tbaa !95
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %126 = load ptr, ptr %8, align 8, !tbaa !127
-  %127 = load ptr, ptr %1, align 8, !tbaa !124
+  %126 = load ptr, ptr %8, align 8, !tbaa !128
+  %127 = load ptr, ptr %1, align 8, !tbaa !125
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
   %131 = ashr exact i64 %130, 3
   %132 = icmp ugt i64 %131, %indvars.iv.next108
-  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !199
+  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !200
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5558,15 +5558,15 @@ _ZNKSt8functionIFiiEEclEi.exit.i:                 ; preds = %.lr.ph97
   br i1 %.not.i.i.i45, label %_ZNSt6vectorIiSaIiEED2Ev.exit46, label %139
 
 ._crit_edge:                                      ; preds = %124, %.preheader
-  %134 = load i64, ptr %90, align 8, !tbaa !136
+  %134 = load i64, ptr %90, align 8, !tbaa !137
   %135 = mul nsw i64 %134, %indvars.iv110
-  %136 = load ptr, ptr %2, align 8, !tbaa !141
-  %137 = load ptr, ptr %136, align 8, !tbaa !142
+  %136 = load ptr, ptr %2, align 8, !tbaa !142
+  %137 = load ptr, ptr %136, align 8, !tbaa !143
   %138 = getelementptr inbounds i8, ptr %137, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %.sroa.058.0, i64 %134, i1 false)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !200
+  br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !201
 
 139:                                              ; preds = %133
   %140 = ptrtoint ptr %.sroa.11.0 to i64
@@ -5584,11 +5584,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %113, %133, %139, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5draco17PlyPropertyReaderIfEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !201
+  store ptr %1, ptr %0, align 8, !tbaa !202
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %5 = load i32, ptr %4, align 8, !tbaa !122
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   switch i32 %5, label %30 [
     i32 2, label %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
     i32 1, label %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -5606,9 +5606,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !165
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5617,9 +5617,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i3.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i3.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !165
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5628,9 +5628,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i5.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i5.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5639,9 +5639,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i7.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i7.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !165
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5650,9 +5650,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i9.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i9.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !165
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5661,9 +5661,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i11.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i11.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !165
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5672,9 +5672,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i13.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i13.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !165
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5683,9 +5683,9 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i15.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i15.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !165
   br label %30
 
 30:                                               ; preds = %2, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -5695,18 +5695,18 @@ _ZNSt8functionIFfiEEaSIZN5draco17PlyPropertyReaderIfEC1EPKNS3_11PlyPropertyEEUli
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !156
+  %4 = load ptr, ptr %3, align 8, !tbaa !157
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !158
+  %6 = load ptr, ptr %5, align 8, !tbaa !159
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %8, ptr %4, align 8, !tbaa !144
-  store ptr null, ptr %1, align 8, !tbaa !144
+  %8 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %8, ptr %4, align 8, !tbaa !145
+  store ptr null, ptr %1, align 8, !tbaa !145
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %9, ptr %3, align 8, !tbaa !156
+  store ptr %9, ptr %3, align 8, !tbaa !157
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
 10:                                               ; preds = %2
@@ -5722,11 +5722,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5draco17PlyPropertyReaderIhEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !203
+  store ptr %1, ptr %0, align 8, !tbaa !204
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %5 = load i32, ptr %4, align 8, !tbaa !122
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   switch i32 %5, label %30 [
     i32 2, label %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
     i32 1, label %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -5744,9 +5744,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !165
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5755,9 +5755,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i3.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i3.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !165
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5766,9 +5766,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i5.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i5.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5777,9 +5777,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i7.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i7.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !165
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5788,9 +5788,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i9.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i9.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !165
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5799,9 +5799,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i11.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i11.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !165
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5810,9 +5810,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i13.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i13.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !165
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -5821,9 +5821,9 @@ _ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i15.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i15.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !165
   br label %30
 
 30:                                               ; preds = %2, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFhiEEaSIZN5draco17PlyPropertyReaderIhEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -5835,13 +5835,13 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !144
+  %2 = load ptr, ptr %0, align 8, !tbaa !145
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit, label %6
 
@@ -5862,27 +5862,27 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit: ; preds = %3
   br label %12
 
 12:                                               ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !144
+  store ptr null, ptr %0, align 8, !tbaa !145
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !146
+  %2 = load ptr, ptr %0, align 8, !tbaa !147
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !156
+  %4 = load ptr, ptr %3, align 8, !tbaa !157
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %15, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !144
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !145
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !95
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i, label %9
 
@@ -5903,13 +5903,13 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i: ; 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIhEEEclEPS2_.exit.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !144
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !145
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !157
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !158
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !146
+  %.pr = load ptr, ptr %0, align 8, !tbaa !147
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, %1
@@ -5919,7 +5919,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !158
+  %19 = load ptr, ptr %18, align 8, !tbaa !159
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
@@ -5955,10 +5955,10 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !205
+  %4 = load ptr, ptr %3, align 8, !tbaa !206
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !206
+  %6 = load ptr, ptr %5, align 8, !tbaa !207
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -5981,7 +5981,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !207
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !208
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -5989,22 +5989,22 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN5draco11PlyPropertyESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !67
+  %2 = load ptr, ptr %0, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !208
+  %4 = load ptr, ptr %3, align 8, !tbaa !209
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN5draco11PlyPropertyEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %29, %_ZSt8_DestroyIN5draco11PlyPropertyEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !94
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !209
+  %9 = load ptr, ptr %8, align 8, !tbaa !210
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -6013,13 +6013,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5draco11PlyPropertyESaIS1_EED2
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i:          ; preds = %7, %.lr.ph.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !142
+  %14 = load ptr, ptr %13, align 8, !tbaa !143
   %.not.i.i.i1.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i1.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !210
+  %17 = load ptr, ptr %16, align 8, !tbaa !211
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -6048,10 +6048,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyIN5draco11PlyPropertyEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %29, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !211
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !212
 
 _ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5draco11PlyPropertyEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !67
+  %.pr = load ptr, ptr %0, align 8, !tbaa !68
   br label %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %1
@@ -6061,7 +6061,7 @@ _ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_De
 
 31:                                               ; preds = %_ZSt8_DestroyIPN5draco11PlyPropertyES1_EvT_S3_RSaIT0_E.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !212
+  %33 = load ptr, ptr %32, align 8, !tbaa !213
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -6083,9 +6083,9 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !213
+  %7 = load ptr, ptr %6, align 8, !tbaa !214
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -6097,7 +6097,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.8)
   %.sroa.3.8.copyload = load i8, ptr %3, align 4
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..sroa_idx, i64 11, i1 false), !tbaa.struct !214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..sroa_idx, i64 11, i1 false), !tbaa.struct !215
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %11, %15
   %17 = sdiv exact i64 %16, 12
@@ -6113,20 +6113,20 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %9, %19 ]
   %.sroa.08.012.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %20, %19 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !216
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq ptr %21, %9
-  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !217
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
-  %.pre = load ptr, ptr %8, align 8, !tbaa !55
+  %.pre = load ptr, ptr %8, align 8, !tbaa !56
   br label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit ], [ %9, %19 ]
   %24 = getelementptr inbounds nuw %"struct.std::array", ptr %23, i64 %2
-  store ptr %24, ptr %8, align 8, !tbaa !55
+  store ptr %24, ptr %8, align 8, !tbaa !56
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %25, %15
   %27 = icmp sgt i64 %26, 0
@@ -6148,16 +6148,16 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
   %32 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
   %33 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %29, i64 0, i64 %.05.i.i.i.i.i.i
-  %34 = load i32, ptr %33, align 4, !tbaa !99
-  store i32 %34, ptr %32, align 4, !tbaa !99
+  %34 = load i32, ptr %33, align 4, !tbaa !100
+  store i32 %34, ptr %32, align 4, !tbaa !100
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %35, 3
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EEaSEOS4_.exit.i.i.i.i.i, label %31, !llvm.loop !217
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EEaSEOS4_.exit.i.i.i.i.i, label %31, !llvm.loop !218
 
 _ZNSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EEaSEOS4_.exit.i.i.i.i.i: ; preds = %31
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
   %37 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %37, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit, !llvm.loop !218
+  br i1 %37, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit, !llvm.loop !219
 
 _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit: ; preds = %_ZNSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EEaSEOS4_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit
   %.idx115 = mul nuw nsw i64 %2, 12
@@ -6166,12 +6166,12 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
 
 .preheader.i.i.i:                                 ; preds = %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit, %.preheader.i.i.i
   %.06.i.i.i = phi ptr [ %39, %.preheader.i.i.i ], [ %1, %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit ]
-  store i8 %.sroa.3.8.copyload, ptr %.06.i.i.i, align 4, !tbaa !99
+  store i8 %.sroa.3.8.copyload, ptr %.06.i.i.i, align 4, !tbaa !100
   %.sroa.8.8..06.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..06.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa !99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..06.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa !100
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !219
+  br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !220
 
 40:                                               ; preds = %14
   %41 = sub nuw i64 %2, %17
@@ -6183,53 +6183,53 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   %.068.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i ], [ %41, %40 ]
   store i8 %.sroa.3.8.copyload, ptr %.09.i.i.i.i, align 4
   %.sroa.8.8..09.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..09.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa.struct !214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..09.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa.struct !215
   %42 = add i64 %.068.i.i.i.i, -1
   %43 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 12
   %.not.i.i.i.i69 = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i.i69, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !220
+  br i1 %.not.i.i.i.i69, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !221
 
 _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %40
   %44 = phi ptr [ %9, %40 ], [ %43, %.lr.ph.i.i.i.i ]
-  store ptr %44, ptr %8, align 8, !tbaa !55
+  store ptr %44, ptr %8, align 8, !tbaa !56
   %.not11.i.i.i.i.i70 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i70, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %16
-  store ptr %45, ptr %8, align 8, !tbaa !55
+  store ptr %45, ptr %8, align 8, !tbaa !56
   br label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, %.lr.ph.i.i.i.i.i71
   %.013.i.i.i.i.i72 = phi ptr [ %47, %.lr.ph.i.i.i.i.i71 ], [ %44, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit ]
   %.sroa.08.012.i.i.i.i.i73 = phi ptr [ %46, %.lr.ph.i.i.i.i.i71 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i72, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i73, i64 12, i1 false), !tbaa.struct !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i72, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i73, i64 12, i1 false), !tbaa.struct !216
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 12
   %.not.i.i.i.i.i74 = icmp eq ptr %46, %9
-  br i1 %.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76, label %.lr.ph.i.i.i.i.i71, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76, label %.lr.ph.i.i.i.i.i71, !llvm.loop !217
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76: ; preds = %.lr.ph.i.i.i.i.i71
-  %48 = load ptr, ptr %8, align 8, !tbaa !55
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %16
-  store ptr %49, ptr %8, align 8, !tbaa !55
+  store ptr %49, ptr %8, align 8, !tbaa !56
   br label %.preheader.i.i.i78
 
 .preheader.i.i.i78:                               ; preds = %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76, %.preheader.i.i.i78
   %.06.i.i.i79 = phi ptr [ %50, %.preheader.i.i.i78 ], [ %1, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76 ]
-  store i8 %.sroa.3.8.copyload, ptr %.06.i.i.i79, align 4, !tbaa !99
+  store i8 %.sroa.3.8.copyload, ptr %.06.i.i.i79, align 4, !tbaa !100
   %.sroa.8.8..06.i.i.i79.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i79, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..06.i.i.i79.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa !99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8.8..06.i.i.i79.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.8, i64 11, i1 false), !tbaa !100
   %50 = getelementptr inbounds nuw i8, ptr %.06.i.i.i79, i64 12
   %.not.i.i.i83 = icmp eq ptr %50, %9
-  br i1 %.not.i.i.i83, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i78, !llvm.loop !219
+  br i1 %.not.i.i.i83, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i78, !llvm.loop !220
 
 _ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit: ; preds = %.preheader.i.i.i78, %.preheader.i.i.i, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76.thread
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.8)
   br label %82
 
 51:                                               ; preds = %5
-  %52 = load ptr, ptr %0, align 8, !tbaa !58
+  %52 = load ptr, ptr %0, align 8, !tbaa !59
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %11, %53
   %55 = sdiv exact i64 %54, 12
@@ -6265,11 +6265,11 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3
 .lr.ph.i.i.i.i86:                                 ; preds = %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i86
   %.09.i.i.i.i87 = phi ptr [ %71, %.lr.ph.i.i.i.i86 ], [ %69, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE11_M_allocateEm.exit ]
   %.068.i.i.i.i88 = phi i64 [ %70, %.lr.ph.i.i.i.i86 ], [ %2, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !216
   %70 = add i64 %.068.i.i.i.i88, -1
   %71 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i87, i64 12
   %.not.i.i.i.i89 = icmp eq i64 %70, 0
-  br i1 %.not.i.i.i.i89, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i86, !llvm.loop !220
+  br i1 %.not.i.i.i.i89, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i86, !llvm.loop !221
 
 _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91: ; preds = %.lr.ph.i.i.i.i86
   %.not11.i.i.i.i.i92 = icmp eq ptr %52, %1
@@ -6278,11 +6278,11 @@ _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag
 .lr.ph.i.i.i.i.i93:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91, %.lr.ph.i.i.i.i.i93
   %.013.i.i.i.i.i94 = phi ptr [ %73, %.lr.ph.i.i.i.i.i93 ], [ %68, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ]
   %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %72, %.lr.ph.i.i.i.i.i93 ], [ %52, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i94, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i95, i64 12, i1 false), !tbaa.struct !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i94, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i95, i64 12, i1 false), !tbaa.struct !216
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 12
   %73 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 12
   %.not.i.i.i.i.i96 = icmp eq ptr %72, %1
-  br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i93, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i93, !llvm.loop !217
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ], [ %73, %.lr.ph.i.i.i.i.i93 ]
@@ -6293,11 +6293,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
 .lr.ph.i.i.i.i.i99:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %.lr.ph.i.i.i.i.i99
   %.013.i.i.i.i.i100 = phi ptr [ %76, %.lr.ph.i.i.i.i.i99 ], [ %74, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
   %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %75, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i100, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i101, i64 12, i1 false), !tbaa.struct !215
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i100, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i101, i64 12, i1 false), !tbaa.struct !216
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 12
   %76 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 12
   %.not.i.i.i.i.i102 = icmp eq ptr %75, %9
-  br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, label %.lr.ph.i.i.i.i.i99, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, label %.lr.ph.i.i.i.i.i99, !llvm.loop !217
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104: ; preds = %.lr.ph.i.i.i.i.i99, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit
   %.0.lcssa.i.i.i.i.i103 = phi ptr [ %74, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ], [ %76, %.lr.ph.i.i.i.i.i99 ]
@@ -6305,17 +6305,17 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
   br i1 %.not.i105, label %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit, label %77
 
 77:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104
-  %78 = load ptr, ptr %6, align 8, !tbaa !213
+  %78 = load ptr, ptr %6, align 8, !tbaa !214
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %79, %53
   tail call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %80) #20
   br label %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, %77
-  store ptr %68, ptr %0, align 8, !tbaa !58
-  store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !55
+  store ptr %68, ptr %0, align 8, !tbaa !59
+  store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !56
   %81 = getelementptr inbounds nuw %"struct.std::array", ptr %68, i64 %62
-  store ptr %81, ptr %6, align 8, !tbaa !213
+  store ptr %81, ptr %6, align 8, !tbaa !214
   br label %82
 
 82:                                               ; preds = %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit, %4
@@ -6333,13 +6333,13 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !221
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !222
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -6357,16 +6357,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6375,13 +6375,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !228
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !229
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -6399,16 +6399,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6417,17 +6417,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !230
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !231
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = zext i16 %13 to i32
   ret i32 %14
 }
@@ -6441,16 +6441,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6459,17 +6459,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !233
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !234
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = sext i16 %13 to i32
   ret i32 %14
 }
@@ -6483,16 +6483,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6501,17 +6501,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !235
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !236
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   ret i32 %13
 }
 
@@ -6524,16 +6524,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6542,17 +6542,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !237
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !238
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   ret i32 %13
 }
 
@@ -6565,16 +6565,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6583,17 +6583,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !239
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !240
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !134
+  %13 = load float, ptr %12, align 4, !tbaa !135
   %14 = fptoui float %13 to i32
   ret i32 %14
 }
@@ -6607,16 +6607,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6625,17 +6625,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFjiEZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !241
-  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !242
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load double, ptr %12, align 8, !tbaa !243
+  %13 = load double, ptr %12, align 8, !tbaa !244
   %14 = fptoui double %13 to i32
   ret i32 %14
 }
@@ -6649,16 +6649,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFjiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !227
-  store i64 %7, ptr %0, align 8, !tbaa !227
+  %7 = load i64, ptr %1, align 8, !tbaa !228
+  store i64 %7, ptr %0, align 8, !tbaa !228
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIjEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -6670,13 +6670,13 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !170
+  %2 = load ptr, ptr %0, align 8, !tbaa !171
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit, label %6
 
@@ -6697,27 +6697,27 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit: ; preds = %3
   br label %12
 
 12:                                               ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !170
+  store ptr null, ptr %0, align 8, !tbaa !171
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !165
+  %2 = load ptr, ptr %0, align 8, !tbaa !166
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !168
+  %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %15, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !170
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !171
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !95
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i, label %9
 
@@ -6738,13 +6738,13 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i: ; 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !170
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !171
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !179
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !180
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !165
+  %.pr = load ptr, ptr %0, align 8, !tbaa !166
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, %1
@@ -6754,7 +6754,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !169
+  %19 = load ptr, ptr %18, align 8, !tbaa !170
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
@@ -6767,11 +6767,11 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_del
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5draco17PlyPropertyReaderIiEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !245
+  store ptr %1, ptr %0, align 8, !tbaa !246
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %5 = load i32, ptr %4, align 8, !tbaa !122
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   switch i32 %5, label %30 [
     i32 2, label %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
     i32 1, label %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -6789,9 +6789,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %7, align 8, !tbaa !165
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %8, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6800,9 +6800,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i3.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i3.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %10, align 8, !tbaa !165
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi, ptr %11, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6811,9 +6811,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i5.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i5.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %13, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi, ptr %14, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6822,9 +6822,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i7.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i7.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %16, align 8, !tbaa !165
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi, ptr %17, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6833,9 +6833,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i9.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i9.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %19, align 8, !tbaa !165
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi, ptr %20, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6844,9 +6844,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i11.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i11.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %22, align 8, !tbaa !165
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi, ptr %23, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6855,9 +6855,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i13.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i13.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %25, align 8, !tbaa !165
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi, ptr %26, align 8, !tbaa !165
   br label %30
 
 _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit: ; preds = %2
@@ -6866,9 +6866,9 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
   %.sroa.0.i.i.i15.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.i.i.i15.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %28, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !164
+  store ptr @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi, ptr %29, align 8, !tbaa !165
   br label %30
 
 30:                                               ; preds = %2, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE6_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE5_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE4_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE3_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE2_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE1_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE0_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit, %_ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUliE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSB_.exit
@@ -6877,13 +6877,13 @@ _ZNSt8functionIFiiEEaSIZN5draco17PlyPropertyReaderIiEC1EPKNS3_11PlyPropertyEEUli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !187
+  %2 = load ptr, ptr %0, align 8, !tbaa !188
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit, label %6
 
@@ -6904,27 +6904,27 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit: ; preds = %3
   br label %12
 
 12:                                               ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !187
+  store ptr null, ptr %0, align 8, !tbaa !188
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !182
+  %2 = load ptr, ptr %0, align 8, !tbaa !183
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !185
+  %4 = load ptr, ptr %3, align 8, !tbaa !186
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %15, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !187
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !188
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !95
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i, label %9
 
@@ -6945,13 +6945,13 @@ _ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i: ; 
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !187
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !188
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !196
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !197
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !182
+  %.pr = load ptr, ptr %0, align 8, !tbaa !183
   br label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, %1
@@ -6961,7 +6961,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !186
+  %19 = load ptr, ptr %18, align 8, !tbaa !187
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
@@ -6974,13 +6974,13 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_del
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !247
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !248
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -6998,16 +6998,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7016,13 +7016,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !249
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !250
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -7040,16 +7040,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7058,17 +7058,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !251
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !252
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = zext i16 %13 to i32
   ret i32 %14
 }
@@ -7082,16 +7082,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7100,17 +7100,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !253
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !254
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = sext i16 %13 to i32
   ret i32 %14
 }
@@ -7124,16 +7124,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7142,17 +7142,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !255
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !256
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   ret i32 %13
 }
 
@@ -7165,16 +7165,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7183,17 +7183,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !257
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !258
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   ret i32 %13
 }
 
@@ -7206,16 +7206,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7224,17 +7224,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !259
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !260
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !134
+  %13 = load float, ptr %12, align 4, !tbaa !135
   %14 = fptosi float %13 to i32
   ret i32 %14
 }
@@ -7248,16 +7248,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7266,17 +7266,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiEZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !261
-  %5 = load ptr, ptr %4, align 8, !tbaa !245
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !262
+  %5 = load ptr, ptr %4, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load double, ptr %12, align 8, !tbaa !243
+  %13 = load double, ptr %12, align 8, !tbaa !244
   %14 = fptosi double %13 to i32
   ret i32 %14
 }
@@ -7290,16 +7290,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !187
-  store i64 %7, ptr %0, align 8, !tbaa !187
+  %7 = load i64, ptr %1, align 8, !tbaa !188
+  store i64 %7, ptr %0, align 8, !tbaa !188
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7308,13 +7308,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIiEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !263
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !264
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -7332,16 +7332,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7350,13 +7350,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !265
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !266
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -7374,16 +7374,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7392,17 +7392,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !267
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !268
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = uitofp i16 %13 to float
   ret float %14
 }
@@ -7416,16 +7416,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7434,17 +7434,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !269
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !270
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = sitofp i16 %13 to float
   ret float %14
 }
@@ -7458,16 +7458,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7476,17 +7476,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !271
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !272
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   %14 = uitofp i32 %13 to float
   ret float %14
 }
@@ -7500,16 +7500,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7518,17 +7518,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !273
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !274
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   %14 = sitofp i32 %13 to float
   ret float %14
 }
@@ -7542,16 +7542,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7560,17 +7560,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !275
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !276
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !134
+  %13 = load float, ptr %12, align 4, !tbaa !135
   ret float %13
 }
 
@@ -7583,16 +7583,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7601,17 +7601,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNSt17_Function_handlerIFfiEZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !277
-  %5 = load ptr, ptr %4, align 8, !tbaa !201
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !278
+  %5 = load ptr, ptr %4, align 8, !tbaa !202
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load double, ptr %12, align 8, !tbaa !243
+  %13 = load double, ptr %12, align 8, !tbaa !244
   %14 = fptrunc double %13 to float
   ret float %14
 }
@@ -7625,16 +7625,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFfiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !170
-  store i64 %7, ptr %0, align 8, !tbaa !170
+  %7 = load i64, ptr %1, align 8, !tbaa !171
+  store i64 %7, ptr %0, align 8, !tbaa !171
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7643,13 +7643,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIfEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !279
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !280
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -7666,16 +7666,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7684,13 +7684,13 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !281
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !282
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
@@ -7707,16 +7707,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE0_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7725,17 +7725,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !283
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !284
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = trunc i16 %13 to i8
   ret i8 %14
 }
@@ -7749,16 +7749,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE1_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE1_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7767,17 +7767,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !285
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !286
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !232
+  %13 = load i16, ptr %12, align 2, !tbaa !233
   %14 = trunc i16 %13 to i8
   ret i8 %14
 }
@@ -7791,16 +7791,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE2_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE2_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7809,17 +7809,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !287
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !288
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   %14 = trunc i32 %13 to i8
   ret i8 %14
 }
@@ -7833,16 +7833,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE3_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE3_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7851,17 +7851,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !289
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !290
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   %14 = trunc i32 %13 to i8
   ret i8 %14
 }
@@ -7875,16 +7875,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE4_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE4_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7893,17 +7893,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !291
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !292
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !134
+  %13 = load float, ptr %12, align 4, !tbaa !135
   %14 = fptoui float %13 to i8
   ret i8 %14
 }
@@ -7917,16 +7917,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE5_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE5_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7935,17 +7935,17 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNSt17_Function_handlerIFhiEZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !94
-  %4 = load ptr, ptr %0, align 8, !tbaa !293
-  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %3 = load i32, ptr %1, align 4, !tbaa !95
+  %4 = load ptr, ptr %0, align 8, !tbaa !294
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !142
+  %7 = load ptr, ptr %6, align 8, !tbaa !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %9 = load i32, ptr %8, align 4, !tbaa !224
+  %9 = load i32, ptr %8, align 4, !tbaa !225
   %10 = mul nsw i32 %9, %3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  %13 = load double, ptr %12, align 8, !tbaa !243
+  %13 = load double, ptr %12, align 8, !tbaa !244
   %14 = fptoui double %13 to i8
   ret i8 %14
 }
@@ -7959,16 +7959,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFhiEZ
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !225
+  store ptr @_ZTIZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE6_, ptr %0, align 8, !tbaa !226
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !164
+  store ptr %1, ptr %0, align 8, !tbaa !165
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !144
-  store i64 %7, ptr %0, align 8, !tbaa !144
+  %7 = load i64, ptr %1, align 8, !tbaa !145
+  store i64 %7, ptr %0, align 8, !tbaa !145
   br label %_ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11PlyPropertyEEUliE6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
@@ -7978,8 +7978,8 @@ _ZNSt14_Function_base13_Base_managerIZN5draco17PlyPropertyReaderIhEC1EPKNS1_11Pl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !156
-  %6 = load ptr, ptr %0, align 8, !tbaa !146
+  %5 = load ptr, ptr %4, align 8, !tbaa !157
+  %6 = load ptr, ptr %0, align 8, !tbaa !147
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -8004,24 +8004,24 @@ _ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3
   %19 = shl nuw nsw i64 %16, 3
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  %22 = load i64, ptr %2, align 8, !tbaa !144
-  store i64 %22, ptr %21, align 8, !tbaa !144
-  store ptr null, ptr %2, align 8, !tbaa !144
+  %22 = load i64, ptr %2, align 8, !tbaa !145
+  store i64 %22, ptr %21, align 8, !tbaa !145
+  store ptr null, ptr %2, align 8, !tbaa !145
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %23 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !144, !alias.scope !298, !noalias !295
-  store i64 %23, ptr %.012.i.i.i, align 8, !tbaa !144, !alias.scope !295, !noalias !298
-  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !144, !alias.scope !298, !noalias !295
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
+  %23 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !145, !alias.scope !299, !noalias !296
+  store i64 %23, ptr %.012.i.i.i, align 8, !tbaa !145, !alias.scope !296, !noalias !299
+  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !145, !alias.scope !299, !noalias !296
   %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %24, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i, !llvm.loop !300
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i, !llvm.loop !301
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ], [ %25, %.lr.ph.i.i.i ]
@@ -8032,15 +8032,15 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %29, %.lr.ph.i.i.i17 ], [ %26, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   %.0911.i.i.i19 = phi ptr [ %28, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
-  %27 = load i64, ptr %.0911.i.i.i19, align 8, !tbaa !144, !alias.scope !304, !noalias !301
-  store i64 %27, ptr %.012.i.i.i18, align 8, !tbaa !144, !alias.scope !301, !noalias !304
-  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !144, !alias.scope !304, !noalias !301
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
+  %27 = load i64, ptr %.0911.i.i.i19, align 8, !tbaa !145, !alias.scope !305, !noalias !302
+  store i64 %27, ptr %.012.i.i.i18, align 8, !tbaa !145, !alias.scope !302, !noalias !305
+  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !145, !alias.scope !305, !noalias !302
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !300
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !301
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %26, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %29, %.lr.ph.i.i.i17 ]
@@ -8049,17 +8049,17 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_
   br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit, label %31
 
 31:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22
-  %32 = load ptr, ptr %30, align 8, !tbaa !158
+  %32 = load ptr, ptr %30, align 8, !tbaa !159
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %34) #20
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
-  store ptr %20, ptr %0, align 8, !tbaa !146
-  store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !156
+  store ptr %20, ptr %0, align 8, !tbaa !147
+  store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !157
   %35 = getelementptr inbounds nuw %"class.std::unique_ptr.84", ptr %20, i64 %16
-  store ptr %35, ptr %30, align 8, !tbaa !158
+  store ptr %35, ptr %30, align 8, !tbaa !159
   ret void
 }
 
@@ -8162,262 +8162,263 @@ attributes #23 = { builtin allocsize(0) }
 !44 = !{!"_ZTSSt14_Rb_tree_color", !9, i64 0}
 !45 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !8, i64 0}
 !46 = !{!45, !45, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !51, i64 32}
-!50 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE", !21, i64 0, !51, i64 32}
-!51 = !{!"int", !9, i64 0}
-!52 = !{!53, !54, i64 0}
-!53 = !{!"_ZTSNSt12_Vector_baseIN5draco10PlyElementESaIS1_EE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
-!54 = !{!"p1 _ZTSN5draco10PlyElementE", !8, i64 0}
-!55 = !{!56, !57, i64 8}
-!56 = !{!"_ZTSNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
-!57 = !{!"p1 _ZTSSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EE", !8, i64 0}
-!58 = !{!56, !57, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"vtable pointer", !10, i64 0}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN5draco8OkStatusEv: argument 0"}
-!63 = distinct !{!63, !"_ZN5draco8OkStatusEv"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN5draco8OkStatusEv: argument 0"}
-!66 = distinct !{!66, !"_ZN5draco8OkStatusEv"}
-!67 = !{!68, !69, i64 0}
-!68 = !{!"_ZTSNSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
-!69 = !{!"p1 _ZTSN5draco11PlyPropertyE", !8, i64 0}
-!70 = !{!71, !81, i64 88}
-!71 = !{!"_ZTSN5draco11PlyPropertyE", !21, i64 0, !72, i64 32, !76, i64 56, !81, i64 80, !51, i64 84, !81, i64 88, !51, i64 92}
-!72 = !{!"_ZTSSt6vectorIhSaIhEE", !73, i64 0}
-!73 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !74, i64 0}
-!74 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !75, i64 0}
-!75 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!76 = !{!"_ZTSSt6vectorIlSaIlEE", !77, i64 0}
-!77 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !78, i64 0}
-!78 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !79, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !80, i64 0, !80, i64 8, !80, i64 16}
-!80 = !{!"p1 long", !8, i64 0}
-!81 = !{!"_ZTSN5draco8DataTypeE", !9, i64 0}
-!82 = distinct !{!82, !48}
-!83 = !{!84, !11, i64 32}
-!84 = !{!"_ZTSN5draco10PlyElementE", !21, i64 0, !11, i64 32, !85, i64 40, !88, i64 64}
-!85 = !{!"_ZTSSt6vectorIN5draco11PlyPropertyESaIS1_EE", !86, i64 0}
-!86 = !{!"_ZTSSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE", !87, i64 0}
-!87 = !{!"_ZTSNSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE12_Vector_implE", !68, i64 0}
-!88 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE", !89, i64 0}
-!89 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !90, i64 0}
-!90 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !91, i64 0, !42, i64 8}
-!91 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !92, i64 0}
-!92 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
-!93 = !{!79, !80, i64 0}
-!94 = !{!51, !51, i64 0}
-!95 = !{!96, !8, i64 16}
-!96 = !{!"_ZTSSt14_Function_base", !9, i64 0, !8, i64 16}
-!97 = !{!98, !8, i64 24}
-!98 = !{!"_ZTSSt8functionIFjiEE", !96, i64 0, !8, i64 24}
-!99 = !{!100, !51, i64 0}
-!100 = !{!"_ZTSN5draco9IndexTypeIjNS_20PointIndex_tag_type_EEE", !51, i64 0}
-!101 = distinct !{!101, !48}
-!102 = distinct !{!102, !48}
-!103 = distinct !{!103, !48}
-!104 = distinct !{!104, !48}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN5draco8OkStatusEv: argument 0"}
-!107 = distinct !{!107, !"_ZN5draco8OkStatusEv"}
-!108 = !{!109, !51, i64 160}
-!109 = !{!"_ZTSN5draco10PointCloudE", !110, i64 8, !117, i64 16, !9, i64 40, !51, i64 160}
-!110 = !{!"_ZTSSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EE", !111, i64 0}
-!111 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco16GeometryMetadataESt14default_deleteIS1_ELb1ELb1EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_implIN5draco16GeometryMetadataESt14default_deleteIS1_EE", !113, i64 0}
-!113 = !{!"_ZTSSt5tupleIJPN5draco16GeometryMetadataESt14default_deleteIS1_EEE", !114, i64 0}
-!114 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco16GeometryMetadataESt14default_deleteIS1_EEE", !115, i64 0}
-!115 = !{!"_ZTSSt10_Head_baseILm0EPN5draco16GeometryMetadataELb0EE", !116, i64 0}
-!116 = !{!"p1 _ZTSN5draco16GeometryMetadataE", !8, i64 0}
-!117 = !{!"_ZTSSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE", !118, i64 0}
-!118 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE", !119, i64 0}
-!119 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !120, i64 0}
-!120 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !121, i64 0, !121, i64 8, !121, i64 16}
-!121 = !{!"p1 _ZTSSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EE", !8, i64 0}
-!122 = !{!71, !81, i64 80}
-!123 = !{!69, !69, i64 0}
-!124 = !{!125, !126, i64 0}
-!125 = !{!"_ZTSNSt12_Vector_baseIPKN5draco11PlyPropertyESaIS3_EE17_Vector_impl_dataE", !126, i64 0, !126, i64 8, !126, i64 16}
-!126 = !{!"p2 _ZTSN5draco11PlyPropertyE", !8, i64 0}
-!127 = !{!125, !126, i64 8}
-!128 = !{!125, !126, i64 16}
-!129 = !{!120, !121, i64 0}
-!130 = !{!131, !131, i64 0}
-!131 = !{!"p1 _ZTSN5draco14PointAttributeE", !8, i64 0}
-!132 = !{!133, !8, i64 24}
-!133 = !{!"_ZTSSt8functionIFfiEE", !96, i64 0, !8, i64 24}
-!134 = !{!135, !135, i64 0}
-!135 = !{!"float", !9, i64 0}
-!136 = !{!137, !11, i64 40}
-!137 = !{!"_ZTSN5draco17GeometryAttributeE", !138, i64 0, !139, i64 8, !9, i64 24, !81, i64 28, !13, i64 32, !11, i64 40, !11, i64 48, !140, i64 56, !51, i64 60}
-!138 = !{!"p1 _ZTSN5draco10DataBufferE", !8, i64 0}
-!139 = !{!"_ZTSN5draco20DataBufferDescriptorE", !11, i64 0, !11, i64 8}
-!140 = !{!"_ZTSN5draco17GeometryAttribute4TypeE", !9, i64 0}
-!141 = !{!137, !138, i64 0}
-!142 = !{!75, !7, i64 0}
-!143 = distinct !{!143, !48}
-!144 = !{!145, !145, i64 0}
-!145 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIhEE", !8, i64 0}
-!146 = !{!147, !148, i64 0}
-!147 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
-!148 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS2_EE", !8, i64 0}
-!149 = !{!150, !8, i64 24}
-!150 = !{!"_ZTSSt8functionIFhiEE", !96, i64 0, !8, i64 24}
-!151 = distinct !{!151, !48}
-!152 = distinct !{!152, !48}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZN5draco8OkStatusEv: argument 0"}
-!155 = distinct !{!155, !"_ZN5draco8OkStatusEv"}
-!156 = !{!147, !148, i64 8}
-!157 = distinct !{!157, !48}
-!158 = !{!147, !148, i64 16}
-!159 = !{!53, !54, i64 8}
-!160 = distinct !{!160, !48}
-!161 = !{!53, !54, i64 16}
-!162 = !{!163, !69, i64 0}
-!163 = !{!"_ZTSN5draco17PlyPropertyReaderIjEE", !69, i64 0, !98, i64 8}
-!164 = !{!8, !8, i64 0}
-!165 = !{!166, !167, i64 0}
-!166 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !167, i64 0, !167, i64 8, !167, i64 16}
-!167 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EE", !8, i64 0}
-!168 = !{!166, !167, i64 8}
-!169 = !{!166, !167, i64 16}
-!170 = !{!171, !171, i64 0}
-!171 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIfEE", !8, i64 0}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!174 = distinct !{!174, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!175 = !{!176}
-!176 = distinct !{!176, !174, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!177 = distinct !{!177, !48}
-!178 = distinct !{!178, !48}
-!179 = distinct !{!179, !48}
-!180 = distinct !{!180, !48}
-!181 = distinct !{!181, !48}
-!182 = !{!183, !184, i64 0}
-!183 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !184, i64 0, !184, i64 8, !184, i64 16}
-!184 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EE", !8, i64 0}
-!185 = !{!183, !184, i64 8}
-!186 = !{!183, !184, i64 16}
-!187 = !{!188, !188, i64 0}
-!188 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIiEE", !8, i64 0}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!191 = distinct !{!191, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!192 = !{!193}
-!193 = distinct !{!193, !191, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!194 = distinct !{!194, !48}
-!195 = distinct !{!195, !48}
-!196 = distinct !{!196, !48}
-!197 = !{!198, !8, i64 24}
-!198 = !{!"_ZTSSt8functionIFiiEE", !96, i64 0, !8, i64 24}
-!199 = distinct !{!199, !48}
-!200 = distinct !{!200, !48}
-!201 = !{!202, !69, i64 0}
-!202 = !{!"_ZTSN5draco17PlyPropertyReaderIfEE", !69, i64 0, !133, i64 8}
-!203 = !{!204, !69, i64 0}
-!204 = !{!"_ZTSN5draco17PlyPropertyReaderIhEE", !69, i64 0, !150, i64 8}
-!205 = !{!43, !45, i64 24}
-!206 = !{!43, !45, i64 16}
-!207 = distinct !{!207, !48}
-!208 = !{!68, !69, i64 8}
-!209 = !{!79, !80, i64 16}
-!210 = !{!75, !7, i64 16}
-!211 = distinct !{!211, !48}
-!212 = !{!68, !69, i64 16}
-!213 = !{!56, !57, i64 16}
-!214 = !{i64 0, i64 11, !22}
-!215 = !{i64 0, i64 12, !22}
-!216 = distinct !{!216, !48}
-!217 = distinct !{!217, !48}
-!218 = distinct !{!218, !48}
-!219 = distinct !{!219, !48}
-!220 = distinct !{!220, !48}
-!221 = !{!222, !223, i64 0}
-!222 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE_", !223, i64 0}
-!223 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIjEE", !8, i64 0}
-!224 = !{!71, !51, i64 84}
-!225 = !{!226, !226, i64 0}
-!226 = !{!"p1 _ZTSSt9type_info", !8, i64 0}
-!227 = !{!223, !223, i64 0}
-!228 = !{!229, !223, i64 0}
-!229 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE0_", !223, i64 0}
-!230 = !{!231, !223, i64 0}
-!231 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE1_", !223, i64 0}
-!232 = !{!14, !14, i64 0}
-!233 = !{!234, !223, i64 0}
-!234 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE2_", !223, i64 0}
-!235 = !{!236, !223, i64 0}
-!236 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE3_", !223, i64 0}
-!237 = !{!238, !223, i64 0}
-!238 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE4_", !223, i64 0}
-!239 = !{!240, !223, i64 0}
-!240 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE5_", !223, i64 0}
-!241 = !{!242, !223, i64 0}
-!242 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE6_", !223, i64 0}
-!243 = !{!244, !244, i64 0}
-!244 = !{!"double", !9, i64 0}
-!245 = !{!246, !69, i64 0}
-!246 = !{!"_ZTSN5draco17PlyPropertyReaderIiEE", !69, i64 0, !198, i64 8}
-!247 = !{!248, !188, i64 0}
-!248 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE_", !188, i64 0}
-!249 = !{!250, !188, i64 0}
-!250 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE0_", !188, i64 0}
-!251 = !{!252, !188, i64 0}
-!252 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE1_", !188, i64 0}
-!253 = !{!254, !188, i64 0}
-!254 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE2_", !188, i64 0}
-!255 = !{!256, !188, i64 0}
-!256 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE3_", !188, i64 0}
-!257 = !{!258, !188, i64 0}
-!258 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE4_", !188, i64 0}
-!259 = !{!260, !188, i64 0}
-!260 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE5_", !188, i64 0}
-!261 = !{!262, !188, i64 0}
-!262 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE6_", !188, i64 0}
-!263 = !{!264, !171, i64 0}
-!264 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE_", !171, i64 0}
-!265 = !{!266, !171, i64 0}
-!266 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE0_", !171, i64 0}
-!267 = !{!268, !171, i64 0}
-!268 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE1_", !171, i64 0}
-!269 = !{!270, !171, i64 0}
-!270 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE2_", !171, i64 0}
-!271 = !{!272, !171, i64 0}
-!272 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE3_", !171, i64 0}
-!273 = !{!274, !171, i64 0}
-!274 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE4_", !171, i64 0}
-!275 = !{!276, !171, i64 0}
-!276 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE5_", !171, i64 0}
-!277 = !{!278, !171, i64 0}
-!278 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE6_", !171, i64 0}
-!279 = !{!280, !145, i64 0}
-!280 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE_", !145, i64 0}
-!281 = !{!282, !145, i64 0}
-!282 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE0_", !145, i64 0}
-!283 = !{!284, !145, i64 0}
-!284 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE1_", !145, i64 0}
-!285 = !{!286, !145, i64 0}
-!286 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE2_", !145, i64 0}
-!287 = !{!288, !145, i64 0}
-!288 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE3_", !145, i64 0}
-!289 = !{!290, !145, i64 0}
-!290 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE4_", !145, i64 0}
-!291 = !{!292, !145, i64 0}
-!292 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE5_", !145, i64 0}
-!293 = !{!294, !145, i64 0}
-!294 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE6_", !145, i64 0}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!297 = distinct !{!297, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!298 = !{!299}
-!299 = distinct !{!299, !297, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!300 = distinct !{!300, !48}
-!301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!303 = distinct !{!303, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!304 = !{!305}
-!305 = distinct !{!305, !303, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !52, i64 32}
+!51 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE", !21, i64 0, !52, i64 32}
+!52 = !{!"int", !9, i64 0}
+!53 = !{!54, !55, i64 0}
+!54 = !{!"_ZTSNSt12_Vector_baseIN5draco10PlyElementESaIS1_EE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
+!55 = !{!"p1 _ZTSN5draco10PlyElementE", !8, i64 0}
+!56 = !{!57, !58, i64 8}
+!57 = !{!"_ZTSNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
+!58 = !{!"p1 _ZTSSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EE", !8, i64 0}
+!59 = !{!57, !58, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"vtable pointer", !10, i64 0}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN5draco8OkStatusEv: argument 0"}
+!64 = distinct !{!64, !"_ZN5draco8OkStatusEv"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN5draco8OkStatusEv: argument 0"}
+!67 = distinct !{!67, !"_ZN5draco8OkStatusEv"}
+!68 = !{!69, !70, i64 0}
+!69 = !{!"_ZTSNSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE17_Vector_impl_dataE", !70, i64 0, !70, i64 8, !70, i64 16}
+!70 = !{!"p1 _ZTSN5draco11PlyPropertyE", !8, i64 0}
+!71 = !{!72, !82, i64 88}
+!72 = !{!"_ZTSN5draco11PlyPropertyE", !21, i64 0, !73, i64 32, !77, i64 56, !82, i64 80, !52, i64 84, !82, i64 88, !52, i64 92}
+!73 = !{!"_ZTSSt6vectorIhSaIhEE", !74, i64 0}
+!74 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !75, i64 0}
+!75 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !76, i64 0}
+!76 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
+!77 = !{!"_ZTSSt6vectorIlSaIlEE", !78, i64 0}
+!78 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !79, i64 0}
+!79 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !80, i64 0}
+!80 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !81, i64 0, !81, i64 8, !81, i64 16}
+!81 = !{!"p1 long", !8, i64 0}
+!82 = !{!"_ZTSN5draco8DataTypeE", !9, i64 0}
+!83 = distinct !{!83, !48, !49}
+!84 = !{!85, !11, i64 32}
+!85 = !{!"_ZTSN5draco10PlyElementE", !21, i64 0, !11, i64 32, !86, i64 40, !89, i64 64}
+!86 = !{!"_ZTSSt6vectorIN5draco11PlyPropertyESaIS1_EE", !87, i64 0}
+!87 = !{!"_ZTSSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE", !88, i64 0}
+!88 = !{!"_ZTSNSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE12_Vector_implE", !69, i64 0}
+!89 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE", !90, i64 0}
+!90 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !91, i64 0}
+!91 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !92, i64 0, !42, i64 8}
+!92 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !93, i64 0}
+!93 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!94 = !{!80, !81, i64 0}
+!95 = !{!52, !52, i64 0}
+!96 = !{!97, !8, i64 16}
+!97 = !{!"_ZTSSt14_Function_base", !9, i64 0, !8, i64 16}
+!98 = !{!99, !8, i64 24}
+!99 = !{!"_ZTSSt8functionIFjiEE", !97, i64 0, !8, i64 24}
+!100 = !{!101, !52, i64 0}
+!101 = !{!"_ZTSN5draco9IndexTypeIjNS_20PointIndex_tag_type_EEE", !52, i64 0}
+!102 = distinct !{!102, !48, !49}
+!103 = distinct !{!103, !48, !49}
+!104 = distinct !{!104, !48, !49}
+!105 = distinct !{!105, !48, !49}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN5draco8OkStatusEv: argument 0"}
+!108 = distinct !{!108, !"_ZN5draco8OkStatusEv"}
+!109 = !{!110, !52, i64 160}
+!110 = !{!"_ZTSN5draco10PointCloudE", !111, i64 8, !118, i64 16, !9, i64 40, !52, i64 160}
+!111 = !{!"_ZTSSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EE", !112, i64 0}
+!112 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco16GeometryMetadataESt14default_deleteIS1_ELb1ELb1EE", !113, i64 0}
+!113 = !{!"_ZTSSt15__uniq_ptr_implIN5draco16GeometryMetadataESt14default_deleteIS1_EE", !114, i64 0}
+!114 = !{!"_ZTSSt5tupleIJPN5draco16GeometryMetadataESt14default_deleteIS1_EEE", !115, i64 0}
+!115 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco16GeometryMetadataESt14default_deleteIS1_EEE", !116, i64 0}
+!116 = !{!"_ZTSSt10_Head_baseILm0EPN5draco16GeometryMetadataELb0EE", !117, i64 0}
+!117 = !{!"p1 _ZTSN5draco16GeometryMetadataE", !8, i64 0}
+!118 = !{!"_ZTSSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE", !119, i64 0}
+!119 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE", !120, i64 0}
+!120 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !121, i64 0}
+!121 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !122, i64 0, !122, i64 8, !122, i64 16}
+!122 = !{!"p1 _ZTSSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EE", !8, i64 0}
+!123 = !{!72, !82, i64 80}
+!124 = !{!70, !70, i64 0}
+!125 = !{!126, !127, i64 0}
+!126 = !{!"_ZTSNSt12_Vector_baseIPKN5draco11PlyPropertyESaIS3_EE17_Vector_impl_dataE", !127, i64 0, !127, i64 8, !127, i64 16}
+!127 = !{!"p2 _ZTSN5draco11PlyPropertyE", !8, i64 0}
+!128 = !{!126, !127, i64 8}
+!129 = !{!126, !127, i64 16}
+!130 = !{!121, !122, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTSN5draco14PointAttributeE", !8, i64 0}
+!133 = !{!134, !8, i64 24}
+!134 = !{!"_ZTSSt8functionIFfiEE", !97, i64 0, !8, i64 24}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"float", !9, i64 0}
+!137 = !{!138, !11, i64 40}
+!138 = !{!"_ZTSN5draco17GeometryAttributeE", !139, i64 0, !140, i64 8, !9, i64 24, !82, i64 28, !13, i64 32, !11, i64 40, !11, i64 48, !141, i64 56, !52, i64 60}
+!139 = !{!"p1 _ZTSN5draco10DataBufferE", !8, i64 0}
+!140 = !{!"_ZTSN5draco20DataBufferDescriptorE", !11, i64 0, !11, i64 8}
+!141 = !{!"_ZTSN5draco17GeometryAttribute4TypeE", !9, i64 0}
+!142 = !{!138, !139, i64 0}
+!143 = !{!76, !7, i64 0}
+!144 = distinct !{!144, !48, !49}
+!145 = !{!146, !146, i64 0}
+!146 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIhEE", !8, i64 0}
+!147 = !{!148, !149, i64 0}
+!148 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !149, i64 0, !149, i64 8, !149, i64 16}
+!149 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS2_EE", !8, i64 0}
+!150 = !{!151, !8, i64 24}
+!151 = !{!"_ZTSSt8functionIFhiEE", !97, i64 0, !8, i64 24}
+!152 = distinct !{!152, !48, !49}
+!153 = distinct !{!153, !48, !49}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN5draco8OkStatusEv: argument 0"}
+!156 = distinct !{!156, !"_ZN5draco8OkStatusEv"}
+!157 = !{!148, !149, i64 8}
+!158 = distinct !{!158, !48, !49}
+!159 = !{!148, !149, i64 16}
+!160 = !{!54, !55, i64 8}
+!161 = distinct !{!161, !48, !49}
+!162 = !{!54, !55, i64 16}
+!163 = !{!164, !70, i64 0}
+!164 = !{!"_ZTSN5draco17PlyPropertyReaderIjEE", !70, i64 0, !99, i64 8}
+!165 = !{!8, !8, i64 0}
+!166 = !{!167, !168, i64 0}
+!167 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !168, i64 0, !168, i64 8, !168, i64 16}
+!168 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EE", !8, i64 0}
+!169 = !{!167, !168, i64 8}
+!170 = !{!167, !168, i64 16}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIfEE", !8, i64 0}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!175 = distinct !{!175, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!176 = !{!177}
+!177 = distinct !{!177, !175, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!178 = distinct !{!178, !48, !49}
+!179 = distinct !{!179, !48, !49}
+!180 = distinct !{!180, !48, !49}
+!181 = distinct !{!181, !48, !49}
+!182 = distinct !{!182, !48, !49}
+!183 = !{!184, !185, i64 0}
+!184 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !185, i64 0, !185, i64 8, !185, i64 16}
+!185 = !{!"p1 _ZTSSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EE", !8, i64 0}
+!186 = !{!184, !185, i64 8}
+!187 = !{!184, !185, i64 16}
+!188 = !{!189, !189, i64 0}
+!189 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIiEE", !8, i64 0}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!192 = distinct !{!192, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!193 = !{!194}
+!194 = distinct !{!194, !192, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!195 = distinct !{!195, !48, !49}
+!196 = distinct !{!196, !48, !49}
+!197 = distinct !{!197, !48, !49}
+!198 = !{!199, !8, i64 24}
+!199 = !{!"_ZTSSt8functionIFiiEE", !97, i64 0, !8, i64 24}
+!200 = distinct !{!200, !48, !49}
+!201 = distinct !{!201, !48, !49}
+!202 = !{!203, !70, i64 0}
+!203 = !{!"_ZTSN5draco17PlyPropertyReaderIfEE", !70, i64 0, !134, i64 8}
+!204 = !{!205, !70, i64 0}
+!205 = !{!"_ZTSN5draco17PlyPropertyReaderIhEE", !70, i64 0, !151, i64 8}
+!206 = !{!43, !45, i64 24}
+!207 = !{!43, !45, i64 16}
+!208 = distinct !{!208, !48, !49}
+!209 = !{!69, !70, i64 8}
+!210 = !{!80, !81, i64 16}
+!211 = !{!76, !7, i64 16}
+!212 = distinct !{!212, !48, !49}
+!213 = !{!69, !70, i64 16}
+!214 = !{!57, !58, i64 16}
+!215 = !{i64 0, i64 11, !22}
+!216 = !{i64 0, i64 12, !22}
+!217 = distinct !{!217, !48, !49}
+!218 = distinct !{!218, !48, !49}
+!219 = distinct !{!219, !48, !49}
+!220 = distinct !{!220, !48, !49}
+!221 = distinct !{!221, !48, !49}
+!222 = !{!223, !224, i64 0}
+!223 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE_", !224, i64 0}
+!224 = !{!"p1 _ZTSN5draco17PlyPropertyReaderIjEE", !8, i64 0}
+!225 = !{!72, !52, i64 84}
+!226 = !{!227, !227, i64 0}
+!227 = !{!"p1 _ZTSSt9type_info", !8, i64 0}
+!228 = !{!224, !224, i64 0}
+!229 = !{!230, !224, i64 0}
+!230 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE0_", !224, i64 0}
+!231 = !{!232, !224, i64 0}
+!232 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE1_", !224, i64 0}
+!233 = !{!14, !14, i64 0}
+!234 = !{!235, !224, i64 0}
+!235 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE2_", !224, i64 0}
+!236 = !{!237, !224, i64 0}
+!237 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE3_", !224, i64 0}
+!238 = !{!239, !224, i64 0}
+!239 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE4_", !224, i64 0}
+!240 = !{!241, !224, i64 0}
+!241 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE5_", !224, i64 0}
+!242 = !{!243, !224, i64 0}
+!243 = !{!"_ZTSZN5draco17PlyPropertyReaderIjEC1EPKNS_11PlyPropertyEEUliE6_", !224, i64 0}
+!244 = !{!245, !245, i64 0}
+!245 = !{!"double", !9, i64 0}
+!246 = !{!247, !70, i64 0}
+!247 = !{!"_ZTSN5draco17PlyPropertyReaderIiEE", !70, i64 0, !199, i64 8}
+!248 = !{!249, !189, i64 0}
+!249 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE_", !189, i64 0}
+!250 = !{!251, !189, i64 0}
+!251 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE0_", !189, i64 0}
+!252 = !{!253, !189, i64 0}
+!253 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE1_", !189, i64 0}
+!254 = !{!255, !189, i64 0}
+!255 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE2_", !189, i64 0}
+!256 = !{!257, !189, i64 0}
+!257 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE3_", !189, i64 0}
+!258 = !{!259, !189, i64 0}
+!259 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE4_", !189, i64 0}
+!260 = !{!261, !189, i64 0}
+!261 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE5_", !189, i64 0}
+!262 = !{!263, !189, i64 0}
+!263 = !{!"_ZTSZN5draco17PlyPropertyReaderIiEC1EPKNS_11PlyPropertyEEUliE6_", !189, i64 0}
+!264 = !{!265, !172, i64 0}
+!265 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE_", !172, i64 0}
+!266 = !{!267, !172, i64 0}
+!267 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE0_", !172, i64 0}
+!268 = !{!269, !172, i64 0}
+!269 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE1_", !172, i64 0}
+!270 = !{!271, !172, i64 0}
+!271 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE2_", !172, i64 0}
+!272 = !{!273, !172, i64 0}
+!273 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE3_", !172, i64 0}
+!274 = !{!275, !172, i64 0}
+!275 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE4_", !172, i64 0}
+!276 = !{!277, !172, i64 0}
+!277 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE5_", !172, i64 0}
+!278 = !{!279, !172, i64 0}
+!279 = !{!"_ZTSZN5draco17PlyPropertyReaderIfEC1EPKNS_11PlyPropertyEEUliE6_", !172, i64 0}
+!280 = !{!281, !146, i64 0}
+!281 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE_", !146, i64 0}
+!282 = !{!283, !146, i64 0}
+!283 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE0_", !146, i64 0}
+!284 = !{!285, !146, i64 0}
+!285 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE1_", !146, i64 0}
+!286 = !{!287, !146, i64 0}
+!287 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE2_", !146, i64 0}
+!288 = !{!289, !146, i64 0}
+!289 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE3_", !146, i64 0}
+!290 = !{!291, !146, i64 0}
+!291 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE4_", !146, i64 0}
+!292 = !{!293, !146, i64 0}
+!293 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE5_", !146, i64 0}
+!294 = !{!295, !146, i64 0}
+!295 = !{!"_ZTSZN5draco17PlyPropertyReaderIhEC1EPKNS_11PlyPropertyEEUliE6_", !146, i64 0}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!298 = distinct !{!298, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!299 = !{!300}
+!300 = distinct !{!300, !298, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!301 = distinct !{!301, !48, !49}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!304 = distinct !{!304, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!305 = !{!306}
+!306 = distinct !{!306, !304, !"_ZSt19__relocate_object_aISt10unique_ptrIN5draco17PlyPropertyReaderIhEESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}

@@ -666,7 +666,7 @@ define internal i32 @ax25_addr_to_str(ptr noundef readonly captures(none) %0, pt
   store i8 %17, ptr %.033, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %19, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %19, label %11, !llvm.loop !9
 
 19:                                               ; preds = %11, %15
   %.0.lcssa = phi ptr [ %.033, %11 ], [ %18, %15 ]
@@ -1140,13 +1140,13 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
 
 16:                                               ; preds = %14
   %17 = icmp ne i32 %3, 8
-  %18 = load i8, ptr @gbl_resolv_flags, align 1, !range !9
+  %18 = load i8, ptr @gbl_resolv_flags, align 1, !range !10
   %19 = trunc nuw i8 %18 to i1
   %or.cond = select i1 %17, i1 true, i1 %19
   br i1 %or.cond, label %21, label %address_type_get_length.exit.i
 
 20:                                               ; preds = %14
-  %.old = load i8, ptr @gbl_resolv_flags, align 1, !range !9, !noundef !10
+  %.old = load i8, ptr @gbl_resolv_flags, align 1, !range !10, !noundef !11
   %.old1 = trunc nuw i8 %.old to i1
   br i1 %.old1, label %.thread29, label %address_type_get_length.exit.i
 
@@ -1157,13 +1157,13 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local
 
 23:                                               ; preds = %21
   %24 = icmp ne i32 %3, 4
-  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !9
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !10
   %26 = trunc nuw i8 %25 to i1
   %or.cond4 = select i1 %24, i1 true, i1 %26
   br i1 %or.cond4, label %.thread29, label %address_type_get_length.exit.i
 
 27:                                               ; preds = %21
-  %.old2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !9, !noundef !10
+  %.old2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !10, !noundef !11
   %.old3 = trunc nuw i8 %.old2 to i1
   br i1 %.old3, label %.thread29, label %address_type_get_length.exit.i
 
@@ -1596,8 +1596,9 @@ attributes #20 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}

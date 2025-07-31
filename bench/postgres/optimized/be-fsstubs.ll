@@ -528,7 +528,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lo_unlink(ptr nounde
   unreachable
 
 10:                                               ; preds = %1
-  %11 = load i8, ptr @lo_compat_privileges, align 1, !range !6, !noundef !7
+  %11 = load i8, ptr @lo_compat_privileges, align 1, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %20, label %13
 
@@ -595,7 +595,7 @@ closeLOfd.exit:                                   ; preds = %31, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %36, %20
   %41 = tail call i32 @inv_drop(i32 noundef %4) #10
@@ -737,7 +737,7 @@ define internal fastcc noundef i32 @lo_import_internal(ptr noundef %0, i32 nound
   %20 = call i64 @read(i32 noundef %5, ptr noundef nonnull %3, i64 noundef 8192) #10
   %21 = trunc i64 %20 to i32
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i32 [ %16, %11 ], [ %21, %.lr.ph ]
@@ -849,7 +849,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
   %31 = call i64 @write(i32 noundef %19, ptr noundef nonnull %2, i64 noundef %30) #10
   %32 = trunc i64 %31 to i32
   %.not20 = icmp eq i32 %27, %32
-  br i1 %.not20, label %.preheader, label %33, !llvm.loop !10
+  br i1 %.not20, label %.preheader, label %33, !llvm.loop !11
 
 33:                                               ; preds = %29
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1019,7 +1019,7 @@ closeLOfd.exit:                                   ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %2
   store ptr null, ptr @cookies, align 8
@@ -1083,7 +1083,7 @@ define dso_local void @AtEOSubXact_LargeObject(i1 noundef zeroext %0, i32 nounde
 17:                                               ; preds = %16, %12, %9
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %6, %.lr.ph ]
@@ -1124,7 +1124,7 @@ closeLOfd.exit:                                   ; preds = %26, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
+  br i1 %35, label %.lr.ph.split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %31, %17, %3
   ret void
@@ -1368,14 +1368,15 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !5, !6}

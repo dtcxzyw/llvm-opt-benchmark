@@ -997,7 +997,7 @@ define dso_local ptr @ginExtractEntries(ptr noundef %0, i16 noundef zeroext %1, 
   %53 = load i32, ptr %4, align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre109, %.._crit_edge_crit_edge ], [ %54, %.lr.ph ]
@@ -1081,7 +1081,7 @@ cmpEntries.exit:                                  ; preds = %80, %82
   %99 = load i32, ptr %4, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next104, %100
-  br i1 %101, label %.lr.ph92, label %._crit_edge93, !llvm.loop !9
+  br i1 %101, label %.lr.ph92, label %._crit_edge93, !llvm.loop !10
 
 ._crit_edge93:                                    ; preds = %98, %65
   %.0.lcssa = phi i32 [ 1, %65 ], [ %.1, %98 ]
@@ -1103,7 +1103,7 @@ cmpEntries.exit:                                  ; preds = %80, %82
   %109 = load i32, ptr %4, align 4
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next101, %110
-  br i1 %111, label %.lr.ph88, label %.loopexit85, !llvm.loop !10
+  br i1 %111, label %.lr.ph88, label %.loopexit85, !llvm.loop !11
 
 .loopexit85:                                      ; preds = %.lr.ph88, %.preheader, %._crit_edge93
   call void @pfree(ptr noundef %43) #7
@@ -1132,7 +1132,7 @@ cmpEntries.exit:                                  ; preds = %80, %82
   %123 = load i32, ptr %4, align 4
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next107, %124
-  br i1 %125, label %.lr.ph97, label %.loopexit, !llvm.loop !11
+  br i1 %125, label %.lr.ph97, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph97, %112, %28, %9
   %.078 = phi ptr [ %10, %9 ], [ %29, %28 ], [ %23, %112 ], [ %23, %.lr.ph97 ]
@@ -1388,9 +1388,10 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

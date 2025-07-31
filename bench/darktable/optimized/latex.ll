@@ -393,7 +393,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 60:                                               ; preds = %.lr.ph
   %61 = getelementptr inbounds i8, ptr %.07888, i64 -1
   %62 = icmp ugt ptr %61, %16
-  br i1 %62, label %.lr.ph, label %.critedge
+  br i1 %62, label %.lr.ph, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %60, %38
   %.078.lcssa = phi ptr [ %58, %38 ], [ %61, %60 ]
@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 78:                                               ; preds = %.lr.ph90
   %79 = getelementptr inbounds i8, ptr %.17989, i64 -1
   %80 = icmp ugt ptr %79, %15
-  br i1 %80, label %.lr.ph90, label %._crit_edge
+  br i1 %80, label %.lr.ph90, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %78, %.lr.ph90, %68
   %.179.lcssa = phi ptr [ %76, %68 ], [ %.17989, %.lr.ph90 ], [ %79, %78 ]
@@ -454,11 +454,11 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %83 = call i64 @g_strlcpy(ptr noundef nonnull %17, ptr noundef nonnull %.3, i64 noundef 4096) #16
   %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %74, i64 noundef 4096, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #16
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 4096
-  store i32 %5, ptr %85, align 4, !tbaa !82
+  store i32 %5, ptr %85, align 4, !tbaa !85
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 9224
-  %87 = load ptr, ptr %86, align 8, !tbaa !84
+  %87 = load ptr, ptr %86, align 8, !tbaa !87
   %88 = call ptr @g_list_insert_sorted(ptr noundef %87, ptr noundef nonnull %74, ptr noundef nonnull @sort_pos) #16
-  store ptr %88, ptr %86, align 8, !tbaa !84
+  store ptr %88, ptr %86, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %17) #16
   %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #16
   %90 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #16
@@ -514,9 +514,9 @@ declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_pos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %4 = load i32, ptr %3, align 4, !tbaa !82
+  %4 = load i32, ptr %3, align 4, !tbaa !85
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4096
-  %6 = load i32, ptr %5, align 4, !tbaa !82
+  %6 = load i32, ptr %5, align 4, !tbaa !85
   %7 = sub nsw i32 %4, %6
   ret i32 %7
 }
@@ -546,20 +546,20 @@ define void @finalize_store(ptr noundef readnone captures(none) %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.25, ptr noundef nonnull %10) #16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 9224
-  %13 = load ptr, ptr %12, align 8, !tbaa !84
+  %13 = load ptr, ptr %12, align 8, !tbaa !87
   %.not1920 = icmp eq ptr %13, null
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %14 = phi ptr [ %17, %.lr.ph ], [ %13, %9 ]
-  %15 = load ptr, ptr %14, align 8, !tbaa !85
+  %15 = load ptr, ptr %14, align 8, !tbaa !88
   %fputs = call i32 @fputs(ptr %15, ptr nonnull %8)
   call void @free(ptr noundef %15) #16
-  %16 = load ptr, ptr %12, align 8, !tbaa !84
+  %16 = load ptr, ptr %12, align 8, !tbaa !87
   %17 = call ptr @g_list_delete_link(ptr noundef %16, ptr noundef %16) #16
-  store ptr %17, ptr %12, align 8, !tbaa !84
+  store ptr %17, ptr %12, align 8, !tbaa !87
   %.not19 = icmp eq ptr %17, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.27, ptr noundef nonnull @darktable_package_string) #16
@@ -634,7 +634,7 @@ declare void @dt_variables_params_destroy(ptr noundef) local_unnamed_addr #5
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %6 = load ptr, ptr %5, align 8, !tbaa !87
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %7 = tail call i64 %6(ptr noundef %0) #16
   %.not = icmp eq i64 %7, %4
   br i1 %.not, label %8, label %18
@@ -810,9 +810,13 @@ attributes #20 = { nounwind allocsize(0,1) }
 !79 = !{!75, !7, i64 20}
 !80 = !{!81, !16, i64 152}
 !81 = !{!"dt_imageio_module_format_t", !14, i64 0, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !8, i64 208, !18, i64 336, !19, i64 344, !16, i64 352, !7, i64 360, !7, i64 364}
-!82 = !{!83, !7, i64 4096}
-!83 = !{!"pair_t", !8, i64 0, !7, i64 4096}
-!84 = !{!69, !29, i64 9224}
-!85 = !{!86, !16, i64 0}
-!86 = !{!"_GList", !16, i64 0, !29, i64 8, !29, i64 16}
-!87 = !{!13, !16, i64 152}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = distinct !{!84, !83}
+!85 = !{!86, !7, i64 4096}
+!86 = !{!"pair_t", !8, i64 0, !7, i64 4096}
+!87 = !{!69, !29, i64 9224}
+!88 = !{!89, !16, i64 0}
+!89 = !{!"_GList", !16, i64 0, !29, i64 8, !29, i64 16}
+!90 = distinct !{!90, !83}
+!91 = !{!13, !16, i64 152}

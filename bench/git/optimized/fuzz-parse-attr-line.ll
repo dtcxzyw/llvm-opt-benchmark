@@ -103,5 +103,6 @@ attributes #6 = { nounwind }
 !11 = !{!"p1 _ZTS8git_attr", !12, i64 0}
 !12 = !{!"any pointer", !5, i64 0}
 !13 = !{!"p1 omnipotent char", !12, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.estimated_trip_count"}

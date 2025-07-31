@@ -122,19 +122,19 @@ BrotliSafeReadBits.exit.thread:                   ; preds = %.lr.ph, %.lr.ph33
 46:                                               ; preds = %BrotliSafeReadBits.exit.thread
   %47 = getelementptr i8, ptr %43, i64 -27
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %47, ptr %48, align 8, !tbaa !16
+  store ptr %47, ptr %48, align 8, !tbaa !17
   br label %BrotliBitReaderSetInput.exit
 
 49:                                               ; preds = %BrotliSafeReadBits.exit.thread
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %8, ptr %50, align 8, !tbaa !16
+  store ptr %8, ptr %50, align 8, !tbaa !17
   br label %BrotliBitReaderSetInput.exit
 
 ._crit_edge34:                                    ; preds = %BrotliPullByte.exit.i8, %._crit_edge
   %51 = phi i64 [ %29, %._crit_edge ], [ %39, %BrotliPullByte.exit.i8 ]
   %.lcssa = phi i64 [ %28, %._crit_edge ], [ %40, %BrotliPullByte.exit.i8 ]
   %52 = getelementptr inbounds nuw [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %30
-  %53 = load i64, ptr %52, align 8, !tbaa !17
+  %53 = load i64, ptr %52, align 8, !tbaa !18
   %54 = and i64 %53, %51
   %55 = sub i64 %.lcssa, %30
   store i64 %55, ptr %5, align 8, !tbaa !3
@@ -142,7 +142,7 @@ BrotliSafeReadBits.exit.thread:                   ; preds = %.lr.ph, %.lr.ph33
   store i64 %56, ptr %0, align 8, !tbaa !10
   %57 = shl i64 %54, 16
   %58 = or disjoint i64 %57, %27
-  store i64 %58, ptr %2, align 8, !tbaa !17
+  store i64 %58, ptr %2, align 8, !tbaa !18
   br label %BrotliBitReaderSetInput.exit
 
 BrotliBitReaderSetInput.exit:                     ; preds = %49, %46, %._crit_edge34
@@ -174,7 +174,8 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !11 = !{!4, !8, i64 16}
 !12 = !{!4, !8, i64 32}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!4, !8, i64 24}
-!17 = !{!5, !5, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!4, !8, i64 24}
+!18 = !{!5, !5, i64 0}

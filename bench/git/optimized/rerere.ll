@@ -193,8 +193,8 @@ sub_1:                                            ; preds = %sub_0
   %76 = load ptr, ptr %10, align 8, !tbaa !24
   %77 = getelementptr inbounds nuw %struct.string_list_item, ptr %76, i64 %.03556
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
-  %80 = load ptr, ptr @RERERE_RESOLVED, align 8, !tbaa !30
+  %79 = load ptr, ptr %78, align 8, !tbaa !30
+  %80 = load ptr, ptr @RERERE_RESOLVED, align 8, !tbaa !31
   %.not43 = icmp eq ptr %79, %80
   br i1 %.not43, label %83, label %81
 
@@ -205,14 +205,14 @@ sub_1:                                            ; preds = %sub_0
   br label %84
 
 83:                                               ; preds = %.lr.ph57
-  store ptr null, ptr %78, align 8, !tbaa !29
+  store ptr null, ptr %78, align 8, !tbaa !30
   br label %84
 
 84:                                               ; preds = %81, %83
   %85 = phi i64 [ %.pre, %81 ], [ %75, %83 ]
   %86 = add nuw i64 %.03556, 1
   %87 = icmp ult i64 %86, %85
-  br i1 %87, label %.lr.ph57, label %.loopexit, !llvm.loop !31
+  br i1 %87, label %.lr.ph57, label %.loopexit, !llvm.loop !32
 
 88:                                               ; preds = %68
   %89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(5) @.str.9) #13
@@ -240,7 +240,7 @@ sub_1:                                            ; preds = %sub_0
   %99 = add nuw i64 %.03455, 1
   %100 = load i64, ptr %95, align 8, !tbaa !21
   %101 = icmp ult i64 %99, %100
-  br i1 %101, label %102, label %.loopexit, !llvm.loop !32
+  br i1 %101, label %102, label %.loopexit, !llvm.loop !33
 
 102:                                              ; preds = %.lr.ph, %98
   %.03455 = phi i64 [ 0, %.lr.ph ], [ %99, %98 ]
@@ -248,7 +248,7 @@ sub_1:                                            ; preds = %sub_0
   %104 = getelementptr inbounds nuw %struct.string_list_item, ptr %103, i64 %.03455
   %105 = load ptr, ptr %104, align 8, !tbaa !25
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !29
+  %107 = load ptr, ptr %106, align 8, !tbaa !30
   %108 = call ptr @rerere_path(ptr noundef %107, ptr noundef nonnull @.str.10) #12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
@@ -275,15 +275,15 @@ diff_two.exit.thread:                             ; preds = %110, %102
 
 diff_two.exit:                                    ; preds = %110
   %112 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %105, ptr noundef %105)
-  %113 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %113 = load ptr, ptr @stdout, align 8, !tbaa !34
   %114 = call i32 @fflush(ptr noundef %113)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
-  store i64 3, ptr %6, align 8, !tbaa !35
+  store i64 3, ptr %6, align 8, !tbaa !36
   %115 = call i32 @xdi_diff(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
-  %116 = load ptr, ptr %8, align 8, !tbaa !37
+  %116 = load ptr, ptr %8, align 8, !tbaa !38
   call void @free(ptr noundef %116) #12
-  %117 = load ptr, ptr %9, align 8, !tbaa !37
+  %117 = load ptr, ptr %9, align 8, !tbaa !38
   call void @free(ptr noundef %117) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
@@ -334,7 +334,7 @@ declare void @warning(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !39
+  %2 = load i8, ptr %0, align 1, !tbaa !40
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -399,14 +399,14 @@ define internal range(i32 -1, 1) i32 @outf(ptr readnone captures(none) %0, ptr n
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw %struct.s_mmbuffer, ptr %1, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !41
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !43
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = tail call i64 @write_in_full(i32 noundef 1, ptr noundef %7, i64 noundef %9) #12
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %._crit_edge, label %5
@@ -479,20 +479,21 @@ attributes #14 = { noreturn nounwind }
 !24 = !{!22, !23, i64 0}
 !25 = !{!26, !10, i64 0}
 !26 = !{!"string_list_item", !10, i64 0, !11, i64 8}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!26, !11, i64 8}
-!30 = !{!11, !11, i64 0}
-!31 = distinct !{!31, !28}
-!32 = distinct !{!32, !28}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!35 = !{!36, !12, i64 0}
-!36 = !{!"s_xdemitconf", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
-!37 = !{!38, !10, i64 0}
-!38 = !{!"s_mmfile", !10, i64 0, !12, i64 8}
-!39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !28}
-!41 = !{!42, !10, i64 0}
-!42 = !{!"s_mmbuffer", !10, i64 0, !12, i64 8}
-!43 = !{!42, !12, i64 8}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!26, !11, i64 8}
+!31 = !{!11, !11, i64 0}
+!32 = distinct !{!32, !28, !29}
+!33 = distinct !{!33, !28, !29}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!36 = !{!37, !12, i64 0}
+!37 = !{!"s_xdemitconf", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24, !11, i64 32, !11, i64 40}
+!38 = !{!39, !10, i64 0}
+!39 = !{!"s_mmfile", !10, i64 0, !12, i64 8}
+!40 = !{!6, !6, i64 0}
+!41 = distinct !{!41, !28, !29}
+!42 = !{!43, !10, i64 0}
+!43 = !{!"s_mmbuffer", !10, i64 0, !12, i64 8}
+!44 = !{!43, !12, i64 8}

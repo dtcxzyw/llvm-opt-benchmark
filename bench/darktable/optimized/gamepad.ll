@@ -163,7 +163,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   %28 = icmp slt i32 %26, %27
   %29 = icmp samesign ult i32 %.01824.i, 9
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !58
 
 31:                                               ; preds = %._crit_edge.i
   %32 = tail call i32 @g_timeout_add(i32 noundef 10, ptr noundef nonnull @_poll_devices, ptr noundef nonnull %0) #9
@@ -234,25 +234,25 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %.04167 = phi i32 [ -1, %.lr.ph69 ], [ %.142, %128 ]
   %.04366 = phi ptr [ null, %.lr.ph69 ], [ %.144, %128 ]
   %12 = add nuw nsw i32 %.04068, 1
-  %13 = load i32, ptr %5, align 8, !tbaa !58
+  %13 = load i32, ptr %5, align 8, !tbaa !60
   %.not51 = icmp eq i32 %13, %.04167
   br i1 %.not51, label %.loopexit, label %14
 
 14:                                               ; preds = %11
   %15 = call ptr @SDL_GameControllerFromInstanceID(i32 noundef %13) #9
-  %.03962 = load ptr, ptr %6, align 8, !tbaa !59
+  %.03962 = load ptr, ptr %6, align 8, !tbaa !61
   %.not5263 = icmp eq ptr %.03962, null
   br i1 %.not5263, label %.thread, label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.03964, i64 8
-  %.039 = load ptr, ptr %17, align 8, !tbaa !59
+  %.039 = load ptr, ptr %17, align 8, !tbaa !61
   %.not52 = icmp eq ptr %.039, null
-  br i1 %.not52, label %.thread, label %.lr.ph
+  br i1 %.not52, label %.thread, label %.lr.ph, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %14, %16
   %.03964 = phi ptr [ %.039, %16 ], [ %.03962, %14 ]
-  %18 = load ptr, ptr %.03964, align 8, !tbaa !60
+  %18 = load ptr, ptr %.03964, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = icmp eq ptr %20, %15
@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 .loopexit:                                        ; preds = %.lr.ph, %11
   %.144 = phi ptr [ %.04366, %11 ], [ %18, %.lr.ph ]
   %.142 = phi i32 [ %.04167, %11 ], [ %13, %.lr.ph ]
-  %22 = load i32, ptr %2, align 8, !tbaa !58
+  %22 = load i32, ptr %2, align 8, !tbaa !60
   switch i32 %22, label %128 [
     i32 1617, label %23
     i32 1618, label %39
@@ -275,21 +275,21 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   br i1 %.not56, label %33, label %26
 
 26:                                               ; preds = %23
-  %27 = load i32, ptr %7, align 4, !tbaa !58
-  %28 = load i32, ptr %5, align 8, !tbaa !58
-  %29 = load i8, ptr %8, align 4, !tbaa !58
+  %27 = load i32, ptr %7, align 4, !tbaa !60
+  %28 = load i32, ptr %5, align 8, !tbaa !60
+  %29 = load i8, ptr %8, align 4, !tbaa !60
   %30 = zext i8 %29 to i32
-  %31 = load i8, ptr %10, align 1, !tbaa !58
+  %31 = load i8, ptr %10, align 1, !tbaa !60
   %32 = zext i8 %31 to i32
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.39, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %32) #9
   br label %33
 
 33:                                               ; preds = %26, %23
-  %34 = load i32, ptr %7, align 4, !tbaa !58
+  %34 = load i32, ptr %7, align 4, !tbaa !60
   call fastcc void @_process_axis_and_send(ptr noundef %.144, i32 noundef %34)
   %35 = load i8, ptr %.144, align 8, !tbaa !57
-  %36 = load i32, ptr %7, align 4, !tbaa !58
-  %37 = load i8, ptr %8, align 4, !tbaa !58
+  %36 = load i32, ptr %7, align 4, !tbaa !60
+  %37 = load i8, ptr %8, align 4, !tbaa !60
   %38 = zext i8 %37 to i32
   call void @dt_shortcut_key_press(i8 noundef zeroext %35, i32 noundef %36, i32 noundef %38) #9
   br label %128
@@ -301,21 +301,21 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   br i1 %.not55, label %49, label %42
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %7, align 4, !tbaa !58
-  %44 = load i32, ptr %5, align 8, !tbaa !58
-  %45 = load i8, ptr %8, align 4, !tbaa !58
+  %43 = load i32, ptr %7, align 4, !tbaa !60
+  %44 = load i32, ptr %5, align 8, !tbaa !60
+  %45 = load i8, ptr %8, align 4, !tbaa !60
   %46 = zext i8 %45 to i32
-  %47 = load i8, ptr %10, align 1, !tbaa !58
+  %47 = load i8, ptr %10, align 1, !tbaa !60
   %48 = zext i8 %47 to i32
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48) #9
   br label %49
 
 49:                                               ; preds = %42, %39
-  %50 = load i32, ptr %7, align 4, !tbaa !58
+  %50 = load i32, ptr %7, align 4, !tbaa !60
   call fastcc void @_process_axis_and_send(ptr noundef %.144, i32 noundef %50)
   %51 = load i8, ptr %.144, align 8, !tbaa !57
-  %52 = load i32, ptr %7, align 4, !tbaa !58
-  %53 = load i8, ptr %8, align 4, !tbaa !58
+  %52 = load i32, ptr %7, align 4, !tbaa !60
+  %53 = load i8, ptr %8, align 4, !tbaa !60
   %54 = zext i8 %53 to i32
   call void @dt_shortcut_key_release(i8 noundef zeroext %51, i32 noundef %52, i32 noundef %54) #9
   br label %128
@@ -327,48 +327,48 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   br i1 %.not54, label %65, label %58
 
 58:                                               ; preds = %55
-  %59 = load i32, ptr %7, align 4, !tbaa !58
-  %60 = load i32, ptr %5, align 8, !tbaa !58
-  %61 = load i8, ptr %8, align 4, !tbaa !58
+  %59 = load i32, ptr %7, align 4, !tbaa !60
+  %60 = load i32, ptr %5, align 8, !tbaa !60
+  %61 = load i8, ptr %8, align 4, !tbaa !60
   %62 = zext i8 %61 to i32
-  %63 = load i16, ptr %9, align 8, !tbaa !58
+  %63 = load i16, ptr %9, align 8, !tbaa !60
   %64 = sext i16 %63 to i32
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, i32 noundef 1616, i32 noundef %59, i32 noundef %60, i32 noundef %62, i32 noundef %64) #9
   br label %65
 
 65:                                               ; preds = %58, %55
-  %66 = load i8, ptr %8, align 4, !tbaa !58
+  %66 = load i8, ptr %8, align 4, !tbaa !60
   %67 = and i8 %66, -2
   %or.cond = icmp eq i8 %67, 4
   br i1 %or.cond, label %68, label %102
 
 68:                                               ; preds = %65
   %69 = zext nneg i8 %66 to i32
-  %70 = load i16, ptr %9, align 8, !tbaa !58
+  %70 = load i16, ptr %9, align 8, !tbaa !60
   %71 = sdiv i16 %70, 10500
   %.sext = sext i16 %71 to i32
   %72 = getelementptr inbounds nuw i8, ptr %.144, i64 20
   %73 = zext nneg i8 %66 to i64
   %74 = getelementptr inbounds nuw [6 x i32], ptr %72, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !63
+  %75 = load i32, ptr %74, align 4, !tbaa !66
   %76 = icmp slt i32 %75, %.sext
   br i1 %76, label %77, label %89
 
 77:                                               ; preds = %68
   %78 = load i8, ptr %.144, align 8, !tbaa !57
-  %79 = load i32, ptr %7, align 4, !tbaa !58
+  %79 = load i32, ptr %7, align 4, !tbaa !60
   %80 = add nuw nsw i32 %69, 17
   call void @dt_shortcut_key_release(i8 noundef zeroext %78, i32 noundef %79, i32 noundef %80) #9
   %81 = load i8, ptr %.144, align 8, !tbaa !57
-  %82 = load i32, ptr %7, align 4, !tbaa !58
+  %82 = load i32, ptr %7, align 4, !tbaa !60
   call void @dt_shortcut_key_press(i8 noundef zeroext %81, i32 noundef %82, i32 noundef %80) #9
-  %83 = load i16, ptr %9, align 8, !tbaa !58
+  %83 = load i16, ptr %9, align 8, !tbaa !60
   %84 = sdiv i16 %83, 10500
   %85 = sext i16 %84 to i32
-  %86 = load i8, ptr %8, align 4, !tbaa !58
+  %86 = load i8, ptr %8, align 4, !tbaa !60
   %87 = zext i8 %86 to i64
   %88 = getelementptr inbounds nuw [6 x i32], ptr %72, i64 0, i64 %87
-  store i32 %85, ptr %88, align 4, !tbaa !63
+  store i32 %85, ptr %88, align 4, !tbaa !66
   br label %128
 
 89:                                               ; preds = %68
@@ -379,22 +379,22 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 
 92:                                               ; preds = %89
   %93 = load i8, ptr %.144, align 8, !tbaa !57
-  %94 = load i32, ptr %7, align 4, !tbaa !58
+  %94 = load i32, ptr %7, align 4, !tbaa !60
   %95 = add nuw nsw i32 %69, 17
   call void @dt_shortcut_key_release(i8 noundef zeroext %93, i32 noundef %94, i32 noundef %95) #9
-  %96 = load i16, ptr %9, align 8, !tbaa !58
+  %96 = load i16, ptr %9, align 8, !tbaa !60
   %97 = sdiv i16 %96, 9500
   %98 = sext i16 %97 to i32
-  %99 = load i8, ptr %8, align 4, !tbaa !58
+  %99 = load i8, ptr %8, align 4, !tbaa !60
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds nuw [6 x i32], ptr %72, i64 0, i64 %100
-  store i32 %98, ptr %101, align 4, !tbaa !63
+  store i32 %98, ptr %101, align 4, !tbaa !66
   br label %128
 
 102:                                              ; preds = %65
-  %103 = load i32, ptr %7, align 4, !tbaa !58
+  %103 = load i32, ptr %7, align 4, !tbaa !60
   %104 = getelementptr inbounds nuw i8, ptr %.144, i64 16
-  %105 = load i32, ptr %104, align 8, !tbaa !64
+  %105 = load i32, ptr %104, align 8, !tbaa !67
   %106 = icmp ugt i32 %103, %105
   br i1 %106, label %107, label %_process_axis_timestep.exit
 
@@ -407,7 +407,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 111:                                              ; preds = %121, %107
   %indvars.iv.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i, %121 ]
   %112 = getelementptr inbounds nuw [6 x i32], ptr %109, i64 0, i64 %indvars.iv.i
-  %113 = load i32, ptr %112, align 4, !tbaa !63
+  %113 = load i32, ptr %112, align 4, !tbaa !66
   %114 = call i32 @llvm.abs.i32(i32 %113, i1 true)
   %115 = icmp samesign ugt i32 %114, 4000
   br i1 %115, label %116, label %121
@@ -415,40 +415,40 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 116:                                              ; preds = %111
   %117 = mul i32 %113, %108
   %118 = getelementptr inbounds nuw [6 x i32], ptr %110, i64 0, i64 %indvars.iv.i
-  %119 = load i32, ptr %118, align 4, !tbaa !63
+  %119 = load i32, ptr %118, align 4, !tbaa !66
   %120 = add i32 %119, %117
-  store i32 %120, ptr %118, align 4, !tbaa !63
+  store i32 %120, ptr %118, align 4, !tbaa !66
   br label %121
 
 121:                                              ; preds = %116, %111
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_process_axis_timestep.exit.loopexit, label %111
+  br i1 %exitcond.not.i, label %_process_axis_timestep.exit.loopexit, label %111, !llvm.loop !68
 
 _process_axis_timestep.exit.loopexit:             ; preds = %121
-  %.pre = load i8, ptr %8, align 4, !tbaa !58
+  %.pre = load i8, ptr %8, align 4, !tbaa !60
   br label %_process_axis_timestep.exit
 
 _process_axis_timestep.exit:                      ; preds = %_process_axis_timestep.exit.loopexit, %102
   %122 = phi i8 [ %.pre, %_process_axis_timestep.exit.loopexit ], [ %66, %102 ]
-  store i32 %103, ptr %104, align 8, !tbaa !64
-  %123 = load i16, ptr %9, align 8, !tbaa !58
+  store i32 %103, ptr %104, align 8, !tbaa !67
+  %123 = load i16, ptr %9, align 8, !tbaa !60
   %124 = sext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %.144, i64 20
   %126 = zext i8 %122 to i64
   %127 = getelementptr inbounds nuw [6 x i32], ptr %125, i64 0, i64 %126
-  store i32 %124, ptr %127, align 4, !tbaa !63
+  store i32 %124, ptr %127, align 4, !tbaa !66
   br label %128
 
 128:                                              ; preds = %77, %92, %89, %_process_axis_timestep.exit, %49, %33, %.loopexit
   %129 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #9
   %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %11, label %._crit_edge
+  br i1 %130, label %11, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %128, %1
   %.040.lcssa = phi i32 [ 0, %1 ], [ %12, %128 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %.070 = load ptr, ptr %131, align 8, !tbaa !59
+  %.070 = load ptr, ptr %131, align 8, !tbaa !61
   %.not71 = icmp eq ptr %.070, null
   br i1 %.not71, label %._crit_edge75, label %.lr.ph74
 
@@ -458,13 +458,13 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
   %.072 = phi ptr [ %.0, %.lr.ph74 ], [ %.070, %._crit_edge ]
-  %132 = load ptr, ptr %.072, align 8, !tbaa !60
+  %132 = load ptr, ptr %.072, align 8, !tbaa !63
   %133 = call i32 @SDL_GetTicks() #9
   call fastcc void @_process_axis_and_send(ptr noundef %132, i32 noundef %133)
   %134 = getelementptr inbounds nuw i8, ptr %.072, i64 8
-  %.0 = load ptr, ptr %134, align 8, !tbaa !59
+  %.0 = load ptr, ptr %134, align 8, !tbaa !61
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge75, label %.lr.ph74
+  br i1 %.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !70
 
 135:                                              ; preds = %._crit_edge75
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !17
@@ -499,7 +499,7 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr inbounds nuw [24 x ptr], ptr @_button_names, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -519,20 +519,20 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @_string_to_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #6 {
-  store i32 0, ptr %1, align 4, !tbaa !63
+  store i32 0, ptr %1, align 4, !tbaa !66
   br label %5
 
 3:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %4, ptr %1, align 4, !tbaa !63
+  store i32 %4, ptr %1, align 4, !tbaa !66
   %.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %.not, label %9, label %5
+  br i1 %.not, label %9, label %5, !llvm.loop !72
 
 5:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %6 = getelementptr inbounds nuw [24 x ptr], ptr @_button_names, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %9, label %3
@@ -550,7 +550,7 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr inbounds nuw [9 x ptr], ptr @_move_names, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -570,20 +570,20 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @_string_to_move(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #6 {
-  store i32 0, ptr %1, align 4, !tbaa !63
+  store i32 0, ptr %1, align 4, !tbaa !66
   br label %5
 
 3:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %4, ptr %1, align 4, !tbaa !63
+  store i32 %4, ptr %1, align 4, !tbaa !66
   %.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %.not, label %9, label %5
+  br i1 %.not, label %9, label %5, !llvm.loop !73
 
 5:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %6 = getelementptr inbounds nuw [9 x ptr], ptr @_move_names, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !71
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %9, label %3
@@ -605,7 +605,7 @@ declare ptr @SDL_GameControllerFromInstanceID(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !64
+  %4 = load i32, ptr %3, align 8, !tbaa !67
   %5 = icmp ugt i32 %1, %4
   br i1 %5, label %6, label %_process_axis_timestep.exit
 
@@ -618,7 +618,7 @@ define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %
 10:                                               ; preds = %20, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %20 ]
   %11 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv.i
-  %12 = load i32, ptr %11, align 4, !tbaa !63
+  %12 = load i32, ptr %11, align 4, !tbaa !66
   %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %14 = icmp samesign ugt i32 %13, 4000
   br i1 %14, label %15, label %20
@@ -626,18 +626,18 @@ define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %
 15:                                               ; preds = %10
   %16 = mul i32 %12, %7
   %17 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i
-  %18 = load i32, ptr %17, align 4, !tbaa !63
+  %18 = load i32, ptr %17, align 4, !tbaa !66
   %19 = add i32 %18, %16
-  store i32 %19, ptr %17, align 4, !tbaa !63
+  store i32 %19, ptr %17, align 4, !tbaa !66
   br label %20
 
 20:                                               ; preds = %15, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_process_axis_timestep.exit, label %10
+  br i1 %exitcond.not.i, label %_process_axis_timestep.exit, label %10, !llvm.loop !68
 
 _process_axis_timestep.exit:                      ; preds = %20, %2
-  store i32 %1, ptr %3, align 8, !tbaa !64
+  store i32 %1, ptr %3, align 8, !tbaa !67
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %23
 
@@ -648,11 +648,11 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %24 = phi i1 [ true, %_process_axis_timestep.exit ], [ false, %73 ]
   %indvars.iv = phi i64 [ 0, %_process_axis_timestep.exit ], [ 2, %73 ]
   %25 = getelementptr inbounds nuw [6 x i32], ptr %21, i64 0, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4, !tbaa !63
+  %26 = load i32, ptr %25, align 4, !tbaa !66
   %27 = sitofp i32 %26 to double
   %28 = or disjoint i64 %indvars.iv, 1
   %29 = getelementptr inbounds nuw [6 x i32], ptr %21, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !63
+  %30 = load i32, ptr %29, align 4, !tbaa !66
   %31 = sitofp i32 %30 to double
   %32 = fadd reassoc nsz arcp contract afn double %31, 1.000000e-03
   %33 = fdiv reassoc nsz arcp contract afn double %27, %32
@@ -668,8 +668,8 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %40 = fmul reassoc nsz arcp contract afn double %35, 6.553600e+06
   %41 = fsub reassoc nsz arcp contract afn double %27, %40
   %42 = fptosi double %41 to i32
-  store i32 %42, ptr %25, align 4, !tbaa !63
-  store i32 0, ptr %29, align 4, !tbaa !63
+  store i32 %42, ptr %25, align 4, !tbaa !66
+  store i32 0, ptr %29, align 4, !tbaa !66
   %43 = load i8, ptr %0, align 8, !tbaa !57
   %44 = fptrunc reassoc nsz arcp contract afn double %35 to float
   %45 = trunc nuw nsw i64 %indvars.iv to i32
@@ -687,12 +687,12 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %53 = fmul reassoc nsz arcp contract afn double %49, -6.553600e+06
   %54 = fadd reassoc nsz arcp contract afn double %53, %31
   %55 = fptosi double %54 to i32
-  store i32 %55, ptr %29, align 4, !tbaa !63
+  store i32 %55, ptr %29, align 4, !tbaa !66
   %56 = fcmp reassoc nsz arcp contract afn olt double %37, 5.000000e-01
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %52
-  store i32 0, ptr %25, align 4, !tbaa !63
+  store i32 0, ptr %25, align 4, !tbaa !66
   %58 = load i8, ptr %0, align 8, !tbaa !57
   %59 = fptrunc reassoc nsz arcp contract afn double %50 to float
   %60 = trunc nuw nsw i64 %28 to i32
@@ -703,7 +703,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %63 = fmul reassoc nsz arcp contract afn double %53, %33
   %64 = fadd reassoc nsz arcp contract afn double %63, %27
   %65 = fptosi double %64 to i32
-  store i32 %65, ptr %25, align 4, !tbaa !63
+  store i32 %65, ptr %25, align 4, !tbaa !66
   %66 = load i8, ptr %0, align 8, !tbaa !57
   %67 = fcmp reassoc nsz arcp contract afn olt double %33, 0.000000e+00
   %68 = select i1 %67, i32 5, i32 4
@@ -714,7 +714,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   br label %73
 
 73:                                               ; preds = %47, %62, %57, %39
-  br i1 %24, label %23, label %22
+  br i1 %24, label %23, label %22, !llvm.loop !74
 }
 
 declare void @dt_shortcut_key_press(i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -826,11 +826,20 @@ attributes #11 = { nounwind willreturn memory(read) }
 !55 = !{!"dt_gamepad_device_t", !10, i64 0, !56, i64 8, !9, i64 16, !10, i64 20, !10, i64 44}
 !56 = !{!"p1 _ZTS19_SDL_GameController", !13, i64 0}
 !57 = !{!55, !10, i64 0}
-!58 = !{!10, !10, i64 0}
-!59 = !{!13, !13, i64 0}
-!60 = !{!61, !13, i64 0}
-!61 = !{!"_GSList", !13, i64 0, !62, i64 8}
-!62 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!63 = !{!9, !9, i64 0}
-!64 = !{!55, !9, i64 16}
-!65 = !{!12, !12, i64 0}
+!58 = distinct !{!58, !59}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!10, !10, i64 0}
+!61 = !{!13, !13, i64 0}
+!62 = distinct !{!62, !59}
+!63 = !{!64, !13, i64 0}
+!64 = !{!"_GSList", !13, i64 0, !65, i64 8}
+!65 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!66 = !{!9, !9, i64 0}
+!67 = !{!55, !9, i64 16}
+!68 = distinct !{!68, !59}
+!69 = distinct !{!69, !59}
+!70 = distinct !{!70, !59}
+!71 = !{!12, !12, i64 0}
+!72 = distinct !{!72, !59}
+!73 = distinct !{!73, !59}
+!74 = distinct !{!74, !59}

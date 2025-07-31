@@ -129,17 +129,17 @@ define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZN10TypeOrigin5frameEP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %47, ptr noundef nonnull %28) #9
-  store i32 0, ptr %9, align 8, !alias.scope !8
+  store i32 0, ptr %9, align 8, !alias.scope !9
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 10, ptr %48, align 4, !alias.scope !8
+  store i32 10, ptr %48, align 4, !alias.scope !9
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 9, ptr %49, align 8, !alias.scope !8
+  store i32 9, ptr %49, align 8, !alias.scope !9
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %50, align 4, !alias.scope !8
+  store i32 0, ptr %50, align 4, !alias.scope !9
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %51, align 8, !alias.scope !8
+  store ptr null, ptr %51, align 8, !alias.scope !9
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %52, align 8, !alias.scope !8
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %52, align 8, !alias.scope !9
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %46, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str) #9
   br label %_ZN14StackMapReader9check_endEP10JavaThread.exit
 
@@ -626,7 +626,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
 248:                                              ; preds = %.lr.ph360
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count
-  br i1 %exitcond376.not, label %.loopexit, label %.lr.ph360, !llvm.loop !11
+  br i1 %exitcond376.not, label %.loopexit, label %.lr.ph360, !llvm.loop !12
 
 .lr.ph360:                                        ; preds = %.lr.ph360.preheader, %248
   %indvars.iv373 = phi i64 [ 0, %.lr.ph360.preheader ], [ %indvars.iv.next374, %248 ]
@@ -722,7 +722,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %298 = load i32, ptr %284, align 4
   %299 = sext i32 %298 to i64
   %300 = icmp slt i64 %indvars.iv.next, %299
-  br i1 %300, label %.lr.ph, label %.lr.ph345.preheader, !llvm.loop !12
+  br i1 %300, label %.lr.ph, label %.lr.ph345.preheader, !llvm.loop !13
 
 .lr.ph345.preheader:                              ; preds = %.lr.ph, %282
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -762,7 +762,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %318 = add nsw i32 %.1278, 1
   %319 = add nuw nsw i32 %.1275343, 1
   %exitcond.not = icmp eq i32 %319, %smax
-  br i1 %exitcond.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !14
 
 ._crit_edge346:                                   ; preds = %317
   %320 = zext i16 %3 to i32
@@ -878,7 +878,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297:
   %375 = add nsw i32 %.1270, 1
   %376 = add nuw nsw i32 %.0267348, 1
   %exitcond371.not = icmp eq i32 %376, %356
-  br i1 %exitcond371.not, label %._crit_edge351, label %.lr.ph350, !llvm.loop !14
+  br i1 %exitcond371.not, label %._crit_edge351, label %.lr.ph350, !llvm.loop !15
 
 ._crit_edge351:                                   ; preds = %374
   %377 = zext i16 %3 to i32
@@ -955,7 +955,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.
   %409 = add nsw i32 %.1, 1
   %410 = add nuw nsw i32 %.1268353, 1
   %exitcond372.not = icmp eq i32 %410, %390
-  br i1 %exitcond372.not, label %._crit_edge357, label %.lr.ph356, !llvm.loop !15
+  br i1 %exitcond372.not, label %._crit_edge357, label %.lr.ph356, !llvm.loop !16
 
 ._crit_edge357:                                   ; preds = %408
   %411 = zext i16 %4 to i32
@@ -1052,7 +1052,7 @@ define hidden noundef i32 @_ZNK13StackMapTable21get_index_from_offsetEi(ptr noun
 13:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1087,7 +1087,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
 18:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK13StackMapTable21get_index_from_offsetEi.exit, label %13, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZNK13StackMapTable21get_index_from_offsetEi.exit, label %13, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %13
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1206,7 +1206,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %54 = load i16, ptr %45, align 8
   %55 = zext i16 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next.i, %55
-  br i1 %56, label %51, label %.preheader.i, !llvm.loop !17
+  br i1 %56, label %51, label %.preheader.i, !llvm.loop !18
 
 57:                                               ; preds = %57, %.lr.ph9.i
   %indvars.iv12.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next13.i, %57 ]
@@ -1217,7 +1217,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %60 = load i16, ptr %48, align 2
   %61 = zext i16 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next13.i, %61
-  br i1 %62, label %57, label %_ZN13StackMapFrame5resetEv.exit, !llvm.loop !18
+  br i1 %62, label %57, label %_ZN13StackMapFrame5resetEv.exit, !llvm.loop !19
 
 _ZN13StackMapFrame5resetEv.exit:                  ; preds = %57, %.preheader.i, %40
   store i32 %34, ptr %37, align 4
@@ -1288,7 +1288,7 @@ define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10J
 25:                                               ; preds = %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread, label %20, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread, label %20, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit12.i.i:       ; preds = %20
   %26 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1388,7 +1388,7 @@ define hidden void @_ZNK13StackMapTable8print_onEP12outputStream(ptr noundef non
   %17 = load i32, ptr %4, align 4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %13, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %19, label %13, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre = load i32, ptr %7, align 8
@@ -1598,7 +1598,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapRead
 10:                                               ; preds = %12
   %11 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %11, %3
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !21
 
 12:                                               ; preds = %.lr.ph, %10
   %.020 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
@@ -1741,7 +1741,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %33, %._crit_edge.i3
   %59 = zext i16 %48 to i64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   %61 = load volatile i8, ptr %60, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !22
   %62 = icmp eq i8 %61, 7
   br i1 %62, label %.critedge2, label %63
 
@@ -1752,7 +1752,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %33, %._crit_edge.i3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %59
   %69 = load volatile i8, ptr %68, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !22
   switch i8 %69, label %.critedge [
     i8 103, label %.critedge2
     i8 100, label %.critedge2
@@ -2015,7 +2015,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !22
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !23
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2031,7 +2031,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !23
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !24
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2094,21 +2094,22 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN12ErrorContext12bad_stackmapEiP13StackMapFrame: argument 0"}
-!10 = distinct !{!10, !"_ZN12ErrorContext12bad_stackmapEiP13StackMapFrame"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = !{i64 2145392468}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN12ErrorContext12bad_stackmapEiP13StackMapFrame: argument 0"}
+!11 = distinct !{!11, !"_ZN12ErrorContext12bad_stackmapEiP13StackMapFrame"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = !{i64 2145392468}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}

@@ -443,7 +443,7 @@ agxblen.exit.i117:                                ; preds = %162
   br i1 %166, label %167, label %agxbdisown.exit
 
 167:                                              ; preds = %agxblen.exit.i117
-  %168 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %168 = load ptr, ptr @stderr, align 8, !tbaa !9
   %169 = add nuw nsw i64 %164, 1
   %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.2, i64 noundef %169) #17
   tail call fastcc void @graphviz_exit() #18
@@ -598,7 +598,7 @@ agxblen.exit.i142:                                ; preds = %agxbput.exit139
   br i1 %228, label %229, label %agxbdisown.exit152
 
 229:                                              ; preds = %agxblen.exit.i142
-  %230 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %230 = load ptr, ptr @stderr, align 8, !tbaa !9
   %231 = add nuw nsw i64 %226, 1
   %232 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.2, i64 noundef %231) #17
   tail call fastcc void @graphviz_exit() #18
@@ -705,7 +705,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !9
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef %spec.select33) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
@@ -728,7 +728,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !9
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %spec.select) #17
   tail call fastcc void @graphviz_exit() #18
   unreachable
@@ -811,8 +811,9 @@ attributes #21 = { cold noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}

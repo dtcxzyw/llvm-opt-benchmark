@@ -491,7 +491,7 @@ _ZN4Node8init_reqEjPS_.exit188:                   ; preds = %.lr.ph319, %239, %2
   %258 = load i32, ptr %257, align 8
   %259 = zext i32 %258 to i64
   %260 = icmp samesign ult i64 %indvars.iv.next347, %259
-  br i1 %260, label %.lr.ph319, label %._crit_edge, !llvm.loop !8
+  br i1 %260, label %.lr.ph319, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit188, %.preheader
   %.lcssa316 = phi ptr [ %168, %.preheader ], [ %256, %_ZN4Node8init_reqEjPS_.exit188 ]
@@ -586,7 +586,7 @@ _ZN4NodenwEm.exit191:                             ; preds = %280, %282
   store ptr %323, ptr %324, align 8
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond355.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count354
-  br i1 %exitcond355.not, label %._crit_edge325, label %320, !llvm.loop !9
+  br i1 %exitcond355.not, label %._crit_edge325, label %320, !llvm.loop !10
 
 ._crit_edge325:                                   ; preds = %320, %293
   %.0141.lcssa = phi i32 [ 5, %293 ], [ %106, %320 ]
@@ -843,7 +843,7 @@ _ZN8JVMState7set_bciEi.exit199:                   ; preds = %413, %432
 
 _ZN4Node8init_reqEjPS_.exit203:                   ; preds = %444, %452, %463
   %exitcond361.not = icmp eq i64 %indvars.iv.next357, 5
-  br i1 %exitcond361.not, label %469, label %444, !llvm.loop !10
+  br i1 %exitcond361.not, label %469, label %444, !llvm.loop !11
 
 469:                                              ; preds = %_ZN4Node8init_reqEjPS_.exit203
   %470 = load ptr, ptr %19, align 8
@@ -873,7 +873,7 @@ _ZN4Node8init_reqEjPS_.exit203:                   ; preds = %444, %452, %463
   %486 = getelementptr inbounds i8, ptr %.0.i.i, i64 -8
   %487 = load ptr, ptr %486, align 8
   %.not.i.i205 = icmp eq ptr %487, %.0.i.i.i193
-  br i1 %.not.i.i205, label %488, label %485, !llvm.loop !11
+  br i1 %.not.i.i205, label %488, label %485, !llvm.loop !12
 
 488:                                              ; preds = %485
   %489 = add i32 %482, -1
@@ -972,7 +972,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 
 _ZN4Node8init_reqEjPS_.exit211:                   ; preds = %.lr.ph331, %517, %528
   %exitcond368.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count367
-  br i1 %exitcond368.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !12
+  br i1 %exitcond368.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !13
 
 ._crit_edge332:                                   ; preds = %_ZN4Node8init_reqEjPS_.exit211, %_ZN4Node7set_reqEjPS_.exit
   %.3144.lcssa = phi i32 [ 5, %_ZN4Node7set_reqEjPS_.exit ], [ %106, %_ZN4Node8init_reqEjPS_.exit211 ]
@@ -1141,7 +1141,7 @@ _ZN4NodenwEm.exit222:                             ; preds = %600, %602
   %630 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -8
   %631 = load ptr, ptr %630, align 8
   %.not.i.i.i.i = icmp eq ptr %631, %616
-  br i1 %.not.i.i.i.i, label %632, label %629, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %632, label %629, !llvm.loop !12
 
 632:                                              ; preds = %629
   %633 = add i32 %626, -1
@@ -1265,7 +1265,7 @@ _ZN4NodenwEm.exit226:                             ; preds = %669, %671
   %700 = getelementptr inbounds i8, ptr %.0.i.i.i.i228, i64 -8
   %701 = load ptr, ptr %700, align 8
   %.not.i.i.i.i229 = icmp eq ptr %701, %685
-  br i1 %.not.i.i.i.i229, label %702, label %699, !llvm.loop !11
+  br i1 %.not.i.i.i.i229, label %702, label %699, !llvm.loop !12
 
 702:                                              ; preds = %699
   %703 = add i32 %696, -1
@@ -1695,7 +1695,7 @@ _ZN4NodenwEm.exit254:                             ; preds = %928, %930
   %956 = getelementptr inbounds i8, ptr %.0.i.i256, i64 -8
   %957 = load ptr, ptr %956, align 8
   %.not.i.i257 = icmp eq ptr %957, %941
-  br i1 %.not.i.i257, label %958, label %955, !llvm.loop !11
+  br i1 %.not.i.i257, label %958, label %955, !llvm.loop !12
 
 958:                                              ; preds = %955
   %959 = add i32 %952, -1
@@ -1798,7 +1798,7 @@ _ZN4Node7set_reqEjPS_.exit262:                    ; preds = %974, %963, %_ZN4Nod
   %1023 = getelementptr inbounds i8, ptr %.0.i.i264, i64 -8
   %1024 = load ptr, ptr %1023, align 8
   %.not.i.i265 = icmp eq ptr %1024, %1008
-  br i1 %.not.i.i265, label %1025, label %1022, !llvm.loop !11
+  br i1 %.not.i.i265, label %1025, label %1022, !llvm.loop !12
 
 1025:                                             ; preds = %1022
   %1026 = add i32 %1019, -1
@@ -2782,10 +2782,11 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

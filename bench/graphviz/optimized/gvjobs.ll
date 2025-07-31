@@ -190,9 +190,9 @@ define void @gvjobs_delete(ptr noundef captures(none) %0) local_unnamed_addr #1 
   store ptr null, ptr @output_langname_job, align 8, !tbaa !32
   store ptr null, ptr @output_filename_job, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr null, ptr %10, align 8, !tbaa !55
+  store ptr null, ptr %10, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %11, align 8, !tbaa !56
+  store i32 0, ptr %11, align 8, !tbaa !57
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
@@ -290,7 +290,8 @@ attributes #15 = { cold noreturn nounwind }
 !50 = !{!34, !10, i64 104}
 !51 = !{!34, !10, i64 720}
 !52 = !{!34, !10, i64 728}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!4, !19, i64 352}
-!56 = !{!4, !11, i64 48}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!4, !19, i64 352}
+!57 = !{!4, !11, i64 48}

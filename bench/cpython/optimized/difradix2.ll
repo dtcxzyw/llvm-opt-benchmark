@@ -474,12 +474,12 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   store i64 %spec.select108.i20.i161.us, ptr %172, align 8, !tbaa !7
   %298 = add i64 %.1222.us, %162
   %299 = icmp ult i64 %298, %1
-  br i1 %299, label %167, label %._crit_edge.us, !llvm.loop !11
+  br i1 %299, label %167, label %._crit_edge.us, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %x64_mulmod2c.exit.us
   %300 = add nuw nsw i64 %.1122226.us, 1
   %exitcond.not = icmp eq i64 %300, %157
-  br i1 %exitcond.not, label %._crit_edge228, label %.lr.ph223.us, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge228, label %.lr.ph223.us, !llvm.loop !13
 
 301:                                              ; preds = %.lr.ph221, %301
   %.0220 = phi i64 [ 0, %.lr.ph221 ], [ %330, %301 ]
@@ -519,11 +519,11 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   store i64 %329, ptr %308, align 8, !tbaa !7
   %330 = add i64 %.0220, %159
   %331 = icmp ult i64 %330, %1
-  br i1 %331, label %301, label %.preheader, !llvm.loop !14
+  br i1 %331, label %301, label %.preheader, !llvm.loop !15
 
 ._crit_edge228:                                   ; preds = %._crit_edge.us
   %332 = shl i64 %.0124229, 1
-  br label %.lr.ph221, !llvm.loop !15
+  br label %.lr.ph221, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.preheader, %3, %.preheader218
   %umax.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
@@ -584,7 +584,7 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   %361 = sub i64 %1, %360
   %362 = xor i64 %361, %.017.i
   %exitcond.not.i = icmp eq i64 %341, %umax.i
-  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !16
+  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !17
 
 bitreverse_permute.exit:                          ; preds = %340
   ret void
@@ -607,11 +607,12 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}

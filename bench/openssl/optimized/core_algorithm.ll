@@ -174,7 +174,7 @@ algorithm_do_map.exit:                            ; preds = %35, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   %44 = add i32 %.02443, 1
   %exitcond.not = icmp eq i32 %.02443, %spec.select31
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !26
 
 .loopexit:                                        ; preds = %43, %2, %.thread36
   %.2 = phi i32 [ 0, %.thread36 ], [ 1, %2 ], [ %..021, %43 ]
@@ -267,6 +267,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !20 = !{!"ossl_algorithm_st", !21, i64 0, !21, i64 8, !22, i64 16, !21, i64 24}
 !21 = !{!"p1 omnipotent char", !6, i64 0}
 !22 = !{!"p1 _ZTS16ossl_dispatch_st", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}

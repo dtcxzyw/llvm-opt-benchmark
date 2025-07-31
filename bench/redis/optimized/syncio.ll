@@ -40,7 +40,7 @@ define dso_local noundef i64 @syncWrite(i32 noundef %0, ptr noundef readonly cap
   %21 = sub nsw i64 %20, %5
   %.not33 = icmp slt i64 %21, %3
   %22 = sub nsw i64 %3, %21
-  br i1 %.not33, label %6, label %23
+  br i1 %.not33, label %6, label %23, !llvm.loop !9
 
 23:                                               ; preds = %18
   %24 = tail call ptr @__errno_location() #7
@@ -108,7 +108,7 @@ define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i6
   %19 = sub nsw i64 %18, %5
   %.not41 = icmp slt i64 %19, %3
   %20 = sub nsw i64 %3, %19
-  br i1 %.not41, label %.preheader, label %21
+  br i1 %.not41, label %.preheader, label %21, !llvm.loop !11
 
 21:                                               ; preds = %.thread48
   %22 = tail call ptr @__errno_location() #7
@@ -140,23 +140,23 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = load i8, ptr %5, align 1, !tbaa !9
+  %9 = load i8, ptr %5, align 1, !tbaa !12
   %10 = icmp eq i8 %9, 10
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
-  store i8 0, ptr %.02034, align 1, !tbaa !9
+  store i8 0, ptr %.02034, align 1, !tbaa !12
   %.not22 = icmp eq i64 %.01535, 0
   br i1 %.not22, label %.thread, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %.02034, i64 -1
-  %14 = load i8, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %13, align 1, !tbaa !12
   %15 = icmp eq i8 %14, 13
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  store i8 0, ptr %13, align 1, !tbaa !9
+  store i8 0, ptr %13, align 1, !tbaa !12
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %16, %12, %11
@@ -166,13 +166,13 @@ define dso_local i64 @syncReadLine(i32 noundef %0, ptr noundef captures(none) %1
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %.02034, i64 1
-  store i8 %9, ptr %.02034, align 1, !tbaa !9
-  store i8 0, ptr %18, align 1, !tbaa !9
+  store i8 %9, ptr %.02034, align 1, !tbaa !12
+  store i8 0, ptr %18, align 1, !tbaa !12
   %19 = add nuw nsw i64 %.01535, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
   %.018 = add nsw i64 %.01836, -1
   %.not = icmp eq i64 %.018, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %17, %4, %.thread
   %.2 = phi i64 [ %.117.ph, %.thread ], [ 0, %4 ], [ %.01832, %17 ]
@@ -202,6 +202,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !6 = !{!"int", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = !{!7, !7, i64 0}
+!13 = distinct !{!13, !14, !10}
+!14 = !{!"llvm.loop.mustprogress"}

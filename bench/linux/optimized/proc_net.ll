@@ -534,7 +534,7 @@ define internal i32 @single_open_net(ptr noundef readonly captures(none) %0, ptr
 17:                                               ; preds = %.preheader
   %18 = extractvalue { i8, i32 } %14, 1
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %19, label %.thread, label %.preheader, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader, %17, %2
   %20 = phi i32 [ 0, %2 ], [ %12, %.preheader ], [ 0, %17 ]
@@ -783,6 +783,8 @@ attributes #5 = { nounwind }
 !12 = !{i64 2155557509, i64 2155557538, i64 2155557584, i64 2155557642, i64 2155557696, i64 2155557750, i64 2155557805, i64 2155557836, i64 2155558144, i64 2155558150, i64 2155558197, i64 2155558220, i64 2155558246}
 !13 = !{i64 2155558696, i64 2155558507, i64 2155558557, i64 2155558603, i64 2155558631}
 !14 = !{i64 2148689419, i64 2148689458, i64 2148689479, i64 2148689516, i64 2148689539, i64 2148689548, i64 2148689846}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !16, !17, !18}

@@ -95,7 +95,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 .noexc8:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h184e19f1fb684879E.exit.i.i"
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = icmp eq i64 %41, 1
-  br i1 %42, label %.lr.ph.i.i, label %.loopexit9
+  br i1 %42, label %.lr.ph.i.i, label %.loopexit9, !llvm.loop !4
 
 43:                                               ; preds = %.loopexit9, %10
   ret void
@@ -142,7 +142,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21c1f480672ab5faE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -167,7 +167,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -262,7 +262,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -339,7 +339,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h61a01fa572cdc93cE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -364,7 +364,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -456,7 +456,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [15 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h853329e9c3df55c8E"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !5, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !7, !noundef !3
   %9 = icmp eq i64 %8, 8
   br i1 %9, label %10, label %13
 
@@ -545,7 +545,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !8, !noundef !3
   %13 = icmp eq i64 %12, -9223372036854775808
   br i1 %13, label %14, label %17
 
@@ -634,7 +634,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -707,7 +707,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [11 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hadf679bd0738c981E"(ptr nonnull sret({ i64, [11 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !7, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !9, !noundef !3
   %9 = icmp eq i64 %8, 5
   br i1 %9, label %10, label %13
 
@@ -791,7 +791,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hee3bb394866325d6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -816,7 +816,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -912,7 +912,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h94cc7b1e5b97ef3aE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -937,7 +937,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -1032,7 +1032,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -1108,7 +1108,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h397992bee5733cceE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %25, label %11
 
@@ -1172,7 +1172,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h791ec724020988b3E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %25, label %11
 
@@ -1233,7 +1233,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4990063348670faE"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !7, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !9, !noundef !3
   %9 = icmp eq i64 %8, 5
   br i1 %9, label %10, label %13
 
@@ -1316,7 +1316,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -1392,7 +1392,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7511c6220374cdd8E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %25, label %11
 
@@ -1528,7 +1528,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 .noexc8:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6d9eb7431d993fc4E.exit.i.i"
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = icmp eq i64 %41, 1
-  br i1 %42, label %.lr.ph.i.i, label %.loopexit9
+  br i1 %42, label %.lr.ph.i.i, label %.loopexit9, !llvm.loop !10
 
 43:                                               ; preds = %.loopexit9, %10
   ret void
@@ -1571,7 +1571,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [15 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7abf5612a921892aE"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !5, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !7, !noundef !3
   %9 = icmp eq i64 %8, 8
   br i1 %9, label %10, label %13
 
@@ -1655,7 +1655,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he97992c83b264d07E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -1680,7 +1680,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -1775,7 +1775,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -1852,7 +1852,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4ec0b92cf8d639f6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -1877,7 +1877,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -1973,7 +1973,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha15df0a76024df93E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %9, ptr align 8 %1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %42, label %13
 
@@ -1998,7 +1998,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 .noexc:                                           ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %22 = load i64, ptr %21, align 8, !range !6, !noundef !3
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
 
@@ -2093,7 +2093,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store i64 %2, ptr %8, align 8
   call void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h77386cddcd1cadf1E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %25, label %11
 
@@ -2154,7 +2154,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f5561adb2fbb8c3E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !8, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !11, !noundef !3
   %9 = icmp eq i64 %8, 7
   br i1 %9, label %10, label %13
 
@@ -2237,7 +2237,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %23, label %10
 
@@ -2313,7 +2313,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h945e3c919c42dbabE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %25, label %11
 
@@ -2374,7 +2374,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %6 = alloca { i64, [5 x i64] }, align 16
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7af13bb02e9cc399E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %6, ptr align 8 %1)
-  %8 = load i64, ptr %6, align 16, !range !8, !noundef !3
+  %8 = load i64, ptr %6, align 16, !range !11, !noundef !3
   %9 = icmp eq i64 %8, 7
   br i1 %9, label %10, label %13
 
@@ -2540,11 +2540,11 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873
 
 7:                                                ; preds = %.lr.ph, %.backedge
   %8 = phi i64 [ %5, %.lr.ph ], [ %.sink, %.backedge ]
-  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds i16, ptr %11, i64 %8
-  %13 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
+  %13 = load ptr, ptr %1, align 8, !nonnull !3, !align !12, !noundef !3
   %14 = tail call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr nonnull align 8 %13, ptr nonnull align 2 %12)
   br i1 %14, label %19, label %15
 
@@ -2563,10 +2563,10 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873
   %.sink = add i64 %.sink.in, 1
   store i64 %.sink, ptr %4, align 8
   %.not = icmp eq i64 %.sink, %0
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !13
 
 19:                                               ; preds = %7
-  %20 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %20 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
   %23 = load i64, ptr %4, align 8, !noundef !3
@@ -2588,7 +2588,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h59c72c
 
 .lr.ph:                                           ; preds = %3, %18
   %6 = phi i64 [ %13, %18 ], [ %5, %3 ]
-  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %9, i64 %6
@@ -2610,7 +2610,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h59c72c
 
 18:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %13, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2626,7 +2626,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd
 
 7:                                                ; preds = %.lr.ph, %.backedge
   %8 = phi i64 [ %5, %.lr.ph ], [ %.sink, %.backedge ]
-  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %11, i64 %8
@@ -2648,10 +2648,10 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd
   %.sink = add i64 %.sink.in, 1
   store i64 %.sink, ptr %4, align 8
   %.not = icmp eq i64 %.sink, %0
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !15
 
 18:                                               ; preds = %7
-  %19 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %19 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = load i64, ptr %4, align 8, !noundef !3
@@ -2672,7 +2672,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h978b25
 
 .lr.ph:                                           ; preds = %3, %18
   %6 = phi i64 [ %13, %18 ], [ %5, %3 ]
-  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %9, i64 %6
@@ -2694,7 +2694,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h978b25
 
 18:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %13, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2710,7 +2710,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742b
 
 7:                                                ; preds = %.lr.ph, %.backedge
   %8 = phi i64 [ %5, %.lr.ph ], [ %.sink, %.backedge ]
-  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %9 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %11, i64 %8
@@ -2732,10 +2732,10 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742b
   %.sink = add i64 %.sink.in, 1
   store i64 %.sink, ptr %4, align 8
   %.not = icmp eq i64 %.sink, %0
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !17
 
 18:                                               ; preds = %7
-  %19 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %19 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = load i64, ptr %4, align 8, !noundef !3
@@ -2756,11 +2756,11 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he5c523
 
 .lr.ph:                                           ; preds = %3, %19
   %6 = phi i64 [ %14, %19 ], [ %5, %3 ]
-  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !9, !noundef !3
+  %7 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds i16, ptr %9, i64 %6
-  %11 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
+  %11 = load ptr, ptr %1, align 8, !nonnull !3, !align !12, !noundef !3
   %12 = tail call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr nonnull align 8 %11, ptr nonnull align 2 %10)
   %13 = load i64, ptr %4, align 8, !noundef !3
   %14 = add i64 %13, 1
@@ -2779,7 +2779,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he5c523
 
 19:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %14, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2820,7 +2820,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h5962e21960013bebE"(p
 
 17:                                               ; preds = %.noexc
   %.not.i = icmp eq i64 %15, %6
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd856a3f0a6eE.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd856a3f0a6eE.exit", label %.lr.ph.i, !llvm.loop !14
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h59c72c27e48a1e22E.exit": ; preds = %16, %2
   %18 = phi i64 [ 1, %16 ], [ 0, %2 ]
@@ -2854,7 +2854,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h5962e21960013bebE"(p
   %.sink.i = add i64 %23, 1
   store i64 %.sink.i, ptr %7, align 8
   %.not.i2 = icmp eq i64 %.sink.i, %6
-  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd856a3f0a6eE.exit", label %.lr.ph.i1
+  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h918afd856a3f0a6eE.exit", label %.lr.ph.i1, !llvm.loop !15
 
 30:                                               ; preds = %.noexc3
   %31 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
@@ -2931,7 +2931,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h638c7393876a84f6E"(p
 
 17:                                               ; preds = %.noexc
   %.not.i = icmp eq i64 %15, %6
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742bb118bd474cE.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742bb118bd474cE.exit", label %.lr.ph.i, !llvm.loop !16
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h978b25d24d50c974E.exit": ; preds = %16, %2
   %18 = phi i64 [ 1, %16 ], [ 0, %2 ]
@@ -2965,7 +2965,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h638c7393876a84f6E"(p
   %.sink.i = add i64 %23, 1
   store i64 %.sink.i, ptr %7, align 8
   %.not.i2 = icmp eq i64 %.sink.i, %6
-  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742bb118bd474cE.exit", label %.lr.ph.i1
+  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha3742bb118bd474cE.exit", label %.lr.ph.i1, !llvm.loop !17
 
 30:                                               ; preds = %.noexc3
   %31 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
@@ -3044,7 +3044,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb30767afd4e77ae7E"(p
 
 18:                                               ; preds = %.noexc
   %.not.i = icmp eq i64 %16, %6
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873b55bf340d1E.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873b55bf340d1E.exit", label %.lr.ph.i, !llvm.loop !18
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he5c52393c23e5f5aE.exit": ; preds = %17, %2
   %19 = phi i64 [ 1, %17 ], [ 0, %2 ]
@@ -3080,7 +3080,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hb30767afd4e77ae7E"(p
   %.sink.i = add i64 %25, 1
   store i64 %.sink.i, ptr %7, align 8
   %.not.i2 = icmp eq i64 %.sink.i, %6
-  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873b55bf340d1E.exit", label %.lr.ph.i1
+  br i1 %.not.i2, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h140873b55bf340d1E.exit", label %.lr.ph.i1, !llvm.loop !13
 
 32:                                               ; preds = %.noexc3
   %33 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
@@ -3166,7 +3166,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h24104f58da47f60bE"(
 
 20:                                               ; preds = %.lr.ph
   %21 = invoke i8 @"_ZN78_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..clone..Clone$GT$5clone17h7778d885031dc70cE"(ptr nonnull align 1 %5)
-          to label %26 unwind label %18, !range !10
+          to label %26 unwind label %18, !range !19
 
 22:                                               ; preds = %.critedge.thread, %.critedge
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hb3974c8a4dc2b410E"(ptr nonnull align 8 %4)
@@ -3175,7 +3175,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h24104f58da47f60bE"(
 .critedge.thread:                                 ; preds = %26, %.critedge
   %.0.lcssa16 = phi ptr [ %15, %.critedge ], [ %27, %26 ]
   %23 = phi i64 [ %12, %.critedge ], [ %29, %26 ]
-  %24 = load i8, ptr %5, align 1, !range !10, !noundef !3
+  %24 = load i8, ptr %5, align 1, !range !19, !noundef !3
   store i8 %24, ptr %.0.lcssa16, align 1
   %25 = add i64 %23, 1
   store i64 %25, ptr %16, align 8
@@ -3188,7 +3188,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h24104f58da47f60bE"(
   %29 = add i64 %28, 1
   store i64 %29, ptr %16, align 8
   %.not = icmp ult i64 %17, %1
-  br i1 %.not, label %.lr.ph, label %.critedge.thread
+  br i1 %.not, label %.lr.ph, label %.critedge.thread, !llvm.loop !20
 
 30:                                               ; preds = %18
   %31 = landingpad { ptr, i32 }
@@ -3230,7 +3230,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h087fdae8b7f054bf
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -3305,7 +3305,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h154590abb04bf1a5
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h61a01fa572cdc93cE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -3362,7 +3362,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h15e4506fef54065c
   store i64 %2, ptr %8, align 8
   call void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h77386cddcd1cadf1E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -3417,7 +3417,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3a3b468b83aa89be
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he97992c83b264d07E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -3474,7 +3474,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3d5ec166d9aca5aa
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h791ec724020988b3E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -3532,7 +3532,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h41fbf9dbeff2ae84
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -3607,7 +3607,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4904fe68608bb03a
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h94cc7b1e5b97ef3aE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -3664,7 +3664,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h50edeb67507c8fd6
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h086a09b599335bd4E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -3722,7 +3722,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h56a2949356ec8039
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7511c6220374cdd8E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -3780,7 +3780,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5834173857f497c4
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -3858,7 +3858,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5a0dad34ba09d3e5
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -3936,7 +3936,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h699e9163332baaff
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h397992bee5733cceE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -3994,7 +3994,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h6b91db5fe889ab6d
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h945e3c919c42dbabE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -4049,7 +4049,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h75c7e4c5cce6e886
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha15df0a76024df93E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -4103,7 +4103,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h875df6d796c21373
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hee3bb394866325d6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -4160,7 +4160,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h947a55702840e41b
   store ptr %2, ptr %8, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h06803647751a712aE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %7)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !range !4, !noundef !3
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %27, label %11
 
@@ -4218,7 +4218,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17habde13149612b289
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -4296,7 +4296,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hafc7f114b194e707
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -4371,7 +4371,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb057dee4fb826dd8
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21c1f480672ab5faE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -4428,7 +4428,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd13dc9396a97c301
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -4506,7 +4506,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd8c74919e2b32b92
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %10
 
@@ -4581,7 +4581,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hf7032df19b0e72f2
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4ec0b92cf8d639f6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %23, label %9
 
@@ -4966,7 +4966,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h0b0561b800702c
   br label %10
 
 13:                                               ; preds = %9
-  %14 = load i64, ptr %5, align 8, !range !4, !noundef !3
+  %14 = load i64, ptr %5, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %33, label %15
 
@@ -4987,7 +4987,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h0b0561b800702c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %22 = add i64 %16, 1
   store i64 %22, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !21
 
 23:                                               ; preds = %32, %19
   %24 = landingpad { ptr, i32 }
@@ -5027,7 +5027,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h399cfbbd24f5ef
   %4 = alloca { { { i64, ptr, {} }, i64 }, i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } } }, align 8
   %5 = alloca { i64, [9 x i64] }, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb4381db04567c40E"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %6 = load i64, ptr %5, align 8, !range !8, !noundef !3
   %.not3 = icmp eq i64 %6, -9223372036854775808
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5061,9 +5061,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h399cfbbd24f5ef
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb4381db04567c40E"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %18 = load i64, ptr %5, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %18, -9223372036854775808
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !22
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5121,7 +5121,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3a32c8a4aa11bf
   br label %10
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %6, align 8, !range !6, !noundef !3
+  %12 = load i64, ptr %6, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %12, -9223372036854775808
   br i1 %.not, label %17, label %13
 
@@ -5146,7 +5146,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3a32c8a4aa11bf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
-  br label %9
+  br label %9, !llvm.loop !23
 
 22:                                               ; preds = %31, %18
   %23 = landingpad { ptr, i32 }
@@ -5187,7 +5187,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h80eee2932d1471
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7af13bb02e9cc399E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !8, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !11, !noundef !3
   %.not3 = icmp eq i64 %6, 7
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5221,9 +5221,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h80eee2932d1471
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7af13bb02e9cc399E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !8, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !11, !noundef !3
   %.not = icmp eq i64 %18, 7
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !24
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5295,7 +5295,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h87ff94a068447f
   %25 = call { i16, i16 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70dc60ecac51ea9dE"(ptr align 8 %1)
   %26 = extractvalue { i16, i16 } %25, 0
   %27 = icmp eq i16 %26, 1
-  br i1 %27, label %9, label %._crit_edge
+  br i1 %27, label %9, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha8e77bf67bb0524bE.exit", %2
   ret void
@@ -5307,7 +5307,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17haea0b74253f65f
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f5561adb2fbb8c3E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !8, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !11, !noundef !3
   %.not3 = icmp eq i64 %6, 7
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5341,9 +5341,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17haea0b74253f65f
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f5561adb2fbb8c3E"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !8, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !11, !noundef !3
   %.not = icmp eq i64 %18, 7
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !26
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5415,7 +5415,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hafbec29f023dfe
   %25 = call { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54728c9b0e01f5b6E"(ptr align 8 %1)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = icmp eq i64 %26, 1
-  br i1 %27, label %9, label %._crit_edge
+  br i1 %27, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6d9eb7431d993fc4E.exit", %2
   ret void
@@ -5427,7 +5427,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb3ce5fd7e0bfe3
   %4 = alloca { i64, [5 x i64] }, align 16
   %5 = alloca { i64, [5 x i64] }, align 16
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4990063348670faE"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !7, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !9, !noundef !3
   %.not3 = icmp eq i64 %6, 5
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5461,9 +5461,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb3ce5fd7e0bfe3
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4990063348670faE"(ptr nonnull sret({ i64, [5 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !7, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !9, !noundef !3
   %.not = icmp eq i64 %18, 5
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !27
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5497,7 +5497,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb71f23615c5e23
   %4 = alloca { i64, [15 x i64] }, align 16
   %5 = alloca { i64, [15 x i64] }, align 16
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7abf5612a921892aE"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !5, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !7, !noundef !3
   %.not3 = icmp eq i64 %6, 8
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5531,9 +5531,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb71f23615c5e23
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7abf5612a921892aE"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !5, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !7, !noundef !3
   %.not = icmp eq i64 %18, 8
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !28
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5567,7 +5567,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbb040ecf3fde60
   %4 = alloca { i64, [15 x i64] }, align 16
   %5 = alloca { i64, [15 x i64] }, align 16
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h853329e9c3df55c8E"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !5, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !7, !noundef !3
   %.not3 = icmp eq i64 %6, 8
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5601,9 +5601,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbb040ecf3fde60
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h853329e9c3df55c8E"(ptr nonnull sret({ i64, [15 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !5, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !7, !noundef !3
   %.not = icmp eq i64 %18, 8
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !29
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -5660,7 +5660,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc292428c9ddfd9
   br label %9
 
 10:                                               ; preds = %8
-  %11 = load i64, ptr %5, align 8, !range !11, !noundef !3
+  %11 = load i64, ptr %5, align 8, !range !30, !noundef !3
   %.not = icmp eq i64 %11, 6
   br i1 %.not, label %16, label %12
 
@@ -5685,7 +5685,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc292428c9ddfd9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8
+  br label %8, !llvm.loop !31
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -5764,7 +5764,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc5bacf46ad8010
   %25 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b6f6d374c525dd7E"(ptr align 8 %1)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = icmp eq i64 %26, 1
-  br i1 %27, label %9, label %._crit_edge
+  br i1 %27, label %9, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h184e19f1fb684879E.exit", %2
   ret void
@@ -5776,7 +5776,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfaa6d8bbee27d0
   %4 = alloca { { i64, [5 x i64] }, { i64, [5 x i64] } }, align 16
   %5 = alloca { i64, [11 x i64] }, align 16
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hadf679bd0738c981E"(ptr nonnull sret({ i64, [11 x i64] }) align 16 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 16, !range !7, !noundef !3
+  %6 = load i64, ptr %5, align 16, !range !9, !noundef !3
   %.not3 = icmp eq i64 %6, 5
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -5810,9 +5810,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfaa6d8bbee27d0
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hadf679bd0738c981E"(ptr nonnull sret({ i64, [11 x i64] }) align 16 %5, ptr align 8 %1)
-  %18 = load i64, ptr %5, align 16, !range !7, !noundef !3
+  %18 = load i64, ptr %5, align 16, !range !9, !noundef !3
   %.not = icmp eq i64 %18, 5
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !32
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -7400,7 +7400,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h28cc7a2d0732f943E"(ptr al
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h327d7a34dcaf22f0E"(ptr readonly align 8 captures(none) %0, ptr align 2 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !9, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = tail call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr nonnull align 8 %3, ptr nonnull align 2 %1)
@@ -8364,7 +8364,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4ec0b92cf8d639f6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8459,7 +8459,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %25 = call { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54728c9b0e01f5b6E"(ptr align 8 %1)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = icmp eq i64 %26, 1
-  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hafbec29f023dfedbE.exit"
+  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hafbec29f023dfedbE.exit", !llvm.loop !10
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hafbec29f023dfedbE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6d9eb7431d993fc4E.exit.i", %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -8508,7 +8508,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21c1f480672ab5faE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8615,7 +8615,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %25 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b6f6d374c525dd7E"(ptr align 8 %1)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = icmp eq i64 %26, 1
-  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc5bacf46ad8010c3E.exit"
+  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc5bacf46ad8010c3E.exit", !llvm.loop !4
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc5bacf46ad8010c3E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h184e19f1fb684879E.exit.i", %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -8634,7 +8634,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha15df0a76024df93E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8714,7 +8714,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h94cc7b1e5b97ef3aE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8794,7 +8794,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hee3bb394866325d6E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8868,7 +8868,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he97992c83b264d07E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -8930,7 +8930,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h61a01fa572cdc93cE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !range !4, !noundef !3
+  %8 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %18, label %9
 
@@ -9031,7 +9031,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %25 = call { i16, i16 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70dc60ecac51ea9dE"(ptr align 8 %1)
   %26 = extractvalue { i16, i16 } %25, 0
   %27 = icmp eq i16 %26, 1
-  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h87ff94a068447fd2E.exit"
+  br i1 %27, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h87ff94a068447fd2E.exit", !llvm.loop !25
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h87ff94a068447fd2E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha8e77bf67bb0524bE.exit.i", %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -9930,11 +9930,32 @@ attributes #22 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = !{i64 0, i64 2}
-!5 = !{i64 0, i64 9}
-!6 = !{i64 0, i64 -9223372036854775807}
-!7 = !{i64 0, i64 6}
-!8 = !{i64 0, i64 8}
-!9 = !{i64 8}
-!10 = !{i8 0, i8 4}
-!11 = !{i64 0, i64 7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i64 0, i64 2}
+!7 = !{i64 0, i64 9}
+!8 = !{i64 0, i64 -9223372036854775807}
+!9 = !{i64 0, i64 6}
+!10 = distinct !{!10, !5}
+!11 = !{i64 0, i64 8}
+!12 = !{i64 8}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = !{i8 0, i8 4}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = !{i64 0, i64 7}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}

@@ -92,7 +92,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.1 = phi i32 [ %35, %.critedge.loopexit ], [ %.0122229, %.lr.ph ]
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph232, !llvm.loop !12
+  br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph232, !llvm.loop !13
 
 38:                                               ; preds = %._crit_edge
   %39 = fadd float %19, %23
@@ -148,7 +148,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.1130 = select i1 %70, i32 %71, i32 %.0129237
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count
-  br i1 %exitcond277.not, label %.lr.ph242.preheader, label %62, !llvm.loop !13
+  br i1 %exitcond277.not, label %.lr.ph242.preheader, label %62, !llvm.loop !14
 
 ._crit_edge243:                                   ; preds = %.lr.ph242
   %72 = zext nneg i32 %.1141 to i64
@@ -208,7 +208,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.1141 = select i1 %101, i32 %102, i32 %.0140240
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %52
-  br i1 %exitcond282.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !14
+  br i1 %exitcond282.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !15
 
 ._crit_edge249:                                   ; preds = %127
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %7) #4
@@ -267,7 +267,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.1147 = phi i32 [ %.0146246, %121 ], [ %.1147.ph, %.sink.split ]
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
-  br i1 %exitcond287.not, label %._crit_edge249, label %109, !llvm.loop !15
+  br i1 %exitcond287.not, label %._crit_edge249, label %109, !llvm.loop !16
 
 128:                                              ; preds = %._crit_edge249
   store i32 1, ptr %9, align 4, !tbaa !3
@@ -309,7 +309,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   store i64 %140, ptr %138, align 4
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
-  br i1 %exitcond292.not, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !16
+  br i1 %exitcond292.not, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !17
 
 .preheader223:                                    ; preds = %.lr.ph258, %._crit_edge255
   %141 = load i32, ptr %9, align 4
@@ -332,7 +332,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   store i64 %149, ptr %147, align 4
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
-  br i1 %exitcond297.not, label %.preheader223, label %.lr.ph258, !llvm.loop !17
+  br i1 %exitcond297.not, label %.preheader223, label %.lr.ph258, !llvm.loop !18
 
 .preheader222:                                    ; preds = %.preheader222.lr.ph, %.loopexit305
   %150 = phi i32 [ %141, %.preheader222.lr.ph ], [ %194, %.loopexit305 ]
@@ -413,13 +413,13 @@ b2Normalize.exit211:                              ; preds = %154, %173
   %191 = add nsw i32 %190, -1
   %192 = trunc nuw i64 %indvars.iv.next299 to i32
   %193 = icmp sgt i32 %191, %192
-  br i1 %193, label %.lr.ph260, label %.thread, !llvm.loop !18
+  br i1 %193, label %.lr.ph260, label %.thread, !llvm.loop !19
 
 .loopexit305:                                     ; preds = %152, %.thread
   %194 = phi i32 [ %.lcssa, %.thread ], [ %150, %152 ]
   %195 = icmp sgt i32 %194, 2
   %196 = and i1 %153, %195
-  br i1 %196, label %.preheader222, label %._crit_edge263, !llvm.loop !19
+  br i1 %196, label %.preheader222, label %._crit_edge263, !llvm.loop !20
 
 ._crit_edge263:                                   ; preds = %.loopexit305
   %197 = icmp slt i32 %194, 3
@@ -557,7 +557,7 @@ b2Normalize.exit:                                 ; preds = %11, %20
   %.2 = phi i32 [ %55, %54 ], [ %.177, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 59:                                               ; preds = %._crit_edge
   %60 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %.045.lcssa
@@ -607,7 +607,7 @@ b2Normalize.exit:                                 ; preds = %11, %20
   store i64 %76, ptr %74, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !21
+  br i1 %exitcond93.not, label %._crit_edge83.loopexit, label %.lr.ph82, !llvm.loop !22
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %._crit_edge83
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %8) #4
@@ -626,7 +626,7 @@ b2Normalize.exit:                                 ; preds = %11, %20
   store i64 %82, ptr %80, align 4
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !22
+  br i1 %exitcond98.not, label %._crit_edge87, label %.lr.ph86, !llvm.loop !23
 
 83:                                               ; preds = %._crit_edge, %._crit_edge87
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #4
@@ -708,11 +708,11 @@ b2Normalize.exit.us:                              ; preds = %22, %7
 40:                                               ; preds = %30, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count123
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %27, !llvm.loop !23
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %27, !llvm.loop !24
 
 ..loopexit_crit_edge.us:                          ; preds = %40
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge, label %7, !llvm.loop !24
+  br i1 %exitcond124.not, label %._crit_edge, label %7, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us
   %41 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !8
@@ -771,7 +771,7 @@ b2Normalize.exit97:                               ; preds = %44, %63
   %72 = fsub <2 x float> %70, %71
   %73 = extractelement <2 x float> %72, i64 0
   %74 = fcmp ugt float %73, %42
-  br i1 %74, label %43, label %.critedge, !llvm.loop !26
+  br i1 %74, label %43, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %30, %43, %b2Normalize.exit97, %1
   %.0 = phi i1 [ false, %1 ], [ %exitcond129.not, %b2Normalize.exit97 ], [ %exitcond129.not, %43 ], [ false, %30 ]
@@ -799,20 +799,21 @@ attributes #4 = { nounwind }
 !7 = !{!"int", !5, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !11, !12}

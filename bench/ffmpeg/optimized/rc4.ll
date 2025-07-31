@@ -51,16 +51,16 @@ define range(i32 -22, 1) i32 @av_rc4_init(ptr noundef captures(none) %0, ptr nou
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %23 = add nsw i32 %spec.store.select, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 256
-  br i1 %exitcond42.not, label %24, label %.preheader, !llvm.loop !9
+  br i1 %exitcond42.not, label %24, label %.preheader, !llvm.loop !10
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 1, ptr %25, align 4, !tbaa !10
+  store i32 1, ptr %25, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = zext i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i32 %28, ptr %29, align 4, !tbaa !13
+  store i32 %28, ptr %29, align 4, !tbaa !14
   br label %30
 
 30:                                               ; preds = %4, %24
@@ -71,10 +71,10 @@ define range(i32 -22, 1) i32 @av_rc4_init(ptr noundef captures(none) %0, ptr nou
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @av_rc4_crypt(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef readnone captures(none) %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %11 = load i32, ptr %10, align 4, !tbaa !13
+  %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
@@ -132,15 +132,15 @@ define void @av_rc4_crypt(ptr noundef captures(none) %0, ptr noundef writeonly c
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %.033.mask, %38
   %40 = icmp samesign ugt i32 %.in40, 1
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %32, %6
   %.034.lcssa = phi i8 [ %9, %6 ], [ %34, %32 ]
   %.033.in.lcssa = phi i32 [ %11, %6 ], [ %39, %32 ]
   %41 = zext i8 %.034.lcssa to i32
-  store i32 %41, ptr %7, align 4, !tbaa !10
+  store i32 %41, ptr %7, align 4, !tbaa !11
   %42 = and i32 %.033.in.lcssa, 255
-  store i32 %42, ptr %10, align 4, !tbaa !13
+  store i32 %42, ptr %10, align 4, !tbaa !14
   ret void
 }
 
@@ -159,11 +159,12 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !12, i64 256}
-!11 = !{!"AVRC4", !5, i64 0, !12, i64 256, !12, i64 260}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!11, !12, i64 260}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !13, i64 256}
+!12 = !{!"AVRC4", !5, i64 0, !13, i64 256, !13, i64 260}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!12, !13, i64 260}
+!15 = distinct !{!15, !8, !9}

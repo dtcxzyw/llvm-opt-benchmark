@@ -452,13 +452,13 @@ bytestream2_put_le32.exit142:                     ; preds = %41, %bytestream2_pu
 53:                                               ; preds = %59
   %54 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i166 = icmp eq i64 %.01520.i, %52
-  br i1 %exitcond.not.i166, label %ht_lookup_and_upsert.exit, label %.lr.ph.i, !llvm.loop !61
+  br i1 %exitcond.not.i166, label %ht_lookup_and_upsert.exit, label %.lr.ph.i, !llvm.loop !62
 
 .lr.ph.i:                                         ; preds = %53, %bytestream2_put_le32.exit142
   %.01520.i = phi i64 [ %54, %53 ], [ %51, %bytestream2_put_le32.exit142 ]
   %55 = and i64 %.01520.i, 262143
   %56 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !62
+  %57 = load i32, ptr %56, align 4, !tbaa !63
   %58 = icmp eq i32 %57, %48
   br i1 %58, label %split.i, label %59
 
@@ -470,7 +470,7 @@ bytestream2_put_le32.exit142:                     ; preds = %41, %bytestream2_pu
 
 split.i:                                          ; preds = %.lr.ph.i, %59
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 %48, ptr %56, align 4, !tbaa !62
+  store i32 %48, ptr %56, align 4, !tbaa !63
   store i32 0, ptr %63, align 4, !tbaa !57
   br label %ht_lookup_and_upsert.exit
 
@@ -489,13 +489,13 @@ ht_lookup_and_upsert.exit:                        ; preds = %53, %split.i
 70:                                               ; preds = %76
   %71 = add nuw nsw i64 %.01520.i168, 1
   %exitcond.not.i169 = icmp eq i64 %.01520.i168, %69
-  br i1 %exitcond.not.i169, label %ht_lookup_and_upsert.exit175, label %.lr.ph.i167, !llvm.loop !61
+  br i1 %exitcond.not.i169, label %ht_lookup_and_upsert.exit175, label %.lr.ph.i167, !llvm.loop !62
 
 .lr.ph.i167:                                      ; preds = %70, %ht_lookup_and_upsert.exit
   %.01520.i168 = phi i64 [ %71, %70 ], [ %68, %ht_lookup_and_upsert.exit ]
   %72 = and i64 %.01520.i168, 262143
   %73 = getelementptr inbounds nuw %struct.HTEntry, ptr %16, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !62
+  %74 = load i32, ptr %73, align 4, !tbaa !63
   %75 = icmp eq i32 %74, %65
   br i1 %75, label %split.i171, label %76
 
@@ -507,7 +507,7 @@ ht_lookup_and_upsert.exit:                        ; preds = %53, %split.i
 
 split.i171:                                       ; preds = %.lr.ph.i167, %76
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 %65, ptr %73, align 4, !tbaa !62
+  store i32 %65, ptr %73, align 4, !tbaa !63
   store i32 1, ptr %80, align 4, !tbaa !57
   br label %ht_lookup_and_upsert.exit175
 
@@ -542,13 +542,13 @@ ht_lookup_and_upsert.exit175:                     ; preds = %70, %split.i171
 95:                                               ; preds = %101
   %96 = add nuw nsw i64 %.01520.i177, 1
   %exitcond.not.i178 = icmp eq i64 %.01520.i177, %94
-  br i1 %exitcond.not.i178, label %.sink.split, label %.lr.ph.i176, !llvm.loop !61
+  br i1 %exitcond.not.i178, label %.sink.split, label %.lr.ph.i176, !llvm.loop !62
 
 .lr.ph.i176:                                      ; preds = %95, %.lr.ph
   %.01520.i177 = phi i64 [ %96, %95 ], [ %93, %.lr.ph ]
   %97 = and i64 %.01520.i177, 262143
   %98 = getelementptr inbounds nuw %struct.HTEntry, ptr %15, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !62
+  %99 = load i32, ptr %98, align 4, !tbaa !63
   %100 = icmp eq i32 %99, %89
   %.phi.trans.insert.i182 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %.pre.i183 = load i32, ptr %.phi.trans.insert.i182, align 4, !tbaa !57
@@ -561,7 +561,7 @@ ht_lookup_and_upsert.exit175:                     ; preds = %70, %split.i171
 
 ht_lookup_and_upsert.exit184.thread218:           ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  store i32 %89, ptr %98, align 4, !tbaa !62
+  store i32 %89, ptr %98, align 4, !tbaa !63
   store i32 %.0122245, ptr %103, align 4, !tbaa !57
   br label %.sink.split
 
@@ -641,7 +641,7 @@ ht_lookup_and_upsert.exit184:                     ; preds = %.lr.ph.i176
   br label %.sink.split.i
 
 137:                                              ; preds = %124
-  %138 = load i32, ptr %120, align 4, !tbaa !62
+  %138 = load i32, ptr %120, align 4, !tbaa !63
   %139 = icmp eq i32 %138, %114
   br i1 %139, label %140, label %141
 
@@ -658,7 +658,7 @@ ht_lookup_and_upsert.exit184:                     ; preds = %.lr.ph.i176
   %.1.i187 = phi ptr [ null, %137 ], [ %.058.i, %132 ], [ %120, %.sink.split.i ]
   %142 = add nuw nsw i64 %.04156.i, 1
   %exitcond.not.i188 = icmp eq i64 %.04156.i, %118
-  br i1 %exitcond.not.i188, label %ht_delete.exit, label %.lr.ph.i185, !llvm.loop !63
+  br i1 %exitcond.not.i188, label %ht_delete.exit, label %.lr.ph.i185, !llvm.loop !64
 
 ht_delete.exit:                                   ; preds = %.lr.ph.i185, %140, %141
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -697,13 +697,13 @@ ht_delete.exit:                                   ; preds = %.lr.ph.i185, %140, 
 163:                                              ; preds = %169
   %164 = add nuw nsw i64 %.01520.i190, 1
   %exitcond.not.i191 = icmp eq i64 %.01520.i190, %162
-  br i1 %exitcond.not.i191, label %.sink.split280, label %.lr.ph.i189, !llvm.loop !61
+  br i1 %exitcond.not.i191, label %.sink.split280, label %.lr.ph.i189, !llvm.loop !62
 
 .lr.ph.i189:                                      ; preds = %163, %157
   %.01520.i190 = phi i64 [ %164, %163 ], [ %161, %157 ]
   %165 = and i64 %.01520.i190, 262143
   %166 = getelementptr inbounds nuw %struct.HTEntry, ptr %16, i64 %165
-  %167 = load i32, ptr %166, align 4, !tbaa !62
+  %167 = load i32, ptr %166, align 4, !tbaa !63
   %168 = icmp eq i32 %167, %149
   %.phi.trans.insert.i195 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %.pre.i196 = load i32, ptr %.phi.trans.insert.i195, align 4, !tbaa !57
@@ -716,7 +716,7 @@ ht_delete.exit:                                   ; preds = %.lr.ph.i185, %140, 
 
 ht_lookup_and_upsert.exit197.thread225:           ; preds = %169
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  store i32 %149, ptr %166, align 4, !tbaa !62
+  store i32 %149, ptr %166, align 4, !tbaa !63
   store i32 %145, ptr %171, align 4, !tbaa !57
   br label %.sink.split280
 
@@ -797,7 +797,7 @@ ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   br label %.sink.split.i209
 
 204:                                              ; preds = %191
-  %205 = load i32, ptr %187, align 4, !tbaa !62
+  %205 = load i32, ptr %187, align 4, !tbaa !63
   %206 = icmp eq i32 %205, %180
   br i1 %206, label %207, label %208
 
@@ -814,7 +814,7 @@ ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   %.1.i207 = phi ptr [ null, %204 ], [ %.058.i199, %199 ], [ %187, %.sink.split.i209 ]
   %209 = add nuw nsw i64 %.04156.i201, 1
   %exitcond.not.i208 = icmp eq i64 %.04156.i201, %185
-  br i1 %exitcond.not.i208, label %ht_delete.exit213, label %.lr.ph.i198, !llvm.loop !63
+  br i1 %exitcond.not.i208, label %ht_delete.exit213, label %.lr.ph.i198, !llvm.loop !64
 
 ht_delete.exit213:                                ; preds = %.lr.ph.i198, %207, %208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -1224,7 +1224,7 @@ bytestream2_put_le32.exit152:                     ; preds = %414, %411, %bytestr
   %417 = load i64, ptr %82, align 8, !tbaa !39
   %418 = sdiv i64 %417, 4
   %.not = icmp slt i64 %418, %416
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %212, %271, %345, %bytestream2_put_le32.exit152, %ht_lookup_and_upsert.exit175
   %.0 = phi i32 [ 0, %ht_lookup_and_upsert.exit175 ], [ 0, %bytestream2_put_le32.exit152 ], [ -1094995529, %345 ], [ -1094995529, %271 ], [ -1094995529, %212 ]
@@ -1331,9 +1331,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !56 = !{!31, !10, i64 24}
 !57 = !{!58, !10, i64 4}
 !58 = !{!"HTEntry", !10, i64 0, !10, i64 4}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = distinct !{!61, !60}
-!62 = !{!58, !10, i64 0}
-!63 = distinct !{!63, !60}
-!64 = distinct !{!64, !60}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = distinct !{!62, !60, !61}
+!63 = !{!58, !10, i64 0}
+!64 = distinct !{!64, !60, !61}
+!65 = distinct !{!65, !60, !61}

@@ -1053,10 +1053,10 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 .backedge:                                        ; preds = %62, %69
   %.be = phi i64 [ %51, %62 ], [ 0, %69 ]
   %.be52 = phi i64 [ %45, %62 ], [ %.pre.pre, %69 ]
-  br label %21
+  br label %21, !llvm.loop !56
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %20, align 8, !tbaa !56
+  %66 = load ptr, ptr %20, align 8, !tbaa !58
   %67 = load ptr, ptr %9, align 8, !tbaa !28
   %68 = call i32 @__archive_write_filter(ptr noundef %66, ptr noundef %67, i64 noundef %51) #10
   %.not48 = icmp eq i32 %68, 0
@@ -1168,4 +1168,6 @@ attributes #14 = { nounwind willreturn memory(none) }
 !53 = !{!51, !6, i64 16}
 !54 = !{!22, !6, i64 56}
 !55 = !{!22, !6, i64 80}
-!56 = !{!5, !11, i64 16}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!5, !11, i64 16}

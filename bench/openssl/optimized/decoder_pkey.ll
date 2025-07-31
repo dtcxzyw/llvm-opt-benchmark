@@ -1123,15 +1123,15 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !65
+  %21 = load i32, ptr %20, align 8, !tbaa !66
   %.not78 = icmp eq i32 %21, 5
   br i1 %.not78, label %22, label %81
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !67
+  %24 = load ptr, ptr %23, align 8, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %26 = load i64, ptr %25, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !69
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !37
   %29 = call i32 @OPENSSL_sk_num(ptr noundef %28) #7
@@ -1164,7 +1164,7 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
 42:                                               ; preds = %32, %37, %39
   %43 = add nuw nsw i32 %.061107, 1
   %exitcond.not = icmp eq i32 %43, %29
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !70
 
 44:                                               ; preds = %39
   %45 = call i32 @EVP_KEYMGMT_up_ref(ptr noundef %34) #7
@@ -1204,19 +1204,19 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
 
 60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
-  store ptr %51, ptr %5, align 8, !tbaa !70
+  store ptr %51, ptr %5, align 8, !tbaa !71
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %61, align 8, !tbaa !73
+  store ptr null, ptr %61, align 8, !tbaa !74
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !36
   %64 = icmp eq i32 %63, 0
   %spec.select = select i1 %64, i32 135, i32 %63
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %spec.select, ptr %65, align 8, !tbaa !74
+  store i32 %spec.select, ptr %65, align 8, !tbaa !75
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %67 = load ptr, ptr %66, align 8, !tbaa !75
+  %67 = load ptr, ptr %66, align 8, !tbaa !76
   %68 = call i32 %67(ptr noundef %7, ptr noundef %24, i64 noundef %26, ptr noundef nonnull @evp_keymgmt_util_try_import, ptr noundef nonnull %5) #7
-  %69 = load ptr, ptr %61, align 8, !tbaa !73
+  %69 = load ptr, ptr %61, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   %.not84 = icmp eq ptr %69, null
   br i1 %.not84, label %73, label %.thread102
@@ -1435,16 +1435,17 @@ attributes #8 = { nounwind willreturn memory(read) }
 !60 = !{!55, !5, i64 48}
 !61 = !{!55, !5, i64 56}
 !62 = !{!39, !13, i64 32}
-!63 = distinct !{!63, !64}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!66, !13, i64 8}
-!66 = !{!"ossl_param_st", !12, i64 0, !13, i64 8, !5, i64 16, !25, i64 24, !25, i64 32}
-!67 = !{!66, !5, i64 16}
-!68 = !{!66, !25, i64 24}
-!69 = distinct !{!69, !64}
-!70 = !{!71, !72, i64 0}
-!71 = !{!"evp_keymgmt_util_try_import_data_st", !72, i64 0, !5, i64 8, !13, i64 16}
-!72 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
-!73 = !{!71, !5, i64 8}
-!74 = !{!71, !13, i64 16}
-!75 = !{!55, !5, i64 112}
+!65 = !{!"llvm.loop.estimated_trip_count"}
+!66 = !{!67, !13, i64 8}
+!67 = !{!"ossl_param_st", !12, i64 0, !13, i64 8, !5, i64 16, !25, i64 24, !25, i64 32}
+!68 = !{!67, !5, i64 16}
+!69 = !{!67, !25, i64 24}
+!70 = distinct !{!70, !64, !65}
+!71 = !{!72, !73, i64 0}
+!72 = !{!"evp_keymgmt_util_try_import_data_st", !73, i64 0, !5, i64 8, !13, i64 16}
+!73 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
+!74 = !{!72, !5, i64 8}
+!75 = !{!72, !13, i64 16}
+!76 = !{!55, !5, i64 112}

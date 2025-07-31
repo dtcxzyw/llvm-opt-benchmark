@@ -2872,7 +2872,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr noundef captu
   store i32 %36, ptr %21, align 4, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store ptr %37, ptr %0, align 8, !tbaa !19
-  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !24
+  br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %13, %2
   %.0 = phi i32 [ -1, %13 ], [ 0, %2 ], [ 0, %.preheader ]
@@ -2939,7 +2939,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr noundef readonl
   %35 = getelementptr inbounds nuw i8, ptr %.01921, i64 4
   %36 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %36, 8
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !26
 
 .loopexit:                                        ; preds = %14, %10
   %37 = load i64, ptr %2, align 8, !tbaa !10
@@ -3007,7 +3007,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nounde
   store ptr %36, ptr %0, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %13, %2
   %.0 = phi i32 [ -1, %13 ], [ 0, %2 ], [ 0, %.preheader ]
@@ -3070,7 +3070,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr noundef reado
   %35 = getelementptr inbounds nuw i8, ptr %.01921, i64 4
   %36 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %36, 8
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !28
 
 .loopexit:                                        ; preds = %14, %10
   %37 = load i64, ptr %2, align 8, !tbaa !10
@@ -3138,7 +3138,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noun
   store ptr %36, ptr %0, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %13, %2
   %.0 = phi i32 [ -1, %13 ], [ 0, %2 ], [ 0, %.preheader ]
@@ -3245,10 +3245,11 @@ attributes #8 = { nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 omnipotent char", !21, i64 0}
 !21 = !{!"any pointer", !5, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = distinct !{!27, !23, !24}
+!28 = distinct !{!28, !23, !24}
+!29 = distinct !{!29, !23, !24}

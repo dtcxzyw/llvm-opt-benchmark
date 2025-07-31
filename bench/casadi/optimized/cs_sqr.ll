@@ -104,7 +104,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 47:                                               ; preds = %._crit_edge, %36
   %48 = phi i1 [ %46, %._crit_edge ], [ false, %36 ]
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %50 = load double, ptr %49, align 8, !tbaa !21
+  %50 = load double, ptr %49, align 8, !tbaa !22
   %51 = fcmp ult double %50, 0.000000e+00
   br i1 %51, label %.critedge, label %52
 
@@ -121,7 +121,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 .critedge65:                                      ; preds = %17
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !22
+  %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = sext i32 %10 to i64
   %59 = getelementptr inbounds i32, ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !18
@@ -131,7 +131,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store double %63, ptr %64, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store double %63, ptr %65, align 8, !tbaa !21
+  store double %63, ptr %65, align 8, !tbaa !22
   br label %69
 
 66:                                               ; preds = %.critedge, %54
@@ -167,19 +167,19 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = add nsw i32 %6, %4
   %14 = tail call ptr @cs_malloc(i32 noundef %13, i64 noundef 4) #3
-  store ptr %14, ptr %1, align 8, !tbaa !25
+  store ptr %14, ptr %1, align 8, !tbaa !26
   %15 = tail call ptr @cs_malloc(i32 noundef %6, i64 noundef 4) #3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %15, ptr %16, align 8, !tbaa !26
+  store ptr %15, ptr %16, align 8, !tbaa !27
   %17 = mul nsw i32 %4, 3
   %18 = add nsw i32 %6, %17
   %19 = tail call ptr @cs_malloc(i32 noundef %18, i64 noundef 4) #3
@@ -232,7 +232,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 
 .loopexit:                                        ; preds = %.lr.ph158, %.lr.ph162
   %42 = icmp samesign ugt i64 %indvars.iv179, 1
-  br i1 %42, label %.lr.ph162, label %.preheader145, !llvm.loop !27
+  br i1 %42, label %.lr.ph162, label %.preheader145, !llvm.loop !28
 
 .preheader145:                                    ; preds = %.loopexit, %.preheader146
   br i1 %38, label %.lr.ph165.preheader, label %._crit_edge
@@ -267,7 +267,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   %55 = load i32, ptr %46, align 4, !tbaa !18
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph158, label %.loopexit, !llvm.loop !28
+  br i1 %57, label %.lr.ph158, label %.loopexit, !llvm.loop !29
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %75
   %indvars.iv182 = phi i64 [ %43, %.lr.ph165.preheader ], [ %indvars.iv.next183, %75 ]
@@ -309,13 +309,13 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 
 75:                                               ; preds = %.lr.ph165, %71
   %76 = icmp samesign ugt i64 %indvars.iv182, 1
-  br i1 %76, label %.lr.ph165, label %._crit_edge, !llvm.loop !29
+  br i1 %76, label %.lr.ph165, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %75, %.preheader145
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double 0.000000e+00, ptr %77, align 8, !tbaa !21
+  store double 0.000000e+00, ptr %77, align 8, !tbaa !22
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %6, ptr %78, align 8, !tbaa !30
+  store i32 %6, ptr %78, align 8, !tbaa !31
   br i1 %31, label %.lr.ph168, label %.preheader
 
 .lr.ph168:                                        ; preds = %._crit_edge
@@ -323,7 +323,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   br label %79
 
 ..preheader_crit_edge:                            ; preds = %119
-  store double %120, ptr %77, align 8, !tbaa !21
+  store double %120, ptr %77, align 8, !tbaa !22
   br label %.preheader
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %._crit_edge
@@ -344,9 +344,9 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %79
-  %86 = load i32, ptr %78, align 8, !tbaa !30
+  %86 = load i32, ptr %78, align 8, !tbaa !31
   %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %78, align 8, !tbaa !30
+  store i32 %87, ptr %78, align 8, !tbaa !31
   br label %88
 
 88:                                               ; preds = %85, %79
@@ -403,7 +403,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   %120 = phi double [ %98, %96 ], [ %98, %._crit_edge193 ], [ %83, %88 ]
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
-  br i1 %exitcond.not, label %..preheader_crit_edge, label %79, !llvm.loop !31
+  br i1 %exitcond.not, label %..preheader_crit_edge, label %79, !llvm.loop !32
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %126
   %indvars.iv188 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next189, %126 ]
@@ -422,7 +422,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   %.6 = phi i32 [ %125, %124 ], [ %.5169, %.lr.ph171 ]
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !32
+  br i1 %exitcond192.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !33
 
 ._crit_edge172:                                   ; preds = %126, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ 1, %126 ]
@@ -463,17 +463,18 @@ attributes #3 = { nounwind }
 !16 = !{!13, !8, i64 24}
 !17 = !{!13, !14, i64 56}
 !18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!13, !14, i64 48}
-!22 = !{!4, !8, i64 16}
-!23 = !{!4, !5, i64 4}
-!24 = !{!4, !8, i64 24}
-!25 = !{!13, !8, i64 0}
-!26 = !{!13, !8, i64 32}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
-!30 = !{!13, !5, i64 40}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!13, !14, i64 48}
+!23 = !{!4, !8, i64 16}
+!24 = !{!4, !5, i64 4}
+!25 = !{!4, !8, i64 24}
+!26 = !{!13, !8, i64 0}
+!27 = !{!13, !8, i64 32}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!13, !5, i64 40}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}

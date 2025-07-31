@@ -198,7 +198,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %43
 
 44:                                               ; preds = %Vec_VecFree.exit, %24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %46 = load ptr, ptr %45, align 8, !tbaa !32
   %.not42 = icmp eq ptr %46, null
   br i1 %.not42, label %64, label %47
 
@@ -259,13 +259,13 @@ Vec_VecFree.exit66:                               ; preds = %.critedge.i54, %63
 
 64:                                               ; preds = %Vec_VecFree.exit66, %44
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %66 = load ptr, ptr %65, align 8, !tbaa !32
+  %66 = load ptr, ptr %65, align 8, !tbaa !33
   %.not43 = icmp eq ptr %66, null
   br i1 %.not43, label %71, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !33
+  %69 = load ptr, ptr %68, align 8, !tbaa !34
   %.not.i67 = icmp eq ptr %69, null
   br i1 %.not.i67, label %Vec_IntFree.exit, label %70
 
@@ -285,39 +285,39 @@ Vec_IntFree.exit:                                 ; preds = %67, %70
   %75 = load ptr, ptr %74, align 8, !tbaa !21
   tail call void @Aig_MmFlexStop(ptr noundef %75, i32 noundef 0) #24
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %77 = load ptr, ptr %76, align 8, !tbaa !36
+  %77 = load ptr, ptr %76, align 8, !tbaa !37
   %.not44 = icmp eq ptr %77, null
   br i1 %.not44, label %79, label %78
 
 78:                                               ; preds = %71
   tail call void @free(ptr noundef nonnull %77) #24
-  store ptr null, ptr %76, align 8, !tbaa !36
+  store ptr null, ptr %76, align 8, !tbaa !37
   br label %79
 
 79:                                               ; preds = %71, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %81 = load ptr, ptr %80, align 8, !tbaa !37
+  %81 = load ptr, ptr %80, align 8, !tbaa !38
   %.not45 = icmp eq ptr %81, null
   br i1 %.not45, label %83, label %82
 
 82:                                               ; preds = %79
   tail call void @free(ptr noundef nonnull %81) #24
-  store ptr null, ptr %80, align 8, !tbaa !37
+  store ptr null, ptr %80, align 8, !tbaa !38
   br label %83
 
 83:                                               ; preds = %79, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %85 = load ptr, ptr %84, align 8, !tbaa !38
+  %85 = load ptr, ptr %84, align 8, !tbaa !39
   %.not46 = icmp eq ptr %85, null
   br i1 %.not46, label %87, label %86
 
 86:                                               ; preds = %83
   tail call void @free(ptr noundef nonnull %85) #24
-  store ptr null, ptr %84, align 8, !tbaa !38
+  store ptr null, ptr %84, align 8, !tbaa !39
   br label %87
 
 87:                                               ; preds = %83, %86
-  %88 = load ptr, ptr %0, align 8, !tbaa !39
+  %88 = load ptr, ptr %0, align 8, !tbaa !40
   %.not47 = icmp eq ptr %88, null
   br i1 %.not47, label %90, label %89
 
@@ -364,7 +364,7 @@ define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr noundef readonly captures(n
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.012, i32 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !40
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !41
 
 .critedge:                                        ; preds = %7, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %7 ]
@@ -374,33 +374,33 @@ define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr noundef readonly captures(n
 ; Function Attrs: nofree nounwind uwtable
 define void @Amap_LibWritePin(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 8, i64 1, ptr %0)
-  %4 = load ptr, ptr %1, align 8, !tbaa !41
+  %4 = load ptr, ptr %1, align 8, !tbaa !42
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %4) #24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !44
+  %7 = load i32, ptr %6, align 8, !tbaa !45
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [10 x ptr], ptr @__const.Amap_LibWritePin.pPhaseNames, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %10) #24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load double, ptr %12, align 8, !tbaa !46
+  %13 = load double, ptr %12, align 8, !tbaa !47
   %14 = fptosi double %13 to i32
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %14) #24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load double, ptr %16, align 8, !tbaa !47
+  %17 = load double, ptr %16, align 8, !tbaa !48
   %18 = fptosi double %17 to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %18) #24
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load double, ptr %20, align 8, !tbaa !48
+  %21 = load double, ptr %20, align 8, !tbaa !49
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %21) #24
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load double, ptr %23, align 8, !tbaa !49
+  %24 = load double, ptr %23, align 8, !tbaa !50
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %24) #24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %27 = load double, ptr %26, align 8, !tbaa !50
+  %27 = load double, ptr %26, align 8, !tbaa !51
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %27) #24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load double, ptr %29, align 8, !tbaa !51
+  %30 = load double, ptr %29, align 8, !tbaa !52
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, double noundef %30) #24
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   ret void
@@ -416,22 +416,22 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 5, i64 1, ptr %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %6) #24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load double, ptr %8, align 8, !tbaa !55
+  %9 = load double, ptr %8, align 8, !tbaa !56
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, double noundef %9) #24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !57
+  %14 = load ptr, ptr %13, align 8, !tbaa !58
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %12, ptr noundef %14) #24
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !58
+  %18 = load ptr, ptr %17, align 8, !tbaa !59
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
@@ -462,7 +462,7 @@ define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readon
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %26, i64 %32
   %34 = icmp ult ptr %29, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   ret void
@@ -475,7 +475,7 @@ declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define void @Amap_LibWrite(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !39
+  %4 = load ptr, ptr %1, align 8, !tbaa !40
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %4) #24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !11
@@ -498,7 +498,7 @@ define void @Amap_LibWrite(ptr noundef captures(none) %0, ptr noundef readonly c
   %.val = load i32, ptr %15, align 4, !tbaa !3
   %16 = sext i32 %.val to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !60
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %3
   ret void
@@ -506,12 +506,12 @@ define void @Amap_LibWrite(ptr noundef captures(none) %0, ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Amap_LibCompareGatesByArea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !61
+  %3 = load ptr, ptr %0, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load double, ptr %4, align 8, !tbaa !55
-  %6 = load ptr, ptr %1, align 8, !tbaa !61
+  %5 = load double, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %1, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load double, ptr %7, align 8, !tbaa !55
+  %8 = load double, ptr %7, align 8, !tbaa !56
   %9 = fsub double %5, %8
   %10 = fcmp olt double %9, 0.000000e+00
   %11 = fcmp ogt double %9, 0.000000e+00
@@ -580,7 +580,7 @@ define ptr @Amap_LibFindGate(ptr noundef readonly captures(none) %0, i32 noundef
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
@@ -591,14 +591,14 @@ define ptr @Amap_LibFindGate(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr %14, align 4, !tbaa !62
+  %21 = load i32, ptr %14, align 4, !tbaa !63
   %22 = icmp eq i32 %21, %1
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %16, %20, %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !63
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !64
 
 .critedge:                                        ; preds = %20, %23, %2
   %.011 = phi ptr [ null, %2 ], [ null, %23 ], [ %10, %20 ]
@@ -634,7 +634,7 @@ Amap_LibFindGate.exit.thread:                     ; preds = %2
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !58
+  %15 = load ptr, ptr %14, align 8, !tbaa !59
   %16 = icmp eq ptr %15, null
   br i1 %16, label %24, label %17
 
@@ -645,19 +645,19 @@ Amap_LibFindGate.exit.thread:                     ; preds = %2
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %15, align 4, !tbaa !62
+  %22 = load i32, ptr %15, align 4, !tbaa !63
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %Amap_LibFindGate.exit, label %24
 
 24:                                               ; preds = %21, %17, %13, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Amap_LibFindGate.exit, label %9, !llvm.loop !63
+  br i1 %exitcond.not.i, label %Amap_LibFindGate.exit, label %9, !llvm.loop !64
 
 Amap_LibFindGate.exit:                            ; preds = %21, %24
   %.011.i = phi ptr [ null, %24 ], [ %11, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.011.i, ptr %25, align 8, !tbaa !64
+  store ptr %.011.i, ptr %25, align 8, !tbaa !65
   br label %26
 
 26:                                               ; preds = %41, %Amap_LibFindGate.exit
@@ -669,7 +669,7 @@ Amap_LibFindGate.exit:                            ; preds = %21, %24
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !58
+  %32 = load ptr, ptr %31, align 8, !tbaa !59
   %33 = icmp eq ptr %32, null
   br i1 %33, label %41, label %34
 
@@ -680,19 +680,19 @@ Amap_LibFindGate.exit:                            ; preds = %21, %24
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
-  %39 = load i32, ptr %32, align 4, !tbaa !62
+  %39 = load i32, ptr %32, align 4, !tbaa !63
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %Amap_LibFindGate.exit50, label %41
 
 41:                                               ; preds = %38, %34, %30, %26
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i
-  br i1 %exitcond.not.i49, label %Amap_LibFindGate.exit50, label %26, !llvm.loop !63
+  br i1 %exitcond.not.i49, label %Amap_LibFindGate.exit50, label %26, !llvm.loop !64
 
 Amap_LibFindGate.exit50:                          ; preds = %38, %41
   %.011.i43 = phi ptr [ null, %41 ], [ %28, %38 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.011.i43, ptr %42, align 8, !tbaa !65
+  store ptr %.011.i43, ptr %42, align 8, !tbaa !66
   br label %43
 
 43:                                               ; preds = %58, %Amap_LibFindGate.exit50
@@ -704,7 +704,7 @@ Amap_LibFindGate.exit50:                          ; preds = %38, %41
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !58
+  %49 = load ptr, ptr %48, align 8, !tbaa !59
   %50 = icmp eq ptr %49, null
   br i1 %50, label %58, label %51
 
@@ -715,19 +715,19 @@ Amap_LibFindGate.exit50:                          ; preds = %38, %41
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %51
-  %56 = load i32, ptr %49, align 4, !tbaa !62
+  %56 = load i32, ptr %49, align 4, !tbaa !63
   %57 = icmp eq i32 %56, -1431655766
   br i1 %57, label %Amap_LibFindGate.exit59, label %58
 
 58:                                               ; preds = %55, %51, %47, %43
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i
-  br i1 %exitcond.not.i58, label %Amap_LibFindGate.exit59, label %43, !llvm.loop !63
+  br i1 %exitcond.not.i58, label %Amap_LibFindGate.exit59, label %43, !llvm.loop !64
 
 Amap_LibFindGate.exit59:                          ; preds = %55, %58
   %.011.i52 = phi ptr [ null, %58 ], [ %45, %55 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.011.i52, ptr %59, align 8, !tbaa !66
+  store ptr %.011.i52, ptr %59, align 8, !tbaa !67
   br label %60
 
 60:                                               ; preds = %75, %Amap_LibFindGate.exit59
@@ -739,7 +739,7 @@ Amap_LibFindGate.exit59:                          ; preds = %55, %58
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %66 = load ptr, ptr %65, align 8, !tbaa !58
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
   %67 = icmp eq ptr %66, null
   br i1 %67, label %75, label %68
 
@@ -750,19 +750,19 @@ Amap_LibFindGate.exit59:                          ; preds = %55, %58
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %68
-  %73 = load i32, ptr %66, align 4, !tbaa !62
+  %73 = load i32, ptr %66, align 4, !tbaa !63
   %74 = icmp eq i32 %73, 1431655765
   br i1 %74, label %Amap_LibFindGate.exit68, label %75
 
 75:                                               ; preds = %72, %68, %64, %60
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i
-  br i1 %exitcond.not.i67, label %Amap_LibFindGate.exit68, label %60, !llvm.loop !63
+  br i1 %exitcond.not.i67, label %Amap_LibFindGate.exit68, label %60, !llvm.loop !64
 
 Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibFindGate.exit.thread
   %.011.i61 = phi ptr [ null, %Amap_LibFindGate.exit.thread ], [ %62, %72 ], [ null, %75 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.011.i61, ptr %76, align 8, !tbaa !67
+  store ptr %.011.i61, ptr %76, align 8, !tbaa !68
   %77 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 0, ptr %78, align 4, !tbaa !3
@@ -782,13 +782,13 @@ Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibF
   %85 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv78
   %86 = load ptr, ptr %85, align 8, !tbaa !28
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8, !tbaa !58
+  %88 = load ptr, ptr %87, align 8, !tbaa !59
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.critedge2, label %90
 
 90:                                               ; preds = %.lr.ph75
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !68
+  %92 = load ptr, ptr %91, align 8, !tbaa !69
   %.not = icmp eq ptr %92, null
   br i1 %.not, label %.preheader, label %.critedge2
 
@@ -805,13 +805,13 @@ Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibF
   %95 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  %98 = load ptr, ptr %97, align 8, !tbaa !58
+  %98 = load ptr, ptr %97, align 8, !tbaa !59
   %99 = icmp eq ptr %98, null
   br i1 %99, label %116, label %100
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !68
+  %102 = load ptr, ptr %101, align 8, !tbaa !69
   %.not36 = icmp eq ptr %102, null
   br i1 %.not36, label %103, label %116
 
@@ -838,7 +838,7 @@ Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibF
 116:                                              ; preds = %109, %103, %94, %100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv78
-  br i1 %exitcond.not, label %.critedge39, label %94, !llvm.loop !69
+  br i1 %exitcond.not, label %.critedge39, label %94, !llvm.loop !70
 
 .critedge39:                                      ; preds = %116, %.preheader
   %117 = icmp eq i32 %83, %82
@@ -913,7 +913,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %146, align 4, !tbaa !3
   %147 = sext i32 %.val to i64
   %148 = icmp slt i64 %indvars.iv.next79, %147
-  br i1 %148, label %.lr.ph75, label %.critedge, !llvm.loop !70
+  br i1 %148, label %.lr.ph75, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %.critedge2, %Amap_LibFindGate.exit68
   ret ptr %77
@@ -924,7 +924,7 @@ define void @Amap_LibPrintSelectedGates(ptr noundef readonly captures(none) %0, 
   %.not = icmp eq i32 %1, 0
   %.in.v = select i1 %.not, i64 24, i64 8
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %3 = load ptr, ptr %.in, align 8, !tbaa !71
+  %3 = load ptr, ptr %.in, align 8, !tbaa !72
   %4 = getelementptr i8, ptr %3, i64 4
   %.val16 = load i32, ptr %4, align 4, !tbaa !3
   %5 = icmp sgt i32 %.val16, 0
@@ -940,22 +940,22 @@ define void @Amap_LibPrintSelectedGates(ptr noundef readonly captures(none) %0, 
   %8 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 24
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %16 = load double, ptr %15, align 8, !tbaa !55
+  %16 = load double, ptr %15, align 8, !tbaa !56
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %17, ptr noundef %11, i32 noundef %14, double noundef %16)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %20, ptr noundef %22)
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !58
+  %26 = load ptr, ptr %25, align 8, !tbaa !59
   %27 = load i32, ptr %12, align 8
   %28 = lshr i32 %27, 24
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %26, i32 noundef %28) #24
@@ -964,7 +964,7 @@ define void @Amap_LibPrintSelectedGates(ptr noundef readonly captures(none) %0, 
   %.val = load i32, ptr %4, align 4, !tbaa !3
   %29 = sext i32 %.val to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %.critedge, !llvm.loop !72
+  br i1 %30, label %7, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %7, %2
   ret void
@@ -983,10 +983,10 @@ define ptr @Amap_LibReadAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %11, label %Abc_Clock.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = load i64, ptr %9, align 8, !tbaa !73
+  %13 = load i64, ptr %9, align 8, !tbaa !74
   %.neg56 = mul i64 %13, -1000000
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !76
+  %15 = load i64, ptr %14, align 8, !tbaa !77
   %.neg = sdiv i64 %15, -1000
   %.neg57 = add i64 %.neg, %.neg56
   br label %Abc_Clock.exit
@@ -1019,7 +1019,7 @@ Abc_Clock.exit:                                   ; preds = %4, %12
 
 Abc_UtilStrsav.exit:                              ; preds = %21, %22
   %27 = phi ptr [ %25, %22 ], [ null, %21 ]
-  store ptr %27, ptr %20, align 8, !tbaa !39
+  store ptr %27, ptr %20, align 8, !tbaa !40
   br label %28
 
 28:                                               ; preds = %Abc_UtilStrsav.exit, %17
@@ -1100,10 +1100,10 @@ Amap_LibSortGatesByArea.exit:                     ; preds = %38, %46
   br i1 %63, label %Abc_Clock.exit37, label %64
 
 64:                                               ; preds = %59
-  %65 = load i64, ptr %8, align 8, !tbaa !73
+  %65 = load i64, ptr %8, align 8, !tbaa !74
   %66 = mul nsw i64 %65, 1000000
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !76
+  %68 = load i64, ptr %67, align 8, !tbaa !77
   %69 = sdiv i64 %68, 1000
   %70 = add nsw i64 %69, %66
   br label %Abc_Clock.exit37
@@ -1121,10 +1121,10 @@ Abc_Clock.exit37:                                 ; preds = %59, %64
   br i1 %75, label %Abc_Clock.exit39, label %76
 
 76:                                               ; preds = %Abc_Clock.exit37
-  %77 = load i64, ptr %7, align 8, !tbaa !73
+  %77 = load i64, ptr %7, align 8, !tbaa !74
   %.neg59 = mul i64 %77, -1000000
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !76
+  %79 = load i64, ptr %78, align 8, !tbaa !77
   %.neg58 = sdiv i64 %79, -1000
   %.neg60 = add i64 %.neg58, %.neg59
   br label %Abc_Clock.exit39
@@ -1134,9 +1134,9 @@ Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
   call void @Amap_LibCreateRules(ptr noundef nonnull %.0, i32 noundef %3) #24
   %80 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  %81 = load i32, ptr %80, align 8, !tbaa !77
+  %81 = load i32, ptr %80, align 8, !tbaa !78
   %82 = getelementptr inbounds nuw i8, ptr %.0, i64 152
-  %83 = load i32, ptr %82, align 8, !tbaa !78
+  %83 = load i32, ptr %82, align 8, !tbaa !79
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %81, i32 noundef %83)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
@@ -1145,10 +1145,10 @@ Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %
   br i1 %86, label %Abc_Clock.exit41, label %87
 
 87:                                               ; preds = %Abc_Clock.exit39
-  %88 = load i64, ptr %6, align 8, !tbaa !73
+  %88 = load i64, ptr %6, align 8, !tbaa !74
   %89 = mul nsw i64 %88, 1000000
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !76
+  %91 = load i64, ptr %90, align 8, !tbaa !77
   %92 = sdiv i64 %91, 1000
   %93 = add nsw i64 %92, %89
   br label %Abc_Clock.exit41
@@ -1184,7 +1184,7 @@ declare i32 @Amap_LibParseEquations(ptr noundef, i32 noundef) local_unnamed_addr
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !62
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !63
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -1197,7 +1197,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #24
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !80
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #24
@@ -1205,7 +1205,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !79, !noalias !81
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !80, !noalias !82
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #24
   br label %17
 
@@ -1330,58 +1330,59 @@ attributes #26 = { nounwind willreturn memory(read) }
 !26 = !{!"Vec_Vec_t_", !5, i64 0, !5, i64 4, !8, i64 8}
 !27 = !{!26, !8, i64 8}
 !28 = !{!8, !8, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!12, !14, i64 112}
-!32 = !{!12, !18, i64 120}
-!33 = !{!34, !35, i64 8}
-!34 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !35, i64 8}
-!35 = !{!"p1 int", !8, i64 0}
-!36 = !{!12, !19, i64 128}
-!37 = !{!12, !19, i64 136}
-!38 = !{!12, !17, i64 88}
-!39 = !{!12, !13, i64 0}
-!40 = distinct !{!40, !30}
-!41 = !{!42, !13, i64 0}
-!42 = !{!"Amap_Pin_t_", !13, i64 0, !5, i64 8, !43, i64 16, !43, i64 24, !43, i64 32, !43, i64 40, !43, i64 48, !43, i64 56, !43, i64 64}
-!43 = !{!"double", !6, i64 0}
-!44 = !{!42, !5, i64 8}
-!45 = !{!13, !13, i64 0}
-!46 = !{!42, !43, i64 16}
-!47 = !{!42, !43, i64 24}
-!48 = !{!42, !43, i64 32}
-!49 = !{!42, !43, i64 40}
-!50 = !{!42, !43, i64 48}
-!51 = !{!42, !43, i64 56}
-!52 = !{!53, !13, i64 16}
-!53 = !{!"Amap_Gat_t_", !54, i64 0, !15, i64 8, !13, i64 16, !13, i64 24, !43, i64 32, !13, i64 40, !35, i64 48, !5, i64 56, !5, i64 58, !5, i64 59, !6, i64 64}
-!54 = !{!"p1 _ZTS11Amap_Lib_t_", !8, i64 0}
-!55 = !{!53, !43, i64 32}
-!56 = !{!53, !13, i64 24}
-!57 = !{!53, !13, i64 40}
-!58 = !{!53, !35, i64 48}
-!59 = distinct !{!59, !30}
-!60 = distinct !{!60, !30}
-!61 = !{!15, !15, i64 0}
-!62 = !{!5, !5, i64 0}
-!63 = distinct !{!63, !30}
-!64 = !{!12, !15, i64 32}
-!65 = !{!12, !15, i64 40}
-!66 = !{!12, !15, i64 48}
-!67 = !{!12, !15, i64 56}
-!68 = !{!53, !15, i64 8}
-!69 = distinct !{!69, !30}
-!70 = distinct !{!70, !30}
-!71 = !{!14, !14, i64 0}
-!72 = distinct !{!72, !30}
-!73 = !{!74, !75, i64 0}
-!74 = !{!"timespec", !75, i64 0, !75, i64 8}
-!75 = !{!"long", !6, i64 0}
-!76 = !{!74, !75, i64 8}
-!77 = !{!12, !5, i64 96}
-!78 = !{!12, !5, i64 152}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"vprintf: argument 0"}
-!83 = distinct !{!83, !"vprintf"}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!12, !14, i64 112}
+!33 = !{!12, !18, i64 120}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !36, i64 8}
+!36 = !{!"p1 int", !8, i64 0}
+!37 = !{!12, !19, i64 128}
+!38 = !{!12, !19, i64 136}
+!39 = !{!12, !17, i64 88}
+!40 = !{!12, !13, i64 0}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!43, !13, i64 0}
+!43 = !{!"Amap_Pin_t_", !13, i64 0, !5, i64 8, !44, i64 16, !44, i64 24, !44, i64 32, !44, i64 40, !44, i64 48, !44, i64 56, !44, i64 64}
+!44 = !{!"double", !6, i64 0}
+!45 = !{!43, !5, i64 8}
+!46 = !{!13, !13, i64 0}
+!47 = !{!43, !44, i64 16}
+!48 = !{!43, !44, i64 24}
+!49 = !{!43, !44, i64 32}
+!50 = !{!43, !44, i64 40}
+!51 = !{!43, !44, i64 48}
+!52 = !{!43, !44, i64 56}
+!53 = !{!54, !13, i64 16}
+!54 = !{!"Amap_Gat_t_", !55, i64 0, !15, i64 8, !13, i64 16, !13, i64 24, !44, i64 32, !13, i64 40, !36, i64 48, !5, i64 56, !5, i64 58, !5, i64 59, !6, i64 64}
+!55 = !{!"p1 _ZTS11Amap_Lib_t_", !8, i64 0}
+!56 = !{!54, !44, i64 32}
+!57 = !{!54, !13, i64 24}
+!58 = !{!54, !13, i64 40}
+!59 = !{!54, !36, i64 48}
+!60 = distinct !{!60, !30, !31}
+!61 = distinct !{!61, !30, !31}
+!62 = !{!15, !15, i64 0}
+!63 = !{!5, !5, i64 0}
+!64 = distinct !{!64, !30, !31}
+!65 = !{!12, !15, i64 32}
+!66 = !{!12, !15, i64 40}
+!67 = !{!12, !15, i64 48}
+!68 = !{!12, !15, i64 56}
+!69 = !{!54, !15, i64 8}
+!70 = distinct !{!70, !30, !31}
+!71 = distinct !{!71, !30, !31}
+!72 = !{!14, !14, i64 0}
+!73 = distinct !{!73, !30, !31}
+!74 = !{!75, !76, i64 0}
+!75 = !{!"timespec", !76, i64 0, !76, i64 8}
+!76 = !{!"long", !6, i64 0}
+!77 = !{!75, !76, i64 8}
+!78 = !{!12, !5, i64 96}
+!79 = !{!12, !5, i64 152}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"vprintf: argument 0"}
+!84 = distinct !{!84, !"vprintf"}

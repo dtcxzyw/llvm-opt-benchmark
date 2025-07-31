@@ -296,7 +296,7 @@ _ZNK2cv6hfloatcvfEv.exit:                         ; preds = %.lr.ph, %13, %15
 
 ._crit_edge:                                      ; preds = %_ZNK2cv6hfloatcvfEv.exit, %3
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !12
+  %25 = load i32, ptr %24, align 8, !tbaa !13
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %26
 
@@ -329,7 +329,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !12
+  %3 = load i32, ptr %2, align 8, !tbaa !13
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -401,14 +401,14 @@ _ZN2cv6hfloatC2Ef.exit:                           ; preds = %11, %16, %20
   %31 = and i16 %30, -32768
   %32 = or i16 %27, %31
   %33 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %1, i64 %indvars.iv
-  store i16 %32, ptr %33, align 2, !tbaa !17
+  store i16 %32, ptr %33, align 2, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN2cv6hfloatC2Ef.exit, %3
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !12
+  %35 = load i32, ptr %34, align 8, !tbaa !13
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %36
 
@@ -446,7 +446,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addRNGBias32fEPfPKfi(ptr noundef c
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %7 = load i32, ptr %6, align 8, !tbaa !13
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %8
 
@@ -476,7 +476,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %8
   store float %15, ptr %13, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -494,7 +494,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addRNGBias64fEPdPKdi(ptr noundef c
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %7 = load i32, ptr %6, align 8, !tbaa !13
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %8
 
@@ -517,14 +517,14 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %gep.idx = shl nuw nsw i64 %indvars.iv, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %12 = load double, ptr %gep, align 8, !tbaa !20
+  %12 = load double, ptr %gep, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  %14 = load double, ptr %13, align 8, !tbaa !20
+  %14 = load double, ptr %13, align 8, !tbaa !21
   %15 = fadd double %12, %14
-  store double %15, ptr %13, align 8, !tbaa !20
+  store double %15, ptr %13, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -535,7 +535,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline14getConvertFuncEii(i32 noundef %
   %6 = and i32 %0, 7
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   ret ptr %9
 }
 
@@ -560,11 +560,11 @@ define internal void @_ZN2cv12cpu_baselineL5cvt8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr
   %13 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 %5
   %exitcond.not.i = icmp eq i32 %12, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit: ; preds = %.lr.ph.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !13
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %17
 
@@ -610,24 +610,24 @@ define internal void @_ZN2cv12cpu_baselineL7cvt8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(p
 12:                                               ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %14 = load i8, ptr %13, align 1, !tbaa !25
+  %14 = load i8, ptr %13, align 1, !tbaa !26
   %15 = call noundef range(i8 0, -128) i8 @llvm.smax.i8(i8 %14, i8 0)
   %16 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %15, ptr %16, align 1, !tbaa !25
+  store i8 %15, ptr %16, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %12, !llvm.loop !26
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %12, !llvm.loop !27
 
 ._crit_edge.us.i:                                 ; preds = %12
   %17 = add nuw nsw i32 %.01319.us.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %17, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IahNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !27
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IahNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !28
 
 _ZN2cv12cpu_baselineL4cvt_IahNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !12
+  %21 = load i32, ptr %20, align 8, !tbaa !13
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %22
 
@@ -674,25 +674,25 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16u8uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %14, align 2, !tbaa !17
+  %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = call i16 @llvm.umin.i16(i16 %15, i16 255)
   %17 = trunc nuw i16 %16 to i8
   %18 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %17, ptr %18, align 1, !tbaa !25
+  store i8 %17, ptr %18, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !30
 
 ._crit_edge.us.i:                                 ; preds = %13
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IthNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !30
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IthNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !31
 
 _ZN2cv12cpu_baselineL4cvt_IthNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -739,26 +739,26 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16s8uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %14, align 2, !tbaa !17
+  %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = call i16 @llvm.smax.i16(i16 %15, i16 0)
   %17 = call i16 @llvm.umin.i16(i16 %16, i16 255)
   %18 = trunc nuw i16 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %18, ptr %19, align 1, !tbaa !25
+  store i8 %18, ptr %19, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !32
 
 ._crit_edge.us.i:                                 ; preds = %13
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IshNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !32
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IshNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !33
 
 _ZN2cv12cpu_baselineL4cvt_IshNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -805,26 +805,26 @@ define internal void @_ZN2cv12cpu_baselineL8cvt32s8uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i32, ptr %14, align 4, !tbaa !33
+  %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = call i32 @llvm.smax.i32(i32 %15, i32 0)
   %17 = call i32 @llvm.umin.i32(i32 %16, i32 255)
   %18 = trunc nuw i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %18, ptr %19, align 1, !tbaa !25
+  store i8 %18, ptr %19, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !35
 
 ._crit_edge.us.i:                                 ; preds = %13
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IihNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !35
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IihNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !36
 
 _ZN2cv12cpu_baselineL4cvt_IihNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -878,21 +878,21 @@ define internal void @_ZN2cv12cpu_baselineL8cvt32f8uEPKhmS2_mPhmNS_5Size_IiEEPv(
   %19 = call i32 @llvm.umin.i32(i32 %18, i32 255)
   %20 = trunc nuw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %20, ptr %21, align 1, !tbaa !25
+  store i8 %20, ptr %21, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !37
 
 ._crit_edge.us.i:                                 ; preds = %13
   %22 = add nuw nsw i32 %.01319.us.i, 1
   %23 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !37
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !38
 
 _ZN2cv12cpu_baselineL4cvt_IfhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %27
 
@@ -939,28 +939,28 @@ define internal void @_ZN2cv12cpu_baselineL8cvt64f8uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load double, ptr %14, align 8, !tbaa !20
+  %15 = load double, ptr %14, align 8, !tbaa !21
   %16 = insertelement <2 x double> poison, double %15, i64 0
   %17 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %16)
   %18 = call i32 @llvm.smax.i32(i32 %17, i32 0)
   %19 = call i32 @llvm.umin.i32(i32 %18, i32 255)
   %20 = trunc nuw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %20, ptr %21, align 1, !tbaa !25
+  store i8 %20, ptr %21, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !38
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !39
 
 ._crit_edge.us.i:                                 ; preds = %13
   %22 = add nuw nsw i32 %.01319.us.i, 1
   %23 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdhNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !39
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdhNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !40
 
 _ZN2cv12cpu_baselineL4cvt_IdhNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %27
 
@@ -1007,7 +1007,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16f8uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %_ZN2cvL13saturate_castIhEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIhEET_NS_6hfloatE.exit.us.i ]
   %14 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %14, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %14, align 2, !tbaa !18
   %15 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %16 = shl nuw nsw i32 %15, 13
   %17 = and i32 %16, 268427264
@@ -1041,21 +1041,21 @@ _ZN2cvL13saturate_castIhEET_NS_6hfloatE.exit.us.i: ; preds = %25, %20, %13
   %34 = call i32 @llvm.umin.i32(i32 %33, i32 255)
   %35 = trunc nuw i32 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %.01618.us.i, i64 %indvars.iv.i
-  store i8 %35, ptr %36, align 1, !tbaa !25
+  store i8 %35, ptr %36, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !40
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !41
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIhEET_NS_6hfloatE.exit.us.i
   %37 = add nuw nsw i32 %.01519.us.i, 1
   %38 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %39 = getelementptr inbounds nuw i8, ptr %.01618.us.i, i64 %5
   %exitcond24.not.i = icmp eq i32 %37, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL4cvt_INS_6hfloatEhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !41
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL4cvt_INS_6hfloatEhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !42
 
 _ZN2cv12cpu_baselineL4cvt_INS_6hfloatEhNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !12
+  %41 = load i32, ptr %40, align 8, !tbaa !13
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %42
 
@@ -1101,24 +1101,24 @@ define internal void @_ZN2cv12cpu_baselineL7cvt8u8sEPKhmS2_mPhmNS_5Size_IiEEPv(p
 12:                                               ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %14 = load i8, ptr %13, align 1, !tbaa !25
+  %14 = load i8, ptr %13, align 1, !tbaa !26
   %15 = call noundef range(i8 0, -128) i8 @llvm.umin.i8(i8 %14, i8 127)
   %16 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %15, ptr %16, align 1, !tbaa !25
+  store i8 %15, ptr %16, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %12, !llvm.loop !42
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %12, !llvm.loop !43
 
 ._crit_edge.us.i:                                 ; preds = %12
   %17 = add nuw nsw i32 %.01319.us.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %17, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !43
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !44
 
 _ZN2cv12cpu_baselineL4cvt_IhaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !12
+  %21 = load i32, ptr %20, align 8, !tbaa !13
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %22
 
@@ -1165,25 +1165,25 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16u8sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %14, align 2, !tbaa !17
+  %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = call i16 @llvm.umin.i16(i16 %15, i16 127)
   %17 = trunc nuw nsw i16 %16 to i8
   %18 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %17, ptr %18, align 1, !tbaa !25
+  store i8 %17, ptr %18, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !44
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !45
 
 ._crit_edge.us.i:                                 ; preds = %13
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItaNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !45
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItaNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !46
 
 _ZN2cv12cpu_baselineL4cvt_ItaNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -1230,26 +1230,26 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16s8sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %14, align 2, !tbaa !17
+  %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = call i16 @llvm.smax.i16(i16 %15, i16 -128)
   %17 = call i16 @llvm.smin.i16(i16 %16, i16 127)
   %18 = trunc nsw i16 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %18, ptr %19, align 1, !tbaa !25
+  store i8 %18, ptr %19, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !46
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !47
 
 ._crit_edge.us.i:                                 ; preds = %13
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !47
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !48
 
 _ZN2cv12cpu_baselineL4cvt_IsaNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -1296,26 +1296,26 @@ define internal void @_ZN2cv12cpu_baselineL8cvt32s8sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i32, ptr %14, align 4, !tbaa !33
+  %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = call i32 @llvm.smax.i32(i32 %15, i32 -128)
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 127)
   %18 = trunc nsw i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %18, ptr %19, align 1, !tbaa !25
+  store i8 %18, ptr %19, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !48
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !49
 
 ._crit_edge.us.i:                                 ; preds = %13
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IiaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !49
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IiaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !50
 
 _ZN2cv12cpu_baselineL4cvt_IiaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -1369,21 +1369,21 @@ define internal void @_ZN2cv12cpu_baselineL8cvt32f8sEPKhmS2_mPhmNS_5Size_IiEEPv(
   %19 = call i32 @llvm.smin.i32(i32 %18, i32 127)
   %20 = trunc nsw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %20, ptr %21, align 1, !tbaa !25
+  store i8 %20, ptr %21, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !50
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !51
 
 ._crit_edge.us.i:                                 ; preds = %13
   %22 = add nuw nsw i32 %.01319.us.i, 1
   %23 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !51
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !52
 
 _ZN2cv12cpu_baselineL4cvt_IfaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %27
 
@@ -1430,28 +1430,28 @@ define internal void @_ZN2cv12cpu_baselineL8cvt64f8sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load double, ptr %14, align 8, !tbaa !20
+  %15 = load double, ptr %14, align 8, !tbaa !21
   %16 = insertelement <2 x double> poison, double %15, i64 0
   %17 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %16)
   %18 = call i32 @llvm.smax.i32(i32 %17, i32 -128)
   %19 = call i32 @llvm.smin.i32(i32 %18, i32 127)
   %20 = trunc nsw i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i8 %20, ptr %21, align 1, !tbaa !25
+  store i8 %20, ptr %21, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !52
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !53
 
 ._crit_edge.us.i:                                 ; preds = %13
   %22 = add nuw nsw i32 %.01319.us.i, 1
   %23 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %24 = getelementptr inbounds nuw i8, ptr %.01418.us.i, i64 %5
   %exitcond23.not.i = icmp eq i32 %22, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !53
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !54
 
 _ZN2cv12cpu_baselineL4cvt_IdaNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %27
 
@@ -1498,7 +1498,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt16f8sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %_ZN2cvL13saturate_castIaEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIaEET_NS_6hfloatE.exit.us.i ]
   %14 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %14, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %14, align 2, !tbaa !18
   %15 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %16 = shl nuw nsw i32 %15, 13
   %17 = and i32 %16, 268427264
@@ -1532,21 +1532,21 @@ _ZN2cvL13saturate_castIaEET_NS_6hfloatE.exit.us.i: ; preds = %25, %20, %13
   %34 = call i32 @llvm.smin.i32(i32 %33, i32 127)
   %35 = trunc nsw i32 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %.01618.us.i, i64 %indvars.iv.i
-  store i8 %35, ptr %36, align 1, !tbaa !25
+  store i8 %35, ptr %36, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !54
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !55
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIaEET_NS_6hfloatE.exit.us.i
   %37 = add nuw nsw i32 %.01519.us.i, 1
   %38 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %39 = getelementptr inbounds nuw i8, ptr %.01618.us.i, i64 %5
   %exitcond24.not.i = icmp eq i32 %37, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL4cvt_INS_6hfloatEaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !55
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL4cvt_INS_6hfloatEaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !56
 
 _ZN2cv12cpu_baselineL4cvt_INS_6hfloatEaNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !12
+  %41 = load i32, ptr %40, align 8, !tbaa !13
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %42
 
@@ -1593,24 +1593,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = zext i8 %15 to i16
   %17 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %16, ptr %17, align 2, !tbaa !17
+  store i16 %16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !56
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !57
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhtNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !57
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhtNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !58
 
 _ZN2cv12cpu_baselineL4cvt_IhtNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -1657,25 +1657,25 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s16uEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = call i8 @llvm.smax.i8(i8 %15, i8 0)
   %17 = zext nneg i8 %16 to i16
   %18 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %17, ptr %18, align 2, !tbaa !17
+  store i16 %17, ptr %18, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !58
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !59
 
 ._crit_edge.us.i:                                 ; preds = %13
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %21 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IatNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !59
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IatNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !60
 
 _ZN2cv12cpu_baselineL4cvt_IatNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -1716,11 +1716,11 @@ define internal void @_ZN2cv12cpu_baselineL6cvt16uEPKhmS2_mPhmNS_5Size_IiEEPv(pt
   %13 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 %5
   %exitcond.not.i = icmp eq i32 %12, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit: ; preds = %.lr.ph.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !13
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %17
 
@@ -1768,24 +1768,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s16uEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = call noundef range(i16 0, -32768) i16 @llvm.smax.i16(i16 %16, i16 0)
   %18 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %17, ptr %18, align 2, !tbaa !17
+  store i16 %17, ptr %18, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !60
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !61
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IstNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !61
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IstNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !62
 
 _ZN2cv12cpu_baselineL4cvt_IstNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -1833,26 +1833,26 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s16uEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = call i32 @llvm.umin.i32(i32 %17, i32 65535)
   %19 = trunc nuw i32 %18 to i16
   %20 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2, !tbaa !17
+  store i16 %19, ptr %20, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !62
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !63
 
 ._crit_edge.us.i:                                 ; preds = %14
   %21 = add nuw nsw i32 %.01319.us.i, 1
   %22 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %23 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %21, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IitNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !63
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IitNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !64
 
 _ZN2cv12cpu_baselineL4cvt_IitNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !12
+  %25 = load i32, ptr %24, align 8, !tbaa !13
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %26
 
@@ -1907,21 +1907,21 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f16uEPKhmS2_mPhmNS_5Size_IiEEPv
   %20 = call i32 @llvm.umin.i32(i32 %19, i32 65535)
   %21 = trunc nuw i32 %20 to i16
   %22 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %21, ptr %22, align 2, !tbaa !17
+  store i16 %21, ptr %22, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !64
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !65
 
 ._crit_edge.us.i:                                 ; preds = %14
   %23 = add nuw nsw i32 %.01319.us.i, 1
   %24 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %25 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IftNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !65
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IftNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !66
 
 _ZN2cv12cpu_baselineL4cvt_IftNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !12
+  %27 = load i32, ptr %26, align 8, !tbaa !13
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
 
@@ -1969,28 +1969,28 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f16uEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !20
+  %16 = load double, ptr %15, align 8, !tbaa !21
   %17 = insertelement <2 x double> poison, double %16, i64 0
   %18 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %17)
   %19 = call i32 @llvm.smax.i32(i32 %18, i32 0)
   %20 = call i32 @llvm.umin.i32(i32 %19, i32 65535)
   %21 = trunc nuw i32 %20 to i16
   %22 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %21, ptr %22, align 2, !tbaa !17
+  store i16 %21, ptr %22, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !66
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !67
 
 ._crit_edge.us.i:                                 ; preds = %14
   %23 = add nuw nsw i32 %.01319.us.i, 1
   %24 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %25 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdtNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !67
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdtNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !68
 
 _ZN2cv12cpu_baselineL4cvt_IdtNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !12
+  %27 = load i32, ptr %26, align 8, !tbaa !13
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
 
@@ -2038,7 +2038,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16f16uEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castItEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castItEET_NS_6hfloatE.exit.us.i ]
   %15 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !18
   %16 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %17 = shl nuw nsw i32 %16, 13
   %18 = and i32 %17, 268427264
@@ -2072,21 +2072,21 @@ _ZN2cvL13saturate_castItEET_NS_6hfloatE.exit.us.i: ; preds = %26, %21, %14
   %35 = call i32 @llvm.umin.i32(i32 %34, i32 65535)
   %36 = trunc nuw i32 %35 to i16
   %37 = getelementptr inbounds nuw i16, ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %36, ptr %37, align 2, !tbaa !17
+  store i16 %36, ptr %37, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !68
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !69
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castItEET_NS_6hfloatE.exit.us.i
   %38 = add nuw nsw i32 %.01519.us.i, 1
   %39 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %40 = getelementptr inbounds nuw i16, ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %38, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEtNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !69
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEtNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !70
 
 _ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEtNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !12
+  %42 = load i32, ptr %41, align 8, !tbaa !13
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %43
 
@@ -2133,24 +2133,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = zext i8 %15 to i16
   %17 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %16, ptr %17, align 2, !tbaa !17
+  store i16 %16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !70
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !71
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !71
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !72
 
 _ZN2cv12cpu_baselineL4cvt_IhsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -2197,24 +2197,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s16sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = sext i8 %15 to i16
   %17 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %16, ptr %17, align 2, !tbaa !17
+  store i16 %16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !73
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IasNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !73
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IasNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !74
 
 _ZN2cv12cpu_baselineL4cvt_IasNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -2262,24 +2262,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = call noundef range(i16 0, -32768) i16 @llvm.umin.i16(i16 %16, i16 32767)
   %18 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %17, ptr %18, align 2, !tbaa !17
+  store i16 %17, ptr %18, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !74
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !75
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !75
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !76
 
 _ZN2cv12cpu_baselineL4cvt_ItsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -2327,26 +2327,26 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s16sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = call i32 @llvm.smax.i32(i32 %16, i32 -32768)
   %18 = call i32 @llvm.smin.i32(i32 %17, i32 32767)
   %19 = trunc nsw i32 %18 to i16
   %20 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2, !tbaa !17
+  store i16 %19, ptr %20, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !76
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !77
 
 ._crit_edge.us.i:                                 ; preds = %14
   %21 = add nuw nsw i32 %.01319.us.i, 1
   %22 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %23 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %21, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IisNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !77
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IisNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !78
 
 _ZN2cv12cpu_baselineL4cvt_IisNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !12
+  %25 = load i32, ptr %24, align 8, !tbaa !13
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %26
 
@@ -2401,21 +2401,21 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f16sEPKhmS2_mPhmNS_5Size_IiEEPv
   %20 = call i32 @llvm.smin.i32(i32 %19, i32 32767)
   %21 = trunc nsw i32 %20 to i16
   %22 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %21, ptr %22, align 2, !tbaa !17
+  store i16 %21, ptr %22, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !78
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !79
 
 ._crit_edge.us.i:                                 ; preds = %14
   %23 = add nuw nsw i32 %.01319.us.i, 1
   %24 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %25 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !79
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !80
 
 _ZN2cv12cpu_baselineL4cvt_IfsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !12
+  %27 = load i32, ptr %26, align 8, !tbaa !13
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
 
@@ -2463,28 +2463,28 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f16sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !20
+  %16 = load double, ptr %15, align 8, !tbaa !21
   %17 = insertelement <2 x double> poison, double %16, i64 0
   %18 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %17)
   %19 = call i32 @llvm.smax.i32(i32 %18, i32 -32768)
   %20 = call i32 @llvm.smin.i32(i32 %19, i32 32767)
   %21 = trunc nsw i32 %20 to i16
   %22 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i16 %21, ptr %22, align 2, !tbaa !17
+  store i16 %21, ptr %22, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !80
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !81
 
 ._crit_edge.us.i:                                 ; preds = %14
   %23 = add nuw nsw i32 %.01319.us.i, 1
   %24 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %25 = getelementptr inbounds nuw i16, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %23, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !81
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !82
 
 _ZN2cv12cpu_baselineL4cvt_IdsNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !12
+  %27 = load i32, ptr %26, align 8, !tbaa !13
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %28
 
@@ -2532,7 +2532,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16f16sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castIsEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIsEET_NS_6hfloatE.exit.us.i ]
   %15 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !18
   %16 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %17 = shl nuw nsw i32 %16, 13
   %18 = and i32 %17, 268427264
@@ -2566,21 +2566,21 @@ _ZN2cvL13saturate_castIsEET_NS_6hfloatE.exit.us.i: ; preds = %26, %21, %14
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
   %37 = getelementptr inbounds nuw i16, ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %36, ptr %37, align 2, !tbaa !17
+  store i16 %36, ptr %37, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !82
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !83
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIsEET_NS_6hfloatE.exit.us.i
   %38 = add nuw nsw i32 %.01519.us.i, 1
   %39 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %40 = getelementptr inbounds nuw i16, ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %38, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !83
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !84
 
 _ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEsNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !12
+  %42 = load i32, ptr %41, align 8, !tbaa !13
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %43
 
@@ -2627,24 +2627,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u32sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %16, ptr %17, align 4, !tbaa !33
+  store i32 %16, ptr %17, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !84
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !85
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !85
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !86
 
 _ZN2cv12cpu_baselineL4cvt_IhiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -2691,24 +2691,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s32sEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = sext i8 %15 to i32
   %17 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %16, ptr %17, align 4, !tbaa !33
+  store i32 %16, ptr %17, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !86
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !87
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IaiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !87
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IaiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !88
 
 _ZN2cv12cpu_baselineL4cvt_IaiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -2756,24 +2756,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u32sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = zext i16 %16 to i32
   %18 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %17, ptr %18, align 4, !tbaa !33
+  store i32 %17, ptr %18, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !88
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !89
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !89
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !90
 
 _ZN2cv12cpu_baselineL4cvt_ItiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -2821,24 +2821,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s32sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = sext i16 %16 to i32
   %18 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %17, ptr %18, align 4, !tbaa !33
+  store i32 %17, ptr %18, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !90
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !91
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !91
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !92
 
 _ZN2cv12cpu_baselineL4cvt_IsiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -2879,11 +2879,11 @@ define internal void @_ZN2cv12cpu_baselineL6cvt32sEPKhmS2_mPhmNS_5Size_IiEEPv(pt
   %13 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 %5
   %exitcond.not.i = icmp eq i32 %12, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit: ; preds = %.lr.ph.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !13
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %17
 
@@ -2935,21 +2935,21 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f32sEPKhmS2_mPhmNS_5Size_IiEEPv
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %17)
   %19 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %18, ptr %19, align 4, !tbaa !33
+  store i32 %18, ptr %19, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !92
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !93
 
 ._crit_edge.us.i:                                 ; preds = %14
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !93
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !94
 
 _ZN2cv12cpu_baselineL4cvt_IfiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -2997,25 +2997,25 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f32sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !20
+  %16 = load double, ptr %15, align 8, !tbaa !21
   %17 = insertelement <2 x double> poison, double %16, i64 0
   %18 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %17)
   %19 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %indvars.iv.i
-  store i32 %18, ptr %19, align 4, !tbaa !33
+  store i32 %18, ptr %19, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !94
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !95
 
 ._crit_edge.us.i:                                 ; preds = %14
   %20 = add nuw nsw i32 %.01319.us.i, 1
   %21 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %22 = getelementptr inbounds nuw i32, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %20, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !95
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !96
 
 _ZN2cv12cpu_baselineL4cvt_IdiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !13
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %25
 
@@ -3063,7 +3063,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16f32sEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castIiEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIiEET_NS_6hfloatE.exit.us.i ]
   %15 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !18
   %16 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %17 = shl nuw nsw i32 %16, 13
   %18 = and i32 %17, 268427264
@@ -3094,21 +3094,21 @@ _ZN2cvL13saturate_castIiEET_NS_6hfloatE.exit.us.i: ; preds = %26, %21, %14
   %32 = bitcast <4 x i32> %31 to <4 x float>
   %33 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %32)
   %34 = getelementptr inbounds nuw i32, ptr %.01618.us.i, i64 %indvars.iv.i
-  store i32 %33, ptr %34, align 4, !tbaa !33
+  store i32 %33, ptr %34, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !96
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !97
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIiEET_NS_6hfloatE.exit.us.i
   %35 = add nuw nsw i32 %.01519.us.i, 1
   %36 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %37 = getelementptr inbounds nuw i32, ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %35, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !97
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !98
 
 _ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEiNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !12
+  %39 = load i32, ptr %38, align 8, !tbaa !13
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %40
 
@@ -3155,24 +3155,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u32fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = uitofp i8 %15 to float
   %17 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !98
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !99
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !99
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !100
 
 _ZN2cv12cpu_baselineL4cvt_IhfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -3219,24 +3219,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s32fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = sitofp i8 %15 to float
   %17 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !100
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !101
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IafNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !101
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IafNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !102
 
 _ZN2cv12cpu_baselineL4cvt_IafNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -3284,24 +3284,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u32fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = uitofp i16 %16 to float
   %18 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %17, ptr %18, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !102
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !103
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !103
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !104
 
 _ZN2cv12cpu_baselineL4cvt_ItfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3349,24 +3349,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s32fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = sitofp i16 %16 to float
   %18 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %17, ptr %18, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !104
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !105
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !105
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !106
 
 _ZN2cv12cpu_baselineL4cvt_IsfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3414,24 +3414,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s32fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = sitofp i32 %16 to float
   %18 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %17, ptr %18, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !106
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !107
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IifNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !107
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IifNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !108
 
 _ZN2cv12cpu_baselineL4cvt_IifNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3479,24 +3479,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f32fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !20
+  %16 = load double, ptr %15, align 8, !tbaa !21
   %17 = fptrunc double %16 to float
   %18 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %indvars.iv.i
   store float %17, ptr %18, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !108
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !109
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw double, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw float, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !109
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IdfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !110
 
 _ZN2cv12cpu_baselineL4cvt_IdfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3544,7 +3544,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16f32fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castIfEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIfEET_NS_6hfloatE.exit.us.i ]
   %15 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !18
   %16 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %17 = shl nuw nsw i32 %16, 13
   %18 = and i32 %17, 268427264
@@ -3575,18 +3575,18 @@ _ZN2cvL13saturate_castIfEET_NS_6hfloatE.exit.us.i: ; preds = %26, %21, %14
   store i32 %30, ptr %31, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !110
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !111
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIfEET_NS_6hfloatE.exit.us.i
   %32 = add nuw nsw i32 %.01519.us.i, 1
   %33 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %34 = getelementptr inbounds nuw float, ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %32, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !111
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !112
 
 _ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !12
+  %36 = load i32, ptr %35, align 8, !tbaa !13
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %37
 
@@ -3633,24 +3633,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u64fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = uitofp i8 %15 to double
   %17 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %16, ptr %17, align 8, !tbaa !20
+  store double %16, ptr %17, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !112
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !113
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !113
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IhdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !114
 
 _ZN2cv12cpu_baselineL4cvt_IhdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -3697,24 +3697,24 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s64fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %13, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = sitofp i8 %15 to double
   %17 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %16, ptr %17, align 8, !tbaa !20
+  store double %16, ptr %17, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !114
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !115
 
 ._crit_edge.us.i:                                 ; preds = %13
   %18 = add nuw nsw i32 %.01319.us.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01517.us.i, i64 %1
   %20 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %10
   %exitcond23.not.i = icmp eq i32 %18, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IadNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !115
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IadNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !116
 
 _ZN2cv12cpu_baselineL4cvt_IadNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !12
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %23
 
@@ -3762,24 +3762,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u64fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = uitofp i16 %16 to double
   %18 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %17, ptr %18, align 8, !tbaa !20
+  store double %17, ptr %18, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !116
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !117
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !117
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_ItdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !118
 
 _ZN2cv12cpu_baselineL4cvt_ItdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3827,24 +3827,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s64fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = sitofp i16 %16 to double
   %18 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %17, ptr %18, align 8, !tbaa !20
+  store double %17, ptr %18, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !118
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !119
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i16, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !119
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IsdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !120
 
 _ZN2cv12cpu_baselineL4cvt_IsdNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3892,24 +3892,24 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s64fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %14, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = sitofp i32 %16 to double
   %18 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %17, ptr %18, align 8, !tbaa !20
+  store double %17, ptr %18, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !120
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !121
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw i32, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IidNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !121
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IidNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !122
 
 _ZN2cv12cpu_baselineL4cvt_IidNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -3960,21 +3960,21 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32f64fEPKhmS2_mPhmNS_5Size_IiEEPv
   %16 = load float, ptr %15, align 4, !tbaa !8
   %17 = fpext float %16 to double
   %18 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %indvars.iv.i
-  store double %17, ptr %18, align 8, !tbaa !20
+  store double %17, ptr %18, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !122
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !123
 
 ._crit_edge.us.i:                                 ; preds = %14
   %19 = add nuw nsw i32 %.01319.us.i, 1
   %20 = getelementptr inbounds nuw float, ptr %.01517.us.i, i64 %10
   %21 = getelementptr inbounds nuw double, ptr %.01418.us.i, i64 %11
   %exitcond23.not.i = icmp eq i32 %19, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !123
+  br i1 %exitcond23.not.i, label %_ZN2cv12cpu_baselineL4cvt_IfdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !124
 
 _ZN2cv12cpu_baselineL4cvt_IfdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !12
+  %23 = load i32, ptr %22, align 8, !tbaa !13
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %24
 
@@ -4015,11 +4015,11 @@ define internal void @_ZN2cv12cpu_baselineL6cvt64sEPKhmS2_mPhmNS_5Size_IiEEPv(pt
   %13 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 %5
   %exitcond.not.i = icmp eq i32 %12, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN2cv12cpu_baselineL7cvtCopyEPKhmPhmNS_5Size_IiEEm.exit: ; preds = %.lr.ph.i, %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 8, !tbaa !13
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %17
 
@@ -4067,7 +4067,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16f64fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castIdEET_NS_6hfloatE.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castIdEET_NS_6hfloatE.exit.us.i ]
   %15 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !17
+  %.sroa.0.0.copyload.us.i = load i16, ptr %15, align 2, !tbaa !18
   %16 = zext i16 %.sroa.0.0.copyload.us.i to i32
   %17 = shl nuw nsw i32 %16, 13
   %18 = and i32 %17, 268427264
@@ -4097,21 +4097,21 @@ _ZN2cvL13saturate_castIdEET_NS_6hfloatE.exit.us.i: ; preds = %26, %21, %14
   %31 = bitcast i32 %30 to float
   %32 = fpext float %31 to double
   %33 = getelementptr inbounds nuw double, ptr %.01618.us.i, i64 %indvars.iv.i
-  store double %32, ptr %33, align 8, !tbaa !20
+  store double %32, ptr %33, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !124
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !125
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castIdEET_NS_6hfloatE.exit.us.i
   %34 = add nuw nsw i32 %.01519.us.i, 1
   %35 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.020.us.i, i64 %10
   %36 = getelementptr inbounds nuw double, ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %34, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !125
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !126
 
 _ZN2cv12cpu_baselineL5cvt1_INS_6hfloatEdNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !12
+  %38 = load i32, ptr %37, align 8, !tbaa !13
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %39
 
@@ -4158,7 +4158,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = uitofp i8 %15 to float
   %17 = bitcast float %16 to i32
   %18 = icmp samesign ugt i32 %17, 1199570943
@@ -4191,21 +4191,21 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(
 _ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i: ; preds = %32, %28, %21
   %35 = phi i16 [ %31, %28 ], [ %27, %21 ], [ %34, %32 ]
   %36 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %35, ptr %36, align 2, !tbaa !17
+  store i16 %35, ptr %36, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !126
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !127
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_h.exit.us.i
   %37 = add nuw nsw i32 %.01519.us.i, 1
   %38 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %1
   %39 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %10
   %exitcond24.not.i = icmp eq i32 %37, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IhNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !127
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IhNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !128
 
 _ZN2cv12cpu_baselineL5cvt1_IhNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !12
+  %41 = load i32, ptr %40, align 8, !tbaa !13
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %42
 
@@ -4252,7 +4252,7 @@ define internal void @_ZN2cv12cpu_baselineL8cvt8s16fEPKhmS2_mPhmNS_5Size_IiEEPv(
 13:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = sitofp i8 %15 to float
   %17 = call float @llvm.fabs.f32(float %16)
   %18 = bitcast float %17 to i32
@@ -4291,21 +4291,21 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i: ; preds = %33, %29, %22
   %40 = and i16 %39, -32768
   %41 = or i16 %36, %40
   %42 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %41, ptr %42, align 2, !tbaa !17
+  store i16 %41, ptr %42, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !128
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !129
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_a.exit.us.i
   %43 = add nuw nsw i32 %.01519.us.i, 1
   %44 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %1
   %45 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %10
   %exitcond24.not.i = icmp eq i32 %43, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IaNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !129
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IaNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !130
 
 _ZN2cv12cpu_baselineL5cvt1_IaNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !12
+  %47 = load i32, ptr %46, align 8, !tbaa !13
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %48
 
@@ -4353,7 +4353,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i ]
   %15 = getelementptr inbounds nuw i16, ptr %.020.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = uitofp i16 %16 to float
   %18 = bitcast float %17 to i32
   %19 = icmp samesign ugt i32 %18, 1199570943
@@ -4386,21 +4386,21 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16fEPKhmS2_mPhmNS_5Size_IiEEPv
 _ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i: ; preds = %33, %29, %22
   %36 = phi i16 [ %32, %29 ], [ %28, %22 ], [ %35, %33 ]
   %37 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %36, ptr %37, align 2, !tbaa !17
+  store i16 %36, ptr %37, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !130
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !131
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_t.exit.us.i
   %38 = add nuw nsw i32 %.01519.us.i, 1
   %39 = getelementptr inbounds nuw i16, ptr %.020.us.i, i64 %10
   %40 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %38, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_ItNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !131
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_ItNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !132
 
 _ZN2cv12cpu_baselineL5cvt1_ItNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !12
+  %42 = load i32, ptr %41, align 8, !tbaa !13
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %43
 
@@ -4448,7 +4448,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s16fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i ]
   %15 = getelementptr inbounds nuw i16, ptr %.020.us.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %16 = load i16, ptr %15, align 2, !tbaa !18
   %17 = sitofp i16 %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
@@ -4487,21 +4487,21 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i: ; preds = %34, %30, %23
   %41 = and i16 %40, -32768
   %42 = or i16 %37, %41
   %43 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %42, ptr %43, align 2, !tbaa !17
+  store i16 %42, ptr %43, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !132
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !133
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_s.exit.us.i
   %44 = add nuw nsw i32 %.01519.us.i, 1
   %45 = getelementptr inbounds nuw i16, ptr %.020.us.i, i64 %10
   %46 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %44, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IsNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !133
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IsNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !134
 
 _ZN2cv12cpu_baselineL5cvt1_IsNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !12
+  %48 = load i32, ptr %47, align 8, !tbaa !13
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %49
 
@@ -4549,7 +4549,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt32s16fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i ]
   %15 = getelementptr inbounds nuw i32, ptr %.020.us.i, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = sitofp i32 %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
@@ -4588,21 +4588,21 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i: ; preds = %34, %30, %23
   %41 = and i16 %40, -32768
   %42 = or i16 %37, %41
   %43 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %42, ptr %43, align 2, !tbaa !17
+  store i16 %42, ptr %43, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !134
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !135
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_i.exit.us.i
   %44 = add nuw nsw i32 %.01519.us.i, 1
   %45 = getelementptr inbounds nuw i32, ptr %.020.us.i, i64 %10
   %46 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %44, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IiNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !135
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IiNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !136
 
 _ZN2cv12cpu_baselineL5cvt1_IiNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !12
+  %48 = load i32, ptr %47, align 8, !tbaa !13
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %49
 
@@ -4688,21 +4688,21 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i: ; preds = %33, %29, %22
   %40 = and i16 %39, -32768
   %41 = or i16 %36, %40
   %42 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %41, ptr %42, align 2, !tbaa !17
+  store i16 %41, ptr %42, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !136
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !137
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_f.exit.us.i
   %43 = add nuw nsw i32 %.01519.us.i, 1
   %44 = getelementptr inbounds nuw float, ptr %.020.us.i, i64 %10
   %45 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %43, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IfNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !137
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IfNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !138
 
 _ZN2cv12cpu_baselineL5cvt1_IfNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !12
+  %47 = load i32, ptr %46, align 8, !tbaa !13
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %48
 
@@ -4750,7 +4750,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt64f16fEPKhmS2_mPhmNS_5Size_IiEEPv
 14:                                               ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i ]
   %15 = getelementptr inbounds nuw double, ptr %.020.us.i, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 8, !tbaa !20
+  %16 = load double, ptr %15, align 8, !tbaa !21
   %17 = fptrunc double %16 to float
   %18 = call float @llvm.fabs.f32(float %17)
   %19 = bitcast float %18 to i32
@@ -4789,21 +4789,21 @@ _ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i: ; preds = %34, %30, %23
   %41 = and i16 %40, -32768
   %42 = or i16 %37, %41
   %43 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %indvars.iv.i
-  store i16 %42, ptr %43, align 2, !tbaa !17
+  store i16 %42, ptr %43, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !138
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !139
 
 ._crit_edge.us.i:                                 ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.us.i
   %44 = add nuw nsw i32 %.01519.us.i, 1
   %45 = getelementptr inbounds nuw double, ptr %.020.us.i, i64 %10
   %46 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %.01618.us.i, i64 %11
   %exitcond24.not.i = icmp eq i32 %44, %.sroa.2.0.extract.trunc.i
-  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IdNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !139
+  br i1 %exitcond24.not.i, label %_ZN2cv12cpu_baselineL5cvt1_IdNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit, label %.preheader.us.i, !llvm.loop !140
 
 _ZN2cv12cpu_baselineL5cvt1_IdNS_6hfloatENS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPT0_mNS_5Size_IiEE.exit: ; preds = %._crit_edge.us.i, %8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !12
+  %48 = load i32, ptr %47, align 8, !tbaa !13
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %49
 
@@ -4879,7 +4879,7 @@ _ZNK2cv6hfloatcvfEv.exit.i:                       ; preds = %16, %14, %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK2cv6hfloatcvfEv.exit.i, %.noexc
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %31, label %27
 
@@ -4897,7 +4897,7 @@ _ZNK2cv6hfloatcvfEv.exit.i:                       ; preds = %16, %14, %.lr.ph.i
 31:                                               ; preds = %27, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !12
+  %33 = load i32, ptr %32, align 8, !tbaa !13
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %34
 
@@ -4983,14 +4983,14 @@ _ZN2cv6hfloatC2Ef.exit.i:                         ; preds = %21, %17, %12
   %32 = and i16 %31, -32768
   %33 = or i16 %28, %32
   %34 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %1, i64 %indvars.iv.i
-  store i16 %33, ptr %34, align 2, !tbaa !17
+  store i16 %33, ptr %34, align 2, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %_ZN2cv6hfloatC2Ef.exit.i, %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !12
+  %36 = load i32, ptr %35, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %41, label %37
 
@@ -5008,7 +5008,7 @@ _ZN2cv6hfloatC2Ef.exit.i:                         ; preds = %21, %17, %12
 41:                                               ; preds = %37, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !12
+  %43 = load i32, ptr %42, align 8, !tbaa !13
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %44
 
@@ -5056,7 +5056,7 @@ define void @_ZN2cv3hal13addRNGBias32fEPfPKfi(ptr noundef captures(none) %0, ptr
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %17, label %9
 
@@ -5082,12 +5082,12 @@ define void @_ZN2cv3hal13addRNGBias32fEPfPKfi(ptr noundef captures(none) %0, ptr
   store float %16, ptr %14, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 17:                                               ; preds = %9, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !12
+  %19 = load i32, ptr %18, align 8, !tbaa !13
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %20
 
@@ -5135,7 +5135,7 @@ define void @_ZN2cv3hal13addRNGBias64fEPdPKdi(ptr noundef captures(none) %0, ptr
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %8 = load i32, ptr %7, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %17, label %9
 
@@ -5154,19 +5154,19 @@ define void @_ZN2cv3hal13addRNGBias64fEPdPKdi(ptr noundef captures(none) %0, ptr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %gep.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %gep.idx.i
-  %13 = load double, ptr %gep.i, align 8, !tbaa !20
+  %13 = load double, ptr %gep.i, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
-  %15 = load double, ptr %14, align 8, !tbaa !20
+  %15 = load double, ptr %14, align 8, !tbaa !21
   %16 = fadd double %13, %15
-  store double %16, ptr %14, align 8, !tbaa !20
+  store double %16, ptr %14, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 17:                                               ; preds = %9, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !12
+  %19 = load i32, ptr %18, align 8, !tbaa !13
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %20
 
@@ -5204,9 +5204,9 @@ define hidden noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %0, i32 noundef
   %7 = and i32 %0, 7
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !12
+  %12 = load i32, ptr %11, align 8, !tbaa !13
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %13
 
@@ -5256,7 +5256,7 @@ define void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull a
   br label %170
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %0, align 8, !tbaa !140
+  %22 = load i32, ptr %0, align 8, !tbaa !141
   %23 = and i32 %22, 7
   %24 = icmp sgt i32 %2, -1
   br i1 %24, label %25, label %27
@@ -5303,7 +5303,7 @@ define void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull a
   br label %170
 
 45:                                               ; preds = %34
-  %46 = load i32, ptr %0, align 8, !tbaa !140
+  %46 = load i32, ptr %0, align 8, !tbaa !141
   %47 = lshr i32 %46, 3
   %48 = and i32 %47, 511
   %49 = add nuw nsw i32 %48, 1
@@ -5317,9 +5317,9 @@ define void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull a
   %53 = add nsw i32 %52, -8
   %54 = or disjoint i32 %53, %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !149
+  %56 = load i32, ptr %55, align 4, !tbaa !150
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !150
+  %58 = load ptr, ptr %57, align 8, !tbaa !151
   invoke void @_ZNK2cv12_OutputArray6createEiPKiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %56, ptr noundef %58, i32 noundef %54, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %59 unwind label %70
 
@@ -5334,7 +5334,7 @@ define void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull a
 
 62:                                               ; preds = %.noexc
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !151, !noalias !154
+  %64 = load ptr, ptr %63, align 8, !tbaa !152, !noalias !155
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %64)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %72
 
@@ -5343,7 +5343,7 @@ define void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull a
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %72
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %62, %65
-  %66 = load i32, ptr %55, align 4, !tbaa !149
+  %66 = load i32, ptr %55, align 4, !tbaa !150
   %67 = icmp slt i32 %66, 3
   br i1 %67, label %84, label %74
 
@@ -5363,13 +5363,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %62, %65
   br label %167
 
 74:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  %75 = load i32, ptr %8, align 8, !tbaa !140
+  %75 = load i32, ptr %8, align 8, !tbaa !141
   %76 = and i32 %75, 16384
   %.not = icmp eq i32 %76, 0
   br i1 %.not, label %84, label %77
 
 77:                                               ; preds = %74
-  %78 = load i32, ptr %9, align 8, !tbaa !140
+  %78 = load i32, ptr %9, align 8, !tbaa !141
   %79 = and i32 %78, 16384
   %.not116 = icmp eq i32 %79, 0
   br i1 %.not116, label %84, label %80
@@ -5396,9 +5396,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %62, %65
   %87 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 0, i64 %86
   %88 = zext nneg i32 %23 to i64
   %89 = getelementptr inbounds nuw [8 x ptr], ptr %87, i64 0, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !23
+  %90 = load ptr, ptr %89, align 8, !tbaa !24
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !12
+  %92 = load i32, ptr %91, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %92, 0
   br i1 %.not.i.i, label %_ZN2cv14getConvertFuncEii.exit, label %93
 
@@ -5424,9 +5424,9 @@ _ZN2cv14getConvertFuncEii.exit:                   ; preds = %.noexc112, %93
 99:                                               ; preds = %_ZN2cv14getConvertFuncEii.exit, %97
   %100 = phi ptr [ %90, %_ZN2cv14getConvertFuncEii.exit ], [ %98, %97 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
-  store double %3, ptr %10, align 16, !tbaa !20
+  store double %3, ptr %10, align 16, !tbaa !21
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %4, ptr %101, align 8, !tbaa !20
+  store double %4, ptr %101, align 8, !tbaa !21
   %.not88 = icmp eq ptr %100, null
   br i1 %.not88, label %104, label %117
 
@@ -5456,14 +5456,14 @@ _ZN2cv14getConvertFuncEii.exit:                   ; preds = %.noexc112, %93
 109:                                              ; preds = %105
   %110 = landingpad { ptr, i32 }
           cleanup
-  %111 = load ptr, ptr %11, align 8, !tbaa !157
+  %111 = load ptr, ptr %11, align 8, !tbaa !158
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %113 = icmp eq ptr %111, %112
   br i1 %113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114: ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %115 = load i64, ptr %114, align 8, !tbaa !161
+  %115 = load i64, ptr %114, align 8, !tbaa !162
   %116 = icmp ult i64 %115, 16
   call void @llvm.assume(i1 %116)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115
@@ -5479,7 +5479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
   br label %165
 
 117:                                              ; preds = %99
-  %118 = load i32, ptr %55, align 4, !tbaa !149
+  %118 = load i32, ptr %55, align 4, !tbaa !150
   %119 = icmp slt i32 %118, 3
   br i1 %119, label %120, label %133
 
@@ -5489,13 +5489,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %124 = load ptr, ptr %123, align 8, !tbaa !162
+  %124 = load ptr, ptr %123, align 8, !tbaa !163
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %126 = load i64, ptr %125, align 8, !tbaa !163
+  %126 = load i64, ptr %125, align 8, !tbaa !164
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !162
+  %128 = load ptr, ptr %127, align 8, !tbaa !163
   %129 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %130 = load i64, ptr %129, align 8, !tbaa !163
+  %130 = load i64, ptr %129, align 8, !tbaa !164
   invoke void %100(ptr noundef %124, i64 noundef %126, ptr noundef null, i64 noundef 0, ptr noundef %128, i64 noundef %130, i64 %121, ptr noundef nonnull %10)
           to label %.critedge unwind label %131
 
@@ -5506,11 +5506,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 133:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
-  store ptr %8, ptr %13, align 16, !tbaa !164
+  store ptr %8, ptr %13, align 16, !tbaa !165
   %134 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %9, ptr %134, align 8, !tbaa !164
+  store ptr %9, ptr %134, align 8, !tbaa !165
   %135 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %135, align 16, !tbaa !164
+  store ptr null, ptr %135, align 16, !tbaa !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #17
@@ -5519,7 +5519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %138 = load i64, ptr %137, align 8, !tbaa !166
+  %138 = load i64, ptr %137, align 8, !tbaa !167
   %139 = trunc i64 %138 to i32
   %140 = mul i32 %49, %139
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -5530,7 +5530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 143:                                              ; preds = %152, %136
   %.059 = phi i64 [ 0, %136 ], [ %153, %152 ]
-  %144 = load i64, ptr %141, align 8, !tbaa !171
+  %144 = load i64, ptr %141, align 8, !tbaa !172
   %145 = icmp ult i64 %.059, %144
   br i1 %145, label %149, label %146
 
@@ -5546,15 +5546,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
   br label %157
 
 149:                                              ; preds = %143
-  %150 = load ptr, ptr %14, align 16, !tbaa !172
-  %151 = load ptr, ptr %142, align 8, !tbaa !172
+  %150 = load ptr, ptr %14, align 16, !tbaa !173
+  %151 = load ptr, ptr %142, align 8, !tbaa !173
   invoke void %100(ptr noundef %150, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef %151, i64 noundef 1, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %10)
           to label %152 unwind label %155
 
 152:                                              ; preds = %149
   %153 = add nuw i64 %.059, 1
   %154 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %15)
-          to label %143 unwind label %155, !llvm.loop !173
+          to label %143 unwind label %155, !llvm.loop !174
 
 155:                                              ; preds = %152, %149
   %156 = landingpad { ptr, i32 }
@@ -5578,7 +5578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 
 158:                                              ; preds = %.critedge, %42, %18
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %160 = load i32, ptr %159, align 8, !tbaa !12
+  %160 = load i32, ptr %159, align 8, !tbaa !13
   %.not.i = icmp eq i32 %160, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %161
 
@@ -5713,7 +5713,7 @@ define void @_ZNK2cv4UMat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull 
 
 18:                                               ; preds = %11, %17
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !12
+  %20 = load i32, ptr %19, align 8, !tbaa !13
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %21
 
@@ -5850,14 +5850,14 @@ define void @_ZN2cv11convertFp16ERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr nou
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %6, align 8, !tbaa !157
+  %37 = load ptr, ptr %6, align 8, !tbaa !158
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !161
+  %41 = load i64, ptr %40, align 8, !tbaa !162
   %42 = icmp ult i64 %41, 16
   call void @llvm.assume(i1 %42)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -5905,14 +5905,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
           cleanup
-  %56 = load ptr, ptr %8, align 8, !tbaa !157
+  %56 = load ptr, ptr %8, align 8, !tbaa !158
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %58 = icmp eq ptr %56, %57
   br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56: ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %60 = load i64, ptr %59, align 8, !tbaa !161
+  %60 = load i64, ptr %59, align 8, !tbaa !162
   %61 = icmp ult i64 %60, 16
   call void @llvm.assume(i1 %61)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57
@@ -5935,7 +5935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 
 .noexc:                                           ; preds = %62
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !12
+  %64 = load i32, ptr %63, align 8, !tbaa !13
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %_ZN2cv14getConvertFuncEii.exit, label %65
 
@@ -5961,7 +5961,7 @@ _ZN2cv14getConvertFuncEii.exit:                   ; preds = %.noexc, %65
 
 .noexc59:                                         ; preds = %69
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !12
+  %71 = load i32, ptr %70, align 8, !tbaa !13
   %.not.i.i58 = icmp eq i32 %71, 0
   br i1 %.not.i.i58, label %_ZN2cv14getConvertFuncEii.exit60, label %72
 
@@ -6001,14 +6001,14 @@ _ZN2cv14getConvertFuncEii.exit60:                 ; preds = %.noexc59, %72
 81:                                               ; preds = %77
   %82 = landingpad { ptr, i32 }
           cleanup
-  %83 = load ptr, ptr %10, align 8, !tbaa !157
+  %83 = load ptr, ptr %10, align 8, !tbaa !158
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62: ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !161
+  %87 = load i64, ptr %86, align 8, !tbaa !162
   %88 = icmp ult i64 %87, 16
   call void @llvm.assume(i1 %88)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
@@ -6036,7 +6036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 
 92:                                               ; preds = %.noexc64
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !151, !noalias !174
+  %94 = load ptr, ptr %93, align 8, !tbaa !152, !noalias !175
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %94)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %110
 
@@ -6045,13 +6045,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %110
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
-  %96 = load i32, ptr %12, align 8, !tbaa !140
+  %96 = load i32, ptr %12, align 8, !tbaa !141
   %97 = and i32 %96, 4088
   %98 = add nuw nsw i32 %97, %.137
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %100 = load i32, ptr %99, align 4, !tbaa !149
+  %100 = load i32, ptr %99, align 4, !tbaa !150
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %102 = load ptr, ptr %101, align 8, !tbaa !150
+  %102 = load ptr, ptr %101, align 8, !tbaa !151
   invoke void @_ZNK2cv12_OutputArray6createEiPKiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %100, ptr noundef %102, i32 noundef %98, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %103 unwind label %112
 
@@ -6066,7 +6066,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
 
 106:                                              ; preds = %.noexc67
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !151, !noalias !177
+  %108 = load ptr, ptr %107, align 8, !tbaa !152, !noalias !178
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %108)
           to label %116 unwind label %114
 
@@ -6090,11 +6090,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
   br label %169
 
 116:                                              ; preds = %109, %106
-  %117 = load i32, ptr %12, align 8, !tbaa !140
+  %117 = load i32, ptr %12, align 8, !tbaa !141
   %118 = lshr i32 %117, 3
   %119 = and i32 %118, 511
   %120 = add nuw nsw i32 %119, 1
-  %121 = load i32, ptr %99, align 4, !tbaa !149
+  %121 = load i32, ptr %99, align 4, !tbaa !150
   %122 = icmp slt i32 %121, 3
   br i1 %122, label %123, label %136
 
@@ -6104,13 +6104,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !162
+  %127 = load ptr, ptr %126, align 8, !tbaa !163
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %129 = load i64, ptr %128, align 8, !tbaa !163
+  %129 = load i64, ptr %128, align 8, !tbaa !164
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !162
+  %131 = load ptr, ptr %130, align 8, !tbaa !163
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %133 = load i64, ptr %132, align 8, !tbaa !163
+  %133 = load i64, ptr %132, align 8, !tbaa !164
   invoke void %.038(ptr noundef %127, i64 noundef %129, ptr noundef null, i64 noundef 0, ptr noundef %131, i64 noundef %133, i64 %124, ptr noundef null)
           to label %161 unwind label %134
 
@@ -6121,11 +6121,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
 
 136:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
-  store ptr %12, ptr %14, align 16, !tbaa !164
+  store ptr %12, ptr %14, align 16, !tbaa !165
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %13, ptr %137, align 8, !tbaa !164
+  store ptr %13, ptr %137, align 8, !tbaa !165
   %138 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr null, ptr %138, align 16, !tbaa !164
+  store ptr null, ptr %138, align 16, !tbaa !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #17
@@ -6134,7 +6134,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %141 = load i64, ptr %140, align 8, !tbaa !166
+  %141 = load i64, ptr %140, align 8, !tbaa !167
   %142 = trunc i64 %141 to i32
   %143 = mul i32 %120, %142
   %144 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -6145,7 +6145,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
 
 146:                                              ; preds = %155, %139
   %.024 = phi i64 [ 0, %139 ], [ %156, %155 ]
-  %147 = load i64, ptr %144, align 8, !tbaa !171
+  %147 = load i64, ptr %144, align 8, !tbaa !172
   %148 = icmp ult i64 %.024, %147
   br i1 %148, label %152, label %149
 
@@ -6161,15 +6161,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
   br label %160
 
 152:                                              ; preds = %146
-  %153 = load ptr, ptr %15, align 16, !tbaa !172
-  %154 = load ptr, ptr %145, align 8, !tbaa !172
+  %153 = load ptr, ptr %15, align 16, !tbaa !173
+  %154 = load ptr, ptr %145, align 8, !tbaa !173
   invoke void %.038(ptr noundef %153, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %154, i64 noundef 0, i64 %.sroa.0.0.insert.insert, ptr noundef null)
           to label %155 unwind label %158
 
 155:                                              ; preds = %152
   %156 = add nuw i64 %.024, 1
   %157 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
-          to label %146 unwind label %158, !llvm.loop !180
+          to label %146 unwind label %158, !llvm.loop !181
 
 158:                                              ; preds = %155, %152
   %159 = landingpad { ptr, i32 }
@@ -6189,7 +6189,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %92, %95
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #17
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !12
+  %163 = load i32, ptr %162, align 8, !tbaa !13
   %.not.i = icmp eq i32 %163, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %164
 
@@ -6328,174 +6328,175 @@ attributes #20 = { builtin nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !16, i64 8}
-!13 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !14, i64 0, !16, i64 8}
-!14 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !15, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{!"int", !6, i64 0}
-!17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !6, i64 0}
-!22 = distinct !{!22, !11}
-!23 = !{!15, !15, i64 0}
-!24 = distinct !{!24, !11}
-!25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11, !28}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11, !28}
-!33 = !{!16, !16, i64 0}
-!34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11, !28}
-!36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11, !28}
-!38 = distinct !{!38, !11}
-!39 = distinct !{!39, !11, !28}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11, !28}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11, !28}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11, !28}
-!46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11, !28}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11, !28}
-!50 = distinct !{!50, !11}
-!51 = distinct !{!51, !11, !28}
-!52 = distinct !{!52, !11}
-!53 = distinct !{!53, !11, !28}
-!54 = distinct !{!54, !11}
-!55 = distinct !{!55, !11, !28}
-!56 = distinct !{!56, !11}
-!57 = distinct !{!57, !11, !28}
-!58 = distinct !{!58, !11}
-!59 = distinct !{!59, !11, !28}
-!60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11, !28}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11, !28}
-!64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11, !28}
-!66 = distinct !{!66, !11}
-!67 = distinct !{!67, !11, !28}
-!68 = distinct !{!68, !11}
-!69 = distinct !{!69, !11, !28}
-!70 = distinct !{!70, !11}
-!71 = distinct !{!71, !11, !28}
-!72 = distinct !{!72, !11}
-!73 = distinct !{!73, !11, !28}
-!74 = distinct !{!74, !11}
-!75 = distinct !{!75, !11, !28}
-!76 = distinct !{!76, !11}
-!77 = distinct !{!77, !11, !28}
-!78 = distinct !{!78, !11}
-!79 = distinct !{!79, !11, !28}
-!80 = distinct !{!80, !11}
-!81 = distinct !{!81, !11, !28}
-!82 = distinct !{!82, !11}
-!83 = distinct !{!83, !11, !28}
-!84 = distinct !{!84, !11}
-!85 = distinct !{!85, !11, !28}
-!86 = distinct !{!86, !11}
-!87 = distinct !{!87, !11, !28}
-!88 = distinct !{!88, !11}
-!89 = distinct !{!89, !11, !28}
-!90 = distinct !{!90, !11}
-!91 = distinct !{!91, !11, !28}
-!92 = distinct !{!92, !11}
-!93 = distinct !{!93, !11, !28}
-!94 = distinct !{!94, !11}
-!95 = distinct !{!95, !11, !28}
-!96 = distinct !{!96, !11}
-!97 = distinct !{!97, !11, !28}
-!98 = distinct !{!98, !11}
-!99 = distinct !{!99, !11, !28}
-!100 = distinct !{!100, !11}
-!101 = distinct !{!101, !11, !28}
-!102 = distinct !{!102, !11}
-!103 = distinct !{!103, !11, !28}
-!104 = distinct !{!104, !11}
-!105 = distinct !{!105, !11, !28}
-!106 = distinct !{!106, !11}
-!107 = distinct !{!107, !11, !28}
-!108 = distinct !{!108, !11}
-!109 = distinct !{!109, !11, !28}
-!110 = distinct !{!110, !11}
-!111 = distinct !{!111, !11, !28}
-!112 = distinct !{!112, !11}
-!113 = distinct !{!113, !11, !28}
-!114 = distinct !{!114, !11}
-!115 = distinct !{!115, !11, !28}
-!116 = distinct !{!116, !11}
-!117 = distinct !{!117, !11, !28}
-!118 = distinct !{!118, !11}
-!119 = distinct !{!119, !11, !28}
-!120 = distinct !{!120, !11}
-!121 = distinct !{!121, !11, !28}
-!122 = distinct !{!122, !11}
-!123 = distinct !{!123, !11, !28}
-!124 = distinct !{!124, !11}
-!125 = distinct !{!125, !11, !28}
-!126 = distinct !{!126, !11}
-!127 = distinct !{!127, !11, !28}
-!128 = distinct !{!128, !11}
-!129 = distinct !{!129, !11, !28}
-!130 = distinct !{!130, !11}
-!131 = distinct !{!131, !11, !28}
-!132 = distinct !{!132, !11}
-!133 = distinct !{!133, !11, !28}
-!134 = distinct !{!134, !11}
-!135 = distinct !{!135, !11, !28}
-!136 = distinct !{!136, !11}
-!137 = distinct !{!137, !11, !28}
-!138 = distinct !{!138, !11}
-!139 = distinct !{!139, !11, !28}
-!140 = !{!141, !16, i64 0}
-!141 = !{!"_ZTSN2cv3MatE", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !142, i64 16, !142, i64 24, !142, i64 32, !142, i64 40, !143, i64 48, !144, i64 56, !145, i64 64, !147, i64 72}
-!142 = !{!"p1 omnipotent char", !15, i64 0}
-!143 = !{!"p1 _ZTSN2cv12MatAllocatorE", !15, i64 0}
-!144 = !{!"p1 _ZTSN2cv8UMatDataE", !15, i64 0}
-!145 = !{!"_ZTSN2cv7MatSizeE", !146, i64 0}
-!146 = !{!"p1 int", !15, i64 0}
-!147 = !{!"_ZTSN2cv7MatStepE", !148, i64 0, !6, i64 8}
-!148 = !{!"p1 long", !15, i64 0}
-!149 = !{!141, !16, i64 4}
-!150 = !{!145, !146, i64 0}
-!151 = !{!152, !15, i64 8}
-!152 = !{!"_ZTSN2cv11_InputArrayE", !16, i64 0, !15, i64 8, !153, i64 16}
-!153 = !{!"_ZTSN2cv5Size_IiEE", !16, i64 0, !16, i64 4}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!156 = distinct !{!156, !"_ZNK2cv11_InputArray6getMatEi"}
-!157 = !{!158, !142, i64 0}
-!158 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !159, i64 0, !160, i64 8, !6, i64 16}
-!159 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !142, i64 0}
-!160 = !{!"long", !6, i64 0}
-!161 = !{!158, !160, i64 8}
-!162 = !{!141, !142, i64 16}
-!163 = !{!160, !160, i64 0}
-!164 = !{!165, !165, i64 0}
-!165 = !{!"p1 _ZTSN2cv3MatE", !15, i64 0}
-!166 = !{!167, !160, i64 40}
-!167 = !{!"_ZTSN2cv15NAryMatIteratorE", !168, i64 0, !165, i64 8, !170, i64 16, !16, i64 24, !160, i64 32, !160, i64 40, !16, i64 48, !160, i64 56}
-!168 = !{!"p2 _ZTSN2cv3MatE", !169, i64 0}
-!169 = !{!"any p2 pointer", !15, i64 0}
-!170 = !{!"p2 omnipotent char", !169, i64 0}
-!171 = !{!167, !160, i64 32}
-!172 = !{!142, !142, i64 0}
-!173 = distinct !{!173, !11}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!176 = distinct !{!176, !"_ZNK2cv11_InputArray6getMatEi"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!179 = distinct !{!179, !"_ZNK2cv11_InputArray6getMatEi"}
-!180 = distinct !{!180, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !17, i64 8}
+!14 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !15, i64 0, !17, i64 8}
+!15 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !16, i64 0}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !6, i64 0}
+!23 = distinct !{!23, !11, !12}
+!24 = !{!16, !16, i64 0}
+!25 = distinct !{!25, !11, !12}
+!26 = !{!6, !6, i64 0}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12, !29}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !11, !12, !29}
+!34 = !{!17, !17, i64 0}
+!35 = distinct !{!35, !11, !12}
+!36 = distinct !{!36, !11, !12, !29}
+!37 = distinct !{!37, !11, !12}
+!38 = distinct !{!38, !11, !12, !29}
+!39 = distinct !{!39, !11, !12}
+!40 = distinct !{!40, !11, !12, !29}
+!41 = distinct !{!41, !11, !12}
+!42 = distinct !{!42, !11, !12, !29}
+!43 = distinct !{!43, !11, !12}
+!44 = distinct !{!44, !11, !12, !29}
+!45 = distinct !{!45, !11, !12}
+!46 = distinct !{!46, !11, !12, !29}
+!47 = distinct !{!47, !11, !12}
+!48 = distinct !{!48, !11, !12, !29}
+!49 = distinct !{!49, !11, !12}
+!50 = distinct !{!50, !11, !12, !29}
+!51 = distinct !{!51, !11, !12}
+!52 = distinct !{!52, !11, !12, !29}
+!53 = distinct !{!53, !11, !12}
+!54 = distinct !{!54, !11, !12, !29}
+!55 = distinct !{!55, !11, !12}
+!56 = distinct !{!56, !11, !12, !29}
+!57 = distinct !{!57, !11, !12}
+!58 = distinct !{!58, !11, !12, !29}
+!59 = distinct !{!59, !11, !12}
+!60 = distinct !{!60, !11, !12, !29}
+!61 = distinct !{!61, !11, !12}
+!62 = distinct !{!62, !11, !12, !29}
+!63 = distinct !{!63, !11, !12}
+!64 = distinct !{!64, !11, !12, !29}
+!65 = distinct !{!65, !11, !12}
+!66 = distinct !{!66, !11, !12, !29}
+!67 = distinct !{!67, !11, !12}
+!68 = distinct !{!68, !11, !12, !29}
+!69 = distinct !{!69, !11, !12}
+!70 = distinct !{!70, !11, !12, !29}
+!71 = distinct !{!71, !11, !12}
+!72 = distinct !{!72, !11, !12, !29}
+!73 = distinct !{!73, !11, !12}
+!74 = distinct !{!74, !11, !12, !29}
+!75 = distinct !{!75, !11, !12}
+!76 = distinct !{!76, !11, !12, !29}
+!77 = distinct !{!77, !11, !12}
+!78 = distinct !{!78, !11, !12, !29}
+!79 = distinct !{!79, !11, !12}
+!80 = distinct !{!80, !11, !12, !29}
+!81 = distinct !{!81, !11, !12}
+!82 = distinct !{!82, !11, !12, !29}
+!83 = distinct !{!83, !11, !12}
+!84 = distinct !{!84, !11, !12, !29}
+!85 = distinct !{!85, !11, !12}
+!86 = distinct !{!86, !11, !12, !29}
+!87 = distinct !{!87, !11, !12}
+!88 = distinct !{!88, !11, !12, !29}
+!89 = distinct !{!89, !11, !12}
+!90 = distinct !{!90, !11, !12, !29}
+!91 = distinct !{!91, !11, !12}
+!92 = distinct !{!92, !11, !12, !29}
+!93 = distinct !{!93, !11, !12}
+!94 = distinct !{!94, !11, !12, !29}
+!95 = distinct !{!95, !11, !12}
+!96 = distinct !{!96, !11, !12, !29}
+!97 = distinct !{!97, !11, !12}
+!98 = distinct !{!98, !11, !12, !29}
+!99 = distinct !{!99, !11, !12}
+!100 = distinct !{!100, !11, !12, !29}
+!101 = distinct !{!101, !11, !12}
+!102 = distinct !{!102, !11, !12, !29}
+!103 = distinct !{!103, !11, !12}
+!104 = distinct !{!104, !11, !12, !29}
+!105 = distinct !{!105, !11, !12}
+!106 = distinct !{!106, !11, !12, !29}
+!107 = distinct !{!107, !11, !12}
+!108 = distinct !{!108, !11, !12, !29}
+!109 = distinct !{!109, !11, !12}
+!110 = distinct !{!110, !11, !12, !29}
+!111 = distinct !{!111, !11, !12}
+!112 = distinct !{!112, !11, !12, !29}
+!113 = distinct !{!113, !11, !12}
+!114 = distinct !{!114, !11, !12, !29}
+!115 = distinct !{!115, !11, !12}
+!116 = distinct !{!116, !11, !12, !29}
+!117 = distinct !{!117, !11, !12}
+!118 = distinct !{!118, !11, !12, !29}
+!119 = distinct !{!119, !11, !12}
+!120 = distinct !{!120, !11, !12, !29}
+!121 = distinct !{!121, !11, !12}
+!122 = distinct !{!122, !11, !12, !29}
+!123 = distinct !{!123, !11, !12}
+!124 = distinct !{!124, !11, !12, !29}
+!125 = distinct !{!125, !11, !12}
+!126 = distinct !{!126, !11, !12, !29}
+!127 = distinct !{!127, !11, !12}
+!128 = distinct !{!128, !11, !12, !29}
+!129 = distinct !{!129, !11, !12}
+!130 = distinct !{!130, !11, !12, !29}
+!131 = distinct !{!131, !11, !12}
+!132 = distinct !{!132, !11, !12, !29}
+!133 = distinct !{!133, !11, !12}
+!134 = distinct !{!134, !11, !12, !29}
+!135 = distinct !{!135, !11, !12}
+!136 = distinct !{!136, !11, !12, !29}
+!137 = distinct !{!137, !11, !12}
+!138 = distinct !{!138, !11, !12, !29}
+!139 = distinct !{!139, !11, !12}
+!140 = distinct !{!140, !11, !12, !29}
+!141 = !{!142, !17, i64 0}
+!142 = !{!"_ZTSN2cv3MatE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !143, i64 16, !143, i64 24, !143, i64 32, !143, i64 40, !144, i64 48, !145, i64 56, !146, i64 64, !148, i64 72}
+!143 = !{!"p1 omnipotent char", !16, i64 0}
+!144 = !{!"p1 _ZTSN2cv12MatAllocatorE", !16, i64 0}
+!145 = !{!"p1 _ZTSN2cv8UMatDataE", !16, i64 0}
+!146 = !{!"_ZTSN2cv7MatSizeE", !147, i64 0}
+!147 = !{!"p1 int", !16, i64 0}
+!148 = !{!"_ZTSN2cv7MatStepE", !149, i64 0, !6, i64 8}
+!149 = !{!"p1 long", !16, i64 0}
+!150 = !{!142, !17, i64 4}
+!151 = !{!146, !147, i64 0}
+!152 = !{!153, !16, i64 8}
+!153 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !16, i64 8, !154, i64 16}
+!154 = !{!"_ZTSN2cv5Size_IiEE", !17, i64 0, !17, i64 4}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!157 = distinct !{!157, !"_ZNK2cv11_InputArray6getMatEi"}
+!158 = !{!159, !143, i64 0}
+!159 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !160, i64 0, !161, i64 8, !6, i64 16}
+!160 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !143, i64 0}
+!161 = !{!"long", !6, i64 0}
+!162 = !{!159, !161, i64 8}
+!163 = !{!142, !143, i64 16}
+!164 = !{!161, !161, i64 0}
+!165 = !{!166, !166, i64 0}
+!166 = !{!"p1 _ZTSN2cv3MatE", !16, i64 0}
+!167 = !{!168, !161, i64 40}
+!168 = !{!"_ZTSN2cv15NAryMatIteratorE", !169, i64 0, !166, i64 8, !171, i64 16, !17, i64 24, !161, i64 32, !161, i64 40, !17, i64 48, !161, i64 56}
+!169 = !{!"p2 _ZTSN2cv3MatE", !170, i64 0}
+!170 = !{!"any p2 pointer", !16, i64 0}
+!171 = !{!"p2 omnipotent char", !170, i64 0}
+!172 = !{!168, !161, i64 32}
+!173 = !{!143, !143, i64 0}
+!174 = distinct !{!174, !11, !12}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!177 = distinct !{!177, !"_ZNK2cv11_InputArray6getMatEi"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!180 = distinct !{!180, !"_ZNK2cv11_InputArray6getMatEi"}
+!181 = distinct !{!181, !11, !12}

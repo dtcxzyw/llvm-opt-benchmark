@@ -1009,7 +1009,7 @@ _ZN6icu_778numparse4impl23CombinedCurrencyMatcheraSEOS2_.exit: ; preds = %24
   %.ptr1.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr1.i) #19
   %39 = icmp eq i64 %.add.i, 152
-  br i1 %39, label %_ZN6icu_778numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %38
+  br i1 %39, label %_ZN6icu_778numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %38, !llvm.loop !70
 
 _ZN6icu_778numparse4impl23CombinedCurrencyMatcherD2Ev.exit: ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1098,7 +1098,7 @@ _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE6resize
   %25 = sext i32 %23 to i64
   %26 = load ptr, ptr %5, align 8, !tbaa !17
   %27 = getelementptr inbounds ptr, ptr %26, i64 %25
-  store ptr %1, ptr %27, align 8, !tbaa !69
+  store ptr %1, ptr %27, align 8, !tbaa !71
   ret void
 }
 
@@ -1154,7 +1154,7 @@ _ZN6icu_778numparse4impl26AffixPatternMatcherBuilder10addMatcherERNS1_18NumberPa
   %25 = sext i32 %23 to i64
   %26 = load ptr, ptr %5, align 8, !tbaa !17
   %27 = getelementptr inbounds ptr, ptr %26, i64 %25
-  store ptr %1, ptr %27, align 8, !tbaa !69
+  store ptr %1, ptr %27, align 8, !tbaa !71
   ret void
 }
 
@@ -1164,7 +1164,7 @@ define void @_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErro
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !71
+  %8 = load ptr, ptr %7, align 8, !tbaa !73
   tail call void @_ZN6icu_778numparse4impl19AffixPatternMatcherC1ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(4) %2)
   ret void
 }
@@ -1176,25 +1176,25 @@ define void @_ZN6icu_778numparse4impl26AffixTokenMatcherWarehouseC2EPKNS1_26Affi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 2, ptr %5, align 8, !tbaa !72
+  store i16 2, ptr %5, align 8, !tbaa !74
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN6icu_778numparse4impl16MinusSignMatcherE, i64 16), ptr %3, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i16 2, ptr %8, align 8, !tbaa !72
+  store i16 2, ptr %8, align 8, !tbaa !74
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN6icu_778numparse4impl15PlusSignMatcherE, i64 16), ptr %6, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i16 2, ptr %11, align 8, !tbaa !72
+  store i16 2, ptr %11, align 8, !tbaa !74
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN6icu_778numparse4impl14PercentMatcherE, i64 16), ptr %9, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %13, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i16 2, ptr %14, align 8, !tbaa !72
+  store i16 2, ptr %14, align 8, !tbaa !74
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN6icu_778numparse4impl15PermilleMatcherE, i64 16), ptr %12, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
   invoke void @_ZN6icu_778numparse4impl23CombinedCurrencyMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(856) %15)
@@ -1202,14 +1202,14 @@ define void @_ZN6icu_778numparse4impl26AffixTokenMatcherWarehouseC2EPKNS1_26Affi
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  store i32 0, ptr %17, align 8, !tbaa !73
+  store i32 0, ptr %17, align 8, !tbaa !75
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  store ptr %19, ptr %18, align 8, !tbaa !74
+  store ptr %19, ptr %18, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i32 8, ptr %20, align 8, !tbaa !75
+  store i32 8, ptr %20, align 8, !tbaa !77
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1220
-  store i8 0, ptr %21, align 4, !tbaa !76
+  store i8 0, ptr %21, align 4, !tbaa !78
   ret void
 
 22:                                               ; preds = %2
@@ -1236,11 +1236,11 @@ define linkonce_odr void @_ZN6icu_778numparse4impl23CombinedCurrencyMatcherC2Ev(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 2, ptr %3, align 8, !tbaa !72
+  store i16 2, ptr %3, align 8, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i16 2, ptr %5, align 8, !tbaa !72
+  store i16 2, ptr %5, align 8, !tbaa !74
   br label %6
 
 6:                                                ; preds = %6, %1
@@ -1248,29 +1248,29 @@ define linkonce_odr void @_ZN6icu_778numparse4impl23CombinedCurrencyMatcherC2Ev(
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store i16 2, ptr %7, align 8, !tbaa !72
+  store i16 2, ptr %7, align 8, !tbaa !74
   %.add = add nuw nsw i64 %.idx, 64
   %8 = icmp samesign eq i64 %.add, 664
-  br i1 %8, label %9, label %6
+  br i1 %8, label %9, label %6, !llvm.loop !79
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i16 2, ptr %11, align 8, !tbaa !72
+  store i16 2, ptr %11, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %12, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  store i16 2, ptr %13, align 8, !tbaa !72
+  store i16 2, ptr %13, align 8, !tbaa !74
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 792
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %14)
           to label %15 unwind label %18
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  store i32 0, ptr %16, align 8, !tbaa !77
+  store i32 0, ptr %16, align 8, !tbaa !80
   %17 = load ptr, ptr %14, align 8, !tbaa !3
-  store i8 0, ptr %17, align 1, !tbaa !72
+  store i8 0, ptr %17, align 1, !tbaa !74
   ret void
 
 18:                                               ; preds = %9
@@ -1286,7 +1286,7 @@ define linkonce_odr void @_ZN6icu_778numparse4impl23CombinedCurrencyMatcherC2Ev(
   %.ptr20 = getelementptr inbounds i8, ptr %0, i64 %.add19
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr20) #19
   %21 = icmp eq i64 %.add19, 152
-  br i1 %21, label %22, label %20
+  br i1 %21, label %22, label %20, !llvm.loop !81
 
 22:                                               ; preds = %20
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #19
@@ -1309,7 +1309,7 @@ declare void @_ZN6icu_778numparse4impl23CombinedCurrencyMatcherC1ERKNS_6number4i
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6icu_778numparse4impl26AffixTokenMatcherWarehouse10ignorablesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %0) local_unnamed_addr #14 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !82
   ret ptr %4
 }
 
@@ -1317,8 +1317,8 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6icu_778numparse4impl
 define linkonce_odr noundef ptr @_ZN6icu_7710MemoryPoolINS_8numparse4impl16CodePointMatcherELi8EE6createIJRiEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !75
-  %6 = load i32, ptr %0, align 8, !tbaa !73
+  %5 = load i32, ptr %4, align 8, !tbaa !77
+  %6 = load i32, ptr %0, align 8, !tbaa !75
   %7 = icmp eq i32 %6, %5
   br i1 %7, label %8, label %29
 
@@ -1341,10 +1341,10 @@ define linkonce_odr noundef ptr @_ZN6icu_7710MemoryPoolINS_8numparse4impl16CodeP
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr %4, align 8, !tbaa !75
+  %20 = load i32, ptr %4, align 8, !tbaa !77
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %5, i32 %20)
   %.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %11)
-  %21 = load ptr, ptr %3, align 8, !tbaa !74
+  %21 = load ptr, ptr %3, align 8, !tbaa !76
   %22 = sext i32 %.1.i to i64
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %21, i64 %23, i1 false)
@@ -1352,19 +1352,19 @@ define linkonce_odr noundef ptr @_ZN6icu_7710MemoryPoolINS_8numparse4impl16CodeP
 
 24:                                               ; preds = %19, %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %26 = load i8, ptr %25, align 4, !tbaa !76
+  %26 = load i8, ptr %25, align 4, !tbaa !78
   %.not.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %3, align 8, !tbaa !74
+  %28 = load ptr, ptr %3, align 8, !tbaa !76
   tail call void @uprv_free_77(ptr noundef %28)
   br label %_ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit
 
 _ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit: ; preds = %24, %27
-  store ptr %16, ptr %3, align 8, !tbaa !74
-  store i32 %11, ptr %4, align 8, !tbaa !75
-  store i8 1, ptr %25, align 4, !tbaa !76
+  store ptr %16, ptr %3, align 8, !tbaa !76
+  store i32 %11, ptr %4, align 8, !tbaa !77
+  store i8 1, ptr %25, align 4, !tbaa !78
   br label %29
 
 29:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit, %2
@@ -1378,13 +1378,13 @@ _ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii
           to label %34 unwind label %40
 
 34:                                               ; preds = %32, %29
-  %35 = load i32, ptr %0, align 8, !tbaa !73
+  %35 = load i32, ptr %0, align 8, !tbaa !75
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %0, align 8, !tbaa !73
+  store i32 %36, ptr %0, align 8, !tbaa !75
   %37 = sext i32 %35 to i64
-  %38 = load ptr, ptr %3, align 8, !tbaa !74
+  %38 = load ptr, ptr %3, align 8, !tbaa !76
   %39 = getelementptr inbounds ptr, ptr %38, i64 %37
-  store ptr %30, ptr %39, align 8, !tbaa !79
+  store ptr %30, ptr %39, align 8, !tbaa !83
   br label %_ZN6icu_7715MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit.thread
 
 40:                                               ; preds = %32
@@ -1412,14 +1412,14 @@ declare noundef zeroext i1 @_ZNK6icu_776number4impl15CurrencySymbols22hasEmptyCu
 define void @_ZN6icu_778numparse4impl16CodePointMatcherC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl16CodePointMatcherE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %3, align 8, !tbaa !81
+  store i32 %1, ptr %3, align 8, !tbaa !85
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_778numparse4impl16CodePointMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !81
+  %6 = load i32, ptr %5, align 8, !tbaa !85
   %7 = tail call noundef zeroext i1 @_ZNK6icu_7713StringSegment10startsWithEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %6)
   br i1 %7, label %8, label %9
 
@@ -1441,7 +1441,7 @@ declare void @_ZN6icu_778numparse4impl12ParsedNumber16setCharsConsumedERKNS_13St
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_778numparse4impl16CodePointMatcher9smokeTestERKNS_13StringSegmentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !81
+  %4 = load i32, ptr %3, align 8, !tbaa !85
   %5 = tail call noundef zeroext i1 @_ZNK6icu_7713StringSegment10startsWithEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4)
   ret i1 %5
 }
@@ -1450,7 +1450,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl16CodePointMatcher9smokeTest
 define void @_ZNK6icu_778numparse4impl16CodePointMatcher8toStringEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.icu_77::UnicodeString") align 8 initializes((0, 10)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 2, ptr %3, align 8, !tbaa !72
+  store i16 2, ptr %3, align 8, !tbaa !74
   %4 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 11, ptr nonnull @.str)
           to label %_ZN6icu_7713UnicodeStringC2IA12_DsvEERKT_.exit unwind label %5
 
@@ -1468,27 +1468,27 @@ _ZN6icu_7713UnicodeStringC2IA12_DsvEERKT_.exit:   ; preds = %2
 define void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind noalias writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::numparse::impl::AffixPatternMatcherBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i16, ptr %8, align 8, !tbaa !72
+  %9 = load i16, ptr %8, align 8, !tbaa !74
   %10 = icmp ugt i16 %9, 31
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  store i8 0, ptr %4, align 1, !tbaa !83
+  store i8 0, ptr %4, align 1, !tbaa !87
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   tail call void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %0, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 70
-  store ptr %13, ptr %12, align 8, !tbaa !84
+  store ptr %13, ptr %12, align 8, !tbaa !88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 4, ptr %14, align 8, !tbaa !87
+  store i32 4, ptr %14, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 0, ptr %15, align 4, !tbaa !88
-  store i16 0, ptr %13, align 2, !tbaa !89
+  store i8 0, ptr %15, align 4, !tbaa !92
+  store i16 0, ptr %13, align 2, !tbaa !93
   br label %39
 
 16:                                               ; preds = %6
-  store i8 1, ptr %4, align 1, !tbaa !83
+  store i8 1, ptr %4, align 1, !tbaa !87
   %17 = and i32 %3, 512
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %18, label %22
@@ -1496,7 +1496,7 @@ define void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKN
 18:                                               ; preds = %16
   %19 = load ptr, ptr %2, align 8, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !78
+  %21 = load ptr, ptr %20, align 8, !tbaa !82
   br label %22
 
 22:                                               ; preds = %16, %18
@@ -1509,9 +1509,9 @@ define void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKN
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %26 = load i32, ptr %25, align 8, !tbaa !23, !noalias !91
+  %26 = load i32, ptr %25, align 8, !tbaa !23, !noalias !95
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %28 = load ptr, ptr %27, align 8, !tbaa !71, !noalias !91
+  %28 = load ptr, ptr %27, align 8, !tbaa !73, !noalias !95
   invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcherC1ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode.exit unwind label %37
 
@@ -1608,7 +1608,7 @@ declare void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2ERNS_15MaybeStackArr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EEC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i16, ptr %4, align 8, !tbaa !72
+  %5 = load i16, ptr %4, align 8, !tbaa !74
   %6 = icmp slt i16 %5, 0
   %7 = ashr i16 %5, 5
   %8 = sext i16 %7 to i32
@@ -1618,11 +1618,11 @@ define linkonce_odr void @_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EEC2
   %12 = add nsw i32 %11, 1
   %13 = load i32, ptr %2, align 4, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store ptr %14, ptr %0, align 8, !tbaa !84
+  store ptr %14, ptr %0, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %15, align 8, !tbaa !87
+  store i32 4, ptr %15, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %16, align 4, !tbaa !88
+  store i8 0, ptr %16, align 4, !tbaa !92
   %17 = icmp slt i32 %13, 1
   %18 = icmp sgt i32 %11, 3
   %or.cond.i = and i1 %17, %18
@@ -1639,19 +1639,19 @@ define linkonce_odr void @_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EEC2
   br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit, label %23
 
 23:                                               ; preds = %.noexc.i
-  %24 = load i8, ptr %16, align 4, !tbaa !88
+  %24 = load i8, ptr %16, align 4, !tbaa !92
   %.not.i.i.i = icmp eq i8 %24, 0
   br i1 %.not.i.i.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %0, align 8, !tbaa !84
+  %26 = load ptr, ptr %0, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %26)
           to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i unwind label %27
 
 _ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i: ; preds = %25, %23
-  store ptr %22, ptr %0, align 8, !tbaa !84
-  store i32 %12, ptr %15, align 8, !tbaa !87
-  store i8 1, ptr %16, align 4, !tbaa !88
+  store ptr %22, ptr %0, align 8, !tbaa !88
+  store i32 %12, ptr %15, align 8, !tbaa !91
+  store i8 1, ptr %16, align 4, !tbaa !92
   br label %_ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit
 
 27:                                               ; preds = %25, %19
@@ -1666,8 +1666,8 @@ _ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit: ; preds = %3, %.noexc.
   br i1 %30, label %31, label %59
 
 31:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit
-  %32 = load ptr, ptr %0, align 8, !tbaa !84
-  %33 = load i16, ptr %4, align 8, !tbaa !72
+  %32 = load ptr, ptr %0, align 8, !tbaa !88
+  %33 = load i16, ptr %4, align 8, !tbaa !74
   %34 = and i16 %33, 17
   %.not.i = icmp eq i16 %34, 0
   br i1 %.not.i, label %35, label %42
@@ -1683,7 +1683,7 @@ _ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit: ; preds = %3, %.noexc.
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !72
+  %41 = load ptr, ptr %40, align 8, !tbaa !74
   br label %42
 
 42:                                               ; preds = %31, %37, %39
@@ -1696,16 +1696,16 @@ _ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit: ; preds = %3, %.noexc.
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %32, ptr align 2 %.0.i, i64 %49, i1 false)
-  %50 = load i16, ptr %4, align 8, !tbaa !72
+  %50 = load i16, ptr %4, align 8, !tbaa !74
   %51 = icmp slt i16 %50, 0
   %52 = ashr i16 %50, 5
   %53 = sext i16 %52 to i32
   %54 = load i32, ptr %9, align 4
   %55 = select i1 %51, i32 %54, i32 %53
   %56 = sext i32 %55 to i64
-  %57 = load ptr, ptr %0, align 8, !tbaa !84
+  %57 = load ptr, ptr %0, align 8, !tbaa !88
   %58 = getelementptr inbounds i16, ptr %57, i64 %56
-  store i16 0, ptr %58, align 2, !tbaa !89
+  store i16 0, ptr %58, align 2, !tbaa !93
   br label %59
 
 59:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit, %42
@@ -1743,21 +1743,21 @@ define void @_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv(ptr de
   %3 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = load ptr, ptr %4, align 8, !tbaa !84, !noalias !94
-  store ptr %5, ptr %3, align 8, !tbaa !97, !noalias !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !88, !noalias !98
+  store ptr %5, ptr %3, align 8, !tbaa !101, !noalias !98
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !94
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #19, !srcloc !99
+  %8 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !98
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #19, !srcloc !103
   resume { ptr, i32 } %7
 
 _ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit: ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !94
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #19, !srcloc !99
+  %9 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !98
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #19, !srcloc !103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -1778,8 +1778,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicod
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %7 = load ptr, ptr %0, align 8, !tbaa !84, !noalias !100
-  store ptr %7, ptr %4, align 8, !tbaa !97, !noalias !100
+  %7 = load ptr, ptr %0, align 8, !tbaa !88, !noalias !104
+  store ptr %7, ptr %4, align 8, !tbaa !101, !noalias !104
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 1, ptr noundef nonnull %4, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit unwind label %8
 
@@ -1790,41 +1790,41 @@ common.resume:                                    ; preds = %.body, %8
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !100
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #19, !srcloc !99
+  %10 = load ptr, ptr %4, align 8, !tbaa !101, !noalias !104
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #19, !srcloc !103
   br label %common.resume
 
 _ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit: ; preds = %2
-  %11 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !100
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #19, !srcloc !99
+  %11 = load ptr, ptr %4, align 8, !tbaa !101, !noalias !104
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #19, !srcloc !103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %12 = load ptr, ptr %1, align 8, !tbaa !84, !noalias !103
-  store ptr %12, ptr %3, align 8, !tbaa !97, !noalias !103
+  %12 = load ptr, ptr %1, align 8, !tbaa !88, !noalias !107
+  store ptr %12, ptr %3, align 8, !tbaa !101, !noalias !107
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %16 unwind label %13
 
 13:                                               ; preds = %_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !103
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #19, !srcloc !99
+  %15 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !107
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #19, !srcloc !103
   br label %.body
 
 16:                                               ; preds = %_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.exit
-  %17 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !103
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #19, !srcloc !99
+  %17 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !107
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17) #19, !srcloc !103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i16, ptr %18, align 8, !tbaa !72
+  %19 = load i16, ptr %18, align 8, !tbaa !74
   %20 = and i16 %19, 1
   %.not.i = icmp eq i16 %20, 0
   br i1 %.not.i, label %26, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load i16, ptr %22, align 8, !tbaa !72
+  %23 = load i16, ptr %22, align 8, !tbaa !74
   %24 = and i16 %23, 1
   %25 = icmp ne i16 %24, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
@@ -1837,7 +1837,7 @@ _ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.
   %31 = load i32, ptr %30, align 4
   %32 = select i1 %27, i32 %31, i32 %29
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %34 = load i16, ptr %33, align 8, !tbaa !72
+  %34 = load i16, ptr %33, align 8, !tbaa !74
   %35 = icmp slt i16 %34, 0
   %36 = ashr i16 %34, 5
   %37 = sext i16 %36 to i32
@@ -1896,7 +1896,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl12AffixMatcherE, i64 16), ptr %.ptr, align 8, !tbaa !15
   %.add = add nuw nsw i64 %.idx, 32
   %4 = icmp eq i64 %.add, 576
-  br i1 %4, label %.preheader15.preheader, label %3
+  br i1 %4, label %.preheader15.preheader, label %3, !llvm.loop !110
 
 .preheader15.preheader:                           ; preds = %3
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -1912,19 +1912,19 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %.ptr8.ptr, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 70
-  store ptr %7, ptr %6, align 8, !tbaa !84
+  store ptr %7, ptr %6, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 64
-  store i32 4, ptr %8, align 8, !tbaa !87
+  store i32 4, ptr %8, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 68
-  store i8 0, ptr %9, align 4, !tbaa !88
-  store i16 0, ptr %7, align 2, !tbaa !89
+  store i8 0, ptr %9, align 4, !tbaa !92
+  store i16 0, ptr %7, align 2, !tbaa !93
   %.add7 = add nuw nsw i64 %.idx6, 80
   %10 = icmp samesign eq i64 %.add7, 1536
-  br i1 %10, label %11, label %.preheader15
+  br i1 %10, label %11, label %.preheader15, !llvm.loop !111
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  store ptr %1, ptr %12, align 8, !tbaa !106
+  store ptr %1, ptr %12, align 8, !tbaa !112
   ret void
 
 13:                                               ; preds = %.preheader15
@@ -1939,7 +1939,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
   %.ptr14 = getelementptr inbounds i8, ptr %0, i64 %.add12
   tail call void @_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.ptr14) #19
   %16 = icmp eq i64 %.add12, 576
-  br i1 %16, label %.loopexit.preheader, label %.preheader
+  br i1 %16, label %.loopexit.preheader, label %.preheader, !llvm.loop !114
 
 .loopexit.preheader:                              ; preds = %.preheader, %13
   br label %.loopexit
@@ -1949,7 +1949,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
   tail call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %18) #19
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %.loopexit
+  br i1 %19, label %20, label %.loopexit, !llvm.loop !115
 
 20:                                               ; preds = %.loopexit
   resume { ptr, i32 } %14
@@ -1959,13 +1959,13 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
 define linkonce_odr void @_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %3 = load i8, ptr %2, align 4, !tbaa !88
+  %3 = load i8, ptr %2, align 4, !tbaa !92
   %.not.i.i.i = icmp eq i8 %3, 0
   br i1 %.not.i.i.i, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !84
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %6)
           to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit unwind label %7
 
@@ -2025,11 +2025,11 @@ define noundef zeroext i1 @_ZN6icu_778numparse4impl21AffixMatcherWarehouse13isIn
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %18, align 8, !tbaa !72
+  store i16 2, ptr %18, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 2, ptr %19, align 8, !tbaa !72
+  store i16 2, ptr %19, align 8, !tbaa !74
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
@@ -2223,7 +2223,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %18, align 8, !tbaa !72
+  store i16 2, ptr %18, align 8, !tbaa !74
   %19 = and i32 %4, 128
   %20 = icmp ne i32 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1536
@@ -2294,7 +2294,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   %brmerge = select i1 %exitcond202.not, i1 true, i1 %.1.us
   %indvars.iv.next.mux = select i1 %exitcond202.not, i64 %indvars.iv.next, i64 1
   %.1.us.mux = select i1 %exitcond202.not, i1 %.1.us, i1 false
-  br i1 %brmerge, label %.lr.ph.us, label %.preheader, !llvm.loop !108
+  br i1 %brmerge, label %.lr.ph.us, label %.preheader, !llvm.loop !116
 
 .split.us:                                        ; preds = %.lr.ph.us
   %57 = landingpad { ptr, i32 }
@@ -2329,7 +2329,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   br label %256
 
 71:                                               ; preds = %68
-  %72 = load ptr, ptr %21, align 8, !tbaa !106
+  %72 = load ptr, ptr %21, align 8, !tbaa !112
   %73 = load ptr, ptr %72, align 8, !tbaa !35
   %74 = load ptr, ptr %73, align 8, !tbaa !64
   %75 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232) %74)
@@ -2351,13 +2351,13 @@ _ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.
 
 80:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #19
-  store i8 0, ptr %8, align 1, !tbaa !83
+  store i8 0, ptr %8, align 1, !tbaa !87
   invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext true, i32 noundef %60, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %81 unwind label %189
 
 81:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #19
-  %82 = load ptr, ptr %21, align 8, !tbaa !106
+  %82 = load ptr, ptr %21, align 8, !tbaa !112
   invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %82, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %83 unwind label %191
 
@@ -2408,35 +2408,35 @@ _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12relea
 _ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %100, %96
   %.sink = phi ptr [ %97, %96 ], [ %94, %100 ]
   store ptr %.sink, ptr %86, align 8, !tbaa !17
-  %104 = load i32, ptr %28, align 8, !tbaa !109
+  %104 = load i32, ptr %28, align 8, !tbaa !117
   %105 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  store i32 %104, ptr %105, align 8, !tbaa !109
+  store i32 %104, ptr %105, align 8, !tbaa !117
   %106 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %107 = getelementptr inbounds nuw i8, ptr %85, i64 68
-  %108 = load i8, ptr %107, align 4, !tbaa !88
+  %108 = load i8, ptr %107, align 4, !tbaa !92
   %.not.i.i.i3.i = icmp eq i8 %108, 0
   br i1 %.not.i.i.i3.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i, label %109
 
 109:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %110 = load ptr, ptr %106, align 8, !tbaa !84
+  %110 = load ptr, ptr %106, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %110)
           to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i unwind label %116
 
 _ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i: ; preds = %109, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %111 = load i32, ptr %30, align 8, !tbaa !87
+  %111 = load i32, ptr %30, align 8, !tbaa !91
   %112 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  store i32 %111, ptr %112, align 8, !tbaa !87
-  %113 = load i8, ptr %31, align 4, !tbaa !88
-  store i8 %113, ptr %107, align 4, !tbaa !88
-  %114 = load ptr, ptr %29, align 8, !tbaa !84
+  store i32 %111, ptr %112, align 8, !tbaa !91
+  %113 = load i8, ptr %31, align 4, !tbaa !92
+  store i8 %113, ptr %107, align 4, !tbaa !92
+  %114 = load ptr, ptr %29, align 8, !tbaa !88
   %115 = icmp eq ptr %114, %32
   br i1 %115, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
-  store ptr %114, ptr %106, align 8, !tbaa !84
-  store ptr %32, ptr %29, align 8, !tbaa !84
-  store i32 4, ptr %30, align 8, !tbaa !87
-  store i8 0, ptr %31, align 4, !tbaa !88
+  store ptr %114, ptr %106, align 8, !tbaa !88
+  store ptr %32, ptr %29, align 8, !tbaa !88
+  store i32 4, ptr %30, align 8, !tbaa !91
+  store i8 0, ptr %31, align 4, !tbaa !92
   br label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
 
 116:                                              ; preds = %109
@@ -2448,7 +2448,7 @@ _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread: ; preds = %_ZN
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
   %119 = getelementptr inbounds nuw i8, ptr %85, i64 70
-  store ptr %119, ptr %106, align 8, !tbaa !84
+  store ptr %119, ptr %106, align 8, !tbaa !88
   %120 = sext i32 %111 to i64
   %121 = shl nsw i64 %120, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %119, ptr nonnull align 2 %32, i64 %121, i1 false)
@@ -2488,19 +2488,19 @@ _ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i: ; preds = %_ZN6
 _ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, %127
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #19
-  %132 = load i8, ptr %8, align 1, !tbaa !83, !range !61, !noundef !62
+  %132 = load i8, ptr %8, align 1, !tbaa !87, !range !61, !noundef !62
   %133 = trunc nuw i8 %132 to i1
   %134 = zext nneg i8 %132 to i32
   %spec.select = add nsw i32 %.081195, %134
   %spec.select123 = select i1 %133, ptr %85, ptr null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #19
-  store i8 0, ptr %10, align 1, !tbaa !83
+  store i8 0, ptr %10, align 1, !tbaa !87
   invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false, i32 noundef %60, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %135 unwind label %193
 
 135:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #19
-  %136 = load ptr, ptr %21, align 8, !tbaa !106
+  %136 = load ptr, ptr %21, align 8, !tbaa !112
   invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %136, i32 noundef %4, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %137 unwind label %195
 
@@ -2551,35 +2551,35 @@ _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12relea
 _ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129: ; preds = %154, %150
   %.sink209 = phi ptr [ %151, %150 ], [ %148, %154 ]
   store ptr %.sink209, ptr %140, align 8, !tbaa !17
-  %158 = load i32, ptr %37, align 8, !tbaa !109
+  %158 = load i32, ptr %37, align 8, !tbaa !117
   %159 = getelementptr inbounds nuw i8, ptr %139, i64 48
-  store i32 %158, ptr %159, align 8, !tbaa !109
+  store i32 %158, ptr %159, align 8, !tbaa !117
   %160 = getelementptr inbounds nuw i8, ptr %139, i64 56
   %161 = getelementptr inbounds nuw i8, ptr %139, i64 68
-  %162 = load i8, ptr %161, align 4, !tbaa !88
+  %162 = load i8, ptr %161, align 4, !tbaa !92
   %.not.i.i.i3.i130 = icmp eq i8 %162, 0
   br i1 %.not.i.i.i3.i130, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131, label %163
 
 163:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
-  %164 = load ptr, ptr %160, align 8, !tbaa !84
+  %164 = load ptr, ptr %160, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %164)
           to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131 unwind label %170
 
 _ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131: ; preds = %163, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
-  %165 = load i32, ptr %39, align 8, !tbaa !87
+  %165 = load i32, ptr %39, align 8, !tbaa !91
   %166 = getelementptr inbounds nuw i8, ptr %139, i64 64
-  store i32 %165, ptr %166, align 8, !tbaa !87
-  %167 = load i8, ptr %40, align 4, !tbaa !88
-  store i8 %167, ptr %161, align 4, !tbaa !88
-  %168 = load ptr, ptr %38, align 8, !tbaa !84
+  store i32 %165, ptr %166, align 8, !tbaa !91
+  %167 = load i8, ptr %40, align 4, !tbaa !92
+  store i8 %167, ptr %161, align 4, !tbaa !92
+  %168 = load ptr, ptr %38, align 8, !tbaa !88
   %169 = icmp eq ptr %168, %41
   br i1 %169, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131
-  store ptr %168, ptr %160, align 8, !tbaa !84
-  store ptr %41, ptr %38, align 8, !tbaa !84
-  store i32 4, ptr %39, align 8, !tbaa !87
-  store i8 0, ptr %40, align 4, !tbaa !88
+  store ptr %168, ptr %160, align 8, !tbaa !88
+  store ptr %41, ptr %38, align 8, !tbaa !88
+  store i32 4, ptr %39, align 8, !tbaa !91
+  store i8 0, ptr %40, align 4, !tbaa !92
   br label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134
 
 170:                                              ; preds = %163
@@ -2591,7 +2591,7 @@ _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread: ; preds = %
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131
   %173 = getelementptr inbounds nuw i8, ptr %139, i64 70
-  store ptr %173, ptr %160, align 8, !tbaa !84
+  store ptr %173, ptr %160, align 8, !tbaa !88
   %174 = sext i32 %165 to i64
   %175 = shl nsw i64 %174, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %173, ptr nonnull align 2 %41, i64 %175, i1 false)
@@ -2631,7 +2631,7 @@ _ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134: ; preds = %_
 _ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134, %181
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #19
-  %186 = load i8, ptr %10, align 1, !tbaa !83, !range !61, !noundef !62
+  %186 = load i8, ptr %10, align 1, !tbaa !87, !range !61, !noundef !62
   %187 = trunc nuw i8 %186 to i1
   %188 = zext nneg i8 %186 to i32
   %spec.select124 = add nsw i32 %spec.select, %188
@@ -2815,7 +2815,7 @@ _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit1
   %.180 = phi i32 [ %.2, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.079196, %68 ], [ %.079196, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.079196, %.critedge ], [ %.079196, %77 ]
   %244 = add nuw nsw i8 %.0105192, 1
   %exitcond.not = icmp eq i8 %244, 6
-  br i1 %exitcond.not, label %.preheader172, label %58, !llvm.loop !113
+  br i1 %exitcond.not, label %.preheader172, label %58, !llvm.loop !121
 
 245:                                              ; preds = %208, %241, %227, %225, %223, %195, %193
   %.pn112.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ], [ %209, %208 ], [ %242, %241 ], [ %226, %225 ], [ %228, %227 ], [ %224, %223 ]
@@ -2852,7 +2852,7 @@ _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit1
 252:                                              ; preds = %.lr.ph
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count207
-  br i1 %exitcond208.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  br i1 %exitcond208.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 253:                                              ; preds = %.lr.ph
   %254 = landingpad { ptr, i32 }
@@ -2890,16 +2890,16 @@ define noundef signext range(i8 -1, 2) i8 @_ZNK6icu_778numparse4impl12AffixMatch
   %17 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %18 = alloca %"class.icu_77::UnicodeString", align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !115
+  %20 = load ptr, ptr %19, align 8, !tbaa !123
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit, label %21
 
 21:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !118
-  %23 = load ptr, ptr %22, align 8, !tbaa !84, !noalias !121
-  store ptr %23, ptr %17, align 8, !tbaa !97, !noalias !121
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !126
+  %23 = load ptr, ptr %22, align 8, !tbaa !88, !noalias !129
+  store ptr %23, ptr %17, align 8, !tbaa !101, !noalias !129
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 noundef signext 1, ptr noundef nonnull %17, i32 noundef -1)
           to label %27 unwind label %24
 
@@ -2910,16 +2910,16 @@ common.resume:                                    ; preds = %158, %140, %121, %1
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %17, align 8, !tbaa !97, !noalias !121
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #19, !srcloc !99
+  %26 = load ptr, ptr %17, align 8, !tbaa !101, !noalias !129
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #19, !srcloc !103
   br label %common.resume
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr %17, align 8, !tbaa !97, !noalias !121
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !118
+  %28 = load ptr, ptr %17, align 8, !tbaa !101, !noalias !129
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !126
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %30 = load i16, ptr %29, align 8, !tbaa !72
+  %30 = load i16, ptr %29, align 8, !tbaa !74
   %31 = icmp slt i16 %30, 0
   %32 = ashr i16 %30, 5
   %33 = sext i16 %32 to i32
@@ -2933,32 +2933,32 @@ common.resume:                                    ; preds = %158, %140, %121, %1
 _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit: ; preds = %2, %27
   %37 = phi i32 [ %36, %27 ], [ 0, %2 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !115
+  %39 = load ptr, ptr %38, align 8, !tbaa !123
   %.not.i10 = icmp eq ptr %39, null
   br i1 %.not.i10, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit11, label %40
 
 40:                                               ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #19
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !124
-  %42 = load ptr, ptr %41, align 8, !tbaa !84, !noalias !127
-  store ptr %42, ptr %15, align 8, !tbaa !97, !noalias !127
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !132
+  %42 = load ptr, ptr %41, align 8, !tbaa !88, !noalias !135
+  store ptr %42, ptr %15, align 8, !tbaa !101, !noalias !135
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 noundef signext 1, ptr noundef nonnull %15, i32 noundef -1)
           to label %46 unwind label %43
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %15, align 8, !tbaa !97, !noalias !127
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #19, !srcloc !99
+  %45 = load ptr, ptr %15, align 8, !tbaa !101, !noalias !135
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #19, !srcloc !103
   br label %common.resume
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %15, align 8, !tbaa !97, !noalias !127
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %47) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !124
+  %47 = load ptr, ptr %15, align 8, !tbaa !101, !noalias !135
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %47) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !132
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %49 = load i16, ptr %48, align 8, !tbaa !72
+  %49 = load i16, ptr %48, align 8, !tbaa !74
   %50 = icmp slt i16 %49, 0
   %51 = ashr i16 %49, 5
   %52 = sext i16 %51 to i32
@@ -2975,32 +2975,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit11: 
   br i1 %.not, label %96, label %57
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit11
-  %58 = load ptr, ptr %19, align 8, !tbaa !115
+  %58 = load ptr, ptr %19, align 8, !tbaa !123
   %.not.i12 = icmp eq ptr %58, null
   br i1 %.not.i12, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit13, label %59
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #19
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !130
-  %61 = load ptr, ptr %60, align 8, !tbaa !84, !noalias !133
-  store ptr %61, ptr %13, align 8, !tbaa !97, !noalias !133
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !138
+  %61 = load ptr, ptr %60, align 8, !tbaa !88, !noalias !141
+  store ptr %61, ptr %13, align 8, !tbaa !101, !noalias !141
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 noundef signext 1, ptr noundef nonnull %13, i32 noundef -1)
           to label %65 unwind label %62
 
 62:                                               ; preds = %59
   %63 = landingpad { ptr, i32 }
           cleanup
-  %64 = load ptr, ptr %13, align 8, !tbaa !97, !noalias !133
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #19, !srcloc !99
+  %64 = load ptr, ptr %13, align 8, !tbaa !101, !noalias !141
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #19, !srcloc !103
   br label %common.resume
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %13, align 8, !tbaa !97, !noalias !133
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %66) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !130
+  %66 = load ptr, ptr %13, align 8, !tbaa !101, !noalias !141
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %66) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !138
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %68 = load i16, ptr %67, align 8, !tbaa !72
+  %68 = load i16, ptr %67, align 8, !tbaa !74
   %69 = icmp slt i16 %68, 0
   %70 = ashr i16 %68, 5
   %71 = sext i16 %70 to i32
@@ -3013,32 +3013,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit11: 
 
 _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit13: ; preds = %57, %65
   %75 = phi i32 [ %74, %65 ], [ 0, %57 ]
-  %76 = load ptr, ptr %38, align 8, !tbaa !115
+  %76 = load ptr, ptr %38, align 8, !tbaa !123
   %.not.i14 = icmp eq ptr %76, null
   br i1 %.not.i14, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit15, label %77
 
 77:                                               ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #19
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !136
-  %79 = load ptr, ptr %78, align 8, !tbaa !84, !noalias !139
-  store ptr %79, ptr %11, align 8, !tbaa !97, !noalias !139
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !144
+  %79 = load ptr, ptr %78, align 8, !tbaa !88, !noalias !147
+  store ptr %79, ptr %11, align 8, !tbaa !101, !noalias !147
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 noundef signext 1, ptr noundef nonnull %11, i32 noundef -1)
           to label %83 unwind label %80
 
 80:                                               ; preds = %77
   %81 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %11, align 8, !tbaa !97, !noalias !139
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %82) #19, !srcloc !99
+  %82 = load ptr, ptr %11, align 8, !tbaa !101, !noalias !147
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %82) #19, !srcloc !103
   br label %common.resume
 
 83:                                               ; preds = %77
-  %84 = load ptr, ptr %11, align 8, !tbaa !97, !noalias !139
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %84) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !136
+  %84 = load ptr, ptr %11, align 8, !tbaa !101, !noalias !147
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %84) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !144
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %86 = load i16, ptr %85, align 8, !tbaa !72
+  %86 = load i16, ptr %85, align 8, !tbaa !74
   %87 = icmp slt i16 %86, 0
   %88 = ashr i16 %86, 5
   %89 = sext i16 %88 to i32
@@ -3057,32 +3057,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit15: 
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit11
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !142
+  %98 = load ptr, ptr %97, align 8, !tbaa !150
   %.not.i16 = icmp eq ptr %98, null
   br i1 %.not.i16, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit17, label %99
 
 99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #19
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !143
-  %101 = load ptr, ptr %100, align 8, !tbaa !84, !noalias !146
-  store ptr %101, ptr %9, align 8, !tbaa !97, !noalias !146
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !151
+  %101 = load ptr, ptr %100, align 8, !tbaa !88, !noalias !154
+  store ptr %101, ptr %9, align 8, !tbaa !101, !noalias !154
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef -1)
           to label %105 unwind label %102
 
 102:                                              ; preds = %99
   %103 = landingpad { ptr, i32 }
           cleanup
-  %104 = load ptr, ptr %9, align 8, !tbaa !97, !noalias !146
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %104) #19, !srcloc !99
+  %104 = load ptr, ptr %9, align 8, !tbaa !101, !noalias !154
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %104) #19, !srcloc !103
   br label %common.resume
 
 105:                                              ; preds = %99
-  %106 = load ptr, ptr %9, align 8, !tbaa !97, !noalias !146
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %106) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !143
+  %106 = load ptr, ptr %9, align 8, !tbaa !101, !noalias !154
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %106) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !151
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %108 = load i16, ptr %107, align 8, !tbaa !72
+  %108 = load i16, ptr %107, align 8, !tbaa !74
   %109 = icmp slt i16 %108, 0
   %110 = ashr i16 %108, 5
   %111 = sext i16 %110 to i32
@@ -3096,32 +3096,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit15: 
 _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit17: ; preds = %96, %105
   %115 = phi i32 [ %114, %105 ], [ 0, %96 ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !142
+  %117 = load ptr, ptr %116, align 8, !tbaa !150
   %.not.i18 = icmp eq ptr %117, null
   br i1 %.not.i18, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit19, label %118
 
 118:                                              ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit17
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !149
-  %120 = load ptr, ptr %119, align 8, !tbaa !84, !noalias !152
-  store ptr %120, ptr %7, align 8, !tbaa !97, !noalias !152
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !157
+  %120 = load ptr, ptr %119, align 8, !tbaa !88, !noalias !160
+  store ptr %120, ptr %7, align 8, !tbaa !101, !noalias !160
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
           to label %124 unwind label %121
 
 121:                                              ; preds = %118
   %122 = landingpad { ptr, i32 }
           cleanup
-  %123 = load ptr, ptr %7, align 8, !tbaa !97, !noalias !152
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %123) #19, !srcloc !99
+  %123 = load ptr, ptr %7, align 8, !tbaa !101, !noalias !160
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %123) #19, !srcloc !103
   br label %common.resume
 
 124:                                              ; preds = %118
-  %125 = load ptr, ptr %7, align 8, !tbaa !97, !noalias !152
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %125) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !149
+  %125 = load ptr, ptr %7, align 8, !tbaa !101, !noalias !160
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %125) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !157
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %127 = load i16, ptr %126, align 8, !tbaa !72
+  %127 = load i16, ptr %126, align 8, !tbaa !74
   %128 = icmp slt i16 %127, 0
   %129 = ashr i16 %127, 5
   %130 = sext i16 %129 to i32
@@ -3138,32 +3138,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit19: 
   br i1 %.not9, label %174, label %135
 
 135:                                              ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit19
-  %136 = load ptr, ptr %97, align 8, !tbaa !142
+  %136 = load ptr, ptr %97, align 8, !tbaa !150
   %.not.i20 = icmp eq ptr %136, null
   br i1 %.not.i20, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit21, label %137
 
 137:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #19
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !155
-  %139 = load ptr, ptr %138, align 8, !tbaa !84, !noalias !158
-  store ptr %139, ptr %5, align 8, !tbaa !97, !noalias !158
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !163
+  %139 = load ptr, ptr %138, align 8, !tbaa !88, !noalias !166
+  store ptr %139, ptr %5, align 8, !tbaa !101, !noalias !166
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext 1, ptr noundef nonnull %5, i32 noundef -1)
           to label %143 unwind label %140
 
 140:                                              ; preds = %137
   %141 = landingpad { ptr, i32 }
           cleanup
-  %142 = load ptr, ptr %5, align 8, !tbaa !97, !noalias !158
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %142) #19, !srcloc !99
+  %142 = load ptr, ptr %5, align 8, !tbaa !101, !noalias !166
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %142) #19, !srcloc !103
   br label %common.resume
 
 143:                                              ; preds = %137
-  %144 = load ptr, ptr %5, align 8, !tbaa !97, !noalias !158
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %144) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !155
+  %144 = load ptr, ptr %5, align 8, !tbaa !101, !noalias !166
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %144) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !163
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %146 = load i16, ptr %145, align 8, !tbaa !72
+  %146 = load i16, ptr %145, align 8, !tbaa !74
   %147 = icmp slt i16 %146, 0
   %148 = ashr i16 %146, 5
   %149 = sext i16 %148 to i32
@@ -3176,32 +3176,32 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit19: 
 
 _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit21: ; preds = %135, %143
   %153 = phi i32 [ %152, %143 ], [ 0, %135 ]
-  %154 = load ptr, ptr %116, align 8, !tbaa !142
+  %154 = load ptr, ptr %116, align 8, !tbaa !150
   %.not.i22 = icmp eq ptr %154, null
   br i1 %.not.i22, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit23, label %155
 
 155:                                              ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !161
-  %157 = load ptr, ptr %156, align 8, !tbaa !84, !noalias !164
-  store ptr %157, ptr %3, align 8, !tbaa !97, !noalias !164
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !169
+  %157 = load ptr, ptr %156, align 8, !tbaa !88, !noalias !172
+  store ptr %157, ptr %3, align 8, !tbaa !101, !noalias !172
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %161 unwind label %158
 
 158:                                              ; preds = %155
   %159 = landingpad { ptr, i32 }
           cleanup
-  %160 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !164
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %160) #19, !srcloc !99
+  %160 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !172
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %160) #19, !srcloc !103
   br label %common.resume
 
 161:                                              ; preds = %155
-  %162 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !164
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %162) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !161
+  %162 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !172
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %162) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !169
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %164 = load i16, ptr %163, align 8, !tbaa !72
+  %164 = load i16, ptr %163, align 8, !tbaa !74
   %165 = icmp slt i16 %164, 0
   %166 = ashr i16 %164, 5
   %167 = sext i16 %166 to i32
@@ -3227,11 +3227,11 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_778numparse4impl19AffixPatternMatcherE.exit23: 
 define void @_ZN6icu_778numparse4impl12AffixMatcherC2EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl12AffixMatcherE, i64 16), ptr %0, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %5, align 8, !tbaa !115
+  store ptr %1, ptr %5, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !142
+  store ptr %2, ptr %6, align 8, !tbaa !150
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %7, align 8, !tbaa !167
+  store i32 %3, ptr %7, align 8, !tbaa !175
   ret void
 }
 
@@ -3247,20 +3247,20 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl12AffixMatcher5matchERNS_13S
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %13 = load i16, ptr %12, align 8, !tbaa !72
+  %13 = load i16, ptr %12, align 8, !tbaa !74
   %14 = and i16 %13, 1
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %67, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !115
+  %17 = load ptr, ptr %16, align 8, !tbaa !123
   %18 = icmp eq ptr %17, null
   br i1 %18, label %67, label %19
 
 19:                                               ; preds = %15
   %20 = tail call noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-  %21 = load ptr, ptr %16, align 8, !tbaa !115
+  %21 = load ptr, ptr %16, align 8, !tbaa !123
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -3271,11 +3271,11 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl12AffixMatcher5matchERNS_13S
 
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19
-  %28 = load ptr, ptr %16, align 8, !tbaa !115
+  %28 = load ptr, ptr %16, align 8, !tbaa !123
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !168
-  %30 = load ptr, ptr %29, align 8, !tbaa !84, !noalias !171
-  store ptr %30, ptr %6, align 8, !tbaa !97, !noalias !171
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !176
+  %30 = load ptr, ptr %29, align 8, !tbaa !88, !noalias !179
+  store ptr %30, ptr %6, align 8, !tbaa !101, !noalias !179
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %31
 
@@ -3286,14 +3286,14 @@ common.resume:                                    ; preds = %62, %31
 31:                                               ; preds = %27
   %32 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %6, align 8, !tbaa !97, !noalias !171
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #19, !srcloc !99
+  %33 = load ptr, ptr %6, align 8, !tbaa !101, !noalias !179
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #19, !srcloc !103
   br label %common.resume
 
 _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %27
-  %34 = load ptr, ptr %6, align 8, !tbaa !97, !noalias !171
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !168
+  %34 = load ptr, ptr %6, align 8, !tbaa !101, !noalias !179
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !176
   %35 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #19
@@ -3302,27 +3302,27 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %27
 36:                                               ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %39 = load i16, ptr %38, align 8, !tbaa !72
+  %39 = load i16, ptr %38, align 8, !tbaa !74
   %40 = and i16 %39, 1
   %.not22 = icmp eq i16 %40, 0
   br i1 %.not22, label %67, label %41
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !142
+  %43 = load ptr, ptr %42, align 8, !tbaa !150
   %44 = icmp eq ptr %43, null
   br i1 %44, label %67, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !115
+  %47 = load ptr, ptr %46, align 8, !tbaa !123
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %49 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_778numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(64) %48)
   br i1 %49, label %50, label %67
 
 50:                                               ; preds = %45
   %51 = tail call noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-  %52 = load ptr, ptr %42, align 8, !tbaa !142
+  %52 = load ptr, ptr %42, align 8, !tbaa !150
   %53 = load ptr, ptr %52, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
@@ -3333,25 +3333,25 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %27
 
 58:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
-  %59 = load ptr, ptr %42, align 8, !tbaa !142
+  %59 = load ptr, ptr %42, align 8, !tbaa !150
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !174
-  %61 = load ptr, ptr %60, align 8, !tbaa !84, !noalias !177
-  store ptr %61, ptr %5, align 8, !tbaa !97, !noalias !177
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !182
+  %61 = load ptr, ptr %60, align 8, !tbaa !88, !noalias !185
+  store ptr %61, ptr %5, align 8, !tbaa !101, !noalias !185
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 noundef signext 1, ptr noundef nonnull %5, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24 unwind label %62
 
 62:                                               ; preds = %58
   %63 = landingpad { ptr, i32 }
           cleanup
-  %64 = load ptr, ptr %5, align 8, !tbaa !97, !noalias !177
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #19, !srcloc !99
+  %64 = load ptr, ptr %5, align 8, !tbaa !101, !noalias !185
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #19, !srcloc !103
   br label %common.resume
 
 _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24: ; preds = %58
-  %65 = load ptr, ptr %5, align 8, !tbaa !97, !noalias !177
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !174
+  %65 = load ptr, ptr %5, align 8, !tbaa !101, !noalias !185
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !182
   %66 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %8) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #19
@@ -3375,7 +3375,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_778
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i16, ptr %6, align 8, !tbaa !72
+  %7 = load i16, ptr %6, align 8, !tbaa !74
   %8 = and i16 %7, 1
   %.not = icmp ne i16 %8, 0
   br label %.critedge
@@ -3383,9 +3383,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_778
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !180
-  %11 = load ptr, ptr %10, align 8, !tbaa !84, !noalias !183
-  store ptr %11, ptr %3, align 8, !tbaa !97, !noalias !183
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !188
+  %11 = load ptr, ptr %10, align 8, !tbaa !88, !noalias !191
+  store ptr %11, ptr %3, align 8, !tbaa !101, !noalias !191
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %12
 
@@ -3396,23 +3396,23 @@ common.resume:                                    ; preds = %51, %12
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !183
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #19, !srcloc !99
+  %14 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !191
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #19, !srcloc !103
   br label %common.resume
 
 _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %9
-  %15 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !183
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !180
+  %15 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !191
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !188
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load i16, ptr %16, align 8, !tbaa !72
+  %17 = load i16, ptr %16, align 8, !tbaa !74
   %18 = and i16 %17, 1
   %.not.i = icmp eq i16 %18, 0
   br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i16, ptr %20, align 8, !tbaa !72
+  %21 = load i16, ptr %20, align 8, !tbaa !74
   %22 = and i16 %21, 1
   %23 = icmp ne i16 %22, 0
   br label %49
@@ -3425,7 +3425,7 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %9
   %29 = load i32, ptr %28, align 4
   %30 = select i1 %25, i32 %29, i32 %27
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i16, ptr %31, align 8, !tbaa !72
+  %32 = load i16, ptr %31, align 8, !tbaa !74
   %33 = icmp slt i16 %32, 0
   %34 = ashr i16 %32, 5
   %35 = sext i16 %34 to i32
@@ -3473,7 +3473,7 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %9
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_778numparse4impl12AffixMatcher9smokeTestERKNS_13StringSegmentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !115
+  %4 = load ptr, ptr %3, align 8, !tbaa !123
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
@@ -3486,7 +3486,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl12AffixMatcher9smokeTestERKN
 
 10:                                               ; preds = %5, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !142
+  %12 = load ptr, ptr %11, align 8, !tbaa !150
   %.not4 = icmp eq ptr %12, null
   br i1 %.not4, label %18, label %13
 
@@ -3507,21 +3507,21 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
   %3 = alloca %"class.icu_77::UnicodeString", align 8
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !115
+  %6 = load ptr, ptr %5, align 8, !tbaa !123
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_778numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %7)
   br i1 %8, label %9, label %45
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !142
+  %11 = load ptr, ptr %10, align 8, !tbaa !150
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %13 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_778numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %12)
   br i1 %13, label %14, label %45
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load i16, ptr %15, align 8, !tbaa !72
+  %16 = load i16, ptr %15, align 8, !tbaa !74
   %17 = and i16 %16, 1
   %.not = icmp eq i16 %17, 0
   br i1 %.not, label %21, label %18
@@ -3530,7 +3530,7 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 2, ptr %19, align 8, !tbaa !72
+  store i16 2, ptr %19, align 8, !tbaa !74
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %3) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #19
@@ -3538,7 +3538,7 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
 
 21:                                               ; preds = %18, %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %23 = load i16, ptr %22, align 8, !tbaa !72
+  %23 = load i16, ptr %22, align 8, !tbaa !74
   %24 = and i16 %23, 1
   %.not11 = icmp eq i16 %24, 0
   br i1 %.not11, label %28, label %25
@@ -3547,7 +3547,7 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 2, ptr %26, align 8, !tbaa !72
+  store i16 2, ptr %26, align 8, !tbaa !74
   %27 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %4) #19
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #19
@@ -3555,12 +3555,12 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
 
 28:                                               ; preds = %25, %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !167
+  %30 = load i32, ptr %29, align 8, !tbaa !175
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %32 = load i32, ptr %31, align 4, !tbaa !186
+  %32 = load i32, ptr %31, align 4, !tbaa !194
   %33 = or i32 %32, %30
-  store i32 %33, ptr %31, align 4, !tbaa !186
-  %34 = load ptr, ptr %5, align 8, !tbaa !115
+  store i32 %33, ptr %31, align 4, !tbaa !194
+  %34 = load ptr, ptr %5, align 8, !tbaa !123
   %.not12 = icmp eq ptr %34, null
   br i1 %.not12, label %39, label %35
 
@@ -3572,7 +3572,7 @@ define void @_ZNK6icu_778numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
   br label %39
 
 39:                                               ; preds = %35, %28
-  %40 = load ptr, ptr %10, align 8, !tbaa !142
+  %40 = load ptr, ptr %10, align 8, !tbaa !150
   %.not13 = icmp eq ptr %40, null
   br i1 %.not13, label %45, label %41
 
@@ -3600,7 +3600,7 @@ _ZN6icu_778internal23toU16StringViewNullableIA7_DsvEESt17basic_string_viewIDsSt1
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !167
+  %12 = load i32, ptr %11, align 8, !tbaa !175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #19
@@ -3608,7 +3608,7 @@ _ZN6icu_778internal23toU16StringViewNullableIA7_DsvEESt17basic_string_viewIDsSt1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 2, ptr %13, align 8, !tbaa !72
+  store i16 2, ptr %13, align 8, !tbaa !74
   %14 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %8, i64 6, ptr nonnull @.str.1)
           to label %_ZN6icu_7713UnicodeStringC2IA7_DsvEERKT_.exit unwind label %15
 
@@ -3631,10 +3631,10 @@ _ZN6icu_7713UnicodeStringC2IA7_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
 19:                                               ; preds = %19, %_ZN6icu_7713UnicodeStringC2IA7_DsvEERKT_.exit
   %.0.i.i.i = phi i64 [ 0, %_ZN6icu_7713UnicodeStringC2IA7_DsvEERKT_.exit ], [ %23, %19 ]
   %20 = getelementptr inbounds nuw i16, ptr %18, i64 %.0.i.i.i
-  %21 = load i16, ptr %20, align 2, !tbaa !89, !noalias !191
+  %21 = load i16, ptr %20, align 2, !tbaa !93, !noalias !199
   %22 = icmp eq i16 %21, 0
   %23 = add i64 %.0.i.i.i, 1
-  br i1 %22, label %_ZNSt17basic_string_viewIDsSt11char_traitsIDsEEC2EPKDs.exit.i, label %19, !llvm.loop !194
+  br i1 %22, label %_ZNSt17basic_string_viewIDsSt11char_traitsIDsEEC2EPKDs.exit.i, label %19, !llvm.loop !202
 
 _ZNSt17basic_string_viewIDsSt11char_traitsIDsEEC2EPKDs.exit.i: ; preds = %19
   invoke void @_ZN6icu_7721unistr_internalConcatERKNS_13UnicodeStringESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 %.0.i.i.i, ptr nonnull %18)
@@ -3643,35 +3643,35 @@ _ZNSt17basic_string_viewIDsSt11char_traitsIDsEEC2EPKDs.exit.i: ; preds = %19
 _ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_.exit: ; preds = %_ZNSt17basic_string_viewIDsSt11char_traitsIDsEEC2EPKDs.exit.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !115
+  %25 = load ptr, ptr %24, align 8, !tbaa !123
   %.not11 = icmp eq ptr %25, null
   br i1 %.not11, label %_ZN6icu_778internal23toU16StringViewNullableIA5_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i, label %26
 
 26:                                               ; preds = %_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_.exit
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !195
-  %28 = load ptr, ptr %27, align 8, !tbaa !84, !noalias !198
-  store ptr %28, ptr %3, align 8, !tbaa !97, !noalias !198
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !203
+  %28 = load ptr, ptr %27, align 8, !tbaa !88, !noalias !206
+  store ptr %28, ptr %3, align 8, !tbaa !101, !noalias !206
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit unwind label %29
 
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !198
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #19, !srcloc !99
+  %31 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !206
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #19, !srcloc !103
   br label %.body
 
 _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %26
-  %32 = load ptr, ptr %3, align 8, !tbaa !97, !noalias !198
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !195
+  %32 = load ptr, ptr %3, align 8, !tbaa !101, !noalias !206
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !203
   br label %_ZN6icu_7713UnicodeStringC2IA5_DsvEERKT_.exit
 
 _ZN6icu_778internal23toU16StringViewNullableIA5_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i: ; preds = %_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %33, align 8, !tbaa !72
+  store i16 2, ptr %33, align 8, !tbaa !74
   %34 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %9, i64 4, ptr nonnull @.str.4)
           to label %_ZN6icu_7713UnicodeStringC2IA5_DsvEERKT_.exit unwind label %35
 
@@ -3692,35 +3692,35 @@ _ZN6icu_7713UnicodeStringC2IA5_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
 _ZN6icu_77plIA2_DsvEENS_13UnicodeStringERKS2_RKT_.exit: ; preds = %.preheader35.preheader
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #19
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !142
+  %38 = load ptr, ptr %37, align 8, !tbaa !150
   %.not12 = icmp eq ptr %38, null
   br i1 %.not12, label %_ZN6icu_778internal23toU16StringViewNullableIA5_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i28, label %39
 
 39:                                               ; preds = %_ZN6icu_77plIA2_DsvEENS_13UnicodeStringERKS2_RKT_.exit
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !201
-  %41 = load ptr, ptr %40, align 8, !tbaa !84, !noalias !204
-  store ptr %41, ptr %2, align 8, !tbaa !97, !noalias !204
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !209
+  %41 = load ptr, ptr %40, align 8, !tbaa !88, !noalias !212
+  store ptr %41, ptr %2, align 8, !tbaa !101, !noalias !212
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 1, ptr noundef nonnull %2, i32 noundef -1)
           to label %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit26 unwind label %42
 
 42:                                               ; preds = %39
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %2, align 8, !tbaa !97, !noalias !204
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #19, !srcloc !99
+  %44 = load ptr, ptr %2, align 8, !tbaa !101, !noalias !212
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #19, !srcloc !103
   br label %.body24
 
 _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit26: ; preds = %39
-  %45 = load ptr, ptr %2, align 8, !tbaa !97, !noalias !204
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #19, !srcloc !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !201
+  %45 = load ptr, ptr %2, align 8, !tbaa !101, !noalias !212
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #19, !srcloc !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !209
   br label %_ZN6icu_7713UnicodeStringC2IA5_DsvEERKT_.exit31
 
 _ZN6icu_778internal23toU16StringViewNullableIA5_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i28: ; preds = %_ZN6icu_77plIA2_DsvEENS_13UnicodeStringERKS2_RKT_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %46, align 8, !tbaa !72
+  store i16 2, ptr %46, align 8, !tbaa !74
   %47 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %10, i64 4, ptr nonnull @.str.4)
           to label %_ZN6icu_7713UnicodeStringC2IA5_DsvEERKT_.exit31 unwind label %48
 
@@ -3938,13 +3938,13 @@ define linkonce_odr void @_ZN6icu_778numparse4impl12AffixMatcherD0Ev(ptr noundef
 define linkonce_odr void @_ZN6icu_778numparse4impl19AffixPatternMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %3 = load i8, ptr %2, align 4, !tbaa !88
+  %3 = load i8, ptr %2, align 4, !tbaa !92
   %.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %.not.i.i.i.i, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !84
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %6)
           to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %7
 
@@ -4003,12 +4003,12 @@ declare void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7715MaybeStackArrayIDsLi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(22) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !88
+  %3 = load i8, ptr %2, align 4, !tbaa !92
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !84
+  %5 = load ptr, ptr %0, align 8, !tbaa !88
   invoke void @uprv_free_77(ptr noundef %5)
           to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit unwind label %6
 
@@ -4139,143 +4139,151 @@ attributes #22 = { builtin nounwind }
 !64 = !{!55, !56, i64 0}
 !65 = !{!55, !9, i64 32}
 !66 = !{!49, !45, i64 144}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTSN6icu_778numparse4impl18NumberParseMatcherE", !6, i64 0}
-!71 = !{!24, !27, i64 64}
-!72 = !{!7, !7, i64 0}
-!73 = !{!51, !9, i64 0}
-!74 = !{!52, !53, i64 0}
-!75 = !{!52, !9, i64 8}
-!76 = !{!52, !7, i64 12}
-!77 = !{!50, !9, i64 56}
-!78 = !{!55, !29, i64 16}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"p1 _ZTSN6icu_778numparse4impl16CodePointMatcherE", !6, i64 0}
-!81 = !{!82, !9, i64 8}
-!82 = !{!"_ZTSN6icu_778numparse4impl16CodePointMatcherE", !40, i64 0, !9, i64 8}
-!83 = !{!45, !45, i64 0}
-!84 = !{!85, !86, i64 0}
-!85 = !{!"_ZTSN6icu_7715MaybeStackArrayIDsLi4EEE", !86, i64 0, !9, i64 8, !7, i64 12, !7, i64 14}
-!86 = !{!"p1 char16_t", !6, i64 0}
-!87 = !{!85, !9, i64 8}
-!88 = !{!85, !7, i64 12}
-!89 = !{!90, !90, i64 0}
-!90 = !{!"char16_t", !7, i64 0}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode: argument 0"}
-!93 = distinct !{!93, !"_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!96 = distinct !{!96, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!97 = !{!98, !86, i64 0}
-!98 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !86, i64 0}
-!99 = !{i64 2148912612}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!102 = distinct !{!102, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!105 = distinct !{!105, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!106 = !{!107, !28, i64 1536}
-!107 = !{!"_ZTSN6icu_778numparse4impl21AffixMatcherWarehouseE", !7, i64 0, !7, i64 576, !28, i64 1536}
-!108 = distinct !{!108, !68}
-!109 = !{!110, !9, i64 48}
-!110 = !{!"_ZTSN6icu_778numparse4impl18ArraySeriesMatcherE", !111, i64 0, !18, i64 8, !9, i64 48}
-!111 = !{!"_ZTSN6icu_778numparse4impl13SeriesMatcherE", !112, i64 0}
-!112 = !{!"_ZTSN6icu_778numparse4impl18CompositionMatcherE", !40, i64 0}
-!113 = distinct !{!113, !68}
-!114 = distinct !{!114, !68}
-!115 = !{!116, !117, i64 8}
-!116 = !{!"_ZTSN6icu_778numparse4impl12AffixMatcherE", !40, i64 0, !117, i64 8, !117, i64 16, !9, i64 24}
-!117 = !{!"p1 _ZTSN6icu_778numparse4impl19AffixPatternMatcherE", !6, i64 0}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!120 = distinct !{!120, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!121 = !{!122, !119}
-!122 = distinct !{!122, !123, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!123 = distinct !{!123, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!126 = distinct !{!126, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!127 = !{!128, !125}
-!128 = distinct !{!128, !129, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!129 = distinct !{!129, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!132 = distinct !{!132, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!133 = !{!134, !131}
-!134 = distinct !{!134, !135, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!135 = distinct !{!135, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!138 = distinct !{!138, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!139 = !{!140, !137}
-!140 = distinct !{!140, !141, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!141 = distinct !{!141, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!142 = !{!116, !117, i64 16}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!145 = distinct !{!145, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!146 = !{!147, !144}
-!147 = distinct !{!147, !148, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!148 = distinct !{!148, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!151 = distinct !{!151, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!152 = !{!153, !150}
-!153 = distinct !{!153, !154, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!154 = distinct !{!154, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!157 = distinct !{!157, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!158 = !{!159, !156}
-!159 = distinct !{!159, !160, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!160 = distinct !{!160, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!163 = distinct !{!163, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!164 = !{!165, !162}
-!165 = distinct !{!165, !166, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!166 = distinct !{!166, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!167 = !{!116, !9, i64 24}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!170 = distinct !{!170, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!171 = !{!172, !169}
-!172 = distinct !{!172, !173, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!173 = distinct !{!173, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!176 = distinct !{!176, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!177 = !{!178, !175}
-!178 = distinct !{!178, !179, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!179 = distinct !{!179, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!182 = distinct !{!182, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!183 = !{!184, !181}
-!184 = distinct !{!184, !185, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!185 = distinct !{!185, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!186 = !{!187, !9, i64 76}
-!187 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !188, i64 0, !9, i64 72, !9, i64 76, !41, i64 80, !41, i64 144, !7, i64 208}
-!188 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !189, i64 0, !45, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !190, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !45, i64 64, !45, i64 65}
-!189 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
-!190 = !{!"double", !7, i64 0}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_: argument 0"}
-!193 = distinct !{!193, !"_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_"}
-!194 = distinct !{!194, !68}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!197 = distinct !{!197, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!198 = !{!199, !196}
-!199 = distinct !{!199, !200, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!200 = distinct !{!200, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
-!203 = distinct !{!203, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
-!204 = !{!205, !202}
-!205 = distinct !{!205, !206, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
-!206 = distinct !{!206, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !69}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTSN6icu_778numparse4impl18NumberParseMatcherE", !6, i64 0}
+!73 = !{!24, !27, i64 64}
+!74 = !{!7, !7, i64 0}
+!75 = !{!51, !9, i64 0}
+!76 = !{!52, !53, i64 0}
+!77 = !{!52, !9, i64 8}
+!78 = !{!52, !7, i64 12}
+!79 = distinct !{!79, !69}
+!80 = !{!50, !9, i64 56}
+!81 = distinct !{!81, !69}
+!82 = !{!55, !29, i64 16}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSN6icu_778numparse4impl16CodePointMatcherE", !6, i64 0}
+!85 = !{!86, !9, i64 8}
+!86 = !{!"_ZTSN6icu_778numparse4impl16CodePointMatcherE", !40, i64 0, !9, i64 8}
+!87 = !{!45, !45, i64 0}
+!88 = !{!89, !90, i64 0}
+!89 = !{!"_ZTSN6icu_7715MaybeStackArrayIDsLi4EEE", !90, i64 0, !9, i64 8, !7, i64 12, !7, i64 14}
+!90 = !{!"p1 char16_t", !6, i64 0}
+!91 = !{!89, !9, i64 8}
+!92 = !{!89, !7, i64 12}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"char16_t", !7, i64 0}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode: argument 0"}
+!97 = distinct !{!97, !"_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!100 = distinct !{!100, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!101 = !{!102, !90, i64 0}
+!102 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !90, i64 0}
+!103 = !{i64 2148912612}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!106 = distinct !{!106, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!109 = distinct !{!109, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!110 = distinct !{!110, !69}
+!111 = distinct !{!111, !69}
+!112 = !{!113, !28, i64 1536}
+!113 = !{!"_ZTSN6icu_778numparse4impl21AffixMatcherWarehouseE", !7, i64 0, !7, i64 576, !28, i64 1536}
+!114 = distinct !{!114, !69}
+!115 = distinct !{!115, !69}
+!116 = distinct !{!116, !68, !69}
+!117 = !{!118, !9, i64 48}
+!118 = !{!"_ZTSN6icu_778numparse4impl18ArraySeriesMatcherE", !119, i64 0, !18, i64 8, !9, i64 48}
+!119 = !{!"_ZTSN6icu_778numparse4impl13SeriesMatcherE", !120, i64 0}
+!120 = !{!"_ZTSN6icu_778numparse4impl18CompositionMatcherE", !40, i64 0}
+!121 = distinct !{!121, !68, !69}
+!122 = distinct !{!122, !68, !69}
+!123 = !{!124, !125, i64 8}
+!124 = !{!"_ZTSN6icu_778numparse4impl12AffixMatcherE", !40, i64 0, !125, i64 8, !125, i64 16, !9, i64 24}
+!125 = !{!"p1 _ZTSN6icu_778numparse4impl19AffixPatternMatcherE", !6, i64 0}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!128 = distinct !{!128, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!129 = !{!130, !127}
+!130 = distinct !{!130, !131, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!131 = distinct !{!131, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!134 = distinct !{!134, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!135 = !{!136, !133}
+!136 = distinct !{!136, !137, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!137 = distinct !{!137, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!140 = distinct !{!140, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!141 = !{!142, !139}
+!142 = distinct !{!142, !143, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!143 = distinct !{!143, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!146 = distinct !{!146, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!147 = !{!148, !145}
+!148 = distinct !{!148, !149, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!149 = distinct !{!149, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!150 = !{!124, !125, i64 16}
+!151 = !{!152}
+!152 = distinct !{!152, !153, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!153 = distinct !{!153, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!154 = !{!155, !152}
+!155 = distinct !{!155, !156, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!156 = distinct !{!156, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!159 = distinct !{!159, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!160 = !{!161, !158}
+!161 = distinct !{!161, !162, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!162 = distinct !{!162, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!165 = distinct !{!165, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!166 = !{!167, !164}
+!167 = distinct !{!167, !168, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!168 = distinct !{!168, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!171 = distinct !{!171, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!172 = !{!173, !170}
+!173 = distinct !{!173, !174, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!174 = distinct !{!174, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!175 = !{!124, !9, i64 24}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!178 = distinct !{!178, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!179 = !{!180, !177}
+!180 = distinct !{!180, !181, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!181 = distinct !{!181, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!184 = distinct !{!184, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!185 = !{!186, !183}
+!186 = distinct !{!186, !187, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!187 = distinct !{!187, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!190 = distinct !{!190, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!191 = !{!192, !189}
+!192 = distinct !{!192, !193, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!193 = distinct !{!193, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!194 = !{!195, !9, i64 76}
+!195 = !{!"_ZTSN6icu_778numparse4impl12ParsedNumberE", !196, i64 0, !9, i64 72, !9, i64 76, !41, i64 80, !41, i64 144, !7, i64 208}
+!196 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !197, i64 0, !45, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !7, i64 21, !198, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !7, i64 48, !45, i64 64, !45, i64 65}
+!197 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!198 = !{!"double", !7, i64 0}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_: argument 0"}
+!201 = distinct !{!201, !"_ZN6icu_77plIPKDsvEENS_13UnicodeStringERKS3_RKT_"}
+!202 = distinct !{!202, !68, !69}
+!203 = !{!204}
+!204 = distinct !{!204, !205, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!205 = distinct !{!205, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!206 = !{!207, !204}
+!207 = distinct !{!207, !208, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!208 = distinct !{!208, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}
+!209 = !{!210}
+!210 = distinct !{!210, !211, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv: argument 0"}
+!211 = distinct !{!211, !"_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv"}
+!212 = !{!213, !210}
+!213 = distinct !{!213, !214, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv: argument 0"}
+!214 = distinct !{!214, !"_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv"}

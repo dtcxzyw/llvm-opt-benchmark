@@ -122,7 +122,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %.166, align 8, !tbaa !17
   %.not54 = icmp eq ptr %36, null
-  br i1 %.not54, label %.thread63, label %33
+  br i1 %.not54, label %.thread63, label %33, !llvm.loop !18
 
 .thread63:                                        ; preds = %35, %21
   %37 = zext i32 %18 to i64
@@ -178,7 +178,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   store i8 %73, ptr %74, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %75, label %57
+  br i1 %exitcond.not, label %75, label %57, !llvm.loop !20
 
 75:                                               ; preds = %57
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 60
@@ -203,7 +203,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
 
 84:                                               ; preds = %.loopexit
   %85 = getelementptr inbounds nuw i8, ptr %.2, i64 28
-  store ptr %85, ptr %3, align 8, !tbaa !18
+  store ptr %85, ptr %3, align 8, !tbaa !21
   br label %86
 
 86:                                               ; preds = %84, %.loopexit
@@ -275,7 +275,7 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 28
-  store ptr %33, ptr %3, align 8, !tbaa !18
+  store ptr %33, ptr %3, align 8, !tbaa !21
   br label %34
 
 34:                                               ; preds = %32, %31
@@ -287,7 +287,7 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
 37:                                               ; preds = %28
   %38 = load ptr, ptr %.0, align 8, !tbaa !17
   %.not25 = icmp eq ptr %38, null
-  br i1 %.not25, label %.loopexit, label %28
+  br i1 %.not25, label %.loopexit, label %28, !llvm.loop !23
 
 .loopexit:                                        ; preds = %37, %9, %16, %34, %12, %5
   %.019 = phi i32 [ 3, %5 ], [ 26, %12 ], [ 0, %34 ], [ 0, %16 ], [ 0, %9 ], [ 0, %37 ]
@@ -328,5 +328,9 @@ attributes #8 = { nounwind }
 !15 = !{!7, !7, i64 0}
 !16 = !{!9, !9, i64 0}
 !17 = !{!14, !5, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 omnipotent char", !6, i64 0}
+!23 = distinct !{!23, !19}

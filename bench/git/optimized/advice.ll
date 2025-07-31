@@ -191,7 +191,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local range(i32 0, 2) i32 @advice_enabled(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %2, i32 1
-  %4 = load i32, ptr %3, align 8, !tbaa !18
+  %4 = load i32, ptr %3, align 8, !tbaa !19
   %5 = icmp ne i32 %4, 1
   %6 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
   %7 = icmp slt i32 %6, 0
@@ -215,7 +215,7 @@ define dso_local range(i32 0, 2) i32 @advice_enabled(i32 noundef %0) local_unnam
   br i1 %brmerge.not, label %13, label %advice_enabled.exit
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !19
   %15 = icmp ne i32 %14, 1
   %16 = icmp slt i32 %.pr, 0
   br i1 %16, label %17, label %advice_enabled.exit
@@ -241,7 +241,7 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   %4 = zext i32 %0 to i64
   %5 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !18
+  %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = icmp ne i32 %6, 1
   %8 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
   %9 = icmp slt i32 %8, 0
@@ -265,7 +265,7 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   br i1 %brmerge.not.i, label %15, label %advice_enabled.exit
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !19
   %17 = icmp ne i32 %16, 1
   %18 = icmp slt i32 %.pr.i, 0
   br i1 %18, label %19, label %advice_enabled.exit
@@ -285,10 +285,10 @@ advice_enabled.exit:                              ; preds = %13, %15
   call void @llvm.va_start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !18
+  %26 = load i32, ptr %25, align 8, !tbaa !19
   %.not3 = icmp eq i32 %26, 0
   %27 = zext i1 %.not3 to i32
-  %28 = load ptr, ptr %24, align 16, !tbaa !20
+  %28 = load ptr, ptr %24, align 16, !tbaa !21
   call fastcc void @vadvise(ptr noundef %1, i32 noundef %27, ptr noundef %28, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %advice_enabled.exit.thread
@@ -326,7 +326,7 @@ define dso_local i32 @git_default_advice_config(ptr noundef %0, ptr noundef %1) 
   %9 = load i8, ptr %.07.i, align 1, !tbaa !11
   %.06.i.add = add nuw nsw i64 %.06.i.idx, 1
   %10 = icmp eq i8 %9, %7
-  br i1 %10, label %.preheader, label %skip_prefix.exit.preheader, !llvm.loop !21
+  br i1 %10, label %.preheader, label %skip_prefix.exit.preheader, !llvm.loop !22
 
 skip_prefix.exit.preheader:                       ; preds = %6
   %scevgep45 = getelementptr i8, ptr %0, i64 7
@@ -369,17 +369,17 @@ skip_prefix.exit:                                 ; preds = %skip_prefix.exit.pr
   %23 = load i8, ptr %.07.i25, align 1, !tbaa !11
   %.06.i26.add = add nuw nsw i64 %.06.i26.idx, 1
   %24 = icmp eq i8 %23, %21
-  br i1 %24, label %skip_prefix.exit, label %.critedge, !llvm.loop !21
+  br i1 %24, label %skip_prefix.exit, label %.critedge, !llvm.loop !22
 
 skip_prefix.exit28:                               ; preds = %skip_prefix.exit28.preheader
   %25 = add nuw nsw i64 %.040, 1
   %exitcond47 = icmp eq i64 %25, 46
-  br i1 %exitcond47, label %.critedge, label %skip_prefix.exit28.preheader, !llvm.loop !22
+  br i1 %exitcond47, label %.critedge, label %skip_prefix.exit28.preheader, !llvm.loop !23
 
 skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %skip_prefix.exit28
   %.040 = phi i64 [ %25, %skip_prefix.exit28 ], [ 0, %skip_prefix.exit ]
   %26 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %.040
-  %27 = load ptr, ptr %26, align 16, !tbaa !20
+  %27 = load ptr, ptr %26, align 16, !tbaa !21
   %28 = tail call i32 @strcasecmp(ptr noundef nonnull %scevgep45, ptr noundef %27) #14
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %29, label %skip_prefix.exit28
@@ -389,7 +389,7 @@ skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %
   %.not22 = icmp eq i32 %30, 0
   %31 = select i1 %.not22, i32 1, i32 2
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %31, ptr %32, align 8, !tbaa !18
+  store i32 %31, ptr %32, align 8, !tbaa !19
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %skip_prefix.exit28, %13, %29, %15, %17, %4
@@ -421,12 +421,12 @@ define dso_local void @list_config_advices(ptr noundef %0, ptr noundef %1) local
 4:                                                ; preds = %2, %4
   %.04 = phi i64 [ 0, %2 ], [ %9, %4 ]
   %5 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %.04
-  %6 = load ptr, ptr %5, align 16, !tbaa !20
+  %6 = load ptr, ptr %5, align 16, !tbaa !21
   %7 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.83, ptr noundef %1, ptr noundef %6) #13
   %8 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %7) #13
   %9 = add nuw nsw i64 %.04, 1
   %exitcond.not = icmp eq i64 %9, 46
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !23
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -502,7 +502,7 @@ _.exit.sink.split:                                ; preds = %23, %19, %15, %11, 
 _.exit:                                           ; preds = %_.exit.sink.split, %23, %19, %15, %11, %7, %3
   %.0.i14.sink = phi ptr [ @.str.6, %3 ], [ @.str.8, %7 ], [ @.str.10, %11 ], [ @.str.12, %15 ], [ @.str.14, %19 ], [ @.str.16, %23 ], [ %26, %_.exit.sink.split ]
   %27 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i14.sink) #13
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 488), align 8, !tbaa !18
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 488), align 8, !tbaa !19
   %.not35 = icmp eq i32 %28, 1
   %29 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
   %30 = icmp slt i32 %29, 0
@@ -586,7 +586,7 @@ define dso_local void @die_conclude_merge() local_unnamed_addr #8 {
 _.exit:                                           ; preds = %0, %2
   %.0.i = phi ptr [ %3, %2 ], [ @.str.21, %0 ]
   %4 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i) #13
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 488), align 8, !tbaa !18
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 488), align 8, !tbaa !19
   %.not8 = icmp eq i32 %5, 1
   %6 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
   %7 = icmp slt i32 %6, 0
@@ -635,7 +635,7 @@ define dso_local void @die_ff_impossible() local_unnamed_addr #8 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_updating_sparse_paths(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %26, label %4
 
@@ -652,13 +652,13 @@ define dso_local void @advise_on_updating_sparse_paths(ptr noundef readonly capt
 _.exit:                                           ; preds = %4, %7
   %.0.i = phi ptr [ %8, %7 ], [ @.str.26, %4 ]
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef %.0.i) #15
-  %10 = load ptr, ptr %0, align 8, !tbaa !27
+  %10 = load ptr, ptr %0, align 8, !tbaa !28
   %.not812 = icmp eq ptr %10, null
   br i1 %.not812, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_.exit
-  %11 = load ptr, ptr %0, align 8, !tbaa !27
-  %12 = load i64, ptr %2, align 8, !tbaa !24
+  %11 = load ptr, ptr %0, align 8, !tbaa !28
+  %12 = load i64, ptr %2, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %12
   %14 = icmp ult ptr %10, %13
   br i1 %14, label %.lr.ph, label %.critedge
@@ -666,11 +666,11 @@ _.exit:                                           ; preds = %4, %7
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01315 = phi ptr [ %18, %.lr.ph ], [ %10, %.lr.ph.preheader ]
   %15 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %16 = load ptr, ptr %.01315, align 8, !tbaa !28
+  %16 = load ptr, ptr %.01315, align 8, !tbaa !29
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef %16) #15
   %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 16
-  %19 = load ptr, ptr %0, align 8, !tbaa !27
-  %20 = load i64, ptr %2, align 8, !tbaa !24
+  %19 = load ptr, ptr %0, align 8, !tbaa !28
+  %20 = load i64, ptr %2, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %20
   %22 = icmp ult ptr %18, %21
   br i1 %22, label %.lr.ph, label %.critedge
@@ -716,7 +716,7 @@ _.exit:                                           ; preds = %1, %3
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_moving_dirty_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %26, label %4
 
@@ -733,13 +733,13 @@ define dso_local void @advise_on_moving_dirty_path(ptr noundef readonly captures
 _.exit:                                           ; preds = %4, %7
   %.0.i = phi ptr [ %8, %7 ], [ @.str.30, %4 ]
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef %.0.i) #15
-  %10 = load ptr, ptr %0, align 8, !tbaa !27
+  %10 = load ptr, ptr %0, align 8, !tbaa !28
   %.not812 = icmp eq ptr %10, null
   br i1 %.not812, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_.exit
-  %11 = load ptr, ptr %0, align 8, !tbaa !27
-  %12 = load i64, ptr %2, align 8, !tbaa !24
+  %11 = load ptr, ptr %0, align 8, !tbaa !28
+  %12 = load i64, ptr %2, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %12
   %14 = icmp ult ptr %10, %13
   br i1 %14, label %.lr.ph, label %.critedge
@@ -747,11 +747,11 @@ _.exit:                                           ; preds = %4, %7
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01315 = phi ptr [ %18, %.lr.ph ], [ %10, %.lr.ph.preheader ]
   %15 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %16 = load ptr, ptr %.01315, align 8, !tbaa !28
+  %16 = load ptr, ptr %.01315, align 8, !tbaa !29
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef %16) #15
   %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 16
-  %19 = load ptr, ptr %0, align 8, !tbaa !27
-  %20 = load i64, ptr %2, align 8, !tbaa !24
+  %19 = load ptr, ptr %0, align 8, !tbaa !28
+  %20 = load i64, ptr %2, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw %struct.string_list_item, ptr %19, i64 %20
   %22 = icmp ult ptr %18, %21
   br i1 %22, label %.lr.ph, label %.critedge
@@ -831,17 +831,18 @@ attributes #16 = { noreturn nounwind }
 !13 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !15, i64 8}
-!19 = !{!"", !9, i64 0, !15, i64 8}
-!20 = !{!19, !9, i64 0}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
-!24 = !{!25, !6, i64 8}
-!25 = !{!"string_list", !26, i64 0, !6, i64 8, !6, i64 16, !15, i64 24, !10, i64 32}
-!26 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
-!27 = !{!25, !26, i64 0}
-!28 = !{!29, !9, i64 0}
-!29 = !{!"string_list_item", !9, i64 0, !10, i64 8}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !15, i64 8}
+!20 = !{!"", !9, i64 0, !15, i64 8}
+!21 = !{!20, !9, i64 0}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18}
+!25 = !{!26, !6, i64 8}
+!26 = !{!"string_list", !27, i64 0, !6, i64 8, !6, i64 16, !15, i64 24, !10, i64 32}
+!27 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
+!28 = !{!26, !27, i64 0}
+!29 = !{!30, !9, i64 0}
+!30 = !{!"string_list_item", !9, i64 0, !10, i64 8}

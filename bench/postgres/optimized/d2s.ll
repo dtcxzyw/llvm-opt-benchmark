@@ -151,7 +151,7 @@ define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef captu
   %89 = and i64 %88, 4294967295
   %.not.i.i.i = icmp eq i64 %89, 0
   %90 = add i32 %.09.i.i.i, 1
-  br i1 %.not.i.i.i, label %.preheader233.i, label %multipleOfPowerOf5.exit.i
+  br i1 %.not.i.i.i, label %.preheader233.i, label %multipleOfPowerOf5.exit.i, !llvm.loop !3
 
 multipleOfPowerOf5.exit.i:                        ; preds = %.preheader233.i
   %.not278.i = icmp ult i32 %.09.i.i.i, %45
@@ -166,7 +166,7 @@ multipleOfPowerOf5.exit.i:                        ; preds = %.preheader233.i
   %93 = and i64 %92, 4294967295
   %.not.i.i175.i = icmp eq i64 %93, 0
   %94 = add i32 %.09.i.i172.i, 1
-  br i1 %.not.i.i175.i, label %.preheader234.i, label %multipleOfPowerOf5.exit176.i
+  br i1 %.not.i.i175.i, label %.preheader234.i, label %multipleOfPowerOf5.exit176.i, !llvm.loop !3
 
 multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %95 = icmp uge i32 %.09.i.i172.i, %45
@@ -267,7 +267,7 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %160 = udiv i64 %153, 10
   %161 = udiv i64 %152, 10
   %.not164.i = icmp samesign ugt i64 %160, %161
-  br i1 %.not164.i, label %.lr.ph247.i, label %._crit_edge248.loopexit.i
+  br i1 %.not164.i, label %.lr.ph247.i, label %._crit_edge248.loopexit.i, !llvm.loop !5
 
 ._crit_edge248.loopexit.i:                        ; preds = %.lr.ph247.i
   %162 = xor i1 %157, true
@@ -332,7 +332,7 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %188 = udiv i64 %185, 10
   %189 = udiv i64 %184, 10
   %.not.i21 = icmp samesign ugt i64 %188, %189
-  br i1 %.not.i21, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %.not.i21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.neg163.le.i = mul i64 %186, 4294967286
@@ -548,7 +548,7 @@ decimalLength.exit.i:                             ; preds = %229, %227, %225, %2
   store i16 %305, ptr %302, align 1
   %306 = add i32 %.1111132.i.i, 4
   %307 = icmp ugt i32 %.0113131.i.i, 99999999
-  br i1 %307, label %288, label %._crit_edge.i.i, !llvm.loop !3
+  br i1 %307, label %288, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %288, %281
   %.0113.lcssa.i.i = phi i32 [ %282, %281 ], [ %289, %288 ]
@@ -704,7 +704,7 @@ to_chars_df.exit.i:                               ; preds = %379, %375
   %391 = and i64 %390, 4294967294
   %.not.i30 = icmp eq i64 %391, 0
   %392 = add i32 %.1130.i, -1
-  br i1 %.not.i30, label %.preheader.i28, label %.loopexit.i
+  br i1 %.not.i30, label %.preheader.i28, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %388, %.preheader.i28, %384
   %.0129.i = phi i32 [ %.0.i.i, %384 ], [ %.1130.i, %.preheader.i28 ], [ %.1130.i, %388 ]
@@ -795,7 +795,7 @@ to_chars_df.exit.i:                               ; preds = %379, %375
   store i16 %452, ptr %449, align 1
   %453 = add i32 %.1137156.i, 4
   %454 = icmp ugt i32 %.0134157.i, 99999999
-  br i1 %454, label %435, label %._crit_edge.i24, !llvm.loop !5
+  br i1 %454, label %435, label %._crit_edge.i24, !llvm.loop !10
 
 ._crit_edge.i24:                                  ; preds = %435, %428
   %.1137.lcssa.i = phi i32 [ %.0136.i, %428 ], [ %453, %435 ]
@@ -958,5 +958,10 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.estimated_trip_count"}
 !5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !8, !4}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !8, !4}

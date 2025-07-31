@@ -492,5 +492,6 @@ attributes #2 = { nounwind }
 !33 = !{!"PKCS12_st", !22, i64 0, !34, i64 8, !35, i64 16}
 !34 = !{!"p1 _ZTS18PKCS12_MAC_DATA_st", !6, i64 0}
 !35 = !{!"p1 _ZTS8pkcs7_st", !6, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!"llvm.loop.estimated_trip_count"}

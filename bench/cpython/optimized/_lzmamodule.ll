@@ -2272,7 +2272,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr noundef read
   %20 = getelementptr %struct.lzma_filter, ptr %6, i64 %19
   %21 = load i64, ptr %20, align 16, !tbaa !16
   %.not.i = icmp eq i64 %21, -1
-  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !78
 
 free_filter_chain.exit:                           ; preds = %.lr.ph.i, %12
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
@@ -2360,7 +2360,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   %33 = getelementptr %struct.lzma_filter, ptr %6, i64 %32
   %34 = load i64, ptr %33, align 16, !tbaa !16
   %.not.i = icmp eq i64 %34, -1
-  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !78
 
 free_filter_chain.exit:                           ; preds = %.lr.ph.i, %26
   %.330 = phi i32 [ 11, %26 ], [ %.329, %.lr.ph.i ]
@@ -2421,7 +2421,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr noundef rea
   %19 = getelementptr %struct.lzma_filter, ptr %4, i64 %18
   %20 = load i64, ptr %19, align 16, !tbaa !16
   %.not.i = icmp eq i64 %20, -1
-  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !78
 
 free_filter_chain.exit:                           ; preds = %.lr.ph.i, %11
   %21 = call fastcc i32 @catch_lzma_error(ptr noundef %0, i32 noundef %12)
@@ -2490,7 +2490,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr noundef
 Py_XDECREF.exit:                                  ; preds = %.split, %18, %21
   %22 = add nuw nsw i64 %.02338, 1
   %exitcond.not = icmp eq i64 %22, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 .split25:                                         ; preds = %14
   br i1 %.not.i.i31, label %23, label %Py_XDECREF.exit32
@@ -2523,7 +2523,7 @@ Py_XDECREF.exit32:                                ; preds = %.lr.ph, %.split25, 
   %34 = getelementptr %struct.lzma_filter, ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !16
   %.not.i33 = icmp eq i64 %35, -1
-  br i1 %.not.i33, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i33, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %Py_XDECREF.exit, %.preheader
   %36 = getelementptr %struct.lzma_filter, ptr %1, i64 %4
@@ -2551,7 +2551,7 @@ declare i32 @lzma_raw_encoder(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal void @Decompressor_dealloc(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !79
+  %3 = load ptr, ptr %2, align 8, !tbaa !80
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -2585,7 +2585,7 @@ define internal void @Decompressor_dealloc(ptr noundef %0) #0 {
 
 Py_DECREF.exit19:                                 ; preds = %14, %11, %9, %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %16 = load ptr, ptr %15, align 8, !tbaa !81
+  %16 = load ptr, ptr %15, align 8, !tbaa !82
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %18, label %17
 
@@ -2628,7 +2628,7 @@ define internal ptr @_lzma_LZMADecompressor(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val51 = load i64, ptr %6, align 8, !tbaa !82
+  %.val51 = load i64, ptr %6, align 8, !tbaa !83
   %7 = add i64 %.val51, %.val
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %12
@@ -2756,17 +2756,17 @@ define internal ptr @_lzma_LZMADecompressor(ptr noundef %0, ptr noundef %1, ptr 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr null, ptr %63, align 8, !tbaa !86
-  store ptr @PyLzma_Malloc, ptr %62, align 8, !tbaa !87
+  store ptr null, ptr %63, align 8, !tbaa !87
+  store ptr @PyLzma_Malloc, ptr %62, align 8, !tbaa !88
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr @PyLzma_Free, ptr %64, align 8, !tbaa !88
+  store ptr @PyLzma_Free, ptr %64, align 8, !tbaa !89
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  store ptr %62, ptr %66, align 8, !tbaa !89
-  store ptr null, ptr %65, align 8, !tbaa !90
+  store ptr %62, ptr %66, align 8, !tbaa !90
+  store ptr null, ptr %65, align 8, !tbaa !91
   %67 = call ptr @PyThread_allocate_lock() #10
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 216
-  store ptr %67, ptr %68, align 8, !tbaa !81
+  store ptr %67, ptr %68, align 8, !tbaa !82
   %69 = icmp eq ptr %67, null
   br i1 %69, label %70, label %77
 
@@ -2792,9 +2792,9 @@ Py_DECREF.exit61.i:                               ; preds = %75, %72, %70
 
 77:                                               ; preds = %61
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 176
-  store i32 16, ptr %78, align 8, !tbaa !91
+  store i32 16, ptr %78, align 8, !tbaa !92
   %79 = getelementptr inbounds nuw i8, ptr %59, i64 192
-  store i8 1, ptr %79, align 8, !tbaa !92
+  store i8 1, ptr %79, align 8, !tbaa !93
   %80 = getelementptr inbounds nuw i8, ptr %59, i64 200
   %81 = getelementptr inbounds nuw i8, ptr %59, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
@@ -2820,7 +2820,7 @@ Py_DECREF.exit61.i:                               ; preds = %75, %72, %70
   br label %Py_XDECREF.exitthread-pre-split.i
 
 Py_XDECREF.exitthread-pre-split.i:                ; preds = %89, %86
-  %.pr.i = load ptr, ptr %81, align 8, !tbaa !93
+  %.pr.i = load ptr, ptr %81, align 8, !tbaa !94
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthread-pre-split.i, %84, %77
@@ -2849,14 +2849,14 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
   br i1 %.not58.i, label %_lzma_LZMADecompressor_impl.exit, label %108
 
 99:                                               ; preds = %92
-  store i32 0, ptr %78, align 8, !tbaa !91
+  store i32 0, ptr %78, align 8, !tbaa !92
   %100 = call i32 @lzma_alone_decoder(ptr noundef nonnull %65, i64 noundef %.05366.i) #10
   %101 = call fastcc i32 @catch_lzma_error(ptr noundef %51, i32 noundef %100)
   %.not57.i = icmp eq i32 %101, 0
   br i1 %.not57.i, label %_lzma_LZMADecompressor_impl.exit, label %108
 
 102:                                              ; preds = %92
-  store i32 0, ptr %78, align 8, !tbaa !91
+  store i32 0, ptr %78, align 8, !tbaa !92
   %103 = call fastcc i32 @Decompressor_init_raw(ptr noundef %51, ptr noundef %65, ptr noundef %.062)
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %108, label %_lzma_LZMADecompressor_impl.exit
@@ -2984,21 +2984,21 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
 .thread49:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %22
   %.031 = phi i64 [ -1, %22 ], [ %28, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %37 = load ptr, ptr %36, align 8, !tbaa !81
+  %37 = load ptr, ptr %36, align 8, !tbaa !82
   %38 = call i32 @PyThread_acquire_lock(ptr noundef %37, i32 noundef 0) #10
   %.not.i44 = icmp eq i32 %38, 0
   br i1 %.not.i44, label %39, label %43
 
 39:                                               ; preds = %.thread49
   %40 = call ptr @PyEval_SaveThread() #10
-  %41 = load ptr, ptr %36, align 8, !tbaa !81
+  %41 = load ptr, ptr %36, align 8, !tbaa !82
   %42 = call i32 @PyThread_acquire_lock(ptr noundef %41, i32 noundef 1) #10
   call void @PyEval_RestoreThread(ptr noundef %40) #10
   br label %43
 
 43:                                               ; preds = %39, %.thread49
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %45 = load i8, ptr %44, align 4, !tbaa !94
+  %45 = load i8, ptr %44, align 4, !tbaa !95
   %.not9.i = icmp eq i8 %45, 0
   br i1 %.not9.i, label %48, label %46
 
@@ -3012,18 +3012,18 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %51 = load i64, ptr %50, align 8, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !95
+  %53 = load ptr, ptr %52, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %87, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %56 = load ptr, ptr %55, align 8, !tbaa !79
+  %56 = load ptr, ptr %55, align 8, !tbaa !80
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %58 = load i64, ptr %57, align 8, !tbaa !96
+  %58 = load i64, ptr %57, align 8, !tbaa !97
   %59 = getelementptr i8, ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %61 = load i64, ptr %60, align 8, !tbaa !97
+  %61 = load i64, ptr %60, align 8, !tbaa !98
   %62 = getelementptr i8, ptr %53, i64 %61
   %63 = ptrtoint ptr %59 to i64
   %64 = ptrtoint ptr %62 to i64
@@ -3048,8 +3048,8 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
   %74 = ptrtoint ptr %53 to i64
   %75 = ptrtoint ptr %56 to i64
   %76 = sub i64 %74, %75
-  store ptr %71, ptr %55, align 8, !tbaa !79
-  store i64 %70, ptr %57, align 8, !tbaa !96
+  store ptr %71, ptr %55, align 8, !tbaa !80
+  store i64 %70, ptr %57, align 8, !tbaa !97
   %77 = getelementptr i8, ptr %71, i64 %76
   br label %.critedge.sink.split.i.i
 
@@ -3059,13 +3059,13 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
 
 80:                                               ; preds = %78
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %53, i64 %61, i1 false)
-  %81 = load ptr, ptr %55, align 8, !tbaa !79
+  %81 = load ptr, ptr %55, align 8, !tbaa !80
   br label %.critedge.sink.split.i.i
 
 .critedge.sink.split.i.i:                         ; preds = %80, %73
   %.sink.i.i = phi ptr [ %77, %73 ], [ %81, %80 ]
-  store ptr %.sink.i.i, ptr %52, align 8, !tbaa !95
-  %.pre.i = load i64, ptr %60, align 8, !tbaa !97
+  store ptr %.sink.i.i, ptr %52, align 8, !tbaa !96
+  %.pre.i = load i64, ptr %60, align 8, !tbaa !98
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.sink.split.i.i, %78
@@ -3073,15 +3073,15 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
   %83 = phi ptr [ %53, %78 ], [ %.sink.i.i, %.critedge.sink.split.i.i ]
   %84 = getelementptr i8, ptr %83, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %49, i64 %51, i1 false)
-  %85 = load i64, ptr %60, align 8, !tbaa !97
+  %85 = load i64, ptr %60, align 8, !tbaa !98
   %86 = add i64 %85, %51
-  store i64 %86, ptr %60, align 8, !tbaa !97
+  store i64 %86, ptr %60, align 8, !tbaa !98
   br label %89
 
 87:                                               ; preds = %48
-  store ptr %49, ptr %52, align 8, !tbaa !95
+  store ptr %49, ptr %52, align 8, !tbaa !96
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %51, ptr %88, align 8, !tbaa !97
+  store i64 %51, ptr %88, align 8, !tbaa !98
   br label %89
 
 89:                                               ; preds = %87, %.critedge.i.i
@@ -3145,12 +3145,12 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %96
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %111
-  %116 = load i64, ptr %109, align 8, !tbaa !97
+  %116 = load i64, ptr %109, align 8, !tbaa !98
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %115
-  %119 = load i64, ptr %93, align 8, !tbaa !98
+  %119 = load i64, ptr %93, align 8, !tbaa !99
   %.not.i.i.i = icmp eq i64 %119, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 10, i32 0
   br label %120
@@ -3170,16 +3170,16 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %96
 
 123:                                              ; preds = %122, %122
   %124 = call i32 @lzma_get_check(ptr noundef nonnull %52) #10
-  store i32 %124, ptr %110, align 8, !tbaa !91
+  store i32 %124, ptr %110, align 8, !tbaa !92
   br label %126
 
 125:                                              ; preds = %122
-  store i8 1, ptr %44, align 4, !tbaa !94
-  %.pre.i.i.i = load i64, ptr %93, align 8, !tbaa !98
+  store i8 1, ptr %44, align 4, !tbaa !95
+  %.pre.i.i.i = load i64, ptr %93, align 8, !tbaa !99
   br label %.loopexit.i.i.i
 
 126:                                              ; preds = %123, %122
-  %127 = load i64, ptr %93, align 8, !tbaa !98
+  %127 = load i64, ptr %93, align 8, !tbaa !99
   %128 = icmp eq i64 %127, 0
   br i1 %128, label %129, label %134
 
@@ -3194,7 +3194,7 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %96
   br i1 %133, label %.thread41.i.i.i, label %.backedge
 
 134:                                              ; preds = %126
-  %135 = load i64, ptr %109, align 8, !tbaa !97
+  %135 = load i64, ptr %109, align 8, !tbaa !98
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %.loopexit.i.i.i, label %.backedge
 
@@ -3229,26 +3229,26 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %96
 
 146:                                              ; preds = %145, %142, %140, %.thread41.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  store ptr null, ptr %52, align 8, !tbaa !95
+  store ptr null, ptr %52, align 8, !tbaa !96
   br label %_lzma_LZMADecompressor_decompress_impl.exit
 
 147:                                              ; preds = %.loopexit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  %148 = load i8, ptr %44, align 4, !tbaa !94
+  %148 = load i8, ptr %44, align 4, !tbaa !95
   %.not94.i.i = icmp eq i8 %148, 0
   br i1 %.not94.i.i, label %165, label %149
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 0, ptr %150, align 8, !tbaa !92
-  %151 = load i64, ptr %109, align 8, !tbaa !97
+  store i8 0, ptr %150, align 8, !tbaa !93
+  %151 = load i64, ptr %109, align 8, !tbaa !98
   %.not97.i.i = icmp eq i64 %151, 0
   br i1 %.not97.i.i, label %_lzma_LZMADecompressor_decompress_impl.exit, label %152
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %154 = load ptr, ptr %153, align 8, !tbaa !15
-  %155 = load ptr, ptr %52, align 8, !tbaa !95
+  %155 = load ptr, ptr %52, align 8, !tbaa !96
   %156 = call ptr @PyBytes_FromStringAndSize(ptr noundef %155, i64 noundef %151) #10
   store ptr %156, ptr %153, align 8, !tbaa !15
   %.not.i98.i.i = icmp eq ptr %154, null
@@ -3270,7 +3270,7 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %96
   br label %Py_XDECREF.exitthread-pre-split.i.i
 
 Py_XDECREF.exitthread-pre-split.i.i:              ; preds = %162, %159
-  %.pr.i.i = load ptr, ptr %153, align 8, !tbaa !93
+  %.pr.i.i = load ptr, ptr %153, align 8, !tbaa !94
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthread-pre-split.i.i, %157, %152
@@ -3279,52 +3279,52 @@ Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthre
   br i1 %164, label %197, label %_lzma_LZMADecompressor_decompress_impl.exit
 
 165:                                              ; preds = %147
-  %166 = load i64, ptr %109, align 8, !tbaa !97
+  %166 = load i64, ptr %109, align 8, !tbaa !98
   %167 = icmp eq i64 %166, 0
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %165
-  store ptr null, ptr %52, align 8, !tbaa !95
-  %169 = load i64, ptr %93, align 8, !tbaa !98
+  store ptr null, ptr %52, align 8, !tbaa !96
+  %169 = load i64, ptr %93, align 8, !tbaa !99
   %170 = icmp eq i64 %169, 0
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br i1 %170, label %172, label %173
 
 172:                                              ; preds = %168
-  store i8 0, ptr %171, align 8, !tbaa !92
+  store i8 0, ptr %171, align 8, !tbaa !93
   br label %_lzma_LZMADecompressor_decompress_impl.exit
 
 173:                                              ; preds = %168
-  store i8 1, ptr %171, align 8, !tbaa !92
+  store i8 1, ptr %171, align 8, !tbaa !93
   br label %_lzma_LZMADecompressor_decompress_impl.exit
 
 174:                                              ; preds = %165
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 0, ptr %175, align 8, !tbaa !92
+  store i8 0, ptr %175, align 8, !tbaa !93
   br i1 %.not.i.i, label %176, label %_lzma_LZMADecompressor_decompress_impl.exit
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %178 = load ptr, ptr %177, align 8, !tbaa !79
+  %178 = load ptr, ptr %177, align 8, !tbaa !80
   %.not96.i.i = icmp eq ptr %178, null
   br i1 %.not96.i.i, label %.thread104.i.i, label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %181 = load i64, ptr %180, align 8, !tbaa !96
+  %181 = load i64, ptr %180, align 8, !tbaa !97
   %182 = icmp ult i64 %181, %166
   br i1 %182, label %183, label %192
 
 183:                                              ; preds = %179
   call void @PyMem_Free(ptr noundef nonnull %178) #10
-  store ptr null, ptr %177, align 8, !tbaa !79
-  %.pre.i.i = load i64, ptr %109, align 8, !tbaa !97
+  store ptr null, ptr %177, align 8, !tbaa !80
+  %.pre.i.i = load i64, ptr %109, align 8, !tbaa !98
   br label %.thread104.i.i
 
 .thread104.i.i:                                   ; preds = %183, %176
   %184 = phi i64 [ %166, %176 ], [ %.pre.i.i, %183 ]
   %185 = call ptr @PyMem_Malloc(i64 noundef %184) #10
-  store ptr %185, ptr %177, align 8, !tbaa !79
+  store ptr %185, ptr %177, align 8, !tbaa !80
   %186 = icmp eq ptr %185, null
   br i1 %186, label %187, label %189
 
@@ -3334,18 +3334,18 @@ Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthre
   br label %197
 
 189:                                              ; preds = %.thread104.i.i
-  %190 = load i64, ptr %109, align 8, !tbaa !97
+  %190 = load i64, ptr %109, align 8, !tbaa !98
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %190, ptr %191, align 8, !tbaa !96
+  store i64 %190, ptr %191, align 8, !tbaa !97
   br label %192
 
 192:                                              ; preds = %189, %179
   %193 = phi i64 [ %190, %189 ], [ %166, %179 ]
   %194 = phi ptr [ %185, %189 ], [ %178, %179 ]
-  %195 = load ptr, ptr %52, align 8, !tbaa !95
+  %195 = load ptr, ptr %52, align 8, !tbaa !96
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %194, ptr align 1 %195, i64 %193, i1 false)
-  %196 = load ptr, ptr %177, align 8, !tbaa !79
-  store ptr %196, ptr %52, align 8, !tbaa !95
+  %196 = load ptr, ptr %177, align 8, !tbaa !80
+  store ptr %196, ptr %52, align 8, !tbaa !96
   br label %_lzma_LZMADecompressor_decompress_impl.exit
 
 197:                                              ; preds = %187, %Py_XDECREF.exit.i.i
@@ -3365,7 +3365,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthre
 
 _lzma_LZMADecompressor_decompress_impl.exit:      ; preds = %46, %.thread.i.i, %146, %149, %Py_XDECREF.exit.i.i, %172, %173, %174, %192, %197, %199, %202
   %.0.i = phi ptr [ null, %46 ], [ null, %146 ], [ %138, %173 ], [ %138, %172 ], [ %138, %192 ], [ %138, %174 ], [ %138, %149 ], [ %138, %Py_XDECREF.exit.i.i ], [ null, %.thread.i.i ], [ null, %197 ], [ null, %199 ], [ null, %202 ]
-  %203 = load ptr, ptr %36, align 8, !tbaa !81
+  %203 = load ptr, ptr %36, align 8, !tbaa !82
   call void @PyThread_release_lock(ptr noundef %203) #10
   br label %204
 
@@ -3438,7 +3438,7 @@ define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr noundef r
   %15 = getelementptr %struct.lzma_filter, ptr %4, i64 %14
   %16 = load i64, ptr %15, align 16, !tbaa !16
   %.not.i = icmp eq i64 %16, -1
-  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !78
 
 free_filter_chain.exit:                           ; preds = %.lr.ph.i, %7
   %17 = call fastcc i32 @catch_lzma_error(ptr noundef %0, i32 noundef %8)
@@ -3550,27 +3550,28 @@ attributes #11 = { nounwind willreturn memory(none) }
 !72 = distinct !{!72, !71}
 !73 = distinct !{!73, !71}
 !74 = !{!47, !18, i64 16}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = distinct !{!77, !76}
-!78 = distinct !{!78, !76}
-!79 = !{!80, !24, i64 200}
-!80 = !{!"", !40, i64 0, !41, i64 16, !42, i64 40, !20, i64 176, !7, i64 180, !9, i64 184, !7, i64 192, !24, i64 200, !18, i64 208, !6, i64 216}
-!81 = !{!80, !6, i64 216}
-!82 = !{!83, !18, i64 16}
-!83 = !{!"", !40, i64 0, !18, i64 16, !18, i64 24, !84, i64 32, !85, i64 40}
-!84 = !{!"p1 _ZTS15_dictkeysobject", !6, i64 0}
-!85 = !{!"p1 _ZTS11_dictvalues", !6, i64 0}
-!86 = !{!80, !6, i64 32}
-!87 = !{!80, !6, i64 16}
-!88 = !{!80, !6, i64 24}
-!89 = !{!80, !6, i64 88}
-!90 = !{!80, !24, i64 40}
-!91 = !{!80, !20, i64 176}
-!92 = !{!80, !7, i64 192}
-!93 = !{!80, !9, i64 184}
-!94 = !{!80, !7, i64 180}
-!95 = !{!42, !24, i64 0}
-!96 = !{!80, !18, i64 208}
-!97 = !{!42, !18, i64 8}
-!98 = !{!42, !18, i64 32}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = distinct !{!78, !76, !77}
+!79 = distinct !{!79, !76, !77}
+!80 = !{!81, !24, i64 200}
+!81 = !{!"", !40, i64 0, !41, i64 16, !42, i64 40, !20, i64 176, !7, i64 180, !9, i64 184, !7, i64 192, !24, i64 200, !18, i64 208, !6, i64 216}
+!82 = !{!81, !6, i64 216}
+!83 = !{!84, !18, i64 16}
+!84 = !{!"", !40, i64 0, !18, i64 16, !18, i64 24, !85, i64 32, !86, i64 40}
+!85 = !{!"p1 _ZTS15_dictkeysobject", !6, i64 0}
+!86 = !{!"p1 _ZTS11_dictvalues", !6, i64 0}
+!87 = !{!81, !6, i64 32}
+!88 = !{!81, !6, i64 16}
+!89 = !{!81, !6, i64 24}
+!90 = !{!81, !6, i64 88}
+!91 = !{!81, !24, i64 40}
+!92 = !{!81, !20, i64 176}
+!93 = !{!81, !7, i64 192}
+!94 = !{!81, !9, i64 184}
+!95 = !{!81, !7, i64 180}
+!96 = !{!42, !24, i64 0}
+!97 = !{!81, !18, i64 208}
+!98 = !{!42, !18, i64 8}
+!99 = !{!42, !18, i64 32}

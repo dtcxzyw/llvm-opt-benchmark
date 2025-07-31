@@ -1681,7 +1681,7 @@ _ZN7ciField4typeEv.exit69:                        ; preds = %_ZNK10ciMetadata9is
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %123, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %123, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %220, %93
   %.073.lcssa = phi ptr [ %20, %93 ], [ %241, %220 ]
@@ -3109,7 +3109,7 @@ _ZN4NodenwEm.exit66:                              ; preds = %147, %149
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17)
   %179 = add nuw nsw i32 %.06075, 1
   %exitcond.not = icmp eq i32 %179, %13
-  br i1 %exitcond.not, label %_ZN16Unique_Node_List4pushEP4Node.exit74, label %103, !llvm.loop !9
+  br i1 %exitcond.not, label %_ZN16Unique_Node_List4pushEP4Node.exit74, label %103, !llvm.loop !10
 
 180:                                              ; preds = %29
   br i1 %2, label %181, label %_ZN16Unique_Node_List4pushEP4Node.exit74
@@ -3447,7 +3447,7 @@ _ZN4NodenwEm.exit67:                              ; preds = %104, %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22)
   %136 = icmp samesign ugt i32 %.06177.in, 2
-  br i1 %136, label %60, label %._crit_edge, !llvm.loop !10
+  br i1 %136, label %60, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %111, %.preheader.._crit_edge_crit_edge
   %137 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %135, %111 ]
@@ -3971,7 +3971,7 @@ _ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit81: ; preds 
 
 202:                                              ; preds = %196, %179
   %203 = call noundef zeroext i1 @_ZN14MergeMemStream15next_non_empty2Ev(ptr noundef nonnull align 8 dereferenceable(52) %13)
-  br i1 %203, label %179, label %.loopexit, !llvm.loop !11
+  br i1 %203, label %179, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %202, %143, %171, %163
   %.068 = phi ptr [ %158, %163 ], [ %174, %171 ], [ %162, %143 ], [ %174, %202 ]
@@ -4127,7 +4127,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14MergeMemStream15next_non_emp
   %32 = add nsw i32 %16, 1
   store i32 %32, ptr %2, align 8
   %exitcond14.not.i = icmp eq i32 %32, %4
-  br i1 %exitcond14.not.i, label %_ZN14MergeMemStream14next_non_emptyEb.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond14.not.i, label %_ZN14MergeMemStream14next_non_emptyEb.exit, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .split.us.i:                                      ; preds = %.lr.ph.split.us.i
   %33 = icmp eq ptr %30, null
@@ -4415,7 +4415,7 @@ _ZN13ArrayCopyNode17may_modify_helperEPK10TypeOopPtrP4NodeP11PhaseValuesRP8CallN
   %52 = load i32, ptr %22, align 8
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %26, label %.loopexit, !llvm.loop !14
+  br i1 %54, label %26, label %.loopexit, !llvm.loop !15
 
 55:                                               ; preds = %17
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -4729,7 +4729,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4745,7 +4745,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4881,14 +4881,15 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

@@ -1055,7 +1055,7 @@ SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
   br i1 %73, label %74, label %106
 
 74:                                               ; preds = %72
-  %75 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
+  %75 = load ptr, ptr %11, align 8, !nonnull !6, !noundef !6
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = shl i32 %77, 16
@@ -1366,7 +1366,7 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   %78 = load i32, ptr %6, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   %81 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #7
@@ -1668,7 +1668,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 52
-  %97 = load i8, ptr %96, align 4, !range !7, !noundef !5
+  %97 = load i8, ptr %96, align 4, !range !8, !noundef !6
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %106
 
@@ -1810,7 +1810,7 @@ thread-pre-split:                                 ; preds = %117
   %177 = sext i32 %.pre.pre to i64
   %178 = icmp sge i64 %indvars.iv.next, %177
   %or.cond189.not = select i1 %176, i1 true, i1 %178
-  br i1 %or.cond189.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %or.cond189.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %159
   %179 = phi i32 [ %157, %159 ], [ %.pre.pre, %.lr.ph ]
@@ -1926,7 +1926,7 @@ thread-pre-split:                                 ; preds = %117
   %.1 = phi i32 [ %247, %236 ], [ %.0167, %232 ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 2
   %249 = icmp samesign ult i64 %indvars.iv177, 61
-  br i1 %249, label %228, label %250, !llvm.loop !9
+  br i1 %249, label %228, label %250, !llvm.loop !10
 
 250:                                              ; preds = %228, %248
   %.0.lcssa = phi i32 [ %.0167, %228 ], [ %.1, %248 ]
@@ -1963,7 +1963,7 @@ thread-pre-split:                                 ; preds = %117
   %263 = load i32, ptr %4, align 4
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next181, %264
-  br i1 %265, label %.lr.ph172, label %._crit_edge, !llvm.loop !10
+  br i1 %265, label %.lr.ph172, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %262, %.loopexit
   %.0130.lcssa = phi i32 [ -1, %.loopexit ], [ %.1131, %262 ]
@@ -2189,7 +2189,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
   store i32 %98, ptr %99, align 4
   %100 = load i32, ptr %97, align 4
   %.not107 = icmp eq i32 %100, 12344
-  br i1 %.not107, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not107, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %93
   %101 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2389,7 +2389,7 @@ define hidden zeroext i1 @SDL_EGL_MakeCurrent(ptr noundef readonly captures(none
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !5
+  %28 = load i8, ptr %27, align 8, !range !8, !noundef !6
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %37, label %30
 
@@ -2738,7 +2738,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
   store i32 %60, ptr %61, align 4
   %62 = load i32, ptr %59, align 4
   %.not51 = icmp eq i32 %62, 12344
-  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %55
   %63 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2886,13 +2886,14 @@ attributes #8 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{}
-!6 = distinct !{!6, !4}
-!7 = !{i8 0, i8 2}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{}
+!7 = distinct !{!7, !4, !5}
+!8 = !{i8 0, i8 2}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}

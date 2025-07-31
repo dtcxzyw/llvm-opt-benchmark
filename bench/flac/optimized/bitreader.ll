@@ -281,7 +281,7 @@ crc16_update_block_.exit:                         ; preds = %36, %39
   %76 = xor i32 %64, %75
   %77 = add i32 %62, 8
   %78 = icmp ult i32 %77, %50
-  br i1 %78, label %60, label %..loopexit_crit_edge, !llvm.loop !27
+  br i1 %78, label %60, label %..loopexit_crit_edge, !llvm.loop !28
 
 ..loopexit_crit_edge:                             ; preds = %60
   store i32 %76, ptr %59, align 4, !tbaa !18
@@ -317,13 +317,13 @@ define hidden range(i32 1, 9) i32 @FLAC__bitreader_bits_left_for_byte_alignment(
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %3 = load i32, ptr %2, align 4, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !16
   %6 = sub i32 %3, %5
   %7 = shl i32 %6, 6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !29
+  %9 = load i32, ptr %8, align 8, !tbaa !30
   %10 = shl i32 %9, 3
   %11 = add i32 %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -370,7 +370,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  store i32 0, ptr %1, align 4, !tbaa !30
+  store i32 0, ptr %1, align 4, !tbaa !31
   br label %.loopexit
 
 6:                                                ; preds = %3
@@ -406,11 +406,11 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   br label %22
 
 22:                                               ; preds = %33, %17
-  %23 = load i32, ptr %18, align 4, !tbaa !28
+  %23 = load i32, ptr %18, align 4, !tbaa !29
   %24 = load i32, ptr %19, align 4, !tbaa !16
   %25 = sub i32 %23, %24
   %26 = shl i32 %25, 6
-  %27 = load i32, ptr %20, align 8, !tbaa !29
+  %27 = load i32, ptr %20, align 8, !tbaa !30
   %28 = shl i32 %27, 3
   %29 = add i32 %26, %28
   %30 = load i32, ptr %21, align 8, !tbaa !17
@@ -421,7 +421,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 33:                                               ; preds = %22
   %34 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
   %.not93 = icmp eq i32 %34, 0
-  br i1 %.not93, label %.loopexit, label %22, !llvm.loop !31
+  br i1 %.not93, label %.loopexit, label %22, !llvm.loop !32
 
 35:                                               ; preds = %22
   %36 = icmp ult i32 %24, %23
@@ -452,7 +452,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   %54 = lshr i64 %52, %53
   %55 = trunc i64 %54 to i32
   %56 = select i1 %51, i32 %55, i32 0
-  store i32 %56, ptr %1, align 4, !tbaa !30
+  store i32 %56, ptr %1, align 4, !tbaa !31
   %57 = load i32, ptr %21, align 8, !tbaa !17
   %58 = add i32 %57, %2
   store i32 %58, ptr %21, align 8, !tbaa !17
@@ -461,7 +461,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 59:                                               ; preds = %38
   %60 = and i64 %43, %47
   %61 = trunc i64 %60 to i32
-  store i32 %61, ptr %1, align 4, !tbaa !30
+  store i32 %61, ptr %1, align 4, !tbaa !31
   %62 = sub nuw i32 %2, %39
   %63 = load i32, ptr %19, align 4, !tbaa !16
   %64 = add i32 %63, 1
@@ -476,13 +476,13 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   br i1 %67, label %.thread, label %70
 
 .thread:                                          ; preds = %65
-  %68 = load i32, ptr %1, align 4, !tbaa !30
+  %68 = load i32, ptr %1, align 4, !tbaa !31
   %69 = shl i32 %68, %62
-  store i32 %69, ptr %1, align 4, !tbaa !30
+  store i32 %69, ptr %1, align 4, !tbaa !31
   br label %72
 
 70:                                               ; preds = %65
-  store i32 0, ptr %1, align 4, !tbaa !30
+  store i32 0, ptr %1, align 4, !tbaa !31
   %71 = icmp ult i32 %62, 65
   br i1 %71, label %72, label %82
 
@@ -500,7 +500,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 
 82:                                               ; preds = %70, %72
   %83 = phi i32 [ %81, %72 ], [ 0, %70 ]
-  store i32 %83, ptr %1, align 4, !tbaa !30
+  store i32 %83, ptr %1, align 4, !tbaa !31
   store i32 %62, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
@@ -517,13 +517,13 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   %92 = zext nneg i32 %91 to i64
   %93 = lshr i64 %88, %92
   %94 = trunc i64 %93 to i32
-  store i32 %94, ptr %1, align 4, !tbaa !30
+  store i32 %94, ptr %1, align 4, !tbaa !31
   store i32 %2, ptr %21, align 8, !tbaa !17
   br label %.loopexit
 
 95:                                               ; preds = %84
   %96 = trunc i64 %88 to i32
-  store i32 %96, ptr %1, align 4, !tbaa !30
+  store i32 %96, ptr %1, align 4, !tbaa !31
   %97 = load i32, ptr %19, align 4, !tbaa !16
   %98 = add i32 %97, 1
   store i32 %98, ptr %19, align 4, !tbaa !16
@@ -545,7 +545,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   %110 = zext nneg i32 %109 to i64
   %111 = lshr i64 %107, %110
   %112 = trunc i64 %111 to i32
-  store i32 %112, ptr %1, align 4, !tbaa !30
+  store i32 %112, ptr %1, align 4, !tbaa !31
   %113 = load i32, ptr %21, align 8, !tbaa !17
   %114 = add i32 %113, %2
   store i32 %114, ptr %21, align 8, !tbaa !17
@@ -556,7 +556,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   %117 = zext nneg i32 %116 to i64
   %118 = lshr i64 %103, %117
   %119 = trunc i64 %118 to i32
-  store i32 %119, ptr %1, align 4, !tbaa !30
+  store i32 %119, ptr %1, align 4, !tbaa !31
   %120 = load i32, ptr %21, align 8, !tbaa !17
   %121 = add i32 %120, %2
   store i32 %121, ptr %21, align 8, !tbaa !17
@@ -578,7 +578,7 @@ define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noun
 
 ._crit_edge57:                                    ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre58 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !28
+  %.pre58 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   br label %65
 
 5:                                                ; preds = %1
@@ -668,9 +668,9 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %51 = phi i32 [ %4, %38 ], [ %.pre, %41 ]
   store i32 0, ptr %7, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load i32, ptr %54, align 8, !tbaa !29
+  %55 = load i32, ptr %54, align 8, !tbaa !30
   %.not50 = icmp ne i32 %55, 0
   %56 = zext i1 %.not50 to i32
   %57 = zext i32 %51 to i64
@@ -680,9 +680,9 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %61 = shl i32 %60, 3
   %62 = zext i32 %61 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 1 %58, i64 noundef range(i64 0, 4294967296) %62, i1 noundef false) #21
-  %63 = load i32, ptr %52, align 4, !tbaa !28
+  %63 = load i32, ptr %52, align 4, !tbaa !29
   %64 = sub i32 %63, %51
-  store i32 %64, ptr %52, align 4, !tbaa !28
+  store i32 %64, ptr %52, align 4, !tbaa !29
   store i32 0, ptr %3, align 4, !tbaa !16
   br label %65
 
@@ -694,7 +694,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %70 = sub i32 %68, %66
   %71 = shl i32 %70, 3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %73 = load i32, ptr %72, align 8, !tbaa !29
+  %73 = load i32, ptr %72, align 8, !tbaa !30
   %74 = sub i32 %71, %73
   %75 = zext i32 %74 to i64
   store i64 %75, ptr %2, align 8, !tbaa !21
@@ -727,16 +727,16 @@ crc16_update_block_.exit:                         ; preds = %38, %41
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %0, align 8, !tbaa !3
-  %94 = load i32, ptr %69, align 4, !tbaa !28
+  %94 = load i32, ptr %69, align 4, !tbaa !29
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw i64, ptr %93, i64 %95
   store i64 %83, ptr %96, align 8, !tbaa !21
   br label %117
 
 97:                                               ; preds = %86
-  %98 = load i32, ptr %69, align 4, !tbaa !28
+  %98 = load i32, ptr %69, align 4, !tbaa !29
   %99 = shl i32 %98, 3
-  %100 = load i32, ptr %72, align 8, !tbaa !29
+  %100 = load i32, ptr %72, align 8, !tbaa !30
   %101 = add i32 %99, %100
   %102 = load i64, ptr %2, align 8, !tbaa !21
   %103 = trunc i64 %102 to i32
@@ -760,7 +760,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   store i64 %113, ptr %111, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %110, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %110, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %110
   %.pre59 = load i64, ptr %2, align 8, !tbaa !21
@@ -771,9 +771,9 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %.pre-phi = phi i32 [ %.pre63, %._crit_edge.loopexit ], [ %103, %97 ]
   %114 = add i32 %101, %.pre-phi
   %115 = lshr i32 %114, 3
-  store i32 %115, ptr %69, align 4, !tbaa !28
+  store i32 %115, ptr %69, align 4, !tbaa !29
   %116 = and i32 %114, 7
-  store i32 %116, ptr %72, align 8, !tbaa !29
+  store i32 %116, ptr %72, align 8, !tbaa !30
   br label %117
 
 117:                                              ; preds = %65, %._crit_edge, %92
@@ -801,10 +801,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int32(ptr noundef ca
   %12 = shl nuw i64 1, %11
   %13 = trunc i64 %12 to i32
   %14 = select i1 %9, i32 0, i32 %13
-  %15 = load i32, ptr %4, align 4, !tbaa !30
+  %15 = load i32, ptr %4, align 4, !tbaa !31
   %16 = xor i32 %15, %14
   %17 = sub i32 %16, %14
-  store i32 %17, ptr %1, align 4, !tbaa !30
+  store i32 %17, ptr %1, align 4, !tbaa !31
   br label %18
 
 18:                                               ; preds = %3, %6, %8
@@ -834,10 +834,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint64(ptr noundef c
   br i1 %.not12, label %25, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load i32, ptr %4, align 4, !tbaa !31
   %14 = zext i32 %13 to i64
   %15 = shl nuw i64 %14, 32
-  %16 = load i32, ptr %5, align 4, !tbaa !30
+  %16 = load i32, ptr %5, align 4, !tbaa !31
   %17 = zext i32 %16 to i64
   %18 = or disjoint i64 %15, %17
   br label %24
@@ -848,7 +848,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint64(ptr noundef c
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = load i32, ptr %5, align 4, !tbaa !30
+  %22 = load i32, ptr %5, align 4, !tbaa !31
   %23 = zext i32 %22 to i64
   br label %24
 
@@ -889,10 +889,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int64(ptr noundef ca
   br i1 %.not12.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = load i32, ptr %4, align 4, !tbaa !30
+  %15 = load i32, ptr %4, align 4, !tbaa !31
   %16 = zext i32 %15 to i64
   %17 = shl nuw i64 %16, 32
-  %18 = load i32, ptr %5, align 4, !tbaa !30
+  %18 = load i32, ptr %5, align 4, !tbaa !31
   %19 = zext i32 %18 to i64
   %20 = or disjoint i64 %17, %19
   br label %26
@@ -903,7 +903,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_int64(ptr noundef ca
   br i1 %.not.i, label %FLAC__bitreader_read_raw_uint64.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = load i32, ptr %5, align 4, !tbaa !30
+  %24 = load i32, ptr %5, align 4, !tbaa !31
   %25 = zext i32 %24 to i64
   br label %26
 
@@ -937,7 +937,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !31
   %5 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %23, label %6
@@ -948,14 +948,14 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr
   br i1 %.not5, label %23, label %8
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr %3, align 4, !tbaa !30
-  %10 = load i32, ptr %4, align 4, !tbaa !30
+  %9 = load i32, ptr %3, align 4, !tbaa !31
+  %10 = load i32, ptr %4, align 4, !tbaa !31
   %11 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
   %.not6 = icmp eq i32 %11, 0
   br i1 %.not6, label %23, label %12
 
 12:                                               ; preds = %8
-  %13 = load i32, ptr %3, align 4, !tbaa !30
+  %13 = load i32, ptr %3, align 4, !tbaa !31
   %14 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %23, label %15
@@ -965,10 +965,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_uint32_little_endian(ptr
   %17 = shl i32 %9, 8
   %18 = or i32 %10, %17
   %19 = or i32 %16, %18
-  %20 = load i32, ptr %3, align 4, !tbaa !30
+  %20 = load i32, ptr %3, align 4, !tbaa !31
   %21 = shl i32 %20, 24
   %22 = or i32 %21, %19
-  store i32 %22, ptr %1, align 4, !tbaa !30
+  store i32 %22, ptr %1, align 4, !tbaa !31
   br label %23
 
 23:                                               ; preds = %12, %8, %6, %2, %15
@@ -1093,7 +1093,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_cr
 22:                                               ; preds = %20
   %23 = add i32 %.039, -1
   %cond = icmp eq i32 %23, 0
-  br i1 %cond, label %.loopexit, label %14, !llvm.loop !33
+  br i1 %cond, label %.loopexit, label %14, !llvm.loop !34
 
 .preheader:                                       ; preds = %.critedge
   %.not2745 = icmp eq i32 %.2, 0
@@ -1106,7 +1106,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_cr
 24:                                               ; preds = %.lr.ph43, %.critedge
   %.142 = phi i32 [ %.039, %.lr.ph43 ], [ %.2, %.critedge ]
   %25 = load i32, ptr %17, align 4, !tbaa !16
-  %26 = load i32, ptr %18, align 4, !tbaa !28
+  %26 = load i32, ptr %18, align 4, !tbaa !29
   %27 = icmp ult i32 %25, %26
   br i1 %27, label %28, label %35
 
@@ -1132,12 +1132,12 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_skip_byte_block_aligned_no_cr
 .critedge:                                        ; preds = %35, %28, %32
   %.2 = phi i32 [ %30, %32 ], [ %30, %28 ], [ %.142, %35 ]
   %37 = icmp ugt i32 %.2, 7
-  br i1 %37, label %24, label %.preheader, !llvm.loop !34
+  br i1 %37, label %24, label %.preheader, !llvm.loop !35
 
 38:                                               ; preds = %.lr.ph47
   %39 = add nsw i32 %.346, -1
   %.not27 = icmp eq i32 %39, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph47, !llvm.loop !35
+  br i1 %.not27, label %.loopexit, label %.lr.ph47, !llvm.loop !36
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %38
   %.346 = phi i32 [ %39, %38 ], [ %.346.ph, %.lr.ph47.preheader ]
@@ -1202,13 +1202,13 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   br i1 %.not55, label %.loopexit, label %23
 
 23:                                               ; preds = %21
-  %24 = load i32, ptr %4, align 4, !tbaa !30
+  %24 = load i32, ptr %4, align 4, !tbaa !31
   %25 = trunc i32 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.04265, i64 1
-  store i8 %25, ptr %.04265, align 1, !tbaa !36
+  store i8 %25, ptr %.04265, align 1, !tbaa !37
   %27 = add i32 %.04166, -1
   %cond = icmp eq i32 %27, 0
-  br i1 %cond, label %.loopexit, label %15, !llvm.loop !37
+  br i1 %cond, label %.loopexit, label %15, !llvm.loop !38
 
 .preheader:                                       ; preds = %.critedge
   %.not5174 = icmp eq i32 %.2, 0
@@ -1223,7 +1223,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   %.170 = phi i32 [ %.04166, %.lr.ph71 ], [ %.2, %.critedge ]
   %.14369 = phi ptr [ %.04265, %.lr.ph71 ], [ %.244, %.critedge ]
   %29 = load i32, ptr %18, align 4, !tbaa !16
-  %30 = load i32, ptr %19, align 4, !tbaa !28
+  %30 = load i32, ptr %19, align 4, !tbaa !29
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %32, label %66
 
@@ -1236,34 +1236,34 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   %37 = load i64, ptr %36, align 8, !tbaa !21
   %38 = lshr i64 %37, 56
   %39 = trunc nuw i64 %38 to i8
-  store i8 %39, ptr %.14369, align 1, !tbaa !36
+  store i8 %39, ptr %.14369, align 1, !tbaa !37
   %40 = lshr i64 %37, 48
   %41 = trunc i64 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %.14369, i64 1
-  store i8 %41, ptr %42, align 1, !tbaa !36
+  store i8 %41, ptr %42, align 1, !tbaa !37
   %43 = lshr i64 %37, 40
   %44 = trunc i64 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %.14369, i64 2
-  store i8 %44, ptr %45, align 1, !tbaa !36
+  store i8 %44, ptr %45, align 1, !tbaa !37
   %46 = lshr i64 %37, 32
   %47 = trunc i64 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %.14369, i64 3
-  store i8 %47, ptr %48, align 1, !tbaa !36
+  store i8 %47, ptr %48, align 1, !tbaa !37
   %49 = lshr i64 %37, 24
   %50 = trunc i64 %49 to i8
   %51 = getelementptr inbounds nuw i8, ptr %.14369, i64 4
-  store i8 %50, ptr %51, align 1, !tbaa !36
+  store i8 %50, ptr %51, align 1, !tbaa !37
   %52 = lshr i64 %37, 16
   %53 = trunc i64 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %.14369, i64 5
-  store i8 %53, ptr %54, align 1, !tbaa !36
+  store i8 %53, ptr %54, align 1, !tbaa !37
   %55 = lshr i64 %37, 8
   %56 = trunc i64 %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %.14369, i64 6
-  store i8 %56, ptr %57, align 1, !tbaa !36
+  store i8 %56, ptr %57, align 1, !tbaa !37
   %58 = trunc i64 %37 to i8
   %59 = getelementptr inbounds nuw i8, ptr %.14369, i64 7
-  store i8 %58, ptr %59, align 1, !tbaa !36
+  store i8 %58, ptr %59, align 1, !tbaa !37
   %60 = getelementptr inbounds nuw i8, ptr %.14369, i64 8
   %61 = add i32 %.170, -8
   %62 = load i32, ptr %5, align 8, !tbaa !10
@@ -1285,7 +1285,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   %.244 = phi ptr [ %.14369, %66 ], [ %60, %63 ], [ %60, %32 ]
   %.2 = phi i32 [ %.170, %66 ], [ %61, %63 ], [ %61, %32 ]
   %68 = icmp ugt i32 %.2, 7
-  br i1 %68, label %28, label %.preheader, !llvm.loop !38
+  br i1 %68, label %28, label %.preheader, !llvm.loop !39
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %70
   %.376 = phi i32 [ %74, %70 ], [ %.376.ph, %.lr.ph77.preheader ]
@@ -1295,13 +1295,13 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   br i1 %.not52, label %.loopexit, label %70
 
 70:                                               ; preds = %.lr.ph77
-  %71 = load i32, ptr %4, align 4, !tbaa !30
+  %71 = load i32, ptr %4, align 4, !tbaa !31
   %72 = trunc i32 %71 to i8
   %73 = getelementptr inbounds nuw i8, ptr %.34575, i64 1
-  store i8 %72, ptr %.34575, align 1, !tbaa !36
+  store i8 %72, ptr %.34575, align 1, !tbaa !37
   %74 = add nsw i32 %.376, -1
   %.not51 = icmp eq i32 %74, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph77, !llvm.loop !39
+  br i1 %.not51, label %.loopexit, label %.lr.ph77, !llvm.loop !40
 
 .loopexit:                                        ; preds = %21, %23, %66, %.lr.ph77, %70, %13, %.preheader, %12
   %.0 = phi i32 [ 0, %12 ], [ 1, %.preheader ], [ 1, %13 ], [ 0, %.lr.ph77 ], [ 1, %70 ], [ 0, %66 ], [ 0, %21 ], [ 1, %23 ]
@@ -1311,7 +1311,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #9 {
-  store i32 0, ptr %1, align 4, !tbaa !30
+  store i32 0, ptr %1, align 4, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1320,7 +1320,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 
 7:                                                ; preds = %64, %2
   %8 = load i32, ptr %3, align 4, !tbaa !16
-  %9 = load i32, ptr %4, align 4, !tbaa !28
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = icmp ult i32 %8, %9
   %.pre77 = load i32, ptr %5, align 8, !tbaa !17
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -1332,7 +1332,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
   br i1 %13, label %14, label %.lr.ph..thread_crit_edge
 
 .lr.ph..thread_crit_edge:                         ; preds = %.lr.ph
-  %.pre75 = load i32, ptr %1, align 4, !tbaa !30
+  %.pre75 = load i32, ptr %1, align 4, !tbaa !31
   br label %.thread
 
 14:                                               ; preds = %.lr.ph
@@ -1343,14 +1343,14 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
   %19 = zext nneg i32 %11 to i64
   %20 = shl i64 %18, %19
   %.not54 = icmp eq i64 %20, 0
-  %.pre76 = load i32, ptr %1, align 4, !tbaa !30
+  %.pre76 = load i32, ptr %1, align 4, !tbaa !31
   br i1 %.not54, label %.thread, label %21
 
 21:                                               ; preds = %14
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %20, i1 true)
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = add i32 %.pre76, %23
-  store i32 %24, ptr %1, align 4, !tbaa !30
+  store i32 %24, ptr %1, align 4, !tbaa !31
   %25 = add nuw nsw i32 %23, 1
   %26 = load i32, ptr %5, align 8, !tbaa !17
   %27 = add i32 %25, %26
@@ -1368,19 +1368,19 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
   %32 = phi i32 [ %.pre75, %.lr.ph..thread_crit_edge ], [ %.pre76, %14 ]
   %reass.sub71 = sub i32 %32, %11
   %33 = add i32 %reass.sub71, 64
-  store i32 %33, ptr %1, align 4, !tbaa !30
+  store i32 %33, ptr %1, align 4, !tbaa !31
   %34 = load i32, ptr %3, align 4, !tbaa !16
   %35 = add i32 %34, 1
   store i32 %35, ptr %3, align 4, !tbaa !16
   store i32 0, ptr %5, align 8, !tbaa !17
-  %36 = load i32, ptr %4, align 4, !tbaa !28
+  %36 = load i32, ptr %4, align 4, !tbaa !29
   %37 = icmp ult i32 %35, %36
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %7
   %38 = phi i32 [ %.pre77, %7 ], [ 0, %.thread ]
   %.lcssa = phi i32 [ %8, %7 ], [ %35, %.thread ]
-  %39 = load i32, ptr %6, align 8, !tbaa !29
+  %39 = load i32, ptr %6, align 8, !tbaa !30
   %40 = shl i32 %39, 3
   %41 = icmp ugt i32 %40, %38
   br i1 %41, label %42, label %64
@@ -1401,18 +1401,18 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 
 .thread60:                                        ; preds = %42
   %53 = sub i32 %40, %38
-  %54 = load i32, ptr %1, align 4, !tbaa !30
+  %54 = load i32, ptr %1, align 4, !tbaa !31
   %55 = add i32 %53, %54
-  store i32 %55, ptr %1, align 4, !tbaa !30
+  store i32 %55, ptr %1, align 4, !tbaa !31
   store i32 %40, ptr %5, align 8, !tbaa !17
   br label %64
 
 56:                                               ; preds = %42
   %57 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %52, i1 true)
   %58 = trunc nuw nsw i64 %57 to i32
-  %59 = load i32, ptr %1, align 4, !tbaa !30
+  %59 = load i32, ptr %1, align 4, !tbaa !31
   %60 = add i32 %59, %58
-  store i32 %60, ptr %1, align 4, !tbaa !30
+  store i32 %60, ptr %1, align 4, !tbaa !31
   %61 = add nuw nsw i32 %58, 1
   %62 = load i32, ptr %5, align 8, !tbaa !17
   %63 = add i32 %61, %62
@@ -1421,7 +1421,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 64:                                               ; preds = %.thread60, %._crit_edge
   %65 = tail call fastcc i32 @bitreader_read_from_client_(ptr noundef nonnull %0)
   %.not53 = icmp eq i32 %65, 0
-  br i1 %.not53, label %.thread58, label %7
+  br i1 %.not53, label %.thread58, label %7, !llvm.loop !41
 
 .thread58.sink.split:                             ; preds = %56, %29
   %.sink = phi i32 [ 0, %29 ], [ %63, %56 ]
@@ -1457,21 +1457,21 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   br i1 %.not138, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph168
-  %13 = load i32, ptr %6, align 4, !tbaa !30
+  %13 = load i32, ptr %6, align 4, !tbaa !31
   %14 = lshr i32 %13, 1
   %15 = and i32 %13, 1
   %16 = sub nsw i32 0, %15
   %17 = xor i32 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %.0100167, i64 4
-  store i32 %17, ptr %.0100167, align 4, !tbaa !30
+  store i32 %17, ptr %.0100167, align 4, !tbaa !31
   %19 = icmp ult ptr %18, %9
-  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !40
+  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !42
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %24 = load i32, ptr %23, align 4, !tbaa !29
   %.not = icmp ult i32 %22, %24
   br i1 %.not, label %25, label %91
 
@@ -1528,7 +1528,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = add i32 %.1115, %49
   %51 = icmp eq i64 %47, 0
-  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !41
+  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !43
 
 .loopexit141:                                     ; preds = %43, %38
   %.0114 = phi i32 [ %40, %38 ], [ %50, %43 ]
@@ -1579,7 +1579,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %.3111 = phi i32 [ %.1109, %61 ], [ %65, %66 ]
   %.1105 = phi i32 [ %62, %61 ], [ %71, %66 ]
   %.2103 = phi i64 [ %63, %61 ], [ %78, %66 ]
-  store i32 %.2116, ptr %5, align 4, !tbaa !30
+  store i32 %.2116, ptr %5, align 4, !tbaa !31
   %80 = shl i32 %.0114, %3
   %81 = or i32 %.2116, %80
   %82 = lshr i32 %81, 1
@@ -1587,9 +1587,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %84 = sub nsw i32 0, %83
   %85 = xor i32 %82, %84
   %86 = getelementptr inbounds nuw i8, ptr %.1165, i64 4
-  store i32 %85, ptr %.1165, align 4, !tbaa !30
+  store i32 %85, ptr %.1165, align 4, !tbaa !31
   %87 = icmp ult ptr %86, %9
-  br i1 %87, label %38, label %._crit_edge, !llvm.loop !42
+  br i1 %87, label %38, label %._crit_edge, !llvm.loop !44
 
 88:                                               ; preds = %.preheader140
   %89 = add i32 %.0108162, 1
@@ -1607,9 +1607,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   br i1 %.not133, label %.loopexit, label %93
 
 93:                                               ; preds = %91
-  %94 = load i32, ptr %6, align 4, !tbaa !30
+  %94 = load i32, ptr %6, align 4, !tbaa !31
   %95 = add i32 %94, %.4118
-  store i32 %95, ptr %6, align 4, !tbaa !30
+  store i32 %95, ptr %6, align 4, !tbaa !31
   br label %98
 
 96:                                               ; preds = %64
@@ -1629,9 +1629,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   br i1 %.not134, label %.loopexit, label %102
 
 102:                                              ; preds = %98
-  %103 = load i32, ptr %5, align 4, !tbaa !30
+  %103 = load i32, ptr %5, align 4, !tbaa !31
   %104 = or i32 %103, %.5
-  store i32 %104, ptr %5, align 4, !tbaa !30
+  store i32 %104, ptr %5, align 4, !tbaa !31
   %105 = shl i32 %99, %3
   %106 = or i32 %105, %104
   %107 = lshr i32 %106, 1
@@ -1639,9 +1639,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %109 = sub nsw i32 0, %108
   %110 = xor i32 %107, %109
   %111 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %110, ptr %.4, align 4, !tbaa !30
+  store i32 %110, ptr %.4, align 4, !tbaa !31
   %112 = load i32, ptr %21, align 4, !tbaa !16
-  %113 = load i32, ptr %23, align 4, !tbaa !28
+  %113 = load i32, ptr %23, align 4, !tbaa !29
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load i32, ptr %114, align 8, !tbaa !17
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1663,10 +1663,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %128 = icmp uge i32 %112, %113
   %129 = icmp ult ptr %111, %9
   %130 = select i1 %128, i1 %129, i1 false
-  br i1 %130, label %91, label %131, !llvm.loop !43
+  br i1 %130, label %91, label %131, !llvm.loop !45
 
 131:                                              ; preds = %126
-  br label %.preheader142, !llvm.loop !42
+  br label %.preheader142, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %79, %.preheader142
   %.0108.lcssa = phi i32 [ %.0108.ph, %.preheader142 ], [ %.3111, %79 ]
@@ -1715,21 +1715,21 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   br i1 %.not138, label %.loopexit, label %12
 
 12:                                               ; preds = %.lr.ph168
-  %13 = load i32, ptr %6, align 4, !tbaa !30
+  %13 = load i32, ptr %6, align 4, !tbaa !31
   %14 = lshr i32 %13, 1
   %15 = and i32 %13, 1
   %16 = sub nsw i32 0, %15
   %17 = xor i32 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %.0100167, i64 4
-  store i32 %17, ptr %.0100167, align 4, !tbaa !30
+  store i32 %17, ptr %.0100167, align 4, !tbaa !31
   %19 = icmp ult ptr %18, %9
-  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !44
+  br i1 %19, label %.lr.ph168, label %.loopexit, !llvm.loop !47
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %24 = load i32, ptr %23, align 4, !tbaa !29
   %.not = icmp ult i32 %22, %24
   br i1 %.not, label %25, label %91
 
@@ -1786,7 +1786,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = add i32 %.1115, %49
   %51 = icmp eq i64 %47, 0
-  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !45
+  br i1 %51, label %.preheader140, label %.loopexit141, !llvm.loop !48
 
 .loopexit141:                                     ; preds = %43, %38
   %.0114 = phi i32 [ %40, %38 ], [ %50, %43 ]
@@ -1837,7 +1837,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %.3111 = phi i32 [ %.1109, %61 ], [ %65, %66 ]
   %.1105 = phi i32 [ %62, %61 ], [ %71, %66 ]
   %.2103 = phi i64 [ %63, %61 ], [ %78, %66 ]
-  store i32 %.2116, ptr %5, align 4, !tbaa !30
+  store i32 %.2116, ptr %5, align 4, !tbaa !31
   %80 = shl i32 %.0114, %3
   %81 = or i32 %.2116, %80
   %82 = lshr i32 %81, 1
@@ -1845,9 +1845,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %84 = sub nsw i32 0, %83
   %85 = xor i32 %82, %84
   %86 = getelementptr inbounds nuw i8, ptr %.1165, i64 4
-  store i32 %85, ptr %.1165, align 4, !tbaa !30
+  store i32 %85, ptr %.1165, align 4, !tbaa !31
   %87 = icmp ult ptr %86, %9
-  br i1 %87, label %38, label %._crit_edge, !llvm.loop !46
+  br i1 %87, label %38, label %._crit_edge, !llvm.loop !49
 
 88:                                               ; preds = %.preheader140
   %89 = add i32 %.0108162, 1
@@ -1865,9 +1865,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   br i1 %.not133, label %.loopexit, label %93
 
 93:                                               ; preds = %91
-  %94 = load i32, ptr %6, align 4, !tbaa !30
+  %94 = load i32, ptr %6, align 4, !tbaa !31
   %95 = add i32 %94, %.4118
-  store i32 %95, ptr %6, align 4, !tbaa !30
+  store i32 %95, ptr %6, align 4, !tbaa !31
   br label %98
 
 96:                                               ; preds = %64
@@ -1887,9 +1887,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   br i1 %.not134, label %.loopexit, label %102
 
 102:                                              ; preds = %98
-  %103 = load i32, ptr %5, align 4, !tbaa !30
+  %103 = load i32, ptr %5, align 4, !tbaa !31
   %104 = or i32 %103, %.5
-  store i32 %104, ptr %5, align 4, !tbaa !30
+  store i32 %104, ptr %5, align 4, !tbaa !31
   %105 = shl i32 %99, %3
   %106 = or i32 %105, %104
   %107 = lshr i32 %106, 1
@@ -1897,9 +1897,9 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %109 = sub nsw i32 0, %108
   %110 = xor i32 %107, %109
   %111 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %110, ptr %.4, align 4, !tbaa !30
+  store i32 %110, ptr %.4, align 4, !tbaa !31
   %112 = load i32, ptr %21, align 4, !tbaa !16
-  %113 = load i32, ptr %23, align 4, !tbaa !28
+  %113 = load i32, ptr %23, align 4, !tbaa !29
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load i32, ptr %114, align 8, !tbaa !17
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1921,10 +1921,10 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %128 = icmp uge i32 %112, %113
   %129 = icmp ult ptr %111, %9
   %130 = select i1 %128, i1 %129, i1 false
-  br i1 %130, label %91, label %131, !llvm.loop !47
+  br i1 %130, label %91, label %131, !llvm.loop !50
 
 131:                                              ; preds = %126
-  br label %.preheader142, !llvm.loop !46
+  br label %.preheader142, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %79, %.preheader142
   %.0108.lcssa = phi i32 [ %.0108.ph, %.preheader142 ], [ %.3111, %79 ]
@@ -1959,17 +1959,17 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
 
 7:                                                ; preds = %4
   %.not21 = icmp eq ptr %2, null
-  %.pre = load i32, ptr %5, align 4, !tbaa !30
+  %.pre = load i32, ptr %5, align 4, !tbaa !31
   br i1 %.not21, label %14, label %8
 
 8:                                                ; preds = %7
   %9 = trunc i32 %.pre to i8
-  %10 = load i32, ptr %3, align 4, !tbaa !30
+  %10 = load i32, ptr %3, align 4, !tbaa !31
   %11 = add i32 %10, 1
-  store i32 %11, ptr %3, align 4, !tbaa !30
+  store i32 %11, ptr %3, align 4, !tbaa !31
   %12 = zext i32 %10 to i64
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
-  store i8 %9, ptr %13, align 1, !tbaa !36
+  store i8 %9, ptr %13, align 1, !tbaa !37
   br label %14
 
 14:                                               ; preds = %8, %7
@@ -2016,7 +2016,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   br i1 %.not24.us, label %.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph.split.us
-  %34 = load i32, ptr %5, align 4, !tbaa !30
+  %34 = load i32, ptr %5, align 4, !tbaa !31
   %35 = and i32 %34, 192
   %or.cond.us = icmp eq i32 %35, 128
   br i1 %or.cond.us, label %36, label %.loopexit.sink.split
@@ -2027,7 +2027,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   %39 = or disjoint i32 %38, %37
   %40 = add nsw i32 %.131.us, -1
   %.not23.us = icmp eq i32 %40, 0
-  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !52
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %.131 = phi i32 [ %54, %50 ], [ %.0.ph, %.lr.ph ]
@@ -2037,14 +2037,14 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   br i1 %.not24, label %.loopexit, label %42
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = load i32, ptr %5, align 4, !tbaa !30
+  %43 = load i32, ptr %5, align 4, !tbaa !31
   %44 = trunc i32 %43 to i8
-  %45 = load i32, ptr %3, align 4, !tbaa !30
+  %45 = load i32, ptr %3, align 4, !tbaa !31
   %46 = add i32 %45, 1
-  store i32 %46, ptr %3, align 4, !tbaa !30
+  store i32 %46, ptr %3, align 4, !tbaa !31
   %47 = zext i32 %45 to i64
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 %47
-  store i8 %44, ptr %48, align 1, !tbaa !36
+  store i8 %44, ptr %48, align 1, !tbaa !37
   %49 = and i32 %43, 192
   %or.cond = icmp eq i32 %49, 128
   br i1 %or.cond, label %50, label %.loopexit.sink.split
@@ -2055,11 +2055,11 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
   %53 = or disjoint i32 %52, %51
   %54 = add nsw i32 %.131, -1
   %.not23 = icmp eq i32 %54, 0
-  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !50
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !54
 
 .loopexit.sink.split:                             ; preds = %50, %42, %36, %33, %14, %28
   %.117.lcssa.sink = phi i32 [ -1, %28 ], [ %.pre, %14 ], [ -1, %33 ], [ %39, %36 ], [ -1, %42 ], [ %53, %50 ]
-  store i32 %.117.lcssa.sink, ptr %1, align 4, !tbaa !30
+  store i32 %.117.lcssa.sink, ptr %1, align 4, !tbaa !31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.loopexit.sink.split, %4
@@ -2078,17 +2078,17 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
 
 7:                                                ; preds = %4
   %.not21 = icmp eq ptr %2, null
-  %.pre = load i32, ptr %5, align 4, !tbaa !30
+  %.pre = load i32, ptr %5, align 4, !tbaa !31
   br i1 %.not21, label %14, label %8
 
 8:                                                ; preds = %7
   %9 = trunc i32 %.pre to i8
-  %10 = load i32, ptr %3, align 4, !tbaa !30
+  %10 = load i32, ptr %3, align 4, !tbaa !31
   %11 = add i32 %10, 1
-  store i32 %11, ptr %3, align 4, !tbaa !30
+  store i32 %11, ptr %3, align 4, !tbaa !31
   %12 = zext i32 %10 to i64
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
-  store i8 %9, ptr %13, align 1, !tbaa !36
+  store i8 %9, ptr %13, align 1, !tbaa !37
   br label %14
 
 14:                                               ; preds = %8, %7
@@ -2163,7 +2163,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   br i1 %.not24.us, label %.loopexit, label %45
 
 45:                                               ; preds = %.lr.ph.split.us
-  %46 = load i32, ptr %5, align 4, !tbaa !30
+  %46 = load i32, ptr %5, align 4, !tbaa !31
   %47 = and i32 %46, 192
   %or.cond.us = icmp eq i32 %47, 128
   br i1 %or.cond.us, label %48, label %.loopexit.sink.split
@@ -2175,7 +2175,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   %52 = or disjoint i64 %49, %51
   %53 = add nsw i32 %.131.us, -1
   %.not23.us = icmp eq i32 %53, 0
-  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %.not23.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %.131 = phi i32 [ %68, %63 ], [ %.0.ph, %.lr.ph ]
@@ -2185,14 +2185,14 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   br i1 %.not24, label %.loopexit, label %55
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = load i32, ptr %5, align 4, !tbaa !30
+  %56 = load i32, ptr %5, align 4, !tbaa !31
   %57 = trunc i32 %56 to i8
-  %58 = load i32, ptr %3, align 4, !tbaa !30
+  %58 = load i32, ptr %3, align 4, !tbaa !31
   %59 = add i32 %58, 1
-  store i32 %59, ptr %3, align 4, !tbaa !30
+  store i32 %59, ptr %3, align 4, !tbaa !31
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 %60
-  store i8 %57, ptr %61, align 1, !tbaa !36
+  store i8 %57, ptr %61, align 1, !tbaa !37
   %62 = and i32 %56, 192
   %or.cond = icmp eq i32 %62, 128
   br i1 %or.cond, label %63, label %.loopexit.sink.split
@@ -2204,7 +2204,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
   %67 = or disjoint i64 %64, %66
   %68 = add nsw i32 %.131, -1
   %.not23 = icmp eq i32 %68, 0
-  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !52
+  br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph.split, !llvm.loop !56
 
 .loopexit.sink.split:                             ; preds = %63, %55, %48, %45, %43, %41
   %.117.lcssa.sink = phi i64 [ -1, %41 ], [ %.016, %43 ], [ -1, %45 ], [ %52, %48 ], [ -1, %55 ], [ %67, %63 ]
@@ -2288,31 +2288,35 @@ attributes #22 = { nounwind allocsize(0) }
 !22 = !{!"long", !7, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"short", !7, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!4, !9, i64 12}
-!29 = !{!4, !9, i64 16}
-!30 = !{!9, !9, i64 0}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = !{!7, !7, i64 0}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26}
-!42 = distinct !{!42, !26}
-!43 = distinct !{!43, !26}
-!44 = distinct !{!44, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = !{!4, !9, i64 12}
+!30 = !{!4, !9, i64 16}
+!31 = !{!9, !9, i64 0}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !26, !27}
+!35 = distinct !{!35, !26, !27}
+!36 = distinct !{!36, !26, !27}
+!37 = !{!7, !7, i64 0}
+!38 = distinct !{!38, !26, !27}
+!39 = distinct !{!39, !26, !27}
+!40 = distinct !{!40, !26, !27}
+!41 = distinct !{!41, !27}
+!42 = distinct !{!42, !26, !27}
+!43 = distinct !{!43, !26, !27}
+!44 = distinct !{!44, !26, !27}
 !45 = distinct !{!45, !26}
 !46 = distinct !{!46, !26}
-!47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !26, !27}
+!48 = distinct !{!48, !26, !27}
+!49 = distinct !{!49, !26, !27}
 !50 = distinct !{!50, !26}
-!51 = distinct !{!51, !26, !49}
-!52 = distinct !{!52, !26}
+!51 = distinct !{!51, !26}
+!52 = distinct !{!52, !26, !27, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !26, !27}
+!55 = distinct !{!55, !26, !27, !53}
+!56 = distinct !{!56, !26, !27}

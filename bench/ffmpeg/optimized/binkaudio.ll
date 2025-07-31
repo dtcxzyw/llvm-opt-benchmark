@@ -155,7 +155,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv99 = phi i64 [ 1, %83 ], [ %indvars.iv.next100, %90 ]
   %86 = add nsw i64 %indvars.iv99, -1
   %87 = getelementptr inbounds [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !52
+  %88 = load i16, ptr %87, align 2, !tbaa !53
   %89 = zext i16 %88 to i64
   %.not93 = icmp sgt i64 %67, %89
   br i1 %.not93, label %90, label %92
@@ -163,19 +163,19 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 90:                                               ; preds = %85
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 25
-  br i1 %exitcond102.not, label %.thread, label %85, !llvm.loop !54
+  br i1 %exitcond102.not, label %.thread, label %85, !llvm.loop !55
 
 .thread:                                          ; preds = %90
-  store i32 25, ptr %84, align 4, !tbaa !55
+  store i32 25, ptr %84, align 4, !tbaa !56
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 2, ptr %91, align 4, !tbaa !56
+  store i32 2, ptr %91, align 4, !tbaa !57
   br label %.lr.ph.preheader
 
 92:                                               ; preds = %85
   %93 = trunc nuw nsw i64 %indvars.iv99 to i32
-  store i32 %93, ptr %84, align 4, !tbaa !55
+  store i32 %93, ptr %84, align 4, !tbaa !56
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 2, ptr %94, align 4, !tbaa !56
+  store i32 2, ptr %94, align 4, !tbaa !57
   %95 = icmp samesign ugt i64 %indvars.iv99, 1
   br i1 %95, label %.lr.ph.preheader, label %._crit_edge
 
@@ -190,24 +190,24 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv103 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next104, %.lr.ph ]
   %100 = add nsw i64 %indvars.iv103, -1
   %101 = getelementptr inbounds [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !52
+  %102 = load i16, ptr %101, align 2, !tbaa !53
   %103 = zext i16 %102 to i32
   %104 = shl i32 %103, %.1
   %105 = sdiv i32 %104, %68
   %106 = and i32 %105, -2
   %107 = getelementptr inbounds nuw [26 x i32], ptr %99, i64 0, i64 %indvars.iv103
-  store i32 %106, ptr %107, align 4, !tbaa !56
+  store i32 %106, ptr %107, align 4, !tbaa !57
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %108 = icmp samesign ult i64 %indvars.iv.next104, %98
-  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %92
   %109 = phi ptr [ %94, %92 ], [ %96, %.lr.ph ]
   %.pre-phi = phi i64 [ %indvars.iv99, %92 ], [ %98, %.lr.ph ]
   %110 = getelementptr inbounds nuw [26 x i32], ptr %109, i64 0, i64 %.pre-phi
-  store i32 %58, ptr %110, align 4, !tbaa !56
+  store i32 %58, ptr %110, align 4, !tbaa !57
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 1, ptr %111, align 4, !tbaa !58
+  store i32 1, ptr %111, align 4, !tbaa !59
   %112 = load i32, ptr %37, align 4, !tbaa !29
   %113 = icmp eq i32 %112, 86063
   br i1 %113, label %114, label %118
@@ -242,11 +242,11 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %131 = load ptr, ptr %130, align 8, !tbaa !59
+  %131 = load ptr, ptr %130, align 8, !tbaa !60
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  %133 = load ptr, ptr %132, align 8, !tbaa !60
+  %133 = load ptr, ptr %132, align 8, !tbaa !61
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 6704
-  store ptr %133, ptr %134, align 8, !tbaa !66
+  store ptr %133, ptr %134, align 8, !tbaa !67
   br label %135
 
 135:                                              ; preds = %127, %40, %129, %20
@@ -286,9 +286,9 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br label %30
 
 30:                                               ; preds = %389, %2
-  %31 = load ptr, ptr %7, align 8, !tbaa !66
+  %31 = load ptr, ptr %7, align 8, !tbaa !67
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !67
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %56
 
@@ -298,19 +298,19 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  store i32 0, ptr %12, align 4, !tbaa !69
+  store i32 0, ptr %12, align 4, !tbaa !70
   br label %399
 
 38:                                               ; preds = %34
-  %39 = load ptr, ptr %7, align 8, !tbaa !66
+  %39 = load ptr, ptr %7, align 8, !tbaa !67
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !70
+  %41 = load i32, ptr %40, align 8, !tbaa !71
   %42 = icmp slt i32 %41, 4
   br i1 %42, label %.loopexit66.sink.split, label %43
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !67
+  %45 = load ptr, ptr %44, align 8, !tbaa !68
   %46 = icmp samesign ugt i32 %41, 268435455
   %47 = shl nuw nsw i32 %41, 3
   %48 = select i1 %46, i32 -8, i32 %47
@@ -320,29 +320,29 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %.018.i.i = select i1 %or.cond3.i.i, i32 %48, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %45, ptr null
   %50 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %6, align 8, !tbaa !71
-  store i32 %.018.i.i, ptr %8, align 4, !tbaa !72
+  store ptr %.017.i.i, ptr %6, align 8, !tbaa !72
+  store i32 %.018.i.i, ptr %8, align 4, !tbaa !73
   %51 = add nuw nsw i32 %.018.i.i, 8
-  store i32 %51, ptr %9, align 8, !tbaa !73
+  store i32 %51, ptr %9, align 8, !tbaa !74
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %52
-  store ptr %53, ptr %10, align 8, !tbaa !74
-  store i32 0, ptr %11, align 8, !tbaa !75
+  store ptr %53, ptr %10, align 8, !tbaa !75
+  store i32 0, ptr %11, align 8, !tbaa !76
   br i1 %or.cond3.i.i, label %54, label %.loopexit66
 
 54:                                               ; preds = %43
   %55 = call i32 @llvm.umin.i32(i32 %51, i32 32)
-  store i32 %55, ptr %11, align 8, !tbaa !75
+  store i32 %55, ptr %11, align 8, !tbaa !76
   br label %56
 
 56:                                               ; preds = %54, %30
-  %57 = load i32, ptr %12, align 4, !tbaa !69
+  %57 = load i32, ptr %12, align 4, !tbaa !70
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %13, align 8, !tbaa !45
-  store i32 %60, ptr %14, align 8, !tbaa !76
+  store i32 %60, ptr %14, align 8, !tbaa !77
   %61 = call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #10
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.loopexit66, label %63
@@ -351,17 +351,17 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %.not, label %65, label %64
 
 64:                                               ; preds = %63
-  store i64 -9223372036854775808, ptr %15, align 8, !tbaa !81
+  store i64 -9223372036854775808, ptr %15, align 8, !tbaa !82
   br label %65
 
 65:                                               ; preds = %63, %64, %56
-  %66 = load ptr, ptr %16, align 8, !tbaa !82
+  %66 = load ptr, ptr %16, align 8, !tbaa !83
   %67 = load ptr, ptr %17, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 20
   %69 = load i32, ptr %68, align 4, !tbaa !29
   %.not65 = icmp eq i32 %69, 86064
   %70 = load i32, ptr %18, align 8, !tbaa !44
-  %71 = load i32, ptr %12, align 4, !tbaa !69
+  %71 = load i32, ptr %12, align 4, !tbaa !70
   %72 = sub nsw i32 %70, %71
   %spec.select = call i32 @llvm.smin.i32(i32 %72, i32 2)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #10
@@ -369,11 +369,11 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %.not65, label %73, label %78
 
 73:                                               ; preds = %65
-  %74 = load i32, ptr %11, align 8, !tbaa !75
-  %75 = load i32, ptr %9, align 8, !tbaa !73
+  %74 = load i32, ptr %11, align 8, !tbaa !76
+  %75 = load i32, ptr %9, align 8, !tbaa !74
   %76 = add i32 %74, 2
   %77 = call i32 @llvm.umin.i32(i32 %75, i32 %76)
-  store i32 %77, ptr %11, align 8, !tbaa !75
+  store i32 %77, ptr %11, align 8, !tbaa !76
   br label %78
 
 78:                                               ; preds = %73, %65
@@ -390,8 +390,8 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %indvars.iv242.i = phi i64 [ 0, %.lr.ph220.i ], [ %indvars.iv.next243.i, %344 ]
   %82 = load i32, ptr %19, align 8, !tbaa !38
   %.not164.i = icmp eq i32 %82, 0
-  %.val170.i = load i32, ptr %11, align 8, !tbaa !75
-  %.val171.i = load i32, ptr %8, align 4, !tbaa !72
+  %.val170.i = load i32, ptr %11, align 8, !tbaa !76
+  %.val171.i = load i32, ptr %8, align 4, !tbaa !73
   %83 = sub nsw i32 %.val171.i, %.val170.i
   br i1 %.not164.i, label %132, label %84
 
@@ -400,8 +400,8 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %85, label %378, label %86
 
 86:                                               ; preds = %84
-  %87 = load i32, ptr %9, align 8, !tbaa !73
-  %88 = load ptr, ptr %6, align 8, !tbaa !71
+  %87 = load i32, ptr %9, align 8, !tbaa !74
+  %88 = load ptr, ptr %6, align 8, !tbaa !72
   %89 = lshr i32 %.val170.i, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
@@ -411,7 +411,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %95 = and i32 %94, 65535
   %96 = add i32 %.val170.i, 16
   %97 = call i32 @llvm.umin.i32(i32 %87, i32 %96)
-  store i32 %97, ptr %11, align 8, !tbaa !75
+  store i32 %97, ptr %11, align 8, !tbaa !76
   %98 = lshr i32 %97, 3
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 %99
@@ -420,7 +420,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %103 = lshr i32 %101, %102
   %104 = add i32 %97, 16
   %105 = call i32 @llvm.umin.i32(i32 %87, i32 %104)
-  store i32 %105, ptr %11, align 8, !tbaa !75
+  store i32 %105, ptr %11, align 8, !tbaa !76
   %106 = shl i32 %103, 16
   %107 = or disjoint i32 %106, %95
   %108 = bitcast i32 %107 to float
@@ -436,7 +436,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %117 = and i32 %116, 65535
   %118 = add i32 %105, 16
   %119 = call i32 @llvm.umin.i32(i32 %87, i32 %118)
-  store i32 %119, ptr %11, align 8, !tbaa !75
+  store i32 %119, ptr %11, align 8, !tbaa !76
   %120 = lshr i32 %119, 3
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr %88, i64 %121
@@ -445,7 +445,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %125 = lshr i32 %123, %124
   %126 = add i32 %119, 16
   %127 = call i32 @llvm.umin.i32(i32 %87, i32 %126)
-  store i32 %127, ptr %11, align 8, !tbaa !75
+  store i32 %127, ptr %11, align 8, !tbaa !76
   %128 = shl i32 %125, 16
   %129 = or disjoint i32 %128, %117
   %130 = bitcast i32 %129 to float
@@ -457,8 +457,8 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %133, label %378, label %134
 
 134:                                              ; preds = %132
-  %135 = load i32, ptr %9, align 8, !tbaa !73
-  %136 = load ptr, ptr %6, align 8, !tbaa !71
+  %135 = load i32, ptr %9, align 8, !tbaa !74
+  %136 = load ptr, ptr %6, align 8, !tbaa !72
   %137 = lshr i32 %.val170.i, 3
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
@@ -468,7 +468,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %143 = and i32 %142, 31
   %144 = add i32 %.val170.i, 5
   %145 = call i32 @llvm.umin.i32(i32 %135, i32 %144)
-  store i32 %145, ptr %11, align 8, !tbaa !75
+  store i32 %145, ptr %11, align 8, !tbaa !76
   %146 = lshr i32 %145, 3
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 %147
@@ -478,7 +478,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %152 = and i32 %151, 8388607
   %153 = add i32 %145, 23
   %154 = call i32 @llvm.umin.i32(i32 %135, i32 %153)
-  store i32 %154, ptr %11, align 8, !tbaa !75
+  store i32 %154, ptr %11, align 8, !tbaa !76
   %155 = uitofp nneg i32 %152 to float
   %156 = add nsw i32 %143, -23
   %157 = call nsz float @ldexpf(float noundef %155, i32 noundef %156) #11
@@ -491,7 +491,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %spec.select.i.i.i = add i32 %154, %163
   %164 = zext i8 %161 to i32
   %165 = and i32 %154, 7
-  store i32 %spec.select.i.i.i, ptr %11, align 8, !tbaa !75
+  store i32 %spec.select.i.i.i, ptr %11, align 8, !tbaa !76
   %166 = shl nuw nsw i32 1, %165
   %167 = and i32 %166, %164
   %.not.i.i = icmp eq i32 %167, 0
@@ -509,7 +509,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %177 = and i32 %176, 31
   %178 = add i32 %spec.select.i.i.i, 5
   %179 = call i32 @llvm.umin.i32(i32 %135, i32 %178)
-  store i32 %179, ptr %11, align 8, !tbaa !75
+  store i32 %179, ptr %11, align 8, !tbaa !76
   %180 = lshr i32 %179, 3
   %181 = zext nneg i32 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %136, i64 %181
@@ -519,7 +519,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %186 = and i32 %185, 8388607
   %187 = add i32 %179, 23
   %188 = call i32 @llvm.umin.i32(i32 %135, i32 %187)
-  store i32 %188, ptr %11, align 8, !tbaa !75
+  store i32 %188, ptr %11, align 8, !tbaa !76
   %189 = uitofp nneg i32 %186 to float
   %190 = add nsw i32 %177, -23
   %191 = call nsz float @ldexpf(float noundef %189, i32 noundef %190) #11
@@ -532,7 +532,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %spec.select.i.i174.i = add i32 %188, %197
   %198 = zext i8 %195 to i32
   %199 = and i32 %188, 7
-  store i32 %spec.select.i.i174.i, ptr %11, align 8, !tbaa !75
+  store i32 %spec.select.i.i174.i, ptr %11, align 8, !tbaa !76
   %200 = shl nuw nsw i32 1, %199
   %201 = and i32 %200, %198
   %.not.i175.i = icmp eq i32 %201, 0
@@ -549,7 +549,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %.promoted.i = phi i32 [ %127, %86 ], [ %spec.select.i.i174.i, %134 ]
   store float %storemerge.i, ptr %21, align 4, !tbaa !49
   %208 = sub nsw i32 %.val171.i, %.promoted.i
-  %209 = load i32, ptr %22, align 4, !tbaa !55
+  %209 = load i32, ptr %22, align 4, !tbaa !56
   %210 = shl nsw i32 %209, 3
   %211 = icmp slt i32 %208, %210
   br i1 %211, label %378, label %.preheader183.i
@@ -574,7 +574,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %221 = and i32 %220, 255
   %222 = add i32 %214, 8
   %223 = call i32 @llvm.umin.i32(i32 %207, i32 %222)
-  store i32 %223, ptr %11, align 8, !tbaa !75
+  store i32 %223, ptr %11, align 8, !tbaa !76
   %224 = call i32 @llvm.umin.i32(i32 %221, i32 95)
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw [96 x float], ptr %23, i64 0, i64 %225
@@ -583,7 +583,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   store float %227, ptr %228, align 4, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %213, !llvm.loop !83
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %213, !llvm.loop !84
 
 ._crit_edge.i:                                    ; preds = %213, %.preheader183.i
   %.promoted209.i = phi i32 [ %.promoted.i, %.preheader183.i ], [ %223, %213 ]
@@ -616,7 +616,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %spec.select.i.i = add i32 %.promoted192210.i, %241
   %242 = zext i8 %239 to i32
   %243 = and i32 %.promoted192210.i, 7
-  store i32 %spec.select.i.i, ptr %11, align 8, !tbaa !75
+  store i32 %spec.select.i.i, ptr %11, align 8, !tbaa !76
   %244 = shl nuw nsw i32 1, %243
   %245 = and i32 %244, %242
   %.not166.i = icmp eq i32 %245, 0
@@ -632,7 +632,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %253 = and i32 %252, 15
   %254 = add i32 %spec.select.i.i, 4
   %255 = call i32 @llvm.umin.i32(i32 %207, i32 %254)
-  store i32 %255, ptr %11, align 8, !tbaa !75
+  store i32 %255, ptr %11, align 8, !tbaa !76
   %256 = zext nneg i32 %253 to i64
   %257 = getelementptr inbounds nuw [16 x i8], ptr @rle_length_tab, i64 0, i64 %256
   %258 = load i8, ptr %257, align 1, !tbaa !37
@@ -659,7 +659,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %269 = and i32 %268, 15
   %270 = add i32 %.promoted192214.i, 4
   %271 = call i32 @llvm.umin.i32(i32 %207, i32 %270)
-  store i32 %271, ptr %11, align 8, !tbaa !75
+  store i32 %271, ptr %11, align 8, !tbaa !76
   %272 = icmp eq i32 %269, 0
   br i1 %272, label %277, label %.preheader180.i
 
@@ -683,7 +683,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %279, i8 0, i64 %282, i1 false)
   %283 = sext i32 %.0148203.i to i64
   %284 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %283
-  %285 = load i32, ptr %284, align 4, !tbaa !56
+  %285 = load i32, ptr %284, align 4, !tbaa !57
   %286 = icmp ult i32 %285, %..0146.i
   br i1 %286, label %.lr.ph197.i, label %.loopexit179.i
 
@@ -691,9 +691,9 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %indvars.iv236.i = phi i64 [ %indvars.iv.next237.i, %.lr.ph197.i ], [ %283, %277 ]
   %indvars.iv.next237.i = add nsw i64 %indvars.iv236.i, 1
   %287 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %indvars.iv.next237.i
-  %288 = load i32, ptr %287, align 4, !tbaa !56
+  %288 = load i32, ptr %287, align 4, !tbaa !57
   %289 = icmp ult i32 %288, %..0146.i
-  br i1 %289, label %.lr.ph197.i, label %..loopexit179_crit_edge.i, !llvm.loop !84
+  br i1 %289, label %.lr.ph197.i, label %..loopexit179_crit_edge.i, !llvm.loop !85
 
 290:                                              ; preds = %328, %.lr.ph189.i
   %indvars.iv231.i = phi i64 [ %276, %.lr.ph189.i ], [ %indvars.iv.next232.i, %328 ]
@@ -702,7 +702,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %.3156186.i = phi float [ %.0153202.i, %.lr.ph189.i ], [ %.4157.i, %328 ]
   %291 = sext i32 %.3151187.i to i64
   %292 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %291
-  %293 = load i32, ptr %292, align 4, !tbaa !56
+  %293 = load i32, ptr %292, align 4, !tbaa !57
   %294 = trunc nsw i64 %indvars.iv231.i to i32
   %295 = icmp eq i32 %293, %294
   br i1 %295, label %296, label %300
@@ -725,7 +725,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %307 = and i32 %306, %275
   %308 = add i32 %spec.select.i177193.i, %269
   %309 = call i32 @llvm.umin.i32(i32 %207, i32 %308)
-  store i32 %309, ptr %11, align 8, !tbaa !75
+  store i32 %309, ptr %11, align 8, !tbaa !76
   %.not167.i = icmp eq i32 %307, 0
   br i1 %.not167.i, label %328, label %310
 
@@ -739,7 +739,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %spec.select.i177.i = add i32 %309, %316
   %317 = zext i8 %314 to i32
   %318 = and i32 %309, 7
-  store i32 %spec.select.i177.i, ptr %11, align 8, !tbaa !75
+  store i32 %spec.select.i177.i, ptr %11, align 8, !tbaa !76
   %319 = shl nuw nsw i32 1, %318
   %320 = and i32 %319, %317
   %.not168.i = icmp eq i32 %320, 0
@@ -763,7 +763,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   store float %.sink.i, ptr %329, align 4, !tbaa !49
   %indvars.iv.next232.i = add nsw i64 %indvars.iv231.i, 1
   %exitcond235.not.i = icmp eq i64 %indvars.iv.next232.i, %wide.trip.count234.i
-  br i1 %exitcond235.not.i, label %.loopexit179.i, label %290, !llvm.loop !85
+  br i1 %exitcond235.not.i, label %.loopexit179.i, label %290, !llvm.loop !86
 
 ..loopexit179_crit_edge.i:                        ; preds = %.lr.ph197.i
   %330 = trunc nsw i64 %indvars.iv.next237.i to i32
@@ -777,7 +777,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %.2150.i = phi i32 [ %330, %..loopexit179_crit_edge.i ], [ %.0148203.i, %277 ], [ %.0148203.i, %.preheader180.i ], [ %.4152.i, %328 ]
   %.2.i = phi i32 [ %..0146.i, %..loopexit179_crit_edge.i ], [ %..0146.i, %277 ], [ %.1145204.i, %.preheader180.i ], [ %..0146.i, %328 ]
   %333 = icmp slt i32 %.2.i, %229
-  br i1 %333, label %232, label %._crit_edge207.i, !llvm.loop !86
+  br i1 %333, label %232, label %._crit_edge207.i, !llvm.loop !87
 
 ._crit_edge207.i:                                 ; preds = %.loopexit179.i
   br i1 %.not65, label %._crit_edge207.i._crit_edge, label %.preheader182.i
@@ -825,24 +825,24 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   store float %342, ptr %gep.i, align 4, !tbaa !49
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 2
   %343 = icmp samesign ult i64 %indvars.iv.next240.i, %334
-  br i1 %343, label %.lr.ph216.i, label %._crit_edge217.i.loopexit, !llvm.loop !87
+  br i1 %343, label %.lr.ph216.i, label %._crit_edge217.i.loopexit, !llvm.loop !88
 
 344:                                              ; preds = %._crit_edge217.i, %335
   %.sink268.i = phi i64 [ 4, %335 ], [ 8, %._crit_edge217.i ]
-  %345 = load ptr, ptr %25, align 8, !tbaa !88
-  %346 = load ptr, ptr %26, align 8, !tbaa !89
+  %345 = load ptr, ptr %25, align 8, !tbaa !89
+  %346 = load ptr, ptr %26, align 8, !tbaa !90
   %gep262.i = getelementptr ptr, ptr %invariant.gep.sink.i, i64 %indvars.iv242.i
-  %347 = load ptr, ptr %gep262.i, align 8, !tbaa !90
+  %347 = load ptr, ptr %gep262.i, align 8, !tbaa !91
   call void %345(ptr noundef %346, ptr noundef %347, ptr noundef nonnull %4, i64 noundef %.sink268.i) #10
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %exitcond246.not.i = icmp eq i64 %indvars.iv.next243.i, %wide.trip.count245.i
-  br i1 %exitcond246.not.i, label %.preheader178.i, label %81, !llvm.loop !92
+  br i1 %exitcond246.not.i, label %.preheader178.i, label %81, !llvm.loop !93
 
 .preheader178.i:                                  ; preds = %344, %.loopexit.i
   %indvars.iv252.i = phi i64 [ %indvars.iv.next253.i, %.loopexit.i ], [ 0, %344 ]
   %348 = load i32, ptr %27, align 4, !tbaa !46
   %349 = mul nsw i32 %348, %spec.select
-  %350 = load i32, ptr %28, align 4, !tbaa !58
+  %350 = load i32, ptr %28, align 4, !tbaa !59
   %.not163.i = icmp eq i32 %350, 0
   %351 = icmp sgt i32 %348, 0
   %or.cond.i = select i1 %.not163.i, i1 %351, i1 false
@@ -851,13 +851,13 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 
 .preheader178.i..loopexit.i_crit_edge:            ; preds = %.preheader178.i
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %66, i64 %352
-  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !90
+  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
   br label %.loopexit.i
 
 .lr.ph223.i:                                      ; preds = %.preheader178.i
   %353 = getelementptr inbounds [6 x [256 x float]], ptr %29, i64 0, i64 %352
   %354 = getelementptr inbounds ptr, ptr %66, i64 %352
-  %355 = load ptr, ptr %354, align 8, !tbaa !90
+  %355 = load ptr, ptr %354, align 8, !tbaa !91
   %356 = sitofp i32 %349 to float
   %wide.trip.count250.i = zext nneg i32 %348 to i64
   %357 = trunc nuw nsw i64 %indvars.iv252.i to i32
@@ -880,7 +880,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %369 = add nuw nsw i32 %.0141222.i, %spec.select
   %exitcond251.not.i = icmp eq i64 %indvars.iv.next248.i, %wide.trip.count250.i
-  br i1 %exitcond251.not.i, label %.loopexit.i, label %358, !llvm.loop !93
+  br i1 %exitcond251.not.i, label %.loopexit.i, label %358, !llvm.loop !94
 
 .loopexit.i:                                      ; preds = %358, %.preheader178.i..loopexit.i_crit_edge
   %370 = phi ptr [ %.pre79, %.preheader178.i..loopexit.i_crit_edge ], [ %355, %358 ]
@@ -894,7 +894,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %371, ptr align 4 %375, i64 %377, i1 false)
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond256.not.i = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count245.i
-  br i1 %exitcond256.not.i, label %.loopexit.loopexit, label %.preheader178.i, !llvm.loop !94
+  br i1 %exitcond256.not.i, label %.loopexit.loopexit, label %.preheader178.i, !llvm.loop !95
 
 378:                                              ; preds = %84, %132, %204
   call void @llvm.lifetime.end.p0(i64 16392, ptr nonnull %4) #10
@@ -902,57 +902,57 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br label %.loopexit66.sink.split
 
 .loopexit.loopexit:                               ; preds = %.loopexit.i
-  %.pre80 = load i32, ptr %12, align 4, !tbaa !69
+  %.pre80 = load i32, ptr %12, align 4, !tbaa !70
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %78
   %379 = phi i32 [ %.pre80, %.loopexit.loopexit ], [ %71, %78 ]
-  store i32 0, ptr %28, align 4, !tbaa !58
+  store i32 0, ptr %28, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 16392, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #10
   %380 = add nsw i32 %379, 2
-  store i32 %380, ptr %12, align 4, !tbaa !69
-  %.val.i = load i32, ptr %11, align 8, !tbaa !75
+  store i32 %380, ptr %12, align 4, !tbaa !70
+  %.val.i = load i32, ptr %11, align 8, !tbaa !76
   %381 = sub nsw i32 0, %.val.i
   %382 = and i32 %381, 31
   %.not.i61 = icmp eq i32 %382, 0
   br i1 %.not.i61, label %get_bits_align32.exit, label %383
 
 383:                                              ; preds = %.loopexit
-  %384 = load i32, ptr %9, align 8, !tbaa !73
+  %384 = load i32, ptr %9, align 8, !tbaa !74
   %385 = add i32 %382, %.val.i
   %386 = call i32 @llvm.umin.i32(i32 %384, i32 %385)
-  store i32 %386, ptr %11, align 8, !tbaa !75
+  store i32 %386, ptr %11, align 8, !tbaa !76
   br label %get_bits_align32.exit
 
 get_bits_align32.exit:                            ; preds = %.loopexit, %383
   %.val = phi i32 [ %.val.i, %.loopexit ], [ %386, %383 ]
-  %.val58 = load i32, ptr %8, align 4, !tbaa !72
+  %.val58 = load i32, ptr %8, align 4, !tbaa !73
   %.not55 = icmp eq i32 %.val58, %.val
   br i1 %.not55, label %387, label %389
 
 387:                                              ; preds = %get_bits_align32.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %388 = load ptr, ptr %7, align 8, !tbaa !66
+  %388 = load ptr, ptr %7, align 8, !tbaa !67
   call void @av_packet_unref(ptr noundef %388) #10
-  %.pre82 = load i32, ptr %12, align 4, !tbaa !69
+  %.pre82 = load i32, ptr %12, align 4, !tbaa !70
   br label %389
 
 389:                                              ; preds = %387, %get_bits_align32.exit
   %390 = phi i32 [ %.pre82, %387 ], [ %380, %get_bits_align32.exit ]
   %391 = load i32, ptr %18, align 8, !tbaa !44
   %.not56 = icmp slt i32 %390, %391
-  br i1 %.not56, label %30, label %392
+  br i1 %.not56, label %30, label %392, !llvm.loop !96
 
 392:                                              ; preds = %389
-  store i32 0, ptr %12, align 4, !tbaa !69
+  store i32 0, ptr %12, align 4, !tbaa !70
   %393 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %394 = load i32, ptr %393, align 8, !tbaa !47
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %396 = load i32, ptr %395, align 4, !tbaa !34
   %spec.select57 = call i32 @llvm.smin.i32(i32 %396, i32 2)
   %397 = sdiv i32 %394, %spec.select57
-  store i32 %397, ptr %14, align 8, !tbaa !76
+  store i32 %397, ptr %14, align 8, !tbaa !77
   br label %399
 
 .loopexit66.sink.split:                           ; preds = %38, %378
@@ -962,8 +962,8 @@ get_bits_align32.exit:                            ; preds = %.loopexit, %383
 
 .loopexit66:                                      ; preds = %59, %43, %.loopexit66.sink.split
   %.0 = phi i32 [ -1094995529, %.loopexit66.sink.split ], [ -1094995529, %43 ], [ %61, %59 ]
-  store i32 0, ptr %12, align 4, !tbaa !69
-  %398 = load ptr, ptr %7, align 8, !tbaa !66
+  store i32 0, ptr %12, align 4, !tbaa !70
+  %398 = load ptr, ptr %7, align 8, !tbaa !67
   call void @av_packet_unref(ptr noundef %398) #10
   br label %399
 
@@ -986,9 +986,9 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 1, ptr %4, align 4, !tbaa !58
+  store i32 1, ptr %4, align 4, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 0, ptr %5, align 4, !tbaa !69
+  store i32 0, ptr %5, align 4, !tbaa !70
   ret void
 }
 
@@ -1103,48 +1103,50 @@ attributes #11 = { nounwind willreturn memory(none) }
 !47 = !{!39, !10, i64 56}
 !48 = !{!39, !16, i64 64}
 !49 = !{!16, !16, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"short", !8, i64 0}
-!54 = distinct !{!54, !51}
-!55 = !{!39, !10, i64 60}
-!56 = !{!10, !10, i64 0}
-!57 = distinct !{!57, !51}
-!58 = !{!39, !10, i64 36}
-!59 = !{!5, !12, i64 40}
-!60 = !{!61, !41, i64 40}
-!61 = !{!"AVCodecInternal", !10, i64 0, !10, i64 4, !10, i64 8, !62, i64 16, !63, i64 24, !7, i64 32, !41, i64 40, !64, i64 48, !41, i64 56, !14, i64 64, !10, i64 72, !7, i64 80, !65, i64 88, !65, i64 96, !10, i64 104, !10, i64 108, !7, i64 112, !10, i64 120, !41, i64 128, !65, i64 136, !10, i64 144, !10, i64 148}
-!62 = !{!"p1 _ZTS9FramePool", !7, i64 0}
-!63 = !{!"p1 _ZTS15AVRefStructPool", !7, i64 0}
-!64 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!65 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!66 = !{!39, !41, i64 6704}
-!67 = !{!68, !14, i64 24}
-!68 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!69 = !{!39, !10, i64 44}
-!70 = !{!68, !10, i64 32}
-!71 = !{!40, !14, i64 0}
-!72 = !{!40, !10, i64 20}
-!73 = !{!40, !10, i64 24}
-!74 = !{!40, !14, i64 8}
-!75 = !{!40, !10, i64 16}
-!76 = !{!77, !10, i64 112}
-!77 = !{!"AVFrame", !8, i64 0, !8, i64 64, !78, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !79, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !80, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!78 = !{!"p2 omnipotent char", !26, i64 0}
-!79 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!80 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!81 = !{!77, !13, i64 136}
-!82 = !{!77, !78, i64 96}
-!83 = distinct !{!83, !51}
-!84 = distinct !{!84, !51}
-!85 = distinct !{!85, !51}
-!86 = distinct !{!86, !51}
-!87 = distinct !{!87, !51}
-!88 = !{!39, !7, i64 6720}
-!89 = !{!39, !42, i64 6712}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 float", !7, i64 0}
-!92 = distinct !{!92, !51}
-!93 = distinct !{!93, !51}
-!94 = distinct !{!94, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"short", !8, i64 0}
+!55 = distinct !{!55, !51, !52}
+!56 = !{!39, !10, i64 60}
+!57 = !{!10, !10, i64 0}
+!58 = distinct !{!58, !51, !52}
+!59 = !{!39, !10, i64 36}
+!60 = !{!5, !12, i64 40}
+!61 = !{!62, !41, i64 40}
+!62 = !{!"AVCodecInternal", !10, i64 0, !10, i64 4, !10, i64 8, !63, i64 16, !64, i64 24, !7, i64 32, !41, i64 40, !65, i64 48, !41, i64 56, !14, i64 64, !10, i64 72, !7, i64 80, !66, i64 88, !66, i64 96, !10, i64 104, !10, i64 108, !7, i64 112, !10, i64 120, !41, i64 128, !66, i64 136, !10, i64 144, !10, i64 148}
+!63 = !{!"p1 _ZTS9FramePool", !7, i64 0}
+!64 = !{!"p1 _ZTS15AVRefStructPool", !7, i64 0}
+!65 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!66 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!67 = !{!39, !41, i64 6704}
+!68 = !{!69, !14, i64 24}
+!69 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!70 = !{!39, !10, i64 44}
+!71 = !{!69, !10, i64 32}
+!72 = !{!40, !14, i64 0}
+!73 = !{!40, !10, i64 20}
+!74 = !{!40, !10, i64 24}
+!75 = !{!40, !14, i64 8}
+!76 = !{!40, !10, i64 16}
+!77 = !{!78, !10, i64 112}
+!78 = !{!"AVFrame", !8, i64 0, !8, i64 64, !79, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !80, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !81, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!79 = !{!"p2 omnipotent char", !26, i64 0}
+!80 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!81 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!82 = !{!78, !13, i64 136}
+!83 = !{!78, !79, i64 96}
+!84 = distinct !{!84, !51, !52}
+!85 = distinct !{!85, !51, !52}
+!86 = distinct !{!86, !51, !52}
+!87 = distinct !{!87, !51, !52}
+!88 = distinct !{!88, !51, !52}
+!89 = !{!39, !7, i64 6720}
+!90 = !{!39, !42, i64 6712}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 float", !7, i64 0}
+!93 = distinct !{!93, !51, !52}
+!94 = distinct !{!94, !51, !52}
+!95 = distinct !{!95, !51, !52}
+!96 = distinct !{!96, !52}

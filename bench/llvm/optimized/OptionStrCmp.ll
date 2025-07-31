@@ -120,7 +120,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %15
   %24 = icmp eq ptr %22, %6
   %25 = icmp eq ptr %23, %7
   %.not3.i.not = select i1 %24, i1 true, i1 %25
-  br i1 %.not3.i.not, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread, label %11
+  br i1 %.not3.i.not, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread, label %11, !llvm.loop !10
 
 _ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread.loopexit.split.loop.exit37: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
   %.inv.i.i.le = icmp sgt i32 %.fr.i.i, -1
@@ -158,3 +158,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long", !6, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}

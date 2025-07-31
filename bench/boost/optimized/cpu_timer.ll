@@ -358,7 +358,7 @@ define void @_ZN5boost5timer6formatB5cxx11ERKNS0_9cpu_timesEs(ptr dead_on_unwind
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost5timer9cpu_timer5startEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %2, align 8, !tbaa !45
+  store i8 0, ptr %2, align 8, !tbaa !46
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
@@ -371,7 +371,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 -1, i64 24, i1 false)
   %5 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf acquire, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %15, !prof !48
+  br i1 %6, label %7, label %15, !prof !49
 
 7:                                                ; preds = %1
   %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
@@ -391,12 +391,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu
 
 _ZN12_GLOBAL__N_111tick_factorEv.exit:            ; preds = %9, %12
   %.0.i = phi i64 [ %spec.store.select.i, %12 ], [ -1, %9 ]
-  store i64 %.0.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  store i64 %.0.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
   br label %15
 
 15:                                               ; preds = %_ZN12_GLOBAL__N_111tick_factorEv.exit, %7, %1
-  %16 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %16 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %17 = icmp eq i64 %16, -1
   br i1 %17, label %36, label %18
 
@@ -407,19 +407,19 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit:            ; preds = %9, %12
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %18
-  %22 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %22 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %23 = mul nsw i64 %22, %19
   store i64 %23, ptr %0, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %25 = load i64, ptr %24, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !52
+  %27 = load i64, ptr %26, align 8, !tbaa !53
   %28 = add nsw i64 %27, %25
   %29 = mul nsw i64 %28, %22
   store i64 %29, ptr %4, align 8, !tbaa !38
-  %30 = load i64, ptr %2, align 8, !tbaa !53
+  %30 = load i64, ptr %2, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !54
+  %32 = load i64, ptr %31, align 8, !tbaa !55
   %33 = add nsw i64 %32, %30
   %34 = mul nsw i64 %33, %22
   store i64 %34, ptr %3, align 8, !tbaa !40
@@ -449,15 +449,15 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 define void @_ZN5boost5timer9cpu_timer4stopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !45, !range !55, !noundef !56
+  %4 = load i8, ptr %3, align 8, !tbaa !46, !range !56, !noundef !57
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %1
-  store i8 1, ptr %3, align 8, !tbaa !45
+  store i8 1, ptr %3, align 8, !tbaa !46
   %7 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf acquire, align 8
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %17, !prof !48
+  br i1 %8, label %9, label %17, !prof !49
 
 9:                                                ; preds = %6
   %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
@@ -477,12 +477,12 @@ define void @_ZN5boost5timer9cpu_timer4stopEv(ptr noundef nonnull align 8 captur
 
 _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %14, %11
   %.0.i.i = phi i64 [ %spec.store.select.i.i, %14 ], [ -1, %11 ]
-  store i64 %.0.i.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  store i64 %.0.i.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
   br label %17
 
 17:                                               ; preds = %_ZN12_GLOBAL__N_111tick_factorEv.exit.i, %9, %6
-  %18 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %18 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %19 = icmp eq i64 %18, -1
   br i1 %19, label %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit, label %20
 
@@ -493,17 +493,17 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %14, %11
   br i1 %22, label %37, label %23
 
 23:                                               ; preds = %20
-  %24 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %24 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %25 = mul nsw i64 %24, %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !50
+  %27 = load i64, ptr %26, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !52
+  %29 = load i64, ptr %28, align 8, !tbaa !53
   %30 = add nsw i64 %29, %27
   %31 = mul nsw i64 %30, %24
-  %32 = load i64, ptr %2, align 8, !tbaa !53
+  %32 = load i64, ptr %2, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !54
+  %34 = load i64, ptr %33, align 8, !tbaa !55
   %35 = add nsw i64 %34, %32
   %36 = mul nsw i64 %35, %24
   br label %37
@@ -519,17 +519,17 @@ _ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit: ; preds = %37, 
   %.sroa.0.1 = phi i64 [ -1, %17 ], [ %.sroa.0.0, %37 ]
   %.sroa.5.1 = phi i64 [ -1, %17 ], [ %.sroa.5.0, %37 ]
   %.sroa.7.1 = phi i64 [ -1, %17 ], [ %.sroa.7.0, %37 ]
-  %38 = load i64, ptr %0, align 8, !tbaa !57
+  %38 = load i64, ptr %0, align 8, !tbaa !58
   %39 = sub nsw i64 %.sroa.0.1, %38
-  store i64 %39, ptr %0, align 8, !tbaa !57
+  store i64 %39, ptr %0, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !58
+  %41 = load i64, ptr %40, align 8, !tbaa !59
   %42 = sub nsw i64 %.sroa.5.1, %41
-  store i64 %42, ptr %40, align 8, !tbaa !58
+  store i64 %42, ptr %40, align 8, !tbaa !59
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !59
+  %44 = load i64, ptr %43, align 8, !tbaa !60
   %45 = sub nsw i64 %.sroa.7.1, %44
-  store i64 %45, ptr %43, align 8, !tbaa !59
+  store i64 %45, ptr %43, align 8, !tbaa !60
   br label %46
 
 46:                                               ; preds = %1, %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit
@@ -539,28 +539,28 @@ _ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit: ; preds = %37, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK5boost5timer9cpu_timer7elapsedEv(ptr dead_on_unwind noalias writable sret(%"struct.boost::timer::cpu_times") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !45, !range !55, !noundef !56
+  %4 = load i8, ptr %3, align 8, !tbaa !46, !range !56, !noundef !57
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !61
   br label %21
 
 7:                                                ; preds = %2
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %8 = load i64, ptr %1, align 8, !tbaa !57
+  %8 = load i64, ptr %1, align 8, !tbaa !58
   %9 = load i64, ptr %0, align 8, !tbaa !41
   %10 = sub nsw i64 %9, %8
   store i64 %10, ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %12 = load i64, ptr %11, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !40
   %15 = sub nsw i64 %14, %12
   store i64 %15, ptr %13, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !59
+  %17 = load i64, ptr %16, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = sub nsw i64 %19, %17
@@ -577,27 +577,27 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost5timer9cpu_timer6resumeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !tbaa !45, !range !55, !noundef !56
+  %3 = load i8, ptr %2, align 8, !tbaa !46, !range !56, !noundef !57
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !49
+  %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !50
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !49
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !50
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49
-  store i8 0, ptr %2, align 8, !tbaa !45
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !50
+  store i8 0, ptr %2, align 8, !tbaa !46
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(25) %0)
-  %6 = load i64, ptr %0, align 8, !tbaa !57
+  %6 = load i64, ptr %0, align 8, !tbaa !58
   %7 = sub nsw i64 %6, %.sroa.0.0.copyload
-  store i64 %7, ptr %0, align 8, !tbaa !57
-  %8 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !58
+  store i64 %7, ptr %0, align 8, !tbaa !58
+  %8 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !59
   %9 = sub nsw i64 %8, %.sroa.4.0.copyload
-  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !58
-  %10 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !59
+  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !59
+  %10 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !60
   %11 = sub nsw i64 %10, %.sroa.5.0.copyload
-  store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !59
+  store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !60
   br label %12
 
 12:                                               ; preds = %5, %1
@@ -608,26 +608,26 @@ define void @_ZN5boost5timer9cpu_timer6resumeEv(ptr noundef nonnull align 8 capt
 define void @_ZN5boost5timer14auto_cpu_timerC2ERSos(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 25), (26, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i16 noundef signext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %5, align 8, !tbaa !45
+  store i8 0, ptr %5, align 8, !tbaa !46
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(25) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %2, ptr %6, align 2, !tbaa !61
+  store i16 %2, ptr %6, align 2, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %7, align 8, !tbaa !64
+  store ptr %1, ptr %7, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %8, align 8, !tbaa !23
   %10 = load ptr, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, align 8, !tbaa !32
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, i64 8), align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store i64 %11, ptr %4, align 8, !tbaa !49
+  store i64 %11, ptr %4, align 8, !tbaa !50
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %3
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %13, ptr %8, align 8, !tbaa !32
-  %14 = load i64, ptr %4, align 8, !tbaa !49
+  %14 = load i64, ptr %4, align 8, !tbaa !50
   store i64 %14, ptr %9, align 8, !tbaa !28
   br label %._crit_edge.i.i
 
@@ -648,14 +648,14 @@ define void @_ZN5boost5timer14auto_cpu_timerC2ERSos(ptr noundef nonnull align 8 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %16, %18
-  %19 = load i64, ptr %4, align 8, !tbaa !49
+  %19 = load i64, ptr %4, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %19, ptr %20, align 8, !tbaa !26
   %21 = load ptr, ptr %8, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  store i8 0, ptr %5, align 8, !tbaa !45
+  store i8 0, ptr %5, align 8, !tbaa !46
   call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(25) %0)
   ret void
 }
@@ -665,14 +665,14 @@ define void @_ZN5boost5timer14auto_cpu_timer6reportEv(ptr noundef nonnull readon
   %2 = alloca %struct.tms, align 8
   %3 = alloca %"struct.boost::timer::cpu_times", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !45, !range !55, !noalias !65, !noundef !56
+  %5 = load i8, ptr %4, align 8, !tbaa !46, !range !56, !noalias !66, !noundef !57
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 24, i1 false), !tbaa.struct !60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(25) %0, i64 24, i1 false), !tbaa.struct !61
   br label %_ZNK5boost5timer9cpu_timer7elapsedEv.exit
 
 8:                                                ; preds = %1
@@ -681,7 +681,7 @@ define void @_ZN5boost5timer14auto_cpu_timer6reportEv(ptr noundef nonnull readon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 -1, i64 24, i1 false)
   %11 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf acquire, align 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %21, !prof !48
+  br i1 %12, label %13, label %21, !prof !49
 
 13:                                               ; preds = %8
   %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
@@ -701,12 +701,12 @@ define void @_ZN5boost5timer14auto_cpu_timer6reportEv(ptr noundef nonnull readon
 
 _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %18, %15
   %.0.i.i = phi i64 [ %spec.store.select.i.i, %18 ], [ -1, %15 ]
-  store i64 %.0.i.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  store i64 %.0.i.i, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf) #16
   br label %21
 
 21:                                               ; preds = %_ZN12_GLOBAL__N_111tick_factorEv.exit.i, %13, %8
-  %22 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %22 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit, label %24
 
@@ -717,19 +717,19 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %18, %15
   br i1 %26, label %41, label %27
 
 27:                                               ; preds = %24
-  %28 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
+  %28 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !50
   %29 = mul nsw i64 %28, %25
   store i64 %29, ptr %3, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !50
+  %31 = load i64, ptr %30, align 8, !tbaa !51
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !52
+  %33 = load i64, ptr %32, align 8, !tbaa !53
   %34 = add nsw i64 %33, %31
   %35 = mul nsw i64 %34, %28
   store i64 %35, ptr %10, align 8, !tbaa !38
-  %36 = load i64, ptr %2, align 8, !tbaa !53
+  %36 = load i64, ptr %2, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !54
+  %38 = load i64, ptr %37, align 8, !tbaa !55
   %39 = add nsw i64 %38, %36
   %40 = mul nsw i64 %39, %28
   store i64 %40, ptr %9, align 8, !tbaa !40
@@ -740,28 +740,28 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %18, %15
   br label %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit
 
 _ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit: ; preds = %21, %41
-  %42 = load i64, ptr %0, align 8, !tbaa !57, !noalias !65
-  %43 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !65
+  %42 = load i64, ptr %0, align 8, !tbaa !58, !noalias !66
+  %43 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !66
   %44 = sub nsw i64 %43, %42
-  store i64 %44, ptr %3, align 8, !tbaa !41, !alias.scope !65
+  store i64 %44, ptr %3, align 8, !tbaa !41, !alias.scope !66
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !58, !noalias !65
-  %47 = load i64, ptr %9, align 8, !tbaa !40, !alias.scope !65
+  %46 = load i64, ptr %45, align 8, !tbaa !59, !noalias !66
+  %47 = load i64, ptr %9, align 8, !tbaa !40, !alias.scope !66
   %48 = sub nsw i64 %47, %46
-  store i64 %48, ptr %9, align 8, !tbaa !40, !alias.scope !65
+  store i64 %48, ptr %9, align 8, !tbaa !40, !alias.scope !66
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !59, !noalias !65
-  %51 = load i64, ptr %10, align 8, !tbaa !38, !alias.scope !65
+  %50 = load i64, ptr %49, align 8, !tbaa !60, !noalias !66
+  %51 = load i64, ptr %10, align 8, !tbaa !38, !alias.scope !66
   %52 = sub nsw i64 %51, %50
-  store i64 %52, ptr %10, align 8, !tbaa !38, !alias.scope !65
+  store i64 %52, ptr %10, align 8, !tbaa !38, !alias.scope !66
   br label %_ZNK5boost5timer9cpu_timer7elapsedEv.exit
 
 _ZNK5boost5timer9cpu_timer7elapsedEv.exit:        ; preds = %7, %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !64
+  %54 = load ptr, ptr %53, align 8, !tbaa !65
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %57 = load i16, ptr %56, align 2, !tbaa !61
+  %57 = load i16, ptr %56, align 2, !tbaa !62
   %.val = load ptr, ptr %55, align 8
   call fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_timesERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEs(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr %.val, i16 noundef signext %57)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
@@ -771,7 +771,7 @@ _ZNK5boost5timer9cpu_timer7elapsedEv.exit:        ; preds = %7, %_ZN12_GLOBAL__N
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost5timer14auto_cpu_timerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !tbaa !45, !range !55, !noundef !56
+  %3 = load i8, ptr %2, align 8, !tbaa !46, !range !56, !noundef !57
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %10, label %5
 
@@ -861,10 +861,10 @@ define internal void @_GLOBAL__sub_I_cpu_timer.cpp() #11 section ".text.startup"
   %1 = alloca i64, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, i64 16), ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
-  store i64 49, ptr %1, align 8, !tbaa !49
+  store i64 49, ptr %1, align 8, !tbaa !50
   %2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %2, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, align 8, !tbaa !32
-  %3 = load i64, ptr %1, align 8, !tbaa !49
+  %3 = load i64, ptr %1, align 8, !tbaa !50
   store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, i64 16), align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %2, ptr noundef nonnull align 1 dereferenceable(49) @.str, i64 49, i1 false)
   store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111default_fmtB5cxx11E, i64 8), align 8, !tbaa !26
@@ -952,28 +952,29 @@ attributes #18 = { noreturn nounwind }
 !40 = !{!39, !8, i64 8}
 !41 = !{!39, !8, i64 0}
 !42 = !{!7, !8, i64 16}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!46, !47, i64 24}
-!46 = !{!"_ZTSN5boost5timer9cpu_timerE", !39, i64 0, !47, i64 24}
-!47 = !{!"bool", !9, i64 0}
-!48 = !{!"branch_weights", i32 1, i32 1048575}
-!49 = !{!8, !8, i64 0}
-!50 = !{!51, !8, i64 8}
-!51 = !{!"_ZTS3tms", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
-!52 = !{!51, !8, i64 24}
-!53 = !{!51, !8, i64 0}
-!54 = !{!51, !8, i64 16}
-!55 = !{i8 0, i8 2}
-!56 = !{}
-!57 = !{!46, !8, i64 0}
-!58 = !{!46, !8, i64 8}
-!59 = !{!46, !8, i64 16}
-!60 = !{i64 0, i64 8, !49, i64 8, i64 8, !49, i64 16, i64 8, !49}
-!61 = !{!62, !63, i64 26}
-!62 = !{!"_ZTSN5boost5timer14auto_cpu_timerE", !46, i64 0, !63, i64 26, !12, i64 32, !27, i64 40}
-!63 = !{!"short", !9, i64 0}
-!64 = !{!62, !12, i64 32}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK5boost5timer9cpu_timer7elapsedEv: argument 0"}
-!67 = distinct !{!67, !"_ZNK5boost5timer9cpu_timer7elapsedEv"}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!47, !48, i64 24}
+!47 = !{!"_ZTSN5boost5timer9cpu_timerE", !39, i64 0, !48, i64 24}
+!48 = !{!"bool", !9, i64 0}
+!49 = !{!"branch_weights", i32 1, i32 1048575}
+!50 = !{!8, !8, i64 0}
+!51 = !{!52, !8, i64 8}
+!52 = !{!"_ZTS3tms", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!53 = !{!52, !8, i64 24}
+!54 = !{!52, !8, i64 0}
+!55 = !{!52, !8, i64 16}
+!56 = !{i8 0, i8 2}
+!57 = !{}
+!58 = !{!47, !8, i64 0}
+!59 = !{!47, !8, i64 8}
+!60 = !{!47, !8, i64 16}
+!61 = !{i64 0, i64 8, !50, i64 8, i64 8, !50, i64 16, i64 8, !50}
+!62 = !{!63, !64, i64 26}
+!63 = !{!"_ZTSN5boost5timer14auto_cpu_timerE", !47, i64 0, !64, i64 26, !12, i64 32, !27, i64 40}
+!64 = !{!"short", !9, i64 0}
+!65 = !{!63, !12, i64 32}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK5boost5timer9cpu_timer7elapsedEv: argument 0"}
+!68 = distinct !{!68, !"_ZNK5boost5timer9cpu_timer7elapsedEv"}

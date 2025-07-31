@@ -2345,7 +2345,7 @@ define internal ptr @_opcode_get_intrinsic1_descs(ptr readnone captures(none) %0
   store ptr %8, ptr %16, align 8, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %_opcode_get_intrinsic1_descs_impl.exit, label %6, !llvm.loop !24
+  br i1 %exitcond.i, label %_opcode_get_intrinsic1_descs_impl.exit, label %6, !llvm.loop !25
 
 _opcode_get_intrinsic1_descs_impl.exit:           ; preds = %15, %2, %9, %11, %14
   %.0.i = phi ptr [ null, %2 ], [ null, %9 ], [ null, %11 ], [ null, %14 ], [ %3, %15 ]
@@ -2390,7 +2390,7 @@ define internal ptr @_opcode_get_intrinsic2_descs(ptr readnone captures(none) %0
   store ptr %8, ptr %16, align 8, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %_opcode_get_intrinsic2_descs_impl.exit, label %6, !llvm.loop !25
+  br i1 %exitcond.i, label %_opcode_get_intrinsic2_descs_impl.exit, label %6, !llvm.loop !26
 
 _opcode_get_intrinsic2_descs_impl.exit:           ; preds = %15, %2, %9, %11, %14
   %.0.i = phi ptr [ null, %2 ], [ null, %9 ], [ null, %11 ], [ null, %14 ], [ %3, %15 ]
@@ -2424,14 +2424,14 @@ define internal noalias noundef ptr @_opcode_get_executor(ptr readnone captures(
 
 .split:                                           ; preds = %.thread
   %17 = getelementptr i8, ptr %12, i64 8
-  %.val25 = load ptr, ptr %17, align 8, !tbaa !26
+  %.val25 = load ptr, ptr %17, align 8, !tbaa !27
   %.not.i = icmp eq ptr %.val25, @PyCode_Type
   br i1 %.not.i, label %23, label %18
 
 18:                                               ; preds = %.split
   %19 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %.val25, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.79, ptr noundef %21) #4
   br label %_opcode_get_executor_impl.exit
 
@@ -2447,14 +2447,14 @@ define internal noalias noundef ptr @_opcode_get_executor(ptr readnone captures(
 
 .split20:                                         ; preds = %26
   %28 = getelementptr i8, ptr %12, i64 8
-  %.val = load ptr, ptr %28, align 8, !tbaa !26
+  %.val = load ptr, ptr %28, align 8, !tbaa !27
   %.not.i26 = icmp eq ptr %.val, @PyCode_Type
   br i1 %.not.i26, label %34, label %29
 
 29:                                               ; preds = %.split20
   %30 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
+  %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.79, ptr noundef %32) #4
   br label %_opcode_get_executor_impl.exit
 
@@ -2481,7 +2481,7 @@ define internal ptr @_opcode_get_special_method_names(ptr readnone captures(none
 6:                                                ; preds = %15, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %7 = getelementptr [0 x %struct._special_method], ptr @_Py_SpecialMethods, i64 0, i64 %indvars.iv.i
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !35
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %15
 
@@ -2506,7 +2506,7 @@ define internal ptr @_opcode_get_special_method_names(ptr readnone captures(none
   store ptr %8, ptr %16, align 8, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %_opcode_get_special_method_names_impl.exit, label %6, !llvm.loop !36
+  br i1 %exitcond.i, label %_opcode_get_special_method_names_impl.exit, label %6, !llvm.loop !37
 
 _opcode_get_special_method_names_impl.exit:       ; preds = %15, %2, %9, %11, %14
   %.0.i = phi ptr [ null, %2 ], [ null, %9 ], [ null, %11 ], [ null, %14 ], [ %3, %15 ]
@@ -2595,18 +2595,19 @@ attributes #4 = { nounwind }
 !19 = !{!20, !21, i64 24}
 !20 = !{!"", !5, i64 0, !21, i64 24, !11, i64 32}
 !21 = !{!"p2 _ZTS7_object", !10, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = !{!6, !9, i64 8}
-!27 = !{!28, !29, i64 24}
-!28 = !{!"_typeobject", !5, i64 0, !29, i64 24, !11, i64 32, !11, i64 40, !10, i64 48, !11, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !11, i64 168, !29, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !11, i64 208, !10, i64 216, !10, i64 224, !30, i64 232, !31, i64 240, !32, i64 248, !9, i64 256, !13, i64 264, !10, i64 272, !10, i64 280, !11, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !10, i64 360, !13, i64 368, !10, i64 376, !33, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !16, i64 410}
-!29 = !{!"p1 omnipotent char", !10, i64 0}
-!30 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
-!31 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
-!32 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
-!33 = !{!"int", !7, i64 0}
-!34 = !{!35, !13, i64 0}
-!35 = !{!"_special_method", !13, i64 0, !29, i64 8}
-!36 = distinct !{!36, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = !{!6, !9, i64 8}
+!28 = !{!29, !30, i64 24}
+!29 = !{!"_typeobject", !5, i64 0, !30, i64 24, !11, i64 32, !11, i64 40, !10, i64 48, !11, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !11, i64 168, !30, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !11, i64 208, !10, i64 216, !10, i64 224, !31, i64 232, !32, i64 240, !33, i64 248, !9, i64 256, !13, i64 264, !10, i64 272, !10, i64 280, !11, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !10, i64 360, !13, i64 368, !10, i64 376, !34, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !16, i64 410}
+!30 = !{!"p1 omnipotent char", !10, i64 0}
+!31 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
+!32 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
+!33 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
+!34 = !{!"int", !7, i64 0}
+!35 = !{!36, !13, i64 0}
+!36 = !{!"_special_method", !13, i64 0, !30, i64 8}
+!37 = distinct !{!37, !23, !24}

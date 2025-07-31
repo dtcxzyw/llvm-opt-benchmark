@@ -827,7 +827,7 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   %40 = add nuw nsw i8 %.02427.i, 1
   %exitcond.not.i = icmp eq i8 %40, 10
-  br i1 %exitcond.not.i, label %41, label %37, !llvm.loop !8
+  br i1 %exitcond.not.i, label %41, label %37, !llvm.loop !9
 
 41:                                               ; preds = %37
   %42 = load i32, ptr @hf_homeplug_cer_rate, align 4
@@ -863,7 +863,7 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 6, i32 noundef 0)
   %65 = add nsw i8 %.029.i, -1
   %.not26.i = icmp eq i8 %65, 0
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %56, %41
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -1675,7 +1675,7 @@ proto_item_set_generated.exit.i:                  ; preds = %535, %532, %521
 583:                                              ; preds = %577, %563
   %indvars.iv.next.pre-phi.i = phi i32 [ %581, %577 ], [ %565, %563 ]
   %exitcond.not.i47 = icmp eq i32 %indvars.iv.next.pre-phi.i, 15
-  br i1 %exitcond.not.i47, label %584, label %551, !llvm.loop !10
+  br i1 %exitcond.not.i47, label %584, label %551, !llvm.loop !11
 
 584:                                              ; preds = %583
   br i1 %517, label %.preheader.i, label %.loopexit.i48
@@ -1697,7 +1697,7 @@ proto_item_set_generated.exit.i:                  ; preds = %535, %532, %521
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %indvars.iv.next55.i = add nuw nsw i32 %indvars.iv54.i, 1
   %exitcond57.not.i = icmp eq i32 %indvars.iv.next55.i, 6
-  br i1 %exitcond57.not.i, label %.loopexit.i48, label %.preheader.i
+  br i1 %exitcond57.not.i, label %.loopexit.i48, label %.preheader.i, !llvm.loop !12
 
 .loopexit.i48:                                    ; preds = %.preheader.i, %584
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -1762,11 +1762,11 @@ proto_item_set_generated.exit.i:                  ; preds = %535, %532, %521
   %638 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %637, i32 noundef 6, i32 noundef 0)
   %639 = add nuw i8 %.02325.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %639, %634
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %625
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
-  br i1 %626, label %625, label %.sink.split.i51, !llvm.loop !12
+  br i1 %626, label %625, label %.sink.split.i51, !llvm.loop !14
 
 640:                                              ; preds = %599
   %641 = load i32, ptr @hf_homeplug_bcl, align 4
@@ -1793,7 +1793,7 @@ proto_item_set_generated.exit.i:                  ; preds = %535, %532, %521
   %657 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %656, i32 noundef 6, i32 noundef 0)
   %658 = add nuw i8 %.013.i.i, 1
   %exitcond.not.i10.i = icmp eq i8 %658, %653
-  br i1 %exitcond.not.i10.i, label %.sink.split.i51, label %.lr.ph.i9.i, !llvm.loop !13
+  br i1 %exitcond.not.i10.i, label %.sink.split.i51, label %.lr.ph.i9.i, !llvm.loop !15
 
 .sink.split.i51:                                  ; preds = %._crit_edge.i.i, %.lr.ph.i9.i, %640
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
@@ -1926,11 +1926,13 @@ attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

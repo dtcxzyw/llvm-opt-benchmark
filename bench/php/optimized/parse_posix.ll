@@ -82,7 +82,7 @@ define hidden noundef ptr @timelib_parse_posix_str(ptr noundef %0) local_unnamed
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 1
-  br label %8
+  br label %8, !llvm.loop !18
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 1
@@ -111,7 +111,7 @@ define hidden noundef ptr @timelib_parse_posix_str(ptr noundef %0) local_unnamed
   %27 = and i8 %26, -33
   %28 = add i8 %27, -65
   %or.cond18.i.i = icmp ult i8 %28, 26
-  br i1 %or.cond18.i.i, label %.critedge.i.i, label %.critedge2.i.i.loopexit
+  br i1 %or.cond18.i.i, label %.critedge.i.i, label %.critedge2.i.i.loopexit, !llvm.loop !20
 
 .critedge2.i.i.loopexit:                          ; preds = %.critedge.i.i
   store ptr %25, ptr %2, align 8, !tbaa !16
@@ -176,7 +176,7 @@ timelib_posix_str_dtor.exit:                      ; preds = %43, %46
 47:                                               ; preds = %read_description.exit
   %48 = call fastcc i64 @read_offset(ptr noundef %2)
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %48, ptr %49, align 8, !tbaa !18
+  store i64 %48, ptr %49, align 8, !tbaa !21
   %50 = icmp eq i64 %48, -9999999
   br i1 %50, label %51, label %63
 
@@ -224,7 +224,7 @@ timelib_posix_str_dtor.exit41:                    ; preds = %59, %62
 67:                                               ; preds = %63
   %68 = add nsw i64 %48, 3600
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %68, ptr %69, align 8, !tbaa !19
+  store i64 %68, ptr %69, align 8, !tbaa !22
   %70 = load i8, ptr %64, align 1, !tbaa !17
   %71 = icmp eq i8 %70, 60
   br i1 %71, label %72, label %87
@@ -243,7 +243,7 @@ timelib_posix_str_dtor.exit41:                    ; preds = %59, %62
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %storemerge.i.i48, i64 1
-  br label %74
+  br label %74, !llvm.loop !18
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %storemerge.i.i48, i64 1
@@ -272,7 +272,7 @@ timelib_posix_str_dtor.exit41:                    ; preds = %59, %62
   %93 = and i8 %92, -33
   %94 = add i8 %93, -65
   %or.cond18.i.i47 = icmp ult i8 %94, 26
-  br i1 %or.cond18.i.i47, label %.critedge.i.i46, label %.critedge2.i.i43.loopexit
+  br i1 %or.cond18.i.i47, label %.critedge.i.i46, label %.critedge2.i.i43.loopexit, !llvm.loop !20
 
 .critedge2.i.i43.loopexit:                        ; preds = %.critedge.i.i46
   store ptr %91, ptr %2, align 8, !tbaa !16
@@ -356,7 +356,7 @@ timelib_posix_str_dtor.exit54:                    ; preds = %112, %115
 
 118:                                              ; preds = %116
   %119 = call fastcc i64 @read_offset(ptr noundef %2)
-  store i64 %119, ptr %69, align 8, !tbaa !19
+  store i64 %119, ptr %69, align 8, !tbaa !22
   %120 = icmp eq i64 %119, -9999999
   br i1 %120, label %121, label %._crit_edge
 
@@ -548,7 +548,7 @@ read_sign.exit:                                   ; preds = %1, %.sink.split.i
   store ptr %12, ptr %0, align 8, !tbaa !16
   %13 = load i8, ptr %12, align 1, !tbaa !17
   %14 = icmp eq i8 %13, 48
-  br i1 %14, label %.lr.ph.i, label %.preheader.i
+  br i1 %14, label %.lr.ph.i, label %.preheader.i, !llvm.loop !23
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %15 = phi i8 [ %21, %.lr.ph17.i ], [ %9, %.preheader.i ]
@@ -563,7 +563,7 @@ read_sign.exit:                                   ; preds = %1, %.sink.split.i
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = add i8 %21, -48
   %or.cond.i = icmp ult i8 %22, 10
-  br i1 %or.cond.i, label %.lr.ph17.i, label %.critedge.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph17.i, label %.critedge.loopexit.i, !llvm.loop !24
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph17.i
   %23 = sext i32 %19 to i64
@@ -608,7 +608,7 @@ read_number.exit:                                 ; preds = %.preheader.i, %.cri
   store ptr %.ptr62, ptr %0, align 8, !tbaa !16
   %37 = load i8, ptr %.ptr62, align 1, !tbaa !17
   %38 = icmp eq i8 %37, 48
-  br i1 %38, label %.lr.ph.i43, label %.preheader.i32.loopexit
+  br i1 %38, label %.lr.ph.i43, label %.preheader.i32.loopexit, !llvm.loop !23
 
 .lr.ph17.i38:                                     ; preds = %.preheader.i32, %.lr.ph17.i38
   %39 = phi i8 [ %43, %.lr.ph17.i38 ], [ %35, %.preheader.i32 ]
@@ -624,7 +624,7 @@ read_number.exit:                                 ; preds = %.preheader.i, %.cri
   %43 = load i8, ptr %.ptr60, align 1, !tbaa !17
   %44 = add i8 %43, -48
   %or.cond.i41 = icmp ult i8 %44, 10
-  br i1 %or.cond.i41, label %.lr.ph17.i38, label %.critedge.loopexit.i42
+  br i1 %or.cond.i41, label %.lr.ph17.i38, label %.critedge.loopexit.i42, !llvm.loop !24
 
 .critedge.loopexit.i42:                           ; preds = %.lr.ph17.i38
   %.ptr60.le = getelementptr inbounds nuw i8, ptr %25, i64 %.add
@@ -671,7 +671,7 @@ read_number.exit44:                               ; preds = %.preheader.i32, %.c
   store ptr %.ptr70, ptr %0, align 8, !tbaa !16
   %58 = load i8, ptr %.ptr70, align 1, !tbaa !17
   %59 = icmp eq i8 %58, 48
-  br i1 %59, label %.lr.ph.i56, label %.preheader.i45.loopexit
+  br i1 %59, label %.lr.ph.i56, label %.preheader.i45.loopexit, !llvm.loop !23
 
 .lr.ph17.i51:                                     ; preds = %.preheader.i45, %.lr.ph17.i51
   %60 = phi i8 [ %64, %.lr.ph17.i51 ], [ %56, %.preheader.i45 ]
@@ -687,7 +687,7 @@ read_number.exit44:                               ; preds = %.preheader.i32, %.c
   %64 = load i8, ptr %.ptr68, align 1, !tbaa !17
   %65 = add i8 %64, -48
   %or.cond.i54 = icmp ult i8 %65, 10
-  br i1 %or.cond.i54, label %.lr.ph17.i51, label %.critedge.loopexit.i55
+  br i1 %or.cond.i54, label %.lr.ph17.i51, label %.critedge.loopexit.i55, !llvm.loop !24
 
 .critedge.loopexit.i55:                           ; preds = %.lr.ph17.i51
   %.ptr68.le = getelementptr inbounds nuw i8, ptr %47, i64 %.add66
@@ -734,8 +734,8 @@ define internal fastcc noundef ptr @read_transition_spec(ptr noundef nonnull cap
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 7200, ptr %7, align 4, !tbaa !20
-  store i32 3, ptr %5, align 4, !tbaa !22
+  store i32 7200, ptr %7, align 4, !tbaa !25
+  store i32 3, ptr %5, align 4, !tbaa !27
   %8 = load ptr, ptr %0, align 8, !tbaa !16
   %.ptr50.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %.ptr50.i, ptr %0, align 8, !tbaa !16
@@ -762,7 +762,7 @@ define internal fastcc noundef ptr @read_transition_spec(ptr noundef nonnull cap
   store ptr %.ptr49.i, ptr %0, align 8, !tbaa !16
   %14 = load i8, ptr %.ptr49.i, align 1, !tbaa !17
   %15 = icmp eq i8 %14, 48
-  br i1 %15, label %.lr.ph.i.i, label %.preheader.i.i.loopexit
+  br i1 %15, label %.lr.ph.i.i, label %.preheader.i.i.loopexit, !llvm.loop !23
 
 .lr.ph17.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph17.i.i
   %16 = phi i8 [ %20, %.lr.ph17.i.i ], [ %12, %.preheader.i.i ]
@@ -778,7 +778,7 @@ define internal fastcc noundef ptr @read_transition_spec(ptr noundef nonnull cap
   %20 = load i8, ptr %.ptr47.i, align 1, !tbaa !17
   %21 = add i8 %20, -48
   %or.cond.i.i = icmp ult i8 %21, 10
-  br i1 %or.cond.i.i, label %.lr.ph17.i.i, label %.critedge.loopexit.i.i
+  br i1 %or.cond.i.i, label %.lr.ph17.i.i, label %.critedge.loopexit.i.i, !llvm.loop !24
 
 .critedge.loopexit.i.i:                           ; preds = %.lr.ph17.i.i
   %.ptr47.i.le = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i
@@ -828,7 +828,7 @@ read_number.exit.i:                               ; preds = %.critedge.loopexit.
   store ptr %.ptr57.i, ptr %0, align 8, !tbaa !16
   %36 = load i8, ptr %.ptr57.i, align 1, !tbaa !17
   %37 = icmp eq i8 %36, 48
-  br i1 %37, label %.lr.ph.i30.i, label %.preheader.i19.i.loopexit
+  br i1 %37, label %.lr.ph.i30.i, label %.preheader.i19.i.loopexit, !llvm.loop !23
 
 .lr.ph17.i25.i:                                   ; preds = %.preheader.i19.i, %.lr.ph17.i25.i
   %38 = phi i8 [ %42, %.lr.ph17.i25.i ], [ %34, %.preheader.i19.i ]
@@ -844,7 +844,7 @@ read_number.exit.i:                               ; preds = %.critedge.loopexit.
   %42 = load i8, ptr %.ptr55.i, align 1, !tbaa !17
   %43 = add i8 %42, -48
   %or.cond.i28.i = icmp ult i8 %43, 10
-  br i1 %or.cond.i28.i, label %.lr.ph17.i25.i, label %.critedge.loopexit.i29.i
+  br i1 %or.cond.i28.i, label %.lr.ph17.i25.i, label %.critedge.loopexit.i29.i, !llvm.loop !24
 
 .critedge.loopexit.i29.i:                         ; preds = %.lr.ph17.i25.i
   %.ptr55.i.le = getelementptr inbounds nuw i8, ptr %23, i64 %.add53.i
@@ -894,7 +894,7 @@ read_number.exit31.i:                             ; preds = %.critedge.loopexit.
   store ptr %.ptr65.i, ptr %0, align 8, !tbaa !16
   %58 = load i8, ptr %.ptr65.i, align 1, !tbaa !17
   %59 = icmp eq i8 %58, 48
-  br i1 %59, label %.lr.ph.i43.i, label %.preheader.i32.i.loopexit
+  br i1 %59, label %.lr.ph.i43.i, label %.preheader.i32.i.loopexit, !llvm.loop !23
 
 .lr.ph17.i38.i:                                   ; preds = %.preheader.i32.i, %.lr.ph17.i38.i
   %60 = phi i8 [ %64, %.lr.ph17.i38.i ], [ %56, %.preheader.i32.i ]
@@ -910,7 +910,7 @@ read_number.exit31.i:                             ; preds = %.critedge.loopexit.
   %64 = load i8, ptr %.ptr63.i, align 1, !tbaa !17
   %65 = add i8 %64, -48
   %or.cond.i41.i = icmp ult i8 %65, 10
-  br i1 %or.cond.i41.i, label %.lr.ph17.i38.i, label %.critedge.loopexit.i42.i
+  br i1 %or.cond.i41.i, label %.lr.ph17.i38.i, label %.critedge.loopexit.i42.i, !llvm.loop !24
 
 .critedge.loopexit.i42.i:                         ; preds = %.lr.ph17.i38.i
   %.ptr63.i.le = getelementptr inbounds nuw i8, ptr %45, i64 %.add61.i
@@ -934,16 +934,16 @@ read_trans_spec_mwd.exit.thread:                  ; preds = %read_number.exit.i,
   br label %114
 
 72:                                               ; preds = %1
-  store i32 2, ptr %5, align 4, !tbaa !22
+  store i32 2, ptr %5, align 4, !tbaa !27
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 7200, ptr %73, align 4, !tbaa !20
+  store i32 7200, ptr %73, align 4, !tbaa !25
   %74 = load ptr, ptr %0, align 8, !tbaa !16
   %75 = load i8, ptr %74, align 1, !tbaa !17
   %76 = icmp eq i8 %75, 74
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %72
-  store i32 1, ptr %5, align 4, !tbaa !22
+  store i32 1, ptr %5, align 4, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store ptr %78, ptr %0, align 8, !tbaa !16
   %.pre = load i8, ptr %78, align 1, !tbaa !17
@@ -968,7 +968,7 @@ read_trans_spec_mwd.exit.thread:                  ; preds = %read_number.exit.i,
   store ptr %86, ptr %0, align 8, !tbaa !16
   %87 = load i8, ptr %86, align 1, !tbaa !17
   %88 = icmp eq i8 %87, 48
-  br i1 %88, label %.lr.ph.i, label %.preheader.i
+  br i1 %88, label %.lr.ph.i, label %.preheader.i, !llvm.loop !23
 
 .lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
   %89 = phi i8 [ %95, %.lr.ph17.i ], [ %83, %.preheader.i ]
@@ -983,7 +983,7 @@ read_trans_spec_mwd.exit.thread:                  ; preds = %read_number.exit.i,
   %95 = load i8, ptr %94, align 1, !tbaa !17
   %96 = add i8 %95, -48
   %or.cond.i = icmp ult i8 %96, 10
-  br i1 %or.cond.i, label %.lr.ph17.i, label %.critedge.loopexit.i
+  br i1 %or.cond.i, label %.lr.ph17.i, label %.critedge.loopexit.i, !llvm.loop !24
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph17.i
   %97 = sext i32 %93 to i64
@@ -1012,13 +1012,13 @@ read_trans_spec_mwd.exit:                         ; preds = %read_number.exit44.
   %107 = tail call fastcc i64 @read_offset(ptr noundef %0)
   %108 = trunc nsw i64 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %108, ptr %109, align 4, !tbaa !20
+  store i32 %108, ptr %109, align 4, !tbaa !25
   %110 = icmp eq i64 %107, -9999999
   br i1 %110, label %113, label %111
 
 111:                                              ; preds = %105
   %112 = sub i32 0, %108
-  store i32 %112, ptr %109, align 4, !tbaa !20
+  store i32 %112, ptr %109, align 4, !tbaa !25
   br label %114
 
 113:                                              ; preds = %105, %read_number.exit
@@ -1063,44 +1063,44 @@ define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captur
   %12 = mul i64 %11, 86400
   %13 = add i64 %12, -41212800
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = tail call fastcc i64 @calc_transition(ptr noundef %17, i64 noundef %1)
   %19 = add i64 %18, %13
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !20
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = sext i32 %21 to i64
   %23 = add i64 %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !18
+  %25 = load i64, ptr %24, align 8, !tbaa !21
   %26 = sub i64 %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = tail call fastcc i64 @calc_transition(ptr noundef %28, i64 noundef %1)
   %30 = add i64 %29, %13
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %32 = load i32, ptr %31, align 4, !tbaa !20
+  %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = sext i32 %32 to i64
   %34 = add i64 %30, %33
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %36 = load i64, ptr %35, align 8, !tbaa !19
+  %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = sub i64 %34, %36
   %38 = icmp slt i64 %26, %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load i64, ptr %2, align 8, !tbaa !34
+  %40 = load i64, ptr %2, align 8, !tbaa !39
   br i1 %38, label %41, label %44
 
 41:                                               ; preds = %3
   %42 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %40
-  store i64 %26, ptr %42, align 8, !tbaa !36
+  store i64 %26, ptr %42, align 8, !tbaa !41
   %43 = add i64 %40, 1
   br label %47
 
 44:                                               ; preds = %3
   %45 = add i64 %40, 1
   %46 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %45
-  store i64 %26, ptr %46, align 8, !tbaa !36
+  store i64 %26, ptr %46, align 8, !tbaa !41
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -1110,17 +1110,17 @@ define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captur
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %51 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %.sink52
-  store i64 %37, ptr %51, align 8, !tbaa !36
-  %52 = load i32, ptr %50, align 4, !tbaa !37
+  store i64 %37, ptr %51, align 8, !tbaa !41
+  %52 = load i32, ptr %50, align 4, !tbaa !42
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink50
-  store i64 %53, ptr %54, align 8, !tbaa !36
-  %55 = load i32, ptr %48, align 8, !tbaa !38
+  store i64 %53, ptr %54, align 8, !tbaa !41
+  %55 = load i32, ptr %48, align 8, !tbaa !43
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink52
-  store i64 %56, ptr %57, align 8, !tbaa !36
+  store i64 %56, ptr %57, align 8, !tbaa !41
   %58 = add i64 %40, 2
-  store i64 %58, ptr %2, align 8, !tbaa !34
+  store i64 %58, ptr %2, align 8, !tbaa !39
   ret void
 }
 
@@ -1142,7 +1142,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 10:                                               ; preds = %5, %7, %2
   %11 = phi i1 [ false, %2 ], [ true, %5 ], [ %9, %7 ]
-  %12 = load i32, ptr %0, align 4, !tbaa !22
+  %12 = load i32, ptr %0, align 4, !tbaa !27
   switch i32 %12, label %.loopexit [
     i32 1, label %13
     i32 2, label %21
@@ -1219,7 +1219,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
   %59 = add i32 %28, -1
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds [12 x i32], ptr %58, i64 0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !39
+  %62 = load i32, ptr %61, align 4, !tbaa !44
   %63 = mul i32 %55, 7
   %64 = add i32 %.046, %63
   %65 = add i32 %64, -7
@@ -1228,7 +1228,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 66:                                               ; preds = %68
   %67 = add nuw nsw i32 %.04558, 1
   %exitcond.not = icmp eq i32 %67, %55
-  br i1 %exitcond.not, label %._crit_edge, label %68
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !45
 
 68:                                               ; preds = %.lr.ph, %66
   %.04558 = phi i32 [ 1, %.lr.ph ], [ %67, %66 ]
@@ -1255,13 +1255,13 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %75 ]
   %.062 = phi i64 [ %71, %.lr.ph64 ], [ %80, %75 ]
   %76 = getelementptr inbounds nuw [12 x i32], ptr %74, i64 0, i64 %indvars.iv
-  %77 = load i32, ptr %76, align 4, !tbaa !39
+  %77 = load i32, ptr %76, align 4, !tbaa !44
   %78 = mul i32 %77, 86400
   %79 = sext i32 %78 to i64
   %80 = add i64 %.062, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond67.not, label %.loopexit, label %75
+  br i1 %exitcond67.not, label %.loopexit, label %75, !llvm.loop !46
 
 .loopexit:                                        ; preds = %75, %._crit_edge, %10, %21, %13
   %.043 = phi i64 [ %20, %13 ], [ %25, %21 ], [ 0, %10 ], [ %71, %._crit_edge ], [ %80, %75 ]
@@ -1277,7 +1277,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %.not = icmp eq ptr %10, null
@@ -1289,27 +1289,27 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load i64, ptr %15, align 8, !tbaa !41
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %17 = getelementptr i64, ptr %14, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = load i64, ptr %18, align 8, !tbaa !42
-  store i64 %19, ptr %2, align 8, !tbaa !36
+  %19 = load i64, ptr %18, align 8, !tbaa !49
+  store i64 %19, ptr %2, align 8, !tbaa !41
   br label %20
 
 20:                                               ; preds = %12, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !43
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %24 = load i32, ptr %23, align 8, !tbaa !38
+  %24 = load i32, ptr %23, align 8, !tbaa !43
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %struct._ttinfo, ptr %22, i64 %25
   br label %.loopexit
 
 27:                                               ; preds = %3
   call void @timelib_unixtime2gmt(ptr noundef nonnull %4, i64 noundef %1) #8
-  %28 = load i64, ptr %4, align 8, !tbaa !44
+  %28 = load i64, ptr %4, align 8, !tbaa !51
   %29 = add i64 %28, -1
   %30 = add i64 %28, -2
   %31 = sdiv i64 %30, 4
@@ -1322,15 +1322,15 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %37 = add i64 %36, %32
   %38 = mul i64 %37, 86400
   %39 = add i64 %38, -41212800
-  %40 = load ptr, ptr %7, align 8, !tbaa !23
+  %40 = load ptr, ptr %7, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = call fastcc i64 @calc_transition(ptr noundef %42, i64 noundef %29)
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !20
+  %45 = load i32, ptr %44, align 4, !tbaa !25
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !18
+  %48 = load i64, ptr %47, align 8, !tbaa !21
   %49 = add i64 %43, %46
   %50 = sub i64 %49, %48
   %51 = add i64 %50, %39
@@ -1339,23 +1339,23 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %54 = call fastcc i64 @calc_transition(ptr noundef %53, i64 noundef %29)
   %55 = add i64 %39, %54
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %57 = load i32, ptr %56, align 4, !tbaa !20
+  %57 = load i32, ptr %56, align 4, !tbaa !25
   %58 = sext i32 %57 to i64
   %59 = add i64 %55, %58
   %60 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %61 = load i64, ptr %60, align 8, !tbaa !19
+  %61 = load i64, ptr %60, align 8, !tbaa !22
   %62 = sub i64 %59, %61
   %63 = icmp slt i64 %51, %62
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %63, label %65, label %66
 
 65:                                               ; preds = %27
-  store i64 %51, ptr %64, align 8, !tbaa !36
+  store i64 %51, ptr %64, align 8, !tbaa !41
   br label %timelib_get_transitions_for_year.exit
 
 66:                                               ; preds = %27
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %51, ptr %67, align 8, !tbaa !36
+  store i64 %51, ptr %67, align 8, !tbaa !41
   br label %timelib_get_transitions_for_year.exit
 
 timelib_get_transitions_for_year.exit:            ; preds = %65, %66
@@ -1365,15 +1365,15 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %40, i64 52
   %71 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.sink52.i
-  store i64 %62, ptr %71, align 8, !tbaa !36
-  %72 = load i32, ptr %70, align 4, !tbaa !37
+  store i64 %62, ptr %71, align 8, !tbaa !41
+  %72 = load i32, ptr %70, align 4, !tbaa !42
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink50.i
-  store i64 %73, ptr %74, align 8, !tbaa !36
-  %75 = load i32, ptr %68, align 8, !tbaa !38
+  store i64 %73, ptr %74, align 8, !tbaa !41
+  %75 = load i32, ptr %68, align 8, !tbaa !43
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink52.i
-  store i64 %76, ptr %77, align 8, !tbaa !36
+  store i64 %76, ptr %77, align 8, !tbaa !41
   %78 = sdiv i64 %29, 4
   %.neg.i.i.i27 = sdiv i64 %29, -100
   %79 = sdiv i64 %29, 400
@@ -1395,16 +1395,16 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
   %95 = icmp slt i64 %90, %94
   %..sroa.sel.v = select i1 %95, i64 24, i64 32
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %..sroa.sel.v
-  store i64 %90, ptr %..sroa.sel, align 8, !tbaa !36
+  store i64 %90, ptr %..sroa.sel, align 8, !tbaa !41
   %.42.sroa.sel.v = select i1 %95, i64 32, i64 24
   %.42.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.42.sroa.sel.v
-  store i64 %94, ptr %.42.sroa.sel, align 8, !tbaa !36
+  store i64 %94, ptr %.42.sroa.sel, align 8, !tbaa !41
   %.43.sroa.sel.v = select i1 %95, i64 72, i64 80
   %.43.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.43.sroa.sel.v
-  store i64 %73, ptr %.43.sroa.sel, align 8, !tbaa !36
+  store i64 %73, ptr %.43.sroa.sel, align 8, !tbaa !41
   %.42.sroa.sel51.v = select i1 %95, i64 80, i64 72
   %.42.sroa.sel51 = getelementptr inbounds nuw i8, ptr %5, i64 %.42.sroa.sel51.v
-  store i64 %76, ptr %.42.sroa.sel51, align 8, !tbaa !36
+  store i64 %76, ptr %.42.sroa.sel51, align 8, !tbaa !41
   %96 = add i64 %28, 1
   %97 = sdiv i64 %28, 4
   %.neg.i.i.i31 = sdiv i64 %28, -100
@@ -1426,22 +1426,22 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
   %113 = icmp slt i64 %108, %112
   %.sink41.sroa.sel.v = select i1 %113, i64 40, i64 48
   %.sink41.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink41.sroa.sel.v
-  store i64 %108, ptr %.sink41.sroa.sel, align 8, !tbaa !36
+  store i64 %108, ptr %.sink41.sroa.sel, align 8, !tbaa !41
   %.sink52.i32.sroa.sel.v = select i1 %113, i64 48, i64 40
   %.sink52.i32.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i32.sroa.sel.v
-  store i64 %112, ptr %.sink52.i32.sroa.sel, align 8, !tbaa !36
+  store i64 %112, ptr %.sink52.i32.sroa.sel, align 8, !tbaa !41
   %.sink50.i33.sroa.sel.v = select i1 %113, i64 88, i64 96
   %.sink50.i33.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink50.i33.sroa.sel.v
-  store i64 %73, ptr %.sink50.i33.sroa.sel, align 8, !tbaa !36
+  store i64 %73, ptr %.sink50.i33.sroa.sel, align 8, !tbaa !41
   %.sink52.i32.sroa.sel56.v = select i1 %113, i64 96, i64 88
   %.sink52.i32.sroa.sel56 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i32.sroa.sel56.v
-  store i64 %76, ptr %.sink52.i32.sroa.sel56, align 8, !tbaa !36
+  store i64 %76, ptr %.sink52.i32.sroa.sel56, align 8, !tbaa !41
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %timelib_get_transitions_for_year.exit, %126
   %.037 = phi i64 [ %127, %126 ], [ 1, %timelib_get_transitions_for_year.exit ]
   %114 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.037
-  %115 = load i64, ptr %114, align 8, !tbaa !36
+  %115 = load i64, ptr %114, align 8, !tbaa !41
   %116 = icmp slt i64 %1, %115
   br i1 %116, label %117, label %126
 
@@ -1452,22 +1452,22 @@ timelib_get_transitions_for_year.exit:            ; preds = %65, %66
 
 118:                                              ; preds = %117
   %119 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.pre
-  %120 = load i64, ptr %119, align 8, !tbaa !36
-  store i64 %120, ptr %2, align 8, !tbaa !36
+  %120 = load i64, ptr %119, align 8, !tbaa !41
+  store i64 %120, ptr %2, align 8, !tbaa !41
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %117, %118
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %122 = load ptr, ptr %121, align 8, !tbaa !43
+  %122 = load ptr, ptr %121, align 8, !tbaa !50
   %123 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.pre
-  %124 = load i64, ptr %123, align 8, !tbaa !36
+  %124 = load i64, ptr %123, align 8, !tbaa !41
   %125 = getelementptr inbounds %struct._ttinfo, ptr %122, i64 %124
   br label %.loopexit
 
 126:                                              ; preds = %.lr.ph
   %127 = add nuw i64 %.037, 1
   %exitcond.not = icmp eq i64 %127, 6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %126, %._crit_edge, %20
   %.023 = phi ptr [ %125, %._crit_edge ], [ %26, %20 ], [ null, %126 ]
@@ -1514,34 +1514,42 @@ attributes #9 = { nounwind allocsize(0,1) }
 !15 = !{!5, !11, i64 40}
 !16 = !{!6, !6, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = !{!5, !10, i64 8}
-!19 = !{!5, !10, i64 24}
-!20 = !{!21, !12, i64 16}
-!21 = !{!"_timelib_posix_trans_info", !12, i64 0, !8, i64 4, !12, i64 16}
-!22 = !{!21, !12, i64 0}
-!23 = !{!24, !33, i64 168}
-!24 = !{!"_timelib_tzinfo", !6, i64 0, !25, i64 8, !26, i64 32, !28, i64 80, !6, i64 88, !29, i64 96, !6, i64 104, !30, i64 112, !8, i64 120, !31, i64 128, !6, i64 160, !33, i64 168}
-!25 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
-!26 = !{!"", !27, i64 0, !27, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40}
-!27 = !{!"long", !8, i64 0}
-!28 = !{!"p1 long", !7, i64 0}
-!29 = !{!"p1 _ZTS7_ttinfo", !7, i64 0}
-!30 = !{!"p1 _ZTS7_tlinfo", !7, i64 0}
-!31 = !{!"_tlocinfo", !8, i64 0, !32, i64 8, !32, i64 16, !6, i64 24}
-!32 = !{!"double", !8, i64 0}
-!33 = !{!"p1 _ZTS18_timelib_posix_str", !7, i64 0}
-!34 = !{!35, !27, i64 0}
-!35 = !{!"_timelib_posix_transitions", !27, i64 0, !8, i64 8, !8, i64 56}
-!36 = !{!10, !10, i64 0}
-!37 = !{!5, !12, i64 52}
-!38 = !{!5, !12, i64 48}
-!39 = !{!12, !12, i64 0}
-!40 = !{!24, !28, i64 80}
-!41 = !{!24, !27, i64 56}
-!42 = !{!27, !27, i64 0}
-!43 = !{!24, !29, i64 96}
-!44 = !{!45, !10, i64 0}
-!45 = !{!"_timelib_time", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !12, i64 56, !6, i64 64, !46, i64 72, !12, i64 80, !47, i64 88, !10, i64 192, !12, i64 200, !12, i64 204, !12, i64 208, !12, i64 212, !12, i64 216, !12, i64 220, !12, i64 224, !12, i64 228, !12, i64 232}
-!46 = !{!"p1 _ZTS15_timelib_tzinfo", !7, i64 0}
-!47 = !{!"_timelib_rel_time", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !12, i64 56, !12, i64 60, !12, i64 64, !12, i64 68, !10, i64 72, !48, i64 80, !12, i64 96, !12, i64 100}
-!48 = !{!"", !12, i64 0, !10, i64 8}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = !{!5, !10, i64 8}
+!22 = !{!5, !10, i64 24}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = !{!26, !12, i64 16}
+!26 = !{!"_timelib_posix_trans_info", !12, i64 0, !8, i64 4, !12, i64 16}
+!27 = !{!26, !12, i64 0}
+!28 = !{!29, !38, i64 168}
+!29 = !{!"_timelib_tzinfo", !6, i64 0, !30, i64 8, !31, i64 32, !33, i64 80, !6, i64 88, !34, i64 96, !6, i64 104, !35, i64 112, !8, i64 120, !36, i64 128, !6, i64 160, !38, i64 168}
+!30 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
+!31 = !{!"", !32, i64 0, !32, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !32, i64 40}
+!32 = !{!"long", !8, i64 0}
+!33 = !{!"p1 long", !7, i64 0}
+!34 = !{!"p1 _ZTS7_ttinfo", !7, i64 0}
+!35 = !{!"p1 _ZTS7_tlinfo", !7, i64 0}
+!36 = !{!"_tlocinfo", !8, i64 0, !37, i64 8, !37, i64 16, !6, i64 24}
+!37 = !{!"double", !8, i64 0}
+!38 = !{!"p1 _ZTS18_timelib_posix_str", !7, i64 0}
+!39 = !{!40, !32, i64 0}
+!40 = !{!"_timelib_posix_transitions", !32, i64 0, !8, i64 8, !8, i64 56}
+!41 = !{!10, !10, i64 0}
+!42 = !{!5, !12, i64 52}
+!43 = !{!5, !12, i64 48}
+!44 = !{!12, !12, i64 0}
+!45 = distinct !{!45, !19}
+!46 = distinct !{!46, !19}
+!47 = !{!29, !33, i64 80}
+!48 = !{!29, !32, i64 56}
+!49 = !{!32, !32, i64 0}
+!50 = !{!29, !34, i64 96}
+!51 = !{!52, !10, i64 0}
+!52 = !{!"_timelib_time", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !12, i64 56, !6, i64 64, !53, i64 72, !12, i64 80, !54, i64 88, !10, i64 192, !12, i64 200, !12, i64 204, !12, i64 208, !12, i64 212, !12, i64 216, !12, i64 220, !12, i64 224, !12, i64 228, !12, i64 232}
+!53 = !{!"p1 _ZTS15_timelib_tzinfo", !7, i64 0}
+!54 = !{!"_timelib_rel_time", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !12, i64 56, !12, i64 60, !12, i64 64, !12, i64 68, !10, i64 72, !55, i64 80, !12, i64 96, !12, i64 100}
+!55 = !{!"", !12, i64 0, !10, i64 8}
+!56 = distinct !{!56, !19}

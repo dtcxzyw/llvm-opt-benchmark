@@ -699,7 +699,7 @@ define internal noundef zeroext i1 @blf_read(ptr noundef %0, ptr noundef %1, ptr
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i8, ptr %10, align 8, !range !20, !noundef !21
+  %11 = load i8, ptr %10, align 8, !range !21, !noundef !22
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %11, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -735,7 +735,7 @@ define internal noundef zeroext i1 @blf_seek_read(ptr noundef %0, i64 noundef %1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i8, ptr %11, align 8, !range !20, !noundef !21
+  %12 = load i8, ptr %11, align 8, !range !21, !noundef !22
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %12, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -795,7 +795,7 @@ define internal void @blf_close(ptr noundef readonly captures(none) %0) #2 {
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next.i, %19
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
 
 21:                                               ; preds = %._crit_edge.i, %4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -908,12 +908,12 @@ define internal fastcc noundef zeroext i1 @blf_read_block(ptr noundef readonly c
 36:                                               ; preds = %35
   %37 = add i64 %.1289579, 1
   %38 = call fastcc zeroext i1 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %37, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
-  br i1 %38, label %35, label %._crit_edge
+  br i1 %38, label %35, label %._crit_edge, !llvm.loop !24
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %16, align 8
   store i64 %.1289579, ptr %40, align 8
-  %41 = load i8, ptr %17, align 8, !range !20, !noundef !21
+  %41 = load i8, ptr %17, align 8, !range !21, !noundef !22
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %52, label %43
 
@@ -1655,7 +1655,7 @@ blf_read_apptextmessage.exit:                     ; preds = %399, %413
   %448 = getelementptr inbounds nuw i8, ptr %445, i64 304
   store i64 %447, ptr %448, align 8
   %449 = call fastcc zeroext i1 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %.3291, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
-  br i1 %449, label %.lr.ph, label %._crit_edge
+  br i1 %449, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object_header.exit, %blf_read_log_object_header3.exit, %68, %424
   br label %blf_read_log_object_header2.exit.thread
@@ -1681,7 +1681,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i8, ptr %12, align 8, !range !20, !noundef !21
+  %13 = load i8, ptr %12, align 8, !range !21, !noundef !22
   %14 = trunc nuw i8 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -1739,7 +1739,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %45 = icmp ult i64 %1, %44
   %46 = icmp ne i32 %40, 0
   %47 = and i1 %46, %45
-  br i1 %47, label %38, label %.loopexit66, !llvm.loop !23
+  br i1 %47, label %38, label %.loopexit66, !llvm.loop !26
 
 .loopexit66:                                      ; preds = %38
   store i32 %40, ptr %8, align 4
@@ -1778,7 +1778,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %61 = load i32, ptr %8, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %8, align 4
-  %63 = load i8, ptr %12, align 8, !range !20, !noundef !21
+  %63 = load i8, ptr %12, align 8, !range !21, !noundef !22
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %67, label %65
 
@@ -1808,7 +1808,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = icmp ult i64 %78, %80
-  br i1 %81, label %.loopexit, label %54, !llvm.loop !24
+  br i1 %81, label %.loopexit, label %54, !llvm.loop !27
 
 82:                                               ; preds = %54
   %83 = getelementptr inbounds nuw i8, ptr %.2, i64 32
@@ -1817,7 +1817,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
 
 85:                                               ; preds = %82
   %86 = sub nuw i64 %56, %55
-  %87 = load i8, ptr %12, align 8, !range !20, !noundef !21
+  %87 = load i8, ptr %12, align 8, !range !21, !noundef !22
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %97
 
@@ -1855,7 +1855,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %109 = add i64 %108, %99
   store i64 %109, ptr %7, align 8
   %110 = icmp ult i64 %109, %9
-  br i1 %110, label %.preheader, label %._crit_edge, !llvm.loop !25
+  br i1 %110, label %.preheader, label %._crit_edge, !llvm.loop !28
 
 111:                                              ; preds = %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %102, ptr noundef align 1 %105, i64 noundef %100, i1 noundef false) #14
@@ -4941,7 +4941,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   %bcmp.i = call i32 @bcmp(ptr %40, ptr nonnull @blf_obj_magic, i64 %41)
   %.not71.i = icmp eq i32 %bcmp.i, 0
   %42 = add i32 %.057.i, -1
-  br i1 %.not71.i, label %.loopexit.i, label %37, !llvm.loop !26
+  br i1 %.not71.i, label %.loopexit.i, label %37, !llvm.loop !29
 
 43:                                               ; preds = %31
   %44 = add nuw nsw i32 %.05972.i, 1
@@ -4951,7 +4951,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   %.160.i = phi i32 [ 0, %35 ], [ %44, %43 ], [ %.057.i, %37 ]
   %45 = zext nneg i32 %.160.i to i64
   %46 = icmp ult i32 %.160.i, 4
-  br i1 %46, label %26, label %47, !llvm.loop !27
+  br i1 %46, label %26, label %47, !llvm.loop !30
 
 47:                                               ; preds = %.loopexit.i
   %48 = load ptr, ptr %25, align 8
@@ -5021,7 +5021,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %84 = load i8, ptr %83, align 1, !range !20, !noundef !21
+  %84 = load i8, ptr %83, align 1, !range !21, !noundef !22
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %90
 
@@ -5075,7 +5075,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   br label %blf_find_next_logcontainer.exit.thread
 
 115:                                              ; preds = %109
-  %116 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef nonnull %4, i64 noundef 16, i64 noundef %110) #14, !alias.scope !28
+  %116 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef nonnull %4, i64 noundef 16, i64 noundef %110) #14, !alias.scope !31
   %117 = load i32, ptr %64, align 4
   %118 = icmp ugt i32 %117, 16
   br i1 %118, label %119, label %125
@@ -5094,7 +5094,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
 125:                                              ; preds = %119, %115
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %128 = load i8, ptr %127, align 1, !range !20, !noundef !21
+  %128 = load i8, ptr %127, align 1, !range !21, !noundef !22
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %._crit_edge.i, label %130
 
@@ -6121,7 +6121,7 @@ blf_strmem.exit186:                               ; preds = %39
 .backedge270:                                     ; preds = %86, %97, %blf_strmem.exit213, %80, %blf_strmem.exit208, %blf_strmem.exit203, %70, %blf_strmem.exit198, %blf_get_xml_channel_number.exit, %blf_get_xml_channel_number.exit.thread, %blf_strmem.exit191, %46, %blf_strmem.exit186, %39, %blf_strmem.exit220.thread, %blf_strmem.exit225.thread, %._crit_edge
   %.0127.be = getelementptr i8, ptr %35, i64 10
   %45 = icmp ult ptr %.0127.be, %21
-  br i1 %45, label %26, label %blf_strmem.exit.thread, !llvm.loop !32
+  br i1 %45, label %26, label %blf_strmem.exit.thread, !llvm.loop !35
 
 46:                                               ; preds = %blf_strmem.exit186
   %47 = getelementptr i8, ptr %43, i64 8
@@ -6153,7 +6153,7 @@ blf_strmem.exit191:                               ; preds = %46
 60:                                               ; preds = %54
   %61 = icmp ne i64 %57, -1
   call void @llvm.assume(i1 %61)
-  %62 = call ptr @__memcpy_chk(ptr noundef nonnull %58, ptr noundef nonnull %47, i64 noundef %56, i64 noundef %57) #14, !alias.scope !33
+  %62 = call ptr @__memcpy_chk(ptr noundef nonnull %58, ptr noundef nonnull %47, i64 noundef %56, i64 noundef %57) #14, !alias.scope !36
   %63 = getelementptr i8, ptr %58, i64 %56
   store i8 0, ptr %63, align 1
   %64 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %58, ptr noundef null, ptr noundef nonnull %4)
@@ -6224,7 +6224,7 @@ blf_strmem.exit213:                               ; preds = %80
 92:                                               ; preds = %86
   %93 = icmp ne i64 %89, -1
   call void @llvm.assume(i1 %93)
-  %94 = call ptr @__memcpy_chk(ptr noundef nonnull %90, ptr noundef nonnull %81, i64 noundef %88, i64 noundef %89) #14, !alias.scope !37
+  %94 = call ptr @__memcpy_chk(ptr noundef nonnull %90, ptr noundef nonnull %81, i64 noundef %88, i64 noundef %89) #14, !alias.scope !40
   %95 = getelementptr i8, ptr %90, i64 %88
   store i8 0, ptr %95, align 1
   %char0 = load i8, ptr %90, align 1
@@ -6323,7 +6323,7 @@ blf_strmem.exit235:                               ; preds = %blf_strmem.exit230
 .backedge:                                        ; preds = %133, %blf_strmem.exit235, %blf_strmem.exit230, %144, %152
   %.1.be = phi ptr [ %145, %144 ], [ %153, %152 ], [ %120, %blf_strmem.exit230 ], [ %120, %blf_strmem.exit235 ], [ %120, %133 ]
   %135 = icmp ult ptr %.1.be, %116
-  br i1 %135, label %121, label %._crit_edge, !llvm.loop !41
+  br i1 %135, label %121, label %._crit_edge, !llvm.loop !44
 
 136:                                              ; preds = %133
   %137 = call zeroext i1 @blf_parse_xml_port(ptr noundef %134, ptr noundef nonnull %130, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
@@ -6448,27 +6448,30 @@ attributes #16 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
 !16 = distinct !{!16, !"memcpy.inline"}
 !17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = distinct !{!32, !19}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
-!39 = distinct !{!39, !"memcpy.inline"}
-!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
-!41 = distinct !{!41, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}
+!30 = distinct !{!30, !19, !20}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !19, !20}
+!36 = !{!37, !39}
+!37 = distinct !{!37, !38, !"memcpy.inline: argument 0"}
+!38 = distinct !{!38, !"memcpy.inline"}
+!39 = distinct !{!39, !38, !"memcpy.inline: argument 1"}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
+!42 = distinct !{!42, !"memcpy.inline"}
+!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
+!44 = distinct !{!44, !19, !20}

@@ -119,7 +119,7 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   %.277104.i = phi i32 [ %.075121.i, %.thread98.i ], [ %50, %.thread108.i ]
   %62 = add nsw i32 %.277104.i, 1
   %63 = icmp slt i32 %62, %1
-  br i1 %63, label %.lr.ph125.i, label %compare_index.exit.thread, !llvm.loop !9
+  br i1 %63, label %.lr.ph125.i, label %compare_index.exit.thread, !llvm.loop !10
 
 compare_index.exit:                               ; preds = %.lr.ph.i
   %64 = icmp sgt i32 %.265.i, 0
@@ -255,7 +255,7 @@ compare_index.exit:                               ; preds = %.lr.ph.i
   %.277104.i87 = phi i32 [ %.075121.i77, %.thread98.i79 ], [ %115, %.thread108.i99 ]
   %127 = add nsw i32 %.277104.i87, 1
   %128 = icmp slt i32 %127, %1
-  br i1 %128, label %.lr.ph125.i73, label %compare_index.exit102.thread, !llvm.loop !9
+  br i1 %128, label %.lr.ph125.i73, label %compare_index.exit102.thread, !llvm.loop !10
 
 compare_index.exit102:                            ; preds = %.lr.ph.i90
   %129 = icmp sgt i32 %.265.i96, 0
@@ -278,7 +278,7 @@ compare_index.exit102.thread:                     ; preds = %116, %126, %compare
   %.1 = phi i32 [ %71, %66 ], [ %4, %77 ], [ %131, %compare_index.exit102.thread105 ], [ %.0115, %compare_index.exit102.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %134
   %135 = sext i32 %3 to i64
@@ -317,7 +317,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br label %.lr.ph
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !12
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef 16777215) #10
   tail call void @exit(i32 noundef 1) #11
   unreachable
@@ -329,7 +329,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   store i32 %19, ptr %18, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph208.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph208.preheader, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge209.thread:                            ; preds = %.preheader157
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %10, i1 false)
@@ -394,7 +394,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %.4119.ph.us = phi i32 [ %.2117170.us, %28 ], [ %spec.select.us, %31 ]
   %.4.ph.us = phi i32 [ %.2113171.us, %28 ], [ %.1124195, %31 ]
   %33 = icmp slt i32 %47, %5
-  br i1 %33, label %.preheader.us, label %.loopexit, !llvm.loop !15
+  br i1 %33, label %.preheader.us, label %.loopexit, !llvm.loop !16
 
 34:                                               ; preds = %.preheader.us, %45
   %.0121167.us = phi i32 [ 0, %.preheader.us ], [ %46, %45 ]
@@ -414,7 +414,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
 45:                                               ; preds = %34
   %46 = add nuw nsw i32 %.0121167.us, 1
   %exitcond234.not = icmp eq i32 %46, %.1124195
-  br i1 %exitcond234.not, label %..critedge141_crit_edge.us, label %34, !llvm.loop !17
+  br i1 %exitcond234.not, label %..critedge141_crit_edge.us, label %34, !llvm.loop !18
 
 ..critedge141_crit_edge.us:                       ; preds = %45
   %47 = add nuw nsw i32 %.0129169.us, %.1124195
@@ -431,7 +431,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %.1112197.be = phi i32 [ %.2113171.us, %.split.us ], [ %.5, %.loopexit ]
   %.1116196.be = phi i32 [ %.2117170.us, %.split.us ], [ %.5120, %.loopexit ]
   %.1124195.be = add nsw i32 %.1124195, -1
-  br label %.preheader152, !llvm.loop !18
+  br label %.preheader152, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %57
   %.2113171 = phi i32 [ %.4.ph, %57 ], [ %.1112197, %.preheader.lr.ph ]
@@ -456,7 +456,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %.4119.ph = phi i32 [ %.2117170, %53 ], [ %spec.select, %56 ]
   %.4.ph = phi i32 [ %.2113171, %53 ], [ %.1124195, %56 ]
   %58 = icmp slt i32 %50, %5
-  br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %57, %32, %.preheader152
   %.5120 = phi i32 [ %.1116196, %.preheader152 ], [ %.4119.ph.us, %32 ], [ %.4119.ph, %57 ]
@@ -481,7 +481,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   store i32 %66, ptr %68, align 4, !tbaa !3
   %69 = add nsw i32 %60, %.5255
   %70 = icmp slt i32 %69, %.5120254
-  br i1 %70, label %.lr.ph202, label %.critedge, !llvm.loop !20
+  br i1 %70, label %.lr.ph202, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph202, %63
   %.1122.lcssa.ph = phi i32 [ %.1122201, %.lr.ph202 ], [ %60, %63 ]
@@ -501,7 +501,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
 76:                                               ; preds = %.critedge, %.critedge.thread, %.lr.ph208
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !21
+  br i1 %exitcond239.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !22
 
 ._crit_edge209:                                   ; preds = %76
   tail call void @Ptngc_bwt_merge_sort_inner(ptr noundef %8, i32 noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12)
@@ -518,7 +518,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
 80:                                               ; preds = %.lr.ph212
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
-  br i1 %exitcond244.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !22
+  br i1 %exitcond244.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !23
 
 ._crit_edge213.split.loop.exit276:                ; preds = %.lr.ph212
   %81 = trunc nuw nsw i64 %indvars.iv240 to i32
@@ -544,7 +544,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   store i32 %86, ptr %87, align 4, !tbaa !3
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
-  br i1 %exitcond249.not, label %._crit_edge220, label %.lr.ph219, !llvm.loop !23
+  br i1 %exitcond249.not, label %._crit_edge220, label %.lr.ph219, !llvm.loop !24
 
 ._crit_edge220:                                   ; preds = %.lr.ph219, %._crit_edge209.thread
   tail call void @free(ptr noundef %11) #9
@@ -600,7 +600,7 @@ define void @Ptngc_comp_from_bwt(ptr noundef readonly captures(none) %0, i32 nou
   store i32 %20, ptr %18, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader39.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader39.preheader, label %.lr.ph, !llvm.loop !25
 
 .preheader:                                       ; preds = %.preheader39
   br i1 %9, label %.lr.ph45.preheader, label %._crit_edge
@@ -618,7 +618,7 @@ define void @Ptngc_comp_from_bwt(ptr noundef readonly captures(none) %0, i32 nou
   store i32 %.042, ptr %22, align 4, !tbaa !3
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 65536
-  br i1 %exitcond50.not, label %.preheader, label %.preheader39, !llvm.loop !25
+  br i1 %exitcond50.not, label %.preheader, label %.preheader39, !llvm.loop !26
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv51 = phi i64 [ %21, %.lr.ph45.preheader ], [ %indvars.iv.next52, %.lr.ph45 ]
@@ -636,7 +636,7 @@ define void @Ptngc_comp_from_bwt(ptr noundef readonly captures(none) %0, i32 nou
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = add i32 %33, %30
   %35 = icmp samesign ugt i64 %indvars.iv51, 1
-  br i1 %35, label %.lr.ph45, label %._crit_edge, !llvm.loop !26
+  br i1 %35, label %.lr.ph45, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader
   tail call void @free(ptr noundef %8) #9
@@ -675,23 +675,24 @@ attributes #11 = { cold noreturn nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}

@@ -168,15 +168,15 @@ define linkonce_odr void @_ZN6open3d9pipelines12registration36CorrespondenceChec
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCheckerBasedOnDistance5CheckERKNS_8geometry10PointCloudES6_RKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaISA_EERKNS9_IdLi4ELi4ELi0ELi4ELi4EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [4 x double], align 16
-  %6 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not27 = icmp eq ptr %6, %8
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = load <2 x double>, ptr %4, align 16, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load <2 x double>, ptr %12, align 16, !tbaa !13
@@ -193,9 +193,9 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %25 = load <2 x double>, ptr %24, align 16, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !19
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load double, ptr %28, align 8, !tbaa !22
+  %29 = load double, ptr %28, align 8, !tbaa !23
   %.sroa.0.8..sroa_idx42 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx43 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
@@ -268,7 +268,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.024.028, i64 8
   %.not = icmp ne ptr %80, %8
   %or.cond.not = select i1 %79, i1 %.not, i1 false
-  br i1 %or.cond.not, label %34, label %._crit_edge
+  br i1 %or.cond.not, label %34, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %34, %5
   %.not.lcssa = phi i1 [ true, %5 ], [ %79, %34 ]
@@ -291,8 +291,8 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration34CorrespondenceCh
   %.sroa.0 = alloca [4 x double], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = load ptr, ptr %6, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %9 = load ptr, ptr %6, align 8, !tbaa !20
   %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread, label %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit
 
@@ -302,8 +302,8 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %5
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
-  %16 = load ptr, ptr %13, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load ptr, ptr %13, align 8, !tbaa !20
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -313,8 +313,8 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %5
 21:                                               ; preds = %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %25 = load ptr, ptr %22, align 8, !tbaa !19
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  %25 = load ptr, ptr %22, align 8, !tbaa !20
   %.not.i22 = icmp eq ptr %24, %25
   br i1 %.not.i22, label %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread, label %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit23
 
@@ -324,8 +324,8 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit23: ; preds = %21
   %28 = sub i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
-  %32 = load ptr, ptr %29, align 8, !tbaa !19
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %32 = load ptr, ptr %29, align 8, !tbaa !20
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -338,11 +338,11 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
 
 37:                                               ; preds = %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load double, ptr %38, align 8, !tbaa !27
+  %39 = load double, ptr %38, align 8, !tbaa !29
   %40 = tail call double @cos(double noundef %39) #15, !tbaa !11
-  %41 = load ptr, ptr %3, align 8, !tbaa !18
+  %41 = load ptr, ptr %3, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !18
+  %43 = load ptr, ptr %42, align 8, !tbaa !19
   %.not32 = icmp eq ptr %41, %43
   br i1 %.not32, label %.critedge, label %.lr.ph
 
@@ -431,7 +431,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 8
   %.not = icmp ne ptr %107, %43
   %or.cond.not = select i1 %106, i1 %.not, i1 false
-  br i1 %or.cond.not, label %63, label %.critedge
+  br i1 %or.cond.not, label %63, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %63, %37, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread
   %.0 = phi i1 [ true, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread ], [ true, %37 ], [ %106, %63 ]
@@ -462,7 +462,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !29
+  store ptr %12, ptr %6, align 8, !tbaa !32
   %13 = icmp eq ptr %3, null
   br i1 %13, label %.noexc, label %14
 
@@ -473,14 +473,14 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
 14:                                               ; preds = %10
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  store i64 %15, ptr %5, align 8, !tbaa !32
+  store i64 %15, ptr %5, align 8, !tbaa !35
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %14
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %17, ptr %6, align 8, !tbaa !34
-  %18 = load i64, ptr %5, align 8, !tbaa !32
+  store ptr %17, ptr %6, align 8, !tbaa !37
+  %18 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %18, ptr %12, align 8, !tbaa !13
   br label %._crit_edge.i.i
 
@@ -501,10 +501,10 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   br label %23
 
 23:                                               ; preds = %22, %20, %._crit_edge.i.i
-  %24 = load i64, ptr %5, align 8, !tbaa !32
+  %24 = load i64, ptr %5, align 8, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !36
-  %26 = load ptr, ptr %6, align 8, !tbaa !34
+  store i64 %24, ptr %25, align 8, !tbaa !39
+  %26 = load ptr, ptr %6, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -512,12 +512,12 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
           to label %28 unwind label %35
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %6, align 8, !tbaa !34
+  %29 = load ptr, ptr %6, align 8, !tbaa !37
   %30 = icmp eq ptr %29, %12
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %25, align 8, !tbaa !36
+  %31 = load i64, ptr %25, align 8, !tbaa !39
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -535,12 +535,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 35:                                               ; preds = %23
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %6, align 8, !tbaa !34
+  %37 = load ptr, ptr %6, align 8, !tbaa !37
   %38 = icmp eq ptr %37, %12
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %35
-  %39 = load i64, ptr %25, align 8, !tbaa !36
+  %39 = load i64, ptr %25, align 8, !tbaa !39
   %40 = icmp ult i64 %39, 16
   call void @llvm.assume(i1 %40)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
@@ -635,24 +635,27 @@ attributes #16 = { noreturn }
 !13 = !{!8, !8, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"double", !8, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!6, !6, i64 0}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
-!21 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE", !7, i64 0}
-!22 = !{!23, !15, i64 16}
-!23 = !{!"_ZTSN6open3d9pipelines12registration36CorrespondenceCheckerBasedOnDistanceE", !24, i64 0, !15, i64 16}
-!24 = !{!"_ZTSN6open3d9pipelines12registration21CorrespondenceCheckerE", !25, i64 8}
-!25 = !{!"bool", !8, i64 0}
-!26 = !{!20, !21, i64 8}
-!27 = !{!28, !15, i64 16}
-!28 = !{!"_ZTSN6open3d9pipelines12registration34CorrespondenceCheckerBasedOnNormalE", !24, i64 0, !15, i64 16}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
-!31 = !{!"p1 omnipotent char", !7, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"long", !8, i64 0}
-!34 = !{!35, !31, i64 0}
-!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !33, i64 8, !8, i64 16}
-!36 = !{!35, !33, i64 8}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!6, !6, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_Vector_impl_dataE", !22, i64 0, !22, i64 8, !22, i64 16}
+!22 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE", !7, i64 0}
+!23 = !{!24, !15, i64 16}
+!24 = !{!"_ZTSN6open3d9pipelines12registration36CorrespondenceCheckerBasedOnDistanceE", !25, i64 0, !15, i64 16}
+!25 = !{!"_ZTSN6open3d9pipelines12registration21CorrespondenceCheckerE", !26, i64 8}
+!26 = !{!"bool", !8, i64 0}
+!27 = distinct !{!27, !18}
+!28 = !{!21, !22, i64 8}
+!29 = !{!30, !15, i64 16}
+!30 = !{!"_ZTSN6open3d9pipelines12registration34CorrespondenceCheckerBasedOnNormalE", !25, i64 0, !15, i64 16}
+!31 = distinct !{!31, !18}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !34, i64 0}
+!34 = !{!"p1 omnipotent char", !7, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !8, i64 0}
+!37 = !{!38, !34, i64 0}
+!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !33, i64 0, !36, i64 8, !8, i64 16}
+!39 = !{!38, !36, i64 8}

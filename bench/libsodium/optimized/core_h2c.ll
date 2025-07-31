@@ -104,7 +104,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_core_h2c_string_to_hash(ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %55, ptr noundef nonnull align 16 %16, i64 noundef %57, i1 noundef false) #8
   %58 = add i64 %.02532.i, 32
   %59 = icmp ult i64 %58, %1
-  br i1 %59, label %.preheader.i, label %core_h2c_string_to_hash_sha256.exit, !llvm.loop !6
+  br i1 %59, label %.preheader.i, label %core_h2c_string_to_hash_sha256.exit, !llvm.loop !7
 
 core_h2c_string_to_hash_sha256.exit:              ; preds = %46, %.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #8
@@ -174,7 +174,7 @@ core_h2c_string_to_hash_sha256.exit:              ; preds = %46, %.thread.i
   store i8 %85, ptr %83, align 1
   %86 = add nuw nsw i64 %.031.i18, 1
   %exitcond.not.i19 = icmp eq i64 %86, 64
-  br i1 %exitcond.not.i19, label %87, label %80, !llvm.loop !7
+  br i1 %exitcond.not.i19, label %87, label %80, !llvm.loop !8
 
 87:                                               ; preds = %80
   %88 = load i8, ptr %63, align 1
@@ -192,7 +192,7 @@ core_h2c_string_to_hash_sha256.exit:              ; preds = %46, %.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %96, ptr noundef nonnull align 16 %10, i64 noundef %98, i1 noundef false) #8
   %99 = add i64 %.02532.i17, 64
   %100 = icmp ult i64 %99, %1
-  br i1 %100, label %.preheader.i16, label %core_h2c_string_to_hash_sha512.exit, !llvm.loop !8
+  br i1 %100, label %.preheader.i16, label %core_h2c_string_to_hash_sha512.exit, !llvm.loop !9
 
 core_h2c_string_to_hash_sha512.exit:              ; preds = %87, %.thread.i12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
@@ -264,8 +264,9 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

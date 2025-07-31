@@ -281,11 +281,11 @@ _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
   br i1 %109, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, label %110
 
 110:                                              ; preds = %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i50
-  %111 = load ptr, ptr %0, align 8, !tbaa !30
+  %111 = load ptr, ptr %0, align 8, !tbaa !31
   %112 = udiv i32 %spec.select.i.i53, 3
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 192
   %114 = zext nneg i32 %112 to i64
-  %115 = load ptr, ptr %113, align 8, !tbaa !46
+  %115 = load ptr, ptr %113, align 8, !tbaa !47
   %116 = getelementptr inbounds nuw %"struct.std::array", ptr %115, i64 %114
   %117 = urem i32 %spec.select.i.i53, 3
   %118 = zext nneg i32 %117 to i64
@@ -307,11 +307,11 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %122, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i, label %123
 
 123:                                              ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
-  %124 = load ptr, ptr %0, align 8, !tbaa !30
+  %124 = load ptr, ptr %0, align 8, !tbaa !31
   %125 = udiv i32 %.sroa.01.0.i17.i, 3
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 192
   %127 = zext nneg i32 %125 to i64
-  %128 = load ptr, ptr %126, align 8, !tbaa !46
+  %128 = load ptr, ptr %126, align 8, !tbaa !47
   %129 = getelementptr inbounds nuw %"struct.std::array", ptr %128, i64 %127
   %130 = urem i32 %.sroa.01.0.i17.i, 3
   %131 = zext nneg i32 %130 to i64
@@ -333,11 +333,11 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %134, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i, label %135
 
 135:                                              ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit23.i
-  %136 = load ptr, ptr %0, align 8, !tbaa !30
+  %136 = load ptr, ptr %0, align 8, !tbaa !31
   %137 = udiv i32 %.sroa.01.0.i22.i, 3
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 192
   %139 = zext nneg i32 %137 to i64
-  %140 = load ptr, ptr %138, align 8, !tbaa !46
+  %140 = load ptr, ptr %138, align 8, !tbaa !47
   %141 = getelementptr inbounds nuw %"struct.std::array", ptr %140, i64 %139
   %142 = urem i32 %.sroa.01.0.i22.i, 3
   %143 = zext nneg i32 %142 to i64
@@ -359,11 +359,11 @@ _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit30
   br i1 %148, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i, label %149
 
 149:                                              ; preds = %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit30.i
-  %150 = load ptr, ptr %0, align 8, !tbaa !30
+  %150 = load ptr, ptr %0, align 8, !tbaa !31
   %151 = udiv i32 %spec.select.i28.i, 3
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 192
   %153 = zext nneg i32 %151 to i64
-  %154 = load ptr, ptr %152, align 8, !tbaa !46
+  %154 = load ptr, ptr %152, align 8, !tbaa !47
   %155 = getelementptr inbounds nuw %"struct.std::array", ptr %154, i64 %153
   %156 = urem i32 %spec.select.i28.i, 3
   %157 = zext nneg i32 %156 to i64
@@ -388,7 +388,7 @@ _ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_t
   %167 = load i64, ptr %163, align 8, !tbaa !20
   %168 = and i64 %167, %166
   %.not120 = icmp eq i64 %168, 0
-  br i1 %.not120, label %.lr.ph, label %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, !llvm.loop !49
+  br i1 %.not120, label %.lr.ph, label %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, !llvm.loop !50
 
 _ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread: ; preds = %135, %159, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i, %93, %87, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i
   %.sroa.077.2.lcssa.ph = phi i32 [ %160, %159 ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i ], [ %.sroa.077.2129, %93 ], [ %.sroa.077.2129, %87 ], [ %.sroa.077.2129, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46 ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i ], [ %.sroa.077.2129, %135 ]
@@ -400,9 +400,9 @@ _ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_ta
   br i1 %or.cond, label %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread
-  %171 = load ptr, ptr %8, align 8, !tbaa !50
+  %171 = load ptr, ptr %8, align 8, !tbaa !51
   %172 = getelementptr inbounds i8, ptr %171, i64 -4
-  %173 = load i32, ptr %172, align 4, !tbaa !51
+  %173 = load i32, ptr %172, align 4, !tbaa !52
   %174 = load ptr, ptr %14, align 8, !tbaa !17
   %175 = lshr i32 %173, 6
   %.zext.i57 = zext nneg i32 %175 to i64
@@ -421,13 +421,13 @@ _ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_ta
   %.sroa.084.3186 = phi i32 [ %.sroa.084.3.ph, %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread ], [ %.sroa.084.1, %44 ]
   %.sroa.081.2185 = phi i32 [ %.sroa.081.2.ph, %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread ], [ %.sroa.081.0163, %44 ]
   %.sroa.077.2.lcssa184 = phi i32 [ %.sroa.077.2.lcssa.ph, %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread ], [ %.sroa.077.1, %44 ]
-  br i1 %17, label %16, label %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, !llvm.loop !53
+  br i1 %17, label %16, label %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, !llvm.loop !54
 
 _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread: ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i, %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread.thread, %.thread, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread
   %.sroa.081.0126 = phi i32 [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread ], [ %.sroa.081.2.ph, %.thread ], [ %.sroa.081.2185, %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread.thread ], [ %.sroa.081.0163, %_ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.081.0163, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ], [ %.sroa.081.0163, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i ], [ %.sroa.081.0163, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.sroa.081.0163, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %184 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %183, i64 0, i64 %5
-  store i32 %.sroa.081.0126, ptr %184, align 4, !tbaa !54
+  store i32 %.sroa.081.0126, ptr %184, align 4, !tbaa !55
   %185 = load ptr, ptr %8, align 8, !tbaa !9
   %186 = load ptr, ptr %6, align 8, !tbaa !3
   %.not168 = icmp eq ptr %185, %186
@@ -447,7 +447,7 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
 192:                                              ; preds = %.lr.ph167, %192
   %indvars.iv = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next, %192 ]
   %193 = getelementptr inbounds nuw %"class.draco::IndexType.7", ptr %186, i64 %indvars.iv
-  %194 = load i32, ptr %193, align 4, !tbaa !51
+  %194 = load i32, ptr %193, align 4, !tbaa !52
   %195 = lshr i32 %194, 6
   %.zext.i60 = zext nneg i32 %195 to i64
   %196 = getelementptr inbounds nuw i64, ptr %191, i64 %.zext.i60
@@ -460,7 +460,7 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
   store i64 %202, ptr %196, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %190
-  br i1 %exitcond.not, label %._crit_edge, label %192, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %192, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -485,11 +485,11 @@ _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: 
   br i1 %13, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %14
 
 14:                                               ; preds = %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !30
+  %15 = load ptr, ptr %0, align 8, !tbaa !31
   %16 = udiv i32 %spec.select.i, 3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %18 = zext nneg i32 %16 to i64
-  %19 = load ptr, ptr %17, align 8, !tbaa !46
+  %19 = load ptr, ptr %17, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw %"struct.std::array", ptr %19, i64 %18
   %21 = urem i32 %spec.select.i, 3
   %22 = zext nneg i32 %21 to i64
@@ -511,11 +511,11 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %26, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20, label %27
 
 27:                                               ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %28 = load ptr, ptr %0, align 8, !tbaa !30
+  %28 = load ptr, ptr %0, align 8, !tbaa !31
   %29 = udiv i32 %.sroa.01.0.i17, 3
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %31 = zext nneg i32 %29 to i64
-  %32 = load ptr, ptr %30, align 8, !tbaa !46
+  %32 = load ptr, ptr %30, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw %"struct.std::array", ptr %32, i64 %31
   %34 = urem i32 %.sroa.01.0.i17, 3
   %35 = zext nneg i32 %34 to i64
@@ -537,11 +537,11 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br i1 %38, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26, label %39
 
 39:                                               ; preds = %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit23
-  %40 = load ptr, ptr %0, align 8, !tbaa !30
+  %40 = load ptr, ptr %0, align 8, !tbaa !31
   %41 = udiv i32 %.sroa.01.0.i22, 3
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %43 = zext nneg i32 %41 to i64
-  %44 = load ptr, ptr %42, align 8, !tbaa !46
+  %44 = load ptr, ptr %42, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw %"struct.std::array", ptr %44, i64 %43
   %46 = urem i32 %.sroa.01.0.i22, 3
   %47 = zext nneg i32 %46 to i64
@@ -563,11 +563,11 @@ _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit30
   br i1 %52, label %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33, label %53
 
 53:                                               ; preds = %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit30
-  %54 = load ptr, ptr %0, align 8, !tbaa !30
+  %54 = load ptr, ptr %0, align 8, !tbaa !31
   %55 = udiv i32 %spec.select.i28, 3
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 192
   %57 = zext nneg i32 %55 to i64
-  %58 = load ptr, ptr %56, align 8, !tbaa !46
+  %58 = load ptr, ptr %56, align 8, !tbaa !47
   %59 = getelementptr inbounds nuw %"struct.std::array", ptr %58, i64 %57
   %60 = urem i32 %spec.select.i28, 3
   %61 = zext nneg i32 %60 to i64
@@ -664,32 +664,33 @@ attributes #14 = { nounwind }
 !25 = distinct !{!25, !"_ZSt19__relocate_object_aIN5draco9IndexTypeIjNS0_19FaceIndex_tag_type_EEES3_SaIS3_EEvPT_PT0_RT1_"}
 !26 = !{!27}
 !27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aIN5draco9IndexTypeIjNS0_19FaceIndex_tag_type_EEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"_ZTSN5draco14MeshStripifierE", !32, i64 0, !33, i64 8, !7, i64 16, !7, i64 88, !39, i64 104, !16, i64 144, !16, i64 148, !45, i64 152}
-!32 = !{!"p1 _ZTSN5draco4MeshE", !6, i64 0}
-!33 = !{!"_ZTSSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EE", !34, i64 0}
-!34 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco11CornerTableESt14default_deleteIS1_ELb1ELb1EE", !35, i64 0}
-!35 = !{!"_ZTSSt15__uniq_ptr_implIN5draco11CornerTableESt14default_deleteIS1_EE", !36, i64 0}
-!36 = !{!"_ZTSSt5tupleIJPN5draco11CornerTableESt14default_deleteIS1_EEE", !37, i64 0}
-!37 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco11CornerTableESt14default_deleteIS1_EEE", !38, i64 0}
-!38 = !{!"_ZTSSt10_Head_baseILm0EPN5draco11CornerTableELb0EE", !11, i64 0}
-!39 = !{!"_ZTSN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEbEE", !40, i64 0}
-!40 = !{!"_ZTSSt6vectorIbSaIbEE", !41, i64 0}
-!41 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !42, i64 0}
-!42 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !43, i64 0}
-!43 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !44, i64 0, !44, i64 16, !19, i64 32}
-!44 = !{!"_ZTSSt13_Bit_iterator", !18, i64 0}
-!45 = !{!"_ZTSN5draco9IndexTypeIjNS_20PointIndex_tag_type_EEE", !16, i64 0}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
-!48 = !{!"p1 _ZTSSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EE", !6, i64 0}
-!49 = distinct !{!49, !29}
-!50 = !{!5, !5, i64 0}
-!51 = !{!52, !16, i64 0}
-!52 = !{!"_ZTSN5draco9IndexTypeIjNS_19FaceIndex_tag_type_EEE", !16, i64 0}
-!53 = distinct !{!53, !29}
-!54 = !{!55, !16, i64 0}
-!55 = !{!"_ZTSN5draco9IndexTypeIjNS_21CornerIndex_tag_type_EEE", !16, i64 0}
-!56 = distinct !{!56, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSN5draco14MeshStripifierE", !33, i64 0, !34, i64 8, !7, i64 16, !7, i64 88, !40, i64 104, !16, i64 144, !16, i64 148, !46, i64 152}
+!33 = !{!"p1 _ZTSN5draco4MeshE", !6, i64 0}
+!34 = !{!"_ZTSSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EE", !35, i64 0}
+!35 = !{!"_ZTSSt15__uniq_ptr_dataIN5draco11CornerTableESt14default_deleteIS1_ELb1ELb1EE", !36, i64 0}
+!36 = !{!"_ZTSSt15__uniq_ptr_implIN5draco11CornerTableESt14default_deleteIS1_EE", !37, i64 0}
+!37 = !{!"_ZTSSt5tupleIJPN5draco11CornerTableESt14default_deleteIS1_EEE", !38, i64 0}
+!38 = !{!"_ZTSSt11_Tuple_implILm0EJPN5draco11CornerTableESt14default_deleteIS1_EEE", !39, i64 0}
+!39 = !{!"_ZTSSt10_Head_baseILm0EPN5draco11CornerTableELb0EE", !11, i64 0}
+!40 = !{!"_ZTSN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEbEE", !41, i64 0}
+!41 = !{!"_ZTSSt6vectorIbSaIbEE", !42, i64 0}
+!42 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !43, i64 0}
+!43 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !44, i64 0}
+!44 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !45, i64 0, !45, i64 16, !19, i64 32}
+!45 = !{!"_ZTSSt13_Bit_iterator", !18, i64 0}
+!46 = !{!"_ZTSN5draco9IndexTypeIjNS_20PointIndex_tag_type_EEE", !16, i64 0}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE17_Vector_impl_dataE", !49, i64 0, !49, i64 8, !49, i64 16}
+!49 = !{!"p1 _ZTSSt5arrayIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEELm3EE", !6, i64 0}
+!50 = distinct !{!50, !29, !30}
+!51 = !{!5, !5, i64 0}
+!52 = !{!53, !16, i64 0}
+!53 = !{!"_ZTSN5draco9IndexTypeIjNS_19FaceIndex_tag_type_EEE", !16, i64 0}
+!54 = distinct !{!54, !29, !30}
+!55 = !{!56, !16, i64 0}
+!56 = !{!"_ZTSN5draco9IndexTypeIjNS_21CornerIndex_tag_type_EEE", !16, i64 0}
+!57 = distinct !{!57, !29, !30}

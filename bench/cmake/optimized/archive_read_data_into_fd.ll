@@ -90,11 +90,11 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %38 = sub i64 %37, %32
   store i64 %38, ptr %5, align 8, !tbaa !8
   %.not65.us = icmp eq i64 %38, 0
-  br i1 %.not65.us, label %.loopexit99.us, label %.lr.ph.us, !llvm.loop !12
+  br i1 %.not65.us, label %.loopexit99.us, label %.lr.ph.us, !llvm.loop !13
 
 .loopexit99.us:                                   ; preds = %34, %30
   %.4.lcssa.us = phi i64 [ %.250.us, %30 ], [ %35, %34 ]
-  br label %.split.us, !llvm.loop !13
+  br label %.split.us, !llvm.loop !14
 
 .loopexit100.us:                                  ; preds = %27
   %39 = load i64, ptr %6, align 8, !tbaa !8
@@ -150,7 +150,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %58 = sub i64 %57, %52
   store i64 %58, ptr %5, align 8, !tbaa !8
   %.not65 = icmp eq i64 %58, 0
-  br i1 %.not65, label %.split.backedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not65, label %.split.backedge, label %.lr.ph, !llvm.loop !13
 
 .split115.us:                                     ; preds = %.split, %.split.us
   %.046137 = phi ptr [ %16, %.split.us ], [ null, %.split ]
@@ -187,7 +187,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %.str.1.sink = phi ptr [ @.str.2, %62 ], [ @.str.1, %.lr.ph.i74 ], [ @.str.1, %.lr.ph.us ], [ @.str.1, %.lr.ph.i.us ], [ @.str.1, %.lr.ph ], [ @.str.2, %45 ]
   %.147.ph.ph = phi ptr [ %.046137, %62 ], [ %.046137, %.lr.ph.i74 ], [ %16, %.lr.ph.us ], [ %16, %.lr.ph.i.us ], [ null, %.lr.ph ], [ null, %45 ]
   %73 = tail call ptr @__errno_location() #12
-  %74 = load i32, ptr %73, align 4, !tbaa !15
+  %74 = load i32, ptr %73, align 4, !tbaa !16
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %74, ptr noundef nonnull %.str.1.sink) #10
   br label %.sink.split
 
@@ -265,10 +265,11 @@ attributes #12 = { nounwind willreturn memory(none) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !6, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !6, i64 0}

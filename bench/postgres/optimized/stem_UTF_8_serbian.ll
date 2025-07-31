@@ -2925,7 +2925,7 @@ define hidden range(i32 -2147483648, 2) i32 @serbian_UTF_8_stem(ptr noundef init
 189:                                              ; preds = %182, %179
   %190 = tail call i32 @skip_utf8(ptr noundef %.pre.i, i32 noundef %storemerge.i71, i32 noundef %180, i32 noundef 1) #2
   %191 = icmp slt i32 %190, 0
-  br i1 %191, label %r_mark_regions.exit, label %179
+  br i1 %191, label %r_mark_regions.exit, label %179, !llvm.loop !3
 
 192:                                              ; preds = %186
   %193 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_rg, i32 noundef 114, i32 noundef 114, i32 noundef 1) #2
@@ -4952,3 +4952,5 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

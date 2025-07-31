@@ -150,7 +150,7 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   store i64 %60, ptr %58, align 8, !tbaa !4
   %61 = add i32 %5, 8
   %.not = icmp ugt i32 %61, %2
-  br i1 %.not, label %.preheader76, label %.lr.ph
+  br i1 %.not, label %.preheader76, label %.lr.ph, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph81, %.preheader76
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader76 ], [ %63, %.lr.ph81 ]
@@ -194,7 +194,7 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   store i64 %90, ptr %88, align 8, !tbaa !4
   %91 = add i32 %63, 4
   %.not74 = icmp ugt i32 %91, %2
-  br i1 %.not74, label %.preheader, label %.lr.ph81
+  br i1 %.not74, label %.preheader, label %.lr.ph81, !llvm.loop !11
 
 .lr.ph85:                                         ; preds = %.preheader, %.lr.ph85
   %92 = phi i32 [ %106, %.lr.ph85 ], [ %62, %.preheader ]
@@ -216,7 +216,7 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
   store i64 %105, ptr %103, align 8, !tbaa !4
   %106 = add i32 %92, 2
   %.not75 = icmp ugt i32 %106, %2
-  br i1 %.not75, label %._crit_edge, label %.lr.ph85
+  br i1 %.not75, label %._crit_edge, label %.lr.ph85, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %92, %.lr.ph85 ]
@@ -330,7 +330,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
   %41 = add i32 %.02938, 1
   %42 = getelementptr inbounds nuw i8, ptr %.02740, i64 %.pre-phi
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %KeccakP1600_AddBytesInLane.exit35, %24, %KeccakP1600_AddBytesInLane.exit
   ret void
@@ -369,7 +369,7 @@ define hidden void @KeccakP1600_OverwriteBytesInLane(ptr noundef writeonly captu
   store i8 %12, ptr %16, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !14
 
 17:                                               ; preds = %5
   %18 = shl i32 %1, 3
@@ -423,7 +423,7 @@ define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(no
   store i64 %.sink, ptr %13, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %12, %3
   ret void
@@ -472,7 +472,7 @@ define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(no
   store i64 %.sink.i, ptr %17, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %KeccakP1600_OverwriteLanes.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %KeccakP1600_OverwriteLanes.exit, label %.lr.ph.i, !llvm.loop !15
 
 KeccakP1600_OverwriteLanes.exit:                  ; preds = %16
   %18 = and i32 %3, -8
@@ -508,7 +508,7 @@ KeccakP1600_OverwriteLanes.exit:                  ; preds = %16
   store i8 %26, ptr %30, align 1, !tbaa !8
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i35
-  br i1 %exitcond.not.i38, label %KeccakP1600_OverwriteBytesInLane.exit, label %23
+  br i1 %exitcond.not.i38, label %KeccakP1600_OverwriteBytesInLane.exit, label %23, !llvm.loop !14
 
 KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_OverwriteLanes.exit
   %.pre-phi55 = phi i64 [ %19, %KeccakP1600_OverwriteLanes.exit ], [ 0, %6 ]
@@ -562,7 +562,7 @@ KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_Ove
   store i8 %44, ptr %48, align 1, !tbaa !8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i41
-  br i1 %exitcond.not.i44, label %KeccakP1600_OverwriteBytesInLane.exit45, label %41
+  br i1 %exitcond.not.i44, label %KeccakP1600_OverwriteBytesInLane.exit45, label %41, !llvm.loop !14
 
 49:                                               ; preds = %.lr.ph
   %50 = shl i32 %.02949, 3
@@ -580,7 +580,7 @@ KeccakP1600_OverwriteBytesInLane.exit45:          ; preds = %41, %49
   %57 = add i32 %.02949, 1
   %58 = getelementptr inbounds nuw i8, ptr %.02751, i64 %.pre-phi
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %KeccakP1600_OverwriteBytesInLane.exit, label %.lr.ph
+  br i1 %.not, label %KeccakP1600_OverwriteBytesInLane.exit, label %.lr.ph, !llvm.loop !16
 
 KeccakP1600_OverwriteBytesInLane.exit:            ; preds = %KeccakP1600_OverwriteBytesInLane.exit45, %23, %35, %KeccakP1600_OverwriteLanes.exit.thread, %22
   ret void
@@ -620,7 +620,7 @@ switch.early.test:                                ; preds = %.lr.ph
   store i64 %.sink, ptr %9, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %8, %2
   %10 = and i32 %1, 7
@@ -1226,7 +1226,7 @@ define hidden void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i
   %491 = xor i64 %490, %451
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %492 = icmp samesign ult i64 %indvars.iv, 22
-  br i1 %492, label %.lr.ph, label %._crit_edge
+  br i1 %492, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %214
   %.1897.lcssa = phi i64 [ %.0896, %214 ], [ %381, %.lr.ph ]
@@ -6535,7 +6535,7 @@ KeccakP1600_ExtractBytesInLane.exit34:            ; preds = %.lr.ph, %63
   %69 = add i32 %.02937, 1
   %70 = getelementptr inbounds nuw i8, ptr %.02739, i64 %67
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %KeccakP1600_ExtractBytesInLane.exit34, %56, %KeccakP1600_ExtractBytesInLane.exit
   ret void
@@ -6585,7 +6585,7 @@ define hidden void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly ca
   store i8 %21, ptr %22, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
@@ -6612,7 +6612,7 @@ define hidden void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures
   store i64 %9, ptr %10, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not30 = icmp eq i32 %3, 1
@@ -6698,7 +6698,7 @@ KeccakP1600_ExtractAndAddLanes.exit.thread59:     ; preds = %9
   store i64 %18, ptr %19, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not30.i = icmp eq i32 %10, 1
@@ -6809,7 +6809,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %24, %29, %34, %39, 
   store i8 %76, ptr %77, align 1, !tbaa !8
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i43
-  br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44
+  br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44, !llvm.loop !20
 
 KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
@@ -6869,7 +6869,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %68
   store i8 %94, ptr %95, align 1, !tbaa !8
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i52
-  br i1 %exitcond.not.i56, label %KeccakP1600_ExtractAndAddBytesInLane.exit58, label %.lr.ph.i53
+  br i1 %exitcond.not.i56, label %KeccakP1600_ExtractAndAddBytesInLane.exit58, label %.lr.ph.i53, !llvm.loop !20
 
 KeccakP1600_ExtractAndAddBytesInLane.exit58:      ; preds = %.lr.ph.i53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
@@ -6878,7 +6878,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit58:      ; preds = %.lr.ph.i53
   %98 = getelementptr inbounds nuw i8, ptr %.03564, i64 %wide.trip.count.i52
   %99 = getelementptr inbounds nuw i8, ptr %.03465, i64 %wide.trip.count.i52
   %.not = icmp eq i32 %96, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %KeccakP1600_ExtractAndAddBytesInLane.exit58, %78, %KeccakP1600_ExtractAndAddBytesInLane.exit
   ret void
@@ -10640,7 +10640,7 @@ define hidden i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i3
   %3616 = getelementptr inbounds nuw i64, ptr %.05996, i64 %75
   %3617 = sub i64 %.059115995, %55
   %.not = icmp ult i64 %3617, %55
-  br i1 %.not, label %._crit_edge, label %76
+  br i1 %.not, label %._crit_edge, label %76, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %375, %4
   %.05959.lcssa = phi i64 [ %53, %4 ], [ %3615, %375 ]
@@ -10725,3 +10725,18 @@ attributes #8 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}

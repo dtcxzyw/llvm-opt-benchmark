@@ -184,7 +184,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %73 = load i32, ptr %45, align 8
   %74 = sext i32 %73 to i64
   %.not104.us.not = icmp slt i64 %indvars.iv127, %74
-  br i1 %.not104.us.not, label %.lr.ph.us, label %._crit_edge.us.loopexit, !llvm.loop !8
+  br i1 %.not104.us.not, label %.lr.ph.us, label %._crit_edge.us.loopexit, !llvm.loop !9
 
 ._crit_edge.us.loopexit:                          ; preds = %71
   %.pre141 = load i32, ptr %40, align 8
@@ -196,7 +196,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %77 = sext i32 %75 to i64
   %78 = icmp slt i64 %indvars.iv.next131, %77
-  br i1 %78, label %.lr.ph115.split.us, label %._crit_edge116, !llvm.loop !9
+  br i1 %78, label %.lr.ph115.split.us, label %._crit_edge116, !llvm.loop !10
 
 .lr.ph115.split:                                  ; preds = %.lr.ph115, %._crit_edge
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge ], [ 0, %.lr.ph115 ]
@@ -270,14 +270,14 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %118 = load i32, ptr %45, align 8
   %119 = sext i32 %118 to i64
   %.not104.not = icmp slt i64 %indvars.iv, %119
-  br i1 %.not104.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %.not104.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %116, %98
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %120 = load i32, ptr %40, align 8
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next125, %121
-  br i1 %122, label %.lr.ph115.split, label %._crit_edge116, !llvm.loop !11
+  br i1 %122, label %.lr.ph115.split, label %._crit_edge116, !llvm.loop !12
 
 ._crit_edge116:                                   ; preds = %._crit_edge, %._crit_edge.us, %39
   %123 = load i32, ptr %15, align 4
@@ -321,7 +321,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %143 = load i32, ptr %40, align 8
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %indvars.iv.next137, %144
-  br i1 %145, label %.lr.ph119.split.us, label %._crit_edge120, !llvm.loop !12
+  br i1 %145, label %.lr.ph119.split.us, label %._crit_edge120, !llvm.loop !13
 
 .lr.ph119.split:                                  ; preds = %.lr.ph119, %.lr.ph119.split
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph119.split ], [ 0, %.lr.ph119 ]
@@ -340,7 +340,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %154 = load i32, ptr %40, align 8
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next134, %155
-  br i1 %156, label %.lr.ph119.split, label %._crit_edge120, !llvm.loop !13
+  br i1 %156, label %.lr.ph119.split, label %._crit_edge120, !llvm.loop !14
 
 ._crit_edge120:                                   ; preds = %.lr.ph119.split, %141, %._crit_edge116
   %157 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -413,7 +413,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_DC_first(ptr noundef %0, ptr nou
   %34 = load i32, ptr %28, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %32, label %._crit_edge.i, !llvm.loop !14
+  br i1 %36, label %32, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -587,7 +587,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %135 = load i32, ptr %59, align 8
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %68, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %137, label %68, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %129
   %.pre = load ptr, ptr %3, align 8
@@ -677,7 +677,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_AC_first(ptr noundef %0, ptr nou
   %35 = load i32, ptr %29, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %33, label %._crit_edge.i, !llvm.loop !14
+  br i1 %37, label %33, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %33, %.preheader.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -896,7 +896,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %.8 = phi i32 [ %111, %123 ], [ %.4, %134 ]
   %154 = add nsw i32 %.198, 1
   %.not115.not = icmp slt i32 %.198, %7
-  br i1 %.not115.not, label %73, label %.loopexit, !llvm.loop !16
+  br i1 %.not115.not, label %73, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %153, %52, %151
   %.1100 = phi i32 [ %152, %151 ], [ 0, %52 ], [ 0, %153 ]
@@ -985,7 +985,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_DC_refine(ptr noundef %0, ptr no
   %34 = load i32, ptr %28, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %32, label %._crit_edge.i, !llvm.loop !14
+  br i1 %36, label %32, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1067,7 +1067,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %78 = load i32, ptr %55, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %61, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %80, label %61, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %77
   %.pre = load ptr, ptr %3, align 8
@@ -1156,7 +1156,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_AC_refine(ptr noundef %0, ptr no
   %38 = load i32, ptr %32, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %36, label %._crit_edge.i, !llvm.loop !14
+  br i1 %40, label %36, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %36, %.preheader.i
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1414,7 +1414,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %.10 = phi i32 [ %154, %157 ], [ %154, %153 ], [ %.8, %164 ], [ %154, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not193.not = icmp slt i64 %indvars.iv, %74
-  br i1 %.not193.not, label %140, label %.split.loop.exit295, !llvm.loop !18
+  br i1 %.not193.not, label %140, label %.split.loop.exit295, !llvm.loop !19
 
 .split.loop.exit:                                 ; preds = %164
   %168 = trunc nsw i64 %indvars.iv to i32
@@ -1445,7 +1445,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %.3 = phi i32 [ %176, %169 ], [ %.1126223, %.split.loop.exit295 ]
   %180 = add nsw i32 %.3130, 1
   %.not175.not = icmp slt i32 %.3130, %8
-  br i1 %.not175.not, label %75, label %.loopexit199.thread272, !llvm.loop !19
+  br i1 %.not175.not, label %75, label %.loopexit199.thread272, !llvm.loop !20
 
 .loopexit199:                                     ; preds = %50
   %.not182 = icmp eq i32 %63, 0
@@ -1523,7 +1523,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %indvars.iv.next256 = add nsw i64 %indvars.iv255, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next256 to i32
   %exitcond.not = icmp eq i32 %184, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %185, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %185, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %209, %.preheader
   %.13150.lcssa = phi i32 [ %.0137268, %.preheader ], [ %.15152, %209 ]
@@ -1572,7 +1572,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %225 = getelementptr inbounds [64 x i16], ptr %64, i64 0, i64 %224
   store i16 0, ptr %225, align 2
   %226 = icmp samesign ugt i64 %indvars.iv258, 1
-  br i1 %226, label %.lr.ph236, label %process_restart.exit, !llvm.loop !21
+  br i1 %226, label %.lr.ph236, label %process_restart.exit, !llvm.loop !22
 
 process_restart.exit:                             ; preds = %.lr.ph236, %.loopexit, %19, %216
   %.0 = phi i32 [ 1, %216 ], [ 0, %19 ], [ 0, %.loopexit ], [ 0, %.lr.ph236 ]
@@ -1609,19 +1609,20 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !10}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !11}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

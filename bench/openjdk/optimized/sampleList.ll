@@ -473,7 +473,7 @@ _ZN19JfrDoublyLinkedListI12ObjectSampleE6appendEPS0_.exit: ; preds = %21, %23
 _ZNK10SampleList9newSampleEv.exit.thread:         ; preds = %17, %.lr.ph.split, %_ZN19JfrDoublyLinkedListI12ObjectSampleE6appendEPS0_.exit
   %28 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %28, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZNK10SampleList9newSampleEv.exit.thread, %.lr.ph, %1
   ret void
@@ -675,7 +675,7 @@ _ZN19JfrDoublyLinkedListI12ObjectSampleE6appendEPS0_.exit.i: ; preds = %67, %65
 _ZNK10SampleList9newSampleEv.exit.thread.i:       ; preds = %_ZN19JfrDoublyLinkedListI12ObjectSampleE6appendEPS0_.exit.i, %61, %.lr.ph.split.i
   %72 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %72, %51
-  br i1 %exitcond.not.i, label %_ZN10SampleList14populate_cacheEv.exit, label %.lr.ph.split.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN10SampleList14populate_cacheEv.exit, label %.lr.ph.split.i, !llvm.loop !9
 
 _ZN10SampleList14populate_cacheEv.exit:           ; preds = %_ZNK10SampleList9newSampleEv.exit.thread.i, %23, %29, %.lr.ph.i, %47, %41
   %.017 = phi ptr [ %.0, %41 ], [ %.0, %47 ], [ %.0, %.lr.ph.i ], [ null, %29 ], [ null, %23 ], [ %.0, %_ZNK10SampleList9newSampleEv.exit.thread.i ]
@@ -765,12 +765,12 @@ define linkonce_odr hidden void @_ZN12ObjectSampleD2Ev(ptr noundef nonnull align
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %5) #8, !srcloc !10
+  %6 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %5) #8, !srcloc !11
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i
 
 8:                                                ; preds = %4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %9 = load ptr, ptr %3, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i, label %11
@@ -796,12 +796,12 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 
 14:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %15) #8, !srcloc !10
+  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %15) #8, !srcloc !11
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %18, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i2
 
 18:                                               ; preds = %14
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %19 = load ptr, ptr %13, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i3, label %21
@@ -827,12 +827,12 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 
 24:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %25) #8, !srcloc !10
+  %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %25) #8, !srcloc !11
   %27 = icmp eq i64 %26, 1
   br i1 %27, label %28, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i6
 
 28:                                               ; preds = %24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %29 = load ptr, ptr %23, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i7, label %31
@@ -988,9 +988,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = !{i64 2145411697}
-!11 = !{i64 2145392468}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.partial.disable"}
+!11 = !{i64 2145411697}
+!12 = !{i64 2145392468}

@@ -177,7 +177,7 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flip
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load i8, ptr %63, align 8, !tbaa !31, !range !34, !noundef !35
+  %64 = load i8, ptr %63, align 8, !tbaa !31, !range !35, !noundef !36
   %.not.not = icmp eq i8 %64, 0
   %..i4 = select i1 %.not.not, i32 1, i32 2
   %65 = add nsw i32 %62, %..i4
@@ -231,7 +231,7 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !29
@@ -242,7 +242,7 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   store i32 %15, ptr %0, align 8, !tbaa !23
   store i32 %26, ptr %6, align 4, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i8, ptr %27, align 8, !tbaa !31, !range !34, !noundef !35
+  %28 = load i8, ptr %27, align 8, !tbaa !31, !range !35, !noundef !36
   %29 = xor i8 %28, 1
   store i8 %29, ptr %27, align 8, !tbaa !31
   br label %30
@@ -254,7 +254,7 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flipEEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !34, !noundef !35
+  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !35, !noundef !36
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !24
@@ -297,15 +297,15 @@ define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixI
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E6NextFEEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = load i32, ptr %0, align 8, !tbaa !4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = sext i32 %7 to i64
-  %9 = load ptr, ptr %3, align 8, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = mul nsw i64 %11, %8
   %13 = getelementptr i32, ptr %9, i64 %5
   %14 = getelementptr i32, ptr %13, i64 %12
@@ -335,8 +335,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   br i1 %31, label %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFEv.exit, label %32
 
 32:                                               ; preds = %21
-  %33 = load ptr, ptr %18, align 8, !tbaa !38
-  %34 = load i64, ptr %19, align 8, !tbaa !40
+  %33 = load ptr, ptr %18, align 8, !tbaa !39
+  %34 = load i64, ptr %19, align 8, !tbaa !41
   %35 = mul nsw i64 %34, %26
   %36 = getelementptr i32, ptr %33, i64 %25
   %37 = getelementptr i32, ptr %36, i64 %35
@@ -363,7 +363,7 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFE
   %50 = getelementptr i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %21, !llvm.loop !41
+  br i1 %52, label %53, label %21, !llvm.loop !42
 
 53:                                               ; preds = %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFEv.exit
   %.not.not5 = icmp eq i8 %40, 0
@@ -377,16 +377,16 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFE
   br label %67
 
 _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFEv.exit3: ; preds = %1
-  %56 = load ptr, ptr %18, align 8, !tbaa !38
+  %56 = load ptr, ptr %18, align 8, !tbaa !39
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !40
+  %58 = load i64, ptr %57, align 8, !tbaa !41
   %59 = mul nsw i64 %58, %8
   %60 = getelementptr i32, ptr %56, i64 %5
   %61 = getelementptr i32, ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load i8, ptr %63, align 8, !tbaa !13, !range !34, !noundef !35
+  %64 = load i8, ptr %63, align 8, !tbaa !13, !range !35, !noundef !36
   %.not.not = icmp eq i8 %64, 0
   %..i4 = select i1 %.not.not, i32 1, i32 2
   %65 = add nsw i32 %62, %..i4
@@ -402,15 +402,15 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFE
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E8isBorderEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = load i32, ptr %0, align 8, !tbaa !4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = sext i32 %7 to i64
-  %9 = load ptr, ptr %3, align 8, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = mul nsw i64 %11, %8
   %13 = getelementptr i32, ptr %9, i64 %5
   %14 = getelementptr i32, ptr %13, i64 %12
@@ -422,15 +422,15 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipFEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = load i32, ptr %0, align 8, !tbaa !4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = sext i32 %7 to i64
-  %9 = load ptr, ptr %3, align 8, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = mul nsw i64 %11, %8
   %13 = getelementptr i32, ptr %9, i64 %5
   %14 = getelementptr i32, ptr %13, i64 %12
@@ -440,10 +440,10 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !42
-  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %19 = load ptr, ptr %18, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !40
+  %22 = load i64, ptr %21, align 8, !tbaa !41
   %23 = mul nsw i64 %22, %8
   %24 = getelementptr i32, ptr %20, i64 %5
   %25 = getelementptr i32, ptr %24, i64 %23
@@ -451,7 +451,7 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
   store i32 %15, ptr %0, align 8, !tbaa !4
   store i32 %26, ptr %6, align 4, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i8, ptr %27, align 8, !tbaa !13, !range !34, !noundef !35
+  %28 = load i8, ptr %27, align 8, !tbaa !13, !range !35, !noundef !36
   %29 = xor i8 %28, 1
   store i8 %29, ptr %27, align 8, !tbaa !13
   br label %30
@@ -463,7 +463,7 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES3_S3_E5flipEEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !13, !range !34, !noundef !35
+  %3 = load i8, ptr %2, align 8, !tbaa !13, !range !35, !noundef !36
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !12
@@ -479,10 +479,10 @@ define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1EL
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E2ViEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !34, !noundef !35
+  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !35, !noundef !36
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = load i32, ptr %0, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !24
@@ -533,7 +533,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixI
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_S3_E5flipVEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !34, !noundef !35
+  %3 = load i8, ptr %2, align 8, !tbaa !31, !range !35, !noundef !36
   %4 = xor i8 %3, 1
   store i8 %4, ptr %2, align 8, !tbaa !31
   ret void
@@ -556,17 +556,17 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !31, !range !34, !noundef !35
+  %14 = load i8, ptr %13, align 8, !tbaa !31, !range !35, !noundef !36
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !31, !range !34, !noundef !35
+  %16 = load i8, ptr %15, align 8, !tbaa !31, !range !35, !noundef !36
   %17 = icmp eq i8 %14, %16
   br i1 %17, label %18, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !43
+  %22 = load ptr, ptr %21, align 8, !tbaa !44
   %23 = load ptr, ptr %20, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !29
@@ -574,7 +574,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !44
+  %30 = load i64, ptr %29, align 8, !tbaa !45
   %.not1626.i.i = icmp sgt i64 %30, 0
   %.not22.i.i = icmp sgt i64 %28, 0
   %or.cond.i.i = select i1 %.not1626.i.i, i1 %.not22.i.i, i1 false
@@ -591,7 +591,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 33:                                               ; preds = %35
   %34 = add nuw nsw i64 %.01323.us.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %34, %28
-  br i1 %exitcond.not.i.i, label %..critedge_crit_edge.us.i.i, label %35, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %..critedge_crit_edge.us.i.i, label %35, !llvm.loop !46
 
 35:                                               ; preds = %33, %.preheader.us.i.i
   %.01323.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %34, %33 ]
@@ -605,7 +605,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 ..critedge_crit_edge.us.i.i:                      ; preds = %33
   %39 = add nuw nsw i64 %.01227.us.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %39, %30
-  br i1 %exitcond32.not.i.i, label %.loopexit42, label %.preheader.us.i.i, !llvm.loop !46
+  br i1 %exitcond32.not.i.i, label %.loopexit42, label %.preheader.us.i.i, !llvm.loop !47
 
 .loopexit42:                                      ; preds = %..critedge_crit_edge.us.i.i, %18
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -619,7 +619,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !44
+  %51 = load i64, ptr %50, align 8, !tbaa !45
   %.not1626.i.i7 = icmp sgt i64 %51, 0
   %.not22.i.i8 = icmp sgt i64 %49, 0
   %or.cond.i.i9 = select i1 %.not1626.i.i7, i1 %.not22.i.i8, i1 false
@@ -636,7 +636,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 54:                                               ; preds = %56
   %55 = add nuw nsw i64 %.01323.us.i.i15, 1
   %exitcond.not.i.i18 = icmp eq i64 %55, %49
-  br i1 %exitcond.not.i.i18, label %..critedge_crit_edge.us.i.i19, label %56, !llvm.loop !45
+  br i1 %exitcond.not.i.i18, label %..critedge_crit_edge.us.i.i19, label %56, !llvm.loop !46
 
 56:                                               ; preds = %54, %.preheader.us.i.i11
   %.01323.us.i.i15 = phi i64 [ 0, %.preheader.us.i.i11 ], [ %55, %54 ]
@@ -650,13 +650,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 ..critedge_crit_edge.us.i.i19:                    ; preds = %54
   %60 = add nuw nsw i64 %.01227.us.i.i12, 1
   %exitcond32.not.i.i20 = icmp eq i64 %60, %51
-  br i1 %exitcond32.not.i.i20, label %.loopexit, label %.preheader.us.i.i11, !llvm.loop !46
+  br i1 %exitcond32.not.i.i20, label %.loopexit, label %.preheader.us.i.i11, !llvm.loop !47
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.us.i.i19, %.loopexit42
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !36
+  %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %64 = load ptr, ptr %63, align 8, !tbaa !36
+  %64 = load ptr, ptr %63, align 8, !tbaa !37
   %65 = load ptr, ptr %62, align 8, !tbaa !25
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !29
@@ -664,7 +664,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !44
+  %72 = load i64, ptr %71, align 8, !tbaa !45
   %.not1626.i.i22 = icmp sgt i64 %72, 0
   %.not22.i.i23 = icmp sgt i64 %70, 0
   %or.cond.i.i24 = select i1 %.not1626.i.i22, i1 %.not22.i.i23, i1 false
@@ -681,7 +681,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 75:                                               ; preds = %77
   %76 = add nuw nsw i64 %.01323.us.i.i30, 1
   %exitcond.not.i.i33 = icmp eq i64 %76, %70
-  br i1 %exitcond.not.i.i33, label %..critedge_crit_edge.us.i.i34, label %77, !llvm.loop !45
+  br i1 %exitcond.not.i.i33, label %..critedge_crit_edge.us.i.i34, label %77, !llvm.loop !46
 
 77:                                               ; preds = %75, %.preheader.us.i.i26
   %.01323.us.i.i30 = phi i64 [ 0, %.preheader.us.i.i26 ], [ %76, %75 ]
@@ -695,7 +695,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
 ..critedge_crit_edge.us.i.i34:                    ; preds = %75
   %81 = add nuw nsw i64 %.01227.us.i.i27, 1
   %exitcond32.not.i.i35 = icmp eq i64 %81, %72
-  br i1 %exitcond32.not.i.i35, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit, label %.preheader.us.i.i26, !llvm.loop !46
+  br i1 %exitcond32.not.i.i35, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit, label %.preheader.us.i.i26, !llvm.loop !47
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit: ; preds = %35, %56, %..critedge_crit_edge.us.i.i34, %77, %.loopexit, %12, %6, %2
   %82 = phi i1 [ false, %12 ], [ false, %6 ], [ false, %2 ], [ true, %.loopexit ], [ false, %77 ], [ true, %..critedge_crit_edge.us.i.i34 ], [ false, %56 ], [ false, %35 ]
@@ -711,7 +711,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixI
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_E6NextFEEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = load i32, ptr %0, align 8, !tbaa !15
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -777,7 +777,7 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin
   %50 = getelementptr i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %21, !llvm.loop !49
+  br i1 %52, label %53, label %21, !llvm.loop !50
 
 53:                                               ; preds = %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_E5flipFEv.exit
   %.not.not5 = icmp eq i8 %40, 0
@@ -800,7 +800,7 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin
   %62 = load i32, ptr %61, align 4, !tbaa !30
   store i32 %15, ptr %0, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load i8, ptr %63, align 8, !tbaa !19, !range !34, !noundef !35
+  %64 = load i8, ptr %63, align 8, !tbaa !19, !range !35, !noundef !36
   %.not.not = icmp eq i8 %64, 0
   %..i4 = select i1 %.not.not, i32 1, i32 2
   %65 = add nsw i32 %62, %..i4
@@ -852,21 +852,22 @@ attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 !29 = !{!26, !28, i64 8}
 !30 = !{!6, !6, i64 0}
 !31 = !{!22, !9, i64 8}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{i8 0, i8 2}
-!35 = !{}
-!36 = !{!22, !17, i64 32}
-!37 = !{!5, !10, i64 24}
-!38 = !{!39, !27, i64 0}
-!39 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !27, i64 0, !28, i64 8}
-!40 = !{!39, !28, i64 8}
-!41 = distinct !{!41, !33}
-!42 = !{!5, !10, i64 32}
-!43 = !{!22, !17, i64 16}
-!44 = !{!26, !28, i64 16}
-!45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = !{!16, !17, i64 24}
-!49 = distinct !{!49, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!22, !17, i64 32}
+!38 = !{!5, !10, i64 24}
+!39 = !{!40, !27, i64 0}
+!40 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !27, i64 0, !28, i64 8}
+!41 = !{!40, !28, i64 8}
+!42 = distinct !{!42, !33, !34}
+!43 = !{!5, !10, i64 32}
+!44 = !{!22, !17, i64 16}
+!45 = !{!26, !28, i64 16}
+!46 = distinct !{!46, !33, !34}
+!47 = distinct !{!47, !33, !34, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = !{!16, !17, i64 24}
+!50 = distinct !{!50, !33, !34}

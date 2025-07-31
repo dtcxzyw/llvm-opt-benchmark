@@ -180,18 +180,18 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %.11.i.i
   store ptr %74, ptr %87, align 8, !tbaa !42
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 248
-  store ptr %84, ptr %88, align 8, !tbaa !49
+  store ptr %84, ptr %88, align 8, !tbaa !50
   store ptr %74, ptr @Last_node, align 8, !tbaa !42
   %89 = getelementptr inbounds nuw i8, ptr %77, i64 240
-  store ptr null, ptr %89, align 8, !tbaa !50
+  store ptr null, ptr %89, align 8, !tbaa !51
   %90 = getelementptr inbounds nuw i8, ptr %77, i64 272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !52
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !52
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 288
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !52
   %93 = getelementptr inbounds nuw i8, ptr %77, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !52
   br label %94
 
 94:                                               ; preds = %.loopexit.i, %83
@@ -201,13 +201,13 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.29.3 = phi i64 [ %.sroa.29.2, %83 ], [ %.sroa.29.6, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 3, %83 ], [ %indvars.iv.next.i, %.loopexit.i ]
   %95 = getelementptr inbounds nuw [4 x %struct.elist], ptr %3, i64 0, i64 %indvars.iv.i
-  %96 = load ptr, ptr %95, align 16, !tbaa !53
+  %96 = load ptr, ptr %95, align 16, !tbaa !54
   %.not39.i = icmp eq ptr %96, null
   br i1 %.not39.i, label %.loopexit.i, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !54
+  %99 = load i64, ptr %98, align 8, !tbaa !55
   %.not40.i = icmp eq i64 %99, 0
   br i1 %.not40.i, label %.loopexit.i, label %100
 
@@ -223,14 +223,14 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.29.4 = phi i64 [ %.sroa.29.3, %100 ], [ %.sroa.29.5, %159 ]
   %.048.i = phi i64 [ %101, %100 ], [ %160, %159 ]
   %.03247.i = phi ptr [ %102, %100 ], [ %161, %159 ]
-  %104 = load ptr, ptr %.03247.i, align 8, !tbaa !55
+  %104 = load ptr, ptr %.03247.i, align 8, !tbaa !56
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 3
   %107 = icmp eq i32 %106, 2
   %.idx.i = select i1 %107, i64 0, i64 -64
   %108 = getelementptr inbounds i8, ptr %104, i64 %.idx.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %110 = load ptr, ptr %109, align 8, !tbaa !56
+  %110 = load ptr, ptr %109, align 8, !tbaa !57
   %111 = icmp eq ptr %110, %74
   br i1 %111, label %112, label %117
 
@@ -239,7 +239,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.idx42.i = select i1 %113, i64 0, i64 64
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx42.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %116 = load ptr, ptr %115, align 8, !tbaa !56
+  %116 = load ptr, ptr %115, align 8, !tbaa !57
   br label %117
 
 117:                                              ; preds = %112, %103
@@ -324,7 +324,7 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %160 = add i64 %.048.i, -1
   %161 = getelementptr inbounds i8, ptr %.03247.i, i64 -8
   %.not41.i = icmp eq i64 %.048.i, 0
-  br i1 %.not41.i, label %.loopexit.i, label %103, !llvm.loop !60
+  br i1 %.not41.i, label %.loopexit.i, label %103, !llvm.loop !61
 
 .loopexit.i:                                      ; preds = %159, %97, %94
   %.sroa.0.6 = phi ptr [ %.sroa.0.3, %94 ], [ %.sroa.0.3, %97 ], [ %.sroa.0.5, %159 ]
@@ -333,7 +333,7 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %.sroa.29.6 = phi i64 [ %.sroa.29.3, %94 ], [ %.sroa.29.3, %97 ], [ %.sroa.29.5, %159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not54.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not54.i, label %.backedge.i, label %94, !llvm.loop !61
+  br i1 %.not54.i, label %.backedge.i, label %94, !llvm.loop !62
 
 search_component.exit:                            ; preds = %pop.exit.i, %.backedge.i, %push.exit
   %.sroa.0.9 = phi ptr [ %.sroa.0.10, %push.exit ], [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.2, %pop.exit.i ]
@@ -357,7 +357,7 @@ search_component.exit:                            ; preds = %pop.exit.i, %.backe
 
 170:                                              ; preds = %search_component.exit
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 304
-  %172 = load ptr, ptr %171, align 8, !tbaa !62
+  %172 = load ptr, ptr %171, align 8, !tbaa !63
   %173 = shl i64 %164, 3
   %174 = shl nuw i64 %165, 3
   %175 = icmp ne i64 %165, 0
@@ -384,7 +384,7 @@ search_component.exit:                            ; preds = %pop.exit.i, %.backe
 end_component.exit:                               ; preds = %181, %183
   %185 = load ptr, ptr %6, align 8, !tbaa !7
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 304
-  store ptr %176, ptr %186, align 8, !tbaa !62
+  store ptr %176, ptr %186, align 8, !tbaa !63
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 256
   %188 = load ptr, ptr %187, align 8, !tbaa !44
   %189 = getelementptr inbounds nuw ptr, ptr %176, i64 %164
@@ -398,7 +398,7 @@ end_component.exit:                               ; preds = %181, %183
   %.sroa.29.1 = phi i64 [ %.sroa.29.058, %32 ], [ %.sroa.29.9, %end_component.exit ], [ %.sroa.29.058, %30 ]
   %191 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01659) #13
   %.not = icmp eq ptr %191, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %190, %2
   %.sroa.0.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.0.1, %190 ]
@@ -522,20 +522,21 @@ attributes #17 = { cold noreturn nounwind }
 !44 = !{!14, !30, i64 256}
 !45 = !{!46, !46, i64 0}
 !46 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!34, !30, i64 248}
-!50 = !{!34, !30, i64 240}
-!51 = !{i64 0, i64 8, !52, i64 8, i64 8, !3}
-!52 = !{!38, !38, i64 0}
-!53 = !{!37, !38, i64 0}
-!54 = !{!37, !4, i64 8}
-!55 = !{!39, !39, i64 0}
-!56 = !{!57, !30, i64 56}
-!57 = !{!"Agedge_s", !8, i64 0, !58, i64 24, !58, i64 40, !30, i64 56}
-!58 = !{!"dtlink_s_", !59, i64 0, !5, i64 8}
-!59 = !{!"p1 _ZTS9dtlink_s_", !12, i64 0}
-!60 = distinct !{!60, !48}
-!61 = distinct !{!61, !48}
-!62 = !{!14, !25, i64 304}
-!63 = distinct !{!63, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!34, !30, i64 248}
+!51 = !{!34, !30, i64 240}
+!52 = !{i64 0, i64 8, !53, i64 8, i64 8, !3}
+!53 = !{!38, !38, i64 0}
+!54 = !{!37, !38, i64 0}
+!55 = !{!37, !4, i64 8}
+!56 = !{!39, !39, i64 0}
+!57 = !{!58, !30, i64 56}
+!58 = !{!"Agedge_s", !8, i64 0, !59, i64 24, !59, i64 40, !30, i64 56}
+!59 = !{!"dtlink_s_", !60, i64 0, !5, i64 8}
+!60 = !{!"p1 _ZTS9dtlink_s_", !12, i64 0}
+!61 = distinct !{!61, !48, !49}
+!62 = distinct !{!62, !48, !49}
+!63 = !{!14, !25, i64 304}
+!64 = distinct !{!64, !48, !49}

@@ -184,7 +184,7 @@ _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit: ; preds = %._crit_edge
   %39 = load ptr, ptr %4, align 8, !tbaa !19
   %.sroa.04.024 = load ptr, ptr %3, align 8, !tbaa !22
   %.not1925 = icmp eq ptr %.sroa.04.024, %39
-  br i1 %.not1925, label %._crit_edge.thread.loopexit, label %.lr.ph.preheader, !llvm.loop !32
+  br i1 %.not1925, label %._crit_edge.thread.loopexit, label %.lr.ph.preheader, !llvm.loop !33
 
 ._crit_edge.thread.loopexit:                      ; preds = %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit, %._crit_edge
   %.0.lcssa.ph = phi i1 [ %.045, %._crit_edge ], [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ]
@@ -222,7 +222,7 @@ define dso_local void @_ZN4llvm31initializePromoteLegacyPassPassERNS_12PassRegis
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   store ptr @_ZL35initializePromoteLegacyPassPassOnceRN4llvm12PassRegistryE, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !33
+  store ptr %3, ptr %4, align 8, !tbaa !34
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %2, ptr %5, align 8, !tbaa !18
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
@@ -248,21 +248,21 @@ define internal noundef nonnull ptr @_ZL35initializePromoteLegacyPassPassOnceRN4
   tail call void @_ZN4llvm36initializeAssumptionCacheTrackerPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #12
   tail call void @_ZN4llvm38initializeDominatorTreeWrapperPassPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #12
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
-  store ptr @.str.4, ptr %2, align 8, !tbaa !35
+  store ptr @.str.4, ptr %2, align 8, !tbaa !36
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 26, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !37
+  store i64 26, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !38
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @.str, ptr %3, align 8, !tbaa !35
+  store ptr @.str, ptr %3, align 8, !tbaa !36
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 7, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !37
+  store i64 7, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %4, align 8, !tbaa !39
+  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %4, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 0, ptr %5, align 8, !tbaa !42
+  store i8 0, ptr %5, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 41
-  store i8 0, ptr %6, align 1, !tbaa !43
+  store i8 0, ptr %6, align 1, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_117PromoteLegacyPassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv, ptr %7, align 8, !tbaa !44
+  store ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_117PromoteLegacyPassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv, ptr %7, align 8, !tbaa !45
   tail call void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext true) #12
   ret ptr %2
 }
@@ -273,19 +273,19 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm33createPromoteMemoryToReg
   %2 = alloca %"class.std::reference_wrapper", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !45
+  store ptr null, ptr %4, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %5, align 8, !tbaa !49
+  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 2, ptr %6, align 8, !tbaa !50
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_117PromoteLegacyPassE, i64 16), ptr %3, align 8, !tbaa !51
+  store i32 2, ptr %6, align 8, !tbaa !51
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_117PromoteLegacyPassE, i64 16), ptr %3, align 8, !tbaa !52
   %7 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr %7, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
   store ptr @_ZL35initializePromoteLegacyPassPassOnceRN4llvm12PassRegistryE, ptr %1, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %2, ptr %8, align 8, !tbaa !33
+  store ptr %2, ptr %8, align 8, !tbaa !34
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %1, ptr %9, align 8, !tbaa !18
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
@@ -332,19 +332,19 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %2 = alloca %"class.std::reference_wrapper", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !45
+  store ptr null, ptr %4, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %5, align 8, !tbaa !49
+  store ptr @_ZN12_GLOBAL__N_117PromoteLegacyPass2IDE, ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 2, ptr %6, align 8, !tbaa !50
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_117PromoteLegacyPassE, i64 16), ptr %3, align 8, !tbaa !51
+  store i32 2, ptr %6, align 8, !tbaa !51
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_117PromoteLegacyPassE, i64 16), ptr %3, align 8, !tbaa !52
   %7 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr %7, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
   store ptr @_ZL35initializePromoteLegacyPassPassOnceRN4llvm12PassRegistryE, ptr %1, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %2, ptr %8, align 8, !tbaa !33
+  store ptr %2, ptr %8, align 8, !tbaa !34
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %1, ptr %9, align 8, !tbaa !18
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
@@ -428,13 +428,13 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117PromoteLegacyPass13runOnF
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !45
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !54
   %.not1114.i.i.i = icmp ne ptr %7, %9
   tail call void @llvm.assume(i1 %.not1114.i.i.i)
-  %10 = load ptr, ptr %7, align 8, !tbaa !55
+  %10 = load ptr, ptr %7, align 8, !tbaa !56
   %.not.i4.i.i = icmp eq ptr %10, @_ZN4llvm24DominatorTreeWrapperPass2IDE
   br i1 %.not.i4.i.i, label %_ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i
 
@@ -443,7 +443,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117PromoteLegacyPass13runOnF
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i, i64 16
   %.not11.i.i.i = icmp ne ptr %11, %9
   tail call void @llvm.assume(i1 %.not11.i.i.i)
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %.not.i.i.i = icmp eq ptr %12, @_ZN4llvm24DominatorTreeWrapperPass2IDE
   br i1 %.not.i.i.i, label %_ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i
 
@@ -451,18 +451,18 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %.sroa.08.015.i.lcssa.i.i = phi ptr [ %7, %4 ], [ %11, %.lr.ph.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !51
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(160) ptr %17(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull @_ZN4llvm24DominatorTreeWrapperPass2IDE) #12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %5, align 8, !tbaa !45
-  %21 = load ptr, ptr %20, align 8, !tbaa !53
+  %20 = load ptr, ptr %5, align 8, !tbaa !46
+  %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %23 = load ptr, ptr %22, align 8, !tbaa !54
   %.not1114.i.i.i7 = icmp ne ptr %21, %23
   tail call void @llvm.assume(i1 %.not1114.i.i.i7)
-  %24 = load ptr, ptr %21, align 8, !tbaa !55
+  %24 = load ptr, ptr %21, align 8, !tbaa !56
   %.not.i4.i.i8 = icmp eq ptr %24, @_ZN4llvm22AssumptionCacheTracker2IDE
   br i1 %.not.i4.i.i8, label %_ZNK4llvm4Pass11getAnalysisINS_22AssumptionCacheTrackerEEERT_v.exit, label %.lr.ph.i.i.i9
 
@@ -471,7 +471,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i10, i64 16
   %.not11.i.i.i11 = icmp ne ptr %25, %23
   tail call void @llvm.assume(i1 %.not11.i.i.i11)
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %.not.i.i.i12 = icmp eq ptr %26, @_ZN4llvm22AssumptionCacheTracker2IDE
   br i1 %.not.i.i.i12, label %_ZNK4llvm4Pass11getAnalysisINS_22AssumptionCacheTrackerEEERT_v.exit, label %.lr.ph.i.i.i9
 
@@ -479,7 +479,7 @@ _ZNK4llvm4Pass11getAnalysisINS_22AssumptionCacheTrackerEEERT_v.exit: ; preds = %
   %.sroa.08.015.i.lcssa.i.i13 = phi ptr [ %21, %_ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit ], [ %25, %.lr.ph.i.i.i9 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i13, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !51
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef nonnull align 8 dereferenceable(56) ptr %31(ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef nonnull @_ZN4llvm22AssumptionCacheTracker2IDE) #12
@@ -516,10 +516,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #8 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !18
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !59
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !60
-  %6 = load ptr, ptr %5, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #12
   ret void
 }
@@ -584,37 +584,38 @@ attributes #15 = { builtin nounwind }
 !27 = !{!"p1 _ZTSN4llvm3UseE", !6, i64 0}
 !28 = !{!29, !29, i64 0}
 !29 = !{!"p1 _ZTSN4llvm10AllocaInstE", !6, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !6, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 omnipotent char", !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"long", !7, i64 0}
-!39 = !{!40, !6, i64 32}
-!40 = !{!"_ZTSN4llvm8PassInfoE", !41, i64 0, !41, i64 16, !6, i64 32, !12, i64 40, !12, i64 41, !6, i64 48}
-!41 = !{!"_ZTSN4llvm9StringRefE", !36, i64 0, !38, i64 8}
-!42 = !{!40, !12, i64 40}
-!43 = !{!40, !12, i64 41}
-!44 = !{!40, !6, i64 48}
-!45 = !{!46, !47, i64 8}
-!46 = !{!"_ZTSN4llvm4PassE", !47, i64 8, !6, i64 16, !48, i64 24}
-!47 = !{!"p1 _ZTSN4llvm16AnalysisResolverE", !6, i64 0}
-!48 = !{!"_ZTSN4llvm8PassKindE", !7, i64 0}
-!49 = !{!46, !6, i64 16}
-!50 = !{!46, !48, i64 24}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"vtable pointer", !8, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTSSt4pairIPKvPN4llvm4PassEE", !6, i64 0}
-!55 = !{!56, !6, i64 0}
-!56 = !{!"_ZTSSt4pairIPKvPN4llvm4PassEE", !6, i64 0, !57, i64 8}
-!57 = !{!"p1 _ZTSN4llvm4PassE", !6, i64 0}
-!58 = !{!59, !6, i64 0}
-!59 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !34, i64 8}
-!60 = !{!59, !34, i64 8}
-!61 = !{!62, !63, i64 0}
-!62 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !63, i64 0}
-!63 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 omnipotent char", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"long", !7, i64 0}
+!40 = !{!41, !6, i64 32}
+!41 = !{!"_ZTSN4llvm8PassInfoE", !42, i64 0, !42, i64 16, !6, i64 32, !12, i64 40, !12, i64 41, !6, i64 48}
+!42 = !{!"_ZTSN4llvm9StringRefE", !37, i64 0, !39, i64 8}
+!43 = !{!41, !12, i64 40}
+!44 = !{!41, !12, i64 41}
+!45 = !{!41, !6, i64 48}
+!46 = !{!47, !48, i64 8}
+!47 = !{!"_ZTSN4llvm4PassE", !48, i64 8, !6, i64 16, !49, i64 24}
+!48 = !{!"p1 _ZTSN4llvm16AnalysisResolverE", !6, i64 0}
+!49 = !{!"_ZTSN4llvm8PassKindE", !7, i64 0}
+!50 = !{!47, !6, i64 16}
+!51 = !{!47, !49, i64 24}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"vtable pointer", !8, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSSt4pairIPKvPN4llvm4PassEE", !6, i64 0}
+!56 = !{!57, !6, i64 0}
+!57 = !{!"_ZTSSt4pairIPKvPN4llvm4PassEE", !6, i64 0, !58, i64 8}
+!58 = !{!"p1 _ZTSN4llvm4PassE", !6, i64 0}
+!59 = !{!60, !6, i64 0}
+!60 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !35, i64 8}
+!61 = !{!60, !35, i64 8}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !64, i64 0}
+!64 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}

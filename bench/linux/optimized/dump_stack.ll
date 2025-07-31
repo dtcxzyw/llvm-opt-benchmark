@@ -210,5 +210,6 @@ attributes #13 = { cold }
 !8 = !{i64 1783804, i64 1783825}
 !9 = !{i64 1784008}
 !10 = !{i64 1784100}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.unroll.disable"}
+!13 = !{!"llvm.loop.estimated_trip_count"}

@@ -92,7 +92,7 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
 25:                                               ; preds = %.preheader390, %21, %22, %23, %24
   %.sink = phi i32 [ 2, %21 ], [ 4, %22 ], [ 8, %23 ], [ 16, %24 ], [ 1, %.preheader390 ]
   %26 = or i32 %.0213, %.sink
-  br label %.preheader390, !llvm.loop !9
+  br label %.preheader390, !llvm.loop !10
 
 27:                                               ; preds = %.preheader390
   %28 = add i8 %20, -48
@@ -111,7 +111,7 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
   %37 = load i8, ptr %33, align 1, !tbaa !3
   %38 = add i8 %37, -48
   %39 = icmp ult i8 %38, 10
-  br i1 %39, label %.lr.ph.i, label %_atoi.exit, !llvm.loop !10
+  br i1 %39, label %.lr.ph.i, label %_atoi.exit, !llvm.loop !11
 
 40:                                               ; preds = %27
   %41 = icmp eq i8 %20, 42
@@ -138,7 +138,7 @@ define internal fastcc i32 @lv_vsnprintf_inner(ptr noundef readonly captures(non
 
 53:                                               ; preds = %50, %45
   %54 = phi ptr [ %48, %45 ], [ %51, %50 ]
-  %55 = load i32, ptr %54, align 4, !tbaa !11
+  %55 = load i32, ptr %54, align 4, !tbaa !12
   %.1218 = call i32 @llvm.abs.i32(i32 %55, i1 true)
   %56 = lshr i32 %55, 30
   %57 = and i32 %56, 2
@@ -175,7 +175,7 @@ _atoi.exit:                                       ; preds = %.lr.ph.i, %40, %53
   %74 = load i8, ptr %70, align 1, !tbaa !3
   %75 = add i8 %74, -48
   %76 = icmp ult i8 %75, 10
-  br i1 %76, label %.lr.ph.i287, label %_atoi.exit289, !llvm.loop !10
+  br i1 %76, label %.lr.ph.i287, label %_atoi.exit289, !llvm.loop !11
 
 77:                                               ; preds = %61
   %78 = icmp eq i8 %64, 42
@@ -202,7 +202,7 @@ _atoi.exit:                                       ; preds = %.lr.ph.i, %40, %53
 
 90:                                               ; preds = %87, %82
   %91 = phi ptr [ %85, %82 ], [ %88, %87 ]
-  %92 = load i32, ptr %91, align 4, !tbaa !11
+  %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = call i32 @llvm.smax.i32(i32 %92, i32 0)
   %94 = getelementptr inbounds nuw i8, ptr %.3355, i64 2
   %.pre = load i8, ptr %94, align 1, !tbaa !3
@@ -353,7 +353,7 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
 
 142:                                              ; preds = %139, %134
   %143 = phi ptr [ %137, %134 ], [ %140, %139 ]
-  %144 = load i64, ptr %143, align 8, !tbaa !13
+  %144 = load i64, ptr %143, align 8, !tbaa !14
   %145 = icmp slt i64 %144, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #8
   %146 = icmp ne i64 %144, 0
@@ -388,7 +388,7 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
   %165 = icmp ule i64 %.0223374379, %.0.i
   %166 = icmp samesign ult i64 %.1.i, 31
   %167 = and i1 %166, %165
-  br i1 %167, label %154, label %_ntoa_long_long.exit, !llvm.loop !15
+  br i1 %167, label %154, label %_ntoa_long_long.exit, !llvm.loop !16
 
 _ntoa_long_long.exit:                             ; preds = %154, %142
   %.025.i = phi i64 [ 0, %142 ], [ %162, %154 ]
@@ -423,7 +423,7 @@ _ntoa_long_long.exit:                             ; preds = %154, %142
 
 183:                                              ; preds = %180, %175
   %184 = phi ptr [ %178, %175 ], [ %181, %180 ]
-  %185 = load i64, ptr %184, align 8, !tbaa !16
+  %185 = load i64, ptr %184, align 8, !tbaa !17
   %186 = icmp slt i64 %185, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
   %187 = icmp ne i64 %185, 0
@@ -458,7 +458,7 @@ _ntoa_long_long.exit:                             ; preds = %154, %142
   %206 = icmp ule i64 %.0223374379, %.0.i295
   %207 = icmp samesign ult i64 %.1.i294, 31
   %208 = and i1 %207, %206
-  br i1 %208, label %195, label %_ntoa_long.exit, !llvm.loop !18
+  br i1 %208, label %195, label %_ntoa_long.exit, !llvm.loop !19
 
 _ntoa_long.exit:                                  ; preds = %195, %183
   %.025.i292 = phi i64 [ 0, %183 ], [ %203, %195 ]
@@ -493,7 +493,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
 
 224:                                              ; preds = %221, %216
   %225 = phi ptr [ %219, %216 ], [ %222, %221 ]
-  %226 = load i32, ptr %225, align 4, !tbaa !11
+  %226 = load i32, ptr %225, align 4, !tbaa !12
   %sext282 = shl i32 %226, 24
   %227 = ashr exact i32 %sext282, 24
   br label %257
@@ -524,7 +524,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
 
 241:                                              ; preds = %238, %233
   %242 = phi ptr [ %236, %233 ], [ %239, %238 ]
-  %243 = load i32, ptr %242, align 4, !tbaa !11
+  %243 = load i32, ptr %242, align 4, !tbaa !12
   %sext = shl i32 %243, 16
   %244 = ashr exact i32 %sext, 16
   br label %257
@@ -548,7 +548,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
 
 254:                                              ; preds = %251, %246
   %255 = phi ptr [ %249, %246 ], [ %252, %251 ]
-  %256 = load i32, ptr %255, align 4, !tbaa !11
+  %256 = load i32, ptr %255, align 4, !tbaa !12
   br label %257
 
 257:                                              ; preds = %241, %254, %224
@@ -588,7 +588,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
   %280 = icmp ule i64 %.0223374379, %.0.i301
   %281 = icmp samesign ult i64 %.1.i300, 31
   %282 = and i1 %281, %280
-  br i1 %282, label %269, label %_ntoa_long.exit302, !llvm.loop !18
+  br i1 %282, label %269, label %_ntoa_long.exit302, !llvm.loop !19
 
 _ntoa_long.exit302:                               ; preds = %269, %257
   %.025.i298 = phi i64 [ 0, %257 ], [ %277, %269 ]
@@ -618,14 +618,14 @@ _ntoa_long.exit302:                               ; preds = %269, %257
 
 296:                                              ; preds = %293, %288
   %297 = phi ptr [ %291, %288 ], [ %294, %293 ]
-  %298 = load ptr, ptr %297, align 8, !tbaa !19
+  %298 = load ptr, ptr %297, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %300 = load ptr, ptr %299, align 8, !tbaa !21
+  %300 = load ptr, ptr %299, align 8, !tbaa !22
   call void @llvm.va_copy.p0(ptr nonnull %12, ptr %300)
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 %.0224
   %302 = sub i64 %2, %.0224
-  %303 = load ptr, ptr %298, align 8, !tbaa !25
+  %303 = load ptr, ptr %298, align 8, !tbaa !26
   %304 = call fastcc i32 @lv_vsnprintf_inner(ptr noundef %spec.select, ptr noundef %301, i64 noundef %302, ptr noundef %303, ptr noundef nonnull %12)
   %305 = sext i32 %304 to i64
   %306 = add i64 %.0224, %305
@@ -659,7 +659,7 @@ _ntoa_long.exit302:                               ; preds = %269, %257
 
 320:                                              ; preds = %317, %312
   %321 = phi ptr [ %315, %312 ], [ %318, %317 ]
-  %322 = load i64, ptr %321, align 8, !tbaa !13
+  %322 = load i64, ptr %321, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
   %323 = icmp ne i64 %322, 0
   %324 = and i32 %spec.select283, -17
@@ -692,7 +692,7 @@ _ntoa_long.exit302:                               ; preds = %269, %257
   %341 = icmp ule i64 %.0223374379, %.0.i308
   %342 = icmp samesign ult i64 %.1.i307, 31
   %343 = and i1 %342, %341
-  br i1 %343, label %330, label %_ntoa_long_long.exit309, !llvm.loop !15
+  br i1 %343, label %330, label %_ntoa_long_long.exit309, !llvm.loop !16
 
 _ntoa_long_long.exit309:                          ; preds = %330, %320
   %.025.i305 = phi i64 [ 0, %320 ], [ %338, %330 ]
@@ -727,7 +727,7 @@ _ntoa_long_long.exit309:                          ; preds = %330, %320
 
 359:                                              ; preds = %356, %351
   %360 = phi ptr [ %354, %351 ], [ %357, %356 ]
-  %361 = load i64, ptr %360, align 8, !tbaa !16
+  %361 = load i64, ptr %360, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
   %362 = icmp ne i64 %361, 0
   %363 = and i32 %spec.select283, -529
@@ -760,7 +760,7 @@ _ntoa_long_long.exit309:                          ; preds = %330, %320
   %380 = icmp ule i64 %.0223374379, %.0.i315
   %381 = icmp samesign ult i64 %.1.i314, 31
   %382 = and i1 %381, %380
-  br i1 %382, label %369, label %_ntoa_long.exit316, !llvm.loop !18
+  br i1 %382, label %369, label %_ntoa_long.exit316, !llvm.loop !19
 
 _ntoa_long.exit316:                               ; preds = %369, %359
   %.025.i312 = phi i64 [ 0, %359 ], [ %377, %369 ]
@@ -795,7 +795,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
 
 398:                                              ; preds = %395, %390
   %399 = phi ptr [ %393, %390 ], [ %396, %395 ]
-  %400 = load i32, ptr %399, align 4, !tbaa !11
+  %400 = load i32, ptr %399, align 4, !tbaa !12
   %401 = and i32 %400, 255
   br label %431
 
@@ -825,7 +825,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
 
 415:                                              ; preds = %412, %407
   %416 = phi ptr [ %410, %407 ], [ %413, %412 ]
-  %417 = load i32, ptr %416, align 4, !tbaa !11
+  %417 = load i32, ptr %416, align 4, !tbaa !12
   %418 = and i32 %417, 65535
   br label %431
 
@@ -848,7 +848,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
 
 428:                                              ; preds = %425, %420
   %429 = phi ptr [ %423, %420 ], [ %426, %425 ]
-  %430 = load i32, ptr %429, align 4, !tbaa !11
+  %430 = load i32, ptr %429, align 4, !tbaa !12
   br label %431
 
 431:                                              ; preds = %415, %428, %398
@@ -886,7 +886,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
   %452 = icmp ule i64 %.0223374379, %.0.i322
   %453 = icmp samesign ult i64 %.1.i321, 31
   %454 = and i1 %453, %452
-  br i1 %454, label %441, label %_ntoa_long.exit323, !llvm.loop !18
+  br i1 %454, label %441, label %_ntoa_long.exit323, !llvm.loop !19
 
 _ntoa_long.exit323:                               ; preds = %441, %431
   %.025.i319 = phi i64 [ 0, %431 ], [ %449, %441 ]
@@ -919,7 +919,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
 
 470:                                              ; preds = %467, %462
   %471 = phi ptr [ %465, %462 ], [ %468, %467 ]
-  %472 = load double, ptr %471, align 8, !tbaa !26
+  %472 = load double, ptr %471, align 8, !tbaa !27
   %473 = call fastcc i64 @_ftoa(ptr noundef %spec.select, ptr noundef %1, i64 noundef %.0224, i64 noundef %2, double noundef %472, i32 noundef %.0219, i32 noundef %.0217, i32 noundef %spec.select284)
   br label %.backedge
 
@@ -960,7 +960,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
 
 490:                                              ; preds = %487, %482
   %491 = phi ptr [ %485, %482 ], [ %488, %487 ]
-  %492 = load double, ptr %491, align 8, !tbaa !26
+  %492 = load double, ptr %491, align 8, !tbaa !27
   %493 = call fastcc i64 @_etoa(ptr noundef %spec.select, ptr noundef %1, i64 noundef %.0224, i64 noundef %2, double noundef %492, i32 noundef %.0219, i32 noundef %.0217, i32 noundef %.12)
   br label %.backedge
 
@@ -984,7 +984,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.4228404, i64 noundef %2) #8, !callees !6
   %500 = add i32 %498, 1
   %exitcond.not = icmp eq i32 %498, %.0217
-  br i1 %exitcond.not, label %.loopexit389, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit389, label %.lr.ph, !llvm.loop !29
 
 .loopexit389:                                     ; preds = %.lr.ph, %.preheader388, %494
   %.3227 = phi i64 [ %.0224, %494 ], [ %.0224, %.preheader388 ], [ %499, %.lr.ph ]
@@ -1009,7 +1009,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
 
 511:                                              ; preds = %508, %503
   %512 = phi ptr [ %506, %503 ], [ %509, %508 ]
-  %513 = load i32, ptr %512, align 4, !tbaa !11
+  %513 = load i32, ptr %512, align 4, !tbaa !12
   %514 = trunc i32 %513 to i8
   %515 = add i64 %.3227, 1
   call void %spec.select(i8 noundef signext %514, ptr noundef %1, i64 noundef %.3227, i64 noundef %2) #8, !callees !6
@@ -1024,7 +1024,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   %518 = add i64 %.6230406, 1
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.6230406, i64 noundef %2) #8, !callees !6
   %exitcond446.not = icmp eq i32 %517, %.0217
-  br i1 %exitcond446.not, label %.backedge, label %.lr.ph408, !llvm.loop !29
+  br i1 %exitcond446.not, label %.backedge, label %.lr.ph408, !llvm.loop !30
 
 519:                                              ; preds = %111
   %520 = load i32, ptr %4, align 8
@@ -1047,7 +1047,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
 
 530:                                              ; preds = %527, %522
   %531 = phi ptr [ %525, %522 ], [ %528, %527 ]
-  %532 = load ptr, ptr %531, align 8, !tbaa !30
+  %532 = load ptr, ptr %531, align 8, !tbaa !31
   %.not265 = icmp eq i32 %.0219, 0
   %533 = zext i32 %.0219 to i64
   %534 = select i1 %.not265, i64 -1, i64 %533
@@ -1066,7 +1066,7 @@ _ntoa_long.exit323:                               ; preds = %441, %431
   %.not.i = icmp eq i8 %538, 0
   %.not6.i = icmp eq i64 %536, 0
   %or.cond.i325 = select i1 %.not.i, i1 true, i1 %.not6.i
-  br i1 %or.cond.i325, label %_strnlen_s.exit, label %.lr.ph.i324, !llvm.loop !31
+  br i1 %or.cond.i325, label %_strnlen_s.exit, label %.lr.ph.i324, !llvm.loop !32
 
 _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   %.0.lcssa.i326 = phi ptr [ %532, %530 ], [ %537, %.lr.ph.i324 ]
@@ -1098,7 +1098,7 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.8232410, i64 noundef %2) #8, !callees !6
   %551 = add i32 %549, 1
   %exitcond447.not = icmp eq i32 %549, %.0217
-  br i1 %exitcond447.not, label %.loopexit385.loopexit, label %.lr.ph411, !llvm.loop !32
+  br i1 %exitcond447.not, label %.loopexit385.loopexit, label %.lr.ph411, !llvm.loop !33
 
 .loopexit385.loopexit:                            ; preds = %.lr.ph411
   %.pre449 = load i8, ptr %532, align 1, !tbaa !3
@@ -1130,7 +1130,7 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   call void %spec.select(i8 noundef signext %553, ptr noundef %1, i64 noundef %.9233415, i64 noundef %2) #8, !callees !6
   %558 = load i8, ptr %556, align 1, !tbaa !3
   %.not268 = icmp eq i8 %558, 0
-  br i1 %.not268, label %.critedge, label %.lr.ph418, !llvm.loop !33
+  br i1 %.not268, label %.critedge, label %.lr.ph418, !llvm.loop !34
 
 .critedge:                                        ; preds = %554, %.critedge2, %.loopexit385
   %.9233.lcssa = phi i64 [ %.7231, %.loopexit385 ], [ %557, %.critedge2 ], [ %.9233415, %554 ]
@@ -1145,7 +1145,7 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
   %561 = add i64 %.11235422, 1
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.11235422, i64 noundef %2) #8, !callees !6
   %exitcond448.not = icmp eq i32 %560, %.0217
-  br i1 %exitcond448.not, label %.backedge, label %.lr.ph424, !llvm.loop !34
+  br i1 %exitcond448.not, label %.backedge, label %.lr.ph424, !llvm.loop !35
 
 562:                                              ; preds = %111
   %563 = add i64 %.0224, 1
@@ -1234,7 +1234,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #8, !callees !6
   %21 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %21, %18
-  br i1 %exitcond.not.i, label %.lr.ph37.i.preheader, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.lr.ph37.i.preheader, label %.lr.ph.i, !llvm.loop !36
 
 .lr.ph37.i.preheader:                             ; preds = %.lr.ph.i, %.preheader30.i, %15
   %.236.i.ph = phi i64 [ %2, %.preheader30.i ], [ %2, %15 ], [ %20, %.lr.ph.i ]
@@ -1249,7 +1249,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %25 = add i64 %.236.i, 1
   tail call void %0(i8 noundef signext %24, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #8, !callees !6
   %.not29.i = icmp eq i64 %22, 0
-  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !36
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph37.i
   br i1 %.not.i, label %_out_rev.exit, label %.preheader.i
@@ -1266,7 +1266,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #8, !callees !6
   %30 = sub i64 %29, %2
   %31 = icmp ult i64 %30, %26
-  br i1 %31, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !37
+  br i1 %31, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !38
 
 32:                                               ; preds = %13
   %33 = fcmp ogt double %4, 0x7FEFFFFFFFFFFFFF
@@ -1295,7 +1295,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i168, i64 noundef %3) #8, !callees !6
   %43 = add i64 %.033.i167, 1
   %exitcond.not.i169 = icmp eq i64 %43, %40
-  br i1 %exitcond.not.i169, label %.lr.ph37.i156.preheader, label %.lr.ph.i166, !llvm.loop !35
+  br i1 %exitcond.not.i169, label %.lr.ph37.i156.preheader, label %.lr.ph.i166, !llvm.loop !36
 
 .lr.ph37.i156.preheader:                          ; preds = %.lr.ph.i166, %.preheader30.i165, %34
   %.236.i157.ph = phi i64 [ %2, %.preheader30.i165 ], [ %2, %34 ], [ %42, %.lr.ph.i166 ]
@@ -1310,7 +1310,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %47 = add i64 %.236.i157, 1
   tail call void %0(i8 noundef signext %46, ptr noundef %1, i64 noundef %.236.i157, i64 noundef %3) #8, !callees !6
   %.not29.i159 = icmp eq i64 %44, 0
-  br i1 %.not29.i159, label %._crit_edge.i160, label %.lr.ph37.i156, !llvm.loop !36
+  br i1 %.not29.i159, label %._crit_edge.i160, label %.lr.ph37.i156, !llvm.loop !37
 
 ._crit_edge.i160:                                 ; preds = %.lr.ph37.i156
   br i1 %.not.i152, label %_out_rev.exit, label %.preheader.i161
@@ -1327,7 +1327,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i164, i64 noundef %3) #8, !callees !6
   %52 = sub i64 %51, %2
   %53 = icmp ult i64 %52, %48
-  br i1 %53, label %.lr.ph40.i163, label %_out_rev.exit, !llvm.loop !37
+  br i1 %53, label %.lr.ph40.i163, label %_out_rev.exit, !llvm.loop !38
 
 54:                                               ; preds = %32
   %55 = tail call double @llvm.fabs.f64(double %4)
@@ -1362,7 +1362,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %66 = add nuw nsw i64 %.0120213, 1
   %67 = add i32 %.1127212, -1
   %exitcond.not = icmp eq i64 %66, %65
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %68 = icmp samesign ult i64 %.0120213, 31
@@ -1377,7 +1377,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %71 = fsub double %.0123, %70
   %72 = zext i32 %.1127.lcssa to i64
   %73 = getelementptr inbounds nuw [10 x double], ptr @_ftoa.pow10, i64 0, i64 %72
-  %74 = load double, ptr %73, align 8, !tbaa !26
+  %74 = load double, ptr %73, align 8, !tbaa !27
   %75 = fmul double %71, %74
   %76 = fptoui double %75 to i64
   %77 = uitofp i64 %76 to double
@@ -1443,7 +1443,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %107 = icmp ugt i64 %.1114, 9
   %108 = icmp samesign ult i64 %.2122, 31
   %or.cond5 = and i1 %108, %107
-  br i1 %or.cond5, label %.preheader197, label %.loopexit198, !llvm.loop !39
+  br i1 %or.cond5, label %.preheader197, label %.loopexit198, !llvm.loop !40
 
 .loopexit198:                                     ; preds = %.preheader197
   %109 = icmp samesign ugt i64 %.2122, 30
@@ -1469,7 +1469,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %116 = icmp samesign ugt i64 %.4218, 30
   %.not134 = icmp eq i32 %114, 0
   %or.cond146 = select i1 %116, i1 true, i1 %.not134
-  br i1 %or.cond146, label %.critedge, label %.lr.ph221, !llvm.loop !40
+  br i1 %or.cond146, label %.critedge, label %.lr.ph221, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph221, %.loopexit198
   %.4.lcssa = phi i64 [ %104, %.loopexit198 ], [ %115, %.lr.ph221 ]
@@ -1502,7 +1502,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %128 = icmp ult i32 %127, -19
   %129 = icmp samesign ult i64 %.6, 31
   %or.cond8 = and i1 %129, %128
-  br i1 %or.cond8, label %.preheader, label %.thread, !llvm.loop !41
+  br i1 %or.cond8, label %.preheader, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %.preheader, %99, %.critedge, %120
   %.7 = phi i64 [ 32, %120 ], [ 32, %.critedge ], [ 32, %99 ], [ %124, %.preheader ]
@@ -1580,7 +1580,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i187, i64 noundef %3) #8, !callees !6
   %152 = add i64 %.033.i186, 1
   %exitcond.not.i188 = icmp eq i64 %152, %149
-  br i1 %exitcond.not.i188, label %.lr.ph37.i175.preheader, label %.lr.ph.i185, !llvm.loop !35
+  br i1 %exitcond.not.i188, label %.lr.ph37.i175.preheader, label %.lr.ph.i185, !llvm.loop !36
 
 .lr.ph37.i175.preheader:                          ; preds = %.lr.ph.i185, %.preheader30.i184, %148
   %.236.i176.ph = phi i64 [ %2, %.preheader30.i184 ], [ %2, %148 ], [ %151, %.lr.ph.i185 ]
@@ -1595,7 +1595,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %156 = add i64 %.236.i176, 1
   tail call void %0(i8 noundef signext %155, ptr noundef %1, i64 noundef %.236.i176, i64 noundef %3) #8, !callees !6
   %.not29.i178 = icmp eq i64 %153, 0
-  br i1 %.not29.i178, label %._crit_edge.i179, label %.lr.ph37.i175, !llvm.loop !36
+  br i1 %.not29.i178, label %._crit_edge.i179, label %.lr.ph37.i175, !llvm.loop !37
 
 ._crit_edge.i179:                                 ; preds = %.lr.ph37.i175
   br i1 %.not.i171, label %_out_rev.exit, label %.preheader.i180
@@ -1612,7 +1612,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i183, i64 noundef %3) #8, !callees !6
   %161 = sub i64 %160, %2
   %162 = icmp ult i64 %161, %157
-  br i1 %162, label %.lr.ph40.i182, label %_out_rev.exit, !llvm.loop !37
+  br i1 %162, label %.lr.ph40.i182, label %_out_rev.exit, !llvm.loop !38
 
 _out_rev.exit:                                    ; preds = %.lr.ph40.i182, %.lr.ph40.i163, %.lr.ph40.i, %.preheader.i180, %._crit_edge.i179, %.preheader.i161, %._crit_edge.i160, %.preheader.i, %._crit_edge.i, %56, %11
   %.0115 = phi i64 [ %12, %11 ], [ %57, %56 ], [ %25, %._crit_edge.i ], [ %25, %.preheader.i ], [ %47, %._crit_edge.i160 ], [ %47, %.preheader.i161 ], [ %156, %._crit_edge.i179 ], [ %156, %.preheader.i180 ], [ %29, %.lr.ph40.i ], [ %51, %.lr.ph40.i163 ], [ %160, %.lr.ph40.i182 ]
@@ -1754,7 +1754,7 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   %95 = icmp samesign ugt i64 %.0.i, 9
   %96 = icmp samesign ult i64 %.1.i, 31
   %97 = and i1 %96, %95
-  br i1 %97, label %88, label %_ntoa_long.exit, !llvm.loop !18
+  br i1 %97, label %88, label %_ntoa_long.exit, !llvm.loop !19
 
 _ntoa_long.exit:                                  ; preds = %88
   %98 = add i64 %81, 1
@@ -1794,7 +1794,7 @@ _ntoa_long.exit:                                  ; preds = %88
   %106 = add i64 %.236.i.i, 1
   tail call void %0(i8 noundef signext %105, ptr noundef %1, i64 noundef %.236.i.i, i64 noundef %3) #8, !callees !6
   %.not29.i.i = icmp eq i64 %103, 0
-  br i1 %.not29.i.i, label %_ntoa_format.exit, label %.lr.ph37.i.i, !llvm.loop !36
+  br i1 %.not29.i.i, label %_ntoa_format.exit, label %.lr.ph37.i.i, !llvm.loop !37
 
 _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
@@ -1812,7 +1812,7 @@ _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.1103124, i64 noundef %3) #8, !callees !6
   %111 = sub i64 %110, %2
   %112 = icmp ult i64 %111, %107
-  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %72, %_ntoa_format.exit, %13
   %.0 = phi i64 [ %14, %13 ], [ %106, %_ntoa_format.exit ], [ %81, %72 ], [ %106, %.preheader ], [ %110, %.lr.ph ]
@@ -1988,7 +1988,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132.i, i64 noundef %3) #8, !callees !6
   %70 = add i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %70, %67
-  br i1 %exitcond.not.i, label %.loopexit31.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.loopexit31.i, label %.lr.ph.i, !llvm.loop !36
 
 .loopexit31.i:                                    ; preds = %.lr.ph.i, %.preheader30.i, %.thread
   %.026.i = phi i64 [ %2, %.thread ], [ %2, %.preheader30.i ], [ %69, %.lr.ph.i ]
@@ -2004,7 +2004,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   %74 = add i64 %.236.i, 1
   tail call void %0(i8 noundef signext %73, ptr noundef %1, i64 noundef %.236.i, i64 noundef %3) #8, !callees !6
   %.not29.i = icmp eq i64 %71, 0
-  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !36
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph37.i, %.loopexit31.i
   %.2.lcssa.i = phi i64 [ %.026.i, %.loopexit31.i ], [ %74, %.lr.ph37.i ]
@@ -2022,7 +2022,7 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439.i, i64 noundef %3) #8, !callees !6
   %79 = sub i64 %78, %2
   %80 = icmp ult i64 %79, %75
-  br i1 %80, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !37
+  br i1 %80, label %.lr.ph40.i, label %_out_rev.exit, !llvm.loop !38
 
 _out_rev.exit:                                    ; preds = %.lr.ph40.i, %._crit_edge.i, %.preheader.i
   %.3.i = phi i64 [ %.2.lcssa.i, %._crit_edge.i ], [ %.2.lcssa.i, %.preheader.i ], [ %78, %.lr.ph40.i ]
@@ -2049,7 +2049,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.132, i64 noundef %3) #8, !callees !6
   %14 = add i64 %.033, 1
   %exitcond.not = icmp eq i64 %14, %11
-  br i1 %exitcond.not, label %.loopexit31, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit31, label %.lr.ph, !llvm.loop !36
 
 .loopexit31:                                      ; preds = %.lr.ph, %.preheader30, %8
   %.026 = phi i64 [ %2, %8 ], [ %2, %.preheader30 ], [ %13, %.lr.ph ]
@@ -2065,7 +2065,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   %18 = add i64 %.236, 1
   tail call void %0(i8 noundef signext %17, ptr noundef %1, i64 noundef %.236, i64 noundef %3) #8, !callees !6
   %.not29 = icmp eq i64 %15, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph37, !llvm.loop !36
+  br i1 %.not29, label %._crit_edge, label %.lr.ph37, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph37, %.loopexit31
   %.2.lcssa = phi i64 [ %.026, %.loopexit31 ], [ %18, %.lr.ph37 ]
@@ -2083,7 +2083,7 @@ define internal fastcc noundef i64 @_out_rev(ptr noundef readonly captures(none)
   tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.439, i64 noundef %3) #8, !callees !6
   %23 = sub i64 %22, %2
   %24 = icmp ult i64 %23, %19
-  br i1 %24, label %.lr.ph40, label %.loopexit, !llvm.loop !37
+  br i1 %24, label %.lr.ph40, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph40, %.preheader, %._crit_edge
   %.3 = phi i64 [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %.preheader ], [ %22, %.lr.ph40 ]
@@ -2139,39 +2139,40 @@ attributes #8 = { nounwind }
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{ptr @_out_buffer, ptr @_out_null}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long long", !4, i64 0}
-!15 = distinct !{!15, !8}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !4, i64 0}
-!18 = distinct !{!18, !8}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"any pointer", !4, i64 0}
-!21 = !{!22, !24, i64 8}
-!22 = !{!"", !23, i64 0, !24, i64 8}
-!23 = !{!"p1 omnipotent char", !20, i64 0}
-!24 = !{!"p1 _ZTS13__va_list_tag", !20, i64 0}
-!25 = !{!22, !23, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"double", !4, i64 0}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = !{!23, !23, i64 0}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !4, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long long", !4, i64 0}
+!16 = distinct !{!16, !8, !9}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !4, i64 0}
+!19 = distinct !{!19, !8, !9}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"any pointer", !4, i64 0}
+!22 = !{!23, !25, i64 8}
+!23 = !{!"", !24, i64 0, !25, i64 8}
+!24 = !{!"p1 omnipotent char", !21, i64 0}
+!25 = !{!"p1 _ZTS13__va_list_tag", !21, i64 0}
+!26 = !{!23, !24, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"double", !4, i64 0}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = !{!24, !24, i64 0}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}
+!42 = distinct !{!42, !8, !9}
+!43 = distinct !{!43, !8, !9}

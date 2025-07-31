@@ -925,7 +925,7 @@ OperationalStatus_funk.exit:                      ; preds = %121, %130, %132, %1
   %139 = add i32 %.3, 4
   %140 = add i32 %.3, 8
   %.not.i230 = icmp sgt i32 %140, %6
-  br i1 %.not.i230, label %trunk_funk.exit, label %.lr.ph.i229, !llvm.loop !10
+  br i1 %.not.i230, label %trunk_funk.exit, label %.lr.ph.i229, !llvm.loop !11
 
 141:                                              ; preds = %4
   %142 = load i32, ptr @hf_ged125_InvokeID, align 4
@@ -1026,7 +1026,7 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   %204 = add i32 %.5, 4
   %205 = add i32 %.5, 8
   %.not.i236 = icmp sgt i32 %205, %6
-  br i1 %.not.i236, label %trunk_funk.exit, label %.lr.ph.i235, !llvm.loop !10
+  br i1 %.not.i236, label %trunk_funk.exit, label %.lr.ph.i235, !llvm.loop !11
 
 206:                                              ; preds = %4
   %207 = load i32, ptr @hf_ged125_TrunkGroupID, align 4
@@ -1058,7 +1058,7 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   %223 = icmp sle i32 %222, %6
   %224 = icmp samesign ult i32 %.07.i, 1023
   %225 = select i1 %223, i1 %224, i1 false
-  br i1 %225, label %.lr.ph.i239, label %trunk_funk.exit, !llvm.loop !11
+  br i1 %225, label %.lr.ph.i239, label %trunk_funk.exit, !llvm.loop !12
 
 226:                                              ; preds = %4
   %227 = load i32, ptr @hf_ged125_ServiceID, align 4
@@ -1304,7 +1304,7 @@ OperationalStatus_funk.exit.i:                    ; preds = %357, %355, %353, %3
   %362 = add i32 %.11, 4
   %363 = add i32 %.11, 8
   %.not.i362.i = icmp sgt i32 %363, %6
-  br i1 %.not.i362.i, label %trunk_funk.exit, label %.lr.ph.i361.i, !llvm.loop !10
+  br i1 %.not.i362.i, label %trunk_funk.exit, label %.lr.ph.i361.i, !llvm.loop !11
 
 364:                                              ; preds = %271
   %365 = load i32, ptr @hf_ged125_TrunkGroupID, align 4
@@ -1374,7 +1374,7 @@ OperationalStatus_funk.exit369.i:                 ; preds = %398, %396, %394, %3
   %403 = add i32 %.9, 4
   %404 = add i32 %.9, 8
   %.not.i372.i = icmp sgt i32 %404, %6
-  br i1 %.not.i372.i, label %trunk_funk.exit, label %.lr.ph.i371.i, !llvm.loop !10
+  br i1 %.not.i372.i, label %trunk_funk.exit, label %.lr.ph.i371.i, !llvm.loop !11
 
 405:                                              ; preds = %271
   %406 = load i32, ptr @hf_ged125_InvokeID, align 4
@@ -1704,7 +1704,7 @@ Media_Specifier_dissect.exit:                     ; preds = %53, %.sink.split.i
 87:                                               ; preds = %41, %49, %31, %36, %84, %81, %78, %75, %72, %Media_Specifier_dissect.exit, %30
   %.1 = phi i32 [ %24, %30 ], [ %40, %36 ], [ %34, %31 ], [ %25, %49 ], [ %47, %41 ], [ %71, %Media_Specifier_dissect.exit ], [ %25, %72 ], [ %25, %75 ], [ %25, %78 ], [ %25, %81 ], [ %25, %84 ]
   %88 = icmp slt i32 %.1, %10
-  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %87, %5, %28
   ret void
@@ -1740,8 +1740,9 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

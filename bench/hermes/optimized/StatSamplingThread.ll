@@ -260,7 +260,7 @@ memptr.virtual.i.i.i.i:                           ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %vtable.i.i.i.i, i64 %.unpack.i.i.i.i
   %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i.i.i = load ptr, ptr %4, align 8, !nosanitize !6
+  %memptr.virtualfn.i.i.i.i = load ptr, ptr %4, align 8, !nosanitize !7
   br label %_ZNSt6thread8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS4_EEEclEv.exit
 
 memptr.nonvirtual.i.i.i.i:                        ; preds = %entry
@@ -317,6 +317,7 @@ attributes #13 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{}

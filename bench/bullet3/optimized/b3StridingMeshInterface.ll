@@ -200,7 +200,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i8, ptr %95, i64 %98
   %100 = load ptr, ptr %5, align 8, !tbaa !12
-  %101 = load i16, ptr %99, align 2, !tbaa !20
+  %101 = load i16, ptr %99, align 2, !tbaa !21
   %102 = zext i16 %101 to i32
   %103 = load i32, ptr %10, align 4, !tbaa !10
   %104 = mul nsw i32 %103, %102
@@ -219,7 +219,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   store float %114, ptr %21, align 8, !tbaa !17
   store float 0.000000e+00, ptr %22, align 4, !tbaa !17
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 2
-  %116 = load i16, ptr %115, align 2, !tbaa !20
+  %116 = load i16, ptr %115, align 2, !tbaa !21
   %117 = zext i16 %116 to i32
   %118 = mul nsw i32 %103, %117
   %119 = sext i32 %118 to i64
@@ -237,7 +237,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   store float %128, ptr %25, align 8, !tbaa !17
   store float 0.000000e+00, ptr %26, align 4, !tbaa !17
   %129 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  %130 = load i16, ptr %129, align 2, !tbaa !20
+  %130 = load i16, ptr %129, align 2, !tbaa !21
   %131 = zext i16 %130 to i32
   %132 = mul nsw i32 %103, %131
   %133 = sext i32 %132 to i64
@@ -261,7 +261,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %146 = add nuw nsw i32 %.1237, 1
   %147 = load i32, ptr %12, align 4, !tbaa !10
   %148 = icmp slt i32 %146, %147
-  br i1 %148, label %.lr.ph238, label %.loopexit, !llvm.loop !22
+  br i1 %148, label %.lr.ph238, label %.loopexit, !llvm.loop !23
 
 .lr.ph236:                                        ; preds = %.preheader222, %.lr.ph236
   %.2235 = phi i32 [ %200, %.lr.ph236 ], [ 0, %.preheader222 ]
@@ -332,7 +332,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %200 = add nuw nsw i32 %.2235, 1
   %201 = load i32, ptr %12, align 4, !tbaa !10
   %202 = icmp slt i32 %200, %201
-  br i1 %202, label %.lr.ph236, label %.loopexit, !llvm.loop !23
+  br i1 %202, label %.lr.ph236, label %.loopexit, !llvm.loop !24
 
 203:                                              ; preds = %31
   %204 = load i32, ptr %9, align 4, !tbaa !7
@@ -370,15 +370,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %219 = mul i32 %218, %217
   %220 = zext i32 %219 to i64
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 %220
-  %222 = load double, ptr %221, align 8, !tbaa !24
+  %222 = load double, ptr %221, align 8, !tbaa !25
   %223 = fptrunc double %222 to float
   %224 = fmul float %.sroa.0.0.copyload, %223
   %225 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %226 = load double, ptr %225, align 8, !tbaa !24
+  %226 = load double, ptr %225, align 8, !tbaa !25
   %227 = fptrunc double %226 to float
   %228 = fmul float %.sroa.21.0.copyload, %227
   %229 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %230 = load double, ptr %229, align 8, !tbaa !24
+  %230 = load double, ptr %229, align 8, !tbaa !25
   %231 = fptrunc double %230 to float
   %232 = fmul float %.sroa.39.0.copyload, %231
   store float %224, ptr %13, align 16, !tbaa !17
@@ -390,15 +390,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %235 = mul i32 %234, %218
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %216, i64 %236
-  %238 = load double, ptr %237, align 8, !tbaa !24
+  %238 = load double, ptr %237, align 8, !tbaa !25
   %239 = fptrunc double %238 to float
   %240 = fmul float %.sroa.0.0.copyload, %239
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %242 = load double, ptr %241, align 8, !tbaa !24
+  %242 = load double, ptr %241, align 8, !tbaa !25
   %243 = fptrunc double %242 to float
   %244 = fmul float %.sroa.21.0.copyload, %243
   %245 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %246 = load double, ptr %245, align 8, !tbaa !24
+  %246 = load double, ptr %245, align 8, !tbaa !25
   %247 = fptrunc double %246 to float
   %248 = fmul float %.sroa.39.0.copyload, %247
   store float %240, ptr %23, align 16, !tbaa !17
@@ -410,15 +410,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %251 = mul i32 %250, %218
   %252 = zext i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %216, i64 %252
-  %254 = load double, ptr %253, align 8, !tbaa !24
+  %254 = load double, ptr %253, align 8, !tbaa !25
   %255 = fptrunc double %254 to float
   %256 = fmul float %.sroa.0.0.copyload, %255
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %258 = load double, ptr %257, align 8, !tbaa !24
+  %258 = load double, ptr %257, align 8, !tbaa !25
   %259 = fptrunc double %258 to float
   %260 = fmul float %.sroa.21.0.copyload, %259
   %261 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %262 = load double, ptr %261, align 8, !tbaa !24
+  %262 = load double, ptr %261, align 8, !tbaa !25
   %263 = fptrunc double %262 to float
   %264 = fmul float %.sroa.39.0.copyload, %263
   store float %256, ptr %27, align 16, !tbaa !17
@@ -432,7 +432,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %268 = add nuw nsw i32 %.3233, 1
   %269 = load i32, ptr %12, align 4, !tbaa !10
   %270 = icmp slt i32 %268, %269
-  br i1 %270, label %.lr.ph234, label %.loopexit, !llvm.loop !26
+  br i1 %270, label %.lr.ph234, label %.loopexit, !llvm.loop !27
 
 .lr.ph232:                                        ; preds = %.preheader226, %.lr.ph232
   %.4231 = phi i32 [ %331, %.lr.ph232 ], [ 0, %.preheader226 ]
@@ -442,21 +442,21 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %271, i64 %274
   %276 = load ptr, ptr %5, align 8, !tbaa !12
-  %277 = load i16, ptr %275, align 2, !tbaa !20
+  %277 = load i16, ptr %275, align 2, !tbaa !21
   %278 = zext i16 %277 to i32
   %279 = load i32, ptr %10, align 4, !tbaa !10
   %280 = mul nsw i32 %279, %278
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %276, i64 %281
-  %283 = load double, ptr %282, align 8, !tbaa !24
+  %283 = load double, ptr %282, align 8, !tbaa !25
   %284 = fptrunc double %283 to float
   %285 = fmul float %.sroa.0.0.copyload, %284
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %287 = load double, ptr %286, align 8, !tbaa !24
+  %287 = load double, ptr %286, align 8, !tbaa !25
   %288 = fptrunc double %287 to float
   %289 = fmul float %.sroa.21.0.copyload, %288
   %290 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  %291 = load double, ptr %290, align 8, !tbaa !24
+  %291 = load double, ptr %290, align 8, !tbaa !25
   %292 = fptrunc double %291 to float
   %293 = fmul float %.sroa.39.0.copyload, %292
   store float %285, ptr %13, align 16, !tbaa !17
@@ -464,20 +464,20 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   store float %293, ptr %21, align 8, !tbaa !17
   store float 0.000000e+00, ptr %22, align 4, !tbaa !17
   %294 = getelementptr inbounds nuw i8, ptr %275, i64 2
-  %295 = load i16, ptr %294, align 2, !tbaa !20
+  %295 = load i16, ptr %294, align 2, !tbaa !21
   %296 = zext i16 %295 to i32
   %297 = mul nsw i32 %279, %296
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds i8, ptr %276, i64 %298
-  %300 = load double, ptr %299, align 8, !tbaa !24
+  %300 = load double, ptr %299, align 8, !tbaa !25
   %301 = fptrunc double %300 to float
   %302 = fmul float %.sroa.0.0.copyload, %301
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %304 = load double, ptr %303, align 8, !tbaa !24
+  %304 = load double, ptr %303, align 8, !tbaa !25
   %305 = fptrunc double %304 to float
   %306 = fmul float %.sroa.21.0.copyload, %305
   %307 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %308 = load double, ptr %307, align 8, !tbaa !24
+  %308 = load double, ptr %307, align 8, !tbaa !25
   %309 = fptrunc double %308 to float
   %310 = fmul float %.sroa.39.0.copyload, %309
   store float %302, ptr %23, align 16, !tbaa !17
@@ -485,20 +485,20 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   store float %310, ptr %25, align 8, !tbaa !17
   store float 0.000000e+00, ptr %26, align 4, !tbaa !17
   %311 = getelementptr inbounds nuw i8, ptr %275, i64 4
-  %312 = load i16, ptr %311, align 2, !tbaa !20
+  %312 = load i16, ptr %311, align 2, !tbaa !21
   %313 = zext i16 %312 to i32
   %314 = mul nsw i32 %279, %313
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds i8, ptr %276, i64 %315
-  %317 = load double, ptr %316, align 8, !tbaa !24
+  %317 = load double, ptr %316, align 8, !tbaa !25
   %318 = fptrunc double %317 to float
   %319 = fmul float %.sroa.0.0.copyload, %318
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %321 = load double, ptr %320, align 8, !tbaa !24
+  %321 = load double, ptr %320, align 8, !tbaa !25
   %322 = fptrunc double %321 to float
   %323 = fmul float %.sroa.21.0.copyload, %322
   %324 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  %325 = load double, ptr %324, align 8, !tbaa !24
+  %325 = load double, ptr %324, align 8, !tbaa !25
   %326 = fptrunc double %325 to float
   %327 = fmul float %.sroa.39.0.copyload, %326
   store float %319, ptr %27, align 16, !tbaa !17
@@ -512,7 +512,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %331 = add nuw nsw i32 %.4231, 1
   %332 = load i32, ptr %12, align 4, !tbaa !10
   %333 = icmp slt i32 %331, %332
-  br i1 %333, label %.lr.ph232, label %.loopexit, !llvm.loop !27
+  br i1 %333, label %.lr.ph232, label %.loopexit, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader228, %.lr.ph
   %.5230 = phi i32 [ %394, %.lr.ph ], [ 0, %.preheader228 ]
@@ -528,15 +528,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %343 = mul nsw i32 %342, %341
   %344 = sext i32 %343 to i64
   %345 = getelementptr inbounds i8, ptr %339, i64 %344
-  %346 = load double, ptr %345, align 8, !tbaa !24
+  %346 = load double, ptr %345, align 8, !tbaa !25
   %347 = fptrunc double %346 to float
   %348 = fmul float %.sroa.0.0.copyload, %347
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  %350 = load double, ptr %349, align 8, !tbaa !24
+  %350 = load double, ptr %349, align 8, !tbaa !25
   %351 = fptrunc double %350 to float
   %352 = fmul float %.sroa.21.0.copyload, %351
   %353 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  %354 = load double, ptr %353, align 8, !tbaa !24
+  %354 = load double, ptr %353, align 8, !tbaa !25
   %355 = fptrunc double %354 to float
   %356 = fmul float %.sroa.39.0.copyload, %355
   store float %348, ptr %13, align 16, !tbaa !17
@@ -549,15 +549,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %360 = mul nsw i32 %342, %359
   %361 = sext i32 %360 to i64
   %362 = getelementptr inbounds i8, ptr %339, i64 %361
-  %363 = load double, ptr %362, align 8, !tbaa !24
+  %363 = load double, ptr %362, align 8, !tbaa !25
   %364 = fptrunc double %363 to float
   %365 = fmul float %.sroa.0.0.copyload, %364
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  %367 = load double, ptr %366, align 8, !tbaa !24
+  %367 = load double, ptr %366, align 8, !tbaa !25
   %368 = fptrunc double %367 to float
   %369 = fmul float %.sroa.21.0.copyload, %368
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 16
-  %371 = load double, ptr %370, align 8, !tbaa !24
+  %371 = load double, ptr %370, align 8, !tbaa !25
   %372 = fptrunc double %371 to float
   %373 = fmul float %.sroa.39.0.copyload, %372
   store float %365, ptr %23, align 16, !tbaa !17
@@ -570,15 +570,15 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %377 = mul nsw i32 %342, %376
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i8, ptr %339, i64 %378
-  %380 = load double, ptr %379, align 8, !tbaa !24
+  %380 = load double, ptr %379, align 8, !tbaa !25
   %381 = fptrunc double %380 to float
   %382 = fmul float %.sroa.0.0.copyload, %381
   %383 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  %384 = load double, ptr %383, align 8, !tbaa !24
+  %384 = load double, ptr %383, align 8, !tbaa !25
   %385 = fptrunc double %384 to float
   %386 = fmul float %.sroa.21.0.copyload, %385
   %387 = getelementptr inbounds nuw i8, ptr %379, i64 16
-  %388 = load double, ptr %387, align 8, !tbaa !24
+  %388 = load double, ptr %387, align 8, !tbaa !25
   %389 = fptrunc double %388 to float
   %390 = fmul float %.sroa.39.0.copyload, %389
   store float %382, ptr %27, align 16, !tbaa !17
@@ -592,7 +592,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   %394 = add nuw nsw i32 %.5230, 1
   %395 = load i32, ptr %12, align 4, !tbaa !10
   %396 = icmp slt i32 %394, %395
-  br i1 %396, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %396, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph232, %.lr.ph234, %.lr.ph236, %.lr.ph238, %.lr.ph240, %.preheader228, %.preheader226, %.preheader224, %.preheader222, %.preheader220, %.preheader, %203, %36, %31
   %397 = load ptr, ptr %0, align 16, !tbaa !4
@@ -601,7 +601,7 @@ define dso_local void @_ZNK23b3StridingMeshInterface27InternalProcessAllTriangle
   call void %399(ptr noundef nonnull align 16 dereferenceable(32) %0, i32 noundef %.0114241)
   %400 = add nuw nsw i32 %.0114241, 1
   %exitcond.not = icmp eq i32 %400, %17
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #12
@@ -667,8 +667,8 @@ define dso_local void @_ZN23b3StridingMeshInterface23calculateAabbBruteForceER9b
           to label %22 unwind label %23
 
 22:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !31
   call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(48) %4) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
   ret void
@@ -1017,16 +1017,17 @@ attributes #13 = { builtin nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !9, i64 0}
 !17 = !{!9, !9, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !9, i64 0}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !9, i64 0}
-!26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = distinct !{!29, !19}
-!30 = !{i64 0, i64 16, !17}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !9, i64 0}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !9, i64 0}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}
+!30 = distinct !{!30, !19, !20}
+!31 = !{i64 0, i64 16, !17}

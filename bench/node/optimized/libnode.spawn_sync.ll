@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %next_.i.i = getelementptr inbounds nuw i8, ptr %buf.07.i, i64 65544
   %buf.0.i = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i = icmp eq ptr %buf.0.i, null
-  br i1 %cmp.not.i, label %_ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit, label %for.body.i, !llvm.loop !7
+  br i1 %cmp.not.i, label %_ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit, label %for.body.i, !llvm.loop !8
 
 _ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit: ; preds = %for.body.i, %entry
   %size.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
@@ -626,7 +626,7 @@ for.body.i4:                                      ; preds = %_ZN2v810MaybeLocalI
   %next_.i.i7 = getelementptr inbounds nuw i8, ptr %buf.07.i5, i64 65544
   %buf.0.i8 = load ptr, ptr %next_.i.i7, align 8
   %cmp.not.i9 = icmp eq ptr %buf.0.i8, null
-  br i1 %cmp.not.i9, label %_ZNK4node20SyncProcessStdioPipe10CopyOutputEPc.exit, label %for.body.i4, !llvm.loop !8
+  br i1 %cmp.not.i9, label %_ZNK4node20SyncProcessStdioPipe10CopyOutputEPc.exit, label %for.body.i4, !llvm.loop !9
 
 _ZNK4node20SyncProcessStdioPipe10CopyOutputEPc.exit: ; preds = %for.body.i4, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   ret ptr %call2
@@ -1043,7 +1043,7 @@ _ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i
   store ptr %1, ptr %_M_finish.i.i, align 8
@@ -1156,7 +1156,7 @@ _ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_
   store ptr null, ptr %__first.addr.04.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8
@@ -1335,7 +1335,7 @@ if.then.i51:                                      ; preds = %if.then79
 for.inc:                                          ; preds = %for.body, %if.then75
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063, i64 8
   %cmp.i49.not = icmp eq ptr %incdec.ptr.i, %12
-  br i1 %cmp.i49.not, label %for.end, label %for.body
+  br i1 %cmp.i49.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.end65
   %15 = load ptr, ptr %uv_loop_, align 8
@@ -2380,7 +2380,7 @@ _ZN4node20SyncProcessStdioPipe5CloseEv.exit:      ; preds = %if.then34
 for.inc:                                          ; preds = %for.body, %_ZN4node20SyncProcessStdioPipe5CloseEv.exit
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   store i8 0, ptr %stdio_pipes_initialized_, align 8
@@ -2784,7 +2784,7 @@ for.body.i.i:                                     ; preds = %if.then29, %for.bod
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %buf.07.i.i, i64 65544
   %buf.0.i.i = load ptr, ptr %next_.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %buf.0.i.i, null
-  br i1 %cmp.not.i.i, label %_ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %_ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit.i, label %for.body.i.i, !llvm.loop !8
 
 _ZNK4node20SyncProcessStdioPipe12OutputLengthEv.exit.i: ; preds = %for.body.i.i, %if.then29
   %size.0.lcssa.i.i = phi i64 [ 0, %if.then29 ], [ %add.i.i, %for.body.i.i ]
@@ -2816,7 +2816,7 @@ for.body.i4.i:                                    ; preds = %_ZN2v810MaybeLocalI
   %next_.i.i7.i = getelementptr inbounds nuw i8, ptr %buf.07.i5.i, i64 65544
   %buf.0.i8.i = load ptr, ptr %next_.i.i7.i, align 8
   %cmp.not.i9.i = icmp eq ptr %buf.0.i8.i, null
-  br i1 %cmp.not.i9.i, label %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit, label %for.body.i4.i, !llvm.loop !8
+  br i1 %cmp.not.i9.i, label %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit, label %for.body.i4.i, !llvm.loop !9
 
 _ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit: ; preds = %for.body.i4.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i
   %17 = load i64, ptr %js_output, align 8
@@ -2861,7 +2861,7 @@ for.inc:                                          ; preds = %_ZNK4node20SyncProc
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   %sub.ptr.div.i13 = ashr exact i64 %sub.ptr.sub.i12, 3
   %cmp22 = icmp ugt i64 %sub.ptr.div.i13, %conv
-  br i1 %cmp22, label %for.body, label %for.end.loopexit, !llvm.loop !10
+  br i1 %cmp22, label %for.body, label %for.end.loopexit, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i64, ptr %js_output, align 8
@@ -3032,7 +3032,7 @@ _ZNKR2v85MaybeImE8FromJustEv.exit:                ; preds = %if.end84
   %cond.i = and i64 %add96.biased, -8
   %inc = add nuw i32 %i.042, 1
   %exitcond.not = icmp eq i32 %inc, %call30
-  br i1 %exitcond.not, label %for.body103.preheader, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.body103.preheader, label %for.body, !llvm.loop !14
 
 for.end.for.end132_crit_edge:                     ; preds = %if.end
   %call9951 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul) #28
@@ -3072,7 +3072,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i151, 
   %cond.i36 = select i1 %cmp.not.i33, i64 %inc127, i64 %sub.i35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond48.not, label %for.end132, label %for.body103, !llvm.loop !12
+  br i1 %exitcond48.not, label %for.end132, label %for.body103, !llvm.loop !15
 
 for.end132:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %for.end.for.end132_crit_edge
   %call9952 = phi ptr [ %call9951, %for.end.for.end132_crit_edge ], [ %call99, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
@@ -3213,7 +3213,7 @@ _ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %7
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i
   store ptr %6, ptr %_M_finish.i.i, align 8
@@ -3234,7 +3234,7 @@ for.cond:                                         ; preds = %if.end41
   %inc = add nuw i32 %i.09, 1
   %14 = load i32, ptr %stdio_count_, align 8
   %cmp = icmp ult i32 %inc, %14
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.body:                                         ; preds = %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE5clearEv.exit, %for.cond
   %i.09 = phi i32 [ %inc, %for.cond ], [ 0, %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE5clearEv.exit ]
@@ -3338,15 +3338,15 @@ _ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_
 for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !14, !noalias !17
-  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !20, !noalias !17
+  store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !17, !noalias !20
+  store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !20, !noalias !17
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %for.body.i.i.i.i, !llvm.loop !19
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %for.body.i.i.i.i, !llvm.loop !22
 
 _ZNSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -3413,7 +3413,7 @@ _ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %0
-  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i18, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   store ptr %add.ptr, ptr %_M_finish.i, align 8
@@ -3981,7 +3981,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %permission, %1
-  br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !20
+  br i1 %cmp.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !23
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i.i = sext i32 %permission to i64
@@ -4003,7 +4003,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %permission, %8
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !21
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !24
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
   %__p.010.i.i.i.i = phi ptr [ %7, %for.cond.i.i.i.i ], [ %5, %if.end.i.i.i.i ]
@@ -4017,10 +4017,10 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i = sext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i.i, %2
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !21
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !24
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
-  br label %return, !llvm.loop !21
+  br label %return, !llvm.loop !24
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
@@ -4154,20 +4154,23 @@ attributes #30 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!16 = distinct !{!16, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
 !17 = !{!18}
-!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!18 = distinct !{!18, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!19 = distinct !{!19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!20 = !{!21}
+!21 = distinct !{!21, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}

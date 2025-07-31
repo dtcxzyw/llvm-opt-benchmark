@@ -1223,7 +1223,7 @@ put_bits.exit118.i.i:                             ; preds = %698, %690, %680
   store i32 %699, ptr %72, align 4, !tbaa !51
   %700 = add nsw i32 %.050124.i.i, -1
   %701 = icmp sgt i32 %.050124.i.i, 1
-  br i1 %701, label %.lr.ph125.i.i, label %ff_copy_pce_data.exit.i, !llvm.loop !57
+  br i1 %701, label %.lr.ph125.i.i, label %ff_copy_pce_data.exit.i, !llvm.loop !58
 
 ff_copy_pce_data.exitthread-pre-split.i:          ; preds = %93, %83
   %.pr.i = load i32, ptr %72, align 4, !tbaa !51
@@ -1388,7 +1388,7 @@ latm_write_frame_header.exit:                     ; preds = %put_bits.exit.i, %p
   %779 = phi i32 [ %.pre44.i, %put_bits.exit71.i ], [ %75, %put_bits.exit.i ]
   %780 = add nsw i32 %779, 1
   %781 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %782 = load i32, ptr %781, align 8, !tbaa !58
+  %782 = load i32, ptr %781, align 8, !tbaa !59
   %783 = srem i32 %780, %782
   store i32 %783, ptr %74, align 4, !tbaa !48
   %.not5574 = icmp slt i32 %778, 255
@@ -1447,7 +1447,7 @@ put_bits.exit:                                    ; preds = %788, %808
   %811 = add nuw nsw i32 %.04775, 255
   %812 = add nsw i32 %810, -255
   %.not55 = icmp sgt i32 %811, %812
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %put_bits.exit, %latm_write_frame_header.exit
   %813 = phi i32 [ %776, %latm_write_frame_header.exit ], [ %.0.i.i, %put_bits.exit ]
@@ -1608,7 +1608,7 @@ put_bits.exit63._crit_edge:                       ; preds = %put_bits.exit63, %8
   %894 = add nsw i32 %893, 8
   store i32 %894, ptr %72, align 4, !tbaa !51
   %895 = icmp slt i32 %893, 24
-  br i1 %895, label %881, label %flush_put_bits.exit, !llvm.loop !60
+  br i1 %895, label %881, label %flush_put_bits.exit, !llvm.loop !61
 
 flush_put_bits.exit:                              ; preds = %887, %876
   store i32 32, ptr %72, align 4, !tbaa !51
@@ -1719,7 +1719,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @latm_decode_extradata(ptr 
   br label %28
 
 19:                                               ; preds = %13
-  %20 = load i32, ptr %4, align 4, !tbaa !61
+  %20 = load i32, ptr %4, align 4, !tbaa !62
   %21 = icmp sgt i32 %20, 5
   %22 = icmp ne i32 %20, 36
   %or.cond = and i1 %21, %22
@@ -1731,7 +1731,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @latm_decode_extradata(ptr 
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !63
+  %26 = load i32, ptr %25, align 4, !tbaa !64
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %26, ptr %27, align 4, !tbaa !54
   store i32 %20, ptr %14, align 8, !tbaa !52
@@ -1823,7 +1823,7 @@ put_bits.exit:                                    ; preds = %29, %37, %19
   store i32 %38, ptr %7, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %put_bits.exit, %3
   %.not = icmp eq i32 %5, 0
@@ -1981,13 +1981,14 @@ attributes #7 = { noreturn nounwind }
 !52 = !{!49, !13, i64 16}
 !53 = !{!49, !13, i64 8}
 !54 = !{!49, !13, i64 12}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = distinct !{!57, !56}
-!58 = !{!49, !13, i64 24}
-!59 = distinct !{!59, !56}
-!60 = distinct !{!60, !56}
-!61 = !{!62, !13, i64 0}
-!62 = !{!"MPEG4AudioConfig", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44}
-!63 = !{!62, !13, i64 12}
-!64 = distinct !{!64, !56}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = distinct !{!58, !56, !57}
+!59 = !{!49, !13, i64 24}
+!60 = distinct !{!60, !56, !57}
+!61 = distinct !{!61, !56, !57}
+!62 = !{!63, !13, i64 0}
+!63 = !{!"MPEG4AudioConfig", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44}
+!64 = !{!63, !13, i64 12}
+!65 = distinct !{!65, !56, !57}

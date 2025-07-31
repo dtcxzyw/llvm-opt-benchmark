@@ -112,7 +112,7 @@ define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr nound
   store i64 %70, ptr %23, align 8
   %71 = add i64 %28, 16
   %.not40 = icmp ugt i64 %71, %6
-  br i1 %.not40, label %._crit_edge, label %27, !llvm.loop !6
+  br i1 %.not40, label %._crit_edge, label %27, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %27, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %28, %27 ]
@@ -123,7 +123,7 @@ define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr nound
 73:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
   %74 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %75 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %74, i64 noundef range(i64 1, 16) %72, i64 noundef 16) #7, !alias.scope !7
+  %75 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %74, i64 noundef range(i64 1, 16) %72, i64 noundef 16) #7, !alias.scope !8
   %.val45 = load i64, ptr %11, align 16
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val46 = load i64, ptr %76, align 8
@@ -209,7 +209,7 @@ define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr nound
   call fastcc void @aegis256_enc(ptr noundef %129, i64 %.val47, i64 %.val48, ptr noundef %10)
   %132 = add i64 %128, 16
   %.not42 = icmp ugt i64 %132, %4
-  br i1 %.not42, label %._crit_edge64, label %.lr.ph63, !llvm.loop !11
+  br i1 %.not42, label %._crit_edge64, label %.lr.ph63, !llvm.loop !12
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %127
   %.2.lcssa = phi i64 [ 0, %127 ], [ %128, %.lr.ph63 ]
@@ -220,7 +220,7 @@ define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr nound
 134:                                              ; preds = %._crit_edge64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
   %135 = getelementptr i8, ptr %3, i64 %.2.lcssa
-  %136 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %135, i64 noundef range(i64 1, 16) %133, i64 noundef 16) #7, !alias.scope !12
+  %136 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %135, i64 noundef range(i64 1, 16) %133, i64 noundef 16) #7, !alias.scope !13
   %.val49 = load i64, ptr %11, align 16
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val50 = load i64, ptr %137, align 8
@@ -278,7 +278,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   call fastcc void @aegis256_absorb2(ptr noundef %26, ptr noundef %10)
   %27 = add i64 %25, 32
   %.not = icmp ugt i64 %27, %6
-  br i1 %.not, label %.preheader81, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.preheader81, label %.lr.ph, !llvm.loop !17
 
 28:                                               ; preds = %.lr.ph86, %28
   %29 = phi i64 [ %14, %.lr.ph86 ], [ %72, %28 ]
@@ -343,7 +343,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   store i64 %71, ptr %24, align 8
   %72 = add i64 %29, 16
   %.not64 = icmp ugt i64 %72, %6
-  br i1 %.not64, label %._crit_edge, label %28, !llvm.loop !17
+  br i1 %.not64, label %._crit_edge, label %28, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %28, %.preheader81
   %.1.lcssa = phi i64 [ %.052.lcssa, %.preheader81 ], [ %29, %28 ]
@@ -354,7 +354,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
 74:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
   %75 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %76 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %75, i64 noundef range(i64 1, 16) %73, i64 noundef 16) #7, !alias.scope !18
+  %76 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull %75, i64 noundef range(i64 1, 16) %73, i64 noundef 16) #7, !alias.scope !19
   %.val70 = load i64, ptr %11, align 16
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val71 = load i64, ptr %77, align 8
@@ -447,7 +447,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   call fastcc void @aegis256_dec(ptr noundef %131, i64 %.val72, i64 %.val73, ptr noundef %10)
   %134 = add i64 %130, 16
   %.not67 = icmp ugt i64 %134, %2
-  br i1 %.not67, label %.loopexit, label %.lr.ph94, !llvm.loop !22
+  br i1 %.not67, label %.loopexit, label %.lr.ph94, !llvm.loop !23
 
 .lr.ph90:                                         ; preds = %.preheader79, %.lr.ph90
   %135 = phi i64 [ %138, %.lr.ph90 ], [ 16, %.preheader79 ]
@@ -459,7 +459,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   call fastcc void @aegis256_dec(ptr noundef nonnull %12, i64 %.val74, i64 %.val75, ptr noundef %10)
   %138 = add i64 %135, 16
   %.not66 = icmp ugt i64 %138, %2
-  br i1 %.not66, label %.loopexit, label %.lr.ph90, !llvm.loop !23
+  br i1 %.not66, label %.loopexit, label %.lr.ph90, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph90, %.lr.ph94, %.preheader79, %.preheader
   %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %130, %.lr.ph94 ], [ %135, %.lr.ph90 ]
@@ -783,7 +783,7 @@ define internal fastcc void @aegis256_init(ptr noundef readonly captures(none) %
   store i64 %191, ptr %.sroa.56.0..sroa_idx, align 4
   %192 = add nuw nsw i32 %.062, 1
   %exitcond.not = icmp eq i32 %192, 4
-  br i1 %exitcond.not, label %193, label %31, !llvm.loop !24
+  br i1 %exitcond.not, label %193, label %31, !llvm.loop !25
 
 193:                                              ; preds = %31
   ret void
@@ -1102,7 +1102,7 @@ define internal fastcc range(i32 -1, 1) i32 @aegis256_mac(ptr noundef %0, i64 no
   store i64 %62, ptr %21, align 4
   %63 = add nuw nsw i32 %.05791, 1
   %exitcond.not = icmp eq i32 %63, 7
-  br i1 %exitcond.not, label %64, label %22, !llvm.loop !25
+  br i1 %exitcond.not, label %64, label %22, !llvm.loop !26
 
 64:                                               ; preds = %22
   switch i64 %1, label %115 [
@@ -1319,7 +1319,7 @@ define internal fastcc void @aegis256_declast(ptr noundef %0, ptr noundef readon
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
-  %6 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef range(i64 1, 16) %2, i64 noundef 16) #7, !alias.scope !26
+  %6 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef range(i64 1, 16) %2, i64 noundef 16) #7, !alias.scope !27
   %7 = load i64, ptr %5, align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8
@@ -1445,29 +1445,30 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"memcpy.inline: argument 0"}
-!9 = distinct !{!9, !"memcpy.inline"}
-!10 = distinct !{!10, !9, !"memcpy.inline: argument 1"}
-!11 = distinct !{!11, !5}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
-!28 = distinct !{!28, !"memcpy.inline"}
-!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !5, !6}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}

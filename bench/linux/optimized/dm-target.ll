@@ -80,7 +80,7 @@ define dso_local ptr @dm_get_target_type(ptr noundef %0) local_unnamed_addr #0 a
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %25) #10
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %19, !llvm.loop !5
+  br i1 %27, label %28, label %19, !llvm.loop !9
 
 28:                                               ; preds = %23
   %29 = getelementptr i8, ptr %21, i64 -216
@@ -138,7 +138,7 @@ define dso_local noundef i32 @dm_target_iterate(ptr noundef readonly captures(no
   tail call void %0(ptr noundef %6, ptr noundef %1) #10
   %7 = load ptr, ptr %5, align 8
   %8 = icmp eq ptr %7, @_targets
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %2
   tail call void @up_read(ptr noundef nonnull @_lock) #10
@@ -163,7 +163,7 @@ define dso_local noundef range(i32 -17, 1) i32 @dm_register_target(ptr noundef %
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %10) #10
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %4, !llvm.loop !5
+  br i1 %12, label %13, label %4, !llvm.loop !11
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %6, i64 -216
@@ -218,7 +218,7 @@ define dso_local void @dm_unregister_target(ptr noundef captures(none) %0) #0 al
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef %3, ptr noundef %10) #10
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %4, !llvm.loop !5
+  br i1 %12, label %13, label %4, !llvm.loop !12
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %6, i64 -216
@@ -227,8 +227,8 @@ define dso_local void @dm_unregister_target(ptr noundef captures(none) %0) #0 al
 
 .loopexit:                                        ; preds = %4, %13
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %3) #11
-  tail call void asm sideeffect "730: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 730b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 730) #10, !srcloc !9
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 106, i32 0, i64 12) #10, !srcloc !10
+  tail call void asm sideeffect "730: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 730b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 730) #10, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 106, i32 0, i64 12) #10, !srcloc !14
   unreachable
 
 17:                                               ; preds = %13
@@ -247,7 +247,7 @@ define dso_local void @dm_unregister_target(ptr noundef captures(none) %0) #0 al
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -17, 1) i32 @dm_target_init() local_unnamed_addr #4 section ".init.text" align 16 {
-  %1 = tail call i32 @dm_register_target(ptr noundef nonnull @error_target), !range !11
+  %1 = tail call i32 @dm_register_target(ptr noundef nonnull @error_target), !range !15
   ret i32 %1
 }
 
@@ -268,7 +268,7 @@ define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %8) #10
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %2, !llvm.loop !5
+  br i1 %10, label %11, label %2, !llvm.loop !12
 
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %4, i64 -216
@@ -277,8 +277,8 @@ define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
 
 .loopexit.i:                                      ; preds = %2, %11
   %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %1) #11
-  tail call void asm sideeffect "730: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 730b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 730) #10, !srcloc !9
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 106, i32 0, i64 12) #10, !srcloc !10
+  tail call void asm sideeffect "730: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 730b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 730) #10, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 106, i32 0, i64 12) #10, !srcloc !14
   unreachable
 
 dm_unregister_target.exit:                        ; preds = %11
@@ -311,9 +311,9 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr noundef read
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store i64 0, ptr %4, align 8, !annotation !12
+  store i64 0, ptr %4, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
-  store i8 0, ptr %5, align 1, !annotation !12
+  store i8 0, ptr %5, align 1, !annotation !16
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 16) #12
   %10 = icmp eq ptr %9, null
@@ -485,11 +485,15 @@ attributes #12 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 2157596966, i64 2157596775, i64 2157596827, i64 2157596873, i64 2157596901}
-!10 = !{i64 2157597040, i64 2157597069, i64 2157597115, i64 2157597173, i64 2157597227, i64 2157597281, i64 2157597336, i64 2157597367}
-!11 = !{i32 -17, i32 1}
-!12 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{i64 2157596966, i64 2157596775, i64 2157596827, i64 2157596873, i64 2157596901}
+!14 = !{i64 2157597040, i64 2157597069, i64 2157597115, i64 2157597173, i64 2157597227, i64 2157597281, i64 2157597336, i64 2157597367}
+!15 = !{i32 -17, i32 1}
+!16 = !{!"auto-init"}

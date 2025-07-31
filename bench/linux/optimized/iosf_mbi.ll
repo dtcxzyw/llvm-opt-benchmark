@@ -384,7 +384,7 @@ define dso_local void @iosf_mbi_punit_acquire() #0 align 16 {
   %11 = call i64 @prepare_to_wait_event(ptr noundef nonnull @iosf_mbi_pmic_access_waitq, ptr noundef nonnull %1, i32 noundef 2) #7
   %12 = load i32, ptr @iosf_mbi_pmic_i2c_access_count, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit, label %.preheader
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %7
   call void @finish_wait(ptr noundef nonnull @iosf_mbi_pmic_access_waitq, ptr noundef nonnull %1) #7
@@ -395,7 +395,7 @@ define dso_local void @iosf_mbi_punit_acquire() #0 align 16 {
   call void @mutex_lock(ptr noundef nonnull @iosf_mbi_pmic_access_mutex) #7
   %15 = load i32, ptr @iosf_mbi_pmic_i2c_access_count, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.loopexit2, label %.preheader1, !llvm.loop !15
+  br i1 %16, label %.loopexit2, label %.preheader1, !llvm.loop !17
 
 .loopexit2:                                       ; preds = %14, %0
   %17 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
@@ -457,12 +457,12 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %5 = load i32, ptr @iosf_mbi_sem_address, align 4
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %4, i1 true, i1 %6
-  br i1 %7, label %8, label %9, !prof !18
+  br i1 %7, label %8, label %9, !prof !20
 
 8:                                                ; preds = %0
-  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #7, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 318, i32 2305, i64 12) #7, !srcloc !20
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #7, !srcloc !21
+  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #7, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 318, i32 2305, i64 12) #7, !srcloc !22
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #7, !srcloc !23
   br label %78
 
 9:                                                ; preds = %0
@@ -493,7 +493,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %19 = call i64 @prepare_to_wait_event(ptr noundef nonnull @iosf_mbi_pmic_access_waitq, ptr noundef nonnull %2, i32 noundef 2) #7
   %20 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.loopexit3, label %.preheader
+  br i1 %21, label %.loopexit3, label %.preheader, !llvm.loop !24
 
 .loopexit3:                                       ; preds = %.preheader, %15
   call void @finish_wait(ptr noundef nonnull @iosf_mbi_pmic_access_waitq, ptr noundef nonnull %2) #7
@@ -504,7 +504,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   call void @mutex_lock(ptr noundef nonnull @iosf_mbi_pmic_access_mutex) #7
   %23 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.loopexit5, label %.preheader4, !llvm.loop !22
+  br i1 %24, label %.loopexit5, label %.preheader4, !llvm.loop !25
 
 .loopexit5:                                       ; preds = %22, %9
   %25 = load i32, ptr @iosf_mbi_pmic_i2c_access_count, align 4
@@ -515,7 +515,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %28 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @iosf_mbi_pmic_bus_access_notifier, i64 noundef 1, ptr noundef null) #7
   call void @cpu_latency_qos_update_request(ptr noundef nonnull @iosf_mbi_pm_qos, i32 noundef 0) #7
   %29 = load i32, ptr @iosf_mbi_sem_address, align 4
-  %30 = call i32 @iosf_mbi_write(i8 noundef zeroext 4, i8 noundef zeroext 17, i32 noundef %29, i32 noundef 2), !range !23
+  %30 = call i32 @iosf_mbi_write(i8 noundef zeroext 4, i8 noundef zeroext 17, i32 noundef %29, i32 noundef 2), !range !26
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.loopexit
 
@@ -525,7 +525,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
 
 34:                                               ; preds = %45, %32
   %35 = load i32, ptr @iosf_mbi_sem_address, align 4
-  %36 = call i32 @iosf_mbi_read(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %35, ptr noundef nonnull %1), !range !23
+  %36 = call i32 @iosf_mbi_read(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %35, ptr noundef nonnull %1), !range !26
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %40, label %.thread
 
@@ -553,7 +553,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %reass.sub = sub i64 %46, %33
   %47 = add i64 %reass.sub, -500
   %48 = icmp slt i64 %47, 0
-  br i1 %48, label %34, label %.loopexit, !llvm.loop !24
+  br i1 %48, label %34, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %45, %27
   %49 = phi ptr [ @.str.1, %27 ], [ @.str.2, %45 ]
@@ -562,7 +562,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %52, ptr noundef nonnull %49) #8
   %53 = load i32, ptr @iosf_mbi_sem_address, align 4
-  %54 = call i32 @iosf_mbi_modify(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %53, i32 noundef 0, i32 noundef 1), !range !23
+  %54 = call i32 @iosf_mbi_modify(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %53, i32 noundef 0, i32 noundef 1), !range !26
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %59, label %56
 
@@ -576,7 +576,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   call void @cpu_latency_qos_update_request(ptr noundef nonnull @iosf_mbi_pm_qos, i32 noundef -1) #7
   %60 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @iosf_mbi_pmic_bus_access_notifier, i64 noundef 2, ptr noundef null) #7
   %61 = load i32, ptr @iosf_mbi_sem_address, align 4
-  %62 = call i32 @iosf_mbi_read(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %61, ptr noundef nonnull %1), !range !23
+  %62 = call i32 @iosf_mbi_read(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %61, ptr noundef nonnull %1), !range !26
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %67, label %64
 
@@ -596,9 +596,9 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   br label %72
 
 72:                                               ; preds = %67, %64
-  call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #7, !srcloc !25
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 373, i32 2305, i64 12) #7, !srcloc !26
-  call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #7, !srcloc !27
+  call void asm sideeffect "368: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 368b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 368) #7, !srcloc !28
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 373, i32 2305, i64 12) #7, !srcloc !29
+  call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #7, !srcloc !30
   br label %76
 
 73:                                               ; preds = %.loopexit5, %43
@@ -638,7 +638,7 @@ define dso_local void @iosf_mbi_unblock_punit_i2c_access() #0 align 16 {
 
 4:                                                ; preds = %0
   %5 = load i32, ptr @iosf_mbi_sem_address, align 4
-  %6 = tail call i32 @iosf_mbi_modify(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %5, i32 noundef 0, i32 noundef 1), !range !23
+  %6 = tail call i32 @iosf_mbi_modify(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %5, i32 noundef 0, i32 noundef 1), !range !26
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %11, label %8
 
@@ -690,12 +690,12 @@ declare dso_local i32 @blocking_notifier_chain_register(ptr noundef, ptr noundef
 define dso_local i32 @iosf_mbi_unregister_pmic_bus_access_notifier_unlocked(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %5, !prof !18
+  br i1 %3, label %4, label %5, !prof !20
 
 4:                                                ; preds = %1
-  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !29
-  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !30
+  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !32
+  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !33
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -707,12 +707,12 @@ define dso_local i32 @iosf_mbi_unregister_pmic_bus_access_notifier_unlocked(ptr 
 define dso_local void @iosf_mbi_assert_punit_acquired() #0 align 16 {
   %1 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %4, !prof !18
+  br i1 %2, label %3, label %4, !prof !20
 
 3:                                                ; preds = %0
-  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !29
-  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !30
+  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !32
+  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !33
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -727,12 +727,12 @@ define dso_local i32 @iosf_mbi_unregister_pmic_bus_access_notifier(ptr noundef %
   tail call void @iosf_mbi_punit_acquire()
   %2 = load i32, ptr @iosf_mbi_pmic_punit_access_count, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %5, !prof !18
+  br i1 %3, label %4, label %5, !prof !20
 
 4:                                                ; preds = %1
-  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !29
-  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !30
+  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #7, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2305, i64 12) #7, !srcloc !32
+  tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #7, !srcloc !33
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -858,19 +858,22 @@ attributes #8 = { cold nounwind }
 !12 = !{i64 2155245040, i64 2155245069, i64 2155245115, i64 2155245173, i64 2155245227, i64 2155245281, i64 2155245336, i64 2155245367, i64 2155245675, i64 2155245681, i64 2155245728, i64 2155245751, i64 2155245777}
 !13 = !{i64 2155246244, i64 2155246055, i64 2155246105, i64 2155246151, i64 2155246179}
 !14 = !{!"auto-init"}
-!15 = distinct !{!15, !16, !17}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2155264917, i64 2155264726, i64 2155264778, i64 2155264824, i64 2155264852}
-!20 = !{i64 2155264991, i64 2155265020, i64 2155265066, i64 2155265124, i64 2155265178, i64 2155265232, i64 2155265287, i64 2155265318, i64 2155265626, i64 2155265632, i64 2155265679, i64 2155265702, i64 2155265728}
-!21 = !{i64 2155266195, i64 2155266006, i64 2155266056, i64 2155266102, i64 2155266130}
-!22 = distinct !{!22, !16, !17}
-!23 = !{i32 -2147483648, i32 1}
-!24 = distinct !{!24, !16, !17}
-!25 = !{i64 2155271402, i64 2155271211, i64 2155271263, i64 2155271309, i64 2155271337}
-!26 = !{i64 2155271476, i64 2155271505, i64 2155271551, i64 2155271609, i64 2155271663, i64 2155271717, i64 2155271772, i64 2155271803, i64 2155272111, i64 2155272117, i64 2155272164, i64 2155272187, i64 2155272213}
-!27 = !{i64 2155272680, i64 2155272491, i64 2155272541, i64 2155272587, i64 2155272615}
-!28 = !{i64 2155286434, i64 2155286243, i64 2155286295, i64 2155286341, i64 2155286369}
-!29 = !{i64 2155286508, i64 2155286537, i64 2155286583, i64 2155286641, i64 2155286695, i64 2155286749, i64 2155286804, i64 2155286835, i64 2155287143, i64 2155287149, i64 2155287196, i64 2155287219, i64 2155287245}
-!30 = !{i64 2155287712, i64 2155287523, i64 2155287573, i64 2155287619, i64 2155287647}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !18, !19, !16}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!"llvm.loop.unroll.disable"}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = !{i64 2155264917, i64 2155264726, i64 2155264778, i64 2155264824, i64 2155264852}
+!22 = !{i64 2155264991, i64 2155265020, i64 2155265066, i64 2155265124, i64 2155265178, i64 2155265232, i64 2155265287, i64 2155265318, i64 2155265626, i64 2155265632, i64 2155265679, i64 2155265702, i64 2155265728}
+!23 = !{i64 2155266195, i64 2155266006, i64 2155266056, i64 2155266102, i64 2155266130}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !18, !19, !16}
+!26 = !{i32 -2147483648, i32 1}
+!27 = distinct !{!27, !18, !19, !16}
+!28 = !{i64 2155271402, i64 2155271211, i64 2155271263, i64 2155271309, i64 2155271337}
+!29 = !{i64 2155271476, i64 2155271505, i64 2155271551, i64 2155271609, i64 2155271663, i64 2155271717, i64 2155271772, i64 2155271803, i64 2155272111, i64 2155272117, i64 2155272164, i64 2155272187, i64 2155272213}
+!30 = !{i64 2155272680, i64 2155272491, i64 2155272541, i64 2155272587, i64 2155272615}
+!31 = !{i64 2155286434, i64 2155286243, i64 2155286295, i64 2155286341, i64 2155286369}
+!32 = !{i64 2155286508, i64 2155286537, i64 2155286583, i64 2155286641, i64 2155286695, i64 2155286749, i64 2155286804, i64 2155286835, i64 2155287143, i64 2155287149, i64 2155287196, i64 2155287219, i64 2155287245}
+!33 = !{i64 2155287712, i64 2155287523, i64 2155287573, i64 2155287619, i64 2155287647}

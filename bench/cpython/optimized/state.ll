@@ -250,7 +250,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyToken_Free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %4
 
@@ -276,7 +276,7 @@ Py_XDECREF.exit:                                  ; preds = %1, %4, %6, %9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_PyToken_Init(ptr noundef writeonly captures(none) initializes((40, 48)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %2, align 8, !tbaa !43
+  store ptr null, ptr %2, align 8, !tbaa !44
   ret void
 }
 
@@ -284,21 +284,21 @@ define hidden void @_PyToken_Init(ptr noundef writeonly captures(none) initializ
 define hidden noundef i32 @_PyLexer_type_comment_token_setup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 20), (24, 40)) %1, i32 noundef returned %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %9 = load i32, ptr %8, align 8, !tbaa !21
-  store i32 %9, ptr %1, align 8, !tbaa !45
+  store i32 %9, ptr %1, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %11 = load i32, ptr %10, align 8, !tbaa !46
+  %11 = load i32, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %11, ptr %12, align 4, !tbaa !47
+  store i32 %11, ptr %12, align 4, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %11, ptr %13, align 4, !tbaa !48
+  store i32 %11, ptr %13, align 4, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %3, ptr %14, align 8, !tbaa !49
+  store i32 %3, ptr %14, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %4, ptr %15, align 8, !tbaa !50
+  store i32 %4, ptr %15, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %5, ptr %16, align 8, !tbaa !51
+  store ptr %5, ptr %16, align 8, !tbaa !52
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %6, ptr %17, align 8, !tbaa !52
+  store ptr %6, ptr %17, align 8, !tbaa !53
   ret i32 %2
 }
 
@@ -306,7 +306,7 @@ define hidden noundef i32 @_PyLexer_type_comment_token_setup(ptr noundef readonl
 define hidden noundef i32 @_PyLexer_token_setup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 20), (24, 40)) %1, i32 noundef returned %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %7 = load i32, ptr %6, align 8, !tbaa !21
-  store i32 %7, ptr %1, align 8, !tbaa !45
+  store i32 %7, ptr %1, align 8, !tbaa !46
   switch i32 %2, label %12 [
     i32 60, label %8
     i32 3, label %8
@@ -314,32 +314,32 @@ define hidden noundef i32 @_PyLexer_token_setup(ptr noundef readonly captures(no
 
 8:                                                ; preds = %5, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %10 = load i32, ptr %9, align 4, !tbaa !53
+  %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %10, ptr %11, align 4, !tbaa !48
+  store i32 %10, ptr %11, align 4, !tbaa !49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !46
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %16
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %14 = load i32, ptr %13, align 8, !tbaa !46
+  %14 = load i32, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %14, ptr %15, align 4, !tbaa !48
+  store i32 %14, ptr %15, align 4, !tbaa !49
   br label %16
 
 16:                                               ; preds = %12, %8
   %17 = phi i32 [ %14, %12 ], [ %.pre, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %17, ptr %18, align 4, !tbaa !47
+  store i32 %17, ptr %18, align 4, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 -1, ptr %19, align 8, !tbaa !50
+  store i32 -1, ptr %19, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 -1, ptr %20, align 8, !tbaa !49
+  store i32 -1, ptr %20, align 8, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %3, ptr %21, align 8, !tbaa !51
+  store ptr %3, ptr %21, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %4, ptr %22, align 8, !tbaa !52
+  store ptr %4, ptr %22, align 8, !tbaa !53
   %23 = icmp ne ptr %3, null
   %24 = icmp ne ptr %4, null
   %or.cond3 = and i1 %23, %24
@@ -348,10 +348,10 @@ define hidden noundef i32 @_PyLexer_token_setup(ptr noundef readonly captures(no
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %27 = load i32, ptr %26, align 8, !tbaa !19
-  store i32 %27, ptr %20, align 8, !tbaa !49
+  store i32 %27, ptr %20, align 8, !tbaa !50
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %29 = load i32, ptr %28, align 4, !tbaa !20
-  store i32 %29, ptr %19, align 8, !tbaa !50
+  store i32 %29, ptr %19, align 8, !tbaa !51
   br label %30
 
 30:                                               ; preds = %25, %16
@@ -410,16 +410,17 @@ attributes #5 = { nounwind }
 !38 = !{!36, !37, i64 64}
 !39 = !{!36, !37, i64 72}
 !40 = !{!36, !10, i64 92}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44, !12, i64 40}
-!44 = !{!"token", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 24, !6, i64 32, !12, i64 40}
-!45 = !{!44, !10, i64 0}
-!46 = !{!5, !10, i64 512}
-!47 = !{!44, !10, i64 12}
-!48 = !{!44, !10, i64 4}
-!49 = !{!44, !10, i64 8}
-!50 = !{!44, !10, i64 16}
-!51 = !{!44, !6, i64 24}
-!52 = !{!44, !6, i64 32}
-!53 = !{!5, !10, i64 516}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!45, !12, i64 40}
+!45 = !{!"token", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !6, i64 24, !6, i64 32, !12, i64 40}
+!46 = !{!45, !10, i64 0}
+!47 = !{!5, !10, i64 512}
+!48 = !{!45, !10, i64 12}
+!49 = !{!45, !10, i64 4}
+!50 = !{!45, !10, i64 8}
+!51 = !{!45, !10, i64 16}
+!52 = !{!45, !6, i64 24}
+!53 = !{!45, !6, i64 32}
+!54 = !{!5, !10, i64 516}

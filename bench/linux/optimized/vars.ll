@@ -113,7 +113,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 16
   %48 = icmp eq i64 %44, 16
-  br i1 %48, label %.loopexit, label %17, !llvm.loop !7
+  br i1 %48, label %.loopexit, label %17, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.thread6, %.thread4
   tail call void @kfree(ptr noundef nonnull %10) #14
@@ -186,7 +186,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %22, %27
   %29 = add i32 %19, 1
-  br i1 %28, label %.preheader, label %.thread4, !llvm.loop !5
+  br i1 %28, label %.preheader, label %.thread4, !llvm.loop !10
 
 30:                                               ; preds = %.preheader
   %31 = icmp eq i64 %3, %20
@@ -200,7 +200,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   %36 = load i8, ptr %35, align 1
   %37 = icmp ne i8 %36, 0
   %38 = icmp eq i64 %32, 16
-  br i1 %38, label %.thread2, label %9, !llvm.loop !9
+  br i1 %38, label %.thread2, label %9, !llvm.loop !11
 
 .thread2:                                         ; preds = %.thread4, %30, %.preheader
   %39 = phi i1 [ %11, %.preheader ], [ %37, %.thread4 ], [ %11, %30 ]
@@ -226,7 +226,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
   br label %93
 
 14:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !12
   %15 = tail call i32 @efivar_lock() #14
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %91
@@ -262,7 +262,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
 30:                                               ; preds = %.preheader14.us
   %31 = add i64 %26, 2
   %32 = icmp ugt i64 %31, %24
-  br i1 %32, label %.loopexit15.us, label %.preheader14.us, !llvm.loop !11
+  br i1 %32, label %.loopexit15.us, label %.preheader14.us, !llvm.loop !13
 
 .loopexit15.us:                                   ; preds = %.preheader14.us, %30, %23
   %33 = phi i64 [ 2, %23 ], [ %26, %.preheader14.us ], [ %31, %30 ]
@@ -307,7 +307,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
 
 54:                                               ; preds = %45, %42, %.preheader12.us
   %.not10.us = icmp eq ptr %39, %3
-  br i1 %.not10.us, label %.loopexit13.us, label %.preheader12.us, !llvm.loop !12
+  br i1 %.not10.us, label %.loopexit13.us, label %.preheader12.us, !llvm.loop !14
 
 .loopexit13.us:                                   ; preds = %54, %.loopexit15.us
   %55 = load i64, ptr %7, align 8
@@ -315,7 +315,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
   %57 = load i64, ptr %19, align 8
   %58 = call i32 %0(ptr noundef nonnull %10, i64 %56, i64 %57, i64 noundef %55, ptr noundef %1, ptr noundef %3) #14
   %.not11.us = icmp eq i32 %58, 0
-  br i1 %.not11.us, label %.split.us, label %.thread, !llvm.loop !13
+  br i1 %.not11.us, label %.split.us, label %.thread, !llvm.loop !15
 
 .split:                                           ; preds = %17, %.loopexit15
   store i64 1024, ptr %7, align 8
@@ -341,7 +341,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
 67:                                               ; preds = %.preheader14
   %68 = add i64 %63, 2
   %69 = icmp ugt i64 %68, %61
-  br i1 %69, label %.loopexit15, label %.preheader14, !llvm.loop !11
+  br i1 %69, label %.loopexit15, label %.preheader14, !llvm.loop !13
 
 .loopexit15:                                      ; preds = %67, %.preheader14, %60
   %70 = phi i64 [ 2, %60 ], [ %63, %.preheader14 ], [ %68, %67 ]
@@ -351,7 +351,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
   %73 = load i64, ptr %19, align 8
   %74 = call i32 %0(ptr noundef nonnull %10, i64 %72, i64 %73, i64 noundef %71, ptr noundef %1, ptr noundef %3) #14
   %.not11 = icmp eq i32 %74, 0
-  br i1 %.not11, label %.split, label %.thread, !llvm.loop !15
+  br i1 %.not11, label %.split, label %.thread, !llvm.loop !17
 
 .split26.us:                                      ; preds = %45
   %75 = load i64, ptr %7, align 8
@@ -373,7 +373,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
   store i8 %84, ptr %85, align 1
   %86 = add nuw nsw i64 %81, 1
   %87 = icmp eq i64 %86, %76
-  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %79
   %88 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull %77, ptr noundef nonnull %8) #17
@@ -649,7 +649,7 @@ define dso_local i32 @efivar_entry_iter(ptr noundef readonly captures(none) %0, 
   %13 = getelementptr i8, ptr %9, i64 -2088
   %14 = tail call i32 %0(ptr noundef %13, ptr noundef %2) #14
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %8, label %16, !llvm.loop !17
+  br i1 %15, label %8, label %16, !llvm.loop !19
 
 16:                                               ; preds = %11, %8
   %17 = phi i32 [ %14, %11 ], [ 0, %8 ]
@@ -696,7 +696,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %11 = trunc nsw i64 %indvars.iv.next to i32
   %12 = icmp eq i32 %7, %11
-  br i1 %12, label %.loopexit8, label %.preheader, !llvm.loop !18
+  br i1 %12, label %.loopexit8, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ %9, %.preheader.preheader ], [ %indvars.iv.next, %10 ]
@@ -786,7 +786,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   %72 = sext i32 %65 to i64
   %73 = getelementptr i8, ptr %48, i64 %72
   %74 = icmp ult i64 %51, %72
-  br i1 %74, label %.loopexit, label %52, !llvm.loop !19
+  br i1 %74, label %.loopexit, label %52, !llvm.loop !21
 
 .loopexit:                                        ; preds = %16, %.preheader, %71, %67, %52, %45, %38, %23, %.loopexit8
   %75 = phi i1 [ false, %.loopexit8 ], [ false, %23 ], [ false, %38 ], [ false, %45 ], [ false, %71 ], [ false, %52 ], [ true, %67 ], [ true, %.preheader ], [ true, %16 ]
@@ -834,7 +834,7 @@ define internal noundef zeroext i1 @validate_device_path(ptr readnone captures(n
   %28 = sext i32 %21 to i64
   %29 = getelementptr i8, ptr %2, i64 %28
   %30 = icmp ult i64 %7, %28
-  br i1 %30, label %.loopexit, label %8, !llvm.loop !19
+  br i1 %30, label %.loopexit, label %8, !llvm.loop !22
 
 .loopexit:                                        ; preds = %27, %23, %8, %4
   %31 = phi i1 [ false, %4 ], [ false, %27 ], [ false, %8 ], [ true, %23 ]
@@ -850,7 +850,7 @@ define internal noundef zeroext i1 @validate_ascii_string(ptr readnone captures(
   %7 = add i32 %11, 1
   %8 = sext i32 %7 to i64
   %9 = icmp ugt i64 %3, %8
-  br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .preheader:                                       ; preds = %4, %6
   %10 = phi i64 [ %8, %6 ], [ 0, %4 ]
@@ -910,19 +910,22 @@ attributes #17 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.unroll.disable"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !8, !6}
-!12 = distinct !{!12, !8, !6}
-!13 = distinct !{!13, !8, !6, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !8, !6}
-!16 = distinct !{!16, !8, !6}
-!17 = distinct !{!17, !8, !6}
-!18 = distinct !{!18, !8, !6}
-!19 = distinct !{!19, !8, !6}
-!20 = distinct !{!20, !8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !6, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !9, !6, !7}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !9, !6, !7}
+!14 = distinct !{!14, !9, !6, !7}
+!15 = distinct !{!15, !9, !6, !7, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !9, !6, !7}
+!18 = distinct !{!18, !9, !6, !7}
+!19 = distinct !{!19, !9, !6, !7}
+!20 = distinct !{!20, !9, !6, !7}
+!21 = distinct !{!21, !9, !6, !7}
+!22 = distinct !{!22, !9, !6, !7}
+!23 = distinct !{!23, !9, !6, !7}

@@ -29,13 +29,13 @@ define i32 @ossl_rsa_oaeppss_md2nid(ptr noundef %0) local_unnamed_addr #0 {
   %.01.i = phi i64 [ %3, %2 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %.01.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !5
+  %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %0, ptr noundef %6) #4
   %.not12.i = icmp eq i32 %7, 0
   br i1 %.not12.i, label %2, label %8
 
 8:                                                ; preds = %.preheader.i
-  %9 = load i32, ptr %4, align 8, !tbaa !11
+  %9 = load i32, ptr %4, align 8, !tbaa !12
   br label %meth2nid.exit
 
 meth2nid.exit:                                    ; preds = %2, %1, %8
@@ -50,18 +50,18 @@ define ptr @ossl_rsa_oaeppss_nid2name(i32 noundef %0) local_unnamed_addr #1 {
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %3, 7
-  br i1 %exitcond.not.i, label %nid2name.exit, label %4, !llvm.loop !12
+  br i1 %exitcond.not.i, label %nid2name.exit, label %4, !llvm.loop !13
 
 4:                                                ; preds = %2, %1
   %.01.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %.01.i
-  %6 = load i32, ptr %5, align 16, !tbaa !11
+  %6 = load i32, ptr %5, align 16, !tbaa !12
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !5
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
   br label %nid2name.exit
 
 nid2name.exit:                                    ; preds = %2, %8
@@ -89,13 +89,14 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !10, i64 8}
-!6 = !{!"ossl_item_st", !7, i64 0, !10, i64 8}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"any pointer", !8, i64 0}
-!11 = !{!6, !7, i64 0}
-!12 = distinct !{!12, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !11, i64 8}
+!7 = !{!"ossl_item_st", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"any pointer", !9, i64 0}
+!12 = !{!7, !8, i64 0}
+!13 = distinct !{!13, !4, !5}

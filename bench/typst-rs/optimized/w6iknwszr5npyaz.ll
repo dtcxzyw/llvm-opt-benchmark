@@ -1034,7 +1034,7 @@ _ZN3std2io5error5Error3new17hc760458b07e5e3bbE.exit: ; preds = %.split.us
   %55 = icmp eq ptr %54, null
   %56 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %55, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %55, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !82
 
 57:                                               ; preds = %36
   %58 = icmp ne i64 %.val, %.val8
@@ -1096,7 +1096,7 @@ define hidden void @"_ZN6flate27deflate7bufread23DeflateDecoder$LT$R$GT$3new17h2
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i": ; preds = %4
   %7 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, i64 noundef 1) #19, !noalias !82
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, i64 noundef 1) #19, !noalias !84
   br label %"_ZN4core3ptr73drop_in_place$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hddab80b93377dd14E.exit"
 
 8:                                                ; preds = %2
@@ -1135,7 +1135,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %.0.copyload.i = load i32, ptr %1, align 1, !alias.scope !89
+  %.0.copyload.i = load i32, ptr %1, align 1, !alias.scope !91
   %14 = zext i32 %.0.copyload.i to i64
   br label %15
 
@@ -1148,7 +1148,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 18:                                               ; preds = %15
   %19 = getelementptr i8, ptr %1, i64 %.017.i
-  %.0.copyload15.i = load i16, ptr %19, align 1, !alias.scope !89
+  %.0.copyload15.i = load i16, ptr %19, align 1, !alias.scope !91
   %20 = zext i16 %.0.copyload15.i to i64
   %21 = shl nuw nsw i64 %.017.i, 3
   %22 = shl nuw nsw i64 %20, %21
@@ -1164,7 +1164,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.118.i
-  %29 = load i8, ptr %28, align 1, !alias.scope !89, !noundef !16
+  %29 = load i8, ptr %28, align 1, !alias.scope !91, !noundef !16
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %.118.i, 3
   %32 = shl nuw nsw i64 %30, %31
@@ -1197,36 +1197,36 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted20 = load i64, ptr %46, align 8
-  %.promoted21 = load i64, ptr %47, align 8, !alias.scope !92
-  %.promoted23 = load i64, ptr %48, align 8, !alias.scope !92
+  %.promoted21 = load i64, ptr %47, align 8, !alias.scope !94
+  %.promoted23 = load i64, ptr %48, align 8, !alias.scope !94
   br label %103
 
 49:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8, !noundef !16
   %52 = xor i64 %51, %39
-  %53 = load i64, ptr %0, align 8, !alias.scope !95, !noundef !16
+  %53 = load i64, ptr %0, align 8, !alias.scope !97, !noundef !16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load i64, ptr %54, align 8, !alias.scope !95, !noundef !16
+  %55 = load i64, ptr %54, align 8, !alias.scope !97, !noundef !16
   %56 = add i64 %55, %53
   %57 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 13)
   %58 = xor i64 %57, %56
   %59 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 32)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = load i64, ptr %60, align 8, !alias.scope !95, !noundef !16
+  %61 = load i64, ptr %60, align 8, !alias.scope !97, !noundef !16
   %62 = add i64 %61, %52
   %63 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 16)
   %64 = xor i64 %62, %63
   %65 = add i64 %64, %59
   %66 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 21)
   %67 = xor i64 %66, %65
-  store i64 %67, ptr %50, align 8, !alias.scope !95
+  store i64 %67, ptr %50, align 8, !alias.scope !97
   %68 = add i64 %62, %58
   %69 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 17)
   %70 = xor i64 %68, %69
-  store i64 %70, ptr %54, align 8, !alias.scope !95
+  store i64 %70, ptr %54, align 8, !alias.scope !97
   %71 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 32)
-  store i64 %71, ptr %60, align 8, !alias.scope !95
+  store i64 %71, ptr %60, align 8, !alias.scope !97
   %72 = xor i64 %65, %39
   store i64 %72, ptr %0, align 8
   br label %41
@@ -1237,8 +1237,8 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 
 ._crit_edge:                                      ; preds = %103
   store i64 %119, ptr %46, align 8
-  store i64 %122, ptr %47, align 8, !alias.scope !92
-  store i64 %123, ptr %48, align 8, !alias.scope !92
+  store i64 %122, ptr %47, align 8, !alias.scope !94
+  store i64 %123, ptr %48, align 8, !alias.scope !94
   store i64 %124, ptr %0, align 8
   br label %75
 
@@ -1249,7 +1249,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %1, i64 %.1.lcssa
-  %.0.copyload.i17 = load i32, ptr %78, align 1, !alias.scope !98
+  %.0.copyload.i17 = load i32, ptr %78, align 1, !alias.scope !100
   %79 = zext i32 %.0.copyload.i17 to i64
   br label %80
 
@@ -1263,7 +1263,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
 83:                                               ; preds = %80
   %84 = getelementptr i8, ptr %1, i64 %.1.lcssa
   %85 = getelementptr i8, ptr %84, i64 %.017.i11
-  %.0.copyload15.i16 = load i16, ptr %85, align 1, !alias.scope !98
+  %.0.copyload15.i16 = load i16, ptr %85, align 1, !alias.scope !100
   %86 = zext i16 %.0.copyload15.i16 to i64
   %87 = shl nuw nsw i64 %.017.i11, 3
   %88 = shl nuw nsw i64 %86, %87
@@ -1282,7 +1282,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit: ; preds = %25, %27
   %95 = icmp ult i64 %94, %2
   tail call void @llvm.assume(i1 %95)
   %96 = getelementptr inbounds i8, ptr %1, i64 %94
-  %97 = load i8, ptr %96, align 1, !alias.scope !98, !noundef !16
+  %97 = load i8, ptr %96, align 1, !alias.scope !100, !noundef !16
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %.118.i13, 3
   %100 = shl nuw nsw i64 %98, %99
@@ -1321,7 +1321,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit18: ; preds = %91, %93
   %124 = xor i64 %117, %.0.copyload
   %125 = add nuw i64 %.119, 8
   %126 = icmp ult i64 %125, %44
-  br i1 %126, label %103, label %._crit_edge
+  br i1 %126, label %103, label %._crit_edge, !llvm.loop !103
 
 127:                                              ; preds = %_ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit18, %73
   %storemerge = phi i64 [ %74, %73 ], [ %43, %_ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit18 ]
@@ -1359,28 +1359,28 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hd2a6c1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noundef !16
   %20 = xor i64 %19, %15
-  %21 = load i64, ptr %0, align 8, !alias.scope !101, !noundef !16
+  %21 = load i64, ptr %0, align 8, !alias.scope !104, !noundef !16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !101, !noundef !16
+  %23 = load i64, ptr %22, align 8, !alias.scope !104, !noundef !16
   %24 = add i64 %23, %21
   %25 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 13)
   %26 = xor i64 %25, %24
   %27 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 32)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !alias.scope !101, !noundef !16
+  %29 = load i64, ptr %28, align 8, !alias.scope !104, !noundef !16
   %30 = add i64 %29, %20
   %31 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 16)
   %32 = xor i64 %30, %31
   %33 = add i64 %32, %27
   %34 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 21)
   %35 = xor i64 %34, %33
-  store i64 %35, ptr %18, align 8, !alias.scope !101
+  store i64 %35, ptr %18, align 8, !alias.scope !104
   %36 = add i64 %30, %26
   %37 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 17)
   %38 = xor i64 %36, %37
-  store i64 %38, ptr %22, align 8, !alias.scope !101
+  store i64 %38, ptr %22, align 8, !alias.scope !104
   %39 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 32)
-  store i64 %39, ptr %28, align 8, !alias.scope !101
+  store i64 %39, ptr %28, align 8, !alias.scope !104
   %40 = xor i64 %33, %15
   store i64 %40, ptr %0, align 8
   %41 = add i64 %8, -4
@@ -1587,25 +1587,28 @@ attributes #21 = { cold noreturn nounwind }
 !79 = distinct !{!79, !80, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9125a77054bb3faE: argument 0"}
 !80 = distinct !{!80, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb9125a77054bb3faE"}
 !81 = !{!76}
-!82 = !{!83, !85, !87}
-!83 = distinct !{!83, !84, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h99492bd189f87ad1E.llvm.7454132670541690561: argument 0"}
-!84 = distinct !{!84, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h99492bd189f87ad1E.llvm.7454132670541690561"}
-!85 = distinct !{!85, !86, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hae48b6bb2e5421bbE.llvm.7454132670541690561: argument 0"}
-!86 = distinct !{!86, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hae48b6bb2e5421bbE.llvm.7454132670541690561"}
-!87 = distinct !{!87, !88, !"_ZN4core3ptr73drop_in_place$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hddab80b93377dd14E: argument 0"}
-!88 = distinct !{!88, !"_ZN4core3ptr73drop_in_place$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hddab80b93377dd14E"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E: argument 0"}
-!91 = distinct !{!91, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
-!94 = distinct !{!94, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
-!97 = distinct !{!97, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E: argument 0"}
-!100 = distinct !{!100, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E"}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
-!103 = distinct !{!103, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = !{!85, !87, !89}
+!85 = distinct !{!85, !86, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h99492bd189f87ad1E.llvm.7454132670541690561: argument 0"}
+!86 = distinct !{!86, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h99492bd189f87ad1E.llvm.7454132670541690561"}
+!87 = distinct !{!87, !88, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hae48b6bb2e5421bbE.llvm.7454132670541690561: argument 0"}
+!88 = distinct !{!88, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hae48b6bb2e5421bbE.llvm.7454132670541690561"}
+!89 = distinct !{!89, !90, !"_ZN4core3ptr73drop_in_place$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hddab80b93377dd14E: argument 0"}
+!90 = distinct !{!90, !"_ZN4core3ptr73drop_in_place$LT$flate2..bufreader..BufReader$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hddab80b93377dd14E"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E: argument 0"}
+!93 = distinct !{!93, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
+!96 = distinct !{!96, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
+!99 = distinct !{!99, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E: argument 0"}
+!102 = distinct !{!102, !"_ZN9siphasher6sip1289u8to64_le17h147299064db59429E"}
+!103 = distinct !{!103, !83}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E: argument 0"}
+!106 = distinct !{!106, !"_ZN73_$LT$siphasher..sip128..Sip13Rounds$u20$as$u20$siphasher..sip128..Sip$GT$8c_rounds17h2d7d97b615b20868E"}

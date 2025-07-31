@@ -475,7 +475,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit: ; preds = %._crit_edg
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   %50 = getelementptr i8, ptr %.sroa.10.082, i64 8
   %.not79 = icmp eq ptr %50, %41
-  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 51:                                               ; preds = %.lr.ph
   %52 = landingpad { ptr, i32 }
@@ -1676,6 +1676,7 @@ attributes #16 = { cold noreturn }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI5QSizeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_: argument 0"}
 !11 = distinct !{!11, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI5QSizeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_"}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

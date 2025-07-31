@@ -70,5 +70,6 @@ attributes #2 = { nounwind }
 !14 = !{!"AVRational", !12, i64 0, !12, i64 4}
 !15 = !{!5, !11, i64 24}
 !16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!"llvm.loop.estimated_trip_count"}

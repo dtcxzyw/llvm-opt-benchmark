@@ -772,7 +772,7 @@ _ZNKSt8__detail10_Synth3wayclISt4pairIKNSt7__cxx1112basic_stringIcSt11char_trait
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i) #9
   %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.014.i) #9
   %34 = icmp eq ptr %32, %5
-  br i1 %34, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %34, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %31, %2
   %.sroa.05.0.lcssa.i = phi ptr [ %7, %2 ], [ %33, %31 ]
@@ -1021,6 +1021,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZSt3tieIJKN3nix11BuildResult6StatusEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKjKbKSt3mapIS9_NS0_11RealisationESt4lessIS9_ESaISt4pairISA_SE_EEEKlSM_KSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEESU_EESt5tupleIJDpRT_EESY_: argument 0"}
 !21 = distinct !{!21, !"_ZSt3tieIJKN3nix11BuildResult6StatusEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKjKbKSt3mapIS9_NS0_11RealisationESt4lessIS9_ESaISt4pairISA_SE_EEEKlSM_KSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEESU_EESt5tupleIJDpRT_EESY_"}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}

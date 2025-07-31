@@ -1431,7 +1431,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 40:                                               ; preds = %.lr.ph.i
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %41, ptr %3, align 8
-  br label %AdjustFractDays.exit.i, !llvm.loop !5
+  br label %AdjustFractDays.exit.i, !llvm.loop !6
 
 42:                                               ; preds = %.lr.ph.i
   %43 = tail call ptr @__ctype_b_loc() #15
@@ -1694,7 +1694,7 @@ AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
   switch i8 %71, label %200 [
     i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
-  ], !llvm.loop !5
+  ], !llvm.loop !6
 
 200:                                              ; preds = %191, %.thread.i
   %201 = load ptr, ptr %43, align 8
@@ -1758,7 +1758,7 @@ AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
     i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
     i8 45, label %230
-  ], !llvm.loop !5
+  ], !llvm.loop !6
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds nuw i8, ptr %209, i64 1
@@ -1799,7 +1799,7 @@ AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
   switch i8 %253, label %.sink.split.sink.split [
     i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
-  ], !llvm.loop !5
+  ], !llvm.loop !6
 
 254:                                              ; preds = %67
   switch i8 %71, label %.sink.split.sink.split [
@@ -2371,6 +2371,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4}

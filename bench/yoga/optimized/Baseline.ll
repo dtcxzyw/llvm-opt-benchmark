@@ -158,7 +158,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
   %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
   %62 = load ptr, ptr %61, align 8, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 512
-  %64 = load i64, ptr %63, align 8, !tbaa !77
+  %64 = load i64, ptr %63, align 8, !tbaa !78
   %.not = icmp eq i64 %64, 0
   br i1 %.not, label %67, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
 
@@ -217,9 +217,9 @@ _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread: ; preds = 
   br i1 %.not12.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %92, %tailrecurse.i.i
-  %94 = load ptr, ptr %45, align 8, !tbaa !78
+  %94 = load ptr, ptr %45, align 8, !tbaa !79
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !79
+  br i1 %95, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !80
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i: ; preds = %.lr.ph.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -227,15 +227,15 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i: ; preds
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !80
+  %97 = load ptr, ptr %96, align 8, !tbaa !81
   store ptr %97, ptr %6, align 8, !tbaa !65
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %99 = load i64, ptr %98, align 8, !tbaa !82
-  store i64 %99, ptr %41, align 8, !tbaa !83
+  %99 = load i64, ptr %98, align 8, !tbaa !83
+  store i64 %99, ptr %41, align 8, !tbaa !84
   %100 = load ptr, ptr %94, align 8, !tbaa !74
   store ptr %100, ptr %45, align 8, !tbaa !74
   call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 24) #9
-  %101 = load i64, ptr %41, align 8, !tbaa !83
+  %101 = load i64, ptr %41, align 8, !tbaa !84
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %6, align 8, !tbaa !65
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 536
@@ -253,7 +253,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %9
   %112 = phi ptr [ %49, %92 ], [ %103, %tailrecurse.i.i ]
   %.lcssa7.i.i = phi i64 [ %93, %92 ], [ %102, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %54, %92 ], [ %107, %tailrecurse.i.i ]
-  store i64 %.lcssa7.i.i, ptr %41, align 8, !tbaa !83
+  store i64 %.lcssa7.i.i, ptr %41, align 8, !tbaa !84
   %113 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !72
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
@@ -360,22 +360,22 @@ define hidden noundef zeroext i1 @_ZN8facebook4yoga16isBaselineLayoutEPKNS0_4Nod
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %12 = load ptr, ptr %11, align 8, !tbaa !63, !noalias !84
-  %13 = load ptr, ptr %10, align 8, !tbaa !64, !noalias !84
+  %12 = load ptr, ptr %11, align 8, !tbaa !63, !noalias !85
+  %13 = load ptr, ptr %10, align 8, !tbaa !64, !noalias !85
   %.not.i = icmp eq ptr %12, %13
   br i1 %.not.i, label %28, label %14
 
 14:                                               ; preds = %9
-  store ptr %0, ptr %2, align 8, !tbaa !65, !alias.scope !84
+  store ptr %0, ptr %2, align 8, !tbaa !65, !alias.scope !85
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !84
-  %17 = load ptr, ptr %13, align 8, !tbaa !72, !noalias !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !85
+  %17 = load ptr, ptr %13, align 8, !tbaa !72, !noalias !85
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %19 = load i32, ptr %18, align 8, !noalias !84
+  %19 = load i32, ptr %18, align 8, !noalias !85
   %20 = and i32 %19, 201326592
   %21 = icmp eq i32 %20, 134217728
   br i1 %21, label %23, label %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit.thread, !prof !73
@@ -396,7 +396,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit.thread: ; preds 
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %16, align 8, !tbaa !74, !alias.scope !84
+  %26 = load ptr, ptr %16, align 8, !tbaa !74, !alias.scope !85
   %.not12.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not12.i.i.i.i, label %common.resume, label %.lr.ph.i.i.i.i
 
@@ -412,7 +412,7 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %24
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !85
   br label %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
 
 _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge, %28
@@ -480,9 +480,9 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
   br i1 %.not12.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge, %tailrecurse.i.i
-  %62 = load ptr, ptr %36, align 8, !tbaa !78
+  %62 = load ptr, ptr %36, align 8, !tbaa !79
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !79
+  br i1 %63, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !80
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i: ; preds = %.lr.ph.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -490,15 +490,15 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i: ; preds
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !80
+  %65 = load ptr, ptr %64, align 8, !tbaa !81
   store ptr %65, ptr %2, align 8, !tbaa !65
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !82
-  store i64 %67, ptr %33, align 8, !tbaa !83
+  %67 = load i64, ptr %66, align 8, !tbaa !83
+  store i64 %67, ptr %33, align 8, !tbaa !84
   %68 = load ptr, ptr %62, align 8, !tbaa !74
   store ptr %68, ptr %36, align 8, !tbaa !74
   call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 24) #9
-  %69 = load i64, ptr %33, align 8, !tbaa !83
+  %69 = load i64, ptr %33, align 8, !tbaa !84
   %70 = add i64 %69, 1
   %71 = load ptr, ptr %2, align 8, !tbaa !65
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 536
@@ -516,7 +516,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %.
   %80 = phi ptr [ %40, %.critedge ], [ %71, %tailrecurse.i.i ]
   %.lcssa7.i.i = phi i64 [ %61, %.critedge ], [ %70, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %45, %.critedge ], [ %75, %tailrecurse.i.i ]
-  store i64 %.lcssa7.i.i, ptr %33, align 8, !tbaa !83
+  store i64 %.lcssa7.i.i, ptr %33, align 8, !tbaa !84
   %81 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !72
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -589,7 +589,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8Iterator17skipContentsNodesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !65
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !83
+  %4 = load i64, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 544
   %7 = load ptr, ptr %6, align 8, !tbaa !63
@@ -640,11 +640,11 @@ _ZNK8facebook4yoga4Node8getChildEm.exit7:         ; preds = %28, %_ZNK8facebook4
   store ptr %16, ptr %29, align 8, !tbaa !74
   store ptr %29, ptr %15, align 8, !tbaa !74
   store ptr %.0, ptr %0, align 8, !tbaa !65
-  store i64 0, ptr %3, align 8, !tbaa !83
+  store i64 0, ptr %3, align 8, !tbaa !84
   %31 = load ptr, ptr %25, align 8, !tbaa !63
   %32 = load ptr, ptr %24, align 8, !tbaa !64
   %.not.i.i.i6.not = icmp eq ptr %31, %32
-  br i1 %.not.i.i.i6.not, label %33, label %_ZNK8facebook4yoga4Node8getChildEm.exit7, !llvm.loop !87
+  br i1 %.not.i.i.i6.not, label %33, label %_ZNK8facebook4yoga4Node8getChildEm.exit7, !llvm.loop !88
 
 33:                                               ; preds = %28
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 0) #10
@@ -667,7 +667,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8Iterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !83
+  %3 = load i64, ptr %2, align 8, !tbaa !84
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 536
@@ -686,9 +686,9 @@ define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4Node
   br label %15
 
 15:                                               ; preds = %.lr.ph, %tailrecurse
-  %16 = load ptr, ptr %14, align 8, !tbaa !78
+  %16 = load ptr, ptr %14, align 8, !tbaa !79
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit, label %tailrecurse, !prof !79
+  br i1 %17, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit, label %tailrecurse, !prof !80
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit: ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -696,15 +696,15 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit: ; preds = %
 
 tailrecurse:                                      ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !80
+  %19 = load ptr, ptr %18, align 8, !tbaa !81
   store ptr %19, ptr %0, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !82
-  store i64 %21, ptr %2, align 8, !tbaa !83
+  %21 = load i64, ptr %20, align 8, !tbaa !83
+  store i64 %21, ptr %2, align 8, !tbaa !84
   %22 = load ptr, ptr %16, align 8, !tbaa !74
   store ptr %22, ptr %14, align 8, !tbaa !74
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 24) #9
-  %23 = load i64, ptr %2, align 8, !tbaa !83
+  %23 = load i64, ptr %2, align 8, !tbaa !84
   %24 = add i64 %23, 1
   %25 = load ptr, ptr %0, align 8, !tbaa !65
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 536
@@ -721,7 +721,7 @@ tailrecurse:                                      ; preds = %15
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %tailrecurse, %1
   %.lcssa7 = phi i64 [ %4, %1 ], [ %24, %tailrecurse ]
   %.lcssa = phi ptr [ %9, %1 ], [ %29, %tailrecurse ]
-  store i64 %.lcssa7, ptr %2, align 8, !tbaa !83
+  store i64 %.lcssa7, ptr %2, align 8, !tbaa !84
   %34 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.lcssa7
   %35 = load ptr, ptr %34, align 8, !tbaa !72
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -838,16 +838,17 @@ attributes #12 = { builtin allocsize(0) }
 !72 = !{!48, !48, i64 0}
 !73 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !74 = !{!70, !71, i64 0}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!5, !31, i64 512}
-!78 = !{!68, !71, i64 0}
-!79 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!80 = !{!81, !48, i64 0}
-!81 = !{!"_ZTSSt4pairIPKN8facebook4yoga4NodeEmE", !48, i64 0, !31, i64 8}
-!82 = !{!81, !31, i64 8}
-!83 = !{!66, !31, i64 8}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv: argument 0"}
-!86 = distinct !{!86, !"_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv"}
-!87 = distinct !{!87, !76}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = !{!5, !31, i64 512}
+!79 = !{!68, !71, i64 0}
+!80 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!81 = !{!82, !48, i64 0}
+!82 = !{!"_ZTSSt4pairIPKN8facebook4yoga4NodeEmE", !48, i64 0, !31, i64 8}
+!83 = !{!82, !31, i64 8}
+!84 = !{!66, !31, i64 8}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv: argument 0"}
+!87 = distinct !{!87, !"_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv"}
+!88 = distinct !{!88, !76, !77}

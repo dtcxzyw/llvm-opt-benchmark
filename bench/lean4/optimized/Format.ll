@@ -5415,7 +5415,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink74, ptr %86, align 8, !tbaa !9
   %87 = getelementptr inbounds nuw i8, ptr %.sink79, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !9
-  br label %6
+  br label %6, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11148,7 +11148,7 @@ lean_inc.exit818:                                 ; preds = %lean_alloc_ctor.exi
 lean_nat_to_int.exit:                             ; preds = %222, %225
   %.val.i966 = phi i32 [ %223, %222 ], [ %.val.i966.pr, %225 ]
   %230 = icmp sgt i32 %.val.i966, 0
-  br i1 %230, label %231, label %233, !prof !20
+  br i1 %230, label %231, label %233, !prof !22
 
 231:                                              ; preds = %lean_nat_to_int.exit
   %232 = add nuw i32 %.val.i966, 1
@@ -17608,4 +17608,6 @@ attributes #5 = { noreturn nounwind }
 !17 = !{!"long", !7, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !19 = !{!7, !7, i64 0}
-!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

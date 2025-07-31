@@ -481,14 +481,14 @@ define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly cap
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %18 = load i32, ptr %17, align 16, !tbaa !36
+  %18 = load i32, ptr %17, align 16, !tbaa !37
   %19 = icmp eq i32 %10, %18
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %.lcssa = phi ptr [ @padding_item, %.preheader ], [ %17, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !38
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
   %.not65 = icmp eq ptr %21, null
   br i1 %.not65, label %.thread, label %22
 
@@ -639,7 +639,7 @@ define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef captures(add
   br i1 %14, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %13
-  %15 = load ptr, ptr %1, align 8, !tbaa !39
+  %15 = load ptr, ptr %1, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %16
 
@@ -701,7 +701,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !40
+  %39 = load ptr, ptr %38, align 8, !tbaa !41
   %.not92 = icmp eq ptr %39, null
   br i1 %.not92, label %.critedge, label %.preheader.preheader
 
@@ -714,18 +714,18 @@ ossl_param_is_empty.exit:                         ; preds = %13
   %indvars.iv123 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv123, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.critedge106, label %.preheader, !llvm.loop !41
+  br i1 %exitcond, label %.critedge106, label %.preheader, !llvm.loop !42
 
 .preheader:                                       ; preds = %.lr.ph
   %42 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !38
+  %44 = load ptr, ptr %43, align 8, !tbaa !39
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %46, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .preheader._crit_edge:                            ; preds = %.preheader
-  %47 = load i32, ptr %42, align 16, !tbaa !36
+  %47 = load i32, ptr %42, align 16, !tbaa !37
   br label %48
 
 48:                                               ; preds = %.preheader._crit_edge, %.preheader.preheader
@@ -812,7 +812,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 
 78:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store ptr null, ptr %7, align 8, !tbaa !42
+  store ptr null, ptr %7, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   %79 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %77, ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull %8) #7
   %.not99.not = icmp eq i32 %79, 0
@@ -822,7 +822,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !18
   call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 572) #7
-  %83 = load ptr, ptr %7, align 8, !tbaa !42
+  %83 = load ptr, ptr %7, align 8, !tbaa !43
   store ptr %83, ptr %81, align 8, !tbaa !18
   %84 = load i64, ptr %8, align 8, !tbaa !15
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -956,7 +956,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(addres
   call void @RSA_free(ptr noundef %16) #7
   store ptr %1, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %17, align 4, !tbaa !43
+  store i32 %3, ptr %17, align 4, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %18, align 8, !tbaa !23
   %19 = call i32 @RSA_test_flags(ptr noundef nonnull %1, i32 noundef 61440) #7
@@ -1095,13 +1095,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !31 = !{!12, !12, i64 0}
 !32 = !{!33, !10, i64 8}
 !33 = !{!"ossl_param_st", !12, i64 0, !10, i64 8, !6, i64 16, !13, i64 24, !13, i64 32}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !10, i64 0}
-!37 = !{!"ossl_item_st", !10, i64 0, !6, i64 8}
-!38 = !{!37, !6, i64 8}
-!39 = !{!33, !12, i64 0}
-!40 = !{!33, !6, i64 16}
-!41 = distinct !{!41, !35}
-!42 = !{!6, !6, i64 0}
-!43 = !{!4, !10, i64 20}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !10, i64 0}
+!38 = !{!"ossl_item_st", !10, i64 0, !6, i64 8}
+!39 = !{!38, !6, i64 8}
+!40 = !{!33, !12, i64 0}
+!41 = !{!33, !6, i64 16}
+!42 = distinct !{!42, !35, !36}
+!43 = !{!6, !6, i64 0}
+!44 = !{!4, !10, i64 20}

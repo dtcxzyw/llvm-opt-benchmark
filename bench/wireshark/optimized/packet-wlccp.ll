@@ -1667,7 +1667,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %223 = add nuw nsw i32 %.0403425.i, 1
   %.1.i = add i32 %.1426.i, 6
   %exitcond437.not.i = icmp eq i32 %223, %217
-  br i1 %exitcond437.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph427.i, !llvm.loop !10
+  br i1 %exitcond437.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph427.i, !llvm.loop !11
 
 224:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.505)
@@ -1713,7 +1713,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %254 = add i32 %.3421.i, 14
   %255 = add nuw nsw i32 %.0404420.i, 1
   %exitcond436.not.i = icmp eq i32 %255, %umax.i
-  br i1 %exitcond436.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph422.i, !llvm.loop !11
+  br i1 %exitcond436.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph422.i, !llvm.loop !12
 
 256:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.506)
@@ -1904,7 +1904,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %415 = add i32 %.5416.i, 16
   %416 = add nuw nsw i32 %.0401417.i, 1
   %exitcond435.not.i = icmp eq i32 %416, %405
-  br i1 %exitcond435.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph418.i, !llvm.loop !12
+  br i1 %exitcond435.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph418.i, !llvm.loop !13
 
 417:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.514)
@@ -1929,7 +1929,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %431 = add i32 %.7414.i, 11
   %432 = add nuw nsw i32 %.0415.i, 1
   %exitcond.not.i = icmp eq i32 %432, %421
-  br i1 %exitcond.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph.i, !llvm.loop !14
 
 433:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.515)
@@ -2119,7 +2119,7 @@ dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph41
   %570 = add i32 %.0123, 1
   %571 = tail call fastcc i32 @dissect_wlccp_tlvs(ptr noundef %12, ptr noundef %1, i32 noundef %.2, i32 noundef %.0123)
   %572 = icmp ugt i32 %571, %.2
-  br i1 %572, label %.preheader, label %573, !llvm.loop !14
+  br i1 %572, label %.preheader, label %573, !llvm.loop !15
 
 573:                                              ; preds = %569
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.487, ptr noundef nonnull @.str.488, i32 noundef 1999, ptr noundef nonnull @.str.491) #4
@@ -2159,10 +2159,11 @@ attributes #4 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

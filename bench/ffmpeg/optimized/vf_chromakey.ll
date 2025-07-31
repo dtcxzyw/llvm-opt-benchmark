@@ -346,7 +346,7 @@ get_pixel_uv.exit:                                ; preds = %.preheader.split, %
 .split.us:                                        ; preds = %get_pixel_uv.exit, %.preheader
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 3
-  br i1 %exitcond53.not, label %76, label %.preheader, !llvm.loop !65
+  br i1 %exitcond53.not, label %76, label %.preheader, !llvm.loop !66
 
 76:                                               ; preds = %.split.us
   %77 = load i16, ptr %16, align 4, !tbaa !55
@@ -375,14 +375,14 @@ get_pixel_uv.exit:                                ; preds = %.preheader.split, %
   %96 = fadd nsz double %.02123.i, %95
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %97, label %81, !llvm.loop !66
+  br i1 %exitcond.not.i, label %97, label %81, !llvm.loop !67
 
 97:                                               ; preds = %81
   %98 = fdiv nsz double %96, 9.000000e+00
-  %99 = load float, ptr %30, align 4, !tbaa !67
+  %99 = load float, ptr %30, align 4, !tbaa !68
   %100 = fpext nsz float %99 to double
   %101 = fcmp nsz ogt double %100, 1.000000e-04
-  %102 = load float, ptr %31, align 8, !tbaa !68
+  %102 = load float, ptr %31, align 8, !tbaa !69
   %103 = fpext nsz float %102 to double
   br i1 %101, label %104, label %112
 
@@ -416,13 +416,13 @@ do_chromakey_pixel.exit:                          ; preds = %104, %112
   %122 = load i32, ptr %23, align 8, !tbaa !60
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next55, %123
-  br i1 %124, label %.preheader39, label %._crit_edge, !llvm.loop !69
+  br i1 %124, label %.preheader39, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %do_chromakey_pixel.exit, %.preheader40
   %125 = phi i32 [ %37, %.preheader40 ], [ %122, %do_chromakey_pixel.exit ]
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
-  br i1 %exitcond60.not, label %._crit_edge45, label %.preheader40, !llvm.loop !70
+  br i1 %exitcond60.not, label %._crit_edge45, label %.preheader40, !llvm.loop !71
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %.preheader40.lr.ph, %4
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #10
@@ -482,10 +482,10 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
   %40 = sitofp i32 %39 to double
   %41 = fmul nsz double %40, %40
   %42 = fmul nsz double %41, 2.000000e+00
-  %43 = load float, ptr %29, align 4, !tbaa !67
+  %43 = load float, ptr %29, align 4, !tbaa !68
   %44 = fpext nsz float %43 to double
   %45 = fcmp nsz ogt double %44, 1.000000e-04
-  %46 = load float, ptr %28, align 8, !tbaa !68
+  %46 = load float, ptr %28, align 8, !tbaa !69
   %47 = fpext nsz float %46 to double
   %48 = zext nneg i32 %22 to i64
   %49 = sext i32 %16 to i64
@@ -532,7 +532,7 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
   %74 = fadd nsz double %.02628.i.us, %73
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 9
-  br i1 %exitcond.not.i.us, label %75, label %59, !llvm.loop !72
+  br i1 %exitcond.not.i.us, label %75, label %59, !llvm.loop !73
 
 75:                                               ; preds = %59
   %76 = fdiv nsz double %74, 9.000000e+00
@@ -560,7 +560,7 @@ do_chromakey_pixel16.exit.us:                     ; preds = %80, %77
   store i16 %.025.i.us, ptr %87, align 2, !tbaa !55
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge.us, label %53, !llvm.loop !73
+  br i1 %exitcond73.not, label %._crit_edge.us, label %53, !llvm.loop !74
 
 .preheader.split.us58:                            ; preds = %.preheader.us, %get_pixel16_uv.exit.us57
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %get_pixel16_uv.exit.us57 ], [ 0, %.preheader.us ]
@@ -598,7 +598,7 @@ do_chromakey_pixel16.exit.us:                     ; preds = %80, %77
 get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.split.us58
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond65.not, label %.split.us55, label %.preheader.split.us58, !llvm.loop !74
+  br i1 %exitcond65.not, label %.split.us55, label %.preheader.split.us58, !llvm.loop !75
 
 .preheader.us:                                    ; preds = %.split.us55, %53
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.split.us55 ], [ 0, %53 ]
@@ -616,12 +616,12 @@ get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.spl
 .split.us55:                                      ; preds = %get_pixel16_uv.exit.us57, %.preheader.us
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %54, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond69.not, label %54, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %do_chromakey_pixel16.exit.us
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge54, label %.preheader47.us, !llvm.loop !76
+  br i1 %exitcond78.not, label %._crit_edge54, label %.preheader47.us, !llvm.loop !77
 
 118:                                              ; preds = %4, %118
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %118 ]
@@ -631,7 +631,7 @@ get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.spl
   store i16 %14, ptr %120, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.preheader48, label %118, !llvm.loop !78
+  br i1 %exitcond.not, label %.preheader48, label %118, !llvm.loop !79
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %.preheader47.lr.ph, %.preheader48
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #10
@@ -709,9 +709,9 @@ define internal noundef i32 @do_chromahold_slice(ptr noundef readonly captures(n
   %57 = uitofp nneg i32 %56 to double
   %58 = fdiv nsz double %57, 1.300500e+05
   %59 = tail call nsz double @llvm.sqrt.f64(double %58)
-  %60 = load float, ptr %26, align 8, !tbaa !68
+  %60 = load float, ptr %26, align 8, !tbaa !69
   %61 = fpext nsz float %60 to double
-  %62 = load float, ptr %27, align 4, !tbaa !67
+  %62 = load float, ptr %27, align 4, !tbaa !68
   %63 = fpext nsz float %62 to double
   %64 = fcmp nsz ogt double %63, 1.000000e-04
   br i1 %64, label %65, label %80
@@ -760,14 +760,14 @@ define internal noundef i32 @do_chromahold_slice(ptr noundef readonly captures(n
   %92 = load i32, ptr %19, align 8, !tbaa !44
   %93 = ashr i32 %91, %92
   %94 = icmp slt i32 %90, %93
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !79
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %89, %.preheader
   %95 = phi i32 [ %28, %.preheader ], [ %92, %89 ]
   %96 = phi i32 [ %29, %.preheader ], [ %91, %89 ]
   %97 = add nsw i32 %.06063, 1
   %exitcond.not = icmp eq i32 %97, %16
-  br i1 %exitcond.not, label %._crit_edge64, label %.preheader, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge64, label %.preheader, !llvm.loop !81
 
 ._crit_edge64:                                    ; preds = %._crit_edge, %4
   ret i32 0
@@ -853,9 +853,9 @@ define internal noundef i32 @do_chromahold16_slice(ptr noundef readonly captures
   %67 = uitofp nneg i32 %66 to double
   %68 = fdiv nsz double %67, %32
   %69 = tail call nsz double @llvm.sqrt.f64(double %68)
-  %70 = load float, ptr %33, align 8, !tbaa !68
+  %70 = load float, ptr %33, align 8, !tbaa !69
   %71 = fpext nsz float %70 to double
-  %72 = load float, ptr %34, align 4, !tbaa !67
+  %72 = load float, ptr %34, align 4, !tbaa !68
   %73 = fpext nsz float %72 to double
   %74 = fcmp nsz ogt double %73, 1.000000e-04
   br i1 %74, label %75, label %90
@@ -904,14 +904,14 @@ define internal noundef i32 @do_chromahold16_slice(ptr noundef readonly captures
   %102 = load i32, ptr %24, align 8, !tbaa !44
   %103 = ashr i32 %101, %102
   %104 = icmp slt i32 %100, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !81
+  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %99, %.preheader
   %105 = phi i32 [ %37, %.preheader ], [ %102, %99 ]
   %106 = phi i32 [ %38, %.preheader ], [ %101, %99 ]
   %107 = add nsw i32 %.07073, 1
   %exitcond.not = icmp eq i32 %107, %16
-  br i1 %exitcond.not, label %._crit_edge74, label %.preheader, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge74, label %.preheader, !llvm.loop !83
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %4
   ret i32 0
@@ -1012,23 +1012,24 @@ attributes #12 = { nounwind willreturn memory(read) }
 !60 = !{!36, !15, i64 104}
 !61 = !{!11, !11, i64 0}
 !62 = !{!15, !15, i64 0}
-!63 = distinct !{!63, !64}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = distinct !{!65, !64}
-!66 = distinct !{!66, !64}
-!67 = !{!33, !34, i64 20}
-!68 = !{!33, !34, i64 16}
-!69 = distinct !{!69, !64}
-!70 = distinct !{!70, !64, !71}
-!71 = !{!"llvm.loop.unswitch.partial.disable"}
-!72 = distinct !{!72, !64}
-!73 = distinct !{!73, !64}
-!74 = distinct !{!74, !64}
-!75 = distinct !{!75, !64}
-!76 = distinct !{!76, !64, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !64}
-!79 = distinct !{!79, !64}
-!80 = distinct !{!80, !64}
-!81 = distinct !{!81, !64}
-!82 = distinct !{!82, !64}
+!65 = !{!"llvm.loop.estimated_trip_count"}
+!66 = distinct !{!66, !64, !65}
+!67 = distinct !{!67, !64, !65}
+!68 = !{!33, !34, i64 20}
+!69 = !{!33, !34, i64 16}
+!70 = distinct !{!70, !64, !65}
+!71 = distinct !{!71, !64, !65, !72}
+!72 = !{!"llvm.loop.unswitch.partial.disable"}
+!73 = distinct !{!73, !64, !65}
+!74 = distinct !{!74, !64, !65}
+!75 = distinct !{!75, !64, !65}
+!76 = distinct !{!76, !64, !65}
+!77 = distinct !{!77, !64, !65, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!79 = distinct !{!79, !64, !65}
+!80 = distinct !{!80, !64, !65}
+!81 = distinct !{!81, !64, !65}
+!82 = distinct !{!82, !64, !65}
+!83 = distinct !{!83, !64, !65}

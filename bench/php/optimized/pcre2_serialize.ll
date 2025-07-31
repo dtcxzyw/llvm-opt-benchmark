@@ -59,13 +59,13 @@ define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr
   %26 = add i64 %25, %.05974
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %27, label %.preheader
+  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !18
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8, !tbaa !18
+  %28 = load ptr, ptr %6, align 8, !tbaa !20
   %29 = add i64 %26, 24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = tail call ptr %28(i64 noundef %29, ptr noundef %31) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit, label %.lr.ph.preheader
@@ -73,13 +73,13 @@ define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr
 .lr.ph.preheader:                                 ; preds = %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i32 1347564115, ptr %34, align 4, !tbaa !20
+  store i32 1347564115, ptr %34, align 4, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  store i32 2949130, ptr %35, align 4, !tbaa !22
+  store i32 2949130, ptr %35, align 4, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store i32 526337, ptr %36, align 4, !tbaa !23
+  store i32 526337, ptr %36, align 4, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  store i32 %1, ptr %37, align 4, !tbaa !24
+  store i32 %1, ptr %37, align 4, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1088) %38, ptr noundef nonnull align 1 dereferenceable(1088) %.1, i64 1088, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 1128
@@ -98,11 +98,11 @@ define dso_local range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr
   %45 = getelementptr inbounds nuw i8, ptr %.06276, i64 %44
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store ptr %34, ptr %2, align 8, !tbaa !25
-  store i64 %26, ptr %3, align 8, !tbaa !26
+  store ptr %34, ptr %2, align 8, !tbaa !28
+  store i64 %26, ptr %3, align 8, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %15, %.preheader, %27, %10, %5, %._crit_edge
@@ -131,32 +131,32 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !24
+  %12 = load i32, ptr %11, align 4, !tbaa !26
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %2, align 4, !tbaa !20
+  %15 = load i32, ptr %2, align 4, !tbaa !22
   %.not75 = icmp eq i32 %15, 1347564115
   br i1 %.not75, label %16, label %.thread
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !22
+  %18 = load i32, ptr %17, align 4, !tbaa !24
   %.not76 = icmp eq i32 %18, 2949130
   br i1 %.not76, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load i32, ptr %20, align 4, !tbaa !23
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   %.not77 = icmp eq i32 %21, 526337
   br i1 %.not77, label %22, label %.thread
 
 22:                                               ; preds = %19
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %12)
-  %23 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = load ptr, ptr %5, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
   %26 = tail call ptr %23(i64 noundef 1096, ptr noundef %25) #6
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %.lr.ph.preheader
@@ -166,7 +166,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1088) %26, ptr noundef nonnull align 1 dereferenceable(1088) %28, i64 1088, i1 false)
   %29 = zext nneg i32 %spec.select to i64
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 1088
-  store i64 %29, ptr %30, align 8, !tbaa !26
+  store i64 %29, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 1104
   br label %.lr.ph
 
@@ -186,8 +186,8 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !27
-  %40 = load ptr, ptr %24, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !30
+  %40 = load ptr, ptr %24, align 8, !tbaa !21
   tail call void %39(ptr noundef nonnull %26, ptr noundef %40) #6
   %.not92 = icmp eq i64 %indvars.iv, 0
   br i1 %.not92, label %.thread, label %.lr.ph91.preheader
@@ -198,15 +198,15 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
   %indvars.iv98 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next99, %.lr.ph91 ]
-  %41 = load ptr, ptr %38, align 8, !tbaa !27
+  %41 = load ptr, ptr %38, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv98
   %43 = load ptr, ptr %42, align 8, !tbaa !4
-  %44 = load ptr, ptr %24, align 8, !tbaa !19
+  %44 = load ptr, ptr %24, align 8, !tbaa !21
   tail call void %41(ptr noundef %43, ptr noundef %44) #6
   store ptr null, ptr %42, align 8, !tbaa !4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count105
-  br i1 %exitcond106.not, label %.thread, label %.lr.ph91
+  br i1 %exitcond106.not, label %.thread, label %.lr.ph91, !llvm.loop !31
 
 45:                                               ; preds = %34
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -220,38 +220,38 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_de
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 140
-  %53 = load i16, ptr %52, align 4, !tbaa !28
+  %53 = load i16, ptr %52, align 4, !tbaa !32
   %54 = icmp ugt i16 %53, 131
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 142
-  %57 = load i16, ptr %56, align 2, !tbaa !29
+  %57 = load i16, ptr %56, align 2, !tbaa !33
   %58 = icmp ugt i16 %57, 10000
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %55, %51, %45
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !27
-  %62 = load ptr, ptr %24, align 8, !tbaa !19
+  %61 = load ptr, ptr %60, align 8, !tbaa !30
+  %62 = load ptr, ptr %24, align 8, !tbaa !21
   tail call void %61(ptr noundef nonnull %35, ptr noundef %62) #6
   br label %.thread
 
 63:                                               ; preds = %55
   store ptr %26, ptr %46, align 8, !tbaa !16
   %64 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr null, ptr %64, align 8, !tbaa !30
+  store ptr null, ptr %64, align 8, !tbaa !34
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 104
-  %66 = load i32, ptr %65, align 8, !tbaa !31
+  %66 = load i32, ptr %65, align 8, !tbaa !35
   %67 = or i32 %66, 262144
-  store i32 %67, ptr %65, align 8, !tbaa !31
+  store i32 %67, ptr %65, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %35, ptr %68, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %.06786, i64 %.0.copyload
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   %indvars.iv.next102 = add nuw nsw i32 %indvars.iv101, 1
-  br i1 %exitcond.not, label %.thread, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !36
 
 .thread:                                          ; preds = %63, %.lr.ph, %.lr.ph91, %37, %59, %22, %19, %16, %14, %10, %8, %4
   %.0 = phi i32 [ -51, %4 ], [ -29, %8 ], [ -62, %10 ], [ -31, %14 ], [ -32, %16 ], [ -32, %19 ], [ -48, %22 ], [ -62, %59 ], [ -48, %37 ], [ -48, %.lr.ph91 ], [ %spec.select, %63 ], [ -62, %.lr.ph ]
@@ -266,25 +266,25 @@ define dso_local i32 @php_pcre2_serialize_get_number_of_codes(ptr noundef readon
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 4, !tbaa !20
+  %4 = load i32, ptr %0, align 4, !tbaa !22
   %.not = icmp eq i32 %4, 1347564115
   br i1 %.not, label %5, label %14
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %.not7 = icmp eq i32 %7, 2949130
   br i1 %.not7, label %8, label %14
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !23
+  %10 = load i32, ptr %9, align 4, !tbaa !25
   %.not8 = icmp eq i32 %10, 526337
   br i1 %.not8, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !24
+  %13 = load i32, ptr %12, align 4, !tbaa !26
   br label %14
 
 14:                                               ; preds = %8, %5, %3, %1, %11
@@ -300,9 +300,9 @@ define dso_local void @php_pcre2_serialize_free(ptr noundef %0) local_unnamed_ad
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds i8, ptr %0, i64 -8
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void %5(ptr noundef nonnull %3, ptr noundef %7) #6
   br label %8
 
@@ -341,17 +341,22 @@ attributes #6 = { nounwind }
 !15 = !{!"short", !7, i64 0}
 !16 = !{!10, !12, i64 24}
 !17 = !{!10, !13, i64 72}
-!18 = !{!11, !6, i64 0}
-!19 = !{!11, !6, i64 16}
-!20 = !{!21, !14, i64 0}
-!21 = !{!"pcre2_serialized_data", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!22 = !{!21, !14, i64 4}
-!23 = !{!21, !14, i64 8}
-!24 = !{!21, !14, i64 12}
-!25 = !{!12, !12, i64 0}
-!26 = !{!13, !13, i64 0}
-!27 = !{!11, !6, i64 8}
-!28 = !{!10, !15, i64 140}
-!29 = !{!10, !15, i64 142}
-!30 = !{!10, !6, i64 32}
-!31 = !{!10, !14, i64 104}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!11, !6, i64 0}
+!21 = !{!11, !6, i64 16}
+!22 = !{!23, !14, i64 0}
+!23 = !{!"pcre2_serialized_data", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!24 = !{!23, !14, i64 4}
+!25 = !{!23, !14, i64 8}
+!26 = !{!23, !14, i64 12}
+!27 = distinct !{!27, !19}
+!28 = !{!12, !12, i64 0}
+!29 = !{!13, !13, i64 0}
+!30 = !{!11, !6, i64 8}
+!31 = distinct !{!31, !19}
+!32 = !{!10, !15, i64 140}
+!33 = !{!10, !15, i64 142}
+!34 = !{!10, !6, i64 32}
+!35 = !{!10, !14, i64 104}
+!36 = distinct !{!36, !19}

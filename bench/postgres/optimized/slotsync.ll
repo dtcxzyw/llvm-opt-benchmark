@@ -444,7 +444,7 @@ ProcessSlotSyncInterrupts.exit:                   ; preds = %55, %74
   br i1 %.not.i8, label %wait_for_slot_activity.exit.backedge, label %94
 
 wait_for_slot_activity.exit.backedge:             ; preds = %90, %94
-  br label %wait_for_slot_activity.exit
+  br label %wait_for_slot_activity.exit, !llvm.loop !7
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr @MyLatch, align 8
@@ -483,7 +483,7 @@ declare void @procsignal_sigusr1_handler(i32 noundef) #3
 define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @SlotSyncCtx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #15, !srcloc !7
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #15, !srcloc !9
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -501,7 +501,7 @@ define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_add
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !10
   %15 = load ptr, ptr @SlotSyncCtx, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 0, ptr %16, align 8
@@ -519,7 +519,7 @@ define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_add
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %25 = load ptr, ptr @SlotSyncCtx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 0, ptr %26, align 8
@@ -533,7 +533,7 @@ define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_add
 30:                                               ; preds = %20
   store i8 1, ptr %21, align 1
   store i32 %0, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !12
   %31 = load ptr, ptr @SlotSyncCtx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %32, align 8
@@ -557,7 +557,7 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   tail call void @ReplicationSlotCleanup(i1 noundef zeroext false) #15
   %6 = load ptr, ptr @SlotSyncCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #15, !srcloc !7
+  %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #15, !srcloc !9
   %.not1 = icmp eq i8 %8, 0
   br i1 %.not1, label %13, label %9
 
@@ -580,7 +580,7 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   br label %17
 
 17:                                               ; preds = %13, %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %18 = load ptr, ptr @SlotSyncCtx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 0, ptr %19, align 8
@@ -1022,7 +1022,7 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   call void %132(ptr noundef nonnull %21) #15
   %133 = load ptr, ptr %22, align 8
   %134 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %133, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %21) #15
-  br i1 %134, label %29, label %._crit_edge, !llvm.loop !12
+  br i1 %134, label %29, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %129, %18
   %.0.lcssa = phi ptr [ null, %18 ], [ %.1, %129 ]
@@ -1073,7 +1073,7 @@ get_local_synced_slots.exit.thread.i:             ; preds = %._crit_edge
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %156 = sext i32 %154 to i64
   %157 = icmp slt i64 %indvars.iv.next.i.i, %156
-  br i1 %157, label %.lr.ph.i.i, label %get_local_synced_slots.exit.i, !llvm.loop !14
+  br i1 %157, label %.lr.ph.i.i, label %get_local_synced_slots.exit.i, !llvm.loop !16
 
 get_local_synced_slots.exit.i:                    ; preds = %153
   %158 = load ptr, ptr @MainLWLockArray, align 8
@@ -1126,7 +1126,7 @@ get_local_synced_slots.exit.i:                    ; preds = %153
   br i1 %180, label %.split.i.i, label %174
 
 .split.i.i:                                       ; preds = %175
-  %181 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %168, i8 1, ptr nonnull elementtype(i8) %168) #15, !srcloc !7
+  %181 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %168, i8 1, ptr nonnull elementtype(i8) %168) #15, !srcloc !9
   %.not19.i.i = icmp eq i8 %181, 0
   br i1 %.not19.i.i, label %184, label %182
 
@@ -1141,14 +1141,14 @@ get_local_synced_slots.exit.i:                    ; preds = %153
   br i1 %187, label %local_sync_slot_required.exit.i, label %local_sync_slot_required.exit.thread28.i
 
 local_sync_slot_required.exit.thread28.i:         ; preds = %184
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
   store i8 0, ptr %168, align 8
   br label %209
 
 local_sync_slot_required.exit.i:                  ; preds = %184
   %188 = load i32, ptr %170, align 8
   %189 = icmp eq i32 %188, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
   store i8 0, ptr %168, align 8
   br i1 %189, label %209, label %local_sync_slot_required.exit.thread.i
 
@@ -1156,7 +1156,7 @@ local_sync_slot_required.exit.thread.i:           ; preds = %174, %local_sync_sl
   %190 = getelementptr inbounds nuw i8, ptr %168, i64 88
   %191 = load i32, ptr %190, align 8
   call void @LockSharedObject(i32 noundef 1262, i32 noundef %191, i16 noundef zeroext 0, i32 noundef 1) #15
-  %192 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %168, i8 1, ptr elementtype(i8) %168) #15, !srcloc !7
+  %192 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %168, i8 1, ptr elementtype(i8) %168) #15, !srcloc !9
   %.not20.i = icmp eq i8 %192, 0
   br i1 %.not20.i, label %195, label %193
 
@@ -1174,7 +1174,7 @@ local_sync_slot_required.exit.thread.i:           ; preds = %174, %local_sync_sl
   %200 = getelementptr inbounds nuw i8, ptr %168, i64 201
   %201 = load i8, ptr %200, align 1
   %.not.i = icmp eq i8 %201, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   store i8 0, ptr %168, align 8
   br i1 %.not.i, label %203, label %202
 
@@ -1184,7 +1184,7 @@ local_sync_slot_required.exit.thread.i:           ; preds = %174, %local_sync_sl
   br label %203
 
 .critedge24.i:                                    ; preds = %195
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   store i8 0, ptr %168, align 8
   br label %203
 
@@ -1288,7 +1288,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   br i1 %.not.i86, label %305, label %252
 
 252:                                              ; preds = %249
-  %253 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #15, !srcloc !7
+  %253 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #15, !srcloc !9
   %.not72.i = icmp eq i8 %253, 0
   br i1 %.not72.i, label %256, label %254
 
@@ -1300,7 +1300,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 201
   %258 = load i8, ptr %257, align 1
   %.not73.i = icmp eq i8 %258, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
   store i8 0, ptr %251, align 8
   br i1 %.not73.i, label %259, label %264
 
@@ -1328,7 +1328,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   br i1 %.not74.not.i, label %.thread90.i, label %272
 
 272:                                              ; preds = %269
-  %273 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #15, !srcloc !7
+  %273 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #15, !srcloc !9
   %.not75.i = icmp eq i8 %273, 0
   br i1 %.not75.i, label %276, label %274
 
@@ -1339,7 +1339,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
 276:                                              ; preds = %274, %272
   %277 = load i32, ptr %270, align 4
   store i32 %277, ptr %266, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
   store i8 0, ptr %251, align 8
   call void @ReplicationSlotMarkDirty() #15
   call void @ReplicationSlotSave() #15
@@ -1410,7 +1410,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   %317 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %318 = load ptr, ptr %317, align 8
   call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %318) #15
-  %319 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %316, i8 1, ptr elementtype(i8) %316) #15, !srcloc !7
+  %319 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %316, i8 1, ptr elementtype(i8) %316) #15, !srcloc !9
   %.not70.i = icmp eq i8 %319, 0
   br i1 %.not70.i, label %322, label %320
 
@@ -1423,7 +1423,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   store i32 %229, ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %316, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %324, ptr noundef nonnull align 1 dereferenceable(64) %3, i64 64, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   store i8 0, ptr %316, align 8
   %325 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %326 = load i64, ptr %325, align 8
@@ -1433,7 +1433,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
 
 329:                                              ; preds = %350, %322
   %.0.i.i = phi i64 [ %326, %322 ], [ %353, %350 ]
-  %330 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %327, i8 1, ptr elementtype(i8) %327) #15, !srcloc !7
+  %330 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %327, i8 1, ptr elementtype(i8) %327) #15, !srcloc !9
   %.not.i.i87 = icmp eq i8 %330, 0
   br i1 %.not.i.i87, label %333, label %331
 
@@ -1443,7 +1443,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
 
 333:                                              ; preds = %331, %329
   store i64 %.0.i.i, ptr %328, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
   store i8 0, ptr %327, align 8
   call void @ReplicationSlotsComputeRequiredLSN() #15
   %334 = load i64, ptr %328, align 8
@@ -1481,14 +1481,14 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   %351 = load i32, ptr @wal_segment_size, align 4
   %352 = sext i32 %351 to i64
   %353 = mul i64 %.011.i.i, %352
-  br label %329
+  br label %329, !llvm.loop !23
 
 reserve_wal_for_local_slot.exit.i:                ; preds = %349
   %354 = load ptr, ptr @MainLWLockArray, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 512
   %356 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %355, i32 noundef 0) #15
   %357 = call i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext true) #15
-  %358 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %316, i8 1, ptr nonnull elementtype(i8) %316) #15, !srcloc !7
+  %358 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %316, i8 1, ptr nonnull elementtype(i8) %316) #15, !srcloc !9
   %.not71.i = icmp eq i8 %358, 0
   br i1 %.not71.i, label %361, label %359
 
@@ -1501,7 +1501,7 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %349
   store i32 %357, ptr %362, align 8
   %363 = getelementptr inbounds nuw i8, ptr %316, i64 100
   store i32 %357, ptr %363, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   store i8 0, ptr %316, align 8
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext true) #15
   %364 = load ptr, ptr @MainLWLockArray, align 8
@@ -1551,7 +1551,7 @@ synchronize_one_slot.exit:                        ; preds = %234, %238, %.thread
 define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %1 = load ptr, ptr @SlotSyncCtx, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #15, !srcloc !7
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #15, !srcloc !9
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -1571,7 +1571,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
   %15 = load ptr, ptr @SlotSyncCtx, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 0, ptr %16, align 8
@@ -1579,7 +1579,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
 
 17:                                               ; preds = %8
   %18 = load i32, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
   %19 = load ptr, ptr @SlotSyncCtx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %20, align 8
@@ -1614,7 +1614,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
 31:                                               ; preds = %27, %30, %23
   %32 = load ptr, ptr @SlotSyncCtx, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #15, !srcloc !7
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #15, !srcloc !9
   %.not8 = icmp eq i8 %34, 0
   br i1 %.not8, label %39, label %35
 
@@ -1633,7 +1633,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %44 = load ptr, ptr @SlotSyncCtx, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i8 0, ptr %45, align 8
-  br i1 %43, label %23, label %.loopexit
+  br i1 %43, label %23, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %39, %14
   tail call fastcc void @update_synced_slots_inactive_since()
@@ -1693,7 +1693,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
 
 24:                                               ; preds = %22, %20
   %.2 = phi i64 [ %23, %22 ], [ %.09, %20 ]
-  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #15, !srcloc !7
+  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #15, !srcloc !9
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %28, label %26
 
@@ -1713,7 +1713,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
   br label %ReplicationSlotSetInactiveSince.exit
 
 ReplicationSlotSetInactiveSince.exit:             ; preds = %28, %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
   store i8 0, ptr %13, align 8
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre12 = load i32, ptr @max_replication_slots, align 4
@@ -1726,7 +1726,7 @@ ReplicationSlotSetInactiveSince.exit:             ; preds = %28, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 39:                                               ; preds = %0, %._crit_edge
   ret void
@@ -1787,7 +1787,7 @@ define dso_local void @SlotSyncShmemInit() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 -1, ptr %2, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
   %6 = load ptr, ptr @SlotSyncCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %7, align 8
@@ -1823,7 +1823,7 @@ define dso_local void @SyncReplicationSlots(ptr noundef %0) local_unnamed_addr #
   call void @ReplicationSlotCleanup(i1 noundef zeroext true) #15
   %10 = load ptr, ptr @SlotSyncCtx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #15, !srcloc !7
+  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #15, !srcloc !9
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %reset_syncing_flag.exit, label %13
 
@@ -1837,7 +1837,7 @@ reset_syncing_flag.exit:                          ; preds = %8, %13
   %17 = load ptr, ptr @SlotSyncCtx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 5
   store i8 0, ptr %18, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !31
   %19 = load ptr, ptr @SlotSyncCtx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %20, align 8
@@ -1875,7 +1875,7 @@ define internal void @slotsync_failure_callback(i32 %0, i64 noundef %1) #0 {
 6:                                                ; preds = %5
   %7 = load ptr, ptr @SlotSyncCtx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #15, !srcloc !7
+  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #15, !srcloc !9
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %reset_syncing_flag.exit, label %10
 
@@ -1889,7 +1889,7 @@ reset_syncing_flag.exit:                          ; preds = %6, %10
   %14 = load ptr, ptr @SlotSyncCtx, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 5
   store i8 0, ptr %15, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !31
   %16 = load ptr, ptr @SlotSyncCtx, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 0, ptr %17, align 8
@@ -2131,7 +2131,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
-  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !9
   %.not85 = icmp eq i8 %62, 0
   br i1 %.not85, label %65, label %63
 
@@ -2146,7 +2146,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   store i64 %67, ptr %48, align 8
   %68 = load i32, ptr %17, align 8
   store i32 %68, ptr %19, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
   store i8 0, ptr %6, align 8
   br i1 %.not, label %87, label %.sink.split
 
@@ -2217,7 +2217,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load ptr, ptr %106, align 8
   call void @namestrcpy(ptr noundef nonnull %5, ptr noundef %107) #15
-  %108 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  %108 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !9
   %.not90 = icmp eq i8 %108, 0
   br i1 %.not90, label %.thread, label %109
 
@@ -2237,7 +2237,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %116 = load i8, ptr %115, align 1, !range !4, !noundef !5
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 202
   store i8 %116, ptr %117, align 2
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !33
   store i8 0, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   call void @ReplicationSlotMarkDirty() #15
@@ -2253,7 +2253,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   br label %119
 
 119:                                              ; preds = %.critedge, %.thread
-  %120 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  %120 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !9
   %.not91 = icmp eq i8 %120, 0
   br i1 %.not91, label %123, label %121
 
@@ -2266,7 +2266,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %125 = load i32, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %125, ptr %126, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !34
   store i8 0, ptr %6, align 8
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #15
   call void @ReplicationSlotsComputeRequiredLSN() #15
@@ -2343,27 +2343,31 @@ attributes #19 = { nounwind willreturn memory(read) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = !{i64 2778324, i64 2778340}
-!8 = !{i64 2151315777}
-!9 = !{i64 2151317296}
-!10 = !{i64 2151318775}
-!11 = !{i64 2151315337}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{i64 2151279393}
-!16 = !{i64 2151280657}
-!17 = !{i64 2151291333}
-!18 = !{i64 2151293119}
-!19 = !{i64 2151297454}
-!20 = !{i64 2151281867}
-!21 = !{i64 2151297751}
-!22 = !{i64 2151322379}
-!23 = !{i64 2151322506}
-!24 = !{i64 2150870054}
-!25 = distinct !{!25, !13}
-!26 = !{i64 2151323353}
-!27 = !{i64 2151319090}
-!28 = !{i64 2151273384}
-!29 = !{i64 2151277711}
-!30 = !{i64 2151277981}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2778324, i64 2778340}
+!10 = !{i64 2151315777}
+!11 = !{i64 2151317296}
+!12 = !{i64 2151318775}
+!13 = !{i64 2151315337}
+!14 = distinct !{!14, !15, !8}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15, !8}
+!17 = !{i64 2151279393}
+!18 = !{i64 2151280657}
+!19 = !{i64 2151291333}
+!20 = !{i64 2151293119}
+!21 = !{i64 2151297454}
+!22 = !{i64 2151281867}
+!23 = distinct !{!23, !8}
+!24 = !{i64 2151297751}
+!25 = !{i64 2151322379}
+!26 = !{i64 2151322506}
+!27 = distinct !{!27, !8}
+!28 = !{i64 2150870054}
+!29 = distinct !{!29, !15, !8}
+!30 = !{i64 2151323353}
+!31 = !{i64 2151319090}
+!32 = !{i64 2151273384}
+!33 = !{i64 2151277711}
+!34 = !{i64 2151277981}

@@ -157,7 +157,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %108, ptr %gep514, align 8, !tbaa !7
   %indvars.iv.next445 = add nsw i64 %indvars.iv444, -1
   %109 = icmp sgt i64 %indvars.iv444, 1
-  br i1 %109, label %87, label %.loopexit, !llvm.loop !11
+  br i1 %109, label %87, label %.loopexit, !llvm.loop !12
 
 .preheader354:                                    ; preds = %.preheader355, %._crit_edge390
   %indvars.iv434 = phi i64 [ 1, %.preheader355 ], [ %indvars.iv.next435, %._crit_edge390 ]
@@ -221,7 +221,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 143:                                              ; preds = %121, %132
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next427, %wide.trip.count429
-  br i1 %exitcond430.not, label %._crit_edge386, label %116, !llvm.loop !12
+  br i1 %exitcond430.not, label %._crit_edge386, label %116, !llvm.loop !13
 
 ._crit_edge386:                                   ; preds = %143
   %144 = load double, ptr %31, align 8, !tbaa !7
@@ -273,12 +273,12 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %175, ptr %gep500, align 8, !tbaa !7
   %indvars.iv.next432 = add nsw i64 %indvars.iv431, -1
   %176 = icmp sgt i64 %indvars.iv431, 1
-  br i1 %176, label %155, label %._crit_edge390, !llvm.loop !13
+  br i1 %176, label %155, label %._crit_edge390, !llvm.loop !14
 
 ._crit_edge390:                                   ; preds = %155, %._crit_edge386.thread, %._crit_edge386
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond438.not = icmp eq i64 %indvars.iv.next435, %wide.trip.count437
-  br i1 %exitcond438.not, label %.loopexit, label %.preheader354, !llvm.loop !14
+  br i1 %exitcond438.not, label %.loopexit, label %.preheader354, !llvm.loop !15
 
 177:                                              ; preds = %24
   %178 = add i32 %19, 1
@@ -359,7 +359,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %213, ptr %gep484, align 8, !tbaa !7
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
-  br i1 %exitcond417.not, label %.lr.ph381.preheader, label %.lr.ph379, !llvm.loop !15
+  br i1 %exitcond417.not, label %.lr.ph381.preheader, label %.lr.ph379, !llvm.loop !16
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %.lr.ph381
   %indvars.iv418 = phi i64 [ %179, %.lr.ph381.preheader ], [ %indvars.iv.next419, %.lr.ph381 ]
@@ -380,7 +380,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %223, ptr %gep490, align 8, !tbaa !7
   store double %221, ptr %gep494, align 8, !tbaa !7
   %224 = icmp sgt i64 %indvars.iv418, 2
-  br i1 %224, label %.lr.ph381, label %.loopexit, !llvm.loop !16
+  br i1 %224, label %.lr.ph381, label %.loopexit, !llvm.loop !17
 
 225:                                              ; preds = %.preheader361, %._crit_edge
   %indvars.iv408 = phi i64 [ 1, %.preheader361 ], [ %indvars.iv.next409, %._crit_edge ]
@@ -445,7 +445,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %255, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph370.preheader, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph370.preheader, label %.lr.ph, !llvm.loop !18
 
 .lr.ph370:                                        ; preds = %.lr.ph370.preheader, %274
   %indvars.iv405 = phi i64 [ %179, %.lr.ph370.preheader ], [ %indvars.iv.next406, %274 ]
@@ -483,12 +483,12 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 274:                                              ; preds = %260, %267
   %275 = icmp sgt i64 %indvars.iv405, 2
-  br i1 %275, label %.lr.ph370, label %._crit_edge, !llvm.loop !18
+  br i1 %275, label %.lr.ph370, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %274, %225
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
-  br i1 %exitcond412.not, label %.loopexit, label %225, !llvm.loop !19
+  br i1 %exitcond412.not, label %.loopexit, label %225, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph381, %._crit_edge390, %87, %182, %.thread, %71, %10, %21
   ret void
@@ -511,14 +511,15 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}

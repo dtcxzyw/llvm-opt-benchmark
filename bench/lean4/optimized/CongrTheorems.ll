@@ -59252,7 +59252,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %20, ptr %45, align 8, !tbaa !10
   %46 = tail call ptr @lean_array_push(ptr noundef %23, ptr noundef nonnull %40) #7
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -80339,3 +80339,5 @@ attributes #8 = { noreturn nounwind }
 !18 = !{!7, !7, i64 0}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!"branch_weights", !"expected", i32 1074009924, i32 1073473724}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}

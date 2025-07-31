@@ -172,7 +172,7 @@ define noundef zeroext i1 @_ZNK6open3d6camera23PinholeCameraTrajectory18ConvertT
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 224
   %.not = icmp eq ptr %39, %23
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 40:                                               ; preds = %.lr.ph
   %41 = landingpad { ptr, i32 }
@@ -246,9 +246,9 @@ define noundef zeroext i1 @_ZN6open3d6camera23PinholeCameraTrajectory20ConvertFr
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !11
+  %17 = load i64, ptr %16, align 8, !tbaa !13
   %18 = icmp eq i64 %17, 23
-  %.pre91 = load ptr, ptr %3, align 8, !tbaa !16
+  %.pre91 = load ptr, ptr %3, align 8, !tbaa !18
   br i1 %18, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %.critedge80
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %15
@@ -302,7 +302,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
-  %.pre = load ptr, ptr %3, align 8, !tbaa !16
+  %.pre = load ptr, ptr %3, align 8, !tbaa !18
   br label %.critedge80
 
 .critedge80:                                      ; preds = %15, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, %.critedge78
@@ -313,13 +313,13 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.critedge80
-  %33 = load i64, ptr %16, align 8, !tbaa !11
+  %33 = load i64, ptr %16, align 8, !tbaa !13
   %34 = icmp ult i64 %33, 16
   call void @llvm.assume(i1 %34)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge80
-  %35 = load i64, ptr %31, align 8, !tbaa !17
+  %35 = load i64, ptr %31, align 8, !tbaa !19
   %36 = add i64 %35, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %36) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -402,19 +402,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %57 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
-  %59 = load ptr, ptr %3, align 8, !tbaa !16
+  %59 = load ptr, ptr %3, align 8, !tbaa !18
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84: ; preds = %58
-  %62 = load i64, ptr %16, align 8, !tbaa !11
+  %62 = load i64, ptr %16, align 8, !tbaa !13
   %63 = icmp ult i64 %62, 16
   call void @llvm.assume(i1 %63)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83: ; preds = %58
-  %64 = load i64, ptr %60, align 8, !tbaa !17
+  %64 = load i64, ptr %60, align 8, !tbaa !19
   %65 = add i64 %64, 1
   call void @_ZdlPvm(ptr noundef %59, i64 noundef %65) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
@@ -460,8 +460,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 78:                                               ; preds = %75
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !18
-  %82 = load ptr, ptr %76, align 8, !tbaa !20
+  %81 = load ptr, ptr %80, align 8, !tbaa !20
+  %82 = load ptr, ptr %76, align 8, !tbaa !22
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
@@ -490,10 +490,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   call void %95(ptr noundef nonnull align 8 dereferenceable(224) %.05.i.i.i.i) #18
   %96 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 224
   %.not.i.i.i.i = icmp eq ptr %96, %81
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  store ptr %93, ptr %80, align 8, !tbaa !18
+  store ptr %93, ptr %80, align 8, !tbaa !20
   br label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader
 
 _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader: ; preds = %88, %90, %92, %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i.i
@@ -520,7 +520,7 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
           to label %105 unwind label %112
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr %76, align 8, !tbaa !20
+  %106 = load ptr, ptr %76, align 8, !tbaa !22
   %107 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull @.str.11)
           to label %108 unwind label %112
 
@@ -538,7 +538,7 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
   br label %122
 
 114:                                              ; preds = %111
-  %115 = load ptr, ptr %76, align 8, !tbaa !20
+  %115 = load ptr, ptr %76, align 8, !tbaa !22
   %116 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull @.str.12)
           to label %117 unwind label %112
 
@@ -549,7 +549,7 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
 
 120:                                              ; preds = %117
   %121 = add nuw nsw i64 %.034, 1
-  br i1 %119, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit, label %.critedge82, !llvm.loop !23
+  br i1 %119, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit, label %.critedge82, !llvm.loop !25
 
 .critedge82:                                      ; preds = %120, %98, %111, %72
   %.1 = phi i1 [ false, %72 ], [ %.not71.not.not.not, %111 ], [ %.not71.not.not.not, %98 ], [ %.not71.not.not.not, %120 ]
@@ -592,9 +592,9 @@ define void @_ZN6open3d6camera23PinholeCameraTrajectoryC2Ev(ptr noundef nonnull 
 define void @_ZN6open3d6camera23PinholeCameraTrajectoryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d6camera23PinholeCameraTrajectoryE, i64 16), ptr %0, align 8, !tbaa !9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   %.not4.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i
 
@@ -605,10 +605,10 @@ define void @_ZN6open3d6camera23PinholeCameraTrajectoryD2Ev(ptr noundef nonnull 
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(224) %.05.i.i.i) #18
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 224
   %.not.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !20
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !22
   br label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %1
@@ -618,7 +618,7 @@ _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.
 
 10:                                               ; preds = %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersES2_EvT_S4_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -678,7 +678,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !25
+  store ptr %12, ptr %6, align 8, !tbaa !27
   %13 = icmp eq ptr %3, null
   br i1 %13, label %.noexc, label %14
 
@@ -689,15 +689,15 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
 14:                                               ; preds = %10
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store i64 %15, ptr %5, align 8, !tbaa !26
+  store i64 %15, ptr %5, align 8, !tbaa !28
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %14
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %17, ptr %6, align 8, !tbaa !16
-  %18 = load i64, ptr %5, align 8, !tbaa !26
-  store i64 %18, ptr %12, align 8, !tbaa !17
+  store ptr %17, ptr %6, align 8, !tbaa !18
+  %18 = load i64, ptr %5, align 8, !tbaa !28
+  store i64 %18, ptr %12, align 8, !tbaa !19
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %14
@@ -708,8 +708,8 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   ]
 
 20:                                               ; preds = %._crit_edge.i.i
-  %21 = load i8, ptr %3, align 1, !tbaa !17
-  store i8 %21, ptr %19, align 1, !tbaa !17
+  %21 = load i8, ptr %3, align 1, !tbaa !19
+  store i8 %21, ptr %19, align 1, !tbaa !19
   br label %23
 
 22:                                               ; preds = %._crit_edge.i.i
@@ -717,29 +717,29 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   br label %23
 
 23:                                               ; preds = %22, %20, %._crit_edge.i.i
-  %24 = load i64, ptr %5, align 8, !tbaa !26
+  %24 = load i64, ptr %5, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !11
-  %26 = load ptr, ptr %6, align 8, !tbaa !16
+  store i64 %24, ptr %25, align 8, !tbaa !13
+  %26 = load ptr, ptr %6, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
-  store i8 0, ptr %27, align 1, !tbaa !17
+  store i8 0, ptr %27, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   invoke void @_ZNK6open3d7utility6Logger8VWarningEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %28 unwind label %35
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %6, align 8, !tbaa !16
+  %29 = load ptr, ptr %6, align 8, !tbaa !18
   %30 = icmp eq ptr %29, %12
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %25, align 8, !tbaa !11
+  %31 = load i64, ptr %25, align 8, !tbaa !13
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  %33 = load i64, ptr %12, align 8, !tbaa !17
+  %33 = load i64, ptr %12, align 8, !tbaa !19
   %34 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -751,18 +751,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 35:                                               ; preds = %23
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %6, align 8, !tbaa !16
+  %37 = load ptr, ptr %6, align 8, !tbaa !18
   %38 = icmp eq ptr %37, %12
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %35
-  %39 = load i64, ptr %25, align 8, !tbaa !11
+  %39 = load i64, ptr %25, align 8, !tbaa !13
   %40 = icmp ult i64 %39, 16
   call void @llvm.assume(i1 %40)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %35
-  %41 = load i64, ptr %12, align 8, !tbaa !17
+  %41 = load i64, ptr %12, align 8, !tbaa !19
   %42 = add i64 %41, 1
   call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
@@ -817,14 +817,14 @@ define linkonce_odr void @_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersE
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
-  %6 = load ptr, ptr %0, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %6 = load ptr, ptr %0, align 8, !tbaa !22
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 224
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 224
@@ -846,7 +846,7 @@ _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i
   %19 = add i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 224
   %.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !29
 
 21:                                               ; preds = %.lr.ph.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -863,7 +863,7 @@ _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(224) %.05.i.i.i.i.i) #18
   %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 224
   %.not.i.i.i.i.i = icmp eq ptr %27, %.014.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %21
   invoke void @__cxa_rethrow() #21
@@ -890,7 +890,7 @@ common.resume:                                    ; preds = %69, %28
   unreachable
 
 _ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i.i
-  store ptr %20, ptr %4, align 8, !tbaa !18
+  store ptr %20, ptr %4, align 8, !tbaa !20
   br label %80
 
 34:                                               ; preds = %3
@@ -920,7 +920,7 @@ _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i
   %42 = add i64 %.01013.i.i.i42, -1
   %43 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 224
   %.not.i.i.i49 = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !27
+  br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !29
 
 44:                                               ; preds = %.lr.ph.i.i.i40
   %45 = landingpad { ptr, i32 }
@@ -937,7 +937,7 @@ _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(224) %.05.i.i.i.i.i45) #18
   %50 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i45, i64 224
   %.not.i.i.i.i.i46 = icmp eq ptr %50, %.014.i.i.i41
-  br i1 %.not.i.i.i.i.i46, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i46, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44, !llvm.loop !23
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit.i.i.i47: ; preds = %.lr.ph.i.i.i.i.i44, %44
   invoke void @__cxa_rethrow() #21
@@ -982,14 +982,14 @@ _ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_
   store i64 %62, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(72) %64, i64 72, i1 false), !tbaa.struct !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(72) %64, i64 72, i1 false), !tbaa.struct !30
   %65 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 96
   %66 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %65, ptr noundef nonnull align 8 dereferenceable(128) %66, i64 128, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %65, ptr noundef nonnull align 8 dereferenceable(128) %66, i64 128, i1 false), !tbaa.struct !31
   %67 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 224
   %68 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 224
   %.not.i.i.i.i.i53 = icmp eq ptr %67, %5
-  br i1 %.not.i.i.i.i.i53, label %.lr.ph.i.i56, label %.lr.ph.i.i.i.i.i52, !llvm.loop !30
+  br i1 %.not.i.i.i.i.i53, label %.lr.ph.i.i56, label %.lr.ph.i.i.i.i.i52, !llvm.loop !32
 
 69:                                               ; preds = %.body.thread
   %70 = landingpad { ptr, i32 }
@@ -1004,25 +1004,25 @@ _ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(224) %.05.i.i57) #18
   %73 = getelementptr inbounds nuw i8, ptr %.05.i.i57, i64 224
   %.not.i.i58 = icmp eq ptr %73, %5
-  br i1 %.not.i.i58, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59, label %.lr.ph.i.i56, !llvm.loop !21
+  br i1 %.not.i.i58, label %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59, label %.lr.ph.i.i56, !llvm.loop !23
 
 _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59: ; preds = %.lr.ph.i.i56, %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit51
   %.not.i60 = icmp eq ptr %6, null
   br i1 %.not.i60, label %_ZNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE13_M_deallocateEPS2_m.exit61, label %74
 
 74:                                               ; preds = %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59
-  %75 = load ptr, ptr %11, align 8, !tbaa !24
+  %75 = load ptr, ptr %11, align 8, !tbaa !26
   %76 = ptrtoint ptr %75 to i64
   %77 = sub i64 %76, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %77) #19
   br label %_ZNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE13_M_deallocateEPS2_m.exit61
 
 _ZNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE13_M_deallocateEPS2_m.exit61: ; preds = %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59, %74
-  store ptr %40, ptr %0, align 8, !tbaa !20
+  store ptr %40, ptr %0, align 8, !tbaa !22
   %78 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %41, i64 %1
-  store ptr %78, ptr %4, align 8, !tbaa !18
+  store ptr %78, ptr %4, align 8, !tbaa !20
   %79 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %40, i64 %38
-  store ptr %79, ptr %11, align 8, !tbaa !24
+  store ptr %79, ptr %11, align 8, !tbaa !26
   br label %80
 
 80:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE13_M_deallocateEPS2_m.exit61, %2
@@ -1117,23 +1117,25 @@ attributes #22 = { builtin allocsize(0) }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"vtable pointer", !8, i64 0}
-!11 = !{!12, !15, i64 8}
-!12 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0, !15, i64 8, !7, i64 16}
-!13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
-!14 = !{!"p1 omnipotent char", !6, i64 0}
-!15 = !{!"long", !7, i64 0}
-!16 = !{!12, !14, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = !{!19, !5, i64 8}
-!19 = !{!"_ZTSNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!20 = !{!19, !5, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!19, !5, i64 16}
-!25 = !{!13, !14, i64 0}
-!26 = !{!15, !15, i64 0}
-!27 = distinct !{!27, !22}
-!28 = !{i64 0, i64 72, !17}
-!29 = !{i64 0, i64 128, !17}
-!30 = distinct !{!30, !22}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !17, i64 8}
+!14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !15, i64 0, !17, i64 8, !7, i64 16}
+!15 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !16, i64 0}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!14, !16, i64 0}
+!19 = !{!7, !7, i64 0}
+!20 = !{!21, !5, i64 8}
+!21 = !{!"_ZTSNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!22 = !{!21, !5, i64 0}
+!23 = distinct !{!23, !24, !12}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !24, !12}
+!26 = !{!21, !5, i64 16}
+!27 = !{!15, !16, i64 0}
+!28 = !{!17, !17, i64 0}
+!29 = distinct !{!29, !24, !12}
+!30 = !{i64 0, i64 72, !19}
+!31 = !{i64 0, i64 128, !19}
+!32 = distinct !{!32, !24, !12}

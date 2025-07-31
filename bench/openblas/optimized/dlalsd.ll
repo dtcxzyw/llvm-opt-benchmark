@@ -213,11 +213,11 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %gep719 = getelementptr double, ptr %invariant.gep718, i64 %indvars.iv.next686
   call void @drot_(ptr noundef nonnull @c__1, ptr noundef %gep717, ptr noundef nonnull @c__1, ptr noundef %gep719, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
   %exitcond.not = icmp eq i64 %indvars.iv.next686, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge646, label %88, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge646, label %88, !llvm.loop !13
 
 ._crit_edge646:                                   ; preds = %88, %.lr.ph650.split
   %.not615.not = icmp samesign ult i64 %indvars.iv688, %85
-  br i1 %.not615.not, label %.lr.ph650.splitthread-pre-split, label %.loopexit636, !llvm.loop !13
+  br i1 %.not615.not, label %.lr.ph650.splitthread-pre-split, label %.loopexit636, !llvm.loop !14
 
 .loopexit636:                                     ; preds = %._crit_edge646, %.lr.ph650, %._crit_edge, %56
   %93 = load i32, ptr %2, align 4, !tbaa !3
@@ -294,7 +294,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 126:                                              ; preds = %122, %123
   %indvars.iv.next692 = add nuw nsw i64 %indvars.iv691, 1
   %.not628.not = icmp samesign ult i64 %indvars.iv691, %118
-  br i1 %.not628.not, label %.lr.ph654, label %._crit_edge655, !llvm.loop !15
+  br i1 %.not628.not, label %.lr.ph654, label %._crit_edge655, !llvm.loop !16
 
 ._crit_edge655:                                   ; preds = %126, %107
   call void @dgemm_(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull @c_b11, ptr noundef %10, ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull @c_b6, ptr noundef nonnull %105, ptr noundef nonnull %2) #5
@@ -370,7 +370,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 173:                                              ; preds = %165, %170
   %indvars.iv.next695 = add nuw nsw i64 %indvars.iv694, 1
   %exitcond698.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count697
-  br i1 %exitcond698.not, label %._crit_edge660, label %165, !llvm.loop !16
+  br i1 %exitcond698.not, label %._crit_edge660, label %165, !llvm.loop !17
 
 ._crit_edge660:                                   ; preds = %173, %127
   %174 = load i32, ptr %23, align 4, !tbaa !3
@@ -577,7 +577,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.2 = phi i32 [ %.0594663, %._crit_edge708 ], [ %.1595, %306 ]
   %.1 = phi i32 [ %.0593664, %._crit_edge708 ], [ %308, %306 ]
   %.not618.not = icmp slt i64 %indvars.iv699, %179
-  br i1 %.not618.not, label %180, label %._crit_edge667, !llvm.loop !17
+  br i1 %.not618.not, label %180, label %._crit_edge667, !llvm.loop !18
 
 ._crit_edge667:                                   ; preds = %309, %._crit_edge660
   %310 = phi i32 [ 0, %._crit_edge660 ], [ %.2, %309 ]
@@ -630,7 +630,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double %334, ptr %322, align 8, !tbaa !7
   %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
   %.not619.not = icmp samesign ult i64 %indvars.iv702, %321
-  br i1 %.not619.not, label %.lr.ph675, label %._crit_edge676, !llvm.loop !18
+  br i1 %.not619.not, label %.lr.ph675, label %._crit_edge676, !llvm.loop !19
 
 ._crit_edge676:                                   ; preds = %330, %._crit_edge667
   store i32 1, ptr %19, align 4, !tbaa !3
@@ -738,7 +738,7 @@ define void @dlalsd_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 413:                                              ; preds = %351, %368, %359
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
   %.not620.not = icmp samesign ult i64 %indvars.iv705, %339
-  br i1 %.not620.not, label %340, label %._crit_edge681, !llvm.loop !19
+  br i1 %.not620.not, label %340, label %._crit_edge681, !llvm.loop !20
 
 ._crit_edge681:                                   ; preds = %413, %._crit_edge676
   call void @dlascl_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b11, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef nonnull @c__1, ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %12) #5
@@ -821,13 +821,14 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}

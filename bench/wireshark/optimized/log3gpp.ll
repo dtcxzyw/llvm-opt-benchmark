@@ -489,7 +489,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %73 = mul nuw nsw i32 %72, 1000
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %73, ptr %74, align 8
-  %75 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %75 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %76 = trunc nuw i8 %75 to i1
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #15
@@ -607,7 +607,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   store i8 %139, ptr %143, align 1
   %144 = add i32 %.097, 2
   %.not54 = icmp sgt i32 %144, %80
-  br i1 %.not54, label %.loopexit, label %115, !llvm.loop !10
+  br i1 %.not54, label %.loopexit, label %115, !llvm.loop !11
 
 145:                                              ; preds = %71
   %146 = sext i32 %80 to i64
@@ -859,7 +859,7 @@ read_new_line.exit:                               ; preds = %20
   %99 = trunc i64 %98 to i32
   %100 = add i32 %90, 2
   %101 = add i32 %100, %99
-  %102 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %102 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %135, label %.preheader
 
@@ -934,7 +934,7 @@ hex_from_char.exit44:                             ; preds = %hex_from_char.exit,
   store i8 %129, ptr %133, align 1
   %134 = add i32 %.053, 2
   %.not = icmp sgt i32 %134, %72
-  br i1 %.not, label %.loopexit, label %105, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %105, !llvm.loop !12
 
 135:                                              ; preds = %65
   %136 = sext i32 %101 to i64
@@ -1027,7 +1027,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %20 = icmp slt i64 %indvars.iv, %12
   %21 = and i1 %20, %.not
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %21, label %13, label %22, !llvm.loop !12
+  br i1 %21, label %13, label %22, !llvm.loop !13
 
 22:                                               ; preds = %13
   br i1 %20, label %.preheader184, label %.loopexit
@@ -1063,7 +1063,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %37 = trunc nuw i64 %indvars.iv.next275 to i32
   %38 = icmp sgt i32 %1, %37
   %or.cond168 = and i1 %38, %or.cond
-  br i1 %or.cond168, label %.lr.ph, label %.critedge, !llvm.loop !13
+  br i1 %or.cond168, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %31
   %39 = icmp samesign ult i64 %indvars.iv272, 16
@@ -1114,7 +1114,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %55 = add i32 %54, %49
   %56 = mul i32 %.0135217, 10
   %57 = icmp samesign ugt i64 %indvars.iv276, 1
-  br i1 %57, label %.lr.ph219, label %.sink.split, !llvm.loop !14
+  br i1 %57, label %.lr.ph219, label %.sink.split, !llvm.loop !15
 
 .lr.ph226:                                        ; preds = %.preheader182, %63
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %63 ], [ 0, %.preheader182 ]
@@ -1139,7 +1139,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %or.cond3 = select i1 %67, i1 %68, i1 false
   %69 = icmp slt i64 %indvars.iv.next280, %12
   %or.cond170 = and i1 %69, %or.cond3
-  br i1 %or.cond170, label %.lr.ph226, label %.critedge5.loopexit, !llvm.loop !15
+  br i1 %or.cond170, label %.lr.ph226, label %.critedge5.loopexit, !llvm.loop !16
 
 .critedge5.loopexit:                              ; preds = %63
   br i1 %69, label %.preheader181, label %.loopexit
@@ -1234,7 +1234,7 @@ switch.early.test:                                ; preds = %.lr.ph239
   %or.cond7 = select i1 %115, i1 %116, i1 false
   %117 = icmp slt i64 %indvars.iv.next289, %12
   %or.cond172 = and i1 %117, %or.cond7
-  br i1 %or.cond172, label %.lr.ph239, label %.critedge9.loopexit, !llvm.loop !16
+  br i1 %or.cond172, label %.lr.ph239, label %.critedge9.loopexit, !llvm.loop !17
 
 .critedge9.loopexit:                              ; preds = %111
   %118 = trunc nsw i64 %indvars.iv.next289 to i32
@@ -1282,7 +1282,7 @@ switch.early.test:                                ; preds = %.lr.ph239
   %137 = and i1 %136, %.not154
   %indvars.iv.next296 = add i32 %indvars.iv295, 1
   %indvars.iv.next303 = add i32 %indvars.iv302, -1
-  br i1 %137, label %.preheader, label %138, !llvm.loop !17
+  br i1 %137, label %.preheader, label %138, !llvm.loop !18
 
 138:                                              ; preds = %.preheader
   %139 = trunc nsw i64 %indvars.iv290 to i32
@@ -1345,7 +1345,7 @@ switch.early.test:                                ; preds = %.lr.ph239
   %indvars.iv.next298 = add nsw i64 %indvars.iv297, 1
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge11.thread.loopexit, label %.lr.ph247, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge11.thread.loopexit, label %.lr.ph247, !llvm.loop !19
 
 .critedge11:                                      ; preds = %.lr.ph247
   store i8 0, ptr %155, align 1
@@ -1443,16 +1443,17 @@ attributes #16 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

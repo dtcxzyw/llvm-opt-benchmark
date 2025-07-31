@@ -837,9 +837,9 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %111 = select i1 %110, ptr @.str.10, ptr @.str.11
   %112 = getelementptr inbounds nuw [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %indvars.iv291
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load i8, ptr %113, align 8, !tbaa !25
+  %114 = load i8, ptr %113, align 8, !tbaa !26
   %115 = sext i8 %114 to i32
-  %116 = load ptr, ptr %112, align 8, !tbaa !26
+  %116 = load ptr, ptr %112, align 8, !tbaa !27
   %.not99 = icmp eq ptr %116, null
   %.str.12..str.13 = select i1 %.not99, ptr @.str.13, ptr @.str.12
   %spec.select = select i1 %.not99, ptr @.str.11, ptr %116
@@ -847,7 +847,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.9, ptr noundef nonnull %111, i32 noundef %115, ptr noundef nonnull %.str.12..str.13, ptr noundef nonnull %spec.select, ptr noundef nonnull %117) #24
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 23
-  br i1 %exitcond294.not, label %119, label %108, !llvm.loop !27
+  br i1 %exitcond294.not, label %119, label %108, !llvm.loop !28
 
 119:                                              ; preds = %108
   %120 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -858,10 +858,10 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %indvars.iv295 = phi i64 [ 0, %119 ], [ %indvars.iv.next296, %134 ]
   %123 = load ptr, ptr @stderr, align 8, !tbaa !20
   %124 = getelementptr inbounds nuw [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %indvars.iv295
-  %125 = load ptr, ptr %124, align 8, !tbaa !28
+  %125 = load ptr, ptr %124, align 8, !tbaa !29
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.15, ptr noundef %125) #24
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !30
+  %128 = load ptr, ptr %127, align 8, !tbaa !31
   %.not98 = icmp eq ptr %128, null
   %129 = load ptr, ptr @stderr, align 8, !tbaa !20
   br i1 %.not98, label %132, label %130
@@ -877,11 +877,11 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 134:                                              ; preds = %132, %130
   %135 = load ptr, ptr @stderr, align 8, !tbaa !20
   %136 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !31
+  %137 = load ptr, ptr %136, align 8, !tbaa !32
   %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.18, ptr noundef %137) #24
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next296, 4
-  br i1 %exitcond298.not, label %.loopexit, label %122, !llvm.loop !32
+  br i1 %exitcond298.not, label %.loopexit, label %122, !llvm.loop !33
 
 139:                                              ; preds = %97
   %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 88), align 8, !tbaa !17
@@ -924,7 +924,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %.1 = getelementptr inbounds nuw i8, ptr %.1244, i64 1
   %157 = load i8, ptr %.0, align 1, !tbaa !22
   %.not75 = icmp eq i8 %157, 0
-  br i1 %.not75, label %.loopexit211, label %.lr.ph, !llvm.loop !33
+  br i1 %.not75, label %.loopexit211, label %.lr.ph, !llvm.loop !34
 
 .loopexit211:                                     ; preds = %.lr.ph, %150, %139
   %.051 = phi ptr [ %148, %139 ], [ %.1241, %150 ], [ %.1, %.lr.ph ]
@@ -989,7 +989,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br label %187
 
 187:                                              ; preds = %184, %164
-  store ptr null, ptr %30, align 8, !tbaa !34
+  store ptr null, ptr %30, align 8, !tbaa !35
   %188 = icmp sgt i32 %32, 1
   br i1 %188, label %.lr.ph247.preheader, label %._crit_edge.thread
 
@@ -1012,13 +1012,13 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %192 = call ptr @pkg_appendToList(ptr noundef %.sroa.0.0245, ptr noundef nonnull %30, ptr noundef %191)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph247, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph247, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph247
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #21
-  store ptr null, ptr %27, align 8, !tbaa !34
+  store ptr null, ptr %27, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #21
-  store ptr null, ptr %28, align 8, !tbaa !34
+  store ptr null, ptr %28, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %29) #21
   %.not126.i = icmp eq ptr %192, null
   br i1 %.not126.i, label %.loopexit210, label %.lr.ph130.i.preheader
@@ -1037,12 +1037,12 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 
 193:                                              ; preds = %.lr.ph130.i
   %194 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %195 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %195 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.149, ptr noundef %195) #21
   br label %197
 
 197:                                              ; preds = %193, %.lr.ph130.i
-  %198 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %198 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %199 = call ptr @T_FileStream_open(ptr noundef %198, ptr noundef nonnull @.str.104)
   %.not82.i = icmp eq ptr %199, null
   br i1 %.not82.i, label %281, label %.preheader96.i
@@ -1063,7 +1063,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 
 204:                                              ; preds = %.lr.ph.i102
   %205 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %206 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %206 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.151, ptr noundef %206, i32 noundef %201, i32 noundef 16300) #24
   call void @exit(i32 noundef 1) #27
   unreachable
@@ -1075,7 +1075,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %210 = call i32 @isspace(i32 noundef %209) #25
   %.not84.i = icmp eq i32 %210, 0
   %211 = getelementptr inbounds nuw i8, ptr %.070.i, i64 1
-  br i1 %.not84.i, label %.preheader94.i, label %.preheader95.i, !llvm.loop !39
+  br i1 %.not84.i, label %.preheader94.i, label %.preheader95.i, !llvm.loop !40
 
 .preheader94.i:                                   ; preds = %.preheader95.i, %214
   %212 = phi i8 [ %.pr.i, %214 ], [ %208, %.preheader95.i ]
@@ -1094,7 +1094,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 214:                                              ; preds = %.preheader94.i
   %215 = getelementptr inbounds nuw i8, ptr %.068.i, i64 1
   %.pr.i = load i8, ptr %215, align 1, !tbaa !22
-  br label %.preheader94.i, !llvm.loop !40
+  br label %.preheader94.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.preheader94.i, %213
   %216 = phi i8 [ %.pre.i, %213 ], [ %208, %.preheader94.i ]
@@ -1108,7 +1108,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %.sroa.10.2 = phi ptr [ %.sroa.10.1, %.loopexit.i ], [ %.sroa.10.1, %.loopexit.i ], [ %279, %271 ], [ %.sroa.10.4, %.preheader93.i ]
   %217 = call ptr @T_FileStream_readLine(ptr noundef nonnull %199, ptr noundef nonnull %29, i32 noundef 16384)
   %.not83.i = icmp eq ptr %217, null
-  br i1 %.not83.i, label %._crit_edge.i103, label %.lr.ph.i102, !llvm.loop !41
+  br i1 %.not83.i, label %._crit_edge.i103, label %.lr.ph.i102, !llvm.loop !42
 
 .preheader93.i:                                   ; preds = %.loopexit.i, %271
   %.sroa.14.4 = phi ptr [ %251, %271 ], [ %.sroa.14.1, %.loopexit.i ]
@@ -1129,7 +1129,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 220:                                              ; preds = %.preheader.i
   %221 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.pr92.i = load i8, ptr %221, align 1, !tbaa !22
-  br label %.preheader.i, !llvm.loop !42
+  br label %.preheader.i, !llvm.loop !43
 
 222:                                              ; preds = %.preheader.i
   %223 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
@@ -1139,7 +1139,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 
 226:                                              ; preds = %222
   %227 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %228 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %228 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.152, ptr noundef %228, i32 noundef %201) #24
   call void @exit(i32 noundef 1) #27
   unreachable
@@ -1154,7 +1154,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 
 233:                                              ; preds = %230
   %234 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %235 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %235 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %236 = ptrtoint ptr %231 to i64
   %237 = ptrtoint ptr %29 to i64
   %238 = sub i64 %236, %237
@@ -1227,7 +1227,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %278 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %266, ptr noundef nonnull dereferenceable(1) %249) #21
   %279 = call ptr @pkg_appendToList(ptr noundef %.sroa.10.4, ptr noundef nonnull %28, ptr noundef nonnull %266)
   %.not86.i = icmp eq ptr %.072.i, null
-  br i1 %.not86.i, label %.backedge.i, label %.preheader93.i, !llvm.loop !43
+  br i1 %.not86.i, label %.backedge.i, label %.preheader93.i, !llvm.loop !44
 
 ._crit_edge.i103:                                 ; preds = %.backedge.i, %.preheader96.i
   %.sroa.14.3 = phi ptr [ %.sroa.14.0, %.preheader96.i ], [ %.sroa.14.2, %.backedge.i ]
@@ -1235,13 +1235,13 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %.1.lcssa.i = phi i32 [ %.0127.i, %.preheader96.i ], [ %201, %.backedge.i ]
   call void @T_FileStream_close(ptr noundef nonnull %199)
   %280 = getelementptr inbounds nuw i8, ptr %.069128.i, i64 8
-  %.069.i = load ptr, ptr %280, align 8, !tbaa !34
+  %.069.i = load ptr, ptr %280, align 8, !tbaa !35
   %.not.i104 = icmp eq ptr %.069.i, null
-  br i1 %.not.i104, label %.loopexit210, label %.lr.ph130.i, !llvm.loop !44
+  br i1 %.not.i104, label %.loopexit210, label %.lr.ph130.i, !llvm.loop !45
 
 281:                                              ; preds = %197
   %282 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %283 = load ptr, ptr %.069128.i, align 8, !tbaa !37
+  %283 = load ptr, ptr %.069128.i, align 8, !tbaa !38
   %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.150, ptr noundef %283) #24
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %29) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #21
@@ -1273,7 +1273,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #21
   store i32 0, ptr %17, align 4, !tbaa !14
   %289 = call noalias dereferenceable_or_null(136) ptr @uprv_malloc_77(i64 noundef 136) #22
-  store ptr %289, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  store ptr %289, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %.not56.i.i = icmp eq ptr %289, null
   br i1 %.not56.i.i, label %._crit_edge.i.i, label %.preheader48.i.i.preheader
 
@@ -1285,7 +1285,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 .preheader48.i.i.us:                              ; preds = %.preheader48.i.i.preheader, %294
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %294 ], [ 0, %.preheader48.i.i.preheader ]
   %291 = call noalias dereferenceable_or_null(4096) ptr @uprv_malloc_77(i64 noundef 4096) #22
-  %292 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %292 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv.i.i.us
   store ptr %291, ptr %293, align 8, !tbaa !16
   %.not42.i.i.us = icmp eq ptr %291, null
@@ -1295,10 +1295,10 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   store i8 0, ptr %291, align 1, !tbaa !22
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 17
-  br i1 %exitcond.i.i.us, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, label %.preheader48.i.i.us, !llvm.loop !48
+  br i1 %exitcond.i.i.us, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, label %.preheader48.i.i.us, !llvm.loop !49
 
 thread-pre-split.i.i:                             ; preds = %346
-  %.pr.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %.pr.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.preheader48.i.i
 
@@ -1310,7 +1310,7 @@ thread-pre-split.i.i:                             ; preds = %346
 296:                                              ; preds = %300, %.preheader48.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader48.i.i ], [ %indvars.iv.next.i.i, %300 ]
   %297 = call noalias ptr @uprv_malloc_77(i64 noundef %295) #22
-  %298 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %298 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv.i.i
   store ptr %297, ptr %299, align 8, !tbaa !16
   %.not42.i.i = icmp eq ptr %297, null
@@ -1320,7 +1320,7 @@ thread-pre-split.i.i:                             ; preds = %346
   store i8 0, ptr %297, align 1, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.i.i, label %.critedge.i.i, label %296, !llvm.loop !50
+  br i1 %exitcond.i.i, label %.critedge.i.i, label %296, !llvm.loop !51
 
 .split.us:                                        ; preds = %296, %.preheader48.i.i.us
   %.us-phi = phi i64 [ %indvars.iv.i.i.us, %.preheader48.i.i.us ], [ %indvars.iv.i.i, %296 ]
@@ -1330,7 +1330,7 @@ thread-pre-split.i.i:                             ; preds = %346
   br i1 %303, label %.lr.ph.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.split.us
-  %304 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %304 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %305 = shl nuw nsw i64 %.us-phi, 3
   %306 = getelementptr nuw i8, ptr %304, i64 %305
   %scevgep.i.i = getelementptr nuw i8, ptr %306, i64 8
@@ -1349,7 +1349,7 @@ thread-pre-split.i.i:                             ; preds = %346
 310:                                              ; preds = %.critedge.i.i
   %311 = load ptr, ptr @stdout, align 8, !tbaa !20
   %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.81, ptr noundef nonnull %167) #21
-  %.pre78.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %.pre78.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   br label %313
 
 313:                                              ; preds = %310, %.critedge.i.i
@@ -1361,7 +1361,7 @@ thread-pre-split.i.i:                             ; preds = %346
   br i1 %317, label %.preheader.preheader.i.i, label %326
 
 .preheader.preheader.i.i:                         ; preds = %313
-  %.pre79.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %.pre79.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %324, %.preheader.preheader.i.i
@@ -1374,7 +1374,7 @@ thread-pre-split.i.i:                             ; preds = %346
 
 321:                                              ; preds = %.preheader.i.i
   call void @uprv_free_77(ptr noundef nonnull %320)
-  %322 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %322 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %323 = getelementptr inbounds nuw ptr, ptr %322, i64 %indvars.iv64.i.i
   store ptr null, ptr %323, align 8, !tbaa !16
   br label %324
@@ -1383,7 +1383,7 @@ thread-pre-split.i.i:                             ; preds = %346
   %325 = phi ptr [ %318, %.preheader.i.i ], [ %322, %321 ]
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, 17
-  br i1 %exitcond67.not.i.i, label %.loopexit47.i.i, label %.preheader.i.i, !llvm.loop !51
+  br i1 %exitcond67.not.i.i, label %.loopexit47.i.i, label %.preheader.i.i, !llvm.loop !52
 
 326:                                              ; preds = %313
   %327 = icmp slt i32 %316, 1
@@ -1414,19 +1414,19 @@ thread-pre-split.i.i:                             ; preds = %346
   %338 = load ptr, ptr @stdout, align 8, !tbaa !20
   %339 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL10FLAG_NAMES, i64 0, i64 %indvars.iv68.i.i
   %340 = load ptr, ptr %339, align 8, !tbaa !16
-  %341 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %341 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %342 = getelementptr inbounds nuw ptr, ptr %341, i64 %indvars.iv68.i.i
   %343 = load ptr, ptr %342, align 8, !tbaa !16
   %344 = trunc nuw nsw i64 %indvars.iv68.i.i to i32
   %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.84, i32 noundef %344, ptr noundef %340, ptr noundef %343) #21
   %indvars.iv.next69.i.i = add nuw nsw i64 %indvars.iv68.i.i, 1
   %exitcond71.not.i.i = icmp eq i64 %indvars.iv.next69.i.i, 17
-  br i1 %exitcond71.not.i.i, label %335, label %337, !llvm.loop !52
+  br i1 %exitcond71.not.i.i, label %335, label %337, !llvm.loop !53
 
 346:                                              ; preds = %335, %.loopexit47.i.i
   %347 = load i32, ptr %17, align 4, !tbaa !14
   %348 = icmp eq i32 %347, 15
-  br i1 %348, label %thread-pre-split.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, !llvm.loop !53
+  br i1 %348, label %thread-pre-split.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, !llvm.loop !54
 
 _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %346, %294, %328, %._crit_edge.i.i, %.lr.ph.i.i, %.split.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #21
@@ -1452,7 +1452,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %346, %294, %328, %
   br label %357
 
 357:                                              ; preds = %354, %351
-  %358 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %358 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %14) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %14, i8 0, i64 16384, i1 false)
   %359 = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %18)
@@ -1503,7 +1503,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %346, %294, %328, %
   br label %376
 
 376:                                              ; preds = %372, %.lr.ph.i210.i
-  %377 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %377 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 128
   %379 = load ptr, ptr %378, align 8, !tbaa !16
   %380 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 16384, ptr noundef nonnull @.str.105, ptr noundef %379, ptr noundef %.sroa.45.0, ptr noundef nonnull @.str.55, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull @.str.55, ptr noundef nonnull %16) #21
@@ -1528,7 +1528,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %346, %294, %328, %
 391:                                              ; preds = %384, %376
   %392 = call ptr @T_FileStream_readLine(ptr noundef nonnull %367, ptr noundef nonnull %16, i32 noundef 4096)
   %.not24.i.i = icmp eq ptr %392, null
-  br i1 %.not24.i.i, label %._crit_edge.i213.i, label %.lr.ph.i210.i
+  br i1 %.not24.i.i, label %._crit_edge.i213.i, label %.lr.ph.i210.i, !llvm.loop !55
 
 ._crit_edge.i213.i:                               ; preds = %391, %.preheader.i209.i
   %393 = call i32 @T_FileStream_eof(ptr noundef nonnull %367)
@@ -1584,7 +1584,7 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %401, %363
   br label %411
 
 411:                                              ; preds = %408, %402
-  %412 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %412 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !38
   %413 = call i32 @writePackageDatFile(ptr noundef nonnull %21, ptr noundef %.sroa.66.0, ptr noundef %.sroa.45.0, ptr noundef %412, ptr noundef null, i8 noundef signext 108)
   %.not167.i = icmp eq i32 %413, 0
   br i1 %.not167.i, label %417, label %414
@@ -1671,7 +1671,7 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %401, %363
   br label %448
 
 448:                                              ; preds = %.critedge.i218.i, %440
-  %449 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %449 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 128
   %451 = load ptr, ptr %450, align 8, !tbaa !16
   %452 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16384, ptr noundef nonnull @.str.111, ptr noundef %451, ptr noundef nonnull %23, ptr noundef nonnull %177) #21
@@ -1727,7 +1727,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
   store i8 %467, ptr %469, align 1, !tbaa !22
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i113, 10
-  br i1 %exitcond.not.i, label %.loopexit.i108, label %.preheader.i111, !llvm.loop !54
+  br i1 %exitcond.not.i, label %.loopexit.i108, label %.preheader.i111, !llvm.loop !56
 
 472:                                              ; preds = %465
   %473 = and i8 %288, -9
@@ -1742,7 +1742,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
 .loopexit.i108:                                   ; preds = %471, %474, %472, %470
   %477 = phi ptr [ null, %474 ], [ null, %472 ], [ %142, %470 ], [ %142, %471 ]
   %.0129.i = phi i8 [ 1, %474 ], [ 1, %472 ], [ 0, %470 ], [ 0, %471 ]
-  %478 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %478 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 40
   %480 = load ptr, ptr %479, align 8, !tbaa !16
   %481 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %480) #25
@@ -1776,7 +1776,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
 
 505:                                              ; preds = %502, %.loopexit.i108
   %or.cond.i.i = or i1 %.not168.not.i, %491
-  %506 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %506 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 16
   %508 = load ptr, ptr %507, align 8, !tbaa !16
   br i1 %or.cond.i.i, label %509, label %510
@@ -1786,11 +1786,11 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
 
 510:                                              ; preds = %505
   %511 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef %508) #21
-  %512 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %512 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 8
   %514 = load ptr, ptr %513, align 8, !tbaa !16
   %515 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 256), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef %514) #21
-  %516 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %516 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %518 = load ptr, ptr %517, align 8, !tbaa !16
   %519 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef %518) #21
@@ -1798,22 +1798,22 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
 
 520:                                              ; preds = %509
   %521 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef %508, ptr noundef nonnull %495, ptr noundef nonnull %493) #21
-  %522 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %522 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8, !tbaa !16
   %525 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 256), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef %524, ptr noundef nonnull %495, ptr noundef nonnull %25) #21
-  %526 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %526 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8, !tbaa !16
   br label %538
 
 529:                                              ; preds = %509
   %530 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 768), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef nonnull %493, ptr noundef nonnull %495, ptr noundef %508) #21
-  %531 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %531 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   %533 = load ptr, ptr %532, align 8, !tbaa !16
   %534 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 256), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %498, ptr noundef nonnull %25, ptr noundef nonnull %495, ptr noundef %533) #21
-  %535 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %535 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8, !tbaa !16
   br label %538
@@ -1837,7 +1837,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %459, %456, %448, %4
   br i1 %547, label %548, label %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i
 
 548:                                              ; preds = %546
-  %549 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %549 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 24
   %551 = load ptr, ptr %550, align 8, !tbaa !16
   %552 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512), i64 noundef 256, ptr noundef nonnull @.str.116, ptr noundef nonnull @_ZL12libFileNames, ptr noundef %551) #21
@@ -1917,7 +1917,7 @@ _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.thread.i: ; preds = %553, %
   br i1 %.not87, label %579, label %._crit_edge.i109
 
 579:                                              ; preds = %578
-  %580 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %580 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %581 = load ptr, ptr %580, align 8, !tbaa !16
   %582 = load i8, ptr %581, align 1, !tbaa !22
   %.not177.i = icmp eq i8 %582, 0
@@ -1951,7 +1951,7 @@ _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.thread.i: ; preds = %553, %
   %596 = add i64 %595, -1
   %597 = getelementptr inbounds nuw [4096 x i8], ptr %11, i64 0, i64 %596
   store i8 111, ptr %597, align 1, !tbaa !22
-  %598 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %598 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 48
   %600 = load ptr, ptr %599, align 8, !tbaa !16
   %601 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %600) #25
@@ -1988,7 +1988,7 @@ _ZN6icu_7711LocalMemoryIcED2Ev.exit.i.i:          ; preds = %613
   resume { ptr, i32 } %614
 
 618:                                              ; preds = %593
-  %619 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %619 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 48
   %621 = load ptr, ptr %620, align 8, !tbaa !16
   %622 = getelementptr inbounds nuw i8, ptr %619, i64 56
@@ -2125,7 +2125,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
   br i1 %681, label %682, label %684
 
 682:                                              ; preds = %.lr.ph.i224.i
-  %683 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %683 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !38
   call void @createCommonDataFile(ptr noundef nonnull %.sroa.38135.0, ptr noundef nonnull %144, ptr noundef %.sroa.29.0, ptr noundef null, ptr noundef %.sroa.45.0, ptr noundef %.sroa.66.0, ptr noundef %683, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %165, ptr noundef nonnull %5)
   store i8 0, ptr %676, align 1, !tbaa !22
   br label %717
@@ -2134,8 +2134,8 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9) #21
-  %685 = load ptr, ptr %.06698.i.i, align 8, !tbaa !37
-  %686 = load ptr, ptr %.06997.i.i, align 8, !tbaa !37
+  %685 = load ptr, ptr %.06698.i.i, align 8, !tbaa !38
+  %686 = load ptr, ptr %.06997.i.i, align 8, !tbaa !38
   store i8 0, ptr %8, align 16, !tbaa !22
   store i8 0, ptr %7, align 16, !tbaa !22
   br label %687
@@ -2182,7 +2182,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
 
 706:                                              ; preds = %700, %699
   %indvars.iv.next.i226.i = add nuw nsw i64 %indvars.iv.i225.i, 1
-  br label %694, !llvm.loop !55
+  br label %694, !llvm.loop !57
 
 707:                                              ; preds = %703, %687
   %708 = load i8, ptr %7, align 16, !tbaa !22
@@ -2190,7 +2190,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
   %indvars.iv.next102.i.i = add nuw nsw i64 %indvars.iv101.i.i, 1
   %709 = icmp samesign ult i64 %indvars.iv101.i.i, 8
   %or.cond99.i.i = select i1 %.not79.i.i, i1 %709, i1 false
-  br i1 %or.cond99.i.i, label %687, label %710, !llvm.loop !56
+  br i1 %or.cond99.i.i, label %687, label %710, !llvm.loop !58
 
 710:                                              ; preds = %707
   br i1 %.not.i107, label %713, label %711
@@ -2219,7 +2219,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
   %720 = add i64 %719, -1
   %721 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %720
   store i8 111, ptr %721, align 1, !tbaa !22
-  %722 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %722 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 48
   %724 = load ptr, ptr %723, align 8, !tbaa !16
   %725 = getelementptr inbounds nuw i8, ptr %722, i64 56
@@ -2245,9 +2245,9 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
 
 736:                                              ; preds = %734
   %737 = getelementptr inbounds nuw i8, ptr %.06698.i.i, i64 8
-  %738 = load ptr, ptr %737, align 8, !tbaa !57
+  %738 = load ptr, ptr %737, align 8, !tbaa !59
   %739 = getelementptr inbounds nuw i8, ptr %.06997.i.i, i64 8
-  %740 = load ptr, ptr %739, align 8, !tbaa !57
+  %740 = load ptr, ptr %739, align 8, !tbaa !59
   br label %741
 
 741:                                              ; preds = %736, %734
@@ -2255,7 +2255,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %638
   %.167.ph.i.i = phi ptr [ %.06698.i.i, %734 ], [ %738, %736 ]
   %742 = add nuw i32 %.07396.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.07396.i.i, %661
-  br i1 %exitcond.not.i.i, label %.critedge.i230.i, label %.lr.ph.i224.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %.critedge.i230.i, label %.lr.ph.i224.i, !llvm.loop !60
 
 743:                                              ; preds = %731
   %744 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -2291,7 +2291,7 @@ _ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i: ; preds = %749, %6
   %753 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %751, ptr noundef nonnull @.str.128)
   call void @T_FileStream_close(ptr noundef nonnull %751)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %4) #21
-  %754 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %754 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 48
   %756 = load ptr, ptr %755, align 8, !tbaa !16
   %757 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16384, ptr noundef nonnull @.str.132, ptr noundef %756, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130) #21
@@ -2383,7 +2383,7 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %785, %783, %_ZL22pk
 
 797:                                              ; preds = %794, %.thread240.i
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #21
-  %798 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %798 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
   %800 = load ptr, ptr %799, align 8, !tbaa !16
   %801 = getelementptr inbounds nuw i8, ptr %798, i64 8
@@ -2408,7 +2408,7 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %785, %783, %_ZL22pk
   %..i.i = select i1 %491, ptr %143, ptr %802
   %spec.select.i.i = select i1 %491, ptr %802, ptr %143
   %815 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512), i64 noundef 256, ptr noundef nonnull @.str.142, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %814, ptr noundef %..i.i, ptr noundef %spec.select.i.i) #21
-  %816 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %816 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 104
   %818 = load ptr, ptr %817, align 8, !tbaa !16
   %819 = getelementptr inbounds nuw i8, ptr %816, i64 112
@@ -2426,7 +2426,7 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %785, %783, %_ZL22pk
   br i1 %.not.i.i235.i, label %828, label %849
 
 828:                                              ; preds = %825, %809
-  %829 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %829 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 120
   %831 = load ptr, ptr %830, align 8, !tbaa !16
   %832 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16384, ptr noundef nonnull @.str.139, ptr noundef %831, ptr noundef nonnull %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512)) #21
@@ -2523,7 +2523,7 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %350, %_ZL19pkg_inst
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %20) #21
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %19) #21
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %18) #21
-  %873 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %873 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %.not90 = icmp eq ptr %873, null
   br i1 %.not90, label %881, label %.preheader
 
@@ -2537,14 +2537,14 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %350, %_ZL19pkg_inst
 
 877:                                              ; preds = %.preheader
   call void @uprv_free_77(ptr noundef nonnull %876)
-  %.pre299 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %.pre299 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   br label %878
 
 878:                                              ; preds = %.preheader, %877
   %879 = phi ptr [ %874, %.preheader ], [ %.pre299, %877 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 17
-  br i1 %exitcond290.not, label %880, label %.preheader, !llvm.loop !59
+  br i1 %exitcond290.not, label %880, label %.preheader, !llvm.loop !61
 
 880:                                              ; preds = %878
   call void @uprv_free_77(ptr noundef %879)
@@ -2640,7 +2640,7 @@ declare signext i8 @isFileModTimeLater(ptr noundef, ptr noundef, i8 noundef sign
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %0, ptr noundef nonnull %1, i8 noundef signext range(i8 0, 2) %2) unnamed_addr #16 {
   %4 = alloca [16384 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %4) #21
-  %5 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %5 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16384, ptr noundef nonnull @.str.118, ptr noundef nonnull %1, ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512), ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512)) #21
@@ -2695,7 +2695,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
   br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %6
-  %8 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %8 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
@@ -2728,7 +2728,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
 33:                                               ; preds = %7, %6
   %.129 = phi ptr [ %3, %6 ], [ %28, %7 ]
   %.0 = phi i8 [ 0, %6 ], [ 1, %7 ]
-  %34 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %34 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 112
@@ -2746,7 +2746,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
   br i1 %.not.i, label %46, label %_ZL10runCommandPKca.exit42
 
 46:                                               ; preds = %33, %43
-  %47 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %47 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.129, ptr noundef nonnull dereferenceable(1) @.str.139, ptr noundef %49, ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12libFileNames, i64 512)) #21
@@ -2765,7 +2765,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
   br i1 %.not, label %58, label %98
 
 58:                                               ; preds = %57
-  %59 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %59 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #25
@@ -2812,7 +2812,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
 98:                                               ; preds = %58, %57
   %.3 = phi ptr [ %3, %57 ], [ %93, %58 ]
   %.2 = phi i8 [ 0, %57 ], [ 1, %58 ]
-  %99 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %99 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %101 = load ptr, ptr %100, align 8, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 72
@@ -2872,7 +2872,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca(
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %2) #21
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #21
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #21
-  %5 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %5 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %char0 = load i8, ptr %7, align 1
@@ -2911,7 +2911,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca(
   br label %_ZL10runCommandPKca.exit12
 
 28:                                               ; preds = %15, %20
-  %29 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
+  %29 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !16
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %9, ptr noundef %31) #21
@@ -2993,7 +2993,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14getPkgDataPathPKc
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #21
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 0, ptr %6, align 8, !tbaa !60
+  store i32 0, ptr %6, align 8, !tbaa !62
   %7 = load ptr, ptr %3, align 8, !tbaa !4
   store i8 0, ptr %7, align 1, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
@@ -3140,42 +3140,44 @@ attributes #27 = { cold noreturn nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !22 = !{!8, !8, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!18, !8, i64 32}
-!26 = !{!18, !6, i64 0}
-!27 = distinct !{!27, !24}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"_ZTS3$_0", !6, i64 0, !6, i64 8, !6, i64 16}
-!30 = !{!29, !6, i64 8}
-!31 = !{!29, !6, i64 16}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS9_CharList", !7, i64 0}
-!36 = distinct !{!36, !24}
-!37 = !{!38, !6, i64 0}
-!38 = !{!"_ZTS9_CharList", !6, i64 0, !35, i64 8}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = distinct !{!41, !24}
-!42 = distinct !{!42, !24}
-!43 = distinct !{!43, !24}
-!44 = distinct !{!44, !24}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p2 omnipotent char", !47, i64 0}
-!47 = !{!"any p2 pointer", !7, i64 0}
-!48 = distinct !{!48, !24, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !24}
-!51 = distinct !{!51, !24}
-!52 = distinct !{!52, !24}
-!53 = distinct !{!53, !24}
-!54 = distinct !{!54, !24}
-!55 = distinct !{!55, !24}
-!56 = distinct !{!56, !24}
-!57 = !{!38, !35, i64 8}
-!58 = distinct !{!58, !24}
-!59 = distinct !{!59, !24}
-!60 = !{!61, !10, i64 56}
-!61 = !{!"_ZTSN6icu_7710CharStringE", !5, i64 0, !10, i64 56}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!18, !8, i64 32}
+!27 = !{!18, !6, i64 0}
+!28 = distinct !{!28, !24, !25}
+!29 = !{!30, !6, i64 0}
+!30 = !{!"_ZTS3$_0", !6, i64 0, !6, i64 8, !6, i64 16}
+!31 = !{!30, !6, i64 8}
+!32 = !{!30, !6, i64 16}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS9_CharList", !7, i64 0}
+!37 = distinct !{!37, !24, !25}
+!38 = !{!39, !6, i64 0}
+!39 = !{!"_ZTS9_CharList", !6, i64 0, !36, i64 8}
+!40 = distinct !{!40, !24, !25}
+!41 = distinct !{!41, !24, !25}
+!42 = distinct !{!42, !24, !25}
+!43 = distinct !{!43, !24, !25}
+!44 = distinct !{!44, !24, !25}
+!45 = distinct !{!45, !24, !25}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p2 omnipotent char", !48, i64 0}
+!48 = !{!"any p2 pointer", !7, i64 0}
+!49 = distinct !{!49, !24, !25, !50}
+!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !24, !25}
+!52 = distinct !{!52, !24, !25}
+!53 = distinct !{!53, !24, !25}
+!54 = distinct !{!54, !24, !25}
+!55 = distinct !{!55, !25}
+!56 = distinct !{!56, !24, !25}
+!57 = distinct !{!57, !24, !25}
+!58 = distinct !{!58, !24, !25}
+!59 = !{!39, !36, i64 8}
+!60 = distinct !{!60, !24, !25}
+!61 = distinct !{!61, !24, !25}
+!62 = !{!63, !10, i64 56}
+!63 = !{!"_ZTSN6icu_7710CharStringE", !5, i64 0, !10, i64 56}

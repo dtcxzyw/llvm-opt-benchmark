@@ -113,7 +113,7 @@ define dso_local void @ttm_agp_unbind(ptr noundef captures(none) %0) #0 align 16
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %11, label %9
 
@@ -161,7 +161,7 @@ define dso_local void @ttm_agp_destroy(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
+  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %11, label %9
 
@@ -234,8 +234,9 @@ attributes #7 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}

@@ -580,7 +580,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
 .loopexit:                                        ; preds = %166, %38, %169
   %172 = add i32 %26, %15
   %173 = icmp ult i32 %172, %6
-  br i1 %173, label %12, label %.loopexit263, !llvm.loop !8
+  br i1 %173, label %12, label %.loopexit263, !llvm.loop !9
 
 .loopexit263:                                     ; preds = %.loopexit, %4, %19
   %174 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -772,7 +772,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 118:                                              ; preds = %113, %95, %79, %62, %57, %52, %47
   %119 = add i32 %45, %34
   %120 = icmp slt i32 %119, %15
-  br i1 %120, label %.lr.ph690, label %.loopexit, !llvm.loop !9
+  br i1 %120, label %.lr.ph690, label %.loopexit, !llvm.loop !10
 
 .lr.ph688.preheader:                              ; preds = %24
   %121 = load i32, ptr @hf_rep_rsp_channel_type_report, align 4
@@ -820,7 +820,7 @@ switch.lookup:                                    ; preds = %137
   %144 = add i32 %128, %.1687
   %145 = add i32 %144, %143
   %146 = icmp slt i32 %145, %15
-  br i1 %146, label %.lr.ph688, label %.loopexit, !llvm.loop !10
+  br i1 %146, label %.lr.ph688, label %.loopexit, !llvm.loop !11
 
 .lr.ph686.preheader:                              ; preds = %24
   %147 = load i32, ptr @hf_rep_rsp_zone_spec_phy_cinr_report, align 4
@@ -999,7 +999,7 @@ switch.lookup:                                    ; preds = %137
 277:                                              ; preds = %252, %266, %227, %241, %207, %221, %187, %201, %167, %181, %272, %247
   %278 = add i32 %165, %154
   %279 = icmp slt i32 %278, %15
-  br i1 %279, label %.lr.ph686, label %.loopexit, !llvm.loop !11
+  br i1 %279, label %.lr.ph686, label %.loopexit, !llvm.loop !12
 
 .lr.ph684.preheader:                              ; preds = %24
   %280 = load i32, ptr @hf_rep_rsp_preamble_phy_cinr_report, align 4
@@ -1082,7 +1082,7 @@ switch.lookup:                                    ; preds = %137
   %329 = add i32 %287, %.3683
   %330 = add i32 %329, %328
   %331 = icmp slt i32 %330, %15
-  br i1 %331, label %.lr.ph684, label %.loopexit, !llvm.loop !12
+  br i1 %331, label %.lr.ph684, label %.loopexit, !llvm.loop !13
 
 .lr.ph682.preheader:                              ; preds = %24
   %332 = load i32, ptr @hf_rep_rsp_zone_spec_effective_cinr_report, align 4
@@ -1208,7 +1208,7 @@ switch.lookup:                                    ; preds = %137
 422:                                              ; preds = %417, %404, %391, %378, %365, %352
   %423 = add i32 %350, %339
   %424 = icmp slt i32 %423, %15
-  br i1 %424, label %.lr.ph682, label %.loopexit, !llvm.loop !13
+  br i1 %424, label %.lr.ph682, label %.loopexit, !llvm.loop !14
 
 .lr.ph.preheader:                                 ; preds = %24
   %425 = load i32, ptr @hf_rep_rsp_preamble_effective_cinr_report, align 4
@@ -1300,7 +1300,7 @@ switch.lookup:                                    ; preds = %137
 487:                                              ; preds = %482, %467, %456, %445
   %488 = add i32 %443, %432
   %489 = icmp slt i32 %488, %15
-  br i1 %489, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %489, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 490:                                              ; preds = %24
   %491 = load i32, ptr @hf_rep_rsp_current_transmitted_power, align 4
@@ -1321,7 +1321,7 @@ switch.lookup:                                    ; preds = %137
 .loopexit:                                        ; preds = %487, %422, %327, %277, %140, %118, %436, %343, %291, %158, %132, %38, %498, %490
   %501 = add i32 %26, %15
   %502 = icmp ult i32 %501, %6
-  br i1 %502, label %12, label %.loopexit673, !llvm.loop !15
+  br i1 %502, label %12, label %.loopexit673, !llvm.loop !16
 
 .loopexit673:                                     ; preds = %.loopexit, %4, %19
   %503 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1403,13 +1403,14 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

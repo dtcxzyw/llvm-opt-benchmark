@@ -242,7 +242,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 16
   %.not = icmp eq ptr %42, %.8.val
-  br i1 %.not, label %._crit_edge, label %3
+  br i1 %.not, label %._crit_edge, label %3, !llvm.loop !23
 
 43:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEC2ERKS2_.exit
   %44 = landingpad { ptr, i32 }
@@ -315,13 +315,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec8optimizeENS_17Optimizat
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %35, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 240
-  %58 = load ptr, ptr %57, align 8, !tbaa !23
+  %58 = load ptr, ptr %57, align 8, !tbaa !25
   %.not.i.i.i368 = icmp eq ptr %58, null
   br i1 %.not.i.i.i368, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %60 = load i8, ptr %59, align 8, !tbaa !40
+  %60 = load i8, ptr %59, align 8, !tbaa !42
   %.not.i1.i.i = icmp eq i8 %60, 0
   br i1 %.not.i1.i.i, label %64, label %61
 
@@ -360,13 +360,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSols
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %70, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 240
-  %77 = load ptr, ptr %76, align 8, !tbaa !23
+  %77 = load ptr, ptr %76, align 8, !tbaa !25
   %.not.i.i.i373 = icmp eq ptr %77, null
   br i1 %.not.i.i.i373, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i374
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i374: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  %79 = load i8, ptr %78, align 8, !tbaa !40
+  %79 = load i8, ptr %78, align 8, !tbaa !42
   %.not.i1.i.i375 = icmp eq i8 %79, 0
   br i1 %.not.i1.i.i375, label %83, label %80
 
@@ -405,7 +405,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit112: ; preds = %_ZNS
   %93 = load i64, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %89, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 240
-  %96 = load ptr, ptr %95, align 8, !tbaa !23
+  %96 = load ptr, ptr %95, align 8, !tbaa !25
   %.not.i.i.i384 = icmp eq ptr %96, null
   br i1 %.not.i.i.i384, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i385
 
@@ -418,7 +418,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit112: ; preds = %_ZNS
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i385: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit112
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
-  %98 = load i8, ptr %97, align 8, !tbaa !40
+  %98 = load i8, ptr %97, align 8, !tbaa !42
   %.not.i1.i.i386 = icmp eq i8 %98, 0
   br i1 %.not.i1.i.i386, label %102, label %99
 
@@ -453,9 +453,9 @@ _ZNSolsEPFRSoS_E.exit113:                         ; preds = %.noexc392
           to label %109 unwind label %190
 
 109:                                              ; preds = %_ZNSolsEPFRSoS_E.exit113
-  %110 = load ptr, ptr %36, align 8, !tbaa !46
+  %110 = load ptr, ptr %36, align 8, !tbaa !48
   %111 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %112 = load i64, ptr %111, align 8, !tbaa !50
+  %112 = load i64, ptr %111, align 8, !tbaa !52
   %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %110, i64 noundef %112)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %192
 
@@ -465,7 +465,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %116 = load i64, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %113, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 240
-  %119 = load ptr, ptr %118, align 8, !tbaa !23
+  %119 = load ptr, ptr %118, align 8, !tbaa !25
   %.not.i.i.i395 = icmp eq ptr %119, null
   br i1 %.not.i.i.i395, label %120, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i396
 
@@ -478,7 +478,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i396: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %122 = load i8, ptr %121, align 8, !tbaa !40
+  %122 = load i8, ptr %121, align 8, !tbaa !42
   %.not.i1.i.i397 = icmp eq i8 %122, 0
   br i1 %.not.i1.i.i397, label %126, label %123
 
@@ -508,13 +508,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i398: ; preds = %.noexc401, %
           to label %_ZNSolsEPFRSoS_E.exit114 unwind label %192
 
 _ZNSolsEPFRSoS_E.exit114:                         ; preds = %.noexc403
-  %133 = load ptr, ptr %36, align 8, !tbaa !46
+  %133 = load ptr, ptr %36, align 8, !tbaa !48
   %134 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %135 = icmp eq ptr %133, %134
   br i1 %135, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSolsEPFRSoS_E.exit114
-  %136 = load i64, ptr %111, align 8, !tbaa !50
+  %136 = load i64, ptr %111, align 8, !tbaa !52
   %137 = icmp ult i64 %136, 16
   call void @llvm.assume(i1 %137)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -528,18 +528,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %140 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %140, ptr %37, align 8, !tbaa !57, !alias.scope !58
+  store ptr %140, ptr %37, align 8, !tbaa !59, !alias.scope !60
   %141 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 0, ptr %141, align 8, !tbaa !50, !alias.scope !58
-  store i8 0, ptr %140, align 8, !tbaa !14, !alias.scope !58
+  store i64 0, ptr %141, align 8, !tbaa !52, !alias.scope !60
+  store i8 0, ptr %140, align 8, !tbaa !14, !alias.scope !60
   %142 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %143 = load ptr, ptr %142, align 8, !tbaa !59, !noalias !58
+  %143 = load ptr, ptr %142, align 8, !tbaa !61, !noalias !60
   %.not.i.not.i.i = icmp eq ptr %143, null
   %144 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %145 = load ptr, ptr %144, align 8, !noalias !58
+  %145 = load ptr, ptr %144, align 8, !noalias !60
   %146 = icmp ugt ptr %143, %145
   %.08.i.i.i = select i1 %146, ptr %143, ptr %145
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -548,7 +548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 147:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %148 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %149 = load ptr, ptr %148, align 8, !tbaa !61, !noalias !58
+  %149 = load ptr, ptr %148, align 8, !tbaa !63, !noalias !60
   %150 = ptrtoint ptr %.08.i.i.i to i64
   %151 = ptrtoint ptr %149 to i64
   %152 = sub i64 %150, %151
@@ -558,18 +558,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 154:                                              ; preds = %162, %147
   %155 = landingpad { ptr, i32 }
           cleanup
-  %156 = load ptr, ptr %37, align 8, !tbaa !46, !alias.scope !58
+  %156 = load ptr, ptr %37, align 8, !tbaa !48, !alias.scope !60
   %157 = icmp eq ptr %156, %140
   br i1 %157, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %154
-  %158 = load i64, ptr %141, align 8, !tbaa !50, !alias.scope !58
+  %158 = load i64, ptr %141, align 8, !tbaa !52, !alias.scope !60
   %159 = icmp ult i64 %158, 16
   call void @llvm.assume(i1 %159)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %154
-  %160 = load i64, ptr %140, align 8, !tbaa !14, !alias.scope !58
+  %160 = load i64, ptr %140, align 8, !tbaa !14, !alias.scope !60
   %161 = add i64 %160, 1
   call void @_ZdlPvm(ptr noundef %156, i64 noundef %161) #18
   br label %.body
@@ -584,12 +584,12 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
           to label %164 unwind label %201
 
 164:                                              ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
-  %165 = load ptr, ptr %37, align 8, !tbaa !46
+  %165 = load ptr, ptr %37, align 8, !tbaa !48
   %166 = icmp eq ptr %165, %140
   br i1 %166, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116: ; preds = %164
-  %167 = load i64, ptr %141, align 8, !tbaa !50
+  %167 = load i64, ptr %141, align 8, !tbaa !52
   %168 = icmp ult i64 %167, 16
   call void @llvm.assume(i1 %168)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117
@@ -612,14 +612,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   %176 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %176, align 8, !tbaa !17
   %177 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %178 = load ptr, ptr %177, align 8, !tbaa !46
+  %178 = load ptr, ptr %177, align 8, !tbaa !48
   %179 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %180 = icmp eq ptr %178, %179
   br i1 %180, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117
   %181 = getelementptr inbounds nuw i8, ptr %35, i64 88
-  %182 = load i64, ptr %181, align 8, !tbaa !50
+  %182 = load i64, ptr %181, align 8, !tbaa !52
   %183 = icmp ult i64 %182, 16
   call void @llvm.assume(i1 %183)
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
@@ -652,13 +652,13 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 192:                                              ; preds = %.noexc403, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i398, %.noexc401, %126, %120, %109
   %193 = landingpad { ptr, i32 }
           cleanup
-  %194 = load ptr, ptr %36, align 8, !tbaa !46
+  %194 = load ptr, ptr %36, align 8, !tbaa !48
   %195 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %196 = icmp eq ptr %194, %195
   br i1 %196, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i119, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i118
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i119: ; preds = %192
-  %197 = load i64, ptr %111, align 8, !tbaa !50
+  %197 = load i64, ptr %111, align 8, !tbaa !52
   %198 = icmp ult i64 %197, 16
   call void @llvm.assume(i1 %198)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120
@@ -677,12 +677,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
 201:                                              ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %202 = landingpad { ptr, i32 }
           cleanup
-  %203 = load ptr, ptr %37, align 8, !tbaa !46
+  %203 = load ptr, ptr %37, align 8, !tbaa !48
   %204 = icmp eq ptr %203, %140
   br i1 %204, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i122, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i121
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i122: ; preds = %201
-  %205 = load i64, ptr %141, align 8, !tbaa !50
+  %205 = load i64, ptr %141, align 8, !tbaa !52
   %206 = icmp ult i64 %205, 16
   call void @llvm.assume(i1 %206)
   br label %.body
@@ -705,8 +705,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %common.resume
 
 210:                                              ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %50
-  %211 = load ptr, ptr %47, align 8, !tbaa !62
-  %212 = load ptr, ptr %0, align 8, !tbaa !64
+  %211 = load ptr, ptr %47, align 8, !tbaa !64
+  %212 = load ptr, ptr %0, align 8, !tbaa !66
   %213 = ptrtoint ptr %211 to i64
   %214 = ptrtoint ptr %212 to i64
   %215 = sub i64 %213, %214
@@ -724,7 +724,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %.sroa.017.023.i = phi ptr [ %212, %.lr.ph.i ], [ %.sroa.017.1.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #16
   %220 = load ptr, ptr %.sroa.017.023.i, align 8, !tbaa !8
-  store ptr %220, ptr %33, align 8, !tbaa !65
+  store ptr %220, ptr %33, align 8, !tbaa !67
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.017.023.i, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !13
   store ptr %222, ptr %217, align 8, !tbaa !13
@@ -745,38 +745,38 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 
 229:                                              ; preds = %223
   %230 = atomicrmw volatile add ptr %224, i32 1 acq_rel, align 4
-  %.pre.i = load ptr, ptr %33, align 8, !tbaa !65
+  %.pre.i = load ptr, ptr %33, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i: ; preds = %229, %226, %219
   %231 = phi ptr [ %220, %219 ], [ %220, %226 ], [ %.pre.i, %229 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %233 = load ptr, ptr %232, align 8, !tbaa !73, !noalias !76
-  store ptr %233, ptr %34, align 8, !tbaa !77, !alias.scope !76
+  call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  %233 = load ptr, ptr %232, align 8, !tbaa !75, !noalias !78
+  store ptr %233, ptr %34, align 8, !tbaa !79, !alias.scope !78
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  %235 = load ptr, ptr %234, align 8, !tbaa !13, !noalias !76
-  store ptr %235, ptr %218, align 8, !tbaa !13, !alias.scope !76
+  %235 = load ptr, ptr %234, align 8, !tbaa !13, !noalias !78
+  store ptr %235, ptr %218, align 8, !tbaa !13, !alias.scope !78
   %.not.i.i.i.i.i.i = icmp eq ptr %235, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i, label %236
 
 236:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %238 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !76
+  %238 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !78
   %.not.i.i.i.i.i.i.i = icmp eq i8 %238, 0
   br i1 %.not.i.i.i.i.i.i.i, label %242, label %239
 
 239:                                              ; preds = %236
-  %240 = load i32, ptr %237, align 4, !tbaa !15, !noalias !76
+  %240 = load i32, ptr %237, align 4, !tbaa !15, !noalias !78
   %241 = add nsw i32 %240, 1
-  store i32 %241, ptr %237, align 4, !tbaa !15, !noalias !76
+  store i32 %241, ptr %237, align 4, !tbaa !15, !noalias !78
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i
 
 242:                                              ; preds = %236
-  %243 = atomicrmw volatile add ptr %237, i32 1 acq_rel, align 4, !noalias !76
-  %.pre25.i = load ptr, ptr %34, align 8, !tbaa !77
+  %243 = atomicrmw volatile add ptr %237, i32 1 acq_rel, align 4, !noalias !78
+  %.pre25.i = load ptr, ptr %34, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i:       ; preds = %242, %239, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
@@ -920,7 +920,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #16
   %306 = load ptr, ptr %47, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.sroa.017.1.i, %306
-  br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115RemoveNoOpTypesERNS_10OpRcPtrVecE.exit, label %219, !llvm.loop !79
+  br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115RemoveNoOpTypesERNS_10OpRcPtrVecE.exit, label %219, !llvm.loop !81
 
 common.resume:                                    ; preds = %209, %2037, %2176, %428, %1959, %1639, %1449, %860, %688, %515, %307
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %307 ], [ %516, %515 ], [ %.pn.i177, %688 ], [ %.pn.pn.i, %860 ], [ %.pn43.pn.pn.i, %1449 ], [ %.pn.i247, %1639 ], [ %.pn29.pn.pn.i, %1959 ], [ %.pn92.pn, %209 ], [ %.pn106.pn, %428 ], [ %.pn100.pn, %2176 ], [ %.pn95.pn, %2037 ]
@@ -943,8 +943,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115RemoveNoOpTypesERNS_10OpRcPtrVecE.exit: 
   br i1 %311, label %312, label %2177
 
 312:                                              ; preds = %310
-  %313 = load ptr, ptr %47, align 8, !tbaa !62
-  %314 = load ptr, ptr %0, align 8, !tbaa !64
+  %313 = load ptr, ptr %47, align 8, !tbaa !64
+  %314 = load ptr, ptr %0, align 8, !tbaa !66
   %315 = ptrtoint ptr %313 to i64
   %316 = ptrtoint ptr %314 to i64
   %317 = sub i64 %315, %316
@@ -960,7 +960,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %312
   %322 = load i64, ptr %321, align 8
   %323 = getelementptr inbounds i8, ptr %38, i64 %322
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 240
-  %325 = load ptr, ptr %324, align 8, !tbaa !23
+  %325 = load ptr, ptr %324, align 8, !tbaa !25
   %.not.i.i.i406 = icmp eq ptr %325, null
   br i1 %.not.i.i.i406, label %326, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i407
 
@@ -973,7 +973,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %312
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i407: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 56
-  %328 = load i8, ptr %327, align 8, !tbaa !40
+  %328 = load i8, ptr %327, align 8, !tbaa !42
   %.not.i1.i.i408 = icmp eq i8 %328, 0
   br i1 %.not.i1.i.i408, label %332, label %329
 
@@ -1036,20 +1036,20 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit130: ; preds = %345
           to label %347 unwind label %409
 
 347:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit130
-  %348 = load ptr, ptr %39, align 8, !tbaa !46
+  %348 = load ptr, ptr %39, align 8, !tbaa !48
   %349 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %350 = load i64, ptr %349, align 8, !tbaa !50
+  %350 = load i64, ptr %349, align 8, !tbaa !52
   %351 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %348, i64 noundef %350)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit131 unwind label %411
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit131: ; preds = %347
-  %352 = load ptr, ptr %39, align 8, !tbaa !46
+  %352 = load ptr, ptr %39, align 8, !tbaa !48
   %353 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %354 = icmp eq ptr %352, %353
   br i1 %354, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i133, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i133: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit131
-  %355 = load i64, ptr %349, align 8, !tbaa !50
+  %355 = load i64, ptr %349, align 8, !tbaa !52
   %356 = icmp ult i64 %355, 16
   call void @llvm.assume(i1 %356)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134
@@ -1063,18 +1063,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  call void @llvm.experimental.noalias.scope.decl(metadata !83)
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %359 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %359, ptr %40, align 8, !tbaa !57, !alias.scope !87
+  store ptr %359, ptr %40, align 8, !tbaa !59, !alias.scope !89
   %360 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 0, ptr %360, align 8, !tbaa !50, !alias.scope !87
-  store i8 0, ptr %359, align 8, !tbaa !14, !alias.scope !87
+  store i64 0, ptr %360, align 8, !tbaa !52, !alias.scope !89
+  store i8 0, ptr %359, align 8, !tbaa !14, !alias.scope !89
   %361 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %362 = load ptr, ptr %361, align 8, !tbaa !59, !noalias !87
+  %362 = load ptr, ptr %361, align 8, !tbaa !61, !noalias !89
   %.not.i.not.i.i135 = icmp eq ptr %362, null
   %363 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %364 = load ptr, ptr %363, align 8, !noalias !87
+  %364 = load ptr, ptr %363, align 8, !noalias !89
   %365 = icmp ugt ptr %362, %364
   %.08.i.i.i136 = select i1 %365, ptr %362, ptr %364
   %.not5.i.i137 = icmp eq ptr %.08.i.i.i136, null
@@ -1083,7 +1083,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
 
 366:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134
   %367 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %368 = load ptr, ptr %367, align 8, !tbaa !61, !noalias !87
+  %368 = load ptr, ptr %367, align 8, !tbaa !63, !noalias !89
   %369 = ptrtoint ptr %.08.i.i.i136 to i64
   %370 = ptrtoint ptr %368 to i64
   %371 = sub i64 %369, %370
@@ -1093,18 +1093,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
 373:                                              ; preds = %381, %366
   %374 = landingpad { ptr, i32 }
           cleanup
-  %375 = load ptr, ptr %40, align 8, !tbaa !46, !alias.scope !87
+  %375 = load ptr, ptr %40, align 8, !tbaa !48, !alias.scope !89
   %376 = icmp eq ptr %375, %359
   br i1 %376, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i139
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141: ; preds = %373
-  %377 = load i64, ptr %360, align 8, !tbaa !50, !alias.scope !87
+  %377 = load i64, ptr %360, align 8, !tbaa !52, !alias.scope !89
   %378 = icmp ult i64 %377, 16
   call void @llvm.assume(i1 %378)
   br label %.body142
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i139: ; preds = %373
-  %379 = load i64, ptr %359, align 8, !tbaa !14, !alias.scope !87
+  %379 = load i64, ptr %359, align 8, !tbaa !14, !alias.scope !89
   %380 = add i64 %379, 1
   call void @_ZdlPvm(ptr noundef %375, i64 noundef %380) #18
   br label %.body142
@@ -1119,12 +1119,12 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit144: ; p
           to label %383 unwind label %420
 
 383:                                              ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit144
-  %384 = load ptr, ptr %40, align 8, !tbaa !46
+  %384 = load ptr, ptr %40, align 8, !tbaa !48
   %385 = icmp eq ptr %384, %359
   br i1 %385, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i146: ; preds = %383
-  %386 = load i64, ptr %360, align 8, !tbaa !50
+  %386 = load i64, ptr %360, align 8, !tbaa !52
   %387 = icmp ult i64 %386, 16
   call void @llvm.assume(i1 %387)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147
@@ -1147,14 +1147,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %395 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %395, align 8, !tbaa !17
   %396 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %397 = load ptr, ptr %396, align 8, !tbaa !46
+  %397 = load ptr, ptr %396, align 8, !tbaa !48
   %398 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %399 = icmp eq ptr %397, %398
   br i1 %399, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i149, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i148
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i149: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147
   %400 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %401 = load i64, ptr %400, align 8, !tbaa !50
+  %401 = load i64, ptr %400, align 8, !tbaa !52
   %402 = icmp ult i64 %401, 16
   call void @llvm.assume(i1 %402)
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit150
@@ -1187,13 +1187,13 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit150: ; pred
 411:                                              ; preds = %347
   %412 = landingpad { ptr, i32 }
           cleanup
-  %413 = load ptr, ptr %39, align 8, !tbaa !46
+  %413 = load ptr, ptr %39, align 8, !tbaa !48
   %414 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %415 = icmp eq ptr %413, %414
   br i1 %415, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i152, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i151
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i152: ; preds = %411
-  %416 = load i64, ptr %349, align 8, !tbaa !50
+  %416 = load i64, ptr %349, align 8, !tbaa !52
   %417 = icmp ult i64 %416, 16
   call void @llvm.assume(i1 %417)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153
@@ -1212,12 +1212,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
 420:                                              ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit144
   %421 = landingpad { ptr, i32 }
           cleanup
-  %422 = load ptr, ptr %40, align 8, !tbaa !46
+  %422 = load ptr, ptr %40, align 8, !tbaa !48
   %423 = icmp eq ptr %422, %359
   br i1 %423, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i154
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i155: ; preds = %420
-  %424 = load i64, ptr %360, align 8, !tbaa !50
+  %424 = load i64, ptr %360, align 8, !tbaa !52
   %425 = icmp ult i64 %424, 16
   call void @llvm.assume(i1 %425)
   br label %.body142
@@ -1245,7 +1245,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br i1 %.not455, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVecE.exit, label %431
 
 431:                                              ; preds = %429
-  %432 = load ptr, ptr %0, align 8, !tbaa !64
+  %432 = load ptr, ptr %0, align 8, !tbaa !66
   %.not.i157 = icmp eq ptr %308, %432
   br i1 %.not.i157, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVecE.exit, label %.lr.ph.i158
 
@@ -1259,7 +1259,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 438:                                              ; preds = %517, %.lr.ph.i158
   %.012.i = phi i64 [ 0, %.lr.ph.i158 ], [ %518, %517 ]
-  %439 = load ptr, ptr %0, align 8, !tbaa !64
+  %439 = load ptr, ptr %0, align 8, !tbaa !66
   %440 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %439, i64 %.012.i
   %441 = load ptr, ptr %440, align 8, !tbaa !8
   %442 = load ptr, ptr %441, align 8, !tbaa !17
@@ -1283,7 +1283,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
           to label %455 unwind label %515
 
 455:                                              ; preds = %446
-  %456 = load ptr, ptr %0, align 8, !tbaa !64
+  %456 = load ptr, ptr %0, align 8, !tbaa !66
   %457 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %456, i64 %.012.i
   %458 = load ptr, ptr %32, align 8, !tbaa !8
   store ptr %458, ptr %457, align 8, !tbaa !8
@@ -1431,7 +1431,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 517:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %438
   %518 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %518, %436
-  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVecE.exit, label %438, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVecE.exit, label %438, !llvm.loop !90
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVecE.exit: ; preds = %517, %431, %429
   %519 = and i64 %1, 1
@@ -1543,7 +1543,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVec
   %.1.i167 = phi i32 [ %579, %577 ], [ %.012.i166, %580 ]
   %583 = load ptr, ptr %47, align 8, !tbaa !3
   %.not.i168 = icmp eq ptr %.sroa.07.1.i, %583
-  br i1 %.not.i168, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit, label %.lr.ph.i165, !llvm.loop !89
+  br i1 %.not.i168, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit, label %.lr.ph.i165, !llvm.loop !91
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit: ; preds = %582, %569, %568
   %584 = phi i32 [ 0, %568 ], [ 0, %569 ], [ %.1.i167, %582 ]
@@ -1552,8 +1552,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit: ; pr
 585:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %30) #16
   call void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %30)
-  %586 = load ptr, ptr %47, align 8, !tbaa !62
-  %587 = load ptr, ptr %0, align 8, !tbaa !64
+  %586 = load ptr, ptr %47, align 8, !tbaa !64
+  %587 = load ptr, ptr %0, align 8, !tbaa !66
   %588 = ptrtoint ptr %586 to i64
   %589 = ptrtoint ptr %587 to i64
   %590 = sub i64 %588, %589
@@ -1566,8 +1566,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit: ; pr
   %594 = phi ptr [ %682, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i182 ], [ %587, %585 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i182 ], [ 0, %585 ]
   %.040.i = phi i32 [ %.1.i178, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i182 ], [ 0, %585 ]
-  %595 = load ptr, ptr %30, align 8, !tbaa !64
-  %596 = load ptr, ptr %522, align 8, !tbaa !62
+  %595 = load ptr, ptr %30, align 8, !tbaa !66
+  %596 = load ptr, ptr %522, align 8, !tbaa !64
   %.not.i.i.i.i172 = icmp eq ptr %596, %595
   br i1 %.not.i.i.i.i172, label %_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1625,11 +1625,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 _ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %619, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %604, %.lr.ph.i.i.i.i.i.i.i
   %620 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i173 = icmp eq ptr %620, %596
-  br i1 %.not.i.i.i.i.i.i.i173, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i.i173, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !92
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i.i.i.i
-  store ptr %595, ptr %522, align 8, !tbaa !62
-  %.pre.i174 = load ptr, ptr %0, align 8, !tbaa !64
+  store ptr %595, ptr %522, align 8, !tbaa !64
+  %.pre.i174 = load ptr, ptr %0, align 8, !tbaa !66
   br label %_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i
 
 _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, %.lr.ph.i171
@@ -1637,7 +1637,7 @@ _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i: ; preds = %_ZSt8_DestroyIPS
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #16
   %622 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %621, i64 %indvars.iv.i
   %623 = load ptr, ptr %622, align 8, !tbaa !8
-  store ptr %623, ptr %31, align 8, !tbaa !65
+  store ptr %623, ptr %31, align 8, !tbaa !67
   %624 = getelementptr inbounds nuw i8, ptr %622, i64 8
   %625 = load ptr, ptr %624, align 8, !tbaa !13
   store ptr %625, ptr %523, align 8, !tbaa !13
@@ -1658,7 +1658,7 @@ _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i: ; preds = %_ZSt8_DestroyIPS
 
 632:                                              ; preds = %626
   %633 = atomicrmw volatile add ptr %627, i32 1 acq_rel, align 4
-  %.pre42.i = load ptr, ptr %31, align 8, !tbaa !65
+  %.pre42.i = load ptr, ptr %31, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i176
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i176: ; preds = %632, %629, %_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i
@@ -1763,15 +1763,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180: ; preds = %677, 
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i182: ; preds = %680, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180, %665, %658
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #16
-  %681 = load ptr, ptr %47, align 8, !tbaa !62
-  %682 = load ptr, ptr %0, align 8, !tbaa !64
+  %681 = load ptr, ptr %47, align 8, !tbaa !64
+  %682 = load ptr, ptr %0, align 8, !tbaa !66
   %683 = ptrtoint ptr %681 to i64
   %684 = ptrtoint ptr %682 to i64
   %685 = sub i64 %683, %684
   %sext.i = shl i64 %685, 28
   %686 = ashr i64 %sext.i, 32
   %687 = icmp slt i64 %indvars.iv.next.i, %686
-  br i1 %687, label %.lr.ph.i171, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit, !llvm.loop !91
+  br i1 %687, label %.lr.ph.i171, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit, !llvm.loop !93
 
 688:                                              ; preds = %656, %654, %652
   %.pn.i177 = phi { ptr, i32 } [ %657, %656 ], [ %655, %654 ], [ %653, %652 ]
@@ -1789,8 +1789,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit: ; pre
 
 689:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit
   %690 = phi i32 [ %.0.lcssa.i170, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit ], [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111RemoveNoOpsERNS_10OpRcPtrVecE.exit ]
-  %.pre893 = load ptr, ptr %47, align 8, !tbaa !62
-  %.pre895 = load ptr, ptr %0, align 8, !tbaa !64
+  %.pre893 = load ptr, ptr %47, align 8, !tbaa !64
+  %.pre895 = load ptr, ptr %0, align 8, !tbaa !66
   %.not51.i = icmp eq ptr %.pre893, %.pre895
   %or.cond = select i1 %or.cond.not.i, i1 true, i1 %.not51.i
   br i1 %or.cond, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit, label %.lr.ph.i183
@@ -1806,10 +1806,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit: ; pre
   %.12850.i = phi i32 [ 0, %.lr.ph.i183 ], [ %.2.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i195 ]
   %.02949.i = phi i64 [ 0, %.lr.ph.i183 ], [ %859, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i195 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #16
-  %696 = load ptr, ptr %0, align 8, !tbaa !64
+  %696 = load ptr, ptr %0, align 8, !tbaa !66
   %697 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %696, i64 %.02949.i
   %698 = load ptr, ptr %697, align 8, !tbaa !8
-  store ptr %698, ptr %27, align 8, !tbaa !65
+  store ptr %698, ptr %27, align 8, !tbaa !67
   %699 = getelementptr inbounds nuw i8, ptr %697, i64 8
   %700 = load ptr, ptr %699, align 8, !tbaa !13
   store ptr %700, ptr %528, align 8, !tbaa !13
@@ -1830,38 +1830,38 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit: ; pre
 
 707:                                              ; preds = %701
   %708 = atomicrmw volatile add ptr %702, i32 1 acq_rel, align 4
-  %.pre.i209 = load ptr, ptr %27, align 8, !tbaa !65
+  %.pre.i209 = load ptr, ptr %27, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i186
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i186: ; preds = %707, %704, %695
   %709 = phi ptr [ %698, %695 ], [ %698, %704 ], [ %.pre.i209, %707 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %711 = load ptr, ptr %710, align 8, !tbaa !73, !noalias !98
-  store ptr %711, ptr %28, align 8, !tbaa !77, !alias.scope !98
+  call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  %711 = load ptr, ptr %710, align 8, !tbaa !75, !noalias !100
+  store ptr %711, ptr %28, align 8, !tbaa !79, !alias.scope !100
   %712 = getelementptr inbounds nuw i8, ptr %709, i64 16
-  %713 = load ptr, ptr %712, align 8, !tbaa !13, !noalias !98
-  store ptr %713, ptr %529, align 8, !tbaa !13, !alias.scope !98
+  %713 = load ptr, ptr %712, align 8, !tbaa !13, !noalias !100
+  store ptr %713, ptr %529, align 8, !tbaa !13, !alias.scope !100
   %.not.i.i.i.i.i.i187 = icmp eq ptr %713, null
   br i1 %.not.i.i.i.i.i.i187, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i189, label %714
 
 714:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i186
   %715 = getelementptr inbounds nuw i8, ptr %713, i64 8
-  %716 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !98
+  %716 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !100
   %.not.i.i.i.i.i.i.i188 = icmp eq i8 %716, 0
   br i1 %.not.i.i.i.i.i.i.i188, label %720, label %717
 
 717:                                              ; preds = %714
-  %718 = load i32, ptr %715, align 4, !tbaa !15, !noalias !98
+  %718 = load i32, ptr %715, align 4, !tbaa !15, !noalias !100
   %719 = add nsw i32 %718, 1
-  store i32 %719, ptr %715, align 4, !tbaa !15, !noalias !98
+  store i32 %719, ptr %715, align 4, !tbaa !15, !noalias !100
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i189
 
 720:                                              ; preds = %714
-  %721 = atomicrmw volatile add ptr %715, i32 1 acq_rel, align 4, !noalias !98
-  %.pre52.i = load ptr, ptr %28, align 8, !tbaa !77
+  %721 = atomicrmw volatile add ptr %715, i32 1 acq_rel, align 4, !noalias !100
+  %.pre52.i = load ptr, ptr %28, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i189
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i189:    ; preds = %720, %717, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i186
@@ -1935,7 +1935,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
   br i1 %or.cond33.i, label %753, label %836
 
 753:                                              ; preds = %750
-  %754 = load ptr, ptr %27, align 8, !tbaa !65
+  %754 = load ptr, ptr %27, align 8, !tbaa !67
   %755 = load ptr, ptr %754, align 8, !tbaa !17
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 48
   %757 = load ptr, ptr %756, align 8
@@ -1959,7 +1959,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
           to label %766 unwind label %833
 
 766:                                              ; preds = %761
-  %767 = load ptr, ptr %0, align 8, !tbaa !64
+  %767 = load ptr, ptr %0, align 8, !tbaa !66
   %768 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %767, i64 %.02949.i
   %769 = load ptr, ptr %29, align 8, !tbaa !8
   store ptr %769, ptr %768, align 8, !tbaa !8
@@ -2180,7 +2180,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #16
   %859 = add nuw i64 %.02949.i, 1
   %exitcond.not.i196 = icmp eq i64 %859, %694
-  br i1 %exitcond.not.i196, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit.loopexit, label %695, !llvm.loop !99
+  br i1 %exitcond.not.i196, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit.loopexit, label %695, !llvm.loop !101
 
 860:                                              ; preds = %835, %829, %827
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i197, %835 ], [ %830, %829 ], [ %828, %827 ]
@@ -2189,8 +2189,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   br label %common.resume
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit.loopexit: ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i195
-  %.pre = load ptr, ptr %47, align 8, !tbaa !62
-  %.pre894 = load ptr, ptr %0, align 8, !tbaa !64
+  %.pre = load ptr, ptr %47, align 8, !tbaa !64
+  %.pre894 = load ptr, ptr %0, align 8, !tbaa !66
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit: ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit.loopexit, %689
@@ -2213,7 +2213,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_1
   %870 = sext i32 %.028184.i to i64
   %871 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %869, i64 %870
   %872 = load ptr, ptr %871, align 8, !tbaa !8
-  store ptr %872, ptr %15, align 8, !tbaa !65
+  store ptr %872, ptr %15, align 8, !tbaa !67
   %873 = getelementptr inbounds nuw i8, ptr %871, i64 8
   %874 = load ptr, ptr %873, align 8, !tbaa !13
   store ptr %874, ptr %531, align 8, !tbaa !13
@@ -2234,7 +2234,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_1
 
 881:                                              ; preds = %875
   %882 = atomicrmw volatile add ptr %876, i32 1 acq_rel, align 4
-  %.pre.i238 = load ptr, ptr %0, align 8, !tbaa !64
+  %.pre.i238 = load ptr, ptr %0, align 8, !tbaa !66
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215: ; preds = %881, %878, %.lr.ph.i211
@@ -2244,7 +2244,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215: ; pre
   %885 = sext i32 %884 to i64
   %886 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %883, i64 %885
   %887 = load ptr, ptr %886, align 8, !tbaa !8
-  store ptr %887, ptr %16, align 8, !tbaa !65
+  store ptr %887, ptr %16, align 8, !tbaa !67
   %888 = getelementptr inbounds nuw i8, ptr %886, i64 8
   %889 = load ptr, ptr %888, align 8, !tbaa !13
   store ptr %889, ptr %532, align 8, !tbaa !13
@@ -2269,33 +2269,33 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215: ; pre
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit49.i: ; preds = %896, %893, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #16
-  %898 = load ptr, ptr %15, align 8, !tbaa !65
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  %898 = load ptr, ptr %15, align 8, !tbaa !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %900 = load ptr, ptr %899, align 8, !tbaa !73, !noalias !106
-  store ptr %900, ptr %17, align 8, !tbaa !77, !alias.scope !106
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  %900 = load ptr, ptr %899, align 8, !tbaa !75, !noalias !108
+  store ptr %900, ptr %17, align 8, !tbaa !79, !alias.scope !108
   %901 = getelementptr inbounds nuw i8, ptr %898, i64 16
-  %902 = load ptr, ptr %901, align 8, !tbaa !13, !noalias !106
-  store ptr %902, ptr %533, align 8, !tbaa !13, !alias.scope !106
+  %902 = load ptr, ptr %901, align 8, !tbaa !13, !noalias !108
+  store ptr %902, ptr %533, align 8, !tbaa !13, !alias.scope !108
   %.not.i.i.i.i.i.i216 = icmp eq ptr %902, null
   br i1 %.not.i.i.i.i.i.i216, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i218, label %903
 
 903:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit49.i
   %904 = getelementptr inbounds nuw i8, ptr %902, i64 8
-  %905 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !106
+  %905 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !108
   %.not.i.i.i.i.i.i.i217 = icmp eq i8 %905, 0
   br i1 %.not.i.i.i.i.i.i.i217, label %909, label %906
 
 906:                                              ; preds = %903
-  %907 = load i32, ptr %904, align 4, !tbaa !15, !noalias !106
+  %907 = load i32, ptr %904, align 4, !tbaa !15, !noalias !108
   %908 = add nsw i32 %907, 1
-  store i32 %908, ptr %904, align 4, !tbaa !15, !noalias !106
+  store i32 %908, ptr %904, align 4, !tbaa !15, !noalias !108
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i218
 
 909:                                              ; preds = %903
-  %910 = atomicrmw volatile add ptr %904, i32 1 acq_rel, align 4, !noalias !106
-  %.pre186.i = load ptr, ptr %17, align 8, !tbaa !77
+  %910 = atomicrmw volatile add ptr %904, i32 1 acq_rel, align 4, !noalias !108
+  %.pre186.i = load ptr, ptr %17, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i218
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i218:    ; preds = %909, %906, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit49.i
@@ -2358,33 +2358,33 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i220: ; preds = %935, 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i222: ; preds = %938, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i220, %923, %916
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #16
-  %939 = load ptr, ptr %16, align 8, !tbaa !65
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  %939 = load ptr, ptr %16, align 8, !tbaa !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %941 = load ptr, ptr %940, align 8, !tbaa !73, !noalias !113
-  store ptr %941, ptr %18, align 8, !tbaa !77, !alias.scope !113
+  call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  %941 = load ptr, ptr %940, align 8, !tbaa !75, !noalias !115
+  store ptr %941, ptr %18, align 8, !tbaa !79, !alias.scope !115
   %942 = getelementptr inbounds nuw i8, ptr %939, i64 16
-  %943 = load ptr, ptr %942, align 8, !tbaa !13, !noalias !113
-  store ptr %943, ptr %534, align 8, !tbaa !13, !alias.scope !113
+  %943 = load ptr, ptr %942, align 8, !tbaa !13, !noalias !115
+  store ptr %943, ptr %534, align 8, !tbaa !13, !alias.scope !115
   %.not.i.i.i.i.i51.i = icmp eq ptr %943, null
   br i1 %.not.i.i.i.i.i51.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit53.i, label %944
 
 944:                                              ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i222
   %945 = getelementptr inbounds nuw i8, ptr %943, i64 8
-  %946 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !113
+  %946 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !115
   %.not.i.i.i.i.i.i52.i = icmp eq i8 %946, 0
   br i1 %.not.i.i.i.i.i.i52.i, label %950, label %947
 
 947:                                              ; preds = %944
-  %948 = load i32, ptr %945, align 4, !tbaa !15, !noalias !113
+  %948 = load i32, ptr %945, align 4, !tbaa !15, !noalias !115
   %949 = add nsw i32 %948, 1
-  store i32 %949, ptr %945, align 4, !tbaa !15, !noalias !113
+  store i32 %949, ptr %945, align 4, !tbaa !15, !noalias !115
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit53.i
 
 950:                                              ; preds = %944
-  %951 = atomicrmw volatile add ptr %945, i32 1 acq_rel, align 4, !noalias !113
-  %.pre187.i = load ptr, ptr %18, align 8, !tbaa !77
+  %951 = atomicrmw volatile add ptr %945, i32 1 acq_rel, align 4, !noalias !115
+  %.pre187.i = load ptr, ptr %18, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit53.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit53.i:     ; preds = %950, %947, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i222
@@ -2491,7 +2491,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_
   br i1 %.not.i212, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.thread161.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.thread.i
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.thread.i: ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.i, %988, %987, %986, %985, %984, %983, %982, %981
-  %989 = load ptr, ptr %15, align 8, !tbaa !65
+  %989 = load ptr, ptr %15, align 8, !tbaa !67
   %990 = load ptr, ptr %989, align 8, !tbaa !17
   %991 = getelementptr inbounds nuw i8, ptr %990, i64 64
   %992 = load ptr, ptr %991, align 8
@@ -2510,61 +2510,61 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120IsPairInverseEnabledENS_6OpData4TypeENS_
 997:                                              ; preds = %995
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #16
   %998 = getelementptr inbounds nuw i8, ptr %989, i64 8
-  %999 = load ptr, ptr %998, align 8, !tbaa !73, !noalias !114
+  %999 = load ptr, ptr %998, align 8, !tbaa !75, !noalias !116
   %1000 = getelementptr inbounds nuw i8, ptr %989, i64 16
-  %1001 = load ptr, ptr %1000, align 8, !tbaa !13, !noalias !114
+  %1001 = load ptr, ptr %1000, align 8, !tbaa !13, !noalias !116
   %.not.i.i.i.i.i59.i = icmp eq ptr %1001, null
   br i1 %.not.i.i.i.i.i59.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i, label %1002
 
 1002:                                             ; preds = %997
   %1003 = getelementptr inbounds nuw i8, ptr %1001, i64 8
-  %1004 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !114
+  %1004 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !116
   %.not.i.i.i.i.i.i60.i = icmp eq i8 %1004, 0
   br i1 %.not.i.i.i.i.i.i60.i, label %1008, label %1005
 
 1005:                                             ; preds = %1002
-  %1006 = load i32, ptr %1003, align 4, !tbaa !15, !noalias !114
+  %1006 = load i32, ptr %1003, align 4, !tbaa !15, !noalias !116
   %1007 = add nsw i32 %1006, 1
-  store i32 %1007, ptr %1003, align 4, !tbaa !15, !noalias !114
+  store i32 %1007, ptr %1003, align 4, !tbaa !15, !noalias !116
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i
 
 1008:                                             ; preds = %1002
-  %1009 = atomicrmw volatile add ptr %1003, i32 1 acq_rel, align 4, !noalias !114
+  %1009 = atomicrmw volatile add ptr %1003, i32 1 acq_rel, align 4, !noalias !116
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i:     ; preds = %1008, %1005, %997
-  call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %1010 = icmp eq ptr %999, null
   br i1 %1010, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i, label %1011
 
 1011:                                             ; preds = %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i
-  %1012 = call ptr @__dynamic_cast(ptr nonnull %999, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !119
+  %1012 = call ptr @__dynamic_cast(ptr nonnull %999, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !121
   %.not.not.i.i = icmp eq ptr %1012, null
   br i1 %.not.not.i.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i, label %1013
 
 1013:                                             ; preds = %1011
-  store ptr %1012, ptr %20, align 8, !tbaa !122, !alias.scope !119
-  store ptr %1001, ptr %545, align 8, !tbaa !13, !alias.scope !119
+  store ptr %1012, ptr %20, align 8, !tbaa !124, !alias.scope !121
+  store ptr %1001, ptr %545, align 8, !tbaa !13, !alias.scope !121
   br i1 %.not.i.i.i.i.i59.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit68.i, label %1014
 
 1014:                                             ; preds = %1013
   %1015 = getelementptr inbounds nuw i8, ptr %1001, i64 8
-  %1016 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !119
+  %1016 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !121
   %.not.i.i.i.i.i63.i = icmp eq i8 %1016, 0
   br i1 %.not.i.i.i.i.i63.i, label %1020, label %1017
 
 1017:                                             ; preds = %1014
-  %1018 = load i32, ptr %1015, align 4, !tbaa !15, !noalias !119
+  %1018 = load i32, ptr %1015, align 4, !tbaa !15, !noalias !121
   %1019 = add nsw i32 %1018, 1
-  store i32 %1019, ptr %1015, align 4, !tbaa !15, !noalias !119
+  store i32 %1019, ptr %1015, align 4, !tbaa !15, !noalias !121
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i
 
 1020:                                             ; preds = %1014
-  %1021 = atomicrmw volatile add ptr %1015, i32 1 acq_rel, align 4, !noalias !119
+  %1021 = atomicrmw volatile add ptr %1015, i32 1 acq_rel, align 4, !noalias !121
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i: ; preds = %1011, %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit61.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !121
   br i1 %.not.i.i.i.i.i59.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit68.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i: ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i, %1020, %1017
@@ -2613,63 +2613,63 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i66.i: ; preds = %1038, 
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit68.i: ; preds = %1041, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i66.i, %1026, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i, %1013
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #16
-  %1042 = load ptr, ptr %16, align 8, !tbaa !65
+  %1042 = load ptr, ptr %16, align 8, !tbaa !67
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 8
-  %1044 = load ptr, ptr %1043, align 8, !tbaa !73, !noalias !125
+  %1044 = load ptr, ptr %1043, align 8, !tbaa !75, !noalias !127
   %1045 = getelementptr inbounds nuw i8, ptr %1042, i64 16
-  %1046 = load ptr, ptr %1045, align 8, !tbaa !13, !noalias !125
+  %1046 = load ptr, ptr %1045, align 8, !tbaa !13, !noalias !127
   %.not.i.i.i.i.i69.i = icmp eq ptr %1046, null
   br i1 %.not.i.i.i.i.i69.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i, label %1047
 
 1047:                                             ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit68.i
   %1048 = getelementptr inbounds nuw i8, ptr %1046, i64 8
-  %1049 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !125
+  %1049 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !127
   %.not.i.i.i.i.i.i70.i = icmp eq i8 %1049, 0
   br i1 %.not.i.i.i.i.i.i70.i, label %1053, label %1050
 
 1050:                                             ; preds = %1047
-  %1051 = load i32, ptr %1048, align 4, !tbaa !15, !noalias !125
+  %1051 = load i32, ptr %1048, align 4, !tbaa !15, !noalias !127
   %1052 = add nsw i32 %1051, 1
-  store i32 %1052, ptr %1048, align 4, !tbaa !15, !noalias !125
+  store i32 %1052, ptr %1048, align 4, !tbaa !15, !noalias !127
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i
 
 1053:                                             ; preds = %1047
-  %1054 = atomicrmw volatile add ptr %1048, i32 1 acq_rel, align 4, !noalias !125
+  %1054 = atomicrmw volatile add ptr %1048, i32 1 acq_rel, align 4, !noalias !127
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i:     ; preds = %1053, %1050, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit68.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %1055 = icmp eq ptr %1044, null
   br i1 %1055, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.i, label %1056
 
 1056:                                             ; preds = %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i
-  %1057 = call ptr @__dynamic_cast(ptr nonnull %1044, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !130
+  %1057 = call ptr @__dynamic_cast(ptr nonnull %1044, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !132
   %.not.not.i72.i = icmp eq ptr %1057, null
   br i1 %.not.not.i72.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.i, label %1058
 
 1058:                                             ; preds = %1056
-  store ptr %1057, ptr %21, align 8, !tbaa !122, !alias.scope !130
-  store ptr %1046, ptr %546, align 8, !tbaa !13, !alias.scope !130
+  store ptr %1057, ptr %21, align 8, !tbaa !124, !alias.scope !132
+  store ptr %1046, ptr %546, align 8, !tbaa !13, !alias.scope !132
   br i1 %.not.i.i.i.i.i69.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit81.i, label %1059
 
 1059:                                             ; preds = %1058
   %1060 = getelementptr inbounds nuw i8, ptr %1046, i64 8
-  %1061 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !130
+  %1061 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !132
   %.not.i.i.i.i.i74.i = icmp eq i8 %1061, 0
   br i1 %.not.i.i.i.i.i74.i, label %1065, label %1062
 
 1062:                                             ; preds = %1059
-  %1063 = load i32, ptr %1060, align 4, !tbaa !15, !noalias !130
+  %1063 = load i32, ptr %1060, align 4, !tbaa !15, !noalias !132
   %1064 = add nsw i32 %1063, 1
-  store i32 %1064, ptr %1060, align 4, !tbaa !15, !noalias !130
+  store i32 %1064, ptr %1060, align 4, !tbaa !15, !noalias !132
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.thread.i
 
 1065:                                             ; preds = %1059
-  %1066 = atomicrmw volatile add ptr %1060, i32 1 acq_rel, align 4, !noalias !130
+  %1066 = atomicrmw volatile add ptr %1060, i32 1 acq_rel, align 4, !noalias !132
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.thread.i
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.i: ; preds = %1056, %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit71.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !132
   br i1 %.not.i.i.i.i.i69.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit81.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.thread.i
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.thread.i: ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.i, %1065, %1062
@@ -2718,7 +2718,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i79.i: ; preds = %1083, 
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit81.i: ; preds = %1086, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i79.i, %1071, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit76.i, %1058
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #16
-  %1087 = load ptr, ptr %20, align 8, !tbaa !122
+  %1087 = load ptr, ptr %20, align 8, !tbaa !124
   invoke void @_ZNK19OpenColorIO_v2_5dev11Lut1DOpData26getPairIdentityReplacementERSt10shared_ptrIKS0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.13") align 8 %22, ptr noundef nonnull align 8 dereferenceable(364) %1087, ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %1088 unwind label %1141
 
@@ -2728,7 +2728,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
           to label %1089 unwind label %1143
 
 1089:                                             ; preds = %1088
-  %1090 = load ptr, ptr %22, align 8, !tbaa !73
+  %1090 = load ptr, ptr %22, align 8, !tbaa !75
   %1091 = load ptr, ptr %1090, align 8, !tbaa !17
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 24
   %1093 = load ptr, ptr %1092, align 8
@@ -2741,41 +2741,41 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
 
 1097:                                             ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %1098 = load ptr, ptr %22, align 8, !tbaa !73, !noalias !133
+  call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  %1098 = load ptr, ptr %22, align 8, !tbaa !75, !noalias !135
   %1099 = icmp eq ptr %1098, null
   br i1 %1099, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, label %1100
 
 1100:                                             ; preds = %1097
-  %1101 = call ptr @__dynamic_cast(ptr nonnull %1098, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12MatrixOpDataE, i64 0) #16, !noalias !133
+  %1101 = call ptr @__dynamic_cast(ptr nonnull %1098, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12MatrixOpDataE, i64 0) #16, !noalias !135
   %.not.not.i82.i = icmp eq ptr %1101, null
   br i1 %.not.not.i82.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, label %1102
 
 1102:                                             ; preds = %1100
-  store ptr %1101, ptr %24, align 8, !tbaa !136, !alias.scope !133
-  %1103 = load ptr, ptr %548, align 8, !tbaa !13, !noalias !133
-  store ptr %1103, ptr %549, align 8, !tbaa !13, !alias.scope !133
+  store ptr %1101, ptr %24, align 8, !tbaa !138, !alias.scope !135
+  %1103 = load ptr, ptr %548, align 8, !tbaa !13, !noalias !135
+  store ptr %1103, ptr %549, align 8, !tbaa !13, !alias.scope !135
   %.not.i.i.i.i83.i = icmp eq ptr %1103, null
   br i1 %.not.i.i.i.i83.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i, label %1104
 
 1104:                                             ; preds = %1102
   %1105 = getelementptr inbounds nuw i8, ptr %1103, i64 8
-  %1106 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !133
+  %1106 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !135
   %.not.i.i.i.i.i84.i = icmp eq i8 %1106, 0
   br i1 %.not.i.i.i.i.i84.i, label %1110, label %1107
 
 1107:                                             ; preds = %1104
-  %1108 = load i32, ptr %1105, align 4, !tbaa !15, !noalias !133
+  %1108 = load i32, ptr %1105, align 4, !tbaa !15, !noalias !135
   %1109 = add nsw i32 %1108, 1
-  store i32 %1109, ptr %1105, align 4, !tbaa !15, !noalias !133
+  store i32 %1109, ptr %1105, align 4, !tbaa !15, !noalias !135
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 1110:                                             ; preds = %1104
-  %1111 = atomicrmw volatile add ptr %1105, i32 1 acq_rel, align 4, !noalias !133
+  %1111 = atomicrmw volatile add ptr %1105, i32 1 acq_rel, align 4, !noalias !135
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i: ; preds = %1100, %1097
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !alias.scope !133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !alias.scope !135
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, %1110, %1107, %1102
@@ -2877,7 +2877,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_pol
   br label %1300
 
 1149:                                             ; preds = %1095
-  %1150 = load ptr, ptr %22, align 8, !tbaa !73
+  %1150 = load ptr, ptr %22, align 8, !tbaa !75
   %1151 = load ptr, ptr %1150, align 8, !tbaa !17
   %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 24
   %1153 = load ptr, ptr %1152, align 8
@@ -2890,41 +2890,41 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_pol
 
 1157:                                             ; preds = %1155
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %1158 = load ptr, ptr %22, align 8, !tbaa !73, !noalias !139
+  call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  %1158 = load ptr, ptr %22, align 8, !tbaa !75, !noalias !141
   %1159 = icmp eq ptr %1158, null
   br i1 %1159, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, label %1160
 
 1160:                                             ; preds = %1157
-  %1161 = call ptr @__dynamic_cast(ptr nonnull %1158, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #16, !noalias !139
+  %1161 = call ptr @__dynamic_cast(ptr nonnull %1158, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #16, !noalias !141
   %.not.not.i89.i = icmp eq ptr %1161, null
   br i1 %.not.not.i89.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, label %1162
 
 1162:                                             ; preds = %1160
-  store ptr %1161, ptr %25, align 8, !tbaa !142, !alias.scope !139
-  %1163 = load ptr, ptr %548, align 8, !tbaa !13, !noalias !139
-  store ptr %1163, ptr %547, align 8, !tbaa !13, !alias.scope !139
+  store ptr %1161, ptr %25, align 8, !tbaa !144, !alias.scope !141
+  %1163 = load ptr, ptr %548, align 8, !tbaa !13, !noalias !141
+  store ptr %1163, ptr %547, align 8, !tbaa !13, !alias.scope !141
   %.not.i.i.i.i90.i = icmp eq ptr %1163, null
   br i1 %.not.i.i.i.i90.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i, label %1164
 
 1164:                                             ; preds = %1162
   %1165 = getelementptr inbounds nuw i8, ptr %1163, i64 8
-  %1166 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !139
+  %1166 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !141
   %.not.i.i.i.i.i91.i = icmp eq i8 %1166, 0
   br i1 %.not.i.i.i.i.i91.i, label %1170, label %1167
 
 1167:                                             ; preds = %1164
-  %1168 = load i32, ptr %1165, align 4, !tbaa !15, !noalias !139
+  %1168 = load i32, ptr %1165, align 4, !tbaa !15, !noalias !141
   %1169 = add nsw i32 %1168, 1
-  store i32 %1169, ptr %1165, align 4, !tbaa !15, !noalias !139
+  store i32 %1169, ptr %1165, align 4, !tbaa !15, !noalias !141
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 1170:                                             ; preds = %1164
-  %1171 = atomicrmw volatile add ptr %1165, i32 1 acq_rel, align 4, !noalias !139
+  %1171 = atomicrmw volatile add ptr %1165, i32 1 acq_rel, align 4, !noalias !141
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i: ; preds = %1160, %1157
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !141
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E.exit.i: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2INS0_6OpDataEEERKS_IT_EPS1_.exit.i.i, %1170, %1167, %1162
@@ -2992,7 +2992,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_poli
   br label %1300
 
 1197:                                             ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %1155, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %1198 = load ptr, ptr %23, align 8, !tbaa !64
+  %1198 = load ptr, ptr %23, align 8, !tbaa !66
   %1199 = load ptr, ptr %1198, align 8, !tbaa !8
   store ptr %1199, ptr %19, align 8, !tbaa !8
   %1200 = getelementptr inbounds nuw i8, ptr %1198, i64 8
@@ -3259,7 +3259,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_pol
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i226: ; preds = %1303
   %1304 = load ptr, ptr %26, align 8, !tbaa !8
   %1305 = load ptr, ptr %543, align 8, !tbaa !13
-  store ptr %1304, ptr %19, align 8, !tbaa !145
+  store ptr %1304, ptr %19, align 8, !tbaa !147
   store ptr %1305, ptr %544, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #16
   br label %1308
@@ -3569,8 +3569,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i139.i: ; preds = %1436,
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit141.i: ; preds = %1439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i139.i, %1424, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  %1440 = load ptr, ptr %47, align 8, !tbaa !62
-  %1441 = load ptr, ptr %0, align 8, !tbaa !64
+  %1440 = load ptr, ptr %47, align 8, !tbaa !64
+  %1441 = load ptr, ptr %0, align 8, !tbaa !66
   %1442 = ptrtoint ptr %1440 to i64
   %1443 = ptrtoint ptr %1441 to i64
   %1444 = sub i64 %1442, %1443
@@ -3578,7 +3578,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   %1446 = trunc i64 %1445 to i32
   %1447 = add nsw i32 %1446, -1
   %1448 = icmp slt i32 %.2.i223, %1447
-  br i1 %1448, label %.lr.ph.i211, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit, !llvm.loop !146
+  br i1 %1448, label %.lr.ph.i211, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit, !llvm.loop !148
 
 1449:                                             ; preds = %1395, %1139, %1137, %1135
   %.pn43.pn.pn.i = phi { ptr, i32 } [ %1136, %1135 ], [ %.pn43.i, %1395 ], [ %1140, %1139 ], [ %1138, %1137 ]
@@ -3597,8 +3597,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17O
 1450:                                             ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit
   %.025.i = phi i32 [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit ], [ %.126.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i ]
   %.022.i = phi i32 [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit ], [ %.2.i252, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i ]
-  %1451 = load ptr, ptr %47, align 8, !tbaa !62
-  %1452 = load ptr, ptr %0, align 8, !tbaa !64
+  %1451 = load ptr, ptr %47, align 8, !tbaa !64
+  %1452 = load ptr, ptr %0, align 8, !tbaa !66
   %1453 = ptrtoint ptr %1451 to i64
   %1454 = ptrtoint ptr %1452 to i64
   %1455 = sub i64 %1453, %1454
@@ -3613,7 +3613,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17O
   %1461 = sext i32 %.025.i to i64
   %1462 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1452, i64 %1461
   %1463 = load ptr, ptr %1462, align 8, !tbaa !8
-  store ptr %1463, ptr %12, align 8, !tbaa !65
+  store ptr %1463, ptr %12, align 8, !tbaa !67
   %1464 = getelementptr inbounds nuw i8, ptr %1462, i64 8
   %1465 = load ptr, ptr %1464, align 8, !tbaa !13
   store ptr %1465, ptr %550, align 8, !tbaa !13
@@ -3634,7 +3634,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17O
 
 1472:                                             ; preds = %1466
   %1473 = atomicrmw volatile add ptr %1467, i32 1 acq_rel, align 4
-  %.pre.i264 = load ptr, ptr %0, align 8, !tbaa !64
+  %.pre.i264 = load ptr, ptr %0, align 8, !tbaa !66
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243: ; preds = %1472, %1469, %1460
@@ -3644,7 +3644,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243: ; pre
   %1476 = sext i32 %1475 to i64
   %1477 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1474, i64 %1476
   %1478 = load ptr, ptr %1477, align 8, !tbaa !8
-  store ptr %1478, ptr %13, align 8, !tbaa !65
+  store ptr %1478, ptr %13, align 8, !tbaa !67
   %1479 = getelementptr inbounds nuw i8, ptr %1477, i64 8
   %1480 = load ptr, ptr %1479, align 8, !tbaa !13
   store ptr %1480, ptr %551, align 8, !tbaa !13
@@ -3669,33 +3669,33 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243: ; pre
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit31.i: ; preds = %1487, %1484, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #16
-  %1489 = load ptr, ptr %12, align 8, !tbaa !65
-  call void @llvm.experimental.noalias.scope.decl(metadata !147)
+  %1489 = load ptr, ptr %12, align 8, !tbaa !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %1490 = getelementptr inbounds nuw i8, ptr %1489, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  %1491 = load ptr, ptr %1490, align 8, !tbaa !73, !noalias !153
-  store ptr %1491, ptr %14, align 8, !tbaa !77, !alias.scope !153
+  call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  %1491 = load ptr, ptr %1490, align 8, !tbaa !75, !noalias !155
+  store ptr %1491, ptr %14, align 8, !tbaa !79, !alias.scope !155
   %1492 = getelementptr inbounds nuw i8, ptr %1489, i64 16
-  %1493 = load ptr, ptr %1492, align 8, !tbaa !13, !noalias !153
-  store ptr %1493, ptr %552, align 8, !tbaa !13, !alias.scope !153
+  %1493 = load ptr, ptr %1492, align 8, !tbaa !13, !noalias !155
+  store ptr %1493, ptr %552, align 8, !tbaa !13, !alias.scope !155
   %.not.i.i.i.i.i.i244 = icmp eq ptr %1493, null
   br i1 %.not.i.i.i.i.i.i244, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i246, label %1494
 
 1494:                                             ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit31.i
   %1495 = getelementptr inbounds nuw i8, ptr %1493, i64 8
-  %1496 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !153
+  %1496 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !155
   %.not.i.i.i.i.i.i.i245 = icmp eq i8 %1496, 0
   br i1 %.not.i.i.i.i.i.i.i245, label %1500, label %1497
 
 1497:                                             ; preds = %1494
-  %1498 = load i32, ptr %1495, align 4, !tbaa !15, !noalias !153
+  %1498 = load i32, ptr %1495, align 4, !tbaa !15, !noalias !155
   %1499 = add nsw i32 %1498, 1
-  store i32 %1499, ptr %1495, align 4, !tbaa !15, !noalias !153
+  store i32 %1499, ptr %1495, align 4, !tbaa !15, !noalias !155
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i246
 
 1500:                                             ; preds = %1494
-  %1501 = atomicrmw volatile add ptr %1495, i32 1 acq_rel, align 4, !noalias !153
-  %.pre65.i = load ptr, ptr %14, align 8, !tbaa !77
+  %1501 = atomicrmw volatile add ptr %1495, i32 1 acq_rel, align 4, !noalias !155
+  %.pre65.i = load ptr, ptr %14, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i246
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i246:    ; preds = %1500, %1497, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit31.i
@@ -3785,7 +3785,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116IsCombineEnabledENS_6OpData4TypeENS_17Op
   br i1 %.not60.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116IsCombineEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.thread.i, label %1535
 
 1535:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116IsCombineEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.i, %1534, %1533, %1532, %1531, %1530
-  %1536 = load ptr, ptr %12, align 8, !tbaa !65
+  %1536 = load ptr, ptr %12, align 8, !tbaa !67
   %1537 = load ptr, ptr %1536, align 8, !tbaa !17
   %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 72
   %1539 = load ptr, ptr %1538, align 8
@@ -3796,8 +3796,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116IsCombineEnabledENS_6OpData4TypeENS_17Op
   br i1 %1540, label %1542, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116IsCombineEnabledENS_6OpData4TypeENS_17OptimizationFlagsE.exit.thread.i
 
 1542:                                             ; preds = %1541
-  %1543 = load ptr, ptr %11, align 8, !tbaa !64
-  %1544 = load ptr, ptr %559, align 8, !tbaa !62
+  %1543 = load ptr, ptr %11, align 8, !tbaa !66
+  %1544 = load ptr, ptr %559, align 8, !tbaa !64
   %.not.i.i.i33.i = icmp eq ptr %1544, %1543
   br i1 %.not.i.i.i33.i, label %_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i262, label %.lr.ph.i.i.i.i.i.i.i254
 
@@ -3855,11 +3855,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i258: ; 
 _ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i.i.i.i260: ; preds = %1567, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i258, %1552, %.lr.ph.i.i.i.i.i.i.i254
   %1568 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i255, i64 16
   %.not.i.i.i.i.i.i34.i = icmp eq ptr %1568, %1544
-  br i1 %.not.i.i.i.i.i.i34.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i261, label %.lr.ph.i.i.i.i.i.i.i254, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i34.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i261, label %.lr.ph.i.i.i.i.i.i.i254, !llvm.loop !92
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i261: ; preds = %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i.i.i.i260
-  store ptr %1543, ptr %559, align 8, !tbaa !62
-  %.pre66.i = load ptr, ptr %12, align 8, !tbaa !65
+  store ptr %1543, ptr %559, align 8, !tbaa !64
+  %.pre66.i = load ptr, ptr %12, align 8, !tbaa !67
   br label %_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i262
 
 _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i262: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i261, %1542
@@ -4023,7 +4023,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i41.i: ; preds = %1635, 
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i: ; preds = %1638, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i41.i, %1623, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i253
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  br i1 %switch.i, label %1450, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit
+  br i1 %switch.i, label %1450, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit, !llvm.loop !156
 
 1639:                                             ; preds = %1593, %1591, %1589, %1587
   %.pn.i247 = phi { ptr, i32 } [ %1594, %1593 ], [ %1592, %1591 ], [ %1590, %1589 ], [ %1588, %1587 ]
@@ -4049,8 +4049,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17Optimiz
   br i1 %.not458, label %.thread, label %1645
 
 1645:                                             ; preds = %1644
-  %1646 = load ptr, ptr %47, align 8, !tbaa !62
-  %1647 = load ptr, ptr %0, align 8, !tbaa !64
+  %1646 = load ptr, ptr %47, align 8, !tbaa !64
+  %1647 = load ptr, ptr %0, align 8, !tbaa !66
   %.not.i265 = icmp eq ptr %1646, %1647
   br i1 %.not.i265, label %.thread, label %.lr.ph.i266
 
@@ -4065,10 +4065,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17Optimiz
   %.02184.i = phi i32 [ 0, %.lr.ph.i266 ], [ %.223.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i274 ]
   %.02582.i = phi i64 [ 0, %.lr.ph.i266 ], [ %1958, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i274 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
-  %1653 = load ptr, ptr %0, align 8, !tbaa !64
+  %1653 = load ptr, ptr %0, align 8, !tbaa !66
   %1654 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1653, i64 %.02582.i
   %1655 = load ptr, ptr %1654, align 8, !tbaa !8
-  store ptr %1655, ptr %3, align 8, !tbaa !65
+  store ptr %1655, ptr %3, align 8, !tbaa !67
   %1656 = getelementptr inbounds nuw i8, ptr %1654, i64 8
   %1657 = load ptr, ptr %1656, align 8, !tbaa !13
   store ptr %1657, ptr %560, align 8, !tbaa !13
@@ -4089,38 +4089,38 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17Optimiz
 
 1664:                                             ; preds = %1658
   %1665 = atomicrmw volatile add ptr %1659, i32 1 acq_rel, align 4
-  %.pre.i301 = load ptr, ptr %3, align 8, !tbaa !65
+  %.pre.i301 = load ptr, ptr %3, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i269
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i269: ; preds = %1664, %1661, %1652
   %1666 = phi ptr [ %1655, %1652 ], [ %1655, %1661 ], [ %.pre.i301, %1664 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %1667 = getelementptr inbounds nuw i8, ptr %1666, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %1668 = load ptr, ptr %1667, align 8, !tbaa !73, !noalias !160
-  store ptr %1668, ptr %4, align 8, !tbaa !77, !alias.scope !160
+  %1667 = getelementptr inbounds nuw i8, ptr %1666, i64 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  %1668 = load ptr, ptr %1667, align 8, !tbaa !75, !noalias !163
+  store ptr %1668, ptr %4, align 8, !tbaa !79, !alias.scope !163
   %1669 = getelementptr inbounds nuw i8, ptr %1666, i64 16
-  %1670 = load ptr, ptr %1669, align 8, !tbaa !13, !noalias !160
-  store ptr %1670, ptr %561, align 8, !tbaa !13, !alias.scope !160
+  %1670 = load ptr, ptr %1669, align 8, !tbaa !13, !noalias !163
+  store ptr %1670, ptr %561, align 8, !tbaa !13, !alias.scope !163
   %.not.i.i.i.i.i.i270 = icmp eq ptr %1670, null
   br i1 %.not.i.i.i.i.i.i270, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i272, label %1671
 
 1671:                                             ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i269
   %1672 = getelementptr inbounds nuw i8, ptr %1670, i64 8
-  %1673 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !160
+  %1673 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !163
   %.not.i.i.i.i.i.i.i271 = icmp eq i8 %1673, 0
   br i1 %.not.i.i.i.i.i.i.i271, label %1677, label %1674
 
 1674:                                             ; preds = %1671
-  %1675 = load i32, ptr %1672, align 4, !tbaa !15, !noalias !160
+  %1675 = load i32, ptr %1672, align 4, !tbaa !15, !noalias !163
   %1676 = add nsw i32 %1675, 1
-  store i32 %1676, ptr %1672, align 4, !tbaa !15, !noalias !160
+  store i32 %1676, ptr %1672, align 4, !tbaa !15, !noalias !163
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i272
 
 1677:                                             ; preds = %1671
-  %1678 = atomicrmw volatile add ptr %1672, i32 1 acq_rel, align 4, !noalias !160
-  %.pre85.i = load ptr, ptr %4, align 8, !tbaa !77
+  %1678 = atomicrmw volatile add ptr %1672, i32 1 acq_rel, align 4, !noalias !163
+  %.pre85.i = load ptr, ptr %4, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i272
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i272:    ; preds = %1677, %1674, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i269
@@ -4139,37 +4139,37 @@ _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i272:    ; preds = %1677, %1674, %_ZNSt
 
 1685:                                             ; preds = %1684
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %1686 = call ptr @__dynamic_cast(ptr nonnull %1679, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !161
+  call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  %1686 = call ptr @__dynamic_cast(ptr nonnull %1679, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !164
   %.not.not.i.i279 = icmp ne ptr %1686, null
   call void @llvm.assume(i1 %.not.not.i.i279)
-  store ptr %1686, ptr %5, align 8, !tbaa !122, !alias.scope !161
-  %1687 = load ptr, ptr %561, align 8, !tbaa !13, !noalias !161
-  store ptr %1687, ptr %565, align 8, !tbaa !13, !alias.scope !161
+  store ptr %1686, ptr %5, align 8, !tbaa !124, !alias.scope !164
+  %1687 = load ptr, ptr %561, align 8, !tbaa !13, !noalias !164
+  store ptr %1687, ptr %565, align 8, !tbaa !13, !alias.scope !164
   %.not.i.i.i.i36.i280 = icmp eq ptr %1687, null
   br i1 %.not.i.i.i.i36.i280, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i281, label %1688
 
 1688:                                             ; preds = %1685
   %1689 = getelementptr inbounds nuw i8, ptr %1687, i64 8
-  %1690 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !161
+  %1690 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !164
   %.not.i.i.i.i.i37.i = icmp eq i8 %1690, 0
   br i1 %.not.i.i.i.i.i37.i, label %1694, label %1691
 
 1691:                                             ; preds = %1688
-  %1692 = load i32, ptr %1689, align 4, !tbaa !15, !noalias !161
+  %1692 = load i32, ptr %1689, align 4, !tbaa !15, !noalias !164
   %1693 = add nsw i32 %1692, 1
-  store i32 %1693, ptr %1689, align 4, !tbaa !15, !noalias !161
+  store i32 %1693, ptr %1689, align 4, !tbaa !15, !noalias !164
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i281
 
 1694:                                             ; preds = %1688
-  %1695 = atomicrmw volatile add ptr %1689, i32 1 acq_rel, align 4, !noalias !161
-  %.pre87.i = load ptr, ptr %5, align 8, !tbaa !122
+  %1695 = atomicrmw volatile add ptr %1689, i32 1 acq_rel, align 4, !noalias !164
+  %.pre87.i = load ptr, ptr %5, align 8, !tbaa !124
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i281
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i281: ; preds = %1694, %1691, %1685
   %1696 = phi ptr [ %1686, %1685 ], [ %1686, %1691 ], [ %.pre87.i, %1694 ]
   %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 232
-  %1698 = load i32, ptr %1697, align 8, !tbaa !164
+  %1698 = load i32, ptr %1697, align 8, !tbaa !167
   %1699 = icmp eq i32 %1698, 1
   br i1 %1699, label %1700, label %1777
 
@@ -4194,8 +4194,8 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt
           to label %1704 unwind label %1773
 
 1704:                                             ; preds = %1703
-  %1705 = load ptr, ptr %7, align 8, !tbaa !64
-  %1706 = load ptr, ptr %0, align 8, !tbaa !64
+  %1705 = load ptr, ptr %7, align 8, !tbaa !66
+  %1706 = load ptr, ptr %0, align 8, !tbaa !66
   %1707 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1706, i64 %.02582.i
   %1708 = load ptr, ptr %1705, align 8, !tbaa !8
   store ptr %1708, ptr %1707, align 8, !tbaa !8
@@ -4426,37 +4426,37 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_pol
 
 1800:                                             ; preds = %1684
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %1801 = call ptr @__dynamic_cast(ptr nonnull %1679, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut3DOpDataE, i64 0) #16, !noalias !194
+  call void @llvm.experimental.noalias.scope.decl(metadata !197)
+  %1801 = call ptr @__dynamic_cast(ptr nonnull %1679, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut3DOpDataE, i64 0) #16, !noalias !197
   %.not.not.i45.i = icmp ne ptr %1801, null
   call void @llvm.assume(i1 %.not.not.i45.i)
-  store ptr %1801, ptr %8, align 8, !tbaa !197, !alias.scope !194
-  %1802 = load ptr, ptr %561, align 8, !tbaa !13, !noalias !194
-  store ptr %1802, ptr %562, align 8, !tbaa !13, !alias.scope !194
+  store ptr %1801, ptr %8, align 8, !tbaa !200, !alias.scope !197
+  %1802 = load ptr, ptr %561, align 8, !tbaa !13, !noalias !197
+  store ptr %1802, ptr %562, align 8, !tbaa !13, !alias.scope !197
   %.not.i.i.i.i46.i = icmp eq ptr %1802, null
   br i1 %.not.i.i.i.i46.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i, label %1803
 
 1803:                                             ; preds = %1800
   %1804 = getelementptr inbounds nuw i8, ptr %1802, i64 8
-  %1805 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !194
+  %1805 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !197
   %.not.i.i.i.i.i47.i = icmp eq i8 %1805, 0
   br i1 %.not.i.i.i.i.i47.i, label %1809, label %1806
 
 1806:                                             ; preds = %1803
-  %1807 = load i32, ptr %1804, align 4, !tbaa !15, !noalias !194
+  %1807 = load i32, ptr %1804, align 4, !tbaa !15, !noalias !197
   %1808 = add nsw i32 %1807, 1
-  store i32 %1808, ptr %1804, align 4, !tbaa !15, !noalias !194
+  store i32 %1808, ptr %1804, align 4, !tbaa !15, !noalias !197
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i
 
 1809:                                             ; preds = %1803
-  %1810 = atomicrmw volatile add ptr %1804, i32 1 acq_rel, align 4, !noalias !194
-  %.pre86.i = load ptr, ptr %8, align 8, !tbaa !197
+  %1810 = atomicrmw volatile add ptr %1804, i32 1 acq_rel, align 4, !noalias !197
+  %.pre86.i = load ptr, ptr %8, align 8, !tbaa !200
   br label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i: ; preds = %1809, %1806, %1800
   %1811 = phi ptr [ %1801, %1800 ], [ %1801, %1806 ], [ %.pre86.i, %1809 ]
   %1812 = getelementptr inbounds nuw i8, ptr %1811, i64 224
-  %1813 = load i32, ptr %1812, align 8, !tbaa !200
+  %1813 = load i32, ptr %1812, align 8, !tbaa !203
   %1814 = icmp eq i32 %1813, 1
   br i1 %1814, label %1815, label %1890
 
@@ -4481,8 +4481,8 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt
           to label %1819 unwind label %1886
 
 1819:                                             ; preds = %1818
-  %1820 = load ptr, ptr %10, align 8, !tbaa !64
-  %1821 = load ptr, ptr %0, align 8, !tbaa !64
+  %1820 = load ptr, ptr %10, align 8, !tbaa !66
+  %1821 = load ptr, ptr %0, align 8, !tbaa !66
   %1822 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1821, i64 %.02582.i
   %1823 = load ptr, ptr %1820, align 8, !tbaa !8
   store ptr %1823, ptr %1822, align 8, !tbaa !8
@@ -4810,7 +4810,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %1958 = add nuw i64 %.02582.i, 1
   %exitcond.not.i275 = icmp eq i64 %1958, %1651
-  br i1 %exitcond.not.i275, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceInverseLutsERNS_10OpRcPtrVecE.exit, label %1652, !llvm.loop !203
+  br i1 %exitcond.not.i275, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceInverseLutsERNS_10OpRcPtrVecE.exit, label %1652, !llvm.loop !206
 
 1959:                                             ; preds = %1889, %1776, %1767
   %.pn29.pn.pn.i = phi { ptr, i32 } [ %.pn29.pn.i, %1776 ], [ %.pn.pn.i276, %1889 ], [ %1768, %1767 ]
@@ -4834,7 +4834,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceInverseLutsERNS_10OpRcPtrVecE.exi
   %1966 = add nsw i32 %.1.i240, %.0781354
   %1967 = add nuw nsw i32 %.0861352, 1
   %1968 = icmp samesign ult i32 %.0861352, 80
-  br i1 %1968, label %568, label %.thread440
+  br i1 %1968, label %568, label %.thread440, !llvm.loop !207
 
 .thread:                                          ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceInverseLutsERNS_10OpRcPtrVecE.exit, %1645, %1644
   %.182 = phi i32 [ %.0811353, %1644 ], [ %.0811353, %1645 ], [ %1960, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceInverseLutsERNS_10OpRcPtrVecE.exit ]
@@ -4873,18 +4873,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306: ; preds = %_ZSt
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit307: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  call void @llvm.experimental.noalias.scope.decl(metadata !207)
+  call void @llvm.experimental.noalias.scope.decl(metadata !208)
+  call void @llvm.experimental.noalias.scope.decl(metadata !211)
   %1979 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %1979, ptr %42, align 8, !tbaa !57, !alias.scope !210
+  store ptr %1979, ptr %42, align 8, !tbaa !59, !alias.scope !214
   %1980 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %1980, align 8, !tbaa !50, !alias.scope !210
-  store i8 0, ptr %1979, align 8, !tbaa !14, !alias.scope !210
+  store i64 0, ptr %1980, align 8, !tbaa !52, !alias.scope !214
+  store i8 0, ptr %1979, align 8, !tbaa !14, !alias.scope !214
   %1981 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %1982 = load ptr, ptr %1981, align 8, !tbaa !59, !noalias !210
+  %1982 = load ptr, ptr %1981, align 8, !tbaa !61, !noalias !214
   %.not.i.not.i.i308 = icmp eq ptr %1982, null
   %1983 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %1984 = load ptr, ptr %1983, align 8, !noalias !210
+  %1984 = load ptr, ptr %1983, align 8, !noalias !214
   %1985 = icmp ugt ptr %1982, %1984
   %.08.i.i.i309 = select i1 %1985, ptr %1982, ptr %1984
   %.not5.i.i310 = icmp eq ptr %.08.i.i.i309, null
@@ -4893,7 +4893,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit307: ; preds = %_ZSt
 
 1986:                                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit307
   %1987 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %1988 = load ptr, ptr %1987, align 8, !tbaa !61, !noalias !210
+  %1988 = load ptr, ptr %1987, align 8, !tbaa !63, !noalias !214
   %1989 = ptrtoint ptr %.08.i.i.i309 to i64
   %1990 = ptrtoint ptr %1988 to i64
   %1991 = sub i64 %1989, %1990
@@ -4903,18 +4903,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit307: ; preds = %_ZSt
 1993:                                             ; preds = %2001, %1986
   %1994 = landingpad { ptr, i32 }
           cleanup
-  %1995 = load ptr, ptr %42, align 8, !tbaa !46, !alias.scope !210
+  %1995 = load ptr, ptr %42, align 8, !tbaa !48, !alias.scope !214
   %1996 = icmp eq ptr %1995, %1979
   br i1 %1996, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i314, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i312
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i314: ; preds = %1993
-  %1997 = load i64, ptr %1980, align 8, !tbaa !50, !alias.scope !210
+  %1997 = load i64, ptr %1980, align 8, !tbaa !52, !alias.scope !214
   %1998 = icmp ult i64 %1997, 16
   call void @llvm.assume(i1 %1998)
   br label %.body315
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i312: ; preds = %1993
-  %1999 = load i64, ptr %1979, align 8, !tbaa !14, !alias.scope !210
+  %1999 = load i64, ptr %1979, align 8, !tbaa !14, !alias.scope !214
   %2000 = add i64 %1999, 1
   call void @_ZdlPvm(ptr noundef %1995, i64 noundef %2000) #18
   br label %.body315
@@ -4929,12 +4929,12 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit317: ; p
           to label %2003 unwind label %2029
 
 2003:                                             ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit317
-  %2004 = load ptr, ptr %42, align 8, !tbaa !46
+  %2004 = load ptr, ptr %42, align 8, !tbaa !48
   %2005 = icmp eq ptr %2004, %1979
   br i1 %2005, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i319, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i319: ; preds = %2003
-  %2006 = load i64, ptr %1980, align 8, !tbaa !50
+  %2006 = load i64, ptr %1980, align 8, !tbaa !52
   %2007 = icmp ult i64 %2006, 16
   call void @llvm.assume(i1 %2007)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320
@@ -4957,14 +4957,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
   %2015 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %2015, align 8, !tbaa !17
   %2016 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %2017 = load ptr, ptr %2016, align 8, !tbaa !46
+  %2017 = load ptr, ptr %2016, align 8, !tbaa !48
   %2018 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %2019 = icmp eq ptr %2017, %2018
   br i1 %2019, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i322, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i321
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i322: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320
   %2020 = getelementptr inbounds nuw i8, ptr %41, i64 88
-  %2021 = load i64, ptr %2020, align 8, !tbaa !50
+  %2021 = load i64, ptr %2020, align 8, !tbaa !52
   %2022 = icmp ult i64 %2021, 16
   call void @llvm.assume(i1 %2022)
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit323
@@ -4992,12 +4992,12 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit323: ; pred
 2029:                                             ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit317
   %2030 = landingpad { ptr, i32 }
           cleanup
-  %2031 = load ptr, ptr %42, align 8, !tbaa !46
+  %2031 = load ptr, ptr %42, align 8, !tbaa !48
   %2032 = icmp eq ptr %2031, %1979
   br i1 %2032, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i325, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i324
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i325: ; preds = %2029
-  %2033 = load i64, ptr %1980, align 8, !tbaa !50
+  %2033 = load i64, ptr %1980, align 8, !tbaa !52
   %2034 = icmp ult i64 %2033, 16
   call void @llvm.assume(i1 %2034)
   br label %.body315
@@ -5031,8 +5031,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   br i1 %2038, label %2039, label %2177
 
 2039:                                             ; preds = %.thread440
-  %2040 = load ptr, ptr %47, align 8, !tbaa !62
-  %2041 = load ptr, ptr %0, align 8, !tbaa !64
+  %2040 = load ptr, ptr %47, align 8, !tbaa !64
+  %2041 = load ptr, ptr %0, align 8, !tbaa !66
   %2042 = ptrtoint ptr %2040 to i64
   %2043 = ptrtoint ptr %2041 to i64
   %2044 = sub i64 %2042, %2043
@@ -5048,7 +5048,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit327: ; preds = %2039
   %2049 = load i64, ptr %2048, align 8
   %2050 = getelementptr inbounds i8, ptr %43, i64 %2049
   %2051 = getelementptr inbounds nuw i8, ptr %2050, i64 240
-  %2052 = load ptr, ptr %2051, align 8, !tbaa !23
+  %2052 = load ptr, ptr %2051, align 8, !tbaa !25
   %.not.i.i.i417 = icmp eq ptr %2052, null
   br i1 %.not.i.i.i417, label %2053, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i418
 
@@ -5061,7 +5061,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit327: ; preds = %2039
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i418: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit327
   %2054 = getelementptr inbounds nuw i8, ptr %2052, i64 56
-  %2055 = load i8, ptr %2054, align 8, !tbaa !40
+  %2055 = load i8, ptr %2054, align 8, !tbaa !42
   %.not.i1.i.i419 = icmp eq i8 %2055, 0
   br i1 %.not.i1.i.i419, label %2059, label %2056
 
@@ -5180,20 +5180,20 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341: ; preds = %2093
           to label %2095 unwind label %2157
 
 2095:                                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341
-  %2096 = load ptr, ptr %44, align 8, !tbaa !46
+  %2096 = load ptr, ptr %44, align 8, !tbaa !48
   %2097 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %2098 = load i64, ptr %2097, align 8, !tbaa !50
+  %2098 = load i64, ptr %2097, align 8, !tbaa !52
   %2099 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %2096, i64 noundef %2098)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit342 unwind label %2159
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit342: ; preds = %2095
-  %2100 = load ptr, ptr %44, align 8, !tbaa !46
+  %2100 = load ptr, ptr %44, align 8, !tbaa !48
   %2101 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %2102 = icmp eq ptr %2100, %2101
   br i1 %2102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i344, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i343
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i344: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit342
-  %2103 = load i64, ptr %2097, align 8, !tbaa !50
+  %2103 = load i64, ptr %2097, align 8, !tbaa !52
   %2104 = icmp ult i64 %2103, 16
   call void @llvm.assume(i1 %2104)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345
@@ -5207,18 +5207,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i344, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i343
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  call void @llvm.experimental.noalias.scope.decl(metadata !215)
+  call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %2107 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %2107, ptr %45, align 8, !tbaa !57, !alias.scope !217
+  store ptr %2107, ptr %45, align 8, !tbaa !59, !alias.scope !221
   %2108 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 0, ptr %2108, align 8, !tbaa !50, !alias.scope !217
-  store i8 0, ptr %2107, align 8, !tbaa !14, !alias.scope !217
+  store i64 0, ptr %2108, align 8, !tbaa !52, !alias.scope !221
+  store i8 0, ptr %2107, align 8, !tbaa !14, !alias.scope !221
   %2109 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %2110 = load ptr, ptr %2109, align 8, !tbaa !59, !noalias !217
+  %2110 = load ptr, ptr %2109, align 8, !tbaa !61, !noalias !221
   %.not.i.not.i.i346 = icmp eq ptr %2110, null
   %2111 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %2112 = load ptr, ptr %2111, align 8, !noalias !217
+  %2112 = load ptr, ptr %2111, align 8, !noalias !221
   %2113 = icmp ugt ptr %2110, %2112
   %.08.i.i.i347 = select i1 %2113, ptr %2110, ptr %2112
   %.not5.i.i348 = icmp eq ptr %.08.i.i.i347, null
@@ -5227,7 +5227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_Z
 
 2114:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345
   %2115 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %2116 = load ptr, ptr %2115, align 8, !tbaa !61, !noalias !217
+  %2116 = load ptr, ptr %2115, align 8, !tbaa !63, !noalias !221
   %2117 = ptrtoint ptr %.08.i.i.i347 to i64
   %2118 = ptrtoint ptr %2116 to i64
   %2119 = sub i64 %2117, %2118
@@ -5237,18 +5237,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_Z
 2121:                                             ; preds = %2129, %2114
   %2122 = landingpad { ptr, i32 }
           cleanup
-  %2123 = load ptr, ptr %45, align 8, !tbaa !46, !alias.scope !217
+  %2123 = load ptr, ptr %45, align 8, !tbaa !48, !alias.scope !221
   %2124 = icmp eq ptr %2123, %2107
   br i1 %2124, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i352, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i350
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i352: ; preds = %2121
-  %2125 = load i64, ptr %2108, align 8, !tbaa !50, !alias.scope !217
+  %2125 = load i64, ptr %2108, align 8, !tbaa !52, !alias.scope !221
   %2126 = icmp ult i64 %2125, 16
   call void @llvm.assume(i1 %2126)
   br label %.body353
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i350: ; preds = %2121
-  %2127 = load i64, ptr %2107, align 8, !tbaa !14, !alias.scope !217
+  %2127 = load i64, ptr %2107, align 8, !tbaa !14, !alias.scope !221
   %2128 = add i64 %2127, 1
   call void @_ZdlPvm(ptr noundef %2123, i64 noundef %2128) #18
   br label %.body353
@@ -5263,12 +5263,12 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit355: ; p
           to label %2131 unwind label %2168
 
 2131:                                             ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit355
-  %2132 = load ptr, ptr %45, align 8, !tbaa !46
+  %2132 = load ptr, ptr %45, align 8, !tbaa !48
   %2133 = icmp eq ptr %2132, %2107
   br i1 %2133, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i356
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i357: ; preds = %2131
-  %2134 = load i64, ptr %2108, align 8, !tbaa !50
+  %2134 = load i64, ptr %2108, align 8, !tbaa !52
   %2135 = icmp ult i64 %2134, 16
   call void @llvm.assume(i1 %2135)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358
@@ -5291,14 +5291,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358: ; preds = %_Z
   %2143 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %2143, align 8, !tbaa !17
   %2144 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %2145 = load ptr, ptr %2144, align 8, !tbaa !46
+  %2145 = load ptr, ptr %2144, align 8, !tbaa !48
   %2146 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %2147 = icmp eq ptr %2145, %2146
   br i1 %2147, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i360, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i359
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i360: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358
   %2148 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %2149 = load i64, ptr %2148, align 8, !tbaa !50
+  %2149 = load i64, ptr %2148, align 8, !tbaa !52
   %2150 = icmp ult i64 %2149, 16
   call void @llvm.assume(i1 %2150)
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit361
@@ -5331,13 +5331,13 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit361: ; pred
 2159:                                             ; preds = %2095
   %2160 = landingpad { ptr, i32 }
           cleanup
-  %2161 = load ptr, ptr %44, align 8, !tbaa !46
+  %2161 = load ptr, ptr %44, align 8, !tbaa !48
   %2162 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %2163 = icmp eq ptr %2161, %2162
   br i1 %2163, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i362
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i363: ; preds = %2159
-  %2164 = load i64, ptr %2097, align 8, !tbaa !50
+  %2164 = load i64, ptr %2097, align 8, !tbaa !52
   %2165 = icmp ult i64 %2164, 16
   call void @llvm.assume(i1 %2165)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364
@@ -5356,12 +5356,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364: ; preds = %_Z
 2168:                                             ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit355
   %2169 = landingpad { ptr, i32 }
           cleanup
-  %2170 = load ptr, ptr %45, align 8, !tbaa !46
+  %2170 = load ptr, ptr %45, align 8, !tbaa !48
   %2171 = icmp eq ptr %2170, %2107
   br i1 %2171, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i366, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i365
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i366: ; preds = %2168
-  %2172 = load i64, ptr %2108, align 8, !tbaa !50
+  %2172 = load i64, ptr %2108, align 8, !tbaa !52
   %2173 = icmp ult i64 %2172, 16
   call void @llvm.assume(i1 %2173)
   br label %.body353
@@ -5432,7 +5432,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec19optimizeForBitdepthERK
   br i1 %22, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123OptimizeSeparablePrefixERNS_10OpRcPtrVecENS_8BitDepthE.exit, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %1, align 4, !tbaa !218
+  %24 = load i32, ptr %1, align 4, !tbaa !222
   %25 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef %24)
   br i1 %25, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtrVecE.exit, label %26
 
@@ -5452,7 +5452,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec19optimizeForBitdepthERK
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #16
   %33 = load ptr, ptr %.sroa.025.0.i, align 8, !tbaa !8
-  store ptr %33, ptr %17, align 8, !tbaa !65
+  store ptr %33, ptr %17, align 8, !tbaa !67
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !13
   store ptr %35, ptr %28, align 8, !tbaa !13
@@ -5473,38 +5473,38 @@ define hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec19optimizeForBitdepthERK
 
 42:                                               ; preds = %36
   %43 = atomicrmw volatile add ptr %37, i32 1 acq_rel, align 4
-  %.pre.i = load ptr, ptr %17, align 8, !tbaa !65
+  %.pre.i = load ptr, ptr %17, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i: ; preds = %42, %39, %32
   %44 = phi ptr [ %33, %32 ], [ %33, %39 ], [ %.pre.i, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %46 = load ptr, ptr %45, align 8, !tbaa !73, !noalias !225
-  store ptr %46, ptr %18, align 8, !tbaa !77, !alias.scope !225
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  %46 = load ptr, ptr %45, align 8, !tbaa !75, !noalias !229
+  store ptr %46, ptr %18, align 8, !tbaa !79, !alias.scope !229
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !13, !noalias !225
-  store ptr %48, ptr %29, align 8, !tbaa !13, !alias.scope !225
+  %48 = load ptr, ptr %47, align 8, !tbaa !13, !noalias !229
+  store ptr %48, ptr %29, align 8, !tbaa !13, !alias.scope !229
   %.not.i.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i, label %49
 
 49:                                               ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !225
+  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !229
   %.not.i.i.i.i.i.i.i = icmp eq i8 %51, 0
   br i1 %.not.i.i.i.i.i.i.i, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %50, align 4, !tbaa !15, !noalias !225
+  %53 = load i32, ptr %50, align 4, !tbaa !15, !noalias !229
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %50, align 4, !tbaa !15, !noalias !225
+  store i32 %54, ptr %50, align 4, !tbaa !15, !noalias !229
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i
 
 55:                                               ; preds = %49
-  %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4, !noalias !225
-  %.pre29.i = load ptr, ptr %18, align 8, !tbaa !77
+  %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4, !noalias !229
+  %.pre29.i = load ptr, ptr %18, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i:       ; preds = %55, %52, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i
@@ -5651,7 +5651,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17.i: ; preds = %116, %
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %119, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17.i, %104, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #16
-  br i1 %switch.i, label %30, label %120
+  br i1 %switch.i, label %30, label %120, !llvm.loop !230
 
 120:                                              ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %30
   %.1.i = phi i32 [ %.2.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %.0.i, %30 ]
@@ -5666,13 +5666,13 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtrVecE.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtrVecE.exit: ; preds = %121, %120, %23
-  %126 = load i32, ptr %2, align 4, !tbaa !218
+  %126 = load i32, ptr %2, align 4, !tbaa !222
   %127 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef %126)
   br i1 %127, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPtrVecE.exit, label %128
 
 128:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtrVecE.exit
-  %129 = load ptr, ptr %20, align 8, !tbaa !62
-  %130 = load ptr, ptr %0, align 8, !tbaa !64
+  %129 = load ptr, ptr %20, align 8, !tbaa !64
+  %130 = load ptr, ptr %0, align 8, !tbaa !66
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %130 to i64
   %133 = sub i64 %131, %132
@@ -5692,10 +5692,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtr
 141:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #16
   %142 = zext nneg i32 %.015.i to i64
-  %143 = load ptr, ptr %0, align 8, !tbaa !64
+  %143 = load ptr, ptr %0, align 8, !tbaa !66
   %144 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %143, i64 %142
   %145 = load ptr, ptr %144, align 8, !tbaa !8
-  store ptr %145, ptr %15, align 8, !tbaa !65
+  store ptr %145, ptr %15, align 8, !tbaa !67
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !13
   store ptr %147, ptr %137, align 8, !tbaa !13
@@ -5716,38 +5716,38 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtr
 
 154:                                              ; preds = %148
   %155 = atomicrmw volatile add ptr %149, i32 1 acq_rel, align 4
-  %.pre.i20 = load ptr, ptr %15, align 8, !tbaa !65
+  %.pre.i20 = load ptr, ptr %15, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i9
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i9: ; preds = %154, %151, %141
   %156 = phi ptr [ %145, %141 ], [ %145, %151 ], [ %.pre.i20, %154 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  %158 = load ptr, ptr %157, align 8, !tbaa !73, !noalias !232
-  store ptr %158, ptr %16, align 8, !tbaa !77, !alias.scope !232
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
+  %158 = load ptr, ptr %157, align 8, !tbaa !75, !noalias !237
+  store ptr %158, ptr %16, align 8, !tbaa !79, !alias.scope !237
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %160 = load ptr, ptr %159, align 8, !tbaa !13, !noalias !232
-  store ptr %160, ptr %138, align 8, !tbaa !13, !alias.scope !232
+  %160 = load ptr, ptr %159, align 8, !tbaa !13, !noalias !237
+  store ptr %160, ptr %138, align 8, !tbaa !13, !alias.scope !237
   %.not.i.i.i.i.i.i10 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i.i.i10, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i12, label %161
 
 161:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i9
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %163 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !232
+  %163 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !237
   %.not.i.i.i.i.i.i.i11 = icmp eq i8 %163, 0
   br i1 %.not.i.i.i.i.i.i.i11, label %167, label %164
 
 164:                                              ; preds = %161
-  %165 = load i32, ptr %162, align 4, !tbaa !15, !noalias !232
+  %165 = load i32, ptr %162, align 4, !tbaa !15, !noalias !237
   %166 = add nsw i32 %165, 1
-  store i32 %166, ptr %162, align 4, !tbaa !15, !noalias !232
+  store i32 %166, ptr %162, align 4, !tbaa !15, !noalias !237
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i12
 
 167:                                              ; preds = %161
-  %168 = atomicrmw volatile add ptr %162, i32 1 acq_rel, align 4, !noalias !232
-  %.pre28.i = load ptr, ptr %16, align 8, !tbaa !77
+  %168 = atomicrmw volatile add ptr %162, i32 1 acq_rel, align 4, !noalias !237
+  %.pre28.i = load ptr, ptr %16, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i12
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i12:     ; preds = %167, %164, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i9
@@ -5890,7 +5890,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i: ; preds = %228, %
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i19: ; preds = %231, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i, %216, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
-  br i1 %switch.i13, label %139, label %232
+  br i1 %switch.i13, label %139, label %232, !llvm.loop !238
 
 232:                                              ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i19, %139
   %.116.i = phi i32 [ %.217.i, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i19 ], [ %.015.i, %139 ]
@@ -5913,7 +5913,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPt
   br i1 %.not, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123OptimizeSeparablePrefixERNS_10OpRcPtrVecENS_8BitDepthE.exit, label %241
 
 241:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPtrVecE.exit
-  %242 = load i32, ptr %1, align 4, !tbaa !218
+  %242 = load i32, ptr %1, align 4, !tbaa !222
   %243 = load ptr, ptr %0, align 8, !tbaa !3
   %244 = load ptr, ptr %20, align 8, !tbaa !3
   %245 = icmp eq ptr %243, %244
@@ -5947,7 +5947,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPt
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0124.i.i, i64 16
   %.not116.i.i = icmp eq ptr %259, %244
   %or.cond.i.i = select i1 %257, i1 true, i1 %.not116.i.i
-  br i1 %or.cond.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  br i1 %or.cond.i.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !239
 
 .thread.i.i:                                      ; preds = %252, %.lr.ph.i.i
   %.142.i.i = phi i32 [ %spec.select51.i.i, %252 ], [ %.041125.i.i, %.lr.ph.i.i ]
@@ -5958,9 +5958,9 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPt
 
 260:                                              ; preds = %.thread.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  %261 = load ptr, ptr %0, align 8, !tbaa !64
+  %261 = load ptr, ptr %0, align 8, !tbaa !66
   %262 = load ptr, ptr %261, align 8, !tbaa !8
-  store ptr %262, ptr %5, align 8, !tbaa !65
+  store ptr %262, ptr %5, align 8, !tbaa !67
   %263 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %265 = load ptr, ptr %264, align 8, !tbaa !13
@@ -5982,39 +5982,39 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127RemoveTrailingClampIdentityERNS_10OpRcPt
 
 272:                                              ; preds = %266
   %273 = atomicrmw volatile add ptr %267, i32 1 acq_rel, align 4
-  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !65
+  %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i.i: ; preds = %272, %269, %260
   %274 = phi ptr [ %262, %260 ], [ %262, %269 ], [ %.pre.i.i, %272 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %276 = load ptr, ptr %275, align 8, !tbaa !73, !noalias !239
-  store ptr %276, ptr %6, align 8, !tbaa !77, !alias.scope !239
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  %276 = load ptr, ptr %275, align 8, !tbaa !75, !noalias !246
+  store ptr %276, ptr %6, align 8, !tbaa !79, !alias.scope !246
   %277 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %278 = getelementptr inbounds nuw i8, ptr %274, i64 16
-  %279 = load ptr, ptr %278, align 8, !tbaa !13, !noalias !239
-  store ptr %279, ptr %277, align 8, !tbaa !13, !alias.scope !239
+  %279 = load ptr, ptr %278, align 8, !tbaa !13, !noalias !246
+  store ptr %279, ptr %277, align 8, !tbaa !13, !alias.scope !246
   %.not.i.i.i.i.i.i.i23 = icmp eq ptr %279, null
   br i1 %.not.i.i.i.i.i.i.i23, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i.i, label %280
 
 280:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i.i
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  %282 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !239
+  %282 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !246
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %282, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %286, label %283
 
 283:                                              ; preds = %280
-  %284 = load i32, ptr %281, align 4, !tbaa !15, !noalias !239
+  %284 = load i32, ptr %281, align 4, !tbaa !15, !noalias !246
   %285 = add nsw i32 %284, 1
-  store i32 %285, ptr %281, align 4, !tbaa !15, !noalias !239
+  store i32 %285, ptr %281, align 4, !tbaa !15, !noalias !246
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i.i
 
 286:                                              ; preds = %280
-  %287 = atomicrmw volatile add ptr %281, i32 1 acq_rel, align 4, !noalias !239
-  %.pre136.i.i = load ptr, ptr %6, align 8, !tbaa !77
+  %287 = atomicrmw volatile add ptr %281, i32 1 acq_rel, align 4, !noalias !246
+  %.pre136.i.i = load ptr, ptr %6, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i.i:     ; preds = %286, %283, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i.i
@@ -6030,38 +6030,38 @@ _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit.i.i:     ; preds = %286, %283, %_ZNSt10
   br i1 %294, label %295, label %.critedge.i.i
 
 295:                                              ; preds = %293
-  %296 = tail call ptr @__dynamic_cast(ptr nonnull %288, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !240
+  %296 = tail call ptr @__dynamic_cast(ptr nonnull %288, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #16, !noalias !247
   %.not.not.i.i.i = icmp ne ptr %296, null
   tail call void @llvm.assume(i1 %.not.not.i.i.i)
-  %297 = load ptr, ptr %277, align 8, !tbaa !13, !noalias !240
+  %297 = load ptr, ptr %277, align 8, !tbaa !13, !noalias !247
   %.not.i.i.i.i53.i.i = icmp eq ptr %297, null
   br i1 %.not.i.i.i.i53.i.i, label %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i.i, label %298
 
 298:                                              ; preds = %295
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  %300 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !240
+  %300 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !247
   %.not.i.i.i.i.i54.i.i = icmp eq i8 %300, 0
   br i1 %.not.i.i.i.i.i54.i.i, label %304, label %301
 
 301:                                              ; preds = %298
-  %302 = load i32, ptr %299, align 4, !tbaa !15, !noalias !240
+  %302 = load i32, ptr %299, align 4, !tbaa !15, !noalias !247
   %303 = add nsw i32 %302, 1
-  store i32 %303, ptr %299, align 4, !tbaa !15, !noalias !240
+  store i32 %303, ptr %299, align 4, !tbaa !15, !noalias !247
   br label %308
 
 304:                                              ; preds = %298
-  %305 = atomicrmw volatile add ptr %299, i32 1 acq_rel, align 4, !noalias !240
+  %305 = atomicrmw volatile add ptr %299, i32 1 acq_rel, align 4, !noalias !247
   br label %308
 
 _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread.i.i: ; preds = %295
   %306 = getelementptr inbounds nuw i8, ptr %296, i64 232
-  %307 = load i32, ptr %306, align 8, !tbaa !164
+  %307 = load i32, ptr %306, align 8, !tbaa !167
   %.not112.i.i = icmp eq i32 %307, 0
   br i1 %.not112.i.i, label %376, label %.critedge.i.i
 
 308:                                              ; preds = %304, %301
   %309 = getelementptr inbounds nuw i8, ptr %296, i64 232
-  %310 = load i32, ptr %309, align 8, !tbaa !164
+  %310 = load i32, ptr %309, align 8, !tbaa !167
   %.not.i.i = icmp eq i32 %310, 0
   %311 = load atomic i64, ptr %299 acquire, align 8
   %312 = icmp eq i64 %311, 4294967297
@@ -6339,7 +6339,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph132.i.i ], [ %indvars.iv.next.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ]
   %.029130.i.i = phi i32 [ 0, %.lr.ph132.i.i ], [ %spec.select.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
-  %427 = load ptr, ptr %0, align 8, !tbaa !64
+  %427 = load ptr, ptr %0, align 8, !tbaa !66
   %428 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %427, i64 %indvars.iv.i.i
   %429 = load ptr, ptr %428, align 8, !tbaa !8
   store ptr %429, ptr %7, align 8, !tbaa !8
@@ -6404,7 +6404,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEC2ERKS2_.exit.i.i: ; preds = %438, 
 
 451:                                              ; preds = %445
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
-  store ptr %440, ptr %8, align 8, !tbaa !65
+  store ptr %440, ptr %8, align 8, !tbaa !67
   %452 = load ptr, ptr %421, align 8, !tbaa !13
   store ptr %452, ptr %422, align 8, !tbaa !13
   %.not.i.i.i76.i.i = icmp eq ptr %452, null
@@ -6424,38 +6424,38 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEC2ERKS2_.exit.i.i: ; preds = %438, 
 
 459:                                              ; preds = %453
   %460 = atomicrmw volatile add ptr %454, i32 1 acq_rel, align 4
-  %.pre138.i.i = load ptr, ptr %8, align 8, !tbaa !65
+  %.pre138.i.i = load ptr, ptr %8, align 8, !tbaa !67
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit78.i.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit78.i.i: ; preds = %459, %456, %451
   %461 = phi ptr [ %440, %451 ], [ %440, %456 ], [ %.pre138.i.i, %459 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
-  %463 = load ptr, ptr %462, align 8, !tbaa !73, !noalias !249
-  store ptr %463, ptr %9, align 8, !tbaa !77, !alias.scope !249
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
+  %463 = load ptr, ptr %462, align 8, !tbaa !75, !noalias !256
+  store ptr %463, ptr %9, align 8, !tbaa !79, !alias.scope !256
   %464 = getelementptr inbounds nuw i8, ptr %461, i64 16
-  %465 = load ptr, ptr %464, align 8, !tbaa !13, !noalias !249
-  store ptr %465, ptr %423, align 8, !tbaa !13, !alias.scope !249
+  %465 = load ptr, ptr %464, align 8, !tbaa !13, !noalias !256
+  store ptr %465, ptr %423, align 8, !tbaa !13, !alias.scope !256
   %.not.i.i.i.i.i79.i.i = icmp eq ptr %465, null
   br i1 %.not.i.i.i.i.i79.i.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i, label %466
 
 466:                                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit78.i.i
   %467 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %468 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !249
+  %468 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !256
   %.not.i.i.i.i.i.i80.i.i = icmp eq i8 %468, 0
   br i1 %.not.i.i.i.i.i.i80.i.i, label %472, label %469
 
 469:                                              ; preds = %466
-  %470 = load i32, ptr %467, align 4, !tbaa !15, !noalias !249
+  %470 = load i32, ptr %467, align 4, !tbaa !15, !noalias !256
   %471 = add nsw i32 %470, 1
-  store i32 %471, ptr %467, align 4, !tbaa !15, !noalias !249
+  store i32 %471, ptr %467, align 4, !tbaa !15, !noalias !256
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i
 
 472:                                              ; preds = %466
-  %473 = atomicrmw volatile add ptr %467, i32 1 acq_rel, align 4, !noalias !249
-  %.pre139.i.i = load ptr, ptr %9, align 8, !tbaa !77
+  %473 = atomicrmw volatile add ptr %467, i32 1 acq_rel, align 4, !noalias !256
+  %.pre139.i.i = load ptr, ptr %9, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i:   ; preds = %472, %469, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit78.i.i
@@ -6472,33 +6472,33 @@ _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i:   ; preds = %472, %469, %_ZNSt10
 
 480:                                              ; preds = %479
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
-  %481 = load ptr, ptr %8, align 8, !tbaa !65
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
+  %481 = load ptr, ptr %8, align 8, !tbaa !67
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  %483 = load ptr, ptr %482, align 8, !tbaa !73, !noalias !256
-  store ptr %483, ptr %10, align 8, !tbaa !77, !alias.scope !256
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
+  %483 = load ptr, ptr %482, align 8, !tbaa !75, !noalias !263
+  store ptr %483, ptr %10, align 8, !tbaa !79, !alias.scope !263
   %484 = getelementptr inbounds nuw i8, ptr %481, i64 16
-  %485 = load ptr, ptr %484, align 8, !tbaa !13, !noalias !256
-  store ptr %485, ptr %424, align 8, !tbaa !13, !alias.scope !256
+  %485 = load ptr, ptr %484, align 8, !tbaa !13, !noalias !263
+  store ptr %485, ptr %424, align 8, !tbaa !13, !alias.scope !263
   %.not.i.i.i.i.i82.i.i = icmp eq ptr %485, null
   br i1 %.not.i.i.i.i.i82.i.i, label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit84.i.i, label %486
 
 486:                                              ; preds = %480
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 8
-  %488 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !256
+  %488 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14, !noalias !263
   %.not.i.i.i.i.i.i83.i.i = icmp eq i8 %488, 0
   br i1 %.not.i.i.i.i.i.i83.i.i, label %492, label %489
 
 489:                                              ; preds = %486
-  %490 = load i32, ptr %487, align 4, !tbaa !15, !noalias !256
+  %490 = load i32, ptr %487, align 4, !tbaa !15, !noalias !263
   %491 = add nsw i32 %490, 1
-  store i32 %491, ptr %487, align 4, !tbaa !15, !noalias !256
+  store i32 %491, ptr %487, align 4, !tbaa !15, !noalias !263
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit84.i.i
 
 492:                                              ; preds = %486
-  %493 = atomicrmw volatile add ptr %487, i32 1 acq_rel, align 4, !noalias !256
-  %.pre140.i.i = load ptr, ptr %10, align 8, !tbaa !77
+  %493 = atomicrmw volatile add ptr %487, i32 1 acq_rel, align 4, !noalias !263
+  %.pre140.i.i = load ptr, ptr %10, align 8, !tbaa !79
   br label %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit84.i.i
 
 _ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit84.i.i:   ; preds = %492, %489, %480
@@ -6719,7 +6719,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %426, !llvm.loop !257
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %426, !llvm.loop !264
 
 590:                                              ; preds = %_ZNK19OpenColorIO_v2_5dev2Op4dataEv.exit81.i.i
   %591 = landingpad { ptr, i32 }
@@ -6764,7 +6764,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 598:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
-  %599 = load ptr, ptr %0, align 8, !tbaa !64
+  %599 = load ptr, ptr %0, align 8, !tbaa !66
   %600 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %599, i64 %indvars.iv.i
   %601 = load ptr, ptr %600, align 8, !tbaa !8
   %602 = load ptr, ptr %601, align 8, !tbaa !17
@@ -6830,7 +6830,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %598, !llvm.loop !258
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %598, !llvm.loop !265
 
 629:                                              ; preds = %598
   %630 = landingpad { ptr, i32 }
@@ -7162,9 +7162,9 @@ declare void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec6insertEN9__gnu_cxx17__normal_
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #16
-  %3 = load ptr, ptr %0, align 8, !tbaa !64
+  %3 = load ptr, ptr %0, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -7222,10 +7222,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 _ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !92
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %0, align 8, !tbaa !64
+  %.pr.i = load ptr, ptr %0, align 8, !tbaa !66
   br label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %1
@@ -7235,7 +7235,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit
 
 31:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !259
+  %33 = load ptr, ptr %32, align 8, !tbaa !266
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -7816,233 +7816,233 @@ attributes #18 = { builtin nounwind }
 !20 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !16, i64 8, !16, i64 12}
 !21 = !{!20, !16, i64 12}
 !22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!23 = !{!24, !37, i64 240}
-!24 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !25, i64 0, !34, i64 216, !6, i64 224, !35, i64 225, !36, i64 232, !37, i64 240, !38, i64 248, !39, i64 256}
-!25 = !{!"_ZTSSt8ios_base", !26, i64 8, !26, i64 16, !27, i64 24, !28, i64 28, !28, i64 32, !29, i64 40, !30, i64 48, !6, i64 64, !16, i64 192, !31, i64 200, !32, i64 208}
-!26 = !{!"long", !6, i64 0}
-!27 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!28 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!29 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
-!30 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !26, i64 8}
-!31 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
-!32 = !{!"_ZTSSt6locale", !33, i64 0}
-!33 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
-!34 = !{!"p1 _ZTSSo", !5, i64 0}
-!35 = !{!"bool", !6, i64 0}
-!36 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !5, i64 0}
-!37 = !{!"p1 _ZTSSt5ctypeIcE", !5, i64 0}
-!38 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
-!39 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
-!40 = !{!41, !6, i64 56}
-!41 = !{!"_ZTSSt5ctypeIcE", !42, i64 0, !43, i64 16, !35, i64 24, !44, i64 32, !44, i64 40, !45, i64 48, !6, i64 56, !6, i64 57, !6, i64 313, !6, i64 569}
-!42 = !{!"_ZTSNSt6locale5facetE", !16, i64 8}
-!43 = !{!"p1 _ZTS15__locale_struct", !5, i64 0}
-!44 = !{!"p1 int", !5, i64 0}
-!45 = !{!"p1 short", !5, i64 0}
-!46 = !{!47, !49, i64 0}
-!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !48, i64 0, !26, i64 8, !6, i64 16}
-!48 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !49, i64 0}
-!49 = !{!"p1 omnipotent char", !5, i64 0}
-!50 = !{!47, !26, i64 8}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!53 = distinct !{!53, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!56 = distinct !{!56, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!57 = !{!48, !49, i64 0}
-!58 = !{!55, !52}
-!59 = !{!60, !49, i64 40}
-!60 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !49, i64 8, !49, i64 16, !49, i64 24, !49, i64 32, !49, i64 40, !49, i64 48, !32, i64 56}
-!61 = !{!60, !49, i64 32}
-!62 = !{!63, !4, i64 8}
-!63 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEESaIS3_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!64 = !{!63, !4, i64 0}
-!65 = !{!66, !10, i64 0}
-!66 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EE", !10, i64 0, !11, i64 8}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!69 = distinct !{!69, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!72 = distinct !{!72, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!73 = !{!74, !75, i64 0}
-!74 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE", !75, i64 0, !11, i64 8}
-!75 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev6OpDataE", !5, i64 0}
-!76 = !{!71, !68}
-!77 = !{!78, !75, i64 0}
-!78 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE", !75, i64 0, !11, i64 8}
-!79 = distinct !{!79, !80}
-!80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!83 = distinct !{!83, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!86 = distinct !{!86, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!87 = !{!85, !82}
-!88 = distinct !{!88, !80}
-!89 = distinct !{!89, !80}
-!90 = distinct !{!90, !80}
-!91 = distinct !{!91, !80}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!94 = distinct !{!94, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!97 = distinct !{!97, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!98 = !{!96, !93}
-!99 = distinct !{!99, !80}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!102 = distinct !{!102, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!105 = distinct !{!105, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!106 = !{!104, !101}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!109 = distinct !{!109, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!112 = distinct !{!112, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!113 = !{!111, !108}
-!114 = !{!115, !117}
-!115 = distinct !{!115, !116, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!116 = distinct !{!116, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!117 = distinct !{!117, !118, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!118 = distinct !{!118, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!121 = distinct !{!121, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
-!122 = !{!123, !124, i64 0}
-!123 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EE", !124, i64 0, !11, i64 8}
-!124 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11Lut1DOpDataE", !5, i64 0}
-!125 = !{!126, !128}
-!126 = distinct !{!126, !127, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!127 = distinct !{!127, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!128 = distinct !{!128, !129, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!129 = distinct !{!129, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!132 = distinct !{!132, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!135 = distinct !{!135, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
-!136 = !{!137, !138, i64 0}
-!137 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EE", !138, i64 0, !11, i64 8}
-!138 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev12MatrixOpDataE", !5, i64 0}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!141 = distinct !{!141, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
-!142 = !{!143, !144, i64 0}
-!143 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EE", !144, i64 0, !11, i64 8}
-!144 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11RangeOpDataE", !5, i64 0}
-!145 = !{!10, !10, i64 0}
-!146 = distinct !{!146, !80}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!149 = distinct !{!149, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!152 = distinct !{!152, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!153 = !{!151, !148}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!156 = distinct !{!156, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !39, i64 240}
+!26 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !27, i64 0, !36, i64 216, !6, i64 224, !37, i64 225, !38, i64 232, !39, i64 240, !40, i64 248, !41, i64 256}
+!27 = !{!"_ZTSSt8ios_base", !28, i64 8, !28, i64 16, !29, i64 24, !30, i64 28, !30, i64 32, !31, i64 40, !32, i64 48, !6, i64 64, !16, i64 192, !33, i64 200, !34, i64 208}
+!28 = !{!"long", !6, i64 0}
+!29 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!30 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!31 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!32 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !28, i64 8}
+!33 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!34 = !{!"_ZTSSt6locale", !35, i64 0}
+!35 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
+!36 = !{!"p1 _ZTSSo", !5, i64 0}
+!37 = !{!"bool", !6, i64 0}
+!38 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !5, i64 0}
+!39 = !{!"p1 _ZTSSt5ctypeIcE", !5, i64 0}
+!40 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!41 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!42 = !{!43, !6, i64 56}
+!43 = !{!"_ZTSSt5ctypeIcE", !44, i64 0, !45, i64 16, !37, i64 24, !46, i64 32, !46, i64 40, !47, i64 48, !6, i64 56, !6, i64 57, !6, i64 313, !6, i64 569}
+!44 = !{!"_ZTSNSt6locale5facetE", !16, i64 8}
+!45 = !{!"p1 _ZTS15__locale_struct", !5, i64 0}
+!46 = !{!"p1 int", !5, i64 0}
+!47 = !{!"p1 short", !5, i64 0}
+!48 = !{!49, !51, i64 0}
+!49 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !50, i64 0, !28, i64 8, !6, i64 16}
+!50 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !51, i64 0}
+!51 = !{!"p1 omnipotent char", !5, i64 0}
+!52 = !{!49, !28, i64 8}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!55 = distinct !{!55, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!58 = distinct !{!58, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!59 = !{!50, !51, i64 0}
+!60 = !{!57, !54}
+!61 = !{!62, !51, i64 40}
+!62 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !51, i64 8, !51, i64 16, !51, i64 24, !51, i64 32, !51, i64 40, !51, i64 48, !34, i64 56}
+!63 = !{!62, !51, i64 32}
+!64 = !{!65, !4, i64 8}
+!65 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEESaIS3_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
+!66 = !{!65, !4, i64 0}
+!67 = !{!68, !10, i64 0}
+!68 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EE", !10, i64 0, !11, i64 8}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!71 = distinct !{!71, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!74 = distinct !{!74, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!75 = !{!76, !77, i64 0}
+!76 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !11, i64 8}
+!77 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev6OpDataE", !5, i64 0}
+!78 = !{!73, !70}
+!79 = !{!80, !77, i64 0}
+!80 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !11, i64 8}
+!81 = distinct !{!81, !82, !24}
+!82 = !{!"llvm.loop.mustprogress"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!85 = distinct !{!85, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!88 = distinct !{!88, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!89 = !{!87, !84}
+!90 = distinct !{!90, !82, !24}
+!91 = distinct !{!91, !82, !24}
+!92 = distinct !{!92, !82, !24}
+!93 = distinct !{!93, !82, !24}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!96 = distinct !{!96, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!99 = distinct !{!99, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!100 = !{!98, !95}
+!101 = distinct !{!101, !82, !24}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!104 = distinct !{!104, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!107 = distinct !{!107, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!108 = !{!106, !103}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!111 = distinct !{!111, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!114 = distinct !{!114, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!115 = !{!113, !110}
+!116 = !{!117, !119}
+!117 = distinct !{!117, !118, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!118 = distinct !{!118, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!119 = distinct !{!119, !120, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!120 = distinct !{!120, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!123 = distinct !{!123, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!124 = !{!125, !126, i64 0}
+!125 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EE", !126, i64 0, !11, i64 8}
+!126 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11Lut1DOpDataE", !5, i64 0}
+!127 = !{!128, !130}
+!128 = distinct !{!128, !129, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!129 = distinct !{!129, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!130 = distinct !{!130, !131, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!131 = distinct !{!131, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!134 = distinct !{!134, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!137 = distinct !{!137, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev12MatrixOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
+!138 = !{!139, !140, i64 0}
+!139 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EE", !140, i64 0, !11, i64 8}
+!140 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev12MatrixOpDataE", !5, i64 0}
+!141 = !{!142}
+!142 = distinct !{!142, !143, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!143 = distinct !{!143, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev11RangeOpDataENS0_6OpDataEESt10shared_ptrIT_ERKS3_IT0_E"}
+!144 = !{!145, !146, i64 0}
+!145 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EE", !146, i64 0, !11, i64 8}
+!146 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11RangeOpDataE", !5, i64 0}
+!147 = !{!10, !10, i64 0}
+!148 = distinct !{!148, !82, !24}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!151 = distinct !{!151, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!154 = distinct !{!154, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!155 = !{!153, !150}
+!156 = distinct !{!156, !24}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!159 = distinct !{!159, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!160 = !{!158, !155}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!163 = distinct !{!163, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
-!164 = !{!165, !192, i64 232}
-!165 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpDataE", !166, i64 0, !181, i64 168, !182, i64 176, !190, i64 224, !191, i64 228, !192, i64 232, !6, i64 240, !193, i64 360}
-!166 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !167, i64 8, !169, i64 48}
-!167 = !{!"_ZTSSt5mutex", !168, i64 0}
-!168 = !{!"_ZTSSt12__mutex_base", !6, i64 0}
-!169 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !170, i64 0, !47, i64 8, !47, i64 40, !171, i64 72, !176, i64 96}
-!170 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
-!171 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !172, i64 0}
-!172 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !173, i64 0}
-!173 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !174, i64 0}
-!174 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !175, i64 0, !175, i64 8, !175, i64 16}
-!175 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !5, i64 0}
-!176 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !177, i64 0}
-!177 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !178, i64 0}
-!178 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !179, i64 0}
-!179 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !180, i64 0, !180, i64 8, !180, i64 16}
-!180 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !5, i64 0}
-!181 = !{!"_ZTSN19OpenColorIO_v2_5dev13InterpolationE", !6, i64 0}
-!182 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArrayE", !183, i64 0}
-!183 = !{!"_ZTSN19OpenColorIO_v2_5dev6ArrayTIfEE", !184, i64 0, !26, i64 8, !26, i64 16, !185, i64 24}
-!184 = !{!"_ZTSN19OpenColorIO_v2_5dev9ArrayBaseE"}
-!185 = !{!"_ZTSSt6vectorIfSaIfEE", !186, i64 0}
-!186 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !187, i64 0}
-!187 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !188, i64 0}
-!188 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !189, i64 0, !189, i64 8, !189, i64 16}
-!189 = !{!"p1 float", !5, i64 0}
-!190 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpData9HalfFlagsE", !6, i64 0}
-!191 = !{!"_ZTSN19OpenColorIO_v2_5dev14Lut1DHueAdjustE", !6, i64 0}
-!192 = !{!"_ZTSN19OpenColorIO_v2_5dev18TransformDirectionE", !6, i64 0}
-!193 = !{!"_ZTSN19OpenColorIO_v2_5dev8BitDepthE", !6, i64 0}
-!194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!196 = distinct !{!196, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
-!197 = !{!198, !199, i64 0}
-!198 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_policyE2EE", !199, i64 0, !11, i64 8}
-!199 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11Lut3DOpDataE", !5, i64 0}
-!200 = !{!201, !192, i64 224}
-!201 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut3DOpDataE", !166, i64 0, !181, i64 168, !202, i64 176, !192, i64 224, !193, i64 228}
-!202 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE", !183, i64 0}
-!203 = distinct !{!203, !80}
-!204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!206 = distinct !{!206, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!207 = !{!208}
-!208 = distinct !{!208, !209, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!209 = distinct !{!209, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!210 = !{!208, !205}
+!158 = distinct !{!158, !159, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!159 = distinct !{!159, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!162 = distinct !{!162, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!163 = !{!161, !158}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!166 = distinct !{!166, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!167 = !{!168, !195, i64 232}
+!168 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpDataE", !169, i64 0, !184, i64 168, !185, i64 176, !193, i64 224, !194, i64 228, !195, i64 232, !6, i64 240, !196, i64 360}
+!169 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !170, i64 8, !172, i64 48}
+!170 = !{!"_ZTSSt5mutex", !171, i64 0}
+!171 = !{!"_ZTSSt12__mutex_base", !6, i64 0}
+!172 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !173, i64 0, !49, i64 8, !49, i64 40, !174, i64 72, !179, i64 96}
+!173 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
+!174 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !175, i64 0}
+!175 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !176, i64 0}
+!176 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !177, i64 0}
+!177 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !178, i64 0, !178, i64 8, !178, i64 16}
+!178 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !5, i64 0}
+!179 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !180, i64 0}
+!180 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !181, i64 0}
+!181 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !182, i64 0}
+!182 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !183, i64 0, !183, i64 8, !183, i64 16}
+!183 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !5, i64 0}
+!184 = !{!"_ZTSN19OpenColorIO_v2_5dev13InterpolationE", !6, i64 0}
+!185 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpData13Lut3by1DArrayE", !186, i64 0}
+!186 = !{!"_ZTSN19OpenColorIO_v2_5dev6ArrayTIfEE", !187, i64 0, !28, i64 8, !28, i64 16, !188, i64 24}
+!187 = !{!"_ZTSN19OpenColorIO_v2_5dev9ArrayBaseE"}
+!188 = !{!"_ZTSSt6vectorIfSaIfEE", !189, i64 0}
+!189 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !190, i64 0}
+!190 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !191, i64 0}
+!191 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !192, i64 0, !192, i64 8, !192, i64 16}
+!192 = !{!"p1 float", !5, i64 0}
+!193 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut1DOpData9HalfFlagsE", !6, i64 0}
+!194 = !{!"_ZTSN19OpenColorIO_v2_5dev14Lut1DHueAdjustE", !6, i64 0}
+!195 = !{!"_ZTSN19OpenColorIO_v2_5dev18TransformDirectionE", !6, i64 0}
+!196 = !{!"_ZTSN19OpenColorIO_v2_5dev8BitDepthE", !6, i64 0}
+!197 = !{!198}
+!198 = distinct !{!198, !199, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!199 = distinct !{!199, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!200 = !{!201, !202, i64 0}
+!201 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_policyE2EE", !202, i64 0, !11, i64 8}
+!202 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev11Lut3DOpDataE", !5, i64 0}
+!203 = !{!204, !195, i64 224}
+!204 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut3DOpDataE", !169, i64 0, !184, i64 168, !205, i64 176, !195, i64 224, !196, i64 228}
+!205 = !{!"_ZTSN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE", !186, i64 0}
+!206 = distinct !{!206, !82, !24}
+!207 = distinct !{!207, !24}
+!208 = !{!209}
+!209 = distinct !{!209, !210, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!210 = distinct !{!210, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
 !211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!213 = distinct !{!213, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!216 = distinct !{!216, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!217 = !{!215, !212}
-!218 = !{!193, !193, i64 0}
-!219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!221 = distinct !{!221, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!224 = distinct !{!224, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!225 = !{!223, !220}
+!212 = distinct !{!212, !213, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!213 = distinct !{!213, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!214 = !{!212, !209}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!217 = distinct !{!217, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!220 = distinct !{!220, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!221 = !{!219, !216}
+!222 = !{!196, !196, i64 0}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!225 = distinct !{!225, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
 !226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!228 = distinct !{!228, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!231 = distinct !{!231, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!232 = !{!230, !227}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!235 = distinct !{!235, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!238 = distinct !{!238, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!239 = !{!237, !234}
+!227 = distinct !{!227, !228, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!228 = distinct !{!228, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!229 = !{!227, !224}
+!230 = distinct !{!230, !24}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!233 = distinct !{!233, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!234 = !{!235}
+!235 = distinct !{!235, !236, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!236 = distinct !{!236, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!237 = !{!235, !232}
+!238 = distinct !{!238, !24}
+!239 = distinct !{!239, !24}
 !240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!242 = distinct !{!242, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
+!241 = distinct !{!241, !242, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!242 = distinct !{!242, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
 !243 = !{!244}
-!244 = distinct !{!244, !245, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
-!245 = distinct !{!245, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
-!246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!248 = distinct !{!248, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
-!249 = !{!247, !244}
+!244 = distinct !{!244, !245, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!245 = distinct !{!245, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!246 = !{!244, !241}
+!247 = !{!248}
+!248 = distinct !{!248, !249, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!249 = distinct !{!249, !"_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E"}
 !250 = !{!251}
 !251 = distinct !{!251, !252, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
 !252 = distinct !{!252, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
@@ -8050,6 +8050,13 @@ attributes #18 = { builtin nounwind }
 !254 = distinct !{!254, !255, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
 !255 = distinct !{!255, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
 !256 = !{!254, !251}
-!257 = distinct !{!257, !80}
-!258 = distinct !{!258, !80}
-!259 = !{!63, !4, i64 16}
+!257 = !{!258}
+!258 = distinct !{!258, !259, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv: argument 0"}
+!259 = distinct !{!259, !"_ZNK19OpenColorIO_v2_5dev2Op4dataEv"}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!262 = distinct !{!262, !"_ZSt18const_pointer_castIKN19OpenColorIO_v2_5dev6OpDataES1_ESt10shared_ptrIT_ERKS3_IT0_E"}
+!263 = !{!261, !258}
+!264 = distinct !{!264, !82, !24}
+!265 = distinct !{!265, !82, !24}
+!266 = !{!65, !4, i64 16}

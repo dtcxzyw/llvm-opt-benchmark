@@ -524,7 +524,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %343 = getelementptr inbounds nuw i8, ptr %.1174, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %344 = icmp samesign ult i64 %indvars.iv.next, %178
-  br i1 %344, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !10
+  br i1 %344, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !11
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %._crit_edge178
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
@@ -555,7 +555,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %359 = getelementptr inbounds nuw i8, ptr %.151180, i64 4
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 4
   %360 = icmp samesign ult i64 %indvars.iv.next188, %328
-  br i1 %360, label %.lr.ph183, label %._crit_edge184, !llvm.loop !11
+  br i1 %360, label %.lr.ph183, label %._crit_edge184, !llvm.loop !12
 
 361:                                              ; preds = %._crit_edge184, %._crit_edge
   ret void
@@ -791,7 +791,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %170 = getelementptr inbounds nuw i8, ptr %.050170, i64 32
   %171 = add nuw nsw i32 %.048172, 4
   %172 = icmp slt i32 %171, %15
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 173:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
@@ -1043,7 +1043,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %339 = getelementptr inbounds nuw i8, ptr %.1174, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %340 = icmp samesign ult i64 %indvars.iv.next, %176
-  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !13
+  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !14
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %._crit_edge178
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
@@ -1054,27 +1054,27 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv187 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next188, %.lr.ph183 ]
   %.151180 = phi ptr [ %.050.lcssa, %.lr.ph183.preheader ], [ %355, %.lr.ph183 ]
   %341 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv187
-  %342 = load i16, ptr %341, align 8, !tbaa !14
-  store i16 %342, ptr %.151180, align 2, !tbaa !14
+  %342 = load i16, ptr %341, align 8, !tbaa !15
+  store i16 %342, ptr %.151180, align 2, !tbaa !15
   %343 = or disjoint i64 %indvars.iv187, 1
   %344 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %343
-  %345 = load i16, ptr %344, align 2, !tbaa !14
+  %345 = load i16, ptr %344, align 2, !tbaa !15
   %346 = getelementptr inbounds nuw i8, ptr %.151180, i64 2
-  store i16 %345, ptr %346, align 2, !tbaa !14
+  store i16 %345, ptr %346, align 2, !tbaa !15
   %347 = or disjoint i64 %indvars.iv187, 2
   %348 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %347
-  %349 = load i16, ptr %348, align 4, !tbaa !14
+  %349 = load i16, ptr %348, align 4, !tbaa !15
   %350 = getelementptr inbounds nuw i8, ptr %.151180, i64 4
-  store i16 %349, ptr %350, align 2, !tbaa !14
+  store i16 %349, ptr %350, align 2, !tbaa !15
   %351 = or disjoint i64 %indvars.iv187, 3
   %352 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %351
-  %353 = load i16, ptr %352, align 2, !tbaa !14
+  %353 = load i16, ptr %352, align 2, !tbaa !15
   %354 = getelementptr inbounds nuw i8, ptr %.151180, i64 6
-  store i16 %353, ptr %354, align 2, !tbaa !14
+  store i16 %353, ptr %354, align 2, !tbaa !15
   %355 = getelementptr inbounds nuw i8, ptr %.151180, i64 8
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 4
   %356 = icmp samesign ult i64 %indvars.iv.next188, %324
-  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !16
+  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !17
 
 357:                                              ; preds = %._crit_edge184, %._crit_edge
   ret void
@@ -1310,7 +1310,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %170 = getelementptr inbounds nuw i8, ptr %.050170, i64 32
   %171 = add nuw nsw i32 %.048172, 4
   %172 = icmp slt i32 %171, %15
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 173:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
@@ -1562,7 +1562,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %339 = getelementptr inbounds nuw i8, ptr %.1174, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %340 = icmp samesign ult i64 %indvars.iv.next, %176
-  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !18
+  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !19
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %._crit_edge178
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
@@ -1573,27 +1573,27 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv187 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next188, %.lr.ph183 ]
   %.151180 = phi ptr [ %.050.lcssa, %.lr.ph183.preheader ], [ %355, %.lr.ph183 ]
   %341 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv187
-  %342 = load i16, ptr %341, align 8, !tbaa !14
-  store i16 %342, ptr %.151180, align 2, !tbaa !14
+  %342 = load i16, ptr %341, align 8, !tbaa !15
+  store i16 %342, ptr %.151180, align 2, !tbaa !15
   %343 = or disjoint i64 %indvars.iv187, 1
   %344 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %343
-  %345 = load i16, ptr %344, align 2, !tbaa !14
+  %345 = load i16, ptr %344, align 2, !tbaa !15
   %346 = getelementptr inbounds nuw i8, ptr %.151180, i64 2
-  store i16 %345, ptr %346, align 2, !tbaa !14
+  store i16 %345, ptr %346, align 2, !tbaa !15
   %347 = or disjoint i64 %indvars.iv187, 2
   %348 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %347
-  %349 = load i16, ptr %348, align 4, !tbaa !14
+  %349 = load i16, ptr %348, align 4, !tbaa !15
   %350 = getelementptr inbounds nuw i8, ptr %.151180, i64 4
-  store i16 %349, ptr %350, align 2, !tbaa !14
+  store i16 %349, ptr %350, align 2, !tbaa !15
   %351 = or disjoint i64 %indvars.iv187, 3
   %352 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %351
-  %353 = load i16, ptr %352, align 2, !tbaa !14
+  %353 = load i16, ptr %352, align 2, !tbaa !15
   %354 = getelementptr inbounds nuw i8, ptr %.151180, i64 6
-  store i16 %353, ptr %354, align 2, !tbaa !14
+  store i16 %353, ptr %354, align 2, !tbaa !15
   %355 = getelementptr inbounds nuw i8, ptr %.151180, i64 8
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 4
   %356 = icmp samesign ult i64 %indvars.iv.next188, %324
-  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !19
+  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !20
 
 357:                                              ; preds = %._crit_edge184, %._crit_edge
   ret void
@@ -1829,7 +1829,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %170 = getelementptr inbounds nuw i8, ptr %.050170, i64 32
   %171 = add nuw nsw i32 %.048172, 4
   %172 = icmp slt i32 %171, %15
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 173:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
@@ -2081,7 +2081,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %339 = getelementptr inbounds nuw i8, ptr %.1174, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %340 = icmp samesign ult i64 %indvars.iv.next, %176
-  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !21
+  br i1 %340, label %.lr.ph177, label %._crit_edge178.loopexit, !llvm.loop !22
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %._crit_edge178
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
@@ -2092,27 +2092,27 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv187 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next188, %.lr.ph183 ]
   %.151180 = phi ptr [ %.050.lcssa, %.lr.ph183.preheader ], [ %355, %.lr.ph183 ]
   %341 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv187
-  %342 = load i16, ptr %341, align 8, !tbaa !14
-  store i16 %342, ptr %.151180, align 2, !tbaa !14
+  %342 = load i16, ptr %341, align 8, !tbaa !15
+  store i16 %342, ptr %.151180, align 2, !tbaa !15
   %343 = or disjoint i64 %indvars.iv187, 1
   %344 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %343
-  %345 = load i16, ptr %344, align 2, !tbaa !14
+  %345 = load i16, ptr %344, align 2, !tbaa !15
   %346 = getelementptr inbounds nuw i8, ptr %.151180, i64 2
-  store i16 %345, ptr %346, align 2, !tbaa !14
+  store i16 %345, ptr %346, align 2, !tbaa !15
   %347 = or disjoint i64 %indvars.iv187, 2
   %348 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %347
-  %349 = load i16, ptr %348, align 4, !tbaa !14
+  %349 = load i16, ptr %348, align 4, !tbaa !15
   %350 = getelementptr inbounds nuw i8, ptr %.151180, i64 4
-  store i16 %349, ptr %350, align 2, !tbaa !14
+  store i16 %349, ptr %350, align 2, !tbaa !15
   %351 = or disjoint i64 %indvars.iv187, 3
   %352 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %351
-  %353 = load i16, ptr %352, align 2, !tbaa !14
+  %353 = load i16, ptr %352, align 2, !tbaa !15
   %354 = getelementptr inbounds nuw i8, ptr %.151180, i64 6
-  store i16 %353, ptr %354, align 2, !tbaa !14
+  store i16 %353, ptr %354, align 2, !tbaa !15
   %355 = getelementptr inbounds nuw i8, ptr %.151180, i64 8
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 4
   %356 = icmp samesign ult i64 %indvars.iv.next188, %324
-  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !22
+  br i1 %356, label %.lr.ph183, label %._crit_edge184, !llvm.loop !23
 
 357:                                              ; preds = %._crit_edge184, %._crit_edge
   ret void
@@ -2530,7 +2530,7 @@ _ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %324 = getelementptr inbounds nuw i8, ptr %.050182, i64 32
   %325 = add nuw nsw i32 %.048184, 4
   %326 = icmp slt i32 %325, %15
-  br i1 %326, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %326, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 327:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
@@ -2964,7 +2964,7 @@ _ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %647 = getelementptr inbounds nuw i8, ptr %.1186, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %648 = icmp samesign ult i64 %indvars.iv.next, %330
-  br i1 %648, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !24
+  br i1 %648, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !25
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
@@ -2975,27 +2975,27 @@ _ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %indvars.iv198 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next199, %.lr.ph194 ]
   %.151192 = phi ptr [ %.050.lcssa, %.lr.ph194.preheader ], [ %663, %.lr.ph194 ]
   %649 = getelementptr inbounds nuw [16 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %indvars.iv198
-  %650 = load i16, ptr %649, align 8, !tbaa !14
-  store i16 %650, ptr %.151192, align 2, !tbaa !14
+  %650 = load i16, ptr %649, align 8, !tbaa !15
+  store i16 %650, ptr %.151192, align 2, !tbaa !15
   %651 = or disjoint i64 %indvars.iv198, 1
   %652 = getelementptr inbounds nuw [16 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %651
   %653 = getelementptr inbounds nuw i8, ptr %.151192, i64 2
-  %654 = load i16, ptr %652, align 2, !tbaa !14
-  store i16 %654, ptr %653, align 2, !tbaa !14
+  %654 = load i16, ptr %652, align 2, !tbaa !15
+  store i16 %654, ptr %653, align 2, !tbaa !15
   %655 = or disjoint i64 %indvars.iv198, 2
   %656 = getelementptr inbounds nuw [16 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %655
   %657 = getelementptr inbounds nuw i8, ptr %.151192, i64 4
-  %658 = load i16, ptr %656, align 4, !tbaa !14
-  store i16 %658, ptr %657, align 2, !tbaa !14
+  %658 = load i16, ptr %656, align 4, !tbaa !15
+  store i16 %658, ptr %657, align 2, !tbaa !15
   %659 = or disjoint i64 %indvars.iv198, 3
   %660 = getelementptr inbounds nuw [16 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %659
   %661 = getelementptr inbounds nuw i8, ptr %.151192, i64 6
-  %662 = load i16, ptr %660, align 2, !tbaa !14
-  store i16 %662, ptr %661, align 2, !tbaa !14
+  %662 = load i16, ptr %660, align 2, !tbaa !15
+  store i16 %662, ptr %661, align 2, !tbaa !15
   %663 = getelementptr inbounds nuw i8, ptr %.151192, i64 8
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 4
   %664 = icmp samesign ult i64 %indvars.iv.next199, %632
-  br i1 %664, label %.lr.ph194, label %._crit_edge195, !llvm.loop !25
+  br i1 %664, label %.lr.ph194, label %._crit_edge195, !llvm.loop !26
 
 665:                                              ; preds = %._crit_edge195, %._crit_edge
   ret void
@@ -3219,7 +3219,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %156 = getelementptr inbounds nuw i8, ptr %.048166, i64 64
   %157 = add nuw nsw i32 %.046168, 4
   %158 = icmp slt i32 %157, %15
-  br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 159:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
@@ -3459,7 +3459,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %311 = getelementptr inbounds nuw i8, ptr %.1170, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %312 = icmp samesign ult i64 %indvars.iv.next, %162
-  br i1 %312, label %.lr.ph173, label %._crit_edge174.loopexit, !llvm.loop !27
+  br i1 %312, label %.lr.ph173, label %._crit_edge174.loopexit, !llvm.loop !28
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %._crit_edge174
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #9
@@ -3490,7 +3490,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %327 = getelementptr inbounds nuw i8, ptr %.149176, i64 16
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 4
   %328 = icmp samesign ult i64 %indvars.iv.next184, %296
-  br i1 %328, label %.lr.ph179, label %._crit_edge180, !llvm.loop !28
+  br i1 %328, label %.lr.ph179, label %._crit_edge180, !llvm.loop !29
 
 329:                                              ; preds = %._crit_edge180, %._crit_edge
   ret void
@@ -3545,24 +3545,25 @@ attributes #9 = { nounwind }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"float", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !4, i64 0}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !4, i64 0}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}

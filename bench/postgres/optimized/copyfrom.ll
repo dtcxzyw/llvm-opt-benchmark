@@ -1508,7 +1508,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   %44 = add i32 %37, %.098109.i
   %45 = load i32, ptr %4, align 4
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %67, label %47, !llvm.loop !9
+  br i1 %46, label %67, label %47, !llvm.loop !10
 
 47:                                               ; preds = %35
   %48 = load ptr, ptr %32, align 8
@@ -1539,7 +1539,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   %60 = load i32, ptr %4, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %62, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %49, %47
   %63 = phi i32 [ %45, %49 ], [ %45, %47 ], [ %60, %.lr.ph.i ]
@@ -1553,7 +1553,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
 67:                                               ; preds = %.loopexit.i, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %68 = icmp slt i32 %44, %22
-  br i1 %68, label %35, label %.preheader.i
+  br i1 %68, label %35, label %.preheader.i, !llvm.loop !12
 
 .lr.ph112.i:                                      ; preds = %.lr.ph112.i, %.preheader.i
   %indvars.iv118.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next119.i, %.lr.ph112.i ]
@@ -1566,7 +1566,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   call void %74(ptr noundef %70) #12
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next119.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph112.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph112.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph112.i, %27
   store i8 0, ptr %30, align 8
@@ -1672,7 +1672,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   call void %137(ptr noundef %133) #12
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %wide.trip.count124.i
-  br i1 %exitcond125.not.i, label %._crit_edge116.i, label %104, !llvm.loop !12
+  br i1 %exitcond125.not.i, label %._crit_edge116.i, label %104, !llvm.loop !14
 
 ._crit_edge116.i:                                 ; preds = %131, %86
   %138 = sext i32 %22 to i64
@@ -1795,7 +1795,7 @@ CopyMultiInsertBufferCleanup.exit:                ; preds = %.critedge.i, %177, 
   %188 = call ptr @list_delete_first(ptr noundef %187) #12
   store ptr %188, ptr %0, align 8
   %.not.i29 = icmp eq ptr %188, null
-  br i1 %.not.i29, label %list_length.exit.thread, label %list_length.exit, !llvm.loop !13
+  br i1 %.not.i29, label %list_length.exit.thread, label %list_length.exit, !llvm.loop !15
 
 list_length.exit.thread:                          ; preds = %list_length.exit, %CopyMultiInsertBufferCleanup.exit, %.critedge.thread, %.critedge
   ret void
@@ -2341,7 +2341,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1 = phi i16 [ %.0336, %238 ], [ %.0336, %264 ], [ %.0336, %260 ], [ %.4, %281 ], [ %.4, %283 ], [ %.0336, %267 ]
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %238, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %238, !llvm.loop !16
 
 287:                                              ; preds = %._crit_edge
   %288 = getelementptr inbounds nuw i8, ptr %237, i64 72
@@ -2726,11 +2726,13 @@ attributes #15 = { nounwind willreturn memory(none) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

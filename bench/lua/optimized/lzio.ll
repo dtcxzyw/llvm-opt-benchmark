@@ -111,7 +111,7 @@ luaZ_fill.exit.i:                                 ; preds = %12
   %27 = getelementptr inbounds nuw i8, ptr %.02239, i64 %..020
   %28 = sub i64 %.02040, %..020
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.loopexit, label %9
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !17
 
 .loopexit:                                        ; preds = %20, %12, %3
   %.02037 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %.02040, %12 ]
@@ -206,3 +206,5 @@ attributes #6 = { nounwind }
 !14 = !{!5, !6, i64 0}
 !15 = !{!5, !9, i64 8}
 !16 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}

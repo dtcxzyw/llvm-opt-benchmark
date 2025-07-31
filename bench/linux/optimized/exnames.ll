@@ -222,7 +222,7 @@ define dso_local range(i32 0, 16387) i32 @acpi_ex_get_name_string(i32 noundef %0
 104:                                              ; preds = %.preheader
   %105 = add nsw i32 %107, -1
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %.thread20.thread24, label %.preheader, !llvm.loop !11
+  br i1 %106, label %.thread20.thread24, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.preheader, %104
   %107 = phi i32 [ %105, %104 ], [ %67, %.preheader.preheader ]
@@ -406,7 +406,7 @@ define internal fastcc noundef range(i32 0, 16387) i32 @acpi_ex_name_segment(ptr
   store i8 %18, ptr %19, align 1
   %20 = add nuw nsw i64 %11, 1
   %21 = icmp eq i64 %20, 4
-  br i1 %21, label %.thread, label %.preheader, !llvm.loop !12
+  br i1 %21, label %.thread, label %.preheader, !llvm.loop !13
 
 22:                                               ; preds = %.preheader
   %23 = trunc i64 %11 to i32
@@ -485,8 +485,9 @@ attributes #9 = { nounwind allocsize(0) }
 !5 = !{!"auto-init"}
 !6 = !{i64 1806858, i64 1806879}
 !7 = !{i32 0, i32 16387}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}

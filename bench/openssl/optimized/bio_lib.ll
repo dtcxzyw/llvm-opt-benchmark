@@ -1488,7 +1488,7 @@ define range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = add nsw i32 %.1, -1
   %7 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.1)
   %.not8 = icmp eq i32 %7, 1
-  br i1 %.not8, label %4, label %8, !llvm.loop !52
+  br i1 %.not8, label %4, label %8, !llvm.loop !53
 
 8:                                                ; preds = %4, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %4 ]
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i32 nound
 define i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  store i32 %3, ptr %5, align 4, !tbaa !53
+  store i32 %3, ptr %5, align 4, !tbaa !54
   %6 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   ret i64 %6
@@ -1509,7 +1509,7 @@ define i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 nou
 define ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !tbaa !54
+  store ptr null, ptr %4, align 8, !tbaa !55
   %5 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 1
   %7 = load ptr, ptr %4, align 8
@@ -1521,7 +1521,7 @@ define ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_u
 ; Function Attrs: nounwind uwtable
 define i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  store ptr %2, ptr %4, align 8, !tbaa !54
+  store ptr %2, ptr %4, align 8, !tbaa !55
   %5 = icmp eq ptr %0, null
   br i1 %5, label %bio_call_callback.exit30, label %6
 
@@ -1533,7 +1533,7 @@ define i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = icmp eq ptr %12, null
   %14 = icmp ne i32 %1, 14
   %or.cond = or i1 %14, %13
@@ -1576,8 +1576,8 @@ bio_call_callback.exit:                           ; preds = %24, %.thread
 bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.exit
   %.pre31 = load ptr, ptr %7, align 8, !tbaa !17
   %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %.pre31, i64 88
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !tbaa !55
-  %.pre34 = load ptr, ptr %4, align 8, !tbaa !54
+  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !tbaa !56
+  %.pre34 = load ptr, ptr %4, align 8, !tbaa !55
   br label %27
 
 27:                                               ; preds = %bio_call_callback.exit._crit_edge, %21
@@ -1633,19 +1633,19 @@ define noundef ptr @BIO_push(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 .preheader:                                       ; preds = %2, %.preheader
   %.0 = phi ptr [ %5, %.preheader ], [ %0, %2 ]
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %.preheader, !llvm.loop !57
+  br i1 %.not, label %6, label %.preheader, !llvm.loop !58
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  store ptr %1, ptr %7, align 8, !tbaa !56
+  store ptr %1, ptr %7, align 8, !tbaa !57
   %.not18 = icmp eq ptr %1, null
   br i1 %.not18, label %10, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %.0, ptr %9, align 8, !tbaa !58
+  store ptr %.0, ptr %9, align 8, !tbaa !59
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -1664,17 +1664,17 @@ define ptr @BIO_pop(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 7, i64 noundef 0, ptr noundef nonnull %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
   %.not = icmp eq ptr %8, null
-  %.pre = load ptr, ptr %4, align 8, !tbaa !56
+  %.pre = load ptr, ptr %4, align 8, !tbaa !57
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %.pre, ptr %10, align 8, !tbaa !56
+  store ptr %.pre, ptr %10, align 8, !tbaa !57
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -1683,7 +1683,7 @@ define ptr @BIO_pop(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
-  store ptr %8, ptr %13, align 8, !tbaa !58
+  store ptr %8, ptr %13, align 8, !tbaa !59
   br label %14
 
 14:                                               ; preds = %12, %11
@@ -1701,48 +1701,51 @@ define ptr @BIO_get_retry_BIO(ptr noundef readonly captures(ret: address, proven
   %4 = load i32, ptr %3, align 8, !tbaa !27
   %5 = and i32 %4, 8
   %.not13 = icmp eq i32 %5, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  br i1 %.not13, label %._crit_edge15, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = and i32 %8, 8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge15, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %2, %6
   %.0914 = phi ptr [ %11, %6 ], [ %0, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0914, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %._crit_edge, label %6
+  br i1 %12, label %._crit_edge, label %6, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %6, %.lr.ph, %2
-  %.1 = phi ptr [ %0, %2 ], [ %.0914, %.lr.ph ], [ %.0914, %6 ]
+._crit_edge:                                      ; preds = %.lr.ph
+  br label %._crit_edge15, !llvm.loop !60
+
+._crit_edge15:                                    ; preds = %6, %._crit_edge, %2
+  %.1 = phi ptr [ %.0914, %._crit_edge ], [ %0, %2 ], [ %.0914, %6 ]
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %16, label %13
 
-13:                                               ; preds = %._crit_edge
+13:                                               ; preds = %._crit_edge15
   %14 = getelementptr inbounds nuw i8, ptr %.1, i64 52
-  %15 = load i32, ptr %14, align 4, !tbaa !59
-  store i32 %15, ptr %1, align 4, !tbaa !53
+  %15 = load i32, ptr %14, align 4, !tbaa !61
+  store i32 %15, ptr %1, align 4, !tbaa !54
   br label %16
 
-16:                                               ; preds = %13, %._crit_edge
+16:                                               ; preds = %13, %._crit_edge15
   ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @BIO_get_retry_reason(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !59
+  %3 = load i32, ptr %2, align 4, !tbaa !61
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @BIO_set_retry_reason(ptr noundef writeonly captures(none) initializes((52, 56)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %1, ptr %3, align 4, !tbaa !59
+  store i32 %1, ptr %3, align 4, !tbaa !61
   ret void
 }
 
@@ -1777,9 +1780,9 @@ define ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: ad
 
 12:                                               ; preds = %9, %.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.013.us, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !56
+  %14 = load ptr, ptr %13, align 8, !tbaa !57
   %.not19.us = icmp eq ptr %14, null
-  br i1 %.not19.us, label %.loopexit, label %.split.us, !llvm.loop !60
+  br i1 %.not19.us, label %.loopexit, label %.split.us, !llvm.loop !62
 
 .split:                                           ; preds = %5, %20
   %.013 = phi ptr [ %22, %20 ], [ %0, %5 ]
@@ -1795,9 +1798,9 @@ define ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: ad
 
 20:                                               ; preds = %17, %.split
   %21 = getelementptr inbounds nuw i8, ptr %.013, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
+  %22 = load ptr, ptr %21, align 8, !tbaa !57
   %.not19 = icmp eq ptr %22, null
-  br i1 %.not19, label %.loopexit, label %.split, !llvm.loop !62
+  br i1 %.not19, label %.loopexit, label %.split, !llvm.loop !64
 
 .loopexit:                                        ; preds = %17, %20, %12, %9, %4
   %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ %.013.us, %9 ], [ null, %20 ], [ %.013, %17 ]
@@ -1811,7 +1814,7 @@ define ptr @BIO_next(ptr noundef readonly captures(address_is_null) %0) local_un
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -1822,7 +1825,7 @@ define ptr @BIO_next(ptr noundef readonly captures(address_is_null) %0) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @BIO_set_next(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
@@ -1836,12 +1839,12 @@ define void @BIO_free_all(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %3 = load atomic i32, ptr %2 acquire, align 4
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = tail call i32 @BIO_free(ptr noundef nonnull %.0)
   %7 = icmp slt i32 %3, 2
   %8 = icmp ne ptr %5, null
   %or.cond = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !63
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -1888,9 +1891,9 @@ define ptr @BIO_dup_chain(ptr noundef %0) local_unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %23, ptr %24, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %.03353, i64 56
-  %26 = load i32, ptr %25, align 8, !tbaa !64
+  %26 = load i32, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i32 %26, ptr %27, align 8, !tbaa !64
+  store i32 %26, ptr %27, align 8, !tbaa !66
   %28 = tail call i64 @BIO_ctrl(ptr noundef nonnull %.03353, i32 noundef 12, i64 noundef 0, ptr noundef nonnull %4)
   %29 = icmp slt i64 %28, 1
   br i1 %29, label %.loopexit.sink.split, label %30
@@ -1913,24 +1916,24 @@ define ptr @BIO_dup_chain(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %36, %.preheader.i
   %.0.i = phi ptr [ %39, %.preheader.i ], [ %.03452, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !56
+  %39 = load ptr, ptr %38, align 8, !tbaa !57
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %40, label %.preheader.i, !llvm.loop !57
+  br i1 %.not.i, label %40, label %.preheader.i, !llvm.loop !58
 
 40:                                               ; preds = %.preheader.i
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  store ptr %4, ptr %41, align 8, !tbaa !56
+  store ptr %4, ptr %41, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.0.i, ptr %42, align 8, !tbaa !58
+  store ptr %.0.i, ptr %42, align 8, !tbaa !59
   %43 = tail call i64 @BIO_ctrl(ptr noundef nonnull %.03452, i32 noundef 6, i64 noundef 0, ptr noundef nonnull %.0.i)
   br label %BIO_push.exit
 
 BIO_push.exit:                                    ; preds = %40, %36, %34
   %.136 = phi ptr [ %4, %34 ], [ %.03551, %36 ], [ %.03551, %40 ]
   %44 = getelementptr inbounds nuw i8, ptr %.03353, i64 72
-  %45 = load ptr, ptr %44, align 8, !tbaa !56
+  %45 = load ptr, ptr %44, align 8, !tbaa !57
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %BIO_free_all.exit, label %.lr.ph, !llvm.loop !65
+  br i1 %.not, label %BIO_free_all.exit, label %.lr.ph, !llvm.loop !67
 
 .loopexit.sink.split:                             ; preds = %30, %6
   %46 = tail call i32 @BIO_free(ptr noundef nonnull %4)
@@ -1945,12 +1948,12 @@ BIO_push.exit:                                    ; preds = %40, %36, %34
   %47 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 88
   %48 = load atomic i32, ptr %47 acquire, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 72
-  %50 = load ptr, ptr %49, align 8, !tbaa !56
+  %50 = load ptr, ptr %49, align 8, !tbaa !57
   %51 = tail call i32 @BIO_free(ptr noundef nonnull %.0.i40)
   %52 = icmp slt i32 %48, 2
   %53 = icmp ne ptr %50, null
   %or.cond.i = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond.i, label %.preheader.i39, label %BIO_free_all.exit, !llvm.loop !63
+  br i1 %or.cond.i, label %.preheader.i39, label %BIO_free_all.exit, !llvm.loop !65
 
 BIO_free_all.exit:                                ; preds = %BIO_push.exit, %.preheader.i39, %1, %.loopexit
   %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %.preheader.i39 ], [ %.136, %BIO_push.exit ]
@@ -1962,7 +1965,7 @@ declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @BIO_copy_next_retry(ptr noundef captures(none) initializes((52, 56)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !27
   %6 = and i32 %5, 15
@@ -1971,9 +1974,9 @@ define void @BIO_copy_next_retry(ptr noundef captures(none) initializes((52, 56)
   %9 = or i32 %8, %6
   store i32 %9, ptr %7, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %11 = load i32, ptr %10, align 4, !tbaa !59
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %11, ptr %12, align 4, !tbaa !59
+  store i32 %11, ptr %12, align 4, !tbaa !61
   ret void
 }
 
@@ -2035,9 +2038,9 @@ define void @bio_free_ex_data(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @bio_cleanup() local_unnamed_addr #0 {
   tail call void @bio_sock_cleanup_int() #14
-  %1 = load ptr, ptr @bio_lookup_lock, align 8, !tbaa !54
+  %1 = load ptr, ptr @bio_lookup_lock, align 8, !tbaa !55
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %1) #14
-  store ptr null, ptr @bio_lookup_lock, align 8, !tbaa !54
+  store ptr null, ptr @bio_lookup_lock, align 8, !tbaa !55
   ret void
 }
 
@@ -2058,7 +2061,7 @@ define i32 @BIO_wait(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %4, align 4, !tbaa !53
+  %10 = load i32, ptr %4, align 4, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = and i32 %12, 1
@@ -2227,7 +2230,7 @@ bio_wait.exit.thread.us:                          ; preds = %.thread69, %43
   %46 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %47, 1
-  br i1 %48, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !66
+  br i1 %48, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !68
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %88
   %49 = call i64 @ERR_peek_last_error() #14
@@ -2265,7 +2268,7 @@ bio_wait.exit.thread.us:                          ; preds = %.thread69, %43
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %59
-  %64 = load i32, ptr %4, align 4, !tbaa !53
+  %64 = load i32, ptr %4, align 4, !tbaa !54
   %65 = load i32, ptr %22, align 8, !tbaa !27
   %66 = and i32 %65, 1
   %67 = call i32 @BIO_socket_wait(i32 noundef %64, i32 noundef %66, i64 noundef %.fr57) #14
@@ -2336,7 +2339,7 @@ bio_wait.exit:                                    ; preds = %63
   %90 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
   %91 = trunc i64 %90 to i32
   %92 = icmp slt i32 %91, 1
-  br i1 %92, label %.lr.ph.split.split, label %._crit_edge
+  br i1 %92, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %88, %bio_wait.exit.thread.us, %14
   %.lcssa44 = phi i32 [ %20, %14 ], [ %47, %bio_wait.exit.thread.us ], [ %91, %88 ]
@@ -2449,20 +2452,23 @@ attributes #14 = { nounwind }
 !47 = !{!21, !6, i64 48}
 !48 = !{!21, !6, i64 56}
 !49 = !{!7, !7, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51}
-!53 = !{!11, !11, i64 0}
-!54 = !{!6, !6, i64 0}
-!55 = !{!21, !6, i64 88}
-!56 = !{!4, !12, i64 72}
-!57 = distinct !{!57, !51}
-!58 = !{!4, !12, i64 80}
-!59 = !{!4, !11, i64 52}
-!60 = distinct !{!60, !51, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !51}
-!63 = distinct !{!63, !51}
-!64 = !{!4, !11, i64 56}
-!65 = distinct !{!65, !51}
-!66 = distinct !{!66, !61}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !51, !52}
+!54 = !{!11, !11, i64 0}
+!55 = !{!6, !6, i64 0}
+!56 = !{!21, !6, i64 88}
+!57 = !{!4, !12, i64 72}
+!58 = distinct !{!58, !51, !52}
+!59 = !{!4, !12, i64 80}
+!60 = distinct !{!60, !52}
+!61 = !{!4, !11, i64 52}
+!62 = distinct !{!62, !51, !52, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !51, !52}
+!65 = distinct !{!65, !51, !52}
+!66 = !{!4, !11, i64 56}
+!67 = distinct !{!67, !51, !52}
+!68 = distinct !{!68, !52, !63}
+!69 = distinct !{!69, !52}

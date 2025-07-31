@@ -2681,7 +2681,7 @@ define range(i32 -1, 1) i32 @H5G__get_objinfo(ptr noundef %0, ptr noundef %1, i1
   br label %60
 
 50:                                               ; preds = %43
-  %51 = load i32, ptr %6, align 8, !tbaa !56
+  %51 = load i32, ptr %6, align 8, !tbaa !57
   %.not46 = icmp eq i32 %51, 0
   br i1 %.not46, label %60, label %52
 
@@ -2689,17 +2689,17 @@ define range(i32 -1, 1) i32 @H5G__get_objinfo(ptr noundef %0, ptr noundef %1, i1
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %54 = load i64, ptr %53, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %54, ptr %55, align 8, !tbaa !58
+  store i64 %54, ptr %55, align 8, !tbaa !59
   %56 = icmp eq i32 %51, 1
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 36
   br i1 %56, label %58, label %59
 
 58:                                               ; preds = %52
-  store i32 3, ptr %57, align 4, !tbaa !61
+  store i32 3, ptr %57, align 4, !tbaa !62
   br label %60
 
 59:                                               ; preds = %52
-  store i32 4, ptr %57, align 4, !tbaa !61
+  store i32 4, ptr %57, align 4, !tbaa !62
   br label %60
 
 60:                                               ; preds = %50, %59, %58, %46
@@ -2773,7 +2773,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr noundef readonly c
   br i1 %or.cond3.not, label %42, label %39
 
 39:                                               ; preds = %35
-  %40 = load i32, ptr %2, align 8, !tbaa !62
+  %40 = load i32, ptr %2, align 8, !tbaa !63
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %103
 
@@ -2817,7 +2817,7 @@ H5G_map_obj_type.exit:                            ; preds = %50
   %67 = select i1 %63, i1 %66, i1 false
   %.0.i = select i1 %67, i32 %65, i32 -1, !prof !9
   %68 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  store i32 %.0.i, ptr %68, align 4, !tbaa !61
+  store i32 %.0.i, ptr %68, align 4, !tbaa !62
   %69 = load ptr, ptr %3, align 8, !tbaa !47
   %70 = load ptr, ptr %69, align 8, !tbaa !51
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2847,29 +2847,29 @@ H5G_map_obj_type.exit:                            ; preds = %50
   %84 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %84, align 8, !tbaa !11
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %86 = load i32, ptr %85, align 4, !tbaa !65
+  %86 = load i32, ptr %85, align 4, !tbaa !66
   %87 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 %86, ptr %87, align 8, !tbaa !68
+  store i32 %86, ptr %87, align 8, !tbaa !69
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %89 = load i64, ptr %88, align 8, !tbaa !69
+  %89 = load i64, ptr %88, align 8, !tbaa !70
   %90 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i64 %89, ptr %90, align 8, !tbaa !70
+  store i64 %89, ptr %90, align 8, !tbaa !71
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !71
+  %92 = load i64, ptr %91, align 8, !tbaa !72
   %93 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store i64 %92, ptr %93, align 8, !tbaa !78
+  store i64 %92, ptr %93, align 8, !tbaa !79
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %95 = load i64, ptr %94, align 8, !tbaa !79
+  %95 = load i64, ptr %94, align 8, !tbaa !80
   %96 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i64 %95, ptr %96, align 8, !tbaa !80
+  store i64 %95, ptr %96, align 8, !tbaa !81
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %98 = load i32, ptr %97, align 4, !tbaa !81
+  %98 = load i32, ptr %97, align 4, !tbaa !82
   %99 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  store i32 %98, ptr %99, align 8, !tbaa !82
+  store i32 %98, ptr %99, align 8, !tbaa !83
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !83
+  %101 = load i32, ptr %100, align 8, !tbaa !84
   %102 = getelementptr inbounds nuw i8, ptr %24, i64 76
-  store i32 %101, ptr %102, align 4, !tbaa !84
+  store i32 %101, ptr %102, align 4, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
@@ -3132,7 +3132,7 @@ define range(i32 -1, 3) i32 @H5Gget_objtype_by_idx(i64 noundef %0, i64 noundef %
   br label %.thread31
 
 55:                                               ; preds = %39
-  store i32 3, ptr %3, align 8, !tbaa !85
+  store i32 3, ptr %3, align 8, !tbaa !86
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %57, align 8, !tbaa !13
@@ -3159,7 +3159,7 @@ define range(i32 -1, 3) i32 @H5Gget_objtype_by_idx(i64 noundef %0, i64 noundef %
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %74 = load i32, ptr %73, align 8, !tbaa !87
+  %74 = load i32, ptr %73, align 8, !tbaa !88
   %switch = icmp ult i32 %74, 3
   br i1 %switch, label %79, label %H5G_map_obj_type.exit
 
@@ -3265,37 +3265,38 @@ attributes #7 = { nounwind willreturn memory(read) }
 !51 = !{!52, !45, i64 0}
 !52 = !{!"H5O_loc_t", !45, i64 0, !12, i64 8, !4, i64 16}
 !53 = !{!43, !45, i64 16}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!57, !16, i64 0}
-!57 = !{!"", !16, i64 0, !4, i64 4, !12, i64 8, !16, i64 16, !5, i64 24}
-!58 = !{!59, !12, i64 48}
-!59 = !{!"H5G_stat_t", !5, i64 0, !5, i64 16, !16, i64 32, !16, i64 36, !12, i64 40, !12, i64 48, !60, i64 56}
-!60 = !{!"H5O_stat_t", !12, i64 0, !12, i64 8, !16, i64 16, !16, i64 20}
-!61 = !{!59, !16, i64 36}
-!62 = !{!63, !16, i64 0}
-!63 = !{!"H5O_link_t", !16, i64 0, !4, i64 4, !12, i64 8, !16, i64 16, !64, i64 24, !5, i64 32}
-!64 = !{!"p1 omnipotent char", !32, i64 0}
-!65 = !{!66, !16, i64 28}
-!66 = !{!"H5O_info2_t", !12, i64 0, !67, i64 8, !16, i64 24, !16, i64 28, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
-!67 = !{!"H5O_token_t", !5, i64 0}
-!68 = !{!59, !16, i64 32}
-!69 = !{!66, !12, i64 48}
-!70 = !{!59, !12, i64 40}
-!71 = !{!72, !12, i64 16}
-!72 = !{!"H5O_native_info_t", !73, i64 0, !76, i64 64}
-!73 = !{!"H5O_hdr_info_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !74, i64 16, !75, i64 48}
-!74 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!75 = !{!"", !12, i64 0, !12, i64 8}
-!76 = !{!"", !77, i64 0, !77, i64 16}
-!77 = !{!"H5_ih_info_t", !12, i64 0, !12, i64 8}
-!78 = !{!59, !12, i64 56}
-!79 = !{!72, !12, i64 40}
-!80 = !{!59, !12, i64 64}
-!81 = !{!72, !16, i64 4}
-!82 = !{!59, !16, i64 72}
-!83 = !{!72, !16, i64 8}
-!84 = !{!59, !16, i64 76}
-!85 = !{!86, !16, i64 0}
-!86 = !{!"H5VL_object_get_args_t", !16, i64 0, !5, i64 8}
-!87 = !{!66, !16, i64 24}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!58, !16, i64 0}
+!58 = !{!"", !16, i64 0, !4, i64 4, !12, i64 8, !16, i64 16, !5, i64 24}
+!59 = !{!60, !12, i64 48}
+!60 = !{!"H5G_stat_t", !5, i64 0, !5, i64 16, !16, i64 32, !16, i64 36, !12, i64 40, !12, i64 48, !61, i64 56}
+!61 = !{!"H5O_stat_t", !12, i64 0, !12, i64 8, !16, i64 16, !16, i64 20}
+!62 = !{!60, !16, i64 36}
+!63 = !{!64, !16, i64 0}
+!64 = !{!"H5O_link_t", !16, i64 0, !4, i64 4, !12, i64 8, !16, i64 16, !65, i64 24, !5, i64 32}
+!65 = !{!"p1 omnipotent char", !32, i64 0}
+!66 = !{!67, !16, i64 28}
+!67 = !{!"H5O_info2_t", !12, i64 0, !68, i64 8, !16, i64 24, !16, i64 28, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64}
+!68 = !{!"H5O_token_t", !5, i64 0}
+!69 = !{!60, !16, i64 32}
+!70 = !{!67, !12, i64 48}
+!71 = !{!60, !12, i64 40}
+!72 = !{!73, !12, i64 16}
+!73 = !{!"H5O_native_info_t", !74, i64 0, !77, i64 64}
+!74 = !{!"H5O_hdr_info_t", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !75, i64 16, !76, i64 48}
+!75 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!76 = !{!"", !12, i64 0, !12, i64 8}
+!77 = !{!"", !78, i64 0, !78, i64 16}
+!78 = !{!"H5_ih_info_t", !12, i64 0, !12, i64 8}
+!79 = !{!60, !12, i64 56}
+!80 = !{!73, !12, i64 40}
+!81 = !{!60, !12, i64 64}
+!82 = !{!73, !16, i64 4}
+!83 = !{!60, !16, i64 72}
+!84 = !{!73, !16, i64 8}
+!85 = !{!60, !16, i64 76}
+!86 = !{!87, !16, i64 0}
+!87 = !{!"H5VL_object_get_args_t", !16, i64 0, !5, i64 8}
+!88 = !{!67, !16, i64 24}

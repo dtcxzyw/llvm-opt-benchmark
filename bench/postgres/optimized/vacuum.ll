@@ -998,11 +998,11 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
     i8 114, label %137
     i8 109, label %137
     i8 112, label %137
-  ], !llvm.loop !8
+  ], !llvm.loop !9
 
 137:                                              ; preds = %.lr.ph.i80, %.lr.ph.i80, %.lr.ph.i80
   %138 = call zeroext i1 @vacuum_is_permitted_for_relation(i32 noundef %134, ptr noundef nonnull %133, i32 noundef %22)
-  br i1 %138, label %139, label %143, !llvm.loop !8
+  br i1 %138, label %139, label %143, !llvm.loop !9
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1016,7 +1016,7 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
   %.1.i82 = phi ptr [ %142, %139 ], [ %.022.i, %.lr.ph.i80 ], [ %.022.i, %137 ]
   %144 = call ptr @heap_getnext(ptr noundef %126, i32 noundef 1) #16
   %.not.i83 = icmp eq ptr %144, null
-  br i1 %.not.i83, label %get_all_vacuum_rels.exit, label %.lr.ph.i80
+  br i1 %.not.i83, label %get_all_vacuum_rels.exit, label %.lr.ph.i80, !llvm.loop !10
 
 get_all_vacuum_rels.exit:                         ; preds = %143, %124
   %.0.lcssa.i = phi ptr [ null, %124 ], [ %.1.i82, %143 ]
@@ -1292,7 +1292,7 @@ define internal fastcc noundef zeroext i1 @vacuum_rel(i32 noundef %0, ptr nounde
   tail call void @PushActiveSnapshot(ptr noundef %37) #16
   %38 = load volatile i32, ptr @InterruptPending, align 4
   %.not82 = icmp eq i32 %38, 0
-  br i1 %.not82, label %40, label %39, !prof !9
+  br i1 %.not82, label %40, label %39, !prof !11
 
 39:                                               ; preds = %36
   tail call void @ProcessInterrupts() #16
@@ -1623,7 +1623,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
 26:                                               ; preds = %24
   %27 = load volatile i8, ptr %22, align 1
   %.not68 = icmp eq i8 %27, 116
-  br i1 %.not68, label %28, label %38, !llvm.loop !10
+  br i1 %.not68, label %28, label %38, !llvm.loop !12
 
 28:                                               ; preds = %26, %24, %.lr.ph
   %.not69 = icmp eq i32 %19, 0
@@ -1799,13 +1799,13 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
 
 102:                                              ; preds = %.lr.ph.i
   %103 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
-  br i1 %103, label %104, label %122, !llvm.loop !11
+  br i1 %103, label %104, label %122, !llvm.loop !13
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, ptr noundef nonnull %105) #16
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1884, ptr noundef nonnull @__func__.vac_truncate_clog) #16
-  br label %122, !llvm.loop !11
+  br label %122, !llvm.loop !13
 
 107:                                              ; preds = %.lr.ph.i
   %108 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %98) #16
@@ -1851,7 +1851,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %.1.i = phi i32 [ %.056.i, %104 ], [ %.056.i, %102 ], [ %.2.i, %120 ], [ %.2.i, %118 ]
   %123 = call ptr @heap_getnext(ptr noundef %89, i32 noundef 1) #16
   %.not.i = icmp eq ptr %123, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %122, %81
   %.046.lcssa.i = phi i32 [ %87, %81 ], [ %.147.i, %122 ]
@@ -2667,7 +2667,7 @@ define dso_local void @vac_close_indexes(i32 noundef %0, ptr noundef %1, i32 nou
   %8 = load ptr, ptr %7, align 8
   tail call void @index_close(ptr noundef %8, i32 noundef %2) #16
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @pfree(ptr noundef nonnull %1) #16
@@ -2685,7 +2685,7 @@ define dso_local void @vacuum_delay_point(i1 noundef zeroext %0) local_unnamed_a
   %3 = alloca %struct.timespec, align 8
   %4 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !9
+  br i1 %.not, label %6, label %5, !prof !11
 
 5:                                                ; preds = %1
   tail call void @ProcessInterrupts() #16
@@ -2735,7 +2735,7 @@ define dso_local void @vacuum_delay_point(i1 noundef zeroext %0) local_unnamed_a
   %25 = load ptr, ptr @VacuumActiveNWorkers, align 8
   %26 = load volatile i32, ptr %25, align 4
   %27 = load i32, ptr @VacuumCostBalance, align 4
-  %28 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 %27, ptr nonnull elementtype(i32) %23) #16, !srcloc !13
+  %28 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 %27, ptr nonnull elementtype(i32) %23) #16, !srcloc !16
   %29 = add i32 %28, %27
   %30 = load i32, ptr @VacuumCostBalance, align 4
   %31 = load i32, ptr @VacuumCostBalanceLocal, align 4
@@ -2868,7 +2868,7 @@ compute_parallel_delay.exit:                      ; preds = %24, %34, %41
 101:                                              ; preds = %98
   %102 = load volatile i32, ptr @postmaster_possibly_dead, align 4
   %.not.i22 = icmp eq i32 %102, 0
-  br i1 %.not.i22, label %PostmasterIsAlive.exit.thread, label %PostmasterIsAlive.exit, !prof !9
+  br i1 %.not.i22, label %PostmasterIsAlive.exit.thread, label %PostmasterIsAlive.exit, !prof !11
 
 PostmasterIsAlive.exit:                           ; preds = %101
   %103 = call zeroext i1 @PostmasterIsAliveInternal() #16
@@ -2883,7 +2883,7 @@ PostmasterIsAlive.exit.thread:                    ; preds = %101, %PostmasterIsA
   call void @AutoVacuumUpdateCostLimit() #16
   %105 = load volatile i32, ptr @InterruptPending, align 4
   %.not21 = icmp eq i32 %105, 0
-  br i1 %.not21, label %.thread, label %106, !prof !9
+  br i1 %.not21, label %.thread, label %106, !prof !11
 
 106:                                              ; preds = %PostmasterIsAlive.exit.thread
   call void @ProcessInterrupts() #16
@@ -3086,11 +3086,14 @@ attributes #21 = { cold noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !8}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = distinct !{!12, !7}
-!13 = !{i64 1901981, i64 1901998}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i64 1901981, i64 1901998}

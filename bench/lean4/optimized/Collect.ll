@@ -15175,7 +15175,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15690,7 +15690,7 @@ lean_array_uset.exit151:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit151, %lean_array_uset.exit
   %.088.be = phi ptr [ %19, %lean_array_uset.exit ], [ %97, %lean_array_uset.exit151 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i148, %lean_array_uset.exit151 ]
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare i64 @l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_hashEMatchTheoremKind____x40_Lean_Meta_Tactic_Grind_EMatchTheorem___hyg_1575_(i8 noundef zeroext) local_unnamed_addr #2
@@ -31282,7 +31282,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit173.backedge:                        ; preds = %345, %347, %357, %356, %354
   %.0160.be = phi ptr [ %349, %347 ], [ %351, %354 ], [ %351, %356 ], [ %351, %357 ], [ inttoptr (i64 1 to ptr), %345 ]
   %.0159.be = phi ptr [ %.1.i330369, %347 ], [ %350, %354 ], [ %350, %356 ], [ %350, %357 ], [ %.1.i330369, %345 ]
-  br label %lean_dec.exit173
+  br label %lean_dec.exit173, !llvm.loop !22
 
 347:                                              ; preds = %345
   %348 = add i64 %322, -2
@@ -45939,3 +45939,7 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!6, !6, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}

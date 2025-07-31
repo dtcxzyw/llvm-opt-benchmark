@@ -433,7 +433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %195 = load ptr, ptr %194, align 8, !tbaa !12
   %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %195)
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !64
+  %198 = load ptr, ptr %197, align 8, !tbaa !65
   %.not.i.i = icmp eq ptr %198, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %199
 
@@ -445,9 +445,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   br i1 %202, label %204, label %212
 
 204:                                              ; preds = %199
-  store i32 0, ptr %200, align 8, !tbaa !65
+  store i32 0, ptr %200, align 8, !tbaa !66
   %205 = getelementptr inbounds nuw i8, ptr %198, i64 12
-  store i32 0, ptr %205, align 4, !tbaa !67
+  store i32 0, ptr %205, align 4, !tbaa !68
   %206 = load ptr, ptr %198, align 8, !tbaa !24
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8
@@ -465,7 +465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
 
 214:                                              ; preds = %212
   %215 = add nsw i32 %203, -1
-  store i32 %215, ptr %200, align 4, !tbaa !68
+  store i32 %215, ptr %200, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 216:                                              ; preds = %212
@@ -475,7 +475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %216, %214
   %.0.i.i.i.i = phi i32 [ %203, %214 ], [ %217, %216 ]
   %218 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %218, label %219, label %_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !69
+  br i1 %218, label %219, label %_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !70
 
 219:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %198) #10
@@ -583,7 +583,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -595,9 +595,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !65
+  store i32 0, ptr %5, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !67
+  store i32 0, ptr %10, align 4, !tbaa !68
   %11 = load ptr, ptr %3, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -615,7 +615,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !68
+  store i32 %20, ptr %5, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -625,7 +625,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8datasets9OR_pascalELN9
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !69
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !70
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
@@ -650,9 +650,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !68
+  %8 = load i32, ptr %5, align 4, !tbaa !69
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !68
+  store i32 %9, ptr %5, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -768,11 +768,12 @@ attributes #11 = { builtin nounwind }
 !59 = !{!47, !35, i64 36}
 !60 = !{!47, !35, i64 40}
 !61 = !{!47, !35, i64 44}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!22, !23, i64 0}
-!65 = !{!66, !35, i64 8}
-!66 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !35, i64 8, !35, i64 12}
-!67 = !{!66, !35, i64 12}
-!68 = !{!35, !35, i64 0}
-!69 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!22, !23, i64 0}
+!66 = !{!67, !35, i64 8}
+!67 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !35, i64 8, !35, i64 12}
+!68 = !{!67, !35, i64 12}
+!69 = !{!35, !35, i64 0}
+!70 = !{!"branch_weights", !"expected", i32 1, i32 2000}

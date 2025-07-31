@@ -86,7 +86,7 @@ define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr noundef captures
   %24 = icmp ugt i64 %23, %16
   %25 = icmp ult i64 %23, %.val23
   %or.cond = or i1 %24, %25
-  br i1 %or.cond, label %._crit_edge, label %ring_buf_get_buf_at.exit
+  br i1 %or.cond, label %._crit_edge, label %ring_buf_get_buf_at.exit, !llvm.loop !21
 
 ring_buf_get_buf_at.exit:                         ; preds = %.lr.ph, %21
   %.052 = phi i64 [ %22, %21 ], [ 0, %.lr.ph ]
@@ -134,7 +134,7 @@ ring_buf_get_buf_at.exit:                         ; preds = %.lr.ph, %21
   %44 = sub i64 4611686018427387904, %39
   %.2.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i24, i64 %44)
   %45 = icmp eq i64 %.2.i, 0
-  br i1 %45, label %ring_buf_push.exit, label %.lr.ph.i
+  br i1 %45, label %ring_buf_push.exit, label %.lr.ph.i, !llvm.loop !23
 
 ring_buf_push.exit:                               ; preds = %.lr.ph.i
   %46 = icmp eq i64 %42, %spec.select.i
@@ -183,7 +183,7 @@ define void @ossl_quic_rstream_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !24
   tail call void @ossl_sframe_list_destroy(ptr noundef nonnull %0) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.not.i = icmp eq i32 %5, 0
@@ -233,10 +233,10 @@ define i32 @ossl_quic_rstream_queue_data(ptr noundef %0, ptr noundef %1, i64 nou
   br label %18
 
 14:                                               ; preds = %10
-  store i64 %2, ptr %7, align 8, !tbaa !22
+  store i64 %2, ptr %7, align 8, !tbaa !25
   %15 = add i64 %4, %2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !23
+  store i64 %15, ptr %16, align 8, !tbaa !26
   %17 = call i32 @ossl_sframe_list_insert(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %3, i32 noundef %5) #10
   br label %18
 
@@ -265,7 +265,7 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_read(ptr noundef %0, ptr noundef w
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   call void @ossl_statm_get_rtt_info(ptr noundef nonnull %.val, ptr noundef nonnull %6) #10
-  %.sroa.02.0.copyload.i = load i64, ptr %6, align 8, !tbaa !24
+  %.sroa.02.0.copyload.i = load i64, ptr %6, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
   br label %get_rtt.exit
 
@@ -282,7 +282,7 @@ get_rtt.exit:                                     ; preds = %5, %8
   br i1 %.not10, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr %3, align 8, !tbaa !24
+  %14 = load i64, ptr %3, align 8, !tbaa !27
   %15 = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %12, i64 noundef %14, i64 %.sroa.02.0.i) #10
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %17, label %16
@@ -302,11 +302,11 @@ define internal fastcc i32 @read_internal(ptr noundef %0, ptr noundef writeonly 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !25
+  store ptr null, ptr %7, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  store i32 0, ptr %10, align 4, !tbaa !26
+  store i32 0, ptr %10, align 4, !tbaa !29
   %11 = call i32 @ossl_sframe_list_peek(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %.not124 = icmp eq i32 %11, 0
   br i1 %.not124, label %ring_buf_cpop_range.exit.thread, label %.lr.ph
@@ -329,14 +329,14 @@ define internal fastcc i32 @read_internal(ptr noundef %0, ptr noundef writeonly 
   %.042127 = phi i64 [ 0, %.lr.ph ], [ %63, %17 ]
   %.053126 = phi ptr [ %1, %.lr.ph ], [ %18, %17 ]
   %.058125 = phi i64 [ %2, %.lr.ph ], [ %62, %17 ]
-  %21 = load i64, ptr %12, align 8, !tbaa !23
-  %22 = load i64, ptr %8, align 8, !tbaa !22
+  %21 = load i64, ptr %12, align 8, !tbaa !26
+  %22 = load i64, ptr %8, align 8, !tbaa !25
   %23 = sub i64 %21, %22
   %24 = icmp ugt i64 %23, %.058125
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  store i32 0, ptr %10, align 4, !tbaa !26
+  store i32 0, ptr %10, align 4, !tbaa !29
   br label %26
 
 26:                                               ; preds = %25, %20
@@ -345,7 +345,7 @@ define internal fastcc i32 @read_internal(ptr noundef %0, ptr noundef writeonly 
   br i1 %27, label %.thread115, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %9, align 8, !tbaa !27
+  %29 = load ptr, ptr %9, align 8, !tbaa !30
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %.thread94
 
@@ -365,9 +365,9 @@ ring_buf_get_ptr.exit:                            ; preds = %34
   %38 = urem i64 %22, %37
   %39 = sub i64 %37, %38
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 %38
-  store ptr %40, ptr %9, align 8, !tbaa !27
+  store ptr %40, ptr %9, align 8, !tbaa !30
   %.not69 = icmp eq ptr %32, null
-  br i1 %.not69, label %.thread108, label %41, !prof !29
+  br i1 %.not69, label %.thread108, label %41, !prof !32
 
 41:                                               ; preds = %ring_buf_get_ptr.exit
   %42 = icmp ult i64 %39, %.039
@@ -379,7 +379,7 @@ ring_buf_get_ptr.exit:                            ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %.053126, i64 %39
   %46 = add i64 %39, %.042127
   %47 = sub nuw i64 %.039, %39
-  %48 = load i64, ptr %8, align 8, !tbaa !22
+  %48 = load i64, ptr %8, align 8, !tbaa !25
   %49 = add i64 %48, %39
   %50 = load ptr, ptr %13, align 8, !tbaa !20
   %51 = load i64, ptr %14, align 8, !tbaa !18
@@ -396,7 +396,7 @@ ring_buf_get_ptr.exit:                            ; preds = %34
   %57 = urem i64 %49, %56
   %58 = sub i64 %56, %57
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 %57
-  store ptr %59, ptr %9, align 8, !tbaa !27
+  store ptr %59, ptr %9, align 8, !tbaa !30
   %.not70 = icmp ne ptr %50, null
   %60 = icmp ugt i64 %58, %47
   %or.cond73 = select i1 %.not70, i1 %60, i1 false
@@ -433,7 +433,7 @@ ring_buf_get_ptr.exit:                            ; preds = %34
 
 75:                                               ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %77 = load i32, ptr %76, align 4, !tbaa !21
+  %77 = load i32, ptr %76, align 4, !tbaa !24
   %.not.i78 = icmp eq i32 %77, 0
   br i1 %.not.i78, label %98, label %78
 
@@ -495,9 +495,9 @@ ring_buf_cpop_range.exit:                         ; preds = %101, %98, %68
 ring_buf_cpop_range.exit.thread:                  ; preds = %6, %.thread115, %ring_buf_cpop_range.exit
   %.143140 = phi i64 [ %.143, %ring_buf_cpop_range.exit ], [ %.143, %.thread115 ], [ 0, %6 ]
   %.041123 = phi i32 [ %69, %ring_buf_cpop_range.exit ], [ 1, %.thread115 ], [ 1, %6 ]
-  store i64 %.143140, ptr %3, align 8, !tbaa !24
-  %102 = load i32, ptr %10, align 4, !tbaa !26
-  store i32 %102, ptr %4, align 4, !tbaa !26
+  store i64 %.143140, ptr %3, align 8, !tbaa !27
+  %102 = load i32, ptr %10, align 4, !tbaa !29
+  store i32 %102, ptr %4, align 4, !tbaa !29
   br label %.thread108
 
 .thread108:                                       ; preds = %ring_buf_get_ptr.exit, %55, %43, %52, %31, %34, %ring_buf_cpop_range.exit, %ring_buf_cpop_range.exit.thread
@@ -523,7 +523,7 @@ define noundef i32 @ossl_quic_rstream_available(ptr noundef %0, ptr noundef writ
   %5 = alloca %struct.uint_range_st, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = call i32 @ossl_sframe_list_peek(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #10
@@ -536,17 +536,17 @@ define noundef i32 @ossl_quic_rstream_available(ptr noundef %0, ptr noundef writ
 
 9:                                                ; preds = %.lr.ph, %9
   %.05 = phi i64 [ 0, %.lr.ph ], [ %13, %9 ]
-  %10 = load i64, ptr %8, align 8, !tbaa !23
-  %11 = load i64, ptr %5, align 8, !tbaa !22
+  %10 = load i64, ptr %8, align 8, !tbaa !26
+  %11 = load i64, ptr %5, align 8, !tbaa !25
   %12 = add i64 %10, %.05
   %13 = sub i64 %12, %11
   %14 = call i32 @ossl_sframe_list_peek(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #10
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %9, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %13, %9 ]
-  store i64 %.0.lcssa, ptr %1, align 8, !tbaa !24
+  store i64 %.0.lcssa, ptr %1, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -559,28 +559,28 @@ declare i32 @ossl_sframe_list_peek(ptr noundef, ptr noundef, ptr noundef, ptr no
 define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !27
+  store ptr null, ptr %5, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = call i32 @ossl_sframe_list_lock_head(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %3) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %4
-  store ptr null, ptr %1, align 8, !tbaa !27
-  store i64 0, ptr %2, align 8, !tbaa !24
+  store ptr null, ptr %1, align 8, !tbaa !30
+  store i64 0, ptr %2, align 8, !tbaa !27
   br label %ring_buf_get_ptr.exit.thread
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load i64, ptr %10, align 8, !tbaa !32
-  %12 = load i64, ptr %6, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !35
+  %12 = load i64, ptr %6, align 8, !tbaa !36
   %13 = icmp eq i64 %11, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr %3, align 4, !tbaa !26
+  %15 = load i32, ptr %3, align 4, !tbaa !29
   %.not26 = icmp eq i32 %15, 0
-  br i1 %.not26, label %ring_buf_get_ptr.exit.thread, label %16, !prof !34
+  br i1 %.not26, label %ring_buf_get_ptr.exit.thread, label %16, !prof !37
 
 16:                                               ; preds = %14
   %17 = call i32 @ossl_sframe_list_drop_frames(ptr noundef nonnull %0, i64 noundef %11) #10
@@ -588,15 +588,15 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %0, ptr nou
   br i1 %.not27, label %ring_buf_get_ptr.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
-  %.pre = load i64, ptr %10, align 8, !tbaa !32
-  %.pre33 = load i64, ptr %6, align 8, !tbaa !33
+  %.pre = load i64, ptr %10, align 8, !tbaa !35
+  %.pre33 = load i64, ptr %6, align 8, !tbaa !36
   br label %18
 
 18:                                               ; preds = %._crit_edge, %9
   %19 = phi i64 [ %.pre33, %._crit_edge ], [ %12, %9 ]
   %20 = phi i64 [ %.pre, %._crit_edge ], [ %11, %9 ]
   %21 = sub i64 %20, %19
-  %22 = load ptr, ptr %5, align 8, !tbaa !27
+  %22 = load ptr, ptr %5, align 8, !tbaa !30
   %23 = icmp eq ptr %22, null
   %24 = icmp ne i64 %21, 0
   %or.cond = select i1 %23, i1 %24, i1 false
@@ -623,7 +623,7 @@ ring_buf_get_ptr.exit:                            ; preds = %30
   %37 = sub i64 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 %36
   %.not28 = icmp eq ptr %27, null
-  br i1 %.not28, label %ring_buf_get_ptr.exit.thread, label %39, !prof !29
+  br i1 %.not28, label %ring_buf_get_ptr.exit.thread, label %39, !prof !32
 
 39:                                               ; preds = %ring_buf_get_ptr.exit
   %40 = icmp ult i64 %37, %21
@@ -631,14 +631,14 @@ ring_buf_get_ptr.exit:                            ; preds = %30
 
 41:                                               ; preds = %39
   %42 = add i64 %37, %19
-  store i64 %42, ptr %10, align 8, !tbaa !32
+  store i64 %42, ptr %10, align 8, !tbaa !35
   br label %43
 
 43:                                               ; preds = %39, %41, %18
   %44 = phi ptr [ %38, %41 ], [ %38, %39 ], [ %22, %18 ]
   %.0 = phi i64 [ %37, %41 ], [ %21, %39 ], [ %21, %18 ]
-  store i64 %.0, ptr %2, align 8, !tbaa !24
-  store ptr %44, ptr %1, align 8, !tbaa !27
+  store i64 %.0, ptr %2, align 8, !tbaa !27
+  store ptr %44, ptr %1, align 8, !tbaa !30
   br label %ring_buf_get_ptr.exit.thread
 
 ring_buf_get_ptr.exit.thread:                     ; preds = %25, %30, %ring_buf_get_ptr.exit, %16, %14, %43, %8
@@ -661,8 +661,8 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_release_record(ptr noundef %0, i64
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !32
-  %9 = load i64, ptr %6, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !35
+  %9 = load i64, ptr %6, align 8, !tbaa !36
   %10 = sub i64 %8, %9
   %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %13
@@ -695,7 +695,7 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_release_record(ptr noundef %0, i64
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !21
+  %26 = load i32, ptr %25, align 4, !tbaa !24
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %47, label %27
 
@@ -765,7 +765,7 @@ ring_buf_cpop_range.exit:                         ; preds = %50, %47, %18, %17
 55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   call void @ossl_statm_get_rtt_info(ptr noundef nonnull %.val, ptr noundef nonnull %3) #10
-  %.sroa.02.0.copyload.i = load i64, ptr %3, align 8, !tbaa !24
+  %.sroa.02.0.copyload.i = load i64, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   %.pre = load ptr, ptr %51, align 8, !tbaa !3
   br label %get_rtt.exit
@@ -879,7 +879,7 @@ safe_add_u64.exit48.i:                            ; preds = %20
   %37 = sub i64 %.04156.i, %spec.select.i
   %38 = icmp ne i64 %37, 0
   %39 = and i1 %26, %38
-  br i1 %39, label %.lr.ph.i, label %ring_buf_write_at.exit, !llvm.loop !35
+  br i1 %39, label %.lr.ph.i, label %ring_buf_write_at.exit, !llvm.loop !38
 
 ring_buf_write_at.exit:                           ; preds = %35, %4, %safe_add_u64.exit.i, %20, %safe_add_u64.exit48.i, %.preheader.i
   %.037.i = phi i32 [ 0, %safe_add_u64.exit48.i ], [ 0, %safe_add_u64.exit.i ], [ 0, %4 ], [ 0, %20 ], [ 1, %.preheader.i ], [ 1, %35 ]
@@ -895,7 +895,7 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %0, i64 no
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !21
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = tail call fastcc i32 @ring_buf_resize(ptr noundef nonnull %5, i64 noundef %1, i32 noundef %7)
   br label %9
 
@@ -907,7 +907,7 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %0, i64 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_rstream_set_cleanse(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %1, ptr %3, align 4, !tbaa !21
+  store i32 %1, ptr %3, align 4, !tbaa !24
   ret void
 }
 
@@ -966,18 +966,21 @@ attributes #10 = { nounwind }
 !18 = !{!15, !11, i64 16}
 !19 = !{!15, !11, i64 24}
 !20 = !{!15, !7, i64 0}
-!21 = !{!4, !10, i64 44}
-!22 = !{!14, !11, i64 0}
-!23 = !{!14, !11, i64 8}
-!24 = !{!11, !11, i64 0}
-!25 = !{!7, !7, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 omnipotent char", !7, i64 0}
-!29 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!4, !11, i64 72}
-!33 = !{!4, !11, i64 64}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = distinct !{!35, !31}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !22}
+!24 = !{!4, !10, i64 44}
+!25 = !{!14, !11, i64 0}
+!26 = !{!14, !11, i64 8}
+!27 = !{!11, !11, i64 0}
+!28 = !{!7, !7, i64 0}
+!29 = !{!10, !10, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 omnipotent char", !7, i64 0}
+!32 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!33 = distinct !{!33, !34, !22}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!4, !11, i64 72}
+!36 = !{!4, !11, i64 64}
+!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!38 = distinct !{!38, !34, !22}

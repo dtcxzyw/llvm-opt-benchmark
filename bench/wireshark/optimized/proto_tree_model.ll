@@ -1060,21 +1060,21 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias wri
   br i1 %17, label %18, label %32
 
 18:                                               ; preds = %14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %.not8.i = icmp eq ptr %16, null
   br i1 %.not8.i, label %19, label %22
 
 19:                                               ; preds = %18
-  store i32 -1, ptr %0, align 8, !alias.scope !20
+  store i32 -1, ptr %0, align 8, !alias.scope !21
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %20, align 4, !alias.scope !20
+  store i32 -1, ptr %20, align 4, !alias.scope !21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !21
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 22:                                               ; preds = %18
-  %23 = tail call noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %16), !noalias !20
-  %24 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %16), !noalias !20
+  %23 = tail call noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %16), !noalias !21
+  %24 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %16), !noalias !21
   %25 = icmp sgt i32 %23, -1
   %or.cond.not.i = and i1 %25, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1082,18 +1082,18 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias wri
   br i1 %or.cond.not.i, label %29, label %28
 
 28:                                               ; preds = %22
-  store i32 -1, ptr %0, align 8, !alias.scope !20
-  store i32 -1, ptr %26, align 4, !alias.scope !20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !20
+  store i32 -1, ptr %0, align 8, !alias.scope !21
+  store i32 -1, ptr %26, align 4, !alias.scope !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !21
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 29:                                               ; preds = %22
-  store i32 %23, ptr %0, align 8, !alias.scope !23
-  store i32 0, ptr %26, align 4, !alias.scope !23
+  store i32 %23, ptr %0, align 8, !alias.scope !24
+  store i32 0, ptr %26, align 4, !alias.scope !24
   %30 = ptrtoint ptr %16 to i64
-  store i64 %30, ptr %27, align 8, !alias.scope !23
+  store i64 %30, ptr %27, align 8, !alias.scope !24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %31, align 8, !alias.scope !23
+  store ptr %1, ptr %31, align 8, !alias.scope !24
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 32:                                               ; preds = %14, %12
@@ -1135,7 +1135,7 @@ define noundef zeroext i1 @_ZN14ProtoTreeModel16foreachFindFieldEP9ProtoNodePv(p
   %12 = add nuw nsw i32 %.015, 1
   %13 = tail call noundef i32 @_ZNK9ProtoNode13childrenCountEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   %.not = icmp slt i32 %12, %13
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.preheader, %11
   %.015 = phi i32 [ %12, %11 ], [ 0, %.preheader ]
@@ -1193,21 +1193,21 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
   br i1 %23, label %24, label %38
 
 24:                                               ; preds = %20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %.not8.i = icmp eq ptr %22, null
   br i1 %.not8.i, label %25, label %28
 
 25:                                               ; preds = %24
-  store i32 -1, ptr %0, align 8, !alias.scope !27
+  store i32 -1, ptr %0, align 8, !alias.scope !28
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %26, align 4, !alias.scope !27
+  store i32 -1, ptr %26, align 4, !alias.scope !28
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !28
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 28:                                               ; preds = %24
-  %29 = tail call noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %22), !noalias !27
-  %30 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %22), !noalias !27
+  %29 = tail call noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %22), !noalias !28
+  %30 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(40) %22), !noalias !28
   %31 = icmp sgt i32 %29, -1
   %or.cond.not.i = and i1 %31, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1215,18 +1215,18 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
   br i1 %or.cond.not.i, label %35, label %34
 
 34:                                               ; preds = %28
-  store i32 -1, ptr %0, align 8, !alias.scope !27
-  store i32 -1, ptr %32, align 4, !alias.scope !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !alias.scope !27
+  store i32 -1, ptr %0, align 8, !alias.scope !28
+  store i32 -1, ptr %32, align 4, !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !alias.scope !28
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 35:                                               ; preds = %28
-  store i32 %29, ptr %0, align 8, !alias.scope !30
-  store i32 0, ptr %32, align 4, !alias.scope !30
+  store i32 %29, ptr %0, align 8, !alias.scope !31
+  store i32 0, ptr %32, align 4, !alias.scope !31
   %36 = ptrtoint ptr %22 to i64
-  store i64 %36, ptr %33, align 8, !alias.scope !30
+  store i64 %36, ptr %33, align 8, !alias.scope !31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %37, align 8, !alias.scope !30
+  store ptr %1, ptr %37, align 8, !alias.scope !31
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 38:                                               ; preds = %20, %17
@@ -1302,18 +1302,19 @@ attributes #14 = { nounwind }
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
 !17 = distinct !{!17, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode: argument 0"}
-!22 = distinct !{!22, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode"}
-!23 = !{!24, !21}
-!24 = distinct !{!24, !25, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!25 = distinct !{!25, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!26 = distinct !{!26, !19}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode: argument 0"}
-!29 = distinct !{!29, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode"}
-!30 = !{!31, !28}
-!31 = distinct !{!31, !32, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!32 = distinct !{!32, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode: argument 0"}
+!23 = distinct !{!23, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode"}
+!24 = !{!25, !22}
+!25 = distinct !{!25, !26, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!26 = distinct !{!26, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!27 = distinct !{!27, !19, !20}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode: argument 0"}
+!30 = distinct !{!30, !"_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode"}
+!31 = !{!32, !29}
+!32 = distinct !{!32, !33, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!33 = distinct !{!33, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}

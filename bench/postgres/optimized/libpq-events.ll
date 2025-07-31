@@ -188,7 +188,7 @@ define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly captures(addr
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !6
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -229,7 +229,7 @@ define ptr @PQinstanceData(ptr noundef readonly captures(address_is_null) %0, pt
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !7
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly capture
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -311,7 +311,7 @@ define ptr @PQresultInstanceData(ptr noundef readonly captures(address_is_null) 
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -353,7 +353,7 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   %.01519 = phi i32 [ 1, %.lr.ph ], [ %.2, %25 ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %11, i64 %indvars.iv, i32 4
-  %13 = load i8, ptr %12, align 8, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 8, !range !10, !noundef !11
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %25, label %15
 
@@ -387,7 +387,7 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %9, label %.loopexit, !llvm.loop !11
+  br i1 %28, label %9, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %25, %.preheader, %2
   %.016 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ %.2, %25 ]
@@ -411,12 +411,13 @@ attributes #10 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !4, !5}

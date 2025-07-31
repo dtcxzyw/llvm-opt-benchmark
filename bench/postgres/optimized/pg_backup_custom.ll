@@ -569,7 +569,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly capture
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 3
-  br i1 %8, label %116, label %9
+  br i1 %8, label %117, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -577,7 +577,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly capture
   %.not = icmp eq i32 %11, 0
   %12 = icmp eq i32 %7, 1
   %or.cond = or i1 %12, %.not
-  br i1 %or.cond, label %13, label %61
+  br i1 %or.cond, label %13, label %62
 
 13:                                               ; preds = %9
   br i1 %.not, label %21, label %14
@@ -600,253 +600,253 @@ define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly capture
   %22 = getelementptr i8, ptr %0, i64 488
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %_skipLOs.exit
+  br label %25
 
-_skipLOs.exit:                                    ; preds = %_skipLOs.exit.backedge, %21
+25:                                               ; preds = %_skipLOs.exit, %21
   %.val = load ptr, ptr %22, align 8
-  %25 = tail call i64 @ftello(ptr noundef %.val)
-  %26 = icmp slt i64 %25, 0
-  br i1 %26, label %27, label %_getFilePos.exit
+  %26 = tail call i64 @ftello(ptr noundef %.val)
+  %27 = icmp slt i64 %26, 0
+  br i1 %27, label %28, label %_getFilePos.exit
 
-27:                                               ; preds = %_skipLOs.exit
-  %28 = load i32, ptr %10, align 8
-  %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %_getFilePos.exit, label %29
+28:                                               ; preds = %25
+  %29 = load i32, ptr %10, align 8
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %_getFilePos.exit, label %30
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.exit:                                 ; preds = %_skipLOs.exit, %27
-  %30 = load i32, ptr %23, align 8
-  %31 = icmp slt i32 %30, 66304
-  br i1 %31, label %36, label %32
+_getFilePos.exit:                                 ; preds = %25, %28
+  %31 = load i32, ptr %23, align 8
+  %32 = icmp slt i32 %31, 66304
+  br i1 %32, label %37, label %33
 
-32:                                               ; preds = %_getFilePos.exit
-  %33 = load ptr, ptr %22, align 8
-  %34 = tail call i32 @getc(ptr noundef %33)
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %_readBlockHeader.exit69.thread96, label %36
+33:                                               ; preds = %_getFilePos.exit
+  %34 = load ptr, ptr %22, align 8
+  %35 = tail call i32 @getc(ptr noundef %34)
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %_readBlockHeader.exit69.thread96, label %37
 
-36:                                               ; preds = %_getFilePos.exit, %32
-  %.1 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.exit ]
-  %37 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
-  %38 = load i32, ptr %24, align 8
-  %39 = icmp eq i32 %37, %38
-  br i1 %39, label %_readBlockHeader.exit69.thread, label %40
+37:                                               ; preds = %_getFilePos.exit, %33
+  %.1 = phi i32 [ %35, %33 ], [ 1, %_getFilePos.exit ]
+  %38 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
+  %39 = load i32, ptr %24, align 8
+  %40 = icmp eq i32 %38, %39
+  br i1 %40, label %_readBlockHeader.exit69.thread, label %41
 
-40:                                               ; preds = %36
-  %41 = icmp sgt i64 %25, -1
-  br i1 %41, label %42, label %55
+41:                                               ; preds = %37
+  %42 = icmp sgt i64 %26, -1
+  br i1 %42, label %43, label %56
 
-42:                                               ; preds = %40
-  %43 = tail call ptr @getTocEntryByDumpId(ptr noundef nonnull %0, i32 noundef %37) #7
-  %.not58 = icmp eq ptr %43, null
-  br i1 %.not58, label %55, label %44
+43:                                               ; preds = %41
+  %44 = tail call ptr @getTocEntryByDumpId(ptr noundef nonnull %0, i32 noundef %38) #7
+  %.not58 = icmp eq ptr %44, null
+  br i1 %.not58, label %56, label %45
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 152
-  %46 = load ptr, ptr %45, align 8
-  %.not59 = icmp eq ptr %46, null
-  br i1 %.not59, label %55, label %47
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 152
+  %47 = load ptr, ptr %46, align 8
+  %.not59 = icmp eq ptr %47, null
+  br i1 %.not59, label %56, label %48
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %46, align 8
-  %49 = icmp eq i32 %48, 1
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  br i1 %49, label %51, label %52
+48:                                               ; preds = %45
+  %49 = load i32, ptr %47, align 8
+  %50 = icmp eq i32 %49, 1
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br i1 %50, label %52, label %53
 
-51:                                               ; preds = %47
-  store i64 %25, ptr %50, align 8
-  store i32 2, ptr %46, align 8
-  br label %55
+52:                                               ; preds = %48
+  store i64 %26, ptr %51, align 8
+  store i32 2, ptr %47, align 8
+  br label %56
 
-52:                                               ; preds = %47
-  %53 = load i64, ptr %50, align 8
-  %.not60 = icmp eq i64 %53, %25
-  %.not61 = icmp eq i32 %48, 2
+53:                                               ; preds = %48
+  %54 = load i64, ptr %51, align 8
+  %.not60 = icmp eq i64 %54, %26
+  %.not61 = icmp eq i32 %49, 2
   %or.cond65 = and i1 %.not61, %.not60
-  br i1 %or.cond65, label %55, label %54
+  br i1 %or.cond65, label %56, label %55
 
-54:                                               ; preds = %52
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef %37) #7
-  br label %55
+55:                                               ; preds = %53
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef %38) #7
+  br label %56
 
-55:                                               ; preds = %42, %44, %52, %54, %51, %40
-  switch i32 %.1, label %60 [
-    i32 1, label %56
-    i32 3, label %57
+56:                                               ; preds = %43, %45, %53, %55, %52, %41
+  switch i32 %.1, label %61 [
+    i32 1, label %57
+    i32 3, label %58
   ]
 
-56:                                               ; preds = %55
+57:                                               ; preds = %56
   tail call fastcc void @_skipData(ptr noundef nonnull %0)
-  br label %_skipLOs.exit.backedge
-
-57:                                               ; preds = %55
-  %58 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
-  %.not3.i = icmp eq i32 %58, 0
-  br i1 %.not3.i, label %_skipLOs.exit.backedge, label %.lr.ph.i
-
-_skipLOs.exit.backedge:                           ; preds = %.lr.ph.i, %57, %56
   br label %_skipLOs.exit
 
-.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
-  tail call fastcc void @_skipData(ptr noundef nonnull %0)
+58:                                               ; preds = %56
   %59 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
-  %.not.i67 = icmp eq i32 %59, 0
-  br i1 %.not.i67, label %_skipLOs.exit.backedge, label %.lr.ph.i, !llvm.loop !6
+  %.not3.i = icmp eq i32 %59, 0
+  br i1 %.not3.i, label %_skipLOs.exit, label %.lr.ph.i
 
-60:                                               ; preds = %55
+.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
+  tail call fastcc void @_skipData(ptr noundef nonnull %0)
+  %60 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
+  %.not.i67 = icmp eq i32 %60, 0
+  br i1 %.not.i67, label %_skipLOs.exit, label %.lr.ph.i, !llvm.loop !6
+
+61:                                               ; preds = %56
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %.1) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-61:                                               ; preds = %9
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %65 = load i64, ptr %64, align 8
-  %66 = tail call i32 @fseeko(ptr noundef %63, i64 noundef %65, i32 noundef 0)
-  %.not55 = icmp eq i32 %66, 0
-  br i1 %.not55, label %68, label %67
+_skipLOs.exit:                                    ; preds = %.lr.ph.i, %58, %57
+  br label %25, !llvm.loop !9
 
-67:                                               ; preds = %61
+62:                                               ; preds = %9
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = tail call i32 @fseeko(ptr noundef %64, i64 noundef %66, i32 noundef 0)
+  %.not55 = icmp eq i32 %67, 0
+  br i1 %.not55, label %69, label %68
+
+68:                                               ; preds = %62
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-68:                                               ; preds = %61
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp slt i32 %70, 66304
-  br i1 %71, label %_readBlockHeader.exit69, label %72
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp slt i32 %71, 66304
+  br i1 %72, label %_readBlockHeader.exit69, label %73
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %62, align 8
-  %74 = tail call i32 @getc(ptr noundef %73)
-  %75 = icmp eq i32 %74, -1
-  br i1 %75, label %_readBlockHeader.exit69.thread96, label %_readBlockHeader.exit69
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %63, align 8
+  %75 = tail call i32 @getc(ptr noundef %74)
+  %76 = icmp eq i32 %75, -1
+  br i1 %76, label %_readBlockHeader.exit69.thread96, label %_readBlockHeader.exit69
 
-_readBlockHeader.exit69.thread96:                 ; preds = %32, %72
-  %76 = load i32, ptr %10, align 8
-  %.not64 = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %78 = load i32, ptr %77, align 8
-  br i1 %.not64, label %79, label %80
-
-79:                                               ; preds = %_readBlockHeader.exit69.thread96
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %78) #7
-  tail call void @exit_nicely(i32 noundef 1) #8
-  unreachable
+_readBlockHeader.exit69.thread96:                 ; preds = %33, %73
+  %77 = load i32, ptr %10, align 8
+  %.not64 = icmp eq i32 %77, 0
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %79 = load i32, ptr %78, align 8
+  br i1 %.not64, label %80, label %81
 
 80:                                               ; preds = %_readBlockHeader.exit69.thread96
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %78) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %79) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_readBlockHeader.exit69:                          ; preds = %68, %72
-  %.3 = phi i32 [ %74, %72 ], [ 1, %68 ]
-  %81 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
+81:                                               ; preds = %_readBlockHeader.exit69.thread96
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %79) #7
+  tail call void @exit_nicely(i32 noundef 1) #8
+  unreachable
+
+_readBlockHeader.exit69:                          ; preds = %69, %73
+  %.3 = phi i32 [ %75, %73 ], [ 1, %69 ]
+  %82 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.not62 = icmp eq i32 %81, %.pre
-  br i1 %.not62, label %_readBlockHeader.exit69.thread, label %82
+  %.not62 = icmp eq i32 %82, %.pre
+  br i1 %.not62, label %_readBlockHeader.exit69.thread, label %83
 
-82:                                               ; preds = %_readBlockHeader.exit69
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %81, i32 noundef %.pre) #7
+83:                                               ; preds = %_readBlockHeader.exit69
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %82, i32 noundef %.pre) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_readBlockHeader.exit69.thread:                   ; preds = %36, %_readBlockHeader.exit69
-  %.08094106 = phi i32 [ %.3, %_readBlockHeader.exit69 ], [ %.1, %36 ]
-  switch i32 %.08094106, label %99 [
-    i32 1, label %83
-    i32 3, label %87
+_readBlockHeader.exit69.thread:                   ; preds = %37, %_readBlockHeader.exit69
+  %.08094106 = phi i32 [ %.3, %_readBlockHeader.exit69 ], [ %.1, %37 ]
+  switch i32 %.08094106, label %100 [
+    i32 1, label %84
+    i32 3, label %88
   ]
 
-83:                                               ; preds = %_readBlockHeader.exit69.thread
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %85 = tail call ptr @AllocateCompressor(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %84, ptr noundef nonnull @_CustomReadFunc, ptr noundef null) #7
-  %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull %0, ptr noundef nonnull %85) #7
-  tail call void @EndCompressor(ptr noundef nonnull %0, ptr noundef nonnull %85) #7
-  br label %100
+84:                                               ; preds = %_readBlockHeader.exit69.thread
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %86 = tail call ptr @AllocateCompressor(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %85, ptr noundef nonnull @_CustomReadFunc, ptr noundef null) #7
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %86) #7
+  tail call void @EndCompressor(ptr noundef nonnull %0, ptr noundef nonnull %86) #7
+  br label %101
 
-87:                                               ; preds = %_readBlockHeader.exit69.thread
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp ne i32 %91, 0
+88:                                               ; preds = %_readBlockHeader.exit69.thread
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp ne i32 %92, 0
   tail call void @StartRestoreLOs(ptr noundef nonnull %0) #7
-  %93 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
-  %.not10.i = icmp eq i32 %93, 0
+  %94 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
+  %.not10.i = icmp eq i32 %94, 0
   br i1 %.not10.i, label %_LoadLOs.exit, label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  br label %95
+.lr.ph.i70:                                       ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  br label %96
 
-95:                                               ; preds = %95, %.lr.ph.i70
-  %.011.i = phi i32 [ %93, %.lr.ph.i70 ], [ %98, %95 ]
-  tail call void @StartRestoreLO(ptr noundef nonnull %0, i32 noundef %.011.i, i1 noundef zeroext %92) #7
-  %96 = tail call ptr @AllocateCompressor(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %94, ptr noundef nonnull @_CustomReadFunc, ptr noundef null) #7
-  %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull %0, ptr noundef nonnull %96) #7
-  tail call void @EndCompressor(ptr noundef nonnull %0, ptr noundef nonnull %96) #7
+96:                                               ; preds = %96, %.lr.ph.i70
+  %.011.i = phi i32 [ %94, %.lr.ph.i70 ], [ %99, %96 ]
+  tail call void @StartRestoreLO(ptr noundef nonnull %0, i32 noundef %.011.i, i1 noundef zeroext %93) #7
+  %97 = tail call ptr @AllocateCompressor(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %95, ptr noundef nonnull @_CustomReadFunc, ptr noundef null) #7
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull %0, ptr noundef nonnull %97) #7
+  tail call void @EndCompressor(ptr noundef nonnull %0, ptr noundef nonnull %97) #7
   tail call void @EndRestoreLO(ptr noundef nonnull %0, i32 noundef %.011.i) #7
-  %98 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
-  %.not.i71 = icmp eq i32 %98, 0
-  br i1 %.not.i71, label %_LoadLOs.exit, label %95, !llvm.loop !8
+  %99 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
+  %.not.i71 = icmp eq i32 %99, 0
+  br i1 %.not.i71, label %_LoadLOs.exit, label %96, !llvm.loop !10
 
-_LoadLOs.exit:                                    ; preds = %95, %87
+_LoadLOs.exit:                                    ; preds = %96, %88
   tail call void @EndRestoreLOs(ptr noundef nonnull %0) #7
-  br label %100
+  br label %101
 
-99:                                               ; preds = %_readBlockHeader.exit69.thread
+100:                                              ; preds = %_readBlockHeader.exit69.thread
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %.08094106) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-100:                                              ; preds = %_LoadLOs.exit, %83
-  %101 = load i32, ptr %10, align 8
-  %.not63 = icmp eq i32 %101, 0
-  br i1 %.not63, label %116, label %102
+101:                                              ; preds = %_LoadLOs.exit, %84
+  %102 = load i32, ptr %10, align 8
+  %.not63 = icmp eq i32 %102, 0
+  br i1 %.not63, label %117, label %103
 
-102:                                              ; preds = %100
-  %103 = load i32, ptr %6, align 8
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %116
+103:                                              ; preds = %101
+  %104 = load i32, ptr %6, align 8
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %117
 
-105:                                              ; preds = %102
-  %106 = getelementptr i8, ptr %0, i64 488
-  %.val66 = load ptr, ptr %106, align 8
-  %107 = tail call i64 @ftello(ptr noundef %.val66)
-  %108 = icmp slt i64 %107, 0
-  br i1 %108, label %109, label %_getFilePos.exit73
+106:                                              ; preds = %103
+  %107 = getelementptr i8, ptr %0, i64 488
+  %.val66 = load ptr, ptr %107, align 8
+  %108 = tail call i64 @ftello(ptr noundef %.val66)
+  %109 = icmp slt i64 %108, 0
+  br i1 %109, label %110, label %_getFilePos.exit73
 
-109:                                              ; preds = %105
-  %110 = load i32, ptr %10, align 8
-  %.not.i72 = icmp eq i32 %110, 0
-  br i1 %.not.i72, label %_getFilePos.exit73, label %111
+110:                                              ; preds = %106
+  %111 = load i32, ptr %10, align 8
+  %.not.i72 = icmp eq i32 %111, 0
+  br i1 %.not.i72, label %_getFilePos.exit73, label %112
 
-111:                                              ; preds = %109
+112:                                              ; preds = %110
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
-_getFilePos.exit73:                               ; preds = %105, %109
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp sgt i64 %107, %113
-  br i1 %114, label %115, label %116
+_getFilePos.exit73:                               ; preds = %106, %110
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %114 = load i64, ptr %113, align 8
+  %115 = icmp sgt i64 %108, %114
+  br i1 %115, label %116, label %117
 
-115:                                              ; preds = %_getFilePos.exit73
-  store i64 %107, ptr %112, align 8
-  br label %116
+116:                                              ; preds = %_getFilePos.exit73
+  store i64 %108, ptr %113, align 8
+  br label %117
 
-116:                                              ; preds = %100, %102, %115, %_getFilePos.exit73, %2
+117:                                              ; preds = %101, %103, %116, %_getFilePos.exit73, %2
   ret void
 }
 
@@ -1046,7 +1046,7 @@ define internal void @_PrepParallelRestore(ptr noundef readonly captures(none) %
   %.025.in = getelementptr inbounds nuw i8, ptr %.02540, i64 8
   %.025 = load ptr, ptr %.025.in, align 8
   %.not = icmp eq ptr %.025, %21
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %20
   %.not30 = icmp eq ptr %.1, null
@@ -1252,7 +1252,7 @@ define internal fastcc void @_skipData(ptr noundef %0) unnamed_addr #0 {
   %.1 = phi i32 [ %.031, %9 ], [ %.2, %17 ]
   %26 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %25, %1
   %.017.lcssa = phi ptr [ null, %1 ], [ %.118, %25 ]
@@ -1373,8 +1373,10 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

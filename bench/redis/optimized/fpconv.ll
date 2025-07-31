@@ -56,7 +56,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %strtod_buffer_size.exit
-  store ptr %0, ptr %1, align 8, !tbaa !9
+  store ptr %0, ptr %1, align 8, !tbaa !10
   br label %42
 
 20:                                               ; preds = %strtod_buffer_size.exit
@@ -71,7 +71,7 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
   br i1 %.not28, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !13
   %28 = tail call i64 @fwrite(ptr nonnull @.str, i64 13, i64 1, ptr %27) #13
   tail call void @abort() #14
   unreachable
@@ -93,12 +93,12 @@ strtod_buffer_size.exit:                          ; preds = %valid_number_charac
 
 34:                                               ; preds = %33, %29
   %35 = call double @strtod(ptr noundef nonnull %.024, ptr noundef nonnull %4) #11
-  %36 = load ptr, ptr %4, align 8, !tbaa !9
+  %36 = load ptr, ptr %4, align 8, !tbaa !10
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %.024 to i64
   %39 = sub i64 %37, %38
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  store ptr %40, ptr %1, align 8, !tbaa !9
+  store ptr %40, ptr %1, align 8, !tbaa !10
   br i1 %21, label %41, label %42
 
 41:                                               ; preds = %34
@@ -191,7 +191,7 @@ set_number_format.exit:                           ; preds = %3, %7
   store i8 %spec.select, ptr %.010, align 1, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %23, %18
   %.09 = phi i32 [ %19, %18 ], [ %21, %23 ]
@@ -221,7 +221,7 @@ define dso_local void @fpconv_init() local_unnamed_addr #8 {
   br i1 %or.cond7.i, label %11, label %fpconv_update_locale.exit
 
 11:                                               ; preds = %0
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !13
   %13 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 45, i64 1, ptr %12) #13
   tail call void @abort() #14
   unreachable
@@ -263,11 +263,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!15 = distinct !{!15, !8, !9}

@@ -342,7 +342,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 
 150:                                              ; preds = %.critedge.us33
   %151 = add i32 %133, -2
-  br label %.split.split.us, !llvm.loop !10
+  br label %.split.split.us, !llvm.loop !11
 
 .split.split:                                     ; preds = %.thread49, %171
   %152 = phi i32 [ %153, %171 ], [ %88, %.thread49 ]
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 
 171:                                              ; preds = %.critedge
   %172 = add i32 %153, -2
-  br label %.split.split, !llvm.loop !11
+  br label %.split.split, !llvm.loop !12
 
 .split32.us:                                      ; preds = %.critedge, %158, %.critedge.us33, %138, %124, %.critedge.us
   %.us-phi = phi i32 [ %115, %.critedge.us ], [ %114, %124 ], [ %133, %.critedge.us33 ], [ %132, %138 ], [ %153, %.critedge ], [ %152, %158 ]
@@ -423,7 +423,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %198 = load i32, ptr %73, align 4
   %199 = urem i32 %197, %198
   %200 = icmp eq i32 %199, 0
-  br i1 %200, label %.loopexit29, label %.split35.us, !llvm.loop !12
+  br i1 %200, label %.loopexit29, label %.split35.us, !llvm.loop !13
 
 .split35:                                         ; preds = %181, %.critedge16
   %201 = phi i32 [ %202, %.critedge16 ], [ %87, %181 ]
@@ -463,7 +463,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %224 = load i32, ptr %73, align 4
   %225 = urem i32 %223, %224
   %226 = icmp eq i32 %225, 0
-  br i1 %226, label %.loopexit29, label %.split35, !llvm.loop !13
+  br i1 %226, label %.loopexit29, label %.split35, !llvm.loop !14
 
 227:                                              ; preds = %100
   %228 = load i32, ptr %73, align 4
@@ -552,7 +552,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %278 = add i32 %260, 4
   %279 = srem i32 %278, %274
   %.not22 = icmp eq i32 %279, 0
-  br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !14
+  br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !15
 
 .critedge20:                                      ; preds = %273, %277, %270
   %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
@@ -670,7 +670,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %341 = select i1 %104, i64 4, i64 1
   %342 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %340, i64 %341)
   %343 = extractvalue { i64, i1 } %342, 1
-  br i1 %343, label %.thread, label %344, !prof !15
+  br i1 %343, label %.thread, label %344, !prof !16
 
 344:                                              ; preds = %335
   %345 = extractvalue { i64, i1 } %342, 0
@@ -836,7 +836,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %444 = phi ptr [ %433, %429 ], [ %441, %440 ], [ %431, %438 ]
   %445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 56), align 8
   %446 = icmp ugt i32 %434, %445
-  br i1 %446, label %.loopexit.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %446, label %.loopexit.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %442
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 40), align 8
@@ -878,7 +878,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !18
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !19
   %7 = inttoptr i64 %6 to ptr
   store i64 0, ptr %2, align 8
   store ptr %7, ptr %5, align 8
@@ -912,11 +912,11 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
 
 22:                                               ; preds = %37, %19
   %23 = phi i32 [ 0, %19 ], [ %38, %37 ]
-  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 1, ptr nonnull elementtype(i32) %20) #9, !srcloc !19
+  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 1, ptr nonnull elementtype(i32) %20) #9, !srcloc !20
   %25 = load volatile i64, ptr %7, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.critedge, !prof !20
+  br i1 %27, label %28, label %.critedge, !prof !21
 
 28:                                               ; preds = %22
   %29 = load volatile i64, ptr %7, align 8
@@ -943,7 +943,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 48), align 8
   %42 = icmp ugt i32 %41, %38
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %22, label %.critedge, !llvm.loop !21
+  br i1 %43, label %22, label %.critedge, !llvm.loop !22
 
 44:                                               ; preds = %32
   store volatile i32 0, ptr %20, align 8
@@ -1075,18 +1075,19 @@ attributes #12 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -22, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !9, !10}
 !12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = distinct !{!16, !17, !8}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{i64 2148354779}
-!19 = !{i64 2155026336}
-!20 = !{!"branch_weights", i32 2000, i32 1}
-!21 = distinct !{!21, !17, !8}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = distinct !{!17, !18, !8, !9}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{i64 2148354779}
+!20 = !{i64 2155026336}
+!21 = !{!"branch_weights", i32 2000, i32 1}
+!22 = distinct !{!22, !18, !8, !9}

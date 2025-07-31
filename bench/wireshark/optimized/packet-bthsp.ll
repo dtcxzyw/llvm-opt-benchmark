@@ -912,7 +912,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %.1265 = phi i32 [ %.2266333, %.thread334.thread ], [ %.2266333, %313 ], [ %.2266333, %308 ], [ %.2266333, %303 ], [ %.2266333, %298 ], [ %.2266333, %294 ], [ %.2266333, %.thread330 ], [ %.0264348, %280 ], [ %.0264348, %276 ], [ %.0264348, %274 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %273
-  br i1 %exitcond.not, label %.loopexit341, label %274, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit341, label %274, !llvm.loop !11
 
 .loopexit341:                                     ; preds = %.thread327, %251, %179
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1018,7 +1018,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %443 = select i1 %442, i64 0, i64 %441
   %444 = icmp ne i64 %443, -1
   call void @llvm.assume(i1 %444)
-  %445 = call ptr @__memcpy_chk(ptr noundef %437, ptr noundef %439, i64 noundef range(i64 -2147483648, 4294967296) %440, i64 noundef %443) #10, !alias.scope !11
+  %445 = call ptr @__memcpy_chk(ptr noundef %437, ptr noundef %439, i64 noundef range(i64 -2147483648, 4294967296) %440, i64 noundef %443) #10, !alias.scope !12
   %446 = getelementptr inbounds nuw i8, ptr %392, i64 40
   %447 = load ptr, ptr %446, align 8
   %.not299 = icmp eq ptr %447, null
@@ -1051,11 +1051,11 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %461 = select i1 %460, i64 0, i64 %459
   %462 = icmp ne i64 %461, -1
   call void @llvm.assume(i1 %462)
-  %463 = call ptr @__memcpy_chk(ptr noundef %455, ptr noundef %457, i64 noundef range(i64 -2147483648, 4294967296) %458, i64 noundef %461) #10, !alias.scope !15
+  %463 = call ptr @__memcpy_chk(ptr noundef %455, ptr noundef %457, i64 noundef range(i64 -2147483648, 4294967296) %458, i64 noundef %461) #10, !alias.scope !16
   %464 = getelementptr inbounds nuw i8, ptr %.2277349, i64 40
   %465 = load ptr, ptr %464, align 8
   %.not300 = icmp eq ptr %465, null
-  br i1 %.not300, label %.critedge311, label %.preheader339, !llvm.loop !19
+  br i1 %.not300, label %.critedge311, label %.preheader339, !llvm.loop !20
 
 .critedge13:                                      ; preds = %.preheader339
   %466 = getelementptr inbounds nuw i8, ptr %.2277349, i64 56
@@ -1082,7 +1082,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %485 = select i1 %484, i64 0, i64 %483
   %486 = icmp ne i64 %485, -1
   call void @llvm.assume(i1 %486)
-  %487 = call ptr @__memcpy_chk(ptr noundef %477, ptr noundef %481, i64 noundef range(i64 -2147483648, 4294967296) %482, i64 noundef %485) #10, !alias.scope !20
+  %487 = call ptr @__memcpy_chk(ptr noundef %477, ptr noundef %481, i64 noundef range(i64 -2147483648, 4294967296) %482, i64 noundef %485) #10, !alias.scope !21
   br label %.critedge311
 
 .critedge310:                                     ; preds = %.critedge13
@@ -1097,7 +1097,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %496 = select i1 %495, i64 0, i64 %494
   %497 = icmp ne i64 %496, -1
   call void @llvm.assume(i1 %497)
-  %498 = call ptr @__memcpy_chk(ptr noundef %490, ptr noundef %492, i64 noundef range(i64 -2147483648, 4294967296) %493, i64 noundef %496) #10, !alias.scope !24
+  %498 = call ptr @__memcpy_chk(ptr noundef %490, ptr noundef %492, i64 noundef range(i64 -2147483648, 4294967296) %493, i64 noundef %496) #10, !alias.scope !25
   br label %.critedge311
 
 .critedge311:                                     ; preds = %450, %471, %.critedge310, %432
@@ -1140,7 +1140,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %514 = add i32 %.0272351, 1
   %515 = call i32 @tvb_reported_length(ptr noundef nonnull %509)
   %516 = icmp ugt i32 %515, %513
-  br i1 %516, label %.lr.ph353, label %._crit_edge, !llvm.loop !28
+  br i1 %516, label %.lr.ph353, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph353, %.preheader338
   %517 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1154,7 +1154,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread318, %160, %
   %520 = add i32 %.1273354, 1
   %521 = call i32 @tvb_reported_length(ptr noundef %0)
   %522 = icmp ugt i32 %521, %519
-  br i1 %522, label %.lr.ph356, label %.loopexit, !llvm.loop !29
+  br i1 %522, label %.lr.ph356, label %.loopexit, !llvm.loop !30
 
 523:                                              ; preds = %417, %412, %407, %402, %397, %393, %.loopexit341
   %524 = load i32, ptr @hf_fragmented, align 4
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %45 = getelementptr i8, ptr %27, i64 %44
   %46 = load i8, ptr %45, align 1
   %.not414.us = icmp eq i8 %46, 0
-  br i1 %.not414.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %.not414.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i8 [ %53, %.lr.ph.split ], [ %30, %.lr.ph ]
@@ -1396,7 +1396,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %52 = getelementptr i8, ptr %27, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not414 = icmp eq i8 %53, 0
-  br i1 %.not414, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %.not414, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %24
   %54 = load i32, ptr @hf_command, align 4
@@ -1464,7 +1464,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 .critedge2:                                       ; preds = %.lr.ph538, %.lr.ph538, %.lr.ph538, %.lr.ph538
   %85 = add i32 %.2382537, 1
   %.not415 = icmp sgt i32 %85, %8
-  br i1 %.not415, label %.critedge, label %.lr.ph538, !llvm.loop !33
+  br i1 %.not415, label %.critedge, label %.lr.ph538, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph538
   %.2382.lcssa.ph = phi i32 [ %85, %.critedge2 ], [ %.2382537, %.lr.ph538 ]
@@ -1505,7 +1505,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 93:                                               ; preds = %.lr.ph542
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph542, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph542, !llvm.loop !35
 
 .critedge4.loopexit.split.loop.exit:              ; preds = %.lr.ph542, %.lr.ph542, %.lr.ph542, %.lr.ph542, %.lr.ph542
   %94 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1534,7 +1534,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %103 = getelementptr i8, ptr %.1377554, i64 32
   %104 = load ptr, ptr %103, align 8
   %.not424 = icmp eq ptr %104, null
-  br i1 %.not424, label %.thread450, label %.preheader513, !llvm.loop !35
+  br i1 %.not424, label %.thread450, label %.preheader513, !llvm.loop !36
 
 105:                                              ; preds = %.preheader513
   %106 = load i32, ptr @hf_at_cmd, align 4
@@ -1708,7 +1708,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 
 188:                                              ; preds = %260
   %189 = icmp slt i32 %.8, %.0378
-  br i1 %189, label %.preheader512, label %.loopexit, !llvm.loop !36
+  br i1 %189, label %.preheader512, label %.loopexit, !llvm.loop !37
 
 .preheader512:                                    ; preds = %.preheader512.lr.ph, %188
   %.3569 = phi i32 [ %.2499, %.preheader512.lr.ph ], [ %.6, %188 ]
@@ -1737,7 +1737,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 .critedge7:                                       ; preds = %190, %190
   %196 = add i32 %.5, 1
   %197 = add i32 %.7387, 1
-  br label %190, !llvm.loop !37
+  br label %190, !llvm.loop !38
 
 198:                                              ; preds = %.lr.ph558, %205
   %199 = phi i32 [ %219, %.lr.ph558 ], [ %207, %205 ]
@@ -1762,7 +1762,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %206 = add i32 %.1375556, 1
   %207 = add i32 %206, %.7387
   %208 = icmp slt i32 %207, %.0378
-  br i1 %208, label %198, label %.critedge9, !llvm.loop !38
+  br i1 %208, label %198, label %.critedge9, !llvm.loop !39
 
 209:                                              ; preds = %203, %204
   %210 = icmp eq i8 %202, 40
@@ -1780,7 +1780,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %216 = add i32 %.1375556, 1
   %217 = add i32 %216, %.7387
   %218 = icmp slt i32 %217, %.0378
-  br i1 %218, label %.lr.ph558, label %.critedge9, !llvm.loop !38
+  br i1 %218, label %.lr.ph558, label %.critedge9, !llvm.loop !39
 
 .lr.ph558:                                        ; preds = %.preheader, %.outer
   %219 = phi i32 [ %217, %.outer ], [ %.7387, %.preheader ]
@@ -1890,7 +1890,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 260:                                              ; preds = %253, %257
   %.8 = phi i32 [ %258, %257 ], [ %236, %253 ]
   %.6 = phi i32 [ %259, %257 ], [ %237, %253 ]
-  br i1 %.0355, label %..loopexit_crit_edge, label %188, !llvm.loop !36
+  br i1 %.0355, label %..loopexit_crit_edge, label %188, !llvm.loop !37
 
 .thread501:                                       ; preds = %.thread439, %63
   %.1449 = phi i32 [ %.1, %.thread439 ], [ %3, %63 ]
@@ -1901,7 +1901,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %269
 
 ..loopexit_crit_edge:                             ; preds = %260
-  br label %.loopexit, !llvm.loop !36
+  br label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %188, %..loopexit_crit_edge, %250
   %.6386 = phi i32 [ %252, %250 ], [ %.8, %..loopexit_crit_edge ], [ %.8, %188 ]
@@ -2043,7 +2043,7 @@ check_vgs.exit:                                   ; preds = %10, %13
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !39
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !40
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -2106,7 +2106,7 @@ check_vgm.exit:                                   ; preds = %10, %13
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !43
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !44
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -2149,7 +2149,7 @@ define internal noundef zeroext i1 @dissect_ckpd_parameter(ptr noundef %0, ptr n
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !47
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !48
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -2217,46 +2217,47 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = distinct !{!19, !9}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
-!41 = distinct !{!41, !"memcpy.inline"}
-!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
-!45 = distinct !{!45, !"memcpy.inline"}
-!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
+!14 = distinct !{!14, !"memcpy.inline"}
+!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = distinct !{!20, !9, !10}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
+!23 = distinct !{!23, !"memcpy.inline"}
+!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
+!27 = distinct !{!27, !"memcpy.inline"}
+!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
+!42 = distinct !{!42, !"memcpy.inline"}
+!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"memcpy.inline: argument 0"}
+!46 = distinct !{!46, !"memcpy.inline"}
+!47 = distinct !{!47, !46, !"memcpy.inline: argument 1"}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"memcpy.inline: argument 0"}
+!50 = distinct !{!50, !"memcpy.inline"}
+!51 = distinct !{!51, !50, !"memcpy.inline: argument 1"}

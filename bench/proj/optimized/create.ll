@@ -835,7 +835,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   %289 = getelementptr inbounds nuw i8, ptr %283, i64 376
   store i32 1, ptr %289, align 8, !tbaa !40
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr %283, ptr %290, align 8, !tbaa !56
+  store ptr %283, ptr %290, align 8, !tbaa !57
   %291 = load i32, ptr %266, align 4, !tbaa !53
   %.not156 = icmp eq i32 %291, 0
   br i1 %.not156, label %292, label %.thread203.sink.split
@@ -857,7 +857,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   %300 = getelementptr inbounds nuw i8, ptr %294, i64 376
   store i32 1, ptr %300, align 8, !tbaa !40
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %294, ptr %301, align 8, !tbaa !57
+  store ptr %294, ptr %301, align 8, !tbaa !58
   br label %.thread203.sink.split
 
 302:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168
@@ -989,7 +989,8 @@ attributes #17 = { noreturn }
 !51 = !{!4, !14, i64 328}
 !52 = !{!4, !11, i64 416}
 !53 = !{!4, !13, i64 356}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!4, !11, i64 400}
-!57 = !{!4, !11, i64 408}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!4, !11, i64 400}
+!58 = !{!4, !11, i64 408}

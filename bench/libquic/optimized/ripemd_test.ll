@@ -80,10 +80,10 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   br i1 %.not43.us, label %28, label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !15
   %25 = trunc i64 %.03553.us to i32
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef %8, i32 noundef %25) #14
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !15
   call void @hexdump(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i64 noundef 20)
   br label %28
 
@@ -92,7 +92,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %1) #12
   %29 = add i64 %.03553.us, 1
   %.not41.us = icmp ugt i64 %29, %.fr62
-  br i1 %.not41.us, label %.split57.us, label %.split.us, !llvm.loop !16
+  br i1 %.not41.us, label %.split57.us, label %.split.us, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %14
   %30 = call i32 @RIPEMD160_Final(ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -108,7 +108,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   %.us-phi = phi i32 [ %.2, %.split57.us.loopexit ], [ %.2.us, %28 ]
   %.036.add = add nuw nsw i64 %.036.idx58, 32
   %.not = icmp eq i64 %.036.add, 256
-  br i1 %.not, label %4, label %7
+  br i1 %.not, label %4, label %7, !llvm.loop !19
 
 31:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %1) #12
@@ -118,9 +118,9 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   br i1 %.not43, label %.split57.us.loopexit, label %33
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !15
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef %8, i32 noundef 0) #14
-  %36 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !15
   call void @hexdump(ptr noundef %36, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i64 noundef 20)
   br label %.split57.us.loopexit
 
@@ -130,9 +130,9 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   br i1 %.not39, label %43, label %38
 
 38:                                               ; preds = %37
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !15
   %40 = call i64 @fwrite(ptr nonnull @.str.2, i64 45, i64 1, ptr %39) #15
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !15
   invoke void @hexdump(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, i64 noundef 20)
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit46 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
@@ -235,9 +235,11 @@ attributes #16 = { builtin nounwind }
 !9 = !{!"any pointer", !10, i64 0}
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C++ TBAA"}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!16 = distinct !{!16, !13, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!17 = distinct !{!17, !13, !14, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !14}

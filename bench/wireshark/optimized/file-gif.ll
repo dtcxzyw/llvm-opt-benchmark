@@ -454,7 +454,7 @@ dissect_gif_data_block_seq.exit190:               ; preds = %158
   call void @proto_item_set_len(ptr noundef %175, i32 noundef %176)
   %177 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %.not185 = icmp eq i32 %177, 0
-  br i1 %.not185, label %.thread, label %.lr.ph
+  br i1 %.not185, label %.thread, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %174, %dissect_gif_data_block_seq.exit, %dissect_gif_data_block_seq.exit190, %78, %167, %12, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %170, %167 ], [ %.0175, %78 ], [ %157, %dissect_gif_data_block_seq.exit190 ], [ %93, %dissect_gif_data_block_seq.exit ], [ %.4, %174 ]
@@ -545,5 +545,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

@@ -141,7 +141,7 @@ _ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i:      ; preds = %_ZSt8_DestroyIP5Tim
   %28 = sub i64 %26, %27
   %29 = sdiv exact i64 %28, 72
   %30 = icmp ugt i64 %29, %23
-  br i1 %30, label %.lr.ph.i, label %_ZN10TimerGroup5ResetEv.exit, !llvm.loop !6
+  br i1 %30, label %.lr.ph.i, label %_ZN10TimerGroup5ResetEv.exit, !llvm.loop !7
 
 _ZN10TimerGroup5ResetEv.exit:                     ; preds = %.noexc2, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i
   ret void
@@ -225,7 +225,7 @@ _ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit:        ; preds = %10, %12, %13, %_ZSt
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 72
   %29 = icmp ugt i64 %28, %22
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit
   ret void
@@ -355,15 +355,15 @@ define void @_ZN10TimerGroup8SetNamesERKNSt7__cxx1112basic_stringIcSt11char_trai
 21:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %20) #15
   call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef %.01536) #15
-  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15, !noalias !7
-  %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15, !noalias !7
+  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15, !noalias !8
+  %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15, !noalias !8
   %24 = add i64 %23, %22
-  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15, !noalias !7
+  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15, !noalias !8
   %26 = icmp ugt i64 %24, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
-  %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15, !noalias !7
+  %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15, !noalias !8
   %.not.i = icmp ugt i64 %24, %28
   br i1 %.not.i, label %31, label %29
 
@@ -399,7 +399,7 @@ define void @_ZN10TimerGroup8SetNamesERKNSt7__cxx1112basic_stringIcSt11char_trai
   %44 = sub i64 %42, %43
   %45 = sdiv exact i64 %44, 72
   %46 = icmp ugt i64 %45, %39
-  br i1 %46, label %.lr.ph37, label %.loopexit, !llvm.loop !10
+  br i1 %46, label %.lr.ph37, label %.loopexit, !llvm.loop !11
 
 .loopexit29:                                      ; preds = %33
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -470,7 +470,7 @@ define void @_ZN10TimerGroup8SetNamesERKNSt7__cxx1112basic_stringIcSt11char_trai
   %68 = sub i64 %66, %67
   %69 = sdiv exact i64 %68, 72
   %70 = icmp ugt i64 %69, %63
-  br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 71:                                               ; preds = %.lr.ph
   %72 = landingpad { ptr, i32 }
@@ -529,7 +529,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   %17 = udiv i32 %.02230.i, 10000
   %18 = add i32 %.02329.i, 4
   %19 = icmp ult i32 %.02230.i, 100000
-  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
   %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
@@ -589,7 +589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %41, ptr %44, align 1
   %45 = add i32 %.01819.i, -2
   %46 = icmp ugt i32 %.020.i, 9999
-  br i1 %46, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !13
+  br i1 %46, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
@@ -678,7 +678,7 @@ define noundef zeroext i1 @_ZNK10TimerGroup4UsedEv(ptr noundef nonnull readonly 
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 72
   %14 = icmp ugt i64 %13, %7
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %1, %5
   %15 = phi ptr [ %9, %5 ], [ %4, %1 ]
@@ -733,7 +733,7 @@ define void @_ZN10TimerGroup13DifferentiateEv(ptr noundef nonnull readonly align
   %26 = sdiv exact i64 %25, 72
   %27 = add nsw i64 %26, -1
   %28 = icmp ugt i64 %27, %20
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -773,7 +773,7 @@ define void @_ZNK10TimerGroup3SumER5Timer(ptr noundef nonnull readonly align 8 c
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 72
   %26 = icmp ugt i64 %25, %19
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -806,7 +806,7 @@ define void @_ZN10TimerGroupmIERKS_(ptr noundef nonnull readonly align 8 capture
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 72
   %19 = icmp ugt i64 %18, %12
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1059,7 +1059,7 @@ define void @_ZNK10TimerGroup7SumLineB5cxx11ERK5Timer(ptr dead_on_unwind noalias
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 72
   %28 = icmp ugt i64 %27, %21
-  br i1 %28, label %.lr.ph.i, label %_ZNK10TimerGroup3SumER5Timer.exit, !llvm.loop !16
+  br i1 %28, label %.lr.ph.i, label %_ZNK10TimerGroup3SumER5Timer.exit, !llvm.loop !17
 
 _ZNK10TimerGroup3SumER5Timer.exit:                ; preds = %.noexc3, %.noexc
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1233,7 +1233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; 
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 72
   %56 = icmp ugt i64 %55, %49
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   ret void
@@ -1322,7 +1322,7 @@ define void @_ZNK10TimerGroup11DetailLinesB5cxx11Ev(ptr dead_on_unwind noalias w
   %30 = sub i64 %28, %29
   %31 = sdiv exact i64 %30, 72
   %32 = icmp ugt i64 %31, %25
-  br i1 %32, label %9, label %._crit_edge, !llvm.loop !19
+  br i1 %32, label %9, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %2
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
@@ -1469,7 +1469,7 @@ _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i:  ; preds = %.lr.ph.i.i.i
   %19 = add i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 72
   %.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 21:                                               ; preds = %.lr.ph.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -1541,7 +1541,7 @@ _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
   %40 = add i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 72
   %.not.i.i.i49 = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !20
+  br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !21
 
 42:                                               ; preds = %.lr.ph.i.i.i40
   %43 = landingpad { ptr, i32 }
@@ -1600,7 +1600,7 @@ _ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 72
   %59 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i53 = icmp eq ptr %58, %5
-  br i1 %.not.i.i.i.i.i53, label %.lr.ph.i.i.i60, label %.lr.ph.i.i.i.i.i52, !llvm.loop !21
+  br i1 %.not.i.i.i.i.i53, label %.lr.ph.i.i.i60, label %.lr.ph.i.i.i.i.i52, !llvm.loop !22
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i52
   %61 = landingpad { ptr, i32 }
@@ -1852,21 +1852,22 @@ attributes #19 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
-!9 = distinct !{!9, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
+!10 = distinct !{!10, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}

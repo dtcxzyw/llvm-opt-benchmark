@@ -43,7 +43,7 @@ define dso_local noundef i64 @_ZN4llvm13getNumOfCallsERNS_8FunctionES1_(ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 8
   %.sroa.010.0 = load ptr, ptr %12, align 8, !tbaa !3
   %.not14 = icmp eq ptr %.sroa.010.0, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -58,7 +58,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFrequencyInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.010.014 = load ptr, ptr %3, align 8, !tbaa !18
+  %.sroa.010.014 = load ptr, ptr %3, align 8, !tbaa !20
   %.not1315 = icmp eq ptr %.sroa.010.014, %4
   br i1 %.not1315, label %._crit_edge, label %.lr.ph
 
@@ -73,9 +73,9 @@ define dso_local noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFr
   %6 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5) #9
   %spec.select = tail call i64 @llvm.umax.i64(i64 %6, i64 %.016)
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
-  %.sroa.010.0 = load ptr, ptr %7, align 8, !tbaa !18
+  %.sroa.010.0 = load ptr, ptr %7, align 8, !tbaa !20
   %.not13 = icmp eq ptr %.sroa.010.0, %4
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 declare i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
@@ -89,15 +89,15 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
 
 5:                                                ; preds = %3
   %6 = uitofp i64 %spec.select to double
-  %7 = tail call double @log2(double noundef %6) #9, !tbaa !21
+  %7 = tail call double @log2(double noundef %6) #9, !tbaa !24
   %8 = uitofp i64 %2 to double
-  %9 = tail call double @log2(double noundef %8) #9, !tbaa !21
+  %9 = tail call double @log2(double noundef %8) #9, !tbaa !24
   %10 = fdiv double %7, %9
   br label %11
 
 11:                                               ; preds = %3, %5
   %12 = phi double [ %10, %5 ], [ 0.000000e+00, %3 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %13 = fcmp ogt double %12, 1.000000e+00
   %.0.i = select i1 %13, double 1.000000e+00, double %12
   %14 = fcmp olt double %.0.i, 0.000000e+00
@@ -108,18 +108,18 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8, !tbaa !25, !alias.scope !22
-  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9, !noalias !22
-  store i64 %21, ptr %4, align 8, !tbaa !28, !noalias !22
+  store ptr %20, ptr %0, align 8, !tbaa !28, !alias.scope !25
+  %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9, !noalias !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9, !noalias !25
+  store i64 %21, ptr %4, align 8, !tbaa !31, !noalias !25
   %22 = icmp ugt i64 %21, 15
   br i1 %22, label %23, label %._crit_edge.i.i.i
 
 23:                                               ; preds = %11
   %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #9
-  store ptr %24, ptr %0, align 8, !tbaa !30, !alias.scope !22
-  %25 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
-  store i64 %25, ptr %20, align 8, !tbaa !32, !alias.scope !22
+  store ptr %24, ptr %0, align 8, !tbaa !33, !alias.scope !25
+  %25 = load i64, ptr %4, align 8, !tbaa !31, !noalias !25
+  store i64 %25, ptr %20, align 8, !tbaa !35, !alias.scope !25
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %23, %11
@@ -130,7 +130,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i
-  store i8 35, ptr %26, align 1, !tbaa !32
+  store i8 35, ptr %26, align 1, !tbaa !35
   br label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
 
 28:                                               ; preds = %._crit_edge.i.i.i
@@ -138,13 +138,13 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   br label %_ZN4llvm12getHeatColorB5cxx11Ed.exit
 
 _ZN4llvm12getHeatColorB5cxx11Ed.exit:             ; preds = %._crit_edge.i.i.i, %27, %28
-  %29 = load i64, ptr %4, align 8, !tbaa !28, !noalias !22
+  %29 = load i64, ptr %4, align 8, !tbaa !31, !noalias !25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %29, ptr %30, align 8, !tbaa !33, !alias.scope !22
-  %31 = load ptr, ptr %0, align 8, !tbaa !30, !alias.scope !22
+  store i64 %29, ptr %30, align 8, !tbaa !36, !alias.scope !25
+  %31 = load ptr, ptr %0, align 8, !tbaa !33, !alias.scope !25
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store i8 0, ptr %32, align 1, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9, !noalias !22
+  store i8 0, ptr %32, align 1, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9, !noalias !25
   ret void
 }
 
@@ -164,18 +164,18 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalia
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !25
+  store ptr %11, ptr %0, align 8, !tbaa !28
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store i64 %12, ptr %3, align 8, !tbaa !28
+  store i64 %12, ptr %3, align 8, !tbaa !31
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %14, label %._crit_edge.i.i
 
 14:                                               ; preds = %2
   %15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #9
-  store ptr %15, ptr %0, align 8, !tbaa !30
-  %16 = load i64, ptr %3, align 8, !tbaa !28
-  store i64 %16, ptr %11, align 8, !tbaa !32
+  store ptr %15, ptr %0, align 8, !tbaa !33
+  %16 = load i64, ptr %3, align 8, !tbaa !31
+  store i64 %16, ptr %11, align 8, !tbaa !35
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %14, %2
@@ -186,7 +186,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalia
   ]
 
 18:                                               ; preds = %._crit_edge.i.i
-  store i8 35, ptr %17, align 1, !tbaa !32
+  store i8 35, ptr %17, align 1, !tbaa !35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 19:                                               ; preds = %._crit_edge.i.i
@@ -194,12 +194,12 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalia
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %._crit_edge.i.i, %18, %19
-  %20 = load i64, ptr %3, align 8, !tbaa !28
+  %20 = load i64, ptr %3, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !33
-  %22 = load ptr, ptr %0, align 8, !tbaa !30
+  store i64 %20, ptr %21, align 8, !tbaa !36
+  %22 = load ptr, ptr %0, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
-  store i8 0, ptr %23, align 1, !tbaa !32
+  store i8 0, ptr %23, align 1, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   ret void
 }
@@ -255,19 +255,22 @@ attributes #9 = { nounwind }
 !15 = !{!"short", !6, i64 0}
 !16 = !{!"int", !6, i64 0}
 !17 = !{!"p1 _ZTSN4llvm4TypeE", !5, i64 0}
-!18 = !{!19, !20, i64 8}
-!19 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb0EvEELb0EEE", !20, i64 0, !20, i64 8}
-!20 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb0EvEE", !5, i64 0}
-!21 = !{!16, !16, i64 0}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN4llvm12getHeatColorB5cxx11Ed: argument 0"}
-!24 = distinct !{!24, !"_ZN4llvm12getHeatColorB5cxx11Ed"}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !27, i64 0}
-!27 = !{!"p1 omnipotent char", !5, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !6, i64 0}
-!30 = !{!31, !27, i64 0}
-!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !29, i64 8, !6, i64 16}
-!32 = !{!6, !6, i64 0}
-!33 = !{!31, !29, i64 8}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !22, i64 8}
+!21 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb0EvEELb0EEE", !22, i64 0, !22, i64 8}
+!22 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb0EvEE", !5, i64 0}
+!23 = distinct !{!23, !19}
+!24 = !{!16, !16, i64 0}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN4llvm12getHeatColorB5cxx11Ed: argument 0"}
+!27 = distinct !{!27, !"_ZN4llvm12getHeatColorB5cxx11Ed"}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !30, i64 0}
+!30 = !{!"p1 omnipotent char", !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!34, !30, i64 0}
+!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !32, i64 8, !6, i64 16}
+!35 = !{!6, !6, i64 0}
+!36 = !{!34, !32, i64 8}

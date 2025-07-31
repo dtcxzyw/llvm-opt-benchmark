@@ -294,7 +294,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %OSSL_ENCODER_INSTAN
 
 .backedge:                                        ; preds = %75, %81
   %80 = icmp sgt i32 %.in, 1
-  br i1 %80, label %.lr.ph, label %.thread
+  br i1 %80, label %.lr.ph, label %.thread, !llvm.loop !38
 
 81:                                               ; preds = %70, %62, %60
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #8
@@ -310,18 +310,18 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %OSSL_ENCODER_INSTAN
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load ptr, ptr %87, align 8, !tbaa !21
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !38
+  %90 = load ptr, ptr %89, align 8, !tbaa !40
   %91 = tail call ptr %88(ptr noundef %43, ptr noundef %90) #8
   %92 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %.0.i128136139145) #8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %92, ptr %93, align 8, !tbaa !39
+  store ptr %92, ptr %93, align 8, !tbaa !41
   %.not116 = icmp eq ptr %91, null
   br i1 %.not116, label %.thread, label %.thread158
 
 94:                                               ; preds = %75
   %95 = load ptr, ptr %29, align 8, !tbaa !36
   %.not117 = icmp eq ptr %95, null
-  br i1 %.not117, label %96, label %97, !prof !40
+  br i1 %.not117, label %96, label %97, !prof !42
 
 96:                                               ; preds = %94
   tail call void @ERR_new() #8
@@ -343,7 +343,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
   %.0.i133 = phi ptr [ %102, %100 ], [ null, %97 ]
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !39
+  %105 = load ptr, ptr %104, align 8, !tbaa !41
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.31, ptr noundef %105, i64 noundef 0) #8
   %.not118 = icmp eq ptr %.0.i133, null
   br i1 %.not118, label %108, label %106
@@ -352,7 +352,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.32, ptr noundef nonnull %.0.i133, i64 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
   br label %108
 
@@ -363,11 +363,11 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
   %110 = load ptr, ptr %29, align 8, !tbaa !36
   %111 = load i64, ptr %31, align 8, !tbaa !37
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.33, ptr noundef %110, i64 noundef %111) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.085, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.085, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
   br label %.thread158
 
@@ -396,9 +396,9 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %.0.i128136139145, i64 104
-  %123 = load ptr, ptr %122, align 8, !tbaa !46
+  %123 = load ptr, ptr %122, align 8, !tbaa !48
   %124 = load ptr, ptr %0, align 8, !tbaa !3
-  %125 = load i32, ptr %124, align 8, !tbaa !53
+  %125 = load i32, ptr %124, align 8, !tbaa !55
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 56
   %127 = call i32 %123(ptr noundef %.0.i130140144, ptr noundef nonnull %120, ptr noundef %.193164, ptr noundef %.095163, i32 noundef %125, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %126) #8
   br label %.thread173
@@ -425,11 +425,11 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
 131:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %132 = call i64 @BIO_ctrl(ptr noundef nonnull %.090, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %7) #8
-  %133 = load ptr, ptr %7, align 8, !tbaa !54
+  %133 = load ptr, ptr %7, align 8, !tbaa !56
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !56
+  %135 = load ptr, ptr %134, align 8, !tbaa !58
   store ptr %135, ptr %29, align 8, !tbaa !36
-  %136 = load i64, ptr %133, align 8, !tbaa !58
+  %136 = load i64, ptr %133, align 8, !tbaa !60
   store i64 %136, ptr %31, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
@@ -444,7 +444,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %100
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %142 = load ptr, ptr %141, align 8, !tbaa !20
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  %144 = load ptr, ptr %143, align 8, !tbaa !38
+  %144 = load ptr, ptr %143, align 8, !tbaa !40
   call void %142(ptr noundef %144) #8
   br label %145
 
@@ -487,7 +487,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !54
+  store ptr null, ptr %4, align 8, !tbaa !56
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 
@@ -518,20 +518,20 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   br i1 %.not32, label %.thread35, label %18
 
 .thread35:                                        ; preds = %15
-  %16 = load ptr, ptr %4, align 8, !tbaa !54
-  %17 = load i64, ptr %16, align 8, !tbaa !58
-  store i64 %17, ptr %2, align 8, !tbaa !45
+  %16 = load ptr, ptr %4, align 8, !tbaa !56
+  %17 = load i64, ptr %16, align 8, !tbaa !60
+  store i64 %17, ptr %2, align 8, !tbaa !47
   br label %.thread
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %1, align 8, !tbaa !42
+  %19 = load ptr, ptr %1, align 8, !tbaa !44
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %26, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %2, align 8, !tbaa !45
-  %22 = load ptr, ptr %4, align 8, !tbaa !54
-  %23 = load i64, ptr %22, align 8, !tbaa !58
+  %21 = load i64, ptr %2, align 8, !tbaa !47
+  %22 = load ptr, ptr %4, align 8, !tbaa !56
+  %23 = load i64, ptr %22, align 8, !tbaa !60
   %24 = icmp ult i64 %21, %23
   br i1 %24, label %.thread, label %.thread33
 
@@ -540,33 +540,33 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   br label %29
 
 26:                                               ; preds = %18
-  %27 = load ptr, ptr %4, align 8, !tbaa !54
-  %28 = load i64, ptr %27, align 8, !tbaa !58
+  %27 = load ptr, ptr %4, align 8, !tbaa !56
+  %28 = load i64, ptr %27, align 8, !tbaa !60
   br label %29
 
 29:                                               ; preds = %26, %.thread33
   %.sink = phi i64 [ %28, %26 ], [ %25, %.thread33 ]
   %30 = phi ptr [ %27, %26 ], [ %22, %.thread33 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !45
-  %31 = load ptr, ptr %1, align 8, !tbaa !42
+  store i64 %.sink, ptr %2, align 8, !tbaa !47
+  %31 = load ptr, ptr %1, align 8, !tbaa !44
   %.not29 = icmp eq ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !56
+  %33 = load ptr, ptr %32, align 8, !tbaa !58
   br i1 %.not29, label %40, label %34
 
 34:                                               ; preds = %29
-  %35 = load i64, ptr %30, align 8, !tbaa !58
+  %35 = load i64, ptr %30, align 8, !tbaa !60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %33, i64 %35, i1 false)
-  %36 = load ptr, ptr %4, align 8, !tbaa !54
-  %37 = load i64, ptr %36, align 8, !tbaa !58
-  %38 = load ptr, ptr %1, align 8, !tbaa !42
+  %36 = load ptr, ptr %4, align 8, !tbaa !56
+  %37 = load i64, ptr %36, align 8, !tbaa !60
+  %38 = load ptr, ptr %1, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %37
-  store ptr %39, ptr %1, align 8, !tbaa !42
+  store ptr %39, ptr %1, align 8, !tbaa !44
   br label %.thread
 
 40:                                               ; preds = %29
-  store ptr %33, ptr %1, align 8, !tbaa !42
-  store ptr null, ptr %32, align 8, !tbaa !56
+  store ptr %33, ptr %1, align 8, !tbaa !44
+  store ptr null, ptr %32, align 8, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.thread35, %20, %34, %40, %12, %10, %7
@@ -592,7 +592,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_selection(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !40
+  br i1 %.not, label %3, label %4, !prof !42
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_selection(ptr noundef writeonly
 
 4:                                                ; preds = %2
   %.not6 = icmp eq i32 %1, 0
-  br i1 %.not6, label %5, label %6, !prof !40
+  br i1 %.not6, label %5, label %6, !prof !42
 
 5:                                                ; preds = %4
   tail call void @ERR_new() #8
@@ -611,7 +611,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_selection(ptr noundef writeonly
   br label %7
 
 6:                                                ; preds = %4
-  store i32 %1, ptr %0, align 8, !tbaa !53
+  store i32 %1, ptr %0, align 8, !tbaa !55
   br label %7
 
 7:                                                ; preds = %6, %5, %3
@@ -624,7 +624,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_type(ptr noundef writeon
   %.not = icmp eq ptr %0, null
   %.not6 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not6
-  br i1 %or.cond, label %3, label %4, !prof !59
+  br i1 %or.cond, label %3, label %4, !prof !61
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -647,7 +647,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_output_structure(ptr noundef wr
   %.not = icmp eq ptr %0, null
   %.not6 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not6
-  br i1 %or.cond, label %3, label %4, !prof !59
+  br i1 %or.cond, label %3, label %4, !prof !61
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -677,7 +677,7 @@ define void @ossl_encoder_instance_free(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   tail call void %6(ptr noundef %8) #8
@@ -706,7 +706,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef captures(ad
   %.not = icmp eq ptr %0, null
   %.not21 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not21
-  br i1 %or.cond, label %3, label %4, !prof !59
+  br i1 %or.cond, label %3, label %4, !prof !61
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -718,7 +718,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef captures(ad
   %5 = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef nonnull %1) #8
   %6 = tail call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !61
+  %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = tail call ptr %8(ptr noundef %6) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %ossl_encoder_instance_free.exit.thread35, label %11
@@ -787,7 +787,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_add_encoder(ptr noundef captures(ad
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %41 = load ptr, ptr %40, align 8, !tbaa !60
+  %41 = load ptr, ptr %40, align 8, !tbaa !62
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   tail call void %41(ptr noundef %43) #8
@@ -835,7 +835,7 @@ ossl_encoder_ctx_add_encoder_inst.exit:           ; preds = %45, %50
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !60
+  %60 = load ptr, ptr %59, align 8, !tbaa !62
   %61 = load ptr, ptr %46, align 8, !tbaa !28
   tail call void %60(ptr noundef %61) #8
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !25
@@ -851,7 +851,7 @@ ossl_encoder_instance_free.exit.thread:           ; preds = %56, %58
 
 ossl_encoder_instance_free.exit:                  ; preds = %11, %ossl_encoder_instance_free.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !60
+  %64 = load ptr, ptr %63, align 8, !tbaa !62
   tail call void %64(ptr noundef nonnull %9) #8
   br label %ossl_encoder_instance_free.exit.thread35
 
@@ -872,7 +872,7 @@ define noundef i32 @OSSL_ENCODER_CTX_add_extra(ptr noundef readnone captures(non
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !40
+  br i1 %.not, label %3, label %4, !prof !42
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -893,7 +893,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef writeonly
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !40
+  br i1 %.not, label %3, label %4, !prof !42
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -903,7 +903,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef writ
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %5, align 8, !tbaa !38
+  store ptr %1, ptr %5, align 8, !tbaa !40
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -914,7 +914,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef writ
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !40
+  br i1 %.not, label %3, label %4, !prof !42
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -1021,7 +1021,7 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   %16 = tail call i32 @BN_is_negative(ptr noundef nonnull %2) #8
   %.not61 = icmp eq i32 %16, 0
   %spec.select63 = select i1 %.not61, ptr @.str.3, ptr @.str.5
-  %17 = load i64, ptr %15, align 8, !tbaa !45
+  %17 = load i64, ptr %15, align 8, !tbaa !47
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %spec.select62, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select63, i64 noundef %17, ptr noundef nonnull %spec.select63, i64 noundef %17) #8
   br label %66
 
@@ -1031,7 +1031,7 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %21, label %66, label %22
 
 22:                                               ; preds = %19
-  %23 = load i8, ptr %20, align 1, !tbaa !62
+  %23 = load i8, ptr %20, align 1, !tbaa !64
   %24 = icmp eq i8 %23, 45
   %spec.select64.idx = zext i1 %24 to i64
   %spec.select64 = getelementptr inbounds nuw i8, ptr %20, i64 %spec.select64.idx
@@ -1046,7 +1046,7 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr %spec.select64, align 1, !tbaa !62
+  %31 = load i8, ptr %spec.select64, align 1, !tbaa !64
   %32 = icmp slt i8 %31, 56
   br i1 %32, label %36, label %33
 
@@ -1056,7 +1056,7 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %35, label %.loopexit, label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %33
-  %.pre = load i8, ptr %spec.select64, align 1, !tbaa !62
+  %.pre = load i8, ptr %spec.select64, align 1, !tbaa !64
   br label %36
 
 36:                                               ; preds = %._crit_edge73, %30
@@ -1086,22 +1086,22 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %45, label %.loopexit, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %43
-  %.pre74.pre = load i8, ptr %.15570, align 1, !tbaa !62
+  %.pre74.pre = load i8, ptr %.15570, align 1, !tbaa !64
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %..thread_crit_edge
   %46 = phi i8 [ %.pre74.pre, %..thread_crit_edge ], [ %39, %.lr.ph ]
   %47 = phi ptr [ @.str.3, %..thread_crit_edge ], [ %.172, %.lr.ph ]
   %48 = tail call ptr @__ctype_tolower_loc() #9
-  %49 = load ptr, ptr %48, align 8, !tbaa !63
+  %49 = load ptr, ptr %48, align 8, !tbaa !65
   %50 = zext i8 %46 to i64
   %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !43
+  %52 = load i32, ptr %51, align 4, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %.15570, i64 1
-  %54 = load i8, ptr %53, align 1, !tbaa !62
+  %54 = load i8, ptr %53, align 1, !tbaa !64
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i32, ptr %49, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !43
+  %57 = load i32, ptr %56, align 4, !tbaa !45
   %58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %47, i32 noundef %52, i32 noundef %57) #8
   %59 = icmp slt i32 %58, 1
   br i1 %59, label %.loopexit, label %60
@@ -1109,9 +1109,9 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
 60:                                               ; preds = %.thread
   %61 = add nuw nsw i32 %.15071, 1
   %62 = getelementptr inbounds nuw i8, ptr %.15570, i64 2
-  %63 = load i8, ptr %62, align 1, !tbaa !62
+  %63 = load i8, ptr %62, align 1, !tbaa !64
   %.not59 = icmp eq i8 %63, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %60, %36
   %64 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14) #8
@@ -1162,7 +1162,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr nound
 8:                                                ; preds = %20
   %9 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %9, %3
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !68
 
 10:                                               ; preds = %.lr.ph, %8
   %.017 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
@@ -1186,7 +1186,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %17, %10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.017
-  %22 = load i8, ptr %21, align 1, !tbaa !62
+  %22 = load i8, ptr %21, align 1, !tbaa !64
   %23 = zext i8 %22 to i32
   %24 = icmp eq i64 %.017, %7
   %25 = select i1 %24, ptr @.str.3, ptr @.str.13
@@ -1208,7 +1208,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %4 = load i32, ptr %3, align 4, !tbaa !67
+  %4 = load i32, ptr %3, align 4, !tbaa !69
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
@@ -1224,14 +1224,14 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
   br i1 %11, label %.thread, label %54
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %1, align 8, !tbaa !70
+  %13 = load ptr, ptr %1, align 8, !tbaa !72
   %14 = tail call i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %13)
   %.not39 = icmp eq i32 %14, 0
   br i1 %.not39, label %.thread, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !71
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
   %.not40 = icmp eq ptr %17, null
   br i1 %.not40, label %20, label %18
 
@@ -1242,14 +1242,14 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
 
 20:                                               ; preds = %18, %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !72
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = tail call i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %22)
   %.not42 = icmp eq i32 %23, 0
   br i1 %.not42, label %.thread, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !73
+  %26 = load ptr, ptr %25, align 8, !tbaa !75
   %.not43 = icmp eq ptr %26, null
   br i1 %.not43, label %29, label %27
 
@@ -1260,20 +1260,20 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
 
 29:                                               ; preds = %27, %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !74
+  %31 = load ptr, ptr %30, align 8, !tbaa !76
   %.not45 = icmp eq ptr %31, null
   br i1 %.not45, label %36, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !75
+  %34 = load i64, ptr %33, align 8, !tbaa !77
   %35 = tail call i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull %31, i64 noundef %34)
   %.not46 = icmp eq i32 %35, 0
   br i1 %.not46, label %.thread, label %36
 
 36:                                               ; preds = %32, %29
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %38 = load i32, ptr %37, align 8, !tbaa !76
+  %38 = load i32, ptr %37, align 8, !tbaa !78
   %.not47 = icmp eq i32 %38, -1
   br i1 %.not47, label %42, label %39
 
@@ -1284,7 +1284,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
 
 42:                                               ; preds = %39, %36
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %44 = load i32, ptr %43, align 8, !tbaa !77
+  %44 = load i32, ptr %43, align 8, !tbaa !79
   %.not48 = icmp eq i32 %44, -1
   br i1 %.not48, label %48, label %45
 
@@ -1295,7 +1295,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
 
 48:                                               ; preds = %45, %42
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %50 = load i32, ptr %49, align 4, !tbaa !78
+  %50 = load i32, ptr %49, align 4, !tbaa !80
   %.not49 = icmp eq i32 %50, 0
   br i1 %.not49, label %54, label %51
 
@@ -1409,44 +1409,46 @@ attributes #9 = { nounwind willreturn memory(none) }
 !35 = !{!4, !11, i64 40}
 !36 = !{!4, !12, i64 48}
 !37 = !{!4, !13, i64 56}
-!38 = !{!16, !6, i64 48}
-!39 = !{!4, !12, i64 64}
-!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!41 = !{i64 0, i64 8, !42, i64 8, i64 4, !43, i64 16, i64 8, !44, i64 24, i64 8, !45, i64 32, i64 8, !45}
-!42 = !{!12, !12, i64 0}
-!43 = !{!10, !10, i64 0}
-!44 = !{!6, !6, i64 0}
-!45 = !{!13, !13, i64 0}
-!46 = !{!47, !6, i64 104}
-!47 = !{!"ossl_encoder_st", !48, i64 0, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
-!48 = !{!"ossl_endecode_base_st", !49, i64 0, !10, i64 8, !12, i64 16, !50, i64 24, !51, i64 32, !52, i64 40}
-!49 = !{!"p1 _ZTS16ossl_provider_st", !6, i64 0}
-!50 = !{!"p1 _ZTS17ossl_algorithm_st", !6, i64 0}
-!51 = !{!"p1 _ZTS21ossl_property_list_st", !6, i64 0}
-!52 = !{!"", !7, i64 0}
-!53 = !{!16, !10, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
-!56 = !{!57, !12, i64 8}
-!57 = !{!"buf_mem_st", !13, i64 0, !12, i64 8, !13, i64 16, !13, i64 24}
-!58 = !{!57, !13, i64 0}
-!59 = !{!"branch_weights", i32 4001, i32 4000000}
-!60 = !{!47, !6, i64 56}
-!61 = !{!47, !6, i64 48}
-!62 = !{!7, !7, i64 0}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"p1 int", !6, i64 0}
-!65 = distinct !{!65, !34}
-!66 = distinct !{!66, !34}
-!67 = !{!68, !10, i64 52}
-!68 = !{!"ffc_params_st", !69, i64 0, !69, i64 8, !69, i64 16, !69, i64 24, !12, i64 32, !13, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !12, i64 72, !12, i64 80, !10, i64 88}
-!69 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!70 = !{!68, !69, i64 0}
-!71 = !{!68, !69, i64 8}
-!72 = !{!68, !69, i64 16}
-!73 = !{!68, !69, i64 24}
-!74 = !{!68, !12, i64 32}
-!75 = !{!68, !13, i64 40}
-!76 = !{!68, !10, i64 56}
-!77 = !{!68, !10, i64 48}
-!78 = !{!68, !10, i64 60}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!16, !6, i64 48}
+!41 = !{!4, !12, i64 64}
+!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!43 = !{i64 0, i64 8, !44, i64 8, i64 4, !45, i64 16, i64 8, !46, i64 24, i64 8, !47, i64 32, i64 8, !47}
+!44 = !{!12, !12, i64 0}
+!45 = !{!10, !10, i64 0}
+!46 = !{!6, !6, i64 0}
+!47 = !{!13, !13, i64 0}
+!48 = !{!49, !6, i64 104}
+!49 = !{!"ossl_encoder_st", !50, i64 0, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120}
+!50 = !{!"ossl_endecode_base_st", !51, i64 0, !10, i64 8, !12, i64 16, !52, i64 24, !53, i64 32, !54, i64 40}
+!51 = !{!"p1 _ZTS16ossl_provider_st", !6, i64 0}
+!52 = !{!"p1 _ZTS17ossl_algorithm_st", !6, i64 0}
+!53 = !{!"p1 _ZTS21ossl_property_list_st", !6, i64 0}
+!54 = !{!"", !7, i64 0}
+!55 = !{!16, !10, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
+!58 = !{!59, !12, i64 8}
+!59 = !{!"buf_mem_st", !13, i64 0, !12, i64 8, !13, i64 16, !13, i64 24}
+!60 = !{!59, !13, i64 0}
+!61 = !{!"branch_weights", i32 4001, i32 4000000}
+!62 = !{!49, !6, i64 56}
+!63 = !{!49, !6, i64 48}
+!64 = !{!7, !7, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 int", !6, i64 0}
+!67 = distinct !{!67, !34, !39}
+!68 = distinct !{!68, !34, !39}
+!69 = !{!70, !10, i64 52}
+!70 = !{!"ffc_params_st", !71, i64 0, !71, i64 8, !71, i64 16, !71, i64 24, !12, i64 32, !13, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !12, i64 72, !12, i64 80, !10, i64 88}
+!71 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!72 = !{!70, !71, i64 0}
+!73 = !{!70, !71, i64 8}
+!74 = !{!70, !71, i64 16}
+!75 = !{!70, !71, i64 24}
+!76 = !{!70, !12, i64 32}
+!77 = !{!70, !13, i64 40}
+!78 = !{!70, !10, i64 56}
+!79 = !{!70, !10, i64 48}
+!80 = !{!70, !10, i64 60}

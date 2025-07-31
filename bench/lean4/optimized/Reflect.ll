@@ -674,7 +674,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_decEqBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_85_(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !16
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -997,7 +997,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !18
 }
 
 declare i64 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_hashBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_35_(ptr noundef) local_unnamed_addr #1
@@ -1018,7 +1018,7 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !16
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !19
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -1141,7 +1141,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__14(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !16
+  br i1 %.not, label %68, label %59, !prof !19
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -1731,7 +1731,7 @@ lean_dec.exit338:                                 ; preds = %82, %81, %79, %lean
   %83 = ptrtoint ptr %11 to i64
   %84 = and i64 %83, 1
   %.not596 = icmp eq i64 %84, 0
-  br i1 %.not596, label %.critedge.i311, label %85, !prof !16
+  br i1 %.not596, label %.critedge.i311, label %85, !prof !19
 
 85:                                               ; preds = %lean_dec.exit338
   %86 = lshr i64 %83, 1
@@ -1787,10 +1787,10 @@ lean_obj_tag.exit.i:                              ; preds = %102, %99
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = tail call zeroext i8 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_decEqBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_85_(ptr noundef %108, ptr noundef %4) #4
   %112 = icmp eq i8 %111, 0
-  br i1 %112, label %96, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit
+  br i1 %112, label %96, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit, !llvm.loop !16
 
 113:                                              ; preds = %lean_obj_tag.exit.i
-  br i1 %.not585, label %124, label %114, !prof !16
+  br i1 %.not585, label %124, label %114, !prof !19
 
 114:                                              ; preds = %113
   %115 = lshr i64 %15, 1
@@ -1889,7 +1889,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %154 = ptrtoint ptr %.0.i309555 to i64
   %155 = and i64 %154, 1
   %.not597 = icmp eq i64 %155, 0
-  br i1 %.not597, label %.critedge.i292, label %156, !prof !16
+  br i1 %.not597, label %.critedge.i292, label %156, !prof !19
 
 156:                                              ; preds = %lean_array_uset.exit
   %157 = lshr i64 %154, 1
@@ -1922,7 +1922,7 @@ lean_nat_mul.exit297:                             ; preds = %156, %162, %166, %.
   %169 = ptrtoint ptr %.2.i293 to i64
   %170 = and i64 %169, 1
   %.not.i435 = icmp eq i64 %170, 0
-  br i1 %.not.i435, label %175, label %lean_nat_div.exit.thread, !prof !16
+  br i1 %.not.i435, label %175, label %lean_nat_div.exit.thread, !prof !19
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit297
   %171 = udiv i64 %169, 6
@@ -1960,7 +1960,7 @@ lean_dec.exit336:                                 ; preds = %182, %181, %179, %l
   %187 = ptrtoint ptr %.1.i436557 to i64
   %188 = and i64 %187, 1
   %.not598 = icmp eq i64 %188, 0
-  br i1 %.not598, label %189, label %lean_dec.exit335.thread, !prof !16
+  br i1 %.not598, label %189, label %lean_dec.exit335.thread, !prof !19
 
 lean_dec.exit335.thread:                          ; preds = %lean_dec.exit336
   %.not604 = icmp ugt ptr %.1.i436557, %186
@@ -2110,7 +2110,7 @@ lean_dec.exit333:                                 ; preds = %239, %238, %236, %2
   %240 = ptrtoint ptr %11 to i64
   %241 = and i64 %240, 1
   %.not590 = icmp eq i64 %241, 0
-  br i1 %.not590, label %.critedge.i305, label %242, !prof !16
+  br i1 %.not590, label %.critedge.i305, label %242, !prof !19
 
 242:                                              ; preds = %lean_dec.exit333
   %243 = lshr i64 %240, 1
@@ -2166,10 +2166,10 @@ lean_obj_tag.exit.i454:                           ; preds = %259, %256
   %267 = load ptr, ptr %266, align 8, !tbaa !4
   %268 = tail call zeroext i8 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_decEqBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_85_(ptr noundef %265, ptr noundef %4) #4
   %269 = icmp eq i8 %268, 0
-  br i1 %269, label %253, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit458
+  br i1 %269, label %253, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit458, !llvm.loop !16
 
 270:                                              ; preds = %lean_obj_tag.exit.i454
-  br i1 %.not585, label %281, label %271, !prof !16
+  br i1 %.not585, label %281, label %271, !prof !19
 
 271:                                              ; preds = %270
   %272 = lshr i64 %15, 1
@@ -2268,7 +2268,7 @@ lean_array_uset.exit467:                          ; preds = %lean_ensure_exclusi
   %311 = ptrtoint ptr %.0.i303561 to i64
   %312 = and i64 %311, 1
   %.not591 = icmp eq i64 %312, 0
-  br i1 %.not591, label %.critedge.i286, label %313, !prof !16
+  br i1 %.not591, label %.critedge.i286, label %313, !prof !19
 
 313:                                              ; preds = %lean_array_uset.exit467
   %314 = lshr i64 %311, 1
@@ -2301,7 +2301,7 @@ lean_nat_mul.exit291:                             ; preds = %313, %319, %323, %.
   %326 = ptrtoint ptr %.2.i287 to i64
   %327 = and i64 %326, 1
   %.not.i468 = icmp eq i64 %327, 0
-  br i1 %.not.i468, label %332, label %lean_nat_div.exit471.thread, !prof !16
+  br i1 %.not.i468, label %332, label %lean_nat_div.exit471.thread, !prof !19
 
 lean_nat_div.exit471.thread:                      ; preds = %lean_nat_mul.exit291
   %328 = udiv i64 %326, 6
@@ -2339,7 +2339,7 @@ lean_dec.exit331:                                 ; preds = %339, %338, %336, %l
   %344 = ptrtoint ptr %.1.i469563 to i64
   %345 = and i64 %344, 1
   %.not592 = icmp eq i64 %345, 0
-  br i1 %.not592, label %346, label %lean_dec.exit330.thread, !prof !16
+  br i1 %.not592, label %346, label %lean_dec.exit330.thread, !prof !19
 
 lean_dec.exit330.thread:                          ; preds = %lean_dec.exit331
   %.not603 = icmp ugt ptr %.1.i469563, %343
@@ -2862,7 +2862,7 @@ lean_ctor_release.exit511:                        ; preds = %lean_ctor_release.e
 
 lean_dec_ref.exit401:                             ; preds = %540, %539, %537, %lean_ctor_release.exit511
   %.0283 = phi ptr [ %10, %lean_ctor_release.exit511 ], [ inttoptr (i64 1 to ptr), %537 ], [ inttoptr (i64 1 to ptr), %539 ], [ inttoptr (i64 1 to ptr), %540 ]
-  br i1 %.not574, label %.critedge.i299, label %541, !prof !16
+  br i1 %.not574, label %.critedge.i299, label %541, !prof !19
 
 541:                                              ; preds = %lean_dec_ref.exit401
   %542 = lshr i64 %448, 1
@@ -2918,10 +2918,10 @@ lean_obj_tag.exit.i516:                           ; preds = %558, %555
   %566 = load ptr, ptr %565, align 8, !tbaa !4
   %567 = tail call zeroext i8 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_decEqBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_85_(ptr noundef %564, ptr noundef %4) #4
   %568 = icmp eq i8 %567, 0
-  br i1 %568, label %552, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit520
+  br i1 %568, label %552, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit520, !llvm.loop !16
 
 569:                                              ; preds = %lean_obj_tag.exit.i516
-  br i1 %.not576, label %580, label %570, !prof !16
+  br i1 %.not576, label %580, label %570, !prof !19
 
 570:                                              ; preds = %569
   %571 = lshr i64 %467, 1
@@ -3020,7 +3020,7 @@ lean_array_uset.exit529:                          ; preds = %lean_ensure_exclusi
   %610 = ptrtoint ptr %.0.i568 to i64
   %611 = and i64 %610, 1
   %.not581 = icmp eq i64 %611, 0
-  br i1 %.not581, label %.critedge.i, label %612, !prof !16
+  br i1 %.not581, label %.critedge.i, label %612, !prof !19
 
 612:                                              ; preds = %lean_array_uset.exit529
   %613 = lshr i64 %610, 1
@@ -3053,7 +3053,7 @@ lean_nat_mul.exit:                                ; preds = %612, %618, %622, %.
   %625 = ptrtoint ptr %.2.i to i64
   %626 = and i64 %625, 1
   %.not.i530 = icmp eq i64 %626, 0
-  br i1 %.not.i530, label %631, label %lean_nat_div.exit533.thread, !prof !16
+  br i1 %.not.i530, label %631, label %lean_nat_div.exit533.thread, !prof !19
 
 lean_nat_div.exit533.thread:                      ; preds = %lean_nat_mul.exit
   %627 = udiv i64 %625, 6
@@ -3091,7 +3091,7 @@ lean_dec.exit320:                                 ; preds = %638, %637, %635, %l
   %643 = ptrtoint ptr %.1.i531570 to i64
   %644 = and i64 %643, 1
   %.not582 = icmp eq i64 %644, 0
-  br i1 %.not582, label %645, label %lean_dec.exit319.thread, !prof !16
+  br i1 %.not582, label %645, label %lean_dec.exit319.thread, !prof !19
 
 lean_dec.exit319.thread:                          ; preds = %lean_dec.exit320
   %.not602 = icmp ugt ptr %.1.i531570, %642
@@ -3605,7 +3605,7 @@ lean_dec.exit67:                                  ; preds = %lean_dec.exit67.bac
   %9 = ptrtoint ptr %.048 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %lean_dec.exit68.thread, label %lean_dec.exit68, !prof !16
+  br i1 %.not, label %lean_dec.exit68.thread, label %lean_dec.exit68, !prof !19
 
 lean_dec.exit68:                                  ; preds = %lean_dec.exit67
   %.not116 = icmp ult ptr %.048, %8
@@ -3679,7 +3679,7 @@ lean_obj_tag.exit:                                ; preds = %lean_array_fget.exi
   ]
 
 35:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not, label %46, label %36, !prof !16
+  br i1 %.not, label %46, label %36, !prof !19
 
 36:                                               ; preds = %35
   %37 = add nuw i64 %19, 1
@@ -3769,7 +3769,7 @@ lean_inc.exit70:                                  ; preds = %65, %64, %62, %55
   br label %lean_dec.exit65
 
 lean_dec.exit65:                                  ; preds = %72, %71, %69, %lean_inc.exit70
-  br i1 %.not, label %83, label %73, !prof !16
+  br i1 %.not, label %83, label %73, !prof !19
 
 73:                                               ; preds = %lean_dec.exit65
   %74 = add nuw i64 %19, 1
@@ -3885,7 +3885,7 @@ lean_inc.exit:                                    ; preds = %112, %111, %109, %l
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %119, %118, %116, %lean_inc.exit
-  br i1 %.not, label %.critedge.i, label %120, !prof !16
+  br i1 %.not, label %.critedge.i, label %120, !prof !19
 
 120:                                              ; preds = %lean_dec.exit63
   %121 = add nuw i64 %19, 1
@@ -4795,7 +4795,7 @@ lean_dec.exit26:                                  ; preds = %50, %49, %47, %lean
   %57 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = getelementptr i8, ptr %33, i64 16
-  %.val31 = load i8, ptr %59, align 1, !tbaa !17
+  %.val31 = load i8, ptr %59, align 1, !tbaa !20
   %60 = ptrtoint ptr %58 to i64
   %61 = and i64 %60, 1
   %.not44 = icmp eq i64 %61, 0
@@ -4858,7 +4858,7 @@ lean_alloc_ctor.exit40:                           ; preds = %lean_dec.exit
   store i32 65560, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %58, ptr %80, align 8, !tbaa !4
-  store i8 %.val31, ptr %79, align 1, !tbaa !17
+  store i8 %.val31, ptr %79, align 1, !tbaa !20
   tail call void @lean_inc_heartbeat() #4
   %81 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %82 = icmp eq ptr %81, null
@@ -5083,7 +5083,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic_0__Std_Tactic_BVDecide_decEqBVBit____x40_Std_Tactic_BVDecide_Bitblast_BVExpr_Basic___hyg_85_(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit, !llvm.loop !16
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Std_Tactic_BVDecide_Reflect_verifyBVExpr___spec__11.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -5930,5 +5930,8 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"short", !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !6, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = !{!6, !6, i64 0}

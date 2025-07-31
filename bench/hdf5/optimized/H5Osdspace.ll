@@ -381,7 +381,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %.4.i = phi ptr [ %.220213.i, %.lr.ph.i ], [ %161, %142 ], [ %174, %173 ], [ %184, %175 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %133
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %185
   %186 = and i8 %78, 1
@@ -419,7 +419,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 206:                                              ; preds = %191, %187
   %207 = tail call noalias ptr @H5FL_arr_malloc(ptr noundef nonnull @H5_hsize_t_arr_free_list, i64 noundef %133) #7
   %208 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  store ptr %207, ptr %208, align 8, !tbaa !27
+  store ptr %207, ptr %208, align 8, !tbaa !28
   %209 = icmp eq ptr %207, null
   br i1 %209, label %210, label %.lr.ph20.i.preheader
 
@@ -493,7 +493,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   store i64 %244, ptr %236, align 8, !tbaa !10
   %245 = add nuw nsw i64 %.017.i, 1
   %exitcond33.not.i = icmp eq i64 %245, 8
-  br i1 %exitcond33.not.i, label %246, label %238, !llvm.loop !28
+  br i1 %exitcond33.not.i, label %246, label %238, !llvm.loop !29
 
 246:                                              ; preds = %238
   %247 = getelementptr inbounds nuw i8, ptr %.616.i, i64 7
@@ -531,7 +531,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 268:                                              ; preds = %258
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond31.not, label %.loopexit.i, label %.lr.ph20.i, !llvm.loop !29
+  br i1 %exitcond31.not, label %.loopexit.i, label %.lr.ph20.i, !llvm.loop !30
 
 .loopexit.i:                                      ; preds = %268, %._crit_edge.i
   br i1 %113, label %270, label %272
@@ -541,17 +541,17 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 
 .thread39.i:                                      ; preds = %.loopexit.thread.i, %.thread41.i
   %269 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i64 1, ptr %269, align 8, !tbaa !30
+  store i64 1, ptr %269, align 8, !tbaa !31
   br label %H5O__sdspace_decode.exit.thread
 
 270:                                              ; preds = %.loopexit.thread.i, %.loopexit.i
   %271 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i64 0, ptr %271, align 8, !tbaa !30
+  store i64 0, ptr %271, align 8, !tbaa !31
   br label %H5O__sdspace_decode.exit.thread
 
 272:                                              ; preds = %.loopexit.i
   %273 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i64 1, ptr %273, align 8, !tbaa !30
+  store i64 1, ptr %273, align 8, !tbaa !31
   %.not27.i = icmp eq i8 %61, 0
   br i1 %.not27.i, label %H5O__sdspace_decode.exit.thread, label %.lr.ph23.i
 
@@ -563,7 +563,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %277 = mul i64 %276, %274
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, %133
-  br i1 %exitcond37.not.i, label %H5O__sdspace_decode.exit.thread.loopexit, label %.lr.ph23.i, !llvm.loop !31
+  br i1 %exitcond37.not.i, label %H5O__sdspace_decode.exit.thread.loopexit, label %.lr.ph23.i, !llvm.loop !32
 
 278:                                              ; preds = %263, %210, %202, %137, %128, %105, %97, %90, %83, %72, %65, %55, %46, %42
   %279 = tail call i32 @H5S__extent_release(ptr noundef nonnull %28) #7
@@ -577,7 +577,7 @@ H5O__sdspace_decode.exit:                         ; preds = %278, %30
   br label %H5O__sdspace_decode.exit.thread
 
 H5O__sdspace_decode.exit.thread.loopexit:         ; preds = %.lr.ph23.i
-  store i64 %277, ptr %273, align 8, !tbaa !30
+  store i64 %277, ptr %273, align 8, !tbaa !31
   br label %H5O__sdspace_decode.exit.thread
 
 H5O__sdspace_decode.exit.thread:                  ; preds = %H5O__sdspace_decode.exit.thread.loopexit, %.thread39.i, %272, %270, %18, %H5O__sdspace_decode.exit, %22, %6
@@ -596,7 +596,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   br i1 %11, label %12, label %H5O__sdspace_encode.exit, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr %4, align 8, !tbaa !32
+  %13 = load i32, ptr %4, align 8, !tbaa !33
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %17, label %15
 
@@ -631,7 +631,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %32, ptr %29, align 1, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  %35 = load ptr, ptr %34, align 8, !tbaa !28
   %.not.i = icmp ne ptr %35, null
   %spec.select.i = zext i1 %.not.i to i8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 3
@@ -727,7 +727,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %87 = add nuw nsw i64 %.0104116.i, 1
   %88 = lshr i64 %.0106115.i, 8
   %exitcond.not.i = icmp eq i64 %87, 8
-  br i1 %exitcond.not.i, label %89, label %84, !llvm.loop !33
+  br i1 %exitcond.not.i, label %89, label %84, !llvm.loop !34
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %.1111118.i, i64 8
@@ -755,7 +755,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %104 = load i32, ptr %30, align 8, !tbaa !22
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next.i, %105
-  br i1 %106, label %54, label %._crit_edge.i, !llvm.loop !34
+  br i1 %106, label %54, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %103
   %.not127.i = icmp ne i32 %104, 0
@@ -773,27 +773,27 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   ]
 
 108:                                              ; preds = %.lr.ph125.i
-  %109 = load ptr, ptr %34, align 8, !tbaa !27
+  %109 = load ptr, ptr %34, align 8, !tbaa !28
   %110 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv130.i
   %111 = load i64, ptr %110, align 8, !tbaa !10
   %112 = trunc i64 %111 to i8
   store i8 %112, ptr %.3123.i, align 1, !tbaa !20
   %113 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 1
-  %114 = load ptr, ptr %34, align 8, !tbaa !27
+  %114 = load ptr, ptr %34, align 8, !tbaa !28
   %115 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv130.i
   %116 = load i64, ptr %115, align 8, !tbaa !10
   %117 = lshr i64 %116, 8
   %118 = trunc i64 %117 to i8
   store i8 %118, ptr %113, align 1, !tbaa !20
   %119 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 2
-  %120 = load ptr, ptr %34, align 8, !tbaa !27
+  %120 = load ptr, ptr %34, align 8, !tbaa !28
   %121 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv130.i
   %122 = load i64, ptr %121, align 8, !tbaa !10
   %123 = lshr i64 %122, 16
   %124 = trunc i64 %123 to i8
   store i8 %124, ptr %119, align 1, !tbaa !20
   %125 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 3
-  %126 = load ptr, ptr %34, align 8, !tbaa !27
+  %126 = load ptr, ptr %34, align 8, !tbaa !28
   %127 = getelementptr inbounds nuw i64, ptr %126, i64 %indvars.iv130.i
   %128 = load i64, ptr %127, align 8, !tbaa !10
   %129 = lshr i64 %128, 24
@@ -803,7 +803,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   br label %155
 
 132:                                              ; preds = %.lr.ph125.i
-  %133 = load ptr, ptr %34, align 8, !tbaa !27
+  %133 = load ptr, ptr %34, align 8, !tbaa !28
   %134 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv130.i
   %135 = load i64, ptr %134, align 8, !tbaa !10
   br label %136
@@ -818,20 +818,20 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %139 = add nuw nsw i64 %.099121.i, 1
   %140 = lshr i64 %.0101120.i, 8
   %exitcond129.not.i = icmp eq i64 %139, 8
-  br i1 %exitcond129.not.i, label %141, label %136, !llvm.loop !35
+  br i1 %exitcond129.not.i, label %141, label %136, !llvm.loop !36
 
 141:                                              ; preds = %136
   %142 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 8
   br label %155
 
 143:                                              ; preds = %.lr.ph125.i
-  %144 = load ptr, ptr %34, align 8, !tbaa !27
+  %144 = load ptr, ptr %34, align 8, !tbaa !28
   %145 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv130.i
   %146 = load i64, ptr %145, align 8, !tbaa !10
   %147 = trunc i64 %146 to i8
   store i8 %147, ptr %.3123.i, align 1, !tbaa !20
   %148 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 1
-  %149 = load ptr, ptr %34, align 8, !tbaa !27
+  %149 = load ptr, ptr %34, align 8, !tbaa !28
   %150 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv130.i
   %151 = load i64, ptr %150, align 8, !tbaa !10
   %152 = lshr i64 %151, 8
@@ -846,7 +846,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   %156 = load i32, ptr %30, align 8, !tbaa !22
   %157 = zext i32 %156 to i64
   %158 = icmp samesign ult i64 %indvars.iv.next131.i, %157
-  br i1 %158, label %.lr.ph125.i, label %H5O__sdspace_encode.exit, !llvm.loop !36
+  br i1 %158, label %.lr.ph125.i, label %H5O__sdspace_encode.exit, !llvm.loop !37
 
 H5O__sdspace_encode.exit:                         ; preds = %155, %._crit_edge.i, %51, %47, %21, %18, %5
   %.0 = phi i32 [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %47 ], [ 0, %51 ], [ 0, %._crit_edge.i ], [ 0, %155 ]
@@ -910,7 +910,7 @@ define internal i64 @H5O__sdspace_shared_size(ptr noundef %0, i1 noundef zeroext
   br i1 %9, label %10, label %45, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 8, !tbaa !32
+  %11 = load i32, ptr %2, align 8, !tbaa !33
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %15, label %13
 
@@ -946,7 +946,7 @@ define internal i64 @H5O__sdspace_shared_size(ptr noundef %0, i1 noundef zeroext
   %33 = zext i32 %32 to i64
   %34 = add nuw nsw i64 %27, %33
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %H5O__sdspace_size.exit, label %37
 
@@ -1015,7 +1015,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_delete(ptr noundef %0,
   br i1 %9, label %10, label %19, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 8, !tbaa !32
+  %11 = load i32, ptr %2, align 8, !tbaa !33
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
@@ -1046,7 +1046,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_link(ptr noundef %0, p
   br i1 %9, label %10, label %19, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 8, !tbaa !32
+  %11 = load i32, ptr %2, align 8, !tbaa !33
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
@@ -1080,7 +1080,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_pre_copy_file(ptr readnone ca
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = tail call i32 @H5F_get_high_bound(ptr noundef %16) #7
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [7 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %18
@@ -1101,7 +1101,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_pre_copy_file(ptr readnone ca
 27:                                               ; preds = %26
   %28 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5S_extent_t_reg_free_list) #7
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !42
+  store ptr %28, ptr %29, align 8, !tbaa !43
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %35
 
@@ -1177,7 +1177,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_post_copy_file(ptr rea
   br i1 %12, label %13, label %21, !prof !9
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %2, align 8, !tbaa !48
+  %14 = load ptr, ptr %2, align 8, !tbaa !49
   %15 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %14, ptr noundef nonnull @H5O_MSG_SDSPACE, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #7
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -1204,7 +1204,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
   br i1 %11, label %12, label %H5O__sdspace_debug.exit, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr %1, align 8, !tbaa !32
+  %13 = load i32, ptr %1, align 8, !tbaa !33
   %.off = add i32 %13, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %14, label %21
@@ -1265,13 +1265,13 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
   %39 = load i32, ptr %24, align 8, !tbaa !22
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
-  br i1 %41, label %33, label %._crit_edge.i, !llvm.loop !50
+  br i1 %41, label %33, label %._crit_edge.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %33, %29
   %42 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr %2)
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.24, i32 noundef %4, ptr noundef nonnull @.str.32) #7
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %45 = load ptr, ptr %44, align 8, !tbaa !27
+  %45 = load ptr, ptr %44, align 8, !tbaa !28
   %.not35.i = icmp eq ptr %45, null
   br i1 %.not35.i, label %62, label %46
 
@@ -1283,7 +1283,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
 
 .lr.ph4.i:                                        ; preds = %46, %57
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %57 ], [ 0, %46 ]
-  %48 = load ptr, ptr %44, align 8, !tbaa !27
+  %48 = load ptr, ptr %44, align 8, !tbaa !28
   %49 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv9.i
   %50 = load i64, ptr %49, align 8, !tbaa !10
   %51 = icmp eq i64 %50, -1
@@ -1304,7 +1304,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
   %58 = load i32, ptr %24, align 8, !tbaa !22
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next10.i, %59
-  br i1 %60, label %.lr.ph4.i, label %._crit_edge5.i, !llvm.loop !51
+  br i1 %60, label %.lr.ph4.i, label %._crit_edge5.i, !llvm.loop !52
 
 ._crit_edge5.i:                                   ; preds = %57, %46
   %61 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr %2)
@@ -1403,31 +1403,32 @@ attributes #7 = { nounwind }
 !21 = !{!15, !13, i64 44}
 !22 = !{!15, !13, i64 56}
 !23 = !{!15, !19, i64 64}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = !{!15, !19, i64 72}
-!28 = distinct !{!28, !25}
-!29 = distinct !{!29, !25}
-!30 = !{!15, !11, i64 48}
-!31 = distinct !{!31, !25}
-!32 = !{!16, !13, i64 0}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !25}
-!35 = distinct !{!35, !25}
-!36 = distinct !{!36, !25}
-!37 = !{!38, !17, i64 56}
-!38 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !39, i64 8, !13, i64 16, !13, i64 20, !40, i64 24, !40, i64 32, !4, i64 40, !41, i64 48, !17, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !11, i64 88}
-!39 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !18, i64 0}
-!40 = !{!"p1 _ZTS6H5SL_t", !18, i64 0}
-!41 = !{!"p1 _ZTS5H5O_t", !18, i64 0}
-!42 = !{!43, !46, i64 8}
-!43 = !{!"H5D_copy_file_ud_t", !44, i64 0, !46, i64 8, !47, i64 16}
-!44 = !{!"H5O_copy_file_ud_common_t", !45, i64 0}
-!45 = !{!"p1 _ZTS11H5O_pline_t", !18, i64 0}
-!46 = !{!"p1 _ZTS12H5S_extent_t", !18, i64 0}
-!47 = !{!"p1 _ZTS5H5T_t", !18, i64 0}
-!48 = !{!49, !17, i64 0}
-!49 = !{!"H5O_loc_t", !17, i64 0, !11, i64 8, !4, i64 16}
-!50 = distinct !{!50, !25}
-!51 = distinct !{!51, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = !{!15, !19, i64 72}
+!29 = distinct !{!29, !25, !26}
+!30 = distinct !{!30, !25, !26}
+!31 = !{!15, !11, i64 48}
+!32 = distinct !{!32, !25, !26}
+!33 = !{!16, !13, i64 0}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}
+!36 = distinct !{!36, !25, !26}
+!37 = distinct !{!37, !25, !26}
+!38 = !{!39, !17, i64 56}
+!39 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !40, i64 8, !13, i64 16, !13, i64 20, !41, i64 24, !41, i64 32, !4, i64 40, !42, i64 48, !17, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !11, i64 88}
+!40 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !18, i64 0}
+!41 = !{!"p1 _ZTS6H5SL_t", !18, i64 0}
+!42 = !{!"p1 _ZTS5H5O_t", !18, i64 0}
+!43 = !{!44, !47, i64 8}
+!44 = !{!"H5D_copy_file_ud_t", !45, i64 0, !47, i64 8, !48, i64 16}
+!45 = !{!"H5O_copy_file_ud_common_t", !46, i64 0}
+!46 = !{!"p1 _ZTS11H5O_pline_t", !18, i64 0}
+!47 = !{!"p1 _ZTS12H5S_extent_t", !18, i64 0}
+!48 = !{!"p1 _ZTS5H5T_t", !18, i64 0}
+!49 = !{!50, !17, i64 0}
+!50 = !{!"H5O_loc_t", !17, i64 0, !11, i64 8, !4, i64 16}
+!51 = distinct !{!51, !25, !26}
+!52 = distinct !{!52, !25, !26}

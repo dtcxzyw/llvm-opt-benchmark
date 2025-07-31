@@ -259,7 +259,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
 133:                                              ; preds = %._crit_edge, %._crit_edge587
   %.1 = phi i32 [ %56, %._crit_edge587 ], [ %132, %._crit_edge ]
   %134 = icmp slt i32 %.1, 1
-  br i1 %134, label %.preheader539, label %45
+  br i1 %134, label %.preheader539, label %45, !llvm.loop !12
 
 .lr.ph557:                                        ; preds = %.preheader539, %185
   %.2556 = phi i32 [ %186, %185 ], [ 1, %.preheader539 ]
@@ -366,7 +366,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %186 = add nsw i32 %.2556, %.sink612
   %187 = load i32, ptr %1, align 4, !tbaa !3
   %188 = icmp sgt i32 %186, %187
-  br i1 %188, label %.loopexit, label %.lr.ph557
+  br i1 %188, label %.loopexit, label %.lr.ph557, !llvm.loop !13
 
 .preheader:                                       ; preds = %305
   %invariant.op567 = add i32 %16, -1
@@ -557,7 +557,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   store double %303, ptr %gep611, align 8, !tbaa !7
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count579
-  br i1 %exitcond580.not, label %._crit_edge562, label %.lr.ph561, !llvm.loop !11
+  br i1 %exitcond580.not, label %._crit_edge562, label %.lr.ph561, !llvm.loop !14
 
 ._crit_edge562:                                   ; preds = %.lr.ph561, %275
   %304 = add nsw i32 %.4565, 2
@@ -567,7 +567,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.5 = phi i32 [ %207, %219 ], [ %304, %._crit_edge562 ]
   %306 = load i32, ptr %1, align 4, !tbaa !3
   %307 = icmp sgt i32 %.5, %306
-  br i1 %307, label %.preheader, label %190
+  br i1 %307, label %.preheader, label %190, !llvm.loop !15
 
 .lr.ph572:                                        ; preds = %.preheader, %374
   %.6571 = phi i32 [ %375, %374 ], [ %306, %.preheader ]
@@ -687,7 +687,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr noundef readonly captures(none) %1
   %.sink613 = phi i32 [ -1, %327 ], [ -2, %364 ], [ %.sink613.ph, %.sink.split618 ]
   %375 = add nsw i32 %.6571, %.sink613
   %376 = icmp slt i32 %375, 1
-  br i1 %376, label %.loopexit, label %.lr.ph572
+  br i1 %376, label %.loopexit, label %.lr.ph572, !llvm.loop !16
 
 .loopexit:                                        ; preds = %185, %374, %.preheader539, %.preheader, %38, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
@@ -737,6 +737,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

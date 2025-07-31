@@ -62,7 +62,7 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 23:                                               ; preds = %16
   %24 = icmp eq ptr %12, null
-  br i1 %24, label %.thread, label %25, !prof !8
+  br i1 %24, label %.thread, label %25, !prof !9
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -85,7 +85,7 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
 define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @dev_get_by_index(ptr noundef %0, i32 noundef %1) #5
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %57, label %6, !prof !9
+  br i1 %5, label %57, label %6, !prof !10
 
 6:                                                ; preds = %3
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netif_lock) #5
@@ -115,7 +115,7 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
 23:                                               ; preds = %19, %.preheader
   %24 = load volatile ptr, ptr %15, align 8
   %25 = icmp eq ptr %24, %12
-  br i1 %25, label %.thread, label %.preheader, !llvm.loop !5
+  br i1 %25, label %.thread, label %.preheader, !llvm.loop !11
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %15, null
@@ -156,7 +156,7 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   store ptr %46, ptr %36, align 8
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %12, ptr %47, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
   store volatile ptr %36, ptr %12, align 16
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %36, ptr %48, align 8
@@ -174,9 +174,9 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 1280
   %55 = load ptr, ptr %54, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #5, !srcloc !11
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #5, !srcloc !13
   %56 = icmp eq i32 %53, 0
-  br i1 %56, label %61, label %57, !prof !12
+  br i1 %56, label %61, label %57, !prof !14
 
 57:                                               ; preds = %52, %3
   %58 = phi ptr [ @.str, %3 ], [ @.str.1, %52 ]
@@ -224,12 +224,12 @@ define dso_local void @sel_netif_flush() local_unnamed_addr #0 align 16 {
 16:                                               ; preds = %14, %.preheader
   %17 = load ptr, ptr %6, align 8
   %18 = icmp eq ptr %17, %3
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %1
   %19 = add nuw nsw i64 %2, 1
   %20 = icmp eq i64 %19, 64
-  br i1 %20, label %21, label %1, !llvm.loop !14
+  br i1 %20, label %21, label %1, !llvm.loop !16
 
 21:                                               ; preds = %.loopexit
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
@@ -250,7 +250,7 @@ define internal noundef i32 @sel_netif_init() #1 section ".init.text" align 16 {
   store volatile ptr %4, ptr %5, align 8
   %6 = add nuw nsw i64 %3, 1
   %7 = icmp eq i64 %6, 64
-  br i1 %7, label %8, label %.preheader, !llvm.loop !15
+  br i1 %7, label %8, label %.preheader, !llvm.loop !17
 
 8:                                                ; preds = %.preheader
   %9 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @sel_netif_netdev_notifier) #5
@@ -332,7 +332,7 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr readnone capt
 27:                                               ; preds = %23, %.preheader
   %28 = load volatile ptr, ptr %19, align 8
   %29 = icmp eq ptr %28, %16
-  br i1 %29, label %.thread, label %.preheader, !llvm.loop !5
+  br i1 %29, label %.thread, label %.preheader, !llvm.loop !18
 
 30:                                               ; preds = %23
   %31 = icmp eq ptr %19, null
@@ -378,14 +378,17 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"branch_weights", i32 0, i32 -2147483648}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{i64 2151852595}
-!11 = !{i64 2156394803}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", i32 0, i32 -2147483648}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{i64 2151852595}
+!13 = !{i64 2156394803}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}

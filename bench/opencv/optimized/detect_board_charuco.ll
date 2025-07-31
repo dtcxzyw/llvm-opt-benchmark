@@ -2847,7 +2847,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit334:                 ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %59) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %58) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %58) #17
-  br i1 %868, label %896, label %748
+  br i1 %868, label %896, label %748, !llvm.loop !127
 
 882:                                              ; preds = %._crit_edge.i.i323
   %883 = landingpad { ptr, i32 }
@@ -2920,7 +2920,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit343:                 ; preds = %_ZNSt6vectorIiSaIiE
 896:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit334, %750
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv5aruco15CharucoDetectorE, i64 16), ptr %56, align 8, !tbaa !75
   %897 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %898 = load ptr, ptr %897, align 8, !tbaa !126
+  %898 = load ptr, ptr %897, align 8, !tbaa !128
   %.not.i.i.i344 = icmp eq ptr %898, null
   br i1 %.not.i.i.i344, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, label %899
 
@@ -2932,9 +2932,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit343:                 ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %902, label %904, label %912
 
 904:                                              ; preds = %899
-  store i32 0, ptr %900, align 8, !tbaa !129
+  store i32 0, ptr %900, align 8, !tbaa !131
   %905 = getelementptr inbounds nuw i8, ptr %898, i64 12
-  store i32 0, ptr %905, align 4, !tbaa !131
+  store i32 0, ptr %905, align 4, !tbaa !133
   %906 = load ptr, ptr %898, align 8, !tbaa !75
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 16
   %908 = load ptr, ptr %907, align 8
@@ -2962,7 +2962,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit343:                 ; preds = %_ZNSt6vectorIiSaIiE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %916, %914
   %.0.i.i.i.i.i = phi i32 [ %903, %914 ], [ %917, %916 ]
   %918 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %918, label %919, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, !prof !132
+  br i1 %918, label %919, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, !prof !134
 
 919:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %898) #17
@@ -2975,7 +2975,7 @@ _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %896, %904, %_ZN9__g
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(197) %55) #17
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %55) #17
   %920 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %921 = load ptr, ptr %920, align 8, !tbaa !126
+  %921 = load ptr, ptr %920, align 8, !tbaa !128
   %.not.i.i.i346 = icmp eq ptr %921, null
   br i1 %.not.i.i.i346, label %_ZN2cv5aruco5BoardD2Ev.exit, label %922
 
@@ -2987,9 +2987,9 @@ _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %896, %904, %_ZN9__g
   br i1 %925, label %927, label %935
 
 927:                                              ; preds = %922
-  store i32 0, ptr %923, align 8, !tbaa !129
+  store i32 0, ptr %923, align 8, !tbaa !131
   %928 = getelementptr inbounds nuw i8, ptr %921, i64 12
-  store i32 0, ptr %928, align 4, !tbaa !131
+  store i32 0, ptr %928, align 4, !tbaa !133
   %929 = load ptr, ptr %921, align 8, !tbaa !75
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 16
   %931 = load ptr, ptr %930, align 8
@@ -3017,7 +3017,7 @@ _ZN2cv5aruco15CharucoDetectorD2Ev.exit:           ; preds = %896, %904, %_ZN9__g
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i348: ; preds = %939, %937
   %.0.i.i.i.i.i349 = phi i32 [ %926, %937 ], [ %940, %939 ]
   %941 = icmp eq i32 %.0.i.i.i.i.i349, 1
-  br i1 %941, label %942, label %_ZN2cv5aruco5BoardD2Ev.exit, !prof !132
+  br i1 %941, label %942, label %_ZN2cv5aruco5BoardD2Ev.exit, !prof !134
 
 942:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i348
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %921) #17
@@ -3261,7 +3261,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IfEESaIS3_EESaIS5_EED2Ev.exit: ; preds 
 define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv5aruco15CharucoDetectorE, i64 16), ptr %0, align 8, !tbaa !75
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !126
+  %3 = load ptr, ptr %2, align 8, !tbaa !128
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv5aruco15CharucoDetector19CharucoDetectorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -3273,9 +3273,9 @@ define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD2Ev(ptr noundef n
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !129
+  store i32 0, ptr %5, align 8, !tbaa !131
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !131
+  store i32 0, ptr %10, align 4, !tbaa !133
   %11 = load ptr, ptr %3, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -3303,7 +3303,7 @@ define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD2Ev(ptr noundef n
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv5aruco15CharucoDetector19CharucoDetectorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !132
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv5aruco15CharucoDetector19CharucoDetectorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !134
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -3317,7 +3317,7 @@ _ZNSt12__shared_ptrIN2cv5aruco15CharucoDetector19CharucoDetectorImplELN9__gnu_cx
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5aruco5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !126
+  %3 = load ptr, ptr %2, align 8, !tbaa !128
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv5aruco5Board4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -3329,9 +3329,9 @@ define linkonce_odr hidden void @_ZN2cv5aruco5BoardD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !129
+  store i32 0, ptr %5, align 8, !tbaa !131
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !131
+  store i32 0, ptr %10, align 4, !tbaa !133
   %11 = load ptr, ptr %3, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -3359,7 +3359,7 @@ define linkonce_odr hidden void @_ZN2cv5aruco5BoardD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv5aruco5Board4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !132
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv5aruco5Board4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !134
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -3420,7 +3420,7 @@ declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv5aruco15CharucoDetectorE, i64 16), ptr %0, align 8, !tbaa !75
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !126
+  %3 = load ptr, ptr %2, align 8, !tbaa !128
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, label %4
 
@@ -3432,9 +3432,9 @@ define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD0Ev(ptr noundef n
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !129
+  store i32 0, ptr %5, align 8, !tbaa !131
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !131
+  store i32 0, ptr %10, align 4, !tbaa !133
   %11 = load ptr, ptr %3, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -3462,7 +3462,7 @@ define linkonce_odr hidden void @_ZN2cv5aruco15CharucoDetectorD0Ev(ptr noundef n
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, !prof !132
+  br i1 %23, label %24, label %_ZN2cv5aruco15CharucoDetectorD2Ev.exit, !prof !134
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -3721,12 +3721,14 @@ attributes #19 = { noreturn }
 !121 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN2cv6Point_IfEESaIS3_EESaIS5_EE17_Vector_impl_dataE", !122, i64 0, !122, i64 8, !122, i64 16}
 !122 = !{!"p1 _ZTSSt6vectorIN2cv6Point_IfEESaIS2_EE", !7, i64 0}
 !123 = !{!121, !122, i64 8}
-!124 = distinct !{!124, !125}
+!124 = distinct !{!124, !125, !126}
 !125 = !{!"llvm.loop.mustprogress"}
-!126 = !{!127, !128, i64 0}
-!127 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !128, i64 0}
-!128 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
-!129 = !{!130, !17, i64 8}
-!130 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
-!131 = !{!130, !17, i64 12}
-!132 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!126 = !{!"llvm.loop.estimated_trip_count"}
+!127 = distinct !{!127, !126}
+!128 = !{!129, !130, i64 0}
+!129 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !130, i64 0}
+!130 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
+!131 = !{!132, !17, i64 8}
+!132 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
+!133 = !{!132, !17, i64 12}
+!134 = !{!"branch_weights", !"expected", i32 1, i32 2000}

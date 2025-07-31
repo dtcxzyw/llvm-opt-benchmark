@@ -301,7 +301,7 @@ define internal range(i32 0, 2) i32 @tls13_cipher(ptr noundef %0, ptr noundef ca
   br i1 %.not122, label %101, label %83
 
 83:                                               ; preds = %79
-  %84 = load i32, ptr %1, align 8, !tbaa !43
+  %84 = load i32, ptr %1, align 8, !tbaa !44
   %85 = sext i32 %84 to i64
   %86 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %13, i64 noundef %85, i64 noundef 2) #6
   %.not123 = icmp eq i32 %86, 0
@@ -543,13 +543,13 @@ define internal range(i32 0, 2) i32 @tls13_validate_record_header(ptr noundef %0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4168
-  %7 = load i32, ptr %6, align 8, !tbaa !44
+  %7 = load i32, ptr %6, align 8, !tbaa !45
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %.thread, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4304
-  %10 = load i32, ptr %9, align 8, !tbaa !45
+  %10 = load i32, ptr %9, align 8, !tbaa !46
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %.thread, label %11
 
@@ -560,7 +560,7 @@ define internal range(i32 0, 2) i32 @tls13_validate_record_header(ptr noundef %0
   br label %19
 
 11:                                               ; preds = %2, %8, %5
-  %12 = load i32, ptr %1, align 8, !tbaa !43
+  %12 = load i32, ptr %1, align 8, !tbaa !44
   %.not15 = icmp eq i32 %12, 771
   br i1 %.not15, label %14, label %13
 
@@ -617,7 +617,7 @@ define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %0, p
   %10 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %.019
   %11 = load i8, ptr %10, align 1, !tbaa !40
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %8, label %.thread, !llvm.loop !46
+  br i1 %12, label %8, label %.thread, !llvm.loop !47
 
 .thread:                                          ; preds = %9, %8
   store i64 %.019, ptr %.phi.trans.insert, align 8, !tbaa !38
@@ -666,12 +666,12 @@ declare i32 @tls_initialise_write_packets_default(ptr noundef, ptr noundef, i64 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext range(i8 21, 24) i8 @tls13_get_record_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4304
-  %4 = load i32, ptr %3, align 8, !tbaa !45
+  %4 = load i32, ptr %3, align 8, !tbaa !46
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr %1, align 8, !tbaa !47
+  %6 = load i8, ptr %1, align 8, !tbaa !48
   %7 = icmp eq i8 %6, 21
   br i1 %7, label %9, label %8
 
@@ -688,9 +688,9 @@ declare i32 @tls_prepare_record_header_default(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4304
-  %6 = load i32, ptr %5, align 8, !tbaa !45
+  %6 = load i32, ptr %5, align 8, !tbaa !46
   %.not = icmp eq i32 %6, 0
-  %.pre = load i8, ptr %1, align 8, !tbaa !47
+  %.pre = load i8, ptr %1, align 8, !tbaa !48
   %.not60 = icmp eq i8 %.pre, 21
   %or.cond = select i1 %.not, i1 true, i1 %.not60
   br i1 %or.cond, label %7, label %.thread84
@@ -713,7 +713,7 @@ define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %0, pt
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4172
-  %16 = load i32, ptr %15, align 4, !tbaa !49
+  %16 = load i32, ptr %15, align 4, !tbaa !50
   %17 = zext i32 %16 to i64
   %18 = icmp ult i64 %14, %17
   br i1 %18, label %19, label %.thread84
@@ -721,32 +721,32 @@ define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %0, pt
 19:                                               ; preds = %11
   %20 = sub nuw nsw i64 %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4408
-  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
   %.not62 = icmp eq ptr %22, null
   br i1 %.not62, label %29, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4376
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
-  %26 = load i8, ptr %1, align 8, !tbaa !47
+  %25 = load ptr, ptr %24, align 8, !tbaa !52
+  %26 = load i8, ptr %1, align 8, !tbaa !48
   %27 = zext i8 %26 to i32
   %28 = tail call i64 %22(ptr noundef %25, i32 noundef %27, i64 noundef %14) #6
   br label %54
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4192
-  %31 = load i64, ptr %30, align 8, !tbaa !52
+  %31 = load i64, ptr %30, align 8, !tbaa !53
   %.not63 = icmp eq i64 %31, 0
   br i1 %.not63, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4200
-  %34 = load i64, ptr %33, align 8, !tbaa !53
+  %34 = load i64, ptr %33, align 8, !tbaa !54
   %.not64 = icmp eq i64 %34, 0
   br i1 %.not64, label %.thread84, label %35
 
 35:                                               ; preds = %32, %29
-  %36 = load i8, ptr %1, align 8, !tbaa !47
+  %36 = load i8, ptr %1, align 8, !tbaa !48
   switch i8 %36, label %.thread84 [
     i8 22, label %37
     i8 21, label %40
@@ -755,13 +755,13 @@ define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %0, pt
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4200
-  %39 = load i64, ptr %38, align 8, !tbaa !53
+  %39 = load i64, ptr %38, align 8, !tbaa !54
   %.not65 = icmp eq i64 %39, 0
   br i1 %.not65, label %.thread84, label %.thread79
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4200
-  %42 = load i64, ptr %41, align 8, !tbaa !53
+  %42 = load i64, ptr %41, align 8, !tbaa !54
   %.not66 = icmp eq i64 %42, 0
   br i1 %.not66, label %.thread84, label %.thread79
 
@@ -960,16 +960,17 @@ attributes #6 = { nounwind }
 !38 = !{!35, !14, i64 8}
 !39 = !{!4, !14, i64 4312}
 !40 = !{!7, !7, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!35, !10, i64 0}
-!44 = !{!4, !10, i64 4168}
-!45 = !{!4, !10, i64 4304}
-!46 = distinct !{!46, !42}
-!47 = !{!48, !7, i64 0}
-!48 = !{!"ossl_record_template_st", !7, i64 0, !10, i64 4, !9, i64 8, !14, i64 16}
-!49 = !{!4, !10, i64 4172}
-!50 = !{!4, !6, i64 4408}
-!51 = !{!4, !6, i64 4376}
-!52 = !{!4, !14, i64 4192}
-!53 = !{!4, !14, i64 4200}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!35, !10, i64 0}
+!45 = !{!4, !10, i64 4168}
+!46 = !{!4, !10, i64 4304}
+!47 = distinct !{!47, !42, !43}
+!48 = !{!49, !7, i64 0}
+!49 = !{!"ossl_record_template_st", !7, i64 0, !10, i64 4, !9, i64 8, !14, i64 16}
+!50 = !{!4, !10, i64 4172}
+!51 = !{!4, !6, i64 4408}
+!52 = !{!4, !6, i64 4376}
+!53 = !{!4, !14, i64 4192}
+!54 = !{!4, !14, i64 4200}

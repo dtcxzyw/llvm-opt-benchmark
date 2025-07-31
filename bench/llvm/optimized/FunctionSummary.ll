@@ -86,7 +86,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
 _ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %.lr.ph
   %.sroa.05.2 = phi ptr [ %21, %.lr.ph ], [ %23, %.critedge2.i6.i ], [ %.sroa.05.1, %.lr.ph.i4.i ]
   %.not = icmp eq ptr %.sroa.05.2, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -139,7 +139,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   %.010 = phi i32 [ %39, %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit ]
   %.sroa.05.09 = phi ptr [ %.sroa.05.2, %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !16
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = and i64 %17, 1
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %27, label %19
@@ -156,9 +156,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
 
 27:                                               ; preds = %.lr.ph
   %28 = inttoptr i64 %17 to ptr
-  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !21
+  %31 = load i32, ptr %30, align 8, !tbaa !23
   %32 = zext i32 %31 to i64
   %.idx.i.i = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i
@@ -168,13 +168,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
 .lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
   %.012.i.i = phi i32 [ %37, %.lr.ph.i.i ], [ 0, %27 ]
   %.0911.i.i = phi ptr [ %38, %.lr.ph.i.i ], [ %29, %27 ]
-  %34 = load i64, ptr %.0911.i.i, align 8, !tbaa !22
+  %34 = load i64, ptr %.0911.i.i, align 8, !tbaa !24
   %35 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = add i32 %.012.i.i, %36
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
   %.not.i.i = icmp eq ptr %38, %33
-  br i1 %.not.i.i, label %_ZNK4llvm14SmallBitVector5countEv.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZNK4llvm14SmallBitVector5countEv.exit, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZNK4llvm14SmallBitVector5countEv.exit:           ; preds = %.lr.ph.i.i, %19, %27
   %.0.i = phi i32 [ %26, %19 ], [ 0, %27 ], [ %37, %.lr.ph.i.i ]
@@ -200,7 +200,7 @@ _ZNK4llvm14SmallBitVector5countEv.exit:           ; preds = %.lr.ph.i.i, %19, %2
 _ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZNK4llvm14SmallBitVector5countEv.exit
   %.sroa.05.2 = phi ptr [ %40, %_ZNK4llvm14SmallBitVector5countEv.exit ], [ %42, %.critedge2.i6.i ], [ %.sroa.05.1, %.lr.ph.i4.i ]
   %.not = icmp eq ptr %.sroa.05.2, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -225,12 +225,16 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !11 = !{!4, !9, i64 16}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTSN5clang4DeclE", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_ZTSN4llvm14SmallBitVectorE", !18, i64 0}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!20, !6, i64 0}
-!20 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !9, i64 8, !9, i64 12}
-!21 = !{!20, !9, i64 8}
-!22 = !{!18, !18, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTSN4llvm14SmallBitVectorE", !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!22, !6, i64 0}
+!22 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !9, i64 8, !9, i64 12}
+!23 = !{!22, !9, i64 8}
+!24 = !{!20, !20, i64 0}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}

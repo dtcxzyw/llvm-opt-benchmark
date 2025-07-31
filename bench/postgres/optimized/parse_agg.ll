@@ -346,7 +346,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
   %121 = getelementptr inbounds nuw %union.ListCell, ptr %120, i64 %indvars.iv187
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 42
-  %124 = load i8, ptr %123, align 2, !range !6, !noundef !7
+  %124 = load i8, ptr %123, align 2, !range !7, !noundef !8
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %132, label %127
 
@@ -553,7 +553,7 @@ check_agg_arguments.exit:                         ; preds = %42, %55
   %65 = add nsw i32 %.05867, -1
   %66 = load ptr, ptr %.068, align 8
   %67 = icmp samesign ugt i32 %.05867, 1
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %check_agg_arguments.exit
   %.0.lcssa = phi ptr [ %0, %check_agg_arguments.exit ], [ %66, %.lr.ph ]
@@ -753,7 +753,7 @@ declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  %5 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %18
 
@@ -1094,7 +1094,7 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 8, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   %15 = tail call ptr @expand_grouping_sets(ptr noundef nonnull %10, i1 noundef zeroext %14, i32 noundef 4096)
   %.not143 = icmp eq ptr %15, null
@@ -1139,7 +1139,7 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
   %34 = load i32, ptr %30, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %list_length.exit, !llvm.loop !9
+  br i1 %36, label %.lr.ph, label %list_length.exit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 1, %.preheader ]
@@ -1218,7 +1218,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
 
 68:                                               ; preds = %56
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 156
-  %70 = load i8, ptr %69, align 4, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 4, !range !7, !noundef !8
   %71 = trunc nuw i8 %70 to i1
   %spec.select = select i1 %71, i1 true, i1 %.0125172184
   br label %72
@@ -1465,7 +1465,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #11
   store ptr %177, ptr %154, align 8
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %179 = load i8, ptr %178, align 8, !range !6, !noundef !7
+  %179 = load i8, ptr %178, align 8, !range !7, !noundef !8
   %180 = trunc nuw i8 %179 to i1
   %or.cond = select i1 %180, i1 %.0125.lcssa, i1 false
   br i1 %or.cond, label %181, label %187
@@ -1514,7 +1514,7 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly captures(address
   %15 = load i32, ptr %5, align 4
   %16 = sext i32 %15 to i64
   %.not.not.us = icmp slt i64 %indvars.iv.next, %16
-  br i1 %.not.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !10
+  br i1 %.not.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %28 ], [ 0, %.lr.ph ]
@@ -1545,7 +1545,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %30 = load i32, ptr %5, align 4
   %31 = sext i32 %30 to i64
   %.not.not = icmp slt i64 %indvars.iv.next218, %31
-  br i1 %.not.not, label %.lr.ph.split, label %.critedge, !llvm.loop !12
+  br i1 %.not.not, label %.lr.ph.split, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %28, %.preheader144
   %.084.lcssa = phi ptr [ null, %.preheader144 ], [ %29, %28 ], [ %14, %.lr.ph.split.us ]
@@ -1659,7 +1659,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %79 = sext i32 %77 to i64
   %80 = icmp slt i64 %indvars.iv.next227, %79
-  br i1 %80, label %.lr.ph165, label %.critedge127, !llvm.loop !13
+  br i1 %80, label %.lr.ph165, label %.critedge127, !llvm.loop !14
 
 list_length.exit135:                              ; preds = %.critedge125
   %81 = getelementptr inbounds nuw i8, ptr %.188197.lcssa, i64 4
@@ -1685,7 +1685,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
   %89 = load i32, ptr %81, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next233, %90
-  br i1 %91, label %85, label %.critedge131, !llvm.loop !15
+  br i1 %91, label %85, label %.critedge131, !llvm.loop !16
 
 .critedge131:                                     ; preds = %85
   tail call void @list_sort(ptr noundef nonnull %.188197.lcssa, ptr noundef nonnull @cmp_list_len_contents_asc) #11
@@ -1728,7 +1728,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
   %.sroa.7.1 = phi i32 [ %.sroa.7.0206, %105 ], [ %109, %107 ]
   %.sroa.0.1 = phi ptr [ %106, %105 ], [ %.sroa.0.0207, %107 ]
   %.not115 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not115, label %.critedge133, label %94, !llvm.loop !16
+  br i1 %.not115, label %.critedge133, label %94, !llvm.loop !17
 
 .critedge133:                                     ; preds = %list_length.exit, %94, %110, %list_length.exit135.thread, %3
   %.0 = phi ptr [ null, %3 ], [ %.188197.lcssa, %list_length.exit135.thread ], [ %.4, %110 ], [ %.390205, %94 ], [ null, %list_length.exit ]
@@ -1823,7 +1823,7 @@ list_length.exit:                                 ; preds = %10
   %.159 = phi ptr [ null, %.preheader ], [ %30, %21 ], [ %30, %.lr.ph127 ]
   %32 = tail call ptr @lappend(ptr noundef %.1132, ptr noundef %.159) #11
   %33 = icmp sgt i32 %.056129, 1
-  br i1 %33, label %.preheaderthread-pre-split, label %._crit_edge, !llvm.loop !17
+  br i1 %33, label %.preheaderthread-pre-split, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %10, %list_length.exit
   %.1.lcssa = phi ptr [ null, %list_length.exit ], [ null, %10 ], [ %32, %.critedge ]
@@ -1845,7 +1845,7 @@ list_length.exit:                                 ; preds = %10
 
 .preheader83.us:                                  ; preds = %35
   %42 = tail call ptr @lappend(ptr noundef null, ptr noundef null) #11
-  br label %.critedge80, !llvm.loop !18
+  br label %.critedge80, !llvm.loop !19
 
 .preheader83thread-pre-split:                     ; preds = %..critedge78_crit_edge98.split
   %.pr150 = load i32, ptr %40, align 4
@@ -1873,7 +1873,7 @@ list_length.exit:                                 ; preds = %10
   %48 = add i32 %.065107, 1
   %.065.highbits = lshr i32 %48, %39
   %49 = icmp eq i32 %.065.highbits, 0
-  br i1 %49, label %.preheader83thread-pre-split, label %.critedge80, !llvm.loop !19
+  br i1 %49, label %.preheader83thread-pre-split, label %.critedge80, !llvm.loop !20
 
 50:                                               ; preds = %.lr.ph105
   %51 = load ptr, ptr %41, align 8
@@ -2039,7 +2039,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
 39:                                               ; preds = %34
   %.not = icmp slt i32 %36, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %.thread43, label %23, !llvm.loop !20
+  br i1 %.not, label %.thread43, label %23, !llvm.loop !21
 
 .thread43:                                        ; preds = %28, %30, %34, %39, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
   %.3 = phi i32 [ %11, %cmp_list_len_asc.exit.thread ], [ 0, %list_length.exit.i.thread ], [ %8, %cmp_list_len_asc.exit ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ %11, %28 ], [ %11, %30 ], [ 1, %34 ], [ -1, %39 ]
@@ -2168,7 +2168,7 @@ define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr noundef re
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 78
-  %25 = load i8, ptr %24, align 2, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 2, !range !7, !noundef !8
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %.critedge, label %27
 
@@ -2253,7 +2253,7 @@ define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly capture
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.0.lcssa = phi ptr [ %19, %10 ], [ %31, %.lr.ph ]
@@ -2394,7 +2394,7 @@ define dso_local void @build_aggregate_finalfn_expr(ptr noundef readonly capture
   %27 = tail call ptr @lappend(ptr noundef %.015, ptr noundef nonnull %20) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi ptr [ %15, %7 ], [ %27, %.lr.ph ]
@@ -2504,13 +2504,13 @@ thread-pre-split:                                 ; preds = %27, %4
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %47 = load i8, ptr %46, align 4, !range !6, !noundef !7
+  %47 = load i8, ptr %46, align 4, !range !7, !noundef !8
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %53, label %.thread59.thread
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load i8, ptr %50, align 8, !range !6, !noundef !7
+  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %.thread59.thread
 
@@ -2617,7 +2617,7 @@ common.ret220:                                    ; preds = %.thread148, %.threa
 
 thread-pre-split.thread:                          ; preds = %4, %17, %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.thread148
 
@@ -2732,7 +2732,7 @@ buildGroupedVar.exit:                             ; preds = %.lr.ph, %37
   br i1 %.not136, label %94, label %common.ret220
 
 94:                                               ; preds = %89
-  %95 = load i8, ptr %23, align 8, !range !6, !noundef !7
+  %95 = load i8, ptr %23, align 8, !range !7, !noundef !8
   %96 = trunc nuw i8 %95 to i1
   %.not137 = icmp eq i32 %91, 0
   %or.cond = and i1 %.not137, %96
@@ -2863,7 +2863,7 @@ buildGroupedVar.exit:                             ; preds = %.lr.ph, %37
 178:                                              ; preds = %166
   %179 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78, ptr noundef %177, ptr noundef %169) #11
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %181 = load i8, ptr %180, align 4, !range !6, !noundef !7
+  %181 = load i8, ptr %180, align 4, !range !7, !noundef !8
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %185
 
@@ -3046,7 +3046,7 @@ common.ret226:                                    ; preds = %2, %16, %118, %.thr
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv172204
   %36 = load ptr, ptr %35, align 8
-  %37 = load i8, ptr %28, align 8, !range !6, !noundef !7
+  %37 = load i8, ptr %28, align 8, !range !7, !noundef !8
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %40, label %43
 
@@ -3136,7 +3136,7 @@ common.ret226:                                    ; preds = %2, %16, %118, %.thr
   br i1 %exitcond.not, label %.critedge114.thread, label %60
 
 82:                                               ; preds = %43
-  %83 = load i8, ptr %30, align 8, !range !6, !noundef !7
+  %83 = load i8, ptr %30, align 8, !range !7, !noundef !8
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %.critedge114.thread
 
@@ -3269,22 +3269,23 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !11}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6, !12}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}

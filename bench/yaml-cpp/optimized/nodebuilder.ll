@@ -1359,7 +1359,7 @@ _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED
   call void @_ZN4YAML6detail4node14add_dependencyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %0)
   %41 = atomicrmw add ptr @_ZN4YAML6detail4node8m_amountE, i64 1 seq_cst, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %41, ptr %42, align 8, !tbaa !104
+  store i64 %41, ptr %42, align 8, !tbaa !105
   ret void
 
 43:                                               ; preds = %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit
@@ -1484,7 +1484,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML6detail6memoryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !112
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
   invoke void @_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt3setISt10shared_ptrIN4YAML6detail4nodeEESt4lessIS4_ESaIS4_EED2Ev.exit unwind label %4
 
@@ -1518,7 +1518,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN4YAML6detail6memoryELN9__gnu_
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !113
   invoke void @_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %7)
           to label %_ZN4YAML6detail6memoryD2Ev.exit unwind label %8
 
@@ -1556,10 +1556,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_S
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !113
+  %4 = load ptr, ptr %3, align 8, !tbaa !114
   tail call void @_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !114
+  %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -1612,7 +1612,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %26
 _ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit: ; preds = %.lr.ph, %14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %29
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeISt10shared_ptrIN4YAML6detail4nodeEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, %2
   ret void
@@ -1674,7 +1674,7 @@ define linkonce_odr void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnu
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !112
+  %12 = load ptr, ptr %11, align 8, !tbaa !113
   invoke void @_ZNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %12)
           to label %_ZNSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE5clearEv.exit unwind label %13
 
@@ -1686,7 +1686,7 @@ define linkonce_odr void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnu
   unreachable
 
 _ZNSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE5clearEv.exit: ; preds = %._crit_edge
-  store ptr null, ptr %11, align 8, !tbaa !112
+  store ptr null, ptr %11, align 8, !tbaa !113
   store ptr %10, ptr %8, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %10, ptr %16, align 8, !tbaa !34
@@ -1701,7 +1701,7 @@ _ZNSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE5clearEv.exit: ; preds = %._crit
   tail call void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnull align 8 dereferenceable(72) %19)
   %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08) #22
   %.not = icmp eq ptr %20, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 21:                                               ; preds = %1, %_ZNSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE5clearEv.exit
   ret void
@@ -1720,13 +1720,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !113
+  %4 = load ptr, ptr %3, align 8, !tbaa !114
   tail call void @_ZNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !114
+  %6 = load ptr, ptr %5, align 8, !tbaa !115
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1761,13 +1761,13 @@ define linkonce_odr void @_ZN4YAML6detail4node14add_dependencyERS1_(ptr noundef 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.02022.i.i.i = load ptr, ptr %9, align 8, !tbaa !117
+  %.02022.i.i.i = load ptr, ptr %9, align 8, !tbaa !119
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = load i64, ptr %11, align 8, !tbaa !104
+  %12 = load i64, ptr %11, align 8, !tbaa !105
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.i.i.i
@@ -1775,13 +1775,13 @@ define linkonce_odr void @_ZN4YAML6detail4node14add_dependencyERS1_(ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load i64, ptr %16, align 8, !tbaa !104
+  %17 = load i64, ptr %16, align 8, !tbaa !105
   %18 = icmp ult i64 %12, %17
   %.in.v.i.i.i = select i1 %18, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
-  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !117
+  %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !119
   %.not.i.i.i = icmp eq ptr %.020.i.i.i, null
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %13, !llvm.loop !118
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %13, !llvm.loop !120
 
 ._crit_edge.i.i.i:                                ; preds = %13
   br i1 %18, label %._crit_edge.thread.i.i.i, label %24
@@ -1798,9 +1798,9 @@ define linkonce_odr void @_ZN4YAML6detail4node14add_dependencyERS1_(ptr noundef 
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !20
   %.phi.trans.insert19.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 64
-  %.pre20.i.i = load i64, ptr %.phi.trans.insert19.i.i, align 8, !tbaa !104
+  %.pre20.i.i = load i64, ptr %.phi.trans.insert19.i.i, align 8, !tbaa !105
   %.phi.trans.insert21.i.i = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.pre22.i.i = load i64, ptr %.phi.trans.insert21.i.i, align 8, !tbaa !104
+  %.pre22.i.i = load i64, ptr %.phi.trans.insert21.i.i, align 8, !tbaa !105
   br label %24
 
 24:                                               ; preds = %22, %._crit_edge.i.i.i
@@ -1819,9 +1819,9 @@ select.unfold.i.i:                                ; preds = %24, %._crit_edge.th
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %33 = load i64, ptr %32, align 8, !tbaa !104
+  %33 = load i64, ptr %32, align 8, !tbaa !105
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %35 = load i64, ptr %34, align 8, !tbaa !104
+  %35 = load i64, ptr %34, align 8, !tbaa !105
   %36 = icmp ult i64 %33, %35
   br label %_ZNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE10_M_insert_IS3_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
@@ -2139,20 +2139,22 @@ attributes #22 = { nounwind willreturn memory(read) }
 !99 = distinct !{!99, !100, !"_ZSt19__relocate_object_aISt4pairIPN4YAML6detail4nodeEbES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !100 = distinct !{!100, !"_ZSt19__relocate_object_aISt4pairIPN4YAML6detail4nodeEbES5_SaIS5_EEvPT_PT0_RT1_"}
 !101 = distinct !{!101, !100, !"_ZSt19__relocate_object_aISt4pairIPN4YAML6detail4nodeEbES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!102 = distinct !{!102, !103}
+!102 = distinct !{!102, !103, !104}
 !103 = !{!"llvm.loop.mustprogress"}
-!104 = !{!105, !33, i64 64}
-!105 = !{!"_ZTSN4YAML6detail4nodeE", !106, i64 0, !107, i64 16, !33, i64 64}
-!106 = !{!"_ZTSSt10shared_ptrIN4YAML6detail8node_refEE", !67, i64 0}
-!107 = !{!"_ZTSSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE", !108, i64 0}
-!108 = !{!"_ZTSSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE", !109, i64 0}
-!109 = !{!"_ZTSNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE13_Rb_tree_implIS6_Lb1EEE", !110, i64 0, !29, i64 8}
-!110 = !{!"_ZTSSt20_Rb_tree_key_compareIN4YAML6detail4node4lessEE", !111, i64 0}
-!111 = !{!"_ZTSN4YAML6detail4node4lessE"}
-!112 = !{!29, !32, i64 8}
-!113 = !{!30, !32, i64 24}
-!114 = !{!30, !32, i64 16}
-!115 = distinct !{!115, !103}
-!116 = distinct !{!116, !103}
-!117 = !{!32, !32, i64 0}
-!118 = distinct !{!118, !103}
+!104 = !{!"llvm.loop.estimated_trip_count"}
+!105 = !{!106, !33, i64 64}
+!106 = !{!"_ZTSN4YAML6detail4nodeE", !107, i64 0, !108, i64 16, !33, i64 64}
+!107 = !{!"_ZTSSt10shared_ptrIN4YAML6detail8node_refEE", !67, i64 0}
+!108 = !{!"_ZTSSt3setIPN4YAML6detail4nodeENS2_4lessESaIS3_EE", !109, i64 0}
+!109 = !{!"_ZTSSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE", !110, i64 0}
+!110 = !{!"_ZTSNSt8_Rb_treeIPN4YAML6detail4nodeES3_St9_IdentityIS3_ENS2_4lessESaIS3_EE13_Rb_tree_implIS6_Lb1EEE", !111, i64 0, !29, i64 8}
+!111 = !{!"_ZTSSt20_Rb_tree_key_compareIN4YAML6detail4node4lessEE", !112, i64 0}
+!112 = !{!"_ZTSN4YAML6detail4node4lessE"}
+!113 = !{!29, !32, i64 8}
+!114 = !{!30, !32, i64 24}
+!115 = !{!30, !32, i64 16}
+!116 = distinct !{!116, !103, !104}
+!117 = distinct !{!117, !104}
+!118 = distinct !{!118, !103, !104}
+!119 = !{!32, !32, i64 0}
+!120 = distinct !{!120, !103, !104}

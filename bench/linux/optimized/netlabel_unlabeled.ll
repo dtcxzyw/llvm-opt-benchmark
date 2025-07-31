@@ -226,7 +226,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
 82:                                               ; preds = %78, %.preheader
   %83 = load volatile ptr, ptr %74, align 8
   %84 = icmp eq ptr %83, %71
-  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !10
 
 85:                                               ; preds = %78
   %86 = getelementptr i8, ptr %74, i64 -48
@@ -243,7 +243,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %92, label %.thread20, label %93
 
 .thread20:                                        ; preds = %88
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store volatile ptr %48, ptr @netlbl_unlhsh_def, align 8
   br label %.sink.split
 
@@ -263,7 +263,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %98, ptr %94, align 8
   %101 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr %100, ptr %101, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store volatile ptr %94, ptr %100, align 8
   store ptr %94, ptr %99, align 8
   br label %.sink.split
@@ -381,7 +381,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %162, label %163, label %.thread21
 
 163:                                              ; preds = %160
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #10, !srcloc !11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #10, !srcloc !13
   br label %.thread21
 
 .thread23:                                        ; preds = %12, %93, %.thread
@@ -505,7 +505,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
 38:                                               ; preds = %34, %.preheader25
   %39 = load volatile ptr, ptr %30, align 8
   %40 = icmp eq ptr %39, %27
-  br i1 %40, label %.thread, label %.preheader25, !llvm.loop !6
+  br i1 %40, label %.thread, label %.preheader25, !llvm.loop !14
 
 41:                                               ; preds = %11
   %42 = load volatile ptr, ptr @netlbl_unlhsh_def, align 8
@@ -558,7 +558,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 1280
   %67 = load ptr, ptr %66, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, ptr elementtype(i32) %67) #10, !srcloc !12
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, ptr elementtype(i32) %67) #10, !srcloc !15
   br label %68
 
 68:                                               ; preds = %65, %57
@@ -628,7 +628,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
 100:                                              ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 1280
   %102 = load ptr, ptr %101, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %102, ptr elementtype(i32) %102) #10, !srcloc !12
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %102, ptr elementtype(i32) %102) #10, !srcloc !15
   br label %103
 
 103:                                              ; preds = %100, %94
@@ -692,7 +692,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
 132:                                              ; preds = %.preheader22
   %133 = load volatile ptr, ptr %128, align 8
   %134 = icmp eq ptr %133, %125
-  br i1 %134, label %.loopexit23.thread, label %.preheader22, !llvm.loop !13
+  br i1 %134, label %.loopexit23.thread, label %.preheader22, !llvm.loop !16
 
 .loopexit23:                                      ; preds = %.preheader22
   %135 = icmp eq ptr %128, %125
@@ -714,7 +714,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
 143:                                              ; preds = %.preheader
   %144 = load volatile ptr, ptr %139, align 8
   %145 = icmp eq ptr %144, %136
-  br i1 %145, label %.loopexit.thread, label %.preheader, !llvm.loop !14
+  br i1 %145, label %.loopexit.thread, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader
   %146 = icmp eq ptr %139, %136
@@ -753,7 +753,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   br label %160
 
 160:                                              ; preds = %159, %157
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #10, !srcloc !15
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #10, !srcloc !18
   br label %.thread
 
 .thread:                                          ; preds = %38, %46, %16, %160, %121, %.loopexit26, %13
@@ -812,11 +812,11 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlabel_init(i32 noundef 
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %19, %21
-  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader
   tail call void @_raw_spin_lock(ptr noundef nonnull @netlbl_unlhsh_lock) #10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   store volatile ptr %5, ptr @netlbl_unlhsh, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @netlbl_unlhsh_lock) #10
   %23 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @netlbl_unlhsh_netdev_notifier) #10
@@ -867,7 +867,7 @@ define dso_local noundef range(i32 -42, 1) i32 @netlbl_unlabel_getattr(ptr nound
 25:                                               ; preds = %21, %.preheader
   %26 = load volatile ptr, ptr %17, align 8
   %27 = icmp eq ptr %26, %14
-  br i1 %27, label %.thread, label %.preheader, !llvm.loop !6
+  br i1 %27, label %.thread, label %.preheader, !llvm.loop !21
 
 28:                                               ; preds = %21
   %29 = getelementptr i8, ptr %17, i64 -48
@@ -1063,7 +1063,7 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 9:                                                ; preds = %.preheader43
   %10 = load ptr, ptr %5, align 8
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %.loopexit44, label %.preheader43, !llvm.loop !18
+  br i1 %11, label %.loopexit44, label %.preheader43, !llvm.loop !22
 
 .loopexit44:                                      ; preds = %9, %.preheader43, %1
   %12 = phi ptr [ %3, %1 ], [ %10, %9 ], [ %5, %.preheader43 ]
@@ -1081,7 +1081,7 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 19:                                               ; preds = %.preheader40
   %20 = load ptr, ptr %15, align 8
   %21 = icmp eq ptr %20, %2
-  br i1 %21, label %.loopexit41, label %.preheader40, !llvm.loop !18
+  br i1 %21, label %.loopexit41, label %.preheader40, !llvm.loop !23
 
 .loopexit41:                                      ; preds = %19, %.preheader40, %.loopexit44
   %22 = phi ptr [ %13, %.loopexit44 ], [ %20, %19 ], [ %15, %.preheader40 ]
@@ -1109,12 +1109,12 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 34:                                               ; preds = %.preheader35
   %35 = load ptr, ptr %30, align 8
   %36 = icmp eq ptr %35, %2
-  br i1 %36, label %.loopexit36, label %.preheader35, !llvm.loop !18
+  br i1 %36, label %.loopexit36, label %.preheader35, !llvm.loop !24
 
 .loopexit36:                                      ; preds = %34, %.preheader35, %.preheader38
   %37 = phi ptr [ %28, %.preheader38 ], [ %35, %34 ], [ %30, %.preheader35 ]
   %38 = icmp eq ptr %25, %2
-  br i1 %38, label %.loopexit39, label %.preheader38, !llvm.loop !19
+  br i1 %38, label %.loopexit39, label %.preheader38, !llvm.loop !25
 
 .loopexit39:                                      ; preds = %.loopexit36, %.loopexit41
   %39 = getelementptr i8, ptr %0, i64 -40
@@ -1132,7 +1132,7 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 46:                                               ; preds = %.preheader32
   %47 = load ptr, ptr %42, align 8
   %48 = icmp eq ptr %47, %39
-  br i1 %48, label %.loopexit33, label %.preheader32, !llvm.loop !20
+  br i1 %48, label %.loopexit33, label %.preheader32, !llvm.loop !26
 
 .loopexit33:                                      ; preds = %46, %.preheader32, %.loopexit39
   %49 = phi ptr [ %40, %.loopexit39 ], [ %47, %46 ], [ %42, %.preheader32 ]
@@ -1150,7 +1150,7 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 56:                                               ; preds = %.preheader29
   %57 = load ptr, ptr %52, align 8
   %58 = icmp eq ptr %57, %39
-  br i1 %58, label %.loopexit30, label %.preheader29, !llvm.loop !20
+  br i1 %58, label %.loopexit30, label %.preheader29, !llvm.loop !27
 
 .loopexit30:                                      ; preds = %56, %.preheader29, %.loopexit33
   %59 = phi ptr [ %50, %.loopexit33 ], [ %57, %56 ], [ %52, %.preheader29 ]
@@ -1178,12 +1178,12 @@ define internal void @netlbl_unlhsh_free_iface(ptr noundef %0) #0 align 16 {
 71:                                               ; preds = %.preheader
   %72 = load ptr, ptr %67, align 8
   %73 = icmp eq ptr %72, %39
-  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %71, %.preheader, %.preheader27
   %74 = phi ptr [ %65, %.preheader27 ], [ %72, %71 ], [ %67, %.preheader ]
   %75 = icmp eq ptr %62, %39
-  br i1 %75, label %.loopexit28, label %.preheader27, !llvm.loop !21
+  br i1 %75, label %.loopexit28, label %.preheader27, !llvm.loop !29
 
 .loopexit28:                                      ; preds = %.loopexit, %.loopexit30
   %76 = getelementptr i8, ptr %0, i64 -64
@@ -1253,7 +1253,7 @@ define internal i32 @netlbl_unlabel_staticadd(ptr readnone captures(none) %0, pt
   store i32 0, ptr %3, align 4, !annotation !5
   call void @security_current_getsecid_subj(ptr noundef nonnull %4) #10
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !30
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1984
   %41 = load i32, ptr %40, align 64
@@ -1383,7 +1383,7 @@ define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremove(ptr r
 31:                                               ; preds = %28
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %33 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %33 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !30
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1984
   %36 = load i32, ptr %35, align 64
@@ -1535,7 +1535,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 58:                                               ; preds = %.preheader36
   %59 = load volatile ptr, ptr %54, align 8
   %60 = icmp eq ptr %59, %51
-  br i1 %60, label %.loopexit37, label %.preheader36, !llvm.loop !13
+  br i1 %60, label %.loopexit37, label %.preheader36, !llvm.loop !31
 
 .loopexit37:                                      ; preds = %58, %.preheader36, %50
   %61 = phi ptr [ %52, %50 ], [ %59, %58 ], [ %54, %.preheader36 ]
@@ -1574,12 +1574,12 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 80:                                               ; preds = %.preheader26
   %81 = load volatile ptr, ptr %76, align 8
   %82 = icmp eq ptr %81, %51
-  br i1 %82, label %.loopexit27, label %.preheader26, !llvm.loop !13
+  br i1 %82, label %.loopexit27, label %.preheader26, !llvm.loop !32
 
 .loopexit27:                                      ; preds = %80, %.preheader26, %73
   %83 = phi ptr [ %74, %73 ], [ %81, %80 ], [ %76, %.preheader26 ]
   %84 = icmp eq ptr %83, %51
-  br i1 %84, label %.loopexit35, label %.preheader34, !llvm.loop !23
+  br i1 %84, label %.loopexit35, label %.preheader34, !llvm.loop !33
 
 .loopexit35:                                      ; preds = %.loopexit27, %.loopexit37
   %85 = getelementptr i8, ptr %39, i64 -24
@@ -1597,7 +1597,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 92:                                               ; preds = %.preheader31
   %93 = load volatile ptr, ptr %88, align 8
   %94 = icmp eq ptr %93, %85
-  br i1 %94, label %.loopexit32, label %.preheader31, !llvm.loop !14
+  br i1 %94, label %.loopexit32, label %.preheader31, !llvm.loop !34
 
 .loopexit32:                                      ; preds = %92, %.preheader31, %.loopexit35
   %95 = phi ptr [ %86, %.loopexit35 ], [ %93, %92 ], [ %88, %.preheader31 ]
@@ -1636,12 +1636,12 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 114:                                              ; preds = %.preheader
   %115 = load volatile ptr, ptr %110, align 8
   %116 = icmp eq ptr %115, %85
-  br i1 %116, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %116, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %114, %.preheader, %107
   %117 = phi ptr [ %108, %107 ], [ %115, %114 ], [ %110, %.preheader ]
   %118 = icmp eq ptr %117, %85
-  br i1 %118, label %.loopexit30, label %.preheader29, !llvm.loop !24
+  br i1 %118, label %.loopexit30, label %.preheader29, !llvm.loop !36
 
 .loopexit30:                                      ; preds = %.loopexit, %.loopexit32, %47, %.preheader39
   %119 = phi i32 [ %42, %47 ], [ %42, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
@@ -1649,7 +1649,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %121 = phi i32 [ %40, %47 ], [ %40, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
   %122 = load volatile ptr, ptr %39, align 8
   %123 = icmp eq ptr %122, %36
-  br i1 %123, label %.loopexit40, label %.preheader39, !llvm.loop !25
+  br i1 %123, label %.loopexit40, label %.preheader39, !llvm.loop !37
 
 .loopexit40:                                      ; preds = %.loopexit30, %29
   %124 = phi i32 [ %33, %29 ], [ %119, %.loopexit30 ]
@@ -1660,7 +1660,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   %131 = icmp samesign ult i64 %126, %130
-  br i1 %131, label %29, label %.loopexit41, !llvm.loop !26
+  br i1 %131, label %29, label %.loopexit41, !llvm.loop !38
 
 .loopexit41:                                      ; preds = %.loopexit40, %105, %71, %2
   %132 = phi i64 [ %30, %71 ], [ %30, %105 ], [ %6, %2 ], [ %126, %.loopexit40 ]
@@ -1730,7 +1730,7 @@ define internal i32 @netlbl_unlabel_staticadddef(ptr readnone captures(none) %0,
   store i32 0, ptr %3, align 4, !annotation !5
   call void @security_current_getsecid_subj(ptr noundef nonnull %4) #10
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %34 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %34 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !30
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1984
   %37 = load i32, ptr %36, align 64
@@ -1851,7 +1851,7 @@ define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremovedef(pt
 27:                                               ; preds = %24
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !30
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1984
   %32 = load i32, ptr %31, align 64
@@ -1960,7 +1960,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 25:                                               ; preds = %.preheader30
   %26 = load volatile ptr, ptr %21, align 8
   %27 = icmp eq ptr %26, %18
-  br i1 %27, label %.loopexit31, label %.preheader30, !llvm.loop !13
+  br i1 %27, label %.loopexit31, label %.preheader30, !llvm.loop !39
 
 .loopexit31:                                      ; preds = %25, %.preheader30, %17
   %28 = phi ptr [ %19, %17 ], [ %26, %25 ], [ %21, %.preheader30 ]
@@ -2001,12 +2001,12 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 50:                                               ; preds = %.preheader25
   %51 = load volatile ptr, ptr %46, align 8
   %52 = icmp eq ptr %51, %18
-  br i1 %52, label %.loopexit26, label %.preheader25, !llvm.loop !13
+  br i1 %52, label %.loopexit26, label %.preheader25, !llvm.loop !40
 
 .loopexit26:                                      ; preds = %50, %.preheader25, %43
   %53 = phi ptr [ %44, %43 ], [ %51, %50 ], [ %46, %.preheader25 ]
   %54 = icmp eq ptr %53, %18
-  br i1 %54, label %.loopexit29, label %32, !llvm.loop !27
+  br i1 %54, label %.loopexit29, label %32, !llvm.loop !41
 
 .loopexit29:                                      ; preds = %.loopexit26, %.loopexit31
   %55 = phi i32 [ 0, %.loopexit31 ], [ %35, %.loopexit26 ]
@@ -2025,7 +2025,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 63:                                               ; preds = %.preheader22
   %64 = load volatile ptr, ptr %59, align 8
   %65 = icmp eq ptr %64, %56
-  br i1 %65, label %.loopexit23, label %.preheader22, !llvm.loop !14
+  br i1 %65, label %.loopexit23, label %.preheader22, !llvm.loop !42
 
 .loopexit23:                                      ; preds = %63, %.preheader22, %.loopexit29
   %66 = phi ptr [ %57, %.loopexit29 ], [ %64, %63 ], [ %59, %.preheader22 ]
@@ -2066,16 +2066,16 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 88:                                               ; preds = %.preheader
   %89 = load volatile ptr, ptr %84, align 8
   %90 = icmp eq ptr %89, %56
-  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %90, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %88, %.preheader, %81
   %91 = phi ptr [ %82, %81 ], [ %89, %88 ], [ %84, %.preheader ]
   %92 = icmp eq ptr %91, %56
-  br i1 %92, label %.loopexit._crit_edge, label %70, !llvm.loop !28
+  br i1 %92, label %.loopexit._crit_edge, label %70, !llvm.loop !44
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = zext i32 %73 to i64
-  br label %.loopexit28, !llvm.loop !28
+  br label %.loopexit28, !llvm.loop !44
 
 .loopexit28:                                      ; preds = %39, %77, %.loopexit._crit_edge, %.loopexit23, %13, %2
   %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ %74, %77 ], [ 0, %39 ]
@@ -2113,7 +2113,7 @@ define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_accept(ptr readnon
 13:                                               ; preds = %9
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %15 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !30
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1984
   %18 = load i32, ptr %17, align 64
@@ -2242,7 +2242,7 @@ define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef range(i32 
   %33 = tail call i32 @nla_put(ptr noundef %28, i32 noundef 6, i32 noundef %32, ptr noundef nonnull %29) #10
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 1280
   %35 = load ptr, ptr %34, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #10, !srcloc !12
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #10, !srcloc !15
   %36 = icmp eq i32 %33, 0
   br i1 %36, label %37, label %.thread
 
@@ -2334,12 +2334,12 @@ define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef range(i32 
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 200
   %93 = load ptr, ptr %92, align 8
   %94 = icmp ugt ptr %93, %89
-  br i1 %94, label %95, label %96, !prof !29
+  br i1 %94, label %95, label %96, !prof !45
 
 95:                                               ; preds = %91
-  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #10, !srcloc !30
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #10, !srcloc !31
-  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #10, !srcloc !32
+  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #10, !srcloc !46
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #10, !srcloc !47
+  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #10, !srcloc !48
   %.pre = load ptr, ptr %92, align 8
   br label %96
 
@@ -2435,7 +2435,7 @@ define internal noundef i32 @netlbl_unlhsh_netdev_handler(ptr readnone captures(
 31:                                               ; preds = %27, %.preheader
   %32 = load volatile ptr, ptr %23, align 8
   %33 = icmp eq ptr %32, %20
-  br i1 %33, label %.thread6, label %.preheader, !llvm.loop !6
+  br i1 %33, label %.thread6, label %.preheader, !llvm.loop !49
 
 34:                                               ; preds = %27
   %35 = getelementptr i8, ptr %23, i64 -48
@@ -2491,30 +2491,47 @@ attributes #13 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 2159039421}
-!10 = !{i64 2150953553}
-!11 = !{i64 2147841121, i64 2147841160, i64 2147841181, i64 2147841218, i64 2147841241, i64 2147841111}
-!12 = !{i64 2156831588}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i64 2147841488, i64 2147841527, i64 2147841548, i64 2147841585, i64 2147841608, i64 2147841478}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i64 2159129294}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = !{i64 2148655608}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = !{!"branch_weights", i32 1, i32 2000}
-!30 = !{i64 2157309018, i64 2157308827, i64 2157308879, i64 2157308925, i64 2157308953}
-!31 = !{i64 2157309092, i64 2157309121, i64 2157309167, i64 2157309225, i64 2157309279, i64 2157309333, i64 2157309388, i64 2157309419, i64 2157309727, i64 2157309733, i64 2157309780, i64 2157309803, i64 2157309829}
-!32 = !{i64 2157310284, i64 2157310095, i64 2157310145, i64 2157310191, i64 2157310219}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = !{i64 2159039421}
+!12 = !{i64 2150953553}
+!13 = !{i64 2147841121, i64 2147841160, i64 2147841181, i64 2147841218, i64 2147841241, i64 2147841111}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = !{i64 2156831588}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = !{i64 2147841488, i64 2147841527, i64 2147841548, i64 2147841585, i64 2147841608, i64 2147841478}
+!19 = distinct !{!19, !7, !8, !9}
+!20 = !{i64 2159129294}
+!21 = distinct !{!21, !7, !8, !9}
+!22 = distinct !{!22, !7, !8, !9}
+!23 = distinct !{!23, !7, !8, !9}
+!24 = distinct !{!24, !7, !8, !9}
+!25 = distinct !{!25, !7, !8, !9}
+!26 = distinct !{!26, !7, !8, !9}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = !{i64 2148655608}
+!31 = distinct !{!31, !7, !8, !9}
+!32 = distinct !{!32, !7, !8, !9}
+!33 = distinct !{!33, !7, !8, !9}
+!34 = distinct !{!34, !7, !8, !9}
+!35 = distinct !{!35, !7, !8, !9}
+!36 = distinct !{!36, !7, !8, !9}
+!37 = distinct !{!37, !7, !8, !9}
+!38 = distinct !{!38, !7, !8, !9}
+!39 = distinct !{!39, !7, !8, !9}
+!40 = distinct !{!40, !7, !8, !9}
+!41 = distinct !{!41, !7, !8, !9}
+!42 = distinct !{!42, !7, !8, !9}
+!43 = distinct !{!43, !7, !8, !9}
+!44 = distinct !{!44, !7, !8, !9}
+!45 = !{!"branch_weights", i32 1, i32 2000}
+!46 = !{i64 2157309018, i64 2157308827, i64 2157308879, i64 2157308925, i64 2157308953}
+!47 = !{i64 2157309092, i64 2157309121, i64 2157309167, i64 2157309225, i64 2157309279, i64 2157309333, i64 2157309388, i64 2157309419, i64 2157309727, i64 2157309733, i64 2157309780, i64 2157309803, i64 2157309829}
+!48 = !{i64 2157310284, i64 2157310095, i64 2157310145, i64 2157310191, i64 2157310219}
+!49 = distinct !{!49, !7, !8, !9}

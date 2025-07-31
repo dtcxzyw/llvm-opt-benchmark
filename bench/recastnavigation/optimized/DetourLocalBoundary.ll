@@ -310,14 +310,14 @@ _ZN15dtLocalBoundary10addSegmentEfPKf.exit:       ; preds = %78, %74, %50, %.lr.
   %80 = load i32, ptr %8, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN15dtLocalBoundary10addSegmentEfPKf.exit, %31
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %83 = load i32, ptr %24, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next33, %84
-  br i1 %85, label %31, label %.loopexit, !llvm.loop !7
+  br i1 %85, label %31, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %15, %10
   ret void
@@ -349,7 +349,7 @@ define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQ
   %9 = load i32, ptr %4, align 4
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %12, label %.loopexit, !llvm.loop !8
+  br i1 %11, label %12, label %.loopexit, !llvm.loop !9
 
 12:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -381,8 +381,9 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

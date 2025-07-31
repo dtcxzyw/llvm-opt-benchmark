@@ -439,7 +439,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %225 = load i32, ptr %20, align 4, !tbaa !3
   %226 = sext i32 %225 to i64
   %.not997.not = icmp sgt i64 %indvars.iv, %226
-  br i1 %.not997.not, label %221, label %._crit_edge1055.loopexit, !llvm.loop !12
+  br i1 %.not997.not, label %221, label %._crit_edge1055.loopexit, !llvm.loop !13
 
 ._crit_edge1055.loopexit:                         ; preds = %221
   %.pre = load i32, ptr %36, align 4, !tbaa !3
@@ -511,7 +511,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %261, ptr %254, align 8, !tbaa !7
   %indvars.iv.next1326 = add nsw i64 %indvars.iv1325, 1
   %.not1014.not = icmp slt i64 %indvars.iv.next1326, %252
-  br i1 %.not1014.not, label %.lr.ph1059, label %._crit_edge1060, !llvm.loop !13
+  br i1 %.not1014.not, label %.lr.ph1059, label %._crit_edge1060, !llvm.loop !14
 
 ._crit_edge1060:                                  ; preds = %.lr.ph1059
   store double %253, ptr %29, align 8, !tbaa !7
@@ -522,7 +522,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %263 = add i32 %.01063, %241
   %indvars.iv.next1329 = add nsw i64 %indvars.iv1328, -1
   %.not998.not = icmp sgt i64 %indvars.iv1328, %244
-  br i1 %.not998.not, label %246, label %._crit_edge1066, !llvm.loop !14
+  br i1 %.not998.not, label %246, label %._crit_edge1066, !llvm.loop !15
 
 ._crit_edge1066:                                  ; preds = %262
   %264 = trunc nsw i64 %indvars.iv.next1331 to i32
@@ -610,7 +610,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %301, ptr %294, align 8, !tbaa !7
   %indvars.iv.next1336 = add nsw i64 %indvars.iv1335, 1
   %.not1013.not = icmp slt i64 %indvars.iv.next1336, %292
-  br i1 %.not1013.not, label %.lr.ph1074, label %._crit_edge1075, !llvm.loop !15
+  br i1 %.not1013.not, label %.lr.ph1074, label %._crit_edge1075, !llvm.loop !16
 
 ._crit_edge1075:                                  ; preds = %.lr.ph1074
   store double %293, ptr %29, align 8, !tbaa !7
@@ -620,7 +620,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1345 = add nsw i64 %indvars.iv1344, 1
   %303 = add i32 %.11080, %279
   %.not1012.not = icmp sgt i64 %indvars.iv.next1343, %286
-  br i1 %.not1012.not, label %.lr.ph1083, label %._crit_edge1084, !llvm.loop !16
+  br i1 %.not1012.not, label %.lr.ph1083, label %._crit_edge1084, !llvm.loop !17
 
 ._crit_edge1084:                                  ; preds = %302
   %304 = add nsw i32 %290, -1
@@ -639,7 +639,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %310 = icmp sge i64 %215, %308
   %.in999 = select i1 %266, i1 %309, i1 %310
   %indvars.iv.next1341 = sub i32 %indvars.iv1340, %228
-  br i1 %.in999, label %284, label %._crit_edge1097, !llvm.loop !17
+  br i1 %.in999, label %284, label %._crit_edge1097, !llvm.loop !18
 
 ._crit_edge1097:                                  ; preds = %306
   store i32 %.lcssa10881098, ptr %37, align 4, !tbaa !3
@@ -713,7 +713,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %337 = call double @llvm.fmuladd.f64(double %331, double %store_forwarded, double %336)
   store double %337, ptr %gep1532, align 8, !tbaa !7
   %.not1011.not = icmp sgt i64 %indvars.iv1349, %215
-  br i1 %.not1011.not, label %329, label %._crit_edge1103, !llvm.loop !18
+  br i1 %.not1011.not, label %329, label %._crit_edge1103, !llvm.loop !19
 
 ._crit_edge1103:                                  ; preds = %329
   store double %330, ptr %30, align 8, !tbaa !7
@@ -762,7 +762,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %361 = sext i32 %360 to i64
   %.not1001.not = icmp sgt i64 %indvars.iv1352, %361
   %indvar.next = add i64 %indvar, 1
-  br i1 %.not1001.not, label %319, label %._crit_edge1111.loopexit, !llvm.loop !19
+  br i1 %.not1001.not, label %319, label %._crit_edge1111.loopexit, !llvm.loop !20
 
 ._crit_edge1111.loopexit:                         ; preds = %359
   %.pre1470 = load i32, ptr %4, align 4, !tbaa !3
@@ -807,7 +807,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %379
   %indvars.iv.next1361 = add nsw i64 %indvars.iv1360, -3
   %.not1002.not = icmp sgt i64 %indvars.iv.next1361, %376
-  br i1 %.not1002.not, label %379, label %._crit_edge1123, !llvm.loop !20
+  br i1 %.not1002.not, label %379, label %._crit_edge1123, !llvm.loop !21
 
 379:                                              ; preds = %.lr.ph1122, %.loopexit
   %indvars.iv1360 = phi i64 [ %375, %.lr.ph1122 ], [ %indvars.iv.next1361, %.loopexit ]
@@ -883,7 +883,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %426 = call double @llvm.fmuladd.f64(double %386, double %422, double %425)
   store double %426, ptr %gep1538, align 8, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next1356, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %410, !llvm.loop !21
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %410, !llvm.loop !22
 
 ._crit_edge1123:                                  ; preds = %.loopexit
   store double %383, ptr %30, align 8, !tbaa !7
@@ -934,7 +934,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @drot_(ptr noundef nonnull %21, ptr noundef %446, ptr noundef nonnull @c__1, ptr noundef %450, ptr noundef nonnull @c__1, ptr noundef %452, ptr noundef nonnull %25) #5
   %indvars.iv.next1364 = add nsw i64 %indvars.iv1363, -1
   %453 = icmp samesign ugt i64 %indvars.iv1363, 1
-  br i1 %453, label %432, label %.loopexit1040, !llvm.loop !22
+  br i1 %453, label %432, label %.loopexit1040, !llvm.loop !23
 
 .loopexit1040:                                    ; preds = %432, %427
   %454 = load i32, ptr %36, align 4, !tbaa !3
@@ -985,7 +985,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1372 = add nsw i64 %indvars.iv1371, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1372 to i32
   %exitcond1376.not = icmp eq i32 %479, %lftr.wideiv
-  br i1 %exitcond1376.not, label %._crit_edge1145, label %.lr.ph1144, !llvm.loop !23
+  br i1 %exitcond1376.not, label %._crit_edge1145, label %.lr.ph1144, !llvm.loop !24
 
 ._crit_edge1145:                                  ; preds = %.lr.ph1144, %458
   %482 = sub nsw i32 %470, %468
@@ -1039,7 +1039,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1383 = add nsw i64 %indvars.iv1382, 1
   %lftr.wideiv1387 = trunc i64 %indvars.iv.next1383 to i32
   %exitcond1388.not = icmp eq i32 %508, %lftr.wideiv1387
-  br i1 %exitcond1388.not, label %._crit_edge1151, label %.lr.ph1150, !llvm.loop !24
+  br i1 %exitcond1388.not, label %._crit_edge1151, label %.lr.ph1150, !llvm.loop !25
 
 ._crit_edge1151:                                  ; preds = %.lr.ph1150, %._crit_edge1145
   %511 = load i32, ptr %36, align 4, !tbaa !3
@@ -1089,7 +1089,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1393 = add nsw i64 %indvars.iv1392, 1
   %indvars.iv.next1395 = add nsw i64 %indvars.iv1394, 1
   %.not1006.not = icmp slt i64 %indvars.iv.next1395, %526
-  br i1 %.not1006.not, label %.lr.ph1156, label %._crit_edge1157, !llvm.loop !25
+  br i1 %.not1006.not, label %.lr.ph1156, label %._crit_edge1157, !llvm.loop !26
 
 ._crit_edge1157:                                  ; preds = %.lr.ph1156, %.lr.ph1174
   %.not1007.not1158 = icmp sgt i32 %521, 0
@@ -1111,7 +1111,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1403 = add nsw i64 %indvars.iv1402, 1
   %indvars.iv.next1405 = add nsw i64 %indvars.iv1404, 1
   %.not1007.not = icmp slt i64 %indvars.iv.next1405, %531
-  br i1 %.not1007.not, label %.lr.ph1162, label %._crit_edge1163, !llvm.loop !26
+  br i1 %.not1007.not, label %.lr.ph1162, label %._crit_edge1163, !llvm.loop !27
 
 ._crit_edge1163:                                  ; preds = %.lr.ph1162, %._crit_edge1157
   %534 = shl i32 %520, 1
@@ -1180,7 +1180,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1413 = add nsw i64 %indvars.iv1412, 1
   %indvars.iv.next1415 = add nsw i64 %indvars.iv1414, 1
   %exitcond1420.not = icmp eq i64 %indvars.iv.next1415, %wide.trip.count1419
-  br i1 %exitcond1420.not, label %._crit_edge1169, label %.lr.ph1168, !llvm.loop !27
+  br i1 %exitcond1420.not, label %._crit_edge1169, label %.lr.ph1168, !llvm.loop !28
 
 ._crit_edge1169:                                  ; preds = %.lr.ph1168, %._crit_edge1163
   %576 = shl i32 %571, 2
@@ -1193,7 +1193,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %583 = icmp sge i32 %580, %582
   %584 = icmp sle i32 %580, %582
   %.in1005 = select i1 %581, i1 %583, i1 %584
-  br i1 %.in1005, label %.lr.ph1174, label %.loopexit1039, !llvm.loop !28
+  br i1 %.in1005, label %.lr.ph1174, label %.loopexit1039, !llvm.loop !29
 
 .loopexit1039:                                    ; preds = %._crit_edge1169, %._crit_edge1151, %.loopexit1040
   %585 = phi i32 [ %511, %._crit_edge1151 ], [ %454, %.loopexit1040 ], [ %571, %._crit_edge1169 ]
@@ -1202,7 +1202,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not982.not = icmp slt i64 %indvars.iv1421, %587
   %indvars.iv.next1339 = add i32 %indvars.iv1338, 1
   %indvars.iv.next1359 = add i32 %indvars.iv1358, -1
-  br i1 %.not982.not, label %213, label %._crit_edge1181, !llvm.loop !29
+  br i1 %.not982.not, label %213, label %._crit_edge1181, !llvm.loop !30
 
 ._crit_edge1181:                                  ; preds = %.loopexit1039, %._crit_edge
   %588 = phi i32 [ %202, %._crit_edge ], [ %585, %.loopexit1039 ]
@@ -1305,7 +1305,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %655 = icmp sge i32 %652, %654
   %656 = icmp sle i32 %652, %654
   %.in983 = select i1 %653, i1 %655, i1 %656
-  br i1 %.in983, label %618, label %._crit_edge1187, !llvm.loop !30
+  br i1 %.in983, label %618, label %._crit_edge1187, !llvm.loop !31
 
 ._crit_edge1187:                                  ; preds = %646, %._crit_edge1181
   br i1 %63, label %657, label %.loopexit1044
@@ -1422,7 +1422,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %721 = icmp sge i32 %718, %720
   %722 = icmp sle i32 %718, %720
   %.in985 = select i1 %719, i1 %721, i1 %722
-  br i1 %.in985, label %684, label %.loopexit1044, !llvm.loop !31
+  br i1 %.in985, label %684, label %.loopexit1044, !llvm.loop !32
 
 .loopexit1044:                                    ; preds = %712, %670, %._crit_edge1187
   %723 = load i32, ptr %38, align 4
@@ -1457,7 +1457,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %737 = add nuw nsw i32 %.121195, 1
   %738 = load i32, ptr %19, align 4, !tbaa !3
   %.not986.not = icmp slt i32 %.121195, %738
-  br i1 %.not986.not, label %.lr.ph1198, label %._crit_edge1199, !llvm.loop !32
+  br i1 %.not986.not, label %.lr.ph1198, label %._crit_edge1199, !llvm.loop !33
 
 ._crit_edge1199:                                  ; preds = %.lr.ph1198, %725
   %739 = phi i32 [ %.pre1473, %725 ], [ %733, %.lr.ph1198 ]
@@ -1551,7 +1551,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %785, ptr %778, align 8, !tbaa !7
   %indvars.iv.next1425 = add nsw i64 %indvars.iv1424, 1
   %.not996.not = icmp slt i64 %indvars.iv.next1425, %776
-  br i1 %.not996.not, label %.lr.ph1204, label %._crit_edge1205, !llvm.loop !33
+  br i1 %.not996.not, label %.lr.ph1204, label %._crit_edge1205, !llvm.loop !34
 
 ._crit_edge1205:                                  ; preds = %.lr.ph1204
   store double %777, ptr %29, align 8, !tbaa !7
@@ -1562,7 +1562,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %787 = add i32 %.71210, %749
   %indvars.iv.next1430 = add nsw i64 %indvars.iv1429, -1
   %.not992.not = icmp sgt i64 %indvars.iv1429, %771
-  br i1 %.not992.not, label %772, label %._crit_edge1213, !llvm.loop !34
+  br i1 %.not992.not, label %772, label %._crit_edge1213, !llvm.loop !35
 
 ._crit_edge1213:                                  ; preds = %786
   %788 = trunc nsw i64 %indvars.iv.next1434 to i32
@@ -1634,7 +1634,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %810, ptr %804, align 8, !tbaa !7
   %indvars.iv.next1439 = add nsw i64 %indvars.iv1438, 1
   %.not995.not = icmp slt i64 %indvars.iv.next1439, %802
-  br i1 %.not995.not, label %.lr.ph1221, label %._crit_edge1222, !llvm.loop !35
+  br i1 %.not995.not, label %.lr.ph1221, label %._crit_edge1222, !llvm.loop !36
 
 ._crit_edge1222:                                  ; preds = %.lr.ph1221
   store double %803, ptr %29, align 8, !tbaa !7
@@ -1645,7 +1645,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %812 = add i32 %.81227, %753
   %lftr.wideiv1462 = trunc i64 %indvars.iv.next1456 to i32
   %exitcond1463.not = icmp eq i32 %indvars.iv1460, %lftr.wideiv1462
-  br i1 %exitcond1463.not, label %._crit_edge1231, label %.lr.ph1230, !llvm.loop !36
+  br i1 %exitcond1463.not, label %._crit_edge1231, label %.lr.ph1230, !llvm.loop !37
 
 ._crit_edge1231:                                  ; preds = %811
   %813 = add nsw i32 %800, -1
@@ -1661,7 +1661,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %816 = sext i32 %.2928 to i64
   %.not1293 = icmp sgt i64 %764, %816
   %indvars.iv.next1452 = sub i32 %indvars.iv1451, %739
-  br i1 %.not1293, label %._crit_edge1246, label %795, !llvm.loop !37
+  br i1 %.not1293, label %._crit_edge1246, label %795, !llvm.loop !38
 
 ._crit_edge1246:                                  ; preds = %814
   store i32 %.29281243, ptr %20, align 4, !tbaa !3
@@ -1674,7 +1674,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1432 = add i32 %indvars.iv1431, 1
   %indvars.iv.next1450 = add i32 %indvars.iv1449, 1
   %indvars.iv.next1461 = add i32 %indvars.iv1460, 1
-  br i1 %.not987.not, label %762, label %..loopexit1043_crit_edge, !llvm.loop !38
+  br i1 %.not987.not, label %762, label %..loopexit1043_crit_edge, !llvm.loop !39
 
 818:                                              ; preds = %.loopexit1044
   %819 = load i32, ptr %4, align 4, !tbaa !3
@@ -1785,7 +1785,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %878 = icmp sge i32 %875, %877
   %879 = icmp sle i32 %875, %877
   %.in988 = select i1 %876, i1 %878, i1 %879
-  br i1 %.in988, label %854, label %._crit_edge1270.loopexit, !llvm.loop !39
+  br i1 %.in988, label %854, label %._crit_edge1270.loopexit, !llvm.loop !40
 
 ._crit_edge1270.loopexit:                         ; preds = %869
   %.pre1474 = load i32, ptr %32, align 4, !tbaa !3
@@ -1864,7 +1864,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %919 = icmp sge i32 %916, %918
   %920 = icmp sle i32 %916, %918
   %.in989 = select i1 %917, i1 %919, i1 %920
-  br i1 %.in989, label %895, label %.loopexit1042, !llvm.loop !40
+  br i1 %.in989, label %895, label %.loopexit1042, !llvm.loop !41
 
 .loopexit1042:                                    ; preds = %910, %._crit_edge1270, %.loopexit1043
   br i1 %69, label %921, label %.loopexit1041
@@ -1983,12 +1983,12 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %987 = icmp sge i32 %984, %986
   %988 = icmp sle i32 %984, %986
   %.in991 = select i1 %985, i1 %987, i1 %988
-  br i1 %.in991, label %950, label %.loopexit1041, !llvm.loop !41
+  br i1 %.in991, label %950, label %.loopexit1041, !llvm.loop !42
 
 .loopexit1041:                                    ; preds = %978, %934, %.loopexit1042
   %989 = load i32, ptr %18, align 4, !tbaa !3
   %990 = add nsw i32 %173, %989
-  br label %171, !llvm.loop !42
+  br label %171, !llvm.loop !43
 
 .loopexit1045:                                    ; preds = %176, %177
   %.pre1475 = load i32, ptr %3, align 4, !tbaa !3
@@ -2116,36 +2116,37 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}
-!34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11}
-!36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11}
-!38 = distinct !{!38, !11}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = distinct !{!35, !11, !12}
+!36 = distinct !{!36, !11, !12}
+!37 = distinct !{!37, !11, !12}
+!38 = distinct !{!38, !11, !12}
+!39 = distinct !{!39, !11, !12}
+!40 = distinct !{!40, !11, !12}
+!41 = distinct !{!41, !11, !12}
+!42 = distinct !{!42, !11, !12}
+!43 = distinct !{!43, !11, !12}

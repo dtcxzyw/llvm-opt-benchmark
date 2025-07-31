@@ -104,7 +104,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   %40 = load i32, ptr %4, align 4, !tbaa !10
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next63, %41
-  br i1 %42, label %.lr.ph54, label %._crit_edge55, !llvm.loop !14
+  br i1 %42, label %.lr.ph54, label %._crit_edge55, !llvm.loop !15
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %._crit_edge.thread
   %43 = icmp eq i32 %0, 2
@@ -125,7 +125,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #9
   %47 = add nuw nsw i32 %.256, 1
   %exitcond65.not = icmp eq i32 %47, %0
-  br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
+  br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !16
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %45
   %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #9
@@ -225,7 +225,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.pr
   store double %29, ptr %30, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %gv_calloc.exit50._crit_edge, label %gv_calloc.exit50, !llvm.loop !16
+  br i1 %exitcond.not, label %gv_calloc.exit50._crit_edge, label %gv_calloc.exit50, !llvm.loop !17
 
 gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %gv_calloc.exit50.preheader
   %31 = tail call ptr @UG_graph(ptr noundef %11, ptr noundef %17, i32 noundef %0) #9
@@ -239,7 +239,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 .preheader51:                                     ; preds = %.preheader51.preheader, %._crit_edge
   %indvars.iv66 = phi i64 [ 0, %.preheader51.preheader ], [ %indvars.iv.next67, %._crit_edge ]
   %33 = getelementptr inbounds nuw %struct.v_data, ptr %31, i64 %indvars.iv66
-  %34 = load i32, ptr %33, align 8, !tbaa !17
+  %34 = load i32, ptr %33, align 8, !tbaa !18
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %.lr.ph54, label %._crit_edge
 
@@ -254,27 +254,27 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 38:                                               ; preds = %.lr.ph54, %38
   %indvars.iv63 = phi i64 [ 1, %.lr.ph54 ], [ %indvars.iv.next64, %38 ]
-  %39 = load ptr, ptr %36, align 8, !tbaa !21
+  %39 = load ptr, ptr %36, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv63
   %41 = load i32, ptr %40, align 4, !tbaa !10
   %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #9
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %43 = load i32, ptr %33, align 8, !tbaa !17
+  %43 = load i32, ptr %33, align 8, !tbaa !18
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next64, %44
-  br i1 %45, label %38, label %._crit_edge, !llvm.loop !22
+  br i1 %45, label %38, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %38, %.preheader51
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.lr.ph57.preheader, label %.preheader51, !llvm.loop !23
+  br i1 %exitcond70.not, label %.lr.ph57.preheader, label %.preheader51, !llvm.loop !24
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %.256 = phi i32 [ %47, %.lr.ph57 ], [ 0, %.lr.ph57.preheader ]
   %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %4) #9
   %47 = add nuw nsw i32 %.256, 1
   %exitcond72.not = icmp eq i32 %47, %smax71
-  br i1 %exitcond72.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !24
+  br i1 %exitcond72.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !25
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %gv_calloc.exit50._crit_edge
   %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #9
@@ -339,16 +339,17 @@ attributes #13 = { cold noreturn nounwind }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!18, !11, i64 0}
-!18 = !{!"", !11, i64 0, !19, i64 8, !20, i64 16}
-!19 = !{!"p1 int", !9, i64 0}
-!20 = !{!"p1 float", !9, i64 0}
-!21 = !{!18, !19, i64 8}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = !{!19, !11, i64 0}
+!19 = !{!"", !11, i64 0, !20, i64 8, !21, i64 16}
+!20 = !{!"p1 int", !9, i64 0}
+!21 = !{!"p1 float", !9, i64 0}
+!22 = !{!19, !20, i64 8}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14}

@@ -273,12 +273,12 @@ define internal i32 @smjpeg_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %22 = tail call i32 @av_get_packet(ptr noundef %21, ptr noundef %1, i32 noundef %20) #5
   %23 = load i32, ptr %4, align 4, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %23, ptr %24, align 4, !tbaa !53
+  store i32 %23, ptr %24, align 4, !tbaa !54
   %25 = zext i32 %18 to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %25, ptr %26, align 8, !tbaa !54
+  store i64 %25, ptr %26, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %10, ptr %27, align 8, !tbaa !55
+  store i64 %10, ptr %27, align 8, !tbaa !56
   br label %45
 
 28:                                               ; preds = %8
@@ -296,12 +296,12 @@ define internal i32 @smjpeg_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %38 = tail call i32 @av_get_packet(ptr noundef %37, ptr noundef %1, i32 noundef %36) #5
   %39 = load i32, ptr %29, align 4, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %39, ptr %40, align 4, !tbaa !53
+  store i32 %39, ptr %40, align 4, !tbaa !54
   %41 = zext i32 %34 to i64
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %41, ptr %42, align 8, !tbaa !54
+  store i64 %41, ptr %42, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %10, ptr %43, align 8, !tbaa !55
+  store i64 %10, ptr %43, align 8, !tbaa !56
   br label %45
 
 44:                                               ; preds = %8
@@ -416,8 +416,9 @@ attributes #5 = { nounwind }
 !48 = !{!32, !21, i64 56}
 !49 = !{!39, !10, i64 72}
 !50 = !{!39, !10, i64 76}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!35, !10, i64 36}
-!54 = !{!35, !21, i64 8}
-!55 = !{!35, !21, i64 72}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!35, !10, i64 36}
+!55 = !{!35, !21, i64 8}
+!56 = !{!35, !21, i64 72}

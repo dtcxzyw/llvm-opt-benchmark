@@ -117,5 +117,6 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!"p1 _ZTSN4llvm17ManagedStaticBaseE", !7, i64 0}
 !11 = !{!10, !10, i64 0}
 !12 = !{!4, !10, i64 16}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}

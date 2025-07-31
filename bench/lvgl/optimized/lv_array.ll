@@ -21,7 +21,7 @@ define void @lv_array_init(ptr noundef writeonly captures(none) initializes((0, 
   br i1 %.not, label %.preheader, label %11
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !15
 
 11:                                               ; preds = %3
   ret void
@@ -35,7 +35,7 @@ define void @lv_array_init_from_buf(ptr noundef writeonly captures(none) %0, ptr
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -58,7 +58,7 @@ define void @lv_array_deinit(ptr noundef captures(none) initializes((8, 16)) %0)
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !14, !range !15, !noundef !16
+  %5 = load i8, ptr %4, align 4, !tbaa !14, !range !18, !noundef !19
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -94,7 +94,7 @@ define void @lv_array_copy(ptr noundef captures(none) %0, ptr noundef readonly c
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i8, ptr %9, align 4, !tbaa !14, !range !15, !noundef !16
+  %10 = load i8, ptr %9, align 4, !tbaa !14, !range !18, !noundef !19
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %13
 
@@ -128,7 +128,7 @@ lv_array_deinit.exit:                             ; preds = %6, %13
   br i1 %.not.i11, label %.preheader.i, label %lv_array_init.exit
 
 .preheader.i:                                     ; preds = %lv_array_deinit.exit, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !15
 
 lv_array_init.exit:                               ; preds = %lv_array_deinit.exit
   %25 = load ptr, ptr %1, align 8, !tbaa !13
@@ -167,7 +167,7 @@ define void @lv_array_shrink(ptr noundef captures(none) %0) local_unnamed_addr #
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i8, ptr %8, align 4, !tbaa !14, !range !15, !noundef !16
+  %9 = load i8, ptr %8, align 4, !tbaa !14, !range !18, !noundef !19
   %.not4 = icmp eq i8 %9, 0
   br i1 %.not4, label %lv_array_resize.exit, label %10
 
@@ -182,7 +182,7 @@ define void @lv_array_shrink(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not.i, label %.preheader.i, label %17
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !20
 
 17:                                               ; preds = %10
   store ptr %16, ptr %0, align 8, !tbaa !13
@@ -202,7 +202,7 @@ lv_array_resize.exit:                             ; preds = %20, %17, %7, %1
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_array_resize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i8, ptr %3, align 4, !tbaa !14, !range !15, !noundef !16
+  %4 = load i8, ptr %3, align 4, !tbaa !14, !range !18, !noundef !19
   %5 = icmp ne i8 %4, 0
   br i1 %5, label %6, label %19
 
@@ -217,7 +217,7 @@ define noundef zeroext i1 @lv_array_resize(ptr noundef captures(none) %0, i32 no
   br i1 %.not, label %.preheader, label %13
 
 .preheader:                                       ; preds = %6, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !20
 
 13:                                               ; preds = %6
   store ptr %12, ptr %0, align 8, !tbaa !13
@@ -258,7 +258,7 @@ define range(i32 0, 2) i32 @lv_array_remove(ptr noundef captures(none) %0, i32 n
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i8, ptr %13, align 4, !tbaa !14, !range !15, !noundef !16
+  %14 = load i8, ptr %13, align 4, !tbaa !14, !range !18, !noundef !19
   %.not4.i = icmp eq i8 %14, 0
   br i1 %.not4.i, label %lv_array_shrink.exit, label %15
 
@@ -273,7 +273,7 @@ define range(i32 0, 2) i32 @lv_array_remove(ptr noundef captures(none) %0, i32 n
   br i1 %.not.i.i, label %.preheader.i.i, label %22
 
 .preheader.i.i:                                   ; preds = %15, %.preheader.i.i
-  br label %.preheader.i.i
+  br label %.preheader.i.i, !llvm.loop !20
 
 22:                                               ; preds = %15
   store ptr %21, ptr %0, align 8, !tbaa !13
@@ -288,7 +288,7 @@ define range(i32 0, 2) i32 @lv_array_remove(ptr noundef captures(none) %0, i32 n
   br i1 %.not8.i, label %.preheader.i, label %lv_array_at.exit
 
 .preheader.i:                                     ; preds = %25, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !21
 
 lv_array_at.exit:                                 ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -314,7 +314,7 @@ lv_array_at.exit:                                 ; preds = %25
 
 44:                                               ; preds = %lv_array_at.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = load i8, ptr %45, align 4, !tbaa !14, !range !15, !noundef !16
+  %46 = load i8, ptr %45, align 4, !tbaa !14, !range !18, !noundef !19
   %.not4.i22 = icmp eq i8 %46, 0
   br i1 %.not4.i22, label %lv_array_shrink.exit, label %47
 
@@ -328,7 +328,7 @@ lv_array_at.exit:                                 ; preds = %25
   br i1 %.not.i.i23, label %.preheader.i.i24, label %53
 
 .preheader.i.i24:                                 ; preds = %47, %.preheader.i.i24
-  br label %.preheader.i.i24
+  br label %.preheader.i.i24, !llvm.loop !20
 
 53:                                               ; preds = %47
   store ptr %52, ptr %0, align 8, !tbaa !13
@@ -360,7 +360,7 @@ define ptr @lv_array_at(ptr noundef readonly captures(none) %0, i32 noundef %1) 
   br i1 %.not8, label %.preheader, label %7
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !21
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @lv_array_erase(ptr noundef captures(none) %0, i32 no
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i8, ptr %12, align 4, !tbaa !14, !range !15, !noundef !16
+  %13 = load i8, ptr %12, align 4, !tbaa !14, !range !18, !noundef !19
   %.not4.i = icmp eq i8 %13, 0
   br i1 %.not4.i, label %lv_array_shrink.exit, label %14
 
@@ -414,7 +414,7 @@ define range(i32 0, 2) i32 @lv_array_erase(ptr noundef captures(none) %0, i32 no
   br i1 %.not.i.i, label %.preheader.i.i, label %21
 
 .preheader.i.i:                                   ; preds = %14, %.preheader.i.i
-  br label %.preheader.i.i
+  br label %.preheader.i.i, !llvm.loop !20
 
 21:                                               ; preds = %14
   store ptr %20, ptr %0, align 8, !tbaa !13
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @lv_array_erase(ptr noundef captures(none) %0, i32 no
   br i1 %.not8.i, label %.preheader.i, label %lv_array_at.exit
 
 .preheader.i:                                     ; preds = %24, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !21
 
 lv_array_at.exit:                                 ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -456,7 +456,7 @@ lv_array_at.exit:                                 ; preds = %24
 
 44:                                               ; preds = %lv_array_at.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = load i8, ptr %45, align 4, !tbaa !14, !range !15, !noundef !16
+  %46 = load i8, ptr %45, align 4, !tbaa !14, !range !18, !noundef !19
   %.not4.i32 = icmp eq i8 %46, 0
   br i1 %.not4.i32, label %lv_array_shrink.exit, label %47
 
@@ -470,7 +470,7 @@ lv_array_at.exit:                                 ; preds = %24
   br i1 %.not.i.i33, label %.preheader.i.i34, label %53
 
 .preheader.i.i34:                                 ; preds = %47, %.preheader.i.i34
-  br label %.preheader.i.i34
+  br label %.preheader.i.i34, !llvm.loop !20
 
 53:                                               ; preds = %47
   store ptr %52, ptr %0, align 8, !tbaa !13
@@ -498,7 +498,7 @@ define range(i32 0, 2) i32 @lv_array_concat(ptr noundef captures(none) %0, ptr n
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !22
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -513,7 +513,7 @@ define range(i32 0, 2) i32 @lv_array_concat(ptr noundef captures(none) %0, ptr n
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i8, ptr %14, align 4, !tbaa !14, !range !15, !noundef !16
+  %15 = load i8, ptr %14, align 4, !tbaa !14, !range !18, !noundef !19
   %.not18 = icmp eq i8 %15, 0
   br i1 %.not18, label %lv_array_resize.exit, label %16
 
@@ -527,7 +527,7 @@ define range(i32 0, 2) i32 @lv_array_concat(ptr noundef captures(none) %0, ptr n
   br i1 %.not.i, label %.preheader.i, label %22
 
 .preheader.i:                                     ; preds = %16, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !20
 
 22:                                               ; preds = %16
   store ptr %21, ptr %0, align 8, !tbaa !13
@@ -569,7 +569,7 @@ define range(i32 0, 2) i32 @lv_array_push_back(ptr noundef captures(none) %0, pt
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !23
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -582,7 +582,7 @@ define range(i32 0, 2) i32 @lv_array_push_back(ptr noundef captures(none) %0, pt
 10:                                               ; preds = %4
   %11 = add i32 %6, 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i8, ptr %12, align 4, !tbaa !14, !range !15, !noundef !16
+  %13 = load i8, ptr %12, align 4, !tbaa !14, !range !18, !noundef !19
   %.not18 = icmp eq i8 %13, 0
   br i1 %.not18, label %lv_array_resize.exit, label %14
 
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @lv_array_push_back(ptr noundef captures(none) %0, pt
   br i1 %.not.i, label %.preheader.i, label %20
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !20
 
 20:                                               ; preds = %14
   store ptr %19, ptr %0, align 8, !tbaa !13
@@ -653,7 +653,7 @@ define range(i32 0, 2) i32 @lv_array_assign(ptr noundef readonly captures(none) 
   br i1 %.not8.i, label %.preheader.i, label %lv_array_at.exit
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !21
 
 lv_array_at.exit:                                 ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -714,7 +714,7 @@ define ptr @lv_array_front(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %.not8.i, label %.preheader.i, label %lv_array_at.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !21
 
 lv_array_at.exit:                                 ; preds = %4, %1
   %.0.i = phi ptr [ null, %1 ], [ %5, %4 ]
@@ -735,7 +735,7 @@ define ptr @lv_array_back(ptr noundef readonly captures(none) %0) local_unnamed_
   br i1 %.not8.i, label %.preheader.i, label %7
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !21
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -781,5 +781,12 @@ attributes #7 = { nounwind }
 !12 = !{!4, !9, i64 16}
 !13 = !{!4, !5, i64 0}
 !14 = !{!4, !10, i64 20}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !16}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}

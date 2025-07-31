@@ -403,13 +403,13 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 49:                                               ; preds = %47, %.lr.ph.i
   %.03343.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %47 ]
   %50 = getelementptr inbounds nuw %struct.anon, ptr %41, i64 %.03343.i
-  %51 = load i64, ptr %50, align 8, !tbaa !39
+  %51 = load i64, ptr %50, align 8, !tbaa !40
   %52 = icmp eq i64 %51, %33
   br i1 %52, label %53, label %47
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !41
+  %55 = load i32, ptr %54, align 8, !tbaa !42
   br label %synthesize_ino_value.exit
 
 ._crit_edge.i63:                                  ; preds = %47, %.preheader.i
@@ -419,7 +419,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   store i64 %58, ptr %56, align 8, !tbaa !36
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %61 = load i64, ptr %60, align 8, !tbaa !42
+  %61 = load i64, ptr %60, align 8, !tbaa !43
   %.not.i64 = icmp ugt i64 %61, %39
   br i1 %.not.i64, label %._crit_edge._crit_edge.i, label %62
 
@@ -440,7 +440,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %.not38.i, label %synthesize_ino_value.exit.thread, label %69
 
 69:                                               ; preds = %62
-  store i64 %spec.select.i, ptr %60, align 8, !tbaa !42
+  store i64 %spec.select.i, ptr %60, align 8, !tbaa !43
   store ptr %68, ptr %65, align 8, !tbaa !34
   %.pre46.i = load i64, ptr %38, align 8, !tbaa !35
   br label %70
@@ -449,9 +449,9 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %71 = phi i64 [ %39, %._crit_edge._crit_edge.i ], [ %.pre46.i, %69 ]
   %72 = phi ptr [ %.pre.i67, %._crit_edge._crit_edge.i ], [ %68, %69 ]
   %73 = getelementptr inbounds nuw %struct.anon, ptr %72, i64 %71
-  store i64 %33, ptr %73, align 8, !tbaa !39
+  store i64 %33, ptr %73, align 8, !tbaa !40
   %74 = getelementptr inbounds nuw %struct.anon, ptr %72, i64 %71, i32 1
-  store i32 %59, ptr %74, align 8, !tbaa !41
+  store i32 %59, ptr %74, align 8, !tbaa !42
   %75 = add i64 %71, 1
   store i64 %75, ptr %38, align 8, !tbaa !35
   br label %synthesize_ino_value.exit
@@ -597,7 +597,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br i1 %.not57, label %147, label %158
 
 147:                                              ; preds = %145
-  %148 = load ptr, ptr %4, align 8, !tbaa !43
+  %148 = load ptr, ptr %4, align 8, !tbaa !44
   %149 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef %148, i64 noundef %115) #12
   %.not58 = icmp eq i32 %149, 0
   br i1 %.not58, label %150, label %158
@@ -605,7 +605,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 150:                                              ; preds = %147
   %151 = call i64 @archive_entry_size(ptr noundef %1) #12
   store i64 %151, ptr %8, align 8, !tbaa !33
-  %152 = load ptr, ptr %3, align 8, !tbaa !43
+  %152 = load ptr, ptr %3, align 8, !tbaa !44
   %.not59 = icmp eq ptr %152, null
   br i1 %.not59, label %158, label %153
 
@@ -767,10 +767,11 @@ attributes #16 = { nounwind allocsize(1) }
 !34 = !{!28, !11, i64 16}
 !35 = !{!28, !14, i64 32}
 !36 = !{!28, !14, i64 8}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"", !14, i64 0, !7, i64 8}
-!41 = !{!40, !7, i64 8}
-!42 = !{!28, !14, i64 24}
-!43 = !{!12, !12, i64 0}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!41, !14, i64 0}
+!41 = !{!"", !14, i64 0, !7, i64 8}
+!42 = !{!41, !7, i64 8}
+!43 = !{!28, !14, i64 24}
+!44 = !{!12, !12, i64 0}

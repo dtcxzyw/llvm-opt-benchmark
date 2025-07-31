@@ -521,7 +521,7 @@ _ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit: ; preds = %.outer33._cri
 77:                                               ; preds = %73
   %indvars.iv.next.i224 = add nsw i64 %indvars.iv.i219, 1
   %78 = icmp slt i64 %indvars.iv.next.i224, %68
-  br i1 %78, label %73, label %.outer39._crit_edge.i, !llvm.loop !18
+  br i1 %78, label %73, label %.outer39._crit_edge.i, !llvm.loop !19
 
 79:                                               ; preds = %73
   %80 = trunc nsw i64 %indvars.iv.i219 to i32
@@ -543,13 +543,13 @@ _ZN5zxing6common11StringUtils14is_gb2312_codeEPci.exit: ; preds = %.outer33._cri
   %86 = add nuw nsw i32 %.036.ph56.i, 1
   %87 = add nsw i32 %80, 2
   %88 = icmp slt i32 %87, %2
-  br i1 %88, label %.lr.ph.lr.ph.i217, label %.outer39._crit_edge.i, !llvm.loop !18
+  br i1 %88, label %.lr.ph.lr.ph.i217, label %.outer39._crit_edge.i, !llvm.loop !19
 
 .outer39.i:                                       ; preds = %82, %79
   %89 = add nsw i32 %.035.ph4050.i, 1
   %90 = add nsw i32 %80, 2
   %91 = icmp slt i32 %90, %2
-  br i1 %91, label %.lr.ph.i218, label %.outer39._crit_edge.i, !llvm.loop !18
+  br i1 %91, label %.lr.ph.i218, label %.outer39._crit_edge.i, !llvm.loop !19
 
 92:                                               ; preds = %.outer39._crit_edge.i
   %93 = mul nsw i32 %.036.ph.lcssa.i, 100
@@ -598,7 +598,7 @@ _ZN5zxing6common11StringUtils12is_big5_codeEPci.exit: ; preds = %.outer39._crit_
 107:                                              ; preds = %103
   %indvars.iv.next.i234 = add nsw i64 %indvars.iv.i230, 1
   %108 = icmp slt i64 %indvars.iv.next.i234, %98
-  br i1 %108, label %103, label %.outer32._crit_edge.i, !llvm.loop !19
+  br i1 %108, label %103, label %.outer32._crit_edge.i, !llvm.loop !20
 
 109:                                              ; preds = %103
   %110 = trunc nsw i64 %indvars.iv.i230 to i32
@@ -618,13 +618,13 @@ _ZN5zxing6common11StringUtils12is_big5_codeEPci.exit: ; preds = %.outer39._crit_
   %114 = add nuw nsw i32 %.030.ph49.i, 1
   %115 = add nsw i32 %110, 2
   %116 = icmp slt i32 %115, %2
-  br i1 %116, label %.lr.ph.lr.ph.i228, label %.outer32._crit_edge.i, !llvm.loop !19
+  br i1 %116, label %.lr.ph.lr.ph.i228, label %.outer32._crit_edge.i, !llvm.loop !20
 
 .outer32.i:                                       ; preds = %111, %109, %109
   %117 = add nsw i32 %.029.ph3343.i, 1
   %118 = add nsw i32 %110, 2
   %119 = icmp slt i32 %118, %2
-  br i1 %119, label %.lr.ph.i229, label %.outer32._crit_edge.i, !llvm.loop !19
+  br i1 %119, label %.lr.ph.i229, label %.outer32._crit_edge.i, !llvm.loop !20
 
 120:                                              ; preds = %.outer32._crit_edge.i
   %121 = mul nsw i32 %.030.ph.lcssa.i, 100
@@ -649,7 +649,7 @@ _ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit: ; preds = %.outer32._crit_e
   %spec.select.i = select i1 %126, i1 %.067.i, i1 false
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i236, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i237, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit, label %.lr.ph.i235, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit, label %.lr.ph.i235, !llvm.loop !21
 
 _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %_ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit
   %.06.lcssa.i = phi i1 [ true, %_ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit ], [ %spec.select.i, %.lr.ph.i235 ]
@@ -781,7 +781,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %
   %.1 = phi i8 [ 1, %168 ], [ 0, %167 ], [ 1, %170 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.critedge5, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.critedge5, !llvm.loop !22
 
 176:                                              ; preds = %_ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit
   br i1 %42, label %._crit_edge.i.i, label %177
@@ -1101,7 +1101,7 @@ define hidden noundef i32 @_ZN5zxing6common11StringUtils12is_big5_codeEPci(ptr n
 12:                                               ; preds = %8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %13 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %13, label %8, label %.outer39._crit_edge, !llvm.loop !18
+  br i1 %13, label %8, label %.outer39._crit_edge, !llvm.loop !19
 
 14:                                               ; preds = %8
   %15 = trunc nsw i64 %indvars.iv to i32
@@ -1123,13 +1123,13 @@ define hidden noundef i32 @_ZN5zxing6common11StringUtils12is_big5_codeEPci(ptr n
   %21 = add nuw nsw i32 %.036.ph56, 1
   %22 = add nsw i32 %15, 2
   %23 = icmp slt i32 %22, %1
-  br i1 %23, label %.lr.ph.lr.ph, label %.outer39._crit_edge, !llvm.loop !18
+  br i1 %23, label %.lr.ph.lr.ph, label %.outer39._crit_edge, !llvm.loop !19
 
 .outer39:                                         ; preds = %17, %14
   %24 = add nsw i32 %.035.ph4050, 1
   %25 = add nsw i32 %15, 2
   %26 = icmp slt i32 %25, %1
-  br i1 %26, label %.lr.ph, label %.outer39._crit_edge, !llvm.loop !18
+  br i1 %26, label %.lr.ph, label %.outer39._crit_edge, !llvm.loop !19
 
 27:                                               ; preds = %.outer39._crit_edge
   %28 = mul nsw i32 %.036.ph.lcssa, 100
@@ -1182,7 +1182,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils11is_gbk
 12:                                               ; preds = %8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %13 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %13, label %8, label %.outer32._crit_edge, !llvm.loop !19
+  br i1 %13, label %8, label %.outer32._crit_edge, !llvm.loop !20
 
 14:                                               ; preds = %8
   %15 = trunc nsw i64 %indvars.iv to i32
@@ -1202,13 +1202,13 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils11is_gbk
   %19 = add nuw nsw i32 %.030.ph49, 1
   %20 = add nsw i32 %15, 2
   %21 = icmp slt i32 %20, %1
-  br i1 %21, label %.lr.ph.lr.ph, label %.outer32._crit_edge, !llvm.loop !19
+  br i1 %21, label %.lr.ph.lr.ph, label %.outer32._crit_edge, !llvm.loop !20
 
 .outer32:                                         ; preds = %14, %14, %16
   %22 = add nsw i32 %.029.ph3343, 1
   %23 = add nsw i32 %15, 2
   %24 = icmp slt i32 %23, %1
-  br i1 %24, label %.lr.ph, label %.outer32._crit_edge, !llvm.loop !19
+  br i1 %24, label %.lr.ph, label %.outer32._crit_edge, !llvm.loop !20
 
 25:                                               ; preds = %.outer32._crit_edge
   %26 = mul nsw i32 %.030.ph.lcssa, 100
@@ -1248,7 +1248,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing6common11StringUtils13is_as
   %spec.select = select i1 %7, i1 %.067, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1296,7 +1296,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
 11:                                               ; preds = %7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %12, label %7, label %.outer122._crit_edge, !llvm.loop !22
+  br i1 %12, label %7, label %.outer122._crit_edge, !llvm.loop !23
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
@@ -1317,7 +1317,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   %22 = add nsw i32 %.sink, %15
   %.082.ph.be = add nuw nsw i32 %.082.ph148, 1
   %23 = icmp slt i32 %22, %1
-  br i1 %23, label %.lr.ph.lr.ph, label %.outer122._crit_edge, !llvm.loop !22
+  br i1 %23, label %.lr.ph.lr.ph, label %.outer122._crit_edge, !llvm.loop !23
 
 24:                                               ; preds = %13
   %.mask84 = and i32 %16, 240
@@ -1415,7 +1415,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   %82 = add nsw i32 %.081.ph123142, 1
   %83 = add nsw i32 %15, 1
   %84 = icmp slt i32 %83, %1
-  br i1 %84, label %.lr.ph, label %.outer122._crit_edge, !llvm.loop !22
+  br i1 %84, label %.lr.ph, label %.outer122._crit_edge, !llvm.loop !23
 
 85:                                               ; preds = %.outer122._crit_edge
   %86 = mul nsw i32 %.082.ph.lcssa, 100
@@ -1499,8 +1499,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils16shift_
   %.053 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %18 ], [ 1, %30 ], [ 1, %34 ], [ 0, %32 ], [ 0, %22 ]
   %.052 = phi i32 [ %13, %16 ], [ %12, %20 ], [ %13, %18 ], [ %27, %30 ], [ %26, %34 ], [ %27, %32 ], [ 0, %22 ]
   %.1 = phi i32 [ %spec.select, %16 ], [ %21, %20 ], [ 0, %18 ], [ %spec.select64, %30 ], [ %35, %34 ], [ 0, %32 ], [ 0, %22 ]
-  store i32 %.052, ptr %1, align 4, !tbaa !23
-  store i32 %.1, ptr %2, align 4, !tbaa !23
+  store i32 %.052, ptr %1, align 4, !tbaa !24
+  store i32 %.1, ptr %2, align 4, !tbaa !24
   ret i32 %.053
 }
 
@@ -1563,12 +1563,13 @@ attributes #17 = { builtin nounwind }
 !13 = !{!10, !5, i64 0}
 !14 = !{!5, !5, i64 0}
 !15 = !{!11, !11, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"int", !7, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !7, i64 0}

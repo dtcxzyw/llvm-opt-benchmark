@@ -175,11 +175,11 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %56, %57
   %68 = load i32, ptr %2, align 4, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 144
-  store i32 %68, ptr %69, align 8, !tbaa !39
+  store i32 %68, ptr %69, align 8, !tbaa !40
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 152
-  store ptr %39, ptr %70, align 8, !tbaa !42
+  store ptr %39, ptr %70, align 8, !tbaa !43
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 160
-  store ptr %5, ptr %71, align 8, !tbaa !43
+  store ptr %5, ptr %71, align 8, !tbaa !44
   %.03647 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 240), align 8, !tbaa !8
   %.not45.not48 = icmp eq ptr %.03647, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
   br i1 %.not45.not48, label %.critedge, label %.lr.ph
@@ -187,7 +187,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %56, %5
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %83
   %.03649 = phi ptr [ %.036, %83 ], [ %.03647, %pmix_obj_new_tma.exit ]
   %72 = getelementptr inbounds nuw i8, ptr %.03649, i64 144
-  %73 = load i32, ptr %72, align 8, !tbaa !39
+  %73 = load i32, ptr %72, align 8, !tbaa !40
   %74 = icmp sgt i32 %68, %73
   br i1 %74, label %75, label %83
 
@@ -195,42 +195,42 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %56, %5
   %76 = getelementptr inbounds nuw i8, ptr %52, i64 120
   store ptr %.03649, ptr %76, align 8, !tbaa !8
   %77 = getelementptr inbounds nuw i8, ptr %.03649, i64 128
-  %78 = load ptr, ptr %77, align 8, !tbaa !44
+  %78 = load ptr, ptr %77, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  store ptr %78, ptr %79, align 8, !tbaa !44
+  store ptr %78, ptr %79, align 8, !tbaa !45
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 120
   store volatile ptr %52, ptr %80, align 8, !tbaa !8
-  store ptr %52, ptr %77, align 8, !tbaa !44
-  %81 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !45
+  store ptr %52, ptr %77, align 8, !tbaa !45
+  %81 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !46
   %82 = add i64 %81, 1
-  store volatile i64 %82, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !45
+  store volatile i64 %82, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !46
   br label %91
 
 83:                                               ; preds = %.lr.ph
   %84 = getelementptr inbounds nuw i8, ptr %.03649, i64 120
   %.036 = load ptr, ptr %84, align 8, !tbaa !8
   %.not45.not = icmp eq ptr %.036, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not45.not, label %.critedge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not45.not, label %.critedge, label %.lr.ph, !llvm.loop !47
 
 .critedge:                                        ; preds = %83, %pmix_obj_new_tma.exit
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 248), align 8, !tbaa !44
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 248), align 8, !tbaa !45
   %86 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  store ptr %85, ptr %86, align 8, !tbaa !44
+  store ptr %85, ptr %86, align 8, !tbaa !45
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 120
   store volatile ptr %52, ptr %87, align 8, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %52, i64 120
   store ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120), ptr %88, align 8, !tbaa !8
-  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 248), align 8, !tbaa !44
-  %89 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !45
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 248), align 8, !tbaa !45
+  %89 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !46
   %90 = add i64 %89, 1
-  store volatile i64 %90, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !45
+  store volatile i64 %90, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 264), align 8, !tbaa !46
   br label %91
 
 91:                                               ; preds = %75, %.critedge, %41, %43, %48, %19, %20, %25
   %92 = getelementptr inbounds nuw i8, ptr %.03752, i64 120
   %.037 = load ptr, ptr %92, align 8, !tbaa !8
   %.not = icmp eq ptr %.037, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 200)
-  br i1 %.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %91, %3
   %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !18
@@ -248,15 +248,15 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %56, %5
 .lr.ph58:                                         ; preds = %96, %.lr.ph58
   %.156 = phi ptr [ %.1, %.lr.ph58 ], [ %.154, %96 ]
   %98 = getelementptr inbounds nuw i8, ptr %.156, i64 160
-  %99 = load ptr, ptr %98, align 8, !tbaa !43
+  %99 = load ptr, ptr %98, align 8, !tbaa !44
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 84
   %101 = getelementptr inbounds nuw i8, ptr %.156, i64 144
-  %102 = load i32, ptr %101, align 8, !tbaa !39
+  %102 = load i32, ptr %101, align 8, !tbaa !40
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %100, i32 noundef %102) #6
   %103 = getelementptr inbounds nuw i8, ptr %.156, i64 120
   %.1 = load ptr, ptr %103, align 8, !tbaa !8
   %.not44 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 120)
-  br i1 %.not44, label %.loopexit, label %.lr.ph58, !llvm.loop !48
+  br i1 %.not44, label %.loopexit, label %.lr.ph58, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph58, %96, %._crit_edge, %0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
@@ -335,15 +335,16 @@ attributes #7 = { nounwind allocsize(0) }
 !34 = !{!10, !12, i64 48}
 !35 = !{!30, !5, i64 40}
 !36 = !{!5, !5, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !12, i64 144}
-!40 = !{!"", !9, i64 0, !12, i64 144, !41, i64 152, !17, i64 160}
-!41 = !{!"p1 _ZTS30prte_rmaps_base_module_4_0_0_t", !5, i64 0}
-!42 = !{!40, !41, i64 152}
-!43 = !{!40, !17, i64 160}
-!44 = !{!9, !14, i64 128}
-!45 = !{!22, !23, i64 264}
-!46 = distinct !{!46, !38}
-!47 = distinct !{!47, !38}
-!48 = distinct !{!48, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!41, !12, i64 144}
+!41 = !{!"", !9, i64 0, !12, i64 144, !42, i64 152, !17, i64 160}
+!42 = !{!"p1 _ZTS30prte_rmaps_base_module_4_0_0_t", !5, i64 0}
+!43 = !{!41, !42, i64 152}
+!44 = !{!41, !17, i64 160}
+!45 = !{!9, !14, i64 128}
+!46 = !{!22, !23, i64 264}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !38, !39}
+!49 = distinct !{!49, !38, !39}

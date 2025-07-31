@@ -380,7 +380,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed
   %14 = load ptr, ptr @esrt, align 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %13, %15
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .preheader:                                       ; preds = %9, %12
   %17 = phi ptr [ %14, %12 ], [ %1, %9 ]
@@ -640,7 +640,8 @@ attributes #14 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}

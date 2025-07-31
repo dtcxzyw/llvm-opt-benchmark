@@ -192,9 +192,9 @@ define range(i32 -1, 1) i32 @H5TS__rec_rwlock_rdlock(ptr noundef %0) local_unnam
   %.pre = phi i64 [ %.pre.pre, %.loopexit35.loopexit ], [ %33, %35 ]
   store i32 2, ptr %7, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %45 = load i32, ptr %44, align 8, !tbaa !20
+  %45 = load i32, ptr %44, align 8, !tbaa !21
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !20
+  store i32 %46, ptr %44, align 8, !tbaa !21
   br label %47
 
 47:                                               ; preds = %32, %.loopexit35
@@ -277,7 +277,7 @@ define range(i32 -1, 1) i32 @H5TS__rec_rwlock_wrlock(ptr noundef %0) local_unnam
 16:                                               ; preds = %12
   %17 = load i64, ptr %15, align 8, !tbaa !17
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.loopexit, label %thread-pre-split, !prof !21
+  br i1 %18, label %.loopexit, label %thread-pre-split, !prof !22
 
 thread-pre-split:                                 ; preds = %12, %16, %9
   %.pr = load i32, ptr %7, align 8, !tbaa !15
@@ -291,24 +291,24 @@ thread-pre-split:                                 ; preds = %12, %16, %9
 .preheader:                                       ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load i32, ptr %21, align 4, !tbaa !22
+  %.pre = load i32, ptr %21, align 4, !tbaa !23
   %23 = add nsw i32 %.pre, 1
   br label %24
 
 24:                                               ; preds = %.preheader, %29
   %25 = phi i32 [ %23, %.preheader ], [ %27, %29 ]
-  store i32 %25, ptr %21, align 4, !tbaa !22
+  store i32 %25, ptr %21, align 4, !tbaa !23
   %26 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %22, ptr noundef nonnull %0) #7
   %.not35 = icmp eq i32 %26, 0
-  %27 = load i32, ptr %21, align 4, !tbaa !22
+  %27 = load i32, ptr %21, align 4, !tbaa !23
   %28 = add nsw i32 %27, -1
-  store i32 %28, ptr %21, align 4, !tbaa !22
+  store i32 %28, ptr %21, align 4, !tbaa !23
   br i1 %.not35, label %29, label %.loopexit
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %7, align 8, !tbaa !15
   %.not36 = icmp eq i32 %30, 0
-  br i1 %.not36, label %.loopexit48, label %24, !llvm.loop !23
+  br i1 %.not36, label %.loopexit48, label %24, !llvm.loop !24
 
 .loopexit48:                                      ; preds = %29, %19
   store i32 1, ptr %7, align 8, !tbaa !15
@@ -318,9 +318,9 @@ thread-pre-split:                                 ; preds = %12, %16, %9
 
 32:                                               ; preds = %.loopexit48, %9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %34 = load i32, ptr %33, align 8, !tbaa !24
+  %34 = load i32, ptr %33, align 8, !tbaa !25
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 8, !tbaa !24
+  store i32 %35, ptr %33, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %32, %16
@@ -369,16 +369,16 @@ define range(i32 -1, 1) i32 @H5TS__rec_rwlock_rdunlock(ptr noundef %0) local_unn
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %19 = load i32, ptr %18, align 8, !tbaa !20
+  %19 = load i32, ptr %18, align 8, !tbaa !21
   %20 = add nsw i32 %19, -1
-  store i32 %20, ptr %18, align 8, !tbaa !20
+  store i32 %20, ptr %18, align 8, !tbaa !21
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %17
   store i32 0, ptr %6, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %24 = load i32, ptr %23, align 4, !tbaa !23
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %30
 
@@ -438,16 +438,16 @@ define range(i32 -1, 1) i32 @H5TS__rec_rwlock_wrunlock(ptr noundef %0) local_unn
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load i32, ptr %9, align 8, !tbaa !24
+  %10 = load i32, ptr %9, align 8, !tbaa !25
   %11 = add nsw i32 %10, -1
-  store i32 %11, ptr %9, align 8, !tbaa !24
+  store i32 %11, ptr %9, align 8, !tbaa !25
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %8
   store i32 0, ptr %6, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %15 = load i32, ptr %14, align 4, !tbaa !22
+  %15 = load i32, ptr %14, align 4, !tbaa !23
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -514,10 +514,11 @@ attributes #9 = { nounwind allocsize(0,1) }
 !15 = !{!5, !8, i64 40}
 !16 = !{!5, !9, i64 96}
 !17 = !{!9, !9, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!5, !8, i64 160}
-!21 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
-!22 = !{!5, !8, i64 108}
-!23 = distinct !{!23, !19}
-!24 = !{!5, !8, i64 104}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!5, !8, i64 160}
+!22 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
+!23 = !{!5, !8, i64 108}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!5, !8, i64 104}

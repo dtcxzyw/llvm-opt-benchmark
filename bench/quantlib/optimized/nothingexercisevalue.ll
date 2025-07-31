@@ -880,7 +880,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !51
+  store ptr %0, ptr %this, align 8, !tbaa !52
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -891,14 +891,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #23
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !52
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !53
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !18
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !52
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !53
   store i64 %1, ptr %0, align 8, !tbaa !22
   br label %if.end.i
 
@@ -919,7 +919,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !52
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !53
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !21
   %5 = load ptr, ptr %this, align 8, !tbaa !18
@@ -939,7 +939,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !54
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -1000,8 +1000,8 @@ declare void @_ZN8QuantLib20EvolutionDescriptionC1ERKSt6vectorIdSaIdEES5_RKS1_IS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib20EvolutionDescriptionaSEOS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load i64, ptr %0, align 8, !tbaa !55
-  store i64 %1, ptr %this, align 8, !tbaa !55
+  %1 = load i64, ptr %0, align 8, !tbaa !56
+  store i64 %1, ptr %this, align 8, !tbaa !56
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
@@ -1063,8 +1063,8 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit15:               ; preds = %_ZNSt6vectorIdSaIdE
   %14 = load ptr, ptr %relevanceRates_6, align 8, !tbaa !42
   store ptr %14, ptr %relevanceRates_, align 8, !tbaa !42
   %_M_finish.i2.i.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load ptr, ptr %_M_finish.i2.i.i.i18, align 8, !tbaa !56
-  store ptr %15, ptr %_M_finish.i.i.i.i16, align 8, !tbaa !56
+  %15 = load ptr, ptr %_M_finish.i2.i.i.i18, align 8, !tbaa !57
+  store ptr %15, ptr %_M_finish.i.i.i.i16, align 8, !tbaa !57
   %_M_end_of_storage.i4.i.i.i19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %_M_end_of_storage.i4.i.i.i19, align 8, !tbaa !43
   store ptr %16, ptr %_M_end_of_storage.i.i.i.i17, align 8, !tbaa !43
@@ -1115,8 +1115,8 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit34:               ; preds = %_ZNSt6vectorISt4pai
   %24 = load ptr, ptr %firstAliveRate_10, align 8, !tbaa !40
   store ptr %24, ptr %firstAliveRate_, align 8, !tbaa !40
   %_M_finish.i2.i.i.i37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %25 = load ptr, ptr %_M_finish.i2.i.i.i37, align 8, !tbaa !57
-  store ptr %25, ptr %_M_finish.i.i.i.i35, align 8, !tbaa !57
+  %25 = load ptr, ptr %_M_finish.i2.i.i.i37, align 8, !tbaa !58
+  store ptr %25, ptr %_M_finish.i.i.i.i35, align 8, !tbaa !58
   %_M_end_of_storage.i4.i.i.i38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %_M_end_of_storage.i4.i.i.i38, align 8, !tbaa !41
   store ptr %26, ptr %_M_end_of_storage.i.i.i.i36, align 8, !tbaa !41
@@ -1280,7 +1280,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 define void @_ZN8QuantLib20NothingExerciseValue5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(208) initializes((184, 192)) %this) unnamed_addr #9 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store i64 0, ptr %currentIndex_, align 8, !tbaa !58
+  store i64 0, ptr %currentIndex_, align 8, !tbaa !59
   ret void
 }
 
@@ -1288,11 +1288,11 @@ entry:
 define void @_ZN8QuantLib20NothingExerciseValue8nextStepERKNS_10CurveStateE(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((192, 200)) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %1 = load i64, ptr %currentIndex_, align 8, !tbaa !58
+  %1 = load i64, ptr %currentIndex_, align 8, !tbaa !59
   %cf_ = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store i64 %1, ptr %cf_, align 8, !tbaa !59
+  store i64 %1, ptr %cf_, align 8, !tbaa !60
   %inc = add i64 %1, 1
-  store i64 %inc, ptr %currentIndex_, align 8, !tbaa !58
+  store i64 %inc, ptr %currentIndex_, align 8, !tbaa !59
   ret void
 }
 
@@ -1322,9 +1322,9 @@ _ZNSt8valarrayIbEC2ERKS0_.exit:                   ; preds = %entry, %if.then.i.i
 define { i64, double } @_ZNK8QuantLib20NothingExerciseValue5valueERKNS_10CurveStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #7 align 2 {
 entry:
   %cf_ = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %retval.sroa.0.0.copyload = load i64, ptr %cf_, align 8, !tbaa !52
+  %retval.sroa.0.0.copyload = load i64, ptr %cf_, align 8, !tbaa !53
   %retval.sroa.2.0.cf_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %retval.sroa.2.0.copyload = load double, ptr %retval.sroa.2.0.cf_.sroa_idx, align 8, !tbaa !60
+  %retval.sroa.2.0.copyload = load double, ptr %retval.sroa.2.0.cf_.sroa_idx, align 8, !tbaa !61
   %.fca.0.insert = insertvalue { i64, double } poison, i64 %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, double } %.fca.0.insert, double %retval.sroa.2.0.copyload, 1
   ret { i64, double } %.fca.1.insert
@@ -1600,8 +1600,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #17
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib20EvolutionDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load i64, ptr %0, align 8, !tbaa !55
-  store i64 %1, ptr %this, align 8, !tbaa !55
+  %1 = load i64, ptr %0, align 8, !tbaa !56
+  store i64 %1, ptr %this, align 8, !tbaa !56
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1702,7 +1702,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %relevanceRates_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %relevanceRates_5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !56
+  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !57
   %11 = load ptr, ptr %relevanceRates_5, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %11 to i64
@@ -1730,7 +1730,7 @@ invoke.cont.i40:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i41 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i3947, %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i41, ptr %relevanceRates_, align 8, !tbaa !42
   %_M_finish.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !56
+  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !57
   %add.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i41, i64 %sub.ptr.sub.i.i35
   %_M_end_of_storage.i.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i43, ptr %_M_end_of_storage.i.i.i44, align 8, !tbaa !43
@@ -1746,11 +1746,11 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !61
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !62
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !56
+  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !57
   %rateTaus_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %rateTaus_8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %_M_finish.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1804,7 +1804,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %firstAliveRate_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %firstAliveRate_11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %_M_finish.i.i72 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !57
+  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !58
   %19 = load ptr, ptr %firstAliveRate_11, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i73 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i74 = ptrtoint ptr %19 to i64
@@ -1832,7 +1832,7 @@ invoke.cont.i80:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i81 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i2.i6.i7993, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i81, ptr %firstAliveRate_, align 8, !tbaa !40
   %_M_finish.i.i.i82 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !57
+  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !58
   %add.ptr.i.i.i83 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i75
   %_M_end_of_storage.i.i.i84 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i83, ptr %_M_end_of_storage.i.i.i84, align 8, !tbaa !41
@@ -1850,7 +1850,7 @@ if.then.i.i.i.i.i.i.i.i.i89:                      ; preds = %invoke.cont.i80
 
 invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i89, %invoke.cont.i80
   %add.ptr.i.i.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i87
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !57
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !58
   ret void
 
 lpad:                                             ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i16, %if.then3.i.i.i.i.i.i29
@@ -2032,16 +2032,17 @@ attributes #26 = { noreturn nounwind }
 !46 = !{!24, !16, i64 8}
 !47 = !{i8 0, i8 2}
 !48 = !{}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!20, !8, i64 0}
-!52 = !{!16, !16, i64 0}
-!53 = !{!54, !8, i64 0}
-!54 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}
-!55 = !{!29, !16, i64 0}
-!56 = !{!33, !8, i64 8}
-!57 = !{!37, !8, i64 8}
-!58 = !{!24, !16, i64 184}
-!59 = !{!24, !16, i64 192}
-!60 = !{!39, !39, i64 0}
-!61 = distinct !{!61, !50}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!20, !8, i64 0}
+!53 = !{!16, !16, i64 0}
+!54 = !{!55, !8, i64 0}
+!55 = !{!"_ZTSN5boost6detail12shared_countE", !8, i64 0}
+!56 = !{!29, !16, i64 0}
+!57 = !{!33, !8, i64 8}
+!58 = !{!37, !8, i64 8}
+!59 = !{!24, !16, i64 184}
+!60 = !{!24, !16, i64 192}
+!61 = !{!39, !39, i64 0}
+!62 = distinct !{!62, !50, !51}

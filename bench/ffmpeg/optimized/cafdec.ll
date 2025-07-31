@@ -641,7 +641,7 @@ read_pakt_chunk.exit:                             ; preds = %.loopexit.i
   %312 = add nsw i64 %253, %102
   %313 = call i64 @avio_seek(ptr noundef %249, i64 noundef %312, i32 noundef 0) #8
   %314 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  store i64 %.051.i, ptr %314, align 8, !tbaa !60
+  store i64 %.051.i, ptr %314, align 8, !tbaa !61
   br label %read_kuki_chunk.exit
 
 315:                                              ; preds = %105
@@ -674,7 +674,7 @@ read_pakt_chunk.exit:                             ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
   %326 = add nuw i32 %.09.i, 1
   %exitcond.not.i128 = icmp eq i32 %326, %317
-  br i1 %exitcond.not.i128, label %read_kuki_chunk.exit, label %.lr.ph.i125, !llvm.loop !61
+  br i1 %exitcond.not.i128, label %read_kuki_chunk.exit, label %.lr.ph.i125, !llvm.loop !62
 
 327:                                              ; preds = %105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -717,7 +717,7 @@ read_kuki_chunk.exit.thread136:                   ; preds = %199, %236, %read_ku
   %.1138 = phi i32 [ %.1139, %339 ], [ %.1139, %read_kuki_chunk.exit.thread136 ], [ %.1, %read_kuki_chunk.exit ]
   %343 = call i32 @avio_feof(ptr noundef %8) #8
   %.not107 = icmp eq i32 %343, 0
-  br i1 %.not107, label %92, label %._crit_edge, !llvm.loop !62
+  br i1 %.not107, label %92, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %342, %100
   %.091.lcssa.ph = phi i32 [ %.1138, %342 ], [ %.091214, %100 ]
@@ -757,7 +757,7 @@ read_kuki_chunk.exit.thread136:                   ; preds = %199, %236, %read_ku
 
 364:                                              ; preds = %347, %.thread
   %365 = getelementptr inbounds nuw i8, ptr %82, i64 328
-  %366 = load i32, ptr %365, align 8, !tbaa !63
+  %366 = load i32, ptr %365, align 8, !tbaa !64
   %.not115 = icmp eq i32 %366, 0
   br i1 %.not115, label %385, label %367
 
@@ -808,7 +808,7 @@ read_kuki_chunk.exit.thread136:                   ; preds = %199, %236, %read_ku
   %390 = load i32, ptr %389, align 8, !tbaa !38
   call void @avpriv_set_pts_info(ptr noundef %82, i32 noundef 64, i32 noundef 1, i32 noundef %390) #8
   %391 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  store i64 0, ptr %391, align 8, !tbaa !75
+  store i64 0, ptr %391, align 8, !tbaa !76
   %392 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %393 = load i64, ptr %392, align 8, !tbaa !51
   %394 = icmp sgt i64 %393, -1
@@ -878,13 +878,13 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 328
-  %38 = load i32, ptr %37, align 8, !tbaa !63
+  %38 = load i32, ptr %37, align 8, !tbaa !64
   %.not75 = icmp eq i32 %38, 0
   br i1 %.not75, label %77, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !76
+  %41 = load i64, ptr %40, align 8, !tbaa !77
   %42 = add nsw i32 %38, -1
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %41, %43
@@ -892,17 +892,17 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  %47 = load ptr, ptr %46, align 8, !tbaa !77
+  %47 = load ptr, ptr %46, align 8, !tbaa !78
   %48 = getelementptr %struct.AVIndexEntry, ptr %47, i64 %41
   %49 = getelementptr i8, ptr %48, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !78
-  %51 = load i64, ptr %48, align 8, !tbaa !78
+  %50 = load i64, ptr %49, align 8, !tbaa !79
+  %51 = load i64, ptr %48, align 8, !tbaa !79
   %52 = sub nsw i64 %50, %51
   %53 = trunc i64 %52 to i32
   %54 = getelementptr i8, ptr %48, i64 32
-  %55 = load i64, ptr %54, align 8, !tbaa !80
+  %55 = load i64, ptr %54, align 8, !tbaa !81
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !80
+  %57 = load i64, ptr %56, align 8, !tbaa !81
   %58 = sub nsw i64 %55, %57
   %59 = trunc i64 %58 to i32
   br label %77
@@ -913,17 +913,17 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !60
+  %64 = load i64, ptr %63, align 8, !tbaa !61
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  %66 = load ptr, ptr %65, align 8, !tbaa !77
+  %66 = load ptr, ptr %65, align 8, !tbaa !78
   %67 = getelementptr inbounds %struct.AVIndexEntry, ptr %66, i64 %41
-  %68 = load i64, ptr %67, align 8, !tbaa !78
+  %68 = load i64, ptr %67, align 8, !tbaa !79
   %69 = sub nsw i64 %64, %68
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %72 = load i64, ptr %71, align 8, !tbaa !57
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %74 = load i64, ptr %73, align 8, !tbaa !80
+  %74 = load i64, ptr %73, align 8, !tbaa !81
   %75 = sub nsw i64 %72, %74
   %76 = trunc i64 %75 to i32
   br label %77
@@ -946,22 +946,22 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %83, ptr %86, align 8, !tbaa !81
+  store i32 %83, ptr %86, align 8, !tbaa !82
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %87, align 4, !tbaa !82
+  store i32 0, ptr %87, align 4, !tbaa !83
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %89 = load i64, ptr %88, align 8, !tbaa !83
+  %89 = load i64, ptr %88, align 8, !tbaa !84
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %89, ptr %90, align 8, !tbaa !84
+  store i64 %89, ptr %90, align 8, !tbaa !85
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %89, ptr %91, align 8, !tbaa !85
+  store i64 %89, ptr %91, align 8, !tbaa !86
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %93 = load i64, ptr %92, align 8, !tbaa !76
+  %93 = load i64, ptr %92, align 8, !tbaa !77
   %94 = add nsw i64 %93, 1
-  store i64 %94, ptr %92, align 8, !tbaa !76
+  store i64 %94, ptr %92, align 8, !tbaa !77
   %95 = sext i32 %.063 to i64
   %96 = add nsw i64 %89, %95
-  store i64 %96, ptr %88, align 8, !tbaa !83
+  store i64 %96, ptr %88, align 8, !tbaa !84
   br label %97
 
 97:                                               ; preds = %82, %77, %60, %21, %15, %2, %85
@@ -1003,7 +1003,7 @@ define internal range(i32 -1, 1) i32 @read_seek(ptr noundef readonly captures(no
 
 27:                                               ; preds = %14, %4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 328
-  %29 = load i32, ptr %28, align 8, !tbaa !63
+  %29 = load i32, ptr %28, align 8, !tbaa !64
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %50, label %30
 
@@ -1011,11 +1011,11 @@ define internal range(i32 -1, 1) i32 @read_seek(ptr noundef readonly captures(no
   %31 = tail call i32 @av_index_search_timestamp(ptr noundef nonnull %7, i64 noundef %10, i32 noundef %3) #8
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  %34 = load ptr, ptr %33, align 8, !tbaa !77
+  %34 = load ptr, ptr %33, align 8, !tbaa !78
   %35 = getelementptr inbounds %struct.AVIndexEntry, ptr %34, i64 %32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !80
-  %38 = load i64, ptr %35, align 8, !tbaa !78
+  %37 = load i64, ptr %36, align 8, !tbaa !81
+  %38 = load i64, ptr %35, align 8, !tbaa !79
   br label %39
 
 39:                                               ; preds = %30, %17
@@ -1033,9 +1033,9 @@ define internal range(i32 -1, 1) i32 @read_seek(ptr noundef readonly captures(no
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.034, ptr %48, align 8, !tbaa !76
+  store i64 %.034, ptr %48, align 8, !tbaa !77
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %.0, ptr %49, align 8, !tbaa !83
+  store i64 %.0, ptr %49, align 8, !tbaa !84
   br label %50
 
 50:                                               ; preds = %39, %27, %47
@@ -1194,31 +1194,32 @@ attributes #8 = { nounwind }
 !55 = !{!36, !6, i64 16}
 !56 = !{!29, !22, i64 56}
 !57 = !{!29, !22, i64 48}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!41, !22, i64 8}
-!61 = distinct !{!61, !59}
-!62 = distinct !{!62, !59}
-!63 = !{!64, !10, i64 328}
-!64 = !{!"FFStream", !29, i64 0, !65, i64 216, !10, i64 224, !66, i64 232, !10, i64 240, !67, i64 248, !10, i64 256, !68, i64 264, !10, i64 280, !10, i64 284, !69, i64 288, !70, i64 312, !71, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !31, i64 740, !5, i64 752, !72, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !73, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !74, i64 848, !31, i64 856}
-!65 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!66 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!67 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
-!68 = !{!"", !66, i64 0, !10, i64 8}
-!69 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
-!70 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
-!71 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
-!72 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!73 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
-!74 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!75 = !{!29, !22, i64 40}
-!76 = !{!41, !22, i64 16}
-!77 = !{!64, !71, i64 320}
-!78 = !{!79, !22, i64 0}
-!79 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
-!80 = !{!79, !22, i64 8}
-!81 = !{!32, !10, i64 32}
-!82 = !{!32, !10, i64 36}
-!83 = !{!41, !22, i64 24}
-!84 = !{!32, !22, i64 8}
-!85 = !{!32, !22, i64 16}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!41, !22, i64 8}
+!62 = distinct !{!62, !59, !60}
+!63 = distinct !{!63, !59, !60}
+!64 = !{!65, !10, i64 328}
+!65 = !{!"FFStream", !29, i64 0, !66, i64 216, !10, i64 224, !67, i64 232, !10, i64 240, !68, i64 248, !10, i64 256, !69, i64 264, !10, i64 280, !10, i64 284, !70, i64 288, !71, i64 312, !72, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !31, i64 740, !5, i64 752, !73, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !74, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !75, i64 848, !31, i64 856}
+!66 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!67 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!68 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
+!69 = !{!"", !67, i64 0, !10, i64 8}
+!70 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
+!71 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
+!72 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
+!73 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!74 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
+!75 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!76 = !{!29, !22, i64 40}
+!77 = !{!41, !22, i64 16}
+!78 = !{!65, !72, i64 320}
+!79 = !{!80, !22, i64 0}
+!80 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
+!81 = !{!80, !22, i64 8}
+!82 = !{!32, !10, i64 32}
+!83 = !{!32, !10, i64 36}
+!84 = !{!41, !22, i64 24}
+!85 = !{!32, !22, i64 8}
+!86 = !{!32, !22, i64 16}

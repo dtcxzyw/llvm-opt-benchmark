@@ -184,7 +184,7 @@ for.body92.i:                                     ; preds = %for.body92.i, %for.
   %15 = tail call double @llvm.fmuladd.f64(double %mul99.i, double %add108.i, double %sum.3209.i)
   %inc111.i = add nuw i32 %j87.0211.i, 1
   %exitcond218.not.i = icmp eq i32 %j87.0211.i, %div89158.i
-  br i1 %exitcond218.not.i, label %if.end113.i, label %for.body92.i, !llvm.loop !13
+  br i1 %exitcond218.not.i, label %if.end113.i, label %for.body92.i, !llvm.loop !14
 
 if.end113.i:                                      ; preds = %for.body92.i, %if.then77.i, %if.end.i
   %sum.2.i = phi double [ %mul75.i, %if.end.i ], [ %14, %if.then77.i ], [ %15, %for.body92.i ]
@@ -270,7 +270,7 @@ for.body169.i:                                    ; preds = %if.then149.i, %for.
   %26 = tail call double @llvm.fmuladd.f64(double %mul176.i, double %add185.i, double %sum161.0189.i)
   %inc188.i = add nuw i32 %j163.0190.i, 1
   %exitcond.not.i = icmp eq i32 %j163.0190.i, %div166156.i
-  br i1 %exitcond.not.i, label %for.cond.cleanup168.i, label %for.body169.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.cond.cleanup168.i, label %for.body169.i, !llvm.loop !15
 
 for.cond.cleanup206.i:                            ; preds = %for.body207.i, %for.cond.cleanup168.i
   %sum161.1.lcssa.i = phi double [ %mul200.i, %for.cond.cleanup168.i ], [ %28, %for.body207.i ]
@@ -301,7 +301,7 @@ for.body207.i:                                    ; preds = %for.cond.cleanup168
   %28 = tail call double @llvm.fmuladd.f64(double %mul214.i, double %add223.i, double %sum161.1196.i)
   %inc226.i = add nuw i32 %j201.0197.i, 1
   %exitcond216.not.i = icmp eq i32 %j201.0197.i, %div166156.i
-  br i1 %exitcond216.not.i, label %for.cond.cleanup206.i, label %for.body207.i, !llvm.loop !15
+  br i1 %exitcond216.not.i, label %for.cond.cleanup206.i, label %for.body207.i, !llvm.loop !16
 
 _ZN8QuantLib12_GLOBAL__N_13P_nEddjd.exit:         ; preds = %if.end113.i, %if.else.i, %for.cond.cleanup206.i
   %retval.0.i = phi double [ %16, %if.end113.i ], [ %27, %for.cond.cleanup206.i ], [ %div147.i, %if.else.i ]
@@ -340,8 +340,9 @@ attributes #5 = { nounwind }
 !8 = !{!"double", !6, i64 0}
 !9 = !{!4, !8, i64 8}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}

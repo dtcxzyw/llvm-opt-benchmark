@@ -307,7 +307,7 @@ define internal zeroext i1 @packetlogger_read(ptr noundef readonly captures(none
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %9, align 8
-  %.val.val = load i8, ptr %.val, align 1, !range !11, !noundef !12
+  %.val.val = load i8, ptr %.val, align 1, !range !12, !noundef !13
   %10 = tail call fastcc zeroext i1 @packetlogger_read_packet(i8 %.val.val, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i1 %10
 }
@@ -324,7 +324,7 @@ define internal noundef zeroext i1 @packetlogger_seek_read(ptr noundef readonly 
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %12, align 8
-  %.val.val = load i8, ptr %.val, align 1, !range !11, !noundef !12
+  %.val.val = load i8, ptr %.val, align 1, !range !12, !noundef !13
   %13 = tail call fastcc zeroext i1 @packetlogger_read_packet(i8 %.val.val, ptr noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %13, label %18, label %14
 
@@ -488,7 +488,8 @@ attributes #6 = { allocsize(0) }
 !6 = !{i64 2149937738}
 !7 = !{i64 2149938353}
 !8 = !{i64 2149938973}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}

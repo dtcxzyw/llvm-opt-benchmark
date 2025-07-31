@@ -85,7 +85,7 @@ define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_7ust
 8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !11
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !12
 
 .loopexit:                                        ; preds = %8, %6
   %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
@@ -99,7 +99,7 @@ define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_11us
 2:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %3 = getelementptr inbounds nuw [8 x %"class.OpenImageIO::v3_1_0::ustringhash"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 0, i64 %indvars.iv
-  %4 = load i64, ptr %3, align 8, !tbaa !12
+  %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp eq i64 %0, %4
   br i1 %5, label %6, label %8
 
@@ -110,7 +110,7 @@ define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_11us
 8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !15
+  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !16
 
 .loopexit:                                        ; preds = %8, %6
   %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
@@ -135,7 +135,7 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
 10:                                               ; preds = %13, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !17
   switch i8 %12, label %13 [
     i8 0, label %.critedge
     i8 44, label %.critedge
@@ -143,14 +143,14 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %12, ptr %14, align 1, !tbaa !16
+  store i8 %12, ptr %14, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %10, !llvm.loop !17
+  br label %10, !llvm.loop !18
 
 .critedge:                                        ; preds = %10, %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 0, ptr %16, align 1, !tbaa !16
+  store i8 0, ptr %16, align 1, !tbaa !17
   %17 = icmp eq i8 %12, 44
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.021 = select i1 %17, ptr %18, ptr %9
@@ -175,7 +175,7 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
 
 _ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %25, %23
   %spec.select.i = phi i8 [ %24, %23 ], [ 0, %25 ]
-  store i8 %spec.select.i, ptr %1, align 1, !tbaa !18
+  store i8 %spec.select.i, ptr %1, align 1, !tbaa !19
   br label %26
 
 26:                                               ; preds = %32, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
@@ -197,7 +197,7 @@ _ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %25, %23
 
 _ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31: ; preds = %32, %30
   %spec.select.i30 = phi i8 [ %31, %30 ], [ 0, %32 ]
-  store i8 %spec.select.i30, ptr %2, align 1, !tbaa !18
+  store i8 %spec.select.i30, ptr %2, align 1, !tbaa !19
   ret void
 }
 
@@ -227,60 +227,60 @@ define internal void @_GLOBAL__sub_I_texoptions.cpp() #8 section ".text.startup"
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  store ptr @.str, ptr %14, align 8, !tbaa !20
+  store ptr @.str, ptr %14, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 7, ptr %16, align 8, !tbaa !22
+  store i64 7, ptr %16, align 8, !tbaa !23
   %17 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %14)
   store ptr %17, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, align 16, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store ptr @.str.2, ptr %13, align 8, !tbaa !20
+  store ptr @.str.2, ptr %13, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 5, ptr %18, align 8, !tbaa !22
+  store i64 5, ptr %18, align 8, !tbaa !23
   %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %13)
   store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 8), align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  store ptr @.str.3, ptr %12, align 8, !tbaa !20
+  store ptr @.str.3, ptr %12, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 5, ptr %20, align 8, !tbaa !22
+  store i64 5, ptr %20, align 8, !tbaa !23
   %21 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %12)
   store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 16), align 16, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  store ptr @.str.4, ptr %11, align 8, !tbaa !20
+  store ptr @.str.4, ptr %11, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 8, ptr %22, align 8, !tbaa !22
+  store i64 8, ptr %22, align 8, !tbaa !23
   %23 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %11)
   store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 24), align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store ptr @.str.5, ptr %10, align 8, !tbaa !20
+  store ptr @.str.5, ptr %10, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 6, ptr %24, align 8, !tbaa !22
+  store i64 6, ptr %24, align 8, !tbaa !23
   %25 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %10)
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 32), align 16, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  store ptr @.str.6, ptr %9, align 8, !tbaa !20
+  store ptr @.str.6, ptr %9, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 13, ptr %26, align 8, !tbaa !22
+  store i64 13, ptr %26, align 8, !tbaa !23
   %27 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %9)
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 40), align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr @.str.7, ptr %8, align 8, !tbaa !20
+  store ptr @.str.7, ptr %8, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 21, ptr %28, align 8, !tbaa !22
+  store i64 21, ptr %28, align 8, !tbaa !23
   %29 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %8)
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 48), align 16, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 56), align 8, !tbaa !3
   %30 = call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr @.str, ptr %7, align 8, !tbaa !20
+  store ptr @.str, ptr %7, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 7, ptr %31, align 8, !tbaa !22
+  store i64 7, ptr %31, align 8, !tbaa !23
   %32 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not.i2.i.i = icmp eq ptr %32, null
@@ -288,16 +288,16 @@ define internal void @_GLOBAL__sub_I_texoptions.cpp() #8 section ".text.startup"
 
 33:                                               ; preds = %0
   %34 = getelementptr inbounds i8, ptr %32, i64 -64
-  %35 = load i64, ptr %34, align 8, !tbaa !23
+  %35 = load i64, ptr %34, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i: ; preds = %33, %0
   %.0.i.i.i = phi i64 [ %35, %33 ], [ 0, %0 ]
-  store i64 %.0.i.i.i, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, align 16, !tbaa !12
+  store i64 %.0.i.i.i, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, align 16, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr @.str.2, ptr %6, align 8, !tbaa !20
+  store ptr @.str.2, ptr %6, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 5, ptr %36, align 8, !tbaa !22
+  store i64 5, ptr %36, align 8, !tbaa !23
   %37 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.not.i2.i1.i = icmp eq ptr %37, null
@@ -305,16 +305,16 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i: ; preds = %33, %0
 
 38:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
   %39 = getelementptr inbounds i8, ptr %37, i64 -64
-  %40 = load i64, ptr %39, align 8, !tbaa !23
+  %40 = load i64, ptr %39, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i: ; preds = %38, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i
   %.0.i.i2.i = phi i64 [ %40, %38 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit.i ]
-  store i64 %.0.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 8), align 8, !tbaa !12
+  store i64 %.0.i.i2.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 8), align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr @.str.3, ptr %5, align 8, !tbaa !20
+  store ptr @.str.3, ptr %5, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 5, ptr %41, align 8, !tbaa !22
+  store i64 5, ptr %41, align 8, !tbaa !23
   %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not.i2.i4.i = icmp eq ptr %42, null
@@ -322,16 +322,16 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i: ; preds = %38, %_ZN11OpenIma
 
 43:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
   %44 = getelementptr inbounds i8, ptr %42, i64 -64
-  %45 = load i64, ptr %44, align 8, !tbaa !23
+  %45 = load i64, ptr %44, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i: ; preds = %43, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i
   %.0.i.i5.i = phi i64 [ %45, %43 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit3.i ]
-  store i64 %.0.i.i5.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 16), align 16, !tbaa !12
+  store i64 %.0.i.i5.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 16), align 16, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr @.str.4, ptr %4, align 8, !tbaa !20
+  store ptr @.str.4, ptr %4, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 8, ptr %46, align 8, !tbaa !22
+  store i64 8, ptr %46, align 8, !tbaa !23
   %47 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not.i2.i7.i = icmp eq ptr %47, null
@@ -339,16 +339,16 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i: ; preds = %43, %_ZN11OpenIma
 
 48:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
   %49 = getelementptr inbounds i8, ptr %47, i64 -64
-  %50 = load i64, ptr %49, align 8, !tbaa !23
+  %50 = load i64, ptr %49, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i: ; preds = %48, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i
   %.0.i.i8.i = phi i64 [ %50, %48 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit6.i ]
-  store i64 %.0.i.i8.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 24), align 8, !tbaa !12
+  store i64 %.0.i.i8.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 24), align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr @.str.5, ptr %3, align 8, !tbaa !20
+  store ptr @.str.5, ptr %3, align 8, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 6, ptr %51, align 8, !tbaa !22
+  store i64 6, ptr %51, align 8, !tbaa !23
   %52 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not.i2.i10.i = icmp eq ptr %52, null
@@ -356,16 +356,16 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i: ; preds = %48, %_ZN11OpenIma
 
 53:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
   %54 = getelementptr inbounds i8, ptr %52, i64 -64
-  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %55 = load i64, ptr %54, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i: ; preds = %53, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i
   %.0.i.i11.i = phi i64 [ %55, %53 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit9.i ]
-  store i64 %.0.i.i11.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 32), align 16, !tbaa !12
+  store i64 %.0.i.i11.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 32), align 16, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store ptr @.str.6, ptr %2, align 8, !tbaa !20
+  store ptr @.str.6, ptr %2, align 8, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 13, ptr %56, align 8, !tbaa !22
+  store i64 13, ptr %56, align 8, !tbaa !23
   %57 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not.i2.i13.i = icmp eq ptr %57, null
@@ -373,16 +373,16 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i: ; preds = %53, %_ZN11OpenIm
 
 58:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
   %59 = getelementptr inbounds i8, ptr %57, i64 -64
-  %60 = load i64, ptr %59, align 8, !tbaa !23
+  %60 = load i64, ptr %59, align 8, !tbaa !24
   br label %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i
 
 _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i: ; preds = %58, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i
   %.0.i.i14.i = phi i64 [ %60, %58 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit12.i ]
-  store i64 %.0.i.i14.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 40), align 8, !tbaa !12
+  store i64 %.0.i.i14.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 40), align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  store ptr @.str.7, ptr %1, align 8, !tbaa !20
+  store ptr @.str.7, ptr %1, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 21, ptr %61, align 8, !tbaa !22
+  store i64 21, ptr %61, align 8, !tbaa !23
   %62 = call noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   %.not.i2.i16.i = icmp eq ptr %62, null
@@ -390,13 +390,13 @@ _ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i: ; preds = %58, %_ZN11OpenIm
 
 63:                                               ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i
   %64 = getelementptr inbounds i8, ptr %62, i64 -64
-  %65 = load i64, ptr %64, align 8, !tbaa !23
+  %65 = load i64, ptr %64, align 8, !tbaa !24
   br label %__cxx_global_var_init.8.exit
 
 __cxx_global_var_init.8.exit:                     ; preds = %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i, %63
   %.0.i.i17.i = phi i64 [ %65, %63 ], [ 0, %_ZN11OpenImageIO6v3_1_011ustringhashC2EPKc.exit15.i ]
-  store i64 %.0.i.i17.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 48), align 16, !tbaa !12
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 56), align 8, !tbaa !12
+  store i64 %.0.i.i17.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 48), align 16, !tbaa !13
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 56), align 8, !tbaa !13
   %66 = call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE)
   ret void
 }
@@ -424,22 +424,23 @@ attributes #10 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"_ZTSN11OpenImageIO6v3_1_011ustringhashE", !14, i64 0}
-!14 = !{!"long", !7, i64 0}
-!15 = distinct !{!15, !10}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !10}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"_ZTSN11OpenImageIO6v3_1_03Tex4WrapE", !7, i64 0}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !5, i64 0, !14, i64 8}
-!22 = !{!21, !14, i64 8}
-!23 = !{!24, !14, i64 0}
-!24 = !{!"_ZTSN11OpenImageIO6v3_1_07ustring8TableRepE", !14, i64 0, !25, i64 8, !14, i64 40, !14, i64 48, !27, i64 56}
-!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !14, i64 8, !7, i64 16}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
-!27 = !{!"int", !7, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"_ZTSN11OpenImageIO6v3_1_011ustringhashE", !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = distinct !{!16, !10, !11}
+!17 = !{!7, !7, i64 0}
+!18 = distinct !{!18, !10, !11}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTSN11OpenImageIO6v3_1_03Tex4WrapE", !7, i64 0}
+!21 = !{!22, !5, i64 0}
+!22 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !5, i64 0, !15, i64 8}
+!23 = !{!22, !15, i64 8}
+!24 = !{!25, !15, i64 0}
+!25 = !{!"_ZTSN11OpenImageIO6v3_1_07ustring8TableRepE", !15, i64 0, !26, i64 8, !15, i64 40, !15, i64 48, !28, i64 56}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !15, i64 8, !7, i64 16}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!28 = !{!"int", !7, i64 0}

@@ -167,12 +167,12 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %26 = add i16 %.sroa.06.0.i12.i, -1
   %27 = and i16 %26, %.sroa.06.0.i12.i
   %.not.i.not.i = icmp eq i16 %27, 0
-  br i1 %.not.i.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 28:                                               ; preds = %._crit_edge.i
   %29 = add i64 %.sroa.9.0.i.i, 16
   %30 = add i64 %.sroa.01.0.i.i, %29
-  br label %12
+  br label %12, !llvm.loop !28
 
 31:                                               ; preds = %.lr.ph.i
   %32 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %11, i64 %20
@@ -279,3 +279,6 @@ attributes #9 = { noreturn }
 !23 = distinct !{!23, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h3b3e33a82140ada0E"}
 !24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !27}

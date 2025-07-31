@@ -80,7 +80,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %6
   store double %12, ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
-  br i1 %exitcond.not.i, label %OSQPVectorf_from_raw.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %OSQPVectorf_from_raw.exit, label %.lr.ph.i, !llvm.loop !16
 
 OSQPVectorf_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %OSQPVectorf_malloc.exit.thread9, %OSQPVectorf_malloc.exit
   %.0 = phi ptr [ %3, %OSQPVectorf_malloc.exit ], [ %3, %OSQPVectorf_malloc.exit.thread9 ], [ null, %9 ], [ null, %2 ], [ %3, %.lr.ph.i ]
@@ -135,7 +135,7 @@ define void @OSQPVectorf_from_raw(ptr noundef readonly captures(none) %0, ptr no
   store double %8, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -149,14 +149,14 @@ define noalias noundef ptr @OSQPVectori_new(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %5, align 8, !tbaa !16
+  store i64 %1, ptr %5, align 8, !tbaa !17
   %.not11.i = icmp eq i64 %1, 0
   br i1 %.not11.i, label %OSQPVectori_malloc.exit.thread9, label %6
 
 6:                                                ; preds = %4
   %7 = shl i64 %1, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
-  store ptr %8, ptr %3, align 8, !tbaa !19
+  store ptr %8, ptr %3, align 8, !tbaa !20
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %9, label %OSQPVectori_malloc.exit
 
@@ -165,7 +165,7 @@ define noalias noundef ptr @OSQPVectori_new(ptr noundef readonly captures(none) 
   br label %OSQPVectori_from_raw.exit
 
 OSQPVectori_malloc.exit.thread9:                  ; preds = %4
-  store ptr null, ptr %3, align 8, !tbaa !19
+  store ptr null, ptr %3, align 8, !tbaa !20
   br label %OSQPVectori_from_raw.exit
 
 OSQPVectori_malloc.exit:                          ; preds = %6
@@ -175,12 +175,12 @@ OSQPVectori_malloc.exit:                          ; preds = %6
 .lr.ph.i:                                         ; preds = %OSQPVectori_malloc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %OSQPVectori_malloc.exit ]
   %11 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i
-  %12 = load i64, ptr %11, align 8, !tbaa !20
+  %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.08.i
-  store i64 %12, ptr %13, align 8, !tbaa !20
+  store i64 %12, ptr %13, align 8, !tbaa !21
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
-  br i1 %exitcond.not.i, label %OSQPVectori_from_raw.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %OSQPVectori_from_raw.exit, label %.lr.ph.i, !llvm.loop !22
 
 OSQPVectori_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %OSQPVectori_malloc.exit.thread9, %OSQPVectori_malloc.exit
   %.0 = phi ptr [ %3, %OSQPVectori_malloc.exit ], [ %3, %OSQPVectori_malloc.exit.thread9 ], [ null, %9 ], [ null, %2 ], [ %3, %.lr.ph.i ]
@@ -195,14 +195,14 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %0, ptr %4, align 8, !tbaa !16
+  store i64 %0, ptr %4, align 8, !tbaa !17
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = shl i64 %0, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #20
-  store ptr %7, ptr %2, align 8, !tbaa !19
+  store ptr %7, ptr %2, align 8, !tbaa !20
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %8, label %10
 
@@ -211,7 +211,7 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
   br label %10
 
 9:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !20
   br label %10
 
 10:                                               ; preds = %9, %8, %5, %1
@@ -222,20 +222,20 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectori_from_raw(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !16
-  %5 = load ptr, ptr %0, align 8, !tbaa !19
+  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = icmp sgt i64 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.08
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
-  store i64 %8, ptr %9, align 8, !tbaa !20
+  store i64 %8, ptr %9, align 8, !tbaa !21
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -289,13 +289,13 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %0, ptr %4, align 8, !tbaa !16
+  store i64 %0, ptr %4, align 8, !tbaa !17
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #22
-  store ptr %6, ptr %2, align 8, !tbaa !19
+  store ptr %6, ptr %2, align 8, !tbaa !20
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %7, label %9
 
@@ -304,7 +304,7 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
   br label %9
 
 8:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !20
   br label %9
 
 9:                                                ; preds = %8, %7, %5, %1
@@ -354,7 +354,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %7
   store double %14, ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, %3
-  br i1 %exitcond.not.i.i, label %OSQPVectorf_copy.exit, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %OSQPVectorf_copy.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 OSQPVectorf_copy.exit:                            ; preds = %.lr.ph.i.i, %OSQPVectorf_malloc.exit.thread, %1, %10, %OSQPVectorf_malloc.exit
   %.0.i7 = phi ptr [ %4, %OSQPVectorf_malloc.exit ], [ null, %10 ], [ null, %1 ], [ %4, %OSQPVectorf_malloc.exit.thread ], [ %4, %.lr.ph.i.i ]
@@ -378,7 +378,7 @@ define void @OSQPVectorf_copy(ptr noundef readonly captures(none) %0, ptr nounde
   store double %9, ptr %10, align 8, !tbaa !11
   %11 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %11, %5
-  br i1 %exitcond.not.i, label %OSQPVectorf_from_raw.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %OSQPVectorf_from_raw.exit, label %.lr.ph.i, !llvm.loop !16
 
 OSQPVectorf_from_raw.exit:                        ; preds = %.lr.ph.i, %2
   ret void
@@ -405,7 +405,7 @@ define void @OSQPVectori_free(ptr noundef captures(address_is_null) %0) local_un
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   tail call void @free(ptr noundef %3) #21
   br label %4
 
@@ -433,7 +433,7 @@ define void @OSQPVectorf_subvector_assign(ptr noundef readonly captures(none) %0
   store double %12, ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %14, %3
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %9, %5
   ret void
@@ -455,7 +455,7 @@ define void @OSQPVectorf_subvector_assign_scalar(ptr noundef readonly captures(n
   store double %1, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %10, %3
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %8, %4
   ret void
@@ -464,25 +464,25 @@ define void @OSQPVectorf_subvector_assign_scalar(ptr noundef readonly captures(n
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !16
+  %4 = load i64, ptr %3, align 8, !tbaa !17
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !19
+  %6 = load ptr, ptr %1, align 8, !tbaa !20
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
   %.02229 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.02229
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !21
   %.not26 = icmp ne i64 %9, 0
   %10 = zext i1 %.not26 to i64
   %spec.select = add nuw nsw i64 %.02030, %10
   %11 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp eq i64 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %7, %2
   %.020.lcssa = phi i64 [ 0, %2 ], [ %spec.select, %7 ]
@@ -516,14 +516,14 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
   br i1 %5, label %.lr.ph34, label %OSQPVectorf_malloc.exit.thread
 
 .lr.ph34:                                         ; preds = %OSQPVectorf_malloc.exit
-  %21 = load ptr, ptr %1, align 8, !tbaa !19
+  %21 = load ptr, ptr %1, align 8, !tbaa !20
   br label %22
 
 22:                                               ; preds = %.lr.ph34, %31
   %.033 = phi i64 [ 0, %.lr.ph34 ], [ %.1, %31 ]
   %.12332 = phi i64 [ 0, %.lr.ph34 ], [ %32, %31 ]
   %23 = getelementptr inbounds nuw i64, ptr %21, i64 %.12332
-  %24 = load i64, ptr %23, align 8, !tbaa !20
+  %24 = load i64, ptr %23, align 8, !tbaa !21
   %.not25 = icmp eq i64 %24, 0
   br i1 %.not25, label %31, label %25
 
@@ -540,7 +540,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
   %.1 = phi i64 [ %30, %25 ], [ %.033, %22 ]
   %32 = add nuw nsw i64 %.12332, 1
   %exitcond35.not = icmp eq i64 %32, %4
-  br i1 %exitcond35.not, label %OSQPVectorf_malloc.exit.thread, label %22, !llvm.loop !25
+  br i1 %exitcond35.not, label %OSQPVectorf_malloc.exit.thread, label %22, !llvm.loop !26
 
 OSQPVectorf_malloc.exit.thread:                   ; preds = %31, %OSQPVectorf_malloc.exit, %._crit_edge, %18
   %.019 = phi ptr [ null, %18 ], [ null, %._crit_edge ], [ %12, %OSQPVectorf_malloc.exit ], [ %12, %31 ]
@@ -606,7 +606,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
   store double %23, ptr %24, align 8, !tbaa !11
   %25 = add nuw nsw i64 %.01924, 1
   %exitcond.not = icmp eq i64 %25, %4
-  br i1 %exitcond.not, label %.preheader, label %21, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader, label %21, !llvm.loop !27
 
 26:                                               ; preds = %.lr.ph26, %26
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %29, %26 ]
@@ -616,7 +616,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
   store double %28, ptr %gep, align 8, !tbaa !11
   %29 = add nuw nsw i64 %.025, 1
   %exitcond27.not = icmp eq i64 %29, %6
-  br i1 %exitcond27.not, label %OSQPVectorf_malloc.exit.thread, label %26, !llvm.loop !27
+  br i1 %exitcond27.not, label %OSQPVectorf_malloc.exit.thread, label %26, !llvm.loop !28
 
 OSQPVectorf_malloc.exit.thread:                   ; preds = %26, %.preheader, %2, %14
   %.020 = phi ptr [ null, %14 ], [ null, %2 ], [ %8, %.preheader ], [ %8, %26 ]
@@ -673,11 +673,11 @@ define double @OSQPVectorf_norm_2(ptr noundef readonly captures(none) %0) local_
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %.012)
   %9 = add nuw nsw i64 %.01011, 1
   %exitcond.not = icmp eq i64 %9, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %8, %.lr.ph ]
-  %10 = tail call double @sqrt(double noundef %.0.lcssa) #21, !tbaa !29
+  %10 = tail call double @sqrt(double noundef %.0.lcssa) #21, !tbaa !30
   ret double %10
 }
 
@@ -697,7 +697,7 @@ define i64 @OSQPVectorf_length(ptr noundef readonly captures(none) %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @OSQPVectori_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !16
+  %3 = load i64, ptr %2, align 8, !tbaa !17
   ret i64 %3
 }
 
@@ -723,7 +723,7 @@ define void @OSQPVectorf_to_raw(ptr noundef writeonly captures(none) %0, ptr nou
   store double %8, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -732,20 +732,20 @@ define void @OSQPVectorf_to_raw(ptr noundef writeonly captures(none) %0, ptr nou
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectori_to_raw(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !16
-  %5 = load ptr, ptr %1, align 8, !tbaa !19
+  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %5 = load ptr, ptr %1, align 8, !tbaa !20
   %6 = icmp sgt i64 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.08
-  store i64 %8, ptr %9, align 8, !tbaa !20
+  store i64 %8, ptr %9, align 8, !tbaa !21
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -765,7 +765,7 @@ define void @OSQPVectorf_set_scalar(ptr noundef readonly captures(none) %0, doub
   store double %1, ptr %7, align 8, !tbaa !11
   %8 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %8, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -776,14 +776,14 @@ define void @OSQPVectorf_set_scalar_conditional(ptr noundef readonly captures(no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = load ptr, ptr %1, align 8, !tbaa !19
+  %9 = load ptr, ptr %1, align 8, !tbaa !20
   %10 = icmp sgt i64 %7, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %21
   %.019 = phi i64 [ %22, %21 ], [ 0, %5 ]
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.019
-  %12 = load i64, ptr %11, align 8, !tbaa !20
+  %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
 
@@ -808,7 +808,7 @@ define void @OSQPVectorf_set_scalar_conditional(ptr noundef readonly captures(no
 21:                                               ; preds = %14, %20, %19
   %22 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %22, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %21, %5
   ret void
@@ -837,7 +837,7 @@ define void @OSQPVectorf_round_to_zero(ptr noundef readonly captures(none) %0, d
 12:                                               ; preds = %.lr.ph, %11
   %13 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %12, %2
   ret void
@@ -859,7 +859,7 @@ define void @OSQPVectorf_mult_scalar(ptr noundef readonly captures(none) %0, dou
   store double %9, ptr %7, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -892,7 +892,7 @@ define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr nou
   store double %15, ptr %13, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.024, 1
   %exitcond27.not = icmp eq i64 %16, %5
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !37
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
@@ -905,7 +905,7 @@ define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr nou
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.preheader21, %.preheader
   ret void
@@ -938,7 +938,7 @@ define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr no
   store double %15, ptr %13, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.024, 1
   %exitcond27.not = icmp eq i64 %16, %5
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !39
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
@@ -951,7 +951,7 @@ define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr no
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.preheader21, %.preheader
   ret void
@@ -986,7 +986,7 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, d
   store double %18, ptr %16, align 8, !tbaa !11
   %19 = add nuw nsw i64 %.029, 1
   %exitcond32.not = icmp eq i64 %19, %7
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph30, !llvm.loop !41
+  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph30, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.preheader26, %.lr.ph
   %.128 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader26 ]
@@ -1000,7 +1000,7 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, d
   store double %25, ptr %26, align 8, !tbaa !11
   %27 = add nuw nsw i64 %.128, 1
   %exitcond.not = icmp eq i64 %27, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %.preheader26, %.preheader
   ret void
@@ -1040,7 +1040,7 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly captures(address) %0, 
   store double %25, ptr %23, align 8, !tbaa !11
   %26 = add nuw nsw i64 %.036, 1
   %exitcond39.not = icmp eq i64 %26, %9
-  br i1 %exitcond39.not, label %.loopexit, label %.lr.ph37, !llvm.loop !43
+  br i1 %exitcond39.not, label %.loopexit, label %.lr.ph37, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.135 = phi i64 [ %37, %.lr.ph ], [ 0, %.preheader33 ]
@@ -1057,7 +1057,7 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly captures(address) %0, 
   store double %35, ptr %36, align 8, !tbaa !11
   %37 = add nuw nsw i64 %.135, 1
   %exitcond.not = icmp eq i64 %37, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %.preheader33, %.preheader
   ret void
@@ -1083,7 +1083,7 @@ define double @OSQPVectorf_norm_inf(ptr noundef readonly captures(none) %0) loca
   %.1 = select i1 %11, double %10, double %.01418
   %12 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %12, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.014.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
@@ -1114,7 +1114,7 @@ define double @OSQPVectorf_scaled_norm_inf(ptr noundef readonly captures(none) %
   %.1 = select i1 %16, double %15, double %.026
   %17 = add nuw nsw i64 %.02125, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
@@ -1145,7 +1145,7 @@ define double @OSQPVectorf_norm_inf_diff(ptr noundef readonly captures(none) %0,
   %.1 = select i1 %16, double %15, double %.026
   %17 = add nuw nsw i64 %.02125, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
@@ -1171,7 +1171,7 @@ define double @OSQPVectorf_dot_prod(ptr noundef readonly captures(none) %0, ptr 
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %.013)
   %13 = add nuw nsw i64 %.01112, 1
   %exitcond.not = icmp eq i64 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %12, %.lr.ph ]
@@ -1208,7 +1208,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
   %15 = tail call double @llvm.fmuladd.f64(double %10, double %14, double %.038)
   %16 = add nuw nsw i64 %.02737, 1
   %exitcond45.not = icmp eq i64 %16, %5
-  br i1 %exitcond45.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph39, !llvm.loop !49
+  br i1 %exitcond45.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph39, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.236 = phi double [ %23, %.lr.ph ], [ 0.000000e+00, %.preheader33 ]
@@ -1222,7 +1222,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
   %23 = tail call double @llvm.fmuladd.f64(double %18, double %22, double %.236)
   %24 = add nuw nsw i64 %.12835, 1
   %exitcond.not = icmp eq i64 %24, %5
-  br i1 %exitcond.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph, !llvm.loop !51
 
 25:                                               ; preds = %3
   br i1 %8, label %.lr.ph.i, label %OSQPVectorf_dot_prod.exit
@@ -1237,7 +1237,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %29, double %.013.i)
   %31 = add nuw nsw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %31, %5
-  br i1 %exitcond.not.i, label %OSQPVectorf_dot_prod.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %OSQPVectorf_dot_prod.exit, label %.lr.ph.i, !llvm.loop !49
 
 OSQPVectorf_dot_prod.exit:                        ; preds = %.lr.ph, %.lr.ph39, %.lr.ph.i, %.preheader33, %.preheader, %25
   %.1 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader33 ], [ %30, %.lr.ph.i ], [ %15, %.lr.ph39 ], [ %23, %.lr.ph ]
@@ -1271,7 +1271,7 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly captures(address) %0, ptr 
   store double %15, ptr %13, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.024, 1
   %exitcond27.not = icmp eq i64 %16, %5
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !51
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph25, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
@@ -1284,7 +1284,7 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly captures(address) %0, ptr 
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.preheader21, %.preheader
   ret void
@@ -1302,7 +1302,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr noundef readonly captures(no
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i64 %.01011, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %2, %8
   %.01011 = phi i64 [ %9, %8 ], [ 0, %2 ]
@@ -1345,7 +1345,7 @@ define void @OSQPVectorf_ew_bound_vec(ptr noundef readonly captures(none) %0, pt
   store double %20, ptr %21, align 8, !tbaa !11
   %22 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %22, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1404,7 +1404,7 @@ define void @OSQPVectorf_project_polar_reccone(ptr noundef readonly captures(non
 32:                                               ; preds = %22, %21, %27, %26
   %33 = add nuw nsw i64 %.032, 1
   %exitcond.not = icmp eq i64 %33, %6
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %32, %4
   ret void
@@ -1453,7 +1453,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr noundef readonly captures
 30:                                               ; preds = %22, %26
   %31 = add nuw nsw i64 %.01920, 1
   %exitcond.not = icmp eq i64 %31, %7
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %26, %18, %30, %5
   %.0 = phi i64 [ 1, %5 ], [ 1, %30 ], [ 0, %18 ], [ 0, %26 ]
@@ -1479,7 +1479,7 @@ define double @OSQPVectorf_norm_1(ptr noundef readonly captures(none) %0) local_
   %11 = fadd double %.118, %10
   %12 = add nuw nsw i64 %.01317, 1
   %exitcond.not = icmp eq i64 %12, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   %.0 = phi double [ 0.000000e+00, %1 ], [ %11, %.lr.ph ]
@@ -1504,7 +1504,7 @@ define void @OSQPVectorf_ew_reciprocal(ptr noundef readonly captures(none) %0, p
   store double %10, ptr %11, align 8, !tbaa !11
   %12 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %12, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1522,11 +1522,11 @@ define void @OSQPVectorf_ew_sqrt(ptr noundef readonly captures(none) %0) local_u
   %.08 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw double, ptr %4, i64 %.08
   %7 = load double, ptr %6, align 8, !tbaa !11
-  %8 = tail call double @sqrt(double noundef %7) #21, !tbaa !29
+  %8 = tail call double @sqrt(double noundef %7) #21, !tbaa !30
   store double %8, ptr %6, align 8, !tbaa !11
   %9 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %9, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1554,7 +1554,7 @@ define void @OSQPVectorf_ew_max_vec(ptr noundef readonly captures(none) %0, ptr 
   store double %., ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1582,7 +1582,7 @@ define void @OSQPVectorf_ew_min_vec(ptr noundef readonly captures(none) %0, ptr 
   store double %., ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1591,8 +1591,8 @@ define void @OSQPVectorf_ew_min_vec(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, double noundef %3, double noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !16
-  %8 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %8 = load ptr, ptr %0, align 8, !tbaa !20
   %9 = load ptr, ptr %1, align 8, !tbaa !10
   %10 = load ptr, ptr %2, align 8, !tbaa !10
   %11 = icmp sgt i64 %7, 0
@@ -1606,7 +1606,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr noundef readonly capt
   %.032 = phi i64 [ 0, %.lr.ph ], [ %25, %13 ]
   %.03031 = phi i1 [ false, %.lr.ph ], [ %narrow, %13 ]
   %14 = getelementptr inbounds nuw i64, ptr %8, i64 %.032
-  %15 = load i64, ptr %14, align 8, !tbaa !20
+  %15 = load i64, ptr %14, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw double, ptr %9, i64 %.032
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fcmp olt double %17, %12
@@ -1618,12 +1618,12 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr noundef readonly capt
   %23 = fcmp olt double %22, %3
   %. = zext i1 %23 to i64
   %.sink = select i1 %or.cond, i64 -1, i64 %.
-  store i64 %.sink, ptr %14, align 8, !tbaa !20
+  store i64 %.sink, ptr %14, align 8, !tbaa !21
   %24 = icmp ne i64 %.sink, %15
   %narrow = select i1 %.03031, i1 true, i1 %24
   %25 = add nuw nsw i64 %.032, 1
   %exitcond.not = icmp eq i64 %25, %7
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !63
 
 ._crit_edge.loopexit:                             ; preds = %13
   %26 = zext i1 %narrow to i64
@@ -1653,7 +1653,7 @@ define void @OSQPVectorf_set_scalar_if_lt(ptr noundef readonly captures(none) %0
   store double %., ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1678,7 +1678,7 @@ define void @OSQPVectorf_set_scalar_if_gt(ptr noundef readonly captures(none) %0
   store double %., ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1726,55 +1726,56 @@ attributes #22 = { nounwind allocsize(0,1) }
 !10 = !{!4, !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !9, i64 8}
-!17 = !{!"OSQPVectori_", !18, i64 0, !9, i64 8}
-!18 = !{!"p1 long long", !6, i64 0}
-!19 = !{!17, !18, i64 0}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"int", !7, i64 0}
-!31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14}
-!38 = distinct !{!38, !14}
-!39 = distinct !{!39, !14}
-!40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
-!44 = distinct !{!44, !14}
-!45 = distinct !{!45, !14}
-!46 = distinct !{!46, !14}
-!47 = distinct !{!47, !14}
-!48 = distinct !{!48, !14}
-!49 = distinct !{!49, !14}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = distinct !{!52, !14}
-!53 = distinct !{!53, !14}
-!54 = distinct !{!54, !14}
-!55 = distinct !{!55, !14}
-!56 = distinct !{!56, !14}
-!57 = distinct !{!57, !14}
-!58 = distinct !{!58, !14}
-!59 = distinct !{!59, !14}
-!60 = distinct !{!60, !14}
-!61 = distinct !{!61, !14}
-!62 = distinct !{!62, !14}
-!63 = distinct !{!63, !14}
-!64 = distinct !{!64, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!18, !9, i64 8}
+!18 = !{!"OSQPVectori_", !19, i64 0, !9, i64 8}
+!19 = !{!"p1 long long", !6, i64 0}
+!20 = !{!18, !19, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15}
+!29 = distinct !{!29, !14, !15}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"int", !7, i64 0}
+!32 = distinct !{!32, !14, !15}
+!33 = distinct !{!33, !14, !15}
+!34 = distinct !{!34, !14, !15}
+!35 = distinct !{!35, !14, !15}
+!36 = distinct !{!36, !14, !15}
+!37 = distinct !{!37, !14, !15}
+!38 = distinct !{!38, !14, !15}
+!39 = distinct !{!39, !14, !15}
+!40 = distinct !{!40, !14, !15}
+!41 = distinct !{!41, !14, !15}
+!42 = distinct !{!42, !14, !15}
+!43 = distinct !{!43, !14, !15}
+!44 = distinct !{!44, !14, !15}
+!45 = distinct !{!45, !14, !15}
+!46 = distinct !{!46, !14, !15}
+!47 = distinct !{!47, !14, !15}
+!48 = distinct !{!48, !14, !15}
+!49 = distinct !{!49, !14, !15}
+!50 = distinct !{!50, !14, !15}
+!51 = distinct !{!51, !14, !15}
+!52 = distinct !{!52, !14, !15}
+!53 = distinct !{!53, !14, !15}
+!54 = distinct !{!54, !14, !15}
+!55 = distinct !{!55, !14, !15}
+!56 = distinct !{!56, !14, !15}
+!57 = distinct !{!57, !14, !15}
+!58 = distinct !{!58, !14, !15}
+!59 = distinct !{!59, !14, !15}
+!60 = distinct !{!60, !14, !15}
+!61 = distinct !{!61, !14, !15}
+!62 = distinct !{!62, !14, !15}
+!63 = distinct !{!63, !14, !15}
+!64 = distinct !{!64, !14, !15}
+!65 = distinct !{!65, !14, !15}

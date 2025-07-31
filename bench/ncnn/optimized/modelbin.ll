@@ -2381,7 +2381,7 @@ _ZN4ncnn3MatD2Ev.exit173:                         ; preds = %789, %787, %795, %7
 define hidden void @_ZN4ncnn20ModelBinFromMatArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN4ncnn20ModelBinFromMatArrayD2Ev.exit, label %5
 
@@ -2397,8 +2397,8 @@ _ZN4ncnn20ModelBinFromMatArrayD2Ev.exit:          ; preds = %1, %5
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.ncnn::Mat") align 8 captures(none) initializes((0, 28), (32, 60), (64, 72)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 %2, i32 %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !42
-  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
 
@@ -2458,15 +2458,15 @@ define hidden void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind n
 
 43:                                               ; preds = %11
   %44 = atomicrmw add ptr %15, i32 1 acq_rel, align 4
-  %.pre = load ptr, ptr %5, align 8, !tbaa !42
-  %.pre2 = load ptr, ptr %.pre, align 8, !tbaa !45
+  %.pre = load ptr, ptr %5, align 8, !tbaa !43
+  %.pre2 = load ptr, ptr %.pre, align 8, !tbaa !46
   br label %_ZN4ncnn3Mat6addrefEv.exit
 
 _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %11, %43
   %45 = phi ptr [ %7, %11 ], [ %.pre2, %43 ]
   %46 = phi ptr [ %6, %11 ], [ %.pre, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 72
-  store ptr %47, ptr %46, align 8, !tbaa !45
+  store ptr %47, ptr %46, align 8, !tbaa !46
   br label %48
 
 48:                                               ; preds = %_ZN4ncnn3Mat6addrefEv.exit, %8
@@ -2521,7 +2521,7 @@ define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr no
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4ncnn22ModelBinFromDataReaderE, i64 16), ptr %0, align 8, !tbaa !13
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !48
+  store ptr %1, ptr %3, align 8, !tbaa !49
   store ptr %3, ptr %4, align 8, !tbaa !25
   ret void
 }
@@ -2579,8 +2579,8 @@ define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr noundef nonn
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8, !tbaa !13
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !45
-  store ptr %3, ptr %4, align 8, !tbaa !42
+  store ptr %1, ptr %3, align 8, !tbaa !46
+  store ptr %3, ptr %4, align 8, !tbaa !43
   ret void
 }
 
@@ -2588,7 +2588,7 @@ define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr noundef nonn
 define hidden void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -2604,7 +2604,7 @@ define hidden void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr noundef nonnull align
 define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %3, align 8, !tbaa !42
+  store ptr null, ptr %3, align 8, !tbaa !43
   ret void
 }
 
@@ -2682,12 +2682,13 @@ attributes #22 = { builtin allocsize(0) }
 !37 = !{!7, !7, i64 0}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"float", !7, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!43, !44, i64 8}
-!43 = !{!"_ZTSN4ncnn20ModelBinFromMatArrayE", !27, i64 0, !44, i64 8}
-!44 = !{!"p1 _ZTSN4ncnn27ModelBinFromMatArrayPrivateE", !6, i64 0}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"_ZTSN4ncnn27ModelBinFromMatArrayPrivateE", !47, i64 0}
-!47 = !{!"p1 _ZTSN4ncnn3MatE", !6, i64 0}
-!48 = !{!31, !31, i64 0}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"_ZTSN4ncnn20ModelBinFromMatArrayE", !27, i64 0, !45, i64 8}
+!45 = !{!"p1 _ZTSN4ncnn27ModelBinFromMatArrayPrivateE", !6, i64 0}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"_ZTSN4ncnn27ModelBinFromMatArrayPrivateE", !48, i64 0}
+!48 = !{!"p1 _ZTSN4ncnn3MatE", !6, i64 0}
+!49 = !{!31, !31, i64 0}

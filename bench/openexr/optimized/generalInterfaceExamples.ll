@@ -1916,5 +1916,6 @@ attributes #17 = { noreturn }
 !75 = !{!"p1 short", !15, i64 0}
 !76 = !{!12, !14, i64 24}
 !77 = !{!12, !14, i64 16}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
+!80 = !{!"llvm.loop.estimated_trip_count"}

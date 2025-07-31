@@ -100,7 +100,7 @@ define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noun
   %38 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv68
   store i32 %26, ptr %38, align 4
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %indvars.iv73
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph61, !llvm.loop !8
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph61, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph61, %31, %29, %28
   %.145 = phi i32 [ 1, %28 ], [ 0, %29 ], [ 0, %31 ], [ 0, %.lr.ph61 ]
@@ -108,7 +108,7 @@ define void @initInverseGrayLut(ptr noundef readonly captures(none) %0, i32 noun
   %.2 = phi i32 [ %.065, %28 ], [ %30, %29 ], [ %30, %31 ], [ %30, %.lr.ph61 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 256
-  br i1 %exitcond76.not, label %.loopexit56, label %.preheader, !llvm.loop !9
+  br i1 %exitcond76.not, label %.loopexit56, label %.preheader, !llvm.loop !10
 
 .loopexit56:                                      ; preds = %.loopexit, %4, %3
   ret void
@@ -291,7 +291,7 @@ define hidden noundef ptr @initCubemap(ptr noundef readonly captures(none) %0, i
   %82 = phi i32 [ %80, %73 ], [ %55, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %81, %.preheader
   %.lcssa = phi i32 [ 0, %.preheader ], [ %82, %81 ]
@@ -547,7 +547,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr noundef nonnull cap
   %122 = phi i32 [ %120, %115 ], [ %110, %.thread86 ], [ %109, %108 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %123 = icmp sgt i64 %indvars.iv, 0
-  br i1 %123, label %32, label %._crit_edge, !llvm.loop !11
+  br i1 %123, label %32, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %121
   store i32 %122, ptr %23, align 8
@@ -662,12 +662,12 @@ define void @make_dither_arrays(i32 noundef %0, ptr noundef readonly captures(no
   store i8 %32, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %38, label %18, !llvm.loop !12
+  br i1 %exitcond.not, label %38, label %18, !llvm.loop !13
 
 38:                                               ; preds = %18
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, 8
-  br i1 %exitcond47.not, label %39, label %.preheader, !llvm.loop !13
+  br i1 %exitcond47.not, label %39, label %.preheader, !llvm.loop !14
 
 39:                                               ; preds = %38
   ret void
@@ -706,11 +706,12 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

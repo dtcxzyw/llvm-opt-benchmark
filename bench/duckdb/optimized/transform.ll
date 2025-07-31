@@ -109,7 +109,7 @@ define noundef i32 @_ZN13duckdb_brotli29BrotliTransformDictionaryWordEPhPKhiPKNS
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
   store i8 %51, ptr %52, align 1, !tbaa !14
   %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !19
 
 ._crit_edge105.loopexit:                          ; preds = %.lr.ph104
   %53 = trunc nuw i64 %indvars.iv.next127 to i32
@@ -210,11 +210,11 @@ _ZL11ToUpperCasePh.exit95:                        ; preds = %80, %82, %86, %90
   %95 = getelementptr inbounds nuw i8, ptr %.085111, i64 %94
   %96 = sub nsw i32 %.1112, %.0.i93
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph114, label %_ZL11ToUpperCasePh.exit, !llvm.loop !19
+  br i1 %97, label %.lr.ph114, label %_ZL11ToUpperCasePh.exit, !llvm.loop !20
 
 98:                                               ; preds = %._crit_edge105
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !20
+  %100 = load ptr, ptr %99, align 8, !tbaa !21
   %101 = shl nsw i32 %4, 1
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %100, i64 %102
@@ -227,7 +227,7 @@ _ZL11ToUpperCasePh.exit95:                        ; preds = %80, %82, %86, %90
 
 109:                                              ; preds = %._crit_edge105
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %111 = load ptr, ptr %110, align 8, !tbaa !20
+  %111 = load ptr, ptr %110, align 8, !tbaa !21
   %112 = shl nsw i32 %4, 1
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i8, ptr %111, i64 %113
@@ -248,7 +248,7 @@ _ZL11ToUpperCasePh.exit95:                        ; preds = %80, %82, %86, %90
   %121 = getelementptr inbounds i8, ptr %.079108, i64 %120
   %122 = sub nsw i32 %.2107, %119
   %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %.lr.ph110, label %_ZL11ToUpperCasePh.exit, !llvm.loop !21
+  br i1 %123, label %.lr.ph110, label %_ZL11ToUpperCasePh.exit, !llvm.loop !22
 
 _ZL11ToUpperCasePh.exit:                          ; preds = %.lr.ph110, %_ZL11ToUpperCasePh.exit95, %109, %74, %70, %66, %62, %60, %._crit_edge105, %98
   %124 = load i8, ptr %29, align 1, !tbaa !14
@@ -271,7 +271,7 @@ _ZL11ToUpperCasePh.exit:                          ; preds = %.lr.ph110, %_ZL11To
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv134
   store i8 %128, ptr %129, align 1, !tbaa !14
   %.not91 = icmp eq i32 %127, 0
-  br i1 %.not91, label %._crit_edge120.loopexit, label %.lr.ph119, !llvm.loop !22
+  br i1 %.not91, label %._crit_edge120.loopexit, label %.lr.ph119, !llvm.loop !23
 
 ._crit_edge120.loopexit:                          ; preds = %.lr.ph119
   %130 = trunc nuw i64 %indvars.iv.next135 to i32
@@ -455,10 +455,11 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !13 = !{!4, !8, i64 32}
 !14 = !{!6, !6, i64 0}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = !{!4, !8, i64 40}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = !{!4, !8, i64 40}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18}

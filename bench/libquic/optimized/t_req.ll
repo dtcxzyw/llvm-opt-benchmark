@@ -248,10 +248,10 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 
 101:                                              ; preds = %100, %100, %100, %100
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !38
-  %104 = load i32, ptr %96, align 8, !tbaa !40
+  %103 = load ptr, ptr %102, align 8, !tbaa !39
+  %104 = load i32, ptr %96, align 8, !tbaa !41
   %105 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef %103, i32 noundef %104) #2
-  %106 = load i32, ptr %96, align 8, !tbaa !40
+  %106 = load i32, ptr %96, align 8, !tbaa !41
   %.not129.us = icmp eq i32 %105, %106
   br i1 %.not129.us, label %107, label %.thread
 
@@ -260,7 +260,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %108 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink) #2
   %109 = add nuw nsw i32 %.0120162.us, 1
   %exitcond175.not = icmp eq i32 %109, %87
-  br i1 %exitcond175.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !41
+  br i1 %exitcond175.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !42
 
 110:                                              ; preds = %.lr.ph.us, %97
   %.0117161.us = phi i32 [ %91, %.lr.ph.us ], [ %98, %97 ]
@@ -298,10 +298,10 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 
 124:                                              ; preds = %123, %123, %123, %123
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !38
-  %127 = load i32, ptr %120, align 8, !tbaa !40
+  %126 = load ptr, ptr %125, align 8, !tbaa !39
+  %127 = load i32, ptr %120, align 8, !tbaa !41
   %128 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef %126, i32 noundef %127) #2
-  %129 = load i32, ptr %120, align 8, !tbaa !40
+  %129 = load i32, ptr %120, align 8, !tbaa !41
   %.not129 = icmp eq i32 %128, %129
   br i1 %.not129, label %130, label %.thread
 
@@ -310,13 +310,13 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink181) #2
   %132 = add nuw nsw i32 %.0120162, 1
   %exitcond.not = icmp eq i32 %132, %87
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %130, %107, %.preheader, %.lr.ph, %114
   %133 = add nuw i64 %.0116164, 1
   %134 = tail call i64 @sk_num(ptr noundef %72) #2
   %135 = icmp ult i64 %133, %134
-  br i1 %135, label %.lr.ph, label %.thread144, !llvm.loop !44
+  br i1 %135, label %.lr.ph, label %.thread144, !llvm.loop !45
 
 .thread144:                                       ; preds = %.loopexit, %.preheader159, %76, %64
   %136 = and i64 %3, 256
@@ -338,7 +338,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %143 = add nuw i64 %.0115165, 1
   %144 = tail call i64 @sk_num(ptr noundef nonnull %138) #2
   %145 = icmp ult i64 %143, %144
-  br i1 %145, label %.lr.ph166, label %.thread151, !llvm.loop !45
+  br i1 %145, label %.lr.ph166, label %.thread151, !llvm.loop !46
 
 .lr.ph166:                                        ; preds = %139, %142
   %.0115165 = phi i64 [ %143, %142 ], [ 0, %139 ]
@@ -384,9 +384,9 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 
 167:                                              ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !46
+  %169 = load ptr, ptr %168, align 8, !tbaa !47
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !47
+  %171 = load ptr, ptr %170, align 8, !tbaa !48
   %172 = tail call i32 @X509_signature_print(ptr noundef %0, ptr noundef %169, ptr noundef %171) #2
   %.not136 = icmp eq i32 %172, 0
   br i1 %.not136, label %.thread, label %173
@@ -494,15 +494,16 @@ attributes #2 = { nounwind }
 !33 = !{!34, !14, i64 0}
 !34 = !{!"asn1_type_st", !14, i64 0, !10, i64 8}
 !35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!39, !18, i64 8}
-!39 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !18, i64 8, !19, i64 16}
-!40 = !{!39, !14, i64 0}
-!41 = distinct !{!41, !37, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !37}
-!44 = distinct !{!44, !37}
-!45 = distinct !{!45, !37}
-!46 = !{!7, !12, i64 8}
-!47 = !{!7, !13, i64 16}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !18, i64 8}
+!40 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !18, i64 8, !19, i64 16}
+!41 = !{!40, !14, i64 0}
+!42 = distinct !{!42, !37, !38, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !37, !38}
+!45 = distinct !{!45, !37, !38}
+!46 = distinct !{!46, !37, !38}
+!47 = !{!7, !12, i64 8}
+!48 = !{!7, !13, i64 16}

@@ -65,12 +65,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val125.val = load i32, ptr %28, align 4, !tbaa !25
   %29 = sext i32 %.val125.val to i64
   %30 = icmp slt i64 %indvars.iv.next268, %29
-  br i1 %30, label %.lr.ph220, label %.critedge, !llvm.loop !31
+  br i1 %30, label %.lr.ph220, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph220, %.preheader209, %.preheader208
   %.not114 = icmp eq i32 %3, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
+  %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = getelementptr i8, ptr %32, i64 4
   %.val120224 = load i32, ptr %33, align 4, !tbaa !25
   %34 = icmp sgt i32 %.val120224, 0
@@ -96,12 +96,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not195, label %41, label %49
 
 41:                                               ; preds = %.lr.ph223
-  %.val142 = load ptr, ptr %38, align 8, !tbaa !33
+  %.val142 = load ptr, ptr %38, align 8, !tbaa !34
   %42 = getelementptr i8, ptr %38, i64 48
-  %.val143 = load ptr, ptr %42, align 8, !tbaa !36
+  %.val143 = load ptr, ptr %42, align 8, !tbaa !37
   %43 = getelementptr i8, ptr %.val142, i64 32
-  %.val142.val = load ptr, ptr %43, align 8, !tbaa !37
-  %.val143.val = load i32, ptr %.val143, align 4, !tbaa !38
+  %.val142.val = load ptr, ptr %43, align 8, !tbaa !38
+  %.val143.val = load i32, ptr %.val143, align 4, !tbaa !39
   %44 = getelementptr i8, ptr %.val142.val, i64 8
   %.val142.val.val = load ptr, ptr %44, align 8, !tbaa !27
   %45 = sext i32 %.val143.val to i64
@@ -109,7 +109,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %47 = load ptr, ptr %46, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store ptr inttoptr (i64 3 to ptr), ptr %48, align 8, !tbaa !3
-  %.pre = load ptr, ptr %31, align 8, !tbaa !32
+  %.pre = load ptr, ptr %31, align 8, !tbaa !33
   br label %49
 
 49:                                               ; preds = %41, %.lr.ph223
@@ -119,7 +119,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val = load i32, ptr %51, align 4, !tbaa !25
   %52 = sext i32 %.val to i64
   %53 = icmp slt i64 %indvars.iv.next271, %52
-  br i1 %53, label %.lr.ph223, label %.critedge4, !llvm.loop !39
+  br i1 %53, label %.lr.ph223, label %.critedge4, !llvm.loop !40
 
 .lr.ph226:                                        ; preds = %.preheader205, %72
   %54 = phi ptr [ %73, %72 ], [ %32, %.preheader205 ]
@@ -135,12 +135,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not200, label %60, label %72
 
 60:                                               ; preds = %.lr.ph226
-  %.val144 = load ptr, ptr %57, align 8, !tbaa !33
+  %.val144 = load ptr, ptr %57, align 8, !tbaa !34
   %61 = getelementptr i8, ptr %57, i64 48
-  %.val145 = load ptr, ptr %61, align 8, !tbaa !36
+  %.val145 = load ptr, ptr %61, align 8, !tbaa !37
   %62 = getelementptr i8, ptr %.val144, i64 32
-  %.val144.val = load ptr, ptr %62, align 8, !tbaa !37
-  %.val145.val = load i32, ptr %.val145, align 4, !tbaa !38
+  %.val144.val = load ptr, ptr %62, align 8, !tbaa !38
+  %.val145.val = load i32, ptr %.val145, align 4, !tbaa !39
   %63 = getelementptr i8, ptr %.val144.val, i64 8
   %.val144.val.val = load ptr, ptr %63, align 8, !tbaa !27
   %64 = sext i32 %.val145.val to i64
@@ -154,7 +154,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store ptr %70, ptr %71, align 8, !tbaa !3
-  %.pre300 = load ptr, ptr %31, align 8, !tbaa !32
+  %.pre300 = load ptr, ptr %31, align 8, !tbaa !33
   br label %72
 
 72:                                               ; preds = %60, %.lr.ph226
@@ -164,10 +164,10 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val120 = load i32, ptr %74, align 4, !tbaa !25
   %75 = sext i32 %.val120 to i64
   %76 = icmp slt i64 %indvars.iv.next274, %75
-  br i1 %76, label %.lr.ph226, label %.critedge4, !llvm.loop !40
+  br i1 %76, label %.lr.ph226, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %49, %72, %.preheader206, %.preheader205
-  %77 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %77 = load ptr, ptr @stdout, align 8, !tbaa !42
   %78 = tail call i64 @fwrite(ptr nonnull @.str, i64 35, i64 1, ptr %77)
   %79 = icmp sgt i32 %1, 0
   br i1 %79, label %.preheader204.lr.ph, label %._crit_edge
@@ -182,14 +182,14 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 .preheader204:                                    ; preds = %.preheader204.lr.ph, %.critedge22
   %.0261 = phi i32 [ 0, %.preheader204.lr.ph ], [ %259, %.critedge22 ]
-  %85 = load ptr, ptr %80, align 8, !tbaa !37
+  %85 = load ptr, ptr %80, align 8, !tbaa !38
   %86 = getelementptr i8, ptr %85, i64 4
   %.val121227 = load i32, ptr %86, align 4, !tbaa !25
   %87 = icmp sgt i32 %.val121227, 0
   br i1 %87, label %.lr.ph229, label %.critedge8.preheader
 
 .critedge8.preheader:                             ; preds = %126, %.preheader204
-  %.val159230 = load ptr, ptr %81, align 8, !tbaa !43
+  %.val159230 = load ptr, ptr %81, align 8, !tbaa !44
   %88 = getelementptr i8, ptr %.val159230, i64 4
   %.val159.val231 = load i32, ptr %88, align 4, !tbaa !25
   %89 = icmp sgt i32 %.val159.val231, 0
@@ -207,17 +207,17 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 95:                                               ; preds = %.lr.ph229
   %96 = getelementptr i8, ptr %93, i64 28
-  %.val152 = load i32, ptr %96, align 4, !tbaa !44
+  %.val152 = load i32, ptr %96, align 4, !tbaa !45
   %.not199 = icmp eq i32 %.val152, 2
   br i1 %.not199, label %97, label %126
 
 97:                                               ; preds = %95
-  %.val.i = load ptr, ptr %93, align 8, !tbaa !33
+  %.val.i = load ptr, ptr %93, align 8, !tbaa !34
   %98 = getelementptr i8, ptr %93, i64 32
-  %.val3.i = load ptr, ptr %98, align 8, !tbaa !45
+  %.val3.i = load ptr, ptr %98, align 8, !tbaa !46
   %99 = getelementptr i8, ptr %.val.i, i64 32
-  %.val.val.i = load ptr, ptr %99, align 8, !tbaa !37
-  %.val3.val.i = load i32, ptr %.val3.i, align 4, !tbaa !38
+  %.val.val.i = load ptr, ptr %99, align 8, !tbaa !38
+  %.val3.val.i = load i32, ptr %.val3.i, align 4, !tbaa !39
   %100 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %100, align 8, !tbaa !27
   %101 = sext i32 %.val3.val.i to i64
@@ -237,7 +237,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %switch.select5.i.i = select i1 %switch.selectcmp4.i.i, i32 2, i32 %switch.select.i.i
   %109 = select i1 %.not.i, i32 %106, i32 %switch.select5.i.i
   %110 = getelementptr i8, ptr %.val3.i, i64 4
-  %.val4.val.i = load i32, ptr %110, align 4, !tbaa !38
+  %.val4.val.i = load i32, ptr %110, align 4, !tbaa !39
   %111 = sext i32 %.val4.val.i to i64
   %112 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !28
@@ -262,7 +262,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %124 = select i1 %or.cond.i, ptr inttoptr (i64 1 to ptr), ptr %123
   %125 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr %124, ptr %125, align 8, !tbaa !3
-  %.pre301 = load ptr, ptr %80, align 8, !tbaa !37
+  %.pre301 = load ptr, ptr %80, align 8, !tbaa !38
   br label %126
 
 126:                                              ; preds = %97, %95, %.lr.ph229
@@ -272,7 +272,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val121 = load i32, ptr %128, align 4, !tbaa !25
   %129 = sext i32 %.val121 to i64
   %130 = icmp slt i64 %indvars.iv.next277, %129
-  br i1 %130, label %.lr.ph229, label %.critedge8.preheader, !llvm.loop !46
+  br i1 %130, label %.lr.ph229, label %.critedge8.preheader, !llvm.loop !47
 
 .critedge8:                                       ; preds = %.critedge8.preheader, %.critedge8
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %.critedge8 ], [ 0, %.critedge8.preheader ]
@@ -281,12 +281,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val160.val = load ptr, ptr %131, align 8, !tbaa !27
   %132 = getelementptr inbounds nuw ptr, ptr %.val160.val, i64 %indvars.iv279
   %133 = load ptr, ptr %132, align 8, !tbaa !28
-  %.val.i173 = load ptr, ptr %133, align 8, !tbaa !33
+  %.val.i173 = load ptr, ptr %133, align 8, !tbaa !34
   %134 = getelementptr i8, ptr %133, i64 32
-  %.val3.i174 = load ptr, ptr %134, align 8, !tbaa !45
+  %.val3.i174 = load ptr, ptr %134, align 8, !tbaa !46
   %135 = getelementptr i8, ptr %.val.i173, i64 32
-  %.val.val.i175 = load ptr, ptr %135, align 8, !tbaa !37
-  %.val3.val.i176 = load i32, ptr %.val3.i174, align 4, !tbaa !38
+  %.val.val.i175 = load ptr, ptr %135, align 8, !tbaa !38
+  %.val3.val.i176 = load i32, ptr %.val3.i174, align 4, !tbaa !39
   %136 = getelementptr i8, ptr %.val.val.i175, i64 8
   %.val.val.val.i177 = load ptr, ptr %136, align 8, !tbaa !27
   %137 = sext i32 %.val3.val.i176 to i64
@@ -311,15 +311,15 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %148 = getelementptr inbounds nuw i8, ptr %133, i64 64
   store ptr %147, ptr %148, align 8, !tbaa !3
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
-  %.val159 = load ptr, ptr %81, align 8, !tbaa !43
+  %.val159 = load ptr, ptr %81, align 8, !tbaa !44
   %149 = getelementptr i8, ptr %.val159, i64 4
   %.val159.val = load i32, ptr %149, align 4, !tbaa !25
   %150 = sext i32 %.val159.val to i64
   %151 = icmp slt i64 %indvars.iv.next280, %150
-  br i1 %151, label %.critedge8, label %.critedge10, !llvm.loop !47
+  br i1 %151, label %.critedge8, label %.critedge10, !llvm.loop !48
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
-  %152 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %152 = load ptr, ptr @stdout, align 8, !tbaa !42
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.1, i32 noundef %.0261) #4
   %.val126235 = load ptr, ptr %82, align 8, !tbaa !6
   %154 = getelementptr i8, ptr %.val126235, i64 4
@@ -334,7 +334,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val131.val = load ptr, ptr %156, align 8, !tbaa !27
   %157 = getelementptr inbounds nuw ptr, ptr %.val131.val, i64 %indvars.iv282
   %158 = load ptr, ptr %157, align 8, !tbaa !28
-  %159 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %159 = load ptr, ptr @stdout, align 8, !tbaa !42
   %160 = getelementptr i8, ptr %158, i64 64
   %.val155 = load ptr, ptr %160, align 8, !tbaa !3
   %161 = ptrtoint ptr %.val155 to i64
@@ -350,12 +350,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val126.val = load i32, ptr %163, align 4, !tbaa !25
   %164 = sext i32 %.val126.val to i64
   %165 = icmp slt i64 %indvars.iv.next283, %164
-  br i1 %165, label %.lr.ph239, label %.critedge12, !llvm.loop !48
+  br i1 %165, label %.lr.ph239, label %.critedge12, !llvm.loop !49
 
 .critedge12:                                      ; preds = %.lr.ph239, %.critedge10
-  %166 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %166 = load ptr, ptr @stdout, align 8, !tbaa !42
   %167 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 3, i64 1, ptr %166)
-  %168 = load ptr, ptr %83, align 8, !tbaa !32
+  %168 = load ptr, ptr %83, align 8, !tbaa !33
   %169 = getelementptr i8, ptr %168, i64 4
   %.val122240 = load i32, ptr %169, align 4, !tbaa !25
   %170 = icmp sgt i32 %.val122240, 0
@@ -375,13 +375,13 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not197, label %177, label %188
 
 177:                                              ; preds = %.lr.ph242
-  %178 = load ptr, ptr @stdout, align 8, !tbaa !41
-  %.val146 = load ptr, ptr %174, align 8, !tbaa !33
+  %178 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %.val146 = load ptr, ptr %174, align 8, !tbaa !34
   %179 = getelementptr i8, ptr %174, i64 48
-  %.val147 = load ptr, ptr %179, align 8, !tbaa !36
+  %.val147 = load ptr, ptr %179, align 8, !tbaa !37
   %180 = getelementptr i8, ptr %.val146, i64 32
-  %.val146.val = load ptr, ptr %180, align 8, !tbaa !37
-  %.val147.val = load i32, ptr %.val147, align 4, !tbaa !38
+  %.val146.val = load ptr, ptr %180, align 8, !tbaa !38
+  %.val147.val = load i32, ptr %.val147, align 4, !tbaa !39
   %181 = getelementptr i8, ptr %.val146.val, i64 8
   %.val146.val.val = load ptr, ptr %181, align 8, !tbaa !27
   %182 = sext i32 %.val147.val to i64
@@ -396,7 +396,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %switch.selectcmp6.i187 = icmp eq i32 %187, 1
   %switch.select7.i188 = select i1 %switch.selectcmp6.i187, i32 48, i32 %switch.select.i186
   %fputc.i189 = tail call i32 @fputc(i32 %switch.select7.i188, ptr %178)
-  %.pre302 = load ptr, ptr %83, align 8, !tbaa !32
+  %.pre302 = load ptr, ptr %83, align 8, !tbaa !33
   br label %188
 
 188:                                              ; preds = %177, %.lr.ph242
@@ -406,12 +406,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val122 = load i32, ptr %190, align 4, !tbaa !25
   %191 = sext i32 %.val122 to i64
   %192 = icmp slt i64 %indvars.iv.next286, %191
-  br i1 %192, label %.lr.ph242, label %.critedge14, !llvm.loop !49
+  br i1 %192, label %.lr.ph242, label %.critedge14, !llvm.loop !50
 
 .critedge14:                                      ; preds = %188, %.critedge12
-  %193 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %193 = load ptr, ptr @stdout, align 8, !tbaa !42
   %194 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 3, i64 1, ptr %193)
-  %.val161243 = load ptr, ptr %84, align 8, !tbaa !50
+  %.val161243 = load ptr, ptr %84, align 8, !tbaa !51
   %195 = getelementptr i8, ptr %.val161243, i64 4
   %.val161.val244 = load i32, ptr %195, align 4, !tbaa !25
   %196 = icmp sgt i32 %.val161.val244, 0
@@ -424,7 +424,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val162.val = load ptr, ptr %197, align 8, !tbaa !27
   %198 = getelementptr inbounds nuw ptr, ptr %.val162.val, i64 %indvars.iv288
   %199 = load ptr, ptr %198, align 8, !tbaa !28
-  %200 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %200 = load ptr, ptr @stdout, align 8, !tbaa !42
   %201 = getelementptr i8, ptr %199, i64 64
   %.val157 = load ptr, ptr %201, align 8, !tbaa !3
   %202 = ptrtoint ptr %.val157 to i64
@@ -435,15 +435,15 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %switch.select7.i193 = select i1 %switch.selectcmp6.i192, i32 48, i32 %switch.select.i191
   %fputc.i194 = tail call i32 @fputc(i32 %switch.select7.i193, ptr %200)
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %.val161 = load ptr, ptr %84, align 8, !tbaa !50
+  %.val161 = load ptr, ptr %84, align 8, !tbaa !51
   %204 = getelementptr i8, ptr %.val161, i64 4
   %.val161.val = load i32, ptr %204, align 4, !tbaa !25
   %205 = sext i32 %.val161.val to i64
   %206 = icmp slt i64 %indvars.iv.next289, %205
-  br i1 %206, label %.lr.ph247, label %.critedge16, !llvm.loop !51
+  br i1 %206, label %.lr.ph247, label %.critedge16, !llvm.loop !52
 
 .critedge16:                                      ; preds = %.lr.ph247, %.critedge14
-  %207 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %207 = load ptr, ptr @stdout, align 8, !tbaa !42
   %fputc = tail call i32 @fputc(i32 10, ptr %207)
   %.val128253 = load ptr, ptr %82, align 8, !tbaa !6
   %208 = getelementptr i8, ptr %.val128253, i64 4
@@ -472,7 +472,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val127.val = load i32, ptr %214, align 4, !tbaa !25
   %215 = sext i32 %.val127.val to i64
   %216 = icmp slt i64 %indvars.iv.next292, %215
-  br i1 %216, label %.lr.ph252, label %.critedge18, !llvm.loop !52
+  br i1 %216, label %.lr.ph252, label %.critedge18, !llvm.loop !53
 
 .lr.ph257:                                        ; preds = %.preheader, %.lr.ph257
   %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.lr.ph257 ], [ 0, %.preheader ]
@@ -494,10 +494,10 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val128.val = load i32, ptr %226, align 4, !tbaa !25
   %227 = sext i32 %.val128.val to i64
   %228 = icmp slt i64 %indvars.iv.next295, %227
-  br i1 %228, label %.lr.ph257, label %.critedge18, !llvm.loop !53
+  br i1 %228, label %.lr.ph257, label %.critedge18, !llvm.loop !54
 
 .critedge18:                                      ; preds = %.lr.ph252, %.lr.ph257, %.preheader202, %.preheader
-  %229 = load ptr, ptr %83, align 8, !tbaa !32
+  %229 = load ptr, ptr %83, align 8, !tbaa !33
   %230 = getelementptr i8, ptr %229, i64 4
   %.val123258 = load i32, ptr %230, align 4, !tbaa !25
   %231 = icmp sgt i32 %.val123258, 0
@@ -517,20 +517,20 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not196, label %238, label %254
 
 238:                                              ; preds = %.lr.ph260
-  %.val148 = load ptr, ptr %235, align 8, !tbaa !33
+  %.val148 = load ptr, ptr %235, align 8, !tbaa !34
   %239 = getelementptr i8, ptr %235, i64 48
-  %.val149 = load ptr, ptr %239, align 8, !tbaa !36
+  %.val149 = load ptr, ptr %239, align 8, !tbaa !37
   %240 = getelementptr i8, ptr %.val148, i64 32
-  %.val148.val = load ptr, ptr %240, align 8, !tbaa !37
-  %.val149.val = load i32, ptr %.val149, align 4, !tbaa !38
+  %.val148.val = load ptr, ptr %240, align 8, !tbaa !38
+  %.val149.val = load i32, ptr %.val149, align 4, !tbaa !39
   %241 = getelementptr i8, ptr %.val148.val, i64 8
   %.val148.val.val = load ptr, ptr %241, align 8, !tbaa !27
   %242 = sext i32 %.val149.val to i64
   %243 = getelementptr inbounds ptr, ptr %.val148.val.val, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !28
   %245 = getelementptr i8, ptr %235, i64 32
-  %.val154 = load ptr, ptr %245, align 8, !tbaa !45
-  %.val154.val = load i32, ptr %.val154, align 4, !tbaa !38
+  %.val154 = load ptr, ptr %245, align 8, !tbaa !46
+  %.val154.val = load i32, ptr %.val154, align 4, !tbaa !39
   %246 = sext i32 %.val154.val to i64
   %247 = getelementptr inbounds ptr, ptr %.val148.val.val, i64 %246
   %248 = load ptr, ptr %247, align 8, !tbaa !28
@@ -542,7 +542,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %252 = inttoptr i64 %251 to ptr
   %253 = getelementptr inbounds nuw i8, ptr %244, i64 64
   store ptr %252, ptr %253, align 8, !tbaa !3
-  %.pre303 = load ptr, ptr %83, align 8, !tbaa !32
+  %.pre303 = load ptr, ptr %83, align 8, !tbaa !33
   br label %254
 
 254:                                              ; preds = %238, %.lr.ph260
@@ -552,12 +552,12 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val123 = load i32, ptr %256, align 4, !tbaa !25
   %257 = sext i32 %.val123 to i64
   %258 = icmp slt i64 %indvars.iv.next298, %257
-  br i1 %258, label %.lr.ph260, label %.critedge22, !llvm.loop !54
+  br i1 %258, label %.lr.ph260, label %.critedge22, !llvm.loop !55
 
 .critedge22:                                      ; preds = %254, %.critedge18
   %259 = add nuw nsw i32 %.0261, 1
   %exitcond.not = icmp eq i32 %259, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader204, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader204, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.critedge22, %.critedge4
   ret void
@@ -577,7 +577,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr inttoptr (i64 2 to ptr), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = getelementptr i8, ptr %9, i64 4
   %.val69122 = load i32, ptr %10, align 4, !tbaa !25
   %11 = icmp sgt i32 %.val69122, 0
@@ -609,12 +609,12 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not119, label %23, label %35
 
 23:                                               ; preds = %.lr.ph
-  %.val82 = load ptr, ptr %20, align 8, !tbaa !33
+  %.val82 = load ptr, ptr %20, align 8, !tbaa !34
   %24 = getelementptr i8, ptr %20, i64 48
-  %.val83 = load ptr, ptr %24, align 8, !tbaa !36
+  %.val83 = load ptr, ptr %24, align 8, !tbaa !37
   %25 = getelementptr i8, ptr %.val82, i64 32
-  %.val82.val = load ptr, ptr %25, align 8, !tbaa !37
-  %.val83.val = load i32, ptr %.val83, align 4, !tbaa !38
+  %.val82.val = load ptr, ptr %25, align 8, !tbaa !38
+  %.val83.val = load i32, ptr %.val83, align 4, !tbaa !39
   %26 = getelementptr i8, ptr %.val82.val, i64 8
   %.val82.val.val = load ptr, ptr %26, align 8, !tbaa !27
   %27 = sext i32 %.val83.val to i64
@@ -628,7 +628,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr %33, ptr %34, align 8, !tbaa !3
-  %.pre = load ptr, ptr %8, align 8, !tbaa !32
+  %.pre = load ptr, ptr %8, align 8, !tbaa !33
   br label %35
 
 35:                                               ; preds = %23, %.lr.ph
@@ -638,7 +638,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val69 = load i32, ptr %37, align 4, !tbaa !25
   %38 = sext i32 %.val69 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.critedge.preheader, !llvm.loop !56
+  br i1 %39, label %.lr.ph, label %.critedge.preheader, !llvm.loop !57
 
 .preheader121:                                    ; preds = %.preheader121.lr.ph, %.critedge8
   %.0140 = phi i32 [ 0, %.preheader121.lr.ph ], [ %160, %.critedge8 ]
@@ -671,7 +671,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val70.val.us = load i32, ptr %51, align 4, !tbaa !25
   %52 = sext i32 %.val70.val.us to i64
   %53 = icmp slt i64 %indvars.iv.next151, %52
-  br i1 %53, label %.lr.ph128.split.us, label %.critedge2.preheader, !llvm.loop !57
+  br i1 %53, label %.lr.ph128.split.us, label %.critedge2.preheader, !llvm.loop !58
 
 .preheader:                                       ; preds = %.critedge8, %.critedge.preheader
   %54 = phi ptr [ %12, %.critedge.preheader ], [ %159, %.critedge8 ]
@@ -681,7 +681,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %56, label %.lr.ph143, label %.critedge10
 
 .critedge2.preheader:                             ; preds = %.lr.ph128.split, %.lr.ph128.split.us, %.preheader121
-  %57 = load ptr, ptr %15, align 8, !tbaa !37
+  %57 = load ptr, ptr %15, align 8, !tbaa !38
   %58 = getelementptr i8, ptr %57, i64 4
   %.val68129 = load i32, ptr %58, align 4, !tbaa !25
   %59 = icmp sgt i32 %.val68129, 0
@@ -702,10 +702,10 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val70.val = load i32, ptr %64, align 4, !tbaa !25
   %65 = sext i32 %.val70.val to i64
   %66 = icmp slt i64 %indvars.iv.next148, %65
-  br i1 %66, label %.lr.ph128.split, label %.critedge2.preheader, !llvm.loop !59
+  br i1 %66, label %.lr.ph128.split, label %.critedge2.preheader, !llvm.loop !60
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
-  %.val91132 = load ptr, ptr %16, align 8, !tbaa !43
+  %.val91132 = load ptr, ptr %16, align 8, !tbaa !44
   %67 = getelementptr i8, ptr %.val91132, i64 4
   %.val91.val133 = load i32, ptr %67, align 4, !tbaa !25
   %68 = icmp sgt i32 %.val91.val133, 0
@@ -723,17 +723,17 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 74:                                               ; preds = %.lr.ph131
   %75 = getelementptr i8, ptr %72, i64 28
-  %.val86 = load i32, ptr %75, align 4, !tbaa !44
+  %.val86 = load i32, ptr %75, align 4, !tbaa !45
   %.not118 = icmp eq i32 %.val86, 2
   br i1 %.not118, label %76, label %.critedge2
 
 76:                                               ; preds = %74
-  %.val.i = load ptr, ptr %72, align 8, !tbaa !33
+  %.val.i = load ptr, ptr %72, align 8, !tbaa !34
   %77 = getelementptr i8, ptr %72, i64 32
-  %.val3.i = load ptr, ptr %77, align 8, !tbaa !45
+  %.val3.i = load ptr, ptr %77, align 8, !tbaa !46
   %78 = getelementptr i8, ptr %.val.i, i64 32
-  %.val.val.i = load ptr, ptr %78, align 8, !tbaa !37
-  %.val3.val.i = load i32, ptr %.val3.i, align 4, !tbaa !38
+  %.val.val.i = load ptr, ptr %78, align 8, !tbaa !38
+  %.val3.val.i = load i32, ptr %.val3.i, align 4, !tbaa !39
   %79 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %79, align 8, !tbaa !27
   %80 = sext i32 %.val3.val.i to i64
@@ -753,7 +753,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %switch.select5.i.i = select i1 %switch.selectcmp4.i.i, i32 2, i32 %switch.select.i.i
   %88 = select i1 %.not.i, i32 %85, i32 %switch.select5.i.i
   %89 = getelementptr i8, ptr %.val3.i, i64 4
-  %.val4.val.i = load i32, ptr %89, align 4, !tbaa !38
+  %.val4.val.i = load i32, ptr %89, align 4, !tbaa !39
   %90 = sext i32 %.val4.val.i to i64
   %91 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !28
@@ -778,7 +778,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %103 = select i1 %or.cond.i, ptr inttoptr (i64 1 to ptr), ptr %102
   %104 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %103, ptr %104, align 8, !tbaa !3
-  %.pre165 = load ptr, ptr %15, align 8, !tbaa !37
+  %.pre165 = load ptr, ptr %15, align 8, !tbaa !38
   br label %.critedge2
 
 .critedge2:                                       ; preds = %76, %74, %.lr.ph131
@@ -788,10 +788,10 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val68 = load i32, ptr %106, align 4, !tbaa !25
   %107 = sext i32 %.val68 to i64
   %108 = icmp slt i64 %indvars.iv.next154, %107
-  br i1 %108, label %.lr.ph131, label %.critedge4.preheader, !llvm.loop !60
+  br i1 %108, label %.lr.ph131, label %.critedge4.preheader, !llvm.loop !61
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
-  %109 = load ptr, ptr %8, align 8, !tbaa !32
+  %109 = load ptr, ptr %8, align 8, !tbaa !33
   %110 = getelementptr i8, ptr %109, i64 4
   %.val67137 = load i32, ptr %110, align 4, !tbaa !25
   %111 = icmp sgt i32 %.val67137, 0
@@ -804,12 +804,12 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val92.val = load ptr, ptr %112, align 8, !tbaa !27
   %113 = getelementptr inbounds nuw ptr, ptr %.val92.val, i64 %indvars.iv156
   %114 = load ptr, ptr %113, align 8, !tbaa !28
-  %.val.i103 = load ptr, ptr %114, align 8, !tbaa !33
+  %.val.i103 = load ptr, ptr %114, align 8, !tbaa !34
   %115 = getelementptr i8, ptr %114, i64 32
-  %.val3.i104 = load ptr, ptr %115, align 8, !tbaa !45
+  %.val3.i104 = load ptr, ptr %115, align 8, !tbaa !46
   %116 = getelementptr i8, ptr %.val.i103, i64 32
-  %.val.val.i105 = load ptr, ptr %116, align 8, !tbaa !37
-  %.val3.val.i106 = load i32, ptr %.val3.i104, align 4, !tbaa !38
+  %.val.val.i105 = load ptr, ptr %116, align 8, !tbaa !38
+  %.val3.val.i106 = load i32, ptr %.val3.i104, align 4, !tbaa !39
   %117 = getelementptr i8, ptr %.val.val.i105, i64 8
   %.val.val.val.i107 = load ptr, ptr %117, align 8, !tbaa !27
   %118 = sext i32 %.val3.val.i106 to i64
@@ -834,12 +834,12 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %128, ptr %129, align 8, !tbaa !3
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %.val91 = load ptr, ptr %16, align 8, !tbaa !43
+  %.val91 = load ptr, ptr %16, align 8, !tbaa !44
   %130 = getelementptr i8, ptr %.val91, i64 4
   %.val91.val = load i32, ptr %130, align 4, !tbaa !25
   %131 = sext i32 %.val91.val to i64
   %132 = icmp slt i64 %indvars.iv.next157, %131
-  br i1 %132, label %.critedge4, label %.critedge6.preheader, !llvm.loop !61
+  br i1 %132, label %.critedge4, label %.critedge6.preheader, !llvm.loop !62
 
 .lr.ph139:                                        ; preds = %.critedge6.preheader, %.critedge6
   %133 = phi ptr [ %155, %.critedge6 ], [ %109, %.critedge6.preheader ]
@@ -855,20 +855,20 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not115, label %139, label %.critedge6
 
 139:                                              ; preds = %.lr.ph139
-  %.val80 = load ptr, ptr %136, align 8, !tbaa !33
+  %.val80 = load ptr, ptr %136, align 8, !tbaa !34
   %140 = getelementptr i8, ptr %136, i64 48
-  %.val81 = load ptr, ptr %140, align 8, !tbaa !36
+  %.val81 = load ptr, ptr %140, align 8, !tbaa !37
   %141 = getelementptr i8, ptr %.val80, i64 32
-  %.val80.val = load ptr, ptr %141, align 8, !tbaa !37
-  %.val81.val = load i32, ptr %.val81, align 4, !tbaa !38
+  %.val80.val = load ptr, ptr %141, align 8, !tbaa !38
+  %.val81.val = load i32, ptr %.val81, align 4, !tbaa !39
   %142 = getelementptr i8, ptr %.val80.val, i64 8
   %.val80.val.val = load ptr, ptr %142, align 8, !tbaa !27
   %143 = sext i32 %.val81.val to i64
   %144 = getelementptr inbounds ptr, ptr %.val80.val.val, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !28
   %146 = getelementptr i8, ptr %136, i64 32
-  %.val88 = load ptr, ptr %146, align 8, !tbaa !45
-  %.val88.val = load i32, ptr %.val88, align 4, !tbaa !38
+  %.val88 = load ptr, ptr %146, align 8, !tbaa !46
+  %.val88.val = load i32, ptr %.val88, align 4, !tbaa !39
   %147 = sext i32 %.val88.val to i64
   %148 = getelementptr inbounds ptr, ptr %.val80.val.val, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !28
@@ -880,7 +880,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %153 = inttoptr i64 %152 to ptr
   %154 = getelementptr inbounds nuw i8, ptr %145, i64 64
   store ptr %153, ptr %154, align 8, !tbaa !3
-  %.pre166 = load ptr, ptr %8, align 8, !tbaa !32
+  %.pre166 = load ptr, ptr %8, align 8, !tbaa !33
   br label %.critedge6
 
 .critedge6:                                       ; preds = %139, %.lr.ph139
@@ -890,13 +890,13 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val67 = load i32, ptr %156, align 4, !tbaa !25
   %157 = sext i32 %.val67 to i64
   %158 = icmp slt i64 %indvars.iv.next160, %157
-  br i1 %158, label %.lr.ph139, label %.critedge8, !llvm.loop !62
+  br i1 %158, label %.lr.ph139, label %.critedge8, !llvm.loop !63
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %159 = phi ptr [ %109, %.critedge6.preheader ], [ %155, %.critedge6 ]
   %160 = add nuw nsw i32 %.0140, 1
   %exitcond.not = icmp eq i32 %160, %1
-  br i1 %exitcond.not, label %.preheader, label %.preheader121, !llvm.loop !63
+  br i1 %exitcond.not, label %.preheader, label %.preheader121, !llvm.loop !64
 
 .lr.ph143:                                        ; preds = %.preheader, %179
   %161 = phi ptr [ %180, %179 ], [ %54, %.preheader ]
@@ -912,12 +912,12 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %167, label %179
 
 167:                                              ; preds = %.lr.ph143
-  %.val78 = load ptr, ptr %164, align 8, !tbaa !33
+  %.val78 = load ptr, ptr %164, align 8, !tbaa !34
   %168 = getelementptr i8, ptr %164, i64 48
-  %.val79 = load ptr, ptr %168, align 8, !tbaa !36
+  %.val79 = load ptr, ptr %168, align 8, !tbaa !37
   %169 = getelementptr i8, ptr %.val78, i64 32
-  %.val78.val = load ptr, ptr %169, align 8, !tbaa !37
-  %.val79.val = load i32, ptr %.val79, align 4, !tbaa !38
+  %.val78.val = load ptr, ptr %169, align 8, !tbaa !38
+  %.val79.val = load i32, ptr %.val79, align 4, !tbaa !39
   %170 = getelementptr i8, ptr %.val78.val, i64 8
   %.val78.val.val = load ptr, ptr %170, align 8, !tbaa !27
   %171 = sext i32 %.val79.val to i64
@@ -931,7 +931,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %177 = inttoptr i64 %176 to ptr
   %178 = getelementptr inbounds nuw i8, ptr %164, i64 56
   store ptr %177, ptr %178, align 8, !tbaa !3
-  %.pre167 = load ptr, ptr %8, align 8, !tbaa !32
+  %.pre167 = load ptr, ptr %8, align 8, !tbaa !33
   br label %179
 
 179:                                              ; preds = %167, %.lr.ph143
@@ -941,7 +941,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val = load i32, ptr %181, align 4, !tbaa !25
   %182 = sext i32 %.val to i64
   %183 = icmp slt i64 %indvars.iv.next163, %182
-  br i1 %183, label %.lr.ph143, label %.critedge10, !llvm.loop !64
+  br i1 %183, label %.lr.ph143, label %.critedge10, !llvm.loop !65
 
 .critedge10:                                      ; preds = %179, %.preheader
   ret void
@@ -990,39 +990,40 @@ attributes #4 = { nounwind }
 !26 = !{!"Vec_Ptr_t_", !8, i64 0, !8, i64 4, !10, i64 8}
 !27 = !{!26, !10, i64 8}
 !28 = !{!10, !10, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!7, !12, i64 80}
-!33 = !{!34, !13, i64 0}
-!34 = !{!"Abc_Obj_t_", !13, i64 0, !35, i64 8, !8, i64 16, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 21, !8, i64 21, !8, i64 21, !8, i64 21, !8, i64 21, !16, i64 24, !16, i64 40, !4, i64 56, !4, i64 64}
-!35 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
-!36 = !{!34, !17, i64 48}
-!37 = !{!7, !12, i64 32}
-!38 = !{!8, !8, i64 0}
-!39 = distinct !{!39, !30}
-!40 = distinct !{!40, !30}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!43 = !{!7, !12, i64 64}
-!44 = !{!34, !8, i64 28}
-!45 = !{!34, !17, i64 32}
-!46 = distinct !{!46, !30}
-!47 = distinct !{!47, !30}
-!48 = distinct !{!48, !30}
-!49 = distinct !{!49, !30}
-!50 = !{!7, !12, i64 48}
-!51 = distinct !{!51, !30}
-!52 = distinct !{!52, !30}
-!53 = distinct !{!53, !30}
-!54 = distinct !{!54, !30}
-!55 = distinct !{!55, !30}
-!56 = distinct !{!56, !30}
-!57 = distinct !{!57, !30, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !30}
-!60 = distinct !{!60, !30}
-!61 = distinct !{!61, !30}
-!62 = distinct !{!62, !30}
-!63 = distinct !{!63, !30}
-!64 = distinct !{!64, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = !{!7, !12, i64 80}
+!34 = !{!35, !13, i64 0}
+!35 = !{!"Abc_Obj_t_", !13, i64 0, !36, i64 8, !8, i64 16, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 20, !8, i64 21, !8, i64 21, !8, i64 21, !8, i64 21, !8, i64 21, !16, i64 24, !16, i64 40, !4, i64 56, !4, i64 64}
+!36 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
+!37 = !{!35, !17, i64 48}
+!38 = !{!7, !12, i64 32}
+!39 = !{!8, !8, i64 0}
+!40 = distinct !{!40, !30, !31}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!44 = !{!7, !12, i64 64}
+!45 = !{!35, !8, i64 28}
+!46 = !{!35, !17, i64 32}
+!47 = distinct !{!47, !30, !31}
+!48 = distinct !{!48, !30, !31}
+!49 = distinct !{!49, !30, !31}
+!50 = distinct !{!50, !30, !31}
+!51 = !{!7, !12, i64 48}
+!52 = distinct !{!52, !30, !31}
+!53 = distinct !{!53, !30, !31}
+!54 = distinct !{!54, !30, !31}
+!55 = distinct !{!55, !30, !31}
+!56 = distinct !{!56, !30, !31}
+!57 = distinct !{!57, !30, !31}
+!58 = distinct !{!58, !30, !31, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !30, !31}
+!61 = distinct !{!61, !30, !31}
+!62 = distinct !{!62, !30, !31}
+!63 = distinct !{!63, !30, !31}
+!64 = distinct !{!64, !30, !31}
+!65 = distinct !{!65, !30, !31}

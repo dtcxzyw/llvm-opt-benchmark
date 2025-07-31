@@ -619,7 +619,7 @@ BufferGetPage.exit:                               ; preds = %28, %34
   %49 = add i32 %.01632, 1
   %50 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %49, i1 noundef zeroext false)
   %.not28 = icmp eq i32 %50, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not28, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %BufferGetPage.exit, %BufferGetPage.exit.us, %3
   %.018.lcssa = phi i32 [ 0, %3 ], [ 0, %BufferGetPage.exit.us ], [ %48, %BufferGetPage.exit ]
@@ -750,7 +750,7 @@ BufferGetPage.exit:                               ; preds = %26, %32
   %64 = and i8 %61, %63
   store i8 %64, ptr %60, align 1
   tail call void @MarkBufferDirty(i32 noundef %23) #7
-  %65 = load i8, ptr @InRecovery, align 1, !range !5, !noundef !8
+  %65 = load i8, ptr @InRecovery, align 1, !range !5, !noundef !10
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %90, label %67
 
@@ -880,6 +880,8 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = !{}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = !{}

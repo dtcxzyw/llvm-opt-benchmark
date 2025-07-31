@@ -224,7 +224,7 @@ tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
 .loopexit:                                        ; preds = %112, %.preheader99
   %79 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.084)
   %.not73 = icmp eq ptr %79, null
-  br i1 %.not73, label %.loopexit101, label %.lr.ph, !llvm.loop !34
+  br i1 %.not73, label %.loopexit101, label %.lr.ph, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader100, %.loopexit
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
@@ -239,7 +239,7 @@ tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
 85:                                               ; preds = %82
   %86 = call i32 @wolfSSL_get_error(ptr noundef %36, i32 noundef 0) #14
   %87 = icmp eq i32 %86, -108
-  br i1 %87, label %82, label %.thread91, !llvm.loop !35
+  br i1 %87, label %82, label %.thread91, !llvm.loop !36
 
 .thread91:                                        ; preds = %82, %85
   %.193 = phi i32 [ %86, %85 ], [ 0, %82 ]
@@ -297,7 +297,7 @@ tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
 112:                                              ; preds = %130
   %113 = sub nsw i32 %.065112, %115
   %.not77 = icmp eq i32 %113, 0
-  br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .preheader:                                       ; preds = %.preheader99, %112
   %.065112 = phi i32 [ %113, %112 ], [ %81, %.preheader99 ]
@@ -311,12 +311,12 @@ tcp_connect.exit:                                 ; preds = %tcp_socket.exit.i
 117:                                              ; preds = %114
   %118 = call i32 @wolfSSL_get_error(ptr noundef %36, i32 noundef 0) #14
   %119 = icmp eq i32 %118, -108
-  br i1 %119, label %114, label %138, !llvm.loop !37
+  br i1 %119, label %114, label %138, !llvm.loop !38
 
 120:                                              ; preds = %114
   %121 = zext nneg i32 %115 to i64
   %122 = getelementptr inbounds nuw [1025 x i8], ptr %5, i64 0, i64 %121
-  store i8 0, ptr %122, align 1, !tbaa !38
+  store i8 0, ptr %122, align 1, !tbaa !39
   %123 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %.062)
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %130
@@ -485,7 +485,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 13:                                               ; preds = %9
   %14 = add nuw nsw i32 %.0820.i, 1
   %exitcond.not.i = icmp eq i32 %14, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %7, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.loopexit.i, label %7, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %13, %12
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.36) #15
@@ -610,11 +610,12 @@ attributes #19 = { cold noreturn nounwind }
 !29 = !{!27, !22, i64 2}
 !30 = !{!27, !11, i64 4}
 !31 = !{!11, !11, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
-!37 = distinct !{!37, !33}
-!38 = !{!7, !7, i64 0}
-!39 = distinct !{!39, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = distinct !{!36, !33, !34}
+!37 = distinct !{!37, !33, !34}
+!38 = distinct !{!38, !33, !34}
+!39 = !{!7, !7, i64 0}
+!40 = distinct !{!40, !33, !34}

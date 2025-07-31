@@ -404,7 +404,7 @@ _ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EE9push_backEOS5_
   %37 = phi ptr [ %8, %12 ], [ %26, %_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %8, %5 ]
   %.0.add = add nuw nsw i64 %.0.idx19, 32
   %.not = icmp eq i64 %.0.add, 2624
-  br i1 %.not, label %38, label %5
+  br i1 %.not, label %38, label %5, !llvm.loop !20
 
 38:                                               ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EE9push_backEOS5_.exit
   store ptr %37, ptr %0, align 8
@@ -477,3 +477,5 @@ attributes #13 = { builtin nounwind }
 !17 = !{!"p2 _ZTSN5osgeo4proj9operation17ESRIMethodMappingE", !18, i64 0}
 !18 = !{!"any p2 pointer", !10, i64 0}
 !19 = !{!16, !17, i64 16}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}

@@ -183,7 +183,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br label %12, !llvm.loop !13
 
 .loopexit:                                        ; preds = %12, %22, %17, %51, %49
-  %14 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %14 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.56, ptr noundef %11) #6
   br label %.loopexit173
 
@@ -290,7 +290,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not144, label %60, label %63
 
 60:                                               ; preds = %53
-  %61 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %61 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.57) #6
   br label %.loopexit173
 
@@ -300,7 +300,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %or.cond3, label %65, label %68
 
 65:                                               ; preds = %63
-  %66 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %66 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.58) #6
   br label %.loopexit173
 
@@ -331,7 +331,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %78
-  %81 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %81 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %81) #6
   br label %.loopexit173
 
@@ -346,7 +346,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not146, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %87 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %88 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %87, ptr noundef nonnull @.str.63) #6
   br label %.loopexit173
 
@@ -374,7 +374,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 
 100:                                              ; preds = %.critedge, %95
   call void @perror(ptr noundef %.0125) #7
-  %101 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %101 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %101) #6
   br label %.loopexit173
 
@@ -384,13 +384,13 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 
 103:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  store ptr null, ptr %9, align 8, !tbaa !17
+  store ptr null, ptr %9, align 8, !tbaa !18
   %104 = call i32 @EVP_PKEY_get_bn_param(ptr noundef nonnull %.1130, ptr noundef nonnull @.str.64, ptr noundef nonnull %9) #6
   %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %91, ptr noundef nonnull @.str.65) #6
-  %106 = load ptr, ptr %9, align 8, !tbaa !17
+  %106 = load ptr, ptr %9, align 8, !tbaa !18
   %107 = call i32 @BN_print(ptr noundef nonnull %91, ptr noundef %106) #6
   %108 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %91, ptr noundef nonnull @.str.66) #6
-  %109 = load ptr, ptr %9, align 8, !tbaa !17
+  %109 = load ptr, ptr %9, align 8, !tbaa !18
   call void @BN_free(ptr noundef %109) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   br label %110
@@ -404,9 +404,9 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %111
-  %115 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %115 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %116 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %115, ptr noundef nonnull @.str.67) #6
-  %117 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %117 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %117) #6
   br label %.loopexit173
 
@@ -423,9 +423,9 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br label %.thread
 
 122:                                              ; preds = %118
-  %123 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %123 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %124 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %123, ptr noundef nonnull @.str.69) #6
-  %125 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %125 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %125) #6
   br label %.thread
 
@@ -434,7 +434,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %127, label %128, label %.thread
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %129 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %129) #6
   br label %.loopexit173
 
@@ -442,7 +442,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not143, label %130, label %.loopexit173
 
 130:                                              ; preds = %.thread
-  %131 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %131 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %132 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %131, ptr noundef nonnull @.str.70) #6
   %133 = load i32, ptr %7, align 4, !tbaa !11
   switch i32 %133, label %139 [
@@ -459,12 +459,12 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %55, label %136, label %.thread163
 
 136:                                              ; preds = %135
-  %137 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %137 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %138 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.74) #6
   br label %.loopexit173
 
 139:                                              ; preds = %130
-  %140 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %140 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %141 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %140, ptr noundef nonnull @.str.76) #6
   br label %.loopexit173
 
@@ -511,7 +511,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not155, label %156, label %.loopexit173
 
 156:                                              ; preds = %152, %153
-  %157 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %157 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %158 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %157, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0100167) #6
   br label %.loopexit173
 
@@ -565,7 +565,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br label %.thread170
 
 181:                                              ; preds = %178
-  %182 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %182 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %183 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %182, ptr noundef nonnull @.str.82) #6
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #6
   br label %.loopexit173
@@ -576,9 +576,9 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not154, label %185, label %.loopexit173
 
 185:                                              ; preds = %.thread170
-  %186 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %186 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %186, ptr noundef nonnull @.str.83) #6
-  %188 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %188 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %188) #6
   br label %.loopexit173
 
@@ -802,9 +802,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !10 = !{!"p1 omnipotent char", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS9bignum_st", !6, i64 0}

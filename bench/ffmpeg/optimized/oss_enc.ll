@@ -96,7 +96,7 @@ define internal range(i32 -5, 1) i32 @audio_write_packet(ptr noundef readonly ca
   %33 = tail call i64 @write(i32 noundef %32, ptr noundef nonnull %11, i64 noundef 4096) #7
   %34 = trunc i64 %33 to i32
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %._crit_edge, label %.lr.ph
+  br i1 %35, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %31, %.preheader
   store i32 0, ptr %10, align 4, !tbaa !44
@@ -107,7 +107,7 @@ define internal range(i32 -5, 1) i32 @audio_write_packet(ptr noundef readonly ca
   %38 = getelementptr inbounds i8, ptr %.02531, i64 %18
   %39 = sub nsw i32 %.032, %.0.
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %13, label %.loopexit, !llvm.loop !47
+  br i1 %40, label %13, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %36, %28, %2
   %.024 = phi i32 [ 0, %2 ], [ -5, %28 ], [ 0, %36 ]
@@ -200,4 +200,6 @@ attributes #8 = { nounwind willreturn memory(none) }
 !45 = !{!38, !13, i64 8}
 !46 = !{!13, !13, i64 0}
 !47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.mustprogress"}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !50, !48}
+!50 = !{!"llvm.loop.mustprogress"}

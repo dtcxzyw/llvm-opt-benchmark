@@ -117,7 +117,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %53 = trunc nuw i64 %indvars.iv.next501 to i32
   store i32 %53, ptr %5, align 4, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next501, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit444, label %.lr.ph453, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit444, label %.lr.ph453, !llvm.loop !12
 
 .loopexit444:                                     ; preds = %35, %48
   store i32 0, ptr %5, align 4, !tbaa !3
@@ -273,7 +273,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %131, ptr %133, align 8, !tbaa !7
   %lftr.wideiv = trunc i64 %indvars.iv.next504 to i32
   %exitcond505.not = icmp eq i32 %125, %lftr.wideiv
-  br i1 %exitcond505.not, label %._crit_edge, label %.lr.ph457, !llvm.loop !12
+  br i1 %exitcond505.not, label %._crit_edge, label %.lr.ph457, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph457, %114
   %135 = sext i32 %56 to i64
@@ -303,7 +303,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %148 = add nuw nsw i32 %.0415, %.0417466
   %149 = load i32, ptr %1, align 4, !tbaa !3
   %150 = icmp sgt i32 %148, %149
-  br i1 %150, label %.loopexit, label %.lr.ph468
+  br i1 %150, label %.loopexit, label %.lr.ph468, !llvm.loop !14
 
 151:                                              ; preds = %.loopexit444
   %152 = load i32, ptr %1, align 4, !tbaa !3
@@ -506,7 +506,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %273, ptr %269, align 8, !tbaa !7
   store double %270, ptr %272, align 8, !tbaa !7
   %exitcond510.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count509
-  br i1 %exitcond510.not, label %._crit_edge474, label %262, !llvm.loop !13
+  br i1 %exitcond510.not, label %._crit_edge474, label %262, !llvm.loop !15
 
 ._crit_edge474:                                   ; preds = %262, %256
   %274 = sext i32 %.1414490 to i64
@@ -537,7 +537,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 288:                                              ; preds = %._crit_edge474, %279, %240
   %289 = add nsw i32 %.1416.neg, %.1418488
   %290 = icmp slt i32 %289, 1
-  br i1 %290, label %.loopexit, label %.lr.ph494
+  br i1 %290, label %.loopexit, label %.lr.ph494, !llvm.loop !16
 
 .loopexit:                                        ; preds = %30, %43, %147, %288, %.preheader, %151, %20, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
@@ -586,8 +586,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !11}

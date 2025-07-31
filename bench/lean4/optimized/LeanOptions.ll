@@ -3029,7 +3029,7 @@ lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exi
   store ptr %40, ptr %50, align 8, !tbaa !9
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %23, ptr %51, align 8, !tbaa !9
-  br label %3
+  br label %3, !llvm.loop !16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3573,7 +3573,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !9
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !9
-  br label %6
+  br label %6, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4613,7 +4613,7 @@ lean_inc.exit:                                    ; preds = %77, %76, %74, %lean
 lean_dec.exit:                                    ; preds = %86, %85, %83, %lean_inc.exit
   %87 = tail call ptr @l_Lean_LeanOptionValue_toDataValue(ptr noundef %41)
   %88 = tail call ptr @l_Lean_KVMap_insertCore(ptr noundef %69, ptr noundef %31, ptr noundef %87) #5
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 declare ptr @l_Lean_KVMap_insertCore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -20262,7 +20262,7 @@ lean_alloc_ctor.exit116:                          ; preds = %lean_dec.exit
 143:                                              ; preds = %101, %119, %lean_alloc_ctor.exit116, %lean_alloc_ctor.exit112, %73, %lean_alloc_ctor.exit
   %.sink = phi ptr [ %36, %119 ], [ %138, %lean_alloc_ctor.exit116 ], [ %111, %lean_alloc_ctor.exit112 ], [ %36, %73 ], [ %96, %lean_alloc_ctor.exit ], [ %36, %101 ]
   %144 = tail call ptr @l_Lean_RBNode_insert___at_Lean_Json_mkObj___spec__1(ptr noundef %62, ptr noundef %64, ptr noundef nonnull %.sink) #5
-  br label %3
+  br label %3, !llvm.loop !20
 }
 
 declare ptr @l_Lean_Name_toString(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -20550,9 +20550,9 @@ _init_l_Lean_instReprLeanOptionValue___closed__1.exit: ; preds = %_init_l___priv
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr @l___private_Lean_Util_LeanOptions_0__Lean_reprLeanOptionValue____x40_Lean_Util_LeanOptions___hyg_43____boxed, ptr %72, align 8, !tbaa !9
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i16 2, ptr %73, align 8, !tbaa !16
+  store i16 2, ptr %73, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 18
-  store i16 0, ptr %74, align 2, !tbaa !16
+  store i16 0, ptr %74, align 2, !tbaa !21
   store ptr %68, ptr @l_Lean_instReprLeanOptionValue___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %68) #5
   %75 = load ptr, ptr @l_Lean_instReprLeanOptionValue___closed__1, align 8, !tbaa !9
@@ -20574,9 +20574,9 @@ _init_l_Lean_instValueLeanOptionValue___closed__1.exit: ; preds = %_init_l_Lean_
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr @l_Lean_LeanOptionValue_toDataValue, ptr %80, align 8, !tbaa !9
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i16 1, ptr %81, align 8, !tbaa !16
+  store i16 1, ptr %81, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 18
-  store i16 0, ptr %82, align 2, !tbaa !16
+  store i16 0, ptr %82, align 2, !tbaa !21
   store ptr %76, ptr @l_Lean_instValueLeanOptionValue___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %76) #5
   tail call void @lean_inc_heartbeat() #5
@@ -20595,9 +20595,9 @@ _init_l_Lean_instValueLeanOptionValue___closed__2.exit: ; preds = %_init_l_Lean_
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr @l_Lean_LeanOptionValue_ofDataValue_x3f, ptr %87, align 8, !tbaa !9
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i16 1, ptr %88, align 8, !tbaa !16
+  store i16 1, ptr %88, align 8, !tbaa !21
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 18
-  store i16 0, ptr %89, align 2, !tbaa !16
+  store i16 0, ptr %89, align 2, !tbaa !21
   store ptr %83, ptr @l_Lean_instValueLeanOptionValue___closed__2, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %83) #5
   %90 = load ptr, ptr @l_Lean_instValueLeanOptionValue___closed__1, align 8, !tbaa !9
@@ -21043,9 +21043,9 @@ _init_l_Lean_instReprLeanOptions___closed__1.exit: ; preds = %_init_l___private_
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr @l___private_Lean_Util_LeanOptions_0__Lean_reprLeanOptions____x40_Lean_Util_LeanOptions___hyg_541____boxed, ptr %248, align 8, !tbaa !9
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  store i16 2, ptr %249, align 8, !tbaa !16
+  store i16 2, ptr %249, align 8, !tbaa !21
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 18
-  store i16 0, ptr %250, align 2, !tbaa !16
+  store i16 0, ptr %250, align 2, !tbaa !21
   store ptr %244, ptr @l_Lean_instReprLeanOptions___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %244) #5
   %251 = load ptr, ptr @l_Lean_instReprLeanOptions___closed__1, align 8, !tbaa !9
@@ -21081,9 +21081,9 @@ _init_l_Lean_RBNode_fold___at_Lean_instToJsonLeanOptions___spec__2___closed__1.e
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store ptr @l_Lean_RBNode_fold___at_Lean_instToJsonLeanOptions___spec__2___lambda__1___boxed, ptr %260, align 8, !tbaa !9
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  store i16 1, ptr %261, align 8, !tbaa !16
+  store i16 1, ptr %261, align 8, !tbaa !21
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 18
-  store i16 0, ptr %262, align 2, !tbaa !16
+  store i16 0, ptr %262, align 2, !tbaa !21
   store ptr %256, ptr @l_Lean_RBNode_fold___at_Lean_instToJsonLeanOptions___spec__2___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %256) #5
   tail call void @lean_inc_heartbeat() #5
@@ -21170,5 +21170,10 @@ attributes #6 = { noreturn nounwind }
 !13 = !{!7, !7, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !7, i64 0}

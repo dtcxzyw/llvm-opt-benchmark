@@ -291,7 +291,7 @@ define internal fastcc ptr @_generate_spooldir(ptr noundef readonly captures(non
 .loopexit:                                        ; preds = %.thread.i, %.lr.ph.i, %26
   store i8 %27, ptr %.027, align 1
   %.not34 = icmp eq ptr %.2, null
-  br i1 %.not34, label %.loopexit39, label %19
+  br i1 %.not34, label %.loopexit39, label %19, !llvm.loop !12
 
 .loopexit39:                                      ; preds = %.loopexit, %.thread, %11
   %.028 = phi ptr [ %15, %11 ], [ null, %.thread ], [ null, %.loopexit ]
@@ -335,7 +335,7 @@ define internal fastcc i32 @_mkpath(ptr noundef %0, i32 noundef %1, i32 noundef 
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = tail call ptr @xstrchr(ptr noundef nonnull %11, i32 noundef 47) #9
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %10, %3
   %13 = tail call fastcc i32 @_mkdir(ptr noundef %5, i32 noundef %1, i32 noundef %2)
@@ -402,7 +402,7 @@ define dso_local i32 @setup_container(ptr noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %20
   %26 = load ptr, ptr @oci_conf, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 264
-  %28 = load i8, ptr %27, align 8, !range !12, !noundef !13
+  %28 = load i8, ptr %27, align 8, !range !14, !noundef !15
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %58, label %30
 
@@ -631,7 +631,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %23 = load i8, ptr %22, align 8, !range !12, !noundef !13
+  %23 = load i8, ptr %22, align 8, !range !14, !noundef !15
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
@@ -707,7 +707,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
 
 74:                                               ; preds = %58, %55
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 441
-  %76 = load i8, ptr %75, align 1, !range !12, !noundef !13
+  %76 = load i8, ptr %75, align 1, !range !14, !noundef !15
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %172
 
@@ -912,7 +912,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv.next.i
   %228 = load ptr, ptr %227, align 8
   %.not99.i = icmp eq ptr %228, null
-  br i1 %.not99.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not99.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %223, %176, %172
   %229 = load ptr, ptr %37, align 8
@@ -970,7 +970,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %253 = getelementptr inbounds nuw i8, ptr %.088107.i, i64 8
   %254 = load ptr, ptr %253, align 8
   %.not100.i = icmp eq ptr %254, null
-  br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph108.i, !llvm.loop !15
+  br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph108.i, !llvm.loop !17
 
 255:                                              ; preds = %255, %.lr.ph111.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph111.i ], [ %indvars.iv.next116.i, %255 ]
@@ -985,7 +985,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %262 = load i32, ptr %238, align 8
   %263 = zext i32 %262 to i64
   %264 = icmp samesign ult i64 %indvars.iv.next116.i, %263
-  br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !16
+  br i1 %264, label %255, label %_modify_config.exit, !llvm.loop !18
 
 _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   %265 = load ptr, ptr %31, align 8
@@ -1080,7 +1080,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %300, %297
-  br label %.lr.ph.split.i, !llvm.loop !17
+  br label %.lr.ph.split.i, !llvm.loop !19
 
 .outer._crit_edge.i:                              ; preds = %.split.us.i, %279
   %303 = call i32 @fsync_and_close(i32 noundef %275, ptr noundef %273) #9
@@ -1225,7 +1225,7 @@ _write_config.exit.thread:                        ; preds = %314, %_write_config
 371:                                              ; preds = %370, %335
   %372 = phi ptr [ %.pre, %370 ], [ %336, %335 ]
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 192
-  %374 = load i8, ptr %373, align 8, !range !12, !noundef !13
+  %374 = load i8, ptr %373, align 8, !range !14, !noundef !15
   %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %376, label %380
 
@@ -1291,7 +1291,7 @@ _write_config.exit.thread:                        ; preds = %314, %_write_config
   %407 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %3, ptr %407, align 8
   %408 = getelementptr inbounds nuw i8, ptr %393, i64 264
-  %409 = load i8, ptr %408, align 8, !range !12, !noundef !13
+  %409 = load i8, ptr %408, align 8, !range !14, !noundef !15
   %410 = trunc nuw i8 %409 to i1
   br i1 %410, label %411, label %412
 
@@ -1337,7 +1337,7 @@ _write_config.exit.thread:                        ; preds = %314, %_write_config
   %430 = getelementptr inbounds nuw ptr, ptr %429, i64 %indvars.iv.next.i.i
   %431 = load ptr, ptr %430, align 8
   %.not.i.i = icmp eq ptr %431, null
-  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 _dump_command_args.exit.i:                        ; preds = %428, %.preheader.i.i, %412
   %432 = call ptr @run_command(ptr noundef nonnull %5) #9
@@ -1421,7 +1421,7 @@ _dump_command_args.exit.i:                        ; preds = %428, %.preheader.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %463 = add nuw nsw i32 %.0119.i, 1
   %exitcond.not.i = icmp eq i32 %463, 11
-  br i1 %exitcond.not.i, label %.loopexit.i52, label %438, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.loopexit.i52, label %438, !llvm.loop !21
 
 .loopexit.i52:                                    ; preds = %461, %460
   store ptr @start_argv, ptr %413, align 8
@@ -1458,7 +1458,7 @@ _dump_command_args.exit.i:                        ; preds = %428, %.preheader.i.
   %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv.next.i23.i
   %479 = load ptr, ptr %478, align 8
   %.not.i24.i = icmp eq ptr %479, null
-  br i1 %.not.i24.i, label %_dump_command_args.exit25.i, label %.lr.ph.i21.i, !llvm.loop !18
+  br i1 %.not.i24.i, label %_dump_command_args.exit25.i, label %.lr.ph.i21.i, !llvm.loop !20
 
 _dump_command_args.exit25.i:                      ; preds = %476, %.preheader.i19.i, %.loopexit.i52
   %480 = call ptr @run_command(ptr noundef nonnull %5) #9
@@ -1509,7 +1509,7 @@ _dump_command_args.exit25.i:                      ; preds = %476, %.preheader.i1
   %498 = call fastcc ptr @_get_container_status()
   store ptr %498, ptr %7, align 8
   %.not17.i = icmp eq ptr %498, null
-  br i1 %.not17.i, label %._crit_edge.i54, label %.lr.ph.i53
+  br i1 %.not17.i, label %._crit_edge.i54, label %.lr.ph.i53, !llvm.loop !22
 
 499:                                              ; preds = %492, %._crit_edge.i54
   call void @slurm_xfree(ptr noundef nonnull %7) #9
@@ -1731,7 +1731,7 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @_kill_container()
   %14 = load ptr, ptr @oci_conf, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 240
-  %16 = load i8, ptr %15, align 8, !range !12, !noundef !13
+  %16 = load i8, ptr %15, align 8, !range !14, !noundef !15
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %.thread, label %18
 
@@ -1760,7 +1760,7 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   call fastcc void @_generate_patterns(ptr noundef nonnull %0, ptr noundef %30)
   %31 = load ptr, ptr @oci_conf, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 264
-  %33 = load i8, ptr %32, align 8, !range !12, !noundef !13
+  %33 = load i8, ptr %32, align 8, !range !14, !noundef !15
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %47, label %35
 
@@ -1847,7 +1847,7 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %72 = load i32, ptr %19, align 4
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next, %73
-  br i1 %74, label %23, label %.loopexit, !llvm.loop !20
+  br i1 %74, label %23, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %71, %18
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2001,7 +2001,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly captures(addr
   %37 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %_pattern_argv.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %_pattern_argv.exit, label %.lr.ph.i, !llvm.loop !24
 
 39:                                               ; preds = %34
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.33) #9
@@ -2013,7 +2013,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly captures(addr
   %42 = sext i8 %41 to i32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %42) #9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %34, !llvm.loop !22
+  br label %34, !llvm.loop !25
 
 44:                                               ; preds = %28
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #9
@@ -2108,7 +2108,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly captures(addr
 _pattern_argv.exit:                               ; preds = %36, %29, %79, %61, %67, %53, %54, %44, %75, %73, %72, %70, %68, %58, %49, %47, %45, %27
   %.1 = phi ptr [ %25, %27 ], [ %25, %44 ], [ %25, %45 ], [ %25, %47 ], [ %25, %49 ], [ %25, %53 ], [ %25, %54 ], [ %25, %58 ], [ %25, %61 ], [ %25, %67 ], [ %25, %68 ], [ %25, %70 ], [ %25, %72 ], [ %25, %73 ], [ %25, %75 ], [ %.0, %79 ], [ %25, %29 ], [ %25, %36 ]
   %81 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %20, !llvm.loop !23
+  br label %20, !llvm.loop !26
 
 82:                                               ; preds = %4, %22
   %.025 = phi ptr [ %23, %22 ], [ null, %4 ]
@@ -2370,7 +2370,7 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
   %24 = getelementptr inbounds nuw ptr, ptr @query_argv, i64 %indvars.iv.next.i.i
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 _dump_command_args.exit.i:                        ; preds = %23, %0
   %26 = call ptr @run_command(ptr noundef nonnull %4) #9
@@ -2474,7 +2474,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   store i32 -1, ptr %7, align 8
   %8 = load ptr, ptr @oci_conf, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  %10 = load i8, ptr %9, align 8, !range !12, !noundef !13
+  %10 = load i8, ptr %9, align 8, !range !14, !noundef !15
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %18, label %12
 
@@ -2522,7 +2522,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   store ptr %28, ptr %1, align 8
   %29 = load ptr, ptr @oci_conf, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
-  %31 = load i8, ptr %30, align 8, !range !12, !noundef !13
+  %31 = load i8, ptr %30, align 8, !range !14, !noundef !15
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %36, label %33
 
@@ -2552,7 +2552,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   call void @slurm_xfree(ptr noundef nonnull %3) #9
   %44 = load ptr, ptr @oci_conf, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 264
-  %46 = load i8, ptr %45, align 8, !range !12, !noundef !13
+  %46 = load i8, ptr %45, align 8, !range !14, !noundef !15
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %.critedge, label %48
 
@@ -2574,7 +2574,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %56 = add nuw nsw i32 %.0715, 1
   %exitcond.not = icmp eq i32 %56, 10
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !27
 
 .critedge:                                        ; preds = %43, %33, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
@@ -2629,7 +2629,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next.i
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
-  br i1 %.not.i, label %_dump_command_args.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %_dump_command_args.exit, label %.lr.ph.i, !llvm.loop !20
 
 _dump_command_args.exit:                          ; preds = %74, %57, %.preheader.i
   %78 = call ptr @run_command(ptr noundef nonnull %2) #9
@@ -2680,20 +2680,23 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}

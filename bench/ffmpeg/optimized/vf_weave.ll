@@ -318,14 +318,14 @@ declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @config_props_output(ptr noundef captures(none) initializes((40, 48)) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !62
+  %9 = load i32, ptr %8, align 4, !tbaa !63
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !23
@@ -334,23 +334,23 @@ define internal range(i32 -2147483648, 1) i32 @config_props_output(ptr noundef c
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %15 = load i32, ptr %14, align 8, !tbaa !63
+  %15 = load i32, ptr %14, align 8, !tbaa !64
   %16 = shl nsw i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %16, ptr %17, align 8, !tbaa !63
+  store i32 %16, ptr %17, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %19 = load i32, ptr %18, align 4, !tbaa !64
+  %19 = load i32, ptr %18, align 4, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %19, ptr %20, align 4, !tbaa !64
+  store i32 %19, ptr %20, align 4, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %22 = load i32, ptr %21, align 8, !tbaa !65
+  %22 = load i32, ptr %21, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %22, ptr %23, align 8, !tbaa !65
+  store i32 %22, ptr %23, align 8, !tbaa !66
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 268
-  %25 = load i32, ptr %24, align 4, !tbaa !66
+  %25 = load i32, ptr %24, align 4, !tbaa !67
   %26 = shl nsw i32 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 %26, ptr %27, align 4, !tbaa !66
+  store i32 %26, ptr %27, align 4, !tbaa !67
   br label %28
 
 28:                                               ; preds = %13, %1
@@ -364,14 +364,14 @@ define internal range(i32 -2147483648, 1) i32 @config_props_output(ptr noundef c
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %34, ptr %35, align 4, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %37 = load i32, ptr %8, align 4, !tbaa !62
+  %37 = load i32, ptr %8, align 4, !tbaa !63
   %38 = tail call i32 @av_image_fill_linesizes(ptr noundef nonnull %36, i32 noundef %37, i32 noundef %30) #8
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %66, label %40
 
 40:                                               ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  %42 = load i8, ptr %41, align 2, !tbaa !67
+  %42 = load i8, ptr %41, align 2, !tbaa !68
   %43 = load i32, ptr %32, align 4, !tbaa !41
   %44 = sub nsw i32 0, %43
   %45 = zext nneg i8 %42 to i32
@@ -401,7 +401,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props_output(ptr noundef c
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %61, ptr %62, align 4, !tbaa !45
   store i32 %61, ptr %57, align 4, !tbaa !45
-  %63 = load i32, ptr %8, align 4, !tbaa !62
+  %63 = load i32, ptr %8, align 4, !tbaa !63
   %64 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %63) #8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %64, ptr %65, align 8, !tbaa !57
@@ -502,13 +502,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !56 = !{!"FilterLink", !28, i64 0, !16, i64 200, !49, i64 208, !49, i64 216, !15, i64 224, !15, i64 228, !49, i64 232, !49, i64 240, !49, i64 248, !49, i64 256, !30, i64 264, !19, i64 272}
 !57 = !{!24, !15, i64 16}
 !58 = !{!11, !11, i64 0}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!28, !29, i64 0}
-!62 = !{!28, !15, i64 36}
-!63 = !{!28, !15, i64 96}
-!64 = !{!28, !15, i64 100}
-!65 = !{!56, !15, i64 264}
-!66 = !{!56, !15, i64 268}
-!67 = !{!68, !8, i64 10}
-!68 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !49, i64 16, !8, i64 24, !11, i64 104}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!28, !29, i64 0}
+!63 = !{!28, !15, i64 36}
+!64 = !{!28, !15, i64 96}
+!65 = !{!28, !15, i64 100}
+!66 = !{!56, !15, i64 264}
+!67 = !{!56, !15, i64 268}
+!68 = !{!69, !8, i64 10}
+!69 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !49, i64 16, !8, i64 24, !11, i64 104}

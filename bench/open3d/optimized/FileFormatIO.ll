@@ -446,7 +446,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = icmp eq ptr %.028.lcssa37, %18
   br i1 %19, label %34, label %20
 
@@ -512,12 +512,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %6, ptr %5, align 8, !tbaa !27
+  store ptr %6, ptr %5, align 8, !tbaa !28
   %7 = load ptr, ptr %2, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  store i64 %9, ptr %4, align 8, !tbaa !28
+  store i64 %9, ptr %4, align 8, !tbaa !29
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -527,8 +527,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .noexc:                                           ; preds = %.noexc.i.i
   store ptr %11, ptr %5, align 8, !tbaa !17
-  %12 = load i64, ptr %4, align 8, !tbaa !28
-  store i64 %12, ptr %6, align 8, !tbaa !29
+  %12 = load i64, ptr %4, align 8, !tbaa !29
+  store i64 %12, ptr %6, align 8, !tbaa !30
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %3
@@ -539,8 +539,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   ]
 
 14:                                               ; preds = %._crit_edge.i.i.i
-  %15 = load i8, ptr %7, align 1, !tbaa !29
-  store i8 %15, ptr %13, align 1, !tbaa !29
+  %15 = load i8, ptr %7, align 1, !tbaa !30
+  store i8 %15, ptr %13, align 1, !tbaa !30
   br label %23
 
 16:                                               ; preds = %._crit_edge.i.i.i
@@ -563,17 +563,17 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %31 unwind label %32
 
 23:                                               ; preds = %16, %14, %._crit_edge.i.i.i
-  %24 = load i64, ptr %4, align 8, !tbaa !28
+  %24 = load i64, ptr %4, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %24, ptr %25, align 8, !tbaa !13
   %26 = load ptr, ptr %5, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
-  store i8 0, ptr %27, align 1, !tbaa !29
+  store i8 0, ptr %27, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !30
-  store ptr %30, ptr %28, align 8, !tbaa !30
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  store ptr %30, ptr %28, align 8, !tbaa !31
   ret void
 
 31:                                               ; preds = %21
@@ -608,7 +608,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -623,7 +623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %.lr.ph
-  %14 = load i64, ptr %9, align 8, !tbaa !29
+  %14 = load i64, ptr %9, align 8, !tbaa !30
   %15 = add i64 %14, 1
   tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %15) #20
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
@@ -631,7 +631,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %2
   ret void
@@ -683,7 +683,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !22
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseSB_.exit.i.i, label %6, !llvm.loop !34
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseSB_.exit.i.i, label %6, !llvm.loop !35
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PFN6open3d2io12FileGeometryERS7_EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseSB_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %15 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8)
@@ -717,7 +717,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERKS5_ESt4lessIS5_ESaISt4pairIS9_SC_EEE4findESA_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
   %27 = invoke noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERKS5_ESt4lessIS5_ESaISt4pairIS9_SC_EEE4findESA_.exit._ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERKS5_ESt4lessIS5_ESaISt4pairIS9_SC_EEE4findESA_.exit.thread_crit_edge unwind label %28
 
@@ -740,7 +740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  %35 = load i64, ptr %31, align 8, !tbaa !29
+  %35 = load i64, ptr %31, align 8, !tbaa !30
   %36 = add i64 %35, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %36) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -764,7 +764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERKS5_ESt4lessIS5_ESaISt4pairIS9_SC_EEE4findESA_.exit.thread
-  %43 = load i64, ptr %38, align 8, !tbaa !29
+  %43 = load i64, ptr %38, align 8, !tbaa !30
   %44 = add i64 %43, 1
   call void @_ZdlPvm(ptr noundef %37, i64 noundef %44) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
@@ -782,132 +782,132 @@ define internal void @_GLOBAL__sub_I_FileFormatIO.cpp() #13 section ".text.start
   %2 = alloca [12 x %"struct.std::pair"], align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %3, ptr %2, align 8, !tbaa !27
+  store ptr %3, ptr %2, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 3, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  store i8 0, ptr %5, align 1, !tbaa !29
+  store i8 0, ptr %5, align 1, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @_ZN6open3d2io24ReadFileGeometryTypeGLTFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %6, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io24ReadFileGeometryTypeGLTFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %6, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %8, ptr %7, align 8, !tbaa !27
+  store ptr %8, ptr %7, align 8, !tbaa !28
   store i32 1718905959, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 4, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i8 0, ptr %10, align 4, !tbaa !29
+  store i8 0, ptr %10, align 4, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @_ZN6open3d2io24ReadFileGeometryTypeGLTFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %11, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io24ReadFileGeometryTypeGLTFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %11, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %13, ptr %12, align 8, !tbaa !27
+  store ptr %13, ptr %12, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %13, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 3, ptr %14, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 99
-  store i8 0, ptr %15, align 1, !tbaa !29
+  store i8 0, ptr %15, align 1, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypeOBJERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %16, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypeOBJERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %16, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store ptr %18, ptr %17, align 8, !tbaa !27
+  store ptr %18, ptr %17, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %18, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i64 3, ptr %19, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 139
-  store i8 0, ptr %20, align 1, !tbaa !29
+  store i8 0, ptr %20, align 1, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypeFBXERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %21, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypeFBXERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %21, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store ptr %23, ptr %22, align 8, !tbaa !27
+  store ptr %23, ptr %22, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %23, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 3, ptr %24, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 179
-  store i8 0, ptr %25, align 1, !tbaa !29
+  store i8 0, ptr %25, align 1, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypeOFFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %26, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypeOFFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %26, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  store ptr %28, ptr %27, align 8, !tbaa !27
+  store ptr %28, ptr %27, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %28, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i64 3, ptr %29, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 219
-  store i8 0, ptr %30, align 1, !tbaa !29
+  store i8 0, ptr %30, align 1, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypePCDERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %31, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypePCDERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %31, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  store ptr %33, ptr %32, align 8, !tbaa !27
+  store ptr %33, ptr %32, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store i64 3, ptr %34, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 259
-  store i8 0, ptr %35, align 1, !tbaa !29
+  store i8 0, ptr %35, align 1, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypePLYERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %36, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypePLYERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %36, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  store ptr %38, ptr %37, align 8, !tbaa !27
+  store ptr %38, ptr %37, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %38, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 288
   store i64 3, ptr %39, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 299
-  store i8 0, ptr %40, align 1, !tbaa !29
+  store i8 0, ptr %40, align 1, !tbaa !30
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypePTSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %41, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypePTSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %41, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 336
-  store ptr %43, ptr %42, align 8, !tbaa !27
+  store ptr %43, ptr %42, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %43, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, i64 3, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 328
   store i64 3, ptr %44, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 339
-  store i8 0, ptr %45, align 1, !tbaa !29
+  store i8 0, ptr %45, align 1, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypeSTLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %46, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypeSTLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %46, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 376
-  store ptr %48, ptr %47, align 8, !tbaa !27
+  store ptr %48, ptr %47, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %48, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 368
   store i64 3, ptr %49, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 379
-  store i8 0, ptr %50, align 1, !tbaa !29
+  store i8 0, ptr %50, align 1, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  store ptr @_ZN6open3d2io23ReadFileGeometryTypeXYZERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %51, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io23ReadFileGeometryTypeXYZERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %51, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  store ptr %53, ptr %52, align 8, !tbaa !27
+  store ptr %53, ptr %52, align 8, !tbaa !28
   store i32 1853520248, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 408
   store i64 4, ptr %54, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 420
-  store i8 0, ptr %55, align 4, !tbaa !29
+  store i8 0, ptr %55, align 4, !tbaa !30
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  store ptr @_ZN6open3d2io24ReadFileGeometryTypeXYZNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %56, align 8, !tbaa !30
+  store ptr @_ZN6open3d2io24ReadFileGeometryTypeXYZNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %56, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  store ptr %58, ptr %57, align 8, !tbaa !27
+  store ptr %58, ptr %57, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %58, ptr noundef nonnull align 1 dereferenceable(6) @.str.11, i64 6, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 448
   store i64 6, ptr %59, align 8, !tbaa !13
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 462
-  store i8 0, ptr %60, align 2, !tbaa !29
+  store i8 0, ptr %60, align 2, !tbaa !30
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  store ptr @_ZN6open3d2io26ReadFileGeometryTypeXYZRGBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %61, align 8, !tbaa !30
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), align 8, !tbaa !35
+  store ptr @_ZN6open3d2io26ReadFileGeometryTypeXYZRGBERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %61, align 8, !tbaa !31
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), align 8, !tbaa !36
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 16), align 8, !tbaa !4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 24), align 8, !tbaa !26
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 32), align 8, !tbaa !36
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 24), align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 32), align 8, !tbaa !37
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, i64 40), align 8, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
-  store ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, ptr %1, align 8, !tbaa !37
+  store ptr @_ZN6open3d2ioL9gExt2FuncB5cxx11E, ptr %1, align 8, !tbaa !38
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc.i.i, %0
@@ -919,7 +919,7 @@ define internal void @_GLOBAL__sub_I_FileFormatIO.cpp() #13 section ".text.start
 .noexc.i.i:                                       ; preds = %.lr.ph.i.i.i
   %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 40
   %.not.i.i.i = icmp eq i64 %.07.i.i.add.i, 480
-  br i1 %.not.i.i.i, label %65, label %.lr.ph.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i, label %65, label %.lr.ph.i.i.i, !llvm.loop !39
 
 .body.i:                                          ; preds = %.lr.ph.i.i.i
   %64 = landingpad { ptr, i32 }
@@ -947,14 +947,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %66
-  %75 = load i64, ptr %70, align 8, !tbaa !29
+  %75 = load i64, ptr %70, align 8, !tbaa !30
   %76 = add i64 %75, 1
   call void @_ZdlPvm(ptr noundef %69, i64 noundef %76) #20
   br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit.i
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %77 = icmp eq ptr %68, %2
-  br i1 %77, label %__cxx_global_var_init.exit, label %66
+  br i1 %77, label %__cxx_global_var_init.exit, label %66, !llvm.loop !40
 
 78:                                               ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i, %.body.i
   %79 = phi ptr [ %62, %.body.i ], [ %80, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i ]
@@ -972,14 +972,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i51.i: ; preds = %78
-  %87 = load i64, ptr %82, align 8, !tbaa !29
+  %87 = load i64, ptr %82, align 8, !tbaa !30
   %88 = add i64 %87, 1
   call void @_ZdlPvm(ptr noundef %81, i64 noundef %88) #20
   br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i51.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i52.i
   %89 = icmp eq ptr %80, %2
-  br i1 %89, label %90, label %78
+  br i1 %89, label %90, label %78, !llvm.loop !41
 
 90:                                               ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EED2Ev.exit53.i
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %2) #17
@@ -1052,18 +1052,21 @@ attributes #21 = { noreturn }
 !21 = !{!5, !12, i64 32}
 !22 = !{!10, !10, i64 0}
 !23 = !{!6, !10, i64 24}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!5, !10, i64 16}
-!27 = !{!15, !16, i64 0}
-!28 = !{!12, !12, i64 0}
-!29 = !{!8, !8, i64 0}
-!30 = !{!31, !11, i64 32}
-!31 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EE", !14, i64 0, !11, i64 32}
-!32 = !{!6, !10, i64 16}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !25}
-!35 = !{!5, !7, i64 0}
-!36 = !{!5, !10, i64 24}
-!37 = !{!20, !20, i64 0}
-!38 = distinct !{!38, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!5, !10, i64 16}
+!28 = !{!15, !16, i64 0}
+!29 = !{!12, !12, i64 0}
+!30 = !{!8, !8, i64 0}
+!31 = !{!32, !11, i64 32}
+!32 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN6open3d2io12FileGeometryERS6_EE", !14, i64 0, !11, i64 32}
+!33 = !{!6, !10, i64 16}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}
+!36 = !{!5, !7, i64 0}
+!37 = !{!5, !10, i64 24}
+!38 = !{!20, !20, i64 0}
+!39 = distinct !{!39, !25, !26}
+!40 = distinct !{!40, !26}
+!41 = distinct !{!41, !26}

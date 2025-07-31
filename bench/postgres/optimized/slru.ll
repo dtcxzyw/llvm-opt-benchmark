@@ -245,7 +245,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 0, ptr %97, align 4
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !8
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph102, %77, %.preheader, %9
   %98 = zext i1 %8 to i8
@@ -436,7 +436,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
 30:                                               ; preds = %22, %25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not100 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %.not100, label %22, label %31, !llvm.loop !9
+  br i1 %.not100, label %22, label %31, !llvm.loop !10
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %7, align 8
@@ -532,7 +532,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
   %.279.ph = phi i32 [ %.077148, %71 ], [ %.077148, %73 ], [ %.077148, %76 ], [ %.077148, %62 ], [ %.077148, %64 ], [ %68, %67 ], [ %.077148, %49 ]
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
   %79 = icmp slt i64 %indvars.iv.next156, %21
-  br i1 %79, label %37, label %80, !llvm.loop !10
+  br i1 %79, label %37, label %80, !llvm.loop !11
 
 80:                                               ; preds = %78
   %81 = icmp slt i32 %.283.ph, 0
@@ -848,7 +848,7 @@ SlruRecentlyUsed.exit61:                          ; preds = %141, %152
   %162 = getelementptr inbounds i32, ptr %160, i64 %161
   %163 = load i32, ptr %162, align 4
   %.not = icmp eq i32 %163, 0
-  br i1 %.not, label %._crit_edge, label %20
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !12
 
 164:                                              ; preds = %SlruRecentlyUsed.exit, %SlruRecentlyUsed.exit61
   %165 = phi i32 [ %23, %SlruRecentlyUsed.exit ], [ %.lcssa68, %SlruRecentlyUsed.exit61 ]
@@ -1118,7 +1118,7 @@ SlruRecentlyUsed.exit:                            ; preds = %27, %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %18, %lftr.wideiv
-  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !13
 
 .critedge:                                        ; preds = %45
   tail call void @LWLockRelease(ptr noundef %10) #15
@@ -1169,7 +1169,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %24 = getelementptr inbounds i32, ptr %23, i64 %9
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 3
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !12
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %22, %3
   %.lcssa71 = phi ptr [ %14, %3 ], [ %23, %22 ]
@@ -1246,7 +1246,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.06079.i, i64 %69)
   %70 = add nuw nsw i32 %.05881.i, 1
   %exitcond.not.i = icmp eq i32 %70, %60
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 71:                                               ; preds = %._crit_edge.i
   %72 = load volatile i32, ptr @CritSectionCount, align 4
@@ -1275,7 +1275,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
 80:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond86.not.i, label %.thread.i, label %81, !llvm.loop !14
+  br i1 %exitcond86.not.i, label %.thread.i, label %81, !llvm.loop !16
 
 81:                                               ; preds = %80, %.lr.ph83.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph83.i ], [ %indvars.iv.next.i, %80 ]
@@ -1464,7 +1464,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.
   %168 = load i32, ptr %2, align 8
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
-  br i1 %170, label %164, label %.thread63, !llvm.loop !15
+  br i1 %170, label %164, label %.thread63, !llvm.loop !17
 
 .thread63:                                        ; preds = %164, %.preheader, %SlruPhysicalWritePage.exit
   %171 = load ptr, ptr %44, align 8
@@ -1670,7 +1670,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %38 = load i32, ptr %4, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %20, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %40, label %20, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge45:                                    ; preds = %45
   br i1 %.03140.ph, label %.critedge, label %._crit_edge45.thread
@@ -1686,7 +1686,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 45:                                               ; preds = %41
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge45, label %41, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge45, label %41, !llvm.loop !19
 
 .thread:                                          ; preds = %41
   store i32 5, ptr @slru_errcause, align 4
@@ -1698,7 +1698,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %50 = shl i64 %49, 5
   %indvars.iv.next5053 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not54 = icmp eq i64 %indvars.iv.next5053, %wide.trip.count
-  br i1 %exitcond.not54, label %._crit_edge45.thread, label %.outer, !llvm.loop !17
+  br i1 %exitcond.not54, label %._crit_edge45.thread, label %.outer, !llvm.loop !19
 
 ._crit_edge45.thread:                             ; preds = %.thread, %._crit_edge45
   %.15659 = phi i64 [ %.02941.ph, %._crit_edge45 ], [ %50, %.thread ]
@@ -1831,7 +1831,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %60 = load i32, ptr %4, align 8
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 63:                                               ; preds = %58, %57
   %64 = load ptr, ptr %12, align 8
@@ -1922,7 +1922,7 @@ SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
 26:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %24, %13, %15
   %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
   %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %.thread, label %8
+  br i1 %.not.not, label %.thread, label %8, !llvm.loop !21
 
 .thread:                                          ; preds = %26, %24, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %24 ], [ false, %26 ]
@@ -1973,7 +1973,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   br i1 %13, label %.lr.ph, label %.split47.us.loopexit
 
 ._crit_edge:                                      ; preds = %SimpleLruWaitIO.exit
-  br i1 %.137, label %.split, label %.split47.us.loopexit, !llvm.loop !19
+  br i1 %.137, label %.split, label %.split47.us.loopexit, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.split, %SimpleLruWaitIO.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SimpleLruWaitIO.exit ], [ 0, %.split ]
@@ -2093,7 +2093,7 @@ SimpleLruWaitIO.exit:                             ; preds = %75, %61, %43, %42, 
   %78 = load i32, ptr %3, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 .split47.us.loopexit:                             ; preds = %.split, %._crit_edge
   %.1.lcssa50 = phi i32 [ %.2, %._crit_edge ], [ %.0, %.split ]
@@ -2312,19 +2312,22 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = distinct !{!24, !7, !8}

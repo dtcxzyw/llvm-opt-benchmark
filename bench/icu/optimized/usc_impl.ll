@@ -279,10 +279,10 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   store i32 %67, ptr %17, align 4, !tbaa !17
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %68
-  store i32 %spec.store.select.i, ptr %69, align 4, !tbaa !25
+  store i32 %spec.store.select.i, ptr %69, align 4, !tbaa !26
   %.idx.i = shl nsw i64 %68, 3
   %gep = getelementptr i8, ptr %18, i64 %.idx.i
-  store i32 %60, ptr %gep, align 4, !tbaa !27
+  store i32 %60, ptr %gep, align 4, !tbaa !28
   br label %.critedge.thread
 
 70:                                               ; preds = %55
@@ -299,7 +299,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   %75 = phi i32 [ %58, %.lr.ph ], [ %84, %_ZL3popP10UScriptRun.exit ]
   %76 = sext i32 %74 to i64
   %77 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %78 = load i32, ptr %77, align 4, !tbaa !26
   %.not84 = icmp eq i32 %78, %71
   br i1 %.not84, label %.critedge, label %79
 
@@ -322,12 +322,12 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   %spec.store.select.i95 = select i1 %87, i32 -1, i32 %86
   store i32 %spec.store.select.i95, ptr %17, align 4
   %88 = icmp slt i32 %75, 2
-  br i1 %88, label %.critedge.thread, label %73, !llvm.loop !28
+  br i1 %88, label %.critedge.thread, label %73, !llvm.loop !29
 
 .critedge:                                        ; preds = %73
   %.idx = shl nsw i64 %76, 3
   %89 = getelementptr i8, ptr %18, i64 %.idx
-  %90 = load i32, ptr %89, align 4, !tbaa !27
+  %90 = load i32, ptr %89, align 4, !tbaa !28
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL3popP10UScriptRun.exit, %70, %.critedge, %59, %_ZL12getPairIndexi.exit
@@ -367,10 +367,10 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   %109 = sext i32 %108 to i64
   %.idx.i96 = shl nsw i64 %109, 3
   %110 = getelementptr i8, ptr %18, i64 %.idx.i96
-  store i32 %.072, ptr %110, align 4, !tbaa !27
+  store i32 %.072, ptr %110, align 4, !tbaa !28
   %111 = add nsw i32 %106, -1
   %.not.i97 = icmp eq i32 %106, 0
-  br i1 %.not.i97, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %105, !llvm.loop !29
+  br i1 %.not.i97, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %105, !llvm.loop !30
 
 _ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %105, %98
   %.lcssa.i = phi i32 [ %100, %98 ], [ -1, %105 ]
@@ -425,7 +425,7 @@ _ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %105, %98
   store i32 %136, ptr %8, align 4, !tbaa !15
   %137 = load i32, ptr %0, align 8, !tbaa !13
   %138 = icmp slt i32 %136, %137
-  br i1 %138, label %19, label %_ZL3popP10UScriptRun.exit99, !llvm.loop !30
+  br i1 %138, label %19, label %_ZL3popP10UScriptRun.exit99, !llvm.loop !31
 
 _ZL3popP10UScriptRun.exit99:                      ; preds = %134, %131, %129
   %139 = phi i32 [ %91, %131 ], [ %91, %129 ], [ %113, %134 ]
@@ -451,7 +451,7 @@ _ZL3popP10UScriptRun.exit99:                      ; preds = %134, %131, %129
   br i1 %.not89, label %147, label %146
 
 146:                                              ; preds = %145
-  store i32 %139, ptr %3, align 4, !tbaa !31
+  store i32 %139, ptr %3, align 4, !tbaa !32
   br label %147
 
 147:                                              ; preds = %145, %146, %4, %7
@@ -500,12 +500,13 @@ attributes #8 = { nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"char16_t", !5, i64 0}
 !22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !9, i64 0}
-!26 = !{!"_ZTS15ParenStackEntry", !9, i64 0, !12, i64 4}
-!27 = !{!26, !12, i64 4}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = !{!12, !12, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !9, i64 0}
+!27 = !{!"_ZTS15ParenStackEntry", !9, i64 0, !12, i64 4}
+!28 = !{!27, !12, i64 4}
+!29 = distinct !{!29, !24, !25}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = !{!12, !12, i64 0}

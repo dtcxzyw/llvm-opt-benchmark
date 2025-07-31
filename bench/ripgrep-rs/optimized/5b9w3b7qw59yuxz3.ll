@@ -263,7 +263,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
   %49 = add i64 %48, 1
   store i64 %49, ptr %22, align 8, !alias.scope !12, !noalias !15
   %50 = icmp eq ptr %29, %23
-  br i1 %50, label %._crit_edge, label %.lr.ph
+  br i1 %50, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 51:                                               ; preds = %26
   %52 = landingpad { ptr, i32 }
@@ -283,7 +283,7 @@ define void @_ZN12grep_printer4json10SubMatches5empty17h3cd8f2c49c978b89E(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12grep_printer4json10SubMatches8as_slice17h4535112f120692a8E(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #5 {
-  %2 = load i64, ptr %0, align 8, !range !17, !noundef !8
+  %2 = load i64, ptr %0, align 8, !range !19, !noundef !8
   switch i64 %2, label %default.unreachable5 [
     i64 0, label %10
     i64 1, label %3
@@ -387,4 +387,6 @@ attributes #14 = { cold noreturn nounwind }
 !14 = distinct !{!14, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5543d8a94e76175E"}
 !15 = !{!16}
 !16 = distinct !{!16, !14, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5543d8a94e76175E: argument 1"}
-!17 = !{i64 0, i64 3}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{i64 0, i64 3}

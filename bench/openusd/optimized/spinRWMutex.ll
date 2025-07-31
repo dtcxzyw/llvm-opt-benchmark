@@ -28,7 +28,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex14_WaitForWrit
   %9 = load atomic i32, ptr %0 seq_cst, align 4
   %10 = and i32 %9, 1
   %.not.i5.i = icmp eq i32 %10, 0
-  br i1 %.not.i5.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex14_WaitForWriterEvE3$_0EEvOT_.exit", label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i5.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex14_WaitForWriterEvE3$_0EEvOT_.exit", label %.preheader.i, !llvm.loop !7
 
 "_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex14_WaitForWriterEvE3$_0EEvOT_.exit": ; preds = %.preheader6.i, %.preheader.i, %1
   ret void
@@ -43,7 +43,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15_WaitForRead
 4:                                                ; preds = %.preheader4.i
   %5 = add nuw nsw i32 %.06.i, 1
   %.not.i = icmp eq i32 %5, 32
-  br i1 %.not.i, label %.preheader.i, label %.preheader4.i, !llvm.loop !7
+  br i1 %.not.i, label %.preheader.i, label %.preheader4.i, !llvm.loop !8
 
 .preheader4.i:                                    ; preds = %1, %4
   %.06.i = phi i32 [ %5, %4 ], [ 0, %1 ]
@@ -56,7 +56,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15_WaitForRead
   %8 = tail call noundef i32 @sched_yield() #1
   %9 = load atomic i32, ptr %0 seq_cst, align 4
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex15_WaitForReadersEvE3$_0EEvOT_.exit", label %.preheader.i, !llvm.loop !8
+  br i1 %10, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex15_WaitForReadersEvE3$_0EEvOT_.exit", label %.preheader.i, !llvm.loop !9
 
 "_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNKS_13TfSpinRWMutex15_WaitForReadersEvE3$_0EEvOT_.exit": ; preds = %.preheader4.i, %.preheader.i, %1
   ret void
@@ -80,8 +80,9 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

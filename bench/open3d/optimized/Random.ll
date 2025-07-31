@@ -86,8 +86,8 @@ _ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit: ; preds = %1, %5, 
 
 _ZN6open3d7utility6random13RandomContext4SeedEi.exit: ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4992
-  store i64 624, ptr %21, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 8), ptr noundef nonnull align 8 dereferenceable(5000) %2, i64 5000, i1 false), !tbaa.struct !18
+  store i64 624, ptr %21, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 8), ptr noundef nonnull align 8 dereferenceable(5000) %2, i64 5000, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %2) #13
   ret void
 }
@@ -120,34 +120,34 @@ define linkonce_odr void @_ZN6open3d7utility6random13RandomContextC2Ev(ptr nound
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit: ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5000
-  store i64 624, ptr %15, align 8, !tbaa !17
+  store i64 624, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %17, ptr %3, align 8, !tbaa !20
+  store ptr %17, ptr %3, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %17, ptr noundef nonnull align 1 dereferenceable(7) @.str, i64 7, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 7, ptr %18, align 8, !tbaa !24
+  store i64 7, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 23
-  store i8 0, ptr %19, align 1, !tbaa !19
+  store i8 0, ptr %19, align 1, !tbaa !20
   invoke void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %20 unwind label %27
 
 20:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
-  %21 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = load ptr, ptr %3, align 8, !tbaa !27
   %22 = icmp eq ptr %21, %17
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %20
-  %23 = load i64, ptr %18, align 8, !tbaa !24
+  %23 = load i64, ptr %18, align 8, !tbaa !25
   %24 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %24)
   br label %_ZNSt13random_deviceC2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %20
-  %25 = load i64, ptr %17, align 8, !tbaa !19
+  %25 = load i64, ptr %17, align 8, !tbaa !20
   %26 = add i64 %25, 1
   call void @_ZdlPvm(ptr noundef %21, i64 noundef %26) #14
   br label %_ZNSt13random_deviceC2Ev.exit
@@ -155,18 +155,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 27:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %3, align 8, !tbaa !26
+  %29 = load ptr, ptr %3, align 8, !tbaa !27
   %30 = icmp eq ptr %29, %17
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i: ; preds = %27
-  %31 = load i64, ptr %18, align 8, !tbaa !24
+  %31 = load i64, ptr %18, align 8, !tbaa !25
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i: ; preds = %27
-  %33 = load i64, ptr %17, align 8, !tbaa !19
+  %33 = load i64, ptr %17, align 8, !tbaa !20
   %34 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
@@ -207,8 +207,8 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 4992
-  store i64 624, ptr %47, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, i64 5000, i1 false), !tbaa.struct !18
+  store i64 624, ptr %47, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, i64 5000, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %2) #13
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
           to label %_ZNSt13random_deviceD2Ev.exit unwind label %48
@@ -426,7 +426,7 @@ _ZN6open3d7utility6random9GetEngineEv.exit:       ; preds = %16, %13, %_ZNSt10lo
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = icmp ugt i64 %3, 623
   br i1 %4, label %5, label %52
 
@@ -455,7 +455,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %22 = xor i64 %19, %21
   store i64 %22, ptr %8, align 8, !tbaa !14
   %exitcond.not.i = icmp eq i64 %10, 227
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !28
 
 .preheader.preheader.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1816
@@ -483,7 +483,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %38 = xor i64 %35, %37
   store i64 %38, ptr %24, align 8, !tbaa !14
   %exitcond23.not.i = icmp eq i64 %26, 623
-  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !29
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit: ; preds = %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4984
@@ -506,7 +506,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 52:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, %1
   %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %54 = add nuw nsw i64 %53, 1
-  store i64 %54, ptr %2, align 8, !tbaa !17
+  store i64 %54, ptr %2, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %53
   %56 = load i64, ptr %55, align 8, !tbaa !14
   %57 = lshr i64 %56, 11
@@ -584,17 +584,18 @@ attributes #16 = { noreturn }
 !12 = !{!"_ZTSSt5mutex", !13, i64 0}
 !13 = !{!"_ZTSSt12__mutex_base", !8, i64 0}
 !14 = !{!11, !11, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!10, !11, i64 4992}
-!18 = !{i64 0, i64 4992, !19, i64 4992, i64 8, !14}
-!19 = !{!8, !8, i64 0}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !22, i64 0}
-!22 = !{!"p1 omnipotent char", !23, i64 0}
-!23 = !{!"any pointer", !8, i64 0}
-!24 = !{!25, !11, i64 8}
-!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0, !11, i64 8, !8, i64 16}
-!26 = !{!25, !22, i64 0}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!10, !11, i64 4992}
+!19 = !{i64 0, i64 4992, !20, i64 4992, i64 8, !14}
+!20 = !{!8, !8, i64 0}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
+!23 = !{!"p1 omnipotent char", !24, i64 0}
+!24 = !{!"any pointer", !8, i64 0}
+!25 = !{!26, !11, i64 8}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !22, i64 0, !11, i64 8, !8, i64 16}
+!27 = !{!26, !23, i64 0}
+!28 = distinct !{!28, !16, !17}
+!29 = distinct !{!29, !16, !17}

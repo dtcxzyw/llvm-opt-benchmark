@@ -359,7 +359,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
 
 54:                                               ; preds = %71, %64, %53
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h94cedc206c549084E"(ptr nonnull align 8 %10)
-          to label %19 unwind label %.loopexit
+          to label %19 unwind label %.loopexit, !llvm.loop !3
 
 55:                                               ; preds = %31
   %56 = load i32, ptr %7, align 8
@@ -2178,3 +2178,5 @@ attributes #8 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

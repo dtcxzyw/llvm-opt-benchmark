@@ -984,7 +984,7 @@ _ZN13GrowableArrayIN18XSaveLiveRegisters15XMMRegisterDataEEC2Ev.exit: ; preds = 
   %33 = load i32, ptr %16, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.lcssa = phi i32 [ %29, %28 ], [ %33, %.lr.ph ]
@@ -1060,7 +1060,7 @@ _ZNK18XSaveLiveRegisters20xmm_needs_vzeroupperEv.exit.thread: ; preds = %._crit_
   %68 = load i32, ptr %6, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next25, %69
-  br i1 %70, label %62, label %.preheader, !llvm.loop !9
+  br i1 %70, label %62, label %.preheader, !llvm.loop !10
 
 71:                                               ; preds = %.lr.ph20, %71
   %indvars.iv27 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next28, %71 ]
@@ -1087,7 +1087,7 @@ _ZNK18XSaveLiveRegisters20xmm_needs_vzeroupperEv.exit.thread: ; preds = %._crit_
   %77 = load i32, ptr %11, align 8
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next28, %78
-  br i1 %79, label %71, label %._crit_edge21, !llvm.loop !10
+  br i1 %79, label %71, label %._crit_edge21, !llvm.loop !11
 
 ._crit_edge21:                                    ; preds = %71, %.preheader
   ret void
@@ -1345,7 +1345,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   store i32 %24, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %25 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %25, label %18, label %._crit_edge, !llvm.loop !11
+  br i1 %25, label %18, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1392,7 +1392,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   store i32 %46, ptr %30, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %47 = icmp samesign ugt i64 %indvars.iv26, 1
-  br i1 %47, label %40, label %._crit_edge20, !llvm.loop !12
+  br i1 %47, label %40, label %._crit_edge20, !llvm.loop !13
 
 ._crit_edge20:                                    ; preds = %40, %._crit_edge
   %48 = load ptr, ptr %0, align 8
@@ -1414,7 +1414,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   %56 = getelementptr inbounds nuw %"struct.XSaveLiveRegisters::XMMRegisterData", ptr %55, i64 %indvars.iv.next30
   call void @_ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(8) %56)
   %57 = icmp samesign ugt i64 %indvars.iv29, 1
-  br i1 %57, label %54, label %._crit_edge24, !llvm.loop !13
+  br i1 %57, label %54, label %._crit_edge24, !llvm.loop !14
 
 ._crit_edge24:                                    ; preds = %54, %._crit_edge20
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2369,7 +2369,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit80:       ; preds = %449, %451
   %477 = getelementptr inbounds nuw [11 x i64], ptr %4, i64 0, i64 %476
   %478 = load i64, ptr %477, align 8
   %.not11.i.i = icmp eq i64 %478, 0
-  br i1 %.not11.i.i, label %473, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !14
+  br i1 %.not11.i.i, label %473, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !15
 
 _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %474
   %479 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %478, i1 true)
@@ -2423,7 +2423,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %474
   %505 = getelementptr inbounds nuw [11 x i64], ptr %4, i64 0, i64 %504
   %506 = load i64, ptr %505, align 8
   %.not11.i = icmp eq i64 %506, 0
-  br i1 %.not11.i, label %.preheader.i, label %507, !llvm.loop !14
+  br i1 %.not11.i, label %.preheader.i, label %507, !llvm.loop !15
 
 507:                                              ; preds = %502
   %508 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %506, i1 true)
@@ -2535,7 +2535,7 @@ _ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
 567:                                              ; preds = %564
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, label %564, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread, label %564, !llvm.loop !16
 
 _ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit.thread: ; preds = %567, %558
   %568 = load i32, ptr %491, align 4
@@ -2615,7 +2615,7 @@ _ZN7OptoReg8as_VMRegEi.exit96:                    ; preds = %590, %593
 610:                                              ; preds = %606
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i100
-  br i1 %exitcond.not.i103, label %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, label %606, !llvm.loop !16
+  br i1 %exitcond.not.i103, label %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread, label %606, !llvm.loop !17
 
 _ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit.thread: ; preds = %610, %_ZN7OptoReg8as_VMRegEi.exit96
   %611 = load i32, ptr %488, align 4
@@ -2681,7 +2681,7 @@ _ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit: ; preds = %564, %_ZN26Growa
   %.132 = phi i32 [ %.031147, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031147, %526 ], [ %583, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031147, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.031147, %632 ], [ %.031147, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.031147, %564 ]
   %.1 = phi i32 [ %553, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0148, %526 ], [ %.0148, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0148, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0148, %632 ], [ %.0148, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0148, %564 ]
   %.not = icmp eq i32 %.sink.i, -1
-  br i1 %.not, label %._crit_edge.loopexit, label %495, !llvm.loop !17
+  br i1 %.not, label %._crit_edge.loopexit, label %495, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit
   %637 = add i32 %.134, 15
@@ -2882,7 +2882,7 @@ _ZN13GrowableArrayI8RegisterE8allocateEv.exit:    ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !18
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !19
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2898,7 +2898,7 @@ _ZN13GrowableArrayI8RegisterE8allocateEv.exit:    ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !19
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !20
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2988,7 +2988,7 @@ _ZN13GrowableArrayI9KRegisterE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !20
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3004,7 +3004,7 @@ _ZN13GrowableArrayI9KRegisterE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !21
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !22
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3085,7 +3085,7 @@ _ZN13GrowableArrayIN18XSaveLiveRegisters15XMMRegisterDataEE8allocateEv.exit: ; p
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !22
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !23
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3101,7 +3101,7 @@ _ZN13GrowableArrayIN18XSaveLiveRegisters15XMMRegisterDataEE8allocateEv.exit: ; p
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !23
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !24
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3309,7 +3309,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN18XSaveLiveReg
   store i64 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3390,7 +3390,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9KRegister13Gro
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3471,7 +3471,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI8Register13Grow
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3539,24 +3539,25 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

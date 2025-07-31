@@ -59,17 +59,17 @@ define dso_local noundef i64 @_ZN4absl13hash_internal15MixingHashState28CombineL
   br i1 %.not.i.i, label %_ZN4absl13hash_internal15MixingHashState21CombineContiguousImplEmPKhmSt17integral_constantIiLi4EE.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = load i8, ptr %.07.lcssa, align 1, !tbaa !6
+  %26 = load i8, ptr %.07.lcssa, align 1, !tbaa !7
   %27 = zext i8 %26 to i64
   %28 = shl nuw nsw i64 %27, 16
   %29 = getelementptr i8, ptr %.07.lcssa, i64 %.0.lcssa
   %30 = getelementptr i8, ptr %29, i64 -1
-  %31 = load i8, ptr %30, align 1, !tbaa !6
+  %31 = load i8, ptr %30, align 1, !tbaa !7
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %28, %32
   %34 = lshr i64 %.0.lcssa, 1
   %35 = getelementptr inbounds nuw i8, ptr %.07.lcssa, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !6
+  %36 = load i8, ptr %35, align 1, !tbaa !7
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 8
   %39 = or disjoint i64 %33, %38
@@ -119,7 +119,7 @@ define dso_local noundef i64 @_ZN4absl13hash_internal15MixingHashState28CombineL
   %11 = add i64 %.012, -1024
   %12 = getelementptr inbounds nuw i8, ptr %.0711, i64 1024
   %.not = icmp ult i64 %11, 1024
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.08.lcssa = phi i64 [ %0, %3 ], [ %10, %.lr.ph ]
@@ -154,17 +154,17 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl13hash_internal15MixingHashSt
   br i1 %.not.i, label %_ZN4absl13hash_internal15MixingHashState26CombineSmallContiguousImplEmPKhm.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = load i8, ptr %1, align 1, !tbaa !6
+  %16 = load i8, ptr %1, align 1, !tbaa !7
   %17 = zext i8 %16 to i64
   %18 = shl nuw nsw i64 %17, 16
   %19 = getelementptr i8, ptr %1, i64 %2
   %20 = getelementptr i8, ptr %19, i64 -1
-  %21 = load i8, ptr %20, align 1, !tbaa !6
+  %21 = load i8, ptr %20, align 1, !tbaa !7
   %22 = zext i8 %21 to i64
   %23 = or disjoint i64 %18, %22
   %24 = lshr i64 %2, 1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !6
+  %26 = load i8, ptr %25, align 1, !tbaa !7
   %27 = zext i8 %26 to i64
   %28 = shl nuw nsw i64 %27, 8
   %29 = or disjoint i64 %23, %28
@@ -228,7 +228,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl13hash_internal15MixingHashSt
 
 69:                                               ; preds = %47
   %.not = icmp ugt i64 %2, 1024
-  br i1 %.not, label %78, label %70, !prof !10
+  br i1 %.not, label %78, label %70, !prof !11
 
 70:                                               ; preds = %69
   %71 = tail call noundef i64 @_ZN4absl13hash_internal19LowLevelHashLenGt16EPKvmmPKm(ptr noundef %1, i64 noundef %2, i64 noundef ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr noundef nonnull @_ZN4absl13hash_internal15MixingHashState17kStaticRandomDataE)
@@ -271,10 +271,11 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C++ TBAA"}
-!9 = distinct !{!9, !5}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -1659,5 +1659,6 @@ attributes #18 = { noreturn nounwind }
 !51 = !{!52, !20, i64 8}
 !52 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !53, i64 0, !20, i64 8}
 !53 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !7, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!"llvm.loop.estimated_trip_count"}

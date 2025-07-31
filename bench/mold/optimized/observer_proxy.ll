@@ -78,11 +78,11 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i
   %.sroa.0.1810.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i ], [ %.sroa.0.1811.i.i.i, %.lr.ph.i.i.i.i.i ]
   %16 = shl nsw i32 %.sroa.0.1810.i.i.i, 1
-  br label %.preheader.i.i.outer, !llvm.loop !17
+  br label %.preheader.i.i.outer, !llvm.loop !18
 
 17:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i
   %18 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader.i.i, !llvm.loop !17
+  br label %.preheader.i.i, !llvm.loop !18
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %6
   %19 = load atomic i64, ptr %0 monotonic, align 8
@@ -97,38 +97,38 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 21:                                               ; preds = %.lr.ph, %50
   %.036 = phi ptr [ %.0.i.i, %.lr.ph ], [ %23, %50 ]
   %22 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !18
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %.036, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %.not18 = icmp eq ptr %25, null
-  br i1 %.not18, label %50, label %26, !llvm.loop !19
+  br i1 %.not18, label %50, label %26, !llvm.loop !20
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = atomicrmw xchg ptr %27, i64 0 seq_cst, align 8
   %.0.i.i21 = inttoptr i64 %28 to ptr
   %.not19 = icmp eq i64 %28, 0
-  br i1 %.not19, label %50, label %29, !llvm.loop !19
+  br i1 %.not19, label %50, label %29, !llvm.loop !20
 
 29:                                               ; preds = %26
   %30 = load atomic i64, ptr %20 monotonic, align 8
   %31 = icmp eq i64 %28, %30
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
   br i1 %31, label %34, label %36
 
 34:                                               ; preds = %29
   %35 = ptrtoint ptr %33 to i64
   store atomic i64 %35, ptr %20 monotonic, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
   br label %40
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %33, ptr %39, align 8, !tbaa !20
+  store ptr %33, ptr %39, align 8, !tbaa !21
   br label %40
 
 40:                                               ; preds = %36, %34
@@ -143,9 +143,9 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   br label %_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %32, align 8, !tbaa !20
+  %47 = load ptr, ptr %32, align 8, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %41, ptr %48, align 8, !tbaa !18
+  store ptr %41, ptr %48, align 8, !tbaa !19
   br label %_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit
 
 _ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit: ; preds = %44, %46
@@ -207,11 +207,11 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit:   ; preds = %_ZN3tbb6detail2d014
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i: ; preds = %.lr.ph.i.i.i7.i.i, %62
   %66 = shl nsw i32 %.sroa.0.0.i3.i.i.ph, 1
-  br label %.preheader9.i.i.outer, !llvm.loop !21
+  br label %.preheader9.i.i.outer, !llvm.loop !22
 
 67:                                               ; preds = %61
   %68 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader9.i.i, !llvm.loop !21
+  br label %.preheader9.i.i, !llvm.loop !22
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit25: ; preds = %56
   %69 = load atomic i64, ptr %0 monotonic, align 8
@@ -235,11 +235,11 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit25: ; preds = %5
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i, %72
   %76 = shl nsw i32 %.sroa.026.0.ph, 1
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.outer, !llvm.loop !22
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.outer, !llvm.loop !23
 
 77:                                               ; preds = %71
   %78 = tail call noundef i32 @sched_yield() #7
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit, !llvm.loop !22
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit, !llvm.loop !23
 
 79:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit25
   ret void
@@ -252,7 +252,7 @@ define void @_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE(ptr 
   %.0.i.i = inttoptr i64 %4 to ptr
   %5 = icmp eq ptr %1, %.0.i.i
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   br i1 %5, label %8, label %10
 
 8:                                                ; preds = %2
@@ -262,9 +262,9 @@ define void @_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE(ptr 
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %7, ptr %13, align 8, !tbaa !20
+  store ptr %7, ptr %13, align 8, !tbaa !21
   br label %14
 
 14:                                               ; preds = %10, %8
@@ -272,7 +272,7 @@ define void @_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE(ptr 
   %.0.i.i9 = inttoptr i64 %15 to ptr
   %16 = icmp eq ptr %1, %.0.i.i9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
   br i1 %16, label %19, label %21
 
 19:                                               ; preds = %14
@@ -282,9 +282,9 @@ define void @_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE(ptr 
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %18, ptr %24, align 8, !tbaa !18
+  store ptr %18, ptr %24, align 8, !tbaa !19
   br label %25
 
 25:                                               ; preds = %21, %19
@@ -345,11 +345,11 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i
   %.sroa.0.1810.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i ], [ %.sroa.0.1811.i.i.i, %.lr.ph.i.i.i.i.i ]
   %17 = shl nsw i32 %.sroa.0.1810.i.i.i, 1
-  br label %.preheader.i.i.outer, !llvm.loop !17
+  br label %.preheader.i.i.outer, !llvm.loop !18
 
 18:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i
   %19 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader.i.i, !llvm.loop !17
+  br label %.preheader.i.i, !llvm.loop !18
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %7
   %20 = load atomic i64, ptr %0 monotonic, align 8
@@ -361,11 +361,11 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   %23 = load atomic i64, ptr %22 monotonic, align 8
   %.0.i.i5 = inttoptr i64 %23 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %.0.i.i5, ptr %24, align 8, !tbaa !20
+  store ptr %.0.i.i5, ptr %24, align 8, !tbaa !21
   %25 = load atomic i64, ptr %22 monotonic, align 8
   %.0.i.i6 = inttoptr i64 %25 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 16
-  store ptr %1, ptr %26, align 8, !tbaa !18
+  store ptr %1, ptr %26, align 8, !tbaa !19
   %.pre = ptrtoint ptr %1 to i64
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
 
@@ -398,7 +398,7 @@ define void @_ZN3tbb6detail2r113observer_list10remove_refEPNS1_14observer_proxyE
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %.lr.ph
   %8 = extractvalue { i64, i1 } %6, 0
   %9 = icmp ugt i64 %8, 1
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -450,11 +450,11 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i
   %.sroa.0.1810.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i ], [ %.sroa.0.1811.i.i.i, %.lr.ph.i.i.i.i.i ]
   %24 = shl nsw i32 %.sroa.0.1810.i.i.i, 1
-  br label %.preheader.i.i.outer, !llvm.loop !17
+  br label %.preheader.i.i.outer, !llvm.loop !18
 
 25:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i
   %26 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader.i.i, !llvm.loop !17
+  br label %.preheader.i.i, !llvm.loop !18
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %14
   %27 = atomicrmw sub ptr %1, i64 1 seq_cst, align 8
@@ -467,21 +467,21 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   %.0.i.i.i = inttoptr i64 %30 to ptr
   %31 = icmp eq ptr %1, %.0.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
   br i1 %31, label %34, label %36
 
 34:                                               ; preds = %28
   %35 = ptrtoint ptr %33 to i64
   store atomic i64 %35, ptr %29 monotonic, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
   br label %40
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %33, ptr %39, align 8, !tbaa !20
+  store ptr %33, ptr %39, align 8, !tbaa !21
   br label %40
 
 40:                                               ; preds = %36, %34
@@ -497,9 +497,9 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   br label %50
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %32, align 8, !tbaa !20
+  %47 = load ptr, ptr %32, align 8, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %41, ptr %48, align 8, !tbaa !18
+  store ptr %41, ptr %48, align 8, !tbaa !19
   br label %50
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit
@@ -518,7 +518,7 @@ _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit.thr
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r113observer_list25do_notify_entry_observersERPNS1_14observer_proxyEb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !24
+  %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
@@ -563,11 +563,11 @@ define void @_ZN3tbb6detail2r113observer_list25do_notify_entry_observersERPNS1_1
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i: ; preds = %.lr.ph.i.i.i7.i.i, %16
   %20 = shl nsw i32 %.sroa.0.0.i3.i.i.ph, 1
-  br label %.preheader9.i.i.outer, !llvm.loop !21
+  br label %.preheader9.i.i.outer, !llvm.loop !22
 
 21:                                               ; preds = %15
   %22 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader9.i.i, !llvm.loop !21
+  br label %.preheader9.i.i, !llvm.loop !22
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.outer, %_ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread
   %.1 = phi ptr [ %.4, %_ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread ], [ %.1.ph, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.outer ]
@@ -576,7 +576,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 
 23:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !18
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not37.not = icmp eq ptr %25, null
   %26 = icmp eq ptr %.1, %.159.ph
   br i1 %.not37.not, label %30, label %27
@@ -600,7 +600,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 .critedge.critedge:                               ; preds = %31
   %33 = atomicrmw sub ptr %5, i64 4 seq_cst, align 8
   tail call void @_ZN3tbb6detail2r113observer_list10remove_refEPNS1_14observer_proxyE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.159.ph)
-  store ptr %.1, ptr %1, align 8, !tbaa !24
+  store ptr %.1, ptr %1, align 8, !tbaa !25
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit46
 
 34:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit
@@ -614,14 +614,14 @@ _ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.t
   %36 = getelementptr inbounds nuw i8, ptr %.4, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !8
   %.not39 = icmp eq ptr %37, null
-  br i1 %.not39, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44, !llvm.loop !25
+  br i1 %.not39, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44, !llvm.loop !26
 
 _ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread.thread: ; preds = %28
   %38 = atomicrmw sub ptr %.159.ph, i64 1 seq_cst, align 8
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !8
   %.not3973 = icmp eq ptr %40, null
-  br i1 %.not3973, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.outer, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44.thread, !llvm.loop !25
+  br i1 %.not3973, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.outer, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44.thread, !llvm.loop !26
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.outer: ; preds = %10, %_ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread.thread
   %.159.ph = phi ptr [ null, %_ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread.thread ], [ %.058, %10 ]
@@ -652,14 +652,14 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44: ; preds = %_
   %52 = phi ptr [ %43, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44.thread ], [ %47, %50 ], [ %47, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44 ]
   %.47579 = phi ptr [ %25, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44.thread ], [ %.4, %50 ], [ %.4, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44 ]
   %53 = phi ptr [ %40, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44.thread ], [ %37, %50 ], [ %37, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit44 ]
-  %54 = load ptr, ptr %53, align 8, !tbaa !26
+  %54 = load ptr, ptr %53, align 8, !tbaa !27
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(32) %53, i1 noundef zeroext %2)
   %56 = atomicrmw sub ptr %52, i64 1 seq_cst, align 8
-  br label %6, !llvm.loop !28
+  br label %6, !llvm.loop !29
 
 .critedge.critedge.thread68:                      ; preds = %30, %31
-  store ptr %.1, ptr %1, align 8, !tbaa !24
+  store ptr %.1, ptr %1, align 8, !tbaa !25
   br label %.critedge.critedge.thread
 
 .critedge.critedge.thread:                        ; preds = %34, %.critedge.critedge.thread68
@@ -716,11 +716,11 @@ define void @_ZN3tbb6detail2r113observer_list24do_notify_exit_observersEPNS1_14o
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i: ; preds = %.lr.ph.i.i.i7.i.i, %15
   %19 = shl nsw i32 %.sroa.0.0.i3.i.i.ph, 1
-  br label %.preheader9.i.i.outer, !llvm.loop !21
+  br label %.preheader9.i.i.outer, !llvm.loop !22
 
 20:                                               ; preds = %14
   %21 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader9.i.i, !llvm.loop !21
+  br label %.preheader9.i.i, !llvm.loop !22
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %9, %43
   %.150 = phi ptr [ %.3, %43 ], [ %.049, %9 ]
@@ -749,7 +749,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 _ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit: ; preds = %28, %25, %23
   %.251 = phi ptr [ %.150, %23 ], [ %.150, %25 ], [ null, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   br label %43
 
 32:                                               ; preds = %22
@@ -784,7 +784,7 @@ _ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %storemerge, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !8
   %.not21 = icmp eq ptr %45, null
-  br i1 %.not21, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit, label %46, !llvm.loop !29
+  br i1 %.not21, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit, label %46, !llvm.loop !30
 
 46:                                               ; preds = %43
   %.not22 = icmp eq ptr %storemerge, %1
@@ -806,12 +806,12 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit29: ; preds = %4
   br label %53
 
 53:                                               ; preds = %52, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit29
-  %54 = load ptr, ptr %45, align 8, !tbaa !26
+  %54 = load ptr, ptr %45, align 8, !tbaa !27
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext %2)
   %57 = atomicrmw sub ptr %49, i64 1 seq_cst, align 8
-  br label %5, !llvm.loop !30
+  br label %5, !llvm.loop !31
 
 58:                                               ; preds = %32
   %59 = atomicrmw sub ptr %.1, i64 1 seq_cst, align 8
@@ -842,12 +842,12 @@ define void @_ZN3tbb6detail2r17observeERNS0_2d123task_scheduler_observerEb(ptr n
   store atomic i64 %9, ptr %3 monotonic, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store atomic i64 0, ptr %10 monotonic, align 8
-  %11 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !31
+  %11 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !32
   %12 = tail call noundef ptr @pthread_getspecific(i32 noundef %11) #7
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %32
 
@@ -857,19 +857,19 @@ define void @_ZN3tbb6detail2r17observeERNS0_2d123task_scheduler_observerEb(ptr n
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %21 = load ptr, ptr %20, align 8, !tbaa !42
   %.not48 = icmp eq ptr %21, null
   br i1 %.not48, label %22, label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
 
 22:                                               ; preds = %19, %18
-  %23 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !31
+  %23 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !32
   %24 = tail call noundef ptr @pthread_getspecific(i32 noundef %23) #7
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
 
 25:                                               ; preds = %22
   tail call void @_ZN3tbb6detail2r18governor20init_external_threadEv()
-  %26 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !31
+  %26 = load i32, ptr @_ZN3tbb6detail2r18governor6theTLSE, align 4, !tbaa !32
   %27 = tail call noundef ptr @pthread_getspecific(i32 noundef %26) #7
   br label %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit
 
@@ -882,7 +882,7 @@ define void @_ZN3tbb6detail2r17observeERNS0_2d123task_scheduler_observerEb(ptr n
 _ZN3tbb6detail2r18governor15get_thread_dataEv.exit: ; preds = %25, %22, %19
   %.0 = phi ptr [ %12, %19 ], [ %27, %25 ], [ %24, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !41
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
   br label %60
 
 32:                                               ; preds = %8
@@ -945,12 +945,12 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i.i = phi i32 [ %54, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i ], [ %.sroa.0.09.us.i.i.i, %48 ]
   %55 = load atomic i32, ptr %37 acquire, align 4
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i, !llvm.loop !70
+  br i1 %56, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i, !llvm.loop !71
 
 _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i, %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i.i
   %57 = load atomic i32, ptr %37 acquire, align 4
   %.not.i.i = icmp eq i32 %57, 2
-  br i1 %.not.i.i, label %_ZN3tbb6detail2d110task_arena10initializeEv.exit, label %.lr.ph.i.i, !llvm.loop !72
+  br i1 %.not.i.i, label %_ZN3tbb6detail2d110task_arena10initializeEv.exit, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZN3tbb6detail2d110task_arena10initializeEv.exit: ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i.i, %36, %44
   %58 = load atomic i64, ptr %33 monotonic, align 8
@@ -966,7 +966,7 @@ _ZN3tbb6detail2d110task_arena10initializeEv.exit: ; preds = %_ZN3tbb6detail2d015
   %.1 = phi ptr [ %12, %59 ], [ %.0, %_ZN3tbb6detail2r18governor15get_thread_dataEv.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 240
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !73
+  store ptr %61, ptr %62, align 8, !tbaa !74
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 256
   br label %.preheader.i.i.i.outer
@@ -1017,11 +1017,11 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i
   %.sroa.0.1810.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i ], [ %.sroa.0.1811.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %78 = shl nsw i32 %.sroa.0.1810.i.i.i.i, 1
-  br label %.preheader.i.i.i.outer, !llvm.loop !17
+  br label %.preheader.i.i.i.outer, !llvm.loop !18
 
 79:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
   %80 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader.i.i.i, !llvm.loop !17
+  br label %.preheader.i.i.i, !llvm.loop !18
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %68
   %81 = load atomic i64, ptr %61 monotonic, align 8
@@ -1033,11 +1033,11 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds 
   %84 = load atomic i64, ptr %83 monotonic, align 8
   %.0.i.i5.i = inttoptr i64 %84 to ptr
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.0.i.i5.i, ptr %85, align 8, !tbaa !20
+  store ptr %.0.i.i5.i, ptr %85, align 8, !tbaa !21
   %86 = load atomic i64, ptr %83 monotonic, align 8
   %.0.i.i6.i = inttoptr i64 %86 to ptr
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i, i64 16
-  store ptr %7, ptr %87, align 8, !tbaa !18
+  store ptr %7, ptr %87, align 8, !tbaa !19
   br label %_ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit
 
 88:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -1053,21 +1053,21 @@ _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %
 
 91:                                               ; preds = %_ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit
   %92 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !41
+  %93 = load ptr, ptr %92, align 8, !tbaa !42
   %.not50 = icmp eq ptr %93, null
   br i1 %.not50, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 240
-  %96 = load ptr, ptr %63, align 8, !tbaa !73
+  %96 = load ptr, ptr %63, align 8, !tbaa !74
   %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 72
   %100 = getelementptr inbounds nuw i8, ptr %.1, i64 18
-  %101 = load i8, ptr %100, align 2, !tbaa !74, !range !75, !noundef !76
-  %102 = load ptr, ptr %99, align 8, !tbaa !24
+  %101 = load i8, ptr %100, align 2, !tbaa !75, !range !76, !noundef !77
+  %102 = load ptr, ptr %99, align 8, !tbaa !25
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %104 = load atomic i64, ptr %103 monotonic, align 8
   %.0.i.i.i = inttoptr i64 %104 to ptr
@@ -1087,7 +1087,7 @@ _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !73
+  %112 = load ptr, ptr %111, align 8, !tbaa !74
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   br label %.preheader.i.i.outer
 
@@ -1137,11 +1137,11 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i
   %.sroa.0.1810.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i ], [ %.sroa.0.1811.i.i.i, %.lr.ph.i.i.i.i.i ]
   %127 = shl nsw i32 %.sroa.0.1810.i.i.i, 1
-  br label %.preheader.i.i.outer, !llvm.loop !17
+  br label %.preheader.i.i.outer, !llvm.loop !18
 
 128:                                              ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i
   %129 = tail call noundef i32 @sched_yield() #7
-  br label %.preheader.i.i, !llvm.loop !17
+  br label %.preheader.i.i, !llvm.loop !18
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %117
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 32
@@ -1155,21 +1155,21 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   %134 = load atomic i64, ptr %133 monotonic, align 8
   %135 = icmp eq i64 %109, %134
   %136 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 24
-  %137 = load ptr, ptr %136, align 8, !tbaa !20
+  %137 = load ptr, ptr %136, align 8, !tbaa !21
   br i1 %135, label %138, label %140
 
 138:                                              ; preds = %132
   %139 = ptrtoint ptr %137 to i64
   store atomic i64 %139, ptr %133 monotonic, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
   br label %144
 
 140:                                              ; preds = %132
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !18
+  %142 = load ptr, ptr %141, align 8, !tbaa !19
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr %137, ptr %143, align 8, !tbaa !20
+  store ptr %137, ptr %143, align 8, !tbaa !21
   br label %144
 
 144:                                              ; preds = %140, %138
@@ -1184,9 +1184,9 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   br label %_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit
 
 150:                                              ; preds = %144
-  %151 = load ptr, ptr %136, align 8, !tbaa !20
+  %151 = load ptr, ptr %136, align 8, !tbaa !21
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %145, ptr %152, align 8, !tbaa !18
+  store ptr %145, ptr %152, align 8, !tbaa !19
   br label %_ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit
 
 _ZN3tbb6detail2r113observer_list6removeEPNS1_14observer_proxyE.exit: ; preds = %148, %150
@@ -1229,7 +1229,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.0.1.us.i = phi i32 [ %163, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %.sroa.0.010.us.i, %157 ]
   %164 = load atomic i64, ptr %154 acquire, align 8
   %.not.us.i = icmp eq i64 %164, 0
-  br i1 %.not.us.i, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.us.i, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %.lr.ph.i, !llvm.loop !78
 
 _ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %106, %98, %108, %_ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit, %91, %94, %4
   ret void
@@ -1285,66 +1285,67 @@ attributes #12 = { builtin allocsize(0) }
 !12 = !{!"any pointer", !6, i64 0}
 !13 = !{!"p1 _ZTSN3tbb6detail2r114observer_proxyE", !12, i64 0}
 !14 = !{!"p1 _ZTSN3tbb6detail2d123task_scheduler_observerE", !12, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!9, !13, i64 16}
-!19 = distinct !{!19, !16}
-!20 = !{!9, !13, i64 24}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = !{!13, !13, i64 0}
-!25 = distinct !{!25, !16}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"vtable pointer", !7, i64 0}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"_ZTSN3tbb6detail2r19basic_tlsIPNS1_11thread_dataEEE", !33, i64 0}
-!33 = !{!"int", !6, i64 0}
-!34 = !{!35, !40, i64 24}
-!35 = !{!"_ZTSN3tbb6detail2d123task_scheduler_observerE", !36, i64 8, !38, i64 16, !40, i64 24}
-!36 = !{!"_ZTSSt6atomicIPN3tbb6detail2r114observer_proxyEE", !37, i64 0}
-!37 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r114observer_proxyEE", !13, i64 0}
-!38 = !{!"_ZTSSt6atomicIlE", !39, i64 0}
-!39 = !{!"_ZTSSt13__atomic_baseIlE", !5, i64 0}
-!40 = !{!"p1 _ZTSN3tbb6detail2d110task_arenaE", !12, i64 0}
-!41 = !{!42, !48, i64 32}
-!42 = !{!"_ZTSN3tbb6detail2r111thread_dataE", !43, i64 0, !45, i64 16, !46, i64 18, !46, i64 19, !47, i64 24, !48, i64 32, !49, i64 40, !50, i64 48, !51, i64 56, !53, i64 64, !13, i64 72, !54, i64 80, !55, i64 88, !56, i64 96, !12, i64 104, !57, i64 112}
-!43 = !{!"_ZTSN3tbb6detail2d119intrusive_list_nodeE", !44, i64 0, !44, i64 8}
-!44 = !{!"p1 _ZTSN3tbb6detail2d119intrusive_list_nodeE", !12, i64 0}
-!45 = !{!"short", !6, i64 0}
-!46 = !{!"bool", !6, i64 0}
-!47 = !{!"p1 _ZTSN3tbb6detail2r115task_dispatcherE", !12, i64 0}
-!48 = !{!"p1 _ZTSN3tbb6detail2r15arenaE", !12, i64 0}
-!49 = !{!"p1 _ZTSN3tbb6detail2r124thread_dispatcher_clientE", !12, i64 0}
-!50 = !{!"p1 _ZTSN3tbb6detail2r110arena_slotE", !12, i64 0}
-!51 = !{!"_ZTSN3tbb6detail2r110mail_inboxE", !52, i64 0}
-!52 = !{!"p1 _ZTSN3tbb6detail2r111mail_outboxE", !12, i64 0}
-!53 = !{!"_ZTSN3tbb6detail2r110FastRandomE", !33, i64 0, !33, i64 4}
-!54 = !{!"p1 _ZTSN3tbb6detail2r122small_object_pool_implE", !12, i64 0}
-!55 = !{!"p1 _ZTSN3tbb6detail2r112context_listE", !12, i64 0}
-!56 = !{!"_ZTSN3tbb6detail2r115task_dispatcher18post_resume_actionE", !6, i64 0}
-!57 = !{!"_ZTSN3tbb6detail2d118task_group_contextE", !5, i64 0, !58, i64 8, !60, i64 12, !61, i64 13, !62, i64 14, !64, i64 15, !6, i64 16, !55, i64 24, !43, i64 32, !66, i64 48, !12, i64 56, !69, i64 64, !6, i64 72}
-!58 = !{!"_ZTSSt6atomicIjE", !59, i64 0}
-!59 = !{!"_ZTSSt13__atomic_baseIjE", !33, i64 0}
-!60 = !{!"_ZTSN3tbb6detail2d118task_group_context26task_group_context_versionE", !6, i64 0}
-!61 = !{!"_ZTSN3tbb6detail2d118task_group_context14context_traitsE", !46, i64 0, !46, i64 0, !46, i64 0, !46, i64 0, !46, i64 0, !46, i64 0, !46, i64 0, !46, i64 0}
-!62 = !{!"_ZTSSt6atomicIhE", !63, i64 0}
-!63 = !{!"_ZTSSt13__atomic_baseIhE", !6, i64 0}
-!64 = !{!"_ZTSSt6atomicIN3tbb6detail2d118task_group_context5stateEE", !65, i64 0}
-!65 = !{!"_ZTSN3tbb6detail2d118task_group_context5stateE", !6, i64 0}
-!66 = !{!"_ZTSSt6atomicIPN3tbb6detail2r117tbb_exception_ptrEE", !67, i64 0}
-!67 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r117tbb_exception_ptrEE", !68, i64 0}
-!68 = !{!"p1 _ZTSN3tbb6detail2r117tbb_exception_ptrE", !12, i64 0}
-!69 = !{!"_ZTSN3tbb6detail2d021string_resource_indexE", !6, i64 0}
-!70 = distinct !{!70, !16, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !16}
-!73 = !{!9, !11, i64 8}
-!74 = !{!42, !46, i64 18}
-!75 = !{i8 0, i8 2}
-!76 = !{}
-!77 = distinct !{!77, !16, !71}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!9, !13, i64 16}
+!20 = distinct !{!20, !16}
+!21 = !{!9, !13, i64 24}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = !{!13, !13, i64 0}
+!26 = distinct !{!26, !16, !17}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"vtable pointer", !7, i64 0}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16, !17}
+!31 = distinct !{!31, !16, !17}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSN3tbb6detail2r19basic_tlsIPNS1_11thread_dataEEE", !34, i64 0}
+!34 = !{!"int", !6, i64 0}
+!35 = !{!36, !41, i64 24}
+!36 = !{!"_ZTSN3tbb6detail2d123task_scheduler_observerE", !37, i64 8, !39, i64 16, !41, i64 24}
+!37 = !{!"_ZTSSt6atomicIPN3tbb6detail2r114observer_proxyEE", !38, i64 0}
+!38 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r114observer_proxyEE", !13, i64 0}
+!39 = !{!"_ZTSSt6atomicIlE", !40, i64 0}
+!40 = !{!"_ZTSSt13__atomic_baseIlE", !5, i64 0}
+!41 = !{!"p1 _ZTSN3tbb6detail2d110task_arenaE", !12, i64 0}
+!42 = !{!43, !49, i64 32}
+!43 = !{!"_ZTSN3tbb6detail2r111thread_dataE", !44, i64 0, !46, i64 16, !47, i64 18, !47, i64 19, !48, i64 24, !49, i64 32, !50, i64 40, !51, i64 48, !52, i64 56, !54, i64 64, !13, i64 72, !55, i64 80, !56, i64 88, !57, i64 96, !12, i64 104, !58, i64 112}
+!44 = !{!"_ZTSN3tbb6detail2d119intrusive_list_nodeE", !45, i64 0, !45, i64 8}
+!45 = !{!"p1 _ZTSN3tbb6detail2d119intrusive_list_nodeE", !12, i64 0}
+!46 = !{!"short", !6, i64 0}
+!47 = !{!"bool", !6, i64 0}
+!48 = !{!"p1 _ZTSN3tbb6detail2r115task_dispatcherE", !12, i64 0}
+!49 = !{!"p1 _ZTSN3tbb6detail2r15arenaE", !12, i64 0}
+!50 = !{!"p1 _ZTSN3tbb6detail2r124thread_dispatcher_clientE", !12, i64 0}
+!51 = !{!"p1 _ZTSN3tbb6detail2r110arena_slotE", !12, i64 0}
+!52 = !{!"_ZTSN3tbb6detail2r110mail_inboxE", !53, i64 0}
+!53 = !{!"p1 _ZTSN3tbb6detail2r111mail_outboxE", !12, i64 0}
+!54 = !{!"_ZTSN3tbb6detail2r110FastRandomE", !34, i64 0, !34, i64 4}
+!55 = !{!"p1 _ZTSN3tbb6detail2r122small_object_pool_implE", !12, i64 0}
+!56 = !{!"p1 _ZTSN3tbb6detail2r112context_listE", !12, i64 0}
+!57 = !{!"_ZTSN3tbb6detail2r115task_dispatcher18post_resume_actionE", !6, i64 0}
+!58 = !{!"_ZTSN3tbb6detail2d118task_group_contextE", !5, i64 0, !59, i64 8, !61, i64 12, !62, i64 13, !63, i64 14, !65, i64 15, !6, i64 16, !56, i64 24, !44, i64 32, !67, i64 48, !12, i64 56, !70, i64 64, !6, i64 72}
+!59 = !{!"_ZTSSt6atomicIjE", !60, i64 0}
+!60 = !{!"_ZTSSt13__atomic_baseIjE", !34, i64 0}
+!61 = !{!"_ZTSN3tbb6detail2d118task_group_context26task_group_context_versionE", !6, i64 0}
+!62 = !{!"_ZTSN3tbb6detail2d118task_group_context14context_traitsE", !47, i64 0, !47, i64 0, !47, i64 0, !47, i64 0, !47, i64 0, !47, i64 0, !47, i64 0, !47, i64 0}
+!63 = !{!"_ZTSSt6atomicIhE", !64, i64 0}
+!64 = !{!"_ZTSSt13__atomic_baseIhE", !6, i64 0}
+!65 = !{!"_ZTSSt6atomicIN3tbb6detail2d118task_group_context5stateEE", !66, i64 0}
+!66 = !{!"_ZTSN3tbb6detail2d118task_group_context5stateE", !6, i64 0}
+!67 = !{!"_ZTSSt6atomicIPN3tbb6detail2r117tbb_exception_ptrEE", !68, i64 0}
+!68 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r117tbb_exception_ptrEE", !69, i64 0}
+!69 = !{!"p1 _ZTSN3tbb6detail2r117tbb_exception_ptrE", !12, i64 0}
+!70 = !{!"_ZTSN3tbb6detail2d021string_resource_indexE", !6, i64 0}
+!71 = distinct !{!71, !16, !17, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !16, !17}
+!74 = !{!9, !11, i64 8}
+!75 = !{!43, !47, i64 18}
+!76 = !{i8 0, i8 2}
+!77 = !{}
+!78 = distinct !{!78, !16, !17, !72}

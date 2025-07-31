@@ -575,7 +575,7 @@ define internal void @acpi_button_notify(ptr readnone captures(none) %0, i32 nou
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %33
 
@@ -625,7 +625,7 @@ define internal void @acpi_lid_notify(ptr readnone captures(none) %0, i32 nounde
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 73
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %24, label %12
 
@@ -791,7 +791,7 @@ define internal fastcc void @acpi_lid_notify_state(ptr captures(none) %.608.val,
 
 22:                                               ; preds = %15
   %23 = load i1, ptr @acpi_lid_notify_state.__already_done, align 1
-  br i1 %23, label %26, label %24, !prof !11
+  br i1 %23, label %26, label %24, !prof !12
 
 24:                                               ; preds = %22
   store i1 true, ptr @acpi_lid_notify_state.__already_done, align 1
@@ -1011,9 +1011,10 @@ attributes #13 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = !{!"branch_weights", i32 2000, i32 1}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{!"branch_weights", i32 2000, i32 1}

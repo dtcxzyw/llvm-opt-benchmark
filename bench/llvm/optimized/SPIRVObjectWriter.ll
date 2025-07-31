@@ -204,7 +204,7 @@ define dso_local noundef i64 @_ZN4llvm17SPIRVObjectWriter11writeObjectERNS_11MCA
   call void @_ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull %66) #10
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.07.015, i64 8
   %.not = icmp eq ptr %68, %49
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 }
 
 declare void @_ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(364), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #3
@@ -212,50 +212,50 @@ declare void @_ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9M
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm23createSPIRVObjectWriterESt10unique_ptrINS_25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.26") align 8 captures(none) initializes((0, 8)) %0, ptr noundef captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm17SPIRVObjectWriterESt14default_deleteIS1_EED2Ev.exit:
-  %3 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #11, !noalias !57
-  %4 = load i64, ptr %1, align 8, !tbaa !60, !noalias !57
-  store ptr null, ptr %1, align 8, !tbaa !60, !noalias !57
+  %3 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #11, !noalias !59
+  %4 = load i64, ptr %1, align 8, !tbaa !62, !noalias !59
+  store ptr null, ptr %1, align 8, !tbaa !62, !noalias !59
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %6, ptr %5, align 8, !tbaa !53, !noalias !57
+  store ptr %6, ptr %5, align 8, !tbaa !53, !noalias !59
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %7, align 8, !tbaa !54, !noalias !57
+  store i32 0, ptr %7, align 8, !tbaa !54, !noalias !59
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 0, ptr %8, align 4, !tbaa !61, !noalias !57
+  store i32 0, ptr %8, align 4, !tbaa !63, !noalias !59
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %9, ptr %6, align 8, !tbaa !62, !noalias !57
+  store ptr %9, ptr %6, align 8, !tbaa !64, !noalias !59
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 0, ptr %10, align 8, !tbaa !63, !noalias !57
-  store i8 0, ptr %9, align 1, !tbaa !64, !noalias !57
+  store i64 0, ptr %10, align 8, !tbaa !65, !noalias !59
+  store i8 0, ptr %9, align 1, !tbaa !66, !noalias !59
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %11, i8 0, i64 26, i1 false), !noalias !57
-  store ptr %13, ptr %12, align 8, !tbaa !53, !noalias !57
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %11, i8 0, i64 26, i1 false), !noalias !59
+  store ptr %13, ptr %12, align 8, !tbaa !53, !noalias !59
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 0, ptr %14, align 8, !tbaa !54, !noalias !57
+  store i32 0, ptr %14, align 8, !tbaa !54, !noalias !59
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 100
-  store i32 0, ptr %15, align 4, !tbaa !61, !noalias !57
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm17SPIRVObjectWriterE, i64 16), ptr %3, align 8, !tbaa !46, !noalias !57
-  store ptr %2, ptr %13, align 8, !tbaa !65, !noalias !57
+  store i32 0, ptr %15, align 4, !tbaa !63, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm17SPIRVObjectWriterE, i64 16), ptr %3, align 8, !tbaa !46, !noalias !59
+  store ptr %2, ptr %13, align 8, !tbaa !67, !noalias !59
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 1, ptr %16, align 8, !tbaa !10, !noalias !57
+  store i32 1, ptr %16, align 8, !tbaa !10, !noalias !59
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store i64 %4, ptr %17, align 8, !tbaa !60, !noalias !57
+  store i64 %4, ptr %17, align 8, !tbaa !62, !noalias !59
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i32 0, ptr %18, align 4, !tbaa !66, !noalias !57
+  store i32 0, ptr %18, align 4, !tbaa !68, !noalias !59
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 132
-  store i32 0, ptr %19, align 4, !tbaa !67, !noalias !57
+  store i32 0, ptr %19, align 4, !tbaa !69, !noalias !59
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 0, ptr %20, align 4, !tbaa !68, !noalias !57
-  store ptr %3, ptr %0, align 8, !tbaa !69
+  store i32 0, ptr %20, align 4, !tbaa !70, !noalias !59
+  store ptr %3, ptr %0, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17SPIRVObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i
 
@@ -267,7 +267,7 @@ _ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i: ; pred
   br label %_ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !60
+  store ptr null, ptr %2, align 8, !tbaa !62
   tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
   ret void
 }
@@ -275,7 +275,7 @@ _ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17SPIRVObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8, !tbaa !60
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN4llvm17SPIRVObjectWriterD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i.i
 
@@ -287,7 +287,7 @@ _ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i.i: ; pr
   br label %_ZN4llvm17SPIRVObjectWriterD2Ev.exit
 
 _ZN4llvm17SPIRVObjectWriterD2Ev.exit:             ; preds = %1, %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i.i
-  store ptr null, ptr %2, align 8, !tbaa !60
+  store ptr null, ptr %2, align 8, !tbaa !62
   tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #12
   ret void
@@ -397,18 +397,20 @@ attributes #12 = { builtin nounwind }
 !54 = !{!20, !12, i64 8}
 !55 = !{!56, !56, i64 0}
 !56 = !{!"p1 _ZTSN4llvm9MCSectionE", !6, i64 0}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZSt11make_uniqueIN4llvm17SPIRVObjectWriterEJSt10unique_ptrINS0_25MCSPIRVObjectTargetWriterESt14default_deleteIS3_EERNS0_17raw_pwrite_streamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!59 = distinct !{!59, !"_ZSt11make_uniqueIN4llvm17SPIRVObjectWriterEJSt10unique_ptrINS0_25MCSPIRVObjectTargetWriterESt14default_deleteIS3_EERNS0_17raw_pwrite_streamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!60 = !{!41, !41, i64 0}
-!61 = !{!20, !12, i64 12}
-!62 = !{!22, !23, i64 0}
-!63 = !{!21, !24, i64 8}
-!64 = !{!7, !7, i64 0}
-!65 = !{!5, !5, i64 0}
-!66 = !{!42, !12, i64 0}
-!67 = !{!42, !12, i64 4}
-!68 = !{!42, !12, i64 8}
-!69 = !{!70, !71, i64 0}
-!70 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm14MCObjectWriterELb0EE", !71, i64 0}
-!71 = !{!"p1 _ZTSN4llvm14MCObjectWriterE", !6, i64 0}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt11make_uniqueIN4llvm17SPIRVObjectWriterEJSt10unique_ptrINS0_25MCSPIRVObjectTargetWriterESt14default_deleteIS3_EERNS0_17raw_pwrite_streamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!61 = distinct !{!61, !"_ZSt11make_uniqueIN4llvm17SPIRVObjectWriterEJSt10unique_ptrINS0_25MCSPIRVObjectTargetWriterESt14default_deleteIS3_EERNS0_17raw_pwrite_streamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!62 = !{!41, !41, i64 0}
+!63 = !{!20, !12, i64 12}
+!64 = !{!22, !23, i64 0}
+!65 = !{!21, !24, i64 8}
+!66 = !{!7, !7, i64 0}
+!67 = !{!5, !5, i64 0}
+!68 = !{!42, !12, i64 0}
+!69 = !{!42, !12, i64 4}
+!70 = !{!42, !12, i64 8}
+!71 = !{!72, !73, i64 0}
+!72 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm14MCObjectWriterELb0EE", !73, i64 0}
+!73 = !{!"p1 _ZTSN4llvm14MCObjectWriterE", !6, i64 0}

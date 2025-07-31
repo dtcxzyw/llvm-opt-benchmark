@@ -639,11 +639,11 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %264
   %305 = add nsw i32 %304, 1
   store i32 %305, ptr %303, align 4, !tbaa !35
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %307 = load i32, ptr %306, align 8, !tbaa !38
+  %307 = load i32, ptr %306, align 8, !tbaa !39
   %308 = add nsw i32 %307, 1
-  store i32 %308, ptr %306, align 8, !tbaa !38
+  store i32 %308, ptr %306, align 8, !tbaa !39
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %310 = load ptr, ptr %309, align 8, !tbaa !39
+  %310 = load ptr, ptr %309, align 8, !tbaa !40
   %.not64 = icmp eq ptr %310, null
   br i1 %.not64, label %312, label %311
 
@@ -941,9 +941,9 @@ define void @Ivy_ObjDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr %9, align 4, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %13 = load i32, ptr %12, align 4, !tbaa !40
+  %13 = load i32, ptr %12, align 4, !tbaa !41
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 4, !tbaa !40
+  store i32 %14, ptr %12, align 4, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %.not.i = icmp eq ptr %16, null
@@ -1020,7 +1020,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %27, %30, %39
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !23
   %55 = icmp eq ptr %54, %1
-  br i1 %55, label %56, label %47, !llvm.loop !41
+  br i1 %55, label %56, label %47, !llvm.loop !42
 
 56:                                               ; preds = %50, %47
   %.0.in.lcssa.i = phi i32 [ %48, %50 ], [ %smin.i, %47 ]
@@ -1041,7 +1041,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %27, %30, %39
   store ptr %62, ptr %63, align 8, !tbaa !23
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %59, !llvm.loop !42
+  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %59, !llvm.loop !43
 
 Vec_PtrRemove.exit:                               ; preds = %59, %56
   %64 = add nsw i32 %44, -1
@@ -1070,7 +1070,7 @@ Vec_PtrRemove.exit:                               ; preds = %59, %56
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %76
   %79 = load ptr, ptr %78, align 8, !tbaa !23
   %80 = icmp eq ptr %79, %1
-  br i1 %80, label %81, label %72, !llvm.loop !41
+  br i1 %80, label %81, label %72, !llvm.loop !42
 
 81:                                               ; preds = %75, %72
   %.0.in.lcssa.i35 = phi i32 [ %73, %75 ], [ %smin.i33, %72 ]
@@ -1091,7 +1091,7 @@ Vec_PtrRemove.exit:                               ; preds = %59, %56
   store ptr %87, ptr %88, align 8, !tbaa !23
   %indvars.iv.next19.i39 = add nsw i64 %indvars.iv18.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next19.i39, %wide.trip.count.i37
-  br i1 %exitcond.not.i40, label %Vec_PtrRemove.exit41, label %84, !llvm.loop !42
+  br i1 %exitcond.not.i40, label %Vec_PtrRemove.exit41, label %84, !llvm.loop !43
 
 Vec_PtrRemove.exit41:                             ; preds = %84, %81
   %89 = add nsw i32 %69, -1
@@ -1108,7 +1108,7 @@ Vec_PtrRemove.exit41:                             ; preds = %84, %81
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !43
+  %95 = load ptr, ptr %94, align 8, !tbaa !44
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !18
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -1128,7 +1128,7 @@ Vec_PtrRemove.exit41:                             ; preds = %84, %81
   %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %104
   %107 = load ptr, ptr %106, align 8, !tbaa !23
   %108 = icmp eq ptr %107, %1
-  br i1 %108, label %109, label %100, !llvm.loop !41
+  br i1 %108, label %109, label %100, !llvm.loop !42
 
 109:                                              ; preds = %103, %100
   %.0.in.lcssa.i44 = phi i32 [ %101, %103 ], [ %smin.i42, %100 ]
@@ -1149,7 +1149,7 @@ Vec_PtrRemove.exit41:                             ; preds = %84, %81
   store ptr %115, ptr %116, align 8, !tbaa !23
   %indvars.iv.next19.i48 = add nsw i64 %indvars.iv18.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next19.i48, %wide.trip.count.i46
-  br i1 %exitcond.not.i49, label %Vec_PtrRemove.exit50, label %112, !llvm.loop !42
+  br i1 %exitcond.not.i49, label %Vec_PtrRemove.exit50, label %112, !llvm.loop !43
 
 Vec_PtrRemove.exit50:                             ; preds = %112, %109
   %117 = add nsw i32 %97, -1
@@ -1182,11 +1182,11 @@ Vec_PtrRemove.exit50:                             ; preds = %112, %109
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %132 = load i32, ptr %131, align 4, !tbaa !26
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %134 = load ptr, ptr %133, align 8, !tbaa !44
+  %134 = load ptr, ptr %133, align 8, !tbaa !45
   %135 = load i32, ptr %1, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   store i32 %135, ptr %1, align 8, !tbaa !20
-  store ptr %134, ptr %133, align 8, !tbaa !44
+  store ptr %134, ptr %133, align 8, !tbaa !45
   store i32 %132, ptr %131, align 4, !tbaa !26
   br label %136
 
@@ -1197,7 +1197,7 @@ Vec_PtrRemove.exit50:                             ; preds = %112, %109
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !40
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -1319,9 +1319,9 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !44
+  %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %65, ptr %66, align 8, !tbaa !44
+  store ptr %65, ptr %66, align 8, !tbaa !45
   br label %67
 
 67:                                               ; preds = %63, %60
@@ -1386,7 +1386,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !43
+  %101 = load ptr, ptr %100, align 8, !tbaa !44
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !18
   %104 = load i32, ptr %101, align 8, !tbaa !21
@@ -1675,12 +1675,13 @@ attributes #9 = { nounwind allocsize(0) }
 !33 = !{!32, !11, i64 0}
 !34 = !{!32, !12, i64 8}
 !35 = !{!11, !11, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!4, !11, i64 152}
-!39 = !{!4, !14, i64 216}
-!40 = !{!4, !11, i64 156}
-!41 = distinct !{!41, !37}
-!42 = distinct !{!42, !37}
-!43 = !{!4, !5, i64 16}
-!44 = !{!10, !9, i64 32}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!4, !11, i64 152}
+!40 = !{!4, !14, i64 216}
+!41 = !{!4, !11, i64 156}
+!42 = distinct !{!42, !37, !38}
+!43 = distinct !{!43, !37, !38}
+!44 = !{!4, !5, i64 16}
+!45 = !{!10, !9, i64 32}

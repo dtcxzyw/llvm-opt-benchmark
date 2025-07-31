@@ -191,7 +191,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %132 = mul nuw nsw i32 %131, 27
   %133 = xor i32 %132, %129
   %134 = icmp eq i64 %127, 10
-  br i1 %134, label %135, label %.preheader2, !llvm.loop !8
+  br i1 %134, label %135, label %.preheader2, !llvm.loop !9
 
 135:                                              ; preds = %126, %74, %69
   %136 = add i32 %2, 24
@@ -354,7 +354,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %282 = add i32 %159, 4
   %283 = add i32 %158, -4
   %284 = icmp eq i32 %283, 0
-  br i1 %284, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %284, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %135
   %285 = phi i32 [ 4, %135 ], [ %282, %.preheader ]
@@ -798,7 +798,7 @@ define dso_local void @aes_encrypt(ptr noundef readonly captures(none) %0, ptr n
   %406 = xor i32 %405, %400
   %407 = add i32 %69, 2
   %408 = getelementptr i8, ptr %68, i64 32
-  br label %63, !llvm.loop !10
+  br label %63, !llvm.loop !11
 
 409:                                              ; preds = %63
   %410 = getelementptr i8, ptr %68, i64 16
@@ -1423,7 +1423,7 @@ define dso_local void @aes_decrypt(ptr noundef readonly captures(none) %0, ptr n
   %511 = xor i32 %510, %505
   %512 = add i32 %70, 2
   %513 = getelementptr i8, ptr %69, i64 32
-  br label %64, !llvm.loop !11
+  br label %64, !llvm.loop !12
 
 514:                                              ; preds = %64
   %515 = getelementptr i8, ptr %69, i64 16
@@ -1545,10 +1545,11 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

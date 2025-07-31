@@ -134,9 +134,9 @@ thread-pre-split:                                 ; preds = %21, %10
 
 44:                                               ; preds = %37, %40, %43, %34
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 209
-  %48 = load i8, ptr %47, align 1, !tbaa !23, !range !36, !noundef !37
+  %48 = load i8, ptr %47, align 1, !tbaa !24, !range !37, !noundef !38
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %76
 
@@ -149,19 +149,19 @@ thread-pre-split:                                 ; preds = %21, %10
   %54 = getelementptr inbounds i8, ptr %0, i64 -64
   %55 = select i1 %53, ptr %0, ptr %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !38
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
   %58 = tail call ptr @agraphof(ptr noundef %57) #13
   %59 = load i32, ptr %0, align 8
   %60 = and i32 %59, 3
   %61 = icmp eq i32 %60, 2
   %62 = select i1 %61, ptr %0, ptr %54
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !38
+  %64 = load ptr, ptr %63, align 8, !tbaa !39
   %65 = icmp eq i32 %60, 3
   %.idx = select i1 %65, i64 0, i64 64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %68 = load ptr, ptr %67, align 8, !tbaa !38
+  %68 = load ptr, ptr %67, align 8, !tbaa !39
   %69 = tail call ptr @agedge(ptr noundef %58, ptr noundef %64, ptr noundef %68, ptr noundef null, i32 noundef 0) #13
   call void @arrow_flags(ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %70 = load i32, ptr %4, align 4, !tbaa !3
@@ -228,22 +228,22 @@ arrow_match_name_frag.exit.i:                     ; preds = %.lr.ph
 
 12:                                               ; preds = %.lr.ph.i16.i
   %13 = getelementptr inbounds nuw i8, ptr %.015.i17.i, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !43
+  %14 = load i32, ptr %13, align 8, !tbaa !44
   %15 = or i32 %14, %.131.i
   %16 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %9
   br label %arrow_match_name_frag.exit20.i
 
 17:                                               ; preds = %.lr.ph.i16.i
   %18 = getelementptr inbounds nuw i8, ptr %.015.i17.i, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
   %.not.i18.i = icmp eq ptr %19, null
-  br i1 %.not.i18.i, label %arrow_match_name_frag.exit20.i, label %.lr.ph.i16.i, !llvm.loop !46
+  br i1 %.not.i18.i, label %arrow_match_name_frag.exit20.i, label %.lr.ph.i16.i, !llvm.loop !47
 
 arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
   %.4.i = phi i32 [ %15, %12 ], [ %.131.i, %17 ]
   %.011.i19.i = phi ptr [ %16, %12 ], [ %.1.i, %17 ]
   %.not.i = icmp eq ptr %.1.i, %.011.i19.i
-  br i1 %.not.i, label %.lr.ph.i21.i, label %.preheader.i, !llvm.loop !47
+  br i1 %.not.i, label %.lr.ph.i21.i, label %.preheader.i, !llvm.loop !48
 
 .lr.ph.i21.i:                                     ; preds = %arrow_match_name_frag.exit20.i, %29
   %20 = phi ptr [ %31, %29 ], [ @.str.15, %arrow_match_name_frag.exit20.i ]
@@ -255,16 +255,16 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
 
 24:                                               ; preds = %.lr.ph.i21.i
   %25 = getelementptr inbounds nuw i8, ptr %.015.i22.i, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !43
+  %26 = load i32, ptr %25, align 8, !tbaa !44
   %27 = or i32 %26, %.4.i
   %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %21
   br label %arrow_match_shape.exit
 
 29:                                               ; preds = %.lr.ph.i21.i
   %30 = getelementptr inbounds nuw i8, ptr %.015.i22.i, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !45
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
   %.not.i23.i = icmp eq ptr %31, null
-  br i1 %.not.i23.i, label %arrow_match_shape.exit, label %.lr.ph.i21.i, !llvm.loop !46
+  br i1 %.not.i23.i, label %arrow_match_shape.exit, label %.lr.ph.i21.i, !llvm.loop !47
 
 arrow_match_shape.exit:                           ; preds = %29, %arrow_match_name_frag.exit.i, %24
   %.030.i = phi i32 [ 49, %arrow_match_name_frag.exit.i ], [ %27, %24 ], [ %.4.i, %29 ]
@@ -313,7 +313,7 @@ arrow_match_shape.exit:                           ; preds = %29, %arrow_match_na
   %49 = icmp ne i8 %48, 0
   %50 = icmp slt i32 %.1, 4
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !48
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.thread25, %2, %.thread28
   ret void
@@ -347,21 +347,21 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr noundef captures(none) %1, 
 18:                                               ; preds = %20
   %19 = add nuw nsw i64 %.02329.i, 1
   %exitcond.not.i = icmp eq i64 %19, 8
-  br i1 %exitcond.not.i, label %.loopexit.i, label %20, !llvm.loop !49
+  br i1 %exitcond.not.i, label %.loopexit.i, label %20, !llvm.loop !50
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
   %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
-  %22 = load i32, ptr %21, align 16, !tbaa !50
+  %22 = load i32, ptr %21, align 16, !tbaa !51
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %20
   %23 = and i32 %16, 255
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !52
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %27 = load double, ptr %26, align 8, !tbaa !53
+  %27 = load double, ptr %26, align 8, !tbaa !54
   %28 = tail call double %25(double noundef %27, double noundef %13, double noundef %11, i32 noundef %23) #13
   %29 = fadd double %.02231.i, %28
   br label %.loopexit.i
@@ -370,29 +370,29 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr noundef captures(none) %1, 
   %.2.i = phi double [ %29, %.thread.i ], [ %.02231.i, %18 ]
   %30 = add nuw nsw i32 %.02430.i, 1
   %exitcond33.not.i = icmp eq i32 %30, 4
-  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !54
+  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !55
 
 arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0.i = phi double [ 0.000000e+00, %6 ], [ %.2.i, %.loopexit.i ]
   %31 = fmul double %.0.i, %.0.i
-  store double %31, ptr %9, align 8, !tbaa !55
+  store double %31, ptr %9, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %5, ptr %32, align 4, !tbaa !56
+  store i32 %5, ptr %32, align 4, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %34 = getelementptr %struct.pointf_s, ptr %1, i64 %3
   %35 = getelementptr i8, ptr %34, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !59
   %36 = icmp ugt i64 %3, %2
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %arrow_length.exit
-  %38 = load double, ptr %34, align 8, !tbaa !59
-  %39 = load double, ptr %35, align 8, !tbaa !59
+  %38 = load double, ptr %34, align 8, !tbaa !60
+  %39 = load double, ptr %35, align 8, !tbaa !60
   %40 = fsub double %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %42 = load double, ptr %41, align 8, !tbaa !60
+  %42 = load double, ptr %41, align 8, !tbaa !61
   %43 = getelementptr i8, ptr %34, i64 56
-  %44 = load double, ptr %43, align 8, !tbaa !60
+  %44 = load double, ptr %43, align 8, !tbaa !61
   %45 = fsub double %42, %44
   %46 = fmul double %45, %45
   %47 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %46)
@@ -407,13 +407,13 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0 = phi i64 [ %50, %49 ], [ %3, %37 ], [ %3, %arrow_length.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %53 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !59
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %55 = getelementptr i8, ptr %53, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !59
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %57 = getelementptr i8, ptr %53, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %58 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %58, label %59, label %61
@@ -426,11 +426,11 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   br label %61
 
 61:                                               ; preds = %59, %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !59
   %62 = getelementptr i8, ptr %53, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #13
@@ -448,16 +448,16 @@ declare void @bezier_clip(ptr noundef, ptr noundef, ptr noundef, i1 noundef zero
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @inside(ptr noundef readonly captures(none) %0, double %1, double %2) #5 {
   %4 = load ptr, ptr %0, align 8, !tbaa !10
-  %5 = load double, ptr %4, align 8, !tbaa !59
+  %5 = load double, ptr %4, align 8, !tbaa !60
   %6 = fsub double %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load double, ptr %7, align 8, !tbaa !60
+  %8 = load double, ptr %7, align 8, !tbaa !61
   %9 = fsub double %2, %8
   %10 = fmul double %9, %9
   %11 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %10)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = load double, ptr %13, align 8, !tbaa !55
+  %14 = load double, ptr %13, align 8, !tbaa !56
   %15 = fcmp ole double %11, %14
   ret i1 %15
 }
@@ -488,21 +488,21 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr noundef captures(none) %1
 18:                                               ; preds = %20
   %19 = add nuw nsw i64 %.02329.i, 1
   %exitcond.not.i = icmp eq i64 %19, 8
-  br i1 %exitcond.not.i, label %.loopexit.i, label %20, !llvm.loop !49
+  br i1 %exitcond.not.i, label %.loopexit.i, label %20, !llvm.loop !50
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
   %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
-  %22 = load i32, ptr %21, align 16, !tbaa !50
+  %22 = load i32, ptr %21, align 16, !tbaa !51
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %20
   %23 = and i32 %16, 255
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !52
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %27 = load double, ptr %26, align 8, !tbaa !53
+  %27 = load double, ptr %26, align 8, !tbaa !54
   %28 = tail call double %25(double noundef %27, double noundef %13, double noundef %11, i32 noundef %23) #13
   %29 = fadd double %.02231.i, %28
   br label %.loopexit.i
@@ -511,30 +511,30 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr noundef captures(none) %1
   %.2.i = phi double [ %29, %.thread.i ], [ %.02231.i, %18 ]
   %30 = add nuw nsw i32 %.02430.i, 1
   %exitcond33.not.i = icmp eq i32 %30, 4
-  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !54
+  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !55
 
 arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0.i = phi double [ 0.000000e+00, %6 ], [ %.2.i, %.loopexit.i ]
   %31 = fmul double %.0.i, %.0.i
-  store double %31, ptr %9, align 8, !tbaa !55
+  store double %31, ptr %9, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %5, ptr %32, align 8, !tbaa !61
+  store i32 %5, ptr %32, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !59
   %35 = icmp ugt i64 %3, %2
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %arrow_length.exit
-  %37 = load double, ptr %34, align 8, !tbaa !59
+  %37 = load double, ptr %34, align 8, !tbaa !60
   %38 = add i64 %2, 3
   %39 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %38
-  %40 = load double, ptr %39, align 8, !tbaa !59
+  %40 = load double, ptr %39, align 8, !tbaa !60
   %41 = fsub double %37, %40
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %43 = load double, ptr %42, align 8, !tbaa !60
+  %43 = load double, ptr %42, align 8, !tbaa !61
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !60
+  %45 = load double, ptr %44, align 8, !tbaa !61
   %46 = fsub double %43, %45
   %47 = fmul double %46, %46
   %48 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %47)
@@ -548,13 +548,13 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %.0 = phi i64 [ %38, %50 ], [ %2, %36 ], [ %2, %arrow_length.exit ]
   %52 = getelementptr %struct.pointf_s, ptr %1, i64 %.0
   %53 = getelementptr i8, ptr %52, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !59
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %55 = getelementptr i8, ptr %52, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !59
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %57 = getelementptr i8, ptr %52, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !59
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
   %59 = fcmp ogt double %.0.i, 0.000000e+00
@@ -568,10 +568,10 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   br label %62
 
 62:                                               ; preds = %60, %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 16 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 16 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #13
@@ -589,13 +589,13 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %3
-  %.sroa.078.0.copyload = load double, ptr %13, align 8, !tbaa !55
+  %.sroa.078.0.copyload = load double, ptr %13, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.24.0.copyload = load double, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.24.0.copyload = load double, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !56
   %14 = getelementptr i8, ptr %13, i64 48
-  %.sroa.035.0.copyload = load double, ptr %14, align 8, !tbaa !55
+  %.sroa.035.0.copyload = load double, ptr %14, align 8, !tbaa !56
   %.sroa.21.0..sroa_idx = getelementptr i8, ptr %13, i64 56
-  %.sroa.21.0.copyload = load double, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.21.0.copyload = load double, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !56
   %15 = load ptr, ptr @E_penwidth, align 8, !tbaa !7
   %16 = tail call double @late_double(ptr noundef %0, ptr noundef %15, double noundef 1.000000e+00, double noundef 0.000000e+00) #13
   %17 = load ptr, ptr @E_arrowsz, align 8, !tbaa !7
@@ -614,21 +614,21 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
 23:                                               ; preds = %25
   %24 = add nuw nsw i64 %.02329.i, 1
   %exitcond.not.i = icmp eq i64 %24, 8
-  br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !49
+  br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !50
 
 25:                                               ; preds = %23, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %24, %23 ]
   %26 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
-  %27 = load i32, ptr %26, align 16, !tbaa !50
+  %27 = load i32, ptr %26, align 16, !tbaa !51
   %.not.i = icmp eq i32 %22, %27
   br i1 %.not.i, label %.thread.i, label %23
 
 .thread.i:                                        ; preds = %25
   %28 = and i32 %21, 255
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  %30 = load ptr, ptr %29, align 8, !tbaa !53
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load double, ptr %31, align 8, !tbaa !53
+  %32 = load double, ptr %31, align 8, !tbaa !54
   %33 = tail call double %30(double noundef %32, double noundef %18, double noundef %16, i32 noundef %28) #13
   %34 = fadd double %.02231.i, %33
   br label %.loopexit.i
@@ -637,7 +637,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
   %.2.i = phi double [ %34, %.thread.i ], [ %.02231.i, %23 ]
   %35 = add nuw nsw i32 %.02430.i, 1
   %exitcond33.not.i = icmp eq i32 %35, 4
-  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !54
+  br i1 %exitcond33.not.i, label %arrow_length.exit, label %.preheader.i, !llvm.loop !55
 
 arrow_length.exit:                                ; preds = %.loopexit.i, %12
   %.0.i = phi double [ 0.000000e+00, %12 ], [ %.2.i, %.loopexit.i ]
@@ -659,21 +659,21 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
 44:                                               ; preds = %46
   %45 = add nuw nsw i64 %.02329.i200, 1
   %exitcond.not.i202 = icmp eq i64 %45, 8
-  br i1 %exitcond.not.i202, label %.loopexit.i203, label %46, !llvm.loop !49
+  br i1 %exitcond.not.i202, label %.loopexit.i203, label %46, !llvm.loop !50
 
 46:                                               ; preds = %44, %.preheader.i197
   %.02329.i200 = phi i64 [ 0, %.preheader.i197 ], [ %45, %44 ]
   %47 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i200
-  %48 = load i32, ptr %47, align 16, !tbaa !50
+  %48 = load i32, ptr %47, align 16, !tbaa !51
   %.not.i201 = icmp eq i32 %43, %48
   br i1 %.not.i201, label %.thread.i207, label %44
 
 .thread.i207:                                     ; preds = %46
   %49 = and i32 %42, 255
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !52
+  %51 = load ptr, ptr %50, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !53
+  %53 = load double, ptr %52, align 8, !tbaa !54
   %54 = tail call double %51(double noundef %53, double noundef %39, double noundef %37, i32 noundef %49) #13
   %55 = fadd double %.02231.i198, %54
   br label %.loopexit.i203
@@ -682,7 +682,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
   %.2.i204 = phi double [ %55, %.thread.i207 ], [ %.02231.i198, %44 ]
   %56 = add nuw nsw i32 %.02430.i199, 1
   %exitcond33.not.i205 = icmp eq i32 %56, 4
-  br i1 %exitcond33.not.i205, label %arrow_length.exit208, label %.preheader.i197, !llvm.loop !54
+  br i1 %exitcond33.not.i205, label %arrow_length.exit208, label %.preheader.i197, !llvm.loop !55
 
 arrow_length.exit208:                             ; preds = %.loopexit.i203, %arrow_length.exit
   %.0.i206 = phi double [ 0.000000e+00, %arrow_length.exit ], [ %.2.i204, %.loopexit.i203 ]
@@ -733,22 +733,22 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
   %.sroa.6.0 = phi double [ %.sroa.24.0.copyload, %67 ], [ %.sroa.24.0.copyload, %70 ], [ %76, %75 ], [ %79, %78 ]
   %.sroa.0.0 = phi double [ %68, %67 ], [ %71, %70 ], [ %.sroa.078.0.copyload, %75 ], [ %.sroa.078.0.copyload, %78 ]
   %82 = getelementptr i8, ptr %13, i64 16
-  store double %.sroa.029.0, ptr %82, align 8, !tbaa !55
+  store double %.sroa.029.0, ptr %82, align 8, !tbaa !56
   %.sroa.630.0..sroa_idx = getelementptr i8, ptr %13, i64 24
-  store double %.sroa.630.0, ptr %.sroa.630.0..sroa_idx, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !58
+  store double %.sroa.630.0, ptr %.sroa.630.0..sroa_idx, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !59
   %83 = getelementptr i8, ptr %13, i64 32
-  store double %.sroa.0.0, ptr %14, align 8, !tbaa !55
-  store double %.sroa.6.0, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !58
+  store double %.sroa.0.0, ptr %14, align 8, !tbaa !56
+  store double %.sroa.6.0, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !59
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %5, ptr %84, align 8, !tbaa !61
+  store i32 %5, ptr %84, align 8, !tbaa !62
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store double %.sroa.078.0.copyload, ptr %85, align 8, !tbaa !55
+  store double %.sroa.078.0.copyload, ptr %85, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store double %.sroa.24.0.copyload, ptr %.sroa.24.0..sroa_idx99, align 8, !tbaa !55
+  store double %.sroa.24.0.copyload, ptr %.sroa.24.0..sroa_idx99, align 8, !tbaa !56
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %6, ptr %86, align 4, !tbaa !56
+  store i32 %6, ptr %86, align 4, !tbaa !57
   br label %.sink.split
 
 87:                                               ; preds = %7
@@ -773,21 +773,21 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
 97:                                               ; preds = %99
   %98 = add nuw nsw i64 %.02329.i212, 1
   %exitcond.not.i214 = icmp eq i64 %98, 8
-  br i1 %exitcond.not.i214, label %.loopexit.i215, label %99, !llvm.loop !49
+  br i1 %exitcond.not.i214, label %.loopexit.i215, label %99, !llvm.loop !50
 
 99:                                               ; preds = %97, %.preheader.i209
   %.02329.i212 = phi i64 [ 0, %.preheader.i209 ], [ %98, %97 ]
   %100 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i212
-  %101 = load i32, ptr %100, align 16, !tbaa !50
+  %101 = load i32, ptr %100, align 16, !tbaa !51
   %.not.i213 = icmp eq i32 %96, %101
   br i1 %.not.i213, label %.thread.i219, label %97
 
 .thread.i219:                                     ; preds = %99
   %102 = and i32 %95, 255
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !52
+  %104 = load ptr, ptr %103, align 8, !tbaa !53
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %106 = load double, ptr %105, align 8, !tbaa !53
+  %106 = load double, ptr %105, align 8, !tbaa !54
   %107 = tail call double %104(double noundef %106, double noundef %92, double noundef %90, i32 noundef %102) #13
   %108 = fadd double %.02231.i210, %107
   br label %.loopexit.i215
@@ -796,18 +796,18 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
   %.2.i216 = phi double [ %108, %.thread.i219 ], [ %.02231.i210, %97 ]
   %109 = add nuw nsw i32 %.02430.i211, 1
   %exitcond33.not.i217 = icmp eq i32 %109, 4
-  br i1 %exitcond33.not.i217, label %arrow_length.exit220, label %.preheader.i209, !llvm.loop !54
+  br i1 %exitcond33.not.i217, label %arrow_length.exit220, label %.preheader.i209, !llvm.loop !55
 
 arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
   %.0.i218 = phi double [ 0.000000e+00, %88 ], [ %.2.i216, %.loopexit.i215 ]
   %110 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %3
-  %.sroa.078.0.copyload95 = load double, ptr %110, align 8, !tbaa !55
+  %.sroa.078.0.copyload95 = load double, ptr %110, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %.sroa.24.0.copyload102 = load double, ptr %.sroa.24.0..sroa_idx101, align 8, !tbaa !55
+  %.sroa.24.0.copyload102 = load double, ptr %.sroa.24.0..sroa_idx101, align 8, !tbaa !56
   %111 = getelementptr i8, ptr %110, i64 48
-  %.sroa.035.0.copyload49 = load double, ptr %111, align 8, !tbaa !55
+  %.sroa.035.0.copyload49 = load double, ptr %111, align 8, !tbaa !56
   %.sroa.21.0..sroa_idx55 = getelementptr i8, ptr %110, i64 56
-  %.sroa.21.0.copyload56 = load double, ptr %.sroa.21.0..sroa_idx55, align 8, !tbaa !55
+  %.sroa.21.0.copyload56 = load double, ptr %.sroa.21.0..sroa_idx55, align 8, !tbaa !56
   %112 = fsub double %.sroa.078.0.copyload95, %.sroa.035.0.copyload49
   %113 = fsub double %.sroa.24.0.copyload102, %.sroa.21.0.copyload56
   %114 = fmul double %113, %113
@@ -847,19 +847,19 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
   %.sroa.10.0 = phi double [ %.sroa.24.0.copyload102, %120 ], [ %.sroa.24.0.copyload102, %122 ], [ %127, %126 ], [ %129, %128 ]
   %.sroa.031.0 = phi double [ %121, %120 ], [ %123, %122 ], [ %.sroa.078.0.copyload95, %126 ], [ %.sroa.078.0.copyload95, %128 ]
   %131 = getelementptr i8, ptr %110, i64 16
-  store double %.sroa.078.0.copyload95, ptr %131, align 8, !tbaa !55
+  store double %.sroa.078.0.copyload95, ptr %131, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx103 = getelementptr i8, ptr %110, i64 24
-  store double %.sroa.24.0.copyload102, ptr %.sroa.24.0..sroa_idx103, align 8, !tbaa !55
+  store double %.sroa.24.0.copyload102, ptr %.sroa.24.0..sroa_idx103, align 8, !tbaa !56
   %132 = getelementptr i8, ptr %110, i64 32
-  store double %.sroa.031.0, ptr %111, align 8, !tbaa !55
-  store double %.sroa.10.0, ptr %.sroa.21.0..sroa_idx55, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !58
+  store double %.sroa.031.0, ptr %111, align 8, !tbaa !56
+  store double %.sroa.10.0, ptr %.sroa.21.0..sroa_idx55, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !59
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %6, ptr %133, align 4, !tbaa !56
+  store i32 %6, ptr %133, align 4, !tbaa !57
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store double %.sroa.035.0.copyload49, ptr %134, align 8, !tbaa !55
+  store double %.sroa.035.0.copyload49, ptr %134, align 8, !tbaa !56
   %.sroa.21.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store double %.sroa.21.0.copyload56, ptr %.sroa.21.0..sroa_idx57, align 8, !tbaa !55
+  store double %.sroa.21.0.copyload56, ptr %.sroa.21.0..sroa_idx57, align 8, !tbaa !56
   br label %135
 
 135:                                              ; preds = %130, %87
@@ -884,21 +884,21 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
 145:                                              ; preds = %147
   %146 = add nuw nsw i64 %.02329.i224, 1
   %exitcond.not.i226 = icmp eq i64 %146, 8
-  br i1 %exitcond.not.i226, label %.loopexit.i227, label %147, !llvm.loop !49
+  br i1 %exitcond.not.i226, label %.loopexit.i227, label %147, !llvm.loop !50
 
 147:                                              ; preds = %145, %.preheader.i221
   %.02329.i224 = phi i64 [ 0, %.preheader.i221 ], [ %146, %145 ]
   %148 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i224
-  %149 = load i32, ptr %148, align 16, !tbaa !50
+  %149 = load i32, ptr %148, align 16, !tbaa !51
   %.not.i225 = icmp eq i32 %144, %149
   br i1 %.not.i225, label %.thread.i231, label %145
 
 .thread.i231:                                     ; preds = %147
   %150 = and i32 %143, 255
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %152 = load ptr, ptr %151, align 8, !tbaa !52
+  %152 = load ptr, ptr %151, align 8, !tbaa !53
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %154 = load double, ptr %153, align 8, !tbaa !53
+  %154 = load double, ptr %153, align 8, !tbaa !54
   %155 = tail call double %152(double noundef %154, double noundef %140, double noundef %138, i32 noundef %150) #13
   %156 = fadd double %.02231.i222, %155
   br label %.loopexit.i227
@@ -907,18 +907,18 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
   %.2.i228 = phi double [ %156, %.thread.i231 ], [ %.02231.i222, %145 ]
   %157 = add nuw nsw i32 %.02430.i223, 1
   %exitcond33.not.i229 = icmp eq i32 %157, 4
-  br i1 %exitcond33.not.i229, label %arrow_length.exit232, label %.preheader.i221, !llvm.loop !54
+  br i1 %exitcond33.not.i229, label %arrow_length.exit232, label %.preheader.i221, !llvm.loop !55
 
 arrow_length.exit232:                             ; preds = %.loopexit.i227, %136
   %.0.i230 = phi double [ 0.000000e+00, %136 ], [ %.2.i228, %.loopexit.i227 ]
   %158 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %2
-  %.sroa.078.0.copyload97 = load double, ptr %158, align 8, !tbaa !55
+  %.sroa.078.0.copyload97 = load double, ptr %158, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %.sroa.24.0.copyload106 = load double, ptr %.sroa.24.0..sroa_idx105, align 8, !tbaa !55
+  %.sroa.24.0.copyload106 = load double, ptr %.sroa.24.0..sroa_idx105, align 8, !tbaa !56
   %159 = getelementptr i8, ptr %158, i64 48
-  %.sroa.035.0.copyload51 = load double, ptr %159, align 8, !tbaa !55
+  %.sroa.035.0.copyload51 = load double, ptr %159, align 8, !tbaa !56
   %.sroa.21.0..sroa_idx59 = getelementptr i8, ptr %158, i64 56
-  %.sroa.21.0.copyload60 = load double, ptr %.sroa.21.0..sroa_idx59, align 8, !tbaa !55
+  %.sroa.21.0.copyload60 = load double, ptr %.sroa.21.0..sroa_idx59, align 8, !tbaa !56
   %160 = fsub double %.sroa.078.0.copyload97, %.sroa.035.0.copyload51
   %161 = fsub double %.sroa.24.0.copyload106, %.sroa.21.0.copyload60
   %162 = fmul double %161, %161
@@ -958,16 +958,16 @@ arrow_length.exit232:                             ; preds = %.loopexit.i227, %13
   %.sroa.10.1 = phi double [ %.sroa.24.0.copyload106, %168 ], [ %.sroa.24.0.copyload106, %170 ], [ %175, %174 ], [ %177, %176 ]
   %.sroa.031.1 = phi double [ %169, %168 ], [ %171, %170 ], [ %.sroa.078.0.copyload97, %174 ], [ %.sroa.078.0.copyload97, %176 ]
   %179 = getelementptr i8, ptr %158, i64 16
-  store double %.sroa.031.1, ptr %179, align 8, !tbaa !55
+  store double %.sroa.031.1, ptr %179, align 8, !tbaa !56
   %.sroa.10.0..sroa_idx33 = getelementptr i8, ptr %158, i64 24
-  store double %.sroa.10.1, ptr %.sroa.10.0..sroa_idx33, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false), !tbaa.struct !58
+  store double %.sroa.10.1, ptr %.sroa.10.0..sroa_idx33, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false), !tbaa.struct !59
   %180 = getelementptr i8, ptr %158, i64 32
-  store double %.sroa.035.0.copyload51, ptr %180, align 8, !tbaa !55
+  store double %.sroa.035.0.copyload51, ptr %180, align 8, !tbaa !56
   %.sroa.21.0..sroa_idx61 = getelementptr i8, ptr %158, i64 40
-  store double %.sroa.21.0.copyload60, ptr %.sroa.21.0..sroa_idx61, align 8, !tbaa !55
+  store double %.sroa.21.0.copyload60, ptr %.sroa.21.0..sroa_idx61, align 8, !tbaa !56
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %5, ptr %181, align 8, !tbaa !61
+  store i32 %5, ptr %181, align 8, !tbaa !62
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %178
@@ -976,9 +976,9 @@ arrow_length.exit232:                             ; preds = %.loopexit.i227, %13
   %.sink = phi i64 [ 32, %178 ], [ 48, %81 ]
   %.sroa.24.0.copyload106.sink = phi double [ %.sroa.24.0.copyload106, %178 ], [ %.sroa.21.0.copyload, %81 ]
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink258
-  store double %.sroa.078.0.copyload97.sink, ptr %182, align 8, !tbaa !55
+  store double %.sroa.078.0.copyload97.sink, ptr %182, align 8, !tbaa !56
   %.sroa.24.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
-  store double %.sroa.24.0.copyload106.sink, ptr %.sroa.24.0..sroa_idx107, align 8, !tbaa !55
+  store double %.sroa.24.0.copyload106.sink, ptr %.sroa.24.0..sroa_idx107, align 8, !tbaa !56
   br label %183
 
 183:                                              ; preds = %.sink.split, %135
@@ -1015,21 +1015,21 @@ define void @arrow_bb(ptr dead_on_unwind noalias writable writeonly sret(%struct
   %32 = tail call double @llvm.maxnum.f64(double %25, double %31)
   %33 = tail call double @llvm.maxnum.f64(double %23, double %32)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %33, ptr %34, align 8, !tbaa !62
+  store double %33, ptr %34, align 8, !tbaa !63
   %35 = tail call double @llvm.maxnum.f64(double %28, double %30)
   %36 = tail call double @llvm.maxnum.f64(double %26, double %35)
   %37 = tail call double @llvm.maxnum.f64(double %24, double %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %37, ptr %38, align 8, !tbaa !64
+  store double %37, ptr %38, align 8, !tbaa !65
   %39 = tail call double @llvm.minnum.f64(double %27, double %29)
   %40 = tail call double @llvm.minnum.f64(double %25, double %39)
   %41 = tail call double @llvm.minnum.f64(double %23, double %40)
-  store double %41, ptr %0, align 8, !tbaa !65
+  store double %41, ptr %0, align 8, !tbaa !66
   %42 = tail call double @llvm.minnum.f64(double %28, double %30)
   %43 = tail call double @llvm.minnum.f64(double %26, double %42)
   %44 = tail call double @llvm.minnum.f64(double %24, double %43)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %44, ptr %45, align 8, !tbaa !66
+  store double %44, ptr %45, align 8, !tbaa !67
   ret void
 }
 
@@ -1045,13 +1045,13 @@ declare double @llvm.minnum.f64(double, double) #4
 ; Function Attrs: nounwind uwtable
 define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, double %4, double %5, double noundef %6, double noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !84
-  store i32 %1, ptr %12, align 8, !tbaa !84
-  %14 = load ptr, ptr %0, align 8, !tbaa !89
+  %13 = load i32, ptr %12, align 8, !tbaa !85
+  store i32 %1, ptr %12, align 8, !tbaa !85
+  %14 = load ptr, ptr %0, align 8, !tbaa !90
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
-  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %16 = load ptr, ptr %15, align 8, !tbaa !91
   tail call void @gvrender_set_style(ptr noundef nonnull %0, ptr noundef %16) #13
   tail call void @gvrender_set_penwidth(ptr noundef nonnull %0, double noundef %7) #13
   %17 = fsub double %4, %2
@@ -1086,23 +1086,23 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 37:                                               ; preds = %39
   %38 = add nuw nsw i64 %.02227.i, 1
   %exitcond.not.i = icmp eq i64 %38, 8
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %39, !llvm.loop !103
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %39, !llvm.loop !104
 
 39:                                               ; preds = %37, %35
   %.02227.i = phi i64 [ 0, %35 ], [ %38, %37 ]
   %40 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02227.i
-  %41 = load i32, ptr %40, align 16, !tbaa !50
+  %41 = load i32, ptr %40, align 16, !tbaa !51
   %.not.i = icmp eq i32 %36, %41
   br i1 %.not.i, label %.thread.i, label %37
 
 .thread.i:                                        ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load double, ptr %42, align 8, !tbaa !53
+  %43 = load double, ptr %42, align 8, !tbaa !54
   %44 = fmul double %6, %43
   %45 = fmul double %28, %44
   %46 = fmul double %29, %44
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !104
+  %48 = load ptr, ptr %47, align 8, !tbaa !105
   %49 = tail call { double, double } %48(ptr noundef nonnull %0, double %.sroa.032.046, double %.sroa.434.047, double %45, double %46, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #13
   br label %52
 
@@ -1117,10 +1117,10 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %54 = extractvalue { double, double } %.fca.1.insert.merged.i, 1
   %55 = add nuw nsw i32 %.03645, 1
   %exitcond.not = icmp eq i32 %55, 4
-  br i1 %exitcond.not, label %56, label %30, !llvm.loop !105
+  br i1 %exitcond.not, label %56, label %30, !llvm.loop !106
 
 56:                                               ; preds = %30, %52
-  store i32 %13, ptr %12, align 8, !tbaa !84
+  store i32 %13, ptr %12, align 8, !tbaa !85
   ret void
 }
 
@@ -1189,13 +1189,13 @@ define internal double @arrow_length_normal(double noundef %0, double noundef %1
   %8 = call fastcc { double, double } @arrow_type_normal0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.011.0.copyload = load double, ptr %10, align 16, !tbaa !55
+  %.sroa.011.0.copyload = load double, ptr %10, align 16, !tbaa !56
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.412.0.copyload = load double, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.412.0.copyload = load double, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !56
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.0.0.copyload = load double, ptr %11, align 16, !tbaa !55
+  %.sroa.0.0.copyload = load double, ptr %11, align 16, !tbaa !56
   %12 = fsub double %.sroa.011.0.copyload, %.sroa.0.0.copyload
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fsub double %.sroa.3.0.copyload, %.sroa.412.0.copyload
@@ -1253,14 +1253,14 @@ define internal double @arrow_length_crow(double noundef %0, double noundef %1, 
   %8 = call fastcc { double, double } @arrow_type_crow0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.014.0.copyload = load double, ptr %10, align 16, !tbaa !55
+  %.sroa.014.0.copyload = load double, ptr %10, align 16, !tbaa !56
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !56
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
-  %.sroa.011.0.copyload = load double, ptr %5, align 16, !tbaa !55
+  %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !56
+  %.sroa.011.0.copyload = load double, ptr %5, align 16, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %.sroa.0.0.copyload = load double, ptr %11, align 16, !tbaa !55
+  %.sroa.0.0.copyload = load double, ptr %11, align 16, !tbaa !56
   %12 = fsub double %.sroa.014.0.copyload, %.sroa.0.0.copyload
   %13 = fsub double %9, %12
   %14 = fsub double %.sroa.014.0.copyload, %.sroa.011.0.copyload
@@ -1325,37 +1325,37 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %.sroa.075.0 = phi double [ %35, %21 ], [ %10, %8 ]
   %.sroa.5.0 = phi double [ %36, %21 ], [ %11, %8 ]
   %38 = fsub double %.sroa.042.0, %4
-  store double %38, ptr %9, align 16, !tbaa !59
+  store double %38, ptr %9, align 16, !tbaa !60
   %39 = fadd double %3, %.sroa.946.0
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %39, ptr %40, align 8, !tbaa !60
+  store double %39, ptr %40, align 8, !tbaa !61
   %41 = fadd double %4, %.sroa.042.0
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %41, ptr %42, align 16, !tbaa !59
+  store double %41, ptr %42, align 16, !tbaa !60
   %43 = fsub double %.sroa.946.0, %3
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %43, ptr %44, align 8, !tbaa !60
+  store double %43, ptr %44, align 8, !tbaa !61
   %45 = fadd double %4, %.sroa.034.0
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store double %45, ptr %46, align 16, !tbaa !59
+  store double %45, ptr %46, align 16, !tbaa !60
   %47 = fsub double %.sroa.9.0, %3
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store double %47, ptr %48, align 8, !tbaa !60
+  store double %47, ptr %48, align 8, !tbaa !61
   %49 = fsub double %.sroa.034.0, %4
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store double %49, ptr %50, align 16, !tbaa !59
+  store double %49, ptr %50, align 16, !tbaa !60
   %51 = fadd double %3, %.sroa.9.0
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store double %51, ptr %52, align 8, !tbaa !60
+  store double %51, ptr %52, align 8, !tbaa !61
   %53 = and i32 %7, 64
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %55, label %54
 
 54:                                               ; preds = %37
-  store double %.sroa.042.0, ptr %9, align 16, !tbaa !55
-  store double %.sroa.946.0, ptr %40, align 8, !tbaa !55
-  store double %.sroa.034.0, ptr %50, align 16, !tbaa !55
-  store double %.sroa.9.0, ptr %52, align 8, !tbaa !55
+  store double %.sroa.042.0, ptr %9, align 16, !tbaa !56
+  store double %.sroa.946.0, ptr %40, align 8, !tbaa !56
+  store double %.sroa.034.0, ptr %50, align 16, !tbaa !56
+  store double %.sroa.9.0, ptr %52, align 8, !tbaa !56
   br label %58
 
 55:                                               ; preds = %37
@@ -1364,18 +1364,18 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   br i1 %.not76, label %58, label %57
 
 57:                                               ; preds = %55
-  store double %.sroa.042.0, ptr %42, align 16, !tbaa !55
-  store double %.sroa.946.0, ptr %44, align 8, !tbaa !55
-  store double %.sroa.034.0, ptr %46, align 16, !tbaa !55
-  store double %.sroa.9.0, ptr %48, align 8, !tbaa !55
+  store double %.sroa.042.0, ptr %42, align 16, !tbaa !56
+  store double %.sroa.946.0, ptr %44, align 8, !tbaa !56
+  store double %.sroa.034.0, ptr %46, align 16, !tbaa !56
+  store double %.sroa.9.0, ptr %48, align 8, !tbaa !56
   br label %58
 
 58:                                               ; preds = %55, %57, %54
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #13
-  store double %.sroa.067.0, ptr %9, align 16, !tbaa !55
-  store double %.sroa.771.0, ptr %40, align 8, !tbaa !55
-  store double %.sroa.075.0, ptr %42, align 16, !tbaa !55
-  store double %.sroa.5.0, ptr %44, align 8, !tbaa !55
+  store double %.sroa.067.0, ptr %9, align 16, !tbaa !56
+  store double %.sroa.771.0, ptr %40, align 8, !tbaa !56
+  store double %.sroa.075.0, ptr %42, align 16, !tbaa !56
+  store double %.sroa.5.0, ptr %44, align 8, !tbaa !56
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #13
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.075.0, 0
@@ -1429,37 +1429,37 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   %28 = fsub double %12, %.sroa.09.0
   %29 = fsub double %13, %.sroa.7.0
   %30 = fadd double %10, %26
-  store double %30, ptr %9, align 16, !tbaa !59
+  store double %30, ptr %9, align 16, !tbaa !60
   %31 = fadd double %11, %27
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %31, ptr %32, align 8, !tbaa !60
+  store double %31, ptr %32, align 8, !tbaa !61
   %33 = fsub double %26, %10
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %33, ptr %34, align 16, !tbaa !59
+  store double %33, ptr %34, align 16, !tbaa !60
   %35 = fsub double %27, %11
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %35, ptr %36, align 8, !tbaa !60
+  store double %35, ptr %36, align 8, !tbaa !61
   %37 = fsub double %28, %10
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store double %37, ptr %38, align 16, !tbaa !59
+  store double %37, ptr %38, align 16, !tbaa !60
   %39 = fsub double %29, %11
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store double %39, ptr %40, align 8, !tbaa !60
+  store double %39, ptr %40, align 8, !tbaa !61
   %41 = fadd double %10, %28
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store double %41, ptr %42, align 16, !tbaa !59
+  store double %41, ptr %42, align 16, !tbaa !60
   %43 = fadd double %11, %29
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store double %43, ptr %44, align 8, !tbaa !60
+  store double %43, ptr %44, align 8, !tbaa !61
   %45 = and i32 %7, 64
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %47, label %46
 
 46:                                               ; preds = %25
-  store double %26, ptr %9, align 16, !tbaa !55
-  store double %27, ptr %32, align 8, !tbaa !55
-  store double %28, ptr %42, align 16, !tbaa !55
-  store double %29, ptr %44, align 8, !tbaa !55
+  store double %26, ptr %9, align 16, !tbaa !56
+  store double %27, ptr %32, align 8, !tbaa !56
+  store double %28, ptr %42, align 16, !tbaa !56
+  store double %29, ptr %44, align 8, !tbaa !56
   br label %50
 
 47:                                               ; preds = %25
@@ -1468,10 +1468,10 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   br i1 %.not62, label %50, label %49
 
 49:                                               ; preds = %47
-  store double %26, ptr %34, align 16, !tbaa !55
-  store double %27, ptr %36, align 8, !tbaa !55
-  store double %28, ptr %38, align 16, !tbaa !55
-  store double %29, ptr %40, align 8, !tbaa !55
+  store double %26, ptr %34, align 16, !tbaa !56
+  store double %27, ptr %36, align 8, !tbaa !56
+  store double %28, ptr %38, align 16, !tbaa !56
+  store double %29, ptr %40, align 8, !tbaa !56
   br label %50
 
 50:                                               ; preds = %47, %49, %46
@@ -1483,10 +1483,10 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   %.lobit = and i32 %55, 1
   %56 = xor i32 %.lobit, 1
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %56) #13
-  store double %28, ptr %9, align 16, !tbaa !55
-  store double %29, ptr %32, align 8, !tbaa !55
-  store double %54, ptr %34, align 16, !tbaa !55
-  store double %52, ptr %36, align 8, !tbaa !55
+  store double %28, ptr %9, align 16, !tbaa !56
+  store double %29, ptr %32, align 8, !tbaa !56
+  store double %54, ptr %34, align 16, !tbaa !56
+  store double %52, ptr %36, align 8, !tbaa !56
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #13
   %.fca.0.insert = insertvalue { double, double } poison, double %54, 0
@@ -1533,9 +1533,9 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %28 = fneg double %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.026.0.i, double %.sroa.528.0.i, double %27, double %28, double %.sroa.021.0.i, double %.sroa.523.0.i, double noundef %6)
-  %.sroa.014.0.copyload.i = load double, ptr %9, align 8, !tbaa !55
+  %.sroa.014.0.copyload.i = load double, ptr %9, align 8, !tbaa !56
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.415.0.copyload.i = load double, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !55
+  %.sroa.415.0.copyload.i = load double, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !56
   %29 = fadd double %3, %.sroa.014.0.copyload.i
   %30 = fadd double %4, %.sroa.415.0.copyload.i
   %31 = fsub double %1, %29
@@ -1545,26 +1545,26 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %35 = fsub double %22, %29
   %36 = fsub double %21, %30
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store double %35, ptr %37, align 16, !tbaa !55
+  store double %35, ptr %37, align 16, !tbaa !56
   %.sroa.781.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store double %36, ptr %.sroa.781.0..sroa_idx.i, align 8, !tbaa !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !58
+  store double %36, ptr %.sroa.781.0..sroa_idx.i, align 8, !tbaa !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !59
   %38 = fadd double %11, %33
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %38, ptr %39, align 16, !tbaa !59
+  store double %38, ptr %39, align 16, !tbaa !60
   %40 = fadd double %12, %34
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store double %40, ptr %41, align 8, !tbaa !60
+  store double %40, ptr %41, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store double %31, ptr %42, align 16, !tbaa !55
+  store double %31, ptr %42, align 16, !tbaa !56
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store double %32, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !55
+  store double %32, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !56
   %43 = fsub double %33, %11
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store double %43, ptr %44, align 16, !tbaa !59
+  store double %43, ptr %44, align 16, !tbaa !60
   %45 = fsub double %34, %12
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store double %45, ptr %46, align 8, !tbaa !60
+  store double %45, ptr %46, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #13
   %47 = lshr i32 %7, 4
   %.lobit = and i32 %47, 1
@@ -1618,9 +1618,9 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
   %17 = fneg double %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %5, double %.sroa.026.0.i, double %.sroa.528.0.i, double %17, double -0.000000e+00, double %.sroa.021.0.i, double %.sroa.523.0.i, double noundef %2)
-  %.sroa.014.0.copyload.i = load double, ptr %5, align 8, !tbaa !55
+  %.sroa.014.0.copyload.i = load double, ptr %5, align 8, !tbaa !56
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.415.0.copyload.i = load double, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !55
+  %.sroa.415.0.copyload.i = load double, ptr %.sroa.415.0..sroa_idx.i, align 8, !tbaa !56
   %18 = fadd double %7, %.sroa.014.0.copyload.i
   %19 = fadd double %.sroa.415.0.copyload.i, 0.000000e+00
   %20 = fsub double %16, %18
@@ -1675,18 +1675,18 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
   %26 = fmul double %3, 5.000000e-01
   %27 = fadd double %26, %.sroa.031.0
   %28 = fsub double %27, %25
-  store double %28, ptr %9, align 16, !tbaa !59
+  store double %28, ptr %9, align 16, !tbaa !60
   %29 = fmul double %4, 5.000000e-01
   %30 = fadd double %29, %.sroa.635.0
   %31 = fsub double %30, %25
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %31, ptr %32, align 8, !tbaa !60
+  store double %31, ptr %32, align 8, !tbaa !61
   %33 = fadd double %25, %27
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %33, ptr %34, align 16, !tbaa !59
+  store double %33, ptr %34, align 16, !tbaa !60
   %35 = fadd double %25, %30
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %35, ptr %36, align 8, !tbaa !60
+  store double %35, ptr %36, align 8, !tbaa !61
   %37 = lshr i32 %7, 4
   %.lobit = and i32 %37, 1
   %38 = xor i32 %.lobit, 1
@@ -1718,9 +1718,9 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %14 = select i1 %11, double %13, double 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
-  store double %1, ptr %10, align 16, !tbaa !55
+  store double %1, ptr %10, align 16, !tbaa !56
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %2, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !55
+  store double %2, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !56
   %15 = and i32 %7, 32
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %29
@@ -1752,24 +1752,24 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %33 = fmul double %14, %32
   %34 = fmul double %3, %14
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %30, ptr %35, align 16, !tbaa !55
+  store double %30, ptr %35, align 16, !tbaa !56
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store double %31, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
+  store double %31, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !56
   %36 = fadd double %33, %.sroa.054.0
   %37 = fadd double %34, %36
-  store double %37, ptr %9, align 16, !tbaa !59
+  store double %37, ptr %9, align 16, !tbaa !60
   %38 = fadd double %34, %.sroa.11.0
   %39 = fsub double %38, %33
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %39, ptr %40, align 8, !tbaa !60
+  store double %39, ptr %40, align 8, !tbaa !61
   %41 = fsub double %.sroa.054.0, %33
   %42 = fadd double %34, %41
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store double %42, ptr %43, align 16, !tbaa !59
+  store double %42, ptr %43, align 16, !tbaa !60
   %44 = fsub double %.sroa.11.0, %34
   %45 = fsub double %44, %33
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store double %45, ptr %46, align 8, !tbaa !60
+  store double %45, ptr %46, align 8, !tbaa !61
   %47 = tail call double @llvm.fmuladd.f64(double %33, double 0x3FEE666666666666, double %.sroa.054.0)
   %48 = fadd double %34, %47
   %49 = fmul double %34, 4.000000e+00
@@ -1800,13 +1800,13 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   %.sink68 = phi double [ %63, %60 ], [ %58, %55 ]
   %.sink = phi double [ %64, %60 ], [ %59, %55 ]
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %.sink70, ptr %66, align 16, !tbaa !59
+  store double %.sink70, ptr %66, align 16, !tbaa !60
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %.sink69, ptr %67, align 8, !tbaa !60
+  store double %.sink69, ptr %67, align 8, !tbaa !61
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store double %.sink68, ptr %68, align 16, !tbaa !59
+  store double %.sink68, ptr %68, align 16, !tbaa !60
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store double %.sink, ptr %69, align 8, !tbaa !60
+  store double %.sink, ptr %69, align 8, !tbaa !61
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2) #13
   %70 = and i32 %7, 64
   %.not66 = icmp eq i32 %70, 0
@@ -1848,13 +1848,13 @@ define internal { double, double } @arrow_type_gap(ptr noundef %0, double %1, do
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
-  store double %1, ptr %9, align 16, !tbaa !55
+  store double %1, ptr %9, align 16, !tbaa !56
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %2, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !55
+  store double %2, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %10, ptr %12, align 16, !tbaa !55
+  store double %10, ptr %12, align 16, !tbaa !56
   %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %11, ptr %.sroa.33.0..sroa_idx, align 8, !tbaa !55
+  store double %11, ptr %.sroa.33.0..sroa_idx, align 8, !tbaa !56
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
   %.fca.0.insert = insertvalue { double, double } poison, double %10, 0
@@ -1921,9 +1921,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %8, double %.sroa.085.0, double %.sroa.789.0, double %.sroa.052.0, double %.sroa.13.0, double %.sroa.077.0, double %.sroa.7.0, double noundef %4)
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.035.0.copyload = load double, ptr %36, align 8, !tbaa !55
+  %.sroa.035.0.copyload = load double, ptr %36, align 8, !tbaa !56
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.436.0.copyload = load double, ptr %.sroa.436.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.436.0.copyload = load double, ptr %.sroa.436.0..sroa_idx, align 8, !tbaa !56
   %37 = fsub double %.sroa.035.0.copyload, %.sroa.052.0
   %38 = fsub double %.sroa.436.0.copyload, %.sroa.13.0
   %39 = tail call double @hypot(double noundef %37, double noundef %38) #13, !tbaa !3
@@ -1947,9 +1947,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.085.0, double %.sroa.789.0, double %.sroa.052.0, double %.sroa.13.0, double %.sroa.077.0, double %.sroa.7.0, double noundef %4)
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sroa.019.0.copyload = load double, ptr %52, align 8, !tbaa !55
+  %.sroa.019.0.copyload = load double, ptr %52, align 8, !tbaa !56
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sroa.420.0.copyload = load double, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.420.0.copyload = load double, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !56
   %53 = fsub double %.sroa.019.0.copyload, %.sroa.052.0
   %54 = fsub double %.sroa.420.0.copyload, %.sroa.13.0
   %55 = tail call double @hypot(double noundef %53, double noundef %54) #13, !tbaa !3
@@ -1969,9 +1969,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
 66:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.085.0, double %.sroa.789.0, double %.sroa.052.0, double %.sroa.13.0, double %.sroa.077.0, double %.sroa.7.0, double noundef %4)
-  %.sroa.04.0.copyload = load double, ptr %10, align 8, !tbaa !55
+  %.sroa.04.0.copyload = load double, ptr %10, align 8, !tbaa !56
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.45.0.copyload = load double, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.45.0.copyload = load double, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !56
   %67 = fsub double %.sroa.04.0.copyload, %.sroa.052.0
   %68 = fsub double %.sroa.45.0.copyload, %.sroa.13.0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
@@ -1999,9 +1999,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %77 = fadd double %1, %.sroa.7109.0
   %78 = fadd double %17, %.sroa.0106.0
   %79 = fadd double %18, %.sroa.7109.0
-  store double %76, ptr %74, align 8, !tbaa !55
-  store double %77, ptr %.sroa.14.0..sroa_idx180, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !58
+  store double %76, ptr %74, align 8, !tbaa !56
+  store double %77, ptr %.sroa.14.0..sroa_idx180, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !59
   %80 = fadd double %.sroa.047.0, %78
   %81 = fadd double %.sroa.9.0, %79
   br label %89
@@ -2011,9 +2011,9 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %84 = fsub double %1, %.sroa.9.0
   %85 = fsub double %17, %.sroa.047.0
   %86 = fsub double %18, %.sroa.9.0
-  store double %85, ptr %74, align 8, !tbaa !55
-  store double %86, ptr %.sroa.14.0..sroa_idx180, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !58
+  store double %85, ptr %74, align 8, !tbaa !56
+  store double %86, ptr %.sroa.14.0..sroa_idx180, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !59
   %87 = fsub double %85, %.sroa.0106.0
   %88 = fsub double %86, %.sroa.7109.0
   br label %89
@@ -2030,17 +2030,17 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.sink193 = fsub double %.pn195, %16
   %.sink194 = fsub double %.pn, %15
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %.sink194, ptr %90, align 8, !tbaa !59
+  store double %.sink194, ptr %90, align 8, !tbaa !60
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %.sink193, ptr %91, align 8, !tbaa !60
+  store double %.sink193, ptr %91, align 8, !tbaa !61
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %.sink192, ptr %92, align 8, !tbaa !55
+  store double %.sink192, ptr %92, align 8, !tbaa !56
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store double %.sink191, ptr %93, align 8, !tbaa !55
+  store double %.sink191, ptr %93, align 8, !tbaa !56
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %.sink190, ptr %94, align 8, !tbaa !59
+  store double %.sink190, ptr %94, align 8, !tbaa !60
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store double %.sink, ptr %95, align 8, !tbaa !60
+  store double %.sink, ptr %95, align 8, !tbaa !61
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0173.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.14.0, 1
   ret { double, double } %.fca.1.insert
@@ -2065,17 +2065,17 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writ
   br i1 %or.cond76, label %14, label %17
 
 14:                                               ; preds = %11, %8
-  store double %3, ptr %0, align 8, !tbaa !55
+  store double %3, ptr %0, align 8, !tbaa !56
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %4, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !55
+  store double %4, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %3, ptr %15, align 8, !tbaa !55
+  store double %3, ptr %15, align 8, !tbaa !56
   %.sroa.10.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %4, ptr %.sroa.10.0..sroa_idx67, align 8, !tbaa !55
+  store double %4, ptr %.sroa.10.0..sroa_idx67, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %3, ptr %16, align 8, !tbaa !55
+  store double %3, ptr %16, align 8, !tbaa !56
   %.sroa.10.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %4, ptr %.sroa.10.0..sroa_idx69, align 8, !tbaa !55
+  store double %4, ptr %.sroa.10.0..sroa_idx69, align 8, !tbaa !56
   br label %64
 
 17:                                               ; preds = %11
@@ -2125,12 +2125,12 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writ
   %56 = fmul double %55, 5.000000e-01
   %57 = fadd double %30, %50
   %58 = fmul double %57, 5.000000e-01
-  store double %56, ptr %0, align 8, !tbaa !55
-  store double %58, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !55
-  store double %29, ptr %52, align 8, !tbaa !55
-  store double %30, ptr %.sroa.732.0..sroa_idx, align 8, !tbaa !55
-  store double %49, ptr %53, align 8, !tbaa !55
-  store double %50, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !55
+  store double %56, ptr %0, align 8, !tbaa !56
+  store double %58, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !56
+  store double %29, ptr %52, align 8, !tbaa !56
+  store double %30, ptr %.sroa.732.0..sroa_idx, align 8, !tbaa !56
+  store double %49, ptr %53, align 8, !tbaa !56
+  store double %50, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !56
   br label %64
 
 59:                                               ; preds = %17
@@ -2138,12 +2138,12 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writ
   %61 = fdiv double %27, %60
   %62 = tail call double @llvm.fmuladd.f64(double %61, double %21, double %29)
   %63 = tail call double @llvm.fmuladd.f64(double %61, double %22, double %30)
-  store double %62, ptr %0, align 8, !tbaa !55
-  store double %63, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !55
-  store double %29, ptr %52, align 8, !tbaa !55
-  store double %30, ptr %.sroa.732.0..sroa_idx, align 8, !tbaa !55
-  store double %49, ptr %53, align 8, !tbaa !55
-  store double %50, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !55
+  store double %62, ptr %0, align 8, !tbaa !56
+  store double %63, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !56
+  store double %29, ptr %52, align 8, !tbaa !56
+  store double %30, ptr %.sroa.732.0..sroa_idx, align 8, !tbaa !56
+  store double %49, ptr %53, align 8, !tbaa !56
+  store double %50, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !56
   br label %64
 
 64:                                               ; preds = %54, %59, %14
@@ -2232,9 +2232,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.0115.0, double %.sroa.7119.0, double %.sroa.082.0, double %.sroa.13.0, double %.sroa.0107.0, double %.sroa.7.0, double noundef %5)
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sroa.062.0.copyload = load double, ptr %48, align 8, !tbaa !55
+  %.sroa.062.0.copyload = load double, ptr %48, align 8, !tbaa !56
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sroa.463.0.copyload = load double, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.463.0.copyload = load double, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !56
   %49 = fsub double %.sroa.062.0.copyload, %.sroa.082.0
   %50 = fsub double %.sroa.463.0.copyload, %.sroa.13.0
   %51 = tail call double @hypot(double noundef %49, double noundef %50) #13, !tbaa !3
@@ -2262,9 +2262,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.0115.0, double %.sroa.7119.0, double %.sroa.082.0, double %.sroa.13.0, double %.sroa.0107.0, double %.sroa.7.0, double noundef %5)
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.046.0.copyload = load double, ptr %65, align 8, !tbaa !55
+  %.sroa.046.0.copyload = load double, ptr %65, align 8, !tbaa !56
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.447.0.copyload = load double, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.447.0.copyload = load double, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !56
   %66 = fsub double %.sroa.046.0.copyload, %.sroa.082.0
   %67 = fsub double %.sroa.447.0.copyload, %.sroa.13.0
   %68 = tail call double @hypot(double noundef %66, double noundef %67) #13, !tbaa !3
@@ -2284,9 +2284,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
 79:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %11, double %.sroa.0115.0, double %.sroa.7119.0, double %.sroa.082.0, double %.sroa.13.0, double %.sroa.0107.0, double %.sroa.7.0, double noundef %5)
-  %.sroa.030.0.copyload = load double, ptr %11, align 8, !tbaa !55
+  %.sroa.030.0.copyload = load double, ptr %11, align 8, !tbaa !56
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.431.0.copyload = load double, ptr %.sroa.431.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.431.0.copyload = load double, ptr %.sroa.431.0..sroa_idx, align 8, !tbaa !56
   %80 = fsub double %.sroa.030.0.copyload, %.sroa.082.0
   %81 = fsub double %.sroa.431.0.copyload, %.sroa.13.0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #13
@@ -2311,9 +2311,9 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #13
   call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %12, double %88, double %89, double %90, double %91, double 0.000000e+00, double 0.000000e+00, double noundef %5)
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.015.0.copyload = load double, ptr %92, align 8, !tbaa !55
+  %.sroa.015.0.copyload = load double, ptr %92, align 8, !tbaa !56
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sroa.416.0.copyload = load double, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.416.0.copyload = load double, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !56
   %93 = fsub double %.sroa.015.0.copyload, %90
   %94 = fsub double %.sroa.416.0.copyload, %91
   %95 = tail call double @hypot(double noundef %93, double noundef %94) #13, !tbaa !3
@@ -2359,27 +2359,27 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %119 = fsub double %1, %.sroa.9.0
   %120 = fsub double %27, %.sroa.077.0
   %121 = fsub double %28, %.sroa.9.0
-  store double %118, ptr %107, align 8, !tbaa !55
-  store double %119, ptr %.sroa.17.0..sroa_idx288, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !58
+  store double %118, ptr %107, align 8, !tbaa !56
+  store double %119, ptr %.sroa.17.0..sroa_idx288, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !59
   %122 = fsub double %120, %23
-  store double %122, ptr %108, align 8, !tbaa !59
+  store double %122, ptr %108, align 8, !tbaa !60
   %123 = fsub double %121, %24
-  store double %123, ptr %109, align 8, !tbaa !60
-  store double %110, ptr %111, align 8, !tbaa !59
-  store double %112, ptr %113, align 8, !tbaa !60
+  store double %123, ptr %109, align 8, !tbaa !61
+  store double %110, ptr %111, align 8, !tbaa !60
+  store double %112, ptr %113, align 8, !tbaa !61
   %124 = fsub double %120, %25
-  store double %124, ptr %114, align 8, !tbaa !59
+  store double %124, ptr %114, align 8, !tbaa !60
   %125 = fsub double %121, %26
-  store double %125, ptr %115, align 8, !tbaa !60
-  store double %120, ptr %116, align 8, !tbaa !55
-  store double %121, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
+  store double %125, ptr %115, align 8, !tbaa !61
+  store double %120, ptr %116, align 8, !tbaa !56
+  store double %121, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !56
   %126 = fadd double %25, %120
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store double %126, ptr %127, align 8, !tbaa !59
+  store double %126, ptr %127, align 8, !tbaa !60
   %128 = fadd double %26, %121
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store double %128, ptr %129, align 8, !tbaa !60
+  store double %128, ptr %129, align 8, !tbaa !61
   %130 = fsub double %120, %.sroa.0137.0
   %131 = fsub double %121, %.sroa.11.0
   br label %145
@@ -2389,25 +2389,25 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %134 = fadd double %1, %.sroa.11.0
   %135 = fadd double %27, %.sroa.0137.0
   %136 = fadd double %28, %.sroa.11.0
-  store double %135, ptr %107, align 8, !tbaa !55
-  store double %136, ptr %.sroa.17.0..sroa_idx288, align 8, !tbaa !55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !58
+  store double %135, ptr %107, align 8, !tbaa !56
+  store double %136, ptr %.sroa.17.0..sroa_idx288, align 8, !tbaa !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !59
   %137 = fsub double %133, %23
-  store double %137, ptr %108, align 8, !tbaa !59
+  store double %137, ptr %108, align 8, !tbaa !60
   %138 = fsub double %134, %24
-  store double %138, ptr %109, align 8, !tbaa !60
-  store double %110, ptr %111, align 8, !tbaa !59
-  store double %112, ptr %113, align 8, !tbaa !60
+  store double %138, ptr %109, align 8, !tbaa !61
+  store double %110, ptr %111, align 8, !tbaa !60
+  store double %112, ptr %113, align 8, !tbaa !61
   %139 = fadd double %.sroa.0137.0, %133
-  store double %139, ptr %114, align 8, !tbaa !59
+  store double %139, ptr %114, align 8, !tbaa !60
   %140 = fadd double %.sroa.11.0, %134
-  store double %140, ptr %115, align 8, !tbaa !60
-  store double %139, ptr %116, align 8, !tbaa !55
-  store double %140, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
+  store double %140, ptr %115, align 8, !tbaa !61
+  store double %139, ptr %116, align 8, !tbaa !56
+  store double %140, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !56
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store double %139, ptr %141, align 8, !tbaa !59
+  store double %139, ptr %141, align 8, !tbaa !60
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store double %140, ptr %142, align 8, !tbaa !60
+  store double %140, ptr %142, align 8, !tbaa !61
   %143 = fadd double %.sroa.077.0, %135
   %144 = fadd double %.sroa.9.0, %136
   br label %145
@@ -2422,13 +2422,13 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.sink323 = fadd double %30, %26
   %.sink324 = fadd double %29, %25
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store double %.sink324, ptr %146, align 8, !tbaa !59
+  store double %.sink324, ptr %146, align 8, !tbaa !60
   %147 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store double %.sink323, ptr %147, align 8, !tbaa !60
+  store double %.sink323, ptr %147, align 8, !tbaa !61
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store double %.sink322, ptr %148, align 8, !tbaa !59
+  store double %.sink322, ptr %148, align 8, !tbaa !60
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store double %.sink, ptr %149, align 8, !tbaa !60
+  store double %.sink, ptr %149, align 8, !tbaa !61
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0278.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.17.0, 1
   ret { double, double } %.fca.1.insert
@@ -2479,93 +2479,94 @@ attributes #14 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 omnipotent char", !9, i64 0}
 !14 = !{!12, !4, i64 12}
 !15 = !{!12, !13, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !22, i64 16}
-!19 = !{!"Agobj_s", !20, i64 0, !22, i64 16}
-!20 = !{!"Agtag_s", !4, i64 0, !4, i64 0, !4, i64 0, !4, i64 0, !21, i64 8}
-!21 = !{!"long", !5, i64 0}
-!22 = !{!"p1 _ZTS7Agrec_s", !9, i64 0}
-!23 = !{!24, !30, i64 209}
-!24 = !{!"Agedgeinfo_t", !25, i64 0, !26, i64 16, !27, i64 24, !27, i64 72, !31, i64 120, !31, i64 128, !31, i64 136, !31, i64 144, !5, i64 152, !5, i64 153, !5, i64 154, !5, i64 155, !5, i64 156, !32, i64 160, !9, i64 168, !29, i64 176, !29, i64 184, !33, i64 192, !5, i64 208, !30, i64 209, !35, i64 210, !4, i64 212, !4, i64 216, !4, i64 220, !35, i64 224, !4, i64 228, !32, i64 232}
-!25 = !{!"Agrec_s", !13, i64 0, !22, i64 8}
-!26 = !{!"p1 _ZTS7splines", !9, i64 0}
-!27 = !{!"port", !28, i64 0, !29, i64 16, !9, i64 24, !30, i64 32, !30, i64 33, !30, i64 34, !30, i64 35, !5, i64 36, !5, i64 37, !13, i64 40}
-!28 = !{!"pointf_s", !29, i64 0, !29, i64 8}
-!29 = !{!"double", !5, i64 0}
-!30 = !{!"_Bool", !5, i64 0}
-!31 = !{!"p1 _ZTS11textlabel_t", !9, i64 0}
-!32 = !{!"p1 _ZTS8Agedge_s", !9, i64 0}
-!33 = !{!"Ppoly_t", !34, i64 0, !21, i64 8}
-!34 = !{!"p1 _ZTS8pointf_s", !9, i64 0}
-!35 = !{!"short", !5, i64 0}
-!36 = !{i8 0, i8 2}
-!37 = !{}
-!38 = !{!39, !42, i64 56}
-!39 = !{!"Agedge_s", !19, i64 0, !40, i64 24, !40, i64 40, !42, i64 56}
-!40 = !{!"dtlink_s_", !41, i64 0, !5, i64 8}
-!41 = !{!"p1 _ZTS9dtlink_s_", !9, i64 0}
-!42 = !{!"p1 _ZTS8Agnode_s", !9, i64 0}
-!43 = !{!44, !4, i64 8}
-!44 = !{!"", !13, i64 0, !4, i64 8}
-!45 = !{!44, !13, i64 0}
-!46 = distinct !{!46, !17}
-!47 = distinct !{!47, !17}
-!48 = distinct !{!48, !17}
-!49 = distinct !{!49, !17}
-!50 = !{!51, !4, i64 0}
-!51 = !{!"", !4, i64 0, !29, i64 8, !9, i64 16, !9, i64 24}
-!52 = !{!51, !9, i64 24}
-!53 = !{!51, !29, i64 8}
-!54 = distinct !{!54, !17}
-!55 = !{!29, !29, i64 0}
-!56 = !{!57, !4, i64 20}
-!57 = !{!"bezier", !34, i64 0, !21, i64 8, !4, i64 16, !4, i64 20, !28, i64 24, !28, i64 40}
-!58 = !{i64 0, i64 8, !55, i64 8, i64 8, !55}
-!59 = !{!28, !29, i64 0}
-!60 = !{!28, !29, i64 8}
-!61 = !{!57, !4, i64 16}
-!62 = !{!63, !29, i64 16}
-!63 = !{!"", !28, i64 0, !28, i64 16}
-!64 = !{!63, !29, i64 24}
-!65 = !{!63, !29, i64 0}
-!66 = !{!63, !29, i64 8}
-!67 = !{!68, !72, i64 32}
-!68 = !{!"GVJ_s", !69, i64 0, !70, i64 8, !70, i64 16, !71, i64 24, !72, i64 32, !13, i64 40, !4, i64 48, !13, i64 56, !13, i64 64, !73, i64 72, !13, i64 80, !21, i64 88, !21, i64 96, !13, i64 104, !4, i64 112, !74, i64 120, !76, i64 152, !78, i64 184, !80, i64 208, !28, i64 216, !30, i64 232, !9, i64 240, !4, i64 248, !9, i64 256, !30, i64 264, !13, i64 272, !4, i64 280, !4, i64 284, !4, i64 288, !81, i64 292, !81, i64 300, !81, i64 308, !81, i64 316, !81, i64 324, !4, i64 332, !63, i64 336, !28, i64 368, !63, i64 384, !63, i64 416, !28, i64 448, !28, i64 464, !29, i64 480, !4, i64 488, !28, i64 496, !63, i64 512, !28, i64 544, !28, i64 560, !4, i64 576, !4, i64 580, !82, i64 584, !82, i64 600, !28, i64 616, !28, i64 632, !28, i64 648, !30, i64 664, !30, i64 665, !30, i64 666, !30, i64 667, !30, i64 668, !5, i64 669, !28, i64 672, !28, i64 688, !9, i64 704, !9, i64 712, !13, i64 720, !13, i64 728, !9, i64 736, !83, i64 744, !21, i64 752, !9, i64 760}
-!69 = !{!"p1 _ZTS5GVC_s", !9, i64 0}
-!70 = !{!"p1 _ZTS5GVJ_s", !9, i64 0}
-!71 = !{!"p1 _ZTS10GVCOMMON_s", !9, i64 0}
-!72 = !{!"p1 _ZTS11obj_state_s", !9, i64 0}
-!73 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!74 = !{!"gvplugin_active_render_s", !75, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
-!75 = !{!"p1 _ZTS17gvrender_engine_s", !9, i64 0}
-!76 = !{!"gvplugin_active_device_s", !77, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
-!77 = !{!"p1 _ZTS17gvdevice_engine_s", !9, i64 0}
-!78 = !{!"gvplugin_active_loadimage_t", !79, i64 0, !4, i64 8, !13, i64 16}
-!79 = !{!"p1 _ZTS20gvloadimage_engine_s", !9, i64 0}
-!80 = !{!"p1 _ZTS20gvdevice_callbacks_s", !9, i64 0}
-!81 = !{!"", !4, i64 0, !4, i64 4}
-!82 = !{!"", !81, i64 0, !81, i64 8}
-!83 = !{!"p1 _ZTS21gvevent_key_binding_s", !9, i64 0}
-!84 = !{!85, !4, i64 24}
-!85 = !{!"obj_state_s", !72, i64 0, !4, i64 8, !5, i64 16, !4, i64 24, !86, i64 32, !86, i64 72, !86, i64 112, !4, i64 152, !29, i64 160, !4, i64 168, !4, i64 172, !29, i64 176, !87, i64 184, !29, i64 192, !29, i64 200, !29, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 353, !4, i64 353, !4, i64 356, !21, i64 360, !34, i64 368, !21, i64 376, !88, i64 384, !34, i64 392, !4, i64 400, !34, i64 408, !4, i64 416, !34, i64 424}
-!86 = !{!"color_s", !5, i64 0, !4, i64 32}
-!87 = !{!"p2 omnipotent char", !9, i64 0}
-!88 = !{!"p1 long", !9, i64 0}
-!89 = !{!68, !69, i64 0}
-!90 = !{!91, !87, i64 528}
-!91 = !{!"GVC_s", !92, i64 0, !13, i64 72, !30, i64 80, !87, i64 88, !4, i64 96, !93, i64 104, !93, i64 112, !5, i64 120, !5, i64 160, !94, i64 200, !9, i64 208, !95, i64 216, !96, i64 256, !97, i64 264, !70, i64 288, !70, i64 296, !99, i64 304, !100, i64 312, !13, i64 344, !70, i64 352, !13, i64 360, !28, i64 368, !28, i64 384, !28, i64 400, !81, i64 416, !63, i64 424, !4, i64 456, !30, i64 460, !30, i64 461, !30, i64 462, !13, i64 464, !13, i64 472, !13, i64 480, !87, i64 488, !4, i64 496, !102, i64 504, !13, i64 512, !29, i64 520, !87, i64 528, !86, i64 536, !4, i64 576}
-!92 = !{!"GVCOMMON_s", !87, i64 0, !13, i64 8, !4, i64 16, !30, i64 20, !30, i64 21, !9, i64 24, !87, i64 32, !87, i64 40, !4, i64 48, !9, i64 56, !4, i64 64}
-!93 = !{!"p1 _ZTS5GVG_s", !9, i64 0}
-!94 = !{!"p1 _ZTS18gvplugin_package_s", !9, i64 0}
-!95 = !{!"dtdisc_s_", !4, i64 0, !4, i64 4, !4, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
-!96 = !{!"p1 _ZTS5dt_s_", !9, i64 0}
-!97 = !{!"gvplugin_active_textlayout_s", !98, i64 0, !4, i64 8, !13, i64 16}
-!98 = !{!"p1 _ZTS21gvtextlayout_engine_s", !9, i64 0}
-!99 = !{!"p1 _ZTS8Agraph_s", !9, i64 0}
-!100 = !{!"gvplugin_active_layout_s", !101, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
-!101 = !{!"p1 _ZTS17gvlayout_engine_s", !9, i64 0}
-!102 = !{!"p1 int", !9, i64 0}
-!103 = distinct !{!103, !17}
-!104 = !{!51, !9, i64 16}
-!105 = distinct !{!105, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !23, i64 16}
+!20 = !{!"Agobj_s", !21, i64 0, !23, i64 16}
+!21 = !{!"Agtag_s", !4, i64 0, !4, i64 0, !4, i64 0, !4, i64 0, !22, i64 8}
+!22 = !{!"long", !5, i64 0}
+!23 = !{!"p1 _ZTS7Agrec_s", !9, i64 0}
+!24 = !{!25, !31, i64 209}
+!25 = !{!"Agedgeinfo_t", !26, i64 0, !27, i64 16, !28, i64 24, !28, i64 72, !32, i64 120, !32, i64 128, !32, i64 136, !32, i64 144, !5, i64 152, !5, i64 153, !5, i64 154, !5, i64 155, !5, i64 156, !33, i64 160, !9, i64 168, !30, i64 176, !30, i64 184, !34, i64 192, !5, i64 208, !31, i64 209, !36, i64 210, !4, i64 212, !4, i64 216, !4, i64 220, !36, i64 224, !4, i64 228, !33, i64 232}
+!26 = !{!"Agrec_s", !13, i64 0, !23, i64 8}
+!27 = !{!"p1 _ZTS7splines", !9, i64 0}
+!28 = !{!"port", !29, i64 0, !30, i64 16, !9, i64 24, !31, i64 32, !31, i64 33, !31, i64 34, !31, i64 35, !5, i64 36, !5, i64 37, !13, i64 40}
+!29 = !{!"pointf_s", !30, i64 0, !30, i64 8}
+!30 = !{!"double", !5, i64 0}
+!31 = !{!"_Bool", !5, i64 0}
+!32 = !{!"p1 _ZTS11textlabel_t", !9, i64 0}
+!33 = !{!"p1 _ZTS8Agedge_s", !9, i64 0}
+!34 = !{!"Ppoly_t", !35, i64 0, !22, i64 8}
+!35 = !{!"p1 _ZTS8pointf_s", !9, i64 0}
+!36 = !{!"short", !5, i64 0}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!40, !43, i64 56}
+!40 = !{!"Agedge_s", !20, i64 0, !41, i64 24, !41, i64 40, !43, i64 56}
+!41 = !{!"dtlink_s_", !42, i64 0, !5, i64 8}
+!42 = !{!"p1 _ZTS9dtlink_s_", !9, i64 0}
+!43 = !{!"p1 _ZTS8Agnode_s", !9, i64 0}
+!44 = !{!45, !4, i64 8}
+!45 = !{!"", !13, i64 0, !4, i64 8}
+!46 = !{!45, !13, i64 0}
+!47 = distinct !{!47, !17, !18}
+!48 = distinct !{!48, !17, !18}
+!49 = distinct !{!49, !17, !18}
+!50 = distinct !{!50, !17, !18}
+!51 = !{!52, !4, i64 0}
+!52 = !{!"", !4, i64 0, !30, i64 8, !9, i64 16, !9, i64 24}
+!53 = !{!52, !9, i64 24}
+!54 = !{!52, !30, i64 8}
+!55 = distinct !{!55, !17, !18}
+!56 = !{!30, !30, i64 0}
+!57 = !{!58, !4, i64 20}
+!58 = !{!"bezier", !35, i64 0, !22, i64 8, !4, i64 16, !4, i64 20, !29, i64 24, !29, i64 40}
+!59 = !{i64 0, i64 8, !56, i64 8, i64 8, !56}
+!60 = !{!29, !30, i64 0}
+!61 = !{!29, !30, i64 8}
+!62 = !{!58, !4, i64 16}
+!63 = !{!64, !30, i64 16}
+!64 = !{!"", !29, i64 0, !29, i64 16}
+!65 = !{!64, !30, i64 24}
+!66 = !{!64, !30, i64 0}
+!67 = !{!64, !30, i64 8}
+!68 = !{!69, !73, i64 32}
+!69 = !{!"GVJ_s", !70, i64 0, !71, i64 8, !71, i64 16, !72, i64 24, !73, i64 32, !13, i64 40, !4, i64 48, !13, i64 56, !13, i64 64, !74, i64 72, !13, i64 80, !22, i64 88, !22, i64 96, !13, i64 104, !4, i64 112, !75, i64 120, !77, i64 152, !79, i64 184, !81, i64 208, !29, i64 216, !31, i64 232, !9, i64 240, !4, i64 248, !9, i64 256, !31, i64 264, !13, i64 272, !4, i64 280, !4, i64 284, !4, i64 288, !82, i64 292, !82, i64 300, !82, i64 308, !82, i64 316, !82, i64 324, !4, i64 332, !64, i64 336, !29, i64 368, !64, i64 384, !64, i64 416, !29, i64 448, !29, i64 464, !30, i64 480, !4, i64 488, !29, i64 496, !64, i64 512, !29, i64 544, !29, i64 560, !4, i64 576, !4, i64 580, !83, i64 584, !83, i64 600, !29, i64 616, !29, i64 632, !29, i64 648, !31, i64 664, !31, i64 665, !31, i64 666, !31, i64 667, !31, i64 668, !5, i64 669, !29, i64 672, !29, i64 688, !9, i64 704, !9, i64 712, !13, i64 720, !13, i64 728, !9, i64 736, !84, i64 744, !22, i64 752, !9, i64 760}
+!70 = !{!"p1 _ZTS5GVC_s", !9, i64 0}
+!71 = !{!"p1 _ZTS5GVJ_s", !9, i64 0}
+!72 = !{!"p1 _ZTS10GVCOMMON_s", !9, i64 0}
+!73 = !{!"p1 _ZTS11obj_state_s", !9, i64 0}
+!74 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!75 = !{!"gvplugin_active_render_s", !76, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
+!76 = !{!"p1 _ZTS17gvrender_engine_s", !9, i64 0}
+!77 = !{!"gvplugin_active_device_s", !78, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
+!78 = !{!"p1 _ZTS17gvdevice_engine_s", !9, i64 0}
+!79 = !{!"gvplugin_active_loadimage_t", !80, i64 0, !4, i64 8, !13, i64 16}
+!80 = !{!"p1 _ZTS20gvloadimage_engine_s", !9, i64 0}
+!81 = !{!"p1 _ZTS20gvdevice_callbacks_s", !9, i64 0}
+!82 = !{!"", !4, i64 0, !4, i64 4}
+!83 = !{!"", !82, i64 0, !82, i64 8}
+!84 = !{!"p1 _ZTS21gvevent_key_binding_s", !9, i64 0}
+!85 = !{!86, !4, i64 24}
+!86 = !{!"obj_state_s", !73, i64 0, !4, i64 8, !5, i64 16, !4, i64 24, !87, i64 32, !87, i64 72, !87, i64 112, !4, i64 152, !30, i64 160, !4, i64 168, !4, i64 172, !30, i64 176, !88, i64 184, !30, i64 192, !30, i64 200, !30, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 352, !4, i64 353, !4, i64 353, !4, i64 356, !22, i64 360, !35, i64 368, !22, i64 376, !89, i64 384, !35, i64 392, !4, i64 400, !35, i64 408, !4, i64 416, !35, i64 424}
+!87 = !{!"color_s", !5, i64 0, !4, i64 32}
+!88 = !{!"p2 omnipotent char", !9, i64 0}
+!89 = !{!"p1 long", !9, i64 0}
+!90 = !{!69, !70, i64 0}
+!91 = !{!92, !88, i64 528}
+!92 = !{!"GVC_s", !93, i64 0, !13, i64 72, !31, i64 80, !88, i64 88, !4, i64 96, !94, i64 104, !94, i64 112, !5, i64 120, !5, i64 160, !95, i64 200, !9, i64 208, !96, i64 216, !97, i64 256, !98, i64 264, !71, i64 288, !71, i64 296, !100, i64 304, !101, i64 312, !13, i64 344, !71, i64 352, !13, i64 360, !29, i64 368, !29, i64 384, !29, i64 400, !82, i64 416, !64, i64 424, !4, i64 456, !31, i64 460, !31, i64 461, !31, i64 462, !13, i64 464, !13, i64 472, !13, i64 480, !88, i64 488, !4, i64 496, !103, i64 504, !13, i64 512, !30, i64 520, !88, i64 528, !87, i64 536, !4, i64 576}
+!93 = !{!"GVCOMMON_s", !88, i64 0, !13, i64 8, !4, i64 16, !31, i64 20, !31, i64 21, !9, i64 24, !88, i64 32, !88, i64 40, !4, i64 48, !9, i64 56, !4, i64 64}
+!94 = !{!"p1 _ZTS5GVG_s", !9, i64 0}
+!95 = !{!"p1 _ZTS18gvplugin_package_s", !9, i64 0}
+!96 = !{!"dtdisc_s_", !4, i64 0, !4, i64 4, !4, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!97 = !{!"p1 _ZTS5dt_s_", !9, i64 0}
+!98 = !{!"gvplugin_active_textlayout_s", !99, i64 0, !4, i64 8, !13, i64 16}
+!99 = !{!"p1 _ZTS21gvtextlayout_engine_s", !9, i64 0}
+!100 = !{!"p1 _ZTS8Agraph_s", !9, i64 0}
+!101 = !{!"gvplugin_active_layout_s", !102, i64 0, !4, i64 8, !9, i64 16, !13, i64 24}
+!102 = !{!"p1 _ZTS17gvlayout_engine_s", !9, i64 0}
+!103 = !{!"p1 int", !9, i64 0}
+!104 = distinct !{!104, !17, !18}
+!105 = !{!52, !9, i64 16}
+!106 = distinct !{!106, !17, !18}

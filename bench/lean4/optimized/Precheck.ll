@@ -5512,7 +5512,7 @@ lean_inc.exit:                                    ; preds = %171, %170, %168, %l
 
 lean_dec.exit61.backedge:                         ; preds = %lean_inc.exit, %177, %179, %180, %lean_inc.exit68, %133, %135, %136
   %.be = phi ptr [ %119, %136 ], [ %119, %135 ], [ %119, %133 ], [ %119, %lean_inc.exit68 ], [ %163, %180 ], [ %163, %179 ], [ %163, %177 ], [ %163, %lean_inc.exit ]
-  br label %lean_dec.exit61
+  br label %lean_dec.exit61, !llvm.loop !19
 
 174:                                              ; preds = %lean_inc.exit
   %175 = load i32, ptr %161, align 4, !tbaa !4
@@ -14288,7 +14288,7 @@ lean_inc.exit362.thread:                          ; preds = %508
   %524 = ptrtoint ptr %523 to i64
   %525 = and i64 %524, 1
   %.not713 = icmp eq i64 %525, 0
-  br i1 %.not713, label %lean_nat_eq.exit.thread666, label %lean_nat_eq.exit.thread, !prof !19
+  br i1 %.not713, label %lean_nat_eq.exit.thread666, label %lean_nat_eq.exit.thread, !prof !21
 
 lean_nat_eq.exit.thread666:                       ; preds = %lean_inc.exit362.thread
   %526 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %523, ptr noundef %510) #4
@@ -15168,7 +15168,7 @@ lean_inc.exit.thread:                             ; preds = %817
   %833 = ptrtoint ptr %832 to i64
   %834 = and i64 %833, 1
   %.not705 = icmp eq i64 %834, 0
-  br i1 %.not705, label %lean_nat_eq.exit557.thread670, label %lean_nat_eq.exit557.thread, !prof !19
+  br i1 %.not705, label %lean_nat_eq.exit557.thread670, label %lean_nat_eq.exit557.thread, !prof !21
 
 lean_nat_eq.exit557.thread670:                    ; preds = %lean_inc.exit.thread
   %835 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %832, ptr noundef %819) #4
@@ -18862,7 +18862,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 22:                                               ; preds = %13
   %23 = tail call zeroext i8 @l_Lean_RBNode_any___at___private_Lean_Elab_Quotation_Precheck_0__Lean_Elab_Term_Quotation_isSectionVariable___spec__1(ptr noundef %0, ptr noundef %15)
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %3, label %.thread
+  br i1 %.not, label %3, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %13, %22, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %22 ], [ 0, %lean_obj_tag.exit ], [ 1, %13 ]
@@ -24346,7 +24346,7 @@ lean_dec.exit169:                                 ; preds = %103, %102, %100, %9
   %.val.i = phi i32 [ %111, %110 ], [ %.val.i.pr, %114 ]
   %116 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_Quotation_precheckApp___spec__1___closed__3, align 8, !tbaa !9
   %117 = icmp sgt i32 %.val.i, 0
-  br i1 %117, label %118, label %120, !prof !20
+  br i1 %117, label %118, label %120, !prof !23
 
 118:                                              ; preds = %115
   %119 = add nuw i32 %.val.i, 1
@@ -30508,7 +30508,7 @@ define ptr @l_Array_filterMapM___at_Lean_Elab_Term_Quotation_precheckChoice___sp
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %5, %6
   %or.cond.not = icmp eq i64 %7, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %8, !prof !21
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %8, !prof !24
 
 8:                                                ; preds = %3
   %9 = icmp ult ptr %1, %2
@@ -30530,7 +30530,7 @@ lean_nat_lt.exit:                                 ; preds = %3
   %17 = inttoptr i64 %16 to ptr
   %18 = and i64 %6, 1
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %lean_dec.exit, label %19, !prof !19
+  br i1 %.not, label %lean_dec.exit, label %19, !prof !21
 
 19:                                               ; preds = %13
   %.not24 = icmp ugt ptr %2, %17
@@ -43973,6 +43973,9 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!7, !7, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !7, i64 0}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!21 = !{!"branch_weights", i32 4001, i32 4000000}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = distinct !{!22, !20}
+!23 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!24 = !{!"branch_weights", i32 4001, i32 4000000}

@@ -92,7 +92,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
 
 34:                                               ; preds = %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit, %16, %8
   %.0.in = phi ptr [ %9, %8 ], [ %17, %16 ], [ %.1.in, %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !21
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !22
   ret ptr %.0
 }
 
@@ -108,7 +108,7 @@ declare double @llvm.fabs.f64(double) #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef ptr @_ZNK3g2o9DataQueue6beforeEd(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !23
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.critedge, label %6
 
@@ -144,7 +144,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
   %.08.lcssa.i.i.i = phi ptr [ %15, %12 ], [ %.19.i.i.i, %.lr.ph.i.i.i ]
   %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i) #11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %6, %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit
@@ -155,7 +155,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef ptr @_ZNK3g2o9DataQueue5afterEd(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !23
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.critedge, label %6
 
@@ -190,7 +190,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
 
 18:                                               ; preds = %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit
   %19 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit, %2, %6
@@ -203,10 +203,10 @@ define void @_ZN3g2o9DataQueue3addEPNS_9RobotDataE(ptr noundef nonnull align 8 d
   %3 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load double, ptr %4, align 8, !tbaa !23
+  %5 = load double, ptr %4, align 8, !tbaa !24
   store double %5, ptr %3, align 8, !tbaa !17
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEEixEOd(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 }
@@ -231,7 +231,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIdP
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !18
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i.i, label %_ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !34
 
 _ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -249,7 +249,7 @@ _ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store double %.pre, ptr %15, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr null, ptr %16, align 8, !tbaa !21
+  store ptr null, ptr %16, align 8, !tbaa !22
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %18 unwind label %_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE10_Auto_nodeD2Ev.exit.i
 
@@ -276,9 +276,9 @@ _ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !22
+  %30 = load i64, ptr %29, align 8, !tbaa !23
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !22
+  store i64 %31, ptr %29, align 8, !tbaa !23
   br label %_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOdEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_.exit
 
 _ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.critedge
@@ -310,7 +310,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !22
+  %8 = load i64, ptr %7, align 8, !tbaa !23
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
@@ -342,7 +342,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
   %.in.i = getelementptr inbounds nuw i8, ptr %.02023.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !18
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -394,7 +394,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %49 = load ptr, ptr %48, align 8, !tbaa !36
   %50 = icmp eq ptr %49, null
   %spec.select = select i1 %50, ptr null, ptr %1
   %spec.select67 = select i1 %50, ptr %43, ptr %1
@@ -415,7 +415,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02023.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !18
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !34
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !35
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %55, label %._crit_edge.thread.i25, label %59
@@ -460,7 +460,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !35
+  %76 = load ptr, ptr %75, align 8, !tbaa !36
   %77 = icmp eq ptr %76, null
   %spec.select68 = select i1 %77, ptr null, ptr %70
   %spec.select69 = select i1 %77, ptr %1, ptr %70
@@ -481,7 +481,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt
   %.in.i33 = getelementptr inbounds nuw i8, ptr %.02023.i31, i64 %.in.v.i32
   %.020.i34 = load ptr, ptr %.in.i33, align 8, !tbaa !18
   %.not.i35 = icmp eq ptr %.020.i34, null
-  br i1 %.not.i35, label %._crit_edge.i36, label %.lr.ph.i30, !llvm.loop !34
+  br i1 %.not.i35, label %._crit_edge.i36, label %.lr.ph.i30, !llvm.loop !35
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph.i30
   br i1 %82, label %._crit_edge.thread.i43, label %88
@@ -579,20 +579,21 @@ attributes #14 = { builtin nounwind }
 !16 = !{!11, !14, i64 8}
 !17 = !{!5, !5, i64 0}
 !18 = !{!14, !14, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!4, !8, i64 8}
-!22 = !{!11, !15, i64 32}
-!23 = !{!24, !5, i64 24}
-!24 = !{!"_ZTSN3g2o9RobotDataE", !25, i64 0, !5, i64 24, !5, i64 32, !29, i64 40, !29, i64 72}
-!25 = !{!"_ZTSN3g2o10HyperGraph4DataE", !26, i64 0, !27, i64 8, !28, i64 16}
-!26 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
-!27 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !9, i64 0}
-!28 = !{!"p1 _ZTSN3g2o10HyperGraph13DataContainerE", !9, i64 0}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !15, i64 8, !6, i64 16}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
-!31 = !{!"p1 omnipotent char", !9, i64 0}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = !{!12, !14, i64 24}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!4, !8, i64 8}
+!23 = !{!11, !15, i64 32}
+!24 = !{!25, !5, i64 24}
+!25 = !{!"_ZTSN3g2o9RobotDataE", !26, i64 0, !5, i64 24, !5, i64 32, !30, i64 40, !30, i64 72}
+!26 = !{!"_ZTSN3g2o10HyperGraph4DataE", !27, i64 0, !28, i64 8, !29, i64 16}
+!27 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
+!28 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !9, i64 0}
+!29 = !{!"p1 _ZTSN3g2o10HyperGraph13DataContainerE", !9, i64 0}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !31, i64 0, !15, i64 8, !6, i64 16}
+!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !32, i64 0}
+!32 = !{!"p1 omnipotent char", !9, i64 0}
+!33 = !{!8, !8, i64 0}
+!34 = distinct !{!34, !20, !21}
+!35 = distinct !{!35, !20, !21}
+!36 = !{!12, !14, i64 24}

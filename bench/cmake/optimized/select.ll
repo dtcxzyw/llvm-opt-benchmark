@@ -328,7 +328,7 @@ condstore.split:                                  ; preds = %.preheader
 46:                                               ; preds = %42, %condstore.split, %.preheader
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond50.not, label %Curl_wait_ms.exit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond50.not, label %Curl_wait_ms.exit, label %.preheader, !llvm.loop !16
 
 Curl_wait_ms.exit:                                ; preds = %46, %20, %16, %13, %11, %.critedge, %32, %30
   %.035 = phi i32 [ %28, %30 ], [ %spec.select, %32 ], [ -1, %11 ], [ 0, %.critedge ], [ -1, %20 ], [ %15, %13 ], [ 0, %16 ], [ %28, %46 ]
@@ -346,9 +346,9 @@ define dso_local void @Curl_pollfds_init(ptr noundef writeonly captures(none) in
   br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !16
+  store ptr %1, ptr %0, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %7, align 4, !tbaa !20
+  store i32 %2, ptr %7, align 4, !tbaa !21
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -367,8 +367,8 @@ define dso_local void @Curl_pollfds_cleanup(ptr noundef captures(none) initializ
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
-  %7 = load ptr, ptr %0, align 8, !tbaa !16
+  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !22
+  %7 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void %6(ptr noundef %7) #10
   br label %8
 
@@ -380,27 +380,27 @@ define dso_local void @Curl_pollfds_cleanup(ptr noundef captures(none) initializ
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_sock(ptr noundef captures(none) %0, i32 noundef %1, i16 noundef signext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !22
+  %5 = load i32, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !21
   %.not.i = icmp ult i32 %5, %7
   br i1 %.not.i, label %.loopexit._crit_edge.i, label %8
 
 .loopexit._crit_edge.i:                           ; preds = %3
-  %.pre30.i = load ptr, ptr %0, align 8, !tbaa !16
+  %.pre30.i = load ptr, ptr %0, align 8, !tbaa !17
   br label %26
 
 8:                                                ; preds = %3
   %9 = add i32 %7, 100
-  %10 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !21
+  %10 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !22
   %11 = zext i32 %9 to i64
   %12 = tail call ptr %10(i64 noundef %11, i64 noundef 8) #10
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %cpfds_add_sock.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %0, align 8, !tbaa !16
-  %15 = load i32, ptr %6, align 4, !tbaa !20
+  %14 = load ptr, ptr %0, align 8, !tbaa !17
+  %15 = load i32, ptr %6, align 4, !tbaa !21
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %14, i64 %17, i1 false)
@@ -411,19 +411,19 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_sock(ptr noundef capture
   br i1 %.not15.i.i, label %cpfds_increase.exit.thread.i, label %21
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
-  %23 = load ptr, ptr %0, align 8, !tbaa !16
+  %22 = load ptr, ptr @Curl_cfree, align 8, !tbaa !22
+  %23 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void %22(ptr noundef %23) #10
   %.pre.i.i = load i8, ptr %18, align 8
   br label %cpfds_increase.exit.thread.i
 
 cpfds_increase.exit.thread.i:                     ; preds = %21, %13
   %24 = phi i8 [ %.pre.i.i, %21 ], [ %19, %13 ]
-  store ptr %12, ptr %0, align 8, !tbaa !16
-  store i32 %9, ptr %6, align 4, !tbaa !20
+  store ptr %12, ptr %0, align 8, !tbaa !17
+  store i32 %9, ptr %6, align 4, !tbaa !21
   %25 = or i8 %24, 1
   store i8 %25, ptr %18, align 8
-  %.pre31.i = load i32, ptr %4, align 8, !tbaa !22
+  %.pre31.i = load i32, ptr %4, align 8, !tbaa !23
   br label %26
 
 26:                                               ; preds = %cpfds_increase.exit.thread.i, %.loopexit._crit_edge.i
@@ -435,7 +435,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %21, %13
   %31 = getelementptr inbounds nuw %struct.pollfd, ptr %28, i64 %29, i32 1
   store i16 %2, ptr %31, align 4, !tbaa !11
   %32 = add i32 %27, 1
-  store i32 %32, ptr %4, align 8, !tbaa !22
+  store i32 %32, ptr %4, align 8, !tbaa !23
   br label %cpfds_add_sock.exit
 
 cpfds_add_sock.exit:                              ; preds = %8, %26
@@ -446,7 +446,7 @@ cpfds_add_sock.exit:                              ; preds = %8, %26
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !24
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %cpfds_add_sock.exit, label %.lr.ph
 
@@ -462,7 +462,7 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   %10 = phi i32 [ %4, %.lr.ph ], [ %57, %.critedge ]
   %.01625 = phi i64 [ 0, %.lr.ph ], [ %58, %.critedge ]
   %11 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %.01625
-  %12 = load i8, ptr %11, align 1, !tbaa !25
+  %12 = load i8, ptr %11, align 1, !tbaa !26
   %13 = and i8 %12, 1
   %14 = shl i8 %12, 1
   %15 = and i8 %14, 4
@@ -474,7 +474,7 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %.01625
   %18 = load i32, ptr %17, align 4, !tbaa !4
-  %19 = load i32, ptr %6, align 8, !tbaa !22
+  %19 = load i32, ptr %6, align 8, !tbaa !23
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %.preheader.preheader.i, label %.loopexit.i
 
@@ -489,11 +489,11 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
 
 23:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %24 = load ptr, ptr %0, align 8, !tbaa !16
+  %24 = load ptr, ptr %0, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i
   %26 = load i32, ptr %25, align 4, !tbaa !8
   %27 = icmp eq i32 %18, %26
-  br i1 %27, label %28, label %.preheader.i, !llvm.loop !26
+  br i1 %27, label %28, label %.preheader.i, !llvm.loop !27
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i, i32 1
@@ -503,25 +503,25 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   br label %.critedge
 
 .loopexit.i:                                      ; preds = %.preheader.i, %16
-  %32 = load i32, ptr %7, align 4, !tbaa !20
+  %32 = load i32, ptr %7, align 4, !tbaa !21
   %.not.i = icmp ult i32 %19, %32
   br i1 %.not.i, label %.loopexit._crit_edge.i, label %33
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i
-  %.pre30.i = load ptr, ptr %0, align 8, !tbaa !16
+  %.pre30.i = load ptr, ptr %0, align 8, !tbaa !17
   br label %50
 
 33:                                               ; preds = %.loopexit.i
   %34 = add i32 %32, 100
-  %35 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !21
+  %35 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !22
   %36 = zext i32 %34 to i64
   %37 = tail call ptr %35(i64 noundef %36, i64 noundef 8) #10
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %cpfds_add_sock.exit, label %38
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %0, align 8, !tbaa !16
-  %40 = load i32, ptr %7, align 4, !tbaa !20
+  %39 = load ptr, ptr %0, align 8, !tbaa !17
+  %40 = load i32, ptr %7, align 4, !tbaa !21
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %37, ptr align 4 %39, i64 %42, i1 false)
@@ -531,20 +531,20 @@ define dso_local range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(
   br i1 %.not15.i.i, label %cpfds_increase.exit.thread.i, label %45
 
 45:                                               ; preds = %38
-  %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
-  %47 = load ptr, ptr %0, align 8, !tbaa !16
+  %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !22
+  %47 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void %46(ptr noundef %47) #10
   %.pre.i.i = load i8, ptr %8, align 8
   br label %cpfds_increase.exit.thread.i
 
 cpfds_increase.exit.thread.i:                     ; preds = %45, %38
   %48 = phi i8 [ %.pre.i.i, %45 ], [ %43, %38 ]
-  store ptr %37, ptr %0, align 8, !tbaa !16
-  store i32 %34, ptr %7, align 4, !tbaa !20
+  store ptr %37, ptr %0, align 8, !tbaa !17
+  store i32 %34, ptr %7, align 4, !tbaa !21
   %49 = or i8 %48, 1
   store i8 %49, ptr %8, align 8
-  %.pre31.i = load i32, ptr %6, align 8, !tbaa !22
-  %.pre.pre = load i32, ptr %3, align 4, !tbaa !23
+  %.pre31.i = load i32, ptr %6, align 8, !tbaa !23
+  %.pre.pre = load i32, ptr %3, align 4, !tbaa !24
   br label %50
 
 50:                                               ; preds = %cpfds_increase.exit.thread.i, %.loopexit._crit_edge.i
@@ -557,7 +557,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %45, %38
   %55 = getelementptr inbounds nuw %struct.pollfd, ptr %52, i64 %53, i32 1
   store i16 %.1, ptr %55, align 4, !tbaa !11
   %56 = add i32 %51, 1
-  store i32 %56, ptr %6, align 8, !tbaa !22
+  store i32 %56, ptr %6, align 8, !tbaa !23
   br label %.critedge
 
 .critedge:                                        ; preds = %50, %28, %9
@@ -566,7 +566,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %45, %38
   %58 = add nuw nsw i64 %.01625, 1
   %59 = zext i32 %57 to i64
   %60 = icmp samesign ult i64 %58, %59
-  br i1 %60, label %9, label %cpfds_add_sock.exit, !llvm.loop !27
+  br i1 %60, label %9, label %cpfds_add_sock.exit, !llvm.loop !28
 
 cpfds_add_sock.exit:                              ; preds = %.critedge, %33, %2
   %.2 = phi i32 [ 0, %2 ], [ 27, %33 ], [ 0, %.critedge ]
@@ -577,16 +577,16 @@ cpfds_add_sock.exit:                              ; preds = %.critedge, %33, %2
 define dso_local void @Curl_waitfds_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
-  store ptr %1, ptr %0, align 8, !tbaa !28
+  store ptr %1, ptr %0, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !31
+  store i32 %2, ptr %5, align 4, !tbaa !32
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !24
   %5 = zext i32 %4 to i64
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %cwfds_add_sock.exit, label %.lr.ph
@@ -600,7 +600,7 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
 9:                                                ; preds = %.lr.ph, %.critedge
   %.01625 = phi i64 [ 0, %.lr.ph ], [ %38, %.critedge ]
   %10 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %.01625
-  %11 = load i8, ptr %10, align 1, !tbaa !25
+  %11 = load i8, ptr %10, align 1, !tbaa !26
   %12 = and i8 %11, 1
   %13 = shl i8 %11, 1
   %14 = and i8 %13, 4
@@ -612,7 +612,7 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %.01625
   %17 = load i32, ptr %16, align 4, !tbaa !4
-  %18 = load i32, ptr %7, align 8, !tbaa !32
+  %18 = load i32, ptr %7, align 8, !tbaa !33
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %.preheader.preheader.i, label %.loopexit.i
 
@@ -627,39 +627,39 @@ define dso_local range(i32 0, 28) i32 @Curl_waitfds_add_ps(ptr noundef captures(
 
 22:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %23 = load ptr, ptr %0, align 8, !tbaa !28
+  %23 = load ptr, ptr %0, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %23, i64 %indvars.iv.next.i
-  %25 = load i32, ptr %24, align 4, !tbaa !33
+  %25 = load i32, ptr %24, align 4, !tbaa !34
   %26 = icmp eq i32 %17, %25
-  br i1 %26, label %27, label %.preheader.i, !llvm.loop !35
+  br i1 %26, label %27, label %.preheader.i, !llvm.loop !36
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %23, i64 %indvars.iv.next.i, i32 1
-  %29 = load i16, ptr %28, align 4, !tbaa !36
+  %29 = load i16, ptr %28, align 4, !tbaa !37
   %30 = or i16 %29, %.1
-  store i16 %30, ptr %28, align 4, !tbaa !36
+  store i16 %30, ptr %28, align 4, !tbaa !37
   br label %.critedge
 
 .loopexit.i:                                      ; preds = %.preheader.i, %15
-  %31 = load i32, ptr %8, align 4, !tbaa !31
+  %31 = load i32, ptr %8, align 4, !tbaa !32
   %.not.i = icmp ult i32 %18, %31
   br i1 %.not.i, label %32, label %cwfds_add_sock.exit
 
 32:                                               ; preds = %.loopexit.i
-  %33 = load ptr, ptr %0, align 8, !tbaa !28
+  %33 = load ptr, ptr %0, align 8, !tbaa !29
   %34 = zext i32 %18 to i64
   %35 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %33, i64 %34
-  store i32 %17, ptr %35, align 4, !tbaa !33
+  store i32 %17, ptr %35, align 4, !tbaa !34
   %36 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %33, i64 %34, i32 1
-  store i16 %.1, ptr %36, align 4, !tbaa !36
+  store i16 %.1, ptr %36, align 4, !tbaa !37
   %37 = add nuw i32 %18, 1
-  store i32 %37, ptr %7, align 8, !tbaa !32
+  store i32 %37, ptr %7, align 8, !tbaa !33
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %27, %9
   %38 = add nuw nsw i64 %.01625, 1
   %exitcond.not = icmp eq i64 %38, %5
-  br i1 %exitcond.not, label %cwfds_add_sock.exit, label %9, !llvm.loop !37
+  br i1 %exitcond.not, label %cwfds_add_sock.exit, label %9, !llvm.loop !38
 
 cwfds_add_sock.exit:                              ; preds = %.critedge, %.loopexit.i, %2
   %.2 = phi i32 [ 0, %2 ], [ 27, %.loopexit.i ], [ 0, %.critedge ]
@@ -699,28 +699,29 @@ attributes #10 = { nounwind }
 !10 = !{!"short", !6, i64 0}
 !11 = !{!9, !10, i64 4}
 !12 = !{!9, !10, i64 6}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"curl_pollfds", !18, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!18 = !{!"p1 _ZTS6pollfd", !19, i64 0}
-!19 = !{!"any pointer", !6, i64 0}
-!20 = !{!17, !5, i64 12}
-!21 = !{!19, !19, i64 0}
-!22 = !{!17, !5, i64 8}
-!23 = !{!24, !5, i64 20}
-!24 = !{!"easy_pollset", !6, i64 0, !5, i64 20, !6, i64 24}
-!25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"curl_waitfds", !30, i64 0, !5, i64 8, !5, i64 12}
-!30 = !{!"p1 _ZTS11curl_waitfd", !19, i64 0}
-!31 = !{!29, !5, i64 12}
-!32 = !{!29, !5, i64 8}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"curl_waitfd", !5, i64 0, !10, i64 4, !10, i64 6}
-!35 = distinct !{!35, !14}
-!36 = !{!34, !10, i64 4}
-!37 = distinct !{!37, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"curl_pollfds", !19, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!19 = !{!"p1 _ZTS6pollfd", !20, i64 0}
+!20 = !{!"any pointer", !6, i64 0}
+!21 = !{!18, !5, i64 12}
+!22 = !{!20, !20, i64 0}
+!23 = !{!18, !5, i64 8}
+!24 = !{!25, !5, i64 20}
+!25 = !{!"easy_pollset", !6, i64 0, !5, i64 20, !6, i64 24}
+!26 = !{!6, !6, i64 0}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"curl_waitfds", !31, i64 0, !5, i64 8, !5, i64 12}
+!31 = !{!"p1 _ZTS11curl_waitfd", !20, i64 0}
+!32 = !{!30, !5, i64 12}
+!33 = !{!30, !5, i64 8}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"curl_waitfd", !5, i64 0, !10, i64 4, !10, i64 6}
+!36 = distinct !{!36, !14, !15}
+!37 = !{!35, !10, i64 4}
+!38 = distinct !{!38, !14, !15}

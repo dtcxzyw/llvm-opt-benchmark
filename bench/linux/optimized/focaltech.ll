@@ -414,13 +414,13 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr noundef 
 135:                                              ; preds = %161, %.loopexit
   %136 = phi i64 [ 0, %.loopexit ], [ %162, %161 ]
   %137 = getelementptr [5 x %struct.focaltech_finger_state], ptr %130, i64 0, i64 %136
-  %138 = load i8, ptr %137, align 4, !range !12, !noundef !13
+  %138 = load i8, ptr %137, align 4, !range !13, !noundef !14
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %158, label %140
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  %142 = load i8, ptr %141, align 1, !range !12, !noundef !13
+  %142 = load i8, ptr %141, align 1, !range !13, !noundef !14
   %143 = icmp ne i8 %142, 0
   %144 = trunc i64 %136 to i32
   tail call void @input_event(ptr noundef %132, i32 noundef 3, i32 noundef 47, i32 noundef %144) #8
@@ -453,12 +453,12 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr noundef 
 161:                                              ; preds = %158, %146, %140
   %162 = add nuw nsw i64 %136, 1
   %163 = icmp eq i64 %162, 5
-  br i1 %163, label %164, label %135, !llvm.loop !14
+  br i1 %163, label %164, label %135, !llvm.loop !15
 
 164:                                              ; preds = %161
   tail call void @input_mt_report_pointer_emulation(ptr noundef %132, i1 noundef zeroext true) #8
   %165 = getelementptr inbounds nuw i8, ptr %129, i64 72
-  %166 = load i8, ptr %165, align 4, !range !12, !noundef !13
+  %166 = load i8, ptr %165, align 4, !range !13, !noundef !14
   %167 = zext nneg i8 %166 to i32
   tail call void @input_event(ptr noundef %132, i32 noundef 1, i32 noundef 272, i32 noundef %167) #8
   tail call void @input_event(ptr noundef %132, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
@@ -573,9 +573,10 @@ attributes #10 = { cold nounwind }
 !6 = !{i32 -5, i32 1}
 !7 = !{i64 2148385268}
 !8 = !{i64 2148383735}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !10, !11, !12}

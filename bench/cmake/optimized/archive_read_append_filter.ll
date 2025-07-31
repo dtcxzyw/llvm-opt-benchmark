@@ -154,18 +154,18 @@ split.thread:                                     ; preds = %30, %split.thread66
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %.046.lcssa69, ptr %45, align 8, !tbaa !13
+  store ptr %.046.lcssa69, ptr %45, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %0, ptr %46, align 8, !tbaa !21
+  store ptr %0, ptr %46, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %48, ptr %49, align 8, !tbaa !36
-  store ptr %41, ptr %47, align 8, !tbaa !22
+  store ptr %48, ptr %49, align 8, !tbaa !37
+  store ptr %41, ptr %47, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %.046.lcssa69, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !37
+  %51 = load ptr, ptr %50, align 8, !tbaa !38
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !38
+  %53 = load ptr, ptr %52, align 8, !tbaa !39
   %54 = tail call i32 %53(ptr noundef nonnull %41) #7
   %.not57 = icmp eq i32 %54, 0
   br i1 %.not57, label %56, label %55
@@ -177,7 +177,7 @@ split.thread:                                     ; preds = %30, %split.thread66
 56:                                               ; preds = %2, %44
   %.04561 = phi i32 [ %.045.ph, %44 ], [ %1, %2 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i32 1, ptr %57, align 8, !tbaa !40
+  store i32 1, ptr %57, align 8, !tbaa !41
   %58 = tail call i32 @llvm.smin.i32(i32 %.04561, i32 0)
   br label %59
 
@@ -245,7 +245,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_append_filter_program_signa
 8:                                                ; preds = %6, %13
   %.03241 = phi i32 [ 0, %6 ], [ %14, %13 ]
   %.03340 = phi ptr [ %7, %6 ], [ %15, %13 ]
-  %9 = load ptr, ptr %.03340, align 8, !tbaa !41
+  %9 = load ptr, ptr %.03340, align 8, !tbaa !42
   %.not36 = icmp eq ptr %9, null
   br i1 %.not36, label %13, label %10
 
@@ -259,10 +259,10 @@ define dso_local range(i32 -30, 1) i32 @archive_read_append_filter_program_signa
   %14 = add nuw nsw i32 %.03241, 1
   %15 = getelementptr inbounds nuw i8, ptr %.03340, i64 24
   %exitcond.not = icmp eq i32 %14, 16
-  br i1 %exitcond.not, label %split, label %8, !llvm.loop !42
+  br i1 %exitcond.not, label %split, label %8, !llvm.loop !43
 
 split:                                            ; preds = %13
-  %.pre = load ptr, ptr %scevgep, align 8, !tbaa !41
+  %.pre = load ptr, ptr %scevgep, align 8, !tbaa !42
   %16 = icmp eq ptr %.pre, null
   br i1 %16, label %17, label %split.thread
 
@@ -282,17 +282,17 @@ split.thread:                                     ; preds = %10, %split
 
 21:                                               ; preds = %split.thread
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.033.lcssa44, ptr %22, align 8, !tbaa !13
+  store ptr %.033.lcssa44, ptr %22, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %0, ptr %23, align 8, !tbaa !21
-  %24 = load ptr, ptr %scevgep, align 8, !tbaa !22
+  store ptr %0, ptr %23, align 8, !tbaa !22
+  %24 = load ptr, ptr %scevgep, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %24, ptr %25, align 8, !tbaa !36
-  store ptr %18, ptr %scevgep, align 8, !tbaa !22
+  store ptr %24, ptr %25, align 8, !tbaa !37
+  store ptr %18, ptr %scevgep, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %.033.lcssa44, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
   %30 = tail call i32 %29(ptr noundef nonnull %18) #7
   %.not39 = icmp eq i32 %30, 0
   br i1 %.not39, label %32, label %31
@@ -302,13 +302,13 @@ split.thread:                                     ; preds = %10, %split
   br label %38
 
 32:                                               ; preds = %21
-  %33 = load ptr, ptr %scevgep, align 8, !tbaa !22
+  %33 = load ptr, ptr %scevgep, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !43
+  %35 = load ptr, ptr %34, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw i8, ptr %.033.lcssa44, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i32 1, ptr %37, align 8, !tbaa !40
+  store i32 1, ptr %37, align 8, !tbaa !41
   br label %38
 
 38:                                               ; preds = %4, %32, %31, %20, %17
@@ -348,36 +348,37 @@ attributes #9 = { nounwind allocsize(0,1) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 omnipotent char", !6, i64 0}
 !10 = !{!"p1 _ZTS33archive_read_filter_bidder_vtable", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !16, i64 8}
-!14 = !{!"archive_read_filter", !15, i64 0, !16, i64 8, !17, i64 16, !18, i64 24, !19, i64 32, !6, i64 40, !9, i64 48, !20, i64 56, !20, i64 60, !20, i64 64, !9, i64 72, !15, i64 80, !9, i64 88, !15, i64 96, !6, i64 104, !15, i64 112, !9, i64 120, !15, i64 128, !7, i64 136, !7, i64 137, !7, i64 138}
-!15 = !{!"long", !7, i64 0}
-!16 = !{!"p1 _ZTS26archive_read_filter_bidder", !6, i64 0}
-!17 = !{!"p1 _ZTS19archive_read_filter", !6, i64 0}
-!18 = !{!"p1 _ZTS12archive_read", !6, i64 0}
-!19 = !{!"p1 _ZTS26archive_read_filter_vtable", !6, i64 0}
-!20 = !{!"int", !7, i64 0}
-!21 = !{!14, !18, i64 24}
-!22 = !{!23, !17, i64 632}
-!23 = !{!"archive_read", !24, i64 0, !28, i64 144, !20, i64 152, !15, i64 160, !15, i64 168, !29, i64 176, !7, i64 248, !17, i64 632, !20, i64 640, !15, i64 648, !20, i64 656, !20, i64 660, !7, i64 664, !31, i64 2072, !32, i64 2080, !6, i64 2088, !33, i64 2096}
-!24 = !{!"archive", !20, i64 0, !20, i64 4, !25, i64 8, !20, i64 16, !9, i64 24, !20, i64 32, !20, i64 36, !9, i64 40, !26, i64 48, !9, i64 72, !20, i64 80, !20, i64 84, !27, i64 88, !9, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !7, i64 128, !15, i64 136}
-!25 = !{!"p1 _ZTS14archive_vtable", !6, i64 0}
-!26 = !{!"archive_string", !9, i64 0, !15, i64 8, !15, i64 16}
-!27 = !{!"p1 _ZTS19archive_string_conv", !6, i64 0}
-!28 = !{!"p1 _ZTS13archive_entry", !6, i64 0}
-!29 = !{!"archive_read_client", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !20, i64 48, !20, i64 52, !15, i64 56, !30, i64 64}
-!30 = !{!"p1 _ZTS22archive_read_data_node", !6, i64 0}
-!31 = !{!"p1 _ZTS25archive_format_descriptor", !6, i64 0}
-!32 = !{!"p1 _ZTS20archive_read_extract", !6, i64 0}
-!33 = !{!"", !34, i64 0, !35, i64 8, !20, i64 16, !6, i64 24, !6, i64 32}
-!34 = !{!"p1 _ZTS23archive_read_passphrase", !6, i64 0}
-!35 = !{!"p2 _ZTS23archive_read_passphrase", !6, i64 0}
-!36 = !{!14, !17, i64 16}
-!37 = !{!5, !10, i64 16}
-!38 = !{!39, !6, i64 8}
-!39 = !{!"archive_read_filter_bidder_vtable", !6, i64 0, !6, i64 8, !6, i64 16}
-!40 = !{!23, !20, i64 640}
-!41 = !{!5, !6, i64 0}
-!42 = distinct !{!42, !12}
-!43 = !{!14, !9, i64 48}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"archive_read_filter", !16, i64 0, !17, i64 8, !18, i64 16, !19, i64 24, !20, i64 32, !6, i64 40, !9, i64 48, !21, i64 56, !21, i64 60, !21, i64 64, !9, i64 72, !16, i64 80, !9, i64 88, !16, i64 96, !6, i64 104, !16, i64 112, !9, i64 120, !16, i64 128, !7, i64 136, !7, i64 137, !7, i64 138}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!"p1 _ZTS26archive_read_filter_bidder", !6, i64 0}
+!18 = !{!"p1 _ZTS19archive_read_filter", !6, i64 0}
+!19 = !{!"p1 _ZTS12archive_read", !6, i64 0}
+!20 = !{!"p1 _ZTS26archive_read_filter_vtable", !6, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!15, !19, i64 24}
+!23 = !{!24, !18, i64 632}
+!24 = !{!"archive_read", !25, i64 0, !29, i64 144, !21, i64 152, !16, i64 160, !16, i64 168, !30, i64 176, !7, i64 248, !18, i64 632, !21, i64 640, !16, i64 648, !21, i64 656, !21, i64 660, !7, i64 664, !32, i64 2072, !33, i64 2080, !6, i64 2088, !34, i64 2096}
+!25 = !{!"archive", !21, i64 0, !21, i64 4, !26, i64 8, !21, i64 16, !9, i64 24, !21, i64 32, !21, i64 36, !9, i64 40, !27, i64 48, !9, i64 72, !21, i64 80, !21, i64 84, !28, i64 88, !9, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !7, i64 128, !16, i64 136}
+!26 = !{!"p1 _ZTS14archive_vtable", !6, i64 0}
+!27 = !{!"archive_string", !9, i64 0, !16, i64 8, !16, i64 16}
+!28 = !{!"p1 _ZTS19archive_string_conv", !6, i64 0}
+!29 = !{!"p1 _ZTS13archive_entry", !6, i64 0}
+!30 = !{!"archive_read_client", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !21, i64 48, !21, i64 52, !16, i64 56, !31, i64 64}
+!31 = !{!"p1 _ZTS22archive_read_data_node", !6, i64 0}
+!32 = !{!"p1 _ZTS25archive_format_descriptor", !6, i64 0}
+!33 = !{!"p1 _ZTS20archive_read_extract", !6, i64 0}
+!34 = !{!"", !35, i64 0, !36, i64 8, !21, i64 16, !6, i64 24, !6, i64 32}
+!35 = !{!"p1 _ZTS23archive_read_passphrase", !6, i64 0}
+!36 = !{!"p2 _ZTS23archive_read_passphrase", !6, i64 0}
+!37 = !{!15, !18, i64 16}
+!38 = !{!5, !10, i64 16}
+!39 = !{!40, !6, i64 8}
+!40 = !{!"archive_read_filter_bidder_vtable", !6, i64 0, !6, i64 8, !6, i64 16}
+!41 = !{!24, !21, i64 640}
+!42 = !{!5, !6, i64 0}
+!43 = distinct !{!43, !12, !13}
+!44 = !{!15, !9, i64 48}

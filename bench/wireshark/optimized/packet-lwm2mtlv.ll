@@ -540,12 +540,12 @@ define internal void @resource_data_type_tostr_cb(ptr noundef readonly captures(
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !9
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -703,7 +703,7 @@ define internal noundef zeroext i1 @lwm2m_resource_update_cb(ptr noundef capture
   %28 = add nuw i64 %.027, 1
   %29 = tail call i64 @strlen(ptr noundef %27) #9
   %30 = icmp ult i64 %28, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 31:                                               ; preds = %._crit_edge
   %32 = sext i8 %21 to i32
@@ -843,7 +843,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
 39:                                               ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %40, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread, label %40, !llvm.loop !11
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
@@ -959,7 +959,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %25 = phi i32 [ %18, %17 ], [ %23, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %6, label %17, !llvm.loop !11
+  br i1 %exitcond.not, label %6, label %17, !llvm.loop !12
 
 26:                                               ; preds = %55
   %27 = load i32, ptr @proto_lwm2mtlv, align 4
@@ -1010,7 +1010,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
-  br i1 %exitcond89.not, label %26, label %34, !llvm.loop !12
+  br i1 %exitcond89.not, label %26, label %34, !llvm.loop !13
 
 56:                                               ; preds = %69
   ret void
@@ -1038,7 +1038,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %.3 = phi i32 [ %66, %62 ], [ %.282, %57 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
-  br i1 %exitcond94.not, label %56, label %57, !llvm.loop !13
+  br i1 %exitcond94.not, label %56, label %57, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1126,7 +1126,7 @@ define internal fastcc void @lwm2m_free_fields(ptr noundef captures(none) %0) un
   %14 = load i32, ptr %3, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 17:                                               ; preds = %._crit_edge, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1303,12 +1303,12 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 60:                                               ; preds = %56, %52
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, %wide.trip.count.i.i42
-  br i1 %exitcond.not.i.i45, label %lwm2m_search_fields.exit46.thread, label %52, !llvm.loop !15
+  br i1 %exitcond.not.i.i45, label %lwm2m_search_fields.exit46.thread, label %52, !llvm.loop !16
 
 61:                                               ; preds = %41, %.lr.ph.i35
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i
-  br i1 %exitcond.not.i38, label %lwm2m_search_fields.exit46.thread, label %.lr.ph.i35, !llvm.loop !16
+  br i1 %exitcond.not.i38, label %lwm2m_search_fields.exit46.thread, label %.lr.ph.i35, !llvm.loop !17
 
 lwm2m_search_fields.exit46:                       ; preds = %56, %45, %47
   %.017.i39 = phi ptr [ %38, %47 ], [ %38, %45 ], [ %53, %56 ]
@@ -1371,12 +1371,12 @@ lwm2m_search_fields.exit46.thread:                ; preds = %61, %60, %35, %51, 
 86:                                               ; preds = %82, %78
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %addTlvElement.exit.thread, label %78, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %addTlvElement.exit.thread, label %78, !llvm.loop !16
 
 87:                                               ; preds = %67, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 137
-  br i1 %exitcond.not.i, label %addTlvElement.exit.thread, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %addTlvElement.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 addTlvElement.exit.thread:                        ; preds = %87, %86, %parseTLVHeader.exit, %77
   %88 = load ptr, ptr %12, align 8
@@ -1592,7 +1592,7 @@ proto_item_set_generated.exit.i:                  ; preds = %138, %143, %146, %a
   %193 = load ptr, ptr %192, align 8
   %194 = load i32, ptr %193, align 4
   %195 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %.037.i, i32 noundef %194, ptr noundef %16, i32 noundef %32, i32 noundef %.sroa.23.0, i32 noundef 0, ptr noundef nonnull %8)
-  %196 = load i8, ptr %8, align 1, !range !17, !noundef !18
+  %196 = load i8, ptr %8, align 1, !range !18, !noundef !19
   %197 = trunc nuw i8 %196 to i1
   %198 = select i1 %197, ptr @.str.115, ptr @.str.116
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.037.i, ptr noundef nonnull @.str.110, ptr noundef nonnull %198)
@@ -1731,7 +1731,7 @@ addValueTree.exit:                                ; preds = %150, %158, %168, %1
   %282 = sub i32 %.028, %33
   %283 = add i32 %33, %.027
   %284 = icmp eq i32 %33, 0
-  br i1 %284, label %285, label %14
+  br i1 %284, label %285, label %14, !llvm.loop !20
 
 285:                                              ; preds = %addValueTree.exit, %14
   %.126 = phi i32 [ %281, %addValueTree.exit ], [ %.025, %14 ]
@@ -2002,7 +2002,7 @@ define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, p
   %17 = add nuw i64 %.062, 1
   %18 = tail call i64 @strlen(ptr noundef %12) #9
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %16, %9, %7
   %.058 = phi ptr [ %8, %7 ], [ %12, %9 ], [ %12, %16 ]
@@ -2121,17 +2121,19 @@ attributes #12 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7, !8}

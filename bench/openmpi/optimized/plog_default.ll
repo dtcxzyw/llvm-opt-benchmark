@@ -67,13 +67,13 @@ define internal range(i32 -156, -31) i32 @mylog(ptr noundef %0, ptr noundef %1, 
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %14
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store ptr %1, ptr %25, align 8, !tbaa !24
+  store ptr %1, ptr %25, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store i64 %2, ptr %26, align 8, !tbaa !27
+  store i64 %2, ptr %26, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  store ptr %5, ptr %27, align 8, !tbaa !28
+  store ptr %5, ptr %27, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  store ptr %6, ptr %28, align 8, !tbaa !29
+  store ptr %6, ptr %28, align 8, !tbaa !30
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 136), align 8, !tbaa !3
   tail call void %29(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @localcbfn, ptr noundef nonnull %9) #12
   br label %pmix_obj_new_tma.exit
@@ -86,13 +86,13 @@ pmix_obj_new_tma.exit:                            ; preds = %13, %.loopexit
 ; Function Attrs: nounwind uwtable
 define internal void @localcbfn(i32 noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   tail call void %4(i32 noundef %0, ptr noundef %7) #12
   br label %8
 
@@ -121,7 +121,7 @@ pmix_obj_update.exit:                             ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %.not6.i = icmp eq ptr %23, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
@@ -133,11 +133,11 @@ pmix_obj_update.exit:                             ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !32
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %28 = load ptr, ptr %27, align 8, !tbaa !33
   %.not11 = icmp eq ptr %28, null
   br i1 %.not11, label %31, label %29
 
@@ -231,14 +231,15 @@ attributes #15 = { noreturn nounwind }
 !19 = !{!17, !12, i64 48}
 !20 = !{!9, !5, i64 40}
 !21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !26, i64 120}
-!25 = !{!"", !17, i64 0, !26, i64 120, !13, i64 128, !5, i64 136, !5, i64 144}
-!26 = !{!"p1 _ZTS9pmix_info", !5, i64 0}
-!27 = !{!25, !13, i64 128}
-!28 = !{!25, !5, i64 136}
-!29 = !{!25, !5, i64 144}
-!30 = !{!9, !5, i64 48}
-!31 = distinct !{!31, !23}
-!32 = !{!17, !5, i64 96}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !27, i64 120}
+!26 = !{!"", !17, i64 0, !27, i64 120, !13, i64 128, !5, i64 136, !5, i64 144}
+!27 = !{!"p1 _ZTS9pmix_info", !5, i64 0}
+!28 = !{!26, !13, i64 128}
+!29 = !{!26, !5, i64 136}
+!30 = !{!26, !5, i64 144}
+!31 = !{!9, !5, i64 48}
+!32 = distinct !{!32, !23, !24}
+!33 = !{!17, !5, i64 96}

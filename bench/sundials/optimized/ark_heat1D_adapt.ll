@@ -91,7 +91,7 @@ check_flag.exit:                                  ; preds = %0
   store double %21, ptr %22, align 8, !tbaa !17
   %23 = add nuw nsw i64 %.0115384, 1
   %exitcond.not = icmp eq i64 %23, 21
-  br i1 %exitcond.not, label %24, label %19
+  br i1 %exitcond.not, label %24, label %19, !llvm.loop !18
 
 24:                                               ; preds = %19
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -99,7 +99,7 @@ check_flag.exit:                                  ; preds = %0
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %25)
   %27 = load i64, ptr %14, align 8, !tbaa !9
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %27)
-  %29 = load ptr, ptr %8, align 8, !tbaa !18
+  %29 = load ptr, ptr %8, align 8, !tbaa !20
   %30 = call ptr @N_VNew_Serial(i64 noundef 21, ptr noundef %29) #11
   %31 = icmp eq ptr %30, null
   br i1 %31, label %check_flag.exit148, label %34
@@ -125,7 +125,7 @@ check_flag.exit148:                               ; preds = %24
   %42 = add nuw nsw i64 %.1385, 1
   %43 = load i64, ptr %14, align 8, !tbaa !9
   %44 = icmp slt i64 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %fputc = call i32 @fputc(i32 10, ptr %35)
@@ -143,13 +143,13 @@ check_flag.exit148:                               ; preds = %24
   %52 = add nuw nsw i64 %.2386, 1
   %53 = load i64, ptr %14, align 8, !tbaa !9
   %54 = icmp slt i64 %52, %53
-  br i1 %54, label %.lr.ph388, label %._crit_edge389
+  br i1 %54, label %.lr.ph388, label %._crit_edge389, !llvm.loop !23
 
 ._crit_edge389:                                   ; preds = %.lr.ph388, %._crit_edge
   %fputc117 = call i32 @fputc(i32 10, ptr %45)
-  %55 = load ptr, ptr %8, align 8, !tbaa !18
+  %55 = load ptr, ptr %8, align 8, !tbaa !20
   %56 = call ptr @ARKStepCreate(ptr noundef null, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %30, ptr noundef %55) #11
-  store ptr %56, ptr %3, align 8, !tbaa !20
+  store ptr %56, ptr %3, align 8, !tbaa !24
   %57 = icmp eq ptr %56, null
   br i1 %57, label %check_flag.exit150, label %60
 
@@ -219,7 +219,7 @@ check_flag.exit162:                               ; preds = %85
   br label %227
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr %8, align 8, !tbaa !18
+  %91 = load ptr, ptr %8, align 8, !tbaa !20
   %92 = call ptr @SUNLinSol_PCG(ptr noundef nonnull %30, i32 noundef 0, i32 noundef 21, ptr noundef %91) #11
   %93 = icmp eq ptr %92, null
   br i1 %93, label %check_flag.exit164, label %96
@@ -261,7 +261,7 @@ check_flag.exit168:                               ; preds = %101
   %110 = load i64, ptr %14, align 8, !tbaa !9
   %111 = sitofp i64 %110 to double
   %112 = fdiv double %109, %111
-  %113 = call double @sqrt(double noundef %112) #11, !tbaa !21
+  %113 = call double @sqrt(double noundef %112) #11, !tbaa !25
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef 0, double noundef %107, double noundef %108, double noundef %113, i64 noundef %110, i32 noundef 0, i32 noundef 0)
   br label %check_flag.exit194
 
@@ -343,13 +343,13 @@ check_flag.exit180:                               ; preds = %142
   %152 = load i64, ptr %14, align 8, !tbaa !9
   %153 = sitofp i64 %152 to double
   %154 = fdiv double %151, %153
-  %155 = call double @sqrt(double noundef %154) #11, !tbaa !21
-  %156 = load i64, ptr %1, align 8, !tbaa !23
-  %157 = load i64, ptr %2, align 8, !tbaa !23
+  %155 = call double @sqrt(double noundef %154) #11, !tbaa !25
+  %156 = load i64, ptr %1, align 8, !tbaa !27
+  %157 = load i64, ptr %2, align 8, !tbaa !27
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %148, double noundef %149, double noundef %150, double noundef %155, i64 noundef %152, i64 noundef %156, i64 noundef %157)
-  %159 = load i64, ptr %1, align 8, !tbaa !23
+  %159 = load i64, ptr %1, align 8, !tbaa !27
   %160 = add nsw i64 %159, %.0114
-  %161 = load i64, ptr %2, align 8, !tbaa !23
+  %161 = load i64, ptr %2, align 8, !tbaa !27
   %162 = add nsw i64 %161, %.0113
   %163 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %.0111) #11
   %164 = load i64, ptr %14, align 8, !tbaa !9
@@ -364,7 +364,7 @@ check_flag.exit180:                               ; preds = %142
   %169 = add nuw nsw i64 %.3390, 1
   %170 = load i64, ptr %14, align 8, !tbaa !9
   %171 = icmp slt i64 %169, %170
-  br i1 %171, label %.lr.ph392, label %._crit_edge393
+  br i1 %171, label %.lr.ph392, label %._crit_edge393, !llvm.loop !28
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %147
   %fputc138 = call i32 @fputc(i32 10, ptr %45)
@@ -381,7 +381,7 @@ check_flag.exit180:                               ; preds = %142
   %178 = add nuw nsw i64 %.4394, 1
   %179 = load i64, ptr %14, align 8, !tbaa !9
   %180 = icmp slt i64 %178, %179
-  br i1 %180, label %.lr.ph396, label %._crit_edge397
+  br i1 %180, label %.lr.ph396, label %._crit_edge397, !llvm.loop !29
 
 ._crit_edge397:                                   ; preds = %.lr.ph396, %._crit_edge393
   %fputc139 = call i32 @fputc(i32 10, ptr %35)
@@ -395,8 +395,8 @@ check_flag.exit182:                               ; preds = %._crit_edge397
   br label %227
 
 185:                                              ; preds = %._crit_edge397
-  %186 = load i64, ptr %7, align 8, !tbaa !23
-  %187 = load ptr, ptr %8, align 8, !tbaa !18
+  %186 = load i64, ptr %7, align 8, !tbaa !27
+  %187 = load ptr, ptr %8, align 8, !tbaa !20
   %188 = call ptr @N_VNew_Serial(i64 noundef %186, ptr noundef %187) #11
   %189 = icmp eq ptr %188, null
   br i1 %189, label %check_flag.exit184, label %192
@@ -427,7 +427,7 @@ check_flag.exit188:                               ; preds = %192
 
 201:                                              ; preds = %192
   %202 = call i32 @SUNLinSolFree(ptr noundef nonnull %.0110) #11
-  %203 = load ptr, ptr %8, align 8, !tbaa !18
+  %203 = load ptr, ptr %8, align 8, !tbaa !20
   %204 = call ptr @SUNLinSol_PCG(ptr noundef nonnull %188, i32 noundef 0, i32 noundef 21, ptr noundef %203) #11
   %205 = icmp eq ptr %204, null
   br i1 %205, label %check_flag.exit190, label %208
@@ -450,7 +450,7 @@ check_flag.exit192:                               ; preds = %208
 213:                                              ; preds = %208
   %214 = call i32 @ARKodeSetJacTimes(ptr noundef nonnull %56, ptr noundef null, ptr noundef nonnull @Jac) #11
   %215 = icmp slt i32 %214, 0
-  br i1 %215, label %check_flag.exit194.thread, label %check_flag.exit194
+  br i1 %215, label %check_flag.exit194.thread, label %check_flag.exit194, !llvm.loop !30
 
 check_flag.exit194.thread:                        ; preds = %213
   %216 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -573,27 +573,27 @@ define internal range(i32 0, 2) i32 @f(double %0, ptr noundef %1, ptr noundef %2
   %49 = fadd double %19, -2.500000e-01
   %50 = fmul double %49, -2.000000e+02
   %51 = fmul double %49, %50
-  %52 = tail call double @exp(double noundef %51) #11, !tbaa !21
+  %52 = tail call double @exp(double noundef %51) #11, !tbaa !25
   %53 = tail call double @llvm.fmuladd.f64(double %52, double 2.000000e+00, double %48)
   %54 = fadd double %19, 0xBFE6666666666666
   %55 = fmul double %54, -4.000000e+02
   %56 = fmul double %54, %55
-  %57 = tail call double @exp(double noundef %56) #11, !tbaa !21
+  %57 = tail call double @exp(double noundef %56) #11, !tbaa !25
   %58 = fsub double %53, %57
   %59 = fadd double %19, -4.000000e-01
   %60 = fmul double %59, -5.000000e+02
   %61 = fmul double %59, %60
-  %62 = tail call double @exp(double noundef %61) #11, !tbaa !21
+  %62 = tail call double @exp(double noundef %61) #11, !tbaa !25
   %63 = fadd double %62, %58
   %64 = fadd double %19, -5.500000e-01
   %65 = fmul double %64, -6.000000e+02
   %66 = fmul double %64, %65
-  %67 = tail call double @exp(double noundef %66) #11, !tbaa !21
+  %67 = tail call double @exp(double noundef %66) #11, !tbaa !25
   %68 = tail call double @llvm.fmuladd.f64(double %67, double -2.000000e+00, double %63)
   %69 = getelementptr inbounds nuw double, ptr %13, i64 %.063
   store double %68, ptr %69, align 8, !tbaa !17
   %exitcond.not = icmp eq i64 %.063, %17
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %12, %4
   %70 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -684,7 +684,7 @@ define internal range(i32 0, 2) i32 @Jac(ptr noundef %0, ptr noundef %1, double 
   %52 = getelementptr inbounds nuw double, ptr %16, i64 %.047
   store double %51, ptr %52, align 8, !tbaa !17
   %exitcond.not = icmp eq i64 %.047, %20
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %15, %7
   %53 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -761,31 +761,31 @@ check_flag.exit:                                  ; preds = %3
 
 28:                                               ; preds = %18
   %gep89 = getelementptr i32, ptr %invariant.gep88, i64 %.06876
-  store i32 1, ptr %gep89, align 4, !tbaa !21
+  store i32 1, ptr %gep89, align 4, !tbaa !25
   %29 = getelementptr inbounds nuw i32, ptr %13, i64 %.06876
-  store i32 1, ptr %29, align 4, !tbaa !21
+  store i32 1, ptr %29, align 4, !tbaa !25
   br label %30
 
 30:                                               ; preds = %18, %28
   %exitcond.not = icmp eq i64 %22, %12
-  br i1 %exitcond.not, label %.preheader75, label %18
+  br i1 %exitcond.not, label %.preheader75, label %18, !llvm.loop !33
 
 .lr.ph79:                                         ; preds = %.preheader75, %.lr.ph79
   %.06778 = phi i64 [ %spec.select, %.lr.ph79 ], [ 0, %.preheader75 ]
   %.16977 = phi i64 [ %35, %.lr.ph79 ], [ 0, %.preheader75 ]
   %31 = getelementptr inbounds nuw i32, ptr %13, i64 %.16977
-  %32 = load i32, ptr %31, align 4, !tbaa !21
+  %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = icmp eq i32 %32, 1
   %34 = zext i1 %33 to i64
   %spec.select = add nuw nsw i64 %.06778, %34
   %35 = add nuw nsw i64 %.16977, 1
   %exitcond84.not = icmp eq i64 %35, %12
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph79
+  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph79, %.preheader75
   %.067.lcssa = phi i64 [ 0, %.preheader75 ], [ %spec.select, %.lr.ph79 ]
   %36 = add nsw i64 %.067.lcssa, %11
-  store i64 %36, ptr %1, align 8, !tbaa !23
+  store i64 %36, ptr %1, align 8, !tbaa !27
   %37 = shl i64 %36, 3
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #13
   %39 = load double, ptr %5, align 8, !tbaa !17
@@ -813,7 +813,7 @@ check_flag.exit:                                  ; preds = %3
   %.281 = phi i64 [ %65, %64 ], [ 0, %.lr.ph83.preheader ]
   %.07080 = phi i64 [ %.171, %64 ], [ 1, %.lr.ph83.preheader ]
   %48 = getelementptr inbounds nuw i32, ptr %13, i64 %.281
-  %49 = load i32, ptr %48, align 4, !tbaa !21
+  %49 = load i32, ptr %48, align 4, !tbaa !25
   switch i32 %49, label %64 [
     i32 0, label %50
     i32 1, label %54
@@ -845,7 +845,7 @@ check_flag.exit:                                  ; preds = %3
   %.171 = phi i64 [ %52, %50 ], [ %62, %54 ], [ %.07080, %.lr.ph83 ]
   %65 = add nuw nsw i64 %.281, 1
   %exitcond85.not = icmp eq i64 %.281, %47
-  br i1 %exitcond85.not, label %.preheader, label %.lr.ph83
+  br i1 %exitcond85.not, label %.preheader, label %.lr.ph83, !llvm.loop !35
 
 66:                                               ; preds = %.preheader, %67
   %.3 = phi i64 [ %68, %67 ], [ 0, %.preheader ]
@@ -859,7 +859,7 @@ check_flag.exit:                                  ; preds = %3
   %71 = getelementptr inbounds nuw double, ptr %38, i64 %.3
   %72 = load double, ptr %71, align 8, !tbaa !17
   %73 = fcmp ugt double %70, %72
-  br i1 %73, label %66, label %74
+  br i1 %73, label %66, label %74, !llvm.loop !36
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -919,7 +919,7 @@ check_flag.exit50.preheader:                      ; preds = %9
 24:                                               ; preds = %20, %.lr.ph
   %25 = add i64 %.055, 1
   %exitcond.not = icmp eq i64 %25, %13
-  br i1 %exitcond.not, label %check_flag.exit50, label %.lr.ph
+  br i1 %exitcond.not, label %check_flag.exit50, label %.lr.ph, !llvm.loop !37
 
 check_flag.exit50:                                ; preds = %24, %20, %.preheader
   %.2 = phi i64 [ %.04458, %.preheader ], [ %.055, %20 ], [ %13, %24 ]
@@ -945,7 +945,7 @@ check_flag.exit50:                                ; preds = %24, %20, %.preheade
   store double %43, ptr %44, align 8, !tbaa !17
   %45 = add nuw nsw i64 %.04359, 1
   %exitcond60.not = icmp eq i64 %45, %3
-  br i1 %exitcond60.not, label %.loopexit, label %.preheader
+  br i1 %exitcond60.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit.sink.split:                             ; preds = %9, %6
   %46 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -1036,9 +1036,24 @@ attributes #15 = { cold }
 !15 = !{!10, !13, i64 24}
 !16 = !{!10, !12, i64 8}
 !17 = !{!13, !13, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = !{!11, !11, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"int", !7, i64 0}
+!27 = !{!11, !11, i64 0}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}

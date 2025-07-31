@@ -5624,7 +5624,7 @@ lean_inc.exit152:                                 ; preds = %101, %100, %98, %le
 lean_inc.exit151:                                 ; preds = %111, %110, %108, %lean_inc.exit152
   %112 = tail call ptr @lean_array_push(ptr noundef %.0133.ph, ptr noundef %102) #5
   %113 = tail call ptr @lean_array_push(ptr noundef %.0134, ptr noundef %102) #5
-  br label %.outer
+  br label %.outer, !llvm.loop !18
 
 114:                                              ; preds = %lean_obj_tag.exit
   %115 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
@@ -5849,7 +5849,7 @@ lean_inc.exit145:                                 ; preds = %195, %194, %192, %l
   %196 = tail call ptr @l_Lean_Expr_fvar___override(ptr noundef %162) #5
   %197 = tail call ptr @l_Lean_LocalContext_mkLocalDecl(ptr noundef %.0135, ptr noundef %162, ptr noundef %116, ptr noundef %152, i8 noundef zeroext 0, i8 noundef zeroext 0) #5
   %198 = tail call ptr @lean_array_push(ptr noundef %.0134, ptr noundef %196) #5
-  br label %10
+  br label %10, !llvm.loop !18
 
 199:                                              ; preds = %lean_obj_tag.exit
   %200 = tail call ptr @lean_expr_instantiate_rev(ptr noundef %.0132, ptr noundef %.0134) #5
@@ -20625,7 +20625,7 @@ lean_inc.exit1922:                                ; preds = %4377, %4376, %4374,
   %4378 = tail call ptr @l_Lean_Expr_fvar___override(ptr noundef %4344) #5
   %4379 = tail call ptr @l_Lean_LocalContext_mkLocalDecl(ptr noundef %.01821, ptr noundef %4344, ptr noundef %4297, ptr noundef %4334, i8 noundef zeroext %.01819.val, i8 noundef zeroext 0) #5
   %4380 = tail call ptr @lean_array_push(ptr noundef %.01820, ptr noundef %4378) #5
-  br label %9
+  br label %9, !llvm.loop !20
 
 4381:                                             ; preds = %lean_obj_tag.exit
   %4382 = tail call ptr @lean_expr_instantiate_rev(ptr noundef %.01819, ptr noundef %.01820) #5
@@ -94871,7 +94871,7 @@ lean_inc.exit:                                    ; preds = %219, %218, %216, %2
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %226, %225, %223, %lean_inc.exit
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !21
 
 227:                                              ; preds = %lean_dec.exit91, %lean_dec.exit90, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit144, %lean_dec.exit86, %lean_alloc_ctor.exit137
   %.2 = phi ptr [ %160, %lean_alloc_ctor.exit137 ], [ %184, %lean_dec.exit86 ], [ %203, %lean_alloc_ctor.exit144 ], [ %81, %lean_dec.exit91 ], [ %119, %lean_alloc_ctor.exit ], [ %43, %lean_dec.exit90 ]
@@ -101499,7 +101499,7 @@ lean_obj_tag.exit30:                              ; preds = %24, %27
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = tail call zeroext i8 @l_Lean_Level_isEquiv(ptr noundef %33, ptr noundef %37) #5
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.loopexit, label %3
+  br i1 %41, label %.loopexit, label %3, !llvm.loop !22
 
 .loopexit:                                        ; preds = %31, %lean_obj_tag.exit30, %lean_obj_tag.exit26
   %.1 = phi i8 [ %., %lean_obj_tag.exit26 ], [ 0, %lean_obj_tag.exit30 ], [ 0, %31 ]
@@ -102622,7 +102622,7 @@ lean_obj_tag.exit30.i:                            ; preds = %409, %406
   %421 = load ptr, ptr %420, align 8, !tbaa !10
   %422 = tail call zeroext i8 @l_Lean_Level_isEquiv(ptr noundef %415, ptr noundef %419) #5
   %423 = icmp eq i8 %422, 0
-  br i1 %423, label %l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit, label %.preheader
+  br i1 %423, label %l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit, label %.preheader, !llvm.loop !22
 
 l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit: ; preds = %lean_obj_tag.exit30.i, %413, %lean_obj_tag.exit26.i
   %.1.i = phi i8 [ %..i, %lean_obj_tag.exit26.i ], [ 0, %413 ], [ 0, %lean_obj_tag.exit30.i ]
@@ -103920,7 +103920,7 @@ lean_obj_tag.exit30.i:                            ; preds = %28, %25
   %40 = load ptr, ptr %39, align 8, !tbaa !10
   %41 = tail call zeroext i8 @l_Lean_Level_isEquiv(ptr noundef %34, ptr noundef %38) #5
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit, label %3
+  br i1 %42, label %l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit, label %3, !llvm.loop !22
 
 l_List_isEqv___at_Lean_Compiler_LCNF_eqvTypes___spec__1.exit: ; preds = %lean_obj_tag.exit30.i, %32, %lean_obj_tag.exit26.i
   %.1.i = phi i64 [ %23, %lean_obj_tag.exit26.i ], [ 1, %32 ], [ 1, %lean_obj_tag.exit30.i ]
@@ -104623,3 +104623,8 @@ attributes #6 = { noreturn nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !7, i64 0}
 !17 = !{!7, !7, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

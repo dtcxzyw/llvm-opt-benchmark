@@ -133,7 +133,7 @@ define hidden void @cfl_load_dc_pred(ptr noundef readonly captures(none) %0, ptr
   %29 = getelementptr inbounds i8, ptr %.078.i, i64 %27
   %30 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i16 = icmp eq i32 %30, %10
-  br i1 %exitcond.not.i16, label %cfl_load_dc_pred_hbd.exit, label %28, !llvm.loop !6
+  br i1 %exitcond.not.i16, label %cfl_load_dc_pred_hbd.exit, label %28, !llvm.loop !7
 
 cfl_load_dc_pred_hbd.exit:                        ; preds = %23, %28
   ret void
@@ -158,13 +158,13 @@ define hidden void @cfl_subtract_average_4x4_c(ptr noundef readonly captures(non
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 4
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 4
@@ -186,14 +186,14 @@ define hidden void @cfl_subtract_average_4x4_c(ptr noundef readonly captures(non
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -218,13 +218,13 @@ define hidden void @cfl_subtract_average_4x8_c(ptr noundef readonly captures(non
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 5
@@ -246,14 +246,14 @@ define hidden void @cfl_subtract_average_4x8_c(ptr noundef readonly captures(non
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -278,13 +278,13 @@ define hidden void @cfl_subtract_average_4x16_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 16
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 6
@@ -306,14 +306,14 @@ define hidden void @cfl_subtract_average_4x16_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -338,13 +338,13 @@ define hidden void @cfl_subtract_average_8x4_c(ptr noundef readonly captures(non
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 4
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 5
@@ -366,14 +366,14 @@ define hidden void @cfl_subtract_average_8x4_c(ptr noundef readonly captures(non
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -398,13 +398,13 @@ define hidden void @cfl_subtract_average_8x8_c(ptr noundef readonly captures(non
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 6
@@ -426,14 +426,14 @@ define hidden void @cfl_subtract_average_8x8_c(ptr noundef readonly captures(non
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -458,13 +458,13 @@ define hidden void @cfl_subtract_average_8x16_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 16
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 7
@@ -486,14 +486,14 @@ define hidden void @cfl_subtract_average_8x16_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -518,13 +518,13 @@ define hidden void @cfl_subtract_average_8x32_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 32
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 8
@@ -546,14 +546,14 @@ define hidden void @cfl_subtract_average_8x32_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -578,13 +578,13 @@ define hidden void @cfl_subtract_average_16x4_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 4
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 6
@@ -606,14 +606,14 @@ define hidden void @cfl_subtract_average_16x4_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -638,13 +638,13 @@ define hidden void @cfl_subtract_average_16x8_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 7
@@ -666,14 +666,14 @@ define hidden void @cfl_subtract_average_16x8_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -698,13 +698,13 @@ define hidden void @cfl_subtract_average_16x16_c(ptr noundef readonly captures(n
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 16
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 8
@@ -726,14 +726,14 @@ define hidden void @cfl_subtract_average_16x16_c(ptr noundef readonly captures(n
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -758,13 +758,13 @@ define hidden void @cfl_subtract_average_16x32_c(ptr noundef readonly captures(n
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 32
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 9
@@ -786,14 +786,14 @@ define hidden void @cfl_subtract_average_16x32_c(ptr noundef readonly captures(n
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -818,13 +818,13 @@ define hidden void @cfl_subtract_average_32x8_c(ptr noundef readonly captures(no
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 8
@@ -846,14 +846,14 @@ define hidden void @cfl_subtract_average_32x8_c(ptr noundef readonly captures(no
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -878,13 +878,13 @@ define hidden void @cfl_subtract_average_32x16_c(ptr noundef readonly captures(n
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 16
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 9
@@ -906,14 +906,14 @@ define hidden void @cfl_subtract_average_32x16_c(ptr noundef readonly captures(n
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -938,13 +938,13 @@ define hidden void @cfl_subtract_average_32x32_c(ptr noundef readonly captures(n
   %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.03038.i, i64 64
   %10 = add nuw nsw i32 %.02939.i, 1
   %exitcond45.not.i = icmp eq i32 %10, 32
-  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !9
 
 11:                                               ; preds = %8
   %12 = lshr i32 %7, 10
@@ -966,14 +966,14 @@ define hidden void @cfl_subtract_average_32x32_c(ptr noundef readonly captures(n
   store i16 %17, ptr %18, align 2
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
-  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !10
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.02742.i, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %.03241.i, i64 64
   %22 = add nuw nsw i32 %.02643.i, 1
   %exitcond51.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !11
 
 subtract_average_c.exit:                          ; preds = %19
   ret void
@@ -1031,14 +1031,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 4
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1087,14 +1087,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 8
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1143,14 +1143,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 16
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1199,14 +1199,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 4
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1255,14 +1255,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 8
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1311,14 +1311,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 16
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1367,14 +1367,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 32
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1423,14 +1423,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 4
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1479,14 +1479,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 8
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1535,14 +1535,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 16
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1591,14 +1591,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 32
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1647,14 +1647,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 8
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1703,14 +1703,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 16
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1759,14 +1759,14 @@ get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !12
 
 27:                                               ; preds = %get_scaled_luma_q0.exit.i
   %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
   %29 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 64
   %30 = add nuw nsw i32 %.01521.i, 1
   %exitcond23.not.i = icmp eq i32 %30, 32
-  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !13
 
 cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
@@ -1838,14 +1838,14 @@ get_scaled_luma_q0.exit.us35:                     ; preds = %19, %16
   store i16 %.0.i.us36, ptr %24, align 2
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %._crit_edge.us, label %.lr.ph.split.us38, !llvm.loop !13
+  br i1 %exitcond53.not, label %._crit_edge.us, label %.lr.ph.split.us38, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %get_scaled_luma_q0.exit.us22.us, %get_scaled_luma_q0.exit.us.us, %get_scaled_luma_q0.exit.us35
   %30 = getelementptr inbounds i16, ptr %.01826.us, i64 %10
   %31 = getelementptr inbounds nuw i8, ptr %.01729.us, i64 64
   %32 = add nuw nsw i32 %.01632.us, 1
   %exitcond54.not = icmp eq i32 %32, %6
-  br i1 %exitcond54.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond54.not, label %._crit_edge33, label %.preheader.us, !llvm.loop !15
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us.us
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %get_scaled_luma_q0.exit.us.us ], [ 0, %.preheader.us ]
@@ -1879,7 +1879,7 @@ get_scaled_luma_q0.exit.us.us:                    ; preds = %41, %38
   store i16 %.0.i.us.us, ptr %46, align 2
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !16
+  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !17
 
 .lr.ph.split.us20.us:                             ; preds = %.preheader.us, %get_scaled_luma_q0.exit.us22.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %get_scaled_luma_q0.exit.us22.us ], [ 0, %.preheader.us ]
@@ -1913,7 +1913,7 @@ get_scaled_luma_q0.exit.us22.us:                  ; preds = %60, %57
   store i16 %.0.i.us25.us, ptr %65, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us20.us, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us20.us, !llvm.loop !18
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
@@ -1965,14 +1965,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 4
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2006,7 +2006,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2040,7 +2040,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2092,14 +2092,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 8
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2133,7 +2133,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2167,7 +2167,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2219,14 +2219,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 16
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2260,7 +2260,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 4
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2294,7 +2294,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2346,14 +2346,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 4
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2387,7 +2387,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2421,7 +2421,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2473,14 +2473,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 8
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2514,7 +2514,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2548,7 +2548,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2600,14 +2600,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 16
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2641,7 +2641,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2675,7 +2675,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2727,14 +2727,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 32
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2768,7 +2768,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 8
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2802,7 +2802,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2854,14 +2854,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 4
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -2895,7 +2895,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -2929,7 +2929,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -2981,14 +2981,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 8
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3022,7 +3022,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3056,7 +3056,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3108,14 +3108,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 16
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3149,7 +3149,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3183,7 +3183,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3235,14 +3235,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 32
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3276,7 +3276,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3310,7 +3310,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3362,14 +3362,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 8
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3403,7 +3403,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3437,7 +3437,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3489,14 +3489,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 16
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3530,7 +3530,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3564,7 +3564,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3616,14 +3616,14 @@ get_scaled_luma_q0.exit.us35.i:                   ; preds = %15, %12
   store i16 %.0.i.us36.i, ptr %20, align 2
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !13
+  br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us38.i, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us22.us.i, %get_scaled_luma_q0.exit.us.us.i, %get_scaled_luma_q0.exit.us35.i
   %26 = getelementptr inbounds i16, ptr %.01826.us.i, i64 %6
   %27 = getelementptr inbounds nuw i8, ptr %.01729.us.i, i64 64
   %28 = add nuw nsw i32 %.01632.us.i, 1
   %exitcond54.not.i = icmp eq i32 %28, 32
-  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !14
+  br i1 %exitcond54.not.i, label %cfl_predict_hbd_c.exit, label %.preheader.us.i, !llvm.loop !15
 
 .lr.ph.split.us.us.i:                             ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %get_scaled_luma_q0.exit.us.us.i ], [ 0, %.preheader.us.i ]
@@ -3657,7 +3657,7 @@ get_scaled_luma_q0.exit.us.us.i:                  ; preds = %37, %34
   store i16 %.0.i.us.us.i, ptr %42, align 2
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, 32
-  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !17
 
 .lr.ph.split.us20.us.i:                           ; preds = %.preheader.us.i, %get_scaled_luma_q0.exit.us22.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us22.us.i ], [ 0, %.preheader.us.i ]
@@ -3691,7 +3691,7 @@ get_scaled_luma_q0.exit.us22.us.i:                ; preds = %56, %53
   store i16 %.0.i.us25.us.i, ptr %61, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us20.us.i, !llvm.loop !18
 
 cfl_predict_hbd_c.exit:                           ; preds = %._crit_edge.us.i
   ret void
@@ -3755,13 +3755,13 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   store i16 %30, ptr %32, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %31, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %31, !llvm.loop !19
 
 ._crit_edge.us.i.i:                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %.04049.us.i.i, i64 64
   %34 = add nuw nsw i32 %.04448.us.i.i, 1
   %exitcond63.not.i.i = icmp eq i32 %34, %22
-  br i1 %exitcond63.not.i.i, label %._crit_edge52.i.i, label %.lr.ph.us.i.i, !llvm.loop !19
+  br i1 %exitcond63.not.i.i, label %._crit_edge52.i.i, label %.lr.ph.us.i.i, !llvm.loop !20
 
 ._crit_edge52.i.i:                                ; preds = %._crit_edge.us.i.i, %25
   store i32 %15, ptr %18, align 4
@@ -3792,13 +3792,13 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   store i16 %43, ptr %44, align 2
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, %wide.trip.count67.i.i
-  br i1 %exitcond68.not.i.i, label %._crit_edge.us57.i.i, label %41, !llvm.loop !20
+  br i1 %exitcond68.not.i.i, label %._crit_edge.us57.i.i, label %41, !llvm.loop !21
 
 ._crit_edge.us57.i.i:                             ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %.04254.us.i.i, i64 64
   %46 = add nuw nsw i32 %.04155.us.i.i, 1
   %exitcond69.not.i.i = icmp eq i32 %46, %23
-  br i1 %exitcond69.not.i.i, label %.split59.us.i.i, label %.lr.ph.us56.i.i, !llvm.loop !21
+  br i1 %exitcond69.not.i.i, label %.split59.us.i.i, label %.lr.ph.us56.i.i, !llvm.loop !22
 
 .split59.us.i.i:                                  ; preds = %._crit_edge.us57.i.i
   store i32 %17, ptr %21, align 4
@@ -3926,12 +3926,12 @@ define hidden void @cfl_subsample_lbd_420_4x4_c(ptr noundef readonly captures(no
   %24 = shl nuw nsw i16 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
-  br i1 %9, label %8, label %26, !llvm.loop !22
+  br i1 %9, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -3973,14 +3973,14 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr noundef readonly captures(no
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4022,14 +4022,14 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4071,14 +4071,14 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4119,14 +4119,14 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr noundef readonly captures(no
   %23 = shl nuw nsw i16 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2
-  br i1 %8, label %7, label %25, !llvm.loop !22
+  br i1 %8, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4168,12 +4168,12 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr noundef readonly captures(no
   store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %25 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %25, label %8, label %26, !llvm.loop !22
+  br i1 %25, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -4215,14 +4215,14 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4264,14 +4264,14 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4313,14 +4313,14 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4362,14 +4362,14 @@ define hidden void @cfl_subsample_lbd_420_32x16_c(ptr noundef readonly captures(
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4410,14 +4410,14 @@ define hidden void @cfl_subsample_lbd_420_4x16_c(ptr noundef readonly captures(n
   %23 = shl nuw nsw i16 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2
-  br i1 %8, label %7, label %25, !llvm.loop !22
+  br i1 %8, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4459,12 +4459,12 @@ define hidden void @cfl_subsample_lbd_420_16x4_c(ptr noundef readonly captures(n
   store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %25 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %25, label %8, label %26, !llvm.loop !22
+  br i1 %25, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
@@ -4506,14 +4506,14 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4555,14 +4555,14 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr noundef readonly captures(n
   store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %24 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %24, label %7, label %25, !llvm.loop !22
+  br i1 %24, label %7, label %25, !llvm.loop !23
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %28 = add nuw nsw i32 %.02125.i, 2
   %29 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !23
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !24
 
 cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
@@ -4607,7 +4607,7 @@ define hidden void @cfl_subsample_lbd_422_4x4_c(ptr noundef readonly captures(no
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -4638,14 +4638,14 @@ define hidden void @cfl_subsample_lbd_422_8x8_c(ptr noundef readonly captures(no
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4676,14 +4676,14 @@ define hidden void @cfl_subsample_lbd_422_16x16_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4714,14 +4714,14 @@ define hidden void @cfl_subsample_lbd_422_32x32_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4758,7 +4758,7 @@ define hidden void @cfl_subsample_lbd_422_4x8_c(ptr noundef readonly captures(no
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -4789,14 +4789,14 @@ define hidden void @cfl_subsample_lbd_422_8x4_c(ptr noundef readonly captures(no
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4827,14 +4827,14 @@ define hidden void @cfl_subsample_lbd_422_8x16_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4865,14 +4865,14 @@ define hidden void @cfl_subsample_lbd_422_16x8_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4903,14 +4903,14 @@ define hidden void @cfl_subsample_lbd_422_16x32_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4941,14 +4941,14 @@ define hidden void @cfl_subsample_lbd_422_32x16_c(ptr noundef readonly captures(
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -4985,7 +4985,7 @@ define hidden void @cfl_subsample_lbd_422_4x16_c(ptr noundef readonly captures(n
   %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %23 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -5016,14 +5016,14 @@ define hidden void @cfl_subsample_lbd_422_16x4_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -5054,14 +5054,14 @@ define hidden void @cfl_subsample_lbd_422_8x32_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -5092,14 +5092,14 @@ define hidden void @cfl_subsample_lbd_422_32x8_c(ptr noundef readonly captures(n
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %16, !llvm.loop !25
+  br i1 %15, label %5, label %16, !llvm.loop !26
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !25
 
 cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
@@ -5134,14 +5134,14 @@ define hidden void @cfl_subsample_lbd_444_4x4_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5168,14 +5168,14 @@ define hidden void @cfl_subsample_lbd_444_8x8_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5202,14 +5202,14 @@ define hidden void @cfl_subsample_lbd_444_16x16_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5236,14 +5236,14 @@ define hidden void @cfl_subsample_lbd_444_32x32_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5270,14 +5270,14 @@ define hidden void @cfl_subsample_lbd_444_4x8_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5304,14 +5304,14 @@ define hidden void @cfl_subsample_lbd_444_8x4_c(ptr noundef readonly captures(no
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5338,14 +5338,14 @@ define hidden void @cfl_subsample_lbd_444_8x16_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5372,14 +5372,14 @@ define hidden void @cfl_subsample_lbd_444_16x8_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5406,14 +5406,14 @@ define hidden void @cfl_subsample_lbd_444_16x32_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5440,14 +5440,14 @@ define hidden void @cfl_subsample_lbd_444_32x16_c(ptr noundef readonly captures(
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5474,14 +5474,14 @@ define hidden void @cfl_subsample_lbd_444_4x16_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5508,14 +5508,14 @@ define hidden void @cfl_subsample_lbd_444_16x4_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5542,14 +5542,14 @@ define hidden void @cfl_subsample_lbd_444_8x32_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5576,14 +5576,14 @@ define hidden void @cfl_subsample_lbd_444_32x8_c(ptr noundef readonly captures(n
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !26
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !27
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %14 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %14, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !28
 
 cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
@@ -5628,12 +5628,12 @@ define hidden void @cfl_subsample_hbd_420_4x4_c(ptr noundef readonly captures(no
   %20 = shl i16 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %20, ptr %21, align 2
-  br i1 %9, label %8, label %22, !llvm.loop !28
+  br i1 %9, label %8, label %22, !llvm.loop !29
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -5671,14 +5671,14 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr noundef readonly captures(no
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5716,14 +5716,14 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5761,14 +5761,14 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5805,14 +5805,14 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr noundef readonly captures(no
   %19 = shl i16 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %19, ptr %20, align 2
-  br i1 %8, label %7, label %21, !llvm.loop !28
+  br i1 %8, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5850,12 +5850,12 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr noundef readonly captures(no
   store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %21 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %21, label %8, label %22, !llvm.loop !28
+  br i1 %21, label %8, label %22, !llvm.loop !29
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -5893,14 +5893,14 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5938,14 +5938,14 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -5983,14 +5983,14 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -6028,14 +6028,14 @@ define hidden void @cfl_subsample_hbd_420_32x16_c(ptr noundef readonly captures(
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -6072,14 +6072,14 @@ define hidden void @cfl_subsample_hbd_420_4x16_c(ptr noundef readonly captures(n
   %19 = shl i16 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
   store i16 %19, ptr %20, align 2
-  br i1 %8, label %7, label %21, !llvm.loop !28
+  br i1 %8, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -6117,12 +6117,12 @@ define hidden void @cfl_subsample_hbd_420_16x4_c(ptr noundef readonly captures(n
   store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %21 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %21, label %8, label %22, !llvm.loop !28
+  br i1 %21, label %8, label %22, !llvm.loop !29
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
@@ -6160,14 +6160,14 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -6205,14 +6205,14 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr noundef readonly captures(n
   store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %20 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %20, label %7, label %21, !llvm.loop !28
+  br i1 %20, label %7, label %21, !llvm.loop !29
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   %24 = add nuw nsw i32 %.02125.i, 2
   %25 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !29
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !30
 
 cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
@@ -6253,7 +6253,7 @@ define hidden void @cfl_subsample_hbd_422_4x4_c(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -6282,14 +6282,14 @@ define hidden void @cfl_subsample_hbd_422_8x8_c(ptr noundef readonly captures(no
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6318,14 +6318,14 @@ define hidden void @cfl_subsample_hbd_422_16x16_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6354,14 +6354,14 @@ define hidden void @cfl_subsample_hbd_422_32x32_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6394,7 +6394,7 @@ define hidden void @cfl_subsample_hbd_422_4x8_c(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -6423,14 +6423,14 @@ define hidden void @cfl_subsample_hbd_422_8x4_c(ptr noundef readonly captures(no
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6459,14 +6459,14 @@ define hidden void @cfl_subsample_hbd_422_8x16_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6495,14 +6495,14 @@ define hidden void @cfl_subsample_hbd_422_16x8_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6531,14 +6531,14 @@ define hidden void @cfl_subsample_hbd_422_16x32_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6567,14 +6567,14 @@ define hidden void @cfl_subsample_hbd_422_32x16_c(ptr noundef readonly captures(
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6607,7 +6607,7 @@ define hidden void @cfl_subsample_hbd_422_4x16_c(ptr noundef readonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
@@ -6636,14 +6636,14 @@ define hidden void @cfl_subsample_hbd_422_16x4_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6672,14 +6672,14 @@ define hidden void @cfl_subsample_hbd_422_8x32_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6708,14 +6708,14 @@ define hidden void @cfl_subsample_hbd_422_32x8_c(ptr noundef readonly captures(n
   store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %13, label %5, label %14, !llvm.loop !31
+  br i1 %13, label %5, label %14, !llvm.loop !32
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
   %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
   %17 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !31
 
 cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
@@ -6749,14 +6749,14 @@ define hidden void @cfl_subsample_hbd_444_4x4_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6782,14 +6782,14 @@ define hidden void @cfl_subsample_hbd_444_8x8_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6815,14 +6815,14 @@ define hidden void @cfl_subsample_hbd_444_16x16_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6848,14 +6848,14 @@ define hidden void @cfl_subsample_hbd_444_32x32_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6881,14 +6881,14 @@ define hidden void @cfl_subsample_hbd_444_4x8_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6914,14 +6914,14 @@ define hidden void @cfl_subsample_hbd_444_8x4_c(ptr noundef readonly captures(no
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6947,14 +6947,14 @@ define hidden void @cfl_subsample_hbd_444_8x16_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -6980,14 +6980,14 @@ define hidden void @cfl_subsample_hbd_444_16x8_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7013,14 +7013,14 @@ define hidden void @cfl_subsample_hbd_444_16x32_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7046,14 +7046,14 @@ define hidden void @cfl_subsample_hbd_444_32x16_c(ptr noundef readonly captures(
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7079,14 +7079,14 @@ define hidden void @cfl_subsample_hbd_444_4x16_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7112,14 +7112,14 @@ define hidden void @cfl_subsample_hbd_444_16x4_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7145,14 +7145,14 @@ define hidden void @cfl_subsample_hbd_444_8x32_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7178,14 +7178,14 @@ define hidden void @cfl_subsample_hbd_444_32x8_c(ptr noundef readonly captures(n
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 64
   %13 = add nuw nsw i32 %.01218.i, 1
   %exitcond20.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !34
 
 cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
@@ -7621,33 +7621,34 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !5, !15}
-!17 = distinct !{!17, !5, !15}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !15}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !15}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5, !6, !16}
+!18 = distinct !{!18, !5, !6, !16}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6, !16}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !16}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}

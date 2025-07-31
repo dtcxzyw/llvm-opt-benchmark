@@ -247,7 +247,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %112 = add nuw nsw i32 %.0153167, 1
   %113 = load i32, ptr %59, align 4
   %114 = icmp slt i32 %112, %113
-  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %110, %53
   %.2150.lcssa = phi i32 [ %.0148172, %53 ], [ %88, %110 ]
@@ -268,7 +268,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
   %118 = add nuw nsw i32 %.0145173, 1
   %exitcond.not = icmp eq i32 %118, %2
-  br i1 %exitcond.not, label %._crit_edge179, label %26, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge179, label %26, !llvm.loop !10
 
 ._crit_edge179:                                   ; preds = %117, %4
   %.0148.lcssa = phi i32 [ 0, %4 ], [ %.1149, %117 ]
@@ -334,7 +334,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %.1141 = phi i32 [ %151, %146 ], [ %.0140186, %.lr.ph188 ]
   %153 = call ptr @hash_seq_search(ptr noundef nonnull %7) #11
   %.not = icmp eq ptr %153, null
-  br i1 %.not, label %._crit_edge189.loopexit, label %.lr.ph188, !llvm.loop !10
+  br i1 %.not, label %._crit_edge189.loopexit, label %.lr.ph188, !llvm.loop !11
 
 ._crit_edge189.loopexit:                          ; preds = %152
   %154 = uitofp nneg i32 %.1141 to double
@@ -408,7 +408,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   store float %194, ptr %195, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next, %171
-  br i1 %exitcond197.not, label %196, label %181, !llvm.loop !11
+  br i1 %exitcond197.not, label %196, label %181, !llvm.loop !12
 
 196:                                              ; preds = %181
   %197 = sitofp i32 %.2144 to double
@@ -613,9 +613,10 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

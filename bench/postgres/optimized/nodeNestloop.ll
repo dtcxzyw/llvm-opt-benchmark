@@ -282,7 +282,7 @@ ExecProcNode.exit83:                              ; preds = %93, %95
   br i1 %105, label %.backedge.backedge, label %106
 
 .backedge.backedge:                               ; preds = %103, %140, %142, %106, %154, %202
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 106:                                              ; preds = %103
   %107 = load i32, ptr %37, align 8
@@ -567,3 +567,5 @@ attributes #6 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

@@ -218,7 +218,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_add(ptr noundef captures(none) %0, pt
 .lr.ph.i:                                         ; preds = %11, %20
   %.0152.i = phi ptr [ %22, %20 ], [ %14, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0152.i, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %16 = load i64, ptr %15, align 8, !tbaa !22
   %17 = icmp eq i64 %16, %2
   br i1 %17, label %srtm_find.exit, label %18
 
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_add(ptr noundef captures(none) %0, pt
   %21 = getelementptr inbounds nuw i8, ptr %.0152.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !18
   %.not20.i = icmp eq ptr %22, null
-  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 srtm_find.exit:                                   ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
@@ -246,12 +246,12 @@ srtm_find.exit:                                   ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %1, ptr %26, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 %2, ptr %27, align 8, !tbaa !21
+  store i64 %2, ptr %27, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !24
   %.val50 = load ptr, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4, !tbaa !25
+  store i32 0, ptr %5, align 4, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %30 = call i32 @EVP_EncryptUpdate(ptr noundef %.val50, ptr noundef nonnull %29, ptr noundef nonnull %5, ptr noundef nonnull %28, i32 noundef 16) #9
   %.not.i = icmp eq i32 %30, 0
@@ -284,29 +284,29 @@ srtm_find.exit:                                   ; preds = %.lr.ph.i
   br label %srtm_check_lh.exit60
 
 43:                                               ; preds = %34
-  %44 = load i64, ptr %27, align 8, !tbaa !21
-  store ptr %14, ptr %7, align 8, !tbaa !26
+  %44 = load i64, ptr %27, align 8, !tbaa !22
+  store ptr %14, ptr %7, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !21
+  %46 = load i64, ptr %45, align 8, !tbaa !22
   %47 = icmp ugt i64 %46, %44
   br i1 %47, label %.lr.ph, label %sorted_insert_seq_num.exit
 
 48:                                               ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !21
+  %50 = load i64, ptr %49, align 8, !tbaa !22
   %51 = icmp ugt i64 %50, %44
-  br i1 %51, label %.lr.ph, label %sorted_insert_seq_num.exit.loopexit, !llvm.loop !27
+  br i1 %51, label %.lr.ph, label %sorted_insert_seq_num.exit.loopexit, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %43, %48
   %.01314.i82 = phi ptr [ %53, %48 ], [ %14, %43 ]
   %52 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !18
   %.not.i54 = icmp eq ptr %53, null
-  br i1 %.not.i54, label %.sorted_insert_seq_num.exit_crit_edge84, label %48, !llvm.loop !27
+  br i1 %.not.i54, label %.sorted_insert_seq_num.exit_crit_edge84, label %48, !llvm.loop !28
 
 .sorted_insert_seq_num.exit_crit_edge84:          ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
-  br label %sorted_insert_seq_num.exit, !llvm.loop !27
+  br label %sorted_insert_seq_num.exit, !llvm.loop !28
 
 sorted_insert_seq_num.exit.loopexit:              ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %.01314.i82, i64 8
@@ -317,8 +317,8 @@ sorted_insert_seq_num.exit:                       ; preds = %sorted_insert_seq_n
   %.0.lcssa.i53 = phi ptr [ %54, %.sorted_insert_seq_num.exit_crit_edge84 ], [ %7, %43 ], [ %55, %sorted_insert_seq_num.exit.loopexit ]
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %56, ptr %57, align 8, !tbaa !18
-  store ptr %23, ptr %.0.lcssa.i53, align 8, !tbaa !26
-  %.0..0..0. = load ptr, ptr %7, align 8, !tbaa !26
+  store ptr %23, ptr %.0.lcssa.i53, align 8, !tbaa !27
+  %.0..0..0. = load ptr, ptr %7, align 8, !tbaa !27
   %.not44 = icmp eq ptr %.0..0..0., %14
   br i1 %.not44, label %srtm_check_lh.exit, label %58
 
@@ -360,7 +360,7 @@ srtm_check_lh.exit60.thread:                      ; preds = %70
 
 77:                                               ; preds = %srtm_check_lh.exit
   %78 = load ptr, ptr %26, align 8, !tbaa !13
-  store ptr %68, ptr %7, align 8, !tbaa !26
+  store ptr %68, ptr %7, align 8, !tbaa !27
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !13
   %81 = icmp ugt ptr %80, %78
@@ -370,23 +370,23 @@ srtm_check_lh.exit60.thread:                      ; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !13
   %85 = icmp ugt ptr %84, %78
-  br i1 %85, label %.lr.ph88, label %sorted_insert_srt.exit, !llvm.loop !28
+  br i1 %85, label %.lr.ph88, label %sorted_insert_srt.exit, !llvm.loop !29
 
 .lr.ph88:                                         ; preds = %77, %82
   %.01314.i6287 = phi ptr [ %86, %82 ], [ %68, %77 ]
-  %86 = load ptr, ptr %.01314.i6287, align 8, !tbaa !29
+  %86 = load ptr, ptr %.01314.i6287, align 8, !tbaa !30
   %.not.i64 = icmp eq ptr %86, null
-  br i1 %.not.i64, label %.sorted_insert_srt.exit_crit_edge91, label %82, !llvm.loop !28
+  br i1 %.not.i64, label %.sorted_insert_srt.exit_crit_edge91, label %82, !llvm.loop !29
 
 .sorted_insert_srt.exit_crit_edge91:              ; preds = %.lr.ph88
-  br label %sorted_insert_srt.exit, !llvm.loop !28
+  br label %sorted_insert_srt.exit, !llvm.loop !29
 
 sorted_insert_srt.exit:                           ; preds = %82, %.sorted_insert_srt.exit_crit_edge91, %77
   %87 = phi ptr [ null, %.sorted_insert_srt.exit_crit_edge91 ], [ %68, %77 ], [ %86, %82 ]
   %.0.lcssa.i63 = phi ptr [ %.01314.i6287, %.sorted_insert_srt.exit_crit_edge91 ], [ %7, %77 ], [ %.01314.i6287, %82 ]
-  store ptr %87, ptr %23, align 8, !tbaa !29
-  store ptr %23, ptr %.0.lcssa.i63, align 8, !tbaa !26
-  %.0..0..0.68 = load ptr, ptr %7, align 8, !tbaa !26
+  store ptr %87, ptr %23, align 8, !tbaa !30
+  store ptr %23, ptr %.0.lcssa.i63, align 8, !tbaa !27
+  %.0..0..0.68 = load ptr, ptr %7, align 8, !tbaa !27
   %.not47 = icmp eq ptr %.0..0..0.68, %68
   br i1 %.not47, label %srtm_check_lh.exit60, label %88
 
@@ -434,15 +434,15 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_remove(ptr noundef captures(none) %0,
 
 .lr.ph.i.preheader:                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !21
+  %13 = load i64, ptr %12, align 8, !tbaa !22
   %14 = icmp eq i64 %13, %2
   br i1 %14, label %23, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %20
   %15 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %16 = load i64, ptr %15, align 8, !tbaa !22
   %17 = icmp eq i64 %16, %2
-  br i1 %17, label %35, label %.lr.ph, !llvm.loop !22
+  br i1 %17, label %35, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %18 = phi i64 [ %16, %.lr.ph.i ], [ %13, %.lr.ph.i.preheader ]
@@ -454,7 +454,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_remove(ptr noundef captures(none) %0,
   %21 = getelementptr inbounds nuw i8, ptr %.0152.i31, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !18
   %.not20.i = icmp eq ptr %22, null
-  br i1 %.not20.i, label %srtm_find.exit.thread, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not20.i, label %srtm_find.exit.thread, label %.lr.ph.i, !llvm.loop !23
 
 srtm_find.exit.thread:                            ; preds = %.lr.ph, %20, %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
@@ -502,7 +502,7 @@ srtm_check_lh.exit:                               ; preds = %27, %33, %35
   br i1 %42, label %43, label %.preheader.i
 
 43:                                               ; preds = %srtm_check_lh.exit
-  %44 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !29
+  %44 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !30
   %.not21.i = icmp eq ptr %44, null
   %45 = load ptr, ptr %39, align 8, !tbaa !12
   br i1 %.not21.i, label %50, label %46
@@ -520,13 +520,13 @@ srtm_check_lh.exit:                               ; preds = %27, %33, %35
 
 .preheader.i:                                     ; preds = %srtm_check_lh.exit, %.preheader.i
   %.0.i21 = phi ptr [ %52, %.preheader.i ], [ %41, %srtm_check_lh.exit ]
-  %52 = load ptr, ptr %.0.i21, align 8, !tbaa !29
+  %52 = load ptr, ptr %.0.i21, align 8, !tbaa !30
   %.not.i22 = icmp eq ptr %52, %.0152.i.lcssa36
-  br i1 %.not.i22, label %53, label %.preheader.i, !llvm.loop !30
+  br i1 %.not.i22, label %53, label %.preheader.i, !llvm.loop !31
 
 53:                                               ; preds = %.preheader.i
-  %54 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !29
-  store ptr %54, ptr %.0.i21, align 8, !tbaa !29
+  %54 = load ptr, ptr %.0152.i.lcssa36, align 8, !tbaa !30
+  store ptr %54, ptr %.0.i21, align 8, !tbaa !30
   br label %57
 
 srtm_remove_from_rev.exit:                        ; preds = %46
@@ -581,7 +581,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_cull(ptr noundef captures(none) %0, p
   br i1 %20, label %21, label %.preheader.i
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %.01729, align 8, !tbaa !29
+  %22 = load ptr, ptr %.01729, align 8, !tbaa !30
   %.not21.i = icmp eq ptr %22, null
   %23 = load ptr, ptr %13, align 8, !tbaa !12
   br i1 %.not21.i, label %30, label %24
@@ -605,13 +605,13 @@ srtm_check_lh.exit.thread.i:                      ; preds = %24
 
 .preheader.i:                                     ; preds = %17, %.preheader.i
   %.0.i = phi ptr [ %32, %.preheader.i ], [ %19, %17 ]
-  %32 = load ptr, ptr %.0.i, align 8, !tbaa !29
+  %32 = load ptr, ptr %.0.i, align 8, !tbaa !30
   %.not.i = icmp eq ptr %32, %.01729
-  br i1 %.not.i, label %33, label %.preheader.i, !llvm.loop !30
+  br i1 %.not.i, label %33, label %.preheader.i, !llvm.loop !31
 
 33:                                               ; preds = %.preheader.i
-  %34 = load ptr, ptr %.01729, align 8, !tbaa !29
-  store ptr %34, ptr %.0.i, align 8, !tbaa !29
+  %34 = load ptr, ptr %.01729, align 8, !tbaa !30
+  store ptr %34, ptr %.0.i, align 8, !tbaa !30
   br label %srtm_remove_from_rev.exit
 
 srtm_remove_from_rev.exit:                        ; preds = %24, %srtm_check_lh.exit.thread.i, %30, %33
@@ -620,7 +620,7 @@ srtm_remove_from_rev.exit:                        ; preds = %24, %srtm_check_lh.
 
 35:                                               ; preds = %14, %srtm_remove_from_rev.exit
   %.not19 = icmp eq ptr %16, null
-  br i1 %.not19, label %36, label %14, !llvm.loop !31
+  br i1 %.not19, label %36, label %14, !llvm.loop !32
 
 36:                                               ; preds = %35
   %37 = load ptr, ptr %9, align 8, !tbaa !11
@@ -631,7 +631,7 @@ srtm_remove_from_rev.exit:                        ; preds = %24, %srtm_check_lh.
   br i1 %41, label %42, label %.preheader.i21
 
 42:                                               ; preds = %36
-  %43 = load ptr, ptr %11, align 8, !tbaa !29
+  %43 = load ptr, ptr %11, align 8, !tbaa !30
   %.not21.i25 = icmp eq ptr %43, null
   %44 = load ptr, ptr %13, align 8, !tbaa !12
   br i1 %.not21.i25, label %51, label %45
@@ -655,13 +655,13 @@ srtm_check_lh.exit.thread.i27:                    ; preds = %45
 
 .preheader.i21:                                   ; preds = %36, %.preheader.i21
   %.0.i22 = phi ptr [ %53, %.preheader.i21 ], [ %40, %36 ]
-  %53 = load ptr, ptr %.0.i22, align 8, !tbaa !29
+  %53 = load ptr, ptr %.0.i22, align 8, !tbaa !30
   %.not.i23 = icmp eq ptr %53, %11
-  br i1 %.not.i23, label %54, label %.preheader.i21, !llvm.loop !30
+  br i1 %.not.i23, label %54, label %.preheader.i21, !llvm.loop !31
 
 54:                                               ; preds = %.preheader.i21
-  %55 = load ptr, ptr %11, align 8, !tbaa !29
-  store ptr %55, ptr %.0.i22, align 8, !tbaa !29
+  %55 = load ptr, ptr %11, align 8, !tbaa !30
+  store ptr %55, ptr %.0.i22, align 8, !tbaa !30
   br label %srtm_remove_from_rev.exit28
 
 srtm_remove_from_rev.exit28:                      ; preds = %45, %srtm_check_lh.exit.thread.i27, %51, %54
@@ -688,7 +688,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(
 11:                                               ; preds = %5
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !25
+  store i32 0, ptr %6, align 4, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %13 = call i32 @EVP_EncryptUpdate(ptr noundef %.val, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef %1, i32 noundef 16) #9
   %.not.i = icmp eq i32 %13, 0
@@ -711,11 +711,11 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(
   %.024 = phi ptr [ %24, %.lr.ph ], [ %19, %16 ]
   %.01623 = phi i64 [ %23, %.lr.ph ], [ %2, %16 ]
   %23 = add i64 %.01623, -1
-  %24 = load ptr, ptr %.024, align 8, !tbaa !29
+  %24 = load ptr, ptr %.024, align 8, !tbaa !30
   %25 = icmp ne i64 %23, 0
   %26 = icmp ne ptr %24, null
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.0.lcssa = phi ptr [ %19, %16 ], [ %24, %.lr.ph ]
@@ -729,7 +729,7 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !13
-  store ptr %32, ptr %3, align 8, !tbaa !33
+  store ptr %32, ptr %3, align 8, !tbaa !34
   br label %33
 
 33:                                               ; preds = %30, %29
@@ -738,8 +738,8 @@ define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  %36 = load i64, ptr %35, align 8, !tbaa !21
-  store i64 %36, ptr %4, align 8, !tbaa !34
+  %36 = load i64, ptr %35, align 8, !tbaa !22
+  store i64 %36, ptr %4, align 8, !tbaa !35
   br label %37
 
 37:                                               ; preds = %33, %34, %._crit_edge, %11, %5
@@ -831,19 +831,20 @@ attributes #10 = { nounwind willreturn memory(read) }
 !16 = !{!"long", !7, i64 0}
 !17 = !{!"", !7, i64 0}
 !18 = !{!14, !15, i64 8}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!14, !16, i64 24}
-!22 = distinct !{!22, !20}
-!23 = !{i64 0, i64 16, !24}
-!24 = !{!7, !7, i64 0}
-!25 = !{!10, !10, i64 0}
-!26 = !{!15, !15, i64 0}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = !{!14, !15, i64 0}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = !{!6, !6, i64 0}
-!34 = !{!16, !16, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!14, !16, i64 24}
+!23 = distinct !{!23, !20, !21}
+!24 = !{i64 0, i64 16, !25}
+!25 = !{!7, !7, i64 0}
+!26 = !{!10, !10, i64 0}
+!27 = !{!15, !15, i64 0}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = !{!14, !15, i64 0}
+!31 = distinct !{!31, !20, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!6, !6, i64 0}
+!35 = !{!16, !16, i64 0}

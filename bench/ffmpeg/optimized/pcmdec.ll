@@ -246,7 +246,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_read_header(ptr noundef %0) #
   call void @av_channel_layout_uninit(ptr noundef nonnull %21) #7
   %65 = load i32, ptr %4, align 4, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 132
-  store i32 %65, ptr %66, align 4, !tbaa !49
+  store i32 %65, ptr %66, align 4, !tbaa !50
   br label %67
 
 67:                                               ; preds = %64, %61
@@ -267,7 +267,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_read_header(ptr noundef %0) #
   %71 = load i32, ptr %17, align 4, !tbaa !40
   %72 = call i32 @av_get_bits_per_sample(i32 noundef %71) #7
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 %72, ptr %73, align 8, !tbaa !50
+  store i32 %72, ptr %73, align 8, !tbaa !51
   %74 = icmp sgt i32 %72, 0
   br i1 %74, label %76, label %75
 
@@ -278,11 +278,11 @@ define internal range(i32 -2147483648, 1) i32 @pcm_read_header(ptr noundef %0) #
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 132
-  %78 = load i32, ptr %77, align 4, !tbaa !49
+  %78 = load i32, ptr %77, align 4, !tbaa !50
   %79 = mul nsw i32 %78, %72
   %80 = sdiv i32 %79, 8
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 156
-  store i32 %80, ptr %81, align 4, !tbaa !51
+  store i32 %80, ptr %81, align 4, !tbaa !52
   %82 = load i32, ptr %20, align 8, !tbaa !43
   call void @avpriv_set_pts_info(ptr noundef nonnull %9, i32 noundef 64, i32 noundef 1, i32 noundef %82) #7
   br label %83
@@ -395,8 +395,9 @@ attributes #9 = { noreturn nounwind }
 !44 = !{!5, !12, i64 32}
 !45 = !{!38, !18, i64 48}
 !46 = !{!13, !13, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!33, !13, i64 132}
-!50 = !{!33, !13, i64 56}
-!51 = !{!33, !13, i64 156}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!33, !13, i64 132}
+!51 = !{!33, !13, i64 56}
+!52 = !{!33, !13, i64 156}

@@ -2146,7 +2146,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   %28 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_bssgp_not_dissected_yet, ptr noundef %0, i32 noundef %.0141149, i32 noundef 22, ptr noundef nonnull @.str.458, i32 noundef %27)
   %29 = add i32 %.0141149, 22
   %exitcond.not = icmp eq i32 %27, %26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 30:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
@@ -2187,7 +2187,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
 46:                                               ; preds = %44, %42
   %47 = add i32 %.1151, 21
   %exitcond157.not = icmp eq i32 %34, %31
-  br i1 %exitcond157.not, label %._crit_edge, label %.lr.ph152, !llvm.loop !9
+  br i1 %exitcond157.not, label %._crit_edge, label %.lr.ph152, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %46, %30
   %.1.lcssa = phi i32 [ %25, %30 ], [ %47, %46 ]
@@ -2427,7 +2427,7 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0)
   %36 = add i32 %.04954.us, 6
   %exitcond66.not = icmp eq i32 %24, %9
-  br i1 %exitcond66.not, label %.split56.us, label %.split.us, !llvm.loop !10
+  br i1 %exitcond66.not, label %.split56.us, label %.split.us, !llvm.loop !11
 
 .split:                                           ; preds = %17, %.split
   %indvars.iv = phi i32 [ %38, %.split ], [ 0, %17 ]
@@ -2444,7 +2444,7 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0)
   %47 = add i32 %.04954, 5
   %exitcond.not = icmp eq i32 %38, %9
-  br i1 %exitcond.not, label %.split56.us, label %.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.split56.us, label %.split, !llvm.loop !13
 
 .split56.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %36, %.split.us ], [ %47, %.split ]
@@ -2557,7 +2557,7 @@ define internal noundef zeroext i16 @de_bssgp_mbms_ra_list(ptr noundef %0, ptr n
   %16 = tail call zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %15, ptr noundef %2, i32 noundef %.01920, i32 noundef 6, ptr noundef null, i32 noundef 0)
   %17 = add i32 %.01920, 8
   %exitcond.not = icmp eq i32 %14, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.019.lcssa = phi i32 [ %3, %7 ], [ %17, %.lr.ph ]
@@ -2826,7 +2826,7 @@ define internal zeroext i16 @de_bssgp_pfcs_to_be_set_up_list(ptr noundef %0, ptr
 .thread:                                          ; preds = %24, %43, %49
   %.2 = phi i32 [ %57, %49 ], [ %48, %43 ], [ %42, %24 ]
   %exitcond.not = icmp eq i32 %26, %9
-  br i1 %exitcond.not, label %58, label %24, !llvm.loop !14
+  br i1 %exitcond.not, label %58, label %24, !llvm.loop !15
 
 58:                                               ; preds = %.thread
   %59 = sub i32 %.2, %3
@@ -2972,7 +2972,7 @@ define internal noundef zeroext i16 @de_bssgp_sipsi_container(ptr noundef %0, pt
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %.03038, i32 noundef 21, ptr noundef null, ptr noundef nonnull @.str.467, i32 noundef %18)
   %20 = add i32 %.03038, 21
   %exitcond50.not = icmp eq i32 %18, %wide.trip.count49
-  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph40, !llvm.loop !15
+  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph40, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
@@ -2982,7 +2982,7 @@ define internal noundef zeroext i16 @de_bssgp_sipsi_container(ptr noundef %0, pt
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %.236, i32 noundef 22, ptr noundef null, ptr noundef nonnull @.str.468, i32 noundef %22)
   %24 = add i32 %.236, 22
   %exitcond.not = icmp eq i32 %22, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %.preheader34, %.preheader
   %.131 = phi i32 [ %15, %.preheader ], [ %15, %.preheader34 ], [ %20, %.lr.ph40 ], [ %24, %.lr.ph ]
@@ -3021,7 +3021,7 @@ define internal noundef zeroext i16 @de_bssgp_active_pfcs_list(ptr noundef %0, p
   %21 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %20, ptr noundef %2, i32 noundef %.03338, i32 noundef 1, ptr noundef null, i32 noundef 0)
   %.033 = add i32 %.03338, 1
   %exitcond.not = icmp eq i32 %19, %9
-  br i1 %exitcond.not, label %22, label %17, !llvm.loop !17
+  br i1 %exitcond.not, label %22, label %17, !llvm.loop !18
 
 22:                                               ; preds = %17
   %23 = sub i32 %.033, %3
@@ -3348,7 +3348,7 @@ define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 116
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !19
 
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 128, %13 ]
@@ -3359,7 +3359,7 @@ define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next24, 149
-  br i1 %exitcond30.not, label %18, label %.preheader, !llvm.loop !19
+  br i1 %exitcond30.not, label %18, label %.preheader, !llvm.loop !20
 
 18:                                               ; preds = %.preheader
   %19 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276)
@@ -9782,17 +9782,18 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

@@ -719,7 +719,7 @@ _get_resv_list.exit.thread:                       ; preds = %_set_resv_cond.exit
   %327 = load ptr, ptr @stderr, align 8
   %328 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef nonnull @.str.41, ptr noundef nonnull %192) #12
   call void @slurm_xfree(ptr noundef nonnull %9) #10
-  br label %336, !llvm.loop !11
+  br label %336, !llvm.loop !12
 
 329:                                              ; preds = %320, %310, %302, %288, %280, %272, %264, %256, %247, %237, %229, %221, %213, %204
   %print_fields_str.sink.i = phi ptr [ @print_fields_str, %213 ], [ @print_fields_date, %229 ], [ @print_fields_str, %247 ], [ @print_fields_str, %264 ], [ @print_fields_date, %280 ], [ @print_fields_uint32, %302 ], [ @print_fields_time_from_secs, %320 ], [ @print_fields_str, %310 ], [ @print_fields_time_from_secs, %288 ], [ @print_fields_uint32, %272 ], [ @print_fields_str, %256 ], [ @print_fields_str, %237 ], [ @print_fields_str, %221 ], [ @print_fields_str, %204 ]
@@ -743,7 +743,7 @@ _get_resv_list.exit.thread:                       ; preds = %_set_resv_cond.exit
 336:                                              ; preds = %333, %326
   %337 = call ptr @list_next(ptr noundef %190) #10
   %.not76.i = icmp eq ptr %337, null
-  br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %336, %189
   call void @list_iterator_destroy(ptr noundef %190) #10
@@ -782,7 +782,7 @@ _setup_print_fields_list.exit:                    ; preds = %182, %._crit_edge.i
   call void @slurmdb_tres_list_from_string(ptr noundef nonnull %16, ptr noundef %349, i32 noundef 0) #10
   %350 = load ptr, ptr %16, align 8
   %.not40 = icmp eq ptr %350, null
-  br i1 %.not40, label %496, label %351, !llvm.loop !12
+  br i1 %.not40, label %496, label %351, !llvm.loop !14
 
 351:                                              ; preds = %346
   %352 = call ptr @list_iterator_create(ptr noundef nonnull %350) #10
@@ -821,7 +821,7 @@ _setup_print_fields_list.exit:                    ; preds = %182, %._crit_edge.i
 .backedge:                                        ; preds = %366, %369, %_resv_tres_report.exit
   %371 = call ptr @list_next(ptr noundef %352) #10
   %.not41 = icmp eq ptr %371, null
-  br i1 %.not41, label %._crit_edge, label %362, !llvm.loop !13
+  br i1 %.not41, label %._crit_edge, label %362, !llvm.loop !15
 
 372:                                              ; preds = %362
   %373 = getelementptr inbounds nuw i8, ptr %363, i64 40
@@ -1055,7 +1055,7 @@ _setup_print_fields_list.exit:                    ; preds = %182, %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %5) #10
   %493 = call ptr @list_next(ptr noundef %397) #10
   %.not99.i = icmp eq ptr %493, null
-  br i1 %.not99.i, label %._crit_edge.i47, label %.lr.ph.i46, !llvm.loop !14
+  br i1 %.not99.i, label %._crit_edge.i47, label %.lr.ph.i46, !llvm.loop !16
 
 ._crit_edge.i47:                                  ; preds = %491, %390
   call void @list_iterator_reset(ptr noundef %397) #10
@@ -1084,7 +1084,7 @@ _resv_tres_report.exit:                           ; preds = %372, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
   %497 = call ptr @list_next(ptr noundef %343) #10
   %.not38 = icmp eq ptr %497, null
-  br i1 %.not38, label %._crit_edge53, label %346
+  br i1 %.not38, label %._crit_edge53, label %346, !llvm.loop !17
 
 ._crit_edge53:                                    ; preds = %496, %339
   call void @list_iterator_destroy(ptr noundef %343) #10
@@ -1243,10 +1243,13 @@ attributes #13 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!13 = distinct !{!13, !11}
 !14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !11}

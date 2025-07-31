@@ -182,7 +182,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.body.i.backedge:                              ; preds = %if.end.i, %for.end.i
   %i.03.i.be = phi i32 [ %inc.i, %if.end.i ], [ 0, %for.end.i ]
-  br label %for.body.i
+  br label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %if.end.i
   %call.i = tail call i32 @sched_yield() #7
@@ -268,7 +268,7 @@ while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
 while.cond.loopexit:                              ; preds = %for.body.i
   %4 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %4
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %5 = phi ptr [ %.pre, %while.body.lr.ph ], [ %4, %while.cond.loopexit ]
@@ -303,7 +303,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.body.i.backedge:                              ; preds = %if.end.i, %for.end.i
   %i.03.i.be = phi i32 [ %inc.i, %if.end.i ], [ 0, %for.end.i ]
-  br label %for.body.i
+  br label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %if.end.i
   %call.i = call i32 @sched_yield() #7
@@ -405,7 +405,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 0, ptr %u, align 8
   %9 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %9
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %uv__queue_move.exit.thread, %uv__queue_move.exit
   %async_wfd = getelementptr inbounds nuw i8, ptr %loop, i64 512
@@ -486,7 +486,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   ]
 
 for.cond.backedge:                                ; preds = %for.cond, %if.end3
-  br label %for.cond
+  br label %for.cond, !llvm.loop !10
 
 if.end3:                                          ; preds = %for.cond
   %call4 = tail call ptr @__errno_location() #8
@@ -559,7 +559,7 @@ if.end23:                                         ; preds = %if.end20
 while.cond.backedge:                              ; preds = %if.end23, %while.body, %if.end20
   %12 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %12
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond.backedge, %for.end, %uv__queue_move.exit
   ret void
@@ -589,3 +589,9 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 8106}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

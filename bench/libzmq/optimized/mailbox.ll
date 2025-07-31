@@ -578,7 +578,7 @@ define linkonce_odr void @_ZN3zmq7ypipe_tINS_9command_tELi16EE5writeERKS1_b(ptr 
   %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %6, i64 0, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %10, ptr noundef nonnull align 64 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %10, ptr noundef nonnull align 64 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !46
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   store ptr %12, ptr %5, align 8, !tbaa !34
@@ -631,7 +631,7 @@ define linkonce_odr void @_ZN3zmq7ypipe_tINS_9command_tELi16EE5writeERKS1_b(ptr 
   %.sink8.i = phi ptr [ %.0.i.i.i.i, %19 ], [ %.pre6.i, %28 ], [ %25, %22 ]
   %.sink.i = phi ptr [ %20, %19 ], [ %.pre.i, %28 ], [ %26, %22 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 1024
-  store ptr %.sink.i, ptr %34, align 64, !tbaa !51
+  store ptr %.sink.i, ptr %34, align 64, !tbaa !52
   store ptr %.sink8.i, ptr %11, align 8, !tbaa !36
   store i32 0, ptr %13, align 8, !tbaa !37
   br label %_ZN3zmq8yqueue_tINS_9command_tELi16ELm64EE4pushEv.exit
@@ -694,7 +694,7 @@ declare void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull align 4 dereference
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq9mailbox_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load i8, ptr %4, align 8, !tbaa !27, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 8, !tbaa !27, !range !53, !noundef !54
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %40
 
@@ -734,7 +734,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i: ; preds = %_ZN
   %.pre-phi.i = phi i64 [ %12, %7 ], [ %24, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
   %27 = phi ptr [ %9, %7 ], [ %22, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
   %28 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %27, i64 0, i64 %.pre-phi.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %28, i64 64, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %28, i64 64, i1 false), !tbaa.struct !46
   %29 = load i32, ptr %10, align 8, !tbaa !15
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %10, align 8, !tbaa !15
@@ -747,7 +747,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i: ; preds = %_ZN
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   store ptr %35, ptr %8, align 8, !tbaa !6
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1024
-  store ptr null, ptr %36, align 64, !tbaa !51
+  store ptr null, ptr %36, align 64, !tbaa !52
   store i32 0, ptr %10, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = ptrtoint ptr %33 to i64
@@ -768,7 +768,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit: ; preds = %_ZN3zmq7ypipe_tI
 
 44:                                               ; preds = %40
   %45 = tail call ptr @__errno_location() #18
-  %46 = load i32, ptr %45, align 4, !tbaa !54
+  %46 = load i32, ptr %45, align 4, !tbaa !55
   switch i32 %46, label %47 [
     i32 11, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
     i32 4, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
@@ -790,7 +790,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit: ; preds = %_ZN3zmq7ypipe_tI
 
 56:                                               ; preds = %53
   %57 = tail call ptr @__errno_location() #18
-  %58 = load i32, ptr %57, align 4, !tbaa !54
+  %58 = load i32, ptr %57, align 4, !tbaa !55
   %.not = icmp eq i32 %58, 11
   br i1 %.not, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread, label %59, !prof !40
 
@@ -840,7 +840,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i15: ; preds = %_
   %.pre-phi.i16 = phi i64 [ %70, %65 ], [ %82, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i19 ]
   %85 = phi ptr [ %67, %65 ], [ %80, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i19 ]
   %86 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %85, i64 0, i64 %.pre-phi.i16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %86, i64 64, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %86, i64 64, i1 false), !tbaa.struct !46
   %87 = load i32, ptr %68, align 8, !tbaa !15
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %68, align 8, !tbaa !15
@@ -853,7 +853,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i15: ; preds = %_
   %93 = load ptr, ptr %92, align 8, !tbaa !41
   store ptr %93, ptr %66, align 8, !tbaa !6
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1024
-  store ptr null, ptr %94, align 64, !tbaa !51
+  store ptr null, ptr %94, align 64, !tbaa !52
   store i32 0, ptr %68, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %96 = ptrtoint ptr %91 to i64
@@ -912,7 +912,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread: ; preds = %2, %_
   %.pre-phi = phi i64 [ %7, %2 ], [ %19, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
   %22 = phi ptr [ %4, %2 ], [ %17, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
   %23 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %22, i64 0, i64 %.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %23, i64 64, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %23, i64 64, i1 false), !tbaa.struct !46
   %24 = load i32, ptr %5, align 8, !tbaa !15
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %5, align 8, !tbaa !15
@@ -925,7 +925,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread: ; preds = %2, %_
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   store ptr %30, ptr %3, align 8, !tbaa !6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1024
-  store ptr null, ptr %31, align 64, !tbaa !51
+  store ptr null, ptr %31, align 64, !tbaa !52
   store i32 0, ptr %5, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = ptrtoint ptr %28 to i64
@@ -1045,7 +1045,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE7unw
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1024
-  %17 = load ptr, ptr %16, align 64, !tbaa !51
+  %17 = load ptr, ptr %16, align 64, !tbaa !52
   store ptr %17, ptr %5, align 8, !tbaa !34
   br label %18
 
@@ -1068,7 +1068,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE7unw
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1024
-  %28 = load ptr, ptr %27, align 64, !tbaa !51
+  %28 = load ptr, ptr %27, align 64, !tbaa !52
   store ptr %28, ptr %25, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1032
   %30 = load ptr, ptr %29, align 8, !tbaa !41
@@ -1085,7 +1085,7 @@ _ZN3zmq8yqueue_tINS_9command_tELi16ELm64EE6unpushEv.exit: ; preds = %22, %24
   %34 = phi ptr [ %19, %22 ], [ %.pre, %24 ]
   %35 = sext i32 %33 to i64
   %36 = getelementptr inbounds [16 x %"struct.zmq::command_t"], ptr %34, i64 0, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !46
   br label %37
 
 37:                                               ; preds = %2, %_ZN3zmq8yqueue_tINS_9command_tELi16ELm64EE6unpushEv.exit
@@ -1123,7 +1123,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
   %21 = icmp ne ptr %20, %.0.i.i
   %.not5.i = icmp ne ptr %.0.i.i, null
   %or.cond6.not.i = and i1 %.not5.i, %21
-  br i1 %or.cond6.not.i, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread, label %22, !prof !55
+  br i1 %or.cond6.not.i, label %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread, label %22, !prof !56
 
 22:                                               ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit
   %23 = load ptr, ptr @stderr, align 8, !tbaa !25
@@ -1215,16 +1215,17 @@ attributes #18 = { nounwind willreturn memory(none) }
 !40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !41 = !{!42, !8, i64 1032}
 !42 = !{!"_ZTSN3zmq8yqueue_tINS_9command_tELi16ELm64EE7chunk_tE", !10, i64 0, !8, i64 1024, !8, i64 1032}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{i64 0, i64 8, !46, i64 8, i64 4, !48, i64 16, i64 24, !50}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTSN3zmq8object_tE", !9, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"_ZTSN3zmq9command_t6type_tE", !10, i64 0}
-!50 = !{!10, !10, i64 0}
-!51 = !{!42, !8, i64 1024}
-!52 = !{i8 0, i8 2}
-!53 = !{}
-!54 = !{!11, !11, i64 0}
-!55 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{i64 0, i64 8, !47, i64 8, i64 4, !49, i64 16, i64 24, !51}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN3zmq8object_tE", !9, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"_ZTSN3zmq9command_t6type_tE", !10, i64 0}
+!51 = !{!10, !10, i64 0}
+!52 = !{!42, !8, i64 1024}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!11, !11, i64 0}
+!56 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}

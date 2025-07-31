@@ -358,7 +358,7 @@ lxf_sync.exit.thread:                             ; preds = %14, %12
   %49 = add i32 %48, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %50 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %50, label %.preheader, label %check_checksum.exit, !llvm.loop !69
+  br i1 %50, label %.preheader, label %check_checksum.exit, !llvm.loop !70
 
 check_checksum.exit:                              ; preds = %.preheader
   %.not70 = icmp eq i32 %49, 0
@@ -420,15 +420,15 @@ check_checksum.exit:                              ; preds = %.preheader
   %73 = load i32, ptr %.sroa.gep.sroa.gep.sroa.gep, align 4, !tbaa !27
   %74 = load i32, ptr %.sroa.gep.sroa.gep.sroa.gep106, align 16, !tbaa !27
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load ptr, ptr %75, align 8, !tbaa !70
+  %76 = load ptr, ptr %75, align 8, !tbaa !71
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !71
+  %78 = load ptr, ptr %77, align 8, !tbaa !72
   %79 = lshr i32 %72, 6
   %80 = and i32 %79, 63
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !35
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
-  store i32 %80, ptr %83, align 8, !tbaa !73
+  store i32 %80, ptr %83, align 8, !tbaa !74
   %84 = and i32 %72, 63
   %.not71 = icmp eq i32 %80, %84
   br i1 %.not71, label %86, label %85
@@ -468,18 +468,18 @@ switch.lookup:                                    ; preds = %86
   ]
 
 98:                                               ; preds = %switch.lookup
-  %99 = load ptr, ptr %76, align 8, !tbaa !71
+  %99 = load ptr, ptr %76, align 8, !tbaa !72
   call void @avpriv_set_pts_info(ptr noundef %99, i32 noundef 64, i32 noundef 1001, i32 noundef 30000) #7
   br label %104
 
 100:                                              ; preds = %switch.lookup
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.13) #7
-  %.pre = load ptr, ptr %75, align 8, !tbaa !70
+  %.pre = load ptr, ptr %75, align 8, !tbaa !71
   br label %101
 
 101:                                              ; preds = %switch.lookup, %100
   %102 = phi ptr [ %76, %switch.lookup ], [ %.pre, %100 ]
-  %103 = load ptr, ptr %102, align 8, !tbaa !71
+  %103 = load ptr, ptr %102, align 8, !tbaa !72
   call void @avpriv_set_pts_info(ptr noundef %103, i32 noundef 64, i32 noundef 1, i32 noundef 25) #7
   br label %104
 
@@ -640,10 +640,11 @@ attributes #7 = { nounwind }
 !64 = !{!32, !10, i64 40}
 !65 = !{!55, !10, i64 4}
 !66 = !{!32, !21, i64 16}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68}
-!70 = !{!12, !17, i64 48}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!73 = !{!37, !10, i64 56}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69}
+!71 = !{!12, !17, i64 48}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!74 = !{!37, !10, i64 56}

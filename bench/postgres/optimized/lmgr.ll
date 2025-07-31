@@ -840,7 +840,7 @@ define dso_local void @XactLockTableWait(i32 noundef %0, ptr noundef %1, ptr nou
 
 26:                                               ; preds = %25, %24
   %27 = call i32 @SubTransGetTopmostTransaction(i32 noundef %.08) #8
-  br label %20
+  br label %20, !llvm.loop !6
 
 28:                                               ; preds = %20
   br i1 %.not, label %31, label %29
@@ -960,7 +960,7 @@ define dso_local noundef zeroext i1 @ConditionalXactLockTableWait(i32 noundef %0
   store i8 1, ptr %7, align 1
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext true) #8
   %.not10 = icmp eq i32 %15, 0
-  br i1 %.not10, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not10, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %13
   %.lcssa.ph = xor i1 %10, true
@@ -1074,7 +1074,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %17 = load i32, ptr %8, align 4
   %18 = sext i32 %17 to i64
   %.not.us = icmp slt i64 %indvars.iv.next76, %18
-  br i1 %.not.us, label %.lr.ph.split.us, label %26, !llvm.loop !6
+  br i1 %.not.us, label %.lr.ph.split.us, label %26, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1090,7 +1090,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
   %.not = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not, label %.lr.ph.split, label %.thread95, !llvm.loop !9
+  br i1 %.not, label %.lr.ph.split, label %.thread95, !llvm.loop !12
 
 .critedge:                                        ; preds = %.preheader
   br i1 %2, label %.thread103, label %.critedge47.thread
@@ -1161,7 +1161,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %53 = getelementptr inbounds nuw i8, ptr %.03456.us.us, i64 12
   %54 = load i32, ptr %53, align 4
   %.not44.us.us = icmp eq i32 %54, 0
-  br i1 %.not44.us.us, label %._crit_edge.split.us.us, label %.lr.ph57.us, !llvm.loop !10
+  br i1 %.not44.us.us, label %._crit_edge.split.us.us, label %.lr.ph57.us, !llvm.loop !13
 
 .lr.ph63.split.split:                             ; preds = %.thread95
   %55 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1192,7 +1192,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %67 = getelementptr inbounds nuw i8, ptr %.03456, i64 12
   %68 = load i32, ptr %67, align 4
   %.not44 = icmp eq i32 %68, 0
-  br i1 %.not44, label %._crit_edge.split.loopexit, label %.lr.ph57, !llvm.loop !11
+  br i1 %.not44, label %._crit_edge.split.loopexit, label %.lr.ph57, !llvm.loop !14
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph57
   %.pre = load i32, ptr %29, align 4
@@ -1671,9 +1671,12 @@ attributes #8 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !10, !7, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10, !7}
+!13 = distinct !{!13, !10, !7, !11}
+!14 = distinct !{!14, !10, !7}

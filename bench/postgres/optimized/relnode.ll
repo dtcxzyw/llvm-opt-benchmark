@@ -2108,7 +2108,7 @@ have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %1
   store ptr %.071.i, ptr %316, align 8
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %252, !llvm.loop !10
+  br i1 %exitcond.not.i, label %set_joinrel_partition_key_exprs.exit, label %252, !llvm.loop !11
 
 set_joinrel_partition_key_exprs.exit:             ; preds = %.critedge.i22, %.loopexit
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 337
@@ -2479,7 +2479,7 @@ find_base_rel.exit:                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
-  br i1 %28, label %6, label %29, !llvm.loop !11
+  br i1 %28, label %6, label %29, !llvm.loop !12
 
 29:                                               ; preds = %find_base_rel.exit
   ret ptr %15
@@ -3180,7 +3180,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next112, %38
-  br i1 %39, label %.lr.ph83.split.us, label %.critedge.thread, !llvm.loop !12
+  br i1 %39, label %.lr.ph83.split.us, label %.critedge.thread, !llvm.loop !13
 
 .lr.ph68.us:                                      ; preds = %.lr.ph83.split.us
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -3202,7 +3202,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 27
-  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !13
+  br i1 %51, label %.lr.ph, label %.preheader, !llvm.loop !14
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.critedge.thread58
   %52 = phi ptr [ %68, %.critedge.thread58 ], [ %7, %.lr.ph83 ]
@@ -3246,7 +3246,7 @@ define internal fastcc i32 @match_expr_to_partition_keys(ptr noundef %0, ptr nou
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next103, %71
-  br i1 %72, label %.lr.ph83.split, label %.critedge.thread, !llvm.loop !14
+  br i1 %72, label %.lr.ph83.split, label %.critedge.thread, !llvm.loop !15
 
 .critedge.thread.loopexit:                        ; preds = %.lr.ph78.us
   %73 = trunc nuw nsw i64 %indvars.iv111 to i32
@@ -3310,10 +3310,11 @@ attributes #8 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10, !7}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

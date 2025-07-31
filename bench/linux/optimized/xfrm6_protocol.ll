@@ -234,7 +234,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, %4
-  br i1 %16, label %.loopexit7.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %16, label %.loopexit7.loopexit, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %9, %13
   %17 = phi i32 [ %15, %13 ], [ %11, %9 ]
@@ -246,7 +246,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit7.loopexit, label %13, !llvm.loop !8
+  br i1 %23, label %.loopexit7.loopexit, label %13, !llvm.loop !10
 
 .loopexit7.loopexit:                              ; preds = %20, %13
   %.ph = phi ptr [ null, %20 ], [ %22, %13 ]
@@ -258,7 +258,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   %26 = phi ptr [ null, %.thread ], [ %7, %9 ], [ %.ph, %.loopexit7.loopexit ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %26, ptr %27, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile ptr %0, ptr %25, align 8
   br label %.loopexit
 
@@ -350,11 +350,11 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %17, !llvm.loop !10
+  br i1 %16, label %.loopexit, label %17, !llvm.loop !12
 
 17:                                               ; preds = %.preheader
   %18 = icmp eq ptr %15, %0
-  br i1 %18, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %18, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit2.loopexit:                              ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -469,7 +469,7 @@ define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef initializes((
   %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !11
+  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %1, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %1 ]
@@ -499,7 +499,7 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_esp_err(ptr noundef %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
@@ -526,7 +526,7 @@ define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef initializes((6
   %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !13
+  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %1, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %1 ]
@@ -556,7 +556,7 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ah_err(ptr noundef %0, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
@@ -583,7 +583,7 @@ define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef initialize
   %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !15
+  br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %1, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %1 ]
@@ -613,7 +613,7 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ipcomp_err(ptr noundef %0, p
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
@@ -652,7 +652,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm6_rcv_cb(ptr noundef %0, i8 n
   %11 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %6, %10
   %14 = phi ptr [ %12, %10 ], [ %8, %6 ]
@@ -684,16 +684,19 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 2159548742}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
 !10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!11 = !{i64 2159548742}
 !12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}

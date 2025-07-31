@@ -256,7 +256,7 @@ define internal void @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %114 = or disjoint i32 %113, 7
   %115 = load i32, ptr %4, align 4, !tbaa !16
   %116 = icmp slt i32 %114, %115
-  br i1 %116, label %.lr.ph131, label %.preheader124, !llvm.loop !46
+  br i1 %116, label %.lr.ph131, label %.preheader124, !llvm.loop !47
 
 .preheader:                                       ; preds = %.lr.ph136, %.preheader124
   %117 = phi i32 [ %81, %.preheader124 ], [ %152, %.lr.ph136 ]
@@ -304,24 +304,24 @@ define internal void @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatERKNS_
   %151 = or disjoint i32 %150, 3
   %152 = load i32, ptr %4, align 4, !tbaa !16
   %153 = icmp slt i32 %151, %152
-  br i1 %153, label %.lr.ph136, label %.preheader, !llvm.loop !47
+  br i1 %153, label %.lr.ph136, label %.preheader, !llvm.loop !48
 
 .lr.ph142:                                        ; preds = %.preheader, %.lr.ph142
   %.3141 = phi i32 [ %157, %.lr.ph142 ], [ %.2.lcssa, %.preheader ]
   %.343140 = phi ptr [ %156, %.lr.ph142 ], [ %.242.lcssa, %.preheader ]
-  %154 = load float, ptr %.343140, align 4, !tbaa !48
+  %154 = load float, ptr %.343140, align 4, !tbaa !49
   %155 = call fast float @llvm.tanh.f32(float %154)
-  store float %155, ptr %.343140, align 4, !tbaa !48
+  store float %155, ptr %.343140, align 4, !tbaa !49
   %156 = getelementptr inbounds nuw i8, ptr %.343140, i64 4
   %157 = add nuw nsw i32 %.3141, 1
   %exitcond.not = icmp eq i32 %157, %117
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph142, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond154.not = icmp eq i32 %37, %lftr.wideiv
-  br i1 %exitcond154.not, label %._crit_edge145, label %.noexc
+  br i1 %exitcond154.not, label %._crit_edge145, label %.noexc, !llvm.loop !52
 
 ._crit_edge145:                                   ; preds = %._crit_edge, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -356,7 +356,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !51 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !53 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #8
@@ -466,12 +466,14 @@ attributes #12 = { builtin nounwind }
 !41 = !{!5, !10, i64 64}
 !42 = !{!5, !10, i64 16}
 !43 = !{!7, !7, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"float", !7, i64 0}
-!50 = distinct !{!50, !45}
-!51 = !{!52}
-!52 = !{i64 2, i64 -1, i64 -1, i1 true}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"float", !7, i64 0}
+!51 = distinct !{!51, !45, !46}
+!52 = distinct !{!52, !46}
+!53 = !{!54}
+!54 = !{i64 2, i64 -1, i64 -1, i1 true}

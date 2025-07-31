@@ -77,7 +77,7 @@ define dso_local ptr @acpi_ps_get_next_namestring(ptr noundef captures(none) %0)
 
 7:                                                ; preds = %4, %4
   %8 = getelementptr i8, ptr %5, i64 1
-  br label %4, !llvm.loop !8
+  br label %4, !llvm.loop !9
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %5, %3
@@ -107,7 +107,7 @@ define dso_local ptr @acpi_ps_get_next_namestring(ptr noundef captures(none) %0)
 define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !annotation !9
+  store ptr null, ptr %5, align 8, !annotation !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
@@ -125,7 +125,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr noundef capt
 
 11:                                               ; preds = %8, %8
   %12 = getelementptr i8, ptr %9, i64 1
-  br label %8, !llvm.loop !8
+  br label %8, !llvm.loop !11
 
 13:                                               ; preds = %8
   %14 = icmp eq ptr %9, %7
@@ -359,7 +359,7 @@ define dso_local void @acpi_ps_get_next_simple_arg(ptr noundef captures(none) %0
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   %29 = add i32 %24, 1
-  br i1 %28, label %30, label %23, !llvm.loop !10
+  br i1 %28, label %30, label %23, !llvm.loop !12
 
 30:                                               ; preds = %23
   %31 = zext i32 %29 to i64
@@ -383,7 +383,7 @@ define dso_local void @acpi_ps_get_next_simple_arg(ptr noundef captures(none) %0
 
 37:                                               ; preds = %34, %34
   %38 = getelementptr i8, ptr %35, i64 1
-  br label %34, !llvm.loop !8
+  br label %34, !llvm.loop !13
 
 39:                                               ; preds = %34
   %40 = icmp eq ptr %35, %33
@@ -490,7 +490,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %32 = or i32 %31, %24
   %33 = add nsw i32 %23, -1
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.loopexit, label %22, !llvm.loop !5
+  br i1 %34, label %.loopexit, label %22, !llvm.loop !14
 
 .loopexit:                                        ; preds = %22, %11
   %35 = phi i32 [ 0, %11 ], [ %32, %22 ]
@@ -590,7 +590,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %90 = or i32 %89, %82
   %91 = add nsw i32 %81, -1
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.loopexit19, label %80, !llvm.loop !5
+  br i1 %92, label %.loopexit19, label %80, !llvm.loop !15
 
 .loopexit19:                                      ; preds = %80, %67
   %93 = phi i32 [ 0, %67 ], [ %90, %80 ]
@@ -631,7 +631,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %120 = or i32 %119, %112
   %121 = add nsw i32 %111, -1
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.loopexit20, label %110, !llvm.loop !5
+  br i1 %122, label %.loopexit20, label %110, !llvm.loop !16
 
 .loopexit20:                                      ; preds = %110, %100
   %123 = phi i32 [ 0, %100 ], [ %120, %110 ]
@@ -707,7 +707,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %173 = or i32 %172, %165
   %174 = add nsw i32 %164, -1
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %.loopexit21, label %163, !llvm.loop !5
+  br i1 %175, label %.loopexit21, label %163, !llvm.loop !17
 
 .loopexit21:                                      ; preds = %163, %153
   %176 = phi i32 [ 0, %153 ], [ %173, %163 ]
@@ -803,7 +803,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
 
 220:                                              ; preds = %217, %217
   %221 = getelementptr i8, ptr %218, i64 1
-  br label %217, !llvm.loop !8
+  br label %217, !llvm.loop !18
 
 222:                                              ; preds = %217
   %223 = icmp eq ptr %218, %216
@@ -845,7 +845,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %240 = load ptr, ptr %45, align 8
   %241 = load ptr, ptr %47, align 8
   %242 = icmp ult ptr %240, %241
-  br i1 %242, label %.preheader, label %243, !llvm.loop !11
+  br i1 %242, label %.preheader, label %243, !llvm.loop !19
 
 243:                                              ; preds = %238
   store ptr %241, ptr %45, align 8
@@ -1010,10 +1010,18 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"auto-init"}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}

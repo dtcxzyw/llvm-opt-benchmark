@@ -661,7 +661,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i66.i: ; preds = %233
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %3) #9
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 7
-  br i1 %exitcond.not.i27, label %_ZL9testBOMIOv.exit, label %118, !llvm.loop !39
+  br i1 %exitcond.not.i27, label %_ZL9testBOMIOv.exit, label %118, !llvm.loop !40
 
 248:                                              ; preds = %225, %.loopexit.split-lp78.i, %.loopexit77.i, %.loopexit.split-lp.i9, %.loopexit76.i
   %.pn.pn.i7 = phi { ptr, i32 } [ %lpad.phi86.i, %225 ], [ %lpad.loopexit.i6, %.loopexit76.i ], [ %lpad.loopexit.split-lp.i10, %.loopexit.split-lp.i9 ], [ %lpad.loopexit79.i, %.loopexit77.i ], [ %lpad.loopexit.split-lp80.i, %.loopexit.split-lp78.i ]
@@ -801,6 +801,7 @@ attributes #10 = { noreturn }
 !34 = !{!"p1 _ZTS15__locale_struct", !14, i64 0}
 !35 = !{!"p1 int", !14, i64 0}
 !36 = !{!"p1 short", !14, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}

@@ -1043,7 +1043,7 @@ indent.exit79:                                    ; preds = %.lr.ph.i76, %40
 
 .thread91:                                        ; preds = %50
   tail call void @wmem_strbuf_append_c(ptr noundef %0, i8 noundef signext 10)
-  br label %40, !llvm.loop !8
+  br label %40, !llvm.loop !9
 
 53:                                               ; preds = %stnode_type_id.exit
   %54 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext false)
@@ -1073,7 +1073,7 @@ indent.exit79:                                    ; preds = %.lr.ph.i76, %40
   tail call void @wmem_strbuf_append_c(ptr noundef %0, i8 noundef signext 10)
   %.pre103 = load ptr, ptr %62, align 8
   %.not.us = icmp eq ptr %.pre103, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.i83.preheader.us, !llvm.loop !9
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.i83.preheader.us, !llvm.loop !10
 
 indent.exit86.loopexit.us:                        ; preds = %.lr.ph.i83.us
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %56)
@@ -1098,7 +1098,7 @@ indent.exit86:                                    ; preds = %.lr.ph, %67
   tail call void @wmem_strbuf_append_c(ptr noundef %0, i8 noundef signext 10)
   %.pre = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.loopexit, label %indent.exit86, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %indent.exit86, !llvm.loop !12
 
 stnode_type_id.exit82.thread:                     ; preds = %stnode_type_id.exit, %3
   %68 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext false)
@@ -1190,9 +1190,10 @@ attributes #16 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}

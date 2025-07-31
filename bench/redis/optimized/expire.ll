@@ -446,7 +446,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %147 = add nsw i32 %spec.select116, -1
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds [16 x double], ptr @avg_ttl_factor, i64 0, i64 %148
-  %150 = load double, ptr %149, align 8, !tbaa !64
+  %150 = load double, ptr %149, align 8, !tbaa !65
   %151 = call double @llvm.fmuladd.f64(double %146, double %150, double %144)
   %152 = fptosi double %151 to i64
   br label %153
@@ -471,16 +471,16 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 160:                                              ; preds = %156
   store i1 true, ptr @activeExpireCycle.timelimit_exit, align 4
-  %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2512), align 8, !tbaa !65
+  %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2512), align 8, !tbaa !66
   %162 = add nsw i64 %161, 1
-  store i64 %162, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2512), align 8, !tbaa !65
+  store i64 %162, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2512), align 8, !tbaa !66
   br label %.thread119
 
 163:                                              ; preds = %154, %156, %129
   %.179 = phi i32 [ %spec.select116, %129 ], [ %.4, %156 ], [ %.4, %154 ]
   %.177 = phi i32 [ 1, %129 ], [ %136, %156 ], [ %136, %154 ]
   %.not111 = icmp eq i32 %.177, 0
-  br i1 %.not111, label %.thread119, label %92, !llvm.loop !66
+  br i1 %.not111, label %.thread119, label %92, !llvm.loop !67
 
 .thread119:                                       ; preds = %163, %160, %97
   %.287130 = phi i64 [ %117, %160 ], [ %.186, %97 ], [ %117, %163 ]
@@ -493,7 +493,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
   %167 = icmp sge i32 %164, %166
   %or.cond113.not = select i1 %or.cond3.not, i1 true, i1 %167
-  br i1 %or.cond113.not, label %.critedge.loopexit, label %48, !llvm.loop !67
+  br i1 %or.cond113.not, label %.critedge.loopexit, label %48, !llvm.loop !68
 
 .critedge.loopexit:                               ; preds = %.thread119
   %168 = sitofp i64 %.287130 to double
@@ -504,10 +504,10 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %.085.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %168, %.critedge.loopexit ]
   %169 = call i64 @ustime() #10
   %170 = sub nsw i64 %169, %11
-  %171 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2520), align 8, !tbaa !68
+  %171 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2520), align 8, !tbaa !69
   %172 = add nsw i64 %171, %170
-  store i64 %172, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2520), align 8, !tbaa !68
-  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !69
+  store i64 %172, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2520), align 8, !tbaa !69
+  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !70
   %.not105 = icmp eq i64 %173, 0
   br i1 %.not105, label %177, label %174
 
@@ -587,7 +587,7 @@ declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.thread, label %3
 
@@ -602,7 +602,7 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
 
 10:                                               ; preds = %3
   %11 = tail call i64 @mstime() #10
-  %.pre = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %.pre = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   br label %12
 
 12:                                               ; preds = %79, %10
@@ -715,7 +715,7 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   %63 = sext i32 %60 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
   %65 = select i1 %62, i1 %64, i1 false
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %59
   %.not = icmp eq i64 %.133, 0
@@ -727,7 +727,7 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
   %.1.lcssa54 = phi i32 [ %.2, %._crit_edge ], [ %.029, %12 ]
-  %67 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %67 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %68 = tail call i32 @dictDelete(ptr noundef %67, ptr noundef %15) #10
   br label %69
 
@@ -749,14 +749,14 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %75, %72
-  %80 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %80 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %84 = load i64, ptr %83, align 8, !tbaa !12
   %85 = sub i64 0, %84
   %86 = icmp eq i64 %82, %85
-  br i1 %86, label %.thread, label %12
+  br i1 %86, label %.thread, label %12, !llvm.loop !73
 
 .thread:                                          ; preds = %79, %75, %69, %0, %3
   ret void
@@ -774,33 +774,33 @@ declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rememberSlaveKeyWithExpire(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %3 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call ptr @dictCreate(ptr noundef nonnull @rememberSlaveKeyWithExpire.dt) #10
-  store ptr %6, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  store ptr %6, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   br label %7
 
 7:                                                ; preds = %5, %2
   %8 = phi ptr [ %6, %5 ], [ %3, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i32, ptr %9, align 8, !tbaa !72
+  %10 = load i32, ptr %9, align 8, !tbaa !74
   %11 = icmp sgt i32 %10, 63
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %13, align 8, !tbaa !75
   %15 = tail call ptr @dictAddOrFind(ptr noundef %8, ptr noundef %14) #10
   %16 = tail call ptr @dictGetKey(ptr noundef %15) #10
-  %17 = load ptr, ptr %13, align 8, !tbaa !73
+  %17 = load ptr, ptr %13, align 8, !tbaa !75
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %20 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %21 = tail call ptr @sdsdup(ptr noundef %17) #10
   tail call void @dictSetKey(ptr noundef %20, ptr noundef %15, ptr noundef %21) #10
   tail call void @dictSetUnsignedIntegerVal(ptr noundef %15, i64 noundef 0) #10
@@ -808,7 +808,7 @@ define dso_local void @rememberSlaveKeyWithExpire(ptr noundef readonly captures(
 
 22:                                               ; preds = %19, %12
   %23 = tail call i64 @dictGetUnsignedIntegerVal(ptr noundef %15) #10
-  %24 = load i32, ptr %9, align 8, !tbaa !72
+  %24 = load i32, ptr %9, align 8, !tbaa !74
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw i64 1, %25
   %27 = or i64 %26, %23
@@ -835,7 +835,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @getSlaveKeyWithExpireCount() local_unnamed_addr #6 {
-  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %2 = icmp eq ptr %1, null
   br i1 %2, label %9, label %3
 
@@ -854,13 +854,13 @@ define dso_local i64 @getSlaveKeyWithExpireCount() local_unnamed_addr #6 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @flushSlaveKeysWithExpireList() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  %1 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @dictRelease(ptr noundef nonnull %1) #10
-  store ptr null, ptr @slaveKeysWithExpire, align 8, !tbaa !70
+  store ptr null, ptr @slaveKeysWithExpire, align 8, !tbaa !71
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -876,12 +876,12 @@ define dso_local range(i32 0, 2) i32 @checkAlreadyExpired(i64 noundef %0) local_
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !75
+  %4 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !77
   %.not1 = icmp eq i32 %4, 0
   br i1 %.not1, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !76
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !78
   %.not2 = icmp eq ptr %6, null
   %7 = zext i1 %.not2 to i32
   br label %8
@@ -896,13 +896,13 @@ declare i64 @commandTimeSnapshot() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i32, ptr %3, align 8, !tbaa !77
+  %4 = load i32, ptr %3, align 8, !tbaa !79
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph, label %.thread87
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !90
   br label %8
 
 8:                                                ; preds = %.lr.ph, %20
@@ -912,9 +912,9 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   %.04256 = phi i32 [ 0, %.lr.ph ], [ %.143, %20 ]
   %.04555 = phi i32 [ 0, %.lr.ph ], [ %.146, %20 ]
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !89
+  %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !73
+  %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.3) #12
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %20, label %14
@@ -948,10 +948,10 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   %22 = or i32 %21, %.sink93
   store i32 %22, ptr %1, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %3, align 8, !tbaa !77
+  %23 = load i32, ptr %3, align 8, !tbaa !79
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %8, label %._crit_edge, !llvm.loop !90
+  br i1 %25, label %8, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %20
   %26 = icmp ne i32 %.146, 0
@@ -992,11 +992,11 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !89
+  %11 = load ptr, ptr %10, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 0, ptr %5, align 4, !tbaa !10
@@ -1042,13 +1042,13 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   %28 = add nsw i64 %23, %1
   store i64 %28, ptr %4, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !91
+  %30 = load ptr, ptr %29, align 8, !tbaa !93
   %31 = call ptr @lookupKeyWrite(ptr noundef %30, ptr noundef %9) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %27
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   call void @addReply(ptr noundef nonnull %0, ptr noundef %34) #10
   br label %105
 
@@ -1062,7 +1062,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br label %61
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %29, align 8, !tbaa !91
+  %38 = load ptr, ptr %29, align 8, !tbaa !93
   %39 = call i64 @getExpire(ptr noundef %38, ptr noundef %9) #10
   %40 = and i32 %36, 1
   %41 = icmp ne i32 %40, 0
@@ -1071,7 +1071,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %or.cond7, label %43, label %45
 
 43:                                               ; preds = %37
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   call void @addReply(ptr noundef nonnull %0, ptr noundef %44) #10
   br label %105
 
@@ -1083,7 +1083,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %or.cond9, label %49, label %51
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   call void @addReply(ptr noundef nonnull %0, ptr noundef %50) #10
   br label %105
 
@@ -1097,7 +1097,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %or.cond80, label %54, label %56
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   call void @addReply(ptr noundef nonnull %0, ptr noundef %55) #10
   br label %105
 
@@ -1110,7 +1110,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %or.cond75.not, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   call void @addReply(ptr noundef nonnull %0, ptr noundef %60) #10
   br label %105
 
@@ -1121,7 +1121,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %.not.i, label %checkAlreadyExpired.exit.thread, label %64
 
 64:                                               ; preds = %61
-  %65 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !75
+  %65 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !77
   %.not1.i = icmp eq i32 %65, 0
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
   %.not2.i.not = icmp eq ptr %66, null
@@ -1129,11 +1129,11 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   br i1 %or.cond77, label %67, label %checkAlreadyExpired.exit.thread
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %29, align 8, !tbaa !91
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
+  %68 = load ptr, ptr %29, align 8, !tbaa !93
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !96
   %70 = call i32 @dbGenericDelete(ptr noundef %68, ptr noundef %9, i32 noundef %69, i32 noundef 2) #10
   %.not73 = icmp eq i32 %70, 0
-  br i1 %.not73, label %71, label %72, !prof !95
+  br i1 %.not73, label %71, label %72, !prof !97
 
 71:                                               ; preds = %67
   call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 709) #10
@@ -1141,40 +1141,40 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   unreachable
 
 72:                                               ; preds = %67
-  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
   %74 = add nsw i64 %73, 1
-  store i64 %74, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
-  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
+  store i64 %74, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !96
   %.not74 = icmp eq i32 %75, 0
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
   %78 = select i1 %.not74, ptr %77, ptr %76
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %78, ptr noundef %9) #10
-  %79 = load ptr, ptr %29, align 8, !tbaa !91
+  %79 = load ptr, ptr %29, align 8, !tbaa !93
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %9) #10
-  %80 = load ptr, ptr %29, align 8, !tbaa !91
+  %80 = load ptr, ptr %29, align 8, !tbaa !93
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !72
+  %82 = load i32, ptr %81, align 8, !tbaa !74
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.11, ptr noundef %9, i32 noundef %82) #10
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !99
   call void @addReply(ptr noundef nonnull %0, ptr noundef %83) #10
   br label %105
 
 checkAlreadyExpired.exit.thread:                  ; preds = %61, %64
-  %84 = load ptr, ptr %29, align 8, !tbaa !91
+  %84 = load ptr, ptr %29, align 8, !tbaa !93
   %85 = load i64, ptr %4, align 8, !tbaa !51
   call void @setExpire(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %9, i64 noundef %85) #10
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !99
   call void @addReply(ptr noundef nonnull %0, ptr noundef %86) #10
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %88 = load ptr, ptr %87, align 8, !tbaa !98
+  %88 = load ptr, ptr %87, align 8, !tbaa !100
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
-  %90 = load ptr, ptr %89, align 8, !tbaa !99
+  %90 = load ptr, ptr %89, align 8, !tbaa !101
   %.not72 = icmp eq ptr %90, @pexpireatCommand
   br i1 %.not72, label %93, label %91
 
 91:                                               ; preds = %checkAlreadyExpired.exit.thread
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 592), align 8, !tbaa !105
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 592), align 8, !tbaa !107
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %92) #10
   br label %93
 
@@ -1191,15 +1191,15 @@ checkAlreadyExpired.exit.thread:                  ; preds = %61, %64
   br label %98
 
 98:                                               ; preds = %93, %95
-  %99 = load ptr, ptr %29, align 8, !tbaa !91
+  %99 = load ptr, ptr %29, align 8, !tbaa !93
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %99, ptr noundef %9) #10
-  %100 = load ptr, ptr %29, align 8, !tbaa !91
+  %100 = load ptr, ptr %29, align 8, !tbaa !93
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %102 = load i32, ptr %101, align 8, !tbaa !72
+  %102 = load i32, ptr %101, align 8, !tbaa !74
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef %9, i32 noundef %102) #10
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
   %104 = add nsw i64 %103, 1
-  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
   br label %105
 
 105:                                              ; preds = %13, %3, %98, %72, %59, %54, %49, %43, %33, %26, %19
@@ -1263,20 +1263,20 @@ define dso_local void @pexpireCommand(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @ttlGenericCommand(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
   %10 = tail call ptr @lookupKeyReadWithFlags(ptr noundef %5, ptr noundef %9, i32 noundef 1) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8, !tbaa !91
-  %14 = load ptr, ptr %6, align 8, !tbaa !88
+  %13 = load ptr, ptr %4, align 8, !tbaa !93
+  %14 = load ptr, ptr %6, align 8, !tbaa !90
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !89
+  %16 = load ptr, ptr %15, align 8, !tbaa !91
   %17 = tail call i64 @getExpire(ptr noundef %13, ptr noundef %16) #10
   %.not = icmp eq i64 %17, -1
   br i1 %.not, label %.thread, label %18
@@ -1314,20 +1314,20 @@ declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @ttlCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = tail call ptr @lookupKeyReadWithFlags(ptr noundef %3, ptr noundef %7, i32 noundef 1) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ttlGenericCommand.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8, !tbaa !91
-  %12 = load ptr, ptr %4, align 8, !tbaa !88
+  %11 = load ptr, ptr %2, align 8, !tbaa !93
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = tail call i64 @getExpire(ptr noundef %11, ptr noundef %14) #10
   %.not.i = icmp eq i64 %15, -1
   br i1 %.not.i, label %ttlGenericCommand.exit, label %16
@@ -1349,20 +1349,20 @@ ttlGenericCommand.exit:                           ; preds = %1, %10, %16
 ; Function Attrs: nounwind uwtable
 define dso_local void @pttlCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = tail call ptr @lookupKeyReadWithFlags(ptr noundef %3, ptr noundef %7, i32 noundef 1) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ttlGenericCommand.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8, !tbaa !91
-  %12 = load ptr, ptr %4, align 8, !tbaa !88
+  %11 = load ptr, ptr %2, align 8, !tbaa !93
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = tail call i64 @getExpire(ptr noundef %11, ptr noundef %14) #10
   %.not.i = icmp eq i64 %15, -1
   br i1 %.not.i, label %ttlGenericCommand.exit, label %16
@@ -1382,20 +1382,20 @@ ttlGenericCommand.exit:                           ; preds = %1, %10, %16
 ; Function Attrs: nounwind uwtable
 define dso_local void @expiretimeCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = tail call ptr @lookupKeyReadWithFlags(ptr noundef %3, ptr noundef %7, i32 noundef 1) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ttlGenericCommand.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8, !tbaa !91
-  %12 = load ptr, ptr %4, align 8, !tbaa !88
+  %11 = load ptr, ptr %2, align 8, !tbaa !93
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = tail call i64 @getExpire(ptr noundef %11, ptr noundef %14) #10
   %.not.i = icmp eq i64 %15, -1
   br i1 %.not.i, label %ttlGenericCommand.exit, label %16
@@ -1415,20 +1415,20 @@ ttlGenericCommand.exit:                           ; preds = %1, %10, %16
 ; Function Attrs: nounwind uwtable
 define dso_local void @pexpiretimeCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = tail call ptr @lookupKeyReadWithFlags(ptr noundef %3, ptr noundef %7, i32 noundef 1) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ttlGenericCommand.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8, !tbaa !91
-  %12 = load ptr, ptr %4, align 8, !tbaa !88
+  %11 = load ptr, ptr %2, align 8, !tbaa !93
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = tail call i64 @getExpire(ptr noundef %11, ptr noundef %14) #10
   %.not.i = icmp eq i64 %15, -1
   br i1 %.not.i, label %ttlGenericCommand.exit, label %16
@@ -1446,51 +1446,51 @@ ttlGenericCommand.exit:                           ; preds = %1, %10, %16
 ; Function Attrs: nounwind uwtable
 define dso_local void @persistCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = tail call ptr @lookupKeyWrite(ptr noundef %3, ptr noundef %7) #10
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8, !tbaa !91
-  %11 = load ptr, ptr %4, align 8, !tbaa !88
+  %10 = load ptr, ptr %2, align 8, !tbaa !93
+  %11 = load ptr, ptr %4, align 8, !tbaa !90
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = tail call i32 @removeExpire(ptr noundef %10, ptr noundef %13) #10
   %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %29, label %15
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %2, align 8, !tbaa !91
-  %17 = load ptr, ptr %4, align 8, !tbaa !88
+  %16 = load ptr, ptr %2, align 8, !tbaa !93
+  %17 = load ptr, ptr %4, align 8, !tbaa !90
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !89
+  %19 = load ptr, ptr %18, align 8, !tbaa !91
   tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %19) #10
-  %20 = load ptr, ptr %4, align 8, !tbaa !88
+  %20 = load ptr, ptr %4, align 8, !tbaa !90
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !89
-  %23 = load ptr, ptr %2, align 8, !tbaa !91
+  %22 = load ptr, ptr %21, align 8, !tbaa !91
+  %23 = load ptr, ptr %2, align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = load i32, ptr %24, align 8, !tbaa !72
+  %25 = load i32, ptr %24, align 8, !tbaa !74
   tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.13, ptr noundef %22, i32 noundef %25) #10
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !99
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %26) #10
-  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
   %28 = add nsw i64 %27, 1
-  store i64 %28, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  store i64 %28, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !98
   br label %33
 
 29:                                               ; preds = %9
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %30) #10
   br label %33
 
 31:                                               ; preds = %1
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !94
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %32) #10
   br label %33
 
@@ -1503,7 +1503,7 @@ declare i32 @removeExpire(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @touchCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i32, ptr %2, align 8, !tbaa !77
+  %3 = load i32, ptr %2, align 8, !tbaa !79
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1524,19 +1524,19 @@ define dso_local void @touchCommand(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.089 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %9 = load ptr, ptr %5, align 8, !tbaa !91
-  %10 = load ptr, ptr %6, align 8, !tbaa !88
+  %9 = load ptr, ptr %5, align 8, !tbaa !93
+  %10 = load ptr, ptr %6, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = tail call ptr @lookupKeyRead(ptr noundef %9, ptr noundef %12) #10
   %.not = icmp ne ptr %13, null
   %14 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %.089, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr %2, align 8, !tbaa !77
+  %15 = load i32, ptr %2, align 8, !tbaa !79
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %8, label %._crit_edge.loopexit, !llvm.loop !106
+  br i1 %17, label %8, label %._crit_edge.loopexit, !llvm.loop !108
 }
 
 declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1630,48 +1630,50 @@ attributes #12 = { nounwind willreturn memory(read) }
 !59 = !{!58, !45, i64 8}
 !60 = !{!58, !18, i64 64}
 !61 = !{!58, !13, i64 72}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!35, !35, i64 0}
-!65 = !{!25, !18, i64 2512}
-!66 = distinct !{!66, !63}
-!67 = distinct !{!67, !63}
-!68 = !{!25, !18, i64 2520}
-!69 = !{!25, !18, i64 8064}
-!70 = !{!28, !28, i64 0}
-!71 = distinct !{!71, !63}
-!72 = !{!58, !11, i64 56}
-!73 = !{!74, !17, i64 8}
-!74 = !{!"redisObject", !11, i64 0, !11, i64 0, !11, i64 1, !11, i64 4, !17, i64 8}
-!75 = !{!25, !11, i64 2412}
-!76 = !{!25, !26, i64 7264}
-!77 = !{!78, !11, i64 88}
-!78 = !{!"client", !13, i64 0, !13, i64 8, !44, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !11, i64 28, !16, i64 32, !79, i64 40, !79, i64 48, !79, i64 56, !26, i64 64, !13, i64 72, !13, i64 80, !11, i64 88, !80, i64 96, !11, i64 104, !11, i64 108, !80, i64 112, !13, i64 120, !81, i64 128, !81, i64 136, !81, i64 144, !81, i64 152, !17, i64 160, !11, i64 168, !11, i64 172, !13, i64 176, !31, i64 184, !18, i64 192, !31, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !11, i64 232, !82, i64 240, !13, i64 248, !13, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !13, i64 280, !13, i64 288, !26, i64 296, !18, i64 304, !18, i64 312, !18, i64 320, !18, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !6, i64 368, !11, i64 412, !26, i64 416, !11, i64 424, !11, i64 428, !13, i64 432, !83, i64 440, !85, i64 480, !18, i64 552, !31, i64 560, !28, i64 568, !28, i64 576, !28, i64 584, !26, i64 592, !26, i64 600, !86, i64 608, !86, i64 616, !86, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !17, i64 664, !13, i64 672, !30, i64 680, !13, i64 688, !11, i64 696, !86, i64 704, !17, i64 712, !86, i64 720, !13, i64 728, !87, i64 736, !13, i64 760, !18, i64 768, !11, i64 776, !13, i64 784, !26, i64 792}
-!79 = !{!"p1 _ZTS11redisObject", !17, i64 0}
-!80 = !{!"p2 _ZTS11redisObject", !17, i64 0}
-!81 = !{!"p1 _ZTS12redisCommand", !17, i64 0}
-!82 = !{!"p1 _ZTS9dictEntry", !17, i64 0}
-!83 = !{!"multiState", !84, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !13, i64 24, !11, i64 32}
-!84 = !{!"p1 _ZTS8multiCmd", !17, i64 0}
-!85 = !{!"blockingState", !11, i64 0, !18, i64 8, !11, i64 16, !28, i64 24, !11, i64 32, !11, i64 36, !18, i64 40, !17, i64 48, !17, i64 56, !13, i64 64}
-!86 = !{!"p1 _ZTS8listNode", !17, i64 0}
-!87 = !{!"listNode", !86, i64 0, !86, i64 8, !17, i64 16}
-!88 = !{!78, !80, i64 96}
-!89 = !{!79, !79, i64 0}
-!90 = distinct !{!90, !63}
-!91 = !{!78, !16, i64 32}
-!92 = !{!93, !79, i64 24}
-!93 = !{!"sharedObjectsStruct", !79, i64 0, !79, i64 8, !79, i64 16, !79, i64 24, !79, i64 32, !79, i64 40, !79, i64 48, !79, i64 56, !6, i64 64, !6, i64 96, !6, i64 128, !6, i64 160, !79, i64 192, !79, i64 200, !79, i64 208, !79, i64 216, !79, i64 224, !79, i64 232, !79, i64 240, !79, i64 248, !79, i64 256, !79, i64 264, !79, i64 272, !79, i64 280, !79, i64 288, !79, i64 296, !79, i64 304, !79, i64 312, !79, i64 320, !79, i64 328, !79, i64 336, !79, i64 344, !79, i64 352, !79, i64 360, !79, i64 368, !79, i64 376, !79, i64 384, !79, i64 392, !79, i64 400, !79, i64 408, !79, i64 416, !79, i64 424, !79, i64 432, !79, i64 440, !79, i64 448, !79, i64 456, !79, i64 464, !79, i64 472, !79, i64 480, !79, i64 488, !79, i64 496, !79, i64 504, !79, i64 512, !79, i64 520, !79, i64 528, !79, i64 536, !79, i64 544, !79, i64 552, !79, i64 560, !79, i64 568, !79, i64 576, !79, i64 584, !79, i64 592, !79, i64 600, !79, i64 608, !79, i64 616, !79, i64 624, !79, i64 632, !79, i64 640, !79, i64 648, !79, i64 656, !79, i64 664, !79, i64 672, !79, i64 680, !79, i64 688, !79, i64 696, !79, i64 704, !79, i64 712, !79, i64 720, !79, i64 728, !79, i64 736, !79, i64 744, !79, i64 752, !79, i64 760, !79, i64 768, !79, i64 776, !79, i64 784, !79, i64 792, !6, i64 800, !6, i64 880, !6, i64 80880, !6, i64 81136, !6, i64 81392, !6, i64 81648, !26, i64 81904, !26, i64 81912}
-!94 = !{!25, !11, i64 8044}
-!95 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!96 = !{!25, !18, i64 6720}
-!97 = !{!93, !79, i64 32}
-!98 = !{!78, !81, i64 128}
-!99 = !{!100, !17, i64 96}
-!100 = !{!"redisCommand", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !11, i64 32, !26, i64 40, !26, i64 48, !11, i64 56, !17, i64 64, !11, i64 72, !27, i64 80, !11, i64 88, !17, i64 96, !11, i64 104, !13, i64 112, !13, i64 120, !17, i64 128, !11, i64 136, !17, i64 144, !11, i64 152, !81, i64 160, !101, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !18, i64 200, !11, i64 208, !26, i64 216, !102, i64 224, !103, i64 232, !28, i64 288, !81, i64 296, !104, i64 304}
-!101 = !{!"p1 _ZTS15redisCommandArg", !17, i64 0}
-!102 = !{!"p1 _ZTS13hdr_histogram", !17, i64 0}
-!103 = !{!"", !26, i64 0, !13, i64 8, !11, i64 16, !6, i64 24, !11, i64 40, !6, i64 44}
-!104 = !{!"p1 _ZTS18RedisModuleCommand", !17, i64 0}
-!105 = !{!93, !79, i64 592}
-!106 = distinct !{!106, !63}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!35, !35, i64 0}
+!66 = !{!25, !18, i64 2512}
+!67 = distinct !{!67, !63, !64}
+!68 = distinct !{!68, !63, !64}
+!69 = !{!25, !18, i64 2520}
+!70 = !{!25, !18, i64 8064}
+!71 = !{!28, !28, i64 0}
+!72 = distinct !{!72, !63, !64}
+!73 = distinct !{!73, !64}
+!74 = !{!58, !11, i64 56}
+!75 = !{!76, !17, i64 8}
+!76 = !{!"redisObject", !11, i64 0, !11, i64 0, !11, i64 1, !11, i64 4, !17, i64 8}
+!77 = !{!25, !11, i64 2412}
+!78 = !{!25, !26, i64 7264}
+!79 = !{!80, !11, i64 88}
+!80 = !{!"client", !13, i64 0, !13, i64 8, !44, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !11, i64 28, !16, i64 32, !81, i64 40, !81, i64 48, !81, i64 56, !26, i64 64, !13, i64 72, !13, i64 80, !11, i64 88, !82, i64 96, !11, i64 104, !11, i64 108, !82, i64 112, !13, i64 120, !83, i64 128, !83, i64 136, !83, i64 144, !83, i64 152, !17, i64 160, !11, i64 168, !11, i64 172, !13, i64 176, !31, i64 184, !18, i64 192, !31, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !11, i64 232, !84, i64 240, !13, i64 248, !13, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !13, i64 280, !13, i64 288, !26, i64 296, !18, i64 304, !18, i64 312, !18, i64 320, !18, i64 328, !18, i64 336, !18, i64 344, !18, i64 352, !18, i64 360, !6, i64 368, !11, i64 412, !26, i64 416, !11, i64 424, !11, i64 428, !13, i64 432, !85, i64 440, !87, i64 480, !18, i64 552, !31, i64 560, !28, i64 568, !28, i64 576, !28, i64 584, !26, i64 592, !26, i64 600, !88, i64 608, !88, i64 616, !88, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !17, i64 664, !13, i64 672, !30, i64 680, !13, i64 688, !11, i64 696, !88, i64 704, !17, i64 712, !88, i64 720, !13, i64 728, !89, i64 736, !13, i64 760, !18, i64 768, !11, i64 776, !13, i64 784, !26, i64 792}
+!81 = !{!"p1 _ZTS11redisObject", !17, i64 0}
+!82 = !{!"p2 _ZTS11redisObject", !17, i64 0}
+!83 = !{!"p1 _ZTS12redisCommand", !17, i64 0}
+!84 = !{!"p1 _ZTS9dictEntry", !17, i64 0}
+!85 = !{!"multiState", !86, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !13, i64 24, !11, i64 32}
+!86 = !{!"p1 _ZTS8multiCmd", !17, i64 0}
+!87 = !{!"blockingState", !11, i64 0, !18, i64 8, !11, i64 16, !28, i64 24, !11, i64 32, !11, i64 36, !18, i64 40, !17, i64 48, !17, i64 56, !13, i64 64}
+!88 = !{!"p1 _ZTS8listNode", !17, i64 0}
+!89 = !{!"listNode", !88, i64 0, !88, i64 8, !17, i64 16}
+!90 = !{!80, !82, i64 96}
+!91 = !{!81, !81, i64 0}
+!92 = distinct !{!92, !63, !64}
+!93 = !{!80, !16, i64 32}
+!94 = !{!95, !81, i64 24}
+!95 = !{!"sharedObjectsStruct", !81, i64 0, !81, i64 8, !81, i64 16, !81, i64 24, !81, i64 32, !81, i64 40, !81, i64 48, !81, i64 56, !6, i64 64, !6, i64 96, !6, i64 128, !6, i64 160, !81, i64 192, !81, i64 200, !81, i64 208, !81, i64 216, !81, i64 224, !81, i64 232, !81, i64 240, !81, i64 248, !81, i64 256, !81, i64 264, !81, i64 272, !81, i64 280, !81, i64 288, !81, i64 296, !81, i64 304, !81, i64 312, !81, i64 320, !81, i64 328, !81, i64 336, !81, i64 344, !81, i64 352, !81, i64 360, !81, i64 368, !81, i64 376, !81, i64 384, !81, i64 392, !81, i64 400, !81, i64 408, !81, i64 416, !81, i64 424, !81, i64 432, !81, i64 440, !81, i64 448, !81, i64 456, !81, i64 464, !81, i64 472, !81, i64 480, !81, i64 488, !81, i64 496, !81, i64 504, !81, i64 512, !81, i64 520, !81, i64 528, !81, i64 536, !81, i64 544, !81, i64 552, !81, i64 560, !81, i64 568, !81, i64 576, !81, i64 584, !81, i64 592, !81, i64 600, !81, i64 608, !81, i64 616, !81, i64 624, !81, i64 632, !81, i64 640, !81, i64 648, !81, i64 656, !81, i64 664, !81, i64 672, !81, i64 680, !81, i64 688, !81, i64 696, !81, i64 704, !81, i64 712, !81, i64 720, !81, i64 728, !81, i64 736, !81, i64 744, !81, i64 752, !81, i64 760, !81, i64 768, !81, i64 776, !81, i64 784, !81, i64 792, !6, i64 800, !6, i64 880, !6, i64 80880, !6, i64 81136, !6, i64 81392, !6, i64 81648, !26, i64 81904, !26, i64 81912}
+!96 = !{!25, !11, i64 8044}
+!97 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!98 = !{!25, !18, i64 6720}
+!99 = !{!95, !81, i64 32}
+!100 = !{!80, !83, i64 128}
+!101 = !{!102, !17, i64 96}
+!102 = !{!"redisCommand", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !11, i64 32, !26, i64 40, !26, i64 48, !11, i64 56, !17, i64 64, !11, i64 72, !27, i64 80, !11, i64 88, !17, i64 96, !11, i64 104, !13, i64 112, !13, i64 120, !17, i64 128, !11, i64 136, !17, i64 144, !11, i64 152, !83, i64 160, !103, i64 168, !18, i64 176, !18, i64 184, !18, i64 192, !18, i64 200, !11, i64 208, !26, i64 216, !104, i64 224, !105, i64 232, !28, i64 288, !83, i64 296, !106, i64 304}
+!103 = !{!"p1 _ZTS15redisCommandArg", !17, i64 0}
+!104 = !{!"p1 _ZTS13hdr_histogram", !17, i64 0}
+!105 = !{!"", !26, i64 0, !13, i64 8, !11, i64 16, !6, i64 24, !11, i64 40, !6, i64 44}
+!106 = !{!"p1 _ZTS18RedisModuleCommand", !17, i64 0}
+!107 = !{!95, !81, i64 592}
+!108 = distinct !{!108, !63, !64}

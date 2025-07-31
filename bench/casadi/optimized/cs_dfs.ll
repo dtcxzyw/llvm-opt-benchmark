@@ -131,7 +131,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
   %68 = getelementptr inbounds i32, ptr %3, i64 %.sink91
   store i32 %.lcssa.sink, ptr %68, align 4, !tbaa !13
   %69 = icmp sgt i32 %.2, -1
-  br i1 %69, label %18, label %.loopexit, !llvm.loop !16
+  br i1 %69, label %18, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %67, %6, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %6 ], [ %.163, %67 ]
@@ -156,6 +156,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !11 = !{!4, !8, i64 16}
 !12 = !{!4, !8, i64 24}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

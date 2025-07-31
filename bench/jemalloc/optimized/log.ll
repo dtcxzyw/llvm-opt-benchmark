@@ -73,7 +73,7 @@ log_var_matches_segment.exit:                     ; preds = %24
 log_var_matches_segment.exit.thread:              ; preds = %22, %24, %19, %log_var_matches_segment.exit
   %30 = icmp eq i8 %7, 0
   %31 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1
-  br i1 %30, label %.thread.sink.split, label %.preheader
+  br i1 %30, label %.thread.sink.split, label %.preheader, !llvm.loop !16
 
 .thread.sink.split:                               ; preds = %log_var_matches_segment.exit.thread, %log_var_matches_segment.exit, %19, %14
   %.sink = phi i32 [ 2, %14 ], [ 2, %19 ], [ 2, %log_var_matches_segment.exit ], [ 1, %log_var_matches_segment.exit.thread ]
@@ -110,5 +110,7 @@ attributes #2 = { nounwind willreturn memory(read) }
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !8, i64 0}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}

@@ -626,7 +626,7 @@ add_uint_string.exit79:                           ; preds = %add_uint_string.exi
   %79 = add i32 %.07381, 20
   %80 = add nuw nsw i32 %.07480, 1
   %exitcond.not = icmp eq i32 %80, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %add_uint_string.exit79, %12, %7, %4
   %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %12 ], [ %.0.i78, %add_uint_string.exit79 ], [ %79, %.lr.ph ]
@@ -768,7 +768,7 @@ add_uint_string.exit.i:                           ; preds = %65, %56, %53, %44, 
   %.2.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %55, %53 ], [ %49, %44 ], [ %67, %65 ], [ %61, %56 ]
   %68 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i)
   %69 = icmp sgt i32 %68, 3
-  br i1 %69, label %.lr.ph.i, label %gdsdb_status_vector.exit, !llvm.loop !9
+  br i1 %69, label %.lr.ph.i, label %gdsdb_status_vector.exit, !llvm.loop !10
 
 gdsdb_status_vector.exit:                         ; preds = %.lr.ph.i, %add_uint_string.exit.i, %27
   %.1.i = phi i32 [ %29, %27 ], [ %.2.i, %add_uint_string.exit.i ], [ %34, %.lr.ph.i ]
@@ -952,7 +952,7 @@ define internal noundef i32 @gdsdb_receive(ptr noundef %0, ptr readnone captures
   %30 = add i32 %.034, 12
   %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %30)
   %32 = icmp sgt i32 %31, 11
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %4
   %.033 = phi i32 [ -1, %4 ], [ %22, %7 ], [ %30, %.lr.ph ]
@@ -1597,8 +1597,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

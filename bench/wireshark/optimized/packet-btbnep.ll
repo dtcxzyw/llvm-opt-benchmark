@@ -697,7 +697,7 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr noundef 
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 6, i32 noundef 0)
   %84 = add i32 %.2113, 12
   %85 = icmp samesign ult i32 %78, %77
-  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 86:                                               ; preds = %4
   %87 = load i32, ptr @hf_btbnep_filter_multi_addr_response_message, align 4
@@ -810,6 +810,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

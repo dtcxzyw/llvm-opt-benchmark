@@ -217,7 +217,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %84 = add nuw nsw i32 %.068105.us, 1
   %85 = tail call i32 @PQntuples(ptr noundef %0) #10
   %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph106.split.us, label %._crit_edge, !llvm.loop !6
+  br i1 %86, label %.lr.ph106.split.us, label %._crit_edge, !llvm.loop !7
 
 .lr.ph106.split:                                  ; preds = %.lr.ph106, %99
   %87 = phi i32 [ %93, %99 ], [ 0, %.lr.ph106 ]
@@ -269,7 +269,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %102 = add nuw nsw i32 %.068105, 1
   %103 = tail call i32 @PQntuples(ptr noundef %0) #10
   %104 = icmp slt i32 %102, %103
-  br i1 %104, label %.lr.ph106.split, label %._crit_edge, !llvm.loop !8
+  br i1 %104, label %.lr.ph106.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %99, %81, %57
   %105 = phi i32 [ 0, %57 ], [ %75, %81 ], [ %93, %99 ]
@@ -376,7 +376,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef nonnull %0, ptr noundef %1
   %28 = add nuw nsw i32 %.031, 1
   %29 = tail call i32 @PQnfields(ptr noundef %1) #10
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %27
   %31 = icmp eq i32 %.2, -1
@@ -488,7 +488,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
   store i32 %29, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %24
   tail call void @pg_qsort(ptr noundef nonnull %5, i64 noundef %3, i64 noundef 8, ptr noundef nonnull @rankCompare) #10
@@ -509,7 +509,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
   store i32 %35, ptr %34, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !11
+  br i1 %exitcond44.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !12
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge.thread
   tail call void @pg_free(ptr noundef %5) #10
@@ -551,7 +551,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   store i32 %25, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %26 = call i32 @PQftype(ptr noundef %0, i32 noundef %7) #10
@@ -575,7 +575,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   call void @printTableAddHeader(ptr noundef nonnull %10, ptr noundef nonnull %37, i1 noundef zeroext false, i8 noundef signext %27) #10
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %._crit_edge149, label %29, !llvm.loop !13
+  br i1 %exitcond183.not, label %._crit_edge149, label %29, !llvm.loop !14
 
 ._crit_edge149.critedge:                          ; preds = %8
   %38 = call i32 @PQftype(ptr noundef %0, i32 noundef %7) #10
@@ -611,7 +611,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   store ptr %50, ptr %54, align 8
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge153, label %43, !llvm.loop !14
+  br i1 %exitcond188.not, label %._crit_edge153, label %43, !llvm.loop !15
 
 ._crit_edge153:                                   ; preds = %43, %._crit_edge149
   %55 = mul i32 %4, %13
@@ -831,7 +831,7 @@ bsearch.exit122.loopexit.split.loop.exit158:      ; preds = %109
   %141 = add nuw nsw i32 %.090161, 1
   %142 = call i32 @PQntuples(ptr noundef %0) #10
   %.not168 = icmp slt i32 %141, %142
-  br i1 %.not168, label %68, label %.preheader, !llvm.loop !15
+  br i1 %.not168, label %68, label %.preheader, !llvm.loop !16
 
 143:                                              ; preds = %.lr.ph166, %151
   %144 = phi i64 [ %66, %.lr.ph166 ], [ %152, %151 ]
@@ -853,7 +853,7 @@ bsearch.exit122.loopexit.split.loop.exit158:      ; preds = %109
   %153 = add i32 %.3165, 1
   %154 = sext i32 %153 to i64
   %155 = icmp ugt i64 %152, %154
-  br i1 %155, label %143, label %._crit_edge167, !llvm.loop !16
+  br i1 %155, label %143, label %._crit_edge167, !llvm.loop !17
 
 ._crit_edge167:                                   ; preds = %151, %.preheader
   %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
@@ -1170,16 +1170,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

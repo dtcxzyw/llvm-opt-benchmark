@@ -343,7 +343,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   store i64 %j.1.lcssa, ptr %add.ptr.i78, align 8, !tbaa !34
   %inc17 = add nuw i64 %i.0107, 1
   %exitcond108.not = icmp eq i64 %inc17, %sub.ptr.div.i56
-  br i1 %exitcond108.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !42
+  br i1 %exitcond108.not, label %for.cond.cleanup, label %while.cond.preheader, !llvm.loop !43
 
 ehcleanup:                                        ; preds = %if.then.i.i.i67, %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit64, %lpad4
   %.pn = phi { ptr, i32 } [ %24, %lpad4 ], [ %25, %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit64 ], [ %25, %if.then.i.i.i67 ]
@@ -449,15 +449,15 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(248) %this)
-  store i64 %call, ptr %agg.result, align 8, !tbaa !43
+  store i64 %call, ptr %agg.result, align 8, !tbaa !44
   %_M_data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call) #24
-  store ptr %call.i.i, ptr %_M_data.i, align 8, !tbaa !45
+  store ptr %call.i.i, ptr %_M_data.i, align 8, !tbaa !46
   %cmp.not2.i.i.i = icmp samesign eq i64 %call, 0
   br i1 %cmp.not2.i.i.i, label %_ZNSt8valarrayIbEC2ERKbm.exit, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i, i8 1, i64 %call, i1 false), !tbaa !46
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i, i8 1, i64 %call, i1 false), !tbaa !47
   br label %_ZNSt8valarrayIbEC2ERKbm.exit
 
 _ZNSt8valarrayIbEC2ERKbm.exit:                    ; preds = %entry, %while.body.preheader.i.i.i
@@ -549,7 +549,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
@@ -562,16 +562,16 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 define void @_ZThn8_NK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.0") align 8 captures(none) %agg.result, ptr noundef %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %vtable.i = load ptr, ptr %0, align 8, !tbaa !3, !noalias !49
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  %vtable.i = load ptr, ptr %0, align 8, !tbaa !3, !noalias !50
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %1 = load ptr, ptr %vfn.i, align 8, !noalias !49
-  %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(248) %0), !noalias !49
+  %1 = load ptr, ptr %vfn.i, align 8, !noalias !50
+  %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(248) %0), !noalias !50
   %cmp.i.i.i = icmp ugt i64 %call.i, 1152921504606846975
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20, !noalias !49
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20, !noalias !50
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
@@ -579,30 +579,30 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !49
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !50
   br label %_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv.exit
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %call.i, 3
-  %call5.i.i.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #21, !noalias !49
-  store ptr %call5.i.i.i.i2.i.i1.i, ptr %agg.result, align 8, !tbaa !32, !alias.scope !49
+  %call5.i.i.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #21, !noalias !50
+  store ptr %call5.i.i.i.i2.i.i1.i, ptr %agg.result, align 8, !tbaa !32, !alias.scope !50
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i, i64 %call.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33, !alias.scope !49
+  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33, !alias.scope !50
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i, i64 %mul.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i1.i, %if.end.i.i.i.i.i.i.i.i ]
-  store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34, !noalias !49
+  store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34, !noalias !50
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv.exit, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv.exit, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 _ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !35, !alias.scope !49
+  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !35, !alias.scope !50
   ret void
 }
 
@@ -643,7 +643,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
@@ -656,16 +656,16 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 define void @_ZThn8_NK8QuantLib21TriggeredSwapExercise18numberOfParametersEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.0") align 8 captures(none) %agg.result, ptr noundef %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %vtable.i = load ptr, ptr %0, align 8, !tbaa !3, !noalias !52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %vtable.i = load ptr, ptr %0, align 8, !tbaa !3, !noalias !53
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %1 = load ptr, ptr %vfn.i, align 8, !noalias !52
-  %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(248) %0), !noalias !52
+  %1 = load ptr, ptr %vfn.i, align 8, !noalias !53
+  %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(248) %0), !noalias !53
   %cmp.i.i.i = icmp ugt i64 %call.i, 1152921504606846975
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20, !noalias !52
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20, !noalias !53
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
@@ -673,30 +673,30 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !53
   br label %_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv.exit
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %call.i, 3
-  %call5.i.i.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #21, !noalias !52
-  store ptr %call5.i.i.i.i2.i.i1.i, ptr %agg.result, align 8, !tbaa !32, !alias.scope !52
+  %call5.i.i.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #21, !noalias !53
+  store ptr %call5.i.i.i.i2.i.i1.i, ptr %agg.result, align 8, !tbaa !32, !alias.scope !53
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i1.i, i64 %call.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33, !alias.scope !52
+  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33, !alias.scope !53
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i, i64 %mul.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i1.i, %if.end.i.i.i.i.i.i.i.i ]
-  store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34, !noalias !52
+  store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !34, !noalias !53
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv.exit, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv.exit, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 _ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !35, !alias.scope !52
+  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !35, !alias.scope !53
   ret void
 }
 
@@ -1330,8 +1330,8 @@ entry:
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib20EvolutionDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load i64, ptr %0, align 8, !tbaa !55
-  store i64 %1, ptr %this, align 8, !tbaa !55
+  %1 = load i64, ptr %0, align 8, !tbaa !56
+  store i64 %1, ptr %this, align 8, !tbaa !56
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1432,7 +1432,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %relevanceRates_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %relevanceRates_5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !56
+  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !57
   %11 = load ptr, ptr %relevanceRates_5, align 8, !tbaa !36
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %11 to i64
@@ -1460,7 +1460,7 @@ invoke.cont.i40:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i41 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i3947, %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i41, ptr %relevanceRates_, align 8, !tbaa !36
   %_M_finish.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !56
+  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !57
   %add.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i41, i64 %sub.ptr.sub.i.i35
   %_M_end_of_storage.i.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i43, ptr %_M_end_of_storage.i.i.i44, align 8, !tbaa !37
@@ -1476,11 +1476,11 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !57
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !58
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !56
+  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !57
   %rateTaus_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %rateTaus_8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %_M_finish.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1856,21 +1856,22 @@ attributes #24 = { allocsize(0) }
 !37 = !{!31, !8, i64 16}
 !38 = !{!39, !39, i64 0}
 !39 = !{!"double", !9, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
-!43 = !{!44, !22, i64 0}
-!44 = !{!"_ZTSSt8valarrayIbE", !22, i64 0, !8, i64 8}
-!45 = !{!44, !8, i64 8}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"bool", !9, i64 0}
-!48 = distinct !{!48, !41}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv: %agg.result"}
-!51 = distinct !{!51, !"_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv: %agg.result"}
-!54 = distinct !{!54, !"_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv"}
-!55 = !{!27, !22, i64 0}
-!56 = !{!31, !8, i64 8}
-!57 = distinct !{!57, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = distinct !{!43, !41, !42}
+!44 = !{!45, !22, i64 0}
+!45 = !{!"_ZTSSt8valarrayIbE", !22, i64 0, !8, i64 8}
+!46 = !{!45, !8, i64 8}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"bool", !9, i64 0}
+!49 = distinct !{!49, !41, !42}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv: %agg.result"}
+!52 = distinct !{!52, !"_ZNK8QuantLib21TriggeredSwapExercise17numberOfVariablesEv"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv: %agg.result"}
+!55 = distinct !{!55, !"_ZNK8QuantLib21TriggeredSwapExercise18numberOfParametersEv"}
+!56 = !{!27, !22, i64 0}
+!57 = !{!31, !8, i64 8}
+!58 = distinct !{!58, !41, !42}

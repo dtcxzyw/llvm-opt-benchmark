@@ -784,7 +784,7 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
 188:                                              ; preds = %185, %178
   %.242.i = phi ptr [ %.04054.i, %178 ], [ %174, %185 ]
   %189 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  store ptr %.242.i, ptr %189, align 8, !tbaa !66
+  store ptr %.242.i, ptr %189, align 8, !tbaa !67
   %190 = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %173, i32 noundef 141, ptr noundef nonnull %5, ptr noundef null) #9
   %191 = icmp eq ptr %190, null
   %192 = load i32, ptr %5, align 4
@@ -799,18 +799,18 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   %196 = call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %190) #9
   %197 = trunc i64 %196 to i32
   %198 = getelementptr inbounds nuw i8, ptr %173, i64 48
-  store i32 %197, ptr %198, align 8, !tbaa !69
+  store i32 %197, ptr %198, align 8, !tbaa !70
   call void @ASN1_ENUMERATED_free(ptr noundef nonnull %190) #9
   br label %201
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds nuw i8, ptr %173, i64 48
-  store i32 -1, ptr %200, align 8, !tbaa !69
+  store i32 -1, ptr %200, align 8, !tbaa !70
   br label %201
 
 201:                                              ; preds = %199, %195
   %202 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %203 = load ptr, ptr %202, align 8, !tbaa !70
+  %203 = load ptr, ptr %202, align 8, !tbaa !71
   store i32 0, ptr %5, align 4, !tbaa !62
   %204 = call i32 @OPENSSL_sk_num(ptr noundef %203) #9
   %205 = icmp sgt i32 %204, 0
@@ -841,13 +841,13 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   store i32 %218, ptr %5, align 4, !tbaa !62
   %219 = call i32 @OPENSSL_sk_num(ptr noundef %203) #9
   %220 = icmp slt i32 %218, %219
-  br i1 %220, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !71
+  br i1 %220, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !72
 
 .loopexit.i:                                      ; preds = %216, %213, %201
   %221 = add nuw nsw i32 %.03955.i, 1
   %222 = call i32 @OPENSSL_sk_num(ptr noundef %167) #9
   %223 = icmp slt i32 %221, %222
-  br i1 %223, label %172, label %.loopexit, !llvm.loop !72
+  br i1 %223, label %172, label %.loopexit, !llvm.loop !73
 
 crl_set_issuers.exit:                             ; preds = %185, %182
   call void @GENERAL_NAMES_free(ptr noundef nonnull %174) #9
@@ -997,7 +997,7 @@ define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef 
   %5 = alloca %struct.x509_revoked_st, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
@@ -1008,27 +1008,27 @@ define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #9
   %.not27 = icmp eq i32 %14, 0
   br i1 %.not27, label %.loopexit, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8, !tbaa !73
+  %16 = load ptr, ptr %6, align 8, !tbaa !74
   tail call void @OPENSSL_sk_sort(ptr noundef %16) #9
-  %17 = load ptr, ptr %12, align 8, !tbaa !74
+  %17 = load ptr, ptr %12, align 8, !tbaa !75
   %18 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #9
   br label %19
 
 19:                                               ; preds = %15, %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !75
-  %20 = load ptr, ptr %6, align 8, !tbaa !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !76
+  %20 = load ptr, ptr %6, align 8, !tbaa !74
   %21 = call i32 @OPENSSL_sk_find(ptr noundef %20, ptr noundef nonnull %5) #9
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %6, align 8, !tbaa !73
+  %24 = load ptr, ptr %6, align 8, !tbaa !74
   %25 = call i32 @OPENSSL_sk_num(ptr noundef %24) #9
   %26 = icmp slt i32 %21, %25
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -1039,7 +1039,7 @@ define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %crl_revoked_issuer_match.exit.thread.us
   %.02339.us = phi i32 [ %49, %crl_revoked_issuer_match.exit.thread.us ], [ %21, %.lr.ph ]
-  %27 = load ptr, ptr %6, align 8, !tbaa !73
+  %27 = load ptr, ptr %6, align 8, !tbaa !74
   %28 = call ptr @OPENSSL_sk_value(ptr noundef %27, i32 noundef %.02339.us) #9
   %29 = call i32 @ASN1_INTEGER_cmp(ptr noundef %28, ptr noundef nonnull %2) #9
   %.not28.us = icmp eq i32 %29, 0
@@ -1047,22 +1047,22 @@ define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !66
+  %32 = load ptr, ptr %31, align 8, !tbaa !67
   %.not.i.us = icmp eq ptr %32, null
   br i1 %.not.i.us, label %crl_revoked_issuer_match.exit.thread34, label %33
 
 33:                                               ; preds = %30
   %34 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %0) #9
-  %.pre.i.us = load ptr, ptr %31, align 8, !tbaa !66
+  %.pre.i.us = load ptr, ptr %31, align 8, !tbaa !67
   %35 = call i32 @OPENSSL_sk_num(ptr noundef %.pre.i.us) #9
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i.us, label %crl_revoked_issuer_match.exit.thread.us
 
 .lr.ph.i.us:                                      ; preds = %33, %44
   %.01627.i.us = phi i32 [ %45, %44 ], [ 0, %33 ]
-  %37 = load ptr, ptr %31, align 8, !tbaa !66
+  %37 = load ptr, ptr %31, align 8, !tbaa !67
   %38 = call ptr @OPENSSL_sk_value(ptr noundef %37, i32 noundef %.01627.i.us) #9
-  %39 = load i32, ptr %38, align 8, !tbaa !78
+  %39 = load i32, ptr %38, align 8, !tbaa !79
   %.not23.i.us = icmp eq i32 %39, 4
   br i1 %.not23.i.us, label %40, label %44
 
@@ -1075,19 +1075,19 @@ define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef 
 
 44:                                               ; preds = %40, %.lr.ph.i.us
   %45 = add nuw nsw i32 %.01627.i.us, 1
-  %46 = load ptr, ptr %31, align 8, !tbaa !66
+  %46 = load ptr, ptr %31, align 8, !tbaa !67
   %47 = call i32 @OPENSSL_sk_num(ptr noundef %46) #9
   %48 = icmp slt i32 %45, %47
-  br i1 %48, label %.lr.ph.i.us, label %crl_revoked_issuer_match.exit.thread.us, !llvm.loop !80
+  br i1 %48, label %.lr.ph.i.us, label %crl_revoked_issuer_match.exit.thread.us, !llvm.loop !81
 
 crl_revoked_issuer_match.exit.thread.us:          ; preds = %44, %33
   %49 = add i32 %.02339.us, 1
   %exitcond54.not = icmp eq i32 %49, %25
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !81
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !82
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %crl_revoked_issuer_match.exit.thread
   %.02339 = phi i32 [ %79, %crl_revoked_issuer_match.exit.thread ], [ %21, %.lr.ph ]
-  %50 = load ptr, ptr %6, align 8, !tbaa !73
+  %50 = load ptr, ptr %6, align 8, !tbaa !74
   %51 = call ptr @OPENSSL_sk_value(ptr noundef %50, i32 noundef %.02339) #9
   %52 = call i32 @ASN1_INTEGER_cmp(ptr noundef %51, ptr noundef nonnull %2) #9
   %.not28 = icmp eq i32 %52, 0
@@ -1095,7 +1095,7 @@ crl_revoked_issuer_match.exit.thread.us:          ; preds = %44, %33
 
 53:                                               ; preds = %.lr.ph.split
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !66
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %crl_revoked_issuer_match.exit, label %58
 
@@ -1112,9 +1112,9 @@ crl_revoked_issuer_match.exit:                    ; preds = %53
 
 .lr.ph.i:                                         ; preds = %58, %68
   %.01627.i = phi i32 [ %69, %68 ], [ 0, %58 ]
-  %61 = load ptr, ptr %54, align 8, !tbaa !66
+  %61 = load ptr, ptr %54, align 8, !tbaa !67
   %62 = call ptr @OPENSSL_sk_value(ptr noundef %61, i32 noundef %.01627.i) #9
-  %63 = load i32, ptr %62, align 8, !tbaa !78
+  %63 = load i32, ptr %62, align 8, !tbaa !79
   %.not23.i = icmp eq i32 %63, 4
   br i1 %.not23.i, label %64, label %68
 
@@ -1127,10 +1127,10 @@ crl_revoked_issuer_match.exit:                    ; preds = %53
 
 68:                                               ; preds = %64, %.lr.ph.i
   %69 = add nuw nsw i32 %.01627.i, 1
-  %70 = load ptr, ptr %54, align 8, !tbaa !66
+  %70 = load ptr, ptr %54, align 8, !tbaa !67
   %71 = call i32 @OPENSSL_sk_num(ptr noundef %70) #9
   %72 = icmp slt i32 %69, %71
-  br i1 %72, label %.lr.ph.i, label %crl_revoked_issuer_match.exit.thread, !llvm.loop !80
+  br i1 %72, label %.lr.ph.i, label %crl_revoked_issuer_match.exit.thread, !llvm.loop !81
 
 crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_match.exit, %64, %30, %40
   %73 = phi ptr [ %28, %40 ], [ %28, %30 ], [ %51, %64 ], [ %51, %crl_revoked_issuer_match.exit ]
@@ -1143,7 +1143,7 @@ crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_
 
 75:                                               ; preds = %74, %crl_revoked_issuer_match.exit.thread34
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %77 = load i32, ptr %76, align 8, !tbaa !69
+  %77 = load i32, ptr %76, align 8, !tbaa !70
   %78 = icmp eq i32 %77, 8
   %. = select i1 %78, i32 2, i32 1
   br label %.loopexit
@@ -1151,7 +1151,7 @@ crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_
 crl_revoked_issuer_match.exit.thread:             ; preds = %68, %58, %crl_revoked_issuer_match.exit
   %79 = add i32 %.02339, 1
   %exitcond.not = icmp eq i32 %79, %25
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !83
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph.split, %crl_revoked_issuer_match.exit.thread, %.lr.ph.split.us, %crl_revoked_issuer_match.exit.thread.us, %23, %75, %19, %11, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ %., %75 ], [ 0, %23 ], [ 0, %crl_revoked_issuer_match.exit.thread.us ], [ 0, %.lr.ph.split.us ], [ 0, %crl_revoked_issuer_match.exit.thread ], [ 0, %.lr.ph.split ]
@@ -1270,23 +1270,24 @@ attributes #9 = { nounwind }
 !61 = !{!52, !53, i64 0}
 !62 = !{!19, !19, i64 0}
 !63 = !{!4, !15, i64 56}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!67, !68, i64 40}
-!67 = !{!"x509_revoked_st", !20, i64 0, !6, i64 24, !15, i64 32, !68, i64 40, !19, i64 48, !19, i64 52}
-!68 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
-!69 = !{!67, !19, i64 48}
-!70 = !{!67, !15, i64 32}
-!71 = distinct !{!71, !65}
-!72 = distinct !{!72, !65}
-!73 = !{!4, !14, i64 48}
-!74 = !{!4, !7, i64 224}
-!75 = !{i64 0, i64 4, !62, i64 4, i64 4, !62, i64 8, i64 8, !76, i64 16, i64 8, !77}
-!76 = !{!17, !17, i64 0}
-!77 = !{!18, !18, i64 0}
-!78 = !{!79, !19, i64 0}
-!79 = !{!"GENERAL_NAME_st", !19, i64 0, !8, i64 8}
-!80 = distinct !{!80, !65}
-!81 = distinct !{!81, !65, !82}
-!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!83 = distinct !{!83, !65}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = !{!68, !69, i64 40}
+!68 = !{!"x509_revoked_st", !20, i64 0, !6, i64 24, !15, i64 32, !69, i64 40, !19, i64 48, !19, i64 52}
+!69 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
+!70 = !{!68, !19, i64 48}
+!71 = !{!68, !15, i64 32}
+!72 = distinct !{!72, !65, !66}
+!73 = distinct !{!73, !65, !66}
+!74 = !{!4, !14, i64 48}
+!75 = !{!4, !7, i64 224}
+!76 = !{i64 0, i64 4, !62, i64 4, i64 4, !62, i64 8, i64 8, !77, i64 16, i64 8, !78}
+!77 = !{!17, !17, i64 0}
+!78 = !{!18, !18, i64 0}
+!79 = !{!80, !19, i64 0}
+!80 = !{!"GENERAL_NAME_st", !19, i64 0, !8, i64 8}
+!81 = distinct !{!81, !65, !66}
+!82 = distinct !{!82, !65, !66, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !65, !66}

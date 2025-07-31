@@ -81,36 +81,36 @@ define internal noundef i32 @write_trailer(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %.lr.ph27, %24
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %24 ]
-  %25 = load ptr, ptr %11, align 8, !tbaa !39
+  %25 = load ptr, ptr %11, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv30
-  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   %28 = load ptr, ptr %2, align 8, !tbaa !4
   tail call void @avio_write(ptr noundef %28, ptr noundef nonnull @.str.5, i32 noundef 9) #3
   %29 = load ptr, ptr %2, align 8, !tbaa !4
   tail call void @avio_w8(ptr noundef %29, i32 noundef 10) #3
   %30 = load ptr, ptr %2, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !42
+  %32 = load i32, ptr %31, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !44
+  %34 = load i32, ptr %33, align 4, !tbaa !45
   %35 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %30, ptr noundef nonnull @.str.6, i32 noundef %32, i32 noundef %34) #3
   %36 = load ptr, ptr %2, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !45
+  %38 = load i64, ptr %37, align 8, !tbaa !46
   %39 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %36, ptr noundef nonnull @.str.7, i64 noundef %38) #3
   %40 = load ptr, ptr %2, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !46
+  %42 = load i64, ptr %41, align 8, !tbaa !47
   %43 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %40, ptr noundef nonnull @.str.8, i64 noundef %42) #3
   %44 = load ptr, ptr %2, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !47
+  %46 = load ptr, ptr %45, align 8, !tbaa !48
   tail call fastcc void @write_tags(ptr noundef %44, ptr noundef %46)
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %47 = load i32, ptr %9, align 8, !tbaa !26
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next31, %48
-  br i1 %49, label %24, label %._crit_edge, !llvm.loop !48
+  br i1 %49, label %24, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   ret i32 0
@@ -128,12 +128,12 @@ define internal fastcc void @write_tags(ptr noundef %0, ptr noundef %1) unnamed_
 
 .lr.ph:                                           ; preds = %2, %write_escape_str.exit11
   %4 = phi ptr [ %22, %write_escape_str.exit11 ], [ %3, %2 ]
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   br label %6
 
 6:                                                ; preds = %9, %.lr.ph
   %.0.i = phi ptr [ %5, %.lr.ph ], [ %12, %9 ]
-  %7 = load i8, ptr %.0.i, align 1, !tbaa !51
+  %7 = load i8, ptr %.0.i, align 1, !tbaa !52
   switch i8 %7, label %9 [
     i8 0, label %write_escape_str.exit
     i8 35, label %8
@@ -145,7 +145,7 @@ define internal fastcc void @write_tags(ptr noundef %0, ptr noundef %1) unnamed_
 
 8:                                                ; preds = %6, %6, %6, %6, %6
   tail call void @avio_w8(ptr noundef %0, i32 noundef 92) #3
-  %.pre.i = load i8, ptr %.0.i, align 1, !tbaa !51
+  %.pre.i = load i8, ptr %.0.i, align 1, !tbaa !52
   br label %9
 
 9:                                                ; preds = %8, %6
@@ -153,17 +153,17 @@ define internal fastcc void @write_tags(ptr noundef %0, ptr noundef %1) unnamed_
   %11 = zext i8 %10 to i32
   tail call void @avio_w8(ptr noundef %0, i32 noundef %11) #3
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %6, !llvm.loop !52
+  br label %6, !llvm.loop !53
 
 write_escape_str.exit:                            ; preds = %6
   tail call void @avio_w8(ptr noundef %0, i32 noundef 61) #3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
   br label %15
 
 15:                                               ; preds = %18, %write_escape_str.exit
   %.0.i9 = phi ptr [ %14, %write_escape_str.exit ], [ %21, %18 ]
-  %16 = load i8, ptr %.0.i9, align 1, !tbaa !51
+  %16 = load i8, ptr %.0.i9, align 1, !tbaa !52
   switch i8 %16, label %18 [
     i8 0, label %write_escape_str.exit11
     i8 35, label %17
@@ -175,7 +175,7 @@ write_escape_str.exit:                            ; preds = %6
 
 17:                                               ; preds = %15, %15, %15, %15, %15
   tail call void @avio_w8(ptr noundef %0, i32 noundef 92) #3
-  %.pre.i10 = load i8, ptr %.0.i9, align 1, !tbaa !51
+  %.pre.i10 = load i8, ptr %.0.i9, align 1, !tbaa !52
   br label %18
 
 18:                                               ; preds = %17, %15
@@ -183,13 +183,13 @@ write_escape_str.exit:                            ; preds = %6
   %20 = zext i8 %19 to i32
   tail call void @avio_w8(ptr noundef %0, i32 noundef %20) #3
   %21 = getelementptr inbounds nuw i8, ptr %.0.i9, i64 1
-  br label %15, !llvm.loop !52
+  br label %15, !llvm.loop !53
 
 write_escape_str.exit11:                          ; preds = %15
   tail call void @avio_w8(ptr noundef %0, i32 noundef 10) #3
   %22 = tail call ptr @av_dict_iterate(ptr noundef %1, ptr noundef nonnull %4) #3
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %write_escape_str.exit11, %2
   ret void
@@ -243,21 +243,22 @@ attributes #3 = { nounwind }
 !34 = !{!"AVPacket", !35, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !36, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !35, i64 88, !33, i64 96}
 !35 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !36 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!5, !17, i64 80}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS9AVChapter", !7, i64 0}
-!42 = !{!43, !13, i64 8}
-!43 = !{!"AVChapter", !19, i64 0, !33, i64 8, !19, i64 16, !19, i64 24, !21, i64 32}
-!44 = !{!43, !13, i64 12}
-!45 = !{!43, !19, i64 16}
-!46 = !{!43, !19, i64 24}
-!47 = !{!43, !21, i64 32}
-!48 = distinct !{!48, !38}
-!49 = !{!50, !18, i64 0}
-!50 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
-!51 = !{!8, !8, i64 0}
-!52 = distinct !{!52, !38}
-!53 = !{!50, !18, i64 8}
-!54 = distinct !{!54, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!5, !17, i64 80}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS9AVChapter", !7, i64 0}
+!43 = !{!44, !13, i64 8}
+!44 = !{!"AVChapter", !19, i64 0, !33, i64 8, !19, i64 16, !19, i64 24, !21, i64 32}
+!45 = !{!44, !13, i64 12}
+!46 = !{!44, !19, i64 16}
+!47 = !{!44, !19, i64 24}
+!48 = !{!44, !21, i64 32}
+!49 = distinct !{!49, !38, !39}
+!50 = !{!51, !18, i64 0}
+!51 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
+!52 = !{!8, !8, i64 0}
+!53 = distinct !{!53, !38, !39}
+!54 = !{!51, !18, i64 8}
+!55 = distinct !{!55, !38, !39}

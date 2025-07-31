@@ -1816,7 +1816,7 @@ proto_item_set_generated.exit912:                 ; preds = %270, %273, %276
 
 527:                                              ; preds = %522, %525
   %.not884 = icmp eq i32 %523, 0
-  br i1 %.not884, label %.thread925, label %491
+  br i1 %.not884, label %.thread925, label %491, !llvm.loop !11
 
 .thread925:                                       ; preds = %527, %488, %509, %494
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #6
@@ -1885,7 +1885,7 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %561 = add nuw nsw i32 %.1949, 8
   %562 = call ptr @proto_tree_add_item(ptr noundef %.0819, i32 noundef %560, ptr noundef %0, i32 noundef %561, i32 noundef 4, i32 noundef 0)
   %563 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %561)
-  %564 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %262) #8, !srcloc !10
+  %564 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %262) #8, !srcloc !12
   %565 = xor i32 %564, %563
   store i32 %565, ptr %7, align 16
   %566 = load i32, ptr @hf_stun_att_ipv4, align 4
@@ -1908,22 +1908,22 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %575 = add nuw nsw i32 %.1949, 8
   %576 = call ptr @proto_tree_add_item(ptr noundef %.0819, i32 noundef %574, ptr noundef %0, i32 noundef %575, i32 noundef 16, i32 noundef 0)
   call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %575, ptr noundef nonnull %7)
-  %577 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %262) #8, !srcloc !11
+  %577 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %262) #8, !srcloc !13
   %578 = load i32, ptr %7, align 16
   %579 = xor i32 %578, %577
   store i32 %579, ptr %7, align 16
   %580 = load i32, ptr %10, align 4
-  %581 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %580) #8, !srcloc !12
+  %581 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %580) #8, !srcloc !14
   %582 = load i32, ptr %294, align 4
   %583 = xor i32 %582, %581
   store i32 %583, ptr %294, align 4
   %584 = load i32, ptr %106, align 4
-  %585 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %584) #8, !srcloc !13
+  %585 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %584) #8, !srcloc !15
   %586 = load i32, ptr %295, align 8
   %587 = xor i32 %586, %585
   store i32 %587, ptr %295, align 8
   %588 = load i32, ptr %109, align 4
-  %589 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %588) #8, !srcloc !14
+  %589 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %588) #8, !srcloc !16
   %590 = load i32, ptr %296, align 4
   %591 = xor i32 %590, %589
   store i32 %591, ptr %296, align 4
@@ -2325,7 +2325,7 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %830 = zext i16 %.0821 to i32
   %831 = add nuw nsw i32 %.pre-phi, %830
   %832 = icmp ult i32 %831, %97
-  br i1 %832, label %301, label %.loopexit, !llvm.loop !15
+  br i1 %832, label %301, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %829, %286, %330, %241
   %.0834 = phi i1 [ false, %241 ], [ %.1835948, %330 ], [ false, %286 ], [ %.3934, %829 ]
@@ -2549,11 +2549,13 @@ attributes #8 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2151033988}
-!11 = !{i64 2151034731}
-!12 = !{i64 2151035445}
-!13 = !{i64 2151036153}
-!14 = !{i64 2151036861}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = !{i64 2151033988}
+!13 = !{i64 2151034731}
+!14 = !{i64 2151035445}
+!15 = !{i64 2151036153}
+!16 = !{i64 2151036861}
+!17 = distinct !{!17, !9, !10}

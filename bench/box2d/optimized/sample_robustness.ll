@@ -336,14 +336,14 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio1C2ER8Settings(ptr noundef
           to label %64 unwind label %68
 
 64:                                               ; preds = %58
-  store float %54, ptr %25, align 4, !tbaa !27
+  store float %54, ptr %25, align 4, !tbaa !28
   %65 = invoke i64 @b2CreatePolygonShape(i64 %63, ptr noundef nonnull %8, ptr noundef nonnull %7)
           to label %66 unwind label %68
 
 66:                                               ; preds = %64
   %67 = add nuw nsw i32 %.05464, 1
   %exitcond.not = icmp eq i32 %67, %.05266
-  br i1 %exitcond.not, label %55, label %58, !llvm.loop !31
+  br i1 %exitcond.not, label %55, label %58, !llvm.loop !32
 
 68:                                               ; preds = %64, %58
   %69 = landingpad { ptr, i32 }
@@ -353,7 +353,7 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio1C2ER8Settings(ptr noundef
 70:                                               ; preds = %55
   %71 = add nuw nsw i32 %.05167, 1
   %exitcond68.not = icmp eq i32 %71, 3
-  br i1 %exitcond68.not, label %26, label %43, !llvm.loop !32
+  br i1 %exitcond68.not, label %26, label %43, !llvm.loop !33
 
 72:                                               ; preds = %68, %41
   %.pn58 = phi { ptr, i32 } [ %69, %68 ], [ %42, %41 ]
@@ -703,17 +703,17 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio3C2ER8Settings(ptr noundef
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
-  store float -5.000000e-01, ptr %8, align 16, !tbaa !33
+  store float -5.000000e-01, ptr %8, align 16, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 5.000000e-01, ptr %28, align 8, !tbaa !33
+  store float 5.000000e-01, ptr %28, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float 0.000000e+00, ptr %30, align 16, !tbaa !33
+  store float 0.000000e+00, ptr %30, align 16, !tbaa !34
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float 1.000000e+00, ptr %31, align 4, !tbaa !34
+  store float 1.000000e+00, ptr %31, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %9) #14
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %9, ptr noundef nonnull %8, i32 noundef 3)
           to label %32 unwind label %62
@@ -909,21 +909,21 @@ define linkonce_odr dso_local void @_ZN15OverlapRecoveryC2ER8Settings(ptr nounde
 
 10:                                               ; preds = %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr null, ptr %11, align 8, !tbaa !35
+  store ptr null, ptr %11, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %12, align 8, !tbaa !47
+  store i32 0, ptr %12, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i32 4, ptr %13, align 4, !tbaa !48
+  store i32 4, ptr %13, align 4, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float 2.500000e-01, ptr %14, align 8, !tbaa !49
+  store float 2.500000e-01, ptr %14, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store float 5.000000e-01, ptr %15, align 4, !tbaa !50
+  store float 5.000000e-01, ptr %15, align 4, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store float 3.000000e+00, ptr %16, align 8, !tbaa !51
+  store float 3.000000e+00, ptr %16, align 8, !tbaa !52
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store float 3.000000e+01, ptr %17, align 4, !tbaa !52
+  store float 3.000000e+01, ptr %17, align 4, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store float 1.000000e+01, ptr %18, align 8, !tbaa !53
+  store float 1.000000e+01, ptr %18, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
           to label %19 unwind label %31
@@ -941,15 +941,15 @@ define linkonce_odr dso_local void @_ZN15OverlapRecoveryC2ER8Settings(ptr nounde
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store float 1.000000e+00, ptr %24, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %24, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  store float -4.000000e+01, ptr %5, align 4, !tbaa !33
+  store float -4.000000e+01, ptr %5, align 4, !tbaa !34
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %25, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %25, align 4, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float 4.000000e+01, ptr %26, align 4, !tbaa !33
+  store float 4.000000e+01, ptr %26, align 4, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !34
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !35
   %28 = invoke i64 @b2CreateSegmentShape(i64 %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %29 unwind label %37
 
@@ -1004,7 +1004,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %3 = alloca %struct.b2Polygon, align 4
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %6 = load i32, ptr %5, align 8, !tbaa !47
+  %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1016,44 +1016,44 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.017.0.copyload = load i32, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %11 = load float, ptr %10, align 4, !tbaa !52
+  %11 = load float, ptr %10, align 4, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %13 = load float, ptr %12, align 8, !tbaa !53
+  %13 = load float, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %15 = load float, ptr %14, align 8, !tbaa !51
+  %15 = load float, ptr %14, align 8, !tbaa !52
   tail call void @b2World_SetContactTuning(i32 %.sroa.017.0.copyload, float noundef %11, float noundef %13, float noundef %15)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #14
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2)
   store i32 2, ptr %2, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %17 = load float, ptr %16, align 4, !tbaa !50
+  %17 = load float, ptr %16, align 4, !tbaa !51
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %3, float noundef %17, float noundef %17)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #14
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store float 1.000000e+00, ptr %18, align 4, !tbaa !27
+  store float 1.000000e+00, ptr %18, align 4, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %20 = load i32, ptr %19, align 4, !tbaa !48
+  %20 = load i32, ptr %19, align 4, !tbaa !49
   %21 = add nsw i32 %20, 1
   %22 = mul nsw i32 %21, %20
   %23 = sdiv i32 %22, 2
-  store i32 %23, ptr %5, align 8, !tbaa !47
+  store i32 %23, ptr %5, align 8, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %25 = load ptr, ptr %24, align 8, !tbaa !35
+  %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = sext i32 %23 to i64
   %27 = shl nsw i64 %26, 3
   %28 = call ptr @realloc(ptr noundef %25, i64 noundef %27) #15
-  store ptr %28, ptr %24, align 8, !tbaa !35
+  store ptr %28, ptr %24, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %30 = load float, ptr %29, align 8, !tbaa !49
+  %30 = load float, ptr %29, align 8, !tbaa !50
   %31 = fsub float 1.000000e+00, %30
-  %32 = load i32, ptr %19, align 4, !tbaa !48
+  %32 = load i32, ptr %19, align 4, !tbaa !49
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph40, label %._crit_edge41
 
 .lr.ph40:                                         ; preds = %._crit_edge
-  %34 = load float, ptr %16, align 4, !tbaa !50
+  %34 = load float, ptr %16, align 4, !tbaa !51
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = fmul float %31, 2.000000e+00
@@ -1061,15 +1061,15 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = load ptr, ptr %8, align 8, !tbaa !35
+  %38 = load ptr, ptr %8, align 8, !tbaa !36
   %39 = getelementptr inbounds nuw %struct.b2BodyId, ptr %38, i64 %indvars.iv
   %.sroa.018.0.copyload = load i64, ptr %39, align 4
   tail call void @b2DestroyBody(i64 %.sroa.018.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %5, align 8, !tbaa !47
+  %40 = load i32, ptr %5, align 8, !tbaa !48
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %37, label %._crit_edge, !llvm.loop !54
+  br i1 %42, label %37, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge41:                                    ; preds = %._crit_edge35, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #14
@@ -1110,7 +1110,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %55 = fadd float %.02437, %.pre-phi
   %56 = add nuw nsw i32 %.02536, 1
   %57 = icmp slt i32 %56, %53
-  br i1 %57, label %43, label %._crit_edge41, !llvm.loop !55
+  br i1 %57, label %43, label %._crit_edge41, !llvm.loop !56
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.lr.ph34
   %indvars.iv43 = phi i64 [ %51, %.lr.ph34.preheader ], [ %indvars.iv.next44, %.lr.ph34 ]
@@ -1121,24 +1121,24 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %.sroa.02.0.copyload = load i32, ptr %9, align 4
   %58 = call i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %2)
   %59 = call i64 @b2CreatePolygonShape(i64 %58, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  %60 = load ptr, ptr %24, align 8, !tbaa !35
+  %60 = load ptr, ptr %24, align 8, !tbaa !36
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %61 = getelementptr inbounds %struct.b2BodyId, ptr %60, i64 %indvars.iv43
   store i64 %58, ptr %61, align 4
-  %62 = load float, ptr %16, align 4, !tbaa !50
+  %62 = load float, ptr %16, align 4, !tbaa !51
   %63 = fmul float %36, %62
   %64 = fadd float %.02631, %63
   %65 = add nuw nsw i32 %.02730, 1
-  %66 = load i32, ptr %19, align 4, !tbaa !48
+  %66 = load i32, ptr %19, align 4, !tbaa !49
   %67 = icmp slt i32 %65, %66
-  br i1 %67, label %.lr.ph34, label %._crit_edge35.loopexit, !llvm.loop !56
+  br i1 %67, label %.lr.ph34, label %._crit_edge35.loopexit, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15OverlapRecoveryD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV15OverlapRecovery, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   tail call void @free(ptr noundef %3) #14
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #14
   ret void
@@ -1148,7 +1148,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecoveryD2Ev(ptr noundef nonnull
 define linkonce_odr dso_local void @_ZN15OverlapRecoveryD0Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV15OverlapRecovery, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   tail call void @free(ptr noundef %3) #14
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #13
@@ -1162,24 +1162,24 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery8UpdateUIEv(ptr noundef 
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !57
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !58
   %7 = sitofp i32 %6 to float
   %8 = fadd float %7, -2.100000e+02
   %9 = fadd float %8, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !58
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %9, ptr %10, align 4, !tbaa !60
+  store float %9, ptr %10, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !58
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !60
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !61
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store float 2.200000e+02, ptr %4, align 4, !tbaa !58
+  store float 2.200000e+02, ptr %4, align 4, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 2.100000e+02, ptr %12, align 4, !tbaa !60
+  store float 2.100000e+02, ptr %12, align 4, !tbaa !61
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   %13 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.7, ptr noundef null, i32 noundef 2)
@@ -1215,9 +1215,9 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery8UpdateUIEv(ptr noundef 
   br i1 %26, label %.critedge15, label %27
 
 27:                                               ; preds = %.critedge12
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !58
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %28, align 4, !tbaa !60
+  store float 0.000000e+00, ptr %28, align 4, !tbaa !61
   %29 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.18, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   br i1 %29, label %30, label %31
@@ -1321,39 +1321,40 @@ attributes #15 = { nounwind allocsize(1) }
 !22 = !{!"_ZTS5b2Rot", !11, i64 0, !11, i64 4}
 !23 = !{!"p1 omnipotent char", !24, i64 0}
 !24 = !{!"any pointer", !10, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !11, i64 28}
-!28 = !{!"_ZTS10b2ShapeDef", !24, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !9, i64 24, !11, i64 28, !29, i64 32, !9, i64 56, !12, i64 60, !12, i64 61, !12, i64 62, !12, i64 63, !12, i64 64, !12, i64 65, !9, i64 68}
-!29 = !{!"_ZTS8b2Filter", !30, i64 0, !30, i64 8, !9, i64 16}
-!30 = !{!"long", !10, i64 0}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !26}
-!33 = !{!18, !11, i64 0}
-!34 = !{!18, !11, i64 4}
-!35 = !{!36, !46, i64 248}
-!36 = !{!"_ZTS15OverlapRecovery", !37, i64 0, !46, i64 248, !9, i64 256, !9, i64 260, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !11, i64 280}
-!37 = !{!"_ZTS6Sample", !38, i64 8, !39, i64 16, !40, i64 24, !9, i64 32, !9, i64 36, !41, i64 40, !9, i64 48, !43, i64 52, !44, i64 56, !9, i64 64, !9, i64 68, !45, i64 72, !45, i64 160}
-!38 = !{!"p1 _ZTS8Settings", !24, i64 0}
-!39 = !{!"p1 _ZTSN4enki13TaskSchedulerE", !24, i64 0}
-!40 = !{!"p1 _ZTS10SampleTask", !24, i64 0}
-!41 = !{!"_ZTS8b2BodyId", !9, i64 0, !42, i64 4, !42, i64 6}
-!42 = !{!"short", !10, i64 0}
-!43 = !{!"_ZTS9b2WorldId", !42, i64 0, !42, i64 2}
-!44 = !{!"_ZTS9b2JointId", !9, i64 0, !42, i64 4, !42, i64 6}
-!45 = !{!"_ZTS9b2Profile", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84}
-!46 = !{!"p1 _ZTS8b2BodyId", !24, i64 0}
-!47 = !{!36, !9, i64 256}
-!48 = !{!36, !9, i64 260}
-!49 = !{!36, !11, i64 264}
-!50 = !{!36, !11, i64 268}
-!51 = !{!36, !11, i64 272}
-!52 = !{!36, !11, i64 276}
-!53 = !{!36, !11, i64 280}
-!54 = distinct !{!54, !26}
-!55 = distinct !{!55, !26}
-!56 = distinct !{!56, !26}
-!57 = !{!17, !9, i64 16}
-!58 = !{!59, !11, i64 0}
-!59 = !{!"_ZTS6ImVec2", !11, i64 0, !11, i64 4}
-!60 = !{!59, !11, i64 4}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29, !11, i64 28}
+!29 = !{!"_ZTS10b2ShapeDef", !24, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !9, i64 24, !11, i64 28, !30, i64 32, !9, i64 56, !12, i64 60, !12, i64 61, !12, i64 62, !12, i64 63, !12, i64 64, !12, i64 65, !9, i64 68}
+!30 = !{!"_ZTS8b2Filter", !31, i64 0, !31, i64 8, !9, i64 16}
+!31 = !{!"long", !10, i64 0}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}
+!34 = !{!18, !11, i64 0}
+!35 = !{!18, !11, i64 4}
+!36 = !{!37, !47, i64 248}
+!37 = !{!"_ZTS15OverlapRecovery", !38, i64 0, !47, i64 248, !9, i64 256, !9, i64 260, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !11, i64 280}
+!38 = !{!"_ZTS6Sample", !39, i64 8, !40, i64 16, !41, i64 24, !9, i64 32, !9, i64 36, !42, i64 40, !9, i64 48, !44, i64 52, !45, i64 56, !9, i64 64, !9, i64 68, !46, i64 72, !46, i64 160}
+!39 = !{!"p1 _ZTS8Settings", !24, i64 0}
+!40 = !{!"p1 _ZTSN4enki13TaskSchedulerE", !24, i64 0}
+!41 = !{!"p1 _ZTS10SampleTask", !24, i64 0}
+!42 = !{!"_ZTS8b2BodyId", !9, i64 0, !43, i64 4, !43, i64 6}
+!43 = !{!"short", !10, i64 0}
+!44 = !{!"_ZTS9b2WorldId", !43, i64 0, !43, i64 2}
+!45 = !{!"_ZTS9b2JointId", !9, i64 0, !43, i64 4, !43, i64 6}
+!46 = !{!"_ZTS9b2Profile", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84}
+!47 = !{!"p1 _ZTS8b2BodyId", !24, i64 0}
+!48 = !{!37, !9, i64 256}
+!49 = !{!37, !9, i64 260}
+!50 = !{!37, !11, i64 264}
+!51 = !{!37, !11, i64 268}
+!52 = !{!37, !11, i64 272}
+!53 = !{!37, !11, i64 276}
+!54 = !{!37, !11, i64 280}
+!55 = distinct !{!55, !26, !27}
+!56 = distinct !{!56, !26, !27}
+!57 = distinct !{!57, !26, !27}
+!58 = !{!17, !9, i64 16}
+!59 = !{!60, !11, i64 0}
+!60 = !{!"_ZTS6ImVec2", !11, i64 0, !11, i64 4}
+!61 = !{!60, !11, i64 4}

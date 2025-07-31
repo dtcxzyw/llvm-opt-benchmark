@@ -264,7 +264,7 @@ define internal range(i32 -2147483648, 1) i32 @xwd_encode_frame(ptr noundef %0, 
   %121 = add nuw nsw i32 %.1158, 1
   %122 = load i32, ptr %37, align 4, !tbaa !30
   %123 = icmp slt i32 %121, %122
-  br i1 %123, label %116, label %._crit_edge162, !llvm.loop !38
+  br i1 %123, label %116, label %._crit_edge162, !llvm.loop !39
 
 ._crit_edge162:                                   ; preds = %116, %._crit_edge
   store i32 1, ptr %3, align 4, !tbaa !35
@@ -346,6 +346,7 @@ attributes #5 = { nounwind }
 !33 = !{!8, !8, i64 0}
 !34 = !{!14, !14, i64 0}
 !35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}

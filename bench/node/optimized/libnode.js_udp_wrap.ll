@@ -1233,7 +1233,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %80 = load ptr, ptr %vfn161, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(16) %call159, i64 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef nonnull %addr, i32 noundef %call133) #13
   %cmp149.not = icmp eq i32 %sub, 0
-  br i1 %cmp149.not, label %while.end, label %while.body, !llvm.loop !7
+  br i1 %cmp149.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %81 = load ptr, ptr %buf_.i, align 8
@@ -1984,6 +1984,7 @@ attributes #17 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

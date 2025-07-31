@@ -949,7 +949,7 @@ define internal void @button_clicked(ptr readnone captures(none) %0, ptr noundef
   %44 = load ptr, ptr %4, align 8, !tbaa !90
   %45 = call i32 @sqlite3_step(ptr noundef %44) #10
   %46 = icmp eq i32 %45, 100
-  br i1 %46, label %.lr.ph.i, label %_group_helper_function.exit
+  br i1 %46, label %.lr.ph.i, label %_group_helper_function.exit, !llvm.loop !108
 
 _group_helper_function.exit:                      ; preds = %.lr.ph.i, %34
   %.09.lcssa.i = phi ptr [ null, %34 ], [ %43, %.lr.ph.i ]
@@ -959,12 +959,12 @@ _group_helper_function.exit:                      ; preds = %.lr.ph.i, %34
   %49 = call i32 @sqlite3_finalize(ptr noundef %48) #10
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !102
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1356
-  %52 = load i32, ptr %51, align 4, !tbaa !108
+  %52 = load i32, ptr %51, align 4, !tbaa !110
   %.not11.i = icmp eq i32 %52, 0
   %spec.select15.i = select i1 %.not11.i, i32 0, i32 %.0.lcssa.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 1360
   store i32 %spec.select15.i, ptr %53, align 8, !tbaa !103
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !109
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !111
   call void @dt_collection_update_query(ptr noundef %54, i32 noundef 3, i32 noundef 43, ptr noundef %47) #10
   call void (...) @dt_control_queue_redraw_center() #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -1026,7 +1026,7 @@ _group_helper_function.exit:                      ; preds = %.lr.ph.i, %34
   %84 = load ptr, ptr %3, align 8, !tbaa !90
   %85 = call i32 @sqlite3_step(ptr noundef %84) #10
   %86 = icmp eq i32 %85, 100
-  br i1 %86, label %.lr.ph.i15, label %._crit_edge.i
+  br i1 %86, label %.lr.ph.i15, label %._crit_edge.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %83
   %87 = load ptr, ptr %3, align 8, !tbaa !90
@@ -1038,7 +1038,7 @@ _group_helper_function.exit:                      ; preds = %.lr.ph.i, %34
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !102
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1360
   store i32 0, ptr %91, align 8, !tbaa !103
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !109
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !111
   %93 = call ptr @g_list_reverse(ptr noundef nonnull %.1.i) #10
   call void @dt_collection_update_query(ptr noundef %92, i32 noundef 3, i32 noundef 43, ptr noundef %93) #10
   call void (...) @dt_control_queue_redraw_center() #10
@@ -1347,10 +1347,10 @@ define internal fastcc void @_execute_metadata(ptr readonly captures(none) %.280
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %.047.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !110
+  %13 = load ptr, ptr %12, align 8, !tbaa !113
   %14 = add nsw i32 %10, -1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %15, label %.preheader
+  br i1 %.not.i, label %15, label %.preheader, !llvm.loop !115
 
 15:                                               ; preds = %11
   tail call void (...) @dt_gui_cursor_set_busy() #10
@@ -1375,7 +1375,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader, %15
   br i1 %.not64, label %27, label %25
 
 25:                                               ; preds = %g_list_shorter_than.exit
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !112
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !116
   tail call void @dt_undo_start_group(ptr noundef %26, i32 noundef %24) #10
   br label %27
 
@@ -1463,10 +1463,10 @@ g_list_shorter_than.exit:                         ; preds = %.preheader, %15
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store double 0x7FF8000000000000, ptr %68, align 8, !tbaa !113
+  store double 0x7FF8000000000000, ptr %68, align 8, !tbaa !117
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store double 0x7FF8000000000000, ptr %69, align 8, !tbaa !114
-  store double 0x7FF8000000000000, ptr %65, align 8, !tbaa !115
+  store double 0x7FF8000000000000, ptr %69, align 8, !tbaa !118
+  store double 0x7FF8000000000000, ptr %65, align 8, !tbaa !119
   br label %71
 
 70:                                               ; preds = %64
@@ -1551,10 +1551,10 @@ g_list_shorter_than.exit:                         ; preds = %.preheader, %15
   br i1 %.not64, label %111, label %108
 
 108:                                              ; preds = %107
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !112
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !116
   tail call void @dt_undo_end_group(ptr noundef %109) #10
   tail call void @dt_image_synch_xmps(ptr noundef nonnull %9) #10
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !109
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !111
   tail call void @dt_collection_update_query(ptr noundef %110, i32 noundef 3, i32 noundef 19, ptr noundef nonnull %9) #10
   tail call void (...) @dt_control_queue_redraw_center() #10
   br label %112
@@ -1749,11 +1749,15 @@ attributes #13 = { nounwind allocsize(0) }
 !105 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
 !106 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
 !107 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
-!108 = !{!104, !9, i64 1356}
-!109 = !{!39, !56, i64 160}
-!110 = !{!111, !41, i64 8}
-!111 = !{!"_GList", !13, i64 0, !41, i64 8, !41, i64 16}
-!112 = !{!39, !62, i64 208}
-!113 = !{!83, !67, i64 16}
-!114 = !{!83, !67, i64 8}
-!115 = !{!83, !67, i64 0}
+!108 = distinct !{!108, !109}
+!109 = !{!"llvm.loop.estimated_trip_count"}
+!110 = !{!104, !9, i64 1356}
+!111 = !{!39, !56, i64 160}
+!112 = distinct !{!112, !109}
+!113 = !{!114, !41, i64 8}
+!114 = !{!"_GList", !13, i64 0, !41, i64 8, !41, i64 16}
+!115 = distinct !{!115, !109}
+!116 = !{!39, !62, i64 208}
+!117 = !{!83, !67, i64 16}
+!118 = !{!83, !67, i64 8}
+!119 = !{!83, !67, i64 0}

@@ -247,7 +247,7 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %112 = load i32, ptr %4, align 8
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next74, %113
-  br i1 %114, label %84, label %._crit_edge70, !llvm.loop !8
+  br i1 %114, label %84, label %._crit_edge70, !llvm.loop !9
 
 ._crit_edge70:                                    ; preds = %84, %._crit_edge
   ret i64 0
@@ -330,7 +330,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   %35 = load i32, ptr %24, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next200, %36
-  br i1 %37, label %.lr.ph177, label %._crit_edge178, !llvm.loop !9
+  br i1 %37, label %.lr.ph177, label %._crit_edge178, !llvm.loop !10
 
 ._crit_edge178:                                   ; preds = %.lr.ph177
   %38 = icmp sgt i32 %35, 0
@@ -409,7 +409,7 @@ pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
   %81 = load i32, ptr %39, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next203, %82
-  br i1 %83, label %52, label %._crit_edge182, !llvm.loop !10
+  br i1 %83, label %52, label %._crit_edge182, !llvm.loop !11
 
 ._crit_edge182:                                   ; preds = %pointToRectBoxDistance.exit, %42
   %84 = load i32, ptr %24, align 8
@@ -443,7 +443,7 @@ pointToRectBoxDistance.exit:                      ; preds = %72, %74, %77
   %103 = load i32, ptr %24, align 8
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next206, %104
-  br i1 %105, label %.lr.ph185, label %.loopexit, !llvm.loop !11
+  br i1 %105, label %.lr.ph185, label %.loopexit, !llvm.loop !12
 
 106:                                              ; preds = %19
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -530,7 +530,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %132, %136
   %159 = load i32, ptr %121, align 8
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next, %160
-  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %spg_box_quad_get_scankey_bbox.exit, %106
   store i32 0, ptr %7, align 8
@@ -902,7 +902,7 @@ overlap4D.exit:                                   ; preds = %378
 391:                                              ; preds = %374, %363, %353, %342, %333, %323, %312, %302, %262, %238, %overlap4D.exit
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge167, label %217, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge167, label %217, !llvm.loop !14
 
 ._crit_edge167:                                   ; preds = %391, %nextRectBox.exit
   %392 = load ptr, ptr %172, align 8
@@ -992,7 +992,7 @@ pointToRectBoxDistance.exit155:                   ; preds = %435, %437, %440
   %444 = load i32, ptr %173, align 4
   %445 = sext i32 %444 to i64
   %446 = icmp slt i64 %indvars.iv.next197, %445
-  br i1 %446, label %415, label %.loopexit159, !llvm.loop !14
+  br i1 %446, label %415, label %.loopexit159, !llvm.loop !15
 
 .loopexit159:                                     ; preds = %pointToRectBoxDistance.exit155, %402, %._crit_edge167
   %447 = load i32, ptr %7, align 8
@@ -1009,7 +1009,7 @@ overlap4D.exit.thread:                            ; preds = %378, %367, %356, %3
   %451 = zext i8 %450 to i32
   %452 = load i32, ptr %162, align 8
   %453 = icmp sgt i32 %452, %451
-  br i1 %453, label %190, label %._crit_edge174, !llvm.loop !15
+  br i1 %453, label %190, label %._crit_edge174, !llvm.loop !16
 
 ._crit_edge174:                                   ; preds = %449, %182
   store ptr %185, ptr @CurrentMemoryContext, align 8
@@ -1200,7 +1200,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   %69 = load i32, ptr %16, align 8
   %70 = sext i32 %69 to i64
   %.not81 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %.not81, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %.not81, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %68, %15
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1311,14 +1311,15 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

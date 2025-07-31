@@ -1170,7 +1170,7 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr noundef captures(none
   %17 = add i64 %.03134, 64
   %18 = add i64 %.03134, 127
   %19 = icmp ult i64 %18, %2
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.031.lcssa = phi i64 [ %14, %11 ], [ %17, %.lr.ph ]
@@ -1277,7 +1277,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr no
   store i32 %38, ptr %39, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %31, label %36, !llvm.loop !14
+  br i1 %exitcond.not, label %31, label %36, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1312,7 +1312,8 @@ attributes #8 = { nounwind }
 !8 = !{!9, !10, i64 24}
 !9 = !{!"_ZTS12sha1_context", !5, i64 0, !10, i64 24, !5, i64 32}
 !10 = !{!"long", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}

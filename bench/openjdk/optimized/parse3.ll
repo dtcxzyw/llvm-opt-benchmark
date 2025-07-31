@@ -1393,7 +1393,7 @@ _ZNK4Type11make_oopptrEv.exit:                    ; preds = %24, %44
   %70 = tail call noundef ptr @_ZN8GraphKit15access_store_atEP4NodeS1_PK7TypePtrS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %11, ptr noundef %69, ptr noundef %26, ptr noundef %62, ptr noundef %50, i8 noundef zeroext 12, i64 noundef 2359296) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !9
 
 .loopexit:                                        ; preds = %61, %_ZNK4Type11make_oopptrEv.exit, %5
   ret ptr %11
@@ -1460,7 +1460,7 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128: ; preds = %1
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not136 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not136, label %._crit_edge, label %25, !llvm.loop !9
+  br i1 %.not136, label %._crit_edge, label %25, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %25
   %40 = load i64, ptr @MultiArrayExpandLimit, align 8
@@ -1478,7 +1478,7 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128: ; preds = %1
 45:                                               ; preds = %_ZN8GraphKit12find_int_conEP4Nodei.exit
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge, label %46, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge, label %46, !llvm.loop !11
 
 46:                                               ; preds = %.lr.ph109, %45
   %indvars.iv119 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next120, %45 ]
@@ -1714,7 +1714,7 @@ switch.lookup:                                    ; preds = %128
   %182 = call noundef ptr @_ZN8GraphKit15store_to_memoryEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbbbbi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %175, ptr noundef %171, ptr noundef %177, i8 noundef zeroext 10, i32 noundef %181, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0) #7
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge114, label %167, !llvm.loop !11
+  br i1 %exitcond126.not, label %._crit_edge114, label %167, !llvm.loop !12
 
 ._crit_edge114:                                   ; preds = %167, %.thread
   call void @_ZN22PreserveReexecuteStateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
@@ -2122,9 +2122,10 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

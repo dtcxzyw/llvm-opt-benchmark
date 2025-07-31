@@ -61,7 +61,7 @@ define internal void @lv_imagebutton_event(ptr readnone captures(none) %0, ptr n
   br i1 %.not.i.i, label %.preheader.i.i, label %16
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  br label %.preheader.i.i
+  br label %.preheader.i.i, !llvm.loop !3
 
 16:                                               ; preds = %13
   %17 = tail call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %14) #6
@@ -95,7 +95,7 @@ get_state.exit.i:                                 ; preds = %25, %23, %21
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %28 = zext nneg i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %27, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !3
+  %30 = load ptr, ptr %29, align 8, !tbaa !5
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %52
 
@@ -109,45 +109,45 @@ get_state.exit.i:                                 ; preds = %25, %23, %21
   ]
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr %27, align 8, !tbaa !3
+  %34 = load ptr, ptr %27, align 8, !tbaa !5
   %.not19.i.i = icmp eq ptr %34, null
   br i1 %.not19.i.i, label %52, label %suggest_state.exit.i
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %27, align 8, !tbaa !3
+  %36 = load ptr, ptr %27, align 8, !tbaa !5
   %.not18.i.i = icmp eq ptr %36, null
   br i1 %.not18.i.i, label %52, label %suggest_state.exit.i
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
+  %39 = load ptr, ptr %38, align 8, !tbaa !5
   %.not15.i.i = icmp eq ptr %39, null
   br i1 %.not15.i.i, label %40, label %suggest_state.exit.i
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %42 = load ptr, ptr %41, align 8, !tbaa !5
   %.not16.i.i = icmp eq ptr %42, null
   br i1 %.not16.i.i, label %43, label %suggest_state.exit.i
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %27, align 8, !tbaa !3
+  %44 = load ptr, ptr %27, align 8, !tbaa !5
   %.not17.i.i = icmp eq ptr %44, null
   br i1 %.not17.i.i, label %52, label %suggest_state.exit.i
 
 45:                                               ; preds = %32
-  %46 = load ptr, ptr %27, align 8, !tbaa !3
+  %46 = load ptr, ptr %27, align 8, !tbaa !5
   %.not14.i.i = icmp eq ptr %46, null
   br i1 %.not14.i.i, label %52, label %suggest_state.exit.i
 
 47:                                               ; preds = %32
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  %49 = load ptr, ptr %48, align 8, !tbaa !3
+  %49 = load ptr, ptr %48, align 8, !tbaa !5
   %.not.i42.i = icmp eq ptr %49, null
   br i1 %.not.i42.i, label %50, label %suggest_state.exit.i
 
 50:                                               ; preds = %47
-  %51 = load ptr, ptr %27, align 8, !tbaa !3
+  %51 = load ptr, ptr %27, align 8, !tbaa !5
   %.not13.i.i = icmp eq ptr %51, null
   br i1 %.not13.i.i, label %52, label %suggest_state.exit.i
 
@@ -166,28 +166,28 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
   %.sroa.0.0.extract.trunc.i43.i = trunc i64 %58 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %60 = load i32, ptr %59, align 4, !tbaa !10
-  store i32 %60, ptr %3, align 4, !tbaa !10
+  %60 = load i32, ptr %59, align 4, !tbaa !12
+  store i32 %60, ptr %3, align 4, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %62 = load i32, ptr %61, align 4, !tbaa !12
+  %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %62, ptr %63, align 4, !tbaa !12
+  store i32 %62, ptr %63, align 4, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %65 = load i32, ptr %64, align 4, !tbaa !13
+  %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %65, ptr %66, align 4, !tbaa !13
+  store i32 %65, ptr %66, align 4, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  %68 = load i32, ptr %67, align 4, !tbaa !14
+  %68 = load i32, ptr %67, align 4, !tbaa !16
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %68, ptr %69, align 4, !tbaa !14
+  store i32 %68, ptr %69, align 4, !tbaa !16
   call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %.sroa.0.0.extract.trunc.i.i, i32 noundef %.sroa.0.0.extract.trunc.i43.i) #6
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #6
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %4) #6
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %15, ptr %70, align 8, !tbaa !15
+  store ptr %15, ptr %70, align 8, !tbaa !17
   call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  %71 = load ptr, ptr %54, align 8, !tbaa !3
+  %71 = load ptr, ptr %54, align 8, !tbaa !5
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %90, label %72
 
@@ -197,23 +197,23 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
   %75 = lshr i64 %74, 32
   %76 = trunc nuw i64 %75 to i32
   %77 = and i32 %76, 65535
-  %78 = load i32, ptr %3, align 4, !tbaa !10
-  store i32 %78, ptr %5, align 4, !tbaa !10
-  %79 = load i32, ptr %63, align 4, !tbaa !12
+  %78 = load i32, ptr %3, align 4, !tbaa !12
+  store i32 %78, ptr %5, align 4, !tbaa !12
+  %79 = load i32, ptr %63, align 4, !tbaa !14
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !12
+  store i32 %79, ptr %80, align 4, !tbaa !14
   %81 = add i32 %78, -1
   %82 = add i32 %81, %77
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %82, ptr %83, align 4, !tbaa !13
+  store i32 %82, ptr %83, align 4, !tbaa !15
   %84 = lshr i64 %74, 48
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = add nsw i32 %85, -1
   %87 = add i32 %86, %79
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %87, ptr %88, align 4, !tbaa !14
+  store i32 %87, ptr %88, align 4, !tbaa !16
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %71, ptr %89, align 8, !tbaa !25
+  store ptr %71, ptr %89, align 8, !tbaa !27
   call void @lv_draw_image(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   br label %90
 
@@ -221,7 +221,7 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
   %.038.i = phi i32 [ %77, %72 ], [ 0, %suggest_state.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %92 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %91, i64 0, i64 %.0.i41.i
-  %93 = load ptr, ptr %92, align 8, !tbaa !3
+  %93 = load ptr, ptr %92, align 8, !tbaa !5
   %.not39.i = icmp eq ptr %93, null
   br i1 %.not39.i, label %112, label %94
 
@@ -231,47 +231,47 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
   %97 = lshr i64 %96, 32
   %98 = trunc nuw i64 %97 to i32
   %99 = and i32 %98, 65535
-  %100 = load i32, ptr %66, align 4, !tbaa !13
+  %100 = load i32, ptr %66, align 4, !tbaa !15
   %101 = add i32 %100, 1
   %102 = sub i32 %101, %99
-  store i32 %102, ptr %5, align 4, !tbaa !10
-  %103 = load i32, ptr %63, align 4, !tbaa !12
+  store i32 %102, ptr %5, align 4, !tbaa !12
+  %103 = load i32, ptr %63, align 4, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %103, ptr %104, align 4, !tbaa !12
+  store i32 %103, ptr %104, align 4, !tbaa !14
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %100, ptr %105, align 4, !tbaa !13
+  store i32 %100, ptr %105, align 4, !tbaa !15
   %106 = lshr i64 %96, 48
   %107 = trunc nuw nsw i64 %106 to i32
   %108 = add nsw i32 %107, -1
   %109 = add i32 %108, %103
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %109, ptr %110, align 4, !tbaa !14
+  store i32 %109, ptr %110, align 4, !tbaa !16
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %93, ptr %111, align 8, !tbaa !25
+  store ptr %93, ptr %111, align 8, !tbaa !27
   call void @lv_draw_image(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   br label %112
 
 112:                                              ; preds = %94, %90
   %.0.i = phi i32 [ %99, %94 ], [ 0, %90 ]
   %113 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %27, i64 0, i64 %.0.i41.i
-  %114 = load ptr, ptr %113, align 8, !tbaa !3
+  %114 = load ptr, ptr %113, align 8, !tbaa !5
   %.not40.i = icmp eq ptr %114, null
   br i1 %.not40.i, label %draw_main.exit, label %115
 
 115:                                              ; preds = %112
-  %116 = load i32, ptr %3, align 4, !tbaa !10
+  %116 = load i32, ptr %3, align 4, !tbaa !12
   %117 = add nsw i32 %116, %.038.i
-  store i32 %117, ptr %5, align 4, !tbaa !10
-  %118 = load i32, ptr %66, align 4, !tbaa !13
+  store i32 %117, ptr %5, align 4, !tbaa !12
+  %118 = load i32, ptr %66, align 4, !tbaa !15
   %119 = sub nsw i32 %118, %.0.i
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %119, ptr %120, align 4, !tbaa !13
-  %121 = load i32, ptr %63, align 4, !tbaa !12
+  store i32 %119, ptr %120, align 4, !tbaa !15
+  %121 = load i32, ptr %63, align 4, !tbaa !14
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %121, ptr %122, align 4, !tbaa !12
-  %123 = load i32, ptr %69, align 4, !tbaa !14
+  store i32 %121, ptr %122, align 4, !tbaa !14
+  %123 = load i32, ptr %69, align 4, !tbaa !16
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %123, ptr %124, align 4, !tbaa !14
+  store i32 %123, ptr %124, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %126 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %125) #6
@@ -279,17 +279,17 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
 
 127:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !26
-  %128 = load ptr, ptr %113, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !28
+  %128 = load ptr, ptr %113, align 8, !tbaa !5
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %128, ptr %129, align 8, !tbaa !25
+  store ptr %128, ptr %129, align 8, !tbaa !27
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 101
   %131 = load i8, ptr %130, align 1
   %132 = or i8 %131, 16
   store i8 %132, ptr %130, align 1
   call void @lv_draw_image(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %133
 
@@ -305,12 +305,12 @@ draw_main.exit:                                   ; preds = %112, %133
 
 134:                                              ; preds = %9
   %135 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
-  %136 = load i32, ptr %135, align 8, !tbaa !28
+  %136 = load i32, ptr %135, align 8, !tbaa !30
   %.not37 = icmp eq i32 %136, 2
   br i1 %.not37, label %196, label %137
 
 137:                                              ; preds = %134
-  store i32 1, ptr %135, align 8, !tbaa !28
+  store i32 1, ptr %135, align 8, !tbaa !30
   br label %196
 
 138:                                              ; preds = %9
@@ -319,7 +319,7 @@ draw_main.exit:                                   ; preds = %112, %133
   br i1 %.not.i38, label %.preheader.i, label %140
 
 .preheader.i:                                     ; preds = %138, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !3
 
 140:                                              ; preds = %138
   %141 = tail call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %11) #6
@@ -353,7 +353,7 @@ get_state.exit:                                   ; preds = %145, %147, %149
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %152 = zext nneg i32 %.0.i39 to i64
   %153 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %151, i64 0, i64 %152
-  %154 = load ptr, ptr %153, align 8, !tbaa !3
+  %154 = load ptr, ptr %153, align 8, !tbaa !5
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %176
 
@@ -367,45 +367,45 @@ get_state.exit:                                   ; preds = %145, %147, %149
   ]
 
 157:                                              ; preds = %156
-  %158 = load ptr, ptr %151, align 8, !tbaa !3
+  %158 = load ptr, ptr %151, align 8, !tbaa !5
   %.not19.i = icmp eq ptr %158, null
   br i1 %.not19.i, label %176, label %suggest_state.exit
 
 159:                                              ; preds = %156
-  %160 = load ptr, ptr %151, align 8, !tbaa !3
+  %160 = load ptr, ptr %151, align 8, !tbaa !5
   %.not18.i = icmp eq ptr %160, null
   br i1 %.not18.i, label %176, label %suggest_state.exit
 
 161:                                              ; preds = %156
   %162 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %163 = load ptr, ptr %162, align 8, !tbaa !3
+  %163 = load ptr, ptr %162, align 8, !tbaa !5
   %.not15.i = icmp eq ptr %163, null
   br i1 %.not15.i, label %164, label %suggest_state.exit
 
 164:                                              ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %166 = load ptr, ptr %165, align 8, !tbaa !3
+  %166 = load ptr, ptr %165, align 8, !tbaa !5
   %.not16.i = icmp eq ptr %166, null
   br i1 %.not16.i, label %167, label %suggest_state.exit
 
 167:                                              ; preds = %164
-  %168 = load ptr, ptr %151, align 8, !tbaa !3
+  %168 = load ptr, ptr %151, align 8, !tbaa !5
   %.not17.i = icmp eq ptr %168, null
   br i1 %.not17.i, label %176, label %suggest_state.exit
 
 169:                                              ; preds = %156
-  %170 = load ptr, ptr %151, align 8, !tbaa !3
+  %170 = load ptr, ptr %151, align 8, !tbaa !5
   %.not14.i = icmp eq ptr %170, null
   br i1 %.not14.i, label %176, label %suggest_state.exit
 
 171:                                              ; preds = %156
   %172 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %173 = load ptr, ptr %172, align 8, !tbaa !3
+  %173 = load ptr, ptr %172, align 8, !tbaa !5
   %.not.i41 = icmp eq ptr %173, null
   br i1 %.not.i41, label %174, label %suggest_state.exit
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr %151, align 8, !tbaa !3
+  %175 = load ptr, ptr %151, align 8, !tbaa !5
   %.not13.i = icmp eq ptr %175, null
   br i1 %.not13.i, label %176, label %suggest_state.exit
 
@@ -416,32 +416,32 @@ suggest_state.exit:                               ; preds = %157, %159, %161, %1
   %.0.i40 = phi i64 [ %152, %176 ], [ 0, %157 ], [ 0, %159 ], [ 3, %161 ], [ 1, %164 ], [ 0, %167 ], [ 0, %169 ], [ 3, %171 ], [ 0, %174 ]
   %177 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %178 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %177, i64 0, i64 %.0.i40
-  %179 = load ptr, ptr %178, align 8, !tbaa !3
+  %179 = load ptr, ptr %178, align 8, !tbaa !5
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %196
 
 181:                                              ; preds = %suggest_state.exit
   %182 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %151, i64 0, i64 %.0.i40
-  %183 = load ptr, ptr %182, align 8, !tbaa !3
+  %183 = load ptr, ptr %182, align 8, !tbaa !5
   %.not36 = icmp eq ptr %183, null
   br i1 %.not36, label %196, label %184
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 352
   %186 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %185, i64 0, i64 %.0.i40
-  %187 = load ptr, ptr %186, align 8, !tbaa !3
+  %187 = load ptr, ptr %186, align 8, !tbaa !5
   %188 = icmp eq ptr %187, null
   br i1 %188, label %189, label %196
 
 189:                                              ; preds = %184
-  %190 = load i32, ptr %139, align 4, !tbaa !30
+  %190 = load i32, ptr %139, align 4, !tbaa !32
   %191 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %192 = load i64, ptr %191, align 8
   %193 = lshr i64 %192, 32
   %194 = trunc nuw i64 %193 to i32
   %195 = and i32 %194, 65535
   %. = tail call i32 @llvm.smax.i32(i32 %190, i32 %195)
-  store i32 %., ptr %139, align 4, !tbaa !30
+  store i32 %., ptr %139, align 4, !tbaa !32
   br label %196
 
 196:                                              ; preds = %12, %draw_main.exit, %137, %134, %9, %189, %184, %181, %suggest_state.exit, %2
@@ -471,7 +471,7 @@ define void @lv_imagebutton_set_src(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !33
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -491,7 +491,7 @@ define void @lv_imagebutton_set_src(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not6.i, label %14, label %update_src_info.exit
 
 14:                                               ; preds = %11
-  store ptr %2, ptr %9, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !5
   br label %update_src_info.exit
 
 update_src_info.exit:                             ; preds = %10, %11, %14
@@ -511,7 +511,7 @@ update_src_info.exit:                             ; preds = %10, %11, %14
   br i1 %.not6.i18, label %21, label %update_src_info.exit19
 
 21:                                               ; preds = %18
-  store ptr %3, ptr %16, align 8, !tbaa !3
+  store ptr %3, ptr %16, align 8, !tbaa !5
   br label %update_src_info.exit19
 
 update_src_info.exit19:                           ; preds = %17, %18, %21
@@ -531,7 +531,7 @@ update_src_info.exit19:                           ; preds = %17, %18, %21
   br i1 %.not6.i21, label %28, label %update_src_info.exit22
 
 28:                                               ; preds = %25
-  store ptr %4, ptr %23, align 8, !tbaa !3
+  store ptr %4, ptr %23, align 8, !tbaa !5
   br label %update_src_info.exit22
 
 update_src_info.exit22:                           ; preds = %24, %25, %28
@@ -545,7 +545,7 @@ define internal fastcc void @refr_image(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %2
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !3
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i16 @lv_obj_get_state(ptr noundef nonnull %0) #6
@@ -579,7 +579,7 @@ get_state.exit:                                   ; preds = %7, %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = zext nneg i32 %.0.i to i64
   %15 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %13, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %38
 
@@ -593,45 +593,45 @@ get_state.exit:                                   ; preds = %7, %9, %11
   ]
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %13, align 8, !tbaa !3
+  %20 = load ptr, ptr %13, align 8, !tbaa !5
   %.not19.i = icmp eq ptr %20, null
   br i1 %.not19.i, label %38, label %suggest_state.exit
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %13, align 8, !tbaa !3
+  %22 = load ptr, ptr %13, align 8, !tbaa !5
   %.not18.i = icmp eq ptr %22, null
   br i1 %.not18.i, label %38, label %suggest_state.exit
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %25 = load ptr, ptr %24, align 8, !tbaa !3
+  %25 = load ptr, ptr %24, align 8, !tbaa !5
   %.not15.i = icmp eq ptr %25, null
   br i1 %.not15.i, label %26, label %suggest_state.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %28 = load ptr, ptr %27, align 8, !tbaa !3
+  %28 = load ptr, ptr %27, align 8, !tbaa !5
   %.not16.i = icmp eq ptr %28, null
   br i1 %.not16.i, label %29, label %suggest_state.exit
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %13, align 8, !tbaa !3
+  %30 = load ptr, ptr %13, align 8, !tbaa !5
   %.not17.i = icmp eq ptr %30, null
   br i1 %.not17.i, label %38, label %suggest_state.exit
 
 31:                                               ; preds = %18
-  %32 = load ptr, ptr %13, align 8, !tbaa !3
+  %32 = load ptr, ptr %13, align 8, !tbaa !5
   %.not14.i = icmp eq ptr %32, null
   br i1 %.not14.i, label %38, label %suggest_state.exit
 
 33:                                               ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %35 = load ptr, ptr %34, align 8, !tbaa !3
+  %35 = load ptr, ptr %34, align 8, !tbaa !5
   %.not.i11 = icmp eq ptr %35, null
   br i1 %.not.i11, label %36, label %suggest_state.exit
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %13, align 8, !tbaa !3
+  %37 = load ptr, ptr %13, align 8, !tbaa !5
   %.not13.i = icmp eq ptr %37, null
   br i1 %.not13.i, label %38, label %suggest_state.exit
 
@@ -641,7 +641,7 @@ get_state.exit:                                   ; preds = %7, %9, %11
 suggest_state.exit:                               ; preds = %19, %21, %23, %26, %29, %31, %33, %36, %38
   %.0.i10 = phi i64 [ %14, %38 ], [ 0, %19 ], [ 0, %21 ], [ 3, %23 ], [ 1, %26 ], [ 0, %29 ], [ 0, %31 ], [ 3, %33 ], [ 0, %36 ]
   %39 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %13, i64 0, i64 %.0.i10
-  %40 = load ptr, ptr %39, align 8, !tbaa !3
+  %40 = load ptr, ptr %39, align 8, !tbaa !5
   %41 = icmp eq ptr %40, null
   br i1 %41, label %48, label %42
 
@@ -665,7 +665,7 @@ define void @lv_imagebutton_set_state(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !34
 
 3:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i32 %1, 4
@@ -703,13 +703,13 @@ define ptr @lv_imagebutton_get_src_left(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !35
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %6, align 8, !tbaa !5
   ret ptr %7
 }
 
@@ -719,13 +719,13 @@ define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly captures(address_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !36
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %6, align 8, !tbaa !5
   ret ptr %7
 }
 
@@ -735,13 +735,13 @@ define ptr @lv_imagebutton_get_src_right(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !37
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %6, align 8, !tbaa !5
   ret ptr %7
 }
 
@@ -800,31 +800,38 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !5, i64 0}
-!4 = !{!"_lv_imagebutton_src_info_t", !5, i64 0, !8, i64 8}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!11, !9, i64 0}
-!11 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!12 = !{!11, !9, i64 4}
-!13 = !{!11, !9, i64 8}
-!14 = !{!11, !9, i64 12}
-!15 = !{!16, !19, i64 24}
-!16 = !{!"_lv_draw_image_dsc_t", !17, i64 0, !5, i64 48, !8, i64 56, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !21, i64 88, !22, i64 96, !6, i64 99, !6, i64 100, !9, i64 101, !23, i64 101, !23, i64 101, !24, i64 104, !11, i64 112, !9, i64 128, !5, i64 136}
-!17 = !{!"", !18, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !19, i64 24, !20, i64 32, !5, i64 40}
-!18 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
-!19 = !{!"p1 _ZTS11_lv_layer_t", !5, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!"", !9, i64 0, !9, i64 4}
-!22 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
-!23 = !{!"short", !6, i64 0}
-!24 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !5, i64 0}
-!25 = !{!16, !5, i64 48}
-!26 = !{i64 0, i64 4, !27, i64 4, i64 4, !27, i64 8, i64 4, !27, i64 12, i64 4, !27}
-!27 = !{!9, !9, i64 0}
-!28 = !{!29, !9, i64 0}
-!29 = !{!"_lv_cover_check_info_t", !9, i64 0, !5, i64 8}
-!30 = !{!21, !9, i64 0}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_lv_imagebutton_src_info_t", !7, i64 0, !10, i64 8}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"", !11, i64 0, !11, i64 1, !11, i64 2, !11, i64 4, !11, i64 6, !11, i64 8, !11, i64 10}
+!11 = !{!"int", !8, i64 0}
+!12 = !{!13, !11, i64 0}
+!13 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
+!14 = !{!13, !11, i64 4}
+!15 = !{!13, !11, i64 8}
+!16 = !{!13, !11, i64 12}
+!17 = !{!18, !21, i64 24}
+!18 = !{!"_lv_draw_image_dsc_t", !19, i64 0, !7, i64 48, !10, i64 56, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84, !23, i64 88, !24, i64 96, !8, i64 99, !8, i64 100, !11, i64 101, !25, i64 101, !25, i64 101, !26, i64 104, !13, i64 112, !11, i64 128, !7, i64 136}
+!19 = !{!"", !20, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !21, i64 24, !22, i64 32, !7, i64 40}
+!20 = !{!"p1 _ZTS9_lv_obj_t", !7, i64 0}
+!21 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!22 = !{!"long", !8, i64 0}
+!23 = !{!"", !11, i64 0, !11, i64 4}
+!24 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!25 = !{!"short", !8, i64 0}
+!26 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !7, i64 0}
+!27 = !{!18, !7, i64 48}
+!28 = !{i64 0, i64 4, !29, i64 4, i64 4, !29, i64 8, i64 4, !29, i64 12, i64 4, !29}
+!29 = !{!11, !11, i64 0}
+!30 = !{!31, !11, i64 0}
+!31 = !{!"_lv_cover_check_info_t", !11, i64 0, !7, i64 8}
+!32 = !{!23, !11, i64 0}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}

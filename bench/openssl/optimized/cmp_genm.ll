@@ -264,7 +264,7 @@ define internal fastcc noundef ptr @get_genm_itav(ptr noundef %0, ptr noundef no
   call void @OSSL_CMP_ITAV_free(ptr noundef %31) #5
   %.143 = add nuw i32 %.14359, 1
   %exitcond64.not = icmp eq i32 %.143, %20
-  br i1 %exitcond64.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !10
+  br i1 %exitcond64.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !11
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 %28
@@ -286,7 +286,7 @@ define internal fastcc noundef ptr @get_genm_itav(ptr noundef %0, ptr noundef no
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #5
   %40 = add nuw nsw i32 %.04257, 1
   %exitcond.not = icmp eq i32 %40, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %.preheader
   call void @OPENSSL_sk_free(ptr noundef nonnull %14) #5
@@ -344,7 +344,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br label %58
 
 10:                                               ; preds = %5
-  store ptr null, ptr %2, align 8, !tbaa !12
+  store ptr null, ptr %2, align 8, !tbaa !13
   %11 = tail call ptr @OSSL_CMP_ITAV_new_rootCaCert(ptr noundef %1) #5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %58, label %13
@@ -360,7 +360,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %.not, label %57, label %18
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %2, align 8, !tbaa !12
+  %19 = load ptr, ptr %2, align 8, !tbaa !13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %57, label %21
 
@@ -372,8 +372,8 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %or.cond, label %57, label %25
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %6, align 8, !tbaa !12
-  %27 = load ptr, ptr %2, align 8, !tbaa !12
+  %26 = load ptr, ptr %6, align 8, !tbaa !13
+  %27 = load ptr, ptr %2, align 8, !tbaa !13
   %28 = call fastcc i32 @verify_ss_cert_trans(ptr noundef %0, ptr noundef %22, ptr noundef %26, ptr noundef %27, ptr noundef nonnull @.str.4)
   %.not45 = icmp eq i32 %28, 0
   br i1 %.not45, label %29, label %30
@@ -391,7 +391,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %or.cond3, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %2, align 8, !tbaa !12
+  %34 = load ptr, ptr %2, align 8, !tbaa !13
   %35 = call fastcc i32 @verify_ss_cert_trans(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %31, ptr noundef %22, ptr noundef nonnull @.str.5)
   %.not46 = icmp eq i32 %35, 0
   br i1 %.not46, label %36, label %37
@@ -403,7 +403,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br label %57
 
 37:                                               ; preds = %33, %30
-  %38 = load ptr, ptr %2, align 8, !tbaa !12
+  %38 = load ptr, ptr %2, align 8, !tbaa !13
   %39 = call i32 @X509_up_ref(ptr noundef %38) #5
   %.not47 = icmp eq i32 %39, 0
   br i1 %.not47, label %57, label %40
@@ -413,8 +413,8 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %.not48, label %45, label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %6, align 8, !tbaa !12
-  store ptr %42, ptr %3, align 8, !tbaa !12
+  %42 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %42, ptr %3, align 8, !tbaa !13
   %.not49 = icmp eq ptr %42, null
   br i1 %.not49, label %45, label %43
 
@@ -428,8 +428,8 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %46, label %57, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %7, align 8, !tbaa !12
-  store ptr %48, ptr %4, align 8, !tbaa !12
+  %48 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %48, ptr %4, align 8, !tbaa !13
   %49 = icmp eq ptr %48, null
   br i1 %49, label %57, label %50
 
@@ -442,12 +442,12 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br i1 %.not48, label %55, label %53
 
 53:                                               ; preds = %52
-  %54 = load ptr, ptr %3, align 8, !tbaa !12
+  %54 = load ptr, ptr %3, align 8, !tbaa !13
   call void @X509_free(ptr noundef %54) #5
   br label %55
 
 55:                                               ; preds = %52, %53, %43
-  %56 = load ptr, ptr %2, align 8, !tbaa !12
+  %56 = load ptr, ptr %2, align 8, !tbaa !13
   call void @X509_free(ptr noundef %56) #5
   br label %57
 
@@ -577,7 +577,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  store ptr null, ptr %5, align 8, !tbaa !14
+  store ptr null, ptr %5, align 8, !tbaa !15
   %6 = icmp eq ptr %3, null
   br i1 %6, label %7, label %8
 
@@ -588,7 +588,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef 
   br label %41
 
 8:                                                ; preds = %4
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !17
   %9 = tail call ptr @OSSL_CMP_CRLSTATUS_create(ptr noundef %2, ptr noundef %1, i32 noundef 1) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -627,7 +627,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef 
   br i1 %.not, label %40, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %5, align 8, !tbaa !14
+  %26 = load ptr, ptr %5, align 8, !tbaa !15
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
 
@@ -639,15 +639,15 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %28
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.OSSL_CMP_get1_crlUpdate) #5
-  %31 = load ptr, ptr %5, align 8, !tbaa !14
+  %31 = load ptr, ptr %5, align 8, !tbaa !15
   %32 = call i32 @OPENSSL_sk_num(ptr noundef %31) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 193, ptr noundef nonnull @.str.7, i32 noundef %32) #5
   br label %40
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %5, align 8, !tbaa !14
+  %34 = load ptr, ptr %5, align 8, !tbaa !15
   %35 = call ptr @OPENSSL_sk_value(ptr noundef %34, i32 noundef 0) #5
-  store ptr %35, ptr %3, align 8, !tbaa !16
+  store ptr %35, ptr %3, align 8, !tbaa !17
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %37
 
@@ -657,7 +657,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef 
   br i1 %.not31, label %39, label %40
 
 39:                                               ; preds = %37, %33
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !17
   br label %40
 
 40:                                               ; preds = %37, %25, %23, %20, %16, %39, %30, %15, %11
@@ -698,7 +698,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_certReqTemplate(ptr noundef %0, ptr no
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !19
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -712,7 +712,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_certReqTemplate(ptr noundef %0, ptr no
   br label %17
 
 8:                                                ; preds = %5
-  store ptr null, ptr %1, align 8, !tbaa !20
+  store ptr null, ptr %1, align 8, !tbaa !21
   %9 = tail call ptr @OSSL_CMP_ITAV_new0_certReqTemplate(ptr noundef null, ptr noundef null) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -832,7 +832,7 @@ define internal i32 @selfsigned_verify_cb(i32 noundef %0, ptr noundef %1) #0 {
   %18 = add nuw nsw i32 %.03646, 1
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #5
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %10, %17
   %.03646 = phi i32 [ %18, %17 ], [ 0, %10 ]
@@ -853,7 +853,7 @@ define internal i32 @selfsigned_verify_cb(i32 noundef %0, ptr noundef %1) #0 {
   %28 = add nuw nsw i32 %.13747, 1
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #5
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph49, label %.loopexit, !llvm.loop !23
+  br i1 %30, label %.lr.ph49, label %.loopexit, !llvm.loop !24
 
 .lr.ph49:                                         ; preds = %._crit_edge, %27
   %.13747 = phi i32 [ %28, %27 ], [ 0, %._crit_edge ]
@@ -932,19 +932,20 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS7x509_st", !5, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS17stack_st_X509_CRL", !5, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS40stack_st_OSSL_CRMF_ATTRIBUTETYPEANDVALUE", !5, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS25ossl_crmf_certtemplate_st", !5, i64 0}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS7x509_st", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS17stack_st_X509_CRL", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS40stack_st_OSSL_CRMF_ATTRIBUTETYPEANDVALUE", !5, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS25ossl_crmf_certtemplate_st", !5, i64 0}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}

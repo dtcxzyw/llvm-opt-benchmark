@@ -4183,13 +4183,13 @@ is_usb_standard_setup_request.exit.i303:          ; preds = %793
   %810 = getelementptr i8, ptr %.02637.i45.i, i64 24
   %811 = load ptr, ptr %810, align 8
   %.not.i41.i = icmp eq ptr %811, null
-  br i1 %.not.i41.i, label %.thread.i.i, label %812, !llvm.loop !10
+  br i1 %.not.i41.i, label %.thread.i.i, label %812, !llvm.loop !11
 
 812:                                              ; preds = %.lr.ph.i305
   %813 = getelementptr i8, ptr %.02637.i45.i, i64 16
   %814 = load i8, ptr %813, align 8
   %815 = icmp eq i8 %814, %808
-  br i1 %815, label %._crit_edge.i, label %.lr.ph.i305, !llvm.loop !10
+  br i1 %815, label %._crit_edge.i, label %.lr.ph.i305, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %812, %802
   %.lcssa.i = phi ptr [ @dissect_usb_setup_get_status_response, %802 ], [ %811, %812 ]
@@ -4376,7 +4376,7 @@ proto_item_set_generated.exit.i308:               ; preds = %851, %848, %843
   %922 = add nuw i32 %.0561.i, 1
   %923 = load i32, ptr %14, align 4
   %924 = icmp ult i32 %922, %923
-  br i1 %924, label %.lr.ph.i310, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %924, label %.lr.ph.i310, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %918
   %.pre4.i = load i32, ptr %16, align 4
@@ -4517,7 +4517,7 @@ dissect_linux_usb_iso_transfer.exit:              ; preds = %876, %._crit_edge.l
 993:                                              ; preds = %990, %986, %981
   %994 = add nuw nsw i32 %.094100.i, 1
   %exitcond.not.i = icmp eq i32 %994, %933
-  br i1 %exitcond.not.i, label %._crit_edge.i316, label %.lr.ph.i313, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i316, label %.lr.ph.i313, !llvm.loop !13
 
 ._crit_edge.i316:                                 ; preds = %993, %943
   %.090.lcssa.i = phi i32 [ %944, %943 ], [ %985, %993 ]
@@ -4636,7 +4636,7 @@ proto_item_set_generated.exit.i320:               ; preds = %1012, %1009, %1004
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
   %1058 = add nuw i32 %.0441.i, 1
   %exitcond.not.i326 = icmp eq i32 %1058, %.0266
-  br i1 %exitcond.not.i326, label %dissect_usbip_iso_transfer.exit, label %.lr.ph.i322, !llvm.loop !13
+  br i1 %exitcond.not.i326, label %dissect_usbip_iso_transfer.exit, label %.lr.ph.i322, !llvm.loop !14
 
 dissect_usbip_iso_transfer.exit:                  ; preds = %1057, %proto_item_set_generated.exit.i320
   %.0.lcssa.i = phi i32 [ %.0267, %proto_item_set_generated.exit.i320 ], [ %1033, %1057 ]
@@ -4735,7 +4735,7 @@ proto_item_set_generated.exit.i330:               ; preds = %1071, %1068, %1059
   %1117 = icmp ult i32 %1116, %1076
   %1118 = icmp ugt i32 %1115, 8
   %1119 = select i1 %1117, i1 %1118, i1 false
-  br i1 %1119, label %.lr.ph.i332, label %dissect_darwin_usb_iso_transfer.exit, !llvm.loop !14
+  br i1 %1119, label %.lr.ph.i332, label %dissect_darwin_usb_iso_transfer.exit, !llvm.loop !15
 
 dissect_darwin_usb_iso_transfer.exit:             ; preds = %.lr.ph.i332, %1111, %proto_item_set_generated.exit.i330
   %.068.lcssa.i = phi i32 [ %.0254, %proto_item_set_generated.exit.i330 ], [ %1114, %1111 ], [ %.06811.i, %.lr.ph.i332 ]
@@ -5306,7 +5306,7 @@ define internal i32 @dissect_freebsd_usb(ptr noundef %0, ptr noundef readonly ca
   %72 = add nuw i32 %.060, 1
   %73 = load i32, ptr %6, align 4
   %74 = icmp ult i32 %72, %73
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %70, %16
   %75 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -5729,7 +5729,7 @@ netmon_fid_USBPORT_Device.exit:                   ; preds = %119, %.thread.i.i, 
   call void @netmon_etl_field(ptr noundef %189, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %224, i16 noundef zeroext %187)
   %225 = add nuw nsw i32 %.046.i, 1
   %exitcond.not.i = icmp eq i32 %225, 8
-  br i1 %exitcond.not.i, label %netmon_URB.exit, label %223, !llvm.loop !16
+  br i1 %exitcond.not.i, label %netmon_URB.exit, label %223, !llvm.loop !17
 
 226:                                              ; preds = %netmon_fid_USBPORT_Device.exit, %netmon_fid_USBPORT_Device.exit, %netmon_fid_USBPORT_Device.exit, %netmon_fid_USBPORT_Device.exit, %netmon_fid_USBPORT_Device.exit
   %227 = load i32, ptr @hf_usbport_urb_pipe_handle, align 4
@@ -6619,7 +6619,7 @@ define internal noundef i32 @dissect_usb_setup_set_interface_request(ptr noundef
 28:                                               ; preds = %.lr.ph
   %29 = add nuw i32 %.03841, 1
   %exitcond.not = icmp eq i32 %29, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %23, %28
   %.03841 = phi i32 [ %29, %28 ], [ 0, %23 ]
@@ -7498,7 +7498,7 @@ dissect_usb_endpoint_companion_descriptor.exit.i: ; preds = %477, %468
   %.2.i = phi i32 [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ], [ %407, %406 ], [ %436, %408 ], [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ]
   %506 = sub i32 %.2.i, %3
   %507 = icmp slt i32 %506, %244
-  br i1 %507, label %252, label %dissect_usb_configuration_descriptor.exit
+  br i1 %507, label %252, label %dissect_usb_configuration_descriptor.exit, !llvm.loop !19
 
 dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %268, %505, %185, %262
   %.0128146.i = phi i32 [ %.0128147.i, %262 ], [ %240, %185 ], [ %.0128147.i, %268 ], [ %.0128147.i, %.thread.i ], [ %.2.i, %505 ]
@@ -7568,7 +7568,7 @@ dissect_usb_configuration_descriptor.exit:        ; preds = %.thread.i, %268, %5
   %542 = sub i32 %541, %3
   %543 = icmp samesign ult i32 %542, %514
   %or.cond.i53 = and i1 %.not54.i, %543
-  br i1 %or.cond.i53, label %.lr.ph.i52, label %.critedge.i, !llvm.loop !18
+  br i1 %or.cond.i53, label %.lr.ph.i52, label %.critedge.i, !llvm.loop !20
 
 544:                                              ; preds = %535
   %545 = getelementptr inbounds nuw i8, ptr %.val, i64 34
@@ -7836,7 +7836,7 @@ dissect_usb_device_qualifier_descriptor.exit:     ; preds = %sanitize_usb_max_pa
   br label %695
 
 694:                                              ; preds = %695
-  br i1 %696, label %695, label %.loopexit.i.i, !llvm.loop !19
+  br i1 %696, label %695, label %.loopexit.i.i, !llvm.loop !21
 
 695:                                              ; preds = %694, %689
   %696 = phi i1 [ true, %689 ], [ false, %694 ]
@@ -7905,7 +7905,7 @@ dissect_usb_device_qualifier_descriptor.exit:     ; preds = %sanitize_usb_max_pa
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   %732 = sub i32 %.4.i, %3
   %733 = icmp slt i32 %732, %659
-  br i1 %733, label %.lr.ph.i66, label %.loopexit.i
+  br i1 %733, label %.lr.ph.i66, label %.loopexit.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %729, %.thread.i68, %.preheader.i63
   %.1.i64 = phi i32 [ %666, %.thread.i68 ], [ %655, %.preheader.i63 ], [ %.4.i, %729 ]
@@ -8308,15 +8308,18 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !10}

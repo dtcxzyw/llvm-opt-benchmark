@@ -419,7 +419,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   tail call void @_ZN6hermes11JSONEmitter9emitValueEl(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1) #7
   %__begin0.06.i.add = add nuw nsw i64 %__begin0.06.i.idx, 8
   %cmp.not.i = icmp eq i64 %__begin0.06.i.add, 16
-  br i1 %cmp.not.i, label %_ZN6hermes11JSONEmitter10emitValuesIlEEvSt16initializer_listIT_E.exit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZN6hermes11JSONEmitter10emitValuesIlEEvSt16initializer_listIT_E.exit, label %for.body.i, !llvm.loop !4
 
 _ZN6hermes11JSONEmitter10emitValuesIlEEvSt16initializer_listIT_E.exit: ; preds = %for.body.i
   ret void
@@ -1030,7 +1030,7 @@ while.cond.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 8
   %.pre = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  br label %while.cond.i.i.i, !llvm.loop !4
+  br label %while.cond.i.i.i, !llvm.loop !6
 
 if.then8:                                         ; preds = %entry
   %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1088,7 +1088,7 @@ while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12,
 
 while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, %while.cond.i.i.i9
   %incdec.ptr.i.i.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp13.sroa.0.0, i64 8
-  br label %while.cond.i.i.i9, !llvm.loop !4
+  br label %while.cond.i.i.i9, !llvm.loop !6
 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
   %ref.tmp.sroa.0.0.pn = phi ptr [ %ref.tmp.sroa.0.0, %while.cond.i.i.i ], [ %ref.tmp13.sroa.0.0, %while.cond.i.i.i9 ]
@@ -1139,7 +1139,7 @@ while.cond.i.i.i:                                 ; preds = %entry, %while.body.
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 8
   %.pre = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  br label %while.cond.i.i.i, !llvm.loop !6
+  br label %while.cond.i.i.i, !llvm.loop !8
 
 if.then8:                                         ; preds = %entry
   %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1196,7 +1196,7 @@ while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12,
 
 while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, %while.cond.i.i.i9
   %incdec.ptr.i.i.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp13.sroa.0.0, i64 8
-  br label %while.cond.i.i.i9, !llvm.loop !6
+  br label %while.cond.i.i.i9, !llvm.loop !8
 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
   %ref.tmp.sroa.0.0.pn = phi ptr [ %ref.tmp.sroa.0.0, %while.cond.i.i.i ], [ %ref.tmp13.sroa.0.0, %while.cond.i.i.i9 ]
@@ -3534,7 +3534,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %3, i64 %idx.ext.i.i.i
   %7 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %2, %7
-  br i1 %cmp.i.i.i.i, label %if.end6, label %if.end9.i.i.i, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %if.end6, label %if.end9.i.i.i, !llvm.loop !9
 
 if.end6:                                          ; preds = %if.end13.i.i.i, %if.end.i.i.i, %if.end
   store i32 0, ptr %start, align 4
@@ -3640,7 +3640,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   call void @_ZN6hermes11JSONEmitter9emitValueEl(ptr noundef nonnull align 8 dereferenceable(72) %32, i64 noundef %35) #7
   %__begin0.06.i.add.i = add nuw nsw i64 %__begin0.06.i.idx.i, 8
   %cmp.not.i.i = icmp eq i64 %__begin0.06.i.add.i, 16
-  br i1 %cmp.not.i.i, label %_ZN6hermes15dumpSMRangeJSONERNS_11JSONEmitterEN4llvh7SMRangeEPKNS2_12MemoryBufferE.exit, label %for.body.i.i
+  br i1 %cmp.not.i.i, label %_ZN6hermes15dumpSMRangeJSONERNS_11JSONEmitterEN4llvh7SMRangeEPKNS2_12MemoryBufferE.exit, label %for.body.i.i, !llvm.loop !4
 
 _ZN6hermes15dumpSMRangeJSONERNS_11JSONEmitterEN4llvh7SMRangeEPKNS2_12MemoryBufferE.exit: ; preds = %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -27482,7 +27482,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %list
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %1 = load ptr, ptr %this, align 8
@@ -27570,7 +27570,7 @@ if.then4.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 for.inc.i.i.i.i:                                  ; preds = %if.then4.i.i.i.i, %for.body.i.i.i.i, %for.body.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %7
-  br i1 %cmp.not.i.i.i.i, label %_ZN4llvh14StringMapEntryINS_9StringSetINS_15MallocAllocatorEEEE7DestroyIS2_EEvRT_.exit, label %for.body.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i, label %_ZN4llvh14StringMapEntryINS_9StringSetINS_15MallocAllocatorEEEE7DestroyIS2_EEvRT_.exit, label %for.body.i.i.i.i, !llvm.loop !11
 
 _ZN4llvh14StringMapEntryINS_9StringSetINS_15MallocAllocatorEEEE7DestroyIS2_EEvRT_.exit: ; preds = %for.inc.i.i.i.i, %if.then4, %if.then.i.i.i.i
   %10 = load ptr, ptr %second.i.i, align 8
@@ -27581,7 +27581,7 @@ _ZN4llvh14StringMapEntryINS_9StringSetINS_15MallocAllocatorEEEE7DestroyIS2_EEvRT
 for.inc:                                          ; preds = %for.body, %for.body, %_ZN4llvh14StringMapEntryINS_9StringSetINS_15MallocAllocatorEEEE7DestroyIS2_EEvRT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %cmp.not, label %if.end5, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %if.end5, label %for.body, !llvm.loop !12
 
 if.end5:                                          ; preds = %for.inc, %if.then, %entry
   %11 = load ptr, ptr %this, align 8
@@ -27617,8 +27617,11 @@ attributes #8 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7, !5}
+!9 = distinct !{!9, !7, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !7, !5}
+!12 = distinct !{!12, !7, !5}

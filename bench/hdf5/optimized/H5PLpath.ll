@@ -256,7 +256,7 @@ define noundef i32 @H5PL__close_path_table() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %17 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %21 = phi ptr [ %.pre11, %.preheader ], [ %18, %16 ]
@@ -354,7 +354,7 @@ H5PL__expand_path_table.exit:                     ; preds = %13
   %.pre11 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
   %51 = icmp ugt i32 %.pre11, %1
   %or.cond = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond, label %.lr.ph.i, label %H5PL__make_space_at.exit, !prof !22
+  br i1 %or.cond, label %.lr.ph.i, label %H5PL__make_space_at.exit, !prof !23
 
 .lr.ph.i:                                         ; preds = %44
   %52 = zext i32 %.pre11 to i64
@@ -368,7 +368,7 @@ H5PL__expand_path_table.exit:                     ; preds = %13
   %57 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   store ptr %56, ptr %57, align 8, !tbaa !3
   %.wide.i = icmp ugt i64 %54, %41
-  br i1 %.wide.i, label %53, label %H5PL__make_space_at.exit, !llvm.loop !23
+  br i1 %.wide.i, label %53, label %H5PL__make_space_at.exit, !llvm.loop !24
 
 H5PL__make_space_at.exit:                         ; preds = %53, %.H5PL__make_space_at.exit_crit_edge, %44
   %58 = phi i32 [ %.pre, %.H5PL__make_space_at.exit_crit_edge ], [ %.pre11, %44 ], [ %.pre11, %53 ]
@@ -535,7 +535,7 @@ define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_add
   %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %26, ptr %27, align 8, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %wide.trip.count
@@ -595,7 +595,7 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
   %14 = load i32, ptr @H5PL_num_paths_g, align 4
   %15 = icmp ne i32 %14, 0
   %or.cond = select i1 %13, i1 %15, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.loopexit, !prof !22
+  br i1 %or.cond, label %.lr.ph, label %.loopexit, !prof !23
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -612,7 +612,7 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr null, ptr %5, align 8, !tbaa !25
+  store ptr null, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
   %25 = load i8, ptr @H5PL_init_g, align 1, !tbaa !8, !range !10, !noundef !11
   %26 = trunc nuw i8 %25 to i1
@@ -699,14 +699,14 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.thread.i
 
 69:                                               ; preds = %58
-  %70 = load i32, ptr %16, align 8, !tbaa !26
+  %70 = load i32, ptr %16, align 8, !tbaa !27
   %71 = and i32 %70, 61440
   %72 = icmp eq i32 %71, 16384
-  br i1 %72, label %.backedge.sink.split.i, label %73, !llvm.loop !29
+  br i1 %72, label %.backedge.sink.split.i, label %73, !llvm.loop !30
 
 73:                                               ; preds = %69
   store i32 -1, ptr %4, align 4, !tbaa !13
-  store ptr null, ptr %5, align 8, !tbaa !25
+  store ptr null, ptr %5, align 8, !tbaa !26
   store i8 0, ptr %6, align 1, !tbaa !8
   %74 = call i32 @H5PL__open(ptr noundef nonnull %52, i32 noundef 3, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %75 = icmp slt i32 %74, 0
@@ -744,7 +744,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 92:                                               ; preds = %88
   %93 = load i32, ptr %4, align 4, !tbaa !13
-  %94 = load ptr, ptr %5, align 8, !tbaa !25
+  %94 = load ptr, ptr %5, align 8, !tbaa !26
   %95 = call i32 %1(i32 noundef %93, ptr noundef %94, ptr noundef %2) #12
   %.not57.i = icmp eq i32 %95, 0
   br i1 %.not57.i, label %.thread61.i, label %.loopexit.i
@@ -766,7 +766,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.1.be.i = phi ptr [ %.185.i, %.tail.i ], [ %.185.i, %45 ], [ %.185.i, %sub_0.i ], [ %.185.i, %sub_1.i ], [ %.1.be.ph.i, %.backedge.sink.split.i ]
   %97 = call ptr @readdir64(ptr noundef nonnull %32) #12
   %.not53.i = icmp eq ptr %97, null
-  br i1 %.not53.i, label %.loopexit.thread.i, label %sub_0.i, !llvm.loop !29
+  br i1 %.not53.i, label %.loopexit.thread.i, label %sub_0.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %92
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #12
@@ -830,7 +830,7 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.loopexit.thread.i
   %123 = icmp samesign ult i64 %indvars.iv.next, %122
   %124 = icmp eq i32 %.039.i12, 0
   %125 = and i1 %124, %123
-  br i1 %125, label %21, label %.loopexit, !llvm.loop !30
+  br i1 %125, label %21, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %120, %.loopexit19, %3
   %.0 = phi i32 [ -1, %.loopexit19 ], [ 0, %3 ], [ %.039.i12, %120 ]
@@ -850,7 +850,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr noundef readonly capture
 
 11:                                               ; preds = %3
   store i8 0, ptr %1, align 1, !tbaa !8
-  store ptr null, ptr %2, align 8, !tbaa !25
+  store ptr null, ptr %2, align 8, !tbaa !26
   %12 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -865,7 +865,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr noundef readonly capture
   %16 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %19, label %.loopexit, !llvm.loop !31
+  br i1 %18, label %19, label %.loopexit, !llvm.loop !33
 
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
@@ -954,14 +954,14 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.thread.i
 
 66:                                               ; preds = %55
-  %67 = load i32, ptr %13, align 8, !tbaa !26
+  %67 = load i32, ptr %13, align 8, !tbaa !27
   %68 = and i32 %67, 61440
   %69 = icmp eq i32 %68, 16384
   br i1 %69, label %.backedge.sink.split.i, label %70
 
 70:                                               ; preds = %66
-  %71 = load i32, ptr %0, align 8, !tbaa !32
-  %72 = load ptr, ptr %14, align 8, !tbaa !35
+  %71 = load i32, ptr %0, align 8, !tbaa !34
+  %72 = load ptr, ptr %14, align 8, !tbaa !37
   %73 = tail call i32 @H5PL__open(ptr noundef nonnull %49, i32 noundef %71, ptr noundef %72, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %2) #12
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %79
@@ -991,7 +991,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.137.be.i = phi ptr [ %.13770.i, %.tail.i ], [ %.13770.i, %42 ], [ %.13770.i, %sub_0.i ], [ %.13770.i, %sub_1.i ], [ %83, %.backedge.sink.split.i ]
   %84 = tail call ptr @readdir64(ptr noundef nonnull %30) #12
   %.not44.i = icmp eq ptr %84, null
-  br i1 %.not44.i, label %.loopexit.i, label %sub_0.i, !llvm.loop !36
+  br i1 %.not44.i, label %.loopexit.i, label %sub_0.i, !llvm.loop !38
 
 85:                                               ; preds = %29
   %86 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
@@ -1113,21 +1113,23 @@ attributes #15 = { nounwind willreturn memory(none) }
 !16 = !{!"p2 omnipotent char", !5, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"long", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!"branch_weights", i32 2000, i32 2002}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = !{!5, !5, i64 0}
-!26 = !{!27, !14, i64 24}
-!27 = !{!"stat", !18, i64 0, !18, i64 8, !18, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !28, i64 72, !28, i64 88, !28, i64 104, !6, i64 120}
-!28 = !{!"timespec", !18, i64 0, !18, i64 8}
-!29 = distinct !{!29, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = !{!"branch_weights", i32 2000, i32 2002}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = !{!5, !5, i64 0}
+!27 = !{!28, !14, i64 24}
+!28 = !{!"stat", !18, i64 0, !18, i64 8, !18, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !29, i64 72, !29, i64 88, !29, i64 104, !6, i64 120}
+!29 = !{!"timespec", !18, i64 0, !18, i64 8}
 !30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = !{!33, !14, i64 0}
-!33 = !{!"H5PL_search_params_t", !14, i64 0, !34, i64 8}
-!34 = !{!"p1 _ZTS10H5PL_key_t", !5, i64 0}
-!35 = !{!33, !34, i64 8}
-!36 = distinct !{!36, !20}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!35, !14, i64 0}
+!35 = !{!"H5PL_search_params_t", !14, i64 0, !36, i64 8}
+!36 = !{!"p1 _ZTS10H5PL_key_t", !5, i64 0}
+!37 = !{!35, !36, i64 8}
+!38 = distinct !{!38, !21}

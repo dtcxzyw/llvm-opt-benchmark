@@ -212,7 +212,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   %.5.add.i = add nuw nsw i64 %.5.idx61.i, 64
   %.5.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.5.add.i
   %66 = icmp ult ptr %.5.ptr.i, %38
-  br i1 %66, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !6
+  br i1 %66, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !7
 
 .lr.ph66.i:                                       ; preds = %.preheader51.i, %68
   %.6.ptr65.i = phi ptr [ %.6.ptr.i, %68 ], [ %.6.ptr63.i, %.preheader51.i ]
@@ -225,7 +225,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   %.6.add.i = add nuw nsw i64 %.6.idx64.i, 8
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.6.add.i
   %69 = icmp ult ptr %.6.ptr.i, %34
-  br i1 %69, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !7
+  br i1 %69, label %.lr.ph66.i, label %.preheader.i.preheader, !llvm.loop !8
 
 .preheader.i.preheader:                           ; preds = %68, %.preheader51.i
   %.7.idx.i.ph = phi i64 [ %.5.idx.lcssa.i, %.preheader51.i ], [ %.6.add.i, %68 ]
@@ -241,7 +241,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   %.7.add.i = add nuw nsw i64 %.7.idx.i, 1
   %72 = load i8, ptr %.7.ptr.i, align 1
   %.not47.i = icmp eq i8 %72, 0
-  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !8
+  br i1 %.not47.i, label %.preheader.i, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %40, %.lr.ph.i, %.lr.ph66.i, %71
   %73 = trunc nuw i8 %.029 to i1
@@ -276,7 +276,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %88
 
 88:                                               ; preds = %87, %85
-  %89 = load i8, ptr @ignore_checksum_failure, align 1, !range !9
+  %89 = load i8, ptr @ignore_checksum_failure, align 1, !range !10
   %90 = trunc nuw i8 %89 to i1
   %or.cond3 = select i1 %.027, i1 %90, i1 false
   br i1 %or.cond3, label %pg_memory_is_all_zeros.exit, label %91
@@ -413,7 +413,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0,
 61:                                               ; preds = %56
   %62 = add i16 %.1103, 1
   %.not = icmp ugt i16 %62, %.0.i
-  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   %.1.lcssa = phi i16 [ 1, %.preheader ], [ %62, %61 ]
@@ -699,7 +699,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %47 = icmp samesign ult i32 %46, %8
   %48 = icmp samesign uge i32 %46, %11
   %49 = select i1 %47, i1 true, i1 %48
-  br i1 %49, label %50, label %57, !prof !11
+  br i1 %49, label %50, label %57, !prof !12
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %.082105, i64 2
@@ -742,7 +742,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %.3 = phi i32 [ %.0111, %68 ], [ %..0, %57 ], [ %.0111, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %25
   %.082.lcssa = phi ptr [ %2, %25 ], [ %.284, %70 ]
@@ -840,7 +840,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %20 = sub nsw i32 %.0, %17
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge144, label %10, !llvm.loop !13
+  br i1 %exitcond165.not, label %._crit_edge144, label %10, !llvm.loop !14
 
 21:                                               ; preds = %10
   %22 = trunc nuw nsw i64 %indvars.iv160 to i32
@@ -901,7 +901,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   store i32 %57, ptr %32, align 4
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge144, label %26, !llvm.loop !14
+  br i1 %exitcond170.not, label %._crit_edge144, label %26, !llvm.loop !15
 
 ._crit_edge144:                                   ; preds = %19, %52, %21
   %.0111.lcssa = phi i32 [ %18, %21 ], [ %.pre-phi173, %52 ], [ %.0, %19 ]
@@ -948,7 +948,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 1 %77, i64 %80, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !15
+  br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !16
 
 81:                                               ; preds = %.preheader
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -988,7 +988,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   %100 = sub nsw i32 %.5, %97
   %101 = add nuw nsw i32 %.5118, 1
   %exitcond.not = icmp eq i32 %101, %1
-  br i1 %exitcond.not, label %102, label %89, !llvm.loop !16
+  br i1 %exitcond.not, label %102, label %89, !llvm.loop !17
 
 102:                                              ; preds = %89, %99
   %.6119 = phi i32 [ %.5118, %89 ], [ %1, %99 ]
@@ -1065,7 +1065,7 @@ define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly capt
   store i32 %146, ptr %121, align 4
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge, label %115, !llvm.loop !17
+  br i1 %exitcond159.not, label %._crit_edge, label %115, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %141, %111
   %.1112.lcssa = phi i32 [ %.pre-phi179, %111 ], [ %.pre-phi181, %141 ]
@@ -1135,7 +1135,7 @@ define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %
   %.336 = phi i32 [ %spec.select, %.thread ], [ %.02041, %18 ]
   %20 = add nsw i32 %.01942, -1
   %.not38 = icmp eq i32 %20, 0
-  br i1 %.not38, label %._crit_edge, label %9, !llvm.loop !18
+  br i1 %.not38, label %._crit_edge, label %9, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %18, %19
   %.020.lcssa = phi i32 [ %.02041, %18 ], [ %.336, %19 ]
@@ -1254,7 +1254,7 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
 20:                                               ; preds = %.lr.ph
   %21 = add i16 %.01526, 1
   %.not20 = icmp ugt i16 %21, %.0.i23
-  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %.01526 = phi i16 [ %21, %20 ], [ 1, %.lr.ph.preheader ]
@@ -1440,7 +1440,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
 103:                                              ; preds = %98, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !21
 
 .loopexit:                                        ; preds = %103, %85
   ret void
@@ -1480,7 +1480,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not135 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not135, label %.loopexit, label %.lr.ph122, !llvm.loop !21
+  br i1 %.not135, label %.loopexit, label %.lr.ph122, !llvm.loop !22
 
 21:                                               ; preds = %3
   %22 = icmp ult i16 %7, 24
@@ -1605,7 +1605,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %.2 = phi i1 [ %.0118, %65 ], [ %.0., %67 ]
   %84 = add i16 %.077117, 1
   %.not100 = icmp ugt i16 %84, %39
-  br i1 %.not100, label %._crit_edge, label %41, !llvm.loop !22
+  br i1 %.not100, label %._crit_edge, label %41, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %83
   %85 = icmp eq i32 %.179, %2
@@ -1828,7 +1828,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 99:                                               ; preds = %94, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !24
 
 .loopexit:                                        ; preds = %99, %82
   ret void
@@ -1983,7 +1983,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 96:                                               ; preds = %91, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv, %40
-  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %96, %75
   %97 = add i32 %77, %51
@@ -2096,24 +2096,25 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = distinct !{!10, !5}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = distinct !{!11, !5, !6}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}

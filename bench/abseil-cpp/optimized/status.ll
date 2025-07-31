@@ -1667,5 +1667,6 @@ attributes #24 = { noreturn nounwind }
 !39 = distinct !{!39, !40, !"_ZN4absl12_GLOBAL__N_123MessageForErrnoToStatusB5cxx11EiSt17basic_string_viewIcSt11char_traitsIcEE: argument 0"}
 !40 = distinct !{!40, !"_ZN4absl12_GLOBAL__N_123MessageForErrnoToStatusB5cxx11EiSt17basic_string_viewIcSt11char_traitsIcEE"}
 !41 = !{!6, !6, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
+!44 = !{!"llvm.loop.estimated_trip_count"}

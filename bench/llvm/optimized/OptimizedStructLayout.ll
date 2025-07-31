@@ -63,7 +63,7 @@ define dso_local { i64, i8 } @_ZN4llvm28performOptimizedStructLayoutENS_15Mutabl
   %16 = getelementptr i8, ptr %11, i64 -40
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %11, i64 -32
-  %19 = load i64, ptr %18, align 8, !tbaa !13
+  %19 = load i64, ptr %18, align 8, !tbaa !14
   %20 = add i64 %19, %17
   br label %.loopexit
 
@@ -91,13 +91,13 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
   %27 = add nuw nsw i64 %.077167, 1
   %28 = inttoptr i64 %.077167 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %.079166, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !14
+  store ptr %28, ptr %29, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %.079166, i64 32
   %.sroa.0.0.copyload.i98 = load i8, ptr %30, align 1, !tbaa !10
   %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %.sroa.0115.1165, i8 %.sroa.0.0.copyload.i98)
   %31 = getelementptr inbounds nuw i8, ptr %.079166, i64 40
   %.not88 = icmp eq ptr %31, %11
-  br i1 %.not88, label %.critedge._crit_edge, label %.critedge, !llvm.loop !15
+  br i1 %.not88, label %.critedge._crit_edge, label %.critedge, !llvm.loop !16
 
 .preheader155:                                    ; preds = %33, %_ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iterator_traitsIS3_E10value_typeES8_E.exit
   %.0138.lcssa = phi i64 [ 0, %_ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iterator_traitsIS3_E10value_typeES8_E.exit ], [ %36, %33 ]
@@ -112,11 +112,11 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
 
 33:                                               ; preds = %.lr.ph173
   %34 = getelementptr inbounds nuw i8, ptr %.084172, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !13
+  %35 = load i64, ptr %34, align 8, !tbaa !14
   %36 = add i64 %35, %.0138171
   %37 = getelementptr inbounds nuw i8, ptr %.084172, i64 40
   %.not89 = icmp eq ptr %37, %.0163
-  br i1 %.not89, label %.preheader155, label %.lr.ph173, !llvm.loop !16
+  br i1 %.not89, label %.preheader155, label %.lr.ph173, !llvm.loop !17
 
 .lr.ph178:                                        ; preds = %.preheader155, %45
   %.085177 = phi ptr [ %49, %45 ], [ %.0163, %.preheader155 ]
@@ -135,20 +135,20 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
 45:                                               ; preds = %.lr.ph178
   store i64 %.2139176, ptr %.085177, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %.085177, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !13
+  %47 = load i64, ptr %46, align 8, !tbaa !14
   %48 = add i64 %47, %.2139176
   %49 = getelementptr inbounds nuw i8, ptr %.085177, i64 40
   %.not91 = icmp eq ptr %49, %11
-  br i1 %.not91, label %.loopexit, label %.lr.ph178, !llvm.loop !17
+  br i1 %.not91, label %.loopexit, label %.lr.ph178, !llvm.loop !18
 
 .thread146:                                       ; preds = %.lr.ph173, %.lr.ph178
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #9
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %50, ptr %3, align 8, !tbaa !18
+  store ptr %50, ptr %3, align 8, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %51, align 8, !tbaa !21
+  store i32 0, ptr %51, align 8, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 8, ptr %52, align 4, !tbaa !22
+  store i32 8, ptr %52, align 4, !tbaa !23
   br i1 %.not88164, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %.thread146
@@ -159,14 +159,14 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
 
 ._crit_edge198:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, %.thread146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr %3, ptr %5, align 8, !tbaa !23
+  store ptr %3, ptr %5, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 656, ptr nonnull %6) #9
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %56, ptr %6, align 8, !tbaa !18
+  store ptr %56, ptr %6, align 8, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %57, align 8, !tbaa !21
+  store i32 0, ptr %57, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 16, ptr %58, align 4, !tbaa !22
+  store i32 16, ptr %58, align 4, !tbaa !23
   %59 = icmp ugt i64 %1, 16
   br i1 %59, label %60, label %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit
 
@@ -176,21 +176,21 @@ _ZN4llvm14array_pod_sortIPNS_26OptimizedStructLayoutFieldEEEvT_S3_PFiPKNSt15iter
 
 _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; preds = %._crit_edge198, %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store i64 0, ptr %7, align 8, !tbaa !25
+  store i64 0, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
-  store ptr %5, ptr %8, align 8, !tbaa !26
+  store ptr %5, ptr %8, align 8, !tbaa !27
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %6, ptr %61, align 8, !tbaa !27
+  store ptr %6, ptr %61, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %62, align 8, !tbaa !29
+  store ptr %7, ptr %62, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  store ptr %8, ptr %9, align 8, !tbaa !26
+  store ptr %8, ptr %9, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
-  store ptr %3, ptr %10, align 8, !tbaa !23
+  store ptr %3, ptr %10, align 8, !tbaa !24
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %7, ptr %63, align 8, !tbaa !29
+  store ptr %7, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %64, align 8, !tbaa !26
+  store ptr %9, ptr %64, align 8, !tbaa !27
   br i1 %.not89170, label %.preheader, label %.preheader154
 
 65:                                               ; preds = %.lr.ph197, %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit
@@ -199,7 +199,7 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
   %67 = getelementptr inbounds nuw i8, ptr %.082196, i64 32
   %.sroa.013.0.copyload = load i8, ptr %67, align 8, !tbaa !10
   %68 = getelementptr inbounds nuw i8, ptr %.082196, i64 8
-  %storemerge180 = load i64, ptr %68, align 8, !tbaa !25
+  %storemerge180 = load i64, ptr %68, align 8, !tbaa !26
   %.183181 = getelementptr inbounds nuw i8, ptr %.082196, i64 40
   %.not96182 = icmp eq ptr %.183181, %11
   br i1 %.not96182, label %.critedge3, label %.lr.ph187
@@ -215,64 +215,64 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
 
 71:                                               ; preds = %.lr.ph187
   %72 = getelementptr inbounds nuw i8, ptr %.078183, i64 24
-  store ptr %.183185, ptr %72, align 8, !tbaa !14
+  store ptr %.183185, ptr %72, align 8, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %.078183, i64 48
-  %74 = load i64, ptr %73, align 8, !tbaa !25
+  %74 = load i64, ptr %73, align 8, !tbaa !26
   %storemerge = call i64 @llvm.umin.i64(i64 %74, i64 %.0)
   %.183 = getelementptr inbounds nuw i8, ptr %.183185, i64 40
   %.not96 = icmp eq ptr %.183, %11
-  br i1 %.not96, label %.critedge3, label %.lr.ph187, !llvm.loop !31
+  br i1 %.not96, label %.critedge3, label %.lr.ph187, !llvm.loop !32
 
 .critedge3:                                       ; preds = %.lr.ph187, %71, %65
   %.078.lcssa = phi ptr [ %.082196, %65 ], [ %.183185, %71 ], [ %.078183, %.lr.ph187 ]
   %storemerge.lcssa = phi i64 [ %storemerge180, %65 ], [ %storemerge, %71 ], [ %.0, %.lr.ph187 ]
   %.183.lcssa = phi ptr [ %11, %65 ], [ %11, %71 ], [ %.183185, %.lr.ph187 ]
   %75 = getelementptr inbounds nuw i8, ptr %.078.lcssa, i64 24
-  store ptr null, ptr %75, align 8, !tbaa !14
+  store ptr null, ptr %75, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  store i64 %storemerge.lcssa, ptr %4, align 8, !tbaa !32
-  store ptr %.082196, ptr %53, align 8, !tbaa !35
+  store i64 %storemerge.lcssa, ptr %4, align 8, !tbaa !33
+  store ptr %.082196, ptr %53, align 8, !tbaa !36
   store i8 %.sroa.013.0.copyload, ptr %54, align 8, !tbaa !10
   %76 = zext i32 %66 to i64
   %77 = add nuw nsw i64 %76, 1
-  %78 = load i32, ptr %52, align 4, !tbaa !22
+  %78 = load i32, ptr %52, align 4, !tbaa !23
   %.not.not.i.i.i = icmp ult i32 %66, %78
-  %.val.pre4.i = load ptr, ptr %3, align 8, !tbaa !18
-  br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, label %79, !prof !36
+  %.val.pre4.i = load ptr, ptr %3, align 8, !tbaa !19
+  br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, label %79, !prof !37
 
 79:                                               ; preds = %.critedge3
   %80 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.pre4.i, i64 %76
   %81 = icmp uge ptr %4, %.val.pre4.i
   %82 = icmp ult ptr %4, %80
   %spec.select.i.i.i.i.i = and i1 %81, %82
-  br i1 %spec.select.i.i.i.i.i, label %83, label %.critedge.i.i.i, !prof !37
+  br i1 %spec.select.i.i.i.i.i, label %83, label %.critedge.i.i.i, !prof !38
 
 83:                                               ; preds = %79
   %84 = ptrtoint ptr %.val.pre4.i to i64
   %85 = sub i64 %55, %84
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %50, i64 noundef %77, i64 noundef 24) #9
-  %.val19.i.i.i = load ptr, ptr %3, align 8, !tbaa !18
+  %.val19.i.i.i = load ptr, ptr %3, align 8, !tbaa !19
   %86 = getelementptr inbounds i8, ptr %.val19.i.i.i, i64 %85
   br label %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit
 
 .critedge.i.i.i:                                  ; preds = %79
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %50, i64 noundef %77, i64 noundef 24) #9
-  %.val.pre.i = load ptr, ptr %3, align 8, !tbaa !18
+  %.val.pre.i = load ptr, ptr %3, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit: ; preds = %.critedge3, %83, %.critedge.i.i.i
   %.val.i = phi ptr [ %.val.pre4.i, %.critedge3 ], [ %.val19.i.i.i, %83 ], [ %.val.pre.i, %.critedge.i.i.i ]
   %.016.i.i.i = phi ptr [ %4, %.critedge3 ], [ %86, %83 ], [ %4, %.critedge.i.i.i ]
-  %.val3.i = load i32, ptr %51, align 8, !tbaa !21
+  %.val3.i = load i32, ptr %51, align 8, !tbaa !22
   %87 = zext i32 %.val3.i to i64
   %88 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.i, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %89 = load i32, ptr %51, align 8, !tbaa !21
+  %89 = load i32, ptr %51, align 8, !tbaa !22
   %90 = add i32 %89, 1
-  store i32 %90, ptr %51, align 8, !tbaa !21
+  store i32 %90, ptr %51, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   %.not93 = icmp eq ptr %.183.lcssa, %11
-  br i1 %.not93, label %._crit_edge198, label %65, !llvm.loop !38
+  br i1 %.not93, label %._crit_edge198, label %65, !llvm.loop !39
 
 .preheader154:                                    ; preds = %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit
   %.075200 = phi ptr [ %123, %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit ], [ %0, %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit ]
@@ -280,82 +280,82 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15Mutabl
 
 .preheader:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit, %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit
   %91 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit ], [ %122, %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit ]
-  %92 = load i32, ptr %51, align 8, !tbaa !21
+  %92 = load i32, ptr %51, align 8, !tbaa !22
   %.not.i201 = icmp eq i32 %92, 0
   br i1 %.not.i201, label %._crit_edge203, label %.lr.ph202
 
 93:                                               ; preds = %.preheader154, %96
-  %94 = load i64, ptr %7, align 8, !tbaa !25
+  %94 = load i64, ptr %7, align 8, !tbaa !26
   %95 = load i64, ptr %.075200, align 8, !tbaa !3
   %.not95 = icmp eq i64 %94, %95
   br i1 %.not95, label %98, label %96
 
 96:                                               ; preds = %93
   %97 = call fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 %95, i8 1)
-  br i1 %97, label %93, label %98, !llvm.loop !39
+  br i1 %97, label %93, label %98, !llvm.loop !40
 
 98:                                               ; preds = %96, %93
-  %99 = load i32, ptr %57, align 8, !tbaa !21
+  %99 = load i32, ptr %57, align 8, !tbaa !22
   %100 = zext i32 %99 to i64
   %101 = add nuw nsw i64 %100, 1
-  %102 = load i32, ptr %58, align 4, !tbaa !22
+  %102 = load i32, ptr %58, align 4, !tbaa !23
   %.not.i.i.not.i = icmp ult i32 %99, %102
-  %.pre3.i = load ptr, ptr %6, align 8, !tbaa !18
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit, label %103, !prof !36
+  %.pre3.i = load ptr, ptr %6, align 8, !tbaa !19
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit, label %103, !prof !37
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %.pre3.i, i64 %100
   %105 = icmp uge ptr %.075200, %.pre3.i
   %106 = icmp ult ptr %.075200, %104
   %spec.select.i.i.i.i.i103 = and i1 %105, %106
-  br i1 %spec.select.i.i.i.i.i103, label %107, label %.critedge.i.i.i104, !prof !37
+  br i1 %spec.select.i.i.i.i.i103, label %107, label %.critedge.i.i.i104, !prof !38
 
 107:                                              ; preds = %103
   %108 = ptrtoint ptr %.075200 to i64
   %109 = ptrtoint ptr %.pre3.i to i64
   %110 = sub i64 %108, %109
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %56, i64 noundef %101, i64 noundef 40) #9
-  %111 = load ptr, ptr %6, align 8, !tbaa !18
+  %111 = load ptr, ptr %6, align 8, !tbaa !19
   %112 = getelementptr inbounds i8, ptr %111, i64 %110
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit
 
 .critedge.i.i.i104:                               ; preds = %103
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %56, i64 noundef %101, i64 noundef 40) #9
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !18
+  %.pre.i = load ptr, ptr %6, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit: ; preds = %98, %107, %.critedge.i.i.i104
   %113 = phi ptr [ %.pre3.i, %98 ], [ %111, %107 ], [ %.pre.i, %.critedge.i.i.i104 ]
   %.016.i.i.i105 = phi ptr [ %.075200, %98 ], [ %112, %107 ], [ %.075200, %.critedge.i.i.i104 ]
-  %114 = load i32, ptr %57, align 8, !tbaa !21
+  %114 = load i32, ptr %57, align 8, !tbaa !22
   %115 = zext i32 %114 to i64
   %116 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %113, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %116, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i105, i64 40, i1 false)
-  %117 = load i32, ptr %57, align 8, !tbaa !21
+  %117 = load i32, ptr %57, align 8, !tbaa !22
   %118 = add i32 %117, 1
-  store i32 %118, ptr %57, align 8, !tbaa !21
+  store i32 %118, ptr %57, align 8, !tbaa !22
   %119 = load i64, ptr %.075200, align 8, !tbaa !3
   %120 = getelementptr inbounds nuw i8, ptr %.075200, i64 8
-  %121 = load i64, ptr %120, align 8, !tbaa !13
+  %121 = load i64, ptr %120, align 8, !tbaa !14
   %122 = add i64 %121, %119
-  store i64 %122, ptr %7, align 8, !tbaa !25
+  store i64 %122, ptr %7, align 8, !tbaa !26
   %123 = getelementptr inbounds nuw i8, ptr %.075200, i64 40
   %.not94 = icmp eq ptr %123, %.0163
-  br i1 %.not94, label %.preheader, label %.preheader154, !llvm.loop !40
+  br i1 %.not94, label %.preheader, label %.preheader154, !llvm.loop !41
 
 .lr.ph202:                                        ; preds = %.preheader, %.lr.ph202
   %124 = call fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 undef, i8 0)
-  %125 = load i32, ptr %51, align 8, !tbaa !21
+  %125 = load i32, ptr %51, align 8, !tbaa !22
   %.not.i = icmp eq i32 %125, 0
-  br i1 %.not.i, label %._crit_edge203.loopexit, label %.lr.ph202, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge203.loopexit, label %.lr.ph202, !llvm.loop !42
 
 ._crit_edge203.loopexit:                          ; preds = %.lr.ph202
-  %.pre = load i64, ptr %7, align 8, !tbaa !25
+  %.pre = load i64, ptr %7, align 8, !tbaa !26
   br label %._crit_edge203
 
 ._crit_edge203:                                   ; preds = %._crit_edge203.loopexit, %.preheader
   %126 = phi i64 [ %.pre, %._crit_edge203.loopexit ], [ %91, %.preheader ]
-  %127 = load ptr, ptr %6, align 8, !tbaa !18
+  %127 = load ptr, ptr %6, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %127, i64 %.idx, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
@@ -371,7 +371,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_bac
 _ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds = %._crit_edge203, %129
   call void @llvm.lifetime.end.p0(i64 656, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %130 = load ptr, ptr %3, align 8, !tbaa !18
+  %130 = load ptr, ptr %3, align 8, !tbaa !19
   %131 = icmp eq ptr %130, %50
   br i1 %131, label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit, label %132
 
@@ -403,17 +403,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_4clESt8optionalImE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 %1, i8 %2) unnamed_addr #3 align 2 {
   %.fr128 = freeze i8 %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !42
-  %.val = load ptr, ptr %4, align 8, !tbaa !18
+  %4 = load ptr, ptr %0, align 8, !tbaa !43
+  %.val = load ptr, ptr %4, align 8, !tbaa !19
   %5 = getelementptr i8, ptr %4, i64 8
-  %.val41 = load i32, ptr %5, align 8, !tbaa !21
+  %.val41 = load i32, ptr %5, align 8, !tbaa !22
   %6 = zext i32 %.val41 to i64
   %.idx = mul nuw nsw i64 %6, 24
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not50 = icmp eq i32 %.val41, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
-  %.pre139 = load i64, ptr %.pre, align 8, !tbaa !25
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.pre139 = load i64, ptr %.pre, align 8, !tbaa !26
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %13
@@ -430,7 +430,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.02851, i64 24
   %.not = icmp eq ptr %14, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %3
   %.028.lcssa = phi ptr [ %.val, %3 ], [ %.02851, %.lr.ph ], [ %7, %13 ]
@@ -478,28 +478,28 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %29 = sub i64 0, %27
   %30 = and i64 %28, %29
   %31 = icmp eq i64 %23, %30
-  br i1 %31, label %.preheader.us, label %.critedge.us, !llvm.loop !46
+  br i1 %31, label %.preheader.us, label %.critedge.us, !llvm.loop !47
 
 .critedge.us:                                     ; preds = %24, %.preheader.us
   %.230.us.lcssa = phi ptr [ %.230.us, %24 ], [ %.val, %.preheader.us ]
-  br label %.split.us, !llvm.loop !47
+  br label %.split.us, !llvm.loop !48
 
 .lr.ph60.us:                                      ; preds = %.split.us
   %32 = sub i64 %1, %.031.us
-  %33 = load i64, ptr %.129.us, align 8, !tbaa !32
+  %33 = load i64, ptr %.129.us, align 8, !tbaa !33
   %.not1.i.us72.us = icmp ugt i64 %33, %32
   br i1 %.not1.i.us72.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i
 
 34:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us"
-  %35 = load i64, ptr %36, align 8, !tbaa !32
+  %35 = load i64, ptr %36, align 8, !tbaa !33
   %.not1.i.us.us = icmp ugt i64 %35, %32
-  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i, !llvm.loop !49
+  br i1 %.not1.i.us.us, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us", label %.thread.i, !llvm.loop !50
 
 "_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_3clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuemSt8optionalImE.exit.us.us": ; preds = %.lr.ph60.us, %34
   %.03357.us73.us = phi ptr [ %36, %34 ], [ %.129.us, %.lr.ph60.us ]
   %36 = getelementptr inbounds nuw i8, ptr %.03357.us73.us, i64 24
   %.not35.us.us.not = icmp eq ptr %36, %.027.us
-  br i1 %.not35.us.us.not, label %.critedge39.us, label %34, !llvm.loop !49
+  br i1 %.not35.us.us.not, label %.critedge39.us, label %34, !llvm.loop !50
 
 .split:                                           ; preds = %._crit_edge
   %.not355694.not = icmp eq ptr %.028.lcssa, %7
@@ -535,14 +535,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %50 = sub i64 0, %48
   %51 = and i64 %49, %50
   %52 = icmp eq i64 %43, %51
-  br i1 %52, label %44, label %.thread.i, !llvm.loop !46
+  br i1 %52, label %44, label %.thread.i, !llvm.loop !47
 
 .thread.i:                                        ; preds = %45, %44, %.lr.ph60.us, %34, %.split
   %.us-phi = phi i64 [ %.pre139, %.split ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ], [ %43, %45 ]
   %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %36, %34 ], [ %.129.us, %.lr.ph60.us ], [ %.230.us106, %45 ], [ %.val, %44 ]
   %.us-phi64 = phi i64 [ -1, %.split ], [ %32, %34 ], [ %32, %.lr.ph60.us ], [ -1, %44 ], [ -1, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !50
+  %54 = load ptr, ptr %53, align 8, !tbaa !51
   %.val42.le = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.us-phi62, i64 8
   br label %56
@@ -550,30 +550,30 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
 56:                                               ; preds = %56, %.thread.i
   %.014.in.i = phi ptr [ %55, %.thread.i ], [ %59, %56 ]
   %.0.i = phi ptr [ null, %.thread.i ], [ %.014.i, %56 ]
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !26
+  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !27
   %57 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !13
+  %58 = load i64, ptr %57, align 8, !tbaa !14
   %.not.i = icmp ugt i64 %58, %.us-phi64
   %59 = getelementptr i8, ptr %.014.i, i64 24
-  br i1 %.not.i, label %56, label %60, !llvm.loop !51
+  br i1 %.not.i, label %56, label %60, !llvm.loop !52
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %.val42.le, align 8, !tbaa !52
+  %61 = load ptr, ptr %.val42.le, align 8, !tbaa !53
   %.val.i.i = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %.0.i, null
-  %.val.i.i.i = load ptr, ptr %59, align 8, !tbaa !14
+  %.val.i.i.i = load ptr, ptr %59, align 8, !tbaa !15
   br i1 %.not.i.i.i, label %67, label %62
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store ptr %.val.i.i.i, ptr %63, align 8, !tbaa !14
+  store ptr %.val.i.i.i, ptr %63, align 8, !tbaa !15
   %.not14.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not14.i.i.i, label %64, label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !13
-  store i64 %66, ptr %.us-phi62, align 8, !tbaa !32
+  %66 = load i64, ptr %65, align 8, !tbaa !14
+  store i64 %66, ptr %.us-phi62, align 8, !tbaa !33
   br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
 67:                                               ; preds = %60
@@ -581,14 +581,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   br i1 %.not13.i.i.i, label %69, label %68
 
 68:                                               ; preds = %67
-  store ptr %.val.i.i.i, ptr %55, align 8, !tbaa !35
+  store ptr %.val.i.i.i, ptr %55, align 8, !tbaa !36
   br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.us-phi62, i64 24
-  %.val.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !18
+  %.val.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %.val6.i.i.i.i = load i32, ptr %71, align 8, !tbaa !21
+  %.val6.i.i.i.i = load i32, ptr %71, align 8, !tbaa !22
   %72 = zext i32 %.val6.i.i.i.i to i64
   %73 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.i.i.i.i, i64 %72
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, %70
@@ -599,34 +599,34 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %76 = ptrtoint ptr %70 to i64
   %77 = sub i64 %75, %76
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.us-phi62, ptr nonnull align 8 %70, i64 %77, i1 false)
-  %.pre.i.i.i.i = load i32, ptr %71, align 8, !tbaa !21
+  %.pre.i.i.i.i = load i32, ptr %71, align 8, !tbaa !22
   br label %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i: ; preds = %74, %69
   %78 = phi i32 [ %.val6.i.i.i.i, %69 ], [ %.pre.i.i.i.i, %74 ]
   %79 = add i32 %78, -1
-  store i32 %79, ptr %71, align 8, !tbaa !21
+  store i32 %79, ptr %71, align 8, !tbaa !22
   br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
 "_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i": ; preds = %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i, %68, %64, %62
   %80 = getelementptr inbounds nuw i8, ptr %.val42.le, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !54
+  %81 = load ptr, ptr %80, align 8, !tbaa !55
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !21
+  %83 = load i32, ptr %82, align 8, !tbaa !22
   %84 = zext i32 %83 to i64
   %85 = add nuw nsw i64 %84, 1
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  %87 = load i32, ptr %86, align 4, !tbaa !22
+  %87 = load i32, ptr %86, align 4, !tbaa !23
   %.not.i.i.not.i.i.i = icmp ult i32 %83, %87
-  %.pre3.i.i.i = load ptr, ptr %81, align 8, !tbaa !18
-  br i1 %.not.i.i.not.i.i.i, label %100, label %88, !prof !36
+  %.pre3.i.i.i = load ptr, ptr %81, align 8, !tbaa !19
+  br i1 %.not.i.i.not.i.i.i, label %100, label %88, !prof !37
 
 88:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
   %89 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %.pre3.i.i.i, i64 %84
   %90 = icmp uge ptr %.014.i, %.pre3.i.i.i
   %91 = icmp ult ptr %.014.i, %89
   %spec.select.i.i.i.i.i.i.i = and i1 %90, %91
-  br i1 %spec.select.i.i.i.i.i.i.i, label %92, label %.critedge.i.i.i.i.i, !prof !37
+  br i1 %spec.select.i.i.i.i.i.i.i, label %92, label %.critedge.i.i.i.i.i, !prof !38
 
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %.014.i to i64
@@ -634,40 +634,40 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %95 = sub i64 %93, %94
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull %96, i64 noundef %85, i64 noundef 40) #9
-  %97 = load ptr, ptr %81, align 8, !tbaa !18
+  %97 = load ptr, ptr %81, align 8, !tbaa !19
   %98 = getelementptr inbounds i8, ptr %97, i64 %95
   br label %100
 
 .critedge.i.i.i.i.i:                              ; preds = %88
   %99 = getelementptr inbounds nuw i8, ptr %81, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull %99, i64 noundef %85, i64 noundef 40) #9
-  %.pre.i.i.i = load ptr, ptr %81, align 8, !tbaa !18
+  %.pre.i.i.i = load ptr, ptr %81, align 8, !tbaa !19
   br label %100
 
 100:                                              ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i", %92, %.critedge.i.i.i.i.i
   %101 = phi ptr [ %.pre3.i.i.i, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i" ], [ %97, %92 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
   %.016.i.i.i.i.i = phi ptr [ %.014.i, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i" ], [ %98, %92 ], [ %.014.i, %.critedge.i.i.i.i.i ]
-  %102 = load i32, ptr %82, align 8, !tbaa !21
+  %102 = load i32, ptr %82, align 8, !tbaa !22
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %101, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
-  %105 = load i32, ptr %82, align 8, !tbaa !21
+  %105 = load i32, ptr %82, align 8, !tbaa !22
   %106 = add i32 %105, 1
-  store i32 %106, ptr %82, align 8, !tbaa !21
-  %107 = load ptr, ptr %80, align 8, !tbaa !54
-  %108 = load ptr, ptr %107, align 8, !tbaa !18
+  store i32 %106, ptr %82, align 8, !tbaa !22
+  %107 = load ptr, ptr %80, align 8, !tbaa !55
+  %108 = load ptr, ptr %107, align 8, !tbaa !19
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %110 = load i32, ptr %109, align 8, !tbaa !21
+  %110 = load i32, ptr %109, align 8, !tbaa !22
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %108, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -40
   store i64 %.us-phi, ptr %113, align 8, !tbaa !3
   %114 = getelementptr inbounds i8, ptr %112, i64 -32
-  %115 = load i64, ptr %114, align 8, !tbaa !13
+  %115 = load i64, ptr %114, align 8, !tbaa !14
   %116 = add i64 %115, %.us-phi
   %117 = getelementptr inbounds nuw i8, ptr %.val42.le, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !55
-  store i64 %116, ptr %118, align 8, !tbaa !25
+  %118 = load ptr, ptr %117, align 8, !tbaa !56
+  store i64 %116, ptr %118, align 8, !tbaa !26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.critedge39.us, %.critedge39.lr.ph.split.us, %100
@@ -691,9 +691,9 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !13
+  %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !14
   %.not.i = icmp eq i64 %10, %12
   br i1 %.not.i, label %16, label %13
 
@@ -704,9 +704,9 @@ define internal noundef range(i32 -1, 2) i32 @"_ZZN4llvm28performOptimizedStruct
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %19, align 8, !tbaa !15
   %.not21.i = icmp eq ptr %18, %20
   %21 = icmp ult ptr %18, %20
   %22 = select i1 %21, i32 -1, i32 1
@@ -759,48 +759,49 @@ attributes #9 = { nounwind }
 !8 = !{!"any pointer", !6, i64 0}
 !9 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!4, !5, i64 8}
-!14 = !{!4, !8, i64 24}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!19, !8, i64 0}
-!19 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !8, i64 0, !20, i64 8, !20, i64 12}
-!20 = !{!"int", !6, i64 0}
-!21 = !{!19, !20, i64 8}
-!22 = !{!19, !20, i64 12}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTSN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EEE", !8, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = !{!8, !8, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTSN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EEE", !8, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 long", !8, i64 0}
-!31 = distinct !{!31, !12}
-!32 = !{!33, !5, i64 0}
-!33 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueue", !5, i64 0, !34, i64 8, !9, i64 16}
-!34 = !{!"p1 _ZTSN4llvm26OptimizedStructLayoutFieldE", !8, i64 0}
-!35 = !{!33, !34, i64 8}
-!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = distinct !{!38, !12}
-!39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12}
-!41 = distinct !{!41, !12}
-!42 = !{!43, !24, i64 0}
-!43 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_4", !24, i64 0, !30, i64 8, !8, i64 16}
-!44 = !{!43, !30, i64 8}
-!45 = distinct !{!45, !12}
-!46 = distinct !{!46, !12}
-!47 = distinct !{!47, !12, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !12, !48}
-!50 = !{!43, !8, i64 16}
-!51 = distinct !{!51, !12}
-!52 = !{!53, !8, i64 0}
-!53 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_2", !8, i64 0, !28, i64 8, !30, i64 16}
-!54 = !{!53, !28, i64 8}
-!55 = !{!53, !30, i64 16}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!4, !5, i64 8}
+!15 = !{!4, !8, i64 24}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!20, !8, i64 0}
+!20 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !8, i64 0, !21, i64 8, !21, i64 12}
+!21 = !{!"int", !6, i64 0}
+!22 = !{!20, !21, i64 8}
+!23 = !{!20, !21, i64 12}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EEE", !8, i64 0}
+!26 = !{!5, !5, i64 0}
+!27 = !{!8, !8, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EEE", !8, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 long", !8, i64 0}
+!32 = distinct !{!32, !12, !13}
+!33 = !{!34, !5, i64 0}
+!34 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueue", !5, i64 0, !35, i64 8, !9, i64 16}
+!35 = !{!"p1 _ZTSN4llvm26OptimizedStructLayoutFieldE", !8, i64 0}
+!36 = !{!34, !35, i64 8}
+!37 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!38 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13}
+!42 = distinct !{!42, !12, !13}
+!43 = !{!44, !25, i64 0}
+!44 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_4", !25, i64 0, !31, i64 8, !8, i64 16}
+!45 = !{!44, !31, i64 8}
+!46 = distinct !{!46, !12, !13}
+!47 = distinct !{!47, !12, !13}
+!48 = distinct !{!48, !12, !13, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !12, !13, !49}
+!51 = !{!44, !8, i64 16}
+!52 = distinct !{!52, !12, !13}
+!53 = !{!54, !8, i64 0}
+!54 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_2", !8, i64 0, !29, i64 8, !31, i64 16}
+!55 = !{!54, !29, i64 8}
+!56 = !{!54, !31, i64 16}

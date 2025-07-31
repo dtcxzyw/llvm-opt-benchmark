@@ -708,10 +708,10 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !12
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %0, align 4, !tbaa !4
@@ -837,10 +837,10 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i1
   %75 = lshr i32 %72, %74
   %76 = trunc i32 %75 to i8
   %77 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
-  store i8 %76, ptr %77, align 1, !tbaa !10
+  store i8 %76, ptr %77, align 1, !tbaa !11
   %78 = add nuw nsw i64 %.039, 1
   %exitcond41.not = icmp eq i64 %78, 16
-  br i1 %exitcond41.not, label %68, label %69, !llvm.loop !12
+  br i1 %exitcond41.not, label %68, label %69, !llvm.loop !13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -864,8 +864,9 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

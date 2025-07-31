@@ -213,7 +213,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
   %20 = load i16, ptr %19, align 1
   store i16 %20, ptr %gep, align 1
   %21 = icmp ugt i32 %.sroa.0.132, 99999999
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 22:                                               ; preds = %._crit_edge
   %.lhs.trunc27 = trunc nuw i32 %.sroa.0.1.lcssa to i16
@@ -275,7 +275,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %4 = icmp ugt i8 %1, 99
   br i1 %4, label %.thread.i, label %12
 
@@ -286,8 +286,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4
   %8 = udiv i8 %1, 100
   %9 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %11 = load i16, ptr %9, align 1, !noalias !6
-  store i16 %11, ptr %10, align 1, !alias.scope !6
+  %11 = load i16, ptr %9, align 1, !noalias !8
+  store i16 %11, ptr %10, align 1, !alias.scope !8
   br label %20
 
 12:                                               ; preds = %2
@@ -300,8 +300,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %19 = load i16, ptr %17, align 1, !noalias !6
-  store i16 %19, ptr %18, align 1, !alias.scope !6
+  %19 = load i16, ptr %17, align 1, !noalias !8
+  store i16 %19, ptr %18, align 1, !alias.scope !8
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 20:                                               ; preds = %12, %.thread.i
@@ -309,34 +309,34 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4
   %.sroa.07.017.i.sroa.phi = phi ptr [ %3, %.thread.i ], [ %.sroa.07.017.i.sroa.gep1, %12 ]
   %.sroa.07.017.i = phi i64 [ 0, %.thread.i ], [ 2, %12 ]
   %21 = or disjoint i8 %.sroa.01.018.i, 48
-  store i8 %21, ptr %.sroa.07.017.i.sroa.phi, align 1, !alias.scope !6
+  store i8 %21, ptr %.sroa.07.017.i.sroa.phi, align 1, !alias.scope !8
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit: ; preds = %14, %20
   %.sroa.07.1.i = phi i64 [ %.sroa.07.017.i, %20 ], [ 1, %14 ]
   %gepdiff = sub nuw nsw i64 3, %.sroa.07.1.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !9, !noundef !4
-  %24 = load i64, ptr %0, align 8, !alias.scope !9, !noundef !4
+  %23 = load i64, ptr %22, align 8, !alias.scope !11, !noundef !4
+  %24 = load i64, ptr %0, align 8, !alias.scope !11, !noundef !4
   %25 = sub i64 %24, %23
   %26 = icmp ugt i64 %gepdiff, %25
   br i1 %26, label %27, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 27:                                               ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i64 noundef %gepdiff)
-  %.pre.i = load i64, ptr %22, align 8, !alias.scope !9
+  %.pre.i = load i64, ptr %22, align 8, !alias.scope !11
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %27
   %28 = phi i64 [ %.pre.i, %27 ], [ %23, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.07.1.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !9, !nonnull !4, !noundef !4
+  %31 = load ptr, ptr %30, align 8, !alias.scope !11, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %29, i64 %gepdiff, i1 false)
-  %33 = load i64, ptr %22, align 8, !alias.scope !9, !noundef !4
+  %33 = load i64, ptr %22, align 8, !alias.scope !11, !noundef !4
   %34 = add i64 %33, %gepdiff
-  store i64 %34, ptr %22, align 8, !alias.scope !9
+  store i64 %34, ptr %22, align 8, !alias.scope !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }
@@ -345,7 +345,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %4 = icmp sgt i32 %1, -1
   %.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %invariant.gep.i = getelementptr i8, ptr %3, i64 -2
@@ -374,14 +374,14 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %16 = add i64 %.sroa.010.031.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %12
   %18 = getelementptr inbounds i8, ptr %3, i64 %16
-  %19 = load i16, ptr %17, align 1, !noalias !12
-  store i16 %19, ptr %18, align 1, !alias.scope !12
+  %19 = load i16, ptr %17, align 1, !noalias !14
+  store i16 %19, ptr %18, align 1, !alias.scope !14
   %20 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %15
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.sroa.010.031.i
-  %21 = load i16, ptr %20, align 1, !noalias !12
-  store i16 %21, ptr %gep.i, align 1, !alias.scope !12
+  %21 = load i16, ptr %20, align 1, !noalias !14
+  store i16 %21, ptr %gep.i, align 1, !alias.scope !14
   %22 = icmp ugt i32 %.sroa.0.132.i, 99999999
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 23:                                               ; preds = %._crit_edge.i
   %.lhs.trunc27.i = trunc nuw i32 %.sroa.0.1.lcssa.i to i16
@@ -393,8 +393,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %28 = add i64 %.sroa.010.0.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %26
   %30 = getelementptr inbounds i8, ptr %3, i64 %28
-  %31 = load i16, ptr %29, align 1, !noalias !12
-  store i16 %31, ptr %30, align 1, !alias.scope !12
+  %31 = load i16, ptr %29, align 1, !noalias !14
+  store i16 %31, ptr %30, align 1, !alias.scope !14
   br label %32
 
 32:                                               ; preds = %23, %._crit_edge.i
@@ -408,8 +408,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %36 = add i64 %.sroa.010.1.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %35
   %38 = getelementptr inbounds i8, ptr %3, i64 %36
-  %39 = load i16, ptr %37, align 1, !noalias !12
-  store i16 %39, ptr %38, align 1, !alias.scope !12
+  %39 = load i16, ptr %37, align 1, !noalias !14
+  store i16 %39, ptr %38, align 1, !alias.scope !14
   br label %45
 
 40:                                               ; preds = %32
@@ -417,7 +417,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %42 = trunc nuw nsw i64 %.sroa.04.0.i to i8
   %43 = getelementptr inbounds i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
-  store i8 %44, ptr %43, align 1, !alias.scope !12
+  store i8 %44, ptr %43, align 1, !alias.scope !14
   br label %45
 
 45:                                               ; preds = %40, %34
@@ -427,34 +427,34 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
 46:                                               ; preds = %45
   %47 = add i64 %.sroa.010.2.i, -1
   %48 = getelementptr inbounds i8, ptr %3, i64 %47
-  store i8 45, ptr %48, align 1, !alias.scope !12
+  store i8 45, ptr %48, align 1, !alias.scope !14
   br label %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 _RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit: ; preds = %45, %46
   %.sroa.010.3.i = phi i64 [ %.sroa.010.2.i, %45 ], [ %47, %46 ]
   %gepdiff = sub nsw i64 11, %.sroa.010.3.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i64, ptr %49, align 8, !alias.scope !15, !noundef !4
-  %51 = load i64, ptr %0, align 8, !alias.scope !15, !noundef !4
+  %50 = load i64, ptr %49, align 8, !alias.scope !17, !noundef !4
+  %51 = load i64, ptr %0, align 8, !alias.scope !17, !noundef !4
   %52 = sub i64 %51, %50
   %53 = icmp ugt i64 %gepdiff, %52
   br i1 %53, label %54, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 54:                                               ; preds = %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %50, i64 noundef %gepdiff)
-  %.pre.i = load i64, ptr %49, align 8, !alias.scope !15
+  %.pre.i = load i64, ptr %49, align 8, !alias.scope !17
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %54
   %55 = phi i64 [ %.pre.i, %54 ], [ %50, %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
   %56 = getelementptr inbounds i8, ptr %3, i64 %.sroa.010.3.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8, !alias.scope !15, !nonnull !4, !noundef !4
+  %58 = load ptr, ptr %57, align 8, !alias.scope !17, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull readonly align 1 %56, i64 %gepdiff, i1 false)
-  %60 = load i64, ptr %49, align 8, !alias.scope !15, !noundef !4
+  %60 = load i64, ptr %49, align 8, !alias.scope !17, !noundef !4
   %61 = add i64 %60, %gepdiff
-  store i64 %61, ptr %49, align 8, !alias.scope !15
+  store i64 %61, ptr %49, align 8, !alias.scope !17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }
@@ -463,7 +463,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i16 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %4 = icmp ugt i16 %1, 9999
   br i1 %4, label %.thread.i, label %._crit_edge.i
 
@@ -477,12 +477,12 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %10 = zext nneg i16 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %13 = load i16, ptr %11, align 1, !noalias !18
-  store i16 %13, ptr %12, align 1, !alias.scope !18
+  %13 = load i16, ptr %11, align 1, !noalias !20
+  store i16 %13, ptr %12, align 1, !alias.scope !20
   %14 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %10
   %gep.i = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %15 = load i16, ptr %14, align 1, !noalias !18
-  store i16 %15, ptr %gep.i, align 1, !alias.scope !18
+  %15 = load i16, ptr %14, align 1, !noalias !20
+  store i16 %15, ptr %gep.i, align 1, !alias.scope !20
   %16 = udiv i16 %1, 10000
   br label %35
 
@@ -497,8 +497,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %22 = udiv i16 %1, 100
   %23 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %25 = load i16, ptr %23, align 1, !noalias !18
-  store i16 %25, ptr %24, align 1, !alias.scope !18
+  %25 = load i16, ptr %23, align 1, !noalias !20
+  store i16 %25, ptr %24, align 1, !alias.scope !20
   br label %26
 
 26:                                               ; preds = %18, %._crit_edge.i
@@ -513,8 +513,8 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %31 = add nsw i64 %.sroa.010.1.i, -2
   %32 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 %31
-  %34 = load i16, ptr %32, align 1, !noalias !18
-  store i16 %34, ptr %33, align 1, !alias.scope !18
+  %34 = load i16, ptr %32, align 1, !noalias !20
+  store i16 %34, ptr %33, align 1, !alias.scope !20
   br label %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 35:                                               ; preds = %26, %.thread.i
@@ -524,34 +524,34 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %37 = trunc nuw nsw i16 %.sroa.04.037.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = or disjoint i8 %37, 48
-  store i8 %39, ptr %38, align 1, !alias.scope !18
+  store i8 %39, ptr %38, align 1, !alias.scope !20
   br label %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 _RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit: ; preds = %28, %35
   %.sroa.010.2.i = phi i64 [ %36, %35 ], [ %31, %28 ]
   %gepdiff = sub nuw nsw i64 5, %.sroa.010.2.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load i64, ptr %40, align 8, !alias.scope !21, !noundef !4
-  %42 = load i64, ptr %0, align 8, !alias.scope !21, !noundef !4
+  %41 = load i64, ptr %40, align 8, !alias.scope !23, !noundef !4
+  %42 = load i64, ptr %0, align 8, !alias.scope !23, !noundef !4
   %43 = sub i64 %42, %41
   %44 = icmp ugt i64 %gepdiff, %43
   br i1 %44, label %45, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 45:                                               ; preds = %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECscjWV1zBNszQ_8bitflags(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %41, i64 noundef %gepdiff)
-  %.pre.i = load i64, ptr %40, align 8, !alias.scope !21
+  %.pre.i = load i64, ptr %40, align 8, !alias.scope !23
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %45
   %46 = phi i64 [ %.pre.i, %45 ], [ %41, %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.010.2.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8, !alias.scope !21, !nonnull !4, !noundef !4
+  %49 = load ptr, ptr %48, align 8, !alias.scope !23, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds i8, ptr %49, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %47, i64 %gepdiff, i1 false)
-  %51 = load i64, ptr %40, align 8, !alias.scope !21, !noundef !4
+  %51 = load i64, ptr %40, align 8, !alias.scope !23, !noundef !4
   %52 = add i64 %51, %gepdiff
-  store i64 %52, ptr %40, align 8, !alias.scope !21
+  store i64 %52, ptr %40, align 8, !alias.scope !23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }
@@ -603,21 +603,23 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !3 = !{!"rustc version 1.81.0-nightly (5affbb171 2024-07-18)"}
 !4 = !{}
 !5 = !{i64 2}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
-!8 = distinct !{!8, !"_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
-!11 = distinct !{!11, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
-!14 = distinct !{!14, !"_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
-!17 = distinct !{!17, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
-!20 = distinct !{!20, !"_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
-!23 = distinct !{!23, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
+!10 = distinct !{!10, !"_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
+!13 = distinct !{!13, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
+!16 = distinct !{!16, !"_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
+!19 = distinct !{!19, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136: argument 0"}
+!22 = distinct !{!22, !"_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136: argument 0"}
+!25 = distinct !{!25, !"_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136"}

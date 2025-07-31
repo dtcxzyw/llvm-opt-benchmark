@@ -23,13 +23,13 @@ define ptr @ossl_cipher_cbc_cts_mode_id2name(i32 noundef %0) local_unnamed_addr 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %.06
-  %6 = load i32, ptr %5, align 16, !tbaa !5
+  %6 = load i32, ptr %5, align 16, !tbaa !6
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %8
@@ -50,19 +50,19 @@ define i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %0) local_unnamed_addr 
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %3, 3
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !14
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %0, ptr noundef %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %2
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr %5, align 16, !tbaa !5
+  %11 = load i32, ptr %5, align 16, !tbaa !6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %10
@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %0, ptr
   %16 = and i8 %13, 2
   %.not48 = icmp eq i8 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load i32, ptr %17, align 8, !tbaa !14
+  %18 = load i32, ptr %17, align 8, !tbaa !15
   br i1 %.not48, label %26, label %19
 
 19:                                               ; preds = %15
@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %0, ptr
 
 .thread.sink.split:                               ; preds = %9, %35
   %.0.sink = phi i64 [ %.0, %35 ], [ %5, %9 ]
-  store i64 %.0.sink, ptr %2, align 8, !tbaa !19
+  store i64 %.0.sink, ptr %2, align 8, !tbaa !20
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %19, %33, %11, %6
@@ -163,9 +163,9 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_encrypt(ptr noundef %0, 
   %6 = and i64 %3, 15
   %7 = and i64 %3, -16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %7) #7
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %26, label %13
@@ -181,9 +181,9 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_encrypt(ptr noundef %0, 
   %19 = getelementptr i8, ptr %5, i64 %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, i8 0, i64 %18, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 1 %16, i64 %6, i1 false)
-  %20 = load ptr, ptr %8, align 8, !tbaa !20
+  %20 = load ptr, ptr %8, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds i8, ptr %17, i64 -16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %6
   %25 = call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %5, i64 noundef 16) #7
@@ -206,9 +206,9 @@ define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = tail call i32 %12(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %3) #7
   %.not = icmp eq i32 %13, 0
   %. = select i1 %.not, i64 0, i64 %3
@@ -221,9 +221,9 @@ define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %0, ptr noundef %1, p
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = tail call i32 %20(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef 16) #7
   %.not33.i = icmp eq i32 %21, 0
   %22 = select i1 %.not33.i, i64 0, i64 16
@@ -232,9 +232,9 @@ define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %0, ptr noundef %1, p
 23:                                               ; preds = %14
   %24 = and i64 %3, -16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !21
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = tail call i32 %28(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %24) #7
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %cts128_cs3_encrypt.exit, label %30
@@ -248,9 +248,9 @@ define internal fastcc i64 @cts128_cs2_encrypt(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %31, i64 %6, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %35, i64 %6, i1 false)
-  %36 = load ptr, ptr %25, align 8, !tbaa !20
+  %36 = load ptr, ptr %25, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !21
+  %38 = load ptr, ptr %37, align 8, !tbaa !22
   %39 = call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %5, i64 noundef 16) #7
   %.not32.i = icmp eq i32 %39, 0
   %..i = select i1 %.not32.i, i64 0, i64 %3
@@ -275,9 +275,9 @@ define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef 16) #7
   %.not33 = icmp eq i32 %12, 0
   %13 = select i1 %.not33, i64 0, i64 16
@@ -289,9 +289,9 @@ define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %0, ptr noundef %1, p
   %spec.store.select = select i1 %16, i64 16, i64 %15
   %17 = sub nuw i64 %3, %spec.store.select
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %19 = load ptr, ptr %18, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = tail call i32 %21(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %17) #7
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %33, label %23
@@ -305,9 +305,9 @@ define internal fastcc i64 @cts128_cs3_encrypt(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %24, i64 %spec.store.select, i1 false)
   %28 = getelementptr inbounds i8, ptr %25, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %28, i64 %spec.store.select, i1 false)
-  %29 = load ptr, ptr %18, align 8, !tbaa !20
+  %29 = load ptr, ptr %18, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !21
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %5, i64 noundef 16) #7
   %.not32 = icmp eq i32 %32, 0
   %. = select i1 %.not32, i64 0, i64 %3
@@ -335,9 +335,9 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_decrypt(ptr noundef %0, 
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %3) #7
   %.not49 = icmp eq i32 %16, 0
   %. = select i1 %.not49, i64 0, i64 %3
@@ -351,9 +351,9 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_decrypt(ptr noundef %0, 
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %22 = load ptr, ptr %21, align 8, !tbaa !20
+  %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
   %25 = tail call i32 %24(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %19) #7
   %.not46 = icmp eq i32 %25, 0
   br i1 %.not46, label %54, label %26
@@ -372,9 +372,9 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_decrypt(ptr noundef %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
   %36 = call i32 %35(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %31, i64 noundef 16) #7
   %.not47 = icmp eq i32 %36, 0
   br i1 %.not47, label %54, label %37
@@ -391,21 +391,21 @@ define internal fastcc range(i64 16, 1) i64 @cts128_cs1_decrypt(ptr noundef %0, 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
   %.08.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.08.i
-  %43 = load i8, ptr %42, align 1, !tbaa !23
+  %43 = load i8, ptr %42, align 1, !tbaa !24
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 %.08.i
-  %45 = load i8, ptr %44, align 1, !tbaa !23
+  %45 = load i8, ptr %44, align 1, !tbaa !24
   %46 = xor i8 %45, %43
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 %.08.i
-  store i8 %46, ptr %47, align 1, !tbaa !23
+  store i8 %46, ptr %47, align 1, !tbaa !24
   %48 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %48, %9
-  br i1 %exitcond.not.i, label %do_xor.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %do_xor.exit, label %.lr.ph.i, !llvm.loop !25
 
 do_xor.exit:                                      ; preds = %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %49 = load ptr, ptr %32, align 8, !tbaa !20
+  %49 = load ptr, ptr %32, align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !21
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
   %52 = call i32 %51(ptr noundef nonnull %0, ptr noundef nonnull %.042, ptr noundef nonnull %6, i64 noundef 16) #7
   %.not48 = icmp eq i32 %52, 0
   br i1 %.not48, label %54, label %53
@@ -431,9 +431,9 @@ define internal fastcc i64 @cts128_cs2_decrypt(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %3) #7
   %.not = icmp eq i32 %12, 0
   %. = select i1 %.not, i64 0, i64 %3
@@ -463,9 +463,9 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !21
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = tail call i32 %14(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef 16) #7
   %.not53 = icmp eq i32 %15, 0
   %16 = select i1 %.not53, i64 0, i64 16
@@ -482,9 +482,9 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = tail call i32 %26(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i64 noundef %21) #7
   %.not49 = icmp eq i32 %27, 0
   br i1 %.not49, label %64, label %28
@@ -502,9 +502,9 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %.043, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %34 = load ptr, ptr %33, align 8, !tbaa !20
+  %34 = load ptr, ptr %33, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %.043, i64 noundef 16) #7
   %.not50 = icmp eq i32 %37, 0
   br i1 %.not50, label %64, label %38
@@ -521,15 +521,15 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.split
   %.08.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %.split ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 %.08.i
-  %42 = load i8, ptr %41, align 1, !tbaa !23
+  %42 = load i8, ptr %41, align 1, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 %.08.i
-  %44 = load i8, ptr %43, align 1, !tbaa !23
+  %44 = load i8, ptr %43, align 1, !tbaa !24
   %45 = xor i8 %44, %42
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %.08.i
-  store i8 %45, ptr %46, align 1, !tbaa !23
+  store i8 %45, ptr %46, align 1, !tbaa !24
   %47 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %47, 16
-  br i1 %exitcond.not.i, label %do_xor.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %do_xor.exit, label %.lr.ph.i, !llvm.loop !25
 
 .split46:                                         ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 %18
@@ -542,21 +542,21 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
 .lr.ph.i54:                                       ; preds = %.split46, %.lr.ph.i54
   %.08.i55 = phi i64 [ %58, %.lr.ph.i54 ], [ 0, %.split46 ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 %.08.i55
-  %53 = load i8, ptr %52, align 1, !tbaa !23
+  %53 = load i8, ptr %52, align 1, !tbaa !24
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 %.08.i55
-  %55 = load i8, ptr %54, align 1, !tbaa !23
+  %55 = load i8, ptr %54, align 1, !tbaa !24
   %56 = xor i8 %55, %53
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 %.08.i55
-  store i8 %56, ptr %57, align 1, !tbaa !23
+  store i8 %56, ptr %57, align 1, !tbaa !24
   %58 = add nuw nsw i64 %.08.i55, 1
   %exitcond.not.i56 = icmp eq i64 %58, %18
-  br i1 %exitcond.not.i56, label %do_xor.exit, label %.lr.ph.i54, !llvm.loop !24
+  br i1 %exitcond.not.i56, label %do_xor.exit, label %.lr.ph.i54, !llvm.loop !25
 
 do_xor.exit:                                      ; preds = %.lr.ph.i54, %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %59 = load ptr, ptr %33, align 8, !tbaa !20
+  %59 = load ptr, ptr %33, align 8, !tbaa !21
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !21
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
   %62 = call i32 %61(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef nonnull %6, i64 noundef 16) #7
   %.not52 = icmp eq i32 %62, 0
   br i1 %.not52, label %64, label %63
@@ -576,7 +576,7 @@ do_xor.exit:                                      ; preds = %.lr.ph.i54, %.lr.ph
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @ossl_cipher_cbc_cts_block_final(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i64 noundef %3) local_unnamed_addr #4 {
-  store i64 0, ptr %2, align 8, !tbaa !19
+  store i64 0, ptr %2, align 8, !tbaa !20
   ret i32 1
 }
 
@@ -600,25 +600,26 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"cts_mode_name2id_st", !7, i64 0, !10, i64 8}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !8, i64 0}
-!12 = !{!6, !10, i64 8}
-!13 = distinct !{!13, !4}
-!14 = !{!15, !7, i64 104}
-!15 = !{!"prov_cipher_ctx_st", !8, i64 0, !8, i64 16, !8, i64 32, !11, i64 48, !8, i64 56, !7, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !7, i64 104, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 108, !7, i64 112, !10, i64 120, !7, i64 128, !16, i64 136, !7, i64 144, !16, i64 152, !7, i64 160, !17, i64 168, !11, i64 176, !18, i64 184}
-!16 = !{!"long", !8, i64 0}
-!17 = !{!"p1 _ZTS17prov_cipher_hw_st", !11, i64 0}
-!18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !11, i64 0}
-!19 = !{!16, !16, i64 0}
-!20 = !{!15, !17, i64 168}
-!21 = !{!22, !11, i64 8}
-!22 = !{!"prov_cipher_hw_st", !11, i64 0, !11, i64 8, !11, i64 16}
-!23 = !{!8, !8, i64 0}
-!24 = distinct !{!24, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"cts_mode_name2id_st", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!7, !11, i64 8}
+!14 = distinct !{!14, !4, !5}
+!15 = !{!16, !8, i64 104}
+!16 = !{!"prov_cipher_ctx_st", !9, i64 0, !9, i64 16, !9, i64 32, !12, i64 48, !9, i64 56, !8, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !8, i64 104, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 108, !8, i64 112, !11, i64 120, !8, i64 128, !17, i64 136, !8, i64 144, !17, i64 152, !8, i64 160, !18, i64 168, !12, i64 176, !19, i64 184}
+!17 = !{!"long", !9, i64 0}
+!18 = !{!"p1 _ZTS17prov_cipher_hw_st", !12, i64 0}
+!19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !12, i64 0}
+!20 = !{!17, !17, i64 0}
+!21 = !{!16, !18, i64 168}
+!22 = !{!23, !12, i64 8}
+!23 = !{!"prov_cipher_hw_st", !12, i64 0, !12, i64 8, !12, i64 16}
+!24 = !{!9, !9, i64 0}
+!25 = distinct !{!25, !4, !5}

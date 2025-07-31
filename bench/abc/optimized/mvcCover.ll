@@ -136,7 +136,7 @@ declare ptr @Mvc_CubeDup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Mvc_CoverFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -145,11 +145,11 @@ define void @Mvc_CoverFree(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %.033.sink, align 8, !tbaa !25
   tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef nonnull %.033.sink) #7
   %.not30 = icmp eq ptr %4, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef %6) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !21
@@ -163,13 +163,13 @@ define void @Mvc_CoverFree(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %.not29 = icmp eq ptr %12, null
   br i1 %.not29, label %14, label %13
 
 13:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %12) #7
-  store ptr null, ptr %11, align 8, !tbaa !33
+  store ptr null, ptr %11, align 8, !tbaa !34
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -190,13 +190,13 @@ declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define void @Mvc_CoverAllocateMask(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call ptr @Mvc_CubeAlloc(ptr noundef nonnull %0) #7
-  store ptr %6, ptr %2, align 8, !tbaa !32
+  store ptr %6, ptr %2, align 8, !tbaa !33
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -208,7 +208,7 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Mvc_CoverAllocateArrayLits(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %11
 
@@ -218,7 +218,7 @@ define void @Mvc_CoverAllocateArrayLits(ptr noundef captures(none) %0) local_unn
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #8
-  store ptr %10, ptr %2, align 8, !tbaa !33
+  store ptr %10, ptr %2, align 8, !tbaa !34
   br label %11
 
 11:                                               ; preds = %5, %1
@@ -233,7 +233,7 @@ define void @Mvc_CoverAllocateArrayCubes(ptr noundef captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !35
   %6 = icmp slt i32 %3, %5
   br i1 %6, label %7, label %19
 
@@ -249,7 +249,7 @@ define void @Mvc_CoverAllocateArrayCubes(ptr noundef captures(none) %0) local_un
 
 12:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %11) #7
-  %.pre = load i32, ptr %4, align 8, !tbaa !34
+  %.pre = load i32, ptr %4, align 8, !tbaa !35
   br label %13
 
 13:                                               ; preds = %9, %12, %7
@@ -269,22 +269,22 @@ define void @Mvc_CoverAllocateArrayCubes(ptr noundef captures(none) %0) local_un
 ; Function Attrs: nounwind uwtable
 define void @Mvc_CoverDeallocateMask(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef %3) #7
-  store ptr null, ptr %2, align 8, !tbaa !32
+  store ptr null, ptr %2, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Mvc_CoverDeallocateArrayLits(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %3) #7
-  store ptr null, ptr %2, align 8, !tbaa !33
+  store ptr null, ptr %2, align 8, !tbaa !34
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -334,10 +334,11 @@ attributes #8 = { nounwind allocsize(0) }
 !25 = !{!26, !13, i64 0}
 !26 = !{!"MvcCubeStruct", !13, i64 0, !11, i64 8, !11, i64 11, !11, i64 11, !11, i64 11, !11, i64 12, !7, i64 16}
 !27 = !{!12, !11, i64 16}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!10, !13, i64 16}
-!31 = distinct !{!31, !29}
-!32 = !{!10, !13, i64 64}
-!33 = !{!10, !15, i64 56}
-!34 = !{!10, !11, i64 32}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!10, !13, i64 16}
+!32 = distinct !{!32, !29, !30}
+!33 = !{!10, !13, i64 64}
+!34 = !{!10, !15, i64 56}
+!35 = !{!10, !11, i64 32}

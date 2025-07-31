@@ -168,11 +168,11 @@ define void @mempool_procfs_unregister(ptr noundef readonly captures(address) %0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph14
   %7 = icmp eq ptr %6, %0
-  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !8
+  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !9
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -234,6 +234,7 @@ attributes #14 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

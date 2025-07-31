@@ -146,7 +146,7 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %18 = getelementptr inbounds nuw i8, ptr %.060.i, i64 80
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %14, %17
   %.060.i = phi ptr [ %.0.i, %17 ], [ %.058.i, %14 ]
@@ -607,7 +607,7 @@ define hidden void @SDL_EVDEV_Quit() local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not2 = icmp eq ptr %14, null
-  br i1 %.not2, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not2, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.lcssa = phi ptr [ %7, %6 ], [ %12, %.lr.ph ]
@@ -643,7 +643,7 @@ define internal fastcc void @SDL_EVDEV_device_removed(ptr noundef %0) unnamed_ad
   %7 = load ptr, ptr %.021, align 8
   %8 = tail call i32 @SDL_strcmp_REAL(ptr noundef %0, ptr noundef %7) #10
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph4, !llvm.loop !7
+  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph4, !llvm.loop !8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.02134.lcssa = phi ptr [ %.02131, %.lr.ph.preheader ], [ %.021, %.lr.ph ]
@@ -678,7 +678,7 @@ define internal fastcc void @SDL_EVDEV_device_removed(ptr noundef %0) unnamed_ad
 
 23:                                               ; preds = %22, %17
   %24 = getelementptr inbounds nuw i8, ptr %.02134.lcssa, i64 17
-  %25 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %25 = load i8, ptr %24, align 1, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %SDL_EVDEV_destroy_touchscreen.exit, label %37
 
@@ -775,7 +775,7 @@ SDL_EVDEV_UpdateKeyboardMute.exit:                ; preds = %SDL_EVDEV_GetDevice
   %65 = getelementptr inbounds nuw i8, ptr %.021343, i64 80
   %.021 = load ptr, ptr %65, align 8
   %.not.not = icmp eq ptr %.021, null
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph4, %1, %SDL_EVDEV_UpdateKeyboardMute.exit
   ret void
@@ -892,12 +892,12 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
 .lr.ph283:                                        ; preds = %.lr.ph283.preheader, %558
   %indvars.iv293 = phi i64 [ 0, %.lr.ph283.preheader ], [ %indvars.iv.next294, %558 ]
   %34 = getelementptr inbounds nuw [32 x %struct.input_event], ptr %1, i64 0, i64 %indvars.iv293
-  %35 = load i8, ptr %16, align 8, !range !8, !noundef !9
+  %35 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %.lr.ph283
-  %38 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %38 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %47
 
@@ -967,7 +967,7 @@ SDL_EVDEV_GetEventTimestamp.exit:                 ; preds = %54, %67
   br label %558
 
 77:                                               ; preds = %50
-  %78 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %78 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %79 = trunc nuw i8 %78 to i1
   %80 = icmp eq i16 %52, 330
   %or.cond278 = and i1 %80, %79
@@ -1056,7 +1056,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   ]
 
 121:                                              ; preds = %118
-  %122 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %122 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %124, label %558
 
@@ -1069,7 +1069,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 129:                                              ; preds = %118
-  %130 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %130 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %558
 
@@ -1111,7 +1111,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 160:                                              ; preds = %118
-  %161 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %161 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %558
 
@@ -1142,7 +1142,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 183:                                              ; preds = %118
-  %184 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %184 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %558
 
@@ -1173,7 +1173,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 206:                                              ; preds = %118
-  %207 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %207 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %558
 
@@ -1204,7 +1204,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 229:                                              ; preds = %118
-  %230 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %230 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %231 = trunc nuw i8 %230 to i1
   br i1 %231, label %232, label %242
 
@@ -1225,7 +1225,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 242:                                              ; preds = %229
-  %243 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %243 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %558, label %245
 
@@ -1236,7 +1236,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 248:                                              ; preds = %118
-  %249 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %249 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %251, label %261
 
@@ -1257,7 +1257,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 261:                                              ; preds = %248
-  %262 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %262 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %263 = trunc nuw i8 %262 to i1
   br i1 %263, label %558, label %264
 
@@ -1280,7 +1280,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   ]
 
 270:                                              ; preds = %267
-  %271 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %271 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %272 = trunc nuw i8 %271 to i1
   br i1 %272, label %273, label %558
 
@@ -1293,7 +1293,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 278:                                              ; preds = %267
-  %279 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %279 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %281, label %558
 
@@ -1306,7 +1306,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 286:                                              ; preds = %267
-  %287 = load i8, ptr %29, align 8, !range !8, !noundef !9
+  %287 = load i8, ptr %29, align 8, !range !9, !noundef !10
   %288 = trunc nuw i8 %287 to i1
   br i1 %288, label %558, label %289
 
@@ -1327,7 +1327,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   br label %558
 
 299:                                              ; preds = %267
-  %300 = load i8, ptr %27, align 1, !range !8, !noundef !9
+  %300 = load i8, ptr %27, align 1, !range !9, !noundef !10
   %301 = trunc nuw i8 %300 to i1
   br i1 %301, label %558, label %302
 
@@ -1356,7 +1356,7 @@ switch.lookup:                                    ; preds = %SDL_EVDEV_GetEventT
   ]
 
 315:                                              ; preds = %312
-  %316 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %316 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %317 = trunc nuw i8 %316 to i1
   br i1 %317, label %318, label %344
 
@@ -1396,7 +1396,7 @@ SDL_EVDEV_GetEventTimestamp.exit243:              ; preds = %322, %335
   %.0.i241 = tail call i64 @llvm.umin.i64(i64 %333, i64 %323)
   %336 = load ptr, ptr %10, align 8
   %337 = load i32, ptr %11, align 8
-  %338 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %338 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %339 = trunc nuw i8 %338 to i1
   %340 = load i32, ptr %21, align 4
   %341 = sitofp i32 %340 to float
@@ -1472,7 +1472,7 @@ SDL_EVDEV_GetEventTimestamp.exit248:              ; preds = %363, %376
   %.0.i246 = tail call i64 @llvm.umin.i64(i64 %374, i64 %364)
   %377 = load ptr, ptr %10, align 8
   %378 = load i32, ptr %11, align 8
-  %379 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %379 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %380 = trunc nuw i8 %379 to i1
   %381 = load i32, ptr %21, align 4
   %382 = load i32, ptr %22, align 4
@@ -1527,7 +1527,7 @@ SDL_EVDEV_GetEventTimestamp.exit248:              ; preds = %363, %376
 
 SDL_EVDEV_GetEventTimestamp.exit253:              ; preds = %401, %414
   %.0.i251 = tail call i64 @llvm.umin.i64(i64 %412, i64 %402)
-  %415 = load i8, ptr %27, align 1, !range !8, !noundef !9
+  %415 = load i8, ptr %27, align 1, !range !9, !noundef !10
   %416 = trunc nuw i8 %415 to i1
   %417 = select i1 %416, float 1.200000e+02, float 1.000000e+00
   %418 = load ptr, ptr %10, align 8
@@ -1544,7 +1544,7 @@ SDL_EVDEV_GetEventTimestamp.exit253:              ; preds = %401, %414
   br label %426
 
 426:                                              ; preds = %SDL_EVDEV_GetEventTimestamp.exit253, %399
-  %427 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %427 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %428 = trunc nuw i8 %427 to i1
   br i1 %428, label %.preheader, label %558
 
@@ -1732,10 +1732,10 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
   %547 = load i32, ptr %546, align 4
   %548 = sext i32 %547 to i64
   %549 = icmp slt i64 %indvars.iv.next, %548
-  br i1 %549, label %434, label %._crit_edge, !llvm.loop !10
+  br i1 %549, label %434, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %544, %.preheader
-  %550 = load i8, ptr %16, align 8, !range !8, !noundef !9
+  %550 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %551 = trunc nuw i8 %550 to i1
   br i1 %551, label %552, label %558
 
@@ -1744,7 +1744,7 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
   br label %558
 
 553:                                              ; preds = %312
-  %554 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %554 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %555 = trunc nuw i8 %554 to i1
   br i1 %555, label %556, label %557
 
@@ -1759,20 +1759,20 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
 558:                                              ; preds = %557, %426, %552, %._crit_edge, %312, %294, %307, %273, %270, %281, %278, %289, %286, %302, %299, %267, %124, %121, %129, %152, %136, %160, %182, %163, %183, %205, %186, %206, %228, %209, %232, %242, %245, %236, %251, %261, %264, %255, %118, %81, %92, %91, %114, %SDL_EVDEV_GetEventTimestamp.exit, %47
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge284, label %.lr.ph283, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge284, label %.lr.ph283, !llvm.loop !12
 
 ._crit_edge284:                                   ; preds = %558, %44, %30
   %559 = load i32, ptr %11, align 8
   %560 = call i64 @read(i32 noundef %559, ptr noundef nonnull %1, i64 noundef 768) #10
   %561 = trunc i64 %560 to i32
   %562 = icmp sgt i32 %561, 0
-  br i1 %562, label %30, label %._crit_edge287, !llvm.loop !12
+  br i1 %562, label %30, label %._crit_edge287, !llvm.loop !13
 
 ._crit_edge287:                                   ; preds = %._crit_edge284, %.preheader279
   %563 = getelementptr inbounds nuw i8, ptr %.0214290, i64 80
   %.0214 = load ptr, ptr %563, align 8
   %.not222 = icmp eq ptr %.0214, null
-  br i1 %.not222, label %.loopexit, label %.preheader279, !llvm.loop !13
+  br i1 %.not222, label %.loopexit, label %.preheader279, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge287, %3, %0
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %1) #10
@@ -1840,7 +1840,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %2 = alloca %struct.input_absinfo, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %158
 
@@ -1920,7 +1920,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader119
   store i32 53, ptr %14, align 4
@@ -1981,7 +1981,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next132, %82
-  br i1 %83, label %.lr.ph122, label %._crit_edge123, !llvm.loop !15
+  br i1 %83, label %.lr.ph122, label %._crit_edge123, !llvm.loop !16
 
 ._crit_edge123:                                   ; preds = %78, %.preheader118
   store i32 54, ptr %14, align 4
@@ -2042,7 +2042,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next135, %115
-  br i1 %116, label %.lr.ph125, label %._crit_edge126, !llvm.loop !16
+  br i1 %116, label %.lr.ph125, label %._crit_edge126, !llvm.loop !17
 
 ._crit_edge126:                                   ; preds = %111, %.preheader117
   store i32 58, ptr %14, align 4
@@ -2103,7 +2103,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next138, %148
-  br i1 %149, label %.lr.ph128, label %._crit_edge129, !llvm.loop !17
+  br i1 %149, label %.lr.ph128, label %._crit_edge129, !llvm.loop !18
 
 ._crit_edge129:                                   ; preds = %144, %.preheader
   %150 = load i32, ptr %17, align 8
@@ -2180,18 +2180,19 @@ attributes #10 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}

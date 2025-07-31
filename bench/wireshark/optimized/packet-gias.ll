@@ -1807,7 +1807,7 @@ start_dissecting.exit2210:                        ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %208, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %8, i32 noundef 12, i32 noundef %209)
   %210 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %210, %201
-  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !9
 
 211:                                              ; preds = %192
   %212 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %175, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %194)
@@ -4214,7 +4214,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_str
   tail call fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 31:                                               ; preds = %10
   %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -4271,7 +4271,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG
   tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 31:                                               ; preds = %10
   %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -4771,7 +4771,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_r
   tail call fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 31:                                               ; preds = %10
   %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -4828,7 +4828,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results
   tail call fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 31:                                               ; preds = %10
   %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -4995,7 +4995,7 @@ define internal fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, 
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %26, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %27 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %27, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 28:                                               ; preds = %10
   %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -5094,7 +5094,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(p
   tail call fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %4, i1 noundef zeroext %6)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 31:                                               ; preds = %10
   %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -5558,7 +5558,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %34, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %36 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %36, %24
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 37:                                               ; preds = %7
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5629,7 +5629,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %31 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %31, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 32:                                               ; preds = %7
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5682,7 +5682,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr nounde
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %19 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %19, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %20 = load i32, ptr %4, align 4
@@ -5721,7 +5721,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr nounde
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %39, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %41 = add nuw i32 %.0732, 1
   %exitcond6.not = icmp eq i32 %41, %29
-  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !18
+  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !19
 
 42:                                               ; preds = %7
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5787,7 +5787,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr n
   tail call void @giop_add_CDR_string(ptr noundef %22, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 25:                                               ; preds = %11
   %26 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %13)
@@ -5830,7 +5830,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %
   tail call void @giop_add_CDR_string(ptr noundef %18, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %19)
   %20 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %20, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %21 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -5854,7 +5854,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %31, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %33 = add nuw i32 %.0622, 1
   %exitcond6.not = icmp eq i32 %33, %21
-  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !21
+  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !22
 
 34:                                               ; preds = %7
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5915,7 +5915,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(
   tail call void @giop_add_CDR_string(ptr noundef %23, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %24)
   %25 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %25, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %26 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -5943,7 +5943,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef %38)
   %43 = add nuw i32 %.01052, 1
   %exitcond11.not = icmp eq i32 %43, %26
-  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !23
+  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !24
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   %44 = load i32, ptr %4, align 4
@@ -5971,7 +5971,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %57, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %59 = add nuw i32 %.01066, 1
   %exitcond12.not = icmp eq i32 %59, %47
-  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !24
+  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !25
 
 60:                                               ; preds = %7
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6043,7 +6043,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions
   tail call void @giop_add_CDR_string(ptr noundef %24, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %31)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 33:                                               ; preds = %10
   %34 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -6096,7 +6096,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, pt
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %26, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %28 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %28, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 29:                                               ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6157,7 +6157,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0,
   tail call void @giop_add_CDR_string(ptr noundef %23, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %24)
   %25 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %25, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %26 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6185,7 +6185,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0,
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef %38)
   %43 = add nuw i32 %.0942, 1
   %exitcond11.not = icmp eq i32 %43, %26
-  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !28
+  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !29
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   %44 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6209,7 +6209,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0,
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %54, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %56 = add nuw i32 %.0956, 1
   %exitcond12.not = icmp eq i32 %56, %44
-  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !29
+  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !30
 
 57:                                               ; preds = %7
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6344,7 +6344,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %30, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %20
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 33:                                               ; preds = %7
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6431,12 +6431,12 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update(ptr noundef %0, ptr no
   %46 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef %42)
   %47 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %47, %26
-  br i1 %exitcond.not.i, label %decode_UCO_UpdateDAG_st.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %decode_UCO_UpdateDAG_st.exit, label %.lr.ph.i, !llvm.loop !32
 
 decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
   %48 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %48, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %decode_UCO_UpdateDAG_st.exit, %10
   %49 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6458,7 +6458,7 @@ decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
   tail call fastcc void @decode_GIAS_RelatedFile_st(ptr noundef %0, ptr noundef %59, ptr noundef %4, i1 noundef zeroext %6)
   %60 = add nuw i32 %.0942, 1
   %exitcond11.not = icmp eq i32 %60, %49
-  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !33
+  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !34
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   %61 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6482,7 +6482,7 @@ decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %71, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %73 = add nuw i32 %.0956, 1
   %exitcond12.not = icmp eq i32 %73, %61
-  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !34
+  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !35
 
 74:                                               ; preds = %7
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6570,7 +6570,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noun
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %19, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %20 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %20, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %21 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6594,7 +6594,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noun
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %31, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %33 = add nuw i32 %.0672, 1
   %exitcond6.not = icmp eq i32 %33, %21
-  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !36
+  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !37
 
 34:                                               ; preds = %7
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6656,7 +6656,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef
   tail call fastcc void @decode_GIAS_RelatedFile_st(ptr noundef %0, ptr noundef %25, ptr noundef %4, i1 noundef zeroext %6)
   %26 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %27 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6680,7 +6680,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %39 = add nuw i32 %.0792, 1
   %exitcond6.not = icmp eq i32 %39, %27
-  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !38
+  br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !39
 
 40:                                               ; preds = %7
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6745,7 +6745,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr 
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %26)
   %27 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %27, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %28 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -6767,7 +6767,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr 
   tail call fastcc void @decode_GIAS_RelatedFile_st(ptr noundef %0, ptr noundef %38, ptr noundef %4, i1 noundef zeroext %6)
   %39 = add nuw i32 %.01012, 1
   %exitcond11.not = icmp eq i32 %39, %28
-  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !40
+  br i1 %exitcond11.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !41
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   %40 = load i32, ptr %4, align 4
@@ -6795,7 +6795,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr 
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %53, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %55 = add nuw i32 %.01026, 1
   %exitcond12.not = icmp eq i32 %55, %43
-  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !41
+  br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !42
 
 56:                                               ; preds = %7
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6853,7 +6853,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr nound
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6916,7 +6916,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr nound
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %23, %11
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !43
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !44
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6975,12 +6975,12 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr nound
   tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef readonly %1, ptr noundef %58, ptr noundef %4, i1 noundef zeroext %6)
   %59 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %59, %48
-  br i1 %exitcond.not.i, label %decode_GIAS_Association_st.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %decode_GIAS_Association_st.exit, label %.lr.ph.i, !llvm.loop !45
 
 decode_GIAS_Association_st.exit:                  ; preds = %.lr.ph.i, %.lr.ph
   %60 = add nuw i32 %.0592, 1
   %exitcond.not = icmp eq i32 %60, %28
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
 61:                                               ; preds = %24
   %62 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %26)
@@ -7028,7 +7028,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr 
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %22, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %24 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %24, %12
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !46
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !47
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7058,7 +7058,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr 
   tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %39, ptr noundef %4, i1 noundef zeroext %6)
   %40 = add nuw i32 %.0632, 1
   %exitcond.not = icmp eq i32 %40, %29
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 41:                                               ; preds = %25
   %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %27)
@@ -7106,7 +7106,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %22, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %24 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %24, %12
-  br i1 %exitcond.not, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph, !llvm.loop !49
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7145,7 +7145,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %
   tail call void @giop_add_CDR_string(ptr noundef %42, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %48)
   %49 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %49, %32
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
   %50 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -7186,7 +7186,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %77, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef %76)
   %81 = add nuw i32 %.0512.i, 1
   %exitcond7.not.i = icmp eq i32 %81, %50
-  br i1 %exitcond7.not.i, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph4.i, !llvm.loop !50
+  br i1 %exitcond7.not.i, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph4.i, !llvm.loop !51
 
 82:                                               ; preds = %25
   %83 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %27)
@@ -7234,7 +7234,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(p
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %22, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %24 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %24, %12
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !51
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !52
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7264,7 +7264,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(p
   tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %39, ptr noundef %4, i1 noundef zeroext %6)
   %40 = add nuw i32 %.0632, 1
   %exitcond.not = icmp eq i32 %40, %29
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 41:                                               ; preds = %25
   %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %27)
@@ -7312,7 +7312,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %22, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %24 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %24, %12
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !53
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !54
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7342,7 +7342,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef
   tail call fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0, ptr noundef %1, ptr noundef %39, ptr noundef %4, i1 noundef zeroext %6)
   %40 = add nuw i32 %.0632, 1
   %exitcond.not = icmp eq i32 %40, %29
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 41:                                               ; preds = %25
   %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %27)
@@ -7388,7 +7388,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %23, %11
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !55
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !56
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7440,12 +7440,12 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %53, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %54)
   %55 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %55, %46
-  br i1 %exitcond.not.i, label %decode_GIAS_View_st.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %decode_GIAS_View_st.exit, label %.lr.ph.i, !llvm.loop !57
 
 decode_GIAS_View_st.exit:                         ; preds = %.lr.ph.i, %.lr.ph
   %56 = add nuw i32 %.0592, 1
   %exitcond.not = icmp eq i32 %56, %28
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 57:                                               ; preds = %24
   %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %26)
@@ -7498,7 +7498,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %27, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %29 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %29, %17
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 30:                                               ; preds = %7
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7559,7 +7559,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr no
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %22, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %24 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %24, %12
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !59
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !60
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7592,7 +7592,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr no
   tail call void @giop_add_CDR_string(ptr noundef %39, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %41)
   %42 = add nuw i32 %.0632, 1
   %exitcond.not = icmp eq i32 %42, %29
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
 43:                                               ; preds = %25
   %44 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %27)
@@ -7638,7 +7638,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr n
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %23, %11
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !61
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !62
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7666,7 +7666,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr n
   tail call void @giop_add_CDR_string(ptr noundef %35, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %36)
   %37 = add nuw i32 %.0522, 1
   %exitcond.not = icmp eq i32 %37, %28
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 38:                                               ; preds = %24
   %39 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %26)
@@ -7712,7 +7712,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr no
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 24:                                               ; preds = %7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7777,7 +7777,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noun
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %24, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %26 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7839,7 +7839,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0,
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %24, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %26 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7917,7 +7917,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %22)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 24:                                               ; preds = %10
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8016,7 +8016,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order(ptr no
   tail call fastcc void @decode_GIAS_DeliveryDetails_st(ptr noundef %0, ptr noundef %65, ptr noundef %4, i1 noundef zeroext %6)
   %66 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %66, %55
-  br i1 %exitcond.not.i, label %decode_GIAS_QueryOrderContents_st.exit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %decode_GIAS_QueryOrderContents_st.exit, label %.lr.ph.i, !llvm.loop !68
 
 decode_GIAS_QueryOrderContents_st.exit:           ; preds = %.lr.ph.i, %10
   %67 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -8040,7 +8040,7 @@ decode_GIAS_QueryOrderContents_st.exit:           ; preds = %.lr.ph.i, %10
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %77, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %79 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %79, %67
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 80:                                               ; preds = %7
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8112,7 +8112,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(pt
   tail call void @giop_add_CDR_string(ptr noundef %24, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %31)
   %32 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %32, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 33:                                               ; preds = %10
   %34 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8153,7 +8153,7 @@ define internal fastcc void @decode_GIAS_AccessManager_set_availability(ptr noun
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %19 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %19, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %20 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -8364,7 +8364,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %22)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 24:                                               ; preds = %10
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8598,7 +8598,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr 
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %22 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %22, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 23:                                               ; preds = %10
   %24 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8647,7 +8647,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr nounde
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
   %22 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %22, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 23:                                               ; preds = %10
   %24 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8689,7 +8689,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr 
   tail call void @giop_add_CDR_string(ptr noundef %18, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %19)
   %20 = add nuw i32 %.03, 1
   %exitcond7.not = icmp eq i32 %20, %11
-  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !74
+  br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !75
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8721,7 +8721,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr 
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %35, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %37 = add nuw i32 %.0522, 1
   %exitcond.not = icmp eq i32 %37, %25
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 38:                                               ; preds = %21
   %39 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %23)
@@ -8771,7 +8771,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr n
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %22)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 24:                                               ; preds = %10
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -8840,7 +8840,7 @@ define internal fastcc void @decode_GIAS_Library_get_other_libraries(ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %31, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %34)
   %35 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %35, %21
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
 36:                                               ; preds = %17
   %37 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %19)
@@ -8980,7 +8980,7 @@ define internal fastcc void @decode_GIAS_Library_get_manager_types(ptr noundef %
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %22)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 24:                                               ; preds = %10
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_gias_unknown_exception, ptr noundef nonnull @.str.826, i32 noundef %12)
@@ -9143,7 +9143,7 @@ define internal fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %18, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %30)
   %31 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %31, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %32 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -9176,7 +9176,7 @@ define internal fastcc void @decode_UCO_StringDAG_st(ptr noundef %0, ptr noundef
   tail call void @giop_add_CDR_string(ptr noundef %42, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %53)
   %54 = add nuw i32 %.0582, 1
   %exitcond7.not = icmp eq i32 %54, %32
-  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !80
+  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !81
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   ret void
@@ -9218,7 +9218,7 @@ define internal fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, p
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %30 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %30, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %31 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -9251,7 +9251,7 @@ define internal fastcc void @decode_UCO_DAG_st(ptr noundef %0, ptr noundef %1, p
   tail call void @giop_add_CDR_string(ptr noundef %41, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %52)
   %53 = add nuw i32 %.0512, 1
   %exitcond7.not = icmp eq i32 %53, %31
-  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !82
+  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !83
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   ret void
@@ -9353,12 +9353,12 @@ define internal fastcc void @decode_GIAS_DeliveryManifest_st(ptr noundef %0, ptr
   tail call void @giop_add_CDR_string(ptr noundef %25, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12, i32 noundef %26)
   %27 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %27, %18
-  br i1 %exitcond.not.i, label %decode_GIAS_PackageElement_st.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %decode_GIAS_PackageElement_st.exit, label %.lr.ph.i, !llvm.loop !84
 
 decode_GIAS_PackageElement_st.exit:               ; preds = %.lr.ph.i, %.lr.ph
   %28 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %28, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %decode_GIAS_PackageElement_st.exit, %5
   ret void
@@ -9393,7 +9393,7 @@ define internal fastcc void @decode_UCO_RequestDescription_st(ptr noundef %0, pt
   tail call void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, ptr noundef %5)
   %23 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret void
@@ -9428,7 +9428,7 @@ define internal fastcc void @decode_GIAS_QueryLifeSpan_st(ptr noundef %0, ptr no
   tail call fastcc void @decode_GIAS_LifeEvent_un(ptr noundef %0, ptr noundef %21, ptr noundef %2, i1 noundef zeroext %3)
   %22 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %22, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -9641,7 +9641,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   %72 = tail call ptr @proto_tree_add_int(ptr noundef %62, i32 noundef %68, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef %71)
   %73 = add nuw i32 %.012.i, 1
   %exitcond25.not.i = icmp eq i32 %73, %52
-  br i1 %exitcond25.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph13.i, !llvm.loop !87
+  br i1 %exitcond25.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph13.i, !llvm.loop !88
 
 74:                                               ; preds = %5
   %75 = load i32, ptr %3, align 4
@@ -9688,7 +9688,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   %109 = tail call ptr @proto_tree_add_double(ptr noundef %99, i32 noundef %105, ptr noundef %0, i32 noundef %107, i32 noundef 8, double noundef %108)
   %110 = add nuw i32 %.023610.i, 1
   %exitcond24.not.i = icmp eq i32 %110, %89
-  br i1 %exitcond24.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph11.i, !llvm.loop !88
+  br i1 %exitcond24.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph11.i, !llvm.loop !89
 
 111:                                              ; preds = %5
   %112 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12)
@@ -9708,7 +9708,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   tail call void @giop_add_CDR_string(ptr noundef %119, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12, i32 noundef %120)
   %121 = add nuw i32 %.02378.i, 1
   %exitcond23.not.i = icmp eq i32 %121, %112
-  br i1 %exitcond23.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph9.i, !llvm.loop !89
+  br i1 %exitcond23.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph9.i, !llvm.loop !90
 
 122:                                              ; preds = %5
   %123 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12)
@@ -9728,7 +9728,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   tail call void @giop_add_CDR_string(ptr noundef %130, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12, i32 noundef %131)
   %132 = add nuw i32 %.02386.i, 1
   %exitcond22.not.i = icmp eq i32 %132, %123
-  br i1 %exitcond22.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph7.i, !llvm.loop !90
+  br i1 %exitcond22.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph7.i, !llvm.loop !91
 
 133:                                              ; preds = %5
   %134 = load i32, ptr %3, align 4
@@ -9789,7 +9789,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   tail call fastcc void @decode_UCO_Rectangle_st(ptr noundef %0, ptr noundef %176, ptr noundef %3, i1 noundef zeroext %4)
   %177 = add nuw i32 %.02395.i, 1
   %exitcond.not.i = icmp eq i32 %177, %166
-  br i1 %exitcond.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %decode_GIAS_Domain_un.exit, label %.lr.ph.i, !llvm.loop !92
 
 178:                                              ; preds = %5
   %179 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, i32 noundef 12)
@@ -9974,7 +9974,7 @@ define internal fastcc void @decode_GIAS_OrderContents_st(ptr noundef %0, ptr no
   %55 = tail call ptr @proto_tree_add_uint(ptr noundef %48, i32 noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef %54)
   %56 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %56, %38
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !92
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph
   %57 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -9994,7 +9994,7 @@ define internal fastcc void @decode_GIAS_OrderContents_st(ptr noundef %0, ptr no
   tail call void @giop_add_CDR_string(ptr noundef %64, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %65)
   %66 = add nuw i32 %.0642.i, 1
   %exitcond7.not.i = icmp eq i32 %66, %57
-  br i1 %exitcond7.not.i, label %decode_GIAS_ProductDetails_st.exit, label %.lr.ph4.i, !llvm.loop !93
+  br i1 %exitcond7.not.i, label %decode_GIAS_ProductDetails_st.exit, label %.lr.ph4.i, !llvm.loop !94
 
 decode_GIAS_ProductDetails_st.exit:               ; preds = %.lr.ph4.i, %._crit_edge.i
   %67 = load i32, ptr %4, align 4
@@ -10017,7 +10017,7 @@ decode_GIAS_ProductDetails_st.exit:               ; preds = %.lr.ph4.i, %._crit_
   tail call void @giop_add_CDR_string(ptr noundef %37, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %79)
   %80 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %80, %27
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %decode_GIAS_ProductDetails_st.exit, %7
   %81 = tail call i32 @get_CDR_ulong(ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -10039,7 +10039,7 @@ decode_GIAS_ProductDetails_st.exit:               ; preds = %.lr.ph4.i, %._crit_
   tail call fastcc void @decode_GIAS_DeliveryDetails_st(ptr noundef %0, ptr noundef %91, ptr noundef %4, i1 noundef zeroext %6)
   %92 = add nuw i32 %.0982, 1
   %exitcond7.not = icmp eq i32 %92, %81
-  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !95
+  br i1 %exitcond7.not, label %._crit_edge5, label %.lr.ph4, !llvm.loop !96
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %._crit_edge
   ret void
@@ -10069,7 +10069,7 @@ define internal fastcc void @decode_GIAS_TailoringSpec_st(ptr noundef %0, ptr no
   tail call void @giop_add_CDR_string(ptr noundef %15, ptr noundef %0, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 12, i32 noundef %17)
   %18 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -10146,94 +10146,95 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7}
-!78 = distinct !{!78, !7}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7}
-!81 = distinct !{!81, !7}
-!82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7}
-!89 = distinct !{!89, !7}
-!90 = distinct !{!90, !7}
-!91 = distinct !{!91, !7}
-!92 = distinct !{!92, !7}
-!93 = distinct !{!93, !7}
-!94 = distinct !{!94, !7}
-!95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}
+!76 = distinct !{!76, !7, !8}
+!77 = distinct !{!77, !7, !8}
+!78 = distinct !{!78, !7, !8}
+!79 = distinct !{!79, !7, !8}
+!80 = distinct !{!80, !7, !8}
+!81 = distinct !{!81, !7, !8}
+!82 = distinct !{!82, !7, !8}
+!83 = distinct !{!83, !7, !8}
+!84 = distinct !{!84, !7, !8}
+!85 = distinct !{!85, !7, !8}
+!86 = distinct !{!86, !7, !8}
+!87 = distinct !{!87, !7, !8}
+!88 = distinct !{!88, !7, !8}
+!89 = distinct !{!89, !7, !8}
+!90 = distinct !{!90, !7, !8}
+!91 = distinct !{!91, !7, !8}
+!92 = distinct !{!92, !7, !8}
+!93 = distinct !{!93, !7, !8}
+!94 = distinct !{!94, !7, !8}
+!95 = distinct !{!95, !7, !8}
+!96 = distinct !{!96, !7, !8}
+!97 = distinct !{!97, !7, !8}

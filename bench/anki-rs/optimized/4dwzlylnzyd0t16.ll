@@ -211,7 +211,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 80:                                               ; preds = %77
   invoke void @"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..vec..Vec$LT$i32$GT$$C$alloc..string..String$GT$$GT$$GT$17h8d5f315f7cbf0a42E"(ptr nonnull align 8 %11)
-          to label %61 unwind label %.thread.i, !noalias !4
+          to label %61 unwind label %.thread.i, !noalias !4, !llvm.loop !7
 
 81:                                               ; preds = %75
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
@@ -372,23 +372,23 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 .noexc40:                                         ; preds = %128
   %.fca.0.extract.i = extractvalue { ptr, i32 } %130, 0
-  store ptr %.fca.0.extract.i, ptr %8, align 8, !noalias !7
+  store ptr %.fca.0.extract.i, ptr %8, align 8, !noalias !9
   %.fca.1.extract.i = extractvalue { ptr, i32 } %130, 1
-  store i32 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !7
+  store i32 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !9
   %131 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..FileDescriptor$GT$12package_name17h100fd034578bc8e7E"(ptr nonnull align 8 %8)
-          to label %134 unwind label %132, !noalias !7
+          to label %134 unwind label %132, !noalias !9
 
 132:                                              ; preds = %152, %144, %140, %134, %.noexc40
   %133 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %8) #9
-          to label %.body42 unwind label %154, !noalias !7
+          to label %.body42 unwind label %154, !noalias !9
 
 134:                                              ; preds = %.noexc40
   %135 = extractvalue { ptr, i64 } %131, 0
   %136 = extractvalue { ptr, i64 } %131, 1
   %137 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %135, i64 %136)
-          to label %138 unwind label %132, !noalias !7
+          to label %138 unwind label %132, !noalias !9
 
 138:                                              ; preds = %134
   %139 = icmp eq ptr %137, null
@@ -396,7 +396,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 140:                                              ; preds = %138
   %141 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$4path17h3ffa4aff83ae831eE"(ptr nonnull align 8 %129)
-          to label %144 unwind label %132, !noalias !7
+          to label %144 unwind label %132, !noalias !9
 
 142:                                              ; preds = %144
   %143 = icmp eq ptr %147, null
@@ -406,11 +406,11 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %145 = extractvalue { ptr, i64 } %141, 0
   %146 = extractvalue { ptr, i64 } %141, 1
   %147 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %137, ptr align 4 %145, i64 %146)
-          to label %142 unwind label %132, !noalias !7
+          to label %142 unwind label %132, !noalias !9
 
 148:                                              ; preds = %142
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %150 = load i64, ptr %149, align 8, !noalias !7, !noundef !3
+  %150 = load i64, ptr %149, align 8, !noalias !9, !noundef !3
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %.thread.i39, label %152
 
@@ -421,7 +421,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 152:                                              ; preds = %148
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %7, ptr nonnull align 8 %147)
-          to label %153 unwind label %132, !noalias !7
+          to label %153 unwind label %132, !noalias !9
 
 153:                                              ; preds = %152
   %.sroa.066.0.copyload68 = load ptr, ptr %7, align 8
@@ -431,7 +431,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 154:                                              ; preds = %132
   %155 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !7
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !9
   unreachable
 
 156:                                              ; preds = %125
@@ -447,7 +447,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 161:                                              ; preds = %159
   %162 = icmp eq ptr %160, null
-  br i1 %162, label %.loopexit90, label %163
+  br i1 %162, label %.loopexit90, label %163, !llvm.loop !12
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 24
@@ -458,23 +458,23 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 .noexc48:                                         ; preds = %163
   %.fca.0.extract.i44 = extractvalue { ptr, i32 } %165, 0
-  store ptr %.fca.0.extract.i44, ptr %6, align 8, !noalias !10
+  store ptr %.fca.0.extract.i44, ptr %6, align 8, !noalias !13
   %.fca.1.extract.i45 = extractvalue { ptr, i32 } %165, 1
-  store i32 %.fca.1.extract.i45, ptr %.fca.1.gep.i46, align 8, !noalias !10
+  store i32 %.fca.1.extract.i45, ptr %.fca.1.gep.i46, align 8, !noalias !13
   %166 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..FileDescriptor$GT$12package_name17h100fd034578bc8e7E"(ptr nonnull align 8 %6)
-          to label %169 unwind label %167, !noalias !10
+          to label %169 unwind label %167, !noalias !13
 
 167:                                              ; preds = %187, %179, %175, %169, %.noexc48
   %168 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %6) #9
-          to label %.body42 unwind label %189, !noalias !10
+          to label %.body42 unwind label %189, !noalias !13
 
 169:                                              ; preds = %.noexc48
   %170 = extractvalue { ptr, i64 } %166, 0
   %171 = extractvalue { ptr, i64 } %166, 1
   %172 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %170, i64 %171)
-          to label %173 unwind label %167, !noalias !10
+          to label %173 unwind label %167, !noalias !13
 
 173:                                              ; preds = %169
   %174 = icmp eq ptr %172, null
@@ -482,7 +482,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 175:                                              ; preds = %173
   %176 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$4path17h3ffa4aff83ae831eE"(ptr nonnull align 8 %164)
-          to label %179 unwind label %167, !noalias !10
+          to label %179 unwind label %167, !noalias !13
 
 177:                                              ; preds = %179
   %178 = icmp eq ptr %182, null
@@ -492,11 +492,11 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %180 = extractvalue { ptr, i64 } %176, 0
   %181 = extractvalue { ptr, i64 } %176, 1
   %182 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %172, ptr align 4 %180, i64 %181)
-          to label %177 unwind label %167, !noalias !10
+          to label %177 unwind label %167, !noalias !13
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  %185 = load i64, ptr %184, align 8, !noalias !10, !noundef !3
+  %185 = load i64, ptr %184, align 8, !noalias !13, !noundef !3
   %186 = icmp eq i64 %185, 0
   br i1 %186, label %.thread.i47, label %187
 
@@ -507,7 +507,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 187:                                              ; preds = %183
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %5, ptr nonnull align 8 %182)
-          to label %188 unwind label %167, !noalias !10
+          to label %188 unwind label %167, !noalias !13
 
 188:                                              ; preds = %187
   %.sroa.072.0.copyload74 = load ptr, ptr %5, align 8
@@ -517,7 +517,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 189:                                              ; preds = %167
   %190 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !10
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !13
   unreachable
 
 191:                                              ; preds = %.thread.i47
@@ -539,7 +539,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   store ptr %.sroa.072.0, ptr %192, align 8
   %.sroa.575.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %160, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575.0..sroa_idx76, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575, i64 16, i1 false)
-  br label %159
+  br label %159, !llvm.loop !16
 
 196:                                              ; preds = %.thread.i39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -560,7 +560,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   store ptr %.sroa.066.0, ptr %197, align 8
   %.sroa.569.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %122, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569.0..sroa_idx70, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569, i64 16, i1 false)
-  br label %121
+  br label %121, !llvm.loop !17
 
 201:                                              ; preds = %101
   %202 = extractvalue { ptr, ptr } %103, 0
@@ -575,7 +575,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 206:                                              ; preds = %204
   %207 = icmp eq ptr %205, null
-  br i1 %207, label %.loopexit99, label %208
+  br i1 %207, label %.loopexit99, label %208, !llvm.loop !18
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 24
@@ -586,23 +586,23 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 .noexc57:                                         ; preds = %208
   %.fca.0.extract.i53 = extractvalue { ptr, i32 } %210, 0
-  store ptr %.fca.0.extract.i53, ptr %4, align 8, !noalias !13
+  store ptr %.fca.0.extract.i53, ptr %4, align 8, !noalias !19
   %.fca.1.extract.i54 = extractvalue { ptr, i32 } %210, 1
-  store i32 %.fca.1.extract.i54, ptr %.fca.1.gep.i55, align 8, !noalias !13
+  store i32 %.fca.1.extract.i54, ptr %.fca.1.gep.i55, align 8, !noalias !19
   %211 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..FileDescriptor$GT$12package_name17h100fd034578bc8e7E"(ptr nonnull align 8 %4)
-          to label %214 unwind label %212, !noalias !13
+          to label %214 unwind label %212, !noalias !19
 
 212:                                              ; preds = %232, %224, %220, %214, %.noexc57
   %213 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$prost_reflect..descriptor..FileDescriptor$GT$17h31816bc3978589d0E"(ptr nonnull align 8 %4) #9
-          to label %.body42 unwind label %234, !noalias !13
+          to label %.body42 unwind label %234, !noalias !19
 
 214:                                              ; preds = %.noexc57
   %215 = extractvalue { ptr, i64 } %211, 0
   %216 = extractvalue { ptr, i64 } %211, 1
   %217 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %215, i64 %216)
-          to label %218 unwind label %212, !noalias !13
+          to label %218 unwind label %212, !noalias !19
 
 218:                                              ; preds = %214
   %219 = icmp eq ptr %217, null
@@ -610,7 +610,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 220:                                              ; preds = %218
   %221 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$4path17h3ffa4aff83ae831eE"(ptr nonnull align 8 %209)
-          to label %224 unwind label %212, !noalias !13
+          to label %224 unwind label %212, !noalias !19
 
 222:                                              ; preds = %224
   %223 = icmp eq ptr %227, null
@@ -620,11 +620,11 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %225 = extractvalue { ptr, i64 } %221, 0
   %226 = extractvalue { ptr, i64 } %221, 1
   %227 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %217, ptr align 4 %225, i64 %226)
-          to label %222 unwind label %212, !noalias !13
+          to label %222 unwind label %212, !noalias !19
 
 228:                                              ; preds = %222
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  %230 = load i64, ptr %229, align 8, !noalias !13, !noundef !3
+  %230 = load i64, ptr %229, align 8, !noalias !19, !noundef !3
   %231 = icmp eq i64 %230, 0
   br i1 %231, label %.thread.i56, label %232
 
@@ -635,7 +635,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 232:                                              ; preds = %228
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, ptr nonnull align 8 %227)
-          to label %233 unwind label %212, !noalias !13
+          to label %233 unwind label %212, !noalias !19
 
 233:                                              ; preds = %232
   %.sroa.0.0.copyload63 = load ptr, ptr %3, align 8
@@ -645,7 +645,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 234:                                              ; preds = %212
   %235 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !13
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10, !noalias !19
   unreachable
 
 236:                                              ; preds = %.thread.i56
@@ -667,7 +667,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   store ptr %.sroa.0.0, ptr %237, align 8
   %.sroa.5.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %205, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx64, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  br label %204
+  br label %204, !llvm.loop !22
 
 241:                                              ; preds = %259, %.thread83, %.body42
   %242 = landingpad { ptr, i32 }
@@ -713,7 +713,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 257:                                              ; preds = %253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %254, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  br label %51
+  br label %51, !llvm.loop !23
 
 258:                                              ; preds = %251
   invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %26, ptr nonnull align 8 @anon.c2c254bac7312232f49bd554ba5b0ae2.4) #8
@@ -1159,7 +1159,7 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
   %4 = alloca { { { { { ptr, i64 }, i64 } } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @_ZN3std3env3var17ha0a0950992cbd20aE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.19, i64 15)
-  %6 = load i64, ptr %5, align 8, !range !16, !noundef !3
+  %6 = load i64, ptr %5, align 8, !range !24, !noundef !3
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %8, label %7
 
@@ -1173,13 +1173,13 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
   br label %26
 
 .thread:                                          ; preds = %24
-  %10 = load i64, ptr %5, align 8, !range !16, !noundef !3
+  %10 = load i64, ptr %5, align 8, !range !24, !noundef !3
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.thread10, label %25
 
 12:                                               ; preds = %22, %15
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %23, %22 ]
-  %13 = load i64, ptr %5, align 8, !range !16, !noundef !3
+  %13 = load i64, ptr %5, align 8, !range !24, !noundef !3
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %30, label %32
 
@@ -1558,13 +1558,21 @@ attributes #10 = { cold noreturn nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN14anki_proto_gen14MethodComments9from_pool17h79eb45462cb9f7afE: argument 0"}
 !6 = distinct !{!6, !"_ZN14anki_proto_gen14MethodComments9from_pool17h79eb45462cb9f7afE"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE: argument 0"}
-!9 = distinct !{!9, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE: argument 0"}
-!12 = distinct !{!12, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE: argument 0"}
+!11 = distinct !{!11, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE"}
+!12 = distinct !{!12, !8}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE: argument 0"}
 !15 = distinct !{!15, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE"}
-!16 = !{i64 0, i64 2}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE: argument 0"}
+!21 = distinct !{!21, !"_ZN14anki_proto_gen14MethodComments14get_for_method17h0c947f06b22734eaE"}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = !{i64 0, i64 2}

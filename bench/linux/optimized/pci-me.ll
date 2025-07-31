@@ -221,7 +221,7 @@ define internal i32 @mei_me_probe(ptr noundef %0, ptr noundef readonly captures(
 
 .critedge:                                        ; preds = %90, %.lr.ph, %80
   %93 = getelementptr inbounds nuw i8, ptr %30, i64 3744
-  %94 = load i8, ptr %93, align 8, !range !12, !noundef !13
+  %94 = load i8, ptr %93, align 8, !range !13, !noundef !14
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %109, label %96
 
@@ -273,7 +273,7 @@ define internal void @mei_me_remove(ptr noundef %0) #2 align 16 {
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, ptr nonnull elementtype(i32) %12) #6, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, ptr nonnull elementtype(i32) %12) #6, !srcloc !15
   br label %13
 
 13:                                               ; preds = %11, %5
@@ -623,9 +623,10 @@ attributes #7 = { cold nounwind }
 !6 = !{i64 2148843295, i64 2148843334, i64 2148843355, i64 2148843392, i64 2148843415, i64 2148843424, i64 2148843722}
 !7 = !{!"branch_weights", i32 1, i32 2000}
 !8 = !{!"branch_weights", i32 127, i32 255873}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{i64 2148820854, i64 2148820893, i64 2148820914, i64 2148820951, i64 2148820974, i64 2148820844}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{i64 2148820854, i64 2148820893, i64 2148820914, i64 2148820951, i64 2148820974, i64 2148820844}

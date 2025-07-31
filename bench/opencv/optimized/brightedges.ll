@@ -280,13 +280,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 109:                                              ; preds = %206, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %206 ]
-  %.val.i = load ptr, ptr %81, align 8, !tbaa !31
-  %.val65.i = load ptr, ptr %82, align 8, !tbaa !32
-  %.val65.val.i = load i64, ptr %.val65.i, align 8, !tbaa !33
+  %.val.i = load ptr, ptr %81, align 8, !tbaa !32
+  %.val65.i = load ptr, ptr %82, align 8, !tbaa !33
+  %.val65.val.i = load i64, ptr %.val65.i, align 8, !tbaa !34
   %110 = mul i64 %.val65.val.i, %indvars.iv99.i
   %111 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.i
-  %113 = load i8, ptr %112, align 1, !tbaa !35
+  %113 = load i8, ptr %112, align 1, !tbaa !36
   %114 = zext i8 %113 to i32
   %115 = add nuw nsw i32 %2, %114
   %116 = add nsw i32 %115, -1
@@ -297,19 +297,19 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %121 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %120
   %122 = add nsw i64 %indvars.iv.i, -1
   %123 = getelementptr inbounds i8, ptr %121, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !35
+  %124 = load i8, ptr %123, align 1, !tbaa !36
   %125 = zext i8 %124 to i32
   %126 = mul i64 %.val65.val.i, %92
   %127 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %126
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv.next.i
-  %129 = load i8, ptr %128, align 1, !tbaa !35
+  %129 = load i8, ptr %128, align 1, !tbaa !36
   %130 = zext i8 %129 to i32
   %131 = mul i64 %.val65.val.i, %93
   %132 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %131
   %133 = add nuw nsw i64 %indvars.iv.i, 2
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !35
+  %135 = load i8, ptr %134, align 1, !tbaa !36
   %136 = zext i8 %135 to i32
   %.not.i.i = icmp samesign ugt i32 %116, %125
   %.not108.i.i = icmp samesign ugt i32 %116, %130
@@ -318,7 +318,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 137:                                              ; preds = %109
   %138 = getelementptr inbounds i8, ptr %118, i64 %119
-  %139 = load i8, ptr %138, align 1, !tbaa !35
+  %139 = load i8, ptr %138, align 1, !tbaa !36
   %140 = zext i8 %139 to i32
   %141 = add nuw nsw i32 %140, %125
   %142 = lshr i32 %141, 1
@@ -335,13 +335,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 146:                                              ; preds = %143, %137, %109
   %.097.i.i = phi i32 [ 0, %137 ], [ 0, %109 ], [ %spec.select.i.i, %143 ]
   %147 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.i
-  %148 = load i8, ptr %147, align 1, !tbaa !35
+  %148 = load i8, ptr %147, align 1, !tbaa !36
   %149 = zext i8 %148 to i32
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv.i
-  %151 = load i8, ptr %150, align 1, !tbaa !35
+  %151 = load i8, ptr %150, align 1, !tbaa !36
   %152 = zext i8 %151 to i32
   %153 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv.i
-  %154 = load i8, ptr %153, align 1, !tbaa !35
+  %154 = load i8, ptr %153, align 1, !tbaa !36
   %155 = zext i8 %154 to i32
   %.not111.i.i = icmp samesign ugt i32 %116, %149
   %.not112.i.i = icmp samesign ugt i32 %116, %152
@@ -350,7 +350,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 156:                                              ; preds = %146
   %157 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i
-  %158 = load i8, ptr %157, align 1, !tbaa !35
+  %158 = load i8, ptr %157, align 1, !tbaa !36
   %159 = zext i8 %158 to i32
   %160 = add nuw nsw i32 %159, %149
   %161 = lshr i32 %160, 1
@@ -368,13 +368,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 166:                                              ; preds = %162, %156, %146
   %.1.i.i = phi i32 [ %.097.i.i, %156 ], [ %.097.i.i, %146 ], [ %spec.select124.i.i, %162 ]
   %167 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.next.i
-  %168 = load i8, ptr %167, align 1, !tbaa !35
+  %168 = load i8, ptr %167, align 1, !tbaa !36
   %169 = zext i8 %168 to i32
   %170 = getelementptr inbounds i8, ptr %127, i64 %122
-  %171 = load i8, ptr %170, align 1, !tbaa !35
+  %171 = load i8, ptr %170, align 1, !tbaa !36
   %172 = zext i8 %171 to i32
   %173 = getelementptr inbounds i8, ptr %132, i64 %119
-  %174 = load i8, ptr %173, align 1, !tbaa !35
+  %174 = load i8, ptr %173, align 1, !tbaa !36
   %175 = zext i8 %174 to i32
   %.not115.i.i = icmp samesign ugt i32 %116, %169
   %.not116.i.i = icmp samesign ugt i32 %116, %172
@@ -383,7 +383,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 176:                                              ; preds = %166
   %177 = getelementptr inbounds nuw i8, ptr %118, i64 %133
-  %178 = load i8, ptr %177, align 1, !tbaa !35
+  %178 = load i8, ptr %177, align 1, !tbaa !36
   %179 = zext i8 %178 to i32
   %180 = add nuw nsw i32 %179, %169
   %181 = lshr i32 %180, 1
@@ -401,13 +401,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 186:                                              ; preds = %182, %176, %166
   %.2.i.i = phi i32 [ %.1.i.i, %176 ], [ %.1.i.i, %166 ], [ %spec.select126.i.i, %182 ]
   %187 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.next.i
-  %188 = load i8, ptr %187, align 1, !tbaa !35
+  %188 = load i8, ptr %187, align 1, !tbaa !36
   %189 = zext i8 %188 to i32
   %190 = getelementptr inbounds i8, ptr %111, i64 %122
-  %191 = load i8, ptr %190, align 1, !tbaa !35
+  %191 = load i8, ptr %190, align 1, !tbaa !36
   %192 = zext i8 %191 to i32
   %193 = getelementptr inbounds i8, ptr %111, i64 %119
-  %194 = load i8, ptr %193, align 1, !tbaa !35
+  %194 = load i8, ptr %193, align 1, !tbaa !36
   %195 = zext i8 %194 to i32
   %.not119.i.i = icmp samesign ugt i32 %116, %189
   %.not120.i.i = icmp samesign ugt i32 %116, %192
@@ -416,7 +416,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 196:                                              ; preds = %186
   %197 = getelementptr inbounds nuw i8, ptr %111, i64 %133
-  %198 = load i8, ptr %197, align 1, !tbaa !35
+  %198 = load i8, ptr %197, align 1, !tbaa !36
   %199 = zext i8 %198 to i32
   %200 = add nuw nsw i32 %199, %189
   %201 = lshr i32 %200, 1
@@ -434,19 +434,19 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 206:                                              ; preds = %202, %196, %186
   %.3.i.i = phi i32 [ %.2.i.i, %196 ], [ %.2.i.i, %186 ], [ %spec.select128.i.i, %202 ]
   %207 = icmp samesign ult i32 %.3.i.i, 2
-  %208 = load ptr, ptr %83, align 8, !tbaa !31
-  %209 = load ptr, ptr %84, align 8, !tbaa !32
-  %210 = load i64, ptr %209, align 8, !tbaa !33
+  %208 = load ptr, ptr %83, align 8, !tbaa !32
+  %209 = load ptr, ptr %84, align 8, !tbaa !33
+  %210 = load i64, ptr %209, align 8, !tbaa !34
   %211 = mul i64 %210, %indvars.iv99.i
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv.i
   %..i = sext i1 %207 to i8
-  store i8 %..i, ptr %213, align 1, !tbaa !35
+  store i8 %..i, ptr %213, align 1, !tbaa !36
   %214 = load i32, ptr %80, align 4, !tbaa !27
   %215 = add nsw i32 %214, -2
   %216 = sext i32 %215 to i64
   %217 = icmp slt i64 %indvars.iv.next.i, %216
-  br i1 %217, label %109, label %._crit_edge.loopexit.i, !llvm.loop !36
+  br i1 %217, label %109, label %._crit_edge.loopexit.i, !llvm.loop !37
 
 .preheader74.i:                                   ; preds = %.preheader74.lr.ph.i, %._crit_edge81.i
   %218 = phi i32 [ %231, %._crit_edge81.i ], [ %95, %.preheader74.lr.ph.i ]
@@ -494,53 +494,53 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %233 = add nsw i32 %231, -2
   %234 = sext i32 %233 to i64
   %235 = icmp slt i64 %indvars.iv.next106.pre-phi.i, %234
-  br i1 %235, label %.preheader74.i, label %.preheader73.i, !llvm.loop !37
+  br i1 %235, label %.preheader74.i, label %.preheader73.i, !llvm.loop !38
 
 236:                                              ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i, %.lr.ph80.i
   %indvars.iv102.i = phi i64 [ 2, %.lr.ph80.i ], [ %indvars.iv.next103.i, %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i ]
-  %.val66.i = load ptr, ptr %98, align 8, !tbaa !31
-  %.val67.i = load ptr, ptr %99, align 8, !tbaa !32
-  %.val67.val.i = load i64, ptr %.val67.i, align 8, !tbaa !33
+  %.val66.i = load ptr, ptr %98, align 8, !tbaa !32
+  %.val67.i = load ptr, ptr %99, align 8, !tbaa !33
+  %.val67.val.i = load i64, ptr %.val67.i, align 8, !tbaa !34
   %237 = mul i64 %.val67.val.i, %221
   %238 = getelementptr inbounds nuw i8, ptr %.val66.i, i64 %237
   %239 = add nsw i64 %indvars.iv102.i, -2
   %240 = getelementptr inbounds i8, ptr %238, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !35
+  %241 = load i8, ptr %240, align 1, !tbaa !36
   %242 = zext i8 %241 to i32
   %243 = add nsw i64 %indvars.iv102.i, -1
   %244 = getelementptr inbounds i8, ptr %238, i64 %243
-  %245 = load i8, ptr %244, align 1, !tbaa !35
+  %245 = load i8, ptr %244, align 1, !tbaa !36
   %246 = zext i8 %245 to i32
   %247 = add nuw nsw i32 %246, %242
   %248 = mul i64 %.val67.val.i, %indvars.iv105.i
   %249 = getelementptr inbounds nuw i8, ptr %.val66.i, i64 %248
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 %indvars.iv.next103.i
-  %251 = load i8, ptr %250, align 1, !tbaa !35
+  %251 = load i8, ptr %250, align 1, !tbaa !36
   %252 = zext i8 %251 to i32
   %253 = add nuw nsw i32 %247, %252
   %254 = add nuw nsw i64 %indvars.iv102.i, 2
   %255 = getelementptr inbounds nuw i8, ptr %249, i64 %254
-  %256 = load i8, ptr %255, align 1, !tbaa !35
+  %256 = load i8, ptr %255, align 1, !tbaa !36
   %257 = zext i8 %256 to i32
   %258 = or i32 %253, %257
   %259 = icmp eq i32 %258, 0
   %spec.select.i68.i = zext i1 %259 to i32
   %260 = getelementptr inbounds i8, ptr %249, i64 %239
-  %261 = load i8, ptr %260, align 1, !tbaa !35
+  %261 = load i8, ptr %260, align 1, !tbaa !36
   %262 = zext i8 %261 to i32
   %263 = getelementptr inbounds i8, ptr %249, i64 %243
-  %264 = load i8, ptr %263, align 1, !tbaa !35
+  %264 = load i8, ptr %263, align 1, !tbaa !36
   %265 = zext i8 %264 to i32
   %266 = add nuw nsw i32 %265, %262
   %267 = mul i64 %.val67.val.i, %222
   %268 = getelementptr inbounds nuw i8, ptr %.val66.i, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 %indvars.iv.next103.i
-  %270 = load i8, ptr %269, align 1, !tbaa !35
+  %270 = load i8, ptr %269, align 1, !tbaa !36
   %271 = zext i8 %270 to i32
   %272 = add nuw nsw i32 %266, %271
   %273 = getelementptr inbounds nuw i8, ptr %268, i64 %254
-  %274 = load i8, ptr %273, align 1, !tbaa !35
+  %274 = load i8, ptr %273, align 1, !tbaa !36
   %275 = zext i8 %274 to i32
   %276 = or i32 %272, %275
   %277 = icmp eq i32 %276, 0
@@ -549,42 +549,42 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %279 = mul i64 %.val67.val.i, %223
   %280 = getelementptr inbounds nuw i8, ptr %.val66.i, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 %indvars.iv102.i
-  %282 = load i8, ptr %281, align 1, !tbaa !35
+  %282 = load i8, ptr %281, align 1, !tbaa !36
   %283 = zext i8 %282 to i32
   %284 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv102.i
-  %285 = load i8, ptr %284, align 1, !tbaa !35
+  %285 = load i8, ptr %284, align 1, !tbaa !36
   %286 = zext i8 %285 to i32
   %287 = add nuw nsw i32 %286, %283
   %288 = add nuw nsw i32 %287, %271
   %289 = mul i64 %.val67.val.i, %224
   %290 = getelementptr inbounds nuw i8, ptr %.val66.i, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 %indvars.iv.next103.i
-  %292 = load i8, ptr %291, align 1, !tbaa !35
+  %292 = load i8, ptr %291, align 1, !tbaa !36
   %293 = zext i8 %292 to i32
   %294 = or i32 %288, %293
   %295 = icmp eq i32 %294, 0
   %296 = zext i1 %295 to i32
   %.2.i69.i = add nuw nsw i32 %.1195.i.i, %296
   %297 = getelementptr inbounds i8, ptr %280, i64 %243
-  %298 = load i8, ptr %297, align 1, !tbaa !35
+  %298 = load i8, ptr %297, align 1, !tbaa !36
   %299 = zext i8 %298 to i32
   %300 = getelementptr inbounds nuw i8, ptr %268, i64 %indvars.iv102.i
-  %301 = load i8, ptr %300, align 1, !tbaa !35
+  %301 = load i8, ptr %300, align 1, !tbaa !36
   %302 = zext i8 %301 to i32
   %303 = add nuw nsw i32 %302, %246
   %304 = add nuw nsw i32 %303, %299
   %305 = getelementptr inbounds nuw i8, ptr %290, i64 %indvars.iv102.i
-  %306 = load i8, ptr %305, align 1, !tbaa !35
+  %306 = load i8, ptr %305, align 1, !tbaa !36
   %307 = zext i8 %306 to i32
   %308 = or i32 %304, %307
   %309 = icmp eq i32 %308, 0
   %310 = zext i1 %309 to i32
   %.3.i70.i = add nuw nsw i32 %.2.i69.i, %310
   %311 = getelementptr inbounds i8, ptr %280, i64 %239
-  %312 = load i8, ptr %311, align 1, !tbaa !35
+  %312 = load i8, ptr %311, align 1, !tbaa !36
   %313 = zext i8 %312 to i32
   %314 = getelementptr inbounds nuw i8, ptr %290, i64 %254
-  %315 = load i8, ptr %314, align 1, !tbaa !35
+  %315 = load i8, ptr %314, align 1, !tbaa !36
   %316 = zext i8 %315 to i32
   %317 = add nuw nsw i32 %299, %293
   %318 = add nuw nsw i32 %247, %271
@@ -596,10 +596,10 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %324 = zext i1 %323 to i32
   %.4.i.i = add nuw nsw i32 %.3.i70.i, %324
   %325 = getelementptr inbounds nuw i8, ptr %280, i64 %indvars.iv.next103.i
-  %326 = load i8, ptr %325, align 1, !tbaa !35
+  %326 = load i8, ptr %325, align 1, !tbaa !36
   %327 = zext i8 %326 to i32
   %328 = getelementptr inbounds i8, ptr %290, i64 %243
-  %329 = load i8, ptr %328, align 1, !tbaa !35
+  %329 = load i8, ptr %328, align 1, !tbaa !36
   %330 = zext i8 %329 to i32
   %331 = add nuw nsw i32 %317, %287
   %332 = add nuw nsw i32 %331, %302
@@ -610,22 +610,22 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %337 = zext i1 %336 to i32
   %.5.i.i = add nuw nsw i32 %.4.i.i, %337
   %338 = getelementptr inbounds nuw i8, ptr %280, i64 %254
-  %339 = load i8, ptr %338, align 1, !tbaa !35
+  %339 = load i8, ptr %338, align 1, !tbaa !36
   %340 = zext i8 %339 to i32
   %341 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.next103.i
-  %342 = load i8, ptr %341, align 1, !tbaa !35
+  %342 = load i8, ptr %341, align 1, !tbaa !36
   %343 = zext i8 %342 to i32
   %344 = getelementptr inbounds nuw i8, ptr %238, i64 %254
-  %345 = load i8, ptr %344, align 1, !tbaa !35
+  %345 = load i8, ptr %344, align 1, !tbaa !36
   %346 = zext i8 %345 to i32
   %347 = getelementptr inbounds i8, ptr %268, i64 %243
-  %348 = load i8, ptr %347, align 1, !tbaa !35
+  %348 = load i8, ptr %347, align 1, !tbaa !36
   %349 = zext i8 %348 to i32
   %350 = getelementptr inbounds i8, ptr %290, i64 %239
-  %351 = load i8, ptr %350, align 1, !tbaa !35
+  %351 = load i8, ptr %350, align 1, !tbaa !36
   %352 = zext i8 %351 to i32
   %353 = getelementptr inbounds i8, ptr %268, i64 %239
-  %354 = load i8, ptr %353, align 1, !tbaa !35
+  %354 = load i8, ptr %353, align 1, !tbaa !36
   %355 = zext i8 %354 to i32
   %356 = add nuw nsw i32 %349, %343
   %357 = add nuw nsw i32 %356, %299
@@ -662,35 +662,35 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 380:                                              ; preds = %374
   %381 = getelementptr inbounds nuw i8, ptr %249, i64 %indvars.iv102.i
-  %382 = load i8, ptr %381, align 1, !tbaa !35
+  %382 = load i8, ptr %381, align 1, !tbaa !36
   br label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
 
 _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %380, %374, %374, %236
   %.0.i.i = phi i8 [ 0, %236 ], [ %382, %380 ], [ -1, %374 ], [ -1, %374 ]
-  %383 = load ptr, ptr %100, align 8, !tbaa !31
-  %384 = load ptr, ptr %101, align 8, !tbaa !32
-  %385 = load i64, ptr %384, align 8, !tbaa !33
+  %383 = load ptr, ptr %100, align 8, !tbaa !32
+  %384 = load ptr, ptr %101, align 8, !tbaa !33
+  %385 = load i64, ptr %384, align 8, !tbaa !34
   %386 = mul i64 %385, %indvars.iv105.i
   %387 = getelementptr inbounds nuw i8, ptr %383, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 %indvars.iv102.i
-  store i8 %.0.i.i, ptr %388, align 1, !tbaa !35
+  store i8 %.0.i.i, ptr %388, align 1, !tbaa !36
   %389 = load i32, ptr %97, align 4, !tbaa !27
   %390 = add nsw i32 %389, -2
   %391 = sext i32 %390 to i64
   %392 = icmp slt i64 %indvars.iv.next103.i, %391
-  br i1 %392, label %236, label %._crit_edge81.loopexit.i, !llvm.loop !38
+  br i1 %392, label %236, label %._crit_edge81.loopexit.i, !llvm.loop !39
 
 .preheader72.i:                                   ; preds = %._crit_edge87.i, %.preheader72.lr.ph.i
   %indvars.iv114.i = phi i64 [ 0, %.preheader72.lr.ph.i ], [ %indvars.iv.next115.i, %._crit_edge87.i ]
-  %393 = load ptr, ptr %228, align 8, !tbaa !31
+  %393 = load ptr, ptr %228, align 8, !tbaa !32
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 %indvars.iv114.i
-  store i8 -1, ptr %394, align 1, !tbaa !35
-  %395 = load ptr, ptr %228, align 8, !tbaa !31
-  %396 = load ptr, ptr %229, align 8, !tbaa !32
-  %397 = load i64, ptr %396, align 8, !tbaa !33
+  store i8 -1, ptr %394, align 1, !tbaa !36
+  %395 = load ptr, ptr %228, align 8, !tbaa !32
+  %396 = load ptr, ptr %229, align 8, !tbaa !33
+  %397 = load i64, ptr %396, align 8, !tbaa !34
   %398 = getelementptr inbounds nuw i8, ptr %395, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv114.i
-  store i8 -1, ptr %399, align 1, !tbaa !35
+  store i8 -1, ptr %399, align 1, !tbaa !36
   %400 = load i32, ptr %230, align 8, !tbaa !26
   %401 = add i32 %400, -2
   %402 = sext i32 %401 to i64
@@ -712,38 +712,38 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %380, %374, %374, %
   %408 = load i32, ptr %225, align 4, !tbaa !27
   %409 = sext i32 %408 to i64
   %410 = icmp slt i64 %indvars.iv.next115.i, %409
-  br i1 %410, label %.preheader72.i, label %.preheader71.i, !llvm.loop !39
+  br i1 %410, label %.preheader72.i, label %.preheader71.i, !llvm.loop !40
 
 411:                                              ; preds = %411, %.preheader72.i
   %indvars.iv111.i = phi i64 [ %402, %.preheader72.i ], [ %indvars.iv.next112.i, %411 ]
-  %412 = load ptr, ptr %228, align 8, !tbaa !31
-  %413 = load ptr, ptr %229, align 8, !tbaa !32
-  %414 = load i64, ptr %413, align 8, !tbaa !33
+  %412 = load ptr, ptr %228, align 8, !tbaa !32
+  %413 = load ptr, ptr %229, align 8, !tbaa !33
+  %414 = load i64, ptr %413, align 8, !tbaa !34
   %415 = mul i64 %414, %indvars.iv111.i
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 %415
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 %indvars.iv114.i
-  store i8 -1, ptr %417, align 1, !tbaa !35
+  store i8 -1, ptr %417, align 1, !tbaa !36
   %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, 1
   %418 = load i32, ptr %230, align 8, !tbaa !26
   %419 = sext i32 %418 to i64
   %420 = icmp slt i64 %indvars.iv.next112.i, %419
-  br i1 %420, label %411, label %._crit_edge87.i, !llvm.loop !40
+  br i1 %420, label %411, label %._crit_edge87.i, !llvm.loop !41
 
 .preheader.i:                                     ; preds = %._crit_edge93.i, %.preheader.lr.ph.i
   %indvars.iv123.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next124.i, %._crit_edge93.i ]
-  %421 = load ptr, ptr %406, align 8, !tbaa !31
-  %422 = load ptr, ptr %407, align 8, !tbaa !32
-  %423 = load i64, ptr %422, align 8, !tbaa !33
+  %421 = load ptr, ptr %406, align 8, !tbaa !32
+  %422 = load ptr, ptr %407, align 8, !tbaa !33
+  %423 = load i64, ptr %422, align 8, !tbaa !34
   %424 = mul i64 %423, %indvars.iv123.i
   %425 = getelementptr inbounds nuw i8, ptr %421, i64 %424
-  store i8 -1, ptr %425, align 1, !tbaa !35
-  %426 = load ptr, ptr %406, align 8, !tbaa !31
-  %427 = load ptr, ptr %407, align 8, !tbaa !32
-  %428 = load i64, ptr %427, align 8, !tbaa !33
+  store i8 -1, ptr %425, align 1, !tbaa !36
+  %426 = load ptr, ptr %406, align 8, !tbaa !32
+  %427 = load ptr, ptr %407, align 8, !tbaa !33
+  %428 = load i64, ptr %427, align 8, !tbaa !34
   %429 = mul i64 %428, %indvars.iv123.i
   %430 = getelementptr inbounds nuw i8, ptr %426, i64 %429
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 1
-  store i8 -1, ptr %431, align 1, !tbaa !35
+  store i8 -1, ptr %431, align 1, !tbaa !36
   %432 = load i32, ptr %225, align 4, !tbaa !27
   %433 = add i32 %432, -2
   %434 = sext i32 %433 to i64
@@ -754,22 +754,22 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %380, %374, %374, %
   %435 = load i32, ptr %404, align 8, !tbaa !26
   %436 = sext i32 %435 to i64
   %437 = icmp slt i64 %indvars.iv.next124.i, %436
-  br i1 %437, label %.preheader.i, label %_ZN2cv8ximgprocL13contrastEdgesERNS_3MatES2_i.exit, !llvm.loop !41
+  br i1 %437, label %.preheader.i, label %_ZN2cv8ximgprocL13contrastEdgesERNS_3MatES2_i.exit, !llvm.loop !42
 
 438:                                              ; preds = %438, %.preheader.i
   %indvars.iv120.i = phi i64 [ %434, %.preheader.i ], [ %indvars.iv.next121.i, %438 ]
-  %439 = load ptr, ptr %406, align 8, !tbaa !31
-  %440 = load ptr, ptr %407, align 8, !tbaa !32
-  %441 = load i64, ptr %440, align 8, !tbaa !33
+  %439 = load ptr, ptr %406, align 8, !tbaa !32
+  %440 = load ptr, ptr %407, align 8, !tbaa !33
+  %441 = load i64, ptr %440, align 8, !tbaa !34
   %442 = mul i64 %441, %indvars.iv123.i
   %443 = getelementptr inbounds nuw i8, ptr %439, i64 %442
   %444 = getelementptr inbounds i8, ptr %443, i64 %indvars.iv120.i
-  store i8 -1, ptr %444, align 1, !tbaa !35
+  store i8 -1, ptr %444, align 1, !tbaa !36
   %indvars.iv.next121.i = add nsw i64 %indvars.iv120.i, 1
   %445 = load i32, ptr %225, align 4, !tbaa !27
   %446 = sext i32 %445 to i64
   %447 = icmp slt i64 %indvars.iv.next121.i, %446
-  br i1 %447, label %438, label %._crit_edge93.i, !llvm.loop !42
+  br i1 %447, label %438, label %._crit_edge93.i, !llvm.loop !43
 
 _ZN2cv8ximgprocL13contrastEdgesERNS_3MatES2_i.exit: ; preds = %._crit_edge93.i, %.preheader71.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #7
@@ -946,18 +946,19 @@ attributes #7 = { nounwind }
 !25 = !{!"double", !6, i64 0}
 !26 = !{!18, !5, i64 8}
 !27 = !{!18, !5, i64 12}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29, !30, !31}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
-!31 = !{!18, !19, i64 16}
-!32 = !{!18, !23, i64 72}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"long", !6, i64 0}
-!35 = !{!6, !6, i64 0}
-!36 = distinct !{!36, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = !{!18, !19, i64 16}
+!33 = !{!18, !23, i64 72}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"long", !6, i64 0}
+!36 = !{!6, !6, i64 0}
 !37 = distinct !{!37, !29, !30}
-!38 = distinct !{!38, !29}
-!39 = distinct !{!39, !29}
-!40 = distinct !{!40, !29}
-!41 = distinct !{!41, !29}
-!42 = distinct !{!42, !29}
+!38 = distinct !{!38, !29, !30, !31}
+!39 = distinct !{!39, !29, !30}
+!40 = distinct !{!40, !29, !30}
+!41 = distinct !{!41, !29, !30}
+!42 = distinct !{!42, !29, !30}
+!43 = distinct !{!43, !29, !30}

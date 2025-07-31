@@ -452,7 +452,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
   %.narrow = add i8 %38, %.04862
   %39 = add nuw nsw i32 %.05061, 1
   %exitcond.not = icmp eq i32 %39, %20
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %40 = zext i8 %.narrow to i16
@@ -524,7 +524,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
   %76 = trunc i64 %75 to i32
   %77 = call ptr @try_val_to_str_idx(i32 noundef %76, ptr noundef nonnull @cimd_vals_PC, ptr noundef nonnull %5)
   %78 = icmp slt i32 %70, %6
-  br i1 %78, label %.lr.ph.split.us.i, label %.critedge.i, !llvm.loop !9
+  br i1 %78, label %.lr.ph.split.us.i, label %.critedge.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %96
   %.035.i = phi i32 [ %83, %96 ], [ 7, %.lr.ph.i ]
@@ -557,7 +557,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 96:                                               ; preds = %92, %85
   %97 = icmp slt i32 %83, %6
-  br i1 %97, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !11
+  br i1 %97, label %.lr.ph.split.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %96, %81, %.lr.ph.split.i, %72, %68, %.lr.ph.split.us.i, %54
   br i1 %24, label %dissect_cimd_operation.exit, label %98
@@ -812,7 +812,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext %.sink)
   %51 = add i32 %.1, 1
   %52 = icmp slt i32 %51, %20
-  br i1 %52, label %31, label %._crit_edge, !llvm.loop !12
+  br i1 %52, label %31, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %50, %5
   %53 = call ptr @wmem_packet_scope()
@@ -945,10 +945,11 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

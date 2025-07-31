@@ -429,7 +429,7 @@ select.unfold:                                    ; preds = %.tail308, %156, %14
   %179 = and i16 %178, 8192
   %.not230 = icmp eq i16 %179, 0
   %180 = getelementptr inbounds nuw i8, ptr %.3217, i64 1
-  br i1 %.not230, label %181, label %174, !llvm.loop !9
+  br i1 %.not230, label %181, label %174, !llvm.loop !10
 
 181:                                              ; preds = %174
   %.not231 = icmp eq i8 %175, 0
@@ -632,7 +632,7 @@ select.unfold:                                    ; preds = %.tail308, %156, %14
   %265 = phi i64 [ %263, %262 ], [ %259, %.lr.ph ]
   %266 = load i8, ptr %260, align 1
   %.not239 = icmp eq i8 %266, 0
-  br i1 %.not239, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not239, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %264, %254
   %267 = phi i64 [ %.promoted, %254 ], [ %265, %264 ]
@@ -832,7 +832,7 @@ select.unfold:                                    ; preds = %.tail308, %156, %14
   %.3195 = phi i32 [ %.2194, %.thread284 ], [ -1, %333 ], [ -1, %326 ], [ -1, %309 ]
   %.4 = phi ptr [ %.1, %.thread284 ], [ %.1, %333 ], [ %328, %326 ], [ %.1, %309 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
-  br label %240
+  br label %240, !llvm.loop !12
 
 .loopexit:                                        ; preds = %242, %.thread287
   %.1203 = phi i8 [ %.5.ph, %.thread287 ], [ %.0202, %242 ]
@@ -1124,7 +1124,9 @@ attributes #15 = { nounwind willreturn memory(none) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !7}

@@ -1065,27 +1065,27 @@ define linkonce_odr dso_local void @_Z8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stri
   %4 = alloca [3 x %"struct.std::pair"], align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #12
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
-  store i64 %5, ptr %4, align 8, !tbaa !30, !alias.scope !33
+  store i64 %5, ptr %4, align 8, !tbaa !30, !alias.scope !34
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36, !alias.scope !33
+  store ptr %1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !37, !alias.scope !34
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr null, ptr %6, align 8, !tbaa !37, !alias.scope !33
+  store ptr null, ptr %6, align 8, !tbaa !38, !alias.scope !34
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %2, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !27
-  store i64 %10, ptr %7, align 8, !tbaa !30, !alias.scope !40
+  store i64 %10, ptr %7, align 8, !tbaa !30, !alias.scope !41
   %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %8, ptr %.sroa.4.0..sroa_idx.i10, align 8, !tbaa !36, !alias.scope !40
+  store ptr %8, ptr %.sroa.4.0..sroa_idx.i10, align 8, !tbaa !37, !alias.scope !41
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %11, align 8, !tbaa !37, !alias.scope !40
+  store ptr null, ptr %11, align 8, !tbaa !38, !alias.scope !41
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
-  store i64 %13, ptr %12, align 8, !tbaa !30, !alias.scope !43
+  store i64 %13, ptr %12, align 8, !tbaa !30, !alias.scope !44
   %.sroa.4.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %3, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !36, !alias.scope !43
+  store ptr %3, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !37, !alias.scope !44
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr null, ptr %14, align 8, !tbaa !37, !alias.scope !43
+  store ptr null, ptr %14, align 8, !tbaa !38, !alias.scope !44
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #12
   ret void
@@ -1109,19 +1109,19 @@ define internal void @_GLOBAL__sub_I_cmBuildCommand.cxx() #10 section ".text.sta
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #12
-  store i32 0, ptr %1, align 4, !tbaa !46
+  store i32 0, ptr %1, align 4, !tbaa !47
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !46
+  store i32 1, ptr %3, align 4, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !46
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !48
+  store i32 2, ptr %4, align 4, !tbaa !47
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !49
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !46
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !47
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -1136,7 +1136,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !30
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #12
@@ -1196,22 +1196,24 @@ attributes #14 = { noreturn }
 !28 = !{!8, !8, i64 0}
 !29 = !{!14, !16, i64 0}
 !30 = !{!17, !17, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!35 = distinct !{!35, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!36 = !{!16, !16, i64 0}
-!37 = !{!38, !6, i64 16}
-!38 = !{!"_ZTSSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE", !39, i64 0, !6, i64 16}
-!39 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !17, i64 0, !16, i64 8}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!42 = distinct !{!42, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
-!45 = distinct !{!45, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!48 = !{!49, !17, i64 0}
-!49 = !{!"_ZTSSt12_Base_bitsetILm1EE", !17, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!36 = distinct !{!36, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!37 = !{!16, !16, i64 0}
+!38 = !{!39, !6, i64 16}
+!39 = !{!"_ZTSSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE", !40, i64 0, !6, i64 16}
+!40 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !17, i64 0, !16, i64 8}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!43 = distinct !{!43, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_: argument 0"}
+!46 = distinct !{!46, !"_ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESM_"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!49 = !{!50, !17, i64 0}
+!50 = !{!"_ZTSSt12_Base_bitsetILm1EE", !17, i64 0}
+!51 = distinct !{!51, !33}

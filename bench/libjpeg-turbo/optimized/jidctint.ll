@@ -233,7 +233,7 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %332 ]
   %.2266 = phi ptr [ %6, %.preheader ], [ %.3, %332 ]
   %181 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %182 = load ptr, ptr %181, align 8, !tbaa !36
+  %182 = load ptr, ptr %181, align 8, !tbaa !37
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 %12
   %184 = getelementptr inbounds nuw i8, ptr %.2266, i64 4
   %185 = load i32, ptr %184, align 4, !tbaa !33
@@ -281,20 +281,20 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   %214 = and i32 %213, 1023
   %215 = zext nneg i32 %214 to i64
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !37
-  store i8 %217, ptr %183, align 1, !tbaa !37
+  %217 = load i8, ptr %216, align 1, !tbaa !38
+  store i8 %217, ptr %183, align 1, !tbaa !38
   %218 = getelementptr inbounds nuw i8, ptr %183, i64 1
-  store i8 %217, ptr %218, align 1, !tbaa !37
+  store i8 %217, ptr %218, align 1, !tbaa !38
   %219 = getelementptr inbounds nuw i8, ptr %183, i64 2
-  store i8 %217, ptr %219, align 1, !tbaa !37
+  store i8 %217, ptr %219, align 1, !tbaa !38
   %220 = getelementptr inbounds nuw i8, ptr %183, i64 3
-  store i8 %217, ptr %220, align 1, !tbaa !37
+  store i8 %217, ptr %220, align 1, !tbaa !38
   %221 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  store i8 %217, ptr %221, align 1, !tbaa !37
+  store i8 %217, ptr %221, align 1, !tbaa !38
   %222 = getelementptr inbounds nuw i8, ptr %183, i64 5
-  store i8 %217, ptr %222, align 1, !tbaa !37
+  store i8 %217, ptr %222, align 1, !tbaa !38
   %223 = getelementptr inbounds nuw i8, ptr %183, i64 6
-  store i8 %217, ptr %223, align 1, !tbaa !37
+  store i8 %217, ptr %223, align 1, !tbaa !38
   br label %332
 
 ._crit_edge269:                                   ; preds = %180, %206, %202, %198, %194, %190
@@ -361,69 +361,69 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   %284 = lshr i64 %283, 18
   %285 = and i64 %284, 1023
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 %285
-  %287 = load i8, ptr %286, align 1, !tbaa !37
-  store i8 %287, ptr %183, align 1, !tbaa !37
+  %287 = load i8, ptr %286, align 1, !tbaa !38
+  store i8 %287, ptr %183, align 1, !tbaa !38
   %288 = sub nsw i64 %282, %281
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
   %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !37
+  %292 = load i8, ptr %291, align 1, !tbaa !38
   %293 = getelementptr inbounds nuw i8, ptr %183, i64 7
-  store i8 %292, ptr %293, align 1, !tbaa !37
+  store i8 %292, ptr %293, align 1, !tbaa !38
   %294 = add nsw i64 %246, 131072
   %295 = add nsw i64 %294, %279
   %296 = lshr i64 %295, 18
   %297 = and i64 %296, 1023
   %298 = getelementptr inbounds nuw i8, ptr %11, i64 %297
-  %299 = load i8, ptr %298, align 1, !tbaa !37
+  %299 = load i8, ptr %298, align 1, !tbaa !38
   %300 = getelementptr inbounds nuw i8, ptr %183, i64 1
-  store i8 %299, ptr %300, align 1, !tbaa !37
+  store i8 %299, ptr %300, align 1, !tbaa !38
   %301 = sub nsw i64 %294, %279
   %302 = lshr i64 %301, 18
   %303 = and i64 %302, 1023
   %304 = getelementptr inbounds nuw i8, ptr %11, i64 %303
-  %305 = load i8, ptr %304, align 1, !tbaa !37
+  %305 = load i8, ptr %304, align 1, !tbaa !38
   %306 = getelementptr inbounds nuw i8, ptr %183, i64 6
-  store i8 %305, ptr %306, align 1, !tbaa !37
+  store i8 %305, ptr %306, align 1, !tbaa !38
   %307 = add nsw i64 %247, 131072
   %308 = add nsw i64 %307, %277
   %309 = lshr i64 %308, 18
   %310 = and i64 %309, 1023
   %311 = getelementptr inbounds nuw i8, ptr %11, i64 %310
-  %312 = load i8, ptr %311, align 1, !tbaa !37
+  %312 = load i8, ptr %311, align 1, !tbaa !38
   %313 = getelementptr inbounds nuw i8, ptr %183, i64 2
-  store i8 %312, ptr %313, align 1, !tbaa !37
+  store i8 %312, ptr %313, align 1, !tbaa !38
   %314 = sub nsw i64 %307, %277
   %315 = lshr i64 %314, 18
   %316 = and i64 %315, 1023
   %317 = getelementptr inbounds nuw i8, ptr %11, i64 %316
-  %318 = load i8, ptr %317, align 1, !tbaa !37
+  %318 = load i8, ptr %317, align 1, !tbaa !38
   %319 = getelementptr inbounds nuw i8, ptr %183, i64 5
-  store i8 %318, ptr %319, align 1, !tbaa !37
+  store i8 %318, ptr %319, align 1, !tbaa !38
   %320 = add nsw i64 %245, 131072
   %321 = add nsw i64 %320, %275
   %322 = lshr i64 %321, 18
   %323 = and i64 %322, 1023
   %324 = getelementptr inbounds nuw i8, ptr %11, i64 %323
-  %325 = load i8, ptr %324, align 1, !tbaa !37
+  %325 = load i8, ptr %324, align 1, !tbaa !38
   %326 = getelementptr inbounds nuw i8, ptr %183, i64 3
-  store i8 %325, ptr %326, align 1, !tbaa !37
+  store i8 %325, ptr %326, align 1, !tbaa !38
   %327 = sub nsw i64 %320, %275
   %328 = lshr i64 %327, 18
   %329 = and i64 %328, 1023
   %330 = getelementptr inbounds nuw i8, ptr %11, i64 %329
-  %331 = load i8, ptr %330, align 1, !tbaa !37
+  %331 = load i8, ptr %330, align 1, !tbaa !38
   br label %332
 
 332:                                              ; preds = %._crit_edge269, %210
   %.sink277 = phi i64 [ 4, %._crit_edge269 ], [ 7, %210 ]
   %.sink275 = phi i8 [ %331, %._crit_edge269 ], [ %217, %210 ]
   %333 = getelementptr inbounds nuw i8, ptr %183, i64 %.sink277
-  store i8 %.sink275, ptr %333, align 1, !tbaa !37
+  store i8 %.sink275, ptr %333, align 1, !tbaa !38
   %.3 = getelementptr inbounds nuw i8, ptr %.2266, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %334, label %180, !llvm.loop !38
+  br i1 %exitcond.not, label %334, label %180, !llvm.loop !39
 
 334:                                              ; preds = %332
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #2
@@ -578,13 +578,13 @@ define void @jpeg_idct_7x7(ptr noundef readonly captures(none) %0, ptr noundef r
   %123 = getelementptr inbounds nuw i8, ptr %.0168176, i64 2
   %124 = getelementptr inbounds nuw i8, ptr %.0166177, i64 4
   %exitcond.not = icmp eq i32 %121, 7
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !40
 
 125:                                              ; preds = %.preheader, %125
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %125 ]
   %.1167179 = phi ptr [ %6, %.preheader ], [ %223, %125 ]
   %126 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %127 = load ptr, ptr %126, align 8, !tbaa !36
+  %127 = load ptr, ptr %126, align 8, !tbaa !37
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %12
   %129 = load i32, ptr %.1167179, align 4, !tbaa !33
   %130 = sext i32 %129 to i64
@@ -647,53 +647,53 @@ define void @jpeg_idct_7x7(ptr noundef readonly captures(none) %0, ptr noundef r
   %184 = lshr i64 %183, 18
   %185 = and i64 %184, 1023
   %186 = getelementptr inbounds nuw i8, ptr %11, i64 %185
-  %187 = load i8, ptr %186, align 1, !tbaa !37
-  store i8 %187, ptr %128, align 1, !tbaa !37
+  %187 = load i8, ptr %186, align 1, !tbaa !38
+  store i8 %187, ptr %128, align 1, !tbaa !38
   %188 = sub nsw i64 %154, %179
   %189 = lshr i64 %188, 18
   %190 = and i64 %189, 1023
   %191 = getelementptr inbounds nuw i8, ptr %11, i64 %190
-  %192 = load i8, ptr %191, align 1, !tbaa !37
+  %192 = load i8, ptr %191, align 1, !tbaa !38
   %193 = getelementptr inbounds nuw i8, ptr %128, i64 6
-  store i8 %192, ptr %193, align 1, !tbaa !37
+  store i8 %192, ptr %193, align 1, !tbaa !38
   %194 = add nsw i64 %176, %148
   %195 = lshr i64 %194, 18
   %196 = and i64 %195, 1023
   %197 = getelementptr inbounds nuw i8, ptr %11, i64 %196
-  %198 = load i8, ptr %197, align 1, !tbaa !37
+  %198 = load i8, ptr %197, align 1, !tbaa !38
   %199 = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store i8 %198, ptr %199, align 1, !tbaa !37
+  store i8 %198, ptr %199, align 1, !tbaa !38
   %200 = sub nsw i64 %148, %176
   %201 = lshr i64 %200, 18
   %202 = and i64 %201, 1023
   %203 = getelementptr inbounds nuw i8, ptr %11, i64 %202
-  %204 = load i8, ptr %203, align 1, !tbaa !37
+  %204 = load i8, ptr %203, align 1, !tbaa !38
   %205 = getelementptr inbounds nuw i8, ptr %128, i64 5
-  store i8 %204, ptr %205, align 1, !tbaa !37
+  store i8 %204, ptr %205, align 1, !tbaa !38
   %206 = add nsw i64 %182, %156
   %207 = lshr i64 %206, 18
   %208 = and i64 %207, 1023
   %209 = getelementptr inbounds nuw i8, ptr %11, i64 %208
-  %210 = load i8, ptr %209, align 1, !tbaa !37
+  %210 = load i8, ptr %209, align 1, !tbaa !38
   %211 = getelementptr inbounds nuw i8, ptr %128, i64 2
-  store i8 %210, ptr %211, align 1, !tbaa !37
+  store i8 %210, ptr %211, align 1, !tbaa !38
   %212 = sub nsw i64 %156, %182
   %213 = lshr i64 %212, 18
   %214 = and i64 %213, 1023
   %215 = getelementptr inbounds nuw i8, ptr %11, i64 %214
-  %216 = load i8, ptr %215, align 1, !tbaa !37
+  %216 = load i8, ptr %215, align 1, !tbaa !38
   %217 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  store i8 %216, ptr %217, align 1, !tbaa !37
+  store i8 %216, ptr %217, align 1, !tbaa !38
   %218 = lshr i64 %158, 18
   %219 = and i64 %218, 1023
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 %219
-  %221 = load i8, ptr %220, align 1, !tbaa !37
+  %221 = load i8, ptr %220, align 1, !tbaa !38
   %222 = getelementptr inbounds nuw i8, ptr %128, i64 3
-  store i8 %221, ptr %222, align 1, !tbaa !37
+  store i8 %221, ptr %222, align 1, !tbaa !38
   %223 = getelementptr inbounds nuw i8, ptr %.1167179, i64 28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond182.not, label %224, label %125, !llvm.loop !40
+  br i1 %exitcond182.not, label %224, label %125, !llvm.loop !41
 
 224:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %6) #2
@@ -813,13 +813,13 @@ define void @jpeg_idct_6x6(ptr noundef readonly captures(none) %0, ptr noundef r
   %97 = getelementptr inbounds nuw i8, ptr %.0122132, i64 2
   %98 = getelementptr inbounds nuw i8, ptr %.0120133, i64 4
   %exitcond.not = icmp eq i32 %95, 6
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !41
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !42
 
 99:                                               ; preds = %.preheader, %99
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %99 ]
   %.1121135 = phi ptr [ %6, %.preheader ], [ %174, %99 ]
   %100 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %101 = load ptr, ptr %100, align 8, !tbaa !36
+  %101 = load ptr, ptr %100, align 8, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %12
   %103 = load i32, ptr %.1121135, align 4, !tbaa !33
   %104 = sext i32 %103 to i64
@@ -862,47 +862,47 @@ define void @jpeg_idct_6x6(ptr noundef readonly captures(none) %0, ptr noundef r
   %140 = lshr i64 %139, 18
   %141 = and i64 %140, 1023
   %142 = getelementptr inbounds nuw i8, ptr %11, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !37
-  store i8 %143, ptr %102, align 1, !tbaa !37
+  %143 = load i8, ptr %142, align 1, !tbaa !38
+  store i8 %143, ptr %102, align 1, !tbaa !38
   %144 = sub nsw i64 %117, %132
   %145 = lshr i64 %144, 18
   %146 = and i64 %145, 1023
   %147 = getelementptr inbounds nuw i8, ptr %11, i64 %146
-  %148 = load i8, ptr %147, align 1, !tbaa !37
+  %148 = load i8, ptr %147, align 1, !tbaa !38
   %149 = getelementptr inbounds nuw i8, ptr %102, i64 5
-  store i8 %148, ptr %149, align 1, !tbaa !37
+  store i8 %148, ptr %149, align 1, !tbaa !38
   %150 = add nsw i64 %138, %112
   %151 = lshr i64 %150, 18
   %152 = and i64 %151, 1023
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 %152
-  %154 = load i8, ptr %153, align 1, !tbaa !37
+  %154 = load i8, ptr %153, align 1, !tbaa !38
   %155 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  store i8 %154, ptr %155, align 1, !tbaa !37
+  store i8 %154, ptr %155, align 1, !tbaa !38
   %156 = sub nsw i64 %112, %138
   %157 = lshr i64 %156, 18
   %158 = and i64 %157, 1023
   %159 = getelementptr inbounds nuw i8, ptr %11, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !37
+  %160 = load i8, ptr %159, align 1, !tbaa !38
   %161 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store i8 %160, ptr %161, align 1, !tbaa !37
+  store i8 %160, ptr %161, align 1, !tbaa !38
   %162 = add nsw i64 %135, %118
   %163 = lshr i64 %162, 18
   %164 = and i64 %163, 1023
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 %164
-  %166 = load i8, ptr %165, align 1, !tbaa !37
+  %166 = load i8, ptr %165, align 1, !tbaa !38
   %167 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  store i8 %166, ptr %167, align 1, !tbaa !37
+  store i8 %166, ptr %167, align 1, !tbaa !38
   %168 = sub nsw i64 %118, %135
   %169 = lshr i64 %168, 18
   %170 = and i64 %169, 1023
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !37
+  %172 = load i8, ptr %171, align 1, !tbaa !38
   %173 = getelementptr inbounds nuw i8, ptr %102, i64 3
-  store i8 %172, ptr %173, align 1, !tbaa !37
+  store i8 %172, ptr %173, align 1, !tbaa !38
   %174 = getelementptr inbounds nuw i8, ptr %.1121135, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond138.not, label %175, label %99, !llvm.loop !42
+  br i1 %exitcond138.not, label %175, label %99, !llvm.loop !43
 
 175:                                              ; preds = %99
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #2
@@ -1007,13 +1007,13 @@ define void @jpeg_idct_5x5(ptr noundef readonly captures(none) %0, ptr noundef r
   %82 = getelementptr inbounds nuw i8, ptr %.0102108, i64 2
   %83 = getelementptr inbounds nuw i8, ptr %.0100109, i64 4
   %exitcond.not = icmp eq i32 %80, 5
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !44
 
 84:                                               ; preds = %.preheader, %84
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %84 ]
   %.1101111 = phi ptr [ %6, %.preheader ], [ %145, %84 ]
   %85 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %86 = load ptr, ptr %85, align 8, !tbaa !36
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %12
   %88 = load i32, ptr %.1101111, align 4, !tbaa !33
   %89 = sext i32 %88 to i64
@@ -1050,39 +1050,39 @@ define void @jpeg_idct_5x5(ptr noundef readonly captures(none) %0, ptr noundef r
   %118 = lshr i64 %117, 18
   %119 = and i64 %118, 1023
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !37
-  store i8 %121, ptr %87, align 1, !tbaa !37
+  %121 = load i8, ptr %120, align 1, !tbaa !38
+  store i8 %121, ptr %87, align 1, !tbaa !38
   %122 = sub nsw i64 %103, %115
   %123 = lshr i64 %122, 18
   %124 = and i64 %123, 1023
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !37
+  %126 = load i8, ptr %125, align 1, !tbaa !38
   %127 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store i8 %126, ptr %127, align 1, !tbaa !37
+  store i8 %126, ptr %127, align 1, !tbaa !38
   %128 = add nsw i64 %116, %104
   %129 = lshr i64 %128, 18
   %130 = and i64 %129, 1023
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !37
+  %132 = load i8, ptr %131, align 1, !tbaa !38
   %133 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store i8 %132, ptr %133, align 1, !tbaa !37
+  store i8 %132, ptr %133, align 1, !tbaa !38
   %134 = sub nsw i64 %104, %116
   %135 = lshr i64 %134, 18
   %136 = and i64 %135, 1023
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 %136
-  %138 = load i8, ptr %137, align 1, !tbaa !37
+  %138 = load i8, ptr %137, align 1, !tbaa !38
   %139 = getelementptr inbounds nuw i8, ptr %87, i64 3
-  store i8 %138, ptr %139, align 1, !tbaa !37
+  store i8 %138, ptr %139, align 1, !tbaa !38
   %140 = lshr i64 %105, 18
   %141 = and i64 %140, 1023
   %142 = getelementptr inbounds nuw i8, ptr %11, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !37
+  %143 = load i8, ptr %142, align 1, !tbaa !38
   %144 = getelementptr inbounds nuw i8, ptr %87, i64 2
-  store i8 %143, ptr %144, align 1, !tbaa !37
+  store i8 %143, ptr %144, align 1, !tbaa !38
   %145 = getelementptr inbounds nuw i8, ptr %.1101111, i64 20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond114.not, label %146, label %84, !llvm.loop !44
+  br i1 %exitcond114.not, label %146, label %84, !llvm.loop !45
 
 146:                                              ; preds = %84
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #2
@@ -1153,13 +1153,13 @@ define void @jpeg_idct_3x3(ptr noundef readonly captures(none) %0, ptr noundef r
   %51 = getelementptr inbounds nuw i8, ptr %.06064, i64 2
   %52 = getelementptr inbounds nuw i8, ptr %.05865, i64 4
   %exitcond.not = icmp eq i32 %49, 3
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !45
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !46
 
 53:                                               ; preds = %.preheader, %53
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %53 ]
   %.15967 = phi ptr [ %6, %.preheader ], [ %87, %53 ]
   %54 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %55 = load ptr, ptr %54, align 8, !tbaa !36
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %12
   %57 = load i32, ptr %.15967, align 4, !tbaa !33
   %58 = sext i32 %57 to i64
@@ -1180,25 +1180,25 @@ define void @jpeg_idct_3x3(ptr noundef readonly captures(none) %0, ptr noundef r
   %72 = lshr i64 %71, 18
   %73 = and i64 %72, 1023
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !37
-  store i8 %75, ptr %56, align 1, !tbaa !37
+  %75 = load i8, ptr %74, align 1, !tbaa !38
+  store i8 %75, ptr %56, align 1, !tbaa !38
   %76 = sub nsw i64 %65, %70
   %77 = lshr i64 %76, 18
   %78 = and i64 %77, 1023
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !37
+  %80 = load i8, ptr %79, align 1, !tbaa !38
   %81 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  store i8 %80, ptr %81, align 1, !tbaa !37
+  store i8 %80, ptr %81, align 1, !tbaa !38
   %82 = lshr i64 %66, 18
   %83 = and i64 %82, 1023
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !37
+  %85 = load i8, ptr %84, align 1, !tbaa !38
   %86 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store i8 %85, ptr %86, align 1, !tbaa !37
+  store i8 %85, ptr %86, align 1, !tbaa !38
   %87 = getelementptr inbounds nuw i8, ptr %.15967, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond70.not, label %88, label %53, !llvm.loop !46
+  br i1 %exitcond70.not, label %88, label %53, !llvm.loop !47
 
 88:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #2
@@ -1364,13 +1364,13 @@ define void @jpeg_idct_9x9(ptr noundef readonly captures(none) %0, ptr noundef r
   %139 = getelementptr inbounds nuw i8, ptr %.0193209, i64 2
   %140 = getelementptr inbounds nuw i8, ptr %.0191210, i64 4
   %exitcond.not = icmp eq i32 %137, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !47
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !48
 
 141:                                              ; preds = %.preheader, %141
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %141 ]
   %.1192212 = phi ptr [ %6, %.preheader ], [ %255, %141 ]
   %142 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %143 = load ptr, ptr %142, align 8, !tbaa !36
+  %143 = load ptr, ptr %142, align 8, !tbaa !37
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %12
   %145 = load i32, ptr %.1192212, align 4, !tbaa !33
   %146 = sext i32 %145 to i64
@@ -1436,67 +1436,67 @@ define void @jpeg_idct_9x9(ptr noundef readonly captures(none) %0, ptr noundef r
   %204 = lshr i64 %203, 18
   %205 = and i64 %204, 1023
   %206 = getelementptr inbounds nuw i8, ptr %11, i64 %205
-  %207 = load i8, ptr %206, align 1, !tbaa !37
-  store i8 %207, ptr %144, align 1, !tbaa !37
+  %207 = load i8, ptr %206, align 1, !tbaa !38
+  store i8 %207, ptr %144, align 1, !tbaa !38
   %208 = sub nsw i64 %170, %193
   %209 = lshr i64 %208, 18
   %210 = and i64 %209, 1023
   %211 = getelementptr inbounds nuw i8, ptr %11, i64 %210
-  %212 = load i8, ptr %211, align 1, !tbaa !37
+  %212 = load i8, ptr %211, align 1, !tbaa !38
   %213 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  store i8 %212, ptr %213, align 1, !tbaa !37
+  store i8 %212, ptr %213, align 1, !tbaa !38
   %214 = add nsw i64 %202, %163
   %215 = lshr i64 %214, 18
   %216 = and i64 %215, 1023
   %217 = getelementptr inbounds nuw i8, ptr %11, i64 %216
-  %218 = load i8, ptr %217, align 1, !tbaa !37
+  %218 = load i8, ptr %217, align 1, !tbaa !38
   %219 = getelementptr inbounds nuw i8, ptr %144, i64 1
-  store i8 %218, ptr %219, align 1, !tbaa !37
+  store i8 %218, ptr %219, align 1, !tbaa !38
   %220 = sub nsw i64 %163, %202
   %221 = lshr i64 %220, 18
   %222 = and i64 %221, 1023
   %223 = getelementptr inbounds nuw i8, ptr %11, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !37
+  %224 = load i8, ptr %223, align 1, !tbaa !38
   %225 = getelementptr inbounds nuw i8, ptr %144, i64 7
-  store i8 %224, ptr %225, align 1, !tbaa !37
+  store i8 %224, ptr %225, align 1, !tbaa !38
   %226 = add nsw i64 %197, %172
   %227 = lshr i64 %226, 18
   %228 = and i64 %227, 1023
   %229 = getelementptr inbounds nuw i8, ptr %11, i64 %228
-  %230 = load i8, ptr %229, align 1, !tbaa !37
+  %230 = load i8, ptr %229, align 1, !tbaa !38
   %231 = getelementptr inbounds nuw i8, ptr %144, i64 2
-  store i8 %230, ptr %231, align 1, !tbaa !37
+  store i8 %230, ptr %231, align 1, !tbaa !38
   %232 = sub nsw i64 %172, %197
   %233 = lshr i64 %232, 18
   %234 = and i64 %233, 1023
   %235 = getelementptr inbounds nuw i8, ptr %11, i64 %234
-  %236 = load i8, ptr %235, align 1, !tbaa !37
+  %236 = load i8, ptr %235, align 1, !tbaa !38
   %237 = getelementptr inbounds nuw i8, ptr %144, i64 6
-  store i8 %236, ptr %237, align 1, !tbaa !37
+  store i8 %236, ptr %237, align 1, !tbaa !38
   %238 = add nsw i64 %199, %174
   %239 = lshr i64 %238, 18
   %240 = and i64 %239, 1023
   %241 = getelementptr inbounds nuw i8, ptr %11, i64 %240
-  %242 = load i8, ptr %241, align 1, !tbaa !37
+  %242 = load i8, ptr %241, align 1, !tbaa !38
   %243 = getelementptr inbounds nuw i8, ptr %144, i64 3
-  store i8 %242, ptr %243, align 1, !tbaa !37
+  store i8 %242, ptr %243, align 1, !tbaa !38
   %244 = sub nsw i64 %174, %199
   %245 = lshr i64 %244, 18
   %246 = and i64 %245, 1023
   %247 = getelementptr inbounds nuw i8, ptr %11, i64 %246
-  %248 = load i8, ptr %247, align 1, !tbaa !37
+  %248 = load i8, ptr %247, align 1, !tbaa !38
   %249 = getelementptr inbounds nuw i8, ptr %144, i64 5
-  store i8 %248, ptr %249, align 1, !tbaa !37
+  store i8 %248, ptr %249, align 1, !tbaa !38
   %250 = lshr i64 %164, 18
   %251 = and i64 %250, 1023
   %252 = getelementptr inbounds nuw i8, ptr %11, i64 %251
-  %253 = load i8, ptr %252, align 1, !tbaa !37
+  %253 = load i8, ptr %252, align 1, !tbaa !38
   %254 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  store i8 %253, ptr %254, align 1, !tbaa !37
+  store i8 %253, ptr %254, align 1, !tbaa !38
   %255 = getelementptr inbounds nuw i8, ptr %.1192212, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond215.not, label %256, label %141, !llvm.loop !48
+  br i1 %exitcond215.not, label %256, label %141, !llvm.loop !49
 
 256:                                              ; preds = %141
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #2
@@ -1672,13 +1672,13 @@ define void @jpeg_idct_10x10(ptr noundef readonly captures(none) %0, ptr noundef
   %146 = getelementptr inbounds nuw i8, ptr %.0214236, i64 2
   %147 = getelementptr inbounds nuw i8, ptr %.0212237, i64 4
   %exitcond.not = icmp eq i32 %144, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !49
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !50
 
 148:                                              ; preds = %.preheader, %148
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %148 ]
   %.1213239 = phi ptr [ %6, %.preheader ], [ %272, %148 ]
   %149 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %150 = load ptr, ptr %149, align 8, !tbaa !36
+  %150 = load ptr, ptr %149, align 8, !tbaa !37
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %12
   %152 = load i32, ptr %.1213239, align 4, !tbaa !33
   %153 = sext i32 %152 to i64
@@ -1749,75 +1749,75 @@ define void @jpeg_idct_10x10(ptr noundef readonly captures(none) %0, ptr noundef
   %214 = lshr i64 %213, 18
   %215 = and i64 %214, 1023
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !37
-  store i8 %217, ptr %151, align 1, !tbaa !37
+  %217 = load i8, ptr %216, align 1, !tbaa !38
+  store i8 %217, ptr %151, align 1, !tbaa !38
   %218 = sub nsw i64 %174, %198
   %219 = lshr i64 %218, 18
   %220 = and i64 %219, 1023
   %221 = getelementptr inbounds nuw i8, ptr %11, i64 %220
-  %222 = load i8, ptr %221, align 1, !tbaa !37
+  %222 = load i8, ptr %221, align 1, !tbaa !38
   %223 = getelementptr inbounds nuw i8, ptr %151, i64 9
-  store i8 %222, ptr %223, align 1, !tbaa !37
+  store i8 %222, ptr %223, align 1, !tbaa !38
   %224 = add nsw i64 %209, %176
   %225 = lshr i64 %224, 18
   %226 = and i64 %225, 1023
   %227 = getelementptr inbounds nuw i8, ptr %11, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !37
+  %228 = load i8, ptr %227, align 1, !tbaa !38
   %229 = getelementptr inbounds nuw i8, ptr %151, i64 1
-  store i8 %228, ptr %229, align 1, !tbaa !37
+  store i8 %228, ptr %229, align 1, !tbaa !38
   %230 = sub nsw i64 %176, %209
   %231 = lshr i64 %230, 18
   %232 = and i64 %231, 1023
   %233 = getelementptr inbounds nuw i8, ptr %11, i64 %232
-  %234 = load i8, ptr %233, align 1, !tbaa !37
+  %234 = load i8, ptr %233, align 1, !tbaa !38
   %235 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i8 %234, ptr %235, align 1, !tbaa !37
+  store i8 %234, ptr %235, align 1, !tbaa !38
   %236 = add nsw i64 %206, %162
   %237 = lshr i64 %236, 18
   %238 = and i64 %237, 1023
   %239 = getelementptr inbounds nuw i8, ptr %11, i64 %238
-  %240 = load i8, ptr %239, align 1, !tbaa !37
+  %240 = load i8, ptr %239, align 1, !tbaa !38
   %241 = getelementptr inbounds nuw i8, ptr %151, i64 2
-  store i8 %240, ptr %241, align 1, !tbaa !37
+  store i8 %240, ptr %241, align 1, !tbaa !38
   %242 = sub nsw i64 %162, %206
   %243 = lshr i64 %242, 18
   %244 = and i64 %243, 1023
   %245 = getelementptr inbounds nuw i8, ptr %11, i64 %244
-  %246 = load i8, ptr %245, align 1, !tbaa !37
+  %246 = load i8, ptr %245, align 1, !tbaa !38
   %247 = getelementptr inbounds nuw i8, ptr %151, i64 7
-  store i8 %246, ptr %247, align 1, !tbaa !37
+  store i8 %246, ptr %247, align 1, !tbaa !38
   %248 = add nsw i64 %212, %177
   %249 = lshr i64 %248, 18
   %250 = and i64 %249, 1023
   %251 = getelementptr inbounds nuw i8, ptr %11, i64 %250
-  %252 = load i8, ptr %251, align 1, !tbaa !37
+  %252 = load i8, ptr %251, align 1, !tbaa !38
   %253 = getelementptr inbounds nuw i8, ptr %151, i64 3
-  store i8 %252, ptr %253, align 1, !tbaa !37
+  store i8 %252, ptr %253, align 1, !tbaa !38
   %254 = sub nsw i64 %177, %212
   %255 = lshr i64 %254, 18
   %256 = and i64 %255, 1023
   %257 = getelementptr inbounds nuw i8, ptr %11, i64 %256
-  %258 = load i8, ptr %257, align 1, !tbaa !37
+  %258 = load i8, ptr %257, align 1, !tbaa !38
   %259 = getelementptr inbounds nuw i8, ptr %151, i64 6
-  store i8 %258, ptr %259, align 1, !tbaa !37
+  store i8 %258, ptr %259, align 1, !tbaa !38
   %260 = add nsw i64 %201, %175
   %261 = lshr i64 %260, 18
   %262 = and i64 %261, 1023
   %263 = getelementptr inbounds nuw i8, ptr %11, i64 %262
-  %264 = load i8, ptr %263, align 1, !tbaa !37
+  %264 = load i8, ptr %263, align 1, !tbaa !38
   %265 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  store i8 %264, ptr %265, align 1, !tbaa !37
+  store i8 %264, ptr %265, align 1, !tbaa !38
   %266 = sub nsw i64 %175, %201
   %267 = lshr i64 %266, 18
   %268 = and i64 %267, 1023
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 %268
-  %270 = load i8, ptr %269, align 1, !tbaa !37
+  %270 = load i8, ptr %269, align 1, !tbaa !38
   %271 = getelementptr inbounds nuw i8, ptr %151, i64 5
-  store i8 %270, ptr %271, align 1, !tbaa !37
+  store i8 %270, ptr %271, align 1, !tbaa !38
   %272 = getelementptr inbounds nuw i8, ptr %.1213239, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond242.not, label %273, label %148, !llvm.loop !50
+  br i1 %exitcond242.not, label %273, label %148, !llvm.loop !51
 
 273:                                              ; preds = %148
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %6) #2
@@ -2020,13 +2020,13 @@ define void @jpeg_idct_11x11(ptr noundef readonly captures(none) %0, ptr noundef
   %167 = getelementptr inbounds nuw i8, ptr %.0247267, i64 2
   %168 = getelementptr inbounds nuw i8, ptr %.0245268, i64 4
   %exitcond.not = icmp eq i32 %165, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !52
 
 169:                                              ; preds = %.preheader, %169
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %169 ]
   %.1246270 = phi ptr [ %6, %.preheader ], [ %315, %169 ]
   %170 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %171 = load ptr, ptr %170, align 8, !tbaa !36
+  %171 = load ptr, ptr %170, align 8, !tbaa !37
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %12
   %173 = load i32, ptr %.1246270, align 4, !tbaa !33
   %174 = sext i32 %173 to i64
@@ -2119,81 +2119,81 @@ define void @jpeg_idct_11x11(ptr noundef readonly captures(none) %0, ptr noundef
   %252 = lshr i64 %251, 18
   %253 = and i64 %252, 1023
   %254 = getelementptr inbounds nuw i8, ptr %11, i64 %253
-  %255 = load i8, ptr %254, align 1, !tbaa !37
-  store i8 %255, ptr %172, align 1, !tbaa !37
+  %255 = load i8, ptr %254, align 1, !tbaa !38
+  store i8 %255, ptr %172, align 1, !tbaa !38
   %256 = sub nsw i64 %200, %232
   %257 = lshr i64 %256, 18
   %258 = and i64 %257, 1023
   %259 = getelementptr inbounds nuw i8, ptr %11, i64 %258
-  %260 = load i8, ptr %259, align 1, !tbaa !37
+  %260 = load i8, ptr %259, align 1, !tbaa !38
   %261 = getelementptr inbounds nuw i8, ptr %172, i64 10
-  store i8 %260, ptr %261, align 1, !tbaa !37
+  store i8 %260, ptr %261, align 1, !tbaa !38
   %262 = add nsw i64 %242, %197
   %263 = lshr i64 %262, 18
   %264 = and i64 %263, 1023
   %265 = getelementptr inbounds nuw i8, ptr %11, i64 %264
-  %266 = load i8, ptr %265, align 1, !tbaa !37
+  %266 = load i8, ptr %265, align 1, !tbaa !38
   %267 = getelementptr inbounds nuw i8, ptr %172, i64 1
-  store i8 %266, ptr %267, align 1, !tbaa !37
+  store i8 %266, ptr %267, align 1, !tbaa !38
   %268 = sub nsw i64 %197, %242
   %269 = lshr i64 %268, 18
   %270 = and i64 %269, 1023
   %271 = getelementptr inbounds nuw i8, ptr %11, i64 %270
-  %272 = load i8, ptr %271, align 1, !tbaa !37
+  %272 = load i8, ptr %271, align 1, !tbaa !38
   %273 = getelementptr inbounds nuw i8, ptr %172, i64 9
-  store i8 %272, ptr %273, align 1, !tbaa !37
+  store i8 %272, ptr %273, align 1, !tbaa !38
   %274 = add nsw i64 %237, %203
   %275 = lshr i64 %274, 18
   %276 = and i64 %275, 1023
   %277 = getelementptr inbounds nuw i8, ptr %11, i64 %276
-  %278 = load i8, ptr %277, align 1, !tbaa !37
+  %278 = load i8, ptr %277, align 1, !tbaa !38
   %279 = getelementptr inbounds nuw i8, ptr %172, i64 2
-  store i8 %278, ptr %279, align 1, !tbaa !37
+  store i8 %278, ptr %279, align 1, !tbaa !38
   %280 = sub nsw i64 %203, %237
   %281 = lshr i64 %280, 18
   %282 = and i64 %281, 1023
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 %282
-  %284 = load i8, ptr %283, align 1, !tbaa !37
+  %284 = load i8, ptr %283, align 1, !tbaa !38
   %285 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i8 %284, ptr %285, align 1, !tbaa !37
+  store i8 %284, ptr %285, align 1, !tbaa !38
   %286 = add nsw i64 %245, %201
   %287 = lshr i64 %286, 18
   %288 = and i64 %287, 1023
   %289 = getelementptr inbounds nuw i8, ptr %11, i64 %288
-  %290 = load i8, ptr %289, align 1, !tbaa !37
+  %290 = load i8, ptr %289, align 1, !tbaa !38
   %291 = getelementptr inbounds nuw i8, ptr %172, i64 3
-  store i8 %290, ptr %291, align 1, !tbaa !37
+  store i8 %290, ptr %291, align 1, !tbaa !38
   %292 = sub nsw i64 %201, %245
   %293 = lshr i64 %292, 18
   %294 = and i64 %293, 1023
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 %294
-  %296 = load i8, ptr %295, align 1, !tbaa !37
+  %296 = load i8, ptr %295, align 1, !tbaa !38
   %297 = getelementptr inbounds nuw i8, ptr %172, i64 7
-  store i8 %296, ptr %297, align 1, !tbaa !37
+  store i8 %296, ptr %297, align 1, !tbaa !38
   %298 = add nsw i64 %250, %206
   %299 = lshr i64 %298, 18
   %300 = and i64 %299, 1023
   %301 = getelementptr inbounds nuw i8, ptr %11, i64 %300
-  %302 = load i8, ptr %301, align 1, !tbaa !37
+  %302 = load i8, ptr %301, align 1, !tbaa !38
   %303 = getelementptr inbounds nuw i8, ptr %172, i64 4
-  store i8 %302, ptr %303, align 1, !tbaa !37
+  store i8 %302, ptr %303, align 1, !tbaa !38
   %304 = sub nsw i64 %206, %250
   %305 = lshr i64 %304, 18
   %306 = and i64 %305, 1023
   %307 = getelementptr inbounds nuw i8, ptr %11, i64 %306
-  %308 = load i8, ptr %307, align 1, !tbaa !37
+  %308 = load i8, ptr %307, align 1, !tbaa !38
   %309 = getelementptr inbounds nuw i8, ptr %172, i64 6
-  store i8 %308, ptr %309, align 1, !tbaa !37
+  store i8 %308, ptr %309, align 1, !tbaa !38
   %310 = lshr i64 %207, 18
   %311 = and i64 %310, 1023
   %312 = getelementptr inbounds nuw i8, ptr %11, i64 %311
-  %313 = load i8, ptr %312, align 1, !tbaa !37
+  %313 = load i8, ptr %312, align 1, !tbaa !38
   %314 = getelementptr inbounds nuw i8, ptr %172, i64 5
-  store i8 %313, ptr %314, align 1, !tbaa !37
+  store i8 %313, ptr %314, align 1, !tbaa !38
   %315 = getelementptr inbounds nuw i8, ptr %.1246270, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond273.not, label %316, label %169, !llvm.loop !52
+  br i1 %exitcond273.not, label %316, label %169, !llvm.loop !53
 
 316:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %6) #2
@@ -2389,13 +2389,13 @@ define void @jpeg_idct_12x12(ptr noundef readonly captures(none) %0, ptr noundef
   %164 = getelementptr inbounds nuw i8, ptr %.0250262, i64 2
   %165 = getelementptr inbounds nuw i8, ptr %.0248263, i64 4
   %exitcond.not = icmp eq i32 %162, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !53
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !54
 
 166:                                              ; preds = %.preheader, %166
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %166 ]
   %.1249265 = phi ptr [ %6, %.preheader ], [ %311, %166 ]
   %167 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %168 = load ptr, ptr %167, align 8, !tbaa !36
+  %168 = load ptr, ptr %167, align 8, !tbaa !37
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %12
   %170 = load i32, ptr %.1249265, align 4, !tbaa !33
   %171 = sext i32 %170 to i64
@@ -2475,89 +2475,89 @@ define void @jpeg_idct_12x12(ptr noundef readonly captures(none) %0, ptr noundef
   %241 = lshr i64 %240, 18
   %242 = and i64 %241, 1023
   %243 = getelementptr inbounds nuw i8, ptr %11, i64 %242
-  %244 = load i8, ptr %243, align 1, !tbaa !37
-  store i8 %244, ptr %169, align 1, !tbaa !37
+  %244 = load i8, ptr %243, align 1, !tbaa !38
+  store i8 %244, ptr %169, align 1, !tbaa !38
   %245 = sub nsw i64 %193, %220
   %246 = lshr i64 %245, 18
   %247 = and i64 %246, 1023
   %248 = getelementptr inbounds nuw i8, ptr %11, i64 %247
-  %249 = load i8, ptr %248, align 1, !tbaa !37
+  %249 = load i8, ptr %248, align 1, !tbaa !38
   %250 = getelementptr inbounds nuw i8, ptr %169, i64 11
-  store i8 %249, ptr %250, align 1, !tbaa !37
+  store i8 %249, ptr %250, align 1, !tbaa !38
   %251 = add nsw i64 %238, %190
   %252 = lshr i64 %251, 18
   %253 = and i64 %252, 1023
   %254 = getelementptr inbounds nuw i8, ptr %11, i64 %253
-  %255 = load i8, ptr %254, align 1, !tbaa !37
+  %255 = load i8, ptr %254, align 1, !tbaa !38
   %256 = getelementptr inbounds nuw i8, ptr %169, i64 1
-  store i8 %255, ptr %256, align 1, !tbaa !37
+  store i8 %255, ptr %256, align 1, !tbaa !38
   %257 = sub nsw i64 %190, %238
   %258 = lshr i64 %257, 18
   %259 = and i64 %258, 1023
   %260 = getelementptr inbounds nuw i8, ptr %11, i64 %259
-  %261 = load i8, ptr %260, align 1, !tbaa !37
+  %261 = load i8, ptr %260, align 1, !tbaa !38
   %262 = getelementptr inbounds nuw i8, ptr %169, i64 10
-  store i8 %261, ptr %262, align 1, !tbaa !37
+  store i8 %261, ptr %262, align 1, !tbaa !38
   %263 = add nsw i64 %225, %197
   %264 = lshr i64 %263, 18
   %265 = and i64 %264, 1023
   %266 = getelementptr inbounds nuw i8, ptr %11, i64 %265
-  %267 = load i8, ptr %266, align 1, !tbaa !37
+  %267 = load i8, ptr %266, align 1, !tbaa !38
   %268 = getelementptr inbounds nuw i8, ptr %169, i64 2
-  store i8 %267, ptr %268, align 1, !tbaa !37
+  store i8 %267, ptr %268, align 1, !tbaa !38
   %269 = sub nsw i64 %197, %225
   %270 = lshr i64 %269, 18
   %271 = and i64 %270, 1023
   %272 = getelementptr inbounds nuw i8, ptr %11, i64 %271
-  %273 = load i8, ptr %272, align 1, !tbaa !37
+  %273 = load i8, ptr %272, align 1, !tbaa !38
   %274 = getelementptr inbounds nuw i8, ptr %169, i64 9
-  store i8 %273, ptr %274, align 1, !tbaa !37
+  store i8 %273, ptr %274, align 1, !tbaa !38
   %275 = add nsw i64 %229, %198
   %276 = lshr i64 %275, 18
   %277 = and i64 %276, 1023
   %278 = getelementptr inbounds nuw i8, ptr %11, i64 %277
-  %279 = load i8, ptr %278, align 1, !tbaa !37
+  %279 = load i8, ptr %278, align 1, !tbaa !38
   %280 = getelementptr inbounds nuw i8, ptr %169, i64 3
-  store i8 %279, ptr %280, align 1, !tbaa !37
+  store i8 %279, ptr %280, align 1, !tbaa !38
   %281 = sub nsw i64 %198, %229
   %282 = lshr i64 %281, 18
   %283 = and i64 %282, 1023
   %284 = getelementptr inbounds nuw i8, ptr %11, i64 %283
-  %285 = load i8, ptr %284, align 1, !tbaa !37
+  %285 = load i8, ptr %284, align 1, !tbaa !38
   %286 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i8 %285, ptr %286, align 1, !tbaa !37
+  store i8 %285, ptr %286, align 1, !tbaa !38
   %287 = add nsw i64 %239, %191
   %288 = lshr i64 %287, 18
   %289 = and i64 %288, 1023
   %290 = getelementptr inbounds nuw i8, ptr %11, i64 %289
-  %291 = load i8, ptr %290, align 1, !tbaa !37
+  %291 = load i8, ptr %290, align 1, !tbaa !38
   %292 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  store i8 %291, ptr %292, align 1, !tbaa !37
+  store i8 %291, ptr %292, align 1, !tbaa !38
   %293 = sub nsw i64 %191, %239
   %294 = lshr i64 %293, 18
   %295 = and i64 %294, 1023
   %296 = getelementptr inbounds nuw i8, ptr %11, i64 %295
-  %297 = load i8, ptr %296, align 1, !tbaa !37
+  %297 = load i8, ptr %296, align 1, !tbaa !38
   %298 = getelementptr inbounds nuw i8, ptr %169, i64 7
-  store i8 %297, ptr %298, align 1, !tbaa !37
+  store i8 %297, ptr %298, align 1, !tbaa !38
   %299 = add nsw i64 %232, %194
   %300 = lshr i64 %299, 18
   %301 = and i64 %300, 1023
   %302 = getelementptr inbounds nuw i8, ptr %11, i64 %301
-  %303 = load i8, ptr %302, align 1, !tbaa !37
+  %303 = load i8, ptr %302, align 1, !tbaa !38
   %304 = getelementptr inbounds nuw i8, ptr %169, i64 5
-  store i8 %303, ptr %304, align 1, !tbaa !37
+  store i8 %303, ptr %304, align 1, !tbaa !38
   %305 = sub nsw i64 %194, %232
   %306 = lshr i64 %305, 18
   %307 = and i64 %306, 1023
   %308 = getelementptr inbounds nuw i8, ptr %11, i64 %307
-  %309 = load i8, ptr %308, align 1, !tbaa !37
+  %309 = load i8, ptr %308, align 1, !tbaa !38
   %310 = getelementptr inbounds nuw i8, ptr %169, i64 6
-  store i8 %309, ptr %310, align 1, !tbaa !37
+  store i8 %309, ptr %310, align 1, !tbaa !38
   %311 = getelementptr inbounds nuw i8, ptr %.1249265, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond268.not, label %312, label %166, !llvm.loop !54
+  br i1 %exitcond268.not, label %312, label %166, !llvm.loop !55
 
 312:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #2
@@ -2780,13 +2780,13 @@ define void @jpeg_idct_13x13(ptr noundef readonly captures(none) %0, ptr noundef
   %187 = getelementptr inbounds nuw i8, ptr %.0287303, i64 2
   %188 = getelementptr inbounds nuw i8, ptr %.0285304, i64 4
   %exitcond.not = icmp eq i32 %185, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !55
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !56
 
 189:                                              ; preds = %.preheader, %189
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %189 ]
   %.1286306 = phi ptr [ %6, %.preheader ], [ %359, %189 ]
   %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %191 = load ptr, ptr %190, align 8, !tbaa !36
+  %191 = load ptr, ptr %190, align 8, !tbaa !37
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 %12
   %193 = load i32, ptr %.1286306, align 4, !tbaa !33
   %194 = sext i32 %193 to i64
@@ -2889,95 +2889,95 @@ define void @jpeg_idct_13x13(ptr noundef readonly captures(none) %0, ptr noundef
   %284 = lshr i64 %283, 18
   %285 = and i64 %284, 1023
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 %285
-  %287 = load i8, ptr %286, align 1, !tbaa !37
-  store i8 %287, ptr %192, align 1, !tbaa !37
+  %287 = load i8, ptr %286, align 1, !tbaa !38
+  store i8 %287, ptr %192, align 1, !tbaa !38
   %288 = sub nsw i64 %213, %255
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
   %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !37
+  %292 = load i8, ptr %291, align 1, !tbaa !38
   %293 = getelementptr inbounds nuw i8, ptr %192, i64 12
-  store i8 %292, ptr %293, align 1, !tbaa !37
+  store i8 %292, ptr %293, align 1, !tbaa !38
   %294 = add nsw i64 %265, %222
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
-  %298 = load i8, ptr %297, align 1, !tbaa !37
+  %298 = load i8, ptr %297, align 1, !tbaa !38
   %299 = getelementptr inbounds nuw i8, ptr %192, i64 1
-  store i8 %298, ptr %299, align 1, !tbaa !37
+  store i8 %298, ptr %299, align 1, !tbaa !38
   %300 = sub nsw i64 %222, %265
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
   %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
-  %304 = load i8, ptr %303, align 1, !tbaa !37
+  %304 = load i8, ptr %303, align 1, !tbaa !38
   %305 = getelementptr inbounds nuw i8, ptr %192, i64 11
-  store i8 %304, ptr %305, align 1, !tbaa !37
+  store i8 %304, ptr %305, align 1, !tbaa !38
   %306 = add nsw i64 %271, %216
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
   %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
-  %310 = load i8, ptr %309, align 1, !tbaa !37
+  %310 = load i8, ptr %309, align 1, !tbaa !38
   %311 = getelementptr inbounds nuw i8, ptr %192, i64 2
-  store i8 %310, ptr %311, align 1, !tbaa !37
+  store i8 %310, ptr %311, align 1, !tbaa !38
   %312 = sub nsw i64 %216, %271
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
   %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
-  %316 = load i8, ptr %315, align 1, !tbaa !37
+  %316 = load i8, ptr %315, align 1, !tbaa !38
   %317 = getelementptr inbounds nuw i8, ptr %192, i64 10
-  store i8 %316, ptr %317, align 1, !tbaa !37
+  store i8 %316, ptr %317, align 1, !tbaa !38
   %318 = add nsw i64 %272, %228
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
   %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
-  %322 = load i8, ptr %321, align 1, !tbaa !37
+  %322 = load i8, ptr %321, align 1, !tbaa !38
   %323 = getelementptr inbounds nuw i8, ptr %192, i64 3
-  store i8 %322, ptr %323, align 1, !tbaa !37
+  store i8 %322, ptr %323, align 1, !tbaa !38
   %324 = sub nsw i64 %228, %272
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
   %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
-  %328 = load i8, ptr %327, align 1, !tbaa !37
+  %328 = load i8, ptr %327, align 1, !tbaa !38
   %329 = getelementptr inbounds nuw i8, ptr %192, i64 9
-  store i8 %328, ptr %329, align 1, !tbaa !37
+  store i8 %328, ptr %329, align 1, !tbaa !38
   %330 = add nsw i64 %279, %231
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
   %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
-  %334 = load i8, ptr %333, align 1, !tbaa !37
+  %334 = load i8, ptr %333, align 1, !tbaa !38
   %335 = getelementptr inbounds nuw i8, ptr %192, i64 4
-  store i8 %334, ptr %335, align 1, !tbaa !37
+  store i8 %334, ptr %335, align 1, !tbaa !38
   %336 = sub nsw i64 %231, %279
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
   %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
-  %340 = load i8, ptr %339, align 1, !tbaa !37
+  %340 = load i8, ptr %339, align 1, !tbaa !38
   %341 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store i8 %340, ptr %341, align 1, !tbaa !37
+  store i8 %340, ptr %341, align 1, !tbaa !38
   %342 = add nsw i64 %282, %225
   %343 = lshr i64 %342, 18
   %344 = and i64 %343, 1023
   %345 = getelementptr inbounds nuw i8, ptr %11, i64 %344
-  %346 = load i8, ptr %345, align 1, !tbaa !37
+  %346 = load i8, ptr %345, align 1, !tbaa !38
   %347 = getelementptr inbounds nuw i8, ptr %192, i64 5
-  store i8 %346, ptr %347, align 1, !tbaa !37
+  store i8 %346, ptr %347, align 1, !tbaa !38
   %348 = sub nsw i64 %225, %282
   %349 = lshr i64 %348, 18
   %350 = and i64 %349, 1023
   %351 = getelementptr inbounds nuw i8, ptr %11, i64 %350
-  %352 = load i8, ptr %351, align 1, !tbaa !37
+  %352 = load i8, ptr %351, align 1, !tbaa !38
   %353 = getelementptr inbounds nuw i8, ptr %192, i64 7
-  store i8 %352, ptr %353, align 1, !tbaa !37
+  store i8 %352, ptr %353, align 1, !tbaa !38
   %354 = lshr i64 %234, 18
   %355 = and i64 %354, 1023
   %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
-  %357 = load i8, ptr %356, align 1, !tbaa !37
+  %357 = load i8, ptr %356, align 1, !tbaa !38
   %358 = getelementptr inbounds nuw i8, ptr %192, i64 6
-  store i8 %357, ptr %358, align 1, !tbaa !37
+  store i8 %357, ptr %358, align 1, !tbaa !38
   %359 = getelementptr inbounds nuw i8, ptr %.1286306, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond313.not, label %360, label %189, !llvm.loop !56
+  br i1 %exitcond313.not, label %360, label %189, !llvm.loop !57
 
 360:                                              ; preds = %189
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #2
@@ -3193,13 +3193,13 @@ define void @jpeg_idct_14x14(ptr noundef readonly captures(none) %0, ptr noundef
   %177 = getelementptr inbounds nuw i8, ptr %.0287309, i64 2
   %178 = getelementptr inbounds nuw i8, ptr %.0285310, i64 4
   %exitcond.not = icmp eq i32 %175, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !57
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !58
 
 179:                                              ; preds = %.preheader, %179
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %179 ]
   %.1286312 = phi ptr [ %6, %.preheader ], [ %342, %179 ]
   %180 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %181 = load ptr, ptr %180, align 8, !tbaa !36
+  %181 = load ptr, ptr %180, align 8, !tbaa !37
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 %12
   %183 = load i32, ptr %.1286312, align 4, !tbaa !33
   %184 = sext i32 %183 to i64
@@ -3290,103 +3290,103 @@ define void @jpeg_idct_14x14(ptr noundef readonly captures(none) %0, ptr noundef
   %260 = lshr i64 %259, 18
   %261 = and i64 %260, 1023
   %262 = getelementptr inbounds nuw i8, ptr %11, i64 %261
-  %263 = load i8, ptr %262, align 1, !tbaa !37
-  store i8 %263, ptr %182, align 1, !tbaa !37
+  %263 = load i8, ptr %262, align 1, !tbaa !38
+  store i8 %263, ptr %182, align 1, !tbaa !38
   %264 = sub nsw i64 %209, %234
   %265 = lshr i64 %264, 18
   %266 = and i64 %265, 1023
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 %266
-  %268 = load i8, ptr %267, align 1, !tbaa !37
+  %268 = load i8, ptr %267, align 1, !tbaa !38
   %269 = getelementptr inbounds nuw i8, ptr %182, i64 13
-  store i8 %268, ptr %269, align 1, !tbaa !37
+  store i8 %268, ptr %269, align 1, !tbaa !38
   %270 = add nsw i64 %245, %211
   %271 = lshr i64 %270, 18
   %272 = and i64 %271, 1023
   %273 = getelementptr inbounds nuw i8, ptr %11, i64 %272
-  %274 = load i8, ptr %273, align 1, !tbaa !37
+  %274 = load i8, ptr %273, align 1, !tbaa !38
   %275 = getelementptr inbounds nuw i8, ptr %182, i64 1
-  store i8 %274, ptr %275, align 1, !tbaa !37
+  store i8 %274, ptr %275, align 1, !tbaa !38
   %276 = sub nsw i64 %211, %245
   %277 = lshr i64 %276, 18
   %278 = and i64 %277, 1023
   %279 = getelementptr inbounds nuw i8, ptr %11, i64 %278
-  %280 = load i8, ptr %279, align 1, !tbaa !37
+  %280 = load i8, ptr %279, align 1, !tbaa !38
   %281 = getelementptr inbounds nuw i8, ptr %182, i64 12
-  store i8 %280, ptr %281, align 1, !tbaa !37
+  store i8 %280, ptr %281, align 1, !tbaa !38
   %282 = add nsw i64 %247, %213
   %283 = lshr i64 %282, 18
   %284 = and i64 %283, 1023
   %285 = getelementptr inbounds nuw i8, ptr %11, i64 %284
-  %286 = load i8, ptr %285, align 1, !tbaa !37
+  %286 = load i8, ptr %285, align 1, !tbaa !38
   %287 = getelementptr inbounds nuw i8, ptr %182, i64 2
-  store i8 %286, ptr %287, align 1, !tbaa !37
+  store i8 %286, ptr %287, align 1, !tbaa !38
   %288 = sub nsw i64 %213, %247
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
   %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !37
+  %292 = load i8, ptr %291, align 1, !tbaa !38
   %293 = getelementptr inbounds nuw i8, ptr %182, i64 11
-  store i8 %292, ptr %293, align 1, !tbaa !37
+  store i8 %292, ptr %293, align 1, !tbaa !38
   %294 = add nsw i64 %258, %195
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
-  %298 = load i8, ptr %297, align 1, !tbaa !37
+  %298 = load i8, ptr %297, align 1, !tbaa !38
   %299 = getelementptr inbounds nuw i8, ptr %182, i64 3
-  store i8 %298, ptr %299, align 1, !tbaa !37
+  store i8 %298, ptr %299, align 1, !tbaa !38
   %300 = sub nsw i64 %195, %258
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
   %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
-  %304 = load i8, ptr %303, align 1, !tbaa !37
+  %304 = load i8, ptr %303, align 1, !tbaa !38
   %305 = getelementptr inbounds nuw i8, ptr %182, i64 10
-  store i8 %304, ptr %305, align 1, !tbaa !37
+  store i8 %304, ptr %305, align 1, !tbaa !38
   %306 = add nsw i64 %252, %214
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
   %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
-  %310 = load i8, ptr %309, align 1, !tbaa !37
+  %310 = load i8, ptr %309, align 1, !tbaa !38
   %311 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  store i8 %310, ptr %311, align 1, !tbaa !37
+  store i8 %310, ptr %311, align 1, !tbaa !38
   %312 = sub nsw i64 %214, %252
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
   %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
-  %316 = load i8, ptr %315, align 1, !tbaa !37
+  %316 = load i8, ptr %315, align 1, !tbaa !38
   %317 = getelementptr inbounds nuw i8, ptr %182, i64 9
-  store i8 %316, ptr %317, align 1, !tbaa !37
+  store i8 %316, ptr %317, align 1, !tbaa !38
   %318 = add nsw i64 %255, %212
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
   %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
-  %322 = load i8, ptr %321, align 1, !tbaa !37
+  %322 = load i8, ptr %321, align 1, !tbaa !38
   %323 = getelementptr inbounds nuw i8, ptr %182, i64 5
-  store i8 %322, ptr %323, align 1, !tbaa !37
+  store i8 %322, ptr %323, align 1, !tbaa !38
   %324 = sub nsw i64 %212, %255
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
   %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
-  %328 = load i8, ptr %327, align 1, !tbaa !37
+  %328 = load i8, ptr %327, align 1, !tbaa !38
   %329 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store i8 %328, ptr %329, align 1, !tbaa !37
+  store i8 %328, ptr %329, align 1, !tbaa !38
   %330 = add nsw i64 %240, %210
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
   %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
-  %334 = load i8, ptr %333, align 1, !tbaa !37
+  %334 = load i8, ptr %333, align 1, !tbaa !38
   %335 = getelementptr inbounds nuw i8, ptr %182, i64 6
-  store i8 %334, ptr %335, align 1, !tbaa !37
+  store i8 %334, ptr %335, align 1, !tbaa !38
   %336 = sub nsw i64 %210, %240
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
   %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
-  %340 = load i8, ptr %339, align 1, !tbaa !37
+  %340 = load i8, ptr %339, align 1, !tbaa !38
   %341 = getelementptr inbounds nuw i8, ptr %182, i64 7
-  store i8 %340, ptr %341, align 1, !tbaa !37
+  store i8 %340, ptr %341, align 1, !tbaa !38
   %342 = getelementptr inbounds nuw i8, ptr %.1286312, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond315.not, label %343, label %179, !llvm.loop !58
+  br i1 %exitcond315.not, label %343, label %179, !llvm.loop !59
 
 343:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %6) #2
@@ -3611,13 +3611,13 @@ define void @jpeg_idct_15x15(ptr noundef readonly captures(none) %0, ptr noundef
   %185 = getelementptr inbounds nuw i8, ptr %.0305335, i64 2
   %186 = getelementptr inbounds nuw i8, ptr %.0303336, i64 4
   %exitcond.not = icmp eq i32 %183, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !59
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !60
 
 187:                                              ; preds = %.preheader, %187
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %187 ]
   %.1304338 = phi ptr [ %6, %.preheader ], [ %359, %187 ]
   %188 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %189 = load ptr, ptr %188, align 8, !tbaa !36
+  %189 = load ptr, ptr %188, align 8, !tbaa !37
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 %12
   %191 = load i32, ptr %.1304338, align 4, !tbaa !33
   %192 = sext i32 %191 to i64
@@ -3712,109 +3712,109 @@ define void @jpeg_idct_15x15(ptr noundef readonly captures(none) %0, ptr noundef
   %272 = lshr i64 %271, 18
   %273 = and i64 %272, 1023
   %274 = getelementptr inbounds nuw i8, ptr %11, i64 %273
-  %275 = load i8, ptr %274, align 1, !tbaa !37
-  store i8 %275, ptr %190, align 1, !tbaa !37
+  %275 = load i8, ptr %274, align 1, !tbaa !38
+  store i8 %275, ptr %190, align 1, !tbaa !38
   %276 = sub nsw i64 %214, %257
   %277 = lshr i64 %276, 18
   %278 = and i64 %277, 1023
   %279 = getelementptr inbounds nuw i8, ptr %11, i64 %278
-  %280 = load i8, ptr %279, align 1, !tbaa !37
+  %280 = load i8, ptr %279, align 1, !tbaa !38
   %281 = getelementptr inbounds nuw i8, ptr %190, i64 14
-  store i8 %280, ptr %281, align 1, !tbaa !37
+  store i8 %280, ptr %281, align 1, !tbaa !38
   %282 = add nsw i64 %248, %225
   %283 = lshr i64 %282, 18
   %284 = and i64 %283, 1023
   %285 = getelementptr inbounds nuw i8, ptr %11, i64 %284
-  %286 = load i8, ptr %285, align 1, !tbaa !37
+  %286 = load i8, ptr %285, align 1, !tbaa !38
   %287 = getelementptr inbounds nuw i8, ptr %190, i64 1
-  store i8 %286, ptr %287, align 1, !tbaa !37
+  store i8 %286, ptr %287, align 1, !tbaa !38
   %288 = sub nsw i64 %225, %248
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
   %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !37
+  %292 = load i8, ptr %291, align 1, !tbaa !38
   %293 = getelementptr inbounds nuw i8, ptr %190, i64 13
-  store i8 %292, ptr %293, align 1, !tbaa !37
+  store i8 %292, ptr %293, align 1, !tbaa !38
   %294 = add nsw i64 %261, %229
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
-  %298 = load i8, ptr %297, align 1, !tbaa !37
+  %298 = load i8, ptr %297, align 1, !tbaa !38
   %299 = getelementptr inbounds nuw i8, ptr %190, i64 2
-  store i8 %298, ptr %299, align 1, !tbaa !37
+  store i8 %298, ptr %299, align 1, !tbaa !38
   %300 = sub nsw i64 %229, %261
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
   %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
-  %304 = load i8, ptr %303, align 1, !tbaa !37
+  %304 = load i8, ptr %303, align 1, !tbaa !38
   %305 = getelementptr inbounds nuw i8, ptr %190, i64 12
-  store i8 %304, ptr %305, align 1, !tbaa !37
+  store i8 %304, ptr %305, align 1, !tbaa !38
   %306 = add nsw i64 %267, %217
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
   %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
-  %310 = load i8, ptr %309, align 1, !tbaa !37
+  %310 = load i8, ptr %309, align 1, !tbaa !38
   %311 = getelementptr inbounds nuw i8, ptr %190, i64 3
-  store i8 %310, ptr %311, align 1, !tbaa !37
+  store i8 %310, ptr %311, align 1, !tbaa !38
   %312 = sub nsw i64 %217, %267
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
   %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
-  %316 = load i8, ptr %315, align 1, !tbaa !37
+  %316 = load i8, ptr %315, align 1, !tbaa !38
   %317 = getelementptr inbounds nuw i8, ptr %190, i64 11
-  store i8 %316, ptr %317, align 1, !tbaa !37
+  store i8 %316, ptr %317, align 1, !tbaa !38
   %318 = add nsw i64 %249, %227
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
   %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
-  %322 = load i8, ptr %321, align 1, !tbaa !37
+  %322 = load i8, ptr %321, align 1, !tbaa !38
   %323 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  store i8 %322, ptr %323, align 1, !tbaa !37
+  store i8 %322, ptr %323, align 1, !tbaa !38
   %324 = sub nsw i64 %227, %249
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
   %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
-  %328 = load i8, ptr %327, align 1, !tbaa !37
+  %328 = load i8, ptr %327, align 1, !tbaa !38
   %329 = getelementptr inbounds nuw i8, ptr %190, i64 10
-  store i8 %328, ptr %329, align 1, !tbaa !37
+  store i8 %328, ptr %329, align 1, !tbaa !38
   %330 = add nsw i64 %270, %219
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
   %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
-  %334 = load i8, ptr %333, align 1, !tbaa !37
+  %334 = load i8, ptr %333, align 1, !tbaa !38
   %335 = getelementptr inbounds nuw i8, ptr %190, i64 5
-  store i8 %334, ptr %335, align 1, !tbaa !37
+  store i8 %334, ptr %335, align 1, !tbaa !38
   %336 = sub nsw i64 %219, %270
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
   %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
-  %340 = load i8, ptr %339, align 1, !tbaa !37
+  %340 = load i8, ptr %339, align 1, !tbaa !38
   %341 = getelementptr inbounds nuw i8, ptr %190, i64 9
-  store i8 %340, ptr %341, align 1, !tbaa !37
+  store i8 %340, ptr %341, align 1, !tbaa !38
   %342 = add nsw i64 %259, %221
   %343 = lshr i64 %342, 18
   %344 = and i64 %343, 1023
   %345 = getelementptr inbounds nuw i8, ptr %11, i64 %344
-  %346 = load i8, ptr %345, align 1, !tbaa !37
+  %346 = load i8, ptr %345, align 1, !tbaa !38
   %347 = getelementptr inbounds nuw i8, ptr %190, i64 6
-  store i8 %346, ptr %347, align 1, !tbaa !37
+  store i8 %346, ptr %347, align 1, !tbaa !38
   %348 = sub nsw i64 %221, %259
   %349 = lshr i64 %348, 18
   %350 = and i64 %349, 1023
   %351 = getelementptr inbounds nuw i8, ptr %11, i64 %350
-  %352 = load i8, ptr %351, align 1, !tbaa !37
+  %352 = load i8, ptr %351, align 1, !tbaa !38
   %353 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store i8 %352, ptr %353, align 1, !tbaa !37
+  store i8 %352, ptr %353, align 1, !tbaa !38
   %354 = lshr i64 %230, 18
   %355 = and i64 %354, 1023
   %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
-  %357 = load i8, ptr %356, align 1, !tbaa !37
+  %357 = load i8, ptr %356, align 1, !tbaa !38
   %358 = getelementptr inbounds nuw i8, ptr %190, i64 7
-  store i8 %357, ptr %358, align 1, !tbaa !37
+  store i8 %357, ptr %358, align 1, !tbaa !38
   %359 = getelementptr inbounds nuw i8, ptr %.1304338, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond341.not, label %360, label %187, !llvm.loop !60
+  br i1 %exitcond341.not, label %360, label %187, !llvm.loop !61
 
 360:                                              ; preds = %187
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %6) #2
@@ -4060,13 +4060,13 @@ define void @jpeg_idct_16x16(ptr noundef readonly captures(none) %0, ptr noundef
   %208 = getelementptr inbounds nuw i8, ptr %.0354368, i64 2
   %209 = getelementptr inbounds nuw i8, ptr %.0352369, i64 4
   %exitcond.not = icmp eq i32 %206, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !61
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !62
 
 210:                                              ; preds = %.preheader, %210
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %210 ]
   %.1353371 = phi ptr [ %6, %.preheader ], [ %407, %210 ]
   %211 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %212 = load ptr, ptr %211, align 8, !tbaa !36
+  %212 = load ptr, ptr %211, align 8, !tbaa !37
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 %12
   %214 = load i32, ptr %.1353371, align 4, !tbaa !33
   %215 = sext i32 %214 to i64
@@ -4176,117 +4176,117 @@ define void @jpeg_idct_16x16(ptr noundef readonly captures(none) %0, ptr noundef
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
   %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
-  %316 = load i8, ptr %315, align 1, !tbaa !37
-  store i8 %316, ptr %213, align 1, !tbaa !37
+  %316 = load i8, ptr %315, align 1, !tbaa !38
+  store i8 %316, ptr %213, align 1, !tbaa !38
   %317 = sub nsw i64 %242, %275
   %318 = lshr i64 %317, 18
   %319 = and i64 %318, 1023
   %320 = getelementptr inbounds nuw i8, ptr %11, i64 %319
-  %321 = load i8, ptr %320, align 1, !tbaa !37
+  %321 = load i8, ptr %320, align 1, !tbaa !38
   %322 = getelementptr inbounds nuw i8, ptr %213, i64 15
-  store i8 %321, ptr %322, align 1, !tbaa !37
+  store i8 %321, ptr %322, align 1, !tbaa !38
   %323 = add nsw i64 %293, %244
   %324 = lshr i64 %323, 18
   %325 = and i64 %324, 1023
   %326 = getelementptr inbounds nuw i8, ptr %11, i64 %325
-  %327 = load i8, ptr %326, align 1, !tbaa !37
+  %327 = load i8, ptr %326, align 1, !tbaa !38
   %328 = getelementptr inbounds nuw i8, ptr %213, i64 1
-  store i8 %327, ptr %328, align 1, !tbaa !37
+  store i8 %327, ptr %328, align 1, !tbaa !38
   %329 = sub nsw i64 %244, %293
   %330 = lshr i64 %329, 18
   %331 = and i64 %330, 1023
   %332 = getelementptr inbounds nuw i8, ptr %11, i64 %331
-  %333 = load i8, ptr %332, align 1, !tbaa !37
+  %333 = load i8, ptr %332, align 1, !tbaa !38
   %334 = getelementptr inbounds nuw i8, ptr %213, i64 14
-  store i8 %333, ptr %334, align 1, !tbaa !37
+  store i8 %333, ptr %334, align 1, !tbaa !38
   %335 = add nsw i64 %306, %246
   %336 = lshr i64 %335, 18
   %337 = and i64 %336, 1023
   %338 = getelementptr inbounds nuw i8, ptr %11, i64 %337
-  %339 = load i8, ptr %338, align 1, !tbaa !37
+  %339 = load i8, ptr %338, align 1, !tbaa !38
   %340 = getelementptr inbounds nuw i8, ptr %213, i64 2
-  store i8 %339, ptr %340, align 1, !tbaa !37
+  store i8 %339, ptr %340, align 1, !tbaa !38
   %341 = sub nsw i64 %246, %306
   %342 = lshr i64 %341, 18
   %343 = and i64 %342, 1023
   %344 = getelementptr inbounds nuw i8, ptr %11, i64 %343
-  %345 = load i8, ptr %344, align 1, !tbaa !37
+  %345 = load i8, ptr %344, align 1, !tbaa !38
   %346 = getelementptr inbounds nuw i8, ptr %213, i64 13
-  store i8 %345, ptr %346, align 1, !tbaa !37
+  store i8 %345, ptr %346, align 1, !tbaa !38
   %347 = add nsw i64 %307, %248
   %348 = lshr i64 %347, 18
   %349 = and i64 %348, 1023
   %350 = getelementptr inbounds nuw i8, ptr %11, i64 %349
-  %351 = load i8, ptr %350, align 1, !tbaa !37
+  %351 = load i8, ptr %350, align 1, !tbaa !38
   %352 = getelementptr inbounds nuw i8, ptr %213, i64 3
-  store i8 %351, ptr %352, align 1, !tbaa !37
+  store i8 %351, ptr %352, align 1, !tbaa !38
   %353 = sub nsw i64 %248, %307
   %354 = lshr i64 %353, 18
   %355 = and i64 %354, 1023
   %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
-  %357 = load i8, ptr %356, align 1, !tbaa !37
+  %357 = load i8, ptr %356, align 1, !tbaa !38
   %358 = getelementptr inbounds nuw i8, ptr %213, i64 12
-  store i8 %357, ptr %358, align 1, !tbaa !37
+  store i8 %357, ptr %358, align 1, !tbaa !38
   %359 = add nsw i64 %310, %249
   %360 = lshr i64 %359, 18
   %361 = and i64 %360, 1023
   %362 = getelementptr inbounds nuw i8, ptr %11, i64 %361
-  %363 = load i8, ptr %362, align 1, !tbaa !37
+  %363 = load i8, ptr %362, align 1, !tbaa !38
   %364 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  store i8 %363, ptr %364, align 1, !tbaa !37
+  store i8 %363, ptr %364, align 1, !tbaa !38
   %365 = sub nsw i64 %249, %310
   %366 = lshr i64 %365, 18
   %367 = and i64 %366, 1023
   %368 = getelementptr inbounds nuw i8, ptr %11, i64 %367
-  %369 = load i8, ptr %368, align 1, !tbaa !37
+  %369 = load i8, ptr %368, align 1, !tbaa !38
   %370 = getelementptr inbounds nuw i8, ptr %213, i64 11
-  store i8 %369, ptr %370, align 1, !tbaa !37
+  store i8 %369, ptr %370, align 1, !tbaa !38
   %371 = add nsw i64 %311, %247
   %372 = lshr i64 %371, 18
   %373 = and i64 %372, 1023
   %374 = getelementptr inbounds nuw i8, ptr %11, i64 %373
-  %375 = load i8, ptr %374, align 1, !tbaa !37
+  %375 = load i8, ptr %374, align 1, !tbaa !38
   %376 = getelementptr inbounds nuw i8, ptr %213, i64 5
-  store i8 %375, ptr %376, align 1, !tbaa !37
+  store i8 %375, ptr %376, align 1, !tbaa !38
   %377 = sub nsw i64 %247, %311
   %378 = lshr i64 %377, 18
   %379 = and i64 %378, 1023
   %380 = getelementptr inbounds nuw i8, ptr %11, i64 %379
-  %381 = load i8, ptr %380, align 1, !tbaa !37
+  %381 = load i8, ptr %380, align 1, !tbaa !38
   %382 = getelementptr inbounds nuw i8, ptr %213, i64 10
-  store i8 %381, ptr %382, align 1, !tbaa !37
+  store i8 %381, ptr %382, align 1, !tbaa !38
   %383 = add nsw i64 %303, %245
   %384 = lshr i64 %383, 18
   %385 = and i64 %384, 1023
   %386 = getelementptr inbounds nuw i8, ptr %11, i64 %385
-  %387 = load i8, ptr %386, align 1, !tbaa !37
+  %387 = load i8, ptr %386, align 1, !tbaa !38
   %388 = getelementptr inbounds nuw i8, ptr %213, i64 6
-  store i8 %387, ptr %388, align 1, !tbaa !37
+  store i8 %387, ptr %388, align 1, !tbaa !38
   %389 = sub nsw i64 %245, %303
   %390 = lshr i64 %389, 18
   %391 = and i64 %390, 1023
   %392 = getelementptr inbounds nuw i8, ptr %11, i64 %391
-  %393 = load i8, ptr %392, align 1, !tbaa !37
+  %393 = load i8, ptr %392, align 1, !tbaa !38
   %394 = getelementptr inbounds nuw i8, ptr %213, i64 9
-  store i8 %393, ptr %394, align 1, !tbaa !37
+  store i8 %393, ptr %394, align 1, !tbaa !38
   %395 = add nsw i64 %278, %243
   %396 = lshr i64 %395, 18
   %397 = and i64 %396, 1023
   %398 = getelementptr inbounds nuw i8, ptr %11, i64 %397
-  %399 = load i8, ptr %398, align 1, !tbaa !37
+  %399 = load i8, ptr %398, align 1, !tbaa !38
   %400 = getelementptr inbounds nuw i8, ptr %213, i64 7
-  store i8 %399, ptr %400, align 1, !tbaa !37
+  store i8 %399, ptr %400, align 1, !tbaa !38
   %401 = sub nsw i64 %243, %278
   %402 = lshr i64 %401, 18
   %403 = and i64 %402, 1023
   %404 = getelementptr inbounds nuw i8, ptr %11, i64 %403
-  %405 = load i8, ptr %404, align 1, !tbaa !37
+  %405 = load i8, ptr %404, align 1, !tbaa !38
   %406 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i8 %405, ptr %406, align 1, !tbaa !37
+  store i8 %405, ptr %406, align 1, !tbaa !38
   %407 = getelementptr inbounds nuw i8, ptr %.1353371, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond374.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond374.not, label %408, label %210, !llvm.loop !62
+  br i1 %exitcond374.not, label %408, label %210, !llvm.loop !63
 
 408:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #2
@@ -4333,32 +4333,33 @@ attributes #2 = { nounwind }
 !31 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !6, i64 80, !6, i64 88}
 !32 = !{!16, !16, i64 0}
 !33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!18, !18, i64 0}
-!37 = !{!7, !7, i64 0}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
-!42 = distinct !{!42, !35}
-!43 = distinct !{!43, !35}
-!44 = distinct !{!44, !35}
-!45 = distinct !{!45, !35}
-!46 = distinct !{!46, !35}
-!47 = distinct !{!47, !35}
-!48 = distinct !{!48, !35}
-!49 = distinct !{!49, !35}
-!50 = distinct !{!50, !35}
-!51 = distinct !{!51, !35}
-!52 = distinct !{!52, !35}
-!53 = distinct !{!53, !35}
-!54 = distinct !{!54, !35}
-!55 = distinct !{!55, !35}
-!56 = distinct !{!56, !35}
-!57 = distinct !{!57, !35}
-!58 = distinct !{!58, !35}
-!59 = distinct !{!59, !35}
-!60 = distinct !{!60, !35}
-!61 = distinct !{!61, !35}
-!62 = distinct !{!62, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!18, !18, i64 0}
+!38 = !{!7, !7, i64 0}
+!39 = distinct !{!39, !35, !36}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36}
+!42 = distinct !{!42, !35, !36}
+!43 = distinct !{!43, !35, !36}
+!44 = distinct !{!44, !35, !36}
+!45 = distinct !{!45, !35, !36}
+!46 = distinct !{!46, !35, !36}
+!47 = distinct !{!47, !35, !36}
+!48 = distinct !{!48, !35, !36}
+!49 = distinct !{!49, !35, !36}
+!50 = distinct !{!50, !35, !36}
+!51 = distinct !{!51, !35, !36}
+!52 = distinct !{!52, !35, !36}
+!53 = distinct !{!53, !35, !36}
+!54 = distinct !{!54, !35, !36}
+!55 = distinct !{!55, !35, !36}
+!56 = distinct !{!56, !35, !36}
+!57 = distinct !{!57, !35, !36}
+!58 = distinct !{!58, !35, !36}
+!59 = distinct !{!59, !35, !36}
+!60 = distinct !{!60, !35, !36}
+!61 = distinct !{!61, !35, !36}
+!62 = distinct !{!62, !35, !36}
+!63 = distinct !{!63, !35, !36}

@@ -209,7 +209,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 58:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !35
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %57 to i64
   %63 = sub i64 %61, %62
@@ -237,7 +237,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV30cmInstallSubdirectoryGenerator, i64 16), ptr %0, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %1, ptr %70, align 8, !tbaa !36
+  store ptr %1, ptr %70, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %72, ptr %71, align 8, !tbaa !4
@@ -420,7 +420,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !35
+  %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -495,17 +495,17 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator11HaveInstallEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %.not11.not = icmp eq ptr %5, %7
   br i1 %.not11.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.08.012 = phi ptr [ %13, %.lr.ph ], [ %5, %1 ]
-  %8 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !53
+  %8 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !54
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
@@ -513,7 +513,7 @@ define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator11HaveIn
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %.not.not = icmp eq ptr %13, %7
   %or.cond = select i1 %12, i1 true, i1 %.not.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %12, %.lr.ph ]
@@ -529,7 +529,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGenerator12CheckCMP0082ERbS0_(p
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  store i8 1, ptr %1, align 1, !tbaa !55
+  store i8 1, ptr %1, align 1, !tbaa !57
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -539,7 +539,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGenerator12CheckCMP0082ERbS0_(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator7ComputeEP16cmLocalGenerator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %1, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %3, align 8, !tbaa !58
   ret i1 true
 }
 
@@ -551,18 +551,18 @@ define dso_local void @_ZN30cmInstallSubdirectoryGenerator14GenerateScriptERSo(p
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  store i64 16, ptr %3, align 8, !tbaa !57
+  store i64 16, ptr %3, align 8, !tbaa !59
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %9, ptr %4, align 8, !tbaa !28
-  %10 = load i64, ptr %3, align 8, !tbaa !57
+  %10 = load i64, ptr %3, align 8, !tbaa !59
   store i64 %10, ptr %8, align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) @.str.2, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %24 = load ptr, ptr %23, align 8, !tbaa !56
+  %24 = load ptr, ptr %23, align 8, !tbaa !58
   %25 = call noundef i32 @_ZNK16cmLocalGenerator15GetPolicyStatusEN10cmPolicies8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(760) %24, i32 noundef 82)
   %cond = icmp eq i32 %25, 2
   br i1 %cond, label %36, label %77
@@ -640,14 +640,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %41 = load i64, ptr %40, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  store i64 %41, ptr %2, align 8, !tbaa !57
+  store i64 %41, ptr %2, align 8, !tbaa !59
   %42 = icmp ugt i64 %41, 15
   br i1 %42, label %.noexc.i16, label %._crit_edge.i.i15
 
 .noexc.i16:                                       ; preds = %36
   %43 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %43, ptr %5, align 8, !tbaa !28
-  %44 = load i64, ptr %2, align 8, !tbaa !57
+  %44 = load i64, ptr %2, align 8, !tbaa !59
   store i64 %44, ptr %38, align 8, !tbaa !13
   br label %._crit_edge.i.i15
 
@@ -668,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i15, %46, %48
-  %49 = load i64, ptr %2, align 8, !tbaa !57
+  %49 = load i64, ptr %2, align 8, !tbaa !59
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %49, ptr %50, align 8, !tbaa !10
   %51 = load ptr, ptr %5, align 8, !tbaa !28
@@ -690,7 +690,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit:            ; preds = %_ZNSt7__cxx1112basi
 .noexc22:                                         ; preds = %.lr.ph.i.i19
   %55 = add nuw nsw i32 %.03.i.i20, 1
   %exitcond.not.i21 = icmp eq i32 %55, 2
-  br i1 %exitcond.not.i21, label %_ZlsRSo23cmScriptGeneratorIndent.exit23, label %.lr.ph.i.i19, !llvm.loop !58
+  br i1 %exitcond.not.i21, label %_ZlsRSo23cmScriptGeneratorIndent.exit23, label %.lr.ph.i.i19, !llvm.loop !60
 
 _ZlsRSo23cmScriptGeneratorIndent.exit23:          ; preds = %.noexc22
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 51)
@@ -704,7 +704,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit23:          ; preds = %.noexc22
 .noexc29:                                         ; preds = %.lr.ph.i.i26
   %58 = add nuw nsw i32 %.03.i.i27, 1
   %exitcond.not.i28 = icmp eq i32 %58, 2
-  br i1 %exitcond.not.i28, label %_ZlsRSo23cmScriptGeneratorIndent.exit30, label %.lr.ph.i.i26, !llvm.loop !58
+  br i1 %exitcond.not.i28, label %_ZlsRSo23cmScriptGeneratorIndent.exit30, label %.lr.ph.i.i26, !llvm.loop !60
 
 _ZlsRSo23cmScriptGeneratorIndent.exit30:          ; preds = %.noexc29
   %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 9)
@@ -865,19 +865,19 @@ define internal void @_GLOBAL__sub_I_cmInstallSubdirectoryGenerator.cxx() #13 se
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #15
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #15
-  store i32 0, ptr %1, align 4, !tbaa !59
+  store i32 0, ptr %1, align 4, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !59
+  store i32 1, ptr %3, align 4, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !59
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !61
+  store i32 2, ptr %4, align 4, !tbaa !61
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !63
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !59
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !61
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -889,10 +889,10 @@ define internal void @_GLOBAL__sub_I_cmInstallSubdirectoryGenerator.cxx() #13 se
 _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   %10 = shl nuw nsw i64 1, %7
   %11 = or i64 %10, %5
-  store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !57
+  store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !59
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !65
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #15
@@ -957,33 +957,36 @@ attributes #17 = { noreturn }
 !30 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
 !31 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !7, i64 0}
 !32 = !{!30, !31, i64 8}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!30, !31, i64 16}
-!36 = !{!37, !49, i64 200}
-!37 = !{!"_ZTS30cmInstallSubdirectoryGenerator", !38, i64 0, !49, i64 200, !11, i64 208, !50, i64 240}
-!38 = !{!"_ZTS18cmInstallGenerator", !39, i64 0, !11, i64 112, !11, i64 144, !45, i64 176, !44, i64 180, !44, i64 181, !46, i64 184}
-!39 = !{!"_ZTS17cmScriptGenerator", !11, i64 8, !40, i64 40, !11, i64 64, !43, i64 96, !44, i64 104}
-!40 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !41, i64 0}
-!41 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !30, i64 0}
-!43 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
-!44 = !{!"bool", !8, i64 0}
-!45 = !{!"_ZTSN18cmInstallGenerator12MessageLevelE", !8, i64 0}
-!46 = !{!"_ZTS19cmListFileBacktrace", !47, i64 0}
-!47 = !{!"_ZTS12cmConstStackI17cmListFileContext19cmListFileBacktraceE", !48, i64 0}
-!48 = !{!"_ZTSSt10shared_ptrIKN12cmConstStackI17cmListFileContext19cmListFileBacktraceE5EntryEE", !15, i64 0}
-!49 = !{!"p1 _ZTS10cmMakefile", !7, i64 0}
-!50 = !{!"p1 _ZTS16cmLocalGenerator", !7, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTSSt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS0_EE", !7, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS18cmInstallGenerator", !7, i64 0}
-!55 = !{!44, !44, i64 0}
-!56 = !{!37, !50, i64 240}
-!57 = !{!12, !12, i64 0}
-!58 = distinct !{!58, !34}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!61 = !{!62, !12, i64 0}
-!62 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!30, !31, i64 16}
+!37 = !{!38, !50, i64 200}
+!38 = !{!"_ZTS30cmInstallSubdirectoryGenerator", !39, i64 0, !50, i64 200, !11, i64 208, !51, i64 240}
+!39 = !{!"_ZTS18cmInstallGenerator", !40, i64 0, !11, i64 112, !11, i64 144, !46, i64 176, !45, i64 180, !45, i64 181, !47, i64 184}
+!40 = !{!"_ZTS17cmScriptGenerator", !11, i64 8, !41, i64 40, !11, i64 64, !44, i64 96, !45, i64 104}
+!41 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !42, i64 0}
+!42 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !30, i64 0}
+!44 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
+!45 = !{!"bool", !8, i64 0}
+!46 = !{!"_ZTSN18cmInstallGenerator12MessageLevelE", !8, i64 0}
+!47 = !{!"_ZTS19cmListFileBacktrace", !48, i64 0}
+!48 = !{!"_ZTS12cmConstStackI17cmListFileContext19cmListFileBacktraceE", !49, i64 0}
+!49 = !{!"_ZTSSt10shared_ptrIKN12cmConstStackI17cmListFileContext19cmListFileBacktraceE5EntryEE", !15, i64 0}
+!50 = !{!"p1 _ZTS10cmMakefile", !7, i64 0}
+!51 = !{!"p1 _ZTS16cmLocalGenerator", !7, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS0_EE", !7, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS18cmInstallGenerator", !7, i64 0}
+!56 = distinct !{!56, !35}
+!57 = !{!45, !45, i64 0}
+!58 = !{!38, !51, i64 240}
+!59 = !{!12, !12, i64 0}
+!60 = distinct !{!60, !34, !35}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!63 = !{!64, !12, i64 0}
+!64 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
+!65 = distinct !{!65, !35}

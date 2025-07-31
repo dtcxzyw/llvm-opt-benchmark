@@ -397,7 +397,7 @@ define dso_local i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) l
   %77 = load i32, ptr %57, align 4
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next.i, %78
-  br i1 %79, label %63, label %.preheader.i, !llvm.loop !11
+  br i1 %79, label %63, label %.preheader.i, !llvm.loop !12
 
 80:                                               ; preds = %92, %.lr.ph49.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next59.i, %92 ]
@@ -425,7 +425,7 @@ define dso_local i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) l
   %93 = load i32, ptr %60, align 8
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %indvars.iv.next59.i, %94
-  br i1 %95, label %80, label %._crit_edge.i, !llvm.loop !12
+  br i1 %95, label %80, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %92, %.preheader.i
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -530,7 +530,7 @@ define dso_local i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) l
   %147 = load i32, ptr %131, align 4
   %148 = zext i32 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next62.i, %148
-  br i1 %149, label %134, label %._crit_edge53.i, !llvm.loop !13
+  br i1 %149, label %134, label %._crit_edge53.i, !llvm.loop !14
 
 ._crit_edge53.i:                                  ; preds = %146, %130
   %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -984,7 +984,7 @@ define dso_local ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) loc
   %101 = load i32, ptr %80, align 8
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %indvars.iv.next47.i, %102
-  br i1 %103, label %84, label %.loopexit.i, !llvm.loop !14
+  br i1 %103, label %84, label %.loopexit.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %116 ]
@@ -1015,7 +1015,7 @@ define dso_local ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) loc
   %119 = load i16, ptr %118, align 2
   %120 = zext i16 %119 to i64
   %121 = icmp samesign ult i64 %indvars.iv.next.i, %120
-  br i1 %121, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %121, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %79, %44
   %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -1142,7 +1142,7 @@ define dso_local ptr @mpi_g_conf_get_printable() local_unnamed_addr #0 {
   %16 = load i32, ptr @g_context_cnt, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 19:                                               ; preds = %._crit_edge
   %.not22 = icmp eq ptr %5, null
@@ -1270,7 +1270,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_send_stepd(i32 noundef %0, i32 n
   br label %.lr.ph241.split.backedge
 
 .lr.ph241.split.backedge:                         ; preds = %23, %20
-  br label %.lr.ph241.split, !llvm.loop !17
+  br label %.lr.ph241.split, !llvm.loop !18
 
 24:                                               ; preds = %2
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @context_lock) #10
@@ -1304,7 +1304,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_send_stepd(i32 noundef %0, i32 n
 36:                                               ; preds = %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_plugin_idx.exit.thread, label %31, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_plugin_idx.exit.thread, label %31, !llvm.loop !19
 
 _plugin_idx.exit.thread:                          ; preds = %36, %28
   %37 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.mpi_conf_send_stepd, i32 noundef %1) #10
@@ -1376,7 +1376,7 @@ _plugin_idx.exit:                                 ; preds = %31
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %65, %62
-  br label %.lr.ph.split, !llvm.loop !19
+  br label %.lr.ph.split, !llvm.loop !20
 
 .outer154._crit_edge:                             ; preds = %.split.us
   %66 = and i64 %46, 4294967295
@@ -1435,7 +1435,7 @@ _plugin_idx.exit:                                 ; preds = %31
   br label %.lr.ph183.split.backedge
 
 .lr.ph183.split.backedge:                         ; preds = %84, %81
-  br label %.lr.ph183.split, !llvm.loop !20
+  br label %.lr.ph183.split, !llvm.loop !21
 
 .outer153._crit_edge:                             ; preds = %.split186.us, %.outer154._crit_edge
   %85 = load ptr, ptr @mpi_confs, align 8
@@ -1512,7 +1512,7 @@ _plugin_idx.exit:                                 ; preds = %31
   br label %.lr.ph203.split.backedge
 
 .lr.ph203.split.backedge:                         ; preds = %110, %107
-  br label %.lr.ph203.split, !llvm.loop !21
+  br label %.lr.ph203.split, !llvm.loop !22
 
 .outer152._crit_edge:                             ; preds = %.split206.us
   %.not126235 = icmp eq i32 %storemerge, 0
@@ -1580,7 +1580,7 @@ _plugin_idx.exit:                                 ; preds = %31
   br label %.lr.ph222.split.backedge
 
 .lr.ph222.split.backedge:                         ; preds = %134, %131
-  br label %.lr.ph222.split, !llvm.loop !22
+  br label %.lr.ph222.split, !llvm.loop !23
 
 .loopexit150:                                     ; preds = %.split224.us, %.outer152._crit_edge
   %135 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #10
@@ -1745,7 +1745,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %47, %44
-  br label %.lr.ph, !llvm.loop !23
+  br label %.lr.ph, !llvm.loop !24
 
 .outer142._crit_edge:                             ; preds = %.split168.us
   %48 = load i32, ptr %2, align 4
@@ -1876,7 +1876,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.lr.ph196.backedge
 
 .lr.ph196.backedge:                               ; preds = %94, %91
-  br label %.lr.ph196, !llvm.loop !24
+  br label %.lr.ph196, !llvm.loop !25
 
 .split243:                                        ; preds = %.lr.ph230.split.split, %107
   %95 = tail call i32 @slurm_get_log_level() #10
@@ -1951,7 +1951,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.lr.ph230.backedge
 
 .lr.ph230.backedge:                               ; preds = %120, %117
-  br label %.lr.ph230, !llvm.loop !25
+  br label %.lr.ph230, !llvm.loop !26
 
 .lr.ph230:                                        ; preds = %.split201.us, %.lr.ph230.backedge
   %.085.ph262 = phi ptr [ %115, %.lr.ph230.backedge ], [ %2, %.split201.us ]
@@ -2131,7 +2131,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.lr.ph265.backedge
 
 .lr.ph265.backedge:                               ; preds = %189, %186
-  br label %.lr.ph265, !llvm.loop !26
+  br label %.lr.ph265, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.split271.us
   %190 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @context_lock) #10
@@ -2417,7 +2417,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %101 = load i32, ptr @g_context_cnt, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 104:                                              ; preds = %._crit_edge
   %105 = call i32 @stat(ptr noundef nonnull %82, ptr noundef nonnull %6) #10
@@ -2473,7 +2473,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next124, %125
-  br i1 %126, label %.lr.ph110, label %.loopexit, !llvm.loop !28
+  br i1 %126, label %.lr.ph110, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %123, %114, %106, %109
   call void @slurm_xfree(ptr noundef nonnull %5) #10
@@ -2548,7 +2548,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %163 = load i32, ptr @g_context_cnt, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next127, %164
-  br i1 %165, label %.lr.ph114, label %._crit_edge115, !llvm.loop !29
+  br i1 %165, label %.lr.ph114, label %._crit_edge115, !llvm.loop !30
 
 ._crit_edge115.thread:                            ; preds = %.loopexit, %._crit_edge115
   call void @slurm_xfree(ptr noundef nonnull @mpi_confs) #10
@@ -2588,7 +2588,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %177 = load i32, ptr @g_context_cnt, align 4
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next133, %178
-  br i1 %179, label %.preheader, label %._crit_edge121, !llvm.loop !30
+  br i1 %179, label %.preheader, label %._crit_edge121, !llvm.loop !31
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv129 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next130, %.lr.ph117 ]
@@ -2599,7 +2599,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %182 = load i32, ptr %173, align 4
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next130, %183
-  br i1 %184, label %.lr.ph117, label %._crit_edge118, !llvm.loop !31
+  br i1 %184, label %.lr.ph117, label %._crit_edge118, !llvm.loop !32
 
 185:                                              ; preds = %67, %._crit_edge121, %63, %40, %_is_none_plugin.exit.thread
   %.071 = phi i32 [ 0, %_is_none_plugin.exit.thread ], [ -1, %63 ], [ -1, %40 ], [ 0, %._crit_edge121 ], [ 0, %67 ]
@@ -2672,7 +2672,7 @@ _is_none_plugin.exit:                             ; preds = %2
   %26 = load i32, ptr @g_context_cnt, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %25, %.preheader, %19
   %.012 = phi i32 [ %24, %19 ], [ -1, %.preheader ], [ -1, %25 ]
@@ -2766,7 +2766,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %10 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 15:                                               ; preds = %._crit_edge, %0
   %16 = load i32, ptr @g_context_cnt, align 4
@@ -2798,7 +2798,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
   %25 = load i32, ptr @g_context_cnt, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next21, %26
-  br i1 %27, label %.lr.ph17, label %._crit_edge18, !llvm.loop !34
+  br i1 %27, label %.lr.ph17, label %._crit_edge18, !llvm.loop !35
 }
 
 declare ptr @slurm_xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2903,30 +2903,31 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}
+!31 = distinct !{!31, !9, !10, !11}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !9, !10, !11}
+!34 = distinct !{!34, !9, !10, !11}
+!35 = distinct !{!35, !9, !10, !11}

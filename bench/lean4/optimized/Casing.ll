@@ -465,7 +465,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit44
   %.041.be = phi ptr [ %.0, %lean_dec.exit44 ], [ %74, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !14
 }
 
 declare ptr @l_Char_toUpper(i32 noundef) local_unnamed_addr #1
@@ -845,3 +845,5 @@ attributes #4 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}

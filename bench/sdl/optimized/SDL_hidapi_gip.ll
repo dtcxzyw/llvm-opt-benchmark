@@ -243,7 +243,7 @@ GIP_EnsureAttachment.exit:                        ; preds = %.GIP_EnsureAttachme
   %73 = getelementptr inbounds nuw [10 x %struct.GIP_Quirks], ptr @quirks, i64 0, i64 %72
   %74 = load i16, ptr %73, align 4
   %exitcond.i = icmp eq i64 %72, 9
-  br i1 %exitcond.i, label %GIP_HandleQuirks.exit, label %21, !llvm.loop !7
+  br i1 %exitcond.i, label %GIP_HandleQuirks.exit, label %21, !llvm.loop !8
 
 GIP_HandleQuirks.exit:                            ; preds = %71, %62
   %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 336
@@ -417,7 +417,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_UpdateDevice(ptr noundef %0) #0 {
 49:                                               ; preds = %40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %GIP_DecodeLength.exit.i, label %40, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %GIP_DecodeLength.exit.i, label %40, !llvm.loop !9
 
 .split.loop.exit.i.i:                             ; preds = %40
   %50 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -508,7 +508,7 @@ GIP_EnsureAttachment.exit.i:                      ; preds = %61, %GIP_DecodeLeng
 87:                                               ; preds = %78
   %indvars.iv.next.i116.i = add nuw nsw i64 %indvars.iv.i114.i, 1
   %exitcond.not.i117.i = icmp eq i64 %indvars.iv.next.i116.i, %wide.trip.count.i113.i
-  br i1 %exitcond.not.i117.i, label %GIP_DecodeLength.exit119.i, label %78, !llvm.loop !8
+  br i1 %exitcond.not.i117.i, label %GIP_DecodeLength.exit119.i, label %78, !llvm.loop !9
 
 .split.loop.exit.i118.i:                          ; preds = %78
   %88 = trunc nuw nsw i64 %indvars.iv.i114.i to i32
@@ -649,7 +649,7 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
 149:                                              ; preds = %140
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i124.i, 1
   %exitcond.not.i127.i = icmp eq i64 %indvars.iv.next.i126.i, %wide.trip.count.i123.i
-  br i1 %exitcond.not.i127.i, label %GIP_DecodeLength.exit129.i, label %140, !llvm.loop !8
+  br i1 %exitcond.not.i127.i, label %GIP_DecodeLength.exit129.i, label %140, !llvm.loop !9
 
 .split.loop.exit.i128.i:                          ; preds = %140
   %150 = trunc nuw nsw i64 %indvars.iv.i124.i to i32
@@ -848,7 +848,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %233 = load i32, ptr %12, align 4
   %234 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %232, ptr noundef nonnull %8, i64 noundef 64, i32 noundef %233) #10
   %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %33, label %._crit_edge, !llvm.loop !9
+  br i1 %235, label %33, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %GIP_ReceivePacket.exit, %1
   %.lcssa76 = phi i32 [ %15, %1 ], [ %234, %GIP_ReceivePacket.exit ]
@@ -999,7 +999,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %.2 = phi i1 [ false, %.thread ], [ %.14577, %252 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %309, label %252, !llvm.loop !10
+  br i1 %exitcond.not, label %309, label %252, !llvm.loop !11
 
 309:                                              ; preds = %308
   %310 = icmp slt i32 %.lcssa76, 0
@@ -1027,7 +1027,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 320:                                              ; preds = %317, %.preheader
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
-  br i1 %exitcond92.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond92.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %320, %311, %309
   %321 = icmp eq i32 %.lcssa76, 0
@@ -1059,7 +1059,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_OpenJoystick(ptr noundef readonly c
 13:                                               ; preds = %8, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %14, label %5, !llvm.loop !12
+  br i1 %exitcond.not.i, label %14, label %5, !llvm.loop !13
 
 14:                                               ; preds = %13
   %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.52) #10
@@ -1209,7 +1209,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_RumbleJoystick(ptr noundef readonly
 15:                                               ; preds = %10, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %16, label %7, !llvm.loop !12
+  br i1 %exitcond.not.i, label %16, label %7, !llvm.loop !13
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.52) #10
@@ -1269,7 +1269,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_RumbleJoystickTriggers(ptr noundef 
 15:                                               ; preds = %10, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %16, label %7, !llvm.loop !12
+  br i1 %exitcond.not.i, label %16, label %7, !llvm.loop !13
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.52) #10
@@ -1336,7 +1336,7 @@ define internal range(i32 0, 52) i32 @HIDAPI_DriverGIP_GetJoystickCapabilities(p
 13:                                               ; preds = %8, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %HIDAPI_DriverGIP_FindAttachment.exit.thread, label %5, !llvm.loop !12
+  br i1 %exitcond.not.i, label %HIDAPI_DriverGIP_FindAttachment.exit.thread, label %5, !llvm.loop !13
 
 HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 332
@@ -1390,7 +1390,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_SetJoystickLED(ptr noundef readonly
 17:                                               ; preds = %12, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %18, label %9, !llvm.loop !12
+  br i1 %exitcond.not.i, label %18, label %9, !llvm.loop !13
 
 18:                                               ; preds = %17
   %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.52) #10
@@ -1516,7 +1516,7 @@ define internal void @HIDAPI_DriverGIP_FreeDevice(ptr noundef readonly captures(
 18:                                               ; preds = %5, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %5, !llvm.loop !13
+  br i1 %exitcond.not, label %19, label %5, !llvm.loop !14
 
 19:                                               ; preds = %18
   ret void
@@ -1661,7 +1661,7 @@ define internal fastcc void @GIP_SetMetadataDefaults(ptr noundef %0) unnamed_add
   %82 = getelementptr inbounds nuw [10 x %struct.GIP_Quirks], ptr @quirks, i64 0, i64 %81
   %83 = load i16, ptr %82, align 4
   %exitcond.i = icmp eq i64 %81, 9
-  br i1 %exitcond.i, label %GIP_HandleQuirks.exit, label %30, !llvm.loop !7
+  br i1 %exitcond.i, label %GIP_HandleQuirks.exit, label %30, !llvm.loop !8
 
 GIP_HandleQuirks.exit:                            ; preds = %80, %71
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -1968,7 +1968,7 @@ GIP_SendGuideButtonLED.exit.thread:               ; preds = %GIP_SendGuideButton
 112:                                              ; preds = %114
   %113 = add nuw nsw i64 %.01316.i, 1
   %exitcond.not.i = icmp eq i64 %113, %109
-  br i1 %exitcond.not.i, label %.lr.ph.i36, label %114, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.lr.ph.i36, label %114, !llvm.loop !15
 
 114:                                              ; preds = %112, %.lr.ph.i
   %.01316.i = phi i64 [ 0, %.lr.ph.i ], [ %113, %112 ]
@@ -2025,7 +2025,7 @@ GIP_SupportsVendorMessage.exit.thread:            ; preds = %129, %GIP_SupportsV
 134:                                              ; preds = %136
   %135 = add nuw nsw i64 %.01316.i37, 1
   %exitcond.not.i39 = icmp eq i64 %135, %.pre-phi72
-  br i1 %exitcond.not.i39, label %GIP_SupportsVendorMessage.exit42.thread, label %136, !llvm.loop !14
+  br i1 %exitcond.not.i39, label %GIP_SupportsVendorMessage.exit42.thread, label %136, !llvm.loop !15
 
 136:                                              ; preds = %134, %.lr.ph.i36
   %.01316.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %135, %134 ]
@@ -2754,7 +2754,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   store i32 %308, ptr %306, align 4
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit176.i.i.i.i, label %299, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit176.i.i.i.i, label %299, !llvm.loop !16
 
 .loopexit176.i.i.i.i:                             ; preds = %299, %.preheader175.i.i.i.i, %291
   %309 = getelementptr inbounds nuw i8, ptr %249, i64 8
@@ -2806,7 +2806,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   store i32 %334, ptr %332, align 4
   %indvars.iv.next188.i.i.i.i = add nuw nsw i64 %indvars.iv187.i.i.i.i, 1
   %exitcond191.not.i.i.i.i = icmp eq i64 %indvars.iv.next188.i.i.i.i, %wide.trip.count190.i.i.i.i
-  br i1 %exitcond191.not.i.i.i.i, label %.loopexit174.i.i.i.i, label %325, !llvm.loop !16
+  br i1 %exitcond191.not.i.i.i.i, label %.loopexit174.i.i.i.i, label %325, !llvm.loop !17
 
 .loopexit174.i.i.i.i:                             ; preds = %325, %.preheader.i.i.i.i, %317
   %335 = getelementptr inbounds nuw i8, ptr %249, i64 10
@@ -2869,7 +2869,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %364, ptr nonnull readonly align 1 %367, i64 %368, i1 false)
   %indvars.iv.next193.i.i.i.i = add nuw nsw i64 %indvars.iv192.i.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next193.i.i.i.i, %349
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i.i, label %.lr.ph182.i.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i.i, label %.lr.ph182.i.i.i.i, !llvm.loop !18
 
 .loopexit.i.i.i.i:                                ; preds = %361, %344, %343
   %369 = phi ptr [ %350, %344 ], [ null, %343 ], [ %350, %361 ]
@@ -3031,7 +3031,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %469 = add nuw nsw i32 %448, %.05460.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %432
-  br i1 %exitcond30.not.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %exitcond30.not.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 GIP_ParseDeviceMetadata.exit.thread.i.i.i:        ; preds = %354, %.lr.ph182.i.i.i.i, %441, %.lr.ph.i.i.i, %425, %410, %400, %380, %.loopexit.i.i.i.i, %.loopexit174.i.i.i.i, %318, %.loopexit176.i.i.i.i, %292, %282, %271, %261, %252, %246
   call fastcc void @GIP_MetadataFree(ptr noundef nonnull %9)
@@ -3067,7 +3067,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %451, %427
 480:                                              ; preds = %507
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond32.not.i.i, label %.thread.i68.i, label %481, !llvm.loop !19
+  br i1 %exitcond32.not.i.i, label %.thread.i68.i, label %481, !llvm.loop !20
 
 481:                                              ; preds = %480, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %480 ]
@@ -3198,7 +3198,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %451, %427
   %.172.i.i = phi i1 [ true, %515 ], [ %.07117.i.i, %530 ], [ %.07117.i.i, %.sink.split.i.i ]
   %indvars.iv.next34.i.i = add nuw nsw i64 %indvars.iv33.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %indvars.iv.next34.i.i, %wide.trip.count35.i.i
-  br i1 %exitcond36.not.i.i, label %.preheader.i.i, label %510, !llvm.loop !20
+  br i1 %exitcond36.not.i.i, label %.preheader.i.i, label %510, !llvm.loop !21
 
 536:                                              ; preds = %551, %.lr.ph23.i.i
   %indvars.iv37.i.i = phi i64 [ 0, %.lr.ph23.i.i ], [ %indvars.iv.next38.i.i, %551 ]
@@ -3229,7 +3229,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %451, %427
 551:                                              ; preds = %548, %544, %540, %536
   %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %wide.trip.count40.i.i
-  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %536, !llvm.loop !21
+  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %536, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %551, %.preheader.i.i
   br i1 %.065.lcssa.i.i, label %552, label %553
@@ -3265,7 +3265,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %451, %427
 563:                                              ; preds = %565
   %564 = add nuw nsw i64 %.01316.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %564, %560
-  br i1 %exitcond.not.i.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %565, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %565, !llvm.loop !15
 
 565:                                              ; preds = %563, %.lr.ph.i77.i.i
   %.01316.i.i.i = phi i64 [ 0, %.lr.ph.i77.i.i ], [ %564, %563 ]
@@ -3371,7 +3371,7 @@ GIP_SupportsVendorMessage.exit.thread6.i.i:       ; preds = %GIP_SupportsVendorM
   %627 = getelementptr inbounds nuw [10 x %struct.GIP_Quirks], ptr @quirks, i64 0, i64 %626
   %628 = load i16, ptr %627, align 4
   %exitcond.i.i.i = icmp eq i64 %626, 9
-  br i1 %exitcond.i.i.i, label %GIP_HandleQuirks.exit.i.i, label %579, !llvm.loop !7
+  br i1 %exitcond.i.i.i, label %GIP_HandleQuirks.exit.i.i, label %579, !llvm.loop !8
 
 GIP_HandleQuirks.exit.i.i:                        ; preds = %625, %616
   %629 = tail call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %0)
@@ -4241,7 +4241,7 @@ GIP_HandleNavigationReport.exit.i:                ; preds = %988, %984, %967
   %1109 = add nsw i32 %.169.i.i, 1
   %1110 = load i32, ptr %1085, align 8
   %1111 = icmp slt i32 %1109, %1110
-  br i1 %1111, label %.lr.ph.i.i40, label %.loopexit68.i.i, !llvm.loop !22
+  br i1 %1111, label %.lr.ph.i.i40, label %.loopexit68.i.i, !llvm.loop !23
 
 1112:                                             ; preds = %1089
   %1113 = add nsw i32 %.070.i.i, 8
@@ -4251,7 +4251,7 @@ GIP_HandleNavigationReport.exit.i:                ; preds = %988, %984, %967
   %1114 = phi i32 [ %1090, %1112 ], [ %1090, %.preheader.i.i39 ], [ %1110, %.lr.ph.i.i40 ]
   %.2.i122.i = phi i32 [ %1113, %1112 ], [ %.070.i.i, %.preheader.i.i39 ], [ %1109, %.lr.ph.i.i40 ]
   %1115 = icmp slt i32 %.2.i122.i, %1114
-  br i1 %1115, label %1089, label %._crit_edge.i.i34, !llvm.loop !23
+  br i1 %1115, label %1089, label %._crit_edge.i.i34, !llvm.loop !24
 
 ._crit_edge.i.i34:                                ; preds = %.loopexit68.i.i, %1084
   %1116 = getelementptr inbounds nuw i8, ptr %1, i64 11
@@ -4304,7 +4304,7 @@ GIP_HandleNavigationReport.exit.i:                ; preds = %988, %984, %967
   %1141 = load i32, ptr %1125, align 4
   %1142 = sext i32 %1141 to i64
   %1143 = icmp slt i64 %indvars.iv.next.i.i38, %1142
-  br i1 %1143, label %.lr.ph76.i.i, label %GIP_HandleArcadeStickReport.exit.i, !llvm.loop !24
+  br i1 %1143, label %.lr.ph76.i.i, label %GIP_HandleArcadeStickReport.exit.i, !llvm.loop !25
 
 GIP_HandleArcadeStickReport.exit.i:               ; preds = %1130, %.lr.ph76.i.i, %._crit_edge.i.i34, %1071, %1064, %1036, %999
   %1144 = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -4494,7 +4494,7 @@ define internal fastcc void @GIP_MetadataFree(ptr noundef captures(none) %0) unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i8 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %18, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %15
   %.pre30 = load ptr, ptr %6, align 8
@@ -4613,24 +4613,25 @@ attributes #11 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}

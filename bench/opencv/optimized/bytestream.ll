@@ -138,7 +138,7 @@ define hidden void @_ZN6google8protobuf7strings10ByteSource6CopyToEPNS1_8ByteSin
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.sroa.speculated)
   %28 = sub i64 %.0, %.sroa.speculated
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %20, %.thread, %3
   ret void
@@ -169,19 +169,19 @@ define hidden void @_ZN6google8protobuf7strings8ByteSink5FlushEv(ptr nonnull rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6google8protobuf7strings22UncheckedArrayByteSink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !6
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
   %.not = icmp eq ptr %1, %5
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %1, i64 %2, i1 false)
-  %.pre = load ptr, ptr %4, align 8, !tbaa !6
+  %.pre = load ptr, ptr %4, align 8, !tbaa !8
   br label %7
 
 7:                                                ; preds = %6, %3
   %8 = phi ptr [ %.pre, %6 ], [ %5, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %2
-  store ptr %9, ptr %4, align 8, !tbaa !6
+  store ptr %9, ptr %4, align 8, !tbaa !8
   ret void
 }
 
@@ -192,29 +192,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden void @_ZN6google8protobuf7strings20CheckedArrayByteSinkC2EPcm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 33)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf7strings20CheckedArrayByteSinkE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %5, align 8, !tbaa !16
+  store i64 %2, ptr %5, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %6, align 8, !tbaa !17
+  store i64 0, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %7, align 8, !tbaa !18
+  store i8 0, ptr %7, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !19
   %8 = sub i64 %5, %7
   %9 = icmp ugt i64 %2, %8
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %11, align 8, !tbaa !18
+  store i8 1, ptr %11, align 8, !tbaa !20
   br label %12
 
 12:                                               ; preds = %10, %3
@@ -224,20 +224,20 @@ define hidden void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKc
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %7
   %.not12 = icmp eq ptr %1, %16
   br i1 %.not12, label %18, label %17
 
 17:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %1, i64 %.0, i1 false)
-  %.pre = load i64, ptr %6, align 8, !tbaa !17
+  %.pre = load i64, ptr %6, align 8, !tbaa !19
   br label %18
 
 18:                                               ; preds = %17, %13, %12
   %19 = phi i64 [ %.pre, %17 ], [ %7, %13 ], [ %7, %12 ]
   %20 = add i64 %19, %.0
-  store i64 %20, ptr %6, align 8, !tbaa !17
+  store i64 %20, ptr %6, align 8, !tbaa !19
   ret void
 }
 
@@ -245,12 +245,12 @@ define hidden void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKc
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSinkC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %3, align 8, !tbaa !19
+  store i64 %1, ptr %3, align 8, !tbaa !21
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %5, align 8, !tbaa !21
+  store ptr %4, ptr %5, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %6, align 8, !tbaa !22
+  store i64 0, ptr %6, align 8, !tbaa !24
   ret void
 }
 
@@ -261,7 +261,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSinkD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -280,7 +280,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN6google8protobuf7strings20GrowingArrayByteSinkD2Ev.exit, label %5
 
@@ -299,9 +299,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !19
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !24
   %8 = sub i64 %5, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = icmp ugt i64 %2, %8
@@ -314,20 +314,20 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKc
   %15 = lshr i64 %14, 1
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %15)
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #21
-  %17 = load ptr, ptr %9, align 8, !tbaa !21
+  %17 = load ptr, ptr %9, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %17, i64 %7, i1 false)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %11
   tail call void @_ZdaPv(ptr noundef nonnull %17) #22
-  %.pre15.pre = load i64, ptr %6, align 8, !tbaa !22
+  %.pre15.pre = load i64, ptr %6, align 8, !tbaa !24
   br label %.thread
 
 .thread:                                          ; preds = %19, %11
   %.pre15 = phi i64 [ %.pre15.pre, %19 ], [ %7, %11 ]
-  store ptr %16, ptr %9, align 8, !tbaa !21
-  store i64 %.sroa.speculated.i, ptr %4, align 8, !tbaa !19
+  store ptr %16, ptr %9, align 8, !tbaa !23
+  store i64 %.sroa.speculated.i, ptr %4, align 8, !tbaa !21
   br label %21
 
 20:                                               ; preds = %3
@@ -335,7 +335,7 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKc
   br i1 %.not, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20
-  %.pre = load ptr, ptr %9, align 8, !tbaa !21
+  %.pre = load ptr, ptr %9, align 8, !tbaa !23
   br label %21
 
 21:                                               ; preds = %._crit_edge, %.thread
@@ -347,29 +347,29 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6AppendEPKc
 
 25:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
-  %.pre16 = load i64, ptr %6, align 8, !tbaa !22
+  %.pre16 = load i64, ptr %6, align 8, !tbaa !24
   br label %26
 
 26:                                               ; preds = %25, %21, %20
   %27 = phi i64 [ %.pre16, %25 ], [ %22, %21 ], [ %7, %20 ]
   %28 = add i64 %27, %2
-  store i64 %28, ptr %6, align 8, !tbaa !22
+  store i64 %28, ptr %6, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6ExpandEm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !19
+  %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = add i64 %4, %1
   %6 = mul i64 %4, 3
   %7 = lshr i64 %6, 1
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %5, i64 %7)
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !22
+  %12 = load i64, ptr %11, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %10, i64 %12, i1 false)
   %13 = icmp eq ptr %10, null
   br i1 %13, label %15, label %14
@@ -379,18 +379,18 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink6ExpandEm(p
   br label %15
 
 15:                                               ; preds = %14, %2
-  store ptr %8, ptr %9, align 8, !tbaa !21
-  store i64 %.sroa.speculated, ptr %3, align 8, !tbaa !19
+  store ptr %8, ptr %9, align 8, !tbaa !23
+  store i64 %.sroa.speculated, ptr %3, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN6google8protobuf7strings20GrowingArrayByteSink9GetBufferEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !19
+  %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = icmp ugt i64 %4, 256
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !24
   br i1 %5, label %8, label %_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit
 
 8:                                                ; preds = %2
@@ -402,26 +402,26 @@ define hidden noundef ptr @_ZN6google8protobuf7strings20GrowingArrayByteSink9Get
 12:                                               ; preds = %8
   %13 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %15 = load ptr, ptr %14, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %15, i64 %7, i1 false)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12
   tail call void @_ZdaPv(ptr noundef nonnull %15) #22
-  %.pre.i = load i64, ptr %6, align 8, !tbaa !22
+  %.pre.i = load i64, ptr %6, align 8, !tbaa !24
   br label %18
 
 18:                                               ; preds = %17, %12
   %19 = phi i64 [ %.pre.i, %17 ], [ %7, %12 ]
-  store ptr %13, ptr %14, align 8, !tbaa !21
+  store ptr %13, ptr %14, align 8, !tbaa !23
   br label %_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit
 
 _ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit: ; preds = %2, %8, %18
   %20 = phi i64 [ %7, %8 ], [ %19, %18 ], [ %7, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
-  store i64 %20, ptr %1, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  store i64 %20, ptr %1, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret ptr %22
 }
@@ -429,13 +429,13 @@ _ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !21
   %4 = icmp ugt i64 %3, 256
   br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %6, align 8, !tbaa !24
   %8 = mul i64 %3, 3
   %9 = lshr i64 %8, 2
   %10 = icmp ult i64 %7, %9
@@ -444,20 +444,20 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToF
 11:                                               ; preds = %5
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !21
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %14, i64 %7, i1 false)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %11
   tail call void @_ZdaPv(ptr noundef nonnull %14) #22
-  %.pre = load i64, ptr %6, align 8, !tbaa !22
+  %.pre = load i64, ptr %6, align 8, !tbaa !24
   br label %17
 
 17:                                               ; preds = %16, %11
   %18 = phi i64 [ %.pre, %16 ], [ %7, %11 ]
-  store ptr %12, ptr %13, align 8, !tbaa !21
-  store i64 %18, ptr %2, align 8, !tbaa !19
+  store ptr %12, ptr %13, align 8, !tbaa !23
+  store i64 %18, ptr %2, align 8, !tbaa !21
   br label %19
 
 19:                                               ; preds = %17, %5, %1
@@ -467,9 +467,9 @@ define hidden void @_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToF
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings14StringByteSink6AppendEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !27
+  %7 = load i64, ptr %6, align 8, !tbaa !29
   %8 = sub i64 4611686018427387903, %7
   %9 = icmp ult i64 %8, %2
   br i1 %9, label %10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -486,16 +486,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6google8protobuf7strings15ArrayByteSource9AvailableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !30
+  %3 = load i64, ptr %2, align 8, !tbaa !32
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN6google8protobuf7strings15ArrayByteSource4PeekEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !32
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !34
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !23
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !25
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -504,13 +504,13 @@ define hidden { ptr, i64 } @_ZN6google8protobuf7strings15ArrayByteSource4PeekEv(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6google8protobuf7strings15ArrayByteSource4SkipEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %1
-  store ptr %5, ptr %3, align 8, !tbaa !33
+  store ptr %5, ptr %3, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !30
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = sub i64 %7, %1
-  store i64 %8, ptr %6, align 8, !tbaa !30
+  store i64 %8, ptr %6, align 8, !tbaa !32
   ret void
 }
 
@@ -518,22 +518,22 @@ define hidden void @_ZN6google8protobuf7strings15ArrayByteSource4SkipEm(ptr noun
 define hidden void @_ZN6google8protobuf7strings15LimitByteSourceC2EPNS1_10ByteSourceEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf7strings15LimitByteSourceE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %5, align 8, !tbaa !38
+  store i64 %2, ptr %5, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK6google8protobuf7strings15LimitByteSource9AvailableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !40
   %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %9)
   ret i64 %spec.select
 }
@@ -541,14 +541,14 @@ define hidden noundef i64 @_ZNK6google8protobuf7strings15LimitByteSource9Availab
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZN6google8protobuf7strings15LimitByteSource4PeekEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { ptr, i64 } %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %8 = extractvalue { ptr, i64 } %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !23
+  %10 = load i64, ptr %9, align 8, !tbaa !25
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %10, i64 %8)
   %.fca.1.insert = insertvalue { ptr, i64 } %7, i64 %.sroa.speculated, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -557,30 +557,30 @@ define hidden { ptr, i64 } @_ZN6google8protobuf7strings15LimitByteSource4PeekEv(
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings15LimitByteSource4SkipEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !40
   %10 = sub i64 %9, %1
-  store i64 %10, ptr %8, align 8, !tbaa !38
+  store i64 %10, ptr %8, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf7strings15LimitByteSource6CopyToEPNS1_8ByteSinkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, i64 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !38
+  %10 = load i64, ptr %9, align 8, !tbaa !40
   %11 = sub i64 %10, %2
-  store i64 %11, ptr %9, align 8, !tbaa !38
+  store i64 %11, ptr %9, align 8, !tbaa !40
   ret void
 }
 
@@ -696,36 +696,38 @@ attributes #24 = { noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"vtable pointer", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = !{!7, !9, i64 8}
-!7 = !{!"_ZTSN6google8protobuf7strings22UncheckedArrayByteSinkE", !8, i64 0, !9, i64 8}
-!8 = !{!"_ZTSN6google8protobuf7strings8ByteSinkE"}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !11, i64 0}
-!11 = !{!"omnipotent char", !5, i64 0}
-!12 = !{!13, !9, i64 8}
-!13 = !{!"_ZTSN6google8protobuf7strings20CheckedArrayByteSinkE", !8, i64 0, !9, i64 8, !14, i64 16, !14, i64 24, !15, i64 32}
-!14 = !{!"long", !11, i64 0}
-!15 = !{!"bool", !11, i64 0}
-!16 = !{!13, !14, i64 16}
-!17 = !{!13, !14, i64 24}
-!18 = !{!13, !15, i64 32}
-!19 = !{!20, !14, i64 8}
-!20 = !{!"_ZTSN6google8protobuf7strings20GrowingArrayByteSinkE", !8, i64 0, !14, i64 8, !9, i64 16, !14, i64 24}
-!21 = !{!20, !9, i64 16}
-!22 = !{!20, !14, i64 24}
-!23 = !{!14, !14, i64 0}
-!24 = !{!25, !26, i64 8}
-!25 = !{!"_ZTSN6google8protobuf7strings14StringByteSinkE", !8, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !10, i64 0}
-!27 = !{!28, !14, i64 8}
-!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !14, i64 8, !11, i64 16}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
-!30 = !{!31, !14, i64 8}
-!31 = !{!"_ZTSN6google8protobuf20stringpiece_internal11StringPieceE", !9, i64 0, !14, i64 8}
-!32 = !{!9, !9, i64 0}
-!33 = !{!31, !9, i64 0}
-!34 = !{!35, !37, i64 8}
-!35 = !{!"_ZTSN6google8protobuf7strings15LimitByteSourceE", !36, i64 0, !37, i64 8, !14, i64 16}
-!36 = !{!"_ZTSN6google8protobuf7strings10ByteSourceE"}
-!37 = !{!"p1 _ZTSN6google8protobuf7strings10ByteSourceE", !10, i64 0}
-!38 = !{!35, !14, i64 16}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9, !11, i64 8}
+!9 = !{!"_ZTSN6google8protobuf7strings22UncheckedArrayByteSinkE", !10, i64 0, !11, i64 8}
+!10 = !{!"_ZTSN6google8protobuf7strings8ByteSinkE"}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !13, i64 0}
+!13 = !{!"omnipotent char", !5, i64 0}
+!14 = !{!15, !11, i64 8}
+!15 = !{!"_ZTSN6google8protobuf7strings20CheckedArrayByteSinkE", !10, i64 0, !11, i64 8, !16, i64 16, !16, i64 24, !17, i64 32}
+!16 = !{!"long", !13, i64 0}
+!17 = !{!"bool", !13, i64 0}
+!18 = !{!15, !16, i64 16}
+!19 = !{!15, !16, i64 24}
+!20 = !{!15, !17, i64 32}
+!21 = !{!22, !16, i64 8}
+!22 = !{!"_ZTSN6google8protobuf7strings20GrowingArrayByteSinkE", !10, i64 0, !16, i64 8, !11, i64 16, !16, i64 24}
+!23 = !{!22, !11, i64 16}
+!24 = !{!22, !16, i64 24}
+!25 = !{!16, !16, i64 0}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"_ZTSN6google8protobuf7strings14StringByteSinkE", !10, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !12, i64 0}
+!29 = !{!30, !16, i64 8}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !31, i64 0, !16, i64 8, !13, i64 16}
+!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
+!32 = !{!33, !16, i64 8}
+!33 = !{!"_ZTSN6google8protobuf20stringpiece_internal11StringPieceE", !11, i64 0, !16, i64 8}
+!34 = !{!11, !11, i64 0}
+!35 = !{!33, !11, i64 0}
+!36 = !{!37, !39, i64 8}
+!37 = !{!"_ZTSN6google8protobuf7strings15LimitByteSourceE", !38, i64 0, !39, i64 8, !16, i64 16}
+!38 = !{!"_ZTSN6google8protobuf7strings10ByteSourceE"}
+!39 = !{!"p1 _ZTSN6google8protobuf7strings10ByteSourceE", !12, i64 0}
+!40 = !{!37, !16, i64 16}

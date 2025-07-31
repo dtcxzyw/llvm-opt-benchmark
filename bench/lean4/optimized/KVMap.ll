@@ -5010,7 +5010,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !4
-  br label %6
+  br label %6, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5983,7 +5983,7 @@ lean_dec.exit36:                                  ; preds = %94, %93, %91, %lean
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %106, %105, %103, %lean_dec.exit36
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7992,7 +7992,7 @@ lean_dec.exit49:                                  ; preds = %97, %96, %94, %lean
 
 lean_dec.exit51.backedge:                         ; preds = %101, %105, %107, %108, %44, %50, %52, %53, %lean_alloc_ctor.exit, %54
   %.042.be = phi ptr [ %.0, %54 ], [ %110, %lean_alloc_ctor.exit ], [ %.042, %53 ], [ %.042, %52 ], [ %.042, %50 ], [ %.042, %44 ], [ %.042, %108 ], [ %.042, %107 ], [ %.042, %105 ], [ %.042, %101 ]
-  br label %lean_dec.exit51
+  br label %lean_dec.exit51, !llvm.loop !20
 
 102:                                              ; preds = %101
   %103 = load i32, ptr %18, align 4, !tbaa !8
@@ -10788,9 +10788,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store ptr @l_List_forIn_x27_loop___at_Lean_KVMap_forIn___spec__1___rarg___lambda__1, ptr %143, align 8, !tbaa !4
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i16 7, ptr %144, align 8, !tbaa !17
+  store i16 7, ptr %144, align 8, !tbaa !21
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 18
-  store i16 6, ptr %145, align 2, !tbaa !17
+  store i16 6, ptr %145, align 2, !tbaa !21
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store ptr %0, ptr %146, align 8, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %139, i64 32
@@ -10831,9 +10831,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_List_forIn_x27_loop___at_Lean_KVMap_forIn___spec__1___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 8, ptr %8, align 8, !tbaa !17
+  store i16 8, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !21
   ret ptr %3
 }
 
@@ -10885,9 +10885,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_KVMap_forIn___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 4, ptr %8, align 8, !tbaa !17
+  store i16 4, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !21
   ret ptr %3
 }
 
@@ -11599,9 +11599,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store ptr @l_List_forIn_x27_loop___at_Lean_KVMap_instForInProdNameDataValue___spec__1___rarg___lambda__1, ptr %143, align 8, !tbaa !4
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i16 7, ptr %144, align 8, !tbaa !17
+  store i16 7, ptr %144, align 8, !tbaa !21
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 18
-  store i16 6, ptr %145, align 2, !tbaa !17
+  store i16 6, ptr %145, align 2, !tbaa !21
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store ptr %0, ptr %146, align 8, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %139, i64 32
@@ -11640,9 +11640,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_List_forIn_x27_loop___at_Lean_KVMap_instForInProdNameDataValue___spec__1___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 8, ptr %8, align 8, !tbaa !17
+  store i16 8, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !21
   ret ptr %3
 }
 
@@ -11694,9 +11694,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_KVMap_instForInProdNameDataValue___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 4, ptr %8, align 8, !tbaa !17
+  store i16 4, ptr %8, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !21
   ret ptr %3
 }
 
@@ -12431,7 +12431,7 @@ lean_inc.exit:                                    ; preds = %122, %121, %119, %l
 124:                                              ; preds = %lean_obj_tag.exit67, %lean_inc.exit
   %.sink = phi ptr [ %123, %lean_inc.exit ], [ %67, %lean_obj_tag.exit67 ]
   %125 = tail call ptr @l_Lean_KVMap_insertCore(ptr noundef %.035, ptr noundef %57, ptr noundef %.sink)
-  br label %10
+  br label %10, !llvm.loop !23
 }
 
 declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -12851,9 +12851,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_KVMap_get_x3f___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !17
+  store i16 3, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -13197,9 +13197,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_KVMap_get___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -13356,9 +13356,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_KVMap_set___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -13831,9 +13831,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_KVMap_update___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -14858,9 +14858,9 @@ _init_l_Lean_instBEqDataValue___closed__1.exit:   ; preds = %_init_l_Lean_instIn
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @l_Lean_beqDataValue____x40_Lean_Data_KVMap___hyg_70____boxed, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 2, ptr %41, align 8, !tbaa !17
+  store i16 2, ptr %41, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 0, ptr %42, align 2, !tbaa !17
+  store i16 0, ptr %42, align 2, !tbaa !21
   store ptr %36, ptr @l_Lean_instBEqDataValue___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %36) #6
   %43 = load ptr, ptr @l_Lean_instBEqDataValue___closed__1, align 8, !tbaa !4
@@ -15134,9 +15134,9 @@ _init_l_Lean_instReprDataValue___closed__1.exit:  ; preds = %_init_l___private_L
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr @l___private_Lean_Data_KVMap_0__Lean_reprDataValue____x40_Lean_Data_KVMap___hyg_253____boxed, ptr %132, align 8, !tbaa !4
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  store i16 2, ptr %133, align 8, !tbaa !17
+  store i16 2, ptr %133, align 8, !tbaa !21
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 18
-  store i16 0, ptr %134, align 2, !tbaa !17
+  store i16 0, ptr %134, align 2, !tbaa !21
   store ptr %128, ptr @l_Lean_instReprDataValue___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %128) #6
   %135 = load ptr, ptr @l_Lean_instReprDataValue___closed__1, align 8, !tbaa !4
@@ -15164,9 +15164,9 @@ _init_l_Lean_DataValue_str___closed__3.exit:      ; preds = %_init_l_Lean_instRe
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr @l_Lean_DataValue_str___lambda__1___boxed, ptr %142, align 8, !tbaa !4
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store i16 1, ptr %143, align 8, !tbaa !17
+  store i16 1, ptr %143, align 8, !tbaa !21
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 18
-  store i16 0, ptr %144, align 2, !tbaa !17
+  store i16 0, ptr %144, align 2, !tbaa !21
   store ptr %138, ptr @l_Lean_DataValue_str___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %138) #6
   %145 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.9, i64 noundef 1, i64 noundef 1) #6
@@ -15188,9 +15188,9 @@ _init_l_Lean_instToStringDataValue___closed__1.exit: ; preds = %_init_l_Lean_Dat
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr @lean_data_value_to_string, ptr %150, align 8, !tbaa !4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  store i16 1, ptr %151, align 8, !tbaa !17
+  store i16 1, ptr %151, align 8, !tbaa !21
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 18
-  store i16 0, ptr %152, align 2, !tbaa !17
+  store i16 0, ptr %152, align 2, !tbaa !21
   store ptr %146, ptr @l_Lean_instToStringDataValue___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %146) #6
   %153 = load ptr, ptr @l_Lean_instToStringDataValue___closed__1, align 8, !tbaa !4
@@ -15562,9 +15562,9 @@ _init_l_Lean_instReprKVMap___closed__1.exit:      ; preds = %_init_l___private_L
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store ptr @l___private_Lean_Data_KVMap_0__Lean_reprKVMap____x40_Lean_Data_KVMap___hyg_920____boxed, ptr %286, align 8, !tbaa !4
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  store i16 2, ptr %287, align 8, !tbaa !17
+  store i16 2, ptr %287, align 8, !tbaa !21
   %288 = getelementptr inbounds nuw i8, ptr %282, i64 18
-  store i16 0, ptr %288, align 2, !tbaa !17
+  store i16 0, ptr %288, align 2, !tbaa !21
   store ptr %282, ptr @l_Lean_instReprKVMap___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %282) #6
   %289 = load ptr, ptr @l_Lean_instReprKVMap___closed__1, align 8, !tbaa !4
@@ -15591,9 +15591,9 @@ _init_l_Lean_KVMap_instBEq___closed__1.exit:      ; preds = %_init_l_Lean_instRe
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store ptr @l_Lean_KVMap_eqv___boxed, ptr %295, align 8, !tbaa !4
   %296 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  store i16 2, ptr %296, align 8, !tbaa !17
+  store i16 2, ptr %296, align 8, !tbaa !21
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 18
-  store i16 0, ptr %297, align 2, !tbaa !17
+  store i16 0, ptr %297, align 2, !tbaa !21
   store ptr %291, ptr @l_Lean_KVMap_instBEq___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %291) #6
   %298 = load ptr, ptr @l_Lean_KVMap_instBEq___closed__1, align 8, !tbaa !4
@@ -15615,9 +15615,9 @@ _init_l_Lean_KVMap_instValueDataValue___closed__1.exit: ; preds = %_init_l_Lean_
   %303 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr @l_id___rarg___boxed, ptr %303, align 8, !tbaa !4
   %304 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  store i16 1, ptr %304, align 8, !tbaa !17
+  store i16 1, ptr %304, align 8, !tbaa !21
   %305 = getelementptr inbounds nuw i8, ptr %299, i64 18
-  store i16 0, ptr %305, align 2, !tbaa !17
+  store i16 0, ptr %305, align 2, !tbaa !21
   store ptr %299, ptr @l_Lean_KVMap_instValueDataValue___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %299) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15636,9 +15636,9 @@ _init_l_Lean_KVMap_instValueDataValue___closed__2.exit: ; preds = %_init_l_Lean_
   %310 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store ptr @l_Lean_KVMap_instValueDataValue___lambda__1, ptr %310, align 8, !tbaa !4
   %311 = getelementptr inbounds nuw i8, ptr %306, i64 16
-  store i16 1, ptr %311, align 8, !tbaa !17
+  store i16 1, ptr %311, align 8, !tbaa !21
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 18
-  store i16 0, ptr %312, align 2, !tbaa !17
+  store i16 0, ptr %312, align 2, !tbaa !21
   store ptr %306, ptr @l_Lean_KVMap_instValueDataValue___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %306) #6
   %313 = load ptr, ptr @l_Lean_KVMap_instValueDataValue___closed__1, align 8, !tbaa !4
@@ -15681,9 +15681,9 @@ _init_l_Lean_KVMap_instValueBool___closed__1.exit: ; preds = %_init_l_Lean_KVMap
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 8
   store ptr @l_Lean_KVMap_instValueBool___lambda__1___boxed, ptr %326, align 8, !tbaa !4
   %327 = getelementptr inbounds nuw i8, ptr %322, i64 16
-  store i16 1, ptr %327, align 8, !tbaa !17
+  store i16 1, ptr %327, align 8, !tbaa !21
   %328 = getelementptr inbounds nuw i8, ptr %322, i64 18
-  store i16 0, ptr %328, align 2, !tbaa !17
+  store i16 0, ptr %328, align 2, !tbaa !21
   store ptr %322, ptr @l_Lean_KVMap_instValueBool___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %322) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15702,9 +15702,9 @@ _init_l_Lean_KVMap_instValueBool___closed__2.exit: ; preds = %_init_l_Lean_KVMap
   %333 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store ptr @l_Lean_KVMap_instValueBool___lambda__2___boxed, ptr %333, align 8, !tbaa !4
   %334 = getelementptr inbounds nuw i8, ptr %329, i64 16
-  store i16 1, ptr %334, align 8, !tbaa !17
+  store i16 1, ptr %334, align 8, !tbaa !21
   %335 = getelementptr inbounds nuw i8, ptr %329, i64 18
-  store i16 0, ptr %335, align 2, !tbaa !17
+  store i16 0, ptr %335, align 2, !tbaa !21
   store ptr %329, ptr @l_Lean_KVMap_instValueBool___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %329) #6
   %336 = load ptr, ptr @l_Lean_KVMap_instValueBool___closed__1, align 8, !tbaa !4
@@ -15747,9 +15747,9 @@ _init_l_Lean_KVMap_instValueNat___closed__1.exit: ; preds = %_init_l_Lean_KVMap_
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store ptr @l_Lean_KVMap_instValueNat___lambda__1, ptr %349, align 8, !tbaa !4
   %350 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  store i16 1, ptr %350, align 8, !tbaa !17
+  store i16 1, ptr %350, align 8, !tbaa !21
   %351 = getelementptr inbounds nuw i8, ptr %345, i64 18
-  store i16 0, ptr %351, align 2, !tbaa !17
+  store i16 0, ptr %351, align 2, !tbaa !21
   store ptr %345, ptr @l_Lean_KVMap_instValueNat___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %345) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15768,9 +15768,9 @@ _init_l_Lean_KVMap_instValueNat___closed__2.exit: ; preds = %_init_l_Lean_KVMap_
   %356 = getelementptr inbounds nuw i8, ptr %352, i64 8
   store ptr @l_Lean_KVMap_instValueNat___lambda__2, ptr %356, align 8, !tbaa !4
   %357 = getelementptr inbounds nuw i8, ptr %352, i64 16
-  store i16 1, ptr %357, align 8, !tbaa !17
+  store i16 1, ptr %357, align 8, !tbaa !21
   %358 = getelementptr inbounds nuw i8, ptr %352, i64 18
-  store i16 0, ptr %358, align 2, !tbaa !17
+  store i16 0, ptr %358, align 2, !tbaa !21
   store ptr %352, ptr @l_Lean_KVMap_instValueNat___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %352) #6
   %359 = load ptr, ptr @l_Lean_KVMap_instValueNat___closed__1, align 8, !tbaa !4
@@ -15813,9 +15813,9 @@ _init_l_Lean_KVMap_instValueInt___closed__1.exit: ; preds = %_init_l_Lean_KVMap_
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr @l_Lean_KVMap_instValueInt___lambda__1, ptr %372, align 8, !tbaa !4
   %373 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  store i16 1, ptr %373, align 8, !tbaa !17
+  store i16 1, ptr %373, align 8, !tbaa !21
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 18
-  store i16 0, ptr %374, align 2, !tbaa !17
+  store i16 0, ptr %374, align 2, !tbaa !21
   store ptr %368, ptr @l_Lean_KVMap_instValueInt___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %368) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15834,9 +15834,9 @@ _init_l_Lean_KVMap_instValueInt___closed__2.exit: ; preds = %_init_l_Lean_KVMap_
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 8
   store ptr @l_Lean_KVMap_instValueInt___lambda__2, ptr %379, align 8, !tbaa !4
   %380 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  store i16 1, ptr %380, align 8, !tbaa !17
+  store i16 1, ptr %380, align 8, !tbaa !21
   %381 = getelementptr inbounds nuw i8, ptr %375, i64 18
-  store i16 0, ptr %381, align 2, !tbaa !17
+  store i16 0, ptr %381, align 2, !tbaa !21
   store ptr %375, ptr @l_Lean_KVMap_instValueInt___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %375) #6
   %382 = load ptr, ptr @l_Lean_KVMap_instValueInt___closed__1, align 8, !tbaa !4
@@ -15879,9 +15879,9 @@ _init_l_Lean_KVMap_instValueName___closed__1.exit: ; preds = %_init_l_Lean_KVMap
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store ptr @l_Lean_KVMap_instValueName___lambda__1, ptr %395, align 8, !tbaa !4
   %396 = getelementptr inbounds nuw i8, ptr %391, i64 16
-  store i16 1, ptr %396, align 8, !tbaa !17
+  store i16 1, ptr %396, align 8, !tbaa !21
   %397 = getelementptr inbounds nuw i8, ptr %391, i64 18
-  store i16 0, ptr %397, align 2, !tbaa !17
+  store i16 0, ptr %397, align 2, !tbaa !21
   store ptr %391, ptr @l_Lean_KVMap_instValueName___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %391) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15900,9 +15900,9 @@ _init_l_Lean_KVMap_instValueName___closed__2.exit: ; preds = %_init_l_Lean_KVMap
   %402 = getelementptr inbounds nuw i8, ptr %398, i64 8
   store ptr @l_Lean_KVMap_instValueName___lambda__2, ptr %402, align 8, !tbaa !4
   %403 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  store i16 1, ptr %403, align 8, !tbaa !17
+  store i16 1, ptr %403, align 8, !tbaa !21
   %404 = getelementptr inbounds nuw i8, ptr %398, i64 18
-  store i16 0, ptr %404, align 2, !tbaa !17
+  store i16 0, ptr %404, align 2, !tbaa !21
   store ptr %398, ptr @l_Lean_KVMap_instValueName___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %398) #6
   %405 = load ptr, ptr @l_Lean_KVMap_instValueName___closed__1, align 8, !tbaa !4
@@ -15945,9 +15945,9 @@ _init_l_Lean_KVMap_instValueString___closed__1.exit: ; preds = %_init_l_Lean_KVM
   %418 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store ptr @l_Lean_KVMap_instValueString___lambda__1, ptr %418, align 8, !tbaa !4
   %419 = getelementptr inbounds nuw i8, ptr %414, i64 16
-  store i16 1, ptr %419, align 8, !tbaa !17
+  store i16 1, ptr %419, align 8, !tbaa !21
   %420 = getelementptr inbounds nuw i8, ptr %414, i64 18
-  store i16 0, ptr %420, align 2, !tbaa !17
+  store i16 0, ptr %420, align 2, !tbaa !21
   store ptr %414, ptr @l_Lean_KVMap_instValueString___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %414) #6
   tail call void @lean_inc_heartbeat() #6
@@ -15966,9 +15966,9 @@ _init_l_Lean_KVMap_instValueString___closed__2.exit: ; preds = %_init_l_Lean_KVM
   %425 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store ptr @l_Lean_KVMap_instValueString___lambda__2, ptr %425, align 8, !tbaa !4
   %426 = getelementptr inbounds nuw i8, ptr %421, i64 16
-  store i16 1, ptr %426, align 8, !tbaa !17
+  store i16 1, ptr %426, align 8, !tbaa !21
   %427 = getelementptr inbounds nuw i8, ptr %421, i64 18
-  store i16 0, ptr %427, align 2, !tbaa !17
+  store i16 0, ptr %427, align 2, !tbaa !21
   store ptr %421, ptr @l_Lean_KVMap_instValueString___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %421) #6
   %428 = load ptr, ptr @l_Lean_KVMap_instValueString___closed__1, align 8, !tbaa !4
@@ -16011,9 +16011,9 @@ _init_l_Lean_KVMap_instValueSyntax___closed__1.exit: ; preds = %_init_l_Lean_KVM
   %441 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store ptr @l_Lean_KVMap_instValueSyntax___lambda__1, ptr %441, align 8, !tbaa !4
   %442 = getelementptr inbounds nuw i8, ptr %437, i64 16
-  store i16 1, ptr %442, align 8, !tbaa !17
+  store i16 1, ptr %442, align 8, !tbaa !21
   %443 = getelementptr inbounds nuw i8, ptr %437, i64 18
-  store i16 0, ptr %443, align 2, !tbaa !17
+  store i16 0, ptr %443, align 2, !tbaa !21
   store ptr %437, ptr @l_Lean_KVMap_instValueSyntax___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %437) #6
   tail call void @lean_inc_heartbeat() #6
@@ -16032,9 +16032,9 @@ _init_l_Lean_KVMap_instValueSyntax___closed__2.exit: ; preds = %_init_l_Lean_KVM
   %448 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store ptr @l_Lean_KVMap_instValueSyntax___lambda__2, ptr %448, align 8, !tbaa !4
   %449 = getelementptr inbounds nuw i8, ptr %444, i64 16
-  store i16 1, ptr %449, align 8, !tbaa !17
+  store i16 1, ptr %449, align 8, !tbaa !21
   %450 = getelementptr inbounds nuw i8, ptr %444, i64 18
-  store i16 0, ptr %450, align 2, !tbaa !17
+  store i16 0, ptr %450, align 2, !tbaa !21
   store ptr %444, ptr @l_Lean_KVMap_instValueSyntax___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %444) #6
   %451 = load ptr, ptr @l_Lean_KVMap_instValueSyntax___closed__1, align 8, !tbaa !4
@@ -16161,5 +16161,10 @@ attributes #7 = { noreturn nounwind }
 !14 = !{!6, !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = !{!"branch_weights", i32 4001, i32 4000000}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}
+!23 = distinct !{!23, !18}

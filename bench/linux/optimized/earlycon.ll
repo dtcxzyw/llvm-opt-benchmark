@@ -100,11 +100,11 @@ define dso_local range(i32 -2147483648, 1) i32 @setup_earlycon(ptr noundef %0) l
 
 .loopexit:                                        ; preds = %24, %27
   %30 = phi ptr [ %29, %27 ], [ null, %24 ]
-  %31 = tail call fastcc i32 @register_earlycon(ptr noundef %30, ptr noundef %15) #7, !range !8
+  %31 = tail call fastcc i32 @register_earlycon(ptr noundef %30, ptr noundef %15) #7, !range !9
   br label %.loopexit4
 
 .loopexit2:                                       ; preds = %12, %10
-  br i1 %11, label %10, label %.loopexit4
+  br i1 %11, label %10, label %.loopexit4, !llvm.loop !10
 
 .loopexit4:                                       ; preds = %.loopexit2, %.loopexit, %6, %3, %1
   %32 = phi i32 [ -22, %3 ], [ -22, %1 ], [ -114, %6 ], [ %31, %.loopexit ], [ -2, %.loopexit2 ]
@@ -226,7 +226,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef 
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !11
   %4 = call i32 @uart_parse_earlycon(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 202), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %37
@@ -320,7 +320,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
   %10 = load i8, ptr %9, align 1
   %11 = add i8 %10, -48
   %12 = icmp ult i8 %11, 10
-  br i1 %12, label %5, label %13, !llvm.loop !10
+  br i1 %12, label %5, label %13, !llvm.loop !12
 
 13:                                               ; preds = %8, %5
   %14 = load i8, ptr %6, align 1
@@ -438,9 +438,11 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i32 -2147483648, i32 1}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i32 -2147483648, i32 1}
+!10 = distinct !{!10, !8}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !6, !7, !8}

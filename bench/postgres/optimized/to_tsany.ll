@@ -237,7 +237,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %.187 = phi i32 [ %114, %105 ], [ %102, %97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %97, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %97, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %115
   %116 = icmp sgt i32 %.187, 1048575
@@ -360,7 +360,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %196 = and i16 %195, 16383
   store i16 %196, ptr %188, align 2
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !7
+  br i1 %exitcond114.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !8
 
 ._crit_edge101:                                   ; preds = %.lr.ph100, %165
   %197 = shl nuw nsw i32 %169, 1
@@ -385,7 +385,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %208 = load i32, ptr %2, align 4
   %209 = sext i32 %208 to i64
   %210 = icmp slt i64 %indvars.iv.next116, %209
-  br i1 %210, label %.lr.ph106, label %._crit_edge107, !llvm.loop !8
+  br i1 %210, label %.lr.ph106, label %._crit_edge107, !llvm.loop !9
 
 ._crit_edge107:                                   ; preds = %206, %._crit_edge.thread
   %211 = load ptr, ptr %0, align 8
@@ -1017,7 +1017,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
   %37 = icmp samesign ult i32 %32, %36
-  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !9
+  br i1 %37, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %30
   %.pre79 = load i32, ptr %10, align 4
@@ -1070,7 +1070,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i16, ptr %66, align 8
   %68 = icmp eq i16 %41, %67
-  br i1 %68, label %.lr.ph91, label %.critedge2, !llvm.loop !10
+  br i1 %68, label %.lr.ph91, label %.critedge2, !llvm.loop !11
 
 .lr.ph91:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %69 = phi ptr [ %65, %.lr.ph63 ], [ %58, %.lr.ph63.preheader ]
@@ -1110,10 +1110,10 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %91 = add nsw i32 %.26289, 1
   %92 = load i32, ptr %10, align 4
   %93 = icmp slt i32 %91, %92
-  br i1 %93, label %.lr.ph63, label %..critedge2.loopexit_crit_edge, !llvm.loop !10
+  br i1 %93, label %.lr.ph63, label %..critedge2.loopexit_crit_edge, !llvm.loop !11
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %90
-  br label %.critedge2, !llvm.loop !10
+  br label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.lr.ph63, %.lr.ph91, %.lr.ph63.preheader, %..critedge2.loopexit_crit_edge, %52
   %94 = phi i32 [ %44, %52 ], [ %92, %..critedge2.loopexit_crit_edge ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph91 ], [ %92, %.lr.ph63 ]
@@ -1132,7 +1132,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %99 = phi i32 [ %.pre80, %96 ], [ %95, %.critedge2 ]
   %100 = add i32 %.05069, 1
   %101 = icmp slt i32 %.2.lcssa, %99
-  br i1 %101, label %.lr.ph71, label %.critedge, !llvm.loop !11
+  br i1 %101, label %.lr.ph71, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph71, %97, %.loopexit
   %102 = phi i32 [ %38, %.loopexit ], [ %98, %97 ], [ %44, %.lr.ph71 ]
@@ -1151,7 +1151,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %107 = phi i32 [ %.pre81, %103 ], [ %102, %.critedge ]
   %108 = add i32 %.148, 1
   %109 = icmp slt i32 %.1.lcssa, %107
-  br i1 %109, label %17, label %._crit_edge, !llvm.loop !12
+  br i1 %109, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %106
   %110 = load ptr, ptr %7, align 8
@@ -1406,12 +1406,13 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

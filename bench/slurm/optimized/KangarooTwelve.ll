@@ -195,7 +195,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
 
 78:                                               ; preds = %77, %75
   %.not96 = icmp eq i64 %67, 0
-  br i1 %.not96, label %.thread116, label %59
+  br i1 %.not96, label %.thread116, label %59, !llvm.loop !8
 
 .thread116:                                       ; preds = %78, %75, %59, %63, %.thread, %.critedge108, %.critedge103, %36, %54, %15, %.critedge, %3
   %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %15 ], [ 1, %54 ], [ 1, %36 ], [ 1, %.critedge103 ], [ 1, %.critedge108 ], [ 0, %.thread ], [ 0, %78 ], [ 1, %75 ], [ 1, %59 ], [ 1, %63 ]
@@ -251,7 +251,7 @@ define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr n
   %15 = icmp ugt i64 %.019.i, 255
   %16 = icmp samesign ult i32 %.01718.i, 7
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
+  br i1 %17, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !10
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph22.preheader.i ], [ %indvars.iv.next.i, %.lr.ph22.i ]
@@ -265,7 +265,7 @@ define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %23, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !11
+  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !13
 
 right_encode.exit:                                ; preds = %.lr.ph22.i
   %.pre-phi.i = zext nneg i32 %13 to i64
@@ -337,7 +337,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %49 = icmp ugt i64 %.019.i51, 255
   %50 = icmp samesign ult i32 %.01718.i52, 7
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i50, label %.lr.ph22.preheader.i53, !llvm.loop !8
+  br i1 %51, label %.lr.ph.i50, label %.lr.ph22.preheader.i53, !llvm.loop !10
 
 .lr.ph22.i56:                                     ; preds = %.lr.ph22.i56, %.lr.ph22.preheader.i53
   %indvars.iv.i57 = phi i64 [ 1, %.lr.ph22.preheader.i53 ], [ %indvars.iv.next.i59, %.lr.ph22.i56 ]
@@ -351,7 +351,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   store i8 %57, ptr %gep.i58, align 1
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i54
-  br i1 %exitcond.i60, label %right_encode.exit64, label %.lr.ph22.i56, !llvm.loop !11
+  br i1 %exitcond.i60, label %right_encode.exit64, label %.lr.ph22.i56, !llvm.loop !13
 
 right_encode.exit64:                              ; preds = %.lr.ph22.i56, %43
   %.017.lcssa29.i61 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i56 ]
@@ -478,7 +478,9 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !12, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unroll.disable"}
+!13 = distinct !{!13, !11, !12, !9}

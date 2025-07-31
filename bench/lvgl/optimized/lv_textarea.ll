@@ -163,7 +163,7 @@ define internal void @lv_textarea_event(ptr readnone captures(none) %0, ptr noun
   br i1 %.not.i, label %.preheader.i, label %lv_textarea_cursor_right.exit
 
 .preheader.i:                                     ; preds = %21, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !27
 
 lv_textarea_cursor_right.exit:                    ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 116
@@ -177,7 +177,7 @@ lv_textarea_cursor_right.exit:                    ; preds = %21
   br i1 %.not.i44, label %.preheader.i45, label %lv_textarea_get_cursor_pos.exit.i
 
 .preheader.i45:                                   ; preds = %25, %.preheader.i45
-  br label %.preheader.i45
+  br label %.preheader.i45, !llvm.loop !29
 
 lv_textarea_get_cursor_pos.exit.i:                ; preds = %25
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 116
@@ -223,7 +223,7 @@ lv_textarea_get_cursor_pos.exit.i:                ; preds = %25
   br i1 %.not.i46, label %.preheader.i47, label %lv_textarea_get_one_line.exit
 
 .preheader.i47:                                   ; preds = %36, %.preheader.i47
-  br label %.preheader.i47
+  br label %.preheader.i47, !llvm.loop !30
 
 lv_textarea_get_one_line.exit:                    ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 152
@@ -272,7 +272,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
   call void @lv_indev_get_point(ptr noundef nonnull %43, ptr noundef nonnull %10) #10
   call void @lv_indev_get_vect(ptr noundef nonnull %43, ptr noundef nonnull %11) #10
-  %60 = load i32, ptr %10, align 4, !tbaa !27
+  %60 = load i32, ptr %10, align 4, !tbaa !31
   %61 = icmp slt i32 %60, 0
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %63 = load i32, ptr %62, align 4
@@ -282,14 +282,14 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 65:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
-  %66 = load i32, ptr %9, align 4, !tbaa !29
+  %66 = load i32, ptr %9, align 4, !tbaa !33
   %67 = sub nsw i32 %60, %66
-  store i32 %67, ptr %12, align 4, !tbaa !27
+  store i32 %67, ptr %12, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !30
+  %69 = load i32, ptr %68, align 4, !tbaa !34
   %70 = sub nsw i32 %63, %69
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %70, ptr %71, align 4, !tbaa !31
+  store i32 %70, ptr %71, align 4, !tbaa !35
   %72 = call i32 @lv_event_get_code(ptr noundef %1) #10
   %73 = load ptr, ptr %58, align 8, !tbaa !22
   %74 = call i32 @lv_obj_get_width(ptr noundef %73) #10
@@ -326,9 +326,9 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 .thread.i:                                        ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  store i32 %.080.i, ptr %90, align 8, !tbaa !32
+  store i32 %.080.i, ptr %90, align 8, !tbaa !36
   %91 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  store i32 65535, ptr %91, align 4, !tbaa !33
+  store i32 65535, ptr %91, align 4, !tbaa !37
   %92 = or disjoint i8 %84, 1
   store i8 %92, ptr %83, align 8
   call void @lv_obj_remove_flag(ptr noundef nonnull %46, i32 noundef 768) #10
@@ -342,7 +342,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  store i32 %.080.i, ptr %97, align 4, !tbaa !33
+  store i32 %.080.i, ptr %97, align 4, !tbaa !37
   br label %101
 
 98:                                               ; preds = %93
@@ -373,32 +373,32 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  %110 = load i32, ptr %109, align 8, !tbaa !32
+  %110 = load i32, ptr %109, align 8, !tbaa !36
   %111 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  %112 = load i32, ptr %111, align 4, !tbaa !33
+  %112 = load i32, ptr %111, align 4, !tbaa !37
   %113 = icmp ugt i32 %110, %112
   br i1 %113, label %114, label %121
 
 114:                                              ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 92
-  %116 = load i32, ptr %115, align 4, !tbaa !34
+  %116 = load i32, ptr %115, align 4, !tbaa !38
   %.not94.i = icmp eq i32 %116, %112
   br i1 %.not94.i, label %117, label %120
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %75, i64 96
-  %119 = load i32, ptr %118, align 8, !tbaa !37
+  %119 = load i32, ptr %118, align 8, !tbaa !41
   %.not95.i = icmp eq i32 %119, %110
   br i1 %.not95.i, label %136, label %120
 
 120:                                              ; preds = %117, %114
-  store i32 %112, ptr %115, align 4, !tbaa !34
+  store i32 %112, ptr %115, align 4, !tbaa !38
   br label %.sink.split.i
 
 121:                                              ; preds = %108
   %122 = icmp ult i32 %110, %112
   %123 = getelementptr inbounds nuw i8, ptr %75, i64 92
-  %124 = load i32, ptr %123, align 4, !tbaa !34
+  %124 = load i32, ptr %123, align 4, !tbaa !38
   br i1 %122, label %125, label %130
 
 125:                                              ; preds = %121
@@ -407,12 +407,12 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %75, i64 96
-  %128 = load i32, ptr %127, align 8, !tbaa !37
+  %128 = load i32, ptr %127, align 8, !tbaa !41
   %.not93.i = icmp eq i32 %128, %112
   br i1 %.not93.i, label %136, label %129
 
 129:                                              ; preds = %126, %125
-  store i32 %110, ptr %123, align 4, !tbaa !34
+  store i32 %110, ptr %123, align 4, !tbaa !38
   br label %.sink.split.i
 
 130:                                              ; preds = %121
@@ -421,18 +421,18 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %75, i64 96
-  %133 = load i32, ptr %132, align 8, !tbaa !37
+  %133 = load i32, ptr %132, align 8, !tbaa !41
   %.not91.i = icmp eq i32 %133, 65535
   br i1 %.not91.i, label %136, label %134
 
 134:                                              ; preds = %131, %130
-  store i32 65535, ptr %123, align 4, !tbaa !34
+  store i32 65535, ptr %123, align 4, !tbaa !38
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %134, %129, %120
   %.sink.i = phi i32 [ %112, %129 ], [ 65535, %134 ], [ %110, %120 ]
   %135 = getelementptr inbounds nuw i8, ptr %75, i64 96
-  store i32 %.sink.i, ptr %135, align 8, !tbaa !37
+  store i32 %.sink.i, ptr %135, align 8, !tbaa !41
   call void @lv_obj_invalidate(ptr noundef nonnull %46) #10
   br label %136
 
@@ -463,7 +463,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %146 = load ptr, ptr %145, align 8, !tbaa !22
   %147 = tail call ptr @lv_label_get_text(ptr noundef %146) #10
-  %148 = load i8, ptr %147, align 1, !tbaa !38
+  %148 = load i8, ptr %147, align 1, !tbaa !42
   %149 = icmp eq i8 %148, 0
   br i1 %149, label %150, label %lv_textarea_cursor_left.exit
 
@@ -474,7 +474,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   br i1 %.not.i49, label %lv_textarea_cursor_left.exit, label %153
 
 153:                                              ; preds = %150
-  %154 = load i8, ptr %152, align 1, !tbaa !38
+  %154 = load i8, ptr %152, align 1, !tbaa !42
   %.not25.i = icmp eq i8 %154, 0
   br i1 %.not25.i, label %lv_textarea_cursor_left.exit, label %155
 
@@ -482,7 +482,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #10
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %7) #10
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %144, ptr %156, align 8, !tbaa !39
+  store ptr %144, ptr %156, align 8, !tbaa !43
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %143, i32 noundef 524288, ptr noundef nonnull %7) #10
   %157 = getelementptr inbounds nuw i8, ptr %143, i64 152
   %158 = load i8, ptr %157, align 8
@@ -492,9 +492,9 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 124
-  %162 = load i32, ptr %161, align 4, !tbaa !47
+  %162 = load i32, ptr %161, align 4, !tbaa !51
   %163 = or i32 %162, 1
-  store i32 %163, ptr %161, align 4, !tbaa !47
+  store i32 %163, ptr %161, align 4, !tbaa !51
   br label %164
 
 164:                                              ; preds = %160, %155
@@ -515,31 +515,31 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %.sroa.0.0.extract.trunc.i30.i = trunc i64 %174 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
   %175 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %176 = load i32, ptr %175, align 4, !tbaa !29
+  %176 = load i32, ptr %175, align 4, !tbaa !33
   %177 = getelementptr inbounds nuw i8, ptr %143, i64 44
-  %178 = load i32, ptr %177, align 4, !tbaa !30
+  %178 = load i32, ptr %177, align 4, !tbaa !34
   %179 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %180 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %181 = load i32, ptr %180, align 4, !tbaa !48
+  %181 = load i32, ptr %180, align 4, !tbaa !52
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %143, i64 52
-  %184 = load i32, ptr %183, align 4, !tbaa !49
+  %184 = load i32, ptr %183, align 4, !tbaa !53
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %186 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i.i
   %187 = add nsw i32 %186, %176
-  store i32 %187, ptr %8, align 4, !tbaa !29
+  store i32 %187, ptr %8, align 4, !tbaa !33
   %188 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i27.i
   %189 = sub i32 %181, %188
-  store i32 %189, ptr %182, align 4, !tbaa !48
+  store i32 %189, ptr %182, align 4, !tbaa !52
   %190 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i28.i
   %191 = add nsw i32 %190, %178
-  store i32 %191, ptr %179, align 4, !tbaa !30
+  store i32 %191, ptr %179, align 4, !tbaa !34
   %192 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i29.i
   %193 = sub i32 %184, %192
-  store i32 %193, ptr %185, align 4, !tbaa !49
+  store i32 %193, ptr %185, align 4, !tbaa !53
   %194 = load ptr, ptr %151, align 8, !tbaa !25
   %195 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %194, ptr %195, align 8, !tbaa !50
+  store ptr %194, ptr %195, align 8, !tbaa !54
   call void @lv_draw_label(ptr noundef %144, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #10
@@ -561,33 +561,33 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #10
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #10
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %198, ptr %207, align 8, !tbaa !51
+  store ptr %198, ptr %207, align 8, !tbaa !55
   call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %197, i32 noundef 393216, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %208 = getelementptr inbounds nuw i8, ptr %197, i64 120
-  %209 = load i32, ptr %208, align 4, !tbaa !29
+  %209 = load i32, ptr %208, align 4, !tbaa !33
   %210 = getelementptr inbounds nuw i8, ptr %197, i64 124
-  %211 = load i32, ptr %210, align 4, !tbaa !30
+  %211 = load i32, ptr %210, align 4, !tbaa !34
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %213 = getelementptr inbounds nuw i8, ptr %197, i64 128
-  %214 = load i32, ptr %213, align 4, !tbaa !48
+  %214 = load i32, ptr %213, align 4, !tbaa !52
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %197, i64 132
-  %217 = load i32, ptr %216, align 4, !tbaa !49
+  %217 = load i32, ptr %216, align 4, !tbaa !53
   %218 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %219 = load ptr, ptr %199, align 8, !tbaa !22
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i32, ptr %220, align 8, !tbaa !54
+  %221 = load i32, ptr %220, align 8, !tbaa !58
   %222 = add nsw i32 %221, %209
-  store i32 %222, ptr %4, align 4, !tbaa !29
+  store i32 %222, ptr %4, align 4, !tbaa !33
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 44
-  %224 = load i32, ptr %223, align 4, !tbaa !55
+  %224 = load i32, ptr %223, align 4, !tbaa !59
   %225 = add nsw i32 %224, %211
-  store i32 %225, ptr %212, align 4, !tbaa !30
+  store i32 %225, ptr %212, align 4, !tbaa !34
   %226 = add nsw i32 %221, %214
-  store i32 %226, ptr %215, align 4, !tbaa !48
+  store i32 %226, ptr %215, align 4, !tbaa !52
   %227 = add nsw i32 %224, %217
-  store i32 %227, ptr %218, align 4, !tbaa !49
+  store i32 %227, ptr %218, align 4, !tbaa !53
   call void @lv_draw_rect(ptr noundef %198, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %228 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %197, i32 noundef 393216, i8 noundef zeroext 48) #10
   %229 = ptrtoint ptr %228 to i64
@@ -603,28 +603,28 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store i64 0, ptr %5, align 8
   %236 = getelementptr inbounds nuw i8, ptr %197, i64 136
-  %237 = load i32, ptr %236, align 8, !tbaa !56
+  %237 = load i32, ptr %236, align 8, !tbaa !60
   %238 = zext i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %201, i64 %238
-  %240 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !57
+  %240 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !61
   %241 = call zeroext i8 %240(ptr noundef %239) #10
   %242 = zext i8 %241 to i64
   %243 = call ptr @lv_memcpy(ptr noundef nonnull %5, ptr noundef %239, i64 noundef %242) #10
-  %244 = load i32, ptr %4, align 4, !tbaa !29
+  %244 = load i32, ptr %4, align 4, !tbaa !33
   %245 = add nsw i32 %232, %244
-  store i32 %245, ptr %4, align 4, !tbaa !29
-  %246 = load i32, ptr %212, align 4, !tbaa !30
+  store i32 %245, ptr %4, align 4, !tbaa !33
+  %246 = load i32, ptr %212, align 4, !tbaa !34
   %247 = add nsw i32 %235, %246
-  store i32 %247, ptr %212, align 4, !tbaa !30
+  store i32 %247, ptr %212, align 4, !tbaa !34
   %248 = load ptr, ptr %199, align 8, !tbaa !22
   %249 = call ptr @lv_obj_get_style_prop(ptr noundef %248, i32 noundef 0, i8 noundef zeroext 88) #10
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #10
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %6) #10
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %198, ptr %250, align 8, !tbaa !39
+  store ptr %198, ptr %250, align 8, !tbaa !43
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %197, i32 noundef 393216, ptr noundef nonnull %6) #10
   %251 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %252 = load i8, ptr %251, align 4, !tbaa !58
+  %252 = load i8, ptr %251, align 4, !tbaa !62
   %253 = icmp ugt i8 %252, 2
   br i1 %253, label %258, label %254
 
@@ -638,7 +638,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 258:                                              ; preds = %254, %206
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %5, ptr %259, align 8, !tbaa !50
+  store ptr %5, ptr %259, align 8, !tbaa !54
   %260 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %261 = load i8, ptr %260, align 8
   %262 = or i8 %261, 64
@@ -683,7 +683,7 @@ define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !63
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -705,14 +705,14 @@ define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_
   store i32 0, ptr %12, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 %1, ptr %5, align 4, !tbaa !26
-  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !59
+  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !64
   %13 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 36, ptr noundef nonnull %4) #10
-  %14 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %14 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %insert_handler.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = load i8, ptr %14, align 1, !tbaa !38
+  %16 = load i8, ptr %14, align 1, !tbaa !42
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %insert_handler.exit.thread, label %18
 
@@ -722,12 +722,12 @@ define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not7.i, label %insert_handler.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %21 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   call void @lv_textarea_add_text(ptr noundef nonnull %0, ptr noundef %21)
   br label %insert_handler.exit.thread
 
 insert_handler.exit:                              ; preds = %11, %18
-  %22 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !57
+  %22 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !61
   %23 = call i32 %22(ptr noundef nonnull %5, ptr noundef null) #10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i32, ptr %24, align 8, !tbaa !19
@@ -735,7 +735,7 @@ insert_handler.exit:                              ; preds = %11, %18
   br i1 %.not.i46, label %40, label %26
 
 26:                                               ; preds = %insert_handler.exit
-  %27 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
+  %27 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !61
   %28 = load i8, ptr %7, align 8
   %29 = and i8 %28, 4
   %30 = icmp eq i8 %29, 0
@@ -766,7 +766,7 @@ lv_textarea_get_text.exit.i:                      ; preds = %35, %31
   br i1 %43, label %char_is_accepted.exit.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = load i8, ptr %42, align 1, !tbaa !38
+  %45 = load i8, ptr %42, align 1, !tbaa !42
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %char_is_accepted.exit.thread, label %47
 
@@ -780,14 +780,14 @@ lv_textarea_get_text.exit.i:                      ; preds = %35, %31
   %50 = load i32, ptr %3, align 4, !tbaa !26
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !38
+  %53 = load i8, ptr %52, align 1, !tbaa !42
   %.not14.not.not.not.i.not = icmp eq i8 %53, 0
   br i1 %.not14.not.not.not.i.not, label %char_is_accepted.exit, label %54
 
 54:                                               ; preds = %48
   %55 = call i32 %22(ptr noundef nonnull %49, ptr noundef nonnull %3) #10
   %.not15.i = icmp eq i32 %55, %23
-  br i1 %.not15.i, label %char_is_accepted.exit.thread58, label %48, !llvm.loop !60
+  br i1 %.not15.i, label %char_is_accepted.exit.thread58, label %48, !llvm.loop !65
 
 char_is_accepted.exit.thread58:                   ; preds = %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
@@ -817,7 +817,7 @@ char_is_accepted.exit.thread:                     ; preds = %40, %44, %char_is_a
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %64 = load ptr, ptr %63, align 8, !tbaa !22
   %65 = call ptr @lv_label_get_text(ptr noundef %64) #10
-  %66 = load i8, ptr %65, align 1, !tbaa !38
+  %66 = load i8, ptr %65, align 1, !tbaa !42
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %69
 
@@ -869,7 +869,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %76, %79
   br i1 %.not45, label %.preheader59, label %93
 
 .preheader59:                                     ; preds = %84, %.preheader59
-  br label %.preheader59
+  br label %.preheader59, !llvm.loop !67
 
 93:                                               ; preds = %84
   %94 = load i32, ptr %72, align 4, !tbaa !20
@@ -906,7 +906,7 @@ define internal fastcc void @pwd_char_hider(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = tail call ptr @lv_label_get_text(ptr noundef %9) #10
-  %11 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
+  %11 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !61
   %12 = tail call i32 %11(ptr noundef %10) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %33, label %14
@@ -941,11 +941,11 @@ lv_textarea_get_password_bullet.exit:             ; preds = %14, %17
   %28 = call ptr @lv_memcpy(ptr noundef %27, ptr noundef nonnull %.0.i, i64 noundef %20) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %29, label %25, !llvm.loop !62
+  br i1 %exitcond.not, label %29, label %25, !llvm.loop !68
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 %22
-  store i8 0, ptr %30, align 1, !tbaa !38
+  store i8 0, ptr %30, align 1, !tbaa !42
   %31 = load ptr, ptr %8, align 8, !tbaa !22
   call void @lv_label_set_text(ptr noundef %31, ptr noundef %24) #10
   call void @lv_free(ptr noundef %24) #10
@@ -969,7 +969,7 @@ define void @lv_textarea_clear_selection(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !69
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1038,7 +1038,7 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !70
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1048,7 +1048,7 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
   br i1 %8, label %58, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
+  %10 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = tail call ptr @lv_label_get_text(ptr noundef %12) #10
@@ -1067,19 +1067,19 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
   call void @lv_label_get_letter_pos(ptr noundef %20, i32 noundef %.1, ptr noundef nonnull %3) #10
   %21 = call i32 @lv_font_get_line_height(ptr noundef %19) #10
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !31
+  %23 = load i32, ptr %22, align 4, !tbaa !35
   %24 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %0) #10
   %25 = icmp slt i32 %23, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %9
-  %27 = load i32, ptr %22, align 4, !tbaa !31
+  %27 = load i32, ptr %22, align 4, !tbaa !35
   call void @lv_obj_scroll_to_y(ptr noundef nonnull %0, i32 noundef %27, i1 noundef zeroext true) #10
   br label %28
 
 28:                                               ; preds = %26, %9
   %29 = call i32 @lv_obj_get_content_height(ptr noundef nonnull %0) #10
-  %30 = load i32, ptr %22, align 4, !tbaa !31
+  %30 = load i32, ptr %22, align 4, !tbaa !35
   %31 = add nsw i32 %30, %21
   %32 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %0) #10
   %33 = sub i32 %31, %32
@@ -1087,26 +1087,26 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %28
-  %36 = load i32, ptr %22, align 4, !tbaa !31
+  %36 = load i32, ptr %22, align 4, !tbaa !35
   %37 = sub i32 %21, %29
   %38 = add i32 %37, %36
   call void @lv_obj_scroll_to_y(ptr noundef nonnull %0, i32 noundef %38, i1 noundef zeroext true) #10
   br label %39
 
 39:                                               ; preds = %35, %28
-  %40 = load i32, ptr %3, align 4, !tbaa !27
+  %40 = load i32, ptr %3, align 4, !tbaa !31
   %41 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %0) #10
   %42 = icmp slt i32 %40, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %39
-  %44 = load i32, ptr %3, align 4, !tbaa !27
+  %44 = load i32, ptr %3, align 4, !tbaa !31
   call void @lv_obj_scroll_to_x(ptr noundef nonnull %0, i32 noundef %44, i1 noundef zeroext true) #10
   br label %45
 
 45:                                               ; preds = %43, %39
   %46 = call i32 @lv_obj_get_content_width(ptr noundef nonnull %0) #10
-  %47 = load i32, ptr %3, align 4, !tbaa !27
+  %47 = load i32, ptr %3, align 4, !tbaa !31
   %48 = add nsw i32 %47, %21
   %49 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %0) #10
   %50 = sub i32 %48, %49
@@ -1114,14 +1114,14 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %45
-  %53 = load i32, ptr %3, align 4, !tbaa !27
+  %53 = load i32, ptr %3, align 4, !tbaa !31
   %54 = sub i32 %21, %46
   %55 = add i32 %54, %53
   call void @lv_obj_scroll_to_x(ptr noundef nonnull %0, i32 noundef %55, i1 noundef zeroext true) #10
   br label %56
 
 56:                                               ; preds = %52, %45
-  %57 = load i32, ptr %3, align 4, !tbaa !27
+  %57 = load i32, ptr %3, align 4, !tbaa !31
   store i32 %57, ptr %5, align 8, !tbaa !21
   call fastcc void @start_cursor_blink(ptr noundef nonnull %0)
   call fastcc void @refr_cursor_area(ptr noundef nonnull %0)
@@ -1138,7 +1138,7 @@ define i32 @lv_textarea_get_cursor_pos(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !71
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1165,10 +1165,10 @@ define void @lv_textarea_add_text(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %.preheader62
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !72
 
 .preheader62:                                     ; preds = %.preheader62.preheader, %.preheader62
-  br label %.preheader62
+  br label %.preheader62, !llvm.loop !73
 
 .lr.ph74:                                         ; preds = %.lr.ph, %tailrecurse
   %.tr617073 = phi ptr [ %30, %tailrecurse ], [ %1, %.lr.ph ]
@@ -1194,12 +1194,12 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
 .split:                                           ; preds = %lv_textarea_get_accepted_chars.exit, %lv_textarea_get_max_length.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !tbaa !26
-  %12 = load i8, ptr %.tr617073, align 1, !tbaa !38
+  %12 = load i8, ptr %.tr617073, align 1, !tbaa !42
   %.not4975 = icmp eq i8 %12, 0
   br i1 %.not4975, label %._crit_edge, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.split
-  %13 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !57
+  %13 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !61
   %14 = load ptr, ptr @lv_text_unicode_to_encoded, align 8
   br label %15
 
@@ -1210,23 +1210,23 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
   %18 = load i32, ptr %3, align 4, !tbaa !26
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %.tr617073, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !38
+  %21 = load i8, ptr %20, align 1, !tbaa !42
   %.not49 = icmp eq i8 %21, 0
-  br i1 %.not49, label %._crit_edge, label %15, !llvm.loop !63
+  br i1 %.not49, label %._crit_edge, label %15, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %15, %.split
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   br label %insert_handler.exit.thread
 
 22:                                               ; preds = %lv_textarea_get_max_length.exit
-  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !59
+  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !64
   %23 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 36, ptr noundef nonnull %.tr617073) #10
-  %24 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %24 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   %.not.i52 = icmp eq ptr %24, null
   br i1 %.not.i52, label %insert_handler.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = load i8, ptr %24, align 1, !tbaa !38
+  %26 = load i8, ptr %24, align 1, !tbaa !42
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %insert_handler.exit.thread, label %28
 
@@ -1236,7 +1236,7 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
   br i1 %.not7.i, label %insert_handler.exit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %28
-  %30 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %30 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   %.not41 = icmp eq ptr %30, null
   br i1 %.not41, label %.preheader62.preheader, label %.lr.ph74
 
@@ -1250,7 +1250,7 @@ insert_handler.exit:                              ; preds = %28, %22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8, !tbaa !22
   %36 = tail call ptr @lv_label_get_text(ptr noundef %35) #10
-  %37 = load i8, ptr %36, align 1, !tbaa !38
+  %37 = load i8, ptr %36, align 1, !tbaa !42
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %40
 
@@ -1302,7 +1302,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %47, %50
   br i1 %.not48, label %.preheader63, label %64
 
 .preheader63:                                     ; preds = %55, %.preheader63
-  br label %.preheader63
+  br label %.preheader63, !llvm.loop !75
 
 64:                                               ; preds = %55
   %65 = load i32, ptr %43, align 4, !tbaa !20
@@ -1312,7 +1312,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %47, %50
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %lv_textarea_clear_selection.exit, %64
   %66 = load i32, ptr %43, align 4, !tbaa !20
-  %67 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
+  %67 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !61
   %68 = tail call i32 %67(ptr noundef nonnull %.tr617073) #10
   %69 = add i32 %68, %66
   tail call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %0, i32 noundef %69)
@@ -1329,7 +1329,7 @@ define ptr @lv_textarea_get_accepted_chars(ptr noundef readonly captures(address
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !76
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1343,7 +1343,7 @@ define i32 @lv_textarea_get_max_length(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !77
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1358,7 +1358,7 @@ define void @lv_textarea_delete_char(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !78
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1369,14 +1369,14 @@ define void @lv_textarea_delete_char(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
   store i16 127, ptr %2, align 2
-  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !59
+  store ptr null, ptr @ta_insert_replace, align 8, !tbaa !64
   %8 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 36, ptr noundef nonnull %2) #10
-  %9 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %9 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %9, align 1, !tbaa !38
+  %11 = load i8, ptr %9, align 1, !tbaa !42
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %insert_handler.exit.thread, label %13
 
@@ -1386,7 +1386,7 @@ define void @lv_textarea_delete_char(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7.i, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !59
+  %16 = load ptr, ptr @ta_insert_replace, align 8, !tbaa !64
   call void @lv_textarea_add_text(ptr noundef nonnull %0, ptr noundef %16)
   br label %insert_handler.exit.thread
 
@@ -1426,7 +1426,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %26, %29
 34:                                               ; preds = %lv_textarea_clear_selection.exit
   %35 = load ptr, ptr %18, align 8, !tbaa !22
   %36 = call ptr @lv_label_get_text(ptr noundef %35) #10
-  %37 = load i8, ptr %36, align 1, !tbaa !38
+  %37 = load i8, ptr %36, align 1, !tbaa !42
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %40
 
@@ -1456,7 +1456,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %26, %29
   br i1 %.not29, label %.preheader34, label %53
 
 .preheader34:                                     ; preds = %44, %.preheader34
-  br label %.preheader34
+  br label %.preheader34, !llvm.loop !79
 
 53:                                               ; preds = %44, %40
   %54 = load i32, ptr %4, align 4, !tbaa !20
@@ -1483,7 +1483,7 @@ define void @lv_textarea_delete_char_forward(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %lv_textarea_get_cursor_pos.exit9
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !80
 
 lv_textarea_get_cursor_pos.exit9:                 ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1509,14 +1509,14 @@ define void @lv_textarea_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !81
 
 4:                                                ; preds = %2
   %.not29 = icmp eq ptr %1, null
   br i1 %.not29, label %.preheader41, label %5
 
 .preheader41:                                     ; preds = %4, %.preheader41
-  br label %.preheader41
+  br label %.preheader41, !llvm.loop !82
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1563,18 +1563,18 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !23
-  store i8 0, ptr %26, align 1, !tbaa !38
+  store i8 0, ptr %26, align 1, !tbaa !42
   br label %27
 
 27:                                               ; preds = %24, %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !tbaa !26
-  %28 = load i8, ptr %1, align 1, !tbaa !38
+  %28 = load i8, ptr %1, align 1, !tbaa !42
   %.not3343 = icmp eq i8 %28, 0
   br i1 %.not3343, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %29 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !57
+  %29 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !61
   %30 = load ptr, ptr @lv_text_unicode_to_encoded, align 8
   br label %31
 
@@ -1585,9 +1585,9 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
   %34 = load i32, ptr %3, align 4, !tbaa !26
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !38
+  %37 = load i8, ptr %36, align 1, !tbaa !42
   %.not33 = icmp eq i8 %37, 0
-  br i1 %.not33, label %._crit_edge, label %31, !llvm.loop !64
+  br i1 %.not33, label %._crit_edge, label %31, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %31, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
@@ -1608,7 +1608,7 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
 43:                                               ; preds = %40
   %44 = load ptr, ptr %6, align 8, !tbaa !22
   %45 = call ptr @lv_label_get_text(ptr noundef %44) #10
-  %46 = load i8, ptr %45, align 1, !tbaa !38
+  %46 = load i8, ptr %45, align 1, !tbaa !42
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %49
 
@@ -1633,7 +1633,7 @@ lv_textarea_get_max_length.exit:                  ; preds = %lv_textarea_get_acc
   br i1 %.not36, label %.preheader42, label %57
 
 .preheader42:                                     ; preds = %53, %.preheader42
-  br label %.preheader42
+  br label %.preheader42, !llvm.loop !84
 
 57:                                               ; preds = %53
   call fastcc void @pwd_char_hider(ptr noundef nonnull %0)
@@ -1654,14 +1654,14 @@ define void @lv_textarea_set_placeholder_text(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !85
 
 3:                                                ; preds = %2
   %.not20 = icmp eq ptr %1, null
   br i1 %.not20, label %.preheader23, label %4
 
 .preheader23:                                     ; preds = %3, %.preheader23
-  br label %.preheader23
+  br label %.preheader23, !llvm.loop !86
 
 4:                                                ; preds = %3
   %5 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #10
@@ -1689,13 +1689,13 @@ define void @lv_textarea_set_placeholder_text(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not22, label %.preheader24, label %15
 
 .preheader24:                                     ; preds = %._crit_edge, %.preheader24
-  br label %.preheader24
+  br label %.preheader24, !llvm.loop !87
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call ptr @lv_strcpy(ptr noundef nonnull %14, ptr noundef nonnull %1) #10
   %17 = load ptr, ptr %12, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %5
-  store i8 0, ptr %18, align 1, !tbaa !38
+  store i8 0, ptr %18, align 1, !tbaa !42
   br label %19
 
 19:                                               ; preds = %15, %10
@@ -1770,7 +1770,7 @@ define internal fastcc void @refr_cursor_area(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %lv_textarea_get_cursor_pos.exit
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !71
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1778,9 +1778,9 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = tail call ptr @lv_label_get_text(ptr noundef %10) #10
-  %12 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !57
+  %12 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !61
   %13 = tail call i32 %12(ptr noundef %11, i32 noundef %8) #10
-  %14 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !57
+  %14 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !61
   %15 = zext i32 %13 to i64
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   %17 = tail call i32 %14(ptr noundef %16, ptr noundef null) #10
@@ -1799,14 +1799,14 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %26 = load ptr, ptr %9, align 8, !tbaa !22
   %27 = call ptr @lv_label_get_text(ptr noundef %26) #10
   %28 = call i32 @lv_obj_calculate_style_text_align(ptr noundef %26, i32 noundef 0, ptr noundef %27) #10
-  %29 = load i32, ptr %2, align 4, !tbaa !27
+  %29 = load i32, ptr %2, align 4, !tbaa !31
   %30 = load ptr, ptr %9, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load i32, ptr %31, align 8, !tbaa !54
+  %32 = load i32, ptr %31, align 8, !tbaa !58
   %33 = add i32 %29, %24
   %34 = add i32 %33, %32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !65
+  %36 = load i32, ptr %35, align 8, !tbaa !88
   %37 = icmp sgt i32 %34, %36
   br i1 %37, label %38, label %63
 
@@ -1820,16 +1820,16 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   br i1 %or.cond, label %44, label %63
 
 44:                                               ; preds = %38
-  store i32 0, ptr %2, align 4, !tbaa !27
+  store i32 0, ptr %2, align 4, !tbaa !31
   %45 = add nsw i32 %18, %.sroa.0.0.extract.trunc.i
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !31
+  %47 = load i32, ptr %46, align 4, !tbaa !35
   %48 = add nsw i32 %45, %47
-  store i32 %48, ptr %46, align 4, !tbaa !31
+  store i32 %48, ptr %46, align 4, !tbaa !35
   br i1 %19, label %57, label %49
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !57
+  %50 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !61
   %51 = call zeroext i8 %50(ptr noundef %16) #10
   %52 = zext i8 %51 to i32
   %53 = add i32 %13, %52
@@ -1855,7 +1855,7 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %.067 = phi i32 [ %62, %57 ], [ %24, %38 ], [ %24, %lv_textarea_get_cursor_pos.exit ]
   %.0 = phi i32 [ %.1, %57 ], [ %13, %38 ], [ %13, %lv_textarea_get_cursor_pos.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.0, ptr %64, align 8, !tbaa !56
+  store i32 %.0, ptr %64, align 8, !tbaa !60
   %65 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 393216, i8 noundef zeroext 48) #10
   %66 = ptrtoint ptr %65 to i64
   %.sroa.0.0.extract.trunc.i73 = trunc i64 %66 to i32
@@ -1871,11 +1871,11 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %73 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 393216, i8 noundef zeroext 19) #10
   %74 = ptrtoint ptr %73 to i64
   %.sroa.0.0.extract.trunc.i77 = trunc i64 %74 to i32
-  %75 = load i32, ptr %2, align 4, !tbaa !27
+  %75 = load i32, ptr %2, align 4, !tbaa !31
   %76 = add i32 %.sroa.0.0.extract.trunc.i76, %.sroa.0.0.extract.trunc.i73
   %77 = sub i32 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !31
+  %79 = load i32, ptr %78, align 4, !tbaa !35
   %80 = add i32 %.sroa.0.0.extract.trunc.i74, %.sroa.0.0.extract.trunc.i73
   %81 = sub i32 %79, %80
   %82 = add i32 %.sroa.0.0.extract.trunc.i73, -1
@@ -1888,47 +1888,47 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %89 = add i32 %88, %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %91 = load i32, ptr %90, align 4, !tbaa !29
+  %91 = load i32, ptr %90, align 4, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %93 = load i32, ptr %92, align 4, !tbaa !30
+  %93 = load i32, ptr %92, align 4, !tbaa !34
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %96 = load i32, ptr %95, align 4, !tbaa !48
+  %96 = load i32, ptr %95, align 4, !tbaa !52
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %99 = load i32, ptr %98, align 4, !tbaa !49
+  %99 = load i32, ptr %98, align 4, !tbaa !53
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %101 = load ptr, ptr %9, align 8, !tbaa !22
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %103 = load i32, ptr %102, align 8, !tbaa !54
+  %103 = load i32, ptr %102, align 8, !tbaa !58
   %104 = add nsw i32 %103, %91
-  store i32 %104, ptr %3, align 4, !tbaa !29
+  store i32 %104, ptr %3, align 4, !tbaa !33
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 44
-  %106 = load i32, ptr %105, align 4, !tbaa !55
+  %106 = load i32, ptr %105, align 4, !tbaa !59
   %107 = add nsw i32 %106, %93
-  store i32 %107, ptr %94, align 4, !tbaa !30
+  store i32 %107, ptr %94, align 4, !tbaa !34
   %108 = add nsw i32 %103, %96
-  store i32 %108, ptr %97, align 4, !tbaa !48
+  store i32 %108, ptr %97, align 4, !tbaa !52
   %109 = add nsw i32 %106, %99
-  store i32 %109, ptr %100, align 4, !tbaa !49
+  store i32 %109, ptr %100, align 4, !tbaa !53
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  store i32 %77, ptr %90, align 4, !tbaa !29
-  store i32 %81, ptr %92, align 4, !tbaa !30
-  store i32 %85, ptr %95, align 4, !tbaa !48
-  store i32 %89, ptr %98, align 4, !tbaa !49
+  store i32 %77, ptr %90, align 4, !tbaa !33
+  store i32 %81, ptr %92, align 4, !tbaa !34
+  store i32 %85, ptr %95, align 4, !tbaa !52
+  store i32 %89, ptr %98, align 4, !tbaa !53
   %110 = load ptr, ptr %9, align 8, !tbaa !22
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %112 = load i32, ptr %111, align 8, !tbaa !54
+  %112 = load i32, ptr %111, align 8, !tbaa !58
   %113 = add nsw i32 %112, %77
-  store i32 %113, ptr %3, align 4, !tbaa !29
+  store i32 %113, ptr %3, align 4, !tbaa !33
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 44
-  %115 = load i32, ptr %114, align 4, !tbaa !55
+  %115 = load i32, ptr %114, align 4, !tbaa !59
   %116 = add nsw i32 %115, %81
-  store i32 %116, ptr %94, align 4, !tbaa !30
+  store i32 %116, ptr %94, align 4, !tbaa !34
   %117 = add nsw i32 %112, %85
-  store i32 %117, ptr %97, align 4, !tbaa !48
+  store i32 %117, ptr %97, align 4, !tbaa !52
   %118 = add nsw i32 %115, %89
-  store i32 %118, ptr %100, align 4, !tbaa !49
+  store i32 %118, ptr %100, align 4, !tbaa !53
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -1941,7 +1941,7 @@ define void @lv_textarea_set_cursor_click_pos(ptr noundef captures(address_is_nu
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !89
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1959,7 +1959,7 @@ define void @lv_textarea_set_password_mode(ptr noundef %0, i1 noundef zeroext %1
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !90
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1989,7 +1989,7 @@ define void @lv_textarea_set_password_mode(ptr noundef %0, i1 noundef zeroext %1
   br i1 %.not22, label %.preheader28, label %20
 
 .preheader28:                                     ; preds = %15, %.preheader28
-  br label %.preheader28
+  br label %.preheader28, !llvm.loop !91
 
 20:                                               ; preds = %15
   tail call fastcc void @pwd_char_hider(ptr noundef nonnull %0)
@@ -2053,14 +2053,14 @@ define void @lv_textarea_set_password_bullet(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !92
 
 3:                                                ; preds = %2
   %.not23 = icmp eq ptr %1, null
   br i1 %.not23, label %.preheader25, label %4
 
 .preheader25:                                     ; preds = %3, %.preheader25
-  br label %.preheader25
+  br label %.preheader25, !llvm.loop !93
 
 4:                                                ; preds = %3
   %5 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #10
@@ -2073,13 +2073,13 @@ define void @lv_textarea_set_password_bullet(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not24, label %.preheader26, label %10
 
 .preheader26:                                     ; preds = %4, %.preheader26
-  br label %.preheader26
+  br label %.preheader26, !llvm.loop !94
 
 10:                                               ; preds = %4
   %11 = tail call ptr @lv_memcpy(ptr noundef nonnull %9, ptr noundef nonnull %1, i64 noundef %5) #10
   %12 = load ptr, ptr %6, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %5
-  store i8 0, ptr %13, align 1, !tbaa !38
+  store i8 0, ptr %13, align 1, !tbaa !42
   tail call fastcc void @pwd_char_hider(ptr noundef nonnull %0)
   ret void
 }
@@ -2092,7 +2092,7 @@ define void @lv_textarea_set_one_line(ptr noundef %0, i1 noundef zeroext %1) loc
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !95
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2152,7 +2152,7 @@ define void @lv_textarea_set_accepted_chars(ptr noundef writeonly captures(addre
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !96
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2166,7 +2166,7 @@ define void @lv_textarea_set_max_length(ptr noundef writeonly captures(address_i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !97
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2180,10 +2180,10 @@ define void @lv_textarea_set_insert_replace(ptr noundef readnone captures(addres
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !98
 
 3:                                                ; preds = %2
-  store ptr %1, ptr @ta_insert_replace, align 8, !tbaa !59
+  store ptr %1, ptr @ta_insert_replace, align 8, !tbaa !64
   ret void
 }
 
@@ -2193,7 +2193,7 @@ define void @lv_textarea_set_text_selection(ptr noundef captures(address_is_null
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !99
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2234,7 +2234,7 @@ define void @lv_textarea_set_password_show_time(ptr noundef %0, i32 noundef %1) 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !100
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -2256,19 +2256,19 @@ define void @lv_textarea_set_align(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not.i, label %.preheader.i, label %lv_textarea_get_label.exit
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !101
 
 4:                                                ; preds = %2
   br i1 %.not.i, label %.preheader.i6, label %lv_textarea_get_label.exit
 
 .preheader.i6:                                    ; preds = %4, %.preheader.i6
-  br label %.preheader.i6
+  br label %.preheader.i6, !llvm.loop !101
 
 5:                                                ; preds = %2
   br i1 %.not.i, label %.preheader.i9, label %lv_textarea_get_label.exit
 
 .preheader.i9:                                    ; preds = %5, %.preheader.i9
-  br label %.preheader.i9
+  br label %.preheader.i9, !llvm.loop !101
 
 lv_textarea_get_label.exit:                       ; preds = %5, %4, %3
   %.sink11 = phi i32 [ 1, %3 ], [ 3, %4 ], [ 2, %5 ]
@@ -2288,7 +2288,7 @@ define ptr @lv_textarea_get_label(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !101
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2302,7 +2302,7 @@ define ptr @lv_textarea_get_text(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !102
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2333,7 +2333,7 @@ define nonnull ptr @lv_textarea_get_placeholder_text(ptr noundef readonly captur
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !103
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2349,7 +2349,7 @@ define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr noundef readonly capture
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !104
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -2365,7 +2365,7 @@ define zeroext i1 @lv_textarea_get_password_mode(ptr noundef readonly captures(a
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !105
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2382,7 +2382,7 @@ define nonnull ptr @lv_textarea_get_password_bullet(ptr noundef %0) local_unname
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !106
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2411,7 +2411,7 @@ define zeroext i1 @lv_textarea_get_one_line(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !30
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2427,7 +2427,7 @@ define zeroext i1 @lv_textarea_text_is_selected(ptr noundef readonly captures(ad
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !107
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2457,7 +2457,7 @@ define zeroext i1 @lv_textarea_get_text_selection(ptr noundef readonly captures(
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !108
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2473,7 +2473,7 @@ define i32 @lv_textarea_get_password_show_time(ptr noundef readonly captures(add
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !109
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -2488,7 +2488,7 @@ define i32 @lv_textarea_get_current_char(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !110
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2514,14 +2514,14 @@ lv_textarea_get_text.exit:                        ; preds = %8, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %16 = load i32, ptr %15, align 4, !tbaa !20
   store i32 %16, ptr %2, align 4, !tbaa !26
-  %17 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
+  %17 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !61
   %18 = tail call i32 %17(ptr noundef %.0.i) #10
   %19 = add i32 %16, -1
   %or.cond = icmp ult i32 %19, %18
   br i1 %or.cond, label %20, label %23
 
 20:                                               ; preds = %lv_textarea_get_text.exit
-  %21 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !57
+  %21 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !61
   %22 = call i32 %21(ptr noundef %.0.i, ptr noundef nonnull %2) #10
   br label %23
 
@@ -2541,7 +2541,7 @@ define void @lv_textarea_cursor_right(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %lv_textarea_get_cursor_pos.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !27
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2557,7 +2557,7 @@ define void @lv_textarea_cursor_left(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %lv_textarea_get_cursor_pos.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !29
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2581,7 +2581,7 @@ define void @lv_textarea_cursor_down(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %lv_textarea_get_cursor_pos.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !111
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -2596,14 +2596,14 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %9 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #10
   %10 = call i32 @lv_font_get_line_height(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !31
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = add i32 %.sroa.0.0.extract.trunc.i, 1
   %14 = add i32 %13, %10
   %15 = add nsw i32 %14, %12
-  store i32 %15, ptr %11, align 4, !tbaa !31
+  store i32 %15, ptr %11, align 4, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i32, ptr %16, align 8, !tbaa !21
-  store i32 %17, ptr %2, align 4, !tbaa !27
+  store i32 %17, ptr %2, align 4, !tbaa !31
   %18 = load ptr, ptr %3, align 8, !tbaa !22
   %19 = call i32 @lv_obj_get_height(ptr noundef %18) #10
   %20 = icmp slt i32 %15, %19
@@ -2633,7 +2633,7 @@ define void @lv_textarea_cursor_up(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %lv_textarea_get_cursor_pos.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !112
 
 lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -2648,14 +2648,14 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
   %9 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 90) #10
   %10 = call i32 @lv_font_get_line_height(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !31
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = add i32 %10, %.sroa.0.0.extract.trunc.i
   %reass.sub = sub i32 %12, %13
   %14 = add i32 %reass.sub, 1
-  store i32 %14, ptr %11, align 4, !tbaa !31
+  store i32 %14, ptr %11, align 4, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i32, ptr %15, align 8, !tbaa !21
-  store i32 %16, ptr %2, align 4, !tbaa !27
+  store i32 %16, ptr %2, align 4, !tbaa !31
   %17 = load ptr, ptr %3, align 8, !tbaa !22
   %18 = call i32 @lv_label_get_letter_on(ptr noundef %17, ptr noundef nonnull %2, i1 noundef zeroext true) #10
   %19 = load i32, ptr %15, align 8, !tbaa !21
@@ -2764,30 +2764,30 @@ define internal void @cursor_blink_anim_cb(ptr noundef %0, i32 noundef %1) #0 {
   store i8 %11, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %13 = load i32, ptr %12, align 4, !tbaa !29
+  %13 = load i32, ptr %12, align 4, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %15 = load i32, ptr %14, align 4, !tbaa !30
+  %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %18 = load i32, ptr %17, align 4, !tbaa !48
+  %18 = load i32, ptr %17, align 4, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %21 = load i32, ptr %20, align 4, !tbaa !49
+  %21 = load i32, ptr %20, align 4, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !54
+  %26 = load i32, ptr %25, align 8, !tbaa !58
   %27 = add nsw i32 %26, %13
-  store i32 %27, ptr %3, align 4, !tbaa !29
+  store i32 %27, ptr %3, align 4, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !55
+  %29 = load i32, ptr %28, align 4, !tbaa !59
   %30 = add nsw i32 %29, %15
-  store i32 %30, ptr %16, align 4, !tbaa !30
+  store i32 %30, ptr %16, align 4, !tbaa !34
   %31 = add nsw i32 %26, %18
-  store i32 %31, ptr %19, align 4, !tbaa !48
+  store i32 %31, ptr %19, align 4, !tbaa !52
   %32 = add nsw i32 %29, %21
-  store i32 %32, ptr %22, align 4, !tbaa !49
+  store i32 %32, ptr %22, align 4, !tbaa !53
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   br label %33
@@ -2828,7 +2828,7 @@ declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @pwd_char_hider_anim_completed(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !66
+  %2 = load ptr, ptr %0, align 8, !tbaa !113
   tail call fastcc void @pwd_char_hider(ptr noundef %2)
   ret void
 }
@@ -2877,44 +2877,91 @@ attributes #10 = { nounwind }
 !24 = !{!4, !16, i64 88}
 !25 = !{!4, !16, i64 72}
 !26 = !{!14, !14, i64 0}
-!27 = !{!28, !14, i64 0}
-!28 = !{!"", !14, i64 0, !14, i64 4}
-!29 = !{!13, !14, i64 0}
-!30 = !{!13, !14, i64 4}
-!31 = !{!28, !14, i64 4}
-!32 = !{!4, !14, i64 144}
-!33 = !{!4, !14, i64 148}
-!34 = !{!35, !14, i64 92}
-!35 = !{!"_lv_label_t", !5, i64 0, !16, i64 64, !8, i64 72, !14, i64 76, !36, i64 80, !14, i64 92, !14, i64 96, !28, i64 100, !28, i64 108, !14, i64 116, !8, i64 116, !8, i64 116, !8, i64 116, !8, i64 116}
-!36 = !{!"_lv_draw_label_hint_t", !14, i64 0, !14, i64 4, !14, i64 8}
-!37 = !{!35, !14, i64 96}
-!38 = !{!8, !8, i64 0}
-!39 = !{!40, !42, i64 24}
-!40 = !{!"", !41, i64 0, !16, i64 48, !14, i64 56, !44, i64 64, !14, i64 72, !14, i64 76, !45, i64 80, !45, i64 83, !45, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !46, i64 136}
-!41 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !42, i64 24, !43, i64 32, !7, i64 40}
-!42 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!43 = !{!"long", !8, i64 0}
-!44 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
-!45 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!46 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
-!47 = !{!40, !14, i64 124}
-!48 = !{!13, !14, i64 8}
-!49 = !{!13, !14, i64 12}
-!50 = !{!40, !16, i64 48}
-!51 = !{!52, !42, i64 24}
-!52 = !{!"", !41, i64 0, !14, i64 48, !8, i64 52, !45, i64 53, !53, i64 56, !7, i64 72, !7, i64 80, !45, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !45, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !45, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !45, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
-!53 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
-!54 = !{!5, !14, i64 40}
-!55 = !{!5, !14, i64 44}
-!56 = !{!4, !14, i64 136}
-!57 = !{!7, !7, i64 0}
-!58 = !{!52, !8, i64 52}
-!59 = !{!16, !16, i64 0}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.mustprogress"}
-!62 = distinct !{!62, !61}
-!63 = distinct !{!63, !61}
-!64 = distinct !{!64, !61}
-!65 = !{!5, !14, i64 48}
-!66 = !{!67, !7, i64 0}
-!67 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = !{!32, !14, i64 0}
+!32 = !{!"", !14, i64 0, !14, i64 4}
+!33 = !{!13, !14, i64 0}
+!34 = !{!13, !14, i64 4}
+!35 = !{!32, !14, i64 4}
+!36 = !{!4, !14, i64 144}
+!37 = !{!4, !14, i64 148}
+!38 = !{!39, !14, i64 92}
+!39 = !{!"_lv_label_t", !5, i64 0, !16, i64 64, !8, i64 72, !14, i64 76, !40, i64 80, !14, i64 92, !14, i64 96, !32, i64 100, !32, i64 108, !14, i64 116, !8, i64 116, !8, i64 116, !8, i64 116, !8, i64 116}
+!40 = !{!"_lv_draw_label_hint_t", !14, i64 0, !14, i64 4, !14, i64 8}
+!41 = !{!39, !14, i64 96}
+!42 = !{!8, !8, i64 0}
+!43 = !{!44, !46, i64 24}
+!44 = !{!"", !45, i64 0, !16, i64 48, !14, i64 56, !48, i64 64, !14, i64 72, !14, i64 76, !49, i64 80, !49, i64 83, !49, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !50, i64 136}
+!45 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !46, i64 24, !47, i64 32, !7, i64 40}
+!46 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!47 = !{!"long", !8, i64 0}
+!48 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
+!49 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!50 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
+!51 = !{!44, !14, i64 124}
+!52 = !{!13, !14, i64 8}
+!53 = !{!13, !14, i64 12}
+!54 = !{!44, !16, i64 48}
+!55 = !{!56, !46, i64 24}
+!56 = !{!"", !45, i64 0, !14, i64 48, !8, i64 52, !49, i64 53, !57, i64 56, !7, i64 72, !7, i64 80, !49, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !49, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !49, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !49, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
+!57 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!58 = !{!5, !14, i64 40}
+!59 = !{!5, !14, i64 44}
+!60 = !{!4, !14, i64 136}
+!61 = !{!7, !7, i64 0}
+!62 = !{!56, !8, i64 52}
+!63 = distinct !{!63, !28}
+!64 = !{!16, !16, i64 0}
+!65 = distinct !{!65, !66, !28}
+!66 = !{!"llvm.loop.mustprogress"}
+!67 = distinct !{!67, !28}
+!68 = distinct !{!68, !66, !28}
+!69 = distinct !{!69, !28}
+!70 = distinct !{!70, !28}
+!71 = distinct !{!71, !28}
+!72 = distinct !{!72, !28}
+!73 = distinct !{!73, !28}
+!74 = distinct !{!74, !66, !28}
+!75 = distinct !{!75, !28}
+!76 = distinct !{!76, !28}
+!77 = distinct !{!77, !28}
+!78 = distinct !{!78, !28}
+!79 = distinct !{!79, !28}
+!80 = distinct !{!80, !28}
+!81 = distinct !{!81, !28}
+!82 = distinct !{!82, !28}
+!83 = distinct !{!83, !66, !28}
+!84 = distinct !{!84, !28}
+!85 = distinct !{!85, !28}
+!86 = distinct !{!86, !28}
+!87 = distinct !{!87, !28}
+!88 = !{!5, !14, i64 48}
+!89 = distinct !{!89, !28}
+!90 = distinct !{!90, !28}
+!91 = distinct !{!91, !28}
+!92 = distinct !{!92, !28}
+!93 = distinct !{!93, !28}
+!94 = distinct !{!94, !28}
+!95 = distinct !{!95, !28}
+!96 = distinct !{!96, !28}
+!97 = distinct !{!97, !28}
+!98 = distinct !{!98, !28}
+!99 = distinct !{!99, !28}
+!100 = distinct !{!100, !28}
+!101 = distinct !{!101, !28}
+!102 = distinct !{!102, !28}
+!103 = distinct !{!103, !28}
+!104 = distinct !{!104, !28}
+!105 = distinct !{!105, !28}
+!106 = distinct !{!106, !28}
+!107 = distinct !{!107, !28}
+!108 = distinct !{!108, !28}
+!109 = distinct !{!109, !28}
+!110 = distinct !{!110, !28}
+!111 = distinct !{!111, !28}
+!112 = distinct !{!112, !28}
+!113 = !{!114, !7, i64 0}
+!114 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}

@@ -65,16 +65,16 @@ define dso_local noundef i32 @cap_object_info(ptr noundef %0, ptr noundef %1) lo
   %.07.i.i = phi ptr [ %14, %18 ], [ %22, %21 ]
   %.06.idx.i.i = phi i64 [ 0, %18 ], [ %.06.add.i.i, %21 ]
   %.06.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i.i
-  %20 = load i8, ptr %.06.ptr.i.i, align 1, !tbaa !16
+  %20 = load i8, ptr %.06.ptr.i.i, align 1, !tbaa !17
   %exitcond.i.i = icmp eq i64 %.06.idx.i.i, 4
   br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
-  %23 = load i8, ptr %.07.i.i, align 1, !tbaa !16
+  %23 = load i8, ptr %.07.i.i, align 1, !tbaa !17
   %.06.add.i.i = add nuw nsw i64 %.06.idx.i.i, 1
   %24 = icmp eq i8 %23, %20
-  br i1 %24, label %19, label %skip_prefix.exit.i, !llvm.loop !17
+  br i1 %24, label %19, label %skip_prefix.exit.i, !llvm.loop !18
 
 skip_prefix.exit.i:                               ; preds = %21, %19
   %.not.i.i = icmp eq i8 %20, 0
@@ -96,7 +96,7 @@ parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %2
   %.sroa.0.0.ph.lcssa = phi i1 [ true, %2 ], [ %12, %.backedge ], [ false, %.outer ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 8, !tbaa !18
+  %30 = load i32, ptr %29, align 8, !tbaa !19
   %.not = icmp eq i32 %30, 2
   br i1 %.not, label %33, label %31
 
@@ -110,7 +110,7 @@ parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.send_info.send_buffer, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !19
+  %35 = load i64, ptr %34, align 8, !tbaa !20
   %.not.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %send_info.exit, label %36
 
@@ -118,13 +118,13 @@ parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
   br i1 %.sroa.0.0.ph.lcssa, label %37, label %.thread.i
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr %7, align 8, !tbaa !22
+  %38 = load ptr, ptr %7, align 8, !tbaa !23
   %.not191.i = icmp eq ptr %38, null
   br i1 %.not191.i, label %.critedge.i, label %.lr.ph.split.us.split.i
 
 .thread.i:                                        ; preds = %36
   call void (ptr, ptr, ...) @packet_writer_write(ptr noundef nonnull %6, ptr noundef nonnull @.str) #9
-  %39 = load ptr, ptr %7, align 8, !tbaa !22
+  %39 = load ptr, ptr %7, align 8, !tbaa !23
   %.not19111.i = icmp eq ptr %39, null
   br i1 %.not19111.i, label %.critedge.i, label %.lr.ph.split.split.i
 
@@ -136,10 +136,10 @@ parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
 
 .lr.ph7.i:                                        ; preds = %.lr.ph.split.us.split.i, %strbuf_setlen.exit.us.i
   %.02.us6.i = phi ptr [ %53, %strbuf_setlen.exit.us.i ], [ %38, %.lr.ph.split.us.split.i ]
-  %43 = load ptr, ptr %.02.us6.i, align 8, !tbaa !23
+  %43 = load ptr, ptr %.02.us6.i, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %44 = load ptr, ptr %40, align 8, !tbaa !25
+  %44 = load ptr, ptr %40, align 8, !tbaa !26
   %45 = call i32 @get_oid_hex_algop(ptr noundef %43, ptr noundef nonnull %4, ptr noundef %44) #9
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %52, label %47
@@ -147,15 +147,15 @@ parse_oid.exit:                                   ; preds = %skip_prefix.exit.i
 47:                                               ; preds = %.lr.ph7.i
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %43, i64 noundef %48) #9
-  %49 = load ptr, ptr %41, align 8, !tbaa !42
+  %49 = load ptr, ptr %41, align 8, !tbaa !43
   call void (ptr, ptr, ...) @packet_writer_write(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %49) #9
-  store i64 0, ptr %42, align 8, !tbaa !43
-  %50 = load ptr, ptr %41, align 8, !tbaa !42
+  store i64 0, ptr %42, align 8, !tbaa !44
+  %50 = load ptr, ptr %41, align 8, !tbaa !43
   %.not9.i.us.i = icmp eq ptr %50, @strbuf_slopbuf
   br i1 %.not9.i.us.i, label %strbuf_setlen.exit.us.i, label %51
 
 51:                                               ; preds = %47
-  store i8 0, ptr %50, align 1, !tbaa !16
+  store i8 0, ptr %50, align 1, !tbaa !17
   br label %strbuf_setlen.exit.us.i
 
 52:                                               ; preds = %.lr.ph7.i
@@ -166,8 +166,8 @@ strbuf_setlen.exit.us.i:                          ; preds = %52, %51, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   %53 = getelementptr inbounds nuw i8, ptr %.02.us6.i, i64 16
-  %54 = load ptr, ptr %7, align 8, !tbaa !22
-  %55 = load i64, ptr %34, align 8, !tbaa !19
+  %54 = load ptr, ptr %7, align 8, !tbaa !23
+  %55 = load i64, ptr %34, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw %struct.string_list_item, ptr %54, i64 %55
   %57 = icmp ult ptr %53, %56
   br i1 %57, label %.lr.ph7.i, label %.critedge.i
@@ -176,16 +176,16 @@ strbuf_setlen.exit.us.i:                          ; preds = %52, %51, %47
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = load i64, ptr %34, align 8, !tbaa !19
+  %61 = load i64, ptr %34, align 8, !tbaa !20
   %.not9.i = icmp eq i64 %61, 0
   br i1 %.not9.i, label %.critedge.i, label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %.lr.ph.split.split.i, %strbuf_setlen.exit.i
   %.024.i = phi ptr [ %78, %strbuf_setlen.exit.i ], [ %39, %.lr.ph.split.split.i ]
-  %62 = load ptr, ptr %.024.i, align 8, !tbaa !23
+  %62 = load ptr, ptr %.024.i, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %63 = load ptr, ptr %58, align 8, !tbaa !25
+  %63 = load ptr, ptr %58, align 8, !tbaa !26
   %64 = call i32 @get_oid_hex_algop(ptr noundef %62, ptr noundef nonnull %4, ptr noundef %63) #9
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %67
@@ -206,28 +206,28 @@ strbuf_setlen.exit.us.i:                          ; preds = %52, %51, %47
   br label %74
 
 72:                                               ; preds = %67
-  %73 = load i64, ptr %5, align 8, !tbaa !44
+  %73 = load i64, ptr %5, align 8, !tbaa !45
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i64 noundef %73) #9
   br label %74
 
 74:                                               ; preds = %72, %71
-  %75 = load ptr, ptr %59, align 8, !tbaa !42
+  %75 = load ptr, ptr %59, align 8, !tbaa !43
   call void (ptr, ptr, ...) @packet_writer_write(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %75) #9
-  store i64 0, ptr %60, align 8, !tbaa !43
-  %76 = load ptr, ptr %59, align 8, !tbaa !42
+  store i64 0, ptr %60, align 8, !tbaa !44
+  %76 = load ptr, ptr %59, align 8, !tbaa !43
   %.not9.i.i = icmp eq ptr %76, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %77
 
 77:                                               ; preds = %74
-  store i8 0, ptr %76, align 1, !tbaa !16
+  store i8 0, ptr %76, align 1, !tbaa !17
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %77, %74, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   %78 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
-  %79 = load ptr, ptr %7, align 8, !tbaa !22
-  %80 = load i64, ptr %34, align 8, !tbaa !19
+  %79 = load ptr, ptr %7, align 8, !tbaa !23
+  %80 = load i64, ptr %34, align 8, !tbaa !20
   %81 = getelementptr inbounds nuw %struct.string_list_item, ptr %79, i64 %80
   %82 = icmp ult ptr %78, %81
   br i1 %82, label %.lr.ph5.i, label %.critedge.i
@@ -265,7 +265,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #6 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !45
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !46
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -337,35 +337,36 @@ attributes #11 = { noreturn nounwind }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
 !13 = !{!"strbuf", !11, i64 0, !11, i64 8, !9, i64 16}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !15}
-!18 = !{!5, !6, i64 40}
-!19 = !{!20, !11, i64 8}
-!20 = !{!"string_list", !21, i64 0, !11, i64 8, !11, i64 16, !6, i64 24, !10, i64 32}
-!21 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
-!22 = !{!20, !21, i64 0}
-!23 = !{!24, !9, i64 0}
-!24 = !{!"string_list_item", !9, i64 0, !10, i64 8}
-!25 = !{!26, !12, i64 400}
-!26 = !{!"repository", !9, i64 0, !9, i64 8, !27, i64 16, !28, i64 24, !29, i64 32, !30, i64 40, !30, i64 104, !34, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !35, i64 256, !37, i64 368, !38, i64 376, !39, i64 384, !40, i64 392, !12, i64 400, !12, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !9, i64 432, !41, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
-!27 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
-!28 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
-!29 = !{!"p1 _ZTS9ref_store", !10, i64 0}
-!30 = !{!"strmap", !31, i64 0, !33, i64 48, !6, i64 56}
-!31 = !{!"hashmap", !32, i64 0, !10, i64 8, !10, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
-!32 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
-!33 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
-!34 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!35 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !36, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!36 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
-!37 = !{!"p1 _ZTS10config_set", !10, i64 0}
-!38 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
-!39 = !{!"p1 _ZTS11index_state", !10, i64 0}
-!40 = !{!"p1 _ZTS12remote_state", !10, i64 0}
-!41 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
-!42 = !{!13, !9, i64 16}
-!43 = !{!13, !11, i64 8}
-!44 = !{!11, !11, i64 0}
-!45 = !{!6, !6, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!7, !7, i64 0}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!5, !6, i64 40}
+!20 = !{!21, !11, i64 8}
+!21 = !{!"string_list", !22, i64 0, !11, i64 8, !11, i64 16, !6, i64 24, !10, i64 32}
+!22 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
+!23 = !{!21, !22, i64 0}
+!24 = !{!25, !9, i64 0}
+!25 = !{!"string_list_item", !9, i64 0, !10, i64 8}
+!26 = !{!27, !12, i64 400}
+!27 = !{!"repository", !9, i64 0, !9, i64 8, !28, i64 16, !29, i64 24, !30, i64 32, !31, i64 40, !31, i64 104, !35, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !36, i64 256, !38, i64 368, !39, i64 376, !40, i64 384, !41, i64 392, !12, i64 400, !12, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !9, i64 432, !42, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
+!28 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
+!29 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
+!30 = !{!"p1 _ZTS9ref_store", !10, i64 0}
+!31 = !{!"strmap", !32, i64 0, !34, i64 48, !6, i64 56}
+!32 = !{!"hashmap", !33, i64 0, !10, i64 8, !10, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!33 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
+!34 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
+!35 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!36 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !37, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!37 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
+!38 = !{!"p1 _ZTS10config_set", !10, i64 0}
+!39 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
+!40 = !{!"p1 _ZTS11index_state", !10, i64 0}
+!41 = !{!"p1 _ZTS12remote_state", !10, i64 0}
+!42 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
+!43 = !{!13, !9, i64 16}
+!44 = !{!13, !11, i64 8}
+!45 = !{!11, !11, i64 0}
+!46 = !{!6, !6, i64 0}

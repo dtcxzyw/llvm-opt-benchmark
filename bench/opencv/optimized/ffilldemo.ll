@@ -978,7 +978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
   ]
 
 ._crit_edge.i.i181.backedge:                      ; preds = %318, %388, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit248, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit252, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit254, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256, %337, %327, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221
-  br label %._crit_edge.i.i181
+  br label %._crit_edge.i.i181, !llvm.loop !61
 
 320:                                              ; preds = %318
   %321 = load i32, ptr @isColor, align 4, !tbaa !60
@@ -1065,7 +1065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
   br label %409
 
 342:                                              ; preds = %318
-  %343 = load i8, ptr @useMask, align 1, !tbaa !61, !range !62, !noundef !63
+  %343 = load i8, ptr @useMask, align 1, !tbaa !63, !range !64, !noundef !65
   %344 = trunc nuw i8 %343 to i1
   br i1 %344, label %._crit_edge.i.i215, label %._crit_edge.i.i225
 
@@ -1095,7 +1095,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i220, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #14
-  store i8 0, ptr @useMask, align 1, !tbaa !61
+  store i8 0, ptr @useMask, align 1, !tbaa !63
   br label %._crit_edge.i.i181.backedge
 
 350:                                              ; preds = %._crit_edge.i.i215
@@ -1183,7 +1183,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i237, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #14
-  store i8 1, ptr @useMask, align 1, !tbaa !61
+  store i8 1, ptr @useMask, align 1, !tbaa !63
   br label %._crit_edge.i.i181.backedge
 
 368:                                              ; preds = %._crit_edge.i.i225
@@ -1459,30 +1459,30 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %35 = add i32 %30, %34
   %36 = add i32 %35, %32
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
-  %38 = load i64, ptr %37, align 8, !tbaa !64
+  %38 = load i64, ptr %37, align 8, !tbaa !66
   %39 = and i64 %38, 4294967295
   %40 = mul nuw i64 %39, 4164903690
   %41 = lshr i64 %38, 32
   %42 = add nuw i64 %40, %41
-  store i64 %42, ptr %37, align 8, !tbaa !64
+  store i64 %42, ptr %37, align 8, !tbaa !66
   %43 = trunc i64 %42 to i32
   %44 = and i32 %43, 255
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
-  %46 = load i64, ptr %45, align 8, !tbaa !64
+  %46 = load i64, ptr %45, align 8, !tbaa !66
   %47 = and i64 %46, 4294967295
   %48 = mul nuw i64 %47, 4164903690
   %49 = lshr i64 %46, 32
   %50 = add nuw i64 %48, %49
-  store i64 %50, ptr %45, align 8, !tbaa !64
+  store i64 %50, ptr %45, align 8, !tbaa !66
   %51 = trunc i64 %50 to i32
   %52 = and i32 %51, 255
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
-  %54 = load i64, ptr %53, align 8, !tbaa !64
+  %54 = load i64, ptr %53, align 8, !tbaa !66
   %55 = and i64 %54, 4294967295
   %56 = mul nuw i64 %55, 4164903690
   %57 = lshr i64 %54, 32
   %58 = add nuw i64 %56, %57
-  store i64 %58, ptr %53, align 8, !tbaa !64
+  store i64 %58, ptr %53, align 8, !tbaa !66
   %59 = trunc i64 %58 to i32
   %60 = and i32 %59, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
@@ -1512,7 +1512,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %image.gray = phi ptr [ @gray, %66 ], [ @image, %63 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #14
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %image.gray)
-  %73 = load i8, ptr @useMask, align 1, !tbaa !61, !range !62, !noundef !63
+  %73 = load i8, ptr @useMask, align 1, !tbaa !63, !range !64, !noundef !65
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %117
 
@@ -1549,33 +1549,33 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store i64 0, ptr %86, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !46
   store ptr @mask, ptr %85, align 8, !tbaa !49
-  store double %.sroa.0.0, ptr %12, align 8, !tbaa !66
+  store double %.sroa.0.0, ptr %12, align 8, !tbaa !68
   %.sroa.7.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx82, align 8, !tbaa !66
+  store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx82, align 8, !tbaa !68
   %.sroa.9.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx84, align 8, !tbaa !66
+  store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx84, align 8, !tbaa !68
   %.sroa.10.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx86, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx86, align 8, !tbaa !68
   %.sroa.6.0.insert.ext77 = zext i32 %2 to i64
   %.sroa.6.0.insert.shift78 = shl nuw i64 %.sroa.6.0.insert.ext77, 32
   %.sroa.073.0.insert.ext74 = zext i32 %1 to i64
   %.sroa.073.0.insert.insert76 = or disjoint i64 %.sroa.6.0.insert.shift78, %.sroa.073.0.insert.ext74
   %87 = sitofp i32 %27 to double
-  store double %87, ptr %13, align 8, !tbaa !66
+  store double %87, ptr %13, align 8, !tbaa !68
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store double %87, ptr %88, align 8, !tbaa !66
+  store double %87, ptr %88, align 8, !tbaa !68
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %87, ptr %89, align 8, !tbaa !66
+  store double %87, ptr %89, align 8, !tbaa !68
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store double 0.000000e+00, ptr %90, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %90, align 8, !tbaa !68
   %91 = sitofp i32 %29 to double
-  store double %91, ptr %14, align 8, !tbaa !66
+  store double %91, ptr %14, align 8, !tbaa !68
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store double %91, ptr %92, align 8, !tbaa !66
+  store double %91, ptr %92, align 8, !tbaa !68
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store double %91, ptr %93, align 8, !tbaa !66
+  store double %91, ptr %93, align 8, !tbaa !68
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store double 0.000000e+00, ptr %94, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %94, align 8, !tbaa !68
   %95 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayES2_NS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 %.sroa.073.0.insert.insert76, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %36)
           to label %._crit_edge.i.i unwind label %109
 
@@ -1664,33 +1664,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   store i64 0, ptr %119, align 8
   store i32 50397184, ptr %17, align 8, !tbaa !46
   store ptr %7, ptr %118, align 8, !tbaa !49
-  store double %.sroa.0.0, ptr %18, align 8, !tbaa !66
+  store double %.sroa.0.0, ptr %18, align 8, !tbaa !68
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !66
+  store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !68
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !66
+  store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !68
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !68
   %.sroa.6.0.insert.ext = zext i32 %2 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.073.0.insert.ext = zext i32 %1 to i64
   %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.073.0.insert.ext
   %120 = sitofp i32 %27 to double
-  store double %120, ptr %19, align 8, !tbaa !66
+  store double %120, ptr %19, align 8, !tbaa !68
   %121 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store double %120, ptr %121, align 8, !tbaa !66
+  store double %120, ptr %121, align 8, !tbaa !68
   %122 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store double %120, ptr %122, align 8, !tbaa !66
+  store double %120, ptr %122, align 8, !tbaa !68
   %123 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store double 0.000000e+00, ptr %123, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %123, align 8, !tbaa !68
   %124 = sitofp i32 %29 to double
-  store double %124, ptr %20, align 8, !tbaa !66
+  store double %124, ptr %20, align 8, !tbaa !68
   %125 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store double %124, ptr %125, align 8, !tbaa !66
+  store double %124, ptr %125, align 8, !tbaa !68
   %126 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store double %124, ptr %126, align 8, !tbaa !66
+  store double %124, ptr %126, align 8, !tbaa !68
   %127 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store double 0.000000e+00, ptr %127, align 8, !tbaa !66
+  store double 0.000000e+00, ptr %127, align 8, !tbaa !68
   %128 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayENS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 %.sroa.073.0.insert.insert, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %36)
           to label %129 unwind label %130
 
@@ -1948,10 +1948,12 @@ attributes #16 = { noreturn }
 !58 = !{!"p1 long", !7, i64 0}
 !59 = !{!53, !28, i64 12}
 !60 = !{!28, !28, i64 0}
-!61 = !{!35, !35, i64 0}
-!62 = !{i8 0, i8 2}
-!63 = !{}
-!64 = !{!65, !11, i64 0}
-!65 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"double", !8, i64 0}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!35, !35, i64 0}
+!64 = !{i8 0, i8 2}
+!65 = !{}
+!66 = !{!67, !11, i64 0}
+!67 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"double", !8, i64 0}

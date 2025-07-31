@@ -196,8 +196,8 @@ thread-pre-split67:                               ; preds = %thread-pre-split, %
   br i1 %.not64, label %90, label %87
 
 87:                                               ; preds = %85
-  %88 = load i32, ptr %3, align 4, !tbaa !43
-  %89 = load i64, ptr %4, align 8, !tbaa !44
+  %88 = load i32, ptr %3, align 4, !tbaa !44
+  %89 = load i64, ptr %4, align 8, !tbaa !45
   call void @ff_avfilter_link_set_in_status(ptr noundef %10, i32 noundef %88, i64 noundef %89) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
@@ -311,7 +311,8 @@ attributes #6 = { nounwind willreturn memory(none) }
 !38 = !{!36, !30, i64 24}
 !39 = !{!36, !30, i64 32}
 !40 = !{!36, !30, i64 16}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!15, !15, i64 0}
-!44 = !{!30, !30, i64 0}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!15, !15, i64 0}
+!45 = !{!30, !30, i64 0}

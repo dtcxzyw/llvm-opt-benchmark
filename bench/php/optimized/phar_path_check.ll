@@ -236,7 +236,7 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr noundef captures(none) %0
 
 .thread.backedge:                                 ; preds = %112, %116, %126, %63, %65, %71
   %.0139.be = phi ptr [ %64, %63 ], [ %66, %65 ], [ %66, %71 ], [ %66, %126 ], [ %66, %116 ], [ %66, %112 ]
-  br label %.thread
+  br label %.thread, !llvm.loop !12
 
 114:                                              ; preds = %112
   %115 = icmp eq i8 %110, 46
@@ -291,3 +291,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long", !7, i64 0}
 !11 = !{!7, !7, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}

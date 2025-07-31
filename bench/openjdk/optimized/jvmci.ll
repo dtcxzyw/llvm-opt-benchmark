@@ -496,7 +496,7 @@ define hidden void @_ZN5JVMCI18initialize_globalsEv() local_unnamed_addr #0 alig
   store i8 0, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 280
   %28 = icmp eq ptr %27, %22
-  br i1 %28, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %23
+  br i1 %28, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit, label %23, !llvm.loop !6
 
 _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 152
@@ -520,7 +520,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
   %37 = mul nsw i32 %.01820, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %35
-  br i1 %exitcond.not, label %38, label %36, !llvm.loop !6
+  br i1 %exitcond.not, label %38, label %36, !llvm.loop !8
 
 38:                                               ; preds = %36
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #13
@@ -559,7 +559,7 @@ _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit: ; preds = %23, %5
   store i8 0, ptr %58, align 1
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 280
   %60 = icmp eq ptr %59, %54
-  br i1 %60, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit19, label %55
+  br i1 %60, label %_ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit19, label %55, !llvm.loop !6
 
 _ZN20FormatStringEventLogILm256EEC2EPKcS2_i.exit19: ; preds = %55, %38
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 152
@@ -673,7 +673,7 @@ _ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit: ; preds = %5, %21, %25, %2
 48:                                               ; preds = %39, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %49, label %34, !llvm.loop !8
+  br i1 %exitcond.not, label %49, label %34, !llvm.loop !10
 
 49:                                               ; preds = %48
   store i8 1, ptr @_ZN5JVMCI23_box_caches_initializedE, align 1
@@ -761,7 +761,7 @@ define hidden void @_ZN5JVMCI11metadata_doEPFvP8MetadataE(ptr noundef %0) local_
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %.0 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %.0, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %10 = load ptr, ptr @_ZN5JVMCI26_shutdown_compiler_runtimeE, align 8
@@ -808,7 +808,7 @@ define hidden void @_ZN5JVMCI12do_unloadingEb(i1 noundef zeroext %0) local_unnam
   %10 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %.0 = load ptr, ptr %10, align 8
   %.not5 = icmp eq ptr %.0, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %11 = load ptr, ptr @_ZN5JVMCI26_shutdown_compiler_runtimeE, align 8
@@ -1172,7 +1172,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %.038, i64 48
   %.0 = load ptr, ptr %42, align 8
   %.not21 = icmp eq ptr %.0, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %41, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25
   br i1 %.not.i.i24, label %_ZN11MutexLockerD2Ev.exit27, label %43
@@ -1228,7 +1228,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 -1, ptr nonnull @_ZN5JVMCI22_fatal_log_init_threadE) #13, !srcloc !12
+  %8 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 -1, ptr nonnull @_ZN5JVMCI22_fatal_log_init_threadE) #13, !srcloc !14
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %10, label %28
 
@@ -1278,7 +1278,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
   tail call void @_ZN2os17naked_short_sleepEl(i64 noundef 50) #13
   %31 = load volatile i32, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %27
   %33 = load volatile i32, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
@@ -1573,7 +1573,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %27 = load i32, ptr %6, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next82, %28
-  br i1 %29, label %.lr.ph59.split.us, label %.loopexit.loopexit64, !llvm.loop !14
+  br i1 %29, label %.lr.ph59.split.us, label %.loopexit.loopexit64, !llvm.loop !16
 
 .lr.ph59.split:                                   ; preds = %.lr.ph59.split.preheader, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit
   %indvars.iv86 = phi i64 [ 0, %.lr.ph59.split.preheader ], [ %indvars.iv.next87, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit ]
@@ -1605,7 +1605,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %41 = load i32, ptr %6, align 8
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next87, %42
-  br i1 %43, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !16
+  br i1 %43, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !18
 
 44:                                               ; preds = %10
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1647,7 +1647,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %62 = load i32, ptr %11, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !17
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41 ], [ %50, %.lr.ph ]
@@ -1681,7 +1681,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %78 = load i32, ptr %11, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next73, %79
-  br i1 %80, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !18
+  br i1 %80, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !20
 
 ._crit_edgethread-pre-split:                      ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us, %.lr.ph.split, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41
   %.2.lcssa.ph = phi i32 [ %77, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41 ], [ %2, %.lr.ph.split ], [ %61, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit41.us ]
@@ -1727,7 +1727,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %96 = load i32, ptr %45, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next76, %97
-  br i1 %98, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !19
+  br i1 %98, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !21
 
 .lr.ph52.split:                                   ; preds = %.lr.ph52, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ 0, %.lr.ph52 ]
@@ -1761,7 +1761,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   %112 = load i32, ptr %45, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next79, %113
-  br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !20
+  br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !22
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
   %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
@@ -1821,17 +1821,19 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i64 2145412694}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !15}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !15}
-!20 = distinct !{!20, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9, !7}
+!14 = !{i64 2145412694}
+!15 = distinct !{!15, !9, !7}
+!16 = distinct !{!16, !9, !7, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !9, !7}
+!19 = distinct !{!19, !9, !7, !17}
+!20 = distinct !{!20, !9, !7}
+!21 = distinct !{!21, !9, !7, !17}
+!22 = distinct !{!22, !9, !7}

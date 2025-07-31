@@ -237,7 +237,7 @@ define internal i32 @filter_units_filter(ptr noundef %0, ptr noundef %1) #0 {
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4, !tbaa !51
+  %42 = load i32, ptr %41, align 4, !tbaa !52
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %44, label %39
 
@@ -258,7 +258,7 @@ define internal i32 @filter_units_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread51:                                        ; preds = %.thread, %44, %.thread52
   %50 = icmp sgt i64 %indvars.iv61, 1
-  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !52
+  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.thread51, %25, %17
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -318,14 +318,14 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !53
+  store ptr null, ptr %4, align 8, !tbaa !54
   br label %6
 
 6:                                                ; preds = %3, %67
   %7 = phi ptr [ null, %3 ], [ %68, %67 ]
   %.03557 = phi i32 [ 1, %3 ], [ %69, %67 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  %8 = load i8, ptr %0, align 1, !tbaa !54
+  %8 = load i8, ptr %0, align 1, !tbaa !55
   %.not51 = icmp eq i8 %8, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph54
 
@@ -338,12 +338,12 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %.03153.us = phi ptr [ %spec.select.us, %.loopexit.us ], [ %0, %.lr.ph54 ]
   %.13852.us = phi i32 [ %.3.us, %.loopexit.us ], [ 0, %.lr.ph54 ]
   %11 = call i64 @strtol(ptr noundef nonnull %.03153.us, ptr noundef nonnull %5, i32 noundef 0) #4
-  %12 = load ptr, ptr %5, align 8, !tbaa !55
+  %12 = load ptr, ptr %5, align 8, !tbaa !56
   %13 = icmp eq ptr %.03153.us, %12
   br i1 %13, label %.split.us, label %14
 
 14:                                               ; preds = %.lr.ph54.split.us
-  %15 = load i8, ptr %12, align 1, !tbaa !54
+  %15 = load i8, ptr %12, align 1, !tbaa !55
   %16 = icmp eq i8 %15, 45
   br i1 %16, label %22, label %17
 
@@ -351,14 +351,14 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %18 = trunc i64 %11 to i32
   %19 = sext i32 %.13852.us to i64
   %20 = getelementptr inbounds i32, ptr %10, i64 %19
-  store i32 %18, ptr %20, align 4, !tbaa !51
+  store i32 %18, ptr %20, align 4, !tbaa !52
   %21 = add nsw i32 %.13852.us, 1
   br label %.loopexit.us
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %24 = call i64 @strtol(ptr noundef nonnull %23, ptr noundef nonnull %5, i32 noundef 0) #4
-  %25 = load ptr, ptr %5, align 8, !tbaa !55
+  %25 = load ptr, ptr %5, align 8, !tbaa !56
   %26 = icmp eq ptr %23, %25
   br i1 %26, label %.split.us, label %.preheader.us
 
@@ -370,13 +370,13 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %28 = phi ptr [ %10, %17 ], [ %10, %.preheader.us ], [ %33, %.loopexit.us.loopexit ]
   %.3.us = phi i32 [ %21, %17 ], [ %.13852.us, %.preheader.us ], [ %27, %.loopexit.us.loopexit ]
   %.1.us = phi ptr [ %12, %17 ], [ %23, %.preheader.us ], [ %23, %.loopexit.us.loopexit ]
-  %29 = load i8, ptr %.1.us, align 1, !tbaa !54
+  %29 = load i8, ptr %.1.us, align 1, !tbaa !55
   %30 = icmp eq i8 %29, 124
   %spec.select.idx.us = zext i1 %30 to i64
   %spec.select.us = getelementptr inbounds nuw i8, ptr %.1.us, i64 %spec.select.idx.us
-  %31 = load i8, ptr %spec.select.us, align 1, !tbaa !54
+  %31 = load i8, ptr %spec.select.us, align 1, !tbaa !55
   %.not.us = icmp eq i8 %31, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph54.split.us, !llvm.loop !56
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph54.split.us, !llvm.loop !57
 
 .preheader.us:                                    ; preds = %22
   %32 = icmp slt i64 %11, %24
@@ -394,29 +394,29 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %.03650.us.us = phi i64 [ %40, %37 ], [ %11, %.lr.ph.us ]
   %38 = trunc i64 %.03650.us.us to i32
   %39 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
-  store i32 %38, ptr %39, align 4, !tbaa !51
+  store i32 %38, ptr %39, align 4, !tbaa !52
   %indvars.iv.next = add i64 %indvars.iv, 1
   %40 = add nsw i64 %.03650.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %37, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %37, !llvm.loop !59
 
 .lr.ph54.split:                                   ; preds = %.lr.ph54, %.loopexit
   %.03153 = phi ptr [ %spec.select, %.loopexit ], [ %0, %.lr.ph54 ]
   %.13852 = phi i32 [ %.3, %.loopexit ], [ 0, %.lr.ph54 ]
   %41 = call i64 @strtol(ptr noundef nonnull %.03153, ptr noundef nonnull %5, i32 noundef 0) #4
-  %42 = load ptr, ptr %5, align 8, !tbaa !55
+  %42 = load ptr, ptr %5, align 8, !tbaa !56
   %43 = icmp eq ptr %.03153, %42
   br i1 %43, label %.split.us, label %44
 
 44:                                               ; preds = %.lr.ph54.split
-  %45 = load i8, ptr %42, align 1, !tbaa !54
+  %45 = load i8, ptr %42, align 1, !tbaa !55
   %46 = icmp eq i8 %45, 45
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %49 = call i64 @strtol(ptr noundef nonnull %48, ptr noundef nonnull %5, i32 noundef 0) #4
-  %50 = load ptr, ptr %5, align 8, !tbaa !55
+  %50 = load ptr, ptr %5, align 8, !tbaa !56
   %51 = icmp eq ptr %48, %50
   br i1 %51, label %.split.us, label %.preheader
 
@@ -438,13 +438,13 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader, %57
   %.3 = phi i32 [ %58, %57 ], [ %.13852, %.preheader ], [ %56, %.lr.ph.preheader ]
   %.1 = phi ptr [ %42, %57 ], [ %48, %.preheader ], [ %48, %.lr.ph.preheader ]
-  %59 = load i8, ptr %.1, align 1, !tbaa !54
+  %59 = load i8, ptr %.1, align 1, !tbaa !55
   %60 = icmp eq i8 %59, 124
   %spec.select.idx = zext i1 %60 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
-  %61 = load i8, ptr %spec.select, align 1, !tbaa !54
+  %61 = load i8, ptr %spec.select, align 1, !tbaa !55
   %.not = icmp eq i8 %61, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph54.split, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph54.split, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %6
   %62 = phi ptr [ %7, %6 ], [ %28, %.loopexit.us ], [ %7, %.loopexit ]
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
 64:                                               ; preds = %._crit_edge
   %65 = sext i32 %.138.lcssa to i64
   %66 = tail call ptr @av_malloc_array(i64 noundef %65, i64 noundef 4) #4
-  store ptr %66, ptr %4, align 8, !tbaa !53
+  store ptr %66, ptr %4, align 8, !tbaa !54
   %.not42 = icmp eq ptr %66, null
   br i1 %.not42, label %.thread44, label %67
 
@@ -468,12 +468,12 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   %69 = add nuw nsw i32 %.03557, 1
   %exitcond63.not = icmp eq i32 %69, 3
-  br i1 %exitcond63.not, label %70, label %6, !llvm.loop !60
+  br i1 %exitcond63.not, label %70, label %6, !llvm.loop !61
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %4, align 8, !tbaa !53
-  store ptr %71, ptr %1, align 8, !tbaa !53
-  store i32 %.138.lcssa, ptr %2, align 4, !tbaa !51
+  %71 = load ptr, ptr %4, align 8, !tbaa !54
+  store ptr %71, ptr %1, align 8, !tbaa !54
+  store i32 %.138.lcssa, ptr %2, align 4, !tbaa !52
   br label %72
 
 .split.us:                                        ; preds = %47, %.lr.ph54.split, %.lr.ph54.split.us, %22
@@ -578,15 +578,16 @@ attributes #4 = { nounwind }
 !46 = !{!17, !21, i64 40}
 !47 = !{!48, !13, i64 0}
 !48 = !{!"CodedBitstreamUnit", !13, i64 0, !18, i64 8, !19, i64 16, !19, i64 24, !20, i64 32, !7, i64 40, !7, i64 48}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!13, !13, i64 0}
-!52 = distinct !{!52, !50}
-!53 = !{!22, !22, i64 0}
-!54 = !{!8, !8, i64 0}
-!55 = !{!18, !18, i64 0}
-!56 = distinct !{!56, !50, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !50, !57}
-!59 = distinct !{!59, !50}
-!60 = distinct !{!60, !50}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!13, !13, i64 0}
+!53 = distinct !{!53, !50, !51}
+!54 = !{!22, !22, i64 0}
+!55 = !{!8, !8, i64 0}
+!56 = !{!18, !18, i64 0}
+!57 = distinct !{!57, !50, !51, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !50, !51, !58}
+!60 = distinct !{!60, !50, !51}
+!61 = distinct !{!61, !50, !51}

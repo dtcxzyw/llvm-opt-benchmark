@@ -196,7 +196,7 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   %68 = or disjoint i32 %67, 7
   %69 = load i32, ptr %4, align 4, !tbaa !16
   %70 = icmp slt i32 %68, %69
-  br i1 %70, label %.lr.ph77, label %.preheader70, !llvm.loop !50
+  br i1 %70, label %.lr.ph77, label %.preheader70, !llvm.loop !51
 
 .preheader:                                       ; preds = %.lr.ph82, %.preheader70
   %71 = phi i32 [ %53, %.preheader70 ], [ %87, %.lr.ph82 ]
@@ -225,18 +225,18 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   %86 = or disjoint i32 %85, 3
   %87 = load i32, ptr %4, align 4, !tbaa !16
   %88 = icmp slt i32 %86, %87
-  br i1 %88, label %.lr.ph82, label %.preheader, !llvm.loop !51
+  br i1 %88, label %.lr.ph82, label %.preheader, !llvm.loop !52
 
 .lr.ph88:                                         ; preds = %.preheader, %100
   %.387 = phi ptr [ %101, %100 ], [ %.2.lcssa, %.preheader ]
   %.35986 = phi i32 [ %102, %100 ], [ %.258.lcssa, %.preheader ]
-  %89 = load float, ptr %.387, align 4, !tbaa !52
-  %90 = load float, ptr %23, align 8, !tbaa !53
+  %89 = load float, ptr %.387, align 4, !tbaa !53
+  %90 = load float, ptr %23, align 8, !tbaa !54
   %91 = fcmp fast olt float %89, %90
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %.lr.ph88
-  %93 = load float, ptr %24, align 4, !tbaa !54
+  %93 = load float, ptr %24, align 4, !tbaa !55
   %94 = fcmp fast ogt float %89, %93
   br i1 %94, label %100, label %95
 
@@ -249,17 +249,17 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
 
 100:                                              ; preds = %92, %.lr.ph88, %95
   %.sink = phi float [ %99, %95 ], [ 0.000000e+00, %.lr.ph88 ], [ 1.000000e+00, %92 ]
-  store float %.sink, ptr %.387, align 4, !tbaa !52
+  store float %.sink, ptr %.387, align 4, !tbaa !53
   %101 = getelementptr inbounds nuw i8, ptr %.387, i64 4
   %102 = add nuw nsw i32 %.35986, 1
   %exitcond.not = icmp eq i32 %102, %71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %100, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond100.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond100.not, label %._crit_edge91, label %.noexc
+  br i1 %exitcond100.not, label %._crit_edge91, label %.noexc, !llvm.loop !57
 
 ._crit_edge91:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -291,7 +291,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !56 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !58 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #8
@@ -387,13 +387,15 @@ attributes #12 = { builtin nounwind }
 !45 = !{!"_ZTSN4ncnn11HardSigmoidE", !24, i64 0, !46, i64 208, !46, i64 212, !46, i64 216, !46, i64 220}
 !46 = !{!"float", !7, i64 0}
 !47 = !{!45, !46, i64 208}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = distinct !{!51, !49}
-!52 = !{!46, !46, i64 0}
-!53 = !{!45, !46, i64 216}
-!54 = !{!45, !46, i64 220}
-!55 = distinct !{!55, !49}
-!56 = !{!57}
-!57 = !{i64 2, i64 -1, i64 -1, i1 true}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50}
+!52 = distinct !{!52, !49, !50}
+!53 = !{!46, !46, i64 0}
+!54 = !{!45, !46, i64 216}
+!55 = !{!45, !46, i64 220}
+!56 = distinct !{!56, !49, !50}
+!57 = distinct !{!57, !50}
+!58 = !{!59}
+!59 = !{i64 2, i64 -1, i64 -1, i1 true}

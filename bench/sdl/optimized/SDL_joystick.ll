@@ -395,7 +395,7 @@ define hidden void @SDL_QuitJoysticks() local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4
   %.not13 = icmp eq i32 %10, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader57
   tail call void @SDL_free_REAL(ptr noundef nonnull %6) #13
@@ -413,7 +413,7 @@ define hidden void @SDL_QuitJoysticks() local_unnamed_addr #1 {
   tail call void @SDL_CloseJoystick_REAL(ptr noundef nonnull %13)
   %15 = load ptr, ptr @SDL_joysticks, align 8
   %.not14 = icmp eq ptr %15, null
-  br i1 %.not14, label %.preheader.preheader, label %.lr.ph62, !llvm.loop !6
+  br i1 %.not14, label %.preheader.preheader, label %.lr.ph62, !llvm.loop !7
 
 .preheader.preheader:                             ; preds = %.lr.ph62, %11
   br label %.preheader
@@ -427,7 +427,7 @@ define hidden void @SDL_QuitJoysticks() local_unnamed_addr #1 {
   tail call void %19() #13
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
   %.not68 = icmp eq i64 %indvars.iv65, 0
-  br i1 %.not68, label %20, label %.preheader, !llvm.loop !7
+  br i1 %.not68, label %20, label %.preheader, !llvm.loop !8
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr @SDL_joystick_players, align 8
@@ -880,7 +880,7 @@ define hidden noundef zeroext i1 @SDL_JoystickHandledByAnotherDriver(ptr noundef
 11:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %12, !llvm.loop !8
+  br i1 %exitcond.not, label %20, label %12, !llvm.loop !9
 
 12:                                               ; preds = %5, %11
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %11 ]
@@ -951,7 +951,7 @@ define hidden zeroext i1 @SDL_HasJoystick_REAL() local_unnamed_addr #1 {
   %12 = add nsw i32 %11, %.09
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %13, label %6, !llvm.loop !9
+  br i1 %exitcond.not, label %13, label %6, !llvm.loop !10
 
 13:                                               ; preds = %6
   %14 = load i32, ptr @SDL_joysticks_locked, align 4
@@ -1009,7 +1009,7 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
   %13 = add nsw i32 %12, %.02435
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !11
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %13, 1
@@ -1056,7 +1056,7 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %34 = add nuw nsw i32 %.02737, 1
   %exitcond46.not = icmp eq i32 %34, %26
-  br i1 %exitcond46.not, label %._crit_edge.loopexit, label %30, !llvm.loop !11
+  br i1 %exitcond46.not, label %._crit_edge.loopexit, label %30, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %30
   %35 = trunc nsw i64 %indvars.iv.next44 to i32
@@ -1066,7 +1066,7 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
   %.126.lcssa = phi i32 [ %.02539, %21 ], [ %35, %._crit_edge.loopexit ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50.not, label %36, label %21, !llvm.loop !12
+  br i1 %exitcond50.not, label %36, label %21, !llvm.loop !13
 
 36:                                               ; preds = %._crit_edge
   %37 = sext i32 %.126.lcssa to i64
@@ -1149,12 +1149,12 @@ define hidden ptr @SDL_GetJoystickVirtualGamepadInfoForID(i32 noundef %0) local_
 .critedge.i:                                      ; preds = %11
   %14 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %14, %8
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %3
   %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -1216,12 +1216,12 @@ define hidden ptr @SDL_GetJoystickNameForID_REAL(i32 noundef %0) local_unnamed_a
 .critedge.i.i:                                    ; preds = %16
   %19 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %19, %13
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %8
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -1269,12 +1269,12 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread: ; preds = %1, %SDL_GetDriver
 .critedge.i:                                      ; preds = %36
   %39 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %39, %33
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %SDL_GetJoystickVirtualGamepadInfoForID.exit.thread
   %40 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -1359,12 +1359,12 @@ define hidden ptr @SDL_GetJoystickPathForID_REAL(i32 noundef %0) local_unnamed_a
 .critedge.i:                                      ; preds = %14
   %17 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %17, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %1
   %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -1447,7 +1447,7 @@ define hidden i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef %0) local_un
 13:                                               ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit, label %9, !llvm.loop !15
+  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit, label %9, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %9
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1528,12 +1528,12 @@ SDL_GetDriverAndJoystickIndex.exit.preheader:     ; preds = %15
 .critedge.i:                                      ; preds = %15
   %18 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %18, %12
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.i, %1
   %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -1608,7 +1608,7 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %.068162, i64 344
   %.068 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %.068, null
-  br i1 %.not, label %SDL_GetDriverAndJoystickIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %SDL_GetDriverAndJoystickIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !17
 
 SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoystickIndex.exit, %SDL_GetDriverAndJoystickIndex.exit.preheader
   %47 = tail call noalias dereferenceable_or_null(352) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 352) #14
@@ -1880,7 +1880,7 @@ SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoy
 181:                                              ; preds = %185
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %185, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %185, !llvm.loop !18
 
 .preheader.i.i:                                   ; preds = %181, %171
   %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zero_centered_devices, i64 8), align 8
@@ -1902,7 +1902,7 @@ SDL_GetDriverAndJoystickIndex.exit._crit_edge:    ; preds = %SDL_GetDriverAndJoy
 189:                                              ; preds = %190
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
-  br i1 %exitcond27.not.i.i, label %SDL_JoystickAxesCenteredAtZero.exit.thread, label %190, !llvm.loop !18
+  br i1 %exitcond27.not.i.i, label %SDL_JoystickAxesCenteredAtZero.exit.thread, label %190, !llvm.loop !19
 
 190:                                              ; preds = %189, %.lr.ph18.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %.lr.ph18.i.i ], [ %indvars.iv.next24.i.i, %189 ]
@@ -1929,7 +1929,7 @@ SDL_JoystickAxesCenteredAtZero.exit:              ; preds = %190
   %199 = load i32, ptr %103, align 4
   %200 = sext i32 %199 to i64
   %201 = icmp slt i64 %indvars.iv.next, %200
-  br i1 %201, label %196, label %SDL_JoystickAxesCenteredAtZero.exit.thread, !llvm.loop !19
+  br i1 %201, label %196, label %SDL_JoystickAxesCenteredAtZero.exit.thread, !llvm.loop !20
 
 SDL_JoystickAxesCenteredAtZero.exit.thread:       ; preds = %185, %189, %196, %SDL_JoystickAxesCenteredAtZero.exit, %.preheader.i.i
   %202 = tail call zeroext i1 @SDL_SteamVirtualGamepadEnabled() #13
@@ -1959,12 +1959,12 @@ SDL_JoystickAxesCenteredAtZero.exit.thread:       ; preds = %185, %189, %196, %S
 .critedge.i.i:                                    ; preds = %210
   %213 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i107 = icmp eq i32 %213, %207
-  br i1 %exitcond.not.i.i107, label %._crit_edge.i.i, label %210, !llvm.loop !13
+  br i1 %exitcond.not.i.i107, label %._crit_edge.i.i, label %210, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i103
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i105, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i103, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i103, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i
   %214 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -2062,7 +2062,7 @@ SDL_LoadVIDPIDListFromHints.exit.i:               ; preds = %235, %233
 259:                                              ; preds = %263
   %indvars.iv.next.i.i119 = add nuw nsw i64 %indvars.iv.i.i118, 1
   %exitcond.not.i.i120 = icmp eq i64 %indvars.iv.next.i.i119, %wide.trip.count.i.i117
-  br i1 %exitcond.not.i.i120, label %.preheader.i.i109, label %263, !llvm.loop !17
+  br i1 %exitcond.not.i.i120, label %.preheader.i.i109, label %263, !llvm.loop !18
 
 .preheader.i.i109:                                ; preds = %259, %SDL_LoadVIDPIDListFromHints.exit.i
   %260 = load i32, ptr %239, align 8
@@ -2089,7 +2089,7 @@ SDL_LoadVIDPIDListFromHints.exit.i:               ; preds = %235, %233
   %indvars.iv.next24.i.i114 = add nuw nsw i64 %indvars.iv23.i.i113, 1
   %exitcond27.not.i.i115 = icmp eq i64 %indvars.iv.next24.i.i114, %wide.trip.count26.i.i112
   %or.cond = select i1 %270, i1 true, i1 %exitcond27.not.i.i115
-  br i1 %or.cond, label %SDL_VIDPIDInList.exit.i, label %267, !llvm.loop !18
+  br i1 %or.cond, label %SDL_VIDPIDInList.exit.i, label %267, !llvm.loop !19
 
 SDL_VIDPIDInList.exit.i:                          ; preds = %263, %267, %.preheader.i.i109
   %.0.i.i = phi i1 [ false, %.preheader.i.i109 ], [ %270, %267 ], [ false, %263 ]
@@ -2241,7 +2241,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit.i.i:            ; preds = %292
   %331 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv.next.i33.i
   %332 = load i32, ptr %331, align 4
   %.not38.i.i = icmp eq i32 %332, 0
-  br i1 %.not38.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i31.i, !llvm.loop !20
+  br i1 %.not38.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i31.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i.i:                         ; preds = %330
   %333 = trunc nuw i8 %.3.i.i to i1
@@ -2496,7 +2496,7 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
 
 .lr.ph:                                           ; preds = %.lr.ph66
   %70 = icmp eq ptr %0, %.0
-  br i1 %70, label %.lr.ph._crit_edge, label %.lr.ph66, !llvm.loop !21
+  br i1 %70, label %.lr.ph._crit_edge, label %.lr.ph66, !llvm.loop !22
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.055.lcssa = phi ptr [ %.052, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
@@ -2522,7 +2522,7 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
   %78 = getelementptr inbounds nuw i8, ptr %.05565, i64 344
   %.0 = load ptr, ptr %78, align 8
   %.not40 = icmp eq ptr %.0, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph66, %CleanupSensorFusion.exit, %71, %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2565,7 +2565,7 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
   %101 = load i32, ptr %93, align 8
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %97, label %._crit_edge, !llvm.loop !22
+  br i1 %103, label %97, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %97, %.loopexit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2701,7 +2701,7 @@ SDL_PrivateJoystickAddSensor.exit39:              ; preds = %41, %33, %30, %SDL_
   %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4
   %.not35 = icmp eq i32 %48, 0
-  br i1 %.not35, label %._crit_edge, label %11, !llvm.loop !23
+  br i1 %.not35, label %._crit_edge, label %11, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %SDL_PrivateJoystickAddSensor.exit39, %.preheader41
   tail call void @SDL_free_REAL(ptr noundef nonnull %5) #13
@@ -2750,12 +2750,12 @@ SDL_PrivateJoystickAddSensor.exit39:              ; preds = %41, %33, %30, %SDL_
   store float %66, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %67, label %63, !llvm.loop !24
+  br i1 %exitcond.not, label %67, label %63, !llvm.loop !25
 
 67:                                               ; preds = %63
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50.not, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %exitcond50.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %67, %59, %2
   ret void
@@ -2885,12 +2885,12 @@ define hidden zeroext i1 @SDL_IsJoystickVirtual_REAL(i32 noundef %0) local_unnam
 .critedge.i:                                      ; preds = %14
   %17 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %17, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %1
   %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -2980,7 +2980,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef %0, i32 no
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %24 = load i8, ptr %23, align 1, !range !26, !noundef !27
+  %24 = load i8, ptr %23, align 1, !range !27, !noundef !28
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %38, label %26
 
@@ -3097,7 +3097,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef %0, i32 no
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %25 = load i8, ptr %24, align 1, !range !26, !noundef !27
+  %25 = load i8, ptr %24, align 1, !range !27, !noundef !28
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %39, label %27
 
@@ -3212,7 +3212,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef %0, i32 
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %24 = load i8, ptr %23, align 1, !range !26, !noundef !27
+  %24 = load i8, ptr %23, align 1, !range !27, !noundef !28
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %38, label %26
 
@@ -3327,7 +3327,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef %0, i32 nou
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %24 = load i8, ptr %23, align 1, !range !26, !noundef !27
+  %24 = load i8, ptr %23, align 1, !range !27, !noundef !28
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %38, label %26
 
@@ -3442,7 +3442,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef %0, i3
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %28 = load i8, ptr %27, align 1, !range !26, !noundef !27
+  %28 = load i8, ptr %27, align 1, !range !27, !noundef !28
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %42, label %30
 
@@ -3557,7 +3557,7 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef %0,
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %26 = load i8, ptr %25, align 1, !range !26, !noundef !27
+  %26 = load i8, ptr %25, align 1, !range !27, !noundef !28
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %40, label %28
 
@@ -3670,12 +3670,12 @@ define hidden zeroext i1 @SDL_PrivateJoystickGetAutoGamepadMapping(i32 noundef %
 .critedge.i:                                      ; preds = %15
   %18 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %18, %12
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %2
   %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -4169,7 +4169,7 @@ define hidden zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef %0, i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %36, i64 %.pre-phi, i32 3
-  %38 = load i8, ptr %37, align 2, !range !26, !noundef !27
+  %38 = load i8, ptr %37, align 2, !range !27, !noundef !28
   %39 = trunc nuw i8 %38 to i1
   br label %40
 
@@ -4484,7 +4484,7 @@ define hidden zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %0, i32 noundef
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %1 to i64
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = load i8, ptr %29, align 1, !range !26, !noundef !27
+  %30 = load i8, ptr %29, align 1, !range !27, !noundef !28
   %31 = trunc nuw i8 %30 to i1
   br label %34
 
@@ -4571,7 +4571,7 @@ define hidden zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef %0) local_unnam
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %22 = load i8, ptr %21, align 8, !range !26, !noundef !27
+  %22 = load i8, ptr %21, align 8, !range !27, !noundef !28
   %23 = trunc nuw i8 %22 to i1
   %24 = load i32, ptr @SDL_joysticks_locked, align 4
   %25 = add nsw i32 %24, -1
@@ -4706,7 +4706,7 @@ define hidden noundef ptr @SDL_GetJoystickFromID_REAL(i32 noundef %0) local_unna
   %10 = getelementptr inbounds nuw i8, ptr %.06, i64 344
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.06, %.lr.ph ], [ null, %9 ]
@@ -4778,7 +4778,7 @@ SDL_GetJoystickIDForPlayerIndex.exit:             ; preds = %1, %9
   %17 = getelementptr inbounds nuw i8, ptr %.08, i64 344
   %.0 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph, %SDL_GetJoystickIDForPlayerIndex.exit
   %.0.lcssa = phi ptr [ null, %SDL_GetJoystickIDForPlayerIndex.exit ], [ %.08, %.lr.ph ], [ null, %16 ]
@@ -4977,12 +4977,12 @@ define hidden ptr @SDL_GetJoystickName_REAL(ptr noundef %0) local_unnamed_addr #
 .critedge.i.i:                                    ; preds = %31
   %34 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %34, %28
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %23
   %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %21) #13
@@ -5191,7 +5191,7 @@ define hidden i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef %0) local_unnamed
 29:                                               ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit, label %25, !llvm.loop !15
+  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit, label %25, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %25
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -5390,7 +5390,7 @@ thread-pre-split:                                 ; preds = %22, %23, %15
 36:                                               ; preds = %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit.thread, label %32, !llvm.loop !15
+  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit.thread, label %32, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -5448,12 +5448,12 @@ SDL_GetPlayerIndexForJoystickID.exit.thread:      ; preds = %36, %40, %SDL_GetPl
 .critedge.i:                                      ; preds = %56
   %59 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i33 = icmp eq i32 %59, %53
-  br i1 %exitcond.not.i33, label %._crit_edge.i, label %56, !llvm.loop !13
+  br i1 %exitcond.not.i33, label %._crit_edge.i, label %56, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i31, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %48
   %60 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %.tr50) #13
@@ -5493,7 +5493,7 @@ tailrecurse.backedge:                             ; preds = %73, %65, %._crit_ed
 73:                                               ; preds = %69
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i37
-  br i1 %exitcond.not.i40, label %tailrecurse.backedge, label %69, !llvm.loop !30
+  br i1 %exitcond.not.i40, label %tailrecurse.backedge, label %69, !llvm.loop !31
 
 ._crit_edge.loopexit.split.loop.exit.i41:         ; preds = %69
   %74 = trunc nuw nsw i64 %indvars.iv.i38 to i32
@@ -6000,7 +6000,7 @@ define hidden void @SDL_PrivateJoystickRemoved(i32 noundef %0) local_unnamed_add
   %8 = getelementptr inbounds nuw i8, ptr %.018, i64 344
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %7, %1, %5
   %9 = tail call zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %0) #13
@@ -6043,7 +6043,7 @@ define hidden void @SDL_PrivateJoystickRemoved(i32 noundef %0) local_unnamed_add
 25:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit.thread, label %21, !llvm.loop !15
+  br i1 %exitcond.not.i, label %SDL_GetPlayerIndexForJoystickID.exit.thread, label %21, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %21
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -6223,7 +6223,7 @@ define hidden void @SDL_PrivateJoystickSensorRate(ptr noundef readonly captures(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %8, label %._crit_edge, !llvm.loop !32
+  br i1 %19, label %8, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %16, %3
   ret void
@@ -6264,12 +6264,12 @@ define hidden void @SDL_PrivateJoystickAdded(i32 noundef %0) local_unnamed_addr 
 .critedge.i:                                      ; preds = %11
   %14 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %14, %8
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %11, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %.thread, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %.thread, label %.preheader.i, !llvm.loop !15
 
 .thread:                                          ; preds = %._crit_edge.i, %3
   %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -6313,7 +6313,7 @@ define hidden void @SDL_PrivateJoystickAdded(i32 noundef %0) local_unnamed_addr 
 36:                                               ; preds = %32
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i
-  br i1 %exitcond.not.i15, label %SDL_FindFreePlayerIndex.exit, label %32, !llvm.loop !30
+  br i1 %exitcond.not.i15, label %SDL_FindFreePlayerIndex.exit, label %32, !llvm.loop !31
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv.i13 to i32
@@ -6398,7 +6398,7 @@ define hidden void @SDL_PrivateJoystickForceRecentering(ptr noundef captures(non
   %15 = zext i8 %.041 to i64
   %16 = getelementptr inbounds nuw %struct.SDL_JoystickAxisInfo, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  %18 = load i8, ptr %17, align 2, !range !26, !noundef !27
+  %18 = load i8, ptr %17, align 2, !range !27, !noundef !28
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
@@ -6414,7 +6414,7 @@ define hidden void @SDL_PrivateJoystickForceRecentering(ptr noundef captures(non
   %25 = add i8 %.041, 1
   %26 = zext i8 %25 to i32
   %27 = icmp sgt i32 %24, %26
-  br i1 %27, label %12, label %.preheader40, !llvm.loop !33
+  br i1 %27, label %12, label %.preheader40, !llvm.loop !34
 
 .preheader39:                                     ; preds = %.lr.ph43, %.preheader40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6438,7 +6438,7 @@ define hidden void @SDL_PrivateJoystickForceRecentering(ptr noundef captures(non
   %38 = zext i8 %37 to i32
   %39 = load i32, ptr %9, align 8
   %40 = icmp sgt i32 %39, %38
-  br i1 %40, label %.lr.ph43, label %.preheader39, !llvm.loop !34
+  br i1 %40, label %.lr.ph43, label %.preheader39, !llvm.loop !35
 
 .preheader:                                       ; preds = %SDL_SendJoystickHat.exit, %.preheader39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6504,7 +6504,7 @@ SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoy
   %71 = zext i8 %70 to i32
   %72 = load i32, ptr %28, align 8
   %73 = icmp sgt i32 %72, %71
-  br i1 %73, label %53, label %.preheader, !llvm.loop !35
+  br i1 %73, label %53, label %.preheader, !llvm.loop !36
 
 74:                                               ; preds = %.lr.ph49, %._crit_edge
   %75 = phi i32 [ %42, %.lr.ph49 ], [ %124, %._crit_edge ]
@@ -6566,7 +6566,7 @@ SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoy
 
 107:                                              ; preds = %106, %104, %102
   %.258.i = phi float [ 1.000000e+00, %106 ], [ %97, %104 ], [ 0.000000e+00, %102 ]
-  %108 = load i8, ptr %93, align 4, !range !26, !noundef !27
+  %108 = load i8, ptr %93, align 4, !range !27, !noundef !28
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %SDL_SendJoystickTouchpad.exit, label %110
 
@@ -6612,7 +6612,7 @@ SDL_SendJoystickTouchpad.exit:                    ; preds = %107, %.lr.ph47.spli
   %121 = zext i8 %120 to i32
   %122 = load i32, ptr %79, align 8
   %123 = icmp sgt i32 %122, %121
-  br i1 %123, label %.lr.ph47.split, label %._crit_edge.loopexit, !llvm.loop !36
+  br i1 %123, label %.lr.ph47.split, label %._crit_edge.loopexit, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %SDL_SendJoystickTouchpad.exit
   %.pre52 = load i32, ptr %41, align 8
@@ -6623,7 +6623,7 @@ SDL_SendJoystickTouchpad.exit:                    ; preds = %107, %.lr.ph47.spli
   %125 = add i8 %.348, 1
   %126 = zext i8 %125 to i32
   %127 = icmp sgt i32 %124, %126
-  br i1 %127, label %74, label %._crit_edge50, !llvm.loop !38
+  br i1 %127, label %74, label %._crit_edge50, !llvm.loop !39
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -6646,13 +6646,13 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
   %12 = zext i8 %2 to i64
   %13 = getelementptr inbounds nuw %struct.SDL_JoystickAxisInfo, ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
-  %15 = load i8, ptr %14, align 2, !range !26, !noundef !27
+  %15 = load i8, ptr %14, align 2, !range !27, !noundef !28
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 7
-  %19 = load i8, ptr %18, align 1, !range !26, !noundef !27
+  %19 = load i8, ptr %18, align 1, !range !27, !noundef !28
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %30, label %21
 
@@ -6685,7 +6685,7 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %36 = load i8, ptr %35, align 1, !range !26, !noundef !27
+  %36 = load i8, ptr %35, align 1, !range !27, !noundef !28
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %88
 
@@ -6696,7 +6696,7 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
 39:                                               ; preds = %38, %27
   %40 = phi i16 [ %32, %38 ], [ %3, %27 ]
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %42 = load i8, ptr %41, align 2, !range !26, !noundef !27
+  %42 = load i8, ptr %41, align 2, !range !27, !noundef !28
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %57, label %44
 
@@ -6739,7 +6739,7 @@ define hidden void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef captures(no
 
 SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %64 = load i8, ptr %63, align 1, !range !26, !noundef !27
+  %64 = load i8, ptr %63, align 1, !range !27, !noundef !28
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %88, label %66
 
@@ -6801,7 +6801,7 @@ define hidden void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef captures(
   %. = select i1 %3, i32 1539, i32 1540
   store i32 %., ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load i8, ptr %7, align 8, !range !26, !noundef !27
+  %8 = load i8, ptr %7, align 8, !range !27, !noundef !28
   %9 = trunc nuw i8 %8 to i1
   %10 = icmp ult i8 %2, 4
   %or.cond = and i1 %10, %9
@@ -6821,7 +6821,7 @@ define hidden void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef captures(
   %16 = load ptr, ptr %15, align 8
   %17 = zext i8 %.0 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  %19 = load i8, ptr %18, align 1, !range !26, !noundef !27
+  %19 = load i8, ptr %18, align 1, !range !27, !noundef !28
   %20 = icmp eq i8 %19, %6
   br i1 %20, label %38, label %21
 
@@ -7014,7 +7014,7 @@ define hidden void @SDL_SendJoystickTouchpad(i64 noundef %0, ptr noundef capture
 
 51:                                               ; preds = %46, %48, %50
   %.160 = phi float [ 1.000000e+00, %50 ], [ %.059, %48 ], [ 0.000000e+00, %46 ]
-  %52 = load i8, ptr %27, align 4, !range !26, !noundef !27
+  %52 = load i8, ptr %27, align 4, !range !27, !noundef !28
   %53 = icmp eq i8 %52, %10
   br i1 %53, label %54, label %67
 
@@ -7237,12 +7237,12 @@ define hidden void @SDL_UpdateJoysticks_REAL() local_unnamed_addr #1 {
 .critedge.i.i.i:                                  ; preds = %27
   %30 = add nuw nsw i32 %.01824.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %30, %24
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %27, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %27, !llvm.loop !14
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %.preheader.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond29.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond29.not.i.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i.i, label %.preheader.i.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i.i, label %.preheader.i.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i.i:           ; preds = %._crit_edge.i.i.i, %19
   %31 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %17) #13
@@ -7300,7 +7300,7 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread.i: ; preds = %SDL_GetJoystick
   %51 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 344
   %.015.i = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %.015.i, null
-  br i1 %.not.i, label %SendSteamHandleUpdateEvents.exit, label %13, !llvm.loop !39
+  br i1 %.not.i, label %SendSteamHandleUpdateEvents.exit, label %13, !llvm.loop !40
 
 SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   call void @HIDAPI_UpdateDevices() #13
@@ -7311,7 +7311,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
 .lr.ph:                                           ; preds = %SendSteamHandleUpdateEvents.exit, %106
   %.075 = phi ptr [ %.0, %106 ], [ %.073, %SendSteamHandleUpdateEvents.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %.075, i64 224
-  %53 = load i8, ptr %52, align 8, !range !26, !noundef !27
+  %53 = load i8, ptr %52, align 8, !range !27, !noundef !28
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %106
 
@@ -7322,7 +7322,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull %.075) #13
   %60 = getelementptr inbounds nuw i8, ptr %.075, i64 240
-  %61 = load i8, ptr %60, align 8, !range !26, !noundef !27
+  %61 = load i8, ptr %60, align 8, !range !27, !noundef !28
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %64
 
@@ -7406,7 +7406,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %107 = getelementptr inbounds nuw i8, ptr %.075, i64 344
   %.0 = load ptr, ptr %107, align 8
   %.not55 = icmp eq ptr %.0, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %106, %SendSteamHandleUpdateEvents.exit
   %108 = call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 1544) #13
@@ -7444,7 +7444,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %118 = getelementptr inbounds nuw i8, ptr %.178, i64 344
   %.1 = load ptr, ptr %118, align 8
   %.not56 = icmp eq ptr %.1, null
-  br i1 %.not56, label %.loopexit.preheader, label %111, !llvm.loop !41
+  br i1 %.not56, label %.loopexit.preheader, label %111, !llvm.loop !42
 
 .loopexit.preheader:                              ; preds = %117, %.preheader, %._crit_edge
   br label %.loopexit
@@ -7458,7 +7458,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   call void %122() #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %123, label %.loopexit, !llvm.loop !42
+  br i1 %exitcond.not, label %123, label %.loopexit, !llvm.loop !43
 
 123:                                              ; preds = %.loopexit
   %124 = load i32, ptr @SDL_joysticks_locked, align 4
@@ -7512,7 +7512,7 @@ define hidden void @SDL_SetJoystickEventsEnabled_REAL(i1 noundef zeroext %0) loc
   tail call void @SDL_SetEventEnabled_REAL(i32 noundef %4, i1 noundef zeroext %0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %5, label %2, !llvm.loop !43
+  br i1 %exitcond.not, label %5, label %2, !llvm.loop !44
 
 5:                                                ; preds = %2
   ret void
@@ -7532,7 +7532,7 @@ define hidden zeroext i1 @SDL_JoystickEventsEnabled_REAL() local_unnamed_addr #1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   %or.cond = select i1 %4, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %5, label %1, !llvm.loop !44
+  br i1 %or.cond, label %5, label %1, !llvm.loop !45
 
 5:                                                ; preds = %1
   ret i1 %4
@@ -7992,7 +7992,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %0,
 10:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %10, %2
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gamecube_devices, i64 8), align 8
@@ -8019,7 +8019,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext %0,
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
   %or.cond = select i1 %21, i1 true, i1 %exitcond27.not.i
-  br i1 %or.cond, label %SDL_VIDPIDInList.exit, label %18, !llvm.loop !18
+  br i1 %or.cond, label %SDL_VIDPIDInList.exit, label %18, !llvm.loop !19
 
 SDL_VIDPIDInList.exit:                            ; preds = %14, %18, %.preheader.i
   %.0.i = phi i1 [ false, %.preheader.i ], [ %21, %18 ], [ false, %14 ]
@@ -8170,7 +8170,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext 
 10:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %10, %2
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_xboxone_controllers, i64 8), align 8
@@ -8197,7 +8197,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext 
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp ne i64 %indvars.iv.next24.i, %wide.trip.count26.i
   %or.cond.not = select i1 %.not, i1 %exitcond27.not.i, i1 false
-  br i1 %or.cond.not, label %18, label %SDL_VIDPIDInList.exit, !llvm.loop !18
+  br i1 %or.cond.not, label %18, label %SDL_VIDPIDInList.exit, !llvm.loop !19
 
 SDL_VIDPIDInList.exit:                            ; preds = %14, %18, %.preheader.i
   %.0 = phi i1 [ true, %.preheader.i ], [ %.not, %18 ], [ true, %14 ]
@@ -8224,7 +8224,7 @@ define hidden noundef zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext %0, i16 n
 13:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !18
 
 .preheader:                                       ; preds = %13, %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8253,7 +8253,7 @@ define hidden noundef zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext %0, i16 n
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   %or.cond = select i1 %26, i1 true, i1 %exitcond27.not
-  br i1 %or.cond, label %.loopexit, label %23, !llvm.loop !18
+  br i1 %or.cond, label %.loopexit, label %23, !llvm.loop !19
 
 .loopexit:                                        ; preds = %19, %23, %.preheader
   %.0 = phi i1 [ false, %.preheader ], [ %26, %23 ], [ false, %19 ]
@@ -8484,7 +8484,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext %0, i1
 10:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader.i, label %14, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %10, %2
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @wheel_devices, i64 8), align 8
@@ -8511,7 +8511,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext %0, i1
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
   %or.cond = select i1 %21, i1 true, i1 %exitcond27.not.i
-  br i1 %or.cond, label %SDL_VIDPIDInList.exit, label %18, !llvm.loop !18
+  br i1 %or.cond, label %SDL_VIDPIDInList.exit, label %18, !llvm.loop !19
 
 SDL_VIDPIDInList.exit:                            ; preds = %14, %18, %.preheader.i
   %.0.i = phi i1 [ false, %.preheader.i ], [ %21, %18 ], [ false, %14 ]
@@ -8536,7 +8536,7 @@ define hidden zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext %0, i16 n
 12:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %12, %4
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @blacklist_devices, i64 8), align 8
@@ -8558,7 +8558,7 @@ define hidden zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext %0, i16 n
 20:                                               ; preds = %21
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
-  br i1 %exitcond27.not.i, label %.loopexit, label %21, !llvm.loop !18
+  br i1 %exitcond27.not.i, label %.loopexit, label %21, !llvm.loop !19
 
 21:                                               ; preds = %20, %.lr.ph18.i
   %indvars.iv23.i = phi i64 [ 0, %.lr.ph18.i ], [ %indvars.iv.next24.i, %20 ]
@@ -8584,7 +8584,7 @@ define hidden zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext %0, i16 n
 30:                                               ; preds = %34
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i16
-  br i1 %exitcond.not.i19, label %.preheader.i8, label %34, !llvm.loop !17
+  br i1 %exitcond.not.i19, label %.preheader.i8, label %34, !llvm.loop !18
 
 .preheader.i8:                                    ; preds = %30, %26
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rog_gamepad_mice, i64 8), align 8
@@ -8606,7 +8606,7 @@ define hidden zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext %0, i16 n
 38:                                               ; preds = %39
   %indvars.iv.next24.i13 = add nuw nsw i64 %indvars.iv23.i12, 1
   %exitcond27.not.i14 = icmp eq i64 %indvars.iv.next24.i13, %wide.trip.count26.i11
-  br i1 %exitcond27.not.i14, label %SDL_VIDPIDInList.exit20.thread, label %39, !llvm.loop !18
+  br i1 %exitcond27.not.i14, label %SDL_VIDPIDInList.exit20.thread, label %39, !llvm.loop !19
 
 39:                                               ; preds = %38, %.lr.ph18.i10
   %indvars.iv23.i12 = phi i64 [ 0, %.lr.ph18.i10 ], [ %indvars.iv.next24.i13, %38 ]
@@ -8664,12 +8664,12 @@ define hidden { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef %0) local_
 .critedge.i:                                      ; preds = %14
   %17 = add nuw nsw i32 %.01824.i, 1
   %exitcond.not.i = icmp eq i32 %17, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond29.not.i, label %SDL_GetDriverAndJoystickIndex.exit, label %.preheader.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %1
   %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -8760,12 +8760,12 @@ define hidden zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef %0) local
 .critedge.i.i:                                    ; preds = %16
   %19 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %19, %13
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %8
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -8877,12 +8877,12 @@ define hidden zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef %0) loca
 .critedge.i.i:                                    ; preds = %16
   %19 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %19, %13
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %8
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %0) #13
@@ -9029,7 +9029,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 17:                                               ; preds = %21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %21, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %21, !llvm.loop !18
 
 .preheader.i.i:                                   ; preds = %17, %SDL_GetJoystickGUIDInfo_REAL.exit
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @wheel_devices, i64 8), align 8
@@ -9051,7 +9051,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 25:                                               ; preds = %26
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
-  br i1 %exitcond27.not.i.i, label %.loopexit118, label %26, !llvm.loop !18
+  br i1 %exitcond27.not.i.i, label %.loopexit118, label %26, !llvm.loop !19
 
 26:                                               ; preds = %25, %.lr.ph18.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %.lr.ph18.i.i ], [ %indvars.iv.next24.i.i, %25 ]
@@ -9073,7 +9073,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 33:                                               ; preds = %37
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i67, 1
   %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, %wide.trip.count.i.i66
-  br i1 %exitcond.not.i.i69, label %.preheader.i.i58, label %37, !llvm.loop !17
+  br i1 %exitcond.not.i.i69, label %.preheader.i.i58, label %37, !llvm.loop !18
 
 .preheader.i.i58:                                 ; preds = %33, %.loopexit118
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @arcadestick_devices, i64 8), align 8
@@ -9095,7 +9095,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 41:                                               ; preds = %42
   %indvars.iv.next24.i.i63 = add nuw nsw i64 %indvars.iv23.i.i62, 1
   %exitcond27.not.i.i64 = icmp eq i64 %indvars.iv.next24.i.i63, %wide.trip.count26.i.i61
-  br i1 %exitcond27.not.i.i64, label %.loopexit115, label %42, !llvm.loop !18
+  br i1 %exitcond27.not.i.i64, label %.loopexit115, label %42, !llvm.loop !19
 
 42:                                               ; preds = %41, %.lr.ph18.i.i60
   %indvars.iv23.i.i62 = phi i64 [ 0, %.lr.ph18.i.i60 ], [ %indvars.iv.next24.i.i63, %41 ]
@@ -9117,7 +9117,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 49:                                               ; preds = %53
   %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i79, 1
   %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, %wide.trip.count.i.i78
-  br i1 %exitcond.not.i.i81, label %.preheader.i.i70, label %53, !llvm.loop !17
+  br i1 %exitcond.not.i.i81, label %.preheader.i.i70, label %53, !llvm.loop !18
 
 .preheader.i.i70:                                 ; preds = %49, %.loopexit115
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @flightstick_devices, i64 8), align 8
@@ -9139,7 +9139,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 57:                                               ; preds = %58
   %indvars.iv.next24.i.i75 = add nuw nsw i64 %indvars.iv23.i.i74, 1
   %exitcond27.not.i.i76 = icmp eq i64 %indvars.iv.next24.i.i75, %wide.trip.count26.i.i73
-  br i1 %exitcond27.not.i.i76, label %.loopexit112, label %58, !llvm.loop !18
+  br i1 %exitcond27.not.i.i76, label %.loopexit112, label %58, !llvm.loop !19
 
 58:                                               ; preds = %57, %.lr.ph18.i.i72
   %indvars.iv23.i.i74 = phi i64 [ 0, %.lr.ph18.i.i72 ], [ %indvars.iv.next24.i.i75, %57 ]
@@ -9161,7 +9161,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 65:                                               ; preds = %69
   %indvars.iv.next.i.i92 = add nuw nsw i64 %indvars.iv.i.i91, 1
   %exitcond.not.i.i93 = icmp eq i64 %indvars.iv.next.i.i92, %wide.trip.count.i.i90
-  br i1 %exitcond.not.i.i93, label %.preheader.i.i82, label %69, !llvm.loop !17
+  br i1 %exitcond.not.i.i93, label %.preheader.i.i82, label %69, !llvm.loop !18
 
 .preheader.i.i82:                                 ; preds = %65, %.loopexit112
   %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @throttle_devices, i64 8), align 8
@@ -9183,7 +9183,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 73:                                               ; preds = %74
   %indvars.iv.next24.i.i87 = add nuw nsw i64 %indvars.iv23.i.i86, 1
   %exitcond27.not.i.i88 = icmp eq i64 %indvars.iv.next24.i.i87, %wide.trip.count26.i.i85
-  br i1 %exitcond27.not.i.i88, label %.loopexit, label %74, !llvm.loop !18
+  br i1 %exitcond27.not.i.i88, label %.loopexit, label %74, !llvm.loop !19
 
 74:                                               ; preds = %73, %.lr.ph18.i.i84
   %indvars.iv23.i.i86 = phi i64 [ 0, %.lr.ph18.i.i84 ], [ %indvars.iv.next24.i.i87, %73 ]
@@ -9394,12 +9394,12 @@ define hidden zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) local_unna
 .critedge.i.i:                                    ; preds = %31
   %34 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %34, %28
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %23
   %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %21) #13
@@ -9547,12 +9547,12 @@ define hidden zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) local_unn
 .critedge.i.i:                                    ; preds = %31
   %34 = add nuw nsw i32 %.01824.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %34, %28
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond29.not.i.i, label %SDL_GetDriverAndJoystickIndex.exit.i, label %.preheader.i.i, !llvm.loop !15
 
 SDL_GetDriverAndJoystickIndex.exit.i:             ; preds = %._crit_edge.i.i, %23
   %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, i32 noundef %21) #13
@@ -10134,7 +10134,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %8, %10, %6
 18:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %19, !llvm.loop !45
+  br i1 %exitcond.not, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread, label %19, !llvm.loop !46
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -10145,7 +10145,7 @@ SDL_PrivateJoystickShouldIgnoreEvent.exit:        ; preds = %8, %10, %6
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %24 = load i8, ptr %23, align 4, !range !26, !noundef !27
+  %24 = load i8, ptr %23, align 4, !range !27, !noundef !28
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %SDL_PrivateJoystickShouldIgnoreEvent.exit.thread
 
@@ -10299,7 +10299,7 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   %41 = call ptr @SDL_strstr_REAL(ptr noundef %40, ptr noundef nonnull @.str.45) #13
   store ptr %41, ptr %5, align 8
   %.not28 = icmp eq ptr %41, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph, %28, %.preheader
   %.not31 = icmp eq ptr %.044, null
@@ -10317,7 +10317,7 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_VIDPIDIncludedHintChanged(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i8, ptr %5, align 8, !range !26, !noundef !27
+  %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %35
 
@@ -10379,7 +10379,7 @@ SDL_LoadVIDPIDListFromHints.exit:                 ; preds = %13, %19, %23
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_VIDPIDExcludedHintChanged(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i8, ptr %5, align 8, !range !26, !noundef !27
+  %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %34
 
@@ -10493,47 +10493,48 @@ attributes #15 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = !{i8 0, i8 2}
-!27 = !{}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4, !37}
-!37 = !{!"llvm.loop.unswitch.partial.disable"}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4}
-!45 = distinct !{!45, !4}
-!46 = distinct !{!46, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5}
+!26 = distinct !{!26, !4, !5}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = distinct !{!29, !4, !5}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5}
+!32 = distinct !{!32, !4, !5}
+!33 = distinct !{!33, !4, !5}
+!34 = distinct !{!34, !4, !5}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5}
+!37 = distinct !{!37, !4, !5, !38}
+!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!39 = distinct !{!39, !4, !5}
+!40 = distinct !{!40, !4, !5}
+!41 = distinct !{!41, !4, !5}
+!42 = distinct !{!42, !4, !5}
+!43 = distinct !{!43, !4, !5}
+!44 = distinct !{!44, !4, !5}
+!45 = distinct !{!45, !4, !5}
+!46 = distinct !{!46, !4, !5}
+!47 = distinct !{!47, !4, !5}

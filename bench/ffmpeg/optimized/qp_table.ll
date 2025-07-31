@@ -182,5 +182,6 @@ attributes #5 = { noreturn nounwind }
 !31 = !{!32, !11, i64 16}
 !32 = !{!"AVVideoBlockParams", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16}
 !33 = !{!6, !6, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!"llvm.loop.estimated_trip_count"}

@@ -65,7 +65,7 @@ define void @_ZN11SecPassword3SetEPKw(ptr noundef nonnull align 8 captures(none)
   br i1 %exitcond.not.i.i, label %_ZN11SecPassword5CleanEv.exit, label %.preheader.i.i, !llvm.loop !18
 
 _ZN11SecPassword5CleanEv.exit:                    ; preds = %.preheader.i.i, %2
-  %13 = load i32, ptr %1, align 4, !tbaa !20
+  %13 = load i32, ptr %1, align 4, !tbaa !21
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %14
 
@@ -101,7 +101,7 @@ _ZN11SecPassword5CleanEv.exit:                    ; preds = %.preheader.i.i, %2
   store i8 %33, ptr %29, align 1, !tbaa !17
   %34 = add nuw i64 %.06.i.i, 1
   %exitcond.not.i.i4 = icmp eq i64 %34, %21
-  br i1 %exitcond.not.i.i4, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %27, !llvm.loop !22
+  br i1 %exitcond.not.i.i4, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %27, !llvm.loop !23
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %27, %14, %_ZN11SecPassword5CleanEv.exit
   ret void
@@ -218,7 +218,7 @@ define void @_ZN11SecPassword7ProcessEPKwmPwmb(ptr noundef nonnull readnone alig
   store i8 %18, ptr %14, align 1, !tbaa !17
   %19 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %19, %9
-  br i1 %exitcond.not.i, label %_Z11SecHideDataPvmbb.exit, label %12, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_Z11SecHideDataPvmbb.exit, label %12, !llvm.loop !23
 
 _Z11SecHideDataPvmbb.exit:                        ; preds = %12, %6
   ret void
@@ -251,13 +251,13 @@ define void @_Z11SecHideDataPvmbb(ptr noundef captures(none) %0, i64 noundef %1,
   store i8 %13, ptr %9, align 1, !tbaa !17
   %14 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !11, !range !23, !noundef !24
+  %5 = load i8, ptr %4, align 8, !tbaa !11, !range !24, !noundef !25
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %30
 
@@ -292,16 +292,16 @@ define void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull readonly align 8 captu
   store i8 %26, ptr %22, align 1, !tbaa !17
   %27 = add nuw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %27, %17
-  br i1 %exitcond.not.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %20, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %20, !llvm.loop !23
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %20, %7
   %28 = getelementptr i32, ptr %1, i64 %2
   %29 = getelementptr i8, ptr %28, i64 -4
-  store i32 0, ptr %29, align 4, !tbaa !20
+  store i32 0, ptr %29, align 4, !tbaa !21
   br label %31
 
 30:                                               ; preds = %3
-  store i32 0, ptr %1, align 4, !tbaa !20
+  store i32 0, ptr %1, align 4, !tbaa !21
   br label %31
 
 31:                                               ; preds = %30, %_ZN11SecPassword7ProcessEPKwmPwmb.exit
@@ -316,7 +316,7 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr noundef nonnull readonly align
   %2 = alloca [512 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !11, !range !23, !noundef !24
+  %4 = load i8, ptr %3, align 8, !tbaa !11, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %27
 
@@ -346,15 +346,15 @@ define noundef i64 @_ZN11SecPassword6LengthEv(ptr noundef nonnull readonly align
   store i8 %24, ptr %20, align 1, !tbaa !17
   %25 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 2048
-  br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %18, !llvm.loop !23
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 2044
-  store i32 0, ptr %26, align 4, !tbaa !20
+  store i32 0, ptr %26, align 4, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit
 
 27:                                               ; preds = %1
-  store i32 0, ptr %2, align 16, !tbaa !20
+  store i32 0, ptr %2, align 16, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit
 
 _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, %27
@@ -381,7 +381,7 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr noundef nonnull readonly a
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #15
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !11, !range !23, !noundef !24
+  %6 = load i8, ptr %5, align 8, !tbaa !11, !range !24, !noundef !25
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %29
 
@@ -411,20 +411,20 @@ define noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr noundef nonnull readonly a
   store i8 %26, ptr %22, align 1, !tbaa !17
   %27 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 2048
-  br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %20, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, label %20, !llvm.loop !23
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i:         ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 2044
-  store i32 0, ptr %28, align 4, !tbaa !20
+  store i32 0, ptr %28, align 4, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit
 
 29:                                               ; preds = %2
-  store i32 0, ptr %3, align 16, !tbaa !20
+  store i32 0, ptr %3, align 16, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit
 
 _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i, %29
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i8, ptr %30, align 8, !tbaa !11, !range !23, !noundef !24
+  %31 = load i8, ptr %30, align 8, !tbaa !11, !range !24, !noundef !25
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %54
 
@@ -454,15 +454,15 @@ _ZN11SecPassword3GetEPwm.exit:                    ; preds = %_ZN11SecPassword7Pr
   store i8 %51, ptr %47, align 1, !tbaa !17
   %52 = add nuw nsw i64 %.06.i.i.i2, 1
   %exitcond.not.i.i.i3 = icmp eq i64 %52, 2048
-  br i1 %exitcond.not.i.i.i3, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, label %45, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i3, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, label %45, !llvm.loop !23
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit.i4:        ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 2044
-  store i32 0, ptr %53, align 4, !tbaa !20
+  store i32 0, ptr %53, align 4, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit5
 
 54:                                               ; preds = %_ZN11SecPassword3GetEPwm.exit
-  store i32 0, ptr %4, align 16, !tbaa !20
+  store i32 0, ptr %4, align 16, !tbaa !21
   br label %_ZN11SecPassword3GetEPwm.exit5
 
 _ZN11SecPassword3GetEPwm.exit5:                   ; preds = %_ZN11SecPassword7ProcessEPKwmPwmb.exit.i4, %54
@@ -548,10 +548,11 @@ attributes #16 = { builtin nounwind }
 !15 = !{!"_ZTSNSt12_Vector_baseIwSaIwEE12_Vector_implE", !4, i64 0}
 !16 = !{!"bool", !7, i64 0}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"wchar_t", !7, i64 0}
-!22 = distinct !{!22, !19}
-!23 = !{i8 0, i8 2}
-!24 = !{}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"wchar_t", !7, i64 0}
+!23 = distinct !{!23, !19, !20}
+!24 = !{i8 0, i8 2}
+!25 = !{}

@@ -1222,7 +1222,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %40 = add i32 %.1136, 1
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ugt i64 %1, %41
-  br i1 %42, label %26, label %.loopexit, !llvm.loop !17
+  br i1 %42, label %26, label %.loopexit, !llvm.loop !18
 
 43:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %44 = icmp sgt i32 %2, 3600
@@ -1288,7 +1288,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %87 = add i32 %.2132.us, 1
   %88 = zext i32 %87 to i64
   %89 = icmp samesign ugt i64 %1, %88
-  br i1 %89, label %.lr.ph134.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %89, label %.lr.ph134.split.us, label %.loopexit, !llvm.loop !19
 
 .lr.ph134.split:                                  ; preds = %.lr.ph134
   br i1 %6, label %.lr.ph134.split.split.us, label %.lr.ph134.split.split
@@ -1317,7 +1317,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %103 = add i32 %.2132.us135, 1
   %104 = zext i32 %103 to i64
   %105 = icmp samesign ugt i64 %1, %104
-  br i1 %105, label %.lr.ph134.split.split.us, label %.loopexit, !llvm.loop !20
+  br i1 %105, label %.lr.ph134.split.split.us, label %.loopexit, !llvm.loop !21
 
 .lr.ph134.split.split:                            ; preds = %.lr.ph134.split, %.lr.ph134.split.split
   %106 = phi i64 [ %123, %.lr.ph134.split.split ], [ 0, %.lr.ph134.split ]
@@ -1344,7 +1344,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %122 = add i32 %.2132, 1
   %123 = zext i32 %122 to i64
   %124 = icmp samesign ugt i64 %1, %123
-  br i1 %124, label %.lr.ph134.split.split, label %.loopexit, !llvm.loop !21
+  br i1 %124, label %.lr.ph134.split.split, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %26, %.lr.ph134.split.split, %.lr.ph134.split.split.us, %.lr.ph134.split.us, %._crit_edge, %43, %7
   ret void
@@ -1354,10 +1354,10 @@ declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @lv_point_from_precise(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
-  %2 = load float, ptr %0, align 4, !tbaa !22
+  %2 = load float, ptr %0, align 4, !tbaa !23
   %3 = fptosi float %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !25
+  %5 = load float, ptr %4, align 4, !tbaa !26
   %6 = fptosi float %5 to i32
   %.sroa.2.0.insert.ext = zext i32 %6 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -1380,9 +1380,9 @@ define <2 x float> @lv_point_to_precise(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_point_precise_set(ptr noundef writeonly captures(none) initializes((0, 8)) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
-  store float %1, ptr %0, align 4, !tbaa !22
+  store float %1, ptr %0, align 4, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %2, ptr %4, align 4, !tbaa !25
+  store float %2, ptr %4, align 4, !tbaa !26
   ret void
 }
 
@@ -1488,14 +1488,15 @@ attributes #9 = { nounwind }
 !12 = !{!13, !5, i64 0}
 !13 = !{!"", !5, i64 0, !5, i64 4}
 !14 = !{!13, !5, i64 4}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !16, !19}
-!21 = distinct !{!21, !16}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"", !24, i64 0, !24, i64 4}
-!24 = !{!"float", !6, i64 0}
-!25 = !{!23, !24, i64 4}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !16, !17, !20}
+!22 = distinct !{!22, !16, !17}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"", !25, i64 0, !25, i64 4}
+!25 = !{!"float", !6, i64 0}
+!26 = !{!24, !25, i64 4}

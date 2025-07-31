@@ -104,7 +104,7 @@ define void @cuddLevelQueueQuit(ptr noundef captures(none) %0) local_unnamed_add
   tail call void @free(ptr noundef nonnull %8) #10
   %10 = load ptr, ptr %0, align 8, !tbaa !14
   %.not23 = icmp eq ptr %10, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph28, !llvm.loop !24
+  br i1 %.not23, label %._crit_edge, label %.lr.ph28, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -144,22 +144,22 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   %9 = lshr i32 %8, %.val55
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %.val, i64 %10
-  %.01.i = load ptr, ptr %11, align 8, !tbaa !25
+  %.01.i = load ptr, ptr %11, align 8, !tbaa !26
   %.not2.i = icmp eq ptr %.01.i, null
   br i1 %.not2.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %15
   %.03.i = phi ptr [ %.0.i, %15 ], [ %.01.i, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %hashLookup.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %16, align 8, !tbaa !25
+  %.0.i = load ptr, ptr %16, align 8, !tbaa !26
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit:                                        ; preds = %15, %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -188,7 +188,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   %.0 = phi ptr [ %24, %20 ], [ %18, %26 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0, i8 0, i64 %.pre-phi, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %1, ptr %29, align 8, !tbaa !26
+  store ptr %1, ptr %29, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8, !tbaa !18
   %32 = add nsw i32 %31, 1
@@ -197,7 +197,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = sext i32 %2 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not53 = icmp eq ptr %37, null
   br i1 %.not53, label %.preheader, label %38
 
@@ -208,20 +208,20 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 38:                                               ; preds = %28
   %39 = load ptr, ptr %37, align 8, !tbaa !20
   store ptr %39, ptr %.0, align 8, !tbaa !20
-  %40 = load ptr, ptr %36, align 8, !tbaa !25
+  %40 = load ptr, ptr %36, align 8, !tbaa !26
   br label %54
 
 .lr.ph:                                           ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ %35, %.preheader ]
   %41 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.critedge.loopexit
 
 44:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not54 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not54, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not54, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !29
 
 .critedge.loopexit:                               ; preds = %44, %.lr.ph
   %.046.lcssa.ph = phi i64 [ %indvars.iv, %.lr.ph ], [ 0, %44 ]
@@ -232,7 +232,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.046.lcssa = phi i64 [ 0, %.preheader ], [ %45, %.critedge.loopexit ]
   %46 = getelementptr inbounds ptr, ptr %34, i64 %.046.lcssa
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %47 = load ptr, ptr %46, align 8, !tbaa !26
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
 
@@ -244,13 +244,13 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 51:                                               ; preds = %.critedge
   %52 = load ptr, ptr %47, align 8, !tbaa !20
   store ptr %52, ptr %.0, align 8, !tbaa !20
-  %53 = load ptr, ptr %46, align 8, !tbaa !25
+  %53 = load ptr, ptr %46, align 8, !tbaa !26
   br label %54
 
 54:                                               ; preds = %49, %51, %38
   %.sink = phi ptr [ %0, %49 ], [ %53, %51 ], [ %40, %38 ]
-  store ptr %.0, ptr %.sink, align 8, !tbaa !29
-  store ptr %.0, ptr %36, align 8, !tbaa !25
+  store ptr %.0, ptr %.sink, align 8, !tbaa !30
+  store ptr %.0, ptr %36, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4, !tbaa !19
   %.not = icmp slt i32 %31, %56
@@ -283,32 +283,32 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 .lr.ph40.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph40.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
   %68 = getelementptr inbounds nuw ptr, ptr %.pre67, i64 %indvars.iv.i.i
-  %69 = load ptr, ptr %68, align 8, !tbaa !25
+  %69 = load ptr, ptr %68, align 8, !tbaa !26
   %.not3536.i.i = icmp eq ptr %69, null
   br i1 %.not3536.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph40.i.i, %.lr.ph.i.i
   %.03337.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %69, %.lr.ph40.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %.03337.i.i, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
+  %71 = load ptr, ptr %70, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %.03337.i.i, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !26
+  %73 = load ptr, ptr %72, align 8, !tbaa !27
   %74 = ptrtoint ptr %73 to i64
   %75 = trunc i64 %74 to i32
   %76 = mul i32 %75, 12582917
   %77 = lshr i32 %76, %65
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds ptr, ptr %calloc.i.i, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !25
-  store ptr %80, ptr %70, align 8, !tbaa !30
-  store ptr %.03337.i.i, ptr %79, align 8, !tbaa !25
+  %80 = load ptr, ptr %79, align 8, !tbaa !26
+  store ptr %80, ptr %70, align 8, !tbaa !31
+  store ptr %.03337.i.i, ptr %79, align 8, !tbaa !26
   %.not35.i.i = icmp eq ptr %71, null
-  br i1 %.not35.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not35.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph40.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge41.thread.i.i, label %.lr.ph40.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %._crit_edge41.thread.i.i, label %.lr.ph40.i.i, !llvm.loop !33
 
 ._crit_edge41.i.i:                                ; preds = %57
   %.not.i.i = icmp eq ptr %.pre67, null
@@ -316,7 +316,7 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 
 ._crit_edge41.thread.i.i:                         ; preds = %._crit_edge.i.i, %._crit_edge41.i.i
   tail call void @free(ptr noundef nonnull %.pre67) #10
-  %.pre65 = load ptr, ptr %29, align 8, !tbaa !26
+  %.pre65 = load ptr, ptr %29, align 8, !tbaa !27
   %.pre66 = load ptr, ptr %4, align 8, !tbaa !13
   %.pre69 = ptrtoint ptr %.pre65 to i64
   %.pre71 = trunc i64 %.pre69 to i32
@@ -330,10 +330,10 @@ hashInsert.exit:                                  ; preds = %54, %._crit_edge41.
   %83 = lshr i32 %.pre-phi74, %82
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds ptr, ptr %81, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %86 = load ptr, ptr %85, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %86, ptr %87, align 8, !tbaa !30
-  store ptr %.0, ptr %85, align 8, !tbaa !25
+  store ptr %86, ptr %87, align 8, !tbaa !31
+  store ptr %.0, ptr %85, align 8, !tbaa !26
   br label %hashLookup.exit
 
 hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %hashInsert.exit
@@ -349,14 +349,14 @@ define void @cuddLevelQueueDequeue(ptr noundef captures(none) %0, i32 noundef %1
   %5 = getelementptr i8, ptr %0, i64 52
   %.val14 = load i32, ptr %5, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
   %10 = mul i32 %9, 12582917
   %11 = lshr i32 %10, %.val14
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %.val, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = icmp eq ptr %14, null
   br i1 %15, label %hashDelete.exit, label %16
 
@@ -366,26 +366,26 @@ define void @cuddLevelQueueDequeue(ptr noundef captures(none) %0, i32 noundef %1
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !30
-  store ptr %20, ptr %13, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  store ptr %20, ptr %13, align 8, !tbaa !26
   br label %hashDelete.exit
 
 .preheader.i:                                     ; preds = %16, %23
   %.0.i = phi ptr [ %22, %23 ], [ %14, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %hashDelete.exit, label %23
 
 23:                                               ; preds = %.preheader.i
   %24 = icmp eq ptr %22, %3
-  br i1 %24, label %25, label %.preheader.i, !llvm.loop !33
+  br i1 %24, label %25, label %.preheader.i, !llvm.loop !34
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !30
-  store ptr %28, ptr %26, align 8, !tbaa !30
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
+  store ptr %28, ptr %26, align 8, !tbaa !31
   br label %hashDelete.exit
 
 hashDelete.exit:                                  ; preds = %.preheader.i, %2, %18, %25
@@ -393,12 +393,12 @@ hashDelete.exit:                                  ; preds = %.preheader.i, %2, %
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = sext i32 %1 to i64
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = icmp eq ptr %33, %3
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %hashDelete.exit
-  store ptr null, ptr %32, align 8, !tbaa !25
+  store ptr null, ptr %32, align 8, !tbaa !26
   br label %36
 
 36:                                               ; preds = %35, %hashDelete.exit
@@ -460,15 +460,16 @@ attributes #10 = { nounwind }
 !19 = !{!4, !10, i64 44}
 !20 = !{!21, !9, i64 0}
 !21 = !{!"DdQueueItem", !9, i64 0, !9, i64 8, !5, i64 16}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!9, !9, i64 0}
-!26 = !{!21, !5, i64 16}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23}
-!29 = !{!5, !5, i64 0}
-!30 = !{!21, !9, i64 8}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
-!33 = distinct !{!33, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = !{!9, !9, i64 0}
+!27 = !{!21, !5, i64 16}
+!28 = distinct !{!28, !23, !24}
+!29 = distinct !{!29, !23, !24}
+!30 = !{!5, !5, i64 0}
+!31 = !{!21, !9, i64 8}
+!32 = distinct !{!32, !23, !24}
+!33 = distinct !{!33, !23, !24}
+!34 = distinct !{!34, !23, !24}

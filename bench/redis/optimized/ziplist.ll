@@ -870,7 +870,7 @@ zipStorePrevEntryLength.exit108:                  ; preds = %zipStorePrevEntryLe
   %218 = sub i64 %.187190, %217
   %219 = add i64 %.182191, -1
   %.not94 = icmp eq i64 %219, 0
-  br i1 %.not94, label %zipStorePrevEntryLength.exit.thread, label %143, !llvm.loop !27
+  br i1 %.not94, label %zipStorePrevEntryLength.exit.thread, label %143, !llvm.loop !28
 
 zipStorePrevEntryLength.exit.thread:              ; preds = %zipStorePrevEntryLength.exit108, %ziplistResize.exit, %zipEntry.exit, %zipStorePrevEntryLength.exit, %2
   %.0 = phi ptr [ %0, %2 ], [ %0, %zipStorePrevEntryLength.exit ], [ %0, %zipEntry.exit ], [ %134, %ziplistResize.exit ], [ %134, %zipStorePrevEntryLength.exit108 ]
@@ -917,7 +917,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   %27 = icmp ult i8 %25, -64
   %28 = and i8 %25, -64
   %spec.select = select i1 %27, i8 %28, i8 %25
-  store i8 %spec.select, ptr %26, align 4, !tbaa !28
+  store i8 %spec.select, ptr %26, align 4, !tbaa !29
   br i1 %27, label %29, label %67, !prof !20
 
 29:                                               ; preds = %20
@@ -932,14 +932,14 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   ]
 
 33:                                               ; preds = %29
-  store i32 1, ptr %32, align 8, !tbaa !29
+  store i32 1, ptr %32, align 8, !tbaa !30
   %34 = load i8, ptr %24, align 1, !tbaa !9
   %35 = and i8 %34, 63
   %36 = zext nneg i8 %35 to i32
   br label %.sink.split
 
 37:                                               ; preds = %29
-  store i32 2, ptr %32, align 8, !tbaa !29
+  store i32 2, ptr %32, align 8, !tbaa !30
   %38 = load i8, ptr %24, align 1, !tbaa !9
   %39 = and i8 %38, 63
   %40 = zext nneg i8 %39 to i32
@@ -951,7 +951,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   br label %.sink.split
 
 46:                                               ; preds = %29
-  store i32 5, ptr %32, align 8, !tbaa !29
+  store i32 5, ptr %32, align 8, !tbaa !30
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !9
   %49 = zext i8 %48 to i32
@@ -976,14 +976,14 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   unreachable
 
 65:                                               ; preds = %29
-  store i32 0, ptr %32, align 8, !tbaa !29
+  store i32 0, ptr %32, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %66, align 4, !tbaa !21
   br label %77
 
 67:                                               ; preds = %20
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %68, align 8, !tbaa !29
+  store i32 1, ptr %68, align 8, !tbaa !30
   switch i8 %25, label %73 [
     i8 -2, label %.sink.split
     i8 -64, label %69
@@ -1012,7 +1012,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   br i1 %or.cond215, label %76, label %82, !prof !20
 
 76:                                               ; preds = %73
-  store i32 0, ptr %68, align 8, !tbaa !29
+  store i32 0, ptr %68, align 8, !tbaa !30
   br label %77
 
 77:                                               ; preds = %76, %65
@@ -1086,7 +1086,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   %114 = icmp ult i8 %112, -64
   %115 = and i8 %112, -64
   %spec.select219 = select i1 %114, i8 %115, i8 %112
-  store i8 %spec.select219, ptr %113, align 4, !tbaa !28
+  store i8 %spec.select219, ptr %113, align 4, !tbaa !29
   switch i8 %spec.select219, label %116 [
     i8 -2, label %122
     i8 -16, label %122
@@ -1115,13 +1115,13 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
 
 zipEncodingLenSize.exit:                          ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 255, ptr %121, align 8, !tbaa !29
+  store i32 255, ptr %121, align 8, !tbaa !30
   br label %221
 
 122:                                              ; preds = %119, %120, %111, %111, %111, %111, %111, %116, %118
   %.0.i.ph = phi i32 [ 1, %118 ], [ 1, %116 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 5, %120 ], [ 2, %119 ]
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.0.i.ph, ptr %123, align 8, !tbaa !29
+  store i32 %.0.i.ph, ptr %123, align 8, !tbaa !30
   %124 = zext nneg i32 %.0.i.ph to i64
   %125 = getelementptr inbounds nuw i8, ptr %107, i64 %124
   %126 = icmp ult ptr %125, %6
@@ -1163,7 +1163,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   ]
 
 143:                                              ; preds = %140
-  store i32 1, ptr %123, align 8, !tbaa !29
+  store i32 1, ptr %123, align 8, !tbaa !30
   %144 = zext nneg i32 %.221 to i64
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !9
@@ -1174,7 +1174,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   br label %201
 
 150:                                              ; preds = %140
-  store i32 2, ptr %123, align 8, !tbaa !29
+  store i32 2, ptr %123, align 8, !tbaa !30
   %151 = zext nneg i32 %.221 to i64
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !9
@@ -1190,7 +1190,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   br label %201
 
 162:                                              ; preds = %140
-  store i32 5, ptr %123, align 8, !tbaa !29
+  store i32 5, ptr %123, align 8, !tbaa !30
   %163 = zext nneg i32 %.221 to i64
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 1
@@ -1219,13 +1219,13 @@ zipEncodingLenSize.exit:                          ; preds = %118
   unreachable
 
 184:                                              ; preds = %140
-  store i32 0, ptr %123, align 8, !tbaa !29
+  store i32 0, ptr %123, align 8, !tbaa !30
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %185, align 4, !tbaa !21
   br label %201
 
 186:                                              ; preds = %137
-  store i32 1, ptr %123, align 8, !tbaa !29
+  store i32 1, ptr %123, align 8, !tbaa !30
   switch i8 %112, label %197 [
     i8 -2, label %187
     i8 -64, label %189
@@ -1267,7 +1267,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   br i1 %or.cond222, label %200, label %201
 
 200:                                              ; preds = %197
-  store i32 0, ptr %123, align 8, !tbaa !29
+  store i32 0, ptr %123, align 8, !tbaa !30
   br label %201
 
 201:                                              ; preds = %197, %187, %191, %195, %200, %193, %189, %143, %162, %184, %150
@@ -1394,12 +1394,12 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   %39 = icmp ne i8 %38, -1
   %40 = icmp ult i32 %37, %2
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %29, label %._crit_edge, !llvm.loop !30
+  br i1 %41, label %29, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %zipRawEntryLengthSafe.exit
   %indvars = trunc i32 %37 to i16
   %.not = icmp ult ptr %36, %1
-  br i1 %.not, label %42, label %._crit_edge.thread, !prof !31
+  br i1 %.not, label %42, label %._crit_edge.thread, !prof !32
 
 42:                                               ; preds = %._crit_edge
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 862) #17
@@ -1982,14 +1982,14 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   br i1 %3, label %53, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8, !tbaa !32
+  %5 = load ptr, ptr %0, align 8, !tbaa !33
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %53, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %1, align 8, !tbaa !32
+  %9 = load ptr, ptr %1, align 8, !tbaa !33
   %10 = icmp eq ptr %9, null
   %11 = icmp eq ptr %5, %9
   %or.cond78 = or i1 %10, %11
@@ -2058,10 +2058,10 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   store i32 %48, ptr %49, align 4, !tbaa !5
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 %32
   %51 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %35, ptr noundef nonnull %50)
-  %52 = load ptr, ptr %.82, align 8, !tbaa !32
+  %52 = load ptr, ptr %.82, align 8, !tbaa !33
   tail call void @zfree(ptr noundef %52) #17
-  store ptr null, ptr %.82, align 8, !tbaa !32
-  store ptr %51, ptr %.83, align 8, !tbaa !32
+  store ptr null, ptr %.82, align 8, !tbaa !33
+  store ptr %51, ptr %.83, align 8, !tbaa !33
   br label %53
 
 53:                                               ; preds = %.sink.split, %2, %4, %8
@@ -2185,7 +2185,7 @@ define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local
 43:                                               ; preds = %40, %38
   %.2 = phi i32 [ %39, %38 ], [ %42, %40 ]
   %.not65 = icmp eq i32 %.2, 0
-  br i1 %.not65, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not65, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !34
 
 44:                                               ; preds = %2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -2220,7 +2220,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %.254, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !9
   %59 = icmp eq i8 %58, -1
-  br i1 %59, label %.critedge, label %48, !llvm.loop !34
+  br i1 %59, label %.critedge, label %48, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %43, %.lr.ph, %26
   %.052.idx.lcssa = phi i64 [ %12, %26 ], [ %.052.idx76, %.lr.ph ], [ %.052.add, %43 ]
@@ -2471,7 +2471,7 @@ define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %0, ptr noundef wri
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %9
-  store ptr null, ptr %1, align 8, !tbaa !32
+  store ptr null, ptr %1, align 8, !tbaa !33
   %.pr = load i8, ptr %0, align 1, !tbaa !9
   br label %11
 
@@ -2581,7 +2581,7 @@ zipEntry.exit:                                    ; preds = %22, %25, %33, %52, 
   store i32 %.sroa.10.0, ptr %2, align 4, !tbaa !5
   %63 = zext nneg i32 %60 to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  store ptr %64, ptr %1, align 8, !tbaa !32
+  store ptr %64, ptr %1, align 8, !tbaa !33
   br label %86
 
 65:                                               ; preds = %zipEntry.exit
@@ -2657,13 +2657,13 @@ define dso_local noundef ptr @ziplistInsert(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ziplistDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = load ptr, ptr %1, align 8, !tbaa !33
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = tail call ptr @__ziplistDelete(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
-  store ptr %8, ptr %1, align 8, !tbaa !32
+  store ptr %8, ptr %1, align 8, !tbaa !33
   ret ptr %7
 }
 
@@ -3209,14 +3209,14 @@ define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address)
   %20 = load i32, ptr %7, align 8, !tbaa !15
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %.02579, i64 %21
-  %23 = load i32, ptr %11, align 8, !tbaa !29
+  %23 = load i32, ptr %11, align 8, !tbaa !30
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = icmp eq i32 %.02778, 0
   br i1 %26, label %27, label %69
 
 27:                                               ; preds = %19
-  %28 = load i8, ptr %12, align 4, !tbaa !28
+  %28 = load i8, ptr %12, align 4, !tbaa !29
   %.not32 = icmp ugt i8 %28, -65
   br i1 %.not32, label %34, label %29
 
@@ -3359,7 +3359,7 @@ zipLoadInteger.exit:                              ; preds = %52, %55, %57, %59, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
   %75 = load i8, ptr %74, align 1, !tbaa !9
   %.not = icmp eq i8 %75, -1
-  br i1 %.not, label %.loopexit, label %16, !llvm.loop !35
+  br i1 %.not, label %.loopexit, label %16, !llvm.loop !36
 
 .loopexit:                                        ; preds = %71, %5, %.thread65
   %.5 = phi ptr [ %.02579, %.thread65 ], [ null, %5 ], [ null, %71 ]
@@ -3414,7 +3414,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %14
   %22 = add i32 %.119, 1
   %23 = load i8, ptr %21, align 1, !tbaa !9
   %.not15 = icmp eq i8 %23, -1
-  br i1 %.not15, label %._crit_edge, label %14, !llvm.loop !36
+  br i1 %.not15, label %._crit_edge, label %14, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %zipRawEntryLengthSafe.exit
   %24 = icmp ult i32 %22, 65535
@@ -3489,7 +3489,7 @@ define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #5 {
   %putchar = tail call i32 @putchar(i32 10)
   %31 = zext i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %.02232, i64 %31
-  %33 = load i8, ptr %17, align 4, !tbaa !28
+  %33 = load i8, ptr %17, align 4, !tbaa !29
   %.not26 = icmp ugt i8 %33, -65
   br i1 %.not26, label %55, label %38
 
@@ -3501,7 +3501,7 @@ define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #5 {
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %36)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 38:                                               ; preds = %._crit_edge
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22)
@@ -3509,7 +3509,7 @@ define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr @stdout, align 8, !tbaa !38
+  %42 = load ptr, ptr @stdout, align 8, !tbaa !39
   %43 = tail call i64 @fwrite(ptr noundef nonnull %32, i64 noundef 40, i64 noundef 1, ptr noundef %42)
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %46
@@ -3528,7 +3528,7 @@ define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #5 {
 
 49:                                               ; preds = %48
   %50 = zext nneg i32 %25 to i64
-  %51 = load ptr, ptr @stdout, align 8, !tbaa !38
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !39
   %52 = tail call i64 @fwrite(ptr noundef nonnull %32, i64 noundef %50, i64 noundef 1, ptr noundef %51)
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %54, label %74
@@ -3598,7 +3598,7 @@ zipLoadInteger.exit:                              ; preds = %56, %59, %61, %63, 
   %77 = add nuw nsw i32 %.02331, 1
   %78 = load i8, ptr %76, align 1, !tbaa !9
   %.not = icmp eq i8 %78, -1
-  br i1 %.not, label %._crit_edge35, label %18, !llvm.loop !40
+  br i1 %.not, label %._crit_edge35, label %18, !llvm.loop !41
 
 ._crit_edge35:                                    ; preds = %74, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -3684,7 +3684,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   %40 = load i8, ptr %38, align 1, !tbaa !9
   %.not50.us = icmp eq i8 %40, -1
-  br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
+  br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %.069 = phi i64 [ %50, %46 ], [ 0, %.lr.ph ]
@@ -3714,7 +3714,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   %53 = load i8, ptr %51, align 1, !tbaa !9
   %.not50 = icmp eq i8 %53, -1
-  br i1 %.not50, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
+  br i1 %.not50, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %46, %33
   %.041.lcssa = phi i32 [ %39, %33 ], [ %52, %46 ]
@@ -3880,7 +3880,7 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %26
   %34 = add i32 %.119.i, 1
   %35 = load i8, ptr %33, align 1, !tbaa !9
   %.not15.i = icmp eq i8 %35, -1
-  br i1 %.not15.i, label %._crit_edge.i, label %26, !llvm.loop !36
+  br i1 %.not15.i, label %._crit_edge.i, label %26, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %zipRawEntryLengthSafe.exit.i
   %36 = icmp ult i32 %34, 65535
@@ -3895,7 +3895,7 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %26
 ziplistLen.exit:                                  ; preds = %17, %._crit_edge.thread.i
   %.0.i = phi i32 [ %18, %17 ], [ %.1.lcssa21.i, %._crit_edge.thread.i ]
   %.not = icmp samesign ult i32 %.0.i, 2
-  br i1 %.not, label %39, label %.preheader47, !prof !44
+  br i1 %.not, label %39, label %.preheader47, !prof !45
 
 .preheader47:                                     ; preds = %._crit_edge.i, %ziplistLen.exit
   %.in = phi i32 [ %.0.i, %ziplistLen.exit ], [ %34, %._crit_edge.i ]
@@ -3910,7 +3910,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader47
   tail call void @qsort(ptr noundef %14, i64 noundef %12, i64 noundef 8, ptr noundef nonnull @uintCompare) #17
-  %40 = load i32, ptr %14, align 4, !tbaa !45
+  %40 = load i32, ptr %14, align 4, !tbaa !46
   %41 = tail call ptr @ziplistIndex(ptr noundef nonnull %0, i32 noundef %40)
   %42 = call i32 @ziplistGet(ptr noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %43 = icmp ne i32 %42, 0
@@ -3943,7 +3943,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
   %52 = icmp ne i32 %51, 0
   %53 = icmp ult i32 %.1.lcssa.us, %1
   %54 = and i1 %53, %52
-  br i1 %54, label %.lr.ph59.split.us, label %._crit_edge60, !llvm.loop !47
+  br i1 %54, label %.lr.ph59.split.us, label %._crit_edge60, !llvm.loop !48
 
 .preheader.us:                                    ; preds = %.lr.ph59.split.us
   %55 = icmp ult i32 %.03956.us, %1
@@ -3959,23 +3959,23 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
 60:                                               ; preds = %64, %.lr.ph50.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %64 ], [ %59, %.lr.ph50.us ]
   %61 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv69
-  %62 = load i32, ptr %61, align 4, !tbaa !45
+  %62 = load i32, ptr %61, align 4, !tbaa !46
   %63 = icmp eq i32 %.04054.us, %62
   br i1 %63, label %64, label %.critedge.us.loopexit.split.loop.exit
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !48
+  %66 = load i32, ptr %65, align 4, !tbaa !49
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds %struct.ziplistEntry, ptr %2, i64 %67
-  store ptr %56, ptr %68, align 8, !tbaa !49
+  store ptr %56, ptr %68, align 8, !tbaa !50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 %57, ptr %69, align 8, !tbaa !51
+  store i32 %57, ptr %69, align 8, !tbaa !52
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i64 %58, ptr %70, align 8, !tbaa !52
+  store i64 %58, ptr %70, align 8, !tbaa !53
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, %12
-  br i1 %exitcond72.not, label %.critedge.us, label %60, !llvm.loop !53
+  br i1 %exitcond72.not, label %.critedge.us, label %60, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %.preheader47, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader47 ]
@@ -3983,13 +3983,13 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
   %72 = urem i32 %71, %38
   %73 = shl nuw i32 %72, 1
   %74 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv
-  store i32 %73, ptr %74, align 4, !tbaa !45
+  store i32 %73, ptr %74, align 4, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = trunc nuw i64 %indvars.iv to i32
-  store i32 %76, ptr %75, align 4, !tbaa !48
+  store i32 %76, ptr %75, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 .lr.ph59.split:                                   ; preds = %.lr.ph59, %.critedge
   %.057 = phi ptr [ %103, %.critedge ], [ %41, %.lr.ph59 ]
@@ -4022,29 +4022,29 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
 87:                                               ; preds = %.lr.ph50, %91
   %indvars.iv65 = phi i64 [ %86, %.lr.ph50 ], [ %indvars.iv.next66, %91 ]
   %88 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv65
-  %89 = load i32, ptr %88, align 4, !tbaa !45
+  %89 = load i32, ptr %88, align 4, !tbaa !46
   %90 = icmp eq i32 %.04054, %89
   br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit77
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !48
+  %93 = load i32, ptr %92, align 4, !tbaa !49
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds %struct.ziplistEntry, ptr %2, i64 %94
-  store ptr %80, ptr %95, align 8, !tbaa !49
+  store ptr %80, ptr %95, align 8, !tbaa !50
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i32 %81, ptr %96, align 8, !tbaa !51
+  store i32 %81, ptr %96, align 8, !tbaa !52
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i64 %82, ptr %97, align 8, !tbaa !52
+  store i64 %82, ptr %97, align 8, !tbaa !53
   %98 = getelementptr inbounds %struct.ziplistEntry, ptr %3, i64 %94
-  store ptr %83, ptr %98, align 8, !tbaa !49
+  store ptr %83, ptr %98, align 8, !tbaa !50
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i32 %84, ptr %99, align 8, !tbaa !51
+  store i32 %84, ptr %99, align 8, !tbaa !52
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i64 %85, ptr %100, align 8, !tbaa !52
+  store i64 %85, ptr %100, align 8, !tbaa !53
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %12
-  br i1 %exitcond68.not, label %.critedge, label %87, !llvm.loop !55
+  br i1 %exitcond68.not, label %.critedge, label %87, !llvm.loop !56
 
 .critedge.loopexit.split.loop.exit77:             ; preds = %87
   %101 = trunc nuw i64 %indvars.iv65 to i32
@@ -4058,7 +4058,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
   %105 = icmp ne i32 %104, 0
   %106 = icmp ult i32 %.1.lcssa, %1
   %107 = and i1 %106, %105
-  br i1 %107, label %.lr.ph59.split, label %._crit_edge60, !llvm.loop !56
+  br i1 %107, label %.lr.ph59.split, label %._crit_edge60, !llvm.loop !57
 
 ._crit_edge60:                                    ; preds = %.critedge, %.critedge.us, %._crit_edge
   call void @zfree(ptr noundef nonnull %14) #17
@@ -4130,7 +4130,7 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %20
   %28 = add i32 %.119.i, 1
   %29 = load i8, ptr %27, align 1, !tbaa !9
   %.not15.i = icmp eq i8 %29, -1
-  br i1 %.not15.i, label %._crit_edge.i, label %20, !llvm.loop !36
+  br i1 %.not15.i, label %._crit_edge.i, label %20, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %zipRawEntryLengthSafe.exit.i
   %30 = icmp ult i32 %28, 65535
@@ -4177,16 +4177,16 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   br i1 %.not43.us, label %.split.us, label %47, !prof !24
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %6, align 8, !tbaa !32
+  %48 = load ptr, ptr %6, align 8, !tbaa !33
   %49 = load i32, ptr %7, align 4, !tbaa !5
   %50 = load i64, ptr %8, align 8, !tbaa !10
   %51 = zext nneg i32 %.03552.us to i64
   %52 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %2, i64 %51
-  store ptr %48, ptr %52, align 8, !tbaa !49
+  store ptr %48, ptr %52, align 8, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 %49, ptr %53, align 8, !tbaa !51
+  store i32 %49, ptr %53, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i64 %50, ptr %54, align 8, !tbaa !52
+  store i64 %50, ptr %54, align 8, !tbaa !53
   %55 = call ptr @ziplistNext(ptr noundef nonnull %0, ptr noundef nonnull %.03254.us)
   %.not44.us = icmp eq ptr %55, null
   br i1 %.not44.us, label %.split56.us, label %56, !prof !24
@@ -4210,7 +4210,7 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   %64 = icmp ult i32 %.136.us, %spec.select
   %65 = icmp ne ptr %62, null
   %66 = and i1 %64, %65
-  br i1 %66, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
+  br i1 %66, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %.03254 = phi ptr [ %101, %100 ], [ %33, %.lr.ph ]
@@ -4238,16 +4238,16 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   unreachable
 
 77:                                               ; preds = %75
-  %78 = load ptr, ptr %6, align 8, !tbaa !32
+  %78 = load ptr, ptr %6, align 8, !tbaa !33
   %79 = load i32, ptr %7, align 4, !tbaa !5
   %80 = load i64, ptr %8, align 8, !tbaa !10
   %81 = zext nneg i32 %.03552 to i64
   %82 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %2, i64 %81
-  store ptr %78, ptr %82, align 8, !tbaa !49
+  store ptr %78, ptr %82, align 8, !tbaa !50
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i32 %79, ptr %83, align 8, !tbaa !51
+  store i32 %79, ptr %83, align 8, !tbaa !52
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store i64 %80, ptr %84, align 8, !tbaa !52
+  store i64 %80, ptr %84, align 8, !tbaa !53
   %85 = call ptr @ziplistNext(ptr noundef nonnull %0, ptr noundef nonnull %.03254)
   %.not44 = icmp eq ptr %85, null
   br i1 %.not44, label %.split56.us, label %86, !prof !24
@@ -4268,15 +4268,15 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   unreachable
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %6, align 8, !tbaa !32
+  %90 = load ptr, ptr %6, align 8, !tbaa !33
   %91 = load i32, ptr %7, align 4, !tbaa !5
   %92 = load i64, ptr %8, align 8, !tbaa !10
   %93 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %3, i64 %81
-  store ptr %90, ptr %93, align 8, !tbaa !49
+  store ptr %90, ptr %93, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i32 %91, ptr %94, align 8, !tbaa !51
+  store i32 %91, ptr %94, align 8, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i64 %92, ptr %95, align 8, !tbaa !52
+  store i64 %92, ptr %95, align 8, !tbaa !53
   %96 = add i32 %.03353, -1
   %97 = add nuw nsw i32 %.03552, 1
   br label %100
@@ -4300,7 +4300,7 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   %103 = icmp ult i32 %.136, %spec.select
   %104 = icmp ne ptr %101, null
   %105 = and i1 %103, %104
-  br i1 %105, label %.lr.ph.split, label %._crit_edge, !llvm.loop !58
+  br i1 %105, label %.lr.ph.split, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %100, %61, %ziplistLen.exit
   %.035.lcssa = phi i32 [ 0, %ziplistLen.exit ], [ %.136.us, %61 ], [ %.136, %100 ]
@@ -4375,37 +4375,38 @@ attributes #21 = { cold }
 !22 = !{!16, !6, i64 16}
 !23 = !{!16, !17, i64 24}
 !24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!16, !7, i64 20}
-!29 = !{!16, !6, i64 8}
-!30 = distinct !{!30, !26}
-!31 = !{!"branch_weights", !"expected", i32 2163581, i32 2145320067}
-!32 = !{!17, !17, i64 0}
-!33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26}
-!37 = distinct !{!37, !26}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !26}
-!44 = !{!"branch_weights", !"expected", i32 1213716, i32 2146269932}
-!45 = !{!46, !6, i64 0}
-!46 = !{!"", !6, i64 0, !6, i64 4}
-!47 = distinct !{!47, !26, !42}
-!48 = !{!46, !6, i64 4}
-!49 = !{!50, !17, i64 0}
-!50 = !{!"", !17, i64 0, !6, i64 8, !11, i64 16}
-!51 = !{!50, !6, i64 8}
-!52 = !{!50, !11, i64 16}
-!53 = distinct !{!53, !26, !42}
-!54 = distinct !{!54, !26}
-!55 = distinct !{!55, !26}
-!56 = distinct !{!56, !26}
-!57 = distinct !{!57, !26, !42}
-!58 = distinct !{!58, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = !{!16, !7, i64 20}
+!30 = !{!16, !6, i64 8}
+!31 = distinct !{!31, !26, !27}
+!32 = !{!"branch_weights", !"expected", i32 2163581, i32 2145320067}
+!33 = !{!17, !17, i64 0}
+!34 = distinct !{!34, !26, !27}
+!35 = distinct !{!35, !26, !27}
+!36 = distinct !{!36, !26, !27}
+!37 = distinct !{!37, !26, !27}
+!38 = distinct !{!38, !26, !27}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
+!41 = distinct !{!41, !26, !27}
+!42 = distinct !{!42, !26, !27, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !26, !27}
+!45 = !{!"branch_weights", !"expected", i32 1213716, i32 2146269932}
+!46 = !{!47, !6, i64 0}
+!47 = !{!"", !6, i64 0, !6, i64 4}
+!48 = distinct !{!48, !26, !27, !43}
+!49 = !{!47, !6, i64 4}
+!50 = !{!51, !17, i64 0}
+!51 = !{!"", !17, i64 0, !6, i64 8, !11, i64 16}
+!52 = !{!51, !6, i64 8}
+!53 = !{!51, !11, i64 16}
+!54 = distinct !{!54, !26, !27, !43}
+!55 = distinct !{!55, !26, !27}
+!56 = distinct !{!56, !26, !27}
+!57 = distinct !{!57, !26, !27}
+!58 = distinct !{!58, !26, !27, !43}
+!59 = distinct !{!59, !26, !27}

@@ -208,7 +208,7 @@ thread-pre-split.i:                               ; preds = %17, %15
   br i1 %.b10, label %42, label %.thread
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %43 = load ptr, ptr @stdout, align 8, !tbaa !17
   %44 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %43)
   %.b.pre = load i1, ptr @verbose_g, align 4
   %.b12 = load i1, ptr @noop_g, align 4
@@ -216,7 +216,7 @@ thread-pre-split.i:                               ; preds = %17, %15
   br i1 %or.cond, label %45, label %.thread
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %46 = load ptr, ptr @stdout, align 8, !tbaa !17
   %47 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 14, i64 1, ptr %46)
   br label %.thread
 
@@ -239,7 +239,7 @@ thread-pre-split.i:                               ; preds = %17, %15
   br i1 %.b9, label %54, label %58
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !17
   %56 = load ptr, ptr @fname_g, align 8, !tbaa !8
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.4, ptr noundef %56) #10
   br label %58
@@ -253,7 +253,7 @@ thread-pre-split.i:                               ; preds = %17, %15
   br i1 %.b8, label %60, label %64
 
 60:                                               ; preds = %59
-  %61 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !17
   %62 = load ptr, ptr @dname_g, align 8, !tbaa !8
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.5, ptr noundef %62) #10
   br label %64
@@ -268,7 +268,7 @@ thread-pre-split.i:                               ; preds = %17, %15
   br i1 %.b8, label %69, label %72
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %70 = load ptr, ptr @stdout, align 8, !tbaa !17
   %71 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 39, i64 1, ptr %70)
   br label %72
 
@@ -283,7 +283,7 @@ thread-pre-split.i:                               ; preds = %17, %15
 
 76:                                               ; preds = %75
   %.b11 = load i1, ptr @noop_g, align 4
-  %77 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %77 = load ptr, ptr @stdout, align 8, !tbaa !17
   br i1 %.b11, label %78, label %80
 
 78:                                               ; preds = %76
@@ -328,7 +328,7 @@ parse_command_line.exit.thread:                   ; preds = %6, %10, %12, %24, %
   br i1 %.b5, label %96, label %99
 
 96:                                               ; preds = %95
-  %97 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %97 = load ptr, ptr @stdout, align 8, !tbaa !17
   %98 = call i64 @fwrite(ptr nonnull @.str.12, i64 15, i64 1, ptr %97)
   br label %99
 
@@ -396,7 +396,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b33, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !17
   %13 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 17, i64 1, ptr %12)
   br label %14
 
@@ -425,7 +425,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b32, label %23, label %26
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !17
   %25 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 30, i64 1, ptr %24)
   br label %26
 
@@ -442,7 +442,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b31, label %28, label %31
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %29 = load ptr, ptr @stdout, align 8, !tbaa !17
   %30 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 29, i64 1, ptr %29)
   br label %31
 
@@ -461,7 +461,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b30, label %36, label %39
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !17
   %38 = call i64 @fwrite(ptr nonnull @.str.49, i64 43, i64 1, ptr %37)
   br label %39
 
@@ -475,7 +475,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b29, label %43, label %46
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %44 = load ptr, ptr @stdout, align 8, !tbaa !17
   %45 = call i64 @fwrite(ptr nonnull @.str.50, i64 77, i64 1, ptr %44)
   br label %46
 
@@ -487,7 +487,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b29, label %48, label %64
 
 48:                                               ; preds = %47
-  %49 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !17
   %50 = call i64 @fwrite(ptr nonnull @.str.51, i64 54, i64 1, ptr %49)
   br label %64
 
@@ -496,7 +496,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b27, label %52, label %64
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %53 = load ptr, ptr @stdout, align 8, !tbaa !17
   %54 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 68, i64 1, ptr %53)
   br label %64
 
@@ -505,7 +505,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b26, label %56, label %64
 
 56:                                               ; preds = %55
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !17
   %58 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 65, i64 1, ptr %57)
   br label %64
 
@@ -514,7 +514,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b25, label %60, label %82
 
 60:                                               ; preds = %59
-  %61 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !17
   %62 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 38, i64 1, ptr %61)
   br label %82
 
@@ -532,7 +532,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b24, label %66, label %69
 
 66:                                               ; preds = %65
-  %67 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %67 = load ptr, ptr @stdout, align 8, !tbaa !17
   %68 = call i64 @fwrite(ptr nonnull @.str.56, i64 27, i64 1, ptr %67)
   br label %69
 
@@ -544,7 +544,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b24, label %71, label %74
 
 71:                                               ; preds = %70
-  %72 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %72 = load ptr, ptr @stdout, align 8, !tbaa !17
   %73 = call i64 @fwrite(ptr nonnull @.str.57, i64 26, i64 1, ptr %72)
   br label %74
 
@@ -563,7 +563,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b22, label %79, label %82
 
 79:                                               ; preds = %78
-  %80 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %80 = load ptr, ptr @stdout, align 8, !tbaa !17
   %81 = call i64 @fwrite(ptr nonnull @.str.59, i64 5, i64 1, ptr %80)
   br label %82
 
@@ -582,7 +582,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b21, label %87, label %90
 
 87:                                               ; preds = %86
-  %88 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %88 = load ptr, ptr @stdout, align 8, !tbaa !17
   %89 = call i64 @fwrite(ptr nonnull @.str.61, i64 18, i64 1, ptr %88)
   br label %90
 
@@ -610,7 +610,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   br i1 %.b, label %97, label %100
 
 97:                                               ; preds = %96
-  %98 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %98 = load ptr, ptr @stdout, align 8, !tbaa !17
   %99 = call i64 @fwrite(ptr nonnull @.str.64, i64 18, i64 1, ptr %98)
   br label %100
 
@@ -639,7 +639,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
   %112 = load i32, ptr %4, align 4, !tbaa !12
   %.not35 = icmp eq i32 %112, 0
   %113 = load ptr, ptr %5, align 8, !tbaa !11
-  %114 = load ptr, ptr %6, align 8, !tbaa !18
+  %114 = load ptr, ptr %6, align 8, !tbaa !19
   br i1 %.not35, label %117, label %115
 
 115:                                              ; preds = %109
@@ -672,7 +672,7 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nound
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !19
+  %9 = load i32, ptr %8, align 8, !tbaa !20
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %17
 
@@ -681,7 +681,7 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nound
   br i1 %.b, label %12, label %15
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !17
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.65, ptr noundef %0) #10
   br label %15
 
@@ -708,55 +708,55 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @usage(ptr noundef %0) unnamed_addr #6 {
-  %2 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %2 = load ptr, ptr @stdout, align 8, !tbaa !17
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %0) #10
-  %4 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !17
   %5 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 10, i64 1, ptr %4)
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !17
   %7 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 60, i64 1, ptr %6)
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !17
   %9 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 59, i64 1, ptr %8)
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !17
   %11 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 50, i64 1, ptr %10)
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !17
   %13 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 62, i64 1, ptr %12)
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !17
   %15 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 80, i64 1, ptr %14)
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !17
   %fputc = tail call i32 @fputc(i32 10, ptr %16)
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !17
   %18 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 17, i64 1, ptr %17)
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !17
   %fputc1 = tail call i32 @fputc(i32 10, ptr %19)
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !17
   %21 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 45, i64 1, ptr %20)
-  %22 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %22 = load ptr, ptr @stdout, align 8, !tbaa !17
   %23 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 69, i64 1, ptr %22)
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !17
   %25 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 76, i64 1, ptr %24)
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %26 = load ptr, ptr @stdout, align 8, !tbaa !17
   %27 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 69, i64 1, ptr %26)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !17
   %29 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 34, i64 1, ptr %28)
-  %30 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !17
   %fputc2 = tail call i32 @fputc(i32 10, ptr %30)
-  %31 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !17
   %32 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 27, i64 1, ptr %31)
-  %33 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %33 = load ptr, ptr @stdout, align 8, !tbaa !17
   %34 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 53, i64 1, ptr %33)
-  %35 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %35 = load ptr, ptr @stdout, align 8, !tbaa !17
   %36 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 76, i64 1, ptr %35)
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !17
   %38 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 69, i64 1, ptr %37)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !17
   %40 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 34, i64 1, ptr %39)
-  %41 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %41 = load ptr, ptr @stdout, align 8, !tbaa !17
   %fputc3 = tail call i32 @fputc(i32 10, ptr %41)
-  %42 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %42 = load ptr, ptr @stdout, align 8, !tbaa !17
   %43 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 48, i64 1, ptr %42)
-  %44 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %44 = load ptr, ptr @stdout, align 8, !tbaa !17
   %45 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 62, i64 1, ptr %44)
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %46 = load ptr, ptr @stdout, align 8, !tbaa !17
   %47 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 72, i64 1, ptr %46)
   ret void
 }
@@ -837,11 +837,12 @@ attributes #11 = { noreturn nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!18 = !{!10, !10, i64 0}
-!19 = !{!20, !13, i64 24}
-!20 = !{!"H5O_info2_t", !5, i64 0, !21, i64 8, !13, i64 24, !13, i64 28, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
-!21 = !{!"H5O_token_t", !6, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!19 = !{!10, !10, i64 0}
+!20 = !{!21, !13, i64 24}
+!21 = !{!"H5O_info2_t", !5, i64 0, !22, i64 8, !13, i64 24, !13, i64 28, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
+!22 = !{!"H5O_token_t", !6, i64 0}

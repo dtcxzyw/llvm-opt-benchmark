@@ -1117,14 +1117,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
 
 401:                                              ; preds = %399
   %402 = getelementptr inbounds nuw i8, ptr %400, i64 8
-  %403 = load i32, ptr %402, align 4, !tbaa !54
-  %404 = load i32, ptr %400, align 4, !tbaa !56
+  %403 = load i32, ptr %402, align 4, !tbaa !55
+  %404 = load i32, ptr %400, align 4, !tbaa !57
   %405 = sub nsw i32 %403, %404
   %406 = add nsw i32 %405, 1
   %407 = getelementptr inbounds nuw i8, ptr %400, i64 12
-  %408 = load i32, ptr %407, align 4, !tbaa !57
+  %408 = load i32, ptr %407, align 4, !tbaa !58
   %409 = getelementptr inbounds nuw i8, ptr %400, i64 4
-  %410 = load i32, ptr %409, align 4, !tbaa !58
+  %410 = load i32, ptr %409, align 4, !tbaa !59
   %411 = sub i32 %408, %410
   %412 = add i32 %411, 1
   %413 = icmp eq i32 %.076.i, 0
@@ -1164,16 +1164,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
           to label %430 unwind label %463
 
 430:                                              ; preds = %428
-  %431 = load i32, ptr %426, align 4, !tbaa !58
+  %431 = load i32, ptr %426, align 4, !tbaa !59
   %432 = sub nsw i32 0, %431
   %433 = sext i32 %432 to i64
   %434 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %435 = load ptr, ptr %434, align 8, !tbaa !48
   %436 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %437 = load i64, ptr %436, align 8, !tbaa !59
+  %437 = load i64, ptr %436, align 8, !tbaa !60
   %438 = mul nsw i64 %437, %433
   %439 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %435, i64 %438
-  %440 = load i32, ptr %12, align 4, !tbaa !56
+  %440 = load i32, ptr %12, align 4, !tbaa !57
   %441 = sub nsw i32 0, %440
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %439, i64 %442
@@ -1182,8 +1182,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
           to label %445 unwind label %463
 
 445:                                              ; preds = %430
-  %446 = load i32, ptr %409, align 4, !tbaa !58
-  %447 = load i32, ptr %407, align 4, !tbaa !57
+  %446 = load i32, ptr %409, align 4, !tbaa !59
+  %447 = load i32, ptr %407, align 4, !tbaa !58
   invoke void @_ZN7Imf_3_413RgbaInputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %446, i32 noundef %447)
           to label %.preheader102.i unwind label %463
 
@@ -1239,12 +1239,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
 ._crit_edge.i:                                    ; preds = %465
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %449
-  br i1 %exitcond119.not.i, label %._crit_edge106.i, label %.preheader101.i, !llvm.loop !60
+  br i1 %exitcond119.not.i, label %._crit_edge106.i, label %.preheader101.i, !llvm.loop !61
 
 465:                                              ; preds = %465, %.preheader101.i
   %indvars.iv.i14 = phi i64 [ 0, %.preheader101.i ], [ %indvars.iv.next.i15, %465 ]
   %466 = load ptr, ptr %434, align 8, !tbaa !48
-  %467 = load i64, ptr %436, align 8, !tbaa !59
+  %467 = load i64, ptr %436, align 8, !tbaa !60
   %468 = mul nsw i64 %467, %449
   %469 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %466, i64 %468
   %470 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %469, i64 %indvars.iv.i14
@@ -1255,7 +1255,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
   store i64 %474, ptr %473, align 2
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i
-  br i1 %exitcond.not.i16, label %._crit_edge.i, label %465, !llvm.loop !61
+  br i1 %exitcond.not.i16, label %._crit_edge.i, label %465, !llvm.loop !62
 
 .preheader.i:                                     ; preds = %._crit_edge109.i, %.preheader.preheader.i
   %indvars.iv125.i = phi i64 [ %459, %.preheader.preheader.i ], [ %indvars.iv.next126.i, %._crit_edge109.i ]
@@ -1264,12 +1264,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
 ._crit_edge109.i:                                 ; preds = %476
   %indvars.iv.next126.i = add nsw i64 %indvars.iv125.i, 1
   %475 = icmp slt i64 %indvars.iv.next126.i, %460
-  br i1 %475, label %.preheader.i, label %_ZN12_GLOBAL__N_115readSingleImageEPKcffN7Imf_3_46EnvmapEbR11EnvmapImageRNS2_6HeaderERNS2_12RgbaChannelsE.exit, !llvm.loop !62
+  br i1 %475, label %.preheader.i, label %_ZN12_GLOBAL__N_115readSingleImageEPKcffN7Imf_3_46EnvmapEbR11EnvmapImageRNS2_6HeaderERNS2_12RgbaChannelsE.exit, !llvm.loop !63
 
 476:                                              ; preds = %476, %.preheader.i
   %indvars.iv120.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next121.i, %476 ]
   %477 = load ptr, ptr %434, align 8, !tbaa !48
-  %478 = load i64, ptr %436, align 8, !tbaa !59
+  %478 = load i64, ptr %436, align 8, !tbaa !60
   %479 = mul nsw i64 %478, %456
   %480 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %477, i64 %479
   %481 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %480, i64 %indvars.iv120.i
@@ -1280,7 +1280,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %381
   store i64 %485, ptr %484, align 2
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
   %exitcond124.not.i = icmp eq i64 %indvars.iv.next121.i, %wide.trip.count123.i
-  br i1 %exitcond124.not.i, label %._crit_edge109.i, label %476, !llvm.loop !63
+  br i1 %exitcond124.not.i, label %._crit_edge109.i, label %476, !llvm.loop !64
 
 486:                                              ; preds = %463, %461
   %.pn82.i = phi { ptr, i32 } [ %464, %463 ], [ %462, %461 ]
@@ -1482,15 +1482,16 @@ attributes #17 = { builtin nounwind }
 !49 = !{!"_ZTSN7Imf_3_47Array2DINS_4RgbaEEE", !11, i64 0, !11, i64 8, !50, i64 16}
 !50 = !{!"p1 _ZTSN7Imf_3_44RgbaE", !7, i64 0}
 !51 = !{!6, !6, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !25, i64 8}
-!55 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !42, i64 0, !42, i64 8}
-!56 = !{!55, !25, i64 0}
-!57 = !{!55, !25, i64 12}
-!58 = !{!55, !25, i64 4}
-!59 = !{!49, !11, i64 8}
-!60 = distinct !{!60, !53}
-!61 = distinct !{!61, !53}
-!62 = distinct !{!62, !53}
-!63 = distinct !{!63, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!56, !25, i64 8}
+!56 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !42, i64 0, !42, i64 8}
+!57 = !{!56, !25, i64 0}
+!58 = !{!56, !25, i64 12}
+!59 = !{!56, !25, i64 4}
+!60 = !{!49, !11, i64 8}
+!61 = distinct !{!61, !53, !54}
+!62 = distinct !{!62, !53, !54}
+!63 = distinct !{!63, !53, !54}
+!64 = distinct !{!64, !53, !54}

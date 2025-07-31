@@ -434,7 +434,7 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %35, %38, %40
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %72 = trunc nuw i64 %indvars.iv.next21.i.i.i to i32
   %73 = icmp sgt i32 %.0.i.i.i.i, %72
-  br i1 %73, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !12
+  br i1 %73, label %.lr.ph18.i.i.i, label %.preheader.i.i.i, !llvm.loop !13
 
 74:                                               ; preds = %.preheader.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %70) #11
@@ -466,9 +466,9 @@ _ZN26GrowableArrayWithAllocatorI19ZNMethodDataBarrier18GrowableArrayCHeapIS0_L8M
   br i1 %.not.i17, label %_ZN13RelocIterator9oop_relocEv.exit, label %83
 
 83:                                               ; preds = %81
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !13
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !13
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !13
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !14
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !14
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #11
   br label %_ZN13RelocIterator9oop_relocEv.exit
 
@@ -541,7 +541,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %78, %81, %83
   store ptr %112, ptr %110, align 8
   %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
   %113 = icmp samesign ult i64 %indvars.iv.next.i.i.i39, %106
-  br i1 %113, label %.lr.ph.i.i.i37, label %.preheader15.loopexit.i.i.i40, !llvm.loop !16
+  br i1 %113, label %.lr.ph.i.i.i37, label %.preheader15.loopexit.i.i.i40, !llvm.loop !17
 
 .preheader.i.i.i30:                               ; preds = %.lr.ph18.i.i.i34, %.preheader15.i.i.i28
   %114 = load ptr, ptr %.phi.trans.insert.i24, align 8
@@ -555,7 +555,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %78, %81, %83
   %indvars.iv.next21.i.i.i36 = add nuw nsw i64 %indvars.iv20.i.i.i35, 1
   %116 = trunc nuw i64 %indvars.iv.next21.i.i.i36 to i32
   %117 = icmp sgt i32 %.0.i.i.i.i27, %116
-  br i1 %117, label %.lr.ph18.i.i.i34, label %.preheader.i.i.i30, !llvm.loop !17
+  br i1 %117, label %.lr.ph18.i.i.i34, label %.preheader.i.i.i30, !llvm.loop !18
 
 118:                                              ; preds = %.preheader.i.i.i30
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %114) #11
@@ -581,7 +581,7 @@ _ZN26GrowableArrayWithAllocatorIPP7oopDesc18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE
   store ptr %124, ptr %8, align 8
   %125 = load ptr, ptr %9, align 8
   %126 = icmp eq ptr %124, %125
-  br i1 %126, label %._crit_edge, label %19, !llvm.loop !18
+  br i1 %126, label %._crit_edge, label %19, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %122, %24, %1
   %.014.lcssa = phi i1 [ false, %1 ], [ %.01442, %24 ], [ %.1, %122 ]
@@ -762,7 +762,7 @@ define hidden void @_ZN8ZNMethod12log_registerEPK7nmethod(ptr noundef %0) local_
   %70 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_94ELS3_8ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.6, i32 noundef %.sroa.2.0.copyload.i.i, i64 noundef %70)
   %.not51 = icmp eq i64 %68, %67
-  br i1 %.not51, label %_ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not51, label %_ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !20
 
 _ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit: ; preds = %.lr.ph, %61, %3
   %71 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_103ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -819,7 +819,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %84, %94
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_94ELS3_103ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.8, i64 noundef %phi.call, ptr noundef %98)
   %99 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %100 = icmp ult ptr %99, %78
-  br i1 %100, label %.lr.ph57, label %._crit_edge, !llvm.loop !20
+  br i1 %100, label %.lr.ph57, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.split24, %72
   %101 = tail call noundef ptr @_ZNK12ZNMethodData14immediate_oopsEv(ptr noundef nonnull align 8 dereferenceable(153) %.val) #11
@@ -867,7 +867,7 @@ _ZNK7oopDesc5klassEv.exit27:                      ; preds = %116, %126
   %128 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i26) #11
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_94ELS3_103ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.9, i64 noundef %111, i64 noundef %112, ptr noundef %128)
   %.not53 = icmp eq i64 %107, %106
-  br i1 %.not53, label %_ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit, label %.lr.ph60, !llvm.loop !21
+  br i1 %.not53, label %_ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit, label %.lr.ph60, !llvm.loop !22
 
 _ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit: ; preds = %_ZNK7oopDesc5klassEv.exit27, %._crit_edge, %_ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit
   %129 = load ptr, ptr %9, align 8
@@ -1138,7 +1138,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %1, %_ZN14ZReentrant
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   tail call void @_ZN20ZBarrierSetAssembler24patch_barrier_relocationEPhi(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %.sroa.0.0.copyload.i.i.i, i32 noundef %.sroa.2.0.copyload.i.i.i) #11
   %.not.i7 = icmp eq i64 %21, %20
-  br i1 %.not.i7, label %_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i7, label %_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN8ZNMethod22nmethod_patch_barriersEP7nmethod.exit: ; preds = %.lr.ph.i, %_ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit
   tail call void @_ZN13ZNMethodTable16register_nmethodEP7nmethod(ptr noundef nonnull %0) #11
@@ -1191,7 +1191,7 @@ define hidden void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr noundef r
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   tail call void @_ZN20ZBarrierSetAssembler24patch_barrier_relocationEPhi(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %.sroa.0.0.copyload.i.i, i32 noundef %.sroa.2.0.copyload.i.i) #11
   %.not = icmp eq i64 %10, %9
-  br i1 %.not, label %_ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %_ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !23
 
 _ZN18ZArrayIteratorImplI19ZNMethodDataBarrierLb0EE4nextEPS0_.exit: ; preds = %.lr.ph, %1
   ret void
@@ -1395,7 +1395,7 @@ define hidden void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(p
 15:                                               ; preds = %.lr.ph, %12
   %16 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %17 = icmp ult ptr %16, %10
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %15, %2
   %18 = getelementptr i8, ptr %0, i64 112
@@ -1427,7 +1427,7 @@ define hidden void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(p
 
 32:                                               ; preds = %29, %.lr.ph23
   %.not = icmp eq i64 %25, %24
-  br i1 %.not, label %_ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit, label %.lr.ph23, !llvm.loop !24
+  br i1 %.not, label %_ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit, label %.lr.ph23, !llvm.loop !25
 
 _ZN18ZArrayIteratorImplIPP7oopDescLb0EE4nextEPS2_.exit: ; preds = %32, %._crit_edge
   %33 = tail call noundef zeroext i1 @_ZNK12ZNMethodData22has_non_immediate_oopsEv(ptr noundef nonnull align 8 dereferenceable(153) %.val) #11
@@ -1945,7 +1945,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = load volatile i32, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %31 = icmp eq i8 %26, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1961,7 +1961,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %38 = lshr i64 %36, 6
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %41 = and i64 %36, 63
   %42 = shl nuw i64 1, %41
   %43 = and i64 %40, %42
@@ -2274,19 +2274,20 @@ attributes #12 = { noreturn nounwind }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_: argument 0"}
 !9 = distinct !{!9, !"_ZN16RelocationHolder9constructI18barrier_RelocationJEEES_DpRKT0_"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
-!15 = distinct !{!15, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = !{i64 2145392468}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
+!16 = distinct !{!16, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = !{i64 2145392468}

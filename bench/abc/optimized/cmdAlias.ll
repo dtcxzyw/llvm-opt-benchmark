@@ -38,7 +38,7 @@ define void @CmdCommandAliasAdd(ptr noundef readonly captures(none) %0, ptr noun
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = tail call i32 @st__insert(ptr noundef %18, ptr noundef %6, ptr noundef nonnull %5) #9
   ret void
 }
@@ -59,7 +59,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nofree nounwind uwtable
 define void @CmdCommandAliasPrint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %5) #9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -73,7 +73,7 @@ define void @CmdCommandAliasPrint(ptr noundef readonly captures(none) %0, ptr no
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !31
+  %12 = load ptr, ptr %3, align 8, !tbaa !32
   %13 = load ptr, ptr %10, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !13
@@ -82,10 +82,10 @@ define void @CmdCommandAliasPrint(ptr noundef readonly captures(none) %0, ptr no
   %17 = load i32, ptr %7, align 8, !tbaa !11
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %11, label %._crit_edge, !llvm.loop !32
+  br i1 %19, label %11, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %11, %2
-  %20 = load ptr, ptr %3, align 8, !tbaa !31
+  %20 = load ptr, ptr %3, align 8, !tbaa !32
   %fputc = tail call i32 @fputc(i32 10, ptr %20)
   ret void
 }
@@ -98,7 +98,7 @@ define ptr @CmdCommandAliasLookup(ptr noundef readonly captures(none) %0, ptr no
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = call i32 @st__lookup(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
@@ -173,22 +173,23 @@ attributes #9 = { nounwind }
 !11 = !{!4, !9, i64 8}
 !12 = !{!4, !10, i64 16}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !18, i64 24}
-!17 = !{!"Abc_Frame_t_", !5, i64 0, !5, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !19, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !20, i64 104, !21, i64 112, !21, i64 116, !9, i64 120, !9, i64 124, !22, i64 128, !22, i64 136, !22, i64 144, !23, i64 152, !23, i64 160, !19, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !5, i64 256, !21, i64 264, !24, i64 272, !9, i64 280, !25, i64 288, !25, i64 296, !25, i64 304, !25, i64 312, !25, i64 320, !9, i64 328, !9, i64 332, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !26, i64 352, !26, i64 360, !19, i64 368, !19, i64 376, !24, i64 384, !24, i64 392, !9, i64 400, !9, i64 404, !19, i64 408, !19, i64 416, !19, i64 424, !5, i64 432, !6, i64 440, !6, i64 448, !6, i64 456, !6, i64 464, !6, i64 472, !6, i64 480, !6, i64 488, !6, i64 496, !6, i64 504, !24, i64 512, !6, i64 520, !6, i64 528, !6, i64 536, !6, i64 544, !27, i64 552, !28, i64 560, !29, i64 568, !25, i64 576, !25, i64 584, !24, i64 592, !24, i64 600, !30, i64 608, !30, i64 616, !6, i64 624, !30, i64 632, !6, i64 640}
-!18 = !{!"p1 _ZTS9st__table", !6, i64 0}
-!19 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
-!20 = !{!"p1 _ZTS10Abc_Ntk_t_", !6, i64 0}
-!21 = !{!"float", !7, i64 0}
-!22 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!23 = !{!"double", !7, i64 0}
-!24 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
-!25 = !{!"p1 _ZTS10Gia_Man_t_", !6, i64 0}
-!26 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
-!27 = !{!"p1 _ZTS10Abc_Nam_t_", !6, i64 0}
-!28 = !{!"p1 _ZTS10Vec_Wec_t_", !6, i64 0}
-!29 = !{!"p1 _ZTS9DdManager", !6, i64 0}
-!30 = !{!"p1 int", !6, i64 0}
-!31 = !{!17, !22, i64 128}
-!32 = distinct !{!32, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !19, i64 24}
+!18 = !{!"Abc_Frame_t_", !5, i64 0, !5, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !20, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !21, i64 104, !22, i64 112, !22, i64 116, !9, i64 120, !9, i64 124, !23, i64 128, !23, i64 136, !23, i64 144, !24, i64 152, !24, i64 160, !20, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !5, i64 256, !22, i64 264, !25, i64 272, !9, i64 280, !26, i64 288, !26, i64 296, !26, i64 304, !26, i64 312, !26, i64 320, !9, i64 328, !9, i64 332, !9, i64 336, !9, i64 340, !9, i64 344, !9, i64 348, !27, i64 352, !27, i64 360, !20, i64 368, !20, i64 376, !25, i64 384, !25, i64 392, !9, i64 400, !9, i64 404, !20, i64 408, !20, i64 416, !20, i64 424, !5, i64 432, !6, i64 440, !6, i64 448, !6, i64 456, !6, i64 464, !6, i64 472, !6, i64 480, !6, i64 488, !6, i64 496, !6, i64 504, !25, i64 512, !6, i64 520, !6, i64 528, !6, i64 536, !6, i64 544, !28, i64 552, !29, i64 560, !30, i64 568, !26, i64 576, !26, i64 584, !25, i64 592, !25, i64 600, !31, i64 608, !31, i64 616, !6, i64 624, !31, i64 632, !6, i64 640}
+!19 = !{!"p1 _ZTS9st__table", !6, i64 0}
+!20 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!21 = !{!"p1 _ZTS10Abc_Ntk_t_", !6, i64 0}
+!22 = !{!"float", !7, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!24 = !{!"double", !7, i64 0}
+!25 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
+!26 = !{!"p1 _ZTS10Gia_Man_t_", !6, i64 0}
+!27 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!28 = !{!"p1 _ZTS10Abc_Nam_t_", !6, i64 0}
+!29 = !{!"p1 _ZTS10Vec_Wec_t_", !6, i64 0}
+!30 = !{!"p1 _ZTS9DdManager", !6, i64 0}
+!31 = !{!"p1 int", !6, i64 0}
+!32 = !{!18, !23, i64 128}
+!33 = distinct !{!33, !15, !16}

@@ -53,7 +53,7 @@ define void @duckdb_je_malloc_mutex_lock_slow(ptr noundef %0) local_unnamed_addr
   %20 = icmp sgt i64 %19, %indvars.iv
   %21 = icmp eq i64 %19, -1
   %22 = or i1 %20, %21
-  br i1 %22, label %9, label %.loopexit
+  br i1 %22, label %9, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %18, %1
   call void @duckdb_je_nstime_init_update(ptr noundef nonnull %2) #7
@@ -79,14 +79,14 @@ define void @duckdb_je_malloc_mutex_lock_slow(ptr noundef %0) local_unnamed_addr
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store atomic i8 1, ptr %35 monotonic, align 1
   %36 = atomicrmw sub ptr %23, i32 1 monotonic, align 4
-  %37 = load ptr, ptr @duckdb_je_nstime_update, align 8, !tbaa !16
+  %37 = load ptr, ptr @duckdb_je_nstime_update, align 8, !tbaa !18
   call void %37(ptr noundef nonnull %3) #7
   call void @duckdb_je_nstime_copy(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @duckdb_je_nstime_subtract(ptr noundef nonnull %4, ptr noundef nonnull %2) #7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !17
+  %39 = load i64, ptr %38, align 8, !tbaa !19
   %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !17
+  store i64 %40, ptr %38, align 8, !tbaa !19
   call void @duckdb_je_nstime_add(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = call i32 @duckdb_je_nstime_compare(ptr noundef nonnull %41, ptr noundef nonnull %4) #7
@@ -99,12 +99,12 @@ define void @duckdb_je_malloc_mutex_lock_slow(ptr noundef %0) local_unnamed_addr
 
 45:                                               ; preds = %44, %33
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !18
+  %47 = load i32, ptr %46, align 8, !tbaa !20
   %48 = icmp ugt i32 %25, %47
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45
-  store i32 %25, ptr %46, align 8, !tbaa !18
+  store i32 %25, ptr %46, align 8, !tbaa !20
   br label %50
 
 50:                                               ; preds = %45, %49, %28, %14
@@ -135,7 +135,7 @@ define void @duckdb_je_malloc_mutex_prof_data_reset(ptr noundef readnone capture
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %3, ptr noundef nonnull @nstime_zero) #7
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %1, ptr noundef nonnull @nstime_zero) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %4, align 8, !tbaa !19
+  store ptr null, ptr %4, align 8, !tbaa !21
   ret void
 }
 
@@ -147,7 +147,7 @@ define zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef initializes((0, 64)) 
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %6, ptr noundef nonnull @nstime_zero) #7
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %0, ptr noundef nonnull @nstime_zero) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %7, align 8, !tbaa !19
+  store ptr null, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %8 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %8, 0
@@ -194,20 +194,20 @@ define void @duckdb_je_malloc_mutex_prefork(ptr noundef %0, ptr noundef %1) loca
 
 7:                                                ; preds = %5, %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !22
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !20
+  store i64 %10, ptr %8, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %12, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %13
 
 13:                                               ; preds = %7
-  store ptr %0, ptr %11, align 8, !tbaa !19
+  store ptr %0, ptr %11, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !21
+  %15 = load i64, ptr %14, align 8, !tbaa !23
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !tbaa !21
+  store i64 %16, ptr %14, align 8, !tbaa !23
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %7, %13
@@ -231,7 +231,7 @@ define void @duckdb_je_malloc_mutex_postfork_child(ptr noundef readnone captures
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %4, ptr noundef nonnull @nstime_zero) #7
   tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %1, ptr noundef nonnull @nstime_zero) #7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !19
+  store ptr null, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %6 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %3) #7
   %.not.i = icmp eq i32 %6, 0
@@ -252,7 +252,7 @@ duckdb_je_malloc_mutex_init.exit:                 ; preds = %2
 
 11:                                               ; preds = %duckdb_je_malloc_mutex_init.exit.thread, %duckdb_je_malloc_mutex_init.exit
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str) #7
-  %12 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !22, !range !24, !noundef !25
+  %12 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !24, !range !26, !noundef !27
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -314,13 +314,15 @@ attributes #8 = { noreturn nounwind }
 !13 = !{!"p1 _ZTS6tsdn_s", !14, i64 0}
 !14 = !{!"any pointer", !5, i64 0}
 !15 = !{!11, !11, i64 0}
-!16 = !{!14, !14, i64 0}
-!17 = !{!9, !11, i64 16}
-!18 = !{!9, !4, i64 32}
-!19 = !{!9, !13, i64 48}
-!20 = !{!9, !11, i64 56}
-!21 = !{!9, !11, i64 40}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"_Bool", !5, i64 0}
-!24 = !{i8 0, i8 2}
-!25 = !{}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!14, !14, i64 0}
+!19 = !{!9, !11, i64 16}
+!20 = !{!9, !4, i64 32}
+!21 = !{!9, !13, i64 48}
+!22 = !{!9, !11, i64 56}
+!23 = !{!9, !11, i64 40}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"_Bool", !5, i64 0}
+!26 = !{i8 0, i8 2}
+!27 = !{}

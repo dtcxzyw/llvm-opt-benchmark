@@ -1072,7 +1072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit53: ; pre
   %151 = load i64, ptr %98, align 8, !tbaa !11
   %152 = add i64 %151, %150
   %153 = icmp ult i64 %152, %99
-  br i1 %153, label %.lr.ph, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit53._crit_edge, !llvm.loop !46
+  br i1 %153, label %.lr.ph, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit53._crit_edge, !llvm.loop !47
 
 154:                                              ; preds = %145
   %155 = landingpad { ptr, i32 }
@@ -1130,7 +1130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  br label %103, !llvm.loop !47
+  br label %103, !llvm.loop !48
 
 177:                                              ; preds = %.loopexit, %.loopexit.split-lp, %154
   %.pn = phi { ptr, i32 } [ %155, %154 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1288,11 +1288,11 @@ define noundef zeroext i1 @_ZNK4base15SparseHistogram17SerializeInfoImplEPNS_6Pi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
-  store ptr %6, ptr %4, align 8, !tbaa !48
+  store ptr %6, ptr %4, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !11
-  store i64 %9, ptr %7, align 8, !tbaa !50
+  store i64 %9, ptr %7, align 8, !tbaa !51
   %10 = call noundef zeroext i1 @_ZN4base6Pickle11WriteStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br i1 %10, label %11, label %14
 
@@ -1735,10 +1735,11 @@ attributes #18 = { noreturn }
 !41 = !{!8, !8, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"p1 _ZTSN4base19SampleCountIteratorE", !7, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = !{!49, !6, i64 0}
-!49 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !6, i64 0, !10, i64 8}
-!50 = !{!49, !10, i64 8}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = !{!50, !6, i64 0}
+!50 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !6, i64 0, !10, i64 8}
+!51 = !{!50, !10, i64 8}

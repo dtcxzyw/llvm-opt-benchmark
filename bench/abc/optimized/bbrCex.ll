@@ -121,7 +121,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %.val175.lcssa = phi i32 [ %.val175212, %36 ], [ %.val175, %58 ]
   %61 = sub nsw i32 %24, %.val175.lcssa
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !49
+  %63 = load ptr, ptr %62, align 8, !tbaa !50
   call void @Cudd_Ref(ptr noundef %63) #11
   %.val170214 = load i32, ptr %17, align 8, !tbaa !9
   %64 = icmp sgt i32 %.val170214, 0
@@ -139,7 +139,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %69 = add i32 %68, %.val177
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %67, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !50
+  %72 = load ptr, ptr %71, align 8, !tbaa !51
   %73 = ptrtoint ptr %72 to i64
   %74 = getelementptr inbounds i8, ptr %40, i64 %66
   %75 = load i8, ptr %74, align 1, !tbaa !45
@@ -153,7 +153,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %81 = add nuw nsw i32 %.1216, 1
   %.val170 = load i32, ptr %17, align 8, !tbaa !9
   %82 = icmp slt i32 %81, %.val170
-  br i1 %82, label %.lr.ph218, label %.critedge2, !llvm.loop !51
+  br i1 %82, label %.lr.ph218, label %.critedge2, !llvm.loop !52
 
 .critedge2:                                       ; preds = %.lr.ph218, %.critedge
   %.0157.lcssa = phi ptr [ %63, %.critedge ], [ %80, %.lr.ph218 ]
@@ -166,9 +166,9 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %85 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %86 = zext nneg i32 %.val187 to i64
   %indvars.iv.next246260 = add nsw i64 %86, -1
-  %.val201261 = load ptr, ptr %84, align 8, !tbaa !52
+  %.val201261 = load ptr, ptr %84, align 8, !tbaa !53
   %87 = getelementptr inbounds nuw ptr, ptr %.val201261, i64 %indvars.iv.next246260
-  %88 = load ptr, ptr %87, align 8, !tbaa !53
+  %88 = load ptr, ptr %87, align 8, !tbaa !54
   %89 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.0157.lcssa) #11
   %90 = icmp eq ptr %89, null
   br i1 %90, label %._crit_edge, label %.lr.ph265
@@ -176,9 +176,9 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 .critedge10.loopexit:                             ; preds = %.lr.ph228, %122
   %.2159.lcssa = phi ptr [ %123, %122 ], [ %140, %.lr.ph228 ]
   %indvars.iv.next246 = add nsw i64 %indvars.iv.next246264, -1
-  %.val201 = load ptr, ptr %84, align 8, !tbaa !52
+  %.val201 = load ptr, ptr %84, align 8, !tbaa !53
   %91 = getelementptr inbounds nuw ptr, ptr %.val201, i64 %indvars.iv.next246
-  %92 = load ptr, ptr %91, align 8, !tbaa !53
+  %92 = load ptr, ptr %91, align 8, !tbaa !54
   %93 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.2159.lcssa) #11
   %94 = icmp eq ptr %93, null
   br i1 %94, label %._crit_edge, label %.lr.ph265
@@ -246,7 +246,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %118 = sext i32 %.val179 to i64
   %119 = icmp slt i64 %indvars.iv.next243, %118
-  br i1 %119, label %.lr.ph222, label %.critedge6, !llvm.loop !54
+  br i1 %119, label %.lr.ph222, label %.critedge6, !llvm.loop !55
 
 .critedge6:                                       ; preds = %117, %.lr.ph265
   %.val179.lcssa = phi i32 [ %.val179220, %.lr.ph265 ], [ %.val179, %117 ]
@@ -255,7 +255,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   br i1 %121, label %.critedge8, label %122
 
 122:                                              ; preds = %.critedge6
-  %123 = load ptr, ptr %62, align 8, !tbaa !49
+  %123 = load ptr, ptr %62, align 8, !tbaa !50
   call void @Cudd_Ref(ptr noundef %123) #11
   %.val172224 = load i32, ptr %17, align 8, !tbaa !9
   %124 = icmp sgt i32 %.val172224, 0
@@ -273,7 +273,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %129 = add i32 %128, %.val182
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds ptr, ptr %127, i64 %130
-  %132 = load ptr, ptr %131, align 8, !tbaa !50
+  %132 = load ptr, ptr %131, align 8, !tbaa !51
   %133 = ptrtoint ptr %132 to i64
   %134 = getelementptr inbounds i8, ptr %40, i64 %126
   %135 = load i8, ptr %134, align 1, !tbaa !45
@@ -287,7 +287,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %141 = add nuw nsw i32 %.4226, 1
   %.val172 = load i32, ptr %17, align 8, !tbaa !9
   %142 = icmp slt i32 %141, %.val172
-  br i1 %142, label %.lr.ph228, label %.critedge10.loopexit, !llvm.loop !55
+  br i1 %142, label %.lr.ph228, label %.critedge10.loopexit, !llvm.loop !56
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge2
   call void @Bbr_bddImageTreeDelete(ptr noundef nonnull %31) #11
@@ -398,7 +398,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !56
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !57
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -406,7 +406,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !57
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !57, !noalias !58
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -510,16 +510,17 @@ attributes #13 = { nounwind willreturn memory(read) }
 !44 = !{!31, !16, i64 136}
 !45 = !{!6, !6, i64 0}
 !46 = !{!16, !16, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!31, !33, i64 40}
-!50 = !{!33, !33, i64 0}
-!51 = distinct !{!51, !48}
-!52 = !{!26, !12, i64 8}
-!53 = !{!12, !12, i64 0}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = !{!43, !43, i64 0}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"vprintf: argument 0"}
-!59 = distinct !{!59, !"vprintf"}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!31, !33, i64 40}
+!51 = !{!33, !33, i64 0}
+!52 = distinct !{!52, !48, !49}
+!53 = !{!26, !12, i64 8}
+!54 = !{!12, !12, i64 0}
+!55 = distinct !{!55, !48, !49}
+!56 = distinct !{!56, !48, !49}
+!57 = !{!43, !43, i64 0}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"vprintf: argument 0"}
+!60 = distinct !{!60, !"vprintf"}

@@ -820,13 +820,13 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef captures(address_i
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %103 = load ptr, ptr %102, align 8, !tbaa !45
+  %103 = load ptr, ptr %102, align 8, !tbaa !46
   %.not125 = icmp eq ptr %103, null
   br i1 %.not125, label %111, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %106 = load ptr, ptr %105, align 8, !tbaa !46
+  %106 = load ptr, ptr %105, align 8, !tbaa !47
   %.not126 = icmp eq ptr %103, %106
   br i1 %.not126, label %110, label %107
 
@@ -842,13 +842,13 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmA(ptr noundef captures(address_i
 
 111:                                              ; preds = %110, %101
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %113 = load ptr, ptr %112, align 8, !tbaa !47
+  %113 = load ptr, ptr %112, align 8, !tbaa !48
   %.not127 = icmp eq ptr %113, null
   br i1 %.not127, label %121, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %116 = load ptr, ptr %115, align 8, !tbaa !48
+  %116 = load ptr, ptr %115, align 8, !tbaa !49
   %.not128 = icmp eq ptr %113, %116
   br i1 %.not128, label %120, label %117
 
@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %3, align 8, !tbaa !3
-  %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !49
+  %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !50
   %8 = call ptr %7(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %8, ptr %9, align 8, !tbaa !39
@@ -1234,7 +1234,7 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   %.2273 = phi i32 [ %.1272, %28 ], [ %102, %94 ]
   %186 = getelementptr inbounds nuw i8, ptr %.1296, i64 1
   %exitcond.not = icmp eq ptr %186, %scevgep690
-  br i1 %exitcond.not, label %187, label %19
+  br i1 %exitcond.not, label %187, label %19, !llvm.loop !51
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1630,7 +1630,7 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   %.1260 = phi i32 [ 0, %269 ], [ 0, %245 ], [ %.1260.ph, %.sink.split ]
   %384 = getelementptr inbounds nuw i8, ptr %.4299, i64 1
   %.not316 = icmp ult ptr %384, %2
-  br i1 %.not316, label %.preheader381, label %.loopexit, !llvm.loop !50
+  br i1 %.not316, label %.preheader381, label %.loopexit, !llvm.loop !52
 
 .thread339:                                       ; preds = %319, %317
   %385 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %6, i32 noundef %.3280) #7
@@ -1641,7 +1641,7 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   store i8 %385, ptr %389, align 1, !tbaa !11
   %390 = getelementptr inbounds nuw i8, ptr %.2297, i64 1
   %.not316349 = icmp ult ptr %390, %2
-  br i1 %.not316349, label %10, label %.loopexit
+  br i1 %.not316349, label %10, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.thread339, %383
   %391 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1700,7 +1700,7 @@ define internal fastcc i32 @uriParseUriExMmW(ptr noundef %0, ptr noundef %1, ptr
 
 12:                                               ; preds = %8, %10
   %.033 = phi ptr [ %3, %10 ], [ @defaultMemoryManager, %8 ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   tail call void @uriResetUriW(ptr noundef %13) #7
@@ -1708,7 +1708,7 @@ define internal fastcc i32 @uriParseUriExMmW(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %1, align 4, !tbaa !55
+  %16 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %16, label %90 [
     i32 65, label %17
     i32 66, label %17
@@ -1793,8 +1793,8 @@ define internal fastcc i32 @uriParseUriExMmW(ptr noundef %0, ptr noundef %1, ptr
   ]
 
 17:                                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
-  %18 = load ptr, ptr %0, align 8, !tbaa !51
-  store ptr %1, ptr %18, align 8, !tbaa !56
+  %18 = load ptr, ptr %0, align 8, !tbaa !54
+  store ptr %1, ptr %18, align 8, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not96.i.i = icmp ult ptr %19, %2
   br i1 %.not96.i.i, label %.lr.ph.i.i, label %tailrecurse._crit_edge.i.i
@@ -1808,36 +1808,36 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %1
   br i1 %23, label %uriParseUriReferenceW.exit.thread.sink.split.sink.split, label %24
 
 24:                                               ; preds = %tailrecurse._crit_edge.i.i
-  store ptr %1, ptr %22, align 8, !tbaa !61
+  store ptr %1, ptr %22, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %.tr88.lcssa.i.i, ptr %25, align 8, !tbaa !63
-  %26 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %.tr88.lcssa.i.i, ptr %25, align 8, !tbaa !66
+  %26 = load ptr, ptr %0, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !64
+  %28 = load ptr, ptr %27, align 8, !tbaa !67
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %24
-  store ptr %22, ptr %27, align 8, !tbaa !64
+  store ptr %22, ptr %27, align 8, !tbaa !67
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 104
-  store ptr %22, ptr %31, align 8, !tbaa !65
+  store ptr %22, ptr %31, align 8, !tbaa !68
   br label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 104
-  %34 = load ptr, ptr %33, align 8, !tbaa !65
+  %34 = load ptr, ptr %33, align 8, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %22, ptr %35, align 8, !tbaa !66
-  store ptr %22, ptr %33, align 8, !tbaa !65
+  store ptr %22, ptr %35, align 8, !tbaa !69
+  store ptr %22, ptr %33, align 8, !tbaa !68
   br label %uriOnExitSegmentNzNcOrScheme2W.exit.i.i
 
 uriOnExitSegmentNzNcOrScheme2W.exit.i.i:          ; preds = %32, %30
-  store ptr null, ptr %26, align 8, !tbaa !56
+  store ptr null, ptr %26, align 8, !tbaa !59
   br label %uriParseUriReferenceW.exit
 
 .lr.ph.i.i:                                       ; preds = %17, %tailrecurse.i.i
   %.tr8897.i.i = phi ptr [ %37, %tailrecurse.i.i ], [ %19, %17 ]
-  %36 = load i32, ptr %.tr8897.i.i, align 4, !tbaa !55
+  %36 = load i32, ptr %.tr8897.i.i, align 4, !tbaa !58
   switch i32 %36, label %70 [
     i32 46, label %tailrecurse.i.i
     i32 43, label %tailrecurse.i.i
@@ -1948,15 +1948,15 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %49, label %uriParseUriReferenceW.exit.thread, label %50
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %0, align 8, !tbaa !51
-  %52 = load ptr, ptr %51, align 8, !tbaa !56
+  %51 = load ptr, ptr %0, align 8, !tbaa !54
+  %52 = load ptr, ptr %51, align 8, !tbaa !59
   %53 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %.tr8897.i.i, ptr noundef nonnull %.033)
   %.not82.i.i = icmp eq i32 %53, 0
-  %54 = load ptr, ptr %0, align 8, !tbaa !51
+  %54 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %.not82.i.i, label %uriParseUriReferenceW.exit.thread.sink.split, label %55
 
 55:                                               ; preds = %50
-  store ptr null, ptr %54, align 8, !tbaa !56
+  store ptr null, ptr %54, align 8, !tbaa !59
   %56 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef %48, ptr noundef nonnull %.033)
   %.not83.i.i = icmp eq i32 %56, 0
   br i1 %.not83.i.i, label %uriParseUriReferenceW.exit.thread.sink.split.sink.split, label %57
@@ -1973,9 +1973,9 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
 62:                                               ; preds = %.lr.ph.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.tr8897.i.i, i64 4
   %64 = tail call fastcc ptr @uriParseHierPartW(ptr noundef nonnull %0, ptr noundef %63, ptr noundef nonnull %2, ptr noundef nonnull %.033)
-  %65 = load ptr, ptr %0, align 8, !tbaa !51
+  %65 = load ptr, ptr %0, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %.tr8897.i.i, ptr %66, align 8, !tbaa !67
+  store ptr %.tr8897.i.i, ptr %66, align 8, !tbaa !70
   %67 = icmp eq ptr %64, null
   br i1 %67, label %uriParseUriReferenceW.exit.thread, label %68
 
@@ -1993,8 +1993,8 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   br label %uriParseUriReferenceW.exit
 
 74:                                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
-  %75 = load ptr, ptr %0, align 8, !tbaa !51
-  store ptr %1, ptr %75, align 8, !tbaa !56
+  %75 = load ptr, ptr %0, align 8, !tbaa !54
+  store ptr %1, ptr %75, align 8, !tbaa !59
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %77 = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull %0, ptr noundef %76, ptr noundef nonnull %2, ptr noundef nonnull %.033)
   br label %uriParseUriReferenceW.exit
@@ -2005,8 +2005,8 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %80, label %uriParseUriReferenceW.exit.thread, label %81
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %0, align 8, !tbaa !51
-  store ptr %1, ptr %82, align 8, !tbaa !56
+  %82 = load ptr, ptr %0, align 8, !tbaa !54
+  store ptr %1, ptr %82, align 8, !tbaa !59
   %83 = tail call fastcc ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnull %0, ptr noundef %79, ptr noundef nonnull %2, ptr noundef nonnull %.033)
   br label %uriParseUriReferenceW.exit
 
@@ -2030,29 +2030,29 @@ uriParseUriReferenceW.exit:                       ; preds = %uriOnExitSegmentNzN
   br i1 %92, label %uriParseUriReferenceW.exit.thread, label %102
 
 uriParseUriReferenceW.exit.thread.sink.split.sink.split: ; preds = %70, %55, %tailrecurse._crit_edge.i.i
-  %93 = load ptr, ptr %0, align 8, !tbaa !51
+  %93 = load ptr, ptr %0, align 8, !tbaa !54
   br label %uriParseUriReferenceW.exit.thread.sink.split
 
 uriParseUriReferenceW.exit.thread.sink.split:     ; preds = %uriParseUriReferenceW.exit.thread.sink.split.sink.split, %50
   %.sink65 = phi ptr [ %54, %50 ], [ %93, %uriParseUriReferenceW.exit.thread.sink.split.sink.split ]
   %94 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %.sink65, ptr noundef nonnull %.033)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %95, align 8, !tbaa !68
-  store i32 3, ptr %14, align 8, !tbaa !69
+  store ptr null, ptr %95, align 8, !tbaa !71
+  store i32 3, ptr %14, align 8, !tbaa !72
   br label %uriParseUriReferenceW.exit.thread
 
 uriParseUriReferenceW.exit.thread:                ; preds = %uriParseUriReferenceW.exit.thread.sink.split, %62, %57, %46, %38, %84, %78, %uriParseUriReferenceW.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !68
+  %97 = load ptr, ptr %96, align 8, !tbaa !71
   %98 = icmp ugt ptr %97, %2
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %uriParseUriReferenceW.exit.thread
-  store ptr %2, ptr %96, align 8, !tbaa !68
+  store ptr %2, ptr %96, align 8, !tbaa !71
   br label %100
 
 100:                                              ; preds = %99, %uriParseUriReferenceW.exit.thread
-  %101 = load i32, ptr %14, align 8, !tbaa !69
+  %101 = load i32, ptr %14, align 8, !tbaa !72
   br label %.thread
 
 102:                                              ; preds = %uriParseUriReferenceW.exit
@@ -2061,12 +2061,12 @@ uriParseUriReferenceW.exit.thread:                ; preds = %uriParseUriReferenc
 
 103:                                              ; preds = %102
   %104 = icmp ult ptr %.0.i, %2
-  %105 = load ptr, ptr %0, align 8, !tbaa !51
+  %105 = load ptr, ptr %0, align 8, !tbaa !54
   %106 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %105, ptr noundef nonnull %.033)
   %.0.i. = select i1 %104, ptr %.0.i, ptr %2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i., ptr %107, align 8, !tbaa !68
-  store i32 1, ptr %14, align 8, !tbaa !69
+  store ptr %.0.i., ptr %107, align 8, !tbaa !71
+  store i32 1, ptr %14, align 8, !tbaa !72
   br label %.thread
 
 .thread:                                          ; preds = %12, %102, %10, %4, %103, %100
@@ -2113,7 +2113,7 @@ define i32 @uriParseSingleUriW(ptr noundef %0, ptr noundef %1, ptr noundef write
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %6
-  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %0, ptr %4, align 8, !tbaa !54
   %10 = call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull @defaultMemoryManager)
   %.not24.i.i = icmp eq i32 %10, 0
   br i1 %.not24.i.i, label %uriParseSingleUriExW.exit, label %11
@@ -2124,8 +2124,8 @@ define i32 @uriParseSingleUriW(ptr noundef %0, ptr noundef %1, ptr noundef write
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !68
-  store ptr %14, ptr %2, align 8, !tbaa !70
+  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  store ptr %14, ptr %2, align 8, !tbaa !73
   br label %15
 
 15:                                               ; preds = %12, %11
@@ -2162,7 +2162,7 @@ define i32 @uriParseSingleUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond3.i, label %uriParseSingleUriExMmW.exit, label %15
 
 15:                                               ; preds = %11
-  store ptr %0, ptr %5, align 8, !tbaa !51
+  store ptr %0, ptr %5, align 8, !tbaa !54
   %16 = call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %.0, ptr noundef nonnull @defaultMemoryManager)
   %.not24.i = icmp eq i32 %16, 0
   br i1 %.not24.i, label %uriParseSingleUriExMmW.exit, label %17
@@ -2173,8 +2173,8 @@ define i32 @uriParseSingleUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !68
-  store ptr %20, ptr %3, align 8, !tbaa !70
+  %20 = load ptr, ptr %19, align 8, !tbaa !71
+  store ptr %20, ptr %3, align 8, !tbaa !73
   br label %21
 
 21:                                               ; preds = %18, %17
@@ -2209,7 +2209,7 @@ define i32 @uriParseSingleUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 14:                                               ; preds = %10, %12
   %.018 = phi ptr [ %4, %12 ], [ @defaultMemoryManager, %10 ]
-  store ptr %0, ptr %6, align 8, !tbaa !51
+  store ptr %0, ptr %6, align 8, !tbaa !54
   %15 = call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.018)
   %.not24 = icmp eq i32 %15, 0
   br i1 %.not24, label %22, label %16
@@ -2220,8 +2220,8 @@ define i32 @uriParseSingleUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !68
-  store ptr %19, ptr %3, align 8, !tbaa !70
+  %19 = load ptr, ptr %18, align 8, !tbaa !71
+  store ptr %19, ptr %3, align 8, !tbaa !73
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -2251,18 +2251,18 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 8:                                                ; preds = %4, %6
   %.094 = phi ptr [ %1, %6 ], [ @defaultMemoryManager, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %10 = load i32, ptr %9, align 4, !tbaa !71
+  %10 = load i32, ptr %9, align 4, !tbaa !74
   %.not108 = icmp eq i32 %10, 0
   br i1 %.not108, label %56, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %0, align 8, !tbaa !56
+  %12 = load ptr, ptr %0, align 8, !tbaa !59
   %.not109 = icmp eq ptr %12, null
   br i1 %.not109, label %20, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %15 = load ptr, ptr %14, align 8, !tbaa !70
   %.not110 = icmp eq ptr %12, %15
   br i1 %.not110, label %19, label %16
 
@@ -2278,13 +2278,13 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 
 20:                                               ; preds = %19, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !72
+  %22 = load ptr, ptr %21, align 8, !tbaa !75
   %.not111 = icmp eq ptr %22, null
   br i1 %.not111, label %30, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !73
+  %25 = load ptr, ptr %24, align 8, !tbaa !76
   %.not112 = icmp eq ptr %22, %25
   br i1 %.not112, label %29, label %26
 
@@ -2301,13 +2301,13 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 30:                                               ; preds = %29, %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !74
+  %33 = load ptr, ptr %32, align 8, !tbaa !77
   %.not113 = icmp eq ptr %33, null
   br i1 %.not113, label %41, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %36 = load ptr, ptr %35, align 8, !tbaa !78
   %.not114 = icmp eq ptr %33, %36
   br i1 %.not114, label %.thread, label %37
 
@@ -2324,25 +2324,25 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 
 41:                                               ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !76
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not115 = icmp eq ptr %.pre, null
   br i1 %.not115, label %56, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %31, align 8, !tbaa !77
+  %44 = load ptr, ptr %31, align 8, !tbaa !80
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !78
+  %48 = load ptr, ptr %47, align 8, !tbaa !81
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !79
+  %52 = load ptr, ptr %51, align 8, !tbaa !82
   %.not116 = icmp eq ptr %.pre, %52
   br i1 %.not116, label %.sink.split, label %53
 
@@ -2359,7 +2359,7 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 
 56:                                               ; preds = %.sink.split, %41, %43, %46, %8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load ptr, ptr %57, align 8, !tbaa !77
+  %58 = load ptr, ptr %57, align 8, !tbaa !80
   %.not117 = icmp eq ptr %58, null
   br i1 %.not117, label %62, label %59
 
@@ -2367,12 +2367,12 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
   %60 = getelementptr inbounds nuw i8, ptr %.094, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   tail call void %61(ptr noundef nonnull %.094, ptr noundef nonnull %58) #7
-  store ptr null, ptr %57, align 8, !tbaa !77
+  store ptr null, ptr %57, align 8, !tbaa !80
   br label %62
 
 62:                                               ; preds = %59, %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !78
+  %64 = load ptr, ptr %63, align 8, !tbaa !81
   %.not118 = icmp eq ptr %64, null
   br i1 %.not118, label %68, label %65
 
@@ -2380,23 +2380,23 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
   %66 = getelementptr inbounds nuw i8, ptr %.094, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !32
   tail call void %67(ptr noundef nonnull %.094, ptr noundef nonnull %64) #7
-  store ptr null, ptr %63, align 8, !tbaa !78
+  store ptr null, ptr %63, align 8, !tbaa !81
   br label %68
 
 68:                                               ; preds = %65, %62
-  %69 = load i32, ptr %9, align 4, !tbaa !71
+  %69 = load i32, ptr %9, align 4, !tbaa !74
   %.not119 = icmp eq i32 %69, 0
   br i1 %.not119, label %80, label %70
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %72 = load ptr, ptr %71, align 8, !tbaa !80
+  %72 = load ptr, ptr %71, align 8, !tbaa !83
   %.not120 = icmp eq ptr %72, null
   br i1 %.not120, label %80, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %75 = load ptr, ptr %74, align 8, !tbaa !81
+  %75 = load ptr, ptr %74, align 8, !tbaa !84
   %.not121 = icmp eq ptr %72, %75
   br i1 %.not121, label %79, label %76
 
@@ -2412,7 +2412,7 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 
 80:                                               ; preds = %79, %70, %68
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %82 = load ptr, ptr %81, align 8, !tbaa !64
+  %82 = load ptr, ptr %81, align 8, !tbaa !67
   %.not122 = icmp eq ptr %82, null
   br i1 %.not122, label %99, label %.preheader
 
@@ -2423,19 +2423,19 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 84:                                               ; preds = %.preheader, %96
   %.093131 = phi ptr [ %82, %.preheader ], [ %86, %96 ]
   %85 = getelementptr inbounds nuw i8, ptr %.093131, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !66
-  %87 = load i32, ptr %9, align 4, !tbaa !71
+  %86 = load ptr, ptr %85, align 8, !tbaa !69
+  %87 = load i32, ptr %9, align 4, !tbaa !74
   %.not129 = icmp eq i32 %87, 0
   br i1 %.not129, label %96, label %88
 
 88:                                               ; preds = %84
-  %89 = load ptr, ptr %.093131, align 8, !tbaa !61
+  %89 = load ptr, ptr %.093131, align 8, !tbaa !64
   %.not130 = icmp eq ptr %89, null
   br i1 %.not130, label %96, label %90
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %.093131, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !63
+  %92 = load ptr, ptr %91, align 8, !tbaa !66
   %93 = icmp ult ptr %89, %92
   br i1 %93, label %94, label %96
 
@@ -2448,26 +2448,26 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
   %97 = load ptr, ptr %83, align 8, !tbaa !32
   tail call void %97(ptr noundef nonnull %.094, ptr noundef nonnull %.093131) #7
   %.not123 = icmp eq ptr %86, null
-  br i1 %.not123, label %98, label %84, !llvm.loop !82
+  br i1 %.not123, label %98, label %84, !llvm.loop !85
 
 98:                                               ; preds = %96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   br label %99
 
 99:                                               ; preds = %98, %80
-  %100 = load i32, ptr %9, align 4, !tbaa !71
+  %100 = load i32, ptr %9, align 4, !tbaa !74
   %.not124 = icmp eq i32 %100, 0
   br i1 %.not124, label %121, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %103 = load ptr, ptr %102, align 8, !tbaa !83
+  %103 = load ptr, ptr %102, align 8, !tbaa !86
   %.not125 = icmp eq ptr %103, null
   br i1 %.not125, label %111, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %106 = load ptr, ptr %105, align 8, !tbaa !84
+  %106 = load ptr, ptr %105, align 8, !tbaa !87
   %.not126 = icmp eq ptr %103, %106
   br i1 %.not126, label %110, label %107
 
@@ -2483,13 +2483,13 @@ define range(i32 0, 11) i32 @uriFreeUriMembersMmW(ptr noundef captures(address_i
 
 111:                                              ; preds = %110, %101
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %113 = load ptr, ptr %112, align 8, !tbaa !85
+  %113 = load ptr, ptr %112, align 8, !tbaa !88
   %.not127 = icmp eq ptr %113, null
   br i1 %.not127, label %121, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %116 = load ptr, ptr %115, align 8, !tbaa !86
+  %116 = load ptr, ptr %115, align 8, !tbaa !89
   %.not128 = icmp eq ptr %113, %116
   br i1 %.not128, label %120, label %117
 
@@ -2525,11 +2525,11 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %0) local_u
   call void @uriResetUriW(ptr noundef nonnull %2) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store ptr %2, ptr %3, align 8, !tbaa !51
-  %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !49
+  store ptr %2, ptr %3, align 8, !tbaa !54
+  %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !50
   %8 = call ptr %7(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %8, ptr %9, align 8, !tbaa !78
+  store ptr %8, ptr %9, align 8, !tbaa !81
   %10 = call fastcc ptr @uriParseIPv6address2W(ptr noundef %3, ptr noundef %0, ptr noundef %5, ptr noundef nonnull @defaultMemoryManager)
   %11 = call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %2, ptr noundef nonnull @defaultMemoryManager)
   %12 = icmp eq ptr %10, %5
@@ -2561,12 +2561,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !51
+  %12 = load ptr, ptr %0, align 8, !tbaa !54
   %13 = call i32 @uriFreeUriMembersMmW(ptr noundef %12, ptr noundef %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %14, align 8, !tbaa !68
+  store ptr %2, ptr %14, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %15, align 8, !tbaa !69
+  store i32 1, ptr %15, align 8, !tbaa !72
   br label %.thread372
 
 16:                                               ; preds = %9
@@ -2576,7 +2576,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %.1296 = phi ptr [ %184, %183 ], [ %.0295, %16 ]
   %.1278 = phi i32 [ %.2279, %183 ], [ 0, %16 ]
   %.1272 = phi i32 [ %.2273, %183 ], [ 1, %16 ]
-  %17 = load i32, ptr %.1296, align 4, !tbaa !55
+  %17 = load i32, ptr %.1296, align 4, !tbaa !58
   switch i32 %17, label %178 [
     i32 48, label %18
     i32 49, label %18
@@ -2597,12 +2597,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %0, align 8, !tbaa !51
+  %21 = load ptr, ptr %0, align 8, !tbaa !54
   %22 = call i32 @uriFreeUriMembersMmW(ptr noundef %21, ptr noundef %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.1296, ptr %23, align 8, !tbaa !68
+  store ptr %.1296, ptr %23, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %24, align 8, !tbaa !69
+  store i32 1, ptr %24, align 8, !tbaa !72
   br label %.thread372
 
 25:                                               ; preds = %18
@@ -2622,12 +2622,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %or.cond5, label %35, label %40
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %0, align 8, !tbaa !51
+  %36 = load ptr, ptr %0, align 8, !tbaa !54
   %37 = call i32 @uriFreeUriMembersMmW(ptr noundef %36, ptr noundef %3)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.1296, ptr %38, align 8, !tbaa !68
+  store ptr %.1296, ptr %38, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %39, align 8, !tbaa !69
+  store i32 1, ptr %39, align 8, !tbaa !72
   br label %.thread372
 
 40:                                               ; preds = %31
@@ -2642,12 +2642,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %46 = zext nneg i32 %.1278 to i64
   %47 = sub nsw i64 0, %46
   %48 = getelementptr inbounds i32, ptr %.1296, i64 %47
-  %49 = load ptr, ptr %0, align 8, !tbaa !51
+  %49 = load ptr, ptr %0, align 8, !tbaa !54
   %50 = call i32 @uriFreeUriMembersMmW(ptr noundef %49, ptr noundef %3)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %48, ptr %51, align 8, !tbaa !68
+  store ptr %48, ptr %51, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %52, align 8, !tbaa !69
+  store i32 1, ptr %52, align 8, !tbaa !72
   br label %.thread372
 
 53:                                               ; preds = %40
@@ -2663,12 +2663,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %60 = sub nsw i64 0, %59
   %61 = getelementptr inbounds i32, ptr %.1296, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %63 = load ptr, ptr %0, align 8, !tbaa !51
+  %63 = load ptr, ptr %0, align 8, !tbaa !54
   %64 = call i32 @uriFreeUriMembersMmW(ptr noundef %63, ptr noundef %3)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %62, ptr %65, align 8, !tbaa !68
+  store ptr %62, ptr %65, align 8, !tbaa !71
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %66, align 8, !tbaa !69
+  store i32 1, ptr %66, align 8, !tbaa !72
   br label %.thread372
 
 67:                                               ; preds = %53
@@ -2687,16 +2687,16 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 77:                                               ; preds = %69
   %78 = icmp ugt i8 %42, 2
-  %79 = load ptr, ptr %0, align 8, !tbaa !51
+  %79 = load ptr, ptr %0, align 8, !tbaa !54
   %80 = call i32 @uriFreeUriMembersMmW(ptr noundef %79, ptr noundef %3)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %78, label %82, label %85
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %.1296, i64 -12
-  store ptr %83, ptr %81, align 8, !tbaa !68
+  store ptr %83, ptr %81, align 8, !tbaa !71
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %84, align 8, !tbaa !69
+  store i32 1, ptr %84, align 8, !tbaa !72
   br label %.thread372
 
 85:                                               ; preds = %77
@@ -2706,21 +2706,21 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %.1296, i64 -8
-  store ptr %89, ptr %81, align 8, !tbaa !68
-  store i32 1, ptr %87, align 8, !tbaa !69
+  store ptr %89, ptr %81, align 8, !tbaa !71
+  store i32 1, ptr %87, align 8, !tbaa !72
   br label %.thread372
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds i8, ptr %.1296, i64 -4
-  store ptr %91, ptr %81, align 8, !tbaa !68
-  store i32 1, ptr %87, align 8, !tbaa !69
+  store ptr %91, ptr %81, align 8, !tbaa !71
+  store i32 1, ptr %87, align 8, !tbaa !72
   br label %.thread372
 
 92:                                               ; preds = %67, %69
   %93 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %5, i32 noundef %.1278) #7
-  %94 = load ptr, ptr %0, align 8, !tbaa !51
+  %94 = load ptr, ptr %0, align 8, !tbaa !54
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  %96 = load ptr, ptr %95, align 8, !tbaa !78
+  %96 = load ptr, ptr %95, align 8, !tbaa !81
   %97 = add nsw i32 %.1272, 12
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds [16 x i8], ptr %96, i64 0, i64 %98
@@ -2736,12 +2736,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %or.cond17, label %105, label %110
 
 105:                                              ; preds = %101
-  %106 = load ptr, ptr %0, align 8, !tbaa !51
+  %106 = load ptr, ptr %0, align 8, !tbaa !54
   %107 = call i32 @uriFreeUriMembersMmW(ptr noundef %106, ptr noundef %3)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.1296, ptr %108, align 8, !tbaa !68
+  store ptr %.1296, ptr %108, align 8, !tbaa !71
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %109, align 8, !tbaa !69
+  store i32 1, ptr %109, align 8, !tbaa !72
   br label %.thread372
 
 110:                                              ; preds = %101
@@ -2756,12 +2756,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %116 = zext nneg i32 %.1278 to i64
   %117 = sub nsw i64 0, %116
   %118 = getelementptr inbounds i32, ptr %.1296, i64 %117
-  %119 = load ptr, ptr %0, align 8, !tbaa !51
+  %119 = load ptr, ptr %0, align 8, !tbaa !54
   %120 = call i32 @uriFreeUriMembersMmW(ptr noundef %119, ptr noundef %3)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %118, ptr %121, align 8, !tbaa !68
+  store ptr %118, ptr %121, align 8, !tbaa !71
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %122, align 8, !tbaa !69
+  store i32 1, ptr %122, align 8, !tbaa !72
   br label %.thread372
 
 123:                                              ; preds = %110
@@ -2777,12 +2777,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %130 = sub nsw i64 0, %129
   %131 = getelementptr inbounds i32, ptr %.1296, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  %133 = load ptr, ptr %0, align 8, !tbaa !51
+  %133 = load ptr, ptr %0, align 8, !tbaa !54
   %134 = call i32 @uriFreeUriMembersMmW(ptr noundef %133, ptr noundef %3)
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %132, ptr %135, align 8, !tbaa !68
+  store ptr %132, ptr %135, align 8, !tbaa !71
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %136, align 8, !tbaa !69
+  store i32 1, ptr %136, align 8, !tbaa !72
   br label %.thread372
 
 137:                                              ; preds = %123
@@ -2801,16 +2801,16 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 147:                                              ; preds = %139
   %148 = icmp ugt i8 %112, 2
-  %149 = load ptr, ptr %0, align 8, !tbaa !51
+  %149 = load ptr, ptr %0, align 8, !tbaa !54
   %150 = call i32 @uriFreeUriMembersMmW(ptr noundef %149, ptr noundef %3)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %148, label %152, label %155
 
 152:                                              ; preds = %147
   %153 = getelementptr inbounds i8, ptr %.1296, i64 -12
-  store ptr %153, ptr %151, align 8, !tbaa !68
+  store ptr %153, ptr %151, align 8, !tbaa !71
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %154, align 8, !tbaa !69
+  store i32 1, ptr %154, align 8, !tbaa !72
   br label %.thread372
 
 155:                                              ; preds = %147
@@ -2820,22 +2820,22 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds i8, ptr %.1296, i64 -8
-  store ptr %159, ptr %151, align 8, !tbaa !68
-  store i32 1, ptr %157, align 8, !tbaa !69
+  store ptr %159, ptr %151, align 8, !tbaa !71
+  store i32 1, ptr %157, align 8, !tbaa !72
   br label %.thread372
 
 160:                                              ; preds = %155
   %161 = getelementptr inbounds i8, ptr %.1296, i64 -4
-  store ptr %161, ptr %151, align 8, !tbaa !68
-  store i32 1, ptr %157, align 8, !tbaa !69
+  store ptr %161, ptr %151, align 8, !tbaa !71
+  store i32 1, ptr %157, align 8, !tbaa !72
   br label %.thread372
 
 162:                                              ; preds = %137, %139
-  %163 = load ptr, ptr %0, align 8, !tbaa !51
+  %163 = load ptr, ptr %0, align 8, !tbaa !54
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  store ptr %.1296, ptr %164, align 8, !tbaa !79
+  store ptr %.1296, ptr %164, align 8, !tbaa !82
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 56
-  %166 = load ptr, ptr %165, align 8, !tbaa !78
+  %166 = load ptr, ptr %165, align 8, !tbaa !81
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %168 = shl nsw i32 %.0264, 1
   %169 = sext i32 %168 to i64
@@ -2843,21 +2843,21 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %171 = getelementptr inbounds i8, ptr %167, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %171, ptr nonnull align 1 %6, i64 %169, i1 false)
   %172 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %5, i32 noundef %.1278) #7
-  %173 = load ptr, ptr %0, align 8, !tbaa !51
+  %173 = load ptr, ptr %0, align 8, !tbaa !54
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
-  %175 = load ptr, ptr %174, align 8, !tbaa !78
+  %175 = load ptr, ptr %174, align 8, !tbaa !81
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 15
   store i8 %172, ptr %176, align 1, !tbaa !11
   %177 = getelementptr inbounds nuw i8, ptr %.1296, i64 4
   br label %.thread372
 
 178:                                              ; preds = %.preheader
-  %179 = load ptr, ptr %0, align 8, !tbaa !51
+  %179 = load ptr, ptr %0, align 8, !tbaa !54
   %180 = call i32 @uriFreeUriMembersMmW(ptr noundef %179, ptr noundef %3)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.1296, ptr %181, align 8, !tbaa !68
+  store ptr %.1296, ptr %181, align 8, !tbaa !71
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %182, align 8, !tbaa !69
+  store i32 1, ptr %182, align 8, !tbaa !72
   br label %.thread372
 
 183:                                              ; preds = %92, %25
@@ -2865,15 +2865,15 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %.2273 = phi i32 [ %.1272, %25 ], [ %100, %92 ]
   %184 = getelementptr inbounds nuw i8, ptr %.1296, i64 4
   %.not318 = icmp ult ptr %184, %2
-  br i1 %.not318, label %.preheader, label %185
+  br i1 %.not318, label %.preheader, label %185, !llvm.loop !90
 
 185:                                              ; preds = %183
-  %186 = load ptr, ptr %0, align 8, !tbaa !51
+  %186 = load ptr, ptr %0, align 8, !tbaa !54
   %187 = call i32 @uriFreeUriMembersMmW(ptr noundef %186, ptr noundef %3)
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %188, align 8, !tbaa !68
+  store ptr %2, ptr %188, align 8, !tbaa !71
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %189, align 8, !tbaa !69
+  store i32 1, ptr %189, align 8, !tbaa !72
   br label %.thread372
 
 .preheader381:                                    ; preds = %16, %382
@@ -2883,7 +2883,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %.3280 = phi i32 [ %.5282, %382 ], [ 0, %16 ]
   %.1265 = phi i32 [ %.3267, %382 ], [ %.0264, %16 ]
   %.0259 = phi i32 [ %.1260, %382 ], [ 0, %16 ]
-  %190 = load i32, ptr %.2297, align 4, !tbaa !55
+  %190 = load i32, ptr %.2297, align 4, !tbaa !58
   switch i32 %190, label %372 [
     i32 97, label %191
     i32 98, label %191
@@ -2917,12 +2917,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %192, label %193, label %.sink.split
 
 193:                                              ; preds = %191
-  %194 = load ptr, ptr %0, align 8, !tbaa !51
+  %194 = load ptr, ptr %0, align 8, !tbaa !54
   %195 = call i32 @uriFreeUriMembersMmW(ptr noundef %194, ptr noundef %3)
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %196, align 8, !tbaa !68
+  store ptr %.2297, ptr %196, align 8, !tbaa !71
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %197, align 8, !tbaa !69
+  store i32 1, ptr %197, align 8, !tbaa !72
   br label %.thread372
 
 198:                                              ; preds = %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381
@@ -2930,12 +2930,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %199, label %200, label %.sink.split
 
 200:                                              ; preds = %198
-  %201 = load ptr, ptr %0, align 8, !tbaa !51
+  %201 = load ptr, ptr %0, align 8, !tbaa !54
   %202 = call i32 @uriFreeUriMembersMmW(ptr noundef %201, ptr noundef %3)
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %203, align 8, !tbaa !68
+  store ptr %.2297, ptr %203, align 8, !tbaa !71
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %204, align 8, !tbaa !69
+  store i32 1, ptr %204, align 8, !tbaa !72
   br label %.thread372
 
 205:                                              ; preds = %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381, %.preheader381
@@ -2943,12 +2943,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %206, label %207, label %.sink.split
 
 207:                                              ; preds = %205
-  %208 = load ptr, ptr %0, align 8, !tbaa !51
+  %208 = load ptr, ptr %0, align 8, !tbaa !54
   %209 = call i32 @uriFreeUriMembersMmW(ptr noundef %208, ptr noundef %3)
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %210, align 8, !tbaa !68
+  store ptr %.2297, ptr %210, align 8, !tbaa !71
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %211, align 8, !tbaa !69
+  store i32 1, ptr %211, align 8, !tbaa !72
   br label %.thread372
 
 212:                                              ; preds = %.preheader381
@@ -2968,9 +2968,9 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br label %227
 
 220:                                              ; preds = %214
-  %221 = load ptr, ptr %0, align 8, !tbaa !51
+  %221 = load ptr, ptr %0, align 8, !tbaa !54
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 56
-  %223 = load ptr, ptr %222, align 8, !tbaa !78
+  %223 = load ptr, ptr %222, align 8, !tbaa !81
   %224 = shl nsw i32 %.1285, 1
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds i8, ptr %223, i64 %225
@@ -2991,12 +2991,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %.not311, label %236, label %231
 
 231:                                              ; preds = %229
-  %232 = load ptr, ptr %0, align 8, !tbaa !51
+  %232 = load ptr, ptr %0, align 8, !tbaa !54
   %233 = call i32 @uriFreeUriMembersMmW(ptr noundef %232, ptr noundef %3)
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %234, align 8, !tbaa !68
+  store ptr %.2297, ptr %234, align 8, !tbaa !71
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %235, align 8, !tbaa !69
+  store i32 1, ptr %235, align 8, !tbaa !72
   br label %.thread372
 
 236:                                              ; preds = %229
@@ -3005,16 +3005,16 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %.not312, label %243, label %238
 
 238:                                              ; preds = %236
-  %239 = load ptr, ptr %0, align 8, !tbaa !51
+  %239 = load ptr, ptr %0, align 8, !tbaa !54
   %240 = call i32 @uriFreeUriMembersMmW(ptr noundef %239, ptr noundef %3)
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %241, align 8, !tbaa !68
+  store ptr %2, ptr %241, align 8, !tbaa !71
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %242, align 8, !tbaa !69
+  store i32 1, ptr %242, align 8, !tbaa !72
   br label %.thread372
 
 243:                                              ; preds = %236
-  %244 = load i32, ptr %237, align 4, !tbaa !55
+  %244 = load i32, ptr %237, align 4, !tbaa !58
   %245 = icmp eq i32 %244, 58
   br i1 %245, label %246, label %382
 
@@ -3023,19 +3023,19 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %.not313, label %252, label %247
 
 247:                                              ; preds = %246
-  %248 = load ptr, ptr %0, align 8, !tbaa !51
+  %248 = load ptr, ptr %0, align 8, !tbaa !54
   %249 = call i32 @uriFreeUriMembersMmW(ptr noundef %248, ptr noundef %3)
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %237, ptr %250, align 8, !tbaa !68
+  store ptr %237, ptr %250, align 8, !tbaa !71
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %251, align 8, !tbaa !69
+  store i32 1, ptr %251, align 8, !tbaa !72
   br label %.thread372
 
 252:                                              ; preds = %246
   %253 = shl nsw i32 %.4288, 1
-  %254 = load ptr, ptr %0, align 8, !tbaa !51
+  %254 = load ptr, ptr %0, align 8, !tbaa !54
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 56
-  %256 = load ptr, ptr %255, align 8, !tbaa !78
+  %256 = load ptr, ptr %255, align 8, !tbaa !81
   %257 = sext i32 %253 to i64
   %258 = getelementptr inbounds i8, ptr %256, i64 %257
   %259 = sub nsw i32 16, %253
@@ -3046,26 +3046,26 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %.not314, label %267, label %262
 
 262:                                              ; preds = %252
-  %263 = load ptr, ptr %0, align 8, !tbaa !51
+  %263 = load ptr, ptr %0, align 8, !tbaa !54
   %264 = call i32 @uriFreeUriMembersMmW(ptr noundef %263, ptr noundef %3)
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %265, align 8, !tbaa !68
+  store ptr %2, ptr %265, align 8, !tbaa !71
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %266, align 8, !tbaa !69
+  store i32 1, ptr %266, align 8, !tbaa !72
   br label %.thread372
 
 267:                                              ; preds = %252
-  %268 = load i32, ptr %261, align 4, !tbaa !55
+  %268 = load i32, ptr %261, align 4, !tbaa !58
   %269 = icmp eq i32 %268, 58
   br i1 %269, label %270, label %382
 
 270:                                              ; preds = %267
-  %271 = load ptr, ptr %0, align 8, !tbaa !51
+  %271 = load ptr, ptr %0, align 8, !tbaa !54
   %272 = call i32 @uriFreeUriMembersMmW(ptr noundef %271, ptr noundef %3)
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %261, ptr %273, align 8, !tbaa !68
+  store ptr %261, ptr %273, align 8, !tbaa !71
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %274, align 8, !tbaa !69
+  store i32 1, ptr %274, align 8, !tbaa !72
   br label %.thread372
 
 275:                                              ; preds = %.preheader381
@@ -3084,12 +3084,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br i1 %or.cond33, label %283, label %288
 
 283:                                              ; preds = %277, %275
-  %284 = load ptr, ptr %0, align 8, !tbaa !51
+  %284 = load ptr, ptr %0, align 8, !tbaa !54
   %285 = call i32 @uriFreeUriMembersMmW(ptr noundef %284, ptr noundef %3)
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %286, align 8, !tbaa !68
+  store ptr %.2297, ptr %286, align 8, !tbaa !71
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %287, align 8, !tbaa !69
+  store i32 1, ptr %287, align 8, !tbaa !72
   br label %.thread372
 
 288:                                              ; preds = %277
@@ -3104,12 +3104,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %294 = zext nneg i32 %.3280 to i64
   %295 = sub nsw i64 0, %294
   %296 = getelementptr inbounds i32, ptr %.2297, i64 %295
-  %297 = load ptr, ptr %0, align 8, !tbaa !51
+  %297 = load ptr, ptr %0, align 8, !tbaa !54
   %298 = call i32 @uriFreeUriMembersMmW(ptr noundef %297, ptr noundef %3)
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %296, ptr %299, align 8, !tbaa !68
+  store ptr %296, ptr %299, align 8, !tbaa !71
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %300, align 8, !tbaa !69
+  store i32 1, ptr %300, align 8, !tbaa !72
   br label %.thread372
 
 301:                                              ; preds = %288
@@ -3125,12 +3125,12 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %308 = sub nsw i64 0, %307
   %309 = getelementptr inbounds i32, ptr %.2297, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 4
-  %311 = load ptr, ptr %0, align 8, !tbaa !51
+  %311 = load ptr, ptr %0, align 8, !tbaa !54
   %312 = call i32 @uriFreeUriMembersMmW(ptr noundef %311, ptr noundef %3)
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %310, ptr %313, align 8, !tbaa !68
+  store ptr %310, ptr %313, align 8, !tbaa !71
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %314, align 8, !tbaa !69
+  store i32 1, ptr %314, align 8, !tbaa !72
   br label %.thread372
 
 315:                                              ; preds = %301
@@ -3149,16 +3149,16 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 325:                                              ; preds = %317
   %326 = icmp ugt i8 %290, 2
-  %327 = load ptr, ptr %0, align 8, !tbaa !51
+  %327 = load ptr, ptr %0, align 8, !tbaa !54
   %328 = call i32 @uriFreeUriMembersMmW(ptr noundef %327, ptr noundef %3)
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %326, label %330, label %333
 
 330:                                              ; preds = %325
   %331 = getelementptr inbounds i8, ptr %.2297, i64 -12
-  store ptr %331, ptr %329, align 8, !tbaa !68
+  store ptr %331, ptr %329, align 8, !tbaa !71
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %332, align 8, !tbaa !69
+  store i32 1, ptr %332, align 8, !tbaa !72
   br label %.thread372
 
 333:                                              ; preds = %325
@@ -3168,14 +3168,14 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds i8, ptr %.2297, i64 -8
-  store ptr %337, ptr %329, align 8, !tbaa !68
-  store i32 1, ptr %335, align 8, !tbaa !69
+  store ptr %337, ptr %329, align 8, !tbaa !71
+  store i32 1, ptr %335, align 8, !tbaa !72
   br label %.thread372
 
 338:                                              ; preds = %333
   %339 = getelementptr inbounds i8, ptr %.2297, i64 -4
-  store ptr %339, ptr %329, align 8, !tbaa !68
-  store i32 1, ptr %335, align 8, !tbaa !69
+  store ptr %339, ptr %329, align 8, !tbaa !71
+  store i32 1, ptr %335, align 8, !tbaa !72
   br label %.thread372
 
 340:                                              ; preds = %.preheader381
@@ -3186,15 +3186,15 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %342 = icmp eq i32 %.1285, 7
   %343 = icmp sgt i32 %.3280, 0
   %or.cond43 = select i1 %342, i1 %343, i1 false
-  %344 = load ptr, ptr %0, align 8, !tbaa !51
+  %344 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %or.cond43, label %356, label %345
 
 345:                                              ; preds = %341
   %346 = call i32 @uriFreeUriMembersMmW(ptr noundef %344, ptr noundef %3)
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %347, align 8, !tbaa !68
+  store ptr %.2297, ptr %347, align 8, !tbaa !71
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %348, align 8, !tbaa !69
+  store i32 1, ptr %348, align 8, !tbaa !72
   br label %.thread372
 
 349:                                              ; preds = %340
@@ -3211,35 +3211,35 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 
 356:                                              ; preds = %341
   %357 = getelementptr inbounds nuw i8, ptr %344, i64 56
-  %358 = load ptr, ptr %357, align 8, !tbaa !78
+  %358 = load ptr, ptr %357, align 8, !tbaa !81
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 14
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %5, i32 noundef %.3280, ptr noundef nonnull %359) #7
   br label %360
 
 360:                                              ; preds = %351, %356, %349
   %.6270 = phi i32 [ %355, %351 ], [ %.1265, %356 ], [ %.1265, %349 ]
-  %361 = load ptr, ptr %0, align 8, !tbaa !51
+  %361 = load ptr, ptr %0, align 8, !tbaa !54
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 56
-  %363 = load ptr, ptr %362, align 8, !tbaa !78
+  %363 = load ptr, ptr %362, align 8, !tbaa !81
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 16
   %365 = shl nsw i32 %.6270, 1
   %366 = sext i32 %365 to i64
   %367 = sub nsw i64 0, %366
   %368 = getelementptr inbounds i8, ptr %364, i64 %367
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %368, ptr nonnull align 1 %6, i64 %366, i1 false)
-  %369 = load ptr, ptr %0, align 8, !tbaa !51
+  %369 = load ptr, ptr %0, align 8, !tbaa !54
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 40
-  store ptr %.2297, ptr %370, align 8, !tbaa !79
+  store ptr %.2297, ptr %370, align 8, !tbaa !82
   %371 = getelementptr inbounds nuw i8, ptr %.2297, i64 4
   br label %.thread372
 
 372:                                              ; preds = %.preheader381
-  %373 = load ptr, ptr %0, align 8, !tbaa !51
+  %373 = load ptr, ptr %0, align 8, !tbaa !54
   %374 = call i32 @uriFreeUriMembersMmW(ptr noundef %373, ptr noundef %3)
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.2297, ptr %375, align 8, !tbaa !68
+  store ptr %.2297, ptr %375, align 8, !tbaa !71
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %376, align 8, !tbaa !69
+  store i32 1, ptr %376, align 8, !tbaa !72
   br label %.thread372
 
 .sink.split:                                      ; preds = %205, %198, %191
@@ -3262,26 +3262,26 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %.1260 = phi i32 [ 0, %267 ], [ 0, %243 ], [ %.1260.ph, %.sink.split ]
   %383 = getelementptr inbounds nuw i8, ptr %.4299, i64 4
   %.not316 = icmp ult ptr %383, %2
-  br i1 %.not316, label %.preheader381, label %.loopexit, !llvm.loop !87
+  br i1 %.not316, label %.preheader381, label %.loopexit, !llvm.loop !91
 
 .thread339:                                       ; preds = %317, %315
   %384 = call zeroext i8 @uriGetOctetValue(ptr noundef nonnull %5, i32 noundef %.3280) #7
-  %385 = load ptr, ptr %0, align 8, !tbaa !51
+  %385 = load ptr, ptr %0, align 8, !tbaa !54
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 56
-  %387 = load ptr, ptr %386, align 8, !tbaa !78
+  %387 = load ptr, ptr %386, align 8, !tbaa !81
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 12
   store i8 %384, ptr %388, align 1, !tbaa !11
   %389 = getelementptr inbounds nuw i8, ptr %.2297, i64 4
   %.not316349 = icmp ult ptr %389, %2
-  br i1 %.not316349, label %9, label %.loopexit
+  br i1 %.not316349, label %9, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.thread339, %382
-  %390 = load ptr, ptr %0, align 8, !tbaa !51
+  %390 = load ptr, ptr %0, align 8, !tbaa !54
   %391 = call i32 @uriFreeUriMembersMmW(ptr noundef %390, ptr noundef %3)
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %392, align 8, !tbaa !68
+  store ptr %2, ptr %392, align 8, !tbaa !71
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %393, align 8, !tbaa !69
+  store i32 1, ptr %393, align 8, !tbaa !72
   br label %.thread372
 
 .thread372:                                       ; preds = %270, %262, %247, %238, %231, %330, %338, %336, %345, %360, %306, %293, %283, %207, %200, %.loopexit, %193, %372, %152, %160, %158, %82, %90, %88, %185, %178, %162, %128, %115, %105, %58, %45, %35, %20, %11
@@ -3665,7 +3665,7 @@ define internal fastcc noundef ptr @uriParsePartHelperTwoA(ptr noundef nonnull %
 5:                                                ; preds = %4
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  store i32 1, ptr %6, align 8, !tbaa !88
+  store i32 1, ptr %6, align 8, !tbaa !93
   br label %uriParsePathAbsNoLeadSlashA.exit
 
 7:                                                ; preds = %4
@@ -3927,7 +3927,7 @@ uriParsePortA.exit.i.i:                           ; preds = %tailrecurse.i.i.i, 
   store ptr null, ptr %42, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %37, ptr %45, align 8, !tbaa !40
-  %46 = load ptr, ptr %3, align 8, !tbaa !49
+  %46 = load ptr, ptr %3, align 8, !tbaa !50
   %47 = tail call ptr %46(ptr noundef nonnull %3, i64 noundef 4) #7
   %48 = load ptr, ptr %0, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
@@ -4186,7 +4186,7 @@ uriParsePathAbsEmptyA.exit:                       ; preds = %102, %104, %tailrec
 130:                                              ; preds = %7
   %.val27 = load ptr, ptr %0, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw i8, ptr %.val27, i64 144
-  store i32 1, ptr %131, align 8, !tbaa !88
+  store i32 1, ptr %131, align 8, !tbaa !93
   %132 = load i8, ptr %1, align 1, !tbaa !11
   switch i8 %132, label %uriParsePathAbsNoLeadSlashA.exit [
     i8 33, label %133
@@ -4410,9 +4410,9 @@ define internal fastcc noundef ptr @uriParseUriTailA(ptr noundef nonnull capture
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  store ptr %12, ptr %17, align 8, !tbaa !45
+  store ptr %12, ptr %17, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store ptr %13, ptr %18, align 8, !tbaa !46
+  store ptr %13, ptr %18, align 8, !tbaa !47
   %.not.i = icmp ult ptr %13, %2
   br i1 %.not.i, label %19, label %uriParseUriTailTwoA.exit
 
@@ -4432,9 +4432,9 @@ uriParseUriTailTwoA.exit.sink.split:              ; preds = %21, %7
   %.sink = phi ptr [ %9, %7 ], [ %23, %21 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  store ptr %.sink36, ptr %26, align 8, !tbaa !47
+  store ptr %.sink36, ptr %26, align 8, !tbaa !48
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  store ptr %.sink, ptr %27, align 8, !tbaa !48
+  store ptr %.sink, ptr %27, align 8, !tbaa !49
   br label %uriParseUriTailTwoA.exit
 
 uriParseUriTailTwoA.exit:                         ; preds = %uriParseUriTailTwoA.exit.sink.split, %21, %19, %15, %5, %11, %7, %4
@@ -5119,7 +5119,7 @@ define internal fastcc ptr @uriParseIpLit2A(ptr noundef nonnull %0, ptr noundef 
   br label %47
 
 30:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
-  %31 = load ptr, ptr %3, align 8, !tbaa !49
+  %31 = load ptr, ptr %3, align 8, !tbaa !50
   %32 = tail call ptr %31(ptr noundef nonnull %3, i64 noundef 16) #7
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
@@ -5634,7 +5634,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   store ptr null, ptr %9, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %.tr55.lcssa, ptr %12, align 8, !tbaa !42
-  %13 = load ptr, ptr %3, align 8, !tbaa !49
+  %13 = load ptr, ptr %3, align 8, !tbaa !50
   %14 = tail call ptr %13(ptr noundef nonnull %3, i64 noundef 4) #7
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -5885,7 +5885,7 @@ tailrecurse.i:                                    ; preds = %8, %52
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %.tr38.i, ptr %27, align 8, !tbaa !40
-  %28 = load ptr, ptr %3, align 8, !tbaa !49
+  %28 = load ptr, ptr %3, align 8, !tbaa !50
   %29 = tail call ptr %28(ptr noundef nonnull %3, i64 noundef 4) #7
   %30 = load ptr, ptr %0, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
@@ -6070,7 +6070,7 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoA(ptr nounde
   store ptr null, ptr %5, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %1, ptr %8, align 8, !tbaa !40
-  %9 = load ptr, ptr %2, align 8, !tbaa !49
+  %9 = load ptr, ptr %2, align 8, !tbaa !50
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 4) #7
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -6114,7 +6114,7 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoA(ptr nounde
   store ptr null, ptr %5, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %1, ptr %8, align 8, !tbaa !42
-  %9 = load ptr, ptr %2, align 8, !tbaa !49
+  %9 = load ptr, ptr %2, align 8, !tbaa !50
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 4) #7
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -6291,7 +6291,7 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2A(ptr noundef nonnu
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %1, ptr %5, align 8, !tbaa !40
-  %6 = load ptr, ptr %2, align 8, !tbaa !49
+  %6 = load ptr, ptr %2, align 8, !tbaa !50
   %7 = tail call ptr %6(ptr noundef nonnull %2, i64 noundef 4) #7
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -6454,8 +6454,8 @@ define internal fastcc noundef ptr @uriParseMustBeSegmentNzNcW(ptr noundef nonnu
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %4
   %.tr76.lcssa = phi ptr [ %1, %4 ], [ %.tr76.be, %tailrecurse.backedge ]
-  %5 = load ptr, ptr %0, align 8, !tbaa !51
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = tail call ptr %8(ptr noundef %3, i64 noundef 1, i64 noundef 32) #7
@@ -6467,45 +6467,45 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %13 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i = select i1 %12, ptr %13, ptr %6
   %spec.select24.i = select i1 %12, ptr %13, ptr %.tr76.lcssa
-  store ptr %spec.select.i, ptr %9, align 8, !tbaa !61
+  store ptr %spec.select.i, ptr %9, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %spec.select24.i, ptr %14, align 8, !tbaa !63
-  %15 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i, ptr %14, align 8, !tbaa !66
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %11
-  store ptr %9, ptr %16, align 8, !tbaa !64
+  store ptr %9, ptr %16, align 8, !tbaa !67
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store ptr %9, ptr %20, align 8, !tbaa !65
+  store ptr %9, ptr %20, align 8, !tbaa !68
   br label %29
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  %23 = load ptr, ptr %22, align 8, !tbaa !65
+  %23 = load ptr, ptr %22, align 8, !tbaa !68
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %9, ptr %24, align 8, !tbaa !66
-  store ptr %9, ptr %22, align 8, !tbaa !65
+  store ptr %9, ptr %24, align 8, !tbaa !69
+  store ptr %9, ptr %22, align 8, !tbaa !68
   br label %29
 
 uriPushPathSegmentW.exit:                         ; preds = %tailrecurse._crit_edge
-  %25 = load ptr, ptr %0, align 8, !tbaa !51
+  %25 = load ptr, ptr %0, align 8, !tbaa !54
   %26 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %25, ptr noundef nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %27, align 8, !tbaa !68
+  store ptr null, ptr %27, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %28, align 8, !tbaa !69
+  store i32 3, ptr %28, align 8, !tbaa !72
   br label %.loopexit
 
 29:                                               ; preds = %21, %19
-  store ptr null, ptr %15, align 8, !tbaa !56
+  store ptr null, ptr %15, align 8, !tbaa !59
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %4, %tailrecurse.backedge
   %.tr7683 = phi ptr [ %.tr76.be, %tailrecurse.backedge ], [ %1, %4 ]
-  %30 = load i32, ptr %.tr7683, align 4, !tbaa !55
+  %30 = load i32, ptr %.tr7683, align 4, !tbaa !58
   switch i32 %30, label %61 [
     i32 37, label %31
     i32 64, label %34
@@ -6604,23 +6604,23 @@ tailrecurse.backedge:                             ; preds = %34, %31
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr %0, align 8, !tbaa !51
-  %38 = load ptr, ptr %37, align 8, !tbaa !56
+  %37 = load ptr, ptr %0, align 8, !tbaa !54
+  %38 = load ptr, ptr %37, align 8, !tbaa !59
   %39 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %0, ptr noundef %38, ptr noundef %.tr7683, ptr noundef %3)
   %.not70 = icmp eq i32 %39, 0
-  %40 = load ptr, ptr %0, align 8, !tbaa !51
+  %40 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %.not70, label %41, label %45
 
 41:                                               ; preds = %36
   %42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %40, ptr noundef %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %43, align 8, !tbaa !68
+  store ptr null, ptr %43, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %44, align 8, !tbaa !69
+  store i32 3, ptr %44, align 8, !tbaa !72
   br label %.loopexit
 
 45:                                               ; preds = %36
-  store ptr null, ptr %40, align 8, !tbaa !56
+  store ptr null, ptr %40, align 8, !tbaa !59
   %46 = getelementptr inbounds nuw i8, ptr %.tr7683, i64 4
   %47 = tail call fastcc ptr @uriParseSegmentW(ptr noundef %0, ptr noundef %46, ptr noundef %2, ptr noundef %3)
   %48 = icmp eq ptr %47, null
@@ -6632,12 +6632,12 @@ tailrecurse.backedge:                             ; preds = %34, %31
   br i1 %.not71, label %51, label %56
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr %0, align 8, !tbaa !51
+  %52 = load ptr, ptr %0, align 8, !tbaa !54
   %53 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %52, ptr noundef %3)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %54, align 8, !tbaa !68
+  store ptr null, ptr %54, align 8, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %55, align 8, !tbaa !69
+  store i32 3, ptr %55, align 8, !tbaa !72
   br label %.loopexit
 
 56:                                               ; preds = %49
@@ -6650,23 +6650,23 @@ tailrecurse.backedge:                             ; preds = %34, %31
   br label %.loopexit
 
 61:                                               ; preds = %.lr.ph
-  %62 = load ptr, ptr %0, align 8, !tbaa !51
-  %63 = load ptr, ptr %62, align 8, !tbaa !56
+  %62 = load ptr, ptr %0, align 8, !tbaa !54
+  %63 = load ptr, ptr %62, align 8, !tbaa !59
   %64 = tail call fastcc i32 @uriPushPathSegmentW(ptr noundef %0, ptr noundef %63, ptr noundef %.tr7683, ptr noundef %3)
   %.not72 = icmp eq i32 %64, 0
-  %65 = load ptr, ptr %0, align 8, !tbaa !51
+  %65 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %.not72, label %66, label %70
 
 66:                                               ; preds = %61
   %67 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %65, ptr noundef %3)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %68, align 8, !tbaa !68
+  store ptr null, ptr %68, align 8, !tbaa !71
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %69, align 8, !tbaa !69
+  store i32 3, ptr %69, align 8, !tbaa !72
   br label %.loopexit
 
 70:                                               ; preds = %61
-  store ptr null, ptr %65, align 8, !tbaa !56
+  store ptr null, ptr %65, align 8, !tbaa !59
   %71 = tail call fastcc ptr @uriParseUriTailW(ptr noundef %0, ptr noundef %.tr7683, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
@@ -6681,12 +6681,12 @@ define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(non
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !68
+  store ptr %2, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !69
+  store i32 1, ptr %9, align 8, !tbaa !72
   br label %40
 
 10:                                               ; preds = %4
@@ -6695,16 +6695,16 @@ define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(non
   br i1 %.not29, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %13, ptr noundef %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %15, align 8, !tbaa !68
+  store ptr %2, ptr %15, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %16, align 8, !tbaa !69
+  store i32 1, ptr %16, align 8, !tbaa !72
   br label %40
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr %11, align 4, !tbaa !55
+  %18 = load i32, ptr %11, align 4, !tbaa !58
   switch i32 %18, label %35 [
     i32 48, label %19
     i32 49, label %19
@@ -6736,16 +6736,16 @@ define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(non
   br i1 %.not30, label %26, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %0, align 8, !tbaa !51
+  %22 = load ptr, ptr %0, align 8, !tbaa !54
   %23 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %22, ptr noundef %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %24, align 8, !tbaa !68
+  store ptr %2, ptr %24, align 8, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %25, align 8, !tbaa !69
+  store i32 1, ptr %25, align 8, !tbaa !72
   br label %40
 
 26:                                               ; preds = %19
-  %27 = load i32, ptr %20, align 4, !tbaa !55
+  %27 = load i32, ptr %20, align 4, !tbaa !58
   switch i32 %27, label %30 [
     i32 48, label %28
     i32 49, label %28
@@ -6776,21 +6776,21 @@ define internal fastcc ptr @uriParsePctEncodedW(ptr noundef nonnull captures(non
   br label %40
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %0, align 8, !tbaa !51
+  %31 = load ptr, ptr %0, align 8, !tbaa !54
   %32 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %31, ptr noundef %3)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %33, align 8, !tbaa !68
+  store ptr %20, ptr %33, align 8, !tbaa !71
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %34, align 8, !tbaa !69
+  store i32 1, ptr %34, align 8, !tbaa !72
   br label %40
 
 35:                                               ; preds = %17
-  %36 = load ptr, ptr %0, align 8, !tbaa !51
+  %36 = load ptr, ptr %0, align 8, !tbaa !54
   %37 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %36, ptr noundef %3)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %38, align 8, !tbaa !68
+  store ptr %11, ptr %38, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %39, align 8, !tbaa !69
+  store i32 1, ptr %39, align 8, !tbaa !72
   br label %40
 
 40:                                               ; preds = %35, %30, %28, %21, %12, %5
@@ -6804,13 +6804,13 @@ define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %4
-  %.val = load ptr, ptr %0, align 8, !tbaa !51
+  %.val = load ptr, ptr %0, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  store i32 1, ptr %6, align 8, !tbaa !89
+  store i32 1, ptr %6, align 8, !tbaa !94
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %1, align 4, !tbaa !55
+  %8 = load i32, ptr %1, align 4, !tbaa !58
   %cond = icmp eq i32 %8, 47
   br i1 %cond, label %9, label %130
 
@@ -6820,16 +6820,16 @@ define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %
   br i1 %.not.i, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr @uriSafeToPointToW, align 8, !tbaa !70
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  %12 = load ptr, ptr @uriSafeToPointToW, align 8, !tbaa !73
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %12, ptr %14, align 8, !tbaa !76
+  store ptr %12, ptr %14, align 8, !tbaa !79
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr %12, ptr %15, align 8, !tbaa !79
+  store ptr %12, ptr %15, align 8, !tbaa !82
   br label %uriParsePathAbsEmptyW.exit
 
 16:                                               ; preds = %9
-  %17 = load i32, ptr %10, align 4, !tbaa !55
+  %17 = load i32, ptr %10, align 4, !tbaa !58
   switch i32 %17, label %94 [
     i32 91, label %18
     i32 33, label %.lr.ph.preheader.i.i
@@ -6921,14 +6921,14 @@ define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %
   br i1 %21, label %uriParsePathAbsNoLeadSlashW.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %0, align 8, !tbaa !51
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr %19, ptr %24, align 8, !tbaa !76
+  store ptr %19, ptr %24, align 8, !tbaa !79
   %.not.i.i = icmp ult ptr %20, %2
   br i1 %.not.i.i, label %25, label %uriParsePathAbsEmptyW.exit
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr %20, align 4, !tbaa !55
+  %26 = load i32, ptr %20, align 4, !tbaa !58
   %cond.i.i = icmp eq i32 %26, 58
   br i1 %cond.i.i, label %27, label %uriParseAuthorityW.exit.thread
 
@@ -6939,7 +6939,7 @@ define internal fastcc noundef ptr @uriParsePartHelperTwoW(ptr noundef nonnull %
 
 .lr.ph.i.i.i:                                     ; preds = %27, %tailrecurse.i.i.i
   %.tr3.i.i.i = phi ptr [ %30, %tailrecurse.i.i.i ], [ %28, %27 ]
-  %29 = load i32, ptr %.tr3.i.i.i, align 4, !tbaa !55
+  %29 = load i32, ptr %.tr3.i.i.i, align 4, !tbaa !58
   %.off.i.i.i = add i32 %29, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %tailrecurse.i.i.i, label %uriParsePortW.exit.i.i
@@ -6952,15 +6952,15 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i.i
 uriParsePortW.exit.i.i:                           ; preds = %tailrecurse.i.i.i, %.lr.ph.i.i.i, %27
   %.0.i.i.i = phi ptr [ %2, %27 ], [ %2, %tailrecurse.i.i.i ], [ %.tr3.i.i.i, %.lr.ph.i.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store ptr %28, ptr %31, align 8, !tbaa !80
+  store ptr %28, ptr %31, align 8, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 88
-  store ptr %.0.i.i.i, ptr %32, align 8, !tbaa !81
+  store ptr %.0.i.i.i, ptr %32, align 8, !tbaa !84
   br label %uriParseAuthorityW.exit.thread
 
 .lr.ph.preheader.i.i:                             ; preds = %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16
-  %33 = load ptr, ptr %0, align 8, !tbaa !51
+  %33 = load ptr, ptr %0, align 8, !tbaa !54
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %10, ptr %34, align 8, !tbaa !72
+  store ptr %10, ptr %34, align 8, !tbaa !75
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.preheader.i.i
@@ -7059,27 +7059,27 @@ uriParsePortW.exit.i.i:                           ; preds = %tailrecurse.i.i.i, 
   br i1 %.not.i.i31.i, label %68, label %40
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %0, align 8, !tbaa !51
+  %41 = load ptr, ptr %0, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !72
+  %43 = load ptr, ptr %42, align 8, !tbaa !75
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %43, ptr %44, align 8, !tbaa !76
-  store ptr null, ptr %42, align 8, !tbaa !72
+  store ptr %43, ptr %44, align 8, !tbaa !79
+  store ptr null, ptr %42, align 8, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %37, ptr %45, align 8, !tbaa !79
-  %46 = load ptr, ptr %3, align 8, !tbaa !49
+  store ptr %37, ptr %45, align 8, !tbaa !82
+  %46 = load ptr, ptr %3, align 8, !tbaa !50
   %47 = tail call ptr %46(ptr noundef nonnull %3, i64 noundef 4) #7
-  %48 = load ptr, ptr %0, align 8, !tbaa !51
+  %48 = load ptr, ptr %0, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  store ptr %47, ptr %49, align 8, !tbaa !77
+  store ptr %47, ptr %49, align 8, !tbaa !80
   %50 = icmp eq ptr %47, null
   br i1 %50, label %uriOnExitOwnHostUserInfoW.exit.i.i, label %51
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !76
+  %53 = load ptr, ptr %52, align 8, !tbaa !79
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !79
+  %55 = load ptr, ptr %54, align 8, !tbaa !82
   %56 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %47, ptr noundef %53, ptr noundef %55) #7
   %.not.i39.i.i = icmp eq i32 %56, 0
   br i1 %.not.i39.i.i, label %uriParsePathAbsEmptyW.exit, label %57
@@ -7087,25 +7087,25 @@ uriParsePortW.exit.i.i:                           ; preds = %tailrecurse.i.i.i, 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !32
-  %60 = load ptr, ptr %0, align 8, !tbaa !51
+  %60 = load ptr, ptr %0, align 8, !tbaa !54
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !77
+  %62 = load ptr, ptr %61, align 8, !tbaa !80
   tail call void %59(ptr noundef nonnull %3, ptr noundef %62) #7
-  %63 = load ptr, ptr %0, align 8, !tbaa !51
+  %63 = load ptr, ptr %0, align 8, !tbaa !54
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  store ptr null, ptr %64, align 8, !tbaa !77
+  store ptr null, ptr %64, align 8, !tbaa !80
   br label %uriParsePathAbsEmptyW.exit
 
 uriOnExitOwnHostUserInfoW.exit.i.i:               ; preds = %40
   %65 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %48, ptr noundef nonnull %3)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %66, align 8, !tbaa !68
+  store ptr null, ptr %66, align 8, !tbaa !71
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %67, align 8, !tbaa !69
+  store i32 3, ptr %67, align 8, !tbaa !72
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 68:                                               ; preds = %39
-  %69 = load i32, ptr %37, align 4, !tbaa !55
+  %69 = load i32, ptr %37, align 4, !tbaa !58
   switch i32 %69, label %70 [
     i32 33, label %.lr.ph.i.i.backedge
     i32 36, label %.lr.ph.i.i.backedge
@@ -7198,50 +7198,50 @@ uriOnExitOwnHostUserInfoW.exit.i.i:               ; preds = %40
   br i1 %.not23.i.i.i, label %72, label %uriParseAuthorityW.exit.thread
 
 72:                                               ; preds = %70
-  %73 = load ptr, ptr %0, align 8, !tbaa !51
+  %73 = load ptr, ptr %0, align 8, !tbaa !54
   %74 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %73, ptr noundef %3)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %75, align 8, !tbaa !68
+  store ptr null, ptr %75, align 8, !tbaa !71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %76, align 8, !tbaa !69
+  store i32 3, ptr %76, align 8, !tbaa !72
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 77:                                               ; preds = %.lr.ph.i.i
-  %78 = load ptr, ptr %0, align 8, !tbaa !51
+  %78 = load ptr, ptr %0, align 8, !tbaa !54
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  store ptr %.tr4355.i.i, ptr %79, align 8, !tbaa !79
+  store ptr %.tr4355.i.i, ptr %79, align 8, !tbaa !82
   %80 = getelementptr inbounds nuw i8, ptr %.tr4355.i.i, i64 4
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 80
-  store ptr %80, ptr %81, align 8, !tbaa !80
+  store ptr %80, ptr %81, align 8, !tbaa !83
   %82 = tail call fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef nonnull %0, ptr noundef %80, ptr noundef nonnull %2, ptr noundef %3)
   br label %uriParseAuthorityW.exit
 
 83:                                               ; preds = %.lr.ph.i.i
-  %84 = load ptr, ptr %0, align 8, !tbaa !51
+  %84 = load ptr, ptr %0, align 8, !tbaa !54
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr %.tr4355.i.i, ptr %85, align 8, !tbaa !73
+  store ptr %.tr4355.i.i, ptr %85, align 8, !tbaa !76
   %86 = getelementptr inbounds nuw i8, ptr %.tr4355.i.i, i64 4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr %86, ptr %87, align 8, !tbaa !76
+  store ptr %86, ptr %87, align 8, !tbaa !79
   %88 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef %86, ptr noundef nonnull %2, ptr noundef %3)
   br label %uriParseAuthorityW.exit
 
 89:                                               ; preds = %.lr.ph.i.i
-  %90 = load ptr, ptr %0, align 8, !tbaa !51
+  %90 = load ptr, ptr %0, align 8, !tbaa !54
   %91 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %90, ptr noundef %3)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.tr4355.i.i, ptr %92, align 8, !tbaa !68
+  store ptr %.tr4355.i.i, ptr %92, align 8, !tbaa !71
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %93, align 8, !tbaa !69
+  store i32 1, ptr %93, align 8, !tbaa !72
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 94:                                               ; preds = %16
-  %95 = load ptr, ptr @uriSafeToPointToW, align 8, !tbaa !70
-  %96 = load ptr, ptr %0, align 8, !tbaa !51
+  %95 = load ptr, ptr @uriSafeToPointToW, align 8, !tbaa !73
+  %96 = load ptr, ptr %0, align 8, !tbaa !54
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  store ptr %95, ptr %97, align 8, !tbaa !76
+  store ptr %95, ptr %97, align 8, !tbaa !79
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  store ptr %95, ptr %98, align 8, !tbaa !79
+  store ptr %95, ptr %98, align 8, !tbaa !82
   br label %uriParseAuthorityW.exit.thread
 
 uriParseAuthorityW.exit:                          ; preds = %77, %83
@@ -7261,7 +7261,7 @@ uriParseAuthorityW.exit.thread:                   ; preds = %70, %25, %uriParseP
 
 102:                                              ; preds = %tailrecurse.i, %.lr.ph.i
   %.tr2832.i = phi ptr [ %.0.i39, %.lr.ph.i ], [ %106, %tailrecurse.i ]
-  %103 = load i32, ptr %.tr2832.i, align 4, !tbaa !55
+  %103 = load i32, ptr %.tr2832.i, align 4, !tbaa !58
   %cond.i = icmp eq i32 %103, 47
   br i1 %cond.i, label %104, label %uriParsePathAbsEmptyW.exit
 
@@ -7281,36 +7281,36 @@ uriParseAuthorityW.exit.thread:                   ; preds = %70, %25, %uriParseP
   %113 = icmp eq ptr %105, %106
   %spec.select.i.i = select i1 %113, ptr %101, ptr %105
   %spec.select24.i.i = select i1 %113, ptr %101, ptr %106
-  store ptr %spec.select.i.i, ptr %110, align 8, !tbaa !61
+  store ptr %spec.select.i.i, ptr %110, align 8, !tbaa !64
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %spec.select24.i.i, ptr %114, align 8, !tbaa !63
-  %115 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i.i, ptr %114, align 8, !tbaa !66
+  %115 = load ptr, ptr %0, align 8, !tbaa !54
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
-  %117 = load ptr, ptr %116, align 8, !tbaa !64
+  %117 = load ptr, ptr %116, align 8, !tbaa !67
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %112
-  store ptr %110, ptr %116, align 8, !tbaa !64
+  store ptr %110, ptr %116, align 8, !tbaa !67
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 104
-  store ptr %110, ptr %120, align 8, !tbaa !65
+  store ptr %110, ptr %120, align 8, !tbaa !68
   br label %tailrecurse.i
 
 121:                                              ; preds = %112
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 104
-  %123 = load ptr, ptr %122, align 8, !tbaa !65
+  %123 = load ptr, ptr %122, align 8, !tbaa !68
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store ptr %110, ptr %124, align 8, !tbaa !66
-  store ptr %110, ptr %122, align 8, !tbaa !65
+  store ptr %110, ptr %124, align 8, !tbaa !69
+  store ptr %110, ptr %122, align 8, !tbaa !68
   br label %tailrecurse.i
 
 uriPushPathSegmentW.exit.i:                       ; preds = %108
-  %125 = load ptr, ptr %0, align 8, !tbaa !51
+  %125 = load ptr, ptr %0, align 8, !tbaa !54
   %126 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %125, ptr noundef nonnull %3)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %127, align 8, !tbaa !68
+  store ptr null, ptr %127, align 8, !tbaa !71
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %128, align 8, !tbaa !69
+  store i32 3, ptr %128, align 8, !tbaa !72
   br label %uriParsePathAbsEmptyW.exit
 
 tailrecurse.i:                                    ; preds = %121, %119
@@ -7319,15 +7319,15 @@ tailrecurse.i:                                    ; preds = %121, %119
 
 uriParsePathAbsEmptyW.exit:                       ; preds = %102, %104, %tailrecurse.i, %11, %22, %57, %51, %uriParseAuthorityW.exit.thread, %uriPushPathSegmentW.exit.i
   %.0.i28 = phi ptr [ null, %uriPushPathSegmentW.exit.i ], [ %2, %uriParseAuthorityW.exit.thread ], [ %2, %51 ], [ %2, %57 ], [ %2, %22 ], [ %2, %11 ], [ %.tr2832.i, %102 ], [ null, %104 ], [ %2, %tailrecurse.i ]
-  %129 = load ptr, ptr %0, align 8, !tbaa !51
+  %129 = load ptr, ptr %0, align 8, !tbaa !54
   tail call void @uriFixEmptyTrailSegmentW(ptr noundef %129, ptr noundef %3) #7
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 130:                                              ; preds = %7
-  %.val27 = load ptr, ptr %0, align 8, !tbaa !51
+  %.val27 = load ptr, ptr %0, align 8, !tbaa !54
   %131 = getelementptr inbounds nuw i8, ptr %.val27, i64 144
-  store i32 1, ptr %131, align 8, !tbaa !89
-  %132 = load i32, ptr %1, align 4, !tbaa !55
+  store i32 1, ptr %131, align 8, !tbaa !94
+  %132 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %132, label %uriParsePathAbsNoLeadSlashW.exit [
     i32 33, label %133
     i32 36, label %133
@@ -7433,27 +7433,27 @@ uriParseSegmentNzW.exit.i:                        ; preds = %133
   %145 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i32 = select i1 %144, ptr %145, ptr %1
   %spec.select24.i.i33 = select i1 %144, ptr %145, ptr %136
-  store ptr %spec.select.i.i32, ptr %141, align 8, !tbaa !61
+  store ptr %spec.select.i.i32, ptr %141, align 8, !tbaa !64
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %spec.select24.i.i33, ptr %146, align 8, !tbaa !63
-  %147 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i.i33, ptr %146, align 8, !tbaa !66
+  %147 = load ptr, ptr %0, align 8, !tbaa !54
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 96
-  %149 = load ptr, ptr %148, align 8, !tbaa !64
+  %149 = load ptr, ptr %148, align 8, !tbaa !67
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %143
-  store ptr %141, ptr %148, align 8, !tbaa !64
+  store ptr %141, ptr %148, align 8, !tbaa !67
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 104
-  store ptr %141, ptr %152, align 8, !tbaa !65
+  store ptr %141, ptr %152, align 8, !tbaa !68
   br label %157
 
 153:                                              ; preds = %143
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 104
-  %155 = load ptr, ptr %154, align 8, !tbaa !65
+  %155 = load ptr, ptr %154, align 8, !tbaa !68
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store ptr %141, ptr %156, align 8, !tbaa !66
-  store ptr %141, ptr %154, align 8, !tbaa !65
+  store ptr %141, ptr %156, align 8, !tbaa !69
+  store ptr %141, ptr %154, align 8, !tbaa !68
   br label %157
 
 157:                                              ; preds = %153, %151
@@ -7462,7 +7462,7 @@ uriParseSegmentNzW.exit.i:                        ; preds = %133
 
 .lr.ph.i.i34:                                     ; preds = %157, %tailrecurse.i.i36
   %.tr2832.i.i = phi ptr [ %161, %tailrecurse.i.i36 ], [ %136, %157 ]
-  %158 = load i32, ptr %.tr2832.i.i, align 4, !tbaa !55
+  %158 = load i32, ptr %.tr2832.i.i, align 4, !tbaa !58
   %cond.i.i35 = icmp eq i32 %158, 47
   br i1 %cond.i.i35, label %159, label %uriParsePathAbsNoLeadSlashW.exit
 
@@ -7482,27 +7482,27 @@ uriParseSegmentNzW.exit.i:                        ; preds = %133
   %168 = icmp eq ptr %160, %161
   %spec.select.i.i.i = select i1 %168, ptr %145, ptr %160
   %spec.select24.i.i.i = select i1 %168, ptr %145, ptr %161
-  store ptr %spec.select.i.i.i, ptr %165, align 8, !tbaa !61
+  store ptr %spec.select.i.i.i, ptr %165, align 8, !tbaa !64
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %spec.select24.i.i.i, ptr %169, align 8, !tbaa !63
-  %170 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i.i.i, ptr %169, align 8, !tbaa !66
+  %170 = load ptr, ptr %0, align 8, !tbaa !54
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 96
-  %172 = load ptr, ptr %171, align 8, !tbaa !64
+  %172 = load ptr, ptr %171, align 8, !tbaa !67
   %173 = icmp eq ptr %172, null
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %167
-  store ptr %165, ptr %171, align 8, !tbaa !64
+  store ptr %165, ptr %171, align 8, !tbaa !67
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 104
-  store ptr %165, ptr %175, align 8, !tbaa !65
+  store ptr %165, ptr %175, align 8, !tbaa !68
   br label %tailrecurse.i.i36
 
 176:                                              ; preds = %167
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 104
-  %178 = load ptr, ptr %177, align 8, !tbaa !65
+  %178 = load ptr, ptr %177, align 8, !tbaa !68
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store ptr %165, ptr %179, align 8, !tbaa !66
-  store ptr %165, ptr %177, align 8, !tbaa !65
+  store ptr %165, ptr %179, align 8, !tbaa !69
+  store ptr %165, ptr %177, align 8, !tbaa !68
   br label %tailrecurse.i.i36
 
 tailrecurse.i.i36:                                ; preds = %176, %174
@@ -7510,12 +7510,12 @@ tailrecurse.i.i36:                                ; preds = %176, %174
   br i1 %.not.i.i37, label %.lr.ph.i.i34, label %uriParsePathAbsNoLeadSlashW.exit
 
 uriParseZeroMoreSlashSegsW.exit.sink.split.i:     ; preds = %163, %138
-  %180 = load ptr, ptr %0, align 8, !tbaa !51
+  %180 = load ptr, ptr %0, align 8, !tbaa !54
   %181 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %180, ptr noundef nonnull %3)
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %182, align 8, !tbaa !68
+  store ptr null, ptr %182, align 8, !tbaa !71
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %183, align 8, !tbaa !69
+  store i32 3, ptr %183, align 8, !tbaa !72
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 uriParsePathAbsNoLeadSlashW.exit:                 ; preds = %tailrecurse.i.i36, %159, %.lr.ph.i.i34, %36, %72, %uriOnExitOwnHostUserInfoW.exit.i.i, %89, %18, %uriParseZeroMoreSlashSegsW.exit.sink.split.i, %157, %uriParseSegmentNzW.exit.i, %133, %130, %uriParsePathAbsEmptyW.exit, %uriParseAuthorityW.exit, %5
@@ -7529,7 +7529,7 @@ define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull capture
   br i1 %.not, label %5, label %uriParseUriTailTwoW.exit
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %1, align 4, !tbaa !55
+  %6 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %6, label %uriParseUriTailTwoW.exit [
     i32 35, label %7
     i32 63, label %11
@@ -7548,16 +7548,16 @@ define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull capture
   br i1 %14, label %uriParseUriTailTwoW.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %0, align 8, !tbaa !51
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  store ptr %12, ptr %17, align 8, !tbaa !83
+  store ptr %12, ptr %17, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store ptr %13, ptr %18, align 8, !tbaa !84
+  store ptr %13, ptr %18, align 8, !tbaa !87
   %.not.i = icmp ult ptr %13, %2
   br i1 %.not.i, label %19, label %uriParseUriTailTwoW.exit
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr %13, align 4, !tbaa !55
+  %20 = load i32, ptr %13, align 4, !tbaa !58
   %cond.i = icmp eq i32 %20, 35
   br i1 %cond.i, label %21, label %uriParseUriTailTwoW.exit
 
@@ -7570,11 +7570,11 @@ define internal fastcc noundef ptr @uriParseUriTailW(ptr noundef nonnull capture
 uriParseUriTailTwoW.exit.sink.split:              ; preds = %21, %7
   %.sink36 = phi ptr [ %8, %7 ], [ %22, %21 ]
   %.sink = phi ptr [ %9, %7 ], [ %23, %21 ]
-  %25 = load ptr, ptr %0, align 8, !tbaa !51
+  %25 = load ptr, ptr %0, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  store ptr %.sink36, ptr %26, align 8, !tbaa !85
+  store ptr %.sink36, ptr %26, align 8, !tbaa !88
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  store ptr %.sink, ptr %27, align 8, !tbaa !86
+  store ptr %.sink, ptr %27, align 8, !tbaa !89
   br label %uriParseUriTailTwoW.exit
 
 uriParseUriTailTwoW.exit:                         ; preds = %uriParseUriTailTwoW.exit.sink.split, %21, %19, %15, %5, %11, %7, %4
@@ -7584,8 +7584,8 @@ uriParseUriTailTwoW.exit:                         ; preds = %uriParseUriTailTwoW
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = tail call ptr %7(ptr noundef %2, i64 noundef 1, i64 noundef 32) #7
@@ -7597,31 +7597,31 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitSegmentNzNcOrScheme2W(ptr n
   %12 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i = select i1 %11, ptr %12, ptr %5
   %spec.select24.i = select i1 %11, ptr %12, ptr %1
-  store ptr %spec.select.i, ptr %8, align 8, !tbaa !61
+  store ptr %spec.select.i, ptr %8, align 8, !tbaa !64
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %spec.select24.i, ptr %13, align 8, !tbaa !63
-  %14 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %10
-  store ptr %8, ptr %15, align 8, !tbaa !64
+  store ptr %8, ptr %15, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store ptr %8, ptr %19, align 8, !tbaa !65
+  store ptr %8, ptr %19, align 8, !tbaa !68
   br label %24
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %8, ptr %23, align 8, !tbaa !66
-  store ptr %8, ptr %21, align 8, !tbaa !65
+  store ptr %8, ptr %23, align 8, !tbaa !69
+  store ptr %8, ptr %21, align 8, !tbaa !68
   br label %24
 
 24:                                               ; preds = %20, %18
-  store ptr null, ptr %14, align 8, !tbaa !56
+  store ptr null, ptr %14, align 8, !tbaa !59
   br label %uriPushPathSegmentW.exit
 
 uriPushPathSegmentW.exit:                         ; preds = %3, %24
@@ -7639,7 +7639,7 @@ tailrecurse:                                      ; preds = %7, %4
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %tailrecurse
-  %6 = load i32, ptr %.tr19, align 4, !tbaa !55
+  %6 = load i32, ptr %.tr19, align 4, !tbaa !58
   switch i32 %6, label %10 [
     i32 33, label %7
     i32 36, label %7
@@ -7746,27 +7746,27 @@ define internal fastcc range(i32 0, 2) i32 @uriPushPathSegmentW(ptr noundef nonn
   %11 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select = select i1 %10, ptr %11, ptr %1
   %spec.select24 = select i1 %10, ptr %11, ptr %2
-  store ptr %spec.select, ptr %7, align 8, !tbaa !61
+  store ptr %spec.select, ptr %7, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %spec.select24, ptr %12, align 8, !tbaa !63
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24, ptr %12, align 8, !tbaa !66
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
-  store ptr %7, ptr %14, align 8, !tbaa !64
+  store ptr %7, ptr %14, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store ptr %7, ptr %18, align 8, !tbaa !65
+  store ptr %7, ptr %18, align 8, !tbaa !68
   br label %23
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %21 = load ptr, ptr %20, align 8, !tbaa !65
+  %21 = load ptr, ptr %20, align 8, !tbaa !68
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %7, ptr %22, align 8, !tbaa !66
-  store ptr %7, ptr %20, align 8, !tbaa !65
+  store ptr %7, ptr %22, align 8, !tbaa !69
+  store ptr %7, ptr %20, align 8, !tbaa !68
   br label %23
 
 23:                                               ; preds = %17, %19, %4
@@ -7786,7 +7786,7 @@ define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnu
 
 7:                                                ; preds = %.lr.ph, %tailrecurse
   %.tr2832 = phi ptr [ %1, %.lr.ph ], [ %11, %tailrecurse ]
-  %8 = load i32, ptr %.tr2832, align 4, !tbaa !55
+  %8 = load i32, ptr %.tr2832, align 4, !tbaa !58
   %cond = icmp eq i32 %8, 47
   br i1 %cond, label %9, label %.loopexit
 
@@ -7806,36 +7806,36 @@ define internal fastcc noundef ptr @uriParseZeroMoreSlashSegsW(ptr noundef nonnu
   %18 = icmp eq ptr %10, %11
   %spec.select.i = select i1 %18, ptr %6, ptr %10
   %spec.select24.i = select i1 %18, ptr %6, ptr %11
-  store ptr %spec.select.i, ptr %15, align 8, !tbaa !61
+  store ptr %spec.select.i, ptr %15, align 8, !tbaa !64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i, ptr %19, align 8, !tbaa !63
-  %20 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i, ptr %19, align 8, !tbaa !66
+  %20 = load ptr, ptr %0, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %17
-  store ptr %15, ptr %21, align 8, !tbaa !64
+  store ptr %15, ptr %21, align 8, !tbaa !67
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  store ptr %15, ptr %25, align 8, !tbaa !65
+  store ptr %15, ptr %25, align 8, !tbaa !68
   br label %tailrecurse
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %28 = load ptr, ptr %27, align 8, !tbaa !65
+  %28 = load ptr, ptr %27, align 8, !tbaa !68
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %15, ptr %29, align 8, !tbaa !66
-  store ptr %15, ptr %27, align 8, !tbaa !65
+  store ptr %15, ptr %29, align 8, !tbaa !69
+  store ptr %15, ptr %27, align 8, !tbaa !68
   br label %tailrecurse
 
 uriPushPathSegmentW.exit:                         ; preds = %13
-  %30 = load ptr, ptr %0, align 8, !tbaa !51
+  %30 = load ptr, ptr %0, align 8, !tbaa !54
   %31 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %30, ptr noundef nonnull %3)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %32, align 8, !tbaa !68
+  store ptr null, ptr %32, align 8, !tbaa !71
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %33, align 8, !tbaa !69
+  store i32 3, ptr %33, align 8, !tbaa !72
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %26, %24
@@ -7853,7 +7853,7 @@ define internal fastcc noundef ptr @uriParseHierPartW(ptr noundef nonnull %0, pt
   br i1 %.not, label %5, label %uriParsePathRootlessW.exit
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %1, align 4, !tbaa !55
+  %6 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %6, label %uriParsePathRootlessW.exit [
     i32 33, label %7
     i32 36, label %7
@@ -7960,27 +7960,27 @@ uriParseSegmentNzW.exit.i:                        ; preds = %7
   %19 = load ptr, ptr @uriSafeToPointToW, align 8
   %spec.select.i.i = select i1 %18, ptr %19, ptr %1
   %spec.select24.i.i = select i1 %18, ptr %19, ptr %10
-  store ptr %spec.select.i.i, ptr %15, align 8, !tbaa !61
+  store ptr %spec.select.i.i, ptr %15, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %spec.select24.i.i, ptr %20, align 8, !tbaa !63
-  %21 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i.i, ptr %20, align 8, !tbaa !66
+  %21 = load ptr, ptr %0, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %17
-  store ptr %15, ptr %22, align 8, !tbaa !64
+  store ptr %15, ptr %22, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  store ptr %15, ptr %26, align 8, !tbaa !65
+  store ptr %15, ptr %26, align 8, !tbaa !68
   br label %31
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  %29 = load ptr, ptr %28, align 8, !tbaa !68
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %15, ptr %30, align 8, !tbaa !66
-  store ptr %15, ptr %28, align 8, !tbaa !65
+  store ptr %15, ptr %30, align 8, !tbaa !69
+  store ptr %15, ptr %28, align 8, !tbaa !68
   br label %31
 
 31:                                               ; preds = %27, %25
@@ -7989,7 +7989,7 @@ uriParseSegmentNzW.exit.i:                        ; preds = %7
 
 .lr.ph.i.i:                                       ; preds = %31, %tailrecurse.i.i
   %.tr2832.i.i = phi ptr [ %35, %tailrecurse.i.i ], [ %10, %31 ]
-  %32 = load i32, ptr %.tr2832.i.i, align 4, !tbaa !55
+  %32 = load i32, ptr %.tr2832.i.i, align 4, !tbaa !58
   %cond.i.i = icmp eq i32 %32, 47
   br i1 %cond.i.i, label %33, label %uriParsePathRootlessW.exit
 
@@ -8009,27 +8009,27 @@ uriParseSegmentNzW.exit.i:                        ; preds = %7
   %42 = icmp eq ptr %34, %35
   %spec.select.i.i.i = select i1 %42, ptr %19, ptr %34
   %spec.select24.i.i.i = select i1 %42, ptr %19, ptr %35
-  store ptr %spec.select.i.i.i, ptr %39, align 8, !tbaa !61
+  store ptr %spec.select.i.i.i, ptr %39, align 8, !tbaa !64
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %spec.select24.i.i.i, ptr %43, align 8, !tbaa !63
-  %44 = load ptr, ptr %0, align 8, !tbaa !51
+  store ptr %spec.select24.i.i.i, ptr %43, align 8, !tbaa !66
+  %44 = load ptr, ptr %0, align 8, !tbaa !54
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %46 = load ptr, ptr %45, align 8, !tbaa !64
+  %46 = load ptr, ptr %45, align 8, !tbaa !67
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %41
-  store ptr %39, ptr %45, align 8, !tbaa !64
+  store ptr %39, ptr %45, align 8, !tbaa !67
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  store ptr %39, ptr %49, align 8, !tbaa !65
+  store ptr %39, ptr %49, align 8, !tbaa !68
   br label %tailrecurse.i.i
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  %52 = load ptr, ptr %51, align 8, !tbaa !65
+  %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %39, ptr %53, align 8, !tbaa !66
-  store ptr %39, ptr %51, align 8, !tbaa !65
+  store ptr %39, ptr %53, align 8, !tbaa !69
+  store ptr %39, ptr %51, align 8, !tbaa !68
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %50, %48
@@ -8037,12 +8037,12 @@ tailrecurse.i.i:                                  ; preds = %50, %48
   br i1 %.not.i.i, label %.lr.ph.i.i, label %uriParsePathRootlessW.exit
 
 uriParseZeroMoreSlashSegsW.exit.sink.split.i:     ; preds = %37, %12
-  %54 = load ptr, ptr %0, align 8, !tbaa !51
+  %54 = load ptr, ptr %0, align 8, !tbaa !54
   %55 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %54, ptr noundef nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %56, align 8, !tbaa !68
+  store ptr null, ptr %56, align 8, !tbaa !71
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %57, align 8, !tbaa !69
+  store i32 3, ptr %57, align 8, !tbaa !72
   br label %uriParsePathRootlessW.exit
 
 58:                                               ; preds = %5
@@ -8061,16 +8061,16 @@ define internal fastcc ptr @uriParsePcharW(ptr noundef nonnull captures(none) %0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !68
+  store ptr %2, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !69
+  store i32 1, ptr %9, align 8, !tbaa !72
   br label %21
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr %1, align 4, !tbaa !55
+  %11 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %11, label %16 [
     i32 37, label %12
     i32 58, label %14
@@ -8163,12 +8163,12 @@ define internal fastcc ptr @uriParsePcharW(ptr noundef nonnull captures(none) %0
   br label %21
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr %0, align 8, !tbaa !51
+  %17 = load ptr, ptr %0, align 8, !tbaa !54
   %18 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %19, align 8, !tbaa !68
+  store ptr %1, ptr %19, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %20, align 8, !tbaa !69
+  store i32 1, ptr %20, align 8, !tbaa !72
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
@@ -8184,16 +8184,16 @@ define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !68
+  store ptr %2, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !69
+  store i32 1, ptr %9, align 8, !tbaa !72
   br label %47
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr %1, align 4, !tbaa !55
+  %11 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %11, label %42 [
     i32 118, label %12
     i32 58, label %30
@@ -8232,26 +8232,26 @@ define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not39, label %21, label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr %0, align 8, !tbaa !51
+  %17 = load ptr, ptr %0, align 8, !tbaa !54
   %18 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %19, align 8, !tbaa !68
+  store ptr %2, ptr %19, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %20, align 8, !tbaa !69
+  store i32 1, ptr %20, align 8, !tbaa !72
   br label %47
 
 21:                                               ; preds = %15
-  %22 = load i32, ptr %13, align 4, !tbaa !55
+  %22 = load i32, ptr %13, align 4, !tbaa !58
   %.not40 = icmp eq i32 %22, 93
   br i1 %.not40, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %0, align 8, !tbaa !51
+  %24 = load ptr, ptr %0, align 8, !tbaa !54
   %25 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %24, ptr noundef %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %26, align 8, !tbaa !68
+  store ptr %13, ptr %26, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %27, align 8, !tbaa !69
+  store i32 1, ptr %27, align 8, !tbaa !72
   br label %47
 
 28:                                               ; preds = %21
@@ -8259,20 +8259,20 @@ define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef 
   br label %47
 
 30:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
-  %31 = load ptr, ptr %3, align 8, !tbaa !49
+  %31 = load ptr, ptr %3, align 8, !tbaa !50
   %32 = tail call ptr %31(ptr noundef nonnull %3, i64 noundef 16) #7
-  %33 = load ptr, ptr %0, align 8, !tbaa !51
+  %33 = load ptr, ptr %0, align 8, !tbaa !54
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  store ptr %32, ptr %34, align 8, !tbaa !78
+  store ptr %32, ptr %34, align 8, !tbaa !81
   %35 = icmp eq ptr %32, null
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %30
   %37 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %33, ptr noundef nonnull %3)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %38, align 8, !tbaa !68
+  store ptr null, ptr %38, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %39, align 8, !tbaa !69
+  store i32 3, ptr %39, align 8, !tbaa !72
   br label %47
 
 40:                                               ; preds = %30
@@ -8280,12 +8280,12 @@ define internal fastcc ptr @uriParseIpLit2W(ptr noundef nonnull %0, ptr noundef 
   br label %47
 
 42:                                               ; preds = %10
-  %43 = load ptr, ptr %0, align 8, !tbaa !51
+  %43 = load ptr, ptr %0, align 8, !tbaa !54
   %44 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %43, ptr noundef %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %45, align 8, !tbaa !68
+  store ptr %1, ptr %45, align 8, !tbaa !71
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %46, align 8, !tbaa !69
+  store i32 1, ptr %46, align 8, !tbaa !72
   br label %47
 
 47:                                               ; preds = %16, %23, %28, %12, %42, %40, %36, %5
@@ -8299,12 +8299,12 @@ define internal fastcc ptr @uriParseIpFutureW(ptr noundef nonnull captures(none)
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !68
+  store ptr %2, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !69
+  store i32 1, ptr %9, align 8, !tbaa !72
   br label %53
 
 10:                                               ; preds = %4
@@ -8313,16 +8313,16 @@ define internal fastcc ptr @uriParseIpFutureW(ptr noundef nonnull captures(none)
   br i1 %.not48, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %0, align 8, !tbaa !51
+  %13 = load ptr, ptr %0, align 8, !tbaa !54
   %14 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %13, ptr noundef %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %15, align 8, !tbaa !68
+  store ptr %2, ptr %15, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %16, align 8, !tbaa !69
+  store i32 1, ptr %16, align 8, !tbaa !72
   br label %53
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr %11, align 4, !tbaa !55
+  %18 = load i32, ptr %11, align 4, !tbaa !58
   switch i32 %18, label %48 [
     i32 48, label %19
     i32 49, label %19
@@ -8355,7 +8355,7 @@ define internal fastcc ptr @uriParseIpFutureW(ptr noundef nonnull captures(none)
 
 .lr.ph.i:                                         ; preds = %19, %tailrecurse.i
   %.tr3.i = phi ptr [ %22, %tailrecurse.i ], [ %20, %19 ]
-  %21 = load i32, ptr %.tr3.i, align 4, !tbaa !55
+  %21 = load i32, ptr %.tr3.i, align 4, !tbaa !58
   switch i32 %21, label %uriParseHexZeroW.exit [
     i32 48, label %tailrecurse.i
     i32 49, label %tailrecurse.i
@@ -8391,38 +8391,38 @@ uriParseHexZeroW.exit:                            ; preds = %.lr.ph.i
   br i1 %.not49, label %27, label %uriParseHexZeroW.exit.thread
 
 uriParseHexZeroW.exit.thread:                     ; preds = %tailrecurse.i, %19, %uriParseHexZeroW.exit
-  %23 = load ptr, ptr %0, align 8, !tbaa !51
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %23, ptr noundef %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %25, align 8, !tbaa !68
+  store ptr %2, ptr %25, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %26, align 8, !tbaa !69
+  store i32 1, ptr %26, align 8, !tbaa !72
   br label %53
 
 27:                                               ; preds = %uriParseHexZeroW.exit
   %.not50 = icmp eq i32 %21, 46
-  %28 = load ptr, ptr %0, align 8, !tbaa !51
+  %28 = load ptr, ptr %0, align 8, !tbaa !54
   br i1 %.not50, label %33, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %28, ptr noundef %3)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.tr3.i, ptr %31, align 8, !tbaa !68
+  store ptr %.tr3.i, ptr %31, align 8, !tbaa !71
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %32, align 8, !tbaa !69
+  store i32 1, ptr %32, align 8, !tbaa !72
   br label %53
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %1, ptr %34, align 8, !tbaa !76
+  store ptr %1, ptr %34, align 8, !tbaa !79
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store ptr %1, ptr %35, align 8, !tbaa !74
+  store ptr %1, ptr %35, align 8, !tbaa !77
   %36 = getelementptr inbounds nuw i8, ptr %.tr3.i, i64 4
   %.not21.i = icmp ult ptr %36, %2
   br i1 %.not21.i, label %.lr.ph.preheader.i, label %uriParseIpFutLoopW.exit
 
 .lr.ph.preheader.i:                               ; preds = %33
-  %.pre.i = load i32, ptr %36, align 4, !tbaa !55
+  %.pre.i = load i32, ptr %36, align 4, !tbaa !58
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52.backedge, %.lr.ph.preheader.i
@@ -8515,7 +8515,7 @@ uriParseHexZeroW.exit.thread:                     ; preds = %tailrecurse.i, %19,
   br i1 %.not.i.i, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %39, align 4, !tbaa !55
+  %41 = load i32, ptr %39, align 4, !tbaa !58
   switch i32 %41, label %45 [
     i32 33, label %.lr.ph.i52.backedge
     i32 36, label %.lr.ph.i52.backedge
@@ -8604,26 +8604,26 @@ uriParseIpFutLoopW.exit:                          ; preds = %.lr.ph.i52, %33
   %.tr1622.lcssa.sink.i = phi ptr [ %2, %33 ], [ %.tr1622.i, %.lr.ph.i52 ]
   %42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %28, ptr noundef %3)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.tr1622.lcssa.sink.i, ptr %43, align 8, !tbaa !68
+  store ptr %.tr1622.lcssa.sink.i, ptr %43, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %44, align 8, !tbaa !69
+  store i32 1, ptr %44, align 8, !tbaa !72
   br label %53
 
 45:                                               ; preds = %40, %38
   %.0.i51.ph = phi ptr [ %2, %38 ], [ %39, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store ptr %.0.i51.ph, ptr %46, align 8, !tbaa !79
+  store ptr %.0.i51.ph, ptr %46, align 8, !tbaa !82
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  store ptr %.0.i51.ph, ptr %47, align 8, !tbaa !75
+  store ptr %.0.i51.ph, ptr %47, align 8, !tbaa !78
   br label %53
 
 48:                                               ; preds = %17
-  %49 = load ptr, ptr %0, align 8, !tbaa !51
+  %49 = load ptr, ptr %0, align 8, !tbaa !54
   %50 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %49, ptr noundef %3)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %51, align 8, !tbaa !68
+  store ptr %11, ptr %51, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %52, align 8, !tbaa !69
+  store i32 1, ptr %52, align 8, !tbaa !72
   br label %53
 
 53:                                               ; preds = %uriParseIpFutLoopW.exit, %uriParseHexZeroW.exit.thread, %29, %45, %48, %12, %5
@@ -8637,16 +8637,16 @@ define internal fastcc ptr @uriParsePctSubUnresW(ptr noundef nonnull captures(no
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %6, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !68
+  store ptr %2, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %9, align 8, !tbaa !69
+  store i32 1, ptr %9, align 8, !tbaa !72
   br label %21
 
 10:                                               ; preds = %4
-  %11 = load i32, ptr %1, align 4, !tbaa !55
+  %11 = load i32, ptr %1, align 4, !tbaa !58
   switch i32 %11, label %16 [
     i32 37, label %12
     i32 33, label %14
@@ -8737,12 +8737,12 @@ define internal fastcc ptr @uriParsePctSubUnresW(ptr noundef nonnull captures(no
   br label %21
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr %0, align 8, !tbaa !51
+  %17 = load ptr, ptr %0, align 8, !tbaa !54
   %18 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %17, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %19, align 8, !tbaa !68
+  store ptr %1, ptr %19, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %20, align 8, !tbaa !69
+  store i32 1, ptr %20, align 8, !tbaa !72
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
@@ -8757,27 +8757,27 @@ define internal fastcc ptr @uriParseOwnPortUserInfoW(ptr noundef nonnull %0, ptr
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %.tr55.lcssa = phi ptr [ %1, %4 ], [ %39, %tailrecurse ]
-  %5 = load ptr, ptr %0, align 8, !tbaa !51
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %6, align 8, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %7, ptr %8, align 8, !tbaa !76
-  store ptr null, ptr %6, align 8, !tbaa !72
+  store ptr %7, ptr %8, align 8, !tbaa !79
+  store ptr null, ptr %6, align 8, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr %.tr55.lcssa, ptr %9, align 8, !tbaa !81
-  %10 = load ptr, ptr %3, align 8, !tbaa !49
+  store ptr %.tr55.lcssa, ptr %9, align 8, !tbaa !84
+  %10 = load ptr, ptr %3, align 8, !tbaa !50
   %11 = tail call ptr %10(ptr noundef nonnull %3, i64 noundef 4) #7
-  %12 = load ptr, ptr %0, align 8, !tbaa !51
+  %12 = load ptr, ptr %0, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %11, ptr %13, align 8, !tbaa !77
+  store ptr %11, ptr %13, align 8, !tbaa !80
   %14 = icmp eq ptr %11, null
   br i1 %14, label %uriOnExitOwnPortUserInfoW.exit, label %15
 
 15:                                               ; preds = %tailrecurse._crit_edge
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !76
+  %17 = load ptr, ptr %16, align 8, !tbaa !79
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !79
+  %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %11, ptr noundef %17, ptr noundef %19) #7
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %uriOnExitOwnPortUserInfoW.exit.thread, label %21
@@ -8785,26 +8785,26 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = load ptr, ptr %0, align 8, !tbaa !51
+  %24 = load ptr, ptr %0, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !77
+  %26 = load ptr, ptr %25, align 8, !tbaa !80
   tail call void %23(ptr noundef nonnull %3, ptr noundef %26) #7
-  %27 = load ptr, ptr %0, align 8, !tbaa !51
+  %27 = load ptr, ptr %0, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store ptr null, ptr %28, align 8, !tbaa !77
+  store ptr null, ptr %28, align 8, !tbaa !80
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
 uriOnExitOwnPortUserInfoW.exit:                   ; preds = %tailrecurse._crit_edge
   %29 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %12, ptr noundef nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %30, align 8, !tbaa !68
+  store ptr null, ptr %30, align 8, !tbaa !71
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %31, align 8, !tbaa !69
+  store i32 3, ptr %31, align 8, !tbaa !72
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
 .lr.ph:                                           ; preds = %4, %tailrecurse
   %.tr5563 = phi ptr [ %39, %tailrecurse ], [ %1, %4 ]
-  %32 = load i32, ptr %.tr5563, align 4, !tbaa !55
+  %32 = load i32, ptr %.tr5563, align 4, !tbaa !58
   switch i32 %32, label %55 [
     i32 33, label %33
     i32 36, label %33
@@ -8889,11 +8889,11 @@ uriOnExitOwnPortUserInfoW.exit:                   ; preds = %tailrecurse._crit_e
   ]
 
 33:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %34 = load ptr, ptr %0, align 8, !tbaa !51
+  %34 = load ptr, ptr %0, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  store ptr null, ptr %35, align 8, !tbaa !79
+  store ptr null, ptr %35, align 8, !tbaa !82
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  store ptr null, ptr %36, align 8, !tbaa !80
+  store ptr null, ptr %36, align 8, !tbaa !83
   %37 = getelementptr inbounds nuw i8, ptr %.tr5563, i64 4
   %38 = tail call fastcc ptr @uriParseOwnUserInfoW(ptr noundef %0, ptr noundef %37, ptr noundef %2, ptr noundef %3)
   br label %uriOnExitOwnPortUserInfoW.exit.thread
@@ -8904,9 +8904,9 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 40:                                               ; preds = %.lr.ph
-  %41 = load ptr, ptr %0, align 8, !tbaa !51
+  %41 = load ptr, ptr %0, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  store ptr null, ptr %42, align 8, !tbaa !80
+  store ptr null, ptr %42, align 8, !tbaa !83
   %43 = tail call fastcc ptr @uriParsePctEncodedW(ptr noundef %0, ptr noundef %.tr5563, ptr noundef %2, ptr noundef %3)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %uriOnExitOwnPortUserInfoW.exit.thread, label %45
@@ -8916,16 +8916,16 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
 47:                                               ; preds = %.lr.ph
-  %48 = load ptr, ptr %0, align 8, !tbaa !51
+  %48 = load ptr, ptr %0, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store ptr null, ptr %49, align 8, !tbaa !79
+  store ptr null, ptr %49, align 8, !tbaa !82
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  store ptr null, ptr %50, align 8, !tbaa !80
+  store ptr null, ptr %50, align 8, !tbaa !83
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %.tr5563, ptr %51, align 8, !tbaa !73
+  store ptr %.tr5563, ptr %51, align 8, !tbaa !76
   %52 = getelementptr inbounds nuw i8, ptr %.tr5563, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %52, ptr %53, align 8, !tbaa !76
+  store ptr %52, ptr %53, align 8, !tbaa !79
   %54 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef %0, ptr noundef %52, ptr noundef %2, ptr noundef %3)
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
@@ -8935,12 +8935,12 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %.not51, label %57, label %uriOnExitOwnPortUserInfoW.exit.thread
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr %0, align 8, !tbaa !51
+  %58 = load ptr, ptr %0, align 8, !tbaa !54
   %59 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %58, ptr noundef %3)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %60, align 8, !tbaa !68
+  store ptr null, ptr %60, align 8, !tbaa !71
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %61, align 8, !tbaa !69
+  store i32 3, ptr %61, align 8, !tbaa !72
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
 uriOnExitOwnPortUserInfoW.exit.thread:            ; preds = %15, %21, %55, %45, %40, %57, %47, %33, %uriOnExitOwnPortUserInfoW.exit
@@ -8954,13 +8954,13 @@ define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !51
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %2, ptr %7, align 8, !tbaa !79
+  store ptr %2, ptr %7, align 8, !tbaa !82
   br label %uriParseAuthorityTwoW.exit
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %1, align 4, !tbaa !55
+  %9 = load i32, ptr %1, align 4, !tbaa !58
   %cond = icmp eq i32 %9, 91
   br i1 %cond, label %10, label %tailrecurse.i
 
@@ -8971,14 +8971,14 @@ define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef
   br i1 %13, label %uriParseAuthorityTwoW.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %0, align 8, !tbaa !51
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %11, ptr %16, align 8, !tbaa !76
+  store ptr %11, ptr %16, align 8, !tbaa !79
   %.not.i = icmp ult ptr %12, %2
   br i1 %.not.i, label %17, label %uriParseAuthorityTwoW.exit
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %12, align 4, !tbaa !55
+  %18 = load i32, ptr %12, align 4, !tbaa !58
   %cond.i = icmp eq i32 %18, 58
   br i1 %cond.i, label %19, label %uriParseAuthorityTwoW.exit
 
@@ -8989,7 +8989,7 @@ define internal fastcc ptr @uriParseOwnHostW(ptr noundef nonnull %0, ptr noundef
 
 .lr.ph.i.i:                                       ; preds = %19, %tailrecurse.i.i
   %.tr3.i.i = phi ptr [ %22, %tailrecurse.i.i ], [ %20, %19 ]
-  %21 = load i32, ptr %.tr3.i.i, align 4, !tbaa !55
+  %21 = load i32, ptr %.tr3.i.i, align 4, !tbaa !58
   %.off.i.i = add i32 %21, -48
   %switch.i.i = icmp ult i32 %.off.i.i, 10
   br i1 %switch.i.i, label %tailrecurse.i.i, label %uriParsePortW.exit.i
@@ -9002,9 +9002,9 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 uriParsePortW.exit.i:                             ; preds = %tailrecurse.i.i, %.lr.ph.i.i, %19
   %.0.i.i = phi ptr [ %2, %19 ], [ %.tr3.i.i, %.lr.ph.i.i ], [ %2, %tailrecurse.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store ptr %20, ptr %23, align 8, !tbaa !80
+  store ptr %20, ptr %23, align 8, !tbaa !83
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  store ptr %.0.i.i, ptr %24, align 8, !tbaa !81
+  store ptr %.0.i.i, ptr %24, align 8, !tbaa !84
   br label %uriParseAuthorityTwoW.exit
 
 tailrecurse.i:                                    ; preds = %8, %52
@@ -9013,22 +9013,22 @@ tailrecurse.i:                                    ; preds = %8, %52
   br i1 %.not.i25, label %50, label %25
 
 25:                                               ; preds = %tailrecurse.i
-  %26 = load ptr, ptr %0, align 8, !tbaa !51
+  %26 = load ptr, ptr %0, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %.tr38.i, ptr %27, align 8, !tbaa !79
-  %28 = load ptr, ptr %3, align 8, !tbaa !49
+  store ptr %.tr38.i, ptr %27, align 8, !tbaa !82
+  %28 = load ptr, ptr %3, align 8, !tbaa !50
   %29 = tail call ptr %28(ptr noundef nonnull %3, i64 noundef 4) #7
-  %30 = load ptr, ptr %0, align 8, !tbaa !51
+  %30 = load ptr, ptr %0, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store ptr %29, ptr %31, align 8, !tbaa !77
+  store ptr %29, ptr %31, align 8, !tbaa !80
   %32 = icmp eq ptr %29, null
   br i1 %32, label %uriOnExitOwnHost2W.exit.i, label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !76
+  %35 = load ptr, ptr %34, align 8, !tbaa !79
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !79
+  %37 = load ptr, ptr %36, align 8, !tbaa !82
   %38 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %29, ptr noundef %35, ptr noundef %37) #7
   %.not.i.i26 = icmp eq i32 %38, 0
   br i1 %.not.i.i26, label %uriParseAuthorityTwoW.exit, label %39
@@ -9036,25 +9036,25 @@ tailrecurse.i:                                    ; preds = %8, %52
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
-  %42 = load ptr, ptr %0, align 8, !tbaa !51
+  %42 = load ptr, ptr %0, align 8, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !77
+  %44 = load ptr, ptr %43, align 8, !tbaa !80
   tail call void %41(ptr noundef nonnull %3, ptr noundef %44) #7
-  %45 = load ptr, ptr %0, align 8, !tbaa !51
+  %45 = load ptr, ptr %0, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  store ptr null, ptr %46, align 8, !tbaa !77
+  store ptr null, ptr %46, align 8, !tbaa !80
   br label %uriParseAuthorityTwoW.exit
 
 uriOnExitOwnHost2W.exit.i:                        ; preds = %25
   %47 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %30, ptr noundef nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %48, align 8, !tbaa !68
+  store ptr null, ptr %48, align 8, !tbaa !71
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %49, align 8, !tbaa !69
+  store i32 3, ptr %49, align 8, !tbaa !72
   br label %uriParseAuthorityTwoW.exit
 
 50:                                               ; preds = %tailrecurse.i
-  %51 = load i32, ptr %.tr38.i, align 4, !tbaa !55
+  %51 = load i32, ptr %.tr38.i, align 4, !tbaa !58
   switch i32 %51, label %55 [
     i32 33, label %52
     i32 36, label %52
@@ -9147,16 +9147,16 @@ uriOnExitOwnHost2W.exit.i:                        ; preds = %25
   br i1 %.not32.i, label %57, label %62
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr %0, align 8, !tbaa !51
+  %58 = load ptr, ptr %0, align 8, !tbaa !54
   %59 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %58, ptr noundef %3)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %60, align 8, !tbaa !68
+  store ptr null, ptr %60, align 8, !tbaa !71
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 3, ptr %61, align 8, !tbaa !69
+  store i32 3, ptr %61, align 8, !tbaa !72
   br label %uriParseAuthorityTwoW.exit
 
 62:                                               ; preds = %55
-  %63 = load i32, ptr %.tr38.i, align 4, !tbaa !55
+  %63 = load i32, ptr %.tr38.i, align 4, !tbaa !58
   %cond.i.i = icmp eq i32 %63, 58
   br i1 %cond.i.i, label %64, label %uriParseAuthorityTwoW.exit
 
@@ -9167,7 +9167,7 @@ uriOnExitOwnHost2W.exit.i:                        ; preds = %25
 
 .lr.ph.i.i.i:                                     ; preds = %64, %tailrecurse.i.i.i
   %.tr3.i.i.i = phi ptr [ %67, %tailrecurse.i.i.i ], [ %65, %64 ]
-  %66 = load i32, ptr %.tr3.i.i.i, align 4, !tbaa !55
+  %66 = load i32, ptr %.tr3.i.i.i, align 4, !tbaa !58
   %.off.i.i.i = add i32 %66, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %tailrecurse.i.i.i, label %uriParsePortW.exit.i.i
@@ -9179,11 +9179,11 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i.i
 
 uriParsePortW.exit.i.i:                           ; preds = %tailrecurse.i.i.i, %.lr.ph.i.i.i, %64
   %.0.i.i.i = phi ptr [ %2, %64 ], [ %2, %tailrecurse.i.i.i ], [ %.tr3.i.i.i, %.lr.ph.i.i.i ]
-  %68 = load ptr, ptr %0, align 8, !tbaa !51
+  %68 = load ptr, ptr %0, align 8, !tbaa !54
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  store ptr %65, ptr %69, align 8, !tbaa !80
+  store ptr %65, ptr %69, align 8, !tbaa !83
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 88
-  store ptr %.0.i.i.i, ptr %70, align 8, !tbaa !81
+  store ptr %.0.i.i.i, ptr %70, align 8, !tbaa !84
   br label %uriParseAuthorityTwoW.exit
 
 uriParseAuthorityTwoW.exit:                       ; preds = %52, %uriParsePortW.exit.i.i, %62, %57, %uriOnExitOwnHost2W.exit.i, %39, %33, %uriParsePortW.exit.i, %17, %14, %10, %5
@@ -9193,27 +9193,27 @@ uriParseAuthorityTwoW.exit:                       ; preds = %52, %uriParsePortW.
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
+  %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !75
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %7, align 8, !tbaa !76
-  store ptr null, ptr %5, align 8, !tbaa !72
+  store ptr %6, ptr %7, align 8, !tbaa !79
+  store ptr null, ptr %5, align 8, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %1, ptr %8, align 8, !tbaa !79
-  %9 = load ptr, ptr %2, align 8, !tbaa !49
+  store ptr %1, ptr %8, align 8, !tbaa !82
+  %9 = load ptr, ptr %2, align 8, !tbaa !50
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 4) #7
-  %11 = load ptr, ptr %0, align 8, !tbaa !51
+  %11 = load ptr, ptr %0, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %10, ptr %12, align 8, !tbaa !77
+  store ptr %10, ptr %12, align 8, !tbaa !80
   %13 = icmp eq ptr %10, null
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !79
+  %18 = load ptr, ptr %17, align 8, !tbaa !82
   %19 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %10, ptr noundef %16, ptr noundef %18) #7
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %28, label %20
@@ -9221,13 +9221,13 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nounde
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !32
-  %23 = load ptr, ptr %0, align 8, !tbaa !51
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !77
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
   tail call void %22(ptr noundef nonnull %2, ptr noundef %25) #7
-  %26 = load ptr, ptr %0, align 8, !tbaa !51
+  %26 = load ptr, ptr %0, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store ptr null, ptr %27, align 8, !tbaa !77
+  store ptr null, ptr %27, align 8, !tbaa !80
   br label %28
 
 28:                                               ; preds = %14, %20, %3
@@ -9237,27 +9237,27 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHostUserInfoW(ptr nounde
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
+  %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !75
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %7, align 8, !tbaa !76
-  store ptr null, ptr %5, align 8, !tbaa !72
+  store ptr %6, ptr %7, align 8, !tbaa !79
+  store ptr null, ptr %5, align 8, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %1, ptr %8, align 8, !tbaa !81
-  %9 = load ptr, ptr %2, align 8, !tbaa !49
+  store ptr %1, ptr %8, align 8, !tbaa !84
+  %9 = load ptr, ptr %2, align 8, !tbaa !50
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 4) #7
-  %11 = load ptr, ptr %0, align 8, !tbaa !51
+  %11 = load ptr, ptr %0, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %10, ptr %12, align 8, !tbaa !77
+  store ptr %10, ptr %12, align 8, !tbaa !80
   %13 = icmp eq ptr %10, null
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !79
+  %18 = load ptr, ptr %17, align 8, !tbaa !82
   %19 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %10, ptr noundef %16, ptr noundef %18) #7
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %28, label %20
@@ -9265,13 +9265,13 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnPortUserInfoW(ptr nounde
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !32
-  %23 = load ptr, ptr %0, align 8, !tbaa !51
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !77
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
   tail call void %22(ptr noundef nonnull %2, ptr noundef %25) #7
-  %26 = load ptr, ptr %0, align 8, !tbaa !51
+  %26 = load ptr, ptr %0, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store ptr null, ptr %27, align 8, !tbaa !77
+  store ptr null, ptr %27, align 8, !tbaa !80
   br label %28
 
 28:                                               ; preds = %14, %20, %3
@@ -9285,17 +9285,17 @@ define internal fastcc ptr @uriParseOwnUserInfoW(ptr noundef nonnull %0, ptr nou
   br i1 %.not41, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %4
-  %5 = load ptr, ptr %0, align 8, !tbaa !51
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
   %6 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %7, align 8, !tbaa !68
+  store ptr %2, ptr %7, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %8, align 8, !tbaa !69
+  store i32 1, ptr %8, align 8, !tbaa !72
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %4, %tailrecurse.backedge
   %.tr3542 = phi ptr [ %.tr35.be, %tailrecurse.backedge ], [ %1, %4 ]
-  %9 = load i32, ptr %.tr3542, align 4, !tbaa !55
+  %9 = load i32, ptr %.tr3542, align 4, !tbaa !58
   switch i32 %9, label %21 [
     i32 33, label %10
     i32 36, label %10
@@ -9394,22 +9394,22 @@ tailrecurse.backedge:                             ; preds = %13, %10
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %0, align 8, !tbaa !51
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %.tr3542, ptr %17, align 8, !tbaa !73
+  store ptr %.tr3542, ptr %17, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %.tr3542, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %18, ptr %19, align 8, !tbaa !76
+  store ptr %18, ptr %19, align 8, !tbaa !79
   %20 = tail call fastcc ptr @uriParseOwnHostW(ptr noundef %0, ptr noundef %18, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %0, align 8, !tbaa !51
+  %22 = load ptr, ptr %0, align 8, !tbaa !54
   %23 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %22, ptr noundef %3)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.tr3542, ptr %24, align 8, !tbaa !68
+  store ptr %.tr3542, ptr %24, align 8, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %25, align 8, !tbaa !69
+  store i32 1, ptr %25, align 8, !tbaa !72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %21, %15, %tailrecurse._crit_edge
@@ -9419,22 +9419,22 @@ tailrecurse.backedge:                             ; preds = %13, %10
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
+  %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %1, ptr %5, align 8, !tbaa !79
-  %6 = load ptr, ptr %2, align 8, !tbaa !49
+  store ptr %1, ptr %5, align 8, !tbaa !82
+  %6 = load ptr, ptr %2, align 8, !tbaa !50
   %7 = tail call ptr %6(ptr noundef nonnull %2, i64 noundef 4) #7
-  %8 = load ptr, ptr %0, align 8, !tbaa !51
+  %8 = load ptr, ptr %0, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %7, ptr %9, align 8, !tbaa !77
+  store ptr %7, ptr %9, align 8, !tbaa !80
   %10 = icmp eq ptr %7, null
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !76
+  %13 = load ptr, ptr %12, align 8, !tbaa !79
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !79
+  %15 = load ptr, ptr %14, align 8, !tbaa !82
   %16 = tail call i32 @uriParseIpFourAddressW(ptr noundef nonnull %7, ptr noundef %13, ptr noundef %15) #7
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %25, label %17
@@ -9442,13 +9442,13 @@ define internal fastcc range(i32 0, 2) i32 @uriOnExitOwnHost2W(ptr noundef nonnu
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = load ptr, ptr %0, align 8, !tbaa !51
+  %20 = load ptr, ptr %0, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !77
+  %22 = load ptr, ptr %21, align 8, !tbaa !80
   tail call void %19(ptr noundef nonnull %2, ptr noundef %22) #7
-  %23 = load ptr, ptr %0, align 8, !tbaa !51
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr null, ptr %24, align 8, !tbaa !77
+  store ptr null, ptr %24, align 8, !tbaa !80
   br label %25
 
 25:                                               ; preds = %11, %17, %3
@@ -9463,7 +9463,7 @@ define internal fastcc noundef ptr @uriParseQueryFragW(ptr noundef nonnull captu
 
 .lr.ph:                                           ; preds = %4, %tailrecurse.backedge
   %.tr2327 = phi ptr [ %.tr23.be, %tailrecurse.backedge ], [ %1, %4 ]
-  %5 = load i32, ptr %.tr2327, align 4, !tbaa !55
+  %5 = load i32, ptr %.tr2327, align 4, !tbaa !58
   switch i32 %5, label %._crit_edge [
     i32 33, label %6
     i32 36, label %6
@@ -9623,50 +9623,55 @@ attributes #8 = { nounwind willreturn memory(read) }
 !40 = !{!13, !10, i64 40}
 !41 = !{!13, !10, i64 80}
 !42 = !{!13, !10, i64 88}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!13, !10, i64 112}
-!46 = !{!13, !10, i64 120}
-!47 = !{!13, !10, i64 128}
-!48 = !{!13, !10, i64 136}
-!49 = !{!20, !6, i64 0}
-!50 = distinct !{!50, !44}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"UriParserStateStructW", !53, i64 0, !9, i64 8, !54, i64 16, !6, i64 24}
-!53 = !{!"p1 _ZTS13UriUriStructW", !6, i64 0}
-!54 = !{!"p1 int", !6, i64 0}
-!55 = !{!9, !9, i64 0}
-!56 = !{!57, !54, i64 0}
-!57 = !{!"UriUriStructW", !58, i64 0, !58, i64 16, !58, i64 32, !59, i64 48, !58, i64 80, !60, i64 96, !60, i64 104, !58, i64 112, !58, i64 128, !9, i64 144, !9, i64 148, !6, i64 152}
-!58 = !{!"UriTextRangeStructW", !54, i64 0, !54, i64 8}
-!59 = !{!"UriHostDataStructW", !16, i64 0, !17, i64 8, !58, i64 16}
-!60 = !{!"p1 _ZTS21UriPathSegmentStructW", !6, i64 0}
-!61 = !{!62, !54, i64 0}
-!62 = !{!"UriPathSegmentStructW", !58, i64 0, !60, i64 16, !6, i64 24}
-!63 = !{!62, !54, i64 8}
-!64 = !{!57, !60, i64 96}
-!65 = !{!57, !60, i64 104}
-!66 = !{!62, !60, i64 16}
-!67 = !{!57, !54, i64 8}
-!68 = !{!52, !54, i64 16}
-!69 = !{!52, !9, i64 8}
-!70 = !{!54, !54, i64 0}
-!71 = !{!57, !9, i64 148}
-!72 = !{!57, !54, i64 16}
-!73 = !{!57, !54, i64 24}
-!74 = !{!57, !54, i64 64}
-!75 = !{!57, !54, i64 72}
-!76 = !{!57, !54, i64 32}
-!77 = !{!57, !16, i64 48}
-!78 = !{!57, !17, i64 56}
-!79 = !{!57, !54, i64 40}
-!80 = !{!57, !54, i64 80}
-!81 = !{!57, !54, i64 88}
-!82 = distinct !{!82, !44}
-!83 = !{!57, !54, i64 112}
-!84 = !{!57, !54, i64 120}
-!85 = !{!57, !54, i64 128}
-!86 = !{!57, !54, i64 136}
-!87 = distinct !{!87, !44}
-!88 = !{!13, !9, i64 144}
-!89 = !{!57, !9, i64 144}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!13, !10, i64 112}
+!47 = !{!13, !10, i64 120}
+!48 = !{!13, !10, i64 128}
+!49 = !{!13, !10, i64 136}
+!50 = !{!20, !6, i64 0}
+!51 = distinct !{!51, !45}
+!52 = distinct !{!52, !44, !45}
+!53 = distinct !{!53, !45}
+!54 = !{!55, !56, i64 0}
+!55 = !{!"UriParserStateStructW", !56, i64 0, !9, i64 8, !57, i64 16, !6, i64 24}
+!56 = !{!"p1 _ZTS13UriUriStructW", !6, i64 0}
+!57 = !{!"p1 int", !6, i64 0}
+!58 = !{!9, !9, i64 0}
+!59 = !{!60, !57, i64 0}
+!60 = !{!"UriUriStructW", !61, i64 0, !61, i64 16, !61, i64 32, !62, i64 48, !61, i64 80, !63, i64 96, !63, i64 104, !61, i64 112, !61, i64 128, !9, i64 144, !9, i64 148, !6, i64 152}
+!61 = !{!"UriTextRangeStructW", !57, i64 0, !57, i64 8}
+!62 = !{!"UriHostDataStructW", !16, i64 0, !17, i64 8, !61, i64 16}
+!63 = !{!"p1 _ZTS21UriPathSegmentStructW", !6, i64 0}
+!64 = !{!65, !57, i64 0}
+!65 = !{!"UriPathSegmentStructW", !61, i64 0, !63, i64 16, !6, i64 24}
+!66 = !{!65, !57, i64 8}
+!67 = !{!60, !63, i64 96}
+!68 = !{!60, !63, i64 104}
+!69 = !{!65, !63, i64 16}
+!70 = !{!60, !57, i64 8}
+!71 = !{!55, !57, i64 16}
+!72 = !{!55, !9, i64 8}
+!73 = !{!57, !57, i64 0}
+!74 = !{!60, !9, i64 148}
+!75 = !{!60, !57, i64 16}
+!76 = !{!60, !57, i64 24}
+!77 = !{!60, !57, i64 64}
+!78 = !{!60, !57, i64 72}
+!79 = !{!60, !57, i64 32}
+!80 = !{!60, !16, i64 48}
+!81 = !{!60, !17, i64 56}
+!82 = !{!60, !57, i64 40}
+!83 = !{!60, !57, i64 80}
+!84 = !{!60, !57, i64 88}
+!85 = distinct !{!85, !44, !45}
+!86 = !{!60, !57, i64 112}
+!87 = !{!60, !57, i64 120}
+!88 = !{!60, !57, i64 128}
+!89 = !{!60, !57, i64 136}
+!90 = distinct !{!90, !45}
+!91 = distinct !{!91, !44, !45}
+!92 = distinct !{!92, !45}
+!93 = !{!13, !9, i64 144}
+!94 = !{!60, !9, i64 144}

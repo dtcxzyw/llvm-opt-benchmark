@@ -25814,7 +25814,7 @@ lean_dec.exit40:                                  ; preds = %59, %58, %56, %lean
 
 lean_dec.exit41.backedge:                         ; preds = %64, %68, %70, %71, %25, %31, %33, %34, %lean_alloc_ctor.exit, %35
   %.036.be = phi ptr [ %.0, %35 ], [ %73, %lean_alloc_ctor.exit ], [ %.036, %34 ], [ %.036, %33 ], [ %.036, %31 ], [ %.036, %25 ], [ %.036, %71 ], [ %.036, %70 ], [ %.036, %68 ], [ %.036, %64 ]
-  br label %lean_dec.exit41
+  br label %lean_dec.exit41, !llvm.loop !18
 
 65:                                               ; preds = %64
   %66 = load i32, ptr %17, align 4, !tbaa !8
@@ -25992,7 +25992,7 @@ lean_dec.exit49:                                  ; preds = %57, %56, %54, %lean
   %60 = load ptr, ptr %12, align 8, !tbaa !4
   %61 = tail call ptr @l_Lean_PersistentArray_push___rarg(ptr noundef %60, ptr noundef %32) #5
   store ptr %61, ptr %12, align 8, !tbaa !4
-  br label %13
+  br label %13, !llvm.loop !20
 
 62:                                               ; preds = %lean_dec.exit49
   %63 = getelementptr inbounds nuw i8, ptr %.047.ph, i64 8
@@ -26201,7 +26201,7 @@ lean_alloc_ctor.exit83:                           ; preds = %lean_dec.exit
   store ptr %72, ptr %141, align 8, !tbaa !4
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 48
   store ptr %74, ptr %142, align 8, !tbaa !4
-  br label %.outer
+  br label %.outer, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -64657,7 +64657,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit34
   %.031.be = phi ptr [ %.0, %lean_dec.exit34 ], [ %82, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -93548,7 +93548,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit34
   %.031.be = phi ptr [ %.0, %lean_dec.exit34 ], [ %82, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -112421,3 +112421,8 @@ attributes #6 = { noreturn nounwind }
 !15 = !{!6, !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

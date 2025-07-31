@@ -173,24 +173,24 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   %.1.i = phi i64 [ %33, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %38, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %40 = and i64 %.1.i, 1
   %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", label %._crit_edge.i, !llvm.loop !23
+  br i1 %.not.i.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", label %._crit_edge.i, !llvm.loop !24
 
 "_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit": ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !24
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split", label %43
 
 43:                                               ; preds = %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit"
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %1, ptr %44, align 8, !tbaa !30
+  store ptr %1, ptr %44, align 8, !tbaa !31
   br label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split"
 
 "_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split": ; preds = %43, %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit"
-  store ptr %42, ptr %1, align 16, !tbaa !38
+  store ptr %42, ptr %1, align 16, !tbaa !39
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %41, ptr %45, align 8, !tbaa !30
-  store ptr %1, ptr %41, align 8, !tbaa !24
+  store ptr %41, ptr %45, align 8, !tbaa !31
+  store ptr %1, ptr %41, align 8, !tbaa !25
   %. = select i1 %2, i64 -6, i64 2
   %46 = atomicrmw sub ptr %5, i64 %. release, align 8
   br label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread"
@@ -284,7 +284,7 @@ _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %.critedge.i.i.i, %1
   %24 = load atomic i64, ptr %5 monotonic, align 8
   %25 = and i64 %24, 2
   %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i, %8
   %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %8 ], [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ]
@@ -300,19 +300,19 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
 
 _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %53, label %32
 
 32:                                               ; preds = %_ZN5folly6detail17CancellationState4lockEv.exit
-  %33 = load ptr, ptr %1, align 16, !tbaa !38
-  store ptr %33, ptr %31, align 8, !tbaa !40
+  %33 = load ptr, ptr %1, align 16, !tbaa !39
+  store ptr %33, ptr %31, align 8, !tbaa !41
   %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %31, ptr %35, align 8, !tbaa !30
+  store ptr %31, ptr %35, align 8, !tbaa !31
   br label %36
 
 36:                                               ; preds = %34, %32
@@ -323,11 +323,11 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
 39:                                               ; preds = %36
   %40 = and i64 %37, 4
   %.not.i15 = icmp eq i64 %40, 0
-  br i1 %.not.i15, label %49, label %41, !prof !41
+  br i1 %.not.i15, label %49, label %41, !prof !42
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 16, !tbaa !42
+  %43 = load ptr, ptr %42, align 16, !tbaa !43
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
@@ -347,7 +347,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
 53:                                               ; preds = %_ZN5folly6detail17CancellationState4lockEv.exit
   %54 = atomicrmw sub ptr %5, i64 2 release, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.01.0.copyload = load i64, ptr %55, align 8, !tbaa !44
+  %.sroa.01.0.copyload = load i64, ptr %55, align 8, !tbaa !45
   %56 = tail call i64 @pthread_self() #17
   %57 = icmp eq i64 %.sroa.01.0.copyload, %56
   br i1 %57, label %62, label %.preheader
@@ -364,12 +364,12 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
 
 62:                                               ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %64 = load ptr, ptr %63, align 16, !tbaa !45
+  %64 = load ptr, ptr %63, align 16, !tbaa !46
   %.not13 = icmp eq ptr %64, null
   br i1 %.not13, label %.loopexit, label %65
 
 65:                                               ; preds = %62
-  store i8 1, ptr %64, align 1, !tbaa !46
+  store i8 1, ptr %64, align 1, !tbaa !47
   br label %.loopexit
 
 66:                                               ; preds = %.lr.ph, %_ZN5folly6detail7Sleeper4waitEv.exit
@@ -417,7 +417,7 @@ _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %68, %.critedge.i.i
   %.sroa.4.1 = phi i32 [ %69, %68 ], [ %.sroa.4.017, %.critedge.i.i ]
   %81 = load atomic i8, ptr %58 acquire, align 1
   %82 = trunc i8 %81 to i1
-  br i1 %82, label %.loopexit, label %66, !llvm.loop !47
+  br i1 %82, label %.loopexit, label %66, !llvm.loop !48
 
 .loopexit:                                        ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit, %.preheader, %62, %65
   %83 = atomicrmw sub ptr %5, i64 8 acq_rel, align 8
@@ -431,7 +431,7 @@ _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %68, %.critedge.i.i
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %89 = load ptr, ptr %88, align 16, !tbaa !42
+  %89 = load ptr, ptr %88, align 16, !tbaa !43
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %0 to i64
   %92 = sub i64 %90, %91
@@ -513,7 +513,7 @@ _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %9, %.critedge.i.i
   %22 = load atomic i64, ptr %3 monotonic, align 8
   %23 = and i64 %22, 2
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit, %6
   %.sroa.4.1.lcssa = phi i32 [ %.sroa.4.0, %6 ], [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ]
@@ -541,11 +541,11 @@ define void @_ZN5folly6detail17CancellationState28unlockAndDecrementTokenCountEv
 5:                                                ; preds = %1
   %6 = and i64 %3, 4
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %15, label %7, !prof !41
+  br i1 %.not, label %15, label %7, !prof !42
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 16, !tbaa !42
+  %9 = load ptr, ptr %8, align 16, !tbaa !43
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
@@ -572,7 +572,7 @@ declare i64 @pthread_self() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationState7destroyEv(ptr noundef nonnull align 16 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 16, !tbaa !42
+  %3 = load ptr, ptr %2, align 16, !tbaa !43
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -665,14 +665,14 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   %.1.i = phi i64 [ %26, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %31, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %33 = and i64 %.1.i, 1
   %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %9, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread, !llvm.loop !48
+  br i1 %.not.i, label %9, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread, !llvm.loop !49
 
 _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; preds = %27
   %34 = tail call i64 @pthread_self() #17
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %34, ptr %35, align 8, !tbaa !44
+  store i64 %34, ptr %35, align 8, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !24
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
   %.not24 = icmp eq ptr %37, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -682,24 +682,24 @@ _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; p
 
 39:                                               ; preds = %.lr.ph, %_ZN5folly6detail17CancellationState4lockEv.exit
   %40 = phi ptr [ %37, %.lr.ph ], [ %83, %_ZN5folly6detail17CancellationState4lockEv.exit ]
-  %41 = load ptr, ptr %40, align 16, !tbaa !38
-  store ptr %41, ptr %36, align 8, !tbaa !24
+  %41 = load ptr, ptr %40, align 16, !tbaa !39
+  store ptr %41, ptr %36, align 8, !tbaa !25
   %.not13 = icmp eq ptr %41, null
   br i1 %.not13, label %44, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %36, ptr %43, align 8, !tbaa !30
+  store ptr %36, ptr %43, align 8, !tbaa !31
   br label %44
 
 44:                                               ; preds = %42, %39
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr null, ptr %45, align 8, !tbaa !30
+  store ptr null, ptr %45, align 8, !tbaa !31
   %46 = atomicrmw sub ptr %5, i64 2 release, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
-  store i8 0, ptr %4, align 1, !tbaa !46
+  store i8 0, ptr %4, align 1, !tbaa !47
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 96
-  store ptr %4, ptr %47, align 16, !tbaa !45
+  store ptr %4, ptr %47, align 16, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %50 = load ptr, ptr %49, align 16, !tbaa !10
@@ -714,12 +714,12 @@ _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; p
   unreachable
 
 _ZN5folly20CancellationCallback14invokeCallbackEv.exit: ; preds = %44
-  %54 = load i8, ptr %4, align 1, !tbaa !46, !range !49, !noundef !50
+  %54 = load i8, ptr %4, align 1, !tbaa !47, !range !50, !noundef !51
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %_ZN5folly20CancellationCallback14invokeCallbackEv.exit
-  store ptr null, ptr %47, align 16, !tbaa !45
+  store ptr null, ptr %47, align 16, !tbaa !46
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store atomic i8 1, ptr %57 release, align 1
   br label %58
@@ -788,7 +788,7 @@ _ZN5folly6detail7Sleeper4waitEv.exit.i17:         ; preds = %.critedge.i.i.i16, 
   %77 = load atomic i64, ptr %5 monotonic, align 8
   %78 = and i64 %77, 2
   %.not.i19 = icmp eq i64 %78, 0
-  br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i14, !llvm.loop !39
+  br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i14, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i17, %61
   %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %61 ], [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ]
@@ -804,9 +804,9 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20: 
 
 _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
-  %83 = load ptr, ptr %36, align 8, !tbaa !24
+  %83 = load ptr, ptr %36, align 8, !tbaa !25
   %.not = icmp eq ptr %83, null
-  br i1 %.not, label %._crit_edge, label %39
+  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZN5folly6detail17CancellationState4lockEv.exit, %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit
   %84 = atomicrmw sub ptr %5, i64 2 release, align 8
@@ -897,7 +897,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   %.1 = phi i64 [ %24, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ %29, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %31 = and i64 %.1, 1
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %7, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, !llvm.loop !48
+  br i1 %.not, label %7, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, !llvm.loop !49
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread: ; preds = %30, %25, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ true, %25 ], [ false, %30 ]
@@ -907,26 +907,26 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.threa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly6detail24MergingCancellationStateC2Ev(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 32)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 12, ptr %2, align 8, !tbaa !51
+  store i64 12, ptr %2, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %5, ptr %4, align 16, !tbaa !42
+  store ptr %5, ptr %4, align 16, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 32)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 12, ptr %4, align 8, !tbaa !51
+  store i64 12, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %7, ptr %6, align 16, !tbaa !42
+  store ptr %7, ptr %6, align 16, !tbaa !43
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -937,20 +937,20 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17
   %8 = phi ptr [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit" ], [ %7, %3 ]
   %.05 = phi i64 [ %22, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit" ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(105) %8, i8 0, i64 24, i1 false)
-  store ptr %0, ptr %12, align 16, !tbaa !54
+  store ptr %0, ptr %12, align 16, !tbaa !56
   store ptr @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %13, align 16, !tbaa !10
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %14, align 8, !tbaa !56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %14, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store ptr null, ptr %15, align 16, !tbaa !45
+  store ptr null, ptr %15, align 16, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i8 0, ptr %16, align 1, !tbaa !57
-  %17 = load ptr, ptr %10, align 8, !tbaa !58
+  store i8 0, ptr %16, align 1, !tbaa !59
+  %17 = load ptr, ptr %10, align 8, !tbaa !60
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit", label %18
 
@@ -959,17 +959,17 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17
   br i1 %19, label %20, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit"
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %10, align 8, !tbaa !58
-  store ptr %21, ptr %11, align 16, !tbaa !59
+  %21 = load ptr, ptr %10, align 8, !tbaa !60
+  store ptr %21, ptr %11, align 16, !tbaa !61
   br label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit"
 
 "_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit": ; preds = %.lr.ph, %18, %20
   %22 = add nuw i64 %.05, 1
-  %23 = load ptr, ptr %6, align 16, !tbaa !42
+  %23 = load ptr, ptr %6, align 16, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  store ptr %24, ptr %6, align 16, !tbaa !42
+  store ptr %24, ptr %6, align 16, !tbaa !43
   %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -977,16 +977,16 @@ define void @_ZN5folly6detail24MergingCancellationStateD2Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 16, !tbaa !42
+  %4 = load ptr, ptr %3, align 16, !tbaa !43
   %5 = icmp ugt ptr %4, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %_ZN5folly20CancellationCallbackD2Ev.exit
   %6 = phi ptr [ %17, %_ZN5folly20CancellationCallbackD2Ev.exit ], [ %4, %1 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 -112
-  store ptr %7, ptr %3, align 16, !tbaa !42
+  store ptr %7, ptr %3, align 16, !tbaa !43
   %8 = getelementptr inbounds i8, ptr %6, i64 -96
-  %9 = load ptr, ptr %8, align 16, !tbaa !59
+  %9 = load ptr, ptr %8, align 16, !tbaa !61
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %11, label %10
 
@@ -996,7 +996,7 @@ define void @_ZN5folly6detail24MergingCancellationStateD2Ev(ptr noundef nonnull 
 
 11:                                               ; preds = %10, %.lr.ph
   %12 = getelementptr inbounds i8, ptr %6, i64 -24
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZN5folly20CancellationCallbackD2Ev.exit, label %14
 
@@ -1006,9 +1006,9 @@ define void @_ZN5folly6detail24MergingCancellationStateD2Ev(ptr noundef nonnull 
   br label %_ZN5folly20CancellationCallbackD2Ev.exit
 
 _ZN5folly20CancellationCallbackD2Ev.exit:         ; preds = %11, %14
-  %17 = load ptr, ptr %3, align 16, !tbaa !42
+  %17 = load ptr, ptr %3, align 16, !tbaa !43
   %18 = icmp ugt ptr %17, %2
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %_ZN5folly20CancellationCallbackD2Ev.exit, %1
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail17CancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
@@ -1017,7 +1017,7 @@ _ZN5folly20CancellationCallbackD2Ev.exit:         ; preds = %11, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #0 {
-  %.val = load ptr, ptr %0, align 16, !tbaa !62
+  %.val = load ptr, ptr %0, align 16, !tbaa !64
   %2 = tail call noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellationEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #14
   ret void
 }
@@ -1041,13 +1041,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17CancellationTokenE(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 32)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 12, ptr %4, align 8, !tbaa !51
+  store i64 12, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %7, ptr %6, align 16, !tbaa !42
+  store ptr %7, ptr %6, align 16, !tbaa !43
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1058,20 +1058,20 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17C
   %8 = phi ptr [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit" ], [ %7, %3 ]
   %.05 = phi i64 [ %22, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit" ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(105) %8, i8 0, i64 24, i1 false)
-  store ptr %0, ptr %12, align 16, !tbaa !54
+  store ptr %0, ptr %12, align 16, !tbaa !56
   store ptr @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %13, align 16, !tbaa !10
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %14, align 8, !tbaa !56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %14, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store ptr null, ptr %15, align 16, !tbaa !45
+  store ptr null, ptr %15, align 16, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i8 0, ptr %16, align 1, !tbaa !57
-  %17 = load ptr, ptr %10, align 8, !tbaa !58
+  store i8 0, ptr %16, align 1, !tbaa !59
+  %17 = load ptr, ptr %10, align 8, !tbaa !60
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit", label %18
 
@@ -1080,23 +1080,23 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7MoveTagEmPPNS_17C
   br i1 %19, label %20, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit"
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %10, align 8, !tbaa !58
-  store ptr null, ptr %10, align 8, !tbaa !58
-  store ptr %21, ptr %11, align 16, !tbaa !59
+  %21 = load ptr, ptr %10, align 8, !tbaa !60
+  store ptr null, ptr %10, align 8, !tbaa !60
+  store ptr %21, ptr %11, align 16, !tbaa !61
   br label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit"
 
 "_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSD_.exit": ; preds = %.lr.ph, %18, %20
   %22 = add nuw i64 %.05, 1
-  %23 = load ptr, ptr %6, align 16, !tbaa !42
+  %23 = load ptr, ptr %6, align 16, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  store ptr %24, ptr %6, align 16, !tbaa !42
+  store ptr %24, ptr %6, align 16, !tbaa !43
   %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_7MoveTagEmPPNS_17CancellationTokenEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #0 {
-  %.val = load ptr, ptr %0, align 16, !tbaa !65
+  %.val = load ptr, ptr %0, align 16, !tbaa !67
   %2 = tail call noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellationEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #14
   ret void
 }
@@ -1104,13 +1104,13 @@ define internal void @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellatio
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS3_(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 32)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 12, ptr %6, align 8, !tbaa !51
+  store i64 12, ptr %6, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %9, ptr %8, align 16, !tbaa !42
+  store ptr %9, ptr %8, align 16, !tbaa !43
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit, label %.lr.ph.i
 
@@ -1118,20 +1118,20 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_11CopyMoveTagEmPPK
   %10 = phi ptr [ %26, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i" ], [ %9, %5 ]
   %.05.i = phi i64 [ %24, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i" ], [ 0, %5 ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.05.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(105) %10, i8 0, i64 24, i1 false)
-  store ptr %0, ptr %14, align 16, !tbaa !54
+  store ptr %0, ptr %14, align 16, !tbaa !56
   store ptr @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %15, align 16, !tbaa !10
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %16, align 8, !tbaa !56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %16, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store ptr null, ptr %17, align 16, !tbaa !45
+  store ptr null, ptr %17, align 16, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i8 0, ptr %18, align 1, !tbaa !57
-  %19 = load ptr, ptr %12, align 8, !tbaa !58
+  store i8 0, ptr %18, align 1, !tbaa !59
+  %19 = load ptr, ptr %12, align 8, !tbaa !60
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i", label %20
 
@@ -1140,17 +1140,17 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_11CopyMoveTagEmPPK
   br i1 %21, label %22, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i"
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %12, align 8, !tbaa !58
-  store ptr %23, ptr %13, align 16, !tbaa !59
+  %23 = load ptr, ptr %12, align 8, !tbaa !60
+  store ptr %23, ptr %13, align 16, !tbaa !61
   br label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i"
 
 "_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i": ; preds = %22, %20, %.lr.ph.i
   %24 = add nuw i64 %.05.i, 1
-  %25 = load ptr, ptr %8, align 16, !tbaa !42
+  %25 = load ptr, ptr %8, align 16, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  store ptr %26, ptr %8, align 16, !tbaa !42
+  store ptr %26, ptr %8, align 16, !tbaa !43
   %exitcond.not.i = icmp eq i64 %24, %1
-  br i1 %exitcond.not.i, label %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit, label %.lr.ph.i, !llvm.loop !62
 
 _ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit: ; preds = %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i", %5
   %27 = phi ptr [ %9, %5 ], [ %26, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_7CopyTagEmPPKNS_17CancellationTokenEE3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEERS6_OSE_.exit.i" ]
@@ -1164,20 +1164,20 @@ _ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationT
   %28 = phi ptr [ %44, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit" ], [ %27, %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit ]
   %.08 = phi i64 [ %42, %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit" ], [ 0, %_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationTokenE.exit ]
   %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.08
-  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(105) %28, i8 0, i64 24, i1 false)
-  store ptr %0, ptr %32, align 16, !tbaa !54
+  store ptr %0, ptr %32, align 16, !tbaa !56
   store ptr @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %33, align 16, !tbaa !10
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %34, align 8, !tbaa !56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %34, align 8, !tbaa !58
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  store ptr null, ptr %35, align 16, !tbaa !45
+  store ptr null, ptr %35, align 16, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store i8 0, ptr %36, align 1, !tbaa !57
-  %37 = load ptr, ptr %30, align 8, !tbaa !58
+  store i8 0, ptr %36, align 1, !tbaa !59
+  %37 = load ptr, ptr %30, align 8, !tbaa !60
   %.not.i7 = icmp eq ptr %37, null
   br i1 %.not.i7, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit", label %38
 
@@ -1186,45 +1186,45 @@ _ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17CancellationT
   br i1 %39, label %40, label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit"
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr %30, align 8, !tbaa !58
-  store ptr null, ptr %30, align 8, !tbaa !58
-  store ptr %41, ptr %31, align 16, !tbaa !59
+  %41 = load ptr, ptr %30, align 8, !tbaa !60
+  store ptr null, ptr %30, align 8, !tbaa !60
+  store ptr %41, ptr %31, align 16, !tbaa !61
   br label %"_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit"
 
 "_ZN5folly20CancellationCallbackC2IZNS_6detail24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0TnNSt9enable_ifIXsr3std16is_constructibleINS_8FunctionIFvvEEET_EE5valueEiE4typeELi0EEEOS5_OSG_.exit": ; preds = %.lr.ph, %38, %40
   %42 = add nuw i64 %.08, 1
-  %43 = load ptr, ptr %8, align 16, !tbaa !42
+  %43 = load ptr, ptr %8, align 16, !tbaa !43
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  store ptr %44, ptr %8, align 16, !tbaa !42
+  store ptr %44, ptr %8, align 16, !tbaa !43
   %exitcond.not = icmp eq i64 %42, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail8function5call_IZNS0_24MergingCancellationStateC1ENS3_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS5_E3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #0 {
-  %.val = load ptr, ptr %0, align 16, !tbaa !68
+  %.val = load ptr, ptr %0, align 16, !tbaa !70
   %2 = tail call noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellationEv(ptr noundef nonnull align 8 dereferenceable(32) %.val) #14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6detail24MergingCancellationState10createCopyEmPPKNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %4 = mul i64 %1, 112
   %5 = add i64 %4, 48
-  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #18, !noalias !70
+  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #18, !noalias !72
   invoke void @_ZN5folly6detail24MergingCancellationStateC1ENS1_7CopyTagEmPPKNS_17CancellationTokenE(ptr noundef nonnull align 16 dereferenceable(40) %6, i64 noundef %1, ptr noundef %2)
-          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i, !noalias !70
+          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i, !noalias !72
 
 _ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i: ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #14, !noalias !70
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #14, !noalias !72
   resume { ptr, i32 } %7
 
 _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_.exit: ; preds = %3
   %8 = ptrtoint ptr %6 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !58, !alias.scope !70
+  store i64 %8, ptr %0, align 8, !tbaa !60, !alias.scope !72
   ret void
 }
 
@@ -1236,44 +1236,44 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6detail24MergingCancellationState10createMoveEmPPNS_17CancellationTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %4 = mul i64 %1, 112
   %5 = add i64 %4, 48
-  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #18, !noalias !73
+  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #18, !noalias !75
   invoke void @_ZN5folly6detail24MergingCancellationStateC1ENS1_7MoveTagEmPPNS_17CancellationTokenE(ptr noundef nonnull align 16 dereferenceable(40) %6, i64 noundef %1, ptr noundef %2)
-          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i, !noalias !73
+          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i, !noalias !75
 
 _ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit4.i: ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #14, !noalias !73
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #14, !noalias !75
   resume { ptr, i32 } %7
 
 _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_.exit: ; preds = %3
   %8 = ptrtoint ptr %6 to i64
-  store i64 %8, ptr %0, align 8, !tbaa !58, !alias.scope !73
+  store i64 %8, ptr %0, align 8, !tbaa !60, !alias.scope !75
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6detail24MergingCancellationState14createCopyMoveEmPPKNS_17CancellationTokenEmPPS2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %6 = add i64 %3, %1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %7 = mul i64 %6, 112
   %8 = add i64 %7, 48
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #18, !noalias !76
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #18, !noalias !78
   invoke void @_ZN5folly6detail24MergingCancellationStateC1ENS1_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS3_(ptr noundef nonnull align 16 dereferenceable(40) %9, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
-          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit6.i, !noalias !76
+          to label %_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_.exit unwind label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit6.i, !noalias !78
 
 _ZN5folly6detail14ScopeGuardImplISt5_BindIFNS_18operator_delete_fnEPvEELb1EED2Ev.exit6.i: ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #14, !noalias !76
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #14, !noalias !78
   resume { ptr, i32 } %10
 
 _ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_.exit: ; preds = %5
   %11 = ptrtoint ptr %9 to i64
-  store i64 %11, ptr %0, align 8, !tbaa !58, !alias.scope !76
+  store i64 %11, ptr %0, align 8, !tbaa !60, !alias.scope !78
   ret void
 }
 
@@ -1323,61 +1323,63 @@ attributes #18 = { builtin allocsize(0) }
 !18 = !{!16, !17, i64 8}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !12, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!25, !28, i64 16}
-!25 = !{!"_ZTSN5folly6detail17CancellationStateE", !26, i64 8, !28, i64 16, !29, i64 24}
-!26 = !{!"_ZTSSt6atomicImE", !27, i64 0}
-!27 = !{!"_ZTSSt13__atomic_baseImE", !17, i64 0}
-!28 = !{!"p1 _ZTSN5folly20CancellationCallbackE", !13, i64 0}
-!29 = !{!"_ZTSNSt6thread2idE", !17, i64 0}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"_ZTSN5folly20CancellationCallbackE", !28, i64 0, !32, i64 8, !33, i64 16, !11, i64 32, !34, i64 96, !35, i64 104}
-!32 = !{!"p2 _ZTSN5folly20CancellationCallbackE", !13, i64 0}
-!33 = !{!"p1 _ZTSN5folly6detail17CancellationStateE", !13, i64 0}
-!34 = !{!"p1 bool", !13, i64 0}
-!35 = !{!"_ZTSSt6atomicIbE", !36, i64 0}
-!36 = !{!"_ZTSSt13__atomic_baseIbE", !37, i64 0}
-!37 = !{!"bool", !12, i64 0}
-!38 = !{!31, !28, i64 0}
-!39 = distinct !{!39, !22}
-!40 = !{!28, !28, i64 0}
-!41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!42 = !{!43, !28, i64 32}
-!43 = !{!"_ZTSN5folly6detail24MergingCancellationStateE", !25, i64 0, !28, i64 32}
-!44 = !{!17, !17, i64 0}
-!45 = !{!31, !34, i64 96}
-!46 = !{!37, !37, i64 0}
-!47 = distinct !{!47, !22}
-!48 = distinct !{!48, !22}
-!49 = !{i8 0, i8 2}
-!50 = !{}
-!51 = !{!27, !17, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTSN5folly17CancellationTokenE", !13, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = !{!26, !29, i64 16}
+!26 = !{!"_ZTSN5folly6detail17CancellationStateE", !27, i64 8, !29, i64 16, !30, i64 24}
+!27 = !{!"_ZTSSt6atomicImE", !28, i64 0}
+!28 = !{!"_ZTSSt13__atomic_baseImE", !17, i64 0}
+!29 = !{!"p1 _ZTSN5folly20CancellationCallbackE", !13, i64 0}
+!30 = !{!"_ZTSNSt6thread2idE", !17, i64 0}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"_ZTSN5folly20CancellationCallbackE", !29, i64 0, !33, i64 8, !34, i64 16, !11, i64 32, !35, i64 96, !36, i64 104}
+!33 = !{!"p2 _ZTSN5folly20CancellationCallbackE", !13, i64 0}
+!34 = !{!"p1 _ZTSN5folly6detail17CancellationStateE", !13, i64 0}
+!35 = !{!"p1 bool", !13, i64 0}
+!36 = !{!"_ZTSSt6atomicIbE", !37, i64 0}
+!37 = !{!"_ZTSSt13__atomic_baseIbE", !38, i64 0}
+!38 = !{!"bool", !12, i64 0}
+!39 = !{!32, !29, i64 0}
+!40 = distinct !{!40, !22, !23}
+!41 = !{!29, !29, i64 0}
+!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!43 = !{!44, !29, i64 32}
+!44 = !{!"_ZTSN5folly6detail24MergingCancellationStateE", !26, i64 0, !29, i64 32}
+!45 = !{!17, !17, i64 0}
+!46 = !{!32, !35, i64 96}
+!47 = !{!38, !38, i64 0}
+!48 = distinct !{!48, !22, !23}
+!49 = distinct !{!49, !22, !23}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = distinct !{!52, !23}
+!53 = !{!28, !17, i64 0}
 !54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTSN5folly6detail24MergingCancellationStateE", !13, i64 0}
-!56 = !{!11, !13, i64 56}
-!57 = !{!36, !37, i64 0}
-!58 = !{!33, !33, i64 0}
-!59 = !{!31, !33, i64 16}
-!60 = distinct !{!60, !22}
-!61 = distinct !{!61, !22}
-!62 = !{!63, !55, i64 0}
-!63 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_7CopyTagEmPPKNS_17CancellationTokenEE3$_0", !55, i64 0}
-!64 = distinct !{!64, !22}
-!65 = !{!66, !55, i64 0}
-!66 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_7MoveTagEmPPNS_17CancellationTokenEE3$_0", !55, i64 0}
-!67 = distinct !{!67, !22}
-!68 = !{!69, !55, i64 0}
-!69 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS3_E3$_0", !55, i64 0}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_: argument 0"}
-!72 = distinct !{!72, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_: argument 0"}
-!75 = distinct !{!75, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_: argument 0"}
-!78 = distinct !{!78, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_"}
+!55 = !{!"p1 _ZTSN5folly17CancellationTokenE", !13, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN5folly6detail24MergingCancellationStateE", !13, i64 0}
+!58 = !{!11, !13, i64 56}
+!59 = !{!37, !38, i64 0}
+!60 = !{!34, !34, i64 0}
+!61 = !{!32, !34, i64 16}
+!62 = distinct !{!62, !22, !23}
+!63 = distinct !{!63, !22, !23}
+!64 = !{!65, !57, i64 0}
+!65 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_7CopyTagEmPPKNS_17CancellationTokenEE3$_0", !57, i64 0}
+!66 = distinct !{!66, !22, !23}
+!67 = !{!68, !57, i64 0}
+!68 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_7MoveTagEmPPNS_17CancellationTokenEE3$_0", !57, i64 0}
+!69 = distinct !{!69, !22, !23}
+!70 = !{!71, !57, i64 0}
+!71 = !{!"_ZTSZN5folly6detail24MergingCancellationStateC1ENS1_11CopyMoveTagEmPPKNS_17CancellationTokenEmPPS3_E3$_0", !57, i64 0}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_: argument 0"}
+!74 = distinct !{!74, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7CopyTagERmRPPKNS_17CancellationTokenEEEEDamDpOT_"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_: argument 0"}
+!77 = distinct !{!77, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState7MoveTagERmRPPNS_17CancellationTokenEEEEDamDpOT_"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_: argument 0"}
+!80 = distinct !{!80, !"_ZN5folly6detail12_GLOBAL__N_129allocAndConstructMergingStateIJNS0_24MergingCancellationState11CopyMoveTagERmRPPKNS_17CancellationTokenES5_RPPS6_EEEDamDpOT_"}

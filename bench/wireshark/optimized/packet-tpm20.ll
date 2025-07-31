@@ -800,7 +800,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   %112 = add nuw nsw i32 %.196.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %107, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %107, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %107, %get_num_hndl.exit.i
   %.092.i = phi i32 [ 10, %get_num_hndl.exit.i ], [ %112, %107 ]
@@ -880,7 +880,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   store i32 %156, ptr %20, align 4
   %157 = add i32 %.02.i.i, 1
   %.not30.i.i = icmp eq i32 %156, 0
-  br i1 %.not30.i.i, label %._crit_edge.i.i, label %.lr.ph.i51.i, !llvm.loop !9
+  br i1 %.not30.i.i, label %._crit_edge.i.i, label %.lr.ph.i51.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i51.i
   %158 = icmp ugt i32 %157, 3
@@ -1194,7 +1194,7 @@ get_num_hndl.exit.i44:                            ; preds = %.loopexit.i.i41
   %317 = add nuw nsw i32 %312, 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i45
-  br i1 %exitcond.not.i48, label %.loopexit.i49, label %311, !llvm.loop !10
+  br i1 %exitcond.not.i48, label %.loopexit.i49, label %311, !llvm.loop !11
 
 .loopexit.i49:                                    ; preds = %311
   store i32 %317, ptr %7, align 4
@@ -1292,7 +1292,7 @@ get_command_entry.exit.i.i:                       ; preds = %get_command_entry.e
   %365 = add nuw i32 %.01.i.i, 1
   %366 = load i32, ptr %341, align 4
   %367 = icmp ult i32 %365, %366
-  br i1 %367, label %get_command_entry.exit.i.i, label %dissect_tpm20_tpm_response.exit, !llvm.loop !11
+  br i1 %367, label %get_command_entry.exit.i.i, label %dissect_tpm20_tpm_response.exit, !llvm.loop !12
 
 368:                                              ; preds = %318
   %.val65.i = load i32, ptr %34, align 4
@@ -1648,9 +1648,10 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

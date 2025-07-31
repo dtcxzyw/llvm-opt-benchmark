@@ -17,7 +17,7 @@ define range(i32 -255, 256) i32 @strcmp(ptr noundef readonly captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %8 = icmp eq i8 %4, 0
   %or.cond = or i1 %8, %.not
-  br i1 %or.cond, label %9, label %3
+  br i1 %or.cond, label %9, label %3, !llvm.loop !6
 
 9:                                                ; preds = %3
   %10 = zext i8 %5 to i32
@@ -36,3 +36,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

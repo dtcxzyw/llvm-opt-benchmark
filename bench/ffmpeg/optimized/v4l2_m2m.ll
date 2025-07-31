@@ -91,9 +91,9 @@ define i32 @ff_v4l2_m2m_codec_reinit(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4696
-  store i32 0, ptr %24, align 8, !tbaa !25
+  store i32 0, ptr %24, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4692
-  store i32 0, ptr %25, align 4, !tbaa !26
+  store i32 0, ptr %25, align 4, !tbaa !27
   br label %26
 
 26:                                               ; preds = %23, %22, %19
@@ -125,13 +125,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ff_v4l2_m2m_codec_end(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4096
-  %6 = load i32, ptr %5, align 8, !tbaa !30
+  %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %22
 
@@ -144,7 +144,7 @@ define noundef i32 @ff_v4l2_m2m_codec_end(ptr noundef %0) local_unnamed_addr #0 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4648
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load ptr, ptr %9, align 8, !tbaa !31
+  %14 = load ptr, ptr %9, align 8, !tbaa !32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %13, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef %14) #9
   br label %15
 
@@ -157,7 +157,7 @@ define noundef i32 @ff_v4l2_m2m_codec_end(ptr noundef %0) local_unnamed_addr #0 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4648
   %20 = load ptr, ptr %19, align 8, !tbaa !4
-  %21 = load ptr, ptr %16, align 8, !tbaa !32
+  %21 = load ptr, ptr %16, align 8, !tbaa !33
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %20, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef %21) #9
   br label %22
 
@@ -165,7 +165,7 @@ define noundef i32 @ff_v4l2_m2m_codec_end(ptr noundef %0) local_unnamed_addr #0 
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4376
   tail call void @ff_v4l2_context_release(ptr noundef nonnull %23) #9
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4816
-  store ptr null, ptr %24, align 8, !tbaa !33
+  store ptr null, ptr %24, align 8, !tbaa !34
   tail call void @av_refstruct_unref(ptr noundef nonnull %2) #9
   br label %25
 
@@ -182,7 +182,7 @@ define i32 @ff_v4l2_m2m_codec_init(ptr noundef readonly captures(none) %0) local
   %4 = alloca [64 x i8], align 1
   %5 = alloca [64 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = tail call noalias ptr @opendir(ptr noundef nonnull @.str.6)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %13
@@ -224,7 +224,7 @@ define i32 @ff_v4l2_m2m_codec_init(ptr noundef readonly captures(none) %0) local
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %26 = load ptr, ptr %16, align 8, !tbaa !4
   %27 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %7, i32 noundef 2050, i32 noundef 0) #9
-  store i32 %27, ptr %17, align 8, !tbaa !30
+  store i32 %27, ptr %17, align 8, !tbaa !31
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
 
@@ -257,7 +257,7 @@ define i32 @ff_v4l2_m2m_codec_init(ptr noundef readonly captures(none) %0) local
 
 40:                                               ; preds = %.sink.split.i, %38, %33
   %.0.i = phi i32 [ %34, %33 ], [ 0, %38 ], [ %.0.ph.i, %.sink.split.i ]
-  %41 = load i32, ptr %17, align 8, !tbaa !30
+  %41 = load i32, ptr %17, align 8, !tbaa !31
   %42 = call i32 @close(i32 noundef %41) #9
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %49
@@ -273,7 +273,7 @@ define i32 @ff_v4l2_m2m_codec_init(ptr noundef readonly captures(none) %0) local
 
 49:                                               ; preds = %44, %40
   %.1.i = phi i32 [ %47, %44 ], [ %.0.i, %40 ]
-  store i32 -1, ptr %17, align 8, !tbaa !30
+  store i32 -1, ptr %17, align 8, !tbaa !31
   br label %v4l2_probe_driver.exit
 
 v4l2_probe_driver.exit:                           ; preds = %29, %49
@@ -290,7 +290,7 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
   %.2 = phi i32 [ %.02038, %20 ], [ %.017.i, %v4l2_probe_driver.exit ]
   %52 = call ptr @readdir64(ptr noundef nonnull %8) #9
   %.not25 = icmp eq ptr %52, null
-  br i1 %.not25, label %._crit_edge, label %20, !llvm.loop !34
+  br i1 %.not25, label %._crit_edge, label %20, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %51
   %53 = call i32 @closedir(ptr noundef nonnull %8)
@@ -315,7 +315,7 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
   %60 = load ptr, ptr %58, align 8, !tbaa !4
   %61 = call i32 (ptr, i32, ...) @open64(ptr noundef %7, i32 noundef 2050, i32 noundef 0) #9
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 4096
-  store i32 %61, ptr %62, align 8, !tbaa !30
+  store i32 %61, ptr %62, align 8, !tbaa !31
   %63 = icmp slt i32 %61, 0
   br i1 %63, label %64, label %68
 
@@ -340,14 +340,14 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %74 = call ptr @av_fourcc_make_string(ptr noundef nonnull %2, i32 noundef %.sroa.512.0.copyload.i) #9
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 4388
-  %76 = load i32, ptr %75, align 4, !tbaa !35
+  %76 = load i32, ptr %75, align 4, !tbaa !36
   %77 = call ptr @av_get_pix_fmt_name(i32 noundef %76) #9
   %.not.i29 = icmp eq ptr %77, null
   %78 = select i1 %.not.i29, ptr @.str.22, ptr %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %79 = call ptr @av_fourcc_make_string(ptr noundef nonnull %3, i32 noundef %.sroa.57.0.copyload.i) #9
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 4116
-  %81 = load i32, ptr %80, align 4, !tbaa !36
+  %81 = load i32, ptr %80, align 4, !tbaa !37
   %82 = call ptr @av_get_pix_fmt_name(i32 noundef %81) #9
   %.not51.i = icmp eq ptr %82, null
   %83 = select i1 %.not51.i, ptr @.str.22, ptr %82
@@ -373,7 +373,7 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !37
+  %93 = load ptr, ptr %92, align 8, !tbaa !38
   %94 = call i32 @av_codec_is_decoder(ptr noundef %93) #9
   %.not56.i = icmp eq i32 %94, 0
   br i1 %.not56.i, label %95, label %v4l2_configure_contexts.exit
@@ -391,7 +391,7 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
 
 97:                                               ; preds = %.sink.split.i30, %68
   %.044.i = phi i32 [ %69, %68 ], [ %.044.ph.i, %.sink.split.i30 ]
-  %98 = load i32, ptr %62, align 8, !tbaa !30
+  %98 = load i32, ptr %62, align 8, !tbaa !31
   %99 = call i32 @close(i32 noundef %98) #9
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %106
@@ -407,7 +407,7 @@ v4l2_probe_driver.exit:                           ; preds = %29, %49
 
 106:                                              ; preds = %101, %97
   %.1.i31 = phi i32 [ %104, %101 ], [ %.044.i, %97 ]
-  store i32 -1, ptr %62, align 8, !tbaa !30
+  store i32 -1, ptr %62, align 8, !tbaa !31
   br label %v4l2_configure_contexts.exit
 
 v4l2_configure_contexts.exit:                     ; preds = %64, %89, %91, %95, %106
@@ -442,38 +442,38 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @ff_v4l2_m2m_create_context(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @av_refstruct_alloc_ext_c(i64 noundef 4832, i32 noundef 0, ptr null, ptr noundef nonnull @v4l2_m2m_destroy_context) #9
-  store ptr %3, ptr %1, align 8, !tbaa !50
+  store ptr %3, ptr %1, align 8, !tbaa !51
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !27
-  %6 = load ptr, ptr %1, align 8, !tbaa !50
+  store ptr %3, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %1, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4824
-  store ptr %0, ptr %7, align 8, !tbaa !51
+  store ptr %0, ptr %7, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !52
+  %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4360
-  store i32 %9, ptr %10, align 8, !tbaa !53
+  store i32 %9, ptr %10, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !54
+  %12 = load i32, ptr %11, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4632
-  store i32 %12, ptr %13, align 8, !tbaa !55
+  store i32 %12, ptr %13, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4816
-  store ptr %3, ptr %14, align 8, !tbaa !33
+  store ptr %3, ptr %14, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4096
-  store i32 -1, ptr %15, align 8, !tbaa !30
+  store i32 -1, ptr %15, align 8, !tbaa !31
   %16 = tail call ptr @av_frame_alloc() #9
-  %17 = load ptr, ptr %5, align 8, !tbaa !27
+  %17 = load ptr, ptr %5, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4808
-  store ptr %16, ptr %18, align 8, !tbaa !56
+  store ptr %16, ptr %18, align 8, !tbaa !57
   %.not18 = icmp eq ptr %16, null
   br i1 %.not18, label %19, label %20
 
 19:                                               ; preds = %4
   tail call void @av_refstruct_unref(ptr noundef nonnull %5) #9
-  store ptr null, ptr %1, align 8, !tbaa !50
+  store ptr null, ptr %1, align 8, !tbaa !51
   br label %20
 
 20:                                               ; preds = %4, %2, %19
@@ -488,7 +488,7 @@ define internal void @v4l2_m2m_destroy_context(ptr readnone captures(none) %0, p
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4656
   %5 = tail call i32 @sem_destroy(ptr noundef nonnull %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4096
-  %7 = load i32, ptr %6, align 8, !tbaa !30
+  %7 = load i32, ptr %6, align 8, !tbaa !31
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %11
 
@@ -517,19 +517,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v4l2_prepare_contexts(ptr 
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4376
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4640
-  store i32 0, ptr %7, align 8, !tbaa !57
+  store i32 0, ptr %7, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4368
-  store i32 0, ptr %9, align 8, !tbaa !58
-  store ptr @.str.15, ptr %8, align 8, !tbaa !32
-  store ptr @.str.16, ptr %6, align 8, !tbaa !31
+  store i32 0, ptr %9, align 8, !tbaa !59
+  store ptr @.str.15, ptr %8, align 8, !tbaa !33
+  store ptr @.str.16, ptr %6, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4688
-  store i32 0, ptr %10, align 4, !tbaa !59
+  store i32 0, ptr %10, align 4, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4656
   %12 = tail call i32 @sem_init(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 0) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %14 = load i32, ptr %13, align 8, !tbaa !30
+  %14 = load i32, ptr %13, align 8, !tbaa !31
   %15 = call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 2154321408, ptr noundef nonnull %3) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %38, label %17
@@ -539,7 +539,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v4l2_prepare_contexts(ptr 
   %18 = select i1 %.not, i32 32, i32 48
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  %.val = load i32, ptr %20, align 4, !tbaa !60
+  %.val = load i32, ptr %20, align 4, !tbaa !61
   %21 = and i32 %.val, 12288
   %.not.i = icmp eq i32 %21, 0
   %22 = and i32 %.val, 67108864
@@ -563,7 +563,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v4l2_prepare_contexts(ptr 
 28:                                               ; preds = %17, %24
   %29 = phi ptr [ %27, %24 ], [ @.str.18, %17 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %5, i32 noundef %18, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, ptr noundef nonnull %19, ptr noundef nonnull %29) #9
-  %.val21 = load i32, ptr %20, align 4, !tbaa !60
+  %.val21 = load i32, ptr %20, align 4, !tbaa !61
   %30 = and i32 %.val21, 12288
   %.not.i29 = icmp eq i32 %30, 0
   %31 = and i32 %.val21, 67108864
@@ -587,9 +587,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v4l2_prepare_contexts(ptr 
   %.sink44 = phi i32 [ 9, %28 ], [ 1, %33 ]
   %.sink = phi i32 [ 10, %28 ], [ 2, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  store i32 %.sink44, ptr %36, align 8, !tbaa !62
+  store i32 %.sink44, ptr %36, align 8, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4384
-  store i32 %.sink, ptr %37, align 8, !tbaa !63
+  store i32 %.sink, ptr %37, align 8, !tbaa !64
   br label %38
 
 38:                                               ; preds = %.sink.split, %33, %2
@@ -663,44 +663,45 @@ attributes #11 = { nounwind willreturn memory(read) }
 !20 = !{!"p1 _ZTS7AVFrame", !11, i64 0}
 !21 = !{!"p1 _ZTS14V4L2m2mContext", !11, i64 0}
 !22 = !{!8, !8, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!5, !8, i64 4696}
-!26 = !{!5, !8, i64 4692}
-!27 = !{!28, !21, i64 8}
-!28 = !{!"V4L2m2mPriv", !29, i64 0, !21, i64 8, !8, i64 16, !8, i64 20}
-!29 = !{!"p1 _ZTS7AVClass", !11, i64 0}
-!30 = !{!5, !8, i64 4096}
-!31 = !{!5, !10, i64 4376}
-!32 = !{!5, !10, i64 4104}
-!33 = !{!5, !21, i64 4816}
-!34 = distinct !{!34, !24}
-!35 = !{!5, !8, i64 4388}
-!36 = !{!5, !8, i64 4116}
-!37 = !{!38, !39, i64 16}
-!38 = !{!"AVCodecContext", !29, i64 0, !8, i64 8, !8, i64 12, !39, i64 16, !8, i64 24, !8, i64 28, !11, i64 32, !40, i64 40, !11, i64 48, !18, i64 56, !8, i64 64, !8, i64 68, !10, i64 72, !8, i64 80, !13, i64 84, !13, i64 92, !13, i64 100, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !8, i64 124, !13, i64 128, !8, i64 136, !8, i64 140, !8, i64 144, !8, i64 148, !8, i64 152, !8, i64 156, !8, i64 160, !8, i64 164, !8, i64 168, !8, i64 172, !8, i64 176, !11, i64 184, !11, i64 192, !8, i64 200, !41, i64 204, !41, i64 208, !41, i64 212, !41, i64 216, !41, i64 220, !41, i64 224, !41, i64 228, !41, i64 232, !41, i64 236, !8, i64 240, !8, i64 244, !8, i64 248, !8, i64 252, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !8, i64 276, !8, i64 280, !8, i64 284, !42, i64 288, !42, i64 296, !42, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !8, i64 328, !8, i64 332, !8, i64 336, !8, i64 340, !8, i64 344, !8, i64 348, !43, i64 352, !8, i64 376, !8, i64 380, !8, i64 384, !8, i64 388, !8, i64 392, !8, i64 396, !8, i64 400, !8, i64 404, !11, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !41, i64 428, !41, i64 432, !8, i64 436, !8, i64 440, !8, i64 444, !8, i64 448, !8, i64 452, !44, i64 456, !18, i64 464, !18, i64 472, !41, i64 480, !41, i64 484, !8, i64 488, !8, i64 492, !10, i64 496, !10, i64 504, !8, i64 512, !8, i64 516, !8, i64 520, !8, i64 524, !8, i64 528, !45, i64 536, !11, i64 544, !17, i64 552, !17, i64 560, !8, i64 568, !8, i64 572, !6, i64 576, !8, i64 640, !8, i64 644, !8, i64 648, !8, i64 652, !8, i64 656, !8, i64 660, !8, i64 664, !11, i64 672, !11, i64 680, !8, i64 688, !8, i64 692, !8, i64 696, !8, i64 700, !8, i64 704, !8, i64 708, !8, i64 712, !8, i64 716, !8, i64 720, !8, i64 724, !46, i64 728, !10, i64 736, !8, i64 744, !8, i64 748, !10, i64 752, !10, i64 760, !10, i64 768, !19, i64 776, !8, i64 784, !8, i64 788, !18, i64 792, !8, i64 800, !8, i64 804, !18, i64 808, !11, i64 816, !18, i64 824, !47, i64 832, !8, i64 840, !48, i64 848, !8, i64 856}
-!39 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
-!40 = !{!"p1 _ZTS15AVCodecInternal", !11, i64 0}
-!41 = !{!"float", !6, i64 0}
-!42 = !{!"p1 short", !11, i64 0}
-!43 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !6, i64 8, !11, i64 16}
-!44 = !{!"p1 _ZTS10RcOverride", !11, i64 0}
-!45 = !{!"p1 _ZTS9AVHWAccel", !11, i64 0}
-!46 = !{!"p1 _ZTS17AVCodecDescriptor", !11, i64 0}
-!47 = !{!"p1 int", !11, i64 0}
-!48 = !{!"p2 _ZTS15AVFrameSideData", !49, i64 0}
-!49 = !{!"any p2 pointer", !11, i64 0}
-!50 = !{!21, !21, i64 0}
-!51 = !{!5, !11, i64 4824}
-!52 = !{!28, !8, i64 20}
-!53 = !{!5, !8, i64 4360}
-!54 = !{!28, !8, i64 16}
-!55 = !{!5, !8, i64 4632}
-!56 = !{!5, !20, i64 4808}
-!57 = !{!5, !8, i64 4640}
-!58 = !{!5, !8, i64 4368}
-!59 = !{!6, !6, i64 0}
-!60 = !{!61, !8, i64 84}
-!61 = !{!"v4l2_capability", !6, i64 0, !6, i64 16, !6, i64 48, !8, i64 80, !8, i64 84, !8, i64 88, !6, i64 92}
-!62 = !{!5, !8, i64 4112}
-!63 = !{!5, !8, i64 4384}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!5, !8, i64 4696}
+!27 = !{!5, !8, i64 4692}
+!28 = !{!29, !21, i64 8}
+!29 = !{!"V4L2m2mPriv", !30, i64 0, !21, i64 8, !8, i64 16, !8, i64 20}
+!30 = !{!"p1 _ZTS7AVClass", !11, i64 0}
+!31 = !{!5, !8, i64 4096}
+!32 = !{!5, !10, i64 4376}
+!33 = !{!5, !10, i64 4104}
+!34 = !{!5, !21, i64 4816}
+!35 = distinct !{!35, !24, !25}
+!36 = !{!5, !8, i64 4388}
+!37 = !{!5, !8, i64 4116}
+!38 = !{!39, !40, i64 16}
+!39 = !{!"AVCodecContext", !30, i64 0, !8, i64 8, !8, i64 12, !40, i64 16, !8, i64 24, !8, i64 28, !11, i64 32, !41, i64 40, !11, i64 48, !18, i64 56, !8, i64 64, !8, i64 68, !10, i64 72, !8, i64 80, !13, i64 84, !13, i64 92, !13, i64 100, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !8, i64 124, !13, i64 128, !8, i64 136, !8, i64 140, !8, i64 144, !8, i64 148, !8, i64 152, !8, i64 156, !8, i64 160, !8, i64 164, !8, i64 168, !8, i64 172, !8, i64 176, !11, i64 184, !11, i64 192, !8, i64 200, !42, i64 204, !42, i64 208, !42, i64 212, !42, i64 216, !42, i64 220, !42, i64 224, !42, i64 228, !42, i64 232, !42, i64 236, !8, i64 240, !8, i64 244, !8, i64 248, !8, i64 252, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !8, i64 276, !8, i64 280, !8, i64 284, !43, i64 288, !43, i64 296, !43, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !8, i64 328, !8, i64 332, !8, i64 336, !8, i64 340, !8, i64 344, !8, i64 348, !44, i64 352, !8, i64 376, !8, i64 380, !8, i64 384, !8, i64 388, !8, i64 392, !8, i64 396, !8, i64 400, !8, i64 404, !11, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !42, i64 428, !42, i64 432, !8, i64 436, !8, i64 440, !8, i64 444, !8, i64 448, !8, i64 452, !45, i64 456, !18, i64 464, !18, i64 472, !42, i64 480, !42, i64 484, !8, i64 488, !8, i64 492, !10, i64 496, !10, i64 504, !8, i64 512, !8, i64 516, !8, i64 520, !8, i64 524, !8, i64 528, !46, i64 536, !11, i64 544, !17, i64 552, !17, i64 560, !8, i64 568, !8, i64 572, !6, i64 576, !8, i64 640, !8, i64 644, !8, i64 648, !8, i64 652, !8, i64 656, !8, i64 660, !8, i64 664, !11, i64 672, !11, i64 680, !8, i64 688, !8, i64 692, !8, i64 696, !8, i64 700, !8, i64 704, !8, i64 708, !8, i64 712, !8, i64 716, !8, i64 720, !8, i64 724, !47, i64 728, !10, i64 736, !8, i64 744, !8, i64 748, !10, i64 752, !10, i64 760, !10, i64 768, !19, i64 776, !8, i64 784, !8, i64 788, !18, i64 792, !8, i64 800, !8, i64 804, !18, i64 808, !11, i64 816, !18, i64 824, !48, i64 832, !8, i64 840, !49, i64 848, !8, i64 856}
+!40 = !{!"p1 _ZTS7AVCodec", !11, i64 0}
+!41 = !{!"p1 _ZTS15AVCodecInternal", !11, i64 0}
+!42 = !{!"float", !6, i64 0}
+!43 = !{!"p1 short", !11, i64 0}
+!44 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !6, i64 8, !11, i64 16}
+!45 = !{!"p1 _ZTS10RcOverride", !11, i64 0}
+!46 = !{!"p1 _ZTS9AVHWAccel", !11, i64 0}
+!47 = !{!"p1 _ZTS17AVCodecDescriptor", !11, i64 0}
+!48 = !{!"p1 int", !11, i64 0}
+!49 = !{!"p2 _ZTS15AVFrameSideData", !50, i64 0}
+!50 = !{!"any p2 pointer", !11, i64 0}
+!51 = !{!21, !21, i64 0}
+!52 = !{!5, !11, i64 4824}
+!53 = !{!29, !8, i64 20}
+!54 = !{!5, !8, i64 4360}
+!55 = !{!29, !8, i64 16}
+!56 = !{!5, !8, i64 4632}
+!57 = !{!5, !20, i64 4808}
+!58 = !{!5, !8, i64 4640}
+!59 = !{!5, !8, i64 4368}
+!60 = !{!6, !6, i64 0}
+!61 = !{!62, !8, i64 84}
+!62 = !{!"v4l2_capability", !6, i64 0, !6, i64 16, !6, i64 48, !8, i64 80, !8, i64 84, !8, i64 88, !6, i64 92}
+!63 = !{!5, !8, i64 4112}
+!64 = !{!5, !8, i64 4384}

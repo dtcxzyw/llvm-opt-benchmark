@@ -240,7 +240,7 @@ define void @PQdownheap(i32 noundef %0) local_unnamed_addr #5 {
   %27 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   store i32 %.02328, ptr %27, align 4, !tbaa !20
   %.not = icmp sgt i32 %.0, %8
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph._crit_edge, %24
   %.023.lcssa.ph = phi i32 [ %.0, %24 ], [ %.02328, %.lr.ph._crit_edge ]
@@ -318,7 +318,7 @@ define ptr @PQremove() local_unnamed_addr #5 {
   %31 = getelementptr inbounds nuw i8, ptr %.022.i, i64 4
   store i32 %.02328.i, ptr %31, align 4, !tbaa !20
   %.not.i = icmp sgt i32 %.0.i, %12
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %28, %.lr.ph._crit_edge.i
   %.023.lcssa.ph.i = phi i32 [ %.0.i, %28 ], [ %.02328.i, %.lr.ph._crit_edge.i ]
@@ -403,7 +403,7 @@ define void @PQprint() local_unnamed_addr #8 {
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = load ptr, ptr @stderr, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !24
+  %9 = load i32, ptr %8, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = load i32, ptr %6, align 8, !tbaa !14
@@ -412,7 +412,7 @@ define void @PQprint() local_unnamed_addr #8 {
   %14 = load i32, ptr @PQcnt, align 4, !tbaa !12
   %15 = sext i32 %14 to i64
   %.not.not = icmp slt i64 %indvars.iv, %15
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %16 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -489,8 +489,9 @@ attributes #20 = { cold noreturn nounwind }
 !18 = !{!"p1 int", !5, i64 0}
 !19 = !{!"_Bool", !6, i64 0}
 !20 = !{!15, !13, i64 4}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = !{!15, !13, i64 56}
-!25 = distinct !{!25, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = !{!15, !13, i64 56}
+!26 = distinct !{!26, !22, !23}

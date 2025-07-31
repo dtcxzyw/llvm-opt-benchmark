@@ -65,7 +65,7 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.048.add.i
   %36 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %33, label %37
+  br i1 %.not.i, label %33, label %37, !llvm.loop !20
 
 37:                                               ; preds = %35, %33
   %.048.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.048.idx.i
@@ -81,7 +81,7 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not60.i = icmp eq i32 %43, 0
-  br i1 %.not60.i, label %38, label %.loopexit
+  br i1 %.not60.i, label %38, label %.loopexit, !llvm.loop !22
 
 44:                                               ; preds = %18
   %45 = trunc nuw i32 %22 to i16
@@ -97,7 +97,7 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   %.153.i = phi i16 [ %.254.i, %44 ], [ %.052.i, %40 ], [ %.052.i, %38 ]
   %.150.i = phi i16 [ %.251.i, %44 ], [ %.049.i, %40 ], [ %.049.i, %38 ]
   %.2.i = phi i32 [ %.045.i, %44 ], [ %15, %40 ], [ %15, %38 ]
-  br i1 %.not61.i, label %.preheader, label %.split.i
+  br i1 %.not61.i, label %.preheader, label %.split.i, !llvm.loop !23
 
 .preheader:                                       ; preds = %.loopexit
   %.not48 = icmp ugt ptr %.134, %.131
@@ -105,7 +105,7 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %49 = load i16, ptr %48, align 2, !tbaa !20
+  %49 = load i16, ptr %48, align 2, !tbaa !24
   %50 = zext i16 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = zext nneg i32 %.2.i to i64
@@ -114,11 +114,11 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
 53:                                               ; preds = %.lr.ph, %php_pcre2_substring_copy_bynumber.exit
   %.02150 = phi ptr [ %.134, %.lr.ph ], [ %102, %php_pcre2_substring_copy_bynumber.exit ]
   %.02249 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ]
-  %54 = load i8, ptr %.02150, align 1, !tbaa !21
+  %54 = load i8, ptr %.02150, align 1, !tbaa !25
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
   %57 = getelementptr inbounds nuw i8, ptr %.02150, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !21
+  %58 = load i8, ptr %57, align 1, !tbaa !25
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
   %61 = icmp samesign ult i32 %60, %50
@@ -128,13 +128,13 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   %63 = shl nuw nsw i32 %60, 1
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !22
+  %66 = load i64, ptr %65, align 8, !tbaa !26
   %.not28 = icmp eq i64 %66, -1
   br i1 %.not28, label %php_pcre2_substring_copy_bynumber.exit, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %69 = load i32, ptr %68, align 4, !tbaa !23
+  %69 = load i32, ptr %68, align 4, !tbaa !27
   %70 = icmp eq i32 %69, -2
   br i1 %70, label %71, label %72
 
@@ -155,7 +155,7 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
 76:                                               ; preds = %74
   %77 = load ptr, ptr %9, align 8, !tbaa !16
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
-  %79 = load i16, ptr %78, align 8, !tbaa !24
+  %79 = load i16, ptr %78, align 8, !tbaa !28
   %80 = zext i16 %79 to i32
   %81 = icmp samesign ugt i32 %60, %80
   br i1 %81, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
@@ -169,9 +169,9 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   %84 = or disjoint i32 %63, 1
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %85
-  %87 = load i64, ptr %86, align 8, !tbaa !22
+  %87 = load i64, ptr %86, align 8, !tbaa !26
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %89 = load i64, ptr %88, align 8, !tbaa !25
+  %89 = load i64, ptr %88, align 8, !tbaa !29
   %90 = icmp ugt i64 %66, %89
   %91 = icmp ugt i64 %87, %89
   %or.cond44.i.i = select i1 %90, i1 true, i1 %91
@@ -180,25 +180,25 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
 92:                                               ; preds = %._crit_edge.i.i
   %93 = tail call i64 @llvm.usub.sat.i64(i64 %87, i64 %66)
   %94 = add i64 %93, 1
-  %95 = load i64, ptr %3, align 8, !tbaa !22
+  %95 = load i64, ptr %3, align 8, !tbaa !26
   %96 = icmp ugt i64 %94, %95
   br i1 %96, label %php_pcre2_substring_nametable_scan.exit.thread, label %97
 
 97:                                               ; preds = %92
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %99 = load ptr, ptr %98, align 8, !tbaa !26
+  %99 = load ptr, ptr %98, align 8, !tbaa !30
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %100, i64 %93, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 %93
-  store i8 0, ptr %101, align 1, !tbaa !21
-  store i64 %93, ptr %3, align 8, !tbaa !22
+  store i8 0, ptr %101, align 1, !tbaa !25
+  store i64 %93, ptr %3, align 8, !tbaa !26
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_copy_bynumber.exit:           ; preds = %62, %53
   %.224 = phi i32 [ %.02249, %53 ], [ -55, %62 ]
   %102 = getelementptr inbounds nuw i8, ptr %.02150, i64 %52
   %.not = icmp ugt ptr %102, %.131
-  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53
+  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53, !llvm.loop !31
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_copy_bynumber.exit, %.preheader, %97, %92, %._crit_edge.i.i, %82, %76, %72, %71, %4
   %.0 = phi i32 [ -41, %4 ], [ -2, %71 ], [ %69, %72 ], [ -49, %76 ], [ -55, %82 ], [ -67, %._crit_edge.i.i ], [ -48, %92 ], [ 0, %97 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
@@ -266,7 +266,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.048.add.us
   %35 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.us) #6
   %.not.us = icmp eq i32 %35, 0
-  br i1 %.not.us, label %32, label %36
+  br i1 %.not.us, label %32, label %36, !llvm.loop !20
 
 36:                                               ; preds = %34, %32
   %.048.ptr.le.us = getelementptr inbounds i8, ptr %0, i64 %.048.idx.us
@@ -282,18 +282,18 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %41) #6
   %.not60.us = icmp eq i32 %42, 0
-  br i1 %.not60.us, label %37, label %43
+  br i1 %.not60.us, label %37, label %43, !llvm.loop !22
 
 43:                                               ; preds = %39, %37
   %44 = icmp eq ptr %.048.ptr.le.us, %.047.us
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %43
-  %46 = load i8, ptr %.ptr59.us, align 1, !tbaa !21
+  %46 = load i8, ptr %.ptr59.us, align 1, !tbaa !25
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 8
   %49 = getelementptr inbounds nuw i8, ptr %.ptr59.us, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !21
+  %50 = load i8, ptr %49, align 1, !tbaa !25
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
   br label %53
@@ -302,7 +302,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %.153.us = phi i16 [ %.254.us, %21 ], [ %.052.us, %45 ], [ %.052.us, %43 ]
   %.150.us = phi i16 [ %.251.us, %21 ], [ %.049.us, %45 ], [ %.049.us, %43 ]
   %.2.us = phi i32 [ %.045.us, %21 ], [ %52, %45 ], [ -50, %43 ]
-  br i1 %.not61.us, label %.split63.us, label %.split.us, !llvm.loop !27
+  br i1 %.not61.us, label %.split63.us, label %.split.us, !llvm.loop !32
 
 .split:                                           ; preds = %4, %86
   %.052 = phi i16 [ %.153, %86 ], [ %6, %4 ]
@@ -344,7 +344,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.048.add
   %73 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep) #6
   %.not = icmp eq i32 %73, 0
-  br i1 %.not, label %70, label %74
+  br i1 %.not, label %70, label %74, !llvm.loop !20
 
 74:                                               ; preds = %72, %70
   %.048.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.048.idx
@@ -360,11 +360,11 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %80 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %79) #6
   %.not60 = icmp eq i32 %80, 0
-  br i1 %.not60, label %75, label %81
+  br i1 %.not60, label %75, label %81, !llvm.loop !22
 
 81:                                               ; preds = %77, %75
-  store ptr %.048.ptr.le, ptr %2, align 8, !tbaa !29
-  store ptr %.047, ptr %3, align 8, !tbaa !29
+  store ptr %.048.ptr.le, ptr %2, align 8, !tbaa !34
+  store ptr %.047, ptr %3, align 8, !tbaa !34
   br label %86
 
 82:                                               ; preds = %55
@@ -379,7 +379,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   %.153 = phi i16 [ %.254, %82 ], [ %.052, %81 ]
   %.150 = phi i16 [ %.251, %82 ], [ %.049, %81 ]
   %.2 = phi i32 [ %.045, %82 ], [ %9, %81 ]
-  br i1 %.not61, label %.split63.us, label %.split
+  br i1 %.not61, label %.split63.us, label %.split, !llvm.loop !23
 
 .split63.us:                                      ; preds = %86, %.split, %.split.us, %53
   %.us-phi = phi i32 [ %.2.us, %53 ], [ -49, %.split.us ], [ %.2, %86 ], [ -49, %.split ]
@@ -389,7 +389,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = icmp eq i32 %6, -2
   br i1 %7, label %8, label %9
 
@@ -412,14 +412,14 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %18 = load i16, ptr %17, align 8, !tbaa !24
+  %18 = load i16, ptr %17, align 8, !tbaa !28
   %19 = zext i16 %18 to i32
   %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %23 = load i16, ptr %22, align 2, !tbaa !20
+  %23 = load i16, ptr %22, align 2, !tbaa !24
   %24 = zext i16 %23 to i32
   %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
@@ -429,13 +429,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !22
+  %30 = load i64, ptr %29, align 8, !tbaa !26
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
 
 32:                                               ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %34 = load i16, ptr %33, align 2, !tbaa !20
+  %34 = load i16, ptr %33, align 2, !tbaa !24
   %35 = zext i16 %34 to i32
   %.not39.i = icmp ult i32 %1, %35
   br i1 %.not39.i, label %36, label %php_pcre2_substring_length_bynumber.exit.thread
@@ -455,13 +455,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
-  %41 = load i64, ptr %40, align 8, !tbaa !22
+  %41 = load i64, ptr %40, align 8, !tbaa !26
   %42 = or disjoint i32 %.pre-phi.i, 1
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !22
+  %45 = load i64, ptr %44, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i64, ptr %46, align 8, !tbaa !25
+  %47 = load i64, ptr %46, align 8, !tbaa !29
   %48 = icmp ugt i64 %41, %47
   %49 = icmp ugt i64 %45, %47
   %or.cond44.i = select i1 %48, i1 true, i1 %49
@@ -470,22 +470,22 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
 50:                                               ; preds = %38
   %51 = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 %41)
   %52 = add i64 %51, 1
-  %53 = load i64, ptr %3, align 8, !tbaa !22
+  %53 = load i64, ptr %3, align 8, !tbaa !26
   %54 = icmp ugt i64 %52, %53
   br i1 %54, label %php_pcre2_substring_length_bynumber.exit.thread, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !26
+  %57 = load ptr, ptr %56, align 8, !tbaa !30
   %58 = shl nuw nsw i32 %1, 1
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !22
+  %61 = load i64, ptr %60, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %62, i64 %51, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 %51
-  store i8 0, ptr %63, align 1, !tbaa !21
-  store i64 %51, ptr %3, align 8, !tbaa !22
+  store i8 0, ptr %63, align 1, !tbaa !25
+  store i64 %51, ptr %3, align 8, !tbaa !26
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
 php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %50, %55
@@ -496,7 +496,7 @@ php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynumber(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %5 = load i32, ptr %4, align 4, !tbaa !23
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp eq i32 %5, -2
   br i1 %6, label %7, label %8
 
@@ -519,14 +519,14 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  %17 = load i16, ptr %16, align 8, !tbaa !24
+  %17 = load i16, ptr %16, align 8, !tbaa !28
   %18 = zext i16 %17 to i32
   %19 = icmp ugt i32 %1, %18
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %22 = load i16, ptr %21, align 2, !tbaa !20
+  %22 = load i16, ptr %21, align 2, !tbaa !24
   %23 = zext i16 %22 to i32
   %.not42 = icmp samesign ult i32 %1, %23
   br i1 %.not42, label %24, label %52
@@ -536,13 +536,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
   %26 = shl nuw nsw i32 %1, 1
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [131072 x i64], ptr %25, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !22
+  %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %52, label %37
 
 31:                                               ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %33 = load i16, ptr %32, align 2, !tbaa !20
+  %33 = load i16, ptr %32, align 2, !tbaa !24
   %34 = zext i16 %33 to i32
   %.not39 = icmp ult i32 %1, %34
   br i1 %.not39, label %35, label %52
@@ -562,13 +562,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %.pre-phi46
-  %40 = load i64, ptr %39, align 8, !tbaa !22
+  %40 = load i64, ptr %39, align 8, !tbaa !26
   %41 = or disjoint i32 %.pre-phi, 1
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %42
-  %44 = load i64, ptr %43, align 8, !tbaa !22
+  %44 = load i64, ptr %43, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load i64, ptr %45, align 8, !tbaa !25
+  %46 = load i64, ptr %45, align 8, !tbaa !29
   %47 = icmp ugt i64 %40, %46
   %48 = icmp ugt i64 %44, %46
   %or.cond44 = select i1 %47, i1 true, i1 %48
@@ -580,7 +580,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
 
 50:                                               ; preds = %49
   %51 = tail call i64 @llvm.usub.sat.i64(i64 %44, i64 %40)
-  store i64 %51, ptr %2, align 8, !tbaa !22
+  store i64 %51, ptr %2, align 8, !tbaa !26
   br label %52
 
 52:                                               ; preds = %49, %50, %37, %35, %31, %24, %20, %13, %8, %7
@@ -653,7 +653,7 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.048.add.i
   %36 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %33, label %37
+  br i1 %.not.i, label %33, label %37, !llvm.loop !20
 
 37:                                               ; preds = %35, %33
   %.048.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.048.idx.i
@@ -669,7 +669,7 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not60.i = icmp eq i32 %43, 0
-  br i1 %.not60.i, label %38, label %.loopexit
+  br i1 %.not60.i, label %38, label %.loopexit, !llvm.loop !22
 
 44:                                               ; preds = %18
   %45 = trunc nuw i32 %22 to i16
@@ -685,7 +685,7 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   %.153.i = phi i16 [ %.254.i, %44 ], [ %.052.i, %40 ], [ %.052.i, %38 ]
   %.150.i = phi i16 [ %.251.i, %44 ], [ %.049.i, %40 ], [ %.049.i, %38 ]
   %.2.i = phi i32 [ %.045.i, %44 ], [ %15, %40 ], [ %15, %38 ]
-  br i1 %.not61.i, label %.preheader, label %.split.i
+  br i1 %.not61.i, label %.preheader, label %.split.i, !llvm.loop !23
 
 .preheader:                                       ; preds = %.loopexit
   %.not50 = icmp ugt ptr %.134, %.131
@@ -693,7 +693,7 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %49 = load i16, ptr %48, align 2, !tbaa !20
+  %49 = load i16, ptr %48, align 2, !tbaa !24
   %50 = zext i16 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = zext nneg i32 %.2.i to i64
@@ -702,11 +702,11 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
 53:                                               ; preds = %.lr.ph, %php_pcre2_substring_get_bynumber.exit
   %.02152 = phi ptr [ %.134, %.lr.ph ], [ %106, %php_pcre2_substring_get_bynumber.exit ]
   %.02251 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_get_bynumber.exit ]
-  %54 = load i8, ptr %.02152, align 1, !tbaa !21
+  %54 = load i8, ptr %.02152, align 1, !tbaa !25
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
   %57 = getelementptr inbounds nuw i8, ptr %.02152, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !21
+  %58 = load i8, ptr %57, align 1, !tbaa !25
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
   %61 = icmp samesign ult i32 %60, %50
@@ -716,14 +716,14 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   %63 = shl nuw nsw i32 %60, 1
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !22
+  %66 = load i64, ptr %65, align 8, !tbaa !26
   %.not28 = icmp eq i64 %66, -1
   br i1 %.not28, label %php_pcre2_substring_get_bynumber.exit, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %70 = load i32, ptr %69, align 4, !tbaa !23
+  %70 = load i32, ptr %69, align 4, !tbaa !27
   %71 = icmp eq i32 %70, -2
   br i1 %71, label %72, label %73
 
@@ -744,7 +744,7 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
 77:                                               ; preds = %75
   %78 = load ptr, ptr %9, align 8, !tbaa !16
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
-  %80 = load i16, ptr %79, align 8, !tbaa !24
+  %80 = load i16, ptr %79, align 8, !tbaa !28
   %81 = zext i16 %80 to i32
   %82 = icmp samesign ugt i32 %60, %81
   br i1 %82, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
@@ -758,9 +758,9 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   %85 = or disjoint i32 %63, 1
   %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %86
-  %88 = load i64, ptr %87, align 8, !tbaa !22
+  %88 = load i64, ptr %87, align 8, !tbaa !26
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %90 = load i64, ptr %89, align 8, !tbaa !25
+  %90 = load i64, ptr %89, align 8, !tbaa !29
   %91 = icmp ugt i64 %66, %90
   %92 = icmp ugt i64 %88, %90
   %or.cond44.i.i = select i1 %91, i1 true, i1 %92
@@ -777,21 +777,21 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !26
-  %103 = load i64, ptr %68, align 8, !tbaa !22
+  %102 = load ptr, ptr %101, align 8, !tbaa !30
+  %103 = load i64, ptr %68, align 8, !tbaa !26
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr align 1 %104, i64 %94, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 %94
-  store i8 0, ptr %105, align 1, !tbaa !21
-  store ptr %100, ptr %2, align 8, !tbaa !29
-  store i64 %94, ptr %3, align 8, !tbaa !22
+  store i8 0, ptr %105, align 1, !tbaa !25
+  store ptr %100, ptr %2, align 8, !tbaa !34
+  store i64 %94, ptr %3, align 8, !tbaa !26
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_get_bynumber.exit:            ; preds = %62, %53
   %.224 = phi i32 [ %.02251, %53 ], [ -55, %62 ]
   %106 = getelementptr inbounds nuw i8, ptr %.02152, i64 %52
   %.not = icmp ugt ptr %106, %.131
-  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53
+  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53, !llvm.loop !35
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_get_bynumber.exit, %.preheader, %99, %93, %._crit_edge.i.i, %83, %77, %73, %72, %4
   %.0 = phi i32 [ -41, %4 ], [ -2, %72 ], [ %70, %73 ], [ -49, %77 ], [ -55, %83 ], [ -67, %._crit_edge.i.i ], [ -48, %93 ], [ 0, %99 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
@@ -801,7 +801,7 @@ php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = icmp eq i32 %6, -2
   br i1 %7, label %8, label %9
 
@@ -824,14 +824,14 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %18 = load i16, ptr %17, align 8, !tbaa !24
+  %18 = load i16, ptr %17, align 8, !tbaa !28
   %19 = zext i16 %18 to i32
   %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %23 = load i16, ptr %22, align 2, !tbaa !20
+  %23 = load i16, ptr %22, align 2, !tbaa !24
   %24 = zext i16 %23 to i32
   %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
@@ -841,13 +841,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !22
+  %30 = load i64, ptr %29, align 8, !tbaa !26
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
 
 32:                                               ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %34 = load i16, ptr %33, align 2, !tbaa !20
+  %34 = load i16, ptr %33, align 2, !tbaa !24
   %35 = zext i16 %34 to i32
   %.not39.i = icmp ult i32 %1, %35
   br i1 %.not39.i, label %36, label %php_pcre2_substring_length_bynumber.exit.thread
@@ -867,13 +867,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
-  %41 = load i64, ptr %40, align 8, !tbaa !22
+  %41 = load i64, ptr %40, align 8, !tbaa !26
   %42 = or disjoint i32 %.pre-phi.i, 1
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !22
+  %45 = load i64, ptr %44, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i64, ptr %46, align 8, !tbaa !25
+  %47 = load i64, ptr %46, align 8, !tbaa !29
   %48 = icmp ugt i64 %41, %47
   %49 = icmp ugt i64 %45, %47
   %or.cond44.i = select i1 %48, i1 true, i1 %49
@@ -890,17 +890,17 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !26
+  %59 = load ptr, ptr %58, align 8, !tbaa !30
   %60 = shl nuw nsw i32 %1, 1
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8, !tbaa !22
+  %63 = load i64, ptr %62, align 8, !tbaa !26
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %64, i64 %51, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 %51
-  store i8 0, ptr %65, align 1, !tbaa !21
-  store ptr %57, ptr %2, align 8, !tbaa !29
-  store i64 %51, ptr %3, align 8, !tbaa !22
+  store i8 0, ptr %65, align 1, !tbaa !25
+  store ptr %57, ptr %2, align 8, !tbaa !34
+  store i64 %51, ptr %3, align 8, !tbaa !26
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
 php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %50, %56
@@ -918,9 +918,9 @@ define dso_local void @php_pcre2_substring_free(ptr noundef %0) local_unnamed_ad
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds i8, ptr %0, i64 -8
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void %5(ptr noundef nonnull %3, ptr noundef %7) #6
   br label %8
 
@@ -990,7 +990,7 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.048.add.i
   %35 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %35, 0
-  br i1 %.not.i, label %32, label %36
+  br i1 %.not.i, label %32, label %36, !llvm.loop !20
 
 36:                                               ; preds = %34, %32
   %.048.ptr.le.i = getelementptr inbounds i8, ptr %9, i64 %.048.idx.i
@@ -1006,7 +1006,7 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %41) #6
   %.not60.i = icmp eq i32 %42, 0
-  br i1 %.not60.i, label %37, label %.loopexit
+  br i1 %.not60.i, label %37, label %.loopexit, !llvm.loop !22
 
 43:                                               ; preds = %17
   %44 = trunc nuw i32 %21 to i16
@@ -1022,7 +1022,7 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   %.153.i = phi i16 [ %.254.i, %43 ], [ %.052.i, %39 ], [ %.052.i, %37 ]
   %.150.i = phi i16 [ %.251.i, %43 ], [ %.049.i, %39 ], [ %.049.i, %37 ]
   %.2.i = phi i32 [ %.045.i, %43 ], [ %14, %39 ], [ %14, %37 ]
-  br i1 %.not61.i, label %.preheader, label %.split.i
+  br i1 %.not61.i, label %.preheader, label %.split.i, !llvm.loop !23
 
 .preheader:                                       ; preds = %.loopexit
   %.not47 = icmp ugt ptr %.134, %.131
@@ -1030,7 +1030,7 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %48 = load i16, ptr %47, align 2, !tbaa !20
+  %48 = load i16, ptr %47, align 2, !tbaa !24
   %49 = zext i16 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = zext nneg i32 %.2.i to i64
@@ -1039,11 +1039,11 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
 52:                                               ; preds = %.lr.ph, %php_pcre2_substring_length_bynumber.exit
   %.02049 = phi ptr [ %.134, %.lr.ph ], [ %94, %php_pcre2_substring_length_bynumber.exit ]
   %.02148 = phi i32 [ -54, %.lr.ph ], [ %.223, %php_pcre2_substring_length_bynumber.exit ]
-  %53 = load i8, ptr %.02049, align 1, !tbaa !21
+  %53 = load i8, ptr %.02049, align 1, !tbaa !25
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
   %56 = getelementptr inbounds nuw i8, ptr %.02049, i64 1
-  %57 = load i8, ptr %56, align 1, !tbaa !21
+  %57 = load i8, ptr %56, align 1, !tbaa !25
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
   %60 = icmp samesign ult i32 %59, %49
@@ -1053,13 +1053,13 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   %62 = shl nuw nsw i32 %59, 1
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw [131072 x i64], ptr %50, i64 0, i64 %63
-  %65 = load i64, ptr %64, align 8, !tbaa !22
+  %65 = load i64, ptr %64, align 8, !tbaa !26
   %.not27 = icmp eq i64 %65, -1
   br i1 %.not27, label %php_pcre2_substring_length_bynumber.exit, label %66
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %68 = load i32, ptr %67, align 4, !tbaa !23
+  %68 = load i32, ptr %67, align 4, !tbaa !27
   %69 = icmp eq i32 %68, -2
   br i1 %69, label %70, label %71
 
@@ -1080,7 +1080,7 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
 75:                                               ; preds = %73
   %76 = load ptr, ptr %8, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
-  %78 = load i16, ptr %77, align 8, !tbaa !24
+  %78 = load i16, ptr %77, align 8, !tbaa !28
   %79 = zext i16 %78 to i32
   %80 = icmp samesign ugt i32 %59, %79
   br i1 %80, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i
@@ -1094,9 +1094,9 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   %83 = or disjoint i32 %62, 1
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw [131072 x i64], ptr %50, i64 0, i64 %84
-  %86 = load i64, ptr %85, align 8, !tbaa !22
+  %86 = load i64, ptr %85, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %88 = load i64, ptr %87, align 8, !tbaa !25
+  %88 = load i64, ptr %87, align 8, !tbaa !29
   %89 = icmp ugt i64 %65, %88
   %90 = icmp ugt i64 %86, %88
   %or.cond44.i = select i1 %89, i1 true, i1 %90
@@ -1108,14 +1108,14 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
 
 92:                                               ; preds = %91
   %93 = tail call i64 @llvm.usub.sat.i64(i64 %86, i64 %65)
-  store i64 %93, ptr %2, align 8, !tbaa !22
+  store i64 %93, ptr %2, align 8, !tbaa !26
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_length_bynumber.exit:         ; preds = %61, %52
   %.223 = phi i32 [ %.02148, %52 ], [ -55, %61 ]
   %94 = getelementptr inbounds nuw i8, ptr %.02049, i64 %51
   %.not = icmp ugt ptr %94, %.131
-  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %52
+  br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %52, !llvm.loop !38
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_length_bynumber.exit, %.preheader, %92, %91, %._crit_edge.i, %81, %75, %71, %70, %3
   %.0 = phi i32 [ -41, %3 ], [ 0, %91 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %81 ], [ -49, %75 ], [ %68, %71 ], [ -2, %70 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
@@ -1125,7 +1125,7 @@ php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %5 = load i32, ptr %4, align 4, !tbaa !23
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %65, label %7
 
@@ -1144,7 +1144,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  %15 = load i16, ptr %14, align 2, !tbaa !20
+  %15 = load i16, ptr %14, align 2, !tbaa !24
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.not = icmp eq ptr %2, null
@@ -1172,13 +1172,13 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
   %26 = add i64 %.16883, 9
   %27 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !22
-  %30 = load i64, ptr %27, align 8, !tbaa !22
+  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %30 = load i64, ptr %27, align 8, !tbaa !26
   %31 = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 %30)
   %.269 = add i64 %26, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %32 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %33 = add nuw nsw i32 %.070103, 1
@@ -1201,12 +1201,12 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
 
 42:                                               ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %43, ptr %1, align 8, !tbaa !32
+  store ptr %43, ptr %1, align 8, !tbaa !40
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.070104
   br i1 %.not106, label %47, label %45
 
 45:                                               ; preds = %42
-  store ptr %44, ptr %2, align 8, !tbaa !34
+  store ptr %44, ptr %2, align 8, !tbaa !42
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %37
   br label %47
 
@@ -1226,41 +1226,41 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
   %.16685 = phi ptr [ %.065, %.lr.ph90 ], [ %.2, %61 ]
   %50 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv96
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !22
-  %53 = load i64, ptr %50, align 8, !tbaa !22
+  %52 = load i64, ptr %51, align 8, !tbaa !26
+  %53 = load i64, ptr %50, align 8, !tbaa !26
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 %53)
   %.not81.not = icmp ugt i64 %52, %53
   br i1 %.not81.not, label %54, label %57
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr %48, align 8, !tbaa !26
+  %55 = load ptr, ptr %48, align 8, !tbaa !30
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.188, ptr align 1 %56, i64 %spec.select, i1 false)
   br label %57
 
 57:                                               ; preds = %54, %49
   %58 = getelementptr inbounds nuw i8, ptr %.06287, i64 8
-  store ptr %.188, ptr %.06287, align 8, !tbaa !29
+  store ptr %.188, ptr %.06287, align 8, !tbaa !34
   %.not82 = icmp eq ptr %.16685, null
   br i1 %.not82, label %61, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %.16685, i64 8
-  store i64 %spec.select, ptr %.16685, align 8, !tbaa !22
+  store i64 %spec.select, ptr %.16685, align 8, !tbaa !26
   br label %61
 
 61:                                               ; preds = %59, %57
   %.2 = phi ptr [ %60, %59 ], [ null, %57 ]
   %62 = getelementptr inbounds nuw i8, ptr %.188, i64 %spec.select
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store i8 0, ptr %62, align 1, !tbaa !21
+  store i8 0, ptr %62, align 1, !tbaa !25
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 2
   %64 = icmp samesign ult i64 %indvars.iv.next97, %39
-  br i1 %64, label %49, label %._crit_edge91
+  br i1 %64, label %49, label %._crit_edge91, !llvm.loop !44
 
 ._crit_edge91:                                    ; preds = %61, %47
   %.062.lcssa = phi ptr [ %43, %47 ], [ %58, %61 ]
-  store ptr null, ptr %.062.lcssa, align 8, !tbaa !29
+  store ptr null, ptr %.062.lcssa, align 8, !tbaa !34
   br label %65
 
 65:                                               ; preds = %._crit_edge, %3, %._crit_edge91
@@ -1276,9 +1276,9 @@ define dso_local void @php_pcre2_substring_list_free(ptr noundef %0) local_unnam
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = getelementptr inbounds i8, ptr %0, i64 -8
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void %5(ptr noundef nonnull %3, ptr noundef %7) #6
   br label %8
 
@@ -1327,19 +1327,28 @@ attributes #6 = { nounwind }
 !17 = !{!18, !14, i64 142}
 !18 = !{!"pcre2_real_code_8", !6, i64 0, !11, i64 24, !7, i64 32, !8, i64 40, !13, i64 72, !13, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !14, i64 128, !14, i64 130, !14, i64 132, !14, i64 134, !14, i64 136, !14, i64 138, !14, i64 140, !14, i64 142, !15, i64 144}
 !19 = !{!18, !14, i64 140}
-!20 = !{!5, !14, i64 98}
-!21 = !{!8, !8, i64 0}
-!22 = !{!13, !13, i64 0}
-!23 = !{!5, !15, i64 100}
-!24 = !{!18, !14, i64 136}
-!25 = !{!5, !13, i64 64}
-!26 = !{!5, !11, i64 32}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = !{!11, !11, i64 0}
-!30 = !{!6, !7, i64 8}
-!31 = !{!6, !7, i64 16}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p2 omnipotent char", !7, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 long", !7, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = !{!5, !14, i64 98}
+!25 = !{!8, !8, i64 0}
+!26 = !{!13, !13, i64 0}
+!27 = !{!5, !15, i64 100}
+!28 = !{!18, !14, i64 136}
+!29 = !{!5, !13, i64 64}
+!30 = !{!5, !11, i64 32}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = !{!11, !11, i64 0}
+!35 = distinct !{!35, !21}
+!36 = !{!6, !7, i64 8}
+!37 = !{!6, !7, i64 16}
+!38 = distinct !{!38, !21}
+!39 = distinct !{!39, !21}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p2 omnipotent char", !7, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 long", !7, i64 0}
+!44 = distinct !{!44, !21}

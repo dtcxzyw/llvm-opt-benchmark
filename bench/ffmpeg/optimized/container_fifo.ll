@@ -157,7 +157,7 @@ define i32 @av_container_fifo_read(ptr noundef readonly captures(none) %0, ptr n
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !9
-  %13 = load ptr, ptr %4, align 8, !tbaa !22
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = call i32 %10(ptr noundef %12, ptr noundef %1, ptr noundef %14, i32 noundef %2) #4
   call void @av_refstruct_unref(ptr noundef nonnull %4) #4
@@ -179,7 +179,7 @@ define range(i32 -2147483648, 1) i32 @av_container_fifo_peek(ptr noundef readonl
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %9 = load ptr, ptr %4, align 8, !tbaa !23
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   store ptr %10, ptr %1, align 8, !tbaa !19
   br label %11
@@ -227,7 +227,7 @@ define void @av_container_fifo_drain(ptr noundef readonly captures(none) %0, i64
   call void @av_refstruct_unref(ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   %.not5 = icmp eq i64 %12, 0
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   ret void
@@ -247,7 +247,7 @@ define range(i32 -2147483648, 1) i32 @av_container_fifo_write(ptr noundef readon
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = tail call ptr @av_refstruct_pool_get(ptr noundef %6) #4
-  store ptr %7, ptr %4, align 8, !tbaa !22
+  store ptr %7, ptr %4, align 8, !tbaa !23
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %21, label %8
 
@@ -347,7 +347,7 @@ define internal void @frame_reset(ptr readnone captures(none) %0, ptr noundef %1
 define internal void @frame_free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr %1, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %3, align 8, !tbaa !26
   call void @av_frame_free(ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   ret void
@@ -413,10 +413,11 @@ attributes #5 = { noreturn nounwind }
 !17 = !{!10, !11, i64 0}
 !18 = !{!10, !12, i64 8}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"any p2 pointer", !6, i64 0}
-!24 = distinct !{!24, !21}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"any p2 pointer", !6, i64 0}
+!25 = distinct !{!25, !21, !22}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS7AVFrame", !6, i64 0}

@@ -643,7 +643,7 @@ default.unreachable:                              ; preds = %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
   %181 = trunc nuw i64 %indvars.iv.next to i32
   %182 = icmp sgt i32 %87, %181
-  br i1 %182, label %95, label %.loopexit, !llvm.loop !16
+  br i1 %182, label %95, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %180, %90, %84, %13, %76, %79, %82, %4, %8
   %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %180 ]
@@ -793,6 +793,7 @@ attributes #9 = { nounwind allocsize(0) }
 !11 = !{!5, !7, i64 9}
 !12 = !{!7, !7, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

@@ -1508,7 +1508,7 @@ ieee80211_eht_rate.exit.thread:                   ; preds = %554, %ieee80211_eht
   %578 = load i8, ptr %124, align 1
   %579 = zext i8 %578 to i64
   %580 = icmp samesign ult i64 %indvars.iv.next, %579
-  br i1 %580, label %498, label %ieee80211_he_ofdm_rate.exit.thread, !llvm.loop !10
+  br i1 %580, label %498, label %ieee80211_he_ofdm_rate.exit.thread, !llvm.loop !11
 
 ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.exit.thread, %.preheader, %483, %484, %474, %458, %ieee80211_he_ofdm_rate.exit, %449, %276, %186, %177, %147, %121, %116
   %.1648 = phi i1 [ %.not750, %121 ], [ %.not750, %116 ], [ %.not750, %147 ], [ %.not750, %177 ], [ %.not750, %186 ], [ %.2649889, %276 ], [ %.5652, %449 ], [ %.not750, %ieee80211_he_ofdm_rate.exit ], [ %.not750, %458 ], [ %.not750, %474 ], [ %.not750, %484 ], [ %.not750, %483 ], [ %.not750, %.preheader ], [ %.not750, %ieee80211_eht_rate.exit.thread ]
@@ -2624,6 +2624,7 @@ attributes #12 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

@@ -175,7 +175,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   %62 = load i8, ptr %58, align 2
   %63 = zext i8 %62 to i32
   %.not61.i.i = icmp slt i32 %.0.i.i, %61
-  br i1 %.not61.i.i, label %.outer, label %.loopexit
+  br i1 %.not61.i.i, label %.outer, label %.loopexit, !llvm.loop !6
 
 64:                                               ; preds = %54
   %65 = add i32 %.0.i.i, 1
@@ -188,7 +188,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %.043.i.i, -1
   %71 = add i64 %69, %70
-  br label %54
+  br label %54, !llvm.loop !6
 
 .loopexit:                                        ; preds = %55, %64
   %.154.i.i = phi i32 [ %.053.i.i.ph, %64 ], [ %56, %55 ]
@@ -224,7 +224,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   %84 = or i64 %83, %.14262.i.i
   %85 = shl i64 %84, %76
   %86 = icmp samesign ugt i64 %indvars.iv.i.i, 2
-  br i1 %86, label %78, label %._crit_edge.i.i, !llvm.loop !6
+  br i1 %86, label %78, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %78, %.preheader.i.i
   %.142.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %85, %78 ]
@@ -373,7 +373,7 @@ intset_update_upper.exit.i:                       ; preds = %126
   %158 = sext i32 %157 to i64
   %159 = sub nsw i64 %24, %158
   %160 = icmp ugt i64 %159, 240
-  br i1 %160, label %43, label %._crit_edge.i, !llvm.loop !8
+  br i1 %160, label %43, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %150
   %161 = load i32, ptr %19, align 8
@@ -446,7 +446,7 @@ define dso_local zeroext i1 @intset_is_member(ptr noundef readonly captures(none
   %spec.select20.i = select i1 %15, i32 %.01722.i, i32 %11
   %spec.select21.i = select i1 %15, i32 %16, i32 %.023.i
   %17 = icmp sgt i32 %spec.select20.i, %spec.select21.i
-  br i1 %17, label %.lr.ph.split.i, label %intset_binsrch_uint64.exit, !llvm.loop !9
+  br i1 %17, label %.lr.ph.split.i, label %intset_binsrch_uint64.exit, !llvm.loop !11
 
 intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %.not50 = icmp slt i32 %spec.select21.i, %4
@@ -499,7 +499,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %spec.select.us.i = select i1 %.not.us.i, i32 %36, i32 %.01722.us.i
   %spec.select19.us.i = select i1 %.not.us.i, i32 %.023.us.i, i32 %40
   %41 = icmp sgt i32 %spec.select.us.i, %spec.select19.us.i
-  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit54, !llvm.loop !10
+  br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit54, !llvm.loop !12
 
 intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %.not49 = icmp eq i32 %spec.select19.us.i, 0
@@ -513,7 +513,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %47 = load ptr, ptr %46, align 8
   %.039 = add nsw i32 %.03967, -1
   %48 = icmp sgt i32 %.03967, 1
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %42, %26
   %.037.lcssa = phi ptr [ %25, %26 ], [ %47, %42 ]
@@ -541,7 +541,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %.118.i = select i1 %.not.i56, i32 %55, i32 %.01719.i
   %.1.i = select i1 %.not.i56, i32 %.020.i, i32 %59
   %60 = icmp sgt i32 %.118.i, %.1.i
-  br i1 %60, label %.lr.ph.i55, label %intset_binsrch_leaf.exit, !llvm.loop !13
+  br i1 %60, label %.lr.ph.i55, label %intset_binsrch_leaf.exit, !llvm.loop !15
 
 intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %61 = icmp eq i32 %.1.i, 0
@@ -598,7 +598,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %91 = lshr i64 %.03043.i, %85
   %92 = add nuw nsw i32 %.02845.i, 1
   %exitcond.not.i = icmp eq i32 %92, %75
-  br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.split.loop.exit.i, label %.lr.ph.i58, !llvm.loop !16
 
 .split.loop.exit39.i:                             ; preds = %.lr.ph.i58
   %93 = icmp eq i64 %89, %1
@@ -720,7 +720,7 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %49 = lshr i64 %.02124.i, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %simple8b_decode.exit.loopexit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %simple8b_decode.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 
 simple8b_decode.exit.loopexit:                    ; preds = %.lr.ph.i
   %50 = zext i8 %40 to i32
@@ -737,7 +737,7 @@ simple8b_decode.exit.loopexit:                    ; preds = %.lr.ph.i
   %53 = phi i32 [ %22, %56 ], [ %63, %62 ]
   %54 = phi i32 [ %21, %56 ], [ 0, %62 ]
   %55 = icmp slt i32 %54, %53
-  br i1 %55, label %._crit_edge, label %19
+  br i1 %55, label %._crit_edge, label %19, !llvm.loop !18
 
 56:                                               ; preds = %23
   %57 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -800,12 +800,15 @@ attributes #11 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !9, !7}
+!15 = distinct !{!15, !9, !7}
+!16 = distinct !{!16, !9, !7}
+!17 = distinct !{!17, !9, !7}
+!18 = distinct !{!18, !7}

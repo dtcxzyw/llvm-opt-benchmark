@@ -126,11 +126,11 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 
 36:                                               ; preds = %30
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !49
+  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !50
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !49
+  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !50
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !49
+  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !50
   %37 = fsub double %7, %26
   %38 = fmul double %37, 5.000000e+00
   %39 = fsub float %33, %25
@@ -144,7 +144,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 45:                                               ; preds = %47
   %46 = add nsw i32 %.05673, -1
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %61, label %47, !llvm.loop !50
+  br i1 %.not, label %61, label %47, !llvm.loop !51
 
 47:                                               ; preds = %36, %45
   %.05673 = phi i32 [ 100, %36 ], [ %46, %45 ]
@@ -165,7 +165,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %60, label %.loopexit, label %45
 
 61:                                               ; preds = %45
-  %62 = load ptr, ptr %2, align 8, !tbaa !51
+  %62 = load ptr, ptr %2, align 8, !tbaa !52
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %62, i32 noundef 2050)
   br label %.loopexit
 
@@ -181,13 +181,13 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %70 = load float, ptr %69, align 16, !tbaa !44
   %71 = fpext float %70 to double
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %73 = load float, ptr %72, align 4, !tbaa !52
+  %73 = load float, ptr %72, align 4, !tbaa !53
   %74 = fpext float %73 to double
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %76 = load float, ptr %75, align 8, !tbaa !53
+  %76 = load float, ptr %75, align 8, !tbaa !54
   %77 = fpext float %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %79 = load float, ptr %78, align 4, !tbaa !54
+  %79 = load float, ptr %78, align 4, !tbaa !55
   %80 = fpext float %79 to double
   %81 = tail call double @llvm.fmuladd.f64(double %58, double %80, double %77)
   %82 = tail call double @llvm.fmuladd.f64(double %58, double %81, double %74)
@@ -201,9 +201,9 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %88 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
-  %.sroa.043.0.copyload = load double, ptr %4, align 8, !tbaa !55
+  %.sroa.043.0.copyload = load double, ptr %4, align 8, !tbaa !56
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   br label %89
 
@@ -241,13 +241,13 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %18 = load float, ptr %17, align 16, !tbaa !44
   %19 = fpext float %18 to double
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %21 = load float, ptr %20, align 4, !tbaa !52
+  %21 = load float, ptr %20, align 4, !tbaa !53
   %22 = fpext float %21 to double
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %24 = load float, ptr %23, align 8, !tbaa !53
+  %24 = load float, ptr %23, align 8, !tbaa !54
   %25 = fpext float %24 to double
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %27 = load float, ptr %26, align 4, !tbaa !54
+  %27 = load float, ptr %26, align 4, !tbaa !55
   %28 = fpext float %27 to double
   %29 = tail call double @llvm.fmuladd.f64(double %16, double %28, double %25)
   %30 = tail call double @llvm.fmuladd.f64(double %16, double %29, double %22)
@@ -258,13 +258,13 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %35 = load float, ptr %34, align 16, !tbaa !44
   %36 = fpext float %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %38 = load float, ptr %37, align 4, !tbaa !52
+  %38 = load float, ptr %37, align 4, !tbaa !53
   %39 = fpext float %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %41 = load float, ptr %40, align 8, !tbaa !53
+  %41 = load float, ptr %40, align 8, !tbaa !54
   %42 = fpext float %41 to double
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %44 = load float, ptr %43, align 4, !tbaa !54
+  %44 = load float, ptr %43, align 4, !tbaa !55
   %45 = fpext float %44 to double
   %46 = tail call double @llvm.fmuladd.f64(double %16, double %45, double %42)
   %47 = tail call double @llvm.fmuladd.f64(double %16, double %46, double %39)
@@ -368,12 +368,13 @@ attributes #7 = { nounwind }
 !44 = !{!45, !46, i64 0}
 !45 = !{!"_ZTSN12_GLOBAL__N_15COEFSE", !46, i64 0, !46, i64 4, !46, i64 8, !46, i64 12}
 !46 = !{!"float", !7, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!46, !46, i64 0}
-!50 = distinct !{!50, !48}
-!51 = !{!4, !5, i64 0}
-!52 = !{!45, !46, i64 4}
-!53 = !{!45, !46, i64 8}
-!54 = !{!45, !46, i64 12}
-!55 = !{!14, !14, i64 0}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!46, !46, i64 0}
+!51 = distinct !{!51, !48, !49}
+!52 = !{!4, !5, i64 0}
+!53 = !{!45, !46, i64 4}
+!54 = !{!45, !46, i64 8}
+!55 = !{!45, !46, i64 12}
+!56 = !{!14, !14, i64 0}

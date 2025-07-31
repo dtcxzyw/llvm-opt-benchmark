@@ -252,7 +252,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %79 = add i32 %75, %.1187
   %80 = sub nsw i32 %.1153186, %75
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %68, label %._crit_edge, !llvm.loop !8
+  br i1 %81, label %68, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %78, %61
   %.1.lcssa = phi i32 [ 1, %61 ], [ %79, %78 ]
@@ -346,7 +346,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %.160.i = phi i32 [ %.05984.i, %114 ], [ 1, %102 ], [ %.05984.i, %108 ]
   %.1.i = phi i32 [ 0, %114 ], [ %.05885.i, %102 ], [ 1, %108 ]
   %exitcond.not.i = icmp eq i32 %93, %3
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %119
   %120 = load i32, ptr @hf_bencode_truncated_data, align 4
@@ -469,7 +469,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
   %42 = add i32 %41, -48
   %43 = add i32 %42, %16
   %.not = icmp slt i32 %43, %.081
-  br i1 %.not, label %44, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %44, label %.preheader, !llvm.loop !11
 
 44:                                               ; preds = %38, %35
   %45 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_bencode_str, ptr noundef %0, i32 noundef %2, i32 noundef %14)
@@ -514,8 +514,9 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

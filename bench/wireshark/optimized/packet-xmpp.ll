@@ -830,7 +830,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 14:                                               ; preds = %11, %4
   %15 = phi i1 [ false, %4 ], [ %13, %11 ]
-  %16 = load i8, ptr @xmpp_desegment, align 1, !range !8, !noundef !9
+  %16 = load i8, ptr @xmpp_desegment, align 1, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   %.not = xor i1 %17, true
   %or.cond = select i1 %.not, i1 true, i1 %15
@@ -857,7 +857,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %31 = add nsw i32 %28, -1
   %32 = icmp ne i32 %28, 0
   %33 = and i1 %30, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.0175.lcssa = phi i8 [ %23, %22 ], [ %29, %.lr.ph ]
@@ -1240,7 +1240,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   %208 = getelementptr inbounds nuw i8, ptr %.0174205, i64 40
   %209 = load ptr, ptr %208, align 8
   %.not190 = icmp eq ptr %209, null
-  br i1 %.not190, label %210, label %102, !llvm.loop !11
+  br i1 %.not190, label %210, label %102, !llvm.loop !12
 
 210:                                              ; preds = %204
   %211 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1442,9 +1442,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

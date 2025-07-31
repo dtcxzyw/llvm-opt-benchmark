@@ -1360,7 +1360,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
   %128 = getelementptr inbounds i8, ptr %127, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %128) #11
   %129 = icmp eq ptr %128, %14
-  br i1 %129, label %130, label %126
+  br i1 %129, label %130, label %126, !llvm.loop !68
 
 130:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #11
@@ -1386,7 +1386,7 @@ _ZN2cv6stereo16StarKernelCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = 
   %137 = getelementptr inbounds i8, ptr %136, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %137) #11
   %138 = icmp eq ptr %137, %14
-  br i1 %138, label %.loopexit, label %135
+  br i1 %138, label %.loopexit, label %135, !llvm.loop !70
 
 .loopexit:                                        ; preds = %135, %.loopexit.loopexit58, %.thread
   %.pn31 = phi { ptr, i32 } [ %96, %.thread ], [ %131, %.loopexit.loopexit58 ], [ %133, %135 ]
@@ -1642,22 +1642,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %92, ptr %99, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 %90, ptr %100, align 8, !tbaa !68
+  store i32 %90, ptr %100, align 8, !tbaa !71
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %102 = load i32, ptr %101, align 4, !tbaa !29
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  store i32 %102, ptr %103, align 4, !tbaa !70
+  store i32 %102, ptr %103, align 4, !tbaa !73
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !25
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %105, ptr %106, align 8, !tbaa !71
+  store i32 %105, ptr %106, align 8, !tbaa !74
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store i32 1, ptr %107, align 4, !tbaa !72
+  store i32 1, ptr %107, align 4, !tbaa !75
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %109 = load i64, ptr %108, align 16, !tbaa !24
   %110 = trunc i64 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 %110, ptr %111, align 8, !tbaa !73
+  store i32 %110, ptr %111, align 8, !tbaa !76
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef -1.000000e+00)
           to label %112 unwind label %.loopexit.loopexit
 
@@ -1999,13 +1999,13 @@ _ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge: ; preds = %124
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEEE, i64 16), ptr %21, align 8, !tbaa !30
   %140 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %136, ptr %140, align 8, !tbaa !74
+  store i32 %136, ptr %140, align 8, !tbaa !77
   %141 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 %138, ptr %141, align 4, !tbaa !77
+  store i32 %138, ptr %141, align 4, !tbaa !80
   %142 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %126, ptr %142, align 8, !tbaa !78
+  store i32 %126, ptr %142, align 8, !tbaa !81
   %143 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i32 %136, ptr %143, align 4, !tbaa !79
+  store i32 %136, ptr %143, align 4, !tbaa !82
   %144 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %132, ptr %144, align 8, !tbaa !39
   %145 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -2019,7 +2019,7 @@ _ZN2cv6stereo9MCTKernelILi2EEC2EPPhi.exit.critedge: ; preds = %124
   %.sroa.6160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 60
   store i32 2, ptr %.sroa.6160.0..sroa_idx, align 4, !tbaa !9
   %147 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store i32 %126, ptr %147, align 8, !tbaa !80
+  store i32 %126, ptr %147, align 8, !tbaa !83
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef -1.000000e+00)
           to label %148 unwind label %149
 
@@ -2308,13 +2308,13 @@ _ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge: ; preds = %238
   %250 = load i32, ptr %135, align 4, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEEE, i64 16), ptr %31, align 8, !tbaa !30
   %251 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %250, ptr %251, align 8, !tbaa !81
+  store i32 %250, ptr %251, align 8, !tbaa !84
   %252 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %248, ptr %252, align 4, !tbaa !84
+  store i32 %248, ptr %252, align 4, !tbaa !87
   %253 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %126, ptr %253, align 8, !tbaa !85
+  store i32 %126, ptr %253, align 8, !tbaa !88
   %254 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 %136, ptr %254, align 4, !tbaa !86
+  store i32 %136, ptr %254, align 4, !tbaa !89
   %255 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %132, ptr %255, align 8, !tbaa !39
   %256 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -2330,7 +2330,7 @@ _ZN2cv6stereo8MVKernelILi2EEC2EPPhPPi.exit.critedge: ; preds = %238
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
   store i32 2, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !9
   %258 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  store i32 %126, ptr %258, align 8, !tbaa !87
+  store i32 %126, ptr %258, align 8, !tbaa !90
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, double noundef -1.000000e+00)
           to label %259 unwind label %260
 
@@ -2660,13 +2660,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEEE, i64 16), ptr %18, align 8, !tbaa !30
   %129 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 %128, ptr %130, align 8, !tbaa !88
+  store i32 %128, ptr %130, align 8, !tbaa !91
   %131 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 %125, ptr %131, align 4, !tbaa !91
+  store i32 %125, ptr %131, align 4, !tbaa !94
   %132 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 %115, ptr %132, align 8, !tbaa !92
+  store i32 %115, ptr %132, align 8, !tbaa !95
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  store i32 %122, ptr %133, align 4, !tbaa !93
+  store i32 %122, ptr %133, align 4, !tbaa !96
   %134 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %119, ptr %134, align 8, !tbaa !39
   store ptr %117, ptr %129, align 8, !tbaa !40
@@ -2675,7 +2675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !9
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i32 %115, ptr %135, align 8, !tbaa !94
+  store i32 %115, ptr %135, align 8, !tbaa !97
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, double noundef -1.000000e+00)
           to label %136 unwind label %137
 
@@ -2833,13 +2833,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEEE, i64 16), ptr %24, align 8, !tbaa !30
   %190 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %191 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 %178, ptr %191, align 8, !tbaa !95
+  store i32 %178, ptr %191, align 8, !tbaa !98
   %192 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 %184, ptr %192, align 4, !tbaa !98
+  store i32 %184, ptr %192, align 4, !tbaa !101
   %193 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 %115, ptr %193, align 8, !tbaa !99
+  store i32 %115, ptr %193, align 8, !tbaa !102
   %194 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  store i32 %122, ptr %194, align 4, !tbaa !100
+  store i32 %122, ptr %194, align 4, !tbaa !103
   %195 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %119, ptr %195, align 8, !tbaa !39
   store ptr %117, ptr %190, align 8, !tbaa !40
@@ -2848,7 +2848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 48
   store i32 1, ptr %.sroa.5114.0..sroa_idx, align 8, !tbaa !9
   %196 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store i32 %115, ptr %196, align 8, !tbaa !101
+  store i32 %115, ptr %196, align 8, !tbaa !104
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, double noundef -1.000000e+00)
           to label %197 unwind label %198
 
@@ -3197,22 +3197,22 @@ _ZN2cv6stereo14SymetricCensusILi2EEC2EPKNS_3MatEiPPi.exit.critedge: ; preds = %1
   %136 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %127, ptr %136, align 8, !tbaa !39
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 %115, ptr %137, align 8, !tbaa !102
+  store i32 %115, ptr %137, align 8, !tbaa !105
   %138 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %139 = load i32, ptr %138, align 4, !tbaa !29
   %140 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  store i32 %139, ptr %140, align 4, !tbaa !104
+  store i32 %139, ptr %140, align 4, !tbaa !107
   %141 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %142 = load i32, ptr %141, align 8, !tbaa !25
   %143 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 %142, ptr %143, align 8, !tbaa !105
+  store i32 %142, ptr %143, align 8, !tbaa !108
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 52
-  store i32 2, ptr %144, align 4, !tbaa !106
+  store i32 2, ptr %144, align 4, !tbaa !109
   %145 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %146 = load i64, ptr %145, align 16, !tbaa !24
   %147 = trunc i64 %146 to i32
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i32 %147, ptr %148, align 8, !tbaa !107
+  store i32 %147, ptr %148, align 8, !tbaa !110
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef -1.000000e+00)
           to label %149 unwind label %151
 
@@ -3251,13 +3251,13 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %123
   %160 = load i32, ptr %159, align 4, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEEE, i64 16), ptr %21, align 8, !tbaa !30
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 %160, ptr %161, align 8, !tbaa !108
+  store i32 %160, ptr %161, align 8, !tbaa !111
   %162 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 %157, ptr %162, align 4, !tbaa !111
+  store i32 %157, ptr %162, align 4, !tbaa !114
   %163 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %115, ptr %163, align 8, !tbaa !112
+  store i32 %115, ptr %163, align 8, !tbaa !115
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i32 %155, ptr %164, align 4, !tbaa !113
+  store i32 %155, ptr %164, align 4, !tbaa !116
   %165 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %125, ptr %165, align 8, !tbaa !39
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -3271,7 +3271,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %123
   %.sroa.694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 60
   store i32 2, ptr %.sroa.694.0..sroa_idx, align 4, !tbaa !9
   %168 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store i32 1, ptr %168, align 8, !tbaa !114
+  store i32 1, ptr %168, align 8, !tbaa !117
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef -1.000000e+00)
           to label %169 unwind label %170
 
@@ -3298,7 +3298,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %123
   %176 = getelementptr inbounds i8, ptr %175, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %176) #11
   %177 = icmp eq ptr %176, %17
-  br i1 %177, label %178, label %174
+  br i1 %177, label %178, label %174, !llvm.loop !118
 
 178:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %17) #11
@@ -3314,7 +3314,7 @@ _ZN2cv6stereo16ModifiedCsCensusILi2EEC2EPPhi.exit.critedge: ; preds = %123
   %183 = getelementptr inbounds i8, ptr %182, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %183) #11
   %184 = icmp eq ptr %183, %17
-  br i1 %184, label %.loopexit, label %181
+  br i1 %184, label %.loopexit, label %181, !llvm.loop !119
 
 .loopexit:                                        ; preds = %181, %.loopexit.loopexit97, %.thread
   %.pn52.pn = phi { ptr, i32 } [ %120, %.thread ], [ %150, %.loopexit.loopexit97 ], [ %.pn52, %181 ]
@@ -3623,22 +3623,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %114, ptr %122, align 8, !tbaa !39
   %123 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 %109, ptr %123, align 8, !tbaa !115
+  store i32 %109, ptr %123, align 8, !tbaa !120
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %125 = load i32, ptr %124, align 4, !tbaa !29
   %126 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i32 %125, ptr %126, align 4, !tbaa !117
+  store i32 %125, ptr %126, align 4, !tbaa !122
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !25
   %129 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 %128, ptr %129, align 8, !tbaa !118
+  store i32 %128, ptr %129, align 8, !tbaa !123
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  store i32 1, ptr %130, align 4, !tbaa !119
+  store i32 1, ptr %130, align 4, !tbaa !124
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %132 = load i64, ptr %131, align 16, !tbaa !24
   %133 = trunc i64 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %133, ptr %134, align 8, !tbaa !120
+  store i32 %133, ptr %134, align 8, !tbaa !125
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef -1.000000e+00)
           to label %135 unwind label %138
 
@@ -3677,13 +3677,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEEE, i64 16), ptr %19, align 8, !tbaa !30
   %149 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 %148, ptr %150, align 8, !tbaa !121
+  store i32 %148, ptr %150, align 8, !tbaa !126
   %151 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 %145, ptr %151, align 4, !tbaa !124
+  store i32 %145, ptr %151, align 4, !tbaa !129
   %152 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %109, ptr %152, align 8, !tbaa !125
+  store i32 %109, ptr %152, align 8, !tbaa !130
   %153 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %143, ptr %153, align 4, !tbaa !126
+  store i32 %143, ptr %153, align 4, !tbaa !131
   %154 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %114, ptr %154, align 8, !tbaa !39
   store ptr %111, ptr %149, align 8, !tbaa !40
@@ -3692,7 +3692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !9
   %155 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 1, ptr %155, align 8, !tbaa !127
+  store i32 1, ptr %155, align 8, !tbaa !132
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef -1.000000e+00)
           to label %156 unwind label %157
 
@@ -3804,7 +3804,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %indvars.iv.next104 = add nsw i64 %indvars.iv103, 1
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv.next104, %34
-  br i1 %35, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !128
+  br i1 %35, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !133
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.loopexit
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.loopexit ], [ 0, %.lr.ph78.preheader ]
@@ -3903,18 +3903,18 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   store i32 %82, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %56
-  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !131
+  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !136
 
 _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %68
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not55.us.us.not = icmp slt i64 %indvars.iv, %53
-  br i1 %.not55.us.us.not, label %68, label %._crit_edge.split.us.us, !llvm.loop !132
+  br i1 %.not55.us.us.not, label %68, label %._crit_edge.split.us.us, !llvm.loop !137
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next90 to i32
   %exitcond93.not = icmp eq i32 %64, %lftr.wideiv
-  br i1 %exitcond93.not, label %.preheader, label %.lr.ph.us, !llvm.loop !134
+  br i1 %exitcond93.not, label %.preheader, label %.lr.ph.us, !llvm.loop !139
 
 .preheader:                                       ; preds = %._crit_edge.split.us.us, %.lr.ph69, %.critedge..preheader_crit_edge
   %.pre-phi = phi i64 [ %.pre106, %.critedge..preheader_crit_edge ], [ %55, %.lr.ph69 ], [ %55, %._crit_edge.split.us.us ]
@@ -3932,7 +3932,7 @@ _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
   %87 = load i32, ptr %9, align 8, !tbaa !32
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next101, %88
-  br i1 %89, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !135
+  br i1 %89, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !140
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4003,7 +4003,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, 1
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv.next103, %34
-  br i1 %35, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !136
+  br i1 %35, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !141
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.loopexit
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.loopexit ], [ 0, %.lr.ph78.preheader ]
@@ -4102,17 +4102,17 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   store i32 %82, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %56
-  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !131
+  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !136
 
 _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %68
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %.not55.us.us = icmp sgt i64 %indvars.iv.next, %53
-  br i1 %.not55.us.us, label %._crit_edge.split.us.us, label %68, !llvm.loop !137
+  br i1 %.not55.us.us, label %._crit_edge.split.us.us, label %68, !llvm.loop !142
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 2
   %.not54.us71 = icmp sgt i64 %indvars.iv.next90, %64
-  br i1 %.not54.us71, label %.preheader, label %.lr.ph.us, !llvm.loop !138
+  br i1 %.not54.us71, label %.preheader, label %.lr.ph.us, !llvm.loop !143
 
 .preheader:                                       ; preds = %._crit_edge.split.us.us, %.lr.ph69, %.critedge..preheader_crit_edge
   %.pre-phi = phi i64 [ %.pre105, %.critedge..preheader_crit_edge ], [ %55, %.lr.ph69 ], [ %55, %._crit_edge.split.us.us ]
@@ -4130,7 +4130,7 @@ _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
   %87 = load i32, ptr %9, align 8, !tbaa !42
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next100, %88
-  br i1 %89, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !139
+  br i1 %89, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !144
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4193,7 +4193,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %27 = sext i32 %25 to i64
   %28 = icmp slt i64 %indvars.iv.next113, %27
-  br i1 %28, label %.lr.ph96.split, label %._crit_edge97, !llvm.loop !140
+  br i1 %28, label %.lr.ph96.split, label %._crit_edge97, !llvm.loop !145
 
 29:                                               ; preds = %.lr.ph93, %77
   %indvars.iv109 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next110, %77 ]
@@ -4288,19 +4288,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %75 = shl i32 %74, 1
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %50
-  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !141
+  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !146
 
 _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %62
   %.lcssa65.us.us = phi i32 [ %.lcssa6668.us.us, %62 ], [ %75, %._crit_edge14.i.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not55.us.us.not = icmp slt i64 %indvars.iv, %47
-  br i1 %.not55.us.us.not, label %62, label %._crit_edge.split.us.us, !llvm.loop !142
+  br i1 %.not55.us.us.not, label %62, label %._crit_edge.split.us.us, !llvm.loop !147
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next105 to i32
   %exitcond108.not = icmp eq i32 %58, %lftr.wideiv
-  br i1 %exitcond108.not, label %.critedge63, label %.lr.ph.us, !llvm.loop !143
+  br i1 %exitcond108.not, label %.critedge63, label %.lr.ph.us, !llvm.loop !148
 
 .critedge63:                                      ; preds = %._crit_edge.split.us.us, %.lr.ph81, %.critedge60..critedge63_crit_edge
   %.pre-phi = phi i64 [ %.pre115, %.critedge60..critedge63_crit_edge ], [ %49, %.lr.ph81 ], [ %49, %._crit_edge.split.us.us ]
@@ -4314,7 +4314,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
   %78 = load i32, ptr %8, align 8, !tbaa !48
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next110, %79
-  br i1 %80, label %29, label %._crit_edge.loopexit, !llvm.loop !144
+  br i1 %80, label %29, label %._crit_edge.loopexit, !llvm.loop !149
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4377,7 +4377,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %27 = sext i32 %25 to i64
   %28 = icmp slt i64 %indvars.iv.next112, %27
-  br i1 %28, label %.lr.ph96.split, label %._crit_edge97, !llvm.loop !145
+  br i1 %28, label %.lr.ph96.split, label %._crit_edge97, !llvm.loop !150
 
 29:                                               ; preds = %.lr.ph93, %77
   %indvars.iv108 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next109, %77 ]
@@ -4472,18 +4472,18 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
   %75 = shl i32 %74, 1
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %50
-  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !141
+  br i1 %exitcond.not, label %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !146
 
 _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %62
   %.lcssa65.us.us = phi i32 [ %.lcssa6668.us.us, %62 ], [ %75, %._crit_edge14.i.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %.not55.us.us = icmp sgt i64 %indvars.iv.next, %47
-  br i1 %.not55.us.us, label %._crit_edge.split.us.us, label %62, !llvm.loop !146
+  br i1 %.not55.us.us, label %._crit_edge.split.us.us, label %62, !llvm.loop !151
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 2
   %.not54.us86 = icmp sgt i64 %indvars.iv.next105, %58
-  br i1 %.not54.us86, label %.critedge63, label %.lr.ph.us, !llvm.loop !147
+  br i1 %.not54.us86, label %.critedge63, label %.lr.ph.us, !llvm.loop !152
 
 .critedge63:                                      ; preds = %._crit_edge.split.us.us, %.lr.ph81, %.critedge60..critedge63_crit_edge
   %.pre-phi = phi i64 [ %.pre114, %.critedge60..critedge63_crit_edge ], [ %49, %.lr.ph81 ], [ %49, %._crit_edge.split.us.us ]
@@ -4497,7 +4497,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge1
   %78 = load i32, ptr %8, align 8, !tbaa !55
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next109, %79
-  br i1 %80, label %29, label %._crit_edge.loopexit, !llvm.loop !148
+  br i1 %80, label %29, label %._crit_edge.loopexit, !llvm.loop !153
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4580,7 +4580,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %35 = sext i32 %32 to i64
   %36 = icmp slt i64 %indvars.iv.next190, %35
   %indvars.iv.next161 = add i32 %indvars.iv160, 1
-  br i1 %36, label %.lr.ph144.split, label %._crit_edge145, !llvm.loop !149
+  br i1 %36, label %.lr.ph144.split, label %._crit_edge145, !llvm.loop !154
 
 ._crit_edge138.loopexit:                          ; preds = %.split.us
   %.pre = load i32, ptr %8, align 4, !tbaa !64
@@ -4593,7 +4593,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next187, %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %40, label %.preheader107, label %._crit_edge140.loopexit, !llvm.loop !150
+  br i1 %40, label %.preheader107, label %._crit_edge140.loopexit, !llvm.loop !155
 
 41:                                               ; preds = %.lr.ph137, %.split.us
   %indvars.iv183 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next184, %.split.us ]
@@ -4658,7 +4658,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %.6.us = phi i32 [ %71, %61 ], [ %.4124.us, %.preheader105.split.us ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, 2
-  br i1 %exitcond178.not, label %.split.us, label %.preheader105.split.us, !llvm.loop !151
+  br i1 %exitcond178.not, label %.split.us, label %.preheader105.split.us, !llvm.loop !156
 
 .preheader.us:                                    ; preds = %.preheader105, %.loopexit.us
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.loopexit.us ], [ -1, %.preheader105 ]
@@ -4678,7 +4678,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %79 = shl nsw i32 %spec.select103.us, 1
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 2
   %80 = icmp slt i64 %indvars.iv168, 0
-  br i1 %80, label %74, label %.loopexit.us, !llvm.loop !152
+  br i1 %80, label %74, label %.loopexit.us, !llvm.loop !157
 
 .preheader.split.us133:                           ; preds = %.preheader.us
   %81 = mul nsw i64 %73, %56
@@ -4693,7 +4693,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %.us-phi123.us = phi i32 [ %.4124.us129, %.preheader.us ], [ %79, %74 ]
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next172, 2
-  br i1 %exitcond174.not, label %.split.us, label %.preheader.us, !llvm.loop !153
+  br i1 %exitcond174.not, label %.split.us, label %.preheader.us, !llvm.loop !158
 
 .lr.ph115.split:                                  ; preds = %.preheader106, %._crit_edge116
   %indvars.iv162 = phi i32 [ %indvars.iv160, %.preheader106 ], [ %indvars.iv.next163, %._crit_edge116 ]
@@ -4708,7 +4708,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %indvars.iv.next154 = add nsw i64 %indvars.iv153, 1
   %indvars.iv.next163 = add i32 %indvars.iv162, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, %indvars.iv186
-  br i1 %exitcond.not, label %.preheader105, label %.lr.ph115.split, !llvm.loop !154
+  br i1 %exitcond.not, label %.preheader105, label %.lr.ph115.split, !llvm.loop !159
 
 .lr.ph:                                           ; preds = %.lr.ph115.split, %._crit_edge
   %indvars.iv164 = phi i64 [ %87, %.lr.ph115.split ], [ %indvars.iv.next165, %._crit_edge ]
@@ -4720,7 +4720,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
 ._crit_edge:                                      ; preds = %89
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, %indvars.iv155
   %.not100 = icmp sgt i64 %indvars.iv164, %indvars.iv189
-  br i1 %.not100, label %._crit_edge116, label %.lr.ph, !llvm.loop !155
+  br i1 %.not100, label %._crit_edge116, label %.lr.ph, !llvm.loop !160
 
 89:                                               ; preds = %.lr.ph, %89
   %indvars.iv157 = phi i64 [ %indvars.iv153, %.lr.ph ], [ %indvars.iv.next158, %89 ]
@@ -4733,7 +4733,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %93 = shl nsw i32 %spec.select, 1
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, %indvars.iv155
   %.not101 = icmp sgt i64 %indvars.iv157, %indvars.iv186
-  br i1 %.not101, label %._crit_edge, label %89, !llvm.loop !156
+  br i1 %.not101, label %._crit_edge, label %89, !llvm.loop !161
 
 .preheader105.split:                              ; preds = %.preheader105, %107
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %107 ], [ -1, %.preheader105 ]
@@ -4760,7 +4760,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %.6 = phi i32 [ %106, %95 ], [ %.4124, %.preheader105.split ]
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next180, 2
-  br i1 %exitcond182.not, label %.split.us, label %.preheader105.split, !llvm.loop !157
+  br i1 %exitcond182.not, label %.split.us, label %.preheader105.split, !llvm.loop !162
 
 .split.us:                                        ; preds = %.loopexit.us, %72, %107, %41, %45, %50
   %.us-phi126.sink = phi i32 [ 0, %50 ], [ 0, %45 ], [ 0, %41 ], [ %.6, %107 ], [ %.6.us, %72 ], [ %.us-phi123.us, %.loopexit.us ]
@@ -4772,7 +4772,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
   %111 = load i32, ptr %9, align 4, !tbaa !66
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next184, %112
-  br i1 %113, label %41, label %._crit_edge138.loopexit, !llvm.loop !158
+  br i1 %113, label %41, label %._crit_edge138.loopexit, !llvm.loop !163
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4798,7 +4798,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %8, align 4, !tbaa !70
+  %14 = load i32, ptr %8, align 4, !tbaa !73
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph144.split.preheader, label %._crit_edge145
 
@@ -4816,14 +4816,14 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %20 = phi i32 [ %14, %.lr.ph144.split.preheader ], [ %34, %._crit_edge140 ]
   %indvars.iv189 = phi i64 [ %17, %.lr.ph144.split.preheader ], [ %indvars.iv.next190, %._crit_edge140 ]
   %indvars.iv160 = phi i32 [ %16, %.lr.ph144.split.preheader ], [ %indvars.iv.next161, %._crit_edge140 ]
-  %21 = load i32, ptr %7, align 8, !tbaa !73
+  %21 = load i32, ptr %7, align 8, !tbaa !76
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %indvars.iv189, %22
   %24 = icmp sgt i32 %20, 0
   br i1 %24, label %.preheader107.lr.ph, label %._crit_edge140
 
 .preheader107.lr.ph:                              ; preds = %.lr.ph144.split
-  %25 = load i32, ptr %9, align 4, !tbaa !72
+  %25 = load i32, ptr %9, align 4, !tbaa !75
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.preheader107.preheader, label %._crit_edge140
 
@@ -4855,10 +4855,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %35 = sext i32 %32 to i64
   %36 = icmp slt i64 %indvars.iv.next190, %35
   %indvars.iv.next161 = add i32 %indvars.iv160, 1
-  br i1 %36, label %.lr.ph144.split, label %._crit_edge145, !llvm.loop !159
+  br i1 %36, label %.lr.ph144.split, label %._crit_edge145, !llvm.loop !164
 
 ._crit_edge138.loopexit:                          ; preds = %.split.us
-  %.pre = load i32, ptr %8, align 4, !tbaa !70
+  %.pre = load i32, ptr %8, align 4, !tbaa !73
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %.preheader107
@@ -4868,17 +4868,17 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next187, %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %40, label %.preheader107, label %._crit_edge140.loopexit, !llvm.loop !160
+  br i1 %40, label %.preheader107, label %._crit_edge140.loopexit, !llvm.loop !165
 
 41:                                               ; preds = %.lr.ph137, %.split.us
   %indvars.iv183 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next184, %.split.us ]
-  %42 = load i32, ptr %10, align 8, !tbaa !68
+  %42 = load i32, ptr %10, align 8, !tbaa !71
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv189, %43
   br i1 %44, label %.split.us, label %45
 
 45:                                               ; preds = %41
-  %46 = load i32, ptr %11, align 8, !tbaa !71
+  %46 = load i32, ptr %11, align 8, !tbaa !74
   %47 = sub nsw i32 %46, %42
   %48 = sext i32 %47 to i64
   %.not = icmp sge i64 %indvars.iv189, %48
@@ -4887,7 +4887,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   br i1 %or.cond, label %.split.us, label %50
 
 50:                                               ; preds = %45
-  %51 = load i32, ptr %8, align 4, !tbaa !70
+  %51 = load i32, ptr %8, align 4, !tbaa !73
   %52 = sub nsw i32 %51, %42
   %53 = sext i32 %52 to i64
   %.not96 = icmp slt i64 %indvars.iv186, %53
@@ -4933,7 +4933,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %.6.us = phi i32 [ %71, %61 ], [ %.4124.us, %.preheader105.split.us ]
   %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, 2
-  br i1 %exitcond178.not, label %.split.us, label %.preheader105.split.us, !llvm.loop !161
+  br i1 %exitcond178.not, label %.split.us, label %.preheader105.split.us, !llvm.loop !166
 
 .preheader.us:                                    ; preds = %.preheader105, %.loopexit.us
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.loopexit.us ], [ -1, %.preheader105 ]
@@ -4953,7 +4953,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %79 = shl nsw i32 %spec.select103.us, 1
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 2
   %80 = icmp slt i64 %indvars.iv168, 0
-  br i1 %80, label %74, label %.loopexit.us, !llvm.loop !162
+  br i1 %80, label %74, label %.loopexit.us, !llvm.loop !167
 
 .preheader.split.us133:                           ; preds = %.preheader.us
   %81 = mul nsw i64 %73, %56
@@ -4968,7 +4968,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %.us-phi123.us = phi i32 [ %.4124.us129, %.preheader.us ], [ %79, %74 ]
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next172, 2
-  br i1 %exitcond174.not, label %.split.us, label %.preheader.us, !llvm.loop !163
+  br i1 %exitcond174.not, label %.split.us, label %.preheader.us, !llvm.loop !168
 
 .lr.ph115.split:                                  ; preds = %.preheader106, %._crit_edge116
   %indvars.iv162 = phi i32 [ %indvars.iv160, %.preheader106 ], [ %indvars.iv.next163, %._crit_edge116 ]
@@ -4983,7 +4983,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %indvars.iv.next154 = add nsw i64 %indvars.iv153, 1
   %indvars.iv.next163 = add i32 %indvars.iv162, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, %indvars.iv186
-  br i1 %exitcond.not, label %.preheader105, label %.lr.ph115.split, !llvm.loop !164
+  br i1 %exitcond.not, label %.preheader105, label %.lr.ph115.split, !llvm.loop !169
 
 .lr.ph:                                           ; preds = %.lr.ph115.split, %._crit_edge
   %indvars.iv164 = phi i64 [ %87, %.lr.ph115.split ], [ %indvars.iv.next165, %._crit_edge ]
@@ -4995,7 +4995,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
 ._crit_edge:                                      ; preds = %89
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, %indvars.iv155
   %.not100 = icmp sgt i64 %indvars.iv164, %indvars.iv189
-  br i1 %.not100, label %._crit_edge116, label %.lr.ph, !llvm.loop !165
+  br i1 %.not100, label %._crit_edge116, label %.lr.ph, !llvm.loop !170
 
 89:                                               ; preds = %.lr.ph, %89
   %indvars.iv157 = phi i64 [ %indvars.iv153, %.lr.ph ], [ %indvars.iv.next158, %89 ]
@@ -5008,7 +5008,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %93 = shl nsw i32 %spec.select, 1
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, %indvars.iv155
   %.not101 = icmp sgt i64 %indvars.iv157, %indvars.iv186
-  br i1 %.not101, label %._crit_edge, label %89, !llvm.loop !166
+  br i1 %.not101, label %._crit_edge, label %89, !llvm.loop !171
 
 .preheader105.split:                              ; preds = %.preheader105, %107
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %107 ], [ -1, %.preheader105 ]
@@ -5035,7 +5035,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %.6 = phi i32 [ %106, %95 ], [ %.4124, %.preheader105.split ]
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next180, 2
-  br i1 %exitcond182.not, label %.split.us, label %.preheader105.split, !llvm.loop !167
+  br i1 %exitcond182.not, label %.split.us, label %.preheader105.split, !llvm.loop !172
 
 .split.us:                                        ; preds = %.loopexit.us, %72, %107, %41, %45, %50
   %.us-phi126.sink = phi i32 [ 0, %50 ], [ 0, %45 ], [ 0, %41 ], [ %.6, %107 ], [ %.6.us, %72 ], [ %.us-phi123.us, %.loopexit.us ]
@@ -5044,10 +5044,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
   %110 = getelementptr inbounds i32, ptr %109, i64 %31
   store i32 %.us-phi126.sink, ptr %110, align 4, !tbaa !9
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %111 = load i32, ptr %9, align 4, !tbaa !72
+  %111 = load i32, ptr %9, align 4, !tbaa !75
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next184, %112
-  br i1 %113, label %41, label %._crit_edge138.loopexit, !llvm.loop !168
+  br i1 %113, label %41, label %._crit_edge138.loopexit, !llvm.loop !173
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5076,7 +5076,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %9, align 8, !tbaa !74
+  %17 = load i32, ptr %9, align 8, !tbaa !77
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph89.split.preheader, label %._crit_edge90
 
@@ -5094,7 +5094,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %23 = phi i32 [ %6, %.lr.ph89.split.preheader ], [ %33, %._crit_edge ]
   %24 = phi i32 [ %17, %.lr.ph89.split.preheader ], [ %34, %._crit_edge ]
   %indvars.iv114 = phi i64 [ %19, %.lr.ph89.split.preheader ], [ %indvars.iv.next115, %._crit_edge ]
-  %25 = load i32, ptr %8, align 4, !tbaa !79
+  %25 = load i32, ptr %8, align 4, !tbaa !82
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %indvars.iv114, %26
   %28 = icmp sgt i32 %24, 0
@@ -5119,19 +5119,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
   %35 = sext i32 %33 to i64
   %36 = icmp slt i64 %indvars.iv.next115, %35
-  br i1 %36, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !169
+  br i1 %36, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !174
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.loopexit
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit ], [ 0, %.lr.ph86.preheader ]
   %37 = phi i32 [ %97, %.loopexit ], [ %24, %.lr.ph86.preheader ]
-  %38 = load i32, ptr %10, align 8, !tbaa !78
+  %38 = load i32, ptr %10, align 8, !tbaa !81
   %39 = sub i32 0, %38
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv114, %40
   br i1 %41, label %.loopexit.loopexit.critedge, label %42
 
 42:                                               ; preds = %.lr.ph86
-  %43 = load i32, ptr %11, align 4, !tbaa !77
+  %43 = load i32, ptr %11, align 4, !tbaa !80
   %44 = sub nsw i32 %43, %38
   %45 = sext i32 %44 to i64
   %.not = icmp sge i64 %indvars.iv114, %45
@@ -5158,7 +5158,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
 53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8
-  %54 = load i32, ptr %12, align 8, !tbaa !80
+  %54 = load i32, ptr %12, align 8, !tbaa !83
   %.not5467 = icmp slt i32 %54, %39
   %55 = add nsw i64 %indvars.iv111, %40
   %56 = load i32, ptr %14, align 4
@@ -5233,22 +5233,22 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
 91:                                               ; preds = %.sink.split.i.us.us.us, %87
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us.us, %60
-  br i1 %exitcond.not, label %_ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !170
+  br i1 %exitcond.not, label %_ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !175
 
 _ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %91, %71
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, %indvars.iv
   %.not55.us.us.us = icmp sgt i64 %indvars.iv.next98, %55
-  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %71, !llvm.loop !171
+  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %71, !llvm.loop !176
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, %indvars.iv
   %.not54.us73.us = icmp sgt i64 %indvars.iv.next101, %67
-  br i1 %.not54.us73.us, label %._crit_edge71.split.split.us.us, label %.lr.ph.us.us, !llvm.loop !172
+  br i1 %.not54.us73.us, label %._crit_edge71.split.split.us.us, label %.lr.ph.us.us, !llvm.loop !177
 
 ._crit_edge71.split.split.us.us:                  ; preds = %._crit_edge.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %92 = icmp samesign ult i32 %indvars104, 3
-  br i1 %92, label %.lr.ph70.us78, label %.preheader, !llvm.loop !173
+  br i1 %92, label %.lr.ph70.us78, label %.preheader, !llvm.loop !178
 
 .preheader:                                       ; preds = %._crit_edge71.split.split.us.us, %53
   %93 = load i32, ptr %3, align 8, !tbaa !9
@@ -5262,10 +5262,10 @@ _ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %91, %71
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %97 = load i32, ptr %9, align 8, !tbaa !74
+  %97 = load i32, ptr %9, align 8, !tbaa !77
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next112, %98
-  br i1 %99, label %.lr.ph86, label %._crit_edge.loopexit, !llvm.loop !174
+  br i1 %99, label %.lr.ph86, label %._crit_edge.loopexit, !llvm.loop !179
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5294,7 +5294,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %9, align 8, !tbaa !81
+  %17 = load i32, ptr %9, align 8, !tbaa !84
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph89.split.preheader, label %._crit_edge90
 
@@ -5312,7 +5312,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %23 = phi i32 [ %6, %.lr.ph89.split.preheader ], [ %33, %._crit_edge ]
   %24 = phi i32 [ %17, %.lr.ph89.split.preheader ], [ %34, %._crit_edge ]
   %indvars.iv111 = phi i64 [ %19, %.lr.ph89.split.preheader ], [ %indvars.iv.next112, %._crit_edge ]
-  %25 = load i32, ptr %8, align 4, !tbaa !86
+  %25 = load i32, ptr %8, align 4, !tbaa !89
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %indvars.iv111, %26
   %28 = icmp sgt i32 %24, 0
@@ -5337,19 +5337,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %35 = sext i32 %33 to i64
   %36 = icmp slt i64 %indvars.iv.next112, %35
-  br i1 %36, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !175
+  br i1 %36, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !180
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.loopexit
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.loopexit ], [ 0, %.lr.ph86.preheader ]
   %37 = phi i32 [ %97, %.loopexit ], [ %24, %.lr.ph86.preheader ]
-  %38 = load i32, ptr %10, align 8, !tbaa !85
+  %38 = load i32, ptr %10, align 8, !tbaa !88
   %39 = sub i32 0, %38
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv111, %40
   br i1 %41, label %.loopexit.loopexit.critedge, label %42
 
 42:                                               ; preds = %.lr.ph86
-  %43 = load i32, ptr %11, align 4, !tbaa !84
+  %43 = load i32, ptr %11, align 4, !tbaa !87
   %44 = sub nsw i32 %43, %38
   %45 = sext i32 %44 to i64
   %.not = icmp sge i64 %indvars.iv111, %45
@@ -5376,7 +5376,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8
-  %54 = load i32, ptr %12, align 8, !tbaa !87
+  %54 = load i32, ptr %12, align 8, !tbaa !90
   %.not5467 = icmp slt i32 %54, %39
   %55 = add nsw i64 %indvars.iv108, %40
   %56 = load i32, ptr %14, align 8
@@ -5441,17 +5441,17 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   store i32 %92, ptr %80, align 4, !tbaa !9
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us.us, %59
-  br i1 %exitcond.not, label %_ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us, label %._crit_edge24.i.us.us.us, !llvm.loop !176
+  br i1 %exitcond.not, label %_ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us, label %._crit_edge24.i.us.us.us, !llvm.loop !181
 
 _ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.i.us.us.us, %70
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %.not55.us.us.us = icmp sgt i64 %indvars.iv.next, %55
-  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %70, !llvm.loop !177
+  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %70, !llvm.loop !182
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, 2
   %.not54.us73.us = icmp sgt i64 %indvars.iv.next99, %66
-  br i1 %.not54.us73.us, label %.preheader, label %.lr.ph.us.us, !llvm.loop !178
+  br i1 %.not54.us73.us, label %.preheader, label %.lr.ph.us.us, !llvm.loop !183
 
 .preheader:                                       ; preds = %._crit_edge.split.us.us.us, %53
   %93 = load i32, ptr %3, align 8, !tbaa !9
@@ -5465,10 +5465,10 @@ _ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %97 = load i32, ptr %9, align 8, !tbaa !81
+  %97 = load i32, ptr %9, align 8, !tbaa !84
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next109, %98
-  br i1 %99, label %.lr.ph86, label %._crit_edge.loopexit, !llvm.loop !179
+  br i1 %99, label %.lr.ph86, label %._crit_edge.loopexit, !llvm.loop !184
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5496,7 +5496,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %8, align 8, !tbaa !88
+  %16 = load i32, ptr %8, align 8, !tbaa !91
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph111.split.preheader, label %._crit_edge112
 
@@ -5511,7 +5511,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %19 = phi i32 [ %5, %.lr.ph111.split.preheader ], [ %26, %._crit_edge ]
   %20 = phi i32 [ %16, %.lr.ph111.split.preheader ], [ %27, %._crit_edge ]
   %indvars.iv130 = phi i64 [ %18, %.lr.ph111.split.preheader ], [ %indvars.iv.next131, %._crit_edge ]
-  %21 = load i32, ptr %7, align 4, !tbaa !93
+  %21 = load i32, ptr %7, align 4, !tbaa !96
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %indvars.iv130, %22
   %24 = icmp sgt i32 %20, 0
@@ -5532,19 +5532,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %28 = sext i32 %26 to i64
   %29 = icmp slt i64 %indvars.iv.next131, %28
-  br i1 %29, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !180
+  br i1 %29, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !185
 
 30:                                               ; preds = %.lr.ph108, %88
   %indvars.iv127 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next128, %88 ]
   %31 = phi i32 [ %20, %.lr.ph108 ], [ %89, %88 ]
-  %32 = load i32, ptr %9, align 8, !tbaa !92
+  %32 = load i32, ptr %9, align 8, !tbaa !95
   %33 = sub i32 0, %32
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv130, %34
   br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %30
-  %37 = load i32, ptr %10, align 4, !tbaa !91
+  %37 = load i32, ptr %10, align 4, !tbaa !94
   %38 = sub nsw i32 %37, %32
   %39 = sext i32 %38 to i64
   %.not = icmp sge i64 %indvars.iv130, %39
@@ -5567,7 +5567,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   br label %88
 
 47:                                               ; preds = %43
-  %48 = load i32, ptr %11, align 8, !tbaa !94
+  %48 = load i32, ptr %11, align 8, !tbaa !97
   %.not5476 = icmp slt i32 %48, %33
   %49 = add nsw i64 %indvars.iv127, %34
   %50 = load i32, ptr %13, align 4
@@ -5643,23 +5643,23 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %85 = phi i32 [ %83, %.sink.split.i.us.us.us ], [ %68, %80 ]
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us.us, %54
-  br i1 %exitcond.not, label %_ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !181
+  br i1 %exitcond.not, label %_ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !186
 
 _ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %84, %65
   %.lcssa63.us.us.us = phi i32 [ %.lcssa6466.us.us.us, %65 ], [ %85, %84 ]
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, %indvars.iv
   %.not55.us.us.us = icmp sgt i64 %indvars.iv.next120, %49
-  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %65, !llvm.loop !182
+  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %65, !llvm.loop !187
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, %indvars.iv
   %.not54.us86.us = icmp sgt i64 %indvars.iv.next123, %61
-  br i1 %.not54.us86.us, label %._crit_edge81.split.split.us.us, label %.lr.ph.us.us, !llvm.loop !183
+  br i1 %.not54.us86.us, label %._crit_edge81.split.split.us.us, label %.lr.ph.us.us, !llvm.loop !188
 
 ._crit_edge81.split.split.us.us:                  ; preds = %._crit_edge.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %86 = icmp samesign ult i32 %indvars126, 3
-  br i1 %86, label %.lr.ph80.us99, label %.critedge61, !llvm.loop !184
+  br i1 %86, label %.lr.ph80.us99, label %.critedge61, !llvm.loop !189
 
 .critedge61:                                      ; preds = %._crit_edge81.split.split.us.us, %47
   %.us-phi = phi i32 [ 0, %47 ], [ %.lcssa63.us.us.us, %._crit_edge81.split.split.us.us ]
@@ -5669,10 +5669,10 @@ _ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %84, %65
 
 88:                                               ; preds = %.critedge61, %.critedge
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %89 = load i32, ptr %8, align 8, !tbaa !88
+  %89 = load i32, ptr %8, align 8, !tbaa !91
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next128, %90
-  br i1 %91, label %30, label %._crit_edge.loopexit, !llvm.loop !185
+  br i1 %91, label %30, label %._crit_edge.loopexit, !llvm.loop !190
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5700,7 +5700,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %8, align 8, !tbaa !95
+  %16 = load i32, ptr %8, align 8, !tbaa !98
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph111.split.preheader, label %._crit_edge112
 
@@ -5715,7 +5715,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %19 = phi i32 [ %5, %.lr.ph111.split.preheader ], [ %26, %._crit_edge ]
   %20 = phi i32 [ %16, %.lr.ph111.split.preheader ], [ %27, %._crit_edge ]
   %indvars.iv127 = phi i64 [ %18, %.lr.ph111.split.preheader ], [ %indvars.iv.next128, %._crit_edge ]
-  %21 = load i32, ptr %7, align 4, !tbaa !100
+  %21 = load i32, ptr %7, align 4, !tbaa !103
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %indvars.iv127, %22
   %24 = icmp sgt i32 %20, 0
@@ -5736,19 +5736,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %indvars.iv.next128 = add nsw i64 %indvars.iv127, 1
   %28 = sext i32 %26 to i64
   %29 = icmp slt i64 %indvars.iv.next128, %28
-  br i1 %29, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !186
+  br i1 %29, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !191
 
 30:                                               ; preds = %.lr.ph108, %87
   %indvars.iv124 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next125, %87 ]
   %31 = phi i32 [ %20, %.lr.ph108 ], [ %88, %87 ]
-  %32 = load i32, ptr %9, align 8, !tbaa !99
+  %32 = load i32, ptr %9, align 8, !tbaa !102
   %33 = sub i32 0, %32
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv127, %34
   br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %30
-  %37 = load i32, ptr %10, align 4, !tbaa !98
+  %37 = load i32, ptr %10, align 4, !tbaa !101
   %38 = sub nsw i32 %37, %32
   %39 = sext i32 %38 to i64
   %.not = icmp sge i64 %indvars.iv127, %39
@@ -5771,7 +5771,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   br label %87
 
 47:                                               ; preds = %43
-  %48 = load i32, ptr %11, align 8, !tbaa !101
+  %48 = load i32, ptr %11, align 8, !tbaa !104
   %.not5476 = icmp slt i32 %48, %33
   %49 = add nsw i64 %indvars.iv124, %34
   %50 = load i32, ptr %13, align 8
@@ -5836,18 +5836,18 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %85 = or disjoint i32 %83, %84
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us.us, %53
-  br i1 %exitcond.not, label %_ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us, label %._crit_edge24.i.us.us.us, !llvm.loop !187
+  br i1 %exitcond.not, label %_ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us, label %._crit_edge24.i.us.us.us, !llvm.loop !192
 
 _ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.i.us.us.us, %64
   %.lcssa63.us.us.us = phi i32 [ %.lcssa6466.us.us.us, %64 ], [ %85, %._crit_edge24.i.us.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %.not55.us.us.us = icmp sgt i64 %indvars.iv.next, %49
-  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %64, !llvm.loop !188
+  br i1 %.not55.us.us.us, label %._crit_edge.split.us.us.us, label %64, !llvm.loop !193
 
 ._crit_edge.split.us.us.us:                       ; preds = %_ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 2
   %.not54.us86.us = icmp sgt i64 %indvars.iv.next121, %60
-  br i1 %.not54.us86.us, label %.critedge61, label %.lr.ph.us.us, !llvm.loop !189
+  br i1 %.not54.us86.us, label %.critedge61, label %.lr.ph.us.us, !llvm.loop !194
 
 .critedge61:                                      ; preds = %._crit_edge.split.us.us.us, %47
   %.us-phi = phi i32 [ 0, %47 ], [ %.lcssa63.us.us.us, %._crit_edge.split.us.us.us ]
@@ -5857,10 +5857,10 @@ _ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
 
 87:                                               ; preds = %.critedge61, %.critedge
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %88 = load i32, ptr %8, align 8, !tbaa !95
+  %88 = load i32, ptr %8, align 8, !tbaa !98
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next125, %89
-  br i1 %90, label %30, label %._crit_edge.loopexit, !llvm.loop !190
+  br i1 %90, label %30, label %._crit_edge.loopexit, !llvm.loop !195
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -5886,7 +5886,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i32, ptr %8, align 4, !tbaa !104
+  %14 = load i32, ptr %8, align 4, !tbaa !107
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph81.split, label %._crit_edge82
 
@@ -5898,13 +5898,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %17 = phi i32 [ %30, %._crit_edge77 ], [ %14, %.lr.ph81 ]
   %18 = phi i32 [ %31, %._crit_edge77 ], [ %14, %.lr.ph81 ]
   %.05078 = phi i32 [ %32, %._crit_edge77 ], [ %3, %.lr.ph81 ]
-  %19 = load i32, ptr %7, align 8, !tbaa !107
+  %19 = load i32, ptr %7, align 8, !tbaa !110
   %20 = mul nsw i32 %19, %.05078
   %21 = icmp sgt i32 %18, 0
   br i1 %21, label %.preheader.lr.ph, label %._crit_edge77
 
 .preheader.lr.ph:                                 ; preds = %.lr.ph81.split
-  %22 = load i32, ptr %9, align 4, !tbaa !106
+  %22 = load i32, ptr %9, align 4, !tbaa !109
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.preheader.preheader, label %._crit_edge77
 
@@ -5933,10 +5933,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %31 = phi i32 [ %34, %._crit_edge77.loopexit ], [ %18, %.lr.ph81.split ], [ %18, %.preheader.lr.ph ]
   %32 = add nsw i32 %.05078, 1
   %33 = icmp slt i32 %32, %29
-  br i1 %33, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !191
+  br i1 %33, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !196
 
 ._crit_edge75.loopexit:                           ; preds = %._crit_edge70
-  %.pre = load i32, ptr %8, align 4, !tbaa !104
+  %.pre = load i32, ptr %8, align 4, !tbaa !107
   br label %._crit_edge75
 
 ._crit_edge75:                                    ; preds = %._crit_edge75.loopexit, %.preheader
@@ -5945,17 +5945,17 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %36 = sext i32 %34 to i64
   %37 = icmp slt i64 %indvars.iv.next98, %36
-  br i1 %37, label %.preheader, label %._crit_edge77.loopexit, !llvm.loop !192
+  br i1 %37, label %.preheader, label %._crit_edge77.loopexit, !llvm.loop !197
 
 38:                                               ; preds = %.lr.ph74, %._crit_edge70
   %indvars.iv94 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next95, %._crit_edge70 ]
-  %39 = load i32, ptr %10, align 8, !tbaa !102
+  %39 = load i32, ptr %10, align 8, !tbaa !105
   %.fr83 = freeze i32 %39
   %40 = icmp slt i32 %.05078, %.fr83
   br i1 %40, label %._crit_edge70, label %41
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %11, align 8, !tbaa !105
+  %42 = load i32, ptr %11, align 8, !tbaa !108
   %43 = sub nsw i32 %42, %.fr83
   %.not = icmp sge i32 %.05078, %43
   %44 = sext i32 %.fr83 to i64
@@ -5964,7 +5964,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   br i1 %or.cond58, label %._crit_edge70, label %46
 
 46:                                               ; preds = %41
-  %47 = load i32, ptr %8, align 4, !tbaa !104
+  %47 = load i32, ptr %8, align 4, !tbaa !107
   %48 = sub nsw i32 %47, %.fr83
   %49 = sext i32 %48 to i64
   %.not56 = icmp slt i64 %indvars.iv97, %49
@@ -5974,7 +5974,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
 
 .lr.ph69.split:                                   ; preds = %46
   %51 = sub nsw i32 0, %.fr83
-  %52 = load i32, ptr %7, align 8, !tbaa !107
+  %52 = load i32, ptr %7, align 8, !tbaa !110
   %53 = mul nsw i32 %47, %.05078
   %invariant.op64 = add i32 %53, %28
   %54 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %indvars.iv94
@@ -6016,13 +6016,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %.0.neg.us = xor i32 %64, -1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %57, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %100
   %.us-phi = phi i32 [ %.4, %100 ], [ %74, %.lr.ph.split.us ]
   %75 = add i32 %.05167, 1
   %76 = icmp ugt i32 %.05167, 2147483646
-  br i1 %76, label %.lr.ph, label %._crit_edge70, !llvm.loop !194
+  br i1 %76, label %.lr.ph, label %._crit_edge70, !llvm.loop !199
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %100 ], [ %56, %.lr.ph ]
@@ -6065,7 +6065,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %.0.neg = xor i32 %77, -1
   %lftr.wideiv92 = trunc i64 %indvars.iv.next90 to i32
   %exitcond93.not = icmp eq i32 %57, %lftr.wideiv92
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !195
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !200
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %38, %41, %46
   %.052.lcssa.sink = phi i32 [ 0, %46 ], [ 0, %41 ], [ 0, %38 ], [ %.us-phi, %._crit_edge ]
@@ -6075,10 +6075,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %104 = getelementptr i32, ptr %103, i64 %24
   store i32 %.052.lcssa.sink, ptr %104, align 4, !tbaa !9
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %105 = load i32, ptr %9, align 4, !tbaa !106
+  %105 = load i32, ptr %9, align 4, !tbaa !109
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next95, %106
-  br i1 %107, label %38, label %._crit_edge75.loopexit, !llvm.loop !196
+  br i1 %107, label %38, label %._crit_edge75.loopexit, !llvm.loop !201
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6107,7 +6107,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %9, align 8, !tbaa !108
+  %17 = load i32, ptr %9, align 8, !tbaa !111
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph84.split.preheader, label %._crit_edge85
 
@@ -6125,7 +6125,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %23 = phi i32 [ %6, %.lr.ph84.split.preheader ], [ %34, %._crit_edge ]
   %24 = phi i32 [ %17, %.lr.ph84.split.preheader ], [ %35, %._crit_edge ]
   %indvars.iv106 = phi i64 [ %19, %.lr.ph84.split.preheader ], [ %indvars.iv.next107, %._crit_edge ]
-  %25 = load i32, ptr %8, align 4, !tbaa !113
+  %25 = load i32, ptr %8, align 4, !tbaa !116
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %indvars.iv106, %26
   %28 = icmp sgt i32 %24, 0
@@ -6153,19 +6153,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
   %36 = sext i32 %34 to i64
   %37 = icmp slt i64 %indvars.iv.next107, %36
-  br i1 %37, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !197
+  br i1 %37, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !202
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.loopexit
   %indvars.iv103 = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next104, %.loopexit ]
   %38 = phi i32 [ %24, %.lr.ph81.preheader ], [ %91, %.loopexit ]
-  %39 = load i32, ptr %10, align 8, !tbaa !112
+  %39 = load i32, ptr %10, align 8, !tbaa !115
   %40 = sub i32 0, %39
   %41 = sext i32 %39 to i64
   %42 = icmp slt i64 %indvars.iv106, %41
   br i1 %42, label %.loopexit.loopexit.critedge, label %43
 
 43:                                               ; preds = %.lr.ph81
-  %44 = load i32, ptr %11, align 4, !tbaa !111
+  %44 = load i32, ptr %11, align 4, !tbaa !114
   %45 = sub nsw i32 %44, %39
   %46 = sext i32 %45 to i64
   %.not = icmp sge i64 %indvars.iv106, %46
@@ -6192,13 +6192,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 .critedge:                                        ; preds = %50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8
-  %54 = load i32, ptr %12, align 8, !tbaa !114
+  %54 = load i32, ptr %12, align 8, !tbaa !117
   %invariant.op67 = add i32 %39, %29
   %.not5468 = icmp slt i32 %54, %40
   br i1 %.not5468, label %.preheader, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %.critedge
-  %55 = load i32, ptr %8, align 4, !tbaa !113
+  %55 = load i32, ptr %8, align 4, !tbaa !116
   %56 = add nsw i64 %indvars.iv103, %41
   %.not5560 = icmp sgt i32 %39, -1
   %57 = load i32, ptr %14, align 4
@@ -6259,18 +6259,18 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   store i32 %88, ptr %84, align 4, !tbaa !9
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %59
-  br i1 %exitcond.not, label %_ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !198
+  br i1 %exitcond.not, label %_ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !203
 
 _ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not55.us.us.not = icmp slt i64 %indvars.iv, %56
-  br i1 %.not55.us.us.not, label %72, label %._crit_edge.split.us.us, !llvm.loop !199
+  br i1 %.not55.us.us.not, label %72, label %._crit_edge.split.us.us, !llvm.loop !204
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next93 to i32
   %exitcond96.not = icmp eq i32 %66, %lftr.wideiv
-  br i1 %exitcond96.not, label %.preheader, label %.lr.ph.us, !llvm.loop !200
+  br i1 %exitcond96.not, label %.preheader, label %.lr.ph.us, !llvm.loop !205
 
 .preheader:                                       ; preds = %._crit_edge.split.us.us, %.critedge, %.lr.ph70
   %89 = load i32, ptr %3, align 8, !tbaa !9
@@ -6284,10 +6284,10 @@ _ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us: ; preds = %._crit_e
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %91 = load i32, ptr %9, align 8, !tbaa !108
+  %91 = load i32, ptr %9, align 8, !tbaa !111
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next104, %92
-  br i1 %93, label %.lr.ph81, label %._crit_edge.loopexit, !llvm.loop !201
+  br i1 %93, label %.lr.ph81, label %._crit_edge.loopexit, !llvm.loop !206
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6313,7 +6313,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %8, align 4, !tbaa !117
+  %14 = load i32, ptr %8, align 4, !tbaa !122
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph81.split, label %._crit_edge82
 
@@ -6325,13 +6325,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %17 = phi i32 [ %30, %._crit_edge77 ], [ %14, %.lr.ph81 ]
   %18 = phi i32 [ %31, %._crit_edge77 ], [ %14, %.lr.ph81 ]
   %.05078 = phi i32 [ %32, %._crit_edge77 ], [ %3, %.lr.ph81 ]
-  %19 = load i32, ptr %7, align 8, !tbaa !120
+  %19 = load i32, ptr %7, align 8, !tbaa !125
   %20 = mul nsw i32 %19, %.05078
   %21 = icmp sgt i32 %18, 0
   br i1 %21, label %.preheader.lr.ph, label %._crit_edge77
 
 .preheader.lr.ph:                                 ; preds = %.lr.ph81.split
-  %22 = load i32, ptr %9, align 4, !tbaa !119
+  %22 = load i32, ptr %9, align 4, !tbaa !124
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.preheader.preheader, label %._crit_edge77
 
@@ -6360,10 +6360,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %31 = phi i32 [ %34, %._crit_edge77.loopexit ], [ %18, %.lr.ph81.split ], [ %18, %.preheader.lr.ph ]
   %32 = add nsw i32 %.05078, 1
   %33 = icmp slt i32 %32, %29
-  br i1 %33, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !202
+  br i1 %33, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !207
 
 ._crit_edge75.loopexit:                           ; preds = %._crit_edge70
-  %.pre = load i32, ptr %8, align 4, !tbaa !117
+  %.pre = load i32, ptr %8, align 4, !tbaa !122
   br label %._crit_edge75
 
 ._crit_edge75:                                    ; preds = %._crit_edge75.loopexit, %.preheader
@@ -6372,17 +6372,17 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %36 = sext i32 %34 to i64
   %37 = icmp slt i64 %indvars.iv.next98, %36
-  br i1 %37, label %.preheader, label %._crit_edge77.loopexit, !llvm.loop !203
+  br i1 %37, label %.preheader, label %._crit_edge77.loopexit, !llvm.loop !208
 
 38:                                               ; preds = %.lr.ph74, %._crit_edge70
   %indvars.iv94 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next95, %._crit_edge70 ]
-  %39 = load i32, ptr %10, align 8, !tbaa !115
+  %39 = load i32, ptr %10, align 8, !tbaa !120
   %.fr83 = freeze i32 %39
   %40 = icmp slt i32 %.05078, %.fr83
   br i1 %40, label %._crit_edge70, label %41
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %11, align 8, !tbaa !118
+  %42 = load i32, ptr %11, align 8, !tbaa !123
   %43 = sub nsw i32 %42, %.fr83
   %.not = icmp sge i32 %.05078, %43
   %44 = sext i32 %.fr83 to i64
@@ -6391,7 +6391,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   br i1 %or.cond58, label %._crit_edge70, label %46
 
 46:                                               ; preds = %41
-  %47 = load i32, ptr %8, align 4, !tbaa !117
+  %47 = load i32, ptr %8, align 4, !tbaa !122
   %48 = sub nsw i32 %47, %.fr83
   %49 = sext i32 %48 to i64
   %.not56 = icmp slt i64 %indvars.iv97, %49
@@ -6401,7 +6401,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
 
 .lr.ph69.split:                                   ; preds = %46
   %51 = sub nsw i32 0, %.fr83
-  %52 = load i32, ptr %7, align 8, !tbaa !120
+  %52 = load i32, ptr %7, align 8, !tbaa !125
   %53 = mul nsw i32 %47, %.05078
   %invariant.op64 = add i32 %53, %28
   %54 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv94
@@ -6443,13 +6443,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %.0.neg.us = xor i32 %64, -1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %57, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !204
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %100
   %.us-phi = phi i32 [ %.4, %100 ], [ %74, %.lr.ph.split.us ]
   %75 = add i32 %.05167, 1
   %76 = icmp ugt i32 %.05167, 2147483646
-  br i1 %76, label %.lr.ph, label %._crit_edge70, !llvm.loop !205
+  br i1 %76, label %.lr.ph, label %._crit_edge70, !llvm.loop !210
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %100 ], [ %56, %.lr.ph ]
@@ -6492,7 +6492,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %.0.neg = xor i32 %77, -1
   %lftr.wideiv92 = trunc i64 %indvars.iv.next90 to i32
   %exitcond93.not = icmp eq i32 %57, %lftr.wideiv92
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !206
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !211
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %38, %41, %46
   %.052.lcssa.sink = phi i32 [ 0, %46 ], [ 0, %41 ], [ 0, %38 ], [ %.us-phi, %._crit_edge ]
@@ -6502,10 +6502,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %104 = getelementptr i32, ptr %103, i64 %24
   store i32 %.052.lcssa.sink, ptr %104, align 4, !tbaa !9
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %105 = load i32, ptr %9, align 4, !tbaa !119
+  %105 = load i32, ptr %9, align 4, !tbaa !124
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next95, %106
-  br i1 %107, label %38, label %._crit_edge75.loopexit, !llvm.loop !207
+  br i1 %107, label %38, label %._crit_edge75.loopexit, !llvm.loop !212
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -6533,7 +6533,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %8, align 8, !tbaa !121
+  %16 = load i32, ptr %8, align 8, !tbaa !126
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph99.split.preheader, label %._crit_edge100
 
@@ -6552,7 +6552,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   br i1 %21, label %.lr.ph96, label %._crit_edge
 
 .lr.ph96:                                         ; preds = %.lr.ph99.split
-  %22 = load i32, ptr %7, align 4, !tbaa !126
+  %22 = load i32, ptr %7, align 4, !tbaa !131
   %23 = sext i32 %22 to i64
   %24 = mul nsw i64 %indvars.iv115, %23
   %25 = load ptr, ptr %15, align 8
@@ -6570,19 +6570,19 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %29 = sext i32 %27 to i64
   %30 = icmp slt i64 %indvars.iv.next116, %29
-  br i1 %30, label %.lr.ph99.split, label %._crit_edge100, !llvm.loop !208
+  br i1 %30, label %.lr.ph99.split, label %._crit_edge100, !llvm.loop !213
 
 31:                                               ; preds = %.lr.ph96, %.critedge
   %indvars.iv112 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next113, %.critedge ]
   %32 = phi i32 [ %20, %.lr.ph96 ], [ %82, %.critedge ]
-  %33 = load i32, ptr %9, align 8, !tbaa !125
+  %33 = load i32, ptr %9, align 8, !tbaa !130
   %34 = sub i32 0, %33
   %35 = sext i32 %33 to i64
   %36 = icmp slt i64 %indvars.iv115, %35
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %31
-  %38 = load i32, ptr %10, align 4, !tbaa !124
+  %38 = load i32, ptr %10, align 4, !tbaa !129
   %39 = sub nsw i32 %38, %33
   %40 = sext i32 %39 to i64
   %.not = icmp sge i64 %indvars.iv115, %40
@@ -6600,13 +6600,13 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   br i1 %.not53, label %.critedge60, label %.critedge
 
 .critedge60:                                      ; preds = %44
-  %48 = load i32, ptr %11, align 8, !tbaa !127
+  %48 = load i32, ptr %11, align 8, !tbaa !132
   %invariant.op77 = add i32 %33, %26
   %.not5479 = icmp slt i32 %48, %34
   br i1 %.not5479, label %.critedge, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.critedge60
-  %49 = load i32, ptr %7, align 4, !tbaa !126
+  %49 = load i32, ptr %7, align 4, !tbaa !131
   %50 = add nsw i64 %indvars.iv112, %35
   %.not5567 = icmp sgt i32 %33, -1
   %51 = load i32, ptr %13, align 4
@@ -6667,29 +6667,29 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
   %81 = shl i32 %80, 1
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us.us, %53
-  br i1 %exitcond.not, label %_ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !209
+  br i1 %exitcond.not, label %_ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.us.us, label %._crit_edge14.i.us.us, !llvm.loop !214
 
 _ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.us.us: ; preds = %._crit_edge14.i.us.us, %66
   %.lcssa65.us.us = phi i32 [ %.lcssa6668.us.us, %66 ], [ %81, %._crit_edge14.i.us.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not55.us.us.not = icmp slt i64 %indvars.iv, %50
-  br i1 %.not55.us.us.not, label %66, label %._crit_edge.split.us.us, !llvm.loop !210
+  br i1 %.not55.us.us.not, label %66, label %._crit_edge.split.us.us, !llvm.loop !215
 
 ._crit_edge.split.us.us:                          ; preds = %_ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.us.us
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next108 to i32
   %exitcond111.not = icmp eq i32 %60, %lftr.wideiv
-  br i1 %exitcond111.not, label %.critedge, label %.lr.ph.us, !llvm.loop !211
+  br i1 %exitcond111.not, label %.critedge, label %.lr.ph.us, !llvm.loop !216
 
 .critedge:                                        ; preds = %._crit_edge.split.us.us, %.critedge60, %.lr.ph82, %31, %37, %44
   %.lcssa66.lcssa78.lcssa.sink = phi i32 [ 0, %44 ], [ 0, %37 ], [ 0, %31 ], [ 0, %.critedge60 ], [ 0, %.lr.ph82 ], [ %.lcssa65.us.us, %._crit_edge.split.us.us ]
   %gep = getelementptr i32, ptr %invariant.gep.sink, i64 %indvars.iv112
   store i32 %.lcssa66.lcssa78.lcssa.sink, ptr %gep, align 4, !tbaa !9
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %82 = load i32, ptr %8, align 8, !tbaa !121
+  %82 = load i32, ptr %8, align 8, !tbaa !126
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next113, %83
-  br i1 %84, label %31, label %._crit_edge.loopexit, !llvm.loop !212
+  br i1 %84, label %31, label %._crit_edge.loopexit, !llvm.loop !217
 }
 
 ; Function Attrs: uwtable
@@ -6787,148 +6787,153 @@ attributes #13 = { builtin nounwind }
 !65 = !{!63, !10, i64 48}
 !66 = !{!63, !10, i64 52}
 !67 = !{!63, !10, i64 56}
-!68 = !{!69, !10, i64 24}
-!69 = !{!"_ZTSN2cv6stereo16StarKernelCensusILi1EEE", !34, i64 0, !7, i64 8, !7, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
-!70 = !{!69, !10, i64 28}
-!71 = !{!69, !10, i64 32}
-!72 = !{!69, !10, i64 36}
-!73 = !{!69, !10, i64 40}
-!74 = !{!75, !10, i64 8}
-!75 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !76, i64 40, !10, i64 64}
-!76 = !{!"_ZTSN2cv6stereo9MCTKernelILi2EEE", !7, i64 0, !10, i64 16, !10, i64 20}
-!77 = !{!75, !10, i64 12}
-!78 = !{!75, !10, i64 16}
-!79 = !{!75, !10, i64 20}
-!80 = !{!75, !10, i64 64}
-!81 = !{!82, !10, i64 8}
-!82 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !83, i64 40, !10, i64 80}
-!83 = !{!"_ZTSN2cv6stereo8MVKernelILi2EEE", !7, i64 0, !7, i64 16, !10, i64 32}
-!84 = !{!82, !10, i64 12}
-!85 = !{!82, !10, i64 16}
-!86 = !{!82, !10, i64 20}
-!87 = !{!82, !10, i64 80}
-!88 = !{!89, !10, i64 8}
-!89 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !90, i64 32, !10, i64 48}
-!90 = !{!"_ZTSN2cv6stereo9MCTKernelILi1EEE", !7, i64 0, !10, i64 8, !10, i64 12}
-!91 = !{!89, !10, i64 12}
-!92 = !{!89, !10, i64 16}
-!93 = !{!89, !10, i64 20}
-!94 = !{!89, !10, i64 48}
-!95 = !{!96, !10, i64 8}
-!96 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !97, i64 32, !10, i64 56}
-!97 = !{!"_ZTSN2cv6stereo8MVKernelILi1EEE", !7, i64 0, !7, i64 8, !10, i64 16}
-!98 = !{!96, !10, i64 12}
-!99 = !{!96, !10, i64 16}
-!100 = !{!96, !10, i64 20}
-!101 = !{!96, !10, i64 56}
-!102 = !{!103, !10, i64 40}
-!103 = !{!"_ZTSN2cv6stereo14SymetricCensusILi2EEE", !34, i64 0, !7, i64 8, !7, i64 24, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56}
-!104 = !{!103, !10, i64 44}
-!105 = !{!103, !10, i64 48}
-!106 = !{!103, !10, i64 52}
-!107 = !{!103, !10, i64 56}
-!108 = !{!109, !10, i64 8}
-!109 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !110, i64 40, !10, i64 64}
-!110 = !{!"_ZTSN2cv6stereo16ModifiedCsCensusILi2EEE", !7, i64 0, !10, i64 16, !10, i64 20}
-!111 = !{!109, !10, i64 12}
-!112 = !{!109, !10, i64 16}
-!113 = !{!109, !10, i64 20}
-!114 = !{!109, !10, i64 64}
-!115 = !{!116, !10, i64 24}
-!116 = !{!"_ZTSN2cv6stereo14SymetricCensusILi1EEE", !34, i64 0, !7, i64 8, !7, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
-!117 = !{!116, !10, i64 28}
-!118 = !{!116, !10, i64 32}
-!119 = !{!116, !10, i64 36}
-!120 = !{!116, !10, i64 40}
-!121 = !{!122, !10, i64 8}
-!122 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !123, i64 32, !10, i64 48}
-!123 = !{!"_ZTSN2cv6stereo16ModifiedCsCensusILi1EEE", !7, i64 0, !10, i64 8, !10, i64 12}
-!124 = !{!122, !10, i64 12}
-!125 = !{!122, !10, i64 16}
-!126 = !{!122, !10, i64 20}
-!127 = !{!122, !10, i64 48}
-!128 = distinct !{!128, !129, !130}
-!129 = !{!"llvm.loop.mustprogress"}
-!130 = !{!"llvm.loop.unswitch.partial.disable"}
-!131 = distinct !{!131, !129}
-!132 = distinct !{!132, !129, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = distinct !{!134, !129, !133}
-!135 = distinct !{!135, !129}
-!136 = distinct !{!136, !129, !130}
-!137 = distinct !{!137, !129, !133}
-!138 = distinct !{!138, !129, !133}
-!139 = distinct !{!139, !129}
-!140 = distinct !{!140, !129, !130}
-!141 = distinct !{!141, !129}
-!142 = distinct !{!142, !129, !133}
-!143 = distinct !{!143, !129, !133}
-!144 = distinct !{!144, !129}
-!145 = distinct !{!145, !129, !130}
-!146 = distinct !{!146, !129, !133}
-!147 = distinct !{!147, !129, !133}
-!148 = distinct !{!148, !129}
-!149 = distinct !{!149, !129, !130}
-!150 = distinct !{!150, !129, !130}
-!151 = distinct !{!151, !129, !133}
-!152 = distinct !{!152, !129}
-!153 = distinct !{!153, !129, !133}
-!154 = distinct !{!154, !129}
-!155 = distinct !{!155, !129}
-!156 = distinct !{!156, !129}
-!157 = distinct !{!157, !129}
-!158 = distinct !{!158, !129}
-!159 = distinct !{!159, !129, !130}
-!160 = distinct !{!160, !129, !130}
-!161 = distinct !{!161, !129, !133}
-!162 = distinct !{!162, !129}
-!163 = distinct !{!163, !129, !133}
-!164 = distinct !{!164, !129}
-!165 = distinct !{!165, !129}
-!166 = distinct !{!166, !129}
-!167 = distinct !{!167, !129}
-!168 = distinct !{!168, !129}
-!169 = distinct !{!169, !129, !130}
-!170 = distinct !{!170, !129}
-!171 = distinct !{!171, !129, !133}
-!172 = distinct !{!172, !129, !133}
-!173 = distinct !{!173, !129, !133}
-!174 = distinct !{!174, !129}
-!175 = distinct !{!175, !129, !130}
-!176 = distinct !{!176, !129}
-!177 = distinct !{!177, !129, !133}
-!178 = distinct !{!178, !129, !133}
-!179 = distinct !{!179, !129}
-!180 = distinct !{!180, !129, !130}
-!181 = distinct !{!181, !129}
-!182 = distinct !{!182, !129, !133}
-!183 = distinct !{!183, !129, !133}
-!184 = distinct !{!184, !129, !133}
-!185 = distinct !{!185, !129}
-!186 = distinct !{!186, !129, !130}
-!187 = distinct !{!187, !129}
-!188 = distinct !{!188, !129, !133}
-!189 = distinct !{!189, !129, !133}
-!190 = distinct !{!190, !129}
-!191 = distinct !{!191, !129, !130}
-!192 = distinct !{!192, !129, !130}
-!193 = distinct !{!193, !129, !133}
-!194 = distinct !{!194, !129}
-!195 = distinct !{!195, !129}
-!196 = distinct !{!196, !129}
-!197 = distinct !{!197, !129, !130}
-!198 = distinct !{!198, !129}
-!199 = distinct !{!199, !129, !133}
-!200 = distinct !{!200, !129, !133}
-!201 = distinct !{!201, !129}
-!202 = distinct !{!202, !129, !130}
-!203 = distinct !{!203, !129, !130}
-!204 = distinct !{!204, !129, !133}
-!205 = distinct !{!205, !129}
-!206 = distinct !{!206, !129}
-!207 = distinct !{!207, !129}
-!208 = distinct !{!208, !129, !130}
-!209 = distinct !{!209, !129}
-!210 = distinct !{!210, !129, !133}
-!211 = distinct !{!211, !129, !133}
-!212 = distinct !{!212, !129}
+!68 = distinct !{!68, !69}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !69}
+!71 = !{!72, !10, i64 24}
+!72 = !{!"_ZTSN2cv6stereo16StarKernelCensusILi1EEE", !34, i64 0, !7, i64 8, !7, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
+!73 = !{!72, !10, i64 28}
+!74 = !{!72, !10, i64 32}
+!75 = !{!72, !10, i64 36}
+!76 = !{!72, !10, i64 40}
+!77 = !{!78, !10, i64 8}
+!78 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi2ENS0_9MCTKernelILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !79, i64 40, !10, i64 64}
+!79 = !{!"_ZTSN2cv6stereo9MCTKernelILi2EEE", !7, i64 0, !10, i64 16, !10, i64 20}
+!80 = !{!78, !10, i64 12}
+!81 = !{!78, !10, i64 16}
+!82 = !{!78, !10, i64 20}
+!83 = !{!78, !10, i64 64}
+!84 = !{!85, !10, i64 8}
+!85 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi2ENS0_8MVKernelILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !86, i64 40, !10, i64 80}
+!86 = !{!"_ZTSN2cv6stereo8MVKernelILi2EEE", !7, i64 0, !7, i64 16, !10, i64 32}
+!87 = !{!85, !10, i64 12}
+!88 = !{!85, !10, i64 16}
+!89 = !{!85, !10, i64 20}
+!90 = !{!85, !10, i64 80}
+!91 = !{!92, !10, i64 8}
+!92 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi4ELi2ELi1ENS0_9MCTKernelILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !93, i64 32, !10, i64 48}
+!93 = !{!"_ZTSN2cv6stereo9MCTKernelILi1EEE", !7, i64 0, !10, i64 8, !10, i64 12}
+!94 = !{!92, !10, i64 12}
+!95 = !{!92, !10, i64 16}
+!96 = !{!92, !10, i64 20}
+!97 = !{!92, !10, i64 48}
+!98 = !{!99, !10, i64 8}
+!99 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi2ELi3ELi2ELi1ENS0_8MVKernelILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !100, i64 32, !10, i64 56}
+!100 = !{!"_ZTSN2cv6stereo8MVKernelILi1EEE", !7, i64 0, !7, i64 8, !10, i64 16}
+!101 = !{!99, !10, i64 12}
+!102 = !{!99, !10, i64 16}
+!103 = !{!99, !10, i64 20}
+!104 = !{!99, !10, i64 56}
+!105 = !{!106, !10, i64 40}
+!106 = !{!"_ZTSN2cv6stereo14SymetricCensusILi2EEE", !34, i64 0, !7, i64 8, !7, i64 24, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56}
+!107 = !{!106, !10, i64 44}
+!108 = !{!106, !10, i64 48}
+!109 = !{!106, !10, i64 52}
+!110 = !{!106, !10, i64 56}
+!111 = !{!112, !10, i64 8}
+!112 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi2ENS0_16ModifiedCsCensusILi2EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !113, i64 40, !10, i64 64}
+!113 = !{!"_ZTSN2cv6stereo16ModifiedCsCensusILi2EEE", !7, i64 0, !10, i64 16, !10, i64 20}
+!114 = !{!112, !10, i64 12}
+!115 = !{!112, !10, i64 16}
+!116 = !{!112, !10, i64 20}
+!117 = !{!112, !10, i64 64}
+!118 = distinct !{!118, !69}
+!119 = distinct !{!119, !69}
+!120 = !{!121, !10, i64 24}
+!121 = !{!"_ZTSN2cv6stereo14SymetricCensusILi1EEE", !34, i64 0, !7, i64 8, !7, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
+!122 = !{!121, !10, i64 28}
+!123 = !{!121, !10, i64 32}
+!124 = !{!121, !10, i64 36}
+!125 = !{!121, !10, i64 40}
+!126 = !{!127, !10, i64 8}
+!127 = !{!"_ZTSN2cv6stereo18CombinedDescriptorILi1ELi1ELi1ELi1ENS0_16ModifiedCsCensusILi1EEEEE", !34, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !7, i64 24, !128, i64 32, !10, i64 48}
+!128 = !{!"_ZTSN2cv6stereo16ModifiedCsCensusILi1EEE", !7, i64 0, !10, i64 8, !10, i64 12}
+!129 = !{!127, !10, i64 12}
+!130 = !{!127, !10, i64 16}
+!131 = !{!127, !10, i64 20}
+!132 = !{!127, !10, i64 48}
+!133 = distinct !{!133, !134, !69, !135}
+!134 = !{!"llvm.loop.mustprogress"}
+!135 = !{!"llvm.loop.unswitch.partial.disable"}
+!136 = distinct !{!136, !134, !69}
+!137 = distinct !{!137, !134, !69, !138}
+!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!139 = distinct !{!139, !134, !69, !138}
+!140 = distinct !{!140, !134, !69}
+!141 = distinct !{!141, !134, !69, !135}
+!142 = distinct !{!142, !134, !69, !138}
+!143 = distinct !{!143, !134, !69, !138}
+!144 = distinct !{!144, !134, !69}
+!145 = distinct !{!145, !134, !69, !135}
+!146 = distinct !{!146, !134, !69}
+!147 = distinct !{!147, !134, !69, !138}
+!148 = distinct !{!148, !134, !69, !138}
+!149 = distinct !{!149, !134, !69}
+!150 = distinct !{!150, !134, !69, !135}
+!151 = distinct !{!151, !134, !69, !138}
+!152 = distinct !{!152, !134, !69, !138}
+!153 = distinct !{!153, !134, !69}
+!154 = distinct !{!154, !134, !69, !135}
+!155 = distinct !{!155, !134, !69, !135}
+!156 = distinct !{!156, !134, !69, !138}
+!157 = distinct !{!157, !134, !69}
+!158 = distinct !{!158, !134, !69, !138}
+!159 = distinct !{!159, !134, !69}
+!160 = distinct !{!160, !134, !69}
+!161 = distinct !{!161, !134, !69}
+!162 = distinct !{!162, !134, !69}
+!163 = distinct !{!163, !134, !69}
+!164 = distinct !{!164, !134, !69, !135}
+!165 = distinct !{!165, !134, !69, !135}
+!166 = distinct !{!166, !134, !69, !138}
+!167 = distinct !{!167, !134, !69}
+!168 = distinct !{!168, !134, !69, !138}
+!169 = distinct !{!169, !134, !69}
+!170 = distinct !{!170, !134, !69}
+!171 = distinct !{!171, !134, !69}
+!172 = distinct !{!172, !134, !69}
+!173 = distinct !{!173, !134, !69}
+!174 = distinct !{!174, !134, !69, !135}
+!175 = distinct !{!175, !134, !69}
+!176 = distinct !{!176, !134, !69, !138}
+!177 = distinct !{!177, !134, !69, !138}
+!178 = distinct !{!178, !134, !69, !138}
+!179 = distinct !{!179, !134, !69}
+!180 = distinct !{!180, !134, !69, !135}
+!181 = distinct !{!181, !134, !69}
+!182 = distinct !{!182, !134, !69, !138}
+!183 = distinct !{!183, !134, !69, !138}
+!184 = distinct !{!184, !134, !69}
+!185 = distinct !{!185, !134, !69, !135}
+!186 = distinct !{!186, !134, !69}
+!187 = distinct !{!187, !134, !69, !138}
+!188 = distinct !{!188, !134, !69, !138}
+!189 = distinct !{!189, !134, !69, !138}
+!190 = distinct !{!190, !134, !69}
+!191 = distinct !{!191, !134, !69, !135}
+!192 = distinct !{!192, !134, !69}
+!193 = distinct !{!193, !134, !69, !138}
+!194 = distinct !{!194, !134, !69, !138}
+!195 = distinct !{!195, !134, !69}
+!196 = distinct !{!196, !134, !69, !135}
+!197 = distinct !{!197, !134, !69, !135}
+!198 = distinct !{!198, !134, !69, !138}
+!199 = distinct !{!199, !134, !69}
+!200 = distinct !{!200, !134, !69}
+!201 = distinct !{!201, !134, !69}
+!202 = distinct !{!202, !134, !69, !135}
+!203 = distinct !{!203, !134, !69}
+!204 = distinct !{!204, !134, !69, !138}
+!205 = distinct !{!205, !134, !69, !138}
+!206 = distinct !{!206, !134, !69}
+!207 = distinct !{!207, !134, !69, !135}
+!208 = distinct !{!208, !134, !69, !135}
+!209 = distinct !{!209, !134, !69, !138}
+!210 = distinct !{!210, !134, !69}
+!211 = distinct !{!211, !134, !69}
+!212 = distinct !{!212, !134, !69}
+!213 = distinct !{!213, !134, !69, !135}
+!214 = distinct !{!214, !134, !69}
+!215 = distinct !{!215, !134, !69, !138}
+!216 = distinct !{!216, !134, !69, !138}
+!217 = distinct !{!217, !134, !69}

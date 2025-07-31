@@ -290,7 +290,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN7ZLockerI5ZLockE
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   %17 = load volatile i32, ptr %5, align 8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %._crit_edge, label %_ZN7ZLockerI5ZLockED2Ev.exit
+  br i1 %18, label %._crit_edge, label %_ZN7ZLockerI5ZLockED2Ev.exit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit, %2
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
@@ -537,3 +537,5 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

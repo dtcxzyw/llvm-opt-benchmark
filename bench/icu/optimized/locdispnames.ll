@@ -1836,7 +1836,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit: ; preds = %93, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
   %.not318 = icmp eq i8 %.2279, 0
-  br i1 %.not318, label %265, label %87, !llvm.loop !32
+  br i1 %.not318, label %265, label %87, !llvm.loop !33
 
 .loopexit360:                                     ; preds = %.loopexit360.preheader, %262
   %.1198415 = phi i32 [ %.6, %262 ], [ %.3246, %.loopexit360.preheader ]
@@ -2156,7 +2156,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
 207:                                              ; preds = %.sink.split, %205
   %208 = getelementptr inbounds nuw i8, ptr %.11390, i64 2
   %209 = icmp ult ptr %208, %201
-  br i1 %209, label %.lr.ph391, label %.preheader, !llvm.loop !33
+  br i1 %209, label %.lr.ph391, label %.preheader, !llvm.loop !34
 
 .lr.ph395:                                        ; preds = %.lr.ph395.preheader, %.lr.ph395
   %indvars.iv423 = phi i64 [ 0, %.lr.ph395.preheader ], [ %indvars.iv.next424, %.lr.ph395 ]
@@ -2167,7 +2167,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   store i16 %211, ptr %.12393, align 2, !tbaa !28
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %exitcond427.not = icmp eq i64 %indvars.iv.next424, %wide.trip.count426
-  br i1 %exitcond427.not, label %.loopexit358, label %.lr.ph395, !llvm.loop !34
+  br i1 %exitcond427.not, label %.loopexit358, label %.lr.ph395, !llvm.loop !35
 
 .loopexit358:                                     ; preds = %.lr.ph395, %.preheader, %197
   %.10 = phi ptr [ %.6241, %197 ], [ %208, %.preheader ], [ %212, %.lr.ph395 ]
@@ -2259,7 +2259,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   store i16 %243, ptr %.15397, align 2, !tbaa !28
   %245 = add nuw nsw i32 %.0399, 1
   %exitcond431.not = icmp eq i32 %245, %235
-  br i1 %exitcond431.not, label %.loopexit.loopexit, label %.lr.ph400, !llvm.loop !35
+  br i1 %exitcond431.not, label %.loopexit.loopexit, label %.lr.ph400, !llvm.loop !36
 
 246:                                              ; preds = %227
   %247 = icmp eq i32 %.0213413, 0
@@ -2308,7 +2308,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   %.1214 = phi i32 [ %261, %.loopexit ], [ %.0213413, %226 ]
   %.6 = phi i32 [ %.7, %.loopexit ], [ %.3, %226 ]
   %263 = icmp slt i32 %.1214, 2
-  br i1 %263, label %.loopexit360, label %93, !llvm.loop !36
+  br i1 %263, label %.loopexit360, label %93, !llvm.loop !37
 
 264:                                              ; preds = %.body, %111
   %.pn331 = phi { ptr, i32 } [ %112, %111 ], [ %.pn321.pn, %.body ]
@@ -2966,10 +2966,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !27 = !{!"p1 _ZTS12UEnumeration", !6, i64 0}
 !28 = !{!29, !29, i64 0}
 !29 = !{!"char16_t", !7, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = distinct !{!33, !31}
-!34 = distinct !{!34, !31}
-!35 = distinct !{!35, !31}
-!36 = distinct !{!36, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = distinct !{!34, !31, !32}
+!35 = distinct !{!35, !31, !32}
+!36 = distinct !{!36, !31, !32}
+!37 = distinct !{!37, !31, !32}

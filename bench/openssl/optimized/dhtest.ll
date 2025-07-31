@@ -1527,7 +1527,7 @@ define internal range(i32 0, 2) i32 @dh_load_pkcs3_namedgroup_privlen_test() #0 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #4
   store i32 0, ptr %1, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  store ptr @dh_pub_der, ptr %2, align 8, !tbaa !27
+  store ptr @dh_pub_der, ptr %2, align 8, !tbaa !28
   %3 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %2, i64 noundef 556, ptr noundef null, ptr noundef null) #4
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 927, ptr noundef nonnull @.str.134, ptr noundef %3) #4
   %.not = icmp eq i32 %4, 0
@@ -1784,6 +1784,7 @@ attributes #4 = { nounwind }
 !22 = !{!12, !14, i64 64}
 !23 = !{!12, !14, i64 80}
 !24 = !{!12, !13, i64 72}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!13, !13, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!13, !13, i64 0}

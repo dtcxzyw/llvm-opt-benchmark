@@ -291,7 +291,7 @@ define hidden void @_ZN17ShenandoahNMethod6updateEv(ptr noundef nonnull align 8 
   %45 = load i32, ptr %22, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %39, label %._crit_edge, !llvm.loop !8
+  br i1 %47, label %39, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %39, %28, %35
   %48 = load i8, ptr %2, align 1
@@ -413,7 +413,7 @@ define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13Growab
 34:                                               ; preds = %32
   %35 = load atomic i8, ptr @_ZGVZN13RelocIterator9oop_relocEvE5proto acquire, align 8
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %_ZN13RelocIterator9oop_relocEv.exit, !prof !9
+  br i1 %36, label %37, label %_ZN13RelocIterator9oop_relocEv.exit, !prof !10
 
 37:                                               ; preds = %34
   %38 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #15
@@ -421,9 +421,9 @@ define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13Growab
   br i1 %.not.i9, label %_ZN13RelocIterator9oop_relocEv.exit, label %39
 
 39:                                               ; preds = %37
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !10
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !10
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !10
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !11
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !11
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #15
   br label %_ZN13RelocIterator9oop_relocEv.exit
 
@@ -448,7 +448,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %34, %37, %39
   store ptr %47, ptr %8, align 8
   %48 = load ptr, ptr %9, align 8
   %49 = icmp eq ptr %47, %48
-  br i1 %49, label %._crit_edge, label %19, !llvm.loop !13
+  br i1 %49, label %._crit_edge, label %19, !llvm.loop !14
 
 50:                                               ; preds = %_ZN13RelocIterator9oop_relocEv.exit
   %51 = call noundef ptr @_ZN14oop_Relocation9oop_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
@@ -624,7 +624,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
   %6 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 769
   %8 = load volatile i8, ptr %7, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   %9 = and i8 %8, 2
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %43, label %10
@@ -655,7 +655,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
   %23 = load i32, ptr %13, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %25, label %17, label %._crit_edge.i, !llvm.loop !15
+  br i1 %25, label %17, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %17, %10
   %26 = load ptr, ptr %5, align 8
@@ -686,11 +686,11 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
 40:                                               ; preds = %37, %.lr.ph18.i
   %41 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %42 = icmp ult ptr %41, %34
-  br i1 %42, label %.lr.ph18.i, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, !llvm.loop !16
+  br i1 %42, label %.lr.ph18.i, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, !llvm.loop !17
 
 43:                                               ; preds = %1
   %44 = load volatile i8, ptr %7, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   %45 = and i8 %44, 16
   %.not6 = icmp eq i8 %45, 0
   br i1 %.not6, label %46, label %50
@@ -698,7 +698,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 1414
   %48 = load volatile i8, ptr %47, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   %49 = icmp eq i8 %48, 1
   br i1 %49, label %50, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
@@ -727,7 +727,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
 64:                                               ; preds = %60
   %65 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %54, ptr noundef nonnull %52) #15
   %66 = load volatile i32, ptr %65, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   %67 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %68 = and i32 %67, %66
   %.not.i.i.i = icmp eq i32 %68, 0
@@ -772,7 +772,7 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %59, %60, %64, %69
   %86 = load i32, ptr %76, align 8
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next.i.i, %87
-  br i1 %88, label %80, label %._crit_edge.i.i, !llvm.loop !15
+  br i1 %88, label %80, label %._crit_edge.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %80, %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
   %89 = load ptr, ptr %5, align 8
@@ -803,7 +803,7 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %59, %60, %64, %69
 103:                                              ; preds = %100, %.lr.ph18.i.i
   %104 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %105 = icmp ult ptr %104, %97
-  br i1 %105, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !16
+  br i1 %105, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !17
 
 ._crit_edge19.i.i:                                ; preds = %103, %._crit_edge.i.i
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -916,7 +916,7 @@ define hidden void @_ZN22ShenandoahNMethodTable16register_nmethodEP7nmethod(ptr 
   %10 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %9, i64 noundef 0) #15
   %11 = load i32, ptr %6, align 8
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, !llvm.loop !17
+  br i1 %12, label %.lr.ph.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, !llvm.loop !18
 
 _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %.lr.ph.i, %5
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -934,7 +934,7 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %.lr.ph.i, %5
   %20 = tail call noundef ptr @_ZN17ShenandoahNMethod11for_nmethodEP7nmethod(ptr noundef nonnull %1)
   store ptr %20, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %21) #15, !srcloc !18
+  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %21) #15, !srcloc !19
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %_ZN16ShenandoahLockerD2Ev.exit, label %23
 
@@ -946,8 +946,8 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %.lr.ph.i, %5
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %19, %23
   tail call void @_ZN22ShenandoahNMethodTable20log_register_nmethodEP7nmethod(ptr nonnull align 8 poison, ptr noundef nonnull %1)
   tail call void @_ZN22ShenandoahNMethodTable6appendEP17ShenandoahNMethod(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef %20)
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   store volatile i32 0, ptr %21, align 8
   br label %25
 
@@ -978,7 +978,7 @@ define hidden void @_ZN22ShenandoahNMethodTable36wait_until_concurrent_iteration
   %6 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 0) #15
   %7 = load i32, ptr %2, align 8
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1092,7 +1092,7 @@ define hidden void @_ZN22ShenandoahNMethodTable6appendEP17ShenandoahNMethod(ptr 
   store ptr %23, ptr %25, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %5, align 8
@@ -1135,7 +1135,7 @@ define hidden void @_ZN22ShenandoahNMethodTable18unregister_nmethodEP7nmethod(pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @_ZN22ShenandoahNMethodTable22log_unregister_nmethodEP7nmethod(ptr nonnull align 8 poison, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %4) #15, !srcloc !18
+  %5 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %4) #15, !srcloc !19
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %6
 
@@ -1168,7 +1168,7 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %2, %6
 19:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit, label %14, !llvm.loop !21
+  br i1 %exitcond.not.i, label %_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit, label %14, !llvm.loop !22
 
 ._crit_edge.loopexit.split.loop.exit11.i:         ; preds = %14
   %sext = shl i64 %indvars.iv.i, 32
@@ -1214,8 +1214,8 @@ _ZN17ShenandoahNMethodD2Ev.exit.i:                ; preds = %37, %34
   br label %_ZN16ShenandoahLockerD2Ev.exit
 
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit, %_ZN17ShenandoahNMethodD2Ev.exit.i
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   store volatile i32 0, ptr %4, align 8
   ret void
 }
@@ -1311,7 +1311,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK22ShenandoahNM
 14:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !22
 
 ._crit_edge.loopexit.split.loop.exit11:           ; preds = %9
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1388,7 +1388,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahNMethodTable7containEP7nmethod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond = select i1 %13, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit, label %9, !llvm.loop !21
+  br i1 %or.cond, label %_ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit, label %9, !llvm.loop !22
 
 _ZNK22ShenandoahNMethodTable8index_ofEP7nmethod.exit: ; preds = %9, %2
   %.06.i = phi i1 [ false, %2 ], [ %13, %9 ]
@@ -1440,7 +1440,7 @@ define hidden void @_ZN22ShenandoahNMethodTable7rebuildEi(ptr noundef nonnull al
   store ptr %16, ptr %18, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN21ShenandoahNMethodList8transferEPS_i.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %9, align 8
@@ -1485,7 +1485,7 @@ define hidden void @_ZN21ShenandoahNMethodList8transferEPS_i(ptr noundef nonnull
   store ptr %7, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1652,10 +1652,10 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshot20parallel_nmethods_doEP1
 .loopexit:                                        ; preds = %27, %.preheader
   %12 = load volatile i64, ptr %9, align 8
   %13 = icmp ult i64 %12, %8
-  br i1 %13, label %.lr.ph21, label %._crit_edge, !llvm.loop !22
+  br i1 %13, label %.lr.ph21, label %._crit_edge, !llvm.loop !23
 
 .lr.ph21:                                         ; preds = %2, %.loopexit
-  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %9) #15, !srcloc !23
+  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %9) #15, !srcloc !24
   %15 = add i64 %14, 256
   %16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %8)
   %.not = icmp ult i64 %14, %8
@@ -1684,7 +1684,7 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshot20parallel_nmethods_doEP1
 27:                                               ; preds = %.lr.ph, %23
   %28 = add nuw i64 %.020, 1
   %29 = icmp ult i64 %28, %16
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph21, %2
   ret void
@@ -1706,10 +1706,10 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doE
 .loopexit:                                        ; preds = %27, %.preheader
   %12 = load volatile i64, ptr %9, align 8
   %13 = icmp ult i64 %12, %8
-  br i1 %13, label %.lr.ph20, label %._crit_edge, !llvm.loop !25
+  br i1 %13, label %.lr.ph20, label %._crit_edge, !llvm.loop !26
 
 .lr.ph20:                                         ; preds = %2, %.loopexit
-  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %9) #15, !srcloc !23
+  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %9) #15, !srcloc !24
   %15 = add i64 %14, 256
   %16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %8)
   %.not = icmp ult i64 %14, %8
@@ -1738,7 +1738,7 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doE
 27:                                               ; preds = %.lr.ph, %23
   %28 = add nuw i64 %.019, 1
   %29 = icmp ult i64 %28, %16
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph20, %2
   ret void
@@ -1815,10 +1815,10 @@ define hidden void @_ZN35ShenandoahConcurrentNMethodIterator11nmethods_doEP14NMe
 .loopexit.i:                                      ; preds = %29, %.preheader.i
   %14 = load volatile i64, ptr %11, align 8
   %15 = icmp ult i64 %14, %10
-  br i1 %15, label %.lr.ph20.i, label %_ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doEP14NMethodClosure.exit, !llvm.loop !25
+  br i1 %15, label %.lr.ph20.i, label %_ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doEP14NMethodClosure.exit, !llvm.loop !26
 
 .lr.ph20.i:                                       ; preds = %2, %.loopexit.i
-  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %11) #15, !srcloc !23
+  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 256, ptr nonnull %11) #15, !srcloc !24
   %17 = add i64 %16, 256
   %18 = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %10)
   %.not.i = icmp ult i64 %16, %10
@@ -1847,7 +1847,7 @@ define hidden void @_ZN35ShenandoahConcurrentNMethodIterator11nmethods_doEP14NMe
 29:                                               ; preds = %25, %.lr.ph.i
   %30 = add nuw i64 %.019.i, 1
   %31 = icmp ult i64 %30, %18
-  br i1 %31, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !26
+  br i1 %31, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !27
 
 _ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doEP14NMethodClosure.exit: ; preds = %.loopexit.i, %.lr.ph20.i, %2
   ret void
@@ -2399,7 +2399,7 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !27
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2415,7 +2415,7 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2483,26 +2483,27 @@ attributes #15 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", i32 1, i32 1048575}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
-!12 = distinct !{!12, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2145392468}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i64 2145411161}
-!19 = !{i64 2145392998}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = !{i64 2145411697}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_: argument 0"}
+!13 = distinct !{!13, !"_ZN16RelocationHolder9constructI14oop_RelocationJEEES_DpRKT0_"}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i64 2145392468}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i64 2145411161}
+!20 = !{i64 2145392998}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = !{i64 2145411697}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}

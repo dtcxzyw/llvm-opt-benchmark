@@ -336,7 +336,7 @@ check_retval.exit109:                             ; preds = %116, %check_retval.
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %127) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %128, label %check_retval.exit109
+  br i1 %exitcond.not, label %128, label %check_retval.exit109, !llvm.loop !26
 
 128:                                              ; preds = %check_retval.exit109
   %129 = call i32 @CVodeSensInit1(ptr noundef nonnull %74, i32 noundef 3, i32 noundef %.0143, ptr noundef nonnull @fS, ptr noundef nonnull %122) #15
@@ -416,7 +416,7 @@ check_retval.exit117:                             ; preds = %143
   %161 = add nuw nsw i32 %.045186.us, 1
   %162 = fmul double %.046185.us, 1.000000e+01
   %exitcond197.not = icmp eq i32 %161, 13
-  br i1 %exitcond197.not, label %.loopexit, label %.split.us, !llvm.loop !26
+  br i1 %exitcond197.not, label %.loopexit, label %.split.us, !llvm.loop !28
 
 .split:                                           ; preds = %151, %173
   %.045186 = phi i32 [ %175, %173 ], [ 1, %151 ]
@@ -450,7 +450,7 @@ check_retval.exit121:                             ; preds = %167
   %175 = add nuw nsw i32 %.045186, 1
   %176 = fmul double %.046185, 1.000000e+01
   %exitcond196.not = icmp eq i32 %175, 13
-  br i1 %exitcond196.not, label %.loopexit, label %.split
+  br i1 %exitcond196.not, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %173, %158, %check_retval.exit121, %check_retval.exit119
   %puts74 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
@@ -614,7 +614,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   store double %20, ptr %24, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %25, label %10
+  br i1 %exitcond.not, label %25, label %10, !llvm.loop !31
 
 25:                                               ; preds = %19, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %19 ]
@@ -647,18 +647,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fneg double %16
-  %22 = load ptr, ptr %3, align 8, !tbaa !28
+  %22 = load ptr, ptr %3, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
-  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  %24 = load ptr, ptr %23, align 8, !tbaa !35
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   store double %21, ptr %25, align 8, !tbaa !11
   %26 = fmul double %15, %18
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = load ptr, ptr %27, align 8, !tbaa !38
   store double %26, ptr %28, align 8, !tbaa !11
   %29 = fmul double %13, %18
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !34
+  %31 = load ptr, ptr %30, align 8, !tbaa !38
   store double %29, ptr %31, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double %16, ptr %32, align 8, !tbaa !11
@@ -805,9 +805,9 @@ check_retval.exit9:                               ; preds = %check_retval.exit, 
   br label %check_retval.exit11
 
 check_retval.exit11:                              ; preds = %check_retval.exit9, %20
-  %23 = load i32, ptr %5, align 4, !tbaa !35
+  %23 = load i32, ptr %5, align 4, !tbaa !39
   %24 = load double, ptr %6, align 8, !tbaa !11
-  %25 = load i64, ptr %4, align 8, !tbaa !36
+  %25 = load i64, ptr %4, align 8, !tbaa !40
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, double noundef %1, i32 noundef %23, double noundef %24, i64 noundef %25)
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56)
   %28 = load double, ptr %7, align 8, !tbaa !11
@@ -969,13 +969,17 @@ attributes #19 = { cold nounwind }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
 !26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"_generic_SUNMatrix", !6, i64 0, !30, i64 8, !14, i64 16}
-!30 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!31 = !{!32, !33, i64 32}
-!32 = !{!"_SUNMatrixContent_Dense", !20, i64 0, !20, i64 8, !22, i64 16, !20, i64 24, !33, i64 32}
-!33 = !{!"p2 double", !6, i64 0}
-!34 = !{!22, !22, i64 0}
-!35 = !{!21, !21, i64 0}
-!36 = !{!20, !20, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !27, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !27}
+!31 = distinct !{!31, !27}
+!32 = !{!33, !6, i64 0}
+!33 = !{!"_generic_SUNMatrix", !6, i64 0, !34, i64 8, !14, i64 16}
+!34 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!35 = !{!36, !37, i64 32}
+!36 = !{!"_SUNMatrixContent_Dense", !20, i64 0, !20, i64 8, !22, i64 16, !20, i64 24, !37, i64 32}
+!37 = !{!"p2 double", !6, i64 0}
+!38 = !{!22, !22, i64 0}
+!39 = !{!21, !21, i64 0}
+!40 = !{!20, !20, i64 0}

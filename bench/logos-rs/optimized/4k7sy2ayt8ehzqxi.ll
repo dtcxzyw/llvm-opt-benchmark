@@ -433,14 +433,14 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
           to label %.backedge.backedge unwind label %50
 
 .backedge.backedge:                               ; preds = %108, %123
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 109:                                              ; preds = %100
   %110 = load ptr, ptr %92, align 8
   %111 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %112 = load i64, ptr %111, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9304bebc18bc5d10E"(ptr nonnull align 8 %13, ptr align 1 %110, i64 %112)
-          to label %91 unwind label %.loopexit
+          to label %91 unwind label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %91, %100, %109
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -605,7 +605,7 @@ define hidden void @_ZN13logos_codegen6parser6Parser16parse_definition17h8b3e7e0
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %23 = load i64, ptr %2, align 8, !noalias !7
+  %23 = load i64, ptr %2, align 8, !noalias !10
   %24 = icmp eq i64 %23, 40
   br i1 %24, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread
 
@@ -616,11 +616,11 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread: ; 
   br label %27
 
 _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds = %3
-  call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %5), !noalias !7
+  call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %5), !noalias !10
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !7
-  call void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nonnull sret([40 x i8]) align 8 %4, ptr nonnull align 8 %6), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !10
+  call void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nonnull sret([40 x i8]) align 8 %4, ptr nonnull align 8 %6), !noalias !10
   %.sroa.0.0.copyload29 = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx30, i64 32, i1 false)
@@ -837,7 +837,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
           to label %.backedge.backedge unwind label %51
 
 .backedge.backedge:                               ; preds = %.invoke, %75, %68
-  br label %.backedge
+  br label %.backedge, !llvm.loop !13
 
 90:                                               ; preds = %95, %100, %91
   %.pn = phi { ptr, i32 } [ %101, %100 ], [ %96, %95 ], [ %92, %91 ]
@@ -1464,6 +1464,10 @@ attributes #9 = { noreturn }
 !4 = distinct !{!4, !5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E: argument 0"}
 !5 = distinct !{!5, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E"}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E: argument 0"}
-!9 = distinct !{!9, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E: argument 0"}
+!12 = distinct !{!12, !"_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E"}
+!13 = distinct !{!13, !8}

@@ -299,7 +299,7 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %138 = load i32, ptr %10, align 8, !tbaa !27
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %140, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 141:                                              ; preds = %._crit_edge159
   %142 = trunc i32 %.1.lcssa to i8
@@ -319,7 +319,7 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %150 = sub i64 %148, %149
   %151 = trunc i64 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %151, ptr %152, align 8, !tbaa !39
+  store i32 %151, ptr %152, align 8, !tbaa !40
   store i32 1, ptr %3, align 4, !tbaa !34
   br label %153
 
@@ -392,8 +392,9 @@ attributes #6 = { nounwind }
 !32 = !{!8, !8, i64 0}
 !33 = !{!5, !10, i64 148}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36, !37, !38}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.unswitch.partial.disable"}
-!38 = distinct !{!38, !36}
-!39 = !{!30, !10, i64 32}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!39 = distinct !{!39, !36, !37}
+!40 = !{!30, !10, i64 32}

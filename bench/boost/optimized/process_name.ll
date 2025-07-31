@@ -944,7 +944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   store i8 %331, ptr %334, align 1, !tbaa !11
   %335 = add i32 %.01819.i.i, -2
   %336 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %336, label %.lr.ph.i11.i, label %._crit_edge.i.i121, !llvm.loop !23
+  br i1 %336, label %.lr.ph.i11.i, label %._crit_edge.i.i121, !llvm.loop !24
 
 ._crit_edge.i.i121:                               ; preds = %.lr.ph.i11.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i
   %.0.lcssa.i.i = phi i32 [ %295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i ], [ %322, %.lr.ph.i11.i ]
@@ -1055,6 +1055,7 @@ attributes #13 = { builtin nounwind }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !20 = distinct !{!20, !"_ZNSt7__cxx119to_stringEi"}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}

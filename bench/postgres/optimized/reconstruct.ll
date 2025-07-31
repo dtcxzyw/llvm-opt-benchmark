@@ -128,7 +128,7 @@ find_reconstructed_block_length.exit:             ; preds = %35, %14
   %59 = load i32, ptr %31, align 8
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %61, label %48, label %.preheader194, !llvm.loop !6
+  br i1 %61, label %48, label %.preheader194, !llvm.loop !7
 
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %._crit_edge
   %indvars.iv265 = phi i64 [ %47, %.lr.ph224.preheader ], [ %62, %._crit_edge ]
@@ -234,7 +234,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %112 = zext i32 %111 to i64
   %113 = icmp samesign ult i64 %indvars.iv.next268, %112
-  br i1 %113, label %.lr.ph227, label %._crit_edge228.loopexit, !llvm.loop !7
+  br i1 %113, label %.lr.ph227, label %._crit_edge228.loopexit, !llvm.loop !8
 
 ._crit_edge228.loopexit:                          ; preds = %110
   %114 = zext i32 %111 to i64
@@ -284,14 +284,14 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next264, %139
-  br i1 %140, label %119, label %._crit_edge, !llvm.loop !8
+  br i1 %140, label %119, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %137, %.preheader
   %.3.lcssa = phi i1 [ %.1138222, %.preheader ], [ %.4, %137 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %20) #10
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %20) #10
   %.wide = icmp eq i64 %62, 0
-  br i1 %.wide, label %.loopexit.thread, label %.lr.ph224
+  br i1 %.wide, label %.loopexit.thread, label %.lr.ph224, !llvm.loop !10
 
 .loopexit.thread:                                 ; preds = %._crit_edge, %._crit_edge228, %.preheader194
   %.1136.ph.ph = phi i1 [ true, %.preheader194 ], [ %118, %._crit_edge228 ], [ true, %._crit_edge ]
@@ -383,7 +383,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #10
   %183 = load i32, ptr @__pg_log_level, align 4
   %184 = icmp ult i32 %183, 2
-  br i1 %184, label %.sink.split.i, label %187, !prof !9
+  br i1 %184, label %.sink.split.i, label %187, !prof !11
 
 .sink.split.i:                                    ; preds = %182
   %.str.16..str.17.i = select i1 %13, ptr @.str.16, ptr @.str.17
@@ -414,7 +414,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   %194 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next.i169
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %191, %195
-  br i1 %196, label %223, label %197, !llvm.loop !10
+  br i1 %196, label %223, label %197, !llvm.loop !12
 
 197:                                              ; preds = %193, %189
   %198 = icmp eq ptr %191, null
@@ -460,7 +460,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
 217:                                              ; preds = %212
   %218 = load i32, ptr @__pg_log_level, align 4
   %219 = icmp ult i32 %218, 2
-  br i1 %219, label %220, label %222, !prof !9
+  br i1 %219, label %220, label %222, !prof !11
 
 220:                                              ; preds = %217
   %221 = load ptr, ptr %16, align 8
@@ -474,7 +474,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
 223:                                              ; preds = %222, %212, %193
   %.1101.i = phi i32 [ %.0100138.i, %193 ], [ %216, %212 ], [ %216, %222 ]
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, %39
-  br i1 %exitcond.not.i170, label %._crit_edge.i, label %189
+  br i1 %exitcond.not.i170, label %._crit_edge.i, label %189, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %223, %187
   %224 = load ptr, ptr %16, align 8
@@ -536,7 +536,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %17) #10
   %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
   %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, %39
-  br i1 %exitcond189.not.i, label %._crit_edge144.i, label %.lr.ph143.split.us.i, !llvm.loop !11
+  br i1 %exitcond189.not.i, label %._crit_edge144.i, label %.lr.ph143.split.us.i, !llvm.loop !14
 
 .lr.ph143.split.i:                                ; preds = %.thread190.i
   %.not113.i = icmp eq i32 %11, 2
@@ -582,7 +582,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph224, %76
   %265 = and i64 %262, 2147483647
   %266 = add nuw nsw i64 %265, %.094.us.i
   %267 = icmp samesign ult i64 %266, 8192
-  br i1 %267, label %259, label %268, !llvm.loop !13
+  br i1 %267, label %259, label %268, !llvm.loop !16
 
 268:                                              ; preds = %264
   %269 = load i32, ptr %19, align 8
@@ -621,7 +621,7 @@ read_block.exit117.us.i:                          ; preds = %270
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %17) #10
   %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
   %exitcond184.not.i = icmp eq i64 %indvars.iv.next181.i, %39
-  br i1 %exitcond184.not.i, label %._crit_edge144.i, label %.lr.ph143.split.split.us.i, !llvm.loop !14
+  br i1 %exitcond184.not.i, label %._crit_edge144.i, label %.lr.ph143.split.split.us.i, !llvm.loop !17
 
 .lr.ph143.split.split.i:                          ; preds = %.lr.ph143.split.i, %read_block.exit.i
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %read_block.exit.i ], [ 0, %.lr.ph143.split.i ]
@@ -703,7 +703,7 @@ read_block.exit.i:                                ; preds = %.thread.i, %284
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %17) #10
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next176.i, %39
-  br i1 %exitcond179.not.i, label %._crit_edge144.i, label %.lr.ph143.split.split.i, !llvm.loop !15
+  br i1 %exitcond179.not.i, label %._crit_edge144.i, label %.lr.ph143.split.split.i, !llvm.loop !18
 
 ._crit_edge144.i:                                 ; preds = %read_block.exit.i, %280, %245
   %.0194.i = phi i32 [ -1, %245 ], [ %228, %280 ], [ %228, %read_block.exit.i ]
@@ -712,7 +712,7 @@ read_block.exit.i:                                ; preds = %.thread.i, %284
   %308 = load i32, ptr @__pg_log_level, align 4
   %309 = icmp ult i32 %308, 2
   %or.cond190 = select i1 %.not.i166, i1 %309, i1 false
-  br i1 %or.cond190, label %._crit_edge144.thread.sink.split.i, label %._crit_edge144.thread.i, !prof !16
+  br i1 %or.cond190, label %._crit_edge144.thread.sink.split.i, label %._crit_edge144.thread.i, !prof !19
 
 ._crit_edge144.thread.sink.split.i:               ; preds = %._crit_edge144.i
   %.str.25..str.26.i = select i1 %13, ptr @.str.25, ptr @.str.26
@@ -773,7 +773,7 @@ write_reconstructed_file.exit.thread:             ; preds = %231
 323:                                              ; preds = %319
   %324 = load i32, ptr @__pg_log_level, align 4
   %325 = icmp ult i32 %324, 2
-  br i1 %325, label %326, label %328, !prof !9
+  br i1 %325, label %326, label %328, !prof !11
 
 326:                                              ; preds = %323
   %327 = load ptr, ptr %317, align 8
@@ -802,7 +802,7 @@ write_reconstructed_file.exit.thread:             ; preds = %231
 339:                                              ; preds = %338, %319, %.lr.ph.split.us.i
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i278
-  br i1 %exitcond41.not.i, label %debug_reconstruction.exit, label %.lr.ph.split.us.i, !llvm.loop !17
+  br i1 %exitcond41.not.i, label %debug_reconstruction.exit, label %.lr.ph.split.us.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i172, %353
   %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i175, %353 ], [ 0, %.lr.ph.i172 ]
@@ -818,7 +818,7 @@ write_reconstructed_file.exit.thread:             ; preds = %231
   %347 = load i32, ptr @__pg_log_level, align 4
   %348 = icmp ult i32 %347, 2
   %or.cond.i174 = select i1 %346, i1 %348, i1 false
-  br i1 %or.cond.i174, label %349, label %353, !prof !16
+  br i1 %or.cond.i174, label %349, label %353, !prof !19
 
 349:                                              ; preds = %343
   %350 = load ptr, ptr %341, align 8
@@ -840,7 +840,7 @@ write_reconstructed_file.exit.thread:             ; preds = %231
 353:                                              ; preds = %349, %343, %.lr.ph.split.i
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.not.i176 = icmp eq i64 %indvars.iv.next.i175, %wide.trip.count40.i
-  br i1 %exitcond.not.i176, label %debug_reconstruction.exit, label %.lr.ph.split.i, !llvm.loop !18
+  br i1 %exitcond.not.i176, label %debug_reconstruction.exit, label %.lr.ph.split.i, !llvm.loop !21
 
 debug_reconstruction.exit:                        ; preds = %353, %339, %write_reconstructed_file.exit.thread, %write_reconstructed_file.exit, %172
   %.not160 = icmp eq i32 %.0, 0
@@ -895,7 +895,7 @@ debug_reconstruction.exit:                        ; preds = %353, %339, %write_r
 374:                                              ; preds = %357, %372
   %375 = add i32 %.2230, 1
   %.not161 = icmp ugt i32 %375, %4
-  br i1 %.not161, label %376, label %357, !llvm.loop !19
+  br i1 %.not161, label %376, label %357, !llvm.loop !22
 
 376:                                              ; preds = %374
   call void @pfree(ptr noundef %41) #10
@@ -1215,19 +1215,22 @@ attributes #12 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !12}
-!15 = distinct !{!15, !5}
-!16 = !{!"branch_weights", i32 1, i32 4001}
-!17 = distinct !{!17, !5, !12}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6, !15}
+!18 = distinct !{!18, !5, !6}
+!19 = !{!"branch_weights", i32 1, i32 4001}
+!20 = distinct !{!20, !5, !6, !15}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}

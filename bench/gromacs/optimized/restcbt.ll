@@ -477,7 +477,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   store float %231, ptr %232, align 4, !tbaa !9
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next287, 3
-  br i1 %exitcond289.not, label %233, label %209, !llvm.loop !15
+  br i1 %exitcond289.not, label %233, label %209, !llvm.loop !16
 
 233:                                              ; preds = %209
   %234 = fdiv float %51, %34
@@ -530,7 +530,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   store float %274, ptr %275, align 4, !tbaa !9
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next291, 3
-  br i1 %exitcond293.not, label %276, label %252, !llvm.loop !16
+  br i1 %exitcond293.not, label %276, label %252, !llvm.loop !17
 
 276:                                              ; preds = %252
   %277 = fmul float %.sroa.0.0.copyload, %193
@@ -567,7 +567,8 @@ attributes #5 = { nounwind }
 !10 = !{!"float", !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !5, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}

@@ -1385,7 +1385,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Roman
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !39, !range !52, !noundef !53
+  %0 = load i8, ptr %del, align 8, !tbaa !39, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib7Romania10PublicImplEED2Ev.exit
 
@@ -1406,7 +1406,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Roman
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !39, !range !52, !noundef !53
+  %0 = load i8, ptr %del.i, align 8, !tbaa !39, !range !53, !noundef !54
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -1426,7 +1426,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !39, !range !52, !noundef !53
+  %0 = load i8, ptr %del, align 8, !tbaa !39, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib7Romania10PublicImplEEclEPS4_.exit
 
@@ -1456,7 +1456,7 @@ entry:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania10PublicImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !54
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !55
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib7Romania10PublicImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -1503,7 +1503,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Roman
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !43, !range !52, !noundef !53
+  %0 = load i8, ptr %del, align 8, !tbaa !43, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib7Romania7BVBImplEED2Ev.exit
 
@@ -1550,7 +1550,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Roman
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !16
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !43, !range !52, !noundef !53
+  %0 = load i8, ptr %del.i, align 8, !tbaa !43, !range !53, !noundef !54
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -1593,7 +1593,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_del
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !43, !range !52, !noundef !53
+  %0 = load i8, ptr %del, align 8, !tbaa !43, !range !53, !noundef !54
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib7Romania7BVBImplEEclEPS4_.exit
 
@@ -1639,7 +1639,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib7Romania7BVBImplEEclEPS4_.exit: ; pred
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7Romania7BVBImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !54
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !55
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib7Romania7BVBImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -1757,9 +1757,10 @@ attributes #22 = { builtin allocsize(0) }
 !47 = !{!"_ZTSN8QuantLib4DateE", !21, i64 0}
 !48 = !{!34, !6, i64 24}
 !49 = !{!34, !6, i64 16}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{i8 0, i8 2}
-!53 = !{}
-!54 = !{!55, !6, i64 8}
-!55 = !{!"_ZTSSt9type_info", !6, i64 8}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!56, !6, i64 8}
+!56 = !{!"_ZTSSt9type_info", !6, i64 8}

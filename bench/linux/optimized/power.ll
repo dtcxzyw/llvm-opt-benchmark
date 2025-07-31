@@ -128,7 +128,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   %24 = add nuw nsw i64 %28, 1
   %25 = zext i32 %23 to i64
   %26 = icmp samesign ult i64 %24, %25
-  br i1 %26, label %.split, label %.thread, !llvm.loop !8
+  br i1 %26, label %.split, label %.thread, !llvm.loop !9
 
 .split:                                           ; preds = %7, %.critedge13
   %27 = phi i32 [ %23, %.critedge13 ], [ %5, %7 ]
@@ -159,13 +159,13 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   %43 = phi i64 [ %44, %46 ], [ %9, %39 ]
   %44 = add nuw nsw i64 %43, 1
   %45 = icmp eq i64 %44, %28
-  br i1 %45, label %.critedge, label %46, !llvm.loop !9
+  br i1 %45, label %.critedge, label %46, !llvm.loop !10
 
 46:                                               ; preds = %.preheader15
   %47 = getelementptr %union.acpi_object, ptr %29, i64 %44, i32 0, i32 2
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %35
-  br i1 %49, label %50, label %.preheader15, !llvm.loop !9
+  br i1 %49, label %50, label %.preheader15, !llvm.loop !11
 
 50:                                               ; preds = %46
   %51 = icmp samesign ult i64 %44, %28
@@ -211,7 +211,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %65, align 4
   %76 = icmp ugt i32 %74, %75
-  br i1 %76, label %77, label %66, !llvm.loop !10
+  br i1 %76, label %77, label %66, !llvm.loop !12
 
 77:                                               ; preds = %70
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -247,7 +247,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %87, align 8
   tail call void @kfree(ptr noundef %85) #10
   %90 = icmp eq ptr %86, %2
-  br i1 %90, label %.thread, label %.preheader, !llvm.loop !5
+  br i1 %90, label %.thread, label %.preheader, !llvm.loop !13
 
 .thread:                                          ; preds = %.critedge13, %.preheader, %3, %.thread14
   %91 = phi i32 [ %.us-phi, %.thread14 ], [ 0, %3 ], [ %.us-phi, %.preheader ], [ 0, %.critedge13 ]
@@ -269,7 +269,7 @@ define dso_local ptr @acpi_add_power_resource(ptr noundef %0) local_unnamed_addr
   br i1 %7, label %8, label %79
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !14
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %10 = call noalias align 8 dereferenceable_or_null(1488) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1488) #11
   %11 = icmp eq ptr %10, null
@@ -362,7 +362,7 @@ define dso_local ptr @acpi_add_power_resource(ptr noundef %0) local_unnamed_addr
   %59 = call i32 @__pm_runtime_resume(ptr noundef %58, i32 noundef 1) #10
   %60 = load ptr, ptr %56, align 8
   %61 = icmp eq ptr %60, %16
-  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %53, %50, %47, %46, %38
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.10) #10
@@ -446,7 +446,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(
   %21 = getelementptr i8, ptr %18, i64 -8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %.loopexit9, label %16, !llvm.loop !13
+  br i1 %23, label %.loopexit9, label %16, !llvm.loop !16
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -470,7 +470,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(
   tail call void @mutex_unlock(ptr noundef nonnull %14) #10
   %33 = load ptr, ptr %11, align 8
   %34 = icmp eq ptr %33, %8
-  br i1 %34, label %.loopexit8, label %.lr.ph, !llvm.loop !14
+  br i1 %34, label %.loopexit8, label %.lr.ph, !llvm.loop !17
 
 35:                                               ; preds = %24
   tail call void @mutex_unlock(ptr noundef nonnull %14) #10
@@ -497,7 +497,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(
   %48 = getelementptr i8, ptr %45, i64 -8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %1
-  br i1 %50, label %51, label %43, !llvm.loop !15
+  br i1 %50, label %51, label %43, !llvm.loop !18
 
 51:                                               ; preds = %47
   %52 = getelementptr i8, ptr %45, i64 -8
@@ -516,7 +516,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(
   tail call void @mutex_unlock(ptr noundef nonnull %41) #10
   %57 = load ptr, ptr %38, align 8
   %58 = icmp eq ptr %57, %8
-  br i1 %58, label %.loopexit8, label %.preheader, !llvm.loop !16
+  br i1 %58, label %.loopexit8, label %.preheader, !llvm.loop !19
 
 .loopexit8:                                       ; preds = %.loopexit9, %.loopexit, %7, %35, %2
   %59 = phi i32 [ 0, %2 ], [ -12, %35 ], [ 0, %7 ], [ -12, %.loopexit ], [ 0, %.loopexit9 ]
@@ -557,7 +557,7 @@ define dso_local void @acpi_device_power_remove_dependent(ptr noundef readonly c
   %22 = getelementptr i8, ptr %19, i64 -8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
-  br i1 %24, label %25, label %17, !llvm.loop !15
+  br i1 %24, label %25, label %17, !llvm.loop !20
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %19, i64 -8
@@ -577,7 +577,7 @@ define dso_local void @acpi_device_power_remove_dependent(ptr noundef readonly c
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %8
-  br i1 %33, label %.loopexit3, label %.preheader, !llvm.loop !17
+  br i1 %33, label %.loopexit3, label %.preheader, !llvm.loop !21
 
 .loopexit3:                                       ; preds = %.loopexit, %7, %2
   ret void
@@ -615,7 +615,7 @@ define dso_local void @acpi_power_add_remove_device(ptr noundef %0, i1 noundef z
   tail call fastcc void @acpi_power_expose_hide(ptr noundef %0, ptr noundef %17, ptr noundef %18, i1 noundef zeroext %1)
   %19 = add nuw nsw i64 %16, 1
   %20 = icmp eq i64 %19, 4
-  br i1 %20, label %.loopexit, label %15, !llvm.loop !18
+  br i1 %20, label %.loopexit, label %15, !llvm.loop !22
 
 .loopexit:                                        ; preds = %15, %9
   ret void
@@ -697,12 +697,12 @@ define internal fastcc void @acpi_power_expose_hide(ptr noundef %0, ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %1
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !23
 
 53:                                               ; preds = %28
   %54 = load ptr, ptr %18, align 8
   %55 = icmp eq ptr %54, %1
-  br i1 %55, label %.loopexit10, label %17, !llvm.loop !20
+  br i1 %55, label %.loopexit10, label %17, !llvm.loop !24
 
 56:                                               ; preds = %4
   br i1 %6, label %.loopexit10, label %57
@@ -738,7 +738,7 @@ define internal fastcc void @acpi_power_expose_hide(ptr noundef %0, ptr noundef 
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %1
-  br i1 %78, label %.loopexit11, label %63, !llvm.loop !19
+  br i1 %78, label %.loopexit11, label %63, !llvm.loop !25
 
 .loopexit11:                                      ; preds = %74, %57
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -820,7 +820,7 @@ define dso_local noundef i32 @acpi_power_wakeup_list_init(ptr noundef readonly c
   call void @mutex_unlock(ptr noundef nonnull %10) #10
   %39 = load ptr, ptr %6, align 8
   %40 = icmp eq ptr %39, %0
-  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %35, %2
   %41 = phi i32 [ 5, %2 ], [ %38, %35 ]
@@ -839,9 +839,9 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_device_sleep_wake(ptr nound
   %5 = alloca [3 x %union.acpi_object], align 16
   %6 = alloca %struct.acpi_object_list, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  store i64 0, ptr %6, align 8, !annotation !11
+  store i64 0, ptr %6, align 8, !annotation !14
   store i32 3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
@@ -943,9 +943,9 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_enable_wakeup_device_power(
 
 24:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  store i64 3, ptr %4, align 8, !annotation !11
+  store i64 3, ptr %4, align 8, !annotation !14
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %25, align 8
   store i32 1, ptr %3, align 16
@@ -1019,7 +1019,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on_list(ptr nou
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc i32 @acpi_power_on(ptr noundef %8)
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !22
+  br i1 %10, label %2, label %11, !llvm.loop !27
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1065,7 +1065,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on_list(ptr nou
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %0
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %2, %35, %11
   %39 = phi i32 [ %9, %11 ], [ %9, %35 ], [ 0, %2 ]
@@ -1087,7 +1087,7 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly captures(a
   %6 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %0
-  br i1 %8, label %.loopexit, label %.lr.ph
+  br i1 %8, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %1, %5
   %9 = phi ptr [ %7, %5 ], [ %3, %1 ]
@@ -1132,7 +1132,7 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly captures(a
   %34 = tail call fastcc i32 @acpi_power_on(ptr noundef %33)
   %35 = load ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, %0
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %5, %.preheader, %1, %26
   ret void
@@ -1167,9 +1167,9 @@ define dso_local range(i32 -22, 1) i32 @acpi_disable_wakeup_device_power(ptr nou
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  store i64 3, ptr %3, align 8, !annotation !11
+  store i64 3, ptr %3, align 8, !annotation !14
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %18, align 8
   store i32 1, ptr %2, align 16
@@ -1261,7 +1261,7 @@ acpi_device_sleep_wake.exit:                      ; preds = %17, %27
   %64 = select i1 %63, i32 %39, i32 %61
   %65 = load ptr, ptr %38, align 8
   %66 = icmp eq ptr %65, %35
-  br i1 %66, label %67, label %.preheader, !llvm.loop !25
+  br i1 %66, label %67, label %.preheader, !llvm.loop !31
 
 67:                                               ; preds = %59
   %68 = icmp eq i32 %64, 0
@@ -1361,7 +1361,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_power_get_inferred_state(ptr nounde
 .thread8:                                         ; preds = %33, %8
   %38 = add nuw nsw i64 %9, 1
   %39 = icmp eq i64 %38, 4
-  br i1 %39, label %40, label %8, !llvm.loop !26
+  br i1 %39, label %40, label %8, !llvm.loop !32
 
 40:                                               ; preds = %.thread8
   %41 = getelementptr i8, ptr %0, i64 376
@@ -1531,7 +1531,7 @@ thread-pre-split:                                 ; preds = %8
   %10 = getelementptr i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i32 %11, %6
-  br i1 %12, label %13, label %thread-pre-split, !llvm.loop !27
+  br i1 %12, label %13, label %thread-pre-split, !llvm.loop !33
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1408
@@ -1639,13 +1639,13 @@ define dso_local void @acpi_resume_power_resources() local_unnamed_addr #0 align
   %40 = call i32 @__pm_runtime_resume(ptr noundef %39, i32 noundef 1) #10
   %41 = load ptr, ptr %37, align 8
   %42 = icmp eq ptr %41, %27
-  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %.thread4, %33, %30, %26, %25, %17, %11
   call void @mutex_unlock(ptr noundef %5) #10
   %43 = load ptr, ptr %4, align 8
   %44 = icmp eq ptr %43, @acpi_power_resource_list
-  br i1 %44, label %.loopexit6, label %.preheader5, !llvm.loop !28
+  br i1 %44, label %.loopexit6, label %.preheader5, !llvm.loop !35
 
 .loopexit6:                                       ; preds = %.loopexit, %0
   call void @mutex_unlock(ptr noundef nonnull @power_resource_list_lock) #10
@@ -1693,7 +1693,7 @@ define dso_local void @acpi_turn_off_unused_power_resources() local_unnamed_addr
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @acpi_power_resource_list
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %21, %3
   tail call void @mutex_unlock(ptr noundef nonnull @power_resource_list_lock) #10
@@ -1765,7 +1765,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on(ptr noundef 
   %27 = tail call i32 @__pm_runtime_resume(ptr noundef %26, i32 noundef 1) #10
   %28 = load ptr, ptr %24, align 8
   %29 = icmp eq ptr %28, %14
-  br i1 %29, label %.thread, label %.preheader, !llvm.loop !12
+  br i1 %29, label %.thread, label %.preheader, !llvm.loop !37
 
 30:                                               ; preds = %7
   store i8 -1, ptr %12, align 4
@@ -1833,28 +1833,36 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
 !10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{!"auto-init"}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}

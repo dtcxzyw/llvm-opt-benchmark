@@ -301,13 +301,13 @@ define void @plugins_get_descriptions(ptr noundef readonly captures(none) %0, pt
   call void @g_ptr_array_add(ptr noundef %5, ptr noundef %10)
   %11 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4)
   %.not17 = icmp eq i32 %11, 0
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph23
   %12 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !9
+  br i1 %.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !10
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge24
   %13 = call ptr @g_ptr_array_free(ptr noundef %5, i32 noundef 1)
@@ -333,7 +333,7 @@ define void @plugins_get_descriptions(ptr noundef readonly captures(none) %0, pt
   %25 = load i32, ptr %6, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph27, label %._crit_edge28, !llvm.loop !10
+  br i1 %27, label %.lr.ph27, label %._crit_edge28, !llvm.loop !11
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -433,7 +433,7 @@ define i32 @plugins_get_count() local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -548,9 +548,10 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

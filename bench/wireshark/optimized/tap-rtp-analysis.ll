@@ -335,7 +335,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
 159:                                              ; preds = %160
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %get_clock_rate.exit.thread, label %160, !llvm.loop !10
+  br i1 %.not.i, label %get_clock_rate.exit.thread, label %160, !llvm.loop !11
 
 160:                                              ; preds = %159, %157
   %indvars.iv.i = phi i64 [ 37, %157 ], [ %indvars.iv.next.i, %159 ]
@@ -505,7 +505,7 @@ get_clock_rate.exit.thread:                       ; preds = %159, %143, %145, %1
   %258 = load double, ptr %257, align 8
   %259 = fadd double %258, 1.000000e+03
   %260 = fcmp olt double %259, %5
-  br i1 %260, label %249, label %._crit_edge, !llvm.loop !11
+  br i1 %260, label %249, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %249, %227
   %261 = load i32, ptr %228, align 8
@@ -733,7 +733,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

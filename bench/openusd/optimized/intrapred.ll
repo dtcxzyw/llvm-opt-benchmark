@@ -29,7 +29,7 @@ define hidden void @aom_dc_predictor_4x8_c(ptr noundef writeonly captures(none) 
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 6
@@ -46,7 +46,7 @@ define hidden void @aom_dc_predictor_4x8_c(ptr noundef writeonly captures(none) 
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -76,7 +76,7 @@ define hidden void @aom_dc_predictor_8x4_c(ptr noundef writeonly captures(none) 
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 6
@@ -93,7 +93,7 @@ define hidden void @aom_dc_predictor_8x4_c(ptr noundef writeonly captures(none) 
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -123,7 +123,7 @@ define hidden void @aom_dc_predictor_4x16_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 10
@@ -140,7 +140,7 @@ define hidden void @aom_dc_predictor_4x16_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -170,7 +170,7 @@ define hidden void @aom_dc_predictor_16x4_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 10
@@ -187,7 +187,7 @@ define hidden void @aom_dc_predictor_16x4_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -217,7 +217,7 @@ define hidden void @aom_dc_predictor_8x16_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 12
@@ -234,7 +234,7 @@ define hidden void @aom_dc_predictor_8x16_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -264,7 +264,7 @@ define hidden void @aom_dc_predictor_16x8_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 12
@@ -281,7 +281,7 @@ define hidden void @aom_dc_predictor_16x8_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -311,7 +311,7 @@ define hidden void @aom_dc_predictor_8x32_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 20
@@ -328,7 +328,7 @@ define hidden void @aom_dc_predictor_8x32_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -358,7 +358,7 @@ define hidden void @aom_dc_predictor_32x8_c(ptr noundef writeonly captures(none)
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 20
@@ -375,7 +375,7 @@ define hidden void @aom_dc_predictor_32x8_c(ptr noundef writeonly captures(none)
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -405,7 +405,7 @@ define hidden void @aom_dc_predictor_16x32_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 24
@@ -422,7 +422,7 @@ define hidden void @aom_dc_predictor_16x32_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -452,7 +452,7 @@ define hidden void @aom_dc_predictor_32x16_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 24
@@ -469,7 +469,7 @@ define hidden void @aom_dc_predictor_32x16_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -499,7 +499,7 @@ define hidden void @aom_dc_predictor_16x64_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 40
@@ -516,7 +516,7 @@ define hidden void @aom_dc_predictor_16x64_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 64
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -546,7 +546,7 @@ define hidden void @aom_dc_predictor_64x16_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 40
@@ -563,7 +563,7 @@ define hidden void @aom_dc_predictor_64x16_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 16
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -593,7 +593,7 @@ define hidden void @aom_dc_predictor_32x64_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 48
@@ -610,7 +610,7 @@ define hidden void @aom_dc_predictor_32x64_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 64
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -640,7 +640,7 @@ define hidden void @aom_dc_predictor_64x32_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.132.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !7
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 48
@@ -657,7 +657,7 @@ define hidden void @aom_dc_predictor_64x32_c(ptr noundef writeonly captures(none
   %21 = getelementptr inbounds i8, ptr %.02434.i, i64 %1
   %22 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %dc_predictor_rect.exit, label %20, !llvm.loop !8
 
 dc_predictor_rect.exit:                           ; preds = %20
   ret void
@@ -676,7 +676,7 @@ define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -687,7 +687,7 @@ define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 6
@@ -703,7 +703,7 @@ define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -722,7 +722,7 @@ define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -733,7 +733,7 @@ define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 6
@@ -749,7 +749,7 @@ define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -768,7 +768,7 @@ define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -779,7 +779,7 @@ define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 10
@@ -795,7 +795,7 @@ define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -814,7 +814,7 @@ define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -825,7 +825,7 @@ define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 10
@@ -841,7 +841,7 @@ define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -860,7 +860,7 @@ define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -871,7 +871,7 @@ define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 12
@@ -887,7 +887,7 @@ define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -906,7 +906,7 @@ define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -917,7 +917,7 @@ define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 12
@@ -933,7 +933,7 @@ define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -952,7 +952,7 @@ define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -963,7 +963,7 @@ define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 20
@@ -979,7 +979,7 @@ define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 32
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -998,7 +998,7 @@ define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1009,7 +1009,7 @@ define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 20
@@ -1025,7 +1025,7 @@ define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1044,7 +1044,7 @@ define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1055,7 +1055,7 @@ define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 24
@@ -1071,7 +1071,7 @@ define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 32
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1090,7 +1090,7 @@ define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1101,7 +1101,7 @@ define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 24
@@ -1117,7 +1117,7 @@ define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1136,7 +1136,7 @@ define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1147,7 +1147,7 @@ define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 40
@@ -1163,7 +1163,7 @@ define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 64
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1182,7 +1182,7 @@ define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1193,7 +1193,7 @@ define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 40
@@ -1209,7 +1209,7 @@ define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 16
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1228,7 +1228,7 @@ define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1239,7 +1239,7 @@ define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 48
@@ -1255,7 +1255,7 @@ define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 64
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1274,7 +1274,7 @@ define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02730.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -1285,7 +1285,7 @@ define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.132.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !10
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 48
@@ -1301,7 +1301,7 @@ define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef 
   %22 = getelementptr inbounds i16, ptr %.02434.i, i64 %1
   %23 = add nuw nsw i32 %.035.i, 1
   %exitcond43.not.i = icmp eq i32 %23, 32
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor_rect.exit, label %20, !llvm.loop !11
 
 highbd_dc_predictor_rect.exit:                    ; preds = %20
   ret void
@@ -1319,7 +1319,7 @@ define hidden void @aom_v_predictor_4x4_c(ptr noundef writeonly captures(none) %
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 4
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1337,7 +1337,7 @@ define hidden void @aom_v_predictor_8x8_c(ptr noundef writeonly captures(none) %
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1354,7 +1354,7 @@ define hidden void @aom_v_predictor_16x16_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1371,7 +1371,7 @@ define hidden void @aom_v_predictor_32x32_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1388,7 +1388,7 @@ define hidden void @aom_v_predictor_64x64_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1406,7 +1406,7 @@ define hidden void @aom_highbd_v_predictor_4x4_c(ptr noundef writeonly captures(
   %8 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %9 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1423,7 +1423,7 @@ define hidden void @aom_highbd_v_predictor_8x8_c(ptr noundef writeonly captures(
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1440,7 +1440,7 @@ define hidden void @aom_highbd_v_predictor_16x16_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1457,7 +1457,7 @@ define hidden void @aom_highbd_v_predictor_32x32_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 32
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1474,7 +1474,7 @@ define hidden void @aom_highbd_v_predictor_64x64_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 64
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1492,7 +1492,7 @@ define hidden void @aom_v_predictor_4x8_c(ptr noundef writeonly captures(none) %
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1510,7 +1510,7 @@ define hidden void @aom_v_predictor_8x4_c(ptr noundef writeonly captures(none) %
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 4
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1528,7 +1528,7 @@ define hidden void @aom_v_predictor_8x16_c(ptr noundef writeonly captures(none) 
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1545,7 +1545,7 @@ define hidden void @aom_v_predictor_16x8_c(ptr noundef writeonly captures(none) 
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1562,7 +1562,7 @@ define hidden void @aom_v_predictor_16x32_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1579,7 +1579,7 @@ define hidden void @aom_v_predictor_32x16_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1596,7 +1596,7 @@ define hidden void @aom_v_predictor_32x64_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1613,7 +1613,7 @@ define hidden void @aom_v_predictor_64x32_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1631,7 +1631,7 @@ define hidden void @aom_v_predictor_4x16_c(ptr noundef writeonly captures(none) 
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1648,7 +1648,7 @@ define hidden void @aom_v_predictor_16x4_c(ptr noundef writeonly captures(none) 
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 4
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1666,7 +1666,7 @@ define hidden void @aom_v_predictor_8x32_c(ptr noundef writeonly captures(none) 
   %7 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 32
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1683,7 +1683,7 @@ define hidden void @aom_v_predictor_32x8_c(ptr noundef writeonly captures(none) 
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1700,7 +1700,7 @@ define hidden void @aom_v_predictor_16x64_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1717,7 +1717,7 @@ define hidden void @aom_v_predictor_64x16_c(ptr noundef writeonly captures(none)
   %6 = getelementptr inbounds i8, ptr %.071.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !11
+  br i1 %exitcond.not.i, label %v_predictor.exit, label %5, !llvm.loop !12
 
 v_predictor.exit:                                 ; preds = %5
   ret void
@@ -1735,7 +1735,7 @@ define hidden void @aom_highbd_v_predictor_4x8_c(ptr noundef writeonly captures(
   %8 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %9 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1752,7 +1752,7 @@ define hidden void @aom_highbd_v_predictor_8x4_c(ptr noundef writeonly captures(
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 4
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1769,7 +1769,7 @@ define hidden void @aom_highbd_v_predictor_8x16_c(ptr noundef writeonly captures
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1786,7 +1786,7 @@ define hidden void @aom_highbd_v_predictor_16x8_c(ptr noundef writeonly captures
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1803,7 +1803,7 @@ define hidden void @aom_highbd_v_predictor_16x32_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 32
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1820,7 +1820,7 @@ define hidden void @aom_highbd_v_predictor_32x16_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1837,7 +1837,7 @@ define hidden void @aom_highbd_v_predictor_32x64_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 64
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1854,7 +1854,7 @@ define hidden void @aom_highbd_v_predictor_64x32_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 32
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1872,7 +1872,7 @@ define hidden void @aom_highbd_v_predictor_4x16_c(ptr noundef writeonly captures
   %8 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %9 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %9, 16
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1889,7 +1889,7 @@ define hidden void @aom_highbd_v_predictor_16x4_c(ptr noundef writeonly captures
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 4
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1906,7 +1906,7 @@ define hidden void @aom_highbd_v_predictor_8x32_c(ptr noundef writeonly captures
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 32
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1923,7 +1923,7 @@ define hidden void @aom_highbd_v_predictor_32x8_c(ptr noundef writeonly captures
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1940,7 +1940,7 @@ define hidden void @aom_highbd_v_predictor_16x64_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 64
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1957,7 +1957,7 @@ define hidden void @aom_highbd_v_predictor_64x16_c(ptr noundef writeonly capture
   %7 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 16
-  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not.i, label %highbd_v_predictor.exit, label %6, !llvm.loop !13
 
 highbd_v_predictor.exit:                          ; preds = %6
   ret void
@@ -1976,7 +1976,7 @@ define hidden void @aom_h_predictor_4x4_c(ptr noundef writeonly captures(none) %
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -1995,7 +1995,7 @@ define hidden void @aom_h_predictor_8x8_c(ptr noundef writeonly captures(none) %
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2014,7 +2014,7 @@ define hidden void @aom_h_predictor_16x16_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2033,7 +2033,7 @@ define hidden void @aom_h_predictor_32x32_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2052,7 +2052,7 @@ define hidden void @aom_h_predictor_64x64_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2072,7 +2072,7 @@ define hidden void @aom_highbd_h_predictor_4x4_c(ptr noundef %0, i64 noundef %1,
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2092,7 +2092,7 @@ define hidden void @aom_highbd_h_predictor_8x8_c(ptr noundef %0, i64 noundef %1,
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2112,7 +2112,7 @@ define hidden void @aom_highbd_h_predictor_16x16_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2132,7 +2132,7 @@ define hidden void @aom_highbd_h_predictor_32x32_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2152,7 +2152,7 @@ define hidden void @aom_highbd_h_predictor_64x64_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2171,7 +2171,7 @@ define hidden void @aom_h_predictor_4x8_c(ptr noundef writeonly captures(none) %
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2190,7 +2190,7 @@ define hidden void @aom_h_predictor_8x4_c(ptr noundef writeonly captures(none) %
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2209,7 +2209,7 @@ define hidden void @aom_h_predictor_8x16_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2228,7 +2228,7 @@ define hidden void @aom_h_predictor_16x8_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2247,7 +2247,7 @@ define hidden void @aom_h_predictor_16x32_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2266,7 +2266,7 @@ define hidden void @aom_h_predictor_32x16_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2285,7 +2285,7 @@ define hidden void @aom_h_predictor_32x64_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2304,7 +2304,7 @@ define hidden void @aom_h_predictor_64x32_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2323,7 +2323,7 @@ define hidden void @aom_h_predictor_4x16_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2342,7 +2342,7 @@ define hidden void @aom_h_predictor_16x4_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2361,7 +2361,7 @@ define hidden void @aom_h_predictor_8x32_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2380,7 +2380,7 @@ define hidden void @aom_h_predictor_32x8_c(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2399,7 +2399,7 @@ define hidden void @aom_h_predictor_16x64_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2418,7 +2418,7 @@ define hidden void @aom_h_predictor_64x16_c(ptr noundef writeonly captures(none)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !13
+  br i1 %exitcond.not.i, label %h_predictor.exit, label %5, !llvm.loop !14
 
 h_predictor.exit:                                 ; preds = %5
   ret void
@@ -2438,7 +2438,7 @@ define hidden void @aom_highbd_h_predictor_4x8_c(ptr noundef %0, i64 noundef %1,
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2458,7 +2458,7 @@ define hidden void @aom_highbd_h_predictor_8x4_c(ptr noundef %0, i64 noundef %1,
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2478,7 +2478,7 @@ define hidden void @aom_highbd_h_predictor_8x16_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2498,7 +2498,7 @@ define hidden void @aom_highbd_h_predictor_16x8_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2518,7 +2518,7 @@ define hidden void @aom_highbd_h_predictor_16x32_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2538,7 +2538,7 @@ define hidden void @aom_highbd_h_predictor_32x16_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2558,7 +2558,7 @@ define hidden void @aom_highbd_h_predictor_32x64_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2578,7 +2578,7 @@ define hidden void @aom_highbd_h_predictor_64x32_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2598,7 +2598,7 @@ define hidden void @aom_highbd_h_predictor_4x16_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2618,7 +2618,7 @@ define hidden void @aom_highbd_h_predictor_16x4_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2638,7 +2638,7 @@ define hidden void @aom_highbd_h_predictor_8x32_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2658,7 +2658,7 @@ define hidden void @aom_highbd_h_predictor_32x8_c(ptr noundef %0, i64 noundef %1
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2678,7 +2678,7 @@ define hidden void @aom_highbd_h_predictor_16x64_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2698,7 +2698,7 @@ define hidden void @aom_highbd_h_predictor_64x16_c(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i16, ptr %.081.i, i64 %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %highbd_h_predictor.exit, label %6, !llvm.loop !15
 
 highbd_h_predictor.exit:                          ; preds = %6
   ret void
@@ -2762,7 +2762,7 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr noundef writeonly captures(no
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -2772,13 +2772,13 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr noundef writeonly captures(no
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2844,7 +2844,7 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr noundef writeonly captures(no
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -2854,13 +2854,13 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr noundef writeonly captures(no
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -2926,7 +2926,7 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -2936,13 +2936,13 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3008,7 +3008,7 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3018,13 +3018,13 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3090,7 +3090,7 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3100,13 +3100,13 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3172,7 +3172,7 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr noundef writeonly capt
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -3182,13 +3182,13 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr noundef writeonly capt
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3254,7 +3254,7 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr noundef writeonly capt
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -3264,13 +3264,13 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr noundef writeonly capt
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3336,7 +3336,7 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -3346,13 +3346,13 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3418,7 +3418,7 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -3428,13 +3428,13 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3500,7 +3500,7 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -3510,13 +3510,13 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3582,7 +3582,7 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr noundef writeonly captures(no
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3592,13 +3592,13 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr noundef writeonly captures(no
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3664,7 +3664,7 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr noundef writeonly captures(no
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3674,13 +3674,13 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr noundef writeonly captures(no
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3746,7 +3746,7 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3756,13 +3756,13 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3828,7 +3828,7 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3838,13 +3838,13 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3910,7 +3910,7 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -3920,13 +3920,13 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -3992,7 +3992,7 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4002,13 +4002,13 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4074,7 +4074,7 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4084,13 +4084,13 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4156,7 +4156,7 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4166,13 +4166,13 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4238,7 +4238,7 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4248,13 +4248,13 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4320,7 +4320,7 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4330,13 +4330,13 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4402,7 +4402,7 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4412,13 +4412,13 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4484,7 +4484,7 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr noundef writeonly captures(n
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4494,13 +4494,13 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr noundef writeonly captures(n
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4566,7 +4566,7 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4576,13 +4576,13 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4648,7 +4648,7 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr noundef writeonly captures(
   %36 = add i32 %35, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %37, label %28, !llvm.loop !16
 
 37:                                               ; preds = %28
   %38 = add i32 %36, 256
@@ -4658,13 +4658,13 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr noundef writeonly captures(
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !16
+  br i1 %exitcond48.not.i, label %42, label %21, !llvm.loop !17
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds i8, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond53.not.i, label %smooth_predictor.exit, label %.preheader.i, !llvm.loop !18
 
 smooth_predictor.exit:                            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4730,7 +4730,7 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr noundef writeonly capt
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -4740,13 +4740,13 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr noundef writeonly capt
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4812,7 +4812,7 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr noundef writeonly capt
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -4822,13 +4822,13 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr noundef writeonly capt
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4894,7 +4894,7 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -4904,13 +4904,13 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -4976,7 +4976,7 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -4986,13 +4986,13 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5058,7 +5058,7 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5068,13 +5068,13 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5140,7 +5140,7 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5150,13 +5150,13 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5222,7 +5222,7 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5232,13 +5232,13 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5304,7 +5304,7 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5314,13 +5314,13 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5386,7 +5386,7 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5396,13 +5396,13 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5468,7 +5468,7 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5478,13 +5478,13 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5550,7 +5550,7 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5560,13 +5560,13 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 32
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5632,7 +5632,7 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr noundef writeonly cap
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5642,13 +5642,13 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr noundef writeonly cap
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 8
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5714,7 +5714,7 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5724,13 +5724,13 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 64
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5796,7 +5796,7 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr noundef writeonly ca
   %37 = add i32 %36, %.03539.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i, label %38, label %29, !llvm.loop !19
 
 38:                                               ; preds = %29
   %39 = add i32 %37, 256
@@ -5806,13 +5806,13 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr noundef writeonly ca
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
-  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !19
+  br i1 %exitcond48.not.i, label %43, label %22, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i16, ptr %.03842.i, i64 %1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, 16
-  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond53.not.i, label %highbd_smooth_predictor.exit, label %.preheader.i, !llvm.loop !21
 
 highbd_smooth_predictor.exit:                     ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -5849,7 +5849,7 @@ define hidden void @aom_smooth_v_predictor_4x4_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -5859,13 +5859,13 @@ define hidden void @aom_smooth_v_predictor_4x4_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -5900,7 +5900,7 @@ define hidden void @aom_smooth_v_predictor_8x8_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -5910,13 +5910,13 @@ define hidden void @aom_smooth_v_predictor_8x8_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -5951,7 +5951,7 @@ define hidden void @aom_smooth_v_predictor_16x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -5961,13 +5961,13 @@ define hidden void @aom_smooth_v_predictor_16x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6002,7 +6002,7 @@ define hidden void @aom_smooth_v_predictor_32x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6012,13 +6012,13 @@ define hidden void @aom_smooth_v_predictor_32x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6053,7 +6053,7 @@ define hidden void @aom_smooth_v_predictor_64x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6063,13 +6063,13 @@ define hidden void @aom_smooth_v_predictor_64x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6104,7 +6104,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -6114,13 +6114,13 @@ define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -6155,7 +6155,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -6165,13 +6165,13 @@ define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -6206,7 +6206,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -6216,13 +6216,13 @@ define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -6257,7 +6257,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -6267,13 +6267,13 @@ define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -6308,7 +6308,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -6318,13 +6318,13 @@ define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -6359,7 +6359,7 @@ define hidden void @aom_smooth_v_predictor_4x8_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6369,13 +6369,13 @@ define hidden void @aom_smooth_v_predictor_4x8_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6410,7 +6410,7 @@ define hidden void @aom_smooth_v_predictor_8x4_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6420,13 +6420,13 @@ define hidden void @aom_smooth_v_predictor_8x4_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6461,7 +6461,7 @@ define hidden void @aom_smooth_v_predictor_8x16_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6471,13 +6471,13 @@ define hidden void @aom_smooth_v_predictor_8x16_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6512,7 +6512,7 @@ define hidden void @aom_smooth_v_predictor_16x8_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6522,13 +6522,13 @@ define hidden void @aom_smooth_v_predictor_16x8_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6563,7 +6563,7 @@ define hidden void @aom_smooth_v_predictor_16x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6573,13 +6573,13 @@ define hidden void @aom_smooth_v_predictor_16x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6614,7 +6614,7 @@ define hidden void @aom_smooth_v_predictor_32x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6624,13 +6624,13 @@ define hidden void @aom_smooth_v_predictor_32x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6665,7 +6665,7 @@ define hidden void @aom_smooth_v_predictor_32x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6675,13 +6675,13 @@ define hidden void @aom_smooth_v_predictor_32x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6716,7 +6716,7 @@ define hidden void @aom_smooth_v_predictor_64x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6726,13 +6726,13 @@ define hidden void @aom_smooth_v_predictor_64x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6767,7 +6767,7 @@ define hidden void @aom_smooth_v_predictor_4x16_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6777,13 +6777,13 @@ define hidden void @aom_smooth_v_predictor_4x16_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6818,7 +6818,7 @@ define hidden void @aom_smooth_v_predictor_16x4_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6828,13 +6828,13 @@ define hidden void @aom_smooth_v_predictor_16x4_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6869,7 +6869,7 @@ define hidden void @aom_smooth_v_predictor_8x32_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6879,13 +6879,13 @@ define hidden void @aom_smooth_v_predictor_8x32_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6920,7 +6920,7 @@ define hidden void @aom_smooth_v_predictor_32x8_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6930,13 +6930,13 @@ define hidden void @aom_smooth_v_predictor_32x8_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -6971,7 +6971,7 @@ define hidden void @aom_smooth_v_predictor_16x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -6981,13 +6981,13 @@ define hidden void @aom_smooth_v_predictor_16x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -7022,7 +7022,7 @@ define hidden void @aom_smooth_v_predictor_64x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !21
+  br i1 %14, label %13, label %19, !llvm.loop !22
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -7032,13 +7032,13 @@ define hidden void @aom_smooth_v_predictor_64x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %24, label %10, !llvm.loop !23
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond42.not.i, label %smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !24
 
 smooth_v_predictor.exit:                          ; preds = %24
   ret void
@@ -7073,7 +7073,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7083,13 +7083,13 @@ define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7124,7 +7124,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7134,13 +7134,13 @@ define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7175,7 +7175,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7185,13 +7185,13 @@ define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7226,7 +7226,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7236,13 +7236,13 @@ define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7277,7 +7277,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7287,13 +7287,13 @@ define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7328,7 +7328,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7338,13 +7338,13 @@ define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7379,7 +7379,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7389,13 +7389,13 @@ define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7430,7 +7430,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7440,13 +7440,13 @@ define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7481,7 +7481,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7491,13 +7491,13 @@ define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7532,7 +7532,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7542,13 +7542,13 @@ define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7583,7 +7583,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7593,13 +7593,13 @@ define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7634,7 +7634,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7644,13 +7644,13 @@ define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7685,7 +7685,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7695,13 +7695,13 @@ define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7736,7 +7736,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !24
+  br i1 %15, label %14, label %20, !llvm.loop !25
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -7746,13 +7746,13 @@ define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond42.not.i, label %highbd_smooth_v_predictor.exit, label %.preheader.i, !llvm.loop !27
 
 highbd_smooth_v_predictor.exit:                   ; preds = %25
   ret void
@@ -7787,7 +7787,7 @@ define hidden void @aom_smooth_h_predictor_4x4_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -7797,13 +7797,13 @@ define hidden void @aom_smooth_h_predictor_4x4_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -7838,7 +7838,7 @@ define hidden void @aom_smooth_h_predictor_8x8_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -7848,13 +7848,13 @@ define hidden void @aom_smooth_h_predictor_8x8_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -7889,7 +7889,7 @@ define hidden void @aom_smooth_h_predictor_16x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -7899,13 +7899,13 @@ define hidden void @aom_smooth_h_predictor_16x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -7940,7 +7940,7 @@ define hidden void @aom_smooth_h_predictor_32x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -7950,13 +7950,13 @@ define hidden void @aom_smooth_h_predictor_32x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -7991,7 +7991,7 @@ define hidden void @aom_smooth_h_predictor_64x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8001,13 +8001,13 @@ define hidden void @aom_smooth_h_predictor_64x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8042,7 +8042,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -8052,13 +8052,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -8093,7 +8093,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -8103,13 +8103,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -8144,7 +8144,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -8154,13 +8154,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -8195,7 +8195,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -8205,13 +8205,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -8246,7 +8246,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -8256,13 +8256,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -8297,7 +8297,7 @@ define hidden void @aom_smooth_h_predictor_4x8_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8307,13 +8307,13 @@ define hidden void @aom_smooth_h_predictor_4x8_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8348,7 +8348,7 @@ define hidden void @aom_smooth_h_predictor_8x4_c(ptr noundef writeonly captures(
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8358,13 +8358,13 @@ define hidden void @aom_smooth_h_predictor_8x4_c(ptr noundef writeonly captures(
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8399,7 +8399,7 @@ define hidden void @aom_smooth_h_predictor_8x16_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8409,13 +8409,13 @@ define hidden void @aom_smooth_h_predictor_8x16_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8450,7 +8450,7 @@ define hidden void @aom_smooth_h_predictor_16x8_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8460,13 +8460,13 @@ define hidden void @aom_smooth_h_predictor_16x8_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8501,7 +8501,7 @@ define hidden void @aom_smooth_h_predictor_16x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8511,13 +8511,13 @@ define hidden void @aom_smooth_h_predictor_16x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8552,7 +8552,7 @@ define hidden void @aom_smooth_h_predictor_32x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8562,13 +8562,13 @@ define hidden void @aom_smooth_h_predictor_32x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8603,7 +8603,7 @@ define hidden void @aom_smooth_h_predictor_32x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8613,13 +8613,13 @@ define hidden void @aom_smooth_h_predictor_32x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8654,7 +8654,7 @@ define hidden void @aom_smooth_h_predictor_64x32_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8664,13 +8664,13 @@ define hidden void @aom_smooth_h_predictor_64x32_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8705,7 +8705,7 @@ define hidden void @aom_smooth_h_predictor_4x16_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8715,13 +8715,13 @@ define hidden void @aom_smooth_h_predictor_4x16_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8756,7 +8756,7 @@ define hidden void @aom_smooth_h_predictor_16x4_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8766,13 +8766,13 @@ define hidden void @aom_smooth_h_predictor_16x4_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8807,7 +8807,7 @@ define hidden void @aom_smooth_h_predictor_8x32_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8817,13 +8817,13 @@ define hidden void @aom_smooth_h_predictor_8x32_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8858,7 +8858,7 @@ define hidden void @aom_smooth_h_predictor_32x8_c(ptr noundef writeonly captures
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8868,13 +8868,13 @@ define hidden void @aom_smooth_h_predictor_32x8_c(ptr noundef writeonly captures
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8909,7 +8909,7 @@ define hidden void @aom_smooth_h_predictor_16x64_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8919,13 +8919,13 @@ define hidden void @aom_smooth_h_predictor_16x64_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -8960,7 +8960,7 @@ define hidden void @aom_smooth_h_predictor_64x16_c(ptr noundef writeonly capture
   %16 = zext i8 %indvars.iv.i.sroa.phi.sroa.speculated8 to i32
   %17 = mul nuw nsw i32 %16, %15
   %18 = add i32 %17, %.02529.i
-  br i1 %14, label %13, label %19, !llvm.loop !27
+  br i1 %14, label %13, label %19, !llvm.loop !28
 
 19:                                               ; preds = %13
   %20 = add i32 %18, 128
@@ -8970,13 +8970,13 @@ define hidden void @aom_smooth_h_predictor_64x16_c(ptr noundef writeonly capture
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !28
+  br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !29
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond42.not.i, label %smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !30
 
 smooth_h_predictor.exit:                          ; preds = %24
   ret void
@@ -9011,7 +9011,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9021,13 +9021,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9062,7 +9062,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr noundef writeonly ca
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9072,13 +9072,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr noundef writeonly ca
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9113,7 +9113,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9123,13 +9123,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9164,7 +9164,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9174,13 +9174,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9215,7 +9215,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9225,13 +9225,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9266,7 +9266,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9276,13 +9276,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9317,7 +9317,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9327,13 +9327,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9368,7 +9368,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9378,13 +9378,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9419,7 +9419,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9429,13 +9429,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9470,7 +9470,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9480,13 +9480,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9521,7 +9521,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9531,13 +9531,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9572,7 +9572,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr noundef writeonly c
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9582,13 +9582,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr noundef writeonly c
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9623,7 +9623,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9633,13 +9633,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9674,7 +9674,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr noundef writeonly 
   %17 = zext i16 %indvars.iv.i.sroa.phi.sroa.speculated9 to i32
   %18 = mul nuw nsw i32 %17, %16
   %19 = add i32 %18, %.02529.i
-  br i1 %15, label %14, label %20, !llvm.loop !30
+  br i1 %15, label %14, label %20, !llvm.loop !31
 
 20:                                               ; preds = %14
   %21 = add i32 %19, 128
@@ -9684,13 +9684,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr noundef writeonly 
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
-  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %25, label %9, !llvm.loop !32
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i16, ptr %.02832.i, i64 %1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond42.not.i, label %highbd_smooth_h_predictor.exit, label %.preheader.i, !llvm.loop !33
 
 highbd_smooth_h_predictor.exit:                   ; preds = %25
   ret void
@@ -9733,13 +9733,13 @@ define hidden void @aom_paeth_predictor_4x4_c(ptr noundef writeonly captures(non
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -9782,13 +9782,13 @@ define hidden void @aom_paeth_predictor_8x8_c(ptr noundef writeonly captures(non
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -9831,13 +9831,13 @@ define hidden void @aom_paeth_predictor_16x16_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -9880,13 +9880,13 @@ define hidden void @aom_paeth_predictor_32x32_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 32
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -9929,13 +9929,13 @@ define hidden void @aom_paeth_predictor_64x64_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 64
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -9978,13 +9978,13 @@ define hidden void @aom_highbd_paeth_predictor_4x4_c(ptr noundef writeonly captu
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 4
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10027,13 +10027,13 @@ define hidden void @aom_highbd_paeth_predictor_8x8_c(ptr noundef writeonly captu
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 8
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10076,13 +10076,13 @@ define hidden void @aom_highbd_paeth_predictor_16x16_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 16
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10125,13 +10125,13 @@ define hidden void @aom_highbd_paeth_predictor_32x32_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 32
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10174,13 +10174,13 @@ define hidden void @aom_highbd_paeth_predictor_64x64_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 64
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10223,13 +10223,13 @@ define hidden void @aom_paeth_predictor_4x8_c(ptr noundef writeonly captures(non
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10272,13 +10272,13 @@ define hidden void @aom_paeth_predictor_8x4_c(ptr noundef writeonly captures(non
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10321,13 +10321,13 @@ define hidden void @aom_paeth_predictor_8x16_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10370,13 +10370,13 @@ define hidden void @aom_paeth_predictor_16x8_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10419,13 +10419,13 @@ define hidden void @aom_paeth_predictor_16x32_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 32
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10468,13 +10468,13 @@ define hidden void @aom_paeth_predictor_32x16_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10517,13 +10517,13 @@ define hidden void @aom_paeth_predictor_32x64_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 64
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10566,13 +10566,13 @@ define hidden void @aom_paeth_predictor_64x32_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 32
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10615,13 +10615,13 @@ define hidden void @aom_paeth_predictor_4x16_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10664,13 +10664,13 @@ define hidden void @aom_paeth_predictor_16x4_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10713,13 +10713,13 @@ define hidden void @aom_paeth_predictor_8x32_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 32
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10762,13 +10762,13 @@ define hidden void @aom_paeth_predictor_32x8_c(ptr noundef writeonly captures(no
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10811,13 +10811,13 @@ define hidden void @aom_paeth_predictor_16x64_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 64
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10860,13 +10860,13 @@ define hidden void @aom_paeth_predictor_64x16_c(ptr noundef writeonly captures(n
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !33
+  br i1 %exitcond.not.i, label %23, label %9, !llvm.loop !34
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %.020.i, i64 %1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, 16
-  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond26.not.i, label %paeth_predictor.exit, label %.preheader.i, !llvm.loop !35
 
 paeth_predictor.exit:                             ; preds = %23
   ret void
@@ -10909,13 +10909,13 @@ define hidden void @aom_highbd_paeth_predictor_4x8_c(ptr noundef writeonly captu
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 8
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -10958,13 +10958,13 @@ define hidden void @aom_highbd_paeth_predictor_8x4_c(ptr noundef writeonly captu
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 4
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11007,13 +11007,13 @@ define hidden void @aom_highbd_paeth_predictor_8x16_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 16
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11056,13 +11056,13 @@ define hidden void @aom_highbd_paeth_predictor_16x8_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 8
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11105,13 +11105,13 @@ define hidden void @aom_highbd_paeth_predictor_16x32_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 32
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11154,13 +11154,13 @@ define hidden void @aom_highbd_paeth_predictor_32x16_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 16
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11203,13 +11203,13 @@ define hidden void @aom_highbd_paeth_predictor_32x64_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 64
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11252,13 +11252,13 @@ define hidden void @aom_highbd_paeth_predictor_64x32_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 32
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11301,13 +11301,13 @@ define hidden void @aom_highbd_paeth_predictor_4x16_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 16
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11350,13 +11350,13 @@ define hidden void @aom_highbd_paeth_predictor_16x4_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 4
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11399,13 +11399,13 @@ define hidden void @aom_highbd_paeth_predictor_8x32_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 32
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11448,13 +11448,13 @@ define hidden void @aom_highbd_paeth_predictor_32x8_c(ptr noundef writeonly capt
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 8
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11497,13 +11497,13 @@ define hidden void @aom_highbd_paeth_predictor_16x64_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 64
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11546,13 +11546,13 @@ define hidden void @aom_highbd_paeth_predictor_64x16_c(ptr noundef writeonly cap
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !35
+  br i1 %exitcond.not.i, label %26, label %10, !llvm.loop !36
 
 26:                                               ; preds = %10
   %27 = getelementptr inbounds i16, ptr %.019.i, i64 %1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, 16
-  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond25.not.i, label %highbd_paeth_predictor.exit, label %.preheader.i, !llvm.loop !37
 
 highbd_paeth_predictor.exit:                      ; preds = %26
   ret void
@@ -11569,7 +11569,7 @@ define hidden void @aom_dc_128_predictor_4x4_c(ptr noundef writeonly captures(no
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 4
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11586,7 +11586,7 @@ define hidden void @aom_dc_128_predictor_8x8_c(ptr noundef writeonly captures(no
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11603,7 +11603,7 @@ define hidden void @aom_dc_128_predictor_16x16_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11620,7 +11620,7 @@ define hidden void @aom_dc_128_predictor_32x32_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11637,7 +11637,7 @@ define hidden void @aom_dc_128_predictor_64x64_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11656,7 +11656,7 @@ define hidden void @aom_highbd_dc_128_predictor_4x4_c(ptr noundef %0, i64 nounde
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 4
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -11675,7 +11675,7 @@ define hidden void @aom_highbd_dc_128_predictor_8x8_c(ptr noundef %0, i64 nounde
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -11694,7 +11694,7 @@ define hidden void @aom_highbd_dc_128_predictor_16x16_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 16
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -11713,7 +11713,7 @@ define hidden void @aom_highbd_dc_128_predictor_32x32_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 32
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -11732,7 +11732,7 @@ define hidden void @aom_highbd_dc_128_predictor_64x64_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 64
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -11749,7 +11749,7 @@ define hidden void @aom_dc_128_predictor_4x8_c(ptr noundef writeonly captures(no
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11766,7 +11766,7 @@ define hidden void @aom_dc_128_predictor_8x4_c(ptr noundef writeonly captures(no
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 4
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11783,7 +11783,7 @@ define hidden void @aom_dc_128_predictor_8x16_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11800,7 +11800,7 @@ define hidden void @aom_dc_128_predictor_16x8_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11817,7 +11817,7 @@ define hidden void @aom_dc_128_predictor_16x32_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11834,7 +11834,7 @@ define hidden void @aom_dc_128_predictor_32x16_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11851,7 +11851,7 @@ define hidden void @aom_dc_128_predictor_32x64_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11868,7 +11868,7 @@ define hidden void @aom_dc_128_predictor_64x32_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11885,7 +11885,7 @@ define hidden void @aom_dc_128_predictor_4x16_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11902,7 +11902,7 @@ define hidden void @aom_dc_128_predictor_16x4_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 4
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11919,7 +11919,7 @@ define hidden void @aom_dc_128_predictor_8x32_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 32
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11936,7 +11936,7 @@ define hidden void @aom_dc_128_predictor_32x8_c(ptr noundef writeonly captures(n
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11953,7 +11953,7 @@ define hidden void @aom_dc_128_predictor_16x64_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 64
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11970,7 +11970,7 @@ define hidden void @aom_dc_128_predictor_64x16_c(ptr noundef writeonly captures(
   %6 = getelementptr inbounds i8, ptr %.061.i, i64 %1
   %7 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %7, 16
-  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %dc_128_predictor.exit, label %5, !llvm.loop !38
 
 dc_128_predictor.exit:                            ; preds = %5
   ret void
@@ -11989,7 +11989,7 @@ define hidden void @aom_highbd_dc_128_predictor_4x8_c(ptr noundef %0, i64 nounde
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12008,7 +12008,7 @@ define hidden void @aom_highbd_dc_128_predictor_8x4_c(ptr noundef %0, i64 nounde
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 4
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12027,7 +12027,7 @@ define hidden void @aom_highbd_dc_128_predictor_8x16_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 16
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12046,7 +12046,7 @@ define hidden void @aom_highbd_dc_128_predictor_16x8_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12065,7 +12065,7 @@ define hidden void @aom_highbd_dc_128_predictor_16x32_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 32
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12084,7 +12084,7 @@ define hidden void @aom_highbd_dc_128_predictor_32x16_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 16
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12103,7 +12103,7 @@ define hidden void @aom_highbd_dc_128_predictor_32x64_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 64
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12122,7 +12122,7 @@ define hidden void @aom_highbd_dc_128_predictor_64x32_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 32
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12141,7 +12141,7 @@ define hidden void @aom_highbd_dc_128_predictor_4x16_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 16
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12160,7 +12160,7 @@ define hidden void @aom_highbd_dc_128_predictor_16x4_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 4
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12179,7 +12179,7 @@ define hidden void @aom_highbd_dc_128_predictor_8x32_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 32
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12198,7 +12198,7 @@ define hidden void @aom_highbd_dc_128_predictor_32x8_c(ptr noundef %0, i64 nound
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 8
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12217,7 +12217,7 @@ define hidden void @aom_highbd_dc_128_predictor_16x64_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 64
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12236,7 +12236,7 @@ define hidden void @aom_highbd_dc_128_predictor_64x16_c(ptr noundef %0, i64 noun
   %10 = getelementptr inbounds i16, ptr %.071.i, i64 %1
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 16
-  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !38
+  br i1 %exitcond.not.i, label %highbd_dc_128_predictor.exit, label %8, !llvm.loop !39
 
 highbd_dc_128_predictor.exit:                     ; preds = %8
   ret void
@@ -12255,7 +12255,7 @@ define hidden void @aom_dc_left_predictor_4x4_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -12270,7 +12270,7 @@ define hidden void @aom_dc_left_predictor_4x4_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12289,7 +12289,7 @@ define hidden void @aom_dc_left_predictor_8x8_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -12304,7 +12304,7 @@ define hidden void @aom_dc_left_predictor_8x8_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12323,7 +12323,7 @@ define hidden void @aom_dc_left_predictor_16x16_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -12338,7 +12338,7 @@ define hidden void @aom_dc_left_predictor_16x16_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12357,7 +12357,7 @@ define hidden void @aom_dc_left_predictor_32x32_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -12372,7 +12372,7 @@ define hidden void @aom_dc_left_predictor_32x32_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12391,7 +12391,7 @@ define hidden void @aom_dc_left_predictor_64x64_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -12406,7 +12406,7 @@ define hidden void @aom_dc_left_predictor_64x64_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12425,7 +12425,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x4_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -12439,7 +12439,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x4_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -12458,7 +12458,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x8_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -12472,7 +12472,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x8_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -12491,7 +12491,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x16_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -12505,7 +12505,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x16_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -12524,7 +12524,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x32_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -12538,7 +12538,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x32_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -12557,7 +12557,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x64_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -12571,7 +12571,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x64_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -12590,7 +12590,7 @@ define hidden void @aom_dc_left_predictor_4x8_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -12605,7 +12605,7 @@ define hidden void @aom_dc_left_predictor_4x8_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12624,7 +12624,7 @@ define hidden void @aom_dc_left_predictor_8x4_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -12639,7 +12639,7 @@ define hidden void @aom_dc_left_predictor_8x4_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12658,7 +12658,7 @@ define hidden void @aom_dc_left_predictor_8x16_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -12673,7 +12673,7 @@ define hidden void @aom_dc_left_predictor_8x16_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12692,7 +12692,7 @@ define hidden void @aom_dc_left_predictor_16x8_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -12707,7 +12707,7 @@ define hidden void @aom_dc_left_predictor_16x8_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12726,7 +12726,7 @@ define hidden void @aom_dc_left_predictor_16x32_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -12741,7 +12741,7 @@ define hidden void @aom_dc_left_predictor_16x32_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12760,7 +12760,7 @@ define hidden void @aom_dc_left_predictor_32x16_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -12775,7 +12775,7 @@ define hidden void @aom_dc_left_predictor_32x16_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12794,7 +12794,7 @@ define hidden void @aom_dc_left_predictor_32x64_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -12809,7 +12809,7 @@ define hidden void @aom_dc_left_predictor_32x64_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12828,7 +12828,7 @@ define hidden void @aom_dc_left_predictor_64x32_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -12843,7 +12843,7 @@ define hidden void @aom_dc_left_predictor_64x32_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12862,7 +12862,7 @@ define hidden void @aom_dc_left_predictor_4x16_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -12877,7 +12877,7 @@ define hidden void @aom_dc_left_predictor_4x16_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12896,7 +12896,7 @@ define hidden void @aom_dc_left_predictor_16x4_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -12911,7 +12911,7 @@ define hidden void @aom_dc_left_predictor_16x4_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12930,7 +12930,7 @@ define hidden void @aom_dc_left_predictor_8x32_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -12945,7 +12945,7 @@ define hidden void @aom_dc_left_predictor_8x32_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12964,7 +12964,7 @@ define hidden void @aom_dc_left_predictor_32x8_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -12979,7 +12979,7 @@ define hidden void @aom_dc_left_predictor_32x8_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -12998,7 +12998,7 @@ define hidden void @aom_dc_left_predictor_16x64_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -13013,7 +13013,7 @@ define hidden void @aom_dc_left_predictor_16x64_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -13032,7 +13032,7 @@ define hidden void @aom_dc_left_predictor_64x16_c(ptr noundef writeonly captures
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !40
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -13047,7 +13047,7 @@ define hidden void @aom_dc_left_predictor_64x16_c(ptr noundef writeonly captures
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !40
+  br i1 %exitcond6.not.i, label %dc_left_predictor.exit, label %14, !llvm.loop !41
 
 dc_left_predictor.exit:                           ; preds = %14
   ret void
@@ -13066,7 +13066,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x8_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -13080,7 +13080,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x8_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13099,7 +13099,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x4_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -13113,7 +13113,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x4_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13132,7 +13132,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x16_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -13146,7 +13146,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x16_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13165,7 +13165,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x8_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -13179,7 +13179,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x8_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13198,7 +13198,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x32_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -13212,7 +13212,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x32_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13231,7 +13231,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x16_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -13245,7 +13245,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x16_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13264,7 +13264,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x64_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -13278,7 +13278,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x64_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13297,7 +13297,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x32_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -13311,7 +13311,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x32_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13330,7 +13330,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x16_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -13344,7 +13344,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x16_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13363,7 +13363,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x4_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -13377,7 +13377,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x4_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13396,7 +13396,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x32_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -13410,7 +13410,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x32_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13429,7 +13429,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x8_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -13443,7 +13443,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x8_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13462,7 +13462,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x64_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -13476,7 +13476,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x64_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13495,7 +13495,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x16_c(ptr noundef %0, i64 nou
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !41
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !42
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -13509,7 +13509,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x16_c(ptr noundef %0, i64 nou
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !42
+  br i1 %exitcond6.not.i, label %highbd_dc_left_predictor.exit, label %14, !llvm.loop !43
 
 highbd_dc_left_predictor.exit:                    ; preds = %14
   ret void
@@ -13528,7 +13528,7 @@ define hidden void @aom_dc_top_predictor_4x4_c(ptr noundef writeonly captures(no
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -13543,7 +13543,7 @@ define hidden void @aom_dc_top_predictor_4x4_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13562,7 +13562,7 @@ define hidden void @aom_dc_top_predictor_8x8_c(ptr noundef writeonly captures(no
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -13577,7 +13577,7 @@ define hidden void @aom_dc_top_predictor_8x8_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13596,7 +13596,7 @@ define hidden void @aom_dc_top_predictor_16x16_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -13611,7 +13611,7 @@ define hidden void @aom_dc_top_predictor_16x16_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13630,7 +13630,7 @@ define hidden void @aom_dc_top_predictor_32x32_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -13645,7 +13645,7 @@ define hidden void @aom_dc_top_predictor_32x32_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13664,7 +13664,7 @@ define hidden void @aom_dc_top_predictor_64x64_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -13679,7 +13679,7 @@ define hidden void @aom_dc_top_predictor_64x64_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13698,7 +13698,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x4_c(ptr noundef %0, i64 nounde
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -13712,7 +13712,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x4_c(ptr noundef %0, i64 nounde
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -13731,7 +13731,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x8_c(ptr noundef %0, i64 nounde
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -13745,7 +13745,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x8_c(ptr noundef %0, i64 nounde
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -13764,7 +13764,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x16_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -13778,7 +13778,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x16_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -13797,7 +13797,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x32_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -13811,7 +13811,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x32_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -13830,7 +13830,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x64_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -13844,7 +13844,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x64_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -13863,7 +13863,7 @@ define hidden void @aom_dc_top_predictor_4x8_c(ptr noundef writeonly captures(no
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -13878,7 +13878,7 @@ define hidden void @aom_dc_top_predictor_4x8_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13897,7 +13897,7 @@ define hidden void @aom_dc_top_predictor_8x4_c(ptr noundef writeonly captures(no
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -13912,7 +13912,7 @@ define hidden void @aom_dc_top_predictor_8x4_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13931,7 +13931,7 @@ define hidden void @aom_dc_top_predictor_8x16_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -13946,7 +13946,7 @@ define hidden void @aom_dc_top_predictor_8x16_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13965,7 +13965,7 @@ define hidden void @aom_dc_top_predictor_16x8_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -13980,7 +13980,7 @@ define hidden void @aom_dc_top_predictor_16x8_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -13999,7 +13999,7 @@ define hidden void @aom_dc_top_predictor_16x32_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -14014,7 +14014,7 @@ define hidden void @aom_dc_top_predictor_16x32_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14033,7 +14033,7 @@ define hidden void @aom_dc_top_predictor_32x16_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -14048,7 +14048,7 @@ define hidden void @aom_dc_top_predictor_32x16_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14067,7 +14067,7 @@ define hidden void @aom_dc_top_predictor_32x64_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -14082,7 +14082,7 @@ define hidden void @aom_dc_top_predictor_32x64_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14101,7 +14101,7 @@ define hidden void @aom_dc_top_predictor_64x32_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -14116,7 +14116,7 @@ define hidden void @aom_dc_top_predictor_64x32_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14135,7 +14135,7 @@ define hidden void @aom_dc_top_predictor_4x16_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 2
@@ -14150,7 +14150,7 @@ define hidden void @aom_dc_top_predictor_4x16_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14169,7 +14169,7 @@ define hidden void @aom_dc_top_predictor_16x4_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -14184,7 +14184,7 @@ define hidden void @aom_dc_top_predictor_16x4_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14203,7 +14203,7 @@ define hidden void @aom_dc_top_predictor_8x32_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 4
@@ -14218,7 +14218,7 @@ define hidden void @aom_dc_top_predictor_8x32_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14237,7 +14237,7 @@ define hidden void @aom_dc_top_predictor_32x8_c(ptr noundef writeonly captures(n
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 16
@@ -14252,7 +14252,7 @@ define hidden void @aom_dc_top_predictor_32x8_c(ptr noundef writeonly captures(n
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14271,7 +14271,7 @@ define hidden void @aom_dc_top_predictor_16x64_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 8
@@ -14286,7 +14286,7 @@ define hidden void @aom_dc_top_predictor_16x64_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14305,7 +14305,7 @@ define hidden void @aom_dc_top_predictor_64x16_c(ptr noundef writeonly captures(
   %9 = add nuw nsw i32 %.02.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !44
 
 10:                                               ; preds = %5
   %11 = add nuw nsw i32 %9, 32
@@ -14320,7 +14320,7 @@ define hidden void @aom_dc_top_predictor_64x16_c(ptr noundef writeonly captures(
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !45
 
 dc_top_predictor.exit:                            ; preds = %14
   ret void
@@ -14339,7 +14339,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x8_c(ptr noundef %0, i64 nounde
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -14353,7 +14353,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x8_c(ptr noundef %0, i64 nounde
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14372,7 +14372,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x4_c(ptr noundef %0, i64 nounde
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -14386,7 +14386,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x4_c(ptr noundef %0, i64 nounde
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14405,7 +14405,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x16_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -14419,7 +14419,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x16_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14438,7 +14438,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x8_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -14452,7 +14452,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x8_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14471,7 +14471,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x32_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -14485,7 +14485,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x32_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14504,7 +14504,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x16_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -14518,7 +14518,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x16_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14537,7 +14537,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x64_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -14551,7 +14551,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x64_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14570,7 +14570,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x32_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -14584,7 +14584,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x32_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14603,7 +14603,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x16_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 2
@@ -14617,7 +14617,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x16_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14636,7 +14636,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x4_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -14650,7 +14650,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x4_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14669,7 +14669,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x32_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 4
@@ -14683,7 +14683,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x32_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14702,7 +14702,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x8_c(ptr noundef %0, i64 nound
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 16
@@ -14716,7 +14716,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x8_c(ptr noundef %0, i64 nound
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14735,7 +14735,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x64_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 8
@@ -14749,7 +14749,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x64_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14768,7 +14768,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x16_c(ptr noundef %0, i64 noun
   %10 = add nuw nsw i32 %.02.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !46
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %10, 32
@@ -14782,7 +14782,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x16_c(ptr noundef %0, i64 noun
   %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
   %17 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !47
 
 highbd_dc_top_predictor.exit:                     ; preds = %14
   ret void
@@ -14801,7 +14801,7 @@ define hidden void @aom_dc_predictor_4x4_c(ptr noundef writeonly captures(none) 
   %9 = add nuw nsw i32 %.02431.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
@@ -14812,7 +14812,7 @@ define hidden void @aom_dc_predictor_4x4_c(ptr noundef writeonly captures(none) 
   %13 = add nuw nsw i32 %.133.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !49
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 4
@@ -14827,7 +14827,7 @@ define hidden void @aom_dc_predictor_4x4_c(ptr noundef writeonly captures(none) 
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 %1
   %20 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !49
+  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !50
 
 dc_predictor.exit:                                ; preds = %18
   ret void
@@ -14846,7 +14846,7 @@ define hidden void @aom_dc_predictor_8x8_c(ptr noundef writeonly captures(none) 
   %9 = add nuw nsw i32 %.02431.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
@@ -14857,7 +14857,7 @@ define hidden void @aom_dc_predictor_8x8_c(ptr noundef writeonly captures(none) 
   %13 = add nuw nsw i32 %.133.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !49
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 8
@@ -14872,7 +14872,7 @@ define hidden void @aom_dc_predictor_8x8_c(ptr noundef writeonly captures(none) 
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 %1
   %20 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !49
+  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !50
 
 dc_predictor.exit:                                ; preds = %18
   ret void
@@ -14891,7 +14891,7 @@ define hidden void @aom_dc_predictor_16x16_c(ptr noundef writeonly captures(none
   %9 = add nuw nsw i32 %.02431.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
@@ -14902,7 +14902,7 @@ define hidden void @aom_dc_predictor_16x16_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.133.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !49
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 16
@@ -14917,7 +14917,7 @@ define hidden void @aom_dc_predictor_16x16_c(ptr noundef writeonly captures(none
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 %1
   %20 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !49
+  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !50
 
 dc_predictor.exit:                                ; preds = %18
   ret void
@@ -14936,7 +14936,7 @@ define hidden void @aom_dc_predictor_32x32_c(ptr noundef writeonly captures(none
   %9 = add nuw nsw i32 %.02431.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
@@ -14947,7 +14947,7 @@ define hidden void @aom_dc_predictor_32x32_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.133.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !49
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 32
@@ -14962,7 +14962,7 @@ define hidden void @aom_dc_predictor_32x32_c(ptr noundef writeonly captures(none
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 %1
   %20 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !49
+  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !50
 
 dc_predictor.exit:                                ; preds = %18
   ret void
@@ -14981,7 +14981,7 @@ define hidden void @aom_dc_predictor_64x64_c(ptr noundef writeonly captures(none
   %9 = add nuw nsw i32 %.02431.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.preheader.i, label %5, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
@@ -14992,7 +14992,7 @@ define hidden void @aom_dc_predictor_64x64_c(ptr noundef writeonly captures(none
   %13 = add nuw nsw i32 %.133.i, %12
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %14, label %.preheader.i, !llvm.loop !49
 
 14:                                               ; preds = %.preheader.i
   %15 = add nuw nsw i32 %13, 64
@@ -15007,7 +15007,7 @@ define hidden void @aom_dc_predictor_64x64_c(ptr noundef writeonly captures(none
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 %1
   %20 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %20, 64
-  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !49
+  br i1 %exitcond43.not.i, label %dc_predictor.exit, label %18, !llvm.loop !50
 
 dc_predictor.exit:                                ; preds = %18
   ret void
@@ -15026,7 +15026,7 @@ define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1
   %10 = add nuw nsw i32 %.02431.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -15037,7 +15037,7 @@ define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1
   %14 = add nuw nsw i32 %.133.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 4
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !52
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 4
@@ -15051,7 +15051,7 @@ define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1
   %20 = getelementptr inbounds i16, ptr %.035.i, i64 %1
   %21 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %21, 4
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !52
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !53
 
 highbd_dc_predictor.exit:                         ; preds = %18
   ret void
@@ -15070,7 +15070,7 @@ define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1
   %10 = add nuw nsw i32 %.02431.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -15081,7 +15081,7 @@ define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1
   %14 = add nuw nsw i32 %.133.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !52
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 8
@@ -15095,7 +15095,7 @@ define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1
   %20 = getelementptr inbounds i16, ptr %.035.i, i64 %1
   %21 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %21, 8
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !52
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !53
 
 highbd_dc_predictor.exit:                         ; preds = %18
   ret void
@@ -15114,7 +15114,7 @@ define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02431.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -15125,7 +15125,7 @@ define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.133.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 16
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !52
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 16
@@ -15139,7 +15139,7 @@ define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef 
   %20 = getelementptr inbounds i16, ptr %.035.i, i64 %1
   %21 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %21, 16
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !52
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !53
 
 highbd_dc_predictor.exit:                         ; preds = %18
   ret void
@@ -15158,7 +15158,7 @@ define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02431.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -15169,7 +15169,7 @@ define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.133.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 32
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !52
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 32
@@ -15183,7 +15183,7 @@ define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef 
   %20 = getelementptr inbounds i16, ptr %.035.i, i64 %1
   %21 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %21, 32
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !52
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !53
 
 highbd_dc_predictor.exit:                         ; preds = %18
   ret void
@@ -15202,7 +15202,7 @@ define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef 
   %10 = add nuw nsw i32 %.02431.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.i, label %6, !llvm.loop !51
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
@@ -15213,7 +15213,7 @@ define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef 
   %14 = add nuw nsw i32 %.133.i, %13
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, 64
-  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond42.not.i, label %15, label %.preheader.i, !llvm.loop !52
 
 15:                                               ; preds = %.preheader.i
   %16 = add nuw nsw i32 %14, 64
@@ -15227,7 +15227,7 @@ define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef 
   %20 = getelementptr inbounds i16, ptr %.035.i, i64 %1
   %21 = add nuw nsw i32 %.02734.i, 1
   %exitcond43.not.i = icmp eq i32 %21, 64
-  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !52
+  br i1 %exitcond43.not.i, label %highbd_dc_predictor.exit, label %18, !llvm.loop !53
 
 highbd_dc_predictor.exit:                         ; preds = %18
   ret void
@@ -15266,52 +15266,53 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}
+!51 = distinct !{!51, !5, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5, !6}

@@ -363,7 +363,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
   %135 = sub i64 %.1124, %79
   call void @ChunkInit(ptr noundef nonnull %5) #5
   %.not89 = icmp eq ptr %134, %46
-  br i1 %.not89, label %._crit_edge, label %58
+  br i1 %.not89, label %._crit_edge, label %58, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %133, %49
   %136 = getelementptr inbounds nuw i8, ptr %47, i64 44
@@ -416,7 +416,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %6 = alloca ptr, align 8
   %7 = alloca %struct.WebPData, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !25
   %12 = icmp eq ptr %9, null
@@ -567,7 +567,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %43
   %72 = getelementptr inbounds nuw i8, ptr %.03758, i64 %71
   %73 = sub i64 %.03857, %71
   %.not40 = icmp eq ptr %72, %14
-  br i1 %.not40, label %._crit_edge, label %33, !llvm.loop !34
+  br i1 %.not40, label %._crit_edge, label %33, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %68
   %.pre = load i32, ptr %24, align 4, !tbaa !26
@@ -618,7 +618,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = load i32, ptr @kChunks, align 16, !tbaa !16
   %8 = tail call ptr @ChunkSearchList(ptr noundef %6, i32 noundef 1, i32 noundef %7) #5
   %.not40.i = icmp eq ptr %8, null
@@ -655,7 +655,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   br label %52
 
 29:                                               ; preds = %4
-  %30 = load ptr, ptr %0, align 8, !tbaa !37
+  %30 = load ptr, ptr %0, align 8, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -667,7 +667,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
 
 37:                                               ; preds = %29
   %38 = tail call i32 @MuxImageCount(ptr noundef %30, i32 noundef 6) #5
-  %39 = load ptr, ptr %0, align 8, !tbaa !37
+  %39 = load ptr, ptr %0, align 8, !tbaa !39
   %40 = tail call i32 @MuxImageCount(ptr noundef %39, i32 noundef 3) #5
   %41 = icmp eq i32 %38, 1
   %42 = icmp eq i32 %40, 0
@@ -763,7 +763,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
   %8 = tail call i32 @ChunkGetIndexFromFourCC(ptr noundef nonnull %1) #5
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %9, i32 1
-  %11 = load i32, ptr %10, align 4, !tbaa !38
+  %11 = load i32, ptr %10, align 4, !tbaa !40
   switch i32 %11, label %12 [
     i32 3, label %IsWPI.exit
     i32 5, label %IsWPI.exit
@@ -780,7 +780,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = tail call i32 @ChunkGetTagFromFourCC(ptr noundef nonnull %1) #5
   %19 = tail call ptr @ChunkSearchList(ptr noundef %17, i32 noundef 1, i32 noundef %18) #5
   %20 = icmp eq ptr %19, null
@@ -788,7 +788,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !42
   br label %IsWPI.exit
 
 IsWPI.exit:                                       ; preds = %7, %7, %7, %21, %15, %3, %13
@@ -811,7 +811,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = load i32, ptr @kChunks, align 16, !tbaa !16
   %8 = tail call ptr @ChunkSearchList(ptr noundef %6, i32 noundef 1, i32 noundef %7) #5
   %.not40 = icmp eq ptr %8, null
@@ -819,7 +819,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !43
+  %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 12), align 4, !tbaa !16
   %13 = tail call ptr @ChunkSearchList(ptr noundef %11, i32 noundef 1, i32 noundef %12) #5
   %.not39 = icmp eq ptr %13, null
@@ -827,7 +827,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !44
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 24), align 8, !tbaa !16
   %18 = tail call ptr @ChunkSearchList(ptr noundef %16, i32 noundef 1, i32 noundef %17) #5
   %.not38 = icmp eq ptr %18, null
@@ -835,7 +835,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 84), align 4, !tbaa !16
   %23 = tail call ptr @ChunkSearchList(ptr noundef %21, i32 noundef 1, i32 noundef %22) #5
   %.not37 = icmp eq ptr %23, null
@@ -843,7 +843,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !46
+  %26 = load ptr, ptr %25, align 8, !tbaa !48
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 96), align 16, !tbaa !16
   %28 = tail call ptr @ChunkSearchList(ptr noundef %26, i32 noundef 1, i32 noundef %27) #5
   %.not = icmp eq ptr %28, null
@@ -882,22 +882,22 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   br i1 %.not, label %9, label %MuxGetFrameInternal.exit
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %4, align 8, !tbaa !47
-  %11 = load ptr, ptr %10, align 8, !tbaa !48
+  %10 = load ptr, ptr %4, align 8, !tbaa !49
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %14, align 8, !tbaa !49
+  store i32 0, ptr %14, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %15, align 4, !tbaa !51
+  store i32 0, ptr %15, align 4, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 1, ptr %16, align 8, !tbaa !52
+  store i32 1, ptr %16, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %17, align 8, !tbaa !53
+  store i32 0, ptr %17, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %18, align 4, !tbaa !54
+  store i32 0, ptr %18, align 4, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = load i32, ptr %20, align 8, !tbaa !11
@@ -912,7 +912,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !20
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 44), align 4, !tbaa !55
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 44), align 4, !tbaa !57
   %30 = zext i32 %29 to i64
   %31 = icmp ult i64 %28, %30
   br i1 %31, label %MuxGetFrameInternal.exit, label %32
@@ -929,7 +929,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %40 = shl nuw nsw i32 %35, 1
   %41 = or disjoint i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %41, ptr %42, align 8, !tbaa !49
+  store i32 %41, ptr %42, align 8, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 3
   %.val.i19.i = load i16, ptr %43, align 1
   %44 = zext i16 %.val.i19.i to i32
@@ -940,7 +940,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %49 = shl nuw nsw i32 %44, 1
   %50 = or disjoint i32 %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %50, ptr %51, align 4, !tbaa !51
+  store i32 %50, ptr %51, align 4, !tbaa !53
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 15
   %53 = load i8, ptr %52, align 1, !tbaa !29
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -952,22 +952,22 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %59 = shl nuw nsw i32 %58, 16
   %60 = or disjoint i32 %59, %55
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %60, ptr %61, align 8, !tbaa !52
+  store i32 %60, ptr %61, align 8, !tbaa !54
   %62 = zext i8 %53 to i32
   %63 = and i32 %62, 1
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %63, ptr %64, align 8, !tbaa !53
+  store i32 %63, ptr %64, align 8, !tbaa !55
   %65 = lshr i32 %62, 1
   %.lobit.i = and i32 %65, 1
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 %.lobit.i, ptr %66, align 4, !tbaa !54
+  store i32 %.lobit.i, ptr %66, align 4, !tbaa !56
   br label %MuxGetFrameInternal.exit.sink.split
 
 MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %32
   %.sink13 = phi i32 [ %23, %32 ], [ %21, %13 ]
   %67 = call i32 @ChunkGetIdFromTag(i32 noundef %.sink13) #5
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %67, ptr %68, align 4, !tbaa !56
+  store i32 %67, ptr %68, align 4, !tbaa !58
   %69 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   br label %MuxGetFrameInternal.exit
 
@@ -988,7 +988,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly capt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 24), align 8, !tbaa !16
   %9 = tail call ptr @ChunkSearchList(ptr noundef %7, i32 noundef 1, i32 noundef %8) #5
   %.not38.i = icmp eq ptr %9, null
@@ -997,7 +997,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly capt
 10:                                               ; preds = %5
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 32), align 16, !tbaa !55
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 32), align 16, !tbaa !57
   %12 = zext i32 %11 to i64
   %13 = icmp ult i64 %.sroa.6.0.copyload, %12
   br i1 %13, label %MuxGet.exit.thread, label %14
@@ -1006,12 +1006,12 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %15, align 8
   %.val.i = load i32, ptr %.sroa.0.0.copyload, align 1
-  store i32 %.val.i, ptr %1, align 4, !tbaa !57
+  store i32 %.val.i, ptr %1, align 4, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
   %.val = load i16, ptr %16, align 1
   %17 = zext i16 %.val to i32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %17, ptr %18, align 4, !tbaa !59
+  store i32 %17, ptr %18, align 4, !tbaa !61
   br label %MuxGet.exit.thread
 
 MuxGet.exit.thread:                               ; preds = %5, %10, %2, %14
@@ -1034,13 +1034,13 @@ define range(i32 -1, 2) i32 @WebPMuxNumChunks(ptr noundef %0, i32 noundef %1, pt
   ]
 
 IsWPI.exit:                                       ; preds = %6, %6, %6
-  %7 = load ptr, ptr %0, align 8, !tbaa !37
+  %7 = load ptr, ptr %0, align 8, !tbaa !39
   %8 = tail call i32 @MuxImageCount(ptr noundef %7, i32 noundef %1) #5
   br label %CountChunks.exit
 
 9:                                                ; preds = %6
   %10 = tail call ptr @MuxGetChunkListFromId(ptr noundef nonnull %0, i32 noundef %1) #5
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 4), align 4, !tbaa !38
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 4), align 4, !tbaa !40
   %.not8.i = icmp eq i32 %11, 10
   br i1 %.not8.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i
 
@@ -1053,9 +1053,9 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !38
+  %16 = load i32, ptr %15, align 4, !tbaa !40
   %.not.i = icmp eq i32 %16, 10
-  br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !62
 
 ._crit_edge.loopexit.split.loop.exit13.i:         ; preds = %.lr.ph.i
   %17 = and i64 %indvars.iv.i, 4294967295
@@ -1063,7 +1063,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit13.i
   %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit13.i ], [ 10, %14 ]
-  %18 = load ptr, ptr %10, align 8, !tbaa !61
+  %18 = load ptr, ptr %10, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %.06.i
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %.not9.i = icmp eq ptr %18, null
@@ -1078,9 +1078,9 @@ ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edg
   %.0710.us.i = phi i32 [ %22, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i15 ]
   %22 = add nuw nsw i32 %.0710.us.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.011.us.i, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !62
+  %24 = load ptr, ptr %23, align 8, !tbaa !64
   %.not.us.i = icmp eq ptr %24, null
-  br i1 %.not.us.i, label %CountChunks.exit, label %.lr.ph.split.us.i, !llvm.loop !63
+  br i1 %.not.us.i, label %CountChunks.exit, label %.lr.ph.split.us.i, !llvm.loop !65
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %.lr.ph.split.i
   %.011.i = phi ptr [ %29, %.lr.ph.split.i ], [ %18, %.lr.ph.i15 ]
@@ -1090,9 +1090,9 @@ ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edg
   %27 = zext i1 %26 to i32
   %spec.select.i = add nuw nsw i32 %.0710.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
+  %29 = load ptr, ptr %28, align 8, !tbaa !64
   %.not.i16 = icmp eq ptr %29, null
-  br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !65
+  br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !67
 
 CountChunks.exit:                                 ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %ChunkGetIndexFromId.exit, %IsWPI.exit
   %storemerge = phi i32 [ %8, %IsWPI.exit ], [ 0, %ChunkGetIndexFromId.exit ], [ %22, %.lr.ph.split.us.i ], [ %spec.select.i, %.lr.ph.split.i ]
@@ -1235,36 +1235,38 @@ attributes #5 = { nounwind }
 !30 = !{!31, !9, i64 56}
 !31 = !{!"WebPMux", !10, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !9, i64 56, !9, i64 60}
 !32 = !{!31, !9, i64 60}
-!33 = !{!12, !14, i64 8}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!31, !5, i64 40}
-!37 = !{!31, !10, i64 0}
-!38 = !{!17, !9, i64 4}
-!39 = !{!31, !5, i64 48}
-!40 = !{i64 0, i64 8, !41, i64 8, i64 8, !42}
-!41 = !{!14, !14, i64 0}
-!42 = !{!15, !15, i64 0}
-!43 = !{!31, !5, i64 8}
-!44 = !{!31, !5, i64 32}
-!45 = !{!31, !5, i64 16}
-!46 = !{!31, !5, i64 24}
-!47 = !{!10, !10, i64 0}
-!48 = !{!4, !5, i64 0}
-!49 = !{!50, !9, i64 16}
-!50 = !{!"WebPMuxFrameInfo", !13, i64 0, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !7, i64 40}
-!51 = !{!50, !9, i64 20}
-!52 = !{!50, !9, i64 24}
-!53 = !{!50, !9, i64 32}
-!54 = !{!50, !9, i64 36}
-!55 = !{!17, !9, i64 8}
-!56 = !{!50, !9, i64 28}
-!57 = !{!58, !9, i64 0}
-!58 = !{!"WebPMuxAnimParams", !9, i64 0, !9, i64 4}
-!59 = !{!58, !9, i64 4}
-!60 = distinct !{!60, !35}
-!61 = !{!5, !5, i64 0}
-!62 = !{!12, !5, i64 24}
-!63 = distinct !{!63, !35, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !35}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!12, !14, i64 8}
+!36 = distinct !{!36, !37, !34}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!31, !5, i64 40}
+!39 = !{!31, !10, i64 0}
+!40 = !{!17, !9, i64 4}
+!41 = !{!31, !5, i64 48}
+!42 = !{i64 0, i64 8, !43, i64 8, i64 8, !44}
+!43 = !{!14, !14, i64 0}
+!44 = !{!15, !15, i64 0}
+!45 = !{!31, !5, i64 8}
+!46 = !{!31, !5, i64 32}
+!47 = !{!31, !5, i64 16}
+!48 = !{!31, !5, i64 24}
+!49 = !{!10, !10, i64 0}
+!50 = !{!4, !5, i64 0}
+!51 = !{!52, !9, i64 16}
+!52 = !{!"WebPMuxFrameInfo", !13, i64 0, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !7, i64 40}
+!53 = !{!52, !9, i64 20}
+!54 = !{!52, !9, i64 24}
+!55 = !{!52, !9, i64 32}
+!56 = !{!52, !9, i64 36}
+!57 = !{!17, !9, i64 8}
+!58 = !{!52, !9, i64 28}
+!59 = !{!60, !9, i64 0}
+!60 = !{!"WebPMuxAnimParams", !9, i64 0, !9, i64 4}
+!61 = !{!60, !9, i64 4}
+!62 = distinct !{!62, !37, !34}
+!63 = !{!5, !5, i64 0}
+!64 = !{!12, !5, i64 24}
+!65 = distinct !{!65, !37, !34, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !37, !34}

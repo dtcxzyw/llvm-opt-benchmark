@@ -254,7 +254,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %160 = fadd float %.1155173, %159
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph176, !llvm.loop !8
+  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph176, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph176, %.preheader
   %.1155.lcssa = phi float [ %14, %.preheader ], [ %160, %.lr.ph176 ]
@@ -361,7 +361,7 @@ define hidden range(i32 0, 2) i32 @RefineBounds(ptr noundef readonly captures(no
   %32 = phi i32 [ %14, %27 ], [ %17, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %31, %2
   call void @SurfaceData_IntersectBounds(ptr noundef %1, ptr noundef nonnull %3) #10
@@ -538,7 +538,7 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   %63 = phi i32 [ %45, %58 ], [ %48, %61 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %62, %34
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %10, ptr noundef nonnull %9) #10
@@ -785,7 +785,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %78 = phi i32 [ %60, %73 ], [ %63, %76 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %57, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %57, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %77, %49
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %9, ptr noundef nonnull %8) #10
@@ -870,7 +870,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   store i8 %117, ptr %121, align 1
   %indvars.iv.next37.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i, 1
   %exitcond39.not.i.i.i = icmp eq i64 %indvars.iv.next37.i.i.i, 256
-  br i1 %exitcond39.not.i.i.i, label %getLCDGammaLUT.exit.i, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %exitcond39.not.i.i.i, label %getLCDGammaLUT.exit.i, label %.preheader.i.i.i, !llvm.loop !11
 
 122:                                              ; preds = %112
   %123 = uitofp nneg i32 %.0.i.i to double
@@ -903,7 +903,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   store i8 %139, ptr %141, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 255
-  br i1 %exitcond.not.i.i.i, label %getLCDGammaLUT.exit.i, label %128, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %getLCDGammaLUT.exit.i, label %128, !llvm.loop !12
 
 getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.i.i, %102
   %142 = load ptr, ptr %110, align 8
@@ -931,7 +931,7 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   store i8 %149, ptr %153, align 1
   %indvars.iv.next37.i.i76.i = add nuw nsw i64 %indvars.iv36.i.i75.i, 1
   %exitcond39.not.i.i77.i = icmp eq i64 %indvars.iv.next37.i.i76.i, 256
-  br i1 %exitcond39.not.i.i77.i, label %getInvLCDGammaLUT.exit.i, label %.preheader.i.i74.i, !llvm.loop !10
+  br i1 %exitcond39.not.i.i77.i, label %getInvLCDGammaLUT.exit.i, label %.preheader.i.i74.i, !llvm.loop !11
 
 154:                                              ; preds = %145
   %155 = uitofp nneg i32 %.0.i.i to double
@@ -964,7 +964,7 @@ getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.
   store i8 %171, ptr %173, align 1
   %indvars.iv.next.i.i72.i = add nuw nsw i64 %indvars.iv.i.i71.i, 1
   %exitcond.not.i.i73.i = icmp eq i64 %indvars.iv.next.i.i72.i, 255
-  br i1 %exitcond.not.i.i73.i, label %getInvLCDGammaLUT.exit.i, label %160, !llvm.loop !11
+  br i1 %exitcond.not.i.i73.i, label %getInvLCDGammaLUT.exit.i, label %160, !llvm.loop !12
 
 getInvLCDGammaLUT.exit.i:                         ; preds = %160, %.preheader.i.i74.i, %getLCDGammaLUT.exit.i
   %174 = load ptr, ptr %143, align 8
@@ -1262,7 +1262,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   store i32 %170, ptr %172, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %89, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread, label %89, !llvm.loop !13
 
 .thread:                                          ; preds = %164, %84
   %173 = load ptr, ptr %0, align 8
@@ -1397,7 +1397,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %262 = fadd float %.1238269, %261
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
-  br i1 %exitcond284.not, label %._crit_edge, label %179, !llvm.loop !13
+  br i1 %exitcond284.not, label %._crit_edge, label %179, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %249, %.preheader
   %.1238.lcssa = phi float [ %14, %.preheader ], [ %262, %249 ]
@@ -1449,7 +1449,7 @@ define hidden void @initLUT(i32 noundef %0) local_unnamed_addr #4 {
   store i8 %9, ptr %13, align 1
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 256
-  br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 14:                                               ; preds = %1
   %15 = sitofp i32 %0 to double
@@ -1482,7 +1482,7 @@ define hidden void @initLUT(i32 noundef %0) local_unnamed_addr #4 {
   store i8 %31, ptr %33, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 255
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !12
 
 .loopexit:                                        ; preds = %20, %.preheader
   ret void
@@ -1545,11 +1545,12 @@ attributes #11 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

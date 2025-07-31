@@ -1250,7 +1250,7 @@ define dso_local void @AtSubAbort_Snapshot(i32 noundef %0) local_unnamed_addr #0
   tail call void @pfree(ptr noundef %22) #18
   store ptr %7, ptr @ActiveSnapshot, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %21, %1
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @RegisteredSnapshots, i64 16), align 8
@@ -1343,7 +1343,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   %26 = load i32, ptr %8, align 4
   %27 = sext i32 %26 to i64
   %.not17 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %.not17, label %11, label %.critedge, !llvm.loop !9
+  br i1 %.not17, label %11, label %.critedge, !llvm.loop !10
 
 28:                                               ; preds = %.critedge, %6
   %29 = load ptr, ptr @CatalogSnapshot, align 8
@@ -1421,7 +1421,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
   %60 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %.0 = load ptr, ptr %60, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph26, !llvm.loop !10
+  br i1 %.not18, label %.loopexit, label %.lr.ph26, !llvm.loop !11
 
 .loopexit:                                        ; preds = %59, %55, %InvalidateCatalogSnapshot.exit
   store ptr null, ptr @ActiveSnapshot, align 8
@@ -1642,7 +1642,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %116 = add nuw i32 %.044, 1
   %117 = load i32, ptr %106, align 8
   %118 = icmp ult i32 %116, %117
-  br i1 %118, label %111, label %._crit_edge, !llvm.loop !11
+  br i1 %118, label %111, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %111, %103
   br i1 %104, label %119, label %120
@@ -1700,7 +1700,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %142 = load i32, ptr %125, align 8
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next, %143
-  br i1 %144, label %138, label %.preheader, !llvm.loop !12
+  br i1 %144, label %138, label %.preheader, !llvm.loop !13
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv52 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next53, %.lr.ph49 ]
@@ -1710,7 +1710,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.22, i32 noundef %147) #18
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph49, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph49, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph49, %.preheader, %130
   %148 = getelementptr inbounds nuw i8, ptr %39, i64 45
@@ -2046,7 +2046,7 @@ parseVxidFromText.exit:                           ; preds = %77
   store i32 %107, ptr %108, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %103
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %102
   %109 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.49, ptr noundef %4, ptr noundef %2)
@@ -2092,7 +2092,7 @@ parseVxidFromText.exit:                           ; preds = %77
   store i32 %129, ptr %130, align 4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %125
-  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph50, !llvm.loop !15
+  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph50, !llvm.loop !16
 
 131:                                              ; preds = %._crit_edge
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2589,7 +2589,7 @@ sub_18:                                           ; preds = %.tail
 .backedge:                                        ; preds = %.tail6.thread, %20, %18, %.tail, %.tail6
   %15 = call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.56, i32 noundef 15) #18
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !17
 
 .tail6.thread:                                    ; preds = %sub_0, %sub_18, %.tail6
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1037, ptr noundef nonnull @.str.33, ptr noundef nonnull %5) #18
@@ -2928,7 +2928,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nound
 29:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %pg_lfind32.exit.thread69, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %pg_lfind32.exit.thread69, label %.lr.ph.i.i, !llvm.loop !18
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %29 ]
@@ -2964,7 +2964,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nound
 48:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %49 = icmp samesign ult i64 %indvars.iv.next.i, %27
-  br i1 %49, label %.preheader.i, label %pg_lfind32.exit, !llvm.loop !18
+  br i1 %49, label %.preheader.i, label %pg_lfind32.exit, !llvm.loop !19
 
 pg_lfind32.exit:                                  ; preds = %48
   %50 = add i32 %22, -16
@@ -3028,7 +3028,7 @@ pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.ex
 79:                                               ; preds = %.lr.ph.i.i40
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, %wide.trip.count.i.i39
-  br i1 %exitcond.not.i.i43, label %pg_lfind32.exit44.thread73, label %.lr.ph.i.i40, !llvm.loop !17
+  br i1 %exitcond.not.i.i43, label %pg_lfind32.exit44.thread73, label %.lr.ph.i.i40, !llvm.loop !18
 
 .lr.ph.i.i40:                                     ; preds = %79, %.lr.ph.preheader.i.i38
   %indvars.iv.i.i41 = phi i64 [ 0, %.lr.ph.preheader.i.i38 ], [ %indvars.iv.next.i.i42, %79 ]
@@ -3064,7 +3064,7 @@ pg_lfind32.exit.thread69:                         ; preds = %29, %.pg_lfind32.ex
 98:                                               ; preds = %.preheader.i24
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i25, 16
   %99 = icmp samesign ult i64 %indvars.iv.next.i32, %77
-  br i1 %99, label %.preheader.i24, label %pg_lfind32.exit44, !llvm.loop !18
+  br i1 %99, label %.preheader.i24, label %pg_lfind32.exit44, !llvm.loop !19
 
 pg_lfind32.exit44:                                ; preds = %98
   %100 = add i32 %74, -16
@@ -3127,7 +3127,7 @@ pg_lfind32.exit44:                                ; preds = %98
 133:                                              ; preds = %.lr.ph.i.i62
   %indvars.iv.next.i.i64 = add nuw nsw i64 %indvars.iv.i.i63, 1
   %exitcond.not.i.i65 = icmp eq i64 %indvars.iv.next.i.i64, %wide.trip.count.i.i61
-  br i1 %exitcond.not.i.i65, label %pg_lfind32.exit44.thread73, label %.lr.ph.i.i62, !llvm.loop !17
+  br i1 %exitcond.not.i.i65, label %pg_lfind32.exit44.thread73, label %.lr.ph.i.i62, !llvm.loop !18
 
 .lr.ph.i.i62:                                     ; preds = %133, %.lr.ph.preheader.i.i60
   %indvars.iv.i.i63 = phi i64 [ 0, %.lr.ph.preheader.i.i60 ], [ %indvars.iv.next.i.i64, %133 ]
@@ -3163,7 +3163,7 @@ pg_lfind32.exit44:                                ; preds = %98
 152:                                              ; preds = %.preheader.i46
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i47, 16
   %153 = icmp samesign ult i64 %indvars.iv.next.i54, %131
-  br i1 %153, label %.preheader.i46, label %pg_lfind32.exit66, !llvm.loop !18
+  br i1 %153, label %.preheader.i46, label %pg_lfind32.exit66, !llvm.loop !19
 
 pg_lfind32.exit66:                                ; preds = %152
   %154 = add i32 %126, -16
@@ -3341,16 +3341,17 @@ attributes #20 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

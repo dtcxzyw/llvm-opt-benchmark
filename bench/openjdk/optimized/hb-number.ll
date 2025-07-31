@@ -273,7 +273,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.not90.i = icmp eq ptr %70, %1
-  br i1 %.not90.i, label %71, label %.preheader134.i
+  br i1 %.not90.i, label %71, label %.preheader134.i, !llvm.loop !9
 
 71:                                               ; preds = %69, %67
   %.1.i = phi ptr [ %.2.i, %67 ], [ %scevgep139.i, %69 ]
@@ -302,7 +302,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %82 = lshr i32 %.0810.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.0810.i.i, 2
-  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !8
+  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !10
 
 _ZL6_pow10j.exit.i:                               ; preds = %80
   %83 = fdiv double %.264.i, %.1.i.i
@@ -357,7 +357,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
   %103 = getelementptr inbounds nuw i8, ptr %.012.i92.i, i64 8
   %104 = lshr i32 %.0810.i94.i, 1
   %.not.i97.i = icmp samesign ult i32 %.0810.i94.i, 2
-  br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !10
 
 _ZL6_pow10j.exit98.i:                             ; preds = %102
   %105 = fdiv double %.4.i, %.1.i96.i
@@ -381,7 +381,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %.012.i99.i, i64 8
   %112 = lshr i32 %.0810.i101.i, 1
   %.not.i104.i = icmp samesign ult i32 %.0810.i101.i, 2
-  br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !8
+  br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !10
 
 _ZL6_pow10j.exit105.i:                            ; preds = %110
   %113 = fmul double %.4.i, %.1.i103.i
@@ -450,6 +450,8 @@ attributes #9 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}

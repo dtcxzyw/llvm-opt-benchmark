@@ -379,7 +379,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_encode(ptr noundef readonly capt
   %59 = add nuw nsw i64 %.087100, 1
   %60 = lshr i64 %.08999, 8
   %exitcond105.not = icmp eq i64 %59, 8
-  br i1 %exitcond105.not, label %61, label %56, !llvm.loop !24
+  br i1 %exitcond105.not, label %61, label %56, !llvm.loop !25
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -397,7 +397,7 @@ define range(i64 0, 41) i64 @H5FD__onion_header_encode(ptr noundef readonly capt
   %68 = add nuw nsw i64 %.082103, 1
   %69 = lshr i64 %.084102, 8
   %exitcond106.not = icmp eq i64 %68, 8
-  br i1 %exitcond106.not, label %70, label %65, !llvm.loop !25
+  br i1 %exitcond106.not, label %70, label %65, !llvm.loop !26
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -465,7 +465,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !19 = !{!13, !11, i64 24}
 !20 = !{!13, !11, i64 32}
 !21 = !{!14, !14, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}

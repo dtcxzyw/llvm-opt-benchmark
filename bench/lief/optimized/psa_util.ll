@@ -59,7 +59,7 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01117, i32 1
-  %13 = load i16, ptr %12, align 2, !tbaa !10
+  %13 = load i16, ptr %12, align 2, !tbaa !11
   %14 = sext i16 %13 to i32
   br label %16
 
@@ -153,7 +153,7 @@ switch.lookup:                                    ; preds = %2
 6:                                                ; preds = %2, %switch.lookup
   %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   %.0 = phi i8 [ %switch.load15, %switch.lookup ], [ 0, %2 ]
-  store i64 %.sink, ptr %1, align 8, !tbaa !11
+  store i64 %.sink, ptr %1, align 8, !tbaa !12
   ret i8 %.0
 }
 
@@ -263,7 +263,7 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
 20:                                               ; preds = %23, %18
   %.025.i = phi i64 [ %13, %18 ], [ %25, %23 ]
   %.024.i = phi ptr [ %10, %18 ], [ %24, %23 ]
-  %21 = load i8, ptr %.024.i, align 1, !tbaa !13
+  %21 = load i8, ptr %.024.i, align 1, !tbaa !14
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %27
 
@@ -271,7 +271,7 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
   %24 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   %25 = add i64 %.025.i, -1
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %convert_raw_to_der_single_int.exit.thread, label %20, !llvm.loop !14
+  br i1 %26, label %convert_raw_to_der_single_int.exit.thread, label %20, !llvm.loop !15
 
 27:                                               ; preds = %20
   %28 = trunc i64 %.025.i to i32
@@ -283,9 +283,9 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
 31:                                               ; preds = %27
   %32 = sub nsw i64 0, %29
   %33 = getelementptr inbounds i8, ptr %14, i64 %32
-  store ptr %33, ptr %8, align 8, !tbaa !15
+  store ptr %33, ptr %8, align 8, !tbaa !16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %.024.i, i64 %29, i1 false)
-  %34 = load i8, ptr %33, align 1, !tbaa !13
+  %34 = load i8, ptr %33, align 1, !tbaa !14
   %.not.i = icmp sgt i8 %34, -1
   br i1 %.not.i, label %39, label %35
 
@@ -295,8 +295,8 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %33, i64 -1
-  store ptr %37, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %37, align 1, !tbaa !13
+  store ptr %37, ptr %8, align 8, !tbaa !16
+  store i8 0, ptr %37, align 1, !tbaa !14
   %38 = add nsw i32 %28, 1
   br label %39
 
@@ -334,7 +334,7 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
 53:                                               ; preds = %56, %49
   %.025.i46 = phi i64 [ %13, %49 ], [ %58, %56 ]
   %.024.i47 = phi ptr [ %9, %49 ], [ %57, %56 ]
-  %54 = load i8, ptr %.024.i47, align 1, !tbaa !13
+  %54 = load i8, ptr %.024.i47, align 1, !tbaa !14
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %56, label %60
 
@@ -342,7 +342,7 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %.024.i47, i64 1
   %58 = add i64 %.025.i46, -1
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %convert_raw_to_der_single_int.exit52.thread, label %53, !llvm.loop !14
+  br i1 %59, label %convert_raw_to_der_single_int.exit52.thread, label %53, !llvm.loop !15
 
 60:                                               ; preds = %53
   %61 = trunc i64 %.025.i46 to i32
@@ -355,9 +355,9 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
 65:                                               ; preds = %60
   %66 = sub nsw i64 0, %63
   %67 = getelementptr inbounds i8, ptr %52, i64 %66
-  store ptr %67, ptr %7, align 8, !tbaa !15
+  store ptr %67, ptr %7, align 8, !tbaa !16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %.024.i47, i64 %63, i1 false)
-  %68 = load i8, ptr %67, align 1, !tbaa !13
+  %68 = load i8, ptr %67, align 1, !tbaa !14
   %.not.i49 = icmp sgt i8 %68, -1
   br i1 %.not.i49, label %76, label %69
 
@@ -369,8 +369,8 @@ convert_raw_to_der_single_int.exit:               ; preds = %43
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %67, i64 -1
-  store ptr %74, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %74, align 1, !tbaa !13
+  store ptr %74, ptr %7, align 8, !tbaa !16
+  store i8 0, ptr %74, align 1, !tbaa !14
   %75 = add nsw i32 %61, 1
   br label %76
 
@@ -402,7 +402,7 @@ convert_raw_to_der_single_int.exit52:             ; preds = %80
   %87 = zext nneg i32 %84 to i64
   %88 = sub nsw i64 0, %87
   %89 = getelementptr inbounds i8, ptr %52, i64 %88
-  store ptr %89, ptr %11, align 8, !tbaa !15
+  store ptr %89, ptr %11, align 8, !tbaa !16
   %90 = add nuw nsw i64 %87, %50
   %91 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %11, ptr noundef nonnull %3, i64 noundef %90) #7
   %92 = icmp slt i32 %91, 0
@@ -418,9 +418,9 @@ convert_raw_to_der_single_int.exit52:             ; preds = %80
   %98 = add nuw nsw i64 %90, %97
   %99 = zext nneg i32 %94 to i64
   %100 = add nuw nsw i64 %98, %99
-  %101 = load ptr, ptr %11, align 8, !tbaa !15
+  %101 = load ptr, ptr %11, align 8, !tbaa !16
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %3, ptr align 1 %101, i64 %100, i1 false)
-  store i64 %100, ptr %5, align 8, !tbaa !11
+  store i64 %100, ptr %5, align 8, !tbaa !12
   br label %102
 
 102:                                              ; preds = %convert_raw_to_der_single_int.exit52.thread, %convert_raw_to_der_single_int.exit.thread, %93, %86, %convert_raw_to_der_single_int.exit52, %convert_raw_to_der_single_int.exit, %16, %6, %96
@@ -452,7 +452,7 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   %13 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  store ptr %1, ptr %12, align 8, !tbaa !15
+  store ptr %1, ptr %12, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
   %14 = add i64 %0, 7
   %15 = lshr i64 %14, 3
@@ -470,10 +470,10 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
 
 22:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %11, i8 0, i64 %16, i1 false)
-  %23 = load ptr, ptr %12, align 8, !tbaa !15
-  %24 = load i64, ptr %13, align 8, !tbaa !11
+  %23 = load ptr, ptr %12, align 8, !tbaa !16
+  %24 = load i64, ptr %13, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store ptr %23, ptr %9, align 8, !tbaa !15
+  store ptr %23, ptr %9, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   %26 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %25, ptr noundef nonnull %10, i32 noundef 2) #7
@@ -481,13 +481,13 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   br i1 %.not.i, label %27, label %convert_der_to_raw_single_int.exit
 
 27:                                               ; preds = %22
-  %28 = load i64, ptr %10, align 8, !tbaa !11
+  %28 = load i64, ptr %10, align 8, !tbaa !12
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %convert_der_to_raw_single_int.exit.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %9, align 8, !tbaa !15
-  %32 = load i8, ptr %31, align 1, !tbaa !13
+  %31 = load ptr, ptr %9, align 8, !tbaa !16
+  %32 = load i8, ptr %31, align 1, !tbaa !14
   %.not12.i = icmp sgt i8 %32, -1
   br i1 %.not12.i, label %33, label %convert_der_to_raw_single_int.exit.thread
 
@@ -497,14 +497,14 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %36, ptr %9, align 8, !tbaa !15
+  store ptr %36, ptr %9, align 8, !tbaa !16
   %37 = add i64 %28, -1
-  store i64 %37, ptr %10, align 8, !tbaa !11
+  store i64 %37, ptr %10, align 8, !tbaa !12
   %.not13.i = icmp eq i64 %37, 0
   br i1 %.not13.i, label %.thread.i, label %38
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr %36, align 1, !tbaa !13
+  %39 = load i8, ptr %36, align 1, !tbaa !14
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %convert_der_to_raw_single_int.exit.thread, label %41
 
@@ -540,16 +540,16 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   br i1 %54, label %100, label %55
 
 55:                                               ; preds = %convert_der_to_raw_single_int.exit
-  %56 = load ptr, ptr %12, align 8, !tbaa !15
+  %56 = load ptr, ptr %12, align 8, !tbaa !16
   %57 = zext nneg i32 %.0.i to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  store ptr %58, ptr %12, align 8, !tbaa !15
-  %59 = load i64, ptr %13, align 8, !tbaa !11
+  store ptr %58, ptr %12, align 8, !tbaa !16
+  %59 = load i64, ptr %13, align 8, !tbaa !12
   %60 = sub i64 %59, %57
-  store i64 %60, ptr %13, align 8, !tbaa !11
+  store i64 %60, ptr %13, align 8, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store ptr %58, ptr %7, align 8, !tbaa !15
+  store ptr %58, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 %59
   %63 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %7, ptr noundef %62, ptr noundef nonnull %8, i32 noundef 2) #7
@@ -557,13 +557,13 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   br i1 %.not.i33, label %64, label %convert_der_to_raw_single_int.exit38
 
 64:                                               ; preds = %55
-  %65 = load i64, ptr %8, align 8, !tbaa !11
+  %65 = load i64, ptr %8, align 8, !tbaa !12
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %convert_der_to_raw_single_int.exit38.thread, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %7, align 8, !tbaa !15
-  %69 = load i8, ptr %68, align 1, !tbaa !13
+  %68 = load ptr, ptr %7, align 8, !tbaa !16
+  %69 = load i8, ptr %68, align 1, !tbaa !14
   %.not12.i35 = icmp sgt i8 %69, -1
   br i1 %.not12.i35, label %70, label %convert_der_to_raw_single_int.exit38.thread
 
@@ -573,14 +573,14 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  store ptr %73, ptr %7, align 8, !tbaa !15
+  store ptr %73, ptr %7, align 8, !tbaa !16
   %74 = add i64 %65, -1
-  store i64 %74, ptr %8, align 8, !tbaa !11
+  store i64 %74, ptr %8, align 8, !tbaa !12
   %.not13.i37 = icmp eq i64 %74, 0
   br i1 %.not13.i37, label %.thread.i36, label %75
 
 75:                                               ; preds = %72
-  %76 = load i8, ptr %73, align 1, !tbaa !13
+  %76 = load i8, ptr %73, align 1, !tbaa !14
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %convert_der_to_raw_single_int.exit38.thread, label %78
 
@@ -616,7 +616,7 @@ convert_der_to_raw_single_int.exit38:             ; preds = %55, %.thread.i36
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %convert_der_to_raw_single_int.exit38
-  %93 = load ptr, ptr %12, align 8, !tbaa !15
+  %93 = load ptr, ptr %12, align 8, !tbaa !16
   %94 = zext nneg i32 %.0.i34 to i64
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
   %96 = ptrtoint ptr %95 to i64
@@ -627,7 +627,7 @@ convert_der_to_raw_single_int.exit38:             ; preds = %55, %.thread.i36
 
 99:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 16 %11, i64 %16, i1 false)
-  store i64 %16, ptr %5, align 8, !tbaa !11
+  store i64 %16, ptr %5, align 8, !tbaa !12
   br label %100
 
 100:                                              ; preds = %convert_der_to_raw_single_int.exit38.thread, %convert_der_to_raw_single_int.exit.thread, %92, %convert_der_to_raw_single_int.exit38, %convert_der_to_raw_single_int.exit, %19, %6, %99
@@ -662,13 +662,14 @@ attributes #7 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!4, !5, i64 2}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !6, i64 0}
-!13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !6, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!4, !5, i64 2}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}

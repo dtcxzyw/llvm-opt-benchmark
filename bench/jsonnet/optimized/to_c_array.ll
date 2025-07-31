@@ -260,5 +260,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !22 = !{!"_ZTSSt6locale", !23, i64 0}
 !23 = !{!"p1 _ZTSNSt6locale5_ImplE", !8, i64 0}
 !24 = !{!9, !9, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!"llvm.loop.estimated_trip_count"}

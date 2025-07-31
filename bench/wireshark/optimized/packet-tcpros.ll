@@ -512,7 +512,7 @@ define internal fastcc noundef zeroext i1 @is_rosconnection_header(ptr noundef %
   %27 = add nuw i32 %.0191.i, 1
   %exitcond.not.i = icmp ne i32 %27, %13
   %or.cond.not = select i1 %or.cond.not.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not, label %18, label %is_rosheaderfield.exit, !llvm.loop !10
+  br i1 %or.cond.not, label %18, label %is_rosheaderfield.exit, !llvm.loop !11
 
 is_rosheaderfield.exit:                           ; preds = %18, %.preheader.i, %12, %8, %5, %2
   %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %8 ], [ false, %12 ], [ true, %.preheader.i ], [ %or.cond.not.i, %18 ]
@@ -646,6 +646,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

@@ -35,7 +35,7 @@ define void @_ZN5folly27ExecutionObserverScopeGuardC2EPN5boost9intrusive4listINS
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10, i32 noundef %11) #1
   %.sroa.06.0 = load ptr, ptr %.sroa.06.011, align 8, !tbaa !19
   %.not = icmp eq ptr %.sroa.06.0, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -55,8 +55,8 @@ define void @_ZN5folly27ExecutionObserverScopeGuardD2Ev(ptr noundef nonnull read
   %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !16
-  tail call void asm sideeffect "990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22folly\22\0A.asciz \22execution_observer_callbacks_stopped\22\0A.asciz \22${1:n}@$2 ${3:n}@$4\22\0A994: .balign 4\0A.popsection\0A", "ip,n,nor,n,nor,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 8, i64 %6, i64 4, i32 %8) #1, !srcloc !24
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #1, !srcloc !25
+  tail call void asm sideeffect "990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22folly\22\0A.asciz \22execution_observer_callbacks_stopped\22\0A.asciz \22${1:n}@$2 ${3:n}@$4\22\0A994: .balign 4\0A.popsection\0A", "ip,n,nor,n,nor,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 8, i64 %6, i64 4, i32 %8) #1, !srcloc !26
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #1, !srcloc !27
   ret void
 
 9:                                                ; preds = %.lr.ph, %9
@@ -70,7 +70,7 @@ define void @_ZN5folly27ExecutionObserverScopeGuardD2Ev(ptr noundef nonnull read
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %11, i32 noundef %12) #1
   %.sroa.04.0 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !19
   %.not = icmp eq ptr %.sroa.04.0, %2
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !28
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -104,5 +104,8 @@ attributes #1 = { nounwind }
 !21 = !{!"p1 _ZTSN5boost9intrusive9list_nodeIPvEE", !10, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"vtable pointer", !12, i64 0}
-!24 = !{i64 2148782411, i64 2148782534, i64 2148782621, i64 2148782737, i64 2148782833, i64 2148782897, i64 2148782961, i64 2148783032, i64 2148783165, i64 2148783270, i64 2148783476, i64 2148783808, i64 2148783925, i64 2148783977}
-!25 = !{i64 2148786027, i64 2148786240, i64 2148786374, i64 2148786443, i64 2148786516, i64 2148786608, i64 2148786673, i64 2148786717}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{i64 2148782411, i64 2148782534, i64 2148782621, i64 2148782737, i64 2148782833, i64 2148782897, i64 2148782961, i64 2148783032, i64 2148783165, i64 2148783270, i64 2148783476, i64 2148783808, i64 2148783925, i64 2148783977}
+!27 = !{i64 2148786027, i64 2148786240, i64 2148786374, i64 2148786443, i64 2148786516, i64 2148786608, i64 2148786673, i64 2148786717}
+!28 = distinct !{!28, !25}

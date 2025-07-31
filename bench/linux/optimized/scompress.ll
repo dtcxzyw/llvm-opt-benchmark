@@ -279,7 +279,7 @@ define dso_local i32 @crypto_register_scomps(ptr noundef %0, i32 noundef %1) #0 
   %22 = add nuw nsw i64 %7, 1
   %23 = icmp eq i64 %22, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %23, label %.loopexit, label %6, !llvm.loop !10
+  br i1 %23, label %.loopexit, label %6, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %20, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
@@ -287,7 +287,7 @@ define dso_local i32 @crypto_register_scomps(ptr noundef %0, i32 noundef %1) #0 
   tail call void @crypto_unregister_alg(ptr noundef %24) #4
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
   %.not = icmp eq i64 %indvars.iv13, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %21, %.preheader, %16, %2
   %25 = phi i32 [ %14, %16 ], [ 0, %2 ], [ %14, %.preheader ], [ 0, %21 ]
@@ -310,7 +310,7 @@ define dso_local void @crypto_unregister_scomps(ptr noundef %0, i32 noundef %1) 
   tail call void @crypto_unregister_alg(ptr noundef %9) #4
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !13
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -372,7 +372,7 @@ define internal fastcc i32 @scomp_acomp_comp_decomp(ptr noundef %0, i32 noundef 
 
 25:                                               ; preds = %24, %._crit_edge
   %26 = phi i32 [ 131072, %24 ], [ %.pre, %._crit_edge ]
-  %27 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @scomp_scratch) #5, !srcloc !13
+  %27 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @scomp_scratch) #5, !srcloc !14
   %28 = inttoptr i64 %27 to ptr
   tail call void @_raw_spin_lock(ptr noundef %28) #4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -504,7 +504,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr readnon
   %35 = add nuw nsw i64 %11, 1
   %36 = and i64 %35, 127
   %37 = icmp samesign ugt i64 %36, 63
-  br i1 %37, label %.thread, label %.preheader, !prof !6, !llvm.loop !14
+  br i1 %37, label %.thread, label %.preheader, !prof !6, !llvm.loop !15
 
 38:                                               ; preds = %.preheader13, %48
   %39 = phi i64 [ %59, %48 ], [ 0, %.preheader13 ]
@@ -536,7 +536,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr readnon
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %59 = and i64 %58, 127
   %60 = icmp samesign ugt i64 %59, 63
-  br i1 %60, label %.thread, label %38, !prof !6, !llvm.loop !7
+  br i1 %60, label %.thread, label %38, !prof !6, !llvm.loop !16
 
 .thread:                                          ; preds = %.preheader, %33, %10, %38, %48, %44, %1
   %61 = phi i32 [ 0, %1 ], [ -12, %44 ], [ -12, %48 ], [ -12, %38 ], [ 0, %10 ], [ 0, %33 ], [ 0, %.preheader ]
@@ -576,11 +576,13 @@ attributes #6 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 1469420}
 !6 = !{!"branch_weights", i32 1, i32 1999}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{i64 2155697242}
-!14 = distinct !{!14, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = !{i64 2155697242}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}

@@ -298,7 +298,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   tail call void @_ZNSt3__16threadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.06.i.i.i.i.i) #15
   %64 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %64, %53
-  br i1 %.not.i.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %8, align 8
@@ -332,7 +332,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exi
   %69 = add nuw i64 %.07, 1
   %70 = load i64, ptr %5, align 8
   %71 = icmp ult i64 %69, %70
-  br i1 %71, label %23, label %._crit_edge, !llvm.loop !8
+  br i1 %71, label %23, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit", %2
   ret void
@@ -504,7 +504,7 @@ define dso_local void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 deref
   %35 = add i32 %.05.i, 1
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %.sroa.speculated.i, %36
-  br i1 %37, label %30, label %_ZN3tev10ThreadPool15shutdownThreadsEm.exit, !llvm.loop !9
+  br i1 %37, label %30, label %_ZN3tev10ThreadPool15shutdownThreadsEm.exit, !llvm.loop !10
 
 _ZN3tev10ThreadPool15shutdownThreadsEm.exit:      ; preds = %.noexc2, %.noexc1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -680,7 +680,7 @@ define dso_local void @_ZN3tev10ThreadPool15shutdownThreadsEm(ptr noundef nonnul
   %15 = add i32 %.05, 1
   %16 = zext i32 %15 to i64
   %17 = icmp ugt i64 %.sroa.speculated, %16
-  br i1 %17, label %10, label %._crit_edge, !llvm.loop !9
+  br i1 %17, label %10, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %2
   ret void
@@ -1088,7 +1088,7 @@ define internal noalias noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tu
   %32 = load i64, ptr %15, align 8
   %33 = load i64, ptr %16, align 8
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !10
+  br i1 %34, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !11
 
 35:                                               ; preds = %48, %44
   %36 = landingpad { ptr, i32 }
@@ -1266,7 +1266,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit.i.i.i: ; preds = %84, %_ZN
   br label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit16.i.i.i
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit16.i.i.i: ; preds = %101, %.critedge.i.i.i
-  br i1 %98, label %24, label %107
+  br i1 %98, label %24, label %107, !llvm.loop !12
 
 _ZNSt3__18functionIFvvEED2Ev.exit.i.i.i:          ; preds = %.sink.split.i.i.i.i.i, %88, %35
   %.pn.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %lpad.phi.i.i.i, %88 ], [ %lpad.phi.i.i.i, %.sink.split.i.i.i.i.i ]
@@ -1633,7 +1633,7 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i.i: ; preds =
 
 _ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i:    ; preds = %63, %58, %55
   %67 = icmp sgt i64 %.1.i, %28
-  br i1 %67, label %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit, label %29, !llvm.loop !11
+  br i1 %67, label %_ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit, label %29, !llvm.loop !13
 
 _ZNSt3__117__floyd_sift_downB8ne190000INS_17_ClassicAlgPolicyERN3tev10ThreadPool10QueuedTask10ComparatorENS_11__wrap_iterIPS4_EEEET1_SA_OT0_NS_15iterator_traitsISA_E15difference_typeE.exit: ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i
   %68 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -1991,7 +1991,7 @@ _ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %48, %51, %56
   %64 = getelementptr inbounds nuw %"struct.tev::ThreadPool::QueuedTask", ptr %0, i64 %63
   %65 = load i32, ptr %64, align 16
   %66 = icmp slt i32 %65, %.pre37
-  br i1 %66, label %34, label %67, !llvm.loop !12
+  br i1 %66, label %34, label %67, !llvm.loop !14
 
 67:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit, %61
   store i32 %.pre37, ptr %.sroa.0.0, align 16
@@ -2118,11 +2118,13 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

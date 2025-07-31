@@ -248,5 +248,6 @@ attributes #5 = { noreturn nounwind }
 !45 = !{!"p1 _ZTS15AVFrameSideData", !7, i64 0}
 !46 = !{!47, !15, i64 0}
 !47 = !{!"AVFrameSideData", !15, i64 0, !11, i64 8, !40, i64 16, !42, i64 24, !19, i64 32}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
+!50 = !{!"llvm.loop.estimated_trip_count"}

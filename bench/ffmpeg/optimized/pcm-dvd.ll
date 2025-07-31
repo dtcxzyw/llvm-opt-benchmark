@@ -345,7 +345,7 @@ bytestream2_init.exit:                            ; preds = %4
 
 .preheader105:                                    ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %29 = load i32, ptr %28, align 4, !tbaa !55
+  %29 = load i32, ptr %28, align 4, !tbaa !56
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit, label %.preheader105.split
 
@@ -386,15 +386,15 @@ bytestream2_init.exit:                            ; preds = %4
   store i32 %52, ptr %42, align 4, !tbaa !38
   %53 = add nsw i32 %.060131, -1
   %.not80 = icmp eq i32 %53, 0
-  br i1 %.not80, label %54, label %31, !llvm.loop !56
+  br i1 %.not80, label %54, label %31, !llvm.loop !57
 
 54:                                               ; preds = %31
   %55 = add nsw i32 %.067, -1
   %.not81 = icmp eq i32 %55, 0
-  br i1 %.not81, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %.not81, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .preheader105.splitthread-pre-split:              ; preds = %._crit_edge125
-  %.pr = load i32, ptr %28, align 4, !tbaa !55
+  %.pr = load i32, ptr %28, align 4, !tbaa !56
   br label %.preheader105.split
 
 .preheader105.split:                              ; preds = %.preheader105, %.preheader105.splitthread-pre-split
@@ -461,14 +461,14 @@ bytestream2_init.exit:                            ; preds = %4
   store i32 %98, ptr %79, align 4, !tbaa !38
   %99 = add nsw i32 %.1122, -1
   %.not78 = icmp eq i32 %99, 0
-  br i1 %.not78, label %._crit_edge125, label %.lr.ph124, !llvm.loop !58
+  br i1 %.not78, label %._crit_edge125, label %.lr.ph124, !llvm.loop !59
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader105.split
   %.sroa.0.4.lcssa = phi ptr [ %.sroa.0.3, %.preheader105.split ], [ %89, %.lr.ph124 ]
   %.4.lcssa = phi ptr [ %.364, %.preheader105.split ], [ %97, %.lr.ph124 ]
   %100 = add nsw i32 %.168, -1
   %.not79 = icmp eq i32 %100, 0
-  br i1 %.not79, label %.loopexit, label %.preheader105.splitthread-pre-split, !llvm.loop !59
+  br i1 %.not79, label %.loopexit, label %.preheader105.splitthread-pre-split, !llvm.loop !60
 
 101:                                              ; preds = %bytestream2_init.exit
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -478,7 +478,7 @@ bytestream2_init.exit:                            ; preds = %4
 
 .preheader109:                                    ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %106 = load i32, ptr %105, align 4, !tbaa !55
+  %106 = load i32, ptr %105, align 4, !tbaa !56
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %.loopexit, label %.preheader109.split
 
@@ -520,15 +520,15 @@ bytestream2_init.exit:                            ; preds = %4
   store i32 %130, ptr %119, align 4, !tbaa !38
   %131 = add nsw i32 %.2118, -1
   %.not76 = icmp eq i32 %131, 0
-  br i1 %.not76, label %132, label %108, !llvm.loop !61
+  br i1 %.not76, label %132, label %108, !llvm.loop !62
 
 132:                                              ; preds = %108
   %133 = add nsw i32 %.269, -1
   %.not77 = icmp eq i32 %133, 0
-  br i1 %.not77, label %.loopexit, label %.preheader107, !llvm.loop !62
+  br i1 %.not77, label %.loopexit, label %.preheader107, !llvm.loop !63
 
 .preheader109.splitthread-pre-split:              ; preds = %._crit_edge
-  %.pr146 = load i32, ptr %105, align 4, !tbaa !55
+  %.pr146 = load i32, ptr %105, align 4, !tbaa !56
   br label %.preheader109.split
 
 .preheader109.split:                              ; preds = %.preheader109, %.preheader109.splitthread-pre-split
@@ -597,14 +597,14 @@ bytestream2_init.exit:                            ; preds = %4
   store i32 %178, ptr %157, align 4, !tbaa !38
   %179 = add nsw i32 %.3114, -1
   %.not = icmp eq i32 %179, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader109.split
   %.sroa.0.8.lcssa = phi ptr [ %.sroa.0.7, %.preheader109.split ], [ %173, %.lr.ph ]
   %.9.lcssa = phi ptr [ %.8, %.preheader109.split ], [ %177, %.lr.ph ]
   %180 = add nsw i32 %.370, -1
   %.not75 = icmp eq i32 %180, 0
-  br i1 %.not75, label %.loopexit, label %.preheader109.splitthread-pre-split, !llvm.loop !64
+  br i1 %.not75, label %.loopexit, label %.preheader109.splitthread-pre-split, !llvm.loop !65
 
 .loopexit:                                        ; preds = %._crit_edge, %132, %._crit_edge125, %54, %18, %.preheader109, %.preheader105, %bytestream2_init.exit
   %.066 = phi ptr [ null, %bytestream2_init.exit ], [ %2, %.preheader105 ], [ %2, %.preheader109 ], [ %22, %18 ], [ %51, %54 ], [ %.4.lcssa, %._crit_edge125 ], [ %129, %132 ], [ %.9.lcssa, %._crit_edge ]
@@ -685,15 +685,16 @@ attributes #7 = { noreturn nounwind }
 !50 = !{!5, !10, i64 356}
 !51 = !{!52, !52, i64 0}
 !52 = !{!"short", !8, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!28, !10, i64 16}
-!56 = distinct !{!56, !54}
-!57 = distinct !{!57, !54}
-!58 = distinct !{!58, !54}
-!59 = distinct !{!59, !54, !60}
-!60 = !{!"llvm.loop.unswitch.partial.disable"}
-!61 = distinct !{!61, !54}
-!62 = distinct !{!62, !54}
-!63 = distinct !{!63, !54}
-!64 = distinct !{!64, !54, !60}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!28, !10, i64 16}
+!57 = distinct !{!57, !54, !55}
+!58 = distinct !{!58, !54, !55}
+!59 = distinct !{!59, !54, !55}
+!60 = distinct !{!60, !54, !55, !61}
+!61 = !{!"llvm.loop.unswitch.partial.disable"}
+!62 = distinct !{!62, !54, !55}
+!63 = distinct !{!63, !54, !55}
+!64 = distinct !{!64, !54, !55}
+!65 = distinct !{!65, !54, !55, !61}

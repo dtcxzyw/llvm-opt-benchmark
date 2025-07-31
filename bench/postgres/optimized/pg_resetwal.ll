@@ -1111,7 +1111,7 @@ IsPartialXLogFileName.exit.thread.i:              ; preds = %383, %IsPartialXLog
   store i32 0, ptr %278, align 4
   %384 = call ptr @readdir(ptr noundef nonnull %354) #15
   %.not.i117 = icmp eq ptr %384, null
-  br i1 %.not.i117, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i117, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %IsPartialXLogFileName.exit.thread.i, %.preheader.i
   %385 = load i32, ptr %278, align 4
@@ -1162,7 +1162,7 @@ FindEndOfXLOG.exit:                               ; preds = %387
   %407 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.74, i64 noundef %406) #15
   %408 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 48), align 8
   %409 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.75, i32 noundef %408) #15
-  %410 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 56), align 8, !range !7, !noundef !8
+  %410 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 56), align 8, !range !8, !noundef !9
   %411 = trunc nuw i8 %410 to i1
   %412 = select i1 %411, ptr @.str.77, ptr @.str.78
   %413 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %412) #15
@@ -1210,7 +1210,7 @@ FindEndOfXLOG.exit:                               ; preds = %387
   %455 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 244), align 4
   %456 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.98, i32 noundef %455) #15
   %457 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100) #15
-  %458 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 248), align 8, !range !7, !noundef !8
+  %458 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile, i64 248), align 8, !range !8, !noundef !9
   %459 = trunc nuw i8 %458 to i1
   %460 = select i1 %459, ptr @.str.102, ptr @.str.103
   %461 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.101, ptr noundef nonnull %460) #15
@@ -1448,7 +1448,7 @@ IsPartialXLogFileName.exit.thread.i122:           ; preds = %542, %IsPartialXLog
   store i32 0, ptr %278, align 4
   %547 = call ptr @readdir(ptr noundef nonnull %527) #15
   %.not.i123 = icmp eq ptr %547, null
-  br i1 %.not.i123, label %._crit_edge.i124, label %.lr.ph.i121, !llvm.loop !9
+  br i1 %.not.i123, label %._crit_edge.i124, label %.lr.ph.i121, !llvm.loop !10
 
 ._crit_edge.i124:                                 ; preds = %IsPartialXLogFileName.exit.thread.i122, %.preheader.i119
   %548 = load i32, ptr %278, align 4
@@ -1531,7 +1531,7 @@ KillExistingXLOG.exit:                            ; preds = %550
   store i32 0, ptr %278, align 4
   %580 = call ptr @readdir(ptr noundef nonnull %553) #15
   %.not.i130 = icmp eq ptr %580, null
-  br i1 %.not.i130, label %._crit_edge.i131, label %.lr.ph.i129, !llvm.loop !10
+  br i1 %.not.i130, label %._crit_edge.i131, label %.lr.ph.i129, !llvm.loop !11
 
 ._crit_edge.i131:                                 ; preds = %579, %.preheader.i128
   %581 = load i32, ptr %278, align 4
@@ -1599,7 +1599,7 @@ KillExistingArchiveStatus.exit:                   ; preds = %583
   store i32 0, ptr %278, align 4
   %604 = call ptr @readdir(ptr noundef nonnull %586) #15
   %.not.i136 = icmp eq ptr %604, null
-  br i1 %.not.i136, label %._crit_edge.i137, label %.lr.ph.i135, !llvm.loop !11
+  br i1 %.not.i136, label %._crit_edge.i137, label %.lr.ph.i135, !llvm.loop !12
 
 ._crit_edge.i137:                                 ; preds = %603, %.preheader.i133
   %605 = load i32, ptr %278, align 4
@@ -1710,7 +1710,7 @@ KillExistingWALSummaries.exit:                    ; preds = %607
   %657 = add i32 %.036.i, 8192
   %658 = load i32, ptr @WalSegSz, align 4
   %659 = icmp slt i32 %657, %658
-  br i1 %659, label %.lr.ph.i142, label %._crit_edge.i141, !llvm.loop !12
+  br i1 %659, label %.lr.ph.i142, label %._crit_edge.i141, !llvm.loop !13
 
 .lr.ph.i142:                                      ; preds = %653, %656
   %.036.i = phi i32 [ %657, %656 ], [ 8192, %653 ]
@@ -2047,12 +2047,13 @@ attributes #19 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

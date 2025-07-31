@@ -635,7 +635,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %168 = select i1 %167, i64 0, i64 %166
   %169 = icmp ne i64 %168, -1
   call void @llvm.assume(i1 %169)
-  %170 = call ptr @__memcpy_chk(ptr noundef %164, ptr noundef %165, i64 noundef %157, i64 noundef %168) #14, !alias.scope !9
+  %170 = call ptr @__memcpy_chk(ptr noundef %164, ptr noundef %165, i64 noundef %157, i64 noundef %168) #14, !alias.scope !10
   %171 = trunc nuw i64 %157 to i32
   %172 = add i32 %.099149.i, %171
   %173 = zext i32 %172 to i64
@@ -666,7 +666,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %191 = select i1 %190, i64 0, i64 %189
   %192 = icmp ne i64 %191, -1
   call void @llvm.assume(i1 %192)
-  %193 = call ptr @__memcpy_chk(ptr noundef %188, ptr noundef %181, i64 noundef %184, i64 noundef %191) #14, !alias.scope !13
+  %193 = call ptr @__memcpy_chk(ptr noundef %188, ptr noundef %181, i64 noundef %184, i64 noundef %191) #14, !alias.scope !14
   %194 = trunc i64 %184 to i32
   %195 = add i32 %.099149.i, %194
   %196 = zext i32 %195 to i64
@@ -680,7 +680,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %203 = select i1 %202, i64 0, i64 %201
   %204 = icmp ne i64 %203, -1
   call void @llvm.assume(i1 %204)
-  %205 = call ptr @__memcpy_chk(ptr noundef %200, ptr noundef nonnull %13, i64 noundef 8, i64 noundef %203) #14, !alias.scope !17
+  %205 = call ptr @__memcpy_chk(ptr noundef %200, ptr noundef nonnull %13, i64 noundef 8, i64 noundef %203) #14, !alias.scope !18
   %206 = add i32 %195, 9
   %207 = zext i32 %206 to i64
   %208 = getelementptr i8, ptr %94, i64 %207
@@ -692,7 +692,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %214 = select i1 %213, i64 0, i64 %212
   %215 = icmp ne i64 %214, -1
   call void @llvm.assume(i1 %215)
-  %216 = call ptr @__memcpy_chk(ptr noundef %208, ptr noundef %210, i64 noundef %211, i64 noundef %214) #14, !alias.scope !21
+  %216 = call ptr @__memcpy_chk(ptr noundef %208, ptr noundef %210, i64 noundef %211, i64 noundef %214) #14, !alias.scope !22
   %217 = trunc i64 %211 to i32
   %218 = add i32 %206, %217
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
@@ -737,7 +737,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %240 = select i1 %239, i64 0, i64 %238
   %241 = icmp ne i64 %240, -1
   call void @llvm.assume(i1 %241)
-  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull %14, i64 noundef 4, i64 noundef %240) #14, !alias.scope !25
+  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull %14, i64 noundef 4, i64 noundef %240) #14, !alias.scope !26
   %243 = call zeroext i1 @pcapng_write_block(ptr noundef nonnull %.033, ptr noundef %94, i32 noundef %235, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br i1 %243, label %.backedge.i, label %248
 
@@ -775,7 +775,7 @@ sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
   store i32 9, ptr %94, align 1
   %246 = call i32 @sd_journal_next(ptr noundef %93)
   %247 = icmp slt i32 %246, 0
-  br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %108, %116, %132, %.thread118.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
@@ -978,26 +978,27 @@ attributes #17 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = distinct !{!29, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !8, !9}

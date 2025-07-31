@@ -15900,7 +15900,7 @@ lean_inc.exit:                                    ; preds = %408, %407, %405, %l
 
 lean_dec.exit130.backedge:                        ; preds = %lean_inc.exit, %414, %416, %417, %lean_inc.exit102, %348, %350, %351, %lean_inc.exit103, %304, %306, %307
   %.095.be = phi ptr [ %290, %307 ], [ %290, %306 ], [ %290, %304 ], [ %290, %lean_inc.exit103 ], [ %334, %351 ], [ %334, %350 ], [ %334, %348 ], [ %334, %lean_inc.exit102 ], [ %400, %417 ], [ %400, %416 ], [ %400, %414 ], [ %400, %lean_inc.exit ]
-  br label %lean_dec.exit130
+  br label %lean_dec.exit130, !llvm.loop !19
 
 411:                                              ; preds = %lean_inc.exit
   %412 = load i32, ptr %398, align 4, !tbaa !8
@@ -16425,7 +16425,7 @@ lean_obj_tag.exit19.i:                            ; preds = %178, %175
   %191 = and i64 %190, 1
   %192 = icmp ne i64 %191, 0
   %or.cond.i = select i1 %189, i1 %192, i1 false
-  br i1 %or.cond.i, label %193, label %.critedge.i.i, !prof !19
+  br i1 %or.cond.i, label %193, label %.critedge.i.i, !prof !21
 
 193:                                              ; preds = %182
   %194 = icmp eq ptr %184, %186
@@ -16793,7 +16793,7 @@ lean_obj_tag.exit19.i209:                         ; preds = %316, %313
   %329 = and i64 %328, 1
   %330 = icmp ne i64 %329, 0
   %or.cond.i211 = select i1 %327, i1 %330, i1 false
-  br i1 %or.cond.i211, label %331, label %.critedge.i.i212, !prof !19
+  br i1 %or.cond.i211, label %331, label %.critedge.i.i212, !prof !21
 
 331:                                              ; preds = %320
   %332 = icmp eq ptr %322, %324
@@ -17067,7 +17067,7 @@ lean_obj_tag.exit19:                              ; preds = %23, %26
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
   %or.cond = select i1 %37, i1 %40, i1 false
-  br i1 %or.cond, label %41, label %.critedge.i, !prof !19
+  br i1 %or.cond, label %41, label %.critedge.i, !prof !21
 
 41:                                               ; preds = %30
   %42 = icmp eq ptr %32, %34
@@ -17183,7 +17183,7 @@ lean_obj_tag.exit19.i:                            ; preds = %26, %23
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
   %or.cond.i = select i1 %37, i1 %40, i1 false
-  br i1 %or.cond.i, label %41, label %.critedge.i.i, !prof !19
+  br i1 %or.cond.i, label %41, label %.critedge.i.i, !prof !21
 
 41:                                               ; preds = %30
   %42 = icmp eq ptr %32, %34
@@ -17822,7 +17822,7 @@ lean_inc.exit:                                    ; preds = %208, %207, %205, %l
 
 lean_dec.exit66.backedge:                         ; preds = %lean_inc.exit, %214, %216, %217, %lean_inc.exit52, %181, %183, %184
   %.050.be = phi ptr [ %167, %184 ], [ %167, %183 ], [ %167, %181 ], [ %167, %lean_inc.exit52 ], [ %200, %217 ], [ %200, %216 ], [ %200, %214 ], [ %200, %lean_inc.exit ]
-  br label %lean_dec.exit66
+  br label %lean_dec.exit66, !llvm.loop !22
 
 211:                                              ; preds = %lean_inc.exit
   %212 = load i32, ptr %95, align 4, !tbaa !8
@@ -18248,4 +18248,7 @@ attributes #4 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!6, !6, i64 0}
-!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = distinct !{!22, !20}

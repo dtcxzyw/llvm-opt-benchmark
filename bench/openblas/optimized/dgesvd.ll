@@ -203,29 +203,29 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge5600:                                  ; preds = %.lr.ph5599, %91
   %.15156.lcssa = phi ptr [ %.051555604, %91 ], [ %100, %.lr.ph5599 ]
-  br i1 %92, label %91, label %.preheader, !llvm.loop !13
+  br i1 %92, label %91, label %.preheader, !llvm.loop !14
 
 ._crit_edge5608:                                  ; preds = %.lr.ph5607.preheader, %.preheader
   %101 = call i32 @ilaenv_(ptr noundef nonnull @c__6, ptr noundef nonnull @.str.4, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, i32 noundef 6, i32 noundef 2) #6
   %102 = load i32, ptr %3, align 4, !tbaa !3
   %103 = mul nsw i32 %102, 5
   call void @dgeqrf_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %104 = load double, ptr %30, align 8, !tbaa !14
+  %104 = load double, ptr %30, align 8, !tbaa !15
   %105 = fptosi double %104 to i32
   call void @dorgqr_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %106 = load double, ptr %30, align 8, !tbaa !14
+  %106 = load double, ptr %30, align 8, !tbaa !15
   %107 = fptosi double %106 to i32
   call void @dorgqr_(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %108 = load double, ptr %30, align 8, !tbaa !14
+  %108 = load double, ptr %30, align 8, !tbaa !15
   %109 = fptosi double %108 to i32
   call void @dgebrd_(ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %110 = load double, ptr %30, align 8, !tbaa !14
+  %110 = load double, ptr %30, align 8, !tbaa !15
   %111 = fptosi double %110 to i32
   call void @dorgbr_(ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %112 = load double, ptr %30, align 8, !tbaa !14
+  %112 = load double, ptr %30, align 8, !tbaa !15
   %113 = fptosi double %112 to i32
   call void @dorgbr_(ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %114 = load double, ptr %30, align 8, !tbaa !14
+  %114 = load double, ptr %30, align 8, !tbaa !15
   %115 = fptosi double %114 to i32
   %116 = load i32, ptr %2, align 4, !tbaa !3
   %.not5304 = icmp slt i32 %116, %101
@@ -457,7 +457,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 272:                                              ; preds = %._crit_edge5608
   call void @dgebrd_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %273 = load double, ptr %30, align 8, !tbaa !14
+  %273 = load double, ptr %30, align 8, !tbaa !15
   %274 = fptosi double %273 to i32
   %275 = load i32, ptr %3, align 4, !tbaa !3
   %276 = mul nsw i32 %275, 3
@@ -467,7 +467,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 278:                                              ; preds = %272
   call void @dorgbr_(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %279 = load double, ptr %30, align 8, !tbaa !14
+  %279 = load double, ptr %30, align 8, !tbaa !15
   %280 = fptosi double %279 to i32
   store i32 %277, ptr %15, align 4, !tbaa !3
   %281 = load i32, ptr %3, align 4, !tbaa !3
@@ -484,7 +484,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 287:                                              ; preds = %285
   call void @dorgbr_(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %288 = load double, ptr %30, align 8, !tbaa !14
+  %288 = load double, ptr %30, align 8, !tbaa !15
   %289 = fptosi double %288 to i32
   %290 = load i32, ptr %3, align 4, !tbaa !3
   %291 = mul nsw i32 %290, 3
@@ -556,33 +556,33 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %317 = getelementptr inbounds nuw i8, ptr %.15587, i64 1
   store i8 %316, ptr %.15587, align 1, !tbaa !10
   %exitcond.not = icmp eq ptr %.15587, %scevgep
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %308
   %.1.lcssa = phi ptr [ %.05590, %308 ], [ %317, %.lr.ph ]
-  br i1 %309, label %308, label %.preheader5584, !llvm.loop !17
+  br i1 %309, label %308, label %.preheader5584, !llvm.loop !18
 
 ._crit_edge5594:                                  ; preds = %.lr.ph5593.preheader, %.preheader5584
   %318 = call i32 @ilaenv_(ptr noundef nonnull @c__6, ptr noundef nonnull @.str.4, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, i32 noundef 6, i32 noundef 2) #6
   %319 = load i32, ptr %2, align 4, !tbaa !3
   %320 = mul nsw i32 %319, 5
   call void @dgelqf_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %321 = load double, ptr %30, align 8, !tbaa !14
+  %321 = load double, ptr %30, align 8, !tbaa !15
   %322 = fptosi double %321 to i32
   call void @dorglq_(ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %30, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %323 = load double, ptr %30, align 8, !tbaa !14
+  %323 = load double, ptr %30, align 8, !tbaa !15
   %324 = fptosi double %323 to i32
   call void @dorglq_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %325 = load double, ptr %30, align 8, !tbaa !14
+  %325 = load double, ptr %30, align 8, !tbaa !15
   %326 = fptosi double %325 to i32
   call void @dgebrd_(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %327 = load double, ptr %30, align 8, !tbaa !14
+  %327 = load double, ptr %30, align 8, !tbaa !15
   %328 = fptosi double %327 to i32
   call void @dorgbr_(ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %329 = load double, ptr %30, align 8, !tbaa !14
+  %329 = load double, ptr %30, align 8, !tbaa !15
   %330 = fptosi double %329 to i32
   call void @dorgbr_(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %331 = load double, ptr %30, align 8, !tbaa !14
+  %331 = load double, ptr %30, align 8, !tbaa !15
   %332 = fptosi double %331 to i32
   %333 = load i32, ptr %3, align 4, !tbaa !3
   %.not5246 = icmp slt i32 %333, %318
@@ -813,7 +813,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 488:                                              ; preds = %._crit_edge5594
   call void @dgebrd_(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %489 = load double, ptr %30, align 8, !tbaa !14
+  %489 = load double, ptr %30, align 8, !tbaa !15
   %490 = fptosi double %489 to i32
   %491 = load i32, ptr %2, align 4, !tbaa !3
   %492 = mul nsw i32 %491, 3
@@ -823,7 +823,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 494:                                              ; preds = %488
   call void @dorgbr_(ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %495 = load double, ptr %30, align 8, !tbaa !14
+  %495 = load double, ptr %30, align 8, !tbaa !15
   %496 = fptosi double %495 to i32
   store i32 %493, ptr %15, align 4, !tbaa !3
   %497 = load i32, ptr %2, align 4, !tbaa !3
@@ -840,7 +840,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 503:                                              ; preds = %501
   call void @dorgbr_(ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull @c_n1, ptr noundef nonnull %19) #6
-  %504 = load double, ptr %30, align 8, !tbaa !14
+  %504 = load double, ptr %30, align 8, !tbaa !15
   %505 = fptosi double %504 to i32
   %506 = load i32, ptr %2, align 4, !tbaa !3
   %507 = mul nsw i32 %506, 3
@@ -878,7 +878,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.5 = phi i32 [ %128, %127 ], [ %148, %133 ], [ %169, %152 ], [ %184, %173 ], [ %202, %188 ], [ %219, %206 ], [ %234, %223 ], [ %252, %238 ], [ %269, %256 ], [ 1, %255 ], [ %300, %._crit_edge5772 ], [ %345, %344 ], [ %364, %349 ], [ %385, %368 ], [ %400, %389 ], [ %418, %404 ], [ %435, %422 ], [ %450, %439 ], [ %468, %454 ], [ %485, %472 ], [ 1, %471 ], [ %515, %._crit_edge5771 ], [ 1, %304 ]
   %520 = call i32 @llvm.smax.i32(i32 %.5, i32 %.05168)
   %521 = sitofp i32 %520 to double
-  store double %521, ptr %11, align 8, !tbaa !14
+  store double %521, ptr %11, align 8, !tbaa !15
   %522 = load i32, ptr %12, align 4, !tbaa !3
   %523 = icmp sge i32 %522, %.05168
   %or.cond57 = select i1 %523, i1 true, i1 %59
@@ -919,11 +919,11 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %536 = call double @dlamch_(ptr noundef nonnull @.str.1) #6
   %537 = call double @sqrt(double noundef %536) #6, !tbaa !3
   %538 = fdiv double %537, %535
-  store double %538, ptr %27, align 8, !tbaa !14
+  store double %538, ptr %27, align 8, !tbaa !15
   %539 = fdiv double 1.000000e+00, %538
-  store double %539, ptr %24, align 8, !tbaa !14
+  store double %539, ptr %24, align 8, !tbaa !15
   %540 = call double @dlange_(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %30) #6
-  store double %540, ptr %18, align 8, !tbaa !14
+  store double %540, ptr %18, align 8, !tbaa !15
   %541 = fcmp ogt double %540, 0.000000e+00
   %542 = load double, ptr %27, align 8
   %543 = fcmp olt double %540, %542
@@ -931,7 +931,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond5468, label %.sink.split, label %544
 
 544:                                              ; preds = %534
-  %545 = load double, ptr %24, align 8, !tbaa !14
+  %545 = load double, ptr %24, align 8, !tbaa !15
   %546 = fcmp ogt double %540, %545
   br i1 %546, label %.sink.split, label %547
 
@@ -1150,7 +1150,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %665 = icmp sge i32 %662, %664
   %666 = icmp sle i32 %662, %664
   %.in5458 = select i1 %663, i1 %665, i1 %666
-  br i1 %.in5458, label %653, label %.loopexit5580, !llvm.loop !18
+  br i1 %.in5458, label %653, label %.loopexit5580, !llvm.loop !19
 
 667:                                              ; preds = %592
   %668 = add nsw i32 %550, 1
@@ -1319,7 +1319,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %765 = icmp sge i32 %762, %764
   %766 = icmp sle i32 %762, %764
   %.in5450 = select i1 %763, i1 %765, i1 %766
-  br i1 %.in5450, label %753, label %.loopexit5580, !llvm.loop !19
+  br i1 %.in5450, label %753, label %.loopexit5580, !llvm.loop !20
 
 767:                                              ; preds = %685
   %768 = sub i32 %687, %550
@@ -2594,7 +2594,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1485 = icmp sge i32 %1482, %1484
   %1486 = icmp sle i32 %1482, %1484
   %.in5410 = select i1 %1483, i1 %1485, i1 %1486
-  br i1 %.in5410, label %1474, label %.loopexit5580, !llvm.loop !20
+  br i1 %.in5410, label %1474, label %.loopexit5580, !llvm.loop !21
 
 1487:                                             ; preds = %1409
   %1488 = add nsw i32 %549, 1
@@ -2768,7 +2768,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1583 = icmp sge i32 %1580, %1582
   %1584 = icmp sle i32 %1580, %1582
   %.in = select i1 %1581, i1 %1583, i1 %1584
-  br i1 %.in, label %1572, label %.loopexit5580, !llvm.loop !21
+  br i1 %.in, label %1572, label %.loopexit5580, !llvm.loop !22
 
 1585:                                             ; preds = %1505
   %1586 = sub i32 %1507, %549
@@ -3832,12 +3832,12 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph5632:                                       ; preds = %.lr.ph5632.preheader, %.lr.ph5632
   %indvars.iv5746 = phi i64 [ 1, %.lr.ph5632.preheader ], [ %indvars.iv.next5747, %.lr.ph5632 ]
   %gep5785 = getelementptr double, ptr %invariant.gep5784, i64 %indvars.iv5746
-  %2193 = load double, ptr %gep5785, align 8, !tbaa !14
+  %2193 = load double, ptr %gep5785, align 8, !tbaa !15
   %indvars.iv.next5747 = add nuw nsw i64 %indvars.iv5746, 1
   %2194 = getelementptr double, ptr %11, i64 %indvars.iv5746
-  store double %2193, ptr %2194, align 8, !tbaa !14
+  store double %2193, ptr %2194, align 8, !tbaa !15
   %exitcond5749.not = icmp eq i64 %indvars.iv.next5747, %wide.trip.count
-  br i1 %exitcond5749.not, label %.loopexit, label %.lr.ph5632, !llvm.loop !22
+  br i1 %exitcond5749.not, label %.loopexit, label %.lr.ph5632, !llvm.loop !23
 
 .loopexit5579:                                    ; preds = %2187
   %.not = icmp eq i32 %.05175, 2
@@ -3861,25 +3861,25 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.reass = add i32 %invariant.op, %2199
   %2200 = sext i32 %.reass to i64
   %gep5634 = getelementptr double, ptr %invariant.gep5633, i64 %2200
-  %2201 = load double, ptr %gep5634, align 8, !tbaa !14
+  %2201 = load double, ptr %gep5634, align 8, !tbaa !15
   %2202 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv5750
-  store double %2201, ptr %2202, align 8, !tbaa !14
+  store double %2201, ptr %2202, align 8, !tbaa !15
   %2203 = icmp samesign ugt i64 %indvars.iv5750, 2
-  br i1 %2203, label %.lr.ph5637, label %.loopexit, !llvm.loop !23
+  br i1 %2203, label %.lr.ph5637, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph5637, %.lr.ph5632, %2189, %2195, %.loopexit5579, %.loopexit5580
   br i1 %548, label %2204, label %2232
 
 2204:                                             ; preds = %.loopexit
-  %2205 = load double, ptr %18, align 8, !tbaa !14
-  %2206 = load double, ptr %24, align 8, !tbaa !14
+  %2205 = load double, ptr %18, align 8, !tbaa !15
+  %2206 = load double, ptr %24, align 8, !tbaa !15
   %2207 = fcmp ogt double %2205, %2206
   br i1 %2207, label %2208, label %2209
 
 2208:                                             ; preds = %2204
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull %23, ptr noundef nonnull @c__1, ptr noundef %6, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
   %.pre5757 = load i32, ptr %13, align 4, !tbaa !3
-  %.pre5759.pre = load double, ptr %18, align 8, !tbaa !14
+  %.pre5759.pre = load double, ptr %18, align 8, !tbaa !15
   br label %2209
 
 2209:                                             ; preds = %2208, %2204
@@ -3897,12 +3897,12 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2215, ptr %15, align 4, !tbaa !3
   %2216 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef nonnull %2216, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
-  %.pre5758 = load double, ptr %18, align 8, !tbaa !14
+  %.pre5758 = load double, ptr %18, align 8, !tbaa !15
   br label %2217
 
 2217:                                             ; preds = %2213, %2209
   %2218 = phi double [ %.pre5758, %2213 ], [ %.pre5759, %2209 ]
-  %2219 = load double, ptr %27, align 8, !tbaa !14
+  %2219 = load double, ptr %27, align 8, !tbaa !15
   %2220 = fcmp olt double %2218, %2219
   br i1 %2220, label %2221, label %2222
 
@@ -3916,8 +3916,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not5464, label %2232, label %2224
 
 2224:                                             ; preds = %2222
-  %2225 = load double, ptr %18, align 8, !tbaa !14
-  %2226 = load double, ptr %27, align 8, !tbaa !14
+  %2225 = load double, ptr %18, align 8, !tbaa !15
+  %2226 = load double, ptr %27, align 8, !tbaa !15
   %2227 = fcmp olt double %2225, %2226
   br i1 %2227, label %2228, label %2232
 
@@ -3930,7 +3930,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %2232
 
 2232:                                             ; preds = %2222, %2224, %2228, %.loopexit
-  store double %521, ptr %11, align 8, !tbaa !14
+  store double %521, ptr %11, align 8, !tbaa !15
   br label %2233
 
 2233:                                             ; preds = %528, %531, %527, %2232, %.thread5485
@@ -4032,16 +4032,17 @@ attributes #6 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"double", !5, i64 0}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"double", !5, i64 0}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}

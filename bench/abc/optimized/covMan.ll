@@ -241,12 +241,12 @@ Vec_PtrFill.exit:                                 ; preds = %Vec_PtrFill.exit.lo
   %.val = load i32, ptr %109, align 4, !tbaa !39
   %110 = sext i32 %.val to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph, label %.critedge, !llvm.loop !48
+  br i1 %111, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %107, %Vec_PtrFill.exit
   %112 = tail call ptr @Min_ManAlloc(i32 noundef %1) #9
   %113 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store ptr %112, ptr %113, align 8, !tbaa !49
+  store ptr %112, ptr %113, align 8, !tbaa !50
   ret ptr %calloc
 }
 
@@ -275,7 +275,7 @@ define void @Cov_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %18, label %14
 
@@ -301,11 +301,11 @@ Vec_IntFree.exit:                                 ; preds = %14, %17
   %21 = load i32, ptr %20, align 4, !tbaa !39
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %18, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !50
   tail call void @Min_ManFree(ptr noundef %25) #9
   %26 = load ptr, ptr %2, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -320,7 +320,7 @@ Vec_IntFree.exit:                                 ; preds = %14, %17
 Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %29
   tail call void @free(ptr noundef nonnull %26) #9
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %31 = load ptr, ptr %30, align 8, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %.not.i26 = icmp eq ptr %33, null
@@ -432,9 +432,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @Abc_NodeCovDropData(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !54
+  %6 = load i32, ptr %5, align 8, !tbaa !55
   %7 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %7, align 8, !tbaa !18
   %8 = sext i32 %6 to i64
@@ -449,9 +449,9 @@ define void @Abc_NodeCovDropData(ptr noundef captures(none) %0, ptr noundef read
   br label %46
 
 .split12:                                         ; preds = %2
-  %.val15 = load ptr, ptr %1, align 8, !tbaa !57
+  %.val15 = load ptr, ptr %1, align 8, !tbaa !58
   %13 = getelementptr i8, ptr %.val15, i64 272
-  %.val15.val = load ptr, ptr %13, align 8, !tbaa !58
+  %.val15.val = load ptr, ptr %13, align 8, !tbaa !59
   %14 = getelementptr i8, ptr %.val15.val, i64 24
   %.val15.val.val = load ptr, ptr %14, align 8, !tbaa !44
   %15 = getelementptr i8, ptr %.val15.val.val, i64 8
@@ -459,7 +459,7 @@ define void @Abc_NodeCovDropData(ptr noundef captures(none) %0, ptr noundef read
   %16 = getelementptr inbounds ptr, ptr %.val15.val.val.val, i64 %8
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !50
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !18
   %.not.i = icmp eq ptr %21, null
@@ -471,10 +471,10 @@ define void @Abc_NodeCovDropData(ptr noundef captures(none) %0, ptr noundef read
 
 Vec_IntFree.exit:                                 ; preds = %.split12, %22
   tail call void @free(ptr noundef nonnull %19) #9
-  %.val17 = load ptr, ptr %1, align 8, !tbaa !57
-  %.val18 = load i32, ptr %5, align 8, !tbaa !54
+  %.val17 = load ptr, ptr %1, align 8, !tbaa !58
+  %.val18 = load i32, ptr %5, align 8, !tbaa !55
   %23 = getelementptr i8, ptr %.val17, i64 272
-  %.val17.val = load ptr, ptr %23, align 8, !tbaa !58
+  %.val17.val = load ptr, ptr %23, align 8, !tbaa !59
   %24 = getelementptr i8, ptr %.val17.val, i64 24
   %.val17.val.val = load ptr, ptr %24, align 8, !tbaa !44
   %25 = getelementptr i8, ptr %.val17.val.val, i64 8
@@ -483,32 +483,32 @@ Vec_IntFree.exit:                                 ; preds = %.split12, %22
   %27 = getelementptr inbounds ptr, ptr %.val17.val.val.val, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr null, ptr %29, align 8, !tbaa !50
+  store ptr null, ptr %29, align 8, !tbaa !51
   %30 = load ptr, ptr %27, align 8, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !59
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
   %.not.i23 = icmp eq ptr %32, null
   br i1 %.not.i23, label %Min_CoverRecycle.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntFree.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !49
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %36
 
 36:                                               ; preds = %36, %.lr.ph.i
   %.0914.i = phi ptr [ %32, %.lr.ph.i ], [ %.015.i, %36 ]
-  %.015.i = load ptr, ptr %.0914.i, align 8, !tbaa !61
-  %37 = load ptr, ptr %35, align 8, !tbaa !63
+  %.015.i = load ptr, ptr %.0914.i, align 8, !tbaa !62
+  %37 = load ptr, ptr %35, align 8, !tbaa !64
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %37, ptr noundef nonnull %.0914.i) #9
   %.not12.i = icmp eq ptr %.015.i, null
-  br i1 %.not12.i, label %Min_CoverRecycle.exit.loopexit, label %36, !llvm.loop !67
+  br i1 %.not12.i, label %Min_CoverRecycle.exit.loopexit, label %36, !llvm.loop !68
 
 Min_CoverRecycle.exit.loopexit:                   ; preds = %36
-  %.val21.pre = load ptr, ptr %1, align 8, !tbaa !57
-  %.val22.pre = load i32, ptr %5, align 8, !tbaa !54
+  %.val21.pre = load ptr, ptr %1, align 8, !tbaa !58
+  %.val22.pre = load i32, ptr %5, align 8, !tbaa !55
   %.phi.trans.insert = getelementptr i8, ptr %.val21.pre, i64 272
-  %.val21.val.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !58
+  %.val21.val.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   %.phi.trans.insert27 = getelementptr i8, ptr %.val21.val.pre, i64 24
   %.val21.val.val.pre = load ptr, ptr %.phi.trans.insert27, align 8, !tbaa !44
   %.phi.trans.insert29 = getelementptr i8, ptr %.val21.val.val.pre, i64 8
@@ -522,12 +522,12 @@ Min_CoverRecycle.exit:                            ; preds = %Min_CoverRecycle.ex
   %.pre-phi = phi i64 [ %.phi.trans.insert31, %Min_CoverRecycle.exit.loopexit ], [ %26, %Vec_IntFree.exit ]
   %38 = phi ptr [ %.pre, %Min_CoverRecycle.exit.loopexit ], [ %30, %Vec_IntFree.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr null, ptr %39, align 8, !tbaa !59
+  store ptr null, ptr %39, align 8, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %41 = load i32, ptr %40, align 8, !tbaa !68
+  %41 = load i32, ptr %40, align 8, !tbaa !69
   %42 = add nsw i32 %41, -1
-  store i32 %42, ptr %40, align 8, !tbaa !68
-  %43 = load ptr, ptr %3, align 8, !tbaa !53
+  store i32 %42, ptr %40, align 8, !tbaa !69
+  %43 = load ptr, ptr %3, align 8, !tbaa !54
   %44 = getelementptr i8, ptr %43, i64 8
   %.val13 = load ptr, ptr %44, align 8, !tbaa !18
   %45 = getelementptr inbounds i32, ptr %.val13, i64 %.pre-phi
@@ -605,26 +605,27 @@ attributes #9 = { nounwind }
 !43 = !{!40, !9, i64 8}
 !44 = !{!4, !10, i64 24}
 !45 = !{!9, !9, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!4, !11, i64 40}
-!50 = !{!51, !8, i64 24}
-!51 = !{!"Cov_Obj_t_", !6, i64 0, !8, i64 24}
-!52 = distinct !{!52, !47}
-!53 = !{!4, !8, i64 16}
-!54 = !{!55, !5, i64 16}
-!55 = !{!"Abc_Obj_t_", !30, i64 0, !56, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !15, i64 24, !15, i64 40, !6, i64 56, !6, i64 64}
-!56 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
-!57 = !{!55, !30, i64 0}
-!58 = !{!27, !9, i64 272}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS11Min_Cube_t_", !9, i64 0}
-!61 = !{!62, !60, i64 0}
-!62 = !{!"Min_Cube_t_", !60, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !6, i64 12}
-!63 = !{!64, !65, i64 8}
-!64 = !{!"Min_Man_t_", !5, i64 0, !5, i64 4, !65, i64 8, !60, i64 16, !60, i64 24, !6, i64 32, !6, i64 48, !60, i64 64, !60, i64 72, !5, i64 80, !66, i64 88}
-!65 = !{!"p1 _ZTS16Extra_MmFixed_t_", !9, i64 0}
-!66 = !{!"p2 _ZTS11Min_Cube_t_", !9, i64 0}
-!67 = distinct !{!67, !47}
-!68 = !{!4, !5, i64 104}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!4, !11, i64 40}
+!51 = !{!52, !8, i64 24}
+!52 = !{!"Cov_Obj_t_", !6, i64 0, !8, i64 24}
+!53 = distinct !{!53, !47, !48}
+!54 = !{!4, !8, i64 16}
+!55 = !{!56, !5, i64 16}
+!56 = !{!"Abc_Obj_t_", !30, i64 0, !57, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !15, i64 24, !15, i64 40, !6, i64 56, !6, i64 64}
+!57 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
+!58 = !{!56, !30, i64 0}
+!59 = !{!27, !9, i64 272}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS11Min_Cube_t_", !9, i64 0}
+!62 = !{!63, !61, i64 0}
+!63 = !{!"Min_Cube_t_", !61, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !6, i64 12}
+!64 = !{!65, !66, i64 8}
+!65 = !{!"Min_Man_t_", !5, i64 0, !5, i64 4, !66, i64 8, !61, i64 16, !61, i64 24, !6, i64 32, !6, i64 48, !61, i64 64, !61, i64 72, !5, i64 80, !67, i64 88}
+!66 = !{!"p1 _ZTS16Extra_MmFixed_t_", !9, i64 0}
+!67 = !{!"p2 _ZTS11Min_Cube_t_", !9, i64 0}
+!68 = distinct !{!68, !47, !48}
+!69 = !{!4, !5, i64 104}

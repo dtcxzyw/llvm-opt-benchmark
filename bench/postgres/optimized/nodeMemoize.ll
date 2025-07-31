@@ -157,7 +157,7 @@ define dso_local noundef ptr @ExecInitMemoize(ptr noundef %0, ptr noundef %1, i3
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  %78 = load i8, ptr %77, align 8, !range !6, !noundef !7
+  %78 = load i8, ptr %77, align 8, !range !7, !noundef !8
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 352
   store i8 %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -165,7 +165,7 @@ define dso_local noundef ptr @ExecInitMemoize(ptr noundef %0, ptr noundef %1, i3
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %84 = load i8, ptr %83, align 1, !range !6, !noundef !7
+  %84 = load i8, ptr %83, align 1, !range !7, !noundef !8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 353
   store i8 %84, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 360
@@ -184,7 +184,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !8
+  br i1 %.not, label %6, label %5, !prof !9
 
 5:                                                ; preds = %1
   tail call void @ProcessInterrupts() #10
@@ -208,7 +208,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %20, !prof !9
+  br i1 %14, label %15, label %20, !prof !10
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -259,7 +259,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   store i64 %46, ptr %48, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %prepare_probe_slot.exit.i, label %38, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %prepare_probe_slot.exit.i, label %38, !llvm.loop !11
 
 prepare_probe_slot.exit.i:                        ; preds = %38, %20
   store ptr %33, ptr @CurrentMemoryContext, align 8
@@ -275,7 +275,7 @@ prepare_probe_slot.exit.i:                        ; preds = %38, %20
   %.pre.i.i = load i32, ptr %53, align 8
   %.pre86.i.i = load i32, ptr %54, align 8
   %57 = icmp ult i32 %.pre.i.i, %.pre86.i.i
-  br i1 %57, label %130, label %prepare_probe_slot.exit._crit_edge.i, !prof !8
+  br i1 %57, label %130, label %prepare_probe_slot.exit._crit_edge.i, !prof !9
 
 prepare_probe_slot.exit._crit_edge.i:             ; preds = %prepare_probe_slot.exit.i
   %.pre.i = load i64, ptr %50, align 8
@@ -289,7 +289,7 @@ prepare_probe_slot.exit._crit_edge.i:             ; preds = %prepare_probe_slot.
 59:                                               ; preds = %.loopexit.loopexit.i.i.i, %prepare_probe_slot.exit._crit_edge.i
   %60 = phi i64 [ %.pre.i, %prepare_probe_slot.exit._crit_edge.i ], [ %58, %.loopexit.loopexit.i.i.i ]
   %61 = icmp eq i64 %60, 4294967296
-  br i1 %61, label %62, label %65, !prof !9
+  br i1 %61, label %62, label %65, !prof !10
 
 62:                                               ; preds = %59
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -310,7 +310,7 @@ prepare_probe_slot.exit._crit_edge.i:             ; preds = %prepare_probe_slot.
   %.0.i.i.i44.i = select i1 %70, i64 %68, i64 %73
   %74 = mul i64 %.0.i.i.i44.i, 24
   %75 = icmp ugt i64 %74, 9223372036854775806
-  br i1 %75, label %76, label %memoize_compute_size.exit.i.i, !prof !9
+  br i1 %75, label %76, label %memoize_compute_size.exit.i.i, !prof !10
 
 76:                                               ; preds = %65
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -332,7 +332,7 @@ memoize_compute_size.exit.i.i:                    ; preds = %65
   %.0.i.i.i.i.i = select i1 %82, i64 %.0.i.i.i44.i, i64 %85
   %86 = mul i64 %.0.i.i.i.i.i, 24
   %87 = icmp ugt i64 %86, 9223372036854775806
-  br i1 %87, label %88, label %memoize_update_parameters.exit.i.i, !prof !9
+  br i1 %87, label %88, label %memoize_update_parameters.exit.i.i, !prof !10
 
 88:                                               ; preds = %memoize_compute_size.exit.i.i
   %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -375,7 +375,7 @@ memoize_update_parameters.exit.i.i:               ; preds = %memoize_compute_siz
   %106 = add i32 %.064.i.i, 1
   %107 = zext i32 %106 to i64
   %108 = icmp ugt i64 %60, %107
-  br i1 %108, label %.lr.ph.i47.i, label %.lr.ph71.i.i.preheader, !llvm.loop !11
+  br i1 %108, label %.lr.ph.i47.i, label %.lr.ph71.i.i.preheader, !llvm.loop !12
 
 .lr.ph71.i.i.preheader:                           ; preds = %105, %101, %.lr.ph.i47.i
   %.05169.i.i.ph = phi i32 [ %.064.i.i, %.lr.ph.i47.i ], [ %.064.i.i, %101 ], [ 0, %105 ]
@@ -406,7 +406,7 @@ memoize_update_parameters.exit.i.i:               ; preds = %memoize_compute_siz
   %120 = load i8, ptr %119, align 4
   %121 = icmp eq i8 %120, 0
   %122 = add i32 %.048.i.i, 1
-  br i1 %121, label %123, label %116
+  br i1 %121, label %123, label %116, !llvm.loop !13
 
 123:                                              ; preds = %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(24) %110, i64 24, i1 false)
@@ -420,7 +420,7 @@ memoize_update_parameters.exit.i.i:               ; preds = %memoize_compute_siz
   %127 = add i32 %.170.i.i, 1
   %128 = zext i32 %127 to i64
   %129 = icmp ugt i64 %60, %128
-  br i1 %129, label %.lr.ph71.i.i, label %memoize_grow.exit.i, !llvm.loop !12
+  br i1 %129, label %.lr.ph71.i.i, label %memoize_grow.exit.i, !llvm.loop !14
 
 memoize_grow.exit.i:                              ; preds = %124, %memoize_update_parameters.exit.i.i
   tail call void @pfree(ptr noundef %67) #10
@@ -505,7 +505,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %151, %149
   %.080.i33.i.i = phi i32 [ %163, %.preheader14.i.i.i ], [ 0, %.preheader14.i.preheader.i.i ]
   %163 = add i32 %.080.i33.i.i, 1
   %164 = icmp sgt i32 %163, 150
-  br i1 %164, label %165, label %.preheader14.i.i.i, !prof !9
+  br i1 %164, label %165, label %.preheader14.i.i.i, !prof !10
 
 165:                                              ; preds = %.lr.ph34.i.i
   %166 = load i32, ptr %53, align 8
@@ -543,7 +543,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %151, %149
   %181 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %131, i64 %180
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.28642.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %181, i64 24, i1 false)
   %.not95.i.i.i = icmp eq i32 %179, %.078.i27.i.i
-  br i1 %.not95.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not95.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %182 = load i32, ptr %53, align 8
@@ -557,7 +557,7 @@ memoize_distance.exit.i.i.i:                      ; preds = %151, %149
 184:                                              ; preds = %memoize_distance.exit.i.i.i
   %185 = add i32 %.090.i26.i.i, 1
   %186 = icmp ugt i32 %185, 25
-  br i1 %186, label %187, label %194, !prof !9
+  br i1 %186, label %187, label %194, !prof !10
 
 187:                                              ; preds = %184
   %188 = load i32, ptr %53, align 8
@@ -671,7 +671,7 @@ dlist_push_tail.exit.i:                           ; preds = %245, %218
 
 254:                                              ; preds = %dlist_push_tail.exit.i
   %255 = tail call fastcc zeroext i1 @cache_reduce_memory(ptr noundef nonnull %0, ptr noundef nonnull %222)
-  br i1 %255, label %256, label %.loopexit, !prof !8
+  br i1 %255, label %256, label %.loopexit, !prof !9
 
 256:                                              ; preds = %254
   %257 = getelementptr inbounds nuw i8, ptr %.ph.i, i64 20
@@ -770,11 +770,11 @@ prepare_probe_slot.exit40.i:                      ; preds = %278, %261
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 20
   %317 = load i8, ptr %316, align 4
   %318 = icmp eq i8 %317, 0
-  br i1 %318, label %.loopexit, label %.lr.ph.i.i43.i
+  br i1 %318, label %.loopexit, label %.lr.ph.i.i43.i, !llvm.loop !16
 
 cache_lookup.exit:                                ; preds = %dlist_push_tail.exit.i.i, %200
   %319 = getelementptr inbounds nuw i8, ptr %142, i64 21
-  %320 = load i8, ptr %319, align 1, !range !6, !noundef !7
+  %320 = load i8, ptr %319, align 1, !range !7, !noundef !8
   %321 = trunc nuw i8 %320 to i1
   %322 = getelementptr inbounds nuw i8, ptr %142, i64 8
   br i1 %321, label %323, label %341
@@ -836,7 +836,7 @@ cache_lookup.exit:                                ; preds = %dlist_push_tail.exi
   tail call void @pfree(ptr noundef nonnull %348) #10
   tail call void @pfree(ptr noundef nonnull %.014.i) #10
   %.not.i90 = icmp eq ptr %347, null
-  br i1 %.not.i90, label %entry_purge_tuples.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i90, label %entry_purge_tuples.exit, label %.lr.ph.i, !llvm.loop !17
 
 entry_purge_tuples.exit:                          ; preds = %.lr.ph.i, %341
   %.011.lcssa.i = phi i64 [ 0, %341 ], [ %352, %.lr.ph.i ]
@@ -877,7 +877,7 @@ ExecProcNode.exit:                                ; preds = %356, %361
 
 370:                                              ; preds = %366, %ExecProcNode.exit
   %.not88 = icmp eq ptr %.0.i100102, null
-  br i1 %.not88, label %373, label %371, !prof !9
+  br i1 %.not88, label %373, label %371, !prof !10
 
 371:                                              ; preds = %370
   %372 = getelementptr inbounds nuw i8, ptr %.0.i100102, i64 21
@@ -896,7 +896,7 @@ ExecProcNode.exit:                                ; preds = %356, %361
 
 377:                                              ; preds = %374
   %378 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef %364)
-  br i1 %378, label %382, label %.critedge, !prof !8
+  br i1 %378, label %382, label %.critedge, !prof !9
 
 .critedge:                                        ; preds = %374, %377
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -907,7 +907,7 @@ ExecProcNode.exit:                                ; preds = %356, %361
 
 382:                                              ; preds = %377
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %384 = load i8, ptr %383, align 8, !range !6, !noundef !7
+  %384 = load i8, ptr %383, align 8, !range !7, !noundef !8
   %385 = getelementptr inbounds nuw i8, ptr %.0.i100102, i64 21
   store i8 %384, ptr %385, align 1
   br label %386
@@ -980,9 +980,9 @@ ExecProcNode.exit93:                              ; preds = %405, %412
 
 423:                                              ; preds = %417
   %424 = getelementptr inbounds nuw i8, ptr %407, i64 21
-  %425 = load i8, ptr %424, align 1, !range !6, !noundef !7
+  %425 = load i8, ptr %424, align 1, !range !7, !noundef !8
   %426 = trunc nuw i8 %425 to i1
-  br i1 %426, label %427, label %430, !prof !9
+  br i1 %426, label %427, label %430, !prof !10
 
 427:                                              ; preds = %423
   %428 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -993,7 +993,7 @@ ExecProcNode.exit93:                              ; preds = %405, %412
 
 430:                                              ; preds = %423
   %431 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef %415)
-  br i1 %431, label %436, label %432, !prof !8
+  br i1 %431, label %436, label %432, !prof !9
 
 432:                                              ; preds = %430
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1380,7 +1380,7 @@ define internal fastcc void @build_hash_table(ptr noundef %0, i32 noundef %1) un
   %.0.i.i.i = select i1 %16, i64 %14, i64 %19
   %20 = mul i64 %.0.i.i.i, 24
   %21 = icmp ugt i64 %20, 9223372036854775806
-  br i1 %21, label %22, label %memoize_compute_size.exit.i, !prof !9
+  br i1 %21, label %22, label %memoize_compute_size.exit.i, !prof !10
 
 22:                                               ; preds = %2
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1401,7 +1401,7 @@ memoize_compute_size.exit.i:                      ; preds = %2
   %.0.i.i.i.i = select i1 %28, i64 %.0.i.i.i, i64 %31
   %32 = mul i64 %.0.i.i.i.i, 24
   %33 = icmp ugt i64 %32, 9223372036854775806
-  br i1 %33, label %34, label %memoize_create.exit, !prof !9
+  br i1 %33, label %34, label %memoize_create.exit, !prof !10
 
 34:                                               ; preds = %memoize_compute_size.exit.i
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1547,7 +1547,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef capture
   store i64 %73, ptr %75, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %65, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %65, !llvm.loop !11
 
 76:                                               ; preds = %43
   %77 = load ptr, ptr %36, align 8
@@ -1631,7 +1631,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 20
   %126 = load i8, ptr %125, align 4
   %127 = icmp eq i8 %126, 0
-  br i1 %127, label %.critedge.sink.split, label %.lr.ph.i.i
+  br i1 %127, label %.critedge.sink.split, label %.lr.ph.i.i, !llvm.loop !16
 
 .critedge.sink.split:                             ; preds = %116, %119, %prepare_probe_slot.exit
   %.sink = phi ptr [ null, %prepare_probe_slot.exit ], [ %112, %116 ], [ null, %119 ]
@@ -1763,7 +1763,7 @@ prepare_probe_slot.exit:                          ; preds = %20, %38
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @ExecStoreMinimalTuple(ptr noundef %.val21.i.i, ptr noundef %72, i1 noundef zeroext false) #10
   %76 = getelementptr inbounds nuw i8, ptr %.val20.i.i, i64 353
-  %77 = load i8, ptr %76, align 1, !range !6, !noundef !7
+  %77 = load i8, ptr %76, align 1, !range !7, !noundef !8
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %132
 
@@ -1821,10 +1821,10 @@ memoize_lookup.exit.thread44:                     ; preds = %slot_getallattrs.ex
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %107 = load ptr, ptr %101, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv.i
-  %109 = load i8, ptr %108, align 1, !range !6, !noundef !7
+  %109 = load i8, ptr %108, align 1, !range !7, !noundef !8
   %110 = load ptr, ptr %103, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 %indvars.iv.i
-  %112 = load i8, ptr %111, align 1, !range !6, !noundef !7
+  %112 = load i8, ptr %111, align 1, !range !7, !noundef !8
   %.not.i = icmp eq i8 %109, %112
   br i1 %.not.i, label %113, label %.thread.i
 
@@ -1843,7 +1843,7 @@ memoize_lookup.exit.thread44:                     ; preds = %slot_getallattrs.ex
   %123 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv.i
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 6
-  %126 = load i8, ptr %125, align 2, !range !6, !noundef !7
+  %126 = load i8, ptr %125, align 2, !range !7, !noundef !8
   %127 = trunc nuw i8 %126 to i1
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %129 = load i16, ptr %128, align 4
@@ -1854,7 +1854,7 @@ memoize_lookup.exit.thread44:                     ; preds = %slot_getallattrs.ex
 select.unfold.i:                                  ; preds = %115, %113
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %memoize_lookup.exit, label %106, !llvm.loop !15
+  br i1 %exitcond.not.i, label %memoize_lookup.exit, label %106, !llvm.loop !18
 
 .thread.i:                                        ; preds = %115, %106
   store ptr %84, ptr @CurrentMemoryContext, align 8
@@ -1903,7 +1903,7 @@ MemoizeHash_equal.exit:                           ; preds = %132
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %151 = load i8, ptr %150, align 4
   %152 = icmp eq i8 %151, 0
-  br i1 %152, label %.critedge, label %.lr.ph.i.i
+  br i1 %152, label %.critedge, label %.lr.ph.i.i, !llvm.loop !16
 
 memoize_lookup.exit:                              ; preds = %select.unfold.i
   store ptr %84, ptr @CurrentMemoryContext, align 8
@@ -1912,7 +1912,7 @@ memoize_lookup.exit:                              ; preds = %select.unfold.i
 memoize_lookup.exit.thread40:                     ; preds = %MemoizeHash_equal.exit, %memoize_lookup.exit, %memoize_lookup.exit.thread44, %MemoizeHash_equal.exit.thread
   %153 = load ptr, ptr %63, align 8
   %.not46 = icmp eq ptr %153, %21
-  br i1 %.not46, label %156, label %.critedge, !prof !8
+  br i1 %.not46, label %156, label %.critedge, !prof !9
 
 .critedge:                                        ; preds = %prepare_probe_slot.exit, %memoize_lookup.exit.thread40, %144
   %154 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1950,7 +1950,7 @@ memoize_lookup.exit.thread40:                     ; preds = %MemoizeHash_equal.e
   call void @pfree(ptr noundef nonnull %168) #10
   call void @pfree(ptr noundef nonnull %.014.i.i) #10
   %.not.i.i = icmp eq ptr %167, null
-  br i1 %.not.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i35, !llvm.loop !14
+  br i1 %.not.i.i, label %entry_purge_tuples.exit.i, label %.lr.ph.i.i35, !llvm.loop !17
 
 entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   %.011.lcssa.i.i = phi i64 [ 0, %156 ], [ %172, %.lr.ph.i.i35 ]
@@ -2012,7 +2012,7 @@ entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 20
   %211 = load i8, ptr %210, align 4
   %.not.i11.i = icmp eq i8 %211, 1
-  br i1 %.not.i11.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
+  br i1 %.not.i11.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit, !llvm.loop !19
 
 remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %204, %entry_purge_tuples.exit.i
   %.025.lcssa.sink.i.i = phi ptr [ %63, %entry_purge_tuples.exit.i ], [ %199, %204 ], [ %.02537.i.i, %.lr.ph.i10.i ]
@@ -2025,7 +2025,7 @@ remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %204,
   %215 = load i64, ptr %4, align 8
   %216 = load i64, ptr %18, align 8
   %.not34 = icmp ugt i64 %215, %216
-  br i1 %.not34, label %19, label %217
+  br i1 %.not34, label %19, label %217, !llvm.loop !20
 
 217:                                              ; preds = %remove_cache_entry.exit, %19
   %.129 = phi i64 [ %214, %remove_cache_entry.exit ], [ %.028, %19 ]
@@ -2054,7 +2054,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.40.val, i64 353
-  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %.preheader, label %39
 
@@ -2075,7 +2075,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %18 = tail call noundef i32 @llvm.fshl.i32(i32 %.05, i32 %.05, i32 1)
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv10
-  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %38, label %23
 
@@ -2087,7 +2087,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv10
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 6
-  %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
   %32 = trunc nuw i8 %31 to i1
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %34 = load i16, ptr %33, align 4
@@ -2100,7 +2100,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %.1 = phi i32 [ %18, %17 ], [ %37, %23 ]
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count13
-  br i1 %exitcond14.not, label %.loopexit, label %17, !llvm.loop !16
+  br i1 %exitcond14.not, label %.loopexit, label %17, !llvm.loop !21
 
 39:                                               ; preds = %0
   %40 = getelementptr inbounds nuw i8, ptr %.40.val, i64 280
@@ -2122,7 +2122,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %48 = tail call noundef i32 @llvm.fshl.i32(i32 %.33, i32 %.33, i32 1)
   %49 = load ptr, ptr %45, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1, !range !6, !noundef !7
+  %51 = load i8, ptr %50, align 1, !range !7, !noundef !8
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %63, label %53
 
@@ -2142,7 +2142,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   %.4 = phi i32 [ %48, %47 ], [ %62, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !22
 
 .loopexit:                                        ; preds = %63, %38, %39, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.4, %63 ]
@@ -2173,7 +2173,7 @@ define internal fastcc zeroext i1 @MemoizeHash_equal(ptr readonly captures(none)
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.0.val, ptr noundef %5, i1 noundef zeroext false) #10
   %9 = getelementptr inbounds nuw i8, ptr %.40.val, i64 353
-  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %65
 
@@ -2227,10 +2227,10 @@ slot_getallattrs.exit40:                          ; preds = %slot_getallattrs.ex
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   %40 = load ptr, ptr %34, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
+  %42 = load i8, ptr %41, align 1, !range !7, !noundef !8
   %43 = load ptr, ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %45 = load i8, ptr %44, align 1, !range !7, !noundef !8
   %.not = icmp eq i8 %42, %45
   br i1 %.not, label %46, label %.thread
 
@@ -2249,7 +2249,7 @@ slot_getallattrs.exit40:                          ; preds = %slot_getallattrs.ex
   %56 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  %59 = load i8, ptr %58, align 2, !range !6, !noundef !7
+  %59 = load i8, ptr %58, align 2, !range !7, !noundef !8
   %60 = trunc nuw i8 %59 to i1
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %62 = load i16, ptr %61, align 4
@@ -2260,7 +2260,7 @@ slot_getallattrs.exit40:                          ; preds = %slot_getallattrs.ex
 select.unfold:                                    ; preds = %48, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %39, !llvm.loop !15
+  br i1 %exitcond.not, label %.thread, label %39, !llvm.loop !18
 
 .thread:                                          ; preds = %select.unfold, %39, %48, %slot_getallattrs.exit40
   %.lcssa = phi i1 [ true, %slot_getallattrs.exit40 ], [ false, %48 ], [ false, %39 ], [ true, %select.unfold ]
@@ -2333,17 +2333,22 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}

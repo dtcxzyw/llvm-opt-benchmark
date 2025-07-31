@@ -542,7 +542,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   %.152 = phi i32 [ %55, %53 ], [ %.05162, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %58
   %59 = icmp sgt i32 %.152, 0
@@ -594,7 +594,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 76:                                               ; preds = %71, %75
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %77, label %71, !llvm.loop !9
+  br i1 %exitcond70.not, label %77, label %71, !llvm.loop !10
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr @object_access_hook, align 8
@@ -902,7 +902,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
 127:                                              ; preds = %.lr.ph, %126
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %127, %110
   %128 = load ptr, ptr @object_access_hook, align 8
@@ -997,7 +997,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
   %32 = load i32, ptr %7, align 4
   %33 = sext i32 %32 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %33
-  br i1 %.not.not, label %13, label %.critedge, !llvm.loop !11
+  br i1 %.not.not, label %13, label %.critedge, !llvm.loop !12
 
 .critedge.sink.split:                             ; preds = %27, %19, %4
   %.sink = phi ptr [ %5, %4 ], [ %10, %19 ], [ %10, %27 ]
@@ -1329,7 +1329,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   store i64 %115, ptr %116, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %104
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
@@ -1464,7 +1464,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 174:                                              ; preds = %.lr.ph135, %173
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
-  br i1 %exitcond142.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !13
+  br i1 %exitcond142.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !14
 
 ._crit_edge136:                                   ; preds = %174, %159
   %175 = load ptr, ptr @object_access_hook, align 8
@@ -1711,11 +1711,12 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

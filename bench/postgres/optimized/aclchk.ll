@@ -816,7 +816,7 @@ objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %
   %275 = load i32, ptr %236, align 4
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next107, %276
-  br i1 %277, label %240, label %.critedge60, !llvm.loop !10
+  br i1 %277, label %240, label %.critedge60, !llvm.loop !11
 
 .critedge60:                                      ; preds = %273, %235, %234
   call fastcc void @ExecGrantStmt_oids(ptr noundef %4)
@@ -1299,7 +1299,7 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   %158 = add i16 %.023.i.i, 1
   %159 = load i16, ptr %120, align 4
   %.not.i.i = icmp sgt i16 %158, %159
-  br i1 %.not.i.i, label %expand_all_col_privileges.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %expand_all_col_privileges.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 expand_all_col_privileges.exit.i:                 ; preds = %157, %131, %129, %119
   %.0126.i = phi i1 [ false, %119 ], [ false, %129 ], [ true, %131 ], [ true, %157 ]
@@ -1758,7 +1758,7 @@ ExecGrant_Attribute.exit.i:                       ; preds = %recordExtensionInit
   %374 = add i16 %.0210.i, 1
   %375 = sext i16 %374 to i32
   %376 = icmp sgt i32 %123, %375
-  br i1 %376, label %276, label %.loopexit.i, !llvm.loop !12
+  br i1 %376, label %276, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %373, %.critedge153.i
   call void @pfree(ptr noundef %173) #9
@@ -2432,7 +2432,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   %122 = load i32, ptr %90, align 4
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next189, %123
-  br i1 %124, label %94, label %.critedge100, !llvm.loop !13
+  br i1 %124, label %94, label %.critedge100, !llvm.loop !14
 
 .critedge100:                                     ; preds = %120, %89, %88
   %storemerge = phi i64 [ 0, %88 ], [ 0, %89 ], [ %121, %120 ]
@@ -2472,7 +2472,7 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
   %139 = load i32, ptr %126, align 4
   %140 = sext i32 %139 to i64
   %.not94.us = icmp slt i64 %indvars.iv.next195, %140
-  br i1 %.not94.us, label %.lr.ph167.split.us, label %.critedge102, !llvm.loop !14
+  br i1 %.not94.us, label %.lr.ph167.split.us, label %.critedge102, !llvm.loop !15
 
 141:                                              ; preds = %.critedge100
   %142 = tail call i32 @GetUserId() #9
@@ -2511,7 +2511,7 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
   %157 = load i32, ptr %144, align 4
   %158 = sext i32 %157 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %158
-  br i1 %.not.i, label %150, label %.critedge102, !llvm.loop !15
+  br i1 %.not.i, label %150, label %.critedge102, !llvm.loop !16
 
 .lr.ph167.split:                                  ; preds = %.lr.ph167, %SetDefaultACLsInSchemas.exit109
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %SetDefaultACLsInSchemas.exit109 ], [ 0, %.lr.ph167 ]
@@ -2551,14 +2551,14 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
   %175 = load i32, ptr %130, align 4
   %176 = sext i32 %175 to i64
   %.not.i108 = icmp slt i64 %indvars.iv.next.i107, %176
-  br i1 %.not.i108, label %.lr.ph.i105, label %SetDefaultACLsInSchemas.exit109, !llvm.loop !15
+  br i1 %.not.i108, label %.lr.ph.i105, label %SetDefaultACLsInSchemas.exit109, !llvm.loop !16
 
 SetDefaultACLsInSchemas.exit109:                  ; preds = %.lr.ph.i105, %.preheader.i103
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %177 = load i32, ptr %126, align 4
   %178 = sext i32 %177 to i64
   %.not94 = icmp slt i64 %indvars.iv.next192, %178
-  br i1 %.not94, label %.lr.ph167.split, label %.critedge102, !llvm.loop !16
+  br i1 %.not94, label %.lr.ph167.split, label %.critedge102, !llvm.loop !17
 
 .critedge102:                                     ; preds = %SetDefaultACLsInSchemas.exit109, %SetDefaultACLsInSchemas.exit109.us, %150, %.preheader, %148, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
@@ -4220,7 +4220,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
   %50 = add i16 %.03456.us, 1
   %.not41.us = icmp sgt i16 %50, %24
-  br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -4281,7 +4281,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
   %74 = add i16 %.03456.us60, 1
   %.not41.us67 = icmp sgt i16 %74, %24
-  br i1 %.not41.us67, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !18
+  br i1 %.not41.us67, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !19
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %98
   %.03357 = phi i32 [ %.2.ph, %98 ], [ 1, %.lr.ph.split ]
@@ -4352,7 +4352,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
   %99 = add i16 %.03456, 1
   %.not41 = icmp sgt i16 %99, %24
-  br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !19
+  br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %98, %73, %49, %15, %.split.us, %10
   %.032 = phi i32 [ 1, %10 ], [ %.us-phi, %.split.us ], [ 1, %15 ], [ 1, %49 ], [ %.2.ph.us66, %73 ], [ %.2.ph, %98 ]
@@ -5030,7 +5030,7 @@ define dso_local void @recordExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
   %45 = add i16 %.071, 1
   %46 = sext i16 %45 to i32
   %.not67 = icmp sgt i16 %45, %24
-  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %44, %22, %13
   %47 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %9, i16 noundef signext 31, ptr noundef nonnull %3) #9
@@ -5323,7 +5323,7 @@ define dso_local void @removeExtObjInitPriv(i32 noundef %0, i32 noundef %1) loca
   %26 = add i16 %.02437, 1
   %27 = sext i16 %26 to i32
   %.not32 = icmp sgt i16 %26, %20
-  br i1 %.not32, label %.split25, label %.lr.ph, !llvm.loop !21
+  br i1 %.not32, label %.split25, label %.lr.ph, !llvm.loop !22
 
 28:                                               ; preds = %10, %10, %10
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
@@ -5769,7 +5769,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
   br i1 %.not88, label %56, label %55
 
 55:                                               ; preds = %54
-  call void %3(ptr noundef nonnull %0, ptr noundef nonnull %49) #9, !callees !22
+  call void %3(ptr noundef nonnull %0, ptr noundef nonnull %49) #9, !callees !23
   br label %56
 
 56:                                               ; preds = %55, %54
@@ -6368,7 +6368,7 @@ define internal fastcc ptr @getRelationsInNamespace(i32 noundef %0, i8 noundef s
   %17 = call ptr @lappend_oid(ptr noundef %.011, i32 noundef %16) #9
   %18 = call ptr @heap_getnext(ptr noundef %8, i32 noundef 1) #9
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %17, %.lr.ph ]
@@ -6456,19 +6456,20 @@ attributes #12 = { noreturn nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = !{ptr @ExecGrant_Language_check, ptr @ExecGrant_Type_check}
-!23 = distinct !{!23, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10, !7}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10, !7}
+!19 = distinct !{!19, !9, !10, !7}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = !{ptr @ExecGrant_Language_check, ptr @ExecGrant_Type_check}
+!24 = distinct !{!24, !9, !10}

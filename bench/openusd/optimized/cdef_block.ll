@@ -102,7 +102,7 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
 64:                                               ; preds = %25
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 8
-  br i1 %exitcond125.not, label %.preheader92, label %.preheader93, !llvm.loop !6
+  br i1 %exitcond125.not, label %.preheader92, label %.preheader93, !llvm.loop !7
 
 65:                                               ; preds = %.preheader92, %65
   %indvars.iv126 = phi i64 [ 0, %.preheader92 ], [ %indvars.iv.next127, %65 ]
@@ -118,7 +118,7 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   %75 = add nuw nsw i32 %67, %74
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 8
-  br i1 %exitcond129.not, label %76, label %65, !llvm.loop !7
+  br i1 %exitcond129.not, label %76, label %65, !llvm.loop !8
 
 76:                                               ; preds = %65
   %77 = mul nuw nsw i32 %71, 105
@@ -155,7 +155,7 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   %102 = mul nsw i32 %101, %92
   %103 = add nsw i32 %102, %82
   %exitcond133.not = icmp eq i64 %indvars.iv.next131, 7
-  br i1 %exitcond133.not, label %104, label %80, !llvm.loop !8
+  br i1 %exitcond133.not, label %104, label %80, !llvm.loop !9
 
 104:                                              ; preds = %80
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -189,7 +189,7 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   %123 = add nsw i32 %118, %122
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 5
-  br i1 %exitcond137.not, label %124, label %117, !llvm.loop !9
+  br i1 %exitcond137.not, label %124, label %117, !llvm.loop !10
 
 124:                                              ; preds = %117
   %125 = mul nsw i32 %123, 105
@@ -214,13 +214,13 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   %141 = add nsw i32 %140, %127
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 3
-  br i1 %exitcond141.not, label %142, label %126, !llvm.loop !10
+  br i1 %exitcond141.not, label %142, label %126, !llvm.loop !11
 
 142:                                              ; preds = %126
   store i32 %141, ptr %116, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %143 = icmp samesign ult i64 %indvars.iv142, 6
-  br i1 %143, label %.preheader91, label %.preheader, !llvm.loop !11
+  br i1 %143, label %.preheader91, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %142, %.preheader
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.preheader ], [ 0, %142 ]
@@ -234,7 +234,7 @@ define hidden i32 @cdef_find_dir_c(ptr noundef readonly captures(none) %0, i32 n
   %spec.select89 = select i1 %146, i32 %147, i32 %.084112
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 8
-  br i1 %exitcond148.not, label %148, label %.preheader, !llvm.loop !12
+  br i1 %exitcond148.not, label %148, label %.preheader, !llvm.loop !13
 
 148:                                              ; preds = %.preheader
   %149 = xor i32 %spec.select89, 4
@@ -474,7 +474,7 @@ constrain.exit210:                                ; preds = %constrain.exit182, 
   %164 = mul nsw i32 %.0.i209, %124
   %165 = trunc i32 %164 to i16
   %166 = add i16 %163, %165
-  br i1 %54, label %53, label %167, !llvm.loop !13
+  br i1 %54, label %53, label %167, !llvm.loop !14
 
 167:                                              ; preds = %constrain.exit210
   %168 = sext i16 %166 to i32
@@ -504,12 +504,12 @@ constrain.exit210:                                ; preds = %constrain.exit182, 
 182:                                              ; preds = %178, %180
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count
-  br i1 %exitcond.not, label %183, label %45, !llvm.loop !14
+  br i1 %exitcond.not, label %183, label %45, !llvm.loop !15
 
 183:                                              ; preds = %182
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count229
-  br i1 %exitcond230.not, label %184, label %.preheader, !llvm.loop !15
+  br i1 %exitcond230.not, label %184, label %.preheader, !llvm.loop !16
 
 184:                                              ; preds = %183
   ret void
@@ -580,12 +580,12 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr align 2 %gep, i64 %30, i1 false)
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge180.us, label %44, !llvm.loop !16
+  br i1 %exitcond210.not, label %._crit_edge180.us, label %44, !llvm.loop !17
 
 ._crit_edge180.us:                                ; preds = %44
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
-  br i1 %exitcond215.not, label %.loopexit, label %.lr.ph179.us, !llvm.loop !17
+  br i1 %exitcond215.not, label %.loopexit, label %.lr.ph179.us, !llvm.loop !18
 
 51:                                               ; preds = %16
   switch i32 %9, label %.thread [
@@ -629,7 +629,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   store i32 %67, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   br i1 %24, label %70, label %.thread
@@ -667,7 +667,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   store i32 %85, ptr %81, align 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.thread.thread, label %73, !llvm.loop !20
+  br i1 %exitcond194.not, label %.thread.thread, label %73, !llvm.loop !21
 
 .thread.thread:                                   ; preds = %73
   %.not155217 = icmp eq i32 %5, 0
@@ -763,7 +763,7 @@ adjust_strength.exit166.us:                       ; preds = %122, %116
   tail call void @cdef_filter_block_c(ptr noundef null, ptr noundef %110, i32 noundef %96, ptr noundef %115, i32 noundef %134, i32 noundef %18, i32 noundef %142, i32 noundef %21, i32 noundef %21, i32 noundef %93, i32 noundef %15)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph176.split.us, !llvm.loop !21
+  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph176.split.us, !llvm.loop !22
 
 .lr.ph176.split:                                  ; preds = %.lr.ph176, %185
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %185 ], [ 0, %.lr.ph176 ]
@@ -830,7 +830,7 @@ adjust_strength.exit:                             ; preds = %160, %166
   tail call void @cdef_filter_block_c(ptr noundef nonnull %154, ptr noundef null, i32 noundef %2, ptr noundef %159, i32 noundef %178, i32 noundef %18, i32 noundef %186, i32 noundef %21, i32 noundef %21, i32 noundef %93, i32 noundef %15)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count203
-  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph176.split, !llvm.loop !22
+  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph176.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %185, %141, %._crit_edge180.us, %.lr.ph182, %.thread, %.preheader
   ret void
@@ -864,22 +864,23 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !18}
-!22 = distinct !{!22, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !19}
+!23 = distinct !{!23, !5, !6}

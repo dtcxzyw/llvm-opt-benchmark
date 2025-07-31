@@ -98,12 +98,12 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next122, %54
-  br i1 %55, label %.lr.ph.us, label %.loopexit103.us, !llvm.loop !19
+  br i1 %55, label %.lr.ph.us, label %.loopexit103.us, !llvm.loop !20
 
 .loopexit103:                                     ; preds = %77, %.lr.ph107.split
   %56 = phi i32 [ %61, %.lr.ph107.split ], [ %78, %77 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count127
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph107.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph107.split, !llvm.loop !21
 
 .lr.ph107.split:                                  ; preds = %.lr.ph107, %.loopexit103
   %57 = phi i32 [ %56, %.loopexit103 ], [ %.pre146, %.lr.ph107 ]
@@ -146,7 +146,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.loopexit103, !llvm.loop !21
+  br i1 %80, label %.lr.ph, label %.loopexit103, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit103, %.loopexit103.us
   %81 = tail call double @cs_cumsum(ptr noundef %30, ptr noundef nonnull %25, i32 noundef %10) #3
@@ -181,7 +181,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 
 .loopexit.us:                                     ; preds = %113, %86
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.sink.split, label %.lr.ph113.split.us, !llvm.loop !22
+  br i1 %exitcond144.not, label %.sink.split, label %.lr.ph113.split.us, !llvm.loop !23
 
 .lr.ph110.us:                                     ; preds = %.lr.ph110.us.preheader, %113
   %94 = phi i32 [ %91, %.lr.ph110.us.preheader ], [ %114, %113 ]
@@ -220,11 +220,11 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next138, %115
-  br i1 %116, label %.lr.ph110.us, label %.loopexit.us, !llvm.loop !23
+  br i1 %116, label %.lr.ph110.us, label %.loopexit.us, !llvm.loop !24
 
 .loopexit:                                        ; preds = %151, %121
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count143
-  br i1 %exitcond136.not, label %.sink.split, label %.lr.ph113.split, !llvm.loop !24
+  br i1 %exitcond136.not, label %.sink.split, label %.lr.ph113.split, !llvm.loop !25
 
 .lr.ph113.split:                                  ; preds = %._crit_edge, %.loopexit
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.loopexit ], [ 0, %._crit_edge ]
@@ -280,9 +280,9 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %147 = getelementptr inbounds i32, ptr %32, i64 %146
   store i32 %140, ptr %147, align 4, !tbaa !15
   %148 = getelementptr inbounds double, ptr %16, i64 %indvars.iv129
-  %149 = load double, ptr %148, align 8, !tbaa !25
+  %149 = load double, ptr %148, align 8, !tbaa !26
   %150 = getelementptr inbounds double, ptr %.fr, i64 %146
-  store double %149, ptr %150, align 8, !tbaa !25
+  store double %149, ptr %150, align 8, !tbaa !26
   %.pre148 = load i32, ptr %125, align 4, !tbaa !15
   br label %151
 
@@ -291,7 +291,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next130, %153
-  br i1 %154, label %.lr.ph110, label %.loopexit, !llvm.loop !27
+  br i1 %154, label %.lr.ph110, label %.loopexit, !llvm.loop !28
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.us, %._crit_edge.thread, %8
   %.sink = phi i32 [ 0, %8 ], [ 1, %._crit_edge.thread ], [ 1, %.loopexit.us ], [ 1, %.loopexit ]
@@ -340,15 +340,16 @@ attributes #3 = { nounwind }
 !13 = !{!4, !8, i64 24}
 !14 = !{!4, !10, i64 32}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17, !18, !19}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !17, !18, !19}
+!21 = distinct !{!21, !17, !18}
 !22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"double", !6, i64 0}
-!27 = distinct !{!27, !17}
+!23 = distinct !{!23, !17, !18, !19}
+!24 = distinct !{!24, !17, !18, !19}
+!25 = distinct !{!25, !17, !18}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"double", !6, i64 0}
+!28 = distinct !{!28, !17, !18}

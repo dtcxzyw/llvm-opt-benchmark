@@ -193,7 +193,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %79, label %80, label %.split.loop.exit
 
 80:                                               ; preds = %.preheader
-  br i1 %76, label %.preheader, label %.split.loop.exit265, !llvm.loop !25
+  br i1 %76, label %.preheader, label %.split.loop.exit265, !llvm.loop !26
 
 .split.loop.exit:                                 ; preds = %.preheader
   %81 = trunc nuw nsw i64 %indvars.iv to i32
@@ -238,7 +238,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 102:                                              ; preds = %93, %96
   %103 = phi double [ %94, %93 ], [ %101, %96 ]
-  br i1 %95, label %93, label %88, !llvm.loop !26
+  br i1 %95, label %93, label %88, !llvm.loop !27
 
 104:                                              ; preds = %88, %58, %10
   ret void
@@ -298,7 +298,8 @@ attributes #7 = { nounwind }
 !20 = !{!18, !18, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"int", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}

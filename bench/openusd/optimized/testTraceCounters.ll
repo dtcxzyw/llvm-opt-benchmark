@@ -3109,7 +3109,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %61 = xor i64 %60, %35
   %62 = icmp ult i64 %61, 8
   %63 = select i1 %58, i1 %62, i1 false
-  br i1 %63, label %.loopexit22, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %63, label %.loopexit22, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %45, %56
   %.018.i.i.i.i = phi ptr [ %64, %56 ], [ %46, %45 ]
@@ -3122,10 +3122,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %67, %40
   %.not17.i.i.i.i = icmp eq i64 %68, %41
-  br i1 %.not17.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !8
+  br i1 %.not17.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !9
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %65
-  br label %.loopexit, !llvm.loop !8
+  br label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %26, %33, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -3422,7 +3422,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_18Trace
 63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %65 = load i64, ptr %64, align 8, !noalias !9
+  %65 = load i64, ptr %64, align 8, !noalias !10
   %66 = and i64 %65, 7
   %.not.i.i.i = icmp eq i64 %66, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv.exit, label %67
@@ -3430,7 +3430,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_18Trace
 67:                                               ; preds = %63
   %68 = and i64 %65, -8
   %69 = inttoptr i64 %68 to ptr
-  %70 = atomicrmw add ptr %69, i32 2 monotonic, align 4, !noalias !9
+  %70 = atomicrmw add ptr %69, i32 2 monotonic, align 4, !noalias !10
   %71 = and i32 %70, 1
   %.not1.i.i.i = icmp eq i32 %71, 0
   %72 = select i1 %.not1.i.i.i, i64 %68, i64 %65
@@ -3702,7 +3702,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %34 = ptrtoint ptr %33 to i64
   %35 = xor i64 %34, %27
   %36 = icmp ult i64 %35, 8
-  br i1 %36, label %.loopexit53, label %30, !llvm.loop !12
+  br i1 %36, label %.loopexit53, label %30, !llvm.loop !13
 
 37:                                               ; preds = %23
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -3739,7 +3739,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %64 = xor i64 %63, %27
   %65 = icmp ult i64 %64, 8
   %66 = select i1 %61, i1 %65, i1 false
-  br i1 %66, label %.loopexit53, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %66, label %.loopexit53, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
 .lr.ph.i.i.i.i:                                   ; preds = %48, %59
   %.018.i.i.i.i = phi ptr [ %67, %59 ], [ %49, %48 ]
@@ -3752,10 +3752,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %70 = load i64, ptr %69, align 8
   %71 = urem i64 %70, %43
   %.not17.i.i.i.i = icmp eq i64 %71, %44
-  br i1 %.not17.i.i.i.i, label %59, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !13
+  br i1 %.not17.i.i.i.i, label %59, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !14
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %68
-  br label %.loopexit, !llvm.loop !13
+  br label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %30, %37, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -3823,7 +3823,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.029.061, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.026.060, i64 16
   %.not = icmp eq ptr %96, %81
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 97:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13TraceReporterEE13_FetchPointerEv.exit.thread.i, %20
   %98 = landingpad { ptr, i32 }
@@ -4098,11 +4098,13 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv: argument 0"}
-!11 = distinct !{!11, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv: argument 0"}
+!12 = distinct !{!12, !"_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}

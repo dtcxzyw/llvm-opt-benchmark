@@ -346,5 +346,6 @@ attributes #6 = { builtin nounwind }
 !18 = !{!19, !20, i64 0}
 !19 = !{!"_ZTSN5zxing3RefINS_6qrcode16AlignmentPatternEEE", !20, i64 0}
 !20 = !{!"p1 _ZTSN5zxing6qrcode16AlignmentPatternE", !13, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!"llvm.loop.estimated_trip_count"}

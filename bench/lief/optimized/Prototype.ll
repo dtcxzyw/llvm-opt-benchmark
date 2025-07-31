@@ -478,5 +478,6 @@ attributes #13 = { builtin nounwind }
 !24 = distinct !{!24, !25, !"_ZNK4LIEF3DEX9Prototype15parameters_typeEv: argument 0"}
 !25 = distinct !{!25, !"_ZNK4LIEF3DEX9Prototype15parameters_typeEv"}
 !26 = !{!9, !9, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!"llvm.loop.estimated_trip_count"}

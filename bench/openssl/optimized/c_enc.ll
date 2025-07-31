@@ -1341,7 +1341,7 @@ define void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   store i8 %245, ptr %244, align 1, !tbaa !9
   %.1 = add nsw i64 %.1274, -8
   %247 = icmp samesign ugt i64 %.1274, 7
-  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !12
+  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !13
 
 ._crit_edge277:                                   ; preds = %184, %182
   %.1248.lcssa = phi ptr [ %1, %182 ], [ %246, %184 ]
@@ -1518,6 +1518,7 @@ attributes #4 = { nounwind }
 !7 = !{!8, !4, i64 128}
 !8 = !{!"cast_key_st", !5, i64 0, !4, i64 128}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

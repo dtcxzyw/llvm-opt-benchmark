@@ -83,7 +83,7 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   %38 = load ptr, ptr %.355, align 8, !tbaa !21
   %39 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull %.355, i32 noundef 32) #1
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.loopexit, label %37, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %37, !llvm.loop !26
 
 40:                                               ; preds = %.thread, %13
   %41 = phi i32 [ %18, %.thread ], [ %8, %13 ]
@@ -143,6 +143,7 @@ attributes #1 = { nounwind }
 !20 = !{!11, !11, i64 0}
 !21 = !{!22, !11, i64 0}
 !22 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}

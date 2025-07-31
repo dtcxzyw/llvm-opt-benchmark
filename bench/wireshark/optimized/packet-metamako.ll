@@ -361,7 +361,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
   %74 = icmp ne i32 %.018817.i, 0
   %75 = or i1 %18, %74
   %.not220.i = select i1 %75, i1 true, i1 %.1213.i
-  br i1 %.not220.i, label %76, label %20, !llvm.loop !8
+  br i1 %.not220.i, label %76, label %20, !llvm.loop !9
 
 76:                                               ; preds = %validate_metamako_timestamp.exit.thread.i
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -418,7 +418,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
   %.not224.i = icmp eq i32 %105, 0
   %106 = add nuw nsw i32 %.pre-phi.i, 4
   %107 = sub i32 %.0201.i, %106
-  br i1 %.not224.i, label %108, label %97, !llvm.loop !9
+  br i1 %.not224.i, label %108, label %97, !llvm.loop !10
 
 108:                                              ; preds = %97
   %109 = or disjoint i32 %100, 3
@@ -489,7 +489,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
 147:                                              ; preds = %149
   %148 = add nuw nsw i32 %.018920.i, 1
   %exitcond35.not.i = icmp eq i32 %148, %.5.i.le
-  br i1 %exitcond35.not.i, label %.loopexit.i, label %149, !llvm.loop !10
+  br i1 %exitcond35.not.i, label %.loopexit.i, label %149, !llvm.loop !11
 
 149:                                              ; preds = %147, %143
   %.018920.i = phi i32 [ 0, %143 ], [ %148, %147 ]
@@ -508,7 +508,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
   %154 = add i32 %106, %.323.i
   %155 = add i32 %.421122.i, -1
   %.not221.i = icmp eq i32 %155, 0
-  br i1 %.not221.i, label %.loopexit3.i, label %96, !llvm.loop !11
+  br i1 %.not221.i, label %.loopexit3.i, label %96, !llvm.loop !12
 
 .loopexit3.i:                                     ; preds = %.loopexit.i, %89, %78
   %.2.i = phi i32 [ %88, %78 ], [ %88, %89 ], [ %154, %.loopexit.i ]
@@ -596,7 +596,7 @@ proto_item_set_generated.exit232.i:               ; preds = %185, %182, %proto_i
 
 204:                                              ; preds = %proto_item_set_generated.exit232.i
   %205 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %203)
-  %206 = load i8, ptr @metamako_check_fcs, align 1, !range !12, !noundef !13
+  %206 = load i8, ptr @metamako_check_fcs, align 1, !range !13, !noundef !14
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %218
 
@@ -715,11 +715,12 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}

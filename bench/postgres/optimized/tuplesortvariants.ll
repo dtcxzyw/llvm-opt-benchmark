@@ -203,7 +203,7 @@ define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %9, %3
   ret void
@@ -421,7 +421,7 @@ ApplySortComparator.exit.thread50:                ; preds = %66, %ApplySortCompa
   %86 = add nuw nsw i32 %.057, 1
   %87 = load i32, ptr %54, align 4
   %88 = icmp slt i32 %86, %87
-  br i1 %88, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !9
+  br i1 %88, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !10
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread50, %83, %ApplySortAbbrevFullComparator.exit.thread44, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
   %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
@@ -676,7 +676,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %93 = load i32, ptr %30, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %68, label %._crit_edge, !llvm.loop !10
+  br i1 %95, label %68, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %87, %59
   tail call void @pfree(ptr noundef %43) #12
@@ -711,7 +711,7 @@ define internal void @removeabbrev_cluster(ptr noundef readonly captures(none) %
   store i64 %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %8, %3
   ret void
@@ -959,7 +959,7 @@ ApplySortComparator.exit.thread106:               ; preds = %81, %ApplySortCompa
   %102 = load i32, ptr %66, align 4
   %103 = trunc nuw i64 %indvars.iv.next139 to i32
   %104 = icmp sgt i32 %102, %103
-  br i1 %104, label %.lr.ph128, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !12
+  br i1 %104, label %.lr.ph128, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !13
 
 105:                                              ; preds = %60
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
@@ -1074,7 +1074,7 @@ ApplySortComparator.exit94.thread114:             ; preds = %ApplySortComparator
   %160 = getelementptr inbounds nuw i8, ptr %.271125, i64 64
   %161 = trunc nuw i64 %indvars.iv.next to i32
   %.not86 = icmp sgt i32 %159, %161
-  br i1 %.not86, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %.not86, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 .thread:                                          ; preds = %ApplySortComparator.exit94, %156, %140, %145
   %.3.ph = phi i32 [ %.12.i92, %145 ], [ %..i93, %140 ], [ 1, %156 ], [ %.0.i91, %ApplySortComparator.exit94 ]
@@ -1374,7 +1374,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %74 = load i32, ptr %30, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %49, label %._crit_edge, !llvm.loop !14
+  br i1 %76, label %49, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %68, %24
   tail call void @pfree(ptr noundef %40) #12
@@ -1409,7 +1409,7 @@ define internal void @removeabbrev_index(ptr noundef readonly captures(none) %0,
   store i64 %15, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %8, %3
   ret void
@@ -1762,7 +1762,7 @@ ApplySortComparator.exit.thread104:               ; preds = %132, %ApplySortComp
   %spec.select82 = phi i8 [ 1, %132 ], [ %.163116, %ApplySortComparator.exit ]
   %152 = add i32 %.065115, 1
   %.not77 = icmp sgt i32 %152, %15
-  br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %ApplySortComparator.exit.thread104, %ApplySortAbbrevFullComparator.exit.thread98
   %.163.lcssa = phi i8 [ %125, %ApplySortAbbrevFullComparator.exit.thread98 ], [ %spec.select82, %ApplySortComparator.exit.thread104 ]
@@ -2166,7 +2166,7 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %60 = load i32, ptr %25, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %43, label %._crit_edge, !llvm.loop !17
+  br i1 %62, label %43, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %57, %19
   store ptr %9, ptr @CurrentMemoryContext, align 8
@@ -2231,7 +2231,7 @@ define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, pt
   store i64 %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2437,7 +2437,7 @@ define internal void @removeabbrev_datum(ptr readnone captures(none) %0, ptr nou
   store i64 %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3679,17 +3679,18 @@ attributes #13 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

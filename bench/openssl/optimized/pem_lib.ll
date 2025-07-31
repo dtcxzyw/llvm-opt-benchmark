@@ -252,11 +252,11 @@ define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
-  store ptr null, ptr %12, align 8, !tbaa !8
+  store ptr null, ptr %12, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
-  store ptr null, ptr %13, align 8, !tbaa !8
+  store ptr null, ptr %13, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
-  store i64 0, ptr %14, align 8, !tbaa !11
+  store i64 0, ptr %14, align 8, !tbaa !12
   %15 = and i32 %7, 1
   %.not.i = icmp eq i32 %15, 0
   br label %.backedge
@@ -267,18 +267,18 @@ define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef
 
 17:                                               ; preds = %.backedge
   call void @CRYPTO_secure_clear_free(ptr noundef %16, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 254) #10
-  %18 = load ptr, ptr %12, align 8, !tbaa !8
+  %18 = load ptr, ptr %12, align 8, !tbaa !9
   call void @CRYPTO_secure_clear_free(ptr noundef %18, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 255) #10
-  %19 = load ptr, ptr %13, align 8, !tbaa !8
-  %20 = load i64, ptr %14, align 8, !tbaa !11
+  %19 = load ptr, ptr %13, align 8, !tbaa !9
+  %20 = load i64, ptr %14, align 8, !tbaa !12
   call void @CRYPTO_secure_clear_free(ptr noundef %19, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 256) #10
   br label %pem_free.exit31
 
 21:                                               ; preds = %.backedge
   call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef 254) #10
-  %22 = load ptr, ptr %12, align 8, !tbaa !8
+  %22 = load ptr, ptr %12, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 255) #10
-  %23 = load ptr, ptr %13, align 8, !tbaa !8
+  %23 = load ptr, ptr %13, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 256) #10
   br label %pem_free.exit31
 
@@ -302,7 +302,7 @@ pem_free.exit31:                                  ; preds = %17, %21
   br label %pem_free.exit39
 
 31:                                               ; preds = %pem_free.exit31
-  %32 = load ptr, ptr %11, align 8, !tbaa !8
+  %32 = load ptr, ptr %11, align 8, !tbaa !9
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(1) %3) #9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %check_pem.exit.thread, label %35
@@ -350,7 +350,7 @@ ossl_pem_check_suffix.exit.i:                     ; preds = %51
 
 56:                                               ; preds = %ossl_pem_check_suffix.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 184
-  %58 = load ptr, ptr %57, align 8, !tbaa !13
+  %58 = load ptr, ptr %57, align 8, !tbaa !14
   %.not46.i = icmp eq ptr %58, null
   br i1 %.not46.i, label %.backedge.backedge, label %check_pem.exit.thread
 
@@ -391,13 +391,13 @@ ossl_pem_check_suffix.exit53.i:                   ; preds = %69
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.thread.i, %62, %65, %69, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %44, %123, %120, %check_pem.exit
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge, !llvm.loop !17
 
 check_pem.exit:                                   ; preds = %ossl_pem_check_suffix.exit53.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
-  %75 = load ptr, ptr %74, align 8, !tbaa !17
+  %75 = load ptr, ptr %74, align 8, !tbaa !18
   %.not44.i.not = icmp eq ptr %75, null
-  %76 = load ptr, ptr %9, align 8, !tbaa !18
+  %76 = load ptr, ptr %9, align 8, !tbaa !19
   %77 = call i32 @ENGINE_finish(ptr noundef %76) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br i1 %.not44.i.not, label %.backedge.backedge, label %check_pem.exit.thread
@@ -487,26 +487,26 @@ check_pem.exit:                                   ; preds = %ossl_pem_check_suff
   br i1 %125, label %check_pem.exit.thread, label %.backedge.backedge
 
 check_pem.exit.thread:                            ; preds = %123, %117, %113, %107, %103, %99, %93, %87, %81, %56, %41, %38, %31, %check_pem.exit
-  %126 = load ptr, ptr %12, align 8, !tbaa !8
+  %126 = load ptr, ptr %12, align 8, !tbaa !9
   %127 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %126, ptr noundef nonnull %10)
   %.not24 = icmp eq i32 %127, 0
   br i1 %.not24, label %.thread, label %128
 
 128:                                              ; preds = %check_pem.exit.thread
-  %129 = load ptr, ptr %13, align 8, !tbaa !8
+  %129 = load ptr, ptr %13, align 8, !tbaa !9
   %130 = call i32 @PEM_do_header(ptr noundef nonnull %10, ptr noundef %129, ptr noundef nonnull %14, ptr noundef %5, ptr noundef %6)
   %.not25 = icmp eq i32 %130, 0
   br i1 %.not25, label %.thread, label %131
 
 131:                                              ; preds = %128
-  store ptr %129, ptr %0, align 8, !tbaa !8
-  %132 = load i64, ptr %14, align 8, !tbaa !11
-  store i64 %132, ptr %1, align 8, !tbaa !11
+  store ptr %129, ptr %0, align 8, !tbaa !9
+  %132 = load i64, ptr %14, align 8, !tbaa !12
+  store i64 %132, ptr %1, align 8, !tbaa !12
   %.not26 = icmp eq ptr %2, null
   br i1 %.not26, label %.thread, label %pem_free.exit35
 
 pem_free.exit35:                                  ; preds = %131
-  store ptr %32, ptr %2, align 8, !tbaa !8
+  store ptr %32, ptr %2, align 8, !tbaa !9
   br i1 %.not.i, label %pem_free.exit37.thread, label %.thread58
 
 .thread:                                          ; preds = %131, %check_pem.exit.thread, %128
@@ -533,13 +533,13 @@ pem_free.exit37:                                  ; preds = %.thread
   br i1 %133, label %138, label %pem_free.exit39
 
 135:                                              ; preds = %134
-  %136 = load ptr, ptr %13, align 8, !tbaa !8
-  %137 = load i64, ptr %14, align 8, !tbaa !11
+  %136 = load ptr, ptr %13, align 8, !tbaa !9
+  %137 = load i64, ptr %14, align 8, !tbaa !12
   call void @CRYPTO_secure_clear_free(ptr noundef %136, i64 noundef %137, ptr noundef nonnull @.str.1, i32 noundef 281) #10
   br label %pem_free.exit39
 
 138:                                              ; preds = %pem_free.exit37
-  %139 = load ptr, ptr %13, align 8, !tbaa !8
+  %139 = load ptr, ptr %13, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %139, ptr noundef nonnull @.str.1, i32 noundef 281) #10
   br label %pem_free.exit39
 
@@ -598,9 +598,9 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   %16 = alloca [64 x i8], align 16
   %17 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
-  store i32 0, ptr %12, align 4, !tbaa !20
+  store i32 0, ptr %12, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #10
-  store i32 0, ptr %13, align 4, !tbaa !20
+  store i32 0, ptr %13, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #10
@@ -682,7 +682,7 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %49
-  store ptr %52, ptr %14, align 8, !tbaa !8
+  store ptr %52, ptr %14, align 8, !tbaa !9
   br i1 %37, label %57, label %55
 
 55:                                               ; preds = %54
@@ -695,7 +695,7 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
 
 59:                                               ; preds = %57, %55
   %60 = phi i32 [ %56, %55 ], [ %58, %57 ]
-  store i32 %60, ptr %12, align 4, !tbaa !20
+  store i32 %60, ptr %12, align 4, !tbaa !21
   br i1 %.not, label %99, label %61
 
 61:                                               ; preds = %59
@@ -767,7 +767,7 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   br i1 %.not77, label %.critedge, label %90
 
 90:                                               ; preds = %88
-  %91 = load i32, ptr %13, align 4, !tbaa !20
+  %91 = load i32, ptr %13, align 4, !tbaa !21
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %52, i64 %92
   %94 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %84, ptr noundef nonnull %93, ptr noundef nonnull %12) #10
@@ -775,10 +775,10 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   br i1 %.not78, label %.critedge, label %95
 
 95:                                               ; preds = %90
-  %96 = load i32, ptr %13, align 4, !tbaa !20
-  %97 = load i32, ptr %12, align 4, !tbaa !20
+  %96 = load i32, ptr %13, align 4, !tbaa !21
+  %97 = load i32, ptr %12, align 4, !tbaa !21
   %98 = add nsw i32 %97, %96
-  store i32 %98, ptr %12, align 4, !tbaa !20
+  store i32 %98, ptr %12, align 4, !tbaa !21
   br label %100
 
 99:                                               ; preds = %59
@@ -790,7 +790,7 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   %.158 = phi ptr [ %84, %95 ], [ null, %99 ]
   %102 = sext i32 %101 to i64
   %103 = call i32 @PEM_write_bio(ptr noundef %4, ptr noundef %3, ptr noundef nonnull %15, ptr noundef nonnull %52, i64 noundef %102)
-  store i32 %103, ptr %12, align 4, !tbaa !20
+  store i32 %103, ptr %12, align 4, !tbaa !21
   %104 = icmp sgt i32 %103, 0
   %spec.select = zext i1 %104 to i32
   br label %.critedge
@@ -826,10 +826,10 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   %6 = alloca i32, align 4
   %7 = alloca [64 x i8], align 16
   %8 = alloca [1024 x i8], align 16
-  %9 = load i64, ptr %2, align 8, !tbaa !11
+  %9 = load i64, ptr %2, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %6, align 4, !tbaa !20
+  store i32 %10, ptr %6, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #10
   %11 = icmp sgt i64 %9, 2147483647
@@ -842,7 +842,7 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br label %49
 
 13:                                               ; preds = %5
-  %14 = load ptr, ptr %0, align 8, !tbaa !21
+  %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %49, label %16
 
@@ -870,7 +870,7 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br label %49
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %0, align 8, !tbaa !21
+  %26 = load ptr, ptr %0, align 8, !tbaa !22
   %27 = call ptr @EVP_md5() #10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = call i32 @EVP_BytesToKey(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %8, i32 noundef %.029, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #10
@@ -883,7 +883,7 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br i1 %32, label %49, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %0, align 8, !tbaa !21
+  %34 = load ptr, ptr %0, align 8, !tbaa !22
   %35 = call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %31, ptr noundef %34, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %28) #10
   %.not33 = icmp eq i32 %35, 0
   br i1 %.not33, label %.critedge.thread, label %36
@@ -894,20 +894,20 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br i1 %38, label %.critedge.thread, label %.critedge
 
 .critedge:                                        ; preds = %36
-  %39 = load i32, ptr %6, align 4, !tbaa !20
+  %39 = load i32, ptr %6, align 4, !tbaa !21
   %40 = sext i32 %39 to i64
-  store i64 %40, ptr %2, align 8, !tbaa !11
+  store i64 %40, ptr %2, align 8, !tbaa !12
   %41 = getelementptr inbounds i8, ptr %1, i64 %40
   %42 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %31, ptr noundef %41, ptr noundef nonnull %6) #10
   %.not35 = icmp eq i32 %42, 0
   br i1 %.not35, label %.critedge.thread, label %43
 
 43:                                               ; preds = %.critedge
-  %44 = load i32, ptr %6, align 4, !tbaa !20
+  %44 = load i32, ptr %6, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
-  %46 = load i64, ptr %2, align 8, !tbaa !11
+  %46 = load i64, ptr %2, align 8, !tbaa !12
   %47 = add nsw i64 %46, %45
-  store i64 %47, ptr %2, align 8, !tbaa !11
+  store i64 %47, ptr %2, align 8, !tbaa !12
   br label %48
 
 .critedge.thread:                                 ; preds = %33, %36, %.critedge
@@ -1035,11 +1035,11 @@ define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr noundef 
   %46 = load i8, ptr %45, align 1, !tbaa !3
   store i8 0, ptr %45, align 1, !tbaa !3
   %47 = tail call ptr @EVP_get_cipherbyname(ptr noundef nonnull %43) #10
-  store ptr %47, ptr %1, align 8, !tbaa !21
+  store ptr %47, ptr %1, align 8, !tbaa !22
   store i8 %46, ptr %45, align 1, !tbaa !3
   %48 = tail call i64 @strspn(ptr noundef nonnull %45, ptr noundef nonnull @.str.11) #9
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  store ptr %49, ptr %3, align 8, !tbaa !8
+  store ptr %49, ptr %3, align 8, !tbaa !9
   %50 = icmp eq ptr %47, null
   br i1 %50, label %52, label %53
 
@@ -1062,7 +1062,7 @@ define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr noundef 
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  store ptr %57, ptr %3, align 8, !tbaa !8
+  store ptr %57, ptr %3, align 8, !tbaa !9
   %58 = load i8, ptr %49, align 1, !tbaa !3
   %.not16 = icmp eq i8 %58, 44
   br i1 %.not16, label %.thread, label %59
@@ -1113,7 +1113,7 @@ declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !8
+  %4 = load ptr, ptr %0, align 8, !tbaa !9
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph28.preheader, label %._crit_edge29
 
@@ -1153,11 +1153,11 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   store i8 %23, ptr %20, align 1, !tbaa !3
   %24 = add nuw nsw i32 %.125, 1
   %exitcond.not = icmp eq i32 %24, %smax
-  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !25
 
 ._crit_edge29:                                    ; preds = %12, %3
   %.0.lcssa = phi ptr [ %4, %3 ], [ %13, %12 ]
-  store ptr %.0.lcssa, ptr %0, align 8, !tbaa !8
+  store ptr %.0.lcssa, ptr %0, align 8, !tbaa !9
   br label %25
 
 25:                                               ; preds = %._crit_edge29, %11
@@ -1257,13 +1257,13 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %.not71, label %.loopexit, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = load i32, ptr %6, align 4, !tbaa !20
+  %35 = load i32, ptr %6, align 4, !tbaa !21
   %.not72 = icmp eq i32 %35, 0
   br i1 %.not72, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %35) #10
-  %38 = load i32, ptr %6, align 4, !tbaa !20
+  %38 = load i32, ptr %6, align 4, !tbaa !21
   %.not73 = icmp eq i32 %37, %38
   br i1 %.not73, label %39, label %.loopexit
 
@@ -1273,18 +1273,18 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %42 = sub nsw i64 %.05184, %29
   %43 = add nuw nsw i32 %.05383, %30
   %44 = icmp sgt i64 %42, 0
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %39, %.preheader
   %.054.lcssa = phi i32 [ 0, %.preheader ], [ %41, %39 ]
   call void @EVP_EncodeFinal(ptr noundef nonnull %7, ptr noundef nonnull %26, ptr noundef nonnull %6) #10
-  %45 = load i32, ptr %6, align 4, !tbaa !20
+  %45 = load i32, ptr %6, align 4, !tbaa !21
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %._crit_edge
   %48 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %45) #10
-  %49 = load i32, ptr %6, align 4, !tbaa !20
+  %49 = load i32, ptr %6, align 4, !tbaa !21
   %.not67 = icmp eq i32 %48, %49
   br i1 %.not67, label %50, label %.loopexit
 
@@ -1304,7 +1304,7 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %.not70, label %56, label %.loopexit
 
 56:                                               ; preds = %54
-  %57 = load i32, ptr %6, align 4, !tbaa !20
+  %57 = load i32, ptr %6, align 4, !tbaa !21
   %58 = add nsw i32 %57, %.054.lcssa
   br label %.thread74
 
@@ -1379,10 +1379,10 @@ define range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef %0, ptr noundef writeonl
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  store i64 0, ptr %4, align 8, !tbaa !11
-  store ptr null, ptr %2, align 8, !tbaa !8
-  store ptr null, ptr %1, align 8, !tbaa !8
-  store ptr null, ptr %3, align 8, !tbaa !8
+  store i64 0, ptr %4, align 8, !tbaa !12
+  store ptr null, ptr %2, align 8, !tbaa !9
+  store ptr null, ptr %1, align 8, !tbaa !9
+  store ptr null, ptr %3, align 8, !tbaa !9
   %10 = and i32 %5, 2
   %.not = icmp eq i32 %10, 0
   %11 = and i32 %5, 4
@@ -1503,7 +1503,7 @@ pem_malloc.exit.i:                                ; preds = %30, %28
 53:                                               ; preds = %52, %49
   %indvars.iv.next78.i.us = add nuw nsw i64 %indvars.iv77.i.us, 1
   %exitcond81.not.i.us = icmp eq i64 %indvars.iv.next78.i.us, %wide.trip.count80.i.us
-  br i1 %exitcond81.not.i.us, label %sanitize_line.exit.us, label %.lr.ph68.i.us, !llvm.loop !26
+  br i1 %exitcond81.not.i.us, label %sanitize_line.exit.us, label %.lr.ph68.i.us, !llvm.loop !27
 
 sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loopexit.split.loop.exit89.i.us
   %.3.i.us = phi i32 [ %48, %.loopexit.loopexit.split.loop.exit89.i.us ], [ %.042.i.us, %53 ]
@@ -1530,7 +1530,7 @@ sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loop
 .critedge.backedge.i.us:                          ; preds = %62, %sanitize_line.exit.us
   %65 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %32, i32 noundef 255) #10
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %.loopexit, label %.lr.ph.i.us, !llvm.loop !27
+  br i1 %66, label %.loopexit, label %.lr.ph.i.us, !llvm.loop !28
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.backedge.i
   %67 = phi i32 [ %94, %.critedge.backedge.i ], [ %34, %.lr.ph.i.preheader ]
@@ -1567,7 +1567,7 @@ sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loop
 79:                                               ; preds = %.lr.ph.i63
   %80 = add nsw i32 %.255.i, -1
   %81 = icmp sgt i32 %.255.i, 0
-  br i1 %81, label %.lr.ph.i63, label %.critedge.i, !llvm.loop !29
+  br i1 %81, label %.lr.ph.i63, label %.critedge.i, !llvm.loop !30
 
 .critedge.i:                                      ; preds = %79, %.lr.ph.i63
   %.2.lcssa.ph.i = phi i32 [ %.255.i, %.lr.ph.i63 ], [ -1, %79 ]
@@ -1595,7 +1595,7 @@ sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loop
 .critedge.backedge.i:                             ; preds = %91, %.critedge.i
   %94 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %32, i32 noundef 255) #10
   %95 = icmp slt i32 %94, 1
-  br i1 %95, label %.loopexit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %95, label %.loopexit, label %.lr.ph.i, !llvm.loop !31
 
 .split.us:                                        ; preds = %91, %62
   %.us-phi = phi i32 [ %.3.i.us, %62 ], [ %82, %91 ]
@@ -1714,7 +1714,7 @@ pem_malloc.exit.i57:                              ; preds = %105, %102
 131:                                              ; preds = %.lr.ph.i.i
   %132 = add nsw i32 %.255.i.i, -1
   %133 = icmp sgt i32 %.255.i.i, 0
-  br i1 %133, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !29
+  br i1 %133, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !30
 
 .critedge.i.i:                                    ; preds = %131, %.lr.ph.i.i
   %.2.lcssa.ph.i.i = phi i32 [ %.255.i.i, %.lr.ph.i.i ], [ -1, %131 ]
@@ -1749,7 +1749,7 @@ pem_malloc.exit.i57:                              ; preds = %105, %102
 145:                                              ; preds = %143
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count80.i.i
-  br i1 %exitcond.not.i.i, label %sanitize_line.exit.i, label %.lr.ph59.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %sanitize_line.exit.i, label %.lr.ph59.i.i, !llvm.loop !32
 
 .lr.ph68.i.i:                                     ; preds = %135, %152
   %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %152 ], [ 0, %135 ]
@@ -1773,7 +1773,7 @@ pem_malloc.exit.i57:                              ; preds = %105, %102
 152:                                              ; preds = %151, %148
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond81.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count80.i.i
-  br i1 %exitcond81.not.i.i, label %sanitize_line.exit.i, label %.lr.ph68.i.i, !llvm.loop !26
+  br i1 %exitcond81.not.i.i, label %sanitize_line.exit.i, label %.lr.ph68.i.i, !llvm.loop !27
 
 .loopexit.loopexit.split.loop.exit89.i.i:         ; preds = %.lr.ph68.i.i, %.lr.ph68.i.i
   %153 = trunc nuw nsw i64 %indvars.iv77.i.i to i32
@@ -1818,7 +1818,7 @@ sanitize_line.exit.i:                             ; preds = %145, %152, %.loopex
   %.2.i = phi i32 [ %.1.i, %163 ], [ 2, %164 ]
   %167 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %108, i32 noundef 255) #10
   %168 = icmp slt i32 %167, 1
-  br i1 %168, label %.outer._crit_edge.i, label %.lr.ph.i58
+  br i1 %168, label %.outer._crit_edge.i, label %.lr.ph.i58, !llvm.loop !33
 
 169:                                              ; preds = %sanitize_line.exit.i
   %170 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(10) @.str.18, i64 noundef 9) #9
@@ -1882,7 +1882,7 @@ sanitize_line.exit.i:                             ; preds = %145, %152, %.loopex
   %.151.i = phi i32 [ 0, %188 ], [ %spec.select61.i, %192 ]
   %194 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %108, i32 noundef 255) #10
   %195 = icmp slt i32 %194, 1
-  br i1 %195, label %.outer._crit_edge.i, label %114
+  br i1 %195, label %.outer._crit_edge.i, label %114, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %190, %185, %181, %184, %180, %166, %.outer._crit_edge.i
   %.182 = phi ptr [ %22, %.outer._crit_edge.i ], [ %22, %166 ], [ %22, %180 ], [ %22, %184 ], [ %spec.select, %181 ], [ %22, %185 ], [ %22, %190 ]
@@ -1903,10 +1903,10 @@ get_header_and_data.exit:                         ; preds = %196, %197
 
 198:                                              ; preds = %get_header_and_data.exit
   %199 = call i64 @BIO_ctrl(ptr noundef %.179, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %9) #10
-  %200 = load ptr, ptr %9, align 8, !tbaa !32
-  %201 = load i64, ptr %200, align 8, !tbaa !34
+  %200 = load ptr, ptr %9, align 8, !tbaa !34
+  %201 = load i64, ptr %200, align 8, !tbaa !36
   %202 = trunc i64 %201 to i32
-  store i32 %202, ptr %7, align 4, !tbaa !20
+  store i32 %202, ptr %7, align 4, !tbaa !21
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %get_name.exit.thread, label %204
 
@@ -1923,18 +1923,18 @@ get_header_and_data.exit:                         ; preds = %196, %197
 
 208:                                              ; preds = %204
   call void @EVP_DecodeInit(ptr noundef nonnull %205) #10
-  %209 = load ptr, ptr %9, align 8, !tbaa !32
+  %209 = load ptr, ptr %9, align 8, !tbaa !34
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !36
+  %211 = load ptr, ptr %210, align 8, !tbaa !38
   %212 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %205, ptr noundef %211, ptr noundef nonnull %7, ptr noundef %211, i32 noundef %202) #10
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %223, label %214
 
 214:                                              ; preds = %208
-  %215 = load ptr, ptr %9, align 8, !tbaa !32
+  %215 = load ptr, ptr %9, align 8, !tbaa !34
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %217 = load ptr, ptr %216, align 8, !tbaa !36
-  %218 = load i32, ptr %7, align 4, !tbaa !20
+  %217 = load ptr, ptr %216, align 8, !tbaa !38
+  %218 = load i32, ptr %7, align 4, !tbaa !21
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds i8, ptr %217, i64 %219
   %221 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %205, ptr noundef %220, ptr noundef nonnull %8) #10
@@ -1948,22 +1948,22 @@ get_header_and_data.exit:                         ; preds = %196, %197
   br label %get_name.exit.thread
 
 224:                                              ; preds = %214
-  %225 = load i32, ptr %8, align 4, !tbaa !20
-  %226 = load i32, ptr %7, align 4, !tbaa !20
+  %225 = load i32, ptr %8, align 4, !tbaa !21
+  %226 = load i32, ptr %7, align 4, !tbaa !21
   %227 = add nsw i32 %226, %225
-  store i32 %227, ptr %7, align 4, !tbaa !20
+  store i32 %227, ptr %7, align 4, !tbaa !21
   %228 = sext i32 %227 to i64
-  %229 = load ptr, ptr %9, align 8, !tbaa !32
-  store i64 %228, ptr %229, align 8, !tbaa !34
+  %229 = load ptr, ptr %9, align 8, !tbaa !34
+  store i64 %228, ptr %229, align 8, !tbaa !36
   %230 = call i64 @BIO_ctrl(ptr noundef %.182, i32 noundef 3, i64 noundef 0, ptr noundef null) #10
   %231 = trunc i64 %230 to i32
   %232 = add nsw i32 %231, 1
   %233 = call fastcc ptr @pem_malloc(i32 noundef %232, i32 noundef %5, i32 noundef 1005)
-  store ptr %233, ptr %2, align 8, !tbaa !8
-  %234 = load i32, ptr %7, align 4, !tbaa !20
+  store ptr %233, ptr %2, align 8, !tbaa !9
+  %234 = load i32, ptr %7, align 4, !tbaa !21
   %235 = call fastcc ptr @pem_malloc(i32 noundef %234, i32 noundef %5, i32 noundef 1006)
-  store ptr %235, ptr %3, align 8, !tbaa !8
-  %236 = load ptr, ptr %2, align 8, !tbaa !8
+  store ptr %235, ptr %3, align 8, !tbaa !9
+  %236 = load ptr, ptr %2, align 8, !tbaa !9
   %237 = icmp eq ptr %236, null
   %238 = icmp eq ptr %235, null
   %or.cond55 = select i1 %237, i1 true, i1 %238
@@ -1976,7 +1976,7 @@ get_header_and_data.exit:                         ; preds = %196, %197
 240:                                              ; preds = %239
   %241 = call i32 @BIO_read(ptr noundef %.182, ptr noundef nonnull %236, i32 noundef %231) #10
   %.not52 = icmp eq i32 %241, %231
-  %.pre187 = load ptr, ptr %2, align 8, !tbaa !8
+  %.pre187 = load ptr, ptr %2, align 8, !tbaa !9
   br i1 %.not52, label %._crit_edge, label %251
 
 ._crit_edge:                                      ; preds = %240, %239
@@ -1985,30 +1985,30 @@ get_header_and_data.exit:                         ; preds = %196, %197
   %243 = ashr exact i64 %sext, 32
   %244 = getelementptr inbounds i8, ptr %242, i64 %243
   store i8 0, ptr %244, align 1, !tbaa !3
-  %245 = load ptr, ptr %3, align 8, !tbaa !8
-  %246 = load i32, ptr %7, align 4, !tbaa !20
+  %245 = load ptr, ptr %3, align 8, !tbaa !9
+  %246 = load i32, ptr %7, align 4, !tbaa !21
   %247 = call i32 @BIO_read(ptr noundef %.179, ptr noundef %245, i32 noundef %246) #10
-  %248 = load i32, ptr %7, align 4, !tbaa !20
+  %248 = load i32, ptr %7, align 4, !tbaa !21
   %.not53 = icmp eq i32 %247, %248
   br i1 %.not53, label %249, label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge
-  %.pre186 = load ptr, ptr %2, align 8, !tbaa !8
+  %.pre186 = load ptr, ptr %2, align 8, !tbaa !9
   br label %251
 
 249:                                              ; preds = %._crit_edge
   %250 = sext i32 %247 to i64
-  store i64 %250, ptr %4, align 8, !tbaa !11
-  store ptr %.1103, ptr %1, align 8, !tbaa !8
+  store i64 %250, ptr %4, align 8, !tbaa !12
+  store ptr %.1103, ptr %1, align 8, !tbaa !9
   br label %get_name.exit.thread
 
 251:                                              ; preds = %._crit_edge185, %240, %224
   %252 = phi ptr [ %.pre186, %._crit_edge185 ], [ %.pre187, %240 ], [ %236, %224 ]
   call fastcc void @pem_free(ptr noundef %252, i32 noundef %5, i64 noundef 0, i32 noundef 1021)
-  store ptr null, ptr %2, align 8, !tbaa !8
-  %253 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr null, ptr %2, align 8, !tbaa !9
+  %253 = load ptr, ptr %3, align 8, !tbaa !9
   call fastcc void @pem_free(ptr noundef %253, i32 noundef %5, i64 noundef 0, i32 noundef 1023)
-  store ptr null, ptr %3, align 8, !tbaa !8
+  store ptr null, ptr %3, align 8, !tbaa !9
   br label %get_name.exit.thread
 
 get_name.exit.thread:                             ; preds = %pem_malloc.exit.i57, %pem_malloc.exit.i, %198, %get_header_and_data.exit, %251, %249, %223, %207, %26, %13
@@ -2212,34 +2212,36 @@ attributes #10 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !4, i64 0}
-!13 = !{!14, !10, i64 184}
-!14 = !{!"evp_pkey_asn1_method_st", !15, i64 0, !15, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
-!15 = !{!"int", !4, i64 0}
-!16 = distinct !{!16, !7}
-!17 = !{!14, !10, i64 112}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!20 = !{!15, !15, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"evp_cipher_info_st", !23, i64 0, !4, i64 8}
-!23 = !{!"p1 _ZTS13evp_cipher_st", !10, i64 0}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
-!34 = !{!35, !12, i64 0}
-!35 = !{!"buf_mem_st", !12, i64 0, !9, i64 8, !12, i64 16, !12, i64 24}
-!36 = !{!35, !9, i64 8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !4, i64 0}
+!14 = !{!15, !11, i64 184}
+!15 = !{!"evp_pkey_asn1_method_st", !16, i64 0, !16, i64 4, !13, i64 8, !10, i64 16, !10, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312}
+!16 = !{!"int", !4, i64 0}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!15, !11, i64 112}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS9engine_st", !11, i64 0}
+!21 = !{!16, !16, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"evp_cipher_info_st", !24, i64 0, !4, i64 8}
+!24 = !{!"p1 _ZTS13evp_cipher_st", !11, i64 0}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !8, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS10buf_mem_st", !11, i64 0}
+!36 = !{!37, !13, i64 0}
+!37 = !{!"buf_mem_st", !13, i64 0, !10, i64 8, !13, i64 16, !13, i64 24}
+!38 = !{!37, !10, i64 8}

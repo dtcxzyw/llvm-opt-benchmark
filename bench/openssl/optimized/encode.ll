@@ -383,7 +383,7 @@ evp_encodeblock_int.exit94:                       ; preds = %148, %112, %.thread
   %193 = icmp sge i32 %181, %192
   %194 = icmp ult i64 %.3, 2147483648
   %195 = select i1 %193, i1 %194, i1 false
-  br i1 %195, label %112, label %._crit_edge, !llvm.loop !15
+  br i1 %195, label %112, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %191, %106
   %.168.lcssa = phi ptr [ %.067, %106 ], [ %180, %191 ]
@@ -807,7 +807,7 @@ conv_ascii2bin.exit:                              ; preds = %.lr.ph
   %.1 = phi ptr [ %63, %59 ], [ %.065106, %53 ]
   %65 = add nuw nsw i32 %.070103, 1
   %exitcond.not = icmp eq i32 %65, %4
-  br i1 %exitcond.not, label %.thread._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .thread._crit_edge:                               ; preds = %64, %.thread, %22
   %.172.lcssa = phi i32 [ 0, %22 ], [ %.172102, %.thread ], [ %.273, %64 ]
@@ -895,7 +895,7 @@ conv_ascii2bin.exit:                              ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.04471, i64 1
   %19 = add nsw i32 %.04570, -1
   %20 = icmp sgt i32 %.04570, 1
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .critedge:                                        ; preds = %conv_ascii2bin.exit, %.lr.ph
   %invariant.gep = getelementptr i8, ptr %.04471, i64 -1
@@ -921,7 +921,7 @@ conv_ascii2bin.exit55:                            ; preds = %.lr.ph79
 29:                                               ; preds = %conv_ascii2bin.exit55
   %30 = add nsw i32 %.14678, -1
   %31 = icmp sgt i32 %.14678, 4
-  br i1 %31, label %.lr.ph79, label %.loopexit, !llvm.loop !18
+  br i1 %31, label %.lr.ph79, label %.loopexit, !llvm.loop !19
 
 .critedge2:                                       ; preds = %conv_ascii2bin.exit55, %.lr.ph79, %10, %.critedge
   %.044.lcssa94 = phi ptr [ %.04471, %.critedge ], [ %2, %10 ], [ %.04471, %.lr.ph79 ], [ %.04471, %conv_ascii2bin.exit55 ]
@@ -1021,7 +1021,7 @@ conv_ascii2bin.exit67:                            ; preds = %conv_ascii2bin.exit
   %79 = add nuw nsw i32 %.04884, 3
   %80 = add nuw nsw i32 %.04785, 4
   %81 = icmp slt i32 %80, %.146.lcssa
-  br i1 %81, label %.lr.ph88, label %.loopexit, !llvm.loop !19
+  br i1 %81, label %.lr.ph88, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %17, %29, %conv_ascii2bin.exit67, %60, %.preheader, %.critedge2
   %.042 = phi i32 [ -1, %.critedge2 ], [ 0, %.preheader ], [ -1, %conv_ascii2bin.exit67 ], [ %79, %60 ], [ -1, %29 ], [ 0, %17 ]
@@ -1084,10 +1084,11 @@ attributes #10 = { noreturn nounwind }
 !10 = !{!4, !5, i64 88}
 !11 = !{!5, !5, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}

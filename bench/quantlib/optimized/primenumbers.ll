@@ -80,7 +80,7 @@ while.body:                                       ; preds = %if.end, %while.body
 while.end:                                        ; preds = %while.body, %if.end
   %.lcssa = phi ptr [ %2, %if.end ], [ %5, %while.body ]
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %.lcssa, i64 %absoluteIndex
-  %6 = load i64, ptr %add.ptr.i, align 8, !tbaa !13
+  %6 = load i64, ptr %add.ptr.i, align 8, !tbaa !14
   ret i64 %6
 }
 
@@ -89,7 +89,7 @@ define noundef i64 @_ZN8QuantLib12PrimeNumbers15nextPrimeNumberEv() local_unname
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 8), align 8, !tbaa !9
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !13
+  %1 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !14
   %2 = load ptr, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, align 8, !tbaa !3
   br label %do.body
 
@@ -104,16 +104,16 @@ do.body:                                          ; preds = %do.end, %entry
 do.body3:                                         ; preds = %do.body3, %do.body
   %i.0 = phi i64 [ 1, %do.body ], [ %inc, %do.body3 ]
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %2, i64 %i.0
-  %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !13
+  %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !14
   %inc = add i64 %i.0, 1
   %rem = urem i64 %add, %3
   %cmp = icmp ne i64 %rem, 0
   %cmp5 = icmp ule i64 %3, %conv2
   %4 = select i1 %cmp, i1 %cmp5, i1 false
-  br i1 %4, label %do.body3, label %do.end, !llvm.loop !15
+  br i1 %4, label %do.body3, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %do.body3
-  br i1 %cmp5, label %do.body, label %do.end8, !llvm.loop !16
+  br i1 %cmp5, label %do.body, label %do.end8, !llvm.loop !17
 
 do.end8:                                          ; preds = %do.end
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 16), align 8, !tbaa !8
@@ -121,7 +121,7 @@ do.end8:                                          ; preds = %do.end
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end8
-  store i64 %add, ptr %0, align 8, !tbaa !13
+  store i64 %add, ptr %0, align 8, !tbaa !14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 8), align 8, !tbaa !10
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
@@ -149,7 +149,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #13
   %add.ptr.i.i5 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
-  store i64 %add, ptr %add.ptr.i.i5, align 8, !tbaa !13
+  store i64 %add, ptr %add.ptr.i.i5, align 8, !tbaa !14
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
@@ -394,9 +394,10 @@ attributes #14 = { nounwind }
 !8 = !{!4, !5, i64 16}
 !9 = !{!5, !5, i64 0}
 !10 = !{!4, !5, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}

@@ -158,7 +158,7 @@ define ptr @ENGINE_get_digest(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %11
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !25
+  %10 = load ptr, ptr %3, align 8, !tbaa !26
   br label %11
 
 11:                                               ; preds = %9, %8
@@ -221,7 +221,8 @@ attributes #5 = { nounwind }
 !20 = !{!"p1 _ZTS9engine_st", !6, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"p1 int", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}

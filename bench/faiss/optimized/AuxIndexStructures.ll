@@ -196,7 +196,7 @@ define void @_ZN5faiss17RangeSearchResultD0Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5faiss15TimeoutCallback14want_interruptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load double, ptr %2, align 8, !tbaa !25
+  %3 = load double, ptr %2, align 8, !tbaa !26
   %4 = fcmp oeq double %3, 0.000000e+00
   br i1 %4, label %16, label %5
 
@@ -209,12 +209,12 @@ define noundef zeroext i1 @_ZN5faiss15TimeoutCallback14want_interruptEv(ptr noun
   %10 = fdiv float %9, 1.000000e+06
   %11 = fdiv float %10, 1.000000e+03
   %12 = fpext float %11 to double
-  %13 = load double, ptr %2, align 8, !tbaa !25
+  %13 = load double, ptr %2, align 8, !tbaa !26
   %14 = fcmp olt double %13, %12
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %5
-  store double 0.000000e+00, ptr %2, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %2, align 8, !tbaa !26
   br label %16
 
 16:                                               ; preds = %15, %5, %1
@@ -235,7 +235,7 @@ define linkonce_odr void @_ZN5faiss15TimeoutCallbackD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss17RangeSearchResultC2Emb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8, !tbaa !13
   br i1 %2, label %5, label %11
@@ -256,7 +256,7 @@ define void @_ZN5faiss17RangeSearchResultC2Emb(ptr noundef nonnull writeonly ali
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store i64 262144, ptr %14, align 8, !tbaa !33
+  store i64 262144, ptr %14, align 8, !tbaa !34
   ret void
 }
 
@@ -282,7 +282,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -335,7 +335,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss17RangeSearchResultD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = icmp eq ptr %3, null
@@ -374,11 +374,11 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss10BufferListC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #13 align 2 {
-  store i64 %1, ptr %0, align 8, !tbaa !34
+  store i64 %1, ptr %0, align 8, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %1, ptr %4, align 8, !tbaa !41
+  store i64 %1, ptr %4, align 8, !tbaa !42
   ret void
 }
 
@@ -386,8 +386,8 @@ define void @_ZN5faiss10BufferListC2Em(ptr noundef nonnull writeonly align 8 cap
 define void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
-  %5 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
+  %5 = load ptr, ptr %2, align 8, !tbaa !44
   %6 = ptrtoint ptr %5 to i64
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -400,7 +400,7 @@ define void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull readonly align 8 capt
 
 7:                                                ; preds = %._crit_edge
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = ptrtoint ptr %9 to i64
   %11 = sub i64 %10, %.lcssa
   tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa7, i64 noundef %11) #27
@@ -413,73 +413,73 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit: ; preds = %._crit_edg
   %12 = phi ptr [ %24, %23 ], [ %5, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %1 ]
   %13 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZdaPv(ptr noundef nonnull %14) #27
-  %.pre = load ptr, ptr %2, align 8, !tbaa !43
+  %.pre = load ptr, ptr %2, align 8, !tbaa !44
   br label %17
 
 17:                                               ; preds = %16, %.lr.ph
   %18 = phi ptr [ %.pre, %16 ], [ %12, %.lr.ph ]
   %19 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %18, i64 %indvars.iv, i32 1
-  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %17
   tail call void @_ZdaPv(ptr noundef nonnull %20) #27
-  %.pre13 = load ptr, ptr %2, align 8, !tbaa !43
+  %.pre13 = load ptr, ptr %2, align 8, !tbaa !44
   br label %23
 
 23:                                               ; preds = %17, %22
   %24 = phi ptr [ %18, %17 ], [ %.pre13, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load ptr, ptr %3, align 8, !tbaa !42
+  %25 = load ptr, ptr %3, align 8, !tbaa !43
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %24 to i64
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 4
   %30 = icmp ugt i64 %29, %indvars.iv.next
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss10BufferList3addElf(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8, !tbaa !41
-  %6 = load i64, ptr %0, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !42
+  %6 = load i64, ptr %0, align 8, !tbaa !35
   %7 = icmp eq i64 %5, %6
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
   tail call void @_ZN5faiss10BufferList13append_bufferEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre = load i64, ptr %4, align 8, !tbaa !41
+  %.pre = load i64, ptr %4, align 8, !tbaa !42
   br label %9
 
 9:                                                ; preds = %8, %3
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !49
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = getelementptr inbounds i8, ptr %12, i64 -16
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i64, ptr %14, i64 %10
   store i64 %1, ptr %15, align 8, !tbaa !15
   %16 = getelementptr inbounds i8, ptr %12, i64 -8
-  %17 = load ptr, ptr %16, align 8, !tbaa !47
-  %18 = load i64, ptr %4, align 8, !tbaa !41
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  %18 = load i64, ptr %4, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw float, ptr %17, i64 %18
-  store float %2, ptr %19, align 4, !tbaa !50
+  store float %2, ptr %19, align 4, !tbaa !51
   %20 = add i64 %18, 1
-  store i64 %20, ptr %4, align 8, !tbaa !41
+  store i64 %20, ptr %4, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss10BufferList13append_bufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !34
+  %2 = load i64, ptr %0, align 8, !tbaa !35
   %3 = icmp ugt i64 %2, 2305843009213693951
   %4 = shl i64 %2, 3
   %5 = select i1 %3, i64 -1, i64 %4
@@ -490,22 +490,22 @@ define void @_ZN5faiss10BufferList13append_bufferEv(ptr noundef nonnull align 8 
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !42
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !44
+  %15 = load ptr, ptr %14, align 8, !tbaa !45
   %.not.i = icmp eq ptr %13, %15
   br i1 %.not.i, label %18, label %16
 
 16:                                               ; preds = %1
-  store ptr %6, ptr %13, align 8, !tbaa !52
+  store ptr %6, ptr %13, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %10, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !53
+  store ptr %10, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %17, ptr %12, align 8, !tbaa !42
+  store ptr %17, ptr %12, align 8, !tbaa !43
   br label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE9push_backERKS2_.exit
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %11, align 8, !tbaa !43
+  %19 = load ptr, ptr %11, align 8, !tbaa !44
   %20 = ptrtoint ptr %13 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -528,9 +528,9 @@ _ZNKSt6vectorIN5faiss10BufferList6BufferESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ;
   %30 = shl nuw nsw i64 %29, 4
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #28
   %32 = getelementptr inbounds i8, ptr %31, i64 %22
-  store ptr %6, ptr %32, align 8, !tbaa !52
+  store ptr %6, ptr %32, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %10, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !53
+  store ptr %10, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !54
   %33 = icmp sgt i64 %22, 0
   br i1 %33, label %34, label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -548,15 +548,15 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
   br label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %31, ptr %11, align 8, !tbaa !43
-  store ptr %35, ptr %12, align 8, !tbaa !42
+  store ptr %31, ptr %11, align 8, !tbaa !44
+  store ptr %35, ptr %12, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %31, i64 %29
-  store ptr %37, ptr %14, align 8, !tbaa !44
+  store ptr %37, ptr %14, align 8, !tbaa !45
   br label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %38, align 8, !tbaa !41
+  store i64 0, ptr %38, align 8, !tbaa !42
   ret void
 }
 
@@ -578,7 +578,7 @@ define void @_ZN5faiss10BufferList10copy_rangeEmmPlPf(ptr noundef nonnull readon
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %6 = load i64, ptr %0, align 8, !tbaa !34
+  %6 = load i64, ptr %0, align 8, !tbaa !35
   %7 = udiv i64 %1, %6
   %8 = mul i64 %7, %6
   %.recomposed = urem i64 %1, %6
@@ -592,15 +592,15 @@ define void @_ZN5faiss10BufferList10copy_rangeEmmPlPf(ptr noundef nonnull readon
   %.02429 = phi i64 [ %7, %.lr.ph ], [ %24, %10 ]
   %.02528 = phi ptr [ %4, %.lr.ph ], [ %23, %10 ]
   %11 = add i64 %.032, %.02231
-  %12 = load i64, ptr %0, align 8, !tbaa !34
+  %12 = load i64, ptr %0, align 8, !tbaa !35
   %13 = icmp ult i64 %11, %12
   %14 = sub i64 %12, %.032
   %15 = select i1 %13, i64 %.02231, i64 %14
-  %16 = load ptr, ptr %9, align 8, !tbaa !43
+  %16 = load ptr, ptr %9, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %16, i64 %.02429
-  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !52
+  %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !53
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload, i64 %.032
   %19 = shl i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330, ptr align 8 %18, i64 %19, i1 false)
@@ -612,7 +612,7 @@ define void @_ZN5faiss10BufferList10copy_rangeEmmPlPf(ptr noundef nonnull readon
   %24 = add i64 %.02429, 1
   %25 = sub i64 %.02231, %15
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %10, %5
   ret void
@@ -621,51 +621,51 @@ define void @_ZN5faiss10BufferList10copy_rangeEmmPlPf(ptr noundef nonnull readon
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, float noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !55
+  %5 = load i64, ptr %4, align 8, !tbaa !56
   %6 = add i64 %5, 1
-  store i64 %6, ptr %4, align 8, !tbaa !55
+  store i64 %6, ptr %4, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !41
-  %11 = load i64, ptr %8, align 8, !tbaa !34
+  %10 = load i64, ptr %9, align 8, !tbaa !42
+  %11 = load i64, ptr %8, align 8, !tbaa !35
   %12 = icmp eq i64 %10, %11
   br i1 %12, label %13, label %_ZN5faiss10BufferList3addElf.exit
 
 13:                                               ; preds = %3
   tail call void @_ZN5faiss10BufferList13append_bufferEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
-  %.pre.i = load i64, ptr %9, align 8, !tbaa !41
+  %.pre.i = load i64, ptr %9, align 8, !tbaa !42
   br label %_ZN5faiss10BufferList3addElf.exit
 
 _ZN5faiss10BufferList3addElf.exit:                ; preds = %3, %13
   %14 = phi i64 [ %.pre.i, %13 ], [ %10, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
-  %18 = load ptr, ptr %17, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i64, ptr %18, i64 %14
   store i64 %2, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds i8, ptr %16, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
-  %22 = load i64, ptr %9, align 8, !tbaa !41
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %22 = load i64, ptr %9, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw float, ptr %21, i64 %22
-  store float %1, ptr %23, align 4, !tbaa !50
+  store float %1, ptr %23, align 4, !tbaa !51
   %24 = add i64 %22, 1
-  store i64 %24, ptr %9, align 8, !tbaa !41
+  store i64 %24, ptr %9, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5faiss24RangeSearchPartialResultC2EPNS_17RangeSearchResultE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !33
-  store i64 %4, ptr %0, align 8, !tbaa !34
+  %4 = load i64, ptr %3, align 8, !tbaa !34
+  store i64 %4, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %4, ptr %6, align 8, !tbaa !41
+  store i64 %4, ptr %6, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %7, align 8, !tbaa !59
+  store ptr %1, ptr %7, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   ret void
@@ -675,9 +675,9 @@ define void @_ZN5faiss24RangeSearchPartialResultC2EPNS_17RangeSearchResultE(ptr 
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %10, label %8
 
@@ -686,13 +686,13 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPa
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !15
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !69
+  store ptr %0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %9, ptr %4, align 8, !tbaa !67
+  store ptr %9, ptr %4, align 8, !tbaa !68
   br label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE9push_backERKS1_.exit
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8, !tbaa !70
+  %11 = load ptr, ptr %3, align 8, !tbaa !71
   %12 = ptrtoint ptr %5 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -719,7 +719,7 @@ _ZNKSt6vectorIN5faiss16RangeQueryResultESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !15
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %0, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !69
+  store ptr %0, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !70
   %25 = icmp sgt i64 %14, 0
   br i1 %25, label %26, label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
@@ -737,10 +737,10 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   br label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %23, ptr %3, align 8, !tbaa !70
-  store ptr %27, ptr %4, align 8, !tbaa !67
+  store ptr %23, ptr %3, align 8, !tbaa !71
+  store ptr %27, ptr %4, align 8, !tbaa !68
   %29 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %23, i64 %21
-  store ptr %29, ptr %6, align 8, !tbaa !68
+  store ptr %29, ptr %6, align 8, !tbaa !69
   br label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE9push_backERKS1_.exit: ; preds = %8, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
@@ -753,8 +753,8 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !67
-  %6 = load ptr, ptr %3, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %6 = load ptr, ptr %3, align 8, !tbaa !71
   %.not.i = icmp eq ptr %5, %6
   br i1 %.not.i, label %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit, label %.lr.ph.i
 
@@ -764,7 +764,7 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %12 = load ptr, ptr %11, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   br label %15
@@ -773,13 +773,13 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %16 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %6, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !55
-  %19 = load i64, ptr %16, align 8, !tbaa !71
+  %18 = load i64, ptr %17, align 8, !tbaa !56
+  %19 = load i64, ptr %16, align 8, !tbaa !72
   %20 = getelementptr inbounds i64, ptr %14, i64 %19
   store i64 %18, ptr %20, align 8, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
-  br i1 %exitcond.not.i, label %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit, label %15, !llvm.loop !72
+  br i1 %exitcond.not.i, label %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit, label %15, !llvm.loop !73
 
 _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   tail call void @__kmpc_barrier(ptr nonnull @1, i32 %2)
@@ -789,8 +789,8 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
 
 22:                                               ; preds = %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
-  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !60
+  %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = load ptr, ptr %25, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(48) %24)
           to label %27 unwind label %78
@@ -802,8 +802,8 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
 28:                                               ; preds = %27, %_ZN5faiss24RangeSearchPartialResult8set_limsEv.exit
   tail call void @__kmpc_barrier(ptr nonnull @3, i32 %2)
   tail call void @__kmpc_barrier(ptr nonnull @1, i32 %2)
-  %29 = load ptr, ptr %4, align 8, !tbaa !67
-  %30 = load ptr, ptr %3, align 8, !tbaa !70
+  %29 = load ptr, ptr %4, align 8, !tbaa !68
+  %30 = load ptr, ptr %3, align 8, !tbaa !71
   %.not.i1 = icmp eq ptr %29, %30
   br i1 %.not.i1, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, label %.lr.ph.i2
 
@@ -819,24 +819,24 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %.015.i = phi i64 [ 0, %.lr.ph.i2 ], [ %72, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %36 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %34, i64 %indvars.iv.i3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !55
+  %38 = load i64, ptr %37, align 8, !tbaa !56
   %.not27.i.i = icmp eq i64 %38, 0
   br i1 %.not27.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %33
-  %39 = load ptr, ptr %31, align 8, !tbaa !59
+  %39 = load ptr, ptr %31, align 8, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !14
-  %44 = load i64, ptr %36, align 8, !tbaa !71
+  %44 = load i64, ptr %36, align 8, !tbaa !72
   %45 = getelementptr inbounds i64, ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw float, ptr %41, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !4
   %50 = getelementptr inbounds nuw i64, ptr %49, i64 %46
-  %51 = load i64, ptr %0, align 8, !tbaa !34
+  %51 = load i64, ptr %0, align 8, !tbaa !35
   %52 = udiv i64 %.015.i, %51
   %53 = mul i64 %52, %51
   %.recomposed = urem i64 %.015.i, %51
@@ -849,15 +849,15 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %.02429.i.i = phi i64 [ %52, %.lr.ph.i.i ], [ %68, %54 ]
   %.02528.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %67, %54 ]
   %55 = add i64 %.02231.i.i, %.032.i.i
-  %56 = load i64, ptr %0, align 8, !tbaa !34
+  %56 = load i64, ptr %0, align 8, !tbaa !35
   %57 = icmp ult i64 %55, %56
   %58 = sub i64 %56, %.032.i.i
   %59 = select i1 %57, i64 %.02231.i.i, i64 %58
-  %60 = load ptr, ptr %32, align 8, !tbaa !43
+  %60 = load ptr, ptr %32, align 8, !tbaa !44
   %61 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %60, i64 %.02429.i.i
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %61, align 8, !tbaa !52
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %61, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !53
+  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
   %63 = shl i64 %59, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i.i, ptr align 8 %62, i64 %63, i1 false)
@@ -869,12 +869,12 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %68 = add i64 %.02429.i.i, 1
   %69 = sub i64 %.02231.i.i, %59
   %.not.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, label %54, !llvm.loop !54
+  br i1 %.not.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, label %54, !llvm.loop !55
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i: ; preds = %54
-  %.pre17.pre.i = load i64, ptr %37, align 8, !tbaa !55
-  %.pre = load ptr, ptr %4, align 8, !tbaa !67
-  %.pre5 = load ptr, ptr %3, align 8, !tbaa !70
+  %.pre17.pre.i = load i64, ptr %37, align 8, !tbaa !56
+  %.pre = load ptr, ptr %4, align 8, !tbaa !68
+  %.pre5 = load ptr, ptr %3, align 8, !tbaa !71
   br label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, %33
@@ -888,7 +888,7 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferLi
   %75 = sub i64 %73, %74
   %76 = sdiv exact i64 %75, 24
   %77 = icmp ugt i64 %76, %indvars.iv.next.i4
-  br i1 %77, label %33, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, !llvm.loop !73
+  br i1 %77, label %33, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, !llvm.loop !74
 
 _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, %28
   ret void
@@ -905,8 +905,8 @@ _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10B
 define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !67
-  %5 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !68
+  %5 = load ptr, ptr %2, align 8, !tbaa !71
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -916,7 +916,7 @@ define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull 
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   br label %14
@@ -928,13 +928,13 @@ define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %5, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !55
-  %18 = load i64, ptr %15, align 8, !tbaa !71
+  %17 = load i64, ptr %16, align 8, !tbaa !56
+  %18 = load i64, ptr %15, align 8, !tbaa !72
   %19 = getelementptr inbounds i64, ptr %13, i64 %18
   store i64 %17, ptr %19, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !73
 }
 
 ; Function Attrs: nounwind
@@ -953,8 +953,8 @@ declare void @__kmpc_end_single(ptr, i32) local_unnamed_addr #19
 define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i1 noundef zeroext %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !67
-  %6 = load ptr, ptr %3, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
+  %6 = load ptr, ptr %3, align 8, !tbaa !71
   %.not = icmp eq ptr %5, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -972,24 +972,24 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %.015 = phi i64 [ 0, %.lr.ph ], [ %55, %53 ]
   %11 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !55
+  %13 = load i64, ptr %12, align 8, !tbaa !56
   %.not27.i = icmp eq i64 %13, 0
   br i1 %.not27.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
-  %14 = load ptr, ptr %7, align 8, !tbaa !59
+  %14 = load ptr, ptr %7, align 8, !tbaa !60
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
-  %19 = load i64, ptr %11, align 8, !tbaa !71
+  %19 = load i64, ptr %11, align 8, !tbaa !72
   %20 = getelementptr inbounds i64, ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw float, ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i64, ptr %24, i64 %21
-  %26 = load i64, ptr %0, align 8, !tbaa !34
+  %26 = load i64, ptr %0, align 8, !tbaa !35
   %27 = udiv i64 %.015, %26
   %28 = mul i64 %27, %26
   %.recomposed = urem i64 %.015, %26
@@ -1002,15 +1002,15 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %.02429.i = phi i64 [ %27, %.lr.ph.i ], [ %43, %29 ]
   %.02528.i = phi ptr [ %22, %.lr.ph.i ], [ %42, %29 ]
   %30 = add i64 %.02231.i, %.032.i
-  %31 = load i64, ptr %0, align 8, !tbaa !34
+  %31 = load i64, ptr %0, align 8, !tbaa !35
   %32 = icmp ult i64 %30, %31
   %33 = sub i64 %31, %.032.i
   %34 = select i1 %32, i64 %.02231.i, i64 %33
-  %35 = load ptr, ptr %8, align 8, !tbaa !43
+  %35 = load ptr, ptr %8, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %35, i64 %.02429.i
-  %.sroa.0.0.copyload.i = load ptr, ptr %36, align 8, !tbaa !52
+  %.sroa.0.0.copyload.i = load ptr, ptr %36, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !53
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i, i64 %.032.i
   %38 = shl i64 %34, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i, ptr align 8 %37, i64 %38, i1 false)
@@ -1022,10 +1022,10 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %43 = add i64 %.02429.i, 1
   %44 = sub i64 %.02231.i, %34
   %.not.i = icmp eq i64 %44, 0
-  br i1 %.not.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit, label %29, !llvm.loop !54
+  br i1 %.not.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit, label %29, !llvm.loop !55
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit: ; preds = %29
-  %.pre17.pre = load i64, ptr %12, align 8, !tbaa !55
+  %.pre17.pre = load i64, ptr %12, align 8, !tbaa !56
   br label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit:    ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit, %9
@@ -1033,36 +1033,36 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit:    ; preds = %_ZN5faiss10BufferLi
   br i1 %1, label %45, label %53
 
 45:                                               ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit
-  %46 = load ptr, ptr %7, align 8, !tbaa !59
+  %46 = load ptr, ptr %7, align 8, !tbaa !60
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !14
-  %49 = load i64, ptr %11, align 8, !tbaa !71
+  %49 = load i64, ptr %11, align 8, !tbaa !72
   %50 = getelementptr inbounds i64, ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = add i64 %51, %.pre17
   store i64 %52, ptr %50, align 8, !tbaa !15
-  %.pre = load i64, ptr %12, align 8, !tbaa !55
+  %.pre = load i64, ptr %12, align 8, !tbaa !56
   br label %53
 
 53:                                               ; preds = %45, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit
   %54 = phi i64 [ %.pre, %45 ], [ %.pre17, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit ]
   %55 = add i64 %54, %.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load ptr, ptr %4, align 8, !tbaa !67
-  %57 = load ptr, ptr %3, align 8, !tbaa !70
+  %56 = load ptr, ptr %4, align 8, !tbaa !68
+  %57 = load ptr, ptr %3, align 8, !tbaa !71
   %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
   %61 = sdiv exact i64 %60, 24
   %62 = icmp ugt i64 %61, %indvars.iv.next
-  br i1 %62, label %9, label %._crit_edge, !llvm.loop !73
+  br i1 %62, label %9, label %._crit_edge, !llvm.loop !74
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !74
-  %5 = load ptr, ptr %0, align 8, !tbaa !77
+  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %5 = load ptr, ptr %0, align 8, !tbaa !78
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -1072,9 +1072,9 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   br i1 %11, label %147, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8, !tbaa !69
+  %13 = load ptr, ptr %5, align 8, !tbaa !70
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !60
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !13
   %.not4954 = icmp eq ptr %5, %4
@@ -1085,7 +1085,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   br label %22
 
 ._crit_edge:                                      ; preds = %.loopexit, %12
-  %19 = load ptr, ptr %15, align 8, !tbaa !31
+  %19 = load ptr, ptr %15, align 8, !tbaa !32
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(48) %15)
   %21 = icmp sgt i32 %10, 0
@@ -1097,15 +1097,15 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
 
 22:                                               ; preds = %.lr.ph56, %.loopexit
   %.sroa.046.055 = phi ptr [ %5, %.lr.ph56 ], [ %38, %.loopexit ]
-  %23 = load ptr, ptr %.sroa.046.055, align 8, !tbaa !69
+  %23 = load ptr, ptr %.sroa.046.055, align 8, !tbaa !70
   %.not39 = icmp eq ptr %23, null
   br i1 %.not39, label %.loopexit, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %26 = load ptr, ptr %25, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !78
+  %28 = load ptr, ptr %27, align 8, !tbaa !79
   %.not5052 = icmp eq ptr %26, %28
   br i1 %.not5052, label %.loopexit, label %.lr.ph
 
@@ -1116,20 +1116,20 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
 30:                                               ; preds = %.lr.ph, %30
   %.sroa.042.053 = phi ptr [ %26, %.lr.ph ], [ %37, %30 ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.042.053, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !55
-  %33 = load i64, ptr %.sroa.042.053, align 8, !tbaa !71
+  %32 = load i64, ptr %31, align 8, !tbaa !56
+  %33 = load i64, ptr %.sroa.042.053, align 8, !tbaa !72
   %34 = getelementptr inbounds i64, ptr %29, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !15
   %36 = add i64 %35, %32
   store i64 %36, ptr %34, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.042.053, i64 24
   %.not50 = icmp eq ptr %37, %28
-  br i1 %.not50, label %.loopexit, label %30
+  br i1 %.not50, label %.loopexit, label %30, !llvm.loop !80
 
 .loopexit:                                        ; preds = %30, %24, %22
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.046.055, i64 8
   %.not49 = icmp eq ptr %38, %4
-  br i1 %.not49, label %._crit_edge, label %22
+  br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !81
 
 .preheader:                                       ; preds = %146, %._crit_edge
   %.not60 = icmp eq i64 %17, 0
@@ -1145,24 +1145,24 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %146
   %indvars.iv = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next, %146 ]
-  %40 = load ptr, ptr %0, align 8, !tbaa !77
+  %40 = load ptr, ptr %0, align 8, !tbaa !78
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !69
+  %42 = load ptr, ptr %41, align 8, !tbaa !70
   %.not38 = icmp eq ptr %42, null
   br i1 %.not38, label %146, label %43
 
 43:                                               ; preds = %.lr.ph59
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !67
-  %47 = load ptr, ptr %44, align 8, !tbaa !70
+  %46 = load ptr, ptr %45, align 8, !tbaa !68
+  %47 = load ptr, ptr %44, align 8, !tbaa !71
   %.not.i = icmp eq ptr %46, %47
   br i1 %.not.i, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.pre66.pre = load ptr, ptr %48, align 8, !tbaa !59
+  %.pre66.pre = load ptr, ptr %48, align 8, !tbaa !60
   br label %50
 
 50:                                               ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, %.lr.ph.i
@@ -1173,7 +1173,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %94, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %53 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %51, i64 %indvars.iv.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !55
+  %55 = load i64, ptr %54, align 8, !tbaa !56
   %.not27.i.i = icmp eq i64 %55, 0
   br i1 %.not27.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, label %.lr.ph.i.i
 
@@ -1182,14 +1182,14 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %58 = getelementptr inbounds nuw i8, ptr %.pre66, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !14
-  %60 = load i64, ptr %53, align 8, !tbaa !71
+  %60 = load i64, ptr %53, align 8, !tbaa !72
   %61 = getelementptr inbounds i64, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !15
   %63 = getelementptr inbounds nuw float, ptr %57, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %.pre66, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !4
   %66 = getelementptr inbounds nuw i64, ptr %65, i64 %62
-  %67 = load i64, ptr %42, align 8, !tbaa !34
+  %67 = load i64, ptr %42, align 8, !tbaa !35
   %68 = udiv i64 %.015.i, %67
   %69 = mul i64 %68, %67
   %.recomposed = urem i64 %.015.i, %67
@@ -1202,15 +1202,15 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %.02429.i.i = phi i64 [ %68, %.lr.ph.i.i ], [ %84, %70 ]
   %.02528.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %83, %70 ]
   %71 = add i64 %.02231.i.i, %.032.i.i
-  %72 = load i64, ptr %42, align 8, !tbaa !34
+  %72 = load i64, ptr %42, align 8, !tbaa !35
   %73 = icmp ult i64 %71, %72
   %74 = sub i64 %72, %.032.i.i
   %75 = select i1 %73, i64 %.02231.i.i, i64 %74
-  %76 = load ptr, ptr %49, align 8, !tbaa !43
+  %76 = load ptr, ptr %49, align 8, !tbaa !44
   %77 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %76, i64 %.02429.i.i
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %77, align 8, !tbaa !52
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %77, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !53
+  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !54
   %78 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
   %79 = shl i64 %75, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i.i, ptr align 8 %78, i64 %79, i1 false)
@@ -1222,13 +1222,13 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %84 = add i64 %.02429.i.i, 1
   %85 = sub i64 %.02231.i.i, %75
   %.not.i.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, label %70, !llvm.loop !54
+  br i1 %.not.i.i, label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, label %70, !llvm.loop !55
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i: ; preds = %70
-  %.pre17.pre.i = load i64, ptr %54, align 8, !tbaa !55
-  %.pre = load ptr, ptr %48, align 8, !tbaa !59
-  %.pre67 = load ptr, ptr %45, align 8, !tbaa !67
-  %.pre68 = load ptr, ptr %44, align 8, !tbaa !70
+  %.pre17.pre.i = load i64, ptr %54, align 8, !tbaa !56
+  %.pre = load ptr, ptr %48, align 8, !tbaa !60
+  %.pre67 = load ptr, ptr %45, align 8, !tbaa !68
+  %.pre68 = load ptr, ptr %44, align 8, !tbaa !71
   br label %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i
 
 _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i, %50
@@ -1238,12 +1238,12 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferLi
   %.pre17.i = phi i64 [ %.pre17.pre.i, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.loopexit.i ], [ 0, %50 ]
   %88 = getelementptr inbounds nuw i8, ptr %.pre6671, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !14
-  %90 = load i64, ptr %53, align 8, !tbaa !71
+  %90 = load i64, ptr %53, align 8, !tbaa !72
   %91 = getelementptr inbounds i64, ptr %89, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !15
   %93 = add i64 %92, %.pre17.i
   store i64 %93, ptr %91, align 8, !tbaa !15
-  %.pre.i = load i64, ptr %54, align 8, !tbaa !55
+  %.pre.i = load i64, ptr %54, align 8, !tbaa !56
   %94 = add i64 %.pre.i, %.015.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %95 = ptrtoint ptr %87 to i64
@@ -1251,27 +1251,27 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferLi
   %97 = sub i64 %95, %96
   %98 = sdiv exact i64 %97, 24
   %99 = icmp ugt i64 %98, %indvars.iv.next.i
-  br i1 %99, label %50, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, !llvm.loop !73
+  br i1 %99, label %50, label %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, !llvm.loop !74
 
 _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i, %43
   br i1 %1, label %100, label %146
 
 100:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit
-  %101 = load ptr, ptr %0, align 8, !tbaa !77
+  %101 = load ptr, ptr %0, align 8, !tbaa !78
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8, !tbaa !69
+  %103 = load ptr, ptr %102, align 8, !tbaa !70
   %104 = icmp eq ptr %103, null
   br i1 %104, label %143, label %105
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 48
-  %107 = load ptr, ptr %106, align 8, !tbaa !70
+  %107 = load ptr, ptr %106, align 8, !tbaa !71
   %.not.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i, label %108
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 64
-  %110 = load ptr, ptr %109, align 8, !tbaa !68
+  %110 = load ptr, ptr %109, align 8, !tbaa !69
   %111 = ptrtoint ptr %110 to i64
   %112 = ptrtoint ptr %107 to i64
   %113 = sub i64 %111, %112
@@ -1281,8 +1281,8 @@ _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10B
 _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
   %114 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !42
-  %117 = load ptr, ptr %114, align 8, !tbaa !43
+  %116 = load ptr, ptr %115, align 8, !tbaa !43
+  %117 = load ptr, ptr %114, align 8, !tbaa !44
   %118 = ptrtoint ptr %117 to i64
   %.not.i.i40 = icmp eq ptr %116, %117
   br i1 %.not.i.i40, label %._crit_edge.i.i, label %.lr.ph.i.i41
@@ -1295,7 +1295,7 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
 
 119:                                              ; preds = %._crit_edge.i.i
   %120 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !44
+  %121 = load ptr, ptr %120, align 8, !tbaa !45
   %122 = ptrtoint ptr %121 to i64
   %123 = sub i64 %122, %.lcssa.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa7.i.i, i64 noundef %123) #27
@@ -1305,53 +1305,53 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
   %124 = phi ptr [ %136, %135 ], [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %135 ], [ 0, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
   %125 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %124, i64 %indvars.iv.i.i
-  %126 = load ptr, ptr %125, align 8, !tbaa !45
+  %126 = load ptr, ptr %125, align 8, !tbaa !46
   %127 = icmp eq ptr %126, null
   br i1 %127, label %129, label %128
 
 128:                                              ; preds = %.lr.ph.i.i41
   tail call void @_ZdaPv(ptr noundef nonnull %126) #27
-  %.pre.i.i = load ptr, ptr %114, align 8, !tbaa !43
+  %.pre.i.i = load ptr, ptr %114, align 8, !tbaa !44
   br label %129
 
 129:                                              ; preds = %128, %.lr.ph.i.i41
   %130 = phi ptr [ %.pre.i.i, %128 ], [ %124, %.lr.ph.i.i41 ]
   %131 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %130, i64 %indvars.iv.i.i, i32 1
-  %132 = load ptr, ptr %131, align 8, !tbaa !47
+  %132 = load ptr, ptr %131, align 8, !tbaa !48
   %133 = icmp eq ptr %132, null
   br i1 %133, label %135, label %134
 
 134:                                              ; preds = %129
   tail call void @_ZdaPv(ptr noundef nonnull %132) #27
-  %.pre13.i.i = load ptr, ptr %114, align 8, !tbaa !43
+  %.pre13.i.i = load ptr, ptr %114, align 8, !tbaa !44
   br label %135
 
 135:                                              ; preds = %134, %129
   %136 = phi ptr [ %130, %129 ], [ %.pre13.i.i, %134 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %137 = load ptr, ptr %115, align 8, !tbaa !42
+  %137 = load ptr, ptr %115, align 8, !tbaa !43
   %138 = ptrtoint ptr %137 to i64
   %139 = ptrtoint ptr %136 to i64
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 4
   %142 = icmp ugt i64 %141, %indvars.iv.next.i.i
-  br i1 %142, label %.lr.ph.i.i41, label %._crit_edge.i.i, !llvm.loop !48
+  br i1 %142, label %.lr.ph.i.i41, label %._crit_edge.i.i, !llvm.loop !49
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %._crit_edge.i.i, %119
   tail call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 72) #27
-  %.pre69 = load ptr, ptr %0, align 8, !tbaa !77
+  %.pre69 = load ptr, ptr %0, align 8, !tbaa !78
   br label %143
 
 143:                                              ; preds = %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, %100
   %144 = phi ptr [ %.pre69, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit ], [ %101, %100 ]
   %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv
-  store ptr null, ptr %145, align 8, !tbaa !69
+  store ptr null, ptr %145, align 8, !tbaa !70
   br label %146
 
 146:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit, %143, %.lr.ph59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph59, !llvm.loop !79
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph59, !llvm.loop !82
 
 ._crit_edge63:                                    ; preds = %.preheader, %.lr.ph62
   store i64 0, ptr %.pre70, align 8, !tbaa !15
@@ -1363,19 +1363,19 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %._crit_edge.i.i, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5faiss17InterruptCallbackESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !80
+  %2 = load ptr, ptr %0, align 8, !tbaa !83
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %_ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit: ; preds = %1
-  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
   br label %6
 
 6:                                                ; preds = %_ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !80
+  store ptr null, ptr %0, align 8, !tbaa !83
   ret void
 }
 
@@ -1384,13 +1384,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss17InterruptCallback14clear_instanceEv() local_unnamed_addr #1 align 2 {
-  %1 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
-  store ptr null, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
+  %1 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
+  store ptr null, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr %1, align 8, !tbaa !31
+  %4 = load ptr, ptr %1, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
@@ -1404,12 +1404,12 @@ define void @_ZN5faiss17InterruptCallback14clear_instanceEv() local_unnamed_addr
 define void @_ZN5faiss17InterruptCallback5checkEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
-  %3 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
+  %3 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr %3, align 8, !tbaa !31
+  %5 = load ptr, ptr %3, align 8, !tbaa !32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %7, label %8, label %24
@@ -1541,7 +1541,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5faiss17InterruptCallback14is_interruptedEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
+  %1 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %2
 
@@ -1555,8 +1555,8 @@ define noundef zeroext i1 @_ZN5faiss17InterruptCallback14is_interruptedEv() loca
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
-  %5 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %5 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %9 unwind label %11
@@ -1587,7 +1587,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 1, 1073741825) i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %0) local_unnamed_addr #22 align 2 {
-  %2 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
+  %2 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
@@ -1606,7 +1606,7 @@ define noundef range(i64 1, 1073741825) i64 @_ZN5faiss17InterruptCallback15get_p
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss15TimeoutCallback11set_timeoutEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 24)) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %1, ptr %3, align 8, !tbaa !25
+  store double %1, ptr %3, align 8, !tbaa !26
   %4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %5, align 8, !tbaa !15
@@ -1621,16 +1621,16 @@ define void @_ZN5faiss15TimeoutCallback5resetEd(double noundef %0) local_unnamed
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %3, align 16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss15TimeoutCallbackE, i64 16), ptr %2, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss15TimeoutCallbackE, i64 16), ptr %2, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
-  %5 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
-  store ptr %2, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !80
+  %5 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
+  store ptr %2, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8, !tbaa !83
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5faiss17InterruptCallbackESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit.i.i: ; preds = %1
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -1638,7 +1638,7 @@ _ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit.i.i: ; preds = %
 
 _ZNSt10unique_ptrIN5faiss17InterruptCallbackESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %1, %_ZNKSt14default_deleteIN5faiss17InterruptCallbackEEclEPS1_.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %0, ptr %9, align 8, !tbaa !25
+  store double %0, ptr %9, align 8, !tbaa !26
   %10 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   store i64 %10, ptr %4, align 8, !tbaa !15
   ret void
@@ -1715,62 +1715,65 @@ attributes #29 = { noreturn nounwind }
 !20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !17, i64 0, !6, i64 8, !7, i64 16}
 !21 = !{!7, !7, i64 0}
 !22 = !{!20, !18, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !30, i64 16}
-!26 = !{!"_ZTSN5faiss15TimeoutCallbackE", !27, i64 0, !28, i64 8, !30, i64 16}
-!27 = !{!"_ZTSN5faiss17InterruptCallbackE"}
-!28 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !29, i64 0}
-!29 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !6, i64 0}
-!30 = !{!"double", !7, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"vtable pointer", !8, i64 0}
-!33 = !{!5, !6, i64 40}
-!34 = !{!35, !6, i64 0}
-!35 = !{!"_ZTSN5faiss10BufferListE", !6, i64 0, !36, i64 8, !6, i64 32}
-!36 = !{!"_ZTSSt6vectorIN5faiss10BufferList6BufferESaIS2_EE", !37, i64 0}
-!37 = !{!"_ZTSSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE", !38, i64 0}
-!38 = !{!"_ZTSNSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE12_Vector_implE", !39, i64 0}
-!39 = !{!"_ZTSNSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE17_Vector_impl_dataE", !40, i64 0, !40, i64 8, !40, i64 16}
-!40 = !{!"p1 _ZTSN5faiss10BufferList6BufferE", !10, i64 0}
-!41 = !{!35, !6, i64 32}
-!42 = !{!39, !40, i64 8}
-!43 = !{!39, !40, i64 0}
-!44 = !{!39, !40, i64 16}
-!45 = !{!46, !9, i64 0}
-!46 = !{!"_ZTSN5faiss10BufferList6BufferE", !9, i64 0, !11, i64 8}
-!47 = !{!46, !11, i64 8}
-!48 = distinct !{!48, !24}
-!49 = !{!40, !40, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"float", !7, i64 0}
-!52 = !{!9, !9, i64 0}
-!53 = !{!11, !11, i64 0}
-!54 = distinct !{!54, !24}
-!55 = !{!56, !6, i64 8}
-!56 = !{!"_ZTSN5faiss16RangeQueryResultE", !6, i64 0, !6, i64 8, !57, i64 16}
-!57 = !{!"p1 _ZTSN5faiss24RangeSearchPartialResultE", !10, i64 0}
-!58 = !{!56, !57, i64 16}
-!59 = !{!60, !61, i64 40}
-!60 = !{!"_ZTSN5faiss24RangeSearchPartialResultE", !35, i64 0, !61, i64 40, !62, i64 48}
-!61 = !{!"p1 _ZTSN5faiss17RangeSearchResultE", !10, i64 0}
-!62 = !{!"_ZTSSt6vectorIN5faiss16RangeQueryResultESaIS1_EE", !63, i64 0}
-!63 = !{!"_ZTSSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE", !64, i64 0}
-!64 = !{!"_ZTSNSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE12_Vector_implE", !65, i64 0}
-!65 = !{!"_ZTSNSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
-!66 = !{!"p1 _ZTSN5faiss16RangeQueryResultE", !10, i64 0}
-!67 = !{!65, !66, i64 8}
-!68 = !{!65, !66, i64 16}
-!69 = !{!57, !57, i64 0}
-!70 = !{!65, !66, i64 0}
-!71 = !{!56, !6, i64 0}
-!72 = distinct !{!72, !24}
-!73 = distinct !{!73, !24}
-!74 = !{!75, !76, i64 8}
-!75 = !{!"_ZTSNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EE17_Vector_impl_dataE", !76, i64 0, !76, i64 8, !76, i64 16}
-!76 = !{!"p2 _ZTSN5faiss24RangeSearchPartialResultE", !10, i64 0}
-!77 = !{!75, !76, i64 0}
-!78 = !{!66, !66, i64 0}
-!79 = distinct !{!79, !24}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTSN5faiss17InterruptCallbackE", !10, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !31, i64 16}
+!27 = !{!"_ZTSN5faiss15TimeoutCallbackE", !28, i64 0, !29, i64 8, !31, i64 16}
+!28 = !{!"_ZTSN5faiss17InterruptCallbackE"}
+!29 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !30, i64 0}
+!30 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !6, i64 0}
+!31 = !{!"double", !7, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"vtable pointer", !8, i64 0}
+!34 = !{!5, !6, i64 40}
+!35 = !{!36, !6, i64 0}
+!36 = !{!"_ZTSN5faiss10BufferListE", !6, i64 0, !37, i64 8, !6, i64 32}
+!37 = !{!"_ZTSSt6vectorIN5faiss10BufferList6BufferESaIS2_EE", !38, i64 0}
+!38 = !{!"_ZTSSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE", !39, i64 0}
+!39 = !{!"_ZTSNSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE12_Vector_implE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIN5faiss10BufferList6BufferESaIS2_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p1 _ZTSN5faiss10BufferList6BufferE", !10, i64 0}
+!42 = !{!36, !6, i64 32}
+!43 = !{!40, !41, i64 8}
+!44 = !{!40, !41, i64 0}
+!45 = !{!40, !41, i64 16}
+!46 = !{!47, !9, i64 0}
+!47 = !{!"_ZTSN5faiss10BufferList6BufferE", !9, i64 0, !11, i64 8}
+!48 = !{!47, !11, i64 8}
+!49 = distinct !{!49, !24, !25}
+!50 = !{!41, !41, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"float", !7, i64 0}
+!53 = !{!9, !9, i64 0}
+!54 = !{!11, !11, i64 0}
+!55 = distinct !{!55, !24, !25}
+!56 = !{!57, !6, i64 8}
+!57 = !{!"_ZTSN5faiss16RangeQueryResultE", !6, i64 0, !6, i64 8, !58, i64 16}
+!58 = !{!"p1 _ZTSN5faiss24RangeSearchPartialResultE", !10, i64 0}
+!59 = !{!57, !58, i64 16}
+!60 = !{!61, !62, i64 40}
+!61 = !{!"_ZTSN5faiss24RangeSearchPartialResultE", !36, i64 0, !62, i64 40, !63, i64 48}
+!62 = !{!"p1 _ZTSN5faiss17RangeSearchResultE", !10, i64 0}
+!63 = !{!"_ZTSSt6vectorIN5faiss16RangeQueryResultESaIS1_EE", !64, i64 0}
+!64 = !{!"_ZTSSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE", !65, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE12_Vector_implE", !66, i64 0}
+!66 = !{!"_ZTSNSt12_Vector_baseIN5faiss16RangeQueryResultESaIS1_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
+!67 = !{!"p1 _ZTSN5faiss16RangeQueryResultE", !10, i64 0}
+!68 = !{!66, !67, i64 8}
+!69 = !{!66, !67, i64 16}
+!70 = !{!58, !58, i64 0}
+!71 = !{!66, !67, i64 0}
+!72 = !{!57, !6, i64 0}
+!73 = distinct !{!73, !24, !25}
+!74 = distinct !{!74, !24, !25}
+!75 = !{!76, !77, i64 8}
+!76 = !{!"_ZTSNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EE17_Vector_impl_dataE", !77, i64 0, !77, i64 8, !77, i64 16}
+!77 = !{!"p2 _ZTSN5faiss24RangeSearchPartialResultE", !10, i64 0}
+!78 = !{!76, !77, i64 0}
+!79 = !{!67, !67, i64 0}
+!80 = distinct !{!80, !25}
+!81 = distinct !{!81, !25}
+!82 = distinct !{!82, !24, !25}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSN5faiss17InterruptCallbackE", !10, i64 0}

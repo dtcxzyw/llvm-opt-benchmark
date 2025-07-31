@@ -100,7 +100,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 41:                                               ; preds = %.critedge
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !44
+  %43 = load ptr, ptr %42, align 8, !tbaa !45
   %.not68 = icmp eq ptr %43, null
   br i1 %.not68, label %67, label %44
 
@@ -118,9 +118,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 136
-  %53 = load i64, ptr %52, align 8, !tbaa !45
+  %53 = load i64, ptr %52, align 8, !tbaa !46
   call void @av_frame_free(ptr noundef nonnull %2) #4
-  %54 = load ptr, ptr %42, align 8, !tbaa !44
+  %54 = load ptr, ptr %42, align 8, !tbaa !45
   %55 = call ptr @av_frame_clone(ptr noundef %54) #4
   store ptr %55, ptr %2, align 8, !tbaa !24
   %.not77 = icmp eq ptr %55, null
@@ -128,7 +128,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 136
-  store i64 %53, ptr %57, align 8, !tbaa !45
+  store i64 %53, ptr %57, align 8, !tbaa !46
   %58 = call i32 @ff_filter_frame(ptr noundef %14, ptr noundef nonnull %55) #4
   br label %.loopexit
 
@@ -164,7 +164,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %74, ptr %77, align 8, !tbaa !44
+  store ptr %74, ptr %77, align 8, !tbaa !45
   br label %80
 
 78:                                               ; preds = %73
@@ -184,8 +184,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not71, label %.critedge81, label %84
 
 84:                                               ; preds = %80
-  %85 = load i32, ptr %3, align 4, !tbaa !50
-  %86 = load i64, ptr %4, align 8, !tbaa !51
+  %85 = load i32, ptr %3, align 4, !tbaa !51
+  %86 = load i64, ptr %4, align 8, !tbaa !52
   call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %85, i64 noundef %86) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
@@ -204,8 +204,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not72, label %.critedge83, label %91
 
 91:                                               ; preds = %.critedge81
-  %92 = load i32, ptr %5, align 4, !tbaa !50
-  %93 = load i64, ptr %6, align 8, !tbaa !51
+  %92 = load i32, ptr %5, align 4, !tbaa !51
+  %93 = load i64, ptr %6, align 8, !tbaa !52
   call void @ff_avfilter_link_set_in_status(ptr noundef %14, i32 noundef %92, i64 noundef %93) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
@@ -218,7 +218,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 94:                                               ; preds = %.critedge83
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !44
+  %96 = load ptr, ptr %95, align 8, !tbaa !45
   %.not73 = icmp eq ptr %96, null
   br i1 %.not73, label %.thread, label %97
 
@@ -235,7 +235,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 102:                                              ; preds = %97
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !45
   %103 = icmp eq ptr %.pre, null
   br i1 %103, label %.thread, label %.loopexit
 
@@ -259,21 +259,21 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !52
+  %2 = load ptr, ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !53
+  %9 = load i32, ptr %8, align 8, !tbaa !54
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !53
+  %11 = load i32, ptr %10, align 8, !tbaa !54
   %.not = icmp eq i32 %9, %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !54
+  %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %15 = load i32, ptr %14, align 4, !tbaa !54
+  %15 = load i32, ptr %14, align 4, !tbaa !55
   %.not25 = icmp eq i32 %13, %15
   %or.cond = select i1 %.not, i1 %.not25, i1 false
   br i1 %or.cond, label %16, label %._crit_edge
@@ -284,9 +284,9 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %9, ptr %17, align 8, !tbaa !53
+  store i32 %9, ptr %17, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %13, ptr %18, align 4, !tbaa !54
+  store i32 %13, ptr %18, align 4, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %21 = load i64, ptr %20, align 8
@@ -386,16 +386,17 @@ attributes #4 = { nounwind }
 !39 = !{!38, !36, i64 16}
 !40 = !{!38, !36, i64 24}
 !41 = !{!5, !15, i64 40}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!38, !25, i64 32}
-!45 = !{!46, !36, i64 136}
-!46 = !{!"AVFrame", !8, i64 0, !8, i64 64, !47, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !30, i64 124, !36, i64 136, !36, i64 144, !30, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !48, i64 248, !15, i64 256, !32, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !36, i64 304, !49, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !36, i64 344, !36, i64 352, !36, i64 360, !36, i64 368, !7, i64 376, !31, i64 384, !36, i64 408}
-!47 = !{!"p2 omnipotent char", !14, i64 0}
-!48 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!50 = !{!15, !15, i64 0}
-!51 = !{!36, !36, i64 0}
-!52 = !{!28, !29, i64 0}
-!53 = !{!28, !15, i64 40}
-!54 = !{!28, !15, i64 44}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!38, !25, i64 32}
+!46 = !{!47, !36, i64 136}
+!47 = !{!"AVFrame", !8, i64 0, !8, i64 64, !48, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !30, i64 124, !36, i64 136, !36, i64 144, !30, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !49, i64 248, !15, i64 256, !32, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !36, i64 304, !50, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !36, i64 344, !36, i64 352, !36, i64 360, !36, i64 368, !7, i64 376, !31, i64 384, !36, i64 408}
+!48 = !{!"p2 omnipotent char", !14, i64 0}
+!49 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!50 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!51 = !{!15, !15, i64 0}
+!52 = !{!36, !36, i64 0}
+!53 = !{!28, !29, i64 0}
+!54 = !{!28, !15, i64 40}
+!55 = !{!28, !15, i64 44}

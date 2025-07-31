@@ -1257,11 +1257,11 @@ define void @_ZN20CompiledFilterOutput35on_interfaceList_currentItemChangedEP15Q
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.QString, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18, !noalias !17
-  %6 = load ptr, ptr %1, align 8, !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18, !noalias !18
+  %6 = load ptr, ptr %1, align 8, !noalias !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !noalias !17
-  call void %8(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef align 8 dereferenceable_or_null(36) %1, i32 noundef 0), !noalias !17
+  %8 = load ptr, ptr %7, align 8, !noalias !18
+  call void %8(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef align 8 dereferenceable_or_null(36) %1, i32 noundef 0), !noalias !18
   invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable_or_null(32) %4)
           to label %_ZNK15QListWidgetItem4textEv.exit unwind label %9
 
@@ -1273,12 +1273,12 @@ common.resume:                                    ; preds = %_ZN7QStringD2Ev.exi
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18, !noalias !18
   br label %common.resume
 
 _ZNK15QListWidgetItem4textEv.exit:                ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18, !noalias !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = invoke { ptr, i64 } @_ZN5QHashI7QStringS0_E4findERKS0_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %13 unwind label %40
@@ -1425,7 +1425,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   %45 = getelementptr [128 x i8], ptr %44, i64 0, i64 %43
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, -1
-  br i1 %47, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread, label %.lr.ph.i, !llvm.loop !20
+  br i1 %47, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread, label %.lr.ph.i, !llvm.loop !21
 
 _ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %7
   %.018.lcssa.i18 = phi i64 [ %18, %7 ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ]
@@ -1575,7 +1575,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !21
+  %17 = load ptr, ptr %16, align 8, !nosanitize !22
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1694,7 +1694,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i: ; preds = %_ZN7QStringD2Ev.e
 _ZN12QHashPrivate4NodeI7QStringS1_ED2Ev.exit.i.i: ; preds = %29, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i, %.preheader.i.i
   %31 = getelementptr i8, ptr %.012.i.i, i64 1
   %.not10.i.i = icmp eq ptr %31, %12
-  br i1 %.not10.i.i, label %14, label %.preheader.i.i
+  br i1 %.not10.i.i, label %14, label %.preheader.i.i, !llvm.loop !23
 
 32:                                               ; preds = %14
   tail call void @_ZdaPv(ptr noundef nonnull %15) #19
@@ -1706,7 +1706,7 @@ _ZN12QHashPrivate4NodeI7QStringS1_ED2Ev.exit.i.i: ; preds = %29, %_ZN17QArrayDat
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit: ; preds = %.preheader, %33
   %34 = icmp eq ptr %11, %3
-  br i1 %34, label %.loopexit, label %.preheader
+  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEED2Ev.exit, %5
   %35 = or disjoint i64 %.idx, 8
@@ -1753,7 +1753,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM20CompiledFilterOutputFvvE
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !21
+  %17 = load ptr, ptr %16, align 8, !nosanitize !22
   br label %_ZN9QtPrivate15FunctionPointerIM20CompiledFilterOutputFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1860,7 +1860,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   %36 = add i64 %28, 144
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %38 = icmp eq ptr %37, %26
-  br i1 %38, label %_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEEC2Em.exit, label %27
+  br i1 %38, label %_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEEC2Em.exit, label %27, !llvm.loop !25
 
 _ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEEC2Em.exit: ; preds = %27, %.noexc
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1987,7 +1987,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %47 = add i64 %39, 144
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %49 = icmp eq ptr %48, %37
-  br i1 %49, label %.loopexit, label %38
+  br i1 %49, label %.loopexit, label %38, !llvm.loop !26
 
 .loopexit:                                        ; preds = %38, %23
   store ptr %34, ptr %13, align 8
@@ -2015,7 +2015,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 59:                                               ; preds = %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
   %60 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %60, %52
-  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !22
+  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !27
 
 61:                                               ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
   %.02331 = phi i64 [ 0, %54 ], [ %163, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit ]
@@ -2079,7 +2079,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   %103 = getelementptr [128 x i8], ptr %102, i64 0, i64 %101
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, -1
-  br i1 %105, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %105, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !21
 
 106:                                              ; preds = %64
   %107 = add nuw nsw i64 %.02331, %58
@@ -2119,7 +2119,7 @@ _ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit: ; preds = %_Z11
   %123 = getelementptr inbounds nuw i8, ptr %110, i64 128
   %124 = load ptr, ptr %123, align 8
   %125 = mul nuw nsw i64 %118, 48
-  %126 = tail call ptr @__memcpy_chk(ptr noundef %121, ptr noundef %124, i64 noundef range(i64 48, 12241) %125, i64 noundef %120) #18, !alias.scope !23
+  %126 = tail call ptr @__memcpy_chk(ptr noundef %121, ptr noundef %124, i64 noundef range(i64 48, 12241) %125, i64 noundef %120) #18, !alias.scope !28
   br label %.preheader
 
 127:                                              ; preds = %131
@@ -2135,7 +2135,7 @@ _ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit: ; preds = %_Z11
   %134 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QString, QString>>::Entry", ptr %121, i64 %.011.i.i
   store i8 %133, ptr %134, align 1
   %exitcond.not.i.i = icmp eq i64 %132, %119
-  br i1 %exitcond.not.i.i, label %127, label %131, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %127, label %131, !llvm.loop !32
 
 135:                                              ; preds = %127
   tail call void @_ZdaPv(ptr noundef nonnull %129) #19
@@ -2198,7 +2198,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %150, %_ZN12QHashPri
 _ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit: ; preds = %161, %_ZN7QStringC2ERKS_.exit.i, %61
   %163 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %163, 128
-  br i1 %exitcond.not, label %59, label %61, !llvm.loop !28
+  br i1 %exitcond.not, label %59, label %61, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2268,17 +2268,22 @@ attributes #21 = { nounwind willreturn memory(read) }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !14 = distinct !{!14, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK15QListWidgetItem4textEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK15QListWidgetItem4textEv"}
-!20 = distinct !{!20, !16}
-!21 = !{}
-!22 = distinct !{!22, !16}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
-!25 = distinct !{!25, !"memcpy.inline"}
-!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK15QListWidgetItem4textEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK15QListWidgetItem4textEv"}
+!21 = distinct !{!21, !16, !17}
+!22 = !{}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !16, !17}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
+!30 = distinct !{!30, !"memcpy.inline"}
+!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
+!32 = distinct !{!32, !16, !17}
+!33 = distinct !{!33, !16, !17}

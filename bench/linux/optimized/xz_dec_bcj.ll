@@ -355,7 +355,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
   %100 = phi i32 [ %17, %16 ], [ %52, %.loopexit ], [ %96, %94 ], [ %50, %48 ]
   %101 = add i64 %98, 1
   %102 = icmp ult i64 %101, %13
-  br i1 %102, label %16, label %103, !llvm.loop !9
+  br i1 %102, label %16, label %103, !llvm.loop !10
 
 103:                                              ; preds = %97
   %104 = sub i64 %101, %99
@@ -400,7 +400,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
 131:                                              ; preds = %122, %114
   %132 = add nuw i64 %115, 4
   %133 = icmp ugt i64 %132, %7
-  br i1 %133, label %.loopexit24, label %114, !llvm.loop !11
+  br i1 %133, label %.loopexit24, label %114, !llvm.loop !12
 
 134:                                              ; preds = %4
   %135 = icmp ult i64 %7, 4
@@ -448,7 +448,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
 165:                                              ; preds = %145, %138
   %166 = add nuw i64 %139, 4
   %167 = icmp ugt i64 %166, %7
-  br i1 %167, label %.loopexit24, label %138, !llvm.loop !12
+  br i1 %167, label %.loopexit24, label %138, !llvm.loop !13
 
 168:                                              ; preds = %4
   %169 = icmp ult i64 %7, 4
@@ -519,7 +519,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
   %219 = add i64 %218, 2
   %220 = add i64 %218, 6
   %221 = icmp ugt i64 %220, %7
-  br i1 %221, label %.loopexit24, label %172, !llvm.loop !13
+  br i1 %221, label %.loopexit24, label %172, !llvm.loop !14
 
 222:                                              ; preds = %4
   %223 = icmp ult i64 %7, 4
@@ -560,7 +560,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
 245:                                              ; preds = %233, %226
   %246 = add nuw i64 %227, 4
   %247 = icmp ugt i64 %246, %7
-  br i1 %247, label %.loopexit24, label %226, !llvm.loop !14
+  br i1 %247, label %.loopexit24, label %226, !llvm.loop !15
 
 .loopexit24:                                      ; preds = %245, %217, %165, %131, %222, %168, %134, %110, %103, %9, %4
   %248 = phi i64 [ 0, %4 ], [ %101, %103 ], [ 0, %9 ], [ 0, %110 ], [ 0, %134 ], [ 0, %168 ], [ 0, %222 ], [ %115, %131 ], [ %139, %165 ], [ %219, %217 ], [ %227, %245 ]
@@ -659,11 +659,12 @@ attributes #10 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !8}
-!12 = distinct !{!12, !10, !8}
-!13 = distinct !{!13, !10, !8}
-!14 = distinct !{!14, !10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !8, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !8, !9}
+!13 = distinct !{!13, !11, !8, !9}
+!14 = distinct !{!14, !11, !8, !9}
+!15 = distinct !{!15, !11, !8, !9}

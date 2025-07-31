@@ -97,7 +97,7 @@ for.body.i:                                       ; preds = %if.end6, %for.body.
   %add2.i = add nuw nsw i32 %k.09.i, 1
   %div22.i = lshr i32 %n.08.i, 1
   %cmp.i = icmp ugt i32 %n.08.i, 3
-  br i1 %cmp.i, label %for.body.i, label %while.body.i
+  br i1 %cmp.i, label %for.body.i, label %while.body.i, !llvm.loop !5
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %k.114.i = phi i32 [ %sub.i, %while.body.i ], [ %add2.i, %for.body.i ]
@@ -111,7 +111,7 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %shr.i = lshr i32 %path.113.i, 1
   %sub.i = add nsw i32 %k.114.i, -1
   %cmp3.not.i = icmp eq i32 %sub.i, 0
-  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i
+  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.while.end_crit_edge.i
   %8 = phi ptr [ %.pre.i, %while.cond.preheader.while.end_crit_edge.i ], [ %6, %while.body.i ]
@@ -222,7 +222,7 @@ heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
   %21 = load ptr, ptr %parent1.i, align 8
   %cmp12.not.i = icmp eq ptr %21, null
-  br i1 %cmp12.not.i, label %heap_insert.exit, label %land.rhs.i
+  br i1 %cmp12.not.i, label %heap_insert.exit, label %land.rhs.i, !llvm.loop !8
 
 heap_insert.exit:                                 ; preds = %if.end.i.i, %timer_less_than.exit.i, %heap_node_swap.exit.i, %while.end.i
   %22 = load i32, ptr %flags, align 8
@@ -283,7 +283,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %add.i = add nuw nsw i32 %k.018.i, 1
   %div65.i = lshr i32 %n.019.i, 1
   %cmp2.i = icmp ugt i32 %n.019.i, 3
-  br i1 %cmp2.i, label %for.body.i, label %while.body.i
+  br i1 %cmp2.i, label %for.body.i, label %while.body.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %k.124.i = phi i32 [ %sub.i, %while.body.i ], [ %add.i, %for.body.i ]
@@ -297,7 +297,7 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %shr.i = lshr i32 %path.123.i, 1
   %sub.i = add nsw i32 %k.124.i, -1
   %cmp3.not.i = icmp eq i32 %sub.i, 0
-  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i
+  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %if.end
   %max.0.lcssa.i = phi ptr [ %timer_heap.i, %if.end ], [ %max.1.i, %while.body.i ]
@@ -517,7 +517,7 @@ if.else31.i.i:                                    ; preds = %if.else24.i.i
 
 heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.then28.i.i, %if.then23.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
-  br label %for.cond50.i
+  br label %for.cond50.i, !llvm.loop !11
 
 land.rhs.i:                                       ; preds = %while.cond71.preheader.i, %heap_node_swap.exit123.i
   %29 = phi ptr [ %39, %heap_node_swap.exit123.i ], [ %23, %while.cond71.preheader.i ]
@@ -616,7 +616,7 @@ heap_node_swap.exit123.i:                         ; preds = %if.else31.i116.i, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i92.i)
   %39 = load ptr, ptr %parent21.i, align 8
   %cmp73.not.i = icmp eq ptr %39, null
-  br i1 %cmp73.not.i, label %heap_remove.exit, label %land.rhs.i
+  br i1 %cmp73.not.i, label %heap_remove.exit, label %land.rhs.i, !llvm.loop !12
 
 heap_remove.exit:                                 ; preds = %if.end.i83.i, %timer_less_than.exit91.i, %heap_node_swap.exit123.i, %if.end, %if.then10.i, %if.then13.i, %while.cond71.preheader.i
   %40 = load i32, ptr %flags, align 8
@@ -766,7 +766,7 @@ uv_timer_again.exit:                              ; preds = %if.end4, %if.then1.
   tail call void %5(ptr noundef nonnull %add.ptr) #10
   %call.val = load ptr, ptr %timer_heap.i, align 8
   %cmp = icmp eq ptr %call.val, null
-  br i1 %cmp, label %for.end, label %if.end
+  br i1 %cmp, label %for.end, label %if.end, !llvm.loop !13
 
 for.end:                                          ; preds = %uv_timer_again.exit, %if.end, %entry
   ret void
@@ -819,3 +819,12 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

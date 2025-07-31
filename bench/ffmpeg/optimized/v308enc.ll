@@ -114,21 +114,21 @@ define internal range(i32 -2147483648, 1) i32 @v308_encode_frame(ptr noundef %0,
   %44 = phi i32 [ %29, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %45 = phi i32 [ %30, %.preheader ], [ %41, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.03741, %.preheader ], [ %40, %._crit_edge.loopexit ]
-  %46 = load i32, ptr %17, align 8, !tbaa !36
+  %46 = load i32, ptr %17, align 8, !tbaa !37
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %.03642, i64 %47
-  %49 = load i32, ptr %18, align 4, !tbaa !36
+  %49 = load i32, ptr %18, align 4, !tbaa !37
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.03543, i64 %50
-  %52 = load i32, ptr %19, align 8, !tbaa !36
+  %52 = load i32, ptr %19, align 8, !tbaa !37
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %.03444, i64 %53
   %55 = add nuw nsw i32 %.03345, 1
   %56 = icmp slt i32 %55, %44
-  br i1 %56, label %.preheader, label %._crit_edge46, !llvm.loop !37
+  br i1 %56, label %.preheader, label %._crit_edge46, !llvm.loop !38
 
 ._crit_edge46:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %14
-  store i32 1, ptr %3, align 4, !tbaa !36
+  store i32 1, ptr %3, align 4, !tbaa !37
   br label %57
 
 57:                                               ; preds = %4, %._crit_edge46
@@ -183,8 +183,9 @@ attributes #3 = { nounwind }
 !31 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!10, !10, i64 0}
-!37 = distinct !{!37, !35, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!10, !10, i64 0}
+!38 = distinct !{!38, !35, !36, !39}
+!39 = !{!"llvm.loop.unswitch.partial.disable"}

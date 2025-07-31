@@ -23,7 +23,7 @@ define weak dso_local noundef nonnull ptr @_Znwm(i64 noundef %0) local_unnamed_a
   tail call void %4()
   %6 = tail call noalias ptr @malloc(i64 noundef %spec.store.select.i) #12
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.lr.ph.i, label %_ZL17operator_new_implm.exit.thread
+  br i1 %7, label %.lr.ph.i, label %_ZL17operator_new_implm.exit.thread, !llvm.loop !4
 
 _ZL17operator_new_implm.exit:                     ; preds = %.lr.ph.i
   %8 = tail call ptr @__cxa_allocate_exception(i64 8) #13
@@ -171,7 +171,7 @@ define weak dso_local noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %0, 
   %12 = tail call noalias noundef ptr @aligned_alloc(i64 noundef %spec.store.select1.i, i64 noundef %7) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 %spec.store.select1.i) ]
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.lr.ph.i, label %_ZL25operator_new_aligned_implmSt11align_val_t.exit.thread
+  br i1 %13, label %.lr.ph.i, label %_ZL25operator_new_aligned_implmSt11align_val_t.exit.thread, !llvm.loop !6
 
 _ZL25operator_new_aligned_implmSt11align_val_t.exit: ; preds = %.lr.ph.i
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #13
@@ -337,3 +337,6 @@ attributes #17 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}

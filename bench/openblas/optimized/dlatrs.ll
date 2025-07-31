@@ -176,7 +176,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %79 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv662
   store double %78, ptr %79, align 8, !tbaa !7
   %.not534.not = icmp samesign ult i64 %indvars.iv662, %71
-  br i1 %.not534.not, label %.lr.ph585, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %.not534.not, label %.lr.ph585, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph585
   %.pre = load i32, ptr %4, align 4, !tbaa !3
@@ -281,7 +281,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %137 = icmp sge i64 %indvars.iv.next666, %114
   %138 = icmp sle i64 %indvars.iv.next666, %114
   %.in541 = select i1 %.not.not.not, i1 %138, i1 %137
-  br i1 %.in541, label %115, label %.loopexit574, !llvm.loop !12
+  br i1 %.in541, label %115, label %.loopexit574, !llvm.loop !13
 
 139:                                              ; preds = %104
   store double 1.000000e+00, ptr %15, align 8, !tbaa !7
@@ -318,7 +318,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.in540 = select i1 %.not.not.not, i1 %157, i1 %156
   %158 = fcmp ugt double %155, %55
   %or.cond = select i1 %.in540, i1 %158, i1 false
-  br i1 %or.cond, label %.lr.ph599, label %.loopexit574, !llvm.loop !13
+  br i1 %or.cond, label %.lr.ph599, label %.loopexit574, !llvm.loop !14
 
 159:                                              ; preds = %92
   %.553 = select i1 %.not.not.not, i32 1, i32 %100
@@ -378,7 +378,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %191 = icmp sge i64 %indvars.iv.next672, %170
   %192 = icmp sle i64 %indvars.iv.next672, %170
   %.in538 = select i1 %.not.not.not, i1 %191, i1 %192
-  br i1 %.in538, label %171, label %._crit_edge607, !llvm.loop !14
+  br i1 %.in538, label %171, label %._crit_edge607, !llvm.loop !15
 
 ._crit_edge607:                                   ; preds = %173, %161
   %.1492.lcssa = phi double [ %164, %161 ], [ %.2493, %173 ]
@@ -421,7 +421,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.in = select i1 %.not.not.not, i1 %211, i1 %212
   %213 = fcmp ugt double %210, %55
   %or.cond556 = select i1 %.in, i1 %213, i1 false
-  br i1 %or.cond556, label %.lr.ph615, label %.loopexit574, !llvm.loop !15
+  br i1 %or.cond556, label %.lr.ph615, label %.loopexit574, !llvm.loop !16
 
 .loopexit574:                                     ; preds = %115, %117, %.lr.ph599, %171, %.lr.ph615, %105, %139, %195, %159, %103, %._crit_edge607
   %214 = phi double [ 1.000000e+00, %._crit_edge607 ], [ %101, %103 ], [ %101, %159 ], [ 1.000000e+00, %195 ], [ 1.000000e+00, %139 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %.lr.ph615 ], [ 1.000000e+00, %171 ], [ 1.000000e+00, %.lr.ph599 ], [ 1.000000e+00, %117 ], [ 1.000000e+00, %115 ]
@@ -692,7 +692,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %347 = icmp sge i32 %345, %215
   %348 = icmp sle i32 %345, %215
   %.in548 = select i1 %346, i1 %347, i1 %348
-  br i1 %.in548, label %230, label %.loopexit572, !llvm.loop !16
+  br i1 %.in548, label %230, label %.loopexit572, !llvm.loop !17
 
 349:                                              ; preds = %224
   store i32 %215, ptr %13, align 4, !tbaa !3
@@ -834,7 +834,7 @@ thread-pre-split568:                              ; preds = %375, %380
   %423 = call double @llvm.fmuladd.f64(double %420, double %422, double %.1469629)
   %indvars.iv.next681 = add nuw nsw i64 %indvars.iv680, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next681, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %418, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %418, !llvm.loop !18
 
 424:                                              ; preds = %413
   %425 = load i32, ptr %4, align 4, !tbaa !3
@@ -860,7 +860,7 @@ thread-pre-split568:                              ; preds = %375, %380
   %434 = load double, ptr %433, align 8, !tbaa !7
   %435 = call double @llvm.fmuladd.f64(double %432, double %434, double %.2470634)
   %exitcond687.not = icmp eq i64 %indvars.iv.next684, %wide.trip.count686
-  br i1 %exitcond687.not, label %.loopexit, label %430, !llvm.loop !18
+  br i1 %exitcond687.not, label %.loopexit, label %430, !llvm.loop !19
 
 .loopexit:                                        ; preds = %418, %430, %414, %424, %395, %403, %400
   %.0468 = phi double [ %399, %395 ], [ %412, %403 ], [ 0.000000e+00, %400 ], [ 0.000000e+00, %424 ], [ 0.000000e+00, %414 ], [ %435, %430 ], [ %423, %418 ]
@@ -991,7 +991,7 @@ thread-pre-split568:                              ; preds = %375, %380
   %500 = icmp sge i32 %498, %499
   %501 = icmp sle i32 %498, %499
   %.in542 = select i1 %225, i1 %500, i1 %501
-  br i1 %.in542, label %351, label %.loopexit572, !llvm.loop !19
+  br i1 %.in542, label %351, label %.loopexit572, !llvm.loop !20
 
 .loopexit572:                                     ; preds = %343, %491, %228, %349
   %502 = load double, ptr %16, align 8, !tbaa !7
@@ -1073,14 +1073,15 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}

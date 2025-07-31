@@ -1776,8 +1776,8 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr readnone captures(non
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !35
-  %30 = load ptr, ptr %4, align 8, !tbaa !38
+  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %30 = load ptr, ptr %4, align 8, !tbaa !39
   %.not = icmp eq ptr %29, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1870,14 +1870,14 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr readnone captures(non
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   %55 = add nuw i64 %.035, 1
-  %56 = load ptr, ptr %28, align 8, !tbaa !35
-  %57 = load ptr, ptr %4, align 8, !tbaa !38
+  %56 = load ptr, ptr %28, align 8, !tbaa !36
+  %57 = load ptr, ptr %4, align 8, !tbaa !39
   %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 4
   %62 = icmp ult i64 %55, %61
-  br i1 %62, label %51, label %._crit_edge, !llvm.loop !39
+  br i1 %62, label %51, label %._crit_edge, !llvm.loop !40
 
 63:                                               ; preds = %51
   %64 = landingpad { ptr, i32 }
@@ -1923,7 +1923,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
-  %78 = load ptr, ptr %4, align 8, !tbaa !38
+  %78 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit, label %79
 
@@ -1965,7 +1965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 88:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %63, %49, %47
   %.pn22.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn19.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ %50, %49 ], [ %48, %47 ]
-  %89 = load ptr, ptr %4, align 8, !tbaa !38
+  %89 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i.i30 = icmp eq ptr %89, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit31, label %90
 
@@ -2228,7 +2228,7 @@ define hidden void @_Z14Weighted_HoughiPv(i32 %0, ptr readnone captures(none) %1
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 3
   %109 = icmp ult i64 %102, %108
-  br i1 %109, label %75, label %._crit_edge, !llvm.loop !40
+  br i1 %109, label %75, label %._crit_edge, !llvm.loop !41
 
 110:                                              ; preds = %75
   %111 = landingpad { ptr, i32 }
@@ -2469,11 +2469,12 @@ attributes #21 = { noreturn }
 !30 = !{!"float", !8, i64 0}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"double", !8, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !37, i64 8}
-!36 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
-!37 = !{!"p1 _ZTSN2cv3VecIiLi4EEE", !7, i64 0}
-!38 = !{!36, !37, i64 0}
-!39 = distinct !{!39, !34}
-!40 = distinct !{!40, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
+!38 = !{!"p1 _ZTSN2cv3VecIiLi4EEE", !7, i64 0}
+!39 = !{!37, !38, i64 0}
+!40 = distinct !{!40, !34, !35}
+!41 = distinct !{!41, !34, !35}

@@ -226,7 +226,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %.add = add nuw nsw i64 %.idx, 64
   %68 = add nuw nsw i64 %.idx, 56
   %69 = icmp eq i64 %68, %60
-  br i1 %69, label %.loopexit116, label %.preheader115
+  br i1 %69, label %.loopexit116, label %.preheader115, !llvm.loop !32
 
 70:                                               ; preds = %49
   store i32 7, ptr %2, align 4, !tbaa !23
@@ -288,7 +288,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %108 = load i32, ptr %55, align 4
   %109 = select i1 %105, i32 %108, i32 %107
   %110 = icmp slt i32 %103, %109
-  br i1 %110, label %82, label %._crit_edge, !llvm.loop !32
+  br i1 %110, label %82, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %100, %.loopexit116
   %.056.lcssa = phi i32 [ %73, %.loopexit116 ], [ %103, %100 ]
@@ -360,7 +360,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %151 = load i32, ptr %128, align 8, !tbaa !20
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next, %152
-  br i1 %153, label %.lr.ph125, label %._crit_edge126, !llvm.loop !34
+  br i1 %153, label %.lr.ph125, label %._crit_edge126, !llvm.loop !36
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader113
   %154 = load i64, ptr %63, align 8
@@ -378,7 +378,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %.ptr105 = getelementptr inbounds i8, ptr %63, i64 %.add104
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr105) #13
   %156 = icmp eq i64 %.add104, 8
-  br i1 %156, label %.loopexit112, label %.preheader111
+  br i1 %156, label %.loopexit112, label %.preheader111, !llvm.loop !37
 
 .loopexit112:                                     ; preds = %.preheader111, %._crit_edge126
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %63) #13
@@ -401,7 +401,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %.ptr109 = getelementptr inbounds i8, ptr %63, i64 %.add108
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr109) #13
   %160 = icmp eq i64 %.add108, 8
-  br i1 %160, label %.loopexit, label %.preheader
+  br i1 %160, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %157
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %63) #13
@@ -480,7 +480,7 @@ define void @_ZN6icu_7717CanonicalIterator11cleanPiecesEv(ptr noundef nonnull al
   %17 = getelementptr inbounds i8, ptr %16, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %17) #13
   %18 = icmp eq ptr %17, %10
-  br i1 %18, label %.loopexit, label %.preheader
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.preheader, %11
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %12) #13
@@ -492,7 +492,7 @@ define void @_ZN6icu_7717CanonicalIterator11cleanPiecesEv(ptr noundef nonnull al
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %19
   %.pre14 = load ptr, ptr %2, align 8, !tbaa !8
@@ -600,7 +600,7 @@ define void @_ZN6icu_7717CanonicalIterator5resetEv(ptr noundef nonnull align 8 c
   %10 = load i32, ptr %3, align 8, !tbaa !28
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %8, label %._crit_edge, !llvm.loop !36
+  br i1 %12, label %8, label %._crit_edge, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -656,7 +656,7 @@ define void @_ZN6icu_7717CanonicalIterator4nextEv(ptr dead_on_unwind noalias wri
   %35 = load i32, ptr %12, align 8, !tbaa !20
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %17, label %._crit_edge, !llvm.loop !37
+  br i1 %37, label %17, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %17, %7
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -691,7 +691,7 @@ define void @_ZN6icu_7717CanonicalIterator4nextEv(ptr dead_on_unwind noalias wri
 53:                                               ; preds = %46
   store i32 0, ptr %47, align 4, !tbaa !29
   %54 = icmp samesign ult i64 %indvars.iv17, 2
-  br i1 %54, label %._crit_edge15, label %46, !llvm.loop !38
+  br i1 %54, label %._crit_edge15, label %46, !llvm.loop !43
 
 .loopexit:                                        ; preds = %46, %._crit_edge15, %6
   tail call void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -723,7 +723,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator14getEquivalentsERKNS_13Unicode
   %13 = alloca %"class.icu_77::UnicodeString", align 8
   %14 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #13
-  store ptr null, ptr %5, align 8, !tbaa !39
+  store ptr null, ptr %5, align 8, !tbaa !44
   %15 = load i32, ptr %3, align 4, !tbaa !23
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %_ZN6icu_779HashtableD2Ev.exit.thread
@@ -740,11 +740,11 @@ _ZN6icu_779HashtableD2Ev.exit.thread:             ; preds = %4, %17
   br label %_ZN6icu_779HashtableD2Ev.exit116
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %17
-  store ptr %18, ptr %5, align 8, !tbaa !39
+  store ptr %18, ptr %5, align 8, !tbaa !44
   %22 = call ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %18, ptr noundef nonnull @uprv_deleteUObject_77)
   %.pr = load i32, ptr %3, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #13
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !44
   %23 = icmp slt i32 %.pr, 1
   br i1 %23, label %24, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread
 
@@ -759,7 +759,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %17
   br i1 %28, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, label %29
 
 29:                                               ; preds = %.noexc
-  store ptr %25, ptr %6, align 8, !tbaa !39
+  store ptr %25, ptr %6, align 8, !tbaa !44
   %30 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %25, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 unwind label %40
 
@@ -770,7 +770,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread: ; preds = %.noexc, %_ZN6icu_
 _ZN6icu_779HashtableC2ER10UErrorCode.exit90:      ; preds = %29
   %.pr119.pre = load i32, ptr %3, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #13
-  store ptr null, ptr %7, align 8, !tbaa !39
+  store ptr null, ptr %7, align 8, !tbaa !44
   %31 = icmp slt i32 %.pr119.pre, 1
   br i1 %31, label %32, label %_ZN6icu_779HashtableD2Ev.exit
 
@@ -785,7 +785,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit90:      ; preds = %29
   br i1 %36, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, label %37
 
 37:                                               ; preds = %.noexc91
-  store ptr %33, ptr %7, align 8, !tbaa !39
+  store ptr %33, ptr %7, align 8, !tbaa !44
   %38 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %33, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2ER10UErrorCode.exit93 unwind label %42
 
@@ -810,29 +810,29 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit93:      ; preds = %37
   br label %199
 
 46:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit93
-  %47 = load ptr, ptr %5, align 8, !tbaa !39
+  %47 = load ptr, ptr %5, align 8, !tbaa !44
   %48 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %47, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit unwind label %44
 
 _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %46
-  %49 = load ptr, ptr %6, align 8, !tbaa !39
+  %49 = load ptr, ptr %6, align 8, !tbaa !44
   %50 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %49, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit96 unwind label %44
 
 _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit96: ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit
-  %51 = load ptr, ptr %7, align 8, !tbaa !39
+  %51 = load ptr, ptr %7, align 8, !tbaa !44
   %52 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %51, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98 unwind label %44
 
 _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98: ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit96
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #13
-  store ptr %8, ptr %9, align 8, !tbaa !45
+  store ptr %8, ptr %9, align 8, !tbaa !50
   %53 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %9, i32 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %54 unwind label %62
 
 54:                                               ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98
-  %55 = load ptr, ptr %9, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #13, !srcloc !48
+  %55 = load ptr, ptr %9, align 8, !tbaa !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #13, !srcloc !53
   %56 = invoke noundef ptr @_ZN6icu_7717CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %53, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %57 unwind label %60
 
@@ -849,14 +849,14 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98: ; preds = %_ZN6icu_779Hasht
 62:                                               ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98
   %63 = landingpad { ptr, i32 }
           cleanup
-  %64 = load ptr, ptr %9, align 8, !tbaa !45
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #13, !srcloc !48
+  %64 = load ptr, ptr %9, align 8, !tbaa !50
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #13, !srcloc !53
   br label %185
 
 65:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
   store i32 -1, ptr %10, align 4, !tbaa !29
-  %66 = load ptr, ptr %7, align 8, !tbaa !39
+  %66 = load ptr, ptr %7, align 8, !tbaa !44
   %67 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %66, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit.preheader unwind label %129
 
@@ -883,7 +883,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit.preheader: ; preds = %65
           to label %78 unwind label %131
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %6, align 8, !tbaa !39
+  %79 = load ptr, ptr %6, align 8, !tbaa !44
   invoke void @uhash_removeAll_77(ptr noundef %79)
           to label %_ZN6icu_779Hashtable9removeAllEv.exit unwind label %133
 
@@ -894,7 +894,7 @@ _ZN6icu_779Hashtable9removeAllEv.exit:            ; preds = %78
 80:                                               ; preds = %_ZN6icu_779Hashtable9removeAllEv.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
   store i32 -1, ptr %12, align 4, !tbaa !29
-  %81 = load ptr, ptr %6, align 8, !tbaa !39
+  %81 = load ptr, ptr %6, align 8, !tbaa !44
   %82 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %81, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit102.preheader unwind label %135
 
@@ -973,7 +973,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %111
           to label %120 unwind label %141
 
 120:                                              ; preds = %119, %116
-  %121 = load ptr, ptr %5, align 8, !tbaa !39
+  %121 = load ptr, ptr %5, align 8, !tbaa !44
   %122 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %123 = icmp eq ptr %122, null
   br i1 %123, label %125, label %124
@@ -1029,7 +1029,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %111
   br label %.body
 
 _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %97, %125, %94, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %143 = load ptr, ptr %6, align 8, !tbaa !39
+  %143 = load ptr, ptr %6, align 8, !tbaa !44
   %144 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %143, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit106 unwind label %139
 
@@ -1039,7 +1039,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit106:    ; preds = %_ZN6icu_779Hashtabl
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #13
   %.not76 = icmp eq ptr %144, null
-  br i1 %.not76, label %_ZNK6icu_779Hashtable11nextElementERi.exit102._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not76, label %_ZNK6icu_779Hashtable11nextElementERi.exit102._crit_edge, label %.lr.ph, !llvm.loop !54
 
 .body:                                            ; preds = %139, %127, %141
   %.pn77 = phi { ptr, i32 } [ %142, %141 ], [ %140, %139 ], [ %128, %127 ]
@@ -1054,7 +1054,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit106:    ; preds = %_ZN6icu_779Hashtabl
   br label %148
 
 _ZNK6icu_779Hashtable11nextElementERi.exit102._crit_edge: ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit106, %_ZNK6icu_779Hashtable11nextElementERi.exit102.preheader
-  %146 = load ptr, ptr %7, align 8, !tbaa !39
+  %146 = load ptr, ptr %7, align 8, !tbaa !44
   %147 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %146, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit108 unwind label %135
 
@@ -1063,7 +1063,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit108:    ; preds = %_ZNK6icu_779Hashtab
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #13
   %.not64 = icmp eq ptr %147, null
-  br i1 %.not64, label %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge, label %75, !llvm.loop !50
+  br i1 %.not64, label %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge, label %75, !llvm.loop !55
 
 148:                                              ; preds = %145, %135
   %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %145 ], [ %136, %135 ]
@@ -1086,7 +1086,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge: ; preds = %_ZNK6icu_779Ha
   br i1 %152, label %153, label %.loopexit
 
 153:                                              ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge
-  %154 = load ptr, ptr %5, align 8, !tbaa !39
+  %154 = load ptr, ptr %5, align 8, !tbaa !44
   %155 = invoke noundef i32 @uhash_count_77(ptr noundef %154)
           to label %_ZNK6icu_779Hashtable5countEv.exit unwind label %.loopexit.split-lp
 
@@ -1117,7 +1117,7 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %153
   %.add = add nuw nsw i64 %.idx, 64
   %167 = add nuw nsw i64 %.idx, 56
   %168 = icmp eq i64 %167, %159
-  br i1 %168, label %169, label %165
+  br i1 %168, label %169, label %165, !llvm.loop !56
 
 .loopexit122:                                     ; preds = %172, %180
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1133,7 +1133,7 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %153
   %.ptr68 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 0, ptr %2, align 4, !tbaa !29
   store i32 -1, ptr %10, align 4, !tbaa !29
-  %170 = load ptr, ptr %5, align 8, !tbaa !39
+  %170 = load ptr, ptr %5, align 8, !tbaa !44
   %171 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %170, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit111 unwind label %.loopexit.split-lp
 
@@ -1154,7 +1154,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
           to label %180 unwind label %.loopexit122
 
 180:                                              ; preds = %172
-  %181 = load ptr, ptr %5, align 8, !tbaa !39
+  %181 = load ptr, ptr %5, align 8, !tbaa !44
   %182 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %181, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit111 unwind label %.loopexit122
 
@@ -1185,7 +1185,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93, %184
   %.0.ph = phi ptr [ null, %.noexc91 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93 ], [ %.1, %184 ]
-  %.pr136 = load ptr, ptr %7, align 8, !tbaa !39
+  %.pr136 = load ptr, ptr %7, align 8, !tbaa !44
   %.not.i114 = icmp eq ptr %.pr136, null
   br i1 %.not.i114, label %_ZN6icu_779HashtableD2Ev.exit, label %186
 
@@ -1202,7 +1202,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6ic
 
 _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, %186
   %.0139.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %186 ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ]
-  %.pr140 = load ptr, ptr %6, align 8, !tbaa !39
+  %.pr140 = load ptr, ptr %6, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #13
   %.not.i115 = icmp eq ptr %.pr140, null
   br i1 %.not.i115, label %_ZN6icu_779HashtableD2Ev.exit116, label %190
@@ -1221,7 +1221,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779Hashtabl
 _ZN6icu_779HashtableD2Ev.exit116:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit.thread, %_ZN6icu_779HashtableD2Ev.exit, %190
   %.0139143 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.thread ], [ %.0139.ph, %_ZN6icu_779HashtableD2Ev.exit ], [ %.0139.ph, %190 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #13
-  %194 = load ptr, ptr %5, align 8, !tbaa !39
+  %194 = load ptr, ptr %5, align 8, !tbaa !44
   %.not.i117 = icmp eq ptr %194, null
   br i1 %.not.i117, label %_ZN6icu_779HashtableD2Ev.exit118, label %195
 
@@ -1290,7 +1290,7 @@ define void @_ZN6icu_7717CanonicalIterator7permuteERNS_13UnicodeStringEaPNS_9Has
 
 .thread:                                          ; preds = %14
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #13
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !44
   br label %44
 
 24:                                               ; preds = %14
@@ -1318,7 +1318,7 @@ define void @_ZN6icu_7717CanonicalIterator7permuteERNS_13UnicodeStringEaPNS_9Has
   br label %common.resume
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %2, align 8, !tbaa !39
+  %35 = load ptr, ptr %2, align 8, !tbaa !44
   %36 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %38
@@ -1344,7 +1344,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
 42:                                               ; preds = %24
   %.pre = load i32, ptr %3, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #13
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !44
   %43 = icmp slt i32 %.pre, 1
   br i1 %43, label %44, label %_ZN6icu_779HashtableD2Ev.exit
 
@@ -1356,7 +1356,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
   br i1 %48, label %.loopexit84, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %44
-  store ptr %45, ptr %6, align 8, !tbaa !39
+  store ptr %45, ptr %6, align 8, !tbaa !44
   %49 = call ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %45, ptr noundef nonnull @uprv_deleteUObject_77)
   %.pre95 = load i32, ptr %3, align 4, !tbaa !23
   %50 = icmp slt i32 %.pre95, 1
@@ -1373,7 +1373,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %44
   br label %133
 
 51:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit
-  %52 = load ptr, ptr %6, align 8, !tbaa !39
+  %52 = load ptr, ptr %6, align 8, !tbaa !44
   %53 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %52, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit.preheader unwind label %.loopexit.split-lp
 
@@ -1428,7 +1428,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit.preheader: ; preds = %51
   br label %.body
 
 76:                                               ; preds = %70, %66
-  %77 = load ptr, ptr %6, align 8, !tbaa !39
+  %77 = load ptr, ptr %6, align 8, !tbaa !44
   invoke void @uhash_removeAll_77(ptr noundef %77)
           to label %_ZN6icu_779Hashtable9removeAllEv.exit unwind label %74
 
@@ -1448,7 +1448,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %_ZN6icu_779Hashtabl
   br i1 %83, label %84, label %.thread82
 
 84:                                               ; preds = %81
-  %85 = load ptr, ptr %6, align 8, !tbaa !39
+  %85 = load ptr, ptr %6, align 8, !tbaa !44
   %86 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %85, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit unwind label %74
 
@@ -1491,7 +1491,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit75.thread: ; preds = %87
           to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit unwind label %115
 
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %95
-  %105 = load ptr, ptr %2, align 8, !tbaa !39
+  %105 = load ptr, ptr %2, align 8, !tbaa !44
   %106 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %107 = icmp eq ptr %106, null
   br i1 %107, label %109, label %108
@@ -1511,9 +1511,9 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %95
   br label %.body
 
 _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit74: ; preds = %109
-  %113 = load ptr, ptr %6, align 8, !tbaa !39
+  %113 = load ptr, ptr %6, align 8, !tbaa !44
   %114 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %113, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %_ZNK6icu_779Hashtable11nextElementERi.exit unwind label %115, !llvm.loop !51
+          to label %_ZNK6icu_779Hashtable11nextElementERi.exit unwind label %115, !llvm.loop !57
 
 115:                                              ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit74, %109, %95
   %116 = landingpad { ptr, i32 }
@@ -1540,7 +1540,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %_ZNK6icu_779Hashta
   %124 = load i32, ptr %20, align 4
   %125 = select i1 %121, i32 %124, i32 %123
   %126 = icmp slt i32 %119, %125
-  br i1 %126, label %63, label %.loopexit84, !llvm.loop !52
+  br i1 %126, label %63, label %.loopexit84, !llvm.loop !58
 
 .body:                                            ; preds = %115, %111, %93, %74
   %.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %94, %93 ], [ %116, %115 ], [ %112, %111 ]
@@ -1554,7 +1554,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %_ZNK6icu_779Hashta
   br label %133
 
 .loopexit84:                                      ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit, %44, %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit.preheader, %.thread82, %_ZN6icu_779HashtableC2ER10UErrorCode.exit
-  %.pr = load ptr, ptr %6, align 8, !tbaa !39
+  %.pr = load ptr, ptr %6, align 8, !tbaa !44
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZN6icu_779HashtableD2Ev.exit, label %128
 
@@ -1590,7 +1590,7 @@ declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !39
+  %5 = load ptr, ptr %0, align 8, !tbaa !44
   %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -1618,7 +1618,7 @@ declare void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !39
+  %2 = load ptr, ptr %0, align 8, !tbaa !44
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1664,7 +1664,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator15getEquivalents2EPNS_9Hashtabl
           to label %19 unwind label %33
 
 19:                                               ; preds = %18, %15
-  %20 = load ptr, ptr %1, align 8, !tbaa !39
+  %20 = load ptr, ptr %1, align 8, !tbaa !44
   %21 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23
@@ -1720,7 +1720,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
   %.093151 = phi i32 [ 0, %.lr.ph152 ], [ %172, %169 ]
   %40 = zext nneg i32 %.093151 to i64
   %41 = getelementptr inbounds nuw i16, ptr %2, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !53
+  %42 = load i16, ptr %41, align 2, !tbaa !59
   %43 = zext i16 %42 to i32
   %44 = and i32 %43, 63488
   %45 = icmp eq i32 %44, 55296
@@ -1739,7 +1739,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
 51:                                               ; preds = %49
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr inbounds nuw i16, ptr %2, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !53
+  %54 = load i16, ptr %53, align 2, !tbaa !59
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 64512
   %57 = icmp eq i32 %56, 56320
@@ -1757,7 +1757,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
 
 63:                                               ; preds = %62
   %64 = getelementptr i8, ptr %41, i64 -2
-  %65 = load i16, ptr %64, align 2, !tbaa !53
+  %65 = load i16, ptr %64, align 2, !tbaa !59
   %66 = zext i16 %65 to i32
   %67 = and i32 %66, 64512
   %68 = icmp eq i32 %67, 55296
@@ -1803,9 +1803,9 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
   br label %169
 
 82:                                               ; preds = %81
-  %83 = load i32, ptr %29, align 8, !tbaa !55
+  %83 = load i32, ptr %29, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #13
-  store ptr null, ptr %9, align 8, !tbaa !39
+  store ptr null, ptr %9, align 8, !tbaa !44
   %84 = load i32, ptr %4, align 4, !tbaa !23
   %85 = icmp slt i32 %84, 1
   br i1 %85, label %86, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit
@@ -1820,12 +1820,12 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
   br i1 %89, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit, label %90
 
 90:                                               ; preds = %.noexc
-  store ptr %30, ptr %9, align 8, !tbaa !39
+  store ptr %30, ptr %9, align 8, !tbaa !44
   %91 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %30, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2ER10UErrorCode.exit unwind label %104
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %.noexc, %82, %90
-  %92 = load ptr, ptr %9, align 8, !tbaa !39
+  %92 = load ptr, ptr %9, align 8, !tbaa !44
   %93 = invoke noundef ptr @uhash_setValueDeleter_77(ptr noundef %92, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit unwind label %106
 
@@ -1841,7 +1841,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %_ZN6icu_779Hashtab
   %98 = load i32, ptr %4, align 4, !tbaa !23
   %99 = icmp slt i32 %98, 1
   %. = select i1 %99, i32 7, i32 1
-  br label %157, !llvm.loop !58
+  br label %157, !llvm.loop !64
 
 100:                                              ; preds = %79
   %101 = landingpad { ptr, i32 }
@@ -1875,7 +1875,7 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit: ; preds = %_ZN6icu_779Hashtab
 _ZN6icu_7713UnicodeStringpLEi.exit:               ; preds = %109
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
   store i32 -1, ptr %11, align 4, !tbaa !29
-  %111 = load ptr, ptr %9, align 8, !tbaa !39
+  %111 = load ptr, ptr %9, align 8, !tbaa !44
   %112 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %111, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit.preheader unwind label %123
 
@@ -1943,7 +1943,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit133.thread: ; preds = %115
           to label %_ZN6icu_7713UnicodeStringpLERKS0_.exit unwind label %147
 
 _ZN6icu_7713UnicodeStringpLERKS0_.exit:           ; preds = %129
-  %137 = load ptr, ptr %1, align 8, !tbaa !39
+  %137 = load ptr, ptr %1, align 8, !tbaa !44
   %138 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
   %139 = icmp eq ptr %138, null
   br i1 %139, label %141, label %140
@@ -1963,7 +1963,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit:           ; preds = %129
   br label %.body129
 
 _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit131: ; preds = %141
-  %145 = load ptr, ptr %9, align 8, !tbaa !39
+  %145 = load ptr, ptr %9, align 8, !tbaa !44
   %146 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %145, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit133 unwind label %147
 
@@ -1971,7 +1971,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit133:    ; preds = %_ZN6icu_779Hashtabl
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #13
   %.not105 = icmp eq ptr %146, null
-  br i1 %.not105, label %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not105, label %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge, label %.lr.ph, !llvm.loop !65
 
 147:                                              ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit131, %141, %129
   %148 = landingpad { ptr, i32 }
@@ -1989,7 +1989,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit133:    ; preds = %_ZN6icu_779Hashtabl
   br label %163
 
 _ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge: ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit133, %_ZNK6icu_779Hashtable11nextElementERi.exit.preheader
-  %150 = load ptr, ptr %1, align 8, !tbaa !39
+  %150 = load ptr, ptr %1, align 8, !tbaa !44
   %151 = invoke noundef i32 @uhash_count_77(ptr noundef %150)
           to label %_ZNK6icu_779Hashtable5countEv.exit unwind label %154
 
@@ -2015,7 +2015,7 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %_ZNK6icu_779Hashtab
 
 157:                                              ; preds = %97, %156
   %.188 = phi i32 [ %.390, %156 ], [ %., %97 ]
-  %158 = load ptr, ptr %9, align 8, !tbaa !39
+  %158 = load ptr, ptr %9, align 8, !tbaa !44
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %_ZN6icu_779HashtableD2Ev.exit, label %159
 
@@ -2038,7 +2038,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %157, %159
   ]
 
 .preheader.backedge:                              ; preds = %_ZN6icu_779HashtableD2Ev.exit, %_ZN6icu_779HashtableD2Ev.exit
-  br label %.preheader, !llvm.loop !58
+  br label %.preheader, !llvm.loop !66
 
 163:                                              ; preds = %154, %149, %123
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %149 ], [ %155, %154 ], [ %124, %123 ]
@@ -2075,7 +2075,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %157, %159
   %171 = select i1 %170, i32 1, i32 2
   %172 = add nuw nsw i32 %171, %.093151
   %.not120 = icmp slt i32 %172, %3
-  br i1 %.not120, label %39, label %.critedge, !llvm.loop !60
+  br i1 %.not120, label %39, label %.critedge, !llvm.loop !67
 
 173:                                              ; preds = %167, %102
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %167 ], [ %103, %102 ]
@@ -2215,7 +2215,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = select i1 %50, i32 %54, i32 %52
-  %56 = load i16, ptr %.0.i, align 2, !tbaa !53
+  %56 = load i16, ptr %.0.i, align 2, !tbaa !59
   %57 = zext i16 %56 to i32
   %58 = and i32 %57, 64512
   %59 = icmp ne i32 %58, 55296
@@ -2225,7 +2225,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 
 60:                                               ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  %62 = load i16, ptr %61, align 2, !tbaa !53
+  %62 = load i16, ptr %61, align 2, !tbaa !59
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 64512
   %65 = icmp eq i32 %64, 56320
@@ -2250,7 +2250,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   %71 = add nsw i32 %.083138, 1
   %72 = sext i32 %.083138 to i64
   %73 = getelementptr inbounds i16, ptr %3, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !53
+  %74 = load i16, ptr %73, align 2, !tbaa !59
   %75 = zext i16 %74 to i32
   %76 = and i32 %75, 64512
   %77 = icmp ne i32 %76, 55296
@@ -2261,7 +2261,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 78:                                               ; preds = %.lr.ph
   %79 = sext i32 %71 to i64
   %80 = getelementptr inbounds i16, ptr %3, i64 %79
-  %81 = load i16, ptr %80, align 2, !tbaa !53
+  %81 = load i16, ptr %80, align 2, !tbaa !59
   %82 = zext i16 %81 to i32
   %83 = and i32 %82, 64512
   %84 = icmp eq i32 %83, 56320
@@ -2299,14 +2299,14 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 101:                                              ; preds = %94
   %102 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #13, !srcloc !61
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #13, !srcloc !68
   br label %188
 
 103:                                              ; preds = %92
   %104 = add nsw i32 %.293136, 1
   %105 = sext i32 %.293136 to i64
   %106 = getelementptr inbounds i16, ptr %.0.i, i64 %105
-  %107 = load i16, ptr %106, align 2, !tbaa !53
+  %107 = load i16, ptr %106, align 2, !tbaa !59
   %108 = zext i16 %107 to i32
   %109 = and i32 %108, 64512
   %110 = icmp ne i32 %109, 55296
@@ -2317,7 +2317,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 111:                                              ; preds = %103
   %112 = sext i32 %104 to i64
   %113 = getelementptr inbounds i16, ptr %.0.i, i64 %112
-  %114 = load i16, ptr %113, align 2, !tbaa !53
+  %114 = load i16, ptr %113, align 2, !tbaa !59
   %115 = zext i16 %114 to i32
   %116 = and i32 %115, 64512
   %117 = icmp eq i32 %116, 56320
@@ -2338,10 +2338,10 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   %.495 = phi i32 [ %104, %103 ], [ %.293136, %123 ], [ %119, %118 ], [ %104, %111 ]
   %.490 = phi i32 [ %108, %103 ], [ %.288137, %123 ], [ %122, %118 ], [ %108, %111 ]
   %.not113 = icmp slt i32 %.285, %4
-  br i1 %.not113, label %.lr.ph, label %.critedge, !llvm.loop !62
+  br i1 %.not113, label %.lr.ph, label %.critedge, !llvm.loop !69
 
 126:                                              ; preds = %94
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #13, !srcloc !61
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %96) #13, !srcloc !68
   %127 = load i16, ptr %16, align 8, !tbaa !6
   %128 = icmp slt i16 %127, 0
   %129 = ashr i16 %127, 5
@@ -2402,15 +2402,15 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 155:                                              ; preds = %152
   %156 = sext i32 %5 to i64
   %157 = getelementptr inbounds i16, ptr %3, i64 %156
-  store ptr %157, ptr %12, align 8, !tbaa !63
+  store ptr %157, ptr %12, align 8, !tbaa !70
   %158 = sub nsw i32 %4, %5
   %159 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %12, i32 noundef %158)
           to label %160 unwind label %164
 
 160:                                              ; preds = %155
   %.not = icmp eq i8 %159, 0
-  %161 = load ptr, ptr %12, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %161) #13, !srcloc !61
+  %161 = load ptr, ptr %12, align 8, !tbaa !70
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %161) #13, !srcloc !68
   br i1 %.not, label %167, label %.thread133
 
 162:                                              ; preds = %177, %145
@@ -2421,8 +2421,8 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 164:                                              ; preds = %155
   %165 = landingpad { ptr, i32 }
           cleanup
-  %166 = load ptr, ptr %12, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #13, !srcloc !61
+  %166 = load ptr, ptr %12, align 8, !tbaa !70
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #13, !srcloc !68
   br label %187
 
 167:                                              ; preds = %160
@@ -2509,7 +2509,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = select i1 %6, i32 %10, i32 %8
-  %12 = load ptr, ptr %1, align 8, !tbaa !63
+  %12 = load ptr, ptr %1, align 8, !tbaa !70
   %13 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %2)
   ret i8 %13
 }
@@ -2601,35 +2601,42 @@ attributes #15 = { noreturn nounwind }
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !15, i64 0}
 !32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !35, !33}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = distinct !{!36, !35, !33}
 !37 = distinct !{!37, !33}
 !38 = distinct !{!38, !33}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSN6icu_779HashtableE", !41, i64 0, !42, i64 8}
-!41 = !{!"p1 _ZTS10UHashtable", !15, i64 0}
-!42 = !{!"_ZTS10UHashtable", !43, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !44, i64 64, !44, i64 68, !7, i64 72, !7, i64 73}
-!43 = !{!"p1 _ZTS12UHashElement", !15, i64 0}
-!44 = !{!"float", !7, i64 0}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"_ZTSN6icu_779Char16PtrE", !47, i64 0}
-!47 = !{!"p1 char16_t", !15, i64 0}
-!48 = !{i64 2148860793}
-!49 = distinct !{!49, !33}
-!50 = distinct !{!50, !33}
-!51 = distinct !{!51, !33}
-!52 = distinct !{!52, !33}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"char16_t", !7, i64 0}
-!55 = !{!56, !16, i64 8}
-!56 = !{!"_ZTSN6icu_7718UnicodeSetIteratorE", !10, i64 0, !16, i64 8, !16, i64 12, !31, i64 16, !57, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !31, i64 56}
-!57 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !15, i64 0}
-!58 = distinct !{!58, !33}
-!59 = distinct !{!59, !33}
-!60 = distinct !{!60, !33}
-!61 = !{i64 2148860938}
-!62 = distinct !{!62, !33}
-!63 = !{!64, !47, i64 0}
-!64 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !47, i64 0}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !35, !33}
+!41 = distinct !{!41, !35, !33}
+!42 = distinct !{!42, !35, !33}
+!43 = distinct !{!43, !35, !33}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN6icu_779HashtableE", !46, i64 0, !47, i64 8}
+!46 = !{!"p1 _ZTS10UHashtable", !15, i64 0}
+!47 = !{!"_ZTS10UHashtable", !48, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !49, i64 64, !49, i64 68, !7, i64 72, !7, i64 73}
+!48 = !{!"p1 _ZTS12UHashElement", !15, i64 0}
+!49 = !{!"float", !7, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN6icu_779Char16PtrE", !52, i64 0}
+!52 = !{!"p1 char16_t", !15, i64 0}
+!53 = !{i64 2148860793}
+!54 = distinct !{!54, !35, !33}
+!55 = distinct !{!55, !35, !33}
+!56 = distinct !{!56, !33}
+!57 = distinct !{!57, !35, !33}
+!58 = distinct !{!58, !35, !33}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"char16_t", !7, i64 0}
+!61 = !{!62, !16, i64 8}
+!62 = !{!"_ZTSN6icu_7718UnicodeSetIteratorE", !10, i64 0, !16, i64 8, !16, i64 12, !31, i64 16, !63, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !31, i64 56}
+!63 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !15, i64 0}
+!64 = distinct !{!64, !35}
+!65 = distinct !{!65, !35, !33}
+!66 = distinct !{!66, !35, !33}
+!67 = distinct !{!67, !35, !33}
+!68 = !{i64 2148860938}
+!69 = distinct !{!69, !35, !33}
+!70 = !{!71, !52, i64 0}
+!71 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !52, i64 0}

@@ -481,7 +481,7 @@ define hidden void @_ZN12ZDriverMinor10run_threadEv(ptr noundef nonnull align 8 
   %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #13
   %18 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %._crit_edge, label %.lr.ph
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %1
   %20 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
@@ -900,7 +900,7 @@ _ZL28should_clear_soft_referencesN7GCCause5CauseE.exit: ; preds = %.lr.ph, %.lr.
   call void @_ZN11ZBreakpoint12at_before_gcEv() #13
   %26 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZL28should_clear_soft_referencesN7GCCause5CauseE.exit, %19, %1
   %28 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
@@ -1297,3 +1297,6 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}

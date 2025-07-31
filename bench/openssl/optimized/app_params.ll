@@ -181,7 +181,7 @@ define void @print_param_value(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not9, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr %4, align 8, !tbaa !18
+  %13 = load i64, ptr %4, align 8, !tbaa !19
   %14 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.5, i64 noundef %13) #5
   br label %46
 
@@ -196,7 +196,7 @@ define void @print_param_value(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr %3, align 8, !tbaa !18
+  %21 = load i64, ptr %3, align 8, !tbaa !19
   %22 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.7, i64 noundef %21) #5
   br label %46
 
@@ -207,15 +207,15 @@ define void @print_param_value(ptr noundef %0, i32 noundef %1) local_unnamed_add
 25:                                               ; preds = %2
   %26 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !19
-  %29 = load ptr, ptr %28, align 8, !tbaa !20
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.8, ptr noundef %29) #5
   br label %46
 
 31:                                               ; preds = %2
   %32 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !19
+  %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.8, ptr noundef %34) #5
   br label %46
 
@@ -276,8 +276,9 @@ attributes #5 = { nounwind }
 !13 = !{!4, !9, i64 8}
 !14 = !{!4, !10, i64 24}
 !15 = !{!7, !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!10, !10, i64 0}
-!19 = !{!4, !6, i64 16}
-!20 = !{!5, !5, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!10, !10, i64 0}
+!20 = !{!4, !6, i64 16}
+!21 = !{!5, !5, i64 0}

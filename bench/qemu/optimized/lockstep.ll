@@ -117,7 +117,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %22, %15
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %36, i8 0, i64 108, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %36, i8 0, i64 108, i1 false), !annotation !6
   store i16 1, ptr %6, align 2
   %37 = call i64 @g_strlcpy(ptr noundef nonnull %36, ptr noundef nonnull %.1, i64 noundef 107) #11
   %38 = icmp ugt i64 %37, 106
@@ -160,7 +160,7 @@ connect_socket.exit.i:                            ; preds = %41
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %51, i8 0, i64 108, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %51, i8 0, i64 108, i1 false), !annotation !6
   store i16 1, ptr %5, align 2
   %52 = call i64 @g_strlcpy(ptr noundef nonnull %51, ptr noundef nonnull %.1, i64 noundef 107) #11
   %53 = icmp ugt i64 %52, 106
@@ -382,7 +382,7 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   br label %90
 
 14:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
   %15 = load i32, ptr @socket_fd, align 4
   %16 = call i64 @read(i32 noundef %15, ptr noundef nonnull %5, i64 noundef 16) #11
   %17 = icmp ult i64 %16, 16
@@ -461,7 +461,7 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %46 = call noundef dereferenceable_or_null(16) ptr @g_memdup2(ptr noundef nonnull %3, i64 noundef 16) #16
   %47 = call ptr @g_slist_prepend(ptr noundef %28, ptr noundef %46) #11
   store ptr %47, ptr @divergence_log, align 8
-  %48 = load i8, ptr @verbose, align 1, !range !6, !noundef !7
+  %48 = load i8, ptr @verbose, align 1, !range !7, !noundef !8
   %49 = trunc nuw i8 %48 to i1
   %50 = load i32, ptr %25, align 8
   %51 = icmp eq i32 %50, 1
@@ -508,7 +508,7 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %70 = add nuw nsw i32 %.02917.i, 1
   %.028.i = load ptr, ptr %58, align 8
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !8
+  br i1 %.not34.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %62, %.lr.ph19.i, %57
   %71 = load ptr, ptr %27, align 8
@@ -634,9 +634,10 @@ attributes #16 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"auto-init"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"auto-init"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}

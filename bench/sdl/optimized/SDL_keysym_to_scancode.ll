@@ -76,7 +76,7 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 30:                                               ; preds = %26
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 248
-  br i1 %exitcond69.not, label %.preheader.preheader, label %26, !llvm.loop !5
+  br i1 %exitcond69.not, label %.preheader.preheader, label %26, !llvm.loop !6
 
 .loopexit55.loopexit:                             ; preds = %26
   %31 = trunc nuw nsw i64 %indvars.iv66 to i32
@@ -93,7 +93,7 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 32:                                               ; preds = %.preheader
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 55
-  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %.preheader.preheader, %32
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %32 ], [ 0, %.preheader.preheader ]
@@ -128,7 +128,8 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

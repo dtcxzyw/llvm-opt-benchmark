@@ -527,7 +527,7 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
   %indvars.iv.next125.i.i = add nuw nsw i64 %indvars.iv124.i.i, 1
   %161 = call zeroext i8 @methodSignature_nextArgumentExists(ptr noundef nonnull %10, ptr noundef nonnull %11) #5
   %.not73.i.i = icmp eq i8 %161, 0
-  br i1 %.not73.i.i, label %createGlobalRefs.exit.thread7.i, label %.lr.ph119.i.i, !llvm.loop !8
+  br i1 %.not73.i.i, label %createGlobalRefs.exit.thread7.i, label %.lr.ph119.i.i, !llvm.loop !9
 
 .thread100.loopexit.i.i:                          ; preds = %129
   %.pre.i.i = load ptr, ptr %12, align 8
@@ -582,7 +582,7 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
   %indvars.iv.next128.i.i = add nuw nsw i64 %indvars.iv127.i.i, 1
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next128.i.i, %178
-  br i1 %179, label %.lr.ph122.i.i, label %createGlobalRefs.exit.i, !llvm.loop !9
+  br i1 %179, label %.lr.ph122.i.i, label %createGlobalRefs.exit.i, !llvm.loop !10
 
 createGlobalRefs.exit.thread7.i:                  ; preds = %159, %.lr.ph119.i.i, %141
   call void @jvmtiDeallocate(ptr noundef nonnull %.0.ph.i.i) #5
@@ -726,7 +726,7 @@ define hidden zeroext range(i8 0, 2) i8 @invoker_doInvoke(ptr noundef %0) local_
   ]
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
+  %40 = load ptr, ptr @gdata, align 8, !nonnull !11, !noundef !11
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 17
   %42 = load i8, ptr %41, align 1
   %.not12.i = icmp eq i8 %42, 0
@@ -826,7 +826,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   ]
 
 76:                                               ; preds = %isReferenceTag.exit.i, %isReferenceTag.exit.i
-  %77 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
+  %77 = load ptr, ptr @gdata, align 8, !nonnull !11, !noundef !11
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 17
   %79 = load i8, ptr %78, align 1
   %.not77.i = icmp eq i8 %79, 0
@@ -1188,7 +1188,7 @@ isReferenceTag.exit.i55:                          ; preds = %277, %switch.early.
   ]
 
 278:                                              ; preds = %isReferenceTag.exit.i55, %isReferenceTag.exit.i55
-  %279 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
+  %279 = load ptr, ptr @gdata, align 8, !nonnull !11, !noundef !11
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 17
   %281 = load i8, ptr %280, align 1
   %.not89.i = icmp eq i8 %281, 0
@@ -1202,7 +1202,7 @@ isReferenceTag.exit.i55:                          ; preds = %277, %switch.early.
 
 .thread101.i:                                     ; preds = %282
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @.str.22) #5
-  %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
+  %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !11, !noundef !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %285 = icmp eq i8 %.pre, 0
@@ -1575,7 +1575,7 @@ isReferenceTag.exit.i62:                          ; preds = %495, %switch.early.
   ]
 
 496:                                              ; preds = %isReferenceTag.exit.i62, %isReferenceTag.exit.i62
-  %497 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
+  %497 = load ptr, ptr @gdata, align 8, !nonnull !11, !noundef !11
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 17
   %499 = load i8, ptr %498, align 1
   %.not77.i72 = icmp eq i8 %499, 0
@@ -2254,7 +2254,7 @@ isReferenceTag.exit.i:                            ; preds = %110, %106, %103
   %116 = add nuw nsw i32 %.01423.i, 1
   %117 = call zeroext i8 @methodSignature_nextArgumentExists(ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %.not16.i = icmp eq i8 %117, 0
-  br i1 %.not16.i, label %deleteGlobalArgumentRefs.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not16.i, label %deleteGlobalArgumentRefs.exit, label %.lr.ph.i, !llvm.loop !12
 
 deleteGlobalArgumentRefs.exit:                    ; preds = %.lr.ph.i, %114, %98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -2447,9 +2447,10 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}

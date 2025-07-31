@@ -573,7 +573,7 @@ slip_decoded_len.exit.i:                          ; preds = %35
   %.1.i48.i = phi ptr [ %.01112.i.i, %.lr.ph.i47.i ], [ %47, %.sink.split.i.i ]
   %49 = getelementptr i8, ptr %.013.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %49, %28
-  br i1 %exitcond.not.i.i, label %slip_decode.exit.i, label %.lr.ph.i47.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %slip_decode.exit.i, label %.lr.ph.i47.i, !llvm.loop !9
 
 slip_decode.exit.i:                               ; preds = %48, %.lr.ph.i47.i
   %50 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %43, i32 noundef %.01217.i.i, i32 noundef %.01217.i.i)
@@ -585,7 +585,7 @@ slip_decode.exit.i:                               ; preds = %48, %.lr.ph.i47.i
   %52 = add i32 %.04113.i, %24
   %53 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %54 = icmp ult i32 %52, %53
-  br i1 %54, label %10, label %._crit_edge.i, !llvm.loop !9
+  br i1 %54, label %10, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %51, %.critedge
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -702,7 +702,7 @@ define internal noundef zeroext i1 @dissect_osc_heur_udp(ptr noundef %0, ptr nou
   %40 = and i64 %39, 38654705665
   %memchr.bits.i = icmp eq i64 %40, 0
   %memchr11.not.i = select i1 %memchr.bounds.i, i1 true, i1 %memchr.bits.i
-  br i1 %memchr11.not.i, label %31, label %is_valid_path.exit.thread, !llvm.loop !10
+  br i1 %memchr11.not.i, label %31, label %is_valid_path.exit.thread, !llvm.loop !11
 
 is_valid_path.exit:                               ; preds = %31
   %41 = srem i32 %27, 4
@@ -727,7 +727,7 @@ is_valid_path.exit:                               ; preds = %31
   %48 = sext i8 %46 to i32
   %memchr.i = call ptr @memchr(ptr nonnull dereferenceable(1) @valid_format_chars, i32 %48, i64 16)
   %49 = icmp eq ptr %memchr.i, null
-  br i1 %49, label %is_valid_path.exit.thread, label %.preheader.i46, !llvm.loop !11
+  br i1 %49, label %is_valid_path.exit.thread, label %.preheader.i46, !llvm.loop !12
 
 is_valid_format.exit:                             ; preds = %.preheader.i46
   store volatile i8 1, ptr %5, align 1
@@ -775,7 +775,7 @@ is_valid_path.exit.thread:                        ; preds = %38, %34, %47, %is_v
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.0..0..0..0.11 = load volatile i8, ptr %5, align 1, !range !12, !noundef !13
+  %.0..0..0..0.11 = load volatile i8, ptr %5, align 1, !range !13, !noundef !14
   %62 = trunc nuw i8 %.0..0..0..0.11 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br i1 %62, label %63, label %67
@@ -923,7 +923,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_osc_bundle(ptr noundef %0, 
   %31 = add i32 %.0504, 4
   %32 = load i32, ptr %7, align 4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %47, label %34, !llvm.loop !14
+  br i1 %33, label %47, label %34, !llvm.loop !15
 
 34:                                               ; preds = %.lr.ph
   call void @increment_dissection_depth(ptr noundef %1)
@@ -1028,7 +1028,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_osc_message(ptr noundef %0,
   %30 = and i64 %29, 38654705665
   %memchr.bits.i = icmp eq i64 %30, 0
   %memchr11.not.i = select i1 %memchr.bounds.i, i1 true, i1 %memchr.bits.i
-  br i1 %memchr11.not.i, label %21, label %is_valid_path.exit.thread, !llvm.loop !10
+  br i1 %memchr11.not.i, label %21, label %is_valid_path.exit.thread, !llvm.loop !11
 
 is_valid_path.exit:                               ; preds = %21
   %31 = add i32 %18, %3
@@ -1061,7 +1061,7 @@ is_valid_path.exit:                               ; preds = %21
   %42 = sext i8 %40 to i32
   %memchr.i = call ptr @memchr(ptr nonnull dereferenceable(1) @valid_format_chars, i32 %42, i64 16)
   %43 = icmp eq ptr %memchr.i, null
-  br i1 %43, label %is_valid_path.exit.thread, label %.preheader.i308, !llvm.loop !11
+  br i1 %43, label %is_valid_path.exit.thread, label %.preheader.i308, !llvm.loop !12
 
 is_valid_format.exit:                             ; preds = %.preheader.i308
   %44 = load i32, ptr @hf_osc_message_type, align 4
@@ -1422,7 +1422,7 @@ is_valid_format.exit:                             ; preds = %.preheader.i308
   %273 = icmp ne i8 %272, 0
   %274 = icmp slt i32 %.1, %9
   %275 = select i1 %273, i1 %274, i1 false
-  br i1 %275, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %275, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %271, %is_valid_format.exit
   %.0285.lcssa = phi i32 [ %64, %is_valid_format.exit ], [ %.1, %271 ]
@@ -1532,13 +1532,14 @@ attributes #11 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
 !15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7, !8}

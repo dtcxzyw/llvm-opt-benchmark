@@ -267,7 +267,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   store i64 0, ptr %24, align 8, !tbaa !28
   store float %.pre-phi, ptr %13, align 8, !tbaa !24
   %85 = fcmp olt float %.pre-phi, %10
-  br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !41
+  br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !42
 
 .preheader57:                                     ; preds = %.preheader57.lr.ph, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge
   %86 = phi i64 [ %.promoted68, %.preheader57.lr.ph ], [ %22, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge ]
@@ -363,7 +363,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   %139 = add nsw i64 %93, -1
   store i64 %139, ptr %16, align 8, !tbaa !28
   %140 = icmp sgt i64 %93, 0
-  br i1 %140, label %92, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge, !llvm.loop !42
+  br i1 %140, label %92, label %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge, !llvm.loop !43
 
 _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge: ; preds = %138, %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33, %.preheader57
   store i64 %22, ptr %16, align 8, !tbaa !28
@@ -371,7 +371,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4
   store float %141, ptr %13, align 8, !tbaa !24
   %142 = fadd float %141, 1.000000e+00
   %143 = fcmp ogt float %142, %10
-  br i1 %143, label %.preheader57, label %.loopexit, !llvm.loop !43
+  br i1 %143, label %.preheader57, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33._crit_edge, %._crit_edge70, %.preheader58, %.preheader56
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -436,8 +436,9 @@ attributes #6 = { nounwind }
 !36 = !{!"p1 omnipotent char", !10, i64 0}
 !37 = !{!7, !7, i64 0}
 !38 = !{!21, !6, i64 24}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = distinct !{!43, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = distinct !{!44, !40, !41}

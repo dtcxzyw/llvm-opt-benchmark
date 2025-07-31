@@ -476,7 +476,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 94:                                               ; preds = %93, %87
   %.1168 = phi i32 [ 1, %93 ], [ %.0167, %87 ]
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %96 = load i8, ptr %95, align 8, !range !8, !noundef !9
+  %96 = load i8, ptr %95, align 8, !range !9, !noundef !10
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %107, label %98
 
@@ -680,7 +680,7 @@ dissect_xtp_cntl.exit:                            ; preds = %141, %143
   %218 = add nuw nsw i32 %.07277.i, 16
   %219 = add nuw nsw i32 %.078.i, 1
   %exitcond.not.i = icmp eq i32 %219, %190
-  br i1 %exitcond.not.i, label %dissect_xtp_ecntl.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_xtp_ecntl.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_xtp_ecntl.exit:                           ; preds = %.lr.ph.i, %174, %193, %198, %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -1148,8 +1148,9 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}

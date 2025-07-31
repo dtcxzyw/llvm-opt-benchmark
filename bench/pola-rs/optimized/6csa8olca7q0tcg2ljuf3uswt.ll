@@ -235,7 +235,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   %21 = extractvalue { ptr, i64 } %19, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %._crit_edge, label %18
+  br i1 %22, label %._crit_edge, label %18, !llvm.loop !27
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -301,7 +301,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   %17 = extractvalue { ptr, i64 } %15, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge, label %14
+  br i1 %18, label %._crit_edge, label %14, !llvm.loop !29
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -369,13 +369,13 @@ define noundef nonnull ptr @_ZN12polars_error7warning20get_warning_function17h0a
   %3 = icmp ne i64 %2, 0
   %4 = icmp ugt i64 %1, -17
   %or.cond.i = or i1 %4, %3
-  br i1 %or.cond.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit.thread, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit, !prof !27
+  br i1 %or.cond.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit.thread, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit, !prof !30
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit: ; preds = %0
   %5 = add nuw i64 %1, 16
   %6 = cmpxchg weak ptr @_ZN12polars_error7warning16WARNING_FUNCTION17h6d281ea330ce98c2E, i64 %1, i64 %5 acquire monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %9, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit.thread, !prof !28
+  br i1 %7, label %9, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit.thread, !prof !31
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit.thread: ; preds = %0, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E.exit
   %8 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock16lock_shared_slow17h4ac69cafee53f9cdE(ptr noundef nonnull align 8 @_ZN12polars_error7warning16WARNING_FUNCTION17h6d281ea330ce98c2E, i1 noundef zeroext false, i64 undef, i32 noundef 1000000000)
@@ -386,7 +386,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E
   %11 = atomicrmw sub ptr @_ZN12polars_error7warning16WARNING_FUNCTION17h6d281ea330ce98c2E, i64 16 release, align 8
   %12 = and i64 %11, -14
   %13 = icmp eq i64 %12, 18
-  br i1 %13, label %14, label %"_ZN4core3ptr155drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$fn$LP$$RF$str$C$polars_error..warning..PolarsWarning$RP$$GT$$GT$17h8503d951110f9b59E.exit", !prof !29
+  br i1 %13, label %14, label %"_ZN4core3ptr155drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$fn$LP$$RF$str$C$polars_error..warning..PolarsWarning$RP$$GT$$GT$17h8503d951110f9b59E.exit", !prof !32
 
 14:                                               ; preds = %9
   tail call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17he1e66bb85ab0632dE(ptr noundef nonnull align 8 @_ZN12polars_error7warning16WARNING_FUNCTION17h6d281ea330ce98c2E)
@@ -399,7 +399,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha9aa8d1dbfd3feb5E
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN73_$LT$polars_error..warning..PolarsWarning$u20$as$u20$core..fmt..Debug$GT$3fmt17hb95a0be868a3c718E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
 switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !30, !noundef !4
+  %2 = load i8, ptr %0, align 1, !range !33, !noundef !4
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN73_$LT$polars_error..warning..PolarsWarning$u20$as$u20$core..fmt..Debug$GT$3fmt17hb95a0be868a3c718E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -517,7 +517,10 @@ attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !24 = !{!19, !23}
 !25 = !{i64 8}
 !26 = !{i64 0, i64 2}
-!27 = !{!"branch_weights", i32 2002, i32 2000}
-!28 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!30 = !{i8 0, i8 4}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !28}
+!30 = !{!"branch_weights", i32 2002, i32 2000}
+!31 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!33 = !{i8 0, i8 4}

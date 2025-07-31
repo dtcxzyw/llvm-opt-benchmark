@@ -533,7 +533,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   %271 = mul i64 %270, %.03001141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader562
   %.0300.lcssa = phi i64 [ 1, %.preheader562 ], [ %271, %.lr.ph ]
@@ -742,8 +742,8 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 389:                                              ; preds = %385
   %390 = load i32, ptr %11, align 4, !tbaa !22
   %.not478 = icmp eq i32 %390, 0
-  %391 = load ptr, ptr %12, align 8, !tbaa !33
-  %392 = load ptr, ptr %13, align 8, !tbaa !34
+  %391 = load ptr, ptr %12, align 8, !tbaa !34
+  %392 = load ptr, ptr %13, align 8, !tbaa !35
   br i1 %.not478, label %395, label %393
 
 393:                                              ; preds = %389
@@ -808,7 +808,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   %418 = add i32 %.01829.i, 1
   %419 = zext i32 %418 to i64
   %420 = icmp ugt i64 %417, %419
-  br i1 %420, label %.lr.ph.i, label %MapIdToName.exit.thread, !llvm.loop !35
+  br i1 %420, label %.lr.ph.i, label %MapIdToName.exit.thread, !llvm.loop !36
 
 MapIdToName.exit.thread528:                       ; preds = %408, %405
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
@@ -857,7 +857,7 @@ MapIdToName.exit:                                 ; preds = %413
   br label %.thread532
 
 444:                                              ; preds = %424
-  %445 = load i32, ptr %24, align 4, !tbaa !36
+  %445 = load i32, ptr %24, align 4, !tbaa !37
   %446 = icmp sgt i32 %445, 0
   br i1 %446, label %447, label %MapIdToName.exit.thread
 
@@ -910,7 +910,7 @@ MapIdToName.exit.thread:                          ; preds = %416, %398, %MapIdTo
   %476 = add i32 %.02821144, 1
   %477 = zext i32 %476 to i64
   %478 = icmp ugt i64 %.0300.lcssa, %477
-  br i1 %478, label %.preheader560, label %.loopexit561, !llvm.loop !40
+  br i1 %478, label %.preheader560, label %.loopexit561, !llvm.loop !41
 
 .loopexit561:                                     ; preds = %475, %315
   %.3291 = phi i32 [ %.02881160, %315 ], [ %.6, %475 ]
@@ -1167,8 +1167,8 @@ MapIdToName.exit.thread:                          ; preds = %416, %398, %MapIdTo
 618:                                              ; preds = %614
   %619 = load i32, ptr %14, align 4, !tbaa !22
   %.not461 = icmp eq i32 %619, 0
-  %620 = load ptr, ptr %15, align 8, !tbaa !33
-  %621 = load ptr, ptr %16, align 8, !tbaa !34
+  %620 = load ptr, ptr %15, align 8, !tbaa !34
+  %621 = load ptr, ptr %16, align 8, !tbaa !35
   br i1 %.not461, label %624, label %622
 
 622:                                              ; preds = %618
@@ -1233,7 +1233,7 @@ MapIdToName.exit.thread:                          ; preds = %416, %398, %MapIdTo
   %647 = add i32 %.01829.i515, 1
   %648 = zext i32 %647 to i64
   %649 = icmp ugt i64 %646, %648
-  br i1 %649, label %.lr.ph.i514, label %MapIdToName.exit522.thread, !llvm.loop !35
+  br i1 %649, label %.lr.ph.i514, label %MapIdToName.exit522.thread, !llvm.loop !36
 
 MapIdToName.exit522.thread543:                    ; preds = %637, %634
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
@@ -1344,7 +1344,7 @@ MapIdToName.exit522:                              ; preds = %642
   br label %.thread532
 
 711:                                              ; preds = %692
-  %712 = load i32, ptr %24, align 4, !tbaa !36
+  %712 = load i32, ptr %24, align 4, !tbaa !37
   %713 = icmp sgt i32 %712, 0
   br i1 %713, label %714, label %MapIdToName.exit522.thread
 
@@ -1395,7 +1395,7 @@ MapIdToName.exit522.thread:                       ; preds = %645, %627, %714, %7
   %742 = add i32 %.01146, 1
   %743 = zext i32 %742 to i64
   %744 = icmp ugt i64 %.0300.lcssa, %743
-  br i1 %744, label %.preheader558, label %.loopexit559, !llvm.loop !41
+  br i1 %744, label %.preheader558, label %.loopexit559, !llvm.loop !42
 
 .loopexit559:                                     ; preds = %741, %546
   %.8 = phi i32 [ %.02881160, %546 ], [ %.11, %741 ]
@@ -1611,7 +1611,7 @@ MapIdToName.exit522.thread:                       ; preds = %645, %627, %714, %7
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 64
   %869 = load i64, ptr %868, align 8, !tbaa !26
   %870 = icmp ugt i64 %869, %865
-  br i1 %870, label %.lr.ph1148, label %.loopexit557, !llvm.loop !42
+  br i1 %870, label %.lr.ph1148, label %.loopexit557, !llvm.loop !43
 
 .loopexit557:                                     ; preds = %.lr.ph1148, %850
   %871 = call i32 @H5Dclose(i64 noundef %.4323) #9
@@ -1906,7 +1906,7 @@ MapIdToName.exit522.thread:                       ; preds = %645, %627, %714, %7
   %1041 = zext i32 %1040 to i64
   %1042 = load i64, ptr %20, align 8, !tbaa !9
   %1043 = icmp ugt i64 %1042, %1041
-  br i1 %1043, label %26, label %._crit_edge1164, !llvm.loop !43
+  br i1 %1043, label %26, label %._crit_edge1164, !llvm.loop !44
 
 ._crit_edge1164:                                  ; preds = %.loopexit, %4
   %.0288.lcssa = phi i32 [ 0, %4 ], [ %.14, %.loopexit ]
@@ -1981,8 +1981,8 @@ MapIdToName.exit522.thread:                       ; preds = %645, %627, %714, %7
   %1080 = call i32 @named_datatype_free(ptr noundef nonnull %10, i32 noundef 1) #9
   %1081 = load i32, ptr %17, align 4, !tbaa !22
   %.not510 = icmp eq i32 %1081, 0
-  %1082 = load ptr, ptr %18, align 8, !tbaa !33
-  %1083 = load ptr, ptr %19, align 8, !tbaa !34
+  %1082 = load ptr, ptr %18, align 8, !tbaa !34
+  %1083 = load ptr, ptr %19, align 8, !tbaa !35
   br i1 %.not510, label %1086, label %1084
 
 1084:                                             ; preds = %1070
@@ -2035,7 +2035,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 .preheader700:                                    ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %19 = load i64, ptr %18, align 8, !tbaa !44
+  %19 = load i64, ptr %18, align 8, !tbaa !45
   %20 = and i64 %19, 4294967295
   %.not1126 = icmp eq i64 %20, 0
   br i1 %.not1126, label %.thread679, label %.lr.ph1117.preheader
@@ -2074,7 +2074,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph1117:                                       ; preds = %791
   %39 = call i64 @H5Aopen_by_idx(i64 noundef %0, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef 0, i64 noundef %indvars.iv.next1505, i64 noundef 0, i64 noundef 0) #9
   %40 = icmp slt i64 %39, 0
-  br i1 %40, label %.lr.ph1117._crit_edge, label %.lr.ph2198, !llvm.loop !46
+  br i1 %40, label %.lr.ph1117._crit_edge, label %.lr.ph2198, !llvm.loop !47
 
 .lr.ph1117._crit_edge:                            ; preds = %.lr.ph1117, %.lr.ph1117.preheader
   %.13311116.lcssa = phi i64 [ -1, %.lr.ph1117.preheader ], [ %.2, %.lr.ph1117 ]
@@ -2384,7 +2384,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %.7 = phi i32 [ %.61075, %197 ], [ -1, %208 ], [ -1, %212 ], [ -1, %200 ]
   %217 = add nuw i32 %.03861073, 1
   %exitcond.not = icmp eq i32 %217, %163
-  br i1 %exitcond.not, label %218, label %187, !llvm.loop !47
+  br i1 %exitcond.not, label %218, label %187, !llvm.loop !48
 
 218:                                              ; preds = %216
   %.not = icmp eq i32 %.4354, 0
@@ -2630,7 +2630,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %342 = mul i64 %341, %.03441077
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1468.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond1468.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond1468.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader699
   %.0344.lcssa = phi i64 [ 1, %.preheader699 ], [ %342, %.lr.ph ]
@@ -2689,7 +2689,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %369 = mul i64 %368, %.03371079
   %indvars.iv.next1470 = add nuw nsw i64 %indvars.iv1469, 1
   %exitcond1473.not = icmp eq i64 %indvars.iv.next1470, %wide.trip.count1472
-  br i1 %exitcond1473.not, label %._crit_edge1082, label %.lr.ph1081, !llvm.loop !49
+  br i1 %exitcond1473.not, label %._crit_edge1082, label %.lr.ph1081, !llvm.loop !50
 
 ._crit_edge1082:                                  ; preds = %.lr.ph1081, %364
   %.0337.lcssa = phi i64 [ 1, %364 ], [ %369, %.lr.ph1081 ]
@@ -2855,7 +2855,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %456 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 0, ptr noundef nonnull %454, i64 noundef %3, ptr noundef %455, ptr noundef %2)
   %indvars.iv.next1500 = add nuw nsw i64 %indvars.iv1499, 1
   %exitcond1503.not = icmp eq i64 %indvars.iv.next1500, %wide.trip.count1502
-  br i1 %exitcond1503.not, label %.loopexit, label %.lr.ph1107, !llvm.loop !50
+  br i1 %exitcond1503.not, label %.loopexit, label %.lr.ph1107, !llvm.loop !51
 
 457:                                              ; preds = %391
   %458 = icmp eq i64 %.1341, 12
@@ -2975,7 +2975,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %521 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 1, ptr noundef nonnull %519, i64 noundef %3, ptr noundef %520, ptr noundef %2)
   %indvars.iv.next1495 = add nuw nsw i64 %indvars.iv1494, 1
   %exitcond1498.not = icmp eq i64 %indvars.iv.next1495, %wide.trip.count1497
-  br i1 %exitcond1498.not, label %.loopexit, label %.lr.ph1105, !llvm.loop !51
+  br i1 %exitcond1498.not, label %.loopexit, label %.lr.ph1105, !llvm.loop !52
 
 522:                                              ; preds = %457
   br i1 %.0385, label %523, label %598
@@ -3062,8 +3062,8 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %indvars.iv1489 = phi i64 [ 0, %.lr.ph1102.preheader ], [ %indvars.iv.next1490, %._crit_edge1099 ]
   %566 = getelementptr inbounds nuw %struct.hvl_t, ptr %526, i64 %indvars.iv1489
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
-  %568 = load ptr, ptr %567, align 8, !tbaa !52
-  %569 = load i64, ptr %566, align 8, !tbaa !54
+  %568 = load ptr, ptr %567, align 8, !tbaa !53
+  %569 = load i64, ptr %566, align 8, !tbaa !55
   %.not1134 = icmp eq i64 %569, 0
   br i1 %.not1134, label %._crit_edge1099, label %.lr.ph1098
 
@@ -3083,14 +3083,14 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 576:                                              ; preds = %.lr.ph1098, %574
   %577 = add i32 %.23941096, 1
   %578 = zext i32 %577 to i64
-  %579 = load i64, ptr %566, align 8, !tbaa !54
+  %579 = load i64, ptr %566, align 8, !tbaa !55
   %580 = icmp ugt i64 %579, %578
-  br i1 %580, label %.lr.ph1098, label %._crit_edge1099, !llvm.loop !55
+  br i1 %580, label %.lr.ph1098, label %._crit_edge1099, !llvm.loop !56
 
 ._crit_edge1099:                                  ; preds = %576, %.lr.ph1102
   %indvars.iv.next1490 = add nuw nsw i64 %indvars.iv1489, 1
   %exitcond1493.not = icmp eq i64 %indvars.iv.next1490, %wide.trip.count1492
-  br i1 %exitcond1493.not, label %._crit_edge1103, label %.lr.ph1102, !llvm.loop !56
+  br i1 %exitcond1493.not, label %._crit_edge1103, label %.lr.ph1102, !llvm.loop !57
 
 ._crit_edge1103:                                  ; preds = %._crit_edge1099, %564
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
@@ -3113,8 +3113,8 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %indvars.iv1484 = phi i64 [ 0, %.lr.ph1094.preheader ], [ %indvars.iv.next1485, %._crit_edge1091 ]
   %584 = getelementptr inbounds nuw %struct.hvl_t, ptr %526, i64 %indvars.iv1484
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 8
-  %586 = load ptr, ptr %585, align 8, !tbaa !52
-  %587 = load i64, ptr %584, align 8, !tbaa !54
+  %586 = load ptr, ptr %585, align 8, !tbaa !53
+  %587 = load i64, ptr %584, align 8, !tbaa !55
   %.not1132 = icmp eq i64 %587, 0
   br i1 %.not1132, label %._crit_edge1091, label %.lr.ph1090
 
@@ -3133,14 +3133,14 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 593:                                              ; preds = %.lr.ph1090, %592
   %594 = add i32 %.33951088, 1
   %595 = zext i32 %594 to i64
-  %596 = load i64, ptr %584, align 8, !tbaa !54
+  %596 = load i64, ptr %584, align 8, !tbaa !55
   %597 = icmp ugt i64 %596, %595
-  br i1 %597, label %.lr.ph1090, label %._crit_edge1091, !llvm.loop !57
+  br i1 %597, label %.lr.ph1090, label %._crit_edge1091, !llvm.loop !58
 
 ._crit_edge1091:                                  ; preds = %593, %.lr.ph1094
   %indvars.iv.next1485 = add nuw nsw i64 %indvars.iv1484, 1
   %exitcond1488.not = icmp eq i64 %indvars.iv.next1485, %wide.trip.count1487
-  br i1 %exitcond1488.not, label %._crit_edge1095, label %.lr.ph1094, !llvm.loop !58
+  br i1 %exitcond1488.not, label %._crit_edge1095, label %.lr.ph1094, !llvm.loop !59
 
 ._crit_edge1095:                                  ; preds = %._crit_edge1091, %582
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #9
@@ -3256,12 +3256,12 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 649:                                              ; preds = %648, %638, %626
   %indvars.iv.next1475 = add nuw nsw i64 %indvars.iv1474, 1
   %exitcond1478.not = icmp eq i64 %indvars.iv.next1475, %wide.trip.count1477
-  br i1 %exitcond1478.not, label %._crit_edge1086.us, label %626, !llvm.loop !59
+  br i1 %exitcond1478.not, label %._crit_edge1086.us, label %626, !llvm.loop !60
 
 ._crit_edge1086.us:                               ; preds = %649
   %indvars.iv.next1480 = add nuw nsw i64 %indvars.iv1479, 1
   %exitcond1483.not = icmp eq i64 %indvars.iv.next1480, %wide.trip.count1482
-  br i1 %exitcond1483.not, label %.loopexit, label %.preheader.us, !llvm.loop !60
+  br i1 %exitcond1483.not, label %.loopexit, label %.preheader.us, !llvm.loop !61
 
 650:                                              ; preds = %620
   %651 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
@@ -3531,10 +3531,10 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %.2334 = phi i64 [ %303, %772 ], [ %.133311152192, %264 ], [ %.133311152192, %275 ], [ %.133311152192, %279 ], [ %.133311152192, %267 ]
   %.2 = phi i64 [ %372, %772 ], [ %.133111162191, %264 ], [ %.133111162191, %275 ], [ %.133111162191, %279 ], [ %.133111162191, %267 ]
   %indvars.iv.next1505 = add nuw nsw i64 %indvars.iv15042190, 1
-  %792 = load i64, ptr %18, align 8, !tbaa !44
+  %792 = load i64, ptr %18, align 8, !tbaa !45
   %793 = and i64 %792, 4294967295
   %794 = icmp samesign ult i64 %indvars.iv.next1505, %793
-  br i1 %794, label %.lr.ph1117, label %.thread579.thread, !llvm.loop !46
+  br i1 %794, label %.lr.ph1117, label %.thread579.thread, !llvm.loop !47
 
 795:                                              ; preds = %676, %680, %668
   %.not540 = icmp eq ptr %.4380, null
@@ -3613,8 +3613,8 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %813 = call i32 @H5Aclose(i64 noundef %.0330598635677689) #9
   %814 = load i32, ptr %13, align 4, !tbaa !22
   %.not545 = icmp eq i32 %814, 0
-  %815 = load ptr, ptr %14, align 8, !tbaa !33
-  %816 = load ptr, ptr %15, align 8, !tbaa !34
+  %815 = load ptr, ptr %14, align 8, !tbaa !34
+  %816 = load ptr, ptr %15, align 8, !tbaa !35
   br i1 %.not545, label %819, label %817
 
 817:                                              ; preds = %808
@@ -3828,7 +3828,7 @@ define internal fastcc range(i32 -1, 1) i32 @update_ref_value(i64 noundef range(
   %54 = add i32 %.01829.i, 1
   %55 = zext i32 %54 to i64
   %56 = icmp ugt i64 %53, %55
-  br i1 %56, label %35, label %MapIdToName.exit.thread, !llvm.loop !35
+  br i1 %56, label %35, label %MapIdToName.exit.thread, !llvm.loop !36
 
 MapIdToName.exit.thread45:                        ; preds = %44, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
@@ -3963,8 +3963,8 @@ MapIdToName.exit.thread:                          ; preds = %52, %30, %MapIdToNa
   %126 = call i32 @H5Oclose(i64 noundef %12) #9
   %127 = load i32, ptr %9, align 4, !tbaa !22
   %.not42 = icmp eq i32 %127, 0
-  %128 = load ptr, ptr %10, align 8, !tbaa !33
-  %129 = load ptr, ptr %11, align 8, !tbaa !34
+  %128 = load ptr, ptr %10, align 8, !tbaa !34
+  %129 = load ptr, ptr %11, align 8, !tbaa !35
   br i1 %.not42, label %132, label %130
 
 130:                                              ; preds = %124
@@ -4048,35 +4048,36 @@ attributes #12 = { nounwind allocsize(0,1) }
 !27 = !{!15, !20, i64 48}
 !28 = !{!29, !18, i64 0}
 !29 = !{!"trav_link_t", !18, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = !{!7, !7, i64 0}
-!34 = !{!6, !6, i64 0}
-!35 = distinct !{!35, !31}
-!36 = !{!37, !19, i64 868}
-!37 = !{!"", !6, i64 0, !19, i64 8, !19, i64 12, !7, i64 16, !19, i64 592, !38, i64 600, !19, i64 864, !19, i64 868, !17, i64 872, !17, i64 873, !11, i64 880, !19, i64 888, !17, i64 892, !19, i64 896, !19, i64 900, !11, i64 904, !11, i64 912, !19, i64 920, !19, i64 924, !7, i64 928, !18, i64 960, !11, i64 968, !11, i64 976, !11, i64 984, !11, i64 992, !19, i64 1000, !19, i64 1004, !11, i64 1008, !39, i64 1016, !17, i64 1024, !17, i64 1025, !17, i64 1026, !17, i64 1027}
-!38 = !{!"", !7, i64 0, !19, i64 256}
-!39 = !{!"long long", !7, i64 0}
-!40 = distinct !{!40, !31}
-!41 = distinct !{!41, !31}
-!42 = distinct !{!42, !31}
-!43 = distinct !{!43, !31}
-!44 = !{!45, !11, i64 64}
-!45 = !{!"H5O_info2_t", !11, i64 0, !16, i64 8, !19, i64 24, !19, i64 28, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64}
-!46 = distinct !{!46, !31}
-!47 = distinct !{!47, !31}
-!48 = distinct !{!48, !31}
-!49 = distinct !{!49, !31}
-!50 = distinct !{!50, !31}
-!51 = distinct !{!51, !31}
-!52 = !{!53, !6, i64 8}
-!53 = !{!"", !11, i64 0, !6, i64 8}
-!54 = !{!53, !11, i64 0}
-!55 = distinct !{!55, !31}
-!56 = distinct !{!56, !31}
-!57 = distinct !{!57, !31}
-!58 = distinct !{!58, !31}
-!59 = distinct !{!59, !31}
-!60 = distinct !{!60, !31, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = !{!7, !7, i64 0}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !31, !32}
+!37 = !{!38, !19, i64 868}
+!38 = !{!"", !6, i64 0, !19, i64 8, !19, i64 12, !7, i64 16, !19, i64 592, !39, i64 600, !19, i64 864, !19, i64 868, !17, i64 872, !17, i64 873, !11, i64 880, !19, i64 888, !17, i64 892, !19, i64 896, !19, i64 900, !11, i64 904, !11, i64 912, !19, i64 920, !19, i64 924, !7, i64 928, !18, i64 960, !11, i64 968, !11, i64 976, !11, i64 984, !11, i64 992, !19, i64 1000, !19, i64 1004, !11, i64 1008, !40, i64 1016, !17, i64 1024, !17, i64 1025, !17, i64 1026, !17, i64 1027}
+!39 = !{!"", !7, i64 0, !19, i64 256}
+!40 = !{!"long long", !7, i64 0}
+!41 = distinct !{!41, !31, !32}
+!42 = distinct !{!42, !31, !32}
+!43 = distinct !{!43, !31, !32}
+!44 = distinct !{!44, !31, !32}
+!45 = !{!46, !11, i64 64}
+!46 = !{!"H5O_info2_t", !11, i64 0, !16, i64 8, !19, i64 24, !19, i64 28, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64}
+!47 = distinct !{!47, !31, !32}
+!48 = distinct !{!48, !31, !32}
+!49 = distinct !{!49, !31, !32}
+!50 = distinct !{!50, !31, !32}
+!51 = distinct !{!51, !31, !32}
+!52 = distinct !{!52, !31, !32}
+!53 = !{!54, !6, i64 8}
+!54 = !{!"", !11, i64 0, !6, i64 8}
+!55 = !{!54, !11, i64 0}
+!56 = distinct !{!56, !31, !32}
+!57 = distinct !{!57, !31, !32}
+!58 = distinct !{!58, !31, !32}
+!59 = distinct !{!59, !31, !32}
+!60 = distinct !{!60, !31, !32}
+!61 = distinct !{!61, !31, !32, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -142,7 +142,7 @@ define hidden i32 @mbedtls_ecdsa_sign_restartable(ptr noundef %0, ptr noundef %1
 62:                                               ; preds = %60
   %63 = call i32 @mbedtls_mpi_cmp_int(ptr noundef %2, i64 noundef 0) #7
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %30, label %.loopexit, !llvm.loop !18
+  br i1 %64, label %30, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %30, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %.preheader, %37, %35, %33
   %.047 = phi i32 [ -19712, %.preheader ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ -19712, %30 ], [ 0, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ]
@@ -181,7 +181,7 @@ declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %6 = load i64, ptr %5, align 8, !tbaa !19
+  %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
   %9 = tail call i64 @llvm.umin.i64(i64 %3, i64 %8)
@@ -191,7 +191,7 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef nonnull %1, p
 
 11:                                               ; preds = %4
   %12 = shl nuw i64 %9, 3
-  %13 = load i64, ptr %5, align 8, !tbaa !19
+  %13 = load i64, ptr %5, align 8, !tbaa !20
   %14 = icmp ugt i64 %12, %13
   br i1 %14, label %15, label %18
 
@@ -243,7 +243,7 @@ define hidden i32 @mbedtls_ecdsa_sign_det_restartable(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %12) #7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = load i64, ptr %14, align 8, !tbaa !19
+  %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = add i64 %15, 7
   %17 = lshr i64 %16, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
@@ -259,7 +259,7 @@ define hidden i32 @mbedtls_ecdsa_sign_det_restartable(ptr noundef %0, ptr nounde
   br i1 %.not, label %22, label %derive_mpi.exit.thread
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr %14, align 8, !tbaa !19
+  %23 = load i64, ptr %14, align 8, !tbaa !20
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
   %26 = call i64 @llvm.umin.i64(i64 %5, i64 %25)
@@ -269,7 +269,7 @@ define hidden i32 @mbedtls_ecdsa_sign_det_restartable(ptr noundef %0, ptr nounde
 
 28:                                               ; preds = %22
   %29 = shl nuw i64 %26, 3
-  %30 = load i64, ptr %14, align 8, !tbaa !19
+  %30 = load i64, ptr %14, align 8, !tbaa !20
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %32, label %35
 
@@ -389,7 +389,7 @@ define hidden i32 @mbedtls_ecdsa_verify_restartable(ptr noundef %0, ptr noundef 
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %33 = load i64, ptr %32, align 8, !tbaa !19
+  %33 = load i64, ptr %32, align 8, !tbaa !20
   %34 = add i64 %33, 7
   %35 = lshr i64 %34, 3
   %36 = call i64 @llvm.umin.i64(i64 %2, i64 %35)
@@ -399,7 +399,7 @@ define hidden i32 @mbedtls_ecdsa_verify_restartable(ptr noundef %0, ptr noundef 
 
 38:                                               ; preds = %31
   %39 = shl nuw i64 %36, 3
-  %40 = load i64, ptr %32, align 8, !tbaa !19
+  %40 = load i64, ptr %32, align 8, !tbaa !20
   %41 = icmp ugt i64 %39, %40
   br i1 %41, label %42, label %45
 
@@ -519,7 +519,7 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(139) %11, i8 0, i64 139, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 139
-  store ptr %20, ptr %12, align 8, !tbaa !20
+  store ptr %20, ptr %12, align 8, !tbaa !21
   %21 = call i32 @mbedtls_asn1_write_mpi(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %ecdsa_signature_to_asn1.exit, label %23
@@ -550,9 +550,9 @@ define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32
   br i1 %38, label %ecdsa_signature_to_asn1.exit, label %39
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %12, align 8, !tbaa !20
+  %40 = load ptr, ptr %12, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %40, i64 %37, i1 false)
-  store i64 %37, ptr %6, align 8, !tbaa !22
+  store i64 %37, ptr %6, align 8, !tbaa !23
   br label %ecdsa_signature_to_asn1.exit
 
 ecdsa_signature_to_asn1.exit:                     ; preds = %19, %23, %26, %30, %33, %39
@@ -593,7 +593,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   %9 = alloca %struct.mbedtls_mpi, align 8
   %10 = alloca %struct.mbedtls_mpi, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store ptr %3, ptr %7, align 8, !tbaa !20
+  store ptr %3, ptr %7, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
@@ -609,8 +609,8 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br label %30
 
 15:                                               ; preds = %6
-  %16 = load ptr, ptr %7, align 8, !tbaa !20
-  %17 = load i64, ptr %8, align 8, !tbaa !22
+  %16 = load ptr, ptr %7, align 8, !tbaa !21
+  %17 = load i64, ptr %8, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %.not21 = icmp eq ptr %18, %11
   br i1 %.not21, label %19, label %30
@@ -637,7 +637,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br i1 %.not24, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %7, align 8, !tbaa !20
+  %29 = load ptr, ptr %7, align 8, !tbaa !21
   %.not25 = icmp eq ptr %29, %11
   %spec.select = select i1 %.not25, i32 0, i32 -19456
   br label %30
@@ -789,10 +789,11 @@ attributes #7 = { nounwind }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"p1 _ZTS17mbedtls_ecp_point", !10, i64 0}
 !15 = !{!4, !9, i64 104}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!4, !13, i64 128}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 omnipotent char", !10, i64 0}
-!22 = !{!13, !13, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!4, !13, i64 128}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 omnipotent char", !10, i64 0}
+!23 = !{!13, !13, i64 0}

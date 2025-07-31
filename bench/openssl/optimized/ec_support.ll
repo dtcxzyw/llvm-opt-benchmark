@@ -119,12 +119,12 @@ define ptr @OSSL_EC_curve_nid2name(i32 noundef %0) local_unnamed_addr #0 {
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
   %5 = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %.08
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !5
+  %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %3
 
 9:                                                ; preds = %.preheader
-  %10 = load ptr, ptr %5, align 16, !tbaa !12
+  %10 = load ptr, ptr %5, align 16, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %9
@@ -140,19 +140,19 @@ define i32 @ossl_ec_curve_name2nid(ptr noundef %0) local_unnamed_addr #1 {
 2:                                                ; preds = %.preheader12
   %3 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %3, 15
-  br i1 %exitcond.not.i, label %.preheader.preheader, label %.preheader12, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.preheader, label %.preheader12, !llvm.loop !14
 
 .preheader12:                                     ; preds = %1, %2
   %.06.i = phi i64 [ %3, %2 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06.i
-  %5 = load ptr, ptr %4, align 16, !tbaa !12
+  %5 = load ptr, ptr %4, align 16, !tbaa !13
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %ossl_ec_curve_nist2nid_int.exit, label %2
 
 ossl_ec_curve_nist2nid_int.exit:                  ; preds = %.preheader12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !5
+  %9 = load i32, ptr %8, align 8, !tbaa !6
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %.preheader.preheader, label %.loopexit
 
@@ -162,19 +162,19 @@ ossl_ec_curve_nist2nid_int.exit:                  ; preds = %.preheader12
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %.0815, 1
   %exitcond.not = icmp eq i64 %11, 82
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %.0815 = phi i64 [ %11, %10 ], [ 0, %.preheader.preheader ]
   %12 = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %.0815
-  %13 = load ptr, ptr %12, align 16, !tbaa !12
+  %13 = load ptr, ptr %12, align 16, !tbaa !13
   %14 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef nonnull %0) #6
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %10
 
 16:                                               ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !5
+  %18 = load i32, ptr %17, align 8, !tbaa !6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %1, %ossl_ec_curve_nist2nid_int.exit, %16
@@ -189,19 +189,19 @@ define i32 @ossl_ec_curve_nist2nid_int(ptr noundef readonly captures(none) %0) l
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %3, 15
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !14
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06
-  %6 = load ptr, ptr %5, align 16, !tbaa !12
+  %6 = load ptr, ptr %5, align 16, !tbaa !13
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #5
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !5
+  %11 = load i32, ptr %10, align 8, !tbaa !6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %9
@@ -218,18 +218,18 @@ define ptr @ossl_ec_curve_nid2nist_int(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %3, 15
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !16
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !5
+  %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 16, !tbaa !12
+  %10 = load ptr, ptr %5, align 16, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %9
@@ -253,16 +253,17 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !11, i64 8}
-!6 = !{!"ec_name2nid_st", !7, i64 0, !11, i64 8}
-!7 = !{!"p1 omnipotent char", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"int", !9, i64 0}
-!12 = !{!6, !7, i64 0}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !12, i64 8}
+!7 = !{!"ec_name2nid_st", !8, i64 0, !12, i64 8}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"int", !10, i64 0}
+!13 = !{!7, !8, i64 0}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}

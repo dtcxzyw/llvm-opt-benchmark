@@ -1965,7 +1965,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %12, %16, %20, %24, 
   %.0.i = phi i32 [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %29, %26 ], [ -1, %24 ]
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %.0.i)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %32 = load ptr, ptr %31, align 8, !tbaa !143
+  %32 = load ptr, ptr %31, align 8, !tbaa !144
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %.sroa.049.0.copyload = load i32, ptr %33, align 4, !tbaa !105
   %34 = trunc i32 %5 to i8
@@ -2029,7 +2029,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %12, %16, %20, %24, 
 
 78:                                               ; preds = %77, %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 1, ptr %79, align 1, !tbaa !144
+  store i8 1, ptr %79, align 1, !tbaa !145
   ret void
 }
 
@@ -2110,7 +2110,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %7, %11, %15, %19, %
   %29 = add nsw i32 %28, %2
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %32 = load ptr, ptr %31, align 8, !tbaa !143
+  %32 = load ptr, ptr %31, align 8, !tbaa !144
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %.sroa.046.0.copyload = load i32, ptr %33, align 4, !tbaa !105
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 -4
@@ -3028,7 +3028,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %41 = load ptr, ptr %40, align 8, !tbaa !105
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %44 = load i32, ptr %43, align 4, !tbaa !145
+  %44 = load i32, ptr %43, align 4, !tbaa !146
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %46, label %78
 
@@ -3082,7 +3082,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
 78:                                               ; preds = %46, %31
   %79 = load ptr, ptr %0, align 8, !tbaa !108
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !147
+  %81 = load ptr, ptr %80, align 8, !tbaa !148
   %.not227 = icmp eq ptr %81, null
   br i1 %.not227, label %85, label %82
 
@@ -3110,7 +3110,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %97 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %28, i32 %95, i32 %96)
   %98 = load ptr, ptr %0, align 8, !tbaa !108
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  %100 = load ptr, ptr %99, align 8, !tbaa !148
+  %100 = load ptr, ptr %99, align 8, !tbaa !149
   %.not = icmp eq ptr %100, null
   br i1 %.not, label %114, label %101
 
@@ -3124,7 +3124,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %108 = load ptr, ptr %107, align 8, !tbaa !105
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 20
-  %111 = load i32, ptr %110, align 4, !tbaa !145
+  %111 = load i32, ptr %110, align 4, !tbaa !146
   %112 = zext i32 %111 to i64
   %113 = tail call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sroa.4.0.extract.trunc, ptr noundef nonnull %109, i64 noundef %112, i32 noundef %7, i32 noundef %9, i32 noundef %2)
   br i1 %113, label %160, label %114
@@ -3595,7 +3595,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   tail call void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2_(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %26, i8 noundef zeroext 4, i32 %27)
   %28 = load ptr, ptr %0, align 8, !tbaa !108
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !149
+  %30 = load ptr, ptr %29, align 8, !tbaa !150
   %.not259 = icmp eq ptr %30, null
   br i1 %.not259, label %53, label %31
 
@@ -3618,7 +3618,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   %47 = load ptr, ptr %46, align 8, !tbaa !105
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %50 = load i32, ptr %49, align 4, !tbaa !145
+  %50 = load i32, ptr %49, align 4, !tbaa !146
   %51 = zext i32 %50 to i64
   %52 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %48, i64 noundef %51, i32 noundef %35, i32 noundef %7, i32 noundef %38, i32 noundef %40, i32 noundef %2)
   br i1 %52, label %164, label %53
@@ -3645,7 +3645,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit.thread: ; preds = %3, %
   tail call void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2_(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %64, i8 noundef zeroext 8, i32 %65)
   %66 = load ptr, ptr %0, align 8, !tbaa !108
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  %68 = load ptr, ptr %67, align 8, !tbaa !150
+  %68 = load ptr, ptr %67, align 8, !tbaa !151
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %91, label %69
 
@@ -3668,7 +3668,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit.thread: ; preds = %3, %
   %85 = load ptr, ptr %84, align 8, !tbaa !105
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 20
-  %88 = load i32, ptr %87, align 4, !tbaa !145
+  %88 = load i32, ptr %87, align 4, !tbaa !146
   %89 = zext i32 %88 to i64
   %90 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sroa.3.0.extract.trunc263, ptr noundef nonnull %86, i64 noundef %89, i32 noundef %73, i32 noundef %7, i32 noundef %76, i32 noundef %78, i32 noundef %2)
   br i1 %90, label %164, label %91
@@ -3710,7 +3710,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit.thread: ; preds = %3, %
   %117 = getelementptr inbounds nuw %struct.lua_TValue, ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !105
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load i32, ptr %119, align 8, !tbaa !151
+  %120 = load i32, ptr %119, align 8, !tbaa !152
   %121 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %120)
   %122 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 10, i32 %111, i32 %121)
   %123 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder7vmConstEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %9)
@@ -3871,17 +3871,17 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !152
+  %9 = load ptr, ptr %8, align 8, !tbaa !153
   %10 = ashr i32 %4, 16
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %9, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !153
+  %13 = load ptr, ptr %12, align 8, !tbaa !154
   %14 = add nsw i32 %2, 1
   %15 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %14)
   %16 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 98, i32 %15)
   %17 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 7)
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  %19 = load i8, ptr %18, align 1, !tbaa !154
+  %19 = load i8, ptr %18, align 1, !tbaa !155
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %20)
   %22 = load i32, ptr %1, align 4, !tbaa !4
@@ -3894,7 +3894,7 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
   %29 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %26)
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 7)
   %31 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 12, i32 %29, i32 %30)
-  %32 = load i8, ptr %18, align 1, !tbaa !154
+  %32 = load i8, ptr %18, align 1, !tbaa !155
   %.not = icmp eq i8 %32, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3956,10 +3956,10 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
   unreachable
 
 69:                                               ; preds = %57, %46, %37
-  %70 = load i8, ptr %18, align 1, !tbaa !154
+  %70 = load i8, ptr %18, align 1, !tbaa !155
   %71 = zext i8 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !155
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !156
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
@@ -4158,18 +4158,19 @@ attributes #18 = { builtin nounwind }
 !138 = distinct !{!138, !"_ZSt19__relocate_object_aIN4Luau7CodeGen9IrBuilder8LoopInfoES3_SaIS3_EEvPT_PT0_RT1_"}
 !139 = !{!140}
 !140 = distinct !{!140, !138, !"_ZSt19__relocate_object_aIN4Luau7CodeGen9IrBuilder8LoopInfoES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!141 = distinct !{!141, !142}
+!141 = distinct !{!141, !142, !143}
 !142 = !{!"llvm.loop.mustprogress"}
-!143 = !{!87, !87, i64 0}
-!144 = !{!9, !12, i64 9}
-!145 = !{!146, !5, i64 20}
-!146 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !119, i64 4, !103, i64 8, !5, i64 16, !5, i64 20, !6, i64 24}
-!147 = !{!110, !11, i64 16}
-!148 = !{!110, !11, i64 56}
-!149 = !{!110, !11, i64 24}
-!150 = !{!110, !11, i64 72}
-!151 = !{!146, !5, i64 16}
-!152 = !{!97, !99, i64 24}
-!153 = !{!67, !67, i64 0}
-!154 = !{!97, !6, i64 3}
-!155 = distinct !{!155, !142}
+!143 = !{!"llvm.loop.estimated_trip_count"}
+!144 = !{!87, !87, i64 0}
+!145 = !{!9, !12, i64 9}
+!146 = !{!147, !5, i64 20}
+!147 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !119, i64 4, !103, i64 8, !5, i64 16, !5, i64 20, !6, i64 24}
+!148 = !{!110, !11, i64 16}
+!149 = !{!110, !11, i64 56}
+!150 = !{!110, !11, i64 24}
+!151 = !{!110, !11, i64 72}
+!152 = !{!147, !5, i64 16}
+!153 = !{!97, !99, i64 24}
+!154 = !{!67, !67, i64 0}
+!155 = !{!97, !6, i64 3}
+!156 = distinct !{!156, !142, !143}

@@ -226,7 +226,7 @@ define dso_local i32 @pnp_add_card(ptr noundef initializes((96, 104), (688, 696)
   %30 = tail call i32 @__pnp_add_device(ptr noundef %29) #8
   %31 = load ptr, ptr %28, align 8
   %32 = icmp eq ptr %31, %25
-  br i1 %32, label %.loopexit4, label %.preheader3, !llvm.loop !8
+  br i1 %32, label %.loopexit4, label %.preheader3, !llvm.loop !9
 
 .loopexit4:                                       ; preds = %.preheader3, %14
   %33 = load ptr, ptr @pnp_card_drivers, align 8
@@ -238,7 +238,7 @@ define dso_local i32 @pnp_add_card(ptr noundef initializes((96, 104), (688, 696)
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @card_probe(ptr noundef %0, ptr noundef %35)
   %37 = icmp eq ptr %36, @pnp_card_drivers
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4, %6
   ret i32 %4
@@ -257,7 +257,7 @@ define internal void @pnp_release_card(ptr noundef %0) #0 align 16 {
   %7 = load ptr, ptr %6, align 8
   tail call void @kfree(ptr noundef nonnull %5) #8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @kfree(ptr noundef %0) #8
@@ -331,7 +331,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @compare_pnp_id(ptr noundef %32, ptr noundef %24) #8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.preheader11, label %35, !llvm.loop !11
+  br i1 %34, label %.preheader11, label %35, !llvm.loop !12
 
 35:                                               ; preds = %30
   %36 = add nuw nsw i32 %22, 1
@@ -342,7 +342,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
   %38 = getelementptr i8, ptr %15, i64 80
   %39 = load i8, ptr %38, align 8
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %.thread10, label %14, !llvm.loop !12
+  br i1 %40, label %.thread10, label %14, !llvm.loop !13
 
 41:                                               ; preds = %35, %21
   %42 = icmp eq ptr %15, null
@@ -390,7 +390,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
 65:                                               ; preds = %60, %.preheader
   %66 = load ptr, ptr %56, align 8
   %67 = icmp eq ptr %66, %13
-  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %65, %53
   tail call void @kfree(ptr noundef nonnull %45) #8
@@ -446,7 +446,7 @@ define dso_local void @pnp_remove_card(ptr noundef %0) local_unnamed_addr #0 ali
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_lock) #8
   tail call void @__pnp_remove_device(ptr noundef %17) #8
   %23 = icmp eq ptr %16, %12
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -562,7 +562,7 @@ define dso_local noundef ptr @pnp_request_card_device(ptr noundef %0, ptr nounde
 34:                                               ; preds = %29, %.preheader
   %35 = load ptr, ptr %25, align 8
   %36 = icmp eq ptr %35, %22
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !16
 
 37:                                               ; preds = %29
   %38 = getelementptr i8, ptr %25, i64 56
@@ -708,7 +708,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr nou
   %30 = getelementptr i8, ptr %28, i64 -736
   tail call fastcc void @card_probe(ptr noundef %30, ptr noundef %0)
   %31 = icmp eq ptr %29, @pnp_cards
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %23, %1
   %32 = phi i32 [ %21, %1 ], [ 0, %23 ], [ 0, %.preheader ]
@@ -819,7 +819,7 @@ define internal noundef i64 @card_id_show(ptr noundef readonly captures(none) %0
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %3
   %15 = phi ptr [ %2, %3 ], [ %11, %.preheader ]
@@ -847,16 +847,17 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}

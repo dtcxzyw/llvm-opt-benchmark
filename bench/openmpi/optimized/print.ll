@@ -2256,7 +2256,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr noundef writeonly cap
 
 .loopexit30:                                      ; preds = %37, %.preheader29, %26
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !60
+  %45 = load i64, ptr %44, align 8, !tbaa !61
   %.not26 = icmp eq i64 %45, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph34
 
@@ -2267,7 +2267,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr noundef writeonly cap
 47:                                               ; preds = %.lr.ph34, %73
   %.133 = phi i64 [ 0, %.lr.ph34 ], [ %77, %73 ]
   %48 = load ptr, ptr %7, align 8, !tbaa !20
-  %49 = load ptr, ptr %46, align 8, !tbaa !61
+  %49 = load ptr, ptr %46, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw %struct.pmix_info, ptr %49, i64 %.133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 520
@@ -2320,9 +2320,9 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
   %76 = load ptr, ptr %10, align 8, !tbaa !20
   store ptr %76, ptr %8, align 8, !tbaa !20
   %77 = add nuw i64 %.133, 1
-  %78 = load i64, ptr %44, align 8, !tbaa !60
+  %78 = load i64, ptr %44, align 8, !tbaa !61
   %79 = icmp ult i64 %77, %78
-  br i1 %79, label %47, label %.loopexit, !llvm.loop !62
+  br i1 %79, label %47, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %73, %.loopexit30
   %80 = load ptr, ptr %8, align 8, !tbaa !20
@@ -2466,7 +2466,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr noundef writeonly cap
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  %10 = load i64, ptr %2, align 8, !tbaa !63
+  %10 = load i64, ptr %2, align 8, !tbaa !64
   %11 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.103, ptr noundef %1, i64 noundef %10) #7
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.loopexit, label %13
@@ -2485,8 +2485,8 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr noundef writeonly cap
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
-  %23 = load i64, ptr %2, align 8, !tbaa !63
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  %23 = load i64, ptr %2, align 8, !tbaa !64
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -2531,9 +2531,9 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
   %43 = load ptr, ptr %8, align 8, !tbaa !20
   store ptr %43, ptr %6, align 8, !tbaa !20
   %44 = add nuw i64 %.01112, 1
-  %45 = load i64, ptr %2, align 8, !tbaa !63
+  %45 = load i64, ptr %2, align 8, !tbaa !64
   %46 = icmp ult i64 %44, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !66
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %42, %.._crit_edge_crit_edge
   %47 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %43, %42 ]
@@ -2619,12 +2619,13 @@ attributes #8 = { nounwind willreturn memory(read) }
 !55 = !{!"pmix_query", !56, i64 0, !57, i64 8, !27, i64 16}
 !56 = !{!"p2 omnipotent char", !9, i64 0}
 !57 = !{!"p1 _ZTS9pmix_info", !9, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!55, !27, i64 16}
-!61 = !{!55, !57, i64 8}
-!62 = distinct !{!62, !59}
-!63 = !{!64, !27, i64 0}
-!64 = !{!"pmix_info_array", !27, i64 0, !57, i64 8}
-!65 = !{!64, !57, i64 8}
-!66 = distinct !{!66, !59}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!55, !27, i64 16}
+!62 = !{!55, !57, i64 8}
+!63 = distinct !{!63, !59, !60}
+!64 = !{!65, !27, i64 0}
+!65 = !{!"pmix_info_array", !27, i64 0, !57, i64 8}
+!66 = !{!65, !57, i64 8}
+!67 = distinct !{!67, !59, !60}

@@ -399,7 +399,7 @@ _ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15Mal
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit.loopexit: ; preds = %.critedge.i.i
   %.not66 = icmp eq ptr %storemerge.i, %31
-  br i1 %.not66, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, label %.lr.ph
+  br i1 %.not66, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, label %.lr.ph, !llvm.loop !165
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit.loopexit, %_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit
   %.val43 = phi i32 [ %.val43.pre, %_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ], [ %93, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit.loopexit ]
@@ -424,8 +424,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %34 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val, %34 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 %.020.i.idx.i.i.i.i.i
-  %.0.val.i.i.i.i.i.i = load ptr, ptr %.020.i.ptr.i.i.i.i.i, align 8, !tbaa !164
-  %.val.i.i.i.i.i.i = load ptr, ptr %.val, align 8, !tbaa !164
+  %.0.val.i.i.i.i.i.i = load ptr, ptr %.020.i.ptr.i.i.i.i.i, align 8, !tbaa !166
+  %.val.i.i.i.i.i.i = load ptr, ptr %.val, align 8, !tbaa !166
   %40 = getelementptr i8, ptr %.0.val.i.i.i.i.i.i, i64 16
   %.0.val.val.i.i.i.i.i.i = load i64, ptr %40, align 8, !tbaa !144
   %41 = getelementptr i8, ptr %.val.i.i.i.i.i.i, i64 16
@@ -438,7 +438,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   br label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
 44:                                               ; preds = %.preheader.i.i.i44
-  %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !166
   %45 = getelementptr i8, ptr %.0.val11.i.i.i.i.i.i.i, i64 16
   %.0.val.val12.i.i.i.i.i.i.i = load i64, ptr %45, align 8, !tbaa !144
   %46 = icmp ult i64 %.0.val.val.i.i.i.i.i.i, %.0.val.val12.i.i.i.i.i.i.i
@@ -448,20 +448,20 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.0.val15.i.i.i.i.i.i.i = phi ptr [ %.0.val.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.0.val11.i.i.i.i.i.i.i, %44 ]
   %.014.i.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i, %44 ]
   %.0913.i.i.i.i.i.i.i = phi ptr [ %.014.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.020.i.ptr.i.i.i.i.i, %44 ]
-  store ptr %.0.val15.i.i.i.i.i.i.i, ptr %.0913.i.i.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %.0.val15.i.i.i.i.i.i.i, ptr %.0913.i.i.i.i.i.i.i, align 8, !tbaa !166
   %.0.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i.i.i.i.i, i64 -8
-  %.0.val.i.i.i.i.i.i.i = load ptr, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val.i.i.i.i.i.i.i = load ptr, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !166
   %47 = getelementptr i8, ptr %.0.val.i.i.i.i.i.i.i, i64 16
   %.0.val.val.i.i.i.i.i.i.i = load i64, ptr %47, align 8, !tbaa !144
   %48 = icmp ult i64 %.0.val.val.i.i.i.i.i.i, %.0.val.val.i.i.i.i.i.i.i
-  br i1 %48, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", !llvm.loop !166
+  br i1 %48, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", !llvm.loop !168
 
 "_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %44, %43
   %.sink.i.i.i.i.i.i = phi ptr [ %.val, %43 ], [ %.020.i.ptr.i.i.i.i.i, %44 ], [ %.014.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !166
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i44, !llvm.loop !167
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i44, !llvm.loop !169
 
 "_ZSt16__insertion_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
@@ -469,11 +469,11 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", %"_ZSt16__insertion_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_.exit.i.i.i.i.i"
   %.07.i.i.i.i.i.i = phi ptr [ %56, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i" ], [ %49, %"_ZSt16__insertion_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_.exit.i.i.i.i.i" ]
-  %50 = load ptr, ptr %.07.i.i.i.i.i.i, align 8, !tbaa !164
+  %50 = load ptr, ptr %.07.i.i.i.i.i.i, align 8, !tbaa !166
   %51 = getelementptr i8, ptr %50, i64 16
   %.val.val.i.i.i.i.i.i.i = load i64, ptr %51, align 8, !tbaa !144
   %.010.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 -8
-  %.0.val11.i.i13.i.i.i.i.i = load ptr, ptr %.010.i.i.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val11.i.i13.i.i.i.i.i = load ptr, ptr %.010.i.i.i.i.i.i.i, align 8, !tbaa !166
   %52 = getelementptr i8, ptr %.0.val11.i.i13.i.i.i.i.i, i64 16
   %.0.val.val12.i.i14.i.i.i.i.i = load i64, ptr %52, align 8, !tbaa !144
   %53 = icmp ult i64 %.val.val.i.i.i.i.i.i.i, %.0.val.val12.i.i14.i.i.i.i.i
@@ -483,20 +483,20 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.0.val15.i.i18.i.i.i.i.i = phi ptr [ %.0.val.i.i22.i.i.i.i.i, %.lr.ph.i.i17.i.i.i.i.i ], [ %.0.val11.i.i13.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.014.i.i19.i.i.i.i.i = phi ptr [ %.0.i.i21.i.i.i.i.i, %.lr.ph.i.i17.i.i.i.i.i ], [ %.010.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.0913.i.i20.i.i.i.i.i = phi ptr [ %.014.i.i19.i.i.i.i.i, %.lr.ph.i.i17.i.i.i.i.i ], [ %.07.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  store ptr %.0.val15.i.i18.i.i.i.i.i, ptr %.0913.i.i20.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %.0.val15.i.i18.i.i.i.i.i, ptr %.0913.i.i20.i.i.i.i.i, align 8, !tbaa !166
   %.0.i.i21.i.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i19.i.i.i.i.i, i64 -8
-  %.0.val.i.i22.i.i.i.i.i = load ptr, ptr %.0.i.i21.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val.i.i22.i.i.i.i.i = load ptr, ptr %.0.i.i21.i.i.i.i.i, align 8, !tbaa !166
   %54 = getelementptr i8, ptr %.0.val.i.i22.i.i.i.i.i, i64 16
   %.0.val.val.i.i23.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !144
   %55 = icmp ult i64 %.val.val.i.i.i.i.i.i.i, %.0.val.val.i.i23.i.i.i.i.i
-  br i1 %55, label %.lr.ph.i.i17.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", !llvm.loop !166
+  br i1 %55, label %.lr.ph.i.i17.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", !llvm.loop !168
 
 "_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i": ; preds = %.lr.ph.i.i17.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.09.lcssa.i.i.i.i.i.i.i = phi ptr [ %.07.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.014.i.i19.i.i.i.i.i, %.lr.ph.i.i17.i.i.i.i.i ]
-  store ptr %50, ptr %.09.lcssa.i.i.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %50, ptr %.09.lcssa.i.i.i.i.i.i.i, align 8, !tbaa !166
   %56 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i, i64 8
   %.not.i16.i.i.i.i.i = icmp eq ptr %56, %33
-  br i1 %.not.i16.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EEEZNS_15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSectionESD_bE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !168
+  br i1 %.not.i16.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EEEZNS_15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSectionESD_bE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !170
 
 57:                                               ; preds = %34
   %.not18.i.i.i.i.i.i = icmp eq i32 %.val43, 1
@@ -505,8 +505,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 .lr.ph.i25.i.i.i.i.i:                             ; preds = %57, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i"
   %.020.i26.i.i.i.i.i = phi ptr [ %.0.i36.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i" ], [ %scevgep.i.i.i.i.i, %57 ]
   %.pn19.i27.i.i.i.i.i = phi ptr [ %.020.i26.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i" ], [ %.val, %57 ]
-  %.0.val.i28.i.i.i.i.i = load ptr, ptr %.020.i26.i.i.i.i.i, align 8, !tbaa !164
-  %.val.i29.i.i.i.i.i = load ptr, ptr %.val, align 8, !tbaa !164
+  %.0.val.i28.i.i.i.i.i = load ptr, ptr %.020.i26.i.i.i.i.i, align 8, !tbaa !166
+  %.val.i29.i.i.i.i.i = load ptr, ptr %.val, align 8, !tbaa !166
   %58 = getelementptr i8, ptr %.0.val.i28.i.i.i.i.i, i64 16
   %.0.val.val.i30.i.i.i.i.i = load i64, ptr %58, align 8, !tbaa !144
   %59 = getelementptr i8, ptr %.val.i29.i.i.i.i.i, i64 16
@@ -525,7 +525,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   br label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i"
 
 68:                                               ; preds = %.lr.ph.i25.i.i.i.i.i
-  %.0.val11.i.i32.i.i.i.i.i = load ptr, ptr %.pn19.i27.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val11.i.i32.i.i.i.i.i = load ptr, ptr %.pn19.i27.i.i.i.i.i, align 8, !tbaa !166
   %69 = getelementptr i8, ptr %.0.val11.i.i32.i.i.i.i.i, i64 16
   %.0.val.val12.i.i33.i.i.i.i.i = load i64, ptr %69, align 8, !tbaa !144
   %70 = icmp ult i64 %.0.val.val.i30.i.i.i.i.i, %.0.val.val12.i.i33.i.i.i.i.i
@@ -535,20 +535,20 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.0.val15.i.i39.i.i.i.i.i = phi ptr [ %.0.val.i.i43.i.i.i.i.i, %.lr.ph.i.i38.i.i.i.i.i ], [ %.0.val11.i.i32.i.i.i.i.i, %68 ]
   %.014.i.i40.i.i.i.i.i = phi ptr [ %.0.i.i42.i.i.i.i.i, %.lr.ph.i.i38.i.i.i.i.i ], [ %.pn19.i27.i.i.i.i.i, %68 ]
   %.0913.i.i41.i.i.i.i.i = phi ptr [ %.014.i.i40.i.i.i.i.i, %.lr.ph.i.i38.i.i.i.i.i ], [ %.020.i26.i.i.i.i.i, %68 ]
-  store ptr %.0.val15.i.i39.i.i.i.i.i, ptr %.0913.i.i41.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %.0.val15.i.i39.i.i.i.i.i, ptr %.0913.i.i41.i.i.i.i.i, align 8, !tbaa !166
   %.0.i.i42.i.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i40.i.i.i.i.i, i64 -8
-  %.0.val.i.i43.i.i.i.i.i = load ptr, ptr %.0.i.i42.i.i.i.i.i, align 8, !tbaa !164
+  %.0.val.i.i43.i.i.i.i.i = load ptr, ptr %.0.i.i42.i.i.i.i.i, align 8, !tbaa !166
   %71 = getelementptr i8, ptr %.0.val.i.i43.i.i.i.i.i, i64 16
   %.0.val.val.i.i44.i.i.i.i.i = load i64, ptr %71, align 8, !tbaa !144
   %72 = icmp ult i64 %.0.val.val.i30.i.i.i.i.i, %.0.val.val.i.i44.i.i.i.i.i
-  br i1 %72, label %.lr.ph.i.i38.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i", !llvm.loop !166
+  br i1 %72, label %.lr.ph.i.i38.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i", !llvm.loop !168
 
 "_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i": ; preds = %.lr.ph.i.i38.i.i.i.i.i, %68, %61
   %.sink.i35.i.i.i.i.i = phi ptr [ %.val, %61 ], [ %.020.i26.i.i.i.i.i, %68 ], [ %.014.i.i40.i.i.i.i.i, %.lr.ph.i.i38.i.i.i.i.i ]
-  store ptr %.0.val.i28.i.i.i.i.i, ptr %.sink.i35.i.i.i.i.i, align 8, !tbaa !164
+  store ptr %.0.val.i28.i.i.i.i.i, ptr %.sink.i35.i.i.i.i.i, align 8, !tbaa !166
   %.0.i36.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.020.i26.i.i.i.i.i, i64 8
   %.not.i37.i.i.i.i.i = icmp eq ptr %.0.i36.i.i.i.i.i, %33
-  br i1 %.not.i37.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EEEZNS_15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSectionESD_bE3$_0EEvOT_T0_.exit", label %.lr.ph.i25.i.i.i.i.i, !llvm.loop !167
+  br i1 %.not.i37.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EEEZNS_15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSectionESD_bE3$_0EEvOT_T0_.exit", label %.lr.ph.i25.i.i.i.i.i, !llvm.loop !169
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELj64EEEZNS_15DwarfStringPool4emitERNS_10AsmPrinterEPNS_9MCSectionESD_bE3$_0EEvOT_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i34.i.i.i.i.i", %"_ZSt25__unguarded_linear_insertIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_.exit.i15.i.i.i.i.i", %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, %57
   %73 = load ptr, ptr %6, align 8, !tbaa !157
@@ -572,7 +572,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.sroa.063.071 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
   %83 = load i32, ptr %19, align 4, !tbaa !159
   %.not.i.i.not.i = icmp ult i32 %81, %83
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELb1EE9push_backES5_.exit, label %84, !prof !169
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEELb1EE9push_backES5_.exit, label %84, !prof !171
 
 84:                                               ; preds = %.lr.ph
   %85 = zext i32 %81 to i64
@@ -618,7 +618,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntr
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %12, align 8, !tbaa !153
-  %100 = load ptr, ptr %.073, align 8, !tbaa !164
+  %100 = load ptr, ptr %.073, align 8, !tbaa !166
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !152
   %103 = load ptr, ptr %99, align 8, !tbaa !154
@@ -630,21 +630,21 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14StringMapEntryINS_20DwarfStringPoolEntr
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %95, %98
   %106 = load ptr, ptr %12, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #11
-  %107 = load ptr, ptr %.073, align 8, !tbaa !164
+  %107 = load ptr, ptr %.073, align 8, !tbaa !166
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store ptr @.str.1, ptr %7, align 8, !alias.scope !170
-  store ptr %108, ptr %78, align 8, !alias.scope !170
-  store i8 3, ptr %79, align 8, !tbaa !145, !alias.scope !170
-  store i8 11, ptr %80, align 1, !tbaa !148, !alias.scope !170
+  store ptr @.str.1, ptr %7, align 8, !alias.scope !172
+  store ptr %108, ptr %78, align 8, !alias.scope !172
+  store i8 3, ptr %79, align 8, !tbaa !145, !alias.scope !172
+  store i8 11, ptr %80, align 1, !tbaa !148, !alias.scope !172
   %109 = load ptr, ptr %106, align 8, !tbaa !154
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 120
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(296) %106, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
   %112 = load ptr, ptr %12, align 8, !tbaa !153
-  %113 = load ptr, ptr %.073, align 8, !tbaa !164
+  %113 = load ptr, ptr %.073, align 8, !tbaa !166
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %115 = load i64, ptr %113, align 8, !tbaa !175
+  %115 = load i64, ptr %113, align 8, !tbaa !177
   %116 = add i64 %115, 1
   %117 = load ptr, ptr %112, align 8, !tbaa !154
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 520
@@ -652,7 +652,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %95, %98
   call void %119(ptr noundef nonnull align 8 dereferenceable(296) %112, ptr nonnull %114, i64 %116) #11
   %120 = getelementptr inbounds nuw i8, ptr %.073, i64 8
   %.not = icmp eq ptr %120, %76
-  br i1 %.not, label %._crit_edge, label %95
+  br i1 %.not, label %._crit_edge, label %95, !llvm.loop !179
 
 121:                                              ; preds = %._crit_edge
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -687,7 +687,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7re
   %134 = getelementptr ptr, ptr %133, i64 %.pre-phi.i.i
   %135 = sub nsw i64 %124, %.pre-phi.i.i
   %136 = shl nsw i64 %135, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %134, i8 0, i64 %136, i1 false), !tbaa !164
+  call void @llvm.memset.p0.i64(ptr align 8 %134, i8 0, i64 %136, i1 false), !tbaa !166
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE7reserveEm.exit.i.i, %127
@@ -727,7 +727,7 @@ _ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15Mal
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit: ; preds = %.critedge.i.i55
   %.not67 = icmp eq ptr %storemerge.i53, %143
-  br i1 %.not67, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56._crit_edge, label %157
+  br i1 %.not67, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56._crit_edge, label %157, !llvm.loop !180
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit, %_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit51
   %145 = load ptr, ptr %12, align 8, !tbaa !153
@@ -749,12 +749,12 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 
 .lr.ph81.split.us:                                ; preds = %.lr.ph81, %.lr.ph81.split.us
   %.03979.us = phi ptr [ %156, %.lr.ph81.split.us ], [ %150, %.lr.ph81 ]
-  %154 = load ptr, ptr %.03979.us, align 8, !tbaa !164
+  %154 = load ptr, ptr %.03979.us, align 8, !tbaa !166
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   call void @_ZNK4llvm10AsmPrinter21emitDwarfStringOffsetENS_20DwarfStringPoolEntryE(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull byval(%"struct.llvm::DwarfStringPoolEntry") align 8 %155) #11
   %156 = getelementptr inbounds nuw i8, ptr %.03979.us, i64 8
   %.not42.us = icmp eq ptr %156, %153
-  br i1 %.not42.us, label %.loopexit, label %.lr.ph81.split.us, !llvm.loop !177
+  br i1 %.not42.us, label %.loopexit, label %.lr.ph81.split.us, !llvm.loop !181
 
 157:                                              ; preds = %.lr.ph77, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit
   %158 = phi ptr [ %.pre93, %.lr.ph77 ], [ %164, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit ]
@@ -767,7 +767,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 161:                                              ; preds = %157
   %162 = zext i32 %160 to i64
   %163 = getelementptr inbounds nuw ptr, ptr %144, i64 %162
-  store ptr %158, ptr %163, align 8, !tbaa !164
+  store ptr %158, ptr %163, align 8, !tbaa !166
   br label %.critedge.i.i55.preheader
 
 .critedge.i.i55.preheader:                        ; preds = %161, %157
@@ -789,7 +789,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 .lr.ph81.split:                                   ; preds = %.lr.ph81, %.lr.ph81.split
   %.03979 = phi ptr [ %172, %.lr.ph81.split ], [ %150, %.lr.ph81 ]
   %165 = load ptr, ptr %12, align 8, !tbaa !153
-  %166 = load ptr, ptr %.03979, align 8, !tbaa !164
+  %166 = load ptr, ptr %.03979, align 8, !tbaa !166
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load i64, ptr %167, align 8, !tbaa !144
   %169 = load ptr, ptr %165, align 8, !tbaa !154
@@ -798,7 +798,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   call void %171(ptr noundef nonnull align 8 dereferenceable(296) %165, i64 noundef %168, i32 noundef %149) #11
   %172 = getelementptr inbounds nuw i8, ptr %.03979, i64 8
   %.not42 = icmp eq ptr %172, %153
-  br i1 %.not42, label %.loopexit, label %.lr.ph81.split
+  br i1 %.not42, label %.loopexit, label %.lr.ph81.split, !llvm.loop !183
 
 .loopexit:                                        ; preds = %.lr.ph81.split, %.lr.ph81.split.us, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56._crit_edge, %._crit_edge
   %173 = load ptr, ptr %6, align 8, !tbaa !157
@@ -848,35 +848,35 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolE
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !179
+  %15 = load i32, ptr %14, align 8, !tbaa !184
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !179
+  store i32 %16, ptr %14, align 8, !tbaa !184
   br label %17
 
 17:                                               ; preds = %5, %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !180
+  %19 = load ptr, ptr %18, align 8, !tbaa !185
   %20 = add i64 %2, 33
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %22 = load i64, ptr %21, align 8, !tbaa !181
+  %22 = load i64, ptr %21, align 8, !tbaa !186
   %23 = add i64 %22, %20
-  store i64 %23, ptr %21, align 8, !tbaa !181
-  %24 = load ptr, ptr %19, align 8, !tbaa !192
+  store i64 %23, ptr %21, align 8, !tbaa !186
+  %24 = load ptr, ptr %19, align 8, !tbaa !197
   %25 = ptrtoint ptr %24 to i64
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %20
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !193
+  %30 = load ptr, ptr %29, align 8, !tbaa !198
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ule i64 %28, %31
   %32 = icmp ne ptr %24, null
   %33 = and i1 %32, %.not.i.i.i.i
-  br i1 %33, label %34, label %37, !prof !169
+  br i1 %33, label %34, label %37, !prof !171
 
 34:                                               ; preds = %17
   %35 = inttoptr i64 %28 to ptr
-  store ptr %35, ptr %19, align 8, !tbaa !192
+  store ptr %35, ptr %19, align 8, !tbaa !197
   %36 = inttoptr i64 %27 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i
 
@@ -897,9 +897,9 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 _ZN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJS1_EEEPS2_NS_9StringRefERT_DpOT0_.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i, %40
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %2
   store i8 0, ptr %41, align 1, !tbaa !150
-  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !175
+  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !177
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !194
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !199
   store ptr %.0.i.i.i.i, ptr %9, align 8, !tbaa !140
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !156
@@ -955,7 +955,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4, !tbaa !159
   %.not.i.i.not.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !169
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !171
 
 17:                                               ; preds = %10
   %18 = zext i32 %14 to i64
@@ -996,7 +996,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !159
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !169
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !171
 
 43:                                               ; preds = %32
   %44 = zext i32 %40 to i64
@@ -1018,13 +1018,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !158
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !193
+  store ptr %54, ptr %55, align 8, !tbaa !198
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !192
+  store ptr %60, ptr %0, align 8, !tbaa !197
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -1080,7 +1080,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 .split.us.i.i.i:                                  ; preds = %12, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
   %.014.us.i.i.i = phi i64 [ %46, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
   %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us.i.i.i
-  %24 = load ptr, ptr %23, align 8, !tbaa !164
+  %24 = load ptr, ptr %23, align 8, !tbaa !166
   %25 = icmp slt i64 %.014.us.i.i.i, %17
   br i1 %25, label %.lr.ph.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i"
 
@@ -1090,8 +1090,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
   %gep.i.us.i.i.i = getelementptr ptr, ptr %8, i64 %26
-  %.val.i.us.i.i.i = load ptr, ptr %28, align 8, !tbaa !164
-  %.val29.i.us.i.i.i = load ptr, ptr %gep.i.us.i.i.i, align 8, !tbaa !164
+  %.val.i.us.i.i.i = load ptr, ptr %28, align 8, !tbaa !166
+  %.val29.i.us.i.i.i = load ptr, ptr %gep.i.us.i.i.i, align 8, !tbaa !166
   %29 = getelementptr i8, ptr %.val.i.us.i.i.i, i64 16
   %.val.val.i.us.i.i.i = load i64, ptr %29, align 8, !tbaa !144
   %30 = getelementptr i8, ptr %.val29.i.us.i.i.i, i64 16
@@ -1100,11 +1100,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %32 = or disjoint i64 %26, 1
   %spec.select.i.us.i.i.i = select i1 %31, i64 %32, i64 %27
   %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !164
+  %34 = load ptr, ptr %33, align 8, !tbaa !166
   %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.us.i.i.i
-  store ptr %34, ptr %35, align 8, !tbaa !164
+  store ptr %34, ptr %35, align 8, !tbaa !166
   %36 = icmp slt i64 %spec.select.i.us.i.i.i, %17
-  br i1 %36, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !197
+  br i1 %36, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !202
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %.lr.ph.i.us.i.i.i
   %37 = getelementptr i8, ptr %24, i64 16
@@ -1116,7 +1116,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
   %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.us.i.i.i
-  %.val.i.i.us.i.i.i = load ptr, ptr %39, align 8, !tbaa !164
+  %.val.i.i.us.i.i.i = load ptr, ptr %39, align 8, !tbaa !166
   %40 = getelementptr i8, ptr %.val.i.i.us.i.i.i, i64 16
   %.val.val.i.i.us.i.i.i = load i64, ptr %40, align 8, !tbaa !144
   %41 = icmp ult i64 %.val.val.i.i.us.i.i.i, %.val14.val.i.i.us.i.i.i
@@ -1124,22 +1124,22 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
-  store ptr %.val.i.i.us.i.i.i, ptr %43, align 8, !tbaa !164
+  store ptr %.val.i.i.us.i.i.i, ptr %43, align 8, !tbaa !166
   %44 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
-  br i1 %44, label %38, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", !llvm.loop !198
+  br i1 %44, label %38, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", !llvm.loop !203
 
 "_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i": ; preds = %42, %38, %.split.us.i.i.i
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %38 ], [ %.04.i.i.us.i.i.i, %42 ]
   %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
-  store ptr %24, ptr %45, align 8, !tbaa !164
+  store ptr %24, ptr %45, align 8, !tbaa !166
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
   %46 = add nsw i64 %.014.us.i.i.i, -1
-  br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !199
+  br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !204
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
   %.014.i.i.i = phi i64 [ %75, %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
   %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !164
+  %48 = load ptr, ptr %47, align 8, !tbaa !166
   %49 = icmp slt i64 %.014.i.i.i, %17
   br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -1149,8 +1149,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %51 = add i64 %50, 2
   %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %51
   %gep.i.i.i.i = getelementptr ptr, ptr %8, i64 %50
-  %.val.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !164
-  %.val29.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !164
+  %.val.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !166
+  %.val29.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !166
   %53 = getelementptr i8, ptr %.val.i.i.i.i, i64 16
   %.val.val.i.i.i.i = load i64, ptr %53, align 8, !tbaa !144
   %54 = getelementptr i8, ptr %.val29.i.i.i.i, i64 16
@@ -1159,11 +1159,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %56 = or disjoint i64 %50, 1
   %spec.select.i.i.i.i = select i1 %55, i64 %56, i64 %51
   %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %58 = load ptr, ptr %57, align 8, !tbaa !164
+  %58 = load ptr, ptr %57, align 8, !tbaa !166
   %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
-  store ptr %58, ptr %59, align 8, !tbaa !164
+  store ptr %58, ptr %59, align 8, !tbaa !166
   %60 = icmp slt i64 %spec.select.i.i.i.i, %17
-  br i1 %60, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !197
+  br i1 %60, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !202
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.014.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -1171,8 +1171,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %._crit_edge.i.i.i.i
-  %63 = load ptr, ptr %21, align 8, !tbaa !164
-  store ptr %63, ptr %22, align 8, !tbaa !164
+  %63 = load ptr, ptr %21, align 8, !tbaa !166
+  store ptr %63, ptr %22, align 8, !tbaa !166
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge.i.i.i.i
@@ -1190,7 +1190,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
   %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load ptr, ptr %68, align 8, !tbaa !164
+  %.val.i.i.i.i.i = load ptr, ptr %68, align 8, !tbaa !166
   %69 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
   %.val.val.i.i.i.i.i = load i64, ptr %69, align 8, !tbaa !144
   %70 = icmp ult i64 %.val.val.i.i.i.i.i, %.val14.val.i.i.i.i.i
@@ -1198,17 +1198,17 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
-  store ptr %.val.i.i.i.i.i, ptr %72, align 8, !tbaa !164
+  store ptr %.val.i.i.i.i.i, ptr %72, align 8, !tbaa !166
   %73 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
-  br i1 %73, label %67, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !198
+  br i1 %73, label %67, label %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !203
 
 "_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i": ; preds = %71, %67, %64
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %64 ], [ %.0133.i.i.i.i.i, %67 ], [ %.04.i.i.i.i.i, %71 ]
   %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %48, ptr %74, align 8, !tbaa !164
+  store ptr %48, ptr %74, align 8, !tbaa !166
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %75 = add nsw i64 %.014.i.i.i, -1
-  br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !200
+  br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !205
 
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
@@ -1216,9 +1216,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i"
   %.01.i.i = phi ptr [ %76, %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
   %76 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %77 = load ptr, ptr %76, align 8, !tbaa !164
-  %78 = load ptr, ptr %0, align 8, !tbaa !164
-  store ptr %78, ptr %76, align 8, !tbaa !164
+  %77 = load ptr, ptr %76, align 8, !tbaa !166
+  %78 = load ptr, ptr %0, align 8, !tbaa !166
+  store ptr %78, ptr %76, align 8, !tbaa !166
   %79 = ptrtoint ptr %76 to i64
   %80 = sub i64 %79, %4
   %81 = ashr exact i64 %80, 3
@@ -1233,8 +1233,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %86 = add i64 %85, 2
   %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %86
   %gep.i.i.i19.i = getelementptr ptr, ptr %8, i64 %85
-  %.val.i.i.i20.i = load ptr, ptr %87, align 8, !tbaa !164
-  %.val29.i.i.i21.i = load ptr, ptr %gep.i.i.i19.i, align 8, !tbaa !164
+  %.val.i.i.i20.i = load ptr, ptr %87, align 8, !tbaa !166
+  %.val29.i.i.i21.i = load ptr, ptr %gep.i.i.i19.i, align 8, !tbaa !166
   %88 = getelementptr i8, ptr %.val.i.i.i20.i, i64 16
   %.val.val.i.i.i22.i = load i64, ptr %88, align 8, !tbaa !144
   %89 = getelementptr i8, ptr %.val29.i.i.i21.i, i64 16
@@ -1243,11 +1243,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %91 = or disjoint i64 %85, 1
   %spec.select.i.i.i24.i = select i1 %90, i64 %91, i64 %86
   %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i24.i
-  %93 = load ptr, ptr %92, align 8, !tbaa !164
+  %93 = load ptr, ptr %92, align 8, !tbaa !166
   %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i18.i
-  store ptr %93, ptr %94, align 8, !tbaa !164
+  store ptr %93, ptr %94, align 8, !tbaa !166
   %95 = icmp slt i64 %spec.select.i.i.i24.i, %83
-  br i1 %95, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i7.i, !llvm.loop !197
+  br i1 %95, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i7.i, !llvm.loop !202
 
 ._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i17.i, %.lr.ph.i5.i
   %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i17.i ]
@@ -1265,9 +1265,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %102 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
   %103 = or disjoint i64 %102, 1
   %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %103
-  %105 = load ptr, ptr %104, align 8, !tbaa !164
+  %105 = load ptr, ptr %104, align 8, !tbaa !166
   %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i8.i
-  store ptr %105, ptr %106, align 8, !tbaa !164
+  store ptr %105, ptr %106, align 8, !tbaa !166
   br label %.lr.ph.i.i.i.i10.i
 
 107:                                              ; preds = %98, %._crit_edge.i.i.i7.i
@@ -1285,7 +1285,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
   %.04.i.i34.i.i.i = lshr i64 %.04.in.i.i.i.i13.i, 1
   %110 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i34.i.i.i
-  %.val.i.i.i.i14.i = load ptr, ptr %110, align 8, !tbaa !164
+  %.val.i.i.i.i14.i = load ptr, ptr %110, align 8, !tbaa !166
   %111 = getelementptr i8, ptr %.val.i.i.i.i14.i, i64 16
   %.val.val.i.i.i.i15.i = load i64, ptr %111, align 8, !tbaa !144
   %112 = icmp ult i64 %.val.val.i.i.i.i15.i, %.val14.val.i.i.i.i11.i
@@ -1293,30 +1293,30 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
-  store ptr %.val.i.i.i.i14.i, ptr %114, align 8, !tbaa !164
+  store ptr %.val.i.i.i.i14.i, ptr %114, align 8, !tbaa !166
   %.not5.i.i.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
-  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i", label %109, !llvm.loop !198
+  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i", label %109, !llvm.loop !203
 
 "_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i": ; preds = %113, %109, %107
   %.013.lcssa.i.i.i.i16.i = phi i64 [ 0, %107 ], [ %.0133.i.i.i.i12.i, %109 ], [ 0, %113 ]
   %115 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i16.i
-  store ptr %77, ptr %115, align 8, !tbaa !164
+  store ptr %77, ptr %115, align 8, !tbaa !166
   %116 = icmp sgt i64 %80, 8
-  br i1 %116, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !201
+  br i1 %116, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !206
 
 117:                                              ; preds = %9
   %118 = add nsw i64 %.01725, -1
   %119 = lshr i64 %10, 4
   %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %121 = getelementptr inbounds i8, ptr %.026, i64 -8
-  %.val29.i.i = load ptr, ptr %8, align 8, !tbaa !164
-  %.val30.i.i = load ptr, ptr %120, align 8, !tbaa !164
+  %.val29.i.i = load ptr, ptr %8, align 8, !tbaa !166
+  %.val30.i.i = load ptr, ptr %120, align 8, !tbaa !166
   %122 = getelementptr i8, ptr %.val29.i.i, i64 16
   %.val29.val.i.i = load i64, ptr %122, align 8, !tbaa !144
   %123 = getelementptr i8, ptr %.val30.i.i, i64 16
   %.val30.val.i.i = load i64, ptr %123, align 8, !tbaa !144
   %124 = icmp ult i64 %.val29.val.i.i, %.val30.val.i.i
-  %.val28.i.i = load ptr, ptr %121, align 8, !tbaa !164
+  %.val28.i.i = load ptr, ptr %121, align 8, !tbaa !166
   %125 = getelementptr i8, ptr %.val28.i.i, i64 16
   %.val28.val.i.i = load i64, ptr %125, align 8, !tbaa !144
   br i1 %124, label %126, label %135
@@ -1326,24 +1326,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr %0, align 8, !tbaa !164
-  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %129, ptr %120, align 8, !tbaa !164
+  %129 = load ptr, ptr %0, align 8, !tbaa !166
+  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %129, ptr %120, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 130:                                              ; preds = %126
   %131 = icmp ult i64 %.val29.val.i.i, %.val28.val.i.i
-  %132 = load ptr, ptr %0, align 8, !tbaa !164
+  %132 = load ptr, ptr %0, align 8, !tbaa !166
   br i1 %131, label %133, label %134
 
 133:                                              ; preds = %130
-  store ptr %.val28.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %132, ptr %121, align 8, !tbaa !164
+  store ptr %.val28.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %132, ptr %121, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 134:                                              ; preds = %130
-  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %132, ptr %8, align 8, !tbaa !164
+  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %132, ptr %8, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 135:                                              ; preds = %117
@@ -1351,24 +1351,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %135
-  %138 = load ptr, ptr %0, align 8, !tbaa !164
-  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %138, ptr %8, align 8, !tbaa !164
+  %138 = load ptr, ptr %0, align 8, !tbaa !166
+  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %138, ptr %8, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 139:                                              ; preds = %135
   %140 = icmp ult i64 %.val30.val.i.i, %.val28.val.i.i
-  %141 = load ptr, ptr %0, align 8, !tbaa !164
+  %141 = load ptr, ptr %0, align 8, !tbaa !166
   br i1 %140, label %142, label %143
 
 142:                                              ; preds = %139
-  store ptr %.val28.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %141, ptr %121, align 8, !tbaa !164
+  store ptr %.val28.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %141, ptr %121, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 143:                                              ; preds = %139
-  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !164
-  store ptr %141, ptr %120, align 8, !tbaa !164
+  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !166
+  store ptr %141, ptr %120, align 8, !tbaa !166
   br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader"
 
 "_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader": ; preds = %143, %142, %137, %134, %133, %128
@@ -1377,44 +1377,44 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryIN
 "_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader", %153
   %.013.i.i = phi ptr [ %.114.i.i, %153 ], [ %.026, %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
   %.0.i.i = phi ptr [ %148, %153 ], [ %8, %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
-  %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !164
+  %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !166
   %144 = getelementptr i8, ptr %.val15.i.i, i64 16
   %.val15.val.i.i = load i64, ptr %144, align 8, !tbaa !144
   br label %145
 
 145:                                              ; preds = %145, %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i"
   %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i" ], [ %148, %145 ]
-  %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !164
+  %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !166
   %146 = getelementptr i8, ptr %.1.val.i.i, i64 16
   %.1.val.val.i.i = load i64, ptr %146, align 8, !tbaa !144
   %147 = icmp ult i64 %.1.val.val.i.i, %.val15.val.i.i
   %148 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %147, label %145, label %.preheader.i.i, !llvm.loop !202
+  br i1 %147, label %145, label %.preheader.i.i, !llvm.loop !207
 
 .preheader.i.i:                                   ; preds = %145, %.preheader.i.i
   %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %145 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !164
+  %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !166
   %149 = getelementptr i8, ptr %.114.val.i.i, i64 16
   %.114.val.val.i.i = load i64, ptr %149, align 8, !tbaa !144
   %150 = icmp ult i64 %.val15.val.i.i, %.114.val.val.i.i
-  br i1 %150, label %.preheader.i.i, label %151, !llvm.loop !203
+  br i1 %150, label %.preheader.i.i, label %151, !llvm.loop !208
 
 151:                                              ; preds = %.preheader.i.i
   %152 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %152, label %153, label %"_ZSt27__unguarded_partition_pivotIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEET_SH_SH_T0_.exit"
 
 153:                                              ; preds = %151
-  store ptr %.114.val.i.i, ptr %.1.i.i, align 8, !tbaa !164
-  store ptr %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !164
-  br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i", !llvm.loop !204
+  store ptr %.114.val.i.i, ptr %.1.i.i, align 8, !tbaa !166
+  store ptr %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !166
+  br label %"_ZSt22__move_median_to_firstIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_SH_T0_.exit.i", !llvm.loop !209
 
 "_ZSt27__unguarded_partition_pivotIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEET_SH_SH_T0_.exit": ; preds = %151
   tail call fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %118)
   %154 = ptrtoint ptr %.1.i.i to i64
   %155 = sub i64 %154, %4
   %156 = icmp sgt i64 %155, 128
-  br i1 %156, label %9, label %"_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !205
+  br i1 %156, label %9, label %"_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit", !llvm.loop !210
 
 "_ZSt14__partial_sortIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEET_SH_SH_T0_.exit", %"_ZSt10__pop_heapIPPKN4llvm14StringMapEntryINS0_20DwarfStringPoolEntryEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15DwarfStringPool4emitERNS0_10AsmPrinterEPNS0_9MCSectionESE_bE3$_0EEEvT_SH_SH_RT0_.exit.i.i", %3
   ret void
@@ -1603,47 +1603,52 @@ attributes #11 = { nounwind }
 !159 = !{!56, !9, i64 12}
 !160 = !{!4, !5, i64 0}
 !161 = !{!4, !9, i64 8}
-!162 = distinct !{!162, !163}
+!162 = distinct !{!162, !163, !164}
 !163 = !{!"llvm.loop.mustprogress"}
-!164 = !{!165, !165, i64 0}
-!165 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEEE", !6, i64 0}
-!166 = distinct !{!166, !163}
-!167 = distinct !{!167, !163}
-!168 = distinct !{!168, !163}
-!169 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!170 = !{!171, !173}
-!171 = distinct !{!171, !172, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!172 = distinct !{!172, !"_ZNK4llvm5Twine6concatERKS0_"}
-!173 = distinct !{!173, !174, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!174 = distinct !{!174, !"_ZN4llvmplERKNS_5TwineES2_"}
-!175 = !{!176, !15, i64 0}
-!176 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !15, i64 0}
-!177 = distinct !{!177, !178}
-!178 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!179 = !{!4, !9, i64 16}
-!180 = !{!19, !11, i64 0}
-!181 = !{!182, !15, i64 80}
-!182 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !13, i64 0, !13, i64 8, !183, i64 16, !188, i64 64, !15, i64 80, !15, i64 88}
-!183 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !184, i64 0, !187, i64 16}
-!184 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !185, i64 0}
-!185 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !186, i64 0}
-!186 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !56, i64 0}
-!187 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !7, i64 0}
-!188 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !189, i64 0}
-!189 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !190, i64 0}
-!190 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !191, i64 0}
-!191 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !56, i64 0}
-!192 = !{!182, !13, i64 0}
-!193 = !{!182, !13, i64 8}
-!194 = !{i64 0, i64 8, !195, i64 8, i64 8, !14, i64 16, i64 4, !196}
-!195 = !{!48, !48, i64 0}
-!196 = !{!9, !9, i64 0}
-!197 = distinct !{!197, !163}
-!198 = distinct !{!198, !163}
-!199 = distinct !{!199, !163, !178}
-!200 = distinct !{!200, !163}
-!201 = distinct !{!201, !163}
-!202 = distinct !{!202, !163}
-!203 = distinct !{!203, !163}
-!204 = distinct !{!204, !163}
-!205 = distinct !{!205, !163}
+!164 = !{!"llvm.loop.estimated_trip_count"}
+!165 = distinct !{!165, !164}
+!166 = !{!167, !167, i64 0}
+!167 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEEE", !6, i64 0}
+!168 = distinct !{!168, !163, !164}
+!169 = distinct !{!169, !163, !164}
+!170 = distinct !{!170, !163, !164}
+!171 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!172 = !{!173, !175}
+!173 = distinct !{!173, !174, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!174 = distinct !{!174, !"_ZNK4llvm5Twine6concatERKS0_"}
+!175 = distinct !{!175, !176, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!176 = distinct !{!176, !"_ZN4llvmplERKNS_5TwineES2_"}
+!177 = !{!178, !15, i64 0}
+!178 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !15, i64 0}
+!179 = distinct !{!179, !164}
+!180 = distinct !{!180, !164}
+!181 = distinct !{!181, !164, !182}
+!182 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!183 = distinct !{!183, !164}
+!184 = !{!4, !9, i64 16}
+!185 = !{!19, !11, i64 0}
+!186 = !{!187, !15, i64 80}
+!187 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !13, i64 0, !13, i64 8, !188, i64 16, !193, i64 64, !15, i64 80, !15, i64 88}
+!188 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !189, i64 0, !192, i64 16}
+!189 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !190, i64 0}
+!190 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !191, i64 0}
+!191 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !56, i64 0}
+!192 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !7, i64 0}
+!193 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !194, i64 0}
+!194 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !195, i64 0}
+!195 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !196, i64 0}
+!196 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !56, i64 0}
+!197 = !{!187, !13, i64 0}
+!198 = !{!187, !13, i64 8}
+!199 = !{i64 0, i64 8, !200, i64 8, i64 8, !14, i64 16, i64 4, !201}
+!200 = !{!48, !48, i64 0}
+!201 = !{!9, !9, i64 0}
+!202 = distinct !{!202, !163, !164}
+!203 = distinct !{!203, !163, !164}
+!204 = distinct !{!204, !163, !164, !182}
+!205 = distinct !{!205, !163, !164}
+!206 = distinct !{!206, !163, !164}
+!207 = distinct !{!207, !163, !164}
+!208 = distinct !{!208, !163, !164}
+!209 = distinct !{!209, !163, !164}
+!210 = distinct !{!210, !163, !164}

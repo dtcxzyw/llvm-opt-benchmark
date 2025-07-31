@@ -343,7 +343,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   %189 = load i64, ptr %172, align 8
   %190 = sub i64 0, %189
   %191 = getelementptr inbounds i8, ptr %187, i64 %190
-  br label %173, !llvm.loop !11
+  br label %173, !llvm.loop !12
 
 .loopexit:                                        ; preds = %185, %181, %156, %117, %3
   %.0 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ null, %185 ], [ %.1194251, %181 ]
@@ -447,7 +447,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %57 = getelementptr inbounds nuw i8, ptr %.0274329, i64 12
   %58 = add i32 %.0275328, -12
   %59 = icmp ugt i32 %58, 11
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0275.lcssa = phi i32 [ %12, %7 ], [ %58, %.lr.ph ]
@@ -852,7 +852,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
 302:                                              ; preds = %300, %297
   store ptr %.0257338, ptr %277, align 8
   %.not291 = icmp eq ptr %267, null
-  br i1 %.not291, label %._crit_edge341.loopexit, label %.lr.ph340, !llvm.loop !13
+  br i1 %.not291, label %._crit_edge341.loopexit, label %.lr.ph340, !llvm.loop !14
 
 ._crit_edge341.loopexit:                          ; preds = %302
   %.pre355 = load ptr, ptr %161, align 8
@@ -865,7 +865,7 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   %305 = load i32, ptr %304, align 8
   %306 = zext i32 %305 to i64
   %307 = icmp samesign ult i64 %indvars.iv.next, %306
-  br i1 %307, label %.lr.ph344, label %._crit_edge345, !llvm.loop !14
+  br i1 %307, label %.lr.ph344, label %._crit_edge345, !llvm.loop !15
 
 ._crit_edge345:                                   ; preds = %._crit_edge341, %244
   %.lcssa = phi ptr [ %259, %244 ], [ %303, %._crit_edge341 ]
@@ -1196,7 +1196,7 @@ define dso_local void @xhash_walk(ptr noundef readonly captures(address_is_null)
   %11 = load ptr, ptr %.sink23, align 8
   tail call void %1(ptr noundef %11, ptr noundef %2) #11
   %.not18 = icmp eq ptr %10, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   ret void
@@ -1385,7 +1385,7 @@ define dso_local void @xhash_clear(ptr noundef captures(address_is_null) %0) loc
   call void @slurm_xfree(ptr noundef nonnull %2) #11
   store ptr %9, ptr %2, align 8
   %.not61 = icmp eq ptr %9, null
-  br i1 %.not61, label %._crit_edge, label %7, !llvm.loop !16
+  br i1 %.not61, label %._crit_edge, label %7, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %99, %3
   store i32 0, ptr %0, align 8
@@ -1446,12 +1446,13 @@ attributes #13 = { cold noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}

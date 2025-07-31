@@ -283,7 +283,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_IOUtil_drain(ptr noundef %0, p
 
 14:                                               ; preds = %5
   %15 = icmp eq i32 %7, 16
-  br i1 %15, label %5, label %.thread
+  br i1 %15, label %5, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %14, %10, %13
   %16 = icmp sgt i32 %8, 0
@@ -427,3 +427,5 @@ attributes #8 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

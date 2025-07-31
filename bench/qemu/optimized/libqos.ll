@@ -416,7 +416,7 @@ qobject_unref_impl.exit88:                        ; preds = %73, %78, %81
   %83 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %82, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.9) #13
   %84 = tail call i32 @qdict_haskey(ptr noundef %83, ptr noundef nonnull @.str.1) #13
   %.not74 = icmp eq i32 %84, 0
-  br i1 %.not74, label %.critedge._crit_edge, label %.lr.ph, !prof !7
+  br i1 %.not74, label %.critedge._crit_edge, label %.lr.ph, !prof !7, !llvm.loop !8
 
 85:                                               ; preds = %70
   %86 = load ptr, ptr @stderr, align 8
@@ -455,7 +455,7 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mkqcow2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @mkimg(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %1) #13
-  br i1 %3, label %5, label %4, !prof !8
+  br i1 %3, label %5, label %4, !prof !10
 
 4:                                                ; preds = %2
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.mkqcow2, ptr noundef nonnull @.str.19) #13
@@ -484,7 +484,7 @@ define dso_local void @prepare_blkdebug_script(ptr noundef readonly captures(non
   %13 = tail call i32 @fflush(ptr noundef %3)
   %14 = tail call i32 @ferror(ptr noundef %3) #13
   %.not.not = icmp eq i32 %14, 0
-  br i1 %.not.not, label %16, label %15, !prof !8
+  br i1 %.not.not, label %16, label %15, !prof !10
 
 15:                                               ; preds = %2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 162, ptr noundef nonnull @__func__.prepare_blkdebug_script, ptr noundef nonnull @.str.29) #14
@@ -493,7 +493,7 @@ define dso_local void @prepare_blkdebug_script(ptr noundef readonly captures(non
 16:                                               ; preds = %2
   %17 = tail call i32 @fclose(ptr noundef %3)
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %19, label %18, !prof !8
+  br i1 %.not, label %19, label %18, !prof !10
 
 18:                                               ; preds = %16
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.prepare_blkdebug_script, ptr noundef nonnull @.str.30) #14
@@ -555,7 +555,7 @@ define dso_local void @generate_pattern(ptr noundef writeonly captures(none) %0,
   %17 = add i32 %.02025, 1
   %18 = sext i32 %17 to i64
   %19 = icmp ugt i64 %1, %18
-  br i1 %19, label %.lr.ph, label %.preheader, !llvm.loop !9
+  br i1 %19, label %.lr.ph, label %.preheader, !llvm.loop !11
 
 20:                                               ; preds = %.lr.ph28, %27
   %21 = phi i64 [ 0, %.lr.ph28 ], [ %29, %27 ]
@@ -575,7 +575,7 @@ define dso_local void @generate_pattern(ptr noundef writeonly captures(none) %0,
   %28 = add i32 %.12127, 1
   %29 = sext i32 %28 to i64
   %30 = icmp ugt i64 %6, %29
-  br i1 %30, label %20, label %._crit_edge, !llvm.loop !11
+  br i1 %30, label %20, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %27, %.preheader
   ret void
@@ -616,7 +616,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{!"branch_weights", i32 1, i32 127}
 !7 = !{!"branch_weights", i32 127, i32 255873}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !12, !9}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !9}

@@ -509,7 +509,7 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.1115.lcssa.i = phi i32 [ %47, %.lr.ph121.i ], [ %.2.i, %74 ]
   %77 = add nsw i32 %.0113119.i, -1
   %78 = icmp sgt i32 %.0113119.i, 1
-  br i1 %78, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !8
+  br i1 %78, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !9
 
 ._crit_edge122.i:                                 ; preds = %._crit_edge.i, %31
   %.0114.lcssa.i = phi i32 [ %44, %31 ], [ %.1115.lcssa.i, %._crit_edge.i ]
@@ -535,7 +535,7 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = add i32 %85, %87
   %90 = add nsw i32 %.1125.i, -1
   %91 = icmp samesign ugt i32 %.1125.i, 1
-  br i1 %91, label %.lr.ph127.i, label %dissect_BISPDU_OPEN.exit, !llvm.loop !9
+  br i1 %91, label %.lr.ph127.i, label %dissect_BISPDU_OPEN.exit, !llvm.loop !10
 
 dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._crit_edge122.i
   %.3.lcssa.i = phi i32 [ %82, %._crit_edge122.i ], [ %89, %.lr.ph127.i ]
@@ -568,7 +568,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %107 = add nuw nsw i32 %.0271280.i, 4
   %108 = add nsw i32 %.0281.i, -1
   %109 = icmp samesign ugt i32 %.0281.i, 1
-  br i1 %109, label %.lr.ph.i60, label %._crit_edge.i61, !llvm.loop !10
+  br i1 %109, label %.lr.ph.i60, label %._crit_edge.i61, !llvm.loop !11
 
 ._crit_edge.i61:                                  ; preds = %.lr.ph.i60, %100
   %.0271.lcssa.i = phi i32 [ 32, %100 ], [ %107, %.lr.ph.i60 ]
@@ -634,7 +634,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 .loopexit.i:                                      ; preds = %.lr.ph303.i, %.lr.ph306.i
   %.4.lcssa.i = phi i32 [ %146, %.lr.ph306.i ], [ %155, %.lr.ph303.i ]
   %139 = icmp slt i32 %.4.lcssa.i, %127
-  br i1 %139, label %.lr.ph306.i, label %.loopexit276.i, !llvm.loop !11
+  br i1 %139, label %.lr.ph306.i, label %.loopexit276.i, !llvm.loop !12
 
 .lr.ph306.i:                                      ; preds = %.preheader.i, %.loopexit.i
   %.3274305.i = phi i32 [ %.4.lcssa.i, %.loopexit.i ], [ %125, %.preheader.i ]
@@ -659,7 +659,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %154 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef %153, i32 noundef 0)
   %155 = add i32 %151, %153
   %156 = icmp slt i32 %155, %148
-  br i1 %156, label %.lr.ph303.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %156, label %.lr.ph303.i, label %.loopexit.i, !llvm.loop !13
 
 157:                                              ; preds = %.lr.ph310.i
   %158 = load i32, ptr @hf_idrp_update_path_attr_next_hop_idrp_server, align 4
@@ -673,7 +673,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 .loopexit275.i:                                   ; preds = %.lr.ph295.i, %.lr.ph299.i
   %.6.lcssa.i = phi i32 [ %183, %.lr.ph299.i ], [ %192, %.lr.ph295.i ]
   %164 = icmp slt i32 %.6.lcssa.i, %162
-  br i1 %164, label %.lr.ph299.i, label %.loopexit276.i, !llvm.loop !13
+  br i1 %164, label %.lr.ph299.i, label %.loopexit276.i, !llvm.loop !14
 
 .lr.ph299.i:                                      ; preds = %157, %.loopexit275.i
   %.5297.i = phi i32 [ %.6.lcssa.i, %.loopexit275.i ], [ %160, %157 ]
@@ -716,7 +716,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %192 = add i32 %188, %189
   %193 = add nsw i32 %.1293.i, -1
   %194 = icmp samesign ugt i32 %.1293.i, 1
-  br i1 %194, label %.lr.ph295.i, label %.loopexit275.i, !llvm.loop !14
+  br i1 %194, label %.lr.ph295.i, label %.loopexit275.i, !llvm.loop !15
 
 195:                                              ; preds = %.lr.ph310.i
   %196 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %125)
@@ -741,7 +741,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %206 = add i32 %202, %204
   %207 = add nsw i32 %.2288.i, -1
   %208 = icmp samesign ugt i32 %.2288.i, 1
-  br i1 %208, label %.lr.ph290.i, label %.loopexit276.i, !llvm.loop !15
+  br i1 %208, label %.lr.ph290.i, label %.loopexit276.i, !llvm.loop !16
 
 209:                                              ; preds = %.lr.ph310.i
   %210 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %125)
@@ -766,7 +766,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %220 = add i32 %216, %218
   %221 = add nsw i32 %.3283.i, -1
   %222 = icmp samesign ugt i32 %.3283.i, 1
-  br i1 %222, label %.lr.ph285.i, label %.loopexit276.i, !llvm.loop !16
+  br i1 %222, label %.lr.ph285.i, label %.loopexit276.i, !llvm.loop !17
 
 223:                                              ; preds = %.lr.ph310.i
   %224 = load i32, ptr @hf_idrp_update_path_attr_multi_exit_disc, align 4
@@ -855,7 +855,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 .loopexit276.i:                                   ; preds = %.lr.ph285.i, %.lr.ph290.i, %.loopexit275.i, %.loopexit.i, %283, %279, %266, %262, %258, %239, %235, %231, %227, %223, %209, %195, %157, %136, %129, %.preheader.i, %.lr.ph310.i
   %.2273.i = phi i32 [ %125, %.lr.ph310.i ], [ %135, %129 ], [ %125, %136 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %238, %235 ], [ %257, %239 ], [ %261, %258 ], [ %265, %262 ], [ %278, %266 ], [ %282, %279 ], [ %286, %283 ], [ %125, %.preheader.i ], [ %160, %157 ], [ %199, %195 ], [ %213, %209 ], [ %.4.lcssa.i, %.loopexit.i ], [ %.6.lcssa.i, %.loopexit275.i ], [ %206, %.lr.ph290.i ], [ %220, %.lr.ph285.i ]
   %287 = icmp slt i32 %.2273.i, %113
-  br i1 %287, label %.lr.ph310.i, label %._crit_edge311.i, !llvm.loop !17
+  br i1 %287, label %.lr.ph310.i, label %._crit_edge311.i, !llvm.loop !18
 
 ._crit_edge311.i:                                 ; preds = %.loopexit276.i, %._crit_edge.i61
   %.1272.lcssa.i = phi i32 [ %111, %._crit_edge.i61 ], [ %.2273.i, %.loopexit276.i ]
@@ -889,7 +889,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %311 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %309, ptr noundef %0, i32 noundef %308, i32 noundef %310, i32 noundef 0)
   %312 = add i32 %308, %310
   %313 = icmp slt i32 %312, %302
-  br i1 %313, label %.lr.ph315.i, label %dissect_BISPDU_UPDATE.exit, !llvm.loop !18
+  br i1 %313, label %.lr.ph315.i, label %dissect_BISPDU_UPDATE.exit, !llvm.loop !19
 
 314:                                              ; preds = %7
   %315 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 30)
@@ -1000,13 +1000,13 @@ switch.lookup:                                    ; preds = %314
   %.2.i67 = phi i32 [ %343, %.lr.ph.i65 ], [ %366, %.sink.split.i66 ]
   %368 = add nsw i32 %.074.i, -1
   %369 = icmp sgt i32 %.074.i, 1
-  br i1 %369, label %.lr.ph.i65, label %._crit_edge.i68, !llvm.loop !19
+  br i1 %369, label %.lr.ph.i65, label %._crit_edge.i68, !llvm.loop !20
 
 ._crit_edge.i68:                                  ; preds = %367, %.lr.ph78.i
   %.1.lcssa.i = phi i32 [ %340, %.lr.ph78.i ], [ %.2.i67, %367 ]
   %370 = add nsw i32 %.07176.i, -1
   %371 = icmp sgt i32 %.07176.i, 1
-  br i1 %371, label %.lr.ph78.i, label %dissect_BISPDU_RIB_REFRESH.exit, !llvm.loop !20
+  br i1 %371, label %.lr.ph78.i, label %dissect_BISPDU_RIB_REFRESH.exit, !llvm.loop !21
 
 dissect_BISPDU_RIB_REFRESH.exit:                  ; preds = %._crit_edge.i68, %.thread.i
   %.072.lcssa.i = phi i32 [ 32, %.thread.i ], [ %.1.lcssa.i, %._crit_edge.i68 ]
@@ -1074,18 +1074,19 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

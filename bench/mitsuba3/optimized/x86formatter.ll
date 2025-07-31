@@ -1192,7 +1192,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %268 = load i32, ptr %144, align 4, !tbaa !34
   %269 = trunc i32 %268 to i8
   %270 = lshr i8 %269, 3
-  %271 = load i32, ptr %147, align 4, !tbaa !53
+  %271 = load i32, ptr %147, align 4, !tbaa !54
   %272 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %270, i32 noundef %271) #9
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %.loopexit31
@@ -1242,7 +1242,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %299 = add i32 %150, 1
   %300 = zext i32 %299 to i64
   %301 = icmp ugt i64 %6, %300
-  br i1 %301, label %148, label %.loopexit, !llvm.loop !54
+  br i1 %301, label %148, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %298, %148, %139
   %302 = load i32, ptr %13, align 4, !tbaa !47
@@ -1322,7 +1322,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %23 = add nuw nsw i32 %11, 1
   %24 = shl i32 %10, %2
   %25 = icmp eq i32 %23, %3
-  br i1 %25, label %26, label %9, !llvm.loop !55
+  br i1 %25, label %26, label %9, !llvm.loop !56
 
 26:                                               ; preds = %22
   %27 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
@@ -1363,7 +1363,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %scevgep5 = getelementptr i8, ptr %scevgep, i64 %strlen
   %23 = add nuw nsw i32 %21, 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.preheader, %19
   %24 = phi ptr [ %4, %19 ], [ %scevgep5, %.preheader ]
@@ -1376,7 +1376,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %29 = lshr i32 %10, %2
   %30 = add nuw nsw i32 %11, %3
   %31 = icmp eq i32 %28, %5
-  br i1 %31, label %32, label %9, !llvm.loop !57
+  br i1 %31, label %32, label %9, !llvm.loop !58
 
 32:                                               ; preds = %27
   %33 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
@@ -1398,15 +1398,15 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %8 = phi i64 [ 0, %4 ], [ %44, %42 ]
   %9 = phi i32 [ 0, %4 ], [ %43, %42 ]
   %10 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::ImmBits", ptr %2, i64 %8
-  %11 = load i8, ptr %10, align 1, !tbaa !58
+  %11 = load i8, ptr %10, align 1, !tbaa !59
   %12 = zext i8 %11 to i32
   %13 = and i32 %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !61
   %16 = zext nneg i8 %15 to i32
   %17 = lshr i32 %13, %16
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !61
+  %19 = load i8, ptr %18, align 1, !tbaa !62
   switch i8 %19, label %.loopexit6 [
     i8 0, label %20
     i8 1, label %27
@@ -1425,7 +1425,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %scevgep9 = getelementptr i8, ptr %scevgep, i64 %strlen
   %25 = add nuw nsw i32 %23, 1
   %26 = icmp eq i32 %25, %17
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !63
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 3
@@ -1455,7 +1455,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %43 = phi i32 [ %9, %.loopexit ], [ %39, %38 ]
   %44 = add nuw nsw i64 %8, 1
   %45 = icmp eq i64 %44, %6
-  br i1 %45, label %46, label %7, !llvm.loop !62
+  br i1 %45, label %46, label %7, !llvm.loop !64
 
 46:                                               ; preds = %42
   %47 = icmp eq i32 %43, 0
@@ -1560,15 +1560,17 @@ attributes #9 = { nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZNK6asmjit9_abi_1_107RegOnly5toRegINS0_7BaseRegEEET_v: argument 0"}
 !50 = distinct !{!50, !"_ZNK6asmjit9_abi_1_107RegOnly5toRegINS0_7BaseRegEEET_v"}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!27, !8, i64 4}
-!54 = distinct !{!54, !52}
-!55 = distinct !{!55, !52}
-!56 = distinct !{!56, !52}
-!57 = distinct !{!57, !52}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"_ZTSN6asmjit9_abi_1_103x867ImmBitsE", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
-!60 = !{!59, !5, i64 1}
-!61 = !{!59, !5, i64 2}
-!62 = distinct !{!62, !52}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!27, !8, i64 4}
+!55 = distinct !{!55, !52, !53}
+!56 = distinct !{!56, !52, !53}
+!57 = distinct !{!57, !52, !53}
+!58 = distinct !{!58, !52, !53}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"_ZTSN6asmjit9_abi_1_103x867ImmBitsE", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
+!61 = !{!60, !5, i64 1}
+!62 = !{!60, !5, i64 2}
+!63 = distinct !{!63, !52, !53}
+!64 = distinct !{!64, !52, !53}

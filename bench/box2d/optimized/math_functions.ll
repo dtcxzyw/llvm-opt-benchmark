@@ -134,7 +134,7 @@ define <2 x float> @b2ComputeCosSin(float noundef %0) local_unnamed_addr #3 {
   %.16.i = phi float [ %6, %.lr.ph7.i ], [ %.0.lcssa.i, %.preheader.i ]
   %6 = fadd float %.16.i, 0x401921FB60000000
   %7 = fcmp olt float %6, 0xC00921FB60000000
-  br i1 %7, label %.lr.ph7.i, label %b2UnwindLargeAngle.exit, !llvm.loop !5
+  br i1 %7, label %.lr.ph7.i, label %b2UnwindLargeAngle.exit, !llvm.loop !6
 
 b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.preheader.i
   %.1.lcssa.i = phi float [ %.0.lcssa.i, %.preheader.i ], [ %6, %.lr.ph7.i ]
@@ -240,6 +240,7 @@ attributes #5 = { memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

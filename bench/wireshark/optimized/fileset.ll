@@ -344,7 +344,7 @@ define hidden void @fileset_update_dlg(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @fileset_dlg_end_add_file(ptr noundef %0)
@@ -489,7 +489,7 @@ fileset_is_file_in_set.exit:                      ; preds = %38
 48:                                               ; preds = %.critedge, %fileset_is_file_in_set.exit.thread, %43, %fileset_is_file_in_set.exit
   %49 = call ptr @g_dir_read_name(ptr noundef nonnull %29)
   %.not21 = icmp eq ptr %49, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %48, %.preheader
   call void @g_dir_close(ptr noundef nonnull %29)
@@ -518,7 +518,7 @@ fileset_is_file_in_set.exit:                      ; preds = %38
   %59 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %fileset_update_dlg.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %fileset_update_dlg.exit, label %.lr.ph.i, !llvm.loop !9
 
 fileset_update_dlg.exit:                          ; preds = %.lr.ph.i, %52
   call void @fileset_dlg_end_add_file(ptr noundef %1)
@@ -628,7 +628,7 @@ define hidden ptr @fileset_get_next() local_unnamed_addr #0 {
   %.079.i = phi ptr [ %8, %10 ], [ %2, %0 ]
   %3 = load ptr, ptr %.079.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load i8, ptr %4, align 8, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -636,7 +636,7 @@ define hidden ptr @fileset_get_next() local_unnamed_addr #0 {
   br i1 %6, label %fileset_get_current.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  br i1 %9, label %fileset_get_current.exit.thread, label %.lr.ph.i, !llvm.loop !12
+  br i1 %9, label %fileset_get_current.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 fileset_get_current.exit:                         ; preds = %.lr.ph.i
   br i1 %9, label %fileset_get_current.exit.thread, label %11
@@ -661,7 +661,7 @@ define hidden ptr @fileset_get_previous() local_unnamed_addr #0 {
   %.079.i = phi ptr [ %9, %7 ], [ %2, %0 ]
   %3 = load ptr, ptr %.079.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load i8, ptr %4, align 8, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %fileset_get_current.exit, label %7
 
@@ -669,7 +669,7 @@ define hidden ptr @fileset_get_previous() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %fileset_get_current.exit.thread, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %fileset_get_current.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 fileset_get_current.exit:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
@@ -765,10 +765,11 @@ attributes #11 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}

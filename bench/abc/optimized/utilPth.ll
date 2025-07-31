@@ -31,7 +31,7 @@ define noalias noundef nonnull ptr @Util_Thread(ptr noundef captures(none) %0) #
   br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !11
+  %12 = load ptr, ptr %0, align 8, !tbaa !12
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -40,10 +40,10 @@ define noalias noundef nonnull ptr @Util_Thread(ptr noundef captures(none) %0) #
   unreachable
 
 15:                                               ; preds = %._crit_edge
-  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %16 = load ptr, ptr %5, align 8, !tbaa !16
   %17 = call i32 %16(ptr noundef nonnull %12) #11
   store atomic i8 0, ptr %4 release, align 8
-  br label %6
+  br label %6, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -61,14 +61,14 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
   %8 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 3200, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %7) #11
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !18
   %10 = tail call i32 @fflush(ptr noundef %9)
   %11 = icmp slt i32 %2, 3
   br i1 %11, label %.preheader, label %.lr.ph.preheader
 
 .preheader:                                       ; preds = %5
   %12 = getelementptr i8, ptr %1, i64 4
-  %.val72 = load i32, ptr %12, align 4, !tbaa !18
+  %.val72 = load i32, ptr %12, align 4, !tbaa !20
   %13 = icmp sgt i32 %.val72, 0
   br i1 %13, label %.lr.ph74, label %.critedge
 
@@ -78,15 +78,15 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 
 15:                                               ; preds = %.lr.ph74, %15
   %indvars.iv94 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next95, %15 ]
-  %.val53 = load ptr, ptr %14, align 8, !tbaa !20
+  %.val53 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv94
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = tail call i32 %0(ptr noundef %17) #11
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %.val = load i32, ptr %12, align 4, !tbaa !18
+  %.val = load i32, ptr %12, align 4, !tbaa !20
   %19 = sext i32 %.val to i64
   %20 = icmp slt i64 %indvars.iv.next95, %19
-  br i1 %20, label %15, label %.critedge, !llvm.loop !22
+  br i1 %20, label %15, label %.critedge, !llvm.loop !24
 
 .lr.ph.preheader:                                 ; preds = %5
   %21 = add nsw i32 %2, -1
@@ -96,21 +96,21 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = getelementptr inbounds nuw [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %indvars.iv
-  store ptr null, ptr %22, align 16, !tbaa !11
+  store ptr null, ptr %22, align 16, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %0, ptr %23, align 8, !tbaa !15
+  store ptr %0, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %25, ptr %24, align 16, !tbaa !23
+  store i32 %25, ptr %24, align 16, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  store i32 %3, ptr %26, align 4, !tbaa !24
+  store i32 %3, ptr %26, align 4, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store atomic i8 0, ptr %27 release, align 8
   %28 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %29 = call i32 @pthread_create(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @Util_Thread, ptr noundef nonnull %22) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
@@ -119,11 +119,11 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
   store i64 10000000, ptr %30, align 8, !tbaa !8
   %31 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !18
+  %33 = load i32, ptr %32, align 4, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %33, ptr %34, align 4, !tbaa !18
-  %35 = load i32, ptr %1, align 8, !tbaa !26
-  store i32 %35, ptr %31, align 8, !tbaa !26
+  store i32 %33, ptr %34, align 4, !tbaa !20
+  %35 = load i32, ptr %1, align 8, !tbaa !28
+  store i32 %35, ptr %31, align 8, !tbaa !28
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %Vec_PtrDup.exit, label %36
 
@@ -136,9 +136,9 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   %40 = phi ptr [ %39, %36 ], [ null, %._crit_edge ]
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !20
+  store ptr %40, ptr %41, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = sext i32 %33 to i64
   %45 = shl nsw i64 %44, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %43, i64 %45, i1 false)
@@ -156,7 +156,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .preheader57.us.backedge:                         ; preds = %47, %..loopexit_crit_edge.us
   %indvars.iv77.be = phi i64 [ %indvars.iv.next78, %47 ], [ 0, %..loopexit_crit_edge.us ]
-  br label %.preheader57.us, !llvm.loop !27
+  br label %.preheader57.us, !llvm.loop !29
 
 .preheader57.us:                                  ; preds = %.preheader57.us.backedge, %.preheader57.us.preheader
   %indvars.iv77 = phi i64 [ 0, %.preheader57.us.preheader ], [ %indvars.iv77.be, %.preheader57.us.backedge ]
@@ -168,19 +168,19 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 52:                                               ; preds = %.preheader57.us
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %54 = load ptr, ptr %41, align 8, !tbaa !20
-  %55 = load i32, ptr %34, align 4, !tbaa !18
+  %54 = load ptr, ptr %41, align 8, !tbaa !22
+  %55 = load i32, ptr %34, align 4, !tbaa !20
   %56 = add nsw i32 %55, -1
-  store i32 %56, ptr %34, align 4, !tbaa !18
+  store i32 %56, ptr %34, align 4, !tbaa !20
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds ptr, ptr %54, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !21
-  store ptr %59, ptr %48, align 16, !tbaa !11
+  %59 = load ptr, ptr %58, align 8, !tbaa !23
+  store ptr %59, ptr %48, align 16, !tbaa !12
   store atomic i8 1, ptr %53 release, align 8
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us.loopexit:                 ; preds = %47
-  %.val52.us.pre = load i32, ptr %34, align 4, !tbaa !18
+  %.val52.us.pre = load i32, ptr %34, align 4, !tbaa !20
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %..loopexit_crit_edge.us.loopexit, %52
@@ -189,7 +189,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   br i1 %60, label %.preheader57.us.backedge, label %._crit_edge64.loopexit
 
 ._crit_edge64.loopexit:                           ; preds = %..loopexit_crit_edge.us
-  %.pre = load ptr, ptr %41, align 8, !tbaa !20
+  %.pre = load ptr, ptr %41, align 8, !tbaa !22
   br label %._crit_edge64
 
 ._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %Vec_PtrDup.exit
@@ -220,7 +220,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   %68 = add nsw i32 %.265, 1
   %69 = select i1 %66, i32 0, i32 %68
   %70 = icmp slt i32 %69, %21
-  br i1 %70, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !29
+  br i1 %70, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !31
 
 .lr.ph70.preheader:                               ; preds = %.lr.ph68
   %smax91 = call i32 @llvm.smax.i32(i32 %21, i32 1)
@@ -230,21 +230,21 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv82 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next83, %.lr.ph68 ]
   %71 = getelementptr inbounds nuw [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %indvars.iv82
-  store ptr null, ptr %71, align 16, !tbaa !11
+  store ptr null, ptr %71, align 16, !tbaa !12
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store atomic i8 1, ptr %72 release, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count86
-  br i1 %exitcond87.not, label %.lr.ph70.preheader, label %.lr.ph68, !llvm.loop !30
+  br i1 %exitcond87.not, label %.lr.ph70.preheader, label %.lr.ph68, !llvm.loop !32
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv88 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next89, %.lr.ph70 ]
   %73 = getelementptr inbounds nuw [100 x i64], ptr %7, i64 0, i64 %indvars.iv88
-  %74 = load i64, ptr %73, align 8, !tbaa !31
+  %74 = load i64, ptr %73, align 8, !tbaa !33
   %75 = call i32 @pthread_join(i64 noundef %74, ptr noundef null) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !32
+  br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !34
 
 ._crit_edge71:                                    ; preds = %.lr.ph70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
@@ -305,27 +305,29 @@ attributes #13 = { nounwind allocsize(0) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!4, !5, i64 8}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"Util_ThData_t_", !13, i64 0, !13, i64 8, !14, i64 16, !14, i64 20, !6, i64 24}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!12, !13, i64 8}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!18 = !{!19, !14, i64 4}
-!19 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !13, i64 8}
-!20 = !{!19, !13, i64 8}
-!21 = !{!13, !13, i64 0}
-!22 = distinct !{!22, !10}
-!23 = !{!12, !14, i64 16}
-!24 = !{!12, !14, i64 20}
-!25 = distinct !{!25, !10}
-!26 = !{!19, !14, i64 0}
-!27 = distinct !{!27, !10, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = !{!5, !5, i64 0}
-!32 = distinct !{!32, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"Util_ThData_t_", !14, i64 0, !14, i64 8, !15, i64 16, !15, i64 20, !6, i64 24}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!13, !14, i64 8}
+!17 = distinct !{!17, !11}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!20 = !{!21, !15, i64 4}
+!21 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !14, i64 8}
+!22 = !{!21, !14, i64 8}
+!23 = !{!14, !14, i64 0}
+!24 = distinct !{!24, !10, !11}
+!25 = !{!13, !15, i64 16}
+!26 = !{!13, !15, i64 20}
+!27 = distinct !{!27, !10, !11}
+!28 = !{!21, !15, i64 0}
+!29 = distinct !{!29, !10, !11, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !10, !11}
+!33 = !{!5, !5, i64 0}
+!34 = distinct !{!34, !10, !11}

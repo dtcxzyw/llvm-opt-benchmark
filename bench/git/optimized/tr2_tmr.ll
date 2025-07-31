@@ -210,7 +210,7 @@ define dso_local void @tr2_emit_per_thread_timers(ptr noundef readonly captures(
   br label %18
 
 18:                                               ; preds = %7, %13, %17
-  br i1 %8, label %7, label %.loopexit, !llvm.loop !17
+  br i1 %8, label %7, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %18, %1
   ret void
@@ -235,7 +235,7 @@ define dso_local void @tr2_emit_final_timers(ptr noundef readonly captures(none)
   br label %9
 
 9:                                                ; preds = %2, %7
-  br i1 %3, label %2, label %10, !llvm.loop !18
+  br i1 %3, label %2, label %10, !llvm.loop !19
 
 10:                                               ; preds = %9
   ret void
@@ -269,7 +269,8 @@ attributes #3 = { nounwind }
 !12 = !{!5, !6, i64 32}
 !13 = !{!5, !6, i64 8}
 !14 = !{!5, !6, i64 16}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}

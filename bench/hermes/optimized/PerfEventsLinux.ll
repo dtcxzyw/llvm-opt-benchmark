@@ -301,7 +301,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %call5.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 9216, i32 noundef 0) #8
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx4, 32
   %cmp.not = icmp eq i64 %__begin2.0.add, 160
-  br i1 %cmp.not, label %return, label %for.body
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !4
 
 return:                                           ; preds = %land.lhs.true.i, %for.inc
   %cmp.not.lcssa = phi i1 [ false, %land.lhs.true.i ], [ true, %for.inc ]
@@ -320,7 +320,7 @@ for.body:                                         ; preds = %for.body, %entry
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx3, 32
   %cmp.not = icmp ne i64 %__begin2.0.add, 160
   %or.cond.not = select i1 %call, i1 %cmp.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %for.body
   ret i1 %call
@@ -359,3 +359,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}

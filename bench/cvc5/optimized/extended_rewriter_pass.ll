@@ -216,18 +216,18 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   %23 = load ptr, ptr %15, align 8, !tbaa !233
-  %24 = load ptr, ptr %22, align 8, !tbaa !241
-  store ptr %24, ptr %4, align 8, !tbaa !244
+  %24 = load ptr, ptr %22, align 8, !tbaa !242
+  store ptr %24, ptr %4, align 8, !tbaa !245
   %25 = load i32, ptr %16, align 8, !tbaa !214
   call void @_ZN4cvc58internal3Env16rewriteViaMethodENS0_12NodeTemplateILb0EEENS0_8MethodIdE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %3, ptr noundef nonnull align 8 dereferenceable(696) %23, ptr noundef nonnull %4, i32 noundef %25)
-  %26 = load ptr, ptr %3, align 8, !tbaa !241
-  store ptr %26, ptr %5, align 8, !tbaa !241
+  %26 = load ptr, ptr %3, align 8, !tbaa !242
+  store ptr %26, ptr %5, align 8, !tbaa !242
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %27, 40
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = and i32 %29, 1048575
   %31 = icmp samesign ult i32 %30, 1048574
-  br i1 %31, label %32, label %38, !prof !246
+  br i1 %31, label %32, label %38, !prof !247
 
 32:                                               ; preds = %20
   %33 = add nuw nsw i32 %30, 1
@@ -240,7 +240,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
 
 38:                                               ; preds = %20
   %39 = icmp eq i32 %30, 1048574
-  br i1 %39, label %40, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !247
+  br i1 %39, label %40, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !248
 
 40:                                               ; preds = %38
   %41 = or i64 %27, 1152920405095219200
@@ -257,11 +257,11 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %38, %32, %40
           to label %45 unwind label %76
 
 45:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %46 = load ptr, ptr %5, align 8, !tbaa !241
+  %46 = load ptr, ptr %5, align 8, !tbaa !242
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 1152920405095219200
   %.not.i.i = icmp eq i64 %48, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %49, !prof !247
+  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %49, !prof !248
 
 49:                                               ; preds = %45
   %50 = add i64 %47, 1152920405095219200
@@ -270,7 +270,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %38, %32, %40
   %53 = or disjoint i64 %51, %52
   store i64 %53, ptr %46, align 8
   %54 = icmp eq i64 %51, 0
-  br i1 %54, label %55, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !247
+  br i1 %54, label %55, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !248
 
 55:                                               ; preds = %49
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %46)
@@ -284,13 +284,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %38, %32, %40
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %45, %49, %55
-  %59 = load i8, ptr %18, align 8, !tbaa !248, !range !231, !noundef !232
+  %59 = load i8, ptr %18, align 8, !tbaa !249, !range !231, !noundef !232
   %60 = trunc nuw i8 %59 to i1
-  %61 = load ptr, ptr %3, align 8, !tbaa !241
+  %61 = load ptr, ptr %3, align 8, !tbaa !242
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, 1152920405095219200
   %.not.i.i25 = icmp eq i64 %63, 1152920405095219200
-  br i1 %.not.i.i25, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, label %64, !prof !247
+  br i1 %.not.i.i25, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, label %64, !prof !248
 
 64:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %65 = add i64 %62, 1152920405095219200
@@ -299,7 +299,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %45, %49, %55
   %68 = or disjoint i64 %66, %67
   store i64 %68, ptr %61, align 8
   %69 = icmp eq i64 %66, 0
-  br i1 %69, label %70, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, !prof !247
+  br i1 %69, label %70, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, !prof !248
 
 70:                                               ; preds = %64
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %61)
@@ -344,11 +344,11 @@ declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !241
+  %2 = load ptr, ptr %0, align 8, !tbaa !242
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1152920405095219200
   %.not.i = icmp eq i64 %4, 1152920405095219200
-  br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %5, !prof !247
+  br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %5, !prof !248
 
 5:                                                ; preds = %1
   %6 = add i64 %3, 1152920405095219200
@@ -357,7 +357,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr n
   %9 = or disjoint i64 %7, %8
   store i64 %9, ptr %2, align 8
   %10 = icmp eq i64 %7, 0
-  br i1 %10, label %11, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !247
+  br i1 %10, label %11, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !248
 
 11:                                               ; preds = %5
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -706,34 +706,35 @@ attributes #17 = { noreturn nounwind }
 !236 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataE", !237, i64 0, !237, i64 8, !237, i64 16}
 !237 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !6, i64 0}
 !238 = !{!236, !237, i64 0}
-!239 = distinct !{!239, !240}
+!239 = distinct !{!239, !240, !241}
 !240 = !{!"llvm.loop.mustprogress"}
-!241 = !{!242, !243, i64 0}
-!242 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !243, i64 0}
-!243 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !6, i64 0}
-!244 = !{!245, !243, i64 0}
-!245 = !{!"_ZTSN4cvc58internal12NodeTemplateILb0EEE", !243, i64 0}
-!246 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!247 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!248 = !{!249, !202, i64 208}
-!249 = !{!"_ZTSN4cvc58internal13preprocessing17AssertionPipelineE", !217, i64 0, !242, i64 16, !242, i64 24, !250, i64 32, !253, i64 56, !11, i64 112, !202, i64 120, !260, i64 128, !11, i64 184, !11, i64 192, !262, i64 200, !202, i64 208, !202, i64 209, !202, i64 210, !202, i64 211, !263, i64 216, !223, i64 224}
-!250 = !{!"_ZTSSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !251, i64 0}
-!251 = !{!"_ZTSSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !252, i64 0}
-!252 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implE", !236, i64 0}
-!253 = !{!"_ZTSSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE", !254, i64 0}
-!254 = !{!"_ZTSSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE", !255, i64 0, !11, i64 8, !256, i64 16, !11, i64 24, !258, i64 32, !257, i64 48}
-!255 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !6, i64 0}
-!256 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !257, i64 0}
-!257 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !6, i64 0}
-!258 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !259, i64 0, !11, i64 8}
-!259 = !{!"float", !7, i64 0}
-!260 = !{!"_ZTSSt13unordered_setImSt4hashImESt8equal_toImESaImEE", !261, i64 0}
-!261 = !{!"_ZTSSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !255, i64 0, !11, i64 8, !256, i64 16, !11, i64 24, !258, i64 32, !257, i64 48}
-!262 = !{!"p1 _ZTSN4cvc58internal3smt24PreprocessProofGeneratorE", !6, i64 0}
-!263 = !{!"_ZTSSt10unique_ptrIN4cvc58internal11LazyCDProofESt14default_deleteIS2_EE", !264, i64 0}
-!264 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal11LazyCDProofESt14default_deleteIS2_ELb1ELb1EE", !265, i64 0}
-!265 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal11LazyCDProofESt14default_deleteIS2_EE", !266, i64 0}
-!266 = !{!"_ZTSSt5tupleIJPN4cvc58internal11LazyCDProofESt14default_deleteIS2_EEE", !267, i64 0}
-!267 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal11LazyCDProofESt14default_deleteIS2_EEE", !268, i64 0}
-!268 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal11LazyCDProofELb0EE", !269, i64 0}
-!269 = !{!"p1 _ZTSN4cvc58internal11LazyCDProofE", !6, i64 0}
+!241 = !{!"llvm.loop.estimated_trip_count"}
+!242 = !{!243, !244, i64 0}
+!243 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !244, i64 0}
+!244 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !6, i64 0}
+!245 = !{!246, !244, i64 0}
+!246 = !{!"_ZTSN4cvc58internal12NodeTemplateILb0EEE", !244, i64 0}
+!247 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!248 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!249 = !{!250, !202, i64 208}
+!250 = !{!"_ZTSN4cvc58internal13preprocessing17AssertionPipelineE", !217, i64 0, !243, i64 16, !243, i64 24, !251, i64 32, !254, i64 56, !11, i64 112, !202, i64 120, !261, i64 128, !11, i64 184, !11, i64 192, !263, i64 200, !202, i64 208, !202, i64 209, !202, i64 210, !202, i64 211, !264, i64 216, !223, i64 224}
+!251 = !{!"_ZTSSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !252, i64 0}
+!252 = !{!"_ZTSSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !253, i64 0}
+!253 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implE", !236, i64 0}
+!254 = !{!"_ZTSSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEE", !255, i64 0}
+!255 = !{!"_ZTSSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE", !256, i64 0, !11, i64 8, !257, i64 16, !11, i64 24, !259, i64 32, !258, i64 48}
+!256 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !6, i64 0}
+!257 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !258, i64 0}
+!258 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !6, i64 0}
+!259 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !260, i64 0, !11, i64 8}
+!260 = !{!"float", !7, i64 0}
+!261 = !{!"_ZTSSt13unordered_setImSt4hashImESt8equal_toImESaImEE", !262, i64 0}
+!262 = !{!"_ZTSSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE", !256, i64 0, !11, i64 8, !257, i64 16, !11, i64 24, !259, i64 32, !258, i64 48}
+!263 = !{!"p1 _ZTSN4cvc58internal3smt24PreprocessProofGeneratorE", !6, i64 0}
+!264 = !{!"_ZTSSt10unique_ptrIN4cvc58internal11LazyCDProofESt14default_deleteIS2_EE", !265, i64 0}
+!265 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal11LazyCDProofESt14default_deleteIS2_ELb1ELb1EE", !266, i64 0}
+!266 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal11LazyCDProofESt14default_deleteIS2_EE", !267, i64 0}
+!267 = !{!"_ZTSSt5tupleIJPN4cvc58internal11LazyCDProofESt14default_deleteIS2_EEE", !268, i64 0}
+!268 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal11LazyCDProofESt14default_deleteIS2_EEE", !269, i64 0}
+!269 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal11LazyCDProofELb0EE", !270, i64 0}
+!270 = !{!"p1 _ZTSN4cvc58internal11LazyCDProofE", !6, i64 0}

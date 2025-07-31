@@ -406,7 +406,7 @@ fetch_fp_info.exit:                               ; preds = %45
 186:                                              ; preds = %180, %163
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count102.i
-  br i1 %exitcond103.not.i, label %parse_fcall_arguments.exit, label %133, !llvm.loop !8
+  br i1 %exitcond103.not.i, label %parse_fcall_arguments.exit, label %133, !llvm.loop !9
 
 parse_fcall_arguments.exit:                       ; preds = %186, %127
   %187 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #11
@@ -430,7 +430,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 194:                                              ; preds = %195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %195, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %195, !llvm.loop !10
 
 195:                                              ; preds = %.lr.ph, %194
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %194 ]
@@ -453,7 +453,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   %.044 = phi i64 [ %200, %.critedge ], [ 0, %201 ]
   %203 = load volatile i32, ptr @InterruptPending, align 4
   %.not50 = icmp eq i32 %203, 0
-  br i1 %.not50, label %205, label %204, !prof !10
+  br i1 %.not50, label %205, label %204, !prof !11
 
 204:                                              ; preds = %202
   call void @ProcessInterrupts() #11
@@ -469,15 +469,15 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 
 209:                                              ; preds = %205
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %210 = load ptr, ptr %2, align 8, !alias.scope !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %210 = load ptr, ptr %2, align 8, !alias.scope !12
   %211 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %212 = load i32, ptr %211, align 8, !alias.scope !11
+  %212 = load i32, ptr %211, align 8, !alias.scope !12
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds i8, ptr %210, i64 %213
-  store i32 -1, ptr %214, align 1, !noalias !11
+  store i32 -1, ptr %214, align 1, !noalias !12
   %215 = add i32 %212, 4
-  store i32 %215, ptr %211, align 8, !alias.scope !11
+  store i32 %215, ptr %211, align 8, !alias.scope !12
   br label %SendFunctionResult.exit
 
 216:                                              ; preds = %205
@@ -510,16 +510,16 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   %226 = lshr i32 %225, 2
   %227 = add nsw i32 %226, -4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %228 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %227)
-  %229 = load ptr, ptr %2, align 8, !alias.scope !14
+  %229 = load ptr, ptr %2, align 8, !alias.scope !15
   %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %231 = load i32, ptr %230, align 8, !alias.scope !14
+  %231 = load i32, ptr %230, align 8, !alias.scope !15
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds i8, ptr %229, i64 %232
-  store i32 %228, ptr %233, align 1, !noalias !14
+  store i32 %228, ptr %233, align 1, !noalias !15
   %234 = add i32 %231, 4
-  store i32 %234, ptr %230, align 8, !alias.scope !14
+  store i32 %234, ptr %230, align 8, !alias.scope !15
   %235 = getelementptr inbounds nuw i8, ptr %224, i64 4
   %236 = load i32, ptr %224, align 4
   %237 = lshr i32 %236, 2
@@ -717,14 +717,15 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"pq_writeint32: argument 0"}
-!13 = distinct !{!13, !"pq_writeint32"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
-!16 = distinct !{!16, !"pq_writeint32"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"pq_writeint32: argument 0"}
+!14 = distinct !{!14, !"pq_writeint32"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"pq_writeint32: argument 0"}
+!17 = distinct !{!17, !"pq_writeint32"}

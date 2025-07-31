@@ -547,11 +547,11 @@ get_populated_hooks.exit:                         ; preds = %171, %_.exit.i30
   %189 = load i8, ptr %.07.i, align 1, !tbaa !27
   %190 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %191 = icmp eq i8 %189, %186
-  br i1 %191, label %.preheader, label %skip_prefix.exit.thread, !llvm.loop !37
+  br i1 %191, label %.preheader, label %skip_prefix.exit.thread, !llvm.loop !38
 
 skip_prefix.exit.thread:                          ; preds = %.preheader, %187, %184
   %.0 = phi ptr [ %.pre39, %184 ], [ %.07.i, %.preheader ], [ %.pre39, %187 ]
-  %192 = load ptr, ptr @stderr, align 8, !tbaa !38
+  %192 = load ptr, ptr @stderr, align 8, !tbaa !39
   %193 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !10
   %.not4.i33 = icmp eq i32 %193, 0
   br i1 %.not4.i33, label %_.exit35, label %194
@@ -745,8 +745,9 @@ attributes #17 = { cold nounwind }
 !32 = !{!"p1 _ZTS12startup_info", !14, i64 0}
 !33 = !{!34, !11, i64 0}
 !34 = !{!"startup_info", !11, i64 0, !13, i64 8, !13, i64 16}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}

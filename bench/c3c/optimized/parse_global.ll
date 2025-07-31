@@ -408,7 +408,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   store ptr %65, ptr %67, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %68, label %34, label %parse_optional_module_params.exit
+  br i1 %68, label %34, label %parse_optional_module_params.exit, !llvm.loop !10
 
 parse_optional_module_params.exit:                ; preds = %61
   %69 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 55, ptr noundef nonnull @.str.75) #8
@@ -472,7 +472,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   %90 = getelementptr inbounds nuw %struct.Ast_, ptr %88, i64 %.pn, i32 1
   %91 = load i32, ptr %90, align 8
   %.not140 = icmp eq i32 %91, 0
-  br i1 %.not140, label %92, label %89, !llvm.loop !9
+  br i1 %.not140, label %92, label %89, !llvm.loop !11
 
 92:                                               ; preds = %89
   store i32 %1, ptr %90, align 8
@@ -500,7 +500,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   %103 = load i8, ptr %102, align 8
   %104 = and i8 %103, 15
   %cond = icmp eq i8 %104, 2
-  br i1 %cond, label %96, label %105
+  br i1 %cond, label %96, label %105, !llvm.loop !12
 
 105:                                              ; preds = %97
   %106 = load i64, ptr %99, align 8
@@ -777,7 +777,7 @@ expand_.exit:                                     ; preds = %142, %146
 242:                                              ; preds = %234, %203, %186, %183, %182, %173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %114, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %114, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %242, %108, %110
   %243 = load i32, ptr %3, align 4
@@ -885,7 +885,7 @@ extend_span_with_token.exit:                      ; preds = %21, %22
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.69) #8
   %35 = load ptr, ptr %3, align 8
   %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #8
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 37:                                               ; preds = %extend_span_with_token.exit, %15, %14, %10
   %.018 = phi ptr [ %33, %extend_span_with_token.exit ], [ null, %10 ], [ null, %14 ], [ null, %15 ]
@@ -974,7 +974,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 
 .backedge:                                        ; preds = %28, %77
   %29 = call zeroext i1 @parse_attribute(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext false)
-  br i1 %29, label %10, label %.loopexit
+  br i1 %29, label %10, label %.loopexit, !llvm.loop !15
 
 .loopexit67.loopexit:                             ; preds = %16
   br label %.loopexit67
@@ -1006,7 +1006,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 .outer:                                           ; preds = %35
   store i32 %.041.ph.ph, ptr %2, align 4
   %39 = call zeroext i1 @parse_attribute(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext false)
-  br i1 %39, label %.lr.ph77, label %.loopexit
+  br i1 %39, label %.lr.ph77, label %.loopexit, !llvm.loop !15
 
 40:                                               ; preds = %23, %16, %12
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1028,7 +1028,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 47:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit99, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit99, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
@@ -1179,7 +1179,7 @@ define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nound
 24:                                               ; preds = %.lr.ph63
   %25 = load i32, ptr %8, align 8
   %26 = icmp eq i32 %25, 58
-  br i1 %26, label %.lr.ph63, label %.critedge, !llvm.loop !12
+  br i1 %26, label %.lr.ph63, label %.critedge, !llvm.loop !17
 
 .lr.ph63:                                         ; preds = %.lr.ph, %24
   %.0535662 = phi i32 [ %39, %24 ], [ %17, %.lr.ph ]
@@ -1204,10 +1204,10 @@ define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nound
   tail call void @advance(ptr noundef nonnull %0) #8
   %40 = load i32, ptr %4, align 8
   %41 = icmp eq i32 %40, 64
-  br i1 %41, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !12
+  br i1 %41, label %24, label %..critedge.loopexit_crit_edge, !llvm.loop !17
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph63
-  br label %.critedge, !llvm.loop !12
+  br label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %10
   %.053.lcssa = phi i32 [ %17, %10 ], [ %39, %..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %39, %24 ]
@@ -1257,7 +1257,7 @@ extend_span_with_token.exit:                      ; preds = %43, %44
   %57 = mul i32 %56, 16777619
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %fnv1a.exit, label %.lr.ph.i, !llvm.loop !18
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %extend_span_with_token.exit
   %.06.lcssa.i = phi i32 [ -2128831035, %extend_span_with_token.exit ], [ %57, %.lr.ph.i ]
@@ -1742,7 +1742,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   %218 = getelementptr inbounds nuw ptr, ptr %216, i64 %217
   store ptr %182, ptr %218, align 8
   %219 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %219, label %181, label %220, !llvm.loop !14
+  br i1 %219, label %181, label %220, !llvm.loop !19
 
 220:                                              ; preds = %213
   %221 = load i32, ptr %3, align 8
@@ -1775,7 +1775,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
 
 parse_vector_type_index.exit.backedge:            ; preds = %.critedge44.i, %223, %188, %extend_span_with_token.exit118.i, %164, %159, %extend_span_with_token.exit109.i, %extend_span_with_token.exit100.i, %extend_span_with_token.exit.i45, %64, %extend_span_with_token.exit.i, %42, %37, %23, %extend_span_with_token.exit63
   %.038.be = phi ptr [ %.038, %extend_span_with_token.exit63 ], [ %13, %extend_span_with_token.exit.i ], [ %26, %23 ], [ %45, %42 ], [ %38, %37 ], [ %70, %extend_span_with_token.exit.i45 ], [ %67, %64 ], [ %126, %extend_span_with_token.exit109.i ], [ %.038, %extend_span_with_token.exit100.i ], [ %147, %extend_span_with_token.exit118.i ], [ %167, %164 ], [ %160, %159 ], [ %229, %.critedge44.i ], [ %226, %223 ], [ %189, %188 ]
-  br label %parse_vector_type_index.exit, !llvm.loop !15
+  br label %parse_vector_type_index.exit, !llvm.loop !20
 
 236:                                              ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -2667,7 +2667,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   store ptr %.0.i, ptr %45, align 8
   %46 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
-  br i1 %46, label %.preheader, label %47, !llvm.loop !16
+  br i1 %46, label %.preheader, label %47, !llvm.loop !21
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3533,7 +3533,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
 
 .critedge123:                                     ; preds = %147
   tail call void @advance(ptr noundef nonnull %0) #8
-  br label %.preheader
+  br label %.preheader, !llvm.loop !22
 
 .loopexit135:                                     ; preds = %140, %48
   %.0104 = phi ptr [ null, %48 ], [ %143, %140 ]
@@ -3683,7 +3683,7 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
 .backedge.backedge:                               ; preds = %expand_.exit, %238
   %.0183.be = phi i8 [ 1, %expand_.exit ], [ %.1184, %238 ]
   %.0179.be = phi ptr [ %phi.call, %expand_.exit ], [ %241, %238 ]
-  br label %.backedge, !llvm.loop !17
+  br label %.backedge, !llvm.loop !23
 
 62:                                               ; preds = %15
   switch i32 %17, label %parse_next_is_typed_parameter.exit.thread239 [
@@ -4565,7 +4565,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br i1 %187, label %188, label %192
 
 188:                                              ; preds = %183
-  br i1 %110, label %189, label %135
+  br i1 %110, label %189, label %135, !llvm.loop !24
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -4590,7 +4590,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
 
 .backedge.backedge:                               ; preds = %198, %96
   %.0129.be = phi i32 [ %104, %96 ], [ %176, %198 ]
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge, !llvm.loop !25
 
 199:                                              ; preds = %.backedge
   call void @advance(ptr noundef nonnull %0) #8
@@ -4765,7 +4765,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
   store ptr %21, ptr %76, align 8
   %77 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
-  br i1 %77, label %._crit_edge.loopexit, label %14, !llvm.loop !19
+  br i1 %77, label %._crit_edge.loopexit, label %14, !llvm.loop !26
 
 78:                                               ; preds = %32
   %79 = tail call ptr @token_type_to_string(i32 noundef 7) #8
@@ -5716,7 +5716,7 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
   store ptr %110, ptr %169, align 8
   %170 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %170, label %108, label %171
+  br i1 %170, label %108, label %171, !llvm.loop !27
 
 171:                                              ; preds = %164
   %172 = load i64, ptr %101, align 8
@@ -5886,7 +5886,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
 
 254:                                              ; preds = %parse_doc_optreturn.exit, %parse_contract_param.exit, %217, %211, %201, %247, %240, %206
   %.pre = load i32, ptr %7, align 4
-  br label %12
+  br label %12, !llvm.loop !28
 
 parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %50, %45, %56, %2, %253, %252, %248
   %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %248 ], [ true, %2 ], [ false, %56 ], [ false, %45 ], [ false, %50 ], [ false, %72 ], [ false, %119 ], [ false, %113 ], [ false, %124 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
@@ -6225,7 +6225,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %71 = or disjoint i32 %70, %19
   store i32 %71, ptr %68, align 8
   %72 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #8
-  br i1 %72, label %.lr.ph, label %._crit_edge
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 73:                                               ; preds = %.lr.ph
   br i1 %.not.i, label %97, label %74
@@ -6384,7 +6384,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
 147:                                              ; preds = %.lr.ph135, %144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph135, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph135, !llvm.loop !30
 
 .loopexit:                                        ; preds = %134
   br i1 %.not117, label %.loopexit.thread143, label %.loopexit.thread
@@ -7137,7 +7137,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
 
 361:                                              ; preds = %359, %352
   %362 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 55) #8
-  br i1 %362, label %parse_generic_parameters.exit.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %362, label %parse_generic_parameters.exit.i, label %.lr.ph.i.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %359, %325, %318
   %363 = load ptr, ptr @poisoned_decl, align 8
@@ -7235,7 +7235,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
 
 8:                                                ; preds = %40
   %9 = icmp eq i32 %42, 64
-  br i1 %9, label %17, label %._crit_edge
+  br i1 %9, label %17, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7304,7 +7304,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
 40:                                               ; preds = %34, %29
   %41 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   %42 = load i32, ptr %2, align 8
-  br i1 %41, label %8, label %43
+  br i1 %41, label %8, label %43, !llvm.loop !32
 
 43:                                               ; preds = %40
   %44 = icmp eq i32 %42, 9
@@ -7496,7 +7496,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
   store ptr %23, ptr %62, align 8
   %63 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %63, label %22, label %._crit_edge, !llvm.loop !22
+  br i1 %63, label %22, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %55, %.critedge
   %64 = load i32, ptr %4, align 8
@@ -7772,7 +7772,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
   store ptr %.0.i78, ptr %61, align 8
   %62 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %56, %18
   %.059 = phi ptr [ null, %18 ], [ %59, %56 ]
@@ -7870,7 +7870,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
   store ptr %75, ptr %108, align 8
   %109 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
-  br i1 %109, label %.critedge75, label %.lr.ph, !llvm.loop !24
+  br i1 %109, label %.critedge75, label %.lr.ph, !llvm.loop !35
 
 .critedge75:                                      ; preds = %103, %.critedge73
   %.060.lcssa = phi ptr [ null, %.critedge73 ], [ %106, %103 ]
@@ -8612,7 +8612,7 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
   br i1 %.not41.i, label %.loopexit127, label %119
 
 119:                                              ; preds = %parse_enum_param_decl.exit.i, %parse_enum_param_decl.exit.thread36.i
-  %120 = load ptr, ptr %36, align 8, !nonnull !25, !noundef !25
+  %120 = load ptr, ptr %36, align 8, !nonnull !36, !noundef !36
   %121 = getelementptr inbounds i8, ptr %120, i64 -8
   %122 = load i32, ptr %121, align 4
   %.not33.i = icmp ne i32 %122, 0
@@ -8639,7 +8639,7 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
 
 .critedge.i:                                      ; preds = %129, %119
   %135 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #8
-  br i1 %135, label %parse_enum_param_list.exit, label %40, !llvm.loop !26
+  br i1 %135, label %parse_enum_param_list.exit, label %40, !llvm.loop !37
 
 .loopexit127:                                     ; preds = %parse_enum_param_decl.exit.i, %40, %132, %44, %56, %60, %61
   %136 = load ptr, ptr @poisoned_decl, align 8
@@ -8749,7 +8749,7 @@ consume_const_name.exit:                          ; preds = %174
 185:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %185
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %185 ]
@@ -8885,7 +8885,7 @@ consume_const_name.exit:                          ; preds = %174
 
 .critedge119:                                     ; preds = %250, %241
   %257 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
-  br i1 %257, label %.loopexit125, label %.lr.ph134, !llvm.loop !28
+  br i1 %257, label %.loopexit125, label %.lr.ph134, !llvm.loop !39
 
 .loopexit125:                                     ; preds = %.critedge119, %160, %253, %214, %208, %201, %.loopexit126, %146, %138, %.loopexit127, %31, %28, %21, %consume_type_name.exit.thread
   %.0104 = phi ptr [ %34, %31 ], [ %256, %253 ], [ %215, %214 ], [ %211, %208 ], [ %202, %201 ], [ %179, %.loopexit126 ], [ %149, %146 ], [ %139, %138 ], [ %136, %.loopexit127 ], [ %29, %28 ], [ %22, %21 ], [ %17, %consume_type_name.exit.thread ], [ %7, %160 ], [ %7, %.critedge119 ]
@@ -9040,7 +9040,7 @@ consume_const_name.exit:                          ; preds = %53
 74:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit116, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit116, label %.lr.ph, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
@@ -9128,7 +9128,7 @@ consume_const_name.exit:                          ; preds = %53
 
 .critedge85:                                      ; preds = %115, %106
   %122 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
-  br i1 %122, label %._crit_edge101, label %48, !llvm.loop !30
+  br i1 %122, label %._crit_edge101, label %48, !llvm.loop !41
 
 ._crit_edge101:                                   ; preds = %.critedge85
   %123 = icmp eq i64 %69, 0
@@ -9245,7 +9245,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   switch i8 %24, label %23 [
     i8 10, label %.critedge2
     i8 0, label %.critedge2
-  ], !llvm.loop !31
+  ], !llvm.loop !42
 
 .critedge2:                                       ; preds = %23, %23
   %25 = load ptr, ptr %0, align 8
@@ -9263,7 +9263,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   ]
 
 .backedge:                                        ; preds = %27, %27
-  br label %27, !llvm.loop !32
+  br label %27, !llvm.loop !43
 
 30:                                               ; preds = %27
   tail call void @scratch_buffer_clear() #8
@@ -9697,29 +9697,40 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = !{}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = !{}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}
+!42 = distinct !{!42, !8, !9}
+!43 = distinct !{!43, !8, !9}

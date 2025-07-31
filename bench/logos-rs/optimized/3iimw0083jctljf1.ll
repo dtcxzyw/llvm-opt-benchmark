@@ -195,7 +195,7 @@ define hidden noundef zeroext i1 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20
   %101 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41f16e39debb07fdE"(ptr nonnull align 8 %7)
   %102 = extractvalue { i64, ptr } %101, 1
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.loopexit, label %88
+  br i1 %103, label %.loopexit, label %88, !llvm.loop !7
 
 104:                                              ; preds = %12
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -311,3 +311,5 @@ attributes #7 = { noreturn }
 !4 = distinct !{!4, !5, !"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir28_$u7b$$u7b$closure$u7d$$u7d$17h9d32773b63fe60dcE: argument 0"}
 !5 = distinct !{!5, !"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir28_$u7b$$u7b$closure$u7d$$u7d$17h9d32773b63fe60dcE"}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

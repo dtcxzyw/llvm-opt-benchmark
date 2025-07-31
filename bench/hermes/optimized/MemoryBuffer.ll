@@ -875,7 +875,7 @@ if.end45.i:                                       ; preds = %do.body.i.i
   %sub46.i = sub i64 %BytesLeft.097.i, %call7.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %BufPtr.098.i, i64 %call7.i.i
   %tobool33.not.i = icmp eq i64 %sub46.i, 0
-  br i1 %tobool33.not.i, label %while.end.i, label %while.body.i, !llvm.loop !38
+  br i1 %tobool33.not.i, label %while.end.i, label %while.body.i, !llvm.loop !39
 
 while.end.i:                                      ; preds = %if.end45.i, %if.then44.i, %if.end30.i
   %HasError.i54.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -985,18 +985,18 @@ entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8, !noalias !39
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8, !noalias !40
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !39
+  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !40
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 12
-  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !39
-  %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i), !noalias !39
+  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !40
+  %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i), !noalias !40
   %0 = extractvalue { ptr, i64 } %call.i, 1
   %sub1.i.i = add i64 %0, 40
   %add2.i.i = and i64 %sub1.i.i, -16
   %add4.i = add i64 %Size, 1
   %add5.i = add i64 %add4.i, %add2.i.i
-  %call6.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !39
+  %call6.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !40
   %tobool.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool.not.i, label %cleanup.i, label %if.end.i
 
@@ -1007,29 +1007,29 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %1 = extractvalue { ptr, i64 } %call.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %0, i1 false), !noalias !39
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %0, i1 false), !noalias !40
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.end.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %0
-  store i8 0, ptr %arrayidx.i.i, align 1, !noalias !39
+  store i8 0, ptr %arrayidx.i.i, align 1, !noalias !40
   %add.ptr7.i = getelementptr inbounds i8, ptr %call6.i, i64 %add2.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %Size
-  store i8 0, ptr %arrayidx.i, align 1, !noalias !39
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i, align 8, !noalias !39
+  store i8 0, ptr %arrayidx.i, align 1, !noalias !40
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i, align 8, !noalias !40
   %BufferStart.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 8
-  store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !39
+  store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !40
   %BufferEnd.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
-  store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !39
+  store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !40
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %entry
-  %2 = load ptr, ptr %NameBuf.i, align 8, !noalias !39
+  %2 = load ptr, ptr %NameBuf.i, align 8, !noalias !40
   %cmp.i.i.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.i
-  call void @free(ptr noundef %2) #22, !noalias !39
+  call void @free(ptr noundef %2) #22, !noalias !40
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i
@@ -1489,18 +1489,18 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 if.end26:                                         ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit.thread, %_ZL13shouldUseMmapimmlbib.exit
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i32)
   %add.ptr.i.i.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %NameBuf.i32, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i33, ptr %NameBuf.i32, align 8, !noalias !42
+  store ptr %add.ptr.i.i.i.i.i.i.i33, ptr %NameBuf.i32, align 8, !noalias !43
   %Size.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %NameBuf.i32, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i34, align 8, !noalias !42
+  store i32 0, ptr %Size.i.i.i.i.i.i.i34, align 8, !noalias !43
   %Capacity2.i.i.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %NameBuf.i32, i64 12
-  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i35, align 4, !noalias !42
-  %call.i36 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i32), !noalias !42
+  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i35, align 4, !noalias !43
+  %call.i36 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i32), !noalias !43
   %19 = extractvalue { ptr, i64 } %call.i36, 1
   %sub1.i.i = add i64 %19, 40
   %add2.i.i = and i64 %sub1.i.i, -16
   %add4.i = add i64 %MapSize.addr.0, 1
   %add5.i = add i64 %add4.i, %add2.i.i
-  %call6.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !42
+  %call6.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !43
   %tobool.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool.not.i, label %cleanup.i, label %if.end.i37
 
@@ -1511,29 +1511,29 @@ if.end.i37:                                       ; preds = %if.end26
 
 if.then.i.i40:                                    ; preds = %if.end.i37
   %20 = extractvalue { ptr, i64 } %call.i36, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr readonly align 1 %20, i64 %19, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr readonly align 1 %20, i64 %19, i1 false), !noalias !43
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.end.i37
   %arrayidx.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 %19
-  store i8 0, ptr %arrayidx.i.i42, align 1, !noalias !42
+  store i8 0, ptr %arrayidx.i.i42, align 1, !noalias !43
   %add.ptr7.i = getelementptr inbounds i8, ptr %call6.i, i64 %add2.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %MapSize.addr.0
-  store i8 0, ptr %arrayidx.i, align 1, !noalias !42
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i, align 8, !noalias !42
+  store i8 0, ptr %arrayidx.i, align 1, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i, align 8, !noalias !43
   %BufferStart.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 8
-  store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !42
+  store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !43
   %BufferEnd.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
-  store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !42
+  store ptr %arrayidx.i, ptr %BufferEnd.i.i.i, align 8, !noalias !43
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41, %if.end26
-  %21 = load ptr, ptr %NameBuf.i32, align 8, !noalias !42
+  %21 = load ptr, ptr %NameBuf.i32, align 8, !noalias !43
   %cmp.i.i.i.i.i43 = icmp eq ptr %21, %add.ptr.i.i.i.i.i.i.i33
   br i1 %cmp.i.i.i.i.i43, label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit, label %if.then.i.i.i.i44
 
 if.then.i.i.i.i44:                                ; preds = %cleanup.i
-  call void @free(ptr noundef %21) #22, !noalias !42
+  call void @free(ptr noundef %21) #22, !noalias !43
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i44
@@ -1589,7 +1589,7 @@ if.end46:                                         ; preds = %do.body.i
   %sub47 = sub i64 %BytesLeft.0102, %call7.i
   %add.ptr = getelementptr inbounds i8, ptr %BufPtr.0103, i64 %call7.i
   %tobool34.not = icmp eq i64 %sub47, 0
-  br i1 %tobool34.not, label %while.end, label %while.body, !llvm.loop !45
+  br i1 %tobool34.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %if.end46, %if.end31, %if.then45
   %HasError.i60 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -1671,7 +1671,7 @@ do.body.i:                                        ; preds = %land.rhs.i, %_ZN4ll
 land.rhs.i:                                       ; preds = %do.body.i
   %3 = load i32, ptr %call.i, align 4
   %cmp7.i = icmp eq i32 %3, 4
-  br i1 %cmp7.i, label %do.body.i, label %if.then, !llvm.loop !46
+  br i1 %cmp7.i, label %do.body.i, label %if.then, !llvm.loop !47
 
 if.then:                                          ; preds = %land.rhs.i
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
@@ -1690,26 +1690,26 @@ if.end:                                           ; preds = %do.body.i
   %conv.i9 = add i32 %4, %5
   store i32 %conv.i9, ptr %Size.i.i.i.i.i.i, align 8
   %cmp8.not = icmp eq i64 %call5.i, 0
-  br i1 %cmp8.not, label %do.end, label %do.body, !llvm.loop !47
+  br i1 %cmp8.not, label %do.end, label %do.body, !llvm.loop !48
 
 do.end:                                           ; preds = %if.end
   %6 = load ptr, ptr %Buffer, align 8
   %conv.i.i.i = zext i32 %conv.i9 to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !48
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !49
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !51
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !52
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !51
+  store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !52
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 12
-  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !51
-  %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !51
+  store i32 256, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !noalias !52
+  %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %BufferName, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i.i), !noalias !52
   %7 = extractvalue { ptr, i64 } %call.i.i, 1
   %sub1.i.i.i = add i64 %7, 40
   %add2.i.i.i = and i64 %sub1.i.i.i, -16
   %add4.i.i = add nuw nsw i64 %conv.i.i.i, 1
   %add5.i.i = add i64 %add4.i.i, %add2.i.i.i
-  %call6.i.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !51
+  %call6.i.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %add5.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21, !noalias !52
   %tobool.not.i.i = icmp eq ptr %call6.i.i, null
   br i1 %tobool.not.i.i, label %cleanup.i.i, label %if.end.i.i
 
@@ -1720,56 +1720,56 @@ if.end.i.i:                                       ; preds = %do.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %8 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %8, i64 %7, i1 false), !noalias !51
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %8, i64 %7, i1 false), !noalias !52
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.end.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %7
-  store i8 0, ptr %arrayidx.i.i.i, align 1, !noalias !51
+  store i8 0, ptr %arrayidx.i.i.i, align 1, !noalias !52
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %add2.i.i.i
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 %conv.i.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1, !noalias !51
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i.i, align 8, !noalias !51
+  store i8 0, ptr %arrayidx.i.i, align 1, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call6.i.i, align 8, !noalias !52
   %BufferStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 8
-  store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !51
+  store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !52
   %BufferEnd.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 16
-  store ptr %arrayidx.i.i, ptr %BufferEnd.i.i.i.i, align 8, !noalias !51
+  store ptr %arrayidx.i.i, ptr %BufferEnd.i.i.i.i, align 8, !noalias !52
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i, %do.end
-  %9 = load ptr, ptr %NameBuf.i.i, align 8, !noalias !51
+  %9 = load ptr, ptr %NameBuf.i.i, align 8, !noalias !52
   %cmp.i.i.i.i.i.i = icmp eq ptr %9, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %cleanup.i.i
-  call void @free(ptr noundef %9) #22, !noalias !51
+  call void @free(ptr noundef %9) #22, !noalias !52
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; preds = %if.then.i.i.i.i.i, %cleanup.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !49
   br i1 %tobool.not.i.i, label %if.then.i10, label %if.end.i
 
 if.then.i10:                                      ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #24
   %HasError.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !48
+  %bf.load.i.i = load i8, ptr %HasError.i.i, align 8, !alias.scope !49
   %bf.set.i.i = or i8 %bf.load.i.i, 1
-  store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !48
-  store i32 12, ptr %agg.result, align 8, !alias.scope !48
+  store i8 %bf.set.i.i, ptr %HasError.i.i, align 8, !alias.scope !49
+  store i32 12, ptr %agg.result, align 8, !alias.scope !49
   %EC.sroa.21.0.call.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call.i2.i, ptr %EC.sroa.21.0.call.sroa_idx.i.i, align 8, !alias.scope !48
+  store ptr %call.i2.i, ptr %EC.sroa.21.0.call.sroa_idx.i.i, align 8, !alias.scope !49
   br label %cleanup
 
 if.end.i:                                         ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
   %BufferStart.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 8
-  %10 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr readonly align 1 %6, i64 %conv.i.i.i, i1 false), !noalias !48
+  %10 = load ptr, ptr %BufferStart.i.i.i, align 8, !noalias !49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr readonly align 1 %6, i64 %conv.i.i.i, i1 false), !noalias !49
   %HasError.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %bf.load.i4.i = load i8, ptr %HasError.i3.i, align 8, !alias.scope !48
+  %bf.load.i4.i = load i8, ptr %HasError.i3.i, align 8, !alias.scope !49
   %bf.clear.i.i = and i8 %bf.load.i4.i, -2
-  store i8 %bf.clear.i.i, ptr %HasError.i3.i, align 8, !alias.scope !48
+  store i8 %bf.clear.i.i, ptr %HasError.i3.i, align 8, !alias.scope !49
   %11 = ptrtoint ptr %call6.i.i to i64
-  store i64 %11, ptr %agg.result, align 8, !alias.scope !48
+  store i64 %11, ptr %agg.result, align 8, !alias.scope !49
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i, %if.then.i10, %if.then
@@ -2235,21 +2235,22 @@ attributes #25 = { builtin nounwind }
 !33 = !{!34, !30}
 !34 = distinct !{!34, !35, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
 !35 = distinct !{!35, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
-!41 = distinct !{!41, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
-!44 = distinct !{!44, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
-!45 = distinct !{!45, !37}
-!46 = distinct !{!46, !37}
-!47 = distinct !{!47, !37}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZL20getMemBufferCopyImplN4llvh9StringRefERKNS_5TwineE: %agg.result"}
-!50 = distinct !{!50, !"_ZL20getMemBufferCopyImplN4llvh9StringRefERKNS_5TwineE"}
-!51 = !{!52, !49}
-!52 = distinct !{!52, !53, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
-!53 = distinct !{!53, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
+!42 = distinct !{!42, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
+!45 = distinct !{!45, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}
+!46 = distinct !{!46, !37, !38}
+!47 = distinct !{!47, !37, !38}
+!48 = distinct !{!48, !37, !38}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZL20getMemBufferCopyImplN4llvh9StringRefERKNS_5TwineE: %agg.result"}
+!51 = distinct !{!51, !"_ZL20getMemBufferCopyImplN4llvh9StringRefERKNS_5TwineE"}
+!52 = !{!53, !50}
+!53 = distinct !{!53, !54, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE: %agg.result"}
+!54 = distinct !{!54, !"_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE"}

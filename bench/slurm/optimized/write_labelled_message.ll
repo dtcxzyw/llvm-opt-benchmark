@@ -116,7 +116,7 @@ define dso_local i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32
   %.138 = add nuw nsw i32 %.2, %.03751
   %.140 = sub nsw i32 %.03950, %.2
   %56 = icmp sgt i32 %.140, 0
-  br i1 %56, label %.lr.ph.split, label %.sink.split, !llvm.loop !12
+  br i1 %56, label %.lr.ph.split, label %.sink.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %44, %47, %34, %26
   %.037.lcssa = phi i32 [ %.03751.us, %26 ], [ %.03751.us, %34 ], [ %.03751, %47 ], [ %.03751, %44 ]
@@ -236,7 +236,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 
   %42 = tail call i64 @write(i32 noundef %0, ptr noundef %.151, i64 noundef %31) #7
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %36, label %._crit_edge
+  br i1 %44, label %36, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   %.lcssa47 = phi i64 [ %32, %.preheader ], [ %42, %.backedge ]
@@ -245,7 +245,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 
   %46 = and i64 %.lcssa47, 2147483647
   %47 = getelementptr inbounds nuw i8, ptr %.151, i64 %46
   %48 = icmp sgt i32 %45, 0
-  br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %36, %29
   %.036 = phi i32 [ %4, %29 ], [ -1, %36 ], [ %4, %._crit_edge ]
@@ -300,9 +300,11 @@ attributes #9 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10, !11, !12}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !9, !10, !11}

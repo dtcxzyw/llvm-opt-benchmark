@@ -148,7 +148,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
-  br label %41, !llvm.loop !8
+  br label %41, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
   %.346.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %.2.i.i, %41 ]
@@ -156,7 +156,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   store i8 0, ptr %.346.i.i, align 1
   %46 = load i8, ptr %45, align 1
   %cond43.i.i = icmp eq i8 %46, 32
-  br i1 %cond43.i.i, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !9
+  br i1 %cond43.i.i, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !10
 
 split_n_str.exit.i:                               ; preds = %.critedge.loopexit.i.i, %41
   %47 = icmp samesign ult i64 %indvars.iv.i.i, 5
@@ -184,7 +184,7 @@ split_n_str.exit.i:                               ; preds = %.critedge.loopexit.
 .backedge.i:                                      ; preds = %.preheader.i.i, %68, %62, %59, %56, %48, %split_n_str.exit.i
   %57 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef nonnull %22)
   %.not.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i, label %fgets_no_cr.exit.i, label %28, !llvm.loop !10
+  br i1 %.not.i.i, label %fgets_no_cr.exit.i, label %28, !llvm.loop !11
 
 58:                                               ; preds = %53
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.20, ptr noundef nonnull %49) #16
@@ -252,7 +252,7 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
 .backedge:                                        ; preds = %85, %87, %.lr.ph, %81
   %89 = call ptr @readdir64(ptr noundef %75) #16
   %.not46 = icmp eq ptr %89, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.backedge, %read_lib_info.exit
   %90 = call i32 @closedir(ptr noundef %75)
@@ -287,7 +287,7 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
 
 101:                                              ; preds = %97, %99, %.lr.ph63
   %.not47 = icmp eq ptr %94, null
-  br i1 %.not47, label %.loopexit, label %.lr.ph63, !llvm.loop !12
+  br i1 %.not47, label %.loopexit, label %.lr.ph63, !llvm.loop !13
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %100, %16, %11
   %.0 = phi ptr [ null, %11 ], [ null, %16 ], [ null, %100 ], [ %9, %._crit_edge ], [ %9, %101 ]
@@ -405,7 +405,7 @@ thread-pre-split.i:                               ; preds = %26
   ]
 
 ptrace_continue.exit.i.backedge:                  ; preds = %.thread.i, %36
-  br label %ptrace_continue.exit.i
+  br label %ptrace_continue.exit.i, !llvm.loop !14
 
 45:                                               ; preds = %.thread.i
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.8, i32 noundef %0) #16
@@ -470,7 +470,7 @@ define internal fastcc range(i32 0, 2) i32 @process_doesnt_exist(i32 noundef %0)
 9:                                                ; preds = %.preheader
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @__const.process_doesnt_exist.state_string, i64 6)
   %10 = icmp eq i32 %bcmp, 0
-  br i1 %10, label %11, label %.preheader, !llvm.loop !13
+  br i1 %10, label %11, label %.preheader, !llvm.loop !15
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -487,7 +487,7 @@ define internal fastcc range(i32 0, 2) i32 @process_doesnt_exist(i32 noundef %0)
   %20 = and i16 %19, 8192
   %.not18 = icmp eq i16 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not18, label %22, label %15, !llvm.loop !14
+  br i1 %.not18, label %22, label %15, !llvm.loop !16
 
 22:                                               ; preds = %15
   switch i8 %16, label %25 [
@@ -556,7 +556,7 @@ ptrace_detach.exit.i:                             ; preds = %7, %4, %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 224
   %.0.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %detach_all_pids.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %detach_all_pids.exit, label %.lr.ph.i, !llvm.loop !17
 
 detach_all_pids.exit:                             ; preds = %ptrace_detach.exit.i, %1
   ret void
@@ -632,7 +632,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr noundef readonly capt
   %35 = add i64 %.378, 8
   %36 = add nuw nsw i64 %.05076, 1
   %exitcond.not = icmp eq i64 %36, %26
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %33, %.loopexit62
   %.248.lcssa = phi ptr [ %.046, %.loopexit62 ], [ %34, %33 ]
@@ -661,7 +661,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr noundef readonly capt
   store i8 %44, ptr %.34983, align 1
   %46 = add i64 %.484, 1
   %.not59 = icmp eq i64 %46, %6
-  br i1 %.not59, label %.loopexit, label %.lr.ph86, !llvm.loop !17
+  br i1 %.not59, label %.loopexit, label %.lr.ph86, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %29, %37, %8
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.13, i64 noundef %3, i64 noundef %1) #16
@@ -769,15 +769,17 @@ attributes #18 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

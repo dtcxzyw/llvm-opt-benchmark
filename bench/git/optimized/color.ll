@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = add nsw i32 %.2104251, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %15, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge2, label %15, !llvm.loop !10
 
 .critedge2:                                       ; preds = %22, %15
   %.2104.lcssa = phi i32 [ 0, %22 ], [ %.2104251, %15 ]
@@ -173,7 +173,7 @@ define dso_local range(i32 -1, 1) i32 @color_parse_mem(ptr noundef %0, i32 nound
   %36 = getelementptr inbounds nuw i8, ptr %.294254, i64 1
   %37 = add nsw i32 %.3105253, -1
   %38 = icmp sgt i32 %.3105253, 1
-  br i1 %38, label %.lr.ph255, label %.critedge4, !llvm.loop !10
+  br i1 %38, label %.lr.ph255, label %.critedge4, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph255, %35, %.critedge2
   %.3105.lcssa = phi i32 [ %.2104.lcssa, %.critedge2 ], [ 0, %35 ], [ %.3105253, %.lr.ph255 ]
@@ -186,7 +186,7 @@ match_word.exit:                                  ; preds = %.critedge4
   %40 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %24
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %.not4.i.not = icmp eq i8 %41, 0
-  br i1 %.not4.i.not, label %165, label %match_word.exit.thread, !llvm.loop !11
+  br i1 %.not4.i.not, label %165, label %match_word.exit.thread, !llvm.loop !12
 
 match_word.exit.thread:                           ; preds = %.critedge4, %match_word.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
@@ -302,7 +302,7 @@ match_word.exit.thread.i.i:                       ; preds = %match_word.exit.i.i
 107:                                              ; preds = %match_word.exit25.thread.i.i, %match_word.exit.thread.i.i
   %indvars.iv.i.i = phi i64 [ 0, %match_word.exit.thread.i.i ], [ %indvars.iv.next.i.i, %match_word.exit25.thread.i.i ]
   %108 = getelementptr inbounds nuw [8 x ptr], ptr @parse_ansi_color.color_names, i64 0, i64 %indvars.iv.i.i
-  %109 = load ptr, ptr %108, align 8, !tbaa !12
+  %109 = load ptr, ptr %108, align 8, !tbaa !13
   %110 = tail call i32 @strncasecmp(ptr noundef readonly %.019.i.i, ptr noundef readonly %109, i64 noundef %106) #14
   %.not.i23.i.i = icmp eq i32 %110, 0
   br i1 %.not.i23.i.i, label %match_word.exit25.i.i, label %match_word.exit25.thread.i.i
@@ -321,11 +321,11 @@ match_word.exit25.i.i:                            ; preds = %107
 match_word.exit25.thread.i.i:                     ; preds = %match_word.exit25.i.i, %107
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %parse_ansi_color.exit.i, label %107, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %parse_ansi_color.exit.i, label %107, !llvm.loop !16
 
 parse_ansi_color.exit.i:                          ; preds = %match_word.exit25.thread.i.i
   %116 = call i64 @strtol(ptr noundef %.193274, ptr noundef nonnull %4, i32 noundef 10) #15
-  %117 = load ptr, ptr %4, align 8, !tbaa !12
+  %117 = load ptr, ptr %4, align 8, !tbaa !13
   %118 = ptrtoint ptr %117 to i64
   %119 = ptrtoint ptr %.193274 to i64
   %120 = sub i64 %118, %119
@@ -372,11 +372,11 @@ parse_ansi_color.exit.i:                          ; preds = %match_word.exit25.t
   %.sroa.0.1.ph = phi i32 [ 1, %123 ], [ 2, %113 ], [ 2, %match_word.exit.i.i ], [ 1, %match_word.exit.i ], [ 4, %.critedge.i ], [ 3, %137 ], [ 2, %132 ], [ 2, %127 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   %140 = icmp eq i32 %.sroa.0160.0265, 0
-  br i1 %140, label %165, label %141, !llvm.loop !11
+  br i1 %140, label %165, label %141, !llvm.loop !12
 
 141:                                              ; preds = %139
   %142 = icmp eq i32 %.sroa.0157.0270, 0
-  br i1 %142, label %165, label %parse_attr.exit.thread, !llvm.loop !11
+  br i1 %142, label %165, label %parse_attr.exit.thread, !llvm.loop !12
 
 143:                                              ; preds = %135, %parse_ansi_color.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
@@ -414,12 +414,12 @@ skip_prefix_mem.exit17.i:                         ; preds = %149, %148, %145, %1
   %indvars.iv.i = phi i64 [ 0, %skip_prefix_mem.exit17.i ], [ %indvars.iv.next.i, %159 ]
   %153 = getelementptr inbounds nuw [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load i64, ptr %154, align 8, !tbaa !16
+  %155 = load i64, ptr %154, align 8, !tbaa !17
   %156 = icmp eq i64 %155, %.020.i
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %152
-  %158 = load ptr, ptr %153, align 8, !tbaa !20
+  %158 = load ptr, ptr %153, align 8, !tbaa !21
   %bcmp.i = tail call i32 @bcmp(ptr %158, ptr %.021.i, i64 %.020.i)
   %.not.i127 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i127, label %parse_attr.exit, label %159
@@ -427,11 +427,11 @@ skip_prefix_mem.exit17.i:                         ; preds = %149, %148, %145, %1
 159:                                              ; preds = %157, %152
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %parse_attr.exit.thread, label %152, !llvm.loop !21
+  br i1 %exitcond.not.i, label %parse_attr.exit.thread, label %152, !llvm.loop !22
 
 parse_attr.exit:                                  ; preds = %157
   %.in.i = getelementptr inbounds nuw i8, ptr %153, i64 %.0.i27.i
-  %160 = load i32, ptr %.in.i, align 4, !tbaa !22
+  %160 = load i32, ptr %.in.i, align 4, !tbaa !23
   %161 = icmp sgt i32 %160, -1
   br i1 %161, label %162, label %parse_attr.exit.thread
 
@@ -545,7 +545,7 @@ parse_attr.exit:                                  ; preds = %157
   %195 = add nuw nsw i32 %.085292, 1
   %.088.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %.189.idx
   %.not110 = icmp eq i32 %.399, 0
-  br i1 %.not110, label %._crit_edge296, label %.lr.ph295, !llvm.loop !23
+  br i1 %.not110, label %._crit_edge296, label %.lr.ph295, !llvm.loop !24
 
 ._crit_edge296:                                   ; preds = %194, %179
   %.088.idx.lcssa = phi i64 [ 2, %179 ], [ %.189.idx, %194 ]
@@ -689,7 +689,7 @@ color_output.exit130:                             ; preds = %230, %226, %221, %2
   br label %244
 
 parse_attr.exit.thread:                           ; preds = %141, %parse_attr.exit, %159
-  %240 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !22
+  %240 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !23
   %.not.i131 = icmp eq i32 %240, 0
   br i1 %.not.i131, label %_.exit, label %241
 
@@ -783,20 +783,20 @@ define dso_local i32 @want_color_fd(i32 noundef %0, i32 noundef %1) local_unname
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw [3 x i32], ptr @want_color_fd.want_auto, i64 0, i64 %3
-  %12 = load i32, ptr %11, align 4, !tbaa !22
+  %12 = load i32, ptr %11, align 4, !tbaa !23
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %10
   %15 = icmp eq i32 %0, 1
   %16 = select i1 %15, ptr @color_stdout_is_tty, ptr @check_auto_color.color_stderr_is_tty
-  %17 = load i32, ptr %16, align 4, !tbaa !22
+  %17 = load i32, ptr %16, align 4, !tbaa !23
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
   %20 = tail call i32 @isatty(i32 noundef range(i32 1, -2147483648) %0) #15
-  store i32 %20, ptr %16, align 4, !tbaa !22
+  store i32 %20, ptr %16, align 4, !tbaa !23
   br label %21
 
 21:                                               ; preds = %19, %14
@@ -825,7 +825,7 @@ define dso_local i32 @want_color_fd(i32 noundef %0, i32 noundef %1) local_unname
 
 check_auto_color.exit:                            ; preds = %29, %31
   %.0.i = phi i32 [ 0, %31 ], [ 1, %29 ]
-  store i32 %.0.i, ptr %11, align 4, !tbaa !22
+  store i32 %.0.i, ptr %11, align 4, !tbaa !23
   br label %32
 
 32:                                               ; preds = %10, %check_auto_color.exit, %6
@@ -866,7 +866,7 @@ define dso_local noundef i32 @git_color_config(ptr noundef %0, ptr noundef %1, p
 
 git_config_colorbool.exit:                        ; preds = %6, %8, %10, %12
   %.0.i = phi i32 [ 0, %6 ], [ 1, %8 ], [ 2, %10 ], [ %..i, %12 ]
-  store i32 %.0.i, ptr @git_use_color_default, align 4, !tbaa !22
+  store i32 %.0.i, ptr @git_use_color_default, align 4, !tbaa !23
   br label %14
 
 14:                                               ; preds = %3, %git_config_colorbool.exit
@@ -888,7 +888,7 @@ define dso_local void @color_print_strbuf(ptr noundef captures(none) %0, ptr nou
 
 6:                                                ; preds = %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %fputs7 = tail call i32 @fputs(ptr %8, ptr %0)
   %9 = load i8, ptr %1, align 1, !tbaa !4
   %.not8 = icmp eq i8 %9, 0
@@ -1042,22 +1042,23 @@ attributes #16 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = distinct !{!15, !8}
-!16 = !{!17, !18, i64 8}
-!17 = !{!"", !13, i64 0, !18, i64 8, !19, i64 16, !19, i64 20}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!17, !13, i64 0}
-!21 = distinct !{!21, !8}
-!22 = !{!19, !19, i64 0}
-!23 = distinct !{!23, !8}
-!24 = !{!25, !13, i64 16}
-!25 = !{!"strbuf", !18, i64 0, !18, i64 8, !13, i64 16}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = distinct !{!16, !8, !9}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"", !14, i64 0, !19, i64 8, !20, i64 16, !20, i64 20}
+!19 = !{!"long", !5, i64 0}
+!20 = !{!"int", !5, i64 0}
+!21 = !{!18, !14, i64 0}
+!22 = distinct !{!22, !8, !9}
+!23 = !{!20, !20, i64 0}
+!24 = distinct !{!24, !8, !9}
+!25 = !{!26, !14, i64 16}
+!26 = !{!"strbuf", !19, i64 0, !19, i64 8, !14, i64 16}

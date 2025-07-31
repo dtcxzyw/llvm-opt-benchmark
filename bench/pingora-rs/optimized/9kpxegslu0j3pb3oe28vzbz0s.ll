@@ -251,7 +251,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge, %.backedge
-  br label %.backedge
+  br label %.backedge, !llvm.loop !18
 
 32:                                               ; preds = %.lr.ph
   %33 = call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h0ffcbd0c4b942ad3E(ptr noundef nonnull align 8 %29, i64 undef, i32 noundef 1000000000)
@@ -329,10 +329,10 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit41"
 
 "_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit41": ; preds = %52, %55
-  %56 = load ptr, ptr %5, align 8, !nonnull !15, !align !18, !noundef !15
+  %56 = load ptr, ptr %5, align 8, !nonnull !15, !align !20, !noundef !15
   %57 = call noundef align 8 ptr @_ZN12thread_local7RawIter4next17hf2ee5f5cc5cfee00E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 %56)
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 58:                                               ; preds = %50
   %.val40 = load i128, ptr %51, align 16, !noundef !15
@@ -359,7 +359,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   store ptr %62, ptr %2, align 8
   store ptr %64, ptr %11, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store atomic i8 1, ptr %66 seq_cst, align 1, !noalias !19
+  store atomic i8 1, ptr %66 seq_cst, align 1, !noalias !22
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %67)
           to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %70
@@ -384,7 +384,7 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %63
 72:                                               ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %38
+  br label %38, !llvm.loop !25
 
 73:                                               ; preds = %49, %70
   %74 = landingpad { ptr, i32 }
@@ -485,13 +485,13 @@ define { ptr, ptr } @_ZN15pingora_timeout5timer12TimerManager14register_timer17h
   %38 = icmp ne i64 %37, 0
   %39 = icmp ugt i64 %36, -17
   %or.cond.i = or i1 %39, %38
-  br i1 %or.cond.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit, !prof !22
+  br i1 %or.cond.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit, !prof !26
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit: ; preds = %11
   %40 = add nuw i64 %36, 16
   %41 = cmpxchg weak ptr %34, i64 %36, i64 %40 acquire monotonic, align 8
   %42 = extractvalue { i64, i1 } %41, 1
-  br i1 %42, label %51, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, !prof !23
+  br i1 %42, label %51, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, !prof !27
 
 43:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -502,7 +502,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store atomic i8 1, ptr %48 seq_cst, align 1, !noalias !24
+  store atomic i8 1, ptr %48 seq_cst, align 1, !noalias !28
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %49)
           to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %123
@@ -879,12 +879,16 @@ attributes #19 = { cold }
 !15 = !{}
 !16 = !{i32 0, i32 1000000000}
 !17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = !{i64 8}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E: argument 0"}
-!21 = distinct !{!21, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E"}
-!22 = !{!"branch_weights", i32 2002, i32 2000}
-!23 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E: argument 0"}
-!26 = distinct !{!26, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E"}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{i64 8}
+!21 = distinct !{!21, !19}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E: argument 0"}
+!24 = distinct !{!24, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E"}
+!25 = distinct !{!25, !19}
+!26 = !{!"branch_weights", i32 2002, i32 2000}
+!27 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E: argument 0"}
+!30 = distinct !{!30, !"_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E"}

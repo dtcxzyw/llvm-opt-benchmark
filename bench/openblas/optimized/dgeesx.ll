@@ -590,7 +590,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.1405 = phi i32 [ %.0404483, %.lr.ph488._crit_edge ], [ %289, %288 ], [ %242, %241 ]
   %292 = sext i32 %291 to i64
   %.not436.not = icmp slt i64 %indvars.iv497, %292
-  br i1 %.not436.not, label %.lr.ph488, label %.loopexit473, !llvm.loop !11
+  br i1 %.not436.not, label %.lr.ph488, label %.loopexit473, !llvm.loop !12
 
 .loopexit473:                                     ; preds = %290, %228, %210
   %293 = load i32, ptr %4, align 4, !tbaa !3
@@ -677,7 +677,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %327 = load i32, ptr %21, align 4, !tbaa !3
   %328 = sext i32 %327 to i64
   %.not437.not = icmp slt i64 %indvars.iv500, %328
-  br i1 %.not437.not, label %.lr.ph495, label %.loopexit, !llvm.loop !12
+  br i1 %.not437.not, label %.lr.ph495, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread453, %304, %301, %300
   %329 = sitofp i32 %.3 to double
@@ -781,7 +781,8 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}

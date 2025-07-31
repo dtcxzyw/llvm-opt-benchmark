@@ -177,7 +177,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   br label %222
 
 44:                                               ; preds = %38
-  %45 = load i32, ptr %7, align 4, !tbaa !22
+  %45 = load i32, ptr %7, align 4, !tbaa !23
   %46 = zext i32 %45 to i64
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %4) #8
   %.not18.i.i = icmp eq i32 %45, 0
@@ -186,38 +186,38 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
 .lr.ph.i.i:                                       ; preds = %44, %.lr.ph.i.i
   %.017.i.i = phi i64 [ %61, %.lr.ph.i.i ], [ 0, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 %.017.i.i
-  %48 = load i8, ptr %47, align 1, !tbaa !24
+  %48 = load i8, ptr %47, align 1, !tbaa !25
   %49 = lshr i8 %48, 4
   %50 = zext nneg i8 %49 to i64
   %51 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !24
+  %52 = load i8, ptr %51, align 1, !tbaa !25
   %53 = shl nuw i64 %.017.i.i, 1
   %54 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %53
-  store i8 %52, ptr %54, align 2, !tbaa !24
+  store i8 %52, ptr %54, align 2, !tbaa !25
   %55 = and i8 %48, 15
   %56 = zext nneg i8 %55 to i64
   %57 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !24
+  %58 = load i8, ptr %57, align 1, !tbaa !25
   %59 = or disjoint i64 %53, 1
   %60 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %59
-  store i8 %58, ptr %60, align 1, !tbaa !24
+  store i8 %58, ptr %60, align 1, !tbaa !25
   %61 = add nuw nsw i64 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %61, %46
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %44
   %62 = shl nuw nsw i64 %46, 1
   %63 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %62
-  store i8 0, ptr %63, align 2, !tbaa !24
+  store i8 0, ptr %63, align 2, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !26
+  %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %65) #10
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %73, label %_ZL13CompareDigestPK10TestVectorPKhm.exit.i
 
 _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
   %67 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %68 = load ptr, ptr %10, align 8, !tbaa !27
+  %68 = load ptr, ptr %10, align 8, !tbaa !28
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   %71 = trunc i64 %18 to i32
@@ -258,7 +258,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
 .lr.ph105.i:                                      ; preds = %.preheader.i
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !17
-  %87 = load i8, ptr %86, align 1, !tbaa !24
+  %87 = load i8, ptr %86, align 1, !tbaa !25
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %.critedge70.i, label %.lr.ph105.split.i.preheader
 
@@ -273,7 +273,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
 
 .lr.ph105.split.ithread-pre-split:                ; preds = %.critedge68.i
   %93 = add nuw i64 %.040104.i, 1
-  %.pr = load i8, ptr %86, align 1, !tbaa !24
+  %.pr = load i8, ptr %86, align 1, !tbaa !25
   br label %.lr.ph105.split.i
 
 .lr.ph105.split.i:                                ; preds = %.lr.ph105.split.i.preheader, %.lr.ph105.split.ithread-pre-split
@@ -284,9 +284,9 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
 
 95:                                               ; preds = %99
   %96 = getelementptr inbounds nuw i8, ptr %.0101.i, i64 1
-  %97 = load i8, ptr %96, align 1, !tbaa !24
+  %97 = load i8, ptr %96, align 1, !tbaa !25
   %.not58.i = icmp eq i8 %97, 0
-  br i1 %.not58.i, label %.critedge68.i, label %.lr.ph102.i, !llvm.loop !28
+  br i1 %.not58.i, label %.critedge68.i, label %.lr.ph102.i, !llvm.loop !29
 
 .lr.ph102.i:                                      ; preds = %.lr.ph105.split.i, %95
   %.0101.i = phi ptr [ %96, %95 ], [ %86, %.lr.ph105.split.i ]
@@ -304,7 +304,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
 
 .critedge68.i:                                    ; preds = %95, %.lr.ph105.split.i
   %exitcond31.not = icmp eq i64 %.040104.i, %89
-  br i1 %exitcond31.not, label %.critedge70.i, label %.lr.ph105.split.ithread-pre-split, !llvm.loop !29
+  br i1 %exitcond31.not, label %.critedge70.i, label %.lr.ph105.split.ithread-pre-split, !llvm.loop !30
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -325,7 +325,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
   br label %.critedge72.i
 
 110:                                              ; preds = %106
-  %111 = load i32, ptr %7, align 4, !tbaa !22
+  %111 = load i32, ptr %7, align 4, !tbaa !23
   %112 = zext i32 %111 to i64
   %113 = load ptr, ptr %11, align 8, !tbaa !14
   %114 = invoke noundef ptr %113()
@@ -345,7 +345,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
   br label %.critedge72.i
 
 121:                                              ; preds = %117
-  %122 = load i32, ptr %7, align 4, !tbaa !22
+  %122 = load i32, ptr %7, align 4, !tbaa !23
   %123 = zext i32 %122 to i64
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %3) #8
   %.not18.i73.i = icmp eq i32 %122, 0
@@ -354,36 +354,36 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
 .lr.ph.i74.i:                                     ; preds = %121, %.lr.ph.i74.i
   %.017.i75.i = phi i64 [ %138, %.lr.ph.i74.i ], [ 0, %121 ]
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 %.017.i75.i
-  %125 = load i8, ptr %124, align 1, !tbaa !24
+  %125 = load i8, ptr %124, align 1, !tbaa !25
   %126 = lshr i8 %125, 4
   %127 = zext nneg i8 %126 to i64
   %128 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !24
+  %129 = load i8, ptr %128, align 1, !tbaa !25
   %130 = shl nuw i64 %.017.i75.i, 1
   %131 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %130
-  store i8 %129, ptr %131, align 2, !tbaa !24
+  store i8 %129, ptr %131, align 2, !tbaa !25
   %132 = and i8 %125, 15
   %133 = zext nneg i8 %132 to i64
   %134 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !24
+  %135 = load i8, ptr %134, align 1, !tbaa !25
   %136 = or disjoint i64 %130, 1
   %137 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %136
-  store i8 %135, ptr %137, align 1, !tbaa !24
+  store i8 %135, ptr %137, align 1, !tbaa !25
   %138 = add nuw nsw i64 %.017.i75.i, 1
   %exitcond.not.i76.i = icmp eq i64 %138, %123
-  br i1 %exitcond.not.i76.i, label %._crit_edge.i77.i, label %.lr.ph.i74.i, !llvm.loop !25
+  br i1 %exitcond.not.i76.i, label %._crit_edge.i77.i, label %.lr.ph.i74.i, !llvm.loop !26
 
 ._crit_edge.i77.i:                                ; preds = %.lr.ph.i74.i, %121
   %139 = shl nuw nsw i64 %123, 1
   %140 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %139
-  store i8 0, ptr %140, align 2, !tbaa !24
+  store i8 0, ptr %140, align 2, !tbaa !25
   %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %65) #10
   %.not.i78.i = icmp eq i32 %141, 0
   br i1 %.not.i78.i, label %148, label %_ZL13CompareDigestPK10TestVectorPKhm.exit79.i
 
 _ZL13CompareDigestPK10TestVectorPKhm.exit79.i:    ; preds = %._crit_edge.i77.i
   %142 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %143 = load ptr, ptr %10, align 8, !tbaa !27
+  %143 = load ptr, ptr %10, align 8, !tbaa !28
   %144 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !17
   %146 = trunc i64 %18 to i32
@@ -394,7 +394,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit79.i:    ; preds = %._crit_edge.i77.i
 148:                                              ; preds = %._crit_edge.i77.i
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %3) #8
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !31
+  %150 = load ptr, ptr %149, align 8, !tbaa !32
   %.not63.i = icmp ne ptr %150, null
   %151 = icmp eq i64 %18, 1
   %or.cond = and i1 %151, %.not63.i
@@ -438,43 +438,43 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit79.i:    ; preds = %._crit_edge.i77.i
 .lr.ph.i81.i:                                     ; preds = %168, %.lr.ph.i81.i
   %.017.i82.i = phi i64 [ %183, %.lr.ph.i81.i ], [ 0, %168 ]
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 %.017.i82.i
-  %170 = load i8, ptr %169, align 1, !tbaa !24
+  %170 = load i8, ptr %169, align 1, !tbaa !25
   %171 = lshr i8 %170, 4
   %172 = zext nneg i8 %171 to i64
   %173 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %172
-  %174 = load i8, ptr %173, align 1, !tbaa !24
+  %174 = load i8, ptr %173, align 1, !tbaa !25
   %175 = shl i64 %.017.i82.i, 1
   %176 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %175
-  store i8 %174, ptr %176, align 2, !tbaa !24
+  store i8 %174, ptr %176, align 2, !tbaa !25
   %177 = and i8 %170, 15
   %178 = zext nneg i8 %177 to i64
   %179 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %178
-  %180 = load i8, ptr %179, align 1, !tbaa !24
+  %180 = load i8, ptr %179, align 1, !tbaa !25
   %181 = or disjoint i64 %175, 1
   %182 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %181
-  store i8 %180, ptr %182, align 1, !tbaa !24
+  store i8 %180, ptr %182, align 1, !tbaa !25
   %183 = add nuw i64 %.017.i82.i, 1
   %exitcond.not.i83.i = icmp eq i64 %183, %167
-  br i1 %exitcond.not.i83.i, label %._crit_edge.i84.i, label %.lr.ph.i81.i, !llvm.loop !25
+  br i1 %exitcond.not.i83.i, label %._crit_edge.i84.i, label %.lr.ph.i81.i, !llvm.loop !26
 
 ._crit_edge.i84.i:                                ; preds = %.lr.ph.i81.i, %168
   %184 = shl i64 %167, 1
   %185 = getelementptr inbounds nuw [129 x i8], ptr %2, i64 0, i64 %184
-  store i8 0, ptr %185, align 2, !tbaa !24
+  store i8 0, ptr %185, align 2, !tbaa !25
   %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %65) #10
   %.not.i85.i = icmp eq i32 %186, 0
   br i1 %.not.i85.i, label %190, label %_ZL13CompareDigestPK10TestVectorPKhm.exit86.i
 
 _ZL13CompareDigestPK10TestVectorPKhm.exit86.i:    ; preds = %._crit_edge.i84.i
   %187 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %188 = load ptr, ptr %10, align 8, !tbaa !27
+  %188 = load ptr, ptr %10, align 8, !tbaa !28
   %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.7, ptr noundef %188, ptr noundef nonnull %154, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %65) #11
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %2) #8
   br label %.critedge72.i
 
 190:                                              ; preds = %._crit_edge.i84.i
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %2) #8
-  %191 = load ptr, ptr %149, align 8, !tbaa !31
+  %191 = load ptr, ptr %149, align 8, !tbaa !32
   %192 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #10
   %193 = invoke noundef ptr %191(ptr noundef nonnull %154, i64 noundef %192, ptr noundef null)
           to label %194 unwind label %161
@@ -496,29 +496,29 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit86.i:    ; preds = %._crit_edge.i84.i
 .lr.ph.i88.i:                                     ; preds = %199, %.lr.ph.i88.i
   %.017.i89.i = phi i64 [ %214, %.lr.ph.i88.i ], [ 0, %199 ]
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 %.017.i89.i
-  %201 = load i8, ptr %200, align 1, !tbaa !24
+  %201 = load i8, ptr %200, align 1, !tbaa !25
   %202 = lshr i8 %201, 4
   %203 = zext nneg i8 %202 to i64
   %204 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !24
+  %205 = load i8, ptr %204, align 1, !tbaa !25
   %206 = shl i64 %.017.i89.i, 1
   %207 = getelementptr inbounds nuw [129 x i8], ptr %1, i64 0, i64 %206
-  store i8 %205, ptr %207, align 2, !tbaa !24
+  store i8 %205, ptr %207, align 2, !tbaa !25
   %208 = and i8 %201, 15
   %209 = zext nneg i8 %208 to i64
   %210 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1, !tbaa !24
+  %211 = load i8, ptr %210, align 1, !tbaa !25
   %212 = or disjoint i64 %206, 1
   %213 = getelementptr inbounds nuw [129 x i8], ptr %1, i64 0, i64 %212
-  store i8 %211, ptr %213, align 1, !tbaa !24
+  store i8 %211, ptr %213, align 1, !tbaa !25
   %214 = add nuw i64 %.017.i89.i, 1
   %exitcond.not.i90.i = icmp eq i64 %214, %198
-  br i1 %exitcond.not.i90.i, label %._crit_edge.i91.i, label %.lr.ph.i88.i, !llvm.loop !25
+  br i1 %exitcond.not.i90.i, label %._crit_edge.i91.i, label %.lr.ph.i88.i, !llvm.loop !26
 
 ._crit_edge.i91.i:                                ; preds = %.lr.ph.i88.i, %199
   %215 = shl i64 %198, 1
   %216 = getelementptr inbounds nuw [129 x i8], ptr %1, i64 0, i64 %215
-  store i8 0, ptr %216, align 2, !tbaa !24
+  store i8 0, ptr %216, align 2, !tbaa !25
   %217 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %65) #10
   %.not.i92.i = icmp eq i32 %217, 0
   br i1 %.not.i92.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit93.thread.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit93.i
@@ -529,7 +529,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit93.thread.i: ; preds = %._crit_edge.i91
 
 _ZL13CompareDigestPK10TestVectorPKhm.exit93.i:    ; preds = %._crit_edge.i91.i
   %218 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %219 = load ptr, ptr %10, align 8, !tbaa !27
+  %219 = load ptr, ptr %10, align 8, !tbaa !28
   %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef nonnull @.str.7, ptr noundef %219, ptr noundef nonnull %154, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %65) #11
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %1) #8
   br label %.critedge72.i
@@ -581,7 +581,7 @@ _ZL10TestDigestPK10TestVector.exit:               ; preds = %223
 233:                                              ; preds = %_ZL10TestDigestPK10TestVector.exit
   %234 = add nuw nsw i64 %.0623, 1
   %exitcond32.not = icmp eq i64 %234, 28
-  br i1 %exitcond32.not, label %239, label %8, !llvm.loop !32
+  br i1 %exitcond32.not, label %239, label %8, !llvm.loop !33
 
 235:                                              ; preds = %_ZL10TestDigestPK10TestVector.exit
   %236 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -728,16 +728,17 @@ attributes #12 = { noreturn nounwind }
 !17 = !{!7, !12, i64 8}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !10, i64 0}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !21}
-!26 = !{!7, !12, i64 24}
-!27 = !{!15, !12, i64 0}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21, !30}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
-!31 = !{!15, !9, i64 16}
-!32 = distinct !{!32, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !10, i64 0}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !21, !22}
+!27 = !{!7, !12, i64 24}
+!28 = !{!15, !12, i64 0}
+!29 = distinct !{!29, !21, !22}
+!30 = distinct !{!30, !21, !22, !31}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = !{!15, !9, i64 16}
+!33 = distinct !{!33, !21, !22}

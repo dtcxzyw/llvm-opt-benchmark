@@ -694,7 +694,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %52 = call i64 @strtol(ptr noundef nonnull %51, ptr noundef nonnull %4, i32 noundef 10) #10
   %53 = trunc i64 %52 to i32
-  %54 = load ptr, ptr %4, align 8, !tbaa !10
+  %54 = load ptr, ptr %4, align 8, !tbaa !11
   br label %57
 
 55:                                               ; preds = %46
@@ -731,7 +731,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 68:                                               ; preds = %65, %60
   %69 = phi ptr [ %63, %60 ], [ %66, %65 ]
-  %70 = load ptr, ptr %69, align 8, !tbaa !10
+  %70 = load ptr, ptr %69, align 8, !tbaa !11
   %.not1598 = icmp eq ptr %70, null
   br i1 %.not1598, label %74, label %71
 
@@ -766,7 +766,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 86:                                               ; preds = %83, %78
   %87 = phi ptr [ %81, %78 ], [ %84, %83 ]
-  %88 = load ptr, ptr %87, align 8, !tbaa !13
+  %88 = load ptr, ptr %87, align 8, !tbaa !14
   %.not1614 = icmp eq ptr %88, null
   br i1 %.not1614, label %261, label %89
 
@@ -820,7 +820,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 109:                                              ; preds = %105, %107
   %110 = add nuw nsw i64 %.114261756, 1
   %exitcond1844.not = icmp eq i64 %110, %97
-  br i1 %exitcond1844.not, label %._crit_edge1759, label %.lr.ph1758, !llvm.loop !14
+  br i1 %exitcond1844.not, label %._crit_edge1759, label %.lr.ph1758, !llvm.loop !15
 
 ._crit_edge1759:                                  ; preds = %109, %99
   %111 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -856,7 +856,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %128 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %125, i64 noundef %127) #10
   %129 = add nuw nsw i64 %.214271752, 1
   %exitcond1843.not = icmp eq i64 %129, %121
-  br i1 %exitcond1843.not, label %._crit_edge1755, label %.lr.ph1754, !llvm.loop !15
+  br i1 %exitcond1843.not, label %._crit_edge1755, label %.lr.ph1754, !llvm.loop !16
 
 ._crit_edge1755:                                  ; preds = %.lr.ph1754, %123
   %130 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -892,11 +892,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.not1624 = icmp eq i64 %.314281748, 0
   %144 = select i1 %.not1624, ptr @.str.2, ptr @.str.1
   %145 = getelementptr inbounds nuw i32, ptr %88, i64 %.314281748
-  %146 = load i32, ptr %145, align 4, !tbaa !16
+  %146 = load i32, ptr %145, align 4, !tbaa !17
   %147 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %144, i32 noundef %146) #10
   %148 = add nuw nsw i64 %.314281748, 1
   %exitcond1842.not = icmp eq i64 %148, %140
-  br i1 %exitcond1842.not, label %._crit_edge1751, label %.lr.ph1750, !llvm.loop !18
+  br i1 %exitcond1842.not, label %._crit_edge1751, label %.lr.ph1750, !llvm.loop !19
 
 ._crit_edge1751:                                  ; preds = %.lr.ph1750, %142
   %149 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -923,11 +923,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.not1623 = icmp eq i64 %.41744, 0
   %159 = select i1 %.not1623, ptr @.str.2, ptr @.str.1
   %160 = getelementptr inbounds nuw i32, ptr %88, i64 %.41744
-  %161 = load i32, ptr %160, align 4, !tbaa !16
+  %161 = load i32, ptr %160, align 4, !tbaa !17
   %162 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %159, i32 noundef %161) #10
   %163 = add nuw nsw i64 %.41744, 1
   %exitcond1841.not = icmp eq i64 %163, %155
-  br i1 %exitcond1841.not, label %._crit_edge1747, label %.lr.ph1746, !llvm.loop !19
+  br i1 %exitcond1841.not, label %._crit_edge1747, label %.lr.ph1746, !llvm.loop !20
 
 ._crit_edge1747:                                  ; preds = %.lr.ph1746, %157
   %164 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -979,7 +979,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %186 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %183, i64 noundef %185) #10
   %187 = add nuw nsw i64 %.51740, 1
   %exitcond1840.not = icmp eq i64 %187, %179
-  br i1 %exitcond1840.not, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !20
+  br i1 %exitcond1840.not, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !21
 
 ._crit_edge1743:                                  ; preds = %.lr.ph1742, %181
   %188 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -1006,11 +1006,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.not1620 = icmp eq i64 %.61736, 0
   %198 = select i1 %.not1620, ptr @.str.2, ptr @.str.1
   %199 = getelementptr inbounds nuw i64, ptr %88, i64 %.61736
-  %200 = load i64, ptr %199, align 8, !tbaa !21
+  %200 = load i64, ptr %199, align 8, !tbaa !22
   %201 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %198, i64 noundef %200) #10
   %202 = add nuw nsw i64 %.61736, 1
   %exitcond1839.not = icmp eq i64 %202, %194
-  br i1 %exitcond1839.not, label %._crit_edge1739, label %.lr.ph1738, !llvm.loop !23
+  br i1 %exitcond1839.not, label %._crit_edge1739, label %.lr.ph1738, !llvm.loop !24
 
 ._crit_edge1739:                                  ; preds = %.lr.ph1738, %196
   %203 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -1036,7 +1036,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph1734:                                       ; preds = %212, %221
   %.71732 = phi i64 [ %222, %221 ], [ 0, %212 ]
   %214 = getelementptr inbounds nuw ptr, ptr %88, i64 %.71732
-  %215 = load ptr, ptr %214, align 8, !tbaa !13
+  %215 = load ptr, ptr %214, align 8, !tbaa !14
   %.not1617 = icmp eq ptr %215, null
   %.not1618 = icmp eq i64 %.71732, 0
   %216 = select i1 %.not1618, ptr @.str.2, ptr @.str.1
@@ -1053,7 +1053,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 221:                                              ; preds = %217, %219
   %222 = add nuw nsw i64 %.71732, 1
   %exitcond1838.not = icmp eq i64 %222, %210
-  br i1 %exitcond1838.not, label %._crit_edge1735, label %.lr.ph1734, !llvm.loop !24
+  br i1 %exitcond1838.not, label %._crit_edge1735, label %.lr.ph1734, !llvm.loop !25
 
 ._crit_edge1735:                                  ; preds = %221, %212
   %223 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -1085,7 +1085,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %237 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %234, i64 noundef %236) #10
   %238 = add nuw nsw i64 %.81728, 1
   %exitcond1837.not = icmp eq i64 %238, %230
-  br i1 %exitcond1837.not, label %._crit_edge1731, label %.lr.ph1730, !llvm.loop !25
+  br i1 %exitcond1837.not, label %._crit_edge1731, label %.lr.ph1730, !llvm.loop !26
 
 ._crit_edge1731:                                  ; preds = %.lr.ph1730, %232
   %239 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -1121,7 +1121,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %256 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %253, i64 noundef %255) #10
   %257 = add nuw nsw i64 %.91727, 1
   %exitcond.not = icmp eq i64 %257, %249
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %251
   %258 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.7) #10
@@ -1218,11 +1218,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %287 = load ptr, ptr %8, align 8
   %288 = getelementptr i8, ptr %287, i64 24
   store ptr %288, ptr %8, align 8
-  %.sroa.0348.0.copyload = load i8, ptr %287, align 8, !tbaa !27
+  %.sroa.0348.0.copyload = load i8, ptr %287, align 8, !tbaa !28
   %.sroa.4350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 4
-  %.sroa.4350.0.copyload = load i32, ptr %.sroa.4350.0..sroa_idx, align 4, !tbaa !16
+  %.sroa.4350.0.copyload = load i32, ptr %.sroa.4350.0..sroa_idx, align 4, !tbaa !17
   %.sroa.5351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %.sroa.5351.0.copyload = load i32, ptr %.sroa.5351.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5351.0.copyload = load i32, ptr %.sroa.5351.0..sroa_idx, align 8, !tbaa !17
   %.sroa.6353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 16
   %.sroa.6353.0.copyload = load i64, ptr %.sroa.6353.0..sroa_idx, align 8, !tbaa !3
   %289 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.20) #10
@@ -1255,7 +1255,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 305:                                              ; preds = %302, %297
   %306 = phi ptr [ %300, %297 ], [ %303, %302 ]
-  %307 = load ptr, ptr %306, align 8, !tbaa !13
+  %307 = load ptr, ptr %306, align 8, !tbaa !14
   %308 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %307) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -1280,7 +1280,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 320:                                              ; preds = %317, %312
   %321 = phi ptr [ %315, %312 ], [ %318, %317 ]
-  %322 = load ptr, ptr %321, align 8, !tbaa !13
+  %322 = load ptr, ptr %321, align 8, !tbaa !14
   %323 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %322) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -1310,7 +1310,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 338:                                              ; preds = %335, %330
   %339 = phi ptr [ %333, %330 ], [ %336, %335 ]
-  %340 = load i32, ptr %339, align 4, !tbaa !16
+  %340 = load i32, ptr %339, align 4, !tbaa !17
   %.not1643 = icmp eq i32 %340, 0
   %.str.328..str.329.i1629 = select i1 %.not1643, ptr @.str.329, ptr @.str.328
   %341 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1629) #10
@@ -1329,45 +1329,45 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %346 = load ptr, ptr %8, align 8
   %347 = getelementptr i8, ptr %346, i64 1216
   store ptr %347, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %5, ptr noundef nonnull align 8 dereferenceable(1216) %346, i64 1216, i1 false), !tbaa.struct !29
-  %348 = load i32, ptr %5, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %5, ptr noundef nonnull align 8 dereferenceable(1216) %346, i64 1216, i1 false), !tbaa.struct !30
+  %348 = load i32, ptr %5, align 8, !tbaa !33
   %349 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %348) #10
-  %350 = load i8, ptr %11, align 4, !tbaa !34, !range !35, !noundef !36
+  %350 = load i8, ptr %11, align 4, !tbaa !35, !range !36, !noundef !37
   %351 = trunc nuw i8 %350 to i1
   %.str.328..str.329.i1630 = select i1 %351, ptr @.str.328, ptr @.str.329
   %352 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1630) #10
   %353 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.1) #10
-  %354 = load i8, ptr %12, align 1, !tbaa !37, !range !35, !noundef !36
+  %354 = load i8, ptr %12, align 1, !tbaa !38, !range !36, !noundef !37
   %355 = trunc nuw i8 %354 to i1
   %.str.328..str.329.i1631 = select i1 %355, ptr @.str.328, ptr @.str.329
   %356 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1631) #10
   %357 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.1) #10
-  %358 = load i8, ptr %13, align 2, !tbaa !38, !range !35, !noundef !36
+  %358 = load i8, ptr %13, align 2, !tbaa !39, !range !36, !noundef !37
   %359 = trunc nuw i8 %358 to i1
   %.str.328..str.329.i1632 = select i1 %359, ptr @.str.328, ptr @.str.329
   %360 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1632) #10
   %361 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %14) #10
   %362 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.1) #10
-  %363 = load i8, ptr %15, align 8, !tbaa !39, !range !35, !noundef !36
+  %363 = load i8, ptr %15, align 8, !tbaa !40, !range !36, !noundef !37
   %364 = trunc nuw i8 %363 to i1
   %.str.328..str.329.i1633 = select i1 %364, ptr @.str.328, ptr @.str.329
   %365 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1633) #10
   %366 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.1) #10
-  %367 = load i8, ptr %16, align 1, !tbaa !40, !range !35, !noundef !36
+  %367 = load i8, ptr %16, align 1, !tbaa !41, !range !36, !noundef !37
   %368 = trunc nuw i8 %367 to i1
   %.str.328..str.329.i1634 = select i1 %368, ptr @.str.328, ptr @.str.329
   %369 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1634) #10
-  %370 = load i64, ptr %17, align 8, !tbaa !41
+  %370 = load i64, ptr %17, align 8, !tbaa !42
   %371 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %370) #10
-  %372 = load double, ptr %18, align 8, !tbaa !42
+  %372 = load double, ptr %18, align 8, !tbaa !43
   %373 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.27, double noundef %372) #10
-  %374 = load i64, ptr %19, align 8, !tbaa !43
+  %374 = load i64, ptr %19, align 8, !tbaa !44
   %375 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %374) #10
-  %376 = load i64, ptr %20, align 8, !tbaa !44
+  %376 = load i64, ptr %20, align 8, !tbaa !45
   %377 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %376) #10
-  %378 = load i64, ptr %21, align 8, !tbaa !45
+  %378 = load i64, ptr %21, align 8, !tbaa !46
   %379 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %378) #10
-  %380 = load i32, ptr %22, align 8, !tbaa !46
+  %380 = load i32, ptr %22, align 8, !tbaa !47
   switch i32 %380, label %385 [
     i32 0, label %381
     i32 1, label %383
@@ -1387,17 +1387,17 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %388
 
 388:                                              ; preds = %385, %383, %381
-  %389 = load double, ptr %23, align 8, !tbaa !47
+  %389 = load double, ptr %23, align 8, !tbaa !48
   %390 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %389) #10
-  %391 = load double, ptr %24, align 8, !tbaa !48
+  %391 = load double, ptr %24, align 8, !tbaa !49
   %392 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.27, double noundef %391) #10
-  %393 = load i8, ptr %25, align 8, !tbaa !49, !range !35, !noundef !36
+  %393 = load i8, ptr %25, align 8, !tbaa !50, !range !36, !noundef !37
   %394 = trunc nuw i8 %393 to i1
   %.str.328..str.329.i1635 = select i1 %394, ptr @.str.328, ptr @.str.329
   %395 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1635) #10
-  %396 = load i64, ptr %26, align 8, !tbaa !50
+  %396 = load i64, ptr %26, align 8, !tbaa !51
   %397 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %396) #10
-  %398 = load i32, ptr %27, align 8, !tbaa !51
+  %398 = load i32, ptr %27, align 8, !tbaa !52
   switch i32 %398, label %403 [
     i32 0, label %399
     i32 1, label %401
@@ -1417,11 +1417,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %406
 
 406:                                              ; preds = %403, %401, %399
-  %407 = load double, ptr %28, align 8, !tbaa !52
+  %407 = load double, ptr %28, align 8, !tbaa !53
   %408 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %407) #10
-  %409 = load double, ptr %29, align 8, !tbaa !53
+  %409 = load double, ptr %29, align 8, !tbaa !54
   %410 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.27, double noundef %409) #10
-  %411 = load i32, ptr %30, align 8, !tbaa !54
+  %411 = load i32, ptr %30, align 8, !tbaa !55
   switch i32 %411, label %420 [
     i32 0, label %412
     i32 1, label %414
@@ -1451,27 +1451,27 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %423
 
 423:                                              ; preds = %420, %418, %416, %414, %412
-  %424 = load double, ptr %31, align 8, !tbaa !55
+  %424 = load double, ptr %31, align 8, !tbaa !56
   %425 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %424) #10
-  %426 = load double, ptr %32, align 8, !tbaa !56
+  %426 = load double, ptr %32, align 8, !tbaa !57
   %427 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.27, double noundef %426) #10
-  %428 = load i8, ptr %33, align 8, !tbaa !57, !range !35, !noundef !36
+  %428 = load i8, ptr %33, align 8, !tbaa !58, !range !36, !noundef !37
   %429 = trunc nuw i8 %428 to i1
   %.str.328..str.329.i1636 = select i1 %429, ptr @.str.328, ptr @.str.329
   %430 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1636) #10
-  %431 = load i64, ptr %34, align 8, !tbaa !58
+  %431 = load i64, ptr %34, align 8, !tbaa !59
   %432 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %431) #10
-  %433 = load i32, ptr %35, align 8, !tbaa !59
+  %433 = load i32, ptr %35, align 8, !tbaa !60
   %434 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %433) #10
-  %435 = load i8, ptr %36, align 4, !tbaa !60, !range !35, !noundef !36
+  %435 = load i8, ptr %36, align 4, !tbaa !61, !range !36, !noundef !37
   %436 = trunc nuw i8 %435 to i1
   %.str.328..str.329.i1637 = select i1 %436, ptr @.str.328, ptr @.str.329
   %437 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull %.str.328..str.329.i1637) #10
-  %438 = load double, ptr %37, align 8, !tbaa !61
+  %438 = load double, ptr %37, align 8, !tbaa !62
   %439 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.33, double noundef %438) #10
-  %440 = load i64, ptr %38, align 8, !tbaa !62
+  %440 = load i64, ptr %38, align 8, !tbaa !63
   %441 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %440) #10
-  %442 = load i32, ptr %39, align 8, !tbaa !63
+  %442 = load i32, ptr %39, align 8, !tbaa !64
   %443 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %442) #10
   call void @llvm.lifetime.end.p0(i64 1216, ptr nonnull %5) #10
   br label %H5_trace_args_close_degree.exit1640
@@ -1497,13 +1497,13 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 455:                                              ; preds = %452, %447
   %456 = phi ptr [ %450, %447 ], [ %453, %452 ]
-  %.sroa.0340.0.copyload = load i32, ptr %456, align 4, !tbaa !16
+  %.sroa.0340.0.copyload = load i32, ptr %456, align 4, !tbaa !17
   %.sroa.4341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %456, i64 4
-  %.sroa.4341.0.copyload = load i8, ptr %.sroa.4341.0..sroa_idx, align 4, !tbaa !27
+  %.sroa.4341.0.copyload = load i8, ptr %.sroa.4341.0..sroa_idx, align 4, !tbaa !28
   %.sroa.5342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %456, i64 5
-  %.sroa.5342.0.copyload = load i8, ptr %.sroa.5342.0..sroa_idx, align 1, !tbaa !27
+  %.sroa.5342.0.copyload = load i8, ptr %.sroa.5342.0..sroa_idx, align 1, !tbaa !28
   %.sroa.6344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %456, i64 8
-  %.sroa.6344.0.copyload = load i32, ptr %.sroa.6344.0..sroa_idx, align 4, !tbaa !16
+  %.sroa.6344.0.copyload = load i32, ptr %.sroa.6344.0..sroa_idx, align 4, !tbaa !17
   %457 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0340.0.copyload) #10
   %458 = trunc i8 %.sroa.4341.0.copyload to i1
   %.str.328..str.329.i1638 = select i1 %458, ptr @.str.328, ptr @.str.329
@@ -1542,7 +1542,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 479:                                              ; preds = %476, %471
   %480 = phi ptr [ %474, %471 ], [ %477, %476 ]
-  %481 = load double, ptr %480, align 8, !tbaa !30
+  %481 = load double, ptr %480, align 8, !tbaa !31
   %482 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.43, double noundef %481) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -1593,7 +1593,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 497:                                              ; preds = %494, %489
   %498 = phi ptr [ %492, %489 ], [ %495, %494 ]
-  %499 = load i32, ptr %498, align 4, !tbaa !16
+  %499 = load i32, ptr %498, align 4, !tbaa !17
   switch i32 %499, label %510 [
     i32 -1, label %500
     i32 0, label %502
@@ -1648,7 +1648,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 524:                                              ; preds = %521, %516
   %525 = phi ptr [ %519, %516 ], [ %522, %521 ]
-  %526 = load ptr, ptr %525, align 8, !tbaa !13
+  %526 = load ptr, ptr %525, align 8, !tbaa !14
   %527 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %526) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -1673,7 +1673,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 539:                                              ; preds = %536, %531
   %540 = phi ptr [ %534, %531 ], [ %537, %536 ]
-  %541 = load i32, ptr %540, align 4, !tbaa !16
+  %541 = load i32, ptr %540, align 4, !tbaa !17
   switch i32 %541, label %546 [
     i32 0, label %542
     i32 1, label %544
@@ -1713,7 +1713,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 560:                                              ; preds = %557, %552
   %561 = phi ptr [ %555, %552 ], [ %558, %557 ]
-  %562 = load i32, ptr %561, align 4, !tbaa !16
+  %562 = load i32, ptr %561, align 4, !tbaa !17
   switch i32 %562, label %569 [
     i32 0, label %563
     i32 1, label %565
@@ -1758,7 +1758,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 583:                                              ; preds = %580, %575
   %584 = phi ptr [ %578, %575 ], [ %581, %580 ]
-  %585 = load i32, ptr %584, align 4, !tbaa !16
+  %585 = load i32, ptr %584, align 4, !tbaa !17
   switch i32 %585, label %594 [
     i32 -1, label %586
     i32 0, label %588
@@ -1808,7 +1808,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 608:                                              ; preds = %605, %600
   %609 = phi ptr [ %603, %600 ], [ %606, %605 ]
-  %610 = load i32, ptr %609, align 4, !tbaa !16
+  %610 = load i32, ptr %609, align 4, !tbaa !17
   switch i32 %610, label %619 [
     i32 -1, label %611
     i32 0, label %613
@@ -1858,7 +1858,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 633:                                              ; preds = %630, %625
   %634 = phi ptr [ %628, %625 ], [ %631, %630 ]
-  %635 = load ptr, ptr %634, align 8, !tbaa !13
+  %635 = load ptr, ptr %634, align 8, !tbaa !14
   %636 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %635) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -1883,7 +1883,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 648:                                              ; preds = %645, %640
   %649 = phi ptr [ %643, %640 ], [ %646, %645 ]
-  %650 = load i32, ptr %649, align 4, !tbaa !16
+  %650 = load i32, ptr %649, align 4, !tbaa !17
   switch i32 %650, label %657 [
     i32 0, label %651
     i32 1, label %653
@@ -1928,7 +1928,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 671:                                              ; preds = %668, %663
   %672 = phi ptr [ %666, %663 ], [ %669, %668 ]
-  %673 = load i32, ptr %672, align 4, !tbaa !16
+  %673 = load i32, ptr %672, align 4, !tbaa !17
   switch i32 %673, label %684 [
     i32 0, label %674
     i32 1, label %676
@@ -1966,19 +1966,19 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %688 = load ptr, ptr %8, align 8
   %689 = getelementptr i8, ptr %688, i64 56
   store ptr %689, ptr %8, align 8
-  %.sroa.0316.0.copyload = load ptr, ptr %688, align 8, !tbaa !13
+  %.sroa.0316.0.copyload = load ptr, ptr %688, align 8, !tbaa !14
   %.sroa.4317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 8
-  %.sroa.4317.0.copyload = load ptr, ptr %.sroa.4317.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.4317.0.copyload = load ptr, ptr %.sroa.4317.0..sroa_idx, align 8, !tbaa !14
   %.sroa.5318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 16
-  %.sroa.5318.0.copyload = load ptr, ptr %.sroa.5318.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.5318.0.copyload = load ptr, ptr %.sroa.5318.0..sroa_idx, align 8, !tbaa !14
   %.sroa.6319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 24
-  %.sroa.6319.0.copyload = load ptr, ptr %.sroa.6319.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.6319.0.copyload = load ptr, ptr %.sroa.6319.0..sroa_idx, align 8, !tbaa !14
   %.sroa.7320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 32
-  %.sroa.7320.0.copyload = load ptr, ptr %.sroa.7320.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.7320.0.copyload = load ptr, ptr %.sroa.7320.0..sroa_idx, align 8, !tbaa !14
   %.sroa.8321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 40
-  %.sroa.8321.0.copyload = load ptr, ptr %.sroa.8321.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.8321.0.copyload = load ptr, ptr %.sroa.8321.0..sroa_idx, align 8, !tbaa !14
   %.sroa.9322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %688, i64 48
-  %.sroa.9322.0.copyload = load ptr, ptr %.sroa.9322.0..sroa_idx, align 8, !tbaa !13
+  %.sroa.9322.0.copyload = load ptr, ptr %.sroa.9322.0..sroa_idx, align 8, !tbaa !14
   %690 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.70, ptr noundef %.sroa.0316.0.copyload) #10
   %691 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %.sroa.4317.0.copyload) #10
   %692 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %.sroa.5318.0.copyload) #10
@@ -2009,7 +2009,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 708:                                              ; preds = %705, %700
   %709 = phi ptr [ %703, %700 ], [ %706, %705 ]
-  %710 = load i32, ptr %709, align 4, !tbaa !16
+  %710 = load i32, ptr %709, align 4, !tbaa !17
   switch i32 %710, label %725 [
     i32 0, label %711
     i32 2, label %713
@@ -2074,7 +2074,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 739:                                              ; preds = %736, %731
   %740 = phi ptr [ %734, %731 ], [ %737, %736 ]
-  %741 = load i32, ptr %740, align 4, !tbaa !16
+  %741 = load i32, ptr %740, align 4, !tbaa !17
   switch i32 %741, label %754 [
     i32 -1, label %742
     i32 0, label %744
@@ -2134,7 +2134,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 768:                                              ; preds = %765, %760
   %769 = phi ptr [ %763, %760 ], [ %766, %765 ]
-  %770 = load i32, ptr %769, align 4, !tbaa !16
+  %770 = load i32, ptr %769, align 4, !tbaa !17
   %771 = and i32 %770, 1
   %.not1606 = icmp eq i32 %771, 0
   br i1 %.not1606, label %774, label %772
@@ -2231,7 +2231,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 817:                                              ; preds = %814, %809
   %818 = phi ptr [ %812, %809 ], [ %815, %814 ]
-  %819 = load i32, ptr %818, align 4, !tbaa !16
+  %819 = load i32, ptr %818, align 4, !tbaa !17
   switch i32 %819, label %826 [
     i32 0, label %820
     i32 1, label %822
@@ -2276,7 +2276,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 840:                                              ; preds = %837, %832
   %841 = phi ptr [ %835, %832 ], [ %838, %837 ]
-  %842 = load ptr, ptr %841, align 8, !tbaa !13
+  %842 = load ptr, ptr %841, align 8, !tbaa !14
   %843 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %842) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2301,7 +2301,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 855:                                              ; preds = %852, %847
   %856 = phi ptr [ %850, %847 ], [ %853, %852 ]
-  %857 = load i32, ptr %856, align 4, !tbaa !16
+  %857 = load i32, ptr %856, align 4, !tbaa !17
   switch i32 %857, label %866 [
     i32 0, label %858
     i32 1, label %860
@@ -2351,7 +2351,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 880:                                              ; preds = %877, %872
   %881 = phi ptr [ %875, %872 ], [ %878, %877 ]
-  %882 = load ptr, ptr %881, align 8, !tbaa !13
+  %882 = load ptr, ptr %881, align 8, !tbaa !14
   %883 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %882) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2376,7 +2376,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 895:                                              ; preds = %892, %887
   %896 = phi ptr [ %890, %887 ], [ %893, %892 ]
-  %897 = load i32, ptr %896, align 4, !tbaa !16
+  %897 = load i32, ptr %896, align 4, !tbaa !17
   switch i32 %897, label %902 [
     i32 0, label %898
     i32 1, label %900
@@ -2416,7 +2416,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 916:                                              ; preds = %913, %908
   %917 = phi ptr [ %911, %908 ], [ %914, %913 ]
-  %918 = load i32, ptr %917, align 4, !tbaa !16
+  %918 = load i32, ptr %917, align 4, !tbaa !17
   switch i32 %918, label %925 [
     i32 -1, label %919
     i32 0, label %921
@@ -2461,7 +2461,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 939:                                              ; preds = %936, %931
   %940 = phi ptr [ %934, %931 ], [ %937, %936 ]
-  %941 = load i32, ptr %940, align 4, !tbaa !16
+  %941 = load i32, ptr %940, align 4, !tbaa !17
   switch i32 %941, label %958 [
     i32 -1, label %942
     i32 0, label %944
@@ -2536,7 +2536,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 975:                                              ; preds = %972, %967
   %976 = phi ptr [ %970, %967 ], [ %973, %972 ]
-  %977 = load i32, ptr %976, align 4, !tbaa !16
+  %977 = load i32, ptr %976, align 4, !tbaa !17
   %978 = icmp sgt i32 %977, -1
   br i1 %978, label %979, label %981
 
@@ -2583,7 +2583,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 997:                                              ; preds = %994, %989
   %998 = phi ptr [ %992, %989 ], [ %995, %994 ]
-  %999 = load ptr, ptr %998, align 8, !tbaa !13
+  %999 = load ptr, ptr %998, align 8, !tbaa !14
   %1000 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %999) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2608,7 +2608,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1012:                                             ; preds = %1009, %1004
   %1013 = phi ptr [ %1007, %1004 ], [ %1010, %1009 ]
-  %1014 = load ptr, ptr %1013, align 8, !tbaa !13
+  %1014 = load ptr, ptr %1013, align 8, !tbaa !14
   %1015 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1014) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2633,7 +2633,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1027:                                             ; preds = %1024, %1019
   %1028 = phi ptr [ %1022, %1019 ], [ %1025, %1024 ]
-  %1029 = load ptr, ptr %1028, align 8, !tbaa !13
+  %1029 = load ptr, ptr %1028, align 8, !tbaa !14
   %1030 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1029) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2658,7 +2658,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1042:                                             ; preds = %1039, %1034
   %1043 = phi ptr [ %1037, %1034 ], [ %1040, %1039 ]
-  %1044 = load i32, ptr %1043, align 4, !tbaa !16
+  %1044 = load i32, ptr %1043, align 4, !tbaa !17
   switch i32 %1044, label %1049 [
     i32 0, label %1045
     i32 1, label %1047
@@ -2698,7 +2698,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1063:                                             ; preds = %1060, %1055
   %1064 = phi ptr [ %1058, %1055 ], [ %1061, %1060 ]
-  %1065 = load ptr, ptr %1064, align 8, !tbaa !64
+  %1065 = load ptr, ptr %1064, align 8, !tbaa !65
   %1066 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1065) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2723,7 +2723,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1078:                                             ; preds = %1075, %1070
   %1079 = phi ptr [ %1073, %1070 ], [ %1076, %1075 ]
-  %1080 = load ptr, ptr %1079, align 8, !tbaa !13
+  %1080 = load ptr, ptr %1079, align 8, !tbaa !14
   %1081 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1080) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -2748,7 +2748,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1093:                                             ; preds = %1090, %1085
   %1094 = phi ptr [ %1088, %1085 ], [ %1091, %1090 ]
-  %1095 = load i32, ptr %1094, align 4, !tbaa !16
+  %1095 = load i32, ptr %1094, align 4, !tbaa !17
   switch i32 %1095, label %1104 [
     i32 0, label %1096
     i32 1, label %1098
@@ -2798,7 +2798,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 1118:                                             ; preds = %1115, %1110
   %1119 = phi ptr [ %1113, %1110 ], [ %1116, %1115 ]
-  %1120 = load i32, ptr %1119, align 4, !tbaa !16
+  %1120 = load i32, ptr %1119, align 4, !tbaa !17
   switch i32 %1120, label %1125 [
     i32 0, label %1121
     i32 1, label %1123
@@ -2842,11 +2842,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %1136 = getelementptr i8, ptr %1135, i64 336
   store ptr %1136, ptr %8, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1135, i64 8
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !11
   %.sroa.4271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1135, i64 16
   %.sroa.4271.0.copyload = load i64, ptr %.sroa.4271.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1135, i64 24
-  %.sroa.5272.0.copyload = load i32, ptr %.sroa.5272.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.5272.0.copyload = load i32, ptr %.sroa.5272.0..sroa_idx, align 8, !tbaa !17
   %1137 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.128, ptr noundef %.sroa.3.0.copyload, i64 noundef %.sroa.4271.0.copyload) #10
   switch i32 %.sroa.5272.0.copyload, label %1146 [
     i32 0, label %1138
@@ -2901,7 +2901,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1161:                                             ; preds = %1158, %1153
   %1162 = phi ptr [ %1156, %1153 ], [ %1159, %1158 ]
-  %1163 = load i32, ptr %1162, align 4, !tbaa !16
+  %1163 = load i32, ptr %1162, align 4, !tbaa !17
   switch i32 %1163, label %1172 [
     i32 0, label %1164
     i32 1, label %1166
@@ -2951,7 +2951,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1186:                                             ; preds = %1183, %1178
   %1187 = phi ptr [ %1181, %1178 ], [ %1184, %1183 ]
-  %1188 = load i32, ptr %1187, align 4, !tbaa !16
+  %1188 = load i32, ptr %1187, align 4, !tbaa !17
   switch i32 %1188, label %1197 [
     i32 0, label %1189
     i32 1, label %1191
@@ -3001,7 +3001,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1211:                                             ; preds = %1208, %1203
   %1212 = phi ptr [ %1206, %1203 ], [ %1209, %1208 ]
-  %1213 = load ptr, ptr %1212, align 8, !tbaa !13
+  %1213 = load ptr, ptr %1212, align 8, !tbaa !14
   %1214 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1213) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -3009,19 +3009,19 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %1216 = load ptr, ptr %8, align 8
   %1217 = getelementptr i8, ptr %1216, i64 80
   store ptr %1217, ptr %8, align 8
-  %.sroa.0258.0.copyload = load i32, ptr %1216, align 8, !tbaa !16
+  %.sroa.0258.0.copyload = load i32, ptr %1216, align 8, !tbaa !17
   %.sroa.4259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 8
   %.sroa.4259.0.copyload = load i64, ptr %.sroa.4259.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 16
   %.sroa.5260.0.copyload = load i64, ptr %.sroa.5260.0..sroa_idx, align 8, !tbaa !3
   %.sroa.6261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 24
-  %.sroa.6261.0.copyload = load i32, ptr %.sroa.6261.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.6261.0.copyload = load i32, ptr %.sroa.6261.0..sroa_idx, align 8, !tbaa !17
   %.sroa.7263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 32
   %.sroa.7263.0.copyload = load i64, ptr %.sroa.7263.0..sroa_idx, align 8, !tbaa !3
   %.sroa.8264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 40
   %.sroa.8264.0.copyload = load i64, ptr %.sroa.8264.0..sroa_idx, align 8, !tbaa !3
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 48
-  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !17
   %.sroa.10265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 56
   %.sroa.10265.0.copyload = load i64, ptr %.sroa.10265.0..sroa_idx, align 8, !tbaa !3
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1216, i64 64
@@ -3054,7 +3054,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1232:                                             ; preds = %1229, %1224
   %1233 = phi ptr [ %1227, %1224 ], [ %1230, %1229 ]
-  %1234 = load i32, ptr %1233, align 4, !tbaa !16
+  %1234 = load i32, ptr %1233, align 4, !tbaa !17
   switch i32 %1234, label %1251 [
     i32 -1, label %1235
     i32 0, label %1237
@@ -3124,7 +3124,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1265:                                             ; preds = %1262, %1257
   %1266 = phi ptr [ %1260, %1257 ], [ %1263, %1262 ]
-  %1267 = load i32, ptr %1266, align 4, !tbaa !16
+  %1267 = load i32, ptr %1266, align 4, !tbaa !17
   switch i32 %1267, label %1272 [
     i32 0, label %1268
     i32 1, label %1270
@@ -3164,7 +3164,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1286:                                             ; preds = %1283, %1278
   %1287 = phi ptr [ %1281, %1278 ], [ %1284, %1283 ]
-  %1288 = load i32, ptr %1287, align 4, !tbaa !16
+  %1288 = load i32, ptr %1287, align 4, !tbaa !17
   switch i32 %1288, label %1299 [
     i32 0, label %1289
     i32 1, label %1291
@@ -3219,7 +3219,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1313:                                             ; preds = %1310, %1305
   %1314 = phi ptr [ %1308, %1305 ], [ %1311, %1310 ]
-  %1315 = load i32, ptr %1314, align 4, !tbaa !16
+  %1315 = load i32, ptr %1314, align 4, !tbaa !17
   switch i32 %1315, label %1328 [
     i32 0, label %1316
     i32 1, label %1318
@@ -3294,7 +3294,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1348:                                             ; preds = %1345, %1340
   %1349 = phi ptr [ %1343, %1340 ], [ %1346, %1345 ]
-  %1350 = load ptr, ptr %1349, align 8, !tbaa !13
+  %1350 = load ptr, ptr %1349, align 8, !tbaa !14
   %1351 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1350) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -3302,13 +3302,13 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %1353 = load ptr, ptr %8, align 8
   %1354 = getelementptr i8, ptr %1353, i64 32
   store ptr %1354, ptr %8, align 8
-  %.sroa.0.0.copyload = load i32, ptr %1353, align 8, !tbaa !16
+  %.sroa.0.0.copyload = load i32, ptr %1353, align 8, !tbaa !17
   %.sroa.5248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1353, i64 8
   %.sroa.5248.0.copyload = load i64, ptr %.sroa.5248.0..sroa_idx, align 8, !tbaa !3
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1353, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1353, i64 24
-  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !27
+  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !28
   %1355 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.20) #10
   switch i32 %.sroa.0.0.copyload, label %1364 [
     i32 -1, label %1356
@@ -3369,7 +3369,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1385:                                             ; preds = %1382, %1377
   %1386 = phi ptr [ %1380, %1377 ], [ %1383, %1382 ]
-  %1387 = load i32, ptr %1386, align 4, !tbaa !16
+  %1387 = load i32, ptr %1386, align 4, !tbaa !17
   switch i32 %1387, label %1403 [
     i32 -1, label %1388
     i32 0, label %1390
@@ -3437,7 +3437,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1417:                                             ; preds = %1414, %1409
   %1418 = phi ptr [ %1412, %1409 ], [ %1415, %1414 ]
-  %1419 = load ptr, ptr %1418, align 8, !tbaa !66
+  %1419 = load ptr, ptr %1418, align 8, !tbaa !67
   %1420 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1419) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -3510,7 +3510,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1458:                                             ; preds = %1455, %1450
   %1459 = phi ptr [ %1453, %1450 ], [ %1456, %1455 ]
-  %1460 = load ptr, ptr %1459, align 8, !tbaa !13
+  %1460 = load ptr, ptr %1459, align 8, !tbaa !14
   %1461 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1460) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4224,7 +4224,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1838:                                             ; preds = %1835, %1830
   %1839 = phi ptr [ %1833, %1830 ], [ %1836, %1835 ]
-  %1840 = load ptr, ptr %1839, align 8, !tbaa !13
+  %1840 = load ptr, ptr %1839, align 8, !tbaa !14
   %1841 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1840) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4249,7 +4249,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1853:                                             ; preds = %1850, %1845
   %1854 = phi ptr [ %1848, %1845 ], [ %1851, %1850 ]
-  %1855 = load ptr, ptr %1854, align 8, !tbaa !13
+  %1855 = load ptr, ptr %1854, align 8, !tbaa !14
   %1856 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1855) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4274,7 +4274,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1868:                                             ; preds = %1865, %1860
   %1869 = phi ptr [ %1863, %1860 ], [ %1866, %1865 ]
-  %1870 = load i32, ptr %1869, align 4, !tbaa !16
+  %1870 = load i32, ptr %1869, align 4, !tbaa !17
   switch i32 %1870, label %1879 [
     i32 -1, label %1871
     i32 0, label %1873
@@ -4324,7 +4324,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1893:                                             ; preds = %1890, %1885
   %1894 = phi ptr [ %1888, %1885 ], [ %1891, %1890 ]
-  %1895 = load ptr, ptr %1894, align 8, !tbaa !13
+  %1895 = load ptr, ptr %1894, align 8, !tbaa !14
   %1896 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1895) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4349,7 +4349,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1908:                                             ; preds = %1905, %1900
   %1909 = phi ptr [ %1903, %1900 ], [ %1906, %1905 ]
-  %1910 = load i32, ptr %1909, align 4, !tbaa !16
+  %1910 = load i32, ptr %1909, align 4, !tbaa !17
   switch i32 %1910, label %1921 [
     i32 -1, label %1911
     i32 0, label %1913
@@ -4404,7 +4404,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1935:                                             ; preds = %1932, %1927
   %1936 = phi ptr [ %1930, %1927 ], [ %1933, %1932 ]
-  %1937 = load ptr, ptr %1936, align 8, !tbaa !13
+  %1937 = load ptr, ptr %1936, align 8, !tbaa !14
   %1938 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1937) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4429,7 +4429,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1950:                                             ; preds = %1947, %1942
   %1951 = phi ptr [ %1945, %1942 ], [ %1948, %1947 ]
-  %1952 = load i32, ptr %1951, align 4, !tbaa !16
+  %1952 = load i32, ptr %1951, align 4, !tbaa !17
   %1953 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.259, i32 noundef %1952) #10
   %1954 = sext i32 %1952 to i64
   %1955 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
@@ -4457,7 +4457,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1967:                                             ; preds = %1964, %1959
   %1968 = phi ptr [ %1962, %1959 ], [ %1965, %1964 ]
-  %1969 = load ptr, ptr %1968, align 8, !tbaa !13
+  %1969 = load ptr, ptr %1968, align 8, !tbaa !14
   %1970 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1969) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4482,7 +4482,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1982:                                             ; preds = %1979, %1974
   %1983 = phi ptr [ %1977, %1974 ], [ %1980, %1979 ]
-  %1984 = load i32, ptr %1983, align 4, !tbaa !16
+  %1984 = load i32, ptr %1983, align 4, !tbaa !17
   switch i32 %1984, label %2023 [
     i32 -2, label %1985
     i32 -1, label %1987
@@ -4607,7 +4607,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2037:                                             ; preds = %2034, %2029
   %2038 = phi ptr [ %2032, %2029 ], [ %2035, %2034 ]
-  %2039 = load i32, ptr %2038, align 4, !tbaa !16
+  %2039 = load i32, ptr %2038, align 4, !tbaa !17
   %2040 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.279, i32 noundef %2039) #10
   %2041 = zext i32 %2039 to i64
   %2042 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
@@ -4641,7 +4641,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2057:                                             ; preds = %2054, %2049
   %2058 = phi ptr [ %2052, %2049 ], [ %2055, %2054 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %2058, i64 16, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %2058, i64 16, i1 false), !tbaa.struct !69
   br label %2059
 
 2059:                                             ; preds = %2057, %2059
@@ -4652,7 +4652,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %2063 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.281, i32 noundef %2062) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1846.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond1846.not, label %2064, label %2059, !llvm.loop !69
+  br i1 %exitcond1846.not, label %2064, label %2059, !llvm.loop !70
 
 2064:                                             ; preds = %2059
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -4689,7 +4689,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2079:                                             ; preds = %2076, %2071
   %2080 = phi ptr [ %2074, %2071 ], [ %2077, %2076 ]
-  %2081 = load ptr, ptr %2080, align 8, !tbaa !13
+  %2081 = load ptr, ptr %2080, align 8, !tbaa !14
   %2082 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2081) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4714,7 +4714,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2094:                                             ; preds = %2091, %2086
   %2095 = phi ptr [ %2089, %2086 ], [ %2092, %2091 ]
-  %2096 = load ptr, ptr %2095, align 8, !tbaa !13
+  %2096 = load ptr, ptr %2095, align 8, !tbaa !14
   %2097 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2096) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4739,7 +4739,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2109:                                             ; preds = %2106, %2101
   %2110 = phi ptr [ %2104, %2101 ], [ %2107, %2106 ]
-  %2111 = load i32, ptr %2110, align 4, !tbaa !16
+  %2111 = load i32, ptr %2110, align 4, !tbaa !17
   switch i32 %2111, label %2122 [
     i32 -1, label %2112
     i32 0, label %2114
@@ -4794,7 +4794,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2136:                                             ; preds = %2133, %2128
   %2137 = phi ptr [ %2131, %2128 ], [ %2134, %2133 ]
-  %2138 = load ptr, ptr %2137, align 8, !tbaa !13
+  %2138 = load ptr, ptr %2137, align 8, !tbaa !14
   %2139 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2138) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4833,7 +4833,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2157:                                             ; preds = %2154, %2149
   %2158 = phi ptr [ %2152, %2149 ], [ %2155, %2154 ]
-  %2159 = load ptr, ptr %2158, align 8, !tbaa !13
+  %2159 = load ptr, ptr %2158, align 8, !tbaa !14
   %2160 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2159) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4858,7 +4858,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2172:                                             ; preds = %2169, %2164
   %2173 = phi ptr [ %2167, %2164 ], [ %2170, %2169 ]
-  %2174 = load ptr, ptr %2173, align 8, !tbaa !13
+  %2174 = load ptr, ptr %2173, align 8, !tbaa !14
   %2175 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2174) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4883,7 +4883,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2187:                                             ; preds = %2184, %2179
   %2188 = phi ptr [ %2182, %2179 ], [ %2185, %2184 ]
-  %2189 = load i32, ptr %2188, align 4, !tbaa !16
+  %2189 = load i32, ptr %2188, align 4, !tbaa !17
   switch i32 %2189, label %2208 [
     i32 -1, label %2190
     i32 0, label %2192
@@ -4993,7 +4993,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2240:                                             ; preds = %2237, %2232
   %2241 = phi ptr [ %2235, %2232 ], [ %2238, %2237 ]
-  %2242 = load ptr, ptr %2241, align 8, !tbaa !13
+  %2242 = load ptr, ptr %2241, align 8, !tbaa !14
   %2243 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2242) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5018,7 +5018,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2255:                                             ; preds = %2252, %2247
   %2256 = phi ptr [ %2250, %2247 ], [ %2253, %2252 ]
-  %2257 = load ptr, ptr %2256, align 8, !tbaa !13
+  %2257 = load ptr, ptr %2256, align 8, !tbaa !14
   %2258 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2257) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5043,7 +5043,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2270:                                             ; preds = %2267, %2262
   %2271 = phi ptr [ %2265, %2262 ], [ %2268, %2267 ]
-  %2272 = load ptr, ptr %2271, align 8, !tbaa !13
+  %2272 = load ptr, ptr %2271, align 8, !tbaa !14
   %2273 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2272) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5068,7 +5068,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2285:                                             ; preds = %2282, %2277
   %2286 = phi ptr [ %2280, %2277 ], [ %2283, %2282 ]
-  %2287 = load i32, ptr %2286, align 4, !tbaa !16
+  %2287 = load i32, ptr %2286, align 4, !tbaa !17
   switch i32 %2287, label %2300 [
     i32 -1, label %2288
     i32 0, label %2290
@@ -5190,7 +5190,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2342:                                             ; preds = %2339, %2334
   %2343 = phi ptr [ %2337, %2334 ], [ %2340, %2339 ]
-  %2344 = load ptr, ptr %2343, align 8, !tbaa !13
+  %2344 = load ptr, ptr %2343, align 8, !tbaa !14
   %2345 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2344) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5215,7 +5215,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2357:                                             ; preds = %2354, %2349
   %2358 = phi ptr [ %2352, %2349 ], [ %2355, %2354 ]
-  %2359 = load ptr, ptr %2358, align 8, !tbaa !13
+  %2359 = load ptr, ptr %2358, align 8, !tbaa !14
   %2360 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2359) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5240,7 +5240,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2372:                                             ; preds = %2369, %2364
   %2373 = phi ptr [ %2367, %2364 ], [ %2370, %2369 ]
-  %2374 = load ptr, ptr %2373, align 8, !tbaa !13
+  %2374 = load ptr, ptr %2373, align 8, !tbaa !14
   %2375 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2374) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5265,7 +5265,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2387:                                             ; preds = %2384, %2379
   %2388 = phi ptr [ %2382, %2379 ], [ %2385, %2384 ]
-  %2389 = load ptr, ptr %2388, align 8, !tbaa !13
+  %2389 = load ptr, ptr %2388, align 8, !tbaa !14
   %2390 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2389) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5290,7 +5290,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2402:                                             ; preds = %2399, %2394
   %2403 = phi ptr [ %2397, %2394 ], [ %2400, %2399 ]
-  %2404 = load ptr, ptr %2403, align 8, !tbaa !13
+  %2404 = load ptr, ptr %2403, align 8, !tbaa !14
   %2405 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2404) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5315,7 +5315,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2417:                                             ; preds = %2414, %2409
   %2418 = phi ptr [ %2412, %2409 ], [ %2415, %2414 ]
-  %2419 = load ptr, ptr %2418, align 8, !tbaa !13
+  %2419 = load ptr, ptr %2418, align 8, !tbaa !14
   %2420 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2419) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5340,7 +5340,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2432:                                             ; preds = %2429, %2424
   %2433 = phi ptr [ %2427, %2424 ], [ %2430, %2429 ]
-  %2434 = load ptr, ptr %2433, align 8, !tbaa !13
+  %2434 = load ptr, ptr %2433, align 8, !tbaa !14
   %2435 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2434) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5365,7 +5365,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2447:                                             ; preds = %2444, %2439
   %2448 = phi ptr [ %2442, %2439 ], [ %2445, %2444 ]
-  %2449 = load ptr, ptr %2448, align 8, !tbaa !13
+  %2449 = load ptr, ptr %2448, align 8, !tbaa !14
   %2450 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2449) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5390,7 +5390,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2462:                                             ; preds = %2459, %2454
   %2463 = phi ptr [ %2457, %2454 ], [ %2460, %2459 ]
-  %2464 = load ptr, ptr %2463, align 8, !tbaa !13
+  %2464 = load ptr, ptr %2463, align 8, !tbaa !14
   %2465 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2464) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5415,7 +5415,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2477:                                             ; preds = %2474, %2469
   %2478 = phi ptr [ %2472, %2469 ], [ %2475, %2474 ]
-  %2479 = load ptr, ptr %2478, align 8, !tbaa !13
+  %2479 = load ptr, ptr %2478, align 8, !tbaa !14
   %2480 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2479) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5440,7 +5440,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2492:                                             ; preds = %2489, %2484
   %2493 = phi ptr [ %2487, %2484 ], [ %2490, %2489 ]
-  %2494 = load ptr, ptr %2493, align 8, !tbaa !13
+  %2494 = load ptr, ptr %2493, align 8, !tbaa !14
   %2495 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2494) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5513,7 +5513,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2532:                                             ; preds = %2529, %2524
   %2533 = phi ptr [ %2527, %2524 ], [ %2530, %2529 ]
-  %2534 = load i32, ptr %2533, align 4, !tbaa !16
+  %2534 = load i32, ptr %2533, align 4, !tbaa !17
   switch i32 %2534, label %2549 [
     i32 -1, label %2535
     i32 0, label %2537
@@ -5592,7 +5592,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2569:                                             ; preds = %2566, %2561
   %2570 = phi ptr [ %2564, %2561 ], [ %2567, %2566 ]
-  %2571 = load i32, ptr %2570, align 4, !tbaa !16
+  %2571 = load i32, ptr %2570, align 4, !tbaa !17
   switch i32 %2571, label %2580 [
     i32 -1, label %2572
     i32 0, label %2574
@@ -5642,7 +5642,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2594:                                             ; preds = %2591, %2586
   %2595 = phi ptr [ %2589, %2586 ], [ %2592, %2591 ]
-  %2596 = load i32, ptr %2595, align 4, !tbaa !16
+  %2596 = load i32, ptr %2595, align 4, !tbaa !17
   switch i32 %2596, label %2617 [
     i32 -1, label %2597
     i32 0, label %2599
@@ -5722,7 +5722,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2631:                                             ; preds = %2628, %2623
   %2632 = phi ptr [ %2626, %2623 ], [ %2629, %2628 ]
-  %2633 = load i32, ptr %2632, align 4, !tbaa !16
+  %2633 = load i32, ptr %2632, align 4, !tbaa !17
   switch i32 %2633, label %2646 [
     i32 -1, label %2634
     i32 0, label %2636
@@ -5787,7 +5787,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2663:                                             ; preds = %2660, %2655
   %2664 = phi ptr [ %2658, %2655 ], [ %2661, %2660 ]
-  %2665 = load i32, ptr %2664, align 4, !tbaa !16
+  %2665 = load i32, ptr %2664, align 4, !tbaa !17
   %2666 = icmp sgt i32 %2665, 0
   br i1 %2666, label %2667, label %2669
 
@@ -5845,7 +5845,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2688:                                             ; preds = %2685, %2680
   %2689 = phi ptr [ %2683, %2680 ], [ %2686, %2685 ]
-  %2690 = load i32, ptr %2689, align 4, !tbaa !16
+  %2690 = load i32, ptr %2689, align 4, !tbaa !17
   call fastcc void @H5_trace_args_cset(ptr noundef %0, i32 noundef %2690)
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5870,7 +5870,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2702:                                             ; preds = %2699, %2694
   %2703 = phi ptr [ %2697, %2694 ], [ %2700, %2699 ]
-  %2704 = load ptr, ptr %2703, align 8, !tbaa !13
+  %2704 = load ptr, ptr %2703, align 8, !tbaa !14
   %2705 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2704) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -5895,7 +5895,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2717:                                             ; preds = %2714, %2709
   %2718 = phi ptr [ %2712, %2709 ], [ %2715, %2714 ]
-  %2719 = load i32, ptr %2718, align 4, !tbaa !16
+  %2719 = load i32, ptr %2718, align 4, !tbaa !17
   switch i32 %2719, label %2726 [
     i32 0, label %2720
     i32 1, label %2722
@@ -5940,7 +5940,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2740:                                             ; preds = %2737, %2732
   %2741 = phi ptr [ %2735, %2732 ], [ %2738, %2737 ]
-  %2742 = load i32, ptr %2741, align 4, !tbaa !16
+  %2742 = load i32, ptr %2741, align 4, !tbaa !17
   switch i32 %2742, label %2749 [
     i32 -1, label %2743
     i32 1, label %2745
@@ -5985,7 +5985,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2763:                                             ; preds = %2760, %2755
   %2764 = phi ptr [ %2758, %2755 ], [ %2761, %2760 ]
-  %2765 = load ptr, ptr %2764, align 8, !tbaa !13
+  %2765 = load ptr, ptr %2764, align 8, !tbaa !14
   %2766 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2765) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -6010,7 +6010,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2778:                                             ; preds = %2775, %2770
   %2779 = phi ptr [ %2773, %2770 ], [ %2776, %2775 ]
-  %2780 = load i32, ptr %2779, align 4, !tbaa !16
+  %2780 = load i32, ptr %2779, align 4, !tbaa !17
   switch i32 %2780, label %2789 [
     i32 -1, label %2781
     i32 0, label %2783
@@ -6060,7 +6060,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2803:                                             ; preds = %2800, %2795
   %2804 = phi ptr [ %2798, %2795 ], [ %2801, %2800 ]
-  %2805 = load i32, ptr %2804, align 4, !tbaa !16
+  %2805 = load i32, ptr %2804, align 4, !tbaa !17
   switch i32 %2805, label %2818 [
     i32 -1, label %2806
     i32 0, label %2808
@@ -6120,7 +6120,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2832:                                             ; preds = %2829, %2824
   %2833 = phi ptr [ %2827, %2824 ], [ %2830, %2829 ]
-  %2834 = load i32, ptr %2833, align 4, !tbaa !16
+  %2834 = load i32, ptr %2833, align 4, !tbaa !17
   switch i32 %2834, label %2845 [
     i32 -1, label %2835
     i32 0, label %2837
@@ -6175,7 +6175,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2859:                                             ; preds = %2856, %2851
   %2860 = phi ptr [ %2854, %2851 ], [ %2857, %2856 ]
-  %2861 = load i32, ptr %2860, align 4, !tbaa !16
+  %2861 = load i32, ptr %2860, align 4, !tbaa !17
   switch i32 %2861, label %2870 [
     i32 -1, label %2862
     i32 0, label %2864
@@ -6225,7 +6225,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2884:                                             ; preds = %2881, %2876
   %2885 = phi ptr [ %2879, %2876 ], [ %2882, %2881 ]
-  %2886 = load i32, ptr %2885, align 4, !tbaa !16
+  %2886 = load i32, ptr %2885, align 4, !tbaa !17
   switch i32 %2886, label %2915 [
     i32 -1, label %2887
     i32 0, label %2889
@@ -6325,7 +6325,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2929:                                             ; preds = %2926, %2921
   %2930 = phi ptr [ %2924, %2921 ], [ %2927, %2926 ]
-  %2931 = load i32, ptr %2930, align 4, !tbaa !16
+  %2931 = load i32, ptr %2930, align 4, !tbaa !17
   switch i32 %2931, label %2943 [
     i32 -1, label %2932
     i32 0, label %2934
@@ -6433,7 +6433,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2979:                                             ; preds = %2976, %2971
   %2980 = phi ptr [ %2974, %2971 ], [ %2977, %2976 ]
-  %2981 = load i64, ptr %2980, align 8, !tbaa !21
+  %2981 = load i64, ptr %2980, align 8, !tbaa !22
   %2982 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.376, i64 noundef %2981) #10
   %2983 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
   store i64 %2981, ptr %2983, align 8, !tbaa !3
@@ -6501,7 +6501,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3001:                                             ; preds = %2998, %2993
   %3002 = phi ptr [ %2996, %2993 ], [ %2999, %2998 ]
-  %3003 = load i32, ptr %3002, align 4, !tbaa !16
+  %3003 = load i32, ptr %3002, align 4, !tbaa !17
   switch i32 %3003, label %3016 [
     i32 3, label %3004
     i32 5, label %3006
@@ -6561,7 +6561,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3030:                                             ; preds = %3027, %3022
   %3031 = phi ptr [ %3025, %3022 ], [ %3028, %3027 ]
-  %3032 = load i32, ptr %3031, align 4, !tbaa !16
+  %3032 = load i32, ptr %3031, align 4, !tbaa !17
   %3033 = sext i32 %3032 to i64
   %3034 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %3033) #10
   br label %H5_trace_args_close_degree.exit1640
@@ -6587,7 +6587,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3046:                                             ; preds = %3043, %3038
   %3047 = phi ptr [ %3041, %3038 ], [ %3044, %3043 ]
-  %3048 = load i32, ptr %3047, align 4, !tbaa !16
+  %3048 = load i32, ptr %3047, align 4, !tbaa !17
   switch i32 %3048, label %3059 [
     i32 0, label %3049
     i32 1, label %3051
@@ -6642,7 +6642,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3073:                                             ; preds = %3070, %3065
   %3074 = phi ptr [ %3068, %3065 ], [ %3071, %3070 ]
-  %3075 = load i32, ptr %3074, align 4, !tbaa !16
+  %3075 = load i32, ptr %3074, align 4, !tbaa !17
   switch i32 %3075, label %3082 [
     i32 0, label %3076
     i32 1, label %3078
@@ -6687,7 +6687,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3096:                                             ; preds = %3093, %3088
   %3097 = phi ptr [ %3091, %3088 ], [ %3094, %3093 ]
-  %3098 = load i32, ptr %3097, align 4, !tbaa !16
+  %3098 = load i32, ptr %3097, align 4, !tbaa !17
   switch i32 %3098, label %3111 [
     i32 2, label %3099
     i32 3, label %3101
@@ -6747,7 +6747,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3125:                                             ; preds = %3122, %3117
   %3126 = phi ptr [ %3120, %3117 ], [ %3123, %3122 ]
-  %3127 = load i32, ptr %3126, align 4, !tbaa !16
+  %3127 = load i32, ptr %3126, align 4, !tbaa !17
   %3128 = icmp eq i32 %3127, 0
   br i1 %3128, label %3129, label %3131
 
@@ -6781,7 +6781,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3145:                                             ; preds = %3142, %3137
   %3146 = phi ptr [ %3140, %3137 ], [ %3143, %3142 ]
-  %3147 = load i32, ptr %3146, align 4, !tbaa !16
+  %3147 = load i32, ptr %3146, align 4, !tbaa !17
   switch i32 %3147, label %3154 [
     i32 0, label %3148
     i32 1, label %3150
@@ -6826,7 +6826,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3168:                                             ; preds = %3165, %3160
   %3169 = phi ptr [ %3163, %3160 ], [ %3166, %3165 ]
-  %3170 = load i32, ptr %3169, align 4, !tbaa !16
+  %3170 = load i32, ptr %3169, align 4, !tbaa !17
   switch i32 %3170, label %3177 [
     i32 0, label %3171
     i32 1, label %3173
@@ -6871,7 +6871,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3191:                                             ; preds = %3188, %3183
   %3192 = phi ptr [ %3186, %3183 ], [ %3189, %3188 ]
-  %3193 = load i32, ptr %3192, align 4, !tbaa !16
+  %3193 = load i32, ptr %3192, align 4, !tbaa !17
   switch i32 %3193, label %3198 [
     i32 0, label %3194
     i32 1, label %3196
@@ -6911,7 +6911,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3212:                                             ; preds = %3209, %3204
   %3213 = phi ptr [ %3207, %3204 ], [ %3210, %3209 ]
-  %3214 = load i32, ptr %3213, align 4, !tbaa !16
+  %3214 = load i32, ptr %3213, align 4, !tbaa !17
   switch i32 %3214, label %3231 [
     i32 0, label %3215
     i32 1, label %3217
@@ -6981,7 +6981,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3245:                                             ; preds = %3242, %3237
   %3246 = phi ptr [ %3240, %3237 ], [ %3243, %3242 ]
-  %3247 = load i32, ptr %3246, align 4, !tbaa !16
+  %3247 = load i32, ptr %3246, align 4, !tbaa !17
   switch i32 %3247, label %3258 [
     i32 0, label %3248
     i32 1, label %3250
@@ -7036,7 +7036,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3272:                                             ; preds = %3269, %3264
   %3273 = phi ptr [ %3267, %3264 ], [ %3270, %3269 ]
-  %3274 = load i32, ptr %3273, align 4, !tbaa !16
+  %3274 = load i32, ptr %3273, align 4, !tbaa !17
   switch i32 %3274, label %3279 [
     i32 0, label %3275
     i32 1, label %3277
@@ -7076,7 +7076,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3293:                                             ; preds = %3290, %3285
   %3294 = phi ptr [ %3288, %3285 ], [ %3291, %3290 ]
-  %3295 = load i32, ptr %3294, align 4, !tbaa !16
+  %3295 = load i32, ptr %3294, align 4, !tbaa !17
   switch i32 %3295, label %3304 [
     i32 0, label %3296
     i32 1, label %3298
@@ -7126,7 +7126,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3318:                                             ; preds = %3315, %3310
   %3319 = phi ptr [ %3313, %3310 ], [ %3316, %3315 ]
-  %3320 = load i32, ptr %3319, align 4, !tbaa !16
+  %3320 = load i32, ptr %3319, align 4, !tbaa !17
   switch i32 %3320, label %3327 [
     i32 0, label %3321
     i32 1, label %3323
@@ -7171,7 +7171,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3341:                                             ; preds = %3338, %3333
   %3342 = phi ptr [ %3336, %3333 ], [ %3339, %3338 ]
-  %3343 = load i32, ptr %3342, align 4, !tbaa !16
+  %3343 = load i32, ptr %3342, align 4, !tbaa !17
   switch i32 %3343, label %3350 [
     i32 0, label %3344
     i32 1, label %3346
@@ -7216,7 +7216,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3364:                                             ; preds = %3361, %3356
   %3365 = phi ptr [ %3359, %3356 ], [ %3362, %3361 ]
-  %3366 = load i32, ptr %3365, align 4, !tbaa !16
+  %3366 = load i32, ptr %3365, align 4, !tbaa !17
   switch i32 %3366, label %3371 [
     i32 0, label %3367
     i32 1, label %3369
@@ -7256,7 +7256,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3385:                                             ; preds = %3382, %3377
   %3386 = phi ptr [ %3380, %3377 ], [ %3383, %3382 ]
-  %3387 = load i32, ptr %3386, align 4, !tbaa !16
+  %3387 = load i32, ptr %3386, align 4, !tbaa !17
   switch i32 %3387, label %3394 [
     i32 0, label %3388
     i32 1, label %3390
@@ -7301,7 +7301,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3408:                                             ; preds = %3405, %3400
   %3409 = phi ptr [ %3403, %3400 ], [ %3406, %3405 ]
-  %3410 = load i32, ptr %3409, align 4, !tbaa !16
+  %3410 = load i32, ptr %3409, align 4, !tbaa !17
   switch i32 %3410, label %3419 [
     i32 0, label %3411
     i32 1, label %3413
@@ -7351,7 +7351,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3433:                                             ; preds = %3430, %3425
   %3434 = phi ptr [ %3428, %3425 ], [ %3431, %3430 ]
-  %3435 = load ptr, ptr %3434, align 8, !tbaa !13
+  %3435 = load ptr, ptr %3434, align 8, !tbaa !14
   %3436 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %3435) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -7376,7 +7376,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3448:                                             ; preds = %3445, %3440
   %3449 = phi ptr [ %3443, %3440 ], [ %3446, %3445 ]
-  %3450 = load i32, ptr %3449, align 4, !tbaa !16
+  %3450 = load i32, ptr %3449, align 4, !tbaa !17
   switch i32 %3450, label %3463 [
     i32 0, label %3451
     i32 1, label %3453
@@ -7436,7 +7436,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3477:                                             ; preds = %3474, %3469
   %3478 = phi ptr [ %3472, %3469 ], [ %3475, %3474 ]
-  %3479 = load i32, ptr %3478, align 4, !tbaa !16
+  %3479 = load i32, ptr %3478, align 4, !tbaa !17
   switch i32 %3479, label %3484 [
     i32 0, label %3480
     i32 1, label %3482
@@ -7476,7 +7476,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3498:                                             ; preds = %3495, %3490
   %3499 = phi ptr [ %3493, %3490 ], [ %3496, %3495 ]
-  %3500 = load i32, ptr %3499, align 4, !tbaa !16
+  %3500 = load i32, ptr %3499, align 4, !tbaa !17
   %cond = icmp eq i32 %3500, 0
   br i1 %cond, label %3501, label %3503
 
@@ -7510,7 +7510,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3517:                                             ; preds = %3514, %3509
   %3518 = phi ptr [ %3512, %3509 ], [ %3515, %3514 ]
-  %3519 = load i32, ptr %3518, align 4, !tbaa !16
+  %3519 = load i32, ptr %3518, align 4, !tbaa !17
   switch i32 %3519, label %3546 [
     i32 0, label %3520
     i32 1, label %3522
@@ -7605,7 +7605,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3560:                                             ; preds = %3557, %3552
   %3561 = phi ptr [ %3555, %3552 ], [ %3558, %3557 ]
-  %3562 = load i32, ptr %3561, align 4, !tbaa !16
+  %3562 = load i32, ptr %3561, align 4, !tbaa !17
   switch i32 %3562, label %3583 [
     i32 0, label %3563
     i32 1, label %3565
@@ -7685,7 +7685,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3597:                                             ; preds = %3594, %3589
   %3598 = phi ptr [ %3592, %3589 ], [ %3595, %3594 ]
-  %3599 = load i32, ptr %3598, align 4, !tbaa !16
+  %3599 = load i32, ptr %3598, align 4, !tbaa !17
   %3600 = sext i32 %3599 to i64
   %3601 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %3600) #10
   br label %H5_trace_args_close_degree.exit1640
@@ -7711,7 +7711,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3613:                                             ; preds = %3610, %3605
   %3614 = phi ptr [ %3608, %3605 ], [ %3611, %3610 ]
-  %3615 = load i32, ptr %3614, align 4, !tbaa !16
+  %3615 = load i32, ptr %3614, align 4, !tbaa !17
   switch i32 %3615, label %3670 [
     i32 0, label %3616
     i32 1, label %3618
@@ -7876,7 +7876,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3684:                                             ; preds = %3681, %3676
   %3685 = phi ptr [ %3679, %3676 ], [ %3682, %3681 ]
-  %3686 = load i32, ptr %3685, align 4, !tbaa !16
+  %3686 = load i32, ptr %3685, align 4, !tbaa !17
   switch i32 %3686, label %3691 [
     i32 0, label %3687
     i32 1, label %3689
@@ -7916,7 +7916,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3705:                                             ; preds = %3702, %3697
   %3706 = phi ptr [ %3700, %3697 ], [ %3703, %3702 ]
-  %3707 = load i32, ptr %3706, align 4, !tbaa !16
+  %3707 = load i32, ptr %3706, align 4, !tbaa !17
   %3708 = sext i32 %3707 to i64
   %3709 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %3708) #10
   br label %H5_trace_args_close_degree.exit1640
@@ -7942,7 +7942,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3721:                                             ; preds = %3718, %3713
   %3722 = phi ptr [ %3716, %3713 ], [ %3719, %3718 ]
-  %3723 = load i32, ptr %3722, align 4, !tbaa !16
+  %3723 = load i32, ptr %3722, align 4, !tbaa !17
   switch i32 %3723, label %3736 [
     i32 0, label %3724
     i32 1, label %3726
@@ -8002,7 +8002,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3750:                                             ; preds = %3747, %3742
   %3751 = phi ptr [ %3745, %3742 ], [ %3748, %3747 ]
-  %3752 = load i32, ptr %3751, align 4, !tbaa !16
+  %3752 = load i32, ptr %3751, align 4, !tbaa !17
   %3753 = sext i32 %3752 to i64
   %3754 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %3753) #10
   br label %H5_trace_args_close_degree.exit1640
@@ -8033,7 +8033,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3769:                                             ; preds = %3766, %3761
   %3770 = phi ptr [ %3764, %3761 ], [ %3767, %3766 ]
-  %3771 = load ptr, ptr %3770, align 8, !tbaa !13
+  %3771 = load ptr, ptr %3770, align 8, !tbaa !14
   %.not1601 = icmp eq ptr %3771, null
   br i1 %.not1601, label %3774, label %3772
 
@@ -8105,7 +8105,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3806:                                             ; preds = %3803, %3798
   %3807 = phi ptr [ %3801, %3798 ], [ %3804, %3803 ]
-  %3808 = load i32, ptr %3807, align 4, !tbaa !16
+  %3808 = load i32, ptr %3807, align 4, !tbaa !17
   switch i32 %3808, label %3815 [
     i32 0, label %3809
     i32 1, label %3811
@@ -8150,7 +8150,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3829:                                             ; preds = %3826, %3821
   %3830 = phi ptr [ %3824, %3821 ], [ %3827, %3826 ]
-  %3831 = load ptr, ptr %3830, align 8, !tbaa !70
+  %3831 = load ptr, ptr %3830, align 8, !tbaa !71
   %3832 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %3831) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -8175,7 +8175,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3844:                                             ; preds = %3841, %3836
   %3845 = phi ptr [ %3839, %3836 ], [ %3842, %3841 ]
-  %3846 = load i32, ptr %3845, align 4, !tbaa !16
+  %3846 = load i32, ptr %3845, align 4, !tbaa !17
   switch i32 %3846, label %3851 [
     i32 0, label %3847
     i32 1, label %3849
@@ -8215,7 +8215,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3865:                                             ; preds = %3862, %3857
   %3866 = phi ptr [ %3860, %3857 ], [ %3863, %3862 ]
-  %3867 = load i32, ptr %3866, align 4, !tbaa !16
+  %3867 = load i32, ptr %3866, align 4, !tbaa !17
   switch i32 %3867, label %3882 [
     i32 0, label %3868
     i32 1, label %3870
@@ -8280,7 +8280,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 3896:                                             ; preds = %3893, %3888
   %3897 = phi ptr [ %3891, %3888 ], [ %3894, %3893 ]
-  %3898 = load ptr, ptr %3897, align 8, !tbaa !13
+  %3898 = load ptr, ptr %3897, align 8, !tbaa !14
   %3899 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %3898) #10
   br label %H5_trace_args_close_degree.exit1640
 
@@ -8327,10 +8327,10 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 3923:                                             ; preds = %263
   %3924 = sext i8 %264 to i32
   %3925 = tail call ptr @__ctype_b_loc() #12
-  %3926 = load ptr, ptr %3925, align 8, !tbaa !72
+  %3926 = load ptr, ptr %3925, align 8, !tbaa !73
   %3927 = sext i8 %264 to i64
   %3928 = getelementptr inbounds i16, ptr %3926, i64 %3927
-  %3929 = load i16, ptr %3928, align 2, !tbaa !74
+  %3929 = load i16, ptr %3928, align 2, !tbaa !75
   %3930 = and i16 %3929, 256
   %.not1613 = icmp eq i16 %3930, 0
   br i1 %.not1613, label %3936, label %3931
@@ -8349,18 +8349,18 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 H5_trace_args_close_degree.exit1640:              ; preds = %240, %170, %131, %112, %1172, %1170, %1168, %1166, %1164, %.thread, %3868, %3872, %3876, %3880, %3882, %3878, %3874, %3870, %3847, %3851, %3849, %3809, %3811, %3813, %3815, %3724, %3726, %3728, %3730, %3732, %3734, %3736, %3687, %3689, %3691, %3616, %3618, %3620, %3622, %3624, %3626, %3628, %3630, %3632, %3634, %3636, %3638, %3640, %3642, %3644, %3646, %3648, %3650, %3652, %3654, %3656, %3658, %3660, %3662, %3664, %3666, %3668, %3670, %3563, %3565, %3567, %3569, %3571, %3573, %3575, %3577, %3579, %3581, %3583, %3520, %3522, %3524, %3526, %3528, %3530, %3532, %3534, %3536, %3538, %3540, %3542, %3544, %3546, %3501, %3503, %3480, %3482, %3484, %3451, %3453, %3455, %3457, %3459, %3461, %3463, %3411, %3413, %3415, %3417, %3419, %3388, %3390, %3392, %3394, %3367, %3369, %3371, %3344, %3346, %3348, %3350, %3321, %3323, %3325, %3327, %3296, %3298, %3300, %3302, %3304, %3275, %3277, %3279, %3248, %3250, %3252, %3254, %3256, %3258, %3215, %3217, %3219, %3221, %3223, %3225, %3227, %3229, %3231, %3194, %3196, %3198, %3171, %3173, %3175, %3177, %3148, %3150, %3152, %3154, %3129, %3131, %3099, %3101, %3103, %3105, %3107, %3109, %3111, %3076, %3078, %3080, %3082, %3049, %3051, %3053, %3055, %3057, %3059, %3004, %3006, %3008, %3010, %3012, %3014, %3016, %2932, %2934, %2936, %2938, %2940, %2943, %2887, %2889, %2891, %2893, %2895, %2897, %2899, %2901, %2903, %2905, %2907, %2909, %2911, %2913, %2915, %2862, %2864, %2866, %2868, %2870, %2835, %2837, %2839, %2841, %2843, %2845, %2806, %2808, %2810, %2812, %2814, %2816, %2818, %2781, %2783, %2785, %2787, %2789, %2743, %2745, %2747, %2749, %2720, %2722, %2724, %2726, %2667, %2672, %2670, %2634, %2636, %2638, %2640, %2642, %2644, %2646, %2597, %2599, %2601, %2603, %2605, %2607, %2609, %2611, %2613, %2615, %2617, %2572, %2574, %2576, %2578, %2580, %2535, %2537, %2539, %2541, %2543, %2545, %2547, %2549, %2323, %2326, %2288, %2290, %2292, %2294, %2296, %2298, %2300, %2190, %2192, %2194, %2196, %2198, %2200, %2202, %2204, %2206, %2208, %2112, %2114, %2116, %2118, %2120, %2122, %1985, %1987, %1989, %1991, %1993, %1995, %1997, %1999, %2001, %2003, %2005, %2007, %2009, %2011, %2013, %2015, %2017, %2019, %2021, %2023, %1911, %1913, %1915, %1917, %1919, %1921, %1871, %1873, %1875, %1877, %1879, %1496, %1505, %1507, %1796, %1798, %1800, %1802, %1804, %1806, %1808, %1810, %1812, %1814, %1816, %1818, %1820, %1822, %1517, %1527, %1537, %1547, %1557, %1567, %1577, %1587, %1597, %1607, %1617, %1627, %1637, %1647, %1657, %1667, %1677, %1687, %1697, %1707, %1717, %1727, %1737, %1747, %1757, %1767, %1777, %1784, %1782, %1772, %1762, %1752, %1742, %1732, %1722, %1712, %1702, %1692, %1682, %1672, %1662, %1652, %1642, %1632, %1622, %1612, %1602, %1592, %1582, %1572, %1562, %1552, %1542, %1532, %1522, %1512, %1500, %1789, %1792, %1786, %1439, %1441, %1388, %1390, %1392, %1394, %1396, %1398, %1400, %1403, %1316, %1318, %1320, %1322, %1324, %1326, %1328, %1289, %1291, %1293, %1295, %1297, %1299, %1268, %1270, %1272, %1235, %1237, %1239, %1241, %1243, %1245, %1247, %1249, %1251, %1189, %1191, %1193, %1195, %1197, %1121, %1123, %1125, %1096, %1098, %1100, %1102, %1104, %1045, %1047, %1049, %979, %981, %942, %944, %946, %948, %950, %952, %954, %956, %958, %919, %921, %923, %925, %898, %900, %902, %858, %860, %862, %864, %866, %820, %822, %824, %826, %803, %804, %742, %744, %746, %748, %750, %752, %754, %711, %713, %715, %717, %719, %721, %723, %725, %674, %676, %678, %680, %682, %684, %651, %653, %655, %657, %611, %613, %615, %617, %619, %586, %588, %590, %592, %594, %563, %565, %567, %569, %542, %544, %546, %500, %502, %504, %506, %508, %510, %279, %281, %259, %._crit_edge1759, %94, %91, %118, %._crit_edge1755, %._crit_edge1747, %152, %150, %135, %137, %._crit_edge1751, %168, %166, %._crit_edge1739, %191, %189, %174, %176, %._crit_edge1743, %._crit_edge1735, %207, %204, %._crit_edge1731, %227, %224, %246, %._crit_edge, %261, %3829, %3896, %3911, %3772, %3774, %3030, %3433, %3597, %3705, %3750, %2963, %2979, %2688, %2702, %2763, %2515, %2342, %2357, %2372, %2387, %2402, %2417, %2432, %2447, %2462, %2477, %2492, %2240, %2255, %2270, %2157, %2172, %2079, %2094, %2136, %1838, %1853, %1893, %1935, %1950, %1967, %2037, %1458, %1473, %1348, %1367, %1417, %H5_trace_args_close_degree.exit, %1211, %1215, %997, %1012, %1027, %1063, %1078, %524, %633, %687, %840, %880, %423, %455, %286, %305, %320, %3921, %3919, %3787, %2222, %2064, %479, %338
   %indvars.iv.next1848 = add nuw nsw i64 %indvars.iv1847, 1
   %3938 = tail call ptr @__ctype_b_loc() #12
-  %3939 = load ptr, ptr %3938, align 8, !tbaa !72
+  %3939 = load ptr, ptr %3938, align 8, !tbaa !73
   %3940 = load i8, ptr %.3, align 1, !tbaa !7
   %3941 = sext i8 %3940 to i64
   %3942 = getelementptr inbounds i16, ptr %3939, i64 %3941
-  %3943 = load i16, ptr %3942, align 2, !tbaa !74
+  %3943 = load i16, ptr %3942, align 2, !tbaa !75
   %3944 = and i16 %3943, 256
   %.not1628 = icmp eq i16 %3944, 0
   %3945 = select i1 %.not1628, i64 1, i64 2
   %3946 = getelementptr inbounds nuw i8, ptr %.3, i64 %3945
   %3947 = load i8, ptr %3946, align 1, !tbaa !7
   %.not = icmp eq i8 %3947, 0
-  br i1 %.not, label %.loopexit1645, label %.preheader, !llvm.loop !76
+  br i1 %.not, label %.loopexit1645, label %.preheader, !llvm.loop !77
 
 .loopexit1645:                                    ; preds = %H5_trace_args_close_degree.exit1640, %2143, %.preheader1644, %324, %465, %961, %1128, %1331, %1421, %1478, %2043, %2140, %2303, %2496, %2502, %2519, %2552, %2649, %2946, %2984, %3755, %3916, %3936, %3931
   %.0 = phi i32 [ -1, %3931 ], [ -1, %3936 ], [ -1, %3916 ], [ -1, %3755 ], [ -1, %2984 ], [ -1, %2946 ], [ -1, %2649 ], [ -1, %2552 ], [ -1, %2519 ], [ -1, %2502 ], [ -1, %2496 ], [ -1, %2303 ], [ -1, %2140 ], [ -1, %2043 ], [ -1, %1478 ], [ -1, %1421 ], [ -1, %1331 ], [ -1, %1128 ], [ -1, %961 ], [ -1, %465 ], [ -1, %324 ], [ 0, %.preheader1644 ], [ 0, %H5_trace_args_close_degree.exit1640 ], [ -1, %2143 ]
@@ -8456,7 +8456,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %7 = alloca %struct.H5_timevals_t, align 8
   %8 = alloca [320 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  %9 = load ptr, ptr @H5_debug_g, align 8, !tbaa !77
+  %9 = load ptr, ptr @H5_debug_g, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
@@ -8466,7 +8466,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %129, label %10
 
 10:                                               ; preds = %3
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !82, !range !36, !noundef !37
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %15
 
@@ -8475,13 +8475,13 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 8), align 8, !tbaa !82, !range !35, !noundef !36
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 8), align 8, !tbaa !83, !range !36, !noundef !37
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %15
   %.not37 = icmp eq ptr %0, null
-  %19 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %19 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   br i1 %.not37, label %24, label %20
 
 20:                                               ; preds = %18
@@ -8490,7 +8490,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %19, -1
-  store i32 %23, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  store i32 %23, ptr @H5_trace.current_depth, align 4, !tbaa !17
   br label %129
 
 24:                                               ; preds = %18
@@ -8499,13 +8499,13 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
 
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %19, 1
-  store i32 %27, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  store i32 %27, ptr @H5_trace.current_depth, align 4, !tbaa !17
   br label %129
 
 28:                                               ; preds = %20, %24, %15
   %.b = load i1, ptr @H5_trace.is_first_invocation, align 1
   %not..b = xor i1 %.b, true
-  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !35
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !36
   %30 = trunc nuw i8 %29 to i1
   %or.cond = select i1 %not..b, i1 %30, i1 false
   br i1 %or.cond, label %31, label %34
@@ -8514,7 +8514,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   store i1 true, ptr @H5_trace.is_first_invocation, align 1
   %32 = call i32 @H5_timer_init(ptr noundef nonnull @H5_trace.running_timer) #10
   %33 = call i32 @H5_timer_start(ptr noundef nonnull @H5_trace.running_timer) #10
-  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !82, !range !36
   br label %34
 
 34:                                               ; preds = %31, %28
@@ -8529,18 +8529,18 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
 39:                                               ; preds = %37, %34
   %40 = call ptr @H5RS_create(ptr noundef null) #10
   %41 = icmp ne ptr %0, null
-  %42 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %42 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   br i1 %41, label %43, label %73
 
 43:                                               ; preds = %39
   %44 = add nsw i32 %42, -1
-  store i32 %44, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %45 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  store i32 %44, ptr @H5_trace.current_depth, align 4, !tbaa !17
+  %45 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !17
   %.not38 = icmp sgt i32 %42, %45
   br i1 %.not38, label %71, label %46
 
 46:                                               ; preds = %43
-  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !82, !range !36, !noundef !37
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %61
 
@@ -8549,16 +8549,16 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %50 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
   %51 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %53 = load double, ptr %52, align 8, !tbaa !83
+  %53 = load double, ptr %52, align 8, !tbaa !84
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %55 = load double, ptr %54, align 8, !tbaa !83
+  %55 = load double, ptr %54, align 8, !tbaa !84
   %56 = fsub double %53, %55
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 320, ptr noundef nonnull @.str.527, double noundef %56) #10
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
   %59 = trunc i64 %58 to i32
   %60 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.528, i32 noundef %59, ptr noundef nonnull @.str.2) #10
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %8) #10
-  %.pre48 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %.pre48 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   br label %61
 
 61:                                               ; preds = %49, %46
@@ -8570,10 +8570,10 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %.03241 = phi i64 [ %65, %.lr.ph43 ], [ 0, %61 ]
   %64 = call i32 @H5RS_aputc(ptr noundef %40, i32 noundef 43) #10
   %65 = add nuw nsw i64 %.03241, 1
-  %66 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %66 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %65, %67
-  br i1 %68, label %.lr.ph43, label %._crit_edge44, !llvm.loop !85
+  br i1 %68, label %.lr.ph43, label %._crit_edge44, !llvm.loop !86
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %61
   %.lcssa = phi i32 [ %62, %61 ], [ %66, %.lr.ph43 ]
@@ -8586,7 +8586,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br label %100
 
 73:                                               ; preds = %39
-  %74 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  %74 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !17
   %75 = icmp sgt i32 %42, %74
   br i1 %75, label %76, label %78
 
@@ -8595,7 +8595,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br label %78
 
 78:                                               ; preds = %76, %73
-  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !82, !range !36, !noundef !37
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %90
 
@@ -8603,15 +8603,15 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %82 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
   %83 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %85 = load double, ptr %84, align 8, !tbaa !83
+  %85 = load double, ptr %84, align 8, !tbaa !84
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %87 = load double, ptr %86, align 8, !tbaa !83
+  %87 = load double, ptr %86, align 8, !tbaa !84
   %88 = fsub double %85, %87
   %89 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.532, double noundef %88) #10
   br label %90
 
 90:                                               ; preds = %81, %78
-  %91 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %91 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph, label %._crit_edge
 
@@ -8619,10 +8619,10 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %.140 = phi i64 [ %94, %.lr.ph ], [ 0, %90 ]
   %93 = call i32 @H5RS_aputc(ptr noundef %40, i32 noundef 43) #10
   %94 = add nuw nsw i64 %.140, 1
-  %95 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %95 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %94, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %90
   %.lcssa39 = phi i32 [ %91, %90 ], [ %95, %.lr.ph ]
@@ -8634,7 +8634,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   call void @llvm.va_start.p0(ptr nonnull %4)
   %101 = call i32 @H5_trace_args(ptr noundef %40, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !35
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !36
   %103 = trunc nuw i8 %102 to i1
   %or.cond3 = select i1 %41, i1 %103, i1 false
   br i1 %or.cond3, label %.thread, label %114
@@ -8643,11 +8643,11 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %104 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
   %105 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %107 = load double, ptr %106, align 8, !tbaa !83
+  %107 = load double, ptr %106, align 8, !tbaa !84
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %109 = load double, ptr %108, align 8, !tbaa !83
+  %109 = load double, ptr %108, align 8, !tbaa !84
   %110 = fsub double %107, %109
-  %111 = load double, ptr %0, align 8, !tbaa !30
+  %111 = load double, ptr %0, align 8, !tbaa !31
   %112 = fsub double %107, %111
   %113 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.534, double noundef %110, double noundef %112) #10
   br label %118
@@ -8656,10 +8656,10 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br i1 %41, label %118, label %115
 
 115:                                              ; preds = %114
-  %116 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %116 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !17
   %117 = add nsw i32 %116, 1
-  store i32 %117, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  store i32 %116, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  store i32 %117, ptr @H5_trace.current_depth, align 4, !tbaa !17
+  store i32 %116, ptr @H5_trace.last_call_depth, align 4, !tbaa !17
   br label %118
 
 118:                                              ; preds = %114, %.thread, %115
@@ -8669,13 +8669,13 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %121 = call i32 @fputs(ptr noundef %120, ptr noundef nonnull %9)
   %122 = call i32 @fflush(ptr noundef nonnull %9)
   %123 = call i32 @H5RS_decr(ptr noundef %40) #10
-  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !82, !range !36, !noundef !37
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %118
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %128 = load double, ptr %127, align 8, !tbaa !83
+  %128 = load double, ptr %127, align 8, !tbaa !84
   br label %129
 
 129:                                              ; preds = %118, %3, %126, %26, %22
@@ -8746,82 +8746,83 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!12, !12, i64 0}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !5, i64 0}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long long", !5, i64 0}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"_Bool", !5, i64 0}
-!29 = !{i64 0, i64 4, !16, i64 4, i64 1, !27, i64 5, i64 1, !27, i64 6, i64 1, !27, i64 7, i64 1025, !7, i64 1032, i64 1, !27, i64 1033, i64 1, !27, i64 1040, i64 8, !3, i64 1048, i64 8, !30, i64 1056, i64 8, !3, i64 1064, i64 8, !3, i64 1072, i64 8, !3, i64 1080, i64 4, !16, i64 1088, i64 8, !30, i64 1096, i64 8, !30, i64 1104, i64 1, !27, i64 1112, i64 8, !3, i64 1120, i64 4, !16, i64 1128, i64 8, !30, i64 1136, i64 8, !30, i64 1144, i64 4, !16, i64 1152, i64 8, !30, i64 1160, i64 8, !30, i64 1168, i64 1, !27, i64 1176, i64 8, !3, i64 1184, i64 4, !16, i64 1188, i64 1, !27, i64 1192, i64 8, !30, i64 1200, i64 8, !3, i64 1208, i64 4, !16}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"double", !5, i64 0}
-!32 = !{!33, !17, i64 0}
-!33 = !{!"H5AC_cache_config_t", !17, i64 0, !28, i64 4, !28, i64 5, !28, i64 6, !5, i64 7, !28, i64 1032, !28, i64 1033, !4, i64 1040, !31, i64 1048, !4, i64 1056, !4, i64 1064, !4, i64 1072, !17, i64 1080, !31, i64 1088, !31, i64 1096, !28, i64 1104, !4, i64 1112, !17, i64 1120, !31, i64 1128, !31, i64 1136, !17, i64 1144, !31, i64 1152, !31, i64 1160, !28, i64 1168, !4, i64 1176, !17, i64 1184, !28, i64 1188, !31, i64 1192, !4, i64 1200, !17, i64 1208}
-!34 = !{!33, !28, i64 4}
-!35 = !{i8 0, i8 2}
-!36 = !{}
-!37 = !{!33, !28, i64 5}
-!38 = !{!33, !28, i64 6}
-!39 = !{!33, !28, i64 1032}
-!40 = !{!33, !28, i64 1033}
-!41 = !{!33, !4, i64 1040}
-!42 = !{!33, !31, i64 1048}
-!43 = !{!33, !4, i64 1056}
-!44 = !{!33, !4, i64 1064}
-!45 = !{!33, !4, i64 1072}
-!46 = !{!33, !17, i64 1080}
-!47 = !{!33, !31, i64 1088}
-!48 = !{!33, !31, i64 1096}
-!49 = !{!33, !28, i64 1104}
-!50 = !{!33, !4, i64 1112}
-!51 = !{!33, !17, i64 1120}
-!52 = !{!33, !31, i64 1128}
-!53 = !{!33, !31, i64 1136}
-!54 = !{!33, !17, i64 1144}
-!55 = !{!33, !31, i64 1152}
-!56 = !{!33, !31, i64 1160}
-!57 = !{!33, !28, i64 1168}
-!58 = !{!33, !4, i64 1176}
-!59 = !{!33, !17, i64 1184}
-!60 = !{!33, !28, i64 1188}
-!61 = !{!33, !31, i64 1192}
-!62 = !{!33, !4, i64 1200}
-!63 = !{!33, !17, i64 1208}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS12H5E_error2_t", !12, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS10H5G_stat_t", !12, i64 0}
-!68 = !{i64 0, i64 16, !7}
-!69 = distinct !{!69, !9}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"p1 _ZTS12H5Z_class2_t", !12, i64 0}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 short", !12, i64 0}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"short", !5, i64 0}
-!76 = distinct !{!76, !9}
-!77 = !{!78, !79, i64 0}
-!78 = !{!"H5_debug_t", !79, i64 0, !28, i64 8, !28, i64 9, !5, i64 16, !80, i64 336}
-!79 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!80 = !{!"p1 _ZTS22H5_debug_open_stream_t", !12, i64 0}
-!81 = !{!78, !28, i64 9}
-!82 = !{!78, !28, i64 8}
-!83 = !{!84, !31, i64 16}
-!84 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
-!85 = distinct !{!85, !9}
-!86 = distinct !{!86, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!13, !13, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long long", !5, i64 0}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"_Bool", !5, i64 0}
+!30 = !{i64 0, i64 4, !17, i64 4, i64 1, !28, i64 5, i64 1, !28, i64 6, i64 1, !28, i64 7, i64 1025, !7, i64 1032, i64 1, !28, i64 1033, i64 1, !28, i64 1040, i64 8, !3, i64 1048, i64 8, !31, i64 1056, i64 8, !3, i64 1064, i64 8, !3, i64 1072, i64 8, !3, i64 1080, i64 4, !17, i64 1088, i64 8, !31, i64 1096, i64 8, !31, i64 1104, i64 1, !28, i64 1112, i64 8, !3, i64 1120, i64 4, !17, i64 1128, i64 8, !31, i64 1136, i64 8, !31, i64 1144, i64 4, !17, i64 1152, i64 8, !31, i64 1160, i64 8, !31, i64 1168, i64 1, !28, i64 1176, i64 8, !3, i64 1184, i64 4, !17, i64 1188, i64 1, !28, i64 1192, i64 8, !31, i64 1200, i64 8, !3, i64 1208, i64 4, !17}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !5, i64 0}
+!33 = !{!34, !18, i64 0}
+!34 = !{!"H5AC_cache_config_t", !18, i64 0, !29, i64 4, !29, i64 5, !29, i64 6, !5, i64 7, !29, i64 1032, !29, i64 1033, !4, i64 1040, !32, i64 1048, !4, i64 1056, !4, i64 1064, !4, i64 1072, !18, i64 1080, !32, i64 1088, !32, i64 1096, !29, i64 1104, !4, i64 1112, !18, i64 1120, !32, i64 1128, !32, i64 1136, !18, i64 1144, !32, i64 1152, !32, i64 1160, !29, i64 1168, !4, i64 1176, !18, i64 1184, !29, i64 1188, !32, i64 1192, !4, i64 1200, !18, i64 1208}
+!35 = !{!34, !29, i64 4}
+!36 = !{i8 0, i8 2}
+!37 = !{}
+!38 = !{!34, !29, i64 5}
+!39 = !{!34, !29, i64 6}
+!40 = !{!34, !29, i64 1032}
+!41 = !{!34, !29, i64 1033}
+!42 = !{!34, !4, i64 1040}
+!43 = !{!34, !32, i64 1048}
+!44 = !{!34, !4, i64 1056}
+!45 = !{!34, !4, i64 1064}
+!46 = !{!34, !4, i64 1072}
+!47 = !{!34, !18, i64 1080}
+!48 = !{!34, !32, i64 1088}
+!49 = !{!34, !32, i64 1096}
+!50 = !{!34, !29, i64 1104}
+!51 = !{!34, !4, i64 1112}
+!52 = !{!34, !18, i64 1120}
+!53 = !{!34, !32, i64 1128}
+!54 = !{!34, !32, i64 1136}
+!55 = !{!34, !18, i64 1144}
+!56 = !{!34, !32, i64 1152}
+!57 = !{!34, !32, i64 1160}
+!58 = !{!34, !29, i64 1168}
+!59 = !{!34, !4, i64 1176}
+!60 = !{!34, !18, i64 1184}
+!61 = !{!34, !29, i64 1188}
+!62 = !{!34, !32, i64 1192}
+!63 = !{!34, !4, i64 1200}
+!64 = !{!34, !18, i64 1208}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS12H5E_error2_t", !13, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS10H5G_stat_t", !13, i64 0}
+!69 = !{i64 0, i64 16, !7}
+!70 = distinct !{!70, !9, !10}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS12H5Z_class2_t", !13, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 short", !13, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"short", !5, i64 0}
+!77 = distinct !{!77, !9, !10}
+!78 = !{!79, !80, i64 0}
+!79 = !{!"H5_debug_t", !80, i64 0, !29, i64 8, !29, i64 9, !5, i64 16, !81, i64 336}
+!80 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!81 = !{!"p1 _ZTS22H5_debug_open_stream_t", !13, i64 0}
+!82 = !{!79, !29, i64 9}
+!83 = !{!79, !29, i64 8}
+!84 = !{!85, !32, i64 16}
+!85 = !{!"", !32, i64 0, !32, i64 8, !32, i64 16}
+!86 = distinct !{!86, !9, !10}
+!87 = distinct !{!87, !9, !10}

@@ -180,9 +180,9 @@ policy_cache_set_int.exit54.thread.i:             ; preds = %37, %.thread.i, %20
 
 71:                                               ; preds = %61, %58
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %73 = load i32, ptr %72, align 8, !tbaa !53
+  %73 = load i32, ptr %72, align 8, !tbaa !54
   %74 = or i32 %73, 2048
-  store i32 %74, ptr %72, align 8, !tbaa !53
+  store i32 %74, ptr %72, align 8, !tbaa !54
   br label %.thread.i.i
 
 .thread39.i.i:                                    ; preds = %.lr.ph.i.i, %46
@@ -251,9 +251,9 @@ policy_cache_set_int.exit56.i:                    ; preds = %88
 policy_cache_set_int.exit.i:                      ; preds = %88, %86, %81, %79, %41, %.thread.thread.i, %27, %24, %20
   %.0.i = phi ptr [ null, %81 ], [ null, %86 ], [ null, %79 ], [ null, %41 ], [ null, %24 ], [ null, %20 ], [ null, %27 ], [ null, %.thread.thread.i ], [ %85, %88 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %94 = load i32, ptr %93, align 8, !tbaa !53
+  %94 = load i32, ptr %93, align 8, !tbaa !54
   %95 = or i32 %94, 2048
-  store i32 %95, ptr %93, align 8, !tbaa !53
+  store i32 %95, ptr %93, align 8, !tbaa !54
   br label %96
 
 96:                                               ; preds = %policy_cache_set_int.exit.i, %policy_cache_set_int.exit56.i, %86
@@ -317,10 +317,10 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @policy_data_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %0, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !47
-  %6 = load ptr, ptr %1, align 8, !tbaa !54
+  %6 = load ptr, ptr %1, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = tail call i32 @OBJ_cmp(ptr noundef %5, ptr noundef %8) #4
@@ -413,7 +413,8 @@ attributes #4 = { nounwind }
 !48 = !{!"X509_POLICY_DATA_st", !17, i64 0, !20, i64 8, !49, i64 16, !50, i64 24}
 !49 = !{!"p1 _ZTS23stack_st_POLICYQUALINFO", !6, i64 0}
 !50 = !{!"p1 _ZTS20stack_st_ASN1_OBJECT", !6, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!13, !17, i64 232}
-!54 = !{!5, !5, i64 0}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!13, !17, i64 232}
+!55 = !{!5, !5, i64 0}

@@ -229,10 +229,10 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   br label %89
 
 89:                                               ; preds = %87, %82, %.critedge.i
-  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 56), align 8, !tbaa !40
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 56), align 8, !tbaa !41
   %91 = call noalias noundef ptr @malloc(i64 noundef %90) #14
   %92 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !15
-  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 32), align 8, !tbaa !42
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 32), align 8, !tbaa !43
   %.not.i40.i = icmp eq i32 %92, %93
   br i1 %.not.i40.i, label %95, label %94
 
@@ -247,15 +247,15 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
 96:                                               ; preds = %95
   %97 = call i32 @pthread_mutex_init(ptr noundef nonnull %91, ptr noundef null) #12
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  store ptr @prte_node_t_class, ptr %98, align 8, !tbaa !43
+  store ptr @prte_node_t_class, ptr %98, align 8, !tbaa !44
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  store i32 1, ptr %99, align 8, !tbaa !44
+  store i32 1, ptr %99, align 8, !tbaa !45
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 40), align 8, !tbaa !45
-  %103 = load ptr, ptr %102, align 8, !tbaa !46
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 40), align 8, !tbaa !46
+  %103 = load ptr, ptr %102, align 8, !tbaa !47
   %.not6.i.i.i = icmp eq ptr %103, null
   br i1 %.not6.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i
 
@@ -264,9 +264,9 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   %.07.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i ], [ %102, %96 ]
   call void %104(ptr noundef nonnull %91) #12
   %105 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !46
+  %106 = load ptr, ptr %105, align 8, !tbaa !47
   %.not.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i, label %pmix_obj_new_tma.exit.i, label %.lr.ph.i.i.i, !llvm.loop !48
 
 pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, %95
   %107 = getelementptr inbounds nuw i8, ptr %91, i64 152
@@ -274,24 +274,24 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 256
   %109 = call i32 @prte_set_attribute(ptr noundef nonnull %108, i16 noundef zeroext 102, i1 noundef zeroext true, ptr noundef nonnull %4, i16 noundef zeroext 9) #12
   %110 = getelementptr inbounds nuw i8, ptr %91, i64 228
-  store i32 0, ptr %110, align 4, !tbaa !48
+  store i32 0, ptr %110, align 4, !tbaa !49
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 232
-  store i32 0, ptr %111, align 8, !tbaa !49
+  store i32 0, ptr %111, align 8, !tbaa !50
   %112 = getelementptr inbounds nuw i8, ptr %91, i64 220
   store i32 %.030.i, ptr %112, align 4, !tbaa !37
   %113 = getelementptr inbounds nuw i8, ptr %91, i64 218
-  store i8 3, ptr %113, align 2, !tbaa !50
-  %114 = load ptr, ptr %39, align 8, !tbaa !51
+  store i8 3, ptr %113, align 2, !tbaa !51
+  %114 = load ptr, ptr %39, align 8, !tbaa !52
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 128
-  store ptr %114, ptr %115, align 8, !tbaa !51
+  store ptr %114, ptr %115, align 8, !tbaa !52
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 120
   store volatile ptr %91, ptr %116, align 8, !tbaa !29
   %117 = getelementptr inbounds nuw i8, ptr %91, i64 120
   store ptr %37, ptr %117, align 8, !tbaa !29
-  store ptr %91, ptr %39, align 8, !tbaa !51
-  %118 = load volatile i64, ptr %40, align 8, !tbaa !52
+  store ptr %91, ptr %39, align 8, !tbaa !52
+  %118 = load volatile i64, ptr %40, align 8, !tbaa !53
   %119 = add i64 %118, 1
-  store volatile i64 %119, ptr %40, align 8, !tbaa !52
+  store volatile i64 %119, ptr %40, align 8, !tbaa !53
   br label %121
 
 120:                                              ; preds = %76, %71, %66
@@ -305,7 +305,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #12
   %124 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 512, ptr noundef nonnull %34)
   %.not.i.i = icmp eq ptr %124, null
-  br i1 %.not.i.i, label %pbs_getline.exit.thread.i, label %pbs_getline.exit.i, !llvm.loop !53
+  br i1 %.not.i.i, label %pbs_getline.exit.thread.i, label %pbs_getline.exit.i, !llvm.loop !54
 
 125:                                              ; preds = %19, %30, %41, %64
   %.031.i.ph = phi i32 [ -5, %64 ], [ -21, %41 ], [ -13, %30 ], [ -13, %19 ]
@@ -319,7 +319,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %130 = load ptr, ptr %129, align 8, !tbaa !54
+  %130 = load ptr, ptr %129, align 8, !tbaa !55
   %131 = icmp eq ptr %130, %128
   br i1 %131, label %132, label %135
 
@@ -330,7 +330,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
 
 135:                                              ; preds = %.loopexit
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %137 = load volatile i64, ptr %136, align 8, !tbaa !52
+  %137 = load volatile i64, ptr %136, align 8, !tbaa !53
   %138 = trunc i64 %137 to i32
   store i32 %138, ptr @prte_num_allocated_nodes, align 4, !tbaa !15
   br label %139
@@ -472,20 +472,21 @@ attributes #14 = { nounwind allocsize(0) }
 !35 = !{!"short", !6, i64 0}
 !36 = !{!"p1 _ZTS20pmix_pointer_array_t", !5, i64 0}
 !37 = !{!31, !11, i64 220}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!41, !26, i64 56}
-!41 = !{!"pmix_class_t", !4, i64 0, !22, i64 8, !5, i64 16, !5, i64 24, !11, i64 32, !11, i64 36, !5, i64 40, !5, i64 48, !26, i64 56}
-!42 = !{!41, !11, i64 32}
-!43 = !{!21, !22, i64 40}
-!44 = !{!21, !11, i64 48}
-!45 = !{!41, !5, i64 40}
-!46 = !{!5, !5, i64 0}
-!47 = distinct !{!47, !39}
-!48 = !{!31, !11, i64 228}
-!49 = !{!31, !11, i64 232}
-!50 = !{!31, !6, i64 218}
-!51 = !{!24, !25, i64 128}
-!52 = !{!20, !26, i64 264}
-!53 = distinct !{!53, !39}
-!54 = !{!20, !25, i64 240}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!42, !26, i64 56}
+!42 = !{!"pmix_class_t", !4, i64 0, !22, i64 8, !5, i64 16, !5, i64 24, !11, i64 32, !11, i64 36, !5, i64 40, !5, i64 48, !26, i64 56}
+!43 = !{!42, !11, i64 32}
+!44 = !{!21, !22, i64 40}
+!45 = !{!21, !11, i64 48}
+!46 = !{!42, !5, i64 40}
+!47 = !{!5, !5, i64 0}
+!48 = distinct !{!48, !39, !40}
+!49 = !{!31, !11, i64 228}
+!50 = !{!31, !11, i64 232}
+!51 = !{!31, !6, i64 218}
+!52 = !{!24, !25, i64 128}
+!53 = !{!20, !26, i64 264}
+!54 = distinct !{!54, !39, !40}
+!55 = !{!20, !25, i64 240}

@@ -264,7 +264,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   br i1 %exitcond123.not, label %35, label %37, !llvm.loop !46
 
 43:                                               ; preds = %18
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !49
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 55) #5
   tail call void @abort() #6
   unreachable
@@ -295,7 +295,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   br label %.thread118
 
 59:                                               ; preds = %50
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !49
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 66) #5
   tail call void @abort() #6
   unreachable
@@ -310,7 +310,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   br i1 %65, label %switch.lookup, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !49
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 81) #5
   tail call void @abort() #6
   unreachable
@@ -423,7 +423,7 @@ switch.lookup:                                    ; preds = %64
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, double noundef %120, double noundef %122) #4
   %123 = add nuw i64 %.0121, 1
   %exitcond.not = icmp eq i64 %123, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 default.unreachable:                              ; preds = %98
   unreachable
@@ -511,7 +511,8 @@ attributes #6 = { noreturn nounwind }
 !43 = !{!32, !12, i64 256}
 !44 = !{!23, !24, i64 0}
 !45 = !{!23, !24, i64 8}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!14, !14, i64 0}
-!49 = distinct !{!49, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!14, !14, i64 0}
+!50 = distinct !{!50, !47, !48}

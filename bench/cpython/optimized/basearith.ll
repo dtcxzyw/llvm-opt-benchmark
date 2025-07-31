@@ -64,7 +64,7 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
   %30 = add nuw i64 %.142, 1
   %31 = icmp ult i64 %30, %3
   %32 = select i1 %27, i1 %31, i1 false
-  br i1 %32, label %.lr.ph43, label %.preheader.loopexit, !llvm.loop !9
+  br i1 %32, label %.lr.ph43, label %.preheader.loopexit, !llvm.loop !10
 
 .lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
   %.246 = phi i64 [ %36, %.lr.ph47 ], [ %.1.lcssa, %.preheader ]
@@ -74,7 +74,7 @@ define hidden range(i64 0, 2) i64 @_mpd_baseadd(ptr noundef writeonly captures(n
   store i64 %34, ptr %35, align 8, !tbaa !3
   %36 = add nuw i64 %.246, 1
   %exitcond52.not = icmp eq i64 %36, %3
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !10
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph47, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph47, %.preheader
   ret i64 %.137.lcssa
@@ -112,7 +112,7 @@ define hidden void @_mpd_baseaddto(ptr noundef captures(none) %0, ptr noundef re
   store i64 %16, ptr %5, align 8, !tbaa !3
   %17 = add nuw i64 %.032, 1
   %exitcond.not = icmp eq i64 %17, %2
-  br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.134 = phi i64 [ %22, %.lr.ph ], [ %2, %.preheader ]
@@ -123,7 +123,7 @@ define hidden void @_mpd_baseaddto(ptr noundef captures(none) %0, ptr noundef re
   %21 = select i1 %.not, i64 0, i64 %20
   store i64 %21, ptr %18, align 8, !tbaa !3
   %22 = add i64 %.134, 1
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
   ret void
@@ -154,7 +154,7 @@ define hidden range(i64 0, 2) i64 @_mpd_shortadd(ptr noundef captures(none) %0, 
   %18 = add nuw i64 %.022, 1
   %19 = icmp ult i64 %18, %1
   %20 = select i1 %16, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.021.in.lcssa = phi i1 [ %8, %3 ], [ %16, %.lr.ph ]
@@ -178,7 +178,7 @@ define hidden range(i64 0, 2) i64 @_mpd_baseincr(ptr noundef captures(none) %0, 
   %8 = add nuw i64 %.013, 1
   %9 = icmp ult i64 %8, %1
   %10 = select i1 %6, i1 %9, i1 false
-  br i1 %10, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %10, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %11 = zext i1 %6 to i64
@@ -216,7 +216,7 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
   store i64 %17, ptr %18, align 8, !tbaa !3
   %19 = add nuw i64 %.039, 1
   %exitcond.not = icmp eq i64 %19, %4
-  br i1 %exitcond.not, label %.preheader37, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader37, label %.lr.ph, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph42, %5, %.preheader37
   %.1.lcssa = phi i64 [ %4, %.preheader37 ], [ 0, %5 ], [ %27, %.lr.ph42 ]
@@ -235,7 +235,7 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
   %27 = add nuw i64 %.141, 1
   %28 = icmp ult i64 %27, %3
   %29 = select i1 %24, i1 %28, i1 false
-  br i1 %29, label %.lr.ph42, label %.preheader, !llvm.loop !16
+  br i1 %29, label %.lr.ph42, label %.preheader, !llvm.loop !17
 
 .lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
   %.244 = phi i64 [ %33, %.lr.ph45 ], [ %.1.lcssa, %.preheader ]
@@ -245,7 +245,7 @@ define hidden void @_mpd_basesub(ptr noundef writeonly captures(none) %0, ptr no
   store i64 %31, ptr %32, align 8, !tbaa !3
   %33 = add nuw i64 %.244, 1
   %exitcond49.not = icmp eq i64 %33, %3
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !17
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader
   ret void
@@ -275,7 +275,7 @@ define hidden void @_mpd_basesubfrom(ptr noundef captures(none) %0, ptr noundef 
   store i64 %14, ptr %5, align 8, !tbaa !3
   %15 = add nuw i64 %.032, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %.preheader30, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.134 = phi i64 [ %20, %.lr.ph ], [ %2, %.preheader ]
@@ -286,7 +286,7 @@ define hidden void @_mpd_basesubfrom(ptr noundef captures(none) %0, ptr noundef 
   %19 = select i1 %.not, i64 -8446744073709551617, i64 %18
   store i64 %19, ptr %16, align 8, !tbaa !3
   %20 = add i64 %.134, 1
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
   ret void
@@ -350,7 +350,7 @@ define hidden void @_mpd_shortmul(ptr noundef writeonly captures(none) %0, ptr n
   store i64 %45, ptr %19, align 8, !tbaa !3
   %46 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %46, %2
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %8, %4
   %.014.lcssa = phi i64 [ 0, %4 ], [ %43, %8 ]
@@ -436,14 +436,14 @@ define hidden void @_mpd_basemul(ptr noundef captures(none) %0, ptr noundef read
   store i64 %52, ptr %gep.us, align 8, !tbaa !3
   %53 = add nuw i64 %.02133.us, 1
   %exitcond.not = icmp eq i64 %53, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %10
   %gep35.us = getelementptr i64, ptr %invariant.gep34, i64 %.036.us
   store i64 %50, ptr %gep35.us, align 8, !tbaa !3
   %54 = add nuw i64 %.036.us, 1
   %exitcond40.not = icmp eq i64 %54, %4
-  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !22
+  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !23
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.preheader.preheader, %5
   ret void
@@ -484,7 +484,7 @@ define hidden i64 @_mpd_shortdiv(ptr noundef writeonly captures(none) %0, ptr no
   %24 = mul i64 %3, %23
   %25 = sub i64 %14, %24
   %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %6, %4
   %.014.lcssa = phi i64 [ 0, %4 ], [ %25, %6 ]
@@ -503,11 +503,11 @@ define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captur
   br i1 %10, label %11, label %sub_size_t.exit
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !26
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 606) #11
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !26
   %15 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %14) #12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !26
   %17 = tail call i32 @fputc(i32 noundef 10, ptr noundef %16)
   tail call void @abort() #13
   unreachable
@@ -597,7 +597,7 @@ sub_size_t.exit:                                  ; preds = %6
   store i64 %76, ptr %50, align 8, !tbaa !3
   %77 = add nuw i64 %.017.i, 1
   %exitcond.not.i = icmp eq i64 %77, %4
-  br i1 %exitcond.not.i, label %_mpd_shortmul.exit, label %39, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_mpd_shortmul.exit, label %39, !llvm.loop !21
 
 _mpd_shortmul.exit:                               ; preds = %39, %35
   %.014.lcssa.i = phi i64 [ 0, %35 ], [ %74, %39 ]
@@ -659,7 +659,7 @@ _mpd_shortmul.exit:                               ; preds = %39, %35
   store i64 %119, ptr %93, align 8, !tbaa !3
   %120 = add nuw i64 %.017.i117, 1
   %exitcond.not.i123 = icmp eq i64 %120, %5
-  br i1 %exitcond.not.i123, label %_mpd_shortmul.exit125, label %82, !llvm.loop !20
+  br i1 %exitcond.not.i123, label %_mpd_shortmul.exit125, label %82, !llvm.loop !21
 
 _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.exit
   %.014.lcssa.i124 = phi i64 [ 0, %_mpd_shortmul.exit ], [ %117, %82 ]
@@ -713,7 +713,7 @@ _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.
   %152 = mul i64 %132, %151
   %153 = sub i64 %142, %152
   %.not.i128 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i128, label %_mpd_shortdiv.exit, label %134, !llvm.loop !24
+  br i1 %.not.i128, label %_mpd_shortdiv.exit, label %134, !llvm.loop !25
 
 _mpd_shortdiv.exit:                               ; preds = %134
   %154 = load i64, ptr %123, align 8, !tbaa !3
@@ -788,11 +788,11 @@ _mpd_shortdiv.exit:                               ; preds = %134
   %205 = icmp ult i64 %204, %132
   %206 = icmp ugt i64 %204, -8446744073709551617
   %or.cond = or i1 %205, %206
-  br i1 %or.cond, label %._crit_edge171, label %159
+  br i1 %or.cond, label %._crit_edge171, label %159, !llvm.loop !29
 
 ._crit_edge171:                                   ; preds = %200
   %.pre = zext i64 %203 to i128
-  br label %split
+  br label %split, !llvm.loop !29
 
 split:                                            ; preds = %197, %198, %._crit_edge171
   %.pre-phi = phi i128 [ %.pre, %._crit_edge171 ], [ %165, %198 ], [ %165, %197 ]
@@ -858,7 +858,7 @@ split:                                            ; preds = %197, %198, %._crit_
   %252 = add i64 %243, %249
   %253 = add nuw i64 %.092161, 1
   %exitcond = icmp eq i64 %253, %umax
-  br i1 %exitcond, label %254, label %209, !llvm.loop !28
+  br i1 %exitcond, label %254, label %209, !llvm.loop !30
 
 254:                                              ; preds = %209
   %255 = getelementptr i64, ptr %0, i64 %.091163
@@ -905,7 +905,7 @@ split:                                            ; preds = %197, %198, %._crit_
 _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256, %.preheader38.i, %254
   %275 = add i64 %.091163, -1
   %.not = icmp eq i64 %.091163, 0
-  br i1 %.not, label %._crit_edge, label %128, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %128, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_mpd_baseadd.exit, %_mpd_shortmul.exit125
   %.not106 = icmp eq ptr %1, null
@@ -944,7 +944,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   %296 = mul i64 %23, %295
   %297 = sub i64 %286, %296
   %.not.i142 = icmp eq i64 %.0.i140, 0
-  br i1 %.not.i142, label %_mpd_shortdiv.exit144, label %278, !llvm.loop !24
+  br i1 %.not.i142, label %_mpd_shortdiv.exit144, label %278, !llvm.loop !25
 
 .preheader:                                       ; preds = %._crit_edge, %300
   %.0.i145 = phi i64 [ %298, %300 ], [ %5, %._crit_edge ]
@@ -956,7 +956,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   %301 = getelementptr i64, ptr %.094, i64 %298
   %302 = load i64, ptr %301, align 8, !tbaa !3
   %.not.i146 = icmp eq i64 %302, 0
-  br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !30
+  br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !32
 
 _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.preheader, %276
   %.0 = phi i32 [ 0, %276 ], [ 0, %.preheader ], [ 1, %300 ], [ 0, %278 ]
@@ -964,7 +964,7 @@ _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.prehea
   br i1 %.not108, label %305, label %303
 
 303:                                              ; preds = %_mpd_shortdiv.exit144
-  %304 = load ptr, ptr @mpd_free, align 8, !tbaa !31
+  %304 = load ptr, ptr @mpd_free, align 8, !tbaa !33
   call void %304(ptr noundef nonnull %.094) #10
   br label %305
 
@@ -975,7 +975,7 @@ _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.prehea
 .sink.split:                                      ; preds = %305, %31
   %.097.sink = phi ptr [ %.094, %31 ], [ %.097, %305 ]
   %.090.ph = phi i32 [ -1, %31 ], [ %.0, %305 ]
-  %306 = load ptr, ptr @mpd_free, align 8, !tbaa !31
+  %306 = load ptr, ptr @mpd_free, align 8, !tbaa !33
   call void %306(ptr noundef nonnull %.097.sink) #10
   br label %307
 
@@ -1050,7 +1050,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   %33 = add i64 %.02235, -1
   %34 = add i64 %.136, -1
   %.not29 = icmp eq i64 %.02235, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.lcssa = phi i64 [ %.promoted, %24 ], [ %32, %.lr.ph ]
@@ -1067,7 +1067,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   %gep = getelementptr i64, ptr %invariant.gep, i64 %37
   store i64 %39, ptr %gep, align 8, !tbaa !3
   %.not27 = icmp eq i64 %37, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph39, !llvm.loop !33
+  br i1 %.not27, label %.loopexit, label %.lr.ph39, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph39, %.preheader, %._crit_edge
   tail call void @mpd_uint_zero(ptr noundef %0, i64 noundef %9) #10
@@ -1324,7 +1324,7 @@ define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %0, ptr 
   %26 = getelementptr i64, ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !30
+  br i1 %.not.i, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !32
 
 _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %12
   %28 = phi i64 [ %20, %12 ], [ 1, %24 ], [ 0, %.preheader ]
@@ -1354,7 +1354,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   %40 = add nuw i64 %.02548, 1
   %.0 = add nuw i64 %.049, 1
   %exitcond.not = icmp eq i64 %40, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_mpd_isallzero.exit
   %.lcssa = phi i64 [ %.promoted, %_mpd_isallzero.exit ], [ %39, %.lr.ph ]
@@ -1396,7 +1396,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   %57 = getelementptr i64, ptr %1, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !3
   %.not.i37 = icmp eq i64 %58, 0
-  br i1 %.not.i37, label %53, label %_mpd_isallzero.exit38, !llvm.loop !30
+  br i1 %.not.i37, label %53, label %_mpd_isallzero.exit38, !llvm.loop !32
 
 _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   %59 = phi i64 [ %49, %44 ], [ 0, %43 ], [ 1, %55 ], [ 0, %53 ]
@@ -1416,7 +1416,7 @@ _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   store i64 %64, ptr %65, align 8, !tbaa !3
   %66 = add nuw i64 %.151, 1
   %exitcond57.not = icmp eq i64 %66, %60
-  br i1 %exitcond57.not, label %.loopexit, label %62, !llvm.loop !35
+  br i1 %exitcond57.not, label %.loopexit, label %62, !llvm.loop !37
 
 .loopexit:                                        ; preds = %62, %_mpd_isallzero.exit38, %._crit_edge, %41
   %67 = phi i64 [ %59, %_mpd_isallzero.exit38 ], [ %28, %._crit_edge ], [ %28, %41 ], [ %59, %62 ]
@@ -1467,7 +1467,7 @@ define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr noundef captures(none) %0
   %19 = add nuw i64 %.025, 1
   %20 = icmp ult i64 %19, %1
   %21 = select i1 %17, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.024.in.lcssa = phi i1 [ %9, %4 ], [ %17, %.lr.ph ]
@@ -1533,7 +1533,7 @@ define hidden i64 @_mpd_shortmul_c(ptr noundef writeonly captures(none) %0, ptr 
   store i64 %45, ptr %19, align 8, !tbaa !3
   %46 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %46, %2
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %8, %4
   %.012.lcssa = phi i64 [ 0, %4 ], [ %43, %8 ]
@@ -1576,7 +1576,7 @@ define hidden i64 @_mpd_shortmul_b(ptr noundef writeonly captures(none) %0, ptr 
   store i64 %27, ptr %19, align 8, !tbaa !3
   %28 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %28, %2
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %8, %5
   %.013.lcssa = phi i64 [ 0, %5 ], [ %25, %8 ]
@@ -1619,7 +1619,7 @@ define hidden i64 @_mpd_shortdiv_b(ptr noundef writeonly captures(none) %0, ptr 
   %26 = mul i64 %3, %25
   %27 = sub i64 %16, %26
   %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %8, %5
   %.015.lcssa = phi i64 [ 0, %5 ], [ %27, %8 ]
@@ -1668,36 +1668,38 @@ attributes #13 = { noreturn nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS8_IO_FILE", !27, i64 0}
-!27 = !{!"any pointer", !5, i64 0}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = !{!27, !27, i64 0}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !8, !9}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS8_IO_FILE", !28, i64 0}
+!28 = !{!"any pointer", !5, i64 0}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = !{!28, !28, i64 0}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}

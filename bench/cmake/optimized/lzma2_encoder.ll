@@ -466,7 +466,7 @@ define internal void @lzma2_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !50
+  %4 = load ptr, ptr %3, align 8, !tbaa !51
   %5 = icmp eq ptr %4, null
   br i1 %5, label %40, label %6
 
@@ -477,25 +477,25 @@ define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr noundef c
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !52
+  %10 = load i32, ptr %9, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !53
+  %12 = load i32, ptr %11, align 4, !tbaa !54
   %.not26 = icmp eq i32 %10, %12
   br i1 %.not26, label %13, label %23
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !54
+  %15 = load i32, ptr %14, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !55
+  %17 = load i32, ptr %16, align 8, !tbaa !56
   %.not27 = icmp eq i32 %15, %17
   br i1 %.not27, label %18, label %23
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %20 = load i32, ptr %19, align 4, !tbaa !56
+  %20 = load i32, ptr %19, align 4, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %22 = load i32, ptr %21, align 4, !tbaa !57
+  %22 = load i32, ptr %21, align 4, !tbaa !58
   %.not28 = icmp eq i32 %20, %22
   br i1 %.not28, label %40, label %23
 
@@ -505,7 +505,7 @@ define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr noundef c
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !55
+  %27 = load i32, ptr %26, align 8, !tbaa !56
   %28 = icmp ugt i32 %27, 4
   %29 = add nuw nsw i32 %27, %12
   %30 = icmp ugt i32 %29, 4
@@ -514,16 +514,16 @@ define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr noundef c
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %33 = load i32, ptr %32, align 4, !tbaa !57
+  %33 = load i32, ptr %32, align 4, !tbaa !58
   %34 = icmp ugt i32 %33, 4
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %31
-  store i32 %12, ptr %9, align 4, !tbaa !52
+  store i32 %12, ptr %9, align 4, !tbaa !53
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %27, ptr %36, align 8, !tbaa !54
+  store i32 %27, ptr %36, align 8, !tbaa !55
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %33, ptr %37, align 4, !tbaa !56
+  store i32 %33, ptr %37, align 4, !tbaa !57
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8, !tbaa !24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 129
@@ -619,13 +619,14 @@ attributes #8 = { nounwind }
 !45 = !{!38, !14, i64 100}
 !46 = !{!13, !18, i64 152}
 !47 = !{!38, !16, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !6, i64 8}
-!51 = !{!"", !18, i64 0, !6, i64 8}
-!52 = !{!13, !14, i64 36}
-!53 = !{!15, !14, i64 20}
-!54 = !{!13, !14, i64 40}
-!55 = !{!15, !14, i64 24}
-!56 = !{!13, !14, i64 44}
-!57 = !{!15, !14, i64 28}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!52, !6, i64 8}
+!52 = !{!"", !18, i64 0, !6, i64 8}
+!53 = !{!13, !14, i64 36}
+!54 = !{!15, !14, i64 20}
+!55 = !{!13, !14, i64 40}
+!56 = !{!15, !14, i64 24}
+!57 = !{!13, !14, i64 44}
+!58 = !{!15, !14, i64 28}

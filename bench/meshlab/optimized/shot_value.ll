@@ -370,7 +370,7 @@ _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5
 70:                                               ; preds = %71
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %78, label %71, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %78, label %71, !llvm.loop !8
 
 71:                                               ; preds = %70, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %70 ]
@@ -385,7 +385,7 @@ _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5
 78:                                               ; preds = %70
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond22.i.i = icmp eq i64 %indvars.iv.next20.i.i, 4
-  br i1 %exitcond22.i.i, label %79, label %.preheader.i.i, !llvm.loop !8
+  br i1 %exitcond22.i.i, label %79, label %.preheader.i.i, !llvm.loop !9
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -448,7 +448,8 @@ attributes #13 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

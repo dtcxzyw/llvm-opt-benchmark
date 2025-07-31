@@ -108,7 +108,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr n
   br i1 %43, label %60, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr %1, align 8, !tbaa !19
+  %45 = load ptr, ptr %1, align 8, !tbaa !20
   %46 = trunc nuw nsw i32 %.038 to i8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 %46, ptr %45, align 1, !tbaa !16
@@ -130,7 +130,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr n
   br label %59
 
 59:                                               ; preds = %53, %44
-  store ptr %51, ptr %1, align 8, !tbaa !19
+  store ptr %51, ptr %1, align 8, !tbaa !20
   br label %60
 
 60:                                               ; preds = %41, %2, %59
@@ -151,7 +151,7 @@ define hidden ptr @c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0,
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
@@ -162,7 +162,7 @@ define hidden ptr @c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0,
 
 13:                                               ; preds = %7, %10
   %.1 = phi ptr [ %11, %10 ], [ %8, %7 ]
-  %14 = load ptr, ptr %1, align 8, !tbaa !19
+  %14 = load ptr, ptr %1, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %14, align 1, !tbaa !16
   %17 = zext i8 %16 to i32
@@ -225,15 +225,15 @@ define hidden ptr @c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0,
 46:                                               ; preds = %45, %41
   store ptr %.039, ptr %43, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  store i32 3, ptr %47, align 4, !tbaa !22
+  store i32 3, ptr %47, align 4, !tbaa !23
   br i1 %6, label %49, label %48
 
 48:                                               ; preds = %46
-  store ptr %.1, ptr %0, align 8, !tbaa !20
+  store ptr %.1, ptr %0, align 8, !tbaa !21
   br label %49
 
 49:                                               ; preds = %48, %46
-  store ptr %.040, ptr %1, align 8, !tbaa !19
+  store ptr %.040, ptr %1, align 8, !tbaa !20
   br label %55
 
 50:                                               ; preds = %3
@@ -244,7 +244,7 @@ define hidden ptr @c2i_ASN1_BIT_STRING(ptr noundef captures(address_is_null) %0,
   br i1 %6, label %54, label %52
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %0, align 8, !tbaa !20
+  %53 = load ptr, ptr %0, align 8, !tbaa !21
   %.not53 = icmp eq ptr %53, %.1
   br i1 %.not53, label %55, label %54
 
@@ -376,7 +376,7 @@ define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef captures(
   %62 = add nsw i32 %57, -1
   store i32 %62, ptr %0, align 8, !tbaa !6
   %63 = icmp sgt i32 %57, 1
-  br i1 %63, label %56, label %.critedge, !llvm.loop !23
+  br i1 %63, label %56, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %61, %56, %44, %20, %3, %34
   %.036 = phi i32 [ 0, %34 ], [ 0, %3 ], [ 1, %20 ], [ 1, %44 ], [ 1, %56 ], [ 1, %61 ]
@@ -464,7 +464,7 @@ define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly ca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp samesign ult i64 %indvars.iv.next, %10
   %25 = select i1 %24, i1 %23, i1 false
-  br i1 %25, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !24
+  br i1 %25, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %17
   %26 = zext i1 %23 to i32
@@ -506,11 +506,12 @@ attributes #10 = { nounwind allocsize(0) }
 !14 = !{!7, !13, i64 16}
 !15 = !{!7, !11, i64 8}
 !16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!11, !11, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
-!22 = !{!7, !8, i64 4}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!11, !11, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
+!23 = !{!7, !8, i64 4}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}

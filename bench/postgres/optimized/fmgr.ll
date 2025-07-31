@@ -927,7 +927,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %146 = call i32 @GetUserId() #13
   %147 = call i32 @set_config_with_handle(ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef %142, i32 noundef 13, i32 noundef %146, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #13
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  br label %.split.split.split, !llvm.loop !8
+  br label %.split.split.split, !llvm.loop !9
 
 148:                                              ; preds = %.critedge
   %.0..0..0..0.67 = load volatile ptr, ptr %2, align 8
@@ -3745,6 +3745,7 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

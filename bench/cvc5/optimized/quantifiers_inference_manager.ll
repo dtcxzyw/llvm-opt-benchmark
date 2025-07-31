@@ -278,7 +278,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14defaul
 
 18:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %20 = load ptr, ptr %19, align 8, !tbaa !34
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -323,7 +323,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14defaul
 
 34:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i10
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = load ptr, ptr %35, align 8, !tbaa !34
+  %36 = load ptr, ptr %35, align 8, !tbaa !35
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -439,13 +439,13 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceM
 
 3:                                                ; preds = %.critedge32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %1, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !36
   %5 = tail call noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull align 8 dereferenceable(337) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i64 %5, ptr %6, align 8, !tbaa !92
+  store i64 %5, ptr %6, align 8, !tbaa !93
   %7 = tail call i64 @clock() #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i64 %7, ptr %8, align 8, !tbaa !93
+  store i64 %7, ptr %8, align 8, !tbaa !94
   br label %.critedge34
 
 .critedge34:                                      ; preds = %3, %.critedge32
@@ -466,23 +466,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager12endCallDebugEv(ptr noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = icmp eq ptr %4, null
   br i1 %5, label %84, label %6
 
 6:                                                ; preds = %1
   %7 = tail call noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull align 8 dereferenceable(337) %0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %9 = load i64, ptr %8, align 8, !tbaa !92
+  %9 = load i64, ptr %8, align 8, !tbaa !93
   %10 = sub i64 %7, %9
   %11 = tail call i64 @clock() #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %13 = load i64, ptr %12, align 8, !tbaa !93
+  %13 = load i64, ptr %12, align 8, !tbaa !94
   %14 = sub nsw i64 %11, %13
   %15 = sitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+06
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !94
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -494,7 +494,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceM
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal6EnvObj6outputENS0_7options9OutputTagE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.3, i64 noundef 15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
-  %27 = load ptr, ptr %3, align 8, !tbaa !35
+  %27 = load ptr, ptr %3, align 8, !tbaa !36
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8
@@ -577,7 +577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %63, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 240
-  %70 = load ptr, ptr %69, align 8, !tbaa !95
+  %70 = load ptr, ptr %69, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %71, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -587,7 +587,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  %73 = load i8, ptr %72, align 8, !tbaa !110
+  %73 = load i8, ptr %72, align 8, !tbaa !111
   %.not.i1.i.i = icmp eq i8 %73, 0
   br i1 %.not.i1.i.i, label %77, label %74
 
@@ -611,7 +611,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %74, 
   br label %.critedge34
 
 .critedge34:                                      ; preds = %6, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  store ptr null, ptr %3, align 8, !tbaa !35
+  store ptr null, ptr %3, align 8, !tbaa !36
   br label %84
 
 84:                                               ; preds = %1, %.critedge34
@@ -642,7 +642,7 @@ define internal void @__cxx_global_var_init.13() #10 section ".text.startup" com
   store i8 1, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %4 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, !prof !116
+  br i1 %5, label %6, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, !prof !117
 
 6:                                                ; preds = %3
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16
@@ -657,7 +657,7 @@ define internal void @__cxx_global_var_init.13() #10 section ".text.startup" com
   store i64 1152920405095219200, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store ptr %9, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !117
+  store ptr %9, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !118
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16
   br label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
 
@@ -668,14 +668,14 @@ define internal void @__cxx_global_var_init.13() #10 section ".text.startup" com
   resume { ptr, i32 } %13
 
 _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
-  %14 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !117
-  store ptr %14, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !119
+  %14 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !118
+  store ptr %14, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !120
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %15, 40
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 1048575
   %19 = icmp samesign ult i32 %18, 1048574
-  br i1 %19, label %20, label %26, !prof !121
+  br i1 %19, label %20, label %26, !prof !122
 
 20:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
   %21 = add nuw nsw i32 %18, 1
@@ -688,7 +688,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
 
 26:                                               ; preds = %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
   %27 = icmp eq i32 %18, 1048574
-  br i1 %27, label %28, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !122
+  br i1 %27, label %28, label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, !prof !123
 
 28:                                               ; preds = %26
   %29 = or i64 %15, 1152920405095219200
@@ -706,11 +706,11 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !119
+  %2 = load ptr, ptr %0, align 8, !tbaa !120
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1152920405095219200
   %.not.i = icmp eq i64 %4, 1152920405095219200
-  br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %5, !prof !122
+  br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, label %5, !prof !123
 
 5:                                                ; preds = %1
   %6 = add i64 %3, 1152920405095219200
@@ -719,7 +719,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr n
   %9 = or disjoint i64 %7, %8
   store i64 %9, ptr %2, align 8
   %10 = icmp eq i64 %7, 0
-  br i1 %10, label %11, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !122
+  br i1 %10, label %11, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit, !prof !123
 
 11:                                               ; preds = %5
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -747,16 +747,16 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !123
+  %4 = load ptr, ptr %3, align 8, !tbaa !124
   tail call void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !124
+  %6 = load ptr, ptr %5, align 8, !tbaa !125
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !119
+  %8 = load ptr, ptr %7, align 8, !tbaa !120
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1152920405095219200
   %.not.i.i.i.i.i.i.i = icmp eq i64 %10, 1152920405095219200
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %11, !prof !122
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %11, !prof !123
 
 11:                                               ; preds = %.lr.ph
   %12 = add i64 %9, 1152920405095219200
@@ -765,7 +765,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb
   %15 = or disjoint i64 %13, %14
   store i64 %15, ptr %8, align 8
   %16 = icmp eq i64 %13, 0
-  br i1 %16, label %17, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, !prof !122
+  br i1 %16, label %17, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, !prof !123
 
 17:                                               ; preds = %11
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -781,7 +781,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb
 _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %.lr.ph, %11, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, %2
   ret void
@@ -898,97 +898,98 @@ attributes #20 = { noreturn }
 !29 = !{!27, !28, i64 8}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTSN4cvc58internal6theory15TheoryInferenceE", !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!27, !28, i64 16}
-!35 = !{!36, !91, i64 360}
-!36 = !{!"_ZTSN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerE", !37, i64 0, !79, i64 344, !85, i64 352, !91, i64 360, !10, i64 368, !10, i64 376}
-!37 = !{!"_ZTSN4cvc58internal6theory24InferenceManagerBufferedE", !38, i64 0, !71, i64 240, !71, i64 264, !74, i64 288, !60, i64 336}
-!38 = !{!"_ZTSN4cvc58internal6theory22TheoryInferenceManagerE", !39, i64 0, !41, i64 16, !42, i64 24, !43, i64 32, !44, i64 40, !45, i64 48, !46, i64 56, !47, i64 64, !53, i64 72, !60, i64 80, !61, i64 88, !61, i64 144, !68, i64 200, !68, i64 204, !68, i64 208, !69, i64 216, !69, i64 224, !69, i64 232}
-!39 = !{!"_ZTSN4cvc58internal6EnvObjE", !40, i64 8}
-!40 = !{!"p1 _ZTSN4cvc58internal3EnvE", !6, i64 0}
-!41 = !{!"p1 _ZTSN4cvc58internal6theory6TheoryE", !6, i64 0}
-!42 = !{!"p1 _ZTSN4cvc58internal6theory11TheoryStateE", !6, i64 0}
-!43 = !{!"p1 _ZTSN4cvc58internal6theory13OutputChannelE", !6, i64 0}
-!44 = !{!"p1 _ZTSN4cvc58internal6theory2eq14EqualityEngineE", !6, i64 0}
-!45 = !{!"p1 _ZTSN4cvc58internal6theory15DecisionManagerE", !6, i64 0}
-!46 = !{!"p1 _ZTSN4cvc58internal6theory2eq13ProofEqEngineE", !6, i64 0}
-!47 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EE", !48, i64 0}
-!48 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_ELb1ELb1EE", !49, i64 0}
-!49 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EE", !50, i64 0}
-!50 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EEE", !51, i64 0}
-!51 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EEE", !52, i64 0}
-!52 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory2eq13ProofEqEngineELb0EE", !46, i64 0}
-!53 = !{!"_ZTSSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EE", !54, i64 0}
-!54 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_ELb1ELb1EE", !55, i64 0}
-!55 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EE", !56, i64 0}
-!56 = !{!"_ZTSSt5tupleIJPN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EEE", !57, i64 0}
-!57 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EEE", !58, i64 0}
-!58 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal19EagerProofGeneratorELb0EE", !59, i64 0}
-!59 = !{!"p1 _ZTSN4cvc58internal19EagerProofGeneratorE", !6, i64 0}
-!60 = !{!"bool", !7, i64 0}
-!61 = !{!"_ZTSN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EEE", !62, i64 0}
-!62 = !{!"_ZTSN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE", !63, i64 0, !67, i64 40, !10, i64 48}
-!63 = !{!"_ZTSN4cvc57context10ContextObjE", !64, i64 8, !65, i64 16, !65, i64 24, !66, i64 32}
-!64 = !{!"p1 _ZTSN4cvc57context5ScopeE", !6, i64 0}
-!65 = !{!"p1 _ZTSN4cvc57context10ContextObjE", !6, i64 0}
-!66 = !{!"p2 _ZTSN4cvc57context10ContextObjE", !6, i64 0}
-!67 = !{!"p1 _ZTSN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE", !6, i64 0}
-!68 = !{!"int", !7, i64 0}
-!69 = !{!"_ZTSN4cvc58internal13HistogramStatINS0_6theory11InferenceIdEEE", !70, i64 0}
-!70 = !{!"p1 _ZTSN4cvc58internal23StatisticHistogramValueINS0_6theory11InferenceIdEEE", !6, i64 0}
-!71 = !{!"_ZTSSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE", !72, i64 0}
-!72 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE", !73, i64 0}
-!73 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE12_Vector_implE", !27, i64 0}
-!74 = !{!"_ZTSSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE", !75, i64 0}
-!75 = !{!"_ZTSSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE", !76, i64 0}
-!76 = !{!"_ZTSNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE13_Rb_tree_implISA_Lb1EEE", !77, i64 0, !22, i64 8}
-!77 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIN4cvc58internal12NodeTemplateILb1EEEEE", !78, i64 0}
-!78 = !{!"_ZTSSt4lessIN4cvc58internal12NodeTemplateILb1EEEE"}
-!79 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EE", !80, i64 0}
-!80 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_ELb1ELb1EE", !81, i64 0}
-!81 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EE", !82, i64 0}
-!82 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EEE", !83, i64 0}
-!83 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EEE", !84, i64 0}
-!84 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory11quantifiers11InstantiateELb0EE", !18, i64 0}
-!85 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EE", !86, i64 0}
-!86 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_ELb1ELb1EE", !87, i64 0}
-!87 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EE", !88, i64 0}
-!88 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EEE", !89, i64 0}
-!89 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EEE", !90, i64 0}
-!90 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory11quantifiers9SkolemizeELb0EE", !20, i64 0}
-!91 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers17QuantifiersModuleE", !6, i64 0}
-!92 = !{!36, !10, i64 368}
-!93 = !{!36, !10, i64 376}
-!94 = !{!38, !42, i64 24}
-!95 = !{!96, !107, i64 240}
-!96 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !97, i64 0, !105, i64 216, !7, i64 224, !60, i64 225, !106, i64 232, !107, i64 240, !108, i64 248, !109, i64 256}
-!97 = !{!"_ZTSSt8ios_base", !10, i64 8, !10, i64 16, !98, i64 24, !99, i64 28, !99, i64 32, !100, i64 40, !101, i64 48, !7, i64 64, !68, i64 192, !102, i64 200, !103, i64 208}
-!98 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
-!99 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
-!100 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
-!101 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !10, i64 8}
-!102 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
-!103 = !{!"_ZTSSt6locale", !104, i64 0}
-!104 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
-!105 = !{!"p1 _ZTSSo", !6, i64 0}
-!106 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !6, i64 0}
-!107 = !{!"p1 _ZTSSt5ctypeIcE", !6, i64 0}
-!108 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !6, i64 0}
-!109 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !6, i64 0}
-!110 = !{!111, !7, i64 56}
-!111 = !{!"_ZTSSt5ctypeIcE", !112, i64 0, !113, i64 16, !60, i64 24, !114, i64 32, !114, i64 40, !115, i64 48, !7, i64 56, !7, i64 57, !7, i64 313, !7, i64 569}
-!112 = !{!"_ZTSNSt6locale5facetE", !68, i64 8}
-!113 = !{!"p1 _ZTS15__locale_struct", !6, i64 0}
-!114 = !{!"p1 int", !6, i64 0}
-!115 = !{!"p1 short", !6, i64 0}
-!116 = !{!"branch_weights", i32 1, i32 1048575}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !6, i64 0}
-!119 = !{!120, !118, i64 0}
-!120 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !118, i64 0}
-!121 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!122 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!123 = !{!23, !25, i64 24}
-!124 = !{!23, !25, i64 16}
-!125 = distinct !{!125, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!27, !28, i64 16}
+!36 = !{!37, !92, i64 360}
+!37 = !{!"_ZTSN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerE", !38, i64 0, !80, i64 344, !86, i64 352, !92, i64 360, !10, i64 368, !10, i64 376}
+!38 = !{!"_ZTSN4cvc58internal6theory24InferenceManagerBufferedE", !39, i64 0, !72, i64 240, !72, i64 264, !75, i64 288, !61, i64 336}
+!39 = !{!"_ZTSN4cvc58internal6theory22TheoryInferenceManagerE", !40, i64 0, !42, i64 16, !43, i64 24, !44, i64 32, !45, i64 40, !46, i64 48, !47, i64 56, !48, i64 64, !54, i64 72, !61, i64 80, !62, i64 88, !62, i64 144, !69, i64 200, !69, i64 204, !69, i64 208, !70, i64 216, !70, i64 224, !70, i64 232}
+!40 = !{!"_ZTSN4cvc58internal6EnvObjE", !41, i64 8}
+!41 = !{!"p1 _ZTSN4cvc58internal3EnvE", !6, i64 0}
+!42 = !{!"p1 _ZTSN4cvc58internal6theory6TheoryE", !6, i64 0}
+!43 = !{!"p1 _ZTSN4cvc58internal6theory11TheoryStateE", !6, i64 0}
+!44 = !{!"p1 _ZTSN4cvc58internal6theory13OutputChannelE", !6, i64 0}
+!45 = !{!"p1 _ZTSN4cvc58internal6theory2eq14EqualityEngineE", !6, i64 0}
+!46 = !{!"p1 _ZTSN4cvc58internal6theory15DecisionManagerE", !6, i64 0}
+!47 = !{!"p1 _ZTSN4cvc58internal6theory2eq13ProofEqEngineE", !6, i64 0}
+!48 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EE", !49, i64 0}
+!49 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_ELb1ELb1EE", !50, i64 0}
+!50 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EE", !51, i64 0}
+!51 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EEE", !52, i64 0}
+!52 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4_EEE", !53, i64 0}
+!53 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory2eq13ProofEqEngineELb0EE", !47, i64 0}
+!54 = !{!"_ZTSSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EE", !55, i64 0}
+!55 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_ELb1ELb1EE", !56, i64 0}
+!56 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EE", !57, i64 0}
+!57 = !{!"_ZTSSt5tupleIJPN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EEE", !58, i64 0}
+!58 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EEE", !59, i64 0}
+!59 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal19EagerProofGeneratorELb0EE", !60, i64 0}
+!60 = !{!"p1 _ZTSN4cvc58internal19EagerProofGeneratorE", !6, i64 0}
+!61 = !{!"bool", !7, i64 0}
+!62 = !{!"_ZTSN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EEE", !63, i64 0}
+!63 = !{!"_ZTSN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE", !64, i64 0, !68, i64 40, !10, i64 48}
+!64 = !{!"_ZTSN4cvc57context10ContextObjE", !65, i64 8, !66, i64 16, !66, i64 24, !67, i64 32}
+!65 = !{!"p1 _ZTSN4cvc57context5ScopeE", !6, i64 0}
+!66 = !{!"p1 _ZTSN4cvc57context10ContextObjE", !6, i64 0}
+!67 = !{!"p2 _ZTSN4cvc57context10ContextObjE", !6, i64 0}
+!68 = !{!"p1 _ZTSN4cvc57context13InsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE", !6, i64 0}
+!69 = !{!"int", !7, i64 0}
+!70 = !{!"_ZTSN4cvc58internal13HistogramStatINS0_6theory11InferenceIdEEE", !71, i64 0}
+!71 = !{!"p1 _ZTSN4cvc58internal23StatisticHistogramValueINS0_6theory11InferenceIdEEE", !6, i64 0}
+!72 = !{!"_ZTSSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE", !73, i64 0}
+!73 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE", !74, i64 0}
+!74 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE12_Vector_implE", !27, i64 0}
+!75 = !{!"_ZTSSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE", !76, i64 0}
+!76 = !{!"_ZTSSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE", !77, i64 0}
+!77 = !{!"_ZTSNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE13_Rb_tree_implISA_Lb1EEE", !78, i64 0, !22, i64 8}
+!78 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIN4cvc58internal12NodeTemplateILb1EEEEE", !79, i64 0}
+!79 = !{!"_ZTSSt4lessIN4cvc58internal12NodeTemplateILb1EEEE"}
+!80 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EE", !81, i64 0}
+!81 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_ELb1ELb1EE", !82, i64 0}
+!82 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EE", !83, i64 0}
+!83 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EEE", !84, i64 0}
+!84 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory11quantifiers11InstantiateESt14default_deleteIS4_EEE", !85, i64 0}
+!85 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory11quantifiers11InstantiateELb0EE", !18, i64 0}
+!86 = !{!"_ZTSSt10unique_ptrIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EE", !87, i64 0}
+!87 = !{!"_ZTSSt15__uniq_ptr_dataIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_ELb1ELb1EE", !88, i64 0}
+!88 = !{!"_ZTSSt15__uniq_ptr_implIN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EE", !89, i64 0}
+!89 = !{!"_ZTSSt5tupleIJPN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EEE", !90, i64 0}
+!90 = !{!"_ZTSSt11_Tuple_implILm0EJPN4cvc58internal6theory11quantifiers9SkolemizeESt14default_deleteIS4_EEE", !91, i64 0}
+!91 = !{!"_ZTSSt10_Head_baseILm0EPN4cvc58internal6theory11quantifiers9SkolemizeELb0EE", !20, i64 0}
+!92 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers17QuantifiersModuleE", !6, i64 0}
+!93 = !{!37, !10, i64 368}
+!94 = !{!37, !10, i64 376}
+!95 = !{!39, !43, i64 24}
+!96 = !{!97, !108, i64 240}
+!97 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !98, i64 0, !106, i64 216, !7, i64 224, !61, i64 225, !107, i64 232, !108, i64 240, !109, i64 248, !110, i64 256}
+!98 = !{!"_ZTSSt8ios_base", !10, i64 8, !10, i64 16, !99, i64 24, !100, i64 28, !100, i64 32, !101, i64 40, !102, i64 48, !7, i64 64, !69, i64 192, !103, i64 200, !104, i64 208}
+!99 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
+!100 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
+!101 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
+!102 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !10, i64 8}
+!103 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
+!104 = !{!"_ZTSSt6locale", !105, i64 0}
+!105 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
+!106 = !{!"p1 _ZTSSo", !6, i64 0}
+!107 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !6, i64 0}
+!108 = !{!"p1 _ZTSSt5ctypeIcE", !6, i64 0}
+!109 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !6, i64 0}
+!110 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !6, i64 0}
+!111 = !{!112, !7, i64 56}
+!112 = !{!"_ZTSSt5ctypeIcE", !113, i64 0, !114, i64 16, !61, i64 24, !115, i64 32, !115, i64 40, !116, i64 48, !7, i64 56, !7, i64 57, !7, i64 313, !7, i64 569}
+!113 = !{!"_ZTSNSt6locale5facetE", !69, i64 8}
+!114 = !{!"p1 _ZTS15__locale_struct", !6, i64 0}
+!115 = !{!"p1 int", !6, i64 0}
+!116 = !{!"p1 short", !6, i64 0}
+!117 = !{!"branch_weights", i32 1, i32 1048575}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !6, i64 0}
+!120 = !{!121, !119, i64 0}
+!121 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !119, i64 0}
+!122 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!123 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!124 = !{!23, !25, i64 24}
+!125 = !{!23, !25, i64 16}
+!126 = distinct !{!126, !33, !34}

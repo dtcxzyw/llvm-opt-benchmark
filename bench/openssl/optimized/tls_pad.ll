@@ -172,19 +172,19 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   %80 = select i1 %79, i32 255, i32 0
   %81 = zext i8 %73 to i32
   %82 = zext i8 %76 to i32
-  %83 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %80) #6, !srcloc !16
+  %83 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %80) #6, !srcloc !17
   %84 = and i32 %83, %81
   %85 = xor i32 %80, -1
-  %86 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %85) #6, !srcloc !16
+  %86 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %85) #6, !srcloc !17
   %87 = and i32 %86, %82
   %88 = or i32 %87, %84
   %89 = add i64 %.1102, 1
   %90 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %.180101
   %91 = load i8, ptr %90, align 1, !tbaa !7
   %92 = zext i8 %91 to i32
-  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %46) #6, !srcloc !16
+  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %46) #6, !srcloc !17
   %94 = and i32 %93, %88
-  %95 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %47) #6, !srcloc !16
+  %95 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %47) #6, !srcloc !17
   %96 = and i32 %95, %92
   %97 = or i32 %96, %94
   %98 = trunc nuw i32 %97 to i8
@@ -197,7 +197,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   %isneg = icmp slt i64 %103, 0
   %104 = select i1 %isneg, i64 %89, i64 0
   %exitcond103.not = icmp eq i64 %99, %6
-  br i1 %exitcond103.not, label %.loopexit, label %70, !llvm.loop !17
+  br i1 %exitcond103.not, label %.loopexit, label %70, !llvm.loop !18
 
 .loopexit:                                        ; preds = %70, %35, %31, %28, %26, %27, %19, %9
   %.0 = phi i32 [ 0, %9 ], [ %., %19 ], [ 1, %27 ], [ 1, %26 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 1, %70 ]
@@ -293,7 +293,7 @@ define range(i32 0, 2) i32 @tls1_cbc_remove_padding_and_mac(ptr noundef captures
   %49 = and i64 %48, %.158
   %50 = add nuw nsw i64 %.04457, 1
   %exitcond.not = icmp eq i64 %50, %spec.select
-  br i1 %exitcond.not, label %.split46, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.split46, label %.lr.ph, !llvm.loop !19
 
 .split46:                                         ; preds = %.lr.ph, %34
   %.1.lcssa = phi i64 [ %41, %34 ], [ %49, %.lr.ph ]
@@ -349,8 +349,9 @@ attributes #6 = { nounwind memory(none) }
 !11 = !{!"any pointer", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !5, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{i64 1694720}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 1694720}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}

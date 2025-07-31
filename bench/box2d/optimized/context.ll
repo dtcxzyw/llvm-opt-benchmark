@@ -601,7 +601,7 @@ define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, p
   %.1 = phi ptr [ %.0170, %22 ], [ %.0170, %167 ], [ %.0170, %169 ], [ %21, %158 ], [ %21, %164 ], [ %21, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.thread, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.1, %.thread ]
@@ -628,7 +628,7 @@ define hidden range(i32 0, 2) i32 @_glfwRefreshContextAttribs(ptr noundef initia
   store i32 %9, ptr %11, align 4, !tbaa !55
   store i32 196609, ptr %10, align 8, !tbaa !13
   %12 = tail call ptr @_glfwPlatformGetTls(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 133412)) #7
-  %13 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %13 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %15
 
@@ -659,13 +659,13 @@ define hidden range(i32 0, 2) i32 @_glfwRefreshContextAttribs(ptr noundef initia
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 600
-  %26 = load ptr, ptr %25, align 8, !tbaa !152
+  %26 = load ptr, ptr %25, align 8, !tbaa !154
   tail call void %26(ptr noundef null) #7
   br label %.thread17.i
 
 .thread17.i:                                      ; preds = %24, %20, %.thread.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %28 = load ptr, ptr %27, align 8, !tbaa !152
+  %28 = load ptr, ptr %27, align 8, !tbaa !154
   tail call void %28(ptr noundef nonnull %0) #7
   br label %glfwMakeContextCurrent.exit
 
@@ -676,15 +676,15 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 30:                                               ; preds = %glfwMakeContextCurrent.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %32 = load ptr, ptr %31, align 8, !tbaa !153
+  %32 = load ptr, ptr %31, align 8, !tbaa !155
   %33 = tail call ptr %32(ptr noundef nonnull @.str.13) #7
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr %33, ptr %34, align 8, !tbaa !154
-  %35 = load ptr, ptr %31, align 8, !tbaa !153
+  store ptr %33, ptr %34, align 8, !tbaa !156
+  %35 = load ptr, ptr %31, align 8, !tbaa !155
   %36 = tail call ptr %35(ptr noundef nonnull @.str.14) #7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %36, ptr %37, align 8, !tbaa !155
-  %38 = load ptr, ptr %34, align 8, !tbaa !154
+  store ptr %36, ptr %37, align 8, !tbaa !157
+  %38 = load ptr, ptr %34, align 8, !tbaa !156
   %.not96 = icmp eq ptr %38, null
   %.not97 = icmp eq ptr %36, null
   %or.cond = select i1 %.not96, i1 true, i1 %.not97
@@ -692,7 +692,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 39:                                               ; preds = %30
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.15) #7
-  %40 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %40 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i114 = icmp eq i32 %40, 0
   br i1 %.not.i114, label %41, label %42
 
@@ -721,7 +721,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .thread19.i121:                                   ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 600
-  %51 = load ptr, ptr %50, align 8, !tbaa !152
+  %51 = load ptr, ptr %50, align 8, !tbaa !154
   tail call void %51(ptr noundef null) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -739,13 +739,13 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 600
-  %59 = load ptr, ptr %58, align 8, !tbaa !152
+  %59 = load ptr, ptr %58, align 8, !tbaa !154
   tail call void %59(ptr noundef null) #7
   br label %.thread17.i119
 
 .thread17.i119:                                   ; preds = %57, %52, %.thread.i116
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %61 = load ptr, ptr %60, align 8, !tbaa !152
+  %61 = load ptr, ptr %60, align 8, !tbaa !154
   tail call void %61(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -759,7 +759,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   %66 = icmp eq i32 %65, 196609
   %.str.16..str.17 = select i1 %66, ptr @.str.16, ptr @.str.17
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull %.str.16..str.17) #7
-  %67 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %67 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i123 = icmp eq i32 %67, 0
   br i1 %.not.i123, label %68, label %69
 
@@ -788,7 +788,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .thread19.i130:                                   ; preds = %76
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 600
-  %78 = load ptr, ptr %77, align 8, !tbaa !152
+  %78 = load ptr, ptr %77, align 8, !tbaa !154
   tail call void %78(ptr noundef null) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -806,25 +806,25 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %70, i64 600
-  %86 = load ptr, ptr %85, align 8, !tbaa !152
+  %86 = load ptr, ptr %85, align 8, !tbaa !154
   tail call void %86(ptr noundef null) #7
   br label %.thread17.i128
 
 .thread17.i128:                                   ; preds = %84, %79, %.thread.i125
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %88 = load ptr, ptr %87, align 8, !tbaa !152
+  %88 = load ptr, ptr %87, align 8, !tbaa !154
   tail call void %88(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
 89:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not99 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not99, label %.loopexit, label %.preheader
+  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !158
 
 .preheader:                                       ; preds = %62, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %62 ]
   %90 = getelementptr inbounds nuw [4 x ptr], ptr @__const._glfwRefreshContextAttribs.prefixes, i64 0, i64 %indvars.iv
-  %91 = load ptr, ptr %90, align 8, !tbaa !156
+  %91 = load ptr, ptr %90, align 8, !tbaa !159
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #8
   %93 = tail call i32 @strncmp(ptr noundef nonnull %63, ptr noundef nonnull %91, i64 noundef %92) #8
   %94 = icmp eq i32 %93, 0
@@ -849,7 +849,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   %103 = icmp eq i32 %102, 196609
   %.str.19..str.20 = select i1 %103, ptr @.str.19, ptr @.str.20
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull %.str.19..str.20) #7
-  %104 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %104 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i132 = icmp eq i32 %104, 0
   br i1 %.not.i132, label %105, label %106
 
@@ -878,7 +878,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .thread19.i139:                                   ; preds = %113
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 600
-  %115 = load ptr, ptr %114, align 8, !tbaa !152
+  %115 = load ptr, ptr %114, align 8, !tbaa !154
   tail call void %115(ptr noundef null) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -896,18 +896,18 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %107, i64 600
-  %123 = load ptr, ptr %122, align 8, !tbaa !152
+  %123 = load ptr, ptr %122, align 8, !tbaa !154
   tail call void %123(ptr noundef null) #7
   br label %.thread17.i137
 
 .thread17.i137:                                   ; preds = %121, %116, %.thread.i134
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %125 = load ptr, ptr %124, align 8, !tbaa !152
+  %125 = load ptr, ptr %124, align 8, !tbaa !154
   tail call void %125(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
 126:                                              ; preds = %.loopexit
-  %127 = load i32, ptr %97, align 8, !tbaa !157
+  %127 = load i32, ptr %97, align 8, !tbaa !160
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !56
   %130 = icmp slt i32 %127, %129
@@ -918,7 +918,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %132, label %133, label %166
 
 133:                                              ; preds = %131
-  %134 = load i32, ptr %98, align 4, !tbaa !158
+  %134 = load i32, ptr %98, align 4, !tbaa !161
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %136 = load i32, ptr %135, align 4, !tbaa !57
   %137 = icmp slt i32 %134, %136
@@ -929,10 +929,10 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   %140 = icmp eq i32 %139, 196609
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %142 = load i32, ptr %141, align 4, !tbaa !57
-  %143 = load i32, ptr %98, align 4, !tbaa !158
+  %143 = load i32, ptr %98, align 4, !tbaa !161
   %.str.21..str.22 = select i1 %140, ptr @.str.21, ptr @.str.22
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull %.str.21..str.22, i32 noundef %129, i32 noundef %142, i32 noundef %127, i32 noundef %143) #7
-  %144 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %144 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i141 = icmp eq i32 %144, 0
   br i1 %.not.i141, label %145, label %146
 
@@ -961,7 +961,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .thread19.i148:                                   ; preds = %153
   %154 = getelementptr inbounds nuw i8, ptr %147, i64 600
-  %155 = load ptr, ptr %154, align 8, !tbaa !152
+  %155 = load ptr, ptr %154, align 8, !tbaa !154
   tail call void %155(ptr noundef null) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -979,13 +979,13 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 161:                                              ; preds = %156
   %162 = getelementptr inbounds nuw i8, ptr %147, i64 600
-  %163 = load ptr, ptr %162, align 8, !tbaa !152
+  %163 = load ptr, ptr %162, align 8, !tbaa !154
   tail call void %163(ptr noundef null) #7
   br label %.thread17.i146
 
 .thread17.i146:                                   ; preds = %161, %156, %.thread.i143
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %165 = load ptr, ptr %164, align 8, !tbaa !152
+  %165 = load ptr, ptr %164, align 8, !tbaa !154
   tail call void %165(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -994,10 +994,10 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %167, label %168, label %173
 
 168:                                              ; preds = %166
-  %169 = load ptr, ptr %31, align 8, !tbaa !153
+  %169 = load ptr, ptr %31, align 8, !tbaa !155
   %170 = tail call ptr %169(ptr noundef nonnull @.str.23) #7
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store ptr %170, ptr %171, align 8, !tbaa !159
+  store ptr %170, ptr %171, align 8, !tbaa !162
   %.not101 = icmp eq ptr %170, null
   br i1 %.not101, label %172, label %173
 
@@ -1012,22 +1012,22 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %175, label %176, label %222
 
 176:                                              ; preds = %173
-  %177 = load i32, ptr %97, align 8, !tbaa !157
+  %177 = load i32, ptr %97, align 8, !tbaa !160
   %178 = icmp sgt i32 %177, 2
   br i1 %178, label %179, label %.thread164
 
 179:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  %180 = load ptr, ptr %34, align 8, !tbaa !154
+  %180 = load ptr, ptr %34, align 8, !tbaa !156
   call void %180(i32 noundef 33310, ptr noundef nonnull %3) #7
-  %181 = load i32, ptr %3, align 4, !tbaa !160
+  %181 = load i32, ptr %3, align 4, !tbaa !163
   %182 = and i32 %181, 1
   %.not103 = icmp eq i32 %182, 0
   br i1 %.not103, label %185, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  store i32 1, ptr %184, align 4, !tbaa !161
+  store i32 1, ptr %184, align 4, !tbaa !164
   br label %185
 
 185:                                              ; preds = %183, %179
@@ -1042,29 +1042,29 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 189:                                              ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %191 = load i32, ptr %190, align 4, !tbaa !162
+  %191 = load i32, ptr %190, align 4, !tbaa !165
   %.not106 = icmp eq i32 %191, 0
   br i1 %.not106, label %193, label %.sink.split
 
 .sink.split:                                      ; preds = %189, %185
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i32 1, ptr %192, align 8, !tbaa !163
+  store i32 1, ptr %192, align 8, !tbaa !166
   br label %193
 
 193:                                              ; preds = %.sink.split, %187, %189
-  %194 = load i32, ptr %3, align 4, !tbaa !160
+  %194 = load i32, ptr %3, align 4, !tbaa !163
   %195 = and i32 %194, 8
   %.not107 = icmp eq i32 %195, 0
   br i1 %.not107, label %198, label %196
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  store i32 1, ptr %197, align 4, !tbaa !164
+  store i32 1, ptr %197, align 4, !tbaa !167
   br label %198
 
 198:                                              ; preds = %193, %196
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  %.pr = load i32, ptr %97, align 8, !tbaa !157
+  %.pr = load i32, ptr %97, align 8, !tbaa !160
   %199 = icmp sgt i32 %.pr, 3
   br i1 %199, label %205, label %200
 
@@ -1073,15 +1073,15 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br i1 %201, label %202, label %.thread164
 
 202:                                              ; preds = %200
-  %203 = load i32, ptr %98, align 4, !tbaa !158
+  %203 = load i32, ptr %98, align 4, !tbaa !161
   %204 = icmp sgt i32 %203, 1
   br i1 %204, label %205, label %.thread164
 
 205:                                              ; preds = %202, %198
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  %206 = load ptr, ptr %34, align 8, !tbaa !154
+  %206 = load ptr, ptr %34, align 8, !tbaa !156
   call void %206(i32 noundef 37158, ptr noundef nonnull %4) #7
-  %207 = load i32, ptr %4, align 4, !tbaa !160
+  %207 = load i32, ptr %4, align 4, !tbaa !163
   %208 = and i32 %207, 2
   %.not108 = icmp eq i32 %208, 0
   br i1 %.not108, label %209, label %.sink.split169
@@ -1099,7 +1099,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 .sink.split169:                                   ; preds = %211, %209, %205
   %.sink = phi i32 [ 204802, %205 ], [ 204801, %209 ], [ 204802, %211 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store i32 %.sink, ptr %213, align 8, !tbaa !165
+  store i32 %.sink, ptr %213, align 8, !tbaa !168
   br label %214
 
 214:                                              ; preds = %.sink.split169, %211
@@ -1113,9 +1113,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 216:                                              ; preds = %.thread164
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  %217 = load ptr, ptr %34, align 8, !tbaa !154
+  %217 = load ptr, ptr %34, align 8, !tbaa !156
   call void %217(i32 noundef 33366, ptr noundef nonnull %5) #7
-  %218 = load i32, ptr %5, align 4, !tbaa !160
+  %218 = load i32, ptr %5, align 4, !tbaa !163
   switch i32 %218, label %221 [
     i32 33362, label %.sink.split171
     i32 33377, label %219
@@ -1127,7 +1127,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 .sink.split171:                                   ; preds = %216, %219
   %.sink172 = phi i32 [ 200705, %219 ], [ 200706, %216 ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink172, ptr %220, align 4, !tbaa !166
+  store i32 %.sink172, ptr %220, align 4, !tbaa !169
   br label %221
 
 221:                                              ; preds = %.sink.split171, %216
@@ -1141,9 +1141,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 224:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  %225 = load ptr, ptr %34, align 8, !tbaa !154
+  %225 = load ptr, ptr %34, align 8, !tbaa !156
   call void %225(i32 noundef 33366, ptr noundef nonnull %6) #7
-  %226 = load i32, ptr %6, align 4, !tbaa !160
+  %226 = load i32, ptr %6, align 4, !tbaa !163
   switch i32 %226, label %229 [
     i32 33362, label %.sink.split174
     i32 33377, label %227
@@ -1155,7 +1155,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 .sink.split174:                                   ; preds = %224, %227
   %.sink175 = phi i32 [ 200705, %227 ], [ 200706, %224 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink175, ptr %228, align 4, !tbaa !166
+  store i32 %.sink175, ptr %228, align 4, !tbaa !169
   br label %229
 
 229:                                              ; preds = %.sink.split174, %224
@@ -1169,9 +1169,9 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 232:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  %233 = load ptr, ptr %34, align 8, !tbaa !154
+  %233 = load ptr, ptr %34, align 8, !tbaa !156
   call void %233(i32 noundef 33531, ptr noundef nonnull %7) #7
-  %234 = load i32, ptr %7, align 4, !tbaa !160
+  %234 = load i32, ptr %7, align 4, !tbaa !163
   switch i32 %234, label %237 [
     i32 0, label %.sink.split177
     i32 33532, label %235
@@ -1183,7 +1183,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 .sink.split177:                                   ; preds = %232, %235
   %.sink178 = phi i32 [ 217089, %235 ], [ 217090, %232 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 %.sink178, ptr %236, align 8, !tbaa !167
+  store i32 %.sink178, ptr %236, align 8, !tbaa !170
   br label %237
 
 237:                                              ; preds = %.sink.split177, %232
@@ -1191,22 +1191,22 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %238
 
 238:                                              ; preds = %237, %230
-  %239 = load ptr, ptr %31, align 8, !tbaa !153
+  %239 = load ptr, ptr %31, align 8, !tbaa !155
   %240 = call ptr %239(ptr noundef nonnull @.str.29) #7
   call void %240(i32 noundef 16384) #7
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %242 = load i32, ptr %241, align 8, !tbaa !168
+  %242 = load i32, ptr %241, align 8, !tbaa !171
   %.not113 = icmp eq i32 %242, 0
   br i1 %.not113, label %246, label %243
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %245 = load ptr, ptr %244, align 8, !tbaa !169
+  %245 = load ptr, ptr %244, align 8, !tbaa !172
   call void %245(ptr noundef nonnull %0) #7
   br label %246
 
 246:                                              ; preds = %243, %238
-  %247 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %247 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not.i150 = icmp eq i32 %247, 0
   br i1 %.not.i150, label %248, label %249
 
@@ -1235,7 +1235,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .thread19.i157:                                   ; preds = %256
   %257 = getelementptr inbounds nuw i8, ptr %250, i64 600
-  %258 = load ptr, ptr %257, align 8, !tbaa !152
+  %258 = load ptr, ptr %257, align 8, !tbaa !154
   call void %258(ptr noundef null) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -1253,13 +1253,13 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 264:                                              ; preds = %259
   %265 = getelementptr inbounds nuw i8, ptr %250, i64 600
-  %266 = load ptr, ptr %265, align 8, !tbaa !152
+  %266 = load ptr, ptr %265, align 8, !tbaa !154
   call void %266(ptr noundef null) #7
   br label %.thread17.i155
 
 .thread17.i155:                                   ; preds = %264, %259, %.thread.i152
   %267 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %268 = load ptr, ptr %267, align 8, !tbaa !152
+  %268 = load ptr, ptr %267, align 8, !tbaa !154
   call void %268(ptr noundef nonnull %12) #7
   br label %glfwMakeContextCurrent.exit122
 
@@ -1272,7 +1272,7 @@ declare ptr @_glfwPlatformGetTls(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1301,7 +1301,7 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread19:                                        ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %13 = load ptr, ptr %12, align 8, !tbaa !152
+  %13 = load ptr, ptr %12, align 8, !tbaa !154
   tail call void %13(ptr noundef null) #7
   br label %.thread18
 
@@ -1319,13 +1319,13 @@ define void @glfwMakeContextCurrent(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %21 = load ptr, ptr %20, align 8, !tbaa !152
+  %21 = load ptr, ptr %20, align 8, !tbaa !154
   tail call void %21(ptr noundef null) #7
   br label %.thread17
 
 .thread17:                                        ; preds = %19, %14, %.thread
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %23 = load ptr, ptr %22, align 8, !tbaa !152
+  %23 = load ptr, ptr %22, align 8, !tbaa !154
   tail call void %23(ptr noundef nonnull %0) #7
   br label %.thread18
 
@@ -1345,7 +1345,7 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1363,7 +1363,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 8:                                                ; preds = %5
-  %9 = load i8, ptr %0, align 1, !tbaa !170
+  %9 = load i8, ptr %0, align 1, !tbaa !173
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %12
 
@@ -1373,16 +1373,16 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 536
-  %14 = load i32, ptr %13, align 8, !tbaa !157
+  %14 = load i32, ptr %13, align 8, !tbaa !160
   %15 = icmp sgt i32 %14, 2
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %18 = load ptr, ptr %17, align 8, !tbaa !154
+  %18 = load ptr, ptr %17, align 8, !tbaa !156
   call void %18(i32 noundef 33309, ptr noundef nonnull %2) #7
-  %19 = load i32, ptr %2, align 4, !tbaa !160
+  %19 = load i32, ptr %2, align 4, !tbaa !163
   %.not3348 = icmp sgt i32 %19, 0
   br i1 %.not3348, label %.lr.ph, label %._crit_edge
 
@@ -1392,13 +1392,13 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %27
   %22 = add nuw nsw i32 %.02549, 1
-  %23 = load i32, ptr %2, align 4, !tbaa !160
+  %23 = load i32, ptr %2, align 4, !tbaa !163
   %.not33 = icmp slt i32 %22, %23
-  br i1 %.not33, label %24, label %._crit_edge
+  br i1 %.not33, label %24, label %._crit_edge, !llvm.loop !174
 
 24:                                               ; preds = %.lr.ph, %21
   %.02549 = phi i32 [ 0, %.lr.ph ], [ %22, %21 ]
-  %25 = load ptr, ptr %20, align 8, !tbaa !159
+  %25 = load ptr, ptr %20, align 8, !tbaa !162
   %26 = call ptr %25(i32 noundef 7939, i32 noundef %.02549) #7
   %.not32 = icmp eq ptr %26, null
   br i1 %.not32, label %.thread, label %27
@@ -1423,7 +1423,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 592
-  %31 = load ptr, ptr %30, align 8, !tbaa !155
+  %31 = load ptr, ptr %30, align 8, !tbaa !157
   %32 = tail call ptr %31(i32 noundef 7939) #7
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %.thread40, label %33
@@ -1450,12 +1450,12 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %37, i64 -1
-  %42 = load i8, ptr %41, align 1, !tbaa !170
+  %42 = load i8, ptr %41, align 1, !tbaa !173
   %43 = icmp eq i8 %42, 32
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %40, %36
-  %45 = load i8, ptr %38, align 1, !tbaa !170
+  %45 = load i8, ptr %38, align 1, !tbaa !173
   switch i8 %45, label %46 [
     i8 32, label %.loopexit
     i8 0, label %.loopexit
@@ -1468,7 +1468,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread44:                                        ; preds = %46, %33, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 624
-  %49 = load ptr, ptr %48, align 8, !tbaa !171
+  %49 = load ptr, ptr %48, align 8, !tbaa !175
   %50 = call i32 %49(ptr noundef nonnull %0) #7
   br label %.loopexit
 
@@ -1496,12 +1496,12 @@ define hidden range(i32 0, 2) i32 @_glfwStringInExtensionString(ptr noundef read
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %6, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !170
+  %11 = load i8, ptr %10, align 1, !tbaa !173
   %12 = icmp eq i8 %11, 32
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9, %5
-  %14 = load i8, ptr %7, align 1, !tbaa !170
+  %14 = load i8, ptr %7, align 1, !tbaa !173
   switch i8 %14, label %15 [
     i8 32, label %.thread
     i8 0, label %.thread
@@ -1522,7 +1522,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetCurrentContext() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -1541,7 +1541,7 @@ define ptr @glfwGetCurrentContext() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSwapBuffers(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1561,7 +1561,7 @@ define void @glfwSwapBuffers(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %11 = load ptr, ptr %10, align 8, !tbaa !169
+  %11 = load ptr, ptr %10, align 8, !tbaa !172
   tail call void %11(ptr noundef nonnull %0) #7
   br label %12
 
@@ -1571,7 +1571,7 @@ define void @glfwSwapBuffers(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSwapInterval(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1590,7 +1590,7 @@ define void @glfwSwapInterval(i32 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  %9 = load ptr, ptr %8, align 8, !tbaa !172
+  %9 = load ptr, ptr %8, align 8, !tbaa !176
   tail call void %9(i32 noundef %0) #7
   br label %10
 
@@ -1603,7 +1603,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetProcAddress(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !78
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !80
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1622,7 +1622,7 @@ define ptr @glfwGetProcAddress(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  %9 = load ptr, ptr %8, align 8, !tbaa !153
+  %9 = load ptr, ptr %8, align 8, !tbaa !155
   %10 = tail call ptr %9(ptr noundef %0) #7
   br label %11
 
@@ -1721,98 +1721,102 @@ attributes #8 = { nounwind willreturn memory(read) }
 !75 = !{!63, !5, i64 32}
 !76 = !{!63, !5, i64 36}
 !77 = !{!63, !5, i64 52}
-!78 = !{!79, !5, i64 0}
-!79 = !{!"_GLFWlibrary", !5, i64 0, !80, i64 8, !81, i64 40, !82, i64 616, !88, i64 1896, !17, i64 1904, !8, i64 1912, !89, i64 1920, !5, i64 1928, !5, i64 1932, !6, i64 1936, !90, i64 133392, !5, i64 133400, !91, i64 133404, !91, i64 133412, !93, i64 133424, !95, i64 133472, !97, i64 133496, !98, i64 133736, !99, i64 133800, !100, i64 133872, !101, i64 133888, !133, i64 137840, !147, i64 142744, !148, i64 143360, !149, i64 143584}
-!80 = !{!"GLFWallocator", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!81 = !{!"_GLFWplatform", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !9, i64 424, !9, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !9, i64 552, !9, i64 560, !9, i64 568}
-!82 = !{!"", !83, i64 0, !63, i64 40, !85, i64 112, !4, i64 1216, !5, i64 1272}
-!83 = !{!"_GLFWinitconfig", !5, i64 0, !5, i64 4, !5, i64 8, !9, i64 16, !84, i64 24, !10, i64 32, !10, i64 36}
-!84 = !{!"", !5, i64 0, !5, i64 4}
-!85 = !{!"_GLFWwndconfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !18, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !86, i64 72, !87, i64 328, !84, i64 840, !86, i64 848}
-!86 = !{!"", !6, i64 0}
-!87 = !{!"", !6, i64 0, !6, i64 256}
-!88 = !{!"p1 _ZTS10_GLFWerror", !9, i64 0}
-!89 = !{!"p2 _ZTS12_GLFWmonitor", !9, i64 0}
-!90 = !{!"p1 _ZTS12_GLFWmapping", !9, i64 0}
-!91 = !{!"_GLFWtls", !92, i64 0}
-!92 = !{!"_GLFWtlsPOSIX", !5, i64 0, !5, i64 4}
-!93 = !{!"_GLFWmutex", !94, i64 0}
-!94 = !{!"_GLFWmutexPOSIX", !5, i64 0, !6, i64 8}
-!95 = !{!"", !25, i64 0, !96, i64 8}
-!96 = !{!"_GLFWtimerPOSIX", !5, i64 0, !25, i64 8}
-!97 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232}
-!98 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
-!99 = !{!"", !5, i64 0, !9, i64 8, !6, i64 16, !9, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64}
-!100 = !{!"", !9, i64 0, !9, i64 8}
-!101 = !{!"_GLFWlibraryWayland", !102, i64 0, !103, i64 8, !104, i64 16, !105, i64 24, !106, i64 32, !107, i64 40, !108, i64 48, !109, i64 56, !110, i64 64, !111, i64 72, !112, i64 80, !113, i64 88, !114, i64 96, !115, i64 104, !116, i64 112, !117, i64 120, !118, i64 128, !119, i64 136, !120, i64 144, !5, i64 152, !121, i64 160, !122, i64 168, !121, i64 176, !8, i64 184, !5, i64 192, !18, i64 200, !123, i64 208, !123, i64 216, !28, i64 224, !18, i64 232, !5, i64 240, !5, i64 244, !5, i64 248, !5, i64 252, !5, i64 256, !5, i64 260, !5, i64 264, !18, i64 272, !6, i64 280, !6, i64 792, !6, i64 1490, !124, i64 3240, !8, i64 3472, !8, i64 3480, !129, i64 3488, !130, i64 3648, !21, i64 3688, !131, i64 3720}
-!102 = !{!"p1 _ZTS10wl_display", !9, i64 0}
-!103 = !{!"p1 _ZTS11wl_registry", !9, i64 0}
-!104 = !{!"p1 _ZTS13wl_compositor", !9, i64 0}
-!105 = !{!"p1 _ZTS16wl_subcompositor", !9, i64 0}
-!106 = !{!"p1 _ZTS6wl_shm", !9, i64 0}
-!107 = !{!"p1 _ZTS7wl_seat", !9, i64 0}
-!108 = !{!"p1 _ZTS10wl_pointer", !9, i64 0}
-!109 = !{!"p1 _ZTS11wl_keyboard", !9, i64 0}
-!110 = !{!"p1 _ZTS22wl_data_device_manager", !9, i64 0}
-!111 = !{!"p1 _ZTS14wl_data_device", !9, i64 0}
-!112 = !{!"p1 _ZTS11xdg_wm_base", !9, i64 0}
-!113 = !{!"p1 _ZTS26zxdg_decoration_manager_v1", !9, i64 0}
-!114 = !{!"p1 _ZTS13wp_viewporter", !9, i64 0}
-!115 = !{!"p1 _ZTS31zwp_relative_pointer_manager_v1", !9, i64 0}
-!116 = !{!"p1 _ZTS26zwp_pointer_constraints_v1", !9, i64 0}
-!117 = !{!"p1 _ZTS27zwp_idle_inhibit_manager_v1", !9, i64 0}
-!118 = !{!"p1 _ZTS17xdg_activation_v1", !9, i64 0}
-!119 = !{!"p1 _ZTS30wp_fractional_scale_manager_v1", !9, i64 0}
-!120 = !{!"p1 _ZTS17_GLFWofferWayland", !9, i64 0}
-!121 = !{!"p1 _ZTS13wl_data_offer", !9, i64 0}
-!122 = !{!"p1 _ZTS14wl_data_source", !9, i64 0}
-!123 = !{!"p1 _ZTS15wl_cursor_theme", !9, i64 0}
-!124 = !{!"", !9, i64 0, !125, i64 8, !126, i64 16, !127, i64 24, !128, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224}
-!125 = !{!"p1 _ZTS11xkb_context", !9, i64 0}
-!126 = !{!"p1 _ZTS10xkb_keymap", !9, i64 0}
-!127 = !{!"p1 _ZTS9xkb_state", !9, i64 0}
-!128 = !{!"p1 _ZTS17xkb_compose_state", !9, i64 0}
-!129 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152}
-!130 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
-!131 = !{!"", !9, i64 0, !132, i64 8, !29, i64 16, !5, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224}
-!132 = !{!"p1 _ZTS8libdecor", !9, i64 0}
-!133 = !{!"_GLFWlibraryX11", !134, i64 0, !5, i64 8, !25, i64 16, !54, i64 24, !54, i64 28, !25, i64 32, !25, i64 40, !5, i64 48, !135, i64 56, !9, i64 64, !5, i64 72, !18, i64 80, !18, i64 88, !6, i64 96, !6, i64 1842, !6, i64 2354, !19, i64 3056, !19, i64 3064, !8, i64 3072, !6, i64 3080, !25, i64 3088, !25, i64 3096, !25, i64 3104, !25, i64 3112, !25, i64 3120, !25, i64 3128, !25, i64 3136, !25, i64 3144, !25, i64 3152, !25, i64 3160, !25, i64 3168, !25, i64 3176, !25, i64 3184, !25, i64 3192, !25, i64 3200, !25, i64 3208, !25, i64 3216, !25, i64 3224, !25, i64 3232, !25, i64 3240, !25, i64 3248, !25, i64 3256, !25, i64 3264, !25, i64 3272, !25, i64 3280, !25, i64 3288, !25, i64 3296, !25, i64 3304, !25, i64 3312, !25, i64 3320, !25, i64 3328, !25, i64 3336, !25, i64 3344, !25, i64 3352, !25, i64 3360, !25, i64 3368, !25, i64 3376, !25, i64 3384, !25, i64 3392, !25, i64 3400, !25, i64 3408, !25, i64 3416, !25, i64 3424, !25, i64 3432, !25, i64 3440, !25, i64 3448, !25, i64 3456, !25, i64 3464, !25, i64 3472, !25, i64 3480, !136, i64 3488, !21, i64 4192, !137, i64 4224, !138, i64 4400, !139, i64 4504, !140, i64 4528, !141, i64 4552, !142, i64 4608, !100, i64 4656, !143, i64 4672, !144, i64 4728, !145, i64 4784, !146, i64 4840}
-!134 = !{!"p1 _ZTS9_XDisplay", !9, i64 0}
-!135 = !{!"p1 _ZTS4_XIM", !9, i64 0}
-!136 = !{!"", !9, i64 0, !5, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !9, i64 424, !9, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !9, i64 552, !9, i64 560, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !9, i64 696}
-!137 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168}
-!138 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96}
-!139 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16}
-!140 = !{!"", !5, i64 0, !25, i64 8, !25, i64 16}
-!141 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!142 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !9, i64 24, !9, i64 32, !9, i64 40}
-!143 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!144 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !9, i64 48}
-!145 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48}
-!146 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
-!147 = !{!"_GLFWlibraryNull", !5, i64 0, !5, i64 4, !18, i64 8, !8, i64 16, !6, i64 24, !6, i64 266}
-!148 = !{!"_GLFWlibraryGLX", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !5, i64 176, !5, i64 180, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !5, i64 216, !5, i64 220}
-!149 = !{!"_GLFWlibraryLinux", !5, i64 0, !5, i64 4, !150, i64 8, !5, i64 72, !5, i64 76}
-!150 = !{!"re_pattern_buffer", !151, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !18, i64 32, !18, i64 40, !25, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56}
-!151 = !{!"p1 _ZTS8re_dfa_t", !9, i64 0}
-!152 = !{!14, !9, i64 600}
-!153 = !{!14, !9, i64 632}
-!154 = !{!14, !9, i64 584}
-!155 = !{!14, !9, i64 592}
-!156 = !{!18, !18, i64 0}
-!157 = !{!14, !5, i64 536}
-!158 = !{!14, !5, i64 540}
-!159 = !{!14, !9, i64 576}
-!160 = !{!5, !5, i64 0}
-!161 = !{!14, !5, i64 548}
-!162 = !{!4, !5, i64 20}
-!163 = !{!14, !5, i64 552}
-!164 = !{!14, !5, i64 556}
-!165 = !{!14, !5, i64 560}
-!166 = !{!14, !5, i64 564}
-!167 = !{!14, !5, i64 568}
-!168 = !{!14, !5, i64 48}
-!169 = !{!14, !9, i64 608}
-!170 = !{!6, !6, i64 0}
-!171 = !{!14, !9, i64 624}
-!172 = !{!14, !9, i64 616}
+!78 = distinct !{!78, !79}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = !{!81, !5, i64 0}
+!81 = !{!"_GLFWlibrary", !5, i64 0, !82, i64 8, !83, i64 40, !84, i64 616, !90, i64 1896, !17, i64 1904, !8, i64 1912, !91, i64 1920, !5, i64 1928, !5, i64 1932, !6, i64 1936, !92, i64 133392, !5, i64 133400, !93, i64 133404, !93, i64 133412, !95, i64 133424, !97, i64 133472, !99, i64 133496, !100, i64 133736, !101, i64 133800, !102, i64 133872, !103, i64 133888, !135, i64 137840, !149, i64 142744, !150, i64 143360, !151, i64 143584}
+!82 = !{!"GLFWallocator", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!83 = !{!"_GLFWplatform", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !9, i64 424, !9, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !9, i64 552, !9, i64 560, !9, i64 568}
+!84 = !{!"", !85, i64 0, !63, i64 40, !87, i64 112, !4, i64 1216, !5, i64 1272}
+!85 = !{!"_GLFWinitconfig", !5, i64 0, !5, i64 4, !5, i64 8, !9, i64 16, !86, i64 24, !10, i64 32, !10, i64 36}
+!86 = !{!"", !5, i64 0, !5, i64 4}
+!87 = !{!"_GLFWwndconfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !18, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !88, i64 72, !89, i64 328, !86, i64 840, !88, i64 848}
+!88 = !{!"", !6, i64 0}
+!89 = !{!"", !6, i64 0, !6, i64 256}
+!90 = !{!"p1 _ZTS10_GLFWerror", !9, i64 0}
+!91 = !{!"p2 _ZTS12_GLFWmonitor", !9, i64 0}
+!92 = !{!"p1 _ZTS12_GLFWmapping", !9, i64 0}
+!93 = !{!"_GLFWtls", !94, i64 0}
+!94 = !{!"_GLFWtlsPOSIX", !5, i64 0, !5, i64 4}
+!95 = !{!"_GLFWmutex", !96, i64 0}
+!96 = !{!"_GLFWmutexPOSIX", !5, i64 0, !6, i64 8}
+!97 = !{!"", !25, i64 0, !98, i64 8}
+!98 = !{!"_GLFWtimerPOSIX", !5, i64 0, !25, i64 8}
+!99 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232}
+!100 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
+!101 = !{!"", !5, i64 0, !9, i64 8, !6, i64 16, !9, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64}
+!102 = !{!"", !9, i64 0, !9, i64 8}
+!103 = !{!"_GLFWlibraryWayland", !104, i64 0, !105, i64 8, !106, i64 16, !107, i64 24, !108, i64 32, !109, i64 40, !110, i64 48, !111, i64 56, !112, i64 64, !113, i64 72, !114, i64 80, !115, i64 88, !116, i64 96, !117, i64 104, !118, i64 112, !119, i64 120, !120, i64 128, !121, i64 136, !122, i64 144, !5, i64 152, !123, i64 160, !124, i64 168, !123, i64 176, !8, i64 184, !5, i64 192, !18, i64 200, !125, i64 208, !125, i64 216, !28, i64 224, !18, i64 232, !5, i64 240, !5, i64 244, !5, i64 248, !5, i64 252, !5, i64 256, !5, i64 260, !5, i64 264, !18, i64 272, !6, i64 280, !6, i64 792, !6, i64 1490, !126, i64 3240, !8, i64 3472, !8, i64 3480, !131, i64 3488, !132, i64 3648, !21, i64 3688, !133, i64 3720}
+!104 = !{!"p1 _ZTS10wl_display", !9, i64 0}
+!105 = !{!"p1 _ZTS11wl_registry", !9, i64 0}
+!106 = !{!"p1 _ZTS13wl_compositor", !9, i64 0}
+!107 = !{!"p1 _ZTS16wl_subcompositor", !9, i64 0}
+!108 = !{!"p1 _ZTS6wl_shm", !9, i64 0}
+!109 = !{!"p1 _ZTS7wl_seat", !9, i64 0}
+!110 = !{!"p1 _ZTS10wl_pointer", !9, i64 0}
+!111 = !{!"p1 _ZTS11wl_keyboard", !9, i64 0}
+!112 = !{!"p1 _ZTS22wl_data_device_manager", !9, i64 0}
+!113 = !{!"p1 _ZTS14wl_data_device", !9, i64 0}
+!114 = !{!"p1 _ZTS11xdg_wm_base", !9, i64 0}
+!115 = !{!"p1 _ZTS26zxdg_decoration_manager_v1", !9, i64 0}
+!116 = !{!"p1 _ZTS13wp_viewporter", !9, i64 0}
+!117 = !{!"p1 _ZTS31zwp_relative_pointer_manager_v1", !9, i64 0}
+!118 = !{!"p1 _ZTS26zwp_pointer_constraints_v1", !9, i64 0}
+!119 = !{!"p1 _ZTS27zwp_idle_inhibit_manager_v1", !9, i64 0}
+!120 = !{!"p1 _ZTS17xdg_activation_v1", !9, i64 0}
+!121 = !{!"p1 _ZTS30wp_fractional_scale_manager_v1", !9, i64 0}
+!122 = !{!"p1 _ZTS17_GLFWofferWayland", !9, i64 0}
+!123 = !{!"p1 _ZTS13wl_data_offer", !9, i64 0}
+!124 = !{!"p1 _ZTS14wl_data_source", !9, i64 0}
+!125 = !{!"p1 _ZTS15wl_cursor_theme", !9, i64 0}
+!126 = !{!"", !9, i64 0, !127, i64 8, !128, i64 16, !129, i64 24, !130, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224}
+!127 = !{!"p1 _ZTS11xkb_context", !9, i64 0}
+!128 = !{!"p1 _ZTS10xkb_keymap", !9, i64 0}
+!129 = !{!"p1 _ZTS9xkb_state", !9, i64 0}
+!130 = !{!"p1 _ZTS17xkb_compose_state", !9, i64 0}
+!131 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152}
+!132 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!133 = !{!"", !9, i64 0, !134, i64 8, !29, i64 16, !5, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224}
+!134 = !{!"p1 _ZTS8libdecor", !9, i64 0}
+!135 = !{!"_GLFWlibraryX11", !136, i64 0, !5, i64 8, !25, i64 16, !54, i64 24, !54, i64 28, !25, i64 32, !25, i64 40, !5, i64 48, !137, i64 56, !9, i64 64, !5, i64 72, !18, i64 80, !18, i64 88, !6, i64 96, !6, i64 1842, !6, i64 2354, !19, i64 3056, !19, i64 3064, !8, i64 3072, !6, i64 3080, !25, i64 3088, !25, i64 3096, !25, i64 3104, !25, i64 3112, !25, i64 3120, !25, i64 3128, !25, i64 3136, !25, i64 3144, !25, i64 3152, !25, i64 3160, !25, i64 3168, !25, i64 3176, !25, i64 3184, !25, i64 3192, !25, i64 3200, !25, i64 3208, !25, i64 3216, !25, i64 3224, !25, i64 3232, !25, i64 3240, !25, i64 3248, !25, i64 3256, !25, i64 3264, !25, i64 3272, !25, i64 3280, !25, i64 3288, !25, i64 3296, !25, i64 3304, !25, i64 3312, !25, i64 3320, !25, i64 3328, !25, i64 3336, !25, i64 3344, !25, i64 3352, !25, i64 3360, !25, i64 3368, !25, i64 3376, !25, i64 3384, !25, i64 3392, !25, i64 3400, !25, i64 3408, !25, i64 3416, !25, i64 3424, !25, i64 3432, !25, i64 3440, !25, i64 3448, !25, i64 3456, !25, i64 3464, !25, i64 3472, !25, i64 3480, !138, i64 3488, !21, i64 4192, !139, i64 4224, !140, i64 4400, !141, i64 4504, !142, i64 4528, !143, i64 4552, !144, i64 4608, !102, i64 4656, !145, i64 4672, !146, i64 4728, !147, i64 4784, !148, i64 4840}
+!136 = !{!"p1 _ZTS9_XDisplay", !9, i64 0}
+!137 = !{!"p1 _ZTS4_XIM", !9, i64 0}
+!138 = !{!"", !9, i64 0, !5, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280, !9, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !9, i64 424, !9, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !9, i64 552, !9, i64 560, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !9, i64 696}
+!139 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168}
+!140 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96}
+!141 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16}
+!142 = !{!"", !5, i64 0, !25, i64 8, !25, i64 16}
+!143 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!144 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !9, i64 24, !9, i64 32, !9, i64 40}
+!145 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!146 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !9, i64 48}
+!147 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48}
+!148 = !{!"", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
+!149 = !{!"_GLFWlibraryNull", !5, i64 0, !5, i64 4, !18, i64 8, !8, i64 16, !6, i64 24, !6, i64 266}
+!150 = !{!"_GLFWlibraryGLX", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !5, i64 176, !5, i64 180, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !5, i64 216, !5, i64 220}
+!151 = !{!"_GLFWlibraryLinux", !5, i64 0, !5, i64 4, !152, i64 8, !5, i64 72, !5, i64 76}
+!152 = !{!"re_pattern_buffer", !153, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !18, i64 32, !18, i64 40, !25, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56}
+!153 = !{!"p1 _ZTS8re_dfa_t", !9, i64 0}
+!154 = !{!14, !9, i64 600}
+!155 = !{!14, !9, i64 632}
+!156 = !{!14, !9, i64 584}
+!157 = !{!14, !9, i64 592}
+!158 = distinct !{!158, !79}
+!159 = !{!18, !18, i64 0}
+!160 = !{!14, !5, i64 536}
+!161 = !{!14, !5, i64 540}
+!162 = !{!14, !9, i64 576}
+!163 = !{!5, !5, i64 0}
+!164 = !{!14, !5, i64 548}
+!165 = !{!4, !5, i64 20}
+!166 = !{!14, !5, i64 552}
+!167 = !{!14, !5, i64 556}
+!168 = !{!14, !5, i64 560}
+!169 = !{!14, !5, i64 564}
+!170 = !{!14, !5, i64 568}
+!171 = !{!14, !5, i64 48}
+!172 = !{!14, !9, i64 608}
+!173 = !{!6, !6, i64 0}
+!174 = distinct !{!174, !79}
+!175 = !{!14, !9, i64 624}
+!176 = !{!14, !9, i64 616}

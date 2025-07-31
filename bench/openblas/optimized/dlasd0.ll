@@ -238,12 +238,12 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %127, ptr %gep265, align 4, !tbaa !3
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
-  br i1 %exitcond244.not, label %._crit_edge221, label %.lr.ph220, !llvm.loop !9
+  br i1 %exitcond244.not, label %._crit_edge221, label %.lr.ph220, !llvm.loop !10
 
 ._crit_edge221:                                   ; preds = %.lr.ph220, %122
   %indvars.iv.next246 = add nsw i64 %indvars.iv245, 1
   %.not200.not = icmp slt i64 %indvars.iv245, %71
-  br i1 %.not200.not, label %72, label %._crit_edge226, !llvm.loop !10
+  br i1 %.not200.not, label %72, label %._crit_edge226, !llvm.loop !11
 
 ._crit_edge226:                                   ; preds = %._crit_edge221, %54
   %128 = load i32, ptr %15, align 4, !tbaa !3
@@ -284,7 +284,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %145 = select i1 %.not.i, i32 1, i32 %143
   %spec.select.i = mul nuw nsw i32 %145, %spec.select36.i
   %.not31.i = icmp samesign ult i64 %.035.i, 4
-  br i1 %.not31.i, label %.loopexit259, label %.lr.ph.i
+  br i1 %.not31.i, label %.loopexit259, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit259:                                     ; preds = %.lr.ph.i, %138
   %spec.select.lcssa.i = phi i32 [ %141, %138 ], [ %spec.select.i, %.lr.ph.i ]
@@ -303,7 +303,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 150:                                              ; preds = %.lr.ph232
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
   %.not201.not = icmp slt i64 %indvars.iv248, %sext
-  br i1 %.not201.not, label %.lr.ph232, label %._crit_edge233, !llvm.loop !11
+  br i1 %.not201.not, label %.lr.ph232, label %._crit_edge233, !llvm.loop !13
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %150
   %indvars.iv248 = phi i64 [ %149, %.lr.ph232.preheader ], [ %indvars.iv.next249, %150 ]
@@ -330,11 +330,11 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %166 = add nsw i32 %162, %57
   %167 = sext i32 %152 to i64
   %168 = getelementptr inbounds double, ptr %25, i64 %167
-  %169 = load double, ptr %168, align 8, !tbaa !12
-  store double %169, ptr %17, align 8, !tbaa !12
+  %169 = load double, ptr %168, align 8, !tbaa !14
+  store double %169, ptr %17, align 8, !tbaa !14
   %170 = getelementptr inbounds double, ptr %26, i64 %167
-  %171 = load double, ptr %170, align 8, !tbaa !12
-  store double %171, ptr %14, align 8, !tbaa !12
+  %171 = load double, ptr %170, align 8, !tbaa !14
+  store double %171, ptr %14, align 8, !tbaa !14
   %172 = sext i32 %162 to i64
   %173 = getelementptr inbounds double, ptr %25, i64 %172
   %174 = mul i32 %162, %131
@@ -353,7 +353,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge233:                                   ; preds = %150, %.loopexit259
   %indvars.iv.next252 = add nsw i64 %indvars.iv251, -1
   %182 = icmp sgt i64 %indvars.iv251, 1
-  br i1 %182, label %136, label %.loopexit, !llvm.loop !14
+  br i1 %182, label %136, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %109, %72, %._crit_edge233, %.lr.ph232, %._crit_edge226, %53, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #3
@@ -399,11 +399,13 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"double", !5, i64 0}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !5, i64 0}
+!16 = distinct !{!16, !8, !9}

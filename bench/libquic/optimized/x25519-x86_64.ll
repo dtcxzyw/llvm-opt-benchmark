@@ -254,7 +254,7 @@ define hidden void @x25519_x86_64(ptr noundef writeonly captures(none) %0, ptr n
 215:                                              ; preds = %206
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %mladder.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %.not.i, label %mladder.exit, label %.preheader.i, !llvm.loop !15
 
 mladder.exit:                                     ; preds = %215
   %216 = getelementptr inbounds nuw i8, ptr %14, i64 80
@@ -285,7 +285,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %218 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %218, 5
-  br i1 %exitcond.not.i, label %219, label %217, !llvm.loop !15
+  br i1 %exitcond.not.i, label %219, label %217, !llvm.loop !16
 
 219:                                              ; preds = %217
   call void @x25519_x86_64_mul(ptr noundef nonnull %9, ptr noundef nonnull %13, ptr noundef nonnull %8) #5
@@ -297,7 +297,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %221 = add nuw nsw i32 %.117.i, 1
   %exitcond23.not.i = icmp eq i32 %221, 10
-  br i1 %exitcond23.not.i, label %222, label %220, !llvm.loop !16
+  br i1 %exitcond23.not.i, label %222, label %220, !llvm.loop !17
 
 222:                                              ; preds = %220
   call void @x25519_x86_64_mul(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %9) #5
@@ -309,7 +309,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %224 = add nuw nsw i32 %.218.i, 1
   %exitcond24.not.i = icmp eq i32 %224, 20
-  br i1 %exitcond24.not.i, label %225, label %223, !llvm.loop !17
+  br i1 %exitcond24.not.i, label %225, label %223, !llvm.loop !18
 
 225:                                              ; preds = %223
   call void @x25519_x86_64_mul(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10) #5
@@ -321,7 +321,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %227 = add nuw nsw i32 %.319.i, 1
   %exitcond25.not.i = icmp eq i32 %227, 10
-  br i1 %exitcond25.not.i, label %228, label %226, !llvm.loop !18
+  br i1 %exitcond25.not.i, label %228, label %226, !llvm.loop !19
 
 228:                                              ; preds = %226
   call void @x25519_x86_64_mul(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %9) #5
@@ -333,7 +333,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %230 = add nuw nsw i32 %.420.i, 1
   %exitcond26.not.i = icmp eq i32 %230, 50
-  br i1 %exitcond26.not.i, label %231, label %229, !llvm.loop !19
+  br i1 %exitcond26.not.i, label %231, label %229, !llvm.loop !20
 
 231:                                              ; preds = %229
   call void @x25519_x86_64_mul(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #5
@@ -345,7 +345,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %233 = add nuw nsw i32 %.521.i, 1
   %exitcond27.not.i = icmp eq i32 %233, 100
-  br i1 %exitcond27.not.i, label %234, label %232, !llvm.loop !20
+  br i1 %exitcond27.not.i, label %234, label %232, !llvm.loop !21
 
 234:                                              ; preds = %232
   call void @x25519_x86_64_mul(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %12) #5
@@ -357,7 +357,7 @@ mladder.exit:                                     ; preds = %215
   call void @x25519_x86_64_square(ptr noundef nonnull %13, ptr noundef nonnull %13) #5
   %236 = add nuw nsw i32 %.622.i, 1
   %exitcond28.not.i = icmp eq i32 %236, 50
-  br i1 %exitcond28.not.i, label %fe25519_invert.exit, label %235, !llvm.loop !21
+  br i1 %exitcond28.not.i, label %fe25519_invert.exit, label %235, !llvm.loop !22
 
 fe25519_invert.exit:                              ; preds = %235
   call void @x25519_x86_64_mul(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %11) #5
@@ -577,13 +577,14 @@ attributes #5 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long", !7, i64 0}
 !11 = !{i64 0, i64 40, !6}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}

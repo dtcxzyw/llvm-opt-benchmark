@@ -199,7 +199,7 @@ define dso_local i64 @mpihelp_mod_1(ptr noundef readonly captures(none) %0, i32 
   %153 = sub i64 %152, %139
   %154 = add nsw i64 %118, -1
   %155 = icmp sgt i64 %118, 0
-  br i1 %155, label %117, label %.loopexit, !llvm.loop !9
+  br i1 %155, label %117, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %151, %100, %.thread, %3
   %156 = phi i64 [ %103, %100 ], [ 0, %3 ], [ %111, %.thread ], [ %153, %151 ]
@@ -309,7 +309,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   store i64 %76, ptr %77, align 8
   %78 = add nsw i64 %33, -1
   %79 = icmp sgt i64 %33, 0
-  br i1 %79, label %32, label %.loopexit60, !llvm.loop !10
+  br i1 %79, label %32, label %.loopexit60, !llvm.loop !11
 
 80:                                               ; preds = %115, %28
   %81 = phi i64 [ %31, %28 ], [ %122, %115 ]
@@ -368,7 +368,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   store i64 %120, ptr %121, align 8
   %122 = add nsw i64 %81, -1
   %123 = icmp sgt i64 %81, 0
-  br i1 %123, label %80, label %.loopexit59, !llvm.loop !11
+  br i1 %123, label %80, label %.loopexit59, !llvm.loop !12
 
 .loopexit59:                                      ; preds = %115, %.loopexit60
   %124 = phi i64 [ %25, %.loopexit60 ], [ %118, %115 ]
@@ -563,7 +563,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   %264 = add i64 %250, %263
   %265 = add i64 %253, %130
   %266 = icmp ult i64 %265, %130
-  br i1 %266, label %267, label %249
+  br i1 %266, label %267, label %249, !llvm.loop !13
 
 267:                                              ; preds = %259, %255
   %268 = phi i64 [ %264, %259 ], [ %250, %255 ]
@@ -584,7 +584,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   %280 = phi i64 [ %179, %178 ], [ %273, %267 ]
   %281 = add nsw i64 %163, -1
   %282 = icmp sgt i32 %167, 0
-  br i1 %282, label %162, label %.loopexit61, !llvm.loop !12
+  br i1 %282, label %162, label %.loopexit61, !llvm.loop !14
 
 .loopexit61:                                      ; preds = %278, %146
   %283 = phi i64 [ %147, %146 ], [ %279, %278 ]
@@ -784,7 +784,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   %425 = sext i1 %424 to i64
   %426 = add i64 %411, %425
   %427 = sub i64 %409, %298
-  br label %408, !llvm.loop !13
+  br label %408, !llvm.loop !15
 
 .loopexit:                                        ; preds = %419, %416, %414, %343
   %428 = phi i64 [ -1, %343 ], [ %410, %414 ], [ %410, %416 ], [ %420, %419 ]
@@ -805,7 +805,7 @@ define dso_local i64 @mpihelp_divrem(ptr noundef writeonly captures(none) %0, i3
   %438 = load i64, ptr %437, align 8
   %439 = add nsw i64 %328, -1
   %440 = icmp sgt i32 %331, 0
-  br i1 %440, label %327, label %.loopexit58, !llvm.loop !14
+  br i1 %440, label %327, label %.loopexit58, !llvm.loop !16
 
 .loopexit58:                                      ; preds = %434, %310, %.loopexit61, %.loopexit59, %6
   %441 = phi i64 [ poison, %6 ], [ %149, %.loopexit61 ], [ %16, %.loopexit59 ], [ %312, %310 ], [ %312, %434 ]
@@ -923,7 +923,7 @@ define dso_local i64 @mpihelp_divmod_1(ptr noundef writeonly captures(none) %0, 
   store i64 %74, ptr %78, align 8
   %79 = add nsw i64 %27, -1
   %80 = icmp sgt i64 %27, 0
-  br i1 %80, label %26, label %.loopexit32, !llvm.loop !15
+  br i1 %80, label %26, label %.loopexit32, !llvm.loop !17
 
 .loopexit32:                                      ; preds = %69, %9
   %81 = phi i64 [ %17, %9 ], [ %31, %69 ]
@@ -1072,7 +1072,7 @@ define dso_local i64 @mpihelp_divmod_1(ptr noundef writeonly captures(none) %0, 
   store i64 %185, ptr %186, align 8
   %187 = add nsw i64 %142, -1
   %188 = icmp sgt i64 %142, 0
-  br i1 %188, label %141, label %.loopexit, !llvm.loop !16
+  br i1 %188, label %141, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %180, %118, %133, %4
   %189 = phi i64 [ %124, %118 ], [ 0, %4 ], [ %135, %133 ], [ %183, %180 ]
@@ -1102,14 +1102,16 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 988740}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = distinct !{!18, !7, !8, !9}

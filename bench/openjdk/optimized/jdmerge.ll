@@ -351,7 +351,7 @@ define internal void @h2v2_merged_upsample(ptr noundef readonly captures(none) %
   %128 = getelementptr inbounds nuw i8, ptr %.0125130, i64 6
   %129 = add nsw i32 %.0135, -1
   %.not = icmp eq i32 %129, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %38, align 8
@@ -550,7 +550,7 @@ define internal void @h2v1_merged_upsample(ptr noundef readonly captures(none) %
   %84 = getelementptr inbounds nuw i8, ptr %.08083, i64 6
   %85 = add nsw i32 %.087, -1
   %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %30, align 8
@@ -626,7 +626,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

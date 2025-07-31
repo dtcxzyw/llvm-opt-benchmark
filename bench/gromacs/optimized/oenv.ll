@@ -393,7 +393,7 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z19output_env_get_viewPK16gmx_output_env_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i8, ptr %2, align 4, !tbaa !18, !range !35, !noundef !36
+  %3 = load i8, ptr %2, align 4, !tbaa !18, !range !36, !noundef !37
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -407,8 +407,8 @@ define noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !37
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -455,7 +455,7 @@ define noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_Z30output_env_get_program_contextPK16gmx_output_env_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !37
+  %2 = load ptr, ptr %0, align 8, !tbaa !38
   ret ptr %2
 }
 
@@ -516,10 +516,11 @@ attributes #20 = { builtin nounwind }
 !30 = !{!28, !26, i64 8}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"float", !7, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{i8 0, i8 2}
-!36 = !{}
-!37 = !{!10, !5, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"vtable pointer", !8, i64 0}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{i8 0, i8 2}
+!37 = !{}
+!38 = !{!10, !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"vtable pointer", !8, i64 0}

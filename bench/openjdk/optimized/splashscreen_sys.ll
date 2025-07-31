@@ -1109,7 +1109,7 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph87.preheader, label %90, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph87.preheader, label %90, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %83
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 9408
@@ -1153,7 +1153,7 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   store i8 7, ptr %118, align 2
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !9
+  br i1 %exitcond94.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !10
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge
   %119 = phi ptr [ %97, %._crit_edge ], [ %100, %.lr.ph87 ]
@@ -1246,7 +1246,7 @@ define hidden void @SplashCleanupPlatform(ptr noundef captures(none) %0) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %14, %.preheader, %1
   %18 = load i32, ptr @shapeSupported, align 4
@@ -1285,7 +1285,7 @@ define hidden void @SplashDonePlatform(ptr noundef %0) local_unnamed_addr #0 {
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %11, %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 11712
@@ -1379,203 +1379,203 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 11720
-  br label %.backedge
+  br label %26
 
-.backedge:                                        ; preds = %.backedge.backedge, %1
-  %26 = load i32, ptr %12, align 8
+26:                                               ; preds = %.backedge, %1
+  %27 = load i32, ptr %12, align 8
   store i32 %11, ptr %6, align 16
   store i16 3, ptr %13, align 4
-  store i32 %26, ptr %14, align 8
+  store i32 %27, ptr %14, align 8
   store i16 3, ptr %15, align 4
   store i32 0, ptr %16, align 4
-  %27 = load i32, ptr %17, align 4
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %44
+  %28 = load i32, ptr %17, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %30, label %45
 
-29:                                               ; preds = %.backedge
-  %30 = call i32 @SplashIsStillLooping(ptr noundef nonnull %0) #16
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %44, label %31
+30:                                               ; preds = %26
+  %31 = call i32 @SplashIsStillLooping(ptr noundef nonnull %0) #16
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %45, label %32
 
-31:                                               ; preds = %29
-  %32 = load i32, ptr %18, align 8
-  %33 = load ptr, ptr %19, align 8
-  %34 = load i32, ptr %20, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.SplashImage, ptr %33, i64 %35, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = add i32 %37, %32
+32:                                               ; preds = %30
+  %33 = load i32, ptr %18, align 8
+  %34 = load ptr, ptr %19, align 8
+  %35 = load i32, ptr %20, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.SplashImage, ptr %34, i64 %36, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = add i32 %38, %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %39 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %40 = load i64, ptr %4, align 8
-  %.neg38 = mul i64 %40, 4294966296
-  %41 = load i64, ptr %21, align 8
-  %42 = udiv i64 %41, 1000
-  %.neg39 = sub i64 %.neg38, %42
+  %40 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %41 = load i64, ptr %4, align 8
+  %.neg38 = mul i64 %41, 4294966296
+  %42 = load i64, ptr %21, align 8
+  %43 = udiv i64 %42, 1000
+  %.neg39 = sub i64 %.neg38, %43
   %.neg40 = trunc i64 %.neg39 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %43 = add i32 %38, %.neg40
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %43, i32 0)
-  br label %44
+  %44 = add i32 %39, %.neg40
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %44, i32 0)
+  br label %45
 
-44:                                               ; preds = %31, %29, %.backedge
-  %.032 = phi i32 [ %spec.store.select, %31 ], [ -1, %29 ], [ -1, %.backedge ]
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #16
-  %46 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 2, i32 noundef %.032) #16
-  %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #16
-  %48 = load i32, ptr %17, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %95
+45:                                               ; preds = %32, %30, %26
+  %.032 = phi i32 [ %spec.store.select, %32 ], [ -1, %30 ], [ -1, %26 ]
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #16
+  %47 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 2, i32 noundef %.032) #16
+  %48 = call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #16
+  %49 = load i32, ptr %17, align 4
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %96
 
-50:                                               ; preds = %44
-  %51 = load i32, ptr %20, align 4
-  %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %53, label %95
+51:                                               ; preds = %45
+  %52 = load i32, ptr %20, align 4
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %54, label %96
 
-53:                                               ; preds = %50
+54:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %54 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
-  %55 = load i64, ptr %2, align 8
-  %56 = mul i64 %55, 1000
-  %57 = load i64, ptr %23, align 8
-  %58 = udiv i64 %57, 1000
-  %59 = add i64 %58, %56
-  %60 = trunc i64 %59 to i32
+  %55 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  %56 = load i64, ptr %2, align 8
+  %57 = mul i64 %56, 1000
+  %58 = load i64, ptr %23, align 8
+  %59 = udiv i64 %58, 1000
+  %60 = add i64 %59, %57
+  %61 = trunc i64 %60 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %61 = load i32, ptr %18, align 8
-  %62 = load ptr, ptr %19, align 8
-  %63 = load i32, ptr %20, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.SplashImage, ptr %62, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 8
-  %67 = add i32 %66, %61
-  %.not33 = icmp ugt i32 %67, %60
-  br i1 %.not33, label %95, label %68
+  %62 = load i32, ptr %18, align 8
+  %63 = load ptr, ptr %19, align 8
+  %64 = load i32, ptr %20, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.SplashImage, ptr %63, i64 %65, i32 1
+  %67 = load i32, ptr %66, align 8
+  %68 = add i32 %67, %62
+  %.not33 = icmp ugt i32 %68, %61
+  br i1 %.not33, label %96, label %69
 
-68:                                               ; preds = %53
+69:                                               ; preds = %54
   call void @SplashNextFrame(ptr noundef nonnull %0) #16
-  %69 = load i32, ptr %20, align 4
-  %70 = icmp sgt i32 %69, -1
-  %71 = load i32, ptr @shapeSupported, align 4
-  %72 = icmp ne i32 %71, 0
-  %or.cond.i = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond.i, label %73, label %SplashUpdateShape.exit
+  %70 = load i32, ptr %20, align 4
+  %71 = icmp sgt i32 %70, -1
+  %72 = load i32, ptr @shapeSupported, align 4
+  %73 = icmp ne i32 %72, 0
+  %or.cond.i = select i1 %71, i1 %73, i1 false
+  br i1 %or.cond.i, label %74, label %SplashUpdateShape.exit
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr %24, align 4
-  %.not.i = icmp eq i32 %74, 0
-  br i1 %.not.i, label %SplashUpdateShape.exit, label %75
+74:                                               ; preds = %69
+  %75 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %75, 0
+  br i1 %.not.i, label %SplashUpdateShape.exit, label %76
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr %9, align 8
-  %77 = load i64, ptr %25, align 8
-  %78 = load ptr, ptr %19, align 8
-  %79 = zext nneg i32 %69 to i64
-  %80 = getelementptr inbounds nuw %struct.SplashImage, ptr %78, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %84 = load i32, ptr %83, align 8
-  call void @XShapeCombineRectangles(ptr noundef %76, i64 noundef %77, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %82, i32 noundef %84, i32 noundef 0, i32 noundef 3) #16
-  %85 = load ptr, ptr %9, align 8
-  %86 = load i64, ptr %25, align 8
-  %87 = load ptr, ptr %19, align 8
-  %88 = load i32, ptr %20, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.SplashImage, ptr %87, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %94 = load i32, ptr %93, align 8
-  call void @XShapeCombineRectangles(ptr noundef %85, i64 noundef %86, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %92, i32 noundef %94, i32 noundef 0, i32 noundef 3) #16
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %9, align 8
+  %78 = load i64, ptr %25, align 8
+  %79 = load ptr, ptr %19, align 8
+  %80 = zext nneg i32 %70 to i64
+  %81 = getelementptr inbounds nuw %struct.SplashImage, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %85 = load i32, ptr %84, align 8
+  call void @XShapeCombineRectangles(ptr noundef %77, i64 noundef %78, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %83, i32 noundef %85, i32 noundef 0, i32 noundef 3) #16
+  %86 = load ptr, ptr %9, align 8
+  %87 = load i64, ptr %25, align 8
+  %88 = load ptr, ptr %19, align 8
+  %89 = load i32, ptr %20, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.SplashImage, ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %95 = load i32, ptr %94, align 8
+  call void @XShapeCombineRectangles(ptr noundef %86, i64 noundef %87, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %93, i32 noundef %95, i32 noundef 0, i32 noundef 3) #16
   br label %SplashUpdateShape.exit
 
-SplashUpdateShape.exit:                           ; preds = %68, %73, %75
+SplashUpdateShape.exit:                           ; preds = %69, %74, %76
   call void @SplashRedrawWindow(ptr noundef nonnull %0)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %SplashUpdateShape.exit, %53, %50, %44
-  %96 = icmp slt i32 %46, 1
-  br i1 %96, label %97, label %.preheader37
+96:                                               ; preds = %SplashUpdateShape.exit, %54, %51, %45
+  %97 = icmp slt i32 %47, 1
+  br i1 %97, label %98, label %.preheader37
 
-97:                                               ; preds = %95
+98:                                               ; preds = %96
   store i32 0, ptr %16, align 4
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %124, %97
   br label %.backedge
 
-.preheader37:                                     ; preds = %95, %124
-  %98 = call i64 @read(i32 noundef %26, ptr noundef nonnull %7, i64 noundef 1) #16
-  %99 = icmp sgt i64 %98, 0
-  br i1 %99, label %100, label %111
+.backedge:                                        ; preds = %125, %98
+  br label %26, !llvm.loop !13
 
-100:                                              ; preds = %.preheader37
-  %101 = load i8, ptr %7, align 1
-  switch i8 %101, label %111 [
-    i8 85, label %102
-    i8 82, label %106
-    i8 81, label %110
+.preheader37:                                     ; preds = %96, %125
+  %99 = call i64 @read(i32 noundef %27, ptr noundef nonnull %7, i64 noundef 1) #16
+  %100 = icmp sgt i64 %99, 0
+  br i1 %100, label %101, label %112
+
+101:                                              ; preds = %.preheader37
+  %102 = load i8, ptr %7, align 1
+  switch i8 %102, label %112 [
+    i8 85, label %103
+    i8 82, label %107
+    i8 81, label %111
   ]
 
-102:                                              ; preds = %100
-  %103 = load i32, ptr %17, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %105, label %111
+103:                                              ; preds = %101
+  %104 = load i32, ptr %17, align 4
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %106, label %112
 
-105:                                              ; preds = %102
+106:                                              ; preds = %103
   call void @SplashRedrawWindow(ptr noundef nonnull %0)
-  br label %111
+  br label %112
 
-106:                                              ; preds = %100
-  %107 = load i32, ptr %17, align 4
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %109, label %111
+107:                                              ; preds = %101
+  %108 = load i32, ptr %17, align 4
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %110, label %112
 
-109:                                              ; preds = %106
+110:                                              ; preds = %107
   call void @SplashReconfigureNow(ptr noundef nonnull %0)
-  br label %111
+  br label %112
 
-110:                                              ; preds = %100
+111:                                              ; preds = %101
   ret void
 
-111:                                              ; preds = %100, %105, %102, %109, %106, %.preheader37
-  %.1 = phi i32 [ 0, %100 ], [ 0, %105 ], [ 0, %102 ], [ 0, %109 ], [ 0, %106 ], [ 1, %.preheader37 ]
-  %112 = load ptr, ptr %9, align 8
-  %113 = call i32 @XPending(ptr noundef %112) #16
-  %.not35 = icmp eq i32 %113, 0
-  br i1 %.not35, label %124, label %114
+112:                                              ; preds = %101, %106, %103, %110, %107, %.preheader37
+  %.1 = phi i32 [ 0, %101 ], [ 0, %106 ], [ 0, %103 ], [ 0, %110 ], [ 0, %107 ], [ 1, %.preheader37 ]
+  %113 = load ptr, ptr %9, align 8
+  %114 = call i32 @XPending(ptr noundef %113) #16
+  %.not35 = icmp eq i32 %114, 0
+  br i1 %.not35, label %125, label %115
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %9, align 8
-  %116 = call i32 @XNextEvent(ptr noundef %115, ptr noundef nonnull %8) #16
-  %117 = load i32, ptr %8, align 8
-  %cond = icmp eq i32 %117, 12
-  br i1 %cond, label %118, label %124
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %9, align 8
+  %117 = call i32 @XNextEvent(ptr noundef %116, ptr noundef nonnull %8) #16
+  %118 = load i32, ptr %8, align 8
+  %cond = icmp eq i32 %118, 12
+  br i1 %cond, label %119, label %125
 
-118:                                              ; preds = %114
-  %119 = load i32, ptr %17, align 4
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %.preheader, label %124
+119:                                              ; preds = %115
+  %120 = load i32, ptr %17, align 4
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %.preheader, label %125
 
-.preheader:                                       ; preds = %118, %.preheader
-  %121 = load ptr, ptr %9, align 8
-  %122 = call i32 @XCheckTypedEvent(ptr noundef %121, i32 noundef 12, ptr noundef nonnull %8) #16
-  %.not36 = icmp eq i32 %122, 0
-  br i1 %.not36, label %123, label %.preheader, !llvm.loop !12
+.preheader:                                       ; preds = %119, %.preheader
+  %122 = load ptr, ptr %9, align 8
+  %123 = call i32 @XCheckTypedEvent(ptr noundef %122, i32 noundef 12, ptr noundef nonnull %8) #16
+  %.not36 = icmp eq i32 %123, 0
+  br i1 %.not36, label %124, label %.preheader, !llvm.loop !14
 
-123:                                              ; preds = %.preheader
+124:                                              ; preds = %.preheader
   call void @SplashRedrawWindow(ptr noundef nonnull %0)
-  br label %124
+  br label %125
 
-124:                                              ; preds = %114, %123, %118, %111
-  %.2 = phi i32 [ 0, %123 ], [ 0, %118 ], [ 0, %114 ], [ %.1, %111 ]
+125:                                              ; preds = %115, %124, %119, %112
+  %.2 = phi i32 [ 0, %124 ], [ 0, %119 ], [ 0, %115 ], [ %.1, %112 ]
   %.not34 = icmp eq i32 %.2, 0
-  br i1 %.not34, label %.preheader37, label %.backedge.backedge, !llvm.loop !13
+  br i1 %.not34, label %.preheader37, label %.backedge, !llvm.loop !15
 }
 
 declare i32 @XConnectionNumber(ptr noundef) local_unnamed_addr #2
@@ -1925,11 +1925,13 @@ attributes #20 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

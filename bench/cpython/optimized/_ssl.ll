@@ -2864,7 +2864,7 @@ define internal noundef ptr @_ssl_RAND_add(ptr readnone captures(none) %0, ptr n
 _ssl_RAND_add_impl.exit:                          ; preds = %37, %.thread, %33, %22, %6
   %.020 = phi ptr [ null, %33 ], [ null, %22 ], [ null, %6 ], [ null, %.thread ], [ @_Py_NoneStruct, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !50
+  %43 = load ptr, ptr %42, align 8, !tbaa !51
   %.not27 = icmp eq ptr %43, null
   br i1 %.not27, label %45, label %44
 
@@ -3089,7 +3089,7 @@ define internal ptr @_ssl_txt2obj(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 .thread:                                          ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 16
-  %.val39 = load i64, ptr %7, align 8, !tbaa !51
+  %.val39 = load i64, ptr %7, align 8, !tbaa !52
   %8 = add i64 %.val39, %2
   br label %13
 
@@ -3717,7 +3717,7 @@ define internal fastcc ptr @_create_tuple_for_X509_NAME(ptr noundef readonly cap
 12:                                               ; preds = %Py_DECREF.exit63
   %13 = add nuw nsw i32 %.04688, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !53
 
 14:                                               ; preds = %.lr.ph, %12
   %.089 = phi i32 [ -1, %.lr.ph ], [ %39, %12 ]
@@ -3810,7 +3810,7 @@ _create_tuple_for_attribute.exit.thread:          ; preds = %38
 
 56:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !54
   %57 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %3, ptr noundef %41) #11
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %69, label %59
@@ -3839,9 +3839,9 @@ _create_tuple_for_attribute.exit.thread:          ; preds = %38
 
 69:                                               ; preds = %56
   %70 = zext nneg i32 %57 to i64
-  %71 = load ptr, ptr %3, align 8, !tbaa !53
+  %71 = load ptr, ptr %3, align 8, !tbaa !54
   %72 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.25, ptr noundef nonnull %42, ptr noundef %71, i64 noundef %70) #11
-  %73 = load ptr, ptr %3, align 8, !tbaa !53
+  %73 = load ptr, ptr %3, align 8, !tbaa !54
   call void @CRYPTO_free(ptr noundef %73, ptr noundef nonnull @.str.16, i32 noundef 1144) #11
   br label %Py_DECREF.exit.i
 
@@ -3878,7 +3878,7 @@ Py_DECREF.exit63:                                 ; preds = %75, %78, %81
 ._crit_edge:                                      ; preds = %12, %.preheader
   %.048.lcssa = phi ptr [ %8, %.preheader ], [ %.1, %12 ]
   %83 = getelementptr i8, ptr %.048.lcssa, i64 16
-  %.048.val = load i64, ptr %83, align 8, !tbaa !51
+  %.048.val = load i64, ptr %83, align 8, !tbaa !52
   %84 = icmp sgt i64 %.048.val, 0
   br i1 %84, label %85, label %101
 
@@ -4091,13 +4091,13 @@ define internal fastcc ptr @_get_peer_alt_names(ptr noundef readonly captures(no
   %23 = add nuw nsw i32 %.0127227, 1
   %24 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #11
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %26, label %._crit_edge, !llvm.loop !54
+  br i1 %25, label %26, label %._crit_edge, !llvm.loop !55
 
 26:                                               ; preds = %.lr.ph, %22
   %.0127227 = phi i32 [ 0, %.lr.ph ], [ %23, %22 ]
   %.0131226 = phi ptr [ null, %.lr.ph ], [ %.sink, %22 ]
   %27 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %13, i32 noundef %.0127227) #11
-  %28 = load i32, ptr %27, align 8, !tbaa !55
+  %28 = load i32, ptr %27, align 8, !tbaa !56
   switch i32 %28, label %236 [
     i32 4, label %29
     i32 1, label %53
@@ -4353,7 +4353,7 @@ Py_DECREF.exit179:                                ; preds = %101, %103, %106
   store ptr %131, ptr %140, align 8, !tbaa !26
   %141 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !25
-  %143 = load i32, ptr %142, align 8, !tbaa !57
+  %143 = load i32, ptr %142, align 8, !tbaa !58
   switch i32 %143, label %226 [
     i32 4, label %144
     i32 16, label %159
@@ -4361,7 +4361,7 @@ Py_DECREF.exit179:                                ; preds = %101, %103, %106
 
 144:                                              ; preds = %139
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !59
+  %146 = load ptr, ptr %145, align 8, !tbaa !60
   %147 = load i8, ptr %146, align 1, !tbaa !25
   %148 = zext i8 %147 to i32
   %149 = getelementptr i8, ptr %146, i64 1
@@ -4378,7 +4378,7 @@ Py_DECREF.exit179:                                ; preds = %101, %103, %106
 
 159:                                              ; preds = %139
   %160 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !59
+  %161 = load ptr, ptr %160, align 8, !tbaa !60
   %162 = load i8, ptr %161, align 1, !tbaa !25
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 8
@@ -4660,15 +4660,15 @@ define internal fastcc ptr @_get_aia_uri(ptr noundef %0, i32 noundef range(i32 1
 .lr.ph:                                           ; preds = %.preheader, %43
   %.03044 = phi i32 [ %44, %43 ], [ 0, %.preheader ]
   %14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.03044) #11
-  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = tail call i32 @OBJ_obj2nid(ptr noundef %15) #11
   %.not = icmp eq i32 %16, %1
   br i1 %.not, label %17, label %43
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %20 = load i32, ptr %19, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !65
+  %20 = load i32, ptr %19, align 8, !tbaa !56
   %.not35 = icmp eq i32 %20, 6
   br i1 %.not35, label %21, label %43
 
@@ -4676,8 +4676,8 @@ define internal fastcc ptr @_get_aia_uri(ptr noundef %0, i32 noundef range(i32 1
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
-  %26 = load i32, ptr %23, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
+  %26 = load i32, ptr %23, align 8, !tbaa !58
   %27 = sext i32 %26 to i64
   %28 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %25, i64 noundef %27) #11
   %29 = icmp eq ptr %28, null
@@ -4723,7 +4723,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit39, %
   %44 = add nuw nsw i32 %.03044, 1
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #11
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   tail call void @AUTHORITY_INFO_ACCESS_free(ptr noundef nonnull %3) #11
@@ -4786,7 +4786,7 @@ define internal fastcc ptr @_get_crl_dp(ptr noundef %0) unnamed_addr #0 {
 .lr.ph53:                                         ; preds = %.preheader, %.loopexit
   %.03152 = phi i32 [ %40, %.loopexit ], [ 0, %.preheader ]
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %.03152) #11
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -4800,7 +4800,7 @@ define internal fastcc ptr @_get_crl_dp(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %12, %36
   %.03251 = phi i32 [ %37, %36 ], [ 0, %12 ]
   %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.03251) #11
-  %18 = load i32, ptr %17, align 8, !tbaa !55
+  %18 = load i32, ptr %17, align 8, !tbaa !56
   %.not = icmp eq i32 %18, 6
   br i1 %.not, label %19, label %36
 
@@ -4808,8 +4808,8 @@ define internal fastcc ptr @_get_crl_dp(ptr noundef %0) unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !59
-  %24 = load i32, ptr %21, align 8, !tbaa !57
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
+  %24 = load i32, ptr %21, align 8, !tbaa !58
   %25 = sext i32 %24 to i64
   %26 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %23, i64 noundef %25) #11
   %27 = icmp eq ptr %26, null
@@ -4839,17 +4839,17 @@ Py_DECREF.exit:                                   ; preds = %28, %31, %34
   %37 = add nuw nsw i32 %.03251, 1
   %38 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #11
   %39 = icmp slt i32 %37, %38
-  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !71
+  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %36, %12, %.lr.ph53
   %40 = add nuw nsw i32 %.03152, 1
   %41 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #11
   %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph53, label %._crit_edge, !llvm.loop !72
+  br i1 %42, label %.lr.ph53, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %43 = getelementptr i8, ptr %5, i64 16
-  %.val = load i64, ptr %43, align 8, !tbaa !51
+  %.val = load i64, ptr %43, align 8, !tbaa !52
   %44 = icmp sgt i64 %.val, 0
   br i1 %44, label %45, label %.thread45
 
@@ -5111,7 +5111,7 @@ Py_DECREF.exit127:                                ; preds = %30, %35, %38
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !73
+  %53 = load ptr, ptr %52, align 8, !tbaa !74
   %54 = tail call i64 @SSL_get_verify_result(ptr noundef %53) #11
   %55 = tail call ptr @PyLong_FromLong(i64 noundef %54) #11
   %56 = icmp eq ptr %55, null
@@ -5125,13 +5125,13 @@ Py_DECREF.exit127:                                ; preds = %30, %35, %38
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !77
+  %60 = load ptr, ptr %59, align 8, !tbaa !78
   %61 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.27, ptr noundef %60) #11
   br label %_Py_NewRef.exit
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !77
+  %64 = load ptr, ptr %63, align 8, !tbaa !78
   %65 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.28, ptr noundef %64) #11
   br label %_Py_NewRef.exit
 
@@ -5254,7 +5254,7 @@ Py_DECREF.exit:                                   ; preds = %107, %110, %113
   %116 = icmp eq ptr %.086, null
   %spec.store.select = select i1 %116, ptr @_Py_NoneStruct, ptr %.086
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %118 = load ptr, ptr %117, align 8, !tbaa !78
+  %118 = load ptr, ptr %117, align 8, !tbaa !79
   %119 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %108, ptr noundef %118, ptr noundef nonnull %spec.store.select) #11
   %.not120 = icmp eq i32 %119, 0
   br i1 %.not120, label %120, label %138
@@ -5262,7 +5262,7 @@ Py_DECREF.exit:                                   ; preds = %107, %110, %113
 120:                                              ; preds = %115
   %spec.store.select1 = select i1 %.not115, ptr @_Py_NoneStruct, ptr %.089
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %122 = load ptr, ptr %121, align 8, !tbaa !79
+  %122 = load ptr, ptr %121, align 8, !tbaa !80
   %123 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %108, ptr noundef %122, ptr noundef nonnull %spec.store.select1) #11
   %.not121 = icmp eq i32 %123, 0
   br i1 %.not121, label %124, label %138
@@ -5278,14 +5278,14 @@ Py_DECREF.exit:                                   ; preds = %107, %110, %113
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %131 = load ptr, ptr %130, align 8, !tbaa !80
+  %131 = load ptr, ptr %130, align 8, !tbaa !81
   %132 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %108, ptr noundef %131, ptr noundef %.195) #11
   %.not122 = icmp eq i32 %132, 0
   br i1 %.not122, label %133, label %138
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %135 = load ptr, ptr %134, align 8, !tbaa !81
+  %135 = load ptr, ptr %134, align 8, !tbaa !82
   %136 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %108, ptr noundef %135, ptr noundef %.192) #11
   %.not123 = icmp eq i32 %136, 0
   br i1 %.not123, label %137, label %138
@@ -5791,7 +5791,7 @@ define internal range(i32 -1, 1) i32 @sslmodule_init_socketapi(ptr noundef %0) #
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8, !tbaa !82
+  %6 = load ptr, ptr %3, align 8, !tbaa !83
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
 
@@ -5833,7 +5833,7 @@ define internal range(i32 -1, 1) i32 @sslmodule_init_errorcodes(ptr noundef %0) 
 
 .preheader65:                                     ; preds = %6, %Py_DECREF.exit56
   %.034 = phi ptr [ %41, %Py_DECREF.exit56 ], [ @error_codes, %6 ]
-  %10 = load ptr, ptr %.034, align 8, !tbaa !84
+  %10 = load ptr, ptr %.034, align 8, !tbaa !85
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.preheader, label %11
 
@@ -5844,9 +5844,9 @@ define internal range(i32 -1, 1) i32 @sslmodule_init_errorcodes(ptr noundef %0) 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !86
+  %16 = load i32, ptr %15, align 8, !tbaa !87
   %17 = getelementptr inbounds nuw i8, ptr %.034, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !87
+  %18 = load i32, ptr %17, align 4, !tbaa !88
   %19 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.26, i32 noundef %16, i32 noundef %18) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %27
@@ -5901,13 +5901,13 @@ Py_DECREF.exit58:                                 ; preds = %27, %31, %34
 Py_DECREF.exit56:                                 ; preds = %Py_DECREF.exit58, %36, %39
   %40 = icmp sgt i32 %29, -1
   %41 = getelementptr i8, ptr %.034, i64 16
-  br i1 %40, label %.preheader65, label %.critedge, !llvm.loop !88
+  br i1 %40, label %.preheader65, label %.critedge, !llvm.loop !89
 
 .preheader:                                       ; preds = %.preheader65, %Py_DECREF.exit
   %42 = phi ptr [ %65, %Py_DECREF.exit ], [ @.str.1792, %.preheader65 ]
   %.03868 = phi ptr [ %64, %Py_DECREF.exit ], [ @library_codes, %.preheader65 ]
   %43 = getelementptr inbounds nuw i8, ptr %.03868, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !89
+  %44 = load i32, ptr %43, align 8, !tbaa !90
   %45 = sext i32 %44 to i64
   %46 = tail call ptr @PyLong_FromLong(i64 noundef %45) #11
   %47 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %42) #11
@@ -5954,9 +5954,9 @@ Py_DECREF.exit54:                                 ; preds = %53, %55, %58
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit54, %60, %63
   %64 = getelementptr i8, ptr %.03868, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !91
+  %65 = load ptr, ptr %64, align 8, !tbaa !92
   %.not49 = icmp eq ptr %65, null
-  br i1 %.not49, label %.critedge, label %.preheader, !llvm.loop !92
+  br i1 %.not49, label %.critedge, label %.preheader, !llvm.loop !93
 
 .critedge:                                        ; preds = %11, %Py_DECREF.exit56, %.preheader, %50, %Py_DECREF.exit, %26, %23, %21, %6, %1
   %.0 = phi i32 [ -1, %1 ], [ -1, %6 ], [ -1, %21 ], [ -1, %23 ], [ -1, %26 ], [ -1, %.preheader ], [ -1, %50 ], [ 0, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit56 ], [ -1, %11 ]
@@ -6529,28 +6529,28 @@ define internal range(i32 -1, 1) i32 @sslmodule_init_strings(ptr noundef %0) #0 
   %2 = tail call ptr @PyModule_GetState(ptr noundef %0) #11
   %3 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.1944) #11
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store ptr %3, ptr %4, align 8, !tbaa !79
+  store ptr %3, ptr %4, align 8, !tbaa !80
   %5 = icmp eq ptr %3, null
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.1945) #11
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store ptr %7, ptr %8, align 8, !tbaa !78
+  store ptr %7, ptr %8, align 8, !tbaa !79
   %9 = icmp eq ptr %7, null
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
   %11 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.1946) #11
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store ptr %11, ptr %12, align 8, !tbaa !81
+  store ptr %11, ptr %12, align 8, !tbaa !82
   %13 = icmp eq ptr %11, null
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.1947) #11
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store ptr %15, ptr %16, align 8, !tbaa !80
+  store ptr %15, ptr %16, align 8, !tbaa !81
   %17 = icmp eq ptr %15, null
   %. = sext i1 %17 to i32
   br label %18
@@ -6592,9 +6592,9 @@ define internal ptr @_ssl__SSLContext(ptr noundef %0, ptr noundef readonly captu
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %10 = load ptr, ptr %9, align 8, !tbaa !93
+  %10 = load ptr, ptr %9, align 8, !tbaa !94
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  %12 = load ptr, ptr %11, align 8, !tbaa !93
+  %12 = load ptr, ptr %11, align 8, !tbaa !94
   %13 = icmp ne ptr %10, %12
   %14 = icmp eq ptr %2, null
   %or.cond = or i1 %14, %13
@@ -6611,7 +6611,7 @@ define internal ptr @_ssl__SSLContext(ptr noundef %0, ptr noundef readonly captu
 
 18:                                               ; preds = %16, %15, %8
   %19 = getelementptr i8, ptr %1, i64 16
-  %.val22 = load i64, ptr %19, align 8, !tbaa !51
+  %.val22 = load i64, ptr %19, align 8, !tbaa !52
   %or.cond23 = icmp eq i64 %.val22, 1
   br i1 %or.cond23, label %22, label %20
 
@@ -6663,14 +6663,14 @@ define internal void @context_dealloc(ptr noundef %0) #0 {
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #11
   %3 = tail call i32 @context_clear(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   tail call void @SSL_CTX_free(ptr noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !98
+  %7 = load ptr, ptr %6, align 8, !tbaa !99
   tail call void @PyMem_Free(ptr noundef %7) #11
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %9 = load ptr, ptr %8, align 8, !tbaa !99
+  %9 = load ptr, ptr %8, align 8, !tbaa !100
   tail call void %9(ptr noundef %0) #11
   %10 = load i32, ptr %.val8, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %10, -1
@@ -6693,7 +6693,7 @@ Py_DECREF.exit:                                   ; preds = %1, %11, %14
 ; Function Attrs: nounwind uwtable
 define internal i32 @context_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -6704,7 +6704,7 @@ define internal i32 @context_traverse(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !101
+  %10 = load ptr, ptr %9, align 8, !tbaa !102
   %.not28 = icmp eq ptr %10, null
   br i1 %.not28, label %13, label %11
 
@@ -6845,16 +6845,16 @@ Py_DECREF.exit39:                                 ; preds = %33, %30, %28, %Py_D
 
 Py_DECREF.exit:                                   ; preds = %41, %38, %36, %Py_DECREF.exit39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %43 = load ptr, ptr %42, align 8, !tbaa !102
+  %43 = load ptr, ptr %42, align 8, !tbaa !103
   %.not37 = icmp eq ptr %43, null
   br i1 %.not37, label %47, label %44
 
 44:                                               ; preds = %Py_DECREF.exit
   %45 = tail call ptr @PyEval_SaveThread() #11
-  %46 = load ptr, ptr %42, align 8, !tbaa !102
+  %46 = load ptr, ptr %42, align 8, !tbaa !103
   tail call void @BIO_free_all(ptr noundef %46) #11
   tail call void @PyEval_RestoreThread(ptr noundef %45) #11
-  store ptr null, ptr %42, align 8, !tbaa !102
+  store ptr null, ptr %42, align 8, !tbaa !103
   br label %47
 
 47:                                               ; preds = %44, %Py_DECREF.exit
@@ -6871,7 +6871,7 @@ define internal ptr @_ssl__SSLContext__wrap_socket(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !51
+  %.val = load i64, ptr %8, align 8, !tbaa !52
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -6894,7 +6894,7 @@ define internal ptr @_ssl__SSLContext__wrap_socket(ptr noundef %0, ptr noundef %
   %19 = phi ptr [ %18, %17 ], [ %1, %9 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = getelementptr i8, ptr %20, i64 8
@@ -6909,11 +6909,11 @@ PyObject_TypeCheck.exit:                          ; preds = %.thread
   br i1 %.not81, label %27, label %PyObject_TypeCheck.exit.thread
 
 27:                                               ; preds = %PyObject_TypeCheck.exit
-  %28 = load ptr, ptr %21, align 8, !tbaa !103
+  %28 = load ptr, ptr %21, align 8, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !104
+  %32 = load ptr, ptr %31, align 8, !tbaa !105
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.87, ptr noundef %32, ptr noundef %.pre) #11
   br label %58
 
@@ -6931,7 +6931,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
 
 .thread74:                                        ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !53
+  store ptr null, ptr %5, align 8, !tbaa !54
   br label %53
 
 39:                                               ; preds = %38
@@ -6968,7 +6968,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   %.039 = phi ptr [ %.1, %47 ], [ %45, %46 ], [ @_Py_NoneStruct, %42 ]
   %.0 = phi ptr [ %49, %47 ], [ @_Py_NoneStruct, %46 ], [ @_Py_NoneStruct, %42 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !53
+  store ptr null, ptr %5, align 8, !tbaa !54
   %.not.i60 = icmp eq ptr %.04067, @_Py_NoneStruct
   br i1 %.not.i60, label %53, label %51
 
@@ -6978,7 +6978,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   br i1 %.not10.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %51
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !53
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !54
   br label %53
 
 53:                                               ; preds = %.thread74, %._crit_edge.i, %50
@@ -6986,7 +6986,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   %.03979 = phi ptr [ %.039, %._crit_edge.i ], [ %.039, %50 ], [ @_Py_NoneStruct, %.thread74 ]
   %54 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %50 ], [ null, %.thread74 ]
   %55 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef %33, i32 noundef range(i32 0, -2147483648) %36, ptr noundef %54, ptr noundef %.03979, ptr noundef readonly %.080, ptr noundef null, ptr noundef null)
-  %56 = load ptr, ptr %5, align 8, !tbaa !53
+  %56 = load ptr, ptr %5, align 8, !tbaa !54
   %.not11.i = icmp eq ptr %56, null
   br i1 %.not11.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %57
 
@@ -7015,7 +7015,7 @@ define internal ptr @_ssl__SSLContext__wrap_bio(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !51
+  %.val = load i64, ptr %8, align 8, !tbaa !52
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -7038,7 +7038,7 @@ define internal ptr @_ssl__SSLContext__wrap_bio(ptr noundef %0, ptr noundef %1, 
   %19 = phi ptr [ %18, %17 ], [ %1, %9 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = getelementptr i8, ptr %20, i64 8
@@ -7050,14 +7050,14 @@ PyObject_TypeCheck.exit:                          ; preds = %.thread
   %26 = call i32 @PyType_IsSubtype(ptr noundef %.val66, ptr noundef %24) #11
   %.not92 = icmp eq i32 %26, 0
   %.pre = load ptr, ptr %19, align 8, !tbaa !26
-  %.pre94 = load ptr, ptr %21, align 8, !tbaa !103
+  %.pre94 = load ptr, ptr %21, align 8, !tbaa !104
   %27 = getelementptr inbounds nuw i8, ptr %.pre94, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   br i1 %.not92, label %29, label %PyObject_TypeCheck.exit.thread
 
 29:                                               ; preds = %PyObject_TypeCheck.exit
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !104
+  %31 = load ptr, ptr %30, align 8, !tbaa !105
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.101, ptr noundef %31, ptr noundef %.pre) #11
   br label %68
 
@@ -7078,11 +7078,11 @@ PyObject_TypeCheck.exit69:                        ; preds = %PyObject_TypeCheck.
   br i1 %.not93, label %38, label %PyObject_TypeCheck.exit69.thread
 
 38:                                               ; preds = %PyObject_TypeCheck.exit69
-  %39 = load ptr, ptr %21, align 8, !tbaa !103
+  %39 = load ptr, ptr %21, align 8, !tbaa !104
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !104
+  %43 = load ptr, ptr %42, align 8, !tbaa !105
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.102, ptr noundef %43, ptr noundef %.pre96) #11
   br label %68
 
@@ -7100,7 +7100,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
 
 .thread85:                                        ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !53
+  store ptr null, ptr %5, align 8, !tbaa !54
   br label %64
 
 50:                                               ; preds = %49
@@ -7137,7 +7137,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   %.045 = phi ptr [ %.1, %58 ], [ %56, %57 ], [ @_Py_NoneStruct, %53 ]
   %.0 = phi ptr [ %60, %58 ], [ @_Py_NoneStruct, %57 ], [ @_Py_NoneStruct, %53 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !53
+  store ptr null, ptr %5, align 8, !tbaa !54
   %.not.i70 = icmp eq ptr %.04678, @_Py_NoneStruct
   br i1 %.not.i70, label %64, label %62
 
@@ -7147,7 +7147,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not10.i, label %_ssl__SSLContext__wrap_bio_impl.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %62
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !53
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !54
   br label %64
 
 64:                                               ; preds = %.thread85, %._crit_edge.i, %61
@@ -7155,7 +7155,7 @@ PyObject_TypeCheck.exit69.thread:                 ; preds = %PyObject_TypeCheck.
   %.04590 = phi ptr [ %.045, %._crit_edge.i ], [ %.045, %61 ], [ @_Py_NoneStruct, %.thread85 ]
   %65 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %61 ], [ null, %.thread85 ]
   %66 = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %0, ptr noundef null, i32 noundef range(i32 0, -2147483648) %47, ptr noundef %65, ptr noundef %.04590, ptr noundef readonly %.091, ptr noundef readonly %33, ptr noundef readonly %44)
-  %67 = load ptr, ptr %5, align 8, !tbaa !53
+  %67 = load ptr, ptr %5, align 8, !tbaa !54
   call void @PyMem_Free(ptr noundef %67) #11
   br label %_ssl__SSLContext__wrap_bio_impl.exit
 
@@ -7203,7 +7203,7 @@ define internal noundef ptr @_ssl__SSLContext_set_ciphers(ptr noundef readonly c
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !94
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %18, ptr noundef nonnull %9) #11
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %_ssl__SSLContext_set_ciphers_impl.exit
@@ -7211,7 +7211,7 @@ define internal noundef ptr @_ssl__SSLContext_set_ciphers(ptr noundef readonly c
 21:                                               ; preds = %16
   call void @ERR_clear_error() #11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = load ptr, ptr %22, align 8, !tbaa !103
+  %23 = load ptr, ptr %22, align 8, !tbaa !104
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.104) #11
@@ -7244,11 +7244,11 @@ define internal ptr @_ssl__SSLContext__set_alpn_protocols(ptr noundef %0, ptr no
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !98
+  %14 = load ptr, ptr %13, align 8, !tbaa !99
   call void @PyMem_Free(ptr noundef %14) #11
   %15 = load i64, ptr %6, align 8, !tbaa !47
   %16 = call ptr @PyMem_Malloc(i64 noundef %15) #11
-  store ptr %16, ptr %13, align 8, !tbaa !98
+  store ptr %16, ptr %13, align 8, !tbaa !99
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %19
 
@@ -7263,10 +7263,10 @@ define internal ptr @_ssl__SSLContext__set_alpn_protocols(ptr noundef %0, ptr no
   %22 = load i64, ptr %6, align 8, !tbaa !47
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %23, ptr %24, align 8, !tbaa !105
+  store i32 %23, ptr %24, align 8, !tbaa !106
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !94
-  %27 = load ptr, ptr %13, align 8, !tbaa !98
+  %26 = load ptr, ptr %25, align 8, !tbaa !95
+  %27 = load ptr, ptr %13, align 8, !tbaa !99
   %28 = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %26, ptr noundef %27, i32 noundef %23) #11
   %.not17.i = icmp eq i32 %28, 0
   br i1 %.not17.i, label %31, label %29
@@ -7276,14 +7276,14 @@ define internal ptr @_ssl__SSLContext__set_alpn_protocols(ptr noundef %0, ptr no
   br label %_ssl__SSLContext__set_alpn_protocols_impl.exit
 
 31:                                               ; preds = %19
-  %32 = load ptr, ptr %25, align 8, !tbaa !94
+  %32 = load ptr, ptr %25, align 8, !tbaa !95
   call void @SSL_CTX_set_alpn_select_cb(ptr noundef %32, ptr noundef nonnull @_selectALPN_cb, ptr noundef nonnull %0) #11
   br label %_ssl__SSLContext__set_alpn_protocols_impl.exit
 
 _ssl__SSLContext__set_alpn_protocols_impl.exit:   ; preds = %31, %29, %17, %9, %2
   %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %30, %29 ], [ @_Py_NoneStruct, %31 ], [ %18, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !50
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
   %.not3 = icmp eq ptr %34, null
   br i1 %.not3, label %36, label %35
 
@@ -7308,7 +7308,7 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
 
 .thread:                                          ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !51
+  %.val = load i64, ptr %9, align 8, !tbaa !52
   %10 = add i64 %.val, %2
   br label %15
 
@@ -7356,14 +7356,14 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !94
+  %30 = load ptr, ptr %29, align 8, !tbaa !95
   %31 = call ptr @SSL_CTX_get_default_passwd_cb(ptr noundef %30) #11
-  %32 = load ptr, ptr %29, align 8, !tbaa !94
+  %32 = load ptr, ptr %29, align 8, !tbaa !95
   %33 = call ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef %32) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %34 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %34, align 4, !tbaa !106
+  store i32 0, ptr %34, align 4, !tbaa !107
   call void @ERR_clear_error() #11
   %35 = call i32 @PyUnicode_FSConverter(ptr noundef %20, ptr noundef nonnull %5) #11
   %.not.i = icmp eq i32 %35, 0
@@ -7411,7 +7411,7 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0, ptr %54, align 8, !tbaa !107
+  store ptr %.0, ptr %54, align 8, !tbaa !108
   br label %57
 
 55:                                               ; preds = %51
@@ -7420,27 +7420,27 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
   br i1 %.not48.i, label %137, label %57
 
 57:                                               ; preds = %55, %53
-  %58 = load ptr, ptr %29, align 8, !tbaa !94
+  %58 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb(ptr noundef %58, ptr noundef nonnull @_password_callback) #11
-  %59 = load ptr, ptr %29, align 8, !tbaa !94
+  %59 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef %59, ptr noundef nonnull %7) #11
   br label %60
 
 60:                                               ; preds = %57, %50
   %61 = call ptr @PyEval_SaveThread() #11
-  store ptr %61, ptr %7, align 8, !tbaa !110
-  %62 = load ptr, ptr %29, align 8, !tbaa !94
+  store ptr %61, ptr %7, align 8, !tbaa !111
+  %62 = load ptr, ptr %29, align 8, !tbaa !95
   %63 = load ptr, ptr %5, align 8, !tbaa !26
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = call i32 @SSL_CTX_use_certificate_chain_file(ptr noundef %62, ptr noundef nonnull %64) #11
-  %66 = load ptr, ptr %7, align 8, !tbaa !110
+  %66 = load ptr, ptr %7, align 8, !tbaa !111
   call void @PyEval_RestoreThread(ptr noundef %66) #11
   %.not49.i = icmp eq i32 %65, 1
   br i1 %.not49.i, label %84, label %67
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %69 = load i32, ptr %68, align 4, !tbaa !111
+  %69 = load i32, ptr %68, align 4, !tbaa !112
   %.not56.i = icmp eq i32 %69, 0
   br i1 %.not56.i, label %71, label %70
 
@@ -7449,7 +7449,7 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
   br label %137
 
 71:                                               ; preds = %67
-  %72 = load i32, ptr %34, align 4, !tbaa !106
+  %72 = load i32, ptr %34, align 4, !tbaa !107
   %.not57.i = icmp eq i32 %72, 0
   br i1 %.not57.i, label %76, label %73
 
@@ -7461,7 +7461,7 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %78 = load ptr, ptr %77, align 8, !tbaa !103
+  %78 = load ptr, ptr %77, align 8, !tbaa !104
   %79 = call i64 @ERR_peek_last_error() #11
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 40
@@ -7474,14 +7474,14 @@ define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readon
 
 84:                                               ; preds = %60
   %85 = call ptr @PyEval_SaveThread() #11
-  store ptr %85, ptr %7, align 8, !tbaa !110
-  %86 = load ptr, ptr %29, align 8, !tbaa !94
+  store ptr %85, ptr %7, align 8, !tbaa !111
+  %86 = load ptr, ptr %29, align 8, !tbaa !95
   %87 = load ptr, ptr %6, align 8
   %88 = load ptr, ptr %5, align 8
   %89 = select i1 %42, ptr %88, ptr %87
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %86, ptr noundef nonnull %90, i32 noundef 1) #11
-  %92 = load ptr, ptr %7, align 8, !tbaa !110
+  %92 = load ptr, ptr %7, align 8, !tbaa !111
   call void @PyEval_RestoreThread(ptr noundef %92) #11
   %93 = load ptr, ptr %6, align 8, !tbaa !26
   %.not50.i = icmp eq ptr %93, null
@@ -7530,7 +7530,7 @@ Py_DECREF.exit.i:                                 ; preds = %106, %103, %101, %P
 
 107:                                              ; preds = %Py_DECREF.exit.i
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %109 = load i32, ptr %108, align 4, !tbaa !111
+  %109 = load i32, ptr %108, align 4, !tbaa !112
   %.not54.i = icmp eq i32 %109, 0
   br i1 %.not54.i, label %111, label %110
 
@@ -7539,7 +7539,7 @@ Py_DECREF.exit.i:                                 ; preds = %106, %103, %101, %P
   br label %137
 
 111:                                              ; preds = %107
-  %112 = load i32, ptr %34, align 4, !tbaa !106
+  %112 = load i32, ptr %34, align 4, !tbaa !107
   %.not55.i = icmp eq i32 %112, 0
   br i1 %.not55.i, label %116, label %113
 
@@ -7551,23 +7551,23 @@ Py_DECREF.exit.i:                                 ; preds = %106, %103, %101, %P
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %118 = load ptr, ptr %117, align 8, !tbaa !103
+  %118 = load ptr, ptr %117, align 8, !tbaa !104
   call fastcc void @_setSSLError(ptr noundef %118, ptr noundef null, i32 noundef 4145)
   br label %137
 
 119:                                              ; preds = %Py_DECREF.exit.i
   %120 = call ptr @PyEval_SaveThread() #11
-  store ptr %120, ptr %7, align 8, !tbaa !110
-  %121 = load ptr, ptr %29, align 8, !tbaa !94
+  store ptr %120, ptr %7, align 8, !tbaa !111
+  %121 = load ptr, ptr %29, align 8, !tbaa !95
   %122 = call i32 @SSL_CTX_check_private_key(ptr noundef %121) #11
-  %123 = load ptr, ptr %7, align 8, !tbaa !110
+  %123 = load ptr, ptr %7, align 8, !tbaa !111
   call void @PyEval_RestoreThread(ptr noundef %123) #11
   %.not53.i = icmp eq i32 %122, 1
   br i1 %.not53.i, label %132, label %124
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %126 = load ptr, ptr %125, align 8, !tbaa !103
+  %126 = load ptr, ptr %125, align 8, !tbaa !104
   %127 = call i64 @ERR_peek_last_error() #11
   %128 = trunc i64 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 40
@@ -7579,22 +7579,22 @@ Py_DECREF.exit.i:                                 ; preds = %106, %103, %101, %P
   br label %137
 
 132:                                              ; preds = %119
-  %133 = load ptr, ptr %29, align 8, !tbaa !94
+  %133 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb(ptr noundef %133, ptr noundef %31) #11
-  %134 = load ptr, ptr %29, align 8, !tbaa !94
+  %134 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef %134, ptr noundef %33) #11
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %136 = load ptr, ptr %135, align 8, !tbaa !112
+  %136 = load ptr, ptr %135, align 8, !tbaa !113
   call void @PyMem_Free(ptr noundef %136) #11
   br label %_ssl__SSLContext_load_cert_chain_impl.exit
 
 137:                                              ; preds = %124, %116, %113, %110, %76, %73, %70, %55, %48, %45
-  %138 = load ptr, ptr %29, align 8, !tbaa !94
+  %138 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb(ptr noundef %138, ptr noundef %31) #11
-  %139 = load ptr, ptr %29, align 8, !tbaa !94
+  %139 = load ptr, ptr %29, align 8, !tbaa !95
   call void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef %139, ptr noundef %33) #11
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !112
+  %141 = load ptr, ptr %140, align 8, !tbaa !113
   call void @PyMem_Free(ptr noundef %141) #11
   %142 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i62.i = icmp eq ptr %142, null
@@ -7656,7 +7656,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %6, align 4, !tbaa !106
+  store i32 0, ptr %6, align 4, !tbaa !107
   %7 = tail call ptr @PyEval_SaveThread() #11
   %8 = tail call ptr @PEM_read_DHparams(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %9 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -7665,7 +7665,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %5
-  %12 = load i32, ptr %6, align 4, !tbaa !106
+  %12 = load i32, ptr %6, align 4, !tbaa !107
   %.not16.i = icmp eq i32 %12, 0
   br i1 %.not16.i, label %16, label %13
 
@@ -7676,7 +7676,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   %19 = tail call i64 @ERR_peek_last_error() #11
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -7688,7 +7688,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !94
+  %26 = load ptr, ptr %25, align 8, !tbaa !95
   %27 = tail call i64 @SSL_CTX_ctrl(ptr noundef %26, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %8) #11
   %.not.i = icmp eq i64 %27, 0
   tail call void @DH_free(ptr noundef nonnull %8) #11
@@ -7696,7 +7696,7 @@ define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonl
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !103
+  %30 = load ptr, ptr %29, align 8, !tbaa !104
   %31 = tail call i64 @ERR_peek_last_error() #11
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -7727,7 +7727,7 @@ define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly
 
 .thread:                                          ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !51
+  %.val = load i64, ptr %9, align 8, !tbaa !52
   %10 = add i64 %.val, %2
   br label %14
 
@@ -7786,7 +7786,7 @@ define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !tbaa !26
   %31 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %31, align 4, !tbaa !106
+  store i32 0, ptr %31, align 4, !tbaa !107
   %32 = icmp eq ptr %.030, @_Py_NoneStruct
   %33 = icmp eq ptr %.029, @_Py_NoneStruct
   %34 = icmp eq ptr %.0, @_Py_NoneStruct
@@ -7865,7 +7865,7 @@ define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %68 = getelementptr i8, ptr %61, i64 16
-  %.val64.i = load i64, ptr %68, align 8, !tbaa !51
+  %.val64.i = load i64, ptr %68, align 8, !tbaa !52
   %69 = call fastcc i32 @_add_ca_certs(ptr noundef readonly %0, ptr noundef nonnull %67, i64 noundef %.val64.i, i32 noundef 1)
   %70 = load i32, ptr %61, align 8, !tbaa !25
   %.not.i.i = icmp sgt i32 %70, -1
@@ -7900,7 +7900,7 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %66
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %82 = load i32, ptr %81, align 4, !tbaa !113
+  %82 = load i32, ptr %81, align 4, !tbaa !114
   %83 = icmp sgt i32 %82, 1
   br i1 %83, label %84, label %86
 
@@ -7944,14 +7944,14 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %66
   %.045.i = select i1 %33, ptr null, ptr %99
   %100 = call ptr @PyEval_SaveThread() #11
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !94
+  %102 = load ptr, ptr %101, align 8, !tbaa !95
   %103 = call i32 @SSL_CTX_load_verify_locations(ptr noundef %102, ptr noundef %.046.i, ptr noundef %.045.i) #11
   call void @PyEval_RestoreThread(ptr noundef %100) #11
   %.not56.i = icmp eq i32 %103, 1
   br i1 %.not56.i, label %.thread.i, label %104
 
 104:                                              ; preds = %95
-  %105 = load i32, ptr %31, align 4, !tbaa !106
+  %105 = load i32, ptr %31, align 4, !tbaa !107
   %.not57.i = icmp eq i32 %105, 0
   br i1 %.not57.i, label %109, label %106
 
@@ -7963,7 +7963,7 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %66
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %111 = load ptr, ptr %110, align 8, !tbaa !103
+  %111 = load ptr, ptr %110, align 8, !tbaa !104
   call fastcc void @_setSSLError(ptr noundef %111, ptr noundef null, i32 noundef 4377)
   br label %.thread.i
 
@@ -8027,7 +8027,7 @@ define internal ptr @_ssl__SSLContext_session_stats(ptr noundef readonly capture
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = tail call i64 @SSL_CTX_ctrl(ptr noundef %6, i32 noundef 20, i64 noundef 0, ptr noundef null) #11
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #11
   %9 = icmp eq ptr %8, null
@@ -8054,7 +8054,7 @@ Py_DECREF.exit111.i:                              ; preds = %16, %13, %10
   br i1 %17, label %161, label %18
 
 18:                                               ; preds = %Py_DECREF.exit111.i
-  %19 = load ptr, ptr %5, align 8, !tbaa !94
+  %19 = load ptr, ptr %5, align 8, !tbaa !95
   %20 = tail call i64 @SSL_CTX_ctrl(ptr noundef %19, i32 noundef 21, i64 noundef 0, ptr noundef null) #11
   %21 = tail call ptr @PyLong_FromLong(i64 noundef %20) #11
   %22 = icmp eq ptr %21, null
@@ -8081,7 +8081,7 @@ Py_DECREF.exit109.i:                              ; preds = %29, %26, %23
   br i1 %30, label %161, label %31
 
 31:                                               ; preds = %Py_DECREF.exit109.i
-  %32 = load ptr, ptr %5, align 8, !tbaa !94
+  %32 = load ptr, ptr %5, align 8, !tbaa !95
   %33 = tail call i64 @SSL_CTX_ctrl(ptr noundef %32, i32 noundef 22, i64 noundef 0, ptr noundef null) #11
   %34 = tail call ptr @PyLong_FromLong(i64 noundef %33) #11
   %35 = icmp eq ptr %34, null
@@ -8108,7 +8108,7 @@ Py_DECREF.exit107.i:                              ; preds = %42, %39, %36
   br i1 %43, label %161, label %44
 
 44:                                               ; preds = %Py_DECREF.exit107.i
-  %45 = load ptr, ptr %5, align 8, !tbaa !94
+  %45 = load ptr, ptr %5, align 8, !tbaa !95
   %46 = tail call i64 @SSL_CTX_ctrl(ptr noundef %45, i32 noundef 23, i64 noundef 0, ptr noundef null) #11
   %47 = tail call ptr @PyLong_FromLong(i64 noundef %46) #11
   %48 = icmp eq ptr %47, null
@@ -8135,7 +8135,7 @@ Py_DECREF.exit105.i:                              ; preds = %55, %52, %49
   br i1 %56, label %161, label %57
 
 57:                                               ; preds = %Py_DECREF.exit105.i
-  %58 = load ptr, ptr %5, align 8, !tbaa !94
+  %58 = load ptr, ptr %5, align 8, !tbaa !95
   %59 = tail call i64 @SSL_CTX_ctrl(ptr noundef %58, i32 noundef 24, i64 noundef 0, ptr noundef null) #11
   %60 = tail call ptr @PyLong_FromLong(i64 noundef %59) #11
   %61 = icmp eq ptr %60, null
@@ -8162,7 +8162,7 @@ Py_DECREF.exit103.i:                              ; preds = %68, %65, %62
   br i1 %69, label %161, label %70
 
 70:                                               ; preds = %Py_DECREF.exit103.i
-  %71 = load ptr, ptr %5, align 8, !tbaa !94
+  %71 = load ptr, ptr %5, align 8, !tbaa !95
   %72 = tail call i64 @SSL_CTX_ctrl(ptr noundef %71, i32 noundef 25, i64 noundef 0, ptr noundef null) #11
   %73 = tail call ptr @PyLong_FromLong(i64 noundef %72) #11
   %74 = icmp eq ptr %73, null
@@ -8189,7 +8189,7 @@ Py_DECREF.exit101.i:                              ; preds = %81, %78, %75
   br i1 %82, label %161, label %83
 
 83:                                               ; preds = %Py_DECREF.exit101.i
-  %84 = load ptr, ptr %5, align 8, !tbaa !94
+  %84 = load ptr, ptr %5, align 8, !tbaa !95
   %85 = tail call i64 @SSL_CTX_ctrl(ptr noundef %84, i32 noundef 26, i64 noundef 0, ptr noundef null) #11
   %86 = tail call ptr @PyLong_FromLong(i64 noundef %85) #11
   %87 = icmp eq ptr %86, null
@@ -8216,7 +8216,7 @@ Py_DECREF.exit99.i:                               ; preds = %94, %91, %88
   br i1 %95, label %161, label %96
 
 96:                                               ; preds = %Py_DECREF.exit99.i
-  %97 = load ptr, ptr %5, align 8, !tbaa !94
+  %97 = load ptr, ptr %5, align 8, !tbaa !95
   %98 = tail call i64 @SSL_CTX_ctrl(ptr noundef %97, i32 noundef 24, i64 noundef 0, ptr noundef null) #11
   %99 = tail call ptr @PyLong_FromLong(i64 noundef %98) #11
   %100 = icmp eq ptr %99, null
@@ -8243,7 +8243,7 @@ Py_DECREF.exit97.i:                               ; preds = %107, %104, %101
   br i1 %108, label %161, label %109
 
 109:                                              ; preds = %Py_DECREF.exit97.i
-  %110 = load ptr, ptr %5, align 8, !tbaa !94
+  %110 = load ptr, ptr %5, align 8, !tbaa !95
   %111 = tail call i64 @SSL_CTX_ctrl(ptr noundef %110, i32 noundef 27, i64 noundef 0, ptr noundef null) #11
   %112 = tail call ptr @PyLong_FromLong(i64 noundef %111) #11
   %113 = icmp eq ptr %112, null
@@ -8270,7 +8270,7 @@ Py_DECREF.exit95.i:                               ; preds = %120, %117, %114
   br i1 %121, label %161, label %122
 
 122:                                              ; preds = %Py_DECREF.exit95.i
-  %123 = load ptr, ptr %5, align 8, !tbaa !94
+  %123 = load ptr, ptr %5, align 8, !tbaa !95
   %124 = tail call i64 @SSL_CTX_ctrl(ptr noundef %123, i32 noundef 29, i64 noundef 0, ptr noundef null) #11
   %125 = tail call ptr @PyLong_FromLong(i64 noundef %124) #11
   %126 = icmp eq ptr %125, null
@@ -8297,7 +8297,7 @@ Py_DECREF.exit93.i:                               ; preds = %133, %130, %127
   br i1 %134, label %161, label %135
 
 135:                                              ; preds = %Py_DECREF.exit93.i
-  %136 = load ptr, ptr %5, align 8, !tbaa !94
+  %136 = load ptr, ptr %5, align 8, !tbaa !95
   %137 = tail call i64 @SSL_CTX_ctrl(ptr noundef %136, i32 noundef 30, i64 noundef 0, ptr noundef null) #11
   %138 = tail call ptr @PyLong_FromLong(i64 noundef %137) #11
   %139 = icmp eq ptr %138, null
@@ -8324,7 +8324,7 @@ Py_DECREF.exit91.i:                               ; preds = %146, %143, %140
   br i1 %147, label %161, label %148
 
 148:                                              ; preds = %Py_DECREF.exit91.i
-  %149 = load ptr, ptr %5, align 8, !tbaa !94
+  %149 = load ptr, ptr %5, align 8, !tbaa !95
   %150 = tail call i64 @SSL_CTX_ctrl(ptr noundef %149, i32 noundef 31, i64 noundef 0, ptr noundef null) #11
   %151 = tail call ptr @PyLong_FromLong(i64 noundef %150) #11
   %152 = icmp eq ptr %151, null
@@ -8374,7 +8374,7 @@ _ssl__SSLContext_session_stats_impl.exit:         ; preds = %2, %Py_DECREF.exit8
 define internal noundef ptr @_ssl__SSLContext_set_default_verify_paths(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyEval_SaveThread() #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   %6 = tail call i32 @SSL_CTX_set_default_verify_paths(ptr noundef %5) #11
   tail call void @PyEval_RestoreThread(ptr noundef %3) #11
   %.not.i = icmp eq i32 %6, 0
@@ -8382,7 +8382,7 @@ define internal noundef ptr @_ssl__SSLContext_set_default_verify_paths(ptr nound
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %8, align 8, !tbaa !104
   %10 = tail call i64 @ERR_peek_last_error() #11
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -8412,7 +8412,7 @@ define internal noundef ptr @_ssl__SSLContext_set_ecdh_curve(ptr noundef readonl
   %7 = load ptr, ptr %3, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = call i32 @OBJ_sn2nid(ptr noundef nonnull %8) #11
-  store i32 %9, ptr %4, align 4, !tbaa !106
+  store i32 %9, ptr %4, align 4, !tbaa !107
   %10 = load ptr, ptr %3, align 8, !tbaa !26
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i = icmp sgt i32 %11, -1
@@ -8439,14 +8439,14 @@ Py_DECREF.exit.i:                                 ; preds = %15, %12, %6
 
 20:                                               ; preds = %Py_DECREF.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !94
+  %22 = load ptr, ptr %21, align 8, !tbaa !95
   %23 = call i64 @SSL_CTX_ctrl(ptr noundef %22, i32 noundef 91, i64 noundef 1, ptr noundef nonnull %4) #11
   %.not5.i = icmp eq i64 %23, 0
   br i1 %.not5.i, label %24, label %_ssl__SSLContext_set_ecdh_curve_impl.exit
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8, !tbaa !103
+  %26 = load ptr, ptr %25, align 8, !tbaa !104
   %27 = call i64 @ERR_peek_last_error() #11
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -8467,7 +8467,7 @@ _ssl__SSLContext_set_ecdh_curve_impl.exit:        ; preds = %2, %17, %20, %24
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_cert_store_stats(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %.val) #11
   %5 = tail call i32 @X509_STORE_lock(ptr noundef %4) #11
   %.not.i.i = icmp eq i32 %5, 0
@@ -8522,7 +8522,7 @@ X509_STORE_get1_objects.exit.thread.i:            ; preds = %X509_STORE_get1_obj
   %23 = add nuw nsw i32 %.05.i, 1
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #11
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !114
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !115
 
 ._crit_edge.i:                                    ; preds = %22, %.preheader.i
   %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.121.i, %22 ]
@@ -8546,7 +8546,7 @@ define internal ptr @_ssl__SSLContext_get_ca_certs(ptr noundef readonly captures
 
 .thread:                                          ; preds = %4
   %6 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %6, align 8, !tbaa !51
+  %.val = load i64, ptr %6, align 8, !tbaa !52
   br label %10
 
 7:                                                ; preds = %4
@@ -8582,7 +8582,7 @@ define internal ptr @_ssl__SSLContext_get_ca_certs(ptr noundef readonly captures
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !94
+  %25 = load ptr, ptr %24, align 8, !tbaa !95
   %26 = call ptr @SSL_CTX_get_cert_store(ptr noundef %25) #11
   %27 = call i32 @X509_STORE_lock(ptr noundef %26) #11
   %.not.i37.i = icmp eq i32 %27, 0
@@ -8619,7 +8619,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br i1 %.not35.us.i, label %53, label %40
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr %34, align 8, !tbaa !103
+  %41 = load ptr, ptr %34, align 8, !tbaa !104
   %42 = call fastcc ptr @_decode_certificate(ptr noundef %41, ptr noundef %38)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.split32.thread.i, label %44
@@ -8648,7 +8648,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   %54 = add nuw nsw i32 %.02650.us.i, 1
   %55 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #11
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !115
+  br i1 %56, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !116
 
 .split.i:                                         ; preds = %X509_STORE_get1_objects.exit.i, %23
   %57 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !26
@@ -8669,7 +8669,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br i1 %.not35.i, label %76, label %63
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %34, align 8, !tbaa !103
+  %64 = load ptr, ptr %34, align 8, !tbaa !104
   %65 = call fastcc ptr @_certificate_to_der(ptr noundef %64, ptr noundef %61)
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.split32.thread.i, label %67
@@ -8698,7 +8698,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   %77 = add nuw nsw i32 %.02650.i, 1
   %78 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #11
   %79 = icmp slt i32 %77, %78
-  br i1 %79, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !117
+  br i1 %79, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !118
 
 ._crit_edge.i:                                    ; preds = %76, %53, %.preheader.i
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %29, ptr noundef nonnull @X509_OBJECT_free) #11
@@ -8752,14 +8752,14 @@ define internal ptr @_ssl__SSLContext_get_ciphers(ptr noundef readonly captures(
   %3 = alloca i32, align 4
   %4 = alloca [512 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = tail call ptr @SSL_new(ptr noundef %6) #11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %Py_DECREF.exit.thread.i, label %16
 
 Py_DECREF.exit.thread.i:                          ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = load ptr, ptr %9, align 8, !tbaa !103
+  %10 = load ptr, ptr %9, align 8, !tbaa !104
   %11 = tail call i64 @ERR_peek_last_error() #11
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -8859,7 +8859,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %2
 cipher_to_dict.exit.i:                            ; preds = %61, %58
   %63 = phi ptr [ %62, %61 ], [ null, %58 ]
   %64 = zext i32 %30 to i64
-  %65 = load i32, ptr %3, align 4, !tbaa !106
+  %65 = load i32, ptr %3, align 4, !tbaa !107
   %.not36.i.i = icmp eq i32 %44, 0
   %66 = select i1 %.not36.i.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %67 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, i64 noundef %64, ptr noundef nonnull @.str.53, ptr noundef %28, ptr noundef nonnull @.str.150, ptr noundef %29, ptr noundef nonnull @.str.151, ptr noundef nonnull %4, ptr noundef nonnull @.str.152, i32 noundef %43, ptr noundef nonnull @.str.153, i32 noundef %65, ptr noundef nonnull @.str.154, ptr noundef nonnull %66, ptr noundef nonnull @.str.155, ptr noundef %49, ptr noundef nonnull @.str.156, ptr noundef %54, ptr noundef nonnull @.str.157, ptr noundef %59, ptr noundef nonnull @.str.158, ptr noundef %63) #11
@@ -8884,14 +8884,14 @@ cipher_to_dict.exit.i:                            ; preds = %61, %58
   br label %Py_DECREF.exit.thread31.i
 
 75:                                               ; preds = %cipher_to_dict.exit.i
-  %.val.i = load ptr, ptr %24, align 8, !tbaa !118
+  %.val.i = load ptr, ptr %24, align 8, !tbaa !119
   %76 = getelementptr ptr, ptr %.val.i, i64 %indvars.iv.i
   store ptr %67, ptr %76, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = call i32 @OPENSSL_sk_num(ptr noundef %17) #11
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next.i, %78
-  br i1 %79, label %25, label %Py_DECREF.exit.thread31.i, !llvm.loop !121
+  br i1 %79, label %25, label %Py_DECREF.exit.thread31.i, !llvm.loop !122
 
 Py_DECREF.exit.thread31.i:                        ; preds = %75, %74, %71, %69, %.preheader.i, %16
   %.02233.i = phi ptr [ null, %16 ], [ null, %69 ], [ null, %71 ], [ null, %74 ], [ %20, %.preheader.i ], [ %20, %75 ]
@@ -8923,13 +8923,13 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_client_callback(ptr nounde
   %11 = phi ptr [ %10, %9 ], [ %1, %4 ]
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !122
+  %14 = load i32, ptr %13, align 8, !tbaa !123
   %15 = icmp eq i32 %14, 17
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.thread
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %18, ptr noundef null, ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.160, i32 noundef 5045, i64 noundef 0)
@@ -8954,7 +8954,7 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_client_callback(ptr nounde
   %.011.i = phi ptr [ null, %21 ], [ %12, %23 ]
   %.0.i = phi ptr [ null, %21 ], [ @psk_client_callback, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !123
+  %29 = load ptr, ptr %28, align 8, !tbaa !124
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %30
 
@@ -8988,9 +8988,9 @@ Py_XDECREF.exit.i:                                ; preds = %35, %32, %30, %27
   br label %Py_XINCREF.exit.i
 
 Py_XINCREF.exit.i:                                ; preds = %39, %36, %Py_XDECREF.exit.i
-  store ptr %.011.i, ptr %28, align 8, !tbaa !123
+  store ptr %.011.i, ptr %28, align 8, !tbaa !124
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !94
+  %42 = load ptr, ptr %41, align 8, !tbaa !95
   call void @SSL_CTX_set_psk_client_callback(ptr noundef %42, ptr noundef %.0.i) #11
   br label %_ssl__SSLContext_set_psk_client_callback_impl.exit
 
@@ -9010,7 +9010,7 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
 
 .thread:                                          ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 16
-  %.val44 = load i64, ptr %7, align 8, !tbaa !51
+  %.val44 = load i64, ptr %7, align 8, !tbaa !52
   %8 = add i64 %.val44, %2
   br label %13
 
@@ -9081,13 +9081,13 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
 37:                                               ; preds = %35, %19, %.thread47
   %.030 = phi ptr [ %28, %35 ], [ null, %.thread47 ], [ null, %19 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load i32, ptr %38, align 8, !tbaa !122
+  %39 = load i32, ptr %38, align 8, !tbaa !123
   %40 = icmp eq i32 %39, 16
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %43 = load ptr, ptr %42, align 8, !tbaa !103
+  %43 = load ptr, ptr %42, align 8, !tbaa !104
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %43, ptr noundef null, ptr noundef %45, i32 noundef 0, ptr noundef nonnull @.str.167, i32 noundef 5157, i64 noundef 0)
@@ -9113,7 +9113,7 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
   %.013.i = phi ptr [ null, %46 ], [ %.030, %48 ]
   %.0.i = phi ptr [ null, %46 ], [ @psk_server_callback, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !94
+  %54 = load ptr, ptr %53, align 8, !tbaa !95
   %55 = call i32 @SSL_CTX_use_psk_identity_hint(ptr noundef %54, ptr noundef %.013.i) #11
   %.not17.i = icmp eq i32 %55, 1
   br i1 %.not17.i, label %58, label %56
@@ -9125,7 +9125,7 @@ define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nounde
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %60 = load ptr, ptr %59, align 8, !tbaa !124
+  %60 = load ptr, ptr %59, align 8, !tbaa !125
   %.not.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %61
 
@@ -9159,8 +9159,8 @@ Py_XDECREF.exit.i:                                ; preds = %66, %63, %61, %58
   br label %Py_XINCREF.exit.i
 
 Py_XINCREF.exit.i:                                ; preds = %70, %67, %Py_XDECREF.exit.i
-  store ptr %.014.i, ptr %59, align 8, !tbaa !124
-  %72 = load ptr, ptr %53, align 8, !tbaa !94
+  store ptr %.014.i, ptr %59, align 8, !tbaa !125
+  %72 = load ptr, ptr %53, align 8, !tbaa !95
   call void @SSL_CTX_set_psk_server_callback(ptr noundef %72, ptr noundef %.0.i) #11
   br label %_ssl__SSLContext_set_psk_server_callback_impl.exit
 
@@ -9177,19 +9177,19 @@ declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !94
+  %10 = load ptr, ptr %9, align 8, !tbaa !95
   %11 = icmp eq i32 %2, 1
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !122
+  %14 = load i32, ptr %13, align 8, !tbaa !123
   %15 = icmp eq i32 %14, 16
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %18, ptr noundef null, ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.90, i32 noundef 856, i64 noundef 0)
@@ -9202,13 +9202,13 @@ define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 n
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load i32, ptr %24, align 8, !tbaa !122
+  %25 = load i32, ptr %24, align 8, !tbaa !123
   %26 = icmp eq i32 %25, 17
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load ptr, ptr %28, align 8, !tbaa !103
+  %29 = load ptr, ptr %28, align 8, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %29, ptr noundef null, ptr noundef %31, i32 noundef 0, ptr noundef nonnull @.str.91, i32 noundef 863, i64 noundef 0)
@@ -9218,7 +9218,7 @@ define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 n
 .thread:                                          ; preds = %12, %23, %21
   %32 = phi i1 [ true, %23 ], [ false, %21 ], [ false, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !103
+  %34 = load ptr, ptr %33, align 8, !tbaa !104
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = tail call ptr @_PyObject_GC_New(ptr noundef %36) #11
@@ -9240,18 +9240,18 @@ define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 n
 
 _Py_NewRef.exit:                                  ; preds = %39, %44
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store ptr %0, ptr %46, align 8, !tbaa !125
+  store ptr %0, ptr %46, align 8, !tbaa !126
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  store i8 0, ptr %47, align 8, !tbaa !126
+  store i8 0, ptr %47, align 8, !tbaa !127
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   tail call void @ERR_clear_error() #11
   %50 = tail call ptr @PyEval_SaveThread() #11
   %51 = tail call ptr @SSL_new(ptr noundef %10) #11
-  store ptr %51, ptr %40, align 8, !tbaa !73
+  store ptr %51, ptr %40, align 8, !tbaa !74
   tail call void @PyEval_RestoreThread(ptr noundef %50) #11
-  %52 = load ptr, ptr %40, align 8, !tbaa !73
+  %52 = load ptr, ptr %40, align 8, !tbaa !74
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %67
 
@@ -9272,7 +9272,7 @@ _Py_NewRef.exit:                                  ; preds = %39, %44
 
 Py_DECREF.exit98:                                 ; preds = %54, %56, %59
   %60 = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %61 = load ptr, ptr %60, align 8, !tbaa !103
+  %61 = load ptr, ptr %60, align 8, !tbaa !104
   %62 = tail call i64 @ERR_peek_last_error() #11
   %63 = trunc i64 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -9288,50 +9288,50 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
 
 68:                                               ; preds = %67
   %69 = tail call i32 @SSL_set_session_id_context(ptr noundef nonnull %52, ptr noundef nonnull @.str.92, i32 noundef 7) #11
-  %.pre = load ptr, ptr %40, align 8, !tbaa !73
+  %.pre = load ptr, ptr %40, align 8, !tbaa !74
   br label %70
 
 70:                                               ; preds = %68, %67
   %71 = phi ptr [ %.pre, %68 ], [ %52, %67 ]
   %72 = tail call ptr @SSL_get0_param(ptr noundef %71) #11
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %74 = load i32, ptr %73, align 4, !tbaa !127
+  %74 = load i32, ptr %73, align 4, !tbaa !128
   tail call void @X509_VERIFY_PARAM_set_hostflags(ptr noundef %72, i32 noundef %74) #11
-  %75 = load ptr, ptr %40, align 8, !tbaa !73
+  %75 = load ptr, ptr %40, align 8, !tbaa !74
   %76 = tail call i32 @SSL_set_ex_data(ptr noundef %75, i32 noundef 0, ptr noundef nonnull %37) #11
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %82, label %77
 
 77:                                               ; preds = %70
-  %78 = load ptr, ptr %40, align 8, !tbaa !73
+  %78 = load ptr, ptr %40, align 8, !tbaa !74
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %80 = load i32, ptr %79, align 8, !tbaa !128
+  %80 = load i32, ptr %79, align 8, !tbaa !129
   %81 = tail call i32 @SSL_set_fd(ptr noundef %78, i32 noundef %80) #11
   br label %92
 
 82:                                               ; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !131
+  %84 = load ptr, ptr %83, align 8, !tbaa !132
   %85 = tail call i32 @BIO_up_ref(ptr noundef %84) #11
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !131
+  %87 = load ptr, ptr %86, align 8, !tbaa !132
   %88 = tail call i32 @BIO_up_ref(ptr noundef %87) #11
-  %89 = load ptr, ptr %40, align 8, !tbaa !73
-  %90 = load ptr, ptr %83, align 8, !tbaa !131
-  %91 = load ptr, ptr %86, align 8, !tbaa !131
+  %89 = load ptr, ptr %40, align 8, !tbaa !74
+  %90 = load ptr, ptr %83, align 8, !tbaa !132
+  %91 = load ptr, ptr %86, align 8, !tbaa !132
   tail call void @SSL_set_bio(ptr noundef %89, ptr noundef %90, ptr noundef %91) #11
   br label %92
 
 92:                                               ; preds = %82, %77
-  %93 = load ptr, ptr %40, align 8, !tbaa !73
+  %93 = load ptr, ptr %40, align 8, !tbaa !74
   %94 = tail call i64 @SSL_ctrl(ptr noundef %93, i32 noundef 33, i64 noundef 6, ptr noundef null) #11
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %96 = load i32, ptr %95, align 4, !tbaa !133
+  %96 = load i32, ptr %95, align 4, !tbaa !134
   %97 = icmp eq i32 %96, 1
   br i1 %97, label %98, label %107
 
 98:                                               ; preds = %92
-  %99 = load ptr, ptr %40, align 8, !tbaa !73
+  %99 = load ptr, ptr %40, align 8, !tbaa !74
   br i1 %11, label %100, label %106
 
 100:                                              ; preds = %98
@@ -9342,7 +9342,7 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
 
 103:                                              ; preds = %100
   %104 = or i32 %101, 8
-  %105 = load ptr, ptr %40, align 8, !tbaa !73
+  %105 = load ptr, ptr %40, align 8, !tbaa !74
   tail call void @SSL_set_verify(ptr noundef %105, i32 noundef %104, ptr noundef null) #11
   br label %107
 
@@ -9386,16 +9386,16 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
   br i1 %123, label %_ssl_configure_hostname.exit.thread109, label %.thread55.i
 
 124:                                              ; preds = %119
-  store ptr %120, ptr %49, align 8, !tbaa !77
-  %125 = load ptr, ptr %40, align 8, !tbaa !73
+  store ptr %120, ptr %49, align 8, !tbaa !78
+  %125 = load ptr, ptr %40, align 8, !tbaa !74
   %126 = tail call i64 @SSL_ctrl(ptr noundef %125, i32 noundef 55, i64 noundef 0, ptr noundef nonnull %3) #11
   %.not.i103 = icmp eq i64 %126, 0
-  %127 = load ptr, ptr %46, align 8, !tbaa !125
+  %127 = load ptr, ptr %46, align 8, !tbaa !126
   br i1 %.not.i103, label %128, label %136
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 88
-  %130 = load ptr, ptr %129, align 8, !tbaa !103
+  %130 = load ptr, ptr %129, align 8, !tbaa !104
   %131 = tail call i64 @ERR_peek_last_error() #11
   %132 = trunc i64 %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 40
@@ -9408,20 +9408,20 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
 
 136:                                              ; preds = %124
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %138 = load i32, ptr %137, align 8, !tbaa !134
+  %138 = load i32, ptr %137, align 8, !tbaa !135
   %.not35.i = icmp eq i32 %138, 0
   br i1 %.not35.i, label %_ssl_configure_hostname.exit.thread106, label %148
 
 .thread55.i:                                      ; preds = %.thread.i
-  store ptr %122, ptr %49, align 8, !tbaa !77
-  %139 = load ptr, ptr %46, align 8, !tbaa !125
+  store ptr %122, ptr %49, align 8, !tbaa !78
+  %139 = load ptr, ptr %46, align 8, !tbaa !126
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
-  %141 = load i32, ptr %140, align 8, !tbaa !134
+  %141 = load i32, ptr %140, align 8, !tbaa !135
   %.not3556.i = icmp eq i32 %141, 0
   br i1 %.not3556.i, label %_ssl_configure_hostname.exit, label %.thread59.i
 
 .thread59.i:                                      ; preds = %.thread55.i
-  %142 = load ptr, ptr %40, align 8, !tbaa !73
+  %142 = load ptr, ptr %40, align 8, !tbaa !74
   %143 = tail call ptr @SSL_get0_param(ptr noundef %142) #11
   %144 = tail call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %117) #11
   %145 = tail call i32 @ASN1_STRING_length(ptr noundef nonnull %117) #11
@@ -9431,7 +9431,7 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
   br i1 %.not36.i, label %157, label %_ssl_configure_hostname.exit
 
 148:                                              ; preds = %136
-  %149 = load ptr, ptr %40, align 8, !tbaa !73
+  %149 = load ptr, ptr %40, align 8, !tbaa !74
   %150 = tail call ptr @SSL_get0_param(ptr noundef %149) #11
   %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %152 = tail call i32 @X509_VERIFY_PARAM_set1_host(ptr noundef %150, ptr noundef nonnull %3, i64 noundef %151) #11
@@ -9439,16 +9439,16 @@ Py_DECREF.exit98:                                 ; preds = %54, %56, %59
   br i1 %.not37.i, label %153, label %_ssl_configure_hostname.exit.thread106
 
 153:                                              ; preds = %148
-  %154 = load ptr, ptr %46, align 8, !tbaa !125
+  %154 = load ptr, ptr %46, align 8, !tbaa !126
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 88
-  %156 = load ptr, ptr %155, align 8, !tbaa !103
+  %156 = load ptr, ptr %155, align 8, !tbaa !104
   tail call fastcc void @_setSSLError(ptr noundef %156, ptr noundef null, i32 noundef 822)
   br label %_ssl_configure_hostname.exit.thread
 
 157:                                              ; preds = %.thread59.i
-  %158 = load ptr, ptr %46, align 8, !tbaa !125
+  %158 = load ptr, ptr %46, align 8, !tbaa !126
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 88
-  %160 = load ptr, ptr %159, align 8, !tbaa !103
+  %160 = load ptr, ptr %159, align 8, !tbaa !104
   %161 = tail call i64 @ERR_peek_last_error() #11
   %162 = trunc i64 %161 to i32
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 40
@@ -9487,22 +9487,22 @@ _ssl_configure_hostname.exit.thread106:           ; preds = %136, %148, %_ssl_co
 
 171:                                              ; preds = %_ssl_configure_hostname.exit.thread106
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %173 = load i64, ptr %172, align 8, !tbaa !135
+  %173 = load i64, ptr %172, align 8, !tbaa !136
   %174 = icmp sgt i64 %173, -1
   br i1 %174, label %175, label %182
 
 175:                                              ; preds = %171
-  %176 = load ptr, ptr %40, align 8, !tbaa !73
+  %176 = load ptr, ptr %40, align 8, !tbaa !74
   %177 = tail call ptr @SSL_get_rbio(ptr noundef %176) #11
   %178 = tail call i64 @BIO_ctrl(ptr noundef %177, i32 noundef 102, i64 noundef 1, ptr noundef null) #11
-  %179 = load ptr, ptr %40, align 8, !tbaa !73
+  %179 = load ptr, ptr %40, align 8, !tbaa !74
   %180 = tail call ptr @SSL_get_wbio(ptr noundef %179) #11
   %181 = tail call i64 @BIO_ctrl(ptr noundef %180, i32 noundef 102, i64 noundef 1, ptr noundef null) #11
   br label %182
 
 182:                                              ; preds = %175, %171, %_ssl_configure_hostname.exit.thread106
   %183 = tail call ptr @PyEval_SaveThread() #11
-  %184 = load ptr, ptr %40, align 8, !tbaa !73
+  %184 = load ptr, ptr %40, align 8, !tbaa !74
   br i1 %32, label %185, label %186
 
 185:                                              ; preds = %182
@@ -9516,12 +9516,12 @@ _ssl_configure_hostname.exit.thread106:           ; preds = %136, %148, %_ssl_co
 187:                                              ; preds = %185, %186
   tail call void @PyEval_RestoreThread(ptr noundef %183) #11
   %188 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i32 %2, ptr %188, align 4, !tbaa !136
+  store i32 %2, ptr %188, align 4, !tbaa !137
   br i1 %.not, label %198, label %189
 
 189:                                              ; preds = %187
   %190 = tail call ptr @PyWeakref_NewRef(ptr noundef nonnull %1, ptr noundef null) #11
-  store ptr %190, ptr %41, align 8, !tbaa !137
+  store ptr %190, ptr %41, align 8, !tbaa !138
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %198
 
@@ -9569,7 +9569,7 @@ _ssl_configure_hostname.exit.thread106:           ; preds = %136, %148, %_ssl_co
   br label %_ssl__SSLSocket_owner_set.exitthread-pre-split
 
 _ssl__SSLSocket_owner_set.exitthread-pre-split:   ; preds = %209, %206
-  %.pr = load ptr, ptr %48, align 8, !tbaa !138
+  %.pr = load ptr, ptr %48, align 8, !tbaa !139
   br label %_ssl__SSLSocket_owner_set.exit
 
 _ssl__SSLSocket_owner_set.exit:                   ; preds = %_ssl__SSLSocket_owner_set.exitthread-pre-split, %201, %204
@@ -9695,7 +9695,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_owner_set(ptr noundef capt
   br label %_ssl__SSLSocket_owner_set_impl.exit
 
 _ssl__SSLSocket_owner_set_impl.exit:              ; preds = %3, %7, %9, %12
-  %13 = load ptr, ptr %4, align 8, !tbaa !138
+  %13 = load ptr, ptr %4, align 8, !tbaa !139
   %14 = icmp eq ptr %13, null
   %..i = sext i1 %14 to i32
   ret i32 %..i
@@ -9704,9 +9704,9 @@ _ssl__SSLSocket_owner_set_impl.exit:              ; preds = %3, %7, %9, %12
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_session_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr i8, ptr %1, i64 8
@@ -9721,11 +9721,11 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_session_set(ptr noundef re
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !94
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !139
+  %17 = load ptr, ptr %16, align 8, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !94
+  %19 = load ptr, ptr %18, align 8, !tbaa !95
   %.not10.i = icmp eq ptr %15, %19
   br i1 %.not10.i, label %22, label %20
 
@@ -9736,7 +9736,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_session_set(ptr noundef re
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %24 = load i32, ptr %23, align 4, !tbaa !136
+  %24 = load i32, ptr %23, align 4, !tbaa !137
   %.not11.i = icmp eq i32 %24, 0
   br i1 %.not11.i, label %27, label %25
 
@@ -9747,7 +9747,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_session_set(ptr noundef re
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !73
+  %29 = load ptr, ptr %28, align 8, !tbaa !74
   %30 = tail call i32 @SSL_is_init_finished(ptr noundef %29) #11
   %.not12.i = icmp eq i32 %30, 0
   br i1 %.not12.i, label %33, label %31
@@ -9758,17 +9758,17 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_session_set(ptr noundef re
   br label %_ssl__SSLSocket_session_set_impl.exit
 
 33:                                               ; preds = %27
-  %34 = load ptr, ptr %28, align 8, !tbaa !73
+  %34 = load ptr, ptr %28, align 8, !tbaa !74
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !142
+  %36 = load ptr, ptr %35, align 8, !tbaa !143
   %37 = tail call i32 @SSL_set_session(ptr noundef %34, ptr noundef %36) #11
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %_ssl__SSLSocket_session_set_impl.exit
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr %4, align 8, !tbaa !125
+  %40 = load ptr, ptr %4, align 8, !tbaa !126
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %42 = load ptr, ptr %41, align 8, !tbaa !104
   tail call fastcc void @_setSSLError(ptr noundef %42, ptr noundef null, i32 noundef 2972)
   br label %_ssl__SSLSocket_session_set_impl.exit
 
@@ -9802,9 +9802,9 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @_selectALPN_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !98
+  %8 = load ptr, ptr %7, align 8, !tbaa !99
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !105
+  %10 = load i32, ptr %9, align 8, !tbaa !106
   %11 = icmp eq ptr %3, null
   %spec.select.i = select i1 %11, ptr @.str.106, ptr %3
   %spec.select17.i = select i1 %11, i32 0, i32 %4
@@ -9848,7 +9848,7 @@ define internal fastcc range(i32 0, 2) i32 @_pwinfo_set(ptr noundef captures(non
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = getelementptr i8, ptr %8, i64 16
-  %.val38 = load i64, ptr %11, align 8, !tbaa !51
+  %.val38 = load i64, ptr %11, align 8, !tbaa !52
   br label %PyByteArray_AS_STRING.exit
 
 12:                                               ; preds = %3
@@ -9859,7 +9859,7 @@ define internal fastcc range(i32 0, 2) i32 @_pwinfo_set(ptr noundef captures(non
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = getelementptr i8, ptr %1, i64 16
-  %.val39 = load i64, ptr %16, align 8, !tbaa !51
+  %.val39 = load i64, ptr %16, align 8, !tbaa !52
   br label %PyByteArray_AS_STRING.exit
 
 17:                                               ; preds = %12
@@ -9873,13 +9873,13 @@ PyObject_TypeCheck.exit:                          ; preds = %17
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %17, %PyObject_TypeCheck.exit
   %19 = getelementptr i8, ptr %1, i64 16
-  %.val.i = load i64, ptr %19, align 8, !tbaa !51
+  %.val.i = load i64, ptr %19, align 8, !tbaa !52
   %.not.i41 = icmp eq i64 %.val.i, 0
   br i1 %.not.i41, label %PyByteArray_AS_STRING.exit.thread, label %20
 
 20:                                               ; preds = %PyObject_TypeCheck.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !143
+  %22 = load ptr, ptr %21, align 8, !tbaa !144
   br label %PyByteArray_AS_STRING.exit
 
 23:                                               ; preds = %PyObject_TypeCheck.exit
@@ -9904,10 +9904,10 @@ PyByteArray_AS_STRING.exit.thread:                ; preds = %PyObject_TypeCheck.
   %.02451 = phi ptr [ %.024, %PyByteArray_AS_STRING.exit ], [ @_PyByteArray_empty_string, %PyObject_TypeCheck.exit.thread ]
   %.150 = phi ptr [ %.1, %PyByteArray_AS_STRING.exit ], [ null, %PyObject_TypeCheck.exit.thread ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !112
+  %30 = load ptr, ptr %29, align 8, !tbaa !113
   tail call void @PyMem_Free(ptr noundef %30) #11
   %31 = tail call ptr @PyMem_Malloc(i64 noundef %.052) #11
-  store ptr %31, ptr %29, align 8, !tbaa !112
+  store ptr %31, ptr %29, align 8, !tbaa !113
   %.not33 = icmp eq ptr %31, null
   br i1 %.not33, label %32, label %34
 
@@ -9920,7 +9920,7 @@ PyByteArray_AS_STRING.exit.thread:                ; preds = %PyObject_TypeCheck.
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %.02451, i64 %.052, i1 false)
   %35 = trunc i64 %.052 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %35, ptr %36, align 8, !tbaa !145
+  store i32 %35, ptr %36, align 8, !tbaa !146
   %.not.i42 = icmp eq ptr %.150, null
   br i1 %.not.i42, label %Py_XDECREF.exit, label %37
 
@@ -9968,16 +9968,16 @@ declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_password_callback(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef captures(none) %3) #0 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !110
+  %5 = load ptr, ptr %3, align 8, !tbaa !111
   tail call void @PyEval_RestoreThread(ptr noundef %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !111
+  %7 = load i32, ptr %6, align 4, !tbaa !112
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %Py_XDECREF.exit
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !107
+  %10 = load ptr, ptr %9, align 8, !tbaa !108
   %.not28 = icmp eq ptr %10, null
   br i1 %.not28, label %Py_DECREF.exit, label %11
 
@@ -10008,7 +10008,7 @@ define internal i32 @_password_callback(ptr noundef writeonly captures(none) %0,
 
 Py_DECREF.exit:                                   ; preds = %20, %17, %16, %8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !145
+  %22 = load i32, ptr %21, align 8, !tbaa !146
   %23 = icmp sgt i32 %22, %1
   br i1 %23, label %24, label %27
 
@@ -10019,13 +10019,13 @@ Py_DECREF.exit:                                   ; preds = %20, %17, %16, %8
 
 27:                                               ; preds = %Py_DECREF.exit
   %28 = tail call ptr @PyEval_SaveThread() #11
-  store ptr %28, ptr %3, align 8, !tbaa !110
+  store ptr %28, ptr %3, align 8, !tbaa !111
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !112
-  %31 = load i32, ptr %21, align 8, !tbaa !145
+  %30 = load ptr, ptr %29, align 8, !tbaa !113
+  %31 = load i32, ptr %21, align 8, !tbaa !146
   %32 = sext i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %30, i64 %32, i1 false)
-  %33 = load i32, ptr %21, align 8, !tbaa !145
+  %33 = load i32, ptr %21, align 8, !tbaa !146
   br label %40
 
 34:                                               ; preds = %13
@@ -10043,8 +10043,8 @@ Py_DECREF.exit:                                   ; preds = %20, %17, %16, %8
 
 Py_XDECREF.exit:                                  ; preds = %11, %24, %4, %34, %35, %38
   %39 = tail call ptr @PyEval_SaveThread() #11
-  store ptr %39, ptr %3, align 8, !tbaa !110
-  store i32 1, ptr %6, align 4, !tbaa !111
+  store ptr %39, ptr %3, align 8, !tbaa !111
+  store i32 1, ptr %6, align 4, !tbaa !112
   br label %40
 
 40:                                               ; preds = %Py_XDECREF.exit, %27
@@ -10108,7 +10108,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %18, ptr noundef null, ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.127, i32 noundef 4194, i64 noundef 0)
@@ -10117,7 +10117,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !94
+  %23 = load ptr, ptr %22, align 8, !tbaa !95
   %24 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %23) #11
   %25 = icmp eq i32 %3, 2
   br i1 %25, label %.split.us, label %.split
@@ -10155,12 +10155,12 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
   %38 = tail call i64 @BIO_ctrl(ptr noundef nonnull %14, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
   %39 = and i64 %38, 4294967295
   %.not.us = icmp eq i64 %39, 0
-  br i1 %.not.us, label %.lr.ph73, label %.split65.us, !llvm.loop !146
+  br i1 %.not.us, label %.lr.ph73, label %.split65.us, !llvm.loop !147
 
 .split:                                           ; preds = %21
-  %40 = load ptr, ptr %22, align 8, !tbaa !94
+  %40 = load ptr, ptr %22, align 8, !tbaa !95
   %41 = tail call ptr @SSL_CTX_get_default_passwd_cb(ptr noundef %40) #11
-  %42 = load ptr, ptr %22, align 8, !tbaa !94
+  %42 = load ptr, ptr %22, align 8, !tbaa !95
   %43 = tail call ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef %42) #11
   %44 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %14, ptr noundef null, ptr noundef %41, ptr noundef %43) #11
   %45 = icmp eq ptr %44, null
@@ -10186,13 +10186,13 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 52:                                               ; preds = %.lr.ph, %51
   %53 = add i32 %.04068, 1
-  %54 = load ptr, ptr %22, align 8, !tbaa !94
+  %54 = load ptr, ptr %22, align 8, !tbaa !95
   %55 = tail call ptr @SSL_CTX_get_default_passwd_cb(ptr noundef %54) #11
-  %56 = load ptr, ptr %22, align 8, !tbaa !94
+  %56 = load ptr, ptr %22, align 8, !tbaa !95
   %57 = tail call ptr @SSL_CTX_get_default_passwd_cb_userdata(ptr noundef %56) #11
   %58 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %14, ptr noundef null, ptr noundef %55, ptr noundef %57) #11
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.split65.us, label %.lr.ph
+  br i1 %59, label %.split65.us, label %.lr.ph, !llvm.loop !148
 
 .split65.us.thread:                               ; preds = %.split.us, %.split
   %60 = tail call i64 @ERR_peek_last_error() #11
@@ -10209,7 +10209,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
   %64 = icmp eq i32 %3, 1
   %.str.128..str.129 = select i1 %64, ptr @.str.128, ptr @.str.129
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %66 = load ptr, ptr %65, align 8, !tbaa !103
+  %66 = load ptr, ptr %65, align 8, !tbaa !104
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load ptr, ptr %67, align 8, !tbaa !14
   tail call fastcc void @fill_and_set_sslerror(ptr noundef readonly %66, ptr noundef null, ptr noundef %68, i32 noundef 0, ptr noundef nonnull %.str.128..str.129, i32 noundef 4243, i64 noundef 0)
@@ -10232,7 +10232,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
 
 73:                                               ; preds = %._crit_edge
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %75 = load ptr, ptr %74, align 8, !tbaa !103
+  %75 = load ptr, ptr %74, align 8, !tbaa !104
   %76 = tail call i64 @ERR_peek_last_error() #11
   %77 = trunc i64 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 40
@@ -10338,7 +10338,7 @@ declare ptr @X509_OBJECT_get0_X509_CRL(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @_certificate_to_der(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !54
   %4 = call i32 @i2d_X509(ptr noundef %1, ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %12
@@ -10355,10 +10355,10 @@ define internal fastcc ptr @_certificate_to_der(ptr noundef readonly captures(no
   br label %17
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8, !tbaa !53
+  %13 = load ptr, ptr %3, align 8, !tbaa !54
   %14 = zext nneg i32 %4 to i64
   %15 = call ptr @PyBytes_FromStringAndSize(ptr noundef %13, i64 noundef %14) #11
-  %16 = load ptr, ptr %3, align 8, !tbaa !53
+  %16 = load ptr, ptr %3, align 8, !tbaa !54
   call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.16, i32 noundef 1810) #11
   br label %17
 
@@ -10407,13 +10407,13 @@ define internal i32 @psk_client_callback(ptr noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !125
+  %16 = load ptr, ptr %15, align 8, !tbaa !126
   %17 = icmp eq ptr %16, null
   br i1 %17, label %Py_DECREF.exit42, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %20 = load ptr, ptr %19, align 8, !tbaa !123
+  %20 = load ptr, ptr %19, align 8, !tbaa !124
   %21 = icmp eq ptr %20, null
   br i1 %21, label %Py_DECREF.exit42, label %22
 
@@ -10517,9 +10517,9 @@ Py_DECREF.exit44:                                 ; preds = %_Py_NewRef.exit.thr
   br label %Py_DECREF.exit42
 
 65:                                               ; preds = %55
-  %66 = load ptr, ptr %7, align 8, !tbaa !53
+  %66 = load ptr, ptr %7, align 8, !tbaa !54
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %66, i64 %56, i1 false)
-  %67 = load ptr, ptr %8, align 8, !tbaa !53
+  %67 = load ptr, ptr %8, align 8, !tbaa !54
   %.not37 = icmp eq ptr %67, null
   br i1 %.not37, label %69, label %68
 
@@ -10598,13 +10598,13 @@ define internal i32 @psk_server_callback(ptr noundef %0, ptr noundef %1, ptr nou
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !125
+  %12 = load ptr, ptr %11, align 8, !tbaa !126
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Py_DECREF.exit36, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %16 = load ptr, ptr %15, align 8, !tbaa !124
+  %16 = load ptr, ptr %15, align 8, !tbaa !125
   %17 = icmp eq ptr %16, null
   br i1 %17, label %Py_DECREF.exit36, label %18
 
@@ -10700,7 +10700,7 @@ Py_DECREF.exit38:                                 ; preds = %_Py_NewRef.exit.thr
   br label %Py_DECREF.exit36
 
 57:                                               ; preds = %47
-  %58 = load ptr, ptr %5, align 8, !tbaa !53
+  %58 = load ptr, ptr %5, align 8, !tbaa !54
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %58, i64 %48, i1 false)
   %59 = load i32, ptr %31, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %59, -1
@@ -10750,7 +10750,7 @@ declare i32 @PyBytes_AsStringAndSize(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_check_hostname_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 48
-  %.val = load i32, ptr %3, align 8, !tbaa !134
+  %.val = load i32, ptr %3, align 8, !tbaa !135
   %4 = sext i32 %.val to i64
   %5 = tail call ptr @PyBool_FromLong(i64 noundef %4) #11
   ret ptr %5
@@ -10765,30 +10765,30 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_check_hostname_set(ptr no
   br i1 %.not.i, label %_ssl__SSLContext_check_hostname_set_impl.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %4, align 4, !tbaa !106
+  %7 = load i32, ptr %4, align 4, !tbaa !107
   %.not6.i = icmp eq i32 %7, 0
   br i1 %.not6.i, label %.thread.i, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !94
+  %10 = load ptr, ptr %9, align 8, !tbaa !95
   %11 = call i32 @SSL_CTX_get_verify_mode(ptr noundef %10) #11
   %12 = icmp eq i32 %11, 0
-  %.pre.i = load i32, ptr %4, align 4, !tbaa !106
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !107
   %13 = icmp ne i32 %.pre.i, 0
   %or.cond.i = select i1 %13, i1 %12, i1 false
   br i1 %or.cond.i, label %14, label %.thread.i
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %9, align 8, !tbaa !94
+  %15 = load ptr, ptr %9, align 8, !tbaa !95
   call void @SSL_CTX_set_verify(ptr noundef %15, i32 noundef 3, ptr noundef null) #11
-  %.pre7.i = load i32, ptr %4, align 4, !tbaa !106
+  %.pre7.i = load i32, ptr %4, align 4, !tbaa !107
   br label %.thread.i
 
 .thread.i:                                        ; preds = %14, %8, %6
   %16 = phi i32 [ %.pre7.i, %14 ], [ %.pre.i, %8 ], [ 0, %6 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %16, ptr %17, align 8, !tbaa !134
+  store i32 %16, ptr %17, align 8, !tbaa !135
   br label %_ssl__SSLContext_check_hostname_set_impl.exit
 
 _ssl__SSLContext_check_hostname_set_impl.exit:    ; preds = %3, %.thread.i
@@ -10800,7 +10800,7 @@ _ssl__SSLContext_check_hostname_set_impl.exit:    ; preds = %3, %.thread.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext__host_flags_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 52
-  %.val = load i32, ptr %3, align 4, !tbaa !127
+  %.val = load i32, ptr %3, align 4, !tbaa !128
   %4 = zext i32 %.val to i64
   %5 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %4) #11
   ret ptr %5
@@ -10810,18 +10810,18 @@ define internal ptr @_ssl__SSLContext__host_flags_get(ptr noundef readonly captu
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext__host_flags_set(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !tbaa !106
+  store i32 0, ptr %4, align 4, !tbaa !107
   %5 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.185, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ssl__SSLContext__host_flags_set_impl.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !94
+  %8 = load ptr, ptr %7, align 8, !tbaa !95
   %9 = call ptr @SSL_CTX_get0_param(ptr noundef %8) #11
-  %10 = load i32, ptr %4, align 4, !tbaa !106
+  %10 = load i32, ptr %4, align 4, !tbaa !107
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %10, ptr %11, align 4, !tbaa !127
+  store i32 %10, ptr %11, align 4, !tbaa !128
   call void @X509_VERIFY_PARAM_set_hostflags(ptr noundef %9, i32 noundef %10) #11
   br label %_ssl__SSLContext__host_flags_set_impl.exit
 
@@ -10834,7 +10834,7 @@ _ssl__SSLContext__host_flags_set_impl.exit:       ; preds = %3, %6
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_minimum_version_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call i64 @SSL_CTX_ctrl(ptr noundef %.val, i32 noundef 130, i64 noundef 0, ptr noundef null) #11
   %5 = and i64 %4, 4294967295
   %6 = icmp eq i64 %5, 0
@@ -10854,7 +10854,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_minimum_version_set(ptr n
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_maximum_version_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call i64 @SSL_CTX_ctrl(ptr noundef %.val, i32 noundef 131, i64 noundef 0, ptr noundef null) #11
   %5 = and i64 %4, 4294967295
   %6 = icmp eq i64 %5, 0
@@ -10874,7 +10874,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_maximum_version_set(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @_PySSLContext_get_keylog_filename(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !147
+  %4 = load ptr, ptr %3, align 8, !tbaa !149
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_Py_NewRef.exit, label %5
 
@@ -10896,7 +10896,7 @@ _Py_NewRef.exit:                                  ; preds = %8, %5, %2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_PySSLContext_set_keylog_filename(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   tail call void @SSL_CTX_set_keylog_callback(ptr noundef %5, ptr noundef null) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !26
@@ -10921,12 +10921,12 @@ define internal range(i32 -1, 1) i32 @_PySSLContext_set_keylog_filename(ptr noun
 
 Py_DECREF.exit:                                   ; preds = %13, %10, %8, %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !102
+  %15 = load ptr, ptr %14, align 8, !tbaa !103
   %.not29 = icmp eq ptr %15, null
   br i1 %.not29, label %18, label %16
 
 16:                                               ; preds = %Py_DECREF.exit
-  store ptr null, ptr %14, align 8, !tbaa !102
+  store ptr null, ptr %14, align 8, !tbaa !103
   %17 = tail call ptr @PyEval_SaveThread() #11
   tail call void @BIO_free_all(ptr noundef nonnull %15) #11
   tail call void @PyEval_RestoreThread(ptr noundef %17) #11
@@ -10943,13 +10943,13 @@ Py_DECREF.exit:                                   ; preds = %13, %10, %8, %3
 
 23:                                               ; preds = %20
   %24 = tail call ptr @BIO_new_fp(ptr noundef nonnull %21, i32 noundef 17) #11
-  store ptr %24, ptr %14, align 8, !tbaa !102
+  store ptr %24, ptr %14, align 8, !tbaa !103
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %28 = load ptr, ptr %27, align 8, !tbaa !103
+  %28 = load ptr, ptr %27, align 8, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   tail call void @PyErr_SetString(ptr noundef %30, ptr noundef nonnull @.str.195) #11
@@ -10966,24 +10966,24 @@ Py_DECREF.exit:                                   ; preds = %13, %10, %8, %3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %31, %34
-  store ptr %1, ptr %6, align 8, !tbaa !147
+  store ptr %1, ptr %6, align 8, !tbaa !149
   %36 = tail call ptr @PyEval_SaveThread() #11
-  %37 = load ptr, ptr %14, align 8, !tbaa !102
+  %37 = load ptr, ptr %14, align 8, !tbaa !103
   %38 = tail call i64 @BIO_ctrl(ptr noundef %37, i32 noundef 133, i64 noundef 0, ptr noundef null) #11
   %39 = and i64 %38, 4294967295
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %_Py_NewRef.exit
-  %42 = load ptr, ptr %14, align 8, !tbaa !102
+  %42 = load ptr, ptr %14, align 8, !tbaa !103
   %43 = tail call i32 @BIO_puts(ptr noundef %42, ptr noundef nonnull @.str.196) #11
-  %44 = load ptr, ptr %14, align 8, !tbaa !102
+  %44 = load ptr, ptr %14, align 8, !tbaa !103
   %45 = tail call i64 @BIO_ctrl(ptr noundef %44, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %46
 
 46:                                               ; preds = %_Py_NewRef.exit, %41
   tail call void @PyEval_RestoreThread(ptr noundef %36) #11
-  %47 = load ptr, ptr %4, align 8, !tbaa !94
+  %47 = load ptr, ptr %4, align 8, !tbaa !95
   tail call void @SSL_CTX_set_keylog_callback(ptr noundef %47, ptr noundef nonnull @_PySSL_keylog_callback) #11
   br label %48
 
@@ -10995,7 +10995,7 @@ _Py_NewRef.exit:                                  ; preds = %31, %34
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @_PySSLContext_get_msg_callback(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !101
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_Py_NewRef.exit, label %5
 
@@ -11043,7 +11043,7 @@ Py_DECREF.exit:                                   ; preds = %11, %8, %6, %3
 
 13:                                               ; preds = %Py_DECREF.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !94
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
   tail call void @SSL_CTX_set_msg_callback(ptr noundef %15, ptr noundef null) #11
   br label %29
 
@@ -11054,7 +11054,7 @@ Py_DECREF.exit:                                   ; preds = %11, %8, %6, %3
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !94
+  %20 = load ptr, ptr %19, align 8, !tbaa !95
   tail call void @SSL_CTX_set_msg_callback(ptr noundef %20, ptr noundef null) #11
   %21 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !26
   tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.198) #11
@@ -11071,9 +11071,9 @@ Py_DECREF.exit:                                   ; preds = %11, %8, %6, %3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %22, %25
-  store ptr %1, ptr %4, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !102
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !94
+  %28 = load ptr, ptr %27, align 8, !tbaa !95
   tail call void @SSL_CTX_set_msg_callback(ptr noundef %28, ptr noundef nonnull @_PySSL_msg_callback) #11
   br label %29
 
@@ -11085,7 +11085,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @_ssl__SSLContext_sni_callback_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr i8, ptr %0, i64 40
-  %.val = load ptr, ptr %3, align 8, !tbaa !100
+  %.val = load ptr, ptr %3, align 8, !tbaa !101
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %_ssl__SSLContext_sni_callback_get_impl.exit, label %5
 
@@ -11107,7 +11107,7 @@ _ssl__SSLContext_sni_callback_get_impl.exit:      ; preds = %2, %5, %8
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLContext_sni_callback_set(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load i32, ptr %4, align 8, !tbaa !122
+  %5 = load i32, ptr %4, align 8, !tbaa !123
   %6 = icmp eq i32 %5, 16
   br i1 %6, label %7, label %9
 
@@ -11144,7 +11144,7 @@ Py_DECREF.exit.i:                                 ; preds = %17, %14, %12, %9
 
 19:                                               ; preds = %Py_DECREF.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !94
+  %21 = load ptr, ptr %20, align 8, !tbaa !95
   %22 = tail call i64 @SSL_CTX_callback_ctrl(ptr noundef %21, i32 noundef 53, ptr noundef null) #11
   br label %_ssl__SSLContext_sni_callback_set_impl.exit
 
@@ -11155,7 +11155,7 @@ Py_DECREF.exit.i:                                 ; preds = %17, %14, %12, %9
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !94
+  %27 = load ptr, ptr %26, align 8, !tbaa !95
   %28 = tail call i64 @SSL_CTX_callback_ctrl(ptr noundef %27, i32 noundef 53, ptr noundef null) #11
   %29 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !26
   tail call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.198) #11
@@ -11172,11 +11172,11 @@ Py_DECREF.exit.i:                                 ; preds = %17, %14, %12, %9
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %33, %30
-  store ptr %1, ptr %10, align 8, !tbaa !100
+  store ptr %1, ptr %10, align 8, !tbaa !101
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !94
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
   %37 = tail call i64 @SSL_CTX_callback_ctrl(ptr noundef %36, i32 noundef 53, ptr noundef nonnull @_servername_callback) #11
-  %38 = load ptr, ptr %35, align 8, !tbaa !94
+  %38 = load ptr, ptr %35, align 8, !tbaa !95
   %39 = tail call i64 @SSL_CTX_ctrl(ptr noundef %38, i32 noundef 54, i64 noundef 0, ptr noundef nonnull %0) #11
   br label %_ssl__SSLContext_sni_callback_set_impl.exit
 
@@ -11188,7 +11188,7 @@ _ssl__SSLContext_sni_callback_set_impl.exit:      ; preds = %7, %19, %25, %_Py_N
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_num_tickets_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call i64 @SSL_CTX_get_num_tickets(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromSize_t(i64 noundef %4) #11
   ret ptr %5
@@ -11209,13 +11209,13 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_num_tickets_set(ptr nound
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load i32, ptr %10, align 8, !tbaa !122
+  %11 = load i32, ptr %10, align 8, !tbaa !123
   %.not4.i = icmp eq i32 %11, 17
   br i1 %.not4.i, label %12, label %.sink.split.i
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
   %15 = call i32 @SSL_CTX_set_num_tickets(ptr noundef %14, i64 noundef %7) #11
   %.not5.i = icmp eq i32 %15, 1
   br i1 %.not5.i, label %_ssl__SSLContext_num_tickets_set_impl.exit, label %.sink.split.i
@@ -11235,7 +11235,7 @@ _ssl__SSLContext_num_tickets_set_impl.exit:       ; preds = %3, %12, %.sink.spli
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_options_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call i64 @SSL_CTX_get_options(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %4) #11
   ret ptr %5
@@ -11262,7 +11262,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_options_set(ptr noundef r
 
 12:                                               ; preds = %10, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
   %15 = call i64 @SSL_CTX_get_options(ptr noundef %14) #11
   %16 = xor i64 %8, -1
   %17 = and i64 %15, %16
@@ -11283,7 +11283,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_options_set(ptr noundef r
   br i1 %.not20.i, label %29, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %13, align 8, !tbaa !94
+  %27 = load ptr, ptr %13, align 8, !tbaa !95
   %28 = call i64 @SSL_CTX_clear_options(ptr noundef %27, i64 noundef %17) #11
   br label %29
 
@@ -11292,7 +11292,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_options_set(ptr noundef r
   br i1 %.not21.i, label %_ssl__SSLContext_options_set_impl.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr %13, align 8, !tbaa !94
+  %31 = load ptr, ptr %13, align 8, !tbaa !95
   %32 = call i64 @SSL_CTX_set_options(ptr noundef %31, i64 noundef %19) #11
   br label %_ssl__SSLContext_options_set_impl.exit
 
@@ -11305,7 +11305,7 @@ _ssl__SSLContext_options_set_impl.exit:           ; preds = %3, %10, %21, %29, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_post_handshake_auth(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %4 = load i32, ptr %3, align 4, !tbaa !133
+  %4 = load i32, ptr %3, align 4, !tbaa !134
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @PyBool_FromLong(i64 noundef %5) #11
   ret ptr %6
@@ -11328,7 +11328,7 @@ define internal range(i32 -1, 1) i32 @set_post_handshake_auth(ptr noundef writeo
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %8, ptr %11, align 4, !tbaa !133
+  store i32 %8, ptr %11, align 4, !tbaa !134
   br label %12
 
 12:                                               ; preds = %10, %7, %5
@@ -11339,7 +11339,7 @@ define internal range(i32 -1, 1) i32 @set_post_handshake_auth(ptr noundef writeo
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_protocol_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 56
-  %.val = load i32, ptr %3, align 8, !tbaa !122
+  %.val = load i32, ptr %3, align 8, !tbaa !123
   %4 = sext i32 %.val to i64
   %5 = tail call ptr @PyLong_FromLong(i64 noundef %4) #11
   ret ptr %5
@@ -11348,7 +11348,7 @@ define internal ptr @_ssl__SSLContext_protocol_get(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_verify_flags_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call ptr @SSL_CTX_get0_param(ptr noundef %.val) #11
   %5 = tail call i64 @X509_VERIFY_PARAM_get_flags(ptr noundef %4) #11
   %6 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %5) #11
@@ -11365,7 +11365,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noun
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !94
+  %8 = load ptr, ptr %7, align 8, !tbaa !95
   %9 = call ptr @SSL_CTX_get0_param(ptr noundef %8) #11
   %10 = call i64 @X509_VERIFY_PARAM_get_flags(ptr noundef %9) #11
   %11 = load i64, ptr %4, align 8, !tbaa !40
@@ -11393,7 +11393,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noun
 .sink.split.i:                                    ; preds = %19, %16
   %.sink22.i = phi i32 [ 3547, %16 ], [ 3553, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
   %23 = call i64 @ERR_peek_last_error() #11
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -11413,7 +11413,7 @@ _ssl__SSLContext_verify_flags_set_impl.exit:      ; preds = %3, %18, %19, %.sink
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_verify_mode_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !94
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = tail call i32 @SSL_CTX_get_verify_mode(ptr noundef %4) #11
   %6 = and i32 %5, 3
   switch i32 %6, label %default.unreachable [
@@ -11440,7 +11440,7 @@ default.unreachable:                              ; preds = %2
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load ptr, ptr %14, align 8, !tbaa !103
+  %15 = load ptr, ptr %14, align 8, !tbaa !104
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.214) #11
@@ -11460,7 +11460,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_mode_set(ptr nound
   br i1 %.not.i, label %_ssl__SSLContext_verify_mode_set_impl.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %4, align 4, !tbaa !106
+  %7 = load i32, ptr %4, align 4, !tbaa !107
   switch i32 %7, label %14 [
     i32 0, label %8
     i32 2, label %13
@@ -11469,7 +11469,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_mode_set(ptr nound
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !134
+  %10 = load i32, ptr %9, align 8, !tbaa !135
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %.thread.i, label %11
 
@@ -11489,7 +11489,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_mode_set(ptr nound
 .thread.i:                                        ; preds = %13, %8, %6
   %.0.i.i = phi i32 [ 3, %13 ], [ 0, %8 ], [ %7, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !94
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
   call void @SSL_CTX_set_verify(ptr noundef %17, i32 noundef %.0.i.i, ptr noundef null) #11
   br label %_ssl__SSLContext_verify_mode_set_impl.exit
 
@@ -11502,7 +11502,7 @@ _ssl__SSLContext_verify_mode_set_impl.exit:       ; preds = %3, %11, %14, %.thre
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLContext_security_level_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !94
+  %.val = load ptr, ptr %3, align 8, !tbaa !95
   %4 = tail call i32 @SSL_CTX_get_security_level(ptr noundef %.val) #11
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #11
@@ -11537,7 +11537,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nound
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i32, ptr %12, align 8, !tbaa !122
+  %13 = load i32, ptr %12, align 8, !tbaa !123
   switch i32 %13, label %14 [
     i32 16, label %16
     i32 17, label %16
@@ -11605,7 +11605,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nound
 37:                                               ; preds = %.sink.split, %35
   %38 = phi i64 [ %34, %35 ], [ %.sink, %.sink.split ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !94
+  %40 = load ptr, ptr %39, align 8, !tbaa !95
   %41 = call i64 @SSL_CTX_ctrl(ptr noundef %40, i32 noundef 123, i64 noundef %38, ptr noundef null) #11
   br label %49
 
@@ -11626,7 +11626,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nound
 44:                                               ; preds = %.sink.split7, %42
   %45 = phi i64 [ %34, %42 ], [ %.sink9, %.sink.split7 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !94
+  %47 = load ptr, ptr %46, align 8, !tbaa !95
   %48 = call i64 @SSL_CTX_ctrl(ptr noundef %47, i32 noundef 124, i64 noundef %45, ptr noundef null) #11
   br label %49
 
@@ -11663,28 +11663,28 @@ define internal void @_PySSL_keylog_callback(ptr noundef %0, ptr noundef %1) #0 
   %3 = tail call i32 @PyGILState_Ensure() #11
   %4 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef 0) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !126
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !102
+  %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = icmp eq ptr %8, null
   br i1 %9, label %37, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !104
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = tail call ptr @PyEval_SaveThread() #11
   %16 = tail call i32 @PyThread_acquire_lock(ptr noundef %14, i32 noundef 1) #11
-  %17 = load ptr, ptr %5, align 8, !tbaa !125
+  %17 = load ptr, ptr %5, align 8, !tbaa !126
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !102
+  %19 = load ptr, ptr %18, align 8, !tbaa !103
   %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.197, ptr noundef %1) #11
   %21 = tail call ptr @__errno_location() #13
-  %22 = load i32, ptr %21, align 4, !tbaa !106
-  %23 = load ptr, ptr %5, align 8, !tbaa !125
+  %22 = load i32, ptr %21, align 4, !tbaa !107
+  %23 = load ptr, ptr %5, align 8, !tbaa !126
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !102
+  %25 = load ptr, ptr %24, align 8, !tbaa !103
   %26 = tail call i64 @BIO_ctrl(ptr noundef %25, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   tail call void @PyThread_release_lock(ptr noundef %14) #11
   tail call void @PyEval_RestoreThread(ptr noundef %15) #11
@@ -11692,15 +11692,15 @@ define internal void @_PySSL_keylog_callback(ptr noundef %0, ptr noundef %1) #0 
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %10
-  store i32 %22, ptr %21, align 4, !tbaa !106
+  store i32 %22, ptr %21, align 4, !tbaa !107
   %29 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !26
-  %30 = load ptr, ptr %5, align 8, !tbaa !125
+  %30 = load ptr, ptr %5, align 8, !tbaa !126
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %32 = load ptr, ptr %31, align 8, !tbaa !147
+  %32 = load ptr, ptr %31, align 8, !tbaa !149
   %33 = tail call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %29, ptr noundef %32) #11
   %34 = tail call ptr @PyErr_GetRaisedException() #11
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %34, ptr %35, align 8, !tbaa !148
+  store ptr %34, ptr %35, align 8, !tbaa !150
   br label %36
 
 36:                                               ; preds = %28, %10
@@ -11727,9 +11727,9 @@ define internal void @_PySSL_msg_callback(i32 noundef %0, i32 noundef %1, i32 no
   %9 = tail call i32 @PyGILState_Ensure() #11
   %10 = tail call ptr @SSL_get_ex_data(ptr noundef %5, i32 noundef 0) #11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !125
+  %12 = load ptr, ptr %11, align 8, !tbaa !126
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !101
+  %14 = load ptr, ptr %13, align 8, !tbaa !102
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -11740,7 +11740,7 @@ define internal void @_PySSL_msg_callback(i32 noundef %0, i32 noundef %1, i32 no
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !138
+  %19 = load ptr, ptr %18, align 8, !tbaa !139
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %20
 
@@ -11750,7 +11750,7 @@ define internal void @_PySSL_msg_callback(i32 noundef %0, i32 noundef %1, i32 no
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !137
+  %24 = load ptr, ptr %23, align 8, !tbaa !138
   %.not30 = icmp eq ptr %24, null
   br i1 %.not30, label %27, label %25
 
@@ -11816,9 +11816,9 @@ _Py_NewRef.exit:                                  ; preds = %27, %30
 55:                                               ; preds = %32, %54, %51, %40, %37, %33
   %.026 = phi i32 [ %1, %54 ], [ %1, %33 ], [ %1, %37 ], [ %48, %40 ], [ %1, %51 ], [ %1, %32 ]
   %.0 = phi i32 [ -1, %54 ], [ %36, %33 ], [ %39, %37 ], [ %50, %40 ], [ %53, %51 ], [ 257, %32 ]
-  %56 = load ptr, ptr %11, align 8, !tbaa !125
+  %56 = load ptr, ptr %11, align 8, !tbaa !126
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !101
+  %58 = load ptr, ptr %57, align 8, !tbaa !102
   %59 = load ptr, ptr %8, align 8, !tbaa !26
   %.not31 = icmp eq i32 %0, 0
   %60 = select i1 %.not31, ptr @.str.201, ptr @.str.200
@@ -11829,7 +11829,7 @@ _Py_NewRef.exit:                                  ; preds = %27, %30
 63:                                               ; preds = %55
   %64 = call ptr @PyErr_GetRaisedException() #11
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr %64, ptr %65, align 8, !tbaa !148
+  store ptr %64, ptr %65, align 8, !tbaa !150
   br label %Py_DECREF.exit
 
 66:                                               ; preds = %55
@@ -11889,7 +11889,7 @@ define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %0, ptr no
   %5 = tail call ptr @SSL_get_servername(ptr noundef %0, i32 noundef 0) #11
   %6 = tail call i32 @PyGILState_Ensure() #11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !101
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -11900,13 +11900,13 @@ define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %0, ptr no
 11:                                               ; preds = %3
   %12 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef 0) #11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !138
+  %14 = load ptr, ptr %13, align 8, !tbaa !139
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %23
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !137
+  %17 = load ptr, ptr %16, align 8, !tbaa !138
   %.not51 = icmp eq ptr %17, null
   br i1 %.not51, label %18, label %23
 
@@ -11937,7 +11937,7 @@ define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %0, ptr no
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %7, align 8, !tbaa !100
+  %30 = load ptr, ptr %7, align 8, !tbaa !101
   %31 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %30, ptr noundef nonnull %27, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull %2, ptr noundef null) #11
   br label %Py_DECREF.exit65
 
@@ -11987,7 +11987,7 @@ define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %0, ptr no
   br label %Py_DECREF.exit63
 
 Py_DECREF.exit63:                                 ; preds = %45, %47, %50
-  %51 = load ptr, ptr %7, align 8, !tbaa !100
+  %51 = load ptr, ptr %7, align 8, !tbaa !101
   %52 = load ptr, ptr %4, align 8, !tbaa !26
   %53 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %37, ptr noundef nonnull %2, ptr noundef null) #11
   %54 = load i32, ptr %37, align 8, !tbaa !25
@@ -12026,9 +12026,9 @@ Py_DECREF.exit59:                                 ; preds = %Py_DECREF.exit65, %
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %Py_DECREF.exit59
-  %67 = load ptr, ptr %7, align 8, !tbaa !100
+  %67 = load ptr, ptr %7, align 8, !tbaa !101
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.205, ptr noundef %67) #11
-  store i32 40, ptr %1, align 4, !tbaa !106
+  store i32 40, ptr %1, align 4, !tbaa !107
   br label %Py_DECREF.exit55
 
 68:                                               ; preds = %Py_DECREF.exit59
@@ -12053,14 +12053,14 @@ Py_DECREF.exit59:                                 ; preds = %Py_DECREF.exit65, %
 75:                                               ; preds = %68
   %76 = call i64 @PyLong_AsLong(ptr noundef nonnull %.041) #11
   %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %1, align 4, !tbaa !106
+  store i32 %77, ptr %1, align 4, !tbaa !107
   %78 = call ptr @PyErr_Occurred() #11
   %.not52 = icmp eq ptr %78, null
   br i1 %.not52, label %.split44, label %79
 
 79:                                               ; preds = %75
   call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.206, ptr noundef nonnull %.041) #11
-  store i32 80, ptr %1, align 4, !tbaa !106
+  store i32 80, ptr %1, align 4, !tbaa !107
   br label %.split44
 
 .split44:                                         ; preds = %75, %79
@@ -12100,7 +12100,7 @@ Py_DECREF.exit65.thread:                          ; preds = %44, %41, %39, %35, 
   br label %Py_DECREF.exit57
 
 Py_DECREF.exit57:                                 ; preds = %Py_DECREF.exit65.thread, %87, %90
-  store i32 80, ptr %1, align 4, !tbaa !106
+  store i32 80, ptr %1, align 4, !tbaa !107
   call void @PyGILState_Release(i32 noundef %6) #11
   br label %91
 
@@ -12244,7 +12244,7 @@ define internal fastcc ptr @_ssl__SSLContext_impl(ptr noundef %0, i32 noundef %1
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %53 = load ptr, ptr %52, align 8, !tbaa !149
+  %53 = load ptr, ptr %52, align 8, !tbaa !151
   %54 = tail call ptr %53(ptr noundef %0, i64 noundef 0) #11
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %57
@@ -12255,30 +12255,30 @@ define internal fastcc ptr @_ssl__SSLContext_impl(ptr noundef %0, i32 noundef %1
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %42, ptr %58, align 8, !tbaa !94
+  store ptr %42, ptr %58, align 8, !tbaa !95
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 52
-  store i32 4, ptr %59, align 4, !tbaa !127
+  store i32 4, ptr %59, align 4, !tbaa !128
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  store i32 %1, ptr %60, align 8, !tbaa !122
+  store i32 %1, ptr %60, align 8, !tbaa !123
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr null, ptr %62, align 8, !tbaa !98
+  store ptr null, ptr %62, align 8, !tbaa !99
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store ptr null, ptr %63, align 8, !tbaa !100
+  store ptr null, ptr %63, align 8, !tbaa !101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   %64 = tail call ptr @PyModule_GetState(ptr noundef nonnull %3) #11
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  store ptr %64, ptr %65, align 8, !tbaa !103
+  store ptr %64, ptr %65, align 8, !tbaa !104
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %67 = icmp eq i32 %1, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %. = zext i1 %67 to i32
   %.75 = select i1 %67, i32 3, i32 0
-  store i32 %., ptr %68, align 8, !tbaa !134
-  %69 = load ptr, ptr %58, align 8, !tbaa !94
+  store i32 %., ptr %68, align 8, !tbaa !135
+  %69 = load ptr, ptr %58, align 8, !tbaa !95
   tail call void @SSL_CTX_set_verify(ptr noundef %69, i32 noundef %.75, ptr noundef null) #11
-  %70 = load ptr, ptr %58, align 8, !tbaa !94
+  %70 = load ptr, ptr %58, align 8, !tbaa !95
   %71 = tail call i64 @SSL_CTX_set_options(ptr noundef %70, i64 noundef 2185363536) #11
   %72 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %42, ptr noundef nonnull @.str.224) #11
   %73 = icmp eq i32 %72, 0
@@ -12286,7 +12286,7 @@ define internal fastcc ptr @_ssl__SSLContext_impl(ptr noundef %0, i32 noundef %1
 
 74:                                               ; preds = %57
   tail call void @ERR_clear_error() #11
-  %75 = load ptr, ptr %65, align 8, !tbaa !103
+  %75 = load ptr, ptr %65, align 8, !tbaa !104
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !14
   tail call void @PyErr_SetString(ptr noundef %77, ptr noundef nonnull @.str.104) #11
@@ -12311,16 +12311,16 @@ define internal fastcc ptr @_ssl__SSLContext_impl(ptr noundef %0, i32 noundef %1
   br label %95
 
 86:                                               ; preds = %78, %79
-  %87 = load ptr, ptr %58, align 8, !tbaa !94
+  %87 = load ptr, ptr %58, align 8, !tbaa !95
   %88 = tail call i64 @SSL_CTX_ctrl(ptr noundef %87, i32 noundef 33, i64 noundef 16, ptr noundef null) #11
-  %89 = load ptr, ptr %58, align 8, !tbaa !94
+  %89 = load ptr, ptr %58, align 8, !tbaa !95
   %90 = tail call ptr @SSL_CTX_get0_param(ptr noundef %89) #11
   %91 = tail call i32 @X509_VERIFY_PARAM_set_flags(ptr noundef %90, i64 noundef 32768) #11
-  %92 = load i32, ptr %59, align 4, !tbaa !127
+  %92 = load i32, ptr %59, align 4, !tbaa !128
   tail call void @X509_VERIFY_PARAM_set_hostflags(ptr noundef %90, i32 noundef %92) #11
   %93 = getelementptr inbounds nuw i8, ptr %54, i64 60
-  store i32 0, ptr %93, align 4, !tbaa !133
-  %94 = load ptr, ptr %58, align 8, !tbaa !94
+  store i32 0, ptr %93, align 4, !tbaa !134
+  %94 = load ptr, ptr %58, align 8, !tbaa !95
   tail call void @SSL_CTX_set_post_handshake_auth(ptr noundef %94, i32 noundef 0) #11
   br label %101
 
@@ -12374,7 +12374,7 @@ define internal void @PySSL_dealloc(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
@@ -12382,13 +12382,13 @@ define internal void @PySSL_dealloc(ptr noundef %0) #0 {
   %6 = tail call i32 @SSL_get_shutdown(ptr noundef nonnull %4) #11
   %7 = or i32 %6, 1
   tail call void @SSL_set_shutdown(ptr noundef nonnull %4, i32 noundef %7) #11
-  %8 = load ptr, ptr %3, align 8, !tbaa !73
+  %8 = load ptr, ptr %3, align 8, !tbaa !74
   tail call void @SSL_free(ptr noundef %8) #11
   br label %9
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !137
+  %11 = load ptr, ptr %10, align 8, !tbaa !138
   %.not.i12 = icmp eq ptr %11, null
   br i1 %.not.i12, label %Py_XDECREF.exit, label %12
 
@@ -12409,7 +12409,7 @@ define internal void @PySSL_dealloc(ptr noundef %0) #0 {
 
 Py_XDECREF.exit:                                  ; preds = %9, %12, %14, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !125
+  %19 = load ptr, ptr %18, align 8, !tbaa !126
   %.not.i13 = icmp eq ptr %19, null
   br i1 %.not.i13, label %Py_XDECREF.exit15, label %20
 
@@ -12430,7 +12430,7 @@ Py_XDECREF.exit:                                  ; preds = %9, %12, %14, %17
 
 Py_XDECREF.exit15:                                ; preds = %Py_XDECREF.exit, %20, %22, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !77
+  %27 = load ptr, ptr %26, align 8, !tbaa !78
   %.not.i16 = icmp eq ptr %27, null
   br i1 %.not.i16, label %Py_XDECREF.exit18, label %28
 
@@ -12451,7 +12451,7 @@ Py_XDECREF.exit15:                                ; preds = %Py_XDECREF.exit, %2
 
 Py_XDECREF.exit18:                                ; preds = %Py_XDECREF.exit15, %28, %30, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !138
+  %35 = load ptr, ptr %34, align 8, !tbaa !139
   %.not.i19 = icmp eq ptr %35, null
   br i1 %.not.i19, label %Py_XDECREF.exit21, label %36
 
@@ -12493,7 +12493,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit21, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @PySSL_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !148
+  %5 = load ptr, ptr %4, align 8, !tbaa !150
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -12554,7 +12554,7 @@ define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef captures(address_i
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %6, align 8, !tbaa !137
+  %.val.i = load ptr, ptr %6, align 8, !tbaa !138
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %.critedge.thread.i, label %7
 
@@ -12598,9 +12598,9 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !125
+  %21 = load ptr, ptr %20, align 8, !tbaa !126
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %23 = load ptr, ptr %22, align 8, !tbaa !103
+  %23 = load ptr, ptr %22, align 8, !tbaa !104
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %23, ptr noundef null, ptr noundef %25, i32 noundef 0, ptr noundef nonnull @.str.243, i32 noundef 1006, i64 noundef 0)
@@ -12619,17 +12619,17 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 
 .critedge.i:                                      ; preds = %29, %26
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %32 = load i64, ptr %31, align 8, !tbaa !135
+  %32 = load i64, ptr %31, align 8, !tbaa !136
   %33 = icmp sgt i64 %32, -1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !73
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = call ptr @SSL_get_rbio(ptr noundef %35) #11
   %37 = zext i1 %33 to i64
   %38 = call i64 @BIO_ctrl(ptr noundef %36, i32 noundef 102, i64 noundef %37, ptr noundef null) #11
-  %39 = load ptr, ptr %34, align 8, !tbaa !73
+  %39 = load ptr, ptr %34, align 8, !tbaa !74
   %40 = call ptr @SSL_get_wbio(ptr noundef %39) #11
   %41 = call i64 @BIO_ctrl(ptr noundef %40, i32 noundef 102, i64 noundef %37, ptr noundef null) #11
-  %42 = load i64, ptr %31, align 8, !tbaa !135
+  %42 = load i64, ptr %31, align 8, !tbaa !136
   %43 = icmp sgt i64 %42, 0
   br i1 %43, label %44, label %.critedge.thread.i
 
@@ -12654,15 +12654,15 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 54:                                               ; preds = %.thread.i, %.critedge.thread.i
   %.044.i = phi i64 [ %47, %.critedge.thread.i ], [ %.1.i, %.thread.i ]
   %55 = call ptr @PyEval_SaveThread() #11
-  %56 = load ptr, ptr %48, align 8, !tbaa !73
+  %56 = load ptr, ptr %48, align 8, !tbaa !74
   %57 = call i32 @SSL_do_handshake(ptr noundef %56) #11
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %_PySSL_errno.exit.i, label %59
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr %48, align 8, !tbaa !73
+  %60 = load ptr, ptr %48, align 8, !tbaa !74
   %61 = tail call ptr @__errno_location() #13
-  %62 = load i32, ptr %61, align 4, !tbaa !106
+  %62 = load i32, ptr %61, align 4, !tbaa !107
   %63 = call i32 @SSL_get_error(ptr noundef %60, i32 noundef %57) #11
   %64 = zext i32 %62 to i64
   %65 = shl nuw i64 %64, 32
@@ -12704,19 +12704,19 @@ _PySSL_errno.exit.i:                              ; preds = %59, %54
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75
-  %78 = load i64, ptr %52, align 8, !tbaa !135
+  %78 = load i64, ptr %52, align 8, !tbaa !136
   %79 = icmp sgt i64 %78, 0
   %..i.i = select i1 %79, i32 2, i32 1
   br label %PySSL_select.exit.i
 
 80:                                               ; preds = %75
-  %81 = load i32, ptr %50, align 8, !tbaa !128
+  %81 = load i32, ptr %50, align 8, !tbaa !129
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %PySSL_select.exit.i, label %83
 
 83:                                               ; preds = %80
-  store i32 %81, ptr %4, align 4, !tbaa !150
-  store i16 1, ptr %53, align 4, !tbaa !152
+  store i32 %81, ptr %4, align 4, !tbaa !152
+  store i16 1, ptr %53, align 4, !tbaa !154
   %84 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %85 = trunc i64 %84 to i32
   %86 = call ptr @PyEval_SaveThread() #11
@@ -12742,19 +12742,19 @@ PySSL_select.exit.i:                              ; preds = %83, %80, %77, %73
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
-  %95 = load i64, ptr %52, align 8, !tbaa !135
+  %95 = load i64, ptr %52, align 8, !tbaa !136
   %96 = icmp sgt i64 %95, 0
   %..i53.i = select i1 %96, i32 2, i32 1
   br label %PySSL_select.exit54.i
 
 97:                                               ; preds = %92
-  %98 = load i32, ptr %50, align 8, !tbaa !128
+  %98 = load i32, ptr %50, align 8, !tbaa !129
   %99 = icmp eq i32 %98, -1
   br i1 %99, label %PySSL_select.exit54.i, label %100
 
 100:                                              ; preds = %97
-  store i32 %98, ptr %3, align 4, !tbaa !150
-  store i16 4, ptr %51, align 4, !tbaa !152
+  store i32 %98, ptr %3, align 4, !tbaa !152
+  store i16 4, ptr %51, align 4, !tbaa !154
   %101 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %102 = trunc i64 %101 to i32
   %103 = call ptr @PyEval_SaveThread() #11
@@ -12785,9 +12785,9 @@ PySSL_select.exit54.i:                            ; preds = %100, %97, %94, %90
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !125
+  %112 = load ptr, ptr %111, align 8, !tbaa !126
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 88
-  %114 = load ptr, ptr %113, align 8, !tbaa !103
+  %114 = load ptr, ptr %113, align 8, !tbaa !104
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %116 = load ptr, ptr %115, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %116, ptr noundef nonnull @.str.245) #11
@@ -12795,9 +12795,9 @@ PySSL_select.exit54.i:                            ; preds = %100, %97, %94, %90
 
 117:                                              ; preds = %107
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !125
+  %119 = load ptr, ptr %118, align 8, !tbaa !126
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 88
-  %121 = load ptr, ptr %120, align 8, !tbaa !103
+  %121 = load ptr, ptr %120, align 8, !tbaa !104
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %123 = load ptr, ptr %122, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %123, ptr noundef nonnull @.str.246) #11
@@ -12806,7 +12806,7 @@ PySSL_select.exit54.i:                            ; preds = %100, %97, %94, %90
 .thread.i:                                        ; preds = %107, %72
   %124 = and i32 %.sroa.023.0.extract.trunc.i, -2
   %125 = icmp eq i32 %124, 2
-  br i1 %125, label %54, label %126, !llvm.loop !153
+  br i1 %125, label %54, label %126, !llvm.loop !155
 
 126:                                              ; preds = %.thread.i, %107
   br i1 %.not6874.i, label %Py_XDECREF.exit.i, label %127
@@ -12835,13 +12835,13 @@ Py_XDECREF.exit.i:                                ; preds = %132, %129, %127, %1
 
 135:                                              ; preds = %Py_XDECREF.exit.i
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %137 = load ptr, ptr %136, align 8, !tbaa !148
+  %137 = load ptr, ptr %136, align 8, !tbaa !150
   %138 = icmp eq ptr %137, null
   br i1 %138, label %_ssl__SSLSocket_do_handshake_impl.exit, label %139
 
 139:                                              ; preds = %135
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %137) #11
-  store ptr null, ptr %136, align 8, !tbaa !148
+  store ptr null, ptr %136, align 8, !tbaa !150
   br label %_ssl__SSLSocket_do_handshake_impl.exit
 
 .loopexit.i:                                      ; preds = %_PySSL_errno.exit.i, %117, %110, %108
@@ -12864,13 +12864,13 @@ Py_XDECREF.exit.i:                                ; preds = %132, %129, %127, %1
 
 Py_XDECREF.exit62.i:                              ; preds = %145, %142, %140, %.loopexit.i
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %147 = load ptr, ptr %146, align 8, !tbaa !148
+  %147 = load ptr, ptr %146, align 8, !tbaa !150
   %148 = icmp eq ptr %147, null
   br i1 %148, label %_ssl__SSLSocket_do_handshake_impl.exit, label %149
 
 149:                                              ; preds = %Py_XDECREF.exit62.i
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %147) #11
-  store ptr null, ptr %146, align 8, !tbaa !148
+  store ptr null, ptr %146, align 8, !tbaa !150
   br label %_ssl__SSLSocket_do_handshake_impl.exit
 
 _ssl__SSLSocket_do_handshake_impl.exit:           ; preds = %19, %133, %135, %139, %Py_XDECREF.exit62.i, %149
@@ -12896,7 +12896,7 @@ define internal ptr @_ssl__SSLSocket_write(ptr noundef captures(address_is_null)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store i64 0, ptr %7, align 8, !tbaa !40
   %11 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %11, align 8, !tbaa !137
+  %.val.i = load ptr, ptr %11, align 8, !tbaa !138
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %PySSL_select.exit.i.sink.split, label %12
 
@@ -12940,9 +12940,9 @@ GET_SOCKET.exit.i:                                ; preds = %20, %17
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !125
+  %26 = load ptr, ptr %25, align 8, !tbaa !126
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
-  %28 = load ptr, ptr %27, align 8, !tbaa !103
+  %28 = load ptr, ptr %27, align 8, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %28, ptr noundef null, ptr noundef %30, i32 noundef 0, ptr noundef nonnull @.str.243, i32 noundef 2459, i64 noundef 0)
@@ -12961,17 +12961,17 @@ GET_SOCKET.exit.i:                                ; preds = %20, %17
 
 .critedge58.i:                                    ; preds = %34, %31
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !135
+  %37 = load i64, ptr %36, align 8, !tbaa !136
   %38 = icmp sgt i64 %37, -1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !73
+  %40 = load ptr, ptr %39, align 8, !tbaa !74
   %41 = call ptr @SSL_get_rbio(ptr noundef %40) #11
   %42 = zext i1 %38 to i64
   %43 = call i64 @BIO_ctrl(ptr noundef %41, i32 noundef 102, i64 noundef %42, ptr noundef null) #11
-  %44 = load ptr, ptr %39, align 8, !tbaa !73
+  %44 = load ptr, ptr %39, align 8, !tbaa !74
   %45 = call ptr @SSL_get_wbio(ptr noundef %44) #11
   %46 = call i64 @BIO_ctrl(ptr noundef %45, i32 noundef 102, i64 noundef %42, ptr noundef null) #11
-  %47 = load i64, ptr %36, align 8, !tbaa !135
+  %47 = load i64, ptr %36, align 8, !tbaa !136
   %48 = icmp sgt i64 %47, 0
   br i1 %48, label %49, label %PySSL_select.exit.i.sink.split
 
@@ -12979,14 +12979,14 @@ GET_SOCKET.exit.i:                                ; preds = %20, %17
   %50 = call i64 @_PyDeadline_Init(i64 noundef %47) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !128
+  %52 = load i32, ptr %51, align 8, !tbaa !129
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %71, label %54
 
 54:                                               ; preds = %49
-  store i32 %52, ptr %5, align 4, !tbaa !150
+  store i32 %52, ptr %5, align 4, !tbaa !152
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i16 4, ptr %55, align 4, !tbaa !152
+  store i16 4, ptr %55, align 4, !tbaa !154
   %56 = call i64 @_PyTime_AsMilliseconds(i64 noundef %47, i32 noundef 1) #11
   %57 = trunc i64 %56 to i32
   %58 = call ptr @PyEval_SaveThread() #11
@@ -13027,9 +13027,9 @@ select.unfold.i:                                  ; preds = %54
 71:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !125
+  %73 = load ptr, ptr %72, align 8, !tbaa !126
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
-  %75 = load ptr, ptr %74, align 8, !tbaa !103
+  %75 = load ptr, ptr %74, align 8, !tbaa !104
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %77, ptr noundef nonnull @.str.256) #11
@@ -13038,7 +13038,7 @@ select.unfold.i:                                  ; preds = %54
 78:                                               ; preds = %.thread113.i, %PySSL_select.exit.i
   %.052.i = phi i64 [ %.1.i, %.thread113.i ], [ %61, %PySSL_select.exit.i ]
   %79 = call ptr @PyEval_SaveThread() #11
-  %80 = load ptr, ptr %63, align 8, !tbaa !73
+  %80 = load ptr, ptr %63, align 8, !tbaa !74
   %81 = load ptr, ptr %8, align 8, !tbaa !44
   %82 = load i64, ptr %64, align 8, !tbaa !47
   %83 = call i32 @SSL_write_ex(ptr noundef %80, ptr noundef %81, i64 noundef %82, ptr noundef nonnull %7) #11
@@ -13046,9 +13046,9 @@ select.unfold.i:                                  ; preds = %54
   br i1 %.not117.i, label %84, label %_PySSL_errno.exit.i
 
 84:                                               ; preds = %78
-  %85 = load ptr, ptr %63, align 8, !tbaa !73
+  %85 = load ptr, ptr %63, align 8, !tbaa !74
   %86 = tail call ptr @__errno_location() #13
-  %87 = load i32, ptr %86, align 4, !tbaa !106
+  %87 = load i32, ptr %86, align 4, !tbaa !107
   %88 = call i32 @SSL_get_error(ptr noundef %85, i32 noundef 0) #11
   %89 = zext i32 %87 to i64
   %90 = shl nuw i64 %89, 32
@@ -13090,19 +13090,19 @@ _PySSL_errno.exit.i:                              ; preds = %84, %78
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %100
-  %103 = load i64, ptr %68, align 8, !tbaa !135
+  %103 = load i64, ptr %68, align 8, !tbaa !136
   %104 = icmp sgt i64 %103, 0
   %..i63.i = select i1 %104, i32 2, i32 1
   br label %PySSL_select.exit64.i
 
 105:                                              ; preds = %100
-  %106 = load i32, ptr %66, align 8, !tbaa !128
+  %106 = load i32, ptr %66, align 8, !tbaa !129
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %PySSL_select.exit64.i, label %108
 
 108:                                              ; preds = %105
-  store i32 %106, ptr %4, align 4, !tbaa !150
-  store i16 1, ptr %69, align 4, !tbaa !152
+  store i32 %106, ptr %4, align 4, !tbaa !152
+  store i16 1, ptr %69, align 4, !tbaa !154
   %109 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %110 = trunc i64 %109 to i32
   %111 = call ptr @PyEval_SaveThread() #11
@@ -13128,19 +13128,19 @@ PySSL_select.exit64.i:                            ; preds = %108, %105, %102, %9
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %117
-  %120 = load i64, ptr %68, align 8, !tbaa !135
+  %120 = load i64, ptr %68, align 8, !tbaa !136
   %121 = icmp sgt i64 %120, 0
   %..i67.i = select i1 %121, i32 2, i32 1
   br label %PySSL_select.exit68.i
 
 122:                                              ; preds = %117
-  %123 = load i32, ptr %66, align 8, !tbaa !128
+  %123 = load i32, ptr %66, align 8, !tbaa !129
   %124 = icmp eq i32 %123, -1
   br i1 %124, label %PySSL_select.exit68.i, label %125
 
 125:                                              ; preds = %122
-  store i32 %123, ptr %3, align 4, !tbaa !150
-  store i16 4, ptr %67, align 4, !tbaa !152
+  store i32 %123, ptr %3, align 4, !tbaa !152
+  store i16 4, ptr %67, align 4, !tbaa !154
   %126 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %127 = trunc i64 %126 to i32
   %128 = call ptr @PyEval_SaveThread() #11
@@ -13170,9 +13170,9 @@ PySSL_select.exit68.i:                            ; preds = %125, %122, %119, %1
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %137 = load ptr, ptr %136, align 8, !tbaa !125
+  %137 = load ptr, ptr %136, align 8, !tbaa !126
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 88
-  %139 = load ptr, ptr %138, align 8, !tbaa !103
+  %139 = load ptr, ptr %138, align 8, !tbaa !104
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %141 = load ptr, ptr %140, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %141, ptr noundef nonnull @.str.256) #11
@@ -13181,7 +13181,7 @@ PySSL_select.exit68.i:                            ; preds = %125, %122, %119, %1
 .thread113.i:                                     ; preds = %132, %97
   %142 = and i32 %.sroa.022.0.extract.trunc.i, -2
   %143 = icmp eq i32 %142, 2
-  br i1 %143, label %78, label %144, !llvm.loop !154
+  br i1 %143, label %78, label %144, !llvm.loop !156
 
 144:                                              ; preds = %.thread113.i, %132
   br i1 %.not828895.i, label %Py_XDECREF.exit.i, label %145
@@ -13210,13 +13210,13 @@ Py_XDECREF.exit.i:                                ; preds = %150, %147, %145, %1
 
 153:                                              ; preds = %Py_XDECREF.exit.i
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %155 = load ptr, ptr %154, align 8, !tbaa !148
+  %155 = load ptr, ptr %154, align 8, !tbaa !150
   %156 = icmp eq ptr %155, null
   br i1 %156, label %PySSL_ChainExceptions.exit.i, label %PySSL_ChainExceptions.exit.thread.i
 
 PySSL_ChainExceptions.exit.thread.i:              ; preds = %153
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %155) #11
-  store ptr null, ptr %154, align 8, !tbaa !148
+  store ptr null, ptr %154, align 8, !tbaa !150
   br label %_ssl__SSLSocket_write_impl.exit
 
 PySSL_ChainExceptions.exit.i:                     ; preds = %153
@@ -13245,13 +13245,13 @@ PySSL_ChainExceptions.exit.i:                     ; preds = %153
 
 Py_XDECREF.exit76.i:                              ; preds = %165, %162, %160, %159, %135, %133
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %167 = load ptr, ptr %166, align 8, !tbaa !148
+  %167 = load ptr, ptr %166, align 8, !tbaa !150
   %168 = icmp eq ptr %167, null
   br i1 %168, label %_ssl__SSLSocket_write_impl.exit, label %169
 
 169:                                              ; preds = %Py_XDECREF.exit76.i
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %167) #11
-  store ptr null, ptr %166, align 8, !tbaa !148
+  store ptr null, ptr %166, align 8, !tbaa !150
   br label %_ssl__SSLSocket_write_impl.exit
 
 _ssl__SSLSocket_write_impl.exit:                  ; preds = %24, %151, %PySSL_ChainExceptions.exit.thread.i, %PySSL_ChainExceptions.exit.i, %Py_XDECREF.exit76.i, %169
@@ -13262,7 +13262,7 @@ _ssl__SSLSocket_write_impl.exit:                  ; preds = %24, %151, %PySSL_Ch
 170:                                              ; preds = %2, %_ssl__SSLSocket_write_impl.exit
   %.0 = phi ptr [ null, %2 ], [ %.0.i, %_ssl__SSLSocket_write_impl.exit ]
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !50
+  %172 = load ptr, ptr %171, align 8, !tbaa !51
   %.not3 = icmp eq ptr %172, null
   br i1 %.not3, label %174, label %173
 
@@ -13288,7 +13288,7 @@ define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   %10 = getelementptr i8, ptr %1, i64 16
-  %.val = load i64, ptr %10, align 8, !tbaa !51
+  %.val = load i64, ptr %10, align 8, !tbaa !52
   switch i64 %.val, label %15 [
     i64 1, label %11
     i64 2, label %13
@@ -13317,7 +13317,7 @@ define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store i64 0, ptr %7, align 8, !tbaa !40
   %20 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %20, align 8, !tbaa !137
+  %.val.i = load ptr, ptr %20, align 8, !tbaa !138
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %GET_SOCKET.exit.thread.i, label %21
 
@@ -13383,9 +13383,9 @@ GET_SOCKET.exit.thread.i:                         ; preds = %17
 
 .thread152.i:                                     ; preds = %37, %GET_SOCKET.exit.thread146.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !125
+  %40 = load ptr, ptr %39, align 8, !tbaa !126
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %42 = load ptr, ptr %41, align 8, !tbaa !104
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %42, ptr noundef null, ptr noundef %44, i32 noundef 0, ptr noundef nonnull @.str.243, i32 noundef 2604, i64 noundef 0)
@@ -13483,17 +13483,17 @@ Py_XDECREF.exit.i:                                ; preds = %61, %58, %56, %55
   %.0.i100104111115.i = phi ptr [ %.0.i100104113.i, %63 ], [ %.0.i100104112.i, %75 ]
   %76 = phi i1 [ true, %63 ], [ false, %75 ]
   %77 = getelementptr inbounds nuw i8, ptr %.0.i100104111115.i, i64 40
-  %78 = load i64, ptr %77, align 8, !tbaa !135
+  %78 = load i64, ptr %77, align 8, !tbaa !136
   %79 = icmp sgt i64 %78, -1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !73
+  %81 = load ptr, ptr %80, align 8, !tbaa !74
   %82 = call ptr @SSL_get_rbio(ptr noundef %81) #11
   %83 = zext i1 %79 to i64
   %84 = call i64 @BIO_ctrl(ptr noundef %82, i32 noundef 102, i64 noundef %83, ptr noundef null) #11
-  %85 = load ptr, ptr %80, align 8, !tbaa !73
+  %85 = load ptr, ptr %80, align 8, !tbaa !74
   %86 = call ptr @SSL_get_wbio(ptr noundef %85) #11
   %87 = call i64 @BIO_ctrl(ptr noundef %86, i32 noundef 102, i64 noundef %83, ptr noundef null) #11
-  %88 = load i64, ptr %77, align 8, !tbaa !135
+  %88 = load i64, ptr %77, align 8, !tbaa !136
   %89 = icmp sgt i64 %88, 0
   br i1 %89, label %90, label %.critedge.thread.i
 
@@ -13521,15 +13521,15 @@ Py_XDECREF.exit.i:                                ; preds = %61, %58, %56, %55
 101:                                              ; preds = %.thread131.i, %.critedge.thread.i
   %.064.i = phi i64 [ %93, %.critedge.thread.i ], [ %.1.i, %.thread131.i ]
   %102 = call ptr @PyEval_SaveThread() #11
-  %103 = load ptr, ptr %95, align 8, !tbaa !73
+  %103 = load ptr, ptr %95, align 8, !tbaa !74
   %104 = call i32 @SSL_read_ex(ptr noundef %103, ptr noundef %.062120128.i, i64 noundef %.061122127.i, ptr noundef nonnull %7) #11
   %.not134.i = icmp eq i32 %104, 0
   br i1 %.not134.i, label %105, label %_PySSL_errno.exit.i
 
 105:                                              ; preds = %101
-  %106 = load ptr, ptr %95, align 8, !tbaa !73
+  %106 = load ptr, ptr %95, align 8, !tbaa !74
   %107 = tail call ptr @__errno_location() #13
-  %108 = load i32, ptr %107, align 4, !tbaa !106
+  %108 = load i32, ptr %107, align 4, !tbaa !107
   %109 = call i32 @SSL_get_error(ptr noundef %106, i32 noundef 0) #11
   %110 = zext i32 %108 to i64
   %111 = shl nuw i64 %110, 32
@@ -13572,19 +13572,19 @@ _PySSL_errno.exit.i:                              ; preds = %105, %101
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %121
-  %124 = load i64, ptr %99, align 8, !tbaa !135
+  %124 = load i64, ptr %99, align 8, !tbaa !136
   %125 = icmp sgt i64 %124, 0
   %..i.i = select i1 %125, i32 2, i32 1
   br label %PySSL_select.exit.i
 
 126:                                              ; preds = %121
-  %127 = load i32, ptr %97, align 8, !tbaa !128
+  %127 = load i32, ptr %97, align 8, !tbaa !129
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %PySSL_select.exit.i, label %129
 
 129:                                              ; preds = %126
-  store i32 %127, ptr %4, align 4, !tbaa !150
-  store i16 1, ptr %100, align 4, !tbaa !152
+  store i32 %127, ptr %4, align 4, !tbaa !152
+  store i16 1, ptr %100, align 4, !tbaa !154
   %130 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %131 = trunc i64 %130 to i32
   %132 = call ptr @PyEval_SaveThread() #11
@@ -13610,19 +13610,19 @@ PySSL_select.exit.i:                              ; preds = %129, %126, %123, %1
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138
-  %141 = load i64, ptr %99, align 8, !tbaa !135
+  %141 = load i64, ptr %99, align 8, !tbaa !136
   %142 = icmp sgt i64 %141, 0
   %..i83.i = select i1 %142, i32 2, i32 1
   br label %PySSL_select.exit84.i
 
 143:                                              ; preds = %138
-  %144 = load i32, ptr %97, align 8, !tbaa !128
+  %144 = load i32, ptr %97, align 8, !tbaa !129
   %145 = icmp eq i32 %144, -1
   br i1 %145, label %PySSL_select.exit84.i, label %146
 
 146:                                              ; preds = %143
-  store i32 %144, ptr %3, align 4, !tbaa !150
-  store i16 4, ptr %98, align 4, !tbaa !152
+  store i32 %144, ptr %3, align 4, !tbaa !152
+  store i16 4, ptr %98, align 4, !tbaa !154
   %147 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %148 = trunc i64 %147 to i32
   %149 = call ptr @PyEval_SaveThread() #11
@@ -13638,7 +13638,7 @@ PySSL_select.exit84.i:                            ; preds = %146, %143, %140, %1
   br label %158
 
 153:                                              ; preds = %118
-  %154 = load ptr, ptr %95, align 8, !tbaa !73
+  %154 = load ptr, ptr %95, align 8, !tbaa !74
   %155 = call i32 @SSL_get_shutdown(ptr noundef %154) #11
   %156 = icmp eq i32 %155, 2
   br i1 %156, label %157, label %.thread131.thread.i
@@ -13662,7 +13662,7 @@ PySSL_select.exit84.i:                            ; preds = %146, %143, %140, %1
 .thread131.i:                                     ; preds = %158, %118
   %161 = and i32 %.sroa.022.0.extract.trunc.i, -2
   %162 = icmp eq i32 %161, 2
-  br i1 %162, label %101, label %.thread131.thread.i, !llvm.loop !155
+  br i1 %162, label %101, label %.thread131.thread.i, !llvm.loop !157
 
 .thread131.thread.i:                              ; preds = %.thread131.i, %158, %153
   br i1 %.not134.i, label %163, label %165
@@ -13673,7 +13673,7 @@ PySSL_select.exit84.i:                            ; preds = %146, %143, %140, %1
 
 165:                                              ; preds = %.thread131.thread.i
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %167 = load ptr, ptr %166, align 8, !tbaa !148
+  %167 = load ptr, ptr %166, align 8, !tbaa !150
   %.not75.i = icmp eq ptr %167, null
   br i1 %.not75.i, label %168, label %.loopexit.i
 
@@ -13717,13 +13717,13 @@ Py_XDECREF.exit88.thread.i:                       ; preds = %Py_XDECREF.exit88.i
   %.0.i100104114.i = phi ptr [ %.0.i100104111116130.i, %165 ], [ %.0.i100104113.i, %50 ], [ %.0.i100104111116130.i, %163 ], [ %.0.i100104111116130.i, %159 ], [ %.0.i100104112.i, %70 ], [ %.0.i100104111116130.i, %_PySSL_errno.exit.i ]
   %.not105109.i = phi i1 [ %.not105106118129.i, %165 ], [ %.not105108.i, %50 ], [ %.not105106118129.i, %163 ], [ %.not105106118129.i, %159 ], [ %.not105107.i, %70 ], [ %.not105106118129.i, %_PySSL_errno.exit.i ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %185 = load ptr, ptr %184, align 8, !tbaa !148
+  %185 = load ptr, ptr %184, align 8, !tbaa !150
   %186 = icmp eq ptr %185, null
   br i1 %186, label %PySSL_ChainExceptions.exit.i, label %187
 
 187:                                              ; preds = %.loopexit.i
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %185) #11
-  store ptr null, ptr %184, align 8, !tbaa !148
+  store ptr null, ptr %184, align 8, !tbaa !150
   br label %PySSL_ChainExceptions.exit.i
 
 PySSL_ChainExceptions.exit.i:                     ; preds = %187, %.loopexit.i
@@ -13776,7 +13776,7 @@ _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, 
 202:                                              ; preds = %13, %11, %_ssl__SSLSocket_read_impl.exit, %15
   %.05 = phi ptr [ null, %15 ], [ %.0.i, %_ssl__SSLSocket_read_impl.exit ], [ null, %11 ], [ null, %13 ]
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %204 = load ptr, ptr %203, align 8, !tbaa !50
+  %204 = load ptr, ptr %203, align 8, !tbaa !51
   %.not7 = icmp eq ptr %204, null
   br i1 %.not7, label %206, label %205
 
@@ -13794,15 +13794,15 @@ _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, 
 define internal ptr @_ssl__SSLSocket_pending(ptr noundef captures(address_is_null) initializes((64, 72)) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyEval_SaveThread() #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = tail call i32 @SSL_pending(ptr noundef %5) #11
   %.not.i.i = icmp sgt i32 %6, -1
   br i1 %.not.i.i, label %18, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %4, align 8, !tbaa !73
+  %8 = load ptr, ptr %4, align 8, !tbaa !74
   %9 = tail call ptr @__errno_location() #13
-  %10 = load i32, ptr %9, align 4, !tbaa !106
+  %10 = load i32, ptr %9, align 4, !tbaa !107
   %11 = tail call i32 @SSL_get_error(ptr noundef %8, i32 noundef %6) #11
   %12 = zext i32 %10 to i64
   %13 = shl nuw i64 %12, 32
@@ -13850,7 +13850,7 @@ define internal ptr @_ssl__SSLSocket_getpeercert(ptr noundef readonly captures(n
 12:                                               ; preds = %8, %6
   %.0 = phi i32 [ 0, %6 ], [ %10, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %13, align 8, !tbaa !74
   %15 = tail call i32 @SSL_is_init_finished(ptr noundef %14) #11
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %18
@@ -13861,7 +13861,7 @@ define internal ptr @_ssl__SSLSocket_getpeercert(ptr noundef readonly captures(n
   br label %_ssl__SSLSocket_getpeercert_impl.exit
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr %13, align 8, !tbaa !73
+  %19 = load ptr, ptr %13, align 8, !tbaa !74
   %20 = tail call ptr @SSL_get1_peer_certificate(ptr noundef %19) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ssl__SSLSocket_getpeercert_impl.exit, label %22
@@ -13872,14 +13872,14 @@ define internal ptr @_ssl__SSLSocket_getpeercert(ptr noundef readonly captures(n
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !125
+  %25 = load ptr, ptr %24, align 8, !tbaa !126
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !104
   %28 = tail call fastcc ptr @_certificate_to_der(ptr noundef %27, ptr noundef nonnull %20)
   br label %43
 
 29:                                               ; preds = %22
-  %30 = load ptr, ptr %13, align 8, !tbaa !73
+  %30 = load ptr, ptr %13, align 8, !tbaa !74
   %31 = tail call ptr @SSL_get_SSL_CTX(ptr noundef %30) #11
   %32 = tail call i32 @SSL_CTX_get_verify_mode(ptr noundef %31) #11
   %33 = and i32 %32, 1
@@ -13892,9 +13892,9 @@ define internal ptr @_ssl__SSLSocket_getpeercert(ptr noundef readonly captures(n
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !125
+  %39 = load ptr, ptr %38, align 8, !tbaa !126
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
-  %41 = load ptr, ptr %40, align 8, !tbaa !103
+  %41 = load ptr, ptr %40, align 8, !tbaa !104
   %42 = tail call fastcc ptr @_decode_certificate(ptr noundef %41, ptr noundef nonnull %20)
   br label %43
 
@@ -13919,7 +13919,7 @@ define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly ca
 
 .thread:                                          ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val35 = load i64, ptr %8, align 8, !tbaa !51
+  %.val35 = load i64, ptr %8, align 8, !tbaa !52
   br label %12
 
 9:                                                ; preds = %4
@@ -13980,14 +13980,14 @@ define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly ca
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !73
+  %37 = load ptr, ptr %36, align 8, !tbaa !74
   %38 = call i32 @SSL_session_reused(ptr noundef %37) #11
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %40 = load i32, ptr %39, align 4, !tbaa !136
+  %40 = load i32, ptr %39, align 4, !tbaa !137
   %.not.i = icmp eq i32 %40, 0
   %41 = zext i1 %.not.i to i32
   %.not9.i = icmp eq i32 %38, %41
-  %42 = load ptr, ptr %36, align 8, !tbaa !73
+  %42 = load ptr, ptr %36, align 8, !tbaa !74
   br i1 %.not9.i, label %45, label %43
 
 43:                                               ; preds = %35
@@ -14026,7 +14026,7 @@ _ssl__SSLSocket_get_channel_binding_impl.exit:    ; preds = %47, %50, %52
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_cipher(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8, !tbaa !73
+  %.val = load ptr, ptr %3, align 8, !tbaa !74
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %_ssl__SSLSocket_cipher_impl.exit, label %5
 
@@ -14047,13 +14047,13 @@ _ssl__SSLSocket_cipher_impl.exit:                 ; preds = %2, %5, %8
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_shared_ciphers(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = tail call ptr @SSL_get_ciphers(ptr noundef %4) #11
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ssl__SSLSocket_shared_ciphers_impl.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !73
+  %7 = load ptr, ptr %3, align 8, !tbaa !74
   %8 = tail call ptr @SSL_get_client_ciphers(ptr noundef %7) #11
   %.not32.i = icmp eq ptr %8, null
   br i1 %.not32.i, label %_ssl__SSLSocket_shared_ciphers_impl.exit, label %9
@@ -14105,7 +14105,7 @@ define internal ptr @_ssl__SSLSocket_shared_ciphers(ptr noundef readonly capture
 Py_DECREF.exit.i:                                 ; preds = %20
   %28 = add i32 %.02537.i, 1
   %29 = sext i32 %.02537.i to i64
-  %.val.i = load ptr, ptr %15, align 8, !tbaa !118
+  %.val.i = load ptr, ptr %15, align 8, !tbaa !119
   %30 = getelementptr ptr, ptr %.val.i, i64 %29
   store ptr %21, ptr %30, align 8, !tbaa !26
   br label %31
@@ -14115,7 +14115,7 @@ Py_DECREF.exit.i:                                 ; preds = %20
   %32 = add nuw nsw i32 %.02438.i, 1
   %33 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #11
   %34 = icmp slt i32 %32, %33
-  br i1 %34, label %16, label %._crit_edge.loopexit.i, !llvm.loop !156
+  br i1 %34, label %16, label %._crit_edge.loopexit.i, !llvm.loop !158
 
 ._crit_edge.loopexit.i:                           ; preds = %31
   %35 = sext i32 %.126.i to i64
@@ -14124,7 +14124,7 @@ Py_DECREF.exit.i:                                 ; preds = %20
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.025.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %35, %._crit_edge.loopexit.i ]
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %.025.lcssa.i, ptr %36, align 8, !tbaa !51
+  store i64 %.025.lcssa.i, ptr %36, align 8, !tbaa !52
   br label %_ssl__SSLSocket_shared_ciphers_impl.exit
 
 _ssl__SSLSocket_shared_ciphers_impl.exit:         ; preds = %2, %6, %9, %22, %24, %27, %._crit_edge.i
@@ -14135,7 +14135,7 @@ _ssl__SSLSocket_shared_ciphers_impl.exit:         ; preds = %2, %6, %9, %22, %24
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_version(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ssl__SSLSocket_version_impl.exit, label %6
 
@@ -14145,7 +14145,7 @@ define internal ptr @_ssl__SSLSocket_version(ptr noundef readonly captures(none)
   br i1 %.not.i, label %_ssl__SSLSocket_version_impl.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %3, align 8, !tbaa !73
+  %9 = load ptr, ptr %3, align 8, !tbaa !74
   %10 = tail call ptr @SSL_get_version(ptr noundef %9) #11
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.269) #12
   %.not7.i = icmp eq i32 %11, 0
@@ -14165,16 +14165,16 @@ define internal ptr @_ssl__SSLSocket_selected_alpn_protocol(ptr noundef readonly
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %5, align 8, !tbaa !73
+  %.val = load ptr, ptr %5, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   call void @SSL_get0_alpn_selected(ptr noundef %.val, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
-  %6 = load ptr, ptr %3, align 8, !tbaa !53
+  %6 = load ptr, ptr %3, align 8, !tbaa !54
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ssl__SSLSocket_selected_alpn_protocol_impl.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4, !tbaa !106
+  %9 = load i32, ptr %4, align 4, !tbaa !107
   %10 = zext i32 %9 to i64
   %11 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %6, i64 noundef %10) #11
   br label %_ssl__SSLSocket_selected_alpn_protocol_impl.exit
@@ -14189,7 +14189,7 @@ _ssl__SSLSocket_selected_alpn_protocol_impl.exit: ; preds = %2, %8
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_compression(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8, !tbaa !73
+  %.val = load ptr, ptr %3, align 8, !tbaa !74
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %_ssl__SSLSocket_compression_impl.exit, label %5
 
@@ -14224,7 +14224,7 @@ define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef captures(address_is_nu
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %6, align 8, !tbaa !137
+  %.val.i = load ptr, ptr %6, align 8, !tbaa !138
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %.critedge.thread.i, label %7
 
@@ -14268,15 +14268,15 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !128
+  %21 = load i32, ptr %20, align 8, !tbaa !129
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %19, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !125
+  %25 = load ptr, ptr %24, align 8, !tbaa !126
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !104
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   call fastcc void @fill_and_set_sslerror(ptr noundef readonly %27, ptr noundef null, ptr noundef %29, i32 noundef 0, ptr noundef nonnull @.str.243, i32 noundef 2733, i64 noundef 0)
@@ -14295,17 +14295,17 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 
 .critedge.i:                                      ; preds = %33, %30
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !135
+  %36 = load i64, ptr %35, align 8, !tbaa !136
   %37 = icmp sgt i64 %36, -1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !73
+  %39 = load ptr, ptr %38, align 8, !tbaa !74
   %40 = call ptr @SSL_get_rbio(ptr noundef %39) #11
   %41 = zext i1 %37 to i64
   %42 = call i64 @BIO_ctrl(ptr noundef %40, i32 noundef 102, i64 noundef %41, ptr noundef null) #11
-  %43 = load ptr, ptr %38, align 8, !tbaa !73
+  %43 = load ptr, ptr %38, align 8, !tbaa !74
   %44 = call ptr @SSL_get_wbio(ptr noundef %43) #11
   %45 = call i64 @BIO_ctrl(ptr noundef %44, i32 noundef 102, i64 noundef %41, ptr noundef null) #11
-  %46 = load i64, ptr %35, align 8, !tbaa !135
+  %46 = load i64, ptr %35, align 8, !tbaa !136
   %47 = icmp sgt i64 %46, 0
   br i1 %47, label %48, label %.critedge.thread.i
 
@@ -14336,17 +14336,17 @@ GET_SOCKET.exit.i:                                ; preds = %15, %12
 59:                                               ; preds = %118, %.outer.i
   %.051.i = phi i64 [ %.1.i, %118 ], [ %.051.ph.i, %.outer.i ]
   %60 = call ptr @PyEval_SaveThread() #11
-  %61 = load i8, ptr %52, align 8, !tbaa !126
+  %61 = load i8, ptr %52, align 8, !tbaa !127
   %.not57.i = icmp eq i8 %61, 0
   br i1 %.not57.i, label %64, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %53, align 8, !tbaa !73
+  %63 = load ptr, ptr %53, align 8, !tbaa !74
   call void @SSL_set_read_ahead(ptr noundef %63, i32 noundef 0) #11
   br label %64
 
 64:                                               ; preds = %62, %59
-  %65 = load ptr, ptr %53, align 8, !tbaa !73
+  %65 = load ptr, ptr %53, align 8, !tbaa !74
   %66 = call i32 @SSL_shutdown(ptr noundef %65) #11
   %.not.i61.i = icmp sgt i32 %66, -1
   br i1 %.not.i61.i, label %_PySSL_errno.exit.i, label %69
@@ -14359,13 +14359,13 @@ _PySSL_errno.exit.i:                              ; preds = %64
   br i1 %brmerge.i, label %.loopexit.i, label %68
 
 68:                                               ; preds = %_PySSL_errno.exit.i
-  store i8 1, ptr %52, align 8, !tbaa !126
-  br label %.outer.i
+  store i8 1, ptr %52, align 8, !tbaa !127
+  br label %.outer.i, !llvm.loop !159
 
 69:                                               ; preds = %64
-  %70 = load ptr, ptr %53, align 8, !tbaa !73
+  %70 = load ptr, ptr %53, align 8, !tbaa !74
   %71 = tail call ptr @__errno_location() #13
-  %72 = load i32, ptr %71, align 4, !tbaa !106
+  %72 = load i32, ptr %71, align 4, !tbaa !107
   %73 = call i32 @SSL_get_error(ptr noundef %70, i32 noundef %66) #11
   %74 = zext i32 %72 to i64
   %75 = shl nuw i64 %74, 32
@@ -14395,19 +14395,19 @@ _PySSL_errno.exit.i:                              ; preds = %64
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = load i64, ptr %57, align 8, !tbaa !135
+  %87 = load i64, ptr %57, align 8, !tbaa !136
   %88 = icmp sgt i64 %87, 0
   %..i.i = select i1 %88, i32 2, i32 1
   br label %PySSL_select.exit.i
 
 89:                                               ; preds = %84
-  %90 = load i32, ptr %55, align 8, !tbaa !128
+  %90 = load i32, ptr %55, align 8, !tbaa !129
   %91 = icmp eq i32 %90, -1
   br i1 %91, label %PySSL_select.exit.i, label %92
 
 92:                                               ; preds = %89
-  store i32 %90, ptr %4, align 4, !tbaa !150
-  store i16 1, ptr %58, align 4, !tbaa !152
+  store i32 %90, ptr %4, align 4, !tbaa !152
+  store i16 1, ptr %58, align 4, !tbaa !154
   %93 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %94 = trunc i64 %93 to i32
   %95 = call ptr @PyEval_SaveThread() #11
@@ -14437,19 +14437,19 @@ PySSL_select.exit.i:                              ; preds = %92, %89, %86, %82
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %103
-  %106 = load i64, ptr %57, align 8, !tbaa !135
+  %106 = load i64, ptr %57, align 8, !tbaa !136
   %107 = icmp sgt i64 %106, 0
   %..i65.i = select i1 %107, i32 2, i32 1
   br label %PySSL_select.exit66.i
 
 108:                                              ; preds = %103
-  %109 = load i32, ptr %55, align 8, !tbaa !128
+  %109 = load i32, ptr %55, align 8, !tbaa !129
   %110 = icmp eq i32 %109, -1
   br i1 %110, label %PySSL_select.exit66.i, label %111
 
 111:                                              ; preds = %108
-  store i32 %109, ptr %3, align 4, !tbaa !150
-  store i16 4, ptr %56, align 4, !tbaa !152
+  store i32 %109, ptr %3, align 4, !tbaa !152
+  store i16 4, ptr %56, align 4, !tbaa !154
   %112 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.1.i, i32 noundef 1) #11
   %113 = trunc i64 %112 to i32
   %114 = call ptr @PyEval_SaveThread() #11
@@ -14470,7 +14470,7 @@ PySSL_select.exit66.i:                            ; preds = %111, %108, %105, %1
     i32 2, label %119
     i32 4, label %123
     i32 5, label %59
-  ]
+  ], !llvm.loop !159
 
 119:                                              ; preds = %118
   %120 = load ptr, ptr @PyExc_TimeoutError, align 8, !tbaa !26
@@ -14486,9 +14486,9 @@ PySSL_select.exit66.i:                            ; preds = %111, %108, %105, %1
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !125
+  %125 = load ptr, ptr %124, align 8, !tbaa !126
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 88
-  %127 = load ptr, ptr %126, align 8, !tbaa !103
+  %127 = load ptr, ptr %126, align 8, !tbaa !104
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %129 = load ptr, ptr %128, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %129, ptr noundef nonnull @.str.257) #11
@@ -14518,7 +14518,7 @@ Py_XDECREF.exit.i:                                ; preds = %136, %133, %131, %1
 
 .loopexit.i:                                      ; preds = %_PySSL_errno.exit.i
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %139 = load ptr, ptr %138, align 8, !tbaa !148
+  %139 = load ptr, ptr %138, align 8, !tbaa !150
   %.not60.i = icmp eq ptr %139, null
   br i1 %.not60.i, label %140, label %141
 
@@ -14546,13 +14546,13 @@ Py_XDECREF.exit.i:                                ; preds = %136, %133, %131, %1
 
 Py_XDECREF.exit73.i:                              ; preds = %147, %144, %142, %141
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %149 = load ptr, ptr %148, align 8, !tbaa !148
+  %149 = load ptr, ptr %148, align 8, !tbaa !150
   %150 = icmp eq ptr %149, null
   br i1 %150, label %_ssl__SSLSocket_shutdown_impl.exit, label %151
 
 151:                                              ; preds = %Py_XDECREF.exit73.i
   call void @_PyErr_ChainExceptions1(ptr noundef nonnull %149) #11
-  store ptr null, ptr %148, align 8, !tbaa !148
+  store ptr null, ptr %148, align 8, !tbaa !150
   br label %_ssl__SSLSocket_shutdown_impl.exit
 
 _ssl__SSLSocket_shutdown_impl.exit:               ; preds = %23, %Py_XDECREF.exit.i, %140, %Py_XDECREF.exit73.i, %151
@@ -14563,16 +14563,16 @@ _ssl__SSLSocket_shutdown_impl.exit:               ; preds = %23, %Py_XDECREF.exi
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_ssl__SSLSocket_verify_client_post_handshake(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = tail call i32 @SSL_verify_client_post_handshake(ptr noundef %4) #11
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %_ssl__SSLSocket_verify_client_post_handshake_impl.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
   %12 = tail call i64 @ERR_peek_last_error() #11
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -14591,28 +14591,28 @@ _ssl__SSLSocket_verify_client_post_handshake_impl.exit: ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_get_unverified_chain(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = tail call ptr @SSL_get_peer_cert_chain(ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ssl__SSLSocket_get_unverified_chain_impl.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
   %12 = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %11, ptr noundef %5)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ssl__SSLSocket_get_unverified_chain_impl.exit, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %16 = load i32, ptr %15, align 4, !tbaa !136
+  %16 = load i32, ptr %15, align 4, !tbaa !137
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %_ssl__SSLSocket_get_unverified_chain_impl.exit
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %3, align 8, !tbaa !73
+  %19 = load ptr, ptr %3, align 8, !tbaa !74
   %20 = tail call ptr @SSL_get1_peer_certificate(ptr noundef %19) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %27
@@ -14628,22 +14628,22 @@ define internal ptr @_ssl__SSLSocket_get_unverified_chain(ptr noundef readonly c
   br label %_Py_NewRef.exit.i
 
 27:                                               ; preds = %18
-  %28 = load ptr, ptr %8, align 8, !tbaa !125
+  %28 = load ptr, ptr %8, align 8, !tbaa !126
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !103
+  %30 = load ptr, ptr %29, align 8, !tbaa !104
   %31 = getelementptr i8, ptr %30, i64 32
   %.val.i = load ptr, ptr %31, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 304
-  %33 = load ptr, ptr %32, align 8, !tbaa !149
+  %33 = load ptr, ptr %32, align 8, !tbaa !151
   %34 = tail call ptr %33(ptr noundef %.val.i, i64 noundef 0) #11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge.i, label %_PySSL_CertificateFromX509.exit.i
 
 _PySSL_CertificateFromX509.exit.i:                ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %20, ptr %36, align 8, !tbaa !157
+  store ptr %20, ptr %36, align 8, !tbaa !160
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i64 -1, ptr %37, align 8, !tbaa !160
+  store i64 -1, ptr %37, align 8, !tbaa !163
   br label %_Py_NewRef.exit.i
 
 .critedge.i:                                      ; preds = %27
@@ -14702,16 +14702,16 @@ _ssl__SSLSocket_get_unverified_chain_impl.exit:   ; preds = %2, %7, %14, %.crite
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_get_verified_chain(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = tail call ptr @SSL_get0_verified_chain(ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ssl__SSLSocket_get_verified_chain_impl.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
   %12 = tail call fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef %11, ptr noundef %5)
   br label %_ssl__SSLSocket_get_verified_chain_impl.exit
 
@@ -14731,22 +14731,22 @@ declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 1066, 2814) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !125
+  %4 = load ptr, ptr %3, align 8, !tbaa !126
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !103
+  %6 = load ptr, ptr %5, align 8, !tbaa !104
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = tail call i64 @ERR_peek_last_error() #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !73
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.sroa.0.0.copyload = load i32, ptr %13, align 8, !tbaa !106
+  %.sroa.0.0.copyload = load i32, ptr %13, align 8, !tbaa !107
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !106
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !107
   switch i32 %.sroa.0.0.copyload, label %65 [
     i32 6, label %14
     i32 2, label %17
@@ -14786,7 +14786,7 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
 
 27:                                               ; preds = %26
   %28 = tail call ptr @__errno_location() #13
-  store i32 %.sroa.4.0.copyload, ptr %28, align 4, !tbaa !106
+  store i32 %.sroa.4.0.copyload, ptr %28, align 4, !tbaa !107
   %29 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !26
   %30 = tail call ptr @PyErr_SetFromErrno(ptr noundef %29) #11
   br label %PySSL_ChainExceptions.exit
@@ -14822,7 +14822,7 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
   %.0.v.i48 = select i1 %.not.i, i32 8388607, i32 2147483647
   %.0.i49 = and i32 %.0.v.i48, %36
   %44 = tail call ptr @__errno_location() #13
-  store i32 %.0.i49, ptr %44, align 4, !tbaa !106
+  store i32 %.0.i49, ptr %44, align 4, !tbaa !107
   %45 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !26
   %46 = tail call ptr @PyErr_SetFromErrno(ptr noundef %45) #11
   br label %PySSL_ChainExceptions.exit
@@ -14869,7 +14869,7 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
   %.0.v.i63 = select i1 %.not.i55, i32 8388607, i32 2147483647
   %.0.i64 = and i32 %.0.v.i63, %54
   %62 = tail call ptr @__errno_location() #13
-  store i32 %.0.i64, ptr %62, align 4, !tbaa !106
+  store i32 %.0.i64, ptr %62, align 4, !tbaa !107
   %63 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !26
   %64 = tail call ptr @PyErr_SetFromErrno(ptr noundef %63) #11
   br label %PySSL_ChainExceptions.exit
@@ -14884,13 +14884,13 @@ define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null)
   tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef %.033, i32 noundef %.032, ptr noundef %.035, i32 noundef %1, i64 noundef %9)
   tail call void @ERR_clear_error() #11
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %67 = load ptr, ptr %66, align 8, !tbaa !148
+  %67 = load ptr, ptr %66, align 8, !tbaa !150
   %68 = icmp eq ptr %67, null
   br i1 %68, label %PySSL_ChainExceptions.exit, label %69
 
 69:                                               ; preds = %.thread
   tail call void @_PyErr_ChainExceptions1(ptr noundef nonnull %67) #11
-  store ptr null, ptr %66, align 8, !tbaa !148
+  store ptr null, ptr %66, align 8, !tbaa !150
   br label %PySSL_ChainExceptions.exit
 
 PySSL_ChainExceptions.exit:                       ; preds = %69, %.thread, %61, %43, %27
@@ -15058,7 +15058,7 @@ define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef readonly
   %11 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %10) #11
   %.val = load ptr, ptr %8, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 304
-  %13 = load ptr, ptr %12, align 8, !tbaa !149
+  %13 = load ptr, ptr %12, align 8, !tbaa !151
   %14 = tail call ptr %13(ptr noundef %.val, i64 noundef 0) #11
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
@@ -15081,13 +15081,13 @@ define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef readonly
 22:                                               ; preds = %9
   %23 = tail call i32 @X509_up_ref(ptr noundef %11) #11
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %11, ptr %24, align 8, !tbaa !157
+  store ptr %11, ptr %24, align 8, !tbaa !160
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 -1, ptr %25, align 8, !tbaa !160
+  store i64 -1, ptr %25, align 8, !tbaa !163
   %26 = tail call i32 @PyList_SetItem(ptr noundef nonnull %5, i64 noundef %indvars.iv, ptr noundef nonnull %14) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %9, !llvm.loop !161
+  br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %9, !llvm.loop !164
 
 Py_DECREF.exit.thread:                            ; preds = %22, %.preheader, %16, %18, %21, %2
   %.0 = phi ptr [ null, %2 ], [ null, %21 ], [ null, %18 ], [ null, %16 ], [ %5, %.preheader ], [ %5, %22 ]
@@ -15105,7 +15105,7 @@ declare ptr @SSL_get0_verified_chain(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ssl__SSLSocket_context_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %3, align 8, !tbaa !125
+  %.val = load ptr, ptr %3, align 8, !tbaa !126
   %4 = load i32, ptr %.val, align 8, !tbaa !25
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_ssl__SSLSocket_context_get_impl.exit, label %6
@@ -15122,9 +15122,9 @@ _ssl__SSLSocket_context_get_impl.exit:            ; preds = %2, %6
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_ssl__SSLSocket_context_set(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !126
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %9, align 8, !tbaa !28
@@ -15137,7 +15137,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %3
   br i1 %.not14.i, label %32, label %PyObject_TypeCheck.exit.PyObject_TypeCheck.exit.thread_crit_edge.i
 
 PyObject_TypeCheck.exit.PyObject_TypeCheck.exit.thread_crit_edge.i: ; preds = %PyObject_TypeCheck.exit.i
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !162
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !165
   br label %PyObject_TypeCheck.exit.thread.i
 
 PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.PyObject_TypeCheck.exit.thread_crit_edge.i, %3
@@ -15152,7 +15152,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %14, %PyObject_TypeCheck.exit.thread.i
-  store ptr %1, ptr %4, align 8, !tbaa !162
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %16 = load i32, ptr %11, align 8, !tbaa !25
   %.not.i.i = icmp sgt i32 %16, -1
   br i1 %.not.i.i, label %17, label %Py_DECREF.exit.i
@@ -15169,15 +15169,15 @@ _Py_NewRef.exit.i:                                ; preds = %14, %PyObject_TypeC
 
 Py_DECREF.exit.i:                                 ; preds = %20, %17, %_Py_NewRef.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !73
-  %23 = load ptr, ptr %4, align 8, !tbaa !125
+  %22 = load ptr, ptr %21, align 8, !tbaa !74
+  %23 = load ptr, ptr %4, align 8, !tbaa !126
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !94
+  %25 = load ptr, ptr %24, align 8, !tbaa !95
   %26 = tail call ptr @SSL_set_SSL_CTX(ptr noundef %22, ptr noundef %25) #11
-  %27 = load ptr, ptr %21, align 8, !tbaa !73
-  %28 = load ptr, ptr %4, align 8, !tbaa !125
+  %27 = load ptr, ptr %21, align 8, !tbaa !74
+  %28 = load ptr, ptr %4, align 8, !tbaa !126
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !101
+  %30 = load ptr, ptr %29, align 8, !tbaa !102
   %.not11.i = icmp eq ptr %30, null
   %31 = select i1 %.not11.i, ptr null, ptr @_PySSL_msg_callback
   tail call void @SSL_set_msg_callback(ptr noundef %27, ptr noundef %31) #11
@@ -15196,7 +15196,7 @@ _ssl__SSLSocket_context_set_impl.exit:            ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_server_side_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
-  %.val = load i32, ptr %3, align 4, !tbaa !136
+  %.val = load i32, ptr %3, align 4, !tbaa !137
   %4 = icmp eq i32 %.val, 1
   %5 = zext i1 %4 to i64
   %6 = tail call ptr @PyBool_FromLong(i64 noundef %5) #11
@@ -15206,7 +15206,7 @@ define internal ptr @_ssl__SSLSocket_server_side_get(ptr noundef readonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @_ssl__SSLSocket_server_hostname_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
   %3 = getelementptr i8, ptr %0, i64 56
-  %.val = load ptr, ptr %3, align 8, !tbaa !77
+  %.val = load ptr, ptr %3, align 8, !tbaa !78
   %4 = icmp eq ptr %.val, null
   br i1 %4, label %_ssl__SSLSocket_server_hostname_get_impl.exit, label %5
 
@@ -15229,7 +15229,7 @@ _ssl__SSLSocket_server_hostname_get_impl.exit:    ; preds = %2, %5, %8
 define internal ptr @_ssl__SSLSocket_owner_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 48
-  %.val = load ptr, ptr %4, align 8, !tbaa !138
+  %.val = load ptr, ptr %4, align 8, !tbaa !139
   %5 = icmp eq ptr %.val, null
   br i1 %5, label %_ssl__SSLSocket_owner_get_impl.exit, label %6
 
@@ -15250,16 +15250,16 @@ _ssl__SSLSocket_owner_get_impl.exit:              ; preds = %2, %6
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl__SSLSocket_session_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = tail call ptr @SSL_get1_session(ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ssl__SSLSocket_session_get_impl.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = tail call ptr @_PyObject_GC_New(ptr noundef %13) #11
@@ -15271,7 +15271,7 @@ define internal ptr @_ssl__SSLSocket_session_get(ptr noundef readonly captures(n
   br label %_ssl__SSLSocket_session_get_impl.exit
 
 17:                                               ; preds = %7
-  %18 = load ptr, ptr %8, align 8, !tbaa !125
+  %18 = load ptr, ptr %8, align 8, !tbaa !126
   %19 = load i32, ptr %18, align 8, !tbaa !25
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %_Py_NewRef.exit.i, label %21
@@ -15283,9 +15283,9 @@ define internal ptr @_ssl__SSLSocket_session_get(ptr noundef readonly captures(n
 
 _Py_NewRef.exit.i:                                ; preds = %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %18, ptr %23, align 8, !tbaa !139
+  store ptr %18, ptr %23, align 8, !tbaa !140
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %5, ptr %24, align 8, !tbaa !142
+  store ptr %5, ptr %24, align 8, !tbaa !143
   tail call void @PyObject_GC_Track(ptr noundef nonnull %14) #11
   br label %_ssl__SSLSocket_session_get_impl.exit
 
@@ -15297,7 +15297,7 @@ _ssl__SSLSocket_session_get_impl.exit:            ; preds = %2, %16, %_Py_NewRef
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @_ssl__SSLSocket_session_reused_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8, !tbaa !73
+  %.val = load ptr, ptr %3, align 8, !tbaa !74
   %4 = tail call i32 @SSL_session_reused(ptr noundef %.val) #11
   %.not.i = icmp eq i32 %4, 0
   %5 = select i1 %.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -15327,9 +15327,9 @@ define internal ptr @_ssl_MemoryBIO(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %11 = load ptr, ptr %10, align 8, !tbaa !93
+  %11 = load ptr, ptr %10, align 8, !tbaa !94
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  %13 = load ptr, ptr %12, align 8, !tbaa !93
+  %13 = load ptr, ptr %12, align 8, !tbaa !94
   %14 = icmp ne ptr %11, %13
   %15 = icmp eq ptr %1, null
   %or.cond = or i1 %15, %14
@@ -15350,8 +15350,8 @@ define internal ptr @_ssl_MemoryBIO(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not25, label %_ssl_MemoryBIO_impl.exit, label %.thread24..thread23_crit_edge
 
 .thread24..thread23_crit_edge:                    ; preds = %.thread24
-  %.pre = load ptr, ptr %10, align 8, !tbaa !93
-  %.pre27 = load ptr, ptr %12, align 8, !tbaa !93
+  %.pre = load ptr, ptr %10, align 8, !tbaa !94
+  %.pre27 = load ptr, ptr %12, align 8, !tbaa !94
   br label %.thread23
 
 .thread23:                                        ; preds = %.thread24..thread23_crit_edge, %9
@@ -15386,7 +15386,7 @@ define internal ptr @_ssl_MemoryBIO(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @BIO_set_flags(ptr noundef nonnull %28, i32 noundef 9) #11
   %33 = tail call i64 @BIO_ctrl(ptr noundef nonnull %28, i32 noundef 130, i64 noundef -1, ptr noundef null) #11
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %35 = load ptr, ptr %34, align 8, !tbaa !149
+  %35 = load ptr, ptr %34, align 8, !tbaa !151
   %36 = tail call ptr %35(ptr noundef %0, i64 noundef 0) #11
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
@@ -15397,9 +15397,9 @@ define internal ptr @_ssl_MemoryBIO(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %28, ptr %41, align 8, !tbaa !131
+  store ptr %28, ptr %41, align 8, !tbaa !132
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i32 0, ptr %42, align 8, !tbaa !163
+  store i32 0, ptr %42, align 8, !tbaa !166
   br label %_ssl_MemoryBIO_impl.exit
 
 _ssl_MemoryBIO_impl.exit:                         ; preds = %40, %38, %30, %.thread24, %24, %17
@@ -15413,11 +15413,11 @@ define internal void @memory_bio_dealloc(ptr noundef %0) #0 {
   %.val6 = load ptr, ptr %2, align 8, !tbaa !28
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !131
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %5 = tail call i32 @BIO_free(ptr noundef %4) #11
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %7 = load ptr, ptr %6, align 8, !tbaa !99
+  %7 = load ptr, ptr %6, align 8, !tbaa !100
   tail call void %7(ptr noundef %0) #11
   %8 = load i32, ptr %.val6, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %8, -1
@@ -15487,13 +15487,13 @@ define internal ptr @_ssl_MemoryBIO_read(ptr noundef readonly captures(none) %0,
   %.0 = phi i32 [ -1, %7 ], [ -1, %13 ], [ %11, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !131
+  %17 = load ptr, ptr %16, align 8, !tbaa !132
   %18 = tail call i64 @BIO_ctrl_pending(ptr noundef %17) #11
   %19 = icmp ugt i64 %18, 2147483647
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %16, align 8, !tbaa !131
+  %21 = load ptr, ptr %16, align 8, !tbaa !132
   %22 = tail call i64 @BIO_ctrl_pending(ptr noundef %21) #11
   %23 = trunc i64 %22 to i32
   br label %24
@@ -15512,7 +15512,7 @@ define internal ptr @_ssl_MemoryBIO_read(ptr noundef readonly captures(none) %0,
   br i1 %or.cond.i, label %_ssl_MemoryBIO_read_impl.exit, label %32
 
 32:                                               ; preds = %24
-  %33 = load ptr, ptr %16, align 8, !tbaa !131
+  %33 = load ptr, ptr %16, align 8, !tbaa !132
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = tail call i32 @BIO_read(ptr noundef %33, ptr noundef nonnull %34, i32 noundef %.017.i) #11
   %36 = icmp slt i32 %35, 0
@@ -15590,7 +15590,7 @@ define internal ptr @_ssl_MemoryBIO_write(ptr noundef readonly captures(none) %0
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !163
+  %13 = load i32, ptr %12, align 8, !tbaa !166
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %22, label %14
 
@@ -15610,7 +15610,7 @@ define internal ptr @_ssl_MemoryBIO_write(ptr noundef readonly captures(none) %0
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !131
+  %24 = load ptr, ptr %23, align 8, !tbaa !132
   %25 = trunc i64 %.val4 to i32
   %26 = call i32 @BIO_write(ptr noundef %24, ptr noundef %.val, i32 noundef %25) #11
   %27 = icmp slt i32 %26, 0
@@ -15638,7 +15638,7 @@ define internal ptr @_ssl_MemoryBIO_write(ptr noundef readonly captures(none) %0
 _ssl_MemoryBIO_write_impl.exit:                   ; preds = %36, %28, %18, %14, %8, %2
   %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %28 ], [ %38, %36 ], [ null, %14 ], [ null, %18 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !50
+  %40 = load ptr, ptr %39, align 8, !tbaa !51
   %.not3 = icmp eq ptr %40, null
   br i1 %.not3, label %42, label %41
 
@@ -15654,11 +15654,11 @@ _ssl_MemoryBIO_write_impl.exit:                   ; preds = %36, %28, %18, %14, 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @_ssl_MemoryBIO_write_eof(ptr noundef captures(none) initializes((24, 28)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %3, align 8, !tbaa !163
+  store i32 1, ptr %3, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !131
+  %5 = load ptr, ptr %4, align 8, !tbaa !132
   tail call void @BIO_clear_flags(ptr noundef %5, i32 noundef 15) #11
-  %6 = load ptr, ptr %4, align 8, !tbaa !131
+  %6 = load ptr, ptr %4, align 8, !tbaa !132
   %7 = tail call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 130, i64 noundef 0, ptr noundef null) #11
   ret ptr @_Py_NoneStruct
 }
@@ -15678,7 +15678,7 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_MemoryBIO_pending_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !131
+  %.val = load ptr, ptr %3, align 8, !tbaa !132
   %4 = tail call i64 @BIO_ctrl_pending(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromSize_t(i64 noundef %4) #11
   ret ptr %5
@@ -15687,14 +15687,14 @@ define internal ptr @_ssl_MemoryBIO_pending_get(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_MemoryBIO_eof_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !131
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %5 = tail call i64 @BIO_ctrl_pending(ptr noundef %4) #11
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %_ssl_MemoryBIO_eof_get_impl.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !163
+  %9 = load i32, ptr %8, align 8, !tbaa !166
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i64
   br label %_ssl_MemoryBIO_eof_get_impl.exit
@@ -15724,9 +15724,9 @@ define internal ptr @PySSLSession_richcompare(ptr noundef readonly captures(addr
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !139
+  %11 = load ptr, ptr %10, align 8, !tbaa !140
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !103
+  %13 = load ptr, ptr %12, align 8, !tbaa !104
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr i8, ptr %0, i64 8
@@ -15748,13 +15748,13 @@ define internal ptr @PySSLSession_richcompare(ptr noundef readonly captures(addr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !142
+  %23 = load ptr, ptr %22, align 8, !tbaa !143
   %24 = call ptr @SSL_SESSION_get_id(ptr noundef %23, ptr noundef nonnull %4) #11
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !142
+  %26 = load ptr, ptr %25, align 8, !tbaa !143
   %27 = call ptr @SSL_SESSION_get_id(ptr noundef %26, ptr noundef nonnull %5) #11
-  %28 = load i32, ptr %4, align 4, !tbaa !106
-  %29 = load i32, ptr %5, align 4, !tbaa !106
+  %28 = load i32, ptr %4, align 4, !tbaa !107
+  %29 = load i32, ptr %5, align 4, !tbaa !107
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %34
 
@@ -15804,7 +15804,7 @@ define internal void @PySSLSession_dealloc(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !139
+  %4 = load ptr, ptr %3, align 8, !tbaa !140
   %.not.i7 = icmp eq ptr %4, null
   br i1 %.not.i7, label %Py_XDECREF.exit, label %5
 
@@ -15825,7 +15825,7 @@ define internal void @PySSLSession_dealloc(ptr noundef %0) #0 {
 
 Py_XDECREF.exit:                                  ; preds = %1, %5, %7, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !142
+  %12 = load ptr, ptr %11, align 8, !tbaa !143
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
 
@@ -15856,7 +15856,7 @@ Py_DECREF.exit:                                   ; preds = %14, %16, %19
 ; Function Attrs: nounwind uwtable
 define internal i32 @PySSLSession_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !139
+  %5 = load ptr, ptr %4, align 8, !tbaa !140
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -15887,12 +15887,12 @@ define internal i32 @PySSLSession_traverse(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @PySSLSession_clear(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8, !tbaa !165
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %Py_DECREF.exit, label %4
 
 4:                                                ; preds = %1
-  store ptr null, ptr %2, align 8, !tbaa !162
+  store ptr null, ptr %2, align 8, !tbaa !165
   %5 = load i32, ptr %3, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %5, -1
   br i1 %.not.i, label %6, label %Py_DECREF.exit
@@ -15914,7 +15914,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @_ssl_SSLSession_has_ticket_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !142
+  %.val = load ptr, ptr %3, align 8, !tbaa !143
   %4 = tail call i32 @SSL_SESSION_has_ticket(ptr noundef %.val) #11
   %.not.i = icmp eq i32 %4, 0
   %5 = select i1 %.not.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -15925,10 +15925,10 @@ define internal nonnull ptr @_ssl_SSLSession_has_ticket_get(ptr noundef readonly
 define internal ptr @_ssl_SSLSession_id_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %4, align 8, !tbaa !142
+  %.val = load ptr, ptr %4, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   %5 = call ptr @SSL_SESSION_get_id(ptr noundef %.val, ptr noundef nonnull %3) #11
-  %6 = load i32, ptr %3, align 4, !tbaa !106
+  %6 = load i32, ptr %3, align 4, !tbaa !107
   %7 = zext i32 %6 to i64
   %8 = call ptr @PyBytes_FromStringAndSize(ptr noundef %5, i64 noundef %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
@@ -15938,7 +15938,7 @@ define internal ptr @_ssl_SSLSession_id_get(ptr noundef readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_SSLSession_ticket_lifetime_hint_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !142
+  %.val = load ptr, ptr %3, align 8, !tbaa !143
   %4 = tail call i64 @SSL_SESSION_get_ticket_lifetime_hint(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %4) #11
   ret ptr %5
@@ -15947,7 +15947,7 @@ define internal ptr @_ssl_SSLSession_ticket_lifetime_hint_get(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_SSLSession_time_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !142
+  %.val = load ptr, ptr %3, align 8, !tbaa !143
   %4 = tail call i64 @SSL_SESSION_get_time(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromLong(i64 noundef %4) #11
   ret ptr %5
@@ -15956,7 +15956,7 @@ define internal ptr @_ssl_SSLSession_time_get(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define internal ptr @_ssl_SSLSession_timeout_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !142
+  %.val = load ptr, ptr %3, align 8, !tbaa !143
   %4 = tail call i64 @SSL_SESSION_get_timeout(ptr noundef %.val) #11
   %5 = tail call ptr @PyLong_FromLong(i64 noundef %4) #11
   ret ptr %5
@@ -15981,11 +15981,11 @@ define internal void @certificate_dealloc(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %2, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !157
+  %4 = load ptr, ptr %3, align 8, !tbaa !160
   tail call void @X509_free(ptr noundef %4) #11
   %.val = load ptr, ptr %2, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %6 = load ptr, ptr %5, align 8, !tbaa !99
+  %6 = load ptr, ptr %5, align 8, !tbaa !100
   tail call void %6(ptr noundef %0) #11
   %7 = load i32, ptr %.val6, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %7, -1
@@ -16012,7 +16012,7 @@ define internal ptr @certificate_repr(ptr noundef readonly captures(none) %0) #0
   %.val10 = load ptr, ptr %3, align 8, !tbaa !28
   %4 = tail call ptr @PyType_GetModuleState(ptr noundef %.val10) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !157
+  %6 = load ptr, ptr %5, align 8, !tbaa !160
   %7 = tail call ptr @X509_get_subject_name(ptr noundef %6) #11
   %8 = tail call ptr @BIO_s_mem() #11
   %9 = tail call ptr @BIO_new(ptr noundef %8) #11
@@ -16043,9 +16043,9 @@ define internal ptr @certificate_repr(ptr noundef readonly captures(none) %0) #0
 
 23:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store ptr null, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %2, align 8, !tbaa !54
   %24 = call i64 @BIO_ctrl(ptr noundef nonnull %9, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #11
-  %25 = load ptr, ptr %2, align 8, !tbaa !53
+  %25 = load ptr, ptr %2, align 8, !tbaa !54
   %26 = icmp eq ptr %25, null
   %27 = icmp slt i64 %24, 0
   %or.cond.i.i = select i1 %26, i1 true, i1 %27
@@ -16068,7 +16068,7 @@ _x509name_print.exit:                             ; preds = %23
 33:                                               ; preds = %_x509name_print.exit
   %.val = load ptr, ptr %3, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !104
+  %35 = load ptr, ptr %34, align 8, !tbaa !105
   %36 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.292, ptr noundef %35, ptr noundef nonnull %30) #11
   %37 = load i32, ptr %30, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %37, -1
@@ -16092,16 +16092,16 @@ Py_DECREF.exit:                                   ; preds = %16, %11, %41, %38, 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, -1) i64 @certificate_hash(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !160
+  %3 = load i64, ptr %2, align 8, !tbaa !163
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !157
+  %7 = load ptr, ptr %6, align 8, !tbaa !160
   %8 = tail call i64 @X509_subject_name_hash(ptr noundef %7) #11
   %. = tail call i64 @llvm.umin.i64(i64 %8, i64 -2)
-  store i64 %., ptr %2, align 8, !tbaa !160
+  store i64 %., ptr %2, align 8, !tbaa !163
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -16126,9 +16126,9 @@ define internal nonnull ptr @certificate_richcompare(ptr noundef readonly captur
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !157
+  %12 = load ptr, ptr %11, align 8, !tbaa !160
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !157
+  %14 = load ptr, ptr %13, align 8, !tbaa !160
   %15 = tail call i32 @X509_cmp(ptr noundef %12, ptr noundef %14) #11
   %16 = icmp eq i32 %2, 2
   %17 = icmp eq i32 %15, 0
@@ -16164,7 +16164,7 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
 
 .thread:                                          ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !51
+  %.val = load i64, ptr %8, align 8, !tbaa !52
   br label %12
 
 9:                                                ; preds = %4
@@ -16222,13 +16222,13 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !157
+  %36 = load ptr, ptr %35, align 8, !tbaa !160
   %37 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %28, ptr noundef %36) #11
   br label %45
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !157
+  %40 = load ptr, ptr %39, align 8, !tbaa !160
   %41 = call i32 @PEM_write_bio_X509_AUX(ptr noundef nonnull %28, ptr noundef %40) #11
   br label %45
 
@@ -16245,7 +16245,7 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
 
 .thread.i:                                        ; preds = %33
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !157
+  %47 = load ptr, ptr %46, align 8, !tbaa !160
   %48 = call i32 @i2d_X509_bio(ptr noundef nonnull %28, ptr noundef %47) #11
   %.not27.i = icmp eq i32 %48, 1
   br i1 %.not27.i, label %.thread28.i, label %49
@@ -16268,9 +16268,9 @@ define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures
 
 .thread28.i:                                      ; preds = %56, %.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !tbaa !53
+  store ptr null, ptr %6, align 8, !tbaa !54
   %58 = call i64 @BIO_ctrl(ptr noundef nonnull %28, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %6) #11
-  %59 = load ptr, ptr %6, align 8, !tbaa !53
+  %59 = load ptr, ptr %6, align 8, !tbaa !54
   %60 = icmp eq ptr %59, null
   %61 = icmp slt i64 %58, 0
   %or.cond.i.i = select i1 %60, i1 true, i1 %61
@@ -16292,9 +16292,9 @@ _PySSL_BytesFromBIO.exit.i:                       ; preds = %64, %62
 
 66:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !53
+  store ptr null, ptr %5, align 8, !tbaa !54
   %67 = call i64 @BIO_ctrl(ptr noundef nonnull %28, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %5) #11
-  %68 = load ptr, ptr %5, align 8, !tbaa !53
+  %68 = load ptr, ptr %5, align 8, !tbaa !54
   %69 = icmp eq ptr %68, null
   %70 = icmp slt i64 %67, 0
   %or.cond.i24.i = select i1 %69, i1 true, i1 %70
@@ -16331,7 +16331,7 @@ define internal ptr @_ssl_Certificate_get_info(ptr noundef readonly captures(non
   %.val.i = load ptr, ptr %3, align 8, !tbaa !28
   %4 = tail call ptr @PyType_GetModuleState(ptr noundef %.val.i) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !157
+  %6 = load ptr, ptr %5, align 8, !tbaa !160
   %7 = tail call fastcc ptr @_decode_certificate(ptr noundef %4, ptr noundef %6)
   ret ptr %7
 }
@@ -16353,7 +16353,7 @@ declare ptr @PyErr_NewExceptionWithDoc(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal ptr @SSLError_str(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !164
+  %3 = load ptr, ptr %2, align 8, !tbaa !167
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -16378,7 +16378,7 @@ define internal ptr @SSLError_str(ptr noundef readonly captures(none) %0) #0 {
 
 13:                                               ; preds = %4, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !166
+  %15 = load ptr, ptr %14, align 8, !tbaa !169
   %16 = tail call ptr @PyObject_Str(ptr noundef %15) #11
   br label %_Py_NewRef.exit
 
@@ -16486,122 +16486,125 @@ attributes #13 = { nounwind willreturn memory(none) }
 !45 = !{!"", !6, i64 0, !9, i64 8, !33, i64 16, !33, i64 24, !38, i64 32, !38, i64 36, !34, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !6, i64 72}
 !46 = !{!"p1 long", !6, i64 0}
 !47 = !{!45, !33, i64 16}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!45, !9, i64 8}
-!51 = !{!32, !33, i64 16}
-!52 = distinct !{!52, !49}
-!53 = !{!34, !34, i64 0}
-!54 = distinct !{!54, !49}
-!55 = !{!56, !38, i64 0}
-!56 = !{!"GENERAL_NAME_st", !38, i64 0, !7, i64 8}
-!57 = !{!58, !38, i64 0}
-!58 = !{!"asn1_string_st", !38, i64 0, !38, i64 4, !34, i64 8, !33, i64 16}
-!59 = !{!58, !34, i64 8}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"ACCESS_DESCRIPTION_st", !62, i64 0, !63, i64 8}
-!62 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!63 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
-!64 = !{!61, !63, i64 8}
-!65 = distinct !{!65, !49}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"DIST_POINT_st", !68, i64 0, !69, i64 8, !70, i64 16, !38, i64 24}
-!68 = !{!"p1 _ZTS18DIST_POINT_NAME_st", !6, i64 0}
-!69 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!70 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !6, i64 0}
-!71 = distinct !{!71, !49}
-!72 = distinct !{!72, !49}
-!73 = !{!74, !75, i64 24}
-!74 = !{!"", !29, i64 0, !9, i64 16, !75, i64 24, !6, i64 32, !7, i64 40, !38, i64 44, !9, i64 48, !9, i64 56, !76, i64 64, !9, i64 72}
-!75 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!76 = !{!"", !38, i64 0, !38, i64 4}
-!77 = !{!74, !9, i64 56}
-!78 = !{!4, !9, i64 128}
-!79 = !{!4, !9, i64 120}
-!80 = !{!4, !9, i64 136}
-!81 = !{!4, !9, i64 144}
-!82 = !{!83, !5, i64 0}
-!83 = !{!"", !5, i64 0, !9, i64 8, !9, i64 16}
-!84 = !{!85, !34, i64 0}
-!85 = !{!"py_ssl_error_code", !34, i64 0, !38, i64 8, !38, i64 12}
-!86 = !{!85, !38, i64 8}
-!87 = !{!85, !38, i64 12}
-!88 = distinct !{!88, !49}
-!89 = !{!90, !38, i64 8}
-!90 = !{!"py_ssl_library_code", !34, i64 0, !38, i64 8}
-!91 = !{!90, !34, i64 0}
-!92 = distinct !{!92, !49}
-!93 = !{!31, !6, i64 296}
-!94 = !{!95, !96, i64 16}
-!95 = !{!"", !29, i64 0, !96, i64 16, !34, i64 24, !38, i64 32, !9, i64 40, !38, i64 48, !38, i64 52, !38, i64 56, !38, i64 60, !9, i64 64, !9, i64 72, !97, i64 80, !6, i64 88, !9, i64 96, !9, i64 104}
-!96 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
-!97 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!98 = !{!95, !34, i64 24}
-!99 = !{!31, !6, i64 320}
-!100 = !{!95, !9, i64 40}
-!101 = !{!95, !9, i64 64}
-!102 = !{!95, !97, i64 80}
-!103 = !{!95, !6, i64 88}
-!104 = !{!31, !34, i64 24}
-!105 = !{!95, !38, i64 32}
-!106 = !{!38, !38, i64 0}
-!107 = !{!108, !9, i64 8}
-!108 = !{!"", !109, i64 0, !9, i64 8, !34, i64 16, !38, i64 24, !38, i64 28}
-!109 = !{!"p1 _ZTS3_ts", !6, i64 0}
-!110 = !{!108, !109, i64 0}
-!111 = !{!108, !38, i64 28}
-!112 = !{!108, !34, i64 16}
-!113 = !{!45, !38, i64 36}
-!114 = distinct !{!114, !49}
-!115 = distinct !{!115, !49, !116}
-!116 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!117 = distinct !{!117, !49}
-!118 = !{!119, !120, i64 24}
-!119 = !{!"", !32, i64 0, !120, i64 24, !33, i64 32}
-!120 = !{!"p2 _ZTS7_object", !6, i64 0}
-!121 = distinct !{!121, !49}
-!122 = !{!95, !38, i64 56}
-!123 = !{!95, !9, i64 96}
-!124 = !{!95, !9, i64 104}
-!125 = !{!74, !6, i64 32}
-!126 = !{!74, !7, i64 40}
-!127 = !{!95, !38, i64 52}
-!128 = !{!129, !38, i64 16}
-!129 = !{!"", !29, i64 0, !38, i64 16, !38, i64 20, !38, i64 24, !38, i64 28, !6, i64 32, !33, i64 40, !130, i64 48}
-!130 = !{!"p1 _ZTS13_socket_state", !6, i64 0}
-!131 = !{!132, !97, i64 16}
-!132 = !{!"", !29, i64 0, !97, i64 16, !38, i64 24}
-!133 = !{!95, !38, i64 60}
-!134 = !{!95, !38, i64 48}
-!135 = !{!129, !33, i64 40}
-!136 = !{!74, !38, i64 44}
-!137 = !{!74, !9, i64 16}
-!138 = !{!74, !9, i64 48}
-!139 = !{!140, !6, i64 24}
-!140 = !{!"", !29, i64 0, !141, i64 16, !6, i64 24}
-!141 = !{!"p1 _ZTS14ssl_session_st", !6, i64 0}
-!142 = !{!140, !141, i64 16}
-!143 = !{!144, !34, i64 40}
-!144 = !{!"", !32, i64 0, !33, i64 24, !34, i64 32, !34, i64 40, !33, i64 48}
-!145 = !{!108, !38, i64 24}
-!146 = distinct !{!146, !116}
-!147 = !{!95, !9, i64 72}
-!148 = !{!74, !9, i64 72}
-!149 = !{!31, !6, i64 304}
-!150 = !{!151, !38, i64 0}
-!151 = !{!"pollfd", !38, i64 0, !39, i64 4, !39, i64 6}
-!152 = !{!151, !39, i64 4}
-!153 = distinct !{!153, !49}
-!154 = distinct !{!154, !49}
-!155 = distinct !{!155, !49}
-!156 = distinct !{!156, !49}
-!157 = !{!158, !159, i64 16}
-!158 = !{!"", !29, i64 0, !159, i64 16, !33, i64 24}
-!159 = !{!"p1 _ZTS7x509_st", !6, i64 0}
-!160 = !{!158, !33, i64 24}
-!161 = distinct !{!161, !49}
-!162 = !{!6, !6, i64 0}
-!163 = !{!132, !38, i64 24}
-!164 = !{!165, !9, i64 80}
-!165 = !{!"", !29, i64 0, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !7, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !33, i64 104}
-!166 = !{!165, !9, i64 24}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!45, !9, i64 8}
+!52 = !{!32, !33, i64 16}
+!53 = distinct !{!53, !49, !50}
+!54 = !{!34, !34, i64 0}
+!55 = distinct !{!55, !49, !50}
+!56 = !{!57, !38, i64 0}
+!57 = !{!"GENERAL_NAME_st", !38, i64 0, !7, i64 8}
+!58 = !{!59, !38, i64 0}
+!59 = !{!"asn1_string_st", !38, i64 0, !38, i64 4, !34, i64 8, !33, i64 16}
+!60 = !{!59, !34, i64 8}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"ACCESS_DESCRIPTION_st", !63, i64 0, !64, i64 8}
+!63 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!64 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
+!65 = !{!62, !64, i64 8}
+!66 = distinct !{!66, !49, !50}
+!67 = !{!68, !69, i64 0}
+!68 = !{!"DIST_POINT_st", !69, i64 0, !70, i64 8, !71, i64 16, !38, i64 24}
+!69 = !{!"p1 _ZTS18DIST_POINT_NAME_st", !6, i64 0}
+!70 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!71 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !6, i64 0}
+!72 = distinct !{!72, !49, !50}
+!73 = distinct !{!73, !49, !50}
+!74 = !{!75, !76, i64 24}
+!75 = !{!"", !29, i64 0, !9, i64 16, !76, i64 24, !6, i64 32, !7, i64 40, !38, i64 44, !9, i64 48, !9, i64 56, !77, i64 64, !9, i64 72}
+!76 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!77 = !{!"", !38, i64 0, !38, i64 4}
+!78 = !{!75, !9, i64 56}
+!79 = !{!4, !9, i64 128}
+!80 = !{!4, !9, i64 120}
+!81 = !{!4, !9, i64 136}
+!82 = !{!4, !9, i64 144}
+!83 = !{!84, !5, i64 0}
+!84 = !{!"", !5, i64 0, !9, i64 8, !9, i64 16}
+!85 = !{!86, !34, i64 0}
+!86 = !{!"py_ssl_error_code", !34, i64 0, !38, i64 8, !38, i64 12}
+!87 = !{!86, !38, i64 8}
+!88 = !{!86, !38, i64 12}
+!89 = distinct !{!89, !49, !50}
+!90 = !{!91, !38, i64 8}
+!91 = !{!"py_ssl_library_code", !34, i64 0, !38, i64 8}
+!92 = !{!91, !34, i64 0}
+!93 = distinct !{!93, !49, !50}
+!94 = !{!31, !6, i64 296}
+!95 = !{!96, !97, i64 16}
+!96 = !{!"", !29, i64 0, !97, i64 16, !34, i64 24, !38, i64 32, !9, i64 40, !38, i64 48, !38, i64 52, !38, i64 56, !38, i64 60, !9, i64 64, !9, i64 72, !98, i64 80, !6, i64 88, !9, i64 96, !9, i64 104}
+!97 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!98 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!99 = !{!96, !34, i64 24}
+!100 = !{!31, !6, i64 320}
+!101 = !{!96, !9, i64 40}
+!102 = !{!96, !9, i64 64}
+!103 = !{!96, !98, i64 80}
+!104 = !{!96, !6, i64 88}
+!105 = !{!31, !34, i64 24}
+!106 = !{!96, !38, i64 32}
+!107 = !{!38, !38, i64 0}
+!108 = !{!109, !9, i64 8}
+!109 = !{!"", !110, i64 0, !9, i64 8, !34, i64 16, !38, i64 24, !38, i64 28}
+!110 = !{!"p1 _ZTS3_ts", !6, i64 0}
+!111 = !{!109, !110, i64 0}
+!112 = !{!109, !38, i64 28}
+!113 = !{!109, !34, i64 16}
+!114 = !{!45, !38, i64 36}
+!115 = distinct !{!115, !49, !50}
+!116 = distinct !{!116, !49, !50, !117}
+!117 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!118 = distinct !{!118, !49, !50}
+!119 = !{!120, !121, i64 24}
+!120 = !{!"", !32, i64 0, !121, i64 24, !33, i64 32}
+!121 = !{!"p2 _ZTS7_object", !6, i64 0}
+!122 = distinct !{!122, !49, !50}
+!123 = !{!96, !38, i64 56}
+!124 = !{!96, !9, i64 96}
+!125 = !{!96, !9, i64 104}
+!126 = !{!75, !6, i64 32}
+!127 = !{!75, !7, i64 40}
+!128 = !{!96, !38, i64 52}
+!129 = !{!130, !38, i64 16}
+!130 = !{!"", !29, i64 0, !38, i64 16, !38, i64 20, !38, i64 24, !38, i64 28, !6, i64 32, !33, i64 40, !131, i64 48}
+!131 = !{!"p1 _ZTS13_socket_state", !6, i64 0}
+!132 = !{!133, !98, i64 16}
+!133 = !{!"", !29, i64 0, !98, i64 16, !38, i64 24}
+!134 = !{!96, !38, i64 60}
+!135 = !{!96, !38, i64 48}
+!136 = !{!130, !33, i64 40}
+!137 = !{!75, !38, i64 44}
+!138 = !{!75, !9, i64 16}
+!139 = !{!75, !9, i64 48}
+!140 = !{!141, !6, i64 24}
+!141 = !{!"", !29, i64 0, !142, i64 16, !6, i64 24}
+!142 = !{!"p1 _ZTS14ssl_session_st", !6, i64 0}
+!143 = !{!141, !142, i64 16}
+!144 = !{!145, !34, i64 40}
+!145 = !{!"", !32, i64 0, !33, i64 24, !34, i64 32, !34, i64 40, !33, i64 48}
+!146 = !{!109, !38, i64 24}
+!147 = distinct !{!147, !50, !117}
+!148 = distinct !{!148, !50}
+!149 = !{!96, !9, i64 72}
+!150 = !{!75, !9, i64 72}
+!151 = !{!31, !6, i64 304}
+!152 = !{!153, !38, i64 0}
+!153 = !{!"pollfd", !38, i64 0, !39, i64 4, !39, i64 6}
+!154 = !{!153, !39, i64 4}
+!155 = distinct !{!155, !49, !50}
+!156 = distinct !{!156, !49, !50}
+!157 = distinct !{!157, !49, !50}
+!158 = distinct !{!158, !49, !50}
+!159 = distinct !{!159, !50}
+!160 = !{!161, !162, i64 16}
+!161 = !{!"", !29, i64 0, !162, i64 16, !33, i64 24}
+!162 = !{!"p1 _ZTS7x509_st", !6, i64 0}
+!163 = !{!161, !33, i64 24}
+!164 = distinct !{!164, !49, !50}
+!165 = !{!6, !6, i64 0}
+!166 = !{!133, !38, i64 24}
+!167 = !{!168, !9, i64 80}
+!168 = !{!"", !29, i64 0, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !7, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !33, i64 104}
+!169 = !{!168, !9, i64 24}

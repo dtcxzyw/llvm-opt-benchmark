@@ -248,7 +248,7 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 11:                                               ; preds = %.lr.ph.split.us
   %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
   %.not.us = icmp eq ptr %12, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %24
   %13 = phi ptr [ %25, %24 ], [ %5, %.lr.ph ]
@@ -275,7 +275,7 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 24:                                               ; preds = %.lr.ph.split, %18
   %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %24, %11, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
@@ -307,8 +307,9 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}

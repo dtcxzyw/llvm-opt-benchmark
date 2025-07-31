@@ -210,7 +210,7 @@ define dso_local void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_1
   tail call void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKcPKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(88) %17, i32 noundef %18, ptr noundef %2, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq ptr %19, %16
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %4, %4
   ret void
@@ -231,9 +231,9 @@ define dso_local void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(pt
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %9 = load i32, ptr %8, align 4, !tbaa !28
+  %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = or i32 %9, %1
-  store i32 %10, ptr %8, align 4, !tbaa !28
+  store i32 %10, ptr %8, align 4, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %11, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -249,11 +249,11 @@ define dso_local void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(pt
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.011 = phi ptr [ %20, %.lr.ph ], [ %13, %7 ]
   %18 = load ptr, ptr %.011, align 8, !tbaa !26
-  %19 = load i32, ptr %8, align 4, !tbaa !28
+  %19 = load i32, ptr %8, align 4, !tbaa !30
   tail call void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(ptr noundef nonnull align 8 dereferenceable(88) %18, i32 noundef %19, ptr noundef %2)
   %20 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %.not = icmp eq ptr %20, %17
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
   ret void
@@ -262,7 +262,7 @@ define dso_local void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(pt
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5clang6driver6Action20propagateOffloadInfoEPKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %4 = load i32, ptr %3, align 4, !tbaa !28
+  %4 = load i32, ptr %3, align 4, !tbaa !30
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -301,71 +301,71 @@ define dso_local void @_ZNK5clang6driver6Action23getOffloadingKindPrefixB5cxx11E
 
 ._crit_edge.i.i:                                  ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !29
+  store ptr %7, ptr %0, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.22, i64 11, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 11, ptr %8, align 8, !tbaa !31
+  store i64 11, ptr %8, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  store i8 0, ptr %9, align 1, !tbaa !34
+  store i8 0, ptr %9, align 1, !tbaa !37
   br label %56
 
 ._crit_edge.i.i6:                                 ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !29
+  store ptr %10, ptr %0, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %10, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 13, ptr %11, align 8, !tbaa !31
+  store i64 13, ptr %11, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 0, ptr %12, align 1, !tbaa !34
+  store i8 0, ptr %12, align 1, !tbaa !37
   br label %56
 
 ._crit_edge.i.i8:                                 ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %0, align 8, !tbaa !29
+  store ptr %13, ptr %0, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %13, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 10, ptr %14, align 8, !tbaa !31
+  store i64 10, ptr %14, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 0, ptr %15, align 2, !tbaa !34
+  store i8 0, ptr %15, align 2, !tbaa !37
   br label %56
 
 ._crit_edge.i.i10:                                ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %0, align 8, !tbaa !29
+  store ptr %16, ptr %0, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %16, ptr noundef nonnull align 1 dereferenceable(11) @.str.25, i64 11, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 11, ptr %17, align 8, !tbaa !31
+  store i64 11, ptr %17, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  store i8 0, ptr %18, align 1, !tbaa !34
+  store i8 0, ptr %18, align 1, !tbaa !37
   br label %56
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %21 = load i32, ptr %20, align 4, !tbaa !28
+  %21 = load i32, ptr %20, align 4, !tbaa !30
   %.not = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %22, ptr %0, align 8, !tbaa !29
+  store ptr %22, ptr %0, align 8, !tbaa !32
   br i1 %.not, label %23, label %._crit_edge.i.i12
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !31
-  store i8 0, ptr %22, align 8, !tbaa !34
+  store i64 0, ptr %24, align 8, !tbaa !34
+  store i8 0, ptr %22, align 8, !tbaa !37
   br label %56
 
 ._crit_edge.i.i12:                                ; preds = %19
   store i32 1953722216, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %25, align 8, !tbaa !31
+  store i64 4, ptr %25, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %26, align 4, !tbaa !34
+  store i8 0, ptr %26, align 4, !tbaa !37
   %27 = and i32 %21, 2
   %.not2 = icmp eq i32 %27, 0
   br i1 %.not2, label %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._crit_edge.i.i12
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, i64 noundef 5) #20
-  %.pre = load i32, ptr %20, align 4, !tbaa !28
+  %.pre = load i32, ptr %20, align 4, !tbaa !30
   br label %29
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %._crit_edge.i.i12
@@ -375,7 +375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._c
   br i1 %.not3, label %38, label %32
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr %25, align 8, !tbaa !31
+  %33 = load i64, ptr %25, align 8, !tbaa !34
   %34 = and i64 %33, -4
   %35 = icmp eq i64 %34, 4611686018427387900
   br i1 %35, label %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14
@@ -386,7 +386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._c
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %32
   %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.28, i64 noundef 4) #20
-  %.pre21 = load i32, ptr %20, align 4, !tbaa !28
+  %.pre21 = load i32, ptr %20, align 4, !tbaa !30
   br label %38
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14, %29
@@ -396,7 +396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %3
   br i1 %.not4, label %47, label %41
 
 41:                                               ; preds = %38
-  %42 = load i64, ptr %25, align 8, !tbaa !31
+  %42 = load i64, ptr %25, align 8, !tbaa !34
   %43 = add i64 %42, -4611686018427387897
   %44 = icmp ult i64 %43, 7
   br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15
@@ -407,7 +407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %41
   %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.29, i64 noundef 7) #20
-  %.pre22 = load i32, ptr %20, align 4, !tbaa !28
+  %.pre22 = load i32, ptr %20, align 4, !tbaa !30
   br label %47
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15, %38
@@ -417,7 +417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %4
   br i1 %.not5, label %56, label %50
 
 50:                                               ; preds = %47
-  %51 = load i64, ptr %25, align 8, !tbaa !31
+  %51 = load i64, ptr %25, align 8, !tbaa !34
   %52 = add i64 %51, -4611686018427387899
   %53 = icmp ult i64 %52, 5
   br i1 %53, label %54, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit16
@@ -439,21 +439,21 @@ define dso_local void @_ZN5clang6driver6Action27GetOffloadingFileNamePrefixB5cxx
   %or.cond = icmp ugt i32 %1, 1
   %or.cond9.not = or i1 %or.cond, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !29
+  store ptr %6, ptr %0, align 8, !tbaa !32
   br i1 %or.cond9.not, label %._crit_edge.i.i, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !31
-  store i8 0, ptr %6, align 8, !tbaa !34
+  store i64 0, ptr %8, align 8, !tbaa !34
+  store i8 0, ptr %6, align 8, !tbaa !37
   br label %26
 
 ._crit_edge.i.i:                                  ; preds = %5
-  store i8 45, ptr %6, align 8, !tbaa !34
+  store i8 45, ptr %6, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %9, align 8, !tbaa !31
+  store i64 1, ptr %9, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %10, align 1, !tbaa !34
+  store i8 0, ptr %10, align 1, !tbaa !37
   switch i32 %1, label %15 [
     i32 0, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
     i32 1, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
@@ -482,7 +482,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   %.sroa.6.0.i = phi i64 [ 4, %11 ], [ 6, %12 ], [ 3, %13 ], [ 4, %14 ], [ 4, %._crit_edge.i.i ], [ 4, %._crit_edge.i.i ]
   %.sroa.0.0.i = phi ptr [ @.str.32, %11 ], [ @.str.33, %12 ], [ @.str.34, %13 ], [ @.str.35, %14 ], [ @.str.26, %._crit_edge.i.i ], [ @.str.26, %._crit_edge.i.i ]
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.0.0.i, i64 noundef %.sroa.6.0.i) #20
-  %17 = load i64, ptr %9, align 8, !tbaa !31
+  %17 = load i64, ptr %9, align 8, !tbaa !34
   %18 = icmp eq i64 %17, 4611686018427387903
   br i1 %18, label %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
@@ -492,7 +492,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
   %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.31, i64 noundef 1) #20
-  %21 = load i64, ptr %9, align 8, !tbaa !31
+  %21 = load i64, ptr %9, align 8, !tbaa !34
   %22 = sub i64 4611686018427387903, %21
   %23 = icmp ult i64 %22, %3
   br i1 %23, label %24, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit10
@@ -557,49 +557,49 @@ define dso_local void @_ZN5clang6driver11InputActionC2ERKN4llvm3opt3ArgENS0_5typ
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %8, align 4, !tbaa !35
+  store i32 %2, ptr %8, align 4, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %11, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %12, align 4, !tbaa !36
+  store i32 3, ptr %12, align 4, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %13, align 8, !tbaa !37
+  store i8 1, ptr %13, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %14, align 4, !tbaa !28
+  store i32 0, ptr %14, align 4, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %1, ptr %17, align 8, !tbaa !40
+  store ptr %1, ptr %17, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %.not.i = icmp eq ptr %3, null
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %19, ptr %18, align 8, !tbaa !29, !alias.scope !42
+  store ptr %19, ptr %18, align 8, !tbaa !32, !alias.scope !45
   br i1 %.not.i, label %20, label %22
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 0, ptr %21, align 8, !tbaa !31, !alias.scope !42
-  store i8 0, ptr %19, align 8, !tbaa !34, !alias.scope !42
+  store i64 0, ptr %21, align 8, !tbaa !34, !alias.scope !45
+  store i8 0, ptr %19, align 8, !tbaa !37, !alias.scope !45
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20, !noalias !42
-  store i64 %4, ptr %6, align 8, !tbaa !45, !noalias !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20, !noalias !45
+  store i64 %4, ptr %6, align 8, !tbaa !48, !noalias !45
   %23 = icmp ugt i64 %4, 15
   br i1 %23, label %24, label %._crit_edge.i.i.i
 
 24:                                               ; preds = %22
   %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #20
-  store ptr %25, ptr %18, align 8, !tbaa !46, !alias.scope !42
-  %26 = load i64, ptr %6, align 8, !tbaa !45, !noalias !42
-  store i64 %26, ptr %19, align 8, !tbaa !34, !alias.scope !42
+  store ptr %25, ptr %18, align 8, !tbaa !49, !alias.scope !45
+  %26 = load i64, ptr %6, align 8, !tbaa !48, !noalias !45
+  store i64 %26, ptr %19, align 8, !tbaa !37, !alias.scope !45
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %24, %22
@@ -610,8 +610,8 @@ define dso_local void @_ZN5clang6driver11InputActionC2ERKN4llvm3opt3ArgENS0_5typ
   ]
 
 28:                                               ; preds = %._crit_edge.i.i.i
-  %29 = load i8, ptr %3, align 1, !tbaa !34
-  store i8 %29, ptr %27, align 1, !tbaa !34
+  %29 = load i8, ptr %3, align 1, !tbaa !37
+  store i8 %29, ptr %27, align 1, !tbaa !37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 30:                                               ; preds = %._crit_edge.i.i.i
@@ -619,13 +619,13 @@ define dso_local void @_ZN5clang6driver11InputActionC2ERKN4llvm3opt3ArgENS0_5typ
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; preds = %30, %28, %._crit_edge.i.i.i
-  %31 = load i64, ptr %6, align 8, !tbaa !45, !noalias !42
+  %31 = load i64, ptr %6, align 8, !tbaa !48, !noalias !45
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %31, ptr %32, align 8, !tbaa !31, !alias.scope !42
-  %33 = load ptr, ptr %18, align 8, !tbaa !46, !alias.scope !42
+  store i64 %31, ptr %32, align 8, !tbaa !34, !alias.scope !45
+  %33 = load ptr, ptr %18, align 8, !tbaa !49, !alias.scope !45
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
-  store i8 0, ptr %34, align 1, !tbaa !34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20, !noalias !42
+  store i8 0, ptr %34, align 1, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20, !noalias !45
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
@@ -640,33 +640,33 @@ define dso_local void @_ZN5clang6driver14BindArchAction6anchorEv(ptr nonnull rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang6driver14BindArchActionC2EPNS0_6ActionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 16)) %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !35
+  %6 = load i32, ptr %5, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %6, ptr %8, align 4, !tbaa !35
+  store i32 %6, ptr %8, align 4, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %12, align 4, !tbaa !36
+  store i32 3, ptr %12, align 4, !tbaa !39
   %13 = ptrtoint ptr %1 to i64
   store i64 %13, ptr %10, align 8
   store i32 1, ptr %11, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %14, align 8, !tbaa !37
+  store i8 1, ptr %14, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %15, align 4, !tbaa !28
+  store i32 0, ptr %15, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver14BindArchActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver14BindArchActionE, i64 16), ptr %0, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %2, ptr %18, align 8, !tbaa !47
+  store ptr %2, ptr %18, align 8, !tbaa !50
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !45
+  store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   ret void
 }
 
@@ -677,66 +677,66 @@ define dso_local void @_ZN5clang6driver13OffloadAction6anchorEv(ptr nonnull read
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_14HostDependenceE(ptr noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !48
+  %3 = load ptr, ptr %1, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !35
+  %5 = load i32, ptr %4, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %5, ptr %7, align 4, !tbaa !35
+  store i32 %5, ptr %7, align 4, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %11, align 4, !tbaa !36
+  store i32 3, ptr %11, align 4, !tbaa !39
   %12 = ptrtoint ptr %3 to i64
   store i64 %12, ptr %9, align 8
   store i32 1, ptr %10, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %13, align 8, !tbaa !37
+  store i8 1, ptr %13, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !50
-  store ptr %19, ptr %17, align 8, !tbaa !51
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
+  store ptr %19, ptr %17, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %21, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 3, ptr %23, align 4, !tbaa !36
+  store i32 3, ptr %23, align 4, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !58
+  %25 = load ptr, ptr %24, align 8, !tbaa !61
   store ptr %25, ptr %16, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load i32, ptr %26, align 8, !tbaa !59
-  store i32 %27, ptr %14, align 4, !tbaa !28
-  %28 = load ptr, ptr %1, align 8, !tbaa !48
+  %27 = load i32, ptr %26, align 8, !tbaa !62
+  store i32 %27, ptr %14, align 4, !tbaa !30
+  %28 = load ptr, ptr %1, align 8, !tbaa !51
   tail call void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(ptr noundef nonnull align 8 dereferenceable(88) %28, i32 noundef %27, ptr noundef %25)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_17DeviceDependencesENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i = icmp eq i32 %11, 0
@@ -774,16 +774,16 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i: ; preds
 
 _ZN5clang6driver6ActionC2ENS1_11ActionClassERKN4llvm11SmallVectorIPS1_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr null, ptr %24, align 8, !tbaa !51
+  store ptr null, ptr %24, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -791,7 +791,7 @@ _ZN5clang6driver6ActionC2ENS1_11ActionClassERKN4llvm11SmallVectorIPS1_Lj3EEENS0_
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %28, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 3, ptr %29, align 4, !tbaa !36
+  store i32 3, ptr %29, align 4, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !25
   %.not.i.i = icmp eq i32 %31, 0
@@ -846,8 +846,8 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %
 .lr.ph.i.i.i.i.i:                                 ; preds = %51, %.lr.ph.i.i.i.i.preheader.i
   %.011.i.i.i.i.i = phi ptr [ %53, %51 ], [ %42, %.lr.ph.i.i.i.i.preheader.i ]
   %.0810.i.i.i.i.i = phi ptr [ %52, %51 ], [ %47, %.lr.ph.i.i.i.i.preheader.i ]
-  %48 = load i32, ptr %.0810.i.i.i.i.i, align 4, !tbaa !60
-  %49 = load i32, ptr %.011.i.i.i.i.i, align 4, !tbaa !60
+  %48 = load i32, ptr %.0810.i.i.i.i.i, align 4, !tbaa !63
+  %49 = load i32, ptr %.011.i.i.i.i.i, align 4, !tbaa !63
   %50 = icmp eq i32 %48, %49
   br i1 %50, label %51, label %_ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEEEbOT_.exit
 
@@ -855,10 +855,10 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %
   %52 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %52, %46
-  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !64
 
 .loopexit:                                        ; preds = %51, %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit
-  %54 = load i32, ptr %42, align 4, !tbaa !60
+  %54 = load i32, ptr %42, align 4, !tbaa !63
   store i32 %54, ptr %22, align 8, !tbaa !21
   br label %_ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEEEbOT_.exit
 
@@ -868,7 +868,7 @@ _ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEE
 
 56:                                               ; preds = %_ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEEEbOT_.exit
   %57 = load ptr, ptr %41, align 8, !tbaa !24
-  %58 = load ptr, ptr %57, align 8, !tbaa !47
+  %58 = load ptr, ptr %57, align 8, !tbaa !50
   store ptr %58, ptr %23, align 8, !tbaa !22
   br label %59
 
@@ -891,50 +891,50 @@ _ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEE
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = load ptr, ptr %40, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
-  %67 = load i32, ptr %66, align 4, !tbaa !60
+  %67 = load i32, ptr %66, align 4, !tbaa !63
   %68 = load ptr, ptr %41, align 8, !tbaa !24
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
-  %70 = load ptr, ptr %69, align 8, !tbaa !47
+  %70 = load ptr, ptr %69, align 8, !tbaa !50
   %71 = load ptr, ptr %26, align 8, !tbaa !24
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
-  %73 = load ptr, ptr %72, align 8, !tbaa !63
+  %73 = load ptr, ptr %72, align 8, !tbaa !66
   tail call void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKcPKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(88) %64, i32 noundef %67, ptr noundef %70, ptr noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %61
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_14HostDependenceERKNS1_17DeviceDependencesE(ptr noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %2) unnamed_addr #0 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !48
+  %4 = load ptr, ptr %1, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !35
+  %6 = load i32, ptr %5, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %6, ptr %8, align 4, !tbaa !35
+  store i32 %6, ptr %8, align 4, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %12, align 4, !tbaa !36
+  store i32 3, ptr %12, align 4, !tbaa !39
   %13 = ptrtoint ptr %4 to i64
   store i64 %13, ptr %10, align 8
   store i32 1, ptr %11, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %14, align 8, !tbaa !37
+  store i8 1, ptr %14, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %15, align 4, !tbaa !28
+  store i32 0, ptr %15, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13OffloadActionE, i64 16), ptr %0, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !50
-  store ptr %20, ptr %18, align 8, !tbaa !51
+  %20 = load ptr, ptr %19, align 8, !tbaa !53
+  store ptr %20, ptr %18, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -942,7 +942,7 @@ define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_14HostDependenceE
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 3, ptr %25, align 4, !tbaa !36
+  store i32 3, ptr %25, align 4, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i32, ptr %26, align 8, !tbaa !25
   %.not.i.i = icmp eq i32 %27, 0
@@ -980,12 +980,12 @@ _ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.thread.i: ; pre
 
 _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %3, %.sink.split.i.i
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !58
+  %37 = load ptr, ptr %36, align 8, !tbaa !61
   store ptr %37, ptr %17, align 8, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !59
-  store i32 %39, ptr %15, align 4, !tbaa !28
-  %40 = load ptr, ptr %1, align 8, !tbaa !48
+  %39 = load i32, ptr %38, align 8, !tbaa !62
+  store i32 %39, ptr %15, align 4, !tbaa !30
+  %40 = load ptr, ptr %1, align 8, !tbaa !51
   tail call void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(ptr noundef nonnull align 8 dereferenceable(88) %40, i32 noundef %39, ptr noundef %37)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !25
@@ -1012,9 +1012,9 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %
 
 51:                                               ; preds = %47
   %52 = load i32, ptr %11, align 8, !tbaa !25
-  %53 = load i32, ptr %12, align 4, !tbaa !36
+  %53 = load i32, ptr %12, align 4, !tbaa !39
   %.not.i.i.not.i = icmp ult i32 %52, %53
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %54, !prof !65
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %54, !prof !68
 
 54:                                               ; preds = %51
   %55 = zext i32 %52 to i64
@@ -1035,13 +1035,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   store i32 %63, ptr %11, align 8, !tbaa !25
   %64 = load ptr, ptr %43, align 8, !tbaa !24
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4, !tbaa !60
+  %66 = load i32, ptr %65, align 4, !tbaa !63
   %67 = load ptr, ptr %44, align 8, !tbaa !24
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
-  %69 = load ptr, ptr %68, align 8, !tbaa !47
+  %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = load ptr, ptr %22, align 8, !tbaa !24
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
-  %72 = load ptr, ptr %71, align 8, !tbaa !63
+  %72 = load ptr, ptr %71, align 8, !tbaa !66
   tail call void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKcPKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(88) %50, i32 noundef %66, ptr noundef %69, ptr noundef %72)
   %73 = load i32, ptr %41, align 8, !tbaa !25
   %74 = icmp eq i32 %73, 1
@@ -1050,20 +1050,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
 75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
   %76 = load ptr, ptr %22, align 8, !tbaa !24
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8, !tbaa !63
+  %78 = load ptr, ptr %77, align 8, !tbaa !66
   store ptr %78, ptr %45, align 8, !tbaa !23
   br label %79
 
 79:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, %75, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %46
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
 
@@ -1073,9 +1073,9 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !22
-  %11 = load ptr, ptr %1, align 8, !tbaa !67
+  %11 = load ptr, ptr %1, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !69
+  %13 = load i64, ptr %12, align 8, !tbaa !72
   tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #20
   br label %14
 
@@ -1097,7 +1097,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenc
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %.not = icmp eq ptr %12, null
   %spec.select.idx = select i1 %.not, i64 0, i64 8
   %.not1516 = icmp samesign eq i64 %spec.select.idx, %.idx
@@ -1114,16 +1114,16 @@ define dso_local void @_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenc
   %.018 = phi ptr [ %14, %.lr.ph ], [ %24, %16 ]
   %.117 = phi ptr [ %spec.select, %.lr.ph ], [ %23, %16 ]
   %17 = load ptr, ptr %.117, align 8, !tbaa !26
-  %18 = load ptr, ptr %.018, align 8, !tbaa !63
+  %18 = load ptr, ptr %.018, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  %21 = load ptr, ptr %1, align 8, !tbaa !67
-  %22 = load i64, ptr %15, align 8, !tbaa !69
+  %21 = load ptr, ptr %1, align 8, !tbaa !70
+  %22 = load i64, ptr %15, align 8, !tbaa !72
   tail call void %21(i64 noundef %22, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %20) #20
   %23 = getelementptr inbounds nuw i8, ptr %.117, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not15 = icmp eq ptr %23, %8
-  br i1 %.not15, label %.loopexit, label %16, !llvm.loop !70
+  br i1 %.not15, label %.loopexit, label %16, !llvm.loop !73
 
 .loopexit:                                        ; preds = %16, %10, %2
   ret void
@@ -1132,7 +1132,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %5
 
@@ -1142,9 +1142,9 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceERKN4
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !22
-  %11 = load ptr, ptr %1, align 8, !tbaa !67
+  %11 = load ptr, ptr %1, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !69
+  %13 = load i64, ptr %12, align 8, !tbaa !72
   tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #20
   br label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit
 
@@ -1160,7 +1160,7 @@ _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPN
   br i1 %20, label %_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %21
 
 21:                                               ; preds = %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit
-  %22 = load ptr, ptr %3, align 8, !tbaa !51
+  %22 = load ptr, ptr %3, align 8, !tbaa !54
   %.not.i3 = icmp eq ptr %22, null
   %spec.select.idx.i = select i1 %.not.i3, i64 0, i64 8
   %.not1516.i = icmp samesign eq i64 %spec.select.idx.i, %.idx.i
@@ -1177,16 +1177,16 @@ _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPN
   %.018.i = phi ptr [ %24, %.lr.ph.i ], [ %34, %26 ]
   %.117.i = phi ptr [ %spec.select.i, %.lr.ph.i ], [ %33, %26 ]
   %27 = load ptr, ptr %.117.i, align 8, !tbaa !26
-  %28 = load ptr, ptr %.018.i, align 8, !tbaa !63
+  %28 = load ptr, ptr %.018.i, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !22
-  %31 = load ptr, ptr %1, align 8, !tbaa !67
-  %32 = load i64, ptr %25, align 8, !tbaa !69
+  %31 = load ptr, ptr %1, align 8, !tbaa !70
+  %32 = load i64, ptr %25, align 8, !tbaa !72
   tail call void %31(i64 noundef %32, ptr noundef nonnull %27, ptr noundef %28, ptr noundef %30) #20
   %33 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %.not15.i = icmp eq ptr %33, %19
-  br i1 %.not15.i, label %_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %26, !llvm.loop !70
+  br i1 %.not15.i, label %_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %26, !llvm.loop !73
 
 _ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit: ; preds = %26, %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, %21
   ret void
@@ -1198,7 +1198,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %7
 
@@ -1208,9 +1208,9 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = load ptr, ptr %2, align 8, !tbaa !67
+  %13 = load ptr, ptr %2, align 8, !tbaa !70
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !69
+  %15 = load i64, ptr %14, align 8, !tbaa !72
   tail call void %13(i64 noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %12) #20
   br label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit
 
@@ -1227,7 +1227,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %26 = load ptr, ptr %25, align 8, !tbaa !51
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
   %.not.i3 = icmp eq ptr %26, null
   %spec.select.idx.i = select i1 %.not.i3, i64 0, i64 8
   %.not1516.i = icmp samesign eq i64 %spec.select.idx.i, %.idx.i
@@ -1244,16 +1244,16 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
   %.018.i = phi ptr [ %28, %.lr.ph.i ], [ %38, %30 ]
   %.117.i = phi ptr [ %spec.select.i, %.lr.ph.i ], [ %37, %30 ]
   %31 = load ptr, ptr %.117.i, align 8, !tbaa !26
-  %32 = load ptr, ptr %.018.i, align 8, !tbaa !63
+  %32 = load ptr, ptr %.018.i, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !22
-  %35 = load ptr, ptr %2, align 8, !tbaa !67
-  %36 = load i64, ptr %29, align 8, !tbaa !69
+  %35 = load ptr, ptr %2, align 8, !tbaa !70
+  %36 = load i64, ptr %29, align 8, !tbaa !72
   tail call void %35(i64 noundef %36, ptr noundef nonnull %31, ptr noundef %32, ptr noundef %34) #20
   %37 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %.not15.i = icmp eq ptr %37, %22
-  br i1 %.not15.i, label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %30, !llvm.loop !70
+  br i1 %.not15.i, label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit, label %30, !llvm.loop !73
 
 _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit: ; preds = %30, %24, %16, %7, %4
   ret void
@@ -1262,7 +1262,7 @@ _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction17hasHostDependenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = icmp ne ptr %3, null
   ret i1 %4
 }
@@ -1270,7 +1270,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction17hasHostDe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang6driver13OffloadAction17getHostDependenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
@@ -1294,7 +1294,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction25hasSingle
   %5 = load i32, ptr %4, align 8, !tbaa !25
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %.not2 = icmp eq ptr %8, null
   %9 = select i1 %.not2, i64 1, i64 2
   %10 = icmp eq i64 %9, %6
@@ -1302,7 +1302,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction25hasSingle
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %18
 
@@ -1320,7 +1320,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction25hasSingle
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang6driver13OffloadAction25getSingleDeviceDependenceEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %.not = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1335,9 +1335,9 @@ define dso_local void @_ZN5clang6driver13OffloadAction17DeviceDependences3addERN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !36
+  %9 = load i32, ptr %8, align 4, !tbaa !39
   %.not.i.i.not.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %10, !prof !65
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %10, !prof !68
 
 10:                                               ; preds = %5
   %11 = zext i32 %7 to i64
@@ -1361,9 +1361,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %25 = load i32, ptr %24, align 4, !tbaa !36
+  %25 = load i32, ptr %24, align 4, !tbaa !39
   %.not.i.i.not.i4 = icmp ult i32 %23, %25
-  br i1 %.not.i.i.not.i4, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit, label %26, !prof !65
+  br i1 %.not.i.i.not.i4, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit, label %26, !prof !68
 
 26:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
   %27 = zext i32 %23 to i64
@@ -1387,9 +1387,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load i32, ptr %38, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %41 = load i32, ptr %40, align 4, !tbaa !36
+  %41 = load i32, ptr %40, align 4, !tbaa !39
   %.not.i.i.not.i6 = icmp ult i32 %39, %41
-  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, label %42, !prof !65
+  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, label %42, !prof !68
 
 42:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit
   %43 = zext i32 %39 to i64
@@ -1413,9 +1413,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = load i32, ptr %54, align 8, !tbaa !25
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %57 = load i32, ptr %56, align 4, !tbaa !36
+  %57 = load i32, ptr %56, align 4, !tbaa !39
   %.not.i.i.not.i8 = icmp ult i32 %55, %57
-  br i1 %.not.i.i.not.i8, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit, label %58, !prof !65
+  br i1 %.not.i.i.not.i8, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit, label %58, !prof !68
 
 58:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit
   %59 = zext i32 %55 to i64
@@ -1443,9 +1443,9 @@ define dso_local void @_ZN5clang6driver13OffloadAction17DeviceDependences3addERN
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !36
+  %10 = load i32, ptr %9, align 4, !tbaa !39
   %.not.i.i.not.i = icmp ult i32 %8, %10
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %11, !prof !65
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit, label %11, !prof !68
 
 11:                                               ; preds = %5
   %12 = zext i32 %8 to i64
@@ -1469,9 +1469,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %26 = load i32, ptr %25, align 4, !tbaa !36
+  %26 = load i32, ptr %25, align 4, !tbaa !39
   %.not.i.i.not.i13 = icmp ult i32 %24, %26
-  br i1 %.not.i.i.not.i13, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit, label %27, !prof !65
+  br i1 %.not.i.i.not.i13, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit, label %27, !prof !68
 
 27:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
   %28 = zext i32 %24 to i64
@@ -1495,9 +1495,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i32, ptr %39, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %42 = load i32, ptr %41, align 4, !tbaa !36
+  %42 = load i32, ptr %41, align 4, !tbaa !39
   %.not.i.i.not.i15 = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i15, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, label %43, !prof !65
+  br i1 %.not.i.i.not.i15, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, label %43, !prof !68
 
 43:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit
   %44 = zext i32 %40 to i64
@@ -1518,13 +1518,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
   %53 = add i32 %52, 1
   store i32 %53, ptr %39, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
-  store i32 4, ptr %6, align 4, !tbaa !60
+  store i32 4, ptr %6, align 4, !tbaa !63
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 2, ptr %54, align 4, !tbaa !60
+  store i32 2, ptr %54, align 4, !tbaa !63
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 8, ptr %55, align 4, !tbaa !60
+  store i32 8, ptr %55, align 4, !tbaa !63
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 16, ptr %56, align 4, !tbaa !60
+  store i32 16, ptr %56, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -1538,16 +1538,16 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
 62:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %77
   %.0.idx20 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.0.add, %77 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx20
-  %63 = load i32, ptr %.0.ptr, align 4, !tbaa !60
+  %63 = load i32, ptr %.0.ptr, align 4, !tbaa !63
   %64 = and i32 %63, %4
   %.not12 = icmp eq i32 %64, 0
   br i1 %.not12, label %77, label %65
 
 65:                                               ; preds = %62
   %66 = load i32, ptr %58, align 8, !tbaa !25
-  %67 = load i32, ptr %59, align 4, !tbaa !36
+  %67 = load i32, ptr %59, align 4, !tbaa !39
   %.not.i.i.not.i17 = icmp ult i32 %66, %67
-  br i1 %.not.i.i.not.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit, label %68, !prof !65
+  br i1 %.not.i.i.not.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit, label %68, !prof !68
 
 68:                                               ; preds = %65
   %69 = zext i32 %66 to i64
@@ -1570,18 +1570,18 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_
 77:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit, %62
   %.0.add = add nuw nsw i64 %.0.idx20, 4
   %.not = icmp eq i64 %.0.add, 16
-  br i1 %.not, label %61, label %62
+  br i1 %.not, label %61, label %62, !llvm.loop !74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6ActionERKNS0_9ToolChainEPKcRKNS1_17DeviceDependencesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %4) unnamed_addr #9 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %6, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %7, align 8, !tbaa !58
+  store ptr %3, ptr %7, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %8, align 8, !tbaa !59
+  store i32 0, ptr %8, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -1593,7 +1593,7 @@ define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6A
   br i1 %.not11, label %15, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %18, ptr %8, align 8, !tbaa !59
+  store i32 %18, ptr %8, align 8, !tbaa !62
   br label %15
 
 15:                                               ; preds = %._crit_edge, %5
@@ -1602,11 +1602,11 @@ define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6A
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.012 = phi ptr [ %19, %.lr.ph ], [ %10, %5 ]
   %16 = phi i32 [ %18, %.lr.ph ], [ 0, %5 ]
-  %17 = load i32, ptr %.012, align 4, !tbaa !60
+  %17 = load i32, ptr %.012, align 4, !tbaa !63
   %18 = or i32 %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %.012, i64 4
   %.not = icmp eq ptr %19, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1619,42 +1619,42 @@ define dso_local void @_ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassEPS2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %6, align 4, !tbaa !35
+  store i32 %3, ptr %6, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !36
+  store i32 3, ptr %10, align 4, !tbaa !39
   %11 = ptrtoint ptr %2 to i64
   store i64 %11, ptr %8, align 8
   store i32 1, ptr %9, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %12, align 8, !tbaa !37
+  store i8 1, ptr %12, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %13, align 4, !tbaa !28
+  store i32 0, ptr %13, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver9JobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver9JobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %2, i32 noundef %3) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %6, align 4, !tbaa !35
+  store i32 %3, ptr %6, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !36
+  store i32 3, ptr %10, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !25
   %.not.i.i.i = icmp eq i32 %12, 0
@@ -1692,14 +1692,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i: ; preds
 
 _ZN5clang6driver6ActionC2ENS1_11ActionClassERKN4llvm11SmallVectorIPS1_Lj3EEENS0_5types2IDE.exit: ; preds = %4, %.sink.split.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %21, align 8, !tbaa !37
+  store i8 1, ptr %21, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %22, align 4, !tbaa !28
+  store i32 0, ptr %22, align 4, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %23, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver9JobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver9JobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1713,25 +1713,25 @@ define dso_local void @_ZN5clang6driver19PreprocessJobActionC2EPNS0_6ActionENS0_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PreprocessJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PreprocessJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1745,25 +1745,25 @@ define dso_local void @_ZN5clang6driver19PrecompileJobActionC2EPNS0_6ActionENS0_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PrecompileJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PrecompileJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1772,25 +1772,25 @@ define dso_local void @_ZN5clang6driver19PrecompileJobActionC2ENS0_6Action11Acti
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %6, align 4, !tbaa !35
+  store i32 %3, ptr %6, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !36
+  store i32 3, ptr %10, align 4, !tbaa !39
   %11 = ptrtoint ptr %2 to i64
   store i64 %11, ptr %8, align 8
   store i32 1, ptr %9, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %12, align 8, !tbaa !37
+  store i8 1, ptr %12, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %13, align 4, !tbaa !28
+  store i32 0, ptr %13, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PrecompileJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19PrecompileJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1804,25 +1804,25 @@ define dso_local void @_ZN5clang6driver19ExtractAPIJobActionC2EPNS0_6ActionENS0_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19ExtractAPIJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver19ExtractAPIJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1836,25 +1836,25 @@ define dso_local void @_ZN5clang6driver16AnalyzeJobActionC2EPNS0_6ActionENS0_5ty
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 6, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16AnalyzeJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16AnalyzeJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1868,25 +1868,25 @@ define dso_local void @_ZN5clang6driver16CompileJobActionC2EPNS0_6ActionENS0_5ty
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 7, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16CompileJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16CompileJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1900,25 +1900,25 @@ define dso_local void @_ZN5clang6driver16BackendJobActionC2EPNS0_6ActionENS0_5ty
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 8, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16BackendJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver16BackendJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1932,25 +1932,25 @@ define dso_local void @_ZN5clang6driver17AssembleJobActionC2EPNS0_6ActionENS0_5t
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 9, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17AssembleJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17AssembleJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -1961,18 +1961,18 @@ define dso_local void @_ZN5clang6driver17IfsMergeJobAction6anchorEv(ptr nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver17IfsMergeJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 11, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2010,14 +2010,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17IfsMergeJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17IfsMergeJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2028,18 +2028,18 @@ define dso_local void @_ZN5clang6driver13LinkJobAction6anchorEv(ptr nonnull read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver13LinkJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 10, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2077,14 +2077,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13LinkJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13LinkJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2095,18 +2095,18 @@ define dso_local void @_ZN5clang6driver13LipoJobAction6anchorEv(ptr nonnull read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver13LipoJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 12, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2144,14 +2144,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13LipoJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver13LipoJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2162,18 +2162,18 @@ define dso_local void @_ZN5clang6driver17DsymutilJobAction6anchorEv(ptr nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver17DsymutilJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 13, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2211,14 +2211,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17DsymutilJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver17DsymutilJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2232,25 +2232,25 @@ define dso_local void @_ZN5clang6driver15VerifyJobActionC2ENS0_6Action11ActionCl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %6, align 4, !tbaa !35
+  store i32 %3, ptr %6, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !36
+  store i32 3, ptr %10, align 4, !tbaa !39
   %11 = ptrtoint ptr %2 to i64
   store i64 %11, ptr %8, align 8
   store i32 1, ptr %9, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %12, align 8, !tbaa !37
+  store i8 1, ptr %12, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %13, align 4, !tbaa !28
+  store i32 0, ptr %13, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver15VerifyJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver15VerifyJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2264,25 +2264,25 @@ define dso_local void @_ZN5clang6driver24VerifyDebugInfoJobActionC2EPNS0_6Action
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 14, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24VerifyDebugInfoJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24VerifyDebugInfoJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2296,25 +2296,25 @@ define dso_local void @_ZN5clang6driver18VerifyPCHJobActionC2EPNS0_6ActionENS0_5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 15, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver18VerifyPCHJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver18VerifyPCHJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2333,19 +2333,19 @@ define dso_local void @_ZN5clang6driver24OffloadBundlingJobActionC2ERN4llvm11Sma
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !35
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  %11 = load i32, ptr %10, align 4, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 16, ptr %12, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %11, ptr %13, align 4, !tbaa !35
+  store i32 %11, ptr %13, align 4, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %16, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %17, align 4, !tbaa !36
+  store i32 3, ptr %17, align 4, !tbaa !39
   %18 = load i32, ptr %4, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %18, 0
   %19 = icmp eq ptr %14, %1
@@ -2382,14 +2382,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %2, %.sink.split.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %27, align 8, !tbaa !37
+  store i8 1, ptr %27, align 8, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %28, align 4, !tbaa !28
+  store i32 0, ptr %28, align 4, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %29, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24OffloadBundlingJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24OffloadBundlingJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2401,36 +2401,36 @@ define dso_local void @_ZN5clang6driver26OffloadUnbundlingJobAction6anchorEv(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang6driver26OffloadUnbundlingJobActionC2EPNS0_6ActionE(ptr noundef nonnull align 8 dereferenceable(296) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !35
+  %4 = load i32, ptr %3, align 4, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 17, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %4, ptr %6, align 4, !tbaa !35
+  store i32 %4, ptr %6, align 4, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !36
+  store i32 3, ptr %10, align 4, !tbaa !39
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %8, align 8
   store i32 1, ptr %9, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %12, align 8, !tbaa !37
+  store i8 1, ptr %12, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %13, align 4, !tbaa !28
+  store i32 0, ptr %13, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver26OffloadUnbundlingJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver26OffloadUnbundlingJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %17, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 6, ptr %19, align 4, !tbaa !36
+  store i32 6, ptr %19, align 4, !tbaa !39
   ret void
 }
 
@@ -2441,18 +2441,18 @@ define dso_local void @_ZN5clang6driver24OffloadPackagerJobAction6anchorEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver24OffloadPackagerJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 18, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2490,14 +2490,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24OffloadPackagerJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver24OffloadPackagerJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2508,18 +2508,18 @@ define dso_local void @_ZN5clang6driver22LinkerWrapperJobAction6anchorEv(ptr non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver22LinkerWrapperJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 19, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2557,14 +2557,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver22LinkerWrapperJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver22LinkerWrapperJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2575,18 +2575,18 @@ define dso_local void @_ZN5clang6driver18StaticLibJobAction6anchorEv(ptr nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver18StaticLibJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 20, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %11, 0
@@ -2624,14 +2624,14 @@ _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i.i: ; pre
 
 _ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE.exit: ; preds = %3, %.sink.split.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %20, align 8, !tbaa !37
+  store i8 1, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %21, align 4, !tbaa !28
+  store i32 0, ptr %21, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %22, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver18StaticLibJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver18StaticLibJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2645,52 +2645,52 @@ define dso_local void @_ZN5clang6driver22BinaryAnalyzeJobActionC2EPNS0_6ActionEN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 21, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !35
+  store i32 %2, ptr %5, align 4, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 3, ptr %9, align 4, !tbaa !36
+  store i32 3, ptr %9, align 4, !tbaa !39
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %7, align 8
   store i32 1, ptr %8, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 1, ptr %11, align 8, !tbaa !37
+  store i8 1, ptr %11, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4, !tbaa !28
+  store i32 0, ptr %12, align 4, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver22BinaryAnalyzeJobActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver22BinaryAnalyzeJobActionE, i64 16), ptr %0, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver11InputActionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !34
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = load i64, ptr %4, align 8, !tbaa !37
   %10 = add i64 %9, 1
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2707,28 +2707,28 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver11InputActionD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang6driver11InputActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !34
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !34
+  %9 = load i64, ptr %4, align 8, !tbaa !37
   %10 = add i64 %9, 1
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2746,7 +2746,7 @@ _ZN5clang6driver11InputActionD2Ev.exit:           ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver14BindArchActionD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2775,7 +2775,7 @@ define linkonce_odr hidden void @_ZN5clang6driver13OffloadActionD2Ev(ptr noundef
   br label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2803,7 +2803,7 @@ define linkonce_odr hidden void @_ZN5clang6driver13OffloadActionD0Ev(ptr noundef
   br label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i: ; preds = %6, %1
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2821,7 +2821,7 @@ _ZN5clang6driver13OffloadActionD2Ev.exit:         ; preds = %_ZN4llvm11SmallVect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver9JobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2839,7 +2839,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver19PreprocessJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2857,7 +2857,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver19PrecompileJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2875,7 +2875,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver19ExtractAPIJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2893,7 +2893,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver16AnalyzeJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2911,7 +2911,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver16CompileJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2929,7 +2929,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver16BackendJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2947,7 +2947,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver17AssembleJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2965,7 +2965,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver17IfsMergeJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2983,7 +2983,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver13LinkJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3001,7 +3001,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver13LipoJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3019,7 +3019,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver17DsymutilJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3037,7 +3037,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver15VerifyJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3055,7 +3055,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver24VerifyDebugInfoJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3073,7 +3073,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver18VerifyPCHJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3091,7 +3091,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver24OffloadBundlingJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3120,7 +3120,7 @@ define linkonce_odr hidden void @_ZN5clang6driver26OffloadUnbundlingJobActionD2E
   br label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3148,7 +3148,7 @@ define linkonce_odr hidden void @_ZN5clang6driver26OffloadUnbundlingJobActionD0E
   br label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i: ; preds = %6, %1
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3166,7 +3166,7 @@ _ZN5clang6driver26OffloadUnbundlingJobActionD2Ev.exit: ; preds = %_ZN4llvm11Smal
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver24OffloadPackagerJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3184,7 +3184,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver22LinkerWrapperJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3202,7 +3202,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver18StaticLibJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3220,7 +3220,7 @@ _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN5clang6driver6ActionD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3237,7 +3237,7 @@ _ZN4llvm11SmallVectorIPN5clang6driver6ActionELj3EED2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver22BinaryAnalyzeJobActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #11 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3331,46 +3331,51 @@ attributes #22 = { noreturn nounwind }
 !25 = !{!13, !15, i64 8}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTSN5clang6driver6ActionE", !14, i64 0}
-!28 = !{!4, !15, i64 60}
-!29 = !{!30, !19, i64 0}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
-!31 = !{!32, !33, i64 8}
-!32 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !33, i64 8, !6, i64 16}
-!33 = !{!"long", !6, i64 0}
-!34 = !{!6, !6, i64 0}
-!35 = !{!4, !8, i64 12}
-!36 = !{!13, !15, i64 12}
-!37 = !{!4, !17, i64 56}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"vtable pointer", !7, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTSN4llvm3opt3ArgE", !14, i64 0}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
-!44 = distinct !{!44, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
-!45 = !{!33, !33, i64 0}
-!46 = !{!32, !19, i64 0}
-!47 = !{!19, !19, i64 0}
-!48 = !{!49, !27, i64 0}
-!49 = !{!"_ZTSN5clang6driver13OffloadAction14HostDependenceE", !27, i64 0, !20, i64 8, !19, i64 16, !15, i64 24}
-!50 = !{!49, !20, i64 8}
-!51 = !{!52, !20, i64 88}
-!52 = !{!"_ZTSN5clang6driver13OffloadActionE", !4, i64 0, !20, i64 88, !53, i64 96}
-!53 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEE", !54, i64 0, !57, i64 16}
-!54 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang6driver9ToolChainEEE", !55, i64 0}
-!55 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EEE", !56, i64 0}
-!56 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang6driver9ToolChainEvEE", !13, i64 0}
-!57 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang6driver9ToolChainELj3EEE", !6, i64 0}
-!58 = !{!49, !19, i64 16}
-!59 = !{!49, !15, i64 24}
-!60 = !{!18, !18, i64 0}
-!61 = distinct !{!61, !62}
-!62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!20, !20, i64 0}
-!64 = distinct !{!64, !62}
-!65 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!66 = distinct !{!66, !62}
-!67 = !{!68, !14, i64 0}
-!68 = !{!"_ZTSN4llvm12function_refIFvPN5clang6driver6ActionEPKNS2_9ToolChainEPKcEEE", !14, i64 0, !33, i64 8}
-!69 = !{!68, !33, i64 8}
-!70 = distinct !{!70, !62}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!4, !15, i64 60}
+!31 = distinct !{!31, !29}
+!32 = !{!33, !19, i64 0}
+!33 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !33, i64 0, !36, i64 8, !6, i64 16}
+!36 = !{!"long", !6, i64 0}
+!37 = !{!6, !6, i64 0}
+!38 = !{!4, !8, i64 12}
+!39 = !{!13, !15, i64 12}
+!40 = !{!4, !17, i64 56}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"vtable pointer", !7, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN4llvm3opt3ArgE", !14, i64 0}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK4llvm9StringRef3strB5cxx11Ev: argument 0"}
+!47 = distinct !{!47, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
+!48 = !{!36, !36, i64 0}
+!49 = !{!35, !19, i64 0}
+!50 = !{!19, !19, i64 0}
+!51 = !{!52, !27, i64 0}
+!52 = !{!"_ZTSN5clang6driver13OffloadAction14HostDependenceE", !27, i64 0, !20, i64 8, !19, i64 16, !15, i64 24}
+!53 = !{!52, !20, i64 8}
+!54 = !{!55, !20, i64 88}
+!55 = !{!"_ZTSN5clang6driver13OffloadActionE", !4, i64 0, !20, i64 88, !56, i64 96}
+!56 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEE", !57, i64 0, !60, i64 16}
+!57 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang6driver9ToolChainEEE", !58, i64 0}
+!58 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EEE", !59, i64 0}
+!59 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang6driver9ToolChainEvEE", !13, i64 0}
+!60 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang6driver9ToolChainELj3EEE", !6, i64 0}
+!61 = !{!52, !19, i64 16}
+!62 = !{!52, !15, i64 24}
+!63 = !{!18, !18, i64 0}
+!64 = distinct !{!64, !65, !29}
+!65 = !{!"llvm.loop.mustprogress"}
+!66 = !{!20, !20, i64 0}
+!67 = distinct !{!67, !65, !29}
+!68 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!69 = distinct !{!69, !65, !29}
+!70 = !{!71, !14, i64 0}
+!71 = !{!"_ZTSN4llvm12function_refIFvPN5clang6driver6ActionEPKNS2_9ToolChainEPKcEEE", !14, i64 0, !36, i64 8}
+!72 = !{!71, !36, i64 8}
+!73 = distinct !{!73, !65, !29}
+!74 = distinct !{!74, !29}
+!75 = distinct !{!75, !29}

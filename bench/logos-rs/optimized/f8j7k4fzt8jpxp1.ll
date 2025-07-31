@@ -250,7 +250,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 140:                                              ; preds = %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %112, ptr noundef nonnull align 8 dereferenceable(464) %113, i64 464, i1 false)
   invoke void @_ZN13logos_codegen6parser6Parser13parse_generic17h984a3098f47880ccE(ptr nonnull align 8 %117, ptr nonnull align 8 %112)
-          to label %133 unwind label %134
+          to label %133 unwind label %134, !llvm.loop !3
 
 141:                                              ; preds = %139
   %142 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9f249db89ce44aa3E"(ptr nonnull align 8 %119)
@@ -288,7 +288,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 156:                                              ; preds = %149
   invoke void @_ZN13logos_codegen6parser6Parser15try_parse_logos17hefce74051d33cb91E(ptr nonnull align 8 %117, ptr nonnull align 8 %148)
-          to label %147 unwind label %.loopexit320
+          to label %147 unwind label %.loopexit320, !llvm.loop !5
 
 157:                                              ; preds = %163, %159
   %.sroa.056.1 = phi i8 [ %.sroa.056.3, %163 ], [ %.sroa.058.1, %159 ]
@@ -395,7 +395,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %206 = load ptr, ptr %100, align 8
   %207 = load ptr, ptr %181, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  %209 = load ptr, ptr %208, align 8, !invariant.load !3, !nonnull !3
+  %209 = load ptr, ptr %208, align 8, !invariant.load !6, !nonnull !6
   %210 = invoke align 8 ptr %209(ptr align 1 %206)
           to label %212 unwind label %.loopexit308
 
@@ -841,7 +841,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %332 = load ptr, ptr %36, align 8
   %333 = load i32, ptr %305, align 8
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %59, ptr align 4 %332, i32 %333, ptr nonnull align 8 %108)
-          to label %309 unwind label %324
+          to label %309 unwind label %324, !llvm.loop !7
 
 334:                                              ; preds = %329
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %36)
@@ -1682,19 +1682,19 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 574:                                              ; preds = %570
   invoke void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17h6afa01e7d96e846aE"(ptr nonnull align 8 %32, ptr align 8 %569, ptr nonnull align 8 %565)
-          to label %336 unwind label %.loopexit
+          to label %336 unwind label %.loopexit, !llvm.loop !8
 
 575:                                              ; preds = %307
   %576 = extractvalue { ptr, i32 } %308, 0
   %577 = extractvalue { ptr, i32 } %308, 1
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %59, ptr align 4 %576, i32 %577, ptr nonnull align 8 %108)
-          to label %298 unwind label %299
+          to label %298 unwind label %299, !llvm.loop !9
 
 578:                                              ; preds = %294
   %579 = extractvalue { ptr, i32 } %295, 0
   %580 = extractvalue { ptr, i32 } %295, 1
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %59, ptr align 4 %579, i32 %580, ptr nonnull align 8 %108)
-          to label %287 unwind label %289
+          to label %287 unwind label %289, !llvm.loop !10
 
 .thread210:                                       ; preds = %253, %245, %.thread218
   %.pn140213 = phi { ptr, i32 } [ %lpad.thr_comm216, %.thread218 ], [ %.pn138, %253 ], [ %246, %245 ]
@@ -1846,7 +1846,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 624:                                              ; preds = %622
   invoke void @"_ZN4core3ptr73drop_in_place$LT$logos_codegen..generate..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7a909d2689ab898E"(ptr nonnull align 8 %91)
-          to label %205 unwind label %.loopexit308
+          to label %205 unwind label %.loopexit308, !llvm.loop !11
 
 625:                                              ; preds = %622
   store ptr %621, ptr %89, align 8
@@ -1913,7 +1913,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %.backedge.backedge unwind label %.loopexit303
 
 .backedge.backedge:                               ; preds = %.invoke, %630
-  br label %.backedge
+  br label %.backedge, !llvm.loop !12
 
 650:                                              ; preds = %649
   %651 = load ptr, ptr %89, align 8
@@ -2345,7 +2345,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %.backedge319.backedge unwind label %782
 
 .backedge319.backedge:                            ; preds = %793, %798
-  br label %.backedge319
+  br label %.backedge319, !llvm.loop !13
 
 794:                                              ; preds = %784
   %795 = landingpad { ptr, i32 }
@@ -2510,7 +2510,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
   br i1 %32, label %72, label %.backedge49.backedge
 
 .backedge49.backedge:                             ; preds = %30, %75, %105
-  br label %.backedge49
+  br label %.backedge49, !llvm.loop !14
 
 33:                                               ; preds = %27
   %34 = extractvalue { ptr, ptr } %29, 0
@@ -2525,7 +2525,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %36, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
+  %42 = load ptr, ptr %41, align 8, !invariant.load !6, !nonnull !6
   %43 = invoke align 8 ptr %42(ptr align 1 %39)
           to label %47 unwind label %45
 
@@ -2575,7 +2575,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
   %58 = load ptr, ptr %3, align 8
   %59 = load ptr, ptr %37, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8, !invariant.load !3, !nonnull !3
+  %61 = load ptr, ptr %60, align 8, !invariant.load !6, !nonnull !6
   %62 = invoke align 8 ptr %61(ptr align 1 %58)
           to label %65 unwind label %63
 
@@ -2591,7 +2591,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
 
 67:                                               ; preds = %65
   invoke void @"_ZN4core3ptr69drop_in_place$LT$syn..punctuated..IterMut$LT$syn..data..Field$GT$$GT$17ha0191249fe030e58E"(ptr nonnull align 8 %3)
-          to label %38 unwind label %45
+          to label %38 unwind label %45, !llvm.loop !15
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 224
@@ -2705,7 +2705,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
           to label %.preheader.backedge unwind label %.loopexit
 
 .preheader.backedge:                              ; preds = %.invoke, %93, %93, %100, %100
-  br label %.preheader
+  br label %.preheader, !llvm.loop !16
 
 95:                                               ; preds = %91
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %9)
@@ -3405,4 +3405,17 @@ attributes #8 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = !{}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

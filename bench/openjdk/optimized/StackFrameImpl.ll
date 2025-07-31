@@ -486,7 +486,7 @@ validateThreadFrame.exit:                         ; preds = %19, %21
 24:                                               ; preds = %readVariableValue.exit
   %25 = add nuw nsw i32 %.03149, 1
   %exitcond.not = icmp eq i32 %25, %11
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.03149 = phi i32 [ %25, %24 ], [ 0, %.preheader ]
@@ -1078,6 +1078,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

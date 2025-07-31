@@ -347,7 +347,7 @@ _ZNK21VirtualMemorySnapshot14total_reservedEv.exit: ; preds = %13, %_ZNK21Virtua
   %19 = add i64 %18, %.056.i32
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 28
-  br i1 %exitcond.not.i34, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit, !llvm.loop !8
+  br i1 %exitcond.not.i34, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit, !llvm.loop !9
 
 _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -440,7 +440,7 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMem
 80:                                               ; preds = %72, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %81, label %72, !llvm.loop !9
+  br i1 %exitcond.not, label %81, label %72, !llvm.loop !10
 
 81:                                               ; preds = %80
   ret void
@@ -892,7 +892,7 @@ define hidden noundef i32 @_ZN17MemDetailReporter19report_malloc_sitesEv(ptr nou
 .outer:                                           ; preds = %12
   %24 = add nuw nsw i32 %.014.ph22, 1
   %25 = icmp eq ptr %14, null
-  br i1 %25, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %25, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit.thread, label %.lr.ph, !llvm.loop !11
 
 26:                                               ; preds = %12
   tail call void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(2408) %10, ptr noundef nonnull %.sroa.016.019) #7
@@ -910,7 +910,7 @@ define hidden noundef i32 @_ZN17MemDetailReporter19report_malloc_sitesEv(ptr nou
   store i32 %33, ptr %11, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #7
   %34 = icmp eq ptr %14, null
-  br i1 %34, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit.thread, label %12, !llvm.loop !10
+  br i1 %34, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit.thread, label %12, !llvm.loop !11
 
 _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit.thread: ; preds = %.outer, %26, %1
   %.0 = phi i32 [ 0, %1 ], [ %.014.ph22, %26 ], [ %24, %.outer ]
@@ -960,7 +960,7 @@ define hidden noundef i32 @_ZN17MemDetailReporter38report_virtual_memory_allocat
 .outer:                                           ; preds = %18
   %26 = add nuw nsw i32 %.018.ph28, 1
   %27 = icmp eq ptr %14, null
-  br i1 %27, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %27, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit.thread, label %.lr.ph, !llvm.loop !12
 
 28:                                               ; preds = %18
   tail call void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(2408) %10, ptr noundef nonnull %.sroa.022.025) #7
@@ -1003,7 +1003,7 @@ define hidden noundef i32 @_ZN17MemDetailReporter38report_virtual_memory_allocat
 
 .backedge:                                        ; preds = %49, %12
   %52 = icmp eq ptr %14, null
-  br i1 %52, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit.thread, label %12, !llvm.loop !11
+  br i1 %52, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit.thread, label %12, !llvm.loop !12
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit.thread: ; preds = %.outer, %.backedge, %1
   %.0 = phi i32 [ 0, %1 ], [ %.018.ph28, %.backedge ], [ %26, %.outer ]
@@ -1034,7 +1034,7 @@ define hidden void @_ZN17MemDetailReporter25report_virtual_memory_mapEv(ptr noun
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN17MemDetailReporter28report_virtual_memory_regionEPK20ReservedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(2488) %0, ptr noundef nonnull %.sroa.0.03)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1185,7 +1185,7 @@ _ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit: ; preds = %46
 
 .backedge:                                        ; preds = %92, %59
   %95 = icmp eq ptr %61, null
-  br i1 %95, label %_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit35.thread, label %59, !llvm.loop !13
+  br i1 %95, label %_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit35.thread, label %59, !llvm.loop !14
 
 _ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv.exit35.thread: ; preds = %.backedge, %56, %53, %2
   ret void
@@ -1286,7 +1286,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit:  ; preds = %18
   %32 = add i64 %31, %.056.i.i32
   %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i31, 1
   %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 28
-  br i1 %exitcond.not.i.i34, label %_ZNK11MemBaseline22total_committed_memoryEv.exit, label %29, !llvm.loop !8
+  br i1 %exitcond.not.i.i34, label %_ZNK11MemBaseline22total_committed_memoryEv.exit, label %29, !llvm.loop !9
 
 _ZNK11MemBaseline22total_committed_memoryEv.exit: ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1328,7 +1328,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit39: ; preds = %41
   %55 = add i64 %54, %.056.i.i41
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i40, 1
   %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, 28
-  br i1 %exitcond.not.i.i44, label %_ZNK11MemBaseline22total_committed_memoryEv.exit45, label %52, !llvm.loop !8
+  br i1 %exitcond.not.i.i44, label %_ZNK11MemBaseline22total_committed_memoryEv.exit45, label %52, !llvm.loop !9
 
 _ZNK11MemBaseline22total_committed_memoryEv.exit45: ; preds = %52
   %56 = shl i64 %15, 4
@@ -1405,7 +1405,7 @@ _ZNK21VirtualMemorySnapshot14total_reservedEv.exit: ; preds = %_ZNK21VirtualMemo
   %103 = add i64 %102, %.056.i47
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 28
-  br i1 %exitcond.not.i49, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit, !llvm.loop !8
+  br i1 %exitcond.not.i49, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit, !llvm.loop !9
 
 _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit
   %104 = load ptr, ptr %10, align 8
@@ -1435,7 +1435,7 @@ _ZNK21VirtualMemorySnapshot14total_reservedEv.exit54: ; preds = %_ZNK21VirtualMe
   %111 = add i64 %110, %.056.i56
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 28
-  br i1 %exitcond.not.i58, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit59, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit54, !llvm.loop !8
+  br i1 %exitcond.not.i58, label %_ZNK21VirtualMemorySnapshot15total_committedEv.exit59, label %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit54, !llvm.loop !9
 
 _ZNK21VirtualMemorySnapshot15total_committedEv.exit59: ; preds = %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit54
   tail call void @_ZNK22MemSummaryDiffReporter25print_virtual_memory_diffEmmmm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %109, i64 noundef %111, i64 noundef %101, i64 noundef %103)
@@ -1466,7 +1466,7 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit59: ; preds = %_ZNK21VirtualM
 126:                                              ; preds = %112, %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %127, label %112, !llvm.loop !14
+  br i1 %exitcond.not, label %127, label %112, !llvm.loop !15
 
 127:                                              ; preds = %126
   ret void
@@ -2407,7 +2407,7 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18: ; preds = %95, %_ZN18Linked
   %98 = icmp ne ptr %.1, null
   %99 = icmp ne ptr %.115, null
   %100 = select i1 %98, i1 true, i1 %99
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17
   ret void
@@ -2606,7 +2606,7 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23: ; preds = 
   %106 = icmp ne ptr %.1, null
   %107 = icmp ne ptr %.119, null
   %108 = select i1 %106, i1 true, i1 %107
-  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22
   ret void
@@ -2866,14 +2866,15 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

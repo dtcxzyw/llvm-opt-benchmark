@@ -185,7 +185,7 @@ thread-pre-split:                                 ; preds = %20
   store i8 %44, ptr %45, align 1, !tbaa !17
   %46 = add nuw nsw i64 %.14461, 1
   %exitcond62.not = icmp eq i64 %46, 128
-  br i1 %exitcond62.not, label %47, label %.preheader, !llvm.loop !20
+  br i1 %exitcond62.not, label %47, label %.preheader, !llvm.loop !21
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -436,6 +436,7 @@ attributes #5 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"int", !10, i64 0}
 !17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}

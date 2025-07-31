@@ -661,9 +661,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load float, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !47
+  store float %18, ptr %19, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !52
+  store i32 0, ptr %20, align 4, !tbaa !53
   ret ptr @.str.1
 }
 
@@ -778,7 +778,7 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape49batchedUnitVectorGetS
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !54
 }
 
 declare void @_ZNK21btConvexInternalShape11getAabbSlowERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #6
@@ -1026,7 +1026,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK15btTriangleShape8isInside
   %105 = add nuw nsw i32 %.01852, 1
   %exitcond = icmp ne i32 %105, 3
   %or.cond53.not = select i1 %104, i1 %exitcond, i1 false
-  br i1 %or.cond53.not, label %68, label %.loopexit, !llvm.loop !54
+  br i1 %or.cond53.not, label %68, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %68, %3
   %.3 = phi i1 [ false, %3 ], [ %104, %68 ]
@@ -1204,13 +1204,14 @@ attributes #19 = { builtin nounwind }
 !42 = !{!39, !15, i64 192}
 !43 = !{!39, !15, i64 168}
 !44 = !{!39, !15, i64 184}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!48, !15, i64 48}
-!48 = !{!"_ZTS25btConvexInternalShapeData", !49, i64 0, !51, i64 16, !51, i64 32, !15, i64 48, !14, i64 52}
-!49 = !{!"_ZTS20btCollisionShapeData", !50, i64 0, !14, i64 8, !9, i64 12}
-!50 = !{!"p1 omnipotent char", !21, i64 0}
-!51 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
-!52 = !{!48, !14, i64 52}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!49, !15, i64 48}
+!49 = !{!"_ZTS25btConvexInternalShapeData", !50, i64 0, !52, i64 16, !52, i64 32, !15, i64 48, !14, i64 52}
+!50 = !{!"_ZTS20btCollisionShapeData", !51, i64 0, !14, i64 8, !9, i64 12}
+!51 = !{!"p1 omnipotent char", !21, i64 0}
+!52 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!53 = !{!49, !14, i64 52}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}

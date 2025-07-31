@@ -377,7 +377,7 @@ DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.e
   %108 = load i32, ptr %63, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %DecodeTXNNeedSkip.exit.i, label %DecodeTXNNeedSkip.exit._crit_edge.i, !llvm.loop !12
+  br i1 %110, label %DecodeTXNNeedSkip.exit.i, label %DecodeTXNNeedSkip.exit._crit_edge.i, !llvm.loop !13
 
 DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.exit.i, %DecodeTXNNeedSkip.exit.preheader.i
   %111 = load ptr, ptr %8, align 8
@@ -543,7 +543,7 @@ DecodeTXNNeedSkip.exit.i72:                       ; preds = %FilterByOrigin.exit
   %198 = load i32, ptr %180, align 4
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next.i69, %199
-  br i1 %200, label %190, label %._crit_edge.i66, !llvm.loop !13
+  br i1 %200, label %190, label %._crit_edge.i66, !llvm.loop !14
 
 ._crit_edge.i66:                                  ; preds = %190, %.preheader.i65
   %201 = load ptr, ptr %8, align 8
@@ -737,7 +737,7 @@ DecodeTXNNeedSkip.exit.i84:                       ; preds = %DecodeTXNNeedSkip.e
   %307 = load i32, ptr %291, align 4
   %308 = sext i32 %307 to i64
   %309 = icmp slt i64 %indvars.iv.next.i86, %308
-  br i1 %309, label %DecodeTXNNeedSkip.exit.i84, label %DecodeTXNNeedSkip.exit._crit_edge.i82, !llvm.loop !14
+  br i1 %309, label %DecodeTXNNeedSkip.exit.i84, label %DecodeTXNNeedSkip.exit._crit_edge.i82, !llvm.loop !15
 
 DecodeTXNNeedSkip.exit._crit_edge.i82:            ; preds = %DecodeTXNNeedSkip.exit.i84, %DecodeTXNNeedSkip.exit.preheader.i81
   %310 = load ptr, ptr %8, align 8
@@ -1029,7 +1029,7 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   %83 = load i16, ptr %29, align 2
   %84 = zext i16 %83 to i32
   %85 = icmp samesign ult i32 %.pre57, %84
-  br i1 %85, label %32, label %.loopexit, !llvm.loop !15
+  br i1 %85, label %32, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %FilterByOrigin.exit.thread, %FilterByOrigin.exit, %13, %2
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
@@ -1877,9 +1877,10 @@ attributes #8 = { cold nounwind }
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

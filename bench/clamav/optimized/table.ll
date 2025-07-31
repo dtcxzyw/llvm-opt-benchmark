@@ -51,7 +51,7 @@ define void @tableDestroy(ptr noundef captures(address_is_null) %0) local_unname
 9:                                                ; preds = %8, %.lr.ph
   tail call void @free(ptr noundef nonnull %.014) #10
   %.not11 = icmp eq ptr %6, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %9, %3
   tail call void @free(ptr noundef %0) #10
@@ -78,7 +78,7 @@ define i32 @tableInsert(ptr noundef captures(address_is_null) %0, ptr noundef %1
   br i1 %6, label %tableFind.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
-  %.016.i = load ptr, ptr %0, align 8, !tbaa !14
+  %.016.i = load ptr, ptr %0, align 8, !tbaa !16
   %.not1317.i = icmp eq ptr %.016.i, null
   br i1 %.not1317.i, label %tableFind.exit.thread, label %.lr.ph.i
 
@@ -95,13 +95,13 @@ define i32 @tableInsert(ptr noundef captures(address_is_null) %0, ptr noundef %1
 
 11:                                               ; preds = %8, %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %.0.i = load ptr, ptr %12, align 8, !tbaa !14
+  %.0.i = load ptr, ptr %12, align 8, !tbaa !16
   %.not13.i = icmp eq ptr %.0.i, null
-  br i1 %.not13.i, label %tableFind.exit.thread, label %.lr.ph.i
+  br i1 %.not13.i, label %tableFind.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 tableFind.exit:                                   ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !15
+  %14 = load i32, ptr %13, align 8, !tbaa !18
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %tableFind.exit.thread
 
@@ -127,12 +127,12 @@ tableFind.exit.thread:                            ; preds = %11, %.preheader.i, 
   %24 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   store ptr %24, ptr %0, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !16
+  store ptr %24, ptr %25, align 8, !tbaa !19
   br label %44
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !17
+  %28 = load i32, ptr %27, align 8, !tbaa !20
   %29 = and i32 %28, 1
   %.not38 = icmp eq i32 %29, 0
   br i1 %.not38, label %39, label %.preheader
@@ -147,27 +147,27 @@ tableFind.exit.thread:                            ; preds = %11, %.preheader.i, 
   %33 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !10
   %.not39 = icmp eq ptr %34, null
-  br i1 %.not39, label %.thread, label %.preheader
+  br i1 %.not39, label %.thread, label %.preheader, !llvm.loop !21
 
 .thread:                                          ; preds = %32
   %35 = and i32 %28, -2
-  store i32 %35, ptr %27, align 8, !tbaa !17
+  store i32 %35, ptr %27, align 8, !tbaa !20
   br label %39
 
 36:                                               ; preds = %.preheader
   %37 = tail call ptr @cli_safer_strdup(ptr noundef %1) #10
   store ptr %37, ptr %.043, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  store i32 %2, ptr %38, align 8, !tbaa !15
+  store i32 %2, ptr %38, align 8, !tbaa !18
   br label %54
 
 39:                                               ; preds = %.thread, %26
   %40 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !16
+  %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %40, ptr %43, align 8, !tbaa !10
-  store ptr %40, ptr %41, align 8, !tbaa !16
+  store ptr %40, ptr %41, align 8, !tbaa !19
   br label %44
 
 44:                                               ; preds = %39, %23
@@ -184,10 +184,10 @@ tableFind.exit.thread:                            ; preds = %11, %.preheader.i, 
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr null, ptr %50, align 8, !tbaa !10
   %51 = tail call ptr @cli_safer_strdup(ptr noundef %1) #10
-  %52 = load ptr, ptr %49, align 8, !tbaa !16
+  %52 = load ptr, ptr %49, align 8, !tbaa !19
   store ptr %51, ptr %52, align 8, !tbaa !13
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i32 %2, ptr %53, align 8, !tbaa !15
+  store i32 %2, ptr %53, align 8, !tbaa !18
   br label %54
 
 54:                                               ; preds = %36, %48, %47, %16
@@ -209,7 +209,7 @@ define i32 @tableFind(ptr noundef readonly captures(address_is_null) %0, ptr nou
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.016 = load ptr, ptr %0, align 8, !tbaa !14
+  %.016 = load ptr, ptr %0, align 8, !tbaa !16
   %.not1317 = icmp eq ptr %.016, null
   br i1 %.not1317, label %.loopexit, label %.lr.ph
 
@@ -226,14 +226,14 @@ define i32 @tableFind(ptr noundef readonly captures(address_is_null) %0, ptr nou
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.018, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %12 = load i32, ptr %11, align 8, !tbaa !18
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph, %7
   %14 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  %.0 = load ptr, ptr %14, align 8, !tbaa !14
+  %.0 = load ptr, ptr %14, align 8, !tbaa !16
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %13, %.preheader, %4, %10
   %.09 = phi i32 [ %12, %10 ], [ -1, %4 ], [ -1, %.preheader ], [ -1, %13 ]
@@ -264,7 +264,7 @@ define i32 @tableUpdate(ptr noundef captures(address_is_null) %0, ptr noundef %1
   br i1 %6, label %16, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %.021 = load ptr, ptr %0, align 8, !tbaa !14
+  %.021 = load ptr, ptr %0, align 8, !tbaa !16
   %.not1822 = icmp eq ptr %.021, null
   br i1 %.not1822, label %._crit_edge, label %.lr.ph
 
@@ -281,14 +281,14 @@ define i32 @tableUpdate(ptr noundef captures(address_is_null) %0, ptr noundef %1
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %.023, i64 16
-  store i32 %2, ptr %12, align 8, !tbaa !15
+  store i32 %2, ptr %12, align 8, !tbaa !18
   br label %16
 
 13:                                               ; preds = %.lr.ph, %8
   %14 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %.0 = load ptr, ptr %14, align 8, !tbaa !14
+  %.0 = load ptr, ptr %14, align 8, !tbaa !16
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %15 = tail call i32 @tableInsert(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
@@ -313,7 +313,7 @@ define void @tableRemove(ptr noundef captures(address_is_null) %0, ptr noundef r
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.016 = load ptr, ptr %0, align 8, !tbaa !14
+  %.016 = load ptr, ptr %0, align 8, !tbaa !16
   %.not1417 = icmp eq ptr %.016, null
   br i1 %.not1417, label %.loopexit, label %.lr.ph
 
@@ -335,16 +335,16 @@ define void @tableRemove(ptr noundef captures(address_is_null) %0, ptr noundef r
 12:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %8) #10
   store ptr null, ptr %.018, align 8, !tbaa !13
-  %13 = load i32, ptr %6, align 8, !tbaa !17
+  %13 = load i32, ptr %6, align 8, !tbaa !20
   %14 = or i32 %13, 1
-  store i32 %14, ptr %6, align 8, !tbaa !17
+  store i32 %14, ptr %6, align 8, !tbaa !20
   br label %15
 
 15:                                               ; preds = %7, %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  %.0 = load ptr, ptr %16, align 8, !tbaa !14
+  %.0 = load ptr, ptr %16, align 8, !tbaa !16
   %.not14 = icmp eq ptr %.0, null
-  br i1 %.not14, label %.loopexit, label %7
+  br i1 %.not14, label %.loopexit, label %7, !llvm.loop !23
 
 .loopexit:                                        ; preds = %15, %.preheader, %4
   ret void
@@ -356,7 +356,7 @@ define void @tableIterate(ptr noundef readonly captures(address_is_null) %0, ptr
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.012 = load ptr, ptr %0, align 8, !tbaa !14
+  %.012 = load ptr, ptr %0, align 8, !tbaa !16
   %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
@@ -368,15 +368,15 @@ define void @tableIterate(ptr noundef readonly captures(address_is_null) %0, ptr
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.014, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %8 = load i32, ptr %7, align 8, !tbaa !18
   tail call void %1(ptr noundef nonnull %5, i32 noundef %8, ptr noundef %2) #10
   br label %9
 
 9:                                                ; preds = %.lr.ph, %6
   %10 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %.0 = load ptr, ptr %10, align 8, !tbaa !14
+  %.0 = load ptr, ptr %10, align 8, !tbaa !16
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
   ret void
@@ -412,7 +412,14 @@ attributes #12 = { nounwind allocsize(0) }
 !11 = !{!"tableEntry", !12, i64 0, !5, i64 8, !9, i64 16}
 !12 = !{!"p1 omnipotent char", !6, i64 0}
 !13 = !{!11, !12, i64 0}
-!14 = !{!5, !5, i64 0}
-!15 = !{!11, !9, i64 16}
-!16 = !{!4, !5, i64 8}
-!17 = !{!4, !9, i64 16}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!5, !5, i64 0}
+!17 = distinct !{!17, !15}
+!18 = !{!11, !9, i64 16}
+!19 = !{!4, !5, i64 8}
+!20 = !{!4, !9, i64 16}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}

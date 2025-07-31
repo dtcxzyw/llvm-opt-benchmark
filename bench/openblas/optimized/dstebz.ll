@@ -304,7 +304,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %156 = select i1 %155, double %.0659787, double %154
   %indvars.iv.next906 = add nuw nsw i64 %indvars.iv905, 1
   %exitcond909.not = icmp eq i64 %indvars.iv.next906, %wide.trip.count908
-  br i1 %exitcond909.not, label %._crit_edge792.loopexit, label %.lr.ph791, !llvm.loop !11
+  br i1 %exitcond909.not, label %._crit_edge792.loopexit, label %.lr.ph791, !llvm.loop !12
 
 ._crit_edge792.loopexit:                          ; preds = %.lr.ph791
   %.pre961 = load i32, ptr %2, align 4, !tbaa !3
@@ -543,7 +543,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next911 = add nsw i64 %indvars.iv910, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next911 to i32
   %exitcond913.not = icmp eq i32 %249, %lftr.wideiv
-  br i1 %exitcond913.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !12
+  br i1 %exitcond913.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !13
 
 ._crit_edge803:                                   ; preds = %.lr.ph802, %273
   %.1660.lcssa = phi double [ %276, %273 ], [ %291, %.lr.ph802 ]
@@ -728,12 +728,12 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next915 = add nsw i64 %indvars.iv914, 1
   %lftr.wideiv917 = trunc i64 %indvars.iv.next915 to i32
   %exitcond918.not = icmp eq i32 %417, %lftr.wideiv917
-  br i1 %exitcond918.not, label %._crit_edge811, label %.lr.ph810, !llvm.loop !13
+  br i1 %exitcond918.not, label %._crit_edge811, label %.lr.ph810, !llvm.loop !14
 
 ._crit_edge811:                                   ; preds = %.lr.ph810, %397
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
   %exitcond923.not = icmp eq i64 %indvars.iv.next920, %wide.trip.count922
-  br i1 %exitcond923.not, label %._crit_edge817, label %397, !llvm.loop !14
+  br i1 %exitcond923.not, label %._crit_edge817, label %397, !llvm.loop !15
 
 ._crit_edge817:                                   ; preds = %._crit_edge811, %343
   %.1636.lcssa = phi i32 [ %.0635833, %343 ], [ %.2637, %._crit_edge811 ]
@@ -749,7 +749,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3625 = phi i32 [ %.2624769, %266 ], [ %.2624768, %.thread757 ], [ %336, %334 ], [ %.1623835, %337 ], [ %363, %._crit_edge817 ]
   %indvars.iv.next925 = add nuw nsw i64 %indvars.iv924, 1
   %.not719.not = icmp samesign ult i64 %indvars.iv924, %245
-  br i1 %.not719.not, label %246, label %._crit_edge838.loopexit, !llvm.loop !15
+  br i1 %.not719.not, label %246, label %._crit_edge838.loopexit, !llvm.loop !16
 
 ._crit_edge838.loopexit:                          ; preds = %423
   %424 = xor i32 %.3633, -1
@@ -825,7 +825,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2642 = phi i32 [ %.1641846, %441 ], [ %447, %446 ], [ %.1641846, %448 ]
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 1
   %exitcond931.not = icmp eq i64 %indvars.iv.next928, %wide.trip.count930
-  br i1 %exitcond931.not, label %._crit_edge849, label %.lr.ph848, !llvm.loop !16
+  br i1 %exitcond931.not, label %._crit_edge849, label %.lr.ph848, !llvm.loop !17
 
 ._crit_edge849:                                   ; preds = %455, %433
   %457 = phi i32 [ 0, %433 ], [ %456, %455 ]
@@ -882,7 +882,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1653 = phi i32 [ %.0652855, %.lr.ph857 ], [ %spec.select749, %466 ]
   %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
   %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count935
-  br i1 %exitcond936.not, label %._crit_edge858.loopexit, label %.lr.ph857, !llvm.loop !17
+  br i1 %exitcond936.not, label %._crit_edge858.loopexit, label %.lr.ph857, !llvm.loop !18
 
 ._crit_edge858.loopexit:                          ; preds = %472
   %473 = sext i32 %.1653 to i64
@@ -895,7 +895,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %474, align 4, !tbaa !3
   %475 = add nuw i32 %.0677861, 1
   %exitcond937.not = icmp eq i32 %.0677861, %.0645
-  br i1 %exitcond937.not, label %.loopexit776, label %.preheader987, !llvm.loop !18
+  br i1 %exitcond937.not, label %.loopexit776, label %.preheader987, !llvm.loop !19
 
 .loopexit776:                                     ; preds = %._crit_edge858, %461
   br i1 %460, label %.preheader, label %.loopexit775
@@ -937,7 +937,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3655 = phi i32 [ %.2654866, %.lr.ph868 ], [ %spec.select751, %480 ]
   %indvars.iv.next939 = add nuw nsw i64 %indvars.iv938, 1
   %exitcond942.not = icmp eq i64 %indvars.iv.next939, %wide.trip.count941
-  br i1 %exitcond942.not, label %._crit_edge869.loopexit, label %.lr.ph868, !llvm.loop !19
+  br i1 %exitcond942.not, label %._crit_edge869.loopexit, label %.lr.ph868, !llvm.loop !20
 
 ._crit_edge869.loopexit:                          ; preds = %486
   %487 = sext i32 %.3655 to i64
@@ -950,7 +950,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %488, align 4, !tbaa !3
   %489 = add nuw i32 %.1678872, 1
   %exitcond943.not = icmp eq i32 %.1678872, %.0640
-  br i1 %exitcond943.not, label %.loopexit775, label %.preheader, !llvm.loop !20
+  br i1 %exitcond943.not, label %.loopexit775, label %.preheader, !llvm.loop !21
 
 .loopexit775:                                     ; preds = %._crit_edge869, %.loopexit776
   %490 = load i32, ptr %10, align 4, !tbaa !3
@@ -985,7 +985,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %503 = phi i32 [ %492, %.lr.ph878 ], [ %496, %495 ]
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
   %exitcond948.not = icmp eq i64 %indvars.iv.next945, %wide.trip.count947
-  br i1 %exitcond948.not, label %._crit_edge879, label %.lr.ph878, !llvm.loop !21
+  br i1 %exitcond948.not, label %._crit_edge879, label %.lr.ph878, !llvm.loop !22
 
 ._crit_edge879:                                   ; preds = %502, %.loopexit775
   %504 = phi i32 [ 0, %.loopexit775 ], [ %503, %502 ]
@@ -1044,7 +1044,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3 = select i1 %521, double %520, double %.2883
   %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
   %exitcond955.not = icmp eq i64 %indvars.iv.next952, %wide.trip.count954
-  br i1 %exitcond955.not, label %._crit_edge886, label %.lr.ph885, !llvm.loop !22
+  br i1 %exitcond955.not, label %._crit_edge886, label %.lr.ph885, !llvm.loop !23
 
 ._crit_edge886:                                   ; preds = %.lr.ph885
   %.not729 = icmp eq i32 %.1667, 0
@@ -1066,7 +1066,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge886.thread:                            ; preds = %.lr.ph892, %._crit_edge886, %523
   %indvars.iv.next950 = add nuw nsw i64 %indvars.iv949, 1
   %exitcond960.not = icmp eq i64 %indvars.iv.next957, %wide.trip.count959
-  br i1 %exitcond960.not, label %.loopexit, label %.lr.ph892, !llvm.loop !23
+  br i1 %exitcond960.not, label %.loopexit, label %.lr.ph892, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge886.thread, %512, %509, %508
   %spec.select753 = zext i1 %.0635.lcssa to i32
@@ -1143,18 +1143,19 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}

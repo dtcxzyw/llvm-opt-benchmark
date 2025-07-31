@@ -913,7 +913,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
 56:                                               ; preds = %52
   %57 = add nsw i32 %.091109, -1
   %58 = icmp sgt i32 %.091109, 1
-  br i1 %58, label %52, label %.critedge, !llvm.loop !10
+  br i1 %58, label %52, label %.critedge, !llvm.loop !11
 
 59:                                               ; preds = %.preheader, %62
   %indvars.iv = phi i64 [ %34, %.preheader ], [ %63, %62 ]
@@ -927,7 +927,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   %64 = getelementptr i8, ptr %33, i64 %.idx
   %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %64) #20
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %59, label %.critedge, !llvm.loop !11
+  br i1 %66, label %59, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %56, %52, %62, %59
   %.192 = phi i32 [ %60, %62 ], [ %smin, %59 ], [ 0, %56 ], [ %.091109, %52 ]
@@ -975,7 +975,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   %90 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv123
   store i32 %89, ptr %90, align 4
   %91 = icmp sgt i64 %indvars.iv.next124, %71
-  br i1 %91, label %72, label %._crit_edge, !llvm.loop !12
+  br i1 %91, label %72, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %72, %.critedge.._crit_edge_crit_edge
   %.0134 = phi i32 [ %.0135, %.critedge.._crit_edge_crit_edge ], [ %.0, %72 ]
@@ -1030,7 +1030,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
 115:                                              ; preds = %.lr.ph117, %105
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !14
 
 ._crit_edge118:                                   ; preds = %115, %._crit_edge
   %116 = trunc i32 %97 to i16
@@ -1300,7 +1300,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %17
 55:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %55, %8
   %56 = getelementptr i8, ptr %0, i64 808
@@ -1662,7 +1662,7 @@ define internal i64 @fw_cfg_data_read(ptr noundef %0, i64 %1, i32 noundef %2) #2
 37:                                               ; preds = %.preheader
   %38 = load i32, ptr %16, align 8
   %39 = icmp ult i32 %30, %38
-  br i1 %39, label %.preheader, label %.critedge, !llvm.loop !15
+  br i1 %39, label %.preheader, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.preheader, %37
   %40 = shl i32 %36, 3
@@ -2021,7 +2021,7 @@ fw_cfg_update_mr.exit29:                          ; preds = %61
 78:                                               ; preds = %fw_cfg_update_mr.exit, %59, %fw_cfg_update_mr.exit29, %fw_cfg_update_mr.exit26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %78, %9
   ret i32 0
@@ -2493,7 +2493,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   store i64 0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %9 = load ptr, ptr %8, align 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   fence seq_cst
   %10 = call i32 @address_space_rw(ptr noundef %9, i64 noundef %7, i64 4294967296, ptr noundef nonnull %5, i64 noundef range(i64 0, 4294967296) 16, i1 noundef zeroext false) #18
   %.not = icmp eq i32 %10, 0
@@ -2503,7 +2503,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %12 = load ptr, ptr %8, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 16777216, ptr %4, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   fence seq_cst
   %13 = call i32 @address_space_rw(ptr noundef %12, i64 noundef %7, i64 4294967296, ptr noundef nonnull %4, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -2640,7 +2640,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %77 = load i64, ptr %15, align 8
   %78 = zext i32 %60 to i64
   %79 = getelementptr inbounds nuw i8, ptr %58, i64 %78
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   fence seq_cst
   %80 = call i32 @address_space_rw(ptr noundef %76, i64 noundef %77, i64 4294967296, ptr noundef nonnull %79, i64 noundef range(i64 0, 4294967296) %.1, i1 noundef zeroext true) #18
   %.not120 = icmp eq i32 %80, 0
@@ -2670,7 +2670,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %93 = load i32, ptr %49, align 4
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   fence seq_cst
   %96 = call i32 @address_space_rw(ptr noundef %90, i64 noundef %91, i64 4294967296, ptr noundef %95, i64 noundef range(i64 0, 4294967296) %.1, i1 noundef zeroext false) #18
   %.not123 = icmp eq i32 %96, 0
@@ -2715,7 +2715,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %116 = and i32 %.pre131133, 1
   %.not115 = icmp eq i32 %116, 0
   %117 = select i1 %115, i1 %.not115, i1 false
-  br i1 %117, label %53, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %117, label %53, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %109
   %118 = call i32 @llvm.bswap.i32(i32 %.pre131133)
@@ -2726,7 +2726,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #2
   %119 = load ptr, ptr %8, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %.lcssa, ptr %3, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   fence seq_cst
   %120 = call i32 @address_space_rw(ptr noundef %119, i64 noundef %7, i64 4294967296, ptr noundef nonnull %3, i64 noundef range(i64 0, 4294967296) 4, i1 noundef zeroext true) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -2975,14 +2975,15 @@ attributes #25 = { nounwind allocsize(0,1) }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{i64 2152193830}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{i64 2152193830}
+!19 = distinct !{!19, !9, !10}

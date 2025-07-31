@@ -363,7 +363,7 @@ copy_address.exit.i61:                            ; preds = %98, %92
   %153 = load i32, ptr %130, align 8
   %154 = zext i32 %153 to i64
   %155 = icmp samesign ult i64 %indvars.iv.next, %154
-  br i1 %155, label %145, label %.thread83, !llvm.loop !9
+  br i1 %155, label %145, label %.thread83, !llvm.loop !10
 
 .thread83:                                        ; preds = %145, %.preheader, %89, %90, %.thread87, %.thread79, %139, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %139 ], [ 1, %.thread79 ], [ 0, %.thread87 ], [ 0, %90 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %145 ]
@@ -421,7 +421,7 @@ define internal void @sctpstat_draw(ptr noundef readonly captures(none) %0) #0 {
   tail call void @wmem_free(ptr noundef null, ptr noundef %14)
   %42 = load ptr, ptr %.025, align 8
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %43 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.7)
@@ -483,7 +483,8 @@ attributes #11 = { allocsize(2) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

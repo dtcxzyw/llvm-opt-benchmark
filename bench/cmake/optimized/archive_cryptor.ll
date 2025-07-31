@@ -111,7 +111,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr noundef
 
 aes_ctr_increase_counter.exit:                    ; preds = %.preheader78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  store i32 0, ptr %7, align 4, !tbaa !20
+  store i32 0, ptr %7, align 4, !tbaa !21
   %21 = load ptr, ptr %0, align 8, !tbaa !4
   %22 = load ptr, ptr %14, align 8, !tbaa !12
   %23 = call i32 @EVP_EncryptInit_ex(ptr noundef %21, ptr noundef %22, ptr noundef null, ptr noundef nonnull %15, ptr noundef null) #7
@@ -152,7 +152,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   store i8 %39, ptr %40, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader86, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader86, label %.preheader, !llvm.loop !22
 
 .preheader86:                                     ; preds = %.preheader, %.preheader86
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %.preheader86 ], [ 0, %.preheader ]
@@ -168,7 +168,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
 
 aes_ctr_increase_counter.exit55:                  ; preds = %.preheader86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 0, ptr %6, align 4, !tbaa !20
+  store i32 0, ptr %6, align 4, !tbaa !21
   %44 = load ptr, ptr %0, align 8, !tbaa !4
   %45 = load ptr, ptr %14, align 8, !tbaa !12
   %46 = call i32 @EVP_EncryptInit_ex(ptr noundef %44, ptr noundef %45, ptr noundef null, ptr noundef nonnull %15, ptr noundef null) #7
@@ -188,7 +188,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   %53 = icmp eq i32 %52, 16
   %or.cond.i56.not = select i1 %51, i1 %53, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  br i1 %or.cond.i56.not, label %.preheader67, label %.loopexit, !llvm.loop !22
+  br i1 %or.cond.i56.not, label %.preheader67, label %.loopexit, !llvm.loop !23
 
 54:                                               ; preds = %.preheader67
   %.not47 = icmp ult i32 %.3, %12
@@ -209,7 +209,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   store i8 %63, ptr %64, align 1, !tbaa !17
   %65 = add nuw i32 %.2, 1
   %66 = icmp ult i32 %65, %12
-  br i1 %66, label %16, label %._crit_edge.loopexit, !llvm.loop !23
+  br i1 %66, label %16, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %54, %55
   %.141.ph = phi i32 [ %59, %55 ], [ 0, %54 ]
@@ -305,9 +305,10 @@ attributes #7 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !8, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!11, !11, i64 0}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!11, !11, i64 0}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}

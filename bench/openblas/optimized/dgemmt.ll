@@ -170,7 +170,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 97:                                               ; preds = %93, %.lr.ph262.split.us
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
-  br i1 %exitcond283.not, label %.loopexit, label %.lr.ph262.split.us, !llvm.loop !13
+  br i1 %exitcond283.not, label %.loopexit, label %.lr.ph262.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %140
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %140 ]
@@ -240,7 +240,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %126, label %.thread, label %132
 
 .thread:                                          ; preds = %120, %124
-  %127 = load ptr, ptr %71, align 8, !tbaa !14
+  %127 = load ptr, ptr %71, align 8, !tbaa !15
   br i1 %.not, label %128, label %130
 
 128:                                              ; preds = %.thread
@@ -252,7 +252,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %138
 
 132:                                              ; preds = %124
-  %133 = load ptr, ptr %68, align 8, !tbaa !14
+  %133 = load ptr, ptr %68, align 8, !tbaa !15
   br i1 %.not, label %134, label %136
 
 134:                                              ; preds = %132
@@ -278,7 +278,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count272
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .lr.ph262.split:                                  ; preds = %.lr.ph262.split.preheader, %181
   %indvars.iv274 = phi i64 [ 0, %.lr.ph262.split.preheader ], [ %indvars.iv.next275, %181 ]
@@ -345,7 +345,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %167, label %.thread256, label %173
 
 .thread256:                                       ; preds = %161, %165
-  %168 = load ptr, ptr %90, align 8, !tbaa !14
+  %168 = load ptr, ptr %90, align 8, !tbaa !15
   br i1 %.not, label %169, label %171
 
 169:                                              ; preds = %.thread256
@@ -357,7 +357,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %179
 
 173:                                              ; preds = %165
-  %174 = load ptr, ptr %87, align 8, !tbaa !14
+  %174 = load ptr, ptr %87, align 8, !tbaa !15
   br i1 %.not, label %175, label %177
 
 175:                                              ; preds = %173
@@ -382,7 +382,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count282
-  br i1 %exitcond278.not, label %.loopexit, label %.lr.ph262.split, !llvm.loop !17
+  br i1 %exitcond278.not, label %.loopexit, label %.lr.ph262.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %140, %82, %181, %97, %.preheader258, %.preheader, %59, %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
@@ -439,11 +439,12 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

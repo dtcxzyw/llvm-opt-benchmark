@@ -276,11 +276,11 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %56 = load i32, ptr %25, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %55, %57
-  br i1 %58, label %.preheader17, label %..loopexit18.loopexit_crit_edge, !llvm.loop !9
+  br i1 %58, label %.preheader17, label %..loopexit18.loopexit_crit_edge, !llvm.loop !10
 
 ..loopexit18.loopexit_crit_edge:                  ; preds = %54
   %.pre.pre = load ptr, ptr %28, align 8
-  br label %.sink.split, !llvm.loop !9
+  br label %.sink.split, !llvm.loop !10
 
 .loopexit20:                                      ; preds = %33, %30
   %59 = load i32, ptr @sunrpc_net_id, align 4
@@ -299,15 +299,15 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   br i1 %68, label %97, label %69
 
 69:                                               ; preds = %.loopexit20
-  %70 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67, i32 1, ptr nonnull elementtype(i32) %67) #7, !srcloc !10
+  %70 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67, i32 1, ptr nonnull elementtype(i32) %67) #7, !srcloc !11
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %76, label %72, !prof !11
+  br i1 %71, label %76, label %72, !prof !12
 
 72:                                               ; preds = %69
   %73 = add i32 %70, 1
   %74 = or i32 %73, %70
   %75 = icmp sgt i32 %74, -1
-  br i1 %75, label %78, label %76, !prof !12
+  br i1 %75, label %78, label %76, !prof !13
 
 76:                                               ; preds = %72, %69
   %77 = phi i32 [ 2, %69 ], [ 1, %72 ]
@@ -336,12 +336,12 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   br label %95
 
 84:                                               ; preds = %81
-  %85 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !13
+  %85 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !14
   %86 = inttoptr i64 %85 to ptr
   %87 = load volatile i64, ptr %86, align 8
   %88 = and i64 %87, 131072
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %95, !prof !12
+  br i1 %89, label %90, label %95, !prof !13
 
 90:                                               ; preds = %84
   %91 = load volatile i64, ptr %86, align 8
@@ -379,7 +379,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %109 = load i32, ptr %25, align 8
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %108, %110
-  br i1 %111, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %111, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %107, %.preheader, %98
   %112 = load ptr, ptr %28, align 8
@@ -592,20 +592,20 @@ define dso_local void @gssp_free_upcall_data(ptr noundef captures(none) %0) loca
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #7, !srcloc !14
+  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #7, !srcloc !16
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %11
   %15 = icmp sgt i32 %12, 0
-  br i1 %15, label %.thread, label %16, !prof !12
+  br i1 %15, label %.thread, label %16, !prof !13
 
 16:                                               ; preds = %14
   tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #7
   br label %.thread
 
 17:                                               ; preds = %11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   %18 = load ptr, ptr %8, align 8
   tail call void @groups_free(ptr noundef %18) #7
   br label %.thread
@@ -692,13 +692,15 @@ attributes #9 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2148709235, i64 2148709274, i64 2148709295, i64 2148709332, i64 2148709355, i64 2148709364}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{i64 2148197954}
-!14 = !{i64 2148711420, i64 2148711459, i64 2148711480, i64 2148711517, i64 2148711540, i64 2148711549}
-!15 = !{i64 2149885704}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = !{i64 2148709235, i64 2148709274, i64 2148709295, i64 2148709332, i64 2148709355, i64 2148709364}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2148197954}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = !{i64 2148711420, i64 2148711459, i64 2148711480, i64 2148711517, i64 2148711540, i64 2148711549}
+!17 = !{i64 2149885704}

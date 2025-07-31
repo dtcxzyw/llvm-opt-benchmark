@@ -85,7 +85,7 @@ _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE
 _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E7destroyEPS1_.exit.i.i.i.i, %18, %.thread.i.i.i
   %24 = load atomic i64, ptr %5 acquire, align 8
   %.not.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not.i.i.i, label %8, label %.split.loop.exit19.i.i.i
+  br i1 %.not.i.i.i, label %8, label %.split.loop.exit19.i.i.i, !llvm.loop !6
 
 .split.loop.exit19.i.i.i:                         ; preds = %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i, %4
   %.lcssa.i.i.i = phi i64 [ %6, %4 ], [ %24, %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i ]
@@ -185,7 +185,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_fu
   %54 = add i32 %32, -1
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %.not.us.i.i = icmp eq i32 %54, 0
-  br i1 %.not.us.i.i, label %_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit, label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i, !llvm.loop !6
+  br i1 %.not.us.i.i, label %_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit, label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i, !llvm.loop !8
 
 _ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i, %_ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit, %4
   %56 = load ptr, ptr %0, align 8
@@ -274,7 +274,7 @@ _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE
 _ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i: ; preds = %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E7destroyEPS1_.exit.i.i.i.i, %16, %.thread.i.i.i
   %22 = load atomic i64, ptr %3 acquire, align 8
   %.not.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i, label %6, label %.split.loop.exit19.i.i.i
+  br i1 %.not.i.i.i, label %6, label %.split.loop.exit19.i.i.i, !llvm.loop !6
 
 .split.loop.exit19.i.i.i:                         ; preds = %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i, %2
   %.lcssa.i.i.i = phi i64 [ %4, %2 ], [ %22, %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E10do_destroyEPS1_.exit.i.i.i ]
@@ -350,7 +350,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
 47:                                               ; preds = %27
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %27, !llvm.loop !11
 
 48:                                               ; preds = %27
   %49 = and i64 %indvars.iv.i.i.i, 4294967295
@@ -580,7 +580,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge25, label %13, !llvm.loop !12
 
 .critedge23:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
@@ -713,7 +713,7 @@ _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitiz
 78:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7IntTypeIhLj1EEEEEJRKNS3_IjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSB_.exit.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %79 = phi i32 [ %61, %.lr.ph.preheader ], [ %128, %78 ]
@@ -849,8 +849,11 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !9, !7}

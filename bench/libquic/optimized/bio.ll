@@ -257,7 +257,7 @@ define internal fastcc i32 @bio_io(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %3
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
@@ -279,7 +279,7 @@ define internal fastcc i32 @bio_io(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 20:                                               ; preds = %16, %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !26
+  %22 = load i32, ptr %21, align 8, !tbaa !27
   %.not43 = icmp eq i32 %22, 0
   br i1 %.not43, label %23, label %24
 
@@ -300,9 +300,9 @@ define internal fastcc i32 @bio_io(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 30:                                               ; preds = %27
   %31 = zext nneg i32 %28 to i64
-  %32 = load i64, ptr %5, align 8, !tbaa !27
+  %32 = load i64, ptr %5, align 8, !tbaa !28
   %33 = add i64 %32, %31
-  store i64 %33, ptr %5, align 8, !tbaa !27
+  store i64 %33, ptr %5, align 8, !tbaa !28
   br label %.thread46
 
 .thread46:                                        ; preds = %24, %30, %27
@@ -361,7 +361,7 @@ define hidden i32 @BIO_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -383,7 +383,7 @@ define hidden i32 @BIO_flush(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %11
@@ -415,7 +415,7 @@ define hidden i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -437,7 +437,7 @@ define hidden i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr 
 ._crit_edge:                                      ; preds = %17
   %.pre = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
+  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
   br label %20
 
 20:                                               ; preds = %._crit_edge, %14
@@ -460,7 +460,7 @@ define hidden i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr 
 define hidden ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr null, ptr %4, align 8, !tbaa !29
+  store ptr null, ptr %4, align 8, !tbaa !30
   %5 = icmp eq ptr %0, null
   br i1 %5, label %BIO_ctrl.exit.thread, label %6
 
@@ -471,7 +471,7 @@ define hidden ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -493,7 +493,7 @@ define hidden ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 ._crit_edge.i:                                    ; preds = %17
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %20
 
 20:                                               ; preds = %._crit_edge.i, %14
@@ -527,7 +527,7 @@ BIO_ctrl.exit.thread:                             ; preds = %17, %3, %13, %BIO_c
 define hidden i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 %3, ptr %5, align 4, !tbaa !30
+  store i32 %3, ptr %5, align 4, !tbaa !31
   %6 = icmp eq ptr %0, null
   br i1 %6, label %BIO_ctrl.exit, label %7
 
@@ -538,7 +538,7 @@ define hidden i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -560,7 +560,7 @@ define hidden i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
 ._crit_edge.i:                                    ; preds = %18
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %21
 
 21:                                               ; preds = %._crit_edge.i, %15
@@ -592,7 +592,7 @@ define hidden i32 @BIO_reset(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -614,7 +614,7 @@ define hidden i32 @BIO_reset(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %11
@@ -637,16 +637,16 @@ BIO_ctrl.exit:                                    ; preds = %1, %10, %14, %17, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @BIO_set_flags(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !31
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = or i32 %4, %1
-  store i32 %5, ptr %3, align 8, !tbaa !31
+  store i32 %5, ptr %3, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @BIO_test_flags(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !31
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = and i32 %4, %1
   ret i32 %5
 }
@@ -654,7 +654,7 @@ define hidden i32 @BIO_test_flags(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @BIO_should_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 1
   ret i32 %4
 }
@@ -662,7 +662,7 @@ define hidden range(i32 0, 2) i32 @BIO_should_read(ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @BIO_should_write(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 2
   ret i32 %4
 }
@@ -670,7 +670,7 @@ define hidden range(i32 0, 3) i32 @BIO_should_write(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 9) i32 @BIO_should_retry(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 8
   ret i32 %4
 }
@@ -678,7 +678,7 @@ define hidden range(i32 0, 9) i32 @BIO_should_retry(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 5) i32 @BIO_should_io_special(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 4
   ret i32 %4
 }
@@ -686,7 +686,7 @@ define hidden range(i32 0, 5) i32 @BIO_should_io_special(ptr noundef readonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @BIO_get_retry_reason(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %3 = load i32, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %2, align 4, !tbaa !33
   ret i32 %3
 }
 
@@ -694,34 +694,34 @@ define hidden i32 @BIO_get_retry_reason(ptr noundef readonly captures(none) %0) 
 define hidden void @BIO_clear_flags(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = xor i32 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !31
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   %6 = and i32 %5, %3
-  store i32 %6, ptr %4, align 8, !tbaa !31
+  store i32 %6, ptr %4, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @BIO_set_retry_read(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = or i32 %3, 9
-  store i32 %4, ptr %2, align 8, !tbaa !31
+  store i32 %4, ptr %2, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @BIO_set_retry_write(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = or i32 %3, 10
-  store i32 %4, ptr %2, align 8, !tbaa !31
+  store i32 %4, ptr %2, align 8, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 16) i32 @BIO_get_retry_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 15
   ret i32 %4
 }
@@ -729,46 +729,46 @@ define hidden range(i32 0, 16) i32 @BIO_get_retry_flags(ptr noundef readonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @BIO_clear_retry_flags(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, -16
-  store i32 %4, ptr %2, align 8, !tbaa !31
+  store i32 %4, ptr %2, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %5, align 4, !tbaa !32
+  store i32 0, ptr %5, align 4, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BIO_method_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
-  %3 = load i32, ptr %2, align 8, !tbaa !33
+  %3 = load i32, ptr %2, align 8, !tbaa !34
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @BIO_copy_next_retry(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, -16
-  store i32 %4, ptr %2, align 8, !tbaa !31
+  store i32 %4, ptr %2, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %5, align 4, !tbaa !32
+  store i32 0, ptr %5, align 4, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !31
+  %9 = load i32, ptr %8, align 8, !tbaa !32
   %10 = and i32 %9, 15
   %11 = or disjoint i32 %10, %4
-  store i32 %11, ptr %2, align 8, !tbaa !31
+  store i32 %11, ptr %2, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %13 = load i32, ptr %12, align 4, !tbaa !32
-  store i32 %13, ptr %5, align 4, !tbaa !32
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  store i32 %13, ptr %5, align 4, !tbaa !33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  store ptr %2, ptr %4, align 8, !tbaa !25
+  store ptr %2, ptr %4, align 8, !tbaa !26
   %5 = icmp eq ptr %0, null
   br i1 %5, label %24, label %6
 
@@ -779,7 +779,7 @@ define hidden i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -805,8 +805,8 @@ define hidden i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef
 21:                                               ; preds = %18
   %.pre = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
-  %.pre24 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
-  %.pre25 = load ptr, ptr %4, align 8, !tbaa !25
+  %.pre24 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
+  %.pre25 = load ptr, ptr %4, align 8, !tbaa !26
   %22 = call i64 %.pre24(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %.pre25) #18
   %23 = call i64 %16(ptr noundef nonnull %0, i32 noundef 134, ptr noundef nonnull %4, i32 noundef %1, i64 noundef 0, i64 noundef %22) #18
   br label %24
@@ -828,7 +828,7 @@ define hidden i64 @BIO_pending(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -850,7 +850,7 @@ define hidden i64 @BIO_pending(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %11
@@ -881,7 +881,7 @@ define hidden i64 @BIO_ctrl_pending(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -903,7 +903,7 @@ define hidden i64 @BIO_ctrl_pending(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i.i:                                  ; preds = %14
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 48
-  %.pre31.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !28
+  %.pre31.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %._crit_edge.i.i, %11
@@ -934,7 +934,7 @@ define hidden i64 @BIO_wpending(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -956,7 +956,7 @@ define hidden i64 @BIO_wpending(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %11
@@ -988,7 +988,7 @@ define hidden i32 @BIO_set_close(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -1010,7 +1010,7 @@ define hidden i32 @BIO_set_close(ptr noundef %0, i32 noundef %1) local_unnamed_a
 ._crit_edge.i:                                    ; preds = %16
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
-  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
+  %.pre31.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !29
   br label %19
 
 19:                                               ; preds = %._crit_edge.i, %13
@@ -1040,28 +1040,28 @@ define hidden void @BIO_set_callback(ptr noundef writeonly captures(none) initia
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @BIO_set_callback_arg(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %3, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @BIO_get_callback_arg(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @BIO_number_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i64, ptr %2, align 8, !tbaa !36
+  %3 = load i64, ptr %2, align 8, !tbaa !37
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @BIO_number_written(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i64, ptr %2, align 8, !tbaa !37
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   ret i64 %3
 }
 
@@ -1075,7 +1075,7 @@ define hidden noundef ptr @BIO_push(ptr noundef returned captures(address_is_nul
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %.preheader, !llvm.loop !38
+  br i1 %.not, label %6, label %.preheader, !llvm.loop !39
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 56
@@ -1118,7 +1118,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   br i1 %.not17.us, label %9, label %6
 
 6:                                                ; preds = %.split.us
-  %7 = load i32, ptr %5, align 8, !tbaa !33
+  %7 = load i32, ptr %5, align 8, !tbaa !34
   %8 = and i32 %7, %1
   %.not19.us = icmp eq i32 %8, 0
   br i1 %.not19.us, label %9, label %.loopexit
@@ -1127,7 +1127,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   %10 = getelementptr inbounds nuw i8, ptr %.013.us, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %.not20.us = icmp eq ptr %11, null
-  br i1 %.not20.us, label %.loopexit, label %.split.us, !llvm.loop !39
+  br i1 %.not20.us, label %.loopexit, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %3, %16
   %.013 = phi ptr [ %18, %16 ], [ %0, %3 ]
@@ -1136,7 +1136,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   br i1 %.not17, label %16, label %13
 
 13:                                               ; preds = %.split
-  %14 = load i32, ptr %12, align 8, !tbaa !33
+  %14 = load i32, ptr %12, align 8, !tbaa !34
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit, label %16
 
@@ -1144,7 +1144,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   %17 = getelementptr inbounds nuw i8, ptr %.013, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %.not20 = icmp eq ptr %18, null
-  br i1 %.not20, label %.loopexit, label %.split, !llvm.loop !41
+  br i1 %.not20, label %.loopexit, label %.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %13, %16, %9, %6, %2
   %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %.013.us, %6 ], [ null, %16 ], [ %.013, %13 ]
@@ -1166,7 +1166,7 @@ define hidden range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i3
   %7 = add i32 %.1, -1
   %8 = tail call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef 16, i32 noundef 3, ptr noundef nonnull %4)
   %.not8 = icmp eq i32 %8, 1
-  br i1 %.not8, label %5, label %9, !llvm.loop !42
+  br i1 %.not8, label %5, label %9, !llvm.loop !43
 
 9:                                                ; preds = %5, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %5 ]
@@ -1205,9 +1205,9 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %.not, label %8, label %bio_read_all.exit.thread
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr %5, align 2, !tbaa !43
+  %9 = load i8, ptr %5, align 2, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !43
+  %11 = load i8, ptr %10, align 1, !tbaa !44
   %12 = zext i8 %9 to i32
   %13 = and i32 %12, 31
   %14 = icmp eq i32 %13, 31
@@ -1238,7 +1238,7 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
 
 28:                                               ; preds = %26
   %29 = call noalias ptr @malloc(i64 noundef %spec.select.i) #17
-  store ptr %29, ptr %1, align 8, !tbaa !29
+  store ptr %29, ptr %1, align 8, !tbaa !30
   %30 = icmp eq ptr %29, null
   br i1 %30, label %bio_read_all.exit.thread, label %31
 
@@ -1257,7 +1257,7 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
 .lr.ph91:                                         ; preds = %.outer.split.us.i, %40
   %.054.us.i90 = phi i64 [ %42, %40 ], [ %.054.ph.lcssa.i, %.outer.split.us.i ]
   %35 = sub i64 %.148.ph.lcssa.i, %.054.us.i90
-  %36 = load ptr, ptr %1, align 8, !tbaa !29
+  %36 = load ptr, ptr %1, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.054.us.i90
   %38 = trunc i64 %35 to i32
   %39 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef %37, i32 noundef %38, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
@@ -1283,13 +1283,13 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %45, label %.split.us.i, label %47
 
 .split.us.i:                                      ; preds = %44, %40, %.outer.split.us.i
-  %46 = load ptr, ptr %1, align 8, !tbaa !29
+  %46 = load ptr, ptr %1, align 8, !tbaa !30
   call void @free(ptr noundef %46) #18
   br label %bio_read_all.exit.thread
 
 47:                                               ; preds = %44
   %48 = sub i64 %.148.ph96.i, %.054.i
-  %49 = load ptr, ptr %1, align 8, !tbaa !29
+  %49 = load ptr, ptr %1, align 8, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.054.i
   %51 = trunc i64 %48 to i32
   %52 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %51, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
@@ -1300,11 +1300,11 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
 
 .split79.us.i:                                    ; preds = %47, %.lr.ph91
   %.us-phi.i = phi i64 [ %.054.us.i90, %.lr.ph91 ], [ %.054.i, %47 ]
-  store i64 %.us-phi.i, ptr %2, align 8, !tbaa !27
+  store i64 %.us-phi.i, ptr %2, align 8, !tbaa !28
   br label %bio_read_all.exit.thread
 
 .split81.us.i:                                    ; preds = %47, %.lr.ph91
-  %53 = load ptr, ptr %1, align 8, !tbaa !29
+  %53 = load ptr, ptr %1, align 8, !tbaa !30
   call void @free(ptr noundef %53) #18
   br label %bio_read_all.exit.thread
 
@@ -1313,25 +1313,25 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %56 = add i64 %.054.i, %55
   %57 = sub i64 %.148.ph96.i, %56
   %58 = icmp ult i64 %57, 2048
-  br i1 %58, label %59, label %44
+  br i1 %58, label %59, label %44, !llvm.loop !45
 
 59:                                               ; preds = %54
   %60 = icmp ugt i64 %.148.ph96.i, -4097
   %61 = add nuw i64 %.148.ph96.i, 4096
   %62 = call i64 @llvm.umin.i64(i64 %61, i64 %3)
   %.451.i = select i1 %60, i64 %3, i64 %62
-  %63 = load ptr, ptr %1, align 8, !tbaa !29
+  %63 = load ptr, ptr %1, align 8, !tbaa !30
   %64 = call ptr @realloc(ptr noundef %63, i64 noundef %.451.i) #20
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %.thread72.i, label %.outer.i
 
 .thread72.i:                                      ; preds = %59
-  %65 = load ptr, ptr %1, align 8, !tbaa !29
+  %65 = load ptr, ptr %1, align 8, !tbaa !30
   call void @free(ptr noundef %65) #18
   br label %bio_read_all.exit.thread
 
 .outer.i:                                         ; preds = %59
-  store ptr %64, ptr %1, align 8, !tbaa !29
+  store ptr %64, ptr %1, align 8, !tbaa !30
   %66 = icmp ult i64 %.451.i, %3
   br i1 %66, label %.outer.split.i, label %.outer.split.us.i
 
@@ -1356,12 +1356,12 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %73 = shl i32 %.05788, 8
   %74 = add nuw nsw i64 %indvars.iv, 2
   %75 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !43
+  %76 = load i8, ptr %75, align 1, !tbaa !44
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %73, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %79 = icmp ult i32 %78, 128
@@ -1386,9 +1386,9 @@ bio_read_all.exit:                                ; preds = %._crit_edge
   br i1 %or.cond5, label %bio_read_all.exit.thread, label %89
 
 89:                                               ; preds = %85
-  store i64 %86, ptr %2, align 8, !tbaa !27
+  store i64 %86, ptr %2, align 8, !tbaa !28
   %90 = call noalias ptr @malloc(i64 noundef %86) #17
-  store ptr %90, ptr %1, align 8, !tbaa !29
+  store ptr %90, ptr %1, align 8, !tbaa !30
   %91 = icmp eq ptr %90, null
   br i1 %91, label %bio_read_all.exit.thread, label %92
 
@@ -1401,7 +1401,7 @@ bio_read_all.exit:                                ; preds = %._crit_edge
   br i1 %.not71, label %bio_read_all.exit.thread, label %96
 
 96:                                               ; preds = %92
-  %97 = load ptr, ptr %1, align 8, !tbaa !29
+  %97 = load ptr, ptr %1, align 8, !tbaa !30
   call void @free(ptr noundef %97) #18
   br label %bio_read_all.exit.thread
 
@@ -1473,25 +1473,27 @@ attributes #20 = { nounwind allocsize(1) }
 !20 = !{!7, !9, i64 8}
 !21 = !{!7, !14, i64 56}
 !22 = !{!19, !9, i64 64}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!9, !9, i64 0}
-!26 = !{!7, !13, i64 24}
-!27 = !{!15, !15, i64 0}
-!28 = !{!19, !9, i64 48}
-!29 = !{!12, !12, i64 0}
-!30 = !{!13, !13, i64 0}
-!31 = !{!7, !13, i64 32}
-!32 = !{!7, !13, i64 36}
-!33 = !{!19, !13, i64 0}
-!34 = !{!19, !9, i64 72}
-!35 = !{!7, !12, i64 16}
-!36 = !{!7, !15, i64 64}
-!37 = !{!7, !15, i64 72}
-!38 = distinct !{!38, !24}
-!39 = distinct !{!39, !24, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !24}
-!42 = distinct !{!42, !24}
-!43 = !{!10, !10, i64 0}
-!44 = distinct !{!44, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!9, !9, i64 0}
+!27 = !{!7, !13, i64 24}
+!28 = !{!15, !15, i64 0}
+!29 = !{!19, !9, i64 48}
+!30 = !{!12, !12, i64 0}
+!31 = !{!13, !13, i64 0}
+!32 = !{!7, !13, i64 32}
+!33 = !{!7, !13, i64 36}
+!34 = !{!19, !13, i64 0}
+!35 = !{!19, !9, i64 72}
+!36 = !{!7, !12, i64 16}
+!37 = !{!7, !15, i64 64}
+!38 = !{!7, !15, i64 72}
+!39 = distinct !{!39, !24, !25}
+!40 = distinct !{!40, !24, !25, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !24, !25}
+!43 = distinct !{!43, !24, !25}
+!44 = !{!10, !10, i64 0}
+!45 = distinct !{!45, !25}
+!46 = distinct !{!46, !24, !25}

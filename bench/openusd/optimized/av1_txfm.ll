@@ -63,7 +63,7 @@ define hidden void @av1_round_shift_array_c(ptr noundef captures(none) %0, i32 n
   store i32 %28, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !7
 
 .loopexit:                                        ; preds = %21, %14, %.preheader18, %.preheader, %3
   ret void
@@ -90,6 +90,7 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

@@ -517,7 +517,7 @@ define hidden ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %1) local_u
   %7 = add nuw i64 %.01721, 1
   %8 = tail call i64 @sk_num(ptr noundef %4) #10
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %2, %6
   %.01721 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -552,7 +552,7 @@ define hidden ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %1) local_u
 
 X509_LOOKUP_new.exit:                             ; preds = %22, %16
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %0, ptr %24, align 8, !tbaa !44
+  store ptr %0, ptr %24, align 8, !tbaa !45
   %25 = load ptr, ptr %3, align 8, !tbaa !33
   %26 = tail call i64 @sk_push(ptr noundef %25, ptr noundef nonnull %14) #10
   %.not = icmp eq i64 %26, 0
@@ -593,7 +593,7 @@ define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nound
   %9 = alloca %struct.X509_crl_info_st, align 8
   %10 = alloca i64, align 8
   %11 = alloca %struct.x509_object_st, align 8
-  %12 = load ptr, ptr %0, align 8, !tbaa !45
+  %12 = load ptr, ptr %0, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %13) #10
@@ -613,17 +613,17 @@ define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nound
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %17, align 8, !tbaa !40
-  store ptr %7, ptr %6, align 8, !tbaa !55
+  store ptr %7, ptr %6, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %2, ptr %18, align 8, !tbaa !67
+  store ptr %2, ptr %18, align 8, !tbaa !68
   br label %22
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %20, align 8, !tbaa !40
-  store ptr %9, ptr %8, align 8, !tbaa !74
+  store ptr %9, ptr %8, align 8, !tbaa !75
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %2, ptr %21, align 8, !tbaa !80
+  store ptr %2, ptr %21, align 8, !tbaa !81
   br label %22
 
 22:                                               ; preds = %19, %16
@@ -668,7 +668,7 @@ X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_
 
 32:                                               ; preds = %X509_OBJECT_retrieve_by_subject.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !83
+  %34 = load i32, ptr %33, align 8, !tbaa !84
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = call i64 @sk_num(ptr noundef %36) #10
@@ -707,7 +707,7 @@ X509_LOOKUP_by_subject.exit:                      ; preds = %50
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %X509_LOOKUP_by_subject.exit
-  store i32 %53, ptr %33, align 8, !tbaa !83
+  store i32 %53, ptr %33, align 8, !tbaa !84
   br label %X509_OBJECT_up_ref_count.exit
 
 56:                                               ; preds = %X509_LOOKUP_by_subject.exit
@@ -715,7 +715,7 @@ X509_LOOKUP_by_subject.exit:                      ; preds = %50
   br i1 %.not, label %.thread, label %.thread40
 
 .thread40:                                        ; preds = %56
-  store i32 0, ptr %33, align 8, !tbaa !83
+  store i32 0, ptr %33, align 8, !tbaa !84
   br label %61
 
 .thread:                                          ; preds = %46, %.lr.ph, %50, %56
@@ -725,10 +725,10 @@ X509_LOOKUP_by_subject.exit:                      ; preds = %50
   %sext = shl i64 %58, 32
   %59 = ashr exact i64 %sext, 32
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.thread, %32
-  store i32 0, ptr %33, align 8, !tbaa !83
+  store i32 0, ptr %33, align 8, !tbaa !84
   br i1 %30, label %X509_OBJECT_up_ref_count.exit, label %61
 
 61:                                               ; preds = %.thread40, %._crit_edge, %X509_OBJECT_retrieve_by_subject.exit
@@ -782,17 +782,17 @@ define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %0, i32 noundef %
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8, !tbaa !40
-  store ptr %6, ptr %5, align 8, !tbaa !55
+  store ptr %6, ptr %5, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %2, ptr %12, align 8, !tbaa !67
+  store ptr %2, ptr %12, align 8, !tbaa !68
   br label %16
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %14, align 8, !tbaa !40
-  store ptr %8, ptr %7, align 8, !tbaa !74
+  store ptr %8, ptr %7, align 8, !tbaa !75
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %15, align 8, !tbaa !80
+  store ptr %2, ptr %15, align 8, !tbaa !81
   br label %16
 
 16:                                               ; preds = %13, %10
@@ -936,7 +936,7 @@ define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) lo
   %6 = load i32, ptr %1, align 8, !tbaa !38
   %.off = add i32 %6, -1
   %switch = icmp ult i32 %.off, 2
-  %7 = load i64, ptr %3, align 8, !tbaa !85
+  %7 = load i64, ptr %3, align 8, !tbaa !86
   br i1 %switch, label %10, label %8
 
 8:                                                ; preds = %5
@@ -1016,7 +1016,7 @@ x509_object_cmp.exit.thread:                      ; preds = %18, %thread-pre-spl
   %41 = add nuw i64 %.028, 1
   %42 = call i64 @sk_num(ptr noundef %0) #10
   %43 = icmp ult i64 %41, %42
-  br i1 %43, label %14, label %x509_object_cmp.exit.thread25, !llvm.loop !86
+  br i1 %43, label %14, label %x509_object_cmp.exit.thread25, !llvm.loop !87
 
 x509_object_cmp.exit.thread25:                    ; preds = %x509_object_cmp.exit, %40, %30, %35, %x509_object_cmp.exit.thread, %14, %10, %2, %8
   %.07 = phi ptr [ %9, %8 ], [ null, %2 ], [ null, %10 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %15, %30 ], [ %15, %35 ], [ %15, %x509_object_cmp.exit.thread ], [ null, %14 ]
@@ -1142,17 +1142,17 @@ define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, pt
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8, !tbaa !40
-  store ptr %6, ptr %5, align 8, !tbaa !55
+  store ptr %6, ptr %5, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %2, ptr %12, align 8, !tbaa !67
+  store ptr %2, ptr %12, align 8, !tbaa !68
   br label %16
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %14, align 8, !tbaa !40
-  store ptr %8, ptr %7, align 8, !tbaa !74
+  store ptr %8, ptr %7, align 8, !tbaa !75
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %15, align 8, !tbaa !80
+  store ptr %2, ptr %15, align 8, !tbaa !81
   br label %16
 
 16:                                               ; preds = %13, %10
@@ -1197,17 +1197,17 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %12, align 8, !tbaa !40
-  store ptr %7, ptr %6, align 8, !tbaa !55
+  store ptr %7, ptr %6, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %2, ptr %13, align 8, !tbaa !67
+  store ptr %2, ptr %13, align 8, !tbaa !68
   br label %17
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %15, align 8, !tbaa !40
-  store ptr %9, ptr %8, align 8, !tbaa !74
+  store ptr %9, ptr %8, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %2, ptr %16, align 8, !tbaa !80
+  store ptr %2, ptr %16, align 8, !tbaa !81
   br label %17
 
 17:                                               ; preds = %14, %11
@@ -1221,8 +1221,8 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
   br i1 %.not15, label %x509_object_cmp.exit.thread20, label %20
 
 20:                                               ; preds = %19
-  store i32 1, ptr %3, align 4, !tbaa !87
-  %21 = load i64, ptr %10, align 8, !tbaa !85
+  store i32 1, ptr %3, align 4, !tbaa !88
+  %21 = load i64, ptr %10, align 8, !tbaa !86
   %22 = trunc i64 %21 to i32
   %.023 = add i32 %22, 1
   %23 = call i64 @sk_num(ptr noundef %0) #10
@@ -1269,18 +1269,18 @@ x509_object_cmp.exit:                             ; preds = %33, %38
   br i1 %.not16, label %x509_object_cmp.exit.thread, label %x509_object_cmp.exit.thread20
 
 x509_object_cmp.exit.thread:                      ; preds = %32, %x509_object_cmp.exit
-  %43 = load i32, ptr %3, align 4, !tbaa !87
+  %43 = load i32, ptr %3, align 4, !tbaa !88
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %3, align 4, !tbaa !87
+  store i32 %44, ptr %3, align 4, !tbaa !88
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %45 = call i64 @sk_num(ptr noundef %0) #10
   %sext = shl i64 %45, 32
   %46 = ashr exact i64 %sext, 32
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %28, label %x509_object_cmp.exit.thread20, !llvm.loop !88
+  br i1 %47, label %28, label %x509_object_cmp.exit.thread20, !llvm.loop !89
 
 x509_object_cmp.exit.thread20:                    ; preds = %x509_object_cmp.exit, %x509_object_cmp.exit.thread, %28, %20, %19
-  %48 = load i64, ptr %10, align 8, !tbaa !85
+  %48 = load i64, ptr %10, align 8, !tbaa !86
   %49 = trunc i64 %48 to i32
   br label %50
 
@@ -1309,10 +1309,10 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
   br i1 %6, label %57, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !45
+  %8 = load ptr, ptr %0, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %9) #10
-  %10 = load ptr, ptr %0, align 8, !tbaa !45
+  %10 = load ptr, ptr %0, align 8, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %12, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3)
@@ -1321,7 +1321,7 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
 
 15:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  %16 = load ptr, ptr %0, align 8, !tbaa !45
+  %16 = load ptr, ptr %0, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %17) #10
   %18 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %4)
@@ -1348,10 +1348,10 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
   br label %X509_OBJECT_free_contents.exit
 
 X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
-  %27 = load ptr, ptr %0, align 8, !tbaa !45
+  %27 = load ptr, ptr %0, align 8, !tbaa !46
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %28) #10
-  %29 = load ptr, ptr %0, align 8, !tbaa !45
+  %29 = load ptr, ptr %0, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %31, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3)
@@ -1359,7 +1359,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %X509_OBJECT_free_contents.exit
-  %35 = load ptr, ptr %0, align 8, !tbaa !45
+  %35 = load ptr, ptr %0, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %36) #10
   br label %.critedge
@@ -1370,7 +1370,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 
 38:                                               ; preds = %37, %7
   %.031 = phi i32 [ %32, %37 ], [ %13, %7 ]
-  %39 = load i32, ptr %3, align 4, !tbaa !87
+  %39 = load i32, ptr %3, align 4, !tbaa !88
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1381,7 +1381,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
   %.03039 = phi i32 [ 0, %.lr.ph.preheader ], [ %54, %53 ]
-  %42 = load ptr, ptr %0, align 8, !tbaa !45
+  %42 = load ptr, ptr %0, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !27
   %45 = call ptr @sk_value(ptr noundef %44, i64 noundef %indvars.iv) #10
@@ -1393,7 +1393,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   br i1 %.not37, label %50, label %53
 
 50:                                               ; preds = %.lr.ph
-  %51 = load ptr, ptr %0, align 8, !tbaa !45
+  %51 = load ptr, ptr %0, align 8, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %52) #10
   call void @X509_free(ptr noundef %47) #10
@@ -1404,10 +1404,10 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   %54 = add nuw nsw i32 %.03039, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %54, %39
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %53, %38
-  %55 = load ptr, ptr %0, align 8, !tbaa !45
+  %55 = load ptr, ptr %0, align 8, !tbaa !46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %56) #10
   br label %57
@@ -1462,10 +1462,10 @@ define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %0, ptr nound
   br label %X509_OBJECT_free_contents.exit
 
 X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
-  %18 = load ptr, ptr %0, align 8, !tbaa !45
+  %18 = load ptr, ptr %0, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %19) #10
-  %20 = load ptr, ptr %0, align 8, !tbaa !45
+  %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = call fastcc i32 @x509_object_idx_cnt(ptr noundef %22, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3)
@@ -1473,7 +1473,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   br i1 %24, label %28, label %.preheader
 
 .preheader:                                       ; preds = %X509_OBJECT_free_contents.exit
-  %25 = load i32, ptr %3, align 4, !tbaa !87
+  %25 = load i32, ptr %3, align 4, !tbaa !88
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1482,7 +1482,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   br label %.lr.ph
 
 28:                                               ; preds = %X509_OBJECT_free_contents.exit
-  %29 = load ptr, ptr %0, align 8, !tbaa !45
+  %29 = load ptr, ptr %0, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %30) #10
   call void @sk_free(ptr noundef nonnull %5) #10
@@ -1491,7 +1491,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %.02430 = phi i32 [ 0, %.lr.ph.preheader ], [ %42, %41 ]
-  %31 = load ptr, ptr %0, align 8, !tbaa !45
+  %31 = load ptr, ptr %0, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = call ptr @sk_value(ptr noundef %33, i64 noundef %indvars.iv) #10
@@ -1503,7 +1503,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   br i1 %.not28, label %38, label %41
 
 38:                                               ; preds = %.lr.ph
-  %39 = load ptr, ptr %0, align 8, !tbaa !45
+  %39 = load ptr, ptr %0, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %40) #10
   call void @X509_CRL_free(ptr noundef %36) #10
@@ -1514,10 +1514,10 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   %42 = add nuw nsw i32 %.02430, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %42, %25
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %41, %.preheader
-  %43 = load ptr, ptr %0, align 8, !tbaa !45
+  %43 = load ptr, ptr %0, align 8, !tbaa !46
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %44) #10
   br label %45
@@ -1595,7 +1595,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %11, %13, %16
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !91
+  %29 = load ptr, ptr %28, align 8, !tbaa !92
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = tail call i32 %29(ptr noundef %1, ptr noundef %2, ptr noundef %31) #10
@@ -1603,7 +1603,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %11, %13, %16
   br i1 %.not36, label %34, label %33
 
 33:                                               ; preds = %27
-  store ptr %31, ptr %0, align 8, !tbaa !92
+  store ptr %31, ptr %0, align 8, !tbaa !93
   br label %X509_OBJECT_free_contents.exit42
 
 34:                                               ; preds = %27
@@ -1622,10 +1622,10 @@ X509_OBJECT_free_contents.exit:                   ; preds = %11, %13, %16
   br label %X509_OBJECT_free_contents.exit43
 
 X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
-  %38 = load ptr, ptr %1, align 8, !tbaa !45
+  %38 = load ptr, ptr %1, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %39) #10
-  %40 = load ptr, ptr %1, align 8, !tbaa !45
+  %40 = load ptr, ptr %1, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
@@ -1634,9 +1634,9 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
   store i32 1, ptr %4, align 8, !tbaa !38
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %43, align 8, !tbaa !40
-  store ptr %6, ptr %5, align 8, !tbaa !55
+  store ptr %6, ptr %5, align 8, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %9, ptr %44, align 8, !tbaa !67
+  store ptr %9, ptr %44, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %45 = call i32 @sk_find(ptr noundef %42, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not.i.i = icmp eq i32 %45, 0
@@ -1653,7 +1653,7 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
 48:                                               ; preds = %X509_OBJECT_free_contents.exit43
   %sext = shl i64 %46, 32
   %49 = ashr exact i64 %sext, 32
-  %50 = load ptr, ptr %1, align 8, !tbaa !45
+  %50 = load ptr, ptr %1, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = call i64 @sk_num(ptr noundef %52) #10
@@ -1662,16 +1662,16 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
 
 55:                                               ; preds = %72
   %56 = add nuw i64 %.046, 1
-  %57 = load ptr, ptr %1, align 8, !tbaa !45
+  %57 = load ptr, ptr %1, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = call i64 @sk_num(ptr noundef %59) #10
   %61 = icmp ult i64 %56, %60
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !93
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !94
 
 .lr.ph:                                           ; preds = %48, %55
   %.046 = phi i64 [ %56, %55 ], [ %49, %48 ]
-  %62 = load ptr, ptr %1, align 8, !tbaa !45
+  %62 = load ptr, ptr %1, align 8, !tbaa !46
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !27
   %65 = call ptr @sk_value(ptr noundef %64, i64 noundef %.046) #10
@@ -1688,7 +1688,7 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
   br i1 %.not39, label %72, label %.loopexit
 
 72:                                               ; preds = %67
-  %73 = load ptr, ptr %28, align 8, !tbaa !91
+  %73 = load ptr, ptr %28, align 8, !tbaa !92
   %74 = load ptr, ptr %68, align 8, !tbaa !40
   %75 = call i32 %73(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %74) #10
   %.not40 = icmp eq i32 %75, 0
@@ -1696,13 +1696,13 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %68, align 8, !tbaa !40
-  store ptr %77, ptr %0, align 8, !tbaa !92
+  store ptr %77, ptr %0, align 8, !tbaa !93
   call void @X509_OBJECT_up_ref_count(ptr noundef nonnull %65)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %.lr.ph, %55, %48, %76, %X509_OBJECT_free_contents.exit43
   %.032 = phi i32 [ 1, %76 ], [ 0, %X509_OBJECT_free_contents.exit43 ], [ 0, %48 ], [ 0, %55 ], [ 0, %.lr.ph ], [ 0, %67 ]
-  %78 = load ptr, ptr %1, align 8, !tbaa !45
+  %78 = load ptr, ptr %1, align 8, !tbaa !46
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %79) #10
   br label %X509_OBJECT_free_contents.exit42
@@ -1772,20 +1772,20 @@ declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %1, ptr %3, align 8, !tbaa !94
+  store ptr %1, ptr %3, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %1, ptr %3, align 8, !tbaa !95
+  store ptr %1, ptr %3, align 8, !tbaa !96
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   ret ptr %2
 }
 
@@ -1851,58 +1851,59 @@ attributes #10 = { nounwind }
 !38 = !{!39, !8, i64 0}
 !39 = !{!"x509_object_st", !8, i64 0, !9, i64 8}
 !40 = !{!9, !9, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = !{!7, !14, i64 24}
-!45 = !{!46, !14, i64 0}
-!46 = !{!"x509_store_ctx_st", !14, i64 0, !8, i64 8, !47, i64 16, !48, i64 24, !49, i64 32, !31, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !8, i64 152, !8, i64 156, !48, i64 160, !50, i64 168, !8, i64 176, !8, i64 180, !8, i64 184, !47, i64 192, !47, i64 200, !51, i64 208, !8, i64 216, !8, i64 220, !52, i64 224, !53, i64 232}
-!47 = !{!"p1 _ZTS7x509_st", !12, i64 0}
-!48 = !{!"p1 _ZTS13stack_st_X509", !12, i64 0}
-!49 = !{!"p1 _ZTS17stack_st_X509_CRL", !12, i64 0}
-!50 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !12, i64 0}
-!51 = !{!"p1 _ZTS11X509_crl_st", !12, i64 0}
-!52 = !{!"p1 _ZTS17x509_store_ctx_st", !12, i64 0}
-!53 = !{!"crypto_ex_data_st", !54, i64 0}
-!54 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
-!55 = !{!56, !57, i64 0}
-!56 = !{!"x509_st", !57, i64 0, !58, i64 8, !59, i64 16, !8, i64 24, !8, i64 28, !13, i64 32, !53, i64 40, !60, i64 48, !60, i64 56, !60, i64 64, !60, i64 72, !60, i64 80, !60, i64 88, !59, i64 96, !61, i64 104, !62, i64 112, !63, i64 120, !64, i64 128, !65, i64 136, !9, i64 144, !66, i64 168}
-!57 = !{!"p1 _ZTS12x509_cinf_st", !12, i64 0}
-!58 = !{!"p1 _ZTS13X509_algor_st", !12, i64 0}
-!59 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
-!60 = !{!"long", !9, i64 0}
-!61 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !12, i64 0}
-!62 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !12, i64 0}
-!63 = !{!"p1 _ZTS19stack_st_DIST_POINT", !12, i64 0}
-!64 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !12, i64 0}
-!65 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !12, i64 0}
-!66 = !{!"p1 _ZTS16x509_cert_aux_st", !12, i64 0}
-!67 = !{!68, !69, i64 40}
-!68 = !{!"x509_cinf_st", !59, i64 0, !59, i64 8, !58, i64 16, !69, i64 24, !70, i64 32, !69, i64 40, !71, i64 48, !59, i64 56, !59, i64 64, !72, i64 72, !73, i64 80}
-!69 = !{!"p1 _ZTS12X509_name_st", !12, i64 0}
-!70 = !{!"p1 _ZTS11X509_val_st", !12, i64 0}
-!71 = !{!"p1 _ZTS14X509_pubkey_st", !12, i64 0}
-!72 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !12, i64 0}
-!73 = !{!"ASN1_ENCODING_st", !13, i64 0, !60, i64 8, !8, i64 16}
-!74 = !{!75, !76, i64 0}
-!75 = !{!"X509_crl_st", !76, i64 0, !58, i64 8, !59, i64 16, !8, i64 24, !8, i64 28, !61, i64 32, !77, i64 40, !8, i64 48, !8, i64 52, !59, i64 56, !59, i64 64, !9, i64 72, !78, i64 96, !79, i64 104, !12, i64 112}
-!76 = !{!"p1 _ZTS16X509_crl_info_st", !12, i64 0}
-!77 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !12, i64 0}
-!78 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !12, i64 0}
-!79 = !{!"p1 _ZTS18x509_crl_method_st", !12, i64 0}
-!80 = !{!81, !69, i64 16}
-!81 = !{!"X509_crl_info_st", !59, i64 0, !58, i64 8, !69, i64 16, !59, i64 24, !59, i64 32, !82, i64 40, !72, i64 48, !73, i64 56}
-!82 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !12, i64 0}
-!83 = !{!46, !8, i64 8}
-!84 = distinct !{!84, !42}
-!85 = !{!60, !60, i64 0}
-!86 = distinct !{!86, !42}
-!87 = !{!8, !8, i64 0}
-!88 = distinct !{!88, !42}
-!89 = distinct !{!89, !42}
-!90 = distinct !{!90, !42}
-!91 = !{!46, !12, i64 80}
-!92 = !{!47, !47, i64 0}
-!93 = distinct !{!93, !42}
-!94 = !{!28, !12, i64 96}
-!95 = !{!28, !12, i64 160}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43}
+!45 = !{!7, !14, i64 24}
+!46 = !{!47, !14, i64 0}
+!47 = !{!"x509_store_ctx_st", !14, i64 0, !8, i64 8, !48, i64 16, !49, i64 24, !50, i64 32, !31, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !8, i64 152, !8, i64 156, !49, i64 160, !51, i64 168, !8, i64 176, !8, i64 180, !8, i64 184, !48, i64 192, !48, i64 200, !52, i64 208, !8, i64 216, !8, i64 220, !53, i64 224, !54, i64 232}
+!48 = !{!"p1 _ZTS7x509_st", !12, i64 0}
+!49 = !{!"p1 _ZTS13stack_st_X509", !12, i64 0}
+!50 = !{!"p1 _ZTS17stack_st_X509_CRL", !12, i64 0}
+!51 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !12, i64 0}
+!52 = !{!"p1 _ZTS11X509_crl_st", !12, i64 0}
+!53 = !{!"p1 _ZTS17x509_store_ctx_st", !12, i64 0}
+!54 = !{!"crypto_ex_data_st", !55, i64 0}
+!55 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
+!56 = !{!57, !58, i64 0}
+!57 = !{!"x509_st", !58, i64 0, !59, i64 8, !60, i64 16, !8, i64 24, !8, i64 28, !13, i64 32, !54, i64 40, !61, i64 48, !61, i64 56, !61, i64 64, !61, i64 72, !61, i64 80, !61, i64 88, !60, i64 96, !62, i64 104, !63, i64 112, !64, i64 120, !65, i64 128, !66, i64 136, !9, i64 144, !67, i64 168}
+!58 = !{!"p1 _ZTS12x509_cinf_st", !12, i64 0}
+!59 = !{!"p1 _ZTS13X509_algor_st", !12, i64 0}
+!60 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
+!61 = !{!"long", !9, i64 0}
+!62 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !12, i64 0}
+!63 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !12, i64 0}
+!64 = !{!"p1 _ZTS19stack_st_DIST_POINT", !12, i64 0}
+!65 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !12, i64 0}
+!66 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !12, i64 0}
+!67 = !{!"p1 _ZTS16x509_cert_aux_st", !12, i64 0}
+!68 = !{!69, !70, i64 40}
+!69 = !{!"x509_cinf_st", !60, i64 0, !60, i64 8, !59, i64 16, !70, i64 24, !71, i64 32, !70, i64 40, !72, i64 48, !60, i64 56, !60, i64 64, !73, i64 72, !74, i64 80}
+!70 = !{!"p1 _ZTS12X509_name_st", !12, i64 0}
+!71 = !{!"p1 _ZTS11X509_val_st", !12, i64 0}
+!72 = !{!"p1 _ZTS14X509_pubkey_st", !12, i64 0}
+!73 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !12, i64 0}
+!74 = !{!"ASN1_ENCODING_st", !13, i64 0, !61, i64 8, !8, i64 16}
+!75 = !{!76, !77, i64 0}
+!76 = !{!"X509_crl_st", !77, i64 0, !59, i64 8, !60, i64 16, !8, i64 24, !8, i64 28, !62, i64 32, !78, i64 40, !8, i64 48, !8, i64 52, !60, i64 56, !60, i64 64, !9, i64 72, !79, i64 96, !80, i64 104, !12, i64 112}
+!77 = !{!"p1 _ZTS16X509_crl_info_st", !12, i64 0}
+!78 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !12, i64 0}
+!79 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !12, i64 0}
+!80 = !{!"p1 _ZTS18x509_crl_method_st", !12, i64 0}
+!81 = !{!82, !70, i64 16}
+!82 = !{!"X509_crl_info_st", !60, i64 0, !59, i64 8, !70, i64 16, !60, i64 24, !60, i64 32, !83, i64 40, !73, i64 48, !74, i64 56}
+!83 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !12, i64 0}
+!84 = !{!47, !8, i64 8}
+!85 = distinct !{!85, !42, !43}
+!86 = !{!61, !61, i64 0}
+!87 = distinct !{!87, !42, !43}
+!88 = !{!8, !8, i64 0}
+!89 = distinct !{!89, !42, !43}
+!90 = distinct !{!90, !42, !43}
+!91 = distinct !{!91, !42, !43}
+!92 = !{!47, !12, i64 80}
+!93 = !{!48, !48, i64 0}
+!94 = distinct !{!94, !42, !43}
+!95 = !{!28, !12, i64 96}
+!96 = !{!28, !12, i64 160}

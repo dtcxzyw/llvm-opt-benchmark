@@ -1394,7 +1394,7 @@ thread-pre-split:                                 ; preds = %89, %89
 189:                                              ; preds = %188, %185, %183
   %190 = load ptr, ptr %171, align 8, !tbaa !60
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
-  %192 = load i64, ptr %191, align 8, !tbaa !140
+  %192 = load i64, ptr %191, align 8, !tbaa !141
   %193 = icmp eq i64 %192, 11
   br i1 %193, label %194, label %197
 
@@ -1412,7 +1412,7 @@ thread-pre-split:                                 ; preds = %89, %89
 197:                                              ; preds = %194, %196, %189
   %198 = phi ptr [ %.pre260, %194 ], [ %.pre, %196 ], [ %190, %189 ]
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
-  %200 = load i64, ptr %199, align 8, !tbaa !140
+  %200 = load i64, ptr %199, align 8, !tbaa !141
   %201 = icmp eq i64 %200, 8
   br i1 %201, label %202, label %206
 
@@ -1435,7 +1435,7 @@ thread-pre-split:                                 ; preds = %89, %89
   %211 = tail call double @osqp_toc(ptr noundef %210) #15
   %212 = load ptr, ptr %171, align 8, !tbaa !60
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 120
-  store double %211, ptr %213, align 8, !tbaa !141
+  store double %211, ptr %213, align 8, !tbaa !142
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %215 = load i64, ptr %214, align 8, !tbaa !35
   %.not195 = icmp eq i64 %215, 0
@@ -1443,7 +1443,7 @@ thread-pre-split:                                 ; preds = %89, %89
 
 216:                                              ; preds = %206
   %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %218 = load i64, ptr %217, align 8, !tbaa !140
+  %218 = load i64, ptr %217, align 8, !tbaa !141
   %219 = icmp eq i64 %218, 1
   br i1 %219, label %220, label %226
 
@@ -1465,9 +1465,9 @@ thread-pre-split:                                 ; preds = %89, %89
   %.not196 = icmp eq i64 %228, 0
   %229 = load ptr, ptr %171, align 8, !tbaa !60
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 120
-  %231 = load double, ptr %230, align 8, !tbaa !141
+  %231 = load double, ptr %230, align 8, !tbaa !142
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 136
-  %233 = load double, ptr %232, align 8, !tbaa !142
+  %233 = load double, ptr %232, align 8, !tbaa !143
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 144
   br i1 %.not196, label %.thread222, label %239
 
@@ -1476,7 +1476,7 @@ thread-pre-split:                                 ; preds = %89, %89
   %236 = load double, ptr %235, align 8, !tbaa !134
   %237 = fadd double %236, %231
   %238 = fadd double %237, %233
-  store double %238, ptr %234, align 8, !tbaa !143
+  store double %238, ptr %234, align 8, !tbaa !144
   br label %244
 
 239:                                              ; preds = %226
@@ -1484,7 +1484,7 @@ thread-pre-split:                                 ; preds = %89, %89
   %241 = load double, ptr %240, align 8, !tbaa !112
   %242 = fadd double %241, %231
   %243 = fadd double %242, %233
-  store double %243, ptr %234, align 8, !tbaa !143
+  store double %243, ptr %234, align 8, !tbaa !144
   store i64 0, ptr %227, align 8, !tbaa !113
   br label %244
 
@@ -1691,7 +1691,7 @@ define noundef i64 @osqp_cleanup(ptr noundef captures(address_is_null) %0) local
 
 48:                                               ; preds = %38
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %50 = load ptr, ptr %49, align 8, !tbaa !144
+  %50 = load ptr, ptr %49, align 8, !tbaa !145
   %.not95 = icmp eq ptr %50, null
   br i1 %.not95, label %52, label %51
 
@@ -2104,7 +2104,7 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load ptr, ptr %87, align 8, !tbaa !63
   %89 = load ptr, ptr %82, align 8, !tbaa !87
-  %90 = load double, ptr %89, align 8, !tbaa !145
+  %90 = load double, ptr %89, align 8, !tbaa !146
   tail call void @OSQPVectorf_mult_scalar(ptr noundef %88, double noundef %90) #15
   br label %91
 
@@ -2217,7 +2217,7 @@ define i64 @osqp_warm_start(ptr noundef readonly captures(address_is_null) %0, p
   tail call void @OSQPVectorf_ew_prod(ptr noundef %37, ptr noundef %37, ptr noundef %41) #15
   %42 = load ptr, ptr %36, align 8, !tbaa !77
   %43 = load ptr, ptr %38, align 8, !tbaa !87
-  %44 = load double, ptr %43, align 8, !tbaa !145
+  %44 = load double, ptr %43, align 8, !tbaa !146
   tail call void @OSQPVectorf_mult_scalar(ptr noundef %42, double noundef %44) #15
   br label %45
 
@@ -2402,7 +2402,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !130
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !146
+  %86 = load ptr, ptr %85, align 8, !tbaa !147
   %87 = load ptr, ptr %10, align 8, !tbaa !11
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !62
@@ -2415,7 +2415,7 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !130
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  %96 = load ptr, ptr %95, align 8, !tbaa !146
+  %96 = load ptr, ptr %95, align 8, !tbaa !147
   %97 = load ptr, ptr %10, align 8, !tbaa !11
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !62
@@ -2550,7 +2550,7 @@ define i64 @osqp_update_rho(ptr noundef readonly captures(address_is_null) %0, d
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !130
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %54 = load ptr, ptr %53, align 8, !tbaa !147
+  %54 = load ptr, ptr %53, align 8, !tbaa !148
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !67
   %57 = tail call i64 %54(ptr noundef %52, ptr noundef %56, double noundef %50) #15
@@ -2685,7 +2685,7 @@ define i64 @osqp_update_settings(ptr noundef readonly captures(none) %0, ptr nou
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !130
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !148
+  %77 = load ptr, ptr %76, align 8, !tbaa !149
   tail call void %77(ptr noundef %75, ptr noundef %3) #15
   br label %78
 
@@ -2722,7 +2722,7 @@ define i64 @osqp_codegen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !140
+  %17 = load i64, ptr %16, align 8, !tbaa !141
   %18 = icmp eq i64 %17, 9
   br i1 %18, label %19, label %21
 
@@ -2757,31 +2757,31 @@ define i64 @osqp_codegen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !149
+  %33 = load i64, ptr %32, align 8, !tbaa !150
   %switch67 = icmp ult i64 %33, 2
   br i1 %switch67, label %34, label %46
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !150
+  %36 = load i64, ptr %35, align 8, !tbaa !151
   %switch68 = icmp ult i64 %36, 2
   br i1 %switch68, label %37, label %46
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %39 = load i64, ptr %38, align 8, !tbaa !151
+  %39 = load i64, ptr %38, align 8, !tbaa !152
   %switch69 = icmp ult i64 %39, 2
   br i1 %switch69, label %40, label %46
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %42 = load i64, ptr %41, align 8, !tbaa !152
+  %42 = load i64, ptr %41, align 8, !tbaa !153
   %switch70 = icmp ult i64 %42, 2
   br i1 %switch70, label %43, label %46
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %45 = load i64, ptr %44, align 8, !tbaa !153
+  %45 = load i64, ptr %44, align 8, !tbaa !154
   %switch71 = icmp ult i64 %45, 2
   br i1 %switch71, label %48, label %46
 
@@ -2824,19 +2824,19 @@ declare i64 @codegen_defines(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @csc_set_data(ptr noundef writeonly captures(none) initializes((0, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
-  store i64 %1, ptr %0, align 8, !tbaa !154
+  store i64 %1, ptr %0, align 8, !tbaa !155
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %8, align 8, !tbaa !157
+  store i64 %2, ptr %8, align 8, !tbaa !158
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 -1, ptr %9, align 8, !tbaa !158
+  store i64 -1, ptr %9, align 8, !tbaa !159
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %10, align 8, !tbaa !159
+  store i64 %3, ptr %10, align 8, !tbaa !160
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %11, align 8, !tbaa !160
+  store ptr %4, ptr %11, align 8, !tbaa !161
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %12, align 8, !tbaa !161
+  store ptr %5, ptr %12, align 8, !tbaa !162
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %13, align 8, !tbaa !162
+  store ptr %6, ptr %13, align 8, !tbaa !163
   ret void
 }
 
@@ -3038,28 +3038,29 @@ attributes #17 = { nounwind allocsize(0) }
 !135 = !{!12, !18, i64 288}
 !136 = !{!16, !16, i64 0}
 !137 = !{!28, !28, i64 0}
-!138 = distinct !{!138, !139}
+!138 = distinct !{!138, !139, !140}
 !139 = !{!"llvm.loop.mustprogress"}
-!140 = !{!111, !18, i64 32}
-!141 = !{!111, !16, i64 120}
-!142 = !{!111, !16, i64 136}
-!143 = !{!111, !16, i64 144}
-!144 = !{!132, !5, i64 48}
-!145 = !{!89, !16, i64 0}
-!146 = !{!132, !5, i64 56}
-!147 = !{!132, !5, i64 64}
-!148 = !{!132, !5, i64 24}
-!149 = !{!25, !18, i64 8}
-!150 = !{!25, !18, i64 16}
-!151 = !{!25, !18, i64 24}
-!152 = !{!25, !18, i64 32}
-!153 = !{!25, !18, i64 40}
-!154 = !{!155, !18, i64 0}
-!155 = !{!"", !18, i64 0, !18, i64 8, !156, i64 16, !156, i64 24, !106, i64 32, !18, i64 40, !18, i64 48}
-!156 = !{!"p1 long long", !5, i64 0}
-!157 = !{!155, !18, i64 8}
-!158 = !{!155, !18, i64 48}
-!159 = !{!155, !18, i64 40}
-!160 = !{!155, !106, i64 32}
-!161 = !{!155, !156, i64 24}
-!162 = !{!155, !156, i64 16}
+!140 = !{!"llvm.loop.estimated_trip_count"}
+!141 = !{!111, !18, i64 32}
+!142 = !{!111, !16, i64 120}
+!143 = !{!111, !16, i64 136}
+!144 = !{!111, !16, i64 144}
+!145 = !{!132, !5, i64 48}
+!146 = !{!89, !16, i64 0}
+!147 = !{!132, !5, i64 56}
+!148 = !{!132, !5, i64 64}
+!149 = !{!132, !5, i64 24}
+!150 = !{!25, !18, i64 8}
+!151 = !{!25, !18, i64 16}
+!152 = !{!25, !18, i64 24}
+!153 = !{!25, !18, i64 32}
+!154 = !{!25, !18, i64 40}
+!155 = !{!156, !18, i64 0}
+!156 = !{!"", !18, i64 0, !18, i64 8, !157, i64 16, !157, i64 24, !106, i64 32, !18, i64 40, !18, i64 48}
+!157 = !{!"p1 long long", !5, i64 0}
+!158 = !{!156, !18, i64 8}
+!159 = !{!156, !18, i64 48}
+!160 = !{!156, !18, i64 40}
+!161 = !{!156, !106, i64 32}
+!162 = !{!156, !157, i64 24}
+!163 = !{!156, !157, i64 16}

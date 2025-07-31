@@ -91,13 +91,13 @@ define dso_local void @_PyArena_Free(ptr noundef %0) local_unnamed_addr #0 {
 block_free.exit:                                  ; preds = %.lr.ph.i, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !18
-  %7 = load i32, ptr %6, align 8, !tbaa !21
+  %7 = load i32, ptr %6, align 8, !tbaa !22
   %.not.i = icmp sgt i32 %7, -1
   br i1 %.not.i, label %8, label %Py_DECREF.exit
 
 8:                                                ; preds = %block_free.exit
   %9 = add nsw i32 %7, -1
-  store i32 %9, ptr %6, align 8, !tbaa !21
+  store i32 %9, ptr %6, align 8, !tbaa !22
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %Py_DECREF.exit
 
@@ -194,13 +194,13 @@ define dso_local i32 @_PyArena_AddPyObject(ptr noundef readonly captures(none) %
   br i1 %6, label %7, label %Py_DECREF.exit
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %1, align 8, !tbaa !21
+  %8 = load i32, ptr %1, align 8, !tbaa !22
   %.not.i = icmp sgt i32 %8, -1
   br i1 %.not.i, label %9, label %Py_DECREF.exit
 
 9:                                                ; preds = %7
   %10 = add nsw i32 %8, -1
-  store i32 %10, ptr %1, align 8, !tbaa !21
+  store i32 %10, ptr %1, align 8, !tbaa !22
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %Py_DECREF.exit
 
@@ -245,6 +245,7 @@ attributes #3 = { nounwind }
 !16 = !{!"p1 _ZTS7_object", !10, i64 0}
 !17 = !{!15, !9, i64 8}
 !18 = !{!15, !16, i64 16}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!7, !7, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!7, !7, i64 0}

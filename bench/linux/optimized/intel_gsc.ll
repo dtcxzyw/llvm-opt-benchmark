@@ -596,7 +596,7 @@ define internal fastcc void @gsc_destroy_one(ptr noundef %0, i32 noundef %1) unn
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, ptr nonnull elementtype(i32) %24) #6, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, ptr nonnull elementtype(i32) %24) #6, !srcloc !14
   br label %28
 
 28:                                               ; preds = %27, %23
@@ -727,7 +727,8 @@ attributes #7 = { nounwind allocsize(2) }
 !7 = !{i64 2148809952, i64 2148809991, i64 2148810012, i64 2148810049, i64 2148810072, i64 2148810081}
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i64 2150285672}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{i64 2148797642, i64 2148797681, i64 2148797702, i64 2148797739, i64 2148797762, i64 2148797632}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{i64 2148797642, i64 2148797681, i64 2148797702, i64 2148797739, i64 2148797762, i64 2148797632}

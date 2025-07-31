@@ -308,7 +308,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %67, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %39, label %60, !llvm.loop !22
+  br i1 %exitcond.not, label %39, label %60, !llvm.loop !23
 
 76:                                               ; preds = %105
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -420,7 +420,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 3
-  br i1 %exitcond90.not, label %76, label %105, !llvm.loop !23
+  br i1 %exitcond90.not, label %76, label %105, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -577,7 +577,8 @@ attributes #12 = { noreturn nounwind }
 !17 = !{!10, !11, i64 8}
 !18 = !{!15, !15, i64 0}
 !19 = !{!12, !12, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}

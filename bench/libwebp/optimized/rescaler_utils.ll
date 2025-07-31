@@ -264,7 +264,7 @@ WebPRescalerHasPendingOutput.exit.thread:         ; preds = %17, %WebPRescalerHa
   %49 = sub nsw i32 %48, %47
   store i32 %49, ptr %5, align 8, !tbaa !26
   %exitcond.not = icmp eq i32 %46, %1
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !35
 
 .critedge:                                        ; preds = %WebPRescalerHasPendingOutput.exit, %.loopexit, %4
   %.027.lcssa = phi i32 [ 0, %4 ], [ %1, %.loopexit ], [ %.02732, %WebPRescalerHasPendingOutput.exit ]
@@ -295,7 +295,7 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %1, %7
   %.val.i = load i32, ptr %3, align 8, !tbaa !15
   %.val2.i = load i32, ptr %4, align 8, !tbaa !17
   %.not3.i = icmp slt i32 %.val2.i, %.val.i
-  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !35
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !36
 
 WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit, %7, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %7 ], [ %.07, %WebPRescalerHasPendingOutput.exit ]
@@ -352,7 +352,8 @@ attributes #6 = { nounwind }
 !29 = !{!4, !10, i64 88}
 !30 = !{!4, !10, i64 96}
 !31 = !{!5, !5, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = distinct !{!36, !33, !34}

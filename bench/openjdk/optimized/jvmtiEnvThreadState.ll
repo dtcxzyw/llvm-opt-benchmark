@@ -185,12 +185,12 @@ define hidden void @_ZN14JvmtiFramePops5clearER13JvmtiFramePop(ptr noundef nonnu
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next.i.i.i, %24
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %25, label %18, label %_ZN17GrowableArrayViewIiE6removeERKi.exit, !llvm.loop !8
+  br i1 %25, label %18, label %_ZN17GrowableArrayViewIiE6removeERKi.exit, !llvm.loop !9
 
 26:                                               ; preds = %9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %9, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %9, !llvm.loop !10
 
 .loopexit2.i:                                     ; preds = %26, %2
   %27 = load ptr, ptr @g_assert_poison, align 8
@@ -248,7 +248,7 @@ define hidden noundef i32 @_ZN14JvmtiFramePops8clear_toER13JvmtiFramePop(ptr nou
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next.i, %23
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, 1
-  br i1 %24, label %17, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit, !llvm.loop !8
+  br i1 %24, label %17, label %_ZN17GrowableArrayViewIiE9remove_atEi.exit, !llvm.loop !9
 
 _ZN17GrowableArrayViewIiE9remove_atEi.exit:       ; preds = %17, %14
   %.lcssa.i = phi i32 [ %6, %14 ], [ %22, %17 ]
@@ -265,7 +265,7 @@ _ZN17GrowableArrayViewIiE9remove_atEi.exit:       ; preds = %17, %14
   %.18 = phi i32 [ %26, %_ZN17GrowableArrayViewIiE9remove_atEi.exit ], [ %.079, %.lr.ph ]
   %.1 = phi i32 [ %.010, %_ZN17GrowableArrayViewIiE9remove_atEi.exit ], [ %.06.i, %.lr.ph ]
   %30 = icmp slt i32 %.1, %28
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %2
   %.07.lcssa = phi i32 [ 0, %2 ], [ %.18, %27 ]
@@ -591,7 +591,7 @@ _ZN19JvmtiEnvThreadState14get_frame_popsEv.exit:  ; preds = %2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond5 = select i1 %19, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond5, label %_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit, label %16, !llvm.loop !11
+  br i1 %or.cond5, label %_ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit, label %16, !llvm.loop !12
 
 _ZN14JvmtiFramePops8containsER13JvmtiFramePop.exit: ; preds = %16, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZN19JvmtiEnvThreadState14get_frame_popsEv.exit ], [ %19, %16 ]
@@ -856,7 +856,7 @@ define linkonce_odr hidden void @_ZN25GetCurrentLocationClosure9do_threadEP6Thre
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %18 = load volatile i32, ptr %17, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
   %19 = add i32 %18, -57003
   %20 = icmp ult i32 %19, 4
   br i1 %20, label %38, label %21
@@ -869,7 +869,7 @@ define linkonce_odr hidden void @_ZN25GetCurrentLocationClosure9do_threadEP6Thre
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #14, !noalias !13
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #14, !noalias !14
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %1) #14
   %25 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull byval(%class.frame) align 8 %3, ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -1094,7 +1094,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1110,7 +1110,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1195,7 +1195,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1258,16 +1258,17 @@ attributes #14 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i64 2145392468}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!15 = distinct !{!15, !"_ZN10JavaThread10last_frameEv"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i64 2145392468}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!16 = distinct !{!16, !"_ZN10JavaThread10last_frameEv"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

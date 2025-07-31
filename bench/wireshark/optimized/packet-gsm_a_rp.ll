@@ -337,7 +337,7 @@ define hidden void @proto_register_gsm_a_rp() local_unnamed_addr #1 {
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next24, 6
-  br i1 %exitcond30.not, label %7, label %.preheader, !llvm.loop !8
+  br i1 %exitcond30.not, label %7, label %.preheader, !llvm.loop !9
 
 7:                                                ; preds = %.preheader
   %8 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
@@ -997,6 +997,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

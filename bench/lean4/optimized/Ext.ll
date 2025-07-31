@@ -100126,7 +100126,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %22
   %.027.be = phi ptr [ %.0, %22 ], [ %49, %lean_alloc_ctor.exit ]
-  br label %4
+  br label %4, !llvm.loop !20
 }
 
 declare ptr @l_Lean_MessageData_ofSyntax(ptr noundef) local_unnamed_addr #1
@@ -107872,3 +107872,5 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!6, !6, i64 0}
 !19 = !{!"branch_weights", i32 4001, i32 4000000}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}

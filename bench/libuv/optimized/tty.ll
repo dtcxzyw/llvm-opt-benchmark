@@ -26,7 +26,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__tcsetattr(i32 noundef
   %8 = tail call ptr @__errno_location() #9
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %4, label %.critedge
+  br i1 %10, label %4, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %7
   %11 = sub nsw i32 0, %9
@@ -69,7 +69,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.preheader, label %.critedge
+  br i1 %13, label %.preheader, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -279,7 +279,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   %17 = tail call ptr @__errno_location() #9
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge
+  br i1 %19, label %13, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %16
   %20 = sub nsw i32 0, %18
@@ -288,7 +288,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
 .critedge25:                                      ; preds = %13, %.critedge25
   %21 = cmpxchg ptr @termios_spinlock, i32 0, i32 1 seq_cst seq_cst, align 4
   %22 = extractvalue { i32, i1 } %21, 1
-  br i1 %22, label %23, label %.critedge25
+  br i1 %22, label %23, label %.critedge25, !llvm.loop !8
 
 23:                                               ; preds = %.critedge25
   %24 = load i32, ptr @orig_termios_fd, align 4
@@ -350,7 +350,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   %49 = tail call ptr @__errno_location() #9
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 4
-  br i1 %51, label %45, label %uv__tcsetattr.exit
+  br i1 %51, label %45, label %uv__tcsetattr.exit, !llvm.loop !4
 
 uv__tcsetattr.exit:                               ; preds = %48
   %52 = sub nsw i32 0, %50
@@ -383,7 +383,7 @@ define hidden void @uv__tty_close(ptr noundef %0) local_unnamed_addr #0 {
 .preheader8:                                      ; preds = %1, %.preheader8
   %5 = cmpxchg ptr @termios_spinlock, i32 0, i32 1 seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
-  br i1 %6, label %7, label %.preheader8
+  br i1 %6, label %7, label %.preheader8, !llvm.loop !9
 
 7:                                                ; preds = %.preheader8
   %8 = load i32, ptr @orig_termios_fd, align 4
@@ -399,7 +399,7 @@ define hidden void @uv__tty_close(ptr noundef %0) local_unnamed_addr #0 {
   %13 = tail call ptr @__errno_location() #9
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %.preheader, label %uv__tcsetattr.exit
+  br i1 %15, label %.preheader, label %uv__tcsetattr.exit, !llvm.loop !4
 
 uv__tcsetattr.exit:                               ; preds = %12, %.preheader
   store i32 -1, ptr @orig_termios_fd, align 4
@@ -433,7 +433,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %6, label %.critedge
+  br i1 %13, label %6, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -488,7 +488,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_reset_mode() lo
 8:                                                ; preds = %.preheader
   %9 = load i32, ptr %1, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %.preheader, label %.critedge.i
+  br i1 %10, label %.preheader, label %.critedge.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %8
   %11 = sub nsw i32 0, %9
@@ -538,3 +538,10 @@ attributes #9 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

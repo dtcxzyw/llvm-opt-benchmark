@@ -1421,9 +1421,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev28GradingRGBCurveTransformImplEPFvPNS0_24GradingRGBCurveTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !97
+  %5 = load ptr, ptr %4, align 8, !tbaa !98
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1448,7 +1448,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev28Gradi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev28GradingRGBCurveTransformImplEPFvPNS0_24GradingRGBCurveTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !99
+  %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev24GradingRGBCurveTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1610,10 +1610,11 @@ attributes #23 = { builtin nounwind }
 !91 = !{!"_ZTSN19OpenColorIO_v2_5dev19GradingControlPointE", !92, i64 0, !92, i64 4}
 !92 = !{!"float", !10, i64 0}
 !93 = !{!91, !92, i64 4}
-!94 = distinct !{!94, !95}
+!94 = distinct !{!94, !95, !96}
 !95 = !{!"llvm.loop.mustprogress"}
-!96 = !{!9, !9, i64 0}
-!97 = !{!98, !22, i64 24}
-!98 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev28GradingRGBCurveTransformImplEPFvPNS0_24GradingRGBCurveTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!99 = !{!100, !33, i64 8}
-!100 = !{!"_ZTSSt9type_info", !33, i64 8}
+!96 = !{!"llvm.loop.estimated_trip_count"}
+!97 = !{!9, !9, i64 0}
+!98 = !{!99, !22, i64 24}
+!99 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev28GradingRGBCurveTransformImplEPFvPNS0_24GradingRGBCurveTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!100 = !{!101, !33, i64 8}
+!101 = !{!"_ZTSSt9type_info", !33, i64 8}

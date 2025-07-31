@@ -172,7 +172,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %79, ptr %80, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %81 = add nuw i32 %74, 1
@@ -228,7 +228,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %exitcond485.not = icmp eq i64 %indvars.iv.next480, %indvars.iv486
-  br i1 %exitcond485.not, label %._crit_edge400, label %.lr.ph399, !llvm.loop !12
+  br i1 %exitcond485.not, label %._crit_edge400, label %.lr.ph399, !llvm.loop !13
 
 ._crit_edge400:                                   ; preds = %.lr.ph399, %.lr.ph404
   %.0347.lcssa = phi double [ 0.000000e+00, %.lr.ph404 ], [ %104, %.lr.ph399 ]
@@ -247,7 +247,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %115, ptr %105, align 8, !tbaa !7
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
-  br i1 %exitcond490.not, label %.lr.ph421.preheader, label %.lr.ph404, !llvm.loop !13
+  br i1 %exitcond490.not, label %.lr.ph421.preheader, label %.lr.ph404, !llvm.loop !14
 
 116:                                              ; preds = %.lr.ph416, %._crit_edge411
   %indvars.iv505 = phi i64 [ 1, %.lr.ph416 ], [ %indvars.iv.next506, %._crit_edge411 ]
@@ -304,7 +304,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv.next500 = add nsw i64 %indvars.iv499, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next500 to i32
   %exitcond504.not = icmp eq i32 %81, %lftr.wideiv
-  br i1 %exitcond504.not, label %._crit_edge411.loopexit, label %.lr.ph410, !llvm.loop !14
+  br i1 %exitcond504.not, label %._crit_edge411.loopexit, label %.lr.ph410, !llvm.loop !15
 
 ._crit_edge411.loopexit:                          ; preds = %.lr.ph410
   %.pre = load double, ptr %127, align 8, !tbaa !7
@@ -319,7 +319,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv.next492 = add i32 %indvars.iv491, -1
   %indvars.iv.next498 = add nuw i32 %indvars.iv497, 1
   %exitcond509.not = icmp eq i64 %indvars.iv.next506, %wide.trip.count508
-  br i1 %exitcond509.not, label %.lr.ph421.preheader, label %116, !llvm.loop !15
+  br i1 %exitcond509.not, label %.lr.ph421.preheader, label %116, !llvm.loop !16
 
 .lr.ph421.preheader:                              ; preds = %._crit_edge400, %._crit_edge411
   %150 = zext nneg i32 %74 to i64
@@ -363,7 +363,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %171 = select i1 %170, double %.2419, double %.sink579
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
-  br i1 %exitcond514.not, label %._crit_edge422, label %.lr.ph421, !llvm.loop !16
+  br i1 %exitcond514.not, label %._crit_edge422, label %.lr.ph421, !llvm.loop !17
 
 ._crit_edge422:                                   ; preds = %169, %69
   %.2.lcssa = phi double [ 0.000000e+00, %69 ], [ %171, %169 ]
@@ -388,7 +388,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull @c_b14, ptr noundef %gep433, ptr noundef nonnull @c__1, ptr noundef %gep427, ptr noundef nonnull @c__1) #5
   %181 = load double, ptr %66, align 8, !tbaa !7
   %182 = add nuw nsw i32 %.0346, 1
-  br label %69
+  br label %69, !llvm.loop !18
 
 183:                                              ; preds = %173, %._crit_edge422
   br i1 %.not370392, label %._crit_edge438, label %.lr.ph437.preheader
@@ -432,7 +432,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %storemerge, ptr %186, align 8, !tbaa !7
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count519
-  br i1 %exitcond520.not, label %._crit_edge438, label %.lr.ph437, !llvm.loop !17
+  br i1 %exitcond520.not, label %._crit_edge438, label %.lr.ph437, !llvm.loop !19
 
 ._crit_edge438:                                   ; preds = %202, %183
   store i32 0, ptr %16, align 4, !tbaa !3
@@ -480,7 +480,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %219, ptr %gep574, align 8, !tbaa !7
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
-  br i1 %exitcond530.not, label %.loopexit384, label %.lr.ph447, !llvm.loop !18
+  br i1 %exitcond530.not, label %.loopexit384, label %.lr.ph447, !llvm.loop !20
 
 220:                                              ; preds = %204
   %221 = load i32, ptr %1, align 4, !tbaa !3
@@ -504,7 +504,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %227, ptr %gep572, align 8, !tbaa !7
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %exitcond525.not = icmp eq i64 %indvars.iv.next522, %wide.trip.count524
-  br i1 %exitcond525.not, label %._crit_edge443, label %.lr.ph442, !llvm.loop !19
+  br i1 %exitcond525.not, label %._crit_edge443, label %.lr.ph442, !llvm.loop !21
 
 ._crit_edge443:                                   ; preds = %.lr.ph442, %220
   %228 = sext i32 %221 to i64
@@ -514,7 +514,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .loopexit384:                                     ; preds = %.lr.ph447, %210, %204, %._crit_edge443
   %.pre544 = load i32, ptr %1, align 4, !tbaa !3
-  br label %204
+  br label %204, !llvm.loop !22
 
 229:                                              ; preds = %204
   %230 = load i32, ptr %1, align 4, !tbaa !3
@@ -539,7 +539,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %237 = select i1 %236, double %.1458, double %235
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
   %exitcond535.not = icmp eq i64 %indvars.iv.next532, %wide.trip.count534
-  br i1 %exitcond535.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !20
+  br i1 %exitcond535.not, label %._crit_edge461, label %.lr.ph460, !llvm.loop !23
 
 ._crit_edge461:                                   ; preds = %.lr.ph460
   %238 = fcmp une double %237, 0.000000e+00
@@ -554,7 +554,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 ._crit_edge461.thread:                            ; preds = %229, %._crit_edge461, %239
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %.not369.not = icmp samesign ult i64 %indvars.iv536, %65
-  br i1 %.not369.not, label %.preheader388, label %.loopexit, !llvm.loop !21
+  br i1 %.not369.not, label %.preheader388, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge461.thread, %.lr.ph470, %49, %54, %50, %.thread
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #5
@@ -609,16 +609,19 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}

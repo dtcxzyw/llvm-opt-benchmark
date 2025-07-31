@@ -356,7 +356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %157 = add nuw i64 %.01951, 1
   %158 = load i64, ptr %10, align 8, !tbaa !32
   %159 = icmp ult i64 %157, %158
-  br i1 %159, label %119, label %._crit_edge, !llvm.loop !46
+  br i1 %159, label %119, label %._crit_edge, !llvm.loop !47
 
 160:                                              ; preds = %154, %131
   %161 = landingpad { ptr, i32 }
@@ -726,6 +726,7 @@ attributes #14 = { builtin nounwind }
 !41 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
 !42 = !{!"p1 _ZTSN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEE", !7, i64 0}
 !43 = !{!28, !28, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}

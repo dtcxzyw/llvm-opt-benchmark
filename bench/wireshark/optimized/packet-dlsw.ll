@@ -791,7 +791,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %236 = add i32 %.096102.i, %145
   %237 = load i32, ptr %6, align 4
   %238 = icmp ult i32 %236, %237
-  br i1 %238, label %.lr.ph104.i, label %dissect_dlsw_capex.exit, !llvm.loop !8
+  br i1 %238, label %.lr.ph104.i, label %dissect_dlsw_capex.exit, !llvm.loop !9
 
 239:                                              ; preds = %.thread167
   %240 = load i32, ptr @hf_dlsw_unknown_data, align 4
@@ -938,6 +938,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

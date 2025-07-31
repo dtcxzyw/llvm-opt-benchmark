@@ -38,10 +38,10 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   store double %12, ptr %14, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond244.not, label %15, label %.preheader217, !llvm.loop !10
+  br i1 %exitcond244.not, label %15, label %.preheader217, !llvm.loop !11
 
 15:                                               ; preds = %.preheader217
-  store i32 0, ptr %3, align 4, !tbaa !11
+  store i32 0, ptr %3, align 4, !tbaa !12
   br label %.preheader216
 
 .preheader216:                                    ; preds = %15, %145
@@ -52,7 +52,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
 .loopexit214:                                     ; preds = %18
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, 3
-  br i1 %exitcond254.not, label %23, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond254.not, label %23, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.loopexit214, %.preheader216
   %indvars.iv251 = phi i64 [ 0, %.preheader216 ], [ %indvars.iv.next252, %.loopexit214 ]
@@ -71,7 +71,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   %22 = fadd double %.1190223, %21
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next248, 4
-  br i1 %exitcond250.not, label %.loopexit214, label %18, !llvm.loop !14
+  br i1 %exitcond250.not, label %.loopexit214, label %18, !llvm.loop !15
 
 23:                                               ; preds = %.loopexit214
   %24 = fcmp oeq double %22, 0.000000e+00
@@ -88,7 +88,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
 .loopexit:                                        ; preds = %137
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 3
-  br i1 %exitcond281.not, label %.preheader215, label %.lr.ph237, !llvm.loop !15
+  br i1 %exitcond281.not, label %.preheader215, label %.lr.ph237, !llvm.loop !16
 
 .lr.ph237:                                        ; preds = %.loopexit, %25
   %30 = phi i32 [ %16, %25 ], [ %138, %.loopexit ]
@@ -215,7 +215,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   store double %101, ptr %95, align 8, !tbaa !4
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next256, %indvars.iv278
-  br i1 %exitcond258.not, label %.preheader213, label %91, !llvm.loop !16
+  br i1 %exitcond258.not, label %.preheader213, label %91, !llvm.loop !17
 
 .preheader212:                                    ; preds = %105, %.preheader213
   %102 = icmp samesign ult i64 %indvars.iv266, 3
@@ -245,7 +245,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   store double %113, ptr %gep, align 8, !tbaa !4
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %indvars.iv266
-  br i1 %exitcond265.not, label %.preheader212, label %105, !llvm.loop !17
+  br i1 %exitcond265.not, label %.preheader212, label %105, !llvm.loop !18
 
 .preheader:                                       ; preds = %114, %.preheader212..preheader_crit_edge
   %.pre-phi = phi double [ %.pre, %.preheader212..preheader_crit_edge ], [ %104, %114 ]
@@ -266,7 +266,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   %123 = tail call double @llvm.fmuladd.f64(double %77, double %122, double %118)
   store double %123, ptr %117, align 8, !tbaa !4
   %exitcond271.not = icmp eq i64 %indvars.iv.next269, 3
-  br i1 %exitcond271.not, label %.preheader, label %114, !llvm.loop !18
+  br i1 %exitcond271.not, label %.preheader, label %114, !llvm.loop !19
 
 124:                                              ; preds = %.preheader, %124
   %indvars.iv272 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next273, %124 ]
@@ -284,18 +284,18 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   store double %134, ptr %128, align 8, !tbaa !4
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next273, 4
-  br i1 %exitcond275.not, label %135, label %124, !llvm.loop !19
+  br i1 %exitcond275.not, label %135, label %124, !llvm.loop !20
 
 135:                                              ; preds = %124
   %136 = add nsw i32 %35, 1
-  store i32 %136, ptr %3, align 4, !tbaa !11
+  store i32 %136, ptr %3, align 4, !tbaa !12
   br label %137
 
 137:                                              ; preds = %51, %135, %52
   %138 = phi i32 [ %35, %51 ], [ %136, %135 ], [ %35, %52 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next267, 4
-  br i1 %exitcond277.not, label %.loopexit, label %34, !llvm.loop !20
+  br i1 %exitcond277.not, label %.loopexit, label %34, !llvm.loop !21
 
 .preheader215:                                    ; preds = %.loopexit, %.preheader215
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader215 ], [ 0, %.loopexit ]
@@ -310,12 +310,12 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   store double 0.000000e+00, ptr %139, align 8, !tbaa !4
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 4
-  br i1 %exitcond285.not, label %145, label %.preheader215, !llvm.loop !21
+  br i1 %exitcond285.not, label %145, label %.preheader215, !llvm.loop !22
 
 145:                                              ; preds = %.preheader215
   %146 = add nuw nsw i32 %.0196240, 1
   %exitcond286.not = icmp eq i32 %146, 51
-  br i1 %exitcond286.not, label %147, label %.preheader216, !llvm.loop !22
+  br i1 %exitcond286.not, label %147, label %.preheader216, !llvm.loop !23
 
 147:                                              ; preds = %145, %23
   %.0 = phi i32 [ 0, %23 ], [ 1, %145 ]
@@ -362,7 +362,7 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr noundef captures(none) %0, 
   %.1 = select i1 %10, double %.043, double %9
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, 4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.038.lcssa = phi i32 [ %7, %3 ], [ %.139, %.lr.ph ]
@@ -388,12 +388,12 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr noundef captures(none) %0, 
   store double %18, ptr %19, align 8, !tbaa !4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %.loopexit, label %15, !llvm.loop !24
+  br i1 %exitcond53.not, label %.loopexit, label %15, !llvm.loop !25
 
 .loopexit:                                        ; preds = %15, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %21, label %3, !llvm.loop !25
+  br i1 %exitcond57.not, label %21, label %3, !llvm.loop !26
 
 21:                                               ; preds = %.loopexit
   ret i32 0
@@ -406,7 +406,7 @@ define noundef i32 @_ZN9NR_Jacobi9transposeEPA4_d(ptr noundef captures(none) %0)
 .loopexit:                                        ; preds = %5, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %9, label %2, !llvm.loop !26
+  br i1 %exitcond26.not, label %9, label %2, !llvm.loop !27
 
 2:                                                ; preds = %1, %.loopexit
   %indvars.iv23 = phi i64 [ 0, %1 ], [ %indvars.iv.next24, %.loopexit ]
@@ -430,7 +430,7 @@ define noundef i32 @_ZN9NR_Jacobi9transposeEPA4_d(ptr noundef captures(none) %0)
   store double %7, ptr %gep, align 8, !tbaa !4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next21, 4
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !28
 
 9:                                                ; preds = %.loopexit
   ret i32 0
@@ -459,23 +459,24 @@ attributes #5 = { nounwind }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !6, i64 0}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}

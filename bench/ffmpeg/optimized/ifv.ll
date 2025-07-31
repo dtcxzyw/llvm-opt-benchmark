@@ -533,7 +533,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_index(ptr noundef rea
   %35 = tail call i64 @avio_skip(ptr noundef %34, i64 noundef %16) #4
   %36 = add i32 %.02529, 1
   %exitcond.not = icmp eq i32 %36, %.026
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %17, %20, %33, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %33 ], [ %31, %20 ], [ -541478725, %17 ]
@@ -649,6 +649,7 @@ attributes #4 = { nounwind }
 !77 = !{!38, !21, i64 8}
 !78 = !{!38, !21, i64 72}
 !79 = !{!12, !10, i64 44}
-!80 = distinct !{!80, !81}
+!80 = distinct !{!80, !81, !82}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = distinct !{!82, !81}
+!82 = !{!"llvm.loop.estimated_trip_count"}
+!83 = distinct !{!83, !81, !82}

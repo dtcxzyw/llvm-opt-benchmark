@@ -61064,7 +61064,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
   %.1 = phi ptr [ %.03447, %.lr.ph ], [ %spec.select, %30 ]
   %34 = add nuw nsw i64 %.048, 1
   %exitcond.not = icmp eq i64 %34, %.245
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 35:                                               ; preds = %._crit_edge
   %36 = load i64, ptr %0, align 8
@@ -61265,7 +61265,7 @@ define void @ws_manuf_dump(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load ptr, ptr %24, align 8
   %29 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef %27, ptr noundef %28)
   %30 = call zeroext i1 @ws_manuf_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %30, label %25, label %._crit_edge, !llvm.loop !9
+  br i1 %30, label %25, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %25, %1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
@@ -61307,7 +61307,8 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

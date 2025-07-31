@@ -57,7 +57,7 @@ define range(i32 -1, 2) i32 @compareWords1(ptr noundef readonly captures(none) %
 ; Function Attrs: nofree nounwind uwtable
 define void @sortAndUnique1(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !9
+  %4 = load i32, ptr %3, align 8, !tbaa !10
   %5 = sext i32 %4 to i64
   tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords1) #19
   %6 = icmp sgt i32 %4, 1
@@ -90,11 +90,11 @@ define void @sortAndUnique1(ptr noundef %0, ptr noundef captures(none) %1) local
   %.1 = phi i64 [ %13, %10 ], [ %.024, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %15, %2
   %.019.lcssa = phi i32 [ 1, %2 ], [ %.120, %15 ]
-  store i32 %.019.lcssa, ptr %3, align 8, !tbaa !9
+  store i32 %.019.lcssa, ptr %3, align 8, !tbaa !10
   ret void
 }
 
@@ -103,9 +103,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @compareWords2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = load ptr, ptr %0, align 8, !tbaa !16
   %4 = load i64, ptr %3, align 8, !tbaa !3
-  %5 = load ptr, ptr %1, align 8, !tbaa !15
+  %5 = load ptr, ptr %1, align 8, !tbaa !16
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
@@ -113,8 +113,8 @@ define range(i32 -1, 2) i32 @compareWords2(ptr noundef readonly captures(none) %
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @compareWords(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !15
-  %4 = load ptr, ptr %1, align 8, !tbaa !15
+  %3 = load ptr, ptr %0, align 8, !tbaa !16
+  %4 = load ptr, ptr %1, align 8, !tbaa !16
   %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %4, i64 noundef 8) #20
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   ret i32 %.0
@@ -125,8 +125,8 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @compareWords3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !15
-  %4 = load ptr, ptr %1, align 8, !tbaa !15
+  %3 = load ptr, ptr %0, align 8, !tbaa !16
+  %4 = load ptr, ptr %1, align 8, !tbaa !16
   %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef 16) #19
   %6 = zext i32 %5 to i64
   br label %7
@@ -159,16 +159,16 @@ memCompare.exit:                                  ; preds = %7, %17
 ; Function Attrs: nofree nounwind uwtable
 define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !9
+  %4 = load i32, ptr %3, align 8, !tbaa !10
   %5 = sext i32 %4 to i64
   tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords3) #19
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !17
+  %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -179,7 +179,7 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
   %.024 = phi ptr [ %7, %.lr.ph ], [ %.1, %20 ]
   %.02022 = phi i32 [ 1, %.lr.ph ], [ %.121, %20 ]
   %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   %bcmp = tail call i32 @bcmp(ptr %14, ptr %.024, i64 %11)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %20, label %15
@@ -187,8 +187,8 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
 15:                                               ; preds = %12
   %16 = sext i32 %.02022 to i64
   %17 = getelementptr inbounds ptr, ptr %0, i64 %16
-  store ptr %14, ptr %17, align 8, !tbaa !15
-  %18 = load ptr, ptr %13, align 8, !tbaa !15
+  store ptr %14, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %13, align 8, !tbaa !16
   %19 = add nsw i32 %.02022, 1
   br label %20
 
@@ -197,22 +197,22 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
   %.1 = phi ptr [ %18, %15 ], [ %.024, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %20, %2
   %.020.lcssa = phi i32 [ 1, %2 ], [ %.121, %20 ]
-  store i32 %.020.lcssa, ptr %3, align 8, !tbaa !9
+  store i32 %.020.lcssa, ptr %3, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @setCycleCtrPtr() local_unnamed_addr #9 {
   %1 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #21
-  store i32 0, ptr %1, align 4, !tbaa !19
+  store i32 0, ptr %1, align 4, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %2, align 4, !tbaa !21
+  store i32 0, ptr %2, align 4, !tbaa !22
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 111111111, ptr %3, align 4, !tbaa !22
+  store i32 111111111, ptr %3, align 4, !tbaa !23
   ret ptr %1
 }
 
@@ -231,7 +231,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !9
+  %3 = load i32, ptr %2, align 8, !tbaa !10
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #21
@@ -240,11 +240,11 @@ define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) lo
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !17
+  %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %14
 
@@ -252,13 +252,13 @@ define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = tail call noalias ptr @malloc(i64 noundef %11) #21
   %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  store ptr %15, ptr %16, align 8, !tbaa !15
+  store ptr %15, ptr %16, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %18, i64 %11, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %14, %1
   ret ptr %6
@@ -270,20 +270,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !9
+  %4 = load i32, ptr %3, align 8, !tbaa !10
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   tail call void @free(ptr noundef %7) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %3, align 8, !tbaa !9
+  %8 = load i32, ptr %3, align 8, !tbaa !10
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @free(ptr noundef %0) #19
@@ -305,13 +305,13 @@ define noalias noundef ptr @makeArrayB(ptr noundef readonly captures(none) %0, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret ptr %5
@@ -326,12 +326,12 @@ define void @freeArrayB(ptr noundef captures(none) %0) local_unnamed_addr #11 {
 ; Function Attrs: nofree nounwind uwtable
 define void @printCCtrInfo(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !21
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !23
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %7)
-  %9 = load i32, ptr %0, align 4, !tbaa !19
+  %9 = load i32, ptr %0, align 4, !tbaa !20
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = fdiv double %10, %11
@@ -411,7 +411,7 @@ memCompare.exit:                                  ; preds = %21
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #19
   %24 = add nuw nsw i32 %.03648, 1
   %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %23, %4
   %25 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
@@ -502,7 +502,7 @@ memCompare.exit:                                  ; preds = %22
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #19
   %25 = add nuw nsw i32 %.03647, 1
   %exitcond.not = icmp eq i32 %.03647, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %24, %4
   %26 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
@@ -554,9 +554,9 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
 9:                                                ; preds = %3
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
   %10 = shl nuw i32 1, %1
-  %11 = load i32, ptr %2, align 4, !tbaa !29
+  %11 = load i32, ptr %2, align 4, !tbaa !30
   %12 = xor i32 %11, %10
-  store i32 %12, ptr %2, align 4, !tbaa !29
+  store i32 %12, ptr %2, align 4, !tbaa !30
   br label %13
 
 13:                                               ; preds = %3, %9
@@ -566,16 +566,16 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr %4, align 4, !tbaa !29
+  %6 = load i32, ptr %4, align 4, !tbaa !30
   %7 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
   %8 = shl i32 %7, 3
   %9 = sext i32 %8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %9, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %9, i1 false)
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
-  %10 = load i32, ptr %4, align 4, !tbaa !29
+  %10 = load i32, ptr %4, align 4, !tbaa !30
   %11 = xor i32 %10, 1
-  store i32 %11, ptr %4, align 4, !tbaa !29
+  store i32 %11, ptr %4, align 4, !tbaa !30
   %12 = icmp sgt i32 %3, 1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -607,24 +607,24 @@ define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr noundef captures(non
 
 memCompare.exit:                                  ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %9, i1 false)
-  %27 = load i32, ptr %4, align 4, !tbaa !29
+  %27 = load i32, ptr %4, align 4, !tbaa !30
   br label %28
 
 .loopexit:                                        ; preds = %15, %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %9, i1 false)
-  store i32 %.04257, ptr %4, align 4, !tbaa !29
+  store i32 %.04257, ptr %4, align 4, !tbaa !30
   br label %28
 
 28:                                               ; preds = %.loopexit, %memCompare.exit
   %.1 = phi i32 [ %27, %memCompare.exit ], [ %.04257, %.loopexit ]
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #19
   %29 = shl nuw i32 1, %.04356
-  %30 = load i32, ptr %4, align 4, !tbaa !29
+  %30 = load i32, ptr %4, align 4, !tbaa !30
   %31 = xor i32 %30, %29
-  store i32 %31, ptr %4, align 4, !tbaa !29
+  store i32 %31, ptr %4, align 4, !tbaa !30
   %32 = add nuw nsw i32 %.04356, 1
   %exitcond.not = icmp eq i32 %32, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %28, %5
   %.042.lcssa = phi i32 [ %6, %5 ], [ %.1, %28 ]
@@ -653,7 +653,7 @@ memCompare.exit:                                  ; preds = %25
 
 memCompare.exit49:                                ; preds = %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i64 %9, i1 false)
-  store i32 %.042.lcssa, ptr %4, align 4, !tbaa !29
+  store i32 %.042.lcssa, ptr %4, align 4, !tbaa !30
   br label %memCompare.exit49.thread
 
 memCompare.exit49.thread:                         ; preds = %35, %45, %memCompare.exit49
@@ -667,14 +667,14 @@ memCompare.exit49.thread:                         ; preds = %35, %45, %memCompar
 define void @swapInfoAdjacentVars(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #16 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !31
+  %6 = load i8, ptr %5, align 1, !tbaa !32
   %7 = add nsw i32 %0, 1
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !31
-  store i8 %10, ptr %5, align 1, !tbaa !31
-  store i8 %6, ptr %9, align 1, !tbaa !31
-  %11 = load i32, ptr %2, align 4, !tbaa !29
+  %10 = load i8, ptr %9, align 1, !tbaa !32
+  store i8 %10, ptr %5, align 1, !tbaa !32
+  store i8 %6, ptr %9, align 1, !tbaa !32
+  %11 = load i32, ptr %2, align 4, !tbaa !30
   %12 = lshr i32 %11, %0
   %13 = lshr i32 %11, %7
   %14 = xor i32 %12, %13
@@ -685,7 +685,7 @@ define void @swapInfoAdjacentVars(i32 noundef %0, ptr noundef captures(none) %1,
 16:                                               ; preds = %3
   %17 = shl i32 3, %0
   %18 = xor i32 %11, %17
-  store i32 %18, ptr %2, align 4, !tbaa !29
+  store i32 %18, ptr %2, align 4, !tbaa !30
   br label %19
 
 19:                                               ; preds = %16, %3
@@ -697,18 +697,18 @@ define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr noundef captures(non
   %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
   %9 = shl i32 %8, 3
   %10 = sext i32 %3 to i64
-  %11 = load i32, ptr %6, align 4, !tbaa !29
+  %11 = load i32, ptr %6, align 4, !tbaa !30
   %12 = sext i32 %9 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %4, i64 %10, i1 false)
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #19
-  %13 = load i8, ptr %4, align 1, !tbaa !31
+  %13 = load i8, ptr %4, align 1, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !31
-  store i8 %15, ptr %4, align 1, !tbaa !31
-  store i8 %13, ptr %14, align 1, !tbaa !31
-  %16 = load i32, ptr %6, align 4, !tbaa !29
+  %15 = load i8, ptr %14, align 1, !tbaa !32
+  store i8 %15, ptr %4, align 1, !tbaa !32
+  store i8 %13, ptr %14, align 1, !tbaa !32
+  %16 = load i32, ptr %6, align 4, !tbaa !30
   %17 = lshr i32 %16, 1
   %18 = xor i32 %17, %16
   %19 = and i32 %18, 1
@@ -717,7 +717,7 @@ define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr noundef captures(non
 
 20:                                               ; preds = %7
   %21 = xor i32 %16, 3
-  store i32 %21, ptr %6, align 4, !tbaa !29
+  store i32 %21, ptr %6, align 4, !tbaa !30
   br label %swapInfoAdjacentVars.exit
 
 swapInfoAdjacentVars.exit:                        ; preds = %7, %20
@@ -758,13 +758,13 @@ swapInfoAdjacentVars.exit:                        ; preds = %7, %20
 memCompare.exit:                                  ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr nonnull align 1 %4, i64 %10, i1 false)
-  %38 = load i32, ptr %6, align 4, !tbaa !29
+  %38 = load i32, ptr %6, align 4, !tbaa !30
   br label %39
 
 .loopexit:                                        ; preds = %26, %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %5, i64 %10, i1 false)
-  store i32 %.072, ptr %6, align 4, !tbaa !29
+  store i32 %.072, ptr %6, align 4, !tbaa !30
   br label %39
 
 39:                                               ; preds = %.loopexit, %memCompare.exit
@@ -772,13 +772,13 @@ memCompare.exit:                                  ; preds = %36
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %40) #19
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1, !tbaa !31
+  %42 = load i8, ptr %41, align 1, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next
-  %44 = load i8, ptr %43, align 1, !tbaa !31
-  store i8 %44, ptr %41, align 1, !tbaa !31
-  store i8 %42, ptr %43, align 1, !tbaa !31
-  %45 = load i32, ptr %6, align 4, !tbaa !29
+  %44 = load i8, ptr %43, align 1, !tbaa !32
+  store i8 %44, ptr %41, align 1, !tbaa !32
+  store i8 %42, ptr %43, align 1, !tbaa !32
+  %45 = load i32, ptr %6, align 4, !tbaa !30
   %46 = lshr i32 %45, %40
   %47 = trunc nuw nsw i64 %indvars.iv.next to i32
   %48 = lshr i32 %45, %47
@@ -790,12 +790,12 @@ memCompare.exit:                                  ; preds = %36
 51:                                               ; preds = %39
   %52 = shl i32 3, %40
   %53 = xor i32 %45, %52
-  store i32 %53, ptr %6, align 4, !tbaa !29
+  store i32 %53, ptr %6, align 4, !tbaa !30
   br label %swapInfoAdjacentVars.exit60
 
 swapInfoAdjacentVars.exit60:                      ; preds = %39, %51
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %swapInfoAdjacentVars.exit60, %swapInfoAdjacentVars.exit
   %.0.lcssa = phi i32 [ %11, %swapInfoAdjacentVars.exit ], [ %.1, %swapInfoAdjacentVars.exit60 ]
@@ -825,7 +825,7 @@ swapInfoAdjacentVars.exit60:                      ; preds = %39, %51
 memCompare.exit64:                                ; preds = %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %5, i64 %10, i1 false)
-  store i32 %.0.lcssa, ptr %6, align 4, !tbaa !29
+  store i32 %.0.lcssa, ptr %6, align 4, !tbaa !30
   br label %memCompare.exit64.thread
 
 memCompare.exit64.thread:                         ; preds = %56, %66, %memCompare.exit64
@@ -851,9 +851,9 @@ define void @luckyCanonicizer(ptr noundef %0, ptr noundef captures(none) %1, ptr
 
 13:                                               ; preds = %9
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
-  %14 = load i32, ptr %6, align 4, !tbaa !29
+  %14 = load i32, ptr %6, align 4, !tbaa !30
   %15 = xor i32 %14, %8
-  store i32 %15, ptr %6, align 4, !tbaa !29
+  store i32 %15, ptr %6, align 4, !tbaa !30
   br label %minimalInitialFlip.exit
 
 minimalInitialFlip.exit:                          ; preds = %9, %13
@@ -863,7 +863,7 @@ minimalInitialFlip.exit:                          ; preds = %9, %13
   %18 = tail call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %19 = or i32 %17, %18
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %9, !llvm.loop !33
+  br i1 %.not, label %20, label %9, !llvm.loop !34
 
 20:                                               ; preds = %minimalInitialFlip.exit
   ret void
@@ -893,7 +893,7 @@ minimalInitialFlip1.exit:                         ; preds = %7, %11
   %14 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %15 = or i32 %13, %14
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %7, !llvm.loop !34
+  br i1 %.not, label %16, label %7, !llvm.loop !35
 
 16:                                               ; preds = %minimalInitialFlip1.exit
   ret i32 %5
@@ -924,7 +924,7 @@ minimalInitialFlip1.exit.i:                       ; preds = %9, %5
   %12 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %13 = or i32 %11, %12
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %luckyCanonicizer1_simple.exit, label %5, !llvm.loop !34
+  br i1 %.not.i, label %luckyCanonicizer1_simple.exit, label %5, !llvm.loop !35
 
 luckyCanonicizer1_simple.exit:                    ; preds = %minimalInitialFlip1.exit.i
   ret void
@@ -943,7 +943,7 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #19
-  store i32 %8, ptr %7, align 4, !tbaa !29
+  store i32 %8, ptr %7, align 4, !tbaa !30
   %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
   %9 = shl nuw i32 1, %1
   br label %10
@@ -958,9 +958,9 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
 
 14:                                               ; preds = %10
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
-  %15 = load i32, ptr %7, align 4, !tbaa !29
+  %15 = load i32, ptr %7, align 4, !tbaa !30
   %16 = xor i32 %15, %9
-  store i32 %16, ptr %7, align 4, !tbaa !29
+  store i32 %16, ptr %7, align 4, !tbaa !30
   br label %minimalInitialFlip.exit.i
 
 minimalInitialFlip.exit.i:                        ; preds = %14, %10
@@ -970,10 +970,10 @@ minimalInitialFlip.exit.i:                        ; preds = %14, %10
   %19 = call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %20 = or i32 %18, %19
   %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %luckyCanonicizer.exit, label %10, !llvm.loop !33
+  br i1 %.not.i, label %luckyCanonicizer.exit, label %10, !llvm.loop !34
 
 luckyCanonicizer.exit:                            ; preds = %minimalInitialFlip.exit.i
-  %21 = load i32, ptr %7, align 4, !tbaa !29
+  %21 = load i32, ptr %7, align 4, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #19
@@ -991,7 +991,7 @@ define i32 @Kit_TruthSemiCanonicize_new(ptr noundef %0, ptr noundef readnone cap
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %8 = load i32, ptr %0, align 4, !tbaa !29
+  %8 = load i32, ptr %0, align 4, !tbaa !30
   %9 = zext i32 %8 to i64
   %10 = shl nuw i64 %9, 32
   %11 = or disjoint i64 %10, %9
@@ -999,7 +999,7 @@ define i32 @Kit_TruthSemiCanonicize_new(ptr noundef %0, ptr noundef readnone cap
   %12 = call i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
   %13 = load i64, ptr %5, align 8, !tbaa !3
   %14 = trunc i64 %13 to i32
-  store i32 %14, ptr %0, align 4, !tbaa !29
+  store i32 %14, ptr %0, align 4, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   br label %17
 
@@ -1053,31 +1053,32 @@ attributes #21 = { nounwind allocsize(0) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !11, i64 8}
-!10 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !12, i64 16}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"p2 long", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !8}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 long", !13, i64 0}
-!17 = !{!10, !11, i64 4}
-!18 = distinct !{!18, !8}
-!19 = !{!20, !11, i64 0}
-!20 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8}
-!21 = !{!20, !11, i64 4}
-!22 = !{!20, !11, i64 8}
-!23 = !{!10, !12, i64 16}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = !{!11, !11, i64 0}
-!30 = distinct !{!30, !8}
-!31 = !{!5, !5, i64 0}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !13, i64 16}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!"p2 long", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !8, !9}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 long", !14, i64 0}
+!18 = !{!11, !12, i64 4}
+!19 = distinct !{!19, !8, !9}
+!20 = !{!21, !12, i64 0}
+!21 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8}
+!22 = !{!21, !12, i64 4}
+!23 = !{!21, !12, i64 8}
+!24 = !{!11, !13, i64 16}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = !{!12, !12, i64 0}
+!31 = distinct !{!31, !8, !9}
+!32 = !{!5, !5, i64 0}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}

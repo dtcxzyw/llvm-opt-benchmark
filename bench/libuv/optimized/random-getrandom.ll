@@ -26,7 +26,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_getrandom(ptr 
   %8 = tail call ptr @__errno_location() #5
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %5, label %.critedge
+  br i1 %10, label %5, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %7
   %11 = sub nsw i32 0, %9
@@ -35,7 +35,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_getrandom(ptr 
 12:                                               ; preds = %5
   %13 = add i64 %6, %.01523
   %.not = icmp eq i64 %13, %1
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %12, %5, %2, %.critedge
   %.0 = phi i32 [ %11, %.critedge ], [ 0, %2 ], [ -5, %5 ], [ 0, %12 ]
@@ -63,3 +63,6 @@ attributes #5 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}

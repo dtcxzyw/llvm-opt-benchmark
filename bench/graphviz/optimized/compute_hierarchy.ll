@@ -104,11 +104,11 @@ gv_calloc.exit81:                                 ; preds = %._crit_edge113
   %43 = load i32, ptr %42, align 4, !tbaa !10
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds double, ptr %.067, i64 %44
-  %46 = load double, ptr %45, align 8, !tbaa !14
+  %46 = load double, ptr %45, align 8, !tbaa !15
   %47 = load i32, ptr %39, align 4, !tbaa !10
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds double, ptr %.067, i64 %48
-  %50 = load double, ptr %49, align 8, !tbaa !14
+  %50 = load double, ptr %49, align 8, !tbaa !15
   %51 = fsub double %46, %50
   %52 = fmul double %3, %51
   %53 = sitofp i32 %40 to double
@@ -133,19 +133,19 @@ gv_calloc.exit81:                                 ; preds = %._crit_edge113
   %58 = load i32, ptr %57, align 4, !tbaa !10
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds double, ptr %.067, i64 %59
-  %61 = load double, ptr %60, align 8, !tbaa !14
+  %61 = load double, ptr %60, align 8, !tbaa !15
   %62 = getelementptr i8, ptr %57, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !10
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds double, ptr %.067, i64 %64
-  %66 = load double, ptr %65, align 8, !tbaa !14
+  %66 = load double, ptr %65, align 8, !tbaa !15
   %67 = fsub double %61, %66
   %68 = fcmp ogt double %67, %.
   %69 = zext i1 %68 to i32
   %.166 = add nuw nsw i32 %.06595, %69
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !16
+  br i1 %exitcond107.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !17
 
 ._crit_edge98:                                    ; preds = %.lr.ph97
   store i32 %.166, ptr %7, align 4, !tbaa !10
@@ -193,12 +193,12 @@ gv_calloc.exit82:                                 ; preds = %71
   %86 = load i32, ptr %85, align 4, !tbaa !10
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds double, ptr %.067, i64 %87
-  %89 = load double, ptr %88, align 8, !tbaa !14
+  %89 = load double, ptr %88, align 8, !tbaa !15
   %90 = getelementptr i8, ptr %85, i64 -4
   %91 = load i32, ptr %90, align 4, !tbaa !10
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds double, ptr %.067, i64 %92
-  %94 = load double, ptr %93, align 8, !tbaa !14
+  %94 = load double, ptr %93, align 8, !tbaa !15
   %95 = fsub double %89, %94
   %96 = fcmp ogt double %95, %.
   br i1 %96, label %97, label %102
@@ -215,7 +215,7 @@ gv_calloc.exit82:                                 ; preds = %71
   %.1 = phi i32 [ %98, %97 ], [ %.0100, %.lr.ph101 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph101, !llvm.loop !17
+  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph101, !llvm.loop !18
 
 .loopexit:                                        ; preds = %102, %gv_calloc.exit82
   br i1 %.not, label %.thread, label %103
@@ -280,9 +280,10 @@ attributes #11 = { cold noreturn nounwind }
 !9 = !{!"p1 int", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"double", !6, i64 0}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"double", !6, i64 0}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}

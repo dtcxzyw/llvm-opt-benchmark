@@ -287,8 +287,8 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
   br i1 %82, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %75, %60
-  %83 = load ptr, ptr %57, align 8, !tbaa !44
-  %84 = load ptr, ptr %58, align 8, !tbaa !45
+  %83 = load ptr, ptr %57, align 8, !tbaa !45
+  %84 = load ptr, ptr %58, align 8, !tbaa !46
   %85 = tail call i32 %83(double noundef %0, ptr noundef %8, ptr noundef %7, ptr noundef %84) #5
   %86 = load i64, ptr %59, align 8, !tbaa !30
   %87 = add nsw i64 %86, 1
@@ -309,11 +309,11 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
   store double %90, ptr %91, align 8, !tbaa !41
   %92 = load ptr, ptr %13, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
-  %94 = load ptr, ptr %93, align 8, !tbaa !46
+  %94 = load ptr, ptr %93, align 8, !tbaa !47
   %95 = getelementptr inbounds ptr, ptr %94, i64 %.1120.i
-  %96 = load ptr, ptr %95, align 8, !tbaa !49
+  %96 = load ptr, ptr %95, align 8, !tbaa !50
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %98 = load i64, ptr %97, align 8, !tbaa !50
+  %98 = load i64, ptr %97, align 8, !tbaa !51
   %99 = getelementptr inbounds double, ptr %96, i64 %98
   %100 = tail call double @SUNRabs(double noundef %90) #5
   %101 = fmul double %33, %100
@@ -356,18 +356,18 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
   store double %125, ptr %127, align 8, !tbaa !41
   %128 = add nuw nsw i64 %.0101116.i, 1
   %.not113.not.i = icmp slt i64 %.0101116.i, %119
-  br i1 %.not113.not.i, label %.lr.ph118.i, label %._crit_edge119.i, !llvm.loop !51
+  br i1 %.not113.not.i, label %.lr.ph118.i, label %._crit_edge119.i, !llvm.loop !52
 
 ._crit_edge119.i:                                 ; preds = %.lr.ph118.i, %110
   %129 = add nsw i64 %.1120.i, %56
   %130 = icmp slt i64 %129, %117
-  br i1 %130, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !52
+  br i1 %130, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !53
 
 ._crit_edge122.i:                                 ; preds = %._crit_edge119.i, %.preheader.i
   %131 = phi i64 [ %88, %.preheader.i ], [ %117, %._crit_edge119.i ]
   %132 = add nuw i64 %.0100124.i, 1
   %exitcond.not.i = icmp eq i64 %.0100124.i, %..i
-  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %60, !llvm.loop !53
+  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %60, !llvm.loop !54
 
 cvBandPrecDQJac.exit:                             ; preds = %._crit_edge.i
   %133 = icmp slt i32 %85, 0
@@ -461,13 +461,13 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   %22 = add nsw i64 %21, %19
   %23 = add nsw i64 %17, -1
   %24 = tail call i64 @llvm.smin.i64(i64 %22, i64 %23)
-  store i64 %17, ptr %2, align 8, !tbaa !54
+  store i64 %17, ptr %2, align 8, !tbaa !55
   %25 = shl nsw i64 %21, 1
   %26 = add i64 %19, 2
   %27 = add i64 %26, %25
   %28 = add i64 %27, %24
   %29 = mul nsw i64 %28, %17
-  store i64 %29, ptr %1, align 8, !tbaa !54
+  store i64 %29, ptr %1, align 8, !tbaa !55
   br label %30
 
 30:                                               ; preds = %16, %15, %10, %5
@@ -507,7 +507,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nounde
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !30
-  store i64 %17, ptr %1, align 8, !tbaa !54
+  store i64 %17, ptr %1, align 8, !tbaa !55
   br label %18
 
 18:                                               ; preds = %15, %14, %9, %4
@@ -526,7 +526,7 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %10 = load i32, ptr %9, align 8, !tbaa !55
+  %10 = load i32, ptr %9, align 8, !tbaa !56
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
@@ -536,9 +536,9 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load i32, ptr %16, align 8, !tbaa !57
+  %17 = load i32, ptr %16, align 8, !tbaa !58
   %.not = icmp slt i32 %1, %17
   br i1 %.not, label %19, label %18
 
@@ -552,17 +552,17 @@ define i32 @CVBandPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.020.sink.in = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.020.sink = load ptr, ptr %.020.sink.in, align 8, !tbaa !62, !nonnull !63, !noundef !63
-  %21 = load i32, ptr %.020.sink, align 8, !tbaa !64
+  %.020.sink = load ptr, ptr %.020.sink.in, align 8, !tbaa !63, !nonnull !64, !noundef !64
+  %21 = load i32, ptr %.020.sink, align 8, !tbaa !65
   %22 = icmp eq i32 %1, %21
   %23 = getelementptr inbounds nuw i8, ptr %.020.sink, i64 120
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.020.sink, i64 96
-  store ptr null, ptr %24, align 8, !tbaa !67
+  store ptr null, ptr %24, align 8, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %.020.sink, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !68
+  %26 = load ptr, ptr %25, align 8, !tbaa !69
   %27 = tail call i32 @CVBandPrecInit(ptr noundef %26, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   br label %28
 
@@ -653,30 +653,31 @@ attributes #6 = { nounwind allocsize(0) }
 !39 = !{!4, !5, i64 0}
 !40 = !{!4, !5, i64 944}
 !41 = !{!5, !5, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!4, !8, i64 8}
-!45 = !{!4, !8, i64 16}
-!46 = !{!47, !48, i64 72}
-!47 = !{!"_DlsMat", !9, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !11, i64 56, !14, i64 64, !48, i64 72}
-!48 = !{!"p2 double", !8, i64 0}
-!49 = !{!11, !11, i64 0}
-!50 = !{!47, !14, i64 48}
-!51 = distinct !{!51, !43}
-!52 = distinct !{!52, !43}
-!53 = distinct !{!53, !43}
-!54 = !{!14, !14, i64 0}
-!55 = !{!4, !9, i64 2200}
-!56 = !{!4, !17, i64 2192}
-!57 = !{!58, !9, i64 40}
-!58 = !{!"CVadjMemRec", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !59, i64 32, !9, i64 40, !59, i64 48, !9, i64 56, !60, i64 64, !9, i64 72, !60, i64 80, !14, i64 88, !61, i64 96, !14, i64 104, !9, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !6, i64 168, !6, i64 272, !6, i64 376, !10, i64 480, !13, i64 488, !14, i64 496}
-!59 = !{!"p1 _ZTS12CVodeBMemRec", !8, i64 0}
-!60 = !{!"p1 _ZTS11CkpntMemRec", !8, i64 0}
-!61 = !{!"p2 _ZTS11DtpntMemRec", !8, i64 0}
-!62 = !{!59, !59, i64 0}
-!63 = !{}
-!64 = !{!65, !9, i64 0}
-!65 = !{!"CVodeBMemRec", !9, i64 0, !5, i64 8, !66, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !59, i64 120}
-!66 = !{!"p1 _ZTS11CVodeMemRec", !8, i64 0}
-!67 = !{!65, !8, i64 96}
-!68 = !{!65, !66, i64 16}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!4, !8, i64 8}
+!46 = !{!4, !8, i64 16}
+!47 = !{!48, !49, i64 72}
+!48 = !{!"_DlsMat", !9, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !11, i64 56, !14, i64 64, !49, i64 72}
+!49 = !{!"p2 double", !8, i64 0}
+!50 = !{!11, !11, i64 0}
+!51 = !{!48, !14, i64 48}
+!52 = distinct !{!52, !43, !44}
+!53 = distinct !{!53, !43, !44}
+!54 = distinct !{!54, !43, !44}
+!55 = !{!14, !14, i64 0}
+!56 = !{!4, !9, i64 2200}
+!57 = !{!4, !17, i64 2192}
+!58 = !{!59, !9, i64 40}
+!59 = !{!"CVadjMemRec", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !60, i64 32, !9, i64 40, !60, i64 48, !9, i64 56, !61, i64 64, !9, i64 72, !61, i64 80, !14, i64 88, !62, i64 96, !14, i64 104, !9, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !6, i64 168, !6, i64 272, !6, i64 376, !10, i64 480, !13, i64 488, !14, i64 496}
+!60 = !{!"p1 _ZTS12CVodeBMemRec", !8, i64 0}
+!61 = !{!"p1 _ZTS11CkpntMemRec", !8, i64 0}
+!62 = !{!"p2 _ZTS11DtpntMemRec", !8, i64 0}
+!63 = !{!60, !60, i64 0}
+!64 = !{}
+!65 = !{!66, !9, i64 0}
+!66 = !{!"CVodeBMemRec", !9, i64 0, !5, i64 8, !67, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !60, i64 120}
+!67 = !{!"p1 _ZTS11CVodeMemRec", !8, i64 0}
+!68 = !{!66, !8, i64 96}
+!69 = !{!66, !67, i64 16}

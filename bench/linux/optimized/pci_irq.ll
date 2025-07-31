@@ -271,7 +271,7 @@ define internal fastcc ptr @acpi_pci_irq_lookup(ptr noundef %0, i32 noundef rang
   %71 = load ptr, ptr %3, align 8
   %72 = icmp ne ptr %71, null
   %73 = select i1 %70, i1 %72, i1 false
-  br i1 %73, label %.thread, label %48, !llvm.loop !9
+  br i1 %73, label %.thread, label %48, !llvm.loop !10
 
 74:                                               ; preds = %48
   %75 = getelementptr inbounds nuw i8, ptr %49, i64 184
@@ -565,7 +565,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_pci_irq_find_prt_entr
 128:                                              ; preds = %125, %119, %114, %110, %106, %102, %96, %90
   %129 = add nuw nsw i64 %91, 1
   %130 = icmp eq i64 %129, 3
-  br i1 %130, label %131, label %90, !llvm.loop !10
+  br i1 %130, label %131, label %90, !llvm.loop !11
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -592,7 +592,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_pci_irq_find_prt_entr
   %145 = add i64 %144, %143
   %146 = inttoptr i64 %145 to ptr
   %147 = icmp eq i64 %145, 0
-  br i1 %147, label %.loopexit, label %30, !llvm.loop !11
+  br i1 %147, label %.loopexit, label %30, !llvm.loop !12
 
 .loopexit:                                        ; preds = %141, %30, %140, %26
   %148 = load ptr, ptr %5, align 8
@@ -663,9 +663,10 @@ attributes #10 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -19, i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}

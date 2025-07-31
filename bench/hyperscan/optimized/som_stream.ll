@@ -113,7 +113,7 @@ mmbit_get_flat_block.exit:                        ; preds = %30, %33, %36, %44
 64:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %64
   %65 = and i32 %6, 63
@@ -233,7 +233,7 @@ mmbit_get_flat_block.exit63:                      ; preds = %74, %77, %80, %88
   %.127.i44.be = phi i32 [ %130, %127 ], [ %123, %119 ]
   %.124.i45.be = phi i32 [ %narrow33.i49, %127 ], [ 0, %119 ]
   %.1.i46.be = phi i32 [ %128, %127 ], [ %124, %119 ]
-  br label %.backedge116
+  br label %.backedge116, !llvm.loop !7
 
 mmbit_iterate.exit:                               ; preds = %119, %58
   %.011.i = phi i32 [ %63, %58 ], [ %123, %119 ]
@@ -476,7 +476,7 @@ mmbit_get_flat_block.exit75:                      ; preds = %206, %209, %212, %2
 248:                                              ; preds = %.lr.ph122
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, %147
-  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122
+  br i1 %exitcond143.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !5
 
 ._crit_edge123:                                   ; preds = %248, %.preheader
   %.261.i.lcssa = phi i32 [ %196, %.preheader ], [ %135, %248 ]
@@ -596,12 +596,12 @@ mmbit_get_flat_block.exit71:                      ; preds = %258, %261, %264, %2
   %.127.i.be = phi i32 [ %313, %310 ], [ %306, %302 ]
   %.124.i.be = phi i32 [ %narrow33.i, %310 ], [ 0, %302 ]
   %.1.i40.be = phi i32 [ %311, %310 ], [ %307, %302 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 mmbit_iterate.exit24:                             ; preds = %302, %189, %.thread93, %242, %279
   %.011.i23 = phi i32 [ %191, %189 ], [ %247, %242 ], [ %282, %279 ], [ %234, %.thread93 ], [ %306, %302 ]
   %.not = icmp eq i32 %.011.i23, -1
-  br i1 %.not, label %._crit_edge130, label %148
+  br i1 %.not, label %._crit_edge130, label %148, !llvm.loop !8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -712,7 +712,7 @@ mmbit_get_flat_block.exit69:                      ; preds = %30, %33, %36, %44
 64:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %64
   %65 = and i32 %.fr145, 63
@@ -832,7 +832,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %74, %77, %80, %88
   %.127.i.be = phi i32 [ %130, %127 ], [ %123, %119 ]
   %.124.i.be = phi i32 [ %narrow33.i, %127 ], [ 0, %119 ]
   %.1.i37.be = phi i32 [ %128, %127 ], [ %124, %119 ]
-  br label %.backedge114
+  br label %.backedge114, !llvm.loop !7
 
 mmbit_iterate.exit25:                             ; preds = %119, %58
   %.011.i24 = phi i32 [ %63, %58 ], [ %123, %119 ]
@@ -959,11 +959,11 @@ loadSomValue.exit.us131:                          ; preds = %159, %155, %151
   %.127.i42.us.be = phi i32 [ %194, %191 ], [ %187, %183 ]
   %.124.i43.us.be = phi i32 [ %narrow33.i47.us, %191 ], [ 0, %183 ]
   %.1.i44.us.be = phi i32 [ %192, %191 ], [ %188, %183 ]
-  br label %.backedge.us
+  br label %.backedge.us, !llvm.loop !7
 
 mmbit_iterate.exit.us133:                         ; preds = %183
   %.not.us135 = icmp eq i32 %187, -1
-  br i1 %.not.us135, label %._crit_edge128, label %.lr.ph127.split.split.us, !llvm.loop !5
+  br i1 %.not.us135, label %._crit_edge128, label %.lr.ph127.split.split.us, !llvm.loop !9
 
 .lr.ph127.split.split:                            ; preds = %.lr.ph127
   %195 = icmp ult i32 %.fr145, 65
@@ -1056,7 +1056,7 @@ mmbit_get_flat_block.exit.us:                     ; preds = %225, %222, %219, %2
 mmbit_iterate.exit.us140:                         ; preds = %mmbit_get_flat_block.exit.us
   %232 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %231, i1 true)
   %233 = trunc nuw nsw i64 %232 to i32
-  br label %.lr.ph127.split.split.split.us, !llvm.loop !7
+  br label %.lr.ph127.split.split.split.us, !llvm.loop !11
 
 ._crit_edge128:                                   ; preds = %.thread81, %mmbit_get_flat_block.exit61, %._crit_edge121, %292, %loadSomValue.exit, %mmbit_iterate.exit, %mmbit_get_flat_block.exit.us, %loadSomValue.exit.us138, %loadSomValue.exit.us131, %mmbit_iterate.exit.us133, %.thread101.us, %mmbit_get_flat_block.exit73, %._crit_edge, %mmbit_get_flat_block.exit69, %2, %mmbit_iterate.exit25
   ret void
@@ -1190,7 +1190,7 @@ mmbit_get_flat_block.exit65:                      ; preds = %266, %269, %272, %2
 302:                                              ; preds = %.lr.ph120
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next157, %196
-  br i1 %exitcond159.not, label %._crit_edge121, label %.lr.ph120
+  br i1 %exitcond159.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !5
 
 ._crit_edge121:                                   ; preds = %302, %.preheader
   %.261.i28.lcssa = phi i32 [ %256, %.preheader ], [ %133, %302 ]
@@ -1255,7 +1255,7 @@ mmbit_iterate.exit:                               ; preds = %mmbit_get_flat_bloc
   %334 = trunc nuw nsw i64 %333 to i32
   %335 = or disjoint i32 %.sink, %334
   %.not = icmp eq i32 %335, -1
-  br i1 %.not, label %._crit_edge128, label %.lr.ph127.split.split.split
+  br i1 %.not, label %._crit_edge128, label %.lr.ph127.split.split.split, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1282,5 +1282,10 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6, !10}
+!12 = distinct !{!12, !6}

@@ -91,7 +91,7 @@ define dso_local float @gimme_edge_table(ptr noundef readnone captures(none) %0,
 23:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %23 ]
@@ -139,7 +139,7 @@ gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
 46:                                               ; preds = %.lr.ph.i46
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i45
-  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !6
+  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !7
 
 .lr.ph.i46:                                       ; preds = %46, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %46 ]
@@ -187,7 +187,7 @@ gimme_edge.exit50:                                ; preds = %51, %._crit_edge.i4
 70:                                               ; preds = %.lr.ph.i55
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
-  br i1 %exitcond.not.i58, label %._crit_edge.i51, label %.lr.ph.i55, !llvm.loop !6
+  br i1 %exitcond.not.i58, label %._crit_edge.i51, label %.lr.ph.i55, !llvm.loop !7
 
 .lr.ph.i55:                                       ; preds = %70, %.lr.ph.preheader.i53
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i53 ], [ %indvars.iv.next.i57, %70 ]
@@ -235,7 +235,7 @@ gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i5
 93:                                               ; preds = %.lr.ph.i64
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %._crit_edge.i60, label %.lr.ph.i64, !llvm.loop !6
+  br i1 %exitcond.not.i67, label %._crit_edge.i60, label %.lr.ph.i64, !llvm.loop !7
 
 .lr.ph.i64:                                       ; preds = %93, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %93 ]
@@ -266,7 +266,7 @@ gimme_edge.exit59:                                ; preds = %75, %._crit_edge.i5
 
 gimme_edge.exit68:                                ; preds = %98, %._crit_edge.i60
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %7
-  br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !7
+  br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %gimme_edge.exit68
   %108 = shl i32 %85, 1
@@ -335,7 +335,7 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
 26:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
@@ -358,7 +358,7 @@ define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, 
 .loopexit.i:                                      ; preds = %26, %31, %.lr.ph4.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count10.i
-  br i1 %exitcond11.not.i, label %remove_gene.exit.loopexit, label %.lr.ph4.i, !llvm.loop !9
+  br i1 %exitcond11.not.i, label %remove_gene.exit.loopexit, label %.lr.ph4.i, !llvm.loop !10
 
 remove_gene.exit.loopexit:                        ; preds = %.loopexit.i
   %.pre = load i32, ptr %gep, align 4
@@ -432,7 +432,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.1.i = phi i32 [ 1, %51 ], [ %spec.select.i, %61 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
-  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !10
+  br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %64
   %65 = add i32 %.1.i, -1
@@ -459,7 +459,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %.3.i = phi i32 [ %74, %73 ], [ %.252.i, %.lr.ph54.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i37
-  br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !11
+  br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !12
 
 ._crit_edge55.i:                                  ; preds = %76, %._crit_edge.thread.i
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -504,7 +504,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %84 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i44
-  br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !12
+  br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !13
 
 ._crit_edge.i50:                                  ; preds = %90
   %.not61.i = icmp eq i32 %.1.i48, 0
@@ -544,7 +544,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.3.i51 = phi i32 [ %104, %103 ], [ %.284.i, %99 ], [ %.284.i, %94 ], [ %.284.i, %.lr.ph86.i ]
   %107 = add i32 %.15583.i, 1
   %.not67.i = icmp sgt i32 %107, %3
-  br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !13
+  br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !14
 
 ._crit_edge87.i:                                  ; preds = %106
   %108 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -581,7 +581,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
   %.352.i = phi i32 [ %118, %117 ], [ %.25190.i, %113 ], [ %.25190.i, %.lr.ph92.i ]
   %121 = add i32 %.25689.i, 1
   %.not64.i = icmp sgt i32 %121, %3
-  br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !14
+  br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !15
 
 ._crit_edge93.i:                                  ; preds = %120
   %122 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -598,7 +598,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 127:                                              ; preds = %.lr.ph96.i
   %128 = add i32 %.35795.i, 1
   %.not63.i = icmp sgt i32 %128, %3
-  br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !15
+  br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !16
 
 ._crit_edge97.i:                                  ; preds = %127
   %129 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
@@ -629,7 +629,7 @@ edge_failure.exit:                                ; preds = %103, %117, %.lr.ph9
   store i32 -1, ptr %137, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %edge_failure.exit, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %edge_failure.exit ]
@@ -677,16 +677,17 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

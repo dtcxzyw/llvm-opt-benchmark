@@ -115,7 +115,7 @@ define dso_local ptr @codegen_create_asm(ptr noundef readonly captures(none) %0)
 ._crit_edge.i:                                    ; preds = %28, %23, %.thread.i
   tail call void @scratch_buffer_append_char(i8 noundef signext 10) #3
   %.not29.i = icmp eq i32 %18, 0
-  br i1 %.not29.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i, !llvm.loop !9
+  br i1 %.not29.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i, !llvm.loop !10
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -253,12 +253,12 @@ define dso_local ptr @codegen_create_asm(ptr noundef readonly captures(none) %0)
 codegen_create_aarch64_arg.exit.i:                ; preds = %84, %79, %68, %63, %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !11
 
 ._crit_edge.i11:                                  ; preds = %codegen_create_aarch64_arg.exit.i, %50, %.thread.i12
   tail call void @scratch_buffer_append_char(i8 noundef signext 10) #3
   %.not28.i = icmp eq i32 %45, 0
-  br i1 %.not28.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i, !llvm.loop !11
+  br i1 %.not28.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i, !llvm.loop !12
 
 90:                                               ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.codegen_create_asm, ptr noundef nonnull @.str.2, i32 noundef 177) #4
@@ -444,8 +444,9 @@ attributes #4 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

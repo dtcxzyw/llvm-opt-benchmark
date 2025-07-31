@@ -51,25 +51,25 @@ define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr n
 .preheader60:                                     ; preds = %.preheader60.preheader, %.preheader60
   %.14971 = phi i64 [ %28, %.preheader60 ], [ 0, %.preheader60.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %.051.lcssa86, i64 %.14971
-  %23 = load i8, ptr %22, align 1, !tbaa !9
+  %23 = load i8, ptr %22, align 1, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.14971
-  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %25 = load i8, ptr %24, align 1, !tbaa !10
   %26 = xor i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.14971
-  store i8 %26, ptr %27, align 1, !tbaa !9
+  store i8 %26, ptr %27, align 1, !tbaa !10
   %28 = add nuw nsw i64 %.14971, 1
   %exitcond.not = icmp eq i64 %28, %.055.lcssa84
-  br i1 %exitcond.not, label %.lr.ph, label %.preheader60, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph, label %.preheader60, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader60, %.lr.ph
   %.25072 = phi i64 [ %32, %.lr.ph ], [ %.055.lcssa84, %.preheader60 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.25072
-  %30 = load i8, ptr %29, align 1, !tbaa !9
+  %30 = load i8, ptr %29, align 1, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.25072
-  store i8 %30, ptr %31, align 1, !tbaa !9
+  store i8 %30, ptr %31, align 1, !tbaa !10
   %32 = add i64 %.25072, 1
   %exitcond78.not = icmp eq i64 %32, 16
-  br i1 %exitcond78.not, label %._crit_edge73, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond78.not, label %._crit_edge73, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge73:                                    ; preds = %.lr.ph
   tail call void %5(ptr noundef nonnull %.053.lcssa85, ptr noundef nonnull %.053.lcssa85, ptr noundef %3) #3
@@ -140,7 +140,7 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   %22 = getelementptr inbounds nuw i8, ptr %.0106, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.075105, i64 16
   %24 = icmp ugt i64 %21, 15
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not97 = icmp eq ptr %4, %.0106
@@ -156,14 +156,14 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   %.282111 = phi i64 [ %36, %.lr.ph114 ], [ %2, %.lr.ph114.preheader ]
   call void %5(ptr noundef %.2113, ptr noundef nonnull %7, ptr noundef %3) #3
   %26 = load i64, ptr %.2113, align 1, !tbaa !3
-  %27 = load i64, ptr %7, align 8, !tbaa !9
+  %27 = load i64, ptr %7, align 8, !tbaa !10
   %28 = load i64, ptr %4, align 1, !tbaa !3
   %29 = xor i64 %28, %27
   store i64 %29, ptr %.277112, align 1, !tbaa !3
   store i64 %26, ptr %4, align 1, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %.2113, i64 8
   %31 = load i64, ptr %30, align 1, !tbaa !3
-  %32 = load i64, ptr %11, align 8, !tbaa !9
+  %32 = load i64, ptr %11, align 8, !tbaa !10
   %33 = load i64, ptr %12, align 1, !tbaa !3
   %34 = xor i64 %33, %32
   %35 = getelementptr inbounds nuw i8, ptr %.277112, i64 8
@@ -173,7 +173,7 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   %37 = getelementptr inbounds nuw i8, ptr %.2113, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.277112, i64 16
   %39 = icmp ugt i64 %36, 15
-  br i1 %39, label %.lr.ph114, label %.loopexit100, !llvm.loop !13
+  br i1 %39, label %.lr.ph114, label %.loopexit100, !llvm.loop !14
 
 .loopexit100:                                     ; preds = %.lr.ph114, %25, %._crit_edge
   %.181 = phi i64 [ %21, %25 ], [ %21, %._crit_edge ], [ %36, %.lr.ph114 ]
@@ -192,28 +192,28 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
 40:                                               ; preds = %.loopexit100.thread, %40
   %.287118 = phi i64 [ 0, %.loopexit100.thread ], [ %49, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.287118
-  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.287118
-  %44 = load i8, ptr %43, align 1, !tbaa !9
+  %44 = load i8, ptr %43, align 1, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.287118
-  %46 = load i8, ptr %45, align 1, !tbaa !9
+  %46 = load i8, ptr %45, align 1, !tbaa !10
   %47 = xor i8 %46, %44
   %48 = getelementptr inbounds nuw i8, ptr %.176138, i64 %.287118
-  store i8 %47, ptr %48, align 1, !tbaa !9
-  store i8 %42, ptr %45, align 1, !tbaa !9
+  store i8 %47, ptr %48, align 1, !tbaa !10
+  store i8 %42, ptr %45, align 1, !tbaa !10
   %49 = add nuw nsw i64 %.287118, 1
   %exitcond.not = icmp eq i64 %49, %.181137
-  br i1 %exitcond.not, label %.lr.ph120, label %40, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph120, label %40, !llvm.loop !15
 
 .lr.ph120:                                        ; preds = %40, %.lr.ph120
   %.388119 = phi i64 [ %53, %.lr.ph120 ], [ %.181137, %40 ]
   %50 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.388119
-  %51 = load i8, ptr %50, align 1, !tbaa !9
+  %51 = load i8, ptr %50, align 1, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.388119
-  store i8 %51, ptr %52, align 1, !tbaa !9
+  store i8 %51, ptr %52, align 1, !tbaa !10
   %53 = add nuw nsw i64 %.388119, 1
   %54 = icmp samesign ult i64 %.388119, 15
-  br i1 %54, label %.lr.ph120, label %.loopexit, !llvm.loop !15
+  br i1 %54, label %.lr.ph120, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph120, %.loopexit100, %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
@@ -234,12 +234,13 @@ attributes #3 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

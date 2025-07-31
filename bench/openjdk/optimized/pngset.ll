@@ -564,7 +564,7 @@ define hidden void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef cap
 23:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
@@ -667,7 +667,7 @@ define hidden void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef cap
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %69, i64 %63, i1 false)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !21
+  br i1 %exitcond107.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !22
 
 ._crit_edge99:                                    ; preds = %68, %59
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1353,7 +1353,7 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   %108 = phi i32 [ %35, %34 ], [ %106, %100 ], [ %35, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %69, %18, %16
   %.str.35.sink = phi ptr [ @.str.33, %16 ], [ @.str.33, %18 ], [ @.str.35, %69 ]
@@ -1667,7 +1667,7 @@ define hidden void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef cap
   %.1 = phi ptr [ %.0, %30 ], [ %59, %48 ]
   %61 = add nsw i32 %.055, -1
   %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %.thread, label %23, !llvm.loop !23
+  br i1 %.not, label %.thread, label %23, !llvm.loop !24
 
 .loopexit:                                        ; preds = %31, %46
   %62 = icmp sgt i32 %.055, 0
@@ -1739,14 +1739,14 @@ define hidden void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias n
   br label %.preheader.i
 
 30:                                               ; preds = %23
-  %31 = load i32, ptr %22, align 4, !alias.scope !24
+  %31 = load i32, ptr %22, align 4, !alias.scope !25
   %32 = and i32 %31, 32768
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread.i
 
 34:                                               ; preds = %30
   tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #12
-  %35 = load i32, ptr %22, align 4, !alias.scope !24
+  %35 = load i32, ptr %22, align 4, !alias.scope !25
   %36 = and i32 %35, 11
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.thread.i, label %.preheader.i.preheader
@@ -1761,7 +1761,7 @@ define hidden void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias n
   %39 = and i32 %.1.i, %38
   %.not.i = icmp eq i32 %.1.i, %39
   %40 = xor i32 %39, %.1.i
-  br i1 %.not.i, label %check_location.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %.not.i, label %check_location.exit, label %.preheader.i, !llvm.loop !28
 
 check_location.exit:                              ; preds = %.preheader.i
   %41 = trunc nuw nsw i32 %.1.i to i8
@@ -1809,7 +1809,7 @@ check_location.exit:                              ; preds = %.preheader.i
   %63 = add nsw i32 %.04555, -1
   %64 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   %65 = icmp sgt i32 %.04555, 1
-  br i1 %65, label %23, label %.loopexit, !llvm.loop !28
+  br i1 %65, label %23, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %62, %4, %16
   ret void
@@ -1854,14 +1854,14 @@ define hidden void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr n
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %22 = load i32, ptr %21, align 4, !alias.scope !29
+  %22 = load i32, ptr %21, align 4, !alias.scope !30
   %23 = and i32 %22, 32768
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread.i
 
 25:                                               ; preds = %20
   tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #12
-  %26 = load i32, ptr %21, align 4, !alias.scope !29
+  %26 = load i32, ptr %21, align 4, !alias.scope !30
   %27 = and i32 %26, 11
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread.i, label %.preheader.i.preheader
@@ -1876,7 +1876,7 @@ define hidden void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr n
   %30 = and i32 %.1.i, %29
   %.not.i = icmp eq i32 %.1.i, %30
   %31 = xor i32 %30, %.1.i
-  br i1 %.not.i, label %check_location.exit, label %.preheader.i, !llvm.loop !27
+  br i1 %.not.i, label %check_location.exit, label %.preheader.i, !llvm.loop !28
 
 check_location.exit:                              ; preds = %.preheader.i
   %32 = trunc nuw nsw i32 %.1.i to i8
@@ -2008,12 +2008,12 @@ define hidden void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noun
   %41 = add nuw i32 %.023.i.us, 1
   %42 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 5
   %exitcond.not.i.us = icmp eq i32 %41, %spec.store.select
-  br i1 %exitcond.not.i.us, label %add_one_chunk.exit.us, label %.lr.ph.i.us, !llvm.loop !32
+  br i1 %exitcond.not.i.us, label %add_one_chunk.exit.us, label %.lr.ph.i.us, !llvm.loop !33
 
 add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.loopexit.us
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count107
-  br i1 %exitcond108.not, label %.preheader, label %.lr.ph.i.us.preheader, !llvm.loop !33
+  br i1 %exitcond108.not, label %.preheader, label %.lr.ph.i.us.preheader, !llvm.loop !34
 
 .sink.split.i.loopexit.us:                        ; preds = %.lr.ph.i.us
   %43 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 4
@@ -2046,7 +2046,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %49 = add nuw i32 %.023.i, 1
   %50 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 5
   %exitcond.not.i = icmp eq i32 %49, %.06591
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %48, %.preheader89.split
   %.017.lcssa.i = phi ptr [ %28, %.preheader89.split ], [ %50, %48 ]
@@ -2062,7 +2062,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   store i8 %35, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader89.split, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader, label %.preheader89.split, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.preheader, %61
   %.197 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
@@ -2093,7 +2093,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %62 = add nuw i32 %.197, 1
   %63 = getelementptr inbounds nuw i8, ptr %.06494, i64 5
   %exitcond109.not = icmp eq i32 %62, %.us-phi
-  br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %61
   %64 = icmp eq i32 %.2, 0
@@ -2366,7 +2366,7 @@ define hidden range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, p
   %25 = icmp ne i8 %24, 0
   %26 = icmp samesign ult i32 %.144, 79
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %.047.lcssa = phi ptr [ %2, %.preheader ], [ %.148, %23 ]
@@ -2473,23 +2473,24 @@ attributes #14 = { noreturn nounwind }
 !15 = !{!16, !13}
 !16 = distinct !{!16, !14, !"png_set_cHRM_XYZ_fixed: argument 0"}
 !17 = !{!16}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"check_location: argument 0"}
-!26 = distinct !{!26, !"check_location"}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"check_location: argument 0"}
-!31 = distinct !{!31, !"check_location"}
-!32 = distinct !{!32, !19}
-!33 = distinct !{!33, !19, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
-!37 = distinct !{!37, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"check_location: argument 0"}
+!27 = distinct !{!27, !"check_location"}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"check_location: argument 0"}
+!32 = distinct !{!32, !"check_location"}
+!33 = distinct !{!33, !19, !20}
+!34 = distinct !{!34, !19, !20, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !19, !20}
+!37 = distinct !{!37, !19, !20}
+!38 = distinct !{!38, !19, !20}

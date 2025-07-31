@@ -292,7 +292,7 @@ check_retval.exit:                                ; preds = %2
   %.1.i = phi i32 [ %94, %93 ], [ %86, %85 ], [ %78, %77 ], [ %71, %70 ], [ %45, %44 ], [ %45, %50 ], [ %58, %57 ], [ %58, %63 ], [ %.095.i, %100 ], [ %.095.i, %102 ], [ %.095.i, %104 ], [ %.095.i, %106 ]
   %129 = add nsw i32 %.1.i, 1
   %130 = icmp slt i32 %129, %0
-  br i1 %130, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %130, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %114
   store i32 %124, ptr %23, align 8
@@ -318,7 +318,7 @@ check_retval.exit:                                ; preds = %2
   %.ph135.ph = phi i32 [ 0, %15 ], [ %126, %._crit_edge.thread.i ]
   %.ph136.ph = phi i32 [ 0, %15 ], [ %127, %._crit_edge.thread.i ]
   %.ph137.ph = phi i32 [ 0, %15 ], [ %128, %._crit_edge.thread.i ]
-  store ptr %.str.29.sink, ptr %17, align 8, !tbaa !25
+  store ptr %.str.29.sink, ptr %17, align 8, !tbaa !27
   br label %132
 
 132:                                              ; preds = %.sink.split, %._crit_edge.i
@@ -328,14 +328,14 @@ check_retval.exit:                                ; preds = %2
   %.ph137 = phi i32 [ %128, %._crit_edge.i ], [ %.ph137.ph, %.sink.split ]
   %133 = load ptr, ptr %5, align 8, !tbaa !4
   %134 = call ptr @N_VNew_Serial(i64 noundef 4, ptr noundef %133) #14
-  store ptr %134, ptr %4, align 8, !tbaa !26
+  store ptr %134, ptr %4, align 8, !tbaa !28
   %.not92 = icmp eq i32 %.ph135, 0
   br i1 %.not92, label %check_retval.exit101, label %136
 
 check_retval.exit101:                             ; preds = %132
   %135 = load ptr, ptr %5, align 8, !tbaa !4
   call fastcc void @SolveProblem(ptr noundef %3, ptr noundef %4, ptr noundef %135)
-  %.pre = load ptr, ptr %4, align 8, !tbaa !26
+  %.pre = load ptr, ptr %4, align 8, !tbaa !28
   br label %241
 
 136:                                              ; preds = %132
@@ -344,8 +344,8 @@ check_retval.exit101:                             ; preds = %132
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #14
   %137 = call ptr @ARKodeSPRKTable_LoadByName(ptr noundef nonnull %.ph) #14
-  %138 = load i32, ptr %137, align 8, !tbaa !29
-  %139 = load ptr, ptr %4, align 8, !tbaa !26
+  %138 = load i32, ptr %137, align 8, !tbaa !31
+  %139 = load ptr, ptr %4, align 8, !tbaa !28
   %140 = call ptr @N_VClone(ptr noundef %139) #14
   %141 = call ptr @N_VClone(ptr noundef %139) #14
   %142 = icmp sgt i32 %138, 2
@@ -354,15 +354,15 @@ check_retval.exit101:                             ; preds = %132
   store double 1.000000e-03, ptr %21, align 8, !tbaa !20
   store i32 0, ptr %3, align 8, !tbaa !11
   store i32 1, ptr %16, align 4, !tbaa !16
-  store ptr @.str.2, ptr %17, align 8, !tbaa !25
+  store ptr @.str.2, ptr %17, align 8, !tbaa !27
   call void @ARKodeSPRKTable_Free(ptr noundef nonnull %137) #14
   %144 = load ptr, ptr %5, align 8, !tbaa !4
   call fastcc void @SolveProblem(ptr noundef %3, ptr noundef %4, ptr noundef %144)
-  %145 = load ptr, ptr %4, align 8, !tbaa !26
+  %145 = load ptr, ptr %4, align 8, !tbaa !28
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %145, ptr noundef %140) #14
   store i32 %.ph137, ptr %3, align 8, !tbaa !11
   store i32 %.ph136, ptr %16, align 4, !tbaa !16
-  store ptr %.ph, ptr %17, align 8, !tbaa !25
+  store ptr %.ph, ptr %17, align 8, !tbaa !27
   br label %147
 
 .preheader:                                       ; preds = %147
@@ -377,10 +377,10 @@ check_retval.exit101:                             ; preds = %132
   %exp2 = call double @exp2(double %mul) #14
   %150 = fmul double %143, %exp2
   %151 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %indvars.iv
-  store double %150, ptr %151, align 8, !tbaa !32
+  store double %150, ptr %151, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %147
+  br i1 %exitcond.not, label %.preheader, label %147, !llvm.loop !35
 
 152:                                              ; preds = %.preheader, %203
   %indvars.iv279 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next280, %203 ]
@@ -393,12 +393,12 @@ check_retval.exit101:                             ; preds = %132
   %.088203 = phi double [ 0.000000e+00, %.preheader ], [ %175, %203 ]
   %.089202 = phi double [ 0.000000e+00, %.preheader ], [ %174, %203 ]
   %153 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %indvars.iv279
-  %154 = load double, ptr %153, align 8, !tbaa !32
+  %154 = load double, ptr %153, align 8, !tbaa !34
   store double %154, ptr %21, align 8, !tbaa !20
   %155 = load ptr, ptr %5, align 8, !tbaa !4
   call fastcc void @SolveProblem(ptr noundef %3, ptr noundef %4, ptr noundef %155)
   %putchar = call i32 @putchar(i32 10)
-  %156 = load ptr, ptr %4, align 8, !tbaa !26
+  %156 = load ptr, ptr %4, align 8, !tbaa !28
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %156, double noundef -1.000000e+00, ptr noundef %140, ptr noundef %141) #14
   %157 = call double @N_VDotProd(ptr noundef %141, ptr noundef %141) #14
   %158 = fcmp ugt double %157, 0.000000e+00
@@ -406,7 +406,7 @@ check_retval.exit101:                             ; preds = %132
 
 159:                                              ; preds = %152
   %160 = call double @N_VDotProd(ptr noundef %141, ptr noundef %141) #14
-  %161 = call double @sqrt(double noundef %160) #14, !tbaa !33
+  %161 = call double @sqrt(double noundef %160) #14, !tbaa !36
   br label %162
 
 162:                                              ; preds = %152, %159
@@ -415,23 +415,23 @@ check_retval.exit101:                             ; preds = %132
   %165 = sitofp i64 %164 to double
   %166 = fdiv double %163, %165
   %167 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %indvars.iv279
-  store double %166, ptr %167, align 8, !tbaa !32
-  %168 = load double, ptr %146, align 8, !tbaa !34
+  store double %166, ptr %167, align 8, !tbaa !34
+  %168 = load double, ptr %146, align 8, !tbaa !37
   %169 = call double @llvm.fabs.f64(double %168)
   %170 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %indvars.iv279
-  store double %169, ptr %170, align 8, !tbaa !32
+  store double %169, ptr %170, align 8, !tbaa !34
   %171 = fadd double %.082209, 1.000000e+00
-  %172 = call double @log(double noundef %154) #14, !tbaa !33
+  %172 = call double @log(double noundef %154) #14, !tbaa !36
   %173 = fadd double %.083208, %172
   %174 = fadd double %.089202, %172
   %175 = call double @llvm.fmuladd.f64(double %172, double %172, double %.088203)
-  %176 = call double @log(double noundef %166) #14, !tbaa !33
+  %176 = call double @log(double noundef %166) #14, !tbaa !36
   %177 = fadd double %.087204, %176
-  %178 = call double @log(double noundef %154) #14, !tbaa !33
+  %178 = call double @log(double noundef %154) #14, !tbaa !36
   %179 = call double @llvm.fmuladd.f64(double %176, double %178, double %.086205)
-  %180 = call double @log(double noundef %169) #14, !tbaa !33
+  %180 = call double @log(double noundef %169) #14, !tbaa !36
   %181 = fadd double %.085206, %180
-  %182 = call double @log(double noundef %154) #14, !tbaa !33
+  %182 = call double @log(double noundef %154) #14, !tbaa !36
   %183 = call double @llvm.fmuladd.f64(double %180, double %182, double %.084207)
   %.not96 = icmp eq i64 %indvars.iv279, 0
   br i1 %.not96, label %203, label %184
@@ -439,30 +439,30 @@ check_retval.exit101:                             ; preds = %132
 184:                                              ; preds = %162
   %185 = add nsw i64 %indvars.iv279, -1
   %186 = getelementptr inbounds nuw [8 x double], ptr %8, i64 0, i64 %185
-  %187 = load double, ptr %186, align 8, !tbaa !32
+  %187 = load double, ptr %186, align 8, !tbaa !34
   %188 = fdiv double %166, %187
-  %189 = call double @log(double noundef %188) #14, !tbaa !33
+  %189 = call double @log(double noundef %188) #14, !tbaa !36
   %190 = getelementptr inbounds nuw [8 x double], ptr %10, i64 0, i64 %185
-  %191 = load double, ptr %190, align 8, !tbaa !32
+  %191 = load double, ptr %190, align 8, !tbaa !34
   %192 = fdiv double %154, %191
-  %193 = call double @log(double noundef %192) #14, !tbaa !33
+  %193 = call double @log(double noundef %192) #14, !tbaa !36
   %194 = fdiv double %189, %193
   %195 = getelementptr inbounds nuw [8 x double], ptr %6, i64 0, i64 %185
-  store double %194, ptr %195, align 8, !tbaa !32
+  store double %194, ptr %195, align 8, !tbaa !34
   %196 = getelementptr inbounds nuw [8 x double], ptr %9, i64 0, i64 %185
-  %197 = load double, ptr %196, align 8, !tbaa !32
+  %197 = load double, ptr %196, align 8, !tbaa !34
   %198 = fdiv double %169, %197
-  %199 = call double @log(double noundef %198) #14, !tbaa !33
-  %200 = call double @log(double noundef %192) #14, !tbaa !33
+  %199 = call double @log(double noundef %198) #14, !tbaa !36
+  %200 = call double @log(double noundef %192) #14, !tbaa !36
   %201 = fdiv double %199, %200
   %202 = getelementptr inbounds nuw [8 x double], ptr %7, i64 0, i64 %185
-  store double %201, ptr %202, align 8, !tbaa !32
+  store double %201, ptr %202, align 8, !tbaa !34
   br label %203
 
 203:                                              ; preds = %162, %184
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next280, 8
-  br i1 %exitcond282.not, label %204, label %152
+  br i1 %exitcond282.not, label %204, label %152, !llvm.loop !38
 
 204:                                              ; preds = %203
   %invariant.gep.i = getelementptr i8, ptr %6, i64 -8
@@ -473,13 +473,13 @@ check_retval.exit101:                             ; preds = %132
   %.0129 = phi double [ 0.000000e+00, %204 ], [ %207, %205 ]
   %indvars.iv.i = phi i64 [ 1, %204 ], [ %indvars.iv.next.i, %205 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %206 = load double, ptr %gep.i, align 8, !tbaa !32
+  %206 = load double, ptr %gep.i, align 8, !tbaa !34
   %207 = fadd double %.0129, %206
   %208 = fcmp ogt double %.0132, %206
   %..i = select i1 %208, double %.0132, double %206
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %205
+  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %205, !llvm.loop !39
 
 ComputeConvergence.exit:                          ; preds = %205
   %209 = fdiv double %207, 7.000000e+00
@@ -502,13 +502,13 @@ ComputeConvergence.exit:                          ; preds = %205
   %.1130 = phi double [ 0.000000e+00, %ComputeConvergence.exit ], [ %223, %221 ]
   %indvars.iv.i107 = phi i64 [ 1, %ComputeConvergence.exit ], [ %indvars.iv.next.i110, %221 ]
   %gep.i108 = getelementptr double, ptr %invariant.gep.i106, i64 %indvars.iv.i107
-  %222 = load double, ptr %gep.i108, align 8, !tbaa !32
+  %222 = load double, ptr %gep.i108, align 8, !tbaa !34
   %223 = fadd double %.1130, %222
   %224 = fcmp ogt double %.0131, %222
   %..i109 = select i1 %224, double %.0131, double %222
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 8
-  br i1 %exitcond.not.i111, label %ComputeConvergence.exit112, label %221
+  br i1 %exitcond.not.i111, label %ComputeConvergence.exit112, label %221, !llvm.loop !39
 
 ComputeConvergence.exit112:                       ; preds = %221
   %225 = sitofp i32 %138 to double
@@ -578,11 +578,11 @@ define internal fastcc void @SolveProblem(ptr noundef nonnull readonly captures(
   %7 = alloca [256 x i8], align 16
   %8 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  store double 0x7FF8000000000000, ptr %5, align 8, !tbaa !32
+  store double 0x7FF8000000000000, ptr %5, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
-  store i32 0, ptr %6, align 4, !tbaa !33
+  store i32 0, ptr %6, align 4, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = load i32, ptr %0, align 8, !tbaa !11
@@ -593,7 +593,7 @@ define internal fastcc void @SolveProblem(ptr noundef nonnull readonly captures(
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load double, ptr %20, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -628,21 +628,21 @@ define internal fastcc void @SolveProblem(ptr noundef nonnull readonly captures(
   %50 = load i32, ptr %16, align 8, !tbaa !23
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.71, i32 noundef %50) #14
   %52 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
-  store double 6.000000e-01, ptr %52, align 8, !tbaa !36
+  store double 6.000000e-01, ptr %52, align 8, !tbaa !41
   %53 = tail call ptr @N_VNew_Serial(i64 noundef 4, ptr noundef %2) #14
   %54 = tail call ptr @N_VGetArrayPointer(ptr noundef %53) #14
   %55 = tail call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  store double 4.000000e-01, ptr %55, align 8, !tbaa !32
+  store double 4.000000e-01, ptr %55, align 8, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  store double 2.000000e+00, ptr %57, align 8, !tbaa !32
+  store double 2.000000e+00, ptr %57, align 8, !tbaa !34
   %58 = icmp eq i32 %13, 0
   br i1 %58, label %59, label %96
 
 59:                                               ; preds = %3
   %60 = tail call ptr @SPRKStepCreate(ptr noundef nonnull @force, ptr noundef nonnull @velocity, double noundef 0.000000e+00, ptr noundef %53, ptr noundef %2) #14
-  store ptr %60, ptr %4, align 8, !tbaa !35
+  store ptr %60, ptr %4, align 8, !tbaa !40
   %.not163 = icmp eq i32 %10, 0
   br i1 %.not163, label %62, label %check_retval.exit
 
@@ -719,7 +719,7 @@ check_retval.exit191:                             ; preds = %91
 
 98:                                               ; preds = %96
   %99 = tail call ptr @ARKStepCreate(ptr noundef nonnull @dydt, ptr noundef null, double noundef 0.000000e+00, ptr noundef %53, ptr noundef %2) #14
-  store ptr %99, ptr %4, align 8, !tbaa !35
+  store ptr %99, ptr %4, align 8, !tbaa !40
   %100 = tail call i32 @ARKStepSetTableName(ptr noundef %99, ptr noundef nonnull @.str.50, ptr noundef %19) #14
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %check_retval.exit193, label %104
@@ -807,33 +807,33 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %.0150 = phi ptr [ %135, %129 ], [ %142, %check_retval.exit201.thread ]
   %.0149 = phi ptr [ %133, %129 ], [ %140, %check_retval.exit201.thread ]
   %.0148 = phi ptr [ %131, %129 ], [ %138, %check_retval.exit201.thread ]
-  store double 0.000000e+00, ptr %5, align 8, !tbaa !32
+  store double 0.000000e+00, ptr %5, align 8, !tbaa !34
   %145 = fadd double %25, 0.000000e+00
   %146 = tail call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %147 = load double, ptr %146, align 8, !tbaa !32
+  %147 = load double, ptr %146, align 8, !tbaa !34
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %149 = load double, ptr %148, align 8, !tbaa !32
+  %149 = load double, ptr %148, align 8, !tbaa !34
   %150 = fmul double %149, %149
   %151 = tail call double @llvm.fmuladd.f64(double %147, double %147, double %150)
   %152 = fcmp ugt double %151, 0.000000e+00
   %sqrt.i = tail call double @llvm.sqrt.f64(double %151)
   %153 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %154 = load double, ptr %153, align 8, !tbaa !32
+  %154 = load double, ptr %153, align 8, !tbaa !34
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %156 = load double, ptr %155, align 8, !tbaa !32
+  %156 = load double, ptr %155, align 8, !tbaa !34
   %157 = fmul double %156, %156
   %158 = tail call double @llvm.fmuladd.f64(double %154, double %154, double %157)
   %159 = fdiv double -1.000000e+00, %sqrt.i
   %160 = select i1 %152, double %159, double 0xFFF0000000000000
   %161 = tail call double @llvm.fmuladd.f64(double %158, double 5.000000e-01, double %160)
   %162 = tail call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %163 = load double, ptr %162, align 8, !tbaa !32
+  %163 = load double, ptr %162, align 8, !tbaa !34
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %165 = load double, ptr %164, align 8, !tbaa !32
+  %165 = load double, ptr %164, align 8, !tbaa !34
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %167 = load double, ptr %166, align 8, !tbaa !32
+  %167 = load double, ptr %166, align 8, !tbaa !34
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %169 = load double, ptr %168, align 8, !tbaa !32
+  %169 = load double, ptr %168, align 8, !tbaa !34
   %170 = fneg double %167
   %171 = fmul double %165, %170
   %172 = tail call double @llvm.fmuladd.f64(double %163, double %169, double %171)
@@ -872,7 +872,7 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
 
 185:                                              ; preds = %182
   %186 = call i32 @ARKodeSetStopTime(ptr noundef %183, double noundef %.0143244) #14
-  %.pre247 = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre247 = load ptr, ptr %4, align 8, !tbaa !40
   br label %187
 
 187:                                              ; preds = %185, %182
@@ -885,31 +885,31 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %192 = fadd double %.0144243, 5.000000e-01
   %193 = load ptr, ptr @stdout, align 8, !tbaa !9
   %194 = call i64 @fwrite(ptr nonnull @.str.60, i64 13, i64 1, ptr %193)
-  %195 = load ptr, ptr %4, align 8, !tbaa !35
+  %195 = load ptr, ptr %4, align 8, !tbaa !40
   %196 = call i32 @ARKodeGetRootInfo(ptr noundef %195, ptr noundef nonnull %6) #14
   %197 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %198 = load i32, ptr %6, align 4, !tbaa !33
-  %199 = load double, ptr %54, align 8, !tbaa !32
+  %198 = load i32, ptr %6, align 4, !tbaa !36
+  %199 = load double, ptr %54, align 8, !tbaa !34
   %200 = fpext double %199 to x86_fp80
-  %201 = load double, ptr %181, align 8, !tbaa !32
+  %201 = load double, ptr %181, align 8, !tbaa !34
   %202 = fpext double %201 to x86_fp80
   %203 = fpext double %192 to x86_fp80
   %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.61, i32 noundef %198, x86_fp80 noundef %200, x86_fp80 noundef %202, x86_fp80 noundef %203) #14
   %205 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %206 = load double, ptr %5, align 8, !tbaa !32
+  %206 = load double, ptr %5, align 8, !tbaa !34
   %207 = fpext double %206 to x86_fp80
   %208 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %209 = load double, ptr %208, align 8, !tbaa !32
+  %209 = load double, ptr %208, align 8, !tbaa !34
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %211 = load double, ptr %210, align 8, !tbaa !32
+  %211 = load double, ptr %210, align 8, !tbaa !34
   %212 = fmul double %211, %211
   %213 = call double @llvm.fmuladd.f64(double %209, double %209, double %212)
   %214 = fcmp ugt double %213, 0.000000e+00
   %sqrt.i202 = call double @llvm.sqrt.f64(double %213)
   %215 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %216 = load double, ptr %215, align 8, !tbaa !32
+  %216 = load double, ptr %215, align 8, !tbaa !34
   %217 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  %218 = load double, ptr %217, align 8, !tbaa !32
+  %218 = load double, ptr %217, align 8, !tbaa !34
   %219 = fmul double %218, %218
   %220 = call double @llvm.fmuladd.f64(double %216, double %216, double %219)
   %221 = fdiv double -1.000000e+00, %sqrt.i202
@@ -918,13 +918,13 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %224 = fsub double %223, %161
   %225 = fpext double %224 to x86_fp80
   %226 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %227 = load double, ptr %226, align 8, !tbaa !32
+  %227 = load double, ptr %226, align 8, !tbaa !34
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %229 = load double, ptr %228, align 8, !tbaa !32
+  %229 = load double, ptr %228, align 8, !tbaa !34
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  %231 = load double, ptr %230, align 8, !tbaa !32
+  %231 = load double, ptr %230, align 8, !tbaa !34
   %232 = getelementptr inbounds nuw i8, ptr %226, i64 24
-  %233 = load double, ptr %232, align 8, !tbaa !32
+  %233 = load double, ptr %232, align 8, !tbaa !34
   %234 = fneg double %231
   %235 = fmul double %229, %234
   %236 = call double @llvm.fmuladd.f64(double %227, double %233, double %235)
@@ -939,20 +939,20 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
 
 242:                                              ; preds = %240
   %243 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %244 = load double, ptr %5, align 8, !tbaa !32
+  %244 = load double, ptr %5, align 8, !tbaa !34
   %245 = fpext double %244 to x86_fp80
   %246 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %247 = load double, ptr %246, align 8, !tbaa !32
+  %247 = load double, ptr %246, align 8, !tbaa !34
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %249 = load double, ptr %248, align 8, !tbaa !32
+  %249 = load double, ptr %248, align 8, !tbaa !34
   %250 = fmul double %249, %249
   %251 = call double @llvm.fmuladd.f64(double %247, double %247, double %250)
   %252 = fcmp ugt double %251, 0.000000e+00
   %sqrt.i203 = call double @llvm.sqrt.f64(double %251)
   %253 = getelementptr inbounds nuw i8, ptr %246, i64 16
-  %254 = load double, ptr %253, align 8, !tbaa !32
+  %254 = load double, ptr %253, align 8, !tbaa !34
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 24
-  %256 = load double, ptr %255, align 8, !tbaa !32
+  %256 = load double, ptr %255, align 8, !tbaa !34
   %257 = fmul double %256, %256
   %258 = call double @llvm.fmuladd.f64(double %254, double %254, double %257)
   %259 = fdiv double -1.000000e+00, %sqrt.i203
@@ -961,34 +961,34 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %262 = fsub double %261, %161
   %263 = fpext double %262 to x86_fp80
   %264 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %265 = load double, ptr %264, align 8, !tbaa !32
+  %265 = load double, ptr %264, align 8, !tbaa !34
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %267 = load double, ptr %266, align 8, !tbaa !32
+  %267 = load double, ptr %266, align 8, !tbaa !34
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  %269 = load double, ptr %268, align 8, !tbaa !32
+  %269 = load double, ptr %268, align 8, !tbaa !34
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 24
-  %271 = load double, ptr %270, align 8, !tbaa !32
+  %271 = load double, ptr %270, align 8, !tbaa !34
   %272 = fneg double %269
   %273 = fmul double %267, %272
   %274 = call double @llvm.fmuladd.f64(double %265, double %271, double %273)
   %275 = fsub double %274, %172
   %276 = fpext double %275 to x86_fp80
   %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.62, x86_fp80 noundef %245, x86_fp80 noundef %263, x86_fp80 noundef %276) #14
-  %278 = load double, ptr %5, align 8, !tbaa !32
+  %278 = load double, ptr %5, align 8, !tbaa !34
   %279 = fpext double %278 to x86_fp80
   %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0150, ptr noundef nonnull @.str.58, x86_fp80 noundef %279) #14
   %281 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %282 = load double, ptr %281, align 8, !tbaa !32
+  %282 = load double, ptr %281, align 8, !tbaa !34
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %284 = load double, ptr %283, align 8, !tbaa !32
+  %284 = load double, ptr %283, align 8, !tbaa !34
   %285 = fmul double %284, %284
   %286 = call double @llvm.fmuladd.f64(double %282, double %282, double %285)
   %287 = fcmp ugt double %286, 0.000000e+00
   %sqrt.i204 = call double @llvm.sqrt.f64(double %286)
   %288 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  %289 = load double, ptr %288, align 8, !tbaa !32
+  %289 = load double, ptr %288, align 8, !tbaa !34
   %290 = getelementptr inbounds nuw i8, ptr %281, i64 24
-  %291 = load double, ptr %290, align 8, !tbaa !32
+  %291 = load double, ptr %290, align 8, !tbaa !34
   %292 = fmul double %291, %291
   %293 = call double @llvm.fmuladd.f64(double %289, double %289, double %292)
   %294 = fdiv double -1.000000e+00, %sqrt.i204
@@ -996,13 +996,13 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %296 = call double @llvm.fmuladd.f64(double %293, double 5.000000e-01, double %295)
   %297 = fpext double %296 to x86_fp80
   %298 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %299 = load double, ptr %298, align 8, !tbaa !32
+  %299 = load double, ptr %298, align 8, !tbaa !34
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %301 = load double, ptr %300, align 8, !tbaa !32
+  %301 = load double, ptr %300, align 8, !tbaa !34
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  %303 = load double, ptr %302, align 8, !tbaa !32
+  %303 = load double, ptr %302, align 8, !tbaa !34
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 24
-  %305 = load double, ptr %304, align 8, !tbaa !32
+  %305 = load double, ptr %304, align 8, !tbaa !34
   %306 = fneg double %303
   %307 = fmul double %301, %306
   %308 = call double @llvm.fmuladd.f64(double %299, double %305, double %307)
@@ -1021,7 +1021,7 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %.1145 = phi double [ %192, %191 ], [ %.0144243, %242 ]
   %.1 = phi double [ %.0143244, %191 ], [ %313, %242 ]
   %317 = icmp slt i32 %.1152, %17
-  br i1 %317, label %182, label %.loopexit
+  br i1 %317, label %182, label %.loopexit, !llvm.loop !43
 
 318:                                              ; preds = %.lr.ph, %451
   %319 = phi ptr [ %144, %.lr.ph ], [ %452, %451 ]
@@ -1034,7 +1034,7 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
 
 321:                                              ; preds = %318
   %322 = call i32 @ARKodeSetStopTime(ptr noundef %319, double noundef %.2241) #14
-  %.pre = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre = load ptr, ptr %4, align 8, !tbaa !40
   br label %323
 
 323:                                              ; preds = %321, %318
@@ -1047,31 +1047,31 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %328 = fadd double %.2146240, 5.000000e-01
   %329 = load ptr, ptr @stdout, align 8, !tbaa !9
   %330 = call i64 @fwrite(ptr nonnull @.str.60, i64 13, i64 1, ptr %329)
-  %331 = load ptr, ptr %4, align 8, !tbaa !35
+  %331 = load ptr, ptr %4, align 8, !tbaa !40
   %332 = call i32 @ARKodeGetRootInfo(ptr noundef %331, ptr noundef nonnull %6) #14
   %333 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %334 = load i32, ptr %6, align 4, !tbaa !33
-  %335 = load double, ptr %54, align 8, !tbaa !32
+  %334 = load i32, ptr %6, align 4, !tbaa !36
+  %335 = load double, ptr %54, align 8, !tbaa !34
   %336 = fpext double %335 to x86_fp80
-  %337 = load double, ptr %180, align 8, !tbaa !32
+  %337 = load double, ptr %180, align 8, !tbaa !34
   %338 = fpext double %337 to x86_fp80
   %339 = fpext double %328 to x86_fp80
   %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %333, ptr noundef nonnull @.str.61, i32 noundef %334, x86_fp80 noundef %336, x86_fp80 noundef %338, x86_fp80 noundef %339) #14
   %341 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %342 = load double, ptr %5, align 8, !tbaa !32
+  %342 = load double, ptr %5, align 8, !tbaa !34
   %343 = fpext double %342 to x86_fp80
   %344 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %345 = load double, ptr %344, align 8, !tbaa !32
+  %345 = load double, ptr %344, align 8, !tbaa !34
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %347 = load double, ptr %346, align 8, !tbaa !32
+  %347 = load double, ptr %346, align 8, !tbaa !34
   %348 = fmul double %347, %347
   %349 = call double @llvm.fmuladd.f64(double %345, double %345, double %348)
   %350 = fcmp ugt double %349, 0.000000e+00
   %sqrt.i205 = call double @llvm.sqrt.f64(double %349)
   %351 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %352 = load double, ptr %351, align 8, !tbaa !32
+  %352 = load double, ptr %351, align 8, !tbaa !34
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 24
-  %354 = load double, ptr %353, align 8, !tbaa !32
+  %354 = load double, ptr %353, align 8, !tbaa !34
   %355 = fmul double %354, %354
   %356 = call double @llvm.fmuladd.f64(double %352, double %352, double %355)
   %357 = fdiv double -1.000000e+00, %sqrt.i205
@@ -1080,13 +1080,13 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %360 = fsub double %359, %161
   %361 = fpext double %360 to x86_fp80
   %362 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %363 = load double, ptr %362, align 8, !tbaa !32
+  %363 = load double, ptr %362, align 8, !tbaa !34
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  %365 = load double, ptr %364, align 8, !tbaa !32
+  %365 = load double, ptr %364, align 8, !tbaa !34
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 16
-  %367 = load double, ptr %366, align 8, !tbaa !32
+  %367 = load double, ptr %366, align 8, !tbaa !34
   %368 = getelementptr inbounds nuw i8, ptr %362, i64 24
-  %369 = load double, ptr %368, align 8, !tbaa !32
+  %369 = load double, ptr %368, align 8, !tbaa !34
   %370 = fneg double %367
   %371 = fmul double %365, %370
   %372 = call double @llvm.fmuladd.f64(double %363, double %369, double %371)
@@ -1101,20 +1101,20 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
 
 378:                                              ; preds = %376
   %379 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %380 = load double, ptr %5, align 8, !tbaa !32
+  %380 = load double, ptr %5, align 8, !tbaa !34
   %381 = fpext double %380 to x86_fp80
   %382 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %383 = load double, ptr %382, align 8, !tbaa !32
+  %383 = load double, ptr %382, align 8, !tbaa !34
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  %385 = load double, ptr %384, align 8, !tbaa !32
+  %385 = load double, ptr %384, align 8, !tbaa !34
   %386 = fmul double %385, %385
   %387 = call double @llvm.fmuladd.f64(double %383, double %383, double %386)
   %388 = fcmp ugt double %387, 0.000000e+00
   %sqrt.i206 = call double @llvm.sqrt.f64(double %387)
   %389 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  %390 = load double, ptr %389, align 8, !tbaa !32
+  %390 = load double, ptr %389, align 8, !tbaa !34
   %391 = getelementptr inbounds nuw i8, ptr %382, i64 24
-  %392 = load double, ptr %391, align 8, !tbaa !32
+  %392 = load double, ptr %391, align 8, !tbaa !34
   %393 = fmul double %392, %392
   %394 = call double @llvm.fmuladd.f64(double %390, double %390, double %393)
   %395 = fdiv double -1.000000e+00, %sqrt.i206
@@ -1123,34 +1123,34 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %398 = fsub double %397, %161
   %399 = fpext double %398 to x86_fp80
   %400 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %401 = load double, ptr %400, align 8, !tbaa !32
+  %401 = load double, ptr %400, align 8, !tbaa !34
   %402 = getelementptr inbounds nuw i8, ptr %400, i64 8
-  %403 = load double, ptr %402, align 8, !tbaa !32
+  %403 = load double, ptr %402, align 8, !tbaa !34
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 16
-  %405 = load double, ptr %404, align 8, !tbaa !32
+  %405 = load double, ptr %404, align 8, !tbaa !34
   %406 = getelementptr inbounds nuw i8, ptr %400, i64 24
-  %407 = load double, ptr %406, align 8, !tbaa !32
+  %407 = load double, ptr %406, align 8, !tbaa !34
   %408 = fneg double %405
   %409 = fmul double %403, %408
   %410 = call double @llvm.fmuladd.f64(double %401, double %407, double %409)
   %411 = fsub double %410, %172
   %412 = fpext double %411 to x86_fp80
   %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %379, ptr noundef nonnull @.str.62, x86_fp80 noundef %381, x86_fp80 noundef %399, x86_fp80 noundef %412) #14
-  %414 = load double, ptr %5, align 8, !tbaa !32
+  %414 = load double, ptr %5, align 8, !tbaa !34
   %415 = fpext double %414 to x86_fp80
   %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0150, ptr noundef nonnull @.str.58, x86_fp80 noundef %415) #14
   %417 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %418 = load double, ptr %417, align 8, !tbaa !32
+  %418 = load double, ptr %417, align 8, !tbaa !34
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  %420 = load double, ptr %419, align 8, !tbaa !32
+  %420 = load double, ptr %419, align 8, !tbaa !34
   %421 = fmul double %420, %420
   %422 = call double @llvm.fmuladd.f64(double %418, double %418, double %421)
   %423 = fcmp ugt double %422, 0.000000e+00
   %sqrt.i207 = call double @llvm.sqrt.f64(double %422)
   %424 = getelementptr inbounds nuw i8, ptr %417, i64 16
-  %425 = load double, ptr %424, align 8, !tbaa !32
+  %425 = load double, ptr %424, align 8, !tbaa !34
   %426 = getelementptr inbounds nuw i8, ptr %417, i64 24
-  %427 = load double, ptr %426, align 8, !tbaa !32
+  %427 = load double, ptr %426, align 8, !tbaa !34
   %428 = fmul double %427, %427
   %429 = call double @llvm.fmuladd.f64(double %425, double %425, double %428)
   %430 = fdiv double -1.000000e+00, %sqrt.i207
@@ -1158,13 +1158,13 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %432 = call double @llvm.fmuladd.f64(double %429, double 5.000000e-01, double %431)
   %433 = fpext double %432 to x86_fp80
   %434 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %435 = load double, ptr %434, align 8, !tbaa !32
+  %435 = load double, ptr %434, align 8, !tbaa !34
   %436 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %437 = load double, ptr %436, align 8, !tbaa !32
+  %437 = load double, ptr %436, align 8, !tbaa !34
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 16
-  %439 = load double, ptr %438, align 8, !tbaa !32
+  %439 = load double, ptr %438, align 8, !tbaa !34
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 24
-  %441 = load double, ptr %440, align 8, !tbaa !32
+  %441 = load double, ptr %440, align 8, !tbaa !34
   %442 = fneg double %439
   %443 = fmul double %437, %442
   %444 = call double @llvm.fmuladd.f64(double %435, double %441, double %443)
@@ -1183,7 +1183,7 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %.3147 = phi double [ %328, %327 ], [ %.2146240, %378 ]
   %.3 = phi double [ %.2241, %327 ], [ %449, %378 ]
   %453 = icmp slt i32 %.3154, %17
-  br i1 %453, label %318, label %.loopexit
+  br i1 %453, label %318, label %.loopexit, !llvm.loop !44
 
 .loopexit.sink.split:                             ; preds = %376, %240
   %454 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -1191,20 +1191,20 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   br label %.loopexit
 
 .loopexit:                                        ; preds = %451, %315, %.loopexit.sink.split, %.preheader237, %.preheader
-  %456 = load ptr, ptr %1, align 8, !tbaa !26
+  %456 = load ptr, ptr %1, align 8, !tbaa !28
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %53, ptr noundef %456) #14
   %457 = call ptr @N_VGetArrayPointer(ptr noundef %53) #14
-  %458 = load double, ptr %457, align 8, !tbaa !32
+  %458 = load double, ptr %457, align 8, !tbaa !34
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  %460 = load double, ptr %459, align 8, !tbaa !32
+  %460 = load double, ptr %459, align 8, !tbaa !34
   %461 = fmul double %460, %460
   %462 = call double @llvm.fmuladd.f64(double %458, double %458, double %461)
   %463 = fcmp ugt double %462, 0.000000e+00
   %sqrt.i208 = call double @llvm.sqrt.f64(double %462)
   %464 = getelementptr inbounds nuw i8, ptr %457, i64 16
-  %465 = load double, ptr %464, align 8, !tbaa !32
+  %465 = load double, ptr %464, align 8, !tbaa !34
   %466 = getelementptr inbounds nuw i8, ptr %457, i64 24
-  %467 = load double, ptr %466, align 8, !tbaa !32
+  %467 = load double, ptr %466, align 8, !tbaa !34
   %468 = fmul double %467, %467
   %469 = call double @llvm.fmuladd.f64(double %465, double %465, double %468)
   %470 = fdiv double -1.000000e+00, %sqrt.i208
@@ -1212,13 +1212,13 @@ check_retval.exit201.thread:                      ; preds = %124, %96, %122
   %472 = call double @llvm.fmuladd.f64(double %469, double 5.000000e-01, double %471)
   %473 = fsub double %472, %161
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %473, ptr %474, align 8, !tbaa !34
+  store double %473, ptr %474, align 8, !tbaa !37
   call void @free(ptr noundef %52) #14
   %475 = call i32 @fclose(ptr noundef %.0150)
   %476 = call i32 @fclose(ptr noundef %.0148)
   %477 = call i32 @fclose(ptr noundef %.0149)
   call void @N_VDestroy(ptr noundef %53) #14
-  %478 = load ptr, ptr %4, align 8, !tbaa !35
+  %478 = load ptr, ptr %4, align 8, !tbaa !40
   %479 = load ptr, ptr @stdout, align 8, !tbaa !9
   %480 = call i32 @ARKodePrintAllStats(ptr noundef %478, ptr noundef %479, i32 noundef 0) #14
   call void @ARKodeFree(ptr noundef nonnull %4) #14
@@ -1317,9 +1317,9 @@ declare ptr @SPRKStepCreate(ptr noundef, ptr noundef, double noundef, ptr nounde
 define internal noundef i32 @force(double %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #14
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #14
-  %7 = load double, ptr %5, align 8, !tbaa !32
+  %7 = load double, ptr %5, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !32
+  %9 = load double, ptr %8, align 8, !tbaa !34
   %10 = fmul double %9, %9
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %10)
   %12 = fcmp ugt double %11, 0.000000e+00
@@ -1329,12 +1329,12 @@ define internal noundef i32 @force(double %0, ptr noundef %1, ptr noundef %2, pt
   %15 = tail call double @SUNRpowerR(double noundef %13, double noundef 3.000000e+00) #14
   %16 = fdiv double %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %16, ptr %17, align 8, !tbaa !32
+  store double %16, ptr %17, align 8, !tbaa !34
   %18 = fneg double %9
   %19 = tail call double @SUNRpowerR(double noundef %13, double noundef 3.000000e+00) #14
   %20 = fdiv double %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %20, ptr %21, align 8, !tbaa !32
+  store double %20, ptr %21, align 8, !tbaa !34
   ret i32 0
 }
 
@@ -1343,12 +1343,12 @@ define internal noundef i32 @velocity(double %0, ptr noundef %1, ptr noundef %2,
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #14
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load double, ptr %7, align 8, !tbaa !32
+  %8 = load double, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %10 = load double, ptr %9, align 8, !tbaa !32
-  store double %8, ptr %6, align 8, !tbaa !32
+  %10 = load double, ptr %9, align 8, !tbaa !34
+  store double %8, ptr %6, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %10, ptr %11, align 8, !tbaa !32
+  store double %10, ptr %11, align 8, !tbaa !34
   ret i32 0
 }
 
@@ -1358,8 +1358,8 @@ declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 define internal noundef i32 @rootfn(double %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load double, ptr %6, align 8, !tbaa !32
-  store double %7, ptr %2, align 8, !tbaa !32
+  %7 = load double, ptr %6, align 8, !tbaa !34
+  store double %7, ptr %2, align 8, !tbaa !34
   ret i32 0
 }
 
@@ -1382,9 +1382,9 @@ declare ptr @ARKStepCreate(ptr noundef, ptr noundef, double noundef, ptr noundef
 define internal noundef i32 @dydt(double %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #14
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #14
-  %7 = load double, ptr %5, align 8, !tbaa !32
+  %7 = load double, ptr %5, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !32
+  %9 = load double, ptr %8, align 8, !tbaa !34
   %10 = fmul double %9, %9
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %10)
   %12 = fcmp ugt double %11, 0.000000e+00
@@ -1394,21 +1394,21 @@ define internal noundef i32 @dydt(double %0, ptr noundef %1, ptr noundef %2, ptr
   %15 = tail call double @SUNRpowerR(double noundef %13, double noundef 3.000000e+00) #14
   %16 = fdiv double %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %16, ptr %17, align 8, !tbaa !32
+  store double %16, ptr %17, align 8, !tbaa !34
   %18 = fneg double %9
   %19 = tail call double @SUNRpowerR(double noundef %13, double noundef 3.000000e+00) #14
   %20 = fdiv double %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %20, ptr %21, align 8, !tbaa !32
+  store double %20, ptr %21, align 8, !tbaa !34
   %22 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #14
   %23 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %25 = load double, ptr %24, align 8, !tbaa !32
+  %25 = load double, ptr %24, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %27 = load double, ptr %26, align 8, !tbaa !32
-  store double %25, ptr %23, align 8, !tbaa !32
+  %27 = load double, ptr %26, align 8, !tbaa !34
+  store double %25, ptr %23, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store double %27, ptr %28, align 8, !tbaa !32
+  store double %27, ptr %28, align 8, !tbaa !34
   ret i32 0
 }
 
@@ -1506,16 +1506,23 @@ attributes #18 = { nounwind allocsize(0) }
 !22 = !{!12, !13, i64 24}
 !23 = !{!12, !13, i64 8}
 !24 = !{!15, !15, i64 0}
-!25 = !{!12, !15, i64 48}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"", !28, i64 0, !14, i64 8, !13, i64 16}
-!28 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
-!29 = !{!30, !13, i64 0}
-!30 = !{!"ARKodeSPRKTableMem", !13, i64 0, !13, i64 4, !31, i64 8, !31, i64 16}
-!31 = !{!"p1 double", !6, i64 0}
-!32 = !{!14, !14, i64 0}
-!33 = !{!13, !13, i64 0}
-!34 = !{!27, !14, i64 8}
-!35 = !{!6, !6, i64 0}
-!36 = !{!37, !14, i64 0}
-!37 = !{!"", !14, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!12, !15, i64 48}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"", !30, i64 0, !14, i64 8, !13, i64 16}
+!30 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
+!31 = !{!32, !13, i64 0}
+!32 = !{!"ARKodeSPRKTableMem", !13, i64 0, !13, i64 4, !33, i64 8, !33, i64 16}
+!33 = !{!"p1 double", !6, i64 0}
+!34 = !{!14, !14, i64 0}
+!35 = distinct !{!35, !26}
+!36 = !{!13, !13, i64 0}
+!37 = !{!29, !14, i64 8}
+!38 = distinct !{!38, !26}
+!39 = distinct !{!39, !26}
+!40 = !{!6, !6, i64 0}
+!41 = !{!42, !14, i64 0}
+!42 = !{!"", !14, i64 0}
+!43 = distinct !{!43, !26}
+!44 = distinct !{!44, !26}

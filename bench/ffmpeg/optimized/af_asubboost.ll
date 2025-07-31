@@ -503,7 +503,7 @@ define internal noundef i32 @filter_channels(ptr noundef readonly captures(none)
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next125 to i32
   %exitcond127.not = icmp eq i32 %46, %lftr.wideiv
-  br i1 %exitcond127.not, label %._crit_edge122, label %58, !llvm.loop !76
+  br i1 %exitcond127.not, label %._crit_edge122, label %58, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -637,6 +637,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !71 = !{!11, !11, i64 0}
 !72 = !{!15, !15, i64 0}
 !73 = !{!34, !34, i64 0}
-!74 = distinct !{!74, !75}
+!74 = distinct !{!74, !75, !76}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = distinct !{!77, !75, !76}

@@ -1256,7 +1256,7 @@ rtp_dyn_payload_ref.exit:                         ; preds = %rtp_dyn_payload_fre
   %118 = add nuw i32 %.014.i, 1
   %119 = call i32 @wmem_array_get_count(ptr noundef nonnull %.07197)
   %120 = icmp ult i32 %118, %119
-  br i1 %120, label %97, label %rtp_add_setup_info_if_no_duplicate.exitthread-pre-split.sink.split, !llvm.loop !8
+  br i1 %120, label %97, label %rtp_add_setup_info_if_no_duplicate.exitthread-pre-split.sink.split, !llvm.loop !9
 
 121:                                              ; preds = %92
   %122 = call ptr @wmem_file_scope()
@@ -1447,7 +1447,7 @@ define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr 
   %80 = add i32 %.2166, 4
   %81 = add nuw nsw i32 %.0149167, 1
   %exitcond.not = icmp eq i32 %81, %21
-  br i1 %exitcond.not, label %.loopexit165, label %76, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit165, label %76, !llvm.loop !10
 
 .loopexit165:                                     ; preds = %76, %69
   %.1151 = phi i32 [ %.0150, %69 ], [ %80, %76 ]
@@ -1483,7 +1483,7 @@ define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr 
   %102 = add i32 %.5168, 4
   %103 = add nuw nsw i32 %.1169, 1
   %exitcond171.not = icmp eq i32 %103, %89
-  br i1 %exitcond171.not, label %.loopexit, label %99, !llvm.loop !10
+  br i1 %exitcond171.not, label %.loopexit, label %99, !llvm.loop !11
 
 .loopexit:                                        ; preds = %99, %82, %.loopexit165
   %.3 = phi i32 [ %.1151, %.loopexit165 ], [ %92, %82 ], [ %102, %99 ]
@@ -2328,7 +2328,7 @@ get_rtp_packet_info.exit:                         ; preds = %153, %calculate_ext
   %349 = load i32, ptr @ett_rtp, align 4
   %350 = call ptr @proto_item_add_subtree(ptr noundef %348, i32 noundef %349)
   store volatile ptr %350, ptr %5, align 8
-  %351 = load i8, ptr @global_rtp_show_setup_info, align 1, !range !11, !noundef !12
+  %351 = load i8, ptr @global_rtp_show_setup_info, align 1, !range !12, !noundef !13
   %352 = trunc nuw i8 %351 to i1
   br i1 %352, label %353, label %show_setup_info.exit
 
@@ -2455,7 +2455,7 @@ proto_item_set_generated.exit51.i:                ; preds = %387, %384, %proto_i
 
 proto_item_set_generated.exit54.i:                ; preds = %407, %404
   %411 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  %412 = load i8, ptr %411, align 8, !range !11, !noundef !12
+  %412 = load i8, ptr %411, align 8, !range !12, !noundef !13
   %413 = trunc nuw i8 %412 to i1
   br i1 %413, label %414, label %proto_item_set_hidden.exit.i
 
@@ -2486,7 +2486,7 @@ proto_item_set_generated.exit54.i:                ; preds = %407, %404
 
 proto_item_set_generated.exit59.i:                ; preds = %423, %420
   %427 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  %428 = load i8, ptr %427, align 8, !range !11, !noundef !12
+  %428 = load i8, ptr %427, align 8, !range !12, !noundef !13
   %429 = trunc nuw i8 %428 to i1
   br i1 %429, label %430, label %proto_item_set_hidden.exit.i
 
@@ -2508,7 +2508,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %proto_item_set_hidd
   %436 = load ptr, ptr %391, align 8
   %437 = call i32 @wmem_array_get_count(ptr noundef %436)
   %438 = icmp ult i32 %435, %437
-  br i1 %438, label %.lr.ph.i, label %show_setup_info.exit, !llvm.loop !13
+  br i1 %438, label %.lr.ph.i, label %show_setup_info.exit, !llvm.loop !14
 
 show_setup_info.exit:                             ; preds = %proto_item_set_hidden.exit.i, %.preheader.i, %proto_item_set_generated.exit51.i, %proto_item_set_generated.exit.i, %353, %346
   %.0..0..0..0.297 = load volatile ptr, ptr %5, align 8
@@ -2637,7 +2637,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   store volatile i32 %490, ptr %6, align 4
   %491 = add nuw nsw i32 %.0461589, 1
   %exitcond.not = icmp eq i32 %491, %102
-  br i1 %exitcond.not, label %.loopexit, label %486, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %486, !llvm.loop !15
 
 .loopexit:                                        ; preds = %486, %478
   br i1 %.not496, label %574, label %492
@@ -2703,7 +2703,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   %518 = add i32 %.153.i, 1
   %519 = call i32 @tvb_captured_length(ptr noundef %509)
   %.not.i553 = icmp ult i32 %518, %519
-  br i1 %.not.i553, label %514, label %dissect_rtp_hext_rfc5285_onebyte.exit, !llvm.loop !15
+  br i1 %.not.i553, label %514, label %dissect_rtp_hext_rfc5285_onebyte.exit, !llvm.loop !16
 
 520:                                              ; preds = %514
   %521 = icmp ugt i32 %.153.i, %.05261.i
@@ -2762,7 +2762,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
 555:                                              ; preds = %552, %547
   %556 = call i32 @tvb_captured_length(ptr noundef %509)
   %557 = icmp ult i32 %535, %556
-  br i1 %557, label %.preheader.i552, label %dissect_rtp_hext_rfc5285_onebyte.exit, !llvm.loop !16
+  br i1 %557, label %.preheader.i552, label %dissect_rtp_hext_rfc5285_onebyte.exit, !llvm.loop !17
 
 558:                                              ; preds = %503
   %559 = and i32 %494, 65520
@@ -2794,7 +2794,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   %571 = add i32 %.0459591, 4
   %572 = add nuw nsw i32 %.1462590, 1
   %exitcond595.not = icmp eq i32 %572, %499
-  br i1 %exitcond595.not, label %dissect_rtp_hext_rfc5285_onebyte.exit, label %568, !llvm.loop !17
+  br i1 %exitcond595.not, label %dissect_rtp_hext_rfc5285_onebyte.exit, label %568, !llvm.loop !18
 
 dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %526, %517, %492, %511, %564, %561
   %.pre-phi = phi i32 [ %505, %511 ], [ %505, %564 ], [ %505, %561 ], [ 0, %492 ], [ %505, %517 ], [ %505, %526 ], [ %505, %531 ], [ %505, %555 ], [ %505, %568 ]
@@ -3054,7 +3054,7 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %5
   %678 = load i32, ptr @hf_rtp_padding_count, align 4
   %.0..0..0..0.228 = load volatile i32, ptr %6, align 4
   %679 = call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.313, i32 noundef %678, ptr noundef %0, i32 noundef %.0..0..0..0.228, i32 noundef 1, i32 noundef 0)
-  %.0..0..0..0.33 = load volatile i8, ptr %8, align 1, !range !11, !noundef !12
+  %.0..0..0..0.33 = load volatile i8, ptr %8, align 1, !range !12, !noundef !13
   %680 = trunc nuw i8 %.0..0..0..0.33 to i1
   br i1 %680, label %681, label %.thread583
 
@@ -3511,7 +3511,7 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
 116:                                              ; preds = %113, %114
   %.1127 = phi ptr [ %.0126154, %114 ], [ %38, %113 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br i1 %43, label %35, label %.preheader, !llvm.loop !18
+  br i1 %43, label %35, label %.preheader, !llvm.loop !19
 
 117:                                              ; preds = %.lr.ph, %192
   %.1125158 = phi ptr [ %.1127, %.lr.ph ], [ %196, %192 ]
@@ -3677,7 +3677,7 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %187 = load i8, ptr @rfc2198_deencapsulate, align 1, !range !11
+  %187 = load i8, ptr @rfc2198_deencapsulate, align 1, !range !12
   %188 = trunc nuw i8 %187 to i1
   %or.cond = select i1 %24, i1 %188, i1 false
   br i1 %or.cond, label %189, label %192
@@ -3699,7 +3699,7 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
   store volatile i32 %195, ptr %5, align 4
   %196 = load ptr, ptr %119, align 8
   %.not136 = icmp eq ptr %196, null
-  br i1 %.not136, label %._crit_edge, label %117, !llvm.loop !19
+  br i1 %.not136, label %._crit_edge, label %117, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %192, %.preheader
   %197 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -4128,7 +4128,7 @@ define internal fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i
   %16 = add i32 %.15265, 1
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %16)
   %.not59 = icmp eq i8 %17, 0
-  br i1 %.not59, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %.not59, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %15
   %18 = icmp ugt i32 %16, %.05166
@@ -4185,7 +4185,7 @@ define internal fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i
   %48 = add i32 %47, 2
   %49 = tail call i32 @tvb_captured_length(ptr noundef %3)
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %.preheader, label %.thread, !llvm.loop !21
+  br i1 %50, label %.preheader, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %46, %.lr.ph, %6
   ret void
@@ -4224,7 +4224,7 @@ define internal fastcc void @dissect_rtp_data(ptr noundef %0, ptr noundef %1, pt
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %15, null
-  %17 = load i8, ptr @desegment_rtp, align 1, !range !11
+  %17 = load i8, ptr @desegment_rtp, align 1, !range !12
   %18 = trunc nuw i8 %17 to i1
   %or.cond = select i1 %16, i1 %18, i1 false
   br i1 %or.cond, label %20, label %.thread
@@ -4783,19 +4783,20 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

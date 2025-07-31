@@ -974,7 +974,7 @@ define dso_local range(i32 0, 6) i32 @smime_main(i32 noundef %0, ptr noundef %1)
   %261 = getelementptr inbounds nuw i8, ptr %.0270875, i64 8
   %262 = load ptr, ptr %261, align 8, !tbaa !17
   %.not427 = icmp eq ptr %262, null
-  br i1 %.not427, label %.loopexit527, label %.lr.ph876, !llvm.loop !23
+  br i1 %.not427, label %.loopexit527, label %.lr.ph876, !llvm.loop !24
 
 .lr.ph876:                                        ; preds = %.preheader526, %260
   %263 = phi ptr [ %262, %260 ], [ %259, %.preheader526 ]
@@ -1206,7 +1206,7 @@ define dso_local range(i32 0, 6) i32 @smime_main(i32 noundef %0, ptr noundef %1)
   %370 = load ptr, ptr %5, align 8, !tbaa !11
   %371 = call i32 @OPENSSL_sk_num(ptr noundef %370) #4
   %372 = icmp slt i32 %369, %371
-  br i1 %372, label %.lr.ph878, label %.loopexit, !llvm.loop !24
+  br i1 %372, label %.lr.ph878, label %.loopexit, !llvm.loop !25
 
 373:                                              ; preds = %344
   %374 = or i32 %.0284.lcssa, 32768
@@ -1230,7 +1230,7 @@ define dso_local range(i32 0, 6) i32 @smime_main(i32 noundef %0, ptr noundef %1)
   %382 = call ptr @OPENSSL_sk_value(ptr noundef %.10, i32 noundef %397) #4
   %383 = call ptr @load_cert_pass(ptr noundef %381, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.196) #4
   %384 = icmp eq ptr %383, null
-  br i1 %384, label %.thread479, label %.lr.ph1043, !llvm.loop !25
+  br i1 %384, label %.thread479, label %.lr.ph1043, !llvm.loop !26
 
 .lr.ph1043:                                       ; preds = %.lr.ph882.preheader, %.lr.ph882
   %385 = phi ptr [ %383, %.lr.ph882 ], [ %379, %.lr.ph882.preheader ]
@@ -1256,7 +1256,7 @@ define dso_local range(i32 0, 6) i32 @smime_main(i32 noundef %0, ptr noundef %1)
   %397 = add nuw nsw i32 %.18801042, 1
   %398 = call i32 @OPENSSL_sk_num(ptr noundef %.10369) #4
   %399 = icmp slt i32 %397, %398
-  br i1 %399, label %.lr.ph882, label %._crit_edge883, !llvm.loop !25
+  br i1 %399, label %.lr.ph882, label %._crit_edge883, !llvm.loop !26
 
 ._crit_edge883:                                   ; preds = %396, %.loopexit
   %.4374.lcssa = phi ptr [ %.1371, %.loopexit ], [ null, %396 ]
@@ -1674,7 +1674,7 @@ define internal fastcc range(i32 0, 2) i32 @save_certs(ptr noundef %0, ptr nound
   %11 = add nuw nsw i32 %.01013, 1
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %13 = icmp slt i32 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %14 = tail call i32 @BIO_free(ptr noundef nonnull %5) #4
@@ -1750,9 +1750,10 @@ attributes #4 = { nounwind }
 !18 = !{!"p1 omnipotent char", !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22, !23}
+!26 = distinct !{!26, !22, !23}
+!27 = distinct !{!27, !22, !23}

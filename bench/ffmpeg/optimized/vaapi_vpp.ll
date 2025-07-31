@@ -98,7 +98,7 @@ define void @ff_vaapi_vpp_pipeline_uninit(ptr noundef readonly captures(none) %0
 ._crit_edge:                                      ; preds = %17, %1
   store i32 0, ptr %4, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %22 = load i32, ptr %21, align 8, !tbaa !33
   %.not = icmp eq i32 %22, -1
   br i1 %.not, label %28, label %23
 
@@ -107,12 +107,12 @@ define void @ff_vaapi_vpp_pipeline_uninit(ptr noundef readonly captures(none) %0
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %27 = tail call i32 @vaDestroyContext(ptr noundef %26, i32 noundef %22) #7
-  store i32 -1, ptr %21, align 8, !tbaa !32
+  store i32 -1, ptr %21, align 8, !tbaa !33
   br label %28
 
 28:                                               ; preds = %23, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !33
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %.not24 = icmp eq i32 %30, -1
   br i1 %.not24, label %36, label %31
 
@@ -121,7 +121,7 @@ define void @ff_vaapi_vpp_pipeline_uninit(ptr noundef readonly captures(none) %0
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = tail call i32 @vaDestroyConfig(ptr noundef %34, i32 noundef %30) #7
-  store i32 -1, ptr %29, align 4, !tbaa !33
+  store i32 -1, ptr %29, align 4, !tbaa !34
   br label %36
 
 36:                                               ; preds = %31, %28
@@ -143,11 +143,11 @@ declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @ff_vaapi_vpp_config_input(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -157,7 +157,7 @@ define range(i32 -22, 1) i32 @ff_vaapi_vpp_config_input(ptr noundef readonly cap
 
 9:                                                ; preds = %8, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !45
   %.not17 = icmp eq ptr %11, null
   br i1 %.not17, label %12, label %13
 
@@ -168,7 +168,7 @@ define range(i32 -22, 1) i32 @ff_vaapi_vpp_config_input(ptr noundef readonly cap
 13:                                               ; preds = %9
   %14 = tail call ptr @av_buffer_ref(ptr noundef nonnull %11) #7
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %14, ptr %15, align 8, !tbaa !47
+  store ptr %14, ptr %15, align 8, !tbaa !48
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %16, label %17
 
@@ -178,9 +178,9 @@ define range(i32 -22, 1) i32 @ff_vaapi_vpp_config_input(ptr noundef readonly cap
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %19, ptr %20, align 8, !tbaa !51
+  store ptr %19, ptr %20, align 8, !tbaa !52
   br label %21
 
 21:                                               ; preds = %17, %16, %12
@@ -196,18 +196,18 @@ declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
 define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef initializes((40, 48)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !52
+  %4 = load ptr, ptr %0, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !56
+  store ptr null, ptr %2, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !58
+  store ptr null, ptr %3, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  %11 = load ptr, ptr %10, align 8, !tbaa !43
+  %11 = load ptr, ptr %10, align 8, !tbaa !44
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
 
@@ -217,54 +217,54 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 13:                                               ; preds = %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  %15 = load i32, ptr %14, align 4, !tbaa !60
+  %15 = load i32, ptr %14, align 4, !tbaa !61
   %.not116 = icmp eq i32 %15, 0
   br i1 %.not116, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %5, align 8, !tbaa !53
-  %18 = load ptr, ptr %17, align 8, !tbaa !54
+  %17 = load ptr, ptr %5, align 8, !tbaa !54
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !61
-  store i32 %20, ptr %14, align 4, !tbaa !60
+  %20 = load i32, ptr %19, align 8, !tbaa !62
+  store i32 %20, ptr %14, align 4, !tbaa !61
   br label %21
 
 21:                                               ; preds = %16, %13
   %22 = phi i32 [ %20, %16 ], [ %15, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %24 = load i32, ptr %23, align 8, !tbaa !62
+  %24 = load i32, ptr %23, align 8, !tbaa !63
   %.not117 = icmp eq i32 %24, 0
   br i1 %.not117, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %5, align 8, !tbaa !53
-  %27 = load ptr, ptr %26, align 8, !tbaa !54
+  %26 = load ptr, ptr %5, align 8, !tbaa !54
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !63
-  store i32 %29, ptr %23, align 8, !tbaa !62
+  %29 = load i32, ptr %28, align 4, !tbaa !64
+  store i32 %29, ptr %23, align 8, !tbaa !63
   br label %30
 
 30:                                               ; preds = %25, %21
   %31 = phi i32 [ %29, %25 ], [ %24, %21 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %22, ptr %32, align 8, !tbaa !61
+  store i32 %22, ptr %32, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %31, ptr %33, align 4, !tbaa !63
+  store i32 %31, ptr %33, align 4, !tbaa !64
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  %35 = load i32, ptr %34, align 8, !tbaa !64
+  %35 = load i32, ptr %34, align 8, !tbaa !65
   %.not118 = icmp eq i32 %35, 0
   br i1 %.not118, label %43, label %36
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %38 = load ptr, ptr %37, align 8, !tbaa !44
+  %38 = load ptr, ptr %37, align 8, !tbaa !45
   %.not130 = icmp eq ptr %38, null
   br i1 %.not130, label %42, label %39
 
 39:                                               ; preds = %36
   %40 = tail call ptr @av_buffer_ref(ptr noundef nonnull %38) #7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %40, ptr %41, align 8, !tbaa !44
+  store ptr %40, ptr %41, align 8, !tbaa !45
   br label %42
 
 42:                                               ; preds = %39, %36
@@ -273,7 +273,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %45 = load ptr, ptr %44, align 8, !tbaa !51
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
   %.not119 = icmp eq ptr %45, null
   br i1 %.not119, label %46, label %47
 
@@ -284,10 +284,10 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !65
+  %49 = load ptr, ptr %48, align 8, !tbaa !66
   %50 = tail call ptr @av_buffer_ref(ptr noundef %49) #7
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %50, ptr %51, align 8, !tbaa !69
+  store ptr %50, ptr %51, align 8, !tbaa !70
   %.not120 = icmp eq ptr %50, null
   br i1 %.not120, label %52, label %53
 
@@ -297,13 +297,13 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !48
+  %55 = load ptr, ptr %54, align 8, !tbaa !49
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !70
+  %57 = load ptr, ptr %56, align 8, !tbaa !71
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %57, ptr %58, align 8, !tbaa !27
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %60 = load i32, ptr %59, align 4, !tbaa !33
+  %60 = load i32, ptr %59, align 4, !tbaa !34
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %63, label %62
 
@@ -324,38 +324,38 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
   br label %170
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %51, align 8, !tbaa !69
+  %69 = load ptr, ptr %51, align 8, !tbaa !70
   %70 = tail call ptr @av_hwdevice_hwconfig_alloc(ptr noundef %69) #7
-  store ptr %70, ptr %2, align 8, !tbaa !56
+  store ptr %70, ptr %2, align 8, !tbaa !57
   %.not122 = icmp eq ptr %70, null
   br i1 %.not122, label %170, label %71
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %59, align 4, !tbaa !33
-  store i32 %72, ptr %70, align 4, !tbaa !72
-  %73 = load ptr, ptr %51, align 8, !tbaa !69
+  %72 = load i32, ptr %59, align 4, !tbaa !34
+  store i32 %72, ptr %70, align 4, !tbaa !73
+  %73 = load ptr, ptr %51, align 8, !tbaa !70
   %74 = tail call ptr @av_hwdevice_get_hwframe_constraints(ptr noundef %73, ptr noundef nonnull %70) #7
-  store ptr %74, ptr %3, align 8, !tbaa !58
+  store ptr %74, ptr %3, align 8, !tbaa !59
   %.not123 = icmp eq ptr %74, null
   br i1 %.not123, label %170, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %77 = load i32, ptr %76, align 8, !tbaa !74
+  %77 = load i32, ptr %76, align 8, !tbaa !75
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %44, align 8, !tbaa !51
+  %80 = load ptr, ptr %44, align 8, !tbaa !52
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  %82 = load i32, ptr %81, align 8, !tbaa !75
-  store i32 %82, ptr %76, align 8, !tbaa !74
+  %82 = load i32, ptr %81, align 8, !tbaa !76
+  store i32 %82, ptr %76, align 8, !tbaa !75
   br label %83
 
 83:                                               ; preds = %79, %75
   %84 = phi i32 [ %82, %79 ], [ %77, %75 ]
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !76
+  %86 = load ptr, ptr %85, align 8, !tbaa !77
   %.not124 = icmp eq ptr %86, null
   br i1 %.not124, label %.loopexit, label %.preheader
 
@@ -369,7 +369,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
   %89 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.next
   %90 = load i32, ptr %89, align 4, !tbaa !26
   %.not125 = icmp eq i32 %90, -1
-  br i1 %.not125, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not125, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 .lr.ph:                                           ; preds = %.preheader, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.preheader ]
@@ -383,42 +383,42 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
   br label %170
 
 .loopexit:                                        ; preds = %.lr.ph, %83
-  %94 = load i32, ptr %14, align 4, !tbaa !60
+  %94 = load i32, ptr %14, align 4, !tbaa !61
   %95 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %96 = load i32, ptr %95, align 8, !tbaa !79
+  %96 = load i32, ptr %95, align 8, !tbaa !80
   %97 = icmp slt i32 %94, %96
-  %.pre137 = load i32, ptr %23, align 8, !tbaa !62
+  %.pre137 = load i32, ptr %23, align 8, !tbaa !63
   %.phi.trans.insert138 = getelementptr inbounds nuw i8, ptr %74, i64 20
-  %.pre139 = load i32, ptr %.phi.trans.insert138, align 4, !tbaa !80
+  %.pre139 = load i32, ptr %.phi.trans.insert138, align 4, !tbaa !81
   %98 = icmp slt i32 %.pre137, %.pre139
   %or.cond = select i1 %97, i1 true, i1 %98
   br i1 %or.cond, label %.loopexit._crit_edge, label %99
 
 99:                                               ; preds = %.loopexit
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %101 = load i32, ptr %100, align 8, !tbaa !81
+  %101 = load i32, ptr %100, align 8, !tbaa !82
   %102 = icmp sgt i32 %94, %101
   br i1 %102, label %.loopexit._crit_edge, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %74, i64 28
-  %105 = load i32, ptr %104, align 4, !tbaa !82
+  %105 = load i32, ptr %104, align 4, !tbaa !83
   %106 = icmp sgt i32 %.pre137, %105
   br i1 %106, label %.loopexit._crit_edge, label %111
 
 .loopexit._crit_edge:                             ; preds = %.loopexit, %103, %99
   %107 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %108 = load i32, ptr %107, align 8, !tbaa !81
+  %108 = load i32, ptr %107, align 8, !tbaa !82
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 28
-  %110 = load i32, ptr %109, align 4, !tbaa !82
+  %110 = load i32, ptr %109, align 4, !tbaa !83
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %94, i32 noundef %.pre137, i32 noundef %96, i32 noundef %108, i32 noundef %.pre139, i32 noundef %110) #7
   br label %170
 
 111:                                              ; preds = %103
-  %112 = load ptr, ptr %51, align 8, !tbaa !69
+  %112 = load ptr, ptr %51, align 8, !tbaa !70
   %113 = tail call ptr @av_hwframe_ctx_alloc(ptr noundef %112) #7
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %113, ptr %114, align 8, !tbaa !44
+  store ptr %113, ptr %114, align 8, !tbaa !45
   %.not126 = icmp eq ptr %113, null
   br i1 %.not126, label %115, label %116
 
@@ -428,26 +428,26 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !48
+  %118 = load ptr, ptr %117, align 8, !tbaa !49
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 60
-  store i32 44, ptr %119, align 4, !tbaa !83
-  %120 = load i32, ptr %76, align 8, !tbaa !74
+  store i32 44, ptr %119, align 4, !tbaa !84
+  %120 = load i32, ptr %76, align 8, !tbaa !75
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 64
-  store i32 %120, ptr %121, align 8, !tbaa !75
-  %122 = load i32, ptr %14, align 4, !tbaa !60
+  store i32 %120, ptr %121, align 8, !tbaa !76
+  %122 = load i32, ptr %14, align 4, !tbaa !61
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 68
-  store i32 %122, ptr %123, align 4, !tbaa !84
-  %124 = load i32, ptr %23, align 8, !tbaa !62
+  store i32 %122, ptr %123, align 4, !tbaa !85
+  %124 = load i32, ptr %23, align 8, !tbaa !63
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 72
-  store i32 %124, ptr %125, align 8, !tbaa !85
+  store i32 %124, ptr %125, align 8, !tbaa !86
   %126 = getelementptr inbounds nuw i8, ptr %118, i64 56
-  store i32 0, ptr %126, align 8, !tbaa !86
+  store i32 0, ptr %126, align 8, !tbaa !87
   %127 = tail call i32 @ff_filter_init_hw_frames(ptr noundef %4, ptr noundef nonnull %0, i32 noundef 10) #7
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %170, label %129
 
 129:                                              ; preds = %116
-  %130 = load ptr, ptr %114, align 8, !tbaa !44
+  %130 = load ptr, ptr %114, align 8, !tbaa !45
   %131 = tail call i32 @av_hwframe_ctx_init(ptr noundef %130) #7
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %133, label %134
@@ -458,9 +458,9 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  %136 = load ptr, ptr %135, align 8, !tbaa !87
+  %136 = load ptr, ptr %135, align 8, !tbaa !88
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %138 = load i32, ptr %137, align 8, !tbaa !32
+  %138 = load i32, ptr %137, align 8, !tbaa !33
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %141, label %140
 
@@ -470,15 +470,15 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
   unreachable
 
 141:                                              ; preds = %134
-  %142 = load i32, ptr %126, align 8, !tbaa !86
+  %142 = load i32, ptr %126, align 8, !tbaa !87
   %.not127 = icmp eq i32 %142, 0
   %143 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %144 = load ptr, ptr %143, align 8, !tbaa !88
+  %144 = load ptr, ptr %143, align 8, !tbaa !89
   br i1 %.not127, label %145, label %._crit_edge134
 
 ._crit_edge134:                                   ; preds = %141
   %.phi.trans.insert135 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %.pre136 = load i32, ptr %.phi.trans.insert135, align 8, !tbaa !92
+  %.pre136 = load i32, ptr %.phi.trans.insert135, align 8, !tbaa !93
   br label %152
 
 145:                                              ; preds = %141
@@ -487,7 +487,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 147:                                              ; preds = %145
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %149 = load i32, ptr %148, align 8, !tbaa !92
+  %149 = load i32, ptr %148, align 8, !tbaa !93
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %152, label %151
 
@@ -501,9 +501,9 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
   %154 = phi ptr [ %144, %._crit_edge134 ], [ null, %147 ]
   %155 = load ptr, ptr %58, align 8, !tbaa !27
   %156 = load ptr, ptr %155, align 8, !tbaa !28
-  %157 = load i32, ptr %59, align 4, !tbaa !33
-  %158 = load i32, ptr %14, align 4, !tbaa !60
-  %159 = load i32, ptr %23, align 8, !tbaa !62
+  %157 = load i32, ptr %59, align 4, !tbaa !34
+  %158 = load i32, ptr %14, align 4, !tbaa !61
+  %159 = load i32, ptr %23, align 8, !tbaa !63
   %160 = tail call i32 @vaCreateContext(ptr noundef %156, i32 noundef %157, i32 noundef %158, i32 noundef %159, i32 noundef 1, ptr noundef %154, i32 noundef %153, ptr noundef nonnull %137) #7
   %.not128 = icmp eq i32 %160, 0
   br i1 %.not128, label %163, label %161
@@ -515,7 +515,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 163:                                              ; preds = %152
   %164 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %165 = load ptr, ptr %164, align 8, !tbaa !93
+  %165 = load ptr, ptr %164, align 8, !tbaa !94
   %.not129 = icmp eq ptr %165, null
   br i1 %.not129, label %169, label %166
 
@@ -578,45 +578,45 @@ define range(i32 -542398533, 1) i32 @ff_vaapi_vpp_init_params(ptr noundef %0, pt
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  %12 = load i64, ptr %11, align 8, !tbaa !94
+  %12 = load i64, ptr %11, align 8, !tbaa !95
   %13 = trunc i64 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 344
-  %15 = load i64, ptr %14, align 8, !tbaa !99
+  %15 = load i64, ptr %14, align 8, !tbaa !100
   %16 = trunc i64 %15 to i16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %18 = load i32, ptr %17, align 8, !tbaa !100
+  %18 = load i32, ptr %17, align 8, !tbaa !101
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %21 = load i64, ptr %20, align 8, !tbaa !101
+  %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = add i64 %21, %12
   %23 = sub i64 %19, %22
   %24 = trunc i64 %23 to i16
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %26 = load i32, ptr %25, align 4, !tbaa !102
+  %26 = load i32, ptr %25, align 4, !tbaa !103
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  %29 = load i64, ptr %28, align 8, !tbaa !103
+  %29 = load i64, ptr %28, align 8, !tbaa !104
   %30 = add i64 %29, %15
   %31 = sub i64 %27, %30
   %32 = trunc i64 %31 to i16
-  store i16 %13, ptr %10, align 8, !tbaa !104
+  store i16 %13, ptr %10, align 8, !tbaa !105
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 58
-  store i16 %16, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !104
+  store i16 %16, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !105
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i16 %24, ptr %.sroa.34.0..sroa_idx, align 4, !tbaa !104
+  store i16 %24, ptr %.sroa.34.0..sroa_idx, align 4, !tbaa !105
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 62
-  store i16 %32, ptr %.sroa.45.0..sroa_idx, align 2, !tbaa !104
+  store i16 %32, ptr %.sroa.45.0..sroa_idx, align 2, !tbaa !105
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   %34 = getelementptr i8, ptr %2, i64 24
-  %.val = load ptr, ptr %34, align 8, !tbaa !105
+  %.val = load ptr, ptr %34, align 8, !tbaa !106
   %35 = ptrtoint ptr %.val to i64
   %36 = trunc i64 %35 to i32
   store i32 %36, ptr %1, align 8, !tbaa !26
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %10, ptr %.sroa.31.0..sroa_idx, align 8, !tbaa !106
+  store ptr %10, ptr %.sroa.31.0..sroa_idx, align 8, !tbaa !107
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -631,7 +631,7 @@ define range(i32 -542398533, 1) i32 @ff_vaapi_vpp_init_params(ptr noundef %0, pt
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %42 = load i32, ptr %41, align 8, !tbaa !32
+  %42 = load i32, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 76
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 116
   %45 = load i32, ptr %44, align 4, !tbaa !20
@@ -649,17 +649,17 @@ vaapi_vpp_colour_properties.exit.thread:          ; preds = %4
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 284
-  %50 = load i32, ptr %49, align 4, !tbaa !108
+  %50 = load i32, ptr %49, align 4, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 288
-  %52 = load i32, ptr %51, align 8, !tbaa !109
+  %52 = load i32, ptr %51, align 8, !tbaa !110
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  %54 = load i32, ptr %53, align 4, !tbaa !110
+  %54 = load i32, ptr %53, align 4, !tbaa !111
   %55 = icmp eq i32 %54, 44
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  %58 = load ptr, ptr %57, align 8, !tbaa !111
+  %58 = load ptr, ptr %57, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i, label %59, label %60
 
@@ -670,9 +670,9 @@ vaapi_vpp_colour_properties.exit.thread:          ; preds = %4
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !48
+  %62 = load ptr, ptr %61, align 8, !tbaa !49
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %64 = load i32, ptr %63, align 8, !tbaa !75
+  %64 = load i32, ptr %63, align 8, !tbaa !76
   %65 = call ptr @av_pix_fmt_desc_get(i32 noundef %64) #7
   %.not7.i.i = icmp eq ptr %65, null
   br i1 %.not7.i.i, label %66, label %vaapi_vpp_frame_is_rgb.exit.i
@@ -684,22 +684,22 @@ vaapi_vpp_colour_properties.exit.thread:          ; preds = %4
 
 vaapi_vpp_frame_is_rgb.exit.i:                    ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %68 = load i64, ptr %67, align 8, !tbaa !112
+  %68 = load i64, ptr %67, align 8, !tbaa !113
   %69 = and i64 %68, 32
   %.not64.i = icmp eq i64 %69, 0
   br i1 %.not64.i, label %70, label %73
 
 70:                                               ; preds = %vaapi_vpp_frame_is_rgb.exit.i
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 292
-  %72 = load i32, ptr %71, align 4, !tbaa !114
+  %72 = load i32, ptr %71, align 4, !tbaa !115
   br label %73
 
 73:                                               ; preds = %70, %vaapi_vpp_frame_is_rgb.exit.i
   %74 = phi i32 [ %72, %70 ], [ 0, %vaapi_vpp_frame_is_rgb.exit.i ]
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %76 = load i32, ptr %75, align 8, !tbaa !115
+  %76 = load i32, ptr %75, align 8, !tbaa !116
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %78 = load i32, ptr %77, align 8, !tbaa !116
+  %78 = load i32, ptr %77, align 8, !tbaa !117
   store i32 0, ptr %5, align 4, !tbaa !26
   %.sroa.220.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %50, ptr %.sroa.220.0..sroa_idx.i, align 4, !tbaa !26
@@ -708,9 +708,9 @@ vaapi_vpp_frame_is_rgb.exit.i:                    ; preds = %60
   %.sroa.422.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %74, ptr %.sroa.422.0..sroa_idx.i, align 4, !tbaa !26
   %.sroa.523.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %.sroa.523.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 0, ptr %.sroa.523.0..sroa_idx.i, align 4, !tbaa !118
   %.sroa.624.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 17
-  store i8 0, ptr %.sroa.624.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 0, ptr %.sroa.624.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 0, ptr %.sroa.725.0..sroa_idx.i, align 2
   %.sroa.826.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -718,22 +718,22 @@ vaapi_vpp_frame_is_rgb.exit.i:                    ; preds = %60
   %.sroa.927.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %78, ptr %.sroa.927.0..sroa_idx.i, align 4, !tbaa !26
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !118
+  %80 = load ptr, ptr %79, align 8, !tbaa !119
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %82 = load i32, ptr %81, align 8, !tbaa !120
+  %82 = load i32, ptr %81, align 8, !tbaa !121
   call fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %80, i32 noundef %82)
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 284
-  %84 = load i32, ptr %83, align 4, !tbaa !108
+  %84 = load i32, ptr %83, align 4, !tbaa !109
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %86 = load i32, ptr %85, align 8, !tbaa !109
+  %86 = load i32, ptr %85, align 8, !tbaa !110
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  %88 = load i32, ptr %87, align 4, !tbaa !110
+  %88 = load i32, ptr %87, align 4, !tbaa !111
   %89 = icmp eq i32 %88, 44
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %73
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 328
-  %92 = load ptr, ptr %91, align 8, !tbaa !111
+  %92 = load ptr, ptr %91, align 8, !tbaa !112
   %.not.i69.i = icmp eq ptr %92, null
   br i1 %.not.i69.i, label %93, label %94
 
@@ -744,9 +744,9 @@ vaapi_vpp_frame_is_rgb.exit.i:                    ; preds = %60
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !48
+  %96 = load ptr, ptr %95, align 8, !tbaa !49
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 64
-  %98 = load i32, ptr %97, align 8, !tbaa !75
+  %98 = load i32, ptr %97, align 8, !tbaa !76
   %99 = call ptr @av_pix_fmt_desc_get(i32 noundef %98) #7
   %.not7.i70.i = icmp eq ptr %99, null
   br i1 %.not7.i70.i, label %100, label %vaapi_vpp_frame_is_rgb.exit71.i
@@ -758,22 +758,22 @@ vaapi_vpp_frame_is_rgb.exit.i:                    ; preds = %60
 
 vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %102 = load i64, ptr %101, align 8, !tbaa !112
+  %102 = load i64, ptr %101, align 8, !tbaa !113
   %103 = and i64 %102, 32
   %.not65.i = icmp eq i64 %103, 0
   br i1 %.not65.i, label %104, label %107
 
 104:                                              ; preds = %vaapi_vpp_frame_is_rgb.exit71.i
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 292
-  %106 = load i32, ptr %105, align 4, !tbaa !114
+  %106 = load i32, ptr %105, align 4, !tbaa !115
   br label %107
 
 107:                                              ; preds = %104, %vaapi_vpp_frame_is_rgb.exit71.i
   %108 = phi i32 [ %106, %104 ], [ 0, %vaapi_vpp_frame_is_rgb.exit71.i ]
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  %110 = load i32, ptr %109, align 8, !tbaa !115
+  %110 = load i32, ptr %109, align 8, !tbaa !116
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %112 = load i32, ptr %111, align 8, !tbaa !116
+  %112 = load i32, ptr %111, align 8, !tbaa !117
   store i32 0, ptr %6, align 4, !tbaa !26
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %84, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !26
@@ -782,9 +782,9 @@ vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
   %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %108, ptr %.sroa.416.0..sroa_idx.i, align 4, !tbaa !26
   %.sroa.517.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 0, ptr %.sroa.517.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 0, ptr %.sroa.517.0..sroa_idx.i, align 4, !tbaa !118
   %.sroa.618.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 17
-  store i8 0, ptr %.sroa.618.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 0, ptr %.sroa.618.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 0, ptr %.sroa.7.0..sroa_idx.i, align 2
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -792,33 +792,33 @@ vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %112, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !26
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !121
+  %114 = load ptr, ptr %113, align 8, !tbaa !122
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %116 = load i32, ptr %115, align 8, !tbaa !122
+  %116 = load i32, ptr %115, align 8, !tbaa !123
   call fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %114, i32 noundef %116)
-  %117 = load i32, ptr %6, align 4, !tbaa !123
+  %117 = load i32, ptr %6, align 4, !tbaa !124
   %.not66.i = icmp eq i32 %117, 13
   br i1 %.not66.i, label %.loopexit, label %.preheader.i
 
 118:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !125
+  br i1 %exitcond.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !126
 
 .preheader.i:                                     ; preds = %107, %118
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %118 ], [ 0, %107 ]
   %119 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv.i
-  %120 = load i32, ptr %119, align 4, !tbaa !123
+  %120 = load i32, ptr %119, align 4, !tbaa !124
   %121 = icmp eq i32 %117, %120
   br i1 %121, label %122, label %118
 
 122:                                              ; preds = %.preheader.i
-  %123 = load i32, ptr %87, align 4, !tbaa !110
+  %123 = load i32, ptr %87, align 4, !tbaa !111
   %124 = icmp eq i32 %123, 44
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %122
-  %126 = load ptr, ptr %91, align 8, !tbaa !111
+  %126 = load ptr, ptr %91, align 8, !tbaa !112
   %.not.i72.i = icmp eq ptr %126, null
   br i1 %.not.i72.i, label %127, label %128
 
@@ -829,9 +829,9 @@ vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !48
+  %130 = load ptr, ptr %129, align 8, !tbaa !49
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 64
-  %132 = load i32, ptr %131, align 8, !tbaa !75
+  %132 = load i32, ptr %131, align 8, !tbaa !76
   %133 = call ptr @av_pix_fmt_desc_get(i32 noundef %132) #7
   %.not7.i73.i = icmp eq ptr %133, null
   br i1 %.not7.i73.i, label %134, label %vaapi_vpp_frame_is_rgb.exit74.i
@@ -843,80 +843,80 @@ vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
 
 vaapi_vpp_frame_is_rgb.exit74.i:                  ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %136 = load i64, ptr %135, align 8, !tbaa !112
+  %136 = load i64, ptr %135, align 8, !tbaa !113
   %137 = and i64 %136, 32
   %.not68.i = icmp eq i64 %137, 0
   br i1 %.not68.i, label %138, label %141
 
 138:                                              ; preds = %vaapi_vpp_frame_is_rgb.exit74.i
   %139 = getelementptr inbounds nuw i8, ptr %119, i64 12
-  %140 = load i32, ptr %139, align 4, !tbaa !126
+  %140 = load i32, ptr %139, align 4, !tbaa !127
   br label %141
 
 141:                                              ; preds = %138, %vaapi_vpp_frame_is_rgb.exit74.i
   %142 = phi i32 [ %140, %138 ], [ 0, %vaapi_vpp_frame_is_rgb.exit74.i ]
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 292
-  store i32 %142, ptr %143, align 4, !tbaa !114
+  store i32 %142, ptr %143, align 4, !tbaa !115
   %144 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !127
-  store i32 %145, ptr %83, align 4, !tbaa !108
+  %145 = load i32, ptr %144, align 4, !tbaa !128
+  store i32 %145, ptr %83, align 4, !tbaa !109
   %146 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %147 = load i32, ptr %146, align 4, !tbaa !128
-  store i32 %147, ptr %85, align 8, !tbaa !109
+  %147 = load i32, ptr %146, align 4, !tbaa !129
+  store i32 %147, ptr %85, align 8, !tbaa !110
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %141, %107
-  %148 = load i32, ptr %5, align 4, !tbaa !123
-  store i32 %148, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
-  store i32 %117, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !134
+  %148 = load i32, ptr %5, align 4, !tbaa !124
+  store i32 %148, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !130
+  store i32 %117, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !135
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %150 = load i8, ptr %.sroa.523.0..sroa_idx.i, align 4, !tbaa !135
-  %151 = load i8, ptr %.sroa.624.0..sroa_idx.i, align 1, !tbaa !136
-  %152 = load i32, ptr %.sroa.220.0..sroa_idx.i, align 4, !tbaa !127
+  %150 = load i8, ptr %.sroa.523.0..sroa_idx.i, align 4, !tbaa !136
+  %151 = load i8, ptr %.sroa.624.0..sroa_idx.i, align 1, !tbaa !137
+  %152 = load i32, ptr %.sroa.220.0..sroa_idx.i, align 4, !tbaa !128
   %153 = trunc i32 %152 to i8
-  %154 = load i32, ptr %.sroa.321.0..sroa_idx.i, align 4, !tbaa !128
+  %154 = load i32, ptr %.sroa.321.0..sroa_idx.i, align 4, !tbaa !129
   %155 = trunc i32 %154 to i8
-  %156 = load i32, ptr %.sroa.422.0..sroa_idx.i, align 4, !tbaa !126
+  %156 = load i32, ptr %.sroa.422.0..sroa_idx.i, align 4, !tbaa !127
   %157 = trunc i32 %156 to i8
-  store i8 %150, ptr %149, align 4, !tbaa !117
+  store i8 %150, ptr %149, align 4, !tbaa !118
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 133
-  store i8 %151, ptr %.sroa.22.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 %151, ptr %.sroa.22.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 134
-  store i8 %153, ptr %.sroa.33.0..sroa_idx.i, align 2, !tbaa !117
+  store i8 %153, ptr %.sroa.33.0..sroa_idx.i, align 2, !tbaa !118
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 135
-  store i8 %155, ptr %.sroa.44.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 %155, ptr %.sroa.44.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i8 %157, ptr %.sroa.55.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 %157, ptr %.sroa.55.0..sroa_idx.i, align 4, !tbaa !118
   %.sroa.66.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 137
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.66.0..sroa_idx.i, i8 0, i64 3, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %159 = load i8, ptr %.sroa.517.0..sroa_idx.i, align 4, !tbaa !135
-  %160 = load i8, ptr %.sroa.618.0..sroa_idx.i, align 1, !tbaa !136
-  %161 = load i32, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !127
+  %159 = load i8, ptr %.sroa.517.0..sroa_idx.i, align 4, !tbaa !136
+  %160 = load i8, ptr %.sroa.618.0..sroa_idx.i, align 1, !tbaa !137
+  %161 = load i32, ptr %.sroa.214.0..sroa_idx.i, align 4, !tbaa !128
   %162 = trunc i32 %161 to i8
-  %163 = load i32, ptr %.sroa.315.0..sroa_idx.i, align 4, !tbaa !128
+  %163 = load i32, ptr %.sroa.315.0..sroa_idx.i, align 4, !tbaa !129
   %164 = trunc i32 %163 to i8
-  %165 = load i32, ptr %.sroa.416.0..sroa_idx.i, align 4, !tbaa !126
+  %165 = load i32, ptr %.sroa.416.0..sroa_idx.i, align 4, !tbaa !127
   %166 = trunc i32 %165 to i8
-  store i8 %159, ptr %158, align 4, !tbaa !117
+  store i8 %159, ptr %158, align 4, !tbaa !118
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 141
-  store i8 %160, ptr %.sroa.2.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 %160, ptr %.sroa.2.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 142
-  store i8 %162, ptr %.sroa.3.0..sroa_idx.i, align 2, !tbaa !117
+  store i8 %162, ptr %.sroa.3.0..sroa_idx.i, align 2, !tbaa !118
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 143
-  store i8 %164, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !117
+  store i8 %164, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !118
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 %166, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !117
+  store i8 %166, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !118
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx.i, i8 0, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #7
-  %.val32 = load ptr, ptr %34, align 8, !tbaa !105
+  %.val32 = load ptr, ptr %34, align 8, !tbaa !106
   %167 = ptrtoint ptr %.val32 to i64
   %168 = trunc i64 %167 to i32
   %169 = getelementptr i8, ptr %3, i64 24
-  %.val33 = load ptr, ptr %169, align 8, !tbaa !105
+  %.val33 = load ptr, ptr %169, align 8, !tbaa !106
   %170 = ptrtoint ptr %.val33 to i64
   %171 = trunc i64 %170 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.16, i32 noundef %168, i32 noundef %171) #7
@@ -951,7 +951,7 @@ define range(i32 -5, 1) i32 @ff_vaapi_vpp_make_param_buffers(ptr noundef %0, i32
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !32
+  %18 = load i32, ptr %17, align 8, !tbaa !33
   %19 = trunc i64 %3 to i32
   %20 = call i32 @vaCreateBuffer(ptr noundef %16, i32 noundef %18, i32 noundef %1, i32 noundef %19, i32 noundef %4, ptr noundef %2, ptr noundef nonnull %6) #7
   %.not = icmp eq i32 %20, 0
@@ -990,7 +990,7 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %8 = sext i32 %2 to i64
   %9 = tail call ptr @av_malloc_array(i64 noundef %8, i64 noundef 4) #7
-  store ptr %9, ptr %5, align 8, !tbaa !137
+  store ptr %9, ptr %5, align 8, !tbaa !138
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %70, label %.preheader65
 
@@ -1009,9 +1009,9 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !32
+  %17 = load i32, ptr %16, align 8, !tbaa !33
   %18 = getelementptr i8, ptr %3, i64 24
-  %.val = load ptr, ptr %18, align 8, !tbaa !105
+  %.val = load ptr, ptr %18, align 8, !tbaa !106
   %19 = ptrtoint ptr %.val to i64
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 @vaBeginPicture(ptr noundef %15, i32 noundef %17, i32 noundef %20) #7
@@ -1033,7 +1033,7 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
 24:                                               ; preds = %vaapi_vpp_render_single_pipeline_buffer.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge73, label %25, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge73, label %25, !llvm.loop !139
 
 25:                                               ; preds = %.lr.ph72, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %24 ]
@@ -1044,7 +1044,7 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !32
+  %33 = load i32, ptr %32, align 8, !tbaa !33
   %34 = tail call i32 @vaCreateBuffer(ptr noundef %31, i32 noundef %33, i32 noundef 41, i32 noundef 224, i32 noundef 1, ptr noundef %26, ptr noundef nonnull %27) #7
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %vaapi_vpp_render_single_pipeline_buffer.exit, label %35
@@ -1060,7 +1060,7 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.29, i32 noundef %37) #7
   %38 = load ptr, ptr %29, align 8, !tbaa !27
   %39 = load ptr, ptr %38, align 8, !tbaa !28
-  %40 = load i32, ptr %32, align 8, !tbaa !32
+  %40 = load i32, ptr %32, align 8, !tbaa !33
   %41 = tail call i32 @vaRenderPicture(ptr noundef %39, i32 noundef %40, ptr noundef nonnull %27, i32 noundef 1) #7
   %.not21.i = icmp eq i32 %41, 0
   br i1 %.not21.i, label %24, label %42
@@ -1073,7 +1073,7 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
 ._crit_edge73:                                    ; preds = %24, %.preheader64
   %44 = load ptr, ptr %13, align 8, !tbaa !27
   %45 = load ptr, ptr %44, align 8, !tbaa !28
-  %46 = load i32, ptr %16, align 8, !tbaa !32
+  %46 = load i32, ptr %16, align 8, !tbaa !33
   %47 = tail call i32 @vaEndPicture(ptr noundef %45, i32 noundef %46) #7
   %.not57 = icmp eq i32 %47, 0
   br i1 %.not57, label %.preheader, label %48
@@ -1112,19 +1112,19 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
 59:                                               ; preds = %53, %57
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.sink.split, label %50, !llvm.loop !139
+  br i1 %exitcond90.not, label %.sink.split, label %50, !llvm.loop !140
 
 60:                                               ; preds = %42, %35
   %61 = load ptr, ptr %13, align 8, !tbaa !27
   %62 = load ptr, ptr %61, align 8, !tbaa !28
-  %63 = load i32, ptr %16, align 8, !tbaa !32
+  %63 = load i32, ptr %16, align 8, !tbaa !33
   %64 = tail call i32 @vaRenderPicture(ptr noundef %62, i32 noundef %63, ptr noundef nonnull %9, i32 noundef 1) #7
   br label %65
 
 65:                                               ; preds = %60, %48
   %66 = load ptr, ptr %13, align 8, !tbaa !27
   %67 = load ptr, ptr %66, align 8, !tbaa !28
-  %68 = load i32, ptr %16, align 8, !tbaa !32
+  %68 = load i32, ptr %16, align 8, !tbaa !33
   %69 = tail call i32 @vaEndPicture(ptr noundef %67, i32 noundef %68) #7
   br label %.sink.split
 
@@ -1158,11 +1158,11 @@ define void @ff_vaapi_vpp_ctx_init(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 -1, ptr %4, align 4, !tbaa !33
+  store i32 -1, ptr %4, align 4, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 -1, ptr %5, align 8, !tbaa !32
+  store i32 -1, ptr %5, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 1, ptr %6, align 8, !tbaa !140
+  store i32 1, ptr %6, align 8, !tbaa !141
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 -1, i64 40, i1 false), !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 116
@@ -1175,13 +1175,13 @@ define void @ff_vaapi_vpp_ctx_uninit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !140
+  %5 = load i32, ptr %4, align 8, !tbaa !141
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %10, label %9
 
@@ -1211,7 +1211,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !141
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !142
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
@@ -1222,19 +1222,19 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 
 ._crit_edge.i:                                    ; preds = %6, %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !126
+  %11 = load i32, ptr %10, align 4, !tbaa !127
   %.fr = freeze i32 %11
   %12 = and i32 %.fr, -3
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 0, i32 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !128
+  %16 = load i32, ptr %15, align 4, !tbaa !129
   %.fr.i = freeze i32 %16
   %.not59.i = icmp eq i32 %.fr.i, 2
   %17 = select i1 %.not59.i, i32 0, i32 2
   %18 = or disjoint i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !127
+  %20 = load i32, ptr %19, align 4, !tbaa !128
   %.fr45 = freeze i32 %20
   %21 = icmp ne i32 %.fr45, 2
   %22 = zext i1 %21 to i32
@@ -1264,7 +1264,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.172.i.us.us = phi i32 [ %.076.i.us, %.preheader.i.us ], [ %.2.i.us.us, %44 ]
   %.14571.i.us.us = phi i32 [ %.04474.i.us, %.preheader.i.us ], [ %.246.i.us.us, %44 ]
   %28 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i.us.us
-  %29 = load i32, ptr %28, align 4, !tbaa !123
+  %29 = load i32, ptr %28, align 4, !tbaa !124
   %.not60.i.us.us = icmp eq i32 %29, %26
   br i1 %.not60.i.us.us, label %30, label %44
 
@@ -1276,7 +1276,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !126
+  %33 = load i32, ptr %32, align 4, !tbaa !127
   %.not63.i.us.us = icmp eq i32 %.fr, %33
   %34 = select i1 %.not63.i.us.us, i32 0, i32 4
   br label %35
@@ -1284,7 +1284,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 35:                                               ; preds = %31, %30, %30
   %.047.i.us.us = phi i32 [ %34, %31 ], [ 0, %30 ], [ 0, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %37 = load i32, ptr %36, align 4, !tbaa !128
+  %37 = load i32, ptr %36, align 4, !tbaa !129
   %.not65.i.us.us = icmp eq i32 %.fr.i, %37
   %38 = select i1 %.not65.i.us.us, i32 0, i32 2
   %39 = or disjoint i32 %38, %.047.i.us.us
@@ -1304,12 +1304,12 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.2.i.us.us = phi i32 [ %.172.i.us.us, %27 ], [ %.172.i.us.us, %35 ], [ %spec.select67.i.us.us, %41 ]
   %indvars.iv.next82.i.us.us = add nuw nsw i64 %indvars.iv81.i.us.us, 1
   %exitcond84.not.i.us.us = icmp eq i64 %indvars.iv.next82.i.us.us, 12
-  br i1 %exitcond84.not.i.us.us, label %.split.i.split.us.us, label %27, !llvm.loop !142
+  br i1 %exitcond84.not.i.us.us, label %.split.i.split.us.us, label %27, !llvm.loop !143
 
 .split.i.split.us.us:                             ; preds = %44
   %indvars.iv.next86.i.us = add nuw nsw i64 %indvars.iv85.i.us, 1
   %exitcond89.not.i.us = icmp eq i64 %indvars.iv.next86.i.us, %wide.trip.count97.i
-  br i1 %exitcond89.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us, !llvm.loop !144
+  br i1 %exitcond89.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us, !llvm.loop !145
 
 .preheader.i.preheader.split:                     ; preds = %.preheader.i.preheader
   switch i32 %.fr, label %.preheader.i [
@@ -1333,17 +1333,17 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.172.i.us21.us = phi i32 [ %.076.i.us40, %.preheader.i.us38 ], [ %.2.i.us30.us, %63 ]
   %.14571.i.us22.us = phi i32 [ %.04474.i.us41, %.preheader.i.us38 ], [ %.246.i.us29.us, %63 ]
   %48 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i.us20.us
-  %49 = load i32, ptr %48, align 4, !tbaa !123
+  %49 = load i32, ptr %48, align 4, !tbaa !124
   %.not60.i.us23.us = icmp eq i32 %49, %46
   br i1 %.not60.i.us23.us, label %50, label %63
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load i32, ptr %51, align 4, !tbaa !128
+  %52 = load i32, ptr %51, align 4, !tbaa !129
   %.not65.i.us25.us = icmp eq i32 %.fr.i, %52
   %53 = select i1 %.not65.i.us25.us, i32 0, i32 2
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !127
+  %55 = load i32, ptr %54, align 4, !tbaa !128
   %56 = icmp ne i32 %.fr45, %55
   %57 = zext i1 %56 to i32
   %58 = or disjoint i32 %53, %57
@@ -1363,12 +1363,12 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.2.i.us30.us = phi i32 [ %.172.i.us21.us, %47 ], [ %.172.i.us21.us, %50 ], [ %spec.select67.i.us28.us, %60 ]
   %indvars.iv.next82.i.us31.us = add nuw nsw i64 %indvars.iv81.i.us20.us, 1
   %exitcond84.not.i.us32.us = icmp eq i64 %indvars.iv.next82.i.us31.us, 12
-  br i1 %exitcond84.not.i.us32.us, label %.split.i.split.split.us.us, label %47, !llvm.loop !145
+  br i1 %exitcond84.not.i.us32.us, label %.split.i.split.split.us.us, label %47, !llvm.loop !146
 
 .split.i.split.split.us.us:                       ; preds = %63
   %indvars.iv.next86.i.us42 = add nuw nsw i64 %indvars.iv85.i.us39, 1
   %exitcond89.not.i.us43 = icmp eq i64 %indvars.iv.next86.i.us42, %wide.trip.count97.i
-  br i1 %exitcond89.not.i.us43, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us38, !llvm.loop !146
+  br i1 %exitcond89.not.i.us43, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us38, !llvm.loop !147
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %.split.us.us.i
   %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %.split.us.us.i ], [ 0, %.preheader.lr.ph.i ]
@@ -1383,7 +1383,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.172.us.us.i = phi i32 [ %.2.us.us.i, %86 ], [ %.076.us.i, %.preheader.us.i ]
   %.14571.us.us.i = phi i32 [ %.246.us.us.i, %86 ], [ %.04474.us.i, %.preheader.us.i ]
   %67 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv90.i
-  %68 = load i32, ptr %67, align 4, !tbaa !123
+  %68 = load i32, ptr %67, align 4, !tbaa !124
   %.not60.us.us.i = icmp eq i32 %68, %65
   br i1 %.not60.us.us.i, label %69, label %86
 
@@ -1395,7 +1395,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  %72 = load i32, ptr %71, align 4, !tbaa !126
+  %72 = load i32, ptr %71, align 4, !tbaa !127
   %.not63.us.us.i = icmp eq i32 %.fr, %72
   %73 = select i1 %.not63.us.us.i, i32 0, i32 4
   br label %74
@@ -1406,7 +1406,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !127
+  %77 = load i32, ptr %76, align 4, !tbaa !128
   %78 = icmp ne i32 %.fr45, %77
   %79 = zext i1 %78 to i32
   %80 = or disjoint i32 %.047.us.us.i, %79
@@ -1430,12 +1430,12 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.2.us.us.i = phi i32 [ %.172.us.us.i, %66 ], [ %.172.us.us.i, %81 ], [ %spec.select67.us.us.i, %83 ]
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 12
-  br i1 %exitcond93.not.i, label %.split.us.us.i, label %66, !llvm.loop !147
+  br i1 %exitcond93.not.i, label %.split.us.us.i, label %66, !llvm.loop !148
 
 .split.us.us.i:                                   ; preds = %86
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
-  br i1 %exitcond98.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i, !llvm.loop !148
+  br i1 %exitcond98.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i, !llvm.loop !149
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader.split, %.split.i.split.split
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
@@ -1450,22 +1450,22 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.172.i = phi i32 [ %.076.i, %.preheader.i ], [ %.2.i, %109 ]
   %.14571.i = phi i32 [ %.04474.i, %.preheader.i ], [ %.246.i, %109 ]
   %90 = getelementptr inbounds nuw [12 x %struct.VAAPIColourProperties], ptr @vaapi_colour_standard_map, i64 0, i64 %indvars.iv81.i
-  %91 = load i32, ptr %90, align 4, !tbaa !123
+  %91 = load i32, ptr %90, align 4, !tbaa !124
   %.not60.i = icmp eq i32 %91, %88
   br i1 %.not60.i, label %92, label %109
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %94 = load i32, ptr %93, align 4, !tbaa !126
+  %94 = load i32, ptr %93, align 4, !tbaa !127
   %.not63.i = icmp eq i32 %.fr, %94
   %95 = select i1 %.not63.i, i32 0, i32 4
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %97 = load i32, ptr %96, align 4, !tbaa !128
+  %97 = load i32, ptr %96, align 4, !tbaa !129
   %.not65.i = icmp eq i32 %.fr.i, %97
   %98 = select i1 %.not65.i, i32 0, i32 2
   %99 = or disjoint i32 %98, %95
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %101 = load i32, ptr %100, align 4, !tbaa !127
+  %101 = load i32, ptr %100, align 4, !tbaa !128
   %102 = icmp ne i32 %.fr45, %101
   %103 = zext i1 %102 to i32
   %104 = or disjoint i32 %99, %103
@@ -1485,65 +1485,65 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %.2.i = phi i32 [ %.172.i, %89 ], [ %.172.i, %92 ], [ %spec.select67.i, %106 ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 12
-  br i1 %exitcond84.not.i, label %.split.i.split.split, label %89, !llvm.loop !149
+  br i1 %exitcond84.not.i, label %.split.i.split.split, label %89, !llvm.loop !150
 
 .split.i.split.split:                             ; preds = %109
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count97.i
-  br i1 %exitcond89.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i, !llvm.loop !150
+  br i1 %exitcond89.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i, !llvm.loop !151
 
 vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i.split.split.us.us, %.split.i.split.split, %.split.i.split.us.us, %.split.us.us.i, %._crit_edge.i
   %.0.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.us.us.i, %.split.us.us.i ], [ %.2.i.us.us, %.split.i.split.us.us ], [ %.2.i, %.split.i.split.split ], [ %.2.i.us30.us, %.split.i.split.split.us.us ], [ 13, %.lr.ph.i ]
-  store i32 %.0.lcssa.sink.i, ptr %1, align 4, !tbaa !123
+  store i32 %.0.lcssa.sink.i, ptr %1, align 4, !tbaa !124
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %111 = load i32, ptr %110, align 4, !tbaa !151
+  %111 = load i32, ptr %110, align 4, !tbaa !152
   br label %113
 
 112:                                              ; preds = %113
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 7
-  br i1 %exitcond.not.i15, label %vaapi_vpp_fill_chroma_sample_location.exit, label %113, !llvm.loop !152
+  br i1 %exitcond.not.i15, label %vaapi_vpp_fill_chroma_sample_location.exit, label %113, !llvm.loop !153
 
 113:                                              ; preds = %112, %vaapi_vpp_fill_colour_standard.exit
   %indvars.iv.i13 = phi i64 [ 0, %vaapi_vpp_fill_colour_standard.exit ], [ %indvars.iv.next.i14, %112 ]
   %114 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13
-  %115 = load i32, ptr %114, align 8, !tbaa !153
+  %115 = load i32, ptr %114, align 8, !tbaa !154
   %116 = icmp eq i32 %111, %115
   br i1 %116, label %117, label %112
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw [7 x %struct.anon], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 0, i64 %indvars.iv.i13, i32 1
-  %119 = load i8, ptr %118, align 4, !tbaa !155
+  %119 = load i8, ptr %118, align 4, !tbaa !156
   br label %vaapi_vpp_fill_chroma_sample_location.exit
 
 vaapi_vpp_fill_chroma_sample_location.exit:       ; preds = %112, %117
   %.sink.i = phi i8 [ %119, %117 ], [ 0, %112 ]
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sink.i, ptr %120, align 4, !tbaa !135
+  store i8 %.sink.i, ptr %120, align 4, !tbaa !136
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %122 = load i32, ptr %121, align 4, !tbaa !156
+  %122 = load i32, ptr %121, align 4, !tbaa !157
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %switch.selectcmp.i = icmp eq i32 %122, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i8 2, i8 0
   %switch.selectcmp4.i = icmp eq i32 %122, 1
   %switch.select5.i = select i1 %switch.selectcmp4.i, i8 1, i8 %switch.select.i
-  store i8 %switch.select5.i, ptr %123, align 1, !tbaa !136
+  store i8 %switch.select5.i, ptr %123, align 1, !tbaa !137
   %124 = tail call ptr @av_color_range_name(i32 noundef %122) #7
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %126 = load i32, ptr %125, align 4, !tbaa !126
+  %126 = load i32, ptr %125, align 4, !tbaa !127
   %127 = tail call ptr @av_color_space_name(i32 noundef %126) #7
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %129 = load i32, ptr %128, align 4, !tbaa !127
+  %129 = load i32, ptr %128, align 4, !tbaa !128
   %130 = tail call ptr @av_color_primaries_name(i32 noundef %129) #7
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = load i32, ptr %131, align 4, !tbaa !128
+  %132 = load i32, ptr %131, align 4, !tbaa !129
   %133 = tail call ptr @av_color_transfer_name(i32 noundef %132) #7
-  %134 = load i32, ptr %110, align 4, !tbaa !151
+  %134 = load i32, ptr %110, align 4, !tbaa !152
   %135 = tail call ptr @av_chroma_location_name(i32 noundef %134) #7
-  %136 = load i32, ptr %1, align 4, !tbaa !123
-  %137 = load i8, ptr %120, align 4, !tbaa !135
+  %136 = load i32, ptr %1, align 4, !tbaa !124
+  %137 = load i8, ptr %120, align 4, !tbaa !136
   %138 = zext i8 %137 to i32
-  %139 = load i8, ptr %123, align 1, !tbaa !136
+  %139 = load i8, ptr %123, align 1, !tbaa !137
   %140 = zext i8 %139 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.26, ptr noundef %124, ptr noundef %127, ptr noundef %130, ptr noundef %133, ptr noundef %135, i32 noundef %136, i32 noundef %138, i32 noundef %140) #7
   ret void
@@ -1606,130 +1606,131 @@ attributes #8 = { noreturn nounwind }
 !27 = !{!21, !22, i64 8}
 !28 = !{!29, !7, i64 0}
 !29 = !{!"AVVAAPIDeviceContext", !7, i64 0, !15, i64 8}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!21, !15, i64 32}
-!33 = !{!21, !15, i64 28}
-!34 = !{!35, !36, i64 16}
-!35 = !{!"AVFilterLink", !36, i64 0, !12, i64 8, !36, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !37, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !38, i64 72, !37, i64 96, !39, i64 104, !15, i64 112, !40, i64 120, !40, i64 160}
-!36 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!37 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!38 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!39 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!40 = !{!"AVFilterFormatsConfig", !41, i64 0, !41, i64 8, !42, i64 16, !41, i64 24, !41, i64 32}
-!41 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!42 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!43 = !{!21, !7, i64 136}
-!44 = !{!45, !19, i64 272}
-!45 = !{!"FilterLink", !35, i64 0, !16, i64 200, !46, i64 208, !46, i64 216, !15, i64 224, !15, i64 228, !46, i64 232, !46, i64 240, !46, i64 248, !46, i64 256, !37, i64 264, !19, i64 272}
-!46 = !{!"long", !8, i64 0}
-!47 = !{!21, !19, i64 40}
-!48 = !{!49, !11, i64 8}
-!49 = !{!"AVBufferRef", !50, i64 0, !11, i64 8, !46, i64 16}
-!50 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!51 = !{!21, !23, i64 48}
-!52 = !{!35, !36, i64 0}
-!53 = !{!5, !13, i64 32}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTS15AVVAAPIHWConfig", !7, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS21AVHWFramesConstraints", !7, i64 0}
-!60 = !{!21, !15, i64 68}
-!61 = !{!35, !15, i64 40}
-!62 = !{!21, !15, i64 72}
-!63 = !{!35, !15, i64 44}
-!64 = !{!21, !15, i64 120}
-!65 = !{!66, !19, i64 8}
-!66 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !67, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !68, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
-!67 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
-!68 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
-!69 = !{!21, !19, i64 16}
-!70 = !{!71, !7, i64 16}
-!71 = !{!"AVHWDeviceContext", !6, i64 0, !15, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
-!72 = !{!73, !15, i64 0}
-!73 = !{!"AVVAAPIHWConfig", !15, i64 0}
-!74 = !{!21, !15, i64 64}
-!75 = !{!66, !15, i64 64}
-!76 = !{!77, !7, i64 8}
-!77 = !{!"AVHWFramesConstraints", !7, i64 0, !7, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
-!78 = distinct !{!78, !31}
-!79 = !{!77, !15, i64 16}
-!80 = !{!77, !15, i64 20}
-!81 = !{!77, !15, i64 24}
-!82 = !{!77, !15, i64 28}
-!83 = !{!66, !15, i64 60}
-!84 = !{!66, !15, i64 68}
-!85 = !{!66, !15, i64 72}
-!86 = !{!66, !15, i64 56}
-!87 = !{!66, !7, i64 24}
-!88 = !{!89, !91, i64 16}
-!89 = !{!"AVVAAPIFramesContext", !90, i64 0, !15, i64 8, !91, i64 16, !15, i64 24}
-!90 = !{!"p1 _ZTS16_VASurfaceAttrib", !7, i64 0}
-!91 = !{!"p1 int", !7, i64 0}
-!92 = !{!89, !15, i64 24}
-!93 = !{!21, !7, i64 128}
-!94 = !{!95, !46, i64 360}
-!95 = !{!"AVFrame", !8, i64 0, !8, i64 64, !96, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !37, i64 124, !46, i64 136, !46, i64 144, !37, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !97, i64 248, !15, i64 256, !39, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !46, i64 304, !98, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !46, i64 344, !46, i64 352, !46, i64 360, !46, i64 368, !7, i64 376, !38, i64 384, !46, i64 408}
-!96 = !{!"p2 omnipotent char", !14, i64 0}
-!97 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!98 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!99 = !{!95, !46, i64 344}
-!100 = !{!95, !15, i64 104}
-!101 = !{!95, !46, i64 368}
-!102 = !{!95, !15, i64 108}
-!103 = !{!95, !46, i64 352}
-!104 = !{!25, !25, i64 0}
-!105 = !{!11, !11, i64 0}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"p1 _ZTS12_VARectangle", !7, i64 0}
-!108 = !{!95, !15, i64 284}
-!109 = !{!95, !15, i64 288}
-!110 = !{!95, !15, i64 116}
-!111 = !{!95, !19, i64 328}
-!112 = !{!113, !46, i64 16}
-!113 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !46, i64 16, !8, i64 24, !11, i64 104}
-!114 = !{!95, !15, i64 292}
-!115 = !{!95, !15, i64 280}
-!116 = !{!95, !15, i64 296}
-!117 = !{!8, !8, i64 0}
-!118 = !{!119, !7, i64 16}
-!119 = !{!"_VAProcPipelineCaps", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !7, i64 16, !15, i64 24, !7, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !91, i64 64, !15, i64 72, !91, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !8, i64 120}
-!120 = !{!119, !15, i64 24}
-!121 = !{!119, !7, i64 32}
-!122 = !{!119, !15, i64 40}
-!123 = !{!124, !15, i64 0}
-!124 = !{!"VAAPIColourProperties", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !8, i64 16, !8, i64 17, !15, i64 20, !15, i64 24}
-!125 = distinct !{!125, !31}
-!126 = !{!124, !15, i64 12}
-!127 = !{!124, !15, i64 4}
-!128 = !{!124, !15, i64 8}
-!129 = !{!130, !15, i64 16}
-!130 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !107, i64 8, !15, i64 16, !107, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !91, i64 48, !15, i64 56, !91, i64 64, !15, i64 72, !91, i64 80, !15, i64 88, !15, i64 92, !131, i64 96, !15, i64 104, !91, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !132, i64 132, !132, i64 140, !15, i64 148, !133, i64 152, !8, i64 160}
-!131 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
-!132 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
-!133 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
-!134 = !{!130, !15, i64 36}
-!135 = !{!124, !8, i64 16}
-!136 = !{!124, !8, i64 17}
-!137 = !{!91, !91, i64 0}
-!138 = distinct !{!138, !31}
-!139 = distinct !{!139, !31}
-!140 = !{!21, !15, i64 24}
-!141 = distinct !{!141, !31}
-!142 = distinct !{!142, !31, !143}
-!143 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!144 = distinct !{!144, !31, !143}
-!145 = distinct !{!145, !31, !143}
-!146 = distinct !{!146, !31, !143}
-!147 = distinct !{!147, !31, !143}
-!148 = distinct !{!148, !31, !143}
-!149 = distinct !{!149, !31}
-!150 = distinct !{!150, !31}
-!151 = !{!124, !15, i64 24}
-!152 = distinct !{!152, !31}
-!153 = !{!154, !15, i64 0}
-!154 = !{!"", !15, i64 0, !8, i64 4}
-!155 = !{!154, !8, i64 4}
-!156 = !{!124, !15, i64 20}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!21, !15, i64 32}
+!34 = !{!21, !15, i64 28}
+!35 = !{!36, !37, i64 16}
+!36 = !{!"AVFilterLink", !37, i64 0, !12, i64 8, !37, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !38, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !39, i64 72, !38, i64 96, !40, i64 104, !15, i64 112, !41, i64 120, !41, i64 160}
+!37 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!38 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!39 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!40 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!41 = !{!"AVFilterFormatsConfig", !42, i64 0, !42, i64 8, !43, i64 16, !42, i64 24, !42, i64 32}
+!42 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!43 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!44 = !{!21, !7, i64 136}
+!45 = !{!46, !19, i64 272}
+!46 = !{!"FilterLink", !36, i64 0, !16, i64 200, !47, i64 208, !47, i64 216, !15, i64 224, !15, i64 228, !47, i64 232, !47, i64 240, !47, i64 248, !47, i64 256, !38, i64 264, !19, i64 272}
+!47 = !{!"long", !8, i64 0}
+!48 = !{!21, !19, i64 40}
+!49 = !{!50, !11, i64 8}
+!50 = !{!"AVBufferRef", !51, i64 0, !11, i64 8, !47, i64 16}
+!51 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!52 = !{!21, !23, i64 48}
+!53 = !{!36, !37, i64 0}
+!54 = !{!5, !13, i64 32}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS15AVVAAPIHWConfig", !7, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS21AVHWFramesConstraints", !7, i64 0}
+!61 = !{!21, !15, i64 68}
+!62 = !{!36, !15, i64 40}
+!63 = !{!21, !15, i64 72}
+!64 = !{!36, !15, i64 44}
+!65 = !{!21, !15, i64 120}
+!66 = !{!67, !19, i64 8}
+!67 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !68, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !69, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
+!68 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
+!69 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
+!70 = !{!21, !19, i64 16}
+!71 = !{!72, !7, i64 16}
+!72 = !{!"AVHWDeviceContext", !6, i64 0, !15, i64 8, !7, i64 16, !7, i64 24, !7, i64 32}
+!73 = !{!74, !15, i64 0}
+!74 = !{!"AVVAAPIHWConfig", !15, i64 0}
+!75 = !{!21, !15, i64 64}
+!76 = !{!67, !15, i64 64}
+!77 = !{!78, !7, i64 8}
+!78 = !{!"AVHWFramesConstraints", !7, i64 0, !7, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
+!79 = distinct !{!79, !31, !32}
+!80 = !{!78, !15, i64 16}
+!81 = !{!78, !15, i64 20}
+!82 = !{!78, !15, i64 24}
+!83 = !{!78, !15, i64 28}
+!84 = !{!67, !15, i64 60}
+!85 = !{!67, !15, i64 68}
+!86 = !{!67, !15, i64 72}
+!87 = !{!67, !15, i64 56}
+!88 = !{!67, !7, i64 24}
+!89 = !{!90, !92, i64 16}
+!90 = !{!"AVVAAPIFramesContext", !91, i64 0, !15, i64 8, !92, i64 16, !15, i64 24}
+!91 = !{!"p1 _ZTS16_VASurfaceAttrib", !7, i64 0}
+!92 = !{!"p1 int", !7, i64 0}
+!93 = !{!90, !15, i64 24}
+!94 = !{!21, !7, i64 128}
+!95 = !{!96, !47, i64 360}
+!96 = !{!"AVFrame", !8, i64 0, !8, i64 64, !97, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !38, i64 124, !47, i64 136, !47, i64 144, !38, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !98, i64 248, !15, i64 256, !40, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !47, i64 304, !99, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !47, i64 344, !47, i64 352, !47, i64 360, !47, i64 368, !7, i64 376, !39, i64 384, !47, i64 408}
+!97 = !{!"p2 omnipotent char", !14, i64 0}
+!98 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!99 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!100 = !{!96, !47, i64 344}
+!101 = !{!96, !15, i64 104}
+!102 = !{!96, !47, i64 368}
+!103 = !{!96, !15, i64 108}
+!104 = !{!96, !47, i64 352}
+!105 = !{!25, !25, i64 0}
+!106 = !{!11, !11, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS12_VARectangle", !7, i64 0}
+!109 = !{!96, !15, i64 284}
+!110 = !{!96, !15, i64 288}
+!111 = !{!96, !15, i64 116}
+!112 = !{!96, !19, i64 328}
+!113 = !{!114, !47, i64 16}
+!114 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !47, i64 16, !8, i64 24, !11, i64 104}
+!115 = !{!96, !15, i64 292}
+!116 = !{!96, !15, i64 280}
+!117 = !{!96, !15, i64 296}
+!118 = !{!8, !8, i64 0}
+!119 = !{!120, !7, i64 16}
+!120 = !{!"_VAProcPipelineCaps", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !7, i64 16, !15, i64 24, !7, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !92, i64 64, !15, i64 72, !92, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !8, i64 120}
+!121 = !{!120, !15, i64 24}
+!122 = !{!120, !7, i64 32}
+!123 = !{!120, !15, i64 40}
+!124 = !{!125, !15, i64 0}
+!125 = !{!"VAAPIColourProperties", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !8, i64 16, !8, i64 17, !15, i64 20, !15, i64 24}
+!126 = distinct !{!126, !31, !32}
+!127 = !{!125, !15, i64 12}
+!128 = !{!125, !15, i64 4}
+!129 = !{!125, !15, i64 8}
+!130 = !{!131, !15, i64 16}
+!131 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !108, i64 8, !15, i64 16, !108, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !92, i64 48, !15, i64 56, !92, i64 64, !15, i64 72, !92, i64 80, !15, i64 88, !15, i64 92, !132, i64 96, !15, i64 104, !92, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !133, i64 132, !133, i64 140, !15, i64 148, !134, i64 152, !8, i64 160}
+!132 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
+!133 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
+!134 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
+!135 = !{!131, !15, i64 36}
+!136 = !{!125, !8, i64 16}
+!137 = !{!125, !8, i64 17}
+!138 = !{!92, !92, i64 0}
+!139 = distinct !{!139, !31, !32}
+!140 = distinct !{!140, !31, !32}
+!141 = !{!21, !15, i64 24}
+!142 = distinct !{!142, !31, !32}
+!143 = distinct !{!143, !31, !32, !144}
+!144 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!145 = distinct !{!145, !31, !32, !144}
+!146 = distinct !{!146, !31, !32, !144}
+!147 = distinct !{!147, !31, !32, !144}
+!148 = distinct !{!148, !31, !32, !144}
+!149 = distinct !{!149, !31, !32, !144}
+!150 = distinct !{!150, !31, !32}
+!151 = distinct !{!151, !31, !32}
+!152 = !{!125, !15, i64 24}
+!153 = distinct !{!153, !31, !32}
+!154 = !{!155, !15, i64 0}
+!155 = !{!"", !15, i64 0, !8, i64 4}
+!156 = !{!155, !8, i64 4}
+!157 = !{!125, !15, i64 20}

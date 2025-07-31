@@ -364,12 +364,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %91
 122:                                              ; preds = %.preheader, %138
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %138 ]
   %123 = load ptr, ptr %100, align 8, !tbaa !17
-  %124 = load ptr, ptr %101, align 8, !tbaa !50
+  %124 = load ptr, ptr %101, align 8, !tbaa !51
   %125 = load i64, ptr %124, align 8, !tbaa !11
   %126 = mul i64 %125, %indvars.iv158
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
   %128 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv
-  %129 = load float, ptr %128, align 4, !tbaa !51
+  %129 = load float, ptr %128, align 4, !tbaa !52
   %130 = fmul float %129, 2.550000e+02
   %131 = fpext float %130 to double
   %132 = load double, ptr %19, align 8, !tbaa !35
@@ -383,10 +383,10 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #11
   %136 = sitofp i32 %135 to double
-  store double %136, ptr %24, align 8, !tbaa !35, !alias.scope !53
-  store double %136, ptr %104, align 8, !tbaa !35, !alias.scope !53
-  store double %136, ptr %105, align 8, !tbaa !35, !alias.scope !53
-  store double %136, ptr %106, align 8, !tbaa !35, !alias.scope !53
+  store double %136, ptr %24, align 8, !tbaa !35, !alias.scope !54
+  store double %136, ptr %104, align 8, !tbaa !35, !alias.scope !54
+  store double %136, ptr %105, align 8, !tbaa !35, !alias.scope !54
+  store double %136, ptr %106, align 8, !tbaa !35, !alias.scope !54
   %.sroa.2153.0.insert.shift = mul i64 %indvars.iv, 42949672960
   %.sroa.0152.0.insert.insert = or disjoint i64 %.sroa.2153.0.insert.shift, %107
   %137 = mul i64 %indvars.iv.next, 42949672960
@@ -399,7 +399,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #11
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %121, label %122, !llvm.loop !56
+  br i1 %exitcond.not, label %121, label %122, !llvm.loop !57
 
 139:                                              ; preds = %122
   %140 = landingpad { ptr, i32 }
@@ -809,12 +809,13 @@ attributes #13 = { builtin nounwind }
 !45 = distinct !{!45, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"vtable pointer", !8, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!18, !25, i64 72}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"float", !7, i64 0}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!55 = distinct !{!55, !"_ZN2cv7Scalar_IdE3allEd"}
-!56 = distinct !{!56, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!18, !25, i64 72}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"float", !7, i64 0}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!56 = distinct !{!56, !"_ZN2cv7Scalar_IdE3allEd"}
+!57 = distinct !{!57, !49, !50}

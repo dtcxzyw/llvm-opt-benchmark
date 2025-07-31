@@ -51,7 +51,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !13
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !14
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 
@@ -63,18 +63,18 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
 .lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0811 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph12
   %7 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !14
+  br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !15
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph12
-  br label %._crit_edge, !llvm.loop !14
+  br label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
   %.lcssa = phi ptr [ null, %1 ], [ null, %.._crit_edge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %6, %.lr.ph ]
@@ -87,21 +87,21 @@ define hidden noundef ptr @mbedtls_cipher_info_from_string(ptr noundef readonly 
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !13
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !14
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.preheader, %4
   %8 = phi ptr [ %7, %4 ], [ %3, %.preheader ]
   %.012 = phi ptr [ %5, %4 ], [ @mbedtls_cipher_definitions, %.preheader ]
-  %9 = load ptr, ptr %8, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %.loopexit, label %4
@@ -116,7 +116,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !13
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8, !tbaa !14
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -129,8 +129,8 @@ define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %
   %8 = and i32 %7, 31
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !19
-  %12 = load i32, ptr %11, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %12 = load i32, ptr %11, align 8, !tbaa !22
   %13 = icmp eq i32 %12, %0
   br i1 %13, label %mbedtls_cipher_info_get_key_bitlen.exit, label %21
 
@@ -149,9 +149,9 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %.lr.ph
 21:                                               ; preds = %.lr.ph, %mbedtls_cipher_info_get_key_bitlen.exit, %17
   %22 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.012, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !13
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %17, %21, %3
   %.lcssa = phi ptr [ null, %3 ], [ null, %21 ], [ %5, %17 ]
@@ -174,7 +174,7 @@ define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -184,21 +184,21 @@ define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #8 {
 
 7:                                                ; preds = %6, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %20, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !29
+  %11 = load ptr, ptr %0, align 8, !tbaa !30
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load i32, ptr %12, align 8
   %13 = lshr i32 %.val, 26
   %14 = and i32 %13, 31
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !19
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
   tail call void %19(ptr noundef nonnull %9) #15
   br label %20
 
@@ -227,21 +227,21 @@ define hidden range(i32 -24960, 1) i32 @mbedtls_cipher_setup(ptr noundef writeon
   %7 = and i32 %6, 31
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %12 = load ptr, ptr %11, align 8, !tbaa !31
+  %12 = load ptr, ptr %11, align 8, !tbaa !32
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %4
   %14 = tail call ptr %12() #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %14, ptr %15, align 8, !tbaa !28
+  store ptr %14, ptr %15, align 8, !tbaa !29
   %16 = icmp eq ptr %14, null
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13, %4
-  store ptr %1, ptr %0, align 8, !tbaa !29
+  store ptr %1, ptr %0, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %13, %2, %17
@@ -255,7 +255,7 @@ define hidden i32 @mbedtls_cipher_setkey(ptr noundef captures(none) %0, ptr noun
   br i1 %or.cond, label %32, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %32, label %8
 
@@ -274,9 +274,9 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %8
 
 15:                                               ; preds = %mbedtls_cipher_info_get_key_bitlen.exit, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %16, align 8, !tbaa !32
+  store i32 %2, ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %17, align 4, !tbaa !33
+  store i32 %3, ptr %17, align 4, !tbaa !34
   %18 = icmp eq i32 %3, 1
   %.val27.pre = load i32, ptr %9, align 8
   br i1 %18, label %.sink.split, label %19
@@ -295,11 +295,11 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %8
   %23 = and i32 %22, 31
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink31
-  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = load ptr, ptr %27, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !29
   %31 = tail call i32 %28(ptr noundef %30, ptr noundef %1, i32 noundef %2) #15
   br label %32
 
@@ -310,7 +310,7 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_set_iv(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !29
+  %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %55, label %6
 
@@ -344,13 +344,13 @@ mbedtls_cipher_info_get_iv_size.exit:             ; preds = %8
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = tail call i32 @mbedtls_chacha20_starts(ptr noundef %22, ptr noundef %1, i32 noundef 0) #15
   %.not44 = icmp eq i32 %23, 0
   br i1 %.not44, label %.thread, label %55
 
 .thread:                                          ; preds = %20
-  %24 = load ptr, ptr %0, align 8, !tbaa !29
+  %24 = load ptr, ptr %0, align 8, !tbaa !30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   br label %30
@@ -372,22 +372,22 @@ mbedtls_cipher_info_get_iv_size.exit:             ; preds = %8
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !33
+  %38 = load i32, ptr %37, align 4, !tbaa !34
   %39 = tail call i32 @mbedtls_gcm_starts(ptr noundef %36, i32 noundef %38, ptr noundef %1, i64 noundef %2) #15
   br label %55
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %42 = load ptr, ptr %41, align 8, !tbaa !28
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = tail call i32 @mbedtls_ccm_set_lengths(ptr noundef %42, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not46 = icmp eq i32 %43, 0
   br i1 %.not46, label %44, label %55
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !33
+  %46 = load i32, ptr %45, align 4, !tbaa !34
   switch i32 %46, label %55 [
     i32 0, label %48
     i32 1, label %47
@@ -398,7 +398,7 @@ mbedtls_cipher_info_get_iv_size.exit:             ; preds = %8
 
 48:                                               ; preds = %44, %47
   %.0 = phi i32 [ 3, %47 ], [ 2, %44 ]
-  %49 = load ptr, ptr %41, align 8, !tbaa !28
+  %49 = load ptr, ptr %41, align 8, !tbaa !29
   %50 = tail call i32 @mbedtls_ccm_starts(ptr noundef %49, i32 noundef %.0, ptr noundef %1, i64 noundef %2) #15
   br label %55
 
@@ -410,7 +410,7 @@ mbedtls_cipher_info_get_iv_size.exit:             ; preds = %8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 1 %1, i64 %.036, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.036, ptr %54, align 8, !tbaa !35
+  store i64 %.036, ptr %54, align 8, !tbaa !36
   br label %55
 
 55:                                               ; preds = %51, %52, %48, %40, %44, %27, %20, %19, %mbedtls_cipher_info_get_iv_size.exit, %6, %3, %34
@@ -431,13 +431,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr noundef captures(none) %0) local_unnamed_addr #11 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !29
+  %2 = load ptr, ptr %0, align 8, !tbaa !30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %5, align 8, !tbaa !36
+  store i64 0, ptr %5, align 8, !tbaa !37
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -447,7 +447,7 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr noundef capture
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_update_ad(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !29
+  %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %30, label %6
 
@@ -460,7 +460,7 @@ define hidden i32 @mbedtls_cipher_update_ad(ptr noundef %0, ptr noundef %1, i64 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %13, ptr noundef %1, i64 noundef %2) #15
   br label %30
 
@@ -471,18 +471,18 @@ define hidden i32 @mbedtls_cipher_update_ad(ptr noundef %0, ptr noundef %1, i64 
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !33
+  %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = icmp ne i32 %20, 1
   %22 = zext i1 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = tail call i32 @mbedtls_chachapoly_starts(ptr noundef %24, ptr noundef nonnull %25, i32 noundef %22) #15
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %30
 
 27:                                               ; preds = %18
-  %28 = load ptr, ptr %23, align 8, !tbaa !28
+  %28 = load ptr, ptr %23, align 8, !tbaa !29
   %29 = tail call i32 @mbedtls_chachapoly_update_aad(ptr noundef %28, ptr noundef %1, i64 noundef %2) #15
   br label %30
 
@@ -499,12 +499,12 @@ declare i32 @mbedtls_chachapoly_update_aad(ptr noundef, ptr noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #8 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread217, label %mbedtls_cipher_get_block_size.exit
 
 mbedtls_cipher_get_block_size.exit:               ; preds = %5
-  store i64 0, ptr %4, align 8, !tbaa !37
+  store i64 0, ptr %4, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 31
@@ -526,31 +526,31 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %.not205, label %17, label %.thread217
 
 17:                                               ; preds = %16
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   %.val213 = load i32, ptr %8, align 8
   %18 = lshr i32 %.val213, 26
   %19 = and i32 %18, 31
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !38
+  %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !33
+  %28 = load i32, ptr %27, align 4, !tbaa !34
   %29 = tail call i32 %24(ptr noundef %26, i32 noundef %28, ptr noundef %1, ptr noundef %3) #15
   br label %.thread217
 
 30:                                               ; preds = %13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !28
+  %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = tail call i32 @mbedtls_gcm_update(ptr noundef %32, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #15
   br label %.thread217
 
 34:                                               ; preds = %13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = tail call i32 @mbedtls_ccm_update(ptr noundef %36, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #15
   br label %.thread217
 
@@ -560,9 +560,9 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %43 = load ptr, ptr %42, align 8, !tbaa !28
+  %43 = load ptr, ptr %42, align 8, !tbaa !29
   %44 = tail call i32 @mbedtls_chachapoly_update(ptr noundef %43, i64 noundef %2, ptr noundef %1, ptr noundef %3) #15
   br label %.thread217
 
@@ -572,7 +572,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %49 = load i64, ptr %48, align 8, !tbaa !36
+  %49 = load i64, ptr %48, align 8, !tbaa !37
   %.not = icmp eq i64 %49, 0
   br i1 %.not, label %50, label %.thread217
 
@@ -593,7 +593,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !33
+  %55 = load i32, ptr %54, align 4, !tbaa !34
   switch i32 %55, label %.thread216 [
     i32 0, label %56
     i32 1, label %65
@@ -601,10 +601,10 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !39
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
   %.not197 = icmp eq ptr %58, null
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %60 = load i64, ptr %59, align 8, !tbaa !36
+  %60 = load i64, ptr %59, align 8, !tbaa !37
   %61 = sub i64 %11, %60
   br i1 %.not197, label %63, label %62
 
@@ -618,7 +618,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
 
 65:                                               ; preds = %53
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %67 = load i64, ptr %66, align 8, !tbaa !36
+  %67 = load i64, ptr %66, align 8, !tbaa !37
   %68 = sub i64 %11, %67
   %69 = icmp ult i64 %2, %68
   br i1 %69, label %70, label %.thread216
@@ -629,14 +629,14 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 0, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %1, i64 %2, i1 false)
-  %75 = load i64, ptr %73, align 8, !tbaa !36
+  %75 = load i64, ptr %73, align 8, !tbaa !37
   %76 = add i64 %75, %2
-  store i64 %76, ptr %73, align 8, !tbaa !36
+  store i64 %76, ptr %73, align 8, !tbaa !37
   br label %.thread217
 
 .thread216:                                       ; preds = %62, %53, %63, %65
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %78 = load i64, ptr %77, align 8, !tbaa !36
+  %78 = load i64, ptr %77, align 8, !tbaa !37
   %.not199 = icmp eq i64 %78, 0
   br i1 %.not199, label %100, label %79
 
@@ -650,22 +650,22 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %84 = and i32 %83, 31
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !19
+  %87 = load ptr, ptr %86, align 8, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !40
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %91 = load ptr, ptr %90, align 8, !tbaa !28
+  %91 = load ptr, ptr %90, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = tail call i32 %89(ptr noundef %91, i32 noundef %55, i64 noundef %11, ptr noundef nonnull %92, ptr noundef nonnull %81, ptr noundef %3) #15
   %.not200 = icmp eq i32 %93, 0
   br i1 %.not200, label %94, label %.thread217
 
 94:                                               ; preds = %79
-  %95 = load i64, ptr %4, align 8, !tbaa !37
+  %95 = load i64, ptr %4, align 8, !tbaa !38
   %96 = add i64 %95, %11
-  store i64 %96, ptr %4, align 8, !tbaa !37
+  store i64 %96, ptr %4, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 %11
-  store i64 0, ptr %77, align 8, !tbaa !36
+  store i64 0, ptr %77, align 8, !tbaa !37
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %80
   %99 = sub i64 %2, %80
   br label %100
@@ -683,13 +683,13 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %103, label %104, label %110
 
 104:                                              ; preds = %101
-  %105 = load i32, ptr %54, align 4, !tbaa !33
+  %105 = load i32, ptr %54, align 4, !tbaa !34
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !39
+  %109 = load ptr, ptr %108, align 8, !tbaa !40
   %.not202 = icmp eq ptr %109, null
   %spec.select = select i1 %.not202, i64 0, i64 %11
   br label %110
@@ -700,35 +700,35 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %112 = sub i64 %.0173, %.0
   %113 = getelementptr inbounds nuw i8, ptr %.0171, i64 %112
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr align 1 %113, i64 %.0, i1 false)
-  %114 = load i64, ptr %77, align 8, !tbaa !36
+  %114 = load i64, ptr %77, align 8, !tbaa !37
   %115 = add i64 %114, %.0
-  store i64 %115, ptr %77, align 8, !tbaa !36
+  store i64 %115, ptr %77, align 8, !tbaa !37
   %.not203 = icmp eq i64 %.0173, %.0
   br i1 %.not203, label %.thread217, label %116
 
 116:                                              ; preds = %110
-  %117 = load ptr, ptr %0, align 8, !tbaa !29
+  %117 = load ptr, ptr %0, align 8, !tbaa !30
   %118 = getelementptr i8, ptr %117, i64 8
   %.val211 = load i32, ptr %118, align 8
   %119 = lshr i32 %.val211, 26
   %120 = and i32 %119, 31
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %121
-  %123 = load ptr, ptr %122, align 8, !tbaa !19
+  %123 = load ptr, ptr %122, align 8, !tbaa !20
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !40
+  %125 = load ptr, ptr %124, align 8, !tbaa !41
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %127 = load ptr, ptr %126, align 8, !tbaa !28
-  %128 = load i32, ptr %54, align 4, !tbaa !33
+  %127 = load ptr, ptr %126, align 8, !tbaa !29
+  %128 = load i32, ptr %54, align 4, !tbaa !34
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = tail call i32 %125(ptr noundef %127, i32 noundef %128, i64 noundef %112, ptr noundef nonnull %129, ptr noundef %.0171, ptr noundef %.0172) #15
   %.not204 = icmp eq i32 %130, 0
   br i1 %.not204, label %131, label %.thread217
 
 131:                                              ; preds = %116
-  %132 = load i64, ptr %4, align 8, !tbaa !37
+  %132 = load i64, ptr %4, align 8, !tbaa !38
   %133 = add i64 %132, %112
-  store i64 %133, ptr %4, align 8, !tbaa !37
+  store i64 %133, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 134:                                              ; preds = %52
@@ -736,13 +736,13 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %136 = and i32 %135, 31
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %137
-  %139 = load ptr, ptr %138, align 8, !tbaa !19
+  %139 = load ptr, ptr %138, align 8, !tbaa !20
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %141 = load ptr, ptr %140, align 8, !tbaa !41
+  %141 = load ptr, ptr %140, align 8, !tbaa !42
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %143 = load ptr, ptr %142, align 8, !tbaa !28
+  %143 = load ptr, ptr %142, align 8, !tbaa !29
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %145 = load i32, ptr %144, align 4, !tbaa !33
+  %145 = load i32, ptr %144, align 4, !tbaa !34
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %148 = tail call i32 %141(ptr noundef %143, i32 noundef %145, i64 noundef %2, ptr noundef nonnull %146, ptr noundef nonnull %147, ptr noundef %1, ptr noundef %3) #15
@@ -750,7 +750,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %.not196, label %149, label %.thread217
 
 149:                                              ; preds = %134
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 150:                                              ; preds = %52
@@ -758,11 +758,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %152 = and i32 %151, 31
   %153 = zext nneg i32 %152 to i64
   %154 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %153
-  %155 = load ptr, ptr %154, align 8, !tbaa !19
+  %155 = load ptr, ptr %154, align 8, !tbaa !20
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !42
+  %157 = load ptr, ptr %156, align 8, !tbaa !43
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %159 = load ptr, ptr %158, align 8, !tbaa !28
+  %159 = load ptr, ptr %158, align 8, !tbaa !29
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %162 = tail call i32 %157(ptr noundef %159, i64 noundef %2, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef %1, ptr noundef %3) #15
@@ -770,7 +770,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %.not195, label %163, label %.thread217
 
 163:                                              ; preds = %150
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 164:                                              ; preds = %52
@@ -778,11 +778,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %166 = and i32 %165, 31
   %167 = zext nneg i32 %166 to i64
   %168 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %167
-  %169 = load ptr, ptr %168, align 8, !tbaa !19
+  %169 = load ptr, ptr %168, align 8, !tbaa !20
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 40
-  %171 = load ptr, ptr %170, align 8, !tbaa !43
+  %171 = load ptr, ptr %170, align 8, !tbaa !44
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %173 = load ptr, ptr %172, align 8, !tbaa !28
+  %173 = load ptr, ptr %172, align 8, !tbaa !29
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -791,12 +791,12 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   br i1 %.not194, label %178, label %.thread217
 
 178:                                              ; preds = %164
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 179:                                              ; preds = %52
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %181 = load i64, ptr %180, align 8, !tbaa !36
+  %181 = load i64, ptr %180, align 8, !tbaa !37
   %.not192 = icmp eq i64 %181, 0
   br i1 %.not192, label %182, label %.thread217
 
@@ -805,20 +805,20 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %184 = and i32 %183, 31
   %185 = zext nneg i32 %184 to i64
   %186 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %185
-  %187 = load ptr, ptr %186, align 8, !tbaa !19
+  %187 = load ptr, ptr %186, align 8, !tbaa !20
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
-  %189 = load ptr, ptr %188, align 8, !tbaa !44
+  %189 = load ptr, ptr %188, align 8, !tbaa !45
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %191 = load ptr, ptr %190, align 8, !tbaa !28
+  %191 = load ptr, ptr %190, align 8, !tbaa !29
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %193 = load i32, ptr %192, align 4, !tbaa !33
+  %193 = load i32, ptr %192, align 4, !tbaa !34
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %195 = tail call i32 %189(ptr noundef %191, i32 noundef %193, i64 noundef %2, ptr noundef nonnull %194, ptr noundef %1, ptr noundef %3) #15
   %.not193 = icmp eq i32 %195, 0
   br i1 %.not193, label %196, label %.thread217
 
 196:                                              ; preds = %182
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 197:                                              ; preds = %52
@@ -826,17 +826,17 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %5
   %199 = and i32 %198, 31
   %200 = zext nneg i32 %199 to i64
   %201 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %200
-  %202 = load ptr, ptr %201, align 8, !tbaa !19
+  %202 = load ptr, ptr %201, align 8, !tbaa !20
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 56
-  %204 = load ptr, ptr %203, align 8, !tbaa !45
+  %204 = load ptr, ptr %203, align 8, !tbaa !46
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %206 = load ptr, ptr %205, align 8, !tbaa !28
+  %206 = load ptr, ptr %205, align 8, !tbaa !29
   %207 = tail call i32 %204(ptr noundef %206, i64 noundef %2, ptr noundef %1, ptr noundef %3) #15
   %.not191 = icmp eq i32 %207, 0
   br i1 %.not191, label %208, label %.thread217
 
 208:                                              ; preds = %197
-  store i64 %2, ptr %4, align 8, !tbaa !37
+  store i64 %2, ptr %4, align 8, !tbaa !38
   br label %.thread217
 
 .thread217:                                       ; preds = %100, %52, %197, %182, %179, %164, %150, %134, %70, %79, %116, %131, %110, %47, %50, %17, %16, %mbedtls_cipher_get_block_size.exit, %5, %208, %196, %178, %163, %149, %41, %34, %30
@@ -852,12 +852,12 @@ declare i32 @mbedtls_chachapoly_update(ptr noundef, i64 noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !29
+  %4 = load ptr, ptr %0, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %switch.lookup, label %6
 
 6:                                                ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !37
+  store i64 0, ptr %2, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 61440
@@ -866,7 +866,7 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !46
+  %13 = load ptr, ptr %12, align 8, !tbaa !47
   %14 = icmp eq ptr %13, null
   br i1 %14, label %switch.lookup, label %15
 
@@ -892,26 +892,26 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load i64, ptr %22, align 8, !tbaa !36
+  %23 = load i64, ptr %22, align 8, !tbaa !37
   %.not49 = icmp eq i64 %23, 0
   %. = select i1 %.not49, i32 0, i32 -25216
   br label %switch.lookup
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !33
+  %26 = load i32, ptr %25, align 4, !tbaa !34
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %mbedtls_cipher_get_block_size.exit
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !39
+  %30 = load ptr, ptr %29, align 8, !tbaa !40
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %mbedtls_cipher_get_iv_size.exit
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !tbaa !36
+  %34 = load i64, ptr %33, align 8, !tbaa !37
   %.not48 = icmp eq i64 %34, 0
   %.50 = select i1 %.not48, i32 0, i32 -25216
   br label %switch.lookup
@@ -919,7 +919,7 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
 mbedtls_cipher_get_iv_size.exit:                  ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load i64, ptr %36, align 8, !tbaa !35
+  %37 = load i64, ptr %36, align 8, !tbaa !36
   %.not.i = icmp eq i64 %37, 0
   %38 = trunc i64 %37 to i32
   %39 = lshr i32 %8, 3
@@ -927,12 +927,12 @@ mbedtls_cipher_get_iv_size.exit:                  ; preds = %28
   %.0.i = select i1 %.not.i, i32 %40, i32 %38
   %41 = sext i32 %.0.i to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %43 = load i64, ptr %42, align 8, !tbaa !36
+  %43 = load i64, ptr %42, align 8, !tbaa !37
   tail call void %30(ptr noundef nonnull %35, i64 noundef %41, i64 noundef %43) #15
-  %.pre = load ptr, ptr %0, align 8, !tbaa !29
+  %.pre = load ptr, ptr %0, align 8, !tbaa !30
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre63 = load i32, ptr %25, align 4, !tbaa !33
+  %.pre63 = load i32, ptr %25, align 4, !tbaa !34
   %.pre64 = and i32 %.val.pre, 31
   %.pre65 = zext nneg i32 %.pre64 to i64
   br label %mbedtls_cipher_get_block_size.exit57
@@ -941,13 +941,13 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %24
   %44 = and i32 %8, 31
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %47 = load i64, ptr %46, align 8, !tbaa !36
+  %47 = load i64, ptr %46, align 8, !tbaa !37
   %.not = icmp eq i64 %47, %45
   br i1 %.not, label %mbedtls_cipher_get_block_size.exit57, label %48
 
 48:                                               ; preds = %mbedtls_cipher_get_block_size.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !39
+  %50 = load ptr, ptr %49, align 8, !tbaa !40
   %51 = icmp eq ptr %50, null
   %52 = icmp eq i64 %47, 0
   %or.cond = and i1 %52, %51
@@ -962,11 +962,11 @@ mbedtls_cipher_get_block_size.exit57:             ; preds = %mbedtls_cipher_get_
   %55 = and i32 %54, 31
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !19
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %60 = load ptr, ptr %59, align 8, !tbaa !41
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %62 = load ptr, ptr %61, align 8, !tbaa !28
+  %62 = load ptr, ptr %61, align 8, !tbaa !29
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = tail call i32 %60(ptr noundef %62, i32 noundef %53, i64 noundef %.pre-phi66, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef %1) #15
@@ -974,14 +974,14 @@ mbedtls_cipher_get_block_size.exit57:             ; preds = %mbedtls_cipher_get_
   br i1 %.not47, label %66, label %switch.lookup
 
 66:                                               ; preds = %mbedtls_cipher_get_block_size.exit57
-  %67 = load i32, ptr %25, align 4, !tbaa !33
+  %67 = load i32, ptr %25, align 4, !tbaa !34
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !46
-  %.val52 = load ptr, ptr %0, align 8, !tbaa !29
+  %71 = load ptr, ptr %70, align 8, !tbaa !47
+  %.val52 = load ptr, ptr %0, align 8, !tbaa !30
   %72 = icmp eq ptr %.val52, null
   br i1 %72, label %mbedtls_cipher_get_block_size.exit59, label %73
 
@@ -998,7 +998,7 @@ mbedtls_cipher_get_block_size.exit59:             ; preds = %69, %73
   br label %switch.lookup
 
 79:                                               ; preds = %66
-  %.val51 = load ptr, ptr %0, align 8, !tbaa !29
+  %.val51 = load ptr, ptr %0, align 8, !tbaa !30
   %80 = icmp eq ptr %.val51, null
   br i1 %80, label %mbedtls_cipher_get_block_size.exit61, label %81
 
@@ -1011,7 +1011,7 @@ mbedtls_cipher_get_block_size.exit59:             ; preds = %69, %73
 
 mbedtls_cipher_get_block_size.exit61:             ; preds = %79, %81
   %.0.i60 = phi i64 [ %85, %81 ], [ 0, %79 ]
-  store i64 %.0.i60, ptr %2, align 8, !tbaa !37
+  store i64 %.0.i60, ptr %2, align 8, !tbaa !38
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %15, %48, %20, %mbedtls_cipher_get_block_size.exit59, %mbedtls_cipher_get_block_size.exit61, %32, %mbedtls_cipher_get_block_size.exit57, %21, %11, %3
@@ -1021,7 +1021,7 @@ switch.lookup:                                    ; preds = %15, %48, %20, %mbed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !29
+  %3 = load ptr, ptr %0, align 8, !tbaa !30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
 
@@ -1044,9 +1044,9 @@ switch.lookup:                                    ; preds = %9
   %switch.gep14 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode.3, i64 0, i64 %12
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %switch.load, ptr %13, align 8, !tbaa !39
+  store ptr %switch.load, ptr %13, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %switch.load15, ptr %14, align 8, !tbaa !46
+  store ptr %switch.load15, ptr %14, align 8, !tbaa !47
   br label %15
 
 15:                                               ; preds = %9, %switch.lookup, %2, %5
@@ -1069,11 +1069,11 @@ define internal void @add_pkcs_padding(ptr noundef writeonly captures(none) %0, 
   %8 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %.010 = phi i8 [ 0, %.lr.ph ], [ %10, %7 ]
   %9 = getelementptr i8, ptr %6, i64 %8
-  store i8 %5, ptr %9, align 1, !tbaa !47
+  store i8 %5, ptr %9, align 1, !tbaa !48
   %10 = add i8 %.010, 1
   %11 = zext i8 %10 to i64
   %12 = icmp ugt i64 %4, %11
-  br i1 %12, label %7, label %._crit_edge, !llvm.loop !48
+  br i1 %12, label %7, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %7, %3
   ret void
@@ -1089,7 +1089,7 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 %1
   %8 = getelementptr i8, ptr %7, i64 -1
-  %9 = load i8, ptr %8, align 1, !tbaa !47
+  %9 = load i8, ptr %8, align 1, !tbaa !48
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %39, label %11
 
@@ -1100,13 +1100,13 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 
 .lr.ph.preheader:                                 ; preds = %11
   %14 = sub nuw i64 %1, %12
-  store i64 %14, ptr %2, align 8, !tbaa !37
-  %15 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 range(i64 0, 256) %12) #15, !srcloc !49
+  store i64 %14, ptr %2, align 8, !tbaa !38
+  %15 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 range(i64 0, 256) %12) #15, !srcloc !50
   %16 = extractvalue { i64, i64, i64 } %15, 1
-  %17 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !50
-  %18 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
+  %17 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !51
+  %18 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !51
   %19 = xor i64 %18, %17
-  %20 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %19) #15, !srcloc !51
+  %20 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %19) #15, !srcloc !52
   %21 = xor i64 %20, -1
   %22 = or i64 %16, %21
   br label %.lr.ph
@@ -1114,21 +1114,21 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02936 = phi i64 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.03035 = phi i64 [ %34, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %23 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02936, i64 %14) #15, !srcloc !49
+  %23 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02936, i64 %14) #15, !srcloc !50
   %24 = extractvalue { i64, i64, i64 } %23, 1
   %25 = xor i64 %24, -1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.02936
-  %27 = load i8, ptr %26, align 1, !tbaa !47
+  %27 = load i8, ptr %26, align 1, !tbaa !48
   %28 = zext i8 %27 to i64
-  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %28) #15, !srcloc !50
-  %30 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !50
+  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %28) #15, !srcloc !51
+  %30 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !51
   %31 = xor i64 %30, %29
-  %32 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %31) #15, !srcloc !51
+  %32 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %31) #15, !srcloc !52
   %33 = and i64 %32, %25
   %34 = or i64 %33, %.03035
   %35 = add nuw i64 %.02936, 1
   %exitcond.not = icmp eq i64 %35, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %36 = trunc i64 %34 to i32
@@ -1145,7 +1145,7 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 define internal void @add_one_and_zeros_padding(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) #13 {
   %4 = sub i64 %1, %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %2
-  store i8 -128, ptr %5, align 1, !tbaa !47
+  store i8 -128, ptr %5, align 1, !tbaa !48
   %6 = icmp ugt i64 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -1153,11 +1153,11 @@ define internal void @add_one_and_zeros_padding(ptr noundef writeonly captures(n
   %7 = phi i64 [ %10, %.lr.ph ], [ 1, %3 ]
   %.010 = phi i8 [ %9, %.lr.ph ], [ 1, %3 ]
   %8 = getelementptr i8, ptr %5, i64 %7
-  store i8 0, ptr %8, align 1, !tbaa !47
+  store i8 0, ptr %8, align 1, !tbaa !48
   %9 = add i8 %.010, 1
   %10 = zext i8 %9 to i64
   %11 = icmp ugt i64 %4, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1171,9 +1171,9 @@ define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef 
   br i1 %or.cond, label %32, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #15, !srcloc !50
-  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #15, !srcloc !50
-  store i64 0, ptr %2, align 8, !tbaa !37
+  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #15, !srcloc !51
+  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #15, !srcloc !51
+  store i64 0, ptr %2, align 8, !tbaa !38
   %9 = icmp sgt i64 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -1190,26 +1190,26 @@ define internal range(i32 -25088, 1) i32 @get_one_and_zeros_padding(ptr noundef 
   %.02427 = phi i64 [ %28, %.lr.ph ], [ %8, %6 ]
   %.023 = add nsw i64 %.023.in28, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.023
-  %14 = load i8, ptr %13, align 1, !tbaa !47
+  %14 = load i8, ptr %13, align 1, !tbaa !48
   %15 = zext i8 %14 to i64
-  %16 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #15, !srcloc !51
+  %16 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #15, !srcloc !52
   %17 = and i64 %16, %.02229
-  %18 = load i64, ptr %2, align 8, !tbaa !37
-  %19 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %.023, i64 %18) #15, !srcloc !54
+  %18 = load i64, ptr %2, align 8, !tbaa !38
+  %19 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %.023, i64 %18) #15, !srcloc !55
   %20 = extractvalue { i64, i64, i64 } %19, 2
-  store i64 %20, ptr %2, align 8, !tbaa !37
-  %21 = load i8, ptr %13, align 1, !tbaa !47
+  store i64 %20, ptr %2, align 8, !tbaa !38
+  %21 = load i8, ptr %13, align 1, !tbaa !48
   %22 = zext i8 %21 to i64
-  %23 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #15, !srcloc !50
-  %24 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 128) #15, !srcloc !50
+  %23 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %22) #15, !srcloc !51
+  %24 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 128) #15, !srcloc !51
   %25 = xor i64 %24, %23
-  %26 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #15, !srcloc !51
-  %27 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %26, i64 %.02427) #15, !srcloc !54
+  %26 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #15, !srcloc !52
+  %27 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %26, i64 %.02427) #15, !srcloc !55
   %28 = extractvalue { i64, i64, i64 } %27, 2
   %29 = xor i64 %16, -1
   %30 = and i64 %.02229, %29
   %31 = icmp samesign ugt i64 %.023.in28, 1
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 32:                                               ; preds = %3, %._crit_edge
   %.0 = phi i32 [ %12, %._crit_edge ], [ -24832, %3 ]
@@ -1231,17 +1231,17 @@ define internal void @add_zeros_and_len_padding(ptr noundef writeonly captures(n
   %8 = phi i64 [ 1, %.lr.ph ], [ %10, %7 ]
   %.012 = phi i8 [ 1, %.lr.ph ], [ %9, %7 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  store i8 0, ptr %gep, align 1, !tbaa !47
+  store i8 0, ptr %gep, align 1, !tbaa !48
   %9 = add i8 %.012, 1
   %10 = zext i8 %9 to i64
   %11 = icmp ugt i64 %4, %10
-  br i1 %11, label %7, label %._crit_edge, !llvm.loop !56
+  br i1 %11, label %7, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %7, %3
   %12 = trunc nuw i64 %4 to i8
   %13 = getelementptr i8, ptr %0, i64 %1
   %14 = getelementptr i8, ptr %13, i64 -1
-  store i8 %12, ptr %14, align 1, !tbaa !47
+  store i8 %12, ptr %14, align 1, !tbaa !48
   ret void
 }
 
@@ -1255,16 +1255,16 @@ define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef 
 6:                                                ; preds = %3
   %7 = add i64 %1, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !47
+  %9 = load i8, ptr %8, align 1, !tbaa !48
   %10 = zext i8 %9 to i64
   %11 = sub i64 %1, %10
-  store i64 %11, ptr %2, align 8, !tbaa !37
-  %12 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 range(i64 0, 256) %10) #15, !srcloc !49
+  store i64 %11, ptr %2, align 8, !tbaa !38
+  %12 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 range(i64 0, 256) %10) #15, !srcloc !50
   %13 = extractvalue { i64, i64, i64 } %12, 1
-  %14 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %10) #15, !srcloc !50
-  %15 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
+  %14 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %10) #15, !srcloc !51
+  %15 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !51
   %16 = xor i64 %15, %14
-  %17 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %16) #15, !srcloc !51
+  %17 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %16) #15, !srcloc !52
   %18 = xor i64 %17, -1
   %19 = or i64 %13, %18
   %.not = icmp eq i64 %7, 0
@@ -1273,18 +1273,18 @@ define internal range(i32 -25088, 1) i32 @get_zeros_and_len_padding(ptr noundef 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.02530 = phi i64 [ %29, %.lr.ph ], [ 0, %6 ]
   %.02629 = phi i64 [ %28, %.lr.ph ], [ %19, %6 ]
-  %20 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02530, i64 %11) #15, !srcloc !49
+  %20 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02530, i64 %11) #15, !srcloc !50
   %21 = extractvalue { i64, i64, i64 } %20, 1
   %22 = xor i64 %21, -1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.02530
-  %24 = load i8, ptr %23, align 1, !tbaa !47
+  %24 = load i8, ptr %23, align 1, !tbaa !48
   %25 = zext i8 %24 to i64
-  %26 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #15, !srcloc !51
+  %26 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %25) #15, !srcloc !52
   %27 = and i64 %26, %22
   %28 = or i64 %27, %.02629
   %29 = add nuw i64 %.02530, 1
   %exitcond.not = icmp eq i64 %29, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.026.lcssa = phi i64 [ %19, %6 ], [ %28, %.lr.ph ]
@@ -1308,14 +1308,14 @@ define internal void @add_zeros_padding(ptr noundef writeonly captures(none) %0,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) #8 {
-  %4 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #15, !srcloc !50
+  %4 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #15, !srcloc !51
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
   br i1 %or.cond, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !37
+  store i64 0, ptr %2, align 8, !tbaa !38
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not20 = icmp eq i64 %1, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
@@ -1324,21 +1324,21 @@ define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly
   %.01622 = phi i64 [ %14, %.lr.ph ], [ %4, %7 ]
   %.01721 = phi i64 [ %19, %.lr.ph ], [ %1, %7 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.01721
-  %8 = load i8, ptr %gep, align 1, !tbaa !47
+  %8 = load i8, ptr %gep, align 1, !tbaa !48
   %9 = zext i8 %8 to i64
-  %10 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %9) #15, !srcloc !50
-  %11 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
+  %10 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %9) #15, !srcloc !51
+  %11 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !51
   %12 = xor i64 %11, %10
-  %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #15, !srcloc !51
+  %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #15, !srcloc !52
   %14 = or i64 %13, %.01622
   %15 = xor i64 %14, %.01622
-  %16 = load i64, ptr %2, align 8, !tbaa !37
-  %17 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %.01721, i64 %16) #15, !srcloc !54
+  %16 = load i64, ptr %2, align 8, !tbaa !38
+  %17 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %.01721, i64 %16) #15, !srcloc !55
   %18 = extractvalue { i64, i64, i64 } %17, 2
-  store i64 %18, ptr %2, align 8, !tbaa !37
+  store i64 %18, ptr %2, align 8, !tbaa !38
   %19 = add i64 %.01721, -1
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
   %.0 = phi i32 [ -24832, %3 ], [ 0, %7 ], [ 0, %.lr.ph ]
@@ -1353,7 +1353,7 @@ define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone ca
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %3
-  store i64 %1, ptr %2, align 8, !tbaa !37
+  store i64 %1, ptr %2, align 8, !tbaa !38
   br label %7
 
 7:                                                ; preds = %3, %6
@@ -1364,13 +1364,13 @@ define internal range(i32 -24832, 1) i32 @get_no_padding(ptr noundef readnone ca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_write_tag(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = alloca i64, align 8
-  %5 = load ptr, ptr %0, align 8, !tbaa !29
+  %5 = load ptr, ptr %0, align 8, !tbaa !30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !33
+  %9 = load i32, ptr %8, align 4, !tbaa !34
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %10, label %27
 
@@ -1384,7 +1384,7 @@ define hidden i32 @mbedtls_cipher_write_tag(ptr noundef readonly captures(none) 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = call i32 @mbedtls_gcm_finish(ptr noundef %17, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %27
@@ -1400,7 +1400,7 @@ define hidden i32 @mbedtls_cipher_write_tag(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = tail call i32 @mbedtls_chachapoly_finish(ptr noundef %25, ptr noundef %1) #15
   br label %27
 
@@ -1418,13 +1418,13 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr noundef readonly captures(none) 
   %4 = alloca [16 x i8], align 16
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %6 = load ptr, ptr %0, align 8, !tbaa !30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %36, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !33
+  %10 = load i32, ptr %9, align 4, !tbaa !34
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %36
 
@@ -1442,7 +1442,7 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr noundef readonly captures(none) 
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = call i32 @mbedtls_gcm_finish(ptr noundef %20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %2) #15
   %.not29 = icmp eq i32 %21, 0
   br i1 %.not29, label %22, label %.thread
@@ -1454,7 +1454,7 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr noundef readonly captures(none) 
   br i1 %.not30, label %.thread38, label %35
 
 .thread38:                                        ; preds = %22
-  %.pre = load ptr, ptr %0, align 8, !tbaa !29
+  %.pre = load ptr, ptr %0, align 8, !tbaa !30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre42 = load i32, ptr %.phi.trans.insert, align 8
   br label %24
@@ -1477,7 +1477,7 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr noundef readonly captures(none) 
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = call i32 @mbedtls_chachapoly_finish(ptr noundef %31, ptr noundef nonnull %4) #15
   %.not32 = icmp eq i32 %32, 0
   br i1 %.not32, label %33, label %36
@@ -1510,29 +1510,29 @@ define hidden i32 @mbedtls_cipher_crypt(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not, label %10, label %mbedtls_cipher_reset.exit
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !29
+  %11 = load ptr, ptr %0, align 8, !tbaa !30
   %12 = icmp eq ptr %11, null
   br i1 %12, label %mbedtls_cipher_reset.exit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !37
   %15 = tail call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
   %.not22 = icmp eq i32 %15, 0
   br i1 %.not22, label %16, label %mbedtls_cipher_reset.exit
 
 16:                                               ; preds = %13
-  %17 = load i64, ptr %6, align 8, !tbaa !37
+  %17 = load i64, ptr %6, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   %19 = call i32 @mbedtls_cipher_finish(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %8)
   %.not23 = icmp eq i32 %19, 0
   br i1 %.not23, label %20, label %mbedtls_cipher_reset.exit
 
 20:                                               ; preds = %16
-  %21 = load i64, ptr %8, align 8, !tbaa !37
-  %22 = load i64, ptr %6, align 8, !tbaa !37
+  %21 = load i64, ptr %8, align 8, !tbaa !38
+  %22 = load i64, ptr %6, align 8, !tbaa !38
   %23 = add i64 %22, %21
-  store i64 %23, ptr %6, align 8, !tbaa !37
+  store i64 %23, ptr %6, align 8, !tbaa !38
   br label %mbedtls_cipher_reset.exit
 
 mbedtls_cipher_reset.exit:                        ; preds = %10, %16, %13, %7, %20
@@ -1543,7 +1543,7 @@ mbedtls_cipher_reset.exit:                        ; preds = %10, %16, %13, %7, %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #8 {
-  %12 = load ptr, ptr %0, align 8, !tbaa !29
+  %12 = load ptr, ptr %0, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = lshr i32 %14, 12
@@ -1563,7 +1563,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef readonly captures
   %23 = icmp ne i32 %22, 49152
   %24 = zext i1 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = tail call i32 @mbedtls_nist_kw_wrap(ptr noundef %26, i32 noundef %24, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %9, i64 noundef %8) #15
   br label %55
 
@@ -1580,16 +1580,16 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef readonly captures
   ]
 
 33:                                               ; preds = %31
-  store i64 %6, ptr %9, align 8, !tbaa !37
+  store i64 %6, ptr %9, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %35 = load ptr, ptr %34, align 8, !tbaa !28
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = tail call i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %35, i32 noundef 1, i64 noundef %6, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, i64 noundef %10, ptr noundef %32) #15
   br label %mbedtls_cipher_aead_encrypt.exit
 
 37:                                               ; preds = %31
-  store i64 %6, ptr %9, align 8, !tbaa !37
+  store i64 %6, ptr %9, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !28
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = tail call i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %39, i64 noundef %6, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %32, i64 noundef %10) #15
   br label %mbedtls_cipher_aead_encrypt.exit
 
@@ -1608,17 +1608,17 @@ mbedtls_cipher_info_get_iv_size.exit.i:           ; preds = %41
   br i1 %or.cond.i, label %mbedtls_cipher_aead_encrypt.exit, label %49
 
 49:                                               ; preds = %mbedtls_cipher_info_get_iv_size.exit.i
-  store i64 %6, ptr %9, align 8, !tbaa !37
+  store i64 %6, ptr %9, align 8, !tbaa !38
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %51 = load ptr, ptr %50, align 8, !tbaa !28
+  %51 = load ptr, ptr %50, align 8, !tbaa !29
   %52 = tail call i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %51, i64 noundef %6, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %32) #15
   br label %mbedtls_cipher_aead_encrypt.exit
 
 mbedtls_cipher_aead_encrypt.exit:                 ; preds = %33, %37, %41, %mbedtls_cipher_info_get_iv_size.exit.i, %49
   %.0.i = phi i32 [ %36, %33 ], [ %40, %37 ], [ %52, %49 ], [ -24832, %mbedtls_cipher_info_get_iv_size.exit.i ], [ -24704, %41 ]
-  %53 = load i64, ptr %9, align 8, !tbaa !37
+  %53 = load i64, ptr %9, align 8, !tbaa !38
   %54 = add i64 %53, %10
-  store i64 %54, ptr %9, align 8, !tbaa !37
+  store i64 %54, ptr %9, align 8, !tbaa !38
   br label %55
 
 55:                                               ; preds = %28, %21, %18, %mbedtls_cipher_aead_encrypt.exit
@@ -1630,7 +1630,7 @@ declare i32 @mbedtls_nist_kw_wrap(ptr noundef, i32 noundef, ptr noundef, i64 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #8 {
-  %12 = load ptr, ptr %0, align 8, !tbaa !29
+  %12 = load ptr, ptr %0, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = lshr i32 %14, 12
@@ -1650,7 +1650,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef readonly captures
   %23 = icmp ne i32 %22, 49152
   %24 = zext i1 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = tail call i32 @mbedtls_nist_kw_unwrap(ptr noundef %26, i32 noundef %24, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %9, i64 noundef %8) #15
   br label %mbedtls_cipher_aead_decrypt.exit
 
@@ -1673,18 +1673,18 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef readonly captures
   ]
 
 37:                                               ; preds = %33
-  store i64 %31, ptr %9, align 8, !tbaa !37
+  store i64 %31, ptr %9, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !28
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = tail call i32 @mbedtls_gcm_auth_decrypt(ptr noundef %39, i64 noundef %31, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %36, i64 noundef %10, ptr noundef %5, ptr noundef %7) #15
   %41 = icmp eq i32 %40, -18
   %spec.store.select.i = select i1 %41, i32 -25344, i32 %40
   br label %mbedtls_cipher_aead_decrypt.exit
 
 42:                                               ; preds = %33
-  store i64 %31, ptr %9, align 8, !tbaa !37
+  store i64 %31, ptr %9, align 8, !tbaa !38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
   %45 = tail call i32 @mbedtls_ccm_auth_decrypt(ptr noundef %44, i64 noundef %31, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %36, i64 noundef %10) #15
   %46 = icmp eq i32 %45, -15
   %spec.store.select1.i = select i1 %46, i32 -25344, i32 %45
@@ -1705,9 +1705,9 @@ mbedtls_cipher_info_get_iv_size.exit.i:           ; preds = %47
   br i1 %or.cond.i, label %mbedtls_cipher_aead_decrypt.exit, label %55
 
 55:                                               ; preds = %mbedtls_cipher_info_get_iv_size.exit.i
-  store i64 %31, ptr %9, align 8, !tbaa !37
+  store i64 %31, ptr %9, align 8, !tbaa !38
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load ptr, ptr %56, align 8, !tbaa !28
+  %57 = load ptr, ptr %56, align 8, !tbaa !29
   %58 = tail call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %57, i64 noundef %31, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %36, ptr noundef %5, ptr noundef %7) #15
   %59 = icmp eq i32 %58, -86
   %spec.store.select3.i = select i1 %59, i32 -25344, i32 %58
@@ -1762,51 +1762,52 @@ attributes #15 = { nounwind }
 !8 = !{!"p1 _ZTS21mbedtls_cipher_info_t", !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!4, !8, i64 8}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"mbedtls_cipher_info_t", !18, i64 0, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 11}
-!18 = !{!"p1 omnipotent char", !9, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS21mbedtls_cipher_base_t", !9, i64 0}
-!21 = !{!22, !5, i64 0}
-!22 = !{!"mbedtls_cipher_base_t", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88}
-!23 = distinct !{!23, !12}
-!24 = !{!25, !27, i64 88}
-!25 = !{!"mbedtls_cipher_context_t", !8, i64 0, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !6, i64 32, !26, i64 48, !6, i64 56, !26, i64 72, !9, i64 80, !27, i64 88}
-!26 = !{!"long", !6, i64 0}
-!27 = !{!"p1 _ZTS22mbedtls_cmac_context_t", !9, i64 0}
-!28 = !{!25, !9, i64 80}
-!29 = !{!25, !8, i64 0}
-!30 = !{!22, !9, i64 88}
-!31 = !{!22, !9, i64 80}
-!32 = !{!25, !5, i64 8}
-!33 = !{!25, !5, i64 12}
-!34 = !{!9, !9, i64 0}
-!35 = !{!25, !26, i64 72}
-!36 = !{!25, !26, i64 48}
-!37 = !{!26, !26, i64 0}
-!38 = !{!22, !9, i64 8}
-!39 = !{!25, !9, i64 16}
-!40 = !{!22, !9, i64 16}
-!41 = !{!22, !9, i64 24}
-!42 = !{!22, !9, i64 32}
-!43 = !{!22, !9, i64 40}
-!44 = !{!22, !9, i64 48}
-!45 = !{!22, !9, i64 56}
-!46 = !{!25, !9, i64 24}
-!47 = !{!6, !6, i64 0}
-!48 = distinct !{!48, !12}
-!49 = !{i64 1046812, i64 1046862, i64 1046934, i64 1047006, i64 1047078, i64 1047150, i64 1047222, i64 1047294, i64 1047366}
-!50 = !{i64 1037281}
-!51 = !{i64 1040159, i64 1040209, i64 1040281, i64 1040353, i64 1040425}
-!52 = distinct !{!52, !12}
-!53 = distinct !{!53, !12}
-!54 = !{i64 1043580, i64 1043630, i64 1043702, i64 1043774, i64 1043846}
-!55 = distinct !{!55, !12}
-!56 = distinct !{!56, !12}
-!57 = distinct !{!57, !12}
-!58 = distinct !{!58, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!4, !8, i64 8}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"mbedtls_cipher_info_t", !19, i64 0, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 11}
+!19 = !{!"p1 omnipotent char", !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS21mbedtls_cipher_base_t", !9, i64 0}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"mbedtls_cipher_base_t", !5, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88}
+!24 = distinct !{!24, !12, !13}
+!25 = !{!26, !28, i64 88}
+!26 = !{!"mbedtls_cipher_context_t", !8, i64 0, !5, i64 8, !5, i64 12, !9, i64 16, !9, i64 24, !6, i64 32, !27, i64 48, !6, i64 56, !27, i64 72, !9, i64 80, !28, i64 88}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!"p1 _ZTS22mbedtls_cmac_context_t", !9, i64 0}
+!29 = !{!26, !9, i64 80}
+!30 = !{!26, !8, i64 0}
+!31 = !{!23, !9, i64 88}
+!32 = !{!23, !9, i64 80}
+!33 = !{!26, !5, i64 8}
+!34 = !{!26, !5, i64 12}
+!35 = !{!9, !9, i64 0}
+!36 = !{!26, !27, i64 72}
+!37 = !{!26, !27, i64 48}
+!38 = !{!27, !27, i64 0}
+!39 = !{!23, !9, i64 8}
+!40 = !{!26, !9, i64 16}
+!41 = !{!23, !9, i64 16}
+!42 = !{!23, !9, i64 24}
+!43 = !{!23, !9, i64 32}
+!44 = !{!23, !9, i64 40}
+!45 = !{!23, !9, i64 48}
+!46 = !{!23, !9, i64 56}
+!47 = !{!26, !9, i64 24}
+!48 = !{!6, !6, i64 0}
+!49 = distinct !{!49, !12, !13}
+!50 = !{i64 1046812, i64 1046862, i64 1046934, i64 1047006, i64 1047078, i64 1047150, i64 1047222, i64 1047294, i64 1047366}
+!51 = !{i64 1037281}
+!52 = !{i64 1040159, i64 1040209, i64 1040281, i64 1040353, i64 1040425}
+!53 = distinct !{!53, !12, !13}
+!54 = distinct !{!54, !12, !13}
+!55 = !{i64 1043580, i64 1043630, i64 1043702, i64 1043774, i64 1043846}
+!56 = distinct !{!56, !12, !13}
+!57 = distinct !{!57, !12, !13}
+!58 = distinct !{!58, !12, !13}
+!59 = distinct !{!59, !12, !13}

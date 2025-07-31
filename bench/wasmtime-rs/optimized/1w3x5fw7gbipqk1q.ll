@@ -126,7 +126,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   store i64 %37, ptr %44, align 8
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %45 = icmp eq i64 %.pr, 0
-  br i1 %45, label %.thread, label %.lr.ph
+  br i1 %45, label %.thread, label %.lr.ph, !llvm.loop !6
 
 46:                                               ; preds = %48, %14
   %47 = landingpad { ptr, i32 }
@@ -419,3 +419,5 @@ attributes #14 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 8}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

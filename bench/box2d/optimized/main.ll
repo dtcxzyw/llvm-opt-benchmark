@@ -767,7 +767,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
 352:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %327
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !83
 
 .critedge2.loopexit.i:                            ; preds = %.lr.ph.i
   %353 = trunc nsw i64 %indvars.iv.i to i32
@@ -808,10 +808,10 @@ _ZL8UpdateUIv.exit:                               ; preds = %224, %359
   %367 = fpext float %366 to double
   %368 = load ptr, ptr @_ZL8s_sample, align 8, !tbaa !66
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 64
-  %370 = load i32, ptr %369, align 8, !tbaa !83
-  %371 = load float, ptr @g_camera, align 4, !tbaa !92
+  %370 = load i32, ptr %369, align 8, !tbaa !84
+  %371 = load float, ptr @g_camera, align 4, !tbaa !93
   %372 = fpext float %371 to double
-  %373 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  %373 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   %374 = fpext float %373 to double
   %375 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 4, !tbaa !57
   %376 = fpext float %375 to double
@@ -848,9 +848,9 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
   call void @_ZN6Camera9ResetViewEv(ptr noundef nonnull align 4 dereferenceable(20) @g_camera)
   %387 = load i32, ptr @_ZL11s_selection, align 4, !tbaa !14
   store i32 %387, ptr @_ZL10s_settings, align 4, !tbaa !56
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 16), align 4, !tbaa !94
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 26), align 2, !tbaa !95
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 24), align 4, !tbaa !96
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 16), align 4, !tbaa !95
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 26), align 2, !tbaa !96
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 24), align 4, !tbaa !97
   %388 = load ptr, ptr @_ZL8s_sample, align 8, !tbaa !66
   %389 = icmp eq ptr %388, null
   br i1 %389, label %394, label %390
@@ -884,7 +884,7 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
   call void @b2Yield()
   %404 = call double @glfwGetTime()
   %405 = fcmp olt double %404, %402
-  br i1 %405, label %.lr.ph, label %._crit_edge, !llvm.loop !97
+  br i1 %405, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %400
   %.017.lcssa = phi double [ %401, %400 ], [ %404, %.lr.ph ]
@@ -897,7 +897,7 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
   %408 = load ptr, ptr @g_mainWindow, align 8, !tbaa !22
   %409 = call i32 @glfwWindowShouldClose(ptr noundef %408)
   %.not24 = icmp eq i32 %409, 0
-  br i1 %.not24, label %125, label %._crit_edge35, !llvm.loop !98
+  br i1 %.not24, label %125, label %._crit_edge35, !llvm.loop !99
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %_ZL8CreateUIP10GLFWwindowPKc.exit
   %410 = load ptr, ptr @_ZL8s_sample, align 8, !tbaa !66
@@ -985,7 +985,7 @@ define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noun
   tail call void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 169
-  %8 = load i8, ptr %7, align 1, !tbaa !99, !range !71, !noundef !72
+  %8 = load i8, ptr %7, align 1, !tbaa !100, !range !71, !noundef !72
   %9 = trunc nuw i8 %8 to i1
   %10 = icmp ne i32 %3, 1
   %or.cond.not = or i1 %10, %9
@@ -1022,9 +1022,9 @@ define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noun
   br label %80
 
 18:                                               ; preds = %14
-  %19 = load float, ptr @g_camera, align 4, !tbaa !92
+  %19 = load float, ptr @g_camera, align 4, !tbaa !93
   %20 = fadd float %19, -5.000000e-01
-  store float %20, ptr @g_camera, align 4, !tbaa !92
+  store float %20, ptr @g_camera, align 4, !tbaa !93
   br label %80
 
 21:                                               ; preds = %11
@@ -1037,9 +1037,9 @@ define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noun
   br label %80
 
 25:                                               ; preds = %21
-  %26 = load float, ptr @g_camera, align 4, !tbaa !92
+  %26 = load float, ptr @g_camera, align 4, !tbaa !93
   %27 = fadd float %26, 5.000000e-01
-  store float %27, ptr @g_camera, align 4, !tbaa !92
+  store float %27, ptr @g_camera, align 4, !tbaa !93
   br label %80
 
 28:                                               ; preds = %11
@@ -1052,9 +1052,9 @@ define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noun
   br label %80
 
 32:                                               ; preds = %28
-  %33 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  %33 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   %34 = fadd float %33, -5.000000e-01
-  store float %34, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  store float %34, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   br label %80
 
 35:                                               ; preds = %11
@@ -1067,9 +1067,9 @@ define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noun
   br label %80
 
 39:                                               ; preds = %35
-  %40 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  %40 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   %41 = fadd float %40, 5.000000e-01
-  store float %41, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  store float %41, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   br label %80
 
 42:                                               ; preds = %11
@@ -1171,7 +1171,7 @@ define internal void @_ZL19MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i
   tail call void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   %7 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %9 = load i8, ptr %8, align 8, !tbaa !100, !range !71, !noundef !72
+  %9 = load i8, ptr %8, align 8, !tbaa !101, !range !71, !noundef !72
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %37, label %11
 
@@ -1271,12 +1271,12 @@ define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, do
   %18 = extractelement <2 x float> %17, i64 0
   %19 = fsub <2 x float> %11, %.sroa.02.0.copyload
   %20 = extractelement <2 x float> %19, i64 1
-  %21 = load float, ptr @g_camera, align 4, !tbaa !92
+  %21 = load float, ptr @g_camera, align 4, !tbaa !93
   %22 = fsub float %21, %18
-  store float %22, ptr @g_camera, align 4, !tbaa !92
-  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  store float %22, ptr @g_camera, align 4, !tbaa !93
+  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   %24 = fsub float %23, %20
-  store float %24, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !93
+  store float %24, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !94
   %25 = tail call <2 x float> @_ZN6Camera20ConvertScreenToWorldE6b2Vec2(ptr noundef nonnull align 4 dereferenceable(20) @g_camera, <2 x float> %.sroa.09.4.vec.insert)
   store <2 x float> %25, ptr @_ZL14s_clickPointWS.0, align 8
   br label %26
@@ -1292,7 +1292,7 @@ define internal void @_ZL14ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double 
   tail call void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2)
   %4 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %6 = load i8, ptr %5, align 8, !tbaa !100, !range !71, !noundef !72
+  %6 = load i8, ptr %5, align 8, !tbaa !101, !range !71, !noundef !72
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %12, label %.sink.split
 
@@ -1586,24 +1586,25 @@ attributes #25 = { nounwind willreturn memory(read) }
 !77 = !{!10, !13, i64 43}
 !78 = !{!10, !13, i64 41}
 !79 = !{!10, !13, i64 42}
-!80 = distinct !{!80, !81}
+!80 = distinct !{!80, !81, !82}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = distinct !{!82, !81}
-!83 = !{!84, !11, i64 64}
-!84 = !{!"_ZTS6Sample", !85, i64 8, !86, i64 16, !87, i64 24, !11, i64 32, !11, i64 36, !88, i64 40, !11, i64 48, !89, i64 52, !90, i64 56, !11, i64 64, !11, i64 68, !91, i64 72, !91, i64 160}
-!85 = !{!"p1 _ZTS8Settings", !6, i64 0}
-!86 = !{!"p1 _ZTSN4enki13TaskSchedulerE", !6, i64 0}
-!87 = !{!"p1 _ZTS10SampleTask", !6, i64 0}
-!88 = !{!"_ZTS8b2BodyId", !11, i64 0, !32, i64 4, !32, i64 6}
-!89 = !{!"_ZTS9b2WorldId", !32, i64 0, !32, i64 2}
-!90 = !{!"_ZTS9b2JointId", !11, i64 0, !32, i64 4, !32, i64 6}
-!91 = !{!"_ZTS9b2Profile", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !12, i64 68, !12, i64 72, !12, i64 76, !12, i64 80, !12, i64 84}
-!92 = !{!17, !12, i64 0}
-!93 = !{!17, !12, i64 4}
-!94 = !{!10, !11, i64 16}
-!95 = !{!10, !13, i64 26}
-!96 = !{!10, !13, i64 24}
-!97 = distinct !{!97, !81}
-!98 = distinct !{!98, !81}
-!99 = !{!35, !13, i64 169}
-!100 = !{!35, !13, i64 168}
+!82 = !{!"llvm.loop.estimated_trip_count"}
+!83 = distinct !{!83, !81, !82}
+!84 = !{!85, !11, i64 64}
+!85 = !{!"_ZTS6Sample", !86, i64 8, !87, i64 16, !88, i64 24, !11, i64 32, !11, i64 36, !89, i64 40, !11, i64 48, !90, i64 52, !91, i64 56, !11, i64 64, !11, i64 68, !92, i64 72, !92, i64 160}
+!86 = !{!"p1 _ZTS8Settings", !6, i64 0}
+!87 = !{!"p1 _ZTSN4enki13TaskSchedulerE", !6, i64 0}
+!88 = !{!"p1 _ZTS10SampleTask", !6, i64 0}
+!89 = !{!"_ZTS8b2BodyId", !11, i64 0, !32, i64 4, !32, i64 6}
+!90 = !{!"_ZTS9b2WorldId", !32, i64 0, !32, i64 2}
+!91 = !{!"_ZTS9b2JointId", !11, i64 0, !32, i64 4, !32, i64 6}
+!92 = !{!"_ZTS9b2Profile", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !12, i64 68, !12, i64 72, !12, i64 76, !12, i64 80, !12, i64 84}
+!93 = !{!17, !12, i64 0}
+!94 = !{!17, !12, i64 4}
+!95 = !{!10, !11, i64 16}
+!96 = !{!10, !13, i64 26}
+!97 = !{!10, !13, i64 24}
+!98 = distinct !{!98, !81, !82}
+!99 = distinct !{!99, !81, !82}
+!100 = !{!35, !13, i64 169}
+!101 = !{!35, !13, i64 168}

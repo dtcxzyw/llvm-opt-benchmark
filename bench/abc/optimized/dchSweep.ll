@@ -159,7 +159,7 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
 
 .critedge:                                        ; preds = %.lr.ph, %1
   %.lcssa = phi ptr [ %14, %1 ], [ %26, %.lr.ph ]
-  %32 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %32 = load ptr, ptr @stdout, align 8, !tbaa !44
   %33 = getelementptr i8, ptr %.lcssa, i64 32
   %.val49 = load ptr, ptr %33, align 8, !tbaa !33
   %34 = getelementptr i8, ptr %.val49, i64 4
@@ -200,7 +200,7 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
   br i1 %.not.i, label %57, label %53
 
 53:                                               ; preds = %52
-  %54 = load i32, ptr %35, align 4, !tbaa !45
+  %54 = load i32, ptr %35, align 4, !tbaa !46
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv70, %55
   br i1 %56, label %Bar_ProgressUpdate.exit, label %57
@@ -212,7 +212,7 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
 
 Bar_ProgressUpdate.exit:                          ; preds = %53, %57
   %59 = getelementptr i8, ptr %45, i64 8
-  %.val55 = load ptr, ptr %59, align 8, !tbaa !46
+  %.val55 = load ptr, ptr %59, align 8, !tbaa !47
   %60 = ptrtoint ptr %.val55 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
@@ -223,7 +223,7 @@ Bar_ProgressUpdate.exit:                          ; preds = %53, %57
 
 65:                                               ; preds = %Bar_ProgressUpdate.exit
   %66 = getelementptr i8, ptr %45, i64 16
-  %.val56 = load ptr, ptr %66, align 8, !tbaa !47
+  %.val56 = load ptr, ptr %66, align 8, !tbaa !48
   %67 = ptrtoint ptr %.val56 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
@@ -265,7 +265,7 @@ Dch_ObjChild0Fra.exit:                            ; preds = %65
   %.val47 = load i32, ptr %91, align 4, !tbaa !34
   %92 = sext i32 %.val47 to i64
   %93 = icmp slt i64 %indvars.iv.next71, %92
-  br i1 %93, label %41, label %.critedge2, !llvm.loop !48
+  br i1 %93, label %41, label %.critedge2, !llvm.loop !49
 
 .critedge2:                                       ; preds = %87, %.critedge
   tail call void @Bar_ProgressStop(ptr noundef %35) #3
@@ -360,11 +360,12 @@ attributes #3 = { nounwind }
 !38 = !{!18, !15, i64 16}
 !39 = !{!35, !6, i64 8}
 !40 = !{!6, !6, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!45 = !{!13, !13, i64 0}
-!46 = !{!21, !20, i64 8}
-!47 = !{!21, !20, i64 16}
-!48 = distinct !{!48, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!46 = !{!13, !13, i64 0}
+!47 = !{!21, !20, i64 8}
+!48 = !{!21, !20, i64 16}
+!49 = distinct !{!49, !42, !43}

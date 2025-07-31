@@ -168,7 +168,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !11
+  %5 = load ptr, ptr %1, align 8, !tbaa !12
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = icmp sgt i8 %6, -1
   br i1 %7, label %8, label %14
@@ -178,9 +178,9 @@ define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %
   %10 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   store i8 %11, ptr %3, align 1, !tbaa !4
-  %12 = load ptr, ptr %1, align 8, !tbaa !11
+  %12 = load ptr, ptr %1, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %13, ptr %1, align 8, !tbaa !11
+  store ptr %13, ptr %1, align 8, !tbaa !12
   br label %16
 
 14:                                               ; preds = %4
@@ -223,7 +223,7 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone captures
   %4 = icmp ugt ptr %.0, %0
   %5 = and i1 %4, %.not13
   %6 = getelementptr inbounds i8, ptr %.0, i64 -1
-  br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.010 = phi ptr [ %1, %2 ], [ %.0, %.preheader ]
@@ -271,12 +271,12 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %16 = getelementptr inbounds nuw i8, ptr %.218, i64 1
   %17 = add nuw nsw i32 %.01119, 1
   %exitcond.not = icmp eq i32 %17, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %15, %5
   %.1 = phi ptr [ %6, %5 ], [ %16, %15 ]
   %18 = icmp ult ptr %.1, %1
-  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
+  br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !17
 
 .loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
@@ -315,11 +315,12 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}

@@ -491,7 +491,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 84
   %95 = load i32, ptr %94, align 4
   %.not70.us = icmp sgt i32 %92, %95
-  br i1 %.not70.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not70.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %130
   %.06781 = phi i32 [ %131, %130 ], [ 0, %.lr.ph ]
@@ -566,7 +566,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 84
   %134 = load i32, ptr %133, align 4
   %.not70 = icmp sgt i32 %131, %134
-  br i1 %.not70, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not70, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %130, %91, %10
   %.not = xor i1 %2, true
@@ -599,8 +599,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}

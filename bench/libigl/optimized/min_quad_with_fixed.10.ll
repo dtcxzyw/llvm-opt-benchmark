@@ -162,7 +162,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 58:                                               ; preds = %57, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
   %59 = phi float [ %55, %57 ], [ %42, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ]
-  br i1 %41, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKf.exit.i.i.i.i.i, !llvm.loop !24
+  br i1 %41, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKf.exit.i.i.i.i.i, !llvm.loop !25
 
 60:                                               ; preds = %28, %26
   %61 = load float, ptr %2, align 4, !tbaa !19
@@ -197,7 +197,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %82, label %83, label %.split.loop.exit
 
 83:                                               ; preds = %.preheader
-  br i1 %79, label %.preheader, label %.split.loop.exit268, !llvm.loop !25
+  br i1 %79, label %.preheader, label %.split.loop.exit268, !llvm.loop !26
 
 .split.loop.exit:                                 ; preds = %.preheader
   %84 = trunc nuw nsw i64 %indvars.iv to i32
@@ -243,7 +243,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 106:                                              ; preds = %97, %100
   %107 = phi float [ %98, %97 ], [ %105, %100 ]
-  br i1 %99, label %97, label %92, !llvm.loop !26
+  br i1 %99, label %97, label %92, !llvm.loop !27
 
 108:                                              ; preds = %92, %60, %10
   ret void
@@ -298,8 +298,9 @@ attributes #6 = { nounwind }
 !19 = !{!17, !17, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"int", !6, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = distinct !{!27, !23, !24}

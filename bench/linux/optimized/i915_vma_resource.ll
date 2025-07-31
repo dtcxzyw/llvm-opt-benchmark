@@ -264,7 +264,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %133 = and i64 %132, -4
   %134 = inttoptr i64 %133 to ptr
   %135 = icmp eq ptr %82, %134
-  br i1 %135, label %.critedge, label %.lr.ph
+  br i1 %135, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %131, %126, %87, %76
   %.pre-phi = phi i64 [ %93, %87 ], [ %.pre, %76 ], [ %93, %126 ], [ %93, %131 ]
@@ -426,17 +426,17 @@ define dso_local noundef zeroext i1 @i915_vma_resource_hold(ptr noundef %0, ptr 
 .preheader:                                       ; preds = %2, %11
   %6 = phi i32 [ %12, %11 ], [ %4, %2 ]
   %7 = add i32 %6, 1
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 %7, ptr nonnull elementtype(i32) %3, i32 %6) #8, !srcloc !11
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 %7, ptr nonnull elementtype(i32) %3, i32 %6) #8, !srcloc !13
   %9 = extractvalue { i8, i32 } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %11, label %.thread, !prof !12
+  br i1 %.not, label %11, label %.thread, !prof !14
 
 11:                                               ; preds = %.preheader
   %12 = extractvalue { i8, i32 } %8, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread, label %.preheader, !llvm.loop !13
+  br i1 %13, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %11, %2
   %14 = phi i32 [ 0, %2 ], [ %6, %.preheader ], [ 0, %11 ]
@@ -472,9 +472,9 @@ define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned init
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 1, ptr nonnull elementtype(i32) %8) #8, !srcloc !14
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 1, ptr nonnull elementtype(i32) %8) #8, !srcloc !16
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %15, label %11, !prof !12
+  br i1 %10, label %15, label %11, !prof !14
 
 11:                                               ; preds = %7
   %12 = add i32 %9, 1
@@ -569,7 +569,7 @@ define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned init
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %.preheader, !llvm.loop !15
+  br i1 %73, label %74, label %.preheader, !llvm.loop !17
 
 74:                                               ; preds = %61
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 %70
@@ -639,9 +639,9 @@ define internal noundef i32 @i915_vma_resource_fence_notify(ptr noundef %0, i32 
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 -48
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 1, ptr elementtype(i32) %7) #8, !srcloc !14
+  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 1, ptr elementtype(i32) %7) #8, !srcloc !16
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10, !prof !12
+  br i1 %9, label %14, label %10, !prof !14
 
 10:                                               ; preds = %6
   %11 = add i32 %8, 1
@@ -835,7 +835,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
 
 .preheader19.backedge:                            ; preds = %67, %44
   %.pn13.be = phi ptr [ %42, %44 ], [ %65, %67 ]
-  br label %.preheader19, !llvm.loop !16
+  br label %.preheader19, !llvm.loop !18
 
 .loopexit20:                                      ; preds = %56
   %71 = getelementptr i8, ptr %.pn13, i64 -144
@@ -916,7 +916,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
 
 .preheader.backedge:                              ; preds = %115, %92
   %.pn15.be = phi ptr [ %90, %92 ], [ %113, %115 ]
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !19
 
 .thread:                                          ; preds = %.thread.preheader, %124
   %119 = phi ptr [ %126, %124 ], [ %83, %.thread.preheader ]
@@ -932,7 +932,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %120, %128
-  br i1 %129, label %.thread, label %130, !llvm.loop !17
+  br i1 %129, label %.thread, label %130, !llvm.loop !20
 
 130:                                              ; preds = %124
   %131 = getelementptr i8, ptr %125, i64 104
@@ -951,7 +951,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   %142 = add i64 %141, %135
   %143 = add i64 %142, %140
   %144 = icmp ult i64 %143, %22
-  br i1 %144, label %81, label %.loopexit, !llvm.loop !18
+  br i1 %144, label %81, label %.loopexit, !llvm.loop !21
 
 .loopexit16.split.loop.exit35:                    ; preds = %104
   %145 = getelementptr i8, ptr %.pn15, i64 -144
@@ -960,7 +960,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
 .loopexit:                                        ; preds = %138, %.loopexit16.split.loop.exit35
   %146 = phi ptr [ %145, %.loopexit16.split.loop.exit35 ], [ %126, %138 ]
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %.thread12, label %.lr.ph, !llvm.loop !19
+  br i1 %147, label %.thread12, label %.lr.ph, !llvm.loop !22
 
 .thread12:                                        ; preds = %48, %63, %67, %.loopexit, %.lr.ph, %130, %115, %111, %96, %.thread, %21, %27, %31, %.loopexit20
   %148 = phi i32 [ 0, %.loopexit20 ], [ 0, %31 ], [ 0, %27 ], [ 0, %21 ], [ 0, %.thread ], [ 0, %96 ], [ 0, %111 ], [ 0, %115 ], [ 0, %130 ], [ %76, %.lr.ph ], [ 0, %.loopexit ], [ 0, %67 ], [ 0, %63 ], [ 0, %48 ]
@@ -985,7 +985,7 @@ define dso_local void @i915_vma_resource_bind_dep_sync_all(ptr noundef %0) local
 
 .preheader11.backedge:                            ; preds = %.preheader11, %.backedge
   %.be = phi ptr [ %8, %.preheader11 ], [ %39, %.backedge ]
-  br label %.preheader11, !llvm.loop !20
+  br label %.preheader11, !llvm.loop !23
 
 10:                                               ; preds = %.preheader11
   %11 = getelementptr i8, ptr %6, i64 -144
@@ -1001,17 +1001,17 @@ define dso_local void @i915_vma_resource_bind_dep_sync_all(ptr noundef %0) local
 .preheader:                                       ; preds = %13, %22
   %17 = phi i32 [ %23, %22 ], [ %15, %13 ]
   %18 = add i32 %17, 1
-  %19 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 %18, ptr nonnull elementtype(i32) %14, i32 %17) #8, !srcloc !11
+  %19 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 %18, ptr nonnull elementtype(i32) %14, i32 %17) #8, !srcloc !13
   %20 = extractvalue { i8, i32 } %19, 0
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %22, label %.thread6, !prof !12
+  br i1 %.not, label %22, label %.thread6, !prof !14
 
 22:                                               ; preds = %.preheader
   %23 = extractvalue { i8, i32 } %19, 1
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread6, label %.preheader, !llvm.loop !13
+  br i1 %24, label %.thread6, label %.preheader, !llvm.loop !24
 
 .thread6:                                         ; preds = %.preheader, %22, %13
   %25 = phi i32 [ 0, %13 ], [ %17, %.preheader ], [ 0, %22 ]
@@ -1170,7 +1170,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
 
 .preheader19.backedge:                            ; preds = %74, %51
   %.pn13.be = phi ptr [ %49, %51 ], [ %72, %74 ]
-  br label %.preheader19, !llvm.loop !16
+  br label %.preheader19, !llvm.loop !25
 
 .loopexit20:                                      ; preds = %63
   %78 = getelementptr i8, ptr %.pn13, i64 -144
@@ -1256,7 +1256,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
 
 .preheader.backedge:                              ; preds = %125, %102
   %.pn15.be = phi ptr [ %100, %102 ], [ %123, %125 ]
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !26
 
 .thread:                                          ; preds = %.thread.preheader, %134
   %129 = phi ptr [ %136, %134 ], [ %93, %.thread.preheader ]
@@ -1272,7 +1272,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %130, %138
-  br i1 %139, label %.thread, label %140, !llvm.loop !17
+  br i1 %139, label %.thread, label %140, !llvm.loop !27
 
 140:                                              ; preds = %134
   %141 = getelementptr i8, ptr %135, i64 104
@@ -1291,7 +1291,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   %152 = add i64 %151, %145
   %153 = add i64 %152, %150
   %154 = icmp ult i64 %153, %29
-  br i1 %154, label %91, label %.loopexit, !llvm.loop !18
+  br i1 %154, label %91, label %.loopexit, !llvm.loop !28
 
 .loopexit16.split.loop.exit35:                    ; preds = %114
   %155 = getelementptr i8, ptr %.pn15, i64 -144
@@ -1300,7 +1300,7 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
 .loopexit:                                        ; preds = %148, %.loopexit16.split.loop.exit35
   %156 = phi ptr [ %155, %.loopexit16.split.loop.exit35 ], [ %136, %148 ]
   %157 = icmp eq ptr %156, null
-  br i1 %157, label %.thread12, label %.lr.ph, !llvm.loop !21
+  br i1 %157, label %.thread12, label %.lr.ph, !llvm.loop !29
 
 .thread12:                                        ; preds = %55, %70, %74, %.loopexit, %83, %140, %125, %121, %106, %.thread, %28, %34, %38, %.loopexit20
   %158 = phi i32 [ 0, %.loopexit20 ], [ 0, %38 ], [ 0, %34 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %106 ], [ 0, %121 ], [ 0, %125 ], [ 0, %140 ], [ %86, %83 ], [ 0, %.loopexit ], [ 0, %74 ], [ 0, %70 ], [ 0, %55 ]
@@ -1525,17 +1525,25 @@ attributes #8 = { nounwind }
 !5 = !{i64 2147854865, i64 2147854904, i64 2147854925, i64 2147854962, i64 2147854985, i64 2147854994}
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{i64 2150180307}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i64 2147860580, i64 2147860619, i64 2147860640, i64 2147860677, i64 2147860700, i64 2147860709, i64 2147861007}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !9, !10}
-!14 = !{i64 2147852676, i64 2147852715, i64 2147852736, i64 2147852773, i64 2147852796, i64 2147852805}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = !{i64 2147860580, i64 2147860619, i64 2147860640, i64 2147860677, i64 2147860700, i64 2147860709, i64 2147861007}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = !{i64 2147852676, i64 2147852715, i64 2147852736, i64 2147852773, i64 2147852796, i64 2147852805}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}

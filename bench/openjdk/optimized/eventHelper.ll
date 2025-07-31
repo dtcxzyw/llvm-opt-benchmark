@@ -248,7 +248,7 @@ completeCommand.exit.i:                           ; preds = %freeCommand.exit.i.
   %48 = load ptr, ptr @commandQueueLock, align 8
   call void @debugMonitorNotifyAll(ptr noundef %48) #9
   %49 = icmp eq ptr %.1.i, null
-  br i1 %49, label %.preheader.i, label %dequeueCommand.exit, !llvm.loop !8
+  br i1 %49, label %.preheader.i, label %dequeueCommand.exit, !llvm.loop !9
 
 dequeueCommand.exit:                              ; preds = %completeCommand.exit.i
   %50 = load ptr, ptr @commandQueueLock, align 8
@@ -328,7 +328,7 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
 .thread.i.i:                                      ; preds = %76, %73
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %73, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %73, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.thread.i.i, %.preheader.i.i
   %77 = call i32 @threadControl_suspendAll() #9
@@ -848,7 +848,7 @@ handleFrameEventCommandSingle.exit.i.i:           ; preds = %349, %347, %isRefer
 handleEventCommandSingle.exit.i.i:                ; preds = %handleFrameEventCommandSingle.exit.i.i, %305, %.sink.split.i.i.i.i, %302, %299, %296, %isReferenceTag.exit.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %281, %90
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, %wide.trip.count43.i.i
-  br i1 %exitcond44.not.i.i, label %handleReportEventCompositeCommand.exit.i, label %90, !llvm.loop !10
+  br i1 %exitcond44.not.i.i, label %handleReportEventCompositeCommand.exit.i, label %90, !llvm.loop !11
 
 handleReportEventCompositeCommand.exit.i:         ; preds = %handleEventCommandSingle.exit.i.i, %suspendWithInvokeEnabled.exit.i.i
   call void @outStream_sendCommand(ptr noundef nonnull %6) #9
@@ -941,7 +941,7 @@ completeCommand.exit:                             ; preds = %380, %freeCommand.e
   br i1 %.not6, label %.backedge, label %386
 
 .backedge:                                        ; preds = %completeCommand.exit, %doBlockCommandLoop.exit
-  br label %12
+  br label %12, !llvm.loop !12
 
 386:                                              ; preds = %completeCommand.exit
   %387 = load ptr, ptr @blockCommandLoopLock, align 8
@@ -953,7 +953,7 @@ completeCommand.exit:                             ; preds = %380, %freeCommand.e
   %388 = load ptr, ptr @blockCommandLoopLock, align 8
   call void @debugMonitorWait(ptr noundef %388) #9
   %.b.i9 = load i1, ptr @blockCommandLoop, align 1
-  br i1 %.b.i9, label %.lr.ph.i, label %doBlockCommandLoop.exit, !llvm.loop !11
+  br i1 %.b.i9, label %.lr.ph.i, label %doBlockCommandLoop.exit, !llvm.loop !13
 
 doBlockCommandLoop.exit:                          ; preds = %.lr.ph.i, %386
   %389 = load ptr, ptr @blockCommandLoopLock, align 8
@@ -1284,7 +1284,7 @@ commandSize.exit:                                 ; preds = %3, %6
   %19 = load i32, ptr @currentQueueSize, align 4
   %20 = add nsw i32 %19, %.0.i
   %21 = icmp sgt i32 %20, 51200
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %commandSize.exit
   tail call void @log_debugee_location(ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, i64 noundef 0) #9
@@ -1340,7 +1340,7 @@ commandSize.exit:                                 ; preds = %3, %6
   tail call void @debugMonitorWait(ptr noundef %39) #9
   %40 = load i8, ptr %11, align 4
   %.not18 = icmp eq i8 %40, 0
-  br i1 %.not18, label %.lr.ph21, label %freeCommand.exit, !llvm.loop !13
+  br i1 %.not18, label %.lr.ph21, label %freeCommand.exit, !llvm.loop !15
 
 freeCommand.exit:                                 ; preds = %.lr.ph21, %36
   tail call void @jvmtiDeallocate(ptr noundef nonnull %0) #9
@@ -1866,11 +1866,13 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

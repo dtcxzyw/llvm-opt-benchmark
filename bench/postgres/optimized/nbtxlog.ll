@@ -427,7 +427,7 @@ btree_xlog_vacuum.exit:                           ; preds = %208, %210
   call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #7
   %219 = load i32, ptr %215, align 4
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %221 = load i8, ptr %220, align 4, !range !6, !noundef !7
+  %221 = load i8, ptr %220, align 4, !range !7, !noundef !8
   %222 = trunc nuw i8 %221 to i1
   %.sroa.0.0.copyload.i = load i64, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -883,7 +883,7 @@ BufferGetPage.exit87.i:                           ; preds = %462, %456
 
 485:                                              ; preds = %480
   %486 = getelementptr inbounds nuw i8, ptr %481, i64 280
-  %487 = load i8, ptr %486, align 8, !range !6, !noundef !7
+  %487 = load i8, ptr %486, align 8, !range !7, !noundef !8
   %488 = trunc nuw i8 %487 to i1
   br i1 %488, label %489, label %531
 
@@ -1118,7 +1118,7 @@ btree_xlog_newroot.exit:                          ; preds = %564, %_bt_clear_inc
   %613 = load ptr, ptr %612, align 8
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 16
   %615 = getelementptr inbounds nuw i8, ptr %613, i64 24
-  %616 = load i8, ptr %615, align 8, !range !6, !noundef !7
+  %616 = load i8, ptr %615, align 8, !range !7, !noundef !8
   %617 = trunc nuw i8 %616 to i1
   %618 = load i64, ptr %614, align 8
   %.sroa.0.0.copyload.i35 = load i64, ptr %613, align 8
@@ -1659,7 +1659,7 @@ BufferGetPage.exit126._crit_edge:                 ; preds = %BufferGetPage.exit1
   %189 = load i16, ptr %154, align 4
   %190 = zext i16 %189 to i64
   %191 = icmp samesign ult i64 %indvars.iv.next153, %190
-  br i1 %191, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %191, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %216
   %indvars.iv = phi i64 [ %indvars.iv.next, %216 ], [ %160, %.lr.ph ]
@@ -1717,7 +1717,7 @@ BufferGetPage.exit126._crit_edge:                 ; preds = %BufferGetPage.exit1
   %217 = load i16, ptr %154, align 4
   %218 = zext i16 %217 to i64
   %219 = icmp samesign ult i64 %indvars.iv.next, %218
-  br i1 %219, label %.lr.ph.split, label %._crit_edge.loopexit149, !llvm.loop !10
+  br i1 %219, label %.lr.ph.split, label %._crit_edge.loopexit149, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %188
   %220 = trunc nuw i64 %indvars.iv.next153 to i16
@@ -1903,7 +1903,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   store double -1.000000e+00, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %41 = load i8, ptr %40, align 4, !range !6, !noundef !7
+  %41 = load i8, ptr %40, align 4, !range !7, !noundef !8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   store i8 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -2053,7 +2053,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %18 = add i32 %.02122, 1
   %19 = getelementptr inbounds nuw i8, ptr %.023, i64 %13
   %20 = icmp ult ptr %19, %7
-  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !12
 
 21:                                               ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %9, %.preheader ], [ %indvars.iv.next, %23 ]
@@ -2073,7 +2073,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %31 = trunc i32 %30 to i16
   %32 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %0, ptr noundef %26, i64 noundef %29, i16 noundef zeroext %31, i32 noundef 0) #7
   %33 = icmp eq i16 %32, 0
-  br i1 %33, label %34, label %21, !llvm.loop !12
+  br i1 %33, label %34, label %21, !llvm.loop !13
 
 34:                                               ; preds = %23
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
@@ -2169,7 +2169,7 @@ define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr noundef read
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !14
 }
 
 declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -2208,13 +2208,14 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

@@ -125,18 +125,18 @@ define noundef double @_ZN3gmx6erfinvEd(double noundef %0) local_unnamed_addr #2
   %52 = tail call double @llvm.fmuladd.f64(double %51, double %38, double 0x400FC54FE55111D6)
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %38, double 0x4018F876F28C9A27)
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %38, double 1.000000e+00)
-  %55 = tail call double @log(double noundef %11) #4, !tbaa !6
+  %55 = tail call double @log(double noundef %11) #4, !tbaa !7
   %56 = fmul double %55, -2.000000e+00
-  %57 = tail call double @sqrt(double noundef %56) #4, !tbaa !6
+  %57 = tail call double @sqrt(double noundef %56) #4, !tbaa !7
   %58 = fdiv double %46, %54
   %59 = fadd double %58, 0x4001FEF000000000
   %60 = fdiv double %57, %59
   br label %107
 
 61:                                               ; preds = %35
-  %62 = tail call double @log(double noundef %11) #4, !tbaa !6
+  %62 = tail call double @log(double noundef %11) #4, !tbaa !7
   %63 = fneg double %62
-  %64 = tail call double @sqrt(double noundef %63) #4, !tbaa !6
+  %64 = tail call double @sqrt(double noundef %63) #4, !tbaa !7
   %65 = fcmp olt double %64, 3.000000e+00
   br i1 %65, label %66, label %88
 
@@ -279,18 +279,18 @@ define noundef float @_ZN3gmx6erfinvEf(float noundef %0) local_unnamed_addr #2 {
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %38, float 0x400FC54FE0000000)
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %38, float 0x4018F87700000000)
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %38, float 1.000000e+00)
-  %55 = tail call noundef float @logf(float noundef %11) #4, !tbaa !6
+  %55 = tail call noundef float @logf(float noundef %11) #4, !tbaa !7
   %56 = fmul float %55, -2.000000e+00
-  %57 = tail call noundef float @sqrtf(float noundef %56) #4, !tbaa !6
+  %57 = tail call noundef float @sqrtf(float noundef %56) #4, !tbaa !7
   %58 = fdiv float %46, %54
   %59 = fadd float %58, 0x4001FEF000000000
   %60 = fdiv float %57, %59
   br label %107
 
 61:                                               ; preds = %35
-  %62 = tail call noundef float @logf(float noundef %11) #4, !tbaa !6
+  %62 = tail call noundef float @logf(float noundef %11) #4, !tbaa !7
   %63 = fneg float %62
-  %64 = tail call noundef float @sqrtf(float noundef %63) #4, !tbaa !6
+  %64 = tail call noundef float @sqrtf(float noundef %63) #4, !tbaa !7
   %65 = fcmp olt float %64, 3.000000e+00
   br i1 %65, label %66, label %88
 
@@ -376,9 +376,10 @@ attributes #4 = { nounwind }
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C++ TBAA"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}

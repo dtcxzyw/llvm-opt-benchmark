@@ -467,7 +467,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_FixupStrin
   %2 = alloca %"class.std::allocator", align 1
   %3 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4fromB5cxx11 acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %10, !prof !6
+  br i1 %4, label %5, label %10, !prof !7
 
 5:                                                ; preds = %1
   %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4fromB5cxx11) #14
@@ -486,7 +486,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_FixupStrin
 10:                                               ; preds = %9, %5, %1
   %11 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE2toB5cxx11 acquire, align 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %19, !prof !6
+  br i1 %12, label %13, label %19, !prof !7
 
 13:                                               ; preds = %10
   %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE2toB5cxx11) #14
@@ -544,7 +544,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_FixupStrin
   %36 = add i64 %.02238, 1
   %37 = add i64 %.02337, 1
   %.not35 = icmp eq i64 %36, %31
-  br i1 %.not35, label %.critedge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not35, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 38:                                               ; preds = %7
   %39 = landingpad { ptr, i32 }
@@ -575,14 +575,14 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_FixupStrin
   %46 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L17_FixupStringNamesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4fromB5cxx11, align 8
   %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef %30) #14
   %.not33 = icmp eq i64 %47, -1
-  br i1 %.not33, label %.preheader, label %.lr.ph42, !llvm.loop !8
+  br i1 %.not33, label %.preheader, label %.lr.ph42, !llvm.loop !9
 
 .lr.ph44:                                         ; preds = %.preheader, %.lr.ph44
   %48 = phi i64 [ %50, %.lr.ph44 ], [ %22, %.preheader ]
   %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %48, i64 noundef 5)
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, i64 noundef %48) #14
   %.not34 = icmp eq i64 %50, -1
-  br i1 %.not34, label %._crit_edge, label %.lr.ph44, !llvm.loop !9
+  br i1 %.not34, label %._crit_edge, label %.lr.ph44, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph44, %.preheader
   ret void
@@ -819,9 +819,10 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"branch_weights", i32 1, i32 1048575}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"branch_weights", i32 1, i32 1048575}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

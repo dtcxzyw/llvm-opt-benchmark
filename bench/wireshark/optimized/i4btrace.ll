@@ -141,28 +141,28 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   br label %80
 
 64:                                               ; preds = %63
-  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !16
+  %65 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !17
   store i32 %65, ptr %4, align 4
   %66 = load i32, ptr %12, align 4
-  %67 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %66) #5, !srcloc !17
+  %67 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %66) #5, !srcloc !18
   store i32 %67, ptr %12, align 4
   %68 = load i32, ptr %15, align 4
-  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #5, !srcloc !18
+  %69 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68) #5, !srcloc !19
   store i32 %69, ptr %15, align 4
   %70 = load i32, ptr %18, align 4
-  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #5, !srcloc !19
+  %71 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %70) #5, !srcloc !20
   store i32 %71, ptr %18, align 4
   %72 = load i32, ptr %21, align 4
-  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #5, !srcloc !20
+  %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #5, !srcloc !21
   store i32 %73, ptr %21, align 4
   %74 = load i32, ptr %51, align 4
-  %75 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %74) #5, !srcloc !21
+  %75 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %74) #5, !srcloc !22
   store i32 %75, ptr %51, align 4
   %76 = load i32, ptr %52, align 4
-  %77 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #5, !srcloc !22
+  %77 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #5, !srcloc !23
   store i32 %77, ptr %52, align 4
   %78 = load i32, ptr %24, align 4
-  %79 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #5, !srcloc !23
+  %79 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #5, !srcloc !24
   store i32 %79, ptr %24, align 4
   br label %80
 
@@ -319,41 +319,41 @@ define internal fastcc zeroext i1 @i4b_read_rec(ptr readonly captures(none) %.96
   br i1 %6, label %7, label %78
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr %.96.val, align 1, !range !24, !noundef !25
+  %8 = load i8, ptr %.96.val, align 1, !range !25, !noundef !26
   %9 = trunc nuw i8 %8 to i1
   %.pre = load i32, ptr %5, align 4
   br i1 %9, label %10, label %33
 
 10:                                               ; preds = %7
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !26
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.pre) #5, !srcloc !27
   store i32 %11, ptr %5, align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #5, !srcloc !27
+  %14 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #5, !srcloc !28
   store i32 %14, ptr %12, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #5, !srcloc !28
+  %17 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #5, !srcloc !29
   store i32 %17, ptr %15, align 4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #5, !srcloc !29
+  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #5, !srcloc !30
   store i32 %20, ptr %18, align 4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i32, ptr %21, align 4
-  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #5, !srcloc !30
+  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #5, !srcloc !31
   store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #5, !srcloc !31
+  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #5, !srcloc !32
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load i32, ptr %27, align 4
-  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #5, !srcloc !32
+  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #5, !srcloc !33
   store i32 %29, ptr %27, align 4
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %31 = load i32, ptr %30, align 4
-  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #5, !srcloc !33
+  %32 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %31) #5, !srcloc !34
   store i32 %32, ptr %30, align 4
   br label %33
 
@@ -485,23 +485,24 @@ attributes #6 = { allocsize(0) }
 !11 = !{i64 2149946744}
 !12 = !{i64 2149947354}
 !13 = !{i64 2149947966}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{i64 2149949285}
-!17 = !{i64 2149949894}
-!18 = !{i64 2149950501}
-!19 = !{i64 2149951107}
-!20 = !{i64 2149951714}
-!21 = !{i64 2149952323}
-!22 = !{i64 2149952933}
-!23 = !{i64 2149953545}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = !{i64 2149955516}
-!27 = !{i64 2149956125}
-!28 = !{i64 2149956732}
-!29 = !{i64 2149957338}
-!30 = !{i64 2149957945}
-!31 = !{i64 2149958554}
-!32 = !{i64 2149959164}
-!33 = !{i64 2149959776}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 2149949285}
+!18 = !{i64 2149949894}
+!19 = !{i64 2149950501}
+!20 = !{i64 2149951107}
+!21 = !{i64 2149951714}
+!22 = !{i64 2149952323}
+!23 = !{i64 2149952933}
+!24 = !{i64 2149953545}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{i64 2149955516}
+!28 = !{i64 2149956125}
+!29 = !{i64 2149956732}
+!30 = !{i64 2149957338}
+!31 = !{i64 2149957945}
+!32 = !{i64 2149958554}
+!33 = !{i64 2149959164}
+!34 = !{i64 2149959776}

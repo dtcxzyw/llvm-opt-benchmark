@@ -668,7 +668,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit25
   store ptr %.sink, ptr %35, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %.sink52, i64 16
   store ptr %.024, ptr %36, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !16
 
 37:                                               ; preds = %lean_obj_tag.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -818,9 +818,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_NameTrie_insert___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -902,9 +902,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_NameTrie_find_x3f___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !16
+  store i16 2, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -967,9 +967,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PrefixTreeNode_findLongestPrefix_x3f___at_Lean_NameTrie_findLongestPrefix_x3f___spec__1___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !16
+  store i16 2, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -999,9 +999,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_NameTrie_findLongestPrefix_x3f___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !16
+  store i16 2, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -1554,9 +1554,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_foldMatchingM___spec__1___rarg, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 7, ptr %9, align 8, !tbaa !16
+  store i16 7, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !18
   ret ptr %4
 }
 
@@ -1610,9 +1610,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_NameTrie_foldMatchingM___rarg___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 5, ptr %9, align 8, !tbaa !16
+  store i16 5, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !18
   ret ptr %4
 }
 
@@ -2183,9 +2183,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_foldM___spec__1___rarg, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 7, ptr %9, align 8, !tbaa !16
+  store i16 7, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !18
   ret ptr %4
 }
 
@@ -2239,9 +2239,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_NameTrie_foldM___rarg, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 4, ptr %9, align 8, !tbaa !16
+  store i16 4, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !16
+  store i16 0, ptr %10, align 2, !tbaa !18
   ret ptr %4
 }
 
@@ -2756,9 +2756,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_forMatchingM___spec__1___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 7, ptr %8, align 8, !tbaa !16
+  store i16 7, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !18
   ret ptr %3
 }
 
@@ -2789,9 +2789,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lean_NameTrie_forMatchingM___rarg___lambda__1___boxed, ptr %10, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 3, ptr %11, align 8, !tbaa !16
+  store i16 3, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 1, ptr %12, align 2, !tbaa !16
+  store i16 1, ptr %12, align 2, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %13, align 8, !tbaa !4
   %14 = load ptr, ptr @l_Lean_NameTrie_insert___rarg___closed__1, align 8, !tbaa !4
@@ -2847,9 +2847,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_NameTrie_forMatchingM___rarg___boxed, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 4, ptr %8, align 8, !tbaa !16
+  store i16 4, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !18
   ret ptr %3
 }
 
@@ -2872,9 +2872,9 @@ l_Lean_NameTrie_forMatchingM___rarg.exit:         ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lean_NameTrie_forMatchingM___rarg___lambda__1___boxed, ptr %10, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 3, ptr %11, align 8, !tbaa !16
+  store i16 3, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 1, ptr %12, align 2, !tbaa !16
+  store i16 1, ptr %12, align 2, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %13, align 8, !tbaa !4
   %14 = load ptr, ptr @l_Lean_NameTrie_insert___rarg___closed__1, align 8, !tbaa !4
@@ -3417,9 +3417,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_forM___spec__1___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 7, ptr %8, align 8, !tbaa !16
+  store i16 7, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !18
   ret ptr %3
 }
 
@@ -3441,9 +3441,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_NameTrie_forMatchingM___rarg___lambda__1___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 3, ptr %9, align 8, !tbaa !16
+  store i16 3, ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %10, align 2, !tbaa !16
+  store i16 1, ptr %10, align 2, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %11, align 8, !tbaa !4
   %12 = load ptr, ptr @l_Lean_NameTrie_insert___rarg___closed__1, align 8, !tbaa !4
@@ -3470,9 +3470,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_NameTrie_forM___rarg, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 3, ptr %8, align 8, !tbaa !16
+  store i16 3, ptr %8, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !18
   ret ptr %3
 }
 
@@ -3677,7 +3677,7 @@ lean_inc.exit21:                                  ; preds = %lean_dec.exit
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit21
   %76 = phi ptr [ %68, %lean_inc.exit21 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @l_Lean_PrefixTreeNode_foldMatchingM_fold___at_Lean_NameTrie_matchingToArray___spec__2___rarg(ptr noundef %0, ptr noundef %36, ptr noundef %76)
-  br label %6
+  br label %6, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3917,9 +3917,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_foldM___at_Lean_NameTrie_matchingToArray___spec__3___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -3947,9 +3947,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_fold___at_Lean_NameTrie_matchingToArray___spec__2___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -4363,9 +4363,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_matchingToArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !16
+  store i16 6, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -4435,9 +4435,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_NameTrie_matchingToArray___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !16
+  store i16 2, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -4676,7 +4676,7 @@ lean_inc.exit21:                                  ; preds = %lean_dec.exit
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit21
   %76 = phi ptr [ %68, %lean_inc.exit21 ], [ %70, %72 ], [ %70, %74 ], [ %70, %75 ]
   %77 = tail call ptr @l_Lean_PrefixTreeNode_foldMatchingM_fold___at_Lean_NameTrie_toArray___spec__2___rarg(ptr noundef %0, ptr noundef %36, ptr noundef %76)
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4916,9 +4916,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_RBNode_foldM___at_Lean_NameTrie_toArray___spec__3___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -4946,9 +4946,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_fold___at_Lean_NameTrie_toArray___spec__2___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -5362,9 +5362,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PrefixTreeNode_foldMatchingM_find___at_Lean_NameTrie_toArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !16
+  store i16 6, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -5426,9 +5426,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_NameTrie_toArray___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 1, ptr %7, align 8, !tbaa !16
+  store i16 1, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -5491,9 +5491,9 @@ _init_l_Lean_NameTrie_insert___rarg___closed__1.exit: ; preds = %lean_dec_ref.ex
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_NamePart_cmp___boxed, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 2, ptr %23, align 8, !tbaa !16
+  store i16 2, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 0, ptr %24, align 2, !tbaa !16
+  store i16 0, ptr %24, align 2, !tbaa !18
   store ptr %18, ptr @l_Lean_NameTrie_insert___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #4
   %25 = tail call ptr @l_Lean_PrefixTreeNode_empty(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
@@ -5521,9 +5521,9 @@ _init_l_Lean_NameTrie_matchingToArray___rarg___closed__2.exit: ; preds = %_init_
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @l_Lean_NameTrie_matchingToArray___rarg___lambda__1, ptr %32, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 2, ptr %33, align 8, !tbaa !16
+  store i16 2, ptr %33, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 0, ptr %34, align 2, !tbaa !16
+  store i16 0, ptr %34, align 2, !tbaa !18
   store ptr %28, ptr @l_Lean_NameTrie_matchingToArray___rarg___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #4
   tail call void @lean_inc_heartbeat() #4
@@ -5603,5 +5603,9 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!"branch_weights", i32 4000000, i32 4001}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}

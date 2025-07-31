@@ -262,7 +262,7 @@ define internal zeroext i1 @fd_flush(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @fd_close(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
+  %3 = load i8, ptr %2, align 4, !range !6, !noundef !7
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %14
 
@@ -603,7 +603,7 @@ define internal zeroext i1 @stdio_flush(ptr noundef readonly captures(none) %0, 
   %20 = tail call ptr @__errno_location() #19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %16, label %.critedge, !llvm.loop !7
+  br i1 %22, label %16, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %19
   %23 = tail call ptr @strerror(i32 noundef %21) #18
@@ -618,7 +618,7 @@ define internal zeroext i1 @stdio_flush(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @stdio_close(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
+  %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %13
 
@@ -1458,11 +1458,11 @@ SDL_GetIOStatus_REAL.exit.us.us:                  ; preds = %SDL_GetIOStatus_REA
 
 66:                                               ; preds = %SDL_GetIOStatus_REAL.exit.us.us
   tail call void @SDL_Delay_REAL(i32 noundef 1) #18
-  br label %43, !llvm.loop !8
+  br label %43, !llvm.loop !9
 
 SDL_ReadIO_REAL.exit.split.us.us:                 ; preds = %54
   %67 = add i64 %57, %.140.ph.us
-  br label %.outer.us, !llvm.loop !10
+  br label %.outer.us, !llvm.loop !11
 
 .preheader.split:                                 ; preds = %.preheader
   %68 = icmp eq i64 %spec.select.fr, 0
@@ -1498,7 +1498,7 @@ SDL_GetIOStatus_REAL.exit.us77:                   ; preds = %72, %74
 
 78:                                               ; preds = %SDL_GetIOStatus_REAL.exit.us77
   tail call void @SDL_Delay_REAL(i32 noundef 1) #18
-  br label %70
+  br label %70, !llvm.loop !12
 
 .outer.split.split:                               ; preds = %.preheader.split, %SDL_ReadIO_REAL.exit.split
   %79 = phi i64 [ %95, %SDL_ReadIO_REAL.exit.split ], [ %spec.select.fr, %.preheader.split ]
@@ -1540,7 +1540,7 @@ SDL_ReadIO_REAL.exit.split:                       ; preds = %85
   %94 = add i64 %.fr, %.140.ph109
   %95 = sub nsw i64 %spec.select.fr, %94
   %96 = icmp eq i64 %spec.select.fr, %94
-  br i1 %96, label %.outer.split.split.us.loopexit, label %.outer.split.split
+  br i1 %96, label %.outer.split.split.us.loopexit, label %.outer.split.split, !llvm.loop !12
 
 SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   %97 = phi i32 [ %.pre, %83 ], [ %92, %91 ]
@@ -1549,7 +1549,7 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
 
 99:                                               ; preds = %SDL_GetIOStatus_REAL.exit
   tail call void @SDL_Delay_REAL(i32 noundef 1) #18
-  br label %81
+  br label %81, !llvm.loop !12
 
 .split72.us.sink.split:                           ; preds = %91, %59
   %.us-phi73.ph = phi i64 [ %.140.ph.us, %59 ], [ %.140.ph109, %91 ]
@@ -1847,12 +1847,12 @@ SDL_GetIOStatus_REAL.exit.us:                     ; preds = %SDL_GetIOStatus_REA
 
 33:                                               ; preds = %SDL_GetIOStatus_REAL.exit.us
   tail call void @SDL_Delay_REAL(i32 noundef 1) #18
-  br label %.lr.ph.split.us, !llvm.loop !11
+  br label %.lr.ph.split.us, !llvm.loop !13
 
 SDL_WriteIO_REAL.exit:                            ; preds = %21
   %34 = add i64 %24, %.021.ph48
   %35 = icmp ult i64 %34, %2
-  br i1 %35, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %35, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %SDL_WriteIO_REAL.exit, %SDL_GetIOStatus_REAL.exit.us, %SDL_GetIOStatus_REAL.exit.us.thread, %11, %9
   %.0 = phi i1 [ true, %9 ], [ true, %11 ], [ false, %SDL_GetIOStatus_REAL.exit.us.thread ], [ false, %SDL_GetIOStatus_REAL.exit.us ], [ true, %SDL_WriteIO_REAL.exit ]
@@ -3561,13 +3561,15 @@ attributes #20 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5, !10}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !4, !5}

@@ -104,7 +104,7 @@ define void @duckdb_je_rtree_ctx_data_init(ptr noundef writeonly captures(none) 
   store ptr null, ptr %5, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %3
+  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !16
 
 6:                                                ; preds = %7
   ret void
@@ -117,7 +117,7 @@ define void @duckdb_je_rtree_ctx_data_init(ptr noundef writeonly captures(none) 
   store ptr null, ptr %9, align 8, !tbaa !15
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %6, label %7
+  br i1 %exitcond18.not, label %6, label %7, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -136,20 +136,20 @@ atomic_store_b.exit.i:                            ; preds = %3
 
 8:                                                ; preds = %atomic_store_b.exit.i, %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !tbaa !16
+  %10 = load i64, ptr %9, align 8, !tbaa !19
   %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8, !tbaa !16
+  store i64 %11, ptr %9, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %13, %0
   br i1 %.not.i.i, label %atomic_load_p.exit, label %14
 
 14:                                               ; preds = %8
-  store ptr %0, ptr %12, align 8, !tbaa !22
+  store ptr %0, ptr %12, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !23
+  %16 = load i64, ptr %15, align 8, !tbaa !26
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !tbaa !23
+  store i64 %17, ptr %15, align 8, !tbaa !26
   br label %atomic_load_p.exit
 
 atomic_load_p.exit:                               ; preds = %8, %14
@@ -212,11 +212,14 @@ attributes #5 = { nounwind }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"p1 _ZTS16rtree_leaf_elm_s", !6, i64 0}
 !15 = !{!12, !14, i64 8}
-!16 = !{!17, !13, i64 56}
-!17 = !{!"", !18, i64 0, !18, i64 8, !13, i64 16, !13, i64 24, !19, i64 32, !20, i64 36, !13, i64 40, !21, i64 48, !13, i64 56}
-!18 = !{!"", !13, i64 0}
-!19 = !{!"int", !7, i64 0}
-!20 = !{!"", !19, i64 0}
-!21 = !{!"p1 _ZTS6tsdn_s", !6, i64 0}
-!22 = !{!17, !21, i64 48}
-!23 = !{!17, !13, i64 40}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !13, i64 56}
+!20 = !{!"", !21, i64 0, !21, i64 8, !13, i64 16, !13, i64 24, !22, i64 32, !23, i64 36, !13, i64 40, !24, i64 48, !13, i64 56}
+!21 = !{!"", !13, i64 0}
+!22 = !{!"int", !7, i64 0}
+!23 = !{!"", !22, i64 0}
+!24 = !{!"p1 _ZTS6tsdn_s", !6, i64 0}
+!25 = !{!20, !24, i64 48}
+!26 = !{!20, !13, i64 40}

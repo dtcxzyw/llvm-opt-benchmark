@@ -333,7 +333,7 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %141, %.lr.ph151.spl
   %146 = getelementptr inbounds i8, ptr %.4150.us.i, i64 %129
   %147 = add nuw nsw i32 %.4113149.us.i, 1
   %148 = icmp slt i32 %147, %145
-  br i1 %148, label %.lr.ph151.split.us.i, label %sunrast_image_write_image.exit, !llvm.loop !50
+  br i1 %148, label %.lr.ph151.split.us.i, label %sunrast_image_write_image.exit, !llvm.loop !51
 
 149:                                              ; preds = %.loopexit145.i
   %150 = icmp slt i32 %123, 1
@@ -409,7 +409,7 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %141, %.lr.ph151.spl
   %175 = icmp eq i8 %.shrunk128.i, %.0101165.i
   %176 = icmp samesign ult i32 %.0156.i, 255
   %or.cond.i = select i1 %175, i1 %176, i1 false
-  br i1 %or.cond.i, label %.lr.ph157.i, label %.critedge.i, !llvm.loop !52
+  br i1 %or.cond.i, label %.lr.ph157.i, label %.critedge.i, !llvm.loop !53
 
 .critedge.i:                                      ; preds = %170, %.lr.ph157.i, %161, %157
   %.2111.lcssa.i = phi i32 [ %.1110.i, %161 ], [ %.1110.i, %157 ], [ %.3112.i, %.lr.ph157.i ], [ %.3112.i, %170 ]
@@ -469,7 +469,7 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %141, %.lr.ph151.spl
   %201 = phi ptr [ %187, %180 ], [ %199, %.sink.split.i ]
   %202 = load i32, ptr %35, align 4, !tbaa !34
   %203 = icmp slt i32 %.2111.lcssa.i, %202
-  br i1 %203, label %157, label %._crit_edge.i, !llvm.loop !53
+  br i1 %203, label %157, label %._crit_edge.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %200, %.._crit_edge_crit_edge.i
   %204 = phi ptr [ %.pre170.i, %.._crit_edge_crit_edge.i ], [ %201, %200 ]
@@ -526,7 +526,7 @@ bytestream2_put_buffer.exit.i:                    ; preds = %223, %.lr.ph151.spl
   %231 = add nuw nsw i32 %.4113149.i, 1
   %232 = load i32, ptr %35, align 4, !tbaa !34
   %233 = icmp slt i32 %231, %232
-  br i1 %233, label %.lr.ph151.split.i, label %sunrast_image_write_image.exit, !llvm.loop !54
+  br i1 %233, label %.lr.ph151.split.i, label %sunrast_image_write_image.exit, !llvm.loop !55
 
 sunrast_image_write_image.exit:                   ; preds = %bytestream2_put_buffer.exit.i, %bytestream2_put_buffer.exit.us.i, %.preheader.i, %._crit_edge.i
   %234 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -639,10 +639,11 @@ attributes #7 = { noreturn nounwind }
 !45 = !{!14, !14, i64 0}
 !46 = !{!8, !8, i64 0}
 !47 = !{!10, !10, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !49}
-!53 = distinct !{!53, !49}
-!54 = distinct !{!54, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !49, !50}
+!54 = distinct !{!54, !49, !50}
+!55 = distinct !{!55, !49, !50}

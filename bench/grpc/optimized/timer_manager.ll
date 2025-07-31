@@ -695,7 +695,7 @@ define internal fastcc void @_ZL29start_timer_thread_and_unlockv() unnamed_addr 
   %6 = alloca %"class.grpc_core::Thread", align 8
   %7 = alloca %"class.grpc_core::Thread::Options", align 8
   %.b13 = load i1, ptr @_ZL10g_threaded, align 1
-  br i1 %.b13, label %.critedge, label %8, !prof !41
+  br i1 %.b13, label %.critedge, label %8, !prof !42
 
 8:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
@@ -730,38 +730,38 @@ define internal fastcc void @_ZL29start_timer_thread_and_unlockv() unnamed_addr 
   %16 = call ptr @gpr_malloc(i64 noundef 40)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
-  store i8 1, ptr %7, align 8, !tbaa !42
+  store i8 1, ptr %7, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 1, ptr %17, align 1, !tbaa !44
+  store i8 1, ptr %17, align 1, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !45
+  store i64 0, ptr %18, align 8, !tbaa !46
   call void @_ZN9grpc_core6ThreadC1EPKcPFvPvES3_PbRKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZL12timer_threadPv, ptr noundef %16, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %.not.i = icmp eq ptr %16, %6
   %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not.i, label %_ZN9grpc_core6ThreadaSEOS0_.exit, label %_ZN9grpc_core6ThreadaSEOS0_.exit.thread
 
 _ZN9grpc_core6ThreadaSEOS0_.exit.thread:          ; preds = %.critedge16
-  %19 = load i32, ptr %6, align 8, !tbaa !46
-  store i32 %19, ptr %16, align 8, !tbaa !46
-  %20 = load ptr, ptr %.phi.trans.insert20, align 8, !tbaa !50
+  %19 = load i32, ptr %6, align 8, !tbaa !47
+  store i32 %19, ptr %16, align 8, !tbaa !47
+  %20 = load ptr, ptr %.phi.trans.insert20, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !50
+  store ptr %20, ptr %21, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !51
-  store i32 5, ptr %6, align 8, !tbaa !46
-  store ptr null, ptr %.phi.trans.insert20, align 8, !tbaa !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !52
+  store i32 5, ptr %6, align 8, !tbaa !47
+  store ptr null, ptr %.phi.trans.insert20, align 8, !tbaa !51
   store i8 1, ptr %22, align 8, !tbaa !38
   br label %_ZN9grpc_core6ThreadD2Ev.exit
 
 _ZN9grpc_core6ThreadaSEOS0_.exit:                 ; preds = %.critedge16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !42, !range !26
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !43, !range !26
   %.pre21 = load ptr, ptr %.phi.trans.insert20, align 8
   %24 = trunc nuw i8 %.pre to i1
   %25 = icmp ne ptr %.pre21, null
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %27, label %_ZN9grpc_core6ThreadD2Ev.exit, !prof !52
+  br i1 %26, label %27, label %_ZN9grpc_core6ThreadD2Ev.exit, !prof !53
 
 27:                                               ; preds = %_ZN9grpc_core6ThreadaSEOS0_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
@@ -783,14 +783,14 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6Threa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !50
+  %33 = load ptr, ptr %32, align 8, !tbaa !51
   %.not.i17 = icmp eq ptr %33, null
-  %34 = load i32, ptr %16, align 8, !tbaa !46
+  %34 = load i32, ptr %16, align 8, !tbaa !47
   br i1 %.not.i17, label %40, label %35
 
 35:                                               ; preds = %_ZN9grpc_core6ThreadD2Ev.exit
   %.not9.not.i = icmp eq i32 %34, 1
-  br i1 %.not9.not.i, label %.critedge.i, label %36, !prof !41
+  br i1 %.not9.not.i, label %.critedge.i, label %36, !prof !42
 
 36:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #21
@@ -799,7 +799,7 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6Threa
   unreachable
 
 .critedge.i:                                      ; preds = %35
-  store i32 2, ptr %16, align 8, !tbaa !46
+  store i32 2, ptr %16, align 8, !tbaa !47
   %37 = load ptr, ptr %33, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -808,7 +808,7 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6Threa
 
 40:                                               ; preds = %_ZN9grpc_core6ThreadD2Ev.exit
   %.not8.not.i = icmp eq i32 %34, 4
-  br i1 %.not8.not.i, label %_ZN9grpc_core6Thread5StartEv.exit, label %41, !prof !41
+  br i1 %.not8.not.i, label %_ZN9grpc_core6Thread5StartEv.exit, label %41, !prof !42
 
 41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #21
@@ -954,12 +954,12 @@ _ZN9grpc_core7ExecCtx3GetEv.exit.i:               ; preds = %46, %45
 
 51:                                               ; preds = %_ZN9grpc_core7ExecCtx3GetEv.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %53 = load i8, ptr %52, align 8, !tbaa !53, !range !26, !noundef !27
+  %53 = load i8, ptr %52, align 8, !tbaa !54, !range !26, !noundef !27
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %_ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i.i
 
 55:                                               ; preds = %51
-  store i8 0, ptr %52, align 8, !tbaa !53
+  store i8 0, ptr %52, align 8, !tbaa !54
   br label %_ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i.i
 
 _ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i.i: ; preds = %55, %51
@@ -1341,7 +1341,7 @@ _ZL10wait_untilN9grpc_core9TimestampE.exit.thread.i: ; preds = %.noexc26, %141
 
 .noexc15:                                         ; preds = %.noexc14, %.noexc27, %.noexc4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
-  br label %45
+  br label %45, !llvm.loop !56
 
 144:                                              ; preds = %.noexc17
   invoke void @gpr_mu_unlock(ptr noundef nonnull @_ZL4g_mu)
@@ -1370,7 +1370,7 @@ _ZL10wait_untilN9grpc_core9TimestampE.exit.thread.i: ; preds = %.noexc26, %141
 .noexc31:                                         ; preds = %151, %.noexc30
   %152 = load ptr, ptr @_ZL19g_completed_threads, align 8, !tbaa !35
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %152, ptr %153, align 8, !tbaa !55
+  store ptr %152, ptr %153, align 8, !tbaa !57
   store ptr %0, ptr @_ZL19g_completed_threads, align 8, !tbaa !35
   invoke void @gpr_mu_unlock(ptr noundef nonnull @_ZL4g_mu)
           to label %.noexc32 unwind label %.loopexit.split-lp
@@ -1500,7 +1500,7 @@ define internal fastcc void @_ZL20gc_completed_threadsv() unnamed_addr #6 person
 4:                                                ; preds = %3, %_ZN9grpc_core6Thread4JoinEv.exit
   %.07 = phi ptr [ %2, %3 ], [ %22, %_ZN9grpc_core6Thread4JoinEv.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %18, label %7
 
@@ -1509,7 +1509,7 @@ define internal fastcc void @_ZL20gc_completed_threadsv() unnamed_addr #6 person
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %11 = load ptr, ptr %5, align 8, !tbaa !50
+  %11 = load ptr, ptr %5, align 8, !tbaa !51
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -1521,14 +1521,14 @@ define internal fastcc void @_ZL20gc_completed_threadsv() unnamed_addr #6 person
   br label %17
 
 17:                                               ; preds = %13, %7
-  store i32 3, ptr %.07, align 8, !tbaa !46
-  store ptr null, ptr %5, align 8, !tbaa !50
+  store i32 3, ptr %.07, align 8, !tbaa !47
+  store ptr null, ptr %5, align 8, !tbaa !51
   br label %_ZN9grpc_core6Thread4JoinEv.exit
 
 18:                                               ; preds = %4
-  %19 = load i32, ptr %.07, align 8, !tbaa !46
+  %19 = load i32, ptr %.07, align 8, !tbaa !47
   %.not6.not.i = icmp eq i32 %19, 4
-  br i1 %.not6.not.i, label %_ZN9grpc_core6Thread4JoinEv.exit, label %20, !prof !41
+  br i1 %.not6.not.i, label %_ZN9grpc_core6Thread4JoinEv.exit, label %20, !prof !42
 
 20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #21
@@ -1538,10 +1538,10 @@ define internal fastcc void @_ZL20gc_completed_threadsv() unnamed_addr #6 person
 
 _ZN9grpc_core6Thread4JoinEv.exit:                 ; preds = %17, %18
   %21 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !57
   tail call void @gpr_free(ptr noundef nonnull %.07)
   %.not6 = icmp eq ptr %22, null
-  br i1 %.not6, label %23, label %4, !llvm.loop !57
+  br i1 %.not6, label %23, label %4, !llvm.loop !59
 
 23:                                               ; preds = %_ZN9grpc_core6Thread4JoinEv.exit
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL4g_mu)
@@ -1705,22 +1705,24 @@ attributes #24 = { cold nounwind }
 !36 = !{!"p1 _ZTS16completed_thread", !10, i64 0}
 !37 = !{!14, !14, i64 0}
 !38 = !{!20, !20, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!42 = !{!43, !20, i64 0}
-!43 = !{!"_ZTSN9grpc_core6Thread7OptionsE", !20, i64 0, !20, i64 1, !14, i64 8}
-!44 = !{!43, !20, i64 1}
-!45 = !{!43, !14, i64 8}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"_ZTSN9grpc_core6ThreadE", !48, i64 0, !49, i64 8, !43, i64 16}
-!48 = !{!"_ZTSN9grpc_core6Thread11ThreadStateE", !11, i64 0}
-!49 = !{!"p1 _ZTSN9grpc_core8internal24ThreadInternalsInterfaceE", !10, i64 0}
-!50 = !{!47, !49, i64 8}
-!51 = !{i64 0, i64 1, !38, i64 1, i64 1, !38, i64 8, i64 8, !37}
-!52 = !{!"branch_weights", !"expected", i32 2861880, i32 2144621768}
-!53 = !{!54, !20, i64 8}
-!54 = !{!"_ZTSSt22_Optional_payload_baseIN9grpc_core9TimestampEE", !11, i64 0, !20, i64 8}
-!55 = !{!56, !36, i64 32}
-!56 = !{!"_ZTS16completed_thread", !47, i64 0, !36, i64 32}
-!57 = distinct !{!57, !40}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!43 = !{!44, !20, i64 0}
+!44 = !{!"_ZTSN9grpc_core6Thread7OptionsE", !20, i64 0, !20, i64 1, !14, i64 8}
+!45 = !{!44, !20, i64 1}
+!46 = !{!44, !14, i64 8}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSN9grpc_core6ThreadE", !49, i64 0, !50, i64 8, !44, i64 16}
+!49 = !{!"_ZTSN9grpc_core6Thread11ThreadStateE", !11, i64 0}
+!50 = !{!"p1 _ZTSN9grpc_core8internal24ThreadInternalsInterfaceE", !10, i64 0}
+!51 = !{!48, !50, i64 8}
+!52 = !{i64 0, i64 1, !38, i64 1, i64 1, !38, i64 8, i64 8, !37}
+!53 = !{!"branch_weights", !"expected", i32 2861880, i32 2144621768}
+!54 = !{!55, !20, i64 8}
+!55 = !{!"_ZTSSt22_Optional_payload_baseIN9grpc_core9TimestampEE", !11, i64 0, !20, i64 8}
+!56 = distinct !{!56, !41}
+!57 = !{!58, !36, i64 32}
+!58 = !{!"_ZTS16completed_thread", !48, i64 0, !36, i64 32}
+!59 = distinct !{!59, !40, !41}

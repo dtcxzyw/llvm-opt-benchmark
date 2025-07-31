@@ -183,7 +183,7 @@ st_mult.exit.i:                                   ; preds = %33
   store ptr %.0.i.i, ptr %77, align 8, !tbaa !45
   %78 = call i32 @packet_read(i32 noundef 0, ptr noundef nonnull @packet_buffer, i32 noundef 65520, i32 noundef 0) #9
   %79 = icmp slt i32 %78, 0
-  br i1 %79, label %._crit_edge, label %.lr.ph
+  br i1 %79, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 .preheader.i:                                     ; preds = %.lr.ph
   %.not.i = icmp eq i64 %.028.i17, 0
@@ -202,16 +202,16 @@ st_mult.exit.i:                                   ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %80, i8 0, i64 152, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i64, ptr %84, align 8, !tbaa !40
-  store i64 %85, ptr %5, align 8, !tbaa !46
+  store i64 %85, ptr %5, align 8, !tbaa !48
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 56
-  %87 = load i32, ptr %86, align 8, !tbaa !48
-  store i32 %87, ptr %80, align 8, !tbaa !49
+  %87 = load i32, ptr %86, align 8, !tbaa !50
+  store i32 %87, ptr %80, align 8, !tbaa !51
   %88 = icmp eq i32 %87, 1
   br i1 %88, label %89, label %report_result.exit.i
 
 89:                                               ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %81, ptr noundef nonnull readonly align 8 dereferenceable(144) %90, i64 144, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %81, ptr noundef nonnull readonly align 8 dereferenceable(144) %90, i64 144, i1 false), !tbaa.struct !52
   br label %report_result.exit.i
 
 report_result.exit.i:                             ; preds = %89, %82
@@ -225,7 +225,7 @@ report_result.exit.i:                             ; preds = %89, %82
   call void @discard_cache_entry(ptr noundef %93) #9
   %94 = add nuw i64 %.02438.i, 1
   %exitcond.not.i = icmp eq i64 %94, %.028.i17
-  br i1 %exitcond.not.i, label %worker_loop.exit, label %82, !llvm.loop !53
+  br i1 %exitcond.not.i, label %worker_loop.exit, label %82, !llvm.loop !55
 
 worker_loop.exit:                                 ; preds = %report_result.exit.i, %.preheader.i
   call void @packet_flush(i32 noundef 1) #9
@@ -350,12 +350,14 @@ attributes #11 = { nounwind willreturn memory(read) }
 !43 = !{!26, !6, i64 52}
 !44 = !{!29, !6, i64 24}
 !45 = !{!29, !9, i64 32}
-!46 = !{!47, !11, i64 0}
-!47 = !{!"pc_item_result", !11, i64 0, !6, i64 8, !34, i64 16}
-!48 = !{!29, !6, i64 56}
-!49 = !{!47, !6, i64 8}
-!50 = !{i64 0, i64 8, !51, i64 8, i64 8, !51, i64 16, i64 8, !51, i64 24, i64 4, !36, i64 28, i64 4, !36, i64 32, i64 4, !36, i64 36, i64 4, !36, i64 40, i64 8, !51, i64 48, i64 8, !51, i64 56, i64 8, !51, i64 64, i64 8, !51, i64 72, i64 8, !51, i64 80, i64 8, !51, i64 88, i64 8, !51, i64 96, i64 8, !51, i64 104, i64 8, !51, i64 112, i64 8, !51, i64 120, i64 24, !52}
-!51 = !{!11, !11, i64 0}
-!52 = !{!7, !7, i64 0}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.mustprogress"}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!49, !11, i64 0}
+!49 = !{!"pc_item_result", !11, i64 0, !6, i64 8, !34, i64 16}
+!50 = !{!29, !6, i64 56}
+!51 = !{!49, !6, i64 8}
+!52 = !{i64 0, i64 8, !53, i64 8, i64 8, !53, i64 16, i64 8, !53, i64 24, i64 4, !36, i64 28, i64 4, !36, i64 32, i64 4, !36, i64 36, i64 4, !36, i64 40, i64 8, !53, i64 48, i64 8, !53, i64 56, i64 8, !53, i64 64, i64 8, !53, i64 72, i64 8, !53, i64 80, i64 8, !53, i64 88, i64 8, !53, i64 96, i64 8, !53, i64 104, i64 8, !53, i64 112, i64 8, !53, i64 120, i64 24, !54}
+!53 = !{!11, !11, i64 0}
+!54 = !{!7, !7, i64 0}
+!55 = distinct !{!55, !56, !47}
+!56 = !{!"llvm.loop.mustprogress"}

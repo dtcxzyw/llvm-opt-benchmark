@@ -503,7 +503,7 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %155 = load i32, ptr %136, align 4, !tbaa !64
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %157, label %140, label %._crit_edge, !llvm.loop !106
+  br i1 %157, label %140, label %._crit_edge, !llvm.loop !107
 
 158:                                              ; preds = %._crit_edge
   %159 = load i32, ptr %33, align 8, !tbaa !96
@@ -517,7 +517,7 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %167 = load i64, ptr %166, align 8, !tbaa !103
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %169 = load i64, ptr %168, align 8, !tbaa !107
+  %169 = load i64, ptr %168, align 8, !tbaa !108
   %.not114 = icmp sgt i64 %167, %169
   %170 = select i1 %.not114, i32 0, i32 2
   %171 = and i32 %165, -3
@@ -532,23 +532,23 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %.sink127 = load i32, ptr %174, align 4, !tbaa !64
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 65
   %176 = trunc i32 %.sink127 to i8
-  store i8 %176, ptr %175, align 1, !tbaa !108
+  store i8 %176, ptr %175, align 1, !tbaa !109
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 66
-  store i8 0, ptr %177, align 2, !tbaa !109
+  store i8 0, ptr %177, align 2, !tbaa !110
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 67
-  store i8 0, ptr %178, align 1, !tbaa !110
+  store i8 0, ptr %178, align 1, !tbaa !111
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store i8 0, ptr %179, align 4, !tbaa !111
+  store i8 0, ptr %179, align 4, !tbaa !112
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 1976
-  %181 = load i32, ptr %180, align 8, !tbaa !112
+  %181 = load i32, ptr %180, align 8, !tbaa !113
   %182 = trunc i32 %181 to i8
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 69
-  store i8 %182, ptr %183, align 1, !tbaa !113
+  store i8 %182, ptr %183, align 1, !tbaa !114
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 1980
-  %185 = load i32, ptr %184, align 4, !tbaa !114
+  %185 = load i32, ptr %184, align 4, !tbaa !115
   %186 = trunc i32 %185 to i8
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 70
-  store i8 %186, ptr %187, align 2, !tbaa !115
+  store i8 %186, ptr %187, align 2, !tbaa !116
   ret i32 0
 }
 
@@ -688,15 +688,16 @@ attributes #11 = { noreturn nounwind }
 !101 = !{!29, !10, i64 1104}
 !102 = !{!84, !10, i64 84}
 !103 = !{!84, !13, i64 24}
-!104 = distinct !{!104, !105}
+!104 = distinct !{!104, !105, !106}
 !105 = !{!"llvm.loop.mustprogress"}
-!106 = distinct !{!106, !105}
-!107 = !{!84, !13, i64 32}
-!108 = !{!78, !8, i64 65}
-!109 = !{!78, !8, i64 66}
-!110 = !{!78, !8, i64 67}
-!111 = !{!78, !8, i64 68}
-!112 = !{!57, !10, i64 1976}
-!113 = !{!78, !8, i64 69}
-!114 = !{!57, !10, i64 1980}
-!115 = !{!78, !8, i64 70}
+!106 = !{!"llvm.loop.estimated_trip_count"}
+!107 = distinct !{!107, !105, !106}
+!108 = !{!84, !13, i64 32}
+!109 = !{!78, !8, i64 65}
+!110 = !{!78, !8, i64 66}
+!111 = !{!78, !8, i64 67}
+!112 = !{!78, !8, i64 68}
+!113 = !{!57, !10, i64 1976}
+!114 = !{!78, !8, i64 69}
+!115 = !{!57, !10, i64 1980}
+!116 = !{!78, !8, i64 70}

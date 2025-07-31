@@ -280,7 +280,7 @@ _ZN4absl13hash_internalL13Hash32Len0to4EPKcm.exit: ; preds = %8, %._crit_edge.lo
   %219 = getelementptr inbounds nuw i8, ptr %.041, i64 20
   %220 = add nsw i64 %.042, -1
   %.not = icmp eq i64 %220, 0
-  br i1 %.not, label %221, label %185, !llvm.loop !9
+  br i1 %.not, label %221, label %185, !llvm.loop !10
 
 221:                                              ; preds = %185
   %222 = tail call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 21)
@@ -621,7 +621,7 @@ define dso_local noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr nound
   %243 = getelementptr inbounds nuw i8, ptr %.043, i64 64
   %244 = add i64 %.042, -64
   %.not = icmp eq i64 %244, 0
-  br i1 %.not, label %245, label %196, !llvm.loop !10
+  br i1 %.not, label %245, label %196, !llvm.loop !11
 
 245:                                              ; preds = %196
   %246 = xor i64 %240, %226
@@ -721,7 +721,8 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

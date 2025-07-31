@@ -137,8 +137,8 @@ declare i32 @_ULx86_64_is_signal_frame(ptr noundef) local_unnamed_addr #2
 define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(1984) ptr @_Znwm(i64 noundef 1984) #12, !noalias !13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1984) %5, i8 0, i64 1984, i1 false), !noalias !13
+  %5 = tail call noalias noundef nonnull dereferenceable(1984) ptr @_Znwm(i64 noundef 1984) #12, !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1984) %5, i8 0, i64 1984, i1 false), !noalias !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 968
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21, label %8
@@ -278,7 +278,7 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
 5:                                                ; preds = %2
   %6 = tail call ptr @llvm.frameaddress.p0(i32 0)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %12, label %9
 
@@ -318,7 +318,7 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
 .lr.ph.i:                                         ; preds = %18, %28
   %.01631.i = phi ptr [ %23, %28 ], [ %.02736, %18 ]
   %.01730.i = phi i64 [ %32, %28 ], [ 0, %18 ]
-  %23 = load ptr, ptr %.01631.i, align 8, !tbaa !23
+  %23 = load ptr, ptr %.01631.i, align 8, !tbaa !24
   %24 = icmp ule ptr %23, %.01631.i
   %25 = getelementptr inbounds nuw i8, ptr %.01631.i, i64 1099511627776
   %26 = icmp uge ptr %23, %25
@@ -329,13 +329,13 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
 
 28:                                               ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %.01631.i, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = ptrtoint ptr %30 to i64
   %32 = add nuw i64 %.01730.i, 1
   %33 = getelementptr inbounds nuw i64, ptr %19, i64 %.01730.i
   store i64 %31, ptr %33, align 8, !tbaa !7
   %exitcond.not.i = icmp eq i64 %32, %20
-  br i1 %exitcond.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit: ; preds = %.lr.ph.i, %28, %18
   %.017.lcssa.i = phi i64 [ 0, %18 ], [ %20, %28 ], [ %.01730.i, %.lr.ph.i ]
@@ -350,44 +350,44 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   %39 = phi i64 [ %43, %.thread.i ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
   %.01527.i = phi ptr [ %45, %.thread.i ], [ %.038, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !27, !noalias !29
+  %41 = load ptr, ptr %40, align 8, !tbaa !29, !noalias !31
   %42 = ptrtoint ptr %41 to i64
   %43 = add nuw i64 %39, 1
   %44 = getelementptr inbounds nuw i64, ptr %35, i64 %39
-  store i64 %42, ptr %44, align 8, !tbaa !7, !noalias !29
-  %45 = load ptr, ptr %.01527.i, align 8, !tbaa !32, !noalias !29
+  store i64 %42, ptr %44, align 8, !tbaa !7, !noalias !31
+  %45 = load ptr, ptr %.01527.i, align 8, !tbaa !34, !noalias !31
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %.lr.ph.i32
   %48 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !33, !noalias !29
+  %49 = load ptr, ptr %48, align 8, !tbaa !35, !noalias !31
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !16, !noalias !29
+  %53 = load ptr, ptr %52, align 8, !tbaa !17, !noalias !31
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr %53, align 8, !tbaa !23, !noalias !29
+  %56 = load ptr, ptr %53, align 8, !tbaa !24, !noalias !31
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !34, !noalias !29
+  %58 = load ptr, ptr %57, align 8, !tbaa !36, !noalias !31
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !16, !noalias !29
-  %62 = load atomic i64, ptr %58 monotonic, align 8, !noalias !29
+  %61 = load ptr, ptr %60, align 8, !tbaa !17, !noalias !31
+  %62 = load atomic i64, ptr %58 monotonic, align 8, !noalias !31
   %.0.i.i.i.i = inttoptr i64 %62 to ptr
   br label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit
 
 .thread.i:                                        ; preds = %.lr.ph.i32
   %exitcond.not = icmp eq i64 %43, %36
-  br i1 %exitcond.not, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %.lr.ph.i32
+  br i1 %exitcond.not, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %.lr.ph.i32, !llvm.loop !37
 
 _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit: ; preds = %.thread.i, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, %47, %51, %55, %59
   %.sroa.0.1 = phi i64 [ %43, %47 ], [ %43, %51 ], [ %43, %55 ], [ %43, %59 ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %36, %.thread.i ]
@@ -396,7 +396,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.ex
   %.sroa.11.1 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ %.0.i.i.i.i, %59 ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %.thread.i ]
   %63 = add i64 %.sroa.0.1, %34
   %64 = icmp ult i64 %63, %1
-  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !35
+  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, %.lr.ph, %12, %2
   %.028 = phi i64 [ 0, %2 ], [ %.029, %12 ], [ %63, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %.135, %.lr.ph ]
@@ -449,28 +449,31 @@ attributes #13 = { builtin nounwind }
 !8 = !{!"long", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!15 = distinct !{!15, !"_ZSt11make_uniqueIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!16 = !{!17, !21, i64 16}
-!17 = !{!"_ZTSN5folly14AsyncStackRootE", !18, i64 0, !22, i64 8, !21, i64 16, !21, i64 24}
-!18 = !{!"_ZTSSt6atomicIPN5folly15AsyncStackFrameEE", !19, i64 0}
-!19 = !{!"_ZTSSt13__atomic_baseIPN5folly15AsyncStackFrameEE", !20, i64 0}
-!20 = !{!"p1 _ZTSN5folly15AsyncStackFrameE", !21, i64 0}
-!21 = !{!"any pointer", !9, i64 0}
-!22 = !{!"p1 _ZTSN5folly14AsyncStackRootE", !21, i64 0}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"_ZTSN5folly10symbolizer12_GLOBAL__N_110StackFrameE", !25, i64 0, !21, i64 8}
-!25 = !{!"p1 _ZTSN5folly10symbolizer12_GLOBAL__N_110StackFrameE", !21, i64 0}
-!26 = !{!24, !21, i64 8}
-!27 = !{!28, !21, i64 8}
-!28 = !{!"_ZTSN5folly15AsyncStackFrameE", !20, i64 0, !21, i64 8, !22, i64 16}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE: argument 0"}
-!31 = distinct !{!31, !"_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE"}
-!32 = !{!28, !20, i64 0}
-!33 = !{!28, !22, i64 16}
-!34 = !{!17, !22, i64 8}
-!35 = distinct !{!35, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!16 = distinct !{!16, !"_ZSt11make_uniqueIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!17 = !{!18, !22, i64 16}
+!18 = !{!"_ZTSN5folly14AsyncStackRootE", !19, i64 0, !23, i64 8, !22, i64 16, !22, i64 24}
+!19 = !{!"_ZTSSt6atomicIPN5folly15AsyncStackFrameEE", !20, i64 0}
+!20 = !{!"_ZTSSt13__atomic_baseIPN5folly15AsyncStackFrameEE", !21, i64 0}
+!21 = !{!"p1 _ZTSN5folly15AsyncStackFrameE", !22, i64 0}
+!22 = !{!"any pointer", !9, i64 0}
+!23 = !{!"p1 _ZTSN5folly14AsyncStackRootE", !22, i64 0}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"_ZTSN5folly10symbolizer12_GLOBAL__N_110StackFrameE", !26, i64 0, !22, i64 8}
+!26 = !{!"p1 _ZTSN5folly10symbolizer12_GLOBAL__N_110StackFrameE", !22, i64 0}
+!27 = !{!25, !22, i64 8}
+!28 = distinct !{!28, !13}
+!29 = !{!30, !22, i64 8}
+!30 = !{!"_ZTSN5folly15AsyncStackFrameE", !21, i64 0, !22, i64 8, !23, i64 16}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE: argument 0"}
+!33 = distinct !{!33, !"_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE"}
+!34 = !{!30, !21, i64 0}
+!35 = !{!30, !23, i64 16}
+!36 = !{!18, !23, i64 8}
+!37 = distinct !{!37, !13}
+!38 = distinct !{!38, !12, !13}

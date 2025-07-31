@@ -105,7 +105,7 @@ define dso_local i32 @match_token(ptr noundef %0, ptr noundef readonly captures(
   %41 = getelementptr i8, ptr %26, i64 1
   %42 = getelementptr i8, ptr %16, i64 2
   store ptr %42, ptr %4, align 8
-  br label %85, !llvm.loop !8
+  br label %85, !llvm.loop !9
 
 43:                                               ; preds = %35, %32
   %44 = phi i32 [ %34, %32 ], [ -1, %35 ]
@@ -189,7 +189,7 @@ define dso_local i32 @match_token(ptr noundef %0, ptr noundef readonly captures(
   %88 = phi i32 [ %84, %82 ], [ %18, %40 ]
   %89 = call ptr @strchr(ptr noundef %86, i32 noundef 37) #9
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %90, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %52, %.lr.ph, %37, %43, %77, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -212,9 +212,9 @@ define dso_local noundef range(i32 -34, 1) i32 @match_int(ptr noundef readonly c
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -255,7 +255,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_int(ptr noundef readonly c
 define dso_local i32 @match_uint(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -314,9 +314,9 @@ define dso_local i32 @match_u64(ptr noundef readonly captures(none) %0, ptr noun
   %3 = alloca [24 x i8], align 16
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %4, align 8, !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -352,9 +352,9 @@ define dso_local noundef range(i32 -34, 1) i32 @match_octal(ptr noundef readonly
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -396,9 +396,9 @@ define dso_local noundef range(i32 -34, 1) i32 @match_hex(ptr noundef readonly c
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -490,7 +490,7 @@ define dso_local zeroext i1 @match_wildcard(ptr noundef readonly captures(none) 
   %33 = phi i8 [ %6, %21 ], [ %6, %26 ], [ %6, %12 ], [ 1, %15 ]
   %34 = load i8, ptr %31, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.loopexit2, label %.preheader, !llvm.loop !10
+  br i1 %35, label %.loopexit2, label %.preheader, !llvm.loop !12
 
 .loopexit2:                                       ; preds = %28, %2
   %36 = phi ptr [ %0, %2 ], [ %32, %28 ]
@@ -567,9 +567,11 @@ attributes #9 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !7}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !6, !7, !8}

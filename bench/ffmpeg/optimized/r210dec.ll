@@ -167,7 +167,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %83 = getelementptr inbounds i8, ptr %.072127.us, i64 %65
   %84 = add nuw nsw i32 %.071131.us, 1
   %exitcond156.not = icmp eq i32 %84, %51
-  br i1 %exitcond156.not, label %._crit_edge132, label %.preheader.us, !llvm.loop !44
+  br i1 %exitcond156.not, label %._crit_edge132, label %.preheader.us, !llvm.loop !45
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
   %.06784.us.us = phi ptr [ %92, %.lr.ph.split.us.us ], [ %.072127.us, %.preheader.us ]
@@ -195,7 +195,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i16 %.0.us.us, ptr %.06883.us.us, align 2, !tbaa !40
   %95 = add nuw nsw i32 %.07581.us.us, 1
   %exitcond155.not = icmp eq i32 %95, %53
-  br i1 %exitcond155.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !46
+  br i1 %exitcond155.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !47
 
 .lr.ph.split.split.us145:                         ; preds = %.lr.ph.split.us144
   br i1 %or.cond3.us, label %.lr.ph.split.split.split.us.us, label %.lr.ph.split.split.split.us147
@@ -226,7 +226,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i16 %.0.us97.us, ptr %.06883.us88.us, align 2, !tbaa !40
   %106 = add nuw nsw i32 %.07581.us90.us, 1
   %exitcond154.not = icmp eq i32 %106, %53
-  br i1 %exitcond154.not, label %._crit_edge.us, label %.lr.ph.split.split.us.us, !llvm.loop !47
+  br i1 %exitcond154.not, label %._crit_edge.us, label %.lr.ph.split.split.us.us, !llvm.loop !48
 
 .lr.ph.split.split.split.us.us:                   ; preds = %.lr.ph.split.split.us145, %.lr.ph.split.split.split.us.us
   %.06784.us104.us = phi ptr [ %113, %.lr.ph.split.split.split.us.us ], [ %.072127.us, %.lr.ph.split.split.us145 ]
@@ -252,7 +252,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i16 %.0.us111.us, ptr %.06883.us105.us, align 2, !tbaa !40
   %116 = add nuw nsw i32 %.07581.us107.us, 1
   %exitcond153.not = icmp eq i32 %116, %53
-  br i1 %exitcond153.not, label %._crit_edge.us, label %.lr.ph.split.split.split.us.us, !llvm.loop !48
+  br i1 %exitcond153.not, label %._crit_edge.us, label %.lr.ph.split.split.split.us.us, !llvm.loop !49
 
 ._crit_edge132:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %45
   store i32 1, ptr %2, align 4, !tbaa !39
@@ -325,10 +325,11 @@ attributes #5 = { nounwind }
 !39 = !{!10, !10, i64 0}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"short", !8, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !43, !45}
-!47 = distinct !{!47, !43, !45}
-!48 = distinct !{!48, !43, !45}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !43, !44, !46}
+!48 = distinct !{!48, !43, !44, !46}
+!49 = distinct !{!49, !43, !44, !46}

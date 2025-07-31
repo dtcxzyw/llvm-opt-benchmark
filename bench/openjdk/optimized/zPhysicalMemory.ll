@@ -144,7 +144,7 @@ define hidden void @_ZN15ZPhysicalMemory11add_segmentERK22ZPhysicalMemorySegment
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next.i.i, %46
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
-  br i1 %47, label %41, label %_ZN15ZPhysicalMemory14remove_segmentEi.exit, !llvm.loop !8
+  br i1 %47, label %41, label %_ZN15ZPhysicalMemory14remove_segmentEi.exit, !llvm.loop !9
 
 _ZN15ZPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
   %.lcssa.i.i = phi i32 [ %38, %34 ], [ %45, %41 ]
@@ -259,7 +259,7 @@ define hidden void @_ZN15ZPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dere
   %9 = load i32, ptr %1, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next.i, %10
-  br i1 %11, label %6, label %_ZN15ZPhysicalMemory12add_segmentsERKS_.exit, !llvm.loop !9
+  br i1 %11, label %6, label %_ZN15ZPhysicalMemory12add_segmentsERKS_.exit, !llvm.loop !10
 
 _ZN15ZPhysicalMemory12add_segmentsERKS_.exit:     ; preds = %6, %2
   ret void
@@ -284,7 +284,7 @@ define hidden void @_ZN15ZPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull 
   %9 = load i32, ptr %1, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %6, label %._crit_edge, !llvm.loop !9
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %6, %2
   ret void
@@ -331,7 +331,7 @@ _ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_
   %15 = load i32, ptr %1, align 8
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %12, label %_ZN15ZPhysicalMemory12add_segmentsERKS_.exit, !llvm.loop !9
+  br i1 %17, label %12, label %_ZN15ZPhysicalMemory12add_segmentsERKS_.exit, !llvm.loop !10
 
 _ZN15ZPhysicalMemory12add_segmentsERKS_.exit:     ; preds = %12, %_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit
   ret ptr %0
@@ -360,7 +360,7 @@ define hidden noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr noundef nonnull read
   %12 = sub i64 %11, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %6, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %12, %6 ]
@@ -433,7 +433,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemo
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %24, label %.preheader15.loopexit.i.i, !llvm.loop !11
+  br i1 %30, label %24, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -451,7 +451,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemo
   %35 = load i32, ptr %5, align 4
   %36 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !12
+  br i1 %37, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 38:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #13
@@ -485,7 +485,7 @@ _ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_
   %47 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %45, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %47, ptr noundef nonnull align 8 dereferenceable(17) %46, i64 17, i1 false)
   %.not.not = icmp sgt i64 %indvars.iv.next, %43
-  br i1 %.not.not, label %44, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %.not.not, label %44, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %44
   %.pre12 = load i32, ptr %0, align 8
@@ -544,7 +544,7 @@ define hidden void @_ZN15ZPhysicalMemory14remove_segmentEi(ptr noundef nonnull a
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next.i, %13
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, 1
-  br i1 %14, label %8, label %_ZN17GrowableArrayViewI22ZPhysicalMemorySegmentE9remove_atEi.exit, !llvm.loop !8
+  br i1 %14, label %8, label %_ZN17GrowableArrayViewI22ZPhysicalMemorySegmentE9remove_atEi.exit, !llvm.loop !9
 
 _ZN17GrowableArrayViewI22ZPhysicalMemorySegmentE9remove_atEi.exit: ; preds = %8, %2
   %.lcssa.i = phi i32 [ %3, %2 ], [ %12, %8 ]
@@ -715,7 +715,7 @@ define hidden void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind noalias writ
   %23 = sub i64 %22, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK15ZPhysicalMemory4sizeEv.exit, label %17, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZNK15ZPhysicalMemory4sizeEv.exit, label %17, !llvm.loop !11
 
 _ZNK15ZPhysicalMemory4sizeEv.exit:                ; preds = %17
   %24 = icmp ult i64 %23, %2
@@ -735,7 +735,7 @@ _ZNK15ZPhysicalMemory4sizeEv.exit.thread:         ; preds = %11
   %30 = sub i64 %29, %28
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i
-  br i1 %exitcond.not.i29, label %_ZNK15ZPhysicalMemory4sizeEv.exit30.thread, label %.lr.ph.i24, !llvm.loop !10
+  br i1 %exitcond.not.i29, label %_ZNK15ZPhysicalMemory4sizeEv.exit30.thread, label %.lr.ph.i24, !llvm.loop !11
 
 _ZNK15ZPhysicalMemory4sizeEv.exit30:              ; preds = %_ZNK15ZPhysicalMemory4sizeEv.exit.thread
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -769,7 +769,7 @@ _ZNK15ZPhysicalMemory4sizeEv.exit30.thread:       ; preds = %.lr.ph.i24
   %46 = sub i64 %45, %44
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i
-  br i1 %exitcond.not.i37, label %_ZNK15ZPhysicalMemory4sizeEv.exit38, label %.lr.ph.i32, !llvm.loop !10
+  br i1 %exitcond.not.i37, label %_ZNK15ZPhysicalMemory4sizeEv.exit38, label %.lr.ph.i32, !llvm.loop !11
 
 _ZNK15ZPhysicalMemory4sizeEv.exit38:              ; preds = %.lr.ph.i32, %_ZNK15ZPhysicalMemory4sizeEv.exit30
   %47 = phi ptr [ %31, %_ZNK15ZPhysicalMemory4sizeEv.exit30 ], [ %35, %.lr.ph.i32 ]
@@ -813,7 +813,7 @@ _ZNK15ZPhysicalMemory4sizeEv.exit38:              ; preds = %.lr.ph.i32, %_ZNK15
   %68 = load i32, ptr %1, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %11, label %._crit_edge, !llvm.loop !14
+  br i1 %70, label %11, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %67, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %67 ]
@@ -859,7 +859,7 @@ define hidden void @_ZN15ZPhysicalMemory15split_committedEv(ptr dead_on_unwind n
   %18 = load i32, ptr %1, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %6, label %._crit_edge, !llvm.loop !15
+  br i1 %20, label %6, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %17, %2
   %.09.lcssa = phi i32 [ 0, %2 ], [ %.1, %17 ]
@@ -1092,7 +1092,7 @@ _ZN15ZPhysicalMemory14commit_segmentEim.exit:     ; preds = %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %.not32 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread, !llvm.loop !16
+  br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread, !llvm.loop !17
 
 _ZN15ZPhysicalMemory14commit_segmentEim.exit.thread: ; preds = %44, %20, %2, %_ZN15ZPhysicalMemory14commit_segmentEim.exit
   %47 = phi i1 [ false, %_ZN15ZPhysicalMemory14commit_segmentEim.exit ], [ true, %2 ], [ true, %44 ], [ false, %20 ]
@@ -1184,7 +1184,7 @@ _ZN15ZPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %.not32 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread, !llvm.loop !17
+  br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread, !llvm.loop !18
 
 _ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread: ; preds = %44, %20, %2, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit
   %47 = phi i1 [ false, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit ], [ true, %2 ], [ true, %44 ], [ false, %20 ]
@@ -1217,7 +1217,7 @@ define hidden void @_ZN22ZPhysicalMemoryManager5allocER15ZPhysicalMemorym(ptr no
   %13 = load i64, ptr %4, align 8
   %14 = sub i64 %.06, %13
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %9, %3
   ret void
@@ -1249,7 +1249,7 @@ define hidden void @_ZN22ZPhysicalMemoryManager4freeERK15ZPhysicalMemory(ptr nou
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %7, label %._crit_edge, !llvm.loop !19
+  br i1 %16, label %7, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -1311,7 +1311,7 @@ define hidden void @_ZNK22ZPhysicalMemoryManager3mapE7zoffsetRK15ZPhysicalMemory
   %21 = load i32, ptr %2, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %9, label %._crit_edge, !llvm.loop !20
+  br i1 %23, label %9, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %9, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %20, %9 ]
@@ -1422,18 +1422,19 @@ attributes #13 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

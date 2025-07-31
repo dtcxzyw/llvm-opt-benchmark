@@ -190,8 +190,8 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
 
 86:                                               ; preds = %85, %78
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %88 = load ptr, ptr %87, align 8, !tbaa !22
-  store i8 1, ptr %88, align 1, !tbaa !42
+  %88 = load ptr, ptr %87, align 8, !tbaa !23
+  store i8 1, ptr %88, align 1, !tbaa !43
   call void @hwloc_setup_pu_level(ptr noundef %0, i32 noundef 8) #3
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %90 = call i32 @hwloc__add_info(ptr noundef nonnull %89, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #3
@@ -321,7 +321,7 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
 53:                                               ; preds = %48, %52
   %54 = add nuw nsw i32 %.065, 1
   %exitcond.not = icmp eq i32 %54, 16
-  br i1 %exitcond.not, label %55, label %7, !llvm.loop !44
+  br i1 %exitcond.not, label %55, label %7, !llvm.loop !45
 
 55:                                               ; preds = %53
   %56 = call noalias ptr @hwloc_bitmap_alloc() #3
@@ -382,8 +382,8 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
 
 86:                                               ; preds = %85, %78
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %88 = load ptr, ptr %87, align 8, !tbaa !22
-  store i8 1, ptr %88, align 1, !tbaa !42
+  %88 = load ptr, ptr %87, align 8, !tbaa !23
+  store i8 1, ptr %88, align 1, !tbaa !43
   call void @hwloc_setup_pu_level(ptr noundef %0, i32 noundef 16) #3
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %90 = call i32 @hwloc__add_info(ptr noundef nonnull %89, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.17) #3
@@ -489,7 +489,7 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
 53:                                               ; preds = %48, %52
   %54 = add nuw nsw i32 %.075, 1
   %exitcond.not = icmp eq i32 %54, 34
-  br i1 %exitcond.not, label %55, label %7, !llvm.loop !45
+  br i1 %exitcond.not, label %55, label %7, !llvm.loop !46
 
 55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
@@ -572,8 +572,8 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
 
 105:                                              ; preds = %96, %93
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %107 = load ptr, ptr %106, align 8, !tbaa !22
-  store i8 1, ptr %107, align 1, !tbaa !42
+  %107 = load ptr, ptr %106, align 8, !tbaa !23
+  store i8 1, ptr %107, align 1, !tbaa !43
   call void @hwloc_setup_pu_level(ptr noundef %0, i32 noundef 34) #3
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %109 = call i32 @hwloc__add_info(ptr noundef nonnull %108, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.25) #3
@@ -611,29 +611,30 @@ attributes #3 = { nounwind }
 !17 = !{!"p1 _ZTS12hwloc_info_s", !10, i64 0}
 !18 = !{!8, !12, i64 40}
 !19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !28, i64 656}
-!23 = !{!"hwloc_topology", !4, i64 0, !4, i64 4, !4, i64 8, !24, i64 16, !25, i64 24, !11, i64 32, !5, i64 40, !5, i64 120, !11, i64 200, !11, i64 208, !4, i64 216, !10, i64 224, !11, i64 232, !10, i64 240, !11, i64 248, !5, i64 256, !15, i64 448, !15, i64 456, !26, i64 464, !27, i64 656, !16, i64 688, !10, i64 704, !10, i64 712, !4, i64 720, !32, i64 728, !32, i64 736, !4, i64 744, !4, i64 748, !33, i64 752, !4, i64 760, !4, i64 764, !34, i64 768, !4, i64 776, !4, i64 780, !4, i64 784, !5, i64 788, !4, i64 808, !35, i64 816, !35, i64 824, !4, i64 832, !4, i64 836, !36, i64 840, !4, i64 848, !37, i64 856, !4, i64 880, !4, i64 884, !39, i64 888, !11, i64 896, !4, i64 904, !40, i64 912, !41, i64 920, !41, i64 928}
-!24 = !{!"p1 int", !10, i64 0}
-!25 = !{!"p3 _ZTS9hwloc_obj", !10, i64 0}
-!26 = !{!"hwloc_binding_hooks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184}
-!27 = !{!"hwloc_topology_support", !28, i64 0, !29, i64 8, !30, i64 16, !31, i64 24}
-!28 = !{!"p1 _ZTS32hwloc_topology_discovery_support", !10, i64 0}
-!29 = !{!"p1 _ZTS30hwloc_topology_cpubind_support", !10, i64 0}
-!30 = !{!"p1 _ZTS30hwloc_topology_membind_support", !10, i64 0}
-!31 = !{!"p1 _ZTS27hwloc_topology_misc_support", !10, i64 0}
-!32 = !{!"p1 _ZTS26hwloc_internal_distances_s", !10, i64 0}
-!33 = !{!"p1 _ZTS24hwloc_internal_memattr_s", !10, i64 0}
-!34 = !{!"p1 _ZTS24hwloc_internal_cpukind_s", !10, i64 0}
-!35 = !{!"p1 _ZTS13hwloc_backend", !10, i64 0}
-!36 = !{!"p1 _ZTS9hwloc_tma", !10, i64 0}
-!37 = !{!"hwloc_numanode_attr_s", !11, i64 0, !4, i64 8, !38, i64 16}
-!38 = !{!"p1 _ZTS24hwloc_memory_page_type_s", !10, i64 0}
-!39 = !{!"p1 _ZTS27hwloc_pci_forced_locality_s", !10, i64 0}
-!40 = !{!"p1 _ZTS33hwloc_topology_forced_component_s", !10, i64 0}
-!41 = !{!"p1 _ZTS20hwloc_pci_locality_s", !10, i64 0}
-!42 = !{!43, !5, i64 0}
-!43 = !{!"hwloc_topology_discovery_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5}
-!44 = distinct !{!44, !21}
-!45 = distinct !{!45, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !29, i64 656}
+!24 = !{!"hwloc_topology", !4, i64 0, !4, i64 4, !4, i64 8, !25, i64 16, !26, i64 24, !11, i64 32, !5, i64 40, !5, i64 120, !11, i64 200, !11, i64 208, !4, i64 216, !10, i64 224, !11, i64 232, !10, i64 240, !11, i64 248, !5, i64 256, !15, i64 448, !15, i64 456, !27, i64 464, !28, i64 656, !16, i64 688, !10, i64 704, !10, i64 712, !4, i64 720, !33, i64 728, !33, i64 736, !4, i64 744, !4, i64 748, !34, i64 752, !4, i64 760, !4, i64 764, !35, i64 768, !4, i64 776, !4, i64 780, !4, i64 784, !5, i64 788, !4, i64 808, !36, i64 816, !36, i64 824, !4, i64 832, !4, i64 836, !37, i64 840, !4, i64 848, !38, i64 856, !4, i64 880, !4, i64 884, !40, i64 888, !11, i64 896, !4, i64 904, !41, i64 912, !42, i64 920, !42, i64 928}
+!25 = !{!"p1 int", !10, i64 0}
+!26 = !{!"p3 _ZTS9hwloc_obj", !10, i64 0}
+!27 = !{!"hwloc_binding_hooks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184}
+!28 = !{!"hwloc_topology_support", !29, i64 0, !30, i64 8, !31, i64 16, !32, i64 24}
+!29 = !{!"p1 _ZTS32hwloc_topology_discovery_support", !10, i64 0}
+!30 = !{!"p1 _ZTS30hwloc_topology_cpubind_support", !10, i64 0}
+!31 = !{!"p1 _ZTS30hwloc_topology_membind_support", !10, i64 0}
+!32 = !{!"p1 _ZTS27hwloc_topology_misc_support", !10, i64 0}
+!33 = !{!"p1 _ZTS26hwloc_internal_distances_s", !10, i64 0}
+!34 = !{!"p1 _ZTS24hwloc_internal_memattr_s", !10, i64 0}
+!35 = !{!"p1 _ZTS24hwloc_internal_cpukind_s", !10, i64 0}
+!36 = !{!"p1 _ZTS13hwloc_backend", !10, i64 0}
+!37 = !{!"p1 _ZTS9hwloc_tma", !10, i64 0}
+!38 = !{!"hwloc_numanode_attr_s", !11, i64 0, !4, i64 8, !39, i64 16}
+!39 = !{!"p1 _ZTS24hwloc_memory_page_type_s", !10, i64 0}
+!40 = !{!"p1 _ZTS27hwloc_pci_forced_locality_s", !10, i64 0}
+!41 = !{!"p1 _ZTS33hwloc_topology_forced_component_s", !10, i64 0}
+!42 = !{!"p1 _ZTS20hwloc_pci_locality_s", !10, i64 0}
+!43 = !{!44, !5, i64 0}
+!44 = !{!"hwloc_topology_discovery_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5}
+!45 = distinct !{!45, !21, !22}
+!46 = distinct !{!46, !21, !22}

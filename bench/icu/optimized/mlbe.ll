@@ -567,11 +567,11 @@ define void @_ZN6icu_7713MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   %.add = add nuw nsw i64 %.idx, 88
   %15 = icmp samesign eq i64 %.add, 1552
-  br i1 %15, label %16, label %.preheader25
+  br i1 %15, label %16, label %.preheader25, !llvm.loop !23
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  store i32 0, ptr %17, align 8, !tbaa !23
+  store i32 0, ptr %17, align 8, !tbaa !25
   %18 = load i32, ptr %3, align 4, !tbaa !13
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %28, label %29
@@ -593,7 +593,7 @@ define void @_ZN6icu_7713MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr 
   %.ptr16 = getelementptr inbounds i8, ptr %0, i64 %.add14
   call void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.ptr16) #13
   %25 = icmp eq i64 %.add14, 408
-  br i1 %25, label %.loopexit, label %.preheader
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !37
 
 26:                                               ; preds = %28
   %27 = landingpad { ptr, i32 }
@@ -613,7 +613,7 @@ define void @_ZN6icu_7713MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr 
   %.ptr19 = getelementptr inbounds i8, ptr %0, i64 %.add18
   call void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %.ptr19) #13
   %31 = icmp eq i64 %.add18, 408
-  br i1 %31, label %.loopexit, label %30
+  br i1 %31, label %.loopexit, label %30, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %30, %22
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %27, %30 ], [ %23, %.preheader ]
@@ -663,7 +663,7 @@ define void @_ZN6icu_7713MlBreakEngine11loadMLModelER10UErrorCode(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #13
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %3, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 2, ptr %10, align 8, !tbaa !35
+  store i16 2, ptr %10, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #13
   invoke void @_ZN6icu_7720StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %11 unwind label %18
@@ -674,13 +674,13 @@ define void @_ZN6icu_7713MlBreakEngine11loadMLModelER10UErrorCode(ptr noundef no
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %13, align 8, !tbaa !36
+  store i32 -1, ptr %13, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   %14 = invoke ptr @ures_openDirect_77(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %1)
           to label %15 unwind label %20
 
 15:                                               ; preds = %11
-  store ptr %14, ptr %6, align 8, !tbaa !42
+  store ptr %14, ptr %6, align 8, !tbaa !46
   %16 = load i32, ptr %1, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %22, label %52
@@ -762,9 +762,9 @@ define void @_ZN6icu_7713MlBreakEngine11loadMLModelER10UErrorCode(ptr noundef no
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %50 = load i32, ptr %49, align 8, !tbaa !23
+  %50 = load i32, ptr %49, align 8, !tbaa !25
   %51 = sdiv i32 %50, 2
-  store i32 %51, ptr %49, align 8, !tbaa !23
+  store i32 %51, ptr %49, align 8, !tbaa !25
   br label %52
 
 52:                                               ; preds = %15, %48
@@ -846,7 +846,7 @@ define void @_ZN6icu_7713MlBreakEngineD2Ev(ptr noundef nonnull align 8 dereferen
 
 _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %2, %4
   %8 = icmp eq i64 %.add, 408
-  br i1 %8, label %9, label %2
+  br i1 %8, label %9, label %2, !llvm.loop !49
 
 9:                                                ; preds = %_ZN6icu_779HashtableD2Ev.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -925,7 +925,7 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine13divideUpRangeEP5UTextiiRNS_9UVec
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !45
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = icmp slt i32 %36, -1
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %39 = load i32, ptr %38, align 4
@@ -943,19 +943,19 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %34
   br i1 %.not.i, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i: ; preds = %.noexc
-  %.pre.i = load i32, ptr %35, align 8, !tbaa !45
+  %.pre.i = load i32, ptr %35, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i, %34
   %42 = phi i32 [ %.pre.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %36, %34 ]
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !47
+  %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = sext i32 %42 to i64
   %46 = getelementptr inbounds i32, ptr %44, i64 %45
   store i32 0, ptr %46, align 4, !tbaa !12
-  %47 = load i32, ptr %35, align 8, !tbaa !45
+  %47 = load i32, ptr %35, align 8, !tbaa !50
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %35, align 8, !tbaa !45
+  store i32 %48, ptr %35, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
 
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i, %.noexc
@@ -1021,17 +1021,17 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   %73 = icmp sgt i32 %72, 0
   %or.cond = select i1 %71, i1 true, i1 %73
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !48
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !53
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
   %.088.lcssa149 = phi i32 [ %59, %.critedge ], [ 1, %.preheader ]
-  %74 = load i32, ptr %35, align 8, !tbaa !45
+  %74 = load i32, ptr %35, align 8, !tbaa !50
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %_ZNK6icu_779UVector3212lastElementiEv.exit
 
 76:                                               ; preds = %.critedge.thread
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !47
+  %78 = load ptr, ptr %77, align 8, !tbaa !52
   %79 = zext nneg i32 %74 to i64
   %80 = getelementptr i32, ptr %78, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -4
@@ -1092,14 +1092,14 @@ _ZNK6icu_779UVector3212lastElementiEv.exit:       ; preds = %76, %.critedge.thre
   br i1 %106, label %107, label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
 107:                                              ; preds = %103
-  %108 = load ptr, ptr %93, align 8, !tbaa !47
+  %108 = load ptr, ptr %93, align 8, !tbaa !52
   %109 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv145
   %110 = load i32, ptr %109, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %103, %107
   %111 = phi i32 [ %110, %107 ], [ 0, %103 ]
-  %112 = load ptr, ptr %6, align 8, !tbaa !50
+  %112 = load ptr, ptr %6, align 8, !tbaa !55
   %.not126 = icmp eq ptr %112, null
   br i1 %.not126, label %124, label %113
 
@@ -1113,7 +1113,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %103, %107
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !47
+  %120 = load ptr, ptr %119, align 8, !tbaa !52
   %121 = zext nneg i32 %111 to i64
   %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !12
@@ -1148,7 +1148,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit115:      ; preds = %118, %113, %124
   br i1 %.not108, label %152, label %135
 
 135:                                              ; preds = %134, %128
-  %136 = load i32, ptr %95, align 8, !tbaa !45
+  %136 = load i32, ptr %95, align 8, !tbaa !50
   %137 = icmp slt i32 %136, -1
   %138 = load i32, ptr %96, align 4
   %.not.i.i.i = icmp sle i32 %138, %136
@@ -1165,18 +1165,18 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %135
   br i1 %.not.i.i116, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i: ; preds = %.noexc117
-  %.pre.i.i = load i32, ptr %95, align 8, !tbaa !45
+  %.pre.i.i = load i32, ptr %95, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i, %135
   %141 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %136, %135 ]
-  %142 = load ptr, ptr %97, align 8, !tbaa !47
+  %142 = load ptr, ptr %97, align 8, !tbaa !52
   %143 = sext i32 %141 to i64
   %144 = getelementptr inbounds i32, ptr %142, i64 %143
   store i32 %126, ptr %144, align 4, !tbaa !12
-  %145 = load i32, ptr %95, align 8, !tbaa !45
+  %145 = load i32, ptr %95, align 8, !tbaa !50
   %146 = add nsw i32 %145, 1
-  store i32 %146, ptr %95, align 8, !tbaa !45
+  store i32 %146, ptr %95, align 8, !tbaa !50
   br label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
 _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i, %.noexc117
@@ -1198,11 +1198,11 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %153 = sext i32 %.391 to i64
   %154 = icmp slt i64 %indvars.iv.next146, %153
-  br i1 %154, label %103, label %._crit_edge, !llvm.loop !53
+  br i1 %154, label %103, label %._crit_edge, !llvm.loop !58
 
 155:                                              ; preds = %._crit_edge
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !45
+  %157 = load i32, ptr %156, align 8, !tbaa !50
   %.not125 = icmp eq i32 %157, 0
   br i1 %.not125, label %185, label %158
 
@@ -1212,7 +1212,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %162 = load ptr, ptr %161, align 8, !tbaa !47
+  %162 = load ptr, ptr %161, align 8, !tbaa !52
   %163 = zext nneg i32 %157 to i64
   %164 = getelementptr i32, ptr %162, i64 %163
   %165 = getelementptr i8, ptr %164, i64 -4
@@ -1234,13 +1234,13 @@ _ZNK6icu_779UVector325peekiEv.exit:               ; preds = %160, %158
   br i1 %.not105, label %173, label %185
 
 173:                                              ; preds = %172
-  %174 = load i32, ptr %156, align 8, !tbaa !45
+  %174 = load i32, ptr %156, align 8, !tbaa !50
   %175 = icmp sgt i32 %174, 0
   br i1 %175, label %176, label %_ZN6icu_779UVector324popiEv.exit
 
 176:                                              ; preds = %173
   %177 = add nsw i32 %174, -1
-  store i32 %177, ptr %156, align 8, !tbaa !45
+  store i32 %177, ptr %156, align 8, !tbaa !50
   br label %_ZN6icu_779UVector324popiEv.exit
 
 _ZN6icu_779UVector324popiEv.exit:                 ; preds = %173, %176
@@ -1358,7 +1358,7 @@ define noundef range(i32 0, 9) i32 @_ZNK6icu_7713MlBreakEngine13initIndexListERK
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !45
+  %5 = load i32, ptr %4, align 8, !tbaa !50
   %6 = icmp slt i32 %5, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
@@ -1373,19 +1373,19 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %3
   br i1 %.not, label %18, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit
-  %.pre = load i32, ptr %4, align 8, !tbaa !45
+  %.pre = load i32, ptr %4, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge, %3
   %11 = phi i32 [ %.pre, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge ], [ %5, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds i32, ptr %13, i64 %14
   store i32 %1, ptr %15, align 4, !tbaa !12
-  %16 = load i32, ptr %4, align 8, !tbaa !45
+  %16 = load i32, ptr %4, align 8, !tbaa !50
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %4, align 8, !tbaa !45
+  store i32 %17, ptr %4, align 8, !tbaa !50
   br label %18
 
 18:                                               ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit
@@ -1403,7 +1403,7 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine18evaluateBreakpointERKNS_13Unicod
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %16 = load i32, ptr %15, align 8, !tbaa !23
+  %16 = load i32, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = sext i32 %3 to i64
   %invariant.gep117 = getelementptr i32, ptr %2, i64 %18
@@ -1451,7 +1451,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit: ; preds = %21
   %.1 = phi i32 [ %28, %_ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit ], [ %.078102, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader98, label %19, !llvm.loop !54
+  br i1 %exitcond.not, label %.preheader98, label %19, !llvm.loop !59
 
 .preheader:                                       ; preds = %50
   %invariant.gep119 = getelementptr i32, ptr %2, i64 %18
@@ -1504,7 +1504,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %39
   %.3 = phi i32 [ %47, %_ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96 ], [ %.2104, %35 ], [ %.2104, %32 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 3
-  br i1 %exitcond112.not, label %.preheader, label %32, !llvm.loop !55
+  br i1 %exitcond112.not, label %.preheader, label %32, !llvm.loop !60
 
 51:                                               ; preds = %72
   %52 = icmp sgt i32 %.5, 0
@@ -1561,12 +1561,12 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit97: ; preds = %61
   %.5 = phi i32 [ %69, %_ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit97 ], [ %.4106, %58 ], [ %.4106, %55 ], [ %.4106, %53 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, 4
-  br i1 %exitcond116.not, label %51, label %53, !llvm.loop !56
+  br i1 %exitcond116.not, label %51, label %53, !llvm.loop !61
 
 73:                                               ; preds = %51
   %74 = add nsw i32 %3, 1
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !45
+  %76 = load i32, ptr %75, align 8, !tbaa !50
   %77 = icmp slt i32 %76, -1
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %79 = load i32, ptr %78, align 4
@@ -1581,19 +1581,19 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %73
   br i1 %.not.i, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i
-  %.pre.i = load i32, ptr %75, align 8, !tbaa !45
+  %.pre.i = load i32, ptr %75, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i, %73
   %82 = phi i32 [ %.pre.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %76, %73 ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !47
+  %84 = load ptr, ptr %83, align 8, !tbaa !52
   %85 = sext i32 %82 to i64
   %86 = getelementptr inbounds i32, ptr %84, i64 %85
   store i32 %74, ptr %86, align 4, !tbaa !12
-  %87 = load i32, ptr %75, align 8, !tbaa !45
+  %87 = load i32, ptr %75, align 8, !tbaa !50
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %75, align 8, !tbaa !45
+  store i32 %88, ptr %75, align 8, !tbaa !50
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
 
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i
@@ -1647,7 +1647,7 @@ define void @_ZN6icu_7713MlBreakEngine12initKeyValueEP15UResourceBundlePKcS4_RNS
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #13
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %15, align 8, !tbaa !35
+  store i16 2, ptr %15, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #13
   invoke void @_ZN6icu_7720StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10)
           to label %16 unwind label %25
@@ -1658,13 +1658,13 @@ define void @_ZN6icu_7713MlBreakEngine12initKeyValueEP15UResourceBundlePKcS4_RNS
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %18, align 8, !tbaa !36
+  store i32 -1, ptr %18, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
   %19 = invoke ptr @ures_getByKey_77(ptr noundef %1, ptr noundef %3, ptr noundef null, ptr noundef nonnull %5)
           to label %20 unwind label %27
 
 20:                                               ; preds = %16
-  store ptr %19, ptr %12, align 8, !tbaa !42
+  store ptr %19, ptr %12, align 8, !tbaa !46
   %21 = invoke ptr @ures_getIntVector_77(ptr noundef %19, ptr noundef nonnull %7, ptr noundef nonnull %5)
           to label %22 unwind label %29
 
@@ -1699,7 +1699,7 @@ define void @_ZN6icu_7713MlBreakEngine12initKeyValueEP15UResourceBundlePKcS4_RNS
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !57
+  %35 = load i32, ptr %34, align 8, !tbaa !62
   %36 = load i32, ptr %5, align 4, !tbaa !13
   %37 = icmp slt i32 %36, 1
   %38 = icmp sgt i32 %35, 0
@@ -1730,17 +1730,17 @@ define void @_ZN6icu_7713MlBreakEngine12initKeyValueEP15UResourceBundlePKcS4_RNS
 
 48:                                               ; preds = %46
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %14, align 8, !tbaa !15
-  store i16 2, ptr %39, align 8, !tbaa !35
+  store i16 2, ptr %39, align 8, !tbaa !39
   %49 = icmp eq ptr %47, null
   br i1 %49, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %48, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %53, %.preheader.i.i ], [ 0, %48 ]
   %50 = getelementptr inbounds nuw i16, ptr %47, i64 %.0.i.i.i.i
-  %51 = load i16, ptr %50, align 2, !tbaa !60
+  %51 = load i16, ptr %50, align 2, !tbaa !65
   %52 = icmp eq i16 %51, 0
   %53 = add i64 %.0.i.i.i.i, 1
-  br i1 %52, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !62
+  br i1 %52, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !67
 
 .loopexit.i:                                      ; preds = %.preheader.i.i, %48
   %.sroa.02.0.i.i = phi i64 [ 0, %48 ], [ %.0.i.i.i.i, %.preheader.i.i ]
@@ -1764,9 +1764,9 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
 60:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
   %61 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !12
-  %63 = load i32, ptr %40, align 8, !tbaa !23
+  %63 = load i32, ptr %40, align 8, !tbaa !25
   %64 = sub nsw i32 %63, %62
-  store i32 %64, ptr %40, align 8, !tbaa !23
+  store i32 %64, ptr %40, align 8, !tbaa !25
   %65 = load i32, ptr %61, align 4, !tbaa !12
   %66 = load ptr, ptr %4, align 8, !tbaa !17
   %67 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #13
@@ -1805,7 +1805,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
 _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %70, %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !68
 
 .loopexit:                                        ; preds = %_ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #13
@@ -1868,7 +1868,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1983,44 +1983,49 @@ attributes #15 = { noreturn nounwind }
 !20 = !{!"_ZTS10UHashtable", !21, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !22, i64 64, !22, i64 68, !7, i64 72, !7, i64 73}
 !21 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
 !22 = !{!"float", !7, i64 0}
-!23 = !{!24, !9, i64 1552}
-!24 = !{!"_ZTSN6icu_7713MlBreakEngineE", !25, i64 8, !25, i64 208, !7, i64 408, !9, i64 1552}
-!25 = !{!"_ZTSN6icu_7710UnicodeSetE", !26, i64 0, !30, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !31, i64 40, !30, i64 48, !9, i64 56, !32, i64 64, !9, i64 72, !33, i64 80, !34, i64 88, !7, i64 96}
-!26 = !{!"_ZTSN6icu_7713UnicodeFilterE", !27, i64 0, !29, i64 8}
-!27 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !28, i64 0}
-!28 = !{!"_ZTSN6icu_777UObjectE"}
-!29 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
-!30 = !{!"p1 int", !6, i64 0}
-!31 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
-!32 = !{!"p1 char16_t", !6, i64 0}
-!33 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
-!34 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}
-!35 = !{!7, !7, i64 0}
-!36 = !{!37, !9, i64 24}
-!37 = !{!"_ZTSN6icu_7717ResourceDataValueE", !38, i64 0, !39, i64 8, !40, i64 16, !9, i64 24, !41, i64 28}
-!38 = !{!"_ZTSN6icu_7713ResourceValueE", !28, i64 0}
-!39 = !{!"p1 _ZTS12ResourceData", !6, i64 0}
-!40 = !{!"p1 _ZTS18UResourceDataEntry", !6, i64 0}
-!41 = !{!"_ZTSN6icu_7714ResourceTracerE"}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !44, i64 0}
-!44 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
-!45 = !{!46, !9, i64 8}
-!46 = !{!"_ZTSN6icu_779UVector32E", !28, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !30, i64 24}
-!47 = !{!46, !30, i64 24}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !52, i64 0}
-!51 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_9UVector32EEE", !52, i64 0}
-!52 = !{!"p1 _ZTSN6icu_779UVector32E", !6, i64 0}
-!53 = distinct !{!53, !49}
-!54 = distinct !{!54, !49}
-!55 = distinct !{!55, !49}
-!56 = distinct !{!56, !49}
-!57 = !{!58, !9, i64 16}
-!58 = !{!"_ZTSN6icu_7713ResourceArrayE", !59, i64 0, !30, i64 8, !9, i64 16, !41, i64 20}
-!59 = !{!"p1 short", !6, i64 0}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"char16_t", !7, i64 0}
-!62 = distinct !{!62, !49}
-!63 = distinct !{!63, !49}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !9, i64 1552}
+!26 = !{!"_ZTSN6icu_7713MlBreakEngineE", !27, i64 8, !27, i64 208, !7, i64 408, !9, i64 1552}
+!27 = !{!"_ZTSN6icu_7710UnicodeSetE", !28, i64 0, !32, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !33, i64 40, !32, i64 48, !9, i64 56, !34, i64 64, !9, i64 72, !35, i64 80, !36, i64 88, !7, i64 96}
+!28 = !{!"_ZTSN6icu_7713UnicodeFilterE", !29, i64 0, !31, i64 8}
+!29 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !30, i64 0}
+!30 = !{!"_ZTSN6icu_777UObjectE"}
+!31 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
+!32 = !{!"p1 int", !6, i64 0}
+!33 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
+!34 = !{!"p1 char16_t", !6, i64 0}
+!35 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
+!36 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}
+!39 = !{!7, !7, i64 0}
+!40 = !{!41, !9, i64 24}
+!41 = !{!"_ZTSN6icu_7717ResourceDataValueE", !42, i64 0, !43, i64 8, !44, i64 16, !9, i64 24, !45, i64 28}
+!42 = !{!"_ZTSN6icu_7713ResourceValueE", !30, i64 0}
+!43 = !{!"p1 _ZTS12ResourceData", !6, i64 0}
+!44 = !{!"p1 _ZTS18UResourceDataEntry", !6, i64 0}
+!45 = !{!"_ZTSN6icu_7714ResourceTracerE"}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !48, i64 0}
+!48 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
+!49 = distinct !{!49, !24}
+!50 = !{!51, !9, i64 8}
+!51 = !{!"_ZTSN6icu_779UVector32E", !30, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !32, i64 24}
+!52 = !{!51, !32, i64 24}
+!53 = distinct !{!53, !54, !24}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_9UVector32EEE", !57, i64 0}
+!57 = !{!"p1 _ZTSN6icu_779UVector32E", !6, i64 0}
+!58 = distinct !{!58, !54, !24}
+!59 = distinct !{!59, !54, !24}
+!60 = distinct !{!60, !54, !24}
+!61 = distinct !{!61, !54, !24}
+!62 = !{!63, !9, i64 16}
+!63 = !{!"_ZTSN6icu_7713ResourceArrayE", !64, i64 0, !32, i64 8, !9, i64 16, !45, i64 20}
+!64 = !{!"p1 short", !6, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"char16_t", !7, i64 0}
+!67 = distinct !{!67, !54, !24}
+!68 = distinct !{!68, !54, !24}

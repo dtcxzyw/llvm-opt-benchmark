@@ -15,7 +15,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   store i16 1024, ptr %13, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 258
-  br i1 %exitcond.not, label %14, label %12
+  br i1 %exitcond.not, label %14, label %12, !llvm.loop !7
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 %7
@@ -31,12 +31,12 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %.0164285 = phi ptr [ %19, %.split ], [ %6, %14 ]
   %18 = shl i32 %.0146286, 8
   %19 = getelementptr inbounds nuw i8, ptr %.0164285, i64 1
-  %20 = load i8, ptr %.0164285, align 1, !tbaa !7
+  %20 = load i8, ptr %.0164285, align 1, !tbaa !9
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = add nuw nsw i32 %.0138287, 1
   %exitcond320 = icmp eq i32 %23, 5
-  br i1 %exitcond320, label %.critedge, label %.split
+  br i1 %exitcond320, label %.critedge, label %.split, !llvm.loop !10
 
 .critedge:                                        ; preds = %.split
   %24 = icmp eq i64 %9, 0
@@ -70,10 +70,10 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %.1160290 = phi i64 [ %.0159299, %.lr.ph ], [ %38, %37 ]
   %.1172289 = phi i64 [ %.0171297, %.lr.ph ], [ %28, %37 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.1160290
-  %27 = load i8, ptr %26, align 1, !tbaa !7
+  %27 = load i8, ptr %26, align 1, !tbaa !9
   %28 = add i64 %.1172289, 1
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 %.1172289
-  store i8 %27, ptr %29, align 1, !tbaa !7
+  store i8 %27, ptr %29, align 1, !tbaa !9
   %30 = zext i8 %27 to i32
   %31 = and i32 %30, 254
   %32 = icmp eq i32 %31, 232
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %38 = add i64 %.1160290, 1
   %39 = add i64 %.1115292, -1
   %.not = icmp eq i64 %39, 0
-  br i1 %.not, label %.thread227, label %25
+  br i1 %.not, label %.thread227, label %25, !llvm.loop !11
 
 40:                                               ; preds = %33, %25
   %.1141291.lcssa = phi i8 [ 15, %33 ], [ %.1141291, %25 ]
@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %62 = shl nuw i32 %51, 8
   %63 = shl i32 %.1147301, 8
   %64 = getelementptr inbounds nuw i8, ptr %.1165298, i64 1
-  %65 = load i8, ptr %.1165298, align 1, !tbaa !7
+  %65 = load i8, ptr %.1165298, align 1, !tbaa !9
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %63, %66
   br label %.thread205
@@ -152,7 +152,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %77 = shl nuw i32 %69, 8
   %78 = shl i32 %70, 8
   %79 = getelementptr inbounds nuw i8, ptr %.1165298, i64 1
-  %80 = load i8, ptr %.1165298, align 1, !tbaa !7
+  %80 = load i8, ptr %.1165298, align 1, !tbaa !9
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
   br label %83
@@ -187,21 +187,21 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %.4122 = phi i64 [ %88, %86 ], [ %.0118305, %91 ]
   %.4113 = phi ptr [ %87, %86 ], [ %.0109306, %91 ]
   %.0 = phi ptr [ %.0109306, %86 ], [ %.0123304, %91 ]
-  %95 = load i8, ptr %.0, align 1, !tbaa !7
+  %95 = load i8, ptr %.0, align 1, !tbaa !9
   %96 = zext i8 %95 to i32
   %97 = shl nuw i32 %96, 24
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !7
+  %99 = load i8, ptr %98, align 1, !tbaa !9
   %100 = zext i8 %99 to i32
   %101 = shl nuw nsw i32 %100, 16
   %102 = or disjoint i32 %101, %97
   %103 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  %104 = load i8, ptr %103, align 1, !tbaa !7
+  %104 = load i8, ptr %103, align 1, !tbaa !9
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 8
   %107 = or disjoint i32 %102, %106
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 3
-  %109 = load i8, ptr %108, align 1, !tbaa !7
+  %109 = load i8, ptr %108, align 1, !tbaa !9
   %110 = zext i8 %109 to i32
   %111 = or disjoint i32 %107, %110
   %112 = trunc i64 %.1172289 to i32
@@ -210,7 +210,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %114 = trunc i32 %113 to i8
   %115 = add i64 %.1172289, 2
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 %28
-  store i8 %114, ptr %116, align 1, !tbaa !7
+  store i8 %114, ptr %116, align 1, !tbaa !9
   %117 = icmp eq i64 %115, %9
   br i1 %117, label %.thread227, label %118
 
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %120 = trunc i32 %119 to i8
   %121 = add i64 %.1172289, 3
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 %115
-  store i8 %120, ptr %122, align 1, !tbaa !7
+  store i8 %120, ptr %122, align 1, !tbaa !9
   %123 = icmp eq i64 %121, %9
   br i1 %123, label %.thread227, label %124
 
@@ -228,7 +228,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %126 = trunc i32 %125 to i8
   %127 = add i64 %.1172289, 4
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 %121
-  store i8 %126, ptr %128, align 1, !tbaa !7
+  store i8 %126, ptr %128, align 1, !tbaa !9
   %129 = icmp eq i64 %127, %9
   br i1 %129, label %.thread227, label %130
 
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %132 = trunc nuw i32 %131 to i8
   %133 = add i64 %.1172289, 5
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 %127
-  store i8 %132, ptr %134, align 1, !tbaa !7
+  store i8 %132, ptr %134, align 1, !tbaa !9
   br label %.thread205
 
 .thread205:                                       ; preds = %130, %61, %53
@@ -291,4 +291,8 @@ attributes #3 = { nounwind }
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

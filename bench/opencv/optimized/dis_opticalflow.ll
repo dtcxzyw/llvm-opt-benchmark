@@ -319,7 +319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #12
   %.add = add nuw nsw i64 %.idx, 96
   %107 = icmp eq i64 %.add, 192
-  br i1 %107, label %108, label %106
+  br i1 %107, label %108, label %106, !llvm.loop !19
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #12
@@ -335,7 +335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr53) #12
   %.add52 = add nuw nsw i64 %.idx51, 96
   %110 = icmp eq i64 %.add52, 288
-  br i1 %110, label %111, label %109
+  br i1 %110, label %111, label %109, !llvm.loop !21
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %15, i64 192
@@ -348,12 +348,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
           to label %_ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %184
 
 _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %111
-  %114 = load ptr, ptr %21, align 8, !tbaa !19
-  store ptr %114, ptr %20, align 8, !tbaa !24
+  %114 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %114, ptr %20, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !27
-  store ptr %117, ptr %115, align 8, !tbaa !27
+  %117 = load ptr, ptr %116, align 8, !tbaa !30
+  store ptr %117, ptr %115, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #12
   %118 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %22, i64 20
@@ -442,14 +442,14 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 188:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #12
-  store i32 0, ptr %118, align 8, !tbaa !28
-  store i32 0, ptr %119, align 4, !tbaa !31
-  store i32 16842752, ptr %22, align 8, !tbaa !32
-  store ptr %13, ptr %120, align 8, !tbaa !34
+  store i32 0, ptr %118, align 8, !tbaa !31
+  store i32 0, ptr %119, align 4, !tbaa !34
+  store i32 16842752, ptr %22, align 8, !tbaa !35
+  store ptr %13, ptr %120, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #12
   store i64 0, ptr %122, align 8
-  store i32 33619968, ptr %23, align 8, !tbaa !32
-  store ptr %11, ptr %121, align 8, !tbaa !34
+  store i32 33619968, ptr %23, align 8, !tbaa !35
+  store ptr %11, ptr %121, align 8, !tbaa !37
   invoke void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 6, i32 noundef 0, i32 noundef 0)
           to label %189 unwind label %230
 
@@ -464,20 +464,20 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 192:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #12
-  store i32 0, ptr %123, align 8, !tbaa !28
-  store i32 0, ptr %124, align 4, !tbaa !31
-  store i32 16842752, ptr %24, align 8, !tbaa !32
-  store ptr %10, ptr %125, align 8, !tbaa !34
+  store i32 0, ptr %123, align 8, !tbaa !31
+  store i32 0, ptr %124, align 4, !tbaa !34
+  store i32 16842752, ptr %24, align 8, !tbaa !35
+  store ptr %10, ptr %125, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #12
-  store i32 0, ptr %126, align 8, !tbaa !28
-  store i32 0, ptr %127, align 4, !tbaa !31
-  store i32 16842752, ptr %25, align 8, !tbaa !32
-  store ptr %11, ptr %128, align 8, !tbaa !34
+  store i32 0, ptr %126, align 8, !tbaa !31
+  store i32 0, ptr %127, align 4, !tbaa !34
+  store i32 16842752, ptr %25, align 8, !tbaa !35
+  store ptr %11, ptr %128, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #12
   store i64 0, ptr %130, align 8
-  store i32 50397184, ptr %26, align 8, !tbaa !32
-  store ptr %14, ptr %129, align 8, !tbaa !34
-  %193 = load ptr, ptr %114, align 8, !tbaa !35
+  store i32 50397184, ptr %26, align 8, !tbaa !35
+  store ptr %14, ptr %129, align 8, !tbaa !37
+  %193 = load ptr, ptr %114, align 8, !tbaa !38
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 64
   %195 = load ptr, ptr %194, align 8
   invoke void %195(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
@@ -492,20 +492,20 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 197:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #12
-  store i32 0, ptr %132, align 8, !tbaa !28
-  store i32 0, ptr %133, align 4, !tbaa !31
-  store i32 16842752, ptr %27, align 8, !tbaa !32
-  store ptr %131, ptr %134, align 8, !tbaa !34
+  store i32 0, ptr %132, align 8, !tbaa !31
+  store i32 0, ptr %133, align 4, !tbaa !34
+  store i32 16842752, ptr %27, align 8, !tbaa !35
+  store ptr %131, ptr %134, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #12
-  store double -1.000000e+00, ptr %29, align 8, !tbaa !37
-  store i32 -1056833530, ptr %28, align 8, !tbaa !32
-  store ptr %29, ptr %136, align 8, !tbaa !34
+  store double -1.000000e+00, ptr %29, align 8, !tbaa !40
+  store i32 -1056833530, ptr %28, align 8, !tbaa !35
+  store ptr %29, ptr %136, align 8, !tbaa !37
   store i64 4294967297, ptr %135, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #12
   store i64 0, ptr %138, align 8
-  store i32 33619968, ptr %30, align 8, !tbaa !32
-  store ptr %131, ptr %137, align 8, !tbaa !34
+  store i32 33619968, ptr %30, align 8, !tbaa !35
+  store ptr %131, ptr %137, align 8, !tbaa !37
   invoke void @_ZN2cv8multiplyERKNS_11_InputArrayES2_RKNS_12_OutputArrayEdi(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30, double noundef 1.000000e+00, i32 noundef -1)
           to label %198 unwind label %234
 
@@ -515,23 +515,23 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #12
-  store i32 0, ptr %139, align 8, !tbaa !28
-  store i32 0, ptr %140, align 4, !tbaa !31
-  store i32 16842752, ptr %31, align 8, !tbaa !32
-  store ptr %15, ptr %141, align 8, !tbaa !34
+  store i32 0, ptr %139, align 8, !tbaa !31
+  store i32 0, ptr %140, align 4, !tbaa !34
+  store i32 16842752, ptr %31, align 8, !tbaa !35
+  store ptr %15, ptr %141, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #12
-  store i32 0, ptr %142, align 8, !tbaa !28
-  store i32 0, ptr %143, align 4, !tbaa !31
-  store i32 16842752, ptr %32, align 8, !tbaa !32
-  store ptr %131, ptr %144, align 8, !tbaa !34
+  store i32 0, ptr %142, align 8, !tbaa !31
+  store i32 0, ptr %143, align 4, !tbaa !34
+  store i32 16842752, ptr %32, align 8, !tbaa !35
+  store ptr %131, ptr %144, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #12
   store i64 0, ptr %146, align 8
-  store i32 33619968, ptr %33, align 8, !tbaa !32
-  store ptr %16, ptr %145, align 8, !tbaa !34
+  store i32 33619968, ptr %33, align 8, !tbaa !35
+  store ptr %16, ptr %145, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #12
   store i64 0, ptr %148, align 8
-  store i32 33619968, ptr %34, align 8, !tbaa !32
-  store ptr %17, ptr %147, align 8, !tbaa !34
+  store i32 33619968, ptr %34, align 8, !tbaa !35
+  store ptr %17, ptr %147, align 8, !tbaa !37
   invoke void @_ZN2cv11cartToPolarERKNS_11_InputArrayES2_RKNS_12_OutputArrayES5_b(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34, i1 noundef zeroext true)
           to label %199 unwind label %236
 
@@ -541,14 +541,14 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #12
-  store i32 0, ptr %149, align 8, !tbaa !28
-  store i32 0, ptr %150, align 4, !tbaa !31
-  store i32 16842752, ptr %35, align 8, !tbaa !32
-  store ptr %16, ptr %151, align 8, !tbaa !34
+  store i32 0, ptr %149, align 8, !tbaa !31
+  store i32 0, ptr %150, align 4, !tbaa !34
+  store i32 16842752, ptr %35, align 8, !tbaa !35
+  store ptr %16, ptr %151, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #12
   store i64 0, ptr %153, align 8
-  store i32 50397184, ptr %36, align 8, !tbaa !32
-  store ptr %16, ptr %152, align 8, !tbaa !34
+  store i32 50397184, ptr %36, align 8, !tbaa !35
+  store ptr %16, ptr %152, align 8, !tbaa !37
   %200 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %201 unwind label %238
 
@@ -568,22 +568,22 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 206:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %37) #12
-  %207 = load ptr, ptr %155, align 8, !tbaa !39
+  %207 = load ptr, ptr %155, align 8, !tbaa !42
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %209 = load i32, ptr %208, align 4, !tbaa !42
-  %210 = load i32, ptr %207, align 4, !tbaa !42
+  %209 = load i32, ptr %208, align 4, !tbaa !45
+  %210 = load i32, ptr %207, align 4, !tbaa !45
   %.sroa.2.0.insert.ext.i = zext i32 %210 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %209 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %211 = load i32, ptr %17, align 8, !tbaa !43
+  %211 = load i32, ptr %17, align 8, !tbaa !46
   %212 = and i32 %211, 4095
   invoke void @_ZN2cv3Mat4onesENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %37, i64 %.sroa.0.0.insert.insert.i, i32 noundef %212)
           to label %213 unwind label %240
 
 213:                                              ; preds = %206
-  %214 = load ptr, ptr %37, align 8, !tbaa !49
-  %215 = load ptr, ptr %214, align 8, !tbaa !35
+  %214 = load ptr, ptr %37, align 8, !tbaa !52
+  %215 = load ptr, ptr %214, align 8, !tbaa !38
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8
   invoke void %217(ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef nonnull align 8 dereferenceable(352) %37, ptr noundef nonnull align 8 dereferenceable(96) %156, i32 noundef -1)
@@ -596,22 +596,22 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %37) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38) #12
   store i64 0, ptr %161, align 8
-  store i32 33619968, ptr %38, align 8, !tbaa !32
-  store ptr %19, ptr %160, align 8, !tbaa !34
+  store i32 33619968, ptr %38, align 8, !tbaa !35
+  store ptr %19, ptr %160, align 8, !tbaa !37
   invoke void @_ZN2cv5mergeEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef nonnull %18, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %219 unwind label %245
 
 219:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #12
-  store i32 0, ptr %162, align 8, !tbaa !28
-  store i32 0, ptr %163, align 4, !tbaa !31
-  store i32 16842752, ptr %39, align 8, !tbaa !32
-  store ptr %19, ptr %164, align 8, !tbaa !34
+  store i32 0, ptr %162, align 8, !tbaa !31
+  store i32 0, ptr %163, align 4, !tbaa !34
+  store i32 16842752, ptr %39, align 8, !tbaa !35
+  store ptr %19, ptr %164, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40) #12
   store i64 0, ptr %166, align 8
-  store i32 33619968, ptr %40, align 8, !tbaa !32
-  store ptr %12, ptr %165, align 8, !tbaa !34
+  store i32 33619968, ptr %40, align 8, !tbaa !35
+  store ptr %12, ptr %165, align 8, !tbaa !37
   invoke void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef 54, i32 noundef 0, i32 noundef 0)
           to label %._crit_edge.i.i114 unwind label %247
 
@@ -624,10 +624,10 @@ _ZNSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store i64 4, ptr %168, align 8, !tbaa !15
   store i8 0, ptr %177, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #12
-  store i32 0, ptr %169, align 8, !tbaa !28
-  store i32 0, ptr %170, align 4, !tbaa !31
-  store i32 16842752, ptr %42, align 8, !tbaa !32
-  store ptr %12, ptr %171, align 8, !tbaa !34
+  store i32 0, ptr %169, align 8, !tbaa !31
+  store i32 0, ptr %170, align 4, !tbaa !34
+  store i32 16842752, ptr %42, align 8, !tbaa !35
+  store ptr %12, ptr %171, align 8, !tbaa !37
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %220 unwind label %249
 
@@ -655,10 +655,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   store i64 4, ptr %173, align 8, !tbaa !15
   store i8 0, ptr %178, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44) #12
-  store i32 0, ptr %174, align 8, !tbaa !28
-  store i32 0, ptr %175, align 4, !tbaa !31
-  store i32 16842752, ptr %44, align 8, !tbaa !32
-  store ptr %13, ptr %176, align 8, !tbaa !34
+  store i32 0, ptr %174, align 8, !tbaa !31
+  store i32 0, ptr %175, align 4, !tbaa !34
+  store i32 16842752, ptr %44, align 8, !tbaa !35
+  store ptr %13, ptr %176, align 8, !tbaa !37
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
           to label %225 unwind label %255
 
@@ -838,14 +838,14 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
   br i1 %276, label %278, label %286
 
 278:                                              ; preds = %273
-  store i32 0, ptr %274, align 8, !tbaa !55
+  store i32 0, ptr %274, align 8, !tbaa !58
   %279 = getelementptr inbounds nuw i8, ptr %117, i64 12
-  store i32 0, ptr %279, align 4, !tbaa !57
-  %280 = load ptr, ptr %117, align 8, !tbaa !35
+  store i32 0, ptr %279, align 4, !tbaa !60
+  %280 = load ptr, ptr %117, align 8, !tbaa !38
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
   call void %282(ptr noundef nonnull align 8 dereferenceable(16) %117) #12
-  %283 = load ptr, ptr %117, align 8, !tbaa !35
+  %283 = load ptr, ptr %117, align 8, !tbaa !38
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load ptr, ptr %284, align 8
   call void %285(ptr noundef nonnull align 8 dereferenceable(16) %117) #12
@@ -858,7 +858,7 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
 
 288:                                              ; preds = %286
   %289 = add nsw i32 %277, -1
-  store i32 %289, ptr %274, align 4, !tbaa !42
+  store i32 %289, ptr %274, align 4, !tbaa !45
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i138
 
 290:                                              ; preds = %286
@@ -868,7 +868,7 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i138: ; preds = %290, %288
   %.0.i.i.i.i139 = phi i32 [ %277, %288 ], [ %291, %290 ]
   %292 = icmp eq i32 %.0.i.i.i.i139, 1
-  br i1 %292, label %293, label %_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !58
+  br i1 %292, label %293, label %_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !61
 
 293:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i138
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %117) #12
@@ -897,7 +897,7 @@ _ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %297 = getelementptr inbounds i8, ptr %296, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %297) #12
   %298 = icmp eq ptr %297, %18
-  br i1 %298, label %299, label %295
+  br i1 %298, label %299, label %295, !llvm.loop !62
 
 299:                                              ; preds = %295
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %18) #12
@@ -912,7 +912,7 @@ _ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %302 = getelementptr inbounds i8, ptr %301, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %302) #12
   %303 = icmp eq ptr %302, %18
-  br i1 %303, label %304, label %300
+  br i1 %303, label %304, label %300, !llvm.loop !63
 
 304:                                              ; preds = %300
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %18) #12
@@ -927,7 +927,7 @@ _ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %307 = getelementptr inbounds i8, ptr %306, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %307) #12
   %308 = icmp eq ptr %307, %15
-  br i1 %308, label %309, label %305
+  br i1 %308, label %309, label %305, !llvm.loop !64
 
 309:                                              ; preds = %305
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15) #12
@@ -948,7 +948,7 @@ _ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %312 = getelementptr inbounds i8, ptr %311, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %312) #12
   %313 = icmp eq ptr %312, %15
-  br i1 %313, label %314, label %310
+  br i1 %313, label %314, label %310, !llvm.loop !65
 
 314:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15) #12
@@ -1215,7 +1215,7 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1227,14 +1227,14 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9_
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !55
+  store i32 0, ptr %5, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !57
-  %11 = load ptr, ptr %3, align 8, !tbaa !35
+  store i32 0, ptr %10, align 4, !tbaa !60
+  %11 = load ptr, ptr %3, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %14 = load ptr, ptr %3, align 8, !tbaa !35
+  %14 = load ptr, ptr %3, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -1247,7 +1247,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !42
+  store i32 %20, ptr %5, align 4, !tbaa !45
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1257,7 +1257,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv16DenseOpticalFlowELN9_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !58
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !61
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -1288,7 +1288,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !38
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
@@ -1298,9 +1298,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !42
+  %8 = load i32, ptr %5, align 4, !tbaa !45
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !42
+  store i32 %9, ptr %5, align 4, !tbaa !45
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1313,7 +1313,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !35
+  %14 = load ptr, ptr %0, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
@@ -1369,43 +1369,50 @@ attributes #13 = { builtin nounwind }
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b: argument 0"}
 !18 = distinct !{!18, !"_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b"}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0, !22, i64 8}
-!21 = !{!"p1 _ZTSN2cv14DISOpticalFlowE", !7, i64 0}
-!22 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !23, i64 0}
-!23 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"_ZTSSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EE", !26, i64 0, !22, i64 8}
-!26 = !{!"p1 _ZTSN2cv16DenseOpticalFlowE", !7, i64 0}
-!27 = !{!22, !23, i64 0}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"_ZTSN2cv5Size_IiEE", !30, i64 0, !30, i64 4}
-!30 = !{!"int", !8, i64 0}
-!31 = !{!29, !30, i64 4}
-!32 = !{!33, !30, i64 0}
-!33 = !{!"_ZTSN2cv11_InputArrayE", !30, i64 0, !7, i64 8, !29, i64 16}
-!34 = !{!33, !7, i64 8}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"vtable pointer", !9, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"double", !8, i64 0}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSN2cv7MatSizeE", !41, i64 0}
-!41 = !{!"p1 int", !7, i64 0}
-!42 = !{!30, !30, i64 0}
-!43 = !{!44, !30, i64 0}
-!44 = !{!"_ZTSN2cv3MatE", !30, i64 0, !30, i64 4, !30, i64 8, !30, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !45, i64 48, !46, i64 56, !40, i64 64, !47, i64 72}
-!45 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
-!46 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
-!47 = !{!"_ZTSN2cv7MatStepE", !48, i64 0, !8, i64 8}
-!48 = !{!"p1 long", !7, i64 0}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTSN2cv7MatExprE", !51, i64 0, !30, i64 8, !44, i64 16, !44, i64 112, !44, i64 208, !38, i64 304, !38, i64 312, !52, i64 320}
-!51 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
-!52 = !{!"_ZTSN2cv7Scalar_IdEE", !53, i64 0}
-!53 = !{!"_ZTSN2cv3VecIdLi4EEE", !54, i64 0}
-!54 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
-!55 = !{!56, !30, i64 8}
-!56 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !30, i64 8, !30, i64 12}
-!57 = !{!56, !30, i64 12}
-!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSSt12__shared_ptrIN2cv14DISOpticalFlowELN9__gnu_cxx12_Lock_policyE2EE", !24, i64 0, !25, i64 8}
+!24 = !{!"p1 _ZTSN2cv14DISOpticalFlowE", !7, i64 0}
+!25 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !26, i64 0}
+!26 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"_ZTSSt12__shared_ptrIN2cv16DenseOpticalFlowELN9__gnu_cxx12_Lock_policyE2EE", !29, i64 0, !25, i64 8}
+!29 = !{!"p1 _ZTSN2cv16DenseOpticalFlowE", !7, i64 0}
+!30 = !{!25, !26, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSN2cv5Size_IiEE", !33, i64 0, !33, i64 4}
+!33 = !{!"int", !8, i64 0}
+!34 = !{!32, !33, i64 4}
+!35 = !{!36, !33, i64 0}
+!36 = !{!"_ZTSN2cv11_InputArrayE", !33, i64 0, !7, i64 8, !32, i64 16}
+!37 = !{!36, !7, i64 8}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"vtable pointer", !9, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"double", !8, i64 0}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"_ZTSN2cv7MatSizeE", !44, i64 0}
+!44 = !{!"p1 int", !7, i64 0}
+!45 = !{!33, !33, i64 0}
+!46 = !{!47, !33, i64 0}
+!47 = !{!"_ZTSN2cv3MatE", !33, i64 0, !33, i64 4, !33, i64 8, !33, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !48, i64 48, !49, i64 56, !43, i64 64, !50, i64 72}
+!48 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
+!49 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
+!50 = !{!"_ZTSN2cv7MatStepE", !51, i64 0, !8, i64 8}
+!51 = !{!"p1 long", !7, i64 0}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"_ZTSN2cv7MatExprE", !54, i64 0, !33, i64 8, !47, i64 16, !47, i64 112, !47, i64 208, !41, i64 304, !41, i64 312, !55, i64 320}
+!54 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
+!55 = !{!"_ZTSN2cv7Scalar_IdEE", !56, i64 0}
+!56 = !{!"_ZTSN2cv3VecIdLi4EEE", !57, i64 0}
+!57 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
+!58 = !{!59, !33, i64 8}
+!59 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !33, i64 8, !33, i64 12}
+!60 = !{!59, !33, i64 12}
+!61 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!62 = distinct !{!62, !20}
+!63 = distinct !{!63, !20}
+!64 = distinct !{!64, !20}
+!65 = distinct !{!65, !20}

@@ -161,7 +161,7 @@ sub_1:                                            ; preds = %sub_0
 _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i: ; preds = %62, %.thread.i.i
   %63 = load atomic i64, ptr %43 acquire, align 8
   %.not.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %.loopexit95
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.loopexit95, !llvm.loop !13
 
 .loopexit95:                                      ; preds = %51, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i, %56
   store ptr @_hb_ot_shape, ptr %34, align 8
@@ -206,7 +206,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1
 _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i: ; preds = %77, %.thread.i.i64
   %78 = load atomic i64, ptr %41 acquire, align 8
   %.not.i.i63 = icmp eq i64 %78, 0
-  br i1 %.not.i.i63, label %.lr.ph.i.i60, label %.loopexit97
+  br i1 %.not.i.i63, label %.lr.ph.i.i60, label %.loopexit97, !llvm.loop !14
 
 .loopexit97:                                      ; preds = %66, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i, %71
   store ptr @_hb_fallback_shape, ptr %34, align 8
@@ -217,7 +217,7 @@ _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj
   %79 = getelementptr inbounds nuw i8, ptr %.046104, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not55 = icmp eq ptr %80, null
-  br i1 %.not55, label %.loopexit92, label %sub_0, !llvm.loop !12
+  br i1 %.not55, label %.loopexit92, label %sub_0, !llvm.loop !15
 
 81:                                               ; preds = %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
   %82 = tail call noundef ptr @_Z15_hb_shapers_getv()
@@ -267,7 +267,7 @@ _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj
 _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70: ; preds = %102, %.thread.i.i72
   %103 = load atomic i64, ptr %85 acquire, align 8
   %.not.i.i71 = icmp eq i64 %103, 0
-  br i1 %.not.i.i71, label %.lr.ph.i.i67, label %.loopexit
+  br i1 %.not.i.i71, label %.lr.ph.i.i67, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %91, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70, %96
   store ptr @_hb_ot_shape, ptr %34, align 8
@@ -311,7 +311,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1
 _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79: ; preds = %117, %.thread.i.i81
   %118 = load atomic i64, ptr %83 acquire, align 8
   %.not.i.i80 = icmp eq i64 %118, 0
-  br i1 %.not.i.i80, label %.lr.ph.i.i76, label %.loopexit91
+  br i1 %.not.i.i80, label %.lr.ph.i.i76, label %.loopexit91, !llvm.loop !14
 
 .loopexit91:                                      ; preds = %106, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79, %111
   store ptr @_hb_fallback_shape, ptr %34, align 8
@@ -319,7 +319,7 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
   br label %119
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73: ; preds = %.thread.i.i81, %.lr.ph.i.i76, %.thread.i.i72, %.lr.ph.i.i67, %104
-  br i1 %87, label %86, label %.loopexit92, !llvm.loop !13
+  br i1 %87, label %86, label %.loopexit92, !llvm.loop !16
 
 .loopexit92:                                      ; preds = %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, %.preheader, %11
   %.1 = phi ptr [ null, %11 ], [ %.04584, %.preheader ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
@@ -373,7 +373,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
 11:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !17
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -458,7 +458,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
 13:                                               ; preds = %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, label %14, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, label %14, !llvm.loop !17
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -703,7 +703,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_set_user_data(ptr noundef captu
   tail call void @free(ptr noundef nonnull %10) #19
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
-  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i
+  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i, !llvm.loop !18
 
 .split.loop.exit21.i:                             ; preds = %17, %.preheader.i
   %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %19, %17 ]
@@ -758,7 +758,7 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly captures(add
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %.sroa.2.8.insert.ext.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
@@ -836,7 +836,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr nou
 _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i: ; preds = %28, %.thread.i.i.i
   %29 = load atomic i64, ptr %16 acquire, align 8
   %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i, %22, %15
   %30 = tail call i32 @_hb_ot_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
@@ -882,7 +882,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1
 _ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i: ; preds = %46, %.thread.i.i28.i
   %47 = load atomic i64, ptr %34 acquire, align 8
   %.not.i.i27.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i27.i, label %.lr.ph.i.i24.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+  br i1 %.not.i.i27.i, label %.lr.ph.i.i24.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit, !llvm.loop !21
 
 _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit: ; preds = %40, %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i, %33
   %48 = tail call i32 @_hb_fallback_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
@@ -959,7 +959,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   %28 = getelementptr inbounds nuw i8, ptr %.04149, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %27, %.preheader
   %30 = call ptr @hb_shape_plan_create2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6)
@@ -982,7 +982,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   %38 = load atomic i64, ptr %9 acquire, align 8
   %39 = load atomic i32, ptr %0 monotonic, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph51, label %.thread
+  br i1 %40, label %.lr.ph51, label %.thread, !llvm.loop !23
 
 41:                                               ; preds = %32
   %42 = load atomic i32, ptr %30 monotonic, align 4
@@ -1063,7 +1063,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
-  store i32 %15, ptr %3, align 4, !noalias !17
+  store i32 %15, ptr %3, align 4, !noalias !24
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
@@ -1076,7 +1076,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
-  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !20
+  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, %10
   %23 = load i32, ptr %0, align 8
@@ -1136,7 +1136,7 @@ define linkonce_odr hidden void @_ZN18hb_ot_shape_plan_tD2Ev(ptr noundef nonnull
 _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i: ; preds = %6, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr1.i, i8 0, i64 16, i1 false)
   %10 = icmp eq i64 %.add.i, 64
-  br i1 %10, label %.preheader.i, label %4
+  br i1 %10, label %.preheader.i, label %4, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i, %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i
   %.idx3.i = phi i64 [ %.add4.i, %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i ], [ 64, %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i ]
@@ -1157,7 +1157,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i: ; preds = %6, %4
 _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i: ; preds = %12, %.preheader.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr5.i, i8 0, i64 16, i1 false)
   %16 = icmp eq i64 %.add4.i, 32
-  br i1 %16, label %17, label %.preheader.i
+  br i1 %16, label %17, label %.preheader.i, !llvm.loop !29
 
 17:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1237,7 +1237,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 20:                                               ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %.sroa.2.8.insert.ext.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
@@ -1250,13 +1250,13 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %26 = load i32, ptr %16, align 4, !noalias !21
+  %26 = load i32, ptr %16, align 4, !noalias !30
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, label %27
 
 27:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
   %28 = add i32 %26, -1
-  store i32 %28, ptr %16, align 4, !noalias !21
+  store i32 %28, ptr %16, align 4, !noalias !30
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %27, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
@@ -1316,7 +1316,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 13:                                               ; preds = %10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.2.8.insert.ext.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !33
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
@@ -1361,7 +1361,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %28 = add i32 %.143.i.i, 8
   %29 = add i32 %28, %27
   %30 = icmp ugt i32 %24, %29
-  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !25
+  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !34
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %31 = icmp ugt i32 %29, 178956970
@@ -1462,19 +1462,28 @@ attributes #21 = { nounwind allocsize(1) }
 !7 = distinct !{!7, !8, !"_ZL9hb_memcpyPvPKvm: argument 0"}
 !8 = distinct !{!8, !"_ZL9hb_memcpyPvPKvm"}
 !9 = distinct !{!9, !8, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!19 = distinct !{!19, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!20 = distinct !{!20, !11}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!23 = distinct !{!23, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !12}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!26 = distinct !{!26, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!32 = distinct !{!32, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}

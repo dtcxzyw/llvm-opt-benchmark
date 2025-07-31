@@ -145,7 +145,7 @@ define dso_local void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr nound
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
   %.not13.not.i.i = icmp eq ptr %21, %12
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !33
 
 22:                                               ; preds = %2
   %23 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef %1) #7
@@ -184,7 +184,7 @@ declare noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetComdat(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   ret ptr %3
 }
 
@@ -265,17 +265,18 @@ attributes #7 = { nounwind }
 !27 = distinct !{!27, !"_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE6insertES2_"}
 !28 = !{}
 !29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = !{!34, !43, i64 48}
-!34 = !{!"_ZTSN4llvm12GlobalObjectE", !35, i64 0, !43, i64 48}
-!35 = !{!"_ZTSN4llvm11GlobalValueE", !36, i64 0, !40, i64 24, !13, i64 32, !13, i64 32, !13, i64 32, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 34, !13, i64 34, !13, i64 36, !42, i64 40}
-!36 = !{!"_ZTSN4llvm8ConstantE", !37, i64 0}
-!37 = !{!"_ZTSN4llvm4UserE", !38, i64 0}
-!38 = !{!"_ZTSN4llvm5ValueE", !7, i64 0, !7, i64 1, !7, i64 1, !39, i64 2, !13, i64 4, !13, i64 7, !13, i64 7, !13, i64 7, !13, i64 7, !13, i64 7, !40, i64 8, !41, i64 16}
-!39 = !{!"short", !7, i64 0}
-!40 = !{!"p1 _ZTSN4llvm4TypeE", !6, i64 0}
-!41 = !{!"p1 _ZTSN4llvm3UseE", !6, i64 0}
-!42 = !{!"p1 _ZTSN4llvm6ModuleE", !6, i64 0}
-!43 = !{!"p1 _ZTSN4llvm6ComdatE", !6, i64 0}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = !{!35, !44, i64 48}
+!35 = !{!"_ZTSN4llvm12GlobalObjectE", !36, i64 0, !44, i64 48}
+!36 = !{!"_ZTSN4llvm11GlobalValueE", !37, i64 0, !41, i64 24, !13, i64 32, !13, i64 32, !13, i64 32, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 34, !13, i64 34, !13, i64 36, !43, i64 40}
+!37 = !{!"_ZTSN4llvm8ConstantE", !38, i64 0}
+!38 = !{!"_ZTSN4llvm4UserE", !39, i64 0}
+!39 = !{!"_ZTSN4llvm5ValueE", !7, i64 0, !7, i64 1, !7, i64 1, !40, i64 2, !13, i64 4, !13, i64 7, !13, i64 7, !13, i64 7, !13, i64 7, !13, i64 7, !41, i64 8, !42, i64 16}
+!40 = !{!"short", !7, i64 0}
+!41 = !{!"p1 _ZTSN4llvm4TypeE", !6, i64 0}
+!42 = !{!"p1 _ZTSN4llvm3UseE", !6, i64 0}
+!43 = !{!"p1 _ZTSN4llvm6ModuleE", !6, i64 0}
+!44 = !{!"p1 _ZTSN4llvm6ComdatE", !6, i64 0}

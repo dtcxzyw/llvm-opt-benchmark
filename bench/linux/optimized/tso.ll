@@ -347,13 +347,13 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr noundef captures(none) initi
   %91 = phi i32 [ %117, %116 ], [ %67, %66 ]
   %92 = phi i32 [ %111, %116 ], [ 8, %66 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !annotation !16
+  store i32 0, ptr %3, align 4, !annotation !17
   %93 = load i32, ptr %68, align 8
   %94 = load i32, ptr %69, align 4
   %95 = add i32 %91, %94
   %96 = sub i32 %93, %95
   %97 = icmp sgt i32 %96, 3
-  br i1 %97, label %98, label %102, !prof !17
+  br i1 %97, label %98, label %102, !prof !18
 
 98:                                               ; preds = %.split
   %99 = load ptr, ptr %23, align 8
@@ -391,7 +391,7 @@ define dso_local i32 @tso_start(ptr noundef %0, ptr noundef captures(none) initi
 
 116:                                              ; preds = %113, %113
   %117 = add i32 %91, 4
-  br label %.split
+  br label %.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %113, %85, %.thread5, %63, %51
   %118 = phi i16 [ 0, %63 ], [ %55, %51 ], [ 0, %.thread5 ], [ %87, %85 ], [ %115, %113 ]
@@ -486,7 +486,9 @@ attributes #7 = { nounwind }
 !11 = !{!"branch_weights", i32 127, i32 1}
 !12 = !{!"branch_weights", i32 670878, i32 2146812770}
 !13 = !{!"branch_weights", i32 255873, i32 127}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!"auto-init"}
-!17 = !{!"branch_weights", i32 2000, i32 1}
+!14 = distinct !{!14, !15, !16}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!"auto-init"}
+!18 = !{!"branch_weights", i32 2000, i32 1}
+!19 = distinct !{!19, !15}

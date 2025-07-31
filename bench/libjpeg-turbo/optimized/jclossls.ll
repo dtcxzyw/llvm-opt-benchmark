@@ -113,7 +113,7 @@ define internal void @simple_downscale(ptr noundef readonly captures(none) %0, p
   store i8 %12, ptr %.03, align 1, !tbaa !29
   %14 = add i32 %.0, -1
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %6, !llvm.loop !47
+  br i1 %.not, label %15, label %6, !llvm.loop !48
 
 15:                                               ; preds = %6
   ret void
@@ -161,7 +161,7 @@ define internal void @jpeg_difference_first_row(ptr noundef readonly captures(no
   store i32 %22, ptr %.034, align 4, !tbaa !43
   %23 = add i32 %19, -1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -192,7 +192,7 @@ define internal void @jpeg_difference_first_row(ptr noundef readonly captures(no
 
 39:                                               ; preds = %._crit_edge, %26
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %41 = load i32, ptr %40, align 4, !tbaa !49
+  %41 = load i32, ptr %40, align 4, !tbaa !50
   switch i32 %41, label %70 [
     i32 1, label %42
     i32 2, label %46
@@ -283,7 +283,7 @@ define internal void @jpeg_difference1(ptr noundef readonly captures(none) %0, i
   store i32 %18, ptr %.016, align 4, !tbaa !43
   %19 = add i32 %15, -1
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -346,7 +346,7 @@ define internal void @jpeg_difference2(ptr noundef readonly captures(none) %0, i
   store i32 %20, ptr %.021, align 4, !tbaa !43
   %21 = add i32 %15, -1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -410,7 +410,7 @@ define internal void @jpeg_difference3(ptr noundef readonly captures(none) %0, i
   store i32 %20, ptr %.021, align 4, !tbaa !43
   %21 = add i32 %15, -1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -477,7 +477,7 @@ define internal void @jpeg_difference4(ptr noundef readonly captures(none) %0, i
   store i32 %21, ptr %.023, align 4, !tbaa !43
   %22 = add i32 %15, -1
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -545,7 +545,7 @@ define internal void @jpeg_difference5(ptr noundef readonly captures(none) %0, i
   store i32 %23, ptr %.023, align 4, !tbaa !43
   %24 = add i32 %15, -1
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -613,7 +613,7 @@ define internal void @jpeg_difference6(ptr noundef readonly captures(none) %0, i
   store i32 %23, ptr %.023, align 4, !tbaa !43
   %24 = add i32 %15, -1
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -679,7 +679,7 @@ define internal void @jpeg_difference7(ptr noundef readonly captures(none) %0, i
   store i32 %22, ptr %.022, align 4, !tbaa !43
   %23 = add i32 %15, -1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -766,15 +766,16 @@ attributes #5 = { nounwind }
 !42 = !{!4, !11, i64 76}
 !43 = !{!11, !11, i64 0}
 !44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = !{!4, !11, i64 412}
-!50 = distinct !{!50, !46}
-!51 = distinct !{!51, !46}
-!52 = distinct !{!52, !46}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
-!55 = distinct !{!55, !46}
-!56 = distinct !{!56, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46, !47}
+!50 = !{!4, !11, i64 412}
+!51 = distinct !{!51, !46, !47}
+!52 = distinct !{!52, !46, !47}
+!53 = distinct !{!53, !46, !47}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}
+!56 = distinct !{!56, !46, !47}
+!57 = distinct !{!57, !46, !47}

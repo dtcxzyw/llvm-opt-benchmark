@@ -2468,7 +2468,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
   br label %63
 
 43:                                               ; preds = %38
@@ -2491,7 +2491,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
 
 54:                                               ; preds = %50
   %55 = icmp eq i32 %39, 0
-  br i1 %55, label %.critedge, label %38, !llvm.loop !19
+  br i1 %55, label %.critedge, label %38, !llvm.loop !20
 
 .critedge:                                        ; preds = %46, %54, %50
   %56 = phi i32 [ -512, %50 ], [ -110, %54 ], [ -512, %46 ]
@@ -2544,7 +2544,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @msg_insert(ptr noundef %0,
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %9, !llvm.loop !20
+  br i1 %22, label %23, label %9, !llvm.loop !21
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 %19
@@ -2897,7 +2897,7 @@ define internal fastcc i32 @do_mq_timedreceive(i32 noundef %0, ptr noundef %1, i
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
   %134 = call i64 @llvm.read_register.i64(metadata !0)
-  %135 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i32 %133, i64 4, i64 %134) #15, !srcloc !21
+  %135 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i32 %133, i64 4, i64 %134) #15, !srcloc !22
   %136 = extractvalue { ptr, i64 } %135, 0
   %137 = extractvalue { ptr, i64 } %135, 1
   %138 = ptrtoint ptr %136 to i64
@@ -2988,7 +2988,7 @@ define internal fastcc ptr @msg_get(ptr noundef %0) unnamed_addr #10 align 16 {
   tail call fastcc void @msg_tree_erase(ptr noundef nonnull %13, ptr noundef %0)
   %22 = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %.preheader
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !23
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3191,7 +3191,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   switch i32 %53, label %.thread [
     i32 1, label %36
     i32 0, label %.thread16
-  ]
+  ], !llvm.loop !24
 
 .thread16:                                        ; preds = %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
@@ -3613,7 +3613,7 @@ define internal i32 @mqueue_get_tree(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i8, ptr %4, align 8, !range !22, !noundef !23
+  %5 = load i8, ptr %4, align 8, !range !25, !noundef !26
   %6 = icmp eq i8 %5, 0
   %7 = load ptr, ptr %3, align 8
   br i1 %6, label %11, label %8
@@ -3785,7 +3785,7 @@ define internal void @mqueue_evict_inode(ptr noundef %0) #0 align 16 {
   store volatile ptr %27, ptr %28, align 8
   %30 = call fastcc ptr @msg_get(ptr noundef %24)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit5, label %.preheader4, !llvm.loop !24
+  br i1 %31, label %.loopexit5, label %.preheader4, !llvm.loop !27
 
 .loopexit5:                                       ; preds = %.preheader4, %23
   %32 = getelementptr i8, ptr %0, i64 640
@@ -3808,7 +3808,7 @@ define internal void @mqueue_evict_inode(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %38, align 8
   call void @free_msg(ptr noundef %36) #15
   %41 = icmp eq ptr %37, %2
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit5
   %42 = getelementptr i8, ptr %0, i64 800
@@ -3943,14 +3943,17 @@ attributes #18 = { nounwind allocsize(2) }
 !12 = !{i32 -512, i32 1}
 !13 = !{i64 2158695186}
 !14 = !{i32 -12, i32 1}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{i64 2158664264}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !16, !17}
-!21 = !{i64 2158703652}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{i64 2158664264}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !16, !17, !18}
+!22 = !{i64 2158703652}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = distinct !{!27, !16, !17, !18}
+!28 = distinct !{!28, !16, !17, !18}

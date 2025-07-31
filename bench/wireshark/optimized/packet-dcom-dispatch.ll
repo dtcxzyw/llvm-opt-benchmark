@@ -344,7 +344,7 @@ define i32 @dissect_IDispatch_GetIDsOfNames_resp(ptr noundef %0, i32 noundef %1,
   %19 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.3, i32 noundef %19)
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %14, %6
   %.027.lcssa = phi i32 [ %11, %6 ], [ %17, %14 ]
@@ -494,7 +494,7 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   %77 = add i32 %.pr, -1
   store i32 %77, ptr %15, align 4
   %.not148 = icmp eq i32 %.pr, 0
-  br i1 %.not148, label %.loopexit156, label %.lr.ph, !llvm.loop !9
+  br i1 %.not148, label %.loopexit156, label %.lr.ph, !llvm.loop !10
 
 .loopexit156:                                     ; preds = %76, %65, %53
   %.0 = phi i32 [ %63, %53 ], [ %66, %65 ], [ %71, %76 ]
@@ -518,7 +518,7 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   %86 = add i32 %85, -1
   store i32 %86, ptr %15, align 4
   %.not150 = icmp eq i32 %85, 0
-  br i1 %.not150, label %.loopexit, label %.lr.ph162, !llvm.loop !10
+  br i1 %.not150, label %.loopexit, label %.lr.ph162, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph162, %79, %.loopexit156
   %.2 = phi i32 [ %.0, %.loopexit156 ], [ %80, %79 ], [ %84, %.lr.ph162 ]
@@ -544,7 +544,7 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   %98 = add i32 %97, -1
   store i32 %98, ptr %15, align 4
   %.not151 = icmp eq i32 %97, 0
-  br i1 %.not151, label %._crit_edge, label %.lr.ph166, !llvm.loop !11
+  br i1 %.not151, label %._crit_edge, label %.lr.ph166, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph166, %.loopexit
   %.4.lcssa = phi i32 [ %92, %.loopexit ], [ %96, %.lr.ph166 ]
@@ -576,7 +576,7 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   %110 = add i32 %.pr155, -1
   store i32 %110, ptr %15, align 4
   %.not152 = icmp eq i32 %.pr155, 0
-  br i1 %.not152, label %._crit_edge173, label %.lr.ph172, !llvm.loop !12
+  br i1 %.not152, label %._crit_edge173, label %.lr.ph172, !llvm.loop !13
 
 ._crit_edge173:                                   ; preds = %109, %._crit_edge
   %.2142.lcssa = phi i32 [ %102, %._crit_edge ], [ %.3143, %109 ]
@@ -749,7 +749,7 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   %77 = add i32 %.pr, -1
   store i32 %77, ptr %10, align 4
   %.not138 = icmp eq i32 %.pr, 0
-  br i1 %.not138, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not138, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %76, %60
   %.0133.lcssa = phi i32 [ %69, %60 ], [ %.1134, %76 ]
@@ -830,11 +830,12 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

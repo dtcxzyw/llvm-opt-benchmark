@@ -73,7 +73,7 @@ gf_add_RAW.exit:                                  ; preds = %9
   %29 = add nuw nsw i64 %28, %25
   store i64 %29, ptr %24, align 8, !tbaa !3
   %.not.i29 = icmp eq i64 %indvars.iv.next54, 0
-  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %22, !llvm.loop !9
+  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %22, !llvm.loop !10
 
 gf_weak_reduce.exit30:                            ; preds = %22
   %30 = load i64, ptr %7, align 16, !tbaa !3
@@ -118,7 +118,7 @@ gf_add_RAW.exit21:                                ; preds = %34
   %54 = add nuw nsw i64 %53, %50
   store i64 %54, ptr %49, align 8, !tbaa !3
   %.not.i26 = icmp eq i64 %indvars.iv.next61, 0
-  br i1 %.not.i26, label %gf_weak_reduce.exit27, label %47, !llvm.loop !9
+  br i1 %.not.i26, label %gf_weak_reduce.exit27, label %47, !llvm.loop !10
 
 gf_weak_reduce.exit27:                            ; preds = %47
   %55 = load i64, ptr %33, align 16, !tbaa !3
@@ -141,7 +141,7 @@ gf_weak_reduce.exit27:                            ; preds = %47
   store i64 %66, ptr %59, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %58, !llvm.loop !10
+  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %58, !llvm.loop !11
 
 gf_sub_RAW.exit.i:                                ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -165,7 +165,7 @@ gf_sub_RAW.exit.i:                                ; preds = %58
   %80 = add nuw nsw i64 %79, %76
   store i64 %80, ptr %75, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %indvars.iv.next11.i, 0
-  br i1 %.not.i.i, label %gf_subx_nr.exit, label %73, !llvm.loop !9
+  br i1 %.not.i.i, label %gf_subx_nr.exit, label %73, !llvm.loop !10
 
 gf_subx_nr.exit:                                  ; preds = %73
   %81 = load i64, ptr %5, align 16, !tbaa !3
@@ -188,7 +188,7 @@ gf_subx_nr.exit:                                  ; preds = %73
   store i64 %92, ptr %93, align 8, !tbaa !3
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 8
-  br i1 %exitcond.not.i33, label %gf_sub_RAW.exit.i34, label %84, !llvm.loop !10
+  br i1 %exitcond.not.i33, label %gf_sub_RAW.exit.i34, label %84, !llvm.loop !11
 
 gf_sub_RAW.exit.i34:                              ; preds = %84
   %94 = load i64, ptr %41, align 8, !tbaa !3
@@ -210,7 +210,7 @@ gf_sub_RAW.exit.i34:                              ; preds = %84
   %105 = add nuw nsw i64 %104, %101
   store i64 %105, ptr %100, align 8, !tbaa !3
   %.not.i.i35 = icmp eq i64 %indvars.iv.next9.i, 0
-  br i1 %.not.i.i35, label %gf_sub_nr.exit, label %98, !llvm.loop !9
+  br i1 %.not.i.i35, label %gf_sub_nr.exit, label %98, !llvm.loop !10
 
 gf_sub_nr.exit:                                   ; preds = %98
   %106 = load i64, ptr %33, align 16, !tbaa !3
@@ -255,7 +255,7 @@ gf_add_RAW.exit23:                                ; preds = %111
   %129 = add nuw nsw i64 %128, %125
   store i64 %129, ptr %124, align 8, !tbaa !3
   %.not.i = icmp eq i64 %indvars.iv.next68, 0
-  br i1 %.not.i, label %gf_weak_reduce.exit, label %122, !llvm.loop !9
+  br i1 %.not.i, label %gf_weak_reduce.exit, label %122, !llvm.loop !10
 
 gf_weak_reduce.exit:                              ; preds = %122
   %130 = load i64, ptr %110, align 16, !tbaa !3
@@ -278,7 +278,7 @@ gf_weak_reduce.exit:                              ; preds = %122
   store i64 %141, ptr %142, align 8, !tbaa !3
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 8
-  br i1 %exitcond.not.i38, label %gf_sub_RAW.exit.i39, label %133, !llvm.loop !10
+  br i1 %exitcond.not.i38, label %gf_sub_RAW.exit.i39, label %133, !llvm.loop !11
 
 gf_sub_RAW.exit.i39:                              ; preds = %133
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -302,7 +302,7 @@ gf_sub_RAW.exit.i39:                              ; preds = %133
   %156 = add nuw nsw i64 %155, %152
   store i64 %156, ptr %151, align 8, !tbaa !3
   %.not.i.i42 = icmp eq i64 %indvars.iv.next11.i41, 0
-  br i1 %.not.i.i42, label %gf_subx_nr.exit43, label %149, !llvm.loop !9
+  br i1 %.not.i.i42, label %gf_subx_nr.exit43, label %149, !llvm.loop !10
 
 gf_subx_nr.exit43:                                ; preds = %149
   %157 = load i64, ptr %4, align 16, !tbaa !3
@@ -453,7 +453,7 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %.1 = phi i32 [ %32, %23 ], [ %.03338, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %34, label %18, !llvm.loop !11
+  br i1 %exitcond.not, label %34, label %18, !llvm.loop !12
 
 34:                                               ; preds = %33
   %35 = ashr i32 %.1, 4
@@ -462,9 +462,9 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %38 = and i32 %37, 15
   %39 = shl nuw nsw i64 %indvars.iv42, 4
   %40 = getelementptr inbounds nuw [80 x [1 x %struct.niels_s]], ptr %1, i64 0, i64 %39
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %41 = zext nneg i32 %38 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, i8 0, i64 192, i1 false), !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, i8 0, i64 192, i1 false), !alias.scope !13
   br label %42
 
 42:                                               ; preds = %57, %34
@@ -473,9 +473,9 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %.01620.i.i = phi ptr [ %40, %34 ], [ %50, %57 ]
   %43 = icmp eq i64 %.022.i.i, 0
   %44 = select i1 %43, i32 255, i32 0
-  %45 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %44) #8, !srcloc !15
+  %45 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %44) #8, !srcloc !16
   %46 = xor i32 %44, -1
-  %47 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %46) #8, !srcloc !15
+  %47 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %46) #8, !srcloc !16
   %48 = trunc i32 %45 to i8
   br label %49
 
@@ -483,49 +483,49 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %.119.i.i = phi ptr [ %.01620.i.i, %42 ], [ %50, %49 ]
   %.01718.i.i = phi i64 [ 0, %42 ], [ %56, %49 ]
   %50 = getelementptr inbounds nuw i8, ptr %.119.i.i, i64 1
-  %51 = load i8, ptr %.119.i.i, align 1, !tbaa !16, !noalias !12
+  %51 = load i8, ptr %.119.i.i, align 1, !tbaa !17, !noalias !13
   %52 = and i8 %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 %.01718.i.i
-  %54 = load i8, ptr %53, align 1, !tbaa !16, !alias.scope !12
+  %54 = load i8, ptr %53, align 1, !tbaa !17, !alias.scope !13
   %55 = or i8 %54, %52
-  store i8 %55, ptr %53, align 1, !tbaa !16, !alias.scope !12
+  store i8 %55, ptr %53, align 1, !tbaa !17, !alias.scope !13
   %56 = add nuw nsw i64 %.01718.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %56, 192
-  br i1 %exitcond.not.i.i, label %57, label %49, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %57, label %49, !llvm.loop !18
 
 57:                                               ; preds = %49
   %58 = add nuw nsw i64 %.01521.i.i, 1
   %59 = add nsw i64 %.022.i.i, -1
   %exitcond23.not.i.i = icmp eq i64 %58, 16
-  br i1 %exitcond23.not.i.i, label %constant_time_lookup_niels.exit, label %42, !llvm.loop !18
+  br i1 %exitcond23.not.i.i, label %constant_time_lookup_niels.exit, label %42, !llvm.loop !19
 
 constant_time_lookup_niels.exit:                  ; preds = %57
   %60 = sext i32 %36 to i64
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
   br label %61
 
 61:                                               ; preds = %61, %constant_time_lookup_niels.exit
   %.06.i.i = phi i64 [ 0, %constant_time_lookup_niels.exit ], [ %70, %61 ]
   %62 = getelementptr inbounds nuw [8 x i64], ptr %5, i64 0, i64 %.06.i.i
   %63 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.06.i.i
-  %64 = load i64, ptr %62, align 8, !tbaa !3, !noalias !19
-  %65 = load i64, ptr %63, align 8, !tbaa !3, !alias.scope !19
+  %64 = load i64, ptr %62, align 8, !tbaa !3, !noalias !20
+  %65 = load i64, ptr %63, align 8, !tbaa !3, !alias.scope !20
   %66 = xor i64 %65, %64
   %67 = and i64 %66, %60
   %68 = xor i64 %67, %64
-  store i64 %68, ptr %62, align 8, !tbaa !3, !noalias !19
+  store i64 %68, ptr %62, align 8, !tbaa !3, !noalias !20
   %69 = xor i64 %67, %65
-  store i64 %69, ptr %63, align 8, !tbaa !3, !alias.scope !19
+  store i64 %69, ptr %63, align 8, !tbaa !3, !alias.scope !20
   %70 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i36 = icmp eq i64 %70, 8
-  br i1 %exitcond.not.i.i36, label %gf_cond_swap.exit.i, label %61, !llvm.loop !22
+  br i1 %exitcond.not.i.i36, label %gf_cond_swap.exit.i, label %61, !llvm.loop !23
 
 gf_cond_swap.exit.i:                              ; preds = %61
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
   call void @gf_sub(ptr noundef nonnull %4, ptr noundef nonnull @ZERO, ptr noundef nonnull %8) #7
-  %71 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -134217729, 134217727) %60) #8, !srcloc !23
+  %71 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -134217729, 134217727) %60) #8, !srcloc !24
   %72 = xor i64 %60, -1
-  %73 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %72) #8, !srcloc !23
+  %73 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %72) #8, !srcloc !24
   br label %74
 
 74:                                               ; preds = %74, %gf_cond_swap.exit.i
@@ -540,7 +540,7 @@ gf_cond_swap.exit.i:                              ; preds = %61
   store i64 %81, ptr %77, align 8, !tbaa !3
   %82 = add nuw nsw i64 %.08.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %82, 8
-  br i1 %exitcond.not.i.i.i, label %cond_neg_niels.exit, label %74, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i, label %cond_neg_niels.exit, label %74, !llvm.loop !25
 
 cond_neg_niels.exit:                              ; preds = %74
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
@@ -559,17 +559,17 @@ cond_neg_niels.exit:                              ; preds = %74
   call void @gf_add(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   call void @gf_sub(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %11, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %11, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !26
   br label %89
 
 89:                                               ; preds = %88, %84
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 5
-  br i1 %exitcond45.not, label %90, label %.preheader, !llvm.loop !26
+  br i1 %exitcond45.not, label %90, label %.preheader, !llvm.loop !27
 
 90:                                               ; preds = %89
   %.not = icmp eq i64 %indvars.iv.next47, 0
-  br i1 %.not, label %91, label %12, !llvm.loop !27
+  br i1 %.not, label %91, label %12, !llvm.loop !28
 
 91:                                               ; preds = %90
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 192) #7
@@ -608,7 +608,7 @@ define internal fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef %1, i32
   store i64 %16, ptr %17, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %8, !llvm.loop !11
 
 gf_sub_RAW.exit.i:                                ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -632,7 +632,7 @@ gf_sub_RAW.exit.i:                                ; preds = %8
   %31 = add nuw nsw i64 %30, %27
   store i64 %31, ptr %26, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %indvars.iv.next9.i, 0
-  br i1 %.not.i.i, label %gf_sub_nr.exit, label %24, !llvm.loop !9
+  br i1 %.not.i.i, label %gf_sub_nr.exit, label %24, !llvm.loop !10
 
 gf_sub_nr.exit:                                   ; preds = %24
   %32 = load i64, ptr %5, align 16, !tbaa !3
@@ -675,7 +675,7 @@ gf_add_RAW.exit:                                  ; preds = %35
   %53 = add nuw nsw i64 %52, %49
   store i64 %53, ptr %48, align 8, !tbaa !3
   %.not.i32 = icmp eq i64 %indvars.iv.next60, 0
-  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %46, !llvm.loop !9
+  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %46, !llvm.loop !10
 
 gf_weak_reduce.exit33:                            ; preds = %46
   %54 = load i64, ptr %5, align 16, !tbaa !3
@@ -724,7 +724,7 @@ gf_add_RAW.exit24:                                ; preds = %60
   %80 = add nuw nsw i64 %79, %76
   store i64 %80, ptr %75, align 8, !tbaa !3
   %.not.i29 = icmp eq i64 %indvars.iv.next67, 0
-  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %73, !llvm.loop !9
+  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %73, !llvm.loop !10
 
 gf_weak_reduce.exit30:                            ; preds = %73
   %81 = load i64, ptr %6, align 16, !tbaa !3
@@ -747,7 +747,7 @@ gf_weak_reduce.exit30:                            ; preds = %73
   store i64 %92, ptr %93, align 8, !tbaa !3
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 8
-  br i1 %exitcond.not.i36, label %gf_sub_RAW.exit.i37, label %84, !llvm.loop !10
+  br i1 %exitcond.not.i36, label %gf_sub_RAW.exit.i37, label %84, !llvm.loop !11
 
 gf_sub_RAW.exit.i37:                              ; preds = %84
   %94 = load i64, ptr %18, align 8, !tbaa !3
@@ -769,7 +769,7 @@ gf_sub_RAW.exit.i37:                              ; preds = %84
   %105 = add nuw nsw i64 %104, %101
   store i64 %105, ptr %100, align 8, !tbaa !3
   %.not.i.i40 = icmp eq i64 %indvars.iv.next9.i39, 0
-  br i1 %.not.i.i40, label %gf_sub_nr.exit41, label %98, !llvm.loop !9
+  br i1 %.not.i.i40, label %gf_sub_nr.exit41, label %98, !llvm.loop !10
 
 gf_sub_nr.exit41:                                 ; preds = %98
   %106 = load i64, ptr %5, align 16, !tbaa !3
@@ -793,7 +793,7 @@ gf_sub_nr.exit41:                                 ; preds = %98
   store i64 %118, ptr %119, align 8, !tbaa !3
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 8
-  br i1 %exitcond.not.i44, label %gf_sub_RAW.exit.i45, label %110, !llvm.loop !10
+  br i1 %exitcond.not.i44, label %gf_sub_RAW.exit.i45, label %110, !llvm.loop !11
 
 gf_sub_RAW.exit.i45:                              ; preds = %110
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -817,7 +817,7 @@ gf_sub_RAW.exit.i45:                              ; preds = %110
   %133 = add nuw nsw i64 %132, %129
   store i64 %133, ptr %128, align 8, !tbaa !3
   %.not.i.i48 = icmp eq i64 %indvars.iv.next9.i47, 0
-  br i1 %.not.i.i48, label %gf_sub_nr.exit49, label %126, !llvm.loop !9
+  br i1 %.not.i.i48, label %gf_sub_nr.exit49, label %126, !llvm.loop !10
 
 gf_sub_nr.exit49:                                 ; preds = %126
   %134 = load i64, ptr %7, align 16, !tbaa !3
@@ -861,7 +861,7 @@ gf_add_RAW.exit26:                                ; preds = %137
   %157 = add nuw nsw i64 %156, %153
   store i64 %157, ptr %152, align 8, !tbaa !3
   %.not.i = icmp eq i64 %indvars.iv.next74, 0
-  br i1 %.not.i, label %gf_weak_reduce.exit, label %150, !llvm.loop !9
+  br i1 %.not.i, label %gf_weak_reduce.exit, label %150, !llvm.loop !10
 
 gf_weak_reduce.exit:                              ; preds = %150
   %158 = load i64, ptr %4, align 16, !tbaa !3
@@ -902,7 +902,7 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %5, ptr noundef nonnull %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -927,20 +927,20 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef 
   %13 = call i64 @gf_isr(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %7) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   call void @ossl_gf_mul(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %14, align 1, !tbaa !16
+  store i8 0, ptr %14, align 1, !tbaa !17
   call void @gf_serialize(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #7
   %15 = call i64 @gf_lobit(ptr noundef nonnull %8) #7
-  %16 = load i8, ptr %14, align 1, !tbaa !16
+  %16 = load i8, ptr %14, align 1, !tbaa !17
   %17 = trunc i64 %15 to i8
   %18 = and i8 %17, -128
   %19 = or i8 %18, %16
-  store i8 %19, ptr %14, align 1, !tbaa !16
+  store i8 %19, ptr %14, align 1, !tbaa !17
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #7
@@ -975,16 +975,16 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %4, ptr noundef nonnull align 1 dereferenceable(57) %1, i64 57, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %10 = load i8, ptr %9, align 8, !tbaa !16
+  %10 = load i8, ptr %9, align 8, !tbaa !17
   %11 = and i8 %10, -128
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -1
   %.neg.i.i = ashr i64 %13, 63
   %14 = and i8 %10, 127
-  store i8 %14, ptr %9, align 8, !tbaa !16
+  store i8 %14, ptr %9, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = call i64 @gf_deserialize(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1, i8 noundef zeroext 0) #7
-  %17 = load i8, ptr %9, align 8, !tbaa !16
+  %17 = load i8, ptr %9, align 8, !tbaa !17
   call void @ossl_gf_sqr(ptr noundef %0, ptr noundef nonnull %15) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @gf_sub(ptr noundef nonnull %18, ptr noundef nonnull @ONE, ptr noundef %0) #7
@@ -1000,8 +1000,8 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   %23 = xor i64 %22, -1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   call void @gf_sub(ptr noundef nonnull %3, ptr noundef nonnull @ZERO, ptr noundef %0) #7
-  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #8, !srcloc !23
-  %25 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
+  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #8, !srcloc !24
+  %25 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !24
   br label %26
 
 26:                                               ; preds = %26, %2
@@ -1016,14 +1016,14 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   store i64 %33, ptr %29, align 8, !tbaa !3
   %34 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %34, 8
-  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %26, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %26, !llvm.loop !25
 
 gf_cond_neg.exit:                                 ; preds = %26
   %isneg = icmp eq i8 %17, 0
   %35 = select i1 %isneg, i64 %16, i64 0
   %36 = and i64 %20, %35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
@@ -1082,10 +1082,10 @@ define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #7
   %13 = call i64 @gf_deserialize(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1, i8 noundef zeroext 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !26
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -1102,7 +1102,7 @@ define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %23 = lshr i32 %.083, 3
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !16
+  %26 = load i8, ptr %25, align 1, !tbaa !17
   %27 = icmp samesign ult i32 %.083, 8
   %28 = and i8 %26, -4
   %29 = icmp eq i32 %.083, 447
@@ -1115,44 +1115,44 @@ define i32 @ossl_x448_int(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %34 = zext nneg i32 %33 to i64
   %35 = sub nsw i64 0, %34
   %36 = xor i64 %.02082, %35
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  call void @llvm.experimental.noalias.scope.decl(metadata !30)
   br label %37
 
 37:                                               ; preds = %37, %22
   %.06.i = phi i64 [ 0, %22 ], [ %46, %37 ]
   %38 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.06.i
   %39 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.06.i
-  %40 = load i64, ptr %38, align 8, !tbaa !3, !noalias !29
-  %41 = load i64, ptr %39, align 8, !tbaa !3, !alias.scope !29
+  %40 = load i64, ptr %38, align 8, !tbaa !3, !noalias !30
+  %41 = load i64, ptr %39, align 8, !tbaa !3, !alias.scope !30
   %42 = xor i64 %41, %40
   %43 = and i64 %42, %36
   %44 = xor i64 %43, %40
-  store i64 %44, ptr %38, align 8, !tbaa !3, !noalias !29
+  store i64 %44, ptr %38, align 8, !tbaa !3, !noalias !30
   %45 = xor i64 %43, %41
-  store i64 %45, ptr %39, align 8, !tbaa !3, !alias.scope !29
+  store i64 %45, ptr %39, align 8, !tbaa !3, !alias.scope !30
   %46 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %46, 8
-  br i1 %exitcond.not.i, label %gf_cond_swap.exit, label %37, !llvm.loop !22
+  br i1 %exitcond.not.i, label %gf_cond_swap.exit, label %37, !llvm.loop !23
 
 gf_cond_swap.exit:                                ; preds = %37
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  call void @llvm.experimental.noalias.scope.decl(metadata !33)
   br label %47
 
 47:                                               ; preds = %47, %gf_cond_swap.exit
   %.06.i37 = phi i64 [ 0, %gf_cond_swap.exit ], [ %56, %47 ]
   %48 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.06.i37
   %49 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.06.i37
-  %50 = load i64, ptr %48, align 8, !tbaa !3, !noalias !32
-  %51 = load i64, ptr %49, align 8, !tbaa !3, !alias.scope !32
+  %50 = load i64, ptr %48, align 8, !tbaa !3, !noalias !33
+  %51 = load i64, ptr %49, align 8, !tbaa !3, !alias.scope !33
   %52 = xor i64 %51, %50
   %53 = and i64 %52, %36
   %54 = xor i64 %53, %50
-  store i64 %54, ptr %48, align 8, !tbaa !3, !noalias !32
+  store i64 %54, ptr %48, align 8, !tbaa !3, !noalias !33
   %55 = xor i64 %53, %51
-  store i64 %55, ptr %49, align 8, !tbaa !3, !alias.scope !32
+  store i64 %55, ptr %49, align 8, !tbaa !3, !alias.scope !33
   %56 = add nuw nsw i64 %.06.i37, 1
   %exitcond.not.i38 = icmp eq i64 %56, 8
-  br i1 %exitcond.not.i38, label %gf_cond_swap.exit39, label %47, !llvm.loop !22
+  br i1 %exitcond.not.i38, label %gf_cond_swap.exit39, label %47, !llvm.loop !23
 
 gf_cond_swap.exit39:                              ; preds = %47, %gf_cond_swap.exit39
   %indvars.iv = phi i64 [ %indvars.iv.next, %gf_cond_swap.exit39 ], [ 0, %47 ]
@@ -1187,7 +1187,7 @@ gf_add_RAW.exit:                                  ; preds = %gf_cond_swap.exit39
   %74 = add nuw nsw i64 %73, %70
   store i64 %74, ptr %69, align 8, !tbaa !3
   %.not.i35 = icmp eq i64 %indvars.iv.next86, 0
-  br i1 %.not.i35, label %gf_weak_reduce.exit36, label %67, !llvm.loop !9
+  br i1 %.not.i35, label %gf_weak_reduce.exit36, label %67, !llvm.loop !10
 
 gf_weak_reduce.exit36:                            ; preds = %67
   %75 = load i64, ptr %11, align 16, !tbaa !3
@@ -1210,7 +1210,7 @@ gf_weak_reduce.exit36:                            ; preds = %67
   store i64 %86, ptr %87, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i40, label %gf_sub_RAW.exit.i, label %78, !llvm.loop !10
+  br i1 %exitcond.not.i40, label %gf_sub_RAW.exit.i, label %78, !llvm.loop !11
 
 gf_sub_RAW.exit.i:                                ; preds = %78
   %88 = load i64, ptr %16, align 8, !tbaa !3
@@ -1232,7 +1232,7 @@ gf_sub_RAW.exit.i:                                ; preds = %78
   %99 = add nuw nsw i64 %98, %95
   store i64 %99, ptr %94, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %indvars.iv.next9.i, 0
-  br i1 %.not.i.i, label %gf_sub_nr.exit, label %92, !llvm.loop !9
+  br i1 %.not.i.i, label %gf_sub_nr.exit, label %92, !llvm.loop !10
 
 gf_sub_nr.exit:                                   ; preds = %92
   %100 = load i64, ptr %12, align 16, !tbaa !3
@@ -1255,7 +1255,7 @@ gf_sub_nr.exit:                                   ; preds = %92
   store i64 %111, ptr %112, align 8, !tbaa !3
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 8
-  br i1 %exitcond.not.i43, label %gf_sub_RAW.exit.i44, label %103, !llvm.loop !10
+  br i1 %exitcond.not.i43, label %gf_sub_RAW.exit.i44, label %103, !llvm.loop !11
 
 gf_sub_RAW.exit.i44:                              ; preds = %103
   %113 = load i64, ptr %18, align 8, !tbaa !3
@@ -1277,7 +1277,7 @@ gf_sub_RAW.exit.i44:                              ; preds = %103
   %124 = add nuw nsw i64 %123, %120
   store i64 %124, ptr %119, align 8, !tbaa !3
   %.not.i.i47 = icmp eq i64 %indvars.iv.next9.i46, 0
-  br i1 %.not.i.i47, label %gf_sub_nr.exit48, label %117, !llvm.loop !9
+  br i1 %.not.i.i47, label %gf_sub_nr.exit48, label %117, !llvm.loop !10
 
 gf_sub_nr.exit48:                                 ; preds = %117
   %125 = load i64, ptr %8, align 16, !tbaa !3
@@ -1320,7 +1320,7 @@ gf_add_RAW.exit22:                                ; preds = %128
   %146 = add nuw nsw i64 %145, %142
   store i64 %146, ptr %141, align 8, !tbaa !3
   %.not.i32 = icmp eq i64 %indvars.iv.next93, 0
-  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %139, !llvm.loop !9
+  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %139, !llvm.loop !10
 
 gf_weak_reduce.exit33:                            ; preds = %139
   %147 = load i64, ptr %8, align 16, !tbaa !3
@@ -1344,7 +1344,7 @@ gf_weak_reduce.exit33:                            ; preds = %139
   store i64 %158, ptr %159, align 8, !tbaa !3
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 8
-  br i1 %exitcond.not.i51, label %gf_sub_RAW.exit.i52, label %150, !llvm.loop !10
+  br i1 %exitcond.not.i51, label %gf_sub_RAW.exit.i52, label %150, !llvm.loop !11
 
 gf_sub_RAW.exit.i52:                              ; preds = %150
   %160 = load i64, ptr %20, align 8, !tbaa !3
@@ -1366,7 +1366,7 @@ gf_sub_RAW.exit.i52:                              ; preds = %150
   %171 = add nuw nsw i64 %170, %167
   store i64 %171, ptr %166, align 8, !tbaa !3
   %.not.i.i55 = icmp eq i64 %indvars.iv.next9.i54, 0
-  br i1 %.not.i.i55, label %gf_sub_nr.exit56, label %164, !llvm.loop !9
+  br i1 %.not.i.i55, label %gf_sub_nr.exit56, label %164, !llvm.loop !10
 
 gf_sub_nr.exit56:                                 ; preds = %164
   %172 = load i64, ptr %10, align 16, !tbaa !3
@@ -1410,7 +1410,7 @@ gf_add_RAW.exit24:                                ; preds = %175
   %193 = add nuw nsw i64 %192, %189
   store i64 %193, ptr %188, align 8, !tbaa !3
   %.not.i29 = icmp eq i64 %indvars.iv.next100, 0
-  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %186, !llvm.loop !9
+  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %186, !llvm.loop !10
 
 gf_weak_reduce.exit30:                            ; preds = %186
   %194 = load i64, ptr %8, align 16, !tbaa !3
@@ -1437,7 +1437,7 @@ gf_weak_reduce.exit30:                            ; preds = %186
   store i64 %205, ptr %206, align 8, !tbaa !3
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 8
-  br i1 %exitcond.not.i59, label %gf_sub_RAW.exit.i60, label %197, !llvm.loop !10
+  br i1 %exitcond.not.i59, label %gf_sub_RAW.exit.i60, label %197, !llvm.loop !11
 
 gf_sub_RAW.exit.i60:                              ; preds = %197
   %207 = load i64, ptr %16, align 8, !tbaa !3
@@ -1459,7 +1459,7 @@ gf_sub_RAW.exit.i60:                              ; preds = %197
   %218 = add nuw nsw i64 %217, %214
   store i64 %218, ptr %213, align 8, !tbaa !3
   %.not.i.i63 = icmp eq i64 %indvars.iv.next9.i62, 0
-  br i1 %.not.i.i63, label %gf_sub_nr.exit64, label %211, !llvm.loop !9
+  br i1 %.not.i.i63, label %gf_sub_nr.exit64, label %211, !llvm.loop !10
 
 gf_sub_nr.exit64:                                 ; preds = %211
   %219 = load i64, ptr %12, align 16, !tbaa !3
@@ -1501,7 +1501,7 @@ gf_add_RAW.exit26:                                ; preds = %222
   %239 = add nuw nsw i64 %238, %235
   store i64 %239, ptr %234, align 8, !tbaa !3
   %.not.i = icmp eq i64 %indvars.iv.next107, 0
-  br i1 %.not.i, label %gf_weak_reduce.exit, label %232, !llvm.loop !9
+  br i1 %.not.i, label %gf_weak_reduce.exit, label %232, !llvm.loop !10
 
 gf_weak_reduce.exit:                              ; preds = %232
   %240 = load i64, ptr %11, align 16, !tbaa !3
@@ -1511,47 +1511,47 @@ gf_weak_reduce.exit:                              ; preds = %232
   call void @ossl_gf_mul(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11) #7
   %243 = add nsw i32 %.083, -1
   %.not = icmp eq i32 %.083, 0
-  br i1 %.not, label %244, label %22, !llvm.loop !35
+  br i1 %.not, label %244, label %22, !llvm.loop !36
 
 244:                                              ; preds = %gf_weak_reduce.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
   br label %245
 
 245:                                              ; preds = %245, %244
   %.06.i65 = phi i64 [ 0, %244 ], [ %254, %245 ]
   %246 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.06.i65
   %247 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.06.i65
-  %248 = load i64, ptr %246, align 8, !tbaa !3, !noalias !36
-  %249 = load i64, ptr %247, align 8, !tbaa !3, !alias.scope !36
+  %248 = load i64, ptr %246, align 8, !tbaa !3, !noalias !37
+  %249 = load i64, ptr %247, align 8, !tbaa !3, !alias.scope !37
   %250 = xor i64 %249, %248
   %251 = and i64 %250, %35
   %252 = xor i64 %251, %248
-  store i64 %252, ptr %246, align 8, !tbaa !3, !noalias !36
+  store i64 %252, ptr %246, align 8, !tbaa !3, !noalias !37
   %253 = xor i64 %251, %249
-  store i64 %253, ptr %247, align 8, !tbaa !3, !alias.scope !36
+  store i64 %253, ptr %247, align 8, !tbaa !3, !alias.scope !37
   %254 = add nuw nsw i64 %.06.i65, 1
   %exitcond.not.i66 = icmp eq i64 %254, 8
-  br i1 %exitcond.not.i66, label %gf_cond_swap.exit67, label %245, !llvm.loop !22
+  br i1 %exitcond.not.i66, label %gf_cond_swap.exit67, label %245, !llvm.loop !23
 
 gf_cond_swap.exit67:                              ; preds = %245
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @llvm.experimental.noalias.scope.decl(metadata !40)
   br label %255
 
 255:                                              ; preds = %255, %gf_cond_swap.exit67
   %.06.i68 = phi i64 [ 0, %gf_cond_swap.exit67 ], [ %264, %255 ]
   %256 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.06.i68
   %257 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.06.i68
-  %258 = load i64, ptr %256, align 8, !tbaa !3, !noalias !39
-  %259 = load i64, ptr %257, align 8, !tbaa !3, !alias.scope !39
+  %258 = load i64, ptr %256, align 8, !tbaa !3, !noalias !40
+  %259 = load i64, ptr %257, align 8, !tbaa !3, !alias.scope !40
   %260 = xor i64 %259, %258
   %261 = and i64 %260, %35
   %262 = xor i64 %261, %258
-  store i64 %262, ptr %256, align 8, !tbaa !3, !noalias !39
+  store i64 %262, ptr %256, align 8, !tbaa !3, !noalias !40
   %263 = xor i64 %261, %259
-  store i64 %263, ptr %257, align 8, !tbaa !3, !alias.scope !39
+  store i64 %263, ptr %257, align 8, !tbaa !3, !alias.scope !40
   %264 = add nuw nsw i64 %.06.i68, 1
   %exitcond.not.i69 = icmp eq i64 %264, 8
-  br i1 %exitcond.not.i69, label %gf_cond_swap.exit70, label %255, !llvm.loop !22
+  br i1 %exitcond.not.i69, label %gf_cond_swap.exit70, label %255, !llvm.loop !23
 
 gf_cond_swap.exit70:                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
@@ -1560,7 +1560,7 @@ gf_cond_swap.exit70:                              ; preds = %255
   %265 = call i64 @gf_isr(ptr noundef nonnull %5, ptr noundef nonnull %4) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %8) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
@@ -1591,7 +1591,7 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %
   %4 = alloca [1 x %struct.gf_s], align 16
   %5 = alloca [1 x %struct.curve448_point_s], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull readonly align 16 dereferenceable(256) %1, i64 256, i1 false), !tbaa.struct !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
@@ -1599,7 +1599,7 @@ define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %
   %7 = call i64 @gf_isr(ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   call void @ossl_gf_mul(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1625,19 +1625,19 @@ define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 1 dereferenceable(56) %1, i64 56, i1 false)
-  %8 = load i8, ptr %5, align 16, !tbaa !16
+  %8 = load i8, ptr %5, align 16, !tbaa !17
   %9 = and i8 %8, -4
-  store i8 %9, ptr %5, align 16, !tbaa !16
+  store i8 %9, ptr %5, align 16, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 55
-  %11 = load i8, ptr %10, align 1, !tbaa !16
+  %11 = load i8, ptr %10, align 1, !tbaa !17
   %12 = or i8 %11, -128
-  store i8 %12, ptr %10, align 1, !tbaa !16
+  store i8 %12, ptr %10, align 1, !tbaa !17
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 56) #7
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %6, ptr noundef nonnull %6) #7
-  %13 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !42
+  %13 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !43
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %6)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false), !tbaa.struct !29
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
@@ -1645,7 +1645,7 @@ define void @ossl_x448_derive_public_key(ptr noundef %0, ptr noundef readonly ca
   %15 = call i64 @gf_isr(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   call void @ossl_gf_mul(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -1682,9 +1682,9 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   %16 = load i64, ptr %1, align 8, !tbaa !3
   %17 = and i64 %16, 65535
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 608
-  store i32 -1, ptr %18, align 16, !tbaa !45
+  store i32 -1, ptr %18, align 16, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 612
-  store i32 0, ptr %19, align 4, !tbaa !48
+  store i32 0, ptr %19, align 4, !tbaa !49
   br label %20
 
 20:                                               ; preds = %._crit_edge.i, %4
@@ -1734,13 +1734,13 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   %47 = sub i64 %.257.i, %46
   %48 = add nsw i32 %37, %41
   %49 = getelementptr inbounds %struct.smvt_control, ptr %14, i64 %indvars.iv.i
-  store i32 %48, ptr %49, align 8, !tbaa !45
+  store i32 %48, ptr %49, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i32 %spec.select.i, ptr %50, align 4, !tbaa !48
+  store i32 %spec.select.i, ptr %50, align 4, !tbaa !49
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %51 = and i64 %47, 65535
   %.not.i = icmp eq i64 %51, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %39, !llvm.loop !49
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %39, !llvm.loop !50
 
 ._crit_edge.loopexit.i:                           ; preds = %39
   %52 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -1752,7 +1752,7 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   %53 = lshr exact i64 %.2.lcssa.i, 16
   %54 = add nuw nsw i32 %.05360.i, 1
   %exitcond.not.i = icmp eq i32 %54, 30
-  br i1 %exitcond.not.i, label %55, label %20, !llvm.loop !50
+  br i1 %exitcond.not.i, label %55, label %20, !llvm.loop !51
 
 55:                                               ; preds = %._crit_edge.i
   %56 = add nsw i32 %.1.lcssa.i, 1
@@ -1775,15 +1775,15 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   store i64 %63, ptr %58, align 8
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count.i
-  br i1 %exitcond73.not.i, label %recode_wnaf.exit, label %.lr.ph65.i, !llvm.loop !51
+  br i1 %exitcond73.not.i, label %recode_wnaf.exit, label %.lr.ph65.i, !llvm.loop !52
 
 recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   %64 = load i64, ptr %3, align 8, !tbaa !3
   %65 = and i64 %64, 65535
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 904
-  store i32 -1, ptr %66, align 8, !tbaa !45
+  store i32 -1, ptr %66, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 908
-  store i32 0, ptr %67, align 4, !tbaa !48
+  store i32 0, ptr %67, align 4, !tbaa !49
   br label %68
 
 68:                                               ; preds = %._crit_edge.i75, %recode_wnaf.exit
@@ -1833,13 +1833,13 @@ recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   %95 = sub i64 %.257.i69, %94
   %96 = add nsw i32 %85, %89
   %97 = getelementptr inbounds %struct.smvt_control, ptr %13, i64 %indvars.iv.i68
-  store i32 %96, ptr %97, align 8, !tbaa !45
+  store i32 %96, ptr %97, align 8, !tbaa !46
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i32 %spec.select.i71, ptr %98, align 4, !tbaa !48
+  store i32 %spec.select.i71, ptr %98, align 4, !tbaa !49
   %indvars.iv.next.i72 = add nsw i64 %indvars.iv.i68, -1
   %99 = and i64 %95, 65535
   %.not.i73 = icmp eq i64 %99, 0
-  br i1 %.not.i73, label %._crit_edge.loopexit.i74, label %87, !llvm.loop !49
+  br i1 %.not.i73, label %._crit_edge.loopexit.i74, label %87, !llvm.loop !50
 
 ._crit_edge.loopexit.i74:                         ; preds = %87
   %100 = trunc nsw i64 %indvars.iv.next.i72 to i32
@@ -1851,7 +1851,7 @@ recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   %101 = lshr exact i64 %.2.lcssa.i76, 16
   %102 = add nuw nsw i32 %.05360.i64, 1
   %exitcond.not.i78 = icmp eq i32 %102, 30
-  br i1 %exitcond.not.i78, label %103, label %68, !llvm.loop !50
+  br i1 %exitcond.not.i78, label %103, label %68, !llvm.loop !51
 
 103:                                              ; preds = %._crit_edge.i75
   %104 = add nsw i32 %.1.lcssa.i77, 1
@@ -1874,7 +1874,7 @@ recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   store i64 %111, ptr %106, align 8
   %indvars.iv.next71.i85 = add nuw nsw i64 %indvars.iv70.i84, 1
   %exitcond73.not.i86 = icmp eq i64 %indvars.iv.next71.i85, %wide.trip.count.i82
-  br i1 %exitcond73.not.i86, label %recode_wnaf.exit87, label %.lr.ph65.i83, !llvm.loop !51
+  br i1 %exitcond73.not.i86, label %recode_wnaf.exit87, label %.lr.ph65.i83, !llvm.loop !52
 
 recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %15) #7
@@ -1905,7 +1905,7 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
   call void @gf_add(ptr noundef nonnull %122, ptr noundef nonnull %123, ptr noundef nonnull %123) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
   call void @ossl_gf_mul(ptr noundef nonnull %10, ptr noundef nonnull %123, ptr noundef nonnull %116) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !26
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %11, ptr noundef nonnull %15, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 256
@@ -1923,7 +1923,7 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
   %indvars.iv.i88 = phi i64 [ 2, %recode_wnaf.exit87 ], [ %indvars.iv.next.i89, %128 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #7
   call void @ossl_gf_mul(ptr noundef nonnull %9, ptr noundef nonnull %123, ptr noundef nonnull %122) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %123, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !26
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #7
   %129 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %indvars.iv.i88
@@ -1937,29 +1937,29 @@ recode_wnaf.exit87:                               ; preds = %.lr.ph65.i83, %103
   call void @gf_add(ptr noundef nonnull %132, ptr noundef nonnull %123, ptr noundef nonnull %123) #7
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 8
-  br i1 %exitcond.not.i90, label %prepare_wnaf_table.exit, label %128, !llvm.loop !52
+  br i1 %exitcond.not.i90, label %prepare_wnaf_table.exit, label %128, !llvm.loop !53
 
 prepare_wnaf_table.exit:                          ; preds = %128
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 256) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 256) #7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #7
-  %133 = load i32, ptr %13, align 16, !tbaa !45
+  %133 = load i32, ptr %13, align 16, !tbaa !46
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %prepare_wnaf_table.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false), !tbaa.struct !29
   br label %233
 
 136:                                              ; preds = %prepare_wnaf_table.exit
-  %137 = load i32, ptr %14, align 16, !tbaa !45
+  %137 = load i32, ptr %14, align 16, !tbaa !46
   %138 = icmp sgt i32 %133, %137
   br i1 %138, label %139, label %150
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %141 = load i32, ptr %140, align 4, !tbaa !48
+  %141 = load i32, ptr %140, align 4, !tbaa !49
   %142 = ashr i32 %141, 1
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %143
@@ -1985,7 +1985,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %155 = load i32, ptr %154, align 4, !tbaa !48
+  %155 = load i32, ptr %154, align 4, !tbaa !49
   %156 = ashr i32 %155, 1
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %15, i64 0, i64 %157
@@ -2001,9 +2001,9 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %162, ptr noundef nonnull %161) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
-  %163 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
+  %163 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !54
   %164 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %165 = load i32, ptr %164, align 4, !tbaa !48
+  %165 = load i32, ptr %164, align 4, !tbaa !49
   %166 = ashr i32 %165, 1
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds [1 x %struct.niels_s], ptr %163, i64 %167
@@ -2011,9 +2011,9 @@ prepare_wnaf_table.exit:                          ; preds = %128
   br label %179
 
 169:                                              ; preds = %150
-  %170 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
+  %170 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !54
   %171 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !48
+  %172 = load i32, ptr %171, align 4, !tbaa !49
   %173 = ashr i32 %172, 1
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds [1 x %struct.niels_s], ptr %170, i64 %174
@@ -2023,7 +2023,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   call void @gf_sub(ptr noundef %0, ptr noundef nonnull %177, ptr noundef %175) #7
   call void @ossl_gf_mul(ptr noundef nonnull %152, ptr noundef nonnull %176, ptr noundef %0) #7
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %178, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %178, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !26
   br label %179
 
 179:                                              ; preds = %153, %169, %139
@@ -2044,11 +2044,11 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %.15395 = add nsw i32 %.15395.in, -1
   %182 = sext i32 %.15093 to i64
   %183 = getelementptr inbounds [114 x %struct.smvt_control], ptr %13, i64 0, i64 %182
-  %184 = load i32, ptr %183, align 8, !tbaa !45
+  %184 = load i32, ptr %183, align 8, !tbaa !46
   %185 = icmp ne i32 %.15395, %184
   %186 = sext i32 %.194 to i64
   %187 = getelementptr inbounds [77 x %struct.smvt_control], ptr %14, i64 0, i64 %186
-  %188 = load i32, ptr %187, align 8, !tbaa !45
+  %188 = load i32, ptr %187, align 8, !tbaa !46
   %189 = icmp ne i32 %.15395, %188
   %190 = icmp ne i32 %.15395, 0
   %191 = select i1 %190, i1 %185, i1 false
@@ -2059,7 +2059,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
 
 193:                                              ; preds = %181
   %194 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !48
+  %195 = load i32, ptr %194, align 4, !tbaa !49
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %204
 
@@ -2072,7 +2072,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %180, ptr noundef nonnull %203) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !26
   call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef nonnull %200, i32 noundef range(i32 0, 2) %202)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
   br label %212
@@ -2087,7 +2087,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %180, ptr noundef nonnull %211) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !26
   call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef nonnull %208, i32 noundef range(i32 0, 2) %210)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   br label %212
@@ -2102,9 +2102,9 @@ prepare_wnaf_table.exit:                          ; preds = %128
 
 215:                                              ; preds = %214
   %216 = getelementptr inbounds nuw i8, ptr %187, i64 4
-  %217 = load i32, ptr %216, align 4, !tbaa !48
+  %217 = load i32, ptr %216, align 4, !tbaa !49
   %218 = icmp sgt i32 %217, 0
-  %219 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
+  %219 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !54
   br i1 %218, label %220, label %224
 
 220:                                              ; preds = %215
@@ -2129,7 +2129,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
 231:                                              ; preds = %229, %214
   %.2 = phi i32 [ %230, %229 ], [ %.194, %214 ]
   %232 = icmp samesign ugt i32 %.15395.in, 1
-  br i1 %232, label %181, label %._crit_edge, !llvm.loop !54
+  br i1 %232, label %181, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %231, %179
   call void @OPENSSL_cleanse(ptr noundef nonnull %13, i64 noundef 912) #7
@@ -2169,7 +2169,7 @@ define internal fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef %1, i
   store i64 %16, ptr %17, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %8, !llvm.loop !10
+  br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %8, !llvm.loop !11
 
 gf_sub_RAW.exit.i:                                ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2193,7 +2193,7 @@ gf_sub_RAW.exit.i:                                ; preds = %8
   %31 = add nuw nsw i64 %30, %27
   store i64 %31, ptr %26, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %indvars.iv.next9.i, 0
-  br i1 %.not.i.i, label %gf_sub_nr.exit, label %24, !llvm.loop !9
+  br i1 %.not.i.i, label %gf_sub_nr.exit, label %24, !llvm.loop !10
 
 gf_sub_nr.exit:                                   ; preds = %24
   %32 = load i64, ptr %5, align 16, !tbaa !3
@@ -2237,7 +2237,7 @@ gf_add_RAW.exit26:                                ; preds = %36
   %54 = add nuw nsw i64 %53, %50
   store i64 %54, ptr %49, align 8, !tbaa !3
   %.not.i = icmp eq i64 %indvars.iv.next60, 0
-  br i1 %.not.i, label %gf_weak_reduce.exit, label %47, !llvm.loop !9
+  br i1 %.not.i, label %gf_weak_reduce.exit, label %47, !llvm.loop !10
 
 gf_weak_reduce.exit:                              ; preds = %47
   %55 = load i64, ptr %5, align 16, !tbaa !3
@@ -2285,7 +2285,7 @@ gf_add_RAW.exit24:                                ; preds = %60
   %80 = add nuw nsw i64 %79, %76
   store i64 %80, ptr %75, align 8, !tbaa !3
   %.not.i29 = icmp eq i64 %indvars.iv.next67, 0
-  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %73, !llvm.loop !9
+  br i1 %.not.i29, label %gf_weak_reduce.exit30, label %73, !llvm.loop !10
 
 gf_weak_reduce.exit30:                            ; preds = %73
   %81 = load i64, ptr %6, align 16, !tbaa !3
@@ -2308,7 +2308,7 @@ gf_weak_reduce.exit30:                            ; preds = %73
   store i64 %92, ptr %93, align 8, !tbaa !3
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 8
-  br i1 %exitcond.not.i36, label %gf_sub_RAW.exit.i37, label %84, !llvm.loop !10
+  br i1 %exitcond.not.i36, label %gf_sub_RAW.exit.i37, label %84, !llvm.loop !11
 
 gf_sub_RAW.exit.i37:                              ; preds = %84
   %94 = load i64, ptr %18, align 8, !tbaa !3
@@ -2330,7 +2330,7 @@ gf_sub_RAW.exit.i37:                              ; preds = %84
   %105 = add nuw nsw i64 %104, %101
   store i64 %105, ptr %100, align 8, !tbaa !3
   %.not.i.i40 = icmp eq i64 %indvars.iv.next9.i39, 0
-  br i1 %.not.i.i40, label %gf_sub_nr.exit41, label %98, !llvm.loop !9
+  br i1 %.not.i.i40, label %gf_sub_nr.exit41, label %98, !llvm.loop !10
 
 gf_sub_nr.exit41:                                 ; preds = %98
   %106 = load i64, ptr %5, align 16, !tbaa !3
@@ -2375,7 +2375,7 @@ gf_add_RAW.exit:                                  ; preds = %110
   %130 = add nuw nsw i64 %129, %126
   store i64 %130, ptr %125, align 8, !tbaa !3
   %.not.i32 = icmp eq i64 %indvars.iv.next74, 0
-  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %123, !llvm.loop !9
+  br i1 %.not.i32, label %gf_weak_reduce.exit33, label %123, !llvm.loop !10
 
 gf_weak_reduce.exit33:                            ; preds = %123
   %131 = load i64, ptr %7, align 16, !tbaa !3
@@ -2398,7 +2398,7 @@ gf_weak_reduce.exit33:                            ; preds = %123
   store i64 %142, ptr %143, align 8, !tbaa !3
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 8
-  br i1 %exitcond.not.i44, label %gf_sub_RAW.exit.i45, label %134, !llvm.loop !10
+  br i1 %exitcond.not.i44, label %gf_sub_RAW.exit.i45, label %134, !llvm.loop !11
 
 gf_sub_RAW.exit.i45:                              ; preds = %134
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -2422,7 +2422,7 @@ gf_sub_RAW.exit.i45:                              ; preds = %134
   %157 = add nuw nsw i64 %156, %153
   store i64 %157, ptr %152, align 8, !tbaa !3
   %.not.i.i48 = icmp eq i64 %indvars.iv.next9.i47, 0
-  br i1 %.not.i.i48, label %gf_sub_nr.exit49, label %150, !llvm.loop !9
+  br i1 %.not.i.i48, label %gf_sub_nr.exit49, label %150, !llvm.loop !10
 
 gf_sub_nr.exit49:                                 ; preds = %150
   %158 = load i64, ptr %4, align 16, !tbaa !3
@@ -2490,51 +2490,52 @@ attributes #8 = { nounwind memory(none) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"constant_time_lookup_niels: argument 0"}
-!14 = distinct !{!14, !"constant_time_lookup_niels"}
-!15 = !{i64 797231}
-!16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"gf_cond_swap: argument 0"}
-!21 = distinct !{!21, !"gf_cond_swap"}
-!22 = distinct !{!22, !8}
-!23 = !{i64 797753}
-!24 = distinct !{!24, !8}
-!25 = !{i64 0, i64 64, !16}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = !{i64 0, i64 64, !16, i64 64, i64 64, !16, i64 128, i64 64, !16, i64 192, i64 64, !16}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"gf_cond_swap: argument 0"}
-!31 = distinct !{!31, !"gf_cond_swap"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"gf_cond_swap: argument 0"}
-!34 = distinct !{!34, !"gf_cond_swap"}
-!35 = distinct !{!35, !8}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"gf_cond_swap: argument 0"}
-!38 = distinct !{!38, !"gf_cond_swap"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"gf_cond_swap: argument 0"}
-!41 = distinct !{!41, !"gf_cond_swap"}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS22curve448_precomputed_s", !44, i64 0}
-!44 = !{!"any pointer", !5, i64 0}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"smvt_control", !47, i64 0, !47, i64 4}
-!47 = !{!"int", !5, i64 0}
-!48 = !{!46, !47, i64 4}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}
-!53 = !{!44, !44, i64 0}
-!54 = distinct !{!54, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"constant_time_lookup_niels: argument 0"}
+!15 = distinct !{!15, !"constant_time_lookup_niels"}
+!16 = !{i64 797231}
+!17 = !{!5, !5, i64 0}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"gf_cond_swap: argument 0"}
+!22 = distinct !{!22, !"gf_cond_swap"}
+!23 = distinct !{!23, !8, !9}
+!24 = !{i64 797753}
+!25 = distinct !{!25, !8, !9}
+!26 = !{i64 0, i64 64, !17}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = !{i64 0, i64 64, !17, i64 64, i64 64, !17, i64 128, i64 64, !17, i64 192, i64 64, !17}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"gf_cond_swap: argument 0"}
+!32 = distinct !{!32, !"gf_cond_swap"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"gf_cond_swap: argument 0"}
+!35 = distinct !{!35, !"gf_cond_swap"}
+!36 = distinct !{!36, !8, !9}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"gf_cond_swap: argument 0"}
+!39 = distinct !{!39, !"gf_cond_swap"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"gf_cond_swap: argument 0"}
+!42 = distinct !{!42, !"gf_cond_swap"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS22curve448_precomputed_s", !45, i64 0}
+!45 = !{!"any pointer", !5, i64 0}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"smvt_control", !48, i64 0, !48, i64 4}
+!48 = !{!"int", !5, i64 0}
+!49 = !{!47, !48, i64 4}
+!50 = distinct !{!50, !8, !9}
+!51 = distinct !{!51, !8, !9}
+!52 = distinct !{!52, !8, !9}
+!53 = distinct !{!53, !8, !9}
+!54 = !{!45, !45, i64 0}
+!55 = distinct !{!55, !8, !9}

@@ -553,7 +553,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetSubtargetInfo19getAntiD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm19TargetSubtargetInfo18getCriticalPathRCsERNS_15SmallVectorImplIPKNS_19TargetRegisterClassEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !55
+  store i32 0, ptr %3, align 8, !tbaa !56
   ret void
 }
 
@@ -593,7 +593,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetSubtargetInfo23e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm19TargetSubtargetInfo24getCustomPBQPConstraintsEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1) unnamed_addr #0 comdat align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !57
+  store ptr null, ptr %0, align 8, !tbaa !58
   ret void
 }
 
@@ -720,10 +720,11 @@ attributes #12 = { nounwind willreturn memory(read) }
 !50 = !{!51, !9, i64 0}
 !51 = !{!"_ZTSN4llvm18SubtargetSubTypeKVE", !9, i64 0, !52, i64 8, !52, i64 48, !33, i64 88}
 !52 = !{!"_ZTSN4llvm15FeatureBitArrayE", !36, i64 0}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!56, !40, i64 8}
-!56 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !10, i64 0, !40, i64 8, !40, i64 12}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm16PBQPRAConstraintELb0EE", !59, i64 0}
-!59 = !{!"p1 _ZTSN4llvm16PBQPRAConstraintE", !10, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!57, !40, i64 8}
+!57 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !10, i64 0, !40, i64 8, !40, i64 12}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm16PBQPRAConstraintELb0EE", !60, i64 0}
+!60 = !{!"p1 _ZTSN4llvm16PBQPRAConstraintE", !10, i64 0}

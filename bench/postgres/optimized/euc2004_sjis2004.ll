@@ -357,7 +357,7 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   %.093.be.i = phi ptr [ %.2.i, %127 ], [ %27, %26 ]
   %.092.be.i = phi ptr [ %129, %127 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.097.be.i, 0
-  br i1 %30, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit, !llvm.loop !5
+  br i1 %30, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit, !llvm.loop !6
 
 31:                                               ; preds = %.lr.ph.i
   %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 41, ptr noundef nonnull %.092205.i, i32 noundef %.097199.i) #4
@@ -660,6 +660,7 @@ attributes #5 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

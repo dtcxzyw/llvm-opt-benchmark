@@ -200,7 +200,7 @@ declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @create_setup_data_node(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !10
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1) #8
   %6 = call ptr @debugfs_create_dir(ptr noundef nonnull %4, ptr noundef %0) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -259,12 +259,12 @@ define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr noun
 
 26:                                               ; preds = %14
   %27 = icmp samesign ugt i64 %16, 2147483647
-  br i1 %27, label %28, label %29, !prof !10
+  br i1 %27, label %28, label %29, !prof !11
 
 28:                                               ; preds = %26
-  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #8, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 249, i32 2307, i64 12) #8, !srcloc !12
-  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #8, !srcloc !13
+  tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #8, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 249, i32 2307, i64 12) #8, !srcloc !13
+  tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #8, !srcloc !14
   tail call void @memunmap(ptr noundef nonnull %24) #8
   br label %34
 
@@ -313,11 +313,12 @@ attributes #10 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -12, i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"auto-init"}
-!10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = !{i64 2149679168, i64 2149678982, i64 2149679034, i64 2149679080, i64 2149679108}
-!12 = !{i64 2149679239, i64 2149679268, i64 2149679314, i64 2149679372, i64 2149679426, i64 2149679480, i64 2149679535, i64 2149679566, i64 2149679874, i64 2149679880, i64 2149679927, i64 2149679950, i64 2149679976}
-!13 = !{i64 2149680431, i64 2149680247, i64 2149680297, i64 2149680343, i64 2149680371}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"auto-init"}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{i64 2149679168, i64 2149678982, i64 2149679034, i64 2149679080, i64 2149679108}
+!13 = !{i64 2149679239, i64 2149679268, i64 2149679314, i64 2149679372, i64 2149679426, i64 2149679480, i64 2149679535, i64 2149679566, i64 2149679874, i64 2149679880, i64 2149679927, i64 2149679950, i64 2149679976}
+!14 = !{i64 2149680431, i64 2149680247, i64 2149680297, i64 2149680343, i64 2149680371}

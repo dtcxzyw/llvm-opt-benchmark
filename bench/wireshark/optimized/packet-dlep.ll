@@ -793,7 +793,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.211, ptr noundef %21, i32 noundef %22)
   %23 = add i32 %.014, 2
   %24 = icmp slt i32 %23, %7
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_hidden.exit
   %.0.lcssa = phi i32 [ 0, %proto_item_set_hidden.exit ], [ %23, %.lr.ph ]
@@ -1323,7 +1323,7 @@ decode_message_header.exit:                       ; preds = %proto_item_set_hidd
   %40 = call fastcc i32 @decode_dataitem(ptr noundef %0, i32 noundef %.016, ptr noundef %13, ptr noundef %1)
   %41 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %40)
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %decode_message_header.exit
   %43 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1635,7 +1635,8 @@ attributes #7 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

@@ -315,7 +315,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   store i8 %201, ptr %.4260, align 1, !tbaa !29
   %203 = add i32 %.1244, -1
   %.not321 = icmp eq i32 %203, 0
-  br i1 %.not321, label %204, label %.preheader466, !llvm.loop !38
+  br i1 %.not321, label %204, label %.preheader466, !llvm.loop !39
 
 204:                                              ; preds = %.preheader466
   %205 = sub nuw nsw i32 %.0239, %198
@@ -332,7 +332,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   store i8 %208, ptr %.5261, align 1, !tbaa !29
   %210 = add i32 %.2245, -1
   %.not322 = icmp eq i32 %210, 0
-  br i1 %.not322, label %211, label %.preheader465, !llvm.loop !39
+  br i1 %.not322, label %211, label %.preheader465, !llvm.loop !40
 
 211:                                              ; preds = %.preheader465
   %212 = sub nuw i32 %205, %27
@@ -358,7 +358,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   store i8 %222, ptr %.6262, align 1, !tbaa !29
   %224 = add i32 %.3246, -1
   %.not320 = icmp eq i32 %224, 0
-  br i1 %.not320, label %225, label %.preheader467, !llvm.loop !40
+  br i1 %.not320, label %225, label %.preheader467, !llvm.loop !41
 
 225:                                              ; preds = %.preheader467
   %226 = sub nuw nsw i32 %.0239, %173
@@ -392,7 +392,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   store i8 %239, ptr %237, align 1, !tbaa !29
   %241 = add i32 %.2241373, -3
   %242 = icmp ugt i32 %241, 2
-  br i1 %242, label %.lr.ph376, label %._crit_edge377, !llvm.loop !41
+  br i1 %242, label %.lr.ph376, label %._crit_edge377, !llvm.loop !42
 
 ._crit_edge377:                                   ; preds = %.lr.ph376, %230
   %.7263.lcssa = phi ptr [ %.3259, %230 ], [ %240, %.lr.ph376 ]
@@ -439,7 +439,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   store i8 %263, ptr %261, align 1, !tbaa !29
   %265 = add i32 %.3242, -3
   %266 = icmp ugt i32 %265, 2
-  br i1 %266, label %255, label %267, !llvm.loop !42
+  br i1 %266, label %255, label %267, !llvm.loop !43
 
 267:                                              ; preds = %255
   %.not318 = icmp eq i32 %265, 0
@@ -488,7 +488,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %297 = zext i8 %296 to i32
   %298 = and i32 %297, 16
   %.not315 = icmp eq i32 %298, 0
-  br i1 %.not315, label %.lr.ph366, label %._crit_edge367
+  br i1 %.not315, label %.lr.ph366, label %._crit_edge367, !llvm.loop !44
 
 299:                                              ; preds = %.lr.ph
   %300 = and i32 %84, 64
@@ -513,7 +513,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %316 = sub i32 %82, %313
   %317 = load i8, ptr %310, align 2, !tbaa !33
   %318 = icmp eq i8 %317, 0
-  br i1 %318, label %._crit_edge, label %.lr.ph
+  br i1 %318, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 319:                                              ; preds = %299
   %320 = and i32 %84, 32
@@ -528,7 +528,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %322 = icmp ult ptr %.7, %10
   %323 = icmp ult ptr %.9, %21
   %324 = select i1 %322, i1 %323, i1 false
-  br i1 %324, label %50, label %.loopexit, !llvm.loop !43
+  br i1 %324, label %50, label %.loopexit, !llvm.loop !46
 
 .loopexit.sink.split.sink.split:                  ; preds = %175, %.lr.ph366, %319
   %.str.sink = phi ptr [ @.str.2, %319 ], [ @.str.1, %.lr.ph366 ], [ @.str, %175 ]
@@ -536,7 +536,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %.8272.ph.ph = phi i64 [ %83, %319 ], [ %278, %.lr.ph366 ], [ %166, %175 ]
   %.6255.ph.ph = phi ptr [ %.1250, %319 ], [ %.4253, %.lr.ph366 ], [ %.5254, %175 ]
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.str.sink, ptr %325, align 8, !tbaa !44
+  store ptr %.str.sink, ptr %325, align 8, !tbaa !47
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %319
@@ -545,7 +545,7 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %.8272.ph = phi i64 [ %83, %319 ], [ %.8272.ph.ph, %.loopexit.sink.split.sink.split ]
   %.6255.ph = phi ptr [ %.1250, %319 ], [ %.6255.ph.ph, %.loopexit.sink.split.sink.split ]
   %326 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink, ptr %326, align 8, !tbaa !45
+  store i32 %.sink, ptr %326, align 8, !tbaa !48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %321, %.loopexit.sink.split
@@ -621,13 +621,16 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !33 = !{!31, !7, i64 0}
 !34 = !{!31, !32, i64 2}
 !35 = !{!17, !9, i64 7144}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = distinct !{!39, !37}
-!40 = distinct !{!40, !37}
-!41 = distinct !{!41, !37}
-!42 = distinct !{!42, !37}
-!43 = distinct !{!43, !37}
-!44 = !{!4, !5, i64 48}
-!45 = !{!17, !9, i64 8}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}
+!40 = distinct !{!40, !37, !38}
+!41 = distinct !{!41, !37, !38}
+!42 = distinct !{!42, !37, !38}
+!43 = distinct !{!43, !37, !38}
+!44 = distinct !{!44, !38}
+!45 = distinct !{!45, !38}
+!46 = distinct !{!46, !37, !38}
+!47 = !{!4, !5, i64 48}
+!48 = !{!17, !9, i64 8}

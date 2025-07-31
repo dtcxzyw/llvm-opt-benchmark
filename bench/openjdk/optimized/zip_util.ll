@@ -253,7 +253,7 @@ define hidden noundef ptr @ZIP_Put_In_Cache0(ptr noundef readonly captures(none)
   %29 = sub nsw i64 %.015.ph.i45, %27
   %30 = icmp sgt i64 %29, 0
   %31 = tail call i64 @llvm.umin.i64(i64 %29, i64 2147483647)
-  br i1 %30, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !8
+  br i1 %30, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !9
 
 32:                                               ; preds = %.outer.split.i
   %33 = icmp eq i32 %25, -1
@@ -263,7 +263,7 @@ define hidden noundef ptr @ZIP_Put_In_Cache0(ptr noundef readonly captures(none)
   %35 = tail call ptr @__errno_location() #22
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %.outer.split.i, label %readFully.exit.thread, !llvm.loop !8
+  br i1 %37, label %.outer.split.i, label %readFully.exit.thread, !llvm.loop !9
 
 readFully.exit:                                   ; preds = %.outer.i
   %38 = load i8, ptr %6, align 16
@@ -409,7 +409,7 @@ ZIP_FreeEntry.exit:                               ; preds = %1, %8
   %30 = load i32, ptr %24, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i.i, %31
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !9
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %22, align 8
@@ -545,7 +545,7 @@ readFullyAt.exit.i.preheader:                     ; preds = %.outer.i.i.i, %.out
   %35 = sub nsw i64 %.015.ph.i8.i.i, %33
   %36 = icmp sgt i64 %35, 0
   %37 = tail call i64 @llvm.umin.i64(i64 %35, i64 2147483647)
-  br i1 %36, label %.outer.split.i.preheader.i.i, label %readFullyAt.exit.i.preheader, !llvm.loop !8
+  br i1 %36, label %.outer.split.i.preheader.i.i, label %readFullyAt.exit.i.preheader, !llvm.loop !9
 
 38:                                               ; preds = %.outer.split.i.i.i
   %39 = icmp eq i32 %31, -1
@@ -555,7 +555,7 @@ readFullyAt.exit.i.preheader:                     ; preds = %.outer.i.i.i, %.out
   %41 = tail call ptr @__errno_location() #22
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 4
-  br i1 %43, label %.outer.split.i.i.i, label %findEND.exit.thread, !llvm.loop !8
+  br i1 %43, label %.outer.split.i.i.i, label %findEND.exit.thread, !llvm.loop !9
 
 readFullyAt.exit.i:                               ; preds = %readFullyAt.exit.i.preheader, %180
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %180 ], [ 106, %readFullyAt.exit.i.preheader ]
@@ -645,7 +645,7 @@ readFullyAt.exit.i:                               ; preds = %readFullyAt.exit.i.
   %91 = sub nsw i64 %.015.ph.i8.i.i.i, %89
   %92 = icmp sgt i64 %91, 0
   %93 = tail call i64 @llvm.umin.i64(i64 %91, i64 2147483647)
-  br i1 %92, label %.outer.split.i.preheader.i.i.i, label %readFullyAt.exit.i.i, !llvm.loop !8
+  br i1 %92, label %.outer.split.i.preheader.i.i.i, label %readFullyAt.exit.i.i, !llvm.loop !9
 
 94:                                               ; preds = %.outer.split.i.i.i.i
   %95 = icmp eq i32 %87, -1
@@ -655,7 +655,7 @@ readFullyAt.exit.i:                               ; preds = %readFullyAt.exit.i.
   %97 = tail call ptr @__errno_location() #22
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.outer.split.i.i.i.i, label %verifyEND.exit.thread.i, !llvm.loop !8
+  br i1 %99, label %.outer.split.i.i.i.i, label %verifyEND.exit.thread.i, !llvm.loop !9
 
 readFullyAt.exit.i.i:                             ; preds = %.outer.i.i.i.i
   %100 = load i8, ptr %4, align 1
@@ -695,7 +695,7 @@ readFullyAt.exit.i.i:                             ; preds = %.outer.i.i.i.i
   %121 = sub nsw i64 %.015.ph.i8.i20.i.i, %119
   %122 = icmp sgt i64 %121, 0
   %123 = tail call i64 @llvm.umin.i64(i64 %121, i64 2147483647)
-  br i1 %122, label %.outer.split.i.preheader.i19.i.i, label %verifyEND.exit.i, !llvm.loop !8
+  br i1 %122, label %.outer.split.i.preheader.i19.i.i, label %verifyEND.exit.i, !llvm.loop !9
 
 124:                                              ; preds = %.outer.split.i.i22.i.i
   %125 = icmp eq i32 %117, -1
@@ -705,7 +705,7 @@ readFullyAt.exit.i.i:                             ; preds = %.outer.i.i.i.i
   %127 = tail call ptr @__errno_location() #22
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, 4
-  br i1 %129, label %.outer.split.i.i22.i.i, label %verifyEND.exit.thread.i, !llvm.loop !8
+  br i1 %129, label %.outer.split.i.i22.i.i, label %verifyEND.exit.thread.i, !llvm.loop !9
 
 verifyEND.exit.thread.i:                          ; preds = %96, %94, %126, %124, %111, %readFullyAt.exit.i.i, %81, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -787,7 +787,7 @@ split:                                            ; preds = %split.loopexit, %._
   %167 = sub nsw i64 %.015.ph.i8.i64.i, %165
   %168 = icmp sgt i64 %167, 0
   %169 = tail call i64 @llvm.umin.i64(i64 %167, i64 2147483647)
-  br i1 %168, label %.outer.split.i.preheader.i63.i, label %readFullyAt.exit68.i, !llvm.loop !8
+  br i1 %168, label %.outer.split.i.preheader.i63.i, label %readFullyAt.exit68.i, !llvm.loop !9
 
 170:                                              ; preds = %.outer.split.i.i66.i
   %171 = icmp eq i32 %163, -1
@@ -797,7 +797,7 @@ split:                                            ; preds = %split.loopexit, %._
   %173 = tail call ptr @__errno_location() #22
   %174 = load i32, ptr %173, align 4
   %175 = icmp eq i32 %174, 4
-  br i1 %175, label %.outer.split.i.i66.i, label %.loopexit.i, !llvm.loop !8
+  br i1 %175, label %.outer.split.i.i66.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %172, %170, %157
   %176 = load ptr, ptr %155, align 8
@@ -816,12 +816,12 @@ readFullyAt.exit68.i:                             ; preds = %.outer.i.i67.i
 180:                                              ; preds = %verifyEND.exit.i, %verifyEND.exit.thread.i, %57, %52, %47, %readFullyAt.exit.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not110.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not110.i, label %181, label %readFullyAt.exit.i, !llvm.loop !10
+  br i1 %.not110.i, label %181, label %readFullyAt.exit.i, !llvm.loop !11
 
 181:                                              ; preds = %180
   %182 = add nsw i64 %.05595.i, -106
   %.not.i = icmp slt i64 %182, %13
-  br i1 %.not.i, label %findEND.exit.thread, label %18, !llvm.loop !11
+  br i1 %.not.i, label %findEND.exit.thread, label %18, !llvm.loop !12
 
 findEND.exit.thread:                              ; preds = %22, %181, %38, %40, %.loopexit.i, %151, %2
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
@@ -864,7 +864,7 @@ findEND.exit:                                     ; preds = %split, %readFullyAt
   %196 = load i32, ptr %190, align 4
   %197 = sext i32 %196 to i64
   %198 = icmp slt i64 %indvars.iv.next.i.i, %197
-  br i1 %198, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !9
+  br i1 %198, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %188, align 8
@@ -916,7 +916,7 @@ freeCEN.exit:                                     ; preds = %183, %._crit_edge.i
   %220 = sub nsw i64 %.015.ph.i8.i.i174, %218
   %221 = icmp sgt i64 %220, 0
   %222 = tail call i64 @llvm.umin.i64(i64 %220, i64 2147483647)
-  br i1 %221, label %.outer.split.i.preheader.i.i173, label %readFullyAt.exit.i179, !llvm.loop !8
+  br i1 %221, label %.outer.split.i.preheader.i.i173, label %readFullyAt.exit.i179, !llvm.loop !9
 
 223:                                              ; preds = %.outer.split.i.i.i176
   %224 = icmp eq i32 %216, -1
@@ -926,7 +926,7 @@ freeCEN.exit:                                     ; preds = %183, %._crit_edge.i
   %226 = tail call ptr @__errno_location() #22
   %227 = load i32, ptr %226, align 4
   %228 = icmp eq i32 %227, 4
-  br i1 %228, label %.outer.split.i.i.i176, label %findEND64.exit.thread, !llvm.loop !8
+  br i1 %228, label %.outer.split.i.i.i176, label %findEND64.exit.thread, !llvm.loop !9
 
 readFullyAt.exit.i179:                            ; preds = %.outer.i.i.i178
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -960,7 +960,7 @@ readFullyAt.exit.i179:                            ; preds = %.outer.i.i.i178
   %246 = sub nsw i64 %.015.ph.i8.i8.i, %244
   %247 = icmp sgt i64 %246, 0
   %248 = tail call i64 @llvm.umin.i64(i64 %246, i64 2147483647)
-  br i1 %247, label %.outer.split.i.preheader.i7.i, label %findEND64.exit, !llvm.loop !8
+  br i1 %247, label %.outer.split.i.preheader.i7.i, label %findEND64.exit, !llvm.loop !9
 
 249:                                              ; preds = %.outer.split.i.i10.i
   %250 = icmp eq i32 %242, -1
@@ -970,7 +970,7 @@ readFullyAt.exit.i179:                            ; preds = %.outer.i.i.i178
   %252 = tail call ptr @__errno_location() #22
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %253, 4
-  br i1 %254, label %.outer.split.i.i10.i, label %findEND64.exit.thread, !llvm.loop !8
+  br i1 %254, label %.outer.split.i.i10.i, label %findEND64.exit.thread, !llvm.loop !9
 
 findEND64.exit.thread:                            ; preds = %223, %225, %251, %249, %readFullyAt.exit.i179, %209
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
@@ -1149,7 +1149,7 @@ findEND64.exit:                                   ; preds = %.outer.i.i12.i
   %358 = sub nsw i64 %.015.ph.i8.i, %356
   %359 = icmp sgt i64 %358, 0
   %360 = tail call i64 @llvm.umin.i64(i64 %358, i64 2147483647)
-  br i1 %359, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !8
+  br i1 %359, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !9
 
 361:                                              ; preds = %.outer.split.i.i
   %362 = icmp eq i32 %354, -1
@@ -1159,7 +1159,7 @@ findEND64.exit:                                   ; preds = %.outer.i.i12.i
   %364 = tail call ptr @__errno_location() #22
   %365 = load i32, ptr %364, align 4
   %366 = icmp eq i32 %365, 4
-  br i1 %366, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !8
+  br i1 %366, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !9
 
 readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer.i.preheader.i, %339
   %.1 = phi ptr [ %342, %339 ], [ %344, %.outer.i.preheader.i ], [ %344, %.outer.i.i ]
@@ -1235,7 +1235,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer
   %403 = add nuw nsw i64 %402, %399
   %404 = add nuw nsw i64 %403, 46
   %.not.i182 = icmp sgt i64 %404, %.0144
-  br i1 %.not.i182, label %countCENHeaders.exit, label %.lr.ph.i181, !llvm.loop !12
+  br i1 %.not.i182, label %countCENHeaders.exit, label %.lr.ph.i181, !llvm.loop !13
 
 countCENHeaders.exit:                             ; preds = %.lr.ph.i181
   %405 = tail call fastcc i64 @readCEN(ptr noundef %0, i32 noundef %389)
@@ -1331,7 +1331,7 @@ countCENHeaders.exit:                             ; preds = %.lr.ph.i181
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.01117.add.i
   %459 = load i8, ptr %.ptr.i, align 1
   %exitcond.i = icmp eq i64 %.01117.add.i, 9
-  br i1 %exitcond.i, label %isMetaName.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.i, label %isMetaName.exit, label %.preheader.i, !llvm.loop !14
 
 isMetaName.exit:                                  ; preds = %457
   %460 = load ptr, ptr %188, align 8
@@ -1404,7 +1404,7 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.i, %isM
   store ptr null, ptr %488, align 8
   %indvars.iv.next.i.i186 = add nsw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i186, %479
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i187, label %.lr.ph.i.i184, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i187, label %.lr.ph.i.i184, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i187:                      ; preds = %.lr.ph.i.i184
   %.pre.i.i188 = load i32, ptr %384, align 4
@@ -1451,7 +1451,7 @@ isMetaName.exit.thread:                           ; preds = %.preheader.i, %452,
   %506 = sext i8 %505 to i32
   %507 = add i32 %503, %506
   %508 = icmp samesign ugt i32 %.036.i, 1
-  br i1 %508, label %.lr.ph.i191, label %hashN.exit, !llvm.loop !15
+  br i1 %508, label %.lr.ph.i191, label %hashN.exit, !llvm.loop !16
 
 hashN.exit:                                       ; preds = %.lr.ph.i191, %isMetaName.exit.thread
   %.0.lcssa.i = phi i32 [ 0, %isMetaName.exit.thread ], [ %507, %.lr.ph.i191 ]
@@ -1492,7 +1492,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 %533
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 %529
   %.not166 = icmp ugt ptr %540, %383
-  br i1 %.not166, label %._crit_edge.loopexit, label %388, !llvm.loop !16
+  br i1 %.not166, label %._crit_edge.loopexit, label %388, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %hashN.exit
   %541 = trunc nuw i64 %indvars.iv.next to i32
@@ -1541,7 +1541,7 @@ readFullyAt.exit.thread:                          ; preds = %363, %361, %tailrec
   %554 = load i32, ptr %548, align 4
   %555 = sext i32 %554 to i64
   %556 = icmp slt i64 %indvars.iv.next.i.i197, %555
-  br i1 %556, label %.lr.ph.i.i195, label %._crit_edge.loopexit.i.i198, !llvm.loop !9
+  br i1 %556, label %.lr.ph.i.i195, label %._crit_edge.loopexit.i.i198, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i198:                      ; preds = %.lr.ph.i.i195
   %.pre.i.i199 = load ptr, ptr %188, align 8
@@ -1636,7 +1636,7 @@ define void @ZIP_Close(ptr noundef captures(address) %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %.preheader
   %19 = icmp eq ptr %17, %0
-  br i1 %19, label %20, label %.preheader, !llvm.loop !17
+  br i1 %19, label %20, label %.preheader, !llvm.loop !18
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 144
@@ -1739,7 +1739,7 @@ define hidden ptr @ZIP_GetEntry2(ptr noundef captures(none) %0, ptr noundef capt
   %10 = sext i8 %9 to i32
   %11 = add i32 %7, %10
   %12 = icmp samesign ugt i32 %.036.i, 1
-  br i1 %12, label %.lr.ph.i, label %hashN.exit, !llvm.loop !15
+  br i1 %12, label %.lr.ph.i, label %hashN.exit, !llvm.loop !16
 
 hashN.exit:                                       ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %11, %.lr.ph.i ]
@@ -1801,7 +1801,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i, %4
   %43 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %44 = load i8, ptr %.05.i, align 1
   %.not9.i = icmp eq i8 %42, %44
-  br i1 %.not9.i, label %.preheader.i, label %equals.exit.thread, !llvm.loop !18
+  br i1 %.not9.i, label %.preheader.i, label %equals.exit.thread, !llvm.loop !19
 
 equals.exit:                                      ; preds = %.preheader.i
   store ptr null, ptr %28, align 8
@@ -1853,7 +1853,7 @@ equals.exit.thread:                               ; preds = %39, %33, %31
   %62 = getelementptr inbounds nuw i8, ptr %.05.i69, i64 1
   %63 = load i8, ptr %.05.i69, align 1
   %.not9.i70 = icmp eq i8 %61, %63
-  br i1 %.not9.i70, label %.preheader.i66, label %.loopexit, !llvm.loop !18
+  br i1 %.not9.i70, label %.preheader.i66, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %58, %53
   %64 = load ptr, ptr %13, align 8
@@ -1888,7 +1888,7 @@ ZIP_FreeEntry.exit:                               ; preds = %.loopexit, %69
   %77 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %78 = load i32, ptr %77, align 4
   %.not60 = icmp eq i32 %78, -1
-  br i1 %.not60, label %equals.exit71, label %.lr.ph, !llvm.loop !19
+  br i1 %.not60, label %equals.exit71, label %.lr.ph, !llvm.loop !20
 
 equals.exit71:                                    ; preds = %.critedge, %.preheader.i66, %equals.exit.thread
   %.2 = phi ptr [ null, %equals.exit.thread ], [ %52, %.preheader.i66 ], [ null, %.critedge ]
@@ -1919,7 +1919,7 @@ equals.exit71:                                    ; preds = %.critedge, %.prehea
   %92 = urem i32 %89, %91
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw i32, ptr %90, i64 %93
-  br label %31
+  br label %31, !llvm.loop !21
 
 .loopexit78:                                      ; preds = %82, %equals.exit71, %hashN.exit, %equals.exit
   %.0 = phi ptr [ %32, %equals.exit ], [ null, %hashN.exit ], [ %.2, %equals.exit71 ], [ null, %82 ]
@@ -1947,7 +1947,7 @@ define hidden zeroext range(i8 0, 2) i8 @equals(ptr noundef readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %11 = load i8, ptr %.05, align 1
   %.not9 = icmp eq i8 %9, %11
-  br i1 %.not9, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %.not9, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %6, %4
   %.0 = phi i8 [ 0, %4 ], [ 1, %.preheader ], [ 0, %6 ]
@@ -2218,7 +2218,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %187 = or disjoint i32 %186, %181
   %188 = load i16, ptr %182, align 1
   %189 = icmp eq i16 %188, 1
-  br i1 %189, label %.lr.ph._crit_edge, label %.lr.ph253, !llvm.loop !20
+  br i1 %189, label %.lr.ph._crit_edge, label %.lr.ph253, !llvm.loop !22
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %190 = add nuw nsw i32 %320, 12
@@ -2397,7 +2397,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %320 = add nuw nsw i32 %319, %318
   %321 = add nuw nsw i32 %320, 4
   %322 = icmp samesign ult i32 %321, %77
-  br i1 %322, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %322, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph253, %168, %165, %279, %284, %238, %240, %193, %149
   %323 = phi ptr [ %158, %168 ], [ %158, %165 ], [ %158, %279 ], [ %158, %284 ], [ %158, %238 ], [ %158, %240 ], [ %158, %193 ], [ null, %149 ], [ %158, %.lr.ph253 ]
@@ -2518,7 +2518,7 @@ define hidden i64 @ZIP_GetEntryDataOffset(ptr noundef captures(none) %0, ptr nou
   %19 = sub nsw i64 %.015.ph.i8.i, %17
   %20 = icmp sgt i64 %19, 0
   %21 = tail call i64 @llvm.umin.i64(i64 %19, i64 2147483647)
-  br i1 %20, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !8
+  br i1 %20, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !9
 
 22:                                               ; preds = %.outer.split.i.i
   %23 = icmp eq i32 %15, -1
@@ -2528,7 +2528,7 @@ define hidden i64 @ZIP_GetEntryDataOffset(ptr noundef captures(none) %0, ptr nou
   %25 = tail call ptr @__errno_location() #22
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %.outer.split.i.i, label %.loopexit, !llvm.loop !8
+  br i1 %27, label %.outer.split.i.i, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %24, %7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2657,7 +2657,7 @@ define hidden i32 @ZIP_Read(ptr noundef captures(address_is_null) %0, ptr nounde
   %45 = sub nsw i64 %.015.ph.i8.i, %43
   %46 = icmp sgt i64 %45, 0
   %47 = tail call i64 @llvm.umin.i64(i64 %45, i64 2147483647)
-  br i1 %46, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !8
+  br i1 %46, label %.outer.split.i.preheader.i, label %readFullyAt.exit, !llvm.loop !9
 
 48:                                               ; preds = %.outer.split.i.i
   %49 = icmp eq i32 %41, -1
@@ -2667,7 +2667,7 @@ define hidden i32 @ZIP_Read(ptr noundef captures(address_is_null) %0, ptr nounde
   %51 = tail call ptr @__errno_location() #22
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 4
-  br i1 %53, label %.outer.split.i.i, label %readFullyAt.exit.sink.split, !llvm.loop !8
+  br i1 %53, label %.outer.split.i.i, label %readFullyAt.exit.sink.split, !llvm.loop !9
 
 readFullyAt.exit.sink.split:                      ; preds = %50, %48, %33, %26, %16, %7
   %.str.9.sink = phi ptr [ @.str.6, %7 ], [ @.str.7, %16 ], [ @.str.8, %26 ], [ @.str.9, %33 ], [ @.str.9, %48 ], [ @.str.9, %50 ]
@@ -2772,7 +2772,7 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
 48:                                               ; preds = %44, %.split.us
   %49 = load i32, ptr %24, align 8
   %.not33.us = icmp eq i32 %49, 0
-  br i1 %.not33.us, label %.split38.us, label %.split.us, !llvm.loop !21
+  br i1 %.not33.us, label %.split38.us, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %39, %52
   %50 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 1) #21
@@ -2787,11 +2787,11 @@ define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef captures(addre
 52:                                               ; preds = %.split
   %53 = load i32, ptr %24, align 8
   %.not33 = icmp eq i32 %53, 0
-  br i1 %.not33, label %.split38.us, label %.split, !llvm.loop !23
+  br i1 %.not33, label %.split38.us, label %.split, !llvm.loop !25
 
 .split38.us:                                      ; preds = %52, %48
   %54 = icmp sgt i64 %.fr, 0
-  br i1 %54, label %26, label %._crit_edge, !llvm.loop !24
+  br i1 %54, label %26, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.split38.us, %16
   %55 = call i32 @inflateEnd(ptr noundef nonnull %5) #21
@@ -2902,7 +2902,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_ReadEntry(ptr noundef captures(address_is_
   %46 = getelementptr inbounds i8, ptr %.03544, i64 %45
   %47 = add nsw i64 %.03643, %45
   %48 = icmp slt i64 %47, %19
-  br i1 %48, label %23, label %.loopexit, !llvm.loop !25
+  br i1 %48, label %23, label %.loopexit, !llvm.loop !27
 
 49:                                               ; preds = %11
   %50 = call zeroext i8 @InflateFully(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
@@ -3040,7 +3040,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %
 31:                                               ; preds = %19, %21
   %32 = load i32, ptr %16, align 8
   %.not12 = icmp eq i32 %32, 0
-  br i1 %.not12, label %33, label %19, !llvm.loop !26
+  br i1 %.not12, label %33, label %19, !llvm.loop !28
 
 33:                                               ; preds = %31
   %34 = call i32 @inflateEnd(ptr noundef nonnull %6) #21
@@ -3288,7 +3288,7 @@ define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72
   %18 = sub nsw i64 %.015.ph.i8.i, %16
   %19 = icmp sgt i64 %18, 0
   %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 2147483647)
-  br i1 %19, label %.outer.split.i.preheader.i, label %readFullyAt.exit.loopexit, !llvm.loop !8
+  br i1 %19, label %.outer.split.i.preheader.i, label %readFullyAt.exit.loopexit, !llvm.loop !9
 
 21:                                               ; preds = %.outer.split.i.i
   %22 = icmp eq i32 %14, -1
@@ -3298,7 +3298,7 @@ define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72
   %24 = tail call ptr @__errno_location() #22
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !8
+  br i1 %26, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !9
 
 readFullyAt.exit.loopexit:                        ; preds = %.outer.i.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -3354,7 +3354,7 @@ readFullyAt.exit:                                 ; preds = %readFullyAt.exit.lo
   %49 = sub nsw i64 %.015.ph.i9, %47
   %50 = icmp sgt i64 %49, 0
   %51 = tail call i64 @llvm.umin.i64(i64 %49, i64 2147483647)
-  br i1 %50, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !8
+  br i1 %50, label %.outer.split.i.preheader, label %readFully.exit, !llvm.loop !9
 
 52:                                               ; preds = %.outer.split.i
   %53 = icmp eq i32 %45, -1
@@ -3364,7 +3364,7 @@ readFullyAt.exit:                                 ; preds = %readFullyAt.exit.lo
   %55 = tail call ptr @__errno_location() #22
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 4
-  br i1 %57, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !8
+  br i1 %57, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !9
 
 readFullyAt.exit.thread:                          ; preds = %23, %21, %54, %52, %8, %34, %2
   %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %6, %8 ], [ %36, %52 ], [ %36, %54 ], [ %6, %21 ], [ %6, %23 ]
@@ -3432,24 +3432,26 @@ attributes #26 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}

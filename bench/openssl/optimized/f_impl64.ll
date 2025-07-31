@@ -90,7 +90,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %51 = add i128 %50, %.1138
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next160, %indvars.iv163
-  br i1 %exitcond168.not, label %.preheader, label %26, !llvm.loop !9
+  br i1 %exitcond168.not, label %.preheader, label %26, !llvm.loop !10
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv172 = phi i64 [ %indvars.iv163, %.lr.ph ], [ %indvars.iv.next173, %52 ]
@@ -130,7 +130,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next173, 4
-  br i1 %exitcond177.not, label %._crit_edge, label %52, !llvm.loop !10
+  br i1 %exitcond177.not, label %._crit_edge, label %52, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %52, %.preheader
   %.1102.lcssa = phi i128 [ %35, %.preheader ], [ %62, %52 ]
@@ -151,7 +151,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next162, 4
-  br i1 %exitcond181.not, label %91, label %.preheader132, !llvm.loop !11
+  br i1 %exitcond181.not, label %91, label %.preheader132, !llvm.loop !12
 
 91:                                               ; preds = %._crit_edge
   %92 = add nuw nsw i128 %89, %90
@@ -224,7 +224,7 @@ define void @ossl_gf_mulw_unsigned(ptr noalias noundef captures(none) %0, ptr no
   %24 = lshr i128 %16, 56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %25, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %25, label %5, !llvm.loop !13
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -273,7 +273,7 @@ define void @ossl_gf_sqr(ptr noalias noundef writeonly captures(none) %0, ptr no
   store i64 %9, ptr %10, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %11, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %11, label %4, !llvm.loop !14
 
 11:                                               ; preds = %4
   %12 = load i64, ptr %1, align 8, !tbaa !3
@@ -466,10 +466,11 @@ attributes #2 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

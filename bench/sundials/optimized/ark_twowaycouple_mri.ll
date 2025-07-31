@@ -211,7 +211,7 @@ check_retval.exit82:                              ; preds = %81
   %109 = select i1 %108, double 2.000000e+00, double %107
   %110 = add nuw nsw i32 %.0119, 1
   %exitcond.not = icmp eq i32 %110, 20
-  br i1 %exitcond.not, label %.loopexit, label %81
+  br i1 %exitcond.not, label %.loopexit, label %81, !llvm.loop !24
 
 .loopexit:                                        ; preds = %86, %check_retval.exit82
   %puts65 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -257,11 +257,11 @@ check_retval.exit88:                              ; preds = %check_retval.exit86
 
 check_retval.exit90:                              ; preds = %check_retval.exit88, %129
   %puts66 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %132 = load i64, ptr %5, align 8, !tbaa !24
-  %133 = load i64, ptr %6, align 8, !tbaa !24
+  %132 = load i64, ptr %5, align 8, !tbaa !26
+  %133 = load i64, ptr %6, align 8, !tbaa !26
   %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %132, i64 noundef %133)
-  %135 = load i64, ptr %7, align 8, !tbaa !24
-  %136 = load i64, ptr %8, align 8, !tbaa !24
+  %135 = load i64, ptr %7, align 8, !tbaa !26
+  %136 = load i64, ptr %8, align 8, !tbaa !26
   %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %135, i64 noundef %136)
   call void @N_VDestroy(ptr noundef nonnull %18) #6
   call void @ARKodeFree(ptr noundef nonnull %2) #6
@@ -411,4 +411,6 @@ attributes #7 = { cold nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !7, i64 0}
 !23 = !{!6, !6, i64 0}
-!24 = !{!18, !18, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!18, !18, i64 0}

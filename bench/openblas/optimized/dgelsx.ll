@@ -292,7 +292,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %.pre-phi, ptr %9, align 4, !tbaa !3
   %141 = load i32, ptr %23, align 4, !tbaa !3
   %142 = icmp slt i32 %.pre-phi, %141
-  br i1 %142, label %108, label %._crit_edge376
+  br i1 %142, label %108, label %._crit_edge376, !llvm.loop !12
 
 ._crit_edge376:                                   ; preds = %._crit_edge, %.._crit_edge376.loopexit_crit_edge, %.preheader
   %.pre448 = phi i32 [ %103, %.preheader ], [ %.pre448.pre.pre, %.._crit_edge376.loopexit_crit_edge ], [ %141, %._crit_edge ]
@@ -340,7 +340,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next419 = add nsw i64 %indvars.iv418, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next419 to i32
   %exitcond421.not = icmp eq i32 %163, %lftr.wideiv
-  br i1 %exitcond421.not, label %._crit_edge388.thread, label %.lr.ph381, !llvm.loop !11
+  br i1 %exitcond421.not, label %._crit_edge388.thread, label %.lr.ph381, !llvm.loop !13
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %..loopexit369_crit_edge
   %indvars.iv418 = phi i64 [ %162, %.lr.ph381.preheader ], [ %indvars.iv.next419, %..loopexit369_crit_edge ]
@@ -354,7 +354,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double 0.000000e+00, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
-  br i1 %exitcond417.not, label %..loopexit369_crit_edge, label %164, !llvm.loop !12
+  br i1 %exitcond417.not, label %..loopexit369_crit_edge, label %164, !llvm.loop !14
 
 ._crit_edge388.thread:                            ; preds = %..loopexit369_crit_edge, %.lr.ph387
   store i32 %158, ptr %14, align 4
@@ -396,7 +396,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %184 = load i32, ptr %13, align 4, !tbaa !3
   %185 = sext i32 %184 to i64
   %.not351.not = icmp slt i64 %indvars.iv422, %185
-  br i1 %.not351.not, label %.lr.ph394, label %.loopexit, !llvm.loop !13
+  br i1 %.not351.not, label %.lr.ph394, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph394, %150, %._crit_edge388.thread
   %186 = load i32, ptr %2, align 4, !tbaa !3
@@ -432,7 +432,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double 1.000000e+00, ptr %gep468, align 8, !tbaa !7
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next426, %wide.trip.count428
-  br i1 %exitcond429.not, label %.lr.ph403, label %.lr.ph398, !llvm.loop !14
+  br i1 %exitcond429.not, label %.lr.ph403, label %.lr.ph398, !llvm.loop !16
 
 .lr.ph403:                                        ; preds = %.lr.ph398
   %194 = mul nsw i64 %indvars.iv435, %192
@@ -484,7 +484,7 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %217 = load i32, ptr %216, align 4, !tbaa !3
   %218 = zext i32 %217 to i64
   %.not357 = icmp eq i64 %indvars.iv430, %218
-  br i1 %.not357, label %219, label %208
+  br i1 %.not357, label %219, label %208, !llvm.loop !17
 
 219:                                              ; preds = %208
   store double %.0, ptr %gep472, align 8, !tbaa !7
@@ -497,12 +497,12 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 223:                                              ; preds = %197, %219, %200
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next431, %wide.trip.count428
-  br i1 %exitcond434.not, label %._crit_edge404, label %197, !llvm.loop !15
+  br i1 %exitcond434.not, label %._crit_edge404, label %197, !llvm.loop !18
 
 ._crit_edge404:                                   ; preds = %223
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %exitcond440.not = icmp eq i64 %indvars.iv.next436, %wide.trip.count439
-  br i1 %exitcond440.not, label %._crit_edge409, label %.lr.ph398.preheader, !llvm.loop !16
+  br i1 %exitcond440.not, label %._crit_edge409, label %.lr.ph398.preheader, !llvm.loop !19
 
 ._crit_edge409:                                   ; preds = %._crit_edge404, %.lr.ph408
   store i32 %187, ptr %14, align 4, !tbaa !3
@@ -610,11 +610,14 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}

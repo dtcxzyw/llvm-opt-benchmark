@@ -126,7 +126,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread17.loopexit, label %.lr.ph58
+  br i1 %73, label %.thread17.loopexit, label %.lr.ph58, !llvm.loop !8
 
 .lr.ph58:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %74 = phi i32 [ %122, %.lr.ph ], [ %53, %.lr.ph.preheader ]
@@ -214,11 +214,14 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %124 = getelementptr [256 x ptr], ptr @inet6_offloads, i64 0, i64 %123
   %125 = load volatile ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread17.loopexit, label %.lr.ph, !prof !8
+  br i1 %126, label %..thread17.loopexit_crit_edge69, label %.lr.ph, !prof !10, !llvm.loop !8
 
-.thread17.loopexit:                               ; preds = %116, %92, %.lr.ph, %120, %87, %85, %111, %109, %.lr.ph.preheader
-  %.lcssa24.ph = phi i32 [ %53, %.lr.ph.preheader ], [ %74, %116 ], [ %74, %92 ], [ %122, %.lr.ph ], [ %122, %120 ], [ %74, %87 ], [ %74, %85 ], [ %74, %111 ], [ %74, %109 ]
-  %.lcssa.ph = phi i32 [ %6, %.lr.ph.preheader ], [ %75, %116 ], [ %75, %92 ], [ %102, %.lr.ph ], [ %102, %120 ], [ %75, %87 ], [ %75, %85 ], [ %75, %111 ], [ %75, %109 ]
+..thread17.loopexit_crit_edge69:                  ; preds = %120
+  br label %.thread17.loopexit, !llvm.loop !8
+
+.thread17.loopexit:                               ; preds = %116, %92, %.lr.ph, %87, %85, %111, %109, %..thread17.loopexit_crit_edge69, %.lr.ph.preheader
+  %.lcssa24.ph = phi i32 [ %122, %..thread17.loopexit_crit_edge69 ], [ %53, %.lr.ph.preheader ], [ %74, %116 ], [ %74, %92 ], [ %122, %.lr.ph ], [ %74, %87 ], [ %74, %85 ], [ %74, %111 ], [ %74, %109 ]
+  %.lcssa.ph = phi i32 [ %102, %..thread17.loopexit_crit_edge69 ], [ %6, %.lr.ph.preheader ], [ %75, %116 ], [ %75, %92 ], [ %102, %.lr.ph ], [ %75, %87 ], [ %75, %85 ], [ %75, %111 ], [ %75, %109 ]
   %.pre = load ptr, ptr %33, align 8
   %.pre47 = load i16, ptr %39, align 4
   %.pre48 = load ptr, ptr %31, align 8
@@ -399,7 +402,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 251:                                              ; preds = %249, %233, %226, %186
   %252 = load ptr, ptr %187, align 8
   %253 = icmp eq ptr %252, %0
-  br i1 %253, label %.loopexit, label %186, !llvm.loop !9
+  br i1 %253, label %.loopexit, label %186, !llvm.loop !11
 
 .loopexit:                                        ; preds = %251, %157
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 70
@@ -445,7 +448,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %280 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %281, @tcp6_gro_receive
-  br i1 %282, label %283, label %285, !prof !12
+  br i1 %282, label %283, label %285, !prof !14
 
 283:                                              ; preds = %279
   %284 = tail call ptr @tcp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
@@ -453,7 +456,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 
 285:                                              ; preds = %279
   %286 = icmp eq ptr %281, @udp6_gro_receive
-  br i1 %286, label %287, label %289, !prof !12
+  br i1 %286, label %287, label %289, !prof !14
 
 287:                                              ; preds = %285
   %288 = tail call ptr @udp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
@@ -617,7 +620,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %95 = getelementptr [256 x ptr], ptr @inet6_offloads, i64 0, i64 %94
   %96 = load volatile ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread, label %.preheader, !prof !8, !llvm.loop !13
+  br i1 %97, label %.thread, label %.preheader, !prof !10, !llvm.loop !15
 
 98:                                               ; preds = %.preheader
   %99 = add i32 %1, 40
@@ -628,14 +631,14 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   br i1 %103, label %.thread, label %104, !prof !5
 
 .thread:                                          ; preds = %84, %68, %98
-  tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #8, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 391, i32 2305, i64 12) #8, !srcloc !15
-  tail call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_end\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #8, !srcloc !16
+  tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #8, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 391, i32 2305, i64 12) #8, !srcloc !18
+  tail call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_end\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #8, !srcloc !19
   br label %114
 
 104:                                              ; preds = %98
   %105 = icmp eq ptr %102, @tcp6_gro_complete
-  br i1 %105, label %106, label %108, !prof !12
+  br i1 %105, label %106, label %108, !prof !14
 
 106:                                              ; preds = %104
   %107 = tail call i32 @tcp6_gro_complete(ptr noundef %0, i32 noundef %100) #8
@@ -643,7 +646,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
 
 108:                                              ; preds = %104
   %109 = icmp eq ptr %102, @udp6_gro_complete
-  br i1 %109, label %110, label %112, !prof !12
+  br i1 %109, label %110, label %112, !prof !14
 
 110:                                              ; preds = %108
   %111 = tail call i32 @udp6_gro_complete(ptr noundef %0, i32 noundef %100) #8
@@ -725,7 +728,7 @@ declare dso_local i32 @inet6_add_offload(ptr noundef, i8 noundef zeroext) local_
 define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i64 noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !annotation !17
+  store ptr null, ptr %3, align 8, !annotation !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -739,7 +742,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65537
-  br i1 %15, label %.thread, label %16, !prof !12
+  br i1 %15, label %.thread, label %16, !prof !14
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -836,8 +839,8 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %81, label %82, label %83, !prof !5
 
 82:                                               ; preds = %68
-  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !19
+  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !22
   unreachable
 
 83:                                               ; preds = %68
@@ -912,8 +915,8 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %130, label %131, label %132, !prof !5
 
 131:                                              ; preds = %122
-  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !19
+  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !22
   unreachable
 
 132:                                              ; preds = %122
@@ -942,7 +945,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 1
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %._crit_edge, label %.lr.ph64
+  br i1 %150, label %._crit_edge, label %.lr.ph64, !llvm.loop !23
 
 .lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.in2663 = phi i8 [ %182, %.lr.ph ], [ %138, %.lr.ph.preheader ]
@@ -1010,8 +1013,8 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %184, label %185, label %186, !prof !5
 
 185:                                              ; preds = %178
-  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !19
+  tail call void asm sideeffect "417: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 417b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 417) #8, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2660, i32 0, i64 12) #8, !srcloc !22
   unreachable
 
 186:                                              ; preds = %178
@@ -1022,10 +1025,13 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %190 = getelementptr [256 x ptr], ptr @inet6_offloads, i64 0, i64 %189
   %191 = load volatile ptr, ptr %190, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %._crit_edge, label %.lr.ph, !prof !8
+  br i1 %192, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !prof !10, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %186, %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %132
-  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2663, %172 ], [ %.in2663, %156 ], [ %.in2663, %174 ], [ %.in2663, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %186
+  br label %._crit_edge, !llvm.loop !23
+
+._crit_edge:                                      ; preds = %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %132
+  %.in.lcssa = phi i8 [ %138, %132 ], [ %182, %.._crit_edge.loopexit_crit_edge ], [ %138, %.lr.ph.preheader ], [ %.in2663, %172 ], [ %.in2663, %156 ], [ %.in2663, %174 ], [ %.in2663, %158 ], [ %182, %.lr.ph ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %194 = load i24, ptr %193, align 1
   %195 = and i24 %194, 8192
@@ -1217,7 +1223,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 324:                                              ; preds = %316, %.thread19.us
   %325 = load ptr, ptr %259, align 8
   %326 = icmp eq ptr %325, null
-  br i1 %326, label %.thread18, label %.split.us, !llvm.loop !20
+  br i1 %326, label %.thread18, label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %247
   br i1 %257, label %.split.split.us, label %.split.split
@@ -1265,7 +1271,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 356:                                              ; preds = %350, %.split.split.us
   %357 = load ptr, ptr %327, align 8
   %358 = icmp eq ptr %357, null
-  br i1 %358, label %.thread18, label %.split.split.us, !llvm.loop !22
+  br i1 %358, label %.thread18, label %.split.split.us, !llvm.loop !26
 
 .split.split:                                     ; preds = %.split, %407
   %359 = phi ptr [ %408, %407 ], [ %239, %.split ]
@@ -1340,7 +1346,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 407:                                              ; preds = %401, %385
   %408 = load ptr, ptr %359, align 8
   %409 = icmp eq ptr %408, null
-  br i1 %409, label %.thread18, label %.split.split, !llvm.loop !23
+  br i1 %409, label %.thread18, label %.split.split, !llvm.loop !27
 
 .thread18:                                        ; preds = %407, %356, %324, %.thread16, %227, %241, %.split38.us, %245, %108, %106, %65
   %410 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %245 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %400, %.split38.us ], [ inttoptr (i64 -93 to ptr), %.thread16 ], [ inttoptr (i64 -93 to ptr), %227 ], [ null, %241 ], [ %239, %324 ], [ %239, %356 ], [ %239, %407 ]
@@ -1567,19 +1573,23 @@ attributes #9 = { cold nounwind }
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{!"branch_weights", i32 871893, i32 2146611755}
 !7 = !{!"branch_weights", i32 1, i32 127}
-!8 = !{!"branch_weights", i32 127, i32 255873}
-!9 = distinct !{!9, !10, !11}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = distinct !{!13, !11}
-!14 = !{i64 2160635698, i64 2160635507, i64 2160635559, i64 2160635605, i64 2160635633}
-!15 = !{i64 2160635772, i64 2160635801, i64 2160635847, i64 2160635905, i64 2160635959, i64 2160636013, i64 2160636068, i64 2160636099, i64 2160636407, i64 2160636413, i64 2160636460, i64 2160636483, i64 2160636509}
-!16 = !{i64 2160636964, i64 2160636775, i64 2160636825, i64 2160636871, i64 2160636899}
-!17 = !{!"auto-init"}
-!18 = !{i64 2155572509, i64 2155572318, i64 2155572370, i64 2155572416, i64 2155572444}
-!19 = !{i64 2155572583, i64 2155572612, i64 2155572658, i64 2155572716, i64 2155572770, i64 2155572824, i64 2155572879, i64 2155572910}
-!20 = distinct !{!20, !10, !11, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !10, !11, !21}
-!23 = distinct !{!23, !10, !11}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"branch_weights", i32 127, i32 255873}
+!11 = distinct !{!11, !12, !13, !9}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!"llvm.loop.unroll.disable"}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = distinct !{!15, !13, !16}
+!16 = !{!"llvm.loop.estimated_trip_count", i32 2016}
+!17 = !{i64 2160635698, i64 2160635507, i64 2160635559, i64 2160635605, i64 2160635633}
+!18 = !{i64 2160635772, i64 2160635801, i64 2160635847, i64 2160635905, i64 2160635959, i64 2160636013, i64 2160636068, i64 2160636099, i64 2160636407, i64 2160636413, i64 2160636460, i64 2160636483, i64 2160636509}
+!19 = !{i64 2160636964, i64 2160636775, i64 2160636825, i64 2160636871, i64 2160636899}
+!20 = !{!"auto-init"}
+!21 = !{i64 2155572509, i64 2155572318, i64 2155572370, i64 2155572416, i64 2155572444}
+!22 = !{i64 2155572583, i64 2155572612, i64 2155572658, i64 2155572716, i64 2155572770, i64 2155572824, i64 2155572879, i64 2155572910}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !12, !13, !9, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !12, !13, !9, !25}
+!27 = distinct !{!27, !12, !13, !9}

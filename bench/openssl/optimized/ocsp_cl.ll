@@ -470,8 +470,8 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !78
-  %10 = load i32, ptr %9, align 8, !tbaa !79
+  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %10 = load i32, ptr %9, align 8, !tbaa !80
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %24
 
@@ -482,7 +482,7 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %14, align 8, !tbaa !81
+  %16 = load ptr, ptr %14, align 8, !tbaa !82
   store ptr %16, ptr %2, align 8, !tbaa !72
   br label %17
 
@@ -492,7 +492,7 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !83
+  %20 = load ptr, ptr %19, align 8, !tbaa !84
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %.sink.split, label %21
 
@@ -503,7 +503,7 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
 
 .sink.split:                                      ; preds = %18, %21
   %.sink = phi i32 [ %23, %21 ], [ -1, %18 ]
-  store i32 %.sink, ptr %1, align 4, !tbaa !84
+  store i32 %.sink, ptr %1, align 4, !tbaa !85
   br label %24
 
 24:                                               ; preds = %.sink.split, %17, %7
@@ -512,7 +512,7 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !85
+  %27 = load ptr, ptr %26, align 8, !tbaa !86
   store ptr %27, ptr %3, align 8, !tbaa !72
   br label %28
 
@@ -522,7 +522,7 @@ define i32 @OCSP_single_get0_status(ptr noundef readonly captures(address_is_nul
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !86
+  %31 = load ptr, ptr %30, align 8, !tbaa !87
   store ptr %31, ptr %4, align 8, !tbaa !72
   br label %32
 
@@ -567,8 +567,8 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
 
 23:                                               ; preds = %OCSP_resp_get0.exit
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !78
-  %26 = load i32, ptr %25, align 8, !tbaa !79
+  %25 = load ptr, ptr %24, align 8, !tbaa !79
+  %26 = load i32, ptr %25, align 8, !tbaa !80
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %40
 
@@ -579,7 +579,7 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
   br i1 %.not.i17, label %33, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %30, align 8, !tbaa !81
+  %32 = load ptr, ptr %30, align 8, !tbaa !82
   store ptr %32, ptr %4, align 8, !tbaa !72
   br label %33
 
@@ -589,7 +589,7 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !83
+  %36 = load ptr, ptr %35, align 8, !tbaa !84
   %.not27.i = icmp eq ptr %36, null
   br i1 %.not27.i, label %.sink.split.i, label %37
 
@@ -600,7 +600,7 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
 
 .sink.split.i:                                    ; preds = %37, %34
   %.sink.i = phi i32 [ %39, %37 ], [ -1, %34 ]
-  store i32 %.sink.i, ptr %3, align 4, !tbaa !84
+  store i32 %.sink.i, ptr %3, align 4, !tbaa !85
   br label %40
 
 40:                                               ; preds = %.sink.split.i, %33, %23
@@ -609,7 +609,7 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !85
+  %43 = load ptr, ptr %42, align 8, !tbaa !86
   store ptr %43, ptr %5, align 8, !tbaa !72
   br label %44
 
@@ -619,7 +619,7 @@ OCSP_resp_get0.exit:                              ; preds = %OCSP_resp_find.exit
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !86
+  %47 = load ptr, ptr %46, align 8, !tbaa !87
   store ptr %47, ptr %6, align 8, !tbaa !72
   br label %OCSP_single_get0_status.exit
 
@@ -629,7 +629,7 @@ OCSP_single_get0_status.exit:                     ; preds = %OCSP_resp_get0.exit
   br i1 %.not, label %OCSP_resp_find.exit.thread, label %48
 
 48:                                               ; preds = %OCSP_single_get0_status.exit
-  store i32 %.0.i16, ptr %2, align 4, !tbaa !84
+  store i32 %.0.i16, ptr %2, align 4, !tbaa !85
   br label %OCSP_resp_find.exit.thread
 
 OCSP_resp_find.exit.thread:                       ; preds = %12, %7, %OCSP_single_get0_status.exit, %48, %OCSP_resp_find.exit
@@ -649,9 +649,9 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %.sink.split, label %9
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %5, align 8, !tbaa !87
+  %10 = load i64, ptr %5, align 8, !tbaa !88
   %11 = add nsw i64 %10, %2
-  store i64 %11, ptr %6, align 8, !tbaa !87
+  store i64 %11, ptr %6, align 8, !tbaa !88
   %12 = call i32 @X509_cmp_time(ptr noundef %0, ptr noundef nonnull %6) #8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
@@ -668,9 +668,9 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = load i64, ptr %5, align 8, !tbaa !87
+  %18 = load i64, ptr %5, align 8, !tbaa !88
   %19 = sub nsw i64 %18, %3
-  store i64 %19, ptr %6, align 8, !tbaa !87
+  store i64 %19, ptr %6, align 8, !tbaa !88
   %20 = call i32 @X509_cmp_time(ptr noundef %0, ptr noundef nonnull %6) #8
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %.sink.split, label %22
@@ -694,9 +694,9 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br i1 %.not17, label %.sink.split19, label %26
 
 26:                                               ; preds = %24
-  %27 = load i64, ptr %5, align 8, !tbaa !87
+  %27 = load i64, ptr %5, align 8, !tbaa !88
   %28 = sub nsw i64 %27, %2
-  store i64 %28, ptr %6, align 8, !tbaa !87
+  store i64 %28, ptr %6, align 8, !tbaa !88
   %29 = call i32 @X509_cmp_time(ptr noundef nonnull %1, ptr noundef nonnull %6) #8
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.sink.split19, label %31
@@ -834,15 +834,16 @@ attributes #8 = { nounwind }
 !73 = !{!74, !5, i64 0}
 !74 = !{!"ocsp_single_response_st", !5, i64 0, !75, i64 8, !13, i64 16, !13, i64 24, !9, i64 32}
 !75 = !{!"p1 _ZTS19ocsp_cert_status_st", !6, i64 0}
-!76 = distinct !{!76, !77}
+!76 = distinct !{!76, !77, !78}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!74, !75, i64 8}
-!79 = !{!80, !19, i64 0}
-!80 = !{!"ocsp_cert_status_st", !19, i64 0, !7, i64 8}
-!81 = !{!82, !13, i64 0}
-!82 = !{!"ocsp_revoked_info_st", !13, i64 0, !13, i64 8}
-!83 = !{!82, !13, i64 8}
-!84 = !{!19, !19, i64 0}
-!85 = !{!74, !13, i64 16}
-!86 = !{!74, !13, i64 24}
-!87 = !{!33, !33, i64 0}
+!78 = !{!"llvm.loop.estimated_trip_count"}
+!79 = !{!74, !75, i64 8}
+!80 = !{!81, !19, i64 0}
+!81 = !{!"ocsp_cert_status_st", !19, i64 0, !7, i64 8}
+!82 = !{!83, !13, i64 0}
+!83 = !{!"ocsp_revoked_info_st", !13, i64 0, !13, i64 8}
+!84 = !{!83, !13, i64 8}
+!85 = !{!19, !19, i64 0}
+!86 = !{!74, !13, i64 16}
+!87 = !{!74, !13, i64 24}
+!88 = !{!33, !33, i64 0}

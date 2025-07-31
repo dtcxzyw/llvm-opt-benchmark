@@ -54,7 +54,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator4incr17h9c16ee
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %29, i64 %.sroa.07.0.i)
   %30 = add nuw i64 %.sroa.09.0.i, 1
   %31 = icmp eq i64 %30, %6
-  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h51522d20e970045cE.exit", label %.preheader
+  br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h51522d20e970045cE.exit", label %.preheader, !llvm.loop !13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h51522d20e970045cE.exit": ; preds = %"_ZN14pingora_limits9estimator9Estimator4incr28_$u7b$$u7b$closure$u7d$$u7d$17hee0924780bc6b6d4E.exit.i", %3
   %.sroa.04.0.i = phi i64 [ 9223372036854775807, %3 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN14pingora_limits9estimator9Estimator4incr28_$u7b$$u7b$closure$u7d$$u7d$17hee0924780bc6b6d4E.exit.i" ]
@@ -107,7 +107,7 @@ define hidden void @_ZN14pingora_limits9estimator9Estimator4decr17hdc7224a44a6c1
   %29 = getelementptr inbounds nuw { i64 }, ptr %14, i64 %28
   %30 = atomicrmw sub ptr %29, i64 %2 monotonic, align 8
   %31 = icmp eq ptr %27, %7
-  br i1 %31, label %._crit_edge, label %.lr.ph
+  br i1 %31, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -122,20 +122,20 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator3get17h101e299
   %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i" ], [ 9223372036854775807, %2 ]
   %.sroa.09.0.i = phi i64 [ %28, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i" ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %3, i64 %.sroa.09.0.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i64, ptr %8, align 8, !alias.scope !13, !noalias !16, !noundef !3
+  %9 = load i64, ptr %8, align 8, !alias.scope !16, !noalias !19, !noundef !3
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i"
 
 11:                                               ; preds = %.preheader
-  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cdab158464db28ba7df5b37424a8bffa.16) #5, !noalias !19
+  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cdab158464db28ba7df5b37424a8bffa.16) #5, !noalias !22
   unreachable
 
 "_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i": ; preds = %.preheader
-  %12 = load ptr, ptr %7, align 8, !alias.scope !13, !noalias !16, !nonnull !3, !align !4, !noundef !3
+  %12 = load ptr, ptr %7, align 8, !alias.scope !16, !noalias !19, !nonnull !3, !align !4, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val1.i.i = load i64, ptr %13, align 8, !alias.scope !13, !noalias !16, !noundef !3
+  %.val1.i.i = load i64, ptr %13, align 8, !alias.scope !16, !noalias !19, !noundef !3
   %14 = xor i64 %.val1.i.i, %1
   %15 = zext i64 %14 to i128
   %16 = mul nuw nsw i128 %15, 6364136223846793005
@@ -143,7 +143,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator3get17h101e299
   %.masked.i.i.i.i.i = and i128 %16, 18446744073709551615
   %18 = xor i128 %17, %.masked.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val.i.i = load i64, ptr %19, align 8, !alias.scope !13, !noalias !16, !noundef !3
+  %.val.i.i = load i64, ptr %19, align 8, !alias.scope !16, !noalias !19, !noundef !3
   %20 = zext i64 %.val.i.i to i128
   %21 = mul nuw i128 %18, %20
   %22 = lshr i128 %21, 64
@@ -151,11 +151,11 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator3get17h101e299
   %24 = trunc i128 %23 to i64
   %25 = urem i64 %24, %9
   %26 = getelementptr inbounds nuw { i64 }, ptr %12, i64 %25
-  %27 = load atomic i64, ptr %26 monotonic, align 8, !noalias !19
+  %27 = load atomic i64, ptr %26 monotonic, align 8, !noalias !22
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %27, i64 %.sroa.07.0.i)
   %28 = add nuw i64 %.sroa.09.0.i, 1
   %29 = icmp eq i64 %28, %5
-  br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE.exit", label %.preheader
+  br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE.exit", label %.preheader, !llvm.loop !23
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE.exit": ; preds = %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i", %2
   %.sroa.04.0.i = phi i64 [ 9223372036854775807, %2 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i" ]
@@ -197,10 +197,14 @@ attributes #5 = { noreturn }
 !10 = distinct !{!10, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h51522d20e970045cE"}
 !11 = distinct !{!11, !10, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h51522d20e970045cE: argument 1"}
 !12 = !{!6, !9, !11}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E: argument 0"}
-!15 = distinct !{!15, !"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E"}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !14}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE: argument 0"}
-!18 = distinct !{!18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE"}
-!19 = !{!14, !17}
+!17 = distinct !{!17, !18, !"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E: argument 0"}
+!18 = distinct !{!18, !"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE: argument 0"}
+!21 = distinct !{!21, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f1ef344312aba8bE"}
+!22 = !{!17, !20}
+!23 = distinct !{!23, !14}

@@ -1583,7 +1583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i17: 
 543:                                              ; preds = %.preheader.i
   %.014.add.i = add nuw nsw i64 %.014.idx29.i, 4
   %.not.i = icmp eq i64 %.014.add.i, 224
-  br i1 %.not.i, label %550, label %.preheader.i
+  br i1 %.not.i, label %550, label %.preheader.i, !llvm.loop !5
 
 544:                                              ; preds = %.noexc.i15, %_ZN10open_spiel6bridge12_GLOBAL__N_114BasicGameTestsEv.exit
   %545 = landingpad { ptr, i32 }
@@ -3042,3 +3042,5 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

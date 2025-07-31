@@ -732,11 +732,11 @@ cell_id_len.exit.i.i:                             ; preds = %239, %switch.lookup
   %250 = add i32 %248, %.025.i.i
   %251 = add i32 %.026.i.i, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
-  br i1 %249, label %cell_id_len.exit._crit_edge.i.i, label %236
+  br i1 %249, label %cell_id_len.exit._crit_edge.i.i, label %236, !llvm.loop !6
 
 cell_id_len.exit._crit_edge.i.i:                  ; preds = %cell_id_len.exit.i.i
   %.pre.i.i = load i32, ptr %15, align 4
-  br label %dissect_cell_id_list_ie.exit.i
+  br label %dissect_cell_id_list_ie.exit.i, !llvm.loop !6
 
 dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.exit._crit_edge.i.i
   %252 = phi i32 [ %.pre.i.i, %cell_id_len.exit._crit_edge.i.i ], [ %.pre31.i.i, %236 ]
@@ -814,7 +814,7 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   %286 = sub i32 %279, %72
   %287 = icmp ult i32 %286, %.0155.i
-  br i1 %287, label %.lr.ph.i.i, label %dissect_bc_compl_list_ie.exit.i
+  br i1 %287, label %.lr.ph.i.i, label %dissect_bc_compl_list_ie.exit.i, !llvm.loop !8
 
 dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, %254
   %.03343.i.i = phi i32 [ %.03344.i.i, %.thread.i.i ], [ 0, %254 ], [ %285, %273 ]
@@ -876,7 +876,7 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %swi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   %313 = sub i32 %307, %72
   %314 = icmp ult i32 %313, %.0155.i
-  br i1 %314, label %.lr.ph.i164.i, label %dissect_failure_list_ie.exit.i
+  br i1 %314, label %.lr.ph.i164.i, label %dissect_failure_list_ie.exit.i, !llvm.loop !9
 
 dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.i, %290
   %.03242.i.i = phi i32 [ %.03243.i.i, %.thread.i167.i ], [ 0, %290 ], [ %312, %304 ]
@@ -951,7 +951,7 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %346 = sub i32 %340, %72
   %347 = icmp ult i32 %346, %.0155.i
-  br i1 %347, label %.lr.ph.i170.i, label %dissect_rr_load_list_ie.exit.i
+  br i1 %347, label %.lr.ph.i170.i, label %dissect_rr_load_list_ie.exit.i, !llvm.loop !10
 
 dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.i, %315
   %.03242.i168.i = phi i32 [ %.03243.i172.i, %.thread.i175.i ], [ 0, %315 ], [ %345, %334 ]
@@ -973,7 +973,7 @@ dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
   %355 = add i32 %354, -4
   %356 = icmp slt i32 %355, %40
-  br i1 %356, label %43, label %dissect_cbsp_tlvs.exit, !llvm.loop !6
+  br i1 %356, label %43, label %dissect_cbsp_tlvs.exit, !llvm.loop !11
 
 dissect_cbsp_tlvs.exit:                           ; preds = %353, %.thread.i, %30, %4
   %357 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1155,4 +1155,9 @@ attributes #4 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !12, !7}
+!12 = !{!"llvm.loop.mustprogress"}

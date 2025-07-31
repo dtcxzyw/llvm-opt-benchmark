@@ -315,12 +315,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %204, label %205, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit.thread211
 
 205:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit
-  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !40
-  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !40
+  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !41
+  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !41
   %208 = fsub <2 x double> %206, %207
-  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !43
+  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !44
   %210 = fsub <2 x double> %209, %207
-  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !46
+  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !47
   %212 = fsub <2 x double> %211, %207
   %213 = fmul <2 x double> %208, %208
   %shift221 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -498,7 +498,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %333 = getelementptr i32, ptr %332, i64 %331
   %334 = load i32, ptr %333, align 4, !tbaa !11
   %335 = sext i32 %334 to i64
-  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !49
+  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !50
   %337 = getelementptr inbounds double, ptr %336, i64 %335
   %338 = load i64, ptr %32, align 8, !tbaa !19
   %339 = load double, ptr %337, align 8, !tbaa !20
@@ -622,24 +622,24 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 
 .lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %425
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !52
-  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !52
+  call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !53
+  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !53
   %430 = fsub double %428, %429
-  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !52
-  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !52
+  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !53
+  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !53
   %433 = fsub double %431, %432
-  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !52
+  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !53
   %435 = fsub double %434, %432
-  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !52
+  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !53
   %437 = fsub double %436, %429
   %438 = fneg double %437
   %439 = fmul double %435, %438
   %440 = call double @llvm.fmuladd.f64(double %430, double %433, double %439)
-  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !52
-  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !52
+  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !53
+  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !53
   %443 = fsub double %441, %442
-  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !52
+  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !53
   %445 = fsub double %444, %442
   %446 = fneg double %433
   %447 = fmul double %445, %446
@@ -647,11 +647,11 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %449 = fneg double %443
   %450 = fmul double %430, %449
   %451 = call double @llvm.fmuladd.f64(double %445, double %437, double %450)
-  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !52
+  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !53
   %452 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !52
+  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !53
   %453 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !52
+  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !53
   %454 = load <2 x double>, ptr %10, align 16
   %455 = load <2 x double>, ptr %22, align 16, !tbaa !30
   %456 = load <2 x double>, ptr %21, align 16, !tbaa !30
@@ -741,12 +741,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %502, label %503, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESO_E0_clESO_SO_.exit108
 
 503:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
-  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !55
-  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !55
+  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !56
+  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !56
   %506 = fsub <2 x double> %504, %505
-  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !58
+  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !59
   %508 = fsub <2 x double> %507, %505
-  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !61
+  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !62
   %510 = fsub <2 x double> %509, %505
   %511 = fmul <2 x double> %506, %506
   %shift230 = shufflevector <2 x double> %511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -964,7 +964,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %27 = getelementptr i32, ptr %25, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
-  %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !64
+  %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !65
   %31 = getelementptr inbounds double, ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !19
@@ -1018,7 +1018,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %9
-  %68 = load ptr, ptr %5, align 8, !tbaa !67
+  %68 = load ptr, ptr %5, align 8, !tbaa !68
   %69 = load <2 x double>, ptr %68, align 16, !tbaa !30
   store <2 x double> %69, ptr %15, align 16, !tbaa !30
   %70 = getelementptr i8, ptr %68, i64 16
@@ -1053,7 +1053,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %85
-  %92 = load ptr, ptr %5, align 8, !tbaa !67
+  %92 = load ptr, ptr %5, align 8, !tbaa !68
   %93 = load <2 x double>, ptr %92, align 16, !tbaa !30
   %94 = getelementptr i8, ptr %92, i64 16
   br label %108
@@ -1101,24 +1101,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
 
 .lr.ph85.i.i.i.i.i.preheader.i.i.i:               ; preds = %114
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %117 = load double, ptr %47, align 8, !tbaa !20, !noalias !69
-  %118 = load double, ptr %35, align 8, !tbaa !20, !noalias !69
+  call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  %117 = load double, ptr %47, align 8, !tbaa !20, !noalias !70
+  %118 = load double, ptr %35, align 8, !tbaa !20, !noalias !70
   %119 = fsub double %117, %118
-  %120 = load double, ptr %61, align 16, !tbaa !20, !noalias !69
-  %121 = load double, ptr %38, align 16, !tbaa !20, !noalias !69
+  %120 = load double, ptr %61, align 16, !tbaa !20, !noalias !70
+  %121 = load double, ptr %38, align 16, !tbaa !20, !noalias !70
   %122 = fsub double %120, %121
-  %123 = load double, ptr %50, align 16, !tbaa !20, !noalias !69
+  %123 = load double, ptr %50, align 16, !tbaa !20, !noalias !70
   %124 = fsub double %123, %121
-  %125 = load double, ptr %58, align 8, !tbaa !20, !noalias !69
+  %125 = load double, ptr %58, align 8, !tbaa !20, !noalias !70
   %126 = fsub double %125, %118
   %127 = fneg double %126
   %128 = fmul double %124, %127
   %129 = call double @llvm.fmuladd.f64(double %119, double %122, double %128)
-  %130 = load double, ptr %14, align 16, !tbaa !20, !noalias !69
-  %131 = load double, ptr %12, align 16, !tbaa !20, !noalias !69
+  %130 = load double, ptr %14, align 16, !tbaa !20, !noalias !70
+  %131 = load double, ptr %12, align 16, !tbaa !20, !noalias !70
   %132 = fsub double %130, %131
-  %133 = load double, ptr %13, align 16, !tbaa !20, !noalias !69
+  %133 = load double, ptr %13, align 16, !tbaa !20, !noalias !70
   %134 = fsub double %133, %131
   %135 = fneg double %122
   %136 = fmul double %134, %135
@@ -1126,11 +1126,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %138 = fneg double %132
   %139 = fmul double %119, %138
   %140 = call double @llvm.fmuladd.f64(double %134, double %126, double %139)
-  store double %129, ptr %11, align 16, !tbaa !20, !alias.scope !69
+  store double %129, ptr %11, align 16, !tbaa !20, !alias.scope !70
   %141 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store double %137, ptr %141, align 8, !tbaa !20, !alias.scope !69
+  store double %137, ptr %141, align 8, !tbaa !20, !alias.scope !70
   %142 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store double %140, ptr %142, align 16, !tbaa !20, !alias.scope !69
+  store double %140, ptr %142, align 16, !tbaa !20, !alias.scope !70
   %143 = load <2 x double>, ptr %11, align 16
   %144 = load <2 x double>, ptr %15, align 16, !tbaa !30
   %145 = load <2 x double>, ptr %12, align 16, !tbaa !30
@@ -1220,12 +1220,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %191, label %192, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit.thread204
 
 192:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit
-  %193 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !72
-  %194 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !72
+  %193 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !73
+  %194 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !73
   %195 = fsub <2 x double> %193, %194
-  %196 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !75
+  %196 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !76
   %197 = fsub <2 x double> %196, %194
-  %198 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !78
+  %198 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !79
   %199 = fsub <2 x double> %198, %194
   %200 = fmul <2 x double> %195, %195
   %shift214 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1403,7 +1403,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %320 = getelementptr i32, ptr %319, i64 %318
   %321 = load i32, ptr %320, align 4, !tbaa !11
   %322 = sext i32 %321 to i64
-  %323 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !81
+  %323 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !82
   %324 = getelementptr inbounds double, ptr %323, i64 %322
   %325 = load i64, ptr %32, align 8, !tbaa !19
   %326 = load double, ptr %324, align 8, !tbaa !20
@@ -1451,7 +1451,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   store double %357, ptr %355, align 16, !tbaa !20
   %358 = sext i32 %4 to i64
   %359 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %358
-  %360 = load ptr, ptr %5, align 8, !tbaa !67
+  %360 = load ptr, ptr %5, align 8, !tbaa !68
   %361 = load <2 x double>, ptr %360, align 16, !tbaa !30
   store <2 x double> %361, ptr %359, align 8, !tbaa !30
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 16
@@ -1518,24 +1518,24 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 
 .lr.ph85.i.i.i.i.i.preheader.i.i.i82:             ; preds = %405
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %408 = load double, ptr %340, align 16, !tbaa !20, !noalias !84
-  %409 = load double, ptr %327, align 8, !tbaa !20, !noalias !84
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %408 = load double, ptr %340, align 16, !tbaa !20, !noalias !85
+  %409 = load double, ptr %327, align 8, !tbaa !20, !noalias !85
   %410 = fsub double %408, %409
-  %411 = load double, ptr %355, align 16, !tbaa !20, !noalias !84
-  %412 = load double, ptr %330, align 16, !tbaa !20, !noalias !84
+  %411 = load double, ptr %355, align 16, !tbaa !20, !noalias !85
+  %412 = load double, ptr %330, align 16, !tbaa !20, !noalias !85
   %413 = fsub double %411, %412
-  %414 = load double, ptr %343, align 8, !tbaa !20, !noalias !84
+  %414 = load double, ptr %343, align 8, !tbaa !20, !noalias !85
   %415 = fsub double %414, %412
-  %416 = load double, ptr %352, align 8, !tbaa !20, !noalias !84
+  %416 = load double, ptr %352, align 8, !tbaa !20, !noalias !85
   %417 = fsub double %416, %409
   %418 = fneg double %417
   %419 = fmul double %415, %418
   %420 = call double @llvm.fmuladd.f64(double %410, double %413, double %419)
-  %421 = load double, ptr %350, align 16, !tbaa !20, !noalias !84
-  %422 = load double, ptr %21, align 16, !tbaa !20, !noalias !84
+  %421 = load double, ptr %350, align 16, !tbaa !20, !noalias !85
+  %422 = load double, ptr %21, align 16, !tbaa !20, !noalias !85
   %423 = fsub double %421, %422
-  %424 = load double, ptr %338, align 8, !tbaa !20, !noalias !84
+  %424 = load double, ptr %338, align 8, !tbaa !20, !noalias !85
   %425 = fsub double %424, %422
   %426 = fneg double %413
   %427 = fmul double %425, %426
@@ -1543,11 +1543,11 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %429 = fneg double %423
   %430 = fmul double %410, %429
   %431 = call double @llvm.fmuladd.f64(double %425, double %417, double %430)
-  store double %420, ptr %10, align 16, !tbaa !20, !alias.scope !84
+  store double %420, ptr %10, align 16, !tbaa !20, !alias.scope !85
   %432 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %428, ptr %432, align 8, !tbaa !20, !alias.scope !84
+  store double %428, ptr %432, align 8, !tbaa !20, !alias.scope !85
   %433 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %431, ptr %433, align 16, !tbaa !20, !alias.scope !84
+  store double %431, ptr %433, align 16, !tbaa !20, !alias.scope !85
   %434 = load <2 x double>, ptr %10, align 16
   %435 = load <2 x double>, ptr %22, align 16, !tbaa !30
   %436 = load <2 x double>, ptr %21, align 16, !tbaa !30
@@ -1637,12 +1637,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %482, label %483, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESM_E0_clESM_SM_.exit105
 
 483:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
-  %484 = load <2 x double>, ptr %338, align 8, !tbaa !30, !noalias !87
-  %485 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !87
+  %484 = load <2 x double>, ptr %338, align 8, !tbaa !30, !noalias !88
+  %485 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !88
   %486 = fsub <2 x double> %484, %485
-  %487 = load <2 x double>, ptr %350, align 16, !tbaa !30, !noalias !90
+  %487 = load <2 x double>, ptr %350, align 16, !tbaa !30, !noalias !91
   %488 = fsub <2 x double> %487, %485
-  %489 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !93
+  %489 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !94
   %490 = fsub <2 x double> %489, %485
   %491 = fmul <2 x double> %486, %486
   %shift223 = shufflevector <2 x double> %491, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1852,7 +1852,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %27 = getelementptr i32, ptr %25, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
-  %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !96
+  %30 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !97
   %31 = getelementptr inbounds double, ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !19
@@ -1906,9 +1906,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br i1 %66, label %67, label %78
 
 67:                                               ; preds = %9
-  %68 = load ptr, ptr %5, align 8, !tbaa !99
+  %68 = load ptr, ptr %5, align 8, !tbaa !100
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !101
+  %70 = load ptr, ptr %69, align 8, !tbaa !102
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !19
   %73 = load double, ptr %68, align 8, !tbaa !20
@@ -1950,9 +1950,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br i1 %97, label %98, label %108
 
 98:                                               ; preds = %92
-  %99 = load ptr, ptr %5, align 8, !tbaa !99
+  %99 = load ptr, ptr %5, align 8, !tbaa !100
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !101
+  %101 = load ptr, ptr %100, align 8, !tbaa !102
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !19
   %104 = load double, ptr %99, align 8, !tbaa !20
@@ -2007,24 +2007,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
 
 .lr.ph85.i.i.i.i.i.preheader.i.i.i:               ; preds = %127
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %130 = load double, ptr %47, align 8, !tbaa !20, !noalias !104
-  %131 = load double, ptr %35, align 8, !tbaa !20, !noalias !104
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  %130 = load double, ptr %47, align 8, !tbaa !20, !noalias !105
+  %131 = load double, ptr %35, align 8, !tbaa !20, !noalias !105
   %132 = fsub double %130, %131
-  %133 = load double, ptr %61, align 16, !tbaa !20, !noalias !104
-  %134 = load double, ptr %38, align 16, !tbaa !20, !noalias !104
+  %133 = load double, ptr %61, align 16, !tbaa !20, !noalias !105
+  %134 = load double, ptr %38, align 16, !tbaa !20, !noalias !105
   %135 = fsub double %133, %134
-  %136 = load double, ptr %50, align 16, !tbaa !20, !noalias !104
+  %136 = load double, ptr %50, align 16, !tbaa !20, !noalias !105
   %137 = fsub double %136, %134
-  %138 = load double, ptr %58, align 8, !tbaa !20, !noalias !104
+  %138 = load double, ptr %58, align 8, !tbaa !20, !noalias !105
   %139 = fsub double %138, %131
   %140 = fneg double %139
   %141 = fmul double %137, %140
   %142 = call double @llvm.fmuladd.f64(double %132, double %135, double %141)
-  %143 = load double, ptr %14, align 16, !tbaa !20, !noalias !104
-  %144 = load double, ptr %12, align 16, !tbaa !20, !noalias !104
+  %143 = load double, ptr %14, align 16, !tbaa !20, !noalias !105
+  %144 = load double, ptr %12, align 16, !tbaa !20, !noalias !105
   %145 = fsub double %143, %144
-  %146 = load double, ptr %13, align 16, !tbaa !20, !noalias !104
+  %146 = load double, ptr %13, align 16, !tbaa !20, !noalias !105
   %147 = fsub double %146, %144
   %148 = fneg double %135
   %149 = fmul double %147, %148
@@ -2032,11 +2032,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %151 = fneg double %145
   %152 = fmul double %132, %151
   %153 = call double @llvm.fmuladd.f64(double %147, double %139, double %152)
-  store double %142, ptr %11, align 16, !tbaa !20, !alias.scope !104
+  store double %142, ptr %11, align 16, !tbaa !20, !alias.scope !105
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store double %150, ptr %154, align 8, !tbaa !20, !alias.scope !104
+  store double %150, ptr %154, align 8, !tbaa !20, !alias.scope !105
   %155 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store double %153, ptr %155, align 16, !tbaa !20, !alias.scope !104
+  store double %153, ptr %155, align 16, !tbaa !20, !alias.scope !105
   %156 = load <2 x double>, ptr %11, align 16
   %157 = load <2 x double>, ptr %15, align 16, !tbaa !30
   %158 = load <2 x double>, ptr %12, align 16, !tbaa !30
@@ -2126,12 +2126,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %204, label %205, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit.thread211
 
 205:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit
-  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !107
-  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !107
+  %206 = load <2 x double>, ptr %13, align 16, !tbaa !30, !noalias !108
+  %207 = load <2 x double>, ptr %12, align 16, !tbaa !30, !noalias !108
   %208 = fsub <2 x double> %206, %207
-  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !110
+  %209 = load <2 x double>, ptr %14, align 16, !tbaa !30, !noalias !111
   %210 = fsub <2 x double> %209, %207
-  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !113
+  %211 = load <2 x double>, ptr %15, align 16, !tbaa !30, !noalias !114
   %212 = fsub <2 x double> %211, %207
   %213 = fmul <2 x double> %208, %208
   %shift221 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -2309,7 +2309,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %333 = getelementptr i32, ptr %332, i64 %331
   %334 = load i32, ptr %333, align 4, !tbaa !11
   %335 = sext i32 %334 to i64
-  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !116
+  %336 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !117
   %337 = getelementptr inbounds double, ptr %336, i64 %335
   %338 = load i64, ptr %32, align 8, !tbaa !19
   %339 = load double, ptr %337, align 8, !tbaa !20
@@ -2357,9 +2357,9 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   store double %370, ptr %368, align 16, !tbaa !20
   %371 = sext i32 %4 to i64
   %372 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %371
-  %373 = load ptr, ptr %5, align 8, !tbaa !99
+  %373 = load ptr, ptr %5, align 8, !tbaa !100
   %374 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %375 = load ptr, ptr %374, align 8, !tbaa !101
+  %375 = load ptr, ptr %374, align 8, !tbaa !102
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load i64, ptr %376, align 8, !tbaa !19
   %378 = load double, ptr %373, align 8, !tbaa !20
@@ -2433,24 +2433,24 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
 
 .lr.ph85.i.i.i.i.i.preheader.i.i.i85:             ; preds = %425
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !119
-  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !119
+  call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  %428 = load double, ptr %353, align 16, !tbaa !20, !noalias !120
+  %429 = load double, ptr %340, align 8, !tbaa !20, !noalias !120
   %430 = fsub double %428, %429
-  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !119
-  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !119
+  %431 = load double, ptr %368, align 16, !tbaa !20, !noalias !120
+  %432 = load double, ptr %343, align 16, !tbaa !20, !noalias !120
   %433 = fsub double %431, %432
-  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !119
+  %434 = load double, ptr %356, align 8, !tbaa !20, !noalias !120
   %435 = fsub double %434, %432
-  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !119
+  %436 = load double, ptr %365, align 8, !tbaa !20, !noalias !120
   %437 = fsub double %436, %429
   %438 = fneg double %437
   %439 = fmul double %435, %438
   %440 = call double @llvm.fmuladd.f64(double %430, double %433, double %439)
-  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !119
-  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !119
+  %441 = load double, ptr %363, align 16, !tbaa !20, !noalias !120
+  %442 = load double, ptr %21, align 16, !tbaa !20, !noalias !120
   %443 = fsub double %441, %442
-  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !119
+  %444 = load double, ptr %351, align 8, !tbaa !20, !noalias !120
   %445 = fsub double %444, %442
   %446 = fneg double %433
   %447 = fmul double %445, %446
@@ -2458,11 +2458,11 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %449 = fneg double %443
   %450 = fmul double %430, %449
   %451 = call double @llvm.fmuladd.f64(double %445, double %437, double %450)
-  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !119
+  store double %440, ptr %10, align 16, !tbaa !20, !alias.scope !120
   %452 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !119
+  store double %448, ptr %452, align 8, !tbaa !20, !alias.scope !120
   %453 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !119
+  store double %451, ptr %453, align 16, !tbaa !20, !alias.scope !120
   %454 = load <2 x double>, ptr %10, align 16
   %455 = load <2 x double>, ptr %22, align 16, !tbaa !30
   %456 = load <2 x double>, ptr %21, align 16, !tbaa !30
@@ -2552,12 +2552,12 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br i1 %502, label %503, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi2ELi1ELi1ELi2EEESN_E0_clESN_SN_.exit108
 
 503:                                              ; preds = %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
-  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !122
-  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !122
+  %504 = load <2 x double>, ptr %351, align 8, !tbaa !30, !noalias !123
+  %505 = load <2 x double>, ptr %21, align 16, !tbaa !30, !noalias !123
   %506 = fsub <2 x double> %504, %505
-  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !125
+  %507 = load <2 x double>, ptr %363, align 16, !tbaa !30, !noalias !126
   %508 = fsub <2 x double> %507, %505
-  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !128
+  %509 = load <2 x double>, ptr %22, align 16, !tbaa !30, !noalias !129
   %510 = fsub <2 x double> %509, %505
   %511 = fmul <2 x double> %506, %506
   %shift230 = shufflevector <2 x double> %511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -2810,96 +2810,97 @@ attributes #7 = { nounwind }
 !35 = !{!36}
 !36 = distinct !{!36, !37, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
 !37 = distinct !{!37, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!42 = distinct !{!42, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!45 = distinct !{!45, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!48 = distinct !{!48, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!51 = distinct !{!51, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!54 = distinct !{!54, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!57 = distinct !{!57, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!60 = distinct !{!60, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!63 = distinct !{!63, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!66 = distinct !{!66, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!67 = !{!68, !15, i64 0}
-!68 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EEE", !15, i64 0, !10, i64 8}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!71 = distinct !{!71, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!74 = distinct !{!74, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!77 = distinct !{!77, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!80 = distinct !{!80, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!83 = distinct !{!83, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!86 = distinct !{!86, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!89 = distinct !{!89, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!92 = distinct !{!92, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!95 = distinct !{!95, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!98 = distinct !{!98, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!99 = !{!100, !15, i64 0}
-!100 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !15, i64 0, !25, i64 8, !26, i64 16}
-!101 = !{!102, !29, i64 24}
-!102 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !103, i64 0, !29, i64 24, !26, i64 32, !26, i64 40, !10, i64 48}
-!103 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi1EEE", !100, i64 0}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!106 = distinct !{!106, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!109 = distinct !{!109, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!112 = distinct !{!112, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!115 = distinct !{!115, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!118 = distinct !{!118, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!121 = distinct !{!121, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!124 = distinct !{!124, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!127 = distinct !{!127, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
-!130 = distinct !{!130, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!46 = distinct !{!46, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!49 = distinct !{!49, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!52 = distinct !{!52, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!55 = distinct !{!55, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!58 = distinct !{!58, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!61 = distinct !{!61, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!64 = distinct !{!64, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!67 = distinct !{!67, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!68 = !{!69, !15, i64 0}
+!69 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EEE", !15, i64 0, !10, i64 8}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!72 = distinct !{!72, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!78 = distinct !{!78, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!81 = distinct !{!81, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!84 = distinct !{!84, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!87 = distinct !{!87, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!90 = distinct !{!90, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!93 = distinct !{!93, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!96 = distinct !{!96, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!99 = distinct !{!99, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!100 = !{!101, !15, i64 0}
+!101 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !15, i64 0, !25, i64 8, !26, i64 16}
+!102 = !{!103, !29, i64 24}
+!103 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !104, i64 0, !29, i64 24, !26, i64 32, !26, i64 40, !10, i64 48}
+!104 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi1EEE", !101, i64 0}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!107 = distinct !{!107, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!110 = distinct !{!110, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!113 = distinct !{!113, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!116 = distinct !{!116, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!119 = distinct !{!119, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!122 = distinct !{!122, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!125 = distinct !{!125, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!128 = distinct !{!128, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv: argument 0"}
+!131 = distinct !{!131, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEES7_EEE4evalEv"}

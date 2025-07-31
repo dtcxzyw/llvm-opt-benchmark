@@ -8313,7 +8313,7 @@ define hidden void @av1_iidentity8_c(ptr noundef readonly captures(none) %0, ptr
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %5, !llvm.loop !6
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !7
 
 10:                                               ; preds = %5
   ret void
@@ -8336,7 +8336,7 @@ define hidden void @av1_iidentity16_c(ptr noundef readonly captures(none) %0, pt
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %14, label %5, !llvm.loop !7
+  br i1 %exitcond.not, label %14, label %5, !llvm.loop !8
 
 14:                                               ; preds = %5
   ret void
@@ -8355,7 +8355,7 @@ define hidden void @av1_iidentity32_c(ptr noundef readonly captures(none) %0, pt
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %10, label %5, !llvm.loop !8
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !9
 
 10:                                               ; preds = %5
   ret void
@@ -17368,8 +17368,9 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

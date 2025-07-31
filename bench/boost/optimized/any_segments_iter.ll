@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail12segment_iter7measureERm(ptr no
   %38 = add i64 %.sink.i, %.331.i
   %39 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %39, %12
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %17
   %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %17 ], [ %38, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -239,7 +239,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %.059.be = phi ptr [ %27, %26 ], [ %46, %34 ]
   %.031.be = getelementptr inbounds nuw i8, ptr %.03173, i64 1
   %.not = icmp eq ptr %.031.be, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 28:                                               ; preds = %.lr.ph
   %29 = icmp ugt ptr %.05972, %13
@@ -312,7 +312,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %.160.be = phi ptr [ %65, %64 ], [ %71, %70 ], [ %90, %78 ]
   %.1.be = getelementptr inbounds nuw i8, ptr %.176, i64 1
   %.not40 = icmp eq ptr %.1.be, %12
-  br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !29
+  br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !30
 
 66:                                               ; preds = %.lr.ph77
   %67 = icmp eq i8 %53, 32
@@ -431,7 +431,7 @@ define void @_ZN5boost4urls6detail18segments_iter_base12measure_implERmNS_4core1
   %32 = add i64 %.sink.i, %.331.i
   %33 = getelementptr inbounds nuw i8, ptr %.12030.i, i64 1
   %.not.i = icmp eq ptr %33, %6
-  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !27
+  br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %.preheader.i, %11
   %.2.i = phi i64 [ 0, %.preheader.i ], [ 0, %11 ], [ %32, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
@@ -484,14 +484,14 @@ define void @_ZN5boost4urls6detail20segment_encoded_iterC2ERKNS0_15pct_string_vi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost4urls6detail20segment_encoded_iter6rewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(46) initializes((45, 46)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  store i8 0, ptr %2, align 1, !tbaa !30
+  store i8 0, ptr %2, align 1, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5boost4urls6detail20segment_encoded_iter7measureERm(ptr noundef nonnull align 8 captures(none) dereferenceable(46) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %4 = load i8, ptr %3, align 1, !tbaa !30, !range !19, !noundef !20
+  %4 = load i8, ptr %3, align 1, !tbaa !31, !range !19, !noundef !20
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %26, label %6
 
@@ -534,14 +534,14 @@ define noundef zeroext i1 @_ZN5boost4urls6detail20segment_encoded_iter7measureER
   %23 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 %.sink.i
   %.2.i = add i64 %.1.v.pn.i, %.017.i
   %.not.i = icmp eq ptr %23, %11
-  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !33
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %22, %6
   %.0.lcssa.i = phi i64 [ 0, %6 ], [ %.2.i, %22 ]
   %24 = load i64, ptr %1, align 8, !tbaa !7
   %25 = add i64 %24, %.0.lcssa.i
   store i64 %25, ptr %1, align 8, !tbaa !7
-  store i8 1, ptr %3, align 1, !tbaa !30
+  store i8 1, ptr %3, align 1, !tbaa !31
   br label %26
 
 26:                                               ; preds = %2, %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit
@@ -628,7 +628,7 @@ define void @_ZN5boost4urls6detail20segment_encoded_iter4copyERPcPKc(ptr noundef
   %.231.i = phi ptr [ %44, %36 ], [ %.130.i, %34 ]
   %.1.i = phi ptr [ %42, %36 ], [ %35, %34 ]
   %.not.i = icmp eq ptr %.1.i, %9
-  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !34
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %45, %3
   %.029.lcssa.i = phi ptr [ %8, %3 ], [ %.231.i, %45 ]
@@ -669,7 +669,7 @@ define void @_ZN5boost4urls6detail26segments_encoded_iter_base12measure_implERmN
   %17 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 %.sink.i
   %.2.i = add i64 %.1.v.pn.i, %.017.i
   %.not.i = icmp eq ptr %17, %5
-  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !33
 
 _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %16, %4
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %.2.i, %16 ]
@@ -751,7 +751,7 @@ define void @_ZN5boost4urls6detail26segments_encoded_iter_base9copy_implERPcPKcN
   %.231.i = phi ptr [ %42, %34 ], [ %.130.i, %32 ]
   %.1.i = phi ptr [ %40, %34 ], [ %33, %32 ]
   %.not.i = icmp eq ptr %.1.i, %7
-  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i, !llvm.loop !34
 
 _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit: ; preds = %43, %5
   %.029.lcssa.i = phi ptr [ %6, %5 ], [ %.231.i, %43 ]
@@ -824,12 +824,13 @@ attributes #13 = { builtin nounwind }
 !22 = !{!"_ZTSN5boost4urls13encoding_optsE", !16, i64 0, !16, i64 1, !16, i64 2}
 !23 = !{!13, !16, i64 44}
 !24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = !{!31, !16, i64 45}
-!31 = !{!"_ZTSN5boost4urls6detail20segment_encoded_iterE", !13, i64 0, !16, i64 45}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !26, !27}
+!30 = distinct !{!30, !26, !27}
+!31 = !{!32, !16, i64 45}
+!32 = !{!"_ZTSN5boost4urls6detail20segment_encoded_iterE", !13, i64 0, !16, i64 45}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !26, !27}

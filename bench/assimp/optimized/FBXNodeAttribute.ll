@@ -804,19 +804,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
           to label %113 unwind label %166
 
 113:                                              ; preds = %111
-  call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %114 = load ptr, ptr %112, align 8, !noalias !6
+  call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %114 = load ptr, ptr %112, align 8, !noalias !7
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = load ptr, ptr %115, align 8, !noalias !6
+  %116 = load ptr, ptr %115, align 8, !noalias !7
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %117, ptr %11, align 8, !alias.scope !6
+  store ptr %117, ptr %11, align 8, !alias.scope !7
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %118, align 8, !alias.scope !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13, !noalias !6
+  store i64 0, ptr %118, align 8, !alias.scope !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13, !noalias !7
   %119 = ptrtoint ptr %116 to i64
   %120 = ptrtoint ptr %114 to i64
   %121 = sub i64 %119, %120
-  store i64 %121, ptr %7, align 8, !noalias !6
+  store i64 %121, ptr %7, align 8, !noalias !7
   %122 = icmp ugt i64 %121, 15
   br i1 %122, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -825,9 +825,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
           to label %.noexc121 unwind label %166
 
 .noexc121:                                        ; preds = %.noexc.i.i
-  store ptr %123, ptr %11, align 8, !alias.scope !6
-  %124 = load i64, ptr %7, align 8, !noalias !6
-  store i64 %124, ptr %117, align 8, !alias.scope !6
+  store ptr %123, ptr %11, align 8, !alias.scope !7
+  %124 = load i64, ptr %7, align 8, !noalias !7
+  store i64 %124, ptr %117, align 8, !alias.scope !7
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc121, %113
@@ -847,12 +847,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   br label %129
 
 129:                                              ; preds = %128, %126, %._crit_edge.i.i.i
-  %130 = load i64, ptr %7, align 8, !noalias !6
-  store i64 %130, ptr %118, align 8, !alias.scope !6
-  %131 = load ptr, ptr %11, align 8, !alias.scope !6
+  %130 = load i64, ptr %7, align 8, !noalias !7
+  store i64 %130, ptr %118, align 8, !alias.scope !7
+  %131 = load ptr, ptr %11, align 8, !alias.scope !7
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %130
   store i8 0, ptr %132, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13, !noalias !6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13, !noalias !7
   %133 = load ptr, ptr %13, align 8
   %134 = icmp eq ptr %133, %14
   br i1 %134, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
@@ -977,19 +977,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
           to label %176 unwind label %229
 
 176:                                              ; preds = %174
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %177 = load ptr, ptr %175, align 8, !noalias !9
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %177 = load ptr, ptr %175, align 8, !noalias !10
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %179 = load ptr, ptr %178, align 8, !noalias !9
+  %179 = load ptr, ptr %178, align 8, !noalias !10
   %180 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %180, ptr %12, align 8, !alias.scope !9
+  store ptr %180, ptr %12, align 8, !alias.scope !10
   %181 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %181, align 8, !alias.scope !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13, !noalias !9
+  store i64 0, ptr %181, align 8, !alias.scope !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13, !noalias !10
   %182 = ptrtoint ptr %179 to i64
   %183 = ptrtoint ptr %177 to i64
   %184 = sub i64 %182, %183
-  store i64 %184, ptr %6, align 8, !noalias !9
+  store i64 %184, ptr %6, align 8, !noalias !10
   %185 = icmp ugt i64 %184, 15
   br i1 %185, label %.noexc.i.i126, label %._crit_edge.i.i.i125
 
@@ -998,9 +998,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
           to label %.noexc127 unwind label %229
 
 .noexc127:                                        ; preds = %.noexc.i.i126
-  store ptr %186, ptr %12, align 8, !alias.scope !9
-  %187 = load i64, ptr %6, align 8, !noalias !9
-  store i64 %187, ptr %180, align 8, !alias.scope !9
+  store ptr %186, ptr %12, align 8, !alias.scope !10
+  %187 = load i64, ptr %6, align 8, !noalias !10
+  store i64 %187, ptr %180, align 8, !alias.scope !10
   br label %._crit_edge.i.i.i125
 
 ._crit_edge.i.i.i125:                             ; preds = %.noexc127, %176
@@ -1020,12 +1020,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
   br label %192
 
 192:                                              ; preds = %191, %189, %._crit_edge.i.i.i125
-  %193 = load i64, ptr %6, align 8, !noalias !9
-  store i64 %193, ptr %181, align 8, !alias.scope !9
-  %194 = load ptr, ptr %12, align 8, !alias.scope !9
+  %193 = load i64, ptr %6, align 8, !noalias !10
+  store i64 %193, ptr %181, align 8, !alias.scope !10
+  %194 = load ptr, ptr %12, align 8, !alias.scope !10
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 %193
   store i8 0, ptr %195, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13, !noalias !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13, !noalias !10
   %196 = load ptr, ptr %16, align 8
   %197 = icmp eq ptr %196, %17
   br i1 %197, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i135, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i129
@@ -2005,11 +2005,12 @@ attributes #16 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev: argument 0"}
-!8 = distinct !{!8, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev: argument 0"}
-!11 = distinct !{!11, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev: argument 0"}
+!9 = distinct !{!9, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev: argument 0"}
+!12 = distinct !{!12, !"_ZNK6Assimp3FBX5Token14StringContentsB5cxx11Ev"}

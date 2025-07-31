@@ -342,22 +342,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %161 = add nsw i64 %160, %159
   %162 = load ptr, ptr %59, align 8, !tbaa !43
   %163 = getelementptr inbounds nuw %struct.AAXSegment, ptr %162, i64 %.0188249.us
-  store i64 %161, ptr %163, align 8, !tbaa !54
+  store i64 %161, ptr %163, align 8, !tbaa !55
   %164 = add nsw i64 %161, %158
   %165 = getelementptr inbounds nuw %struct.AAXSegment, ptr %162, i64 %.0188249.us, i32 1
-  store i64 %164, ptr %165, align 8, !tbaa !56
+  store i64 %164, ptr %165, align 8, !tbaa !57
   %.not222.us = icmp eq i64 %.0188249.us, 0
   br i1 %.not222.us, label %174, label %166
 
 166:                                              ; preds = %157
   %167 = getelementptr i8, ptr %163, i64 -8
-  %168 = load i64, ptr %167, align 8, !tbaa !56
+  %168 = load i64, ptr %167, align 8, !tbaa !57
   %169 = icmp slt i64 %161, %168
   br i1 %169, label %170, label %174
 
 170:                                              ; preds = %166
   %171 = getelementptr i8, ptr %163, i64 -16
-  %172 = load i64, ptr %171, align 8, !tbaa !54
+  %172 = load i64, ptr %171, align 8, !tbaa !55
   %173 = icmp sgt i64 %164, %172
   br i1 %173, label %.critedge, label %174
 
@@ -366,7 +366,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %176 = load i32, ptr %35, align 4, !tbaa !40
   %177 = zext i32 %176 to i64
   %.not223.us = icmp samesign ult i64 %175, %177
-  br i1 %.not223.us, label %.lr.ph250.split.us, label %.loopexit.loopexit, !llvm.loop !57
+  br i1 %.not223.us, label %.lr.ph250.split.us, label %.loopexit.loopexit, !llvm.loop !58
 
 .lr.ph250.split:                                  ; preds = %.lr.ph250
   %178 = and i32 %136, 6
@@ -375,7 +375,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 179:                                              ; preds = %.lr.ph250.split
   %.mux = select i1 %.not219.not, ptr %16, ptr %38
-  %.pn = load i64, ptr %.mux, align 8, !tbaa !59
+  %.pn = load i64, ptr %.mux, align 8, !tbaa !60
   %.0195 = add i64 %.pn, %133
   %180 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %.0195, i32 noundef 0) #6
   %181 = icmp slt i64 %180, 0
@@ -395,12 +395,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %184 = zext i16 %183 to i64
   %.not224 = icmp samesign ult i64 %indvars.iv.next273, %184
-  br i1 %.not224, label %.lr.ph260, label %.thread240, !llvm.loop !60
+  br i1 %.not224, label %.lr.ph260, label %.thread240, !llvm.loop !61
 
 .thread240:                                       ; preds = %.loopexit, %.preheader
   %185 = load ptr, ptr %59, align 8, !tbaa !43
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load i64, ptr %186, align 8, !tbaa !56
+  %187 = load i64, ptr %186, align 8, !tbaa !57
   %.not225 = icmp eq i64 %187, 0
   br i1 %.not225, label %.critedge, label %188
 
@@ -411,13 +411,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 40
-  store i64 0, ptr %191, align 8, !tbaa !61
+  store i64 0, ptr %191, align 8, !tbaa !62
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %193 = load ptr, ptr %192, align 8, !tbaa !68
-  %194 = load ptr, ptr %193, align 8, !tbaa !69
+  %193 = load ptr, ptr %192, align 8, !tbaa !69
+  %194 = load ptr, ptr %193, align 8, !tbaa !70
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  %196 = load ptr, ptr %195, align 8, !tbaa !71
-  store i32 1, ptr %196, align 8, !tbaa !72
+  %196 = load ptr, ptr %195, align 8, !tbaa !72
+  store i32 1, ptr %196, align 8, !tbaa !73
   %197 = load ptr, ptr %69, align 8, !tbaa !45
   %198 = load i64, ptr %27, align 8, !tbaa !37
   %199 = getelementptr inbounds i8, ptr %197, i64 %198
@@ -427,9 +427,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 201:                                              ; preds = %190
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  store i32 69641, ptr %202, align 4, !tbaa !75
+  store i32 69641, ptr %202, align 4, !tbaa !76
   %203 = load ptr, ptr %59, align 8, !tbaa !43
-  %204 = load i64, ptr %203, align 8, !tbaa !54
+  %204 = load i64, ptr %203, align 8, !tbaa !55
   %205 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %204, i32 noundef 0) #6
   %206 = icmp slt i64 %205, 0
   br i1 %206, label %.critedge, label %207
@@ -453,17 +453,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 217:                                              ; preds = %213
   %218 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %219 = load ptr, ptr %218, align 8, !tbaa !76
+  %219 = load ptr, ptr %218, align 8, !tbaa !77
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 7
   %221 = load i8, ptr %220, align 1, !tbaa !11
   %222 = zext i8 %221 to i32
   %223 = getelementptr inbounds nuw i8, ptr %196, i64 132
-  store i32 %222, ptr %223, align 4, !tbaa !77
+  store i32 %222, ptr %223, align 4, !tbaa !78
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %225 = load i32, ptr %224, align 1, !tbaa !11
   %226 = tail call i32 @llvm.bswap.i32(i32 %225)
   %227 = getelementptr inbounds nuw i8, ptr %196, i64 152
-  store i32 %226, ptr %227, align 8, !tbaa !78
+  store i32 %226, ptr %227, align 8, !tbaa !79
   %.not229 = icmp eq i8 %221, 0
   %.not230 = icmp eq i32 %225, 0
   %or.cond232 = select i1 %.not229, i1 true, i1 %.not230
@@ -483,14 +483,14 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  %9 = load ptr, ptr %8, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  %13 = load i32, ptr %12, align 4, !tbaa !77
+  %13 = load i32, ptr %12, align 4, !tbaa !78
   %14 = mul nsw i32 %13, 18
   %15 = tail call i32 @avio_feof(ptr noundef %11) #6
   %.not = icmp eq i32 %15, 0
@@ -499,7 +499,7 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 16:                                               ; preds = %2
   %17 = tail call i64 @avio_seek(ptr noundef %11, i64 noundef 0, i32 noundef 1) #6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %17, ptr %18, align 8, !tbaa !79
+  store i64 %17, ptr %18, align 8, !tbaa !80
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !40
   %.not107 = icmp eq i32 %20, 0
@@ -514,9 +514,9 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 21:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %22 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !54
+  %23 = load i64, ptr %22, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !56
+  %25 = load i64, ptr %24, align 8, !tbaa !57
   %.not91 = icmp slt i64 %17, %23
   %.not92 = icmp sgt i64 %17, %25
   %or.cond = select i1 %.not91, i1 true, i1 %.not92
@@ -525,9 +525,9 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 26:                                               ; preds = %21
   %27 = trunc nuw i64 %indvars.iv to i32
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 %27, ptr %28, align 8, !tbaa !80
+  store i32 %27, ptr %28, align 8, !tbaa !81
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !75
+  %30 = load i32, ptr %29, align 4, !tbaa !76
   %31 = icmp eq i32 %30, 69641
   br i1 %31, label %32, label %.thread
 
@@ -541,15 +541,15 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 36:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %21, !llvm.loop !81
+  br i1 %exitcond.not, label %.thread, label %21, !llvm.loop !82
 
 .thread:                                          ; preds = %36, %16, %26, %32
   %.1 = phi i64 [ 0, %26 ], [ %35, %32 ], [ 0, %16 ], [ 0, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %38 = load i32, ptr %37, align 8, !tbaa !80
+  %38 = load i32, ptr %37, align 8, !tbaa !81
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %39, i32 1
-  %41 = load i64, ptr %40, align 8, !tbaa !56
+  %41 = load i64, ptr %40, align 8, !tbaa !57
   %42 = sub nsw i64 %41, %.1
   %.not93 = icmp slt i64 %17, %42
   br i1 %.not93, label %71, label %43
@@ -560,13 +560,13 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   br i1 %45, label %100, label %46
 
 46:                                               ; preds = %43
-  store i32 %44, ptr %37, align 8, !tbaa !80
+  store i32 %44, ptr %37, align 8, !tbaa !81
   %47 = zext i32 %44 to i64
   %48 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre, i64 %47
-  %49 = load i64, ptr %48, align 8, !tbaa !54
+  %49 = load i64, ptr %48, align 8, !tbaa !55
   %50 = tail call i64 @avio_seek(ptr noundef %11, i64 noundef %49, i32 noundef 0) #6
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !75
+  %52 = load i32, ptr %51, align 4, !tbaa !76
   %53 = icmp eq i32 %52, 69641
   br i1 %53, label %54, label %71
 
@@ -619,13 +619,13 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 1, ptr %77, align 8, !tbaa !82
+  store i64 1, ptr %77, align 8, !tbaa !83
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %78, align 4, !tbaa !83
-  %79 = load i64, ptr %18, align 8, !tbaa !79
+  store i32 0, ptr %78, align 4, !tbaa !84
+  %79 = load i64, ptr %18, align 8, !tbaa !80
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %80 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %81 = load i32, ptr %80, align 8, !tbaa !80
+  %81 = load i32, ptr %80, align 8, !tbaa !81
   %.not.i = icmp eq i32 %81, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !43
@@ -641,25 +641,25 @@ define internal i32 @aax_read_packet(ptr noundef readonly captures(none) %0, ptr
   %.0151.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %82 ]
   %83 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre.i, i64 %indvars.iv.i
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load i64, ptr %84, align 8, !tbaa !56
-  %86 = load i64, ptr %83, align 8, !tbaa !54
+  %85 = load i64, ptr %84, align 8, !tbaa !57
+  %86 = load i64, ptr %83, align 8, !tbaa !55
   %87 = sub nsw i64 %85, %86
   %88 = sdiv i64 %87, %.pre6.i
   %89 = add nsw i64 %88, %.0151.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %get_pts.exit, label %82, !llvm.loop !84
+  br i1 %exitcond.not.i, label %get_pts.exit, label %82, !llvm.loop !85
 
 get_pts.exit:                                     ; preds = %82, %76
   %.pre-phi.i = phi i64 [ 0, %76 ], [ %wide.trip.count.i, %82 ]
   %.015.lcssa.i = phi i64 [ 0, %76 ], [ %89, %82 ]
   %90 = getelementptr inbounds nuw %struct.AAXSegment, ptr %.pre.i, i64 %.pre-phi.i
-  %91 = load i64, ptr %90, align 8, !tbaa !54
+  %91 = load i64, ptr %90, align 8, !tbaa !55
   %92 = sub nsw i64 %79, %91
   %93 = sdiv i64 %92, %.pre6.i
   %94 = add nsw i64 %93, %.015.lcssa.i
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %94, ptr %95, align 8, !tbaa !85
+  store i64 %94, ptr %95, align 8, !tbaa !86
   %.not98 = icmp eq ptr %.078, null
   br i1 %.not98, label %100, label %96
 
@@ -799,37 +799,38 @@ attributes #7 = { nounwind willreturn memory(read) }
 !49 = !{!47, !10, i64 20}
 !50 = !{!47, !6, i64 8}
 !51 = !{!47, !10, i64 16}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !22, i64 0}
-!55 = !{!"AAXSegment", !22, i64 0, !22, i64 8}
-!56 = !{!55, !22, i64 8}
-!57 = distinct !{!57, !53, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = !{!22, !22, i64 0}
-!60 = distinct !{!60, !53}
-!61 = !{!62, !22, i64 40}
-!62 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !63, i64 16, !7, i64 24, !64, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !64, i64 72, !24, i64 80, !64, i64 88, !65, i64 96, !10, i64 200, !64, i64 204, !10, i64 212}
-!63 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!64 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!65 = !{!"AVPacket", !66, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !67, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !66, i64 88, !64, i64 96}
-!66 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!67 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!68 = !{!13, !18, i64 48}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!71 = !{!62, !63, i64 16}
-!72 = !{!73, !10, i64 0}
-!73 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !67, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !64, i64 80, !64, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !74, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!74 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!75 = !{!73, !10, i64 4}
-!76 = !{!73, !6, i64 16}
-!77 = !{!73, !10, i64 132}
-!78 = !{!73, !10, i64 152}
-!79 = !{!65, !22, i64 72}
-!80 = !{!29, !10, i64 80}
-!81 = distinct !{!81, !53}
-!82 = !{!65, !22, i64 64}
-!83 = !{!65, !10, i64 36}
-!84 = distinct !{!84, !53}
-!85 = !{!65, !22, i64 8}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!56, !22, i64 0}
+!56 = !{!"AAXSegment", !22, i64 0, !22, i64 8}
+!57 = !{!56, !22, i64 8}
+!58 = distinct !{!58, !53, !54, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = !{!22, !22, i64 0}
+!61 = distinct !{!61, !53, !54}
+!62 = !{!63, !22, i64 40}
+!63 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !64, i64 16, !7, i64 24, !65, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !65, i64 72, !24, i64 80, !65, i64 88, !66, i64 96, !10, i64 200, !65, i64 204, !10, i64 212}
+!64 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!65 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!66 = !{!"AVPacket", !67, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !68, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !67, i64 88, !65, i64 96}
+!67 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!68 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!69 = !{!13, !18, i64 48}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!72 = !{!63, !64, i64 16}
+!73 = !{!74, !10, i64 0}
+!74 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !68, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !65, i64 80, !65, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !75, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!75 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!76 = !{!74, !10, i64 4}
+!77 = !{!74, !6, i64 16}
+!78 = !{!74, !10, i64 132}
+!79 = !{!74, !10, i64 152}
+!80 = !{!66, !22, i64 72}
+!81 = !{!29, !10, i64 80}
+!82 = distinct !{!82, !53, !54}
+!83 = !{!66, !22, i64 64}
+!84 = !{!66, !10, i64 36}
+!85 = distinct !{!85, !53, !54}
+!86 = !{!66, !22, i64 8}

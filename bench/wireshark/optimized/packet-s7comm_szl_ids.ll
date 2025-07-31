@@ -4176,14 +4176,14 @@ switch.lookup:                                    ; preds = %684
   %696 = lshr i8 %.04147.i, 1
   %697 = add nuw nsw i32 %.03948.i, 1
   %exitcond.not.i = icmp eq i32 %697, 8
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %695, %688
   %698 = add nuw nsw i32 %.03751.i, 8
   %699 = add i32 %.03850.i, 1
   %700 = add nuw nsw i32 %.04049.i, 1
   %exitcond52.not.i = icmp eq i32 %700, 256
-  br i1 %exitcond52.not.i, label %s7comm_decode_szl_id_0x94_idx_xxxx.exit, label %688, !llvm.loop !9
+  br i1 %exitcond52.not.i, label %s7comm_decode_szl_id_0x94_idx_xxxx.exit, label %688, !llvm.loop !10
 
 s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   %701 = add i32 %.1232, 258
@@ -4291,7 +4291,7 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   %.3 = phi i32 [ %791, %788 ], [ %787, %759 ], [ %757, %702 ], [ %701, %s7comm_decode_szl_id_0x94_idx_xxxx.exit ], [ %673, %s7comm_decode_szl_id_xy92_idx_xxxx.exit ], [ %377, %s7comm_decode_szl_id_xy91_idx_0000.exit ], [ %348, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %.0.i222, %s7comm_decode_szl_id_xy1c_idx_000x.exit ], [ %228, %227 ], [ %226, %212 ], [ %211, %196 ], [ %195, %183 ], [ %182, %170 ], [ %169, %126 ], [ %124, %121 ], [ %.0.i220, %s7comm_decode_szl_id_xy00.exit ]
   %792 = add i16 %.0207231, 1
   %.not235 = icmp ugt i16 %792, %.0208
-  br i1 %.not235, label %.loopexit, label %113, !llvm.loop !10
+  br i1 %.not235, label %.loopexit, label %113, !llvm.loop !11
 
 793:                                              ; preds = %54
   %794 = zext i8 %4 to i32
@@ -5335,8 +5335,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

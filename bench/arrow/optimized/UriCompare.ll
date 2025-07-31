@@ -198,15 +198,15 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %9, label %.thread
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %0, align 8, !tbaa !24
+  %10 = load ptr, ptr %0, align 8, !tbaa !25
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %14 = load i32, ptr %13, align 8, !tbaa !30
+  %14 = load i32, ptr %13, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %16 = load i32, ptr %15, align 8, !tbaa !30
+  %16 = load i32, ptr %15, align 8, !tbaa !31
   %.not60 = icmp eq i32 %14, %16
   br i1 %.not60, label %17, label %.thread
 
@@ -219,30 +219,30 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !31
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = icmp eq ptr %23, null
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = icmp ne ptr %26, null
   %.not62 = xor i1 %24, %27
   br i1 %.not62, label %28, label %.thread
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = icmp eq ptr %30, null
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
   %34 = icmp ne ptr %33, null
   %.not63 = xor i1 %31, %34
   br i1 %.not63, label %35, label %.thread
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !33
+  %37 = load ptr, ptr %36, align 8, !tbaa !34
   %38 = icmp eq ptr %37, null
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  %40 = load ptr, ptr %39, align 8, !tbaa !34
   %41 = icmp ne ptr %40, null
   %.not64 = xor i1 %38, %41
   br i1 %.not64, label %42, label %.thread
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not71, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %47
-  %.pre = load ptr, ptr %22, align 8, !tbaa !31
+  %.pre = load ptr, ptr %22, align 8, !tbaa !32
   br label %49
 
 49:                                               ; preds = %._crit_edge, %46
@@ -281,12 +281,12 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr %29, align 8, !tbaa !32
+  %53 = load ptr, ptr %29, align 8, !tbaa !33
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %36, align 8, !tbaa !33
+  %56 = load ptr, ptr %36, align 8, !tbaa !34
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62
 
@@ -306,10 +306,10 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %68 = load ptr, ptr %67, align 8, !tbaa !34
+  %68 = load ptr, ptr %67, align 8, !tbaa !35
   %69 = icmp eq ptr %68, null
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %71 = load ptr, ptr %70, align 8, !tbaa !34
+  %71 = load ptr, ptr %70, align 8, !tbaa !35
   %72 = icmp ne ptr %71, null
   %.not74 = xor i1 %69, %72
   br i1 %.not74, label %73, label %.thread
@@ -326,16 +326,16 @@ define range(i32 0, 2) i32 @uriEqualsUriW(ptr noundef %0, ptr noundef %1) local_
 
 75:                                               ; preds = %.preheader
   %76 = getelementptr inbounds nuw i8, ptr %.052, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !35
+  %77 = load ptr, ptr %76, align 8, !tbaa !36
   %78 = icmp eq ptr %77, null
   %79 = getelementptr inbounds nuw i8, ptr %.051, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !35
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = icmp ne ptr %80, null
   %.not77 = xor i1 %78, %81
   br i1 %.not77, label %82, label %.thread
 
 82:                                               ; preds = %75
-  br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %82, %73
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -391,19 +391,20 @@ attributes #3 = { nounwind }
 !19 = !{!4, !13, i64 96}
 !20 = !{!21, !13, i64 16}
 !21 = !{!"UriPathSegmentStructA", !5, i64 0, !13, i64 16, !7, i64 24}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!25, !27, i64 0}
-!25 = !{!"UriUriStructW", !26, i64 0, !26, i64 16, !26, i64 32, !28, i64 48, !26, i64 80, !29, i64 96, !29, i64 104, !26, i64 112, !26, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
-!26 = !{!"UriTextRangeStructW", !27, i64 0, !27, i64 8}
-!27 = !{!"p1 int", !7, i64 0}
-!28 = !{!"UriHostDataStructW", !11, i64 0, !12, i64 8, !26, i64 16}
-!29 = !{!"p1 _ZTS21UriPathSegmentStructW", !7, i64 0}
-!30 = !{!25, !14, i64 144}
-!31 = !{!25, !11, i64 48}
-!32 = !{!25, !12, i64 56}
-!33 = !{!25, !27, i64 64}
-!34 = !{!25, !29, i64 96}
-!35 = !{!36, !29, i64 16}
-!36 = !{!"UriPathSegmentStructW", !26, i64 0, !29, i64 16, !7, i64 24}
-!37 = distinct !{!37, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !28, i64 0}
+!26 = !{!"UriUriStructW", !27, i64 0, !27, i64 16, !27, i64 32, !29, i64 48, !27, i64 80, !30, i64 96, !30, i64 104, !27, i64 112, !27, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
+!27 = !{!"UriTextRangeStructW", !28, i64 0, !28, i64 8}
+!28 = !{!"p1 int", !7, i64 0}
+!29 = !{!"UriHostDataStructW", !11, i64 0, !12, i64 8, !27, i64 16}
+!30 = !{!"p1 _ZTS21UriPathSegmentStructW", !7, i64 0}
+!31 = !{!26, !14, i64 144}
+!32 = !{!26, !11, i64 48}
+!33 = !{!26, !12, i64 56}
+!34 = !{!26, !28, i64 64}
+!35 = !{!26, !30, i64 96}
+!36 = !{!37, !30, i64 16}
+!37 = !{!"UriPathSegmentStructW", !27, i64 0, !30, i64 16, !7, i64 24}
+!38 = distinct !{!38, !23, !24}

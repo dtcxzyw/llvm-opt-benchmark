@@ -118,7 +118,7 @@ define hidden noundef i32 @_Z3ntzjPKj(i32 noundef %0, ptr noundef readonly captu
   %11 = add i32 %.01626, 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %10, %2, %7
   %spec.select = phi i32 [ %9, %7 ], [ 0, %2 ], [ %3, %10 ]
@@ -170,7 +170,7 @@ define hidden void @_Z4copyjPKjjPj(i32 noundef %0, ptr noundef readonly captures
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader24, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader24, label %.lr.ph, !llvm.loop !11
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv39 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next40, %.lr.ph31 ]
@@ -180,7 +180,7 @@ define hidden void @_Z4copyjPKjjPj(i32 noundef %0, ptr noundef readonly captures
   store i32 %17, ptr %18, align 4, !tbaa !3
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph31, !llvm.loop !11
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph31, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph31, %.lr.ph29.preheader, %.preheader24, %.preheader
   ret void
@@ -203,7 +203,7 @@ define hidden noundef zeroext i1 @_Z7is_zerojPKj(i32 noundef %0, ptr noundef rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa = phi i1 [ true, %2 ], [ %.not, %.lr.ph ]
@@ -291,7 +291,7 @@ define hidden void @_Z3shljPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   %31 = getelementptr inbounds nuw i32, ptr %4, i64 %30
   store i32 %29, ptr %31, align 4, !tbaa !3
   %.not101.wide = icmp eq i64 %26, 0
-  br i1 %.not101.wide, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %.not101.wide, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph114.preheader, %.preheader
   %.not103 = icmp eq i32 %7, 0
@@ -321,7 +321,7 @@ define hidden void @_Z3shljPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next138 to i32
   %exitcond.not = icmp eq i32 %37, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph118, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph118, !llvm.loop !15
 
 43:                                               ; preds = %5
   %narrow = sub nuw nsw i32 32, %7
@@ -350,7 +350,7 @@ define hidden void @_Z3shljPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   store i32 %50, ptr %48, align 4, !tbaa !3
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count
-  br i1 %exitcond142.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !15
+  br i1 %exitcond142.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !16
 
 51:                                               ; preds = %._crit_edge123
   %52 = zext i32 %spec.select to i64
@@ -449,7 +449,7 @@ define hidden void @_Z3shrjPKjjPj(i32 noundef %0, ptr noundef readonly captures(
   store i32 %25, ptr %18, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %26 = zext i32 %14 to i64
@@ -476,7 +476,7 @@ define hidden void @_Z3shrjPKjjPj(i32 noundef %0, ptr noundef readonly captures(
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %35 = add i32 %.188, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.lr.ph92.preheader, label %.lr.ph89, !llvm.loop !17
+  br i1 %exitcond108.not, label %.lr.ph92.preheader, label %.lr.ph89, !llvm.loop !18
 
 .lr.ph92.preheader:                               ; preds = %.lr.ph89, %._crit_edge
   %36 = zext i32 %11 to i64
@@ -508,7 +508,7 @@ define hidden void @_Z3shrjPKjjPj(i32 noundef %0, ptr noundef readonly captures(
   %53 = or disjoint i32 %52, %49
   store i32 %53, ptr %48, align 4, !tbaa !3
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge95.loopexit, label %.lr.ph94, !llvm.loop !18
+  br i1 %exitcond116.not, label %._crit_edge95.loopexit, label %.lr.ph94, !llvm.loop !19
 
 ._crit_edge95.loopexit:                           ; preds = %.lr.ph94
   %54 = zext i32 %12 to i64
@@ -587,7 +587,7 @@ define hidden void @_Z3shrjPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   store i32 %27, ptr %20, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %28 = zext i32 %16 to i64
@@ -634,7 +634,7 @@ define hidden void @_Z3shrjPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %45 = add i32 %.1120, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph122, !llvm.loop !20
+  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph122, !llvm.loop !21
 
 46:                                               ; preds = %10
   %47 = icmp ugt i32 %12, %3
@@ -661,7 +661,7 @@ define hidden void @_Z3shrjPKjjjPj(i32 noundef %0, ptr noundef readonly captures
   %56 = or disjoint i32 %55, %52
   store i32 %56, ptr %51, align 4, !tbaa !3
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge126, label %.lr.ph125, !llvm.loop !21
+  br i1 %exitcond146.not, label %._crit_edge126, label %.lr.ph125, !llvm.loop !22
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %46
   %57 = zext i32 %48 to i64
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @_Z23has_one_at_first_k_bitsjPKjj(i32 noundef %
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -764,7 +764,7 @@ define hidden noundef zeroext i1 @_Z3incjPj(i32 noundef %0, ptr noundef captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not10.lcssa = phi i1 [ false, %2 ], [ %.not.not, %.lr.ph ]
@@ -790,7 +790,7 @@ define hidden noundef zeroext i1 @_Z3decjPj(i32 noundef %0, ptr noundef captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not10.lcssa = phi i1 [ false, %2 ], [ %.not.not, %.lr.ph ]
@@ -818,7 +818,7 @@ define hidden noundef zeroext i1 @_Z2ltjPjS_(i32 noundef %0, ptr noundef readonl
 
 13:                                               ; preds = %6
   %14 = icmp ugt i32 %9, %11
-  br i1 %14, label %15, label %5, !llvm.loop !25
+  br i1 %14, label %15, label %5, !llvm.loop !26
 
 15:                                               ; preds = %5, %13, %6
   %.011 = phi i1 [ true, %6 ], [ false, %13 ], [ false, %5 ]
@@ -859,7 +859,7 @@ define hidden noundef zeroext i1 @_Z3addjPKjS0_Pj(i32 noundef %0, ptr noundef re
   %16 = zext i1 %15 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 }
 
 ; Function Attrs: uwtable
@@ -904,23 +904,24 @@ attributes #11 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}

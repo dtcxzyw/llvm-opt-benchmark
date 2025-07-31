@@ -72,10 +72,10 @@ define dso_local i32 @prun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !20
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
-  %18 = load ptr, ptr %1, align 8, !tbaa !22
+  %18 = load ptr, ptr %1, align 8, !tbaa !23
   %19 = call noalias ptr @pmix_basename(ptr noundef %18) #9
-  store ptr %19, ptr @prte_tool_basename, align 8, !tbaa !22
-  store ptr @.str, ptr @prte_tool_actual, align 8, !tbaa !22
+  store ptr %19, ptr @prte_tool_basename, align 8, !tbaa !23
+  store ptr @.str, ptr @prte_tool_actual, align 8, !tbaa !23
   %20 = call noalias ptr @pmix_argv_copy_strip(ptr noundef nonnull %1) #9
   %21 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 4097) #9
   %22 = call i32 @prte_init_minimum() #9
@@ -99,7 +99,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %.not64, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !24
   %32 = call i64 @fwrite(ptr nonnull @.str.1, i64 35, i64 1, ptr %31) #10
   call void @exit(i32 noundef 1) #11
   unreachable
@@ -124,7 +124,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   ]
 
 .preheader:                                       ; preds = %37
-  %39 = load ptr, ptr %1, align 8, !tbaa !22
+  %39 = load ptr, ptr %1, align 8, !tbaa !23
   %.not6786 = icmp eq ptr %39, null
   br i1 %.not6786, label %.loopexit, label %.lr.ph
 
@@ -136,9 +136,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 42:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
-  %44 = load ptr, ptr %43, align 8, !tbaa !22
+  %44 = load ptr, ptr %43, align 8, !tbaa !23
   %.not67 = icmp eq ptr %44, null
-  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
@@ -150,7 +150,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 48:                                               ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  %51 = load ptr, ptr %50, align 8, !tbaa !23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.preheader, %48
@@ -160,7 +160,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %.loopexit
-  %55 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !22
+  %55 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !23
   %56 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %55, ptr noundef %.0) #9
   br label %107
 
@@ -209,20 +209,20 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 
 pmix_obj_run_constructors.exit80:                 ; preds = %.lr.ph.i77, %66
   %75 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !22
-  %77 = load i8, ptr %76, align 1, !tbaa !26
+  %76 = load ptr, ptr %75, align 8, !tbaa !23
+  %77 = load i8, ptr %76, align 1, !tbaa !27
   %.not70 = icmp eq i8 %77, 45
   br i1 %.not70, label %81, label %78
 
 78:                                               ; preds = %pmix_obj_run_constructors.exit80
   %79 = call ptr @PMIx_Argv_copy(ptr noundef nonnull %75) #9
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store ptr %79, ptr %80, align 8, !tbaa !27
+  store ptr %79, ptr %80, align 8, !tbaa !28
   br label %99
 
 81:                                               ; preds = %pmix_obj_run_constructors.exit80
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !33
+  %83 = load ptr, ptr %82, align 8, !tbaa !34
   %84 = call i32 %83(ptr noundef nonnull %20, ptr noundef nonnull %5, i1 noundef zeroext false) #9
   %.not71 = icmp eq i32 %84, 0
   br i1 %.not71, label %99, label %85
@@ -230,7 +230,7 @@ pmix_obj_run_constructors.exit80:                 ; preds = %.lr.ph.i77, %66
 85:                                               ; preds = %81
   %86 = load ptr, ptr %67, align 8, !tbaa !14
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8, !tbaa !35
+  %88 = load ptr, ptr %87, align 8, !tbaa !36
   %89 = load ptr, ptr %88, align 8, !tbaa !19
   %.not6.i81 = icmp eq ptr %89, null
   br i1 %.not6.i81, label %pmix_obj_run_destructors.exit, label %.lr.ph.i82
@@ -242,7 +242,7 @@ pmix_obj_run_constructors.exit80:                 ; preds = %.lr.ph.i77, %66
   %91 = getelementptr inbounds nuw i8, ptr %.07.i83, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !19
   %.not.i84 = icmp eq ptr %92, null
-  br i1 %.not.i84, label %pmix_obj_run_destructors.exit, label %.lr.ph.i82, !llvm.loop !36
+  br i1 %.not.i84, label %pmix_obj_run_destructors.exit, label %.lr.ph.i82, !llvm.loop !37
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i82, %85
   switch i32 %84, label %93 [
@@ -251,8 +251,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i82, %85
   ]
 
 93:                                               ; preds = %pmix_obj_run_destructors.exit
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %95 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !22
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %95 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !23
   %96 = call ptr @prte_strerror(i32 noundef %84) #9
   %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.10, ptr noundef %95, ptr noundef %96) #13
   br label %98
@@ -267,7 +267,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i82, %85
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %104 = load ptr, ptr %103, align 8, !tbaa !37
+  %104 = load ptr, ptr %103, align 8, !tbaa !38
   call void %104(ptr noundef nonnull %5) #9
   br label %105
 
@@ -381,21 +381,22 @@ attributes #13 = { cold nounwind }
 !17 = !{!15, !5, i64 48}
 !18 = !{!9, !11, i64 40}
 !19 = !{!11, !11, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!10, !10, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!25 = distinct !{!25, !21}
-!26 = !{!6, !6, i64 0}
-!27 = !{!28, !32, i64 392}
-!28 = !{!"", !15, i64 0, !29, i64 120, !32, i64 392}
-!29 = !{!"pmix_list_t", !15, i64 0, !30, i64 120, !13, i64 264}
-!30 = !{!"pmix_list_item_t", !15, i64 0, !31, i64 120, !31, i64 128, !5, i64 136}
-!31 = !{!"p1 _ZTS16pmix_list_item_t", !11, i64 0}
-!32 = !{!"p2 omnipotent char", !11, i64 0}
-!33 = !{!34, !11, i64 16}
-!34 = !{!"", !10, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112}
-!35 = !{!9, !11, i64 48}
-!36 = distinct !{!36, !21}
-!37 = !{!34, !11, i64 40}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!10, !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!26 = distinct !{!26, !21, !22}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !33, i64 392}
+!29 = !{!"", !15, i64 0, !30, i64 120, !33, i64 392}
+!30 = !{!"pmix_list_t", !15, i64 0, !31, i64 120, !13, i64 264}
+!31 = !{!"pmix_list_item_t", !15, i64 0, !32, i64 120, !32, i64 128, !5, i64 136}
+!32 = !{!"p1 _ZTS16pmix_list_item_t", !11, i64 0}
+!33 = !{!"p2 omnipotent char", !11, i64 0}
+!34 = !{!35, !11, i64 16}
+!35 = !{!"", !10, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112}
+!36 = !{!9, !11, i64 48}
+!37 = distinct !{!37, !21, !22}
+!38 = !{!35, !11, i64 40}

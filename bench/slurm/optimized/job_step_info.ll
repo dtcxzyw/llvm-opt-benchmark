@@ -539,12 +539,12 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 152
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %107, label %69, !llvm.loop !11
+  br i1 %68, label %107, label %69, !llvm.loop !12
 
 69:                                               ; preds = %.lr.ph.i
   %70 = load i8, ptr %67, align 1
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %107, label %72, !llvm.loop !11
+  br i1 %71, label %107, label %72, !llvm.loop !12
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 280
@@ -626,7 +626,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
   %.166.i = phi i32 [ %106, %105 ], [ %.06599.i, %69 ], [ %.06599.i, %.lr.ph.i ]
   %108 = call ptr @list_next(ptr noundef %63) #11
   %.not.i19 = icmp eq ptr %108, null
-  br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %107
   call void @list_iterator_destroy(ptr noundef %63) #11
@@ -659,7 +659,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
 .thread.i:                                        ; preds = %114, %112, %.lr.ph102.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !14
 
 ._crit_edge103.i:                                 ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i
   call void @slurm_xfree(ptr noundef nonnull %8) #11
@@ -730,7 +730,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
   %151 = call ptr @list_next(ptr noundef %117) #11
   store ptr %151, ptr %6, align 8
   %.not79.i = icmp eq ptr %151, null
-  br i1 %.not79.i, label %._crit_edge108.loopexit.i, label %.lr.ph107.i, !llvm.loop !13
+  br i1 %.not79.i, label %._crit_edge108.loopexit.i, label %.lr.ph107.i, !llvm.loop !15
 
 ._crit_edge108.loopexit.i:                        ; preds = %150
   %152 = icmp eq ptr %.1.i, null
@@ -966,7 +966,7 @@ define dso_local ptr @slurm_job_step_layout_get(ptr noundef readonly captures(no
   store ptr null, ptr %39, align 8
   %41 = load ptr, ptr %5, align 8
   %.not9.not = icmp eq ptr %41, null
-  br i1 %.not9.not, label %42, label %.critedge10
+  br i1 %.not9.not, label %42, label %.critedge10, !llvm.loop !16
 
 42:                                               ; preds = %38
   %43 = tail call ptr @__errno_location() #12
@@ -1183,7 +1183,7 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %39, %41
   %.2 = phi i32 [ %73, %69 ], [ %.173, %51 ], [ 2017, %63 ], [ 2017, %60 ], [ %58, %64 ]
   %81 = call ptr @list_next(ptr noundef %43) #11
   %.not69 = icmp eq ptr %81, null
-  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %80, %42
   %.1.lcssa = phi i32 [ 0, %42 ], [ %.2, %80 ]
@@ -1454,7 +1454,7 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   %.2 = phi i32 [ %60, %56 ], [ %.161, %46 ], [ %53, %50 ]
   %66 = call ptr @list_next(ptr noundef %38) #11
   %.not57 = icmp eq ptr %66, null
-  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %65, %37
   %.1.lcssa = phi i32 [ 0, %37 ], [ %.2, %65 ]
@@ -1760,7 +1760,7 @@ _load_cluster_steps.exit:                         ; preds = %12, %17
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %2) #11
   %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 426, ptr noundef nonnull @__func__._load_step_thread) #11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i8, ptr %27, align 8, !range !16, !noundef !17
+  %28 = load i8, ptr %27, align 8, !range !19, !noundef !20
   store i8 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %14, ptr %29, align 8
@@ -1822,13 +1822,16 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = !{i8 0, i8 2}
-!17 = !{}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = !{i8 0, i8 2}
+!20 = !{}

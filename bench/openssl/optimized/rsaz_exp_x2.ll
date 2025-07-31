@@ -104,12 +104,12 @@ define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %0, ptr noun
   %.08.i.i = phi i64 [ 0, %72 ], [ %77, %73 ]
   %74 = shl i64 %.08.i.i, 8
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
-  %75 = load i8, ptr %gep.i.i, align 1, !tbaa !11
+  %75 = load i8, ptr %gep.i.i, align 1, !tbaa !12
   %76 = zext i8 %75 to i64
   %77 = or disjoint i64 %74, %76
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %78 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %78, label %73, label %get_digit.exit.i, !llvm.loop !12
+  br i1 %78, label %73, label %get_digit.exit.i, !llvm.loop !13
 
 get_digit.exit.i:                                 ; preds = %73
   %79 = and i64 %77, 4503599627370495
@@ -125,12 +125,12 @@ get_digit.exit.i:                                 ; preds = %73
   %.08.i39.i = phi i64 [ 0, %get_digit.exit.i ], [ %87, %83 ]
   %84 = shl i64 %.08.i39.i, 8
   %gep.i40.i = getelementptr i8, ptr %invariant.gep.i37.i, i64 %indvars.iv.i38.i
-  %85 = load i8, ptr %gep.i40.i, align 1, !tbaa !11
+  %85 = load i8, ptr %gep.i40.i, align 1, !tbaa !12
   %86 = zext i8 %85 to i64
   %87 = or disjoint i64 %84, %86
   %indvars.iv.next.i41.i = add nsw i64 %indvars.iv.i38.i, -1
   %88 = icmp samesign ugt i64 %indvars.iv.i38.i, 1
-  br i1 %88, label %83, label %get_digit.exit42.i, !llvm.loop !12
+  br i1 %88, label %83, label %get_digit.exit42.i, !llvm.loop !13
 
 get_digit.exit42.i:                               ; preds = %83
   %89 = lshr i64 %87, 4
@@ -156,12 +156,12 @@ get_digit.exit42.i:                               ; preds = %83
   %.08.i45.i = phi i64 [ 0, %94 ], [ %102, %98 ]
   %99 = shl i64 %.08.i45.i, 8
   %gep.i46.i = getelementptr i8, ptr %invariant.gep.i43.i, i64 %indvars.iv.i44.i
-  %100 = load i8, ptr %gep.i46.i, align 1, !tbaa !11
+  %100 = load i8, ptr %gep.i46.i, align 1, !tbaa !12
   %101 = zext i8 %100 to i64
   %102 = or disjoint i64 %99, %101
   %indvars.iv.next.i47.i = add nsw i64 %indvars.iv.i44.i, -1
   %103 = icmp samesign ugt i64 %indvars.iv.i44.i, 1
-  br i1 %103, label %98, label %get_digit.exit48.i, !llvm.loop !12
+  br i1 %103, label %98, label %get_digit.exit48.i, !llvm.loop !13
 
 get_digit.exit48.i:                               ; preds = %98
   store i64 %102, ptr %52, align 8, !tbaa !7
@@ -211,12 +211,12 @@ to_words52.exit:                                  ; preds = %get_digit.exit42.i,
   %.08.i.i134 = phi i64 [ 0, %119 ], [ %124, %120 ]
   %121 = shl i64 %.08.i.i134, 8
   %gep.i.i135 = getelementptr i8, ptr %invariant.gep.i.i132, i64 %indvars.iv.i.i133
-  %122 = load i8, ptr %gep.i.i135, align 1, !tbaa !11
+  %122 = load i8, ptr %gep.i.i135, align 1, !tbaa !12
   %123 = zext i8 %122 to i64
   %124 = or disjoint i64 %121, %123
   %indvars.iv.next.i.i136 = add nsw i64 %indvars.iv.i.i133, -1
   %125 = icmp samesign ugt i64 %indvars.iv.i.i133, 1
-  br i1 %125, label %120, label %get_digit.exit.i137, !llvm.loop !12
+  br i1 %125, label %120, label %get_digit.exit.i137, !llvm.loop !13
 
 get_digit.exit.i137:                              ; preds = %120
   %126 = and i64 %124, 4503599627370495
@@ -232,12 +232,12 @@ get_digit.exit.i137:                              ; preds = %120
   %.08.i39.i140 = phi i64 [ 0, %get_digit.exit.i137 ], [ %134, %130 ]
   %131 = shl i64 %.08.i39.i140, 8
   %gep.i40.i141 = getelementptr i8, ptr %invariant.gep.i37.i138, i64 %indvars.iv.i38.i139
-  %132 = load i8, ptr %gep.i40.i141, align 1, !tbaa !11
+  %132 = load i8, ptr %gep.i40.i141, align 1, !tbaa !12
   %133 = zext i8 %132 to i64
   %134 = or disjoint i64 %131, %133
   %indvars.iv.next.i41.i142 = add nsw i64 %indvars.iv.i38.i139, -1
   %135 = icmp samesign ugt i64 %indvars.iv.i38.i139, 1
-  br i1 %135, label %130, label %get_digit.exit42.i143, !llvm.loop !12
+  br i1 %135, label %130, label %get_digit.exit42.i143, !llvm.loop !13
 
 get_digit.exit42.i143:                            ; preds = %130
   %136 = lshr i64 %134, 4
@@ -263,12 +263,12 @@ get_digit.exit42.i143:                            ; preds = %130
   %.08.i45.i128 = phi i64 [ 0, %141 ], [ %149, %145 ]
   %146 = shl i64 %.08.i45.i128, 8
   %gep.i46.i129 = getelementptr i8, ptr %invariant.gep.i43.i126, i64 %indvars.iv.i44.i127
-  %147 = load i8, ptr %gep.i46.i129, align 1, !tbaa !11
+  %147 = load i8, ptr %gep.i46.i129, align 1, !tbaa !12
   %148 = zext i8 %147 to i64
   %149 = or disjoint i64 %146, %148
   %indvars.iv.next.i47.i130 = add nsw i64 %indvars.iv.i44.i127, -1
   %150 = icmp samesign ugt i64 %indvars.iv.i44.i127, 1
-  br i1 %150, label %145, label %get_digit.exit48.i131, !llvm.loop !12
+  br i1 %150, label %145, label %get_digit.exit48.i131, !llvm.loop !13
 
 get_digit.exit48.i131:                            ; preds = %145
   store i64 %149, ptr %116, align 8, !tbaa !7
@@ -318,12 +318,12 @@ to_words52.exit151:                               ; preds = %get_digit.exit42.i1
   %.08.i.i167 = phi i64 [ 0, %166 ], [ %171, %167 ]
   %168 = shl i64 %.08.i.i167, 8
   %gep.i.i168 = getelementptr i8, ptr %invariant.gep.i.i165, i64 %indvars.iv.i.i166
-  %169 = load i8, ptr %gep.i.i168, align 1, !tbaa !11
+  %169 = load i8, ptr %gep.i.i168, align 1, !tbaa !12
   %170 = zext i8 %169 to i64
   %171 = or disjoint i64 %168, %170
   %indvars.iv.next.i.i169 = add nsw i64 %indvars.iv.i.i166, -1
   %172 = icmp samesign ugt i64 %indvars.iv.i.i166, 1
-  br i1 %172, label %167, label %get_digit.exit.i170, !llvm.loop !12
+  br i1 %172, label %167, label %get_digit.exit.i170, !llvm.loop !13
 
 get_digit.exit.i170:                              ; preds = %167
   %173 = and i64 %171, 4503599627370495
@@ -339,12 +339,12 @@ get_digit.exit.i170:                              ; preds = %167
   %.08.i39.i173 = phi i64 [ 0, %get_digit.exit.i170 ], [ %181, %177 ]
   %178 = shl i64 %.08.i39.i173, 8
   %gep.i40.i174 = getelementptr i8, ptr %invariant.gep.i37.i171, i64 %indvars.iv.i38.i172
-  %179 = load i8, ptr %gep.i40.i174, align 1, !tbaa !11
+  %179 = load i8, ptr %gep.i40.i174, align 1, !tbaa !12
   %180 = zext i8 %179 to i64
   %181 = or disjoint i64 %178, %180
   %indvars.iv.next.i41.i175 = add nsw i64 %indvars.iv.i38.i172, -1
   %182 = icmp samesign ugt i64 %indvars.iv.i38.i172, 1
-  br i1 %182, label %177, label %get_digit.exit42.i176, !llvm.loop !12
+  br i1 %182, label %177, label %get_digit.exit42.i176, !llvm.loop !13
 
 get_digit.exit42.i176:                            ; preds = %177
   %183 = lshr i64 %181, 4
@@ -370,12 +370,12 @@ get_digit.exit42.i176:                            ; preds = %177
   %.08.i45.i161 = phi i64 [ 0, %188 ], [ %196, %192 ]
   %193 = shl i64 %.08.i45.i161, 8
   %gep.i46.i162 = getelementptr i8, ptr %invariant.gep.i43.i159, i64 %indvars.iv.i44.i160
-  %194 = load i8, ptr %gep.i46.i162, align 1, !tbaa !11
+  %194 = load i8, ptr %gep.i46.i162, align 1, !tbaa !12
   %195 = zext i8 %194 to i64
   %196 = or disjoint i64 %193, %195
   %indvars.iv.next.i47.i163 = add nsw i64 %indvars.iv.i44.i160, -1
   %197 = icmp samesign ugt i64 %indvars.iv.i44.i160, 1
-  br i1 %197, label %192, label %get_digit.exit48.i164, !llvm.loop !12
+  br i1 %197, label %192, label %get_digit.exit48.i164, !llvm.loop !13
 
 get_digit.exit48.i164:                            ; preds = %192
   store i64 %196, ptr %163, align 8, !tbaa !7
@@ -425,12 +425,12 @@ to_words52.exit184:                               ; preds = %get_digit.exit42.i1
   %.08.i.i200 = phi i64 [ 0, %213 ], [ %218, %214 ]
   %215 = shl i64 %.08.i.i200, 8
   %gep.i.i201 = getelementptr i8, ptr %invariant.gep.i.i198, i64 %indvars.iv.i.i199
-  %216 = load i8, ptr %gep.i.i201, align 1, !tbaa !11
+  %216 = load i8, ptr %gep.i.i201, align 1, !tbaa !12
   %217 = zext i8 %216 to i64
   %218 = or disjoint i64 %215, %217
   %indvars.iv.next.i.i202 = add nsw i64 %indvars.iv.i.i199, -1
   %219 = icmp samesign ugt i64 %indvars.iv.i.i199, 1
-  br i1 %219, label %214, label %get_digit.exit.i203, !llvm.loop !12
+  br i1 %219, label %214, label %get_digit.exit.i203, !llvm.loop !13
 
 get_digit.exit.i203:                              ; preds = %214
   %220 = and i64 %218, 4503599627370495
@@ -446,12 +446,12 @@ get_digit.exit.i203:                              ; preds = %214
   %.08.i39.i206 = phi i64 [ 0, %get_digit.exit.i203 ], [ %228, %224 ]
   %225 = shl i64 %.08.i39.i206, 8
   %gep.i40.i207 = getelementptr i8, ptr %invariant.gep.i37.i204, i64 %indvars.iv.i38.i205
-  %226 = load i8, ptr %gep.i40.i207, align 1, !tbaa !11
+  %226 = load i8, ptr %gep.i40.i207, align 1, !tbaa !12
   %227 = zext i8 %226 to i64
   %228 = or disjoint i64 %225, %227
   %indvars.iv.next.i41.i208 = add nsw i64 %indvars.iv.i38.i205, -1
   %229 = icmp samesign ugt i64 %indvars.iv.i38.i205, 1
-  br i1 %229, label %224, label %get_digit.exit42.i209, !llvm.loop !12
+  br i1 %229, label %224, label %get_digit.exit42.i209, !llvm.loop !13
 
 get_digit.exit42.i209:                            ; preds = %224
   %230 = lshr i64 %228, 4
@@ -477,12 +477,12 @@ get_digit.exit42.i209:                            ; preds = %224
   %.08.i45.i194 = phi i64 [ 0, %235 ], [ %243, %239 ]
   %240 = shl i64 %.08.i45.i194, 8
   %gep.i46.i195 = getelementptr i8, ptr %invariant.gep.i43.i192, i64 %indvars.iv.i44.i193
-  %241 = load i8, ptr %gep.i46.i195, align 1, !tbaa !11
+  %241 = load i8, ptr %gep.i46.i195, align 1, !tbaa !12
   %242 = zext i8 %241 to i64
   %243 = or disjoint i64 %240, %242
   %indvars.iv.next.i47.i196 = add nsw i64 %indvars.iv.i44.i193, -1
   %244 = icmp samesign ugt i64 %indvars.iv.i44.i193, 1
-  br i1 %244, label %239, label %get_digit.exit48.i197, !llvm.loop !12
+  br i1 %244, label %239, label %get_digit.exit48.i197, !llvm.loop !13
 
 get_digit.exit48.i197:                            ; preds = %239
   store i64 %243, ptr %210, align 8, !tbaa !7
@@ -532,12 +532,12 @@ to_words52.exit217:                               ; preds = %get_digit.exit42.i2
   %.08.i.i233 = phi i64 [ 0, %260 ], [ %265, %261 ]
   %262 = shl i64 %.08.i.i233, 8
   %gep.i.i234 = getelementptr i8, ptr %invariant.gep.i.i231, i64 %indvars.iv.i.i232
-  %263 = load i8, ptr %gep.i.i234, align 1, !tbaa !11
+  %263 = load i8, ptr %gep.i.i234, align 1, !tbaa !12
   %264 = zext i8 %263 to i64
   %265 = or disjoint i64 %262, %264
   %indvars.iv.next.i.i235 = add nsw i64 %indvars.iv.i.i232, -1
   %266 = icmp samesign ugt i64 %indvars.iv.i.i232, 1
-  br i1 %266, label %261, label %get_digit.exit.i236, !llvm.loop !12
+  br i1 %266, label %261, label %get_digit.exit.i236, !llvm.loop !13
 
 get_digit.exit.i236:                              ; preds = %261
   %267 = and i64 %265, 4503599627370495
@@ -553,12 +553,12 @@ get_digit.exit.i236:                              ; preds = %261
   %.08.i39.i239 = phi i64 [ 0, %get_digit.exit.i236 ], [ %275, %271 ]
   %272 = shl i64 %.08.i39.i239, 8
   %gep.i40.i240 = getelementptr i8, ptr %invariant.gep.i37.i237, i64 %indvars.iv.i38.i238
-  %273 = load i8, ptr %gep.i40.i240, align 1, !tbaa !11
+  %273 = load i8, ptr %gep.i40.i240, align 1, !tbaa !12
   %274 = zext i8 %273 to i64
   %275 = or disjoint i64 %272, %274
   %indvars.iv.next.i41.i241 = add nsw i64 %indvars.iv.i38.i238, -1
   %276 = icmp samesign ugt i64 %indvars.iv.i38.i238, 1
-  br i1 %276, label %271, label %get_digit.exit42.i242, !llvm.loop !12
+  br i1 %276, label %271, label %get_digit.exit42.i242, !llvm.loop !13
 
 get_digit.exit42.i242:                            ; preds = %271
   %277 = lshr i64 %275, 4
@@ -584,12 +584,12 @@ get_digit.exit42.i242:                            ; preds = %271
   %.08.i45.i227 = phi i64 [ 0, %282 ], [ %290, %286 ]
   %287 = shl i64 %.08.i45.i227, 8
   %gep.i46.i228 = getelementptr i8, ptr %invariant.gep.i43.i225, i64 %indvars.iv.i44.i226
-  %288 = load i8, ptr %gep.i46.i228, align 1, !tbaa !11
+  %288 = load i8, ptr %gep.i46.i228, align 1, !tbaa !12
   %289 = zext i8 %288 to i64
   %290 = or disjoint i64 %287, %289
   %indvars.iv.next.i47.i229 = add nsw i64 %indvars.iv.i44.i226, -1
   %291 = icmp samesign ugt i64 %indvars.iv.i44.i226, 1
-  br i1 %291, label %286, label %get_digit.exit48.i230, !llvm.loop !12
+  br i1 %291, label %286, label %get_digit.exit48.i230, !llvm.loop !13
 
 get_digit.exit48.i230:                            ; preds = %286
   store i64 %290, ptr %257, align 8, !tbaa !7
@@ -639,12 +639,12 @@ to_words52.exit250:                               ; preds = %get_digit.exit42.i2
   %.08.i.i266 = phi i64 [ 0, %307 ], [ %312, %308 ]
   %309 = shl i64 %.08.i.i266, 8
   %gep.i.i267 = getelementptr i8, ptr %invariant.gep.i.i264, i64 %indvars.iv.i.i265
-  %310 = load i8, ptr %gep.i.i267, align 1, !tbaa !11
+  %310 = load i8, ptr %gep.i.i267, align 1, !tbaa !12
   %311 = zext i8 %310 to i64
   %312 = or disjoint i64 %309, %311
   %indvars.iv.next.i.i268 = add nsw i64 %indvars.iv.i.i265, -1
   %313 = icmp samesign ugt i64 %indvars.iv.i.i265, 1
-  br i1 %313, label %308, label %get_digit.exit.i269, !llvm.loop !12
+  br i1 %313, label %308, label %get_digit.exit.i269, !llvm.loop !13
 
 get_digit.exit.i269:                              ; preds = %308
   %314 = and i64 %312, 4503599627370495
@@ -660,12 +660,12 @@ get_digit.exit.i269:                              ; preds = %308
   %.08.i39.i272 = phi i64 [ 0, %get_digit.exit.i269 ], [ %322, %318 ]
   %319 = shl i64 %.08.i39.i272, 8
   %gep.i40.i273 = getelementptr i8, ptr %invariant.gep.i37.i270, i64 %indvars.iv.i38.i271
-  %320 = load i8, ptr %gep.i40.i273, align 1, !tbaa !11
+  %320 = load i8, ptr %gep.i40.i273, align 1, !tbaa !12
   %321 = zext i8 %320 to i64
   %322 = or disjoint i64 %319, %321
   %indvars.iv.next.i41.i274 = add nsw i64 %indvars.iv.i38.i271, -1
   %323 = icmp samesign ugt i64 %indvars.iv.i38.i271, 1
-  br i1 %323, label %318, label %get_digit.exit42.i275, !llvm.loop !12
+  br i1 %323, label %318, label %get_digit.exit42.i275, !llvm.loop !13
 
 get_digit.exit42.i275:                            ; preds = %318
   %324 = lshr i64 %322, 4
@@ -691,12 +691,12 @@ get_digit.exit42.i275:                            ; preds = %318
   %.08.i45.i260 = phi i64 [ 0, %329 ], [ %337, %333 ]
   %334 = shl i64 %.08.i45.i260, 8
   %gep.i46.i261 = getelementptr i8, ptr %invariant.gep.i43.i258, i64 %indvars.iv.i44.i259
-  %335 = load i8, ptr %gep.i46.i261, align 1, !tbaa !11
+  %335 = load i8, ptr %gep.i46.i261, align 1, !tbaa !12
   %336 = zext i8 %335 to i64
   %337 = or disjoint i64 %334, %336
   %indvars.iv.next.i47.i262 = add nsw i64 %indvars.iv.i44.i259, -1
   %338 = icmp samesign ugt i64 %indvars.iv.i44.i259, 1
-  br i1 %338, label %333, label %get_digit.exit48.i263, !llvm.loop !12
+  br i1 %338, label %333, label %get_digit.exit48.i263, !llvm.loop !13
 
 get_digit.exit48.i263:                            ; preds = %333
   store i64 %337, ptr %304, align 8, !tbaa !7
@@ -807,7 +807,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   call void %365(ptr noundef nonnull %399, ptr noundef nonnull %394, ptr noundef nonnull %390, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %400, label %391, !llvm.loop !13
+  br i1 %exitcond.not.i, label %400, label %391, !llvm.loop !14
 
 400:                                              ; preds = %391
   %401 = shl nuw nsw i32 %.0210.i, 6
@@ -911,7 +911,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %386, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %465 = icmp samesign ugt i32 %.020712.in.i, 9
-  br i1 %465, label %.lr.ph.i284, label %466, !llvm.loop !14
+  br i1 %465, label %.lr.ph.i284, label %466, !llvm.loop !15
 
 466:                                              ; preds = %460
   %467 = shl nuw nsw i64 %385, 3
@@ -952,7 +952,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %481 = add nsw i32 %.047.i, -104
   %482 = getelementptr inbounds nuw i8, ptr %.03145.i, i64 16
   %483 = icmp samesign ugt i32 %.047.i, 207
-  br i1 %483, label %.lr.ph48.i, label %._crit_edge.i286, !llvm.loop !15
+  br i1 %483, label %.lr.ph48.i, label %._crit_edge.i286, !llvm.loop !16
 
 ._crit_edge.i286:                                 ; preds = %.lr.ph48.i
   %484 = icmp samesign ugt i32 %.047.i, 156
@@ -968,11 +968,11 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %.056.i.i = phi ptr [ %488, %.lr.ph.i.i ], [ %480, %485 ]
   %487 = trunc i64 %.08.i.i290 to i8
   %488 = getelementptr inbounds nuw i8, ptr %.056.i.i, i64 1
-  store i8 %487, ptr %.056.i.i, align 1, !tbaa !11
+  store i8 %487, ptr %.056.i.i, align 1, !tbaa !12
   %489 = lshr i64 %.08.i.i290, 8
   %490 = add nsw i32 %.047.i.i, -1
   %491 = icmp samesign ugt i32 %.047.i.i, 1
-  br i1 %491, label %.lr.ph.i.i, label %put_digit.exit.i, !llvm.loop !16
+  br i1 %491, label %.lr.ph.i.i, label %put_digit.exit.i, !llvm.loop !17
 
 put_digit.exit.i:                                 ; preds = %.lr.ph.i.i
   %492 = getelementptr inbounds nuw i8, ptr %.03046.i, i64 19
@@ -991,11 +991,11 @@ put_digit.exit.i:                                 ; preds = %.lr.ph.i.i
   %.056.i36.i = phi ptr [ %501, %.lr.ph.i33.i ], [ %492, %put_digit.exit.i ]
   %500 = trunc i64 %.08.i34.i to i8
   %501 = getelementptr inbounds nuw i8, ptr %.056.i36.i, i64 1
-  store i8 %500, ptr %.056.i36.i, align 1, !tbaa !11
+  store i8 %500, ptr %.056.i36.i, align 1, !tbaa !12
   %502 = lshr i64 %.08.i34.i, 8
   %503 = add nsw i32 %.047.i35.i, -1
   %504 = icmp samesign ugt i32 %.047.i35.i, 1
-  br i1 %504, label %.lr.ph.i33.i, label %from_words52.exit, !llvm.loop !16
+  br i1 %504, label %.lr.ph.i33.i, label %from_words52.exit, !llvm.loop !17
 
 505:                                              ; preds = %._crit_edge.i286
   %.not.i288 = icmp eq i32 %481, 0
@@ -1017,11 +1017,11 @@ put_digit.exit.i:                                 ; preds = %.lr.ph.i.i
   %.056.i41.i = phi ptr [ %512, %.lr.ph.i38.i ], [ %480, %.lr.ph.i38.preheader.i ]
   %511 = trunc i64 %.08.i39.i289 to i8
   %512 = getelementptr inbounds nuw i8, ptr %.056.i41.i, i64 1
-  store i8 %511, ptr %.056.i41.i, align 1, !tbaa !11
+  store i8 %511, ptr %.056.i41.i, align 1, !tbaa !12
   %513 = lshr i64 %.08.i39.i289, 8
   %514 = add nsw i32 %.047.i40.i, -1
   %515 = icmp samesign ugt i32 %.047.i40.i, 1
-  br i1 %515, label %.lr.ph.i38.i, label %from_words52.exit, !llvm.loop !16
+  br i1 %515, label %.lr.ph.i38.i, label %from_words52.exit, !llvm.loop !17
 
 from_words52.exit:                                ; preds = %.lr.ph.i38.i, %.lr.ph.i33.i, %505, %506
   br i1 %470, label %.lr.ph.preheader.i316, label %.lr.ph48.i312.preheader
@@ -1052,7 +1052,7 @@ from_words52.exit:                                ; preds = %.lr.ph.i38.i, %.lr.
   %526 = add nsw i32 %.047.i313, -104
   %527 = getelementptr inbounds nuw i8, ptr %.03145.i315, i64 16
   %528 = icmp samesign ugt i32 %.047.i313, 207
-  br i1 %528, label %.lr.ph48.i312, label %._crit_edge.i293, !llvm.loop !15
+  br i1 %528, label %.lr.ph48.i312, label %._crit_edge.i293, !llvm.loop !16
 
 ._crit_edge.i293:                                 ; preds = %.lr.ph48.i312
   %529 = icmp samesign ugt i32 %.047.i313, 156
@@ -1068,11 +1068,11 @@ from_words52.exit:                                ; preds = %.lr.ph.i38.i, %.lr.
   %.056.i.i306 = phi ptr [ %533, %.lr.ph.i.i303 ], [ %525, %530 ]
   %532 = trunc i64 %.08.i.i304 to i8
   %533 = getelementptr inbounds nuw i8, ptr %.056.i.i306, i64 1
-  store i8 %532, ptr %.056.i.i306, align 1, !tbaa !11
+  store i8 %532, ptr %.056.i.i306, align 1, !tbaa !12
   %534 = lshr i64 %.08.i.i304, 8
   %535 = add nsw i32 %.047.i.i305, -1
   %536 = icmp samesign ugt i32 %.047.i.i305, 1
-  br i1 %536, label %.lr.ph.i.i303, label %put_digit.exit.i307, !llvm.loop !16
+  br i1 %536, label %.lr.ph.i.i303, label %put_digit.exit.i307, !llvm.loop !17
 
 put_digit.exit.i307:                              ; preds = %.lr.ph.i.i303
   %537 = getelementptr inbounds nuw i8, ptr %.03046.i314, i64 19
@@ -1091,11 +1091,11 @@ put_digit.exit.i307:                              ; preds = %.lr.ph.i.i303
   %.056.i36.i311 = phi ptr [ %546, %.lr.ph.i33.i308 ], [ %537, %put_digit.exit.i307 ]
   %545 = trunc i64 %.08.i34.i309 to i8
   %546 = getelementptr inbounds nuw i8, ptr %.056.i36.i311, i64 1
-  store i8 %545, ptr %.056.i36.i311, align 1, !tbaa !11
+  store i8 %545, ptr %.056.i36.i311, align 1, !tbaa !12
   %547 = lshr i64 %.08.i34.i309, 8
   %548 = add nsw i32 %.047.i35.i310, -1
   %549 = icmp samesign ugt i32 %.047.i35.i310, 1
-  br i1 %549, label %.lr.ph.i33.i308, label %from_words52.exit317, !llvm.loop !16
+  br i1 %549, label %.lr.ph.i33.i308, label %from_words52.exit317, !llvm.loop !17
 
 550:                                              ; preds = %._crit_edge.i293
   %.not.i297 = icmp eq i32 %526, 0
@@ -1117,11 +1117,11 @@ put_digit.exit.i307:                              ; preds = %.lr.ph.i.i303
   %.056.i41.i302 = phi ptr [ %557, %.lr.ph.i38.i299 ], [ %525, %.lr.ph.i38.preheader.i298 ]
   %556 = trunc i64 %.08.i39.i300 to i8
   %557 = getelementptr inbounds nuw i8, ptr %.056.i41.i302, i64 1
-  store i8 %556, ptr %.056.i41.i302, align 1, !tbaa !11
+  store i8 %556, ptr %.056.i41.i302, align 1, !tbaa !12
   %558 = lshr i64 %.08.i39.i300, 8
   %559 = add nsw i32 %.047.i40.i301, -1
   %560 = icmp samesign ugt i32 %.047.i40.i301, 1
-  br i1 %560, label %.lr.ph.i38.i299, label %from_words52.exit317, !llvm.loop !16
+  br i1 %560, label %.lr.ph.i38.i299, label %from_words52.exit317, !llvm.loop !17
 
 from_words52.exit317:                             ; preds = %.lr.ph.i38.i299, %.lr.ph.i33.i308, %550, %551
   %561 = lshr exact i32 %12, 6
@@ -1136,9 +1136,9 @@ bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit31
 
 .lr.ph.i.i318:                                    ; preds = %from_words52.exit317
   %565 = sub i64 0, %563
-  %566 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %565) #8, !srcloc !17
+  %566 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %565) #8, !srcloc !18
   %567 = add i64 %563, -1
-  %568 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %567) #8, !srcloc !17
+  %568 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %567) #8, !srcloc !18
   br label %569
 
 569:                                              ; preds = %569, %.lr.ph.i.i318
@@ -1153,14 +1153,14 @@ bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit31
   store i64 %576, ptr %570, align 8, !tbaa !7
   %577 = add nuw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %577, %562
-  br i1 %exitcond.not.i.i, label %.lr.ph.i.i320, label %569, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %.lr.ph.i.i320, label %569, !llvm.loop !19
 
 .lr.ph.i.i320:                                    ; preds = %569
   %578 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %6, ptr noundef %9, i32 noundef %561) #6
   %579 = sub i64 0, %578
-  %580 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %579) #8, !srcloc !17
+  %580 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %579) #8, !srcloc !18
   %581 = add i64 %578, -1
-  %582 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %581) #8, !srcloc !17
+  %582 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %581) #8, !srcloc !18
   br label %583
 
 583:                                              ; preds = %583, %.lr.ph.i.i320
@@ -1175,7 +1175,7 @@ bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit31
   store i64 %590, ptr %584, align 8, !tbaa !7
   %591 = add nuw i64 %.09.i.i321, 1
   %exitcond.not.i.i322 = icmp eq i64 %591, %562
-  br i1 %exitcond.not.i.i322, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %583, !llvm.loop !18
+  br i1 %exitcond.not.i.i322, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %583, !llvm.loop !19
 
 RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %583, %370, %359, %to_words52.exit283, %bn_reduce_once_in_place.exit.thread
   %.0.ph = phi i32 [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit283 ], [ 0, %359 ], [ 0, %370 ], [ 1, %583 ]
@@ -1273,13 +1273,14 @@ attributes #8 = { nounwind memory(none) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = !{i64 773004}
-!18 = distinct !{!18, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = !{i64 773004}
+!19 = distinct !{!19, !10, !11}

@@ -295,7 +295,7 @@ PyObject_TypeCheck.exit:                          ; preds = %2
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %2, %5, %PyObject_TypeCheck.exit
   %8 = getelementptr i8, ptr %0, i64 16
-  %.val8 = load ptr, ptr %8, align 8, !tbaa !39
+  %.val8 = load ptr, ptr %8, align 8, !tbaa !40
   %9 = icmp eq ptr %.val8, @_Py_NoneStruct
   br i1 %9, label %_PyWeakref_IS_DEAD.exit, label %10
 
@@ -399,7 +399,8 @@ attributes #3 = { nounwind }
 !34 = !{!35, !35, i64 0}
 !35 = !{!"p1 _ZTS16_PyWeakReference", !6, i64 0}
 !36 = !{!7, !7, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !5, i64 16}
-!40 = !{!"_PyWeakReference", !10, i64 0, !5, i64 16, !5, i64 24, !15, i64 32, !35, i64 40, !35, i64 48, !6, i64 56}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!41, !5, i64 16}
+!41 = !{!"_PyWeakReference", !10, i64 0, !5, i64 16, !5, i64 24, !15, i64 32, !35, i64 40, !35, i64 48, !6, i64 56}

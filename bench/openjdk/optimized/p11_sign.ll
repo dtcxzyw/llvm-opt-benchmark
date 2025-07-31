@@ -570,7 +570,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyUpdate(ptr noundef
   %43 = add nsw i32 %.056, %29
   %44 = sub nsw i32 %.04155, %29
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %42
   %.not51 = icmp eq ptr %.04362, %8
@@ -776,6 +776,7 @@ attributes #6 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

@@ -1107,7 +1107,7 @@ define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr no
   %289 = load i32, ptr %288, align 8
   tail call void @assert_transcoder(ptr noundef %5, i32 noundef %289, i1 noundef zeroext false) #10
   %290 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %291 = load i8, ptr %290, align 4, !range !9, !noundef !10
+  %291 = load i8, ptr %290, align 4, !range !10, !noundef !11
   %292 = icmp eq i8 %291, 0
   %293 = select i1 %292, i32 -2147483648, i32 -1610612736
   %294 = load ptr, ptr %212, align 8
@@ -1154,7 +1154,7 @@ define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr no
   %330 = load ptr, ptr %212, align 8
   tail call void %330(ptr noundef nonnull %11, i32 %326, i32 noundef %329, i1 noundef zeroext true) #10
   %331 = icmp eq i64 %327, 60
-  br i1 %331, label %.preheader9, label %322, !llvm.loop !11
+  br i1 %331, label %.preheader9, label %322, !llvm.loop !12
 
 .preheader9:                                      ; preds = %322, %.preheader9
   %332 = phi i64 [ %336, %.preheader9 ], [ 60, %322 ]
@@ -1168,7 +1168,7 @@ define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr no
   tail call void %339(ptr noundef nonnull %11, i32 %335, i32 noundef %338, i1 noundef zeroext true) #10
   %340 = add nuw nsw i32 %333, 1
   %341 = icmp eq i32 %340, 60
-  br i1 %341, label %.preheader8, label %.preheader9, !llvm.loop !12
+  br i1 %341, label %.preheader8, label %.preheader9, !llvm.loop !13
 
 .preheader8:                                      ; preds = %.preheader9, %.preheader8
   %342 = phi i64 [ %346, %.preheader8 ], [ 120, %.preheader9 ]
@@ -1182,7 +1182,7 @@ define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr no
   tail call void %349(ptr noundef nonnull %11, i32 %345, i32 noundef %348, i1 noundef zeroext true) #10
   %350 = add nuw nsw i32 %343, 1
   %351 = icmp eq i32 %350, 43
-  br i1 %351, label %.preheader, label %.preheader8, !llvm.loop !13
+  br i1 %351, label %.preheader, label %.preheader8, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader8, %.preheader
   %352 = phi i64 [ %356, %.preheader ], [ 163, %.preheader8 ]
@@ -1196,7 +1196,7 @@ define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr no
   tail call void %359(ptr noundef nonnull %11, i32 %355, i32 noundef %358, i1 noundef zeroext true) #10
   %360 = add nuw nsw i32 %353, 1
   %361 = icmp eq i32 %360, 43
-  br i1 %361, label %362, label %.preheader, !llvm.loop !14
+  br i1 %361, label %362, label %.preheader, !llvm.loop !15
 
 362:                                              ; preds = %.preheader
   %363 = and i32 %108, 512
@@ -1670,7 +1670,7 @@ define internal i32 @intel_tv_get_modes(ptr noundef %0) #0 align 16 {
   %160 = phi i32 [ %158, %157 ], [ %17, %21 ], [ %17, %27 ], [ %17, %.thread ]
   %161 = add nuw nsw i64 %16, 1
   %162 = icmp eq i64 %161, 7
-  br i1 %162, label %163, label %15, !llvm.loop !15
+  br i1 %162, label %163, label %15, !llvm.loop !16
 
 163:                                              ; preds = %159
   ret i32 %160
@@ -2087,13 +2087,14 @@ attributes #12 = { nounwind allocsize(1) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}

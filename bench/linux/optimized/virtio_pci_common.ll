@@ -145,7 +145,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
   br i1 %16, label %56, label %17
 
 17:                                               ; preds = %10
-  %18 = load i8, ptr %7, align 8, !range !8, !noundef !9
+  %18 = load i8, ptr %7, align 8, !range !9, !noundef !10
   %19 = icmp eq i8 %18, 0
   %.pre5 = load i32, ptr %14, align 8
   br i1 %19, label %33, label %20
@@ -178,7 +178,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %43 = load i8, ptr %42, align 4, !range !8, !noundef !9
+  %43 = load i8, ptr %42, align 4, !range !9, !noundef !10
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %53
 
@@ -206,7 +206,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
 
 56:                                               ; preds = %53, %10
   %57 = icmp eq ptr %12, %2
-  br i1 %57, label %.loopexit4, label %10, !llvm.loop !10
+  br i1 %57, label %.loopexit4, label %10, !llvm.loop !11
 
 .loopexit4:                                       ; preds = %56, %1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -243,7 +243,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
   %79 = add nuw i32 %75, 1
   %80 = load i32, ptr %69, align 4
   %81 = icmp ult i32 %79, %80
-  br i1 %81, label %74, label %.loopexit, !llvm.loop !11
+  br i1 %81, label %74, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %74, %68
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -369,7 +369,7 @@ define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 no
 
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %5, i64 %51
-  %61 = load i8, ptr %60, align 1, !range !8, !noundef !9
+  %61 = load i8, ptr %60, align 1, !range !9, !noundef !10
   %62 = icmp ne i8 %61, 0
   br label %63
 
@@ -438,7 +438,7 @@ vp_setup_vq.exit:                                 ; preds = %75, %81
   store ptr %.sink, ptr %92, align 8
   %93 = add nuw i32 %50, 1
   %94 = icmp eq i32 %93, %1
-  br i1 %94, label %.loopexit8, label %48, !llvm.loop !12
+  br i1 %94, label %.loopexit8, label %48, !llvm.loop !13
 
 .loopexit:                                        ; preds = %vp_setup_vq.exit.thread, %.loopexit.loopexit, %35
   %95 = phi i32 [ %37, %35 ], [ -12, %vp_setup_vq.exit.thread ], [ %89, %.loopexit.loopexit ]
@@ -489,7 +489,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   %31 = phi i32 [ %18, %.preheader ], [ %29, %24 ]
   %32 = add nuw i32 %19, 1
   %33 = icmp eq i32 %32, %1
-  br i1 %33, label %.loopexit19, label %.preheader, !llvm.loop !13
+  br i1 %33, label %.loopexit19, label %.preheader, !llvm.loop !14
 
 .loopexit19:                                      ; preds = %30, %16, %15
   %34 = phi ptr [ null, %15 ], [ %7, %16 ], [ %7, %30 ]
@@ -510,7 +510,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   store i32 %35, ptr %44, align 8
   %45 = sext i32 %35 to i64
   %46 = icmp slt i32 %35, 0
-  br i1 %46, label %.thread, label %48, !prof !14
+  br i1 %46, label %.thread, label %48, !prof !15
 
 .thread:                                          ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -640,7 +640,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   br i1 %130, label %137, label %131
 
 131:                                              ; preds = %127
-  %132 = load i8, ptr %108, align 8, !range !8, !noundef !9
+  %132 = load i8, ptr %108, align 8, !range !9, !noundef !10
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %137, label %134
 
@@ -657,7 +657,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
 
 141:                                              ; preds = %137
   %142 = getelementptr i8, ptr %6, i64 %121
-  %143 = load i8, ptr %142, align 1, !range !8, !noundef !9
+  %143 = load i8, ptr %142, align 1, !range !9, !noundef !10
   %144 = icmp ne i8 %143, 0
   br label %145
 
@@ -718,7 +718,7 @@ vp_setup_vq.exit.thread:                          ; preds = %145
   store ptr %148, ptr %171, align 8
   %172 = getelementptr ptr, ptr %2, i64 %121
   store ptr %153, ptr %172, align 8
-  %173 = load i8, ptr %108, align 8, !range !8, !noundef !9
+  %173 = load i8, ptr %108, align 8, !range !9, !noundef !10
   %174 = icmp eq i8 %173, 0
   %175 = icmp eq i16 %138, -1
   %176 = select i1 %174, i1 true, i1 %175
@@ -755,7 +755,7 @@ vp_setup_vq.exit.thread:                          ; preds = %145
   %199 = phi i32 [ %140, %168 ], [ %140, %186 ], [ %118, %125 ]
   %200 = add nuw i32 %120, 1
   %201 = icmp eq i32 %200, %1
-  br i1 %201, label %.loopexit18, label %117, !llvm.loop !15
+  br i1 %201, label %.loopexit18, label %117, !llvm.loop !16
 
 .thread16:                                        ; preds = %186, %vp_setup_vq.exit.thread, %.loopexit.loopexit, %.thread, %48, %53, %92, %69, %63, %106
   %202 = phi i32 [ -16, %106 ], [ -12, %.thread ], [ -12, %48 ], [ -12, %53 ], [ %102, %92 ], [ %81, %69 ], [ %67, %63 ], [ -12, %vp_setup_vq.exit.thread ], [ %167, %.loopexit.loopexit ], [ %195, %186 ]
@@ -839,7 +839,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr noundef r
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @vp_get_vq_affinity(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %19, label %6
 
@@ -940,7 +940,7 @@ define internal range(i32 0, 2) i32 @vp_vring_interrupt(i32 noundef %0, ptr noun
   %14 = select i1 %13, i32 1, i32 %9
   %15 = load ptr, ptr %8, align 8
   %16 = icmp eq ptr %15, %5
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %2
   %17 = phi i32 [ 0, %2 ], [ %14, %.preheader ]
@@ -990,7 +990,7 @@ define internal range(i32 0, 2) i32 @vp_interrupt(i32 noundef %0, ptr noundef %1
   %24 = select i1 %23, i32 1, i32 %19
   %25 = load ptr, ptr %18, align 8
   %26 = icmp eq ptr %25, %15
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %12
   %27 = phi i32 [ 0, %12 ], [ %24, %.preheader ]
@@ -1034,7 +1034,7 @@ define internal i32 @virtio_pci_probe(ptr noundef %0, ptr readnone captures(none
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %6
-  %19 = load i8, ptr @force_legacy, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr @force_legacy, align 1, !range !9, !noundef !10
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %28, label %21
 
@@ -1076,7 +1076,7 @@ define internal i32 @virtio_pci_probe(ptr noundef %0, ptr readnone captures(none
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 920
-  %41 = load i8, ptr %40, align 8, !range !8, !noundef !9
+  %41 = load i8, ptr %40, align 8, !range !9, !noundef !10
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %44, label %43
 
@@ -1124,7 +1124,7 @@ define internal void @virtio_pci_remove(ptr noundef %0) #0 align 16 {
 8:                                                ; preds = %7, %1
   tail call void @unregister_virtio_device(ptr noundef %3) #10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  %10 = load i8, ptr %9, align 8, !range !8, !noundef !9
+  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
 
@@ -1222,7 +1222,7 @@ declare dso_local void @unregister_virtio_device(ptr noundef) local_unnamed_addr
 define internal i32 @virtio_pci_suspend(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
-  store i16 0, ptr %2, align 2, !annotation !17
+  store i16 0, ptr %2, align 2, !annotation !19
   %3 = getelementptr i8, ptr %0, i64 -28
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
@@ -1272,7 +1272,7 @@ define internal i32 @virtio_pci_suspend(ptr noundef %0) #0 align 16 {
 define internal i32 @virtio_pci_resume(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
-  store i16 0, ptr %2, align 2, !annotation !17
+  store i16 0, ptr %2, align 2, !annotation !19
   %3 = getelementptr i8, ptr %0, i64 -28
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
@@ -1392,16 +1392,18 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = !{!"branch_weights", i32 1, i32 2000}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = !{!"auto-init"}

@@ -148,7 +148,7 @@ define internal noundef i32 @pcibios_assign_resources() #4 section ".init.text" 
   tail call fastcc void @pcibios_allocate_rom_resources(ptr noundef %7)
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, @pci_root_buses
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %0
   tail call void @pci_assign_unassigned_resources() #10
@@ -223,7 +223,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
 25:                                               ; preds = %24, %20, %13, %7
   %26 = add nuw nsw i64 %8, 1
   %27 = icmp eq i64 %26, 11
-  br i1 %27, label %.loopexit3, label %7, !llvm.loop !9
+  br i1 %27, label %.loopexit3, label %7, !llvm.loop !10
 
 .loopexit3:                                       ; preds = %25, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -236,7 +236,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
   tail call fastcc void @pcibios_allocate_bus_resources(ptr noundef %31)
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %28
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3
   ret void
@@ -258,7 +258,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 10:                                               ; preds = %111, %8
   %11 = phi ptr [ %6, %8 ], [ %112, %111 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
-  store i16 0, ptr %3, align 2, !annotation !11
+  store i16 0, ptr %3, align 2, !annotation !12
   %12 = call i32 @pci_read_config_word(ptr noundef %11, i32 noundef 4, ptr noundef nonnull %3) #10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 920
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 184
@@ -337,7 +337,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %11
-  br i1 %62, label %63, label %55, !llvm.loop !5
+  br i1 %62, label %63, label %55, !llvm.loop !13
 
 63:                                               ; preds = %59
   %64 = icmp eq ptr %57, null
@@ -391,7 +391,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 86:                                               ; preds = %81, %49, %41, %38, %21, %15
   %87 = add nuw nsw i64 %16, 1
   %88 = icmp eq i64 %87, 6
-  br i1 %88, label %89, label %15, !llvm.loop !12
+  br i1 %88, label %89, label %15, !llvm.loop !14
 
 89:                                               ; preds = %86
   br i1 %9, label %90, label %106
@@ -405,7 +405,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 
 95:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  store i32 0, ptr %4, align 4, !annotation !11
+  store i32 0, ptr %4, align 4, !annotation !12
   %96 = and i64 %92, -2
   store i64 %96, ptr %91, align 8
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 104
@@ -434,7 +434,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 111:                                              ; preds = %110, %106
   %112 = load ptr, ptr %11, align 8
   %113 = icmp eq ptr %112, %5
-  br i1 %113, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %113, label %.loopexit, label %10, !llvm.loop !15
 
 .loopexit:                                        ; preds = %111, %2
   ret void
@@ -493,7 +493,7 @@ define internal fastcc void @pcibios_allocate_rom_resources(ptr noundef readonly
 30:                                               ; preds = %29, %25
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, %2
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %30, %1
   ret void
@@ -515,7 +515,7 @@ define dso_local void @pcibios_resource_survey() local_unnamed_addr #4 section "
   tail call fastcc void @pcibios_allocate_bus_resources(ptr noundef %5)
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @pci_root_buses
-  br i1 %7, label %3, label %.preheader7, !llvm.loop !15
+  br i1 %7, label %3, label %.preheader7, !llvm.loop !17
 
 8:                                                ; preds = %.preheader6
   %.pr4 = load ptr, ptr @pci_root_buses, align 8
@@ -527,14 +527,14 @@ define dso_local void @pcibios_resource_survey() local_unnamed_addr #4 section "
   tail call fastcc void @pcibios_allocate_resources(ptr noundef %10, i32 noundef 0)
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @pci_root_buses
-  br i1 %12, label %8, label %.preheader6, !llvm.loop !16
+  br i1 %12, label %8, label %.preheader6, !llvm.loop !18
 
 .preheader:                                       ; preds = %8, %.preheader
   %13 = phi ptr [ %14, %.preheader ], [ %.pr4, %8 ]
   tail call fastcc void @pcibios_allocate_resources(ptr noundef %13, i32 noundef 1)
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @pci_root_buses
-  br i1 %15, label %.thread5, label %.preheader, !llvm.loop !17
+  br i1 %15, label %.thread5, label %.preheader, !llvm.loop !19
 
 .thread5:                                         ; preds = %.preheader, %0, %3, %8
   tail call void @e820__reserve_resources_late() #10
@@ -576,7 +576,7 @@ define internal fastcc void @pcibios_fw_addr_list_del() unnamed_addr #4 section 
   tail call void @pci_dev_put(ptr noundef %10) #10
   tail call void @kfree(ptr noundef %4) #10
   %11 = icmp eq ptr %5, @pcibios_fwaddrmappings
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %0
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcibios_fwaddrmap_lock, i64 noundef %1) #10
@@ -642,17 +642,19 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}

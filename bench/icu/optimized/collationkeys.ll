@@ -996,7 +996,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit488: ; preds = %_ZN6icu
   br i1 %.not374, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit.preheader, label %148
 
 148:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit488
-  %149 = load ptr, ptr %58, align 8, !tbaa !50
+  %149 = load ptr, ptr %58, align 8, !tbaa !51
   %.not = icmp eq ptr %149, null
   br i1 %.not, label %_ZNK6icu_7717CollationSettings7reorderEj.exit, label %150
 
@@ -1237,7 +1237,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit: ; preds = %_ZN6ic
 
 260:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit
   %261 = icmp ult i64 %259, 4294967296
-  br i1 %261, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit, label %262, !llvm.loop !51
+  br i1 %261, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit, label %262, !llvm.loop !52
 
 262:                                              ; preds = %260
   %263 = lshr i64 %259, 32
@@ -1245,7 +1245,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit: ; preds = %_ZN6ic
   %265 = icmp ugt i32 %.0271, %264
   %266 = icmp ugt i64 %259, 144115192370823167
   %267 = and i1 %266, %265
-  br i1 %267, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit488, label %.loopexit972, !llvm.loop !52
+  br i1 %267, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit488, label %.loopexit972, !llvm.loop !53
 
 .loopexit972:                                     ; preds = %262, %79
   %.0350 = phi i64 [ %78, %79 ], [ %259, %262 ]
@@ -1260,7 +1260,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight32Ej.exit: ; preds = %_ZN6ic
   %271 = zext nneg i32 %270 to i64
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 %271
   %273 = load i8, ptr %272, align 1, !tbaa !47
-  %274 = load ptr, ptr %58, align 8, !tbaa !50
+  %274 = load ptr, ptr %58, align 8, !tbaa !51
   %.not921 = icmp eq ptr %274, null
   br i1 %.not921, label %_ZNK6icu_7717CollationSettings7reorderEj.exit520, label %275
 
@@ -1503,7 +1503,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit534:     ; preds = %348, %331
   %.1296 = phi i32 [ %.0295, %.loopexit972 ], [ %.2297, %370 ], [ %.2297, %371 ]
   %379 = trunc i64 %.0350 to i32
   %380 = icmp eq i32 %379, 0
-  br i1 %380, label %.critedge, label %381, !llvm.loop !53
+  br i1 %380, label %.critedge, label %381, !llvm.loop !54
 
 381:                                              ; preds = %378
   br i1 %.not388, label %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit, label %382
@@ -1612,7 +1612,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i540: ; preds = %4
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit548: ; preds = %416, %415, %398
   %422 = add nsw i32 %.6316990, -33
   %423 = icmp sgt i32 %.6316990, 65
-  br i1 %423, label %.lr.ph992, label %._crit_edge993, !llvm.loop !54
+  br i1 %423, label %.lr.ph992, label %._crit_edge993, !llvm.loop !55
 
 .loopexit958:                                     ; preds = %400, %413
   %lpad.loopexit960 = landingpad { ptr, i32 }
@@ -1960,7 +1960,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i595: ; preds = %5
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit603: ; preds = %555, %554, %537
   %561 = add nsw i32 %.8318987, -33
   %562 = icmp sgt i32 %.8318987, 33
-  br i1 %562, label %.lr.ph988, label %.loopexit963, !llvm.loop !55
+  br i1 %562, label %.lr.ph988, label %.loopexit963, !llvm.loop !56
 
 .loopexit964:                                     ; preds = %539, %552
   %lpad.loopexit966 = landingpad { ptr, i32 }
@@ -2002,7 +2002,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit603: ; preds = %555, %5
   %576 = getelementptr inbounds i8, ptr %.0272, i64 -1
   store i8 %573, ptr %.0272, align 1, !tbaa !47
   %577 = icmp ult ptr %575, %576
-  br i1 %577, label %572, label %thread-pre-split, !llvm.loop !56
+  br i1 %577, label %572, label %thread-pre-split, !llvm.loop !57
 
 578:                                              ; preds = %600, %587
   %579 = landingpad { ptr, i32 }
@@ -2310,7 +2310,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i634: ; preds = %6
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit642: ; preds = %697, %696, %679
   %703 = add nsw i32 %.63061000, -7
   %704 = icmp sgt i32 %.63061000, 13
-  br i1 %704, label %.lr.ph1002, label %._crit_edge1003.loopexit, !llvm.loop !57
+  br i1 %704, label %.lr.ph1002, label %._crit_edge1003.loopexit, !llvm.loop !58
 
 .loopexit950:                                     ; preds = %681, %694
   %lpad.loopexit952 = landingpad { ptr, i32 }
@@ -2508,7 +2508,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i662: ; preds = %7
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit670: ; preds = %767, %766, %749
   %773 = add nsw i32 %.9309995, -13
   %774 = icmp sgt i32 %.9309995, 25
-  br i1 %774, label %.lr.ph997, label %._crit_edge998, !llvm.loop !58
+  br i1 %774, label %.lr.ph997, label %._crit_edge998, !llvm.loop !59
 
 ._crit_edge998:                                   ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit670, %743
   %.9309.lcssa = phi i32 [ %744, %743 ], [ %773, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit670 ]
@@ -2776,7 +2776,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i704: ; preds = %8
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit712: ; preds = %867, %866, %849
   %873 = add nsw i32 %.63251005, -97
   %874 = icmp sgt i32 %.63251005, 193
-  br i1 %874, label %.lr.ph1007, label %._crit_edge1008, !llvm.loop !59
+  br i1 %874, label %.lr.ph1007, label %._crit_edge1008, !llvm.loop !60
 
 .loopexit939:                                     ; preds = %960, %973
   %lpad.loopexit941 = landingpad { ptr, i32 }
@@ -3062,7 +3062,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i747: ; preds = %9
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit755: ; preds = %976, %975, %958
   %982 = add nsw i32 %.83271015, -33
   %983 = icmp sgt i32 %.83271015, 65
-  br i1 %983, label %.lr.ph1017, label %._crit_edge1018, !llvm.loop !60
+  br i1 %983, label %.lr.ph1017, label %._crit_edge1018, !llvm.loop !61
 
 ._crit_edge1018:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit755, %952
   %.8327.lcssa = phi i32 [ %953, %952 ], [ %982, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit755 ]
@@ -3345,7 +3345,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i790: ; preds = %1
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit798: ; preds = %1094, %1093, %1076
   %1100 = add nsw i32 %.103291010, -33
   %1101 = icmp sgt i32 %.103291010, 65
-  br i1 %1101, label %.lr.ph1012, label %._crit_edge1013, !llvm.loop !61
+  br i1 %1101, label %.lr.ph1012, label %._crit_edge1013, !llvm.loop !62
 
 ._crit_edge1013:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit798, %1070
   %.10329.lcssa = phi i32 [ %1071, %1070 ], [ %1100, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit798 ]
@@ -3692,7 +3692,7 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i847: ; preds = %1
 _ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit855: ; preds = %1227, %1226, %1209
   %1233 = add nsw i32 %.93391020, -113
   %1234 = icmp sgt i32 %.93391020, 225
-  br i1 %1234, label %.lr.ph1022, label %._crit_edge1023, !llvm.loop !62
+  br i1 %1234, label %.lr.ph1022, label %._crit_edge1023, !llvm.loop !63
 
 ._crit_edge1023:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit855, %1203
   %.9339.lcssa = phi i32 [ %1204, %1203 ], [ %1233, %_ZN6icu_7712_GLOBAL__N_112SortKeyLevel10appendByteEj.exit855 ]
@@ -3998,7 +3998,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit889:     ; preds = %1356, %1340, %1329
   %.1 = phi i8 [ %1331, %1329 ], [ 0, %1340 ], [ 0, %1356 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1029, label %1329, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge1029, label %1329, !llvm.loop !64
 
 1359:                                             ; preds = %._crit_edge1029
   %1360 = zext i8 %.1 to i32
@@ -4198,9 +4198,9 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   store i32 %10, ptr %4, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = sext i32 %5 to i64
-  %13 = load ptr, ptr %11, align 8, !tbaa !64
+  %13 = load ptr, ptr %11, align 8, !tbaa !65
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
-  %15 = load i64, ptr %14, align 8, !tbaa !65
+  %15 = load i64, ptr %14, align 8, !tbaa !66
   br label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread
 
 16:                                               ; preds = %2
@@ -4213,13 +4213,13 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   br i1 %.not.i, label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18
-  %.pre.i = load i32, ptr %6, align 8, !tbaa !67
+  %.pre.i = load i32, ptr %6, align 8, !tbaa !68
   br label %20
 
 20:                                               ; preds = %._crit_edge.i, %16
   %21 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %7, %16 ]
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %6, align 8, !tbaa !67
+  store i32 %22, ptr %6, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   %23 = load ptr, ptr %0, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -4245,9 +4245,9 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %41 = or disjoint i64 %38, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = sext i32 %30 to i64
-  %44 = load ptr, ptr %42, align 8, !tbaa !64
+  %44 = load ptr, ptr %42, align 8, !tbaa !65
   %45 = getelementptr inbounds i64, ptr %44, i64 %43
-  store i64 %41, ptr %45, align 8, !tbaa !65
+  store i64 %41, ptr %45, align 8, !tbaa !66
   br label %160
 
 46:                                               ; preds = %20
@@ -4265,28 +4265,28 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   store i32 %53, ptr %4, align 8, !tbaa !38
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = sext i32 %52 to i64
-  %56 = load ptr, ptr %54, align 8, !tbaa !64
+  %56 = load ptr, ptr %54, align 8, !tbaa !65
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
-  store i64 4311744768, ptr %57, align 8, !tbaa !65
+  store i64 4311744768, ptr %57, align 8, !tbaa !66
   br label %160
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !68
+  %60 = load ptr, ptr %59, align 8, !tbaa !69
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !69
-  %63 = load ptr, ptr %62, align 8, !tbaa !75
+  %62 = load ptr, ptr %61, align 8, !tbaa !70
+  %63 = load ptr, ptr %62, align 8, !tbaa !76
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !76
+  %65 = load ptr, ptr %64, align 8, !tbaa !77
   %66 = icmp samesign ult i32 %49, 55296
   br i1 %66, label %67, label %77
 
 67:                                               ; preds = %58
-  %68 = load ptr, ptr %63, align 8, !tbaa !80
+  %68 = load ptr, ptr %63, align 8, !tbaa !81
   %69 = lshr i32 %49, 5
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i16, ptr %68, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !81
+  %72 = load i16, ptr %71, align 2, !tbaa !82
   %73 = zext i16 %72 to i32
   %74 = shl nuw nsw i32 %73, 2
   %75 = and i32 %49, 31
@@ -4298,14 +4298,14 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   br i1 %78, label %79, label %92
 
 79:                                               ; preds = %77
-  %80 = load ptr, ptr %63, align 8, !tbaa !80
+  %80 = load ptr, ptr %63, align 8, !tbaa !81
   %81 = icmp samesign ult i32 %49, 56320
   %82 = select i1 %81, i32 320, i32 0
   %83 = lshr i32 %49, 5
   %84 = add nuw nsw i32 %82, %83
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i16, ptr %80, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !81
+  %87 = load i16, ptr %86, align 2, !tbaa !82
   %88 = zext i16 %87 to i32
   %89 = shl nuw nsw i32 %88, 2
   %90 = and i32 %49, 31
@@ -4318,29 +4318,29 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %63, i64 44
-  %96 = load i32, ptr %95, align 4, !tbaa !82
+  %96 = load i32, ptr %95, align 4, !tbaa !83
   %.not.i30 = icmp slt i32 %49, %96
   br i1 %.not.i30, label %100, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %99 = load i32, ptr %98, align 8, !tbaa !83
+  %99 = load i32, ptr %98, align 8, !tbaa !84
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit
 
 100:                                              ; preds = %94
-  %101 = load ptr, ptr %63, align 8, !tbaa !80
+  %101 = load ptr, ptr %63, align 8, !tbaa !81
   %102 = lshr i32 %49, 11
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds nuw i16, ptr %101, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4160
-  %106 = load i16, ptr %105, align 2, !tbaa !81
+  %106 = load i16, ptr %105, align 2, !tbaa !82
   %107 = zext i16 %106 to i32
   %108 = lshr i32 %49, 5
   %109 = and i32 %108, 63
   %110 = add nuw nsw i32 %109, %107
   %111 = zext nneg i32 %110 to i64
   %112 = getelementptr inbounds nuw i16, ptr %101, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !81
+  %113 = load i16, ptr %112, align 2, !tbaa !82
   %114 = zext i16 %113 to i32
   %115 = shl nuw nsw i32 %114, 2
   %116 = and i32 %49, 31
@@ -4372,14 +4372,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %136 = or disjoint i64 %133, %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = sext i32 %125 to i64
-  %139 = load ptr, ptr %137, align 8, !tbaa !64
+  %139 = load ptr, ptr %137, align 8, !tbaa !65
   %140 = getelementptr inbounds i64, ptr %139, i64 %138
-  store i64 %136, ptr %140, align 8, !tbaa !65
+  store i64 %136, ptr %140, align 8, !tbaa !66
   br label %160
 
 141:                                              ; preds = %46
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !68
+  %143 = load ptr, ptr %142, align 8, !tbaa !69
   br label %144
 
 144:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit, %141
@@ -4399,9 +4399,9 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %152 = or disjoint i64 %151, 83887360
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = sext i32 %147 to i64
-  %155 = load ptr, ptr %153, align 8, !tbaa !64
+  %155 = load ptr, ptr %153, align 8, !tbaa !65
   %156 = getelementptr inbounds i64, ptr %155, i64 %154
-  store i64 %152, ptr %156, align 8, !tbaa !65
+  store i64 %152, ptr %156, align 8, !tbaa !66
   br label %160
 
 157:                                              ; preds = %144
@@ -4576,39 +4576,40 @@ attributes #17 = { noreturn nounwind }
 !45 = !{!"p1 _ZTSN6icu_7712SkippedStateE", !6, i64 0}
 !46 = !{!39, !9, i64 24}
 !47 = !{!7, !7, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!24, !5, i64 32}
-!51 = distinct !{!51, !49}
-!52 = distinct !{!52, !49}
-!53 = distinct !{!53, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!24, !5, i64 32}
+!52 = distinct !{!52, !49, !50}
+!53 = distinct !{!53, !49, !50}
 !54 = distinct !{!54, !49}
-!55 = distinct !{!55, !49}
-!56 = distinct !{!56, !49}
-!57 = distinct !{!57, !49}
-!58 = distinct !{!58, !49}
-!59 = distinct !{!59, !49}
-!60 = distinct !{!60, !49}
-!61 = distinct !{!61, !49}
-!62 = distinct !{!62, !49}
-!63 = distinct !{!63, !49}
-!64 = !{!43, !44, i64 0}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"long", !7, i64 0}
-!67 = !{!42, !9, i64 0}
-!68 = !{!39, !41, i64 16}
-!69 = !{!70, !41, i64 32}
-!70 = !{!"_ZTSN6icu_7713CollationDataE", !40, i64 0, !30, i64 8, !44, i64 16, !71, i64 24, !41, i64 32, !30, i64 40, !72, i64 48, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !5, i64 72, !73, i64 80, !74, i64 88, !9, i64 96, !9, i64 100, !74, i64 104, !74, i64 112, !9, i64 120, !30, i64 128, !9, i64 136}
-!71 = !{!"p1 char16_t", !6, i64 0}
-!72 = !{!"p1 _ZTSN6icu_7715Normalizer2ImplE", !6, i64 0}
-!73 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !6, i64 0}
-!74 = !{!"p1 short", !6, i64 0}
-!75 = !{!70, !40, i64 0}
-!76 = !{!77, !30, i64 16}
-!77 = !{!"_ZTS6UTrie2", !74, i64 0, !74, i64 8, !30, i64 16, !9, i64 24, !9, i64 28, !78, i64 32, !78, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !78, i64 70, !79, i64 72}
-!78 = !{!"short", !7, i64 0}
-!79 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
-!80 = !{!77, !74, i64 0}
-!81 = !{!78, !78, i64 0}
-!82 = !{!77, !9, i64 44}
-!83 = !{!77, !9, i64 48}
+!55 = distinct !{!55, !49, !50}
+!56 = distinct !{!56, !49, !50}
+!57 = distinct !{!57, !49, !50}
+!58 = distinct !{!58, !49, !50}
+!59 = distinct !{!59, !49, !50}
+!60 = distinct !{!60, !49, !50}
+!61 = distinct !{!61, !49, !50}
+!62 = distinct !{!62, !49, !50}
+!63 = distinct !{!63, !49, !50}
+!64 = distinct !{!64, !49, !50}
+!65 = !{!43, !44, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"long", !7, i64 0}
+!68 = !{!42, !9, i64 0}
+!69 = !{!39, !41, i64 16}
+!70 = !{!71, !41, i64 32}
+!71 = !{!"_ZTSN6icu_7713CollationDataE", !40, i64 0, !30, i64 8, !44, i64 16, !72, i64 24, !41, i64 32, !30, i64 40, !73, i64 48, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !5, i64 72, !74, i64 80, !75, i64 88, !9, i64 96, !9, i64 100, !75, i64 104, !75, i64 112, !9, i64 120, !30, i64 128, !9, i64 136}
+!72 = !{!"p1 char16_t", !6, i64 0}
+!73 = !{!"p1 _ZTSN6icu_7715Normalizer2ImplE", !6, i64 0}
+!74 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !6, i64 0}
+!75 = !{!"p1 short", !6, i64 0}
+!76 = !{!71, !40, i64 0}
+!77 = !{!78, !30, i64 16}
+!78 = !{!"_ZTS6UTrie2", !75, i64 0, !75, i64 8, !30, i64 16, !9, i64 24, !9, i64 28, !79, i64 32, !79, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !79, i64 70, !80, i64 72}
+!79 = !{!"short", !7, i64 0}
+!80 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
+!81 = !{!78, !75, i64 0}
+!82 = !{!79, !79, i64 0}
+!83 = !{!78, !9, i64 44}
+!84 = !{!78, !9, i64 48}

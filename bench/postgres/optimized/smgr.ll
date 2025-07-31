@@ -246,7 +246,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   tail call void @mdclose(ptr noundef nonnull %2, i32 noundef %.06.i) #11
   %4 = add nuw nsw i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %4, 4
-  br i1 %exitcond.not.i, label %5, label %3, !llvm.loop !8
+  br i1 %exitcond.not.i, label %5, label %3, !llvm.loop !9
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %.sroa.8.0.in, align 8
@@ -258,7 +258,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %10 = load ptr, ptr @SMgrRelationHash, align 8
   %11 = tail call ptr @hash_search(ptr noundef %10, ptr noundef nonnull %2, i32 noundef 2, ptr noundef null) #11
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %select.unfold, !llvm.loop !9
+  br i1 %12, label %13, label %select.unfold, !llvm.loop !10
 
 13:                                               ; preds = %5
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -305,7 +305,7 @@ smgrrelease.exit:                                 ; preds = %8
   store i32 -1, ptr %11, align 8
   %12 = call ptr @hash_seq_search(ptr noundef nonnull %1) #11
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %smgrrelease.exit, %4, %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #11
@@ -399,12 +399,12 @@ define dso_local void @smgrdosyncall(ptr noundef %0, i32 noundef %1) local_unnam
 12:                                               ; preds = %7, %10
   %13 = add nuw nsw i32 %.01719, 1
   %exitcond.not = icmp eq i32 %13, 4
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !12
 
 14:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %4, %2
   ret void
@@ -447,12 +447,12 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   tail call void @mdclose(ptr noundef %14, i32 noundef %.03640) #11
   %15 = add nuw nsw i32 %.03640, 1
   %exitcond.not = icmp eq i32 %15, 4
-  br i1 %exitcond.not, label %16, label %13, !llvm.loop !13
+  br i1 %exitcond.not, label %16, label %13, !llvm.loop !14
 
 16:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond48.not, label %.lr.ph43.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond48.not, label %.lr.ph43.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph46.preheader:                               ; preds = %.lr.ph43
   %wide.trip.count58 = zext nneg i32 %1 to i64
@@ -467,7 +467,7 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   tail call void @CacheInvalidateSmgr(i64 %18, i64 %20) #11
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.lr.ph46.preheader, label %.lr.ph43, !llvm.loop !15
+  br i1 %exitcond53.not, label %.lr.ph46.preheader, label %.lr.ph43, !llvm.loop !16
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %27
   %indvars.iv55 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next56, %27 ]
@@ -482,12 +482,12 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   tail call void @mdunlink(i64 %24, i64 %25, i32 noundef %.13744, i1 noundef zeroext %2) #11
   %26 = add nuw nsw i32 %.13744, 1
   %exitcond54.not = icmp eq i32 %26, 4
-  br i1 %exitcond54.not, label %27, label %23, !llvm.loop !16
+  br i1 %exitcond54.not, label %27, label %23, !llvm.loop !17
 
 27:                                               ; preds = %23
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !17
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %27, %5
   tail call void @pfree(ptr noundef %8) #11
@@ -651,7 +651,7 @@ define dso_local void @smgrtruncate(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %21, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -711,7 +711,7 @@ smgrrelease.exit.i:                               ; preds = %8
   store i32 -1, ptr %11, align 8
   %12 = call ptr @hash_seq_search(ptr noundef nonnull %1) #11
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %smgrreleaseall.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %smgrreleaseall.exit, label %.lr.ph.i, !llvm.loop !11
 
 smgrreleaseall.exit:                              ; preds = %smgrrelease.exit.i, %0, %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #11
@@ -790,16 +790,17 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

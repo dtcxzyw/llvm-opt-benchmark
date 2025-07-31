@@ -344,7 +344,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %292, ptr %290, align 1, !tbaa !7
   %indvars.iv.next1625 = add nuw nsw i64 %indvars.iv1624, 8
   %293 = icmp samesign ult i64 %indvars.iv.next1625, %243
-  br i1 %293, label %244, label %.loopexit1459.loopexit1570, !llvm.loop !10
+  br i1 %293, label %244, label %.loopexit1459.loopexit1570, !llvm.loop !11
 
 294:                                              ; preds = %44
   %295 = icmp eq i32 %3, 10
@@ -466,7 +466,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %402, ptr %400, align 1, !tbaa !7
   %indvars.iv.next1622 = add nuw nsw i64 %indvars.iv1621, 8
   %403 = icmp samesign ult i64 %indvars.iv.next1622, %357
-  br i1 %403, label %358, label %.loopexit1459.loopexit1571, !llvm.loop !11
+  br i1 %403, label %358, label %.loopexit1459.loopexit1571, !llvm.loop !12
 
 404:                                              ; preds = %294
   br i1 %43, label %.lr.ph1533, label %.loopexit1459
@@ -574,7 +574,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %500, ptr %498, align 1, !tbaa !7
   %indvars.iv.next1619 = add nuw nsw i64 %indvars.iv1618, 8
   %501 = icmp samesign ult i64 %indvars.iv.next1619, %459
-  br i1 %501, label %460, label %.loopexit1459.loopexit1572, !llvm.loop !12
+  br i1 %501, label %460, label %.loopexit1459.loopexit1572, !llvm.loop !13
 
 502:                                              ; preds = %41
   %503 = icmp samesign ugt i32 %3, 4
@@ -684,7 +684,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %594, ptr %592, align 1, !tbaa !7
   %indvars.iv.next1616 = add nuw nsw i64 %indvars.iv1615, 8
   %595 = icmp samesign ult i64 %indvars.iv.next1616, %557
-  br i1 %595, label %558, label %.loopexit1459.loopexit1573, !llvm.loop !13
+  br i1 %595, label %558, label %.loopexit1459.loopexit1573, !llvm.loop !14
 
 596:                                              ; preds = %506
   br i1 %43, label %.lr.ph1527, label %.loopexit1459
@@ -772,7 +772,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %672, ptr %670, align 1, !tbaa !7
   %indvars.iv.next1613 = add nuw nsw i64 %indvars.iv1612, 8
   %673 = icmp samesign ult i64 %indvars.iv.next1613, %639
-  br i1 %673, label %640, label %.loopexit1459.loopexit1574, !llvm.loop !14
+  br i1 %673, label %640, label %.loopexit1459.loopexit1574, !llvm.loop !15
 
 674:                                              ; preds = %504
   %675 = icmp eq i32 %3, 6
@@ -854,7 +854,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %742, ptr %740, align 1, !tbaa !7
   %indvars.iv.next1610 = add nuw nsw i64 %indvars.iv1609, 8
   %743 = icmp samesign ult i64 %indvars.iv.next1610, %713
-  br i1 %743, label %714, label %.loopexit1459.loopexit1575, !llvm.loop !15
+  br i1 %743, label %714, label %.loopexit1459.loopexit1575, !llvm.loop !16
 
 744:                                              ; preds = %674
   br i1 %43, label %.lr.ph1521, label %.loopexit1459
@@ -922,7 +922,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %800, ptr %798, align 1, !tbaa !7
   %indvars.iv.next1607 = add nuw nsw i64 %indvars.iv1606, 8
   %801 = icmp samesign ult i64 %indvars.iv.next1607, %775
-  br i1 %801, label %776, label %.loopexit1459.loopexit1576, !llvm.loop !16
+  br i1 %801, label %776, label %.loopexit1459.loopexit1576, !llvm.loop !17
 
 802:                                              ; preds = %502
   %803 = icmp samesign ugt i32 %3, 2
@@ -988,7 +988,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %852, ptr %850, align 1, !tbaa !7
   %indvars.iv.next1604 = add nuw nsw i64 %indvars.iv1603, 8
   %853 = icmp samesign ult i64 %indvars.iv.next1604, %831
-  br i1 %853, label %832, label %.loopexit1459.loopexit1577, !llvm.loop !17
+  br i1 %853, label %832, label %.loopexit1459.loopexit1577, !llvm.loop !18
 
 854:                                              ; preds = %804
   br i1 %43, label %.lr.ph1515, label %.loopexit1459
@@ -1036,7 +1036,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %890, ptr %888, align 1, !tbaa !7
   %indvars.iv.next1601 = add nuw nsw i64 %indvars.iv1600, 8
   %891 = icmp samesign ult i64 %indvars.iv.next1601, %873
-  br i1 %891, label %874, label %.loopexit1459.loopexit1578, !llvm.loop !18
+  br i1 %891, label %874, label %.loopexit1459.loopexit1578, !llvm.loop !19
 
 892:                                              ; preds = %802
   %893 = icmp eq i32 %3, 2
@@ -1078,7 +1078,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %920, ptr %918, align 1, !tbaa !7
   %indvars.iv.next1598 = add nuw nsw i64 %indvars.iv1597, 8
   %921 = icmp samesign ult i64 %indvars.iv.next1598, %907
-  br i1 %921, label %908, label %.loopexit1459.loopexit1579, !llvm.loop !19
+  br i1 %921, label %908, label %.loopexit1459.loopexit1579, !llvm.loop !20
 
 922:                                              ; preds = %892
   br i1 %43, label %.lr.ph1510, label %.loopexit1459
@@ -1106,7 +1106,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store <8 x i32> %938, ptr %936, align 1, !tbaa !7
   %indvars.iv.next1595 = add nuw nsw i64 %indvars.iv1594, 8
   %939 = icmp samesign ult i64 %indvars.iv.next1595, %929
-  br i1 %939, label %930, label %.loopexit1459.loopexit1580, !llvm.loop !20
+  br i1 %939, label %930, label %.loopexit1459.loopexit1580, !llvm.loop !21
 
 .loopexit1459.loopexit:                           ; preds = %122
   %940 = trunc nuw nsw i64 %indvars.iv.next1628 to i32
@@ -1322,7 +1322,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store i32 %1029, ptr %1030, align 4, !tbaa !3
   %indvars.iv.next1631 = add nuw nsw i64 %indvars.iv1630, 1
   %exitcond1634.not = icmp eq i64 %indvars.iv.next1631, %wide.trip.count1633
-  br i1 %exitcond1634.not, label %.loopexit, label %965, !llvm.loop !21
+  br i1 %exitcond1634.not, label %.loopexit, label %965, !llvm.loop !22
 
 1031:                                             ; preds = %.lr.ph, %1193
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1193 ]
@@ -1598,7 +1598,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   store i32 %1197, ptr %1198, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %1031, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %1031, !llvm.loop !23
 
 .loopexit:                                        ; preds = %1193, %1025, %.preheader, %.loopexit1459
   tail call void @llvm.x86.avx.vzeroupper()
@@ -1794,7 +1794,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %149, ptr %147, align 1, !tbaa !7
   %indvars.iv.next1628 = add nuw nsw i64 %indvars.iv1627, 8
   %150 = icmp samesign ult i64 %indvars.iv.next1628, %97
-  br i1 %150, label %.lr.ph1542, label %.loopexit1459.loopexit, !llvm.loop !23
+  br i1 %150, label %.lr.ph1542, label %.loopexit1459.loopexit, !llvm.loop !24
 
 151:                                              ; preds = %80
   %152 = icmp sgt i32 %1, 7
@@ -1858,7 +1858,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %202, ptr %200, align 1, !tbaa !7
   %indvars.iv.next1625 = add nuw nsw i64 %indvars.iv1624, 8
   %203 = icmp samesign ult i64 %indvars.iv.next1625, %154
-  br i1 %203, label %.lr.ph1539, label %.loopexit1459.loopexit1570, !llvm.loop !24
+  br i1 %203, label %.lr.ph1539, label %.loopexit1459.loopexit1570, !llvm.loop !25
 
 204:                                              ; preds = %46
   %205 = icmp eq i32 %3, 10
@@ -1926,7 +1926,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %257, ptr %255, align 1, !tbaa !7
   %indvars.iv.next1622 = add nuw nsw i64 %indvars.iv1621, 8
   %258 = icmp samesign ult i64 %indvars.iv.next1622, %213
-  br i1 %258, label %.lr.ph1536, label %.loopexit1459.loopexit1571, !llvm.loop !25
+  br i1 %258, label %.lr.ph1536, label %.loopexit1459.loopexit1571, !llvm.loop !26
 
 259:                                              ; preds = %204
   %260 = icmp sgt i32 %1, 7
@@ -1982,7 +1982,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %302, ptr %300, align 1, !tbaa !7
   %indvars.iv.next1619 = add nuw nsw i64 %indvars.iv1618, 8
   %303 = icmp samesign ult i64 %indvars.iv.next1619, %262
-  br i1 %303, label %.lr.ph1533, label %.loopexit1459.loopexit1572, !llvm.loop !26
+  br i1 %303, label %.lr.ph1533, label %.loopexit1459.loopexit1572, !llvm.loop !27
 
 304:                                              ; preds = %41
   %305 = icmp samesign ugt i32 %3, 4
@@ -2074,7 +2074,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %377, ptr %375, align 1, !tbaa !7
   %indvars.iv.next1616 = add nuw nsw i64 %indvars.iv1615, 8
   %378 = icmp samesign ult i64 %indvars.iv.next1616, %341
-  br i1 %378, label %.lr.ph1530, label %.loopexit1459.loopexit1573, !llvm.loop !27
+  br i1 %378, label %.lr.ph1530, label %.loopexit1459.loopexit1573, !llvm.loop !28
 
 379:                                              ; preds = %324
   %380 = icmp sgt i32 %1, 7
@@ -2122,7 +2122,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %414, ptr %412, align 1, !tbaa !7
   %indvars.iv.next1613 = add nuw nsw i64 %indvars.iv1612, 8
   %415 = icmp samesign ult i64 %indvars.iv.next1613, %382
-  br i1 %415, label %.lr.ph1527, label %.loopexit1459.loopexit1574, !llvm.loop !28
+  br i1 %415, label %.lr.ph1527, label %.loopexit1459.loopexit1574, !llvm.loop !29
 
 416:                                              ; preds = %306
   %417 = icmp eq i32 %3, 6
@@ -2174,7 +2174,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %453, ptr %451, align 1, !tbaa !7
   %indvars.iv.next1610 = add nuw nsw i64 %indvars.iv1609, 8
   %454 = icmp samesign ult i64 %indvars.iv.next1610, %425
-  br i1 %454, label %.lr.ph1524, label %.loopexit1459.loopexit1575, !llvm.loop !29
+  br i1 %454, label %.lr.ph1524, label %.loopexit1459.loopexit1575, !llvm.loop !30
 
 455:                                              ; preds = %416
   %456 = icmp sgt i32 %1, 7
@@ -2214,7 +2214,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %482, ptr %480, align 1, !tbaa !7
   %indvars.iv.next1607 = add nuw nsw i64 %indvars.iv1606, 8
   %483 = icmp samesign ult i64 %indvars.iv.next1607, %458
-  br i1 %483, label %.lr.ph1521, label %.loopexit1459.loopexit1576, !llvm.loop !30
+  br i1 %483, label %.lr.ph1521, label %.loopexit1459.loopexit1576, !llvm.loop !31
 
 484:                                              ; preds = %304
   %485 = icmp samesign ugt i32 %3, 2
@@ -2270,7 +2270,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %523, ptr %521, align 1, !tbaa !7
   %indvars.iv.next1604 = add nuw nsw i64 %indvars.iv1603, 8
   %524 = icmp samesign ult i64 %indvars.iv.next1604, %503
-  br i1 %524, label %.lr.ph1518, label %.loopexit1459.loopexit1577, !llvm.loop !31
+  br i1 %524, label %.lr.ph1518, label %.loopexit1459.loopexit1577, !llvm.loop !32
 
 525:                                              ; preds = %486
   %526 = icmp sgt i32 %1, 7
@@ -2302,7 +2302,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %544, ptr %542, align 1, !tbaa !7
   %indvars.iv.next1601 = add nuw nsw i64 %indvars.iv1600, 8
   %545 = icmp samesign ult i64 %indvars.iv.next1601, %528
-  br i1 %545, label %.lr.ph1515, label %.loopexit1459.loopexit1578, !llvm.loop !32
+  br i1 %545, label %.lr.ph1515, label %.loopexit1459.loopexit1578, !llvm.loop !33
 
 546:                                              ; preds = %484
   %547 = icmp eq i32 %3, 2
@@ -2338,7 +2338,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %567, ptr %565, align 1, !tbaa !7
   %indvars.iv.next1598 = add nuw nsw i64 %indvars.iv1597, 8
   %568 = icmp samesign ult i64 %indvars.iv.next1598, %555
-  br i1 %568, label %.lr.ph1512, label %.loopexit1459.loopexit1579, !llvm.loop !33
+  br i1 %568, label %.lr.ph1512, label %.loopexit1459.loopexit1579, !llvm.loop !34
 
 569:                                              ; preds = %546
   %570 = icmp sgt i32 %1, 7
@@ -2362,7 +2362,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store <8 x i32> %580, ptr %578, align 1, !tbaa !7
   %indvars.iv.next1595 = add nuw nsw i64 %indvars.iv1594, 8
   %581 = icmp samesign ult i64 %indvars.iv.next1595, %572
-  br i1 %581, label %.lr.ph1510, label %.loopexit1459.loopexit1580, !llvm.loop !34
+  br i1 %581, label %.lr.ph1510, label %.loopexit1459.loopexit1580, !llvm.loop !35
 
 .loopexit1459.loopexit:                           ; preds = %.lr.ph1542
   %582 = trunc nuw nsw i64 %indvars.iv.next1628 to i32
@@ -2578,7 +2578,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store i32 %671, ptr %672, align 4, !tbaa !3
   %indvars.iv.next1631 = add nuw nsw i64 %indvars.iv1630, 1
   %exitcond1634.not = icmp eq i64 %indvars.iv.next1631, %wide.trip.count1633
-  br i1 %exitcond1634.not, label %.loopexit, label %607, !llvm.loop !35
+  br i1 %exitcond1634.not, label %.loopexit, label %607, !llvm.loop !36
 
 673:                                              ; preds = %.lr.ph, %835
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %835 ]
@@ -2854,7 +2854,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   store i32 %839, ptr %840, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %673, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %673, !llvm.loop !37
 
 .loopexit:                                        ; preds = %835, %667, %.preheader, %.loopexit1459
   tail call void @llvm.x86.avx.vzeroupper()
@@ -3077,7 +3077,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %177, ptr %174, align 1, !tbaa !7
   %indvars.iv.next1640 = add nuw nsw i64 %indvars.iv1639, 4
   %178 = icmp samesign ult i64 %indvars.iv.next1640, %111
-  br i1 %178, label %112, label %.loopexit1471.loopexit, !llvm.loop !37
+  br i1 %178, label %112, label %.loopexit1471.loopexit, !llvm.loop !38
 
 179:                                              ; preds = %48
   br i1 %45, label %.lr.ph1551, label %.loopexit1471
@@ -3206,7 +3206,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %296, ptr %293, align 1, !tbaa !7
   %indvars.iv.next1637 = add nuw nsw i64 %indvars.iv1636, 4
   %297 = icmp samesign ult i64 %indvars.iv.next1637, %235
-  br i1 %297, label %236, label %.loopexit1471.loopexit1582, !llvm.loop !38
+  br i1 %297, label %236, label %.loopexit1471.loopexit1582, !llvm.loop !39
 
 298:                                              ; preds = %46
   %299 = icmp eq i32 %3, 10
@@ -3329,7 +3329,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %407, ptr %404, align 1, !tbaa !7
   %indvars.iv.next1634 = add nuw nsw i64 %indvars.iv1633, 4
   %408 = icmp samesign ult i64 %indvars.iv.next1634, %351
-  br i1 %408, label %352, label %.loopexit1471.loopexit1583, !llvm.loop !39
+  br i1 %408, label %352, label %.loopexit1471.loopexit1583, !llvm.loop !40
 
 409:                                              ; preds = %298
   br i1 %45, label %.lr.ph1545, label %.loopexit1471
@@ -3438,7 +3438,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %506, ptr %503, align 1, !tbaa !7
   %indvars.iv.next1631 = add nuw nsw i64 %indvars.iv1630, 4
   %507 = icmp samesign ult i64 %indvars.iv.next1631, %455
-  br i1 %507, label %456, label %.loopexit1471.loopexit1584, !llvm.loop !40
+  br i1 %507, label %456, label %.loopexit1471.loopexit1584, !llvm.loop !41
 
 508:                                              ; preds = %43
   %509 = icmp samesign ugt i32 %3, 4
@@ -3549,7 +3549,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %601, ptr %598, align 1, !tbaa !7
   %indvars.iv.next1628 = add nuw nsw i64 %indvars.iv1627, 4
   %602 = icmp samesign ult i64 %indvars.iv.next1628, %555
-  br i1 %602, label %556, label %.loopexit1471.loopexit1585, !llvm.loop !41
+  br i1 %602, label %556, label %.loopexit1471.loopexit1585, !llvm.loop !42
 
 603:                                              ; preds = %512
   br i1 %45, label %.lr.ph1539, label %.loopexit1471
@@ -3638,7 +3638,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %680, ptr %677, align 1, !tbaa !7
   %indvars.iv.next1625 = add nuw nsw i64 %indvars.iv1624, 4
   %681 = icmp samesign ult i64 %indvars.iv.next1625, %639
-  br i1 %681, label %640, label %.loopexit1471.loopexit1586, !llvm.loop !42
+  br i1 %681, label %640, label %.loopexit1471.loopexit1586, !llvm.loop !43
 
 682:                                              ; preds = %510
   %683 = icmp eq i32 %3, 6
@@ -3721,7 +3721,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %751, ptr %748, align 1, !tbaa !7
   %indvars.iv.next1622 = add nuw nsw i64 %indvars.iv1621, 4
   %752 = icmp samesign ult i64 %indvars.iv.next1622, %715
-  br i1 %752, label %716, label %.loopexit1471.loopexit1587, !llvm.loop !43
+  br i1 %752, label %716, label %.loopexit1471.loopexit1587, !llvm.loop !44
 
 753:                                              ; preds = %682
   br i1 %45, label %.lr.ph1533, label %.loopexit1471
@@ -3790,7 +3790,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %810, ptr %807, align 1, !tbaa !7
   %indvars.iv.next1619 = add nuw nsw i64 %indvars.iv1618, 4
   %811 = icmp samesign ult i64 %indvars.iv.next1619, %779
-  br i1 %811, label %780, label %.loopexit1471.loopexit1588, !llvm.loop !44
+  br i1 %811, label %780, label %.loopexit1471.loopexit1588, !llvm.loop !45
 
 812:                                              ; preds = %508
   %813 = icmp samesign ugt i32 %3, 2
@@ -3857,7 +3857,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %863, ptr %860, align 1, !tbaa !7
   %indvars.iv.next1616 = add nuw nsw i64 %indvars.iv1615, 4
   %864 = icmp samesign ult i64 %indvars.iv.next1616, %837
-  br i1 %864, label %838, label %.loopexit1471.loopexit1589, !llvm.loop !45
+  br i1 %864, label %838, label %.loopexit1471.loopexit1589, !llvm.loop !46
 
 865:                                              ; preds = %814
   br i1 %45, label %.lr.ph1527, label %.loopexit1471
@@ -3906,7 +3906,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %902, ptr %899, align 1, !tbaa !7
   %indvars.iv.next1613 = add nuw nsw i64 %indvars.iv1612, 4
   %903 = icmp samesign ult i64 %indvars.iv.next1613, %881
-  br i1 %903, label %882, label %.loopexit1471.loopexit1590, !llvm.loop !46
+  br i1 %903, label %882, label %.loopexit1471.loopexit1590, !llvm.loop !47
 
 904:                                              ; preds = %812
   %905 = icmp eq i32 %3, 2
@@ -3949,7 +3949,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %933, ptr %930, align 1, !tbaa !7
   %indvars.iv.next1610 = add nuw nsw i64 %indvars.iv1609, 4
   %934 = icmp samesign ult i64 %indvars.iv.next1610, %917
-  br i1 %934, label %918, label %.loopexit1471.loopexit1591, !llvm.loop !47
+  br i1 %934, label %918, label %.loopexit1471.loopexit1591, !llvm.loop !48
 
 935:                                              ; preds = %904
   br i1 %45, label %.lr.ph1522, label %.loopexit1471
@@ -3978,7 +3978,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store <4 x i32> %952, ptr %949, align 1, !tbaa !7
   %indvars.iv.next1607 = add nuw nsw i64 %indvars.iv1606, 4
   %953 = icmp samesign ult i64 %indvars.iv.next1607, %941
-  br i1 %953, label %942, label %.loopexit1471.loopexit1592, !llvm.loop !48
+  br i1 %953, label %942, label %.loopexit1471.loopexit1592, !llvm.loop !49
 
 .loopexit1471.loopexit:                           ; preds = %112
   %954 = trunc nuw nsw i64 %indvars.iv.next1640 to i32
@@ -4220,7 +4220,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store i32 %1069, ptr %1070, align 4, !tbaa !3
   %indvars.iv.next1643 = add nuw nsw i64 %indvars.iv1642, 1
   %exitcond1646.not = icmp eq i64 %indvars.iv.next1643, %wide.trip.count1645
-  br i1 %exitcond1646.not, label %.loopexit, label %980, !llvm.loop !49
+  br i1 %exitcond1646.not, label %.loopexit, label %980, !llvm.loop !50
 
 1071:                                             ; preds = %.lr.ph, %1297
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1297 ]
@@ -4561,7 +4561,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   store i32 %1302, ptr %1303, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %1071, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %1071, !llvm.loop !51
 
 .loopexit:                                        ; preds = %1297, %1064, %.preheader, %.loopexit1471
   tail call void @llvm.x86.avx.vzeroupper()
@@ -4594,46 +4594,47 @@ attributes #2 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = distinct !{!48, !9}
-!49 = distinct !{!49, !9}
-!50 = distinct !{!50, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10}
+!44 = distinct !{!44, !9, !10}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !9, !10}
+!47 = distinct !{!47, !9, !10}
+!48 = distinct !{!48, !9, !10}
+!49 = distinct !{!49, !9, !10}
+!50 = distinct !{!50, !9, !10}
+!51 = distinct !{!51, !9, !10}

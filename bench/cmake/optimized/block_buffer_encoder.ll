@@ -238,7 +238,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
   %12 = load i64, ptr %5, align 8, !tbaa !4
   %13 = sub i64 %6, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !19
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = zext i32 %15 to i64
   %.not47 = icmp ugt i64 %13, %16
   br i1 %.not47, label %17, label %45
@@ -266,8 +266,8 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   store i64 0, ptr %9, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
-  %32 = load ptr, ptr %8, align 8, !tbaa !22
+  %31 = load ptr, ptr %30, align 8, !tbaa !21
+  %32 = load ptr, ptr %8, align 8, !tbaa !23
   %33 = call i32 %31(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %spec.select, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br label %34
@@ -282,7 +282,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
 
 35:                                               ; preds = %34
   %36 = load i64, ptr %5, align 8, !tbaa !4
-  %37 = load i32, ptr %14, align 4, !tbaa !19
+  %37 = load i32, ptr %14, align 4, !tbaa !20
   %38 = zext i32 %37 to i64
   %39 = add i64 %12, %38
   %40 = sub i64 %36, %39
@@ -318,11 +318,11 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
   store i32 4096, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
-  store i64 33, ptr %8, align 16, !tbaa !23
+  store i64 33, ptr %8, align 16, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %9, align 8, !tbaa !25
+  store ptr %7, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 -1, ptr %10, align 16, !tbaa !23
+  store i64 -1, ptr %10, align 16, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   store ptr %8, ptr %11, align 8, !tbaa !13
@@ -338,7 +338,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   %16 = load i64, ptr %4, align 8, !tbaa !4
   %17 = sub i64 %5, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !19
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !15
@@ -358,7 +358,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   br i1 %.not49, label %29, label %57
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %18, align 4, !tbaa !19
+  %30 = load i32, ptr %18, align 4, !tbaa !20
   %31 = zext i32 %30 to i64
   %32 = load i64, ptr %4, align 8, !tbaa !4
   %33 = add i64 %32, %31
@@ -398,7 +398,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   %53 = add i64 %52, %37
   store i64 %53, ptr %4, align 8, !tbaa !4
   %54 = icmp ult i64 %51, %2
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %storemerge.lcssa = phi i64 [ %33, %29 ], [ %53, %.lr.ph ]
@@ -471,13 +471,14 @@ attributes #10 = { nounwind }
 !14 = !{!9, !5, i64 24}
 !15 = !{!9, !5, i64 16}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!9, !10, i64 4}
-!20 = !{!21, !11, i64 24}
-!21 = !{!"lzma_next_coder_s", !11, i64 0, !5, i64 8, !5, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72}
-!22 = !{!21, !11, i64 0}
-!23 = !{!24, !5, i64 0}
-!24 = !{!"", !5, i64 0, !11, i64 8}
-!25 = !{!24, !11, i64 8}
-!26 = distinct !{!26, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!9, !10, i64 4}
+!21 = !{!22, !11, i64 24}
+!22 = !{!"lzma_next_coder_s", !11, i64 0, !5, i64 8, !5, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72}
+!23 = !{!22, !11, i64 0}
+!24 = !{!25, !5, i64 0}
+!25 = !{!"", !5, i64 0, !11, i64 8}
+!26 = !{!25, !11, i64 8}
+!27 = distinct !{!27, !18, !19}

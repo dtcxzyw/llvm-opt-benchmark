@@ -272,7 +272,7 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   %92 = zext i32 %91 to i64
   %93 = add i64 %.1137, %92
   %.not112 = icmp eq i32 %89, 0
-  br i1 %.not112, label %._crit_edge, label %.lr.ph138, !llvm.loop !26
+  br i1 %.not112, label %._crit_edge, label %.lr.ph138, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %88, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %93, %88 ]
@@ -311,7 +311,7 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   %108 = ptrtoint ptr %107 to i64
   %109 = sub i64 %14, %108
   %110 = icmp ugt i64 %109, 23
-  br i1 %110, label %20, label %.thread120, !llvm.loop !27
+  br i1 %110, label %20, label %.thread120, !llvm.loop !28
 
 .thread120:                                       ; preds = %105, %52, %12, %95, %86, %77, %37, %63, %103, %28, %10
   %.090 = phi i32 [ -1094995529, %10 ], [ -1094995529, %37 ], [ -1094995529, %63 ], [ -1094995529, %103 ], [ -1094995529, %28 ], [ -1094995529, %77 ], [ -1094995529, %86 ], [ -1094995529, %95 ], [ 0, %12 ], [ 0, %105 ], [ -12, %52 ]
@@ -362,7 +362,8 @@ attributes #6 = { nounwind }
 !21 = !{!5, !10, i64 8}
 !22 = !{!23, !12, i64 0}
 !23 = !{!"MMSStream", !12, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = distinct !{!28, !25, !26}

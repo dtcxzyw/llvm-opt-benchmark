@@ -193,7 +193,7 @@ check_retval.exit61:                              ; preds = %93
   %100 = fadd double %.0, 4.000000e-01
   %101 = load double, ptr %2, align 8, !tbaa !18
   %102 = fcmp ogt double %101, 1.000000e+01
-  br i1 %102, label %103, label %93
+  br i1 %102, label %103, label %93, !llvm.loop !30
 
 103:                                              ; preds = %98
   %104 = call fastcc i32 @PrintFinalStats(ptr noundef %66)
@@ -282,10 +282,10 @@ define internal noundef i32 @ressc(double %0, ptr noundef %1, ptr noundef %2, pt
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %34 = load double, ptr %33, align 8, !tbaa !18
-  %35 = tail call double @sin(double noundef %16) #12, !tbaa !30
-  %36 = tail call double @cos(double noundef %16) #12, !tbaa !30
-  %37 = tail call double @sin(double noundef %20) #12, !tbaa !30
-  %38 = tail call double @cos(double noundef %20) #12, !tbaa !30
+  %35 = tail call double @sin(double noundef %16) #12, !tbaa !32
+  %36 = tail call double @cos(double noundef %16) #12, !tbaa !32
+  %37 = tail call double @sin(double noundef %20) #12, !tbaa !32
+  %38 = tail call double @cos(double noundef %20) #12, !tbaa !32
   %.val = load ptr, ptr %1, align 8, !tbaa !21
   %39 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load ptr, ptr %39, align 8, !tbaa !24
@@ -309,10 +309,10 @@ define internal noundef i32 @ressc(double %0, ptr noundef %1, ptr noundef %2, pt
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = getelementptr inbounds nuw i8, ptr %.val.val, i64 40
   %59 = load double, ptr %58, align 8, !tbaa !18
-  %60 = tail call double @sin(double noundef %49) #12, !tbaa !30
-  %61 = tail call double @cos(double noundef %49) #12, !tbaa !30
-  %62 = tail call double @sin(double noundef %53) #12, !tbaa !30
-  %63 = tail call double @cos(double noundef %53) #12, !tbaa !30
+  %60 = tail call double @sin(double noundef %49) #12, !tbaa !32
+  %61 = tail call double @cos(double noundef %49) #12, !tbaa !32
+  %62 = tail call double @sin(double noundef %53) #12, !tbaa !32
+  %63 = tail call double @cos(double noundef %53) #12, !tbaa !32
   %64 = fneg double %60
   %65 = fmul double %63, %64
   %66 = tail call double @llvm.fmuladd.f64(double %62, double %61, double %65)
@@ -328,7 +328,7 @@ define internal noundef i32 @ressc(double %0, ptr noundef %1, ptr noundef %2, pt
   %76 = fmul double %40, %68
   %77 = fmul double %76, 5.000000e-01
   %78 = fadd double %77, %75
-  %79 = tail call double @sqrt(double noundef %78) #12, !tbaa !30
+  %79 = tail call double @sqrt(double noundef %78) #12, !tbaa !32
   %80 = fmul double %51, 2.000000e+00
   %81 = fmul double %57, %70
   %82 = tail call double @llvm.fmuladd.f64(double %80, double %57, double %81)
@@ -540,8 +540,8 @@ check_retval.exit11:                              ; preds = %check_retval.exit9,
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load double, ptr %26, align 8, !tbaa !18
-  %28 = load i64, ptr %5, align 8, !tbaa !31
-  %29 = load i32, ptr %4, align 4, !tbaa !30
+  %28 = load i64, ptr %5, align 8, !tbaa !33
+  %29 = load i32, ptr %4, align 4, !tbaa !32
   %30 = load double, ptr %6, align 8, !tbaa !18
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, double noundef %1, double noundef %23, double noundef %25, double noundef %27, i64 noundef %28, i32 noundef %29, double noundef %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
@@ -579,21 +579,21 @@ define internal fastcc i32 @PrintFinalStats(ptr noundef %0) unnamed_addr #0 {
   %16 = call i32 @IDAGetNumStepSolveFails(ptr noundef %0, ptr noundef nonnull %9) #12
   %17 = call i32 @IDAGetNumLinResEvals(ptr noundef %0, ptr noundef nonnull %7) #12
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %18 = load i64, ptr %2, align 8, !tbaa !31
+  %18 = load i64, ptr %2, align 8, !tbaa !33
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i64 noundef %18)
-  %20 = load i64, ptr %6, align 8, !tbaa !31
-  %21 = load i64, ptr %7, align 8, !tbaa !31
+  %20 = load i64, ptr %6, align 8, !tbaa !33
+  %21 = load i64, ptr %7, align 8, !tbaa !33
   %22 = add nsw i64 %21, %20
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %22)
-  %24 = load i64, ptr %5, align 8, !tbaa !31
+  %24 = load i64, ptr %5, align 8, !tbaa !33
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %24)
-  %26 = load i64, ptr %3, align 8, !tbaa !31
+  %26 = load i64, ptr %3, align 8, !tbaa !33
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %26)
-  %28 = load i64, ptr %8, align 8, !tbaa !31
+  %28 = load i64, ptr %8, align 8, !tbaa !33
   %29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i64 noundef %28)
-  %30 = load i64, ptr %4, align 8, !tbaa !31
+  %30 = load i64, ptr %4, align 8, !tbaa !33
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i64 noundef %30)
-  %32 = load i64, ptr %9, align 8, !tbaa !31
+  %32 = load i64, ptr %9, align 8, !tbaa !33
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i64 noundef %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -718,5 +718,7 @@ attributes #14 = { nounwind allocsize(0) }
 !27 = !{!"int", !7, i64 0}
 !28 = !{!"p1 double", !6, i64 0}
 !29 = !{!6, !6, i64 0}
-!30 = !{!27, !27, i64 0}
-!31 = !{!26, !26, i64 0}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!27, !27, i64 0}
+!33 = !{!26, !26, i64 0}

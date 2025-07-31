@@ -370,7 +370,7 @@ define internal fastcc void @cdxl_decode_ham8(ptr noundef readonly captures(none
   store i32 %56, ptr %57, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not, label %import_palette.exit, label %41, !llvm.loop !51
+  br i1 %exitcond.not, label %import_palette.exit, label %41, !llvm.loop !52
 
 import_palette.exit:                              ; preds = %41, %23, %.preheader26.i, %.preheader.i
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -473,7 +473,7 @@ default.unreachable68:                            ; preds = %.lr.ph
   %112 = load i32, ptr %58, align 8, !tbaa !42
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %114, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %100
   %.pre = load i32, ptr %61, align 4, !tbaa !44
@@ -488,7 +488,7 @@ default.unreachable68:                            ; preds = %.lr.ph
   %119 = getelementptr inbounds i8, ptr %.04459, i64 %118
   %120 = add nuw nsw i32 %.060, 1
   %121 = icmp slt i32 %120, %115
-  br i1 %121, label %.lr.ph61.split, label %._crit_edge62, !llvm.loop !53
+  br i1 %121, label %.lr.ph61.split, label %._crit_edge62, !llvm.loop !54
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %.lr.ph61, %import_palette.exit
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #9
@@ -577,7 +577,7 @@ define internal fastcc void @cdxl_decode_ham6(ptr noundef readonly captures(none
   store i32 %56, ptr %57, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not, label %import_palette.exit, label %41, !llvm.loop !51
+  br i1 %exitcond.not, label %import_palette.exit, label %41, !llvm.loop !52
 
 import_palette.exit:                              ; preds = %41, %23, %.preheader26.i, %.preheader.i
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -668,7 +668,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
   %100 = load i32, ptr %58, align 8, !tbaa !42
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !55
+  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %89
   %.pre = load i32, ptr %61, align 4, !tbaa !44
@@ -683,7 +683,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
   %107 = getelementptr inbounds i8, ptr %.04157, i64 %106
   %108 = add nuw nsw i32 %.058, 1
   %109 = icmp slt i32 %108, %103
-  br i1 %109, label %.lr.ph59.split, label %._crit_edge60, !llvm.loop !56
+  br i1 %109, label %.lr.ph59.split, label %._crit_edge60, !llvm.loop !57
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59, %import_palette.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
@@ -771,7 +771,7 @@ define internal fastcc void @cdxl_decode_rgb(ptr noundef readonly captures(none)
   %56 = sdiv i32 %55, 3
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next.i, %57
-  br i1 %58, label %37, label %import_palette.exit, !llvm.loop !51
+  br i1 %58, label %37, label %import_palette.exit, !llvm.loop !52
 
 import_palette.exit:                              ; preds = %37, %14, %.preheader26.i, %.preheader.i
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -820,7 +820,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %19 = load i32, ptr %18, align 4, !tbaa !44
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
+  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !58
 
 22:                                               ; preds = %._crit_edge
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -909,7 +909,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %70 = load i32, ptr %69, align 8, !tbaa !42
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %53, label %._crit_edge.i, !llvm.loop !58
+  br i1 %72, label %53, label %._crit_edge.i, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %53, %.preheader.i
   %73 = phi ptr [ %47, %.preheader.i ], [ %68, %53 ]
@@ -921,7 +921,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %77 = load i32, ptr %76, align 4, !tbaa !44
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next37.i, %78
-  br i1 %79, label %.preheader.i, label %._crit_edge26.loopexit.i, !llvm.loop !59
+  br i1 %79, label %.preheader.i, label %._crit_edge26.loopexit.i, !llvm.loop !60
 
 ._crit_edge26.loopexit.i:                         ; preds = %._crit_edge.i
   %.pre.i = load i32, ptr %28, align 8, !tbaa !37
@@ -935,7 +935,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %.sroa.5.1.lcssa.i = phi i32 [ %.sroa.5.028.i, %.preheader20.i ], [ %75, %._crit_edge26.loopexit.i ], [ %46, %.preheader.lr.ph.split.us.i ]
   %84 = add nuw nsw i32 %.029.i, 1
   %85 = icmp slt i32 %84, %80
-  br i1 %85, label %.preheader20.i, label %bitplanar2chunky.exit, !llvm.loop !60
+  br i1 %85, label %.preheader20.i, label %bitplanar2chunky.exit, !llvm.loop !61
 
 86:                                               ; preds = %._crit_edge
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1019,7 +1019,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %130 = load i32, ptr %129, align 8, !tbaa !42
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next.i37, %131
-  br i1 %132, label %.lr.ph.i33, label %._crit_edge.loopexit.i, !llvm.loop !61
+  br i1 %132, label %.lr.ph.i33, label %._crit_edge.loopexit.i, !llvm.loop !62
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i33
   %.pre.i38 = load i32, ptr %92, align 8, !tbaa !37
@@ -1034,7 +1034,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %137 = add i32 %136, %.sroa.5.2.lcssa.i32
   %138 = add nuw nsw i32 %.025.i, 1
   %139 = icmp slt i32 %138, %134
-  br i1 %139, label %.preheader.i29, label %._crit_edge26.i23, !llvm.loop !62
+  br i1 %139, label %.preheader.i29, label %._crit_edge26.i23, !llvm.loop !63
 
 ._crit_edge26.i23:                                ; preds = %._crit_edge.i31, %.preheader.lr.ph.split.us.i26, %.preheader20.i21
   %140 = phi ptr [ %96, %.preheader20.i21 ], [ %96, %.preheader.lr.ph.split.us.i26 ], [ %133, %._crit_edge.i31 ]
@@ -1047,7 +1047,7 @@ define internal fastcc void @import_format(ptr noundef readonly captures(none) %
   %145 = load i32, ptr %144, align 4, !tbaa !44
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next36.i, %146
-  br i1 %147, label %.preheader20.i21, label %bitplanar2chunky.exit, !llvm.loop !63
+  br i1 %147, label %.preheader20.i21, label %bitplanar2chunky.exit, !llvm.loop !64
 
 148:                                              ; preds = %._crit_edge
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1093,7 +1093,7 @@ bytestream2_init.exit.i:                          ; preds = %148
   %173 = load i32, ptr %172, align 4, !tbaa !44
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next.i42, %174
-  br i1 %175, label %158, label %bitplanar2chunky.exit, !llvm.loop !64
+  br i1 %175, label %158, label %bitplanar2chunky.exit, !llvm.loop !65
 
 bitplanar2chunky.exit:                            ; preds = %158, %._crit_edge26.i23, %._crit_edge26.i, %bytestream2_init.exit.i, %.preheader20.lr.ph.i19, %86, %.preheader20.lr.ph.i, %.preheader21.i, %22, %._crit_edge
   ret void
@@ -1184,19 +1184,20 @@ attributes #10 = { noreturn nounwind }
 !46 = !{!28, !14, i64 56}
 !47 = !{!14, !14, i64 0}
 !48 = !{!10, !10, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = distinct !{!52, !50}
-!53 = distinct !{!53, !50, !54}
-!54 = !{!"llvm.loop.unswitch.partial.disable"}
-!55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50, !54}
-!57 = distinct !{!57, !50}
-!58 = distinct !{!58, !50}
-!59 = distinct !{!59, !50, !54}
-!60 = distinct !{!60, !50, !54}
-!61 = distinct !{!61, !50}
-!62 = distinct !{!62, !50, !54}
-!63 = distinct !{!63, !50, !54}
-!64 = distinct !{!64, !50}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = distinct !{!53, !50, !51}
+!54 = distinct !{!54, !50, !51, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = distinct !{!56, !50, !51}
+!57 = distinct !{!57, !50, !51, !55}
+!58 = distinct !{!58, !50, !51}
+!59 = distinct !{!59, !50, !51}
+!60 = distinct !{!60, !50, !51, !55}
+!61 = distinct !{!61, !50, !51, !55}
+!62 = distinct !{!62, !50, !51}
+!63 = distinct !{!63, !50, !51, !55}
+!64 = distinct !{!64, !50, !51, !55}
+!65 = distinct !{!65, !50, !51}

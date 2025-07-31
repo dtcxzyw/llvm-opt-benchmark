@@ -236,7 +236,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
 .thread:                                          ; preds = %79, %.preheader, %92, %45, %41, %38, %31, %95
   %.0101119 = phi i32 [ %.0101, %95 ], [ 2048, %31 ], [ 2048, %38 ], [ 2048, %41 ], [ 2048, %45 ], [ 2048, %92 ], [ 2048, %.preheader ], [ 2048, %79 ]
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %98 = load i32, ptr %97, align 8, !tbaa !46
+  %98 = load i32, ptr %97, align 8, !tbaa !47
   %99 = and i32 %98, 1
   %.not116 = icmp eq i32 %99, 0
   br i1 %.not116, label %.thread._crit_edge, label %100
@@ -273,7 +273,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   %110 = tail call i32 @av_get_audio_frame_duration2(ptr noundef nonnull %11, i32 noundef %109) #5
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %111, ptr %112, align 8, !tbaa !48
+  store i64 %111, ptr %112, align 8, !tbaa !49
   br label %124
 
 113:                                              ; preds = %106
@@ -284,7 +284,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   %.sext = sext i32 %116 to i64
   %117 = mul nsw i64 %.sext, 14
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %117, ptr %118, align 8, !tbaa !48
+  store i64 %117, ptr %118, align 8, !tbaa !49
   br label %124
 
 119:                                              ; preds = %106, %106
@@ -294,7 +294,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   %122 = sdiv i32 %120, %121
   %.sext124 = sext i32 %122 to i64
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %.sext124, ptr %123, align 8, !tbaa !48
+  store i64 %.sext124, ptr %123, align 8, !tbaa !49
   br label %124
 
 124:                                              ; preds = %.thread._crit_edge, %100, %103, %119, %113, %108, %106
@@ -315,7 +315,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   %136 = tail call i32 @avio_rb32(ptr noundef nonnull %4) #5
   %137 = zext i32 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %137, ptr %138, align 8, !tbaa !48
+  store i64 %137, ptr %138, align 8, !tbaa !49
   br label %139
 
 139:                                              ; preds = %130, %124
@@ -331,8 +331,8 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -400,7 +400,7 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %41 = load ptr, ptr %8, align 8, !tbaa !12
   %42 = tail call i32 @avio_r8(ptr noundef %41) #5
   %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %34, align 8, !tbaa !52
+  %44 = load ptr, ptr %34, align 8, !tbaa !53
   %45 = shl nsw i64 %indvars.iv, 3
   %46 = add nuw nsw i64 %45, %39
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
@@ -408,7 +408,7 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %48 = load ptr, ptr %8, align 8, !tbaa !12
   %49 = tail call i32 @avio_r8(ptr noundef %48) #5
   %50 = trunc i32 %49 to i8
-  %51 = load ptr, ptr %34, align 8, !tbaa !52
+  %51 = load ptr, ptr %34, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %46
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store i8 %50, ptr %53, align 1, !tbaa !11
@@ -416,13 +416,13 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %54 = load i32, ptr %26, align 4, !tbaa !39
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %40, label %._crit_edge, !llvm.loop !53
+  br i1 %56, label %40, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %57 = phi i32 [ %37, %.preheader ], [ %54, %40 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !55
 
 58:                                               ; preds = %25, %21
   %59 = load ptr, ptr %8, align 8, !tbaa !12
@@ -437,26 +437,26 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 63:                                               ; preds = %.loopexit
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %65 = load i32, ptr %64, align 8, !tbaa !56
+  %65 = load i32, ptr %64, align 8, !tbaa !57
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !52
+  %69 = load ptr, ptr %68, align 8, !tbaa !53
   %70 = load i8, ptr %69, align 1, !tbaa !11
   %71 = lshr i8 %70, 2
   %72 = zext nneg i8 %71 to i64
   %73 = shl nuw nsw i64 %72, 9
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %73, ptr %74, align 8, !tbaa !57
+  store i64 %73, ptr %74, align 8, !tbaa !58
   br label %75
 
 75:                                               ; preds = %67, %63, %.loopexit
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %13, ptr %76, align 8, !tbaa !58
+  store i64 %13, ptr %76, align 8, !tbaa !59
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %77, align 4, !tbaa !59
+  store i32 0, ptr %77, align 4, !tbaa !60
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %2, %75
@@ -561,19 +561,20 @@ attributes #5 = { nounwind }
 !41 = !{!35, !10, i64 156}
 !42 = !{!35, !6, i64 16}
 !43 = !{!35, !10, i64 56}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !10, i64 144}
-!47 = !{!"AVIOContext", !14, i64 0, !6, i64 8, !10, i64 16, !6, i64 24, !6, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !22, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !22, i64 104, !6, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !10, i64 144, !10, i64 148, !6, i64 152, !6, i64 160, !7, i64 168, !10, i64 176, !6, i64 184, !22, i64 192, !22, i64 200}
-!48 = !{!28, !22, i64 48}
-!49 = !{!13, !18, i64 48}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!52 = !{!31, !6, i64 24}
-!53 = distinct !{!53, !45}
-!54 = distinct !{!54, !45, !55}
-!55 = !{!"llvm.loop.unswitch.partial.disable"}
-!56 = !{!31, !10, i64 32}
-!57 = !{!31, !22, i64 64}
-!58 = !{!31, !22, i64 72}
-!59 = !{!31, !10, i64 36}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !10, i64 144}
+!48 = !{!"AVIOContext", !14, i64 0, !6, i64 8, !10, i64 16, !6, i64 24, !6, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !22, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !22, i64 104, !6, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !10, i64 144, !10, i64 148, !6, i64 152, !6, i64 160, !7, i64 168, !10, i64 176, !6, i64 184, !22, i64 192, !22, i64 200}
+!49 = !{!28, !22, i64 48}
+!50 = !{!13, !18, i64 48}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!53 = !{!31, !6, i64 24}
+!54 = distinct !{!54, !45, !46}
+!55 = distinct !{!55, !45, !46, !56}
+!56 = !{!"llvm.loop.unswitch.partial.disable"}
+!57 = !{!31, !10, i64 32}
+!58 = !{!31, !22, i64 64}
+!59 = !{!31, !22, i64 72}
+!60 = !{!31, !10, i64 36}

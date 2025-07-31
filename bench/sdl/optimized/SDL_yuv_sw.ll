@@ -334,7 +334,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   %101 = add nsw i32 %100, 1
   %102 = sdiv i32 %101, 2
   %103 = icmp slt i32 %99, %102
-  br i1 %103, label %92, label %._crit_edge195, !llvm.loop !5
+  br i1 %103, label %92, label %._crit_edge195, !llvm.loop !6
 
 ._crit_edge195:                                   ; preds = %92
   %.pre210 = load i32, ptr %42, align 4
@@ -393,7 +393,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   %144 = add nsw i32 %143, 1
   %145 = sdiv i32 %144, 2
   %146 = icmp slt i32 %142, %145
-  br i1 %146, label %135, label %.loopexit, !llvm.loop !6
+  br i1 %146, label %135, label %.loopexit, !llvm.loop !7
 
 147:                                              ; preds = %4, %4, %4
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -436,7 +436,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   %176 = add nuw nsw i32 %.0145180, 1
   %177 = load i32, ptr %155, align 4
   %178 = icmp slt i32 %176, %177
-  br i1 %178, label %171, label %.loopexit, !llvm.loop !7
+  br i1 %178, label %171, label %.loopexit, !llvm.loop !8
 
 179:                                              ; preds = %4, %4
   %180 = load i32, ptr %1, align 4
@@ -517,7 +517,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   %235 = add nuw nsw i32 %.0172, 1
   %236 = load i32, ptr %218, align 4
   %237 = icmp slt i32 %235, %236
-  br i1 %237, label %230, label %._crit_edge, !llvm.loop !8
+  br i1 %237, label %230, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %230
   %.pre = load i32, ptr %215, align 4
@@ -573,7 +573,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   %275 = add nsw i32 %274, 1
   %276 = sdiv i32 %275, 2
   %277 = icmp slt i32 %273, %276
-  br i1 %277, label %265, label %.loopexit, !llvm.loop !9
+  br i1 %277, label %265, label %.loopexit, !llvm.loop !10
 
 278:                                              ; preds = %4
   %279 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #8
@@ -625,7 +625,7 @@ define hidden noundef zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef read
   %33 = add nuw nsw i32 %.073, 1
   %34 = load i32, ptr %15, align 4
   %35 = icmp slt i32 %33, %34
-  br i1 %35, label %28, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %35, label %28, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %28
   %36 = icmp sgt i32 %34, 0
@@ -692,7 +692,7 @@ define hidden noundef zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef read
   %80 = add nsw i32 %79, 1
   %81 = sdiv i32 %80, 2
   %82 = icmp slt i32 %78, %81
-  br i1 %82, label %71, label %._crit_edge79.loopexit, !llvm.loop !11
+  br i1 %82, label %71, label %._crit_edge79.loopexit, !llvm.loop !12
 
 ._crit_edge79.loopexit:                           ; preds = %71
   %.pre = load i32, ptr %0, align 8
@@ -760,7 +760,7 @@ define hidden noundef zeroext i1 @SDL_SW_UpdateYUVTexturePlanar(ptr noundef read
   %127 = add nsw i32 %126, 1
   %128 = sdiv i32 %127, 2
   %129 = icmp slt i32 %125, %128
-  br i1 %129, label %118, label %._crit_edge85, !llvm.loop !12
+  br i1 %129, label %118, label %._crit_edge85, !llvm.loop !13
 
 ._crit_edge85:                                    ; preds = %118, %102
   ret i1 true
@@ -804,7 +804,7 @@ define hidden noundef zeroext i1 @SDL_SW_UpdateNVTexturePlanar(ptr noundef reado
   %31 = add nuw nsw i32 %.041, 1
   %32 = load i32, ptr %13, align 4
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %26, label %._crit_edge, !llvm.loop !13
+  br i1 %33, label %26, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i32, ptr %10, align 4
@@ -851,7 +851,7 @@ define hidden noundef zeroext i1 @SDL_SW_UpdateNVTexturePlanar(ptr noundef reado
   %65 = add nsw i32 %64, 1
   %66 = sdiv i32 %65, 2
   %67 = icmp slt i32 %63, %66
-  br i1 %67, label %55, label %._crit_edge47, !llvm.loop !14
+  br i1 %67, label %55, label %._crit_edge47, !llvm.loop !15
 
 ._crit_edge47:                                    ; preds = %55, %6, %._crit_edge
   ret i1 true
@@ -1098,15 +1098,16 @@ attributes #9 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}

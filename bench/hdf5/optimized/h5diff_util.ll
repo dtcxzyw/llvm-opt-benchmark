@@ -489,26 +489,26 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
 .lr.ph:                                           ; preds = %3, %7
   %.019 = phi i64 [ %8, %7 ], [ %4, %3 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.019
-  %5 = load i8, ptr %gep, align 1, !tbaa !9
+  %5 = load i8, ptr %gep, align 1, !tbaa !10
   %6 = icmp eq i8 %5, 47
   br i1 %6, label %7, label %.lr.ph26
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.019, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !11
 
 .lr.ph26:                                         ; preds = %.lr.ph, %10
   %.125 = phi i64 [ %11, %10 ], [ %.019, %.lr.ph ]
   %gep23 = getelementptr i8, ptr %invariant.gep, i64 %.125
-  %9 = load i8, ptr %gep23, align 1, !tbaa !9
+  %9 = load i8, ptr %gep23, align 1, !tbaa !10
   %.not17 = icmp eq i8 %9, 47
   br i1 %.not17, label %.critedge2, label %10
 
 10:                                               ; preds = %.lr.ph26
   %11 = add i64 %.125, -1
   %.not16 = icmp eq i64 %11, 0
-  br i1 %.not16, label %.critedge2, label %.lr.ph26, !llvm.loop !11
+  br i1 %.not16, label %.critedge2, label %.lr.ph26, !llvm.loop !12
 
 .critedge2:                                       ; preds = %7, %.lr.ph26, %10, %3
   %.1.lcssa = phi i64 [ 0, %3 ], [ 0, %10 ], [ %.125, %.lr.ph26 ], [ 0, %7 ]
@@ -574,7 +574,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define void @print_found(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @g_Parallel, align 1, !tbaa !9
+  %2 = load i8, ptr @g_Parallel, align 1, !tbaa !10
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %4, label %3
 
@@ -583,7 +583,7 @@ define void @print_found(i64 noundef %0) local_unnamed_addr #0 {
   br label %7
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !13
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.77, i64 noundef %0) #7
   br label %7
 
@@ -614,7 +614,7 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br i1 %15, label %16, label %32
 
 16:                                               ; preds = %11
-  %17 = load i32, ptr @enable_error_stack, align 4, !tbaa !15
+  %17 = load i32, ptr @enable_error_stack, align 4, !tbaa !16
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -633,9 +633,9 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br label %.thread
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !13
   %30 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 25, i64 1, ptr %29) #9
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !13
   %fputc33 = tail call i32 @fputc(i32 10, ptr %31)
   br label %.thread
 
@@ -654,7 +654,7 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %34
-  %40 = load i32, ptr @enable_error_stack, align 4, !tbaa !15
+  %40 = load i32, ptr @enable_error_stack, align 4, !tbaa !16
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.thread
 
@@ -673,9 +673,9 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br label %.thread
 
 51:                                               ; preds = %42
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !13
   %53 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 25, i64 1, ptr %52) #9
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %54 = load ptr, ptr @stderr, align 8, !tbaa !13
   %fputc = tail call i32 @fputc(i32 10, ptr %54)
   br label %.thread
 
@@ -692,7 +692,7 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br i1 %.not31, label %.thread, label %60
 
 60:                                               ; preds = %57
-  %61 = load i32, ptr @enable_error_stack, align 4, !tbaa !15
+  %61 = load i32, ptr @enable_error_stack, align 4, !tbaa !16
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %.thread
 
@@ -711,9 +711,9 @@ define range(i32 -1, 1) i32 @match_up_memsize(i64 noundef %0, i64 noundef %1, pt
   br label %.thread
 
 72:                                               ; preds = %63
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %73 = load ptr, ptr @stderr, align 8, !tbaa !13
   %74 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 32, i64 1, ptr %73) #9
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !13
   %fputc32 = tail call i32 @fputc(i32 10, ptr %75)
   br label %.thread
 
@@ -756,13 +756,14 @@ attributes #9 = { cold }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !5, i64 0}

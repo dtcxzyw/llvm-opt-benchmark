@@ -160,7 +160,7 @@ define hidden i32 @jvmLauncherStartJvm(ptr noundef readonly captures(none) %0, p
   %29 = load i32, ptr %8, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next19.i, %30
-  br i1 %31, label %21, label %dumpJvmlLauncherData.exit, !llvm.loop !9
+  br i1 %31, label %21, label %dumpJvmlLauncherData.exit, !llvm.loop !10
 
 dumpJvmlLauncherData.exit:                        ; preds = %21
   %32 = icmp sgt i32 %29, 0
@@ -193,7 +193,7 @@ dumpJvmlLauncherData.exit:                        ; preds = %21
   %46 = load i32, ptr %8, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %35, label %._crit_edge, !llvm.loop !10
+  br i1 %48, label %35, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %45, %.preheader.i, %dumpJvmlLauncherData.exit
   %49 = load i32, ptr %4, align 8
@@ -255,7 +255,8 @@ attributes #14 = { cold nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

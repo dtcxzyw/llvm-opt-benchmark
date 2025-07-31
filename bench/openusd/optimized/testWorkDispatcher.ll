@@ -386,17 +386,17 @@ _ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_it
 _ZN4Node8AddInputEPKS_.exit.i:                    ; preds = %_ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %84
   %106 = add nuw i32 %.02025.i, 1
   %exitcond28.not.i = icmp eq i32 %.02025.i, %34
-  br i1 %exitcond28.not.i, label %._crit_edge.i, label %38, !llvm.loop !7
+  br i1 %exitcond28.not.i, label %._crit_edge.i, label %38, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %_ZN4Node8AddInputEPKS_.exit.i, %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, 1000
-  br i1 %exitcond30.not.i, label %107, label %25, !llvm.loop !8
+  br i1 %exitcond30.not.i, label %107, label %25, !llvm.loop !9
 
 107:                                              ; preds = %._crit_edge.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 100
-  br i1 %exitcond34.not.i, label %_ZNSt10unique_ptrI5GraphSt14default_deleteIS0_EE5resetEPS0_.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond34.not.i, label %_ZNSt10unique_ptrI5GraphSt14default_deleteIS0_EE5resetEPS0_.exit, label %.preheader.i, !llvm.loop !10
 
 _ZNSt10unique_ptrI5GraphSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %107
   store ptr %15, ptr %6, align 8
@@ -538,7 +538,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFPFbP5GraphES
   %154 = tail call ptr @__errno_location() #20
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 4
-  br i1 %156, label %150, label %157, !llvm.loop !10
+  br i1 %156, label %150, label %157, !llvm.loop !11
 
 157:                                              ; preds = %153, %.noexc3.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -750,7 +750,7 @@ define internal fastcc noundef zeroext i1 @_ZL15_TestDispatcherIN32pxrInternal_v
 
 9:                                                ; preds = %8
   fence syncscope("singlethread") seq_cst
-  %10 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !11
+  %10 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -771,7 +771,7 @@ define internal fastcc noundef zeroext i1 @_ZL15_TestDispatcherIN32pxrInternal_v
 
 23:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_ERPS2_JRS4_S5_EEEvOT_OT0_DpOT1_.exit
   %.sroa.012.026 = phi ptr [ %11, %.lr.ph ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_ERPS2_JRS4_S5_EEEvOT_OT0_DpOT1_.exit ]
-  %24 = load ptr, ptr %.sroa.012.026, align 8, !noalias !12
+  %24 = load ptr, ptr %.sroa.012.026, align 8, !noalias !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %25 = atomicrmw add ptr %15, i64 1 seq_cst, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %25, -1
@@ -857,7 +857,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_ERP
 
 52:                                               ; preds = %._crit_edge
   fence syncscope("singlethread") seq_cst
-  %53 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
+  %53 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
   %54 = sub i64 %53, %10
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load atomic i32, ptr %55 seq_cst, align 4
@@ -1344,7 +1344,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   %104 = add nuw nsw i32 %.01795, 1
   %105 = load i32, ptr %7, align 4
   %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 107:                                              ; preds = %_ZNSt12_Vector_baseIP4NodeSaIS1_EE11_M_allocateEm.exit.i, %18, %2
   %108 = landingpad { ptr, i32 }
@@ -1412,7 +1412,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   %113 = load i32, ptr %4, align 4
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph100, label %.preheader78, !llvm.loop !17
+  br i1 %115, label %.lr.ph100, label %.preheader78, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader78, %._crit_edge104
   %116 = phi i32 [ %188, %._crit_edge104 ], [ %113, %.preheader78 ]
@@ -1572,7 +1572,7 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
   %185 = load i32, ptr %117, align 4
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next121, %186
-  br i1 %187, label %.lr.ph103, label %._crit_edge104.loopexit, !llvm.loop !18
+  br i1 %187, label %.lr.ph103, label %._crit_edge104.loopexit, !llvm.loop !19
 
 ._crit_edge104.loopexit:                          ; preds = %_ZN4Node8AddInputEPKS_.exit
   %.pre127 = load i32, ptr %4, align 4
@@ -1583,7 +1583,7 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next124, %189
-  br i1 %190, label %.preheader, label %._crit_edge106, !llvm.loop !19
+  br i1 %190, label %.preheader, label %._crit_edge106, !llvm.loop !20
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, %.preheader78
   %.sroa.10.1.lcssa135 = phi ptr [ %.sroa.10.2, %.preheader78 ], [ null, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %.sroa.10.2, %._crit_edge104 ]
@@ -1611,7 +1611,7 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
 _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i: ; preds = %194, %.lr.ph.i.i.i.i
   %200 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i45 = icmp eq ptr %200, %192
-  br i1 %.not.i.i.i.i45, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i45, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8
@@ -1682,7 +1682,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noun
 _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i:  ; preds = %6, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %12, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1809,7 +1809,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZN32pxrInternal_v0
   store atomic i64 %47, ptr %48 seq_cst, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 8
   %.not = icmp eq ptr %49, %5
-  br i1 %.not, label %._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorIP4NodeSaIS3_EELb0EEdeEv.exit, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorIP4NodeSaIS3_EELb0EEdeEv.exit, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit, %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1893,7 +1893,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_EPS
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEppEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_EPS2_JS4_RS5_EEEvOT_OT0_DpOT1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEdeEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 8
   %.not = icmp eq ptr %39, %8
-  br i1 %.not, label %._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEdeEv.exit, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEdeEv.exit, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEppEv.exit, %3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1998,7 +1998,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__14Work
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr i8, ptr %8, i64 %.unpack.i.i.i.i
   %10 = getelementptr i8, ptr %9, i64 -1
-  %11 = load ptr, ptr %10, align 8, !nosanitize !23
+  %11 = load ptr, ptr %10, align 8, !nosanitize !24
   br label %_ZNKSt5_BindIFM5GraphFvP4NodePN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEPS0_S2_S5_EE8__call_cIvJEJLm0ELm1ELm2EEEET_OSt5tupleIJDpT0_EESt12_Index_tupleIJXspT1_EEE.exit.i
 
 12:                                               ; preds = %1
@@ -2084,7 +2084,7 @@ define internal noundef zeroext i1 @_ZL17_DelayedGraphTaskIN32pxrInternal_v0_24_
   %10 = tail call ptr @__errno_location() #20
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !10
+  br i1 %12, label %6, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !11
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %6, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -2254,22 +2254,23 @@ attributes #20 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{i64 5030782, i64 5030791, i64 5030811, i64 5030840, i64 5030867}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt4bindIM5GraphFvP4NodePN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEJRPS0_RS2_S5_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_: argument 0"}
-!14 = distinct !{!14, !"_ZSt4bindIM5GraphFvP4NodePN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEJRPS0_RS2_S5_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_"}
-!15 = !{i64 5032034, i64 5032043, i64 5032072, i64 5032099}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = !{}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{i64 5030782, i64 5030791, i64 5030811, i64 5030840, i64 5030867}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZSt4bindIM5GraphFvP4NodePN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEJRPS0_RS2_S5_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_: argument 0"}
+!15 = distinct !{!15, !"_ZSt4bindIM5GraphFvP4NodePN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEJRPS0_RS2_S5_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_"}
+!16 = !{i64 5032034, i64 5032043, i64 5032072, i64 5032099}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = !{}

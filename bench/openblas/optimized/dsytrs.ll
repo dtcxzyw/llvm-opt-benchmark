@@ -224,7 +224,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .loopexit476:                                     ; preds = %.lr.ph, %._crit_edge519, %._crit_edge520
   %.1 = phi i32 [ %56, %._crit_edge520 ], [ %73, %._crit_edge519 ], [ %73, %.lr.ph ]
   %112 = icmp slt i32 %.1, 1
-  br i1 %112, label %.preheader474, label %.lr.ph485
+  br i1 %112, label %.preheader474, label %.lr.ph485, !llvm.loop !12
 
 .lr.ph493:                                        ; preds = %.preheader474, %139
   %.2492 = phi i32 [ %140, %139 ], [ 1, %.preheader474 ]
@@ -284,7 +284,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %140 = add nsw i32 %.2492, %.sink547
   %141 = load i32, ptr %1, align 4, !tbaa !3
   %142 = icmp sgt i32 %140, %141
-  br i1 %142, label %.loopexit, label %.lr.ph493
+  br i1 %142, label %.loopexit, label %.lr.ph493, !llvm.loop !13
 
 .preheader:                                       ; preds = %248
   %invariant.op501 = add i32 %16, -1
@@ -459,7 +459,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %246, ptr %gep546, align 8, !tbaa !7
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
-  br i1 %exitcond514.not, label %._crit_edge, label %.lr.ph496, !llvm.loop !11
+  br i1 %exitcond514.not, label %._crit_edge, label %.lr.ph496, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph496, %217
   %247 = add nsw i32 %.4499, 2
@@ -469,7 +469,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.5 = phi i32 [ %161, %173 ], [ %247, %._crit_edge ]
   %249 = load i32, ptr %1, align 4, !tbaa !3
   %250 = icmp sgt i32 %.5, %249
-  br i1 %250, label %.preheader, label %144
+  br i1 %250, label %.preheader, label %144, !llvm.loop !15
 
 .lr.ph506:                                        ; preds = %.preheader, %304
   %.6505 = phi i32 [ %305, %304 ], [ %249, %.preheader ]
@@ -569,7 +569,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.sink548 = phi i32 [ -1, %270 ], [ -2, %297 ], [ %.sink548.ph, %.sink.split552 ]
   %305 = add nsw i32 %.6505, %.sink548
   %306 = icmp slt i32 %305, 1
-  br i1 %306, label %.loopexit, label %.lr.ph506
+  br i1 %306, label %.loopexit, label %.lr.ph506, !llvm.loop !16
 
 .loopexit:                                        ; preds = %139, %304, %.preheader474, %.preheader, %38, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
@@ -619,6 +619,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

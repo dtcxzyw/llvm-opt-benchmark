@@ -511,7 +511,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0544.neg612 = phi i32 [ -2, %.loopexit636 ], [ -1, %293 ]
   %319 = add i32 %318, %.0544.neg612
   %.pre = load i32, ptr %1, align 4, !tbaa !3
-  br label %38
+  br label %38, !llvm.loop !12
 
 320:                                              ; preds = %44, %47
   %321 = sub i32 0, %40
@@ -575,7 +575,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %354 = load i32, ptr %12, align 4, !tbaa !3
   %355 = sext i32 %354 to i64
   %.not609.not = icmp slt i64 %indvars.iv693, %355
-  br i1 %.not609.not, label %.lr.ph663, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %.not609.not, label %.lr.ph663, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph663
   %.pre707 = load i32, ptr %18, align 4, !tbaa !3
@@ -604,7 +604,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %370 = icmp sgt i32 %368, 0
   %371 = icmp slt i32 %368, 2
   %.in605 = select i1 %369, i1 %370, i1 %371
-  br i1 %.in605, label %332, label %._crit_edge672.loopexit, !llvm.loop !12
+  br i1 %.in605, label %332, label %._crit_edge672.loopexit, !llvm.loop !14
 
 ._crit_edge672.loopexit:                          ; preds = %._crit_edge
   %.pre708 = load i32, ptr %18, align 4, !tbaa !3
@@ -647,7 +647,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 390:                                              ; preds = %381, %374
   %391 = phi i32 [ %.pre709, %381 ], [ %.pre710, %374 ]
   %392 = icmp slt i32 %380, %391
-  br i1 %392, label %374, label %393
+  br i1 %392, label %374, label %393, !llvm.loop !15
 
 393:                                              ; preds = %390
   %394 = load i32, ptr %18, align 4, !tbaa !3
@@ -1068,7 +1068,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv.next697 = add nsw i64 %indvars.iv696, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next697 to i32
   %exitcond699.not = icmp eq i32 %685, %lftr.wideiv
-  br i1 %exitcond699.not, label %.loopexit, label %686, !llvm.loop !13
+  br i1 %exitcond699.not, label %.loopexit, label %686, !llvm.loop !16
 
 697:                                              ; preds = %450, %453, %639, %625
   %698 = phi i32 [ %636, %625 ], [ %.pre713, %639 ], [ %446, %453 ], [ %446, %450 ]
@@ -1126,7 +1126,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %or.cond747 = select i1 %.not589, i1 %728, i1 false
   %729 = icmp sgt i32 %726, %.pre711
   %or.cond748 = select i1 %or.cond747, i1 true, i1 %729
-  br i1 %or.cond748, label %._crit_edge790, label %.lr.ph789
+  br i1 %or.cond748, label %._crit_edge790, label %.lr.ph789, !llvm.loop !17
 
 ._crit_edge790:                                   ; preds = %724, %.preheader
   %storemerge.lcssa = phi i32 [ 1, %.preheader ], [ %726, %724 ]
@@ -1193,7 +1193,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %757 = load i32, ptr %13, align 4, !tbaa !3
   %758 = sext i32 %757 to i64
   %.not596.not = icmp slt i64 %indvars.iv700, %758
-  br i1 %.not596.not, label %.lr.ph681, label %._crit_edge682.loopexit, !llvm.loop !14
+  br i1 %.not596.not, label %.lr.ph681, label %._crit_edge682.loopexit, !llvm.loop !18
 
 ._crit_edge682.loopexit:                          ; preds = %.lr.ph681
   %.pre714 = load i32, ptr %20, align 4, !tbaa !3
@@ -1230,7 +1230,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 776:                                              ; preds = %._crit_edge682, %762
   %777 = load i32, ptr %12, align 4, !tbaa !3
   %778 = add nsw i32 %734, %777
-  br label %732, !llvm.loop !15
+  br label %732, !llvm.loop !19
 
 779:                                              ; preds = %737, %738
   %780 = load i32, ptr %18, align 4, !tbaa !3
@@ -1266,7 +1266,7 @@ define void @dlasyf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 798:                                              ; preds = %791, %782
   %799 = phi i32 [ %.pr622, %791 ], [ %788, %782 ]
   %800 = icmp sgt i32 %799, 1
-  br i1 %800, label %782, label %801
+  br i1 %800, label %782, label %801, !llvm.loop !20
 
 801:                                              ; preds = %798
   %802 = load i32, ptr %18, align 4, !tbaa !3
@@ -1340,10 +1340,15 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !11}

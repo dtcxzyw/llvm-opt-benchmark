@@ -926,7 +926,7 @@ dissect_ppdu.exit:                                ; preds = %82, %93, %97, %101,
   %.0.i70 = phi i32 [ 0, %82 ], [ %126, %123 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %115, %113 ], [ %118, %116 ], [ %122, %119 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
   %.not67 = icmp sgt i32 %.0.i70, %.059
-  br i1 %.not67, label %.split, label %.split75, !llvm.loop !8
+  br i1 %.not67, label %.split, label %.split75, !llvm.loop !9
 
 .split75:                                         ; preds = %dissect_ppdu.exit, %dissect_ppdu.exit.us
   %.us-phi = phi i32 [ 0, %dissect_ppdu.exit.us ], [ %.0.i70, %dissect_ppdu.exit ]
@@ -1785,6 +1785,7 @@ attributes #9 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

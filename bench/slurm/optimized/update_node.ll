@@ -548,7 +548,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
 220:                                              ; preds = %.preheader
   %221 = add nuw nsw i32 %.0185224, 1
   %exitcond.not = icmp eq i32 %221, 7
-  br i1 %exitcond.not, label %223, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %223, label %.preheader, !llvm.loop !12
 
 .thread208:                                       ; preds = %.preheader
   store i32 %.0185224, ptr %6, align 8
@@ -587,7 +587,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly 
   %.2 = phi i32 [ %42, %41 ], [ %47, %46 ], [ %.0187231, %53 ], [ %76, %75 ], [ %91, %90 ], [ %112, %111 ], [ %139, %137 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %182, %181 ], [ %187, %186 ], [ %194, %193 ], [ %199, %198 ], [ %206, %205 ], [ %211, %210 ], [ %216, %215 ], [ %152, %151 ], [ %118, %117 ], [ %101, %100 ], [ %97, %96 ], [ %86, %85 ], [ %80, %79 ], [ %63, %62 ], [ %59, %58 ], [ %222, %.thread208 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond243.not, label %._crit_edge.loopexit, label %21, !llvm.loop !12
+  br i1 %exitcond243.not, label %._crit_edge.loopexit, label %21, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %244
   %245 = icmp eq i32 %.2, 0
@@ -842,7 +842,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef read
   %.1 = phi i32 [ %.05972, %28 ], [ %49, %47 ], [ %59, %58 ], [ %64, %63 ], [ %69, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %82
   %83 = icmp eq i32 %.1, 0
@@ -944,9 +944,10 @@ attributes #12 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

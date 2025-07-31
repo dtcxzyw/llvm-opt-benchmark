@@ -107,7 +107,7 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %24 = load i64, ptr %8, align 8, !tbaa !4
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3844
-  store i32 %23, ptr %26, align 4, !tbaa !36
+  store i32 %23, ptr %26, align 4, !tbaa !37
   %27 = tail call i32 @lj_trace_flushall(ptr noundef %0) #7
   br label %.critedgethread-pre-split
 
@@ -120,17 +120,17 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %.227 = phi i32 [ %.02537, %.critedgethread-pre-split ], [ 1, %.preheader ], [ %21, %.critedge.loopexit ]
   %.2 = phi ptr [ %11, %.critedgethread-pre-split ], [ %11, %.preheader ], [ %16, %.critedge.loopexit ]
   %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.critedge, %4
   %.025.lcssa = phi i32 [ 10, %4 ], [ %.227, %.critedge ]
-  %29 = load ptr, ptr @profile_state, align 8, !tbaa !52
+  %29 = load ptr, ptr @profile_state, align 8, !tbaa !53
   %.not30 = icmp eq ptr %29, null
   br i1 %.not30, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
   tail call void @luaJIT_profile_stop(ptr noundef %0)
-  %31 = load ptr, ptr @profile_state, align 8, !tbaa !52
+  %31 = load ptr, ptr @profile_state, align 8, !tbaa !53
   %.not31 = icmp eq ptr %31, null
   br i1 %.not31, label %32, label %50
 
@@ -138,31 +138,31 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !4
   %35 = inttoptr i64 %34 to ptr
-  store ptr %35, ptr @profile_state, align 8, !tbaa !52
-  store i32 %.025.lcssa, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 56), align 8, !tbaa !53
+  store ptr %35, ptr @profile_state, align 8, !tbaa !53
+  store i32 %.025.lcssa, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 56), align 8, !tbaa !54
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 8), align 8, !tbaa !30
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 16), align 8, !tbaa !31
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 60), align 4, !tbaa !25
   %36 = ptrtoint ptr %0 to i64
-  store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 48), align 8, !tbaa !54
+  store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 48), align 8, !tbaa !55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #7
   %37 = udiv i32 %.025.lcssa, 1000
   %38 = zext nneg i32 %37 to i64
-  store i64 %38, ptr %5, align 8, !tbaa !55
+  store i64 %38, ptr %5, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %38, ptr %39, align 8, !tbaa !58
+  store i64 %38, ptr %39, align 8, !tbaa !59
   %40 = urem i32 %.025.lcssa, 1000
   %41 = mul nuw nsw i32 %40, 1000
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %42, ptr %43, align 8, !tbaa !59
+  store i64 %42, ptr %43, align 8, !tbaa !60
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %42, ptr %44, align 8, !tbaa !60
+  store i64 %42, ptr %44, align 8, !tbaa !61
   %45 = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #7
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 268435456, ptr %46, align 8, !tbaa !61
+  store i32 268435456, ptr %46, align 8, !tbaa !62
   store ptr @profile_signal, ptr %6, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %48 = call i32 @sigemptyset(ptr noundef nonnull %47) #7
@@ -180,7 +180,7 @@ declare hidden i32 @lj_trace_flushall(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaJIT_profile_stop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.itimerval, align 8
-  %3 = load ptr, ptr @profile_state, align 8, !tbaa !52
+  %3 = load ptr, ptr @profile_state, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = inttoptr i64 %5 to ptr
@@ -199,23 +199,23 @@ define dso_local void @luaJIT_profile_stop(ptr noundef %0) local_unnamed_addr #0
   store i8 %13, ptr %11, align 1, !tbaa !14
   tail call void @lj_dispatch_update(ptr noundef %3) #7
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 3844
-  store i32 0, ptr %14, align 4, !tbaa !36
+  store i32 0, ptr %14, align 4, !tbaa !37
   %15 = tail call i32 @lj_trace_flushall(ptr noundef nonnull %0) #7
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !62
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 32), align 8, !tbaa !63
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !63
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 32), align 8, !tbaa !64
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %16 to i64
   %20 = sub i64 %18, %19
   %21 = and i64 %20, 4294967295
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !64
+  %23 = load i64, ptr %22, align 8, !tbaa !65
   %24 = sub i64 %23, %21
-  store i64 %24, ptr %22, align 8, !tbaa !64
-  %25 = load ptr, ptr %3, align 8, !tbaa !65
+  store i64 %24, ptr %22, align 8, !tbaa !65
+  %25 = load ptr, ptr %3, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !66
+  %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = tail call ptr %25(ptr noundef %27, ptr noundef %16, i64 noundef range(i64 0, 4294967296) %21, i64 noundef 0) #7
-  store ptr null, ptr @profile_state, align 8, !tbaa !52
+  store ptr null, ptr @profile_state, align 8, !tbaa !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), i8 0, i64 16, i1 false)
   br label %29
 
@@ -226,17 +226,17 @@ define dso_local void @luaJIT_profile_stop(ptr noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %0 to i64
-  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 48), align 8, !tbaa !54
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !62
-  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), align 8, !tbaa !67
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 48), align 8, !tbaa !55
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !63
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), align 8, !tbaa !68
   tail call void @lj_debug_dumpstack(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), ptr noundef %1, i32 noundef %2) #7
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), align 8, !tbaa !67
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !62
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), align 8, !tbaa !68
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 40), align 8, !tbaa !63
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = and i64 %11, 4294967295
-  store i64 %12, ptr %3, align 8, !tbaa !68
+  store i64 %12, ptr %3, align 8, !tbaa !69
   ret ptr %8
 }
 
@@ -247,7 +247,7 @@ declare noundef i32 @setitimer(i32 noundef, ptr noundef readonly captures(none),
 
 ; Function Attrs: nounwind uwtable
 define internal void @profile_signal(i32 %0) #0 {
-  %2 = load ptr, ptr @profile_state, align 8, !tbaa !52
+  %2 = load ptr, ptr @profile_state, align 8, !tbaa !53
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 60), align 4, !tbaa !25
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @profile_state, i64 60), align 4, !tbaa !25
@@ -258,7 +258,7 @@ define internal void @profile_signal(i32 %0) #0 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %9 = load volatile i32, ptr %8, align 8, !tbaa !69
+  %9 = load volatile i32, ptr %8, align 8, !tbaa !70
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %18, label %11
 
@@ -342,39 +342,40 @@ attributes #7 = { nounwind }
 !31 = !{!26, !12, i64 16}
 !32 = !{!26, !13, i64 64}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !13, i64 3940}
-!37 = !{!"GG_State", !5, i64 0, !15, i64 96, !38, i64 832, !8, i64 3944, !8, i64 4072, !8, i64 6016}
-!38 = !{!"jit_State", !39, i64 0, !44, i64 120, !45, i64 128, !43, i64 136, !46, i64 144, !47, i64 152, !43, i64 160, !13, i64 168, !13, i64 172, !13, i64 176, !8, i64 180, !8, i64 181, !48, i64 182, !8, i64 183, !49, i64 184, !43, i64 224, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !13, i64 252, !13, i64 256, !8, i64 260, !8, i64 264, !8, i64 304, !41, i64 328, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !42, i64 352, !43, i64 360, !13, i64 368, !13, i64 372, !8, i64 376, !19, i64 384, !13, i64 392, !13, i64 396, !40, i64 400, !8, i64 402, !8, i64 604, !8, i64 1636, !8, i64 1696, !8, i64 1824, !13, i64 2848, !8, i64 2852, !13, i64 2980, !50, i64 2984, !43, i64 3008, !13, i64 3016, !13, i64 3020, !13, i64 3024, !43, i64 3032, !13, i64 3040, !13, i64 3044, !21, i64 3048, !21, i64 3056, !21, i64 3064, !7, i64 3072, !7, i64 3080, !8, i64 3088, !47, i64 3096, !13, i64 3104, !13, i64 3108}
-!39 = !{!"GCtrace", !6, i64 0, !8, i64 8, !8, i64 9, !40, i64 10, !13, i64 12, !13, i64 16, !6, i64 24, !41, i64 32, !13, i64 40, !13, i64 44, !42, i64 48, !43, i64 56, !6, i64 64, !10, i64 72, !13, i64 80, !13, i64 84, !21, i64 88, !13, i64 96, !40, i64 100, !40, i64 102, !40, i64 104, !40, i64 106, !40, i64 108, !40, i64 110, !40, i64 112, !8, i64 114, !8, i64 115, !8, i64 116, !8, i64 117}
-!40 = !{!"short", !8, i64 0}
-!41 = !{!"p1 _ZTS5IRIns", !12, i64 0}
-!42 = !{!"p1 _ZTS8SnapShot", !12, i64 0}
-!43 = !{!"p1 int", !12, i64 0}
-!44 = !{!"p1 _ZTS7GCtrace", !12, i64 0}
-!45 = !{!"p1 _ZTS9lua_State", !12, i64 0}
-!46 = !{!"p1 _ZTS6GCfunc", !12, i64 0}
-!47 = !{!"p1 _ZTS7GCproto", !12, i64 0}
-!48 = !{!"IRType1", !8, i64 0}
-!49 = !{!"FoldState", !8, i64 0, !8, i64 8, !8, i64 24}
-!50 = !{!"ScEvEntry", !10, i64 0, !40, i64 8, !40, i64 10, !40, i64 12, !40, i64 14, !48, i64 16, !8, i64 17}
-!51 = distinct !{!51, !35}
-!52 = !{!26, !27, i64 0}
-!53 = !{!26, !13, i64 56}
-!54 = !{!20, !7, i64 24}
-!55 = !{!56, !7, i64 0}
-!56 = !{!"itimerval", !57, i64 0, !57, i64 16}
-!57 = !{!"timeval", !7, i64 0, !7, i64 8}
-!58 = !{!56, !7, i64 16}
-!59 = !{!56, !7, i64 8}
-!60 = !{!56, !7, i64 24}
-!61 = !{!28, !13, i64 136}
-!62 = !{!20, !21, i64 16}
-!63 = !{!20, !21, i64 8}
-!64 = !{!15, !7, i64 16}
-!65 = !{!15, !12, i64 0}
-!66 = !{!15, !12, i64 8}
-!67 = !{!20, !21, i64 0}
-!68 = !{!7, !7, i64 0}
-!69 = !{!15, !13, i64 184}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !13, i64 3940}
+!38 = !{!"GG_State", !5, i64 0, !15, i64 96, !39, i64 832, !8, i64 3944, !8, i64 4072, !8, i64 6016}
+!39 = !{!"jit_State", !40, i64 0, !45, i64 120, !46, i64 128, !44, i64 136, !47, i64 144, !48, i64 152, !44, i64 160, !13, i64 168, !13, i64 172, !13, i64 176, !8, i64 180, !8, i64 181, !49, i64 182, !8, i64 183, !50, i64 184, !44, i64 224, !13, i64 232, !13, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !13, i64 252, !13, i64 256, !8, i64 260, !8, i64 264, !8, i64 304, !42, i64 328, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !43, i64 352, !44, i64 360, !13, i64 368, !13, i64 372, !8, i64 376, !19, i64 384, !13, i64 392, !13, i64 396, !41, i64 400, !8, i64 402, !8, i64 604, !8, i64 1636, !8, i64 1696, !8, i64 1824, !13, i64 2848, !8, i64 2852, !13, i64 2980, !51, i64 2984, !44, i64 3008, !13, i64 3016, !13, i64 3020, !13, i64 3024, !44, i64 3032, !13, i64 3040, !13, i64 3044, !21, i64 3048, !21, i64 3056, !21, i64 3064, !7, i64 3072, !7, i64 3080, !8, i64 3088, !48, i64 3096, !13, i64 3104, !13, i64 3108}
+!40 = !{!"GCtrace", !6, i64 0, !8, i64 8, !8, i64 9, !41, i64 10, !13, i64 12, !13, i64 16, !6, i64 24, !42, i64 32, !13, i64 40, !13, i64 44, !43, i64 48, !44, i64 56, !6, i64 64, !10, i64 72, !13, i64 80, !13, i64 84, !21, i64 88, !13, i64 96, !41, i64 100, !41, i64 102, !41, i64 104, !41, i64 106, !41, i64 108, !41, i64 110, !41, i64 112, !8, i64 114, !8, i64 115, !8, i64 116, !8, i64 117}
+!41 = !{!"short", !8, i64 0}
+!42 = !{!"p1 _ZTS5IRIns", !12, i64 0}
+!43 = !{!"p1 _ZTS8SnapShot", !12, i64 0}
+!44 = !{!"p1 int", !12, i64 0}
+!45 = !{!"p1 _ZTS7GCtrace", !12, i64 0}
+!46 = !{!"p1 _ZTS9lua_State", !12, i64 0}
+!47 = !{!"p1 _ZTS6GCfunc", !12, i64 0}
+!48 = !{!"p1 _ZTS7GCproto", !12, i64 0}
+!49 = !{!"IRType1", !8, i64 0}
+!50 = !{!"FoldState", !8, i64 0, !8, i64 8, !8, i64 24}
+!51 = !{!"ScEvEntry", !10, i64 0, !41, i64 8, !41, i64 10, !41, i64 12, !41, i64 14, !49, i64 16, !8, i64 17}
+!52 = distinct !{!52, !35, !36}
+!53 = !{!26, !27, i64 0}
+!54 = !{!26, !13, i64 56}
+!55 = !{!20, !7, i64 24}
+!56 = !{!57, !7, i64 0}
+!57 = !{!"itimerval", !58, i64 0, !58, i64 16}
+!58 = !{!"timeval", !7, i64 0, !7, i64 8}
+!59 = !{!57, !7, i64 16}
+!60 = !{!57, !7, i64 8}
+!61 = !{!57, !7, i64 24}
+!62 = !{!28, !13, i64 136}
+!63 = !{!20, !21, i64 16}
+!64 = !{!20, !21, i64 8}
+!65 = !{!15, !7, i64 16}
+!66 = !{!15, !12, i64 0}
+!67 = !{!15, !12, i64 8}
+!68 = !{!20, !21, i64 0}
+!69 = !{!7, !7, i64 0}
+!70 = !{!15, !13, i64 184}

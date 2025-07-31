@@ -146,7 +146,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.2 = add nuw nsw i32 %.1276, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %82, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %82, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %82
   %91 = zext nneg i32 %.2 to i64
@@ -174,12 +174,12 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %98 = fcmp olt double %61, %96
   %99 = zext i1 %98 to i64
   %100 = icmp samesign ugt i64 %indvars.iv361, %99
-  br i1 %100, label %.lr.ph303, label %.split.us.loopexit, !llvm.loop !13
+  br i1 %100, label %.lr.ph303, label %.split.us.loopexit, !llvm.loop !14
 
 101:                                              ; preds = %._crit_edge
   %102 = tail call double @llvm.fmuladd.f64(double %63, double %.0222, double %.1255)
   %103 = fmul double %.0222, 2.000000e+00
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !15
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %117
   %.1235 = phi double [ %118, %117 ], [ %48, %.lr.ph294.preheader ]
@@ -205,7 +205,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.5 = add nuw nsw i32 %.4292, %114
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
-  br i1 %exitcond360.not, label %._crit_edge295, label %106, !llvm.loop !14
+  br i1 %exitcond360.not, label %._crit_edge295, label %106, !llvm.loop !16
 
 ._crit_edge295:                                   ; preds = %106
   %115 = zext nneg i32 %.5 to i64
@@ -215,7 +215,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 117:                                              ; preds = %._crit_edge295
   %118 = tail call double @llvm.fmuladd.f64(double %46, double %.1223, double %.1235)
   %119 = fmul double %.1223, 2.000000e+00
-  br label %.lr.ph294
+  br label %.lr.ph294, !llvm.loop !17
 
 .split.us.loopexit:                               ; preds = %.lr.ph303
   %.3.us = zext i1 %98 to i32
@@ -249,7 +249,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %.0254, ptr %128, align 8, !tbaa !7
   store double %.0234, ptr %127, align 8, !tbaa !7
   %exitcond364.not = icmp eq i32 %lftr.wideiv.pre-phi, %36
-  br i1 %exitcond364.not, label %.preheader, label %37, !llvm.loop !15
+  br i1 %exitcond364.not, label %.preheader, label %37, !llvm.loop !18
 
 129:                                              ; preds = %.preheader, %._crit_edge341
   %.0253 = phi i32 [ %193, %._crit_edge341 ], [ 0, %.preheader ]
@@ -295,7 +295,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.6230.us = phi i32 [ %137, %134 ], [ %.4228338.us, %139 ], [ %.4228338.us, %140 ]
   %142 = add nuw i32 %.0236337.us, 1
   %exitcond371.not = icmp eq i32 %.0236337.us, %.2250
-  br i1 %exitcond371.not, label %._crit_edge341.thread, label %134, !llvm.loop !16
+  br i1 %exitcond371.not, label %._crit_edge341.thread, label %134, !llvm.loop !19
 
 .lr.ph340.split:                                  ; preds = %.lr.ph340, %190
   %.4228338 = phi i32 [ %.6230, %190 ], [ %.3227, %.lr.ph340 ]
@@ -376,7 +376,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.8 = add nuw nsw i32 %.7326, %187
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !17
+  br i1 %exitcond369.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !20
 
 ._crit_edge329:                                   ; preds = %.lr.ph328, %174
   %.7.lcssa = phi i32 [ %.6, %174 ], [ %.8, %.lr.ph328 ]
@@ -397,14 +397,14 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.6230 = phi i32 [ %147, %167 ], [ %.4228338, %170 ], [ %.4228338, %171 ], [ %.4228338, %189 ], [ %.4228338, %188 ]
   %191 = add nuw i32 %.0236337, 1
   %exitcond370.not = icmp eq i32 %.0236337, %.2250
-  br i1 %exitcond370.not, label %._crit_edge341, label %.lr.ph340.split, !llvm.loop !18
+  br i1 %exitcond370.not, label %._crit_edge341, label %.lr.ph340.split, !llvm.loop !21
 
 ._crit_edge341:                                   ; preds = %190
   %192 = icmp sgt i32 %.4252, 0
   %193 = add nuw nsw i32 %.0253, 1
   %.not259.not = icmp slt i32 %.0253, %31
   %or.cond269 = select i1 %192, i1 %.not259.not, i1 false
-  br i1 %or.cond269, label %129, label %._crit_edge341.thread
+  br i1 %or.cond269, label %129, label %._crit_edge341.thread, !llvm.loop !22
 
 ._crit_edge341.thread:                            ; preds = %129, %._crit_edge341, %141
   %194 = load i32, ptr %4, align 4, !tbaa !3
@@ -450,7 +450,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next373 = add nsw i64 %indvars.iv372, 1
   %lftr.wideiv375 = trunc i64 %indvars.iv.next373 to i32
   %exitcond376.not = icmp eq i32 %196, %lftr.wideiv375
-  br i1 %exitcond376.not, label %.loopexit, label %.lr.ph349, !llvm.loop !19
+  br i1 %exitcond376.not, label %.loopexit, label %.lr.ph349, !llvm.loop !23
 
 .loopexit:                                        ; preds = %219, %._crit_edge341.thread, %14
   ret void
@@ -478,14 +478,18 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12, !10}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !13, !10}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !13, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !13, !10}
+!19 = distinct !{!19, !13, !10, !11}
+!20 = distinct !{!20, !13, !10}
+!21 = distinct !{!21, !13, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !13, !10}

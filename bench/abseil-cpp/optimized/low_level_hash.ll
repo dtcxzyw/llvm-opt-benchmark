@@ -214,17 +214,17 @@ define dso_local noundef i64 @_ZN4absl13hash_internal12LowLevelHashEPKvmmPKm(ptr
   br label %37
 
 24:                                               ; preds = %17
-  %25 = load i8, ptr %0, align 1, !tbaa !10
+  %25 = load i8, ptr %0, align 1, !tbaa !11
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 8
   %28 = getelementptr i8, ptr %0, i64 %1
   %29 = getelementptr i8, ptr %28, i64 -1
-  %30 = load i8, ptr %29, align 1, !tbaa !10
+  %30 = load i8, ptr %29, align 1, !tbaa !11
   %31 = zext i8 %30 to i64
   %32 = or disjoint i64 %27, %31
   %33 = lshr i64 %1, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !10
+  %35 = load i8, ptr %34, align 1, !tbaa !11
   %36 = zext i8 %35 to i64
   br label %37
 
@@ -265,6 +265,7 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}

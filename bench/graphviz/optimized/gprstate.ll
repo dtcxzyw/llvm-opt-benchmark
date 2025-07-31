@@ -160,7 +160,7 @@ define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef re
   %.0222940 = phi ptr [ %7, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %.0203039 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %4 = getelementptr inbounds nuw i8, ptr %.0222940, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %.not27 = icmp ne ptr %5, null
   %6 = zext i1 %.not27 to i64
   %spec.select = add i64 %.0203039, %6
@@ -179,7 +179,7 @@ define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef re
   br i1 %mul.ov.i, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !38
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !39
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %.02030.lcssa, i64 noundef 16) #19
   tail call fastcc void @graphviz_exit() #20
   unreachable
@@ -195,7 +195,7 @@ gv_calloc.exit.preheader:                         ; preds = %14
   br i1 %.not2533, label %gv_calloc.exit._crit_edge, label %.lr.ph36
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !38
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !39
   %20 = shl nuw i64 %.02030.lcssa, 4
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.6, i64 noundef %20) #19
   tail call fastcc void @graphviz_exit() #20
@@ -205,12 +205,12 @@ gv_calloc.exit.preheader:                         ; preds = %14
   %.035 = phi ptr [ %.1, %gv_calloc.exit ], [ %15, %gv_calloc.exit.preheader ]
   %.12334 = phi ptr [ %26, %gv_calloc.exit ], [ %1, %gv_calloc.exit.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %.12334, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
   %.not26 = icmp eq ptr %23, null
   br i1 %.not26, label %gv_calloc.exit, label %24
 
 24:                                               ; preds = %.lr.ph36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035, ptr noundef nonnull align 8 dereferenceable(16) %.12334, i64 16, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035, ptr noundef nonnull align 8 dereferenceable(16) %.12334, i64 16, i1 false), !tbaa.struct !40
   %25 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   br label %gv_calloc.exit
 
@@ -219,7 +219,7 @@ gv_calloc.exit:                                   ; preds = %24, %.lr.ph36
   %26 = getelementptr inbounds nuw i8, ptr %.12334, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %.not25 = icmp eq ptr %27, null
-  br i1 %.not25, label %gv_calloc.exit._crit_edge, label %.lr.ph36, !llvm.loop !42
+  br i1 %.not25, label %gv_calloc.exit._crit_edge, label %.lr.ph36, !llvm.loop !43
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv_calloc.exit.preheader
   tail call void @qsort(ptr noundef nonnull %15, i64 noundef %.02030.lcssa, i64 noundef 16, ptr noundef nonnull @bindingcmpf) #16
@@ -252,7 +252,7 @@ define void @closeGPRState(ptr noundef captures(address_is_null) %0) local_unnam
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   tail call void @free(ptr noundef %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
   tail call void @free(ptr noundef %8) #16
   tail call void @free(ptr noundef nonnull %0) #16
   br label %9
@@ -339,12 +339,13 @@ attributes #21 = { cold noreturn nounwind }
 !32 = !{!4, !17, i64 152}
 !33 = !{!34, !11, i64 0}
 !34 = !{!"", !11, i64 0, !6, i64 8}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!34, !6, i64 8}
-!38 = !{!12, !12, i64 0}
-!39 = !{i64 0, i64 8, !40, i64 8, i64 8, !41}
-!40 = !{!11, !11, i64 0}
-!41 = !{!6, !6, i64 0}
-!42 = distinct !{!42, !36}
-!43 = !{!4, !10, i64 40}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!34, !6, i64 8}
+!39 = !{!12, !12, i64 0}
+!40 = !{i64 0, i64 8, !41, i64 8, i64 8, !42}
+!41 = !{!11, !11, i64 0}
+!42 = !{!6, !6, i64 0}
+!43 = distinct !{!43, !36, !37}
+!44 = !{!4, !10, i64 40}

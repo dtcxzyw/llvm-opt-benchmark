@@ -377,16 +377,16 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   %70 = getelementptr i8, ptr %.011.i67.i, i64 24
   %71 = load ptr, ptr %70, align 8
   %.not9.i.i = icmp eq ptr %71, inttoptr (i64 -1 to ptr)
-  br i1 %.not9.i.i, label %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i, label %.lr.ph.i58.i, !llvm.loop !8
+  br i1 %.not9.i.i, label %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i, label %.lr.ph.i58.i, !llvm.loop !9
 
 .lr.ph.i58.i:                                     ; preds = %.lr.ph.i
   %72 = getelementptr i8, ptr %.011.i67.i, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, %.039.i
-  br i1 %74, label %ros_lookup_err_dissector.exit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %74, label %ros_lookup_err_dissector.exit.i, label %.lr.ph.i, !llvm.loop !9
 
 .ros_lookup_err_dissector.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
-  br label %ros_lookup_err_dissector.exit.i, !llvm.loop !8
+  br label %ros_lookup_err_dissector.exit.i, !llvm.loop !9
 
 ros_lookup_err_dissector.exit.i:                  ; preds = %.lr.ph.i58.i, %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i, %.lr.ph.i58.preheader.i, %.preheader.i57.i, %63
   %.06.i.i = phi ptr [ null, %63 ], [ null, %.preheader.i57.i ], [ null, %.ros_lookup_err_dissector.exit.loopexit_crit_edge.i ], [ %67, %.lr.ph.i58.preheader.i ], [ %71, %.lr.ph.i58.i ]
@@ -569,7 +569,7 @@ define internal i32 @dissect_ros(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %35 = load i32, ptr @ett_ros_ROS, align 4
   %36 = call i32 @dissect_ber_choice(ptr noundef nonnull %6, ptr noundef %27, ptr noundef %0, i32 noundef %.032, ptr noundef nonnull @ROS_choice, i32 noundef -1, i32 noundef %35, ptr noundef null)
   %37 = icmp eq i32 %36, %.032
-  br i1 %37, label %38, label %31, !llvm.loop !9
+  br i1 %37, label %38, label %31, !llvm.loop !10
 
 38:                                               ; preds = %34
   %39 = load i32, ptr @ett_ros_unknown, align 4
@@ -1014,7 +1014,7 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
 
 30:                                               ; preds = %.thread, %19
   %31 = phi ptr [ %29, %.thread ], [ %24, %19 ]
-  %32 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %32 = load i8, ptr %6, align 8, !range !11, !noundef !12
   store i8 %32, ptr %31, align 8
   br label %61
 
@@ -1077,7 +1077,7 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
 
 61:                                               ; preds = %30, %52, %55
   %.058.ph = phi ptr [ %51, %55 ], [ %51, %52 ], [ %31, %30 ]
-  %62 = load i8, ptr %.058.ph, align 8, !range !10, !noundef !11
+  %62 = load i8, ptr %.058.ph, align 8, !range !11, !noundef !12
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %76
 
@@ -1459,9 +1459,10 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}

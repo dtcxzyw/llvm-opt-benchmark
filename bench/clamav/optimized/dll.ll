@@ -1624,7 +1624,7 @@ define noundef i32 @RARProcessFileW(ptr noundef initializes((83424, 83428)) %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @RARSetChangeVolProc(ptr noundef writeonly captures(none) initializes((83448, 83456)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83448
-  store ptr %1, ptr %3, align 8, !tbaa !199
+  store ptr %1, ptr %3, align 8, !tbaa !200
   ret void
 }
 
@@ -1640,7 +1640,7 @@ define void @RARSetCallback(ptr noundef writeonly captures(none) initializes((83
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @RARSetProcessDataProc(ptr noundef writeonly captures(none) initializes((83456, 83464)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83456
-  store ptr %1, ptr %3, align 8, !tbaa !200
+  store ptr %1, ptr %3, align 8, !tbaa !201
   ret void
 }
 
@@ -1988,7 +1988,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !194 = !{!27, !28, i64 58617}
 !195 = !{!28, !28, i64 0}
 !196 = !{!59, !13, i64 8}
-!197 = distinct !{!197, !198}
+!197 = distinct !{!197, !198, !199}
 !198 = !{!"llvm.loop.mustprogress"}
-!199 = !{!27, !6, i64 83448}
-!200 = !{!27, !6, i64 83456}
+!199 = !{!"llvm.loop.estimated_trip_count"}
+!200 = !{!27, !6, i64 83448}
+!201 = !{!27, !6, i64 83456}

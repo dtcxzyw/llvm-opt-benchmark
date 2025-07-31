@@ -163,7 +163,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %85, ptr %6, align 8, !tbaa !7
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %wide.trip.count636
-  br i1 %exitcond637.not, label %.loopexit532, label %.preheader533, !llvm.loop !11
+  br i1 %exitcond637.not, label %.loopexit532, label %.preheader533, !llvm.loop !12
 
 .lr.ph551.preheader:                              ; preds = %._crit_edge.thread
   %86 = add nuw i32 %33, 1
@@ -174,7 +174,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 .loopexit531:                                     ; preds = %.lr.ph547, %.lr.ph551
   %indvars.iv.next639 = add nuw i32 %indvars.iv638, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count
-  br i1 %exitcond647.not, label %.loopexit532, label %.lr.ph551, !llvm.loop !12
+  br i1 %exitcond647.not, label %.loopexit532, label %.lr.ph551, !llvm.loop !13
 
 .lr.ph551:                                        ; preds = %.lr.ph551.preheader, %.loopexit531
   %indvars.iv644 = phi i64 [ 1, %.lr.ph551.preheader ], [ %indvars.iv.next645, %.loopexit531 ]
@@ -242,7 +242,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %indvars.iv.next641 = add nsw i64 %indvars.iv640, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next641 to i32
   %exitcond643.not = icmp eq i32 %86, %lftr.wideiv
-  br i1 %exitcond643.not, label %.loopexit531, label %.lr.ph547, !llvm.loop !13
+  br i1 %exitcond643.not, label %.loopexit531, label %.lr.ph547, !llvm.loop !14
 
 .loopexit532:                                     ; preds = %._crit_edge541, %.loopexit531, %._crit_edge
   %.not505724 = phi i1 [ %.not505, %._crit_edge ], [ true, %.loopexit531 ], [ false, %._crit_edge541 ]
@@ -261,7 +261,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %134, ptr %132, align 8, !tbaa !7
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %exitcond652.not = icmp eq i64 %indvars.iv.next649, %wide.trip.count651
-  br i1 %exitcond652.not, label %._crit_edge556, label %.lr.ph555, !llvm.loop !14
+  br i1 %exitcond652.not, label %._crit_edge556, label %.lr.ph555, !llvm.loop !15
 
 ._crit_edge556:                                   ; preds = %.lr.ph555, %.loopexit532
   %135 = sitofp i32 %33 to double
@@ -332,7 +332,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %165, ptr %148, align 8, !tbaa !7
   %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
   %exitcond660.not = icmp eq i64 %indvars.iv.next657, %indvars.iv661
-  br i1 %exitcond660.not, label %._crit_edge565, label %149, !llvm.loop !15
+  br i1 %exitcond660.not, label %._crit_edge565, label %149, !llvm.loop !16
 
 ._crit_edge565:                                   ; preds = %149, %.preheader528.._crit_edge565_crit_edge
   %166 = phi double [ %.pre721, %.preheader528.._crit_edge565_crit_edge ], [ %165, %149 ]
@@ -351,7 +351,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %178, ptr %177, align 8, !tbaa !7
   %indvars.iv.next662 = add nuw nsw i64 %indvars.iv661, 1
   %exitcond665.not = icmp eq i64 %indvars.iv.next662, %wide.trip.count664
-  br i1 %exitcond665.not, label %.lr.ph580.preheader, label %.preheader528, !llvm.loop !16
+  br i1 %exitcond665.not, label %.lr.ph580.preheader, label %.preheader528, !llvm.loop !17
 
 .lr.ph575.preheader:                              ; preds = %._crit_edge561.thread
   %179 = zext nneg i32 %142 to i64
@@ -361,7 +361,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 .loopexit527:                                     ; preds = %.lr.ph571, %.lr.ph575
   %indvars.iv.next667 = add nuw i32 %indvars.iv666, 1
   %exitcond677.not = icmp eq i64 %indvars.iv.next674, %wide.trip.count676
-  br i1 %exitcond677.not, label %.lr.ph580.preheader, label %.lr.ph575, !llvm.loop !17
+  br i1 %exitcond677.not, label %.lr.ph580.preheader, label %.lr.ph575, !llvm.loop !18
 
 .lr.ph575:                                        ; preds = %.lr.ph575.preheader, %.loopexit527
   %indvars.iv673 = phi i64 [ 1, %.lr.ph575.preheader ], [ %indvars.iv.next674, %.loopexit527 ]
@@ -415,7 +415,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %indvars.iv.next669 = add nsw i64 %indvars.iv668, 1
   %lftr.wideiv671 = trunc i64 %indvars.iv.next669 to i32
   %exitcond672.not = icmp eq i32 %145, %lftr.wideiv671
-  br i1 %exitcond672.not, label %.loopexit527, label %.lr.ph571, !llvm.loop !18
+  br i1 %exitcond672.not, label %.loopexit527, label %.lr.ph571, !llvm.loop !19
 
 .lr.ph580.preheader:                              ; preds = %._crit_edge565, %.loopexit527
   %211 = add nuw i32 %142, 1
@@ -432,7 +432,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %216 = call double @llvm.fmuladd.f64(double %213, double %215, double %.1578)
   %indvars.iv.next679 = add nuw nsw i64 %indvars.iv678, 1
   %exitcond682.not = icmp eq i64 %indvars.iv.next679, %wide.trip.count681
-  br i1 %exitcond682.not, label %._crit_edge581, label %.lr.ph580, !llvm.loop !19
+  br i1 %exitcond682.not, label %._crit_edge581, label %.lr.ph580, !llvm.loop !20
 
 ._crit_edge581:                                   ; preds = %.lr.ph580, %141
   %.1.lcssa = phi double [ 0.000000e+00, %141 ], [ %216, %.lr.ph580 ]
@@ -464,7 +464,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %229 = getelementptr double, ptr %7, i64 %indvars.iv683
   store double %228, ptr %229, align 8, !tbaa !7
   %exitcond687.not = icmp eq i64 %indvars.iv.next684, %wide.trip.count686
-  br i1 %exitcond687.not, label %._crit_edge586, label %222, !llvm.loop !20
+  br i1 %exitcond687.not, label %._crit_edge586, label %222, !llvm.loop !21
 
 ._crit_edge586:                                   ; preds = %222, %._crit_edge581.._crit_edge586_crit_edge
   %.pre-phi = phi i64 [ %.pre722, %._crit_edge581.._crit_edge586_crit_edge ], [ %221, %222 ]
@@ -569,7 +569,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %293, ptr %291, align 8, !tbaa !7
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %exitcond694.not = icmp eq i64 %indvars.iv.next689, %indvars.iv712
-  br i1 %exitcond694.not, label %294, label %.preheader526, !llvm.loop !21
+  br i1 %exitcond694.not, label %294, label %.preheader526, !llvm.loop !22
 
 294:                                              ; preds = %.preheader526
   %295 = load i32, ptr %1, align 4, !tbaa !3
@@ -600,7 +600,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %307 = call double @llvm.fmuladd.f64(double %283, double %301, double %306)
   store double %307, ptr %305, align 8, !tbaa !7
   %exitcond701.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count700
-  br i1 %exitcond701.not, label %.loopexit, label %.lr.ph593, !llvm.loop !22
+  br i1 %exitcond701.not, label %.loopexit, label %.lr.ph593, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv702 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next703, %.preheader ]
@@ -620,7 +620,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   store double %318, ptr %316, align 8, !tbaa !7
   %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
   %exitcond706.not = icmp eq i64 %indvars.iv.next703, %indvars.iv712
-  br i1 %exitcond706.not, label %319, label %.preheader, !llvm.loop !23
+  br i1 %exitcond706.not, label %319, label %.preheader, !llvm.loop !24
 
 319:                                              ; preds = %.preheader
   %320 = load i32, ptr %1, align 4, !tbaa !3
@@ -650,7 +650,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %331 = call double @llvm.fmuladd.f64(double %283, double %325, double %330)
   store double %331, ptr %329, align 8, !tbaa !7
   %exitcond711.not = icmp eq i64 %indvars.iv.next708, %wide.trip.count710
-  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph601, !llvm.loop !24
+  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph601, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph593, %.lr.ph601, %294, %319
   %332 = phi i32 [ %320, %319 ], [ %295, %294 ], [ %320, %.lr.ph601 ], [ %295, %.lr.ph593 ]
@@ -665,14 +665,14 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %indvars.iv.next696 = add nuw nsw i64 %indvars.iv695, 1
   %.not516.not = icmp samesign ult i64 %indvars.iv695, %241
   %indvars.iv.next713 = add nuw nsw i64 %indvars.iv712, 1
-  br i1 %.not516.not, label %.lr.ph608, label %._crit_edge609, !llvm.loop !25
+  br i1 %.not516.not, label %.lr.ph608, label %._crit_edge609, !llvm.loop !26
 
 ._crit_edge609:                                   ; preds = %.loopexit, %239
   %339 = phi i32 [ %240, %239 ], [ %332, %.loopexit ]
   %.3.lcssa = phi double [ %218, %239 ], [ %338, %.loopexit ]
   %340 = add nuw nsw i32 %.0497611, 1
   %exitcond717.not = icmp eq i32 %340, 101
-  br i1 %exitcond717.not, label %341, label %141, !llvm.loop !26
+  br i1 %exitcond717.not, label %341, label %141, !llvm.loop !27
 
 341:                                              ; preds = %._crit_edge609, %._crit_edge586
   %.2 = phi double [ %218, %._crit_edge586 ], [ %.3.lcssa, %._crit_edge609 ]
@@ -727,7 +727,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %366 = fmul double %spec.select24.i, %364
   %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %366
   %.not18.i = icmp samesign ult i64 %.023.i, 4
-  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i
+  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i, !llvm.loop !28
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %352, %359
   %.011.i = phi double [ 1.000000e+00, %352 ], [ %spec.select20.i, %359 ], [ %spec.select.i, %.lr.ph.i ]
@@ -738,7 +738,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %352, %35
   %370 = select i1 %369, double %.0495614, double %.011.i
   %indvars.iv.next719 = add nuw nsw i64 %indvars.iv718, 1
   %.not521.not = icmp samesign ult i64 %indvars.iv718, %351
-  br i1 %.not521.not, label %352, label %._crit_edge618, !llvm.loop !27
+  br i1 %.not521.not, label %352, label %._crit_edge618, !llvm.loop !29
 
 ._crit_edge618:                                   ; preds = %dpow_ui.exit, %341
   %.0496.lcssa = phi double [ %343, %341 ], [ %368, %dpow_ui.exit ]
@@ -810,22 +810,24 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !10, !11}

@@ -1742,7 +1742,7 @@ _ZSt10_ConstructIN4cvc58internal12NodeTemplateILb1EEEJRKS3_EEvPT_DpOT0_.exit: ; 
   %20 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %20, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -1826,7 +1826,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = load ptr, ptr %0, align 8, !tbaa !38
+  %6 = load ptr, ptr %0, align 8, !tbaa !39
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -1913,7 +1913,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal6theory11quantifiers14T
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i) #19
   %50 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %50, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal6theory11quantifiers14TermPropertiesES5_SaIS4_EET0_T_S8_S7_RT1_.exit30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1928,7 +1928,7 @@ _ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSa
   br label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSaIT0_E.exit, %52
-  store ptr %20, ptr %0, align 8, !tbaa !38
+  store ptr %20, ptr %0, align 8, !tbaa !39
   store ptr %47, ptr %4, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %20, i64 %16
   store ptr %56, ptr %51, align 8, !tbaa !20
@@ -1959,7 +1959,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i34) #19
   %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i34, i64 24
   %.not.i.i.i35 = icmp eq ptr %.05.i.i.i34, %45
-  br i1 %.not.i.i.i35, label %.loopexit, label %.lr.ph.i.i.i33, !llvm.loop !39
+  br i1 %.not.i.i.i35, label %.loopexit, label %.lr.ph.i.i.i33, !llvm.loop !40
 
 68:                                               ; preds = %.loopexit
   %69 = landingpad { ptr, i32 }
@@ -2102,7 +2102,7 @@ _ZSt10_ConstructIN4cvc58internal6theory11quantifiers14TermPropertiesEJRKS4_EEvPT
   %25 = getelementptr inbounds nuw i8, ptr %.01215, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %.016, i64 24
   %.not = icmp eq ptr %25, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 27:                                               ; preds = %23
   %28 = landingpad { ptr, i32 }
@@ -2119,7 +2119,7 @@ _ZSt10_ConstructIN4cvc58internal6theory11quantifiers14TermPropertiesEJRKS4_EEvPT
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i) #19
   %33 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
   %.not.i.i = icmp eq ptr %33, %.016
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesEEvT_S6_.exit, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesEEvT_S6_.exit, label %.lr.ph.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesEEvT_S6_.exit: ; preds = %.lr.ph.i.i, %27
   invoke void @__cxa_rethrow() #22
@@ -2233,9 +2233,10 @@ attributes #23 = { builtin nounwind }
 !32 = distinct !{!32, !"_ZN4cvc58internal12NodeTemplateILb1EE4nullEv"}
 !33 = !{!31, !27}
 !34 = !{!14, !15, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = !{!18, !19, i64 0}
-!39 = distinct !{!39, !36}
-!40 = distinct !{!40, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = !{!18, !19, i64 0}
+!40 = distinct !{!40, !36, !37}
+!41 = distinct !{!41, !36, !37}

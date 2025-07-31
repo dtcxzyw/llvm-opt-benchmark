@@ -1007,7 +1007,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   %42 = getelementptr inbounds nuw i8, ptr %.045.i, i64 32
   %.0.i = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %41, %.preheader.i
   %43 = load ptr, ptr @g_assert_poison, align 8
@@ -1397,7 +1397,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN14CompilerOracle17parse_option_na
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 41
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !10
 
 .split.loop.exit9:                                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1426,7 +1426,7 @@ define hidden noundef range(i32 0, 7) i32 @_ZN14CompilerOracle17parse_option_typ
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !11
 
 .split.loop.exit9:                                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1520,7 +1520,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_lineEPc(ptr no
 29:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 41
-  br i1 %exitcond.not.i, label %_ZL17match_option_namePKcPiPci.exit.thread, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZL17match_option_namePKcPiPci.exit.thread, label %.preheader.i, !llvm.loop !12
 
 _ZL17match_option_namePKcPiPci.exit.thread:       ; preds = %29, %19, %23
   %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %11) #19
@@ -1818,7 +1818,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
 189:                                              ; preds = %184
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 6
-  br i1 %exitcond.not.i38, label %_ZN14CompilerOracle17parse_option_typeEPKc.exit.thread, label %184, !llvm.loop !10
+  br i1 %exitcond.not.i38, label %_ZN14CompilerOracle17parse_option_typeEPKc.exit.thread, label %184, !llvm.loop !11
 
 _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
   %190 = trunc nuw nsw i64 %indvars.iv.i36 to i32
@@ -1875,7 +1875,7 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
 215:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 41
-  br i1 %exitcond.not.i.i, label %_ZL17match_option_namePKcPiPci.exit.thread.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZL17match_option_namePKcPiPci.exit.thread.i, label %.preheader.i.i, !llvm.loop !12
 
 _ZL17match_option_namePKcPiPci.exit.thread.i:     ; preds = %215, %209, %195
   %216 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %5) #19
@@ -1962,7 +1962,7 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit.thread: ; preds = %189, %_ZN14Co
 252:                                              ; preds = %.preheader.i43
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 41
-  br i1 %exitcond.not.i46, label %_ZL17match_option_namePKcPiPci.exit48.thread, label %.preheader.i43, !llvm.loop !11
+  br i1 %exitcond.not.i46, label %_ZL17match_option_namePKcPiPci.exit48.thread, label %.preheader.i43, !llvm.loop !12
 
 _ZL17match_option_namePKcPiPci.exit48.thread:     ; preds = %_ZN14CompilerOracle17parse_option_typeEPKc.exit.thread, %246, %252
   %253 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %4) #19
@@ -2017,7 +2017,7 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %277 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %276, ptr noundef nonnull @.str.21, ptr noundef nonnull %15, ptr noundef nonnull %13) #19
   %278 = icmp eq i32 %277, 1
-  br i1 %278, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %278, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %270, %170
   call void @_ZN24TypedMethodOptionMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %167) #19
@@ -2788,7 +2788,7 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
   %212 = getelementptr inbounds i8, ptr %211, i64 -1
   %213 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %208, ptr noundef nonnull @.str.124, ptr noundef %211, ptr noundef nonnull %9) #19
   %214 = icmp eq i32 %213, 1
-  br i1 %214, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %214, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %194
   %215 = add i32 %4, -29
@@ -3120,7 +3120,7 @@ _ZNK11inputStream12current_lineEv.exit:           ; preds = %27, %30
   %40 = call noundef zeroext i1 %1(ptr noundef %.0.i) #19
   %spec.select = select i1 %40, i1 %.0, i1 false
   %41 = call noundef zeroext i1 @_ZN11inputStream4nextEv(ptr noundef nonnull align 8 dereferenceable(320) %3) #19
-  br label %14, !llvm.loop !14
+  br label %14, !llvm.loop !15
 }
 
 declare noundef zeroext i1 @_ZN11inputStream4nextEv(ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
@@ -3312,7 +3312,7 @@ _ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit:
   %41 = load ptr, ptr %2, align 8
   %42 = icmp ne ptr %41, null
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %21, label %.loopexit, !llvm.loop !15
+  br i1 %43, label %21, label %.loopexit, !llvm.loop !16
 
 44:                                               ; preds = %27, %25
   %45 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
@@ -3394,7 +3394,7 @@ define hidden noundef i32 @_ZN14CompilerOracle16string_to_optionEPKc(ptr noundef
 13:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 41
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %13, %7, %1
   %14 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.79, ptr noundef nonnull %2) #19
@@ -3569,7 +3569,7 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
   %24 = load i8, ptr %0, align 8
   %25 = trunc i8 %24 to i1
   %or.cond = select i1 %.not, i1 %25, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
@@ -3700,14 +3700,15 @@ attributes #22 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

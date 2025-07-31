@@ -59,24 +59,24 @@ define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
   %15 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.11216) #3
   %16 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef null, ptr noundef %15) #3
-  %17 = load ptr, ptr %2, align 8, !tbaa !10
+  %17 = load ptr, ptr %2, align 8, !tbaa !11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.lr.ph18
-  store ptr @.str.4, ptr %2, align 8, !tbaa !10
+  store ptr @.str.4, ptr %2, align 8, !tbaa !11
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph18
   %21 = load i32, ptr %1, align 4, !tbaa !4
   %22 = call ptr @OBJ_nid2ln(i32 noundef %21) #3
-  %23 = load ptr, ptr %2, align 8, !tbaa !10
+  %23 = load ptr, ptr %2, align 8, !tbaa !11
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.5, i32 noundef %21, ptr noundef %22, ptr noundef %23) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
   %24 = add nuw nsw i32 %.11216, 1
   %25 = call i32 @EVP_PKEY_asn1_get_count() #3
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %.lr.ph18, label %.loopexit, !llvm.loop !13
+  br i1 %26, label %.lr.ph18, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %20, %0, %12, %._crit_edge
   %.0.lcssa21 = phi i32 [ 0, %12 ], [ %.015, %._crit_edge ], [ 1, %0 ], [ %spec.select, %20 ]
@@ -104,7 +104,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
   %6 = add nuw i64 %.01113, 1
   %7 = call i64 @EVP_PKEY_meth_get_count() #3
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp eq i32 %spec.select, 0
@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
   %14 = add nuw i64 %.11216, 1
   %15 = call i64 @EVP_PKEY_meth_get_count() #3
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %.lr.ph18, label %.loopexit, !llvm.loop !15
+  br i1 %16, label %.lr.ph18, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph18, %0, %9, %._crit_edge
   %.0.lcssa23 = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge ], [ 1, %0 ], [ 0, %.lr.ph18 ]
@@ -173,11 +173,12 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !6, i64 0}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !6, i64 0}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

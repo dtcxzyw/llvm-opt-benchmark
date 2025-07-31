@@ -416,7 +416,7 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
   %24 = tail call fastcc i32 @dissect_h224_standard_clients_ids(ptr noundef %0, ptr noundef %6, i32 noundef %.0105109, i8 noundef zeroext %23)
   %25 = add nuw nsw i32 %.0110, 1
   %exitcond.not = icmp eq i32 %25, %21
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 26:                                               ; preds = %3
   %27 = load i32, ptr @hf_h224_client_list_code, align 4
@@ -596,6 +596,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

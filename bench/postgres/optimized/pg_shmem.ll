@@ -621,7 +621,7 @@ default.unreachable108:                           ; preds = %113
 
 148:                                              ; preds = %139, %141, %146, %144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  br label %71
+  br label %71, !llvm.loop !7
 
 149:                                              ; preds = %InternalIpcMemoryCreate.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
@@ -857,5 +857,7 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}

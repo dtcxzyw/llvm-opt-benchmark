@@ -193,7 +193,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread: ; preds = %1
   %.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit._ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread_crit_edge ], [ %18, %17 ]
   %21 = load i32, ptr %.pre-phi, align 4, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %21, ptr %22, align 8, !tbaa !18
+  store i32 %21, ptr %22, align 8, !tbaa !19
   br label %28
 
 23:                                               ; preds = %7
@@ -260,13 +260,13 @@ define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC2Ei
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %4, align 4, !tbaa !19
+  store i8 0, ptr %4, align 4, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 0, ptr %5, align 1, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %6, align 8, !tbaa !18
+  store i32 0, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %7, align 4, !tbaa !20
+  store i8 0, ptr %7, align 4, !tbaa !21
   ret void
 }
 
@@ -276,7 +276,7 @@ define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD2Ev
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !19, !range !12, !noundef !13
+  %5 = load i8, ptr %4, align 4, !tbaa !20, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %20
 
@@ -298,7 +298,7 @@ define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD2Ev
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !18
+  %15 = load i32, ptr %14, align 8, !tbaa !19
   %16 = call ptr @strerror(i32 noundef %15) #15
   %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %16)
           to label %18 unwind label %21
@@ -414,11 +414,11 @@ define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStr
   %22 = tail call ptr @__errno_location() #16
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %16, label %.critedge, !llvm.loop !21
+  br i1 %24, label %16, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %23, ptr %25, align 8, !tbaa !18
+  store i32 %23, ptr %25, align 8, !tbaa !19
   br label %.critedge19
 
 26:                                               ; preds = %9
@@ -477,7 +477,7 @@ define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStr
 
 .critedge16:                                      ; preds = %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i8, ptr %13, align 4, !tbaa !20, !range !12, !noundef !13
+  %14 = load i8, ptr %13, align 4, !tbaa !21, !range !12, !noundef !13
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %26, label %16
 
@@ -507,7 +507,7 @@ define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStr
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %16, %.critedge16
-  store i8 1, ptr %13, align 4, !tbaa !20
+  store i8 1, ptr %13, align 4, !tbaa !21
   %27 = call noundef i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   br label %28
 
@@ -561,7 +561,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %5 = load i8, ptr %4, align 1, !tbaa !22, !range !12, !noundef !13
+  %5 = load i8, ptr %4, align 1, !tbaa !23, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
   br i1 %6, label %7, label %10
@@ -587,9 +587,9 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   br label %.critedge13
 
 .critedge13:                                      ; preds = %10, %11
-  store i8 1, ptr %4, align 1, !tbaa !22
+  store i8 1, ptr %4, align 1, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !25
+  %13 = load i32, ptr %12, align 8, !tbaa !26
   br label %14
 
 14:                                               ; preds = %17, %.critedge13
@@ -615,7 +615,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread: ; preds = %1
   %.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit._ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread_crit_edge ], [ %18, %17 ]
   %21 = load i32, ptr %.pre-phi, align 4, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %21, ptr %22, align 8, !tbaa !26
+  store i32 %21, ptr %22, align 8, !tbaa !27
   br label %28
 
 23:                                               ; preds = %7
@@ -644,13 +644,13 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.thread: ; preds = %1
 define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 14), (16, 20)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %4, align 4, !tbaa !27
+  store i8 0, ptr %4, align 4, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 0, ptr %5, align 1, !tbaa !22
+  store i8 0, ptr %5, align 1, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %6, align 8, !tbaa !26
+  store i32 0, ptr %6, align 8, !tbaa !27
   ret void
 }
 
@@ -687,7 +687,7 @@ define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamD2
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !27, !range !12, !noundef !13
+  %5 = load i8, ptr %4, align 4, !tbaa !28, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %20
 
@@ -709,7 +709,7 @@ define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamD2
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !26
+  %15 = load i32, ptr %14, align 8, !tbaa !27
   %16 = call ptr @strerror(i32 noundef %15) #15
   %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %16)
           to label %18 unwind label %21
@@ -748,7 +748,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %7 = load i8, ptr %6, align 1, !tbaa !22, !range !12, !noundef !13
+  %7 = load i8, ptr %6, align 1, !tbaa !23, !range !12, !noundef !13
   %8 = trunc nuw i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
   br i1 %8, label %9, label %12
@@ -790,7 +790,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   br label %20
 
 20:                                               ; preds = %.preheader, %25
-  %21 = load i32, ptr %15, align 8, !tbaa !25
+  %21 = load i32, ptr %15, align 8, !tbaa !26
   %22 = call i64 @write(i32 noundef %21, ptr noundef %17, i64 noundef %19)
   %23 = trunc i64 %22 to i32
   %24 = icmp slt i32 %23, 0
@@ -800,14 +800,14 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   %26 = tail call ptr @__errno_location() #16
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %20, label %35, !llvm.loop !28
+  br i1 %28, label %20, label %35, !llvm.loop !29
 
 .critedge:                                        ; preds = %20
   %.not.not = icmp ne i32 %23, 0
   %29 = add nuw nsw i32 %.02240, %23
   %.not42 = icmp slt i32 %29, %2
   %or.cond = select i1 %.not.not, i1 %.not42, i1 false
-  br i1 %or.cond, label %.preheader, label %.thread35, !llvm.loop !29
+  br i1 %or.cond, label %.preheader, label %.thread35, !llvm.loop !30
 
 30:                                               ; preds = %9
   %31 = landingpad { ptr, i32 }
@@ -828,8 +828,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %27, ptr %36, align 8, !tbaa !26
-  br label %.thread35, !llvm.loop !29
+  store i32 %27, ptr %36, align 8, !tbaa !27
+  br label %.thread35, !llvm.loop !30
 
 .thread35:                                        ; preds = %.critedge, %.critedge33, %35
   %37 = phi i1 [ false, %35 ], [ true, %.critedge33 ], [ %.not.not, %.critedge ]
@@ -890,7 +890,7 @@ define noundef i64 @_ZNK6google8protobuf2io18IstreamInputStream9ByteCountEv(ptr 
 define void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC2EPSi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !30
+  store ptr %1, ptr %3, align 8, !tbaa !31
   ret void
 }
 
@@ -909,12 +909,12 @@ define void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStre
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStream4ReadEPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = sext i32 %2 to i64
   %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %1, i64 noundef %6)
-  %8 = load ptr, ptr %4, align 8, !tbaa !30
+  %8 = load ptr, ptr %4, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !34
+  %10 = load i64, ptr %9, align 8, !tbaa !35
   %11 = trunc i64 %10 to i32
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %24
@@ -925,7 +925,7 @@ define noundef i32 @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamIn
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %8, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !38
   %20 = and i32 %19, 5
   %21 = icmp eq i32 %20, 0
   %22 = and i32 %19, 2
@@ -1026,7 +1026,7 @@ declare noundef i64 @_ZNK6google8protobuf2io26CopyingOutputStreamAdaptor9ByteCou
 define void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC2EPSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %3, align 8, !tbaa !47
   ret void
 }
 
@@ -1045,16 +1045,16 @@ define void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputSt
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStream5WriteEPKvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = sext i32 %2 to i64
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %1, i64 noundef %6)
-  %8 = load ptr, ptr %4, align 8, !tbaa !46
+  %8 = load ptr, ptr %4, align 8, !tbaa !47
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !37
+  %14 = load i32, ptr %13, align 8, !tbaa !38
   %15 = icmp eq i32 %14, 0
   ret i1 %15
 }
@@ -1065,30 +1065,30 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 define void @_ZN6google8protobuf2io24ConcatenatingInputStreamC2EPKPNS1_19ZeroCopyInputStreamEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %5, align 8, !tbaa !54
+  store i32 %2, ptr %5, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %6, align 8, !tbaa !55
+  store i64 0, ptr %6, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4NextEPPKvPi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !54
+  %5 = load i32, ptr %4, align 8, !tbaa !55
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load ptr, ptr %7, align 8, !tbaa !49
+  %.pre = load ptr, ptr %7, align 8, !tbaa !50
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16
   %10 = phi ptr [ %.pre, %.lr.ph ], [ %26, %16 ]
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -1096,23 +1096,23 @@ define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4Next
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr %7, align 8, !tbaa !49
-  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %17 = load ptr, ptr %7, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !57
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %23 = load i64, ptr %8, align 8, !tbaa !55
+  %23 = load i64, ptr %8, align 8, !tbaa !56
   %24 = add nsw i64 %23, %22
-  store i64 %24, ptr %8, align 8, !tbaa !55
-  %25 = load ptr, ptr %7, align 8, !tbaa !49
+  store i64 %24, ptr %8, align 8, !tbaa !56
+  %25 = load ptr, ptr %7, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %26, ptr %7, align 8, !tbaa !49
-  %27 = load i32, ptr %4, align 8, !tbaa !54
+  store ptr %26, ptr %7, align 8, !tbaa !50
+  %27 = load i32, ptr %4, align 8, !tbaa !55
   %28 = add nsw i32 %27, -1
-  store i32 %28, ptr %4, align 8, !tbaa !54
+  store i32 %28, ptr %4, align 8, !tbaa !55
   %29 = icmp sgt i32 %27, 1
-  br i1 %29, label %9, label %._crit_edge, !llvm.loop !58
+  br i1 %29, label %9, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %9, %16, %3
   %.lcssa = phi i1 [ false, %3 ], [ %15, %16 ], [ %15, %9 ]
@@ -1124,14 +1124,14 @@ define void @_ZN6google8protobuf2io24ConcatenatingInputStream6BackUpEi(ptr nound
   %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %4 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !54
+  %6 = load i32, ptr %5, align 8, !tbaa !55
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %10 = load ptr, ptr %9, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -1179,26 +1179,26 @@ define void @_ZN6google8protobuf2io24ConcatenatingInputStream6BackUpEi(ptr nound
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4SkipEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !54
+  %4 = load i32, ptr %3, align 8, !tbaa !55
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load ptr, ptr %6, align 8, !tbaa !49
+  %.pre = load ptr, ptr %6, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %.lr.ph, %21
   %9 = phi ptr [ %.pre, %.lr.ph ], [ %35, %21 ]
   %.0812 = phi i32 [ %1, %.lr.ph ], [ %31, %21 ]
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %10 = load ptr, ptr %9, align 8, !tbaa !57
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %15 = load ptr, ptr %6, align 8, !tbaa !49
-  %16 = load ptr, ptr %15, align 8, !tbaa !56
+  %15 = load ptr, ptr %6, align 8, !tbaa !50
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
@@ -1208,25 +1208,25 @@ define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4Skip
 21:                                               ; preds = %8
   %22 = zext i32 %.0812 to i64
   %23 = add i64 %14, %22
-  %24 = load ptr, ptr %6, align 8, !tbaa !49
-  %25 = load ptr, ptr %24, align 8, !tbaa !56
+  %24 = load ptr, ptr %6, align 8, !tbaa !50
+  %25 = load ptr, ptr %24, align 8, !tbaa !57
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %30 = sub i64 %23, %29
   %31 = trunc i64 %30 to i32
-  %32 = load i64, ptr %7, align 8, !tbaa !55
+  %32 = load i64, ptr %7, align 8, !tbaa !56
   %33 = add nsw i64 %32, %29
-  store i64 %33, ptr %7, align 8, !tbaa !55
-  %34 = load ptr, ptr %6, align 8, !tbaa !49
+  store i64 %33, ptr %7, align 8, !tbaa !56
+  %34 = load ptr, ptr %6, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %35, ptr %6, align 8, !tbaa !49
-  %36 = load i32, ptr %3, align 8, !tbaa !54
+  store ptr %35, ptr %6, align 8, !tbaa !50
+  %36 = load i32, ptr %3, align 8, !tbaa !55
   %37 = add nsw i32 %36, -1
-  store i32 %37, ptr %3, align 8, !tbaa !54
+  store i32 %37, ptr %3, align 8, !tbaa !55
   %38 = icmp sgt i32 %36, 1
-  br i1 %38, label %8, label %.thread
+  br i1 %38, label %8, label %.thread, !llvm.loop !60
 
 .thread:                                          ; preds = %21, %8, %2
   %.lcssa = phi i1 [ false, %2 ], [ %20, %8 ], [ %20, %21 ]
@@ -1236,16 +1236,16 @@ define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4Skip
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf2io24ConcatenatingInputStream9ByteCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !54
+  %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !55
+  %6 = load i64, ptr %5, align 8, !tbaa !56
   br i1 %4, label %16, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
+  %10 = load ptr, ptr %9, align 8, !tbaa !57
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
@@ -1375,46 +1375,48 @@ attributes #18 = { builtin nounwind }
 !13 = !{}
 !14 = !{!7, !9, i64 8}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!7, !9, i64 16}
-!19 = !{!7, !11, i64 12}
-!20 = !{!7, !11, i64 20}
-!21 = distinct !{!21, !17}
-!22 = !{!23, !11, i64 13}
-!23 = !{!"_ZTSN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE", !24, i64 0, !9, i64 8, !11, i64 12, !11, i64 13, !9, i64 16}
-!24 = !{!"_ZTSN6google8protobuf2io19CopyingOutputStreamE"}
-!25 = !{!23, !9, i64 8}
-!26 = !{!23, !9, i64 16}
-!27 = !{!23, !11, i64 12}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"_ZTSN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE", !8, i64 0, !32, i64 8}
-!32 = !{!"p1 _ZTSSi", !33, i64 0}
-!33 = !{!"any pointer", !10, i64 0}
-!34 = !{!35, !36, i64 8}
-!35 = !{!"_ZTSSi", !36, i64 8}
-!36 = !{!"long", !10, i64 0}
-!37 = !{!38, !40, i64 32}
-!38 = !{!"_ZTSSt8ios_base", !36, i64 8, !36, i64 16, !39, i64 24, !40, i64 28, !40, i64 32, !41, i64 40, !42, i64 48, !10, i64 64, !9, i64 192, !43, i64 200, !44, i64 208}
-!39 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!40 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!41 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !33, i64 0}
-!42 = !{!"_ZTSNSt8ios_base6_WordsE", !33, i64 0, !36, i64 8}
-!43 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !33, i64 0}
-!44 = !{!"_ZTSSt6locale", !45, i64 0}
-!45 = !{!"p1 _ZTSNSt6locale5_ImplE", !33, i64 0}
-!46 = !{!47, !48, i64 8}
-!47 = !{!"_ZTSN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE", !24, i64 0, !48, i64 8}
-!48 = !{!"p1 _ZTSSo", !33, i64 0}
-!49 = !{!50, !52, i64 8}
-!50 = !{!"_ZTSN6google8protobuf2io24ConcatenatingInputStreamE", !51, i64 0, !52, i64 8, !9, i64 16, !36, i64 24}
-!51 = !{!"_ZTSN6google8protobuf2io19ZeroCopyInputStreamE"}
-!52 = !{!"p2 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !53, i64 0}
-!53 = !{!"any p2 pointer", !33, i64 0}
-!54 = !{!50, !9, i64 16}
-!55 = !{!50, !36, i64 24}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !33, i64 0}
-!58 = distinct !{!58, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!7, !9, i64 16}
+!20 = !{!7, !11, i64 12}
+!21 = !{!7, !11, i64 20}
+!22 = distinct !{!22, !17, !18}
+!23 = !{!24, !11, i64 13}
+!24 = !{!"_ZTSN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE", !25, i64 0, !9, i64 8, !11, i64 12, !11, i64 13, !9, i64 16}
+!25 = !{!"_ZTSN6google8protobuf2io19CopyingOutputStreamE"}
+!26 = !{!24, !9, i64 8}
+!27 = !{!24, !9, i64 16}
+!28 = !{!24, !11, i64 12}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"_ZTSN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE", !8, i64 0, !33, i64 8}
+!33 = !{!"p1 _ZTSSi", !34, i64 0}
+!34 = !{!"any pointer", !10, i64 0}
+!35 = !{!36, !37, i64 8}
+!36 = !{!"_ZTSSi", !37, i64 8}
+!37 = !{!"long", !10, i64 0}
+!38 = !{!39, !41, i64 32}
+!39 = !{!"_ZTSSt8ios_base", !37, i64 8, !37, i64 16, !40, i64 24, !41, i64 28, !41, i64 32, !42, i64 40, !43, i64 48, !10, i64 64, !9, i64 192, !44, i64 200, !45, i64 208}
+!40 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!41 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!42 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !34, i64 0}
+!43 = !{!"_ZTSNSt8ios_base6_WordsE", !34, i64 0, !37, i64 8}
+!44 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !34, i64 0}
+!45 = !{!"_ZTSSt6locale", !46, i64 0}
+!46 = !{!"p1 _ZTSNSt6locale5_ImplE", !34, i64 0}
+!47 = !{!48, !49, i64 8}
+!48 = !{!"_ZTSN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE", !25, i64 0, !49, i64 8}
+!49 = !{!"p1 _ZTSSo", !34, i64 0}
+!50 = !{!51, !53, i64 8}
+!51 = !{!"_ZTSN6google8protobuf2io24ConcatenatingInputStreamE", !52, i64 0, !53, i64 8, !9, i64 16, !37, i64 24}
+!52 = !{!"_ZTSN6google8protobuf2io19ZeroCopyInputStreamE"}
+!53 = !{!"p2 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !54, i64 0}
+!54 = !{!"any p2 pointer", !34, i64 0}
+!55 = !{!51, !9, i64 16}
+!56 = !{!51, !37, i64 24}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !34, i64 0}
+!59 = distinct !{!59, !17, !18}
+!60 = distinct !{!60, !18}

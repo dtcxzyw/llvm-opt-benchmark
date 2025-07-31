@@ -10108,5 +10108,6 @@ attributes #6 = { allocsize(1) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{ptr @dissect_p1_MTABindArgument, ptr @dissect_p1_MTABindError, ptr @dissect_p1_MTABindResult, ptr @dissect_p1_MTS_APDU}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}

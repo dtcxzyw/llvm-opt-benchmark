@@ -375,7 +375,7 @@ if.end.i:                                         ; preds = %for.body
 for.cond.backedge:                                ; preds = %if.end.i, %for.body
   %p.0 = load ptr, ptr %p.07, align 8
   %cmp.not = icmp eq ptr %p.0, null
-  br i1 %cmp.not, label %if.end8, label %for.body
+  br i1 %cmp.not, label %if.end8, label %for.body, !llvm.loop !5
 
 if.then6:                                         ; preds = %if.end.i
   %sin6_scope_id = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -843,3 +843,5 @@ attributes #8 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

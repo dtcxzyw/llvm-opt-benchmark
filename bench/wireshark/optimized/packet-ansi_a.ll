@@ -2357,7 +2357,7 @@ define hidden void @dissect_cdma2000_a1_elements(ptr noundef %0, ptr noundef %1,
   %.340 = phi i32 [ %31, %.loopexit.thread ], [ %21, %.loopexit ]
   %.3 = phi i32 [ %30, %.loopexit.thread ], [ %24, %.loopexit ]
   %33 = icmp ugt i32 %.340, 1
-  br i1 %33, label %.lr.ph50, label %._crit_edge, !llvm.loop !8
+  br i1 %33, label %.lr.ph50, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %32, %5
   %.037.lcssa = phi i32 [ %4, %5 ], [ %.340, %32 ]
@@ -2530,7 +2530,7 @@ define hidden void @proto_register_ansi_a() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond.not, label %.preheader39, label %25, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader39, label %25, !llvm.loop !10
 
 .preheader39:                                     ; preds = %25, %.preheader39
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader39 ], [ 62, %25 ]
@@ -2541,7 +2541,7 @@ define hidden void @proto_register_ansi_a() local_unnamed_addr #1 {
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next59, 63
-  br i1 %exitcond65.not, label %.preheader38, label %.preheader39, !llvm.loop !10
+  br i1 %exitcond65.not, label %.preheader38, label %.preheader39, !llvm.loop !11
 
 .preheader38:                                     ; preds = %.preheader39, %.preheader38
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader38 ], [ 125, %.preheader39 ]
@@ -2552,7 +2552,7 @@ define hidden void @proto_register_ansi_a() local_unnamed_addr #1 {
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next67, 92
-  br i1 %exitcond73.not, label %.preheader37, label %.preheader38, !llvm.loop !11
+  br i1 %exitcond73.not, label %.preheader37, label %.preheader38, !llvm.loop !12
 
 .preheader37:                                     ; preds = %.preheader38, %.preheader37
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.preheader37 ], [ 217, %.preheader38 ]
@@ -2563,7 +2563,7 @@ define hidden void @proto_register_ansi_a() local_unnamed_addr #1 {
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next75, 22
-  br i1 %exitcond81.not, label %.preheader, label %.preheader37, !llvm.loop !12
+  br i1 %exitcond81.not, label %.preheader, label %.preheader37, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader37, %.preheader
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.preheader ], [ 239, %.preheader37 ]
@@ -2574,7 +2574,7 @@ define hidden void @proto_register_ansi_a() local_unnamed_addr #1 {
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next83, 39
-  br i1 %exitcond89.not, label %36, label %.preheader, !llvm.loop !13
+  br i1 %exitcond89.not, label %36, label %.preheader, !llvm.loop !14
 
 36:                                               ; preds = %.preheader
   %37 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.980, ptr noundef nonnull @.str.981, ptr noundef nonnull @.str.982)
@@ -2678,7 +2678,7 @@ define internal void @ansi_a_dtap_stat_init(ptr noundef %0) #1 {
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not18 = icmp eq ptr %33, null
-  br i1 %.not18, label %.loopexit, label %21, !llvm.loop !14
+  br i1 %.not18, label %.loopexit, label %21, !llvm.loop !15
 
 .loopexit:                                        ; preds = %21, %14, %10, %13
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #7
@@ -2708,7 +2708,7 @@ define internal range(i32 0, 2) i32 @ansi_a_dtap_stat_packet(ptr noundef readonl
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %8, %15
   %21 = phi ptr [ %18, %15 ], [ %12, %8 ]
@@ -2754,7 +2754,7 @@ define internal void @ansi_a_stat_reset(ptr noundef %0) #1 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2817,7 +2817,7 @@ define internal void @ansi_a_bsmap_stat_init(ptr noundef %0) #1 {
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not18 = icmp eq ptr %30, null
-  br i1 %.not18, label %.loopexit, label %18, !llvm.loop !17
+  br i1 %.not18, label %.loopexit, label %18, !llvm.loop !18
 
 .loopexit:                                        ; preds = %18, %11, %7, %10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #7
@@ -2847,7 +2847,7 @@ define internal range(i32 0, 2) i32 @ansi_a_bsmap_stat_packet(ptr noundef readon
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %8, %15
   %21 = phi ptr [ %18, %15 ], [ %12, %8 ]
@@ -2950,7 +2950,7 @@ define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr 
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %my_try_val_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %my_try_val_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %23, %29
   %35 = phi ptr [ %32, %29 ], [ %26, %23 ]
@@ -2990,7 +2990,7 @@ my_try_val_to_str_idx.exit:                       ; preds = %29, %.lr.ph.i, %23,
   %.040 = load i32, ptr %5, align 4
   %52 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.040, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext true)
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %51, %my_try_val_to_str_idx.exit
   call void @tvb_composite_finalize(ptr noundef %9)
@@ -3158,7 +3158,7 @@ define internal noundef zeroext i8 @elem_adds_user_part(ptr noundef %0, ptr noun
   %27 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %17, i32 noundef %18)
   %28 = load ptr, ptr @is683_dissector_table, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %30 = load i8, ptr %29, align 8, !range !19, !noundef !20
+  %30 = load i8, ptr %29, align 8, !range !20, !noundef !21
   %31 = zext nneg i8 %30 to i32
   %32 = load ptr, ptr %5, align 8
   %33 = tail call i32 @dissector_try_uint(ptr noundef %28, i32 noundef %31, ptr noundef %27, ptr noundef %1, ptr noundef %32)
@@ -3168,7 +3168,7 @@ define internal noundef zeroext i8 @elem_adds_user_part(ptr noundef %0, ptr noun
   %35 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %17, i32 noundef %18)
   %36 = load ptr, ptr @is801_dissector_table, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %38 = load i8, ptr %37, align 8, !range !19, !noundef !20
+  %38 = load i8, ptr %37, align 8, !range !20, !noundef !21
   %39 = zext nneg i8 %38 to i32
   %40 = load ptr, ptr %5, align 8
   %41 = tail call i32 @dissector_try_uint(ptr noundef %36, i32 noundef %39, ptr noundef %35, ptr noundef %1, ptr noundef %40)
@@ -3638,7 +3638,7 @@ define internal noundef zeroext i8 @elem_cell_id_list(ptr noundef %0, ptr nounde
   %25 = add i8 %.050, 1
   %26 = sub i32 %24, %3
   %.not = icmp eq i32 %4, %26
-  br i1 %.not, label %27, label %14, !llvm.loop !21
+  br i1 %.not, label %27, label %14, !llvm.loop !22
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4034,7 +4034,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   %146 = icmp uge i32 %145, %101
   %147 = icmp samesign ult i32 %111, %105
   %148 = select i1 %146, i1 %147, i1 false
-  br i1 %148, label %109, label %.loopexit, !llvm.loop !22
+  br i1 %148, label %109, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %129, %100
   %.0233 = phi i32 [ %96, %100 ], [ %144, %129 ]
@@ -4115,7 +4115,7 @@ define internal noundef zeroext i8 @elem_downlink_re_list(ptr noundef %0, ptr no
   %23 = add i8 %.046, 1
   %24 = sub i32 %22, %3
   %.not = icmp eq i32 %4, %24
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %8
   %25 = trunc i32 %4 to i8
@@ -4200,7 +4200,7 @@ define internal zeroext i8 @elem_enc_info(ptr noundef %0, ptr noundef %1, ptr no
   %46 = sub i32 %.1, %3
   %47 = sub i32 %4, %46
   %48 = icmp ugt i32 %47, 1
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %42
   %49 = zext i8 %45 to i32
@@ -4454,7 +4454,7 @@ elem_cell_id_aux.exit:                            ; preds = %.lr.ph, %48
   %52 = sub i32 %50, %3
   %53 = sub i32 %4, %52
   %54 = icmp ugt i32 %53, 2
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %elem_cell_id_aux.exit
   %55 = zext i8 %51 to i32
@@ -4574,7 +4574,7 @@ define internal noundef zeroext i8 @elem_info_rec_req(ptr noundef %0, ptr readno
   %15 = add i8 %.03437, 1
   %16 = sub i32 %14, %3
   %.not = icmp eq i32 %4, %16
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %17 = trunc i32 %4 to i8
@@ -4702,7 +4702,7 @@ switch.lookup:                                    ; preds = %.preheader
   %68 = icmp ugt i32 %67, 5
   %69 = icmp samesign ult i32 %29, %24
   %70 = and i1 %69, %68
-  br i1 %70, label %.preheader, label %71, !llvm.loop !27
+  br i1 %70, label %.preheader, label %71, !llvm.loop !28
 
 71:                                               ; preds = %60
   %72 = load i32, ptr @global_a_variant, align 4
@@ -5180,7 +5180,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %96, ptr noundef %0, i32 noundef %.sink251, i32 noundef 1, i32 noundef 0)
   %98 = add i32 %.sink251, 1
   %exitcond.not = icmp eq i32 %40, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %95, %18
   %.0231.lcssa = phi i32 [ %36, %18 ], [ %98, %95 ]
@@ -5367,7 +5367,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   %57 = icmp ne i32 %56, 4
   %58 = icmp samesign ult i32 %32, %26
   %59 = and i1 %58, %57
-  br i1 %59, label %30, label %.loopexit, !llvm.loop !29
+  br i1 %59, label %30, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %54, %20
   %.089 = phi i32 [ %18, %20 ], [ %55, %54 ]
@@ -5584,7 +5584,7 @@ define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 78
-  %69 = load i8, ptr %68, align 2, !range !19, !noundef !20
+  %69 = load i8, ptr %68, align 2, !range !20, !noundef !21
   %70 = trunc nuw i8 %69 to i1
   %71 = select i1 %70, ptr @.str.1333, ptr @.str.282
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.1332, ptr noundef nonnull %71, i32 noundef %63)
@@ -5624,7 +5624,7 @@ define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %96
 
 96:                                               ; preds = %95, %85
-  %97 = load i8, ptr @global_a_info_display, align 1, !range !19, !noundef !20
+  %97 = load i8, ptr @global_a_info_display, align 1, !range !20, !noundef !21
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %.thread
 
@@ -5762,7 +5762,7 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   store i8 %56, ptr %50, align 1
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count260
-  br i1 %exitcond261.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !30
+  br i1 %exitcond261.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !31
 
 ._crit_edge236:                                   ; preds = %.lr.ph235
   %57 = getelementptr i8, ptr %47, i64 %wide.trip.count260
@@ -5822,7 +5822,7 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   store i8 %94, ptr %88, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %95 = getelementptr i8, ptr %84, i64 %wide.trip.count
@@ -5905,7 +5905,7 @@ default.unreachable:                              ; preds = %110
   %139 = sub i32 %.1205, %3
   %140 = sub i32 %4, %139
   %141 = icmp ugt i32 %140, 1
-  br i1 %141, label %11, label %._crit_edge244, !llvm.loop !32
+  br i1 %141, label %11, label %._crit_edge244, !llvm.loop !33
 
 ._crit_edge244:                                   ; preds = %135
   %142 = zext i8 %138 to i32
@@ -6283,7 +6283,7 @@ define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr noundef readonly
   br label %26
 
 26:                                               ; preds = %25, %6
-  %27 = load i8, ptr @global_a_info_display, align 1, !range !19, !noundef !20
+  %27 = load i8, ptr @global_a_info_display, align 1, !range !20, !noundef !21
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %32
 
@@ -6388,7 +6388,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
   %49 = icmp ugt i32 %48, 2
   %50 = icmp samesign ult i32 %22, %13
   %51 = and i1 %50, %49
-  br i1 %51, label %.preheader, label %52, !llvm.loop !33
+  br i1 %51, label %.preheader, label %52, !llvm.loop !34
 
 52:                                               ; preds = %.preheader
   %53 = icmp ugt i32 %4, %47
@@ -6723,7 +6723,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   store i8 %67, ptr %61, align 1
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count269
-  br i1 %exitcond270.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !34
+  br i1 %exitcond270.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !35
 
 ._crit_edge246:                                   ; preds = %.lr.ph245
   %68 = getelementptr i8, ptr %58, i64 %wide.trip.count269
@@ -6783,7 +6783,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   store i8 %105, ptr %99, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph239, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph239, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph239
   %106 = getelementptr i8, ptr %95, i64 %wide.trip.count
@@ -6830,7 +6830,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %reass.sub = sub i32 %.neg223, %.3235
   %135 = add i32 %reass.sub, -6
   %136 = icmp ult i32 %135, -3
-  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !36
+  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 137:                                              ; preds = %34
   %138 = load i32, ptr @hf_ansi_a_rev_ms_info_rec_content, align 4
@@ -6847,7 +6847,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %144 = sub i32 %.1215, %3
   %145 = sub i32 %4, %144
   %146 = icmp ugt i32 %145, 1
-  br i1 %146, label %12, label %._crit_edge254, !llvm.loop !37
+  br i1 %146, label %12, label %._crit_edge254, !llvm.loop !38
 
 ._crit_edge254:                                   ; preds = %.loopexit
   %147 = zext i8 %143 to i32
@@ -7289,7 +7289,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
 .backedge:                                        ; preds = %123, %.thread
   %.0210267.be = phi i8 [ %.1, %123 ], [ 1, %.thread ]
   %.0216265.be = add i8 %.0216265, 1
-  br label %24, !llvm.loop !38
+  br label %24, !llvm.loop !39
 
 .thread:                                          ; preds = %122
   %125 = zext nneg i8 %59 to i32
@@ -7553,7 +7553,7 @@ define internal fastcc zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noun
   %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0)
   %46 = add i32 %38, 3
   %exitcond.not = icmp eq i32 %32, %wide.trip.count
-  br i1 %exitcond.not, label %47, label %24, !llvm.loop !39
+  br i1 %exitcond.not, label %47, label %24, !llvm.loop !40
 
 47:                                               ; preds = %30
   %48 = zext i8 %10 to i32
@@ -7679,12 +7679,12 @@ define internal fastcc void @dissect_bsmap_common(ptr noundef %0, ptr noundef %1
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %34 = load i32, ptr %31, align 8
   %35 = icmp eq i32 %34, %23
-  br i1 %35, label %my_try_val_to_str_idx.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %35, label %my_try_val_to_str_idx.exit, label %.lr.ph, !llvm.loop !16
 
 my_try_val_to_str_idx.exit.thread:                ; preds = %.lr.ph, %4
   %36 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_unknown_bsmap_msg, ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.1749, i32 noundef %23)
@@ -9147,7 +9147,7 @@ define internal void @bsmap_clr_req(ptr noundef %0, ptr noundef %1, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @bsmap_cl3_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %38, label %10
 
@@ -12014,12 +12014,12 @@ define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1,
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %my_try_val_to_str_idx.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %43 = load i32, ptr %40, align 8
   %44 = icmp eq i32 %43, %32
-  br i1 %44, label %my_try_val_to_str_idx.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %44, label %my_try_val_to_str_idx.exit, label %.lr.ph, !llvm.loop !16
 
 my_try_val_to_str_idx.exit.thread:                ; preds = %.lr.ph, %30
   %45 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_unknown_dtap_msg, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull @.str.1758, i32 noundef %32)
@@ -12276,7 +12276,7 @@ elem_t.exit:                                      ; preds = %43, %46, %53
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_adds_deliver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -12373,7 +12373,7 @@ define internal void @dtap_alert_with_info(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_auth_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -12412,7 +12412,7 @@ define internal void @dtap_auth_req(ptr noundef %0, ptr noundef %1, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_auth_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -12443,7 +12443,7 @@ define internal void @dtap_auth_resp(ptr noundef %0, ptr noundef %1, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_bs_challenge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -12474,7 +12474,7 @@ define internal void @dtap_bs_challenge(ptr noundef %0, ptr noundef %1, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_bs_challenge_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -12517,7 +12517,7 @@ define internal void @dtap_cm_srvc_req(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = add i32 %3, 1
   %18 = add i32 %4, -1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %20 = load i8, ptr %19, align 1, !range !19, !noundef !20
+  %20 = load i8, ptr %19, align 1, !range !20, !noundef !21
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -12538,7 +12538,7 @@ define internal void @dtap_cm_srvc_req(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %30, label %203, label %31
 
 31:                                               ; preds = %26
-  %32 = load i8, ptr %19, align 1, !range !19, !noundef !20
+  %32 = load i8, ptr %19, align 1, !range !20, !noundef !21
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %36
 
@@ -12874,7 +12874,7 @@ define internal void @dtap_flash_with_info(ptr noundef %0, ptr noundef %1, ptr n
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %38 = load i8, ptr %37, align 8, !range !19, !noundef !20
+  %38 = load i8, ptr %37, align 8, !range !20, !noundef !21
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %45
 
@@ -13001,7 +13001,7 @@ define internal void @dtap_lu_accept(ptr noundef %0, ptr noundef %1, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_lu_reject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13083,7 +13083,7 @@ elem_v.exit:                                      ; preds = %30, %28, %16, %10
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_lu_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13242,7 +13242,7 @@ define internal void @dtap_lu_req(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_page_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13263,7 +13263,7 @@ define internal void @dtap_page_resp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %18, label %149, label %19
 
 19:                                               ; preds = %14
-  %20 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %20 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -13733,7 +13733,7 @@ define internal void @dtap_srvc_release_complete(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_ssd_update_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13781,7 +13781,7 @@ define internal void @dtap_ssd_update_resp(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_status_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13812,7 +13812,7 @@ define internal void @dtap_status_req(ptr noundef %0, ptr noundef %1, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_status_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13930,7 +13930,7 @@ define internal void @dtap_user_zone_update_req(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_send_burst_dtmf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -13951,7 +13951,7 @@ define internal void @dtap_send_burst_dtmf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %18, label %33, label %19
 
 19:                                               ; preds = %14
-  %20 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %20 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
 
@@ -13999,7 +13999,7 @@ define internal void @dtap_send_burst_dtmf_ack(ptr noundef %0, ptr noundef %1, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dtap_start_dtmf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  %8 = load i8, ptr %7, align 1, !range !19, !noundef !20
+  %8 = load i8, ptr %7, align 1, !range !20, !noundef !21
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
@@ -14171,37 +14171,38 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}

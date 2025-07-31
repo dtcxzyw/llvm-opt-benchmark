@@ -63,7 +63,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   store ptr %0, ptr %.0156.ptr, align 8
   %.0156.add = add nuw nsw i64 %.0156.idx198, 8
   %18 = icmp samesign ult i64 %.0156.idx198, 65528
-  br i1 %18, label %.preheader196, label %19, !llvm.loop !7
+  br i1 %18, label %.preheader196, label %19, !llvm.loop !8
 
 19:                                               ; preds = %.preheader196
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -153,7 +153,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %69 = getelementptr inbounds nuw i8, ptr %.0152200, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %.2163199, i64 1
   %71 = icmp ult ptr %70, %7
-  br i1 %71, label %.lr.ph, label %.loopexit193, !llvm.loop !8
+  br i1 %71, label %.lr.ph, label %.loopexit193, !llvm.loop !9
 
 72:                                               ; preds = %63
   %73 = load i8, ptr %60, align 1
@@ -234,7 +234,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %116 = getelementptr inbounds nuw i8, ptr %.4165, i64 1
   %117 = load i8, ptr %.4165, align 1
   %.not188 = icmp eq i8 %115, %117
-  br i1 %.not188, label %.preheader194, label %.loopexit193, !llvm.loop !9
+  br i1 %.not188, label %.preheader194, label %.loopexit193, !llvm.loop !10
 
 .loopexit193:                                     ; preds = %113, %.preheader194, %.lr.ph, %68, %.preheader192, %72, %76, %81, %86, %91, %96, %101, %106
   %.3164 = phi ptr [ %74, %72 ], [ %79, %76 ], [ %84, %81 ], [ %89, %86 ], [ %94, %91 ], [ %99, %96 ], [ %104, %101 ], [ %109, %106 ], [ %64, %.preheader192 ], [ %.2163199, %.lr.ph ], [ %70, %68 ], [ %.4165, %.preheader194 ], [ %116, %113 ]
@@ -282,7 +282,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   store i8 %136, ptr %139, align 1
   %141 = add i32 %.1, -262
   %.old2 = icmp ugt i32 %141, 262
-  br i1 %.old2, label %137, label %.loopexit
+  br i1 %.old2, label %137, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %137, %127
   %.3160 = phi ptr [ %.2159, %127 ], [ %140, %137 ]
@@ -362,7 +362,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %.1158.be = phi ptr [ %194, %158 ], [ %201, %200 ], [ %197, %196 ]
   %.0154.be = phi i32 [ 0, %158 ], [ 0, %200 ], [ %198, %196 ]
   %195 = icmp ult ptr %.1162.be, %8
-  br i1 %195, label %.lr.ph206, label %._crit_edge, !llvm.loop !10
+  br i1 %195, label %.lr.ph206, label %._crit_edge, !llvm.loop !12
 
 196:                                              ; preds = %.lr.ph206, %52, %54, %58
   %197 = getelementptr inbounds nuw i8, ptr %.1158204, i64 1
@@ -405,7 +405,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %.8 = phi ptr [ %209, %208 ], [ %205, %.lr.ph215 ]
   %.3 = phi i32 [ 0, %208 ], [ %206, %.lr.ph215 ]
   %.not = icmp ugt ptr %203, %202
-  br i1 %.not, label %._crit_edge216, label %.lr.ph215, !llvm.loop !11
+  br i1 %.not, label %._crit_edge216, label %.lr.ph215, !llvm.loop !13
 
 ._crit_edge216:                                   ; preds = %210, %._crit_edge
   %.7.lcssa = phi ptr [ %.1158.lcssa, %._crit_edge ], [ %.8, %210 ]
@@ -470,7 +470,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %16 = load i8, ptr %.0195285, align 1
   store i8 %16, ptr %.0191, align 1
   %.not232 = icmp ugt ptr %15, %14
-  br i1 %.not232, label %._crit_edge289, label %.lr.ph288, !llvm.loop !12
+  br i1 %.not232, label %._crit_edge289, label %.lr.ph288, !llvm.loop !14
 
 ._crit_edge289:                                   ; preds = %.lr.ph288, %11
   %17 = add nsw i32 %1, 1
@@ -482,7 +482,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   store ptr %0, ptr %.0190.ptr, align 8
   %.0190.add = add nuw nsw i64 %.0190.idx242, 8
   %18 = icmp samesign ult i64 %.0190.idx242, 65528
-  br i1 %18, label %.preheader241, label %19, !llvm.loop !13
+  br i1 %18, label %.preheader241, label %19, !llvm.loop !15
 
 19:                                               ; preds = %.preheader241
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -633,7 +633,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %103 = getelementptr inbounds nuw i8, ptr %.1185244, i64 1
   %104 = getelementptr inbounds nuw i8, ptr %.2197243, i64 1
   %105 = icmp ult ptr %104, %7
-  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 106:                                              ; preds = %.thread309, %93
   %107 = phi i32 [ %92, %.thread309 ], [ %95, %93 ]
@@ -717,7 +717,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %152 = getelementptr inbounds nuw i8, ptr %.4199, i64 1
   %153 = load i8, ptr %.4199, align 1
   %.not228 = icmp eq i8 %151, %153
-  br i1 %.not228, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %.not228, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %149, %.preheader, %.lr.ph, %102, %96, %106, %112, %117, %122, %127, %132, %137, %142
   %154 = phi i32 [ %107, %106 ], [ %107, %112 ], [ %107, %117 ], [ %107, %122 ], [ %107, %127 ], [ %107, %132 ], [ %107, %137 ], [ %107, %142 ], [ 0, %96 ], [ 0, %102 ], [ 0, %.lr.ph ], [ %107, %.preheader ], [ %107, %149 ]
@@ -913,7 +913,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %.1192.be = phi ptr [ %265, %230 ], [ %272, %271 ], [ %268, %267 ]
   %.0187.be = phi i32 [ 0, %230 ], [ 0, %271 ], [ %269, %267 ]
   %266 = icmp ult ptr %.1196.be, %8
-  br i1 %266, label %.lr.ph270, label %._crit_edge271, !llvm.loop !16
+  br i1 %266, label %.lr.ph270, label %._crit_edge271, !llvm.loop !18
 
 267:                                              ; preds = %82, %85, %45, %68, %70, %74
   %268 = getelementptr inbounds nuw i8, ptr %.1192265, i64 1
@@ -956,7 +956,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %.8 = phi ptr [ %280, %279 ], [ %276, %.lr.ph280 ]
   %.3 = phi i32 [ 0, %279 ], [ %277, %.lr.ph280 ]
   %.not = icmp ugt ptr %274, %273
-  br i1 %.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !17
+  br i1 %.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !19
 
 ._crit_edge281:                                   ; preds = %281, %._crit_edge271
   %.7.lcssa = phi ptr [ %.1192.lcssa, %._crit_edge271 ], [ %.8, %281 ]
@@ -1113,7 +1113,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   store i8 %64, ptr %.286116.i, align 1
   %66 = add i32 %.275118.i, -1
   %.not95.i = icmp eq i32 %66, 0
-  br i1 %.not95.i, label %.loopexit.i, label %.lr.ph120.i, !llvm.loop !18
+  br i1 %.not95.i, label %.loopexit.i, label %.lr.ph120.i, !llvm.loop !20
 
 67:                                               ; preds = %14
   %68 = add nuw nsw i32 %.080.i, 1
@@ -1143,7 +1143,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   %.387.i = getelementptr inbounds nuw i8, ptr %.387111.i, i64 1
   %.3.i = getelementptr inbounds nuw i8, ptr %.3112.i, i64 1
   %.not.i = icmp eq i32 %77, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %74
   %.072.pn.lcssa.i = phi ptr [ %.072.i, %74 ], [ %.3112.i, %.lr.ph.i ]
@@ -1164,7 +1164,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   %.279.i = phi i32 [ 1, %79 ], [ %.178.i, %52 ], [ %.178.i, %56 ], [ %.178.i, %.lr.ph126.preheader.i ], [ %.178.i, %.lr.ph120.i ]
   %.4.i = phi ptr [ %80, %79 ], [ %.2.i, %52 ], [ %.2.i, %56 ], [ %.2.i, %.lr.ph126.preheader.i ], [ %.2.i, %.lr.ph120.i ]
   %.not97.i = icmp eq i32 %.279.i, 0
-  br i1 %.not97.i, label %.thread.i, label %14, !llvm.loop !20
+  br i1 %.not97.i, label %.thread.i, label %14, !llvm.loop !22
 
 .thread.i:                                        ; preds = %.loopexit.i, %._crit_edge.i
   %.488104.i = phi ptr [ %.488.i, %.loopexit.i ], [ %.387.lcssa.i, %._crit_edge.i ]
@@ -1216,7 +1216,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   %110 = zext i8 %109 to i32
   %111 = add i32 %.1.i21, %110
   %112 = icmp eq i8 %109, -1
-  br i1 %112, label %.preheader.i, label %.loopexit118.i, !llvm.loop !21
+  br i1 %112, label %.preheader.i, label %.loopexit118.i, !llvm.loop !23
 
 .loopexit118.i:                                   ; preds = %.preheader.i, %101
   %.193.i = phi ptr [ %.092.i, %101 ], [ %108, %.preheader.i ]
@@ -1319,7 +1319,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   store i8 %160, ptr %.298130.i, align 1
   %162 = add i32 %.3132.i, -1
   %.not106.i = icmp eq i32 %162, 0
-  br i1 %.not106.i, label %.loopexit.i17, label %.lr.ph134.i, !llvm.loop !22
+  br i1 %.not106.i, label %.loopexit.i17, label %.lr.ph134.i, !llvm.loop !24
 
 163:                                              ; preds = %97
   %164 = add nuw nsw i32 %.088.i, 1
@@ -1349,7 +1349,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   %.399.i = getelementptr inbounds nuw i8, ptr %.399125.i, i64 1
   %.5.i = getelementptr inbounds nuw i8, ptr %.5126.i, i64 1
   %.not.i13 = icmp eq i32 %173, 0
-  br i1 %.not.i13, label %._crit_edge.i14, label %.lr.ph.i12, !llvm.loop !23
+  br i1 %.not.i13, label %._crit_edge.i14, label %.lr.ph.i12, !llvm.loop !25
 
 ._crit_edge.i14:                                  ; preds = %.lr.ph.i12, %170
   %.092.pn.lcssa.i = phi ptr [ %.092.i, %170 ], [ %.5126.i, %.lr.ph.i12 ]
@@ -1370,7 +1370,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   %.391.i = phi i32 [ %178, %175 ], [ %.189.i, %147 ], [ %.189.i, %152 ], [ %.189.i, %.lr.ph140.preheader.i ], [ %.189.i, %.lr.ph134.i ]
   %.287.i = phi i32 [ 1, %175 ], [ %.186.i, %147 ], [ %.186.i, %152 ], [ %.186.i, %.lr.ph140.preheader.i ], [ %.186.i, %.lr.ph134.i ]
   %.not108.i = icmp eq i32 %.287.i, 0
-  br i1 %.not108.i, label %.thread.i15, label %97, !llvm.loop !24
+  br i1 %.not108.i, label %.thread.i15, label %97, !llvm.loop !26
 
 .thread.i15:                                      ; preds = %.loopexit.i17, %._crit_edge.i14
   %.4100116.i = phi ptr [ %.4100.i, %.loopexit.i17 ], [ %.399.lcssa.i, %._crit_edge.i14 ]
@@ -1419,23 +1419,25 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}

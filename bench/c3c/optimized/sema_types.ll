@@ -615,7 +615,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %264 = getelementptr inbounds nuw i8, ptr %.0228327, i64 8
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %260
-  br i1 %266, label %._crit_edge329, label %.lr.ph328
+  br i1 %266, label %._crit_edge329, label %.lr.ph328, !llvm.loop !8
 
 ._crit_edge329:                                   ; preds = %.lr.ph328, %.lr.ph328, %.lr.ph328, %.lr.ph328, %.lr.ph328, %263, %.preheader
   %267 = getelementptr inbounds nuw i8, ptr %239, i64 8
@@ -675,7 +675,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %287 = getelementptr inbounds nuw i8, ptr %.0231316, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, %283
-  br i1 %289, label %.critedge294.sink.split, label %.lr.ph
+  br i1 %289, label %.critedge294.sink.split, label %.lr.ph, !llvm.loop !10
 
 .critedge292:                                     ; preds = %.lr.ph, %280
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -820,7 +820,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 .backedge:                                        ; preds = %361, %355
   %.0.i305.in.be = phi ptr [ %360, %355 ], [ %362, %361 ]
-  br label %351
+  br label %351, !llvm.loop !11
 
 363:                                              ; preds = %351
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.35, i32 noundef 2984) #6
@@ -1484,3 +1484,7 @@ attributes #6 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

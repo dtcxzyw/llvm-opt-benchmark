@@ -225,7 +225,7 @@ define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes(
 
 .backedge:                                        ; preds = %29, %37
   %.1.i.i.be = phi ptr [ %31, %29 ], [ %38, %37 ]
-  br label %29
+  br label %29, !llvm.loop !44
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %15, align 8, !tbaa !32
@@ -240,7 +240,7 @@ define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes(
 37:                                               ; preds = %32
   %38 = load ptr, ptr %33, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !44
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
   store ptr %40, ptr %0, align 8, !tbaa !42
   br label %.backedge
 
@@ -259,7 +259,7 @@ lxb_selectors_state_run.exit.i:                   ; preds = %32
 .critedge.i.backedge:                             ; preds = %.lr.ph.i, %41
   %.be = phi ptr [ %33, %41 ], [ %45, %.lr.ph.i ]
   %.0.i.be = phi ptr [ %43, %41 ], [ %47, %.lr.ph.i ]
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !47
 
 44:                                               ; preds = %41, %.critedge.i
   %45 = phi ptr [ %33, %41 ], [ %21, %.critedge.i ]
@@ -269,15 +269,15 @@ lxb_selectors_state_run.exit.i:                   ; preds = %32
 .lr.ph.i:                                         ; preds = %44, %49
   %.15.i = phi ptr [ %51, %49 ], [ %.0.i, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %.15.i, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !45
+  %47 = load ptr, ptr %46, align 8, !tbaa !48
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.critedge.i.backedge
+  br i1 %48, label %49, label %.critedge.i.backedge, !llvm.loop !47
 
 49:                                               ; preds = %.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %.15.i, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !46
+  %51 = load ptr, ptr %50, align 8, !tbaa !49
   %.not25.i = icmp eq ptr %51, %1
-  br i1 %.not25.i, label %lxb_selectors_state_tree.exit, label %.lr.ph.i
+  br i1 %.not25.i, label %lxb_selectors_state_tree.exit, label %.lr.ph.i, !llvm.loop !50
 
 lxb_selectors_state_tree.exit.loopexit19:         ; preds = %lxb_selectors_state_run.exit.i
   br label %lxb_selectors_state_tree.exit
@@ -345,7 +345,7 @@ define hidden i32 @lxb_selectors_match_node(ptr noundef %0, ptr noundef %1, ptr 
 
 .backedge:                                        ; preds = %24, %32
   %.1.i.be = phi ptr [ %26, %24 ], [ %33, %32 ]
-  br label %24
+  br label %24, !llvm.loop !44
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %20, align 8, !tbaa !32
@@ -360,7 +360,7 @@ define hidden i32 @lxb_selectors_match_node(ptr noundef %0, ptr noundef %1, ptr 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %28, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !44
+  %35 = load ptr, ptr %34, align 8, !tbaa !46
   store ptr %35, ptr %0, align 8, !tbaa !42
   br label %.backedge
 
@@ -384,13 +384,13 @@ lxb_selectors_state_run.exit:                     ; preds = %27
 define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = load i32, ptr %4, align 8, !tbaa !47
+  %5 = load i32, ptr %4, align 8, !tbaa !51
   %6 = icmp eq i32 %5, 7
   br i1 %6, label %7, label %39
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !50
+  %9 = load i32, ptr %8, align 8, !tbaa !54
   switch i32 %9, label %15 [
     i32 7, label %10
     i32 9, label %10
@@ -400,15 +400,15 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
 
 10:                                               ; preds = %7, %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !57
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %39, label %15
 
 15:                                               ; preds = %7, %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
+  %17 = load ptr, ptr %16, align 8, !tbaa !60
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._crit_edge
 
@@ -427,7 +427,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = tail call ptr @lexbor_dobject_calloc(ptr noundef %25) #8
-  store ptr %26, ptr %16, align 8, !tbaa !56
+  store ptr %26, ptr %16, align 8, !tbaa !60
   store ptr %22, ptr %26, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !32
@@ -442,7 +442,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   store ptr @lxb_selectors_state_pseudo_class_function, ptr %0, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store ptr %1, ptr %35, align 8, !tbaa !57
+  store ptr %1, ptr %35, align 8, !tbaa !61
   store ptr %32, ptr %34, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !41
@@ -465,7 +465,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !41
   %.0.in11.i = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %.012.i = load ptr, ptr %.0.in11.i, align 8, !tbaa !46
+  %.012.i = load ptr, ptr %.0.in11.i, align 8, !tbaa !49
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %lxb_selectors_descendant.exit, label %.lr.ph.i
 
@@ -483,9 +483,9 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
 
 51:                                               ; preds = %49, %.lr.ph.i
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !46
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !49
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %lxb_selectors_descendant.exit, label %.lr.ph.i
+  br i1 %.not.i, label %lxb_selectors_descendant.exit, label %.lr.ph.i, !llvm.loop !62
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -498,7 +498,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !41
   %59 = getelementptr i8, ptr %58, i64 40
-  %.val = load ptr, ptr %59, align 8, !tbaa !46
+  %.val = load ptr, ptr %59, align 8, !tbaa !49
   %.not.i52 = icmp eq ptr %.val, null
   br i1 %.not.i52, label %67, label %60
 
@@ -524,7 +524,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
 71:                                               ; preds = %72, %68
   %.pn.i = phi ptr [ %70, %68 ], [ %.0.i55, %72 ]
   %.0.in.i54 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 56
-  %.0.i55 = load ptr, ptr %.0.in.i54, align 8, !tbaa !58
+  %.0.i55 = load ptr, ptr %.0.in.i54, align 8, !tbaa !63
   %.not.i56 = icmp eq ptr %.0.i55, null
   br i1 %.not.i56, label %lxb_selectors_descendant.exit, label %72
 
@@ -533,7 +533,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   %74 = load i32, ptr %73, align 8, !tbaa !40
   %75 = and i32 %74, 255
   %76 = icmp eq i32 %75, 1
-  br i1 %76, label %77, label %71
+  br i1 %76, label %77, label %71, !llvm.loop !64
 
 77:                                               ; preds = %72
   %78 = tail call fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %.0.i55)
@@ -544,7 +544,7 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !41
   %.0.in11.i57 = getelementptr inbounds nuw i8, ptr %81, i64 56
-  %.012.i58 = load ptr, ptr %.0.in11.i57, align 8, !tbaa !58
+  %.012.i58 = load ptr, ptr %.0.in11.i57, align 8, !tbaa !63
   %.not13.i59 = icmp eq ptr %.012.i58, null
   br i1 %.not13.i59, label %lxb_selectors_descendant.exit, label %.lr.ph.i60
 
@@ -562,9 +562,9 @@ define internal ptr @lxb_selectors_state_find(ptr noundef captures(none) %0, ptr
 
 88:                                               ; preds = %86, %.lr.ph.i60
   %.0.in.i62 = getelementptr inbounds nuw i8, ptr %.014.i61, i64 56
-  %.0.i63 = load ptr, ptr %.0.in.i62, align 8, !tbaa !58
+  %.0.i63 = load ptr, ptr %.0.in.i62, align 8, !tbaa !63
   %.not.i64 = icmp eq ptr %.0.i63, null
-  br i1 %.not.i64, label %lxb_selectors_descendant.exit, label %.lr.ph.i60
+  br i1 %.not.i64, label %lxb_selectors_descendant.exit, label %.lr.ph.i60, !llvm.loop !65
 
 89:                                               ; preds = %39
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -593,7 +593,7 @@ define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captu
   %6 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %6, align 8, !tbaa !41
   %7 = getelementptr i8, ptr %.val76, i64 40
-  %.val76.val = load ptr, ptr %7, align 8, !tbaa !57
+  %.val76.val = load ptr, ptr %7, align 8, !tbaa !61
   %8 = getelementptr i8, ptr %.val76.val, i64 16
   %.val76.val.val = load i32, ptr %8, align 8, !tbaa !14
   switch i32 %.val76.val.val, label %lxb_selectors_next_node.exit.thread [
@@ -609,7 +609,7 @@ define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captu
 
 9:                                                ; preds = %2, %2
   %10 = getelementptr inbounds nuw i8, ptr %.val.val, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %11 = load ptr, ptr %10, align 8, !tbaa !49
   %12 = icmp eq ptr %11, null
   br i1 %12, label %lxb_selectors_next_node.exit.thread, label %13
 
@@ -623,7 +623,7 @@ define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captu
 18:                                               ; preds = %.preheader, %19
   %.pn.i = phi ptr [ %.0.i, %19 ], [ %.val.val, %.preheader ]
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 56
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !58
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !63
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %lxb_selectors_next_node.exit.thread, label %19
 
@@ -632,7 +632,7 @@ define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captu
   %21 = load i32, ptr %20, align 8, !tbaa !40
   %22 = and i32 %21, 255
   %23 = icmp eq i32 %22, 1
-  br i1 %23, label %lxb_selectors_next_node.exit.thread81, label %18
+  br i1 %23, label %lxb_selectors_next_node.exit.thread81, label %18, !llvm.loop !66
 
 lxb_selectors_next_node.exit:                     ; preds = %2
   %24 = icmp eq ptr %.val.val, null
@@ -643,7 +643,7 @@ lxb_selectors_next_node.exit.thread81:            ; preds = %19, %13, %lxb_selec
   %25 = getelementptr inbounds nuw i8, ptr %.val76.val, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !50
+  %28 = load i32, ptr %27, align 8, !tbaa !54
   switch i32 %28, label %lxb_selectors_next_node.exit.thread [
     i32 3, label %29
     i32 1, label %60
@@ -656,10 +656,10 @@ lxb_selectors_next_node.exit.thread81:            ; preds = %19, %13, %lxb_selec
 
 29:                                               ; preds = %lxb_selectors_next_node.exit.thread81
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !52
-  %32 = load ptr, ptr %31, align 8, !tbaa !59
+  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %32 = load ptr, ptr %31, align 8, !tbaa !67
   %33 = getelementptr i8, ptr %32, i64 4
-  %.val77 = load i32, ptr %33, align 4, !tbaa !60
+  %.val77 = load i32, ptr %33, align 4, !tbaa !68
   %34 = icmp ult i32 %.val77, 5
   %switch.maskindex = trunc i32 %.val77 to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
@@ -672,7 +672,7 @@ switch.lookup:                                    ; preds = %29
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.lxb_selectors_state_pseudo_class_function, i64 0, i64 %35
   %switch.load = load i64, ptr %switch.gep, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i83, i64 %switch.load
-  %.1.pr.i = load ptr, ptr %36, align 8, !tbaa !61
+  %.1.pr.i = load ptr, ptr %36, align 8, !tbaa !69
   %.not4.i = icmp eq ptr %.1.pr.i, null
   br i1 %.not4.i, label %.loopexit, label %.lr.ph6.i.preheader
 
@@ -698,15 +698,15 @@ switch.lookup:                                    ; preds = %29
 .lr.ph.i:                                         ; preds = %.preheader.i, %48
   %.23.i = phi ptr [ %50, %48 ], [ %.15.i90, %.preheader.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.23.i, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !61
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %.lr.ph6.i.loopexit
 
 48:                                               ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw i8, ptr %.23.i, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !46
+  %50 = load ptr, ptr %49, align 8, !tbaa !49
   %.not16.i = icmp eq ptr %50, %.012.i83
-  br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not16.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.preheader.i, %48, %29, %switch.lookup
   store ptr %.val76, ptr %3, align 8, !tbaa !32
@@ -717,83 +717,83 @@ switch.lookup:                                    ; preds = %29
 lxb_selectors_state_has_relative.exit:            ; preds = %.lr.ph6.i.loopexit, %.lr.ph6.i.preheader
   %.15.i.lcssa = phi ptr [ %.1.pr.i, %.lr.ph6.i.preheader ], [ %46, %.lr.ph6.i.loopexit ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.012.i83, ptr %52, align 8, !tbaa !62
+  store ptr %.012.i83, ptr %52, align 8, !tbaa !71
   %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !21
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store ptr %54, ptr %55, align 8, !tbaa !25
   store ptr %.15.i.lcssa, ptr %6, align 8, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @lxb_selectors_state_after_find_has, ptr %56, align 8, !tbaa !44
+  store ptr @lxb_selectors_state_after_find_has, ptr %56, align 8, !tbaa !46
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @lxb_selectors_cb_ok, ptr %57, align 8, !tbaa !30
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !31
-  store i8 0, ptr %58, align 8, !tbaa !63
+  store i8 0, ptr %58, align 8, !tbaa !72
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %97
 
 60:                                               ; preds = %lxb_selectors_next_node.exit.thread81, %lxb_selectors_next_node.exit.thread81, %lxb_selectors_next_node.exit.thread81
   %61 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !52
+  %62 = load ptr, ptr %61, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store ptr %64, ptr %65, align 8, !tbaa !25
   store ptr %.012.i83, ptr %6, align 8, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @lxb_selectors_state_after_find, ptr %66, align 8, !tbaa !44
+  store ptr @lxb_selectors_state_after_find, ptr %66, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @lxb_selectors_cb_ok, ptr %67, align 8, !tbaa !30
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %68, ptr %69, align 8, !tbaa !31
-  store i8 0, ptr %68, align 8, !tbaa !63
+  store i8 0, ptr %68, align 8, !tbaa !72
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %97
 
 70:                                               ; preds = %lxb_selectors_next_node.exit.thread81
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %72 = load ptr, ptr %71, align 8, !tbaa !52
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store ptr %74, ptr %75, align 8, !tbaa !25
   store ptr %.012.i83, ptr %6, align 8, !tbaa !41
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @lxb_selectors_state_after_find, ptr %76, align 8, !tbaa !44
+  store ptr @lxb_selectors_state_after_find, ptr %76, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @lxb_selectors_cb_not, ptr %77, align 8, !tbaa !30
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %78, ptr %79, align 8, !tbaa !31
-  store i8 1, ptr %78, align 8, !tbaa !63
+  store i8 1, ptr %78, align 8, !tbaa !72
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %97
 
 80:                                               ; preds = %lxb_selectors_next_node.exit.thread81, %lxb_selectors_next_node.exit.thread81
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !52
+  %82 = load ptr, ptr %81, align 8, !tbaa !56
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !53
+  %84 = load ptr, ptr %83, align 8, !tbaa !57
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !21
   %87 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store ptr %86, ptr %87, align 8, !tbaa !25
   store ptr %.012.i83, ptr %6, align 8, !tbaa !41
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @lxb_selectors_state_after_nth_child, ptr %88, align 8, !tbaa !44
+  store ptr @lxb_selectors_state_after_nth_child, ptr %88, align 8, !tbaa !46
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @lxb_selectors_cb_ok, ptr %89, align 8, !tbaa !30
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %90, ptr %91, align 8, !tbaa !31
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.012.i83, ptr %92, align 8, !tbaa !62
+  store ptr %.012.i83, ptr %92, align 8, !tbaa !71
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 0, ptr %93, align 8, !tbaa !64
-  store i8 0, ptr %90, align 8, !tbaa !63
+  store i64 0, ptr %93, align 8, !tbaa !73
+  store i8 0, ptr %90, align 8, !tbaa !72
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %97
 
@@ -817,7 +817,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 
 .preheader77:                                     ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit78, label %.preheader
 
@@ -830,15 +830,15 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %.167 = phi ptr [ %2, %109 ], [ %10, %..loopexit78_crit_edge ], [ %2, %.preheader77 ]
   %.1 = phi ptr [ %111, %109 ], [ %.3, %..loopexit78_crit_edge ], [ %3, %.preheader77 ]
   %11 = getelementptr inbounds nuw i8, ptr %.167, i64 80
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !75
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = icmp eq ptr %14, null
   br i1 %15, label %129, label %16
 
 16:                                               ; preds = %.loopexit78
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !68
+  %18 = load ptr, ptr %17, align 8, !tbaa !77
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %30, label %19
 
@@ -865,9 +865,9 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %33 = tail call ptr @lexbor_dobject_calloc(ptr noundef %32) #8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 1, ptr %34, align 8, !tbaa !14
-  %35 = load ptr, ptr %11, align 8, !tbaa !66
+  %35 = load ptr, ptr %11, align 8, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !67
+  %37 = load ptr, ptr %36, align 8, !tbaa !76
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -876,7 +876,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %42, ptr %43, align 8, !tbaa !41
-  store ptr %33, ptr %17, align 8, !tbaa !68
+  store ptr %33, ptr %17, align 8, !tbaa !77
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
@@ -892,7 +892,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 .preheader:                                       ; preds = %.preheader77, %.loopexit
   %.2 = phi ptr [ %.3, %.loopexit ], [ %3, %.preheader77 ]
   %51 = getelementptr inbounds nuw i8, ptr %.2, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !65
+  %52 = load ptr, ptr %51, align 8, !tbaa !74
   br label %53
 
 53:                                               ; preds = %56, %.preheader
@@ -909,15 +909,15 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %.3, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !65
+  %58 = load ptr, ptr %57, align 8, !tbaa !74
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %..loopexit78_crit_edge, label %53
+  br i1 %59, label %..loopexit78_crit_edge, label %53, !llvm.loop !78
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !46
+  %64 = load ptr, ptr %63, align 8, !tbaa !49
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %66
 
@@ -932,7 +932,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %72 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !41
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %75 = load ptr, ptr %74, align 8, !tbaa !63
   br label %.loopexit
 
 76:                                               ; preds = %53
@@ -943,7 +943,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 .loopexit:                                        ; preds = %53, %53, %60, %66, %71
   %.068 = phi ptr [ %75, %71 ], [ null, %66 ], [ null, %60 ], [ null, %53 ], [ null, %53 ]
   %78 = icmp eq ptr %.068, null
-  br i1 %78, label %.preheader, label %.thread
+  br i1 %78, label %.preheader, label %.thread, !llvm.loop !79
 
 .thread:                                          ; preds = %66, %.loopexit
   %.06876 = phi ptr [ %.068, %.loopexit ], [ %64, %66 ]
@@ -953,7 +953,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 
 80:                                               ; preds = %4
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %82 = load ptr, ptr %81, align 8, !tbaa !69
+  %82 = load ptr, ptr %81, align 8, !tbaa !80
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %112
 
@@ -966,9 +966,9 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %93 = load ptr, ptr %92, align 8, !tbaa !66
+  %93 = load ptr, ptr %92, align 8, !tbaa !75
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %95 = load i32, ptr %94, align 8, !tbaa !70
+  %95 = load i32, ptr %94, align 8, !tbaa !81
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !31
   %98 = tail call i32 %88(ptr noundef %91, i32 noundef %95, ptr noundef %97) #8
@@ -995,7 +995,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 
 112:                                              ; preds = %80
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %114 = load ptr, ptr %113, align 8, !tbaa !71
+  %114 = load ptr, ptr %113, align 8, !tbaa !82
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %127
 
@@ -1004,17 +1004,17 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
   %118 = load ptr, ptr %117, align 8, !tbaa !4
   %119 = tail call ptr @lexbor_dobject_calloc(ptr noundef %118) #8
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !60
+  %121 = load i32, ptr %120, align 4, !tbaa !68
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i32 %121, ptr %122, align 8, !tbaa !14
-  %123 = load ptr, ptr %81, align 8, !tbaa !69
+  %123 = load ptr, ptr %81, align 8, !tbaa !80
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store ptr %123, ptr %124, align 8, !tbaa !25
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr %1, ptr %125, align 8, !tbaa !41
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store ptr %3, ptr %126, align 8, !tbaa !65
-  store ptr %119, ptr %113, align 8, !tbaa !71
+  store ptr %3, ptr %126, align 8, !tbaa !74
+  store ptr %119, ptr %113, align 8, !tbaa !82
   br label %129
 
 127:                                              ; preds = %112
@@ -1032,18 +1032,18 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load i8, ptr %5, align 8, !tbaa !63, !range !72, !noundef !73
+  %6 = load i8, ptr %5, align 8, !tbaa !72, !range !83, !noundef !84
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !62
+  %10 = load ptr, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   store ptr %12, ptr %3, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !57
+  %14 = load ptr, ptr %13, align 8, !tbaa !61
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !25
@@ -1056,10 +1056,10 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !75
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !60
+  %27 = load i32, ptr %26, align 4, !tbaa !68
   switch i32 %27, label %49 [
     i32 0, label %28
     i32 2, label %.preheader
@@ -1079,22 +1079,22 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
 31:                                               ; preds = %.critedge, %28
   %.1 = phi ptr [ %.043, %.critedge ], [ %20, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !62
+  %33 = load ptr, ptr %32, align 8, !tbaa !71
   %.not4751 = icmp eq ptr %.1, %33
   br i1 %.not4751, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %37
   %.252 = phi ptr [ %39, %37 ], [ %.1, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %.252, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !45
+  %35 = load ptr, ptr %34, align 8, !tbaa !48
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %.lr.ph
   %38 = getelementptr inbounds nuw i8, ptr %.252, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !46
+  %39 = load ptr, ptr %38, align 8, !tbaa !49
   %.not47 = icmp eq ptr %39, %33
-  br i1 %.not47, label %.critedge.thread, label %.lr.ph
+  br i1 %.not47, label %.critedge.thread, label %.lr.ph, !llvm.loop !85
 
 .critedge:                                        ; preds = %.lr.ph, %28
   %.043 = phi ptr [ %30, %28 ], [ %35, %.lr.ph ]
@@ -1107,7 +1107,7 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
 44:                                               ; preds = %.preheader, %45
   %.pn = phi ptr [ %.4, %45 ], [ %20, %.preheader ]
   %.4.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  %.4 = load ptr, ptr %.4.in, align 8, !tbaa !45
+  %.4 = load ptr, ptr %.4.in, align 8, !tbaa !48
   %cond = icmp eq ptr %.4, null
   br i1 %cond, label %.critedge.thread, label %45
 
@@ -1116,7 +1116,7 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
   %47 = load i32, ptr %46, align 8, !tbaa !40
   %48 = and i32 %47, 255
   %.not45 = icmp eq i32 %48, 1
-  br i1 %.not45, label %.critedge2, label %44
+  br i1 %.not45, label %.critedge2, label %44, !llvm.loop !86
 
 49:                                               ; preds = %18
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1134,7 +1134,7 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
   %52 = load ptr, ptr %51, align 8, !tbaa !26
   store ptr %52, ptr %3, align 8, !tbaa !32
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !57
+  %54 = load ptr, ptr %53, align 8, !tbaa !61
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !25
@@ -1148,7 +1148,7 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @lxb_selectors_cb_ok(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #4 {
-  store i8 1, ptr %2, align 1, !tbaa !74
+  store i8 1, ptr %2, align 1, !tbaa !87
   ret i32 0
 }
 
@@ -1157,7 +1157,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load i8, ptr %5, align 8, !tbaa !63, !range !72, !noundef !73
+  %6 = load i8, ptr %5, align 8, !tbaa !72, !range !83, !noundef !84
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !41
@@ -1168,7 +1168,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 12:                                               ; preds = %2
   store ptr %11, ptr %3, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !57
+  %14 = load ptr, ptr %13, align 8, !tbaa !61
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !25
@@ -1177,7 +1177,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !14
   switch i32 %22, label %35 [
@@ -1190,7 +1190,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %25 = load ptr, ptr %24, align 8, !tbaa !49
   %.not38 = icmp eq ptr %25, null
   br i1 %.not38, label %.loopexit, label %26
 
@@ -1204,7 +1204,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 .preheader:                                       ; preds = %18, %31
   %.pn = phi ptr [ %.1, %31 ], [ %9, %18 ]
   %.1.in = getelementptr inbounds nuw i8, ptr %.pn, i64 56
-  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !58
+  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !63
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %31
 
@@ -1213,7 +1213,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
   %33 = load i32, ptr %32, align 8, !tbaa !40
   %34 = and i32 %33, 255
   %.not37 = icmp eq i32 %34, 1
-  br i1 %.not37, label %.critedge, label %.preheader
+  br i1 %.not37, label %.critedge, label %.preheader, !llvm.loop !88
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1241,7 +1241,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @lxb_selectors_cb_not(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #4 {
-  store i8 0, ptr %2, align 1, !tbaa !74
+  store i8 0, ptr %2, align 1, !tbaa !87
   ret i32 0
 }
 
@@ -1252,39 +1252,39 @@ define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %8 = load ptr, ptr %7, align 8, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %15 = load i8, ptr %14, align 8, !tbaa !63, !range !72, !noundef !73
+  %15 = load i8, ptr %14, align 8, !tbaa !72, !range !83, !noundef !84
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %19 = load i64, ptr %18, align 8, !tbaa !64
+  %19 = load i64, ptr %18, align 8, !tbaa !73
   %20 = add i64 %19, 1
-  store i64 %20, ptr %18, align 8, !tbaa !64
+  store i64 %20, ptr %18, align 8, !tbaa !73
   br label %25
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !62
+  %23 = load ptr, ptr %22, align 8, !tbaa !71
   %24 = icmp eq ptr %23, %13
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21, %17
-  %26 = load i32, ptr %11, align 8, !tbaa !50
+  %26 = load i32, ptr %11, align 8, !tbaa !54
   %27 = icmp eq i32 %26, 7
   br i1 %27, label %.preheader, label %.preheader43
 
 .preheader:                                       ; preds = %25, %28
   %.pn39 = phi ptr [ %.1, %28 ], [ %13, %25 ]
   %.1.in = getelementptr inbounds nuw i8, ptr %.pn39, i64 56
-  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !58
+  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !63
   %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %.thread, label %28
 
@@ -1293,12 +1293,12 @@ define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(no
   %30 = load i32, ptr %29, align 8, !tbaa !40
   %31 = and i32 %30, 255
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %.loopexit, label %.preheader
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !89
 
 .preheader43:                                     ; preds = %25, %33
   %.pn = phi ptr [ %.3, %33 ], [ %13, %25 ]
   %.3.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  %.3 = load ptr, ptr %.3.in, align 8, !tbaa !45
+  %.3 = load ptr, ptr %.3.in, align 8, !tbaa !48
   %.not = icmp eq ptr %.3, null
   br i1 %.not, label %.thread, label %33
 
@@ -1307,31 +1307,31 @@ define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(no
   %35 = load i32, ptr %34, align 8, !tbaa !40
   %36 = and i32 %35, 255
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %.loopexit, label %.preheader43
+  br i1 %37, label %.loopexit, label %.preheader43, !llvm.loop !90
 
 .loopexit:                                        ; preds = %33, %28
   %.2 = phi ptr [ %.1, %28 ], [ %.3, %33 ]
   store ptr %.2, ptr %12, align 8, !tbaa !41
-  store i8 0, ptr %14, align 8, !tbaa !63
+  store i8 0, ptr %14, align 8, !tbaa !72
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   br label %67
 
 .thread:                                          ; preds = %.preheader43, %.preheader, %21
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %39 = load i64, ptr %38, align 8, !tbaa !64
+  %39 = load i64, ptr %38, align 8, !tbaa !73
   %.not40 = icmp eq i64 %39, 0
   br i1 %.not40, label %lxb_selectors_anb_calc.exit, label %40
 
 40:                                               ; preds = %.thread
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !52
-  %43 = load i64, ptr %42, align 8, !tbaa !75
+  %42 = load ptr, ptr %41, align 8, !tbaa !56
+  %43 = load i64, ptr %42, align 8, !tbaa !91
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !76
+  %47 = load i64, ptr %46, align 8, !tbaa !92
   %48 = icmp sgt i64 %47, -1
   %49 = icmp eq i64 %47, %39
   %or.cond.i = and i1 %48, %49
@@ -1340,7 +1340,7 @@ define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(no
 50:                                               ; preds = %40
   %51 = uitofp i64 %39 to double
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !76
+  %53 = load i64, ptr %52, align 8, !tbaa !92
   %54 = sitofp i64 %53 to double
   %55 = fsub double %51, %54
   %56 = sitofp i64 %43 to double
@@ -1356,7 +1356,7 @@ define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(no
 
 63:                                               ; preds = %45, %59
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !62
+  %65 = load ptr, ptr %64, align 8, !tbaa !71
   br label %lxb_selectors_anb_calc.exit
 
 lxb_selectors_anb_calc.exit:                      ; preds = %59, %50, %45, %63, %.thread
@@ -1380,7 +1380,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly capt
   %6 = alloca %struct.dom_lxb_str_wrapper, align 8
   %7 = alloca %struct.dom_lxb_str_wrapper, align 8
   %8 = alloca %struct.dom_lxb_str_wrapper, align 8
-  %9 = load i32, ptr %2, align 8, !tbaa !47
+  %9 = load i32, ptr %2, align 8, !tbaa !51
   switch i32 %9, label %710 [
     i32 1, label %lxb_selectors_match_element.exit
     i32 2, label %10
@@ -1394,21 +1394,21 @@ define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly capt
   ]
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %1, align 8, !tbaa !77
+  %11 = load ptr, ptr %1, align 8, !tbaa !93
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %lxb_selectors_adapted_set_entry_id.exit.i
 
 13:                                               ; preds = %10
   tail call fastcc void @lxb_selectors_adapted_set_entry_id_ex(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !78
+  %.pre = load ptr, ptr %1, align 8, !tbaa !94
   br label %lxb_selectors_adapted_set_entry_id.exit.i
 
 lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
   %14 = phi ptr [ %.pre, %13 ], [ %11, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !79
+  %16 = load ptr, ptr %15, align 8, !tbaa !95
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !80, !range !72, !noundef !73
+  %18 = load i8, ptr %17, align 8, !tbaa !96, !range !83, !noundef !84
   %19 = trunc nuw i8 %18 to i1
   %20 = ptrtoint ptr %16 to i64
   %21 = and i64 %20, 7
@@ -1431,7 +1431,7 @@ lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
   %30 = and i32 %29, 8
   %.not = icmp eq i32 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !81
+  %32 = load ptr, ptr %31, align 8, !tbaa !97
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   %34 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef %3) #8
@@ -1439,22 +1439,22 @@ lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i24.i = load ptr, ptr %36, align 8, !tbaa !82
+  %.0.i24.i = load ptr, ptr %36, align 8, !tbaa !98
   %.not.i25.i = icmp eq ptr %.0.i24.i, null
   br i1 %.not.i25.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %40
   %.0.i26.i = phi ptr [ %.0.i.i27, %40 ], [ %.0.i24.i, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !83
+  %38 = load ptr, ptr %37, align 8, !tbaa !99
   %39 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %38, ptr noundef nonnull @.str.47, i64 noundef 3) #8
   br i1 %39, label %.thread18.i, label %40
 
 40:                                               ; preds = %.lr.ph.i
   %41 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 48
-  %.0.i.i27 = load ptr, ptr %41, align 8, !tbaa !82
+  %.0.i.i27 = load ptr, ptr %41, align 8, !tbaa !98
   %.not.i.i28 = icmp eq ptr %.0.i.i27, null
-  br i1 %.not.i.i28, label %lxb_selectors_match_element.exit, label %.lr.ph.i
+  br i1 %.not.i.i28, label %lxb_selectors_match_element.exit, label %.lr.ph.i, !llvm.loop !101
 
 42:                                               ; preds = %27
   %43 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.47) #8
@@ -1464,7 +1464,7 @@ lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
 .thread18.i:                                      ; preds = %.lr.ph.i, %42
   %.1.i21.i = phi ptr [ %43, %42 ], [ %.0.i26.i, %.lr.ph.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.1.i21.i, i64 72
-  %45 = load ptr, ptr %44, align 8, !tbaa !85
+  %45 = load ptr, ptr %44, align 8, !tbaa !102
   %.not18.i.i = icmp eq ptr %45, null
   br i1 %.not18.i.i, label %lxb_selectors_adapted_attr.exit.i, label %lxb_selectors_match_element.exit
 
@@ -1472,18 +1472,18 @@ lxb_selectors_adapted_attr.exit.i:                ; preds = %.thread18.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i21.i, ptr noundef nonnull %46) #8
-  store ptr %47, ptr %7, align 8, !tbaa !86, !alias.scope !88
+  store ptr %47, ptr %7, align 8, !tbaa !103, !alias.scope !105
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #9
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %48, ptr %49, align 8, !tbaa !91, !alias.scope !88
+  store i64 %48, ptr %49, align 8, !tbaa !108, !alias.scope !105
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !92
+  %51 = load i64, ptr %50, align 8, !tbaa !109
   %52 = icmp eq i64 %48, %51
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %lxb_selectors_adapted_attr.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !93
+  %55 = load ptr, ptr %54, align 8, !tbaa !110
   br i1 %.not, label %58, label %56
 
 56:                                               ; preds = %53
@@ -1496,13 +1496,13 @@ lxb_selectors_adapted_attr.exit.i:                ; preds = %.thread18.i
 
 60:                                               ; preds = %58, %56, %lxb_selectors_adapted_attr.exit.i
   %.0.shrunk.i = phi i1 [ %57, %56 ], [ %59, %58 ], [ false, %lxb_selectors_adapted_attr.exit.i ]
-  %.val14.i = load i8, ptr %46, align 8, !tbaa !94, !range !72, !noundef !73
+  %.val14.i = load i8, ptr %46, align 8, !tbaa !111, !range !83, !noundef !84
   %61 = trunc nuw i8 %.val14.i to i1
   br i1 %61, label %62, label %dom_lxb_str_wrapper_release.exit.i
 
 62:                                               ; preds = %60
   %.val.i = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr @xmlFree, align 8, !tbaa !95
+  %63 = load ptr, ptr @xmlFree, align 8, !tbaa !112
   call void %63(ptr noundef %.val.i) #8
   br label %dom_lxb_str_wrapper_release.exit.i
 
@@ -1512,7 +1512,7 @@ dom_lxb_str_wrapper_release.exit.i:               ; preds = %62, %60
 
 64:                                               ; preds = %4
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !81
+  %66 = load ptr, ptr %65, align 8, !tbaa !97
   %67 = icmp ne ptr %66, null
   tail call void @llvm.assume(i1 %67)
   %68 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef %3) #8
@@ -1520,22 +1520,22 @@ dom_lxb_str_wrapper_release.exit.i:               ; preds = %62, %60
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i105 = load ptr, ptr %70, align 8, !tbaa !82
+  %.0.i105 = load ptr, ptr %70, align 8, !tbaa !98
   %.not.i106 = icmp eq ptr %.0.i105, null
   br i1 %.not.i106, label %lxb_selectors_match_element.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %74
   %.0.i107 = phi ptr [ %.0.i, %74 ], [ %.0.i105, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %.0.i107, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !83
+  %72 = load ptr, ptr %71, align 8, !tbaa !99
   %73 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %72, ptr noundef nonnull @.str, i64 noundef 6) #8
   br i1 %73, label %.thread60, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds nuw i8, ptr %.0.i107, i64 48
-  %.0.i = load ptr, ptr %75, align 8, !tbaa !82
+  %.0.i = load ptr, ptr %75, align 8, !tbaa !98
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %lxb_selectors_match_element.exit, label %.lr.ph
+  br i1 %.not.i, label %lxb_selectors_match_element.exit, label %.lr.ph, !llvm.loop !101
 
 76:                                               ; preds = %64
   %77 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str) #8
@@ -1545,7 +1545,7 @@ dom_lxb_str_wrapper_release.exit.i:               ; preds = %62, %60
 .thread60:                                        ; preds = %.lr.ph, %76
   %.1.i63 = phi ptr [ %77, %76 ], [ %.0.i107, %.lr.ph ]
   %78 = getelementptr inbounds nuw i8, ptr %.1.i63, i64 72
-  %79 = load ptr, ptr %78, align 8, !tbaa !85
+  %79 = load ptr, ptr %78, align 8, !tbaa !102
   %.not18.i = icmp eq ptr %79, null
   br i1 %.not18.i, label %lxb_selectors_adapted_attr.exit, label %lxb_selectors_match_element.exit
 
@@ -1553,15 +1553,15 @@ lxb_selectors_adapted_attr.exit:                  ; preds = %.thread60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %81 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i63, ptr noundef nonnull %80) #8
-  store ptr %81, ptr %8, align 8, !tbaa !86, !alias.scope !96
+  store ptr %81, ptr %8, align 8, !tbaa !103, !alias.scope !113
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #9
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %82, ptr %83, align 8, !tbaa !91, !alias.scope !96
+  store i64 %82, ptr %83, align 8, !tbaa !108, !alias.scope !113
   %84 = icmp eq i64 %82, 0
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %lxb_selectors_adapted_attr.exit
-  %.val23 = load i8, ptr %80, align 8, !tbaa !94, !range !72, !noundef !73
+  %.val23 = load i8, ptr %80, align 8, !tbaa !111, !range !83, !noundef !84
   %86 = trunc nuw i8 %.val23 to i1
   br i1 %86, label %dom_lxb_str_wrapper_release.exit.sink.split, label %dom_lxb_str_wrapper_release.exit
 
@@ -1572,7 +1572,7 @@ lxb_selectors_adapted_attr.exit:                  ; preds = %.thread60
   %91 = and i32 %90, 8
   %92 = icmp ne i32 %91, 0
   %93 = call fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef %8, ptr noundef nonnull %88, i1 noundef zeroext %92)
-  %.val25 = load i8, ptr %80, align 8, !tbaa !94, !range !72, !noundef !73
+  %.val25 = load i8, ptr %80, align 8, !tbaa !111, !range !83, !noundef !84
   %94 = trunc nuw i8 %.val25 to i1
   br i1 %94, label %95, label %dom_lxb_str_wrapper_release.exit
 
@@ -1583,7 +1583,7 @@ lxb_selectors_adapted_attr.exit:                  ; preds = %.thread60
 dom_lxb_str_wrapper_release.exit.sink.split:      ; preds = %85, %95
   %.val24.sink = phi ptr [ %.val24, %95 ], [ %81, %85 ]
   %.2.ph = phi i1 [ %93, %95 ], [ false, %85 ]
-  %96 = load ptr, ptr @xmlFree, align 8, !tbaa !95
+  %96 = load ptr, ptr @xmlFree, align 8, !tbaa !112
   call void %96(ptr noundef %.val24.sink) #8
   br label %dom_lxb_str_wrapper_release.exit
 
@@ -1594,19 +1594,19 @@ dom_lxb_str_wrapper_release.exit:                 ; preds = %dom_lxb_str_wrapper
 
 97:                                               ; preds = %4
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %99 = load ptr, ptr %1, align 8, !tbaa !77
+  %99 = load ptr, ptr %1, align 8, !tbaa !93
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %lxb_selectors_adapted_set_entry_id.exit.i30
 
 101:                                              ; preds = %97
   tail call fastcc void @lxb_selectors_adapted_set_entry_id_ex(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
-  %.pre.i = load ptr, ptr %1, align 8, !tbaa !77
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !93
   br label %lxb_selectors_adapted_set_entry_id.exit.i30
 
 lxb_selectors_adapted_set_entry_id.exit.i30:      ; preds = %101, %97
   %102 = phi ptr [ %99, %97 ], [ %.pre.i, %101 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %104 = load ptr, ptr %103, align 8, !tbaa !81
+  %104 = load ptr, ptr %103, align 8, !tbaa !97
   %105 = icmp ne ptr %104, null
   tail call void @llvm.assume(i1 %105)
   %106 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef %3) #8
@@ -1616,22 +1616,22 @@ lxb_selectors_adapted_set_entry_id.exit.i30:      ; preds = %101, %97
   %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #9
   %109 = add i64 %108, 1
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i31.i = load ptr, ptr %110, align 8, !tbaa !82
+  %.0.i31.i = load ptr, ptr %110, align 8, !tbaa !98
   %.not.i32.i = icmp eq ptr %.0.i31.i, null
   br i1 %.not.i32.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %107, %114
   %.0.i33.i = phi ptr [ %.0.i.i38, %114 ], [ %.0.i31.i, %107 ]
   %111 = getelementptr inbounds nuw i8, ptr %.0.i33.i, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !83
+  %112 = load ptr, ptr %111, align 8, !tbaa !99
   %113 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %112, ptr noundef nonnull %102, i64 noundef %109) #8
   br i1 %113, label %.thread25.i, label %114
 
 114:                                              ; preds = %.lr.ph.i37
   %115 = getelementptr inbounds nuw i8, ptr %.0.i33.i, i64 48
-  %.0.i.i38 = load ptr, ptr %115, align 8, !tbaa !82
+  %.0.i.i38 = load ptr, ptr %115, align 8, !tbaa !98
   %.not.i.i39 = icmp eq ptr %.0.i.i38, null
-  br i1 %.not.i.i39, label %lxb_selectors_match_element.exit, label %.lr.ph.i37
+  br i1 %.not.i.i39, label %lxb_selectors_match_element.exit, label %.lr.ph.i37, !llvm.loop !101
 
 116:                                              ; preds = %lxb_selectors_adapted_set_entry_id.exit.i30
   %117 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef %102) #8
@@ -1641,13 +1641,13 @@ lxb_selectors_adapted_set_entry_id.exit.i30:      ; preds = %101, %97
 .thread25.i:                                      ; preds = %.lr.ph.i37, %116
   %.1.i28.i = phi ptr [ %117, %116 ], [ %.0.i33.i, %.lr.ph.i37 ]
   %118 = getelementptr inbounds nuw i8, ptr %.1.i28.i, i64 72
-  %119 = load ptr, ptr %118, align 8, !tbaa !85
+  %119 = load ptr, ptr %118, align 8, !tbaa !102
   %.not18.i.i32 = icmp eq ptr %119, null
   br i1 %.not18.i.i32, label %lxb_selectors_adapted_attr.exit.i34, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %121 = load ptr, ptr %120, align 8, !tbaa !93
+  %121 = load ptr, ptr %120, align 8, !tbaa !110
   %122 = icmp eq ptr %121, null
   br i1 %122, label %lxb_selectors_match_element.exit, label %123
 
@@ -1655,15 +1655,15 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %125 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i28.i, ptr noundef nonnull %124) #8
-  store ptr %125, ptr %6, align 8, !tbaa !86, !alias.scope !99
+  store ptr %125, ptr %6, align 8, !tbaa !103, !alias.scope !116
   %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #9
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %126, ptr %127, align 8, !tbaa !91, !alias.scope !99
-  %128 = load ptr, ptr %103, align 8, !tbaa !81
+  store i64 %126, ptr %127, align 8, !tbaa !108, !alias.scope !116
+  %128 = load ptr, ptr %103, align 8, !tbaa !97
   %129 = icmp ne ptr %128, null
   call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %131 = load i8, ptr %130, align 1, !tbaa !102, !range !72, !noundef !73
+  %131 = load i8, ptr %130, align 1, !tbaa !119, !range !83, !noundef !84
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %135
 
@@ -1673,9 +1673,9 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
 
 135:                                              ; preds = %133, %123
   %136 = phi i1 [ false, %123 ], [ %134, %133 ]
-  %.val18.i = load i32, ptr %98, align 8, !tbaa !103
+  %.val18.i = load i32, ptr %98, align 8, !tbaa !120
   %137 = getelementptr i8, ptr %2, i64 44
-  %.val19.i = load i32, ptr %137, align 4, !tbaa !105
+  %.val19.i = load i32, ptr %137, align 4, !tbaa !122
   %138 = icmp eq i32 %.val19.i, 1
   %139 = or i1 %136, %138
   switch i32 %.val18.i, label %221 [
@@ -1688,15 +1688,15 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   ]
 
 140:                                              ; preds = %135
-  %141 = load i64, ptr %127, align 8, !tbaa !92
+  %141 = load i64, ptr %127, align 8, !tbaa !109
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %143 = load i64, ptr %142, align 8, !tbaa !92
+  %143 = load i64, ptr %142, align 8, !tbaa !109
   %144 = icmp eq i64 %141, %143
   br i1 %144, label %145, label %lxb_selectors_match_attribute_value.exit.i
 
 145:                                              ; preds = %140
-  %146 = load ptr, ptr %6, align 8, !tbaa !93
-  %147 = load ptr, ptr %120, align 8, !tbaa !93
+  %146 = load ptr, ptr %6, align 8, !tbaa !110
+  %147 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %148, label %150
 
 148:                                              ; preds = %145
@@ -1712,15 +1712,15 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br label %lxb_selectors_match_attribute_value.exit.i
 
 154:                                              ; preds = %135
-  %155 = load i64, ptr %127, align 8, !tbaa !92
+  %155 = load i64, ptr %127, align 8, !tbaa !109
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %157 = load i64, ptr %156, align 8, !tbaa !92
+  %157 = load i64, ptr %156, align 8, !tbaa !109
   %158 = icmp eq i64 %155, %157
   br i1 %158, label %159, label %166
 
 159:                                              ; preds = %154
-  %160 = load ptr, ptr %6, align 8, !tbaa !93
-  %161 = load ptr, ptr %120, align 8, !tbaa !93
+  %160 = load ptr, ptr %6, align 8, !tbaa !110
+  %161 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %162, label %164
 
 162:                                              ; preds = %159
@@ -1736,8 +1736,8 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br i1 %167, label %168, label %181
 
 168:                                              ; preds = %166
-  %169 = load ptr, ptr %6, align 8, !tbaa !93
-  %170 = load ptr, ptr %120, align 8, !tbaa !93
+  %169 = load ptr, ptr %6, align 8, !tbaa !110
+  %170 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %171, label %173
 
 171:                                              ; preds = %168
@@ -1749,10 +1749,10 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %173, %171
-  %176 = load ptr, ptr %6, align 8, !tbaa !93
-  %177 = load i64, ptr %156, align 8, !tbaa !92
+  %176 = load ptr, ptr %6, align 8, !tbaa !110
+  %177 = load i64, ptr %156, align 8, !tbaa !109
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 %177
-  %179 = load i8, ptr %178, align 1, !tbaa !106
+  %179 = load i8, ptr %178, align 1, !tbaa !123
   %180 = icmp eq i8 %179, 45
   br i1 %180, label %lxb_selectors_match_attribute_value.exit.i, label %181
 
@@ -1761,7 +1761,7 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
 
 182:                                              ; preds = %135
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %184 = load i64, ptr %183, align 8, !tbaa !92
+  %184 = load i64, ptr %183, align 8, !tbaa !109
   %185 = load i64, ptr %127, align 8
   %186 = freeze i64 %185
   %187 = add i64 %184, -1
@@ -1769,8 +1769,8 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br i1 %or.cond.not.i, label %188, label %lxb_selectors_match_attribute_value.exit.i
 
 188:                                              ; preds = %182
-  %189 = load ptr, ptr %6, align 8, !tbaa !93
-  %190 = load ptr, ptr %120, align 8, !tbaa !93
+  %189 = load ptr, ptr %6, align 8, !tbaa !110
+  %190 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %191, label %193
 
 191:                                              ; preds = %188
@@ -1783,20 +1783,20 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
 
 195:                                              ; preds = %135
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %197 = load i64, ptr %196, align 8, !tbaa !92
+  %197 = load i64, ptr %196, align 8, !tbaa !109
   %.not.i21.i = icmp eq i64 %197, 0
   br i1 %.not.i21.i, label %lxb_selectors_match_attribute_value.exit.i, label %198
 
 198:                                              ; preds = %195
-  %199 = load i64, ptr %127, align 8, !tbaa !92
+  %199 = load i64, ptr %127, align 8, !tbaa !109
   %.not79.i.i = icmp ult i64 %199, %197
   br i1 %.not79.i.i, label %lxb_selectors_match_attribute_value.exit.i, label %200
 
 200:                                              ; preds = %198
   %201 = sub nuw i64 %199, %197
-  %202 = load ptr, ptr %6, align 8, !tbaa !93
+  %202 = load ptr, ptr %6, align 8, !tbaa !110
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %201
-  %204 = load ptr, ptr %120, align 8, !tbaa !93
+  %204 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %205, label %207
 
 205:                                              ; preds = %200
@@ -1809,14 +1809,14 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
 
 209:                                              ; preds = %135
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %211 = load i64, ptr %210, align 8, !tbaa !92
+  %211 = load i64, ptr %210, align 8, !tbaa !109
   %212 = icmp eq i64 %211, 0
   br i1 %212, label %lxb_selectors_match_attribute_value.exit.i, label %213
 
 213:                                              ; preds = %209
-  %214 = load ptr, ptr %6, align 8, !tbaa !93
-  %215 = load i64, ptr %127, align 8, !tbaa !92
-  %216 = load ptr, ptr %120, align 8, !tbaa !93
+  %214 = load ptr, ptr %6, align 8, !tbaa !110
+  %215 = load i64, ptr %127, align 8, !tbaa !109
+  %216 = load ptr, ptr %120, align 8, !tbaa !110
   br i1 %139, label %217, label %219
 
 217:                                              ; preds = %213
@@ -1832,13 +1832,13 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
 
 lxb_selectors_match_attribute_value.exit.i:       ; preds = %219, %217, %209, %207, %205, %198, %195, %193, %191, %182, %181, %175, %164, %162, %152, %150, %148, %140
   %.0.i20.i = phi i1 [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %163, %162 ], [ %165, %164 ], [ false, %181 ], [ %192, %191 ], [ %194, %193 ], [ %218, %217 ], [ %220, %219 ], [ false, %140 ], [ true, %175 ], [ false, %182 ], [ %206, %205 ], [ %208, %207 ], [ false, %198 ], [ false, %195 ], [ false, %209 ]
-  %.val17.i = load i8, ptr %124, align 8, !tbaa !94, !range !72, !noundef !73
+  %.val17.i = load i8, ptr %124, align 8, !tbaa !111, !range !83, !noundef !84
   %222 = trunc nuw i8 %.val17.i to i1
   br i1 %222, label %223, label %dom_lxb_str_wrapper_release.exit.i35
 
 223:                                              ; preds = %lxb_selectors_match_attribute_value.exit.i
   %.val.i36 = load ptr, ptr %6, align 8
-  %224 = load ptr, ptr @xmlFree, align 8, !tbaa !95
+  %224 = load ptr, ptr @xmlFree, align 8, !tbaa !112
   call void %224(ptr noundef %.val.i36) #8
   br label %dom_lxb_str_wrapper_release.exit.i35
 
@@ -1848,7 +1848,7 @@ dom_lxb_str_wrapper_release.exit.i35:             ; preds = %223, %lxb_selectors
 
 225:                                              ; preds = %4
   %226 = getelementptr i8, ptr %2, i64 40
-  %.val26 = load i32, ptr %226, align 8, !tbaa !50
+  %.val26 = load i32, ptr %226, align 8, !tbaa !54
   switch i32 %.val26, label %lxb_selectors_match_element.exit [
     i32 22, label %385
     i32 2, label %227
@@ -1872,13 +1872,13 @@ dom_lxb_str_wrapper_release.exit.i35:             ; preds = %223, %lxb_selectors
   ]
 
 227:                                              ; preds = %225
-  %228 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %228 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %229 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %228) #8
   br i1 %229, label %sub_0.i, label %lxb_selectors_match_element.exit
 
 sub_0.i:                                          ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %231 = load ptr, ptr %230, align 8, !tbaa !79
+  %231 = load ptr, ptr %230, align 8, !tbaa !95
   %232 = load i8, ptr %231, align 1
   %.not162.i = icmp eq i8 %232, 97
   br i1 %.not162.i, label %.tail.i, label %.tail.thread.i
@@ -1896,7 +1896,7 @@ sub_0.i:                                          ; preds = %227
 
 238:                                              ; preds = %.tail.thread.i, %.tail.i
   %239 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %240 = load ptr, ptr %239, align 8, !tbaa !81
+  %240 = load ptr, ptr %239, align 8, !tbaa !97
   %241 = icmp ne ptr %240, null
   tail call void @llvm.assume(i1 %241)
   %242 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -1904,22 +1904,22 @@ sub_0.i:                                          ; preds = %227
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i157.i = load ptr, ptr %244, align 8, !tbaa !82
+  %.0.i.i157.i = load ptr, ptr %244, align 8, !tbaa !98
   %.not.i.i158.i = icmp eq ptr %.0.i.i157.i, null
   br i1 %.not.i.i158.i, label %lxb_selectors_match_element.exit, label %.lr.ph160.i
 
 .lr.ph160.i:                                      ; preds = %243, %248
   %.0.i.i159.i = phi ptr [ %.0.i.i.i, %248 ], [ %.0.i.i157.i, %243 ]
   %245 = getelementptr inbounds nuw i8, ptr %.0.i.i159.i, i64 16
-  %246 = load ptr, ptr %245, align 8, !tbaa !83
+  %246 = load ptr, ptr %245, align 8, !tbaa !99
   %247 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %246, ptr noundef nonnull @.str.50, i64 noundef 5) #8
   br i1 %247, label %.thread4.i, label %248
 
 248:                                              ; preds = %.lr.ph160.i
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i159.i, i64 48
-  %.0.i.i.i = load ptr, ptr %249, align 8, !tbaa !82
+  %.0.i.i.i = load ptr, ptr %249, align 8, !tbaa !98
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i.i, label %lxb_selectors_match_element.exit, label %.lr.ph160.i
+  br i1 %.not.i.i.i, label %lxb_selectors_match_element.exit, label %.lr.ph160.i, !llvm.loop !101
 
 250:                                              ; preds = %238
   %251 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.50) #8
@@ -1929,12 +1929,12 @@ sub_0.i:                                          ; preds = %227
 .thread4.i:                                       ; preds = %.lr.ph160.i, %250
   %.1.i.i7.i = phi ptr [ %251, %250 ], [ %.0.i.i159.i, %.lr.ph160.i ]
   %252 = getelementptr inbounds nuw i8, ptr %.1.i.i7.i, i64 72
-  %253 = load ptr, ptr %252, align 8, !tbaa !85
+  %253 = load ptr, ptr %252, align 8, !tbaa !102
   %.not18.i.i.i = icmp eq ptr %253, null
   br label %lxb_selectors_match_element.exit
 
 254:                                              ; preds = %225
-  %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !109
+  %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !126
   %.not63.i = icmp eq ptr %255, null
   br i1 %.not63.i, label %256, label %lxb_selectors_match_element.exit
 
@@ -1943,20 +1943,20 @@ sub_0.i:                                          ; preds = %227
   br label %lxb_selectors_match_element.exit
 
 257:                                              ; preds = %225
-  %258 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %258 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %259 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %258) #8
   br i1 %259, label %260, label %lxb_selectors_match_element.exit
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %262 = load ptr, ptr %261, align 8, !tbaa !79
+  %262 = load ptr, ptr %261, align 8, !tbaa !95
   %263 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull dereferenceable(6) @.str.52) #9
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %265, label %320
 
 265:                                              ; preds = %260
   %266 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %267 = load ptr, ptr %266, align 8, !tbaa !81
+  %267 = load ptr, ptr %266, align 8, !tbaa !97
   %268 = icmp ne ptr %267, null
   tail call void @llvm.assume(i1 %268)
   %269 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -1964,22 +1964,22 @@ sub_0.i:                                          ; preds = %227
 
 270:                                              ; preds = %265
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i145.i = load ptr, ptr %271, align 8, !tbaa !82
+  %.0.i145.i = load ptr, ptr %271, align 8, !tbaa !98
   %.not.i146.i = icmp eq ptr %.0.i145.i, null
   br i1 %.not.i146.i, label %lxb_selectors_match_element.exit, label %.lr.ph148.i
 
 .lr.ph148.i:                                      ; preds = %270, %275
   %.0.i147.i = phi ptr [ %.0.i.i48, %275 ], [ %.0.i145.i, %270 ]
   %272 = getelementptr inbounds nuw i8, ptr %.0.i147.i, i64 16
-  %273 = load ptr, ptr %272, align 8, !tbaa !83
+  %273 = load ptr, ptr %272, align 8, !tbaa !99
   %274 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %273, ptr noundef nonnull @.str.43, i64 noundef 5) #8
   br i1 %274, label %.thread12.i, label %275
 
 275:                                              ; preds = %.lr.ph148.i
   %276 = getelementptr inbounds nuw i8, ptr %.0.i147.i, i64 48
-  %.0.i.i48 = load ptr, ptr %276, align 8, !tbaa !82
+  %.0.i.i48 = load ptr, ptr %276, align 8, !tbaa !98
   %.not.i.i49 = icmp eq ptr %.0.i.i48, null
-  br i1 %.not.i.i49, label %lxb_selectors_match_element.exit, label %.lr.ph148.i
+  br i1 %.not.i.i49, label %lxb_selectors_match_element.exit, label %.lr.ph148.i, !llvm.loop !101
 
 277:                                              ; preds = %265
   %278 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.43) #8
@@ -1989,7 +1989,7 @@ sub_0.i:                                          ; preds = %227
 .thread12.i:                                      ; preds = %.lr.ph148.i, %277
   %.1.i15.i = phi ptr [ %278, %277 ], [ %.0.i147.i, %.lr.ph148.i ]
   %279 = getelementptr inbounds nuw i8, ptr %.1.i15.i, i64 72
-  %280 = load ptr, ptr %279, align 8, !tbaa !85
+  %280 = load ptr, ptr %279, align 8, !tbaa !102
   %.not18.i.i43 = icmp eq ptr %280, null
   br i1 %.not18.i.i43, label %lxb_selectors_adapted_attr.exit.i44, label %lxb_selectors_match_element.exit
 
@@ -1997,10 +1997,10 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %282 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i15.i, ptr noundef nonnull %281) #8
-  store ptr %282, ptr %5, align 8, !tbaa !86, !alias.scope !140
+  store ptr %282, ptr %5, align 8, !tbaa !103, !alias.scope !157
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #9
   %284 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %283, ptr %284, align 8, !tbaa !91, !alias.scope !140
+  store i64 %283, ptr %284, align 8, !tbaa !108, !alias.scope !157
   switch i64 %283, label %lxb_selectors_adapted_has_attr.exit71.i [
     i64 8, label %285
     i64 5, label %300
@@ -2011,7 +2011,7 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
   br i1 %286, label %287, label %lxb_selectors_adapted_has_attr.exit71.i
 
 287:                                              ; preds = %285
-  %288 = load ptr, ptr %266, align 8, !tbaa !81
+  %288 = load ptr, ptr %266, align 8, !tbaa !97
   %289 = icmp ne ptr %288, null
   call void @llvm.assume(i1 %289)
   %290 = call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2019,22 +2019,22 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
 
 291:                                              ; preds = %287
   %292 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i69153.i = load ptr, ptr %292, align 8, !tbaa !82
+  %.0.i.i69153.i = load ptr, ptr %292, align 8, !tbaa !98
   %.not.i.i70154.i = icmp eq ptr %.0.i.i69153.i, null
   br i1 %.not.i.i70154.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph156.i
 
 .lr.ph156.i:                                      ; preds = %291, %296
   %.0.i.i69155.i = phi ptr [ %.0.i.i69.i, %296 ], [ %.0.i.i69153.i, %291 ]
   %293 = getelementptr inbounds nuw i8, ptr %.0.i.i69155.i, i64 16
-  %294 = load ptr, ptr %293, align 8, !tbaa !83
+  %294 = load ptr, ptr %293, align 8, !tbaa !99
   %295 = call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %294, ptr noundef nonnull @.str.8, i64 noundef 8) #8
   br i1 %295, label %lxb_selectors_adapted_has_attr.exit71.sink.split.i, label %296
 
 296:                                              ; preds = %.lr.ph156.i
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i69155.i, i64 48
-  %.0.i.i69.i = load ptr, ptr %297, align 8, !tbaa !82
+  %.0.i.i69.i = load ptr, ptr %297, align 8, !tbaa !98
   %.not.i.i70.i = icmp eq ptr %.0.i.i69.i, null
-  br i1 %.not.i.i70.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph156.i
+  br i1 %.not.i.i70.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph156.i, !llvm.loop !101
 
 298:                                              ; preds = %287
   %299 = call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #8
@@ -2046,7 +2046,7 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
   br i1 %301, label %302, label %lxb_selectors_adapted_has_attr.exit71.i
 
 302:                                              ; preds = %300
-  %303 = load ptr, ptr %266, align 8, !tbaa !81
+  %303 = load ptr, ptr %266, align 8, !tbaa !97
   %304 = icmp ne ptr %303, null
   call void @llvm.assume(i1 %304)
   %305 = call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2054,22 +2054,22 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
 
 306:                                              ; preds = %302
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i77149.i = load ptr, ptr %307, align 8, !tbaa !82
+  %.0.i.i77149.i = load ptr, ptr %307, align 8, !tbaa !98
   %.not.i.i78150.i = icmp eq ptr %.0.i.i77149.i, null
   br i1 %.not.i.i78150.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph152.i
 
 .lr.ph152.i:                                      ; preds = %306, %311
   %.0.i.i77151.i = phi ptr [ %.0.i.i77.i, %311 ], [ %.0.i.i77149.i, %306 ]
   %308 = getelementptr inbounds nuw i8, ptr %.0.i.i77151.i, i64 16
-  %309 = load ptr, ptr %308, align 8, !tbaa !83
+  %309 = load ptr, ptr %308, align 8, !tbaa !99
   %310 = call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %309, ptr noundef nonnull @.str.8, i64 noundef 8) #8
   br i1 %310, label %lxb_selectors_adapted_has_attr.exit71.sink.split.i, label %311
 
 311:                                              ; preds = %.lr.ph152.i
   %312 = getelementptr inbounds nuw i8, ptr %.0.i.i77151.i, i64 48
-  %.0.i.i77.i = load ptr, ptr %312, align 8, !tbaa !82
+  %.0.i.i77.i = load ptr, ptr %312, align 8, !tbaa !98
   %.not.i.i78.i = icmp eq ptr %.0.i.i77.i, null
-  br i1 %.not.i.i78.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph152.i
+  br i1 %.not.i.i78.i, label %lxb_selectors_adapted_has_attr.exit71.i, label %.lr.ph152.i, !llvm.loop !101
 
 313:                                              ; preds = %302
   %314 = call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #8
@@ -2079,19 +2079,19 @@ lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
 lxb_selectors_adapted_has_attr.exit71.sink.split.i: ; preds = %.lr.ph152.i, %.lr.ph156.i, %313, %298
   %.1.i.i7232.sink.i = phi ptr [ %299, %298 ], [ %314, %313 ], [ %.0.i.i69155.i, %.lr.ph156.i ], [ %.0.i.i77151.i, %.lr.ph152.i ]
   %315 = getelementptr inbounds nuw i8, ptr %.1.i.i7232.sink.i, i64 72
-  %316 = load ptr, ptr %315, align 8, !tbaa !85
+  %316 = load ptr, ptr %315, align 8, !tbaa !102
   %.not18.i.i74.i = icmp eq ptr %316, null
   br label %lxb_selectors_adapted_has_attr.exit71.i
 
 lxb_selectors_adapted_has_attr.exit71.i:          ; preds = %311, %296, %lxb_selectors_adapted_has_attr.exit71.sink.split.i, %313, %306, %300, %298, %291, %285, %lxb_selectors_adapted_attr.exit.i44
   %.0.shrunk.i45 = phi i1 [ false, %285 ], [ false, %300 ], [ false, %lxb_selectors_adapted_attr.exit.i44 ], [ false, %298 ], [ false, %313 ], [ false, %291 ], [ false, %306 ], [ %.not18.i.i74.i, %lxb_selectors_adapted_has_attr.exit71.sink.split.i ], [ false, %296 ], [ false, %311 ]
-  %.val120.i = load i8, ptr %281, align 8, !tbaa !94, !range !72, !noundef !73
+  %.val120.i = load i8, ptr %281, align 8, !tbaa !111, !range !83, !noundef !84
   %317 = trunc nuw i8 %.val120.i to i1
   br i1 %317, label %318, label %dom_lxb_str_wrapper_release.exit.i46
 
 318:                                              ; preds = %lxb_selectors_adapted_has_attr.exit71.i
   %.val.i47 = load ptr, ptr %5, align 8
-  %319 = load ptr, ptr @xmlFree, align 8, !tbaa !95
+  %319 = load ptr, ptr @xmlFree, align 8, !tbaa !112
   call void %319(ptr noundef %.val.i47) #8
   br label %dom_lxb_str_wrapper_release.exit.i46
 
@@ -2106,7 +2106,7 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %325 = load ptr, ptr %324, align 8, !tbaa !81
+  %325 = load ptr, ptr %324, align 8, !tbaa !97
   %326 = icmp ne ptr %325, null
   tail call void @llvm.assume(i1 %326)
   %327 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2114,22 +2114,22 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 
 328:                                              ; preds = %323
   %329 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i85141.i = load ptr, ptr %329, align 8, !tbaa !82
+  %.0.i.i85141.i = load ptr, ptr %329, align 8, !tbaa !98
   %.not.i.i86142.i = icmp eq ptr %.0.i.i85141.i, null
   br i1 %.not.i.i86142.i, label %lxb_selectors_match_element.exit, label %.lr.ph144.i
 
 .lr.ph144.i:                                      ; preds = %328, %333
   %.0.i.i85143.i = phi ptr [ %.0.i.i85.i, %333 ], [ %.0.i.i85141.i, %328 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0.i.i85143.i, i64 16
-  %331 = load ptr, ptr %330, align 8, !tbaa !83
+  %331 = load ptr, ptr %330, align 8, !tbaa !99
   %332 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %331, ptr noundef nonnull @.str.39, i64 noundef 9) #8
   br i1 %332, label %.thread37.i, label %333
 
 333:                                              ; preds = %.lr.ph144.i
   %334 = getelementptr inbounds nuw i8, ptr %.0.i.i85143.i, i64 48
-  %.0.i.i85.i = load ptr, ptr %334, align 8, !tbaa !82
+  %.0.i.i85.i = load ptr, ptr %334, align 8, !tbaa !98
   %.not.i.i86.i = icmp eq ptr %.0.i.i85.i, null
-  br i1 %.not.i.i86.i, label %lxb_selectors_match_element.exit, label %.lr.ph144.i
+  br i1 %.not.i.i86.i, label %lxb_selectors_match_element.exit, label %.lr.ph144.i, !llvm.loop !101
 
 335:                                              ; preds = %323
   %336 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.39) #8
@@ -2139,7 +2139,7 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 .thread37.i:                                      ; preds = %.lr.ph144.i, %335
   %.1.i.i8040.i = phi ptr [ %336, %335 ], [ %.0.i.i85143.i, %.lr.ph144.i ]
   %337 = getelementptr inbounds nuw i8, ptr %.1.i.i8040.i, i64 72
-  %338 = load ptr, ptr %337, align 8, !tbaa !85
+  %338 = load ptr, ptr %337, align 8, !tbaa !102
   %.not18.i.i82.i = icmp eq ptr %338, null
   br label %lxb_selectors_match_element.exit
 
@@ -2149,15 +2149,15 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 
 341:                                              ; preds = %225
   %342 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.056131.i = load ptr, ptr %342, align 8, !tbaa !61
+  %.056131.i = load ptr, ptr %342, align 8, !tbaa !69
   %.not62132.i = icmp eq ptr %.056131.i, null
   br i1 %.not62132.i, label %lxb_selectors_match_element.exit, label %.lr.ph134.i
 
 343:                                              ; preds = %.lr.ph134.i
   %344 = getelementptr inbounds nuw i8, ptr %.056133.i, i64 48
-  %.056.i = load ptr, ptr %344, align 8, !tbaa !61
+  %.056.i = load ptr, ptr %344, align 8, !tbaa !69
   %.not62.i = icmp eq ptr %.056.i, null
-  br i1 %.not62.i, label %lxb_selectors_match_element.exit, label %.lr.ph134.i
+  br i1 %.not62.i, label %lxb_selectors_match_element.exit, label %.lr.ph134.i, !llvm.loop !160
 
 .lr.ph134.i:                                      ; preds = %341, %343
   %.056133.i = phi ptr [ %.056.i, %343 ], [ %.056131.i, %341 ]
@@ -2176,7 +2176,7 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 .preheader95.i:                                   ; preds = %225, %351
   %.pn.i.i = phi ptr [ %.0.i122.i, %351 ], [ %3, %225 ]
   %.0.in.i121.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 56
-  %.0.i122.i = load ptr, ptr %.0.in.i121.i, align 8, !tbaa !58
+  %.0.i122.i = load ptr, ptr %.0.in.i121.i, align 8, !tbaa !63
   %.not.i123.i = icmp eq ptr %.0.i122.i, null
   br i1 %.not.i123.i, label %lxb_selectors_match_element.exit, label %351
 
@@ -2185,11 +2185,11 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
   %353 = load i32, ptr %352, align 8, !tbaa !40
   %354 = and i32 %353, 255
   %355 = icmp eq i32 %354, 1
-  br i1 %355, label %lxb_selectors_match_element.exit, label %.preheader95.i
+  br i1 %355, label %lxb_selectors_match_element.exit, label %.preheader95.i, !llvm.loop !161
 
 356:                                              ; preds = %225
   %.010.in14.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %.01015.i.i = load ptr, ptr %.010.in14.i.i, align 8, !tbaa !58
+  %.01015.i.i = load ptr, ptr %.010.in14.i.i, align 8, !tbaa !63
   %.not16.i.i = icmp eq ptr %.01015.i.i, null
   br i1 %.not16.i.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i.i
 
@@ -2208,16 +2208,16 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 
 364:                                              ; preds = %359
   %365 = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 16
-  %366 = load ptr, ptr %365, align 8, !tbaa !79
-  %367 = load ptr, ptr %357, align 8, !tbaa !79
+  %366 = load ptr, ptr %365, align 8, !tbaa !95
+  %367 = load ptr, ptr %357, align 8, !tbaa !95
   %368 = tail call i32 @xmlStrEqual(ptr noundef %366, ptr noundef %367) #8
   %.not11.i.i = icmp eq i32 %368, 0
   br i1 %.not11.i.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i, label %369
 
 369:                                              ; preds = %364
   %370 = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 72
-  %371 = load ptr, ptr %370, align 8, !tbaa !143
-  %372 = load ptr, ptr %358, align 8, !tbaa !143
+  %371 = load ptr, ptr %370, align 8, !tbaa !162
+  %372 = load ptr, ptr %358, align 8, !tbaa !162
   %373 = icmp eq ptr %371, %372
   br i1 %373, label %lxb_selectors_match_element.exit, label %374
 
@@ -2229,23 +2229,23 @@ dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors
 
 lxb_selectors_adapted_cmp_ns.exit.i.i:            ; preds = %374
   %375 = getelementptr inbounds nuw i8, ptr %371, i64 16
-  %376 = load ptr, ptr %375, align 8, !tbaa !144
+  %376 = load ptr, ptr %375, align 8, !tbaa !163
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 16
-  %378 = load ptr, ptr %377, align 8, !tbaa !144
+  %378 = load ptr, ptr %377, align 8, !tbaa !163
   %379 = tail call i32 @xmlStrEqual(ptr noundef %376, ptr noundef %378) #8
   %.not13.i.i = icmp eq i32 %379, 0
   br i1 %.not13.i.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_cmp_ns.exit.thread12.i.i:   ; preds = %lxb_selectors_adapted_cmp_ns.exit.i.i, %374, %364, %359
   %.010.in.i.i = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 56
-  %.010.i.i = load ptr, ptr %.010.in.i.i, align 8, !tbaa !58
+  %.010.i.i = load ptr, ptr %.010.in.i.i, align 8, !tbaa !63
   %.not.i124.i = icmp eq ptr %.010.i.i, null
-  br i1 %.not.i124.i, label %lxb_selectors_match_element.exit, label %359
+  br i1 %.not.i124.i, label %lxb_selectors_match_element.exit, label %359, !llvm.loop !165
 
 .preheader.i:                                     ; preds = %225, %380
   %.pn.i126.i = phi ptr [ %.0.i128.i, %380 ], [ %3, %225 ]
   %.0.in.i127.i = getelementptr inbounds nuw i8, ptr %.pn.i126.i, i64 48
-  %.0.i128.i = load ptr, ptr %.0.in.i127.i, align 8, !tbaa !45
+  %.0.i128.i = load ptr, ptr %.0.in.i127.i, align 8, !tbaa !48
   %.not.i129.i = icmp eq ptr %.0.i128.i, null
   br i1 %.not.i129.i, label %lxb_selectors_match_element.exit, label %380
 
@@ -2254,11 +2254,11 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i.i:   ; preds = %lxb_selectors_adapt
   %382 = load i32, ptr %381, align 8, !tbaa !40
   %383 = and i32 %382, 255
   %384 = icmp eq i32 %383, 1
-  br i1 %384, label %lxb_selectors_match_element.exit, label %.preheader.i
+  br i1 %384, label %lxb_selectors_match_element.exit, label %.preheader.i, !llvm.loop !166
 
 385:                                              ; preds = %225
   %.010.in14.i130.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.01015.i131.i = load ptr, ptr %.010.in14.i130.i, align 8, !tbaa !45
+  %.01015.i131.i = load ptr, ptr %.010.in14.i130.i, align 8, !tbaa !48
   %.not16.i132.i = icmp eq ptr %.01015.i131.i, null
   br i1 %.not16.i132.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i133.i
 
@@ -2277,16 +2277,16 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i.i:   ; preds = %lxb_selectors_adapt
 
 393:                                              ; preds = %388
   %394 = getelementptr inbounds nuw i8, ptr %.01017.i134.i, i64 16
-  %395 = load ptr, ptr %394, align 8, !tbaa !79
-  %396 = load ptr, ptr %386, align 8, !tbaa !79
+  %395 = load ptr, ptr %394, align 8, !tbaa !95
+  %396 = load ptr, ptr %386, align 8, !tbaa !95
   %397 = tail call i32 @xmlStrEqual(ptr noundef %395, ptr noundef %396) #8
   %.not11.i140.i = icmp eq i32 %397, 0
   br i1 %.not11.i140.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i, label %398
 
 398:                                              ; preds = %393
   %399 = getelementptr inbounds nuw i8, ptr %.01017.i134.i, i64 72
-  %400 = load ptr, ptr %399, align 8, !tbaa !143
-  %401 = load ptr, ptr %387, align 8, !tbaa !143
+  %400 = load ptr, ptr %399, align 8, !tbaa !162
+  %401 = load ptr, ptr %387, align 8, !tbaa !162
   %402 = icmp eq ptr %400, %401
   br i1 %402, label %lxb_selectors_match_element.exit, label %403
 
@@ -2298,27 +2298,27 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i.i:   ; preds = %lxb_selectors_adapt
 
 lxb_selectors_adapted_cmp_ns.exit.i144.i:         ; preds = %403
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 16
-  %405 = load ptr, ptr %404, align 8, !tbaa !144
+  %405 = load ptr, ptr %404, align 8, !tbaa !163
   %406 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %407 = load ptr, ptr %406, align 8, !tbaa !144
+  %407 = load ptr, ptr %406, align 8, !tbaa !163
   %408 = tail call i32 @xmlStrEqual(ptr noundef %405, ptr noundef %407) #8
   %.not13.i145.i = icmp eq i32 %408, 0
   br i1 %.not13.i145.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i: ; preds = %lxb_selectors_adapted_cmp_ns.exit.i144.i, %403, %393, %388
   %.010.in.i136.i = getelementptr inbounds nuw i8, ptr %.01017.i134.i, i64 48
-  %.010.i137.i = load ptr, ptr %.010.in.i136.i, align 8, !tbaa !45
+  %.010.i137.i = load ptr, ptr %.010.in.i136.i, align 8, !tbaa !48
   %.not.i138.i = icmp eq ptr %.010.i137.i, null
-  br i1 %.not.i138.i, label %lxb_selectors_match_element.exit, label %388
+  br i1 %.not.i138.i, label %lxb_selectors_match_element.exit, label %388, !llvm.loop !167
 
 409:                                              ; preds = %225
-  %410 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %410 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %411 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %410) #8
   br i1 %411, label %sub_083.i, label %lxb_selectors_match_element.exit
 
 sub_083.i:                                        ; preds = %409
   %412 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %413 = load ptr, ptr %412, align 8, !tbaa !79
+  %413 = load ptr, ptr %412, align 8, !tbaa !95
   %414 = load i8, ptr %413, align 1
   %.not161.i = icmp eq i8 %414, 97
   br i1 %.not161.i, label %.tail82.i, label %.tail82.thread.i
@@ -2336,7 +2336,7 @@ sub_083.i:                                        ; preds = %409
 
 420:                                              ; preds = %.tail82.thread.i, %.tail82.i
   %421 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %422 = load ptr, ptr %421, align 8, !tbaa !81
+  %422 = load ptr, ptr %421, align 8, !tbaa !97
   %423 = icmp ne ptr %422, null
   tail call void @llvm.assume(i1 %423)
   %424 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2344,22 +2344,22 @@ sub_083.i:                                        ; preds = %409
 
 425:                                              ; preds = %420
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i93137.i = load ptr, ptr %426, align 8, !tbaa !82
+  %.0.i.i93137.i = load ptr, ptr %426, align 8, !tbaa !98
   %.not.i.i94138.i = icmp eq ptr %.0.i.i93137.i, null
   br i1 %.not.i.i94138.i, label %lxb_selectors_match_element.exit, label %.lr.ph140.i
 
 .lr.ph140.i:                                      ; preds = %425, %430
   %.0.i.i93139.i = phi ptr [ %.0.i.i93.i, %430 ], [ %.0.i.i93137.i, %425 ]
   %427 = getelementptr inbounds nuw i8, ptr %.0.i.i93139.i, i64 16
-  %428 = load ptr, ptr %427, align 8, !tbaa !83
+  %428 = load ptr, ptr %427, align 8, !tbaa !99
   %429 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %428, ptr noundef nonnull @.str.50, i64 noundef 5) #8
   br i1 %429, label %.thread45.i, label %430
 
 430:                                              ; preds = %.lr.ph140.i
   %431 = getelementptr inbounds nuw i8, ptr %.0.i.i93139.i, i64 48
-  %.0.i.i93.i = load ptr, ptr %431, align 8, !tbaa !82
+  %.0.i.i93.i = load ptr, ptr %431, align 8, !tbaa !98
   %.not.i.i94.i = icmp eq ptr %.0.i.i93.i, null
-  br i1 %.not.i.i94.i, label %lxb_selectors_match_element.exit, label %.lr.ph140.i
+  br i1 %.not.i.i94.i, label %lxb_selectors_match_element.exit, label %.lr.ph140.i, !llvm.loop !101
 
 432:                                              ; preds = %420
   %433 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.50) #8
@@ -2369,14 +2369,14 @@ sub_083.i:                                        ; preds = %409
 .thread45.i:                                      ; preds = %.lr.ph140.i, %432
   %.1.i.i8848.i = phi ptr [ %433, %432 ], [ %.0.i.i93139.i, %.lr.ph140.i ]
   %434 = getelementptr inbounds nuw i8, ptr %.1.i.i8848.i, i64 72
-  %435 = load ptr, ptr %434, align 8, !tbaa !85
+  %435 = load ptr, ptr %434, align 8, !tbaa !102
   %.not18.i.i90.i = icmp eq ptr %435, null
   br label %lxb_selectors_match_element.exit
 
 .preheader109.i:                                  ; preds = %225, %436
   %.pn.i146.i = phi ptr [ %.0.i148.i, %436 ], [ %3, %225 ]
   %.0.in.i147.i = getelementptr inbounds nuw i8, ptr %.pn.i146.i, i64 56
-  %.0.i148.i = load ptr, ptr %.0.in.i147.i, align 8, !tbaa !58
+  %.0.i148.i = load ptr, ptr %.0.in.i147.i, align 8, !tbaa !63
   %.not.i149.i = icmp eq ptr %.0.i148.i, null
   br i1 %.not.i149.i, label %.preheader106.i, label %436
 
@@ -2385,12 +2385,12 @@ sub_083.i:                                        ; preds = %409
   %438 = load i32, ptr %437, align 8, !tbaa !40
   %439 = and i32 %438, 255
   %440 = icmp eq i32 %439, 1
-  br i1 %440, label %lxb_selectors_match_element.exit, label %.preheader109.i
+  br i1 %440, label %lxb_selectors_match_element.exit, label %.preheader109.i, !llvm.loop !161
 
 .preheader106.i:                                  ; preds = %.preheader109.i, %441
   %.pn.i151.i = phi ptr [ %.0.i153.i, %441 ], [ %3, %.preheader109.i ]
   %.0.in.i152.i = getelementptr inbounds nuw i8, ptr %.pn.i151.i, i64 48
-  %.0.i153.i = load ptr, ptr %.0.in.i152.i, align 8, !tbaa !45
+  %.0.i153.i = load ptr, ptr %.0.in.i152.i, align 8, !tbaa !48
   %.not.i154.i = icmp eq ptr %.0.i153.i, null
   br i1 %.not.i154.i, label %lxb_selectors_match_element.exit, label %441
 
@@ -2399,11 +2399,11 @@ sub_083.i:                                        ; preds = %409
   %443 = load i32, ptr %442, align 8, !tbaa !40
   %444 = and i32 %443, 255
   %445 = icmp eq i32 %444, 1
-  br i1 %445, label %lxb_selectors_match_element.exit, label %.preheader106.i
+  br i1 %445, label %lxb_selectors_match_element.exit, label %.preheader106.i, !llvm.loop !166
 
 446:                                              ; preds = %225
   %.010.in14.i156.i = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %.01015.i157.i = load ptr, ptr %.010.in14.i156.i, align 8, !tbaa !58
+  %.01015.i157.i = load ptr, ptr %.010.in14.i156.i, align 8, !tbaa !63
   %.not16.i158.i = icmp eq ptr %.01015.i157.i, null
   br i1 %.not16.i158.i, label %.loopexit.i, label %.lr.ph.i159.i
 
@@ -2422,16 +2422,16 @@ sub_083.i:                                        ; preds = %409
 
 454:                                              ; preds = %449
   %455 = getelementptr inbounds nuw i8, ptr %.01017.i160.i, i64 16
-  %456 = load ptr, ptr %455, align 8, !tbaa !79
-  %457 = load ptr, ptr %447, align 8, !tbaa !79
+  %456 = load ptr, ptr %455, align 8, !tbaa !95
+  %457 = load ptr, ptr %447, align 8, !tbaa !95
   %458 = tail call i32 @xmlStrEqual(ptr noundef %456, ptr noundef %457) #8
   %.not11.i166.i = icmp eq i32 %458, 0
   br i1 %.not11.i166.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i, label %459
 
 459:                                              ; preds = %454
   %460 = getelementptr inbounds nuw i8, ptr %.01017.i160.i, i64 72
-  %461 = load ptr, ptr %460, align 8, !tbaa !143
-  %462 = load ptr, ptr %448, align 8, !tbaa !143
+  %461 = load ptr, ptr %460, align 8, !tbaa !162
+  %462 = load ptr, ptr %448, align 8, !tbaa !162
   %463 = icmp eq ptr %461, %462
   br i1 %463, label %lxb_selectors_match_element.exit, label %464
 
@@ -2443,22 +2443,22 @@ sub_083.i:                                        ; preds = %409
 
 lxb_selectors_adapted_cmp_ns.exit.i170.i:         ; preds = %464
   %465 = getelementptr inbounds nuw i8, ptr %461, i64 16
-  %466 = load ptr, ptr %465, align 8, !tbaa !144
+  %466 = load ptr, ptr %465, align 8, !tbaa !163
   %467 = getelementptr inbounds nuw i8, ptr %462, i64 16
-  %468 = load ptr, ptr %467, align 8, !tbaa !144
+  %468 = load ptr, ptr %467, align 8, !tbaa !163
   %469 = tail call i32 @xmlStrEqual(ptr noundef %466, ptr noundef %468) #8
   %.not13.i171.i = icmp eq i32 %469, 0
   br i1 %.not13.i171.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i: ; preds = %lxb_selectors_adapted_cmp_ns.exit.i170.i, %464, %454, %449
   %.010.in.i162.i = getelementptr inbounds nuw i8, ptr %.01017.i160.i, i64 56
-  %.010.i163.i = load ptr, ptr %.010.in.i162.i, align 8, !tbaa !58
+  %.010.i163.i = load ptr, ptr %.010.in.i162.i, align 8, !tbaa !63
   %.not.i164.i = icmp eq ptr %.010.i163.i, null
-  br i1 %.not.i164.i, label %.loopexit.i, label %449
+  br i1 %.not.i164.i, label %.loopexit.i, label %449, !llvm.loop !165
 
 .loopexit.i:                                      ; preds = %lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i, %446
   %.010.in14.i173.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.01015.i174.i = load ptr, ptr %.010.in14.i173.i, align 8, !tbaa !45
+  %.01015.i174.i = load ptr, ptr %.010.in14.i173.i, align 8, !tbaa !48
   %.not16.i175.i = icmp eq ptr %.01015.i174.i, null
   br i1 %.not16.i175.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i176.i
 
@@ -2477,16 +2477,16 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i: ; preds = %lxb_selectors_adap
 
 477:                                              ; preds = %472
   %478 = getelementptr inbounds nuw i8, ptr %.01017.i177.i, i64 16
-  %479 = load ptr, ptr %478, align 8, !tbaa !79
-  %480 = load ptr, ptr %470, align 8, !tbaa !79
+  %479 = load ptr, ptr %478, align 8, !tbaa !95
+  %480 = load ptr, ptr %470, align 8, !tbaa !95
   %481 = tail call i32 @xmlStrEqual(ptr noundef %479, ptr noundef %480) #8
   %.not11.i183.i = icmp eq i32 %481, 0
   br i1 %.not11.i183.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i, label %482
 
 482:                                              ; preds = %477
   %483 = getelementptr inbounds nuw i8, ptr %.01017.i177.i, i64 72
-  %484 = load ptr, ptr %483, align 8, !tbaa !143
-  %485 = load ptr, ptr %471, align 8, !tbaa !143
+  %484 = load ptr, ptr %483, align 8, !tbaa !162
+  %485 = load ptr, ptr %471, align 8, !tbaa !162
   %486 = icmp eq ptr %484, %485
   br i1 %486, label %lxb_selectors_match_element.exit, label %487
 
@@ -2498,27 +2498,27 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i161.i: ; preds = %lxb_selectors_adap
 
 lxb_selectors_adapted_cmp_ns.exit.i187.i:         ; preds = %487
   %488 = getelementptr inbounds nuw i8, ptr %484, i64 16
-  %489 = load ptr, ptr %488, align 8, !tbaa !144
+  %489 = load ptr, ptr %488, align 8, !tbaa !163
   %490 = getelementptr inbounds nuw i8, ptr %485, i64 16
-  %491 = load ptr, ptr %490, align 8, !tbaa !144
+  %491 = load ptr, ptr %490, align 8, !tbaa !163
   %492 = tail call i32 @xmlStrEqual(ptr noundef %489, ptr noundef %491) #8
   %.not13.i188.i = icmp eq i32 %492, 0
   br i1 %.not13.i188.i, label %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adapted_cmp_ns.exit.i187.i, %487, %477, %472
   %.010.in.i179.i = getelementptr inbounds nuw i8, ptr %.01017.i177.i, i64 48
-  %.010.i180.i = load ptr, ptr %.010.in.i179.i, align 8, !tbaa !45
+  %.010.i180.i = load ptr, ptr %.010.in.i179.i, align 8, !tbaa !48
   %.not.i181.i = icmp eq ptr %.010.i180.i, null
-  br i1 %.not.i181.i, label %lxb_selectors_match_element.exit, label %472
+  br i1 %.not.i181.i, label %lxb_selectors_match_element.exit, label %472, !llvm.loop !167
 
 493:                                              ; preds = %225
-  %494 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %494 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %495 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %494) #8
   br i1 %495, label %496, label %lxb_selectors_match_element.exit
 
 496:                                              ; preds = %493
   %497 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %498 = load ptr, ptr %497, align 8, !tbaa !79
+  %498 = load ptr, ptr %497, align 8, !tbaa !95
   %499 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %498, ptr noundef nonnull dereferenceable(6) @.str.52) #9
   %500 = icmp eq i32 %499, 0
   br i1 %500, label %507, label %501
@@ -2535,7 +2535,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 507:                                              ; preds = %504, %501, %496
   %508 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %509 = load ptr, ptr %508, align 8, !tbaa !81
+  %509 = load ptr, ptr %508, align 8, !tbaa !97
   %510 = icmp ne ptr %509, null
   tail call void @llvm.assume(i1 %510)
   %511 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2543,22 +2543,22 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 512:                                              ; preds = %507
   %513 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i101120.i = load ptr, ptr %513, align 8, !tbaa !82
+  %.0.i.i101120.i = load ptr, ptr %513, align 8, !tbaa !98
   %.not.i.i102121.i = icmp eq ptr %.0.i.i101120.i, null
   br i1 %.not.i.i102121.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %512, %517
   %.0.i.i101122.i = phi ptr [ %.0.i.i101.i, %517 ], [ %.0.i.i101120.i, %512 ]
   %514 = getelementptr inbounds nuw i8, ptr %.0.i.i101122.i, i64 16
-  %515 = load ptr, ptr %514, align 8, !tbaa !83
+  %515 = load ptr, ptr %514, align 8, !tbaa !99
   %516 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %515, ptr noundef nonnull @.str.56, i64 noundef 9) #8
   br i1 %516, label %.thread54.i, label %517
 
 517:                                              ; preds = %.lr.ph.i40
   %518 = getelementptr inbounds nuw i8, ptr %.0.i.i101122.i, i64 48
-  %.0.i.i101.i = load ptr, ptr %518, align 8, !tbaa !82
+  %.0.i.i101.i = load ptr, ptr %518, align 8, !tbaa !98
   %.not.i.i102.i = icmp eq ptr %.0.i.i101.i, null
-  br i1 %.not.i.i102.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i40
+  br i1 %.not.i.i102.i, label %lxb_selectors_match_element.exit, label %.lr.ph.i40, !llvm.loop !101
 
 519:                                              ; preds = %507
   %520 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.56) #8
@@ -2568,18 +2568,18 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 .thread54.i:                                      ; preds = %.lr.ph.i40, %519
   %.1.i.i9657.i = phi ptr [ %520, %519 ], [ %.0.i.i101122.i, %.lr.ph.i40 ]
   %521 = getelementptr inbounds nuw i8, ptr %.1.i.i9657.i, i64 72
-  %522 = load ptr, ptr %521, align 8, !tbaa !85
+  %522 = load ptr, ptr %521, align 8, !tbaa !102
   %.not18.i.i98.i = icmp ne ptr %522, null
   br label %lxb_selectors_match_element.exit
 
 523:                                              ; preds = %225
-  %524 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %524 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %525 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %524) #8
   br i1 %525, label %526, label %lxb_selectors_match_element.exit
 
 526:                                              ; preds = %523
   %527 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %528 = load ptr, ptr %527, align 8, !tbaa !79
+  %528 = load ptr, ptr %527, align 8, !tbaa !95
   %529 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %528, ptr noundef nonnull dereferenceable(6) @.str.52) #9
   %530 = icmp eq i32 %529, 0
   br i1 %530, label %534, label %531
@@ -2591,7 +2591,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 534:                                              ; preds = %531, %526
   %535 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %536 = load ptr, ptr %535, align 8, !tbaa !81
+  %536 = load ptr, ptr %535, align 8, !tbaa !97
   %537 = icmp ne ptr %536, null
   tail call void @llvm.assume(i1 %537)
   %538 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2599,22 +2599,22 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 539:                                              ; preds = %534
   %540 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i109123.i = load ptr, ptr %540, align 8, !tbaa !82
+  %.0.i.i109123.i = load ptr, ptr %540, align 8, !tbaa !98
   %.not.i.i110124.i = icmp eq ptr %.0.i.i109123.i, null
   br i1 %.not.i.i110124.i, label %lxb_selectors_match_element.exit, label %.lr.ph126.i
 
 .lr.ph126.i:                                      ; preds = %539, %544
   %.0.i.i109125.i = phi ptr [ %.0.i.i109.i, %544 ], [ %.0.i.i109123.i, %539 ]
   %541 = getelementptr inbounds nuw i8, ptr %.0.i.i109125.i, i64 16
-  %542 = load ptr, ptr %541, align 8, !tbaa !83
+  %542 = load ptr, ptr %541, align 8, !tbaa !99
   %543 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %542, ptr noundef nonnull @.str.57, i64 noundef 12) #8
   br i1 %543, label %.thread62.i, label %544
 
 544:                                              ; preds = %.lr.ph126.i
   %545 = getelementptr inbounds nuw i8, ptr %.0.i.i109125.i, i64 48
-  %.0.i.i109.i = load ptr, ptr %545, align 8, !tbaa !82
+  %.0.i.i109.i = load ptr, ptr %545, align 8, !tbaa !98
   %.not.i.i110.i = icmp eq ptr %.0.i.i109.i, null
-  br i1 %.not.i.i110.i, label %lxb_selectors_match_element.exit, label %.lr.ph126.i
+  br i1 %.not.i.i110.i, label %lxb_selectors_match_element.exit, label %.lr.ph126.i, !llvm.loop !101
 
 546:                                              ; preds = %534
   %547 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.57) #8
@@ -2624,7 +2624,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 .thread62.i:                                      ; preds = %.lr.ph126.i, %546
   %.1.i.i10465.i = phi ptr [ %547, %546 ], [ %.0.i.i109125.i, %.lr.ph126.i ]
   %548 = getelementptr inbounds nuw i8, ptr %.1.i.i10465.i, i64 72
-  %549 = load ptr, ptr %548, align 8, !tbaa !85
+  %549 = load ptr, ptr %548, align 8, !tbaa !102
   %.not18.i.i106.i = icmp eq ptr %549, null
   br label %lxb_selectors_match_element.exit
 
@@ -2638,13 +2638,13 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   br label %lxb_selectors_match_element.exit
 
 555:                                              ; preds = %225
-  %556 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %556 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %557 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %3, ptr noundef %556) #8
   br i1 %557, label %558, label %lxb_selectors_match_element.exit
 
 558:                                              ; preds = %555
   %559 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %560 = load ptr, ptr %559, align 8, !tbaa !79
+  %560 = load ptr, ptr %559, align 8, !tbaa !95
   %561 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %560, ptr noundef nonnull dereferenceable(6) @.str.52) #9
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %569, label %563
@@ -2661,7 +2661,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 569:                                              ; preds = %566, %563, %558
   %570 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %571 = load ptr, ptr %570, align 8, !tbaa !81
+  %571 = load ptr, ptr %570, align 8, !tbaa !97
   %572 = icmp ne ptr %571, null
   tail call void @llvm.assume(i1 %572)
   %573 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #8
@@ -2669,22 +2669,22 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 574:                                              ; preds = %569
   %575 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.0.i.i117127.i = load ptr, ptr %575, align 8, !tbaa !82
+  %.0.i.i117127.i = load ptr, ptr %575, align 8, !tbaa !98
   %.not.i.i118128.i = icmp eq ptr %.0.i.i117127.i, null
   br i1 %.not.i.i118128.i, label %lxb_selectors_match_element.exit, label %.lr.ph130.i
 
 .lr.ph130.i:                                      ; preds = %574, %579
   %.0.i.i117129.i = phi ptr [ %.0.i.i117.i, %579 ], [ %.0.i.i117127.i, %574 ]
   %576 = getelementptr inbounds nuw i8, ptr %.0.i.i117129.i, i64 16
-  %577 = load ptr, ptr %576, align 8, !tbaa !83
+  %577 = load ptr, ptr %576, align 8, !tbaa !99
   %578 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %577, ptr noundef nonnull @.str.56, i64 noundef 9) #8
   br i1 %578, label %.thread70.i, label %579
 
 579:                                              ; preds = %.lr.ph130.i
   %580 = getelementptr inbounds nuw i8, ptr %.0.i.i117129.i, i64 48
-  %.0.i.i117.i = load ptr, ptr %580, align 8, !tbaa !82
+  %.0.i.i117.i = load ptr, ptr %580, align 8, !tbaa !98
   %.not.i.i118.i = icmp eq ptr %.0.i.i117.i, null
-  br i1 %.not.i.i118.i, label %lxb_selectors_match_element.exit, label %.lr.ph130.i
+  br i1 %.not.i.i118.i, label %lxb_selectors_match_element.exit, label %.lr.ph130.i, !llvm.loop !101
 
 581:                                              ; preds = %569
   %582 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.56) #8
@@ -2694,13 +2694,13 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 .thread70.i:                                      ; preds = %.lr.ph130.i, %581
   %.1.i.i11273.i = phi ptr [ %582, %581 ], [ %.0.i.i117129.i, %.lr.ph130.i ]
   %583 = getelementptr inbounds nuw i8, ptr %.1.i.i11273.i, i64 72
-  %584 = load ptr, ptr %583, align 8, !tbaa !85
+  %584 = load ptr, ptr %583, align 8, !tbaa !102
   %.not18.i.i114.i = icmp eq ptr %584, null
   br label %lxb_selectors_match_element.exit
 
 585:                                              ; preds = %225
   %586 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %587 = load ptr, ptr %586, align 8, !tbaa !46
+  %587 = load ptr, ptr %586, align 8, !tbaa !49
   %.not.i41 = icmp eq ptr %587, null
   br i1 %.not.i41, label %lxb_selectors_match_element.exit, label %588
 
@@ -2712,7 +2712,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 592:                                              ; preds = %4
   %593 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %594 = load i32, ptr %593, align 8, !tbaa !50
+  %594 = load i32, ptr %593, align 8, !tbaa !54
   switch i32 %594, label %lxb_selectors_match_element.exit [
     i32 9, label %.preheader.i56
     i32 7, label %.preheader66.i
@@ -2756,9 +2756,9 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   %603 = zext i1 %602 to i64
   %spec.select.i = add i64 %.03481.i, %603
   %604 = getelementptr inbounds nuw i8, ptr %.03382.i, i64 56
-  %605 = load ptr, ptr %604, align 8, !tbaa !58
+  %605 = load ptr, ptr %604, align 8, !tbaa !63
   %.not42.i = icmp eq ptr %605, null
-  br i1 %.not42.i, label %.loopexit.i55, label %.lr.ph83.i
+  br i1 %.not42.i, label %.loopexit.i55, label %.lr.ph83.i, !llvm.loop !168
 
 .lr.ph88.i:                                       ; preds = %.preheader.i56, %.lr.ph88.i
   %.187.i = phi ptr [ %612, %.lr.ph88.i ], [ %3, %.preheader.i56 ]
@@ -2770,21 +2770,21 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   %610 = zext i1 %609 to i64
   %spec.select43.i = add i64 %.33786.i, %610
   %611 = getelementptr inbounds nuw i8, ptr %.187.i, i64 48
-  %612 = load ptr, ptr %611, align 8, !tbaa !45
+  %612 = load ptr, ptr %611, align 8, !tbaa !48
   %.not41.i = icmp eq ptr %612, null
-  br i1 %.not41.i, label %.loopexit.i55, label %.lr.ph88.i
+  br i1 %.not41.i, label %.loopexit.i55, label %.lr.ph88.i, !llvm.loop !169
 
 .loopexit.i55:                                    ; preds = %.lr.ph83.i, %.lr.ph88.i, %.preheader.i56, %.preheader66.i
   %.236.i = phi i64 [ 0, %.preheader.i56 ], [ 0, %.preheader66.i ], [ %spec.select43.i, %.lr.ph88.i ], [ %spec.select.i, %.lr.ph83.i ]
   %613 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %614 = load ptr, ptr %613, align 8, !tbaa !52
-  %615 = load i64, ptr %614, align 8, !tbaa !75
+  %614 = load ptr, ptr %613, align 8, !tbaa !56
+  %615 = load i64, ptr %614, align 8, !tbaa !91
   %616 = icmp eq i64 %615, 0
   br i1 %616, label %617, label %622
 
 617:                                              ; preds = %.loopexit.i55
   %618 = getelementptr inbounds nuw i8, ptr %614, i64 8
-  %619 = load i64, ptr %618, align 8, !tbaa !76
+  %619 = load i64, ptr %618, align 8, !tbaa !92
   %620 = icmp sgt i64 %619, -1
   %621 = icmp eq i64 %619, %.236.i
   %or.cond.i50.i = and i1 %620, %621
@@ -2793,7 +2793,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 622:                                              ; preds = %.loopexit.i55
   %623 = uitofp i64 %.236.i to double
   %624 = getelementptr inbounds nuw i8, ptr %614, i64 8
-  %625 = load i64, ptr %624, align 8, !tbaa !76
+  %625 = load i64, ptr %624, align 8, !tbaa !92
   %626 = sitofp i64 %625 to double
   %627 = fsub double %623, %626
   %628 = sitofp i64 %615 to double
@@ -2821,16 +2821,16 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 
 641:                                              ; preds = %636
   %642 = getelementptr inbounds nuw i8, ptr %.277.i, i64 16
-  %643 = load ptr, ptr %642, align 8, !tbaa !79
-  %644 = load ptr, ptr %597, align 8, !tbaa !79
+  %643 = load ptr, ptr %642, align 8, !tbaa !95
+  %644 = load ptr, ptr %597, align 8, !tbaa !95
   %645 = tail call i32 @xmlStrEqual(ptr noundef %643, ptr noundef %644) #8
   %.not40.i = icmp eq i32 %645, 0
   br i1 %.not40.i, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i, label %646
 
 646:                                              ; preds = %641
   %647 = getelementptr inbounds nuw i8, ptr %.277.i, i64 72
-  %648 = load ptr, ptr %647, align 8, !tbaa !143
-  %649 = load ptr, ptr %598, align 8, !tbaa !143
+  %648 = load ptr, ptr %647, align 8, !tbaa !162
+  %649 = load ptr, ptr %598, align 8, !tbaa !162
   %650 = icmp eq ptr %648, %649
   br i1 %650, label %lxb_selectors_adapted_cmp_ns.exit.thread.i, label %652
 
@@ -2846,9 +2846,9 @@ lxb_selectors_adapted_cmp_ns.exit.thread.i:       ; preds = %646
 
 lxb_selectors_adapted_cmp_ns.exit.i:              ; preds = %652
   %653 = getelementptr inbounds nuw i8, ptr %648, i64 16
-  %654 = load ptr, ptr %653, align 8, !tbaa !144
+  %654 = load ptr, ptr %653, align 8, !tbaa !163
   %655 = getelementptr inbounds nuw i8, ptr %649, i64 16
-  %656 = load ptr, ptr %655, align 8, !tbaa !144
+  %656 = load ptr, ptr %655, align 8, !tbaa !163
   %657 = tail call i32 @xmlStrEqual(ptr noundef %654, ptr noundef %656) #8
   %.fr64.i = freeze i32 %657
   %.not65.i = icmp ne i32 %.fr64.i, 0
@@ -2859,9 +2859,9 @@ lxb_selectors_adapted_cmp_ns.exit.i:              ; preds = %652
 lxb_selectors_adapted_cmp_ns.exit.thread55.i:     ; preds = %lxb_selectors_adapted_cmp_ns.exit.i, %652, %lxb_selectors_adapted_cmp_ns.exit.thread.i, %641, %636
   %.6.i = phi i64 [ %.576.i, %641 ], [ %.576.i, %636 ], [ %651, %lxb_selectors_adapted_cmp_ns.exit.thread.i ], [ %.576.i, %652 ], [ %spec.select61.i, %lxb_selectors_adapted_cmp_ns.exit.i ]
   %659 = getelementptr inbounds nuw i8, ptr %.277.i, i64 56
-  %660 = load ptr, ptr %659, align 8, !tbaa !58
+  %660 = load ptr, ptr %659, align 8, !tbaa !63
   %.not39.i = icmp eq ptr %660, null
-  br i1 %.not39.i, label %.loopexit69.i, label %636
+  br i1 %.not39.i, label %.loopexit69.i, label %636, !llvm.loop !170
 
 661:                                              ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %.lr.ph.i50
   %.374.i = phi ptr [ %3, %.lr.ph.i50 ], [ %685, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
@@ -2874,16 +2874,16 @@ lxb_selectors_adapted_cmp_ns.exit.thread55.i:     ; preds = %lxb_selectors_adapt
 
 666:                                              ; preds = %661
   %667 = getelementptr inbounds nuw i8, ptr %.374.i, i64 16
-  %668 = load ptr, ptr %667, align 8, !tbaa !79
-  %669 = load ptr, ptr %595, align 8, !tbaa !79
+  %668 = load ptr, ptr %667, align 8, !tbaa !95
+  %669 = load ptr, ptr %595, align 8, !tbaa !95
   %670 = tail call i32 @xmlStrEqual(ptr noundef %668, ptr noundef %669) #8
   %.not38.i = icmp eq i32 %670, 0
   br i1 %.not38.i, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, label %671
 
 671:                                              ; preds = %666
   %672 = getelementptr inbounds nuw i8, ptr %.374.i, i64 72
-  %673 = load ptr, ptr %672, align 8, !tbaa !143
-  %674 = load ptr, ptr %596, align 8, !tbaa !143
+  %673 = load ptr, ptr %672, align 8, !tbaa !162
+  %674 = load ptr, ptr %596, align 8, !tbaa !162
   %675 = icmp eq ptr %673, %674
   br i1 %675, label %lxb_selectors_adapted_cmp_ns.exit49.thread.i, label %677
 
@@ -2899,9 +2899,9 @@ lxb_selectors_adapted_cmp_ns.exit49.thread.i:     ; preds = %671
 
 lxb_selectors_adapted_cmp_ns.exit49.i:            ; preds = %677
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 16
-  %679 = load ptr, ptr %678, align 8, !tbaa !144
+  %679 = load ptr, ptr %678, align 8, !tbaa !163
   %680 = getelementptr inbounds nuw i8, ptr %674, i64 16
-  %681 = load ptr, ptr %680, align 8, !tbaa !144
+  %681 = load ptr, ptr %680, align 8, !tbaa !163
   %682 = tail call i32 @xmlStrEqual(ptr noundef %679, ptr noundef %681) #8
   %.fr.i = freeze i32 %682
   %.not63.i53 = icmp ne i32 %.fr.i, 0
@@ -2912,21 +2912,21 @@ lxb_selectors_adapted_cmp_ns.exit49.i:            ; preds = %677
 lxb_selectors_adapted_cmp_ns.exit49.thread59.i:   ; preds = %lxb_selectors_adapted_cmp_ns.exit49.i, %677, %lxb_selectors_adapted_cmp_ns.exit49.thread.i, %666, %661
   %.9.i = phi i64 [ %.873.i, %666 ], [ %.873.i, %661 ], [ %676, %lxb_selectors_adapted_cmp_ns.exit49.thread.i ], [ %.873.i, %677 ], [ %spec.select62.i, %lxb_selectors_adapted_cmp_ns.exit49.i ]
   %684 = getelementptr inbounds nuw i8, ptr %.374.i, i64 48
-  %685 = load ptr, ptr %684, align 8, !tbaa !45
+  %685 = load ptr, ptr %684, align 8, !tbaa !48
   %.not.i51 = icmp eq ptr %685, null
-  br i1 %.not.i51, label %.loopexit69.i, label %661
+  br i1 %.not.i51, label %.loopexit69.i, label %661, !llvm.loop !171
 
 .loopexit69.i:                                    ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i, %.preheader68.i, %.preheader70.i
   %.7.i = phi i64 [ 0, %.preheader68.i ], [ 0, %.preheader70.i ], [ %.6.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ], [ %.9.i, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
   %686 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %687 = load ptr, ptr %686, align 8, !tbaa !52
-  %688 = load i64, ptr %687, align 8, !tbaa !75
+  %687 = load ptr, ptr %686, align 8, !tbaa !56
+  %688 = load i64, ptr %687, align 8, !tbaa !91
   %689 = icmp eq i64 %688, 0
   br i1 %689, label %690, label %695
 
 690:                                              ; preds = %.loopexit69.i
   %691 = getelementptr inbounds nuw i8, ptr %687, i64 8
-  %692 = load i64, ptr %691, align 8, !tbaa !76
+  %692 = load i64, ptr %691, align 8, !tbaa !92
   %693 = icmp sgt i64 %692, -1
   %694 = icmp eq i64 %692, %.7.i
   %or.cond.i52.i = and i1 %693, %694
@@ -2935,7 +2935,7 @@ lxb_selectors_adapted_cmp_ns.exit49.thread59.i:   ; preds = %lxb_selectors_adapt
 695:                                              ; preds = %.loopexit69.i
   %696 = uitofp i64 %.7.i to double
   %697 = getelementptr inbounds nuw i8, ptr %687, i64 8
-  %698 = load i64, ptr %697, align 8, !tbaa !76
+  %698 = load i64, ptr %697, align 8, !tbaa !92
   %699 = sitofp i64 %698 to double
   %700 = fsub double %696, %699
   %701 = sitofp i64 %688 to double
@@ -2972,14 +2972,14 @@ lxb_selectors_match_element.exit:                 ; preds = %436, %441, %.prehea
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !92
+  %5 = load i64, ptr %4, align 8, !tbaa !109
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !92
+  %7 = load i64, ptr %6, align 8, !tbaa !109
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %0, align 8, !tbaa !93
+  %10 = load ptr, ptr %0, align 8, !tbaa !110
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %5
   %.not68 = icmp eq i64 %5, 0
   %.pre75 = ptrtoint ptr %11 to i64
@@ -2993,7 +2993,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   %13 = phi i64 [ %31, %29 ], [ %7, %.lr.ph ]
   %.05366.us = phi ptr [ %.154.us, %29 ], [ %10, %.lr.ph ]
   %.05565.us = phi ptr [ %32, %29 ], [ %10, %.lr.ph ]
-  %14 = load i8, ptr %.05565.us, align 1, !tbaa !106
+  %14 = load i8, ptr %.05565.us, align 1, !tbaa !123
   switch i8 %14, label %29 [
     i8 32, label %15
     i8 13, label %15
@@ -3010,12 +3010,12 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %1, align 8, !tbaa !93
+  %21 = load ptr, ptr %1, align 8, !tbaa !110
   %22 = tail call zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef %.05366.us, ptr noundef %21, i64 noundef %13) #8
   br i1 %22, label %.loopexit, label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %20
-  %.pre74 = load i64, ptr %6, align 8, !tbaa !92
+  %.pre74 = load i64, ptr %6, align 8, !tbaa !109
   br label %23
 
 23:                                               ; preds = %._crit_edge73, %15
@@ -3034,14 +3034,14 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   %.154.us = phi ptr [ %28, %27 ], [ %.05366.us, %.lr.ph.split.us ]
   %32 = getelementptr inbounds nuw i8, ptr %.05565.us, i64 1
   %33 = icmp ult ptr %32, %11
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !146
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !172
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %34 = phi i64 [ %52, %51 ], [ %7, %.lr.ph ]
   %35 = phi i64 [ %53, %51 ], [ %7, %.lr.ph ]
   %.05366 = phi ptr [ %.154, %51 ], [ %10, %.lr.ph ]
   %.05565 = phi ptr [ %54, %51 ], [ %10, %.lr.ph ]
-  %36 = load i8, ptr %.05565, align 1, !tbaa !106
+  %36 = load i8, ptr %.05565, align 1, !tbaa !123
   switch i8 %36, label %51 [
     i8 32, label %37
     i8 13, label %37
@@ -3058,12 +3058,12 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr %1, align 8, !tbaa !93
+  %43 = load ptr, ptr %1, align 8, !tbaa !110
   %44 = tail call zeroext i1 @lexbor_str_data_ncmp(ptr noundef %.05366, ptr noundef %43, i64 noundef %35) #8
   br i1 %44, label %.loopexit, label %._crit_edge72
 
 ._crit_edge72:                                    ; preds = %42
-  %.pre = load i64, ptr %6, align 8, !tbaa !92
+  %.pre = load i64, ptr %6, align 8, !tbaa !109
   br label %45
 
 45:                                               ; preds = %._crit_edge72, %37
@@ -3082,7 +3082,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   %.154 = phi ptr [ %50, %49 ], [ %.05366, %.lr.ph.split ]
   %54 = getelementptr inbounds nuw i8, ptr %.05565, i64 1
   %55 = icmp ult ptr %54, %11
-  br i1 %55, label %.lr.ph.split, label %._crit_edge
+  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %51, %29, %9
   %56 = phi i64 [ %7, %9 ], [ %30, %29 ], [ %52, %51 ]
@@ -3095,7 +3095,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   br i1 %or.cond, label %.loopexit, label %60
 
 60:                                               ; preds = %._crit_edge
-  %61 = load ptr, ptr %1, align 8, !tbaa !93
+  %61 = load ptr, ptr %1, align 8, !tbaa !110
   br i1 %2, label %62, label %64
 
 62:                                               ; preds = %60
@@ -3114,18 +3114,18 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lxb_selectors_adapted_set_entry_id_ex(ptr noundef writeonly captures(none) initializes((0, 10)) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !148
+  %5 = load i64, ptr %4, align 8, !tbaa !175
   %6 = icmp eq i64 %5, 6
   br i1 %6, label %lxb_selectors_attrib_name_cmp.exit.i, label %lxb_selectors_attrib_name_cmp.exit.thread.i
 
 lxb_selectors_attrib_name_cmp.exit.i:             ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !149
+  %8 = load ptr, ptr %7, align 8, !tbaa !176
   %9 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.1, ptr noundef %8, i64 noundef 6) #8
   br i1 %9, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %lxb_selectors_attrib_name_cmp.exit.i
-  %.pr.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit.thread.i
 
 lxb_selectors_attrib_name_cmp.exit.thread.i:      ; preds = %thread-pre-split.i, %3
@@ -3135,12 +3135,12 @@ lxb_selectors_attrib_name_cmp.exit.thread.i:      ; preds = %thread-pre-split.i,
 
 lxb_selectors_attrib_name_cmp.exit46.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit.thread.i
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !149
+  %13 = load ptr, ptr %12, align 8, !tbaa !176
   %14 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.2, ptr noundef %13, i64 noundef 14) #8
   br i1 %14, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit46.i
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit46.thread.i
 
 lxb_selectors_attrib_name_cmp.exit46.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit.thread.i
@@ -3150,22 +3150,22 @@ lxb_selectors_attrib_name_cmp.exit46.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit47.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit46.thread.i
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !149
+  %18 = load ptr, ptr %17, align 8, !tbaa !176
   %19 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.3, ptr noundef %18, i64 noundef 5) #8
   br i1 %19, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %20
 
 20:                                               ; preds = %lxb_selectors_attrib_name_cmp.exit47.i
-  %.pr92.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr92.i = load i64, ptr %4, align 8, !tbaa !175
   %21 = icmp eq i64 %.pr92.i, 5
   br i1 %21, label %lxb_selectors_attrib_name_cmp.exit48.i, label %lxb_selectors_attrib_name_cmp.exit48.thread.i
 
 lxb_selectors_attrib_name_cmp.exit48.i:           ; preds = %20
-  %22 = load ptr, ptr %17, align 8, !tbaa !149
+  %22 = load ptr, ptr %17, align 8, !tbaa !176
   %23 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.4, ptr noundef %22, i64 noundef 5) #8
   br i1 %23, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i
 
 lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i: ; preds = %lxb_selectors_attrib_name_cmp.exit48.i
-  %.pr136.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr136.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit48.thread.i
 
 lxb_selectors_attrib_name_cmp.exit48.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i, %20, %lxb_selectors_attrib_name_cmp.exit46.thread.i
@@ -3175,12 +3175,12 @@ lxb_selectors_attrib_name_cmp.exit48.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit49.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit48.thread.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !149
+  %27 = load ptr, ptr %26, align 8, !tbaa !176
   %28 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.5, ptr noundef %27, i64 noundef 4) #8
   br i1 %28, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split93.i
 
 thread-pre-split93.i:                             ; preds = %lxb_selectors_attrib_name_cmp.exit49.i
-  %.pr94.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr94.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit49.thread.i
 
 lxb_selectors_attrib_name_cmp.exit49.thread.i:    ; preds = %thread-pre-split93.i, %lxb_selectors_attrib_name_cmp.exit48.thread.i
@@ -3190,32 +3190,32 @@ lxb_selectors_attrib_name_cmp.exit49.thread.i:    ; preds = %thread-pre-split93.
 
 lxb_selectors_attrib_name_cmp.exit50.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit49.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !149
+  %32 = load ptr, ptr %31, align 8, !tbaa !176
   %33 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.6, ptr noundef %32, i64 noundef 7) #8
   br i1 %33, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit50.thread.i
 
 lxb_selectors_attrib_name_cmp.exit50.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit50.i
-  %.pre138.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre138.i = load i64, ptr %4, align 8, !tbaa !175
   %34 = icmp eq i64 %.pre138.i, 7
   br i1 %34, label %lxb_selectors_attrib_name_cmp.exit51.i, label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit51.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit50.thread.i
-  %35 = load ptr, ptr %31, align 8, !tbaa !149
+  %35 = load ptr, ptr %31, align 8, !tbaa !176
   %36 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.7, ptr noundef %35, i64 noundef 7) #8
   br i1 %36, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %37
 
 37:                                               ; preds = %lxb_selectors_attrib_name_cmp.exit51.i
-  %.pr96.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr96.i = load i64, ptr %4, align 8, !tbaa !175
   %38 = icmp eq i64 %.pr96.i, 7
   br i1 %38, label %lxb_selectors_attrib_name_cmp.exit52.i, label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit52.i:           ; preds = %37
-  %39 = load ptr, ptr %31, align 8, !tbaa !149
+  %39 = load ptr, ptr %31, align 8, !tbaa !176
   %40 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.8, ptr noundef %39, i64 noundef 7) #8
   br i1 %40, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i
 
 lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i: ; preds = %lxb_selectors_attrib_name_cmp.exit52.i
-  %.pr137.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr137.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit52.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i, %37, %lxb_selectors_attrib_name_cmp.exit50.thread.i, %lxb_selectors_attrib_name_cmp.exit49.thread.i
@@ -3225,12 +3225,12 @@ lxb_selectors_attrib_name_cmp.exit52.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit53.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit52.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !149
+  %44 = load ptr, ptr %43, align 8, !tbaa !176
   %45 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.9, ptr noundef %44, i64 noundef 5) #8
   br i1 %45, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split98.i
 
 thread-pre-split98.i:                             ; preds = %lxb_selectors_attrib_name_cmp.exit53.i
-  %.pr99.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr99.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit53.thread.i
 
 lxb_selectors_attrib_name_cmp.exit53.thread.i:    ; preds = %thread-pre-split98.i, %lxb_selectors_attrib_name_cmp.exit52.thread.i
@@ -3240,12 +3240,12 @@ lxb_selectors_attrib_name_cmp.exit53.thread.i:    ; preds = %thread-pre-split98.
 
 lxb_selectors_attrib_name_cmp.exit54.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit53.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !149
+  %49 = load ptr, ptr %48, align 8, !tbaa !176
   %50 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.10, ptr noundef %49, i64 noundef 8) #8
   br i1 %50, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit54.i
-  %.pre139.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre139.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit54.thread.i
 
 lxb_selectors_attrib_name_cmp.exit54.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit53.thread.i
@@ -3255,12 +3255,12 @@ lxb_selectors_attrib_name_cmp.exit54.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit55.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit54.thread.i
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !149
+  %54 = load ptr, ptr %53, align 8, !tbaa !176
   %55 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.11, ptr noundef %54, i64 noundef 5) #8
   br i1 %55, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split100.i
 
 thread-pre-split100.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit55.i
-  %.pr101.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr101.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit55.thread.i
 
 lxb_selectors_attrib_name_cmp.exit55.thread.i:    ; preds = %thread-pre-split100.i, %lxb_selectors_attrib_name_cmp.exit54.thread.i
@@ -3270,22 +3270,22 @@ lxb_selectors_attrib_name_cmp.exit55.thread.i:    ; preds = %thread-pre-split100
 
 lxb_selectors_attrib_name_cmp.exit56.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit55.thread.i
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !149
+  %59 = load ptr, ptr %58, align 8, !tbaa !176
   %60 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.12, ptr noundef %59, i64 noundef 7) #8
   br i1 %60, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit56.thread.i
 
 lxb_selectors_attrib_name_cmp.exit56.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit56.i
-  %.pre140.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre140.i = load i64, ptr %4, align 8, !tbaa !175
   %61 = icmp eq i64 %.pre140.i, 7
   br i1 %61, label %lxb_selectors_attrib_name_cmp.exit57.i, label %lxb_selectors_attrib_name_cmp.exit57.thread.i
 
 lxb_selectors_attrib_name_cmp.exit57.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit56.thread.i
-  %62 = load ptr, ptr %58, align 8, !tbaa !149
+  %62 = load ptr, ptr %58, align 8, !tbaa !176
   %63 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.13, ptr noundef %62, i64 noundef 7) #8
   br i1 %63, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split102.i
 
 thread-pre-split102.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit57.i
-  %.pr103.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr103.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit57.thread.i
 
 lxb_selectors_attrib_name_cmp.exit57.thread.i:    ; preds = %thread-pre-split102.i, %lxb_selectors_attrib_name_cmp.exit56.thread.i, %lxb_selectors_attrib_name_cmp.exit55.thread.i
@@ -3295,12 +3295,12 @@ lxb_selectors_attrib_name_cmp.exit57.thread.i:    ; preds = %thread-pre-split102
 
 lxb_selectors_attrib_name_cmp.exit58.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit57.thread.i
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !149
+  %67 = load ptr, ptr %66, align 8, !tbaa !176
   %68 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.14, ptr noundef %67, i64 noundef 5) #8
   br i1 %68, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit58.i
-  %.pre141.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre141.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit58.thread.i
 
 lxb_selectors_attrib_name_cmp.exit58.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit57.thread.i
@@ -3310,12 +3310,12 @@ lxb_selectors_attrib_name_cmp.exit58.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit59.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit58.thread.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !149
+  %72 = load ptr, ptr %71, align 8, !tbaa !176
   %73 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.15, ptr noundef %72, i64 noundef 3) #8
   br i1 %73, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split104.i
 
 thread-pre-split104.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit59.i
-  %.pr105.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr105.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit59.thread.i
 
 lxb_selectors_attrib_name_cmp.exit59.thread.i:    ; preds = %thread-pre-split104.i, %lxb_selectors_attrib_name_cmp.exit58.thread.i
@@ -3325,12 +3325,12 @@ lxb_selectors_attrib_name_cmp.exit59.thread.i:    ; preds = %thread-pre-split104
 
 lxb_selectors_attrib_name_cmp.exit60.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit59.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !149
+  %77 = load ptr, ptr %76, align 8, !tbaa !176
   %78 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.16, ptr noundef %77, i64 noundef 9) #8
   br i1 %78, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit60.i
-  %.pre142.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre142.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit60.thread.i
 
 lxb_selectors_attrib_name_cmp.exit60.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit59.thread.i
@@ -3340,12 +3340,12 @@ lxb_selectors_attrib_name_cmp.exit60.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit61.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit60.thread.i
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !149
+  %82 = load ptr, ptr %81, align 8, !tbaa !176
   %83 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.17, ptr noundef %82, i64 noundef 8) #8
   br i1 %83, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split106.i
 
 thread-pre-split106.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit61.i
-  %.pr107.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr107.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit61.thread.i
 
 lxb_selectors_attrib_name_cmp.exit61.thread.i:    ; preds = %thread-pre-split106.i, %lxb_selectors_attrib_name_cmp.exit60.thread.i
@@ -3355,12 +3355,12 @@ lxb_selectors_attrib_name_cmp.exit61.thread.i:    ; preds = %thread-pre-split106
 
 lxb_selectors_attrib_name_cmp.exit62.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit61.thread.i
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !149
+  %87 = load ptr, ptr %86, align 8, !tbaa !176
   %88 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.18, ptr noundef %87, i64 noundef 7) #8
   br i1 %88, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit62.i
-  %.pre143.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre143.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit62.thread.i
 
 lxb_selectors_attrib_name_cmp.exit62.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit61.thread.i
@@ -3370,12 +3370,12 @@ lxb_selectors_attrib_name_cmp.exit62.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit63.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit62.thread.i
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !149
+  %92 = load ptr, ptr %91, align 8, !tbaa !176
   %93 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.19, ptr noundef %92, i64 noundef 4) #8
   br i1 %93, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split108.i
 
 thread-pre-split108.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit63.i
-  %.pr109.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr109.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit63.thread.i
 
 lxb_selectors_attrib_name_cmp.exit63.thread.i:    ; preds = %thread-pre-split108.i, %lxb_selectors_attrib_name_cmp.exit62.thread.i
@@ -3385,12 +3385,12 @@ lxb_selectors_attrib_name_cmp.exit63.thread.i:    ; preds = %thread-pre-split108
 
 lxb_selectors_attrib_name_cmp.exit64.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit63.thread.i
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !149
+  %97 = load ptr, ptr %96, align 8, !tbaa !176
   %98 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.20, ptr noundef %97, i64 noundef 5) #8
   br i1 %98, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit64.i
-  %.pre144.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre144.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit64.thread.i
 
 lxb_selectors_attrib_name_cmp.exit64.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit63.thread.i
@@ -3400,12 +3400,12 @@ lxb_selectors_attrib_name_cmp.exit64.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit65.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit64.thread.i
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !149
+  %102 = load ptr, ptr %101, align 8, !tbaa !176
   %103 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.21, ptr noundef %102, i64 noundef 8) #8
   br i1 %103, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split110.i
 
 thread-pre-split110.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit65.i
-  %.pr111.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr111.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit65.thread.i
 
 lxb_selectors_attrib_name_cmp.exit65.thread.i:    ; preds = %thread-pre-split110.i, %lxb_selectors_attrib_name_cmp.exit64.thread.i
@@ -3415,12 +3415,12 @@ lxb_selectors_attrib_name_cmp.exit65.thread.i:    ; preds = %thread-pre-split110
 
 lxb_selectors_attrib_name_cmp.exit66.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit65.thread.i
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !149
+  %107 = load ptr, ptr %106, align 8, !tbaa !176
   %108 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.22, ptr noundef %107, i64 noundef 10) #8
   br i1 %108, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit66.i
-  %.pre145.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre145.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit66.thread.i
 
 lxb_selectors_attrib_name_cmp.exit66.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit65.thread.i
@@ -3430,12 +3430,12 @@ lxb_selectors_attrib_name_cmp.exit66.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit67.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit66.thread.i
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !149
+  %112 = load ptr, ptr %111, align 8, !tbaa !176
   %113 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.23, ptr noundef %112, i64 noundef 4) #8
   br i1 %113, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split112.i
 
 thread-pre-split112.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit67.i
-  %.pr113.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr113.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit67.thread.i
 
 lxb_selectors_attrib_name_cmp.exit67.thread.i:    ; preds = %thread-pre-split112.i, %lxb_selectors_attrib_name_cmp.exit66.thread.i
@@ -3445,12 +3445,12 @@ lxb_selectors_attrib_name_cmp.exit67.thread.i:    ; preds = %thread-pre-split112
 
 lxb_selectors_attrib_name_cmp.exit68.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit67.thread.i
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !149
+  %117 = load ptr, ptr %116, align 8, !tbaa !176
   %118 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.24, ptr noundef %117, i64 noundef 8) #8
   br i1 %118, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit68.i
-  %.pre146.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre146.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit68.thread.i
 
 lxb_selectors_attrib_name_cmp.exit68.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit67.thread.i
@@ -3460,12 +3460,12 @@ lxb_selectors_attrib_name_cmp.exit68.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit69.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit68.thread.i
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !149
+  %122 = load ptr, ptr %121, align 8, !tbaa !176
   %123 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.25, ptr noundef %122, i64 noundef 4) #8
   br i1 %123, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split114.i
 
 thread-pre-split114.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit69.i
-  %.pr115.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr115.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit69.thread.i
 
 lxb_selectors_attrib_name_cmp.exit69.thread.i:    ; preds = %thread-pre-split114.i, %lxb_selectors_attrib_name_cmp.exit68.thread.i
@@ -3475,12 +3475,12 @@ lxb_selectors_attrib_name_cmp.exit69.thread.i:    ; preds = %thread-pre-split114
 
 lxb_selectors_attrib_name_cmp.exit70.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit69.thread.i
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !149
+  %127 = load ptr, ptr %126, align 8, !tbaa !176
   %128 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.26, ptr noundef %127, i64 noundef 5) #8
   br i1 %128, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit70.i
-  %.pre147.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre147.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit70.thread.i
 
 lxb_selectors_attrib_name_cmp.exit70.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit69.thread.i
@@ -3490,12 +3490,12 @@ lxb_selectors_attrib_name_cmp.exit70.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit71.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit70.thread.i
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !149
+  %132 = load ptr, ptr %131, align 8, !tbaa !176
   %133 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.27, ptr noundef %132, i64 noundef 6) #8
   br i1 %133, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split116.i
 
 thread-pre-split116.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit71.i
-  %.pr117.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr117.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit71.thread.i
 
 lxb_selectors_attrib_name_cmp.exit71.thread.i:    ; preds = %thread-pre-split116.i, %lxb_selectors_attrib_name_cmp.exit70.thread.i
@@ -3505,12 +3505,12 @@ lxb_selectors_attrib_name_cmp.exit71.thread.i:    ; preds = %thread-pre-split116
 
 lxb_selectors_attrib_name_cmp.exit72.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit71.thread.i
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !149
+  %137 = load ptr, ptr %136, align 8, !tbaa !176
   %138 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.28, ptr noundef %137, i64 noundef 8) #8
   br i1 %138, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit72.i
-  %.pre148.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre148.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit72.thread.i
 
 lxb_selectors_attrib_name_cmp.exit72.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit71.thread.i
@@ -3520,12 +3520,12 @@ lxb_selectors_attrib_name_cmp.exit72.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit73.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit72.thread.i
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !149
+  %142 = load ptr, ptr %141, align 8, !tbaa !176
   %143 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.29, ptr noundef %142, i64 noundef 6) #8
   br i1 %143, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split118.i
 
 thread-pre-split118.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit73.i
-  %.pr119.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr119.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit73.thread.i
 
 lxb_selectors_attrib_name_cmp.exit73.thread.i:    ; preds = %thread-pre-split118.i, %lxb_selectors_attrib_name_cmp.exit72.thread.i
@@ -3535,12 +3535,12 @@ lxb_selectors_attrib_name_cmp.exit73.thread.i:    ; preds = %thread-pre-split118
 
 lxb_selectors_attrib_name_cmp.exit74.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit73.thread.i
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !149
+  %147 = load ptr, ptr %146, align 8, !tbaa !176
   %148 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.30, ptr noundef %147, i64 noundef 8) #8
   br i1 %148, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit74.i
-  %.pre149.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre149.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit74.thread.i
 
 lxb_selectors_attrib_name_cmp.exit74.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit73.thread.i
@@ -3550,12 +3550,12 @@ lxb_selectors_attrib_name_cmp.exit74.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit75.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit74.thread.i
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !149
+  %152 = load ptr, ptr %151, align 8, !tbaa !176
   %153 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.31, ptr noundef %152, i64 noundef 7) #8
   br i1 %153, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split120.i
 
 thread-pre-split120.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit75.i
-  %.pr121.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr121.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit75.thread.i
 
 lxb_selectors_attrib_name_cmp.exit75.thread.i:    ; preds = %thread-pre-split120.i, %lxb_selectors_attrib_name_cmp.exit74.thread.i
@@ -3565,12 +3565,12 @@ lxb_selectors_attrib_name_cmp.exit75.thread.i:    ; preds = %thread-pre-split120
 
 lxb_selectors_attrib_name_cmp.exit76.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit75.thread.i
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !149
+  %157 = load ptr, ptr %156, align 8, !tbaa !176
   %158 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.32, ptr noundef %157, i64 noundef 6) #8
   br i1 %158, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit76.i
-  %.pre150.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre150.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit76.thread.i
 
 lxb_selectors_attrib_name_cmp.exit76.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit75.thread.i
@@ -3580,12 +3580,12 @@ lxb_selectors_attrib_name_cmp.exit76.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit77.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit76.thread.i
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !149
+  %162 = load ptr, ptr %161, align 8, !tbaa !176
   %163 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.33, ptr noundef %162, i64 noundef 8) #8
   br i1 %163, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split122.i
 
 thread-pre-split122.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit77.i
-  %.pr123.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr123.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit77.thread.i
 
 lxb_selectors_attrib_name_cmp.exit77.thread.i:    ; preds = %thread-pre-split122.i, %lxb_selectors_attrib_name_cmp.exit76.thread.i
@@ -3595,22 +3595,22 @@ lxb_selectors_attrib_name_cmp.exit77.thread.i:    ; preds = %thread-pre-split122
 
 lxb_selectors_attrib_name_cmp.exit78.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit77.thread.i
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !149
+  %167 = load ptr, ptr %166, align 8, !tbaa !176
   %168 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.34, ptr noundef %167, i64 noundef 3) #8
   br i1 %168, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit78.thread.i
 
 lxb_selectors_attrib_name_cmp.exit78.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit78.i
-  %.pre151.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre151.i = load i64, ptr %4, align 8, !tbaa !175
   %169 = icmp eq i64 %.pre151.i, 3
   br i1 %169, label %lxb_selectors_attrib_name_cmp.exit79.i, label %lxb_selectors_attrib_name_cmp.exit79.thread.i
 
 lxb_selectors_attrib_name_cmp.exit79.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit78.thread.i
-  %170 = load ptr, ptr %166, align 8, !tbaa !149
+  %170 = load ptr, ptr %166, align 8, !tbaa !176
   %171 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.35, ptr noundef %170, i64 noundef 3) #8
   br i1 %171, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split124.i
 
 thread-pre-split124.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit79.i
-  %.pr125.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr125.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit79.thread.i
 
 lxb_selectors_attrib_name_cmp.exit79.thread.i:    ; preds = %thread-pre-split124.i, %lxb_selectors_attrib_name_cmp.exit78.thread.i, %lxb_selectors_attrib_name_cmp.exit77.thread.i
@@ -3620,22 +3620,22 @@ lxb_selectors_attrib_name_cmp.exit79.thread.i:    ; preds = %thread-pre-split124
 
 lxb_selectors_attrib_name_cmp.exit80.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit79.thread.i
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !149
+  %175 = load ptr, ptr %174, align 8, !tbaa !176
   %176 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.36, ptr noundef %175, i64 noundef 5) #8
   br i1 %176, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit80.thread.i
 
 lxb_selectors_attrib_name_cmp.exit80.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit80.i
-  %.pre152.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre152.i = load i64, ptr %4, align 8, !tbaa !175
   %177 = icmp eq i64 %.pre152.i, 5
   br i1 %177, label %lxb_selectors_attrib_name_cmp.exit81.i, label %lxb_selectors_attrib_name_cmp.exit81.thread.i
 
 lxb_selectors_attrib_name_cmp.exit81.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit80.thread.i
-  %178 = load ptr, ptr %174, align 8, !tbaa !149
+  %178 = load ptr, ptr %174, align 8, !tbaa !176
   %179 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.37, ptr noundef %178, i64 noundef 5) #8
   br i1 %179, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split126.i
 
 thread-pre-split126.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit81.i
-  %.pr127.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr127.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit81.thread.i
 
 lxb_selectors_attrib_name_cmp.exit81.thread.i:    ; preds = %thread-pre-split126.i, %lxb_selectors_attrib_name_cmp.exit80.thread.i, %lxb_selectors_attrib_name_cmp.exit79.thread.i
@@ -3645,12 +3645,12 @@ lxb_selectors_attrib_name_cmp.exit81.thread.i:    ; preds = %thread-pre-split126
 
 lxb_selectors_attrib_name_cmp.exit82.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit81.thread.i
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %183 = load ptr, ptr %182, align 8, !tbaa !149
+  %183 = load ptr, ptr %182, align 8, !tbaa !176
   %184 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.38, ptr noundef %183, i64 noundef 9) #8
   br i1 %184, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit82.i
-  %.pre153.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre153.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit82.thread.i
 
 lxb_selectors_attrib_name_cmp.exit82.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit81.thread.i
@@ -3660,12 +3660,12 @@ lxb_selectors_attrib_name_cmp.exit82.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit83.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit82.thread.i
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %188 = load ptr, ptr %187, align 8, !tbaa !149
+  %188 = load ptr, ptr %187, align 8, !tbaa !176
   %189 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.39, ptr noundef %188, i64 noundef 8) #8
   br i1 %189, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split128.i
 
 thread-pre-split128.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit83.i
-  %.pr129.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr129.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit83.thread.i
 
 lxb_selectors_attrib_name_cmp.exit83.thread.i:    ; preds = %thread-pre-split128.i, %lxb_selectors_attrib_name_cmp.exit82.thread.i
@@ -3675,12 +3675,12 @@ lxb_selectors_attrib_name_cmp.exit83.thread.i:    ; preds = %thread-pre-split128
 
 lxb_selectors_attrib_name_cmp.exit84.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit83.thread.i
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !149
+  %193 = load ptr, ptr %192, align 8, !tbaa !176
   %194 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.40, ptr noundef %193, i64 noundef 5) #8
   br i1 %194, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit84.i
-  %.pre154.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre154.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit84.thread.i
 
 lxb_selectors_attrib_name_cmp.exit84.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit83.thread.i
@@ -3690,12 +3690,12 @@ lxb_selectors_attrib_name_cmp.exit84.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit85.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit84.thread.i
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !149
+  %198 = load ptr, ptr %197, align 8, !tbaa !176
   %199 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.41, ptr noundef %198, i64 noundef 6) #8
   br i1 %199, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split130.i
 
 thread-pre-split130.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit85.i
-  %.pr131.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr131.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit85.thread.i
 
 lxb_selectors_attrib_name_cmp.exit85.thread.i:    ; preds = %thread-pre-split130.i, %lxb_selectors_attrib_name_cmp.exit84.thread.i
@@ -3705,22 +3705,22 @@ lxb_selectors_attrib_name_cmp.exit85.thread.i:    ; preds = %thread-pre-split130
 
 lxb_selectors_attrib_name_cmp.exit86.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit85.thread.i
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load ptr, ptr %202, align 8, !tbaa !149
+  %203 = load ptr, ptr %202, align 8, !tbaa !176
   %204 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.42, ptr noundef %203, i64 noundef 4) #8
   br i1 %204, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit86.thread.i
 
 lxb_selectors_attrib_name_cmp.exit86.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit86.i
-  %.pre155.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre155.i = load i64, ptr %4, align 8, !tbaa !175
   %205 = icmp eq i64 %.pre155.i, 4
   br i1 %205, label %lxb_selectors_attrib_name_cmp.exit87.i, label %lxb_selectors_attrib_name_cmp.exit87.thread.i
 
 lxb_selectors_attrib_name_cmp.exit87.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit86.thread.i
-  %206 = load ptr, ptr %202, align 8, !tbaa !149
+  %206 = load ptr, ptr %202, align 8, !tbaa !176
   %207 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.43, ptr noundef %206, i64 noundef 4) #8
   br i1 %207, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split132.i
 
 thread-pre-split132.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit87.i
-  %.pr133.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr133.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit87.thread.i
 
 lxb_selectors_attrib_name_cmp.exit87.thread.i:    ; preds = %thread-pre-split132.i, %lxb_selectors_attrib_name_cmp.exit86.thread.i, %lxb_selectors_attrib_name_cmp.exit85.thread.i
@@ -3730,12 +3730,12 @@ lxb_selectors_attrib_name_cmp.exit87.thread.i:    ; preds = %thread-pre-split132
 
 lxb_selectors_attrib_name_cmp.exit88.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit87.thread.i
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !149
+  %211 = load ptr, ptr %210, align 8, !tbaa !176
   %212 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.44, ptr noundef %211, i64 noundef 6) #8
   br i1 %212, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit88.i
-  %.pre156.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre156.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit88.thread.i
 
 lxb_selectors_attrib_name_cmp.exit88.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit87.thread.i
@@ -3745,12 +3745,12 @@ lxb_selectors_attrib_name_cmp.exit88.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit89.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit88.thread.i
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !149
+  %216 = load ptr, ptr %215, align 8, !tbaa !176
   %217 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.45, ptr noundef %216, i64 noundef 9) #8
   br i1 %217, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split134.i
 
 thread-pre-split134.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit89.i
-  %.pr135.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr135.i = load i64, ptr %4, align 8, !tbaa !175
   br label %lxb_selectors_attrib_name_cmp.exit89.thread.i
 
 lxb_selectors_attrib_name_cmp.exit89.thread.i:    ; preds = %thread-pre-split134.i, %lxb_selectors_attrib_name_cmp.exit88.thread.i
@@ -3760,7 +3760,7 @@ lxb_selectors_attrib_name_cmp.exit89.thread.i:    ; preds = %thread-pre-split134
 
 220:                                              ; preds = %lxb_selectors_attrib_name_cmp.exit89.thread.i
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %222 = load ptr, ptr %221, align 8, !tbaa !149
+  %222 = load ptr, ptr %221, align 8, !tbaa !176
   %223 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.46, ptr noundef %222, i64 noundef 5) #8
   %224 = zext i1 %223 to i8
   br label %lxb_selectors_is_lowercased_html_attrib_name.exit
@@ -3768,22 +3768,22 @@ lxb_selectors_attrib_name_cmp.exit89.thread.i:    ; preds = %thread-pre-split134
 lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attrib_name_cmp.exit.i, %lxb_selectors_attrib_name_cmp.exit46.i, %lxb_selectors_attrib_name_cmp.exit47.i, %lxb_selectors_attrib_name_cmp.exit48.i, %lxb_selectors_attrib_name_cmp.exit49.i, %lxb_selectors_attrib_name_cmp.exit50.i, %lxb_selectors_attrib_name_cmp.exit51.i, %lxb_selectors_attrib_name_cmp.exit52.i, %lxb_selectors_attrib_name_cmp.exit53.i, %lxb_selectors_attrib_name_cmp.exit54.i, %lxb_selectors_attrib_name_cmp.exit55.i, %lxb_selectors_attrib_name_cmp.exit56.i, %lxb_selectors_attrib_name_cmp.exit57.i, %lxb_selectors_attrib_name_cmp.exit58.i, %lxb_selectors_attrib_name_cmp.exit59.i, %lxb_selectors_attrib_name_cmp.exit60.i, %lxb_selectors_attrib_name_cmp.exit61.i, %lxb_selectors_attrib_name_cmp.exit62.i, %lxb_selectors_attrib_name_cmp.exit63.i, %lxb_selectors_attrib_name_cmp.exit64.i, %lxb_selectors_attrib_name_cmp.exit65.i, %lxb_selectors_attrib_name_cmp.exit66.i, %lxb_selectors_attrib_name_cmp.exit67.i, %lxb_selectors_attrib_name_cmp.exit68.i, %lxb_selectors_attrib_name_cmp.exit69.i, %lxb_selectors_attrib_name_cmp.exit70.i, %lxb_selectors_attrib_name_cmp.exit71.i, %lxb_selectors_attrib_name_cmp.exit72.i, %lxb_selectors_attrib_name_cmp.exit73.i, %lxb_selectors_attrib_name_cmp.exit74.i, %lxb_selectors_attrib_name_cmp.exit75.i, %lxb_selectors_attrib_name_cmp.exit76.i, %lxb_selectors_attrib_name_cmp.exit77.i, %lxb_selectors_attrib_name_cmp.exit78.i, %lxb_selectors_attrib_name_cmp.exit79.i, %lxb_selectors_attrib_name_cmp.exit80.i, %lxb_selectors_attrib_name_cmp.exit81.i, %lxb_selectors_attrib_name_cmp.exit82.i, %lxb_selectors_attrib_name_cmp.exit83.i, %lxb_selectors_attrib_name_cmp.exit84.i, %lxb_selectors_attrib_name_cmp.exit85.i, %lxb_selectors_attrib_name_cmp.exit86.i, %lxb_selectors_attrib_name_cmp.exit87.i, %lxb_selectors_attrib_name_cmp.exit88.i, %lxb_selectors_attrib_name_cmp.exit89.i, %lxb_selectors_attrib_name_cmp.exit89.thread.i, %220
   %225 = phi i8 [ 1, %lxb_selectors_attrib_name_cmp.exit89.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit88.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit87.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit86.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit85.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit84.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit83.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit82.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit81.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit80.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit79.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit78.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit77.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit76.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit75.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit74.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit73.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit72.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit71.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit70.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit69.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit68.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit67.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit66.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit65.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit64.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit63.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit62.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit61.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit60.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit59.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit58.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit57.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit56.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit55.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit54.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit53.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit52.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit51.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit50.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit49.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit48.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit47.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit46.i ], [ 1, %lxb_selectors_attrib_name_cmp.exit.i ], [ 0, %lxb_selectors_attrib_name_cmp.exit89.thread.i ], [ %224, %220 ]
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %225, ptr %226, align 1, !tbaa !102
+  store i8 %225, ptr %226, align 1, !tbaa !119
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %228 = load ptr, ptr %227, align 8, !tbaa !81
+  %228 = load ptr, ptr %227, align 8, !tbaa !97
   %.not = icmp eq ptr %228, null
   br i1 %.not, label %.thread, label %229
 
 229:                                              ; preds = %lxb_selectors_is_lowercased_html_attrib_name.exit
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 152
-  %231 = load ptr, ptr %230, align 8, !tbaa !150
+  %231 = load ptr, ptr %230, align 8, !tbaa !177
   %.not17 = icmp eq ptr %231, null
   br i1 %.not17, label %.thread, label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %234 = load ptr, ptr %233, align 8, !tbaa !149
-  %235 = load i64, ptr %4, align 8, !tbaa !148
+  %234 = load ptr, ptr %233, align 8, !tbaa !176
+  %235 = load i64, ptr %4, align 8, !tbaa !175
   %236 = trunc i64 %235 to i32
   %237 = tail call ptr @xmlDictExists(ptr noundef nonnull %231, ptr noundef %234, i32 noundef %236) #8
   %.not18.not = icmp eq ptr %237, null
@@ -3791,15 +3791,15 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
 
 .thread:                                          ; preds = %232, %229, %lxb_selectors_is_lowercased_html_attrib_name.exit
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !149
+  %239 = load ptr, ptr %238, align 8, !tbaa !176
   br label %240
 
 240:                                              ; preds = %232, %.thread
   %.sink21 = phi ptr [ %239, %.thread ], [ %237, %232 ]
   %.sink = phi i8 [ 0, %.thread ], [ 1, %232 ]
-  store ptr %.sink21, ptr %0, align 8, !tbaa !77
+  store ptr %.sink21, ptr %0, align 8, !tbaa !93
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %241, align 8, !tbaa !154
+  store i8 %.sink, ptr %241, align 8, !tbaa !181
   ret void
 }
 
@@ -3836,13 +3836,13 @@ declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %2 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %3 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %0, ptr noundef %2) #8
   br i1 %3, label %4, label %.critedge
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %6 = load ptr, ptr %5, align 8, !tbaa !97
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   %8 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef %0) #8
@@ -3850,22 +3850,22 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(p
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.0.i.i4477 = load ptr, ptr %10, align 8, !tbaa !82
+  %.0.i.i4477 = load ptr, ptr %10, align 8, !tbaa !98
   %.not.i.i4578 = icmp eq ptr %.0.i.i4477, null
   br i1 %.not.i.i4578, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %14
   %.0.i.i4479 = phi ptr [ %.0.i.i44, %14 ], [ %.0.i.i4477, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %.0.i.i4479, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !83
+  %12 = load ptr, ptr %11, align 8, !tbaa !99
   %13 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %12, ptr noundef nonnull @.str.17, i64 noundef 9) #8
   br i1 %13, label %.thread50, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.0.i.i4479, i64 48
-  %.0.i.i44 = load ptr, ptr %15, align 8, !tbaa !82
+  %.0.i.i44 = load ptr, ptr %15, align 8, !tbaa !98
   %.not.i.i45 = icmp eq ptr %.0.i.i44, null
-  br i1 %.not.i.i45, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
+  br i1 %.not.i.i45, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph, !llvm.loop !101
 
 16:                                               ; preds = %4
   %17 = tail call ptr @xmlHasProp(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #8
@@ -3875,13 +3875,13 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(p
 .thread50:                                        ; preds = %.lr.ph, %16
   %.1.i.i3953 = phi ptr [ %17, %16 ], [ %.0.i.i4479, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i3953, i64 72
-  %19 = load ptr, ptr %18, align 8, !tbaa !85
+  %19 = load ptr, ptr %18, align 8, !tbaa !102
   %.not18.i.i41 = icmp eq ptr %19, null
   br i1 %.not18.i.i41, label %lxb_selectors_adapted_has_attr.exit46, label %lxb_selectors_adapted_has_attr.exit46.thread
 
 lxb_selectors_adapted_has_attr.exit46:            ; preds = %.thread50
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !79
+  %21 = load ptr, ptr %20, align 8, !tbaa !95
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.58) #9
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.critedge, label %24
@@ -3913,14 +3913,14 @@ lxb_selectors_adapted_has_attr.exit46:            ; preds = %.thread50
 
 lxb_selectors_adapted_has_attr.exit46.thread:     ; preds = %14, %9, %16, %.thread50, %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !79
+  %40 = load ptr, ptr %39, align 8, !tbaa !95
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(9) @.str.60) #9
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.preheader72, label %.critedge
 
 .preheader72:                                     ; preds = %lxb_selectors_adapted_has_attr.exit46.thread
   %.035.in84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.03585 = load ptr, ptr %.035.in84, align 8, !tbaa !46
+  %.03585 = load ptr, ptr %.035.in84, align 8, !tbaa !49
   %.not86 = icmp eq ptr %.03585, null
   br i1 %.not86, label %.critedge, label %.lr.ph88
 
@@ -3933,20 +3933,20 @@ lxb_selectors_adapted_has_attr.exit46.thread:     ; preds = %14, %9, %16, %.thre
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %.lr.ph88
-  %48 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %48 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %49 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.03587, ptr noundef %48) #8
   br i1 %49, label %50, label %lxb_selectors_adapted_has_attr.exit.thread
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %.03587, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !79
+  %52 = load ptr, ptr %51, align 8, !tbaa !95
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.60) #9
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %lxb_selectors_adapted_has_attr.exit.thread
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %.03587, i64 64
-  %57 = load ptr, ptr %56, align 8, !tbaa !81
+  %57 = load ptr, ptr %56, align 8, !tbaa !97
   %58 = icmp ne ptr %57, null
   tail call void @llvm.assume(i1 %58)
   %59 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %.03587) #8
@@ -3954,22 +3954,22 @@ lxb_selectors_adapted_has_attr.exit46.thread:     ; preds = %14, %9, %16, %.thre
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %.03587, i64 88
-  %.0.i.i80 = load ptr, ptr %61, align 8, !tbaa !82
+  %.0.i.i80 = load ptr, ptr %61, align 8, !tbaa !98
   %.not.i.i81 = icmp eq ptr %.0.i.i80, null
   br i1 %.not.i.i81, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %60, %65
   %.0.i.i82 = phi ptr [ %.0.i.i, %65 ], [ %.0.i.i80, %60 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !83
+  %63 = load ptr, ptr %62, align 8, !tbaa !99
   %64 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %63, ptr noundef nonnull @.str.17, i64 noundef 9) #8
   br i1 %64, label %.thread59, label %65
 
 65:                                               ; preds = %.lr.ph83
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 48
-  %.0.i.i = load ptr, ptr %66, align 8, !tbaa !82
+  %.0.i.i = load ptr, ptr %66, align 8, !tbaa !98
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph83
+  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit.thread, label %.lr.ph83, !llvm.loop !101
 
 67:                                               ; preds = %55
   %68 = tail call ptr @xmlHasProp(ptr noundef nonnull %.03587, ptr noundef nonnull @.str.17) #8
@@ -3979,7 +3979,7 @@ lxb_selectors_adapted_has_attr.exit46.thread:     ; preds = %14, %9, %16, %.thre
 .thread59:                                        ; preds = %.lr.ph83, %67
   %.1.i.i62 = phi ptr [ %68, %67 ], [ %.0.i.i82, %.lr.ph83 ]
   %69 = getelementptr inbounds nuw i8, ptr %.1.i.i62, i64 72
-  %70 = load ptr, ptr %69, align 8, !tbaa !85
+  %70 = load ptr, ptr %69, align 8, !tbaa !102
   %.not18.i.i = icmp eq ptr %70, null
   br i1 %.not18.i.i, label %lxb_selectors_adapted_has_attr.exit, label %lxb_selectors_adapted_has_attr.exit.thread
 
@@ -3996,13 +3996,13 @@ lxb_selectors_adapted_has_attr.exit:              ; preds = %.thread59
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %78 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %79 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.031, ptr noundef %78) #8
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !79
+  %82 = load ptr, ptr %81, align 8, !tbaa !95
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(7) @.str.61) #9
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %.preheader, label %88
@@ -4014,21 +4014,21 @@ lxb_selectors_adapted_has_attr.exit:              ; preds = %.thread59
 
 85:                                               ; preds = %.preheader
   %86 = getelementptr inbounds nuw i8, ptr %.030, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !46
+  %87 = load ptr, ptr %86, align 8, !tbaa !49
   %.not38 = icmp eq ptr %87, null
-  br i1 %.not38, label %.critedge, label %.preheader
+  br i1 %.not38, label %.critedge, label %.preheader, !llvm.loop !182
 
 88:                                               ; preds = %80, %77, %73
   %89 = getelementptr inbounds nuw i8, ptr %.031, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !45
+  %90 = load ptr, ptr %89, align 8, !tbaa !48
   %.not37 = icmp eq ptr %90, null
-  br i1 %.not37, label %lxb_selectors_adapted_has_attr.exit.thread, label %73
+  br i1 %.not37, label %lxb_selectors_adapted_has_attr.exit.thread, label %73, !llvm.loop !183
 
 lxb_selectors_adapted_has_attr.exit.thread:       ; preds = %65, %88, %60, %67, %.thread59, %50, %47
   %.035.in = getelementptr inbounds nuw i8, ptr %.03587, i64 40
-  %.035 = load ptr, ptr %.035.in, align 8, !tbaa !46
+  %.035 = load ptr, ptr %.035.in, align 8, !tbaa !49
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %.critedge, label %.lr.ph88
+  br i1 %.not, label %.critedge, label %.lr.ph88, !llvm.loop !184
 
 .critedge:                                        ; preds = %lxb_selectors_adapted_has_attr.exit.thread, %.lr.ph88, %.preheader, %85, %.preheader72, %lxb_selectors_adapted_has_attr.exit46.thread, %lxb_selectors_adapted_has_attr.exit46, %24, %27, %30, %33, %36, %1
   %.032 = phi i1 [ false, %1 ], [ true, %36 ], [ true, %33 ], [ true, %30 ], [ true, %27 ], [ true, %24 ], [ true, %lxb_selectors_adapted_has_attr.exit46 ], [ false, %lxb_selectors_adapted_has_attr.exit46.thread ], [ false, %.preheader72 ], [ %.not70.not.not, %85 ], [ %.not70.not.not, %.preheader ], [ false, %.lr.ph88 ], [ false, %lxb_selectors_adapted_has_attr.exit.thread ]
@@ -4037,13 +4037,13 @@ lxb_selectors_adapted_has_attr.exit.thread:       ; preds = %65, %88, %60, %67, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !107
+  %2 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !124
   %3 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %0, ptr noundef %2) #8
   br i1 %3, label %4, label %lxb_selectors_adapted_has_attr.exit17
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !79
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.52) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %12, label %9
@@ -4055,7 +4055,7 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 
 12:                                               ; preds = %9, %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  %14 = load ptr, ptr %13, align 8, !tbaa !97
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   %16 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %0) #8
@@ -4063,22 +4063,22 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.0.i.i1551 = load ptr, ptr %18, align 8, !tbaa !82
+  %.0.i.i1551 = load ptr, ptr %18, align 8, !tbaa !98
   %.not.i.i1652 = icmp eq ptr %.0.i.i1551, null
   br i1 %.not.i.i1652, label %.thread, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %17, %22
   %.0.i.i1553 = phi ptr [ %.0.i.i15, %22 ], [ %.0.i.i1551, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i1553, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !83
+  %20 = load ptr, ptr %19, align 8, !tbaa !99
   %21 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %20, ptr noundef nonnull @.str.33, i64 noundef 9) #8
   br i1 %21, label %.thread21, label %22
 
 22:                                               ; preds = %.lr.ph54
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i1553, i64 48
-  %.0.i.i15 = load ptr, ptr %23, align 8, !tbaa !82
+  %.0.i.i15 = load ptr, ptr %23, align 8, !tbaa !98
   %.not.i.i16 = icmp eq ptr %.0.i.i15, null
-  br i1 %.not.i.i16, label %.thread, label %.lr.ph54
+  br i1 %.not.i.i16, label %.thread, label %.lr.ph54, !llvm.loop !101
 
 24:                                               ; preds = %12
   %25 = tail call ptr @xmlHasProp(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #8
@@ -4088,12 +4088,12 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 .thread21:                                        ; preds = %.lr.ph54, %24
   %.1.i.i1024 = phi ptr [ %25, %24 ], [ %.0.i.i1553, %.lr.ph54 ]
   %26 = getelementptr inbounds nuw i8, ptr %.1.i.i1024, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !85
+  %27 = load ptr, ptr %26, align 8, !tbaa !102
   %.not18.i.i12 = icmp eq ptr %27, null
   br i1 %.not18.i.i12, label %lxb_selectors_adapted_has_attr.exit17, label %.thread
 
 .thread:                                          ; preds = %22, %17, %.thread21, %24
-  %28 = load ptr, ptr %13, align 8, !tbaa !81
+  %28 = load ptr, ptr %13, align 8, !tbaa !97
   %29 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %29)
   %30 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %0) #8
@@ -4101,22 +4101,22 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 
 31:                                               ; preds = %.thread
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.0.i.i55 = load ptr, ptr %32, align 8, !tbaa !82
+  %.0.i.i55 = load ptr, ptr %32, align 8, !tbaa !98
   %.not.i.i56 = icmp eq ptr %.0.i.i55, null
   br i1 %.not.i.i56, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %31, %36
   %.0.i.i57 = phi ptr [ %.0.i.i, %36 ], [ %.0.i.i55, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !83
+  %34 = load ptr, ptr %33, align 8, !tbaa !99
   %35 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %34, ptr noundef nonnull @.str.17, i64 noundef 9) #8
   br i1 %35, label %.thread30, label %36
 
 36:                                               ; preds = %.lr.ph58
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 48
-  %.0.i.i = load ptr, ptr %37, align 8, !tbaa !82
+  %.0.i.i = load ptr, ptr %37, align 8, !tbaa !98
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph58
+  br i1 %.not.i.i, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph58, !llvm.loop !101
 
 38:                                               ; preds = %.thread
   %39 = tail call ptr @xmlHasProp(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #8
@@ -4126,13 +4126,13 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 .thread30:                                        ; preds = %.lr.ph58, %38
   %.1.i.i33 = phi ptr [ %39, %38 ], [ %.0.i.i57, %.lr.ph58 ]
   %40 = getelementptr inbounds nuw i8, ptr %.1.i.i33, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !85
+  %41 = load ptr, ptr %40, align 8, !tbaa !102
   %.not18.i.i = icmp ne ptr %41, null
   br label %lxb_selectors_adapted_has_attr.exit17
 
 42:                                               ; preds = %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load ptr, ptr %43, align 8, !tbaa !81
+  %44 = load ptr, ptr %43, align 8, !tbaa !97
   %45 = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %45)
   %46 = tail call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %0) #8
@@ -4140,22 +4140,22 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.0.i48 = load ptr, ptr %48, align 8, !tbaa !82
+  %.0.i48 = load ptr, ptr %48, align 8, !tbaa !98
   %.not.i49 = icmp eq ptr %.0.i48, null
   br i1 %.not.i49, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47, %52
   %.0.i50 = phi ptr [ %.0.i, %52 ], [ %.0.i48, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i50, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !83
+  %50 = load ptr, ptr %49, align 8, !tbaa !99
   %51 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %50, ptr noundef nonnull @.str.62, i64 noundef 16) #8
   br i1 %51, label %.thread38, label %52
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds nuw i8, ptr %.0.i50, i64 48
-  %.0.i = load ptr, ptr %53, align 8, !tbaa !82
+  %.0.i = load ptr, ptr %53, align 8, !tbaa !98
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph
+  br i1 %.not.i, label %lxb_selectors_adapted_has_attr.exit17, label %.lr.ph, !llvm.loop !101
 
 54:                                               ; preds = %42
   %55 = tail call ptr @xmlHasProp(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #8
@@ -4165,7 +4165,7 @@ define internal fastcc zeroext i1 @lxb_selectors_pseudo_class_read_write(ptr nou
 .thread38:                                        ; preds = %.lr.ph, %54
   %.1.i41 = phi ptr [ %55, %54 ], [ %.0.i50, %.lr.ph ]
   %56 = getelementptr inbounds nuw i8, ptr %.1.i41, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !85
+  %57 = load ptr, ptr %56, align 8, !tbaa !102
   %.not18.i = icmp eq ptr %57, null
   br i1 %.not18.i, label %lxb_selectors_adapted_attr.exit, label %lxb_selectors_adapted_has_attr.exit17
 
@@ -4240,114 +4240,144 @@ attributes #9 = { nounwind willreturn memory(read) }
 !41 = !{!15, !20, i64 32}
 !42 = !{!5, !6, i64 0}
 !43 = !{!5, !10, i64 32}
-!44 = !{!27, !6, i64 8}
-!45 = !{!35, !20, i64 48}
-!46 = !{!35, !20, i64 40}
-!47 = !{!48, !11, i64 0}
-!48 = !{!"lxb_css_selector", !11, i64 0, !11, i64 4, !49, i64 8, !49, i64 24, !7, i64 40, !19, i64 64, !19, i64 72, !23, i64 80}
-!49 = !{!"", !17, i64 0, !28, i64 8}
-!50 = !{!51, !11, i64 0}
-!51 = !{!"", !11, i64 0, !6, i64 8}
-!52 = !{!51, !6, i64 8}
-!53 = !{!54, !23, i64 16}
-!54 = !{!"", !55, i64 0, !23, i64 16}
-!55 = !{!"", !28, i64 0, !28, i64 8}
-!56 = !{!15, !9, i64 64}
-!57 = !{!27, !10, i64 40}
-!58 = !{!35, !20, i64 56}
-!59 = !{!22, !19, i64 0}
-!60 = !{!48, !11, i64 4}
-!61 = !{!20, !20, i64 0}
-!62 = !{!27, !20, i64 32}
-!63 = !{!27, !18, i64 64}
-!64 = !{!27, !28, i64 56}
-!65 = !{!15, !10, i64 40}
-!66 = !{!48, !23, i64 80}
-!67 = !{!22, !23, i64 24}
-!68 = !{!15, !10, i64 56}
-!69 = !{!48, !19, i64 72}
-!70 = !{!22, !11, i64 48}
-!71 = !{!15, !10, i64 48}
-!72 = !{i8 0, i8 2}
-!73 = !{}
-!74 = !{!18, !18, i64 0}
-!75 = !{!54, !28, i64 0}
-!76 = !{!54, !28, i64 8}
-!77 = !{!15, !17, i64 0}
-!78 = !{!16, !17, i64 0}
-!79 = !{!35, !17, i64 16}
-!80 = !{!16, !18, i64 8}
-!81 = !{!35, !36, i64 64}
-!82 = !{!38, !38, i64 0}
-!83 = !{!84, !17, i64 16}
-!84 = !{!"_xmlAttr", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !38, i64 48, !38, i64 56, !36, i64 64, !37, i64 72, !11, i64 80, !6, i64 88}
-!85 = !{!84, !37, i64 72}
-!86 = !{!87, !17, i64 0}
-!87 = !{!"dom_lxb_str_wrapper", !49, i64 0, !18, i64 16}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"lxb_selectors_adapted_attr_value: argument 0"}
-!90 = distinct !{!90, !"lxb_selectors_adapted_attr_value"}
-!91 = !{!87, !28, i64 8}
-!92 = !{!49, !28, i64 8}
-!93 = !{!49, !17, i64 0}
-!94 = !{!87, !18, i64 16}
-!95 = !{!6, !6, i64 0}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"lxb_selectors_adapted_attr_value: argument 0"}
-!98 = distinct !{!98, !"lxb_selectors_adapted_attr_value"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"lxb_selectors_adapted_attr_value: argument 0"}
-!101 = distinct !{!101, !"lxb_selectors_adapted_attr_value"}
-!102 = !{!15, !18, i64 9}
-!103 = !{!104, !11, i64 0}
-!104 = !{!"", !11, i64 0, !11, i64 4, !49, i64 8}
-!105 = !{!104, !11, i64 4}
-!106 = !{!7, !7, i64 0}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
-!109 = !{!110, !127, i64 960}
-!110 = !{!"_zend_executor_globals", !111, i64 0, !111, i64 16, !7, i64 32, !112, i64 288, !112, i64 296, !113, i64 304, !113, i64 360, !115, i64 416, !11, i64 424, !18, i64 428, !111, i64 432, !11, i64 448, !116, i64 456, !116, i64 464, !116, i64 472, !117, i64 480, !117, i64 488, !118, i64 496, !28, i64 504, !119, i64 512, !120, i64 520, !11, i64 528, !119, i64 536, !11, i64 544, !28, i64 552, !11, i64 560, !11, i64 564, !11, i64 568, !18, i64 572, !18, i64 573, !121, i64 574, !121, i64 575, !116, i64 576, !28, i64 584, !6, i64 592, !6, i64 600, !113, i64 608, !113, i64 664, !11, i64 720, !18, i64 724, !111, i64 728, !111, i64 744, !122, i64 760, !122, i64 784, !122, i64 808, !120, i64 832, !11, i64 840, !11, i64 844, !28, i64 848, !116, i64 856, !116, i64 864, !123, i64 872, !124, i64 880, !126, i64 904, !127, i64 960, !127, i64 968, !128, i64 976, !7, i64 984, !129, i64 1080, !18, i64 1088, !7, i64 1089, !28, i64 1096, !11, i64 1104, !11, i64 1108, !130, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !131, i64 1640, !113, i64 1672, !28, i64 1728, !132, i64 1736, !133, i64 1760, !133, i64 1768, !134, i64 1776, !28, i64 1784, !18, i64 1792, !11, i64 1796, !135, i64 1800, !136, i64 1808, !28, i64 1816, !137, i64 1824, !28, i64 1840, !28, i64 1848, !138, i64 1856, !7, i64 1936}
-!111 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!112 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
-!113 = !{!"_zend_array", !114, i64 0, !7, i64 8, !11, i64 12, !7, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !28, i64 40, !6, i64 48}
-!114 = !{!"_zend_refcounted_h", !11, i64 0, !7, i64 4}
-!115 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
-!116 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
-!117 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
-!118 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
-!119 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
-!120 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
-!121 = !{!"zend_atomic_bool_s", !7, i64 0}
-!122 = !{!"_zend_stack", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 16}
-!123 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
-!124 = !{!"_zend_objects_store", !125, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!125 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
-!126 = !{!"_zend_lazy_objects_store", !113, i64 0}
-!127 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
-!128 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
-!129 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
-!130 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
-!131 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !11, i64 20, !11, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!132 = !{!"", !117, i64 0, !117, i64 8, !117, i64 16}
-!133 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
-!134 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
-!135 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
-!136 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
-!137 = !{!"_zend_call_stack", !6, i64 0, !28, i64 8}
-!138 = !{!"_zend_strtod_state", !7, i64 0, !139, i64 64, !17, i64 72}
-!139 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"lxb_selectors_adapted_attr_value: argument 0"}
-!142 = distinct !{!142, !"lxb_selectors_adapted_attr_value"}
-!143 = !{!35, !37, i64 72}
-!144 = !{!145, !17, i64 16}
-!145 = !{!"_xmlNs", !37, i64 0, !11, i64 8, !17, i64 16, !17, i64 24, !6, i64 32, !36, i64 40}
-!146 = distinct !{!146, !147}
-!147 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!148 = !{!48, !28, i64 16}
-!149 = !{!48, !17, i64 8}
-!150 = !{!151, !153, i64 152}
-!151 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !36, i64 64, !11, i64 72, !11, i64 76, !152, i64 80, !152, i64 88, !37, i64 96, !17, i64 104, !17, i64 112, !6, i64 120, !6, i64 128, !17, i64 136, !11, i64 144, !153, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
-!152 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
-!153 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
-!154 = !{!15, !18, i64 8}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!27, !6, i64 8}
+!47 = distinct !{!47, !45}
+!48 = !{!35, !20, i64 48}
+!49 = !{!35, !20, i64 40}
+!50 = distinct !{!50, !45}
+!51 = !{!52, !11, i64 0}
+!52 = !{!"lxb_css_selector", !11, i64 0, !11, i64 4, !53, i64 8, !53, i64 24, !7, i64 40, !19, i64 64, !19, i64 72, !23, i64 80}
+!53 = !{!"", !17, i64 0, !28, i64 8}
+!54 = !{!55, !11, i64 0}
+!55 = !{!"", !11, i64 0, !6, i64 8}
+!56 = !{!55, !6, i64 8}
+!57 = !{!58, !23, i64 16}
+!58 = !{!"", !59, i64 0, !23, i64 16}
+!59 = !{!"", !28, i64 0, !28, i64 8}
+!60 = !{!15, !9, i64 64}
+!61 = !{!27, !10, i64 40}
+!62 = distinct !{!62, !45}
+!63 = !{!35, !20, i64 56}
+!64 = distinct !{!64, !45}
+!65 = distinct !{!65, !45}
+!66 = distinct !{!66, !45}
+!67 = !{!22, !19, i64 0}
+!68 = !{!52, !11, i64 4}
+!69 = !{!20, !20, i64 0}
+!70 = distinct !{!70, !45}
+!71 = !{!27, !20, i64 32}
+!72 = !{!27, !18, i64 64}
+!73 = !{!27, !28, i64 56}
+!74 = !{!15, !10, i64 40}
+!75 = !{!52, !23, i64 80}
+!76 = !{!22, !23, i64 24}
+!77 = !{!15, !10, i64 56}
+!78 = distinct !{!78, !45}
+!79 = distinct !{!79, !45}
+!80 = !{!52, !19, i64 72}
+!81 = !{!22, !11, i64 48}
+!82 = !{!15, !10, i64 48}
+!83 = !{i8 0, i8 2}
+!84 = !{}
+!85 = distinct !{!85, !45}
+!86 = distinct !{!86, !45}
+!87 = !{!18, !18, i64 0}
+!88 = distinct !{!88, !45}
+!89 = distinct !{!89, !45}
+!90 = distinct !{!90, !45}
+!91 = !{!58, !28, i64 0}
+!92 = !{!58, !28, i64 8}
+!93 = !{!15, !17, i64 0}
+!94 = !{!16, !17, i64 0}
+!95 = !{!35, !17, i64 16}
+!96 = !{!16, !18, i64 8}
+!97 = !{!35, !36, i64 64}
+!98 = !{!38, !38, i64 0}
+!99 = !{!100, !17, i64 16}
+!100 = !{!"_xmlAttr", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !38, i64 48, !38, i64 56, !36, i64 64, !37, i64 72, !11, i64 80, !6, i64 88}
+!101 = distinct !{!101, !45}
+!102 = !{!100, !37, i64 72}
+!103 = !{!104, !17, i64 0}
+!104 = !{!"dom_lxb_str_wrapper", !53, i64 0, !18, i64 16}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"lxb_selectors_adapted_attr_value: argument 0"}
+!107 = distinct !{!107, !"lxb_selectors_adapted_attr_value"}
+!108 = !{!104, !28, i64 8}
+!109 = !{!53, !28, i64 8}
+!110 = !{!53, !17, i64 0}
+!111 = !{!104, !18, i64 16}
+!112 = !{!6, !6, i64 0}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"lxb_selectors_adapted_attr_value: argument 0"}
+!115 = distinct !{!115, !"lxb_selectors_adapted_attr_value"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"lxb_selectors_adapted_attr_value: argument 0"}
+!118 = distinct !{!118, !"lxb_selectors_adapted_attr_value"}
+!119 = !{!15, !18, i64 9}
+!120 = !{!121, !11, i64 0}
+!121 = !{!"", !11, i64 0, !11, i64 4, !53, i64 8}
+!122 = !{!121, !11, i64 4}
+!123 = !{!7, !7, i64 0}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
+!126 = !{!127, !144, i64 960}
+!127 = !{!"_zend_executor_globals", !128, i64 0, !128, i64 16, !7, i64 32, !129, i64 288, !129, i64 296, !130, i64 304, !130, i64 360, !132, i64 416, !11, i64 424, !18, i64 428, !128, i64 432, !11, i64 448, !133, i64 456, !133, i64 464, !133, i64 472, !134, i64 480, !134, i64 488, !135, i64 496, !28, i64 504, !136, i64 512, !137, i64 520, !11, i64 528, !136, i64 536, !11, i64 544, !28, i64 552, !11, i64 560, !11, i64 564, !11, i64 568, !18, i64 572, !18, i64 573, !138, i64 574, !138, i64 575, !133, i64 576, !28, i64 584, !6, i64 592, !6, i64 600, !130, i64 608, !130, i64 664, !11, i64 720, !18, i64 724, !128, i64 728, !128, i64 744, !139, i64 760, !139, i64 784, !139, i64 808, !137, i64 832, !11, i64 840, !11, i64 844, !28, i64 848, !133, i64 856, !133, i64 864, !140, i64 872, !141, i64 880, !143, i64 904, !144, i64 960, !144, i64 968, !145, i64 976, !7, i64 984, !146, i64 1080, !18, i64 1088, !7, i64 1089, !28, i64 1096, !11, i64 1104, !11, i64 1108, !147, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !148, i64 1640, !130, i64 1672, !28, i64 1728, !149, i64 1736, !150, i64 1760, !150, i64 1768, !151, i64 1776, !28, i64 1784, !18, i64 1792, !11, i64 1796, !152, i64 1800, !153, i64 1808, !28, i64 1816, !154, i64 1824, !28, i64 1840, !28, i64 1848, !155, i64 1856, !7, i64 1936}
+!128 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!129 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
+!130 = !{!"_zend_array", !131, i64 0, !7, i64 8, !11, i64 12, !7, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !28, i64 40, !6, i64 48}
+!131 = !{!"_zend_refcounted_h", !11, i64 0, !7, i64 4}
+!132 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
+!133 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
+!134 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
+!135 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
+!136 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
+!137 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
+!138 = !{!"zend_atomic_bool_s", !7, i64 0}
+!139 = !{!"_zend_stack", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 16}
+!140 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
+!141 = !{!"_zend_objects_store", !142, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!142 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
+!143 = !{!"_zend_lazy_objects_store", !130, i64 0}
+!144 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
+!145 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
+!146 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
+!147 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
+!148 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !11, i64 20, !11, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
+!149 = !{!"", !134, i64 0, !134, i64 8, !134, i64 16}
+!150 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
+!151 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
+!152 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
+!153 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
+!154 = !{!"_zend_call_stack", !6, i64 0, !28, i64 8}
+!155 = !{!"_zend_strtod_state", !7, i64 0, !156, i64 64, !17, i64 72}
+!156 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"lxb_selectors_adapted_attr_value: argument 0"}
+!159 = distinct !{!159, !"lxb_selectors_adapted_attr_value"}
+!160 = distinct !{!160, !45}
+!161 = distinct !{!161, !45}
+!162 = !{!35, !37, i64 72}
+!163 = !{!164, !17, i64 16}
+!164 = !{!"_xmlNs", !37, i64 0, !11, i64 8, !17, i64 16, !17, i64 24, !6, i64 32, !36, i64 40}
+!165 = distinct !{!165, !45}
+!166 = distinct !{!166, !45}
+!167 = distinct !{!167, !45}
+!168 = distinct !{!168, !45}
+!169 = distinct !{!169, !45}
+!170 = distinct !{!170, !45}
+!171 = distinct !{!171, !45}
+!172 = distinct !{!172, !45, !173}
+!173 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!174 = distinct !{!174, !45}
+!175 = !{!52, !28, i64 16}
+!176 = !{!52, !17, i64 8}
+!177 = !{!178, !180, i64 152}
+!178 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !36, i64 64, !11, i64 72, !11, i64 76, !179, i64 80, !179, i64 88, !37, i64 96, !17, i64 104, !17, i64 112, !6, i64 120, !6, i64 128, !17, i64 136, !11, i64 144, !180, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
+!179 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
+!180 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
+!181 = !{!15, !18, i64 8}
+!182 = distinct !{!182, !45}
+!183 = distinct !{!183, !45}
+!184 = distinct !{!184, !45}

@@ -160,12 +160,12 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %37 = phi i64 [ %.pre, %36 ], [ %15, %14 ]
   %38 = load i64, ptr %5, align 8, !noundef !10
   %.not = icmp eq i64 %38, %37
-  br i1 %.not, label %.loopexit, label %10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !31
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17h59c7c84298c01dfcE.llvm.5886860900680153014(ptr noalias noundef writeonly sret({ { { i64, [3 x i64] }, { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [3 x i64] } } }) align 8 captures(none) dereferenceable(176) initializes((0, 176)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(176) %1) unnamed_addr #1 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false), !alias.scope !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false), !alias.scope !33
   ret void
 }
 
@@ -203,10 +203,10 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hd5ba218cbd6d3169E.llvm.5886860900680153014"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !35, !noundef !10
-  %3 = load ptr, ptr %2, align 8, !alias.scope !36, !nonnull !10, !align !11, !noundef !10
+  %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !37, !noundef !10
+  %3 = load ptr, ptr %2, align 8, !alias.scope !38, !nonnull !10, !align !11, !noundef !10
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !36, !noundef !10
+  %5 = load i64, ptr %4, align 8, !alias.scope !38, !noundef !10
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
   ret { ptr, i64 } %7
@@ -307,11 +307,13 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h975d9f7efaae8304E.llvm.6452430515971996476: argument 0"}
 !30 = distinct !{!30, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h975d9f7efaae8304E.llvm.6452430515971996476"}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014: argument 0"}
-!33 = distinct !{!33, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014"}
-!34 = distinct !{!34, !33, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014: argument 1"}
-!35 = !{i64 8}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h2f400077a565ce4bE.llvm.5886860900680153014: argument 0"}
-!38 = distinct !{!38, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h2f400077a565ce4bE.llvm.5886860900680153014"}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014: argument 0"}
+!35 = distinct !{!35, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014"}
+!36 = distinct !{!36, !35, !"_ZN3std2fs8Metadata17h815afeca2b940f0fE.llvm.5886860900680153014: argument 1"}
+!37 = !{i64 8}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h2f400077a565ce4bE.llvm.5886860900680153014: argument 0"}
+!40 = distinct !{!40, !"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h2f400077a565ce4bE.llvm.5886860900680153014"}

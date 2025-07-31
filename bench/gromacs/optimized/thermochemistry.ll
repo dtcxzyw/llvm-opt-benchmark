@@ -63,7 +63,7 @@ define noundef double @_Z19calcZeroPointEnergyN3gmx8ArrayRefIKfEEf(ptr readonly 
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %.015)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 4
   %.not = icmp eq ptr %13, %1
-  br i1 %.not, label %._crit_edge, label %6
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -119,7 +119,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
   %31 = fdiv double 1.000000e+00, %30
   %32 = fadd double %31, 5.000000e-01
   %33 = fmul double %27, %32
-  %34 = load ptr, ptr @debug, align 8, !tbaa !10
+  %34 = load ptr, ptr @debug, align 8, !tbaa !12
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %39, label %35
 
@@ -137,7 +137,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
   %.2 = phi double [ %.028, %17 ], [ %40, %39 ], [ %.028, %21 ]
   %42 = add nuw nsw i64 %.02126, 1
   %exitcond.not = icmp eq i64 %42, %10
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -194,7 +194,7 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   %31 = fdiv double %26, %30
   %32 = fmul double %31, %31
   %33 = fmul double %29, %32
-  %34 = load ptr, ptr @debug, align 8, !tbaa !10
+  %34 = load ptr, ptr @debug, align 8, !tbaa !12
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %39, label %35
 
@@ -212,7 +212,7 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   %.2 = phi double [ %.028, %16 ], [ %40, %39 ], [ %.028, %20 ]
   %42 = add nuw nsw i64 %.02126, 1
   %exitcond.not = icmp eq i64 %42, %10
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -395,7 +395,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   %32 = tail call double @log1p(double noundef %31) #8, !tbaa !4
   %33 = fsub double %28, %32
   %34 = fadd double %.030, %33
-  %35 = load ptr, ptr @debug, align 8, !tbaa !10
+  %35 = load ptr, ptr @debug, align 8, !tbaa !12
   %.not25 = icmp eq ptr %35, null
   br i1 %.not25, label %47, label %36
 
@@ -406,7 +406,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   br label %47
 
 40:                                               ; preds = %16
-  %41 = load ptr, ptr @debug, align 8, !tbaa !10
+  %41 = load ptr, ptr @debug, align 8, !tbaa !12
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
 
@@ -421,7 +421,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   %.1 = phi double [ %.030, %42 ], [ %.030, %40 ], [ %34, %36 ], [ %34, %20 ]
   %48 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp eq i64 %48, %10
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -434,7 +434,7 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
   %7 = fmul double %6, 0x3B30B0E6D55E647C
   %8 = fmul double %7, 0x401D8E64B8D4DDAE
   %9 = fdiv double %8, 0x31D3305F5B331615
-  %10 = load ptr, ptr @debug, align 8, !tbaa !10
+  %10 = load ptr, ptr @debug, align 8, !tbaa !12
   %.not = icmp eq ptr %10, null
   %.pre = ptrtoint ptr %1 to i64
   %.pre22 = ptrtoint ptr %0 to i64
@@ -470,7 +470,7 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
   %21 = fadd double %.020, %20
   %22 = add nuw nsw i64 %.01519, 1
   %exitcond.not = icmp eq i64 %22, %.pre26
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 }
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -496,11 +496,13 @@ attributes #9 = { noreturn }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!12 = !{!"any pointer", !6, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = distinct !{!15, !16, !11}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16, !11}
+!18 = distinct !{!18, !16, !11}
+!19 = distinct !{!19, !16, !11}

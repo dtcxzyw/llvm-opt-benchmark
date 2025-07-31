@@ -987,5 +987,6 @@ attributes #17 = { builtin nounwind }
 !49 = !{!50, !17, i64 0}
 !50 = !{!"_ZTSN2cv5RangeE", !17, i64 0, !17, i64 4}
 !51 = !{!50, !17, i64 4}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
+!54 = !{!"llvm.loop.estimated_trip_count"}

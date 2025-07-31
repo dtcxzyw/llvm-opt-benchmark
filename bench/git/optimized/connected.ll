@@ -159,7 +159,7 @@ strip_suffix.exit:                                ; preds = %27
 53:                                               ; preds = %48
   %54 = call ptr %0(ptr noundef %1) #11
   %.not88 = icmp eq ptr %54, null
-  br i1 %.not88, label %55, label %42, !llvm.loop !39
+  br i1 %.not88, label %55, label %42, !llvm.loop !40
 
 55:                                               ; preds = %53
   call void @free(ptr noundef %.049) #11
@@ -171,13 +171,13 @@ strip_suffix.exit:                                ; preds = %27
   br i1 %.not, label %.cont146.thread, label %.cont146
 
 .cont146:                                         ; preds = %.loopexit
-  %.else.val149 = load ptr, ptr %.sroa.gep104, align 8, !tbaa !40
+  %.else.val149 = load ptr, ptr %.sroa.gep104, align 8, !tbaa !41
   %.not72 = icmp eq ptr %.else.val149, null
   br i1 %.not72, label %.cont146.thread, label %.cont143
 
 .cont143:                                         ; preds = %.cont146
   %56 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull @.str.2) #11
-  %.else.val145 = load ptr, ptr %.sroa.gep104, align 8, !tbaa !40
+  %.else.val145 = load ptr, ptr %.sroa.gep104, align 8, !tbaa !41
   %57 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef %.else.val145) #11
   br label %.cont146.thread
 
@@ -211,7 +211,7 @@ strip_suffix.exit:                                ; preds = %27
 .cont:                                            ; preds = %.cont123
   %68 = call ptr @strvec_push(ptr noundef nonnull %4, ptr noundef nonnull @.str.7) #11
   %.sroa.gep110 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.else.val = load ptr, ptr %.sroa.gep110, align 8, !tbaa !41
+  %.else.val = load ptr, ptr %.sroa.gep110, align 8, !tbaa !42
   %.not75 = icmp eq ptr %.else.val, null
   br i1 %.not75, label %71, label %69
 
@@ -230,12 +230,12 @@ strip_suffix.exit:                                ; preds = %27
 
 .cont129:                                         ; preds = %73
   %.sroa.gep113 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %.else.val131 = load i32, ptr %.sroa.gep113, align 4, !tbaa !42
+  %.else.val131 = load i32, ptr %.sroa.gep113, align 4, !tbaa !43
   %.not76 = icmp eq i32 %.else.val131, 0
   br i1 %.not76, label %.cont126, label %76
 
 76:                                               ; preds = %.cont129
-  %77 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !43
+  %77 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not4.i = icmp eq i32 %77, 0
   br i1 %.not4.i, label %_.exit, label %78
 
@@ -254,7 +254,7 @@ _.exit:                                           ; preds = %76, %78
   %83 = or i16 %82, 8
   store i16 %83, ptr %81, align 8
   %.sroa.gep116172 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.else.val128 = load ptr, ptr %.sroa.gep116172, align 8, !tbaa !44
+  %.else.val128 = load ptr, ptr %.sroa.gep116172, align 8, !tbaa !45
   %.not77 = icmp eq ptr %.else.val128, null
   br i1 %.not77, label %.cont132, label %84
 
@@ -268,14 +268,14 @@ _.exit:                                           ; preds = %76, %78
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %87 = load i16, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 -1, ptr %88, align 8, !tbaa !45
+  store i32 -1, ptr %88, align 8, !tbaa !46
   %89 = or i16 %87, 10
   br label %.cont150
 
 .cont132:                                         ; preds = %.cont126, %84
   %90 = phi i16 [ %83, %.cont126 ], [ %.pre, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 -1, ptr %91, align 8, !tbaa !45
+  store i32 -1, ptr %91, align 8, !tbaa !46
   %92 = or i16 %90, 2
   store i16 %92, ptr %81, align 8
   %.sroa.gep119177 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -285,11 +285,11 @@ _.exit:                                           ; preds = %76, %78
 
 93:                                               ; preds = %.cont132
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %.else.val134, ptr %94, align 8, !tbaa !48
+  store i32 %.else.val134, ptr %94, align 8, !tbaa !49
   br label %104
 
 .else151:                                         ; preds = %.cont132
-  %.else.val152 = load i32, ptr %2, align 8, !tbaa !49
+  %.else.val152 = load i32, ptr %2, align 8, !tbaa !50
   %95 = trunc i32 %.else.val152 to i16
   %96 = shl i16 %95, 2
   %97 = and i16 %96, 4
@@ -313,7 +313,7 @@ _.exit:                                           ; preds = %76, %78
 
 107:                                              ; preds = %104
   call void @free(ptr noundef %.049) #11
-  %108 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !43
+  %108 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not4.i90 = icmp eq i32 %108, 0
   br i1 %.not4.i90, label %_.exit92, label %109
 
@@ -328,7 +328,7 @@ _.exit92:                                         ; preds = %107, %109
 
 112:                                              ; preds = %104
   %113 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #11
-  %114 = load i32, ptr %105, align 8, !tbaa !45
+  %114 = load i32, ptr %105, align 8, !tbaa !46
   %115 = call ptr @xfdopen(i32 noundef %114, ptr noundef nonnull @.str.15) #11
   %.not80 = icmp eq ptr %.049, null
   br i1 %.not80, label %.split.us, label %.split
@@ -343,7 +343,7 @@ _.exit92:                                         ; preds = %107, %109
 119:                                              ; preds = %.split.us
   %120 = call ptr %0(ptr noundef %1) #11
   %.not82.us = icmp eq ptr %120, null
-  br i1 %.not82.us, label %.split187.us, label %.split.us, !llvm.loop !50
+  br i1 %.not82.us, label %.split187.us, label %.split.us, !llvm.loop !51
 
 .split:                                           ; preds = %112, %126
   %.2 = phi ptr [ %127, %126 ], [ %.152, %112 ]
@@ -360,7 +360,7 @@ _.exit92:                                         ; preds = %107, %109
 126:                                              ; preds = %122, %.split
   %127 = call ptr %0(ptr noundef %1) #11
   %.not82 = icmp eq ptr %127, null
-  br i1 %.not82, label %.split187.us, label %.split, !llvm.loop !52
+  br i1 %.not82, label %.split187.us, label %.split, !llvm.loop !53
 
 .split187.us:                                     ; preds = %126, %122, %.split.us, %119
   %128 = call i32 @ferror(ptr noundef %115) #11
@@ -374,14 +374,14 @@ _.exit92:                                         ; preds = %107, %109
 
 131:                                              ; preds = %129, %.split187.us
   %132 = tail call ptr @__errno_location() #13
-  %133 = load i32, ptr %132, align 4, !tbaa !43
+  %133 = load i32, ptr %132, align 4, !tbaa !44
   switch i32 %133, label %134 [
     i32 32, label %139
     i32 22, label %139
   ]
 
 134:                                              ; preds = %131
-  %135 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !43
+  %135 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not4.i93 = icmp eq i32 %135, 0
   br i1 %.not4.i93, label %_.exit95, label %136
 
@@ -401,7 +401,7 @@ _.exit95:                                         ; preds = %134, %136
   br i1 %.not87, label %146, label %141
 
 141:                                              ; preds = %139
-  %142 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !43
+  %142 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not4.i96 = icmp eq i32 %142, 0
   br i1 %.not4.i96, label %_.exit98, label %143
 
@@ -558,19 +558,20 @@ attributes #13 = { nounwind willreturn memory(none) }
 !34 = !{!33, !23, i64 8}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 _ZTS10packed_git", !10, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = !{!5, !9, i64 8}
-!41 = !{!5, !9, i64 48}
-!42 = !{!5, !6, i64 28}
-!43 = !{!6, !6, i64 0}
-!44 = !{!5, !12, i64 32}
-!45 = !{!46, !6, i64 80}
-!46 = !{!"child_process", !47, i64 0, !47, i64 24, !6, i64 48, !6, i64 52, !23, i64 56, !9, i64 64, !9, i64 72, !6, i64 80, !6, i64 84, !6, i64 88, !9, i64 96, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 105, !6, i64 105, !10, i64 112}
-!47 = !{!"strvec", !12, i64 0, !23, i64 8, !23, i64 16}
-!48 = !{!46, !6, i64 88}
-!49 = !{!5, !6, i64 0}
-!50 = distinct !{!50, !38, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}
+!41 = !{!5, !9, i64 8}
+!42 = !{!5, !9, i64 48}
+!43 = !{!5, !6, i64 28}
+!44 = !{!6, !6, i64 0}
+!45 = !{!5, !12, i64 32}
+!46 = !{!47, !6, i64 80}
+!47 = !{!"child_process", !48, i64 0, !48, i64 24, !6, i64 48, !6, i64 52, !23, i64 56, !9, i64 64, !9, i64 72, !6, i64 80, !6, i64 84, !6, i64 88, !9, i64 96, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 105, !6, i64 105, !10, i64 112}
+!48 = !{!"strvec", !12, i64 0, !23, i64 8, !23, i64 16}
+!49 = !{!47, !6, i64 88}
+!50 = !{!5, !6, i64 0}
+!51 = distinct !{!51, !38, !39, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !38, !39}

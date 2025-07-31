@@ -464,7 +464,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -565,7 +565,7 @@ if.then26:                                        ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %if.then26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
   %call31 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector)
@@ -614,7 +614,7 @@ for.inc62:                                        ; preds = %for.body43, %if.the
   %distance.1 = phi double [ %call52, %if.then59 ], [ %distance.065, %if.then48 ], [ %distance.065, %for.body43 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %if.end97, label %for.body43, !llvm.loop !9
+  br i1 %exitcond81.not, label %if.end97, label %for.body43, !llvm.loop !10
 
 if.else:                                          ; preds = %land.lhs.true37, %for.end
   %cmp65 = fcmp ugt double %call33, 0.000000e+00
@@ -660,7 +660,7 @@ for.inc92:                                        ; preds = %for.body72, %if.the
   %distance.4 = phi double [ %call82, %if.then89 ], [ %distance.368, %if.then77 ], [ %distance.368, %for.body72 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %if.end97, label %for.body72, !llvm.loop !10
+  br i1 %exitcond86.not, label %if.end97, label %for.body72, !llvm.loop !11
 
 if.end97:                                         ; preds = %for.inc62, %for.inc92
   %distance.2 = phi double [ %distance.4, %for.inc92 ], [ %distance.1, %for.inc62 ]
@@ -702,7 +702,7 @@ for.inc122:                                       ; preds = %for.body101, %if.th
   %distance.6 = phi double [ %distance.572, %for.body101 ], [ %distance.572, %if.then106 ], [ %call111, %if.then119 ], [ %distance.572, %land.lhs.true115 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %for.end124, label %for.body101, !llvm.loop !11
+  br i1 %exitcond91.not, label %for.end124, label %for.body101, !llvm.loop !12
 
 for.end124:                                       ; preds = %for.inc122, %for.cond70.preheader, %for.cond41.preheader, %if.end97
   %distance.5.lcssa = phi double [ %distance.2, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
@@ -845,7 +845,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
-  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !12
+  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !13
 
 lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
@@ -942,7 +942,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 64
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1034,7 +1034,7 @@ if.then26:                                        ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %if.then26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %entry
   %call31 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %shapeEdgeSelector)
@@ -1083,7 +1083,7 @@ for.inc62:                                        ; preds = %for.body43, %if.the
   %distance.1 = phi double [ %call52, %if.then59 ], [ %distance.063, %if.then48 ], [ %distance.063, %for.body43 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %if.end97, label %for.body43, !llvm.loop !15
+  br i1 %exitcond79.not, label %if.end97, label %for.body43, !llvm.loop !16
 
 if.else:                                          ; preds = %land.lhs.true37, %for.end
   %cmp65 = fcmp ugt double %call33, 0.000000e+00
@@ -1129,7 +1129,7 @@ for.inc92:                                        ; preds = %for.body72, %if.the
   %distance.4 = phi double [ %call82, %if.then89 ], [ %distance.366, %if.then77 ], [ %distance.366, %for.body72 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %if.end97, label %for.body72, !llvm.loop !16
+  br i1 %exitcond84.not, label %if.end97, label %for.body72, !llvm.loop !17
 
 if.end97:                                         ; preds = %for.inc62, %for.inc92
   %distance.2 = phi double [ %distance.4, %for.inc92 ], [ %distance.1, %for.inc62 ]
@@ -1171,7 +1171,7 @@ for.inc122:                                       ; preds = %for.body101, %if.th
   %distance.6 = phi double [ %distance.570, %for.body101 ], [ %distance.570, %if.then106 ], [ %call111, %if.then119 ], [ %distance.570, %land.lhs.true115 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %for.end124, label %for.body101, !llvm.loop !17
+  br i1 %exitcond89.not, label %for.end124, label %for.body101, !llvm.loop !18
 
 for.end124:                                       ; preds = %for.inc122, %for.cond70.preheader, %for.cond41.preheader, %if.end97
   %distance.5.lcssa = phi double [ %distance.2, %if.end97 ], [ %call32, %for.cond41.preheader ], [ %call33, %for.cond70.preheader ], [ %distance.6, %for.inc122 ]
@@ -1311,7 +1311,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
-  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
+  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !19
 
 lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
@@ -1408,7 +1408,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -1547,7 +1547,7 @@ if.then25:                                        ; preds = %land.lhs.true22
 for.inc:                                          ; preds = %land.lhs.true, %if.end, %land.lhs.true22, %if.then25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %shapeDistance, ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector)
@@ -1649,7 +1649,7 @@ for.inc57:                                        ; preds = %for.body39, %if.the
   %distance.sroa.0.1 = phi double [ %26, %if.then54 ], [ %distance.sroa.0.0234, %land.lhs.true50 ], [ %distance.sroa.0.0234, %if.then44 ], [ %distance.sroa.0.0234, %for.body39 ]
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
-  br i1 %exitcond260.not, label %if.end91, label %for.body39, !llvm.loop !21
+  br i1 %exitcond260.not, label %if.end91, label %for.body39, !llvm.loop !22
 
 if.else:                                          ; preds = %land.lhs.true33, %for.end
   %cmp60 = fcmp ugt double %cond.i8.i.i69, 0.000000e+00
@@ -1722,7 +1722,7 @@ for.inc86:                                        ; preds = %for.body67, %if.the
   %distance.sroa.0.4 = phi double [ %35, %if.then83 ], [ %distance.sroa.0.3241, %land.lhs.true79 ], [ %distance.sroa.0.3241, %if.then72 ], [ %distance.sroa.0.3241, %for.body67 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
-  br i1 %exitcond265.not, label %if.end91, label %for.body67, !llvm.loop !22
+  br i1 %exitcond265.not, label %if.end91, label %for.body67, !llvm.loop !23
 
 if.else89:                                        ; preds = %land.lhs.true61, %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %shapeDistance, i64 24, i1 false)
@@ -1795,7 +1795,7 @@ for.inc115:                                       ; preds = %for.body95, %if.the
   %distance.sroa.0.6 = phi double [ %distance.sroa.0.5249, %for.body95 ], [ %distance.sroa.0.5249, %if.then100 ], [ %42, %if.then112 ], [ %distance.sroa.0.5249, %land.lhs.true108 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
-  br i1 %exitcond270.not, label %for.end117, label %for.body95, !llvm.loop !23
+  br i1 %exitcond270.not, label %for.end117, label %for.body95, !llvm.loop !24
 
 for.end117:                                       ; preds = %for.inc115, %for.cond65.preheader, %for.cond37.preheader, %if.end91
   %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %17, %for.cond37.preheader ], [ %20, %for.cond65.preheader ], [ %distance.sroa.19.6, %for.inc115 ]
@@ -1962,7 +1962,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
-  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !24
+  br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !25
 
 lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
@@ -2059,7 +2059,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -2198,7 +2198,7 @@ if.then25:                                        ; preds = %land.lhs.true22
 for.inc:                                          ; preds = %land.lhs.true, %if.end, %land.lhs.true22, %if.then25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %shapeDistance, ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector)
@@ -2306,7 +2306,7 @@ for.inc57:                                        ; preds = %for.body39, %if.the
   %distance.sroa.0.1 = phi double [ %26, %if.then54 ], [ %distance.sroa.0.0239, %land.lhs.true50 ], [ %distance.sroa.0.0239, %if.then44 ], [ %distance.sroa.0.0239, %for.body39 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
-  br i1 %exitcond270.not, label %if.end91, label %for.body39, !llvm.loop !27
+  br i1 %exitcond270.not, label %if.end91, label %for.body39, !llvm.loop !28
 
 if.else:                                          ; preds = %land.lhs.true33, %for.end
   %cmp60 = fcmp ugt double %cond.i8.i.i67, 0.000000e+00
@@ -2385,7 +2385,7 @@ for.inc86:                                        ; preds = %for.body67, %if.the
   %distance.sroa.0.4 = phi double [ %35, %if.then83 ], [ %distance.sroa.0.3248, %land.lhs.true79 ], [ %distance.sroa.0.3248, %if.then72 ], [ %distance.sroa.0.3248, %for.body67 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
-  br i1 %exitcond275.not, label %if.end91, label %for.body67, !llvm.loop !28
+  br i1 %exitcond275.not, label %if.end91, label %for.body67, !llvm.loop !29
 
 if.else89:                                        ; preds = %land.lhs.true61, %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %shapeDistance, i64 32, i1 false)
@@ -2463,7 +2463,7 @@ for.inc115:                                       ; preds = %for.body95, %if.the
   %distance.sroa.0.6 = phi double [ %distance.sroa.0.5258, %for.body95 ], [ %distance.sroa.0.5258, %if.then100 ], [ %42, %if.then112 ], [ %distance.sroa.0.5258, %land.lhs.true108 ]
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
-  br i1 %exitcond280.not, label %for.end117, label %for.body95, !llvm.loop !29
+  br i1 %exitcond280.not, label %for.end117, label %for.body95, !llvm.loop !30
 
 for.end117:                                       ; preds = %for.inc115, %if.then63, %if.then35, %if.end91
   %distance.sroa.25.5.lcssa = phi double [ %distance.sroa.25.2, %if.end91 ], [ %distance.sroa.25.0.copyload, %if.then35 ], [ %distance.sroa.25.0.copyload227, %if.then63 ], [ %distance.sroa.25.6, %for.inc115 ]
@@ -2583,7 +2583,7 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen20TrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.inc.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen20TrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.inc.i.i.i, !llvm.loop !31
 
 _ZSt27__uninitialized_default_n_aIPN7msdfgen20TrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %for.inc.i.i.i
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i, align 8
@@ -2617,7 +2617,7 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7msd
   %dec.i.i.i26 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i28 = icmp eq i64 %dec.i.i.i26, 0
-  br i1 %cmp.not.i.i.i28, label %try.cont, label %for.inc.i.i.i21, !llvm.loop !30
+  br i1 %cmp.not.i.i.i28, label %try.cont, label %for.inc.i.i.i21, !llvm.loop !31
 
 try.cont:                                         ; preds = %for.inc.i.i.i21
   %cmp.not5.i.i.i = icmp eq ptr %1, %0
@@ -2626,11 +2626,11 @@ try.cont:                                         ; preds = %for.inc.i.i.i21
 for.body.i.i.i:                                   ; preds = %try.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i32, %for.body.i.i.i ], [ %1, %try.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 32, i1 false), !alias.scope !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 32, i1 false), !alias.scope !32
   %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i32, %0
-  br i1 %cmp.not.i.i.i33, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !35
+  br i1 %cmp.not.i.i.i33, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !36
 
 _ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %try.cont
   %tobool.not.i35 = icmp eq ptr %1, null
@@ -2699,7 +2699,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %dec.i.i.i = add i64 %__n.addr.08.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen22PseudoDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !36
+  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen22PseudoDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !37
 
 invoke.cont2.i.i.i:                               ; preds = %for.body.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -2763,7 +2763,7 @@ for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21
   %dec.i.i.i31 = add i64 %__n.addr.08.i.i.i23, -1
   %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 64
   %cmp.not.i.i.i33 = icmp eq i64 %dec.i.i.i31, 0
-  br i1 %cmp.not.i.i.i33, label %try.cont, label %for.body.i.i.i21, !llvm.loop !36
+  br i1 %cmp.not.i.i.i33, label %try.cont, label %for.body.i.i.i21, !llvm.loop !37
 
 invoke.cont2.i.i.i24:                             ; preds = %for.body.i.i.i21
   %10 = landingpad { ptr, i32 }
@@ -2809,11 +2809,11 @@ try.cont:                                         ; preds = %for.inc.i.i.i29
 for.body.i.i.i37:                                 ; preds = %try.cont, %for.body.i.i.i37
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i37 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i38, %for.body.i.i.i37 ], [ %1, %try.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i64 64, i1 false), !alias.scope !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i64 64, i1 false), !alias.scope !38
   %incdec.ptr.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 64
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 64
   %cmp.not.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i38, %0
-  br i1 %cmp.not.i.i.i39, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i37, !llvm.loop !41
+  br i1 %cmp.not.i.i.i39, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i37, !llvm.loop !42
 
 _ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i37, %try.cont
   %tobool.not.i41 = icmp eq ptr %1, null
@@ -2894,7 +2894,7 @@ for.inc.i.i.i:                                    ; preds = %.noexc6.i.i.i
   %dec.i.i.i = add i64 %__n.addr.010.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 160
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen21MultiDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen21MultiDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !43
 
 invoke.cont2.i.i.i:                               ; preds = %.noexc6.i.i.i, %.noexc.i.i.i, %for.body.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -2967,7 +2967,7 @@ for.inc.i.i.i34:                                  ; preds = %.noexc6.i.i.i32
   %dec.i.i.i35 = add i64 %__n.addr.010.i.i.i23, -1
   %incdec.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 160
   %cmp.not.i.i.i37 = icmp eq i64 %dec.i.i.i35, 0
-  br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !42
+  br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !43
 
 invoke.cont2.i.i.i25:                             ; preds = %.noexc6.i.i.i32, %.noexc.i.i.i30, %for.body.i.i.i21
   %10 = landingpad { ptr, i32 }
@@ -3013,11 +3013,11 @@ try.cont:                                         ; preds = %for.inc.i.i.i34
 for.body.i.i.i41:                                 ; preds = %try.cont, %for.body.i.i.i41
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i41 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i41 ], [ %1, %try.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !44
   %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 160
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 160
   %cmp.not.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i42, %0
-  br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !47
+  br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !48
 
 _ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i41, %try.cont
   %tobool.not.i45 = icmp eq ptr %1, null
@@ -3098,7 +3098,7 @@ for.inc.i.i.i:                                    ; preds = %.noexc6.i.i.i
   %dec.i.i.i = add i64 %__n.addr.010.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 160
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen28MultiAndTrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen28MultiAndTrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !49
 
 invoke.cont2.i.i.i:                               ; preds = %.noexc6.i.i.i, %.noexc.i.i.i, %for.body.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -3171,7 +3171,7 @@ for.inc.i.i.i34:                                  ; preds = %.noexc6.i.i.i32
   %dec.i.i.i35 = add i64 %__n.addr.010.i.i.i23, -1
   %incdec.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 160
   %cmp.not.i.i.i37 = icmp eq i64 %dec.i.i.i35, 0
-  br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !48
+  br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !49
 
 invoke.cont2.i.i.i25:                             ; preds = %.noexc6.i.i.i32, %.noexc.i.i.i30, %for.body.i.i.i21
   %10 = landingpad { ptr, i32 }
@@ -3217,11 +3217,11 @@ try.cont:                                         ; preds = %for.inc.i.i.i34
 for.body.i.i.i41:                                 ; preds = %try.cont, %for.body.i.i.i41
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i41 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i41 ], [ %1, %try.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !50
   %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 160
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 160
   %cmp.not.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i42, %0
-  br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !53
+  br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !54
 
 _ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i41, %try.cont
   %tobool.not.i45 = icmp eq ptr %1, null
@@ -3288,52 +3288,53 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!33 = distinct !{!33, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
-!34 = distinct !{!34, !33, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!39 = distinct !{!39, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
-!40 = distinct !{!40, !39, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
-!46 = distinct !{!46, !45, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
-!52 = distinct !{!52, !51, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!53 = distinct !{!53, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!34 = distinct !{!34, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
+!35 = distinct !{!35, !34, !"_ZSt19__relocate_object_aIN7msdfgen20TrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
+!41 = distinct !{!41, !40, !"_ZSt19__relocate_object_aIN7msdfgen22PseudoDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
+!47 = distinct !{!47, !46, !"_ZSt19__relocate_object_aIN7msdfgen21MultiDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!48 = distinct !{!48, !6, !7}
+!49 = distinct !{!49, !6, !7}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_"}
+!53 = distinct !{!53, !52, !"_ZSt19__relocate_object_aIN7msdfgen28MultiAndTrueDistanceSelectorES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!54 = distinct !{!54, !6, !7}

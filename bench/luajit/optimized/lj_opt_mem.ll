@@ -93,7 +93,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
   %45 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.017.in = load i16, ptr %45, align 2, !tbaa !4
   %46 = icmp ugt i16 %.017.in, %13
-  br i1 %46, label %14, label %._crit_edge, !llvm.loop !30
+  br i1 %46, label %14, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 598
@@ -182,7 +182,7 @@ aa_table.exit.thread.i:                           ; preds = %89, %76, %65, %56
   %91 = getelementptr inbounds nuw i8, ptr %58, i64 6
   %.014.in.i = load i16, ptr %91, align 2, !tbaa !4
   %92 = icmp ugt i16 %.014.in.i, %55
-  br i1 %92, label %56, label %.critedge, !llvm.loop !31
+  br i1 %92, label %56, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %29, %14, %40, %aa_table.exit.thread.i, %75, %62, %86, %._crit_edge
   %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %86 ], [ 0, %75 ], [ 0, %62 ], [ 1, %aa_table.exit.thread.i ], [ 0, %40 ], [ 0, %14 ], [ 0, %29 ]
@@ -278,7 +278,7 @@ define hidden i32 @lj_opt_fwd_aload(ptr noundef %0) local_unnamed_addr #2 {
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 6
   %.039.in.i = load i16, ptr %56, align 2, !tbaa !4
   %.not.i = icmp ugt i16 %.039.in.i, %spec.select.i
-  br i1 %.not.i, label %.lr.ph.i, label %fwd_aload_reassoc.exit.thread, !llvm.loop !32
+  br i1 %.not.i, label %.lr.ph.i, label %fwd_aload_reassoc.exit.thread, !llvm.loop !33
 
 fwd_aload_reassoc.exit:                           ; preds = %51
   %.039.le.i = zext i16 %.039.in56.i to i32
@@ -450,7 +450,7 @@ aa_table.exit.thread.i:                           ; preds = %81, %68, %60, %51
   %83 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %.014.in.i = load i16, ptr %83, align 2, !tbaa !4
   %84 = icmp ugt i16 %.014.in.i, %36
-  br i1 %84, label %51, label %fwd_aa_tab_clear.exit, !llvm.loop !31
+  br i1 %84, label %51, label %fwd_aa_tab_clear.exit, !llvm.loop !32
 
 fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.thread.i, %46
   %85 = icmp eq i8 %28, 56
@@ -508,7 +508,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 
 117:                                              ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %119 = load i16, ptr %118, align 2, !tbaa !33
+  %119 = load i16, ptr %118, align 2, !tbaa !34
   %120 = icmp ugt i16 %119, %36
   br i1 %120, label %.thread131, label %.thread141
 
@@ -540,7 +540,7 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %133 = load i16, ptr %132, align 2, !tbaa !4
   %134 = zext i16 %133 to i32
   %135 = icmp ugt i16 %133, %36
-  br i1 %135, label %.lr.ph190, label %._crit_edge191, !llvm.loop !34
+  br i1 %135, label %.lr.ph190, label %._crit_edge191, !llvm.loop !35
 
 ._crit_edge191:                                   ; preds = %131, %.thread141
   %136 = icmp eq i8 %41, 81
@@ -566,9 +566,9 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
 149:                                              ; preds = %145, %137
   %.0100 = phi ptr [ %148, %145 ], [ %141, %137 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %151 = load ptr, ptr %150, align 8, !tbaa !35
+  %151 = load ptr, ptr %150, align 8, !tbaa !36
   call void @lj_ir_kvalue(ptr noundef %151, ptr noundef nonnull %3, ptr noundef nonnull %.0100) #6
-  %152 = load ptr, ptr %150, align 8, !tbaa !35
+  %152 = load ptr, ptr %150, align 8, !tbaa !36
   %153 = load ptr, ptr %4, align 8, !tbaa !7
   %154 = load i16, ptr %39, align 8, !tbaa !4
   %155 = zext i16 %154 to i64
@@ -793,7 +793,7 @@ aa_table.exit.thread.i:                           ; preds = %58, %45, %34, %.lr.
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 6
   %.014.in.i = load i16, ptr %60, align 2, !tbaa !4
   %61 = icmp ugt i16 %.014.in.i, %.027.in87
-  br i1 %61, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread64, !llvm.loop !31
+  br i1 %61, label %.lr.ph.i, label %fwd_aa_tab_clear.exit.thread64, !llvm.loop !32
 
 62:                                               ; preds = %12
   %63 = zext i16 %15 to i64
@@ -922,7 +922,7 @@ aa_table.exit.thread.i39:                         ; preds = %120, %107, %98
   %122 = getelementptr inbounds nuw i8, ptr %100, i64 6
   %.014.in.i40 = load i16, ptr %122, align 2, !tbaa !4
   %123 = icmp ugt i16 %.014.in.i40, %3
-  br i1 %123, label %98, label %fwd_aa_tab_clear.exit53, !llvm.loop !31
+  br i1 %123, label %98, label %fwd_aa_tab_clear.exit53, !llvm.loop !32
 
 fwd_aa_tab_clear.exit53:                          ; preds = %aa_table.exit.thread.i39, %94
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -954,7 +954,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %10 = load i16, ptr %9, align 2, !tbaa !33
+  %10 = load i16, ptr %9, align 2, !tbaa !34
   %11 = icmp ugt i16 %10, %3
   br i1 %11, label %12, label %.loopexit
 
@@ -980,7 +980,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %.023.in = load i16, ptr %22, align 2, !tbaa !4
   %23 = icmp ugt i16 %.023.in, %3
-  br i1 %23, label %16, label %.loopexit, !llvm.loop !36
+  br i1 %23, label %16, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %18, %12, %8, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -997,7 +997,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %33, i64 6
   %.124.in = load i16, ptr %29, align 2, !tbaa !4
   %30 = icmp ugt i16 %.124.in, %3
-  br i1 %30, label %31, label %.critedge, !llvm.loop !37
+  br i1 %30, label %31, label %.critedge, !llvm.loop !38
 
 31:                                               ; preds = %.lr.ph32, %28
   %.124.in31 = phi i16 [ %.124.in30, %.lr.ph32 ], [ %.124.in, %28 ]
@@ -1306,7 +1306,7 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #2 {
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [101 x i16], ptr %10, i64 0, i64 %13
-  %.038.in59 = load i16, ptr %14, align 2, !tbaa !33
+  %.038.in59 = load i16, ptr %14, align 2, !tbaa !34
   %15 = icmp ugt i16 %.038.in59, %3
   br i1 %15, label %.lr.ph, label %.thread47
 
@@ -1338,13 +1338,13 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #2 {
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %31 = load i16, ptr %30, align 2, !tbaa !33
+  %31 = load i16, ptr %30, align 2, !tbaa !34
   %32 = icmp ugt i16 %.038.in61, %31
   br i1 %32, label %33, label %.thread47
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !38
+  %35 = load i32, ptr %34, align 4, !tbaa !39
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
   %.not4463 = icmp samesign ugt i64 %37, %16
@@ -1357,7 +1357,7 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #2 {
 39:                                               ; preds = %43
   %40 = getelementptr inbounds i8, ptr %.064, i64 -8
   %.not44 = icmp ugt ptr %40, %17
-  br i1 %.not44, label %.lr.ph65, label %._crit_edge, !llvm.loop !39
+  br i1 %.not44, label %.lr.ph65, label %._crit_edge, !llvm.loop !40
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %39
   %.064 = phi ptr [ %40, %39 ], [ %38, %.lr.ph65.preheader ]
@@ -1375,7 +1375,7 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #2 {
 ._crit_edge:                                      ; preds = %39, %33
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %48 = load i16, ptr %47, align 2, !tbaa !4
-  store i16 %48, ptr %.04060, align 2, !tbaa !33
+  store i16 %48, ptr %.04060, align 2, !tbaa !34
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i16 3072, ptr %49, align 4, !tbaa !4
   store i16 0, ptr %26, align 2, !tbaa !4
@@ -1385,7 +1385,7 @@ define hidden i32 @lj_opt_dse_ahstore(ptr noundef %0) local_unnamed_addr #2 {
 
 50:                                               ; preds = %.lr.ph, %22
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  %.038.in = load i16, ptr %51, align 2, !tbaa !33
+  %.038.in = load i16, ptr %51, align 2, !tbaa !34
   %52 = icmp ugt i16 %.038.in, %3
   br i1 %52, label %.lr.ph, label %.thread47
 
@@ -1418,7 +1418,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #2 {
   %9 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %.063.in = load i16, ptr %9, align 2, !tbaa !4
   %10 = icmp ugt i16 %.063.in, %3
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.thread, !llvm.loop !41
 
 11:                                               ; preds = %.lr.ph, %8
   %.063.in102 = phi i16 [ %.063.in101, %.lr.ph ], [ %.063.in, %8 ]
@@ -1464,7 +1464,7 @@ define hidden i32 @lj_opt_fwd_alen(ptr noundef %0) local_unnamed_addr #2 {
   %34 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %.265.in = load i16, ptr %34, align 2, !tbaa !4
   %35 = icmp ult i16 %.162.in, %.265.in
-  br i1 %35, label %36, label %.thread87, !llvm.loop !40
+  br i1 %35, label %36, label %.thread87, !llvm.loop !42
 
 36:                                               ; preds = %.lr.ph109, %33
   %.265.in108 = phi i16 [ %.265.in107, %.lr.ph109 ], [ %.265.in, %33 ]
@@ -1558,7 +1558,7 @@ aa_table.exit.thread.i:                           ; preds = %81, %68, %57, %48
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %.014.in.i = load i16, ptr %83, align 2, !tbaa !4
   %84 = icmp ugt i16 %.014.in.i, %.265.in108
-  br i1 %84, label %48, label %fwd_aa_tab_clear.exit, !llvm.loop !31
+  br i1 %84, label %48, label %fwd_aa_tab_clear.exit, !llvm.loop !32
 
 fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.thread.i, %41
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 550
@@ -1686,7 +1686,7 @@ aa_table.exit:                                    ; preds = %156, %143, %132
   %158 = getelementptr inbounds nuw i8, ptr %93, i64 6
   %.066.in = load i16, ptr %158, align 2, !tbaa !4
   %159 = icmp ugt i16 %.066.in, %.265.in108
-  br i1 %159, label %91, label %.loopexit, !llvm.loop !41
+  br i1 %159, label %91, label %.loopexit, !llvm.loop !43
 
 .thread87:                                        ; preds = %33, %67, %54, %78, %142, %153, %.thread, %102, %112, %116, %119, %127, %130
   %160 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
@@ -1816,7 +1816,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
   %65 = getelementptr inbounds nuw %union.IRIns, ptr %55, i64 %64
   %66 = load i16, ptr %65, align 8, !tbaa !4
   %67 = icmp eq i16 %66, %3
-  br i1 %67, label %.thread, label %.lr.ph85, !llvm.loop !42
+  br i1 %67, label %.thread, label %.lr.ph85, !llvm.loop !44
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %63
   %68 = phi i16 [ %66, %63 ], [ %60, %.lr.ph85.preheader ]
@@ -1840,7 +1840,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
   %.241.in = load i16, ptr %gep, align 2, !tbaa !4
   %.241 = zext i16 %.241.in to i32
   %80 = icmp samesign ult i32 %.238, %.241
-  br i1 %80, label %63, label %._crit_edge, !llvm.loop !42
+  br i1 %80, label %63, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %79, %aa_uref.exit.thread51
   %81 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #6
@@ -1862,7 +1862,7 @@ define hidden i32 @lj_opt_dse_ustore(ptr noundef %0) local_unnamed_addr #2 {
   %8 = zext i16 %3 to i64
   %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 554
-  %11 = load i16, ptr %10, align 2, !tbaa !33
+  %11 = load i16, ptr %10, align 2, !tbaa !34
   %12 = icmp ugt i16 %11, %3
   br i1 %12, label %.lr.ph, label %.thread69
 
@@ -1944,13 +1944,13 @@ aa_uref.exit:                                     ; preds = %34
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %59 = load i16, ptr %58, align 2, !tbaa !33
+  %59 = load i16, ptr %58, align 2, !tbaa !34
   %60 = icmp ugt i16 %.05381.in, %59
   br i1 %60, label %61, label %.thread69
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !38
+  %63 = load i32, ptr %62, align 4, !tbaa !39
   %64 = add i32 %63, -1
   %65 = zext i32 %64 to i64
   %.not6182 = icmp samesign ugt i64 %65, %18
@@ -1963,7 +1963,7 @@ aa_uref.exit:                                     ; preds = %34
 67:                                               ; preds = %.lr.ph84
   %68 = getelementptr inbounds i8, ptr %.04983, i64 -8
   %.not61 = icmp ugt ptr %68, %19
-  br i1 %.not61, label %.lr.ph84, label %._crit_edge, !llvm.loop !43
+  br i1 %.not61, label %.lr.ph84, label %._crit_edge, !llvm.loop !45
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %67
   %.04983 = phi ptr [ %68, %67 ], [ %66, %.lr.ph84.preheader ]
@@ -1975,14 +1975,14 @@ aa_uref.exit:                                     ; preds = %34
 ._crit_edge:                                      ; preds = %67, %61
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %72 = load i16, ptr %71, align 2, !tbaa !4
-  store i16 %72, ptr %.05580, align 2, !tbaa !33
+  store i16 %72, ptr %.05580, align 2, !tbaa !34
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i16 3072, ptr %73, align 4, !tbaa !4
   store i16 0, ptr %54, align 2, !tbaa !4
   store i16 0, ptr %19, align 8, !tbaa !4
   store i16 0, ptr %71, align 2, !tbaa !4
   %74 = add nuw nsw i32 %.05381.le, 1
-  %75 = load i32, ptr %62, align 4, !tbaa !38
+  %75 = load i32, ptr %62, align 4, !tbaa !39
   %76 = icmp ult i32 %74, %75
   br i1 %76, label %77, label %.thread69
 
@@ -2005,17 +2005,17 @@ aa_uref.exit:                                     ; preds = %34
 
 88:                                               ; preds = %88, %85
   %.048 = phi ptr [ %86, %85 ], [ %91, %88 ]
-  %.pn.in = load i16, ptr %.048, align 2, !tbaa !33
+  %.pn.in = load i16, ptr %.048, align 2, !tbaa !34
   %.pn = zext i16 %.pn.in to i64
   %.0 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %.pn
   %89 = zext i16 %.pn.in to i32
   %90 = icmp samesign ult i32 %74, %89
   %91 = getelementptr inbounds nuw i8, ptr %.0, i64 6
-  br i1 %90, label %88, label %92, !llvm.loop !44
+  br i1 %90, label %88, label %92, !llvm.loop !46
 
 92:                                               ; preds = %88
   %93 = load i16, ptr %91, align 2, !tbaa !4
-  store i16 %93, ptr %.048, align 2, !tbaa !33
+  store i16 %93, ptr %.048, align 2, !tbaa !34
   %94 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i16 3072, ptr %94, align 4, !tbaa !4
   %95 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -2026,7 +2026,7 @@ aa_uref.exit:                                     ; preds = %34
 
 aa_uref.exit.thread:                              ; preds = %42, %49, %44, %31, %29, %aa_uref.exit
   %96 = getelementptr inbounds nuw i8, ptr %19, i64 6
-  %97 = load i16, ptr %96, align 2, !tbaa !33
+  %97 = load i16, ptr %96, align 2, !tbaa !34
   %98 = icmp ugt i16 %97, %3
   br i1 %98, label %16, label %.thread69
 
@@ -2135,7 +2135,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #2 {
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.030.in.us = load i16, ptr %51, align 2, !tbaa !4
   %52 = icmp ugt i16 %.030.in.us, %3
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !45
+  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %.030.in57 = phi i16 [ %.030.in, %68 ], [ %.030.in56, %.lr.ph ]
@@ -2213,7 +2213,7 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #2 {
   %8 = zext i16 %3 to i64
   %9 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %.041.in69 = load i16, ptr %10, align 2, !tbaa !33
+  %.041.in69 = load i16, ptr %10, align 2, !tbaa !34
   %11 = icmp ugt i16 %.041.in69, %3
   br i1 %11, label %.lr.ph, label %.thread55
 
@@ -2308,9 +2308,9 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #2 {
 
 aa_fref.exit.thread.us:                           ; preds = %54, %.loopexit.us, %41, %27, %.lr.ph.split.us
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  %.041.in.us = load i16, ptr %58, align 2, !tbaa !33
+  %.041.in.us = load i16, ptr %58, align 2, !tbaa !34
   %59 = icmp ugt i16 %.041.in.us, %3
-  br i1 %59, label %.lr.ph.split.us, label %.thread55, !llvm.loop !47
+  br i1 %59, label %.lr.ph.split.us, label %.thread55, !llvm.loop !49
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %aa_fref.exit.thread
   %.041.in71 = phi i16 [ %.041.in, %aa_fref.exit.thread ], [ %.041.in69, %.lr.ph ]
@@ -2351,13 +2351,13 @@ aa_fref.exit:                                     ; preds = %67, %23
 
 78:                                               ; preds = %aa_fref.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %80 = load i16, ptr %79, align 2, !tbaa !33
+  %80 = load i16, ptr %79, align 2, !tbaa !34
   %81 = icmp ugt i16 %.us-phi73, %80
   br i1 %81, label %82, label %.thread55
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %84 = load i32, ptr %83, align 4, !tbaa !38
+  %84 = load i32, ptr %83, align 4, !tbaa !39
   %85 = add i32 %84, -1
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %86
@@ -2386,12 +2386,12 @@ aa_fref.exit:                                     ; preds = %67, %23
 98:                                               ; preds = %90, %94
   %99 = getelementptr inbounds i8, ptr %.078, i64 -8
   %.not48 = icmp ugt ptr %99, %.us-phi75
-  br i1 %.not48, label %.lr.ph79, label %._crit_edge, !llvm.loop !48
+  br i1 %.not48, label %.lr.ph79, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %98, %82
   %100 = getelementptr inbounds nuw i8, ptr %.us-phi75, i64 6
   %101 = load i16, ptr %100, align 2, !tbaa !4
-  store i16 %101, ptr %.us-phi, align 2, !tbaa !33
+  store i16 %101, ptr %.us-phi, align 2, !tbaa !34
   %102 = getelementptr inbounds nuw i8, ptr %.us-phi75, i64 4
   store i16 3072, ptr %102, align 4, !tbaa !4
   store i16 0, ptr %74, align 2, !tbaa !4
@@ -2401,7 +2401,7 @@ aa_fref.exit:                                     ; preds = %67, %23
 
 aa_fref.exit.thread:                              ; preds = %.lr.ph.split, %71
   %103 = getelementptr inbounds nuw i8, ptr %61, i64 6
-  %.041.in = load i16, ptr %103, align 2, !tbaa !33
+  %.041.in = load i16, ptr %103, align 2, !tbaa !34
   %104 = icmp ugt i16 %.041.in, %3
   br i1 %104, label %.lr.ph.split, label %.thread55
 
@@ -2417,7 +2417,7 @@ aa_fref.exit.thread:                              ; preds = %.lr.ph.split, %71
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 574
-  %4 = load i16, ptr %3, align 2, !tbaa !33
+  %4 = load i16, ptr %3, align 2, !tbaa !34
   %5 = zext i16 %4 to i32
   %6 = icmp ult i32 %1, %5
   br i1 %6, label %.critedge, label %7
@@ -2439,7 +2439,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %.021.in = load i16, ptr %14, align 2, !tbaa !4
   %15 = icmp ugt i16 %.021.in, %12
-  br i1 %15, label %16, label %._crit_edge, !llvm.loop !49
+  br i1 %15, label %16, label %._crit_edge, !llvm.loop !51
 
 16:                                               ; preds = %.lr.ph, %13
   %.021.in36 = phi i16 [ %.021.in34, %.lr.ph ], [ %.021.in, %13 ]
@@ -2468,7 +2468,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
   %28 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %.223.in = load i16, ptr %28, align 2, !tbaa !4
   %29 = icmp ugt i16 %.223.in, %26
-  br i1 %29, label %30, label %.critedge, !llvm.loop !50
+  br i1 %29, label %30, label %.critedge, !llvm.loop !52
 
 30:                                               ; preds = %.lr.ph41, %27
   %.223.in39 = phi i16 [ %.223.in37, %.lr.ph41 ], [ %.223.in, %27 ]
@@ -2508,7 +2508,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 558
-  %17 = load i16, ptr %16, align 2, !tbaa !33
+  %17 = load i16, ptr %16, align 2, !tbaa !34
   %18 = zext i16 %17 to i32
   br label %19
 
@@ -2518,11 +2518,11 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %.183 = phi i32 [ %.2.i, %._crit_edge133 ], [ %4, %15 ]
   %.077 = phi i32 [ %.481.lcssa, %._crit_edge133 ], [ %18, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %22 = load i16, ptr %21, align 2, !tbaa !33
+  %22 = load i16, ptr %21, align 2, !tbaa !34
   %23 = zext i16 %22 to i32
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.183, i32 %23)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 582
-  %25 = load i16, ptr %24, align 2, !tbaa !33
+  %25 = load i16, ptr %24, align 2, !tbaa !34
   %26 = zext i16 %25 to i32
   %.385 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %26)
   %27 = icmp samesign ugt i32 %.077, %.385
@@ -2637,7 +2637,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %.380.in = load i16, ptr %84, align 2, !tbaa !4
   %.380 = zext i16 %.380.in to i32
   %85 = icmp samesign ult i32 %.082, %.380
-  br i1 %85, label %70, label %._crit_edge, !llvm.loop !51
+  br i1 %85, label %70, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %83, %.thread105
   %86 = load i16, ptr %9, align 2, !tbaa !4
@@ -2647,7 +2647,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
 
 88:                                               ; preds = %._crit_edge
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %90 = load i16, ptr %89, align 2, !tbaa !33
+  %90 = load i16, ptr %89, align 2, !tbaa !34
   %.not97 = icmp eq i16 %90, 0
   br i1 %.not97, label %reassoc_xref.exit.thread, label %91
 
@@ -2809,7 +2809,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %.021.in.i.i = load i16, ptr %185, align 2, !tbaa !4
   %.021.i.i = zext i16 %.021.in.i.i to i32
   %186 = icmp samesign ult i32 %spec.select29.i.i, %.021.i.i
-  br i1 %186, label %.lr.ph.i.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %186, label %.lr.ph.i.i, label %reassoc_xref.exit.thread, !llvm.loop !54
 
 .split57.i:                                       ; preds = %165
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 402
@@ -2837,7 +2837,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %200 = getelementptr inbounds nuw i8, ptr %192, i64 6
   %.021.in.i73.i = load i16, ptr %200, align 2, !tbaa !4
   %201 = icmp ult i16 %163, %.021.in.i73.i
-  br i1 %201, label %.lr.ph.i70.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %201, label %.lr.ph.i70.i, label %reassoc_xref.exit.thread, !llvm.loop !54
 
 reassoc_trycse.exit.loopexit104.i:                ; preds = %195
   %.02136.i71.le.i = zext i16 %.021.in35.i72.i to i32
@@ -2878,7 +2878,7 @@ reassoc_trycse.exit.i:                            ; preds = %179, %reassoc_trycs
   %.021.in.i84.i = load i16, ptr %218, align 2, !tbaa !4
   %.021.i85.i = zext i16 %.021.in.i84.i to i32
   %219 = icmp samesign ult i32 %spec.select29.i77.i, %.021.i85.i
-  br i1 %219, label %.lr.ph.i81.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %219, label %.lr.ph.i81.i, label %reassoc_xref.exit.thread, !llvm.loop !54
 
 reassoc_trycse.exit86.i:                          ; preds = %212
   %.not63.i = icmp eq i64 %162, 0
@@ -2920,7 +2920,7 @@ reassoc_trycse.exit86.i:                          ; preds = %212
   %.021.in.i95.i = load i16, ptr %237, align 2, !tbaa !4
   %.021.i96.i = zext i16 %.021.in.i95.i to i32
   %238 = icmp samesign ult i32 %spec.select29.i88.i, %.021.i96.i
-  br i1 %238, label %225, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %238, label %225, label %reassoc_xref.exit.thread, !llvm.loop !54
 
 reassoc_xref.exit:                                ; preds = %231, %reassoc_trycse.exit86.i
   %239 = phi ptr [ %66, %reassoc_trycse.exit86.i ], [ %224, %231 ]
@@ -2942,7 +2942,7 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
   %.481.in = load i16, ptr %gep, align 2, !tbaa !4
   %.481 = zext i16 %.481.in to i32
   %244 = icmp samesign ult i32 %.082, %.481
-  br i1 %244, label %242, label %._crit_edge133, !llvm.loop !53
+  br i1 %244, label %242, label %._crit_edge133, !llvm.loop !55
 
 ._crit_edge133:                                   ; preds = %242, %reassoc_xref.exit
   %.481.lcssa = phi i32 [ %.481130, %reassoc_xref.exit ], [ %.481, %242 ]
@@ -3202,15 +3202,15 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #2 {
   %9 = load i16, ptr %8, align 2, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 558
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %12 = load i16, ptr %11, align 2, !tbaa !33
+  %12 = load i16, ptr %11, align 2, !tbaa !34
   %spec.select = tail call i16 @llvm.umax.i16(i16 %12, i16 %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 582
-  %14 = load i16, ptr %13, align 2, !tbaa !33
+  %14 = load i16, ptr %13, align 2, !tbaa !34
   %.152.in = tail call i16 @llvm.umax.i16(i16 %14, i16 %spec.select)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 562
-  %16 = load i16, ptr %15, align 2, !tbaa !33
+  %16 = load i16, ptr %15, align 2, !tbaa !34
   %.253.in = tail call i16 @llvm.umax.i16(i16 %16, i16 %.152.in)
-  %.047.in75 = load i16, ptr %10, align 2, !tbaa !33
+  %.047.in75 = load i16, ptr %10, align 2, !tbaa !34
   %17 = icmp ugt i16 %.047.in75, %.253.in
   br i1 %17, label %.lr.ph, label %.thread63
 
@@ -3239,13 +3239,13 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #2 {
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %30 = load i16, ptr %29, align 2, !tbaa !33
+  %30 = load i16, ptr %29, align 2, !tbaa !34
   %31 = icmp ugt i16 %.047.in77, %30
   br i1 %31, label %32, label %.thread63
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !38
+  %34 = load i32, ptr %33, align 4, !tbaa !39
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
   %.not6079 = icmp samesign ugt i64 %36, %18
@@ -3258,7 +3258,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #2 {
 38:                                               ; preds = %42
   %39 = getelementptr inbounds i8, ptr %.080, i64 -8
   %.not60 = icmp ugt ptr %39, %19
-  br i1 %.not60, label %.lr.ph81, label %._crit_edge, !llvm.loop !54
+  br i1 %.not60, label %.lr.ph81, label %._crit_edge, !llvm.loop !56
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %38
   %.080 = phi ptr [ %39, %38 ], [ %37, %.lr.ph81.preheader ]
@@ -3276,7 +3276,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #2 {
 ._crit_edge:                                      ; preds = %38, %32
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %47 = load i16, ptr %46, align 2, !tbaa !4
-  store i16 %47, ptr %.04976, align 2, !tbaa !33
+  store i16 %47, ptr %.04976, align 2, !tbaa !34
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i16 3072, ptr %48, align 4, !tbaa !4
   store i16 0, ptr %25, align 2, !tbaa !4
@@ -3286,7 +3286,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #2 {
 
 49:                                               ; preds = %.lr.ph, %21
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 6
-  %.047.in = load i16, ptr %50, align 2, !tbaa !33
+  %.047.in = load i16, ptr %50, align 2, !tbaa !34
   %51 = icmp ugt i16 %.047.in, %.253.in
   br i1 %51, label %.lr.ph, label %.thread63
 
@@ -3353,7 +3353,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %.046.in.us = load i16, ptr %34, align 2, !tbaa !4
   %35 = icmp ugt i16 %.046.in.us, %15
-  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
+  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %70
   %.046.in71 = phi i16 [ %.046.in, %70 ], [ %.046.in69, %.lr.ph ]
@@ -3413,7 +3413,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %71 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %.046.in = load i16, ptr %71, align 2, !tbaa !4
   %72 = icmp ugt i16 %.046.in, %15
-  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !56
+  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %70, %33, %3
   %73 = getelementptr inbounds nuw [101 x i16], ptr %4, i64 0, i64 %5
@@ -3503,7 +3503,7 @@ define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 41
-  br i1 %25, label %7, label %._crit_edge, !llvm.loop !57
+  br i1 %25, label %7, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %19, %2
   %.014.lcssa = phi ptr [ %1, %2 ], [ %22, %19 ]
@@ -3566,33 +3566,35 @@ attributes #6 = { nounwind }
 !25 = !{!"FoldState", !5, i64 0, !5, i64 8, !5, i64 24}
 !26 = !{!"p1 _ZTS5GCRef", !15, i64 0}
 !27 = !{!"ScEvEntry", !18, i64 0, !12, i64 8, !12, i64 10, !12, i64 12, !12, i64 14, !24, i64 16, !5, i64 17}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = distinct !{!32, !29}
-!33 = !{!12, !12, i64 0}
-!34 = distinct !{!34, !29}
-!35 = !{!8, !21, i64 128}
-!36 = distinct !{!36, !29}
-!37 = distinct !{!37, !29}
-!38 = !{!8, !13, i64 12}
-!39 = distinct !{!39, !29}
-!40 = distinct !{!40, !29}
-!41 = distinct !{!41, !29}
-!42 = distinct !{!42, !29}
-!43 = distinct !{!43, !29}
-!44 = distinct !{!44, !29}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !29}
-!49 = distinct !{!49, !29}
-!50 = distinct !{!50, !29}
-!51 = distinct !{!51, !29}
-!52 = distinct !{!52, !29}
-!53 = distinct !{!53, !29}
-!54 = distinct !{!54, !29}
-!55 = distinct !{!55, !29, !46}
-!56 = distinct !{!56, !29}
-!57 = distinct !{!57, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}
+!33 = distinct !{!33, !29, !30}
+!34 = !{!12, !12, i64 0}
+!35 = distinct !{!35, !29, !30}
+!36 = !{!8, !21, i64 128}
+!37 = distinct !{!37, !29, !30}
+!38 = distinct !{!38, !29, !30}
+!39 = !{!8, !13, i64 12}
+!40 = distinct !{!40, !29, !30}
+!41 = distinct !{!41, !30}
+!42 = distinct !{!42, !29, !30}
+!43 = distinct !{!43, !29, !30}
+!44 = distinct !{!44, !29, !30}
+!45 = distinct !{!45, !29, !30}
+!46 = distinct !{!46, !29, !30}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !48}
+!50 = distinct !{!50, !29, !30}
+!51 = distinct !{!51, !29, !30}
+!52 = distinct !{!52, !29, !30}
+!53 = distinct !{!53, !29, !30}
+!54 = distinct !{!54, !29, !30}
+!55 = distinct !{!55, !29, !30}
+!56 = distinct !{!56, !29, !30}
+!57 = distinct !{!57, !29, !30, !48}
+!58 = distinct !{!58, !29, !30}
+!59 = distinct !{!59, !29, !30}

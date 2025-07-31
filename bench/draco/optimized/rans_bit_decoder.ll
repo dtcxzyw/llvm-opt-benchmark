@@ -403,5 +403,6 @@ attributes #11 = { nounwind }
 !22 = !{!19, !17, i64 12}
 !23 = !{!24, !7, i64 16}
 !24 = !{!"_ZTSN5draco14RAnsBitDecoderE", !19, i64 0, !7, i64 16}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!"llvm.loop.estimated_trip_count"}

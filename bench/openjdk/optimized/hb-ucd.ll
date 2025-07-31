@@ -68,7 +68,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI18hb_unicode_func
 _ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit: ; preds = %10, %11, %13
   %14 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %.lr.ph, label %.split.loop.exit
+  br i1 %.not, label %.lr.ph, label %.split.loop.exit, !llvm.loop !6
 
 .split.loop.exit:                                 ; preds = %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, %1
   %.lcssa = phi i64 [ %2, %1 ], [ %14, %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit ]
@@ -373,7 +373,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   %.121.i.i = phi i32 [ %42, %41 ], [ %.0201.i.i, %44 ]
   %.1.i.i = phi i32 [ %.0192.i.i, %41 ], [ %45, %44 ]
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.121.i.i
-  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %32, !llvm.loop !6
+  br i1 %.not.not.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %32, !llvm.loop !8
 
 _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   %47 = and i32 %38, 16383
@@ -416,7 +416,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   %.121.i.i26 = phi i32 [ %63, %62 ], [ %.0201.i.i24, %65 ]
   %.1.i.i27 = phi i32 [ %.0192.i.i23, %62 ], [ %66, %65 ]
   %.not.not.i.i28 = icmp sgt i32 %.1.i.i27, %.121.i.i26
-  br i1 %.not.not.i.i28, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %53, !llvm.loop !8
+  br i1 %.not.not.i.i28, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %53, !llvm.loop !10
 
 _ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %64
   %68 = trunc i64 %59 to i32
@@ -594,5 +594,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}

@@ -105,7 +105,7 @@ define void @ff_mpc_dequantize_and_synth(ptr noundef initializes((19728, 28944))
   store i32 %60, ptr %gep97, align 4, !tbaa !4
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 24
-  br i1 %exitcond123.not, label %.lr.ph100, label %51, !llvm.loop !12
+  br i1 %exitcond123.not, label %.lr.ph100, label %51, !llvm.loop !13
 
 .lr.ph100:                                        ; preds = %51
   %.pre = load i32, ptr %16, align 4, !tbaa !4
@@ -137,13 +137,13 @@ define void @ff_mpc_dequantize_and_synth(ptr noundef initializes((19728, 28944))
   store i32 %77, ptr %gep102, align 4, !tbaa !4
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 36
-  br i1 %exitcond127.not, label %.loopexit, label %68, !llvm.loop !13
+  br i1 %exitcond127.not, label %.loopexit, label %68, !llvm.loop !14
 
 .loopexit:                                        ; preds = %68, %14
-  br i1 %15, label %14, label %78, !llvm.loop !14
+  br i1 %15, label %14, label %78, !llvm.loop !15
 
 78:                                               ; preds = %.loopexit
-  %79 = load i32, ptr %11, align 4, !tbaa !15
+  %79 = load i32, ptr %11, align 4, !tbaa !16
   %.not88 = icmp eq i32 %79, 0
   br i1 %.not88, label %.loopexit92, label %.preheader
 
@@ -163,13 +163,13 @@ define void @ff_mpc_dequantize_and_synth(ptr noundef initializes((19728, 28944))
   store i32 %84, ptr %gep112, align 4, !tbaa !4
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 36
-  br i1 %exitcond134.not, label %.loopexit92, label %80, !llvm.loop !17
+  br i1 %exitcond134.not, label %.loopexit92, label %80, !llvm.loop !18
 
 .loopexit92:                                      ; preds = %80, %78
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 36
   %exitcond142.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count
-  br i1 %exitcond142.not, label %._crit_edge117, label %.preheader93, !llvm.loop !18
+  br i1 %exitcond142.not, label %._crit_edge117, label %.preheader93, !llvm.loop !19
 
 ._crit_edge117:                                   ; preds = %.loopexit92, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
@@ -194,19 +194,19 @@ define void @ff_mpc_dequantize_and_synth(ptr noundef initializes((19728, 28944))
 
 93:                                               ; preds = %93, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %93 ]
-  %94 = load ptr, ptr %91, align 8, !tbaa !19
+  %94 = load ptr, ptr %91, align 8, !tbaa !20
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 6
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i
   %96 = getelementptr inbounds nuw [36 x [32 x i32]], ptr %92, i64 0, i64 %indvars.iv.i
   call void @ff_mpa_synth_filter_fixed(ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull @ff_mpa_synth_window_fixed, ptr noundef nonnull %5, ptr noundef %95, i64 noundef 1, ptr noundef nonnull %96) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.not.i, label %97, label %93, !llvm.loop !22
+  br i1 %exitcond.not.i, label %97, label %93, !llvm.loop !23
 
 97:                                               ; preds = %93
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond22.not.i, label %mpc_synth.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond22.not.i, label %mpc_synth.exit, label %.preheader.i, !llvm.loop !24
 
 mpc_synth.exit:                                   ; preds = %97, %._crit_edge117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
@@ -242,17 +242,18 @@ attributes #4 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = !{!16, !5, i64 0}
-!16 = !{!"Band", !5, i64 0, !6, i64 4, !6, i64 12, !6, i64 20, !6, i64 44}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 short", !21, i64 0}
-!21 = !{!"any pointer", !6, i64 0}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = !{!17, !5, i64 0}
+!17 = !{!"Band", !5, i64 0, !6, i64 4, !6, i64 12, !6, i64 20, !6, i64 44}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 short", !22, i64 0}
+!22 = !{!"any pointer", !6, i64 0}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}

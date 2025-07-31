@@ -324,7 +324,7 @@ define hidden ptr @SDL_Generic_GetTLSData() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %.05 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.05, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %8, %0, %5
   %.0 = phi ptr [ %7, %5 ], [ null, %0 ], [ null, %8 ]
@@ -356,7 +356,7 @@ define hidden noundef zeroext i1 @SDL_Generic_SetTLSData(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %.lr.ph45
   %6 = load i64, ptr %.023, align 8
   %7 = icmp eq i64 %6, %2
-  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !6
+  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !7
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.02337.lcssa = phi ptr [ %.02334, %.lr.ph.preheader ], [ %.023, %.lr.ph ]
@@ -393,7 +393,7 @@ define hidden noundef zeroext i1 @SDL_Generic_SetTLSData(ptr noundef %0) local_u
   %17 = getelementptr inbounds nuw i8, ptr %.0233744, i64 16
   %.023 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.023, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %1
   %.not31 = icmp eq ptr %0, null
@@ -445,7 +445,7 @@ define hidden void @SDL_Generic_QuitTLSData() local_unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef %8) #6
   tail call void @SDL_free_REAL(ptr noundef nonnull %.09) #6
   %.not6 = icmp eq ptr %6, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   store ptr null, ptr @SDL_generic_TLS, align 8
@@ -971,7 +971,7 @@ define hidden noundef zeroext i1 @SDL_ShouldInit_REAL(ptr noundef %0) local_unna
   tail call void @SDL_Delay_REAL(i32 noundef 1) #6
   %8 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef %0) #6
   %.not.not = icmp eq i32 %8, 2
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %7, %1, %4
   %.not5 = phi i1 [ true, %4 ], [ false, %1 ], [ false, %7 ]
@@ -1000,7 +1000,7 @@ define hidden noundef zeroext i1 @SDL_ShouldQuit_REAL(ptr noundef %0) local_unna
   tail call void @SDL_Delay_REAL(i32 noundef 1) #6
   %8 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef %0) #6
   %.not.not = icmp eq i32 %8, 0
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %7, %1, %4
   %.not5 = phi i1 [ true, %4 ], [ false, %1 ], [ false, %7 ]
@@ -1031,10 +1031,11 @@ attributes #8 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

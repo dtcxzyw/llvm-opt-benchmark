@@ -234,7 +234,7 @@ define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef captures(add
   %4 = load ptr, ptr %.09, align 8, !tbaa !7
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #14
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %.preheader, !llvm.loop !22
+  br i1 %6, label %7, label %.preheader, !llvm.loop !23
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 16
@@ -249,12 +249,12 @@ define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef captures(add
   %.sink20.i = select i1 %14, ptr %0, ptr %12
   %15 = getelementptr inbounds nuw i8, ptr %.sink20.i, i64 16
   store ptr %9, ptr %15, align 8, !tbaa !19
-  %16 = load ptr, ptr %0, align 8, !tbaa !23
+  %16 = load ptr, ptr %0, align 8, !tbaa !24
   %17 = icmp eq ptr %.09, %16
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %7
-  store ptr %12, ptr %0, align 8, !tbaa !23
+  store ptr %12, ptr %0, align 8, !tbaa !24
   br label %19
 
 19:                                               ; preds = %18, %7
@@ -289,14 +289,14 @@ define ptr @ulist_getNext_77(ptr noundef captures(address_is_null) %0) local_unn
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !24
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !17
-  store ptr %8, ptr %0, align 8, !tbaa !23
+  store ptr %8, ptr %0, align 8, !tbaa !24
   %9 = load ptr, ptr %4, align 8, !tbaa !7
   br label %10
 
@@ -328,7 +328,7 @@ define void @ulist_resetList_77(ptr noundef captures(address_is_null) %0) local_
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  store ptr %4, ptr %0, align 8, !tbaa !23
+  store ptr %4, ptr %0, align 8, !tbaa !24
   br label %5
 
 5:                                                ; preds = %2, %1
@@ -363,7 +363,7 @@ define void @ulist_deleteList_77(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %9, %.lr.ph
   tail call void @uprv_free_77(ptr noundef nonnull %.013)
   %.not10 = icmp eq ptr %6, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %11, %2
   tail call void @uprv_free_77(ptr noundef nonnull %0)
@@ -380,7 +380,7 @@ define void @ulist_close_keyword_values_iterator_77(ptr noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %ulist_deleteList_77.exit, label %5
 
@@ -407,7 +407,7 @@ define void @ulist_close_keyword_values_iterator_77(ptr noundef %0) local_unname
 14:                                               ; preds = %12, %.lr.ph.i
   tail call void @uprv_free_77(ptr noundef nonnull %.013.i)
   %.not10.i = icmp eq ptr %9, null
-  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %14, %5
   tail call void @uprv_free_77(ptr noundef nonnull %4)
@@ -429,7 +429,7 @@ define i32 @ulist_count_keyword_values_77(ptr noundef readonly captures(none) %0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %ulist_getListSize_77.exit, label %8
 
@@ -451,19 +451,19 @@ define ptr @ulist_next_keyword_value_77(ptr noundef readonly captures(none) %0, 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ulist_getNext_77.exit.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %8, align 8, !tbaa !23
+  %11 = load ptr, ptr %8, align 8, !tbaa !24
   %12 = icmp eq ptr %11, null
   br i1 %12, label %ulist_getNext_77.exit.thread, label %ulist_getNext_77.exit
 
 ulist_getNext_77.exit:                            ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !17
-  store ptr %14, ptr %8, align 8, !tbaa !23
+  store ptr %14, ptr %8, align 8, !tbaa !24
   %15 = load ptr, ptr %11, align 8, !tbaa !7
   %16 = icmp ne ptr %15, null
   %17 = icmp ne ptr %1, null
@@ -473,7 +473,7 @@ ulist_getNext_77.exit:                            ; preds = %10
 18:                                               ; preds = %ulist_getNext_77.exit
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #14
   %20 = trunc i64 %19 to i32
-  store i32 %20, ptr %1, align 4, !tbaa !27
+  store i32 %20, ptr %1, align 4, !tbaa !28
   br label %ulist_getNext_77.exit.thread
 
 ulist_getNext_77.exit.thread:                     ; preds = %6, %10, %ulist_getNext_77.exit, %18, %3
@@ -489,14 +489,14 @@ define void @ulist_reset_keyword_values_iterator_77(ptr noundef readonly capture
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %ulist_resetList_77.exit, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
-  store ptr %10, ptr %7, align 8, !tbaa !23
+  store ptr %10, ptr %7, align 8, !tbaa !24
   br label %ulist_resetList_77.exit
 
 ulist_resetList_77.exit:                          ; preds = %8, %5, %2
@@ -506,7 +506,7 @@ ulist_resetList_77.exit:                          ; preds = %8, %5, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ulist_getListFromEnum_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   ret ptr %3
 }
 
@@ -554,11 +554,12 @@ attributes #14 = { nounwind willreturn memory(read) }
 !17 = !{!8, !10, i64 8}
 !18 = !{!8, !10, i64 16}
 !19 = !{!10, !10, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = !{!13, !10, i64 0}
-!24 = distinct !{!24, !21}
-!25 = !{!26, !9, i64 8}
-!26 = !{!"_ZTS12UEnumeration", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!27 = !{!14, !14, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = !{!13, !10, i64 0}
+!25 = distinct !{!25, !21, !22}
+!26 = !{!27, !9, i64 8}
+!27 = !{!"_ZTS12UEnumeration", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!28 = !{!14, !14, i64 0}

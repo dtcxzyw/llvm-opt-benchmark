@@ -1605,7 +1605,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   %.1306.i = phi i32 [ %.0305401.i, %446 ], [ %462, %460 ], [ %.0305401.i, %463 ], [ %501, %annotate_vector_chars.exit379.i ], [ %.0305401.i, %.thread397.i ], [ %510, %508 ], [ %.0305401.i, %.thread398.i ], [ %519, %517 ], [ %.0305401.i, %520 ], [ %530, %528 ], [ %.0305401.i, %531 ], [ %541, %539 ], [ %.0305401.i, %542 ], [ %552, %550 ], [ %.0305401.i, %553 ], [ %563, %561 ], [ %.0305401.i, %564 ], [ %572, %566 ], [ %.0305401.i, %573 ], [ %581, %575 ], [ %.0305401.i, %582 ], [ %592, %590 ], [ %.0305401.i, %593 ], [ %602, %600 ], [ %.0305401.i, %603 ], [ %611, %609 ]
   %.1.i50 = phi i32 [ %.0402.i, %446 ], [ %461, %460 ], [ %.0402.i, %463 ], [ %500, %annotate_vector_chars.exit379.i ], [ %.0402.i, %.thread397.i ], [ %509, %508 ], [ %.0402.i, %.thread398.i ], [ %518, %517 ], [ %.0402.i, %520 ], [ %529, %528 ], [ %.0402.i, %531 ], [ %540, %539 ], [ %.0402.i, %542 ], [ %551, %550 ], [ %.0402.i, %553 ], [ %562, %561 ], [ %.0402.i, %564 ], [ %571, %566 ], [ %.0402.i, %573 ], [ %580, %575 ], [ %.0402.i, %582 ], [ %591, %590 ], [ %.0402.i, %593 ], [ %601, %600 ], [ %.0402.i, %603 ], [ %610, %609 ]
   %.not330.i = icmp eq i32 %387, 0
-  br i1 %.not330.i, label %dissect_ppi_vector_v2.exit, label %385, !llvm.loop !8
+  br i1 %.not330.i, label %dissect_ppi_vector_v2.exit, label %385, !llvm.loop !9
 
 dissect_ppi_vector_v2.exit:                       ; preds = %613, %annotate_vector_chars.exit.i, %.thread411.i
   %.0309385394410.i = phi ptr [ @.str.230, %annotate_vector_chars.exit.i ], [ %.0309385394409.i, %.thread411.i ], [ %.0309385394409.i, %613 ]
@@ -1694,6 +1694,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

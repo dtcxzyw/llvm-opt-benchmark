@@ -230,13 +230,13 @@ define ptr @wmem_map_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr n
   %77 = getelementptr ptr, ptr %76, i64 %73
   store ptr %.028.i, ptr %77, align 8
   %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %58
   %78 = add i64 %.02629.i, 1
   %.026.highbits.i = lshr i64 %78, %48
   %79 = icmp eq i64 %.026.highbits.i, 0
-  br i1 %79, label %58, label %wmem_map_grow.exit, !llvm.loop !10
+  br i1 %79, label %58, label %wmem_map_grow.exit, !llvm.loop !11
 
 wmem_map_grow.exit:                               ; preds = %._crit_edge.i
   %80 = load ptr, ptr %40, align 8
@@ -281,7 +281,7 @@ define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly captures(addre
   %23 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %.0 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %8, %22
   %.018 = phi ptr [ %.0, %22 ], [ %.016, %8 ]
@@ -345,7 +345,7 @@ define ptr @wmem_map_lookup(ptr noundef readonly captures(address_is_null) %0, p
   %30 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %22, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %22, !llvm.loop !13
 
 .loopexit:                                        ; preds = %29, %8, %2, %4, %26
   %.013 = phi ptr [ %28, %26 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %29 ]
@@ -415,7 +415,7 @@ define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly capture
   %36 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %24, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %24, !llvm.loop !14
 
 .loopexit:                                        ; preds = %35, %10, %31, %32, %4, %6
   %.018 = phi i1 [ false, %6 ], [ false, %4 ], [ true, %32 ], [ true, %31 ], [ false, %10 ], [ false, %35 ]
@@ -482,7 +482,7 @@ define ptr @wmem_map_remove(ptr noundef captures(address_is_null) %0, ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %38, %8, %2, %4, %29
   %.0 = phi ptr [ %31, %29 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %38 ]
@@ -545,7 +545,7 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef captures(address_is_null) 
 
 34:                                               ; preds = %23
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !16
 
 .loopexit:                                        ; preds = %34, %8, %2, %4, %31
   %.0 = phi i1 [ true, %31 ], [ false, %4 ], [ false, %2 ], [ false, %8 ], [ false, %34 ]
@@ -580,13 +580,13 @@ define ptr @wmem_map_get_keys(ptr noundef %0, ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %.01216, i64 16
   %.012 = load ptr, ptr %13, align 8
   %.not13 = icmp eq ptr %.012, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %14 = add i64 %.017, 1
   %.0.highbits = lshr i64 %14, %8
   %15 = icmp eq i64 %.0.highbits, 0
-  br i1 %15, label %9, label %.loopexit, !llvm.loop !17
+  br i1 %15, label %9, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %._crit_edge, %2
   ret ptr %3
@@ -631,7 +631,7 @@ define void @wmem_map_foreach(ptr noundef readonly captures(address_is_null) %0,
   %17 = getelementptr inbounds nuw i8, ptr %.01217, i64 16
   %.012 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %18 = add i32 %.018, 1
@@ -639,7 +639,7 @@ define void @wmem_map_foreach(ptr noundef readonly captures(address_is_null) %0,
   %20 = load i64, ptr %9, align 8
   %.highbits = lshr i64 %19, %20
   %21 = icmp eq i64 %.highbits, 0
-  br i1 %21, label %10, label %.loopexit, !llvm.loop !19
+  br i1 %21, label %10, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge, %3, %5
   ret void
@@ -689,7 +689,7 @@ define ptr @wmem_map_find(ptr noundef readonly captures(address_is_null) %0, ptr
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %24, %10
   %27 = add i32 %.023, 1
@@ -697,7 +697,7 @@ define ptr @wmem_map_find(ptr noundef readonly captures(address_is_null) %0, ptr
   %29 = load i64, ptr %9, align 8
   %.highbits = lshr i64 %28, %29
   %30 = icmp eq i64 %.highbits, 0
-  br i1 %30, label %10, label %.loopexit, !llvm.loop !21
+  br i1 %30, label %10, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %._crit_edge, %3, %5, %21
   %.015 = phi ptr [ %23, %21 ], [ null, %5 ], [ null, %3 ], [ null, %._crit_edge ]
@@ -759,7 +759,7 @@ define i32 @wmem_map_foreach_remove(ptr noundef captures(address_is_null) %0, pt
   %.2 = phi i32 [ %28, %23 ], [ %.131, %.lr.ph ]
   %30 = load ptr, ptr %.124, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %29, %11
   %.1.lcssa = phi i32 [ %.033, %11 ], [ %.2, %29 ]
@@ -768,7 +768,7 @@ define i32 @wmem_map_foreach_remove(ptr noundef captures(address_is_null) %0, pt
   %33 = load i64, ptr %9, align 8
   %.highbits = lshr i64 %32, %33
   %34 = icmp eq i64 %.highbits, 0
-  br i1 %34, label %11, label %.loopexit, !llvm.loop !23
+  br i1 %34, label %11, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge, %3, %5
   %.022 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %.1.lcssa, %._crit_edge ]
@@ -801,7 +801,7 @@ define i32 @wmem_strong_hash(ptr noundef readonly captures(address) %0, i64 noun
   %13 = zext i8 %12 to i32
   %14 = add i32 %10, %13
   %exitcond.not = icmp eq ptr %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ %6, %2 ], [ %14, %.lr.ph ]
@@ -860,7 +860,7 @@ define i32 @wmem_str_hash(ptr noundef readonly captures(address) %0) local_unnam
   %13 = zext i8 %12 to i32
   %14 = add i32 %10, %13
   %exitcond.not.i = icmp eq ptr %11, %3
-  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !25
 
 wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ %6, %1 ], [ %14, %.lr.ph.i ]
@@ -920,7 +920,7 @@ define i32 @wmem_int64_hash(ptr noundef readonly captures(address) %0) local_unn
   %11 = zext i8 %10 to i32
   %12 = add i32 %8, %11
   %exitcond.not.i = icmp eq ptr %9, %2
-  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !25
 
 wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ %4, %1 ], [ %12, %.lr.ph.i ]
@@ -977,7 +977,7 @@ define i32 @wmem_double_hash(ptr noundef readonly captures(address) %0) local_un
   %11 = zext i8 %10 to i32
   %12 = add i32 %8, %11
   %exitcond.not.i = icmp eq ptr %9, %2
-  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %wmem_strong_hash.exit, label %.lr.ph.i, !llvm.loop !25
 
 wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ %4, %1 ], [ %12, %.lr.ph.i ]
@@ -1040,21 +1040,22 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}

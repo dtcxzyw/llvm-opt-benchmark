@@ -138,17 +138,17 @@ define hidden void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr nound
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %26) #4
   %.not.i.i.i.i.i = icmp eq i64 %24, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %18
   %29 = add nuw i64 %.0911.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %29, %16
-  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %18, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %18, !llvm.loop !13
 
 _ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit:  ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, %12
   %30 = add nuw nsw i32 %.sroa.0.012, 1
   %.not = icmp eq i32 %30, 5
-  br i1 %.not, label %31, label %12
+  br i1 %.not, label %31, label %12, !llvm.loop !14
 
 31:                                               ; preds = %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit
   call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext true, ptr noundef %0, ptr noundef null) #4
@@ -225,17 +225,17 @@ define hidden void @_ZN22ShenandoahRootVerifier15strong_roots_doEP10OopClosure(p
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24) #4
   %.not.i.i.i.i.i = icmp eq i64 %22, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %16
   %27 = add nuw i64 %.0911.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, %14
-  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %16, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %16, !llvm.loop !13
 
 _ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit:  ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, %10
   %28 = add nuw nsw i32 %.sroa.0.012, 1
   %.not = icmp eq i32 %28, 5
-  br i1 %.not, label %29, label %10
+  br i1 %.not, label %29, label %10, !llvm.loop !15
 
 29:                                               ; preds = %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %3, align 8
@@ -377,7 +377,10 @@ attributes #4 = { nounwind }
 !6 = !{i64 2145414681}
 !7 = !{i64 2145392468}
 !8 = !{i64 2145410579}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}

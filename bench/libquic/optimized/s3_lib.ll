@@ -809,7 +809,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   %71 = add nuw i64 %.04359, 1
   %72 = call i64 @sk_num(ptr noundef %.041) #15
   %73 = icmp ult i64 %71, %72
-  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !106
+  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !107
 
 .loopexit.sink.split:                             ; preds = %.split.us, %61, %64, %.split.us.thread, %.split64
   %.sink = phi i64 [ %69, %.split64 ], [ %62, %64 ], [ %.pre, %61 ], [ %.pre, %.split.us ], [ %.pre9194, %.split.us.thread ]
@@ -875,14 +875,14 @@ define hidden range(i32 0, 3) i32 @ssl3_get_req_cert_type(ptr noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %9, ptr %3, align 8, !tbaa !85
   %10 = icmp ult i64 %8, %4
-  br i1 %10, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !107
+  br i1 %10, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !108
 
 .thread:                                          ; preds = %.lr.ph
   %11 = add nuw i64 %.01617, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %12, ptr %3, align 8, !tbaa !85
   %13 = icmp ult i64 %11, %4
-  br i1 %13, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !107
+  br i1 %13, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !108
 
 ._crit_edge.thread29:                             ; preds = %.thread
   %14 = icmp ne i32 %.019.ph, 0
@@ -926,9 +926,9 @@ define hidden i32 @ssl_get_algorithm_prf(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
-  %5 = load ptr, ptr %4, align 8, !tbaa !108
+  %5 = load ptr, ptr %4, align 8, !tbaa !109
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !109
+  %7 = load i32, ptr %6, align 4, !tbaa !110
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %12
 
@@ -1076,10 +1076,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !100 = !{!"ssl_cipher_st", !16, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
 !101 = !{!100, !8, i64 12}
 !102 = !{!25, !25, i64 0}
-!103 = distinct !{!103, !104, !105}
+!103 = distinct !{!103, !104, !105, !106}
 !104 = !{!"llvm.loop.mustprogress"}
-!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!106 = distinct !{!106, !104}
-!107 = distinct !{!107, !104}
-!108 = !{!43, !53, i64 440}
-!109 = !{!100, !8, i64 28}
+!105 = !{!"llvm.loop.estimated_trip_count"}
+!106 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!107 = distinct !{!107, !104, !105}
+!108 = distinct !{!108, !104, !105}
+!109 = !{!43, !53, i64 440}
+!110 = !{!100, !8, i64 28}

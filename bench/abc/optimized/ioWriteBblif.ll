@@ -47,7 +47,7 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %.val68107139 = phi i32 [ %.val6796, %.critedge.preheader ], [ %.val67, %.critedge ]
   %18 = getelementptr i8, ptr %0, i64 64
-  %.val8399 = load ptr, ptr %18, align 8, !tbaa !34
+  %.val8399 = load ptr, ptr %18, align 8, !tbaa !35
   %19 = getelementptr i8, ptr %.val8399, i64 4
   %.val83.val100 = load i32, ptr %19, align 4, !tbaa !25
   %20 = icmp sgt i32 %.val83.val100, 0
@@ -61,15 +61,15 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr i8, ptr %22, i64 16
   %.val74 = load i32, ptr %23, align 8, !tbaa !29
   %24 = getelementptr i8, ptr %22, i64 28
-  %.val80 = load i32, ptr %24, align 4, !tbaa !35
+  %.val80 = load i32, ptr %24, align 4, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
   tail call void @Bbl_ManCreateObject(ptr noundef %3, i32 noundef 3, i32 noundef %.val74, i32 noundef %.val80, ptr noundef %26) #3
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %.val67 = load i32, ptr %8, align 4, !tbaa !25
   %27 = sext i32 %.val67 to i64
   %28 = icmp slt i64 %indvars.iv.next121, %27
-  br i1 %28, label %.critedge, label %.critedge2.preheader, !llvm.loop !37
+  br i1 %28, label %.critedge, label %.critedge2.preheader, !llvm.loop !38
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge2
   %.val68107.pre = load i32, ptr %8, align 4, !tbaa !25
@@ -96,15 +96,15 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %.val75 = load i32, ptr %34, align 8, !tbaa !29
   tail call void @Bbl_ManCreateObject(ptr noundef %3, i32 noundef 2, i32 noundef %.val75, i32 noundef 1, ptr noundef null) #3
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %.val83 = load ptr, ptr %18, align 8, !tbaa !34
+  %.val83 = load ptr, ptr %18, align 8, !tbaa !35
   %35 = getelementptr i8, ptr %.val83, i64 4
   %.val83.val = load i32, ptr %35, align 4, !tbaa !25
   %36 = sext i32 %.val83.val to i64
   %37 = icmp slt i64 %indvars.iv.next124, %36
-  br i1 %37, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !38
+  br i1 %37, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !39
 
 .critedge6.preheader.loopexit:                    ; preds = %.critedge8
-  %.val84113.pre = load ptr, ptr %18, align 8, !tbaa !34
+  %.val84113.pre = load ptr, ptr %18, align 8, !tbaa !35
   br label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %.critedge4.preheader
@@ -121,7 +121,7 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv129
   %42 = load ptr, ptr %41, align 8, !tbaa !28
   %43 = getelementptr i8, ptr %42, i64 28
-  %.val81104 = load i32, ptr %43, align 4, !tbaa !35
+  %.val81104 = load i32, ptr %43, align 4, !tbaa !36
   %44 = icmp sgt i32 %.val81104, 0
   br i1 %44, label %.lr.ph106, label %.critedge8
 
@@ -132,14 +132,14 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %.lr.ph106, %47
   %indvars.iv126 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next127, %47 ]
-  %.val87 = load ptr, ptr %42, align 8, !tbaa !39
-  %.val88 = load ptr, ptr %45, align 8, !tbaa !40
+  %.val87 = load ptr, ptr %42, align 8, !tbaa !40
+  %.val88 = load ptr, ptr %45, align 8, !tbaa !41
   %48 = getelementptr i8, ptr %.val87, i64 32
-  %.val87.val = load ptr, ptr %48, align 8, !tbaa !41
+  %.val87.val = load ptr, ptr %48, align 8, !tbaa !42
   %49 = getelementptr i8, ptr %.val87.val, i64 8
   %.val87.val.val = load ptr, ptr %49, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw i32, ptr %.val88, i64 %indvars.iv126
-  %51 = load i32, ptr %50, align 4, !tbaa !42
+  %51 = load i32, ptr %50, align 4, !tbaa !43
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds ptr, ptr %.val87.val.val, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !28
@@ -148,10 +148,10 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %.val77 = load i32, ptr %55, align 8, !tbaa !29
   tail call void @Bbl_ManAddFanin(ptr noundef %3, i32 noundef %.val76, i32 noundef %.val77) #3
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %.val81 = load i32, ptr %43, align 4, !tbaa !35
+  %.val81 = load i32, ptr %43, align 4, !tbaa !36
   %56 = sext i32 %.val81 to i64
   %57 = icmp slt i64 %indvars.iv.next127, %56
-  br i1 %57, label %47, label %.critedge8.loopexit, !llvm.loop !43
+  br i1 %57, label %47, label %.critedge8.loopexit, !llvm.loop !44
 
 .critedge8.loopexit:                              ; preds = %47
   %.val68.pre = load i32, ptr %8, align 4, !tbaa !25
@@ -162,7 +162,7 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %58 = sext i32 %.val68 to i64
   %59 = icmp slt i64 %indvars.iv.next130, %58
-  br i1 %59, label %40, label %.critedge6.preheader.loopexit, !llvm.loop !44
+  br i1 %59, label %40, label %.critedge6.preheader.loopexit, !llvm.loop !45
 
 .lr.ph117:                                        ; preds = %.critedge6.preheader, %.critedge12
   %.val84144 = phi ptr [ %.val84, %.critedge12 ], [ %.val84113, %.critedge6.preheader ]
@@ -172,7 +172,7 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %61 = getelementptr inbounds nuw ptr, ptr %.val86.val, i64 %indvars.iv135
   %62 = load ptr, ptr %61, align 8, !tbaa !28
   %63 = getelementptr i8, ptr %62, i64 28
-  %.val82110 = load i32, ptr %63, align 4, !tbaa !35
+  %.val82110 = load i32, ptr %63, align 4, !tbaa !36
   %64 = icmp sgt i32 %.val82110, 0
   br i1 %64, label %.lr.ph112, label %.critedge12
 
@@ -183,14 +183,14 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
 
 67:                                               ; preds = %.lr.ph112, %67
   %indvars.iv132 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next133, %67 ]
-  %.val89 = load ptr, ptr %62, align 8, !tbaa !39
-  %.val90 = load ptr, ptr %65, align 8, !tbaa !40
+  %.val89 = load ptr, ptr %62, align 8, !tbaa !40
+  %.val90 = load ptr, ptr %65, align 8, !tbaa !41
   %68 = getelementptr i8, ptr %.val89, i64 32
-  %.val89.val = load ptr, ptr %68, align 8, !tbaa !41
+  %.val89.val = load ptr, ptr %68, align 8, !tbaa !42
   %69 = getelementptr i8, ptr %.val89.val, i64 8
   %.val89.val.val = load ptr, ptr %69, align 8, !tbaa !27
   %70 = getelementptr inbounds nuw i32, ptr %.val90, i64 %indvars.iv132
-  %71 = load i32, ptr %70, align 4, !tbaa !42
+  %71 = load i32, ptr %70, align 4, !tbaa !43
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds ptr, ptr %.val89.val.val, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !28
@@ -199,13 +199,13 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %.val79 = load i32, ptr %75, align 8, !tbaa !29
   tail call void @Bbl_ManAddFanin(ptr noundef %3, i32 noundef %.val78, i32 noundef %.val79) #3
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %.val82 = load i32, ptr %63, align 4, !tbaa !35
+  %.val82 = load i32, ptr %63, align 4, !tbaa !36
   %76 = sext i32 %.val82 to i64
   %77 = icmp slt i64 %indvars.iv.next133, %76
-  br i1 %77, label %67, label %.critedge12.loopexit, !llvm.loop !45
+  br i1 %77, label %67, label %.critedge12.loopexit, !llvm.loop !46
 
 .critedge12.loopexit:                             ; preds = %67
-  %.val84.pre = load ptr, ptr %18, align 8, !tbaa !34
+  %.val84.pre = load ptr, ptr %18, align 8, !tbaa !35
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %.lr.ph117
@@ -215,7 +215,7 @@ define ptr @Bbl_ManFromAbc(ptr noundef %0) local_unnamed_addr #0 {
   %.val84.val = load i32, ptr %78, align 4, !tbaa !25
   %79 = sext i32 %.val84.val to i64
   %80 = icmp slt i64 %indvars.iv.next136, %79
-  br i1 %80, label %.lr.ph117, label %.critedge10, !llvm.loop !46
+  br i1 %80, label %.lr.ph117, label %.critedge10, !llvm.loop !47
 
 .critedge10:                                      ; preds = %.critedge12, %.critedge6.preheader
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -297,18 +297,19 @@ attributes #3 = { nounwind }
 !29 = !{!30, !5, i64 16}
 !30 = !{!"Abc_Obj_t_", !12, i64 0, !31, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !15, i64 24, !15, i64 40, !6, i64 56, !6, i64 64}
 !31 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!4, !11, i64 64}
-!35 = !{!30, !5, i64 28}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
-!39 = !{!30, !12, i64 0}
-!40 = !{!30, !16, i64 32}
-!41 = !{!4, !11, i64 32}
-!42 = !{!5, !5, i64 0}
-!43 = distinct !{!43, !33}
-!44 = distinct !{!44, !33}
-!45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!4, !11, i64 64}
+!36 = !{!30, !5, i64 28}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34}
+!40 = !{!30, !12, i64 0}
+!41 = !{!30, !16, i64 32}
+!42 = !{!4, !11, i64 32}
+!43 = !{!5, !5, i64 0}
+!44 = distinct !{!44, !33, !34}
+!45 = distinct !{!45, !33, !34}
+!46 = distinct !{!46, !33, !34}
+!47 = distinct !{!47, !33, !34}

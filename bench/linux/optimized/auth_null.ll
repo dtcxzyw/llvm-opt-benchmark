@@ -122,7 +122,7 @@ define internal noundef i32 @nul_refresh(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 2, ptr nonnull elementtype(i8) %6) #5, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 2, ptr nonnull elementtype(i8) %6) #5, !srcloc !13
   ret i32 0
 }
 
@@ -182,7 +182,8 @@ attributes #5 = { nounwind }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2148831875, i64 2148831914, i64 2148831935, i64 2148831972, i64 2148831995, i64 2148832004, i64 2148832302}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2148458176, i64 2148458215, i64 2148458236, i64 2148458273, i64 2148458296, i64 2148458166}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2148458176, i64 2148458215, i64 2148458236, i64 2148458273, i64 2148458296, i64 2148458166}

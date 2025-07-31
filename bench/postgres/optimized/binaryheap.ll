@@ -139,7 +139,7 @@ define void @binaryheap_build(ptr noundef captures(none) %0) local_unnamed_addr 
   %43 = sext i32 %.030.i to i64
   %44 = getelementptr inbounds [0 x ptr], ptr %6, i64 0, i64 %43
   store ptr %42, ptr %44, align 8
-  br label %14
+  br label %14, !llvm.loop !3
 
 sift_down.exit:                                   ; preds = %31, %33
   %45 = sext i32 %.030.i to i64
@@ -147,7 +147,7 @@ sift_down.exit:                                   ; preds = %31, %33
   store ptr %12, ptr %46, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %47 = icmp sgt i64 %indvars.iv, 0
-  br i1 %47, label %10, label %._crit_edge, !llvm.loop !3
+  br i1 %47, label %10, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %sift_down.exit, %1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -205,7 +205,7 @@ define void @binaryheap_add(ptr noundef captures(none) %0, ptr noundef %1) local
   %29 = getelementptr inbounds [0 x ptr], ptr %8, i64 0, i64 %.pre
   store ptr %23, ptr %29, align 8
   %.not.i = icmp ult i32 %.01823.i, 3
-  br i1 %.not.i, label %sift_up.exit, label %18
+  br i1 %.not.i, label %sift_up.exit, label %18, !llvm.loop !7
 
 sift_up.exit:                                     ; preds = %28, %18, %7
   %.018.lcssa.i = phi i64 [ 0, %7 ], [ %21, %28 ], [ %.pre, %18 ]
@@ -290,7 +290,7 @@ define ptr @binaryheap_remove_first(ptr noundef captures(none) %0) local_unnamed
   %44 = getelementptr inbounds [0 x ptr], ptr %2, i64 0, i64 %43
   store ptr %42, ptr %44, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %14
+  br label %14, !llvm.loop !3
 
 sift_down.exit:                                   ; preds = %31, %33
   %45 = sext i32 %.030.i to i64
@@ -349,7 +349,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   %33 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.pre
   store ptr %27, ptr %33, align 8
   %.not.i = icmp ult i32 %.01823.i, 3
-  br i1 %.not.i, label %.sink.split, label %.lr.ph.i
+  br i1 %.not.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !7
 
 34:                                               ; preds = %2
   %35 = icmp slt i32 %16, 0
@@ -400,7 +400,7 @@ define void @binaryheap_remove_node(ptr noundef captures(none) %0, i32 noundef %
   %64 = sext i32 %.030.i to i64
   %65 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %64
   store ptr %63, ptr %65, align 8
-  br label %.preheader
+  br label %.preheader, !llvm.loop !3
 
 sift_down.exit:                                   ; preds = %52, %54
   %66 = sext i32 %.030.i to i64
@@ -475,7 +475,7 @@ define void @binaryheap_replace_first(ptr noundef captures(none) initializes((32
   %39 = getelementptr inbounds [0 x ptr], ptr %3, i64 0, i64 %38
   store ptr %37, ptr %39, align 8
   %.pre = load i32, ptr %0, align 8
-  br label %9
+  br label %9, !llvm.loop !3
 
 sift_down.exit:                                   ; preds = %26, %28
   %40 = sext i32 %.030.i to i64
@@ -501,4 +501,7 @@ attributes #6 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !6, !4}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !4}

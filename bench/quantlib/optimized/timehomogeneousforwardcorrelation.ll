@@ -1415,7 +1415,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph,
   store double 1.000000e+00, ptr %arrayidx, align 8, !tbaa !45
   %inc = add nuw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond16.preheader.lr.ph, label %invoke.cont9, !llvm.loop !50
+  br i1 %exitcond.not, label %for.cond16.preheader.lr.ph, label %invoke.cont9, !llvm.loop !51
 
 for.cond16.preheader:                             ; preds = %for.cond16.preheader.lr.ph, %for.cond.cleanup18
   %i11.063 = phi i64 [ %k.065, %for.cond16.preheader.lr.ph ], [ %inc37, %for.cond.cleanup18 ]
@@ -1436,12 +1436,12 @@ invoke.cont30.lr.ph:                              ; preds = %for.cond16.preheade
 for.cond.cleanup14:                               ; preds = %for.cond.cleanup18, %for.cond3.preheader
   %inc40 = add nuw i64 %k.065, 1
   %exitcond69.not = icmp eq i64 %inc40, %sub.ptr.div.i
-  br i1 %exitcond69.not, label %nrvo.skipdtor, label %for.cond3.preheader, !llvm.loop !51
+  br i1 %exitcond69.not, label %nrvo.skipdtor, label %for.cond3.preheader, !llvm.loop !52
 
 for.cond.cleanup18:                               ; preds = %invoke.cont30, %for.cond16.preheader
   %inc37 = add nuw i64 %i11.063, 1
   %exitcond68.not = icmp eq i64 %inc37, %0
-  br i1 %exitcond68.not, label %for.cond.cleanup14, label %for.cond16.preheader, !llvm.loop !52
+  br i1 %exitcond68.not, label %for.cond.cleanup14, label %for.cond16.preheader, !llvm.loop !53
 
 invoke.cont30:                                    ; preds = %invoke.cont30.lr.ph, %invoke.cont30
   %j.061 = phi i64 [ %k.065, %invoke.cont30.lr.ph ], [ %inc34, %invoke.cont30 ]
@@ -1455,7 +1455,7 @@ invoke.cont30:                                    ; preds = %invoke.cont30.lr.ph
   store double %14, ptr %arrayidx32, align 8, !tbaa !45
   %inc34 = add nuw i64 %j.061, 1
   %exitcond67.not = icmp eq i64 %inc34, %i11.063
-  br i1 %exitcond67.not, label %for.cond.cleanup18, label %invoke.cont30, !llvm.loop !53
+  br i1 %exitcond67.not, label %for.cond.cleanup18, label %invoke.cont30, !llvm.loop !54
 
 nrvo.skipdtor:                                    ; preds = %for.cond.cleanup14, %_ZN8QuantLib6MatrixD2Ev.exit
   ret void
@@ -1822,7 +1822,7 @@ for.inc:                                          ; preds = %if.then.i.i.i.i.i.i
   %dec = add i64 %__n.addr.09, -1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.010, i64 24
   %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !54
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !55
 
 lpad:                                             ; preds = %cond.true.i.i
   %9 = landingpad { ptr, i32 }
@@ -1961,10 +1961,11 @@ attributes #23 = { builtin allocsize(0) }
 !45 = !{!46, !46, i64 0}
 !46 = !{!"double", !9, i64 0}
 !47 = !{!7, !8, i64 16}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = distinct !{!51, !49}
-!52 = distinct !{!52, !49}
-!53 = distinct !{!53, !49}
-!54 = distinct !{!54, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50}
+!52 = distinct !{!52, !49, !50}
+!53 = distinct !{!53, !49, !50}
+!54 = distinct !{!54, !49, !50}
+!55 = distinct !{!55, !49, !50}

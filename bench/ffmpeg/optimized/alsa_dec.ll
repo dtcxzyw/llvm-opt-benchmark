@@ -217,13 +217,13 @@ define internal range(i32 -2147483648, 1) i32 @audio_read_packet(ptr noundef %0,
   %77 = load ptr, ptr %26, align 8, !tbaa !48
   %78 = sitofp i64 %76 to double
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %80 = load i32, ptr %79, align 8, !tbaa !56
+  %80 = load i32, ptr %79, align 8, !tbaa !57
   %81 = sitofp i32 %80 to double
   %82 = call nsz double @ff_timefilter_update(ptr noundef %77, double noundef %78, double noundef %81) #5
   %83 = fptosi double %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %83, ptr %84, align 8, !tbaa !57
-  store i32 %42, ptr %79, align 8, !tbaa !56
+  store i64 %83, ptr %84, align 8, !tbaa !58
+  store i32 %42, ptr %79, align 8, !tbaa !57
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %10, %65, %51
@@ -351,7 +351,8 @@ attributes #6 = { nounwind willreturn memory(none) }
 !51 = !{!27, !31, i64 104}
 !52 = !{!37, !18, i64 24}
 !53 = !{!37, !13, i64 32}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!27, !13, i64 56}
-!57 = !{!37, !19, i64 8}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!27, !13, i64 56}
+!58 = !{!37, !19, i64 8}

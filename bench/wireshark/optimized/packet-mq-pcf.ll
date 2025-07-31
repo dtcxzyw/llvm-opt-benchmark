@@ -291,7 +291,7 @@ define hidden i32 @dissect_mqpcf_parm(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = add i32 %14, %.0691740
   %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %20)
   %22 = icmp sgt i32 %21, 15
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %18, %.preheader, %16, %7
   %.0676 = phi i32 [ %4, %7 ], [ %.0681741, %16 ], [ 0, %.preheader ], [ %19, %18 ]
@@ -560,7 +560,7 @@ dissect_mqpcf_parm_int.exit718:                   ; preds = %160, %162, %165, %1
   %171 = load i32, ptr @mq_pcf_maxlst, align 4
   %172 = icmp ult i32 %152, %171
   %173 = select i1 %170, i1 %172, i1 false
-  br i1 %173, label %149, label %._crit_edge755, !llvm.loop !9
+  br i1 %173, label %149, label %._crit_edge755, !llvm.loop !10
 
 ._crit_edge755:                                   ; preds = %dissect_mqpcf_parm_int.exit718, %124
   %.0688.lcssa = phi i32 [ 0, %124 ], [ %152, %dissect_mqpcf_parm_int.exit718 ]
@@ -649,7 +649,7 @@ dissect_mqpcf_parm_int.exit718:                   ; preds = %160, %162, %165, %1
   %232 = load i32, ptr @mq_pcf_maxlst, align 4
   %233 = icmp ult i32 %228, %232
   %234 = select i1 %231, i1 %233, i1 false
-  br i1 %234, label %216, label %._crit_edge, !llvm.loop !10
+  br i1 %234, label %216, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread726, %178
   %.0687.lcssa = phi i32 [ 0, %178 ], [ %228, %.thread726 ]
@@ -935,7 +935,7 @@ dissect_mqpcf_parm_grp.exit:                      ; preds = %.lr.ph744, %239
   %454 = load i32, ptr @mq_pcf_maxlst, align 4
   %455 = icmp ult i32 %450, %454
   %456 = select i1 %453, i1 %455, i1 false
-  br i1 %456, label %.lr.ph761, label %._crit_edge762, !llvm.loop !11
+  br i1 %456, label %.lr.ph761, label %._crit_edge762, !llvm.loop !12
 
 ._crit_edge762:                                   ; preds = %.lr.ph761, %421
   %.0677.lcssa = phi i32 [ 0, %421 ], [ %450, %.lr.ph761 ]
@@ -959,7 +959,7 @@ dissect_mqpcf_parm_int.exit:                      ; preds = %87, %85, %._crit_ed
   %464 = load i32, ptr @mq_pcf_maxprm, align 4
   %465 = icmp ult i32 %462, %464
   %466 = select i1 %463, i1 %465, i1 false
-  br i1 %466, label %32, label %._crit_edge770, !llvm.loop !12
+  br i1 %466, label %32, label %._crit_edge770, !llvm.loop !13
 
 ._crit_edge770:                                   ; preds = %dissect_mqpcf_parm_int.exit, %.loopexit
   %.0678.lcssa = phi i32 [ 0, %.loopexit ], [ %462, %dissect_mqpcf_parm_int.exit ]
@@ -1245,10 +1245,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

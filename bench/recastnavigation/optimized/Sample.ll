@@ -821,7 +821,7 @@ define dso_local void @_ZN6Sample12handleUpdateEf(ptr noundef nonnull readonly a
 18:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN6Sample16updateToolStatesEf.exit, label %11, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_ZN6Sample16updateToolStatesEf.exit, label %11, !llvm.loop !8
 
 _ZN6Sample16updateToolStatesEf.exit:              ; preds = %18
   ret void
@@ -849,7 +849,7 @@ define dso_local void @_ZN6Sample16updateToolStatesEf(ptr noundef nonnull readon
 11:                                               ; preds = %4, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %12, label %4, !llvm.loop !7
+  br i1 %exitcond.not, label %12, label %4, !llvm.loop !8
 
 12:                                               ; preds = %11
   ret void
@@ -877,7 +877,7 @@ define dso_local void @_ZN6Sample14initToolStatesEPS_(ptr noundef nonnull readon
 11:                                               ; preds = %4, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %12, label %4, !llvm.loop !8
+  br i1 %exitcond.not, label %12, label %4, !llvm.loop !9
 
 12:                                               ; preds = %11
   ret void
@@ -905,7 +905,7 @@ define dso_local void @_ZN6Sample15resetToolStatesEv(ptr noundef nonnull readonl
 10:                                               ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !10
 
 11:                                               ; preds = %10
   ret void
@@ -933,7 +933,7 @@ define dso_local void @_ZN6Sample16renderToolStatesEv(ptr noundef nonnull readon
 10:                                               ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !11
 
 11:                                               ; preds = %10
   ret void
@@ -961,7 +961,7 @@ define dso_local void @_ZN6Sample23renderOverlayToolStatesEPdS0_Pi(ptr noundef n
 13:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %14, label %6, !llvm.loop !11
+  br i1 %exitcond.not, label %14, label %6, !llvm.loop !12
 
 14:                                               ; preds = %13
   ret void
@@ -1072,7 +1072,7 @@ define dso_local noundef ptr @_ZN6Sample7loadAllEPKc(ptr noundef nonnull readnon
   %51 = add nuw nsw i32 %.03042, 1
   %52 = load i32, ptr %27, align 4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %33, label %._crit_edge, !llvm.loop !12
+  br i1 %53, label %33, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %49, %37, %42, %.preheader
   %54 = call i32 @fclose(ptr noundef nonnull %5)
@@ -1155,7 +1155,7 @@ define dso_local void @_ZN6Sample7saveAllEPKcPK9dtNavMesh(ptr noundef nonnull re
   %26 = add nuw nsw i32 %.040, 1
   %27 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %2)
   %28 = icmp slt i32 %26, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %23, %8
   %.lcssa = phi i32 [ 0, %8 ], [ %24, %23 ]
@@ -1207,7 +1207,7 @@ define dso_local void @_ZN6Sample7saveAllEPKcPK9dtNavMesh(ptr noundef nonnull re
   %53 = add nuw nsw i32 %.02841, 1
   %54 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %2)
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %35, label %._crit_edge44, !llvm.loop !14
+  br i1 %55, label %35, label %._crit_edge44, !llvm.loop !15
 
 ._crit_edge44:                                    ; preds = %52, %._crit_edge
   %56 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -1334,13 +1334,14 @@ attributes #17 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

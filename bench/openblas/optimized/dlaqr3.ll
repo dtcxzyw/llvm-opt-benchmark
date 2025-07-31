@@ -435,7 +435,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %278 = phi i32 [ %.pre, %272 ], [ %276, %274 ], [ %192, %220 ], [ %224, %222 ]
   %.pr = load i32, ptr %12, align 4, !tbaa !3
   %.not657 = icmp sgt i32 %278, %.pr
-  br i1 %.not657, label %._crit_edge684, label %191
+  br i1 %.not657, label %._crit_edge684, label %191, !llvm.loop !12
 
 ._crit_edge684:                                   ; preds = %277
   %.pre714 = load i32, ptr %41, align 4, !tbaa !3
@@ -451,7 +451,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .loopexit673:                                     ; preds = %385, %387
   %284 = icmp eq i32 %.2, 0
-  br i1 %284, label %285, label %.loopexit674.loopexit
+  br i1 %284, label %285, label %.loopexit674.loopexit, !llvm.loop !13
 
 285:                                              ; preds = %281, %.loopexit673
   %.0631693 = phi i32 [ %282, %281 ], [ %.2633, %.loopexit673 ]
@@ -612,7 +612,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %395 = add nsw i32 %.2633, 2
   %.2629 = select i1 %394, i32 %388, i32 %395
   %.not659.not = icmp slt i32 %.2629, %.0631693
-  br i1 %.not659.not, label %.lr.ph690, label %.loopexit673
+  br i1 %.not659.not, label %.lr.ph690, label %.loopexit673, !llvm.loop !14
 
 .loopexit674.loopexit:                            ; preds = %301, %.loopexit673
   %.pre715 = load i32, ptr %41, align 4, !tbaa !3
@@ -709,7 +709,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %455 = phi i32 [ %401, %404 ], [ %401, %422 ], [ %.pre716, %431 ]
   %.4 = phi i32 [ %413, %404 ], [ %415, %422 ], [ %453, %431 ]
   %.not660.not = icmp sgt i32 %.4, %455
-  br i1 %.not660.not, label %400, label %._crit_edge698.loopexit
+  br i1 %.not660.not, label %400, label %._crit_edge698.loopexit, !llvm.loop !15
 
 ._crit_edge698.loopexit:                          ; preds = %454
   %.pre717 = load i32, ptr %41, align 4, !tbaa !3
@@ -848,7 +848,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %531 = icmp sge i32 %528, %530
   %532 = icmp sle i32 %528, %530
   %.in = select i1 %529, i1 %531, i1 %532
-  br i1 %.in, label %.lr.ph702, label %._crit_edge703.loopexit, !llvm.loop !11
+  br i1 %.in, label %.lr.ph702, label %._crit_edge703.loopexit, !llvm.loop !16
 
 ._crit_edge703.loopexit:                          ; preds = %.lr.ph702
   %.pre718 = load i32, ptr %0, align 4, !tbaa !3
@@ -894,7 +894,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %554 = icmp sge i32 %551, %553
   %555 = icmp sle i32 %551, %553
   %.in663 = select i1 %552, i1 %554, i1 %555
-  br i1 %.in663, label %.lr.ph707, label %.loopexit672, !llvm.loop !12
+  br i1 %.in663, label %.lr.ph707, label %.loopexit672, !llvm.loop !17
 
 .loopexit672:                                     ; preds = %.lr.ph707, %534, %._crit_edge703
   %556 = load i32, ptr %1, align 4, !tbaa !3
@@ -938,7 +938,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %577 = icmp sge i32 %574, %576
   %578 = icmp sle i32 %574, %576
   %.in665 = select i1 %575, i1 %577, i1 %578
-  br i1 %.in665, label %565, label %.loopexit, !llvm.loop !13
+  br i1 %.in665, label %565, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %565, %557, %.loopexit672, %._crit_edge698
   %579 = load i32, ptr %41, align 4, !tbaa !3
@@ -1049,8 +1049,13 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}

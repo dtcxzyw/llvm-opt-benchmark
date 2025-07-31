@@ -602,7 +602,7 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, %22
   %42 = add nuw nsw i32 %.0, 1
-  br i1 %41, label %.preheader, label %43, !llvm.loop !8
+  br i1 %41, label %.preheader, label %43, !llvm.loop !9
 
 43:                                               ; preds = %.preheader
   switch i32 %.0, label %48 [
@@ -1425,6 +1425,7 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

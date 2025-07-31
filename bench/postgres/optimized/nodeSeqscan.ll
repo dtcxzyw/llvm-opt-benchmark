@@ -177,7 +177,7 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef %23) #6
-  br label %ExecScanExtended.exit
+  br label %ExecScanExtended.exit, !llvm.loop !5
 
 28:                                               ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -212,7 +212,7 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 6
   store i16 %51, ptr %52, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  br label %ExecScanExtended.exit
+  br label %ExecScanExtended.exit, !llvm.loop !5
 
 ExecScanExtended.exit:                            ; preds = %21, %28, %ExecScanFetch.exit5
   %.0.i = phi ptr [ %12, %ExecScanFetch.exit5 ], [ %23, %21 ], [ %34, %28 ]
@@ -300,7 +300,7 @@ ExecScanFetch.exit:                               ; preds = %17, %19
 37:                                               ; preds = %31, %33
   %38 = load ptr, ptr %7, align 8
   call void @MemoryContextReset(ptr noundef %38) #6
-  br label %17
+  br label %17, !llvm.loop !5
 
 ExecScanExtended.exit:                            ; preds = %26, %ExecScanFetch.exit, %22, %ExecScanFetch.exit5
   %.0.i = phi ptr [ %12, %ExecScanFetch.exit5 ], [ %20, %26 ], [ null, %ExecScanFetch.exit ], [ %20, %22 ]
@@ -471,7 +471,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
 81:                                               ; preds = %75, %77
   %82 = load ptr, ptr %12, align 8
   call void @MemoryContextReset(ptr noundef %82) #6
-  br label %.split
+  br label %.split, !llvm.loop !5
 
 ExecScanExtended.exit:                            ; preds = %.split13, %.split11.us, %51, %39, %ExecScanFetch.exit6
   %.0.i = phi ptr [ %17, %ExecScanFetch.exit6 ], [ %.us-phi14, %.split13 ], [ %.us-phi, %.split11.us ], [ %56, %51 ], [ %41, %39 ]
@@ -663,7 +663,7 @@ define internal ptr @SeqNext(ptr noundef captures(none) %0) #0 {
   store i32 %24, ptr %25, align 8
   %26 = load i32, ptr @CheckXidAlive, align 4
   %27 = icmp eq i32 %26, 0
-  %28 = load i8, ptr @bsysscan, align 1, !range !5
+  %28 = load i8, ptr @bsysscan, align 1, !range !7
   %29 = trunc nuw i8 %28 to i1
   %.not5.i = select i1 %27, i1 true, i1 %29
   br i1 %.not5.i, label %table_scan_getnextslot.exit, label %30, !prof !4
@@ -721,4 +721,6 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = !{i8 0, i8 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}

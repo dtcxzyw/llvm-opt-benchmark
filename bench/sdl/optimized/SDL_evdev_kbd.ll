@@ -352,7 +352,7 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 9
-  br i1 %exitcond.not.i13, label %kbd_unregister_emerg_cleanup.exit, label %42, !llvm.loop !7
+  br i1 %exitcond.not.i13, label %kbd_unregister_emerg_cleanup.exit, label %42, !llvm.loop !8
 
 kbd_unregister_emerg_cleanup.exit:                ; preds = %56, %39
   %57 = load i32, ptr %0, align 8
@@ -486,7 +486,7 @@ define hidden void @SDL_EVDEV_kbd_quit(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 9
-  br i1 %exitcond.not.i13.i, label %kbd_unregister_emerg_cleanup.exit.i, label %12, !llvm.loop !7
+  br i1 %exitcond.not.i13.i, label %kbd_unregister_emerg_cleanup.exit.i, label %12, !llvm.loop !8
 
 kbd_unregister_emerg_cleanup.exit.i:              ; preds = %26, %9
   %27 = load i32, ptr %0, align 8
@@ -558,7 +558,7 @@ kbd_vt_quit.exit:                                 ; preds = %37, %39
 55:                                               ; preds = %.preheader, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %56, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %56, label %.preheader, !llvm.loop !9
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %49, align 8
@@ -965,7 +965,7 @@ setup_vt_signal.exit:                             ; preds = %16
   %21 = call i32 @__libc_current_sigrtmax() #12
   %22 = sext i32 %21 to i64
   %.not.not = icmp slt i64 %indvars.iv, %22
-  br i1 %.not.not, label %11, label %._crit_edge, !llvm.loop !9
+  br i1 %.not.not, label %11, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
@@ -1107,7 +1107,7 @@ kbd_cleanup.exit:                                 ; preds = %0, %3
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %kbd_unregister_emerg_cleanup.exit, label %10, !llvm.loop !7
+  br i1 %exitcond.not.i, label %kbd_unregister_emerg_cleanup.exit, label %10, !llvm.loop !8
 
 kbd_unregister_emerg_cleanup.exit:                ; preds = %24, %kbd_cleanup.exit
   ret void
@@ -1218,7 +1218,7 @@ define internal void @k_self(ptr noundef captures(none) %0, i8 noundef zeroext %
 33:                                               ; preds = %25, %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %33, %15
   %34 = icmp eq i8 %1, 32
@@ -1382,7 +1382,7 @@ define internal void @k_dead(ptr noundef captures(none) %0, i8 noundef zeroext %
 36:                                               ; preds = %28, %23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %23, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %23, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %36, %18
   %37 = icmp eq i8 %6, 32
@@ -1743,7 +1743,7 @@ define internal void @k_dead2(ptr noundef captures(none) %0, i8 noundef zeroext 
 33:                                               ; preds = %25, %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %20, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %20, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %33, %15
   %34 = icmp eq i8 %1, 32
@@ -1882,9 +1882,10 @@ attributes #13 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}

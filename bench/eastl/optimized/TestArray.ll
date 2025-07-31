@@ -684,7 +684,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   store i32 %.pre.i.i, ptr %first.addr.05.i.i, align 32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.addr.05.i.i, i64 32
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN5eastl6fill_nIP7Align32mS1_EET_S3_T0_RKT1_.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i, label %_ZN5eastl6fill_nIP7Align32mS1_EET_S3_T0_RKT1_.exit, label %for.body.i.i, !llvm.loop !9
 
 _ZN5eastl6fill_nIP7Align32mS1_EET_S3_T0_RKT1_.exit: ; preds = %for.body.i.i
   ret void
@@ -706,7 +706,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %first1.addr.06.i.add = add nuw nsw i64 %first1.addr.06.i.idx, 32
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %first2.addr.07.i, i64 32
   %cmp.not.i = icmp eq i64 %first1.addr.06.i.add, 160
-  br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !10
 
 invoke.cont:                                      ; preds = %for.body.i
   ret void
@@ -1017,7 +1017,7 @@ for.body.i.i64:                                   ; preds = %for.body.i.i64, %_Z
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i, i64 4
   %cmp.not.i.i65 = icmp ne i64 %first1.addr.05.i.add.i, 20
   %or.cond.not.i = select i1 %cmp1.i.i, i1 %cmp.not.i.i65, i1 false
-  br i1 %or.cond.not.i, label %for.body.i.i64, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, !llvm.loop !10
+  br i1 %or.cond.not.i, label %for.body.i.i64, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, !llvm.loop !11
 
 _ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i64
   %call103 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.28)
@@ -1034,7 +1034,7 @@ for.body.i.i66:                                   ; preds = %for.body.i.i66, %_Z
   %incdec.ptr2.i.i72 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i67, i64 4
   %cmp.not.i.i73 = icmp eq i64 %first1.addr.05.i.add.i71, 20
   %or.cond.i = select i1 %cmp1.i.i70, i1 true, i1 %cmp.not.i.i73
-  br i1 %or.cond.i, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i66, !llvm.loop !10
+  br i1 %or.cond.i, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i66, !llvm.loop !11
 
 _ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i66
   %lnot105 = xor i1 %cmp1.i.i70, true
@@ -1055,7 +1055,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i74
   %first2.addr.017.i.add.i = add nuw nsw i64 %first2.addr.017.i.idx.i, 4
   %cmp.i.not.i = icmp eq i64 %first2.addr.017.i.add.i, 20
   %or.cond.i75 = select i1 %cmp3.i.i, i1 true, i1 %cmp.i.not.i
-  br i1 %or.cond.i75, label %_ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i74, !llvm.loop !11
+  br i1 %or.cond.i75, label %_ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i74, !llvm.loop !12
 
 _ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i74, %if.end.i.i
   %call109 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @.str.30)
@@ -1075,7 +1075,7 @@ if.end.i.i80:                                     ; preds = %for.body.i.i76
   %first2.addr.017.i.add.i82 = add nuw nsw i64 %first2.addr.017.i.idx.i77, 4
   %cmp.i.not.i83 = icmp eq i64 %first2.addr.017.i.add.i82, 20
   %or.cond.i84 = select i1 %cmp3.i.i81, i1 true, i1 %cmp.i.not.i83
-  br i1 %or.cond.i84, label %_ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i76, !llvm.loop !11
+  br i1 %or.cond.i84, label %_ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i76, !llvm.loop !12
 
 _ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i76, %if.end.i.i80
   %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.not.i.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.31)
@@ -1095,7 +1095,7 @@ if.end.i.i90:                                     ; preds = %for.body.i.i85
   %first2.addr.017.i.add.i92 = add nuw nsw i64 %first2.addr.017.i.idx.i86, 4
   %cmp.i.not.i93 = icmp eq i64 %first2.addr.017.i.add.i92, 20
   %or.cond.i94 = select i1 %cmp3.i.i91, i1 true, i1 %cmp.i.not.i93
-  br i1 %or.cond.i94, label %_ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i85, !llvm.loop !11
+  br i1 %or.cond.i94, label %_ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i85, !llvm.loop !12
 
 _ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i85, %if.end.i.i90
   %call113 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.not.i89.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.32)
@@ -1115,7 +1115,7 @@ if.end.i.i100:                                    ; preds = %for.body.i.i95
   %first2.addr.017.i.add.i102 = add nuw nsw i64 %first2.addr.017.i.idx.i96, 4
   %cmp.i.not.i103 = icmp eq i64 %first2.addr.017.i.add.i102, 20
   %or.cond.i104 = select i1 %cmp3.i.i101, i1 true, i1 %cmp.i.not.i103
-  br i1 %or.cond.i104, label %_ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i95, !llvm.loop !11
+  br i1 %or.cond.i104, label %_ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit, label %for.body.i.i95, !llvm.loop !12
 
 _ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit: ; preds = %for.body.i.i95, %if.end.i.i100
   %call116 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i99.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @.str.33)
@@ -1132,7 +1132,7 @@ for.body.i.i105:                                  ; preds = %for.body.i.i105, %_
   %incdec.ptr2.i.i111 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i106, i64 4
   %cmp.not.i.i112 = icmp ne i64 %first1.addr.05.i.add.i110, 20
   %or.cond.not.i113 = select i1 %cmp1.i.i109, i1 %cmp.not.i.i112, i1 false
-  br i1 %or.cond.not.i113, label %for.body.i.i105, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit114, !llvm.loop !10
+  br i1 %or.cond.not.i113, label %for.body.i.i105, label %_ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit114, !llvm.loop !11
 
 _ZN5eastleqIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit114: ; preds = %for.body.i.i105
   %lnot118 = xor i1 %cmp1.i.i109, true
@@ -1150,7 +1150,7 @@ for.body.i.i115:                                  ; preds = %for.body.i.i115, %_
   %incdec.ptr2.i.i121 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i116, i64 4
   %cmp.not.i.i122 = icmp eq i64 %first1.addr.05.i.add.i120, 20
   %or.cond.i123 = select i1 %cmp1.i.i119, i1 true, i1 %cmp.not.i.i122
-  br i1 %or.cond.i123, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit124, label %for.body.i.i115, !llvm.loop !10
+  br i1 %or.cond.i123, label %_ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit124, label %for.body.i.i115, !llvm.loop !11
 
 _ZN5eastlneIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit124: ; preds = %for.body.i.i115
   %call121 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1.i.i119, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.35)
@@ -1170,7 +1170,7 @@ if.end.i.i130:                                    ; preds = %for.body.i.i125
   %first2.addr.017.i.add.i132 = add nuw nsw i64 %first2.addr.017.i.idx.i126, 4
   %cmp.i.not.i133 = icmp eq i64 %first2.addr.017.i.add.i132, 20
   %or.cond.i134 = select i1 %cmp3.i.i131, i1 true, i1 %cmp.i.not.i133
-  br i1 %or.cond.i134, label %_ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit135, label %for.body.i.i125, !llvm.loop !11
+  br i1 %or.cond.i134, label %_ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit135, label %for.body.i.i125, !llvm.loop !12
 
 _ZN5eastlltIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit135: ; preds = %for.body.i.i125, %if.end.i.i130
   %call123 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i129, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.36)
@@ -1190,7 +1190,7 @@ if.end.i.i141:                                    ; preds = %for.body.i.i136
   %first2.addr.017.i.add.i143 = add nuw nsw i64 %first2.addr.017.i.idx.i137, 4
   %cmp.i.not.i144 = icmp eq i64 %first2.addr.017.i.add.i143, 20
   %or.cond.i145 = select i1 %cmp3.i.i142, i1 true, i1 %cmp.i.not.i144
-  br i1 %or.cond.i145, label %_ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit146, label %for.body.i.i136, !llvm.loop !11
+  br i1 %or.cond.i145, label %_ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit146, label %for.body.i.i136, !llvm.loop !12
 
 _ZN5eastlleIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit146: ; preds = %for.body.i.i136, %if.end.i.i141
   %call125 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.not.i140.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @.str.37)
@@ -1210,7 +1210,7 @@ if.end.i.i152:                                    ; preds = %for.body.i.i147
   %first2.addr.017.i.add.i154 = add nuw nsw i64 %first2.addr.017.i.idx.i148, 4
   %cmp.i.not.i155 = icmp eq i64 %first2.addr.017.i.add.i154, 20
   %or.cond.i156 = select i1 %cmp3.i.i153, i1 true, i1 %cmp.i.not.i155
-  br i1 %or.cond.i156, label %_ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit157, label %for.body.i.i147, !llvm.loop !11
+  br i1 %or.cond.i156, label %_ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit157, label %for.body.i.i147, !llvm.loop !12
 
 _ZN5eastlgeIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit157: ; preds = %for.body.i.i147, %if.end.i.i152
   %call128 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.not.i151.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 135, ptr noundef nonnull @.str.38)
@@ -1230,7 +1230,7 @@ if.end.i.i163:                                    ; preds = %for.body.i.i158
   %first2.addr.017.i.add.i165 = add nuw nsw i64 %first2.addr.017.i.idx.i159, 4
   %cmp.i.not.i166 = icmp eq i64 %first2.addr.017.i.add.i165, 20
   %or.cond.i167 = select i1 %cmp3.i.i164, i1 true, i1 %cmp.i.not.i166
-  br i1 %or.cond.i167, label %_ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit168, label %for.body.i.i158, !llvm.loop !11
+  br i1 %or.cond.i167, label %_ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit168, label %for.body.i.i158, !llvm.loop !12
 
 _ZN5eastlgtIiLm5EEEbRKNS_5arrayIT_XT0_EEES5_.exit168: ; preds = %for.body.i.i158, %if.end.i.i163
   %call131 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i162.not.not.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 136, ptr noundef nonnull @.str.39)
@@ -1294,9 +1294,10 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 3314511, i64 3314517, i64 3314543}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

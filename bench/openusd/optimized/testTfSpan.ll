@@ -699,7 +699,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i25 = icmp eq ptr %28, %8
-  br i1 %.not.i.i.i.i25, label %.lr.ph.i.i.i.i29, label %.lr.ph.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i25, label %.lr.ph.i.i.i.i29, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -729,7 +729,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 42:                                               ; preds = %.lr.ph.i.i.i.i29
   %.not.i.i.i.i32 = icmp eq ptr %37, %8
-  br i1 %.not.i.i.i.i32, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit34, label %.lr.ph.i.i.i.i29, !llvm.loop !7
+  br i1 %.not.i.i.i.i32, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit34, label %.lr.ph.i.i.i.i29, !llvm.loop !8
 
 43:                                               ; preds = %.lr.ph.i.i.i.i29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -849,7 +849,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i24 = icmp eq ptr %25, %8
-  br i1 %.not.i.i.i.i24, label %.lr.ph.i.i.i.i28, label %.lr.ph.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i24, label %.lr.ph.i.i.i.i28, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -879,7 +879,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 
 39:                                               ; preds = %.lr.ph.i.i.i.i28
   %.not.i.i.i.i31 = icmp eq ptr %34, %8
-  br i1 %.not.i.i.i.i31, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit33, label %.lr.ph.i.i.i.i28, !llvm.loop !7
+  br i1 %.not.i.i.i.i31, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit33, label %.lr.ph.i.i.i.i28, !llvm.loop !8
 
 40:                                               ; preds = %.lr.ph.i.i.i.i28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -1002,7 +1002,7 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i24 = icmp eq ptr %28, %8
-  br i1 %.not.i.i.i.i24, label %.lr.ph.i.i.i.i28, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i24, label %.lr.ph.i.i.i.i28, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -1032,7 +1032,7 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
 
 42:                                               ; preds = %.lr.ph.i.i.i.i28
   %.not.i.i.i.i31 = icmp eq ptr %37, %8
-  br i1 %.not.i.i.i.i31, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, label %.lr.ph.i.i.i.i28, !llvm.loop !7
+  br i1 %.not.i.i.i.i31, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, label %.lr.ph.i.i.i.i28, !llvm.loop !8
 
 43:                                               ; preds = %.lr.ph.i.i.i.i28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -1152,7 +1152,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i23 = icmp eq ptr %25, %8
-  br i1 %.not.i.i.i.i23, label %.lr.ph.i.i.i.i27, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i23, label %.lr.ph.i.i.i.i27, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -1182,7 +1182,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 
 39:                                               ; preds = %.lr.ph.i.i.i.i27
   %.not.i.i.i.i30 = icmp eq ptr %34, %8
-  br i1 %.not.i.i.i.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit31, label %.lr.ph.i.i.i.i27, !llvm.loop !7
+  br i1 %.not.i.i.i.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit31, label %.lr.ph.i.i.i.i27, !llvm.loop !8
 
 40:                                               ; preds = %.lr.ph.i.i.i.i27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -1246,8 +1246,9 @@ attributes #12 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

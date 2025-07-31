@@ -2382,7 +2382,7 @@ define linkonce_odr hidden void @_ZN12vframeStreamC2EP10JavaThreadbbb(ptr nounde
   %32 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
   %.0.i.i = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %.loopexit7, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %.loopexit7, label %.lr.ph.i.i, !llvm.loop !26
 
 _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i
   br i1 %4, label %33, label %34
@@ -2397,7 +2397,7 @@ _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i
 
 .loopexit7:                                       ; preds = %31, %27
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #18, !noalias !26
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #18, !noalias !27
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(1800) %20) #18
   br label %36
 
@@ -2418,12 +2418,12 @@ _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i
 
 43:                                               ; preds = %.lr.ph, %_ZNK5frame6senderEP11RegisterMap.exit
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %16)
-  %44 = load i8, ptr %41, align 1, !noalias !29
+  %44 = load i8, ptr %41, align 1, !noalias !30
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %42, align 8, !noalias !29
+  %47 = load ptr, ptr %42, align 8, !noalias !30
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -2433,14 +2433,14 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %46
   br i1 %.not.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %46
-  %50 = load ptr, ptr %19, align 8, !noalias !29
+  %50 = load ptr, ptr %19, align 8, !noalias !30
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(56) %9) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %43, %_ZNK11RegisterMap7in_contEv.exit.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %51 = call noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %0)
-  br i1 %51, label %.loopexit, label %43, !llvm.loop !32
+  br i1 %51, label %.loopexit, label %43, !llvm.loop !33
 
 .loopexit:                                        ; preds = %_ZNK5frame6senderEP11RegisterMap.exit, %36, %25
   ret void
@@ -3118,7 +3118,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %97, %_ZN10HandleAre
   %123 = icmp ne ptr %.287, null
   %or.cond12 = select i1 %or.cond114, i1 %123, i1 false
   %or.cond97 = select i1 %96, i1 true, i1 %or.cond12
-  br i1 %or.cond97, label %.critedge, label %.critedge8, !llvm.loop !33
+  br i1 %or.cond97, label %.critedge, label %.critedge8, !llvm.loop !34
 
 .critedge8:                                       ; preds = %.thread, %46
   %.085 = phi ptr [ %47, %46 ], [ %.287, %.thread ]
@@ -3773,7 +3773,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %11, %_ZN10HandleAre
 
 30:                                               ; preds = %29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   call void @_ZN10JavaThread25clear_scopedValueBindingsEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) #18
-  %31 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull @_ZN10Exceptions22_stack_overflow_errorsE) #18, !srcloc !34
+  %31 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull @_ZN10Exceptions22_stack_overflow_errorsE) #18, !srcloc !35
   call void @_ZN13SharedRuntime30throw_and_post_jvmti_exceptionEP10JavaThread6Handle(ptr noundef nonnull %0, ptr %storemerge.i)
   br label %32
 
@@ -4132,7 +4132,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %1, %10
   br i1 %12, label %15, label %14
 
 14:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !35
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
   br label %15
 
@@ -4531,8 +4531,8 @@ _ZN13SharedRuntime19dtrace_object_allocEP10JavaThreadP7oopDescm.exit: ; preds = 
   %97 = load i16, ptr %96, align 4
   %98 = zext i16 %97 to i32
   %99 = shl i64 %.0.i1.i, 3
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5.i, i32 -2053, ptr nonnull %95, i32 1025, i32 %98, i32 -2049, i64 %99) #18, !srcloc !36
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !37
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5.i, i32 -2053, ptr nonnull %95, i32 1025, i32 %98, i32 -2049, i64 %99) #18, !srcloc !37
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   ret i32 0
 }
 
@@ -4607,8 +4607,8 @@ _ZN13SharedRuntime12get_java_tidEP10JavaThread.exit: ; preds = %_ZNK7oopDesc5kla
   %44 = load i16, ptr %43, align 4
   %45 = zext i16 %44 to i32
   %46 = shl i64 %2, 3
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5, i32 -2053, ptr nonnull %42, i32 1025, i32 %45, i32 -2049, i64 %46) #18, !srcloc !36
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !37
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5, i32 -2053, ptr nonnull %42, i32 1025, i32 %45, i32 -2049, i64 %46) #18, !srcloc !37
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   ret i32 0
 }
 
@@ -4762,8 +4762,8 @@ _ZN13SharedRuntime19dtrace_object_allocEP10JavaThreadP7oopDescm.exit: ; preds = 
   %97 = load i16, ptr %96, align 4
   %98 = zext i16 %97 to i32
   %99 = shl i64 %.0.i1.i, 3
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5.i, i32 -2053, ptr nonnull %95, i32 1025, i32 %98, i32 -2049, i64 %99) #18, !srcloc !36
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !37
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22object__alloc\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i5.i, i32 -2053, ptr nonnull %95, i32 1025, i32 %98, i32 -2049, i64 %99) #18, !srcloc !37
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   ret i32 0
 }
 
@@ -4836,8 +4836,8 @@ _ZN13SharedRuntime12get_java_tidEP10JavaThread.exit: ; preds = %2, %30, %33
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i, i32 -2053, ptr nonnull %40, i32 1025, i32 %43, i32 -2053, ptr nonnull %44, i32 1025, i32 %47, i32 -2053, ptr nonnull %48, i32 1025, i32 %51) #18, !srcloc !38
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !39
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22method__entry\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i, i32 -2053, ptr nonnull %40, i32 1025, i32 %43, i32 -2053, ptr nonnull %44, i32 1025, i32 %47, i32 -2053, ptr nonnull %48, i32 1025, i32 %51) #18, !srcloc !39
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   ret i32 0
 }
 
@@ -4912,8 +4912,8 @@ _ZN13SharedRuntime12get_java_tidEP10JavaThread.exit: ; preds = %2, %30, %33
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i, i32 -2053, ptr nonnull %40, i32 1025, i32 %43, i32 -2053, ptr nonnull %44, i32 1025, i32 %47, i32 -2053, ptr nonnull %48, i32 1025, i32 %51) #18, !srcloc !40
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !41
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22method__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %.0.i, i32 -2053, ptr nonnull %40, i32 1025, i32 %43, i32 -2053, ptr nonnull %44, i32 1025, i32 %47, i32 -2053, ptr nonnull %48, i32 1025, i32 %51) #18, !srcloc !41
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !42
   ret i32 0
 }
 
@@ -5196,17 +5196,17 @@ thread-pre-split:                                 ; preds = %_ZNK8Bytecode11invo
 .thread:                                          ; preds = %.thread.sink.split, %131
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %10, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %133) #18, !noalias !42
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %133) #18, !noalias !43
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %11, ptr noundef nonnull align 8 dereferenceable(1800) %3) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull %10)
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 4981
-  %135 = load i8, ptr %134, align 1, !noalias !45
+  %135 = load i8, ptr %134, align 1, !noalias !46
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 137:                                              ; preds = %.thread
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 4968
-  %139 = load ptr, ptr %138, align 8, !noalias !45
+  %139 = load ptr, ptr %138, align 8, !noalias !46
   %140 = icmp eq ptr %139, null
   br i1 %140, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -5217,7 +5217,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %137
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %137
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 4960
-  %143 = load ptr, ptr %142, align 8, !noalias !45
+  %143 = load ptr, ptr %142, align 8, !noalias !46
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(56) %12) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -5447,17 +5447,17 @@ define hidden void @_ZN13SharedRuntime18find_callee_methodEP10JavaThread(ptr dea
 25:                                               ; preds = %2
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #18, !noalias !48
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #18, !noalias !49
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4981
-  %28 = load i8, ptr %27, align 1, !noalias !51
+  %28 = load i8, ptr %27, align 1, !noalias !52
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4968
-  %32 = load ptr, ptr %31, align 8, !noalias !51
+  %32 = load ptr, ptr %31, align 8, !noalias !52
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -5468,7 +5468,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %30
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %30
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4960
-  %36 = load ptr, ptr %35, align 8, !noalias !51
+  %36 = load ptr, ptr %35, align 8, !noalias !52
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -5650,17 +5650,17 @@ define hidden void @_ZN13SharedRuntime14resolve_helperEbbP10JavaThread(ptr dead_
   %21 = load i64, ptr %20, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %6, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #18, !noalias !54
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #18, !noalias !55
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(1800) %3) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4981
-  %24 = load i8, ptr %23, align 1, !noalias !57
+  %24 = load i8, ptr %23, align 1, !noalias !58
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4968
-  %28 = load ptr, ptr %27, align 8, !noalias !57
+  %28 = load ptr, ptr %27, align 8, !noalias !58
   %29 = icmp eq ptr %28, null
   br i1 %29, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -5671,7 +5671,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %26
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %26
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 4960
-  %32 = load ptr, ptr %31, align 8, !noalias !57
+  %32 = load ptr, ptr %31, align 8, !noalias !58
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -5969,17 +5969,17 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %32, %_ZN26GrowableA
   call void @_ZN30JvmtiDynamicCodeEventCollectorC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %7, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %56) #18, !noalias !60
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %56) #18, !noalias !61
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %9, ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull %7)
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 4981
-  %58 = load i8, ptr %57, align 1, !noalias !63
+  %58 = load i8, ptr %57, align 1, !noalias !64
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 60:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 4968
-  %62 = load ptr, ptr %61, align 8, !noalias !63
+  %62 = load ptr, ptr %61, align 8, !noalias !64
   %63 = icmp eq ptr %62, null
   br i1 %63, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -5990,7 +5990,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %60
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %60
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 4960
-  %66 = load ptr, ptr %65, align 8, !noalias !63
+  %66 = load ptr, ptr %65, align 8, !noalias !64
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(56) %8) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -6122,17 +6122,17 @@ define hidden void @_ZN13SharedRuntime19reresolve_call_siteEP10JavaThread(ptr de
   %18 = load i64, ptr %17, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18, !noalias !66
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18, !noalias !67
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(1800) %1) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4981
-  %21 = load i8, ptr %20, align 1, !noalias !69
+  %21 = load i8, ptr %20, align 1, !noalias !70
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4968
-  %25 = load ptr, ptr %24, align 8, !noalias !69
+  %25 = load ptr, ptr %24, align 8, !noalias !70
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -6143,7 +6143,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %23
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %23
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4960
-  %29 = load ptr, ptr %28, align 8, !noalias !69
+  %29 = load ptr, ptr %28, align 8, !noalias !70
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(56) %5) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -7116,7 +7116,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11Adapte
   store ptr @all_VMRegs, ptr %21, align 8
   %.add = add nuw nsw i64 %.idx, 16
   %22 = icmp eq i64 %.add, 256
-  br i1 %22, label %23, label %20
+  br i1 %22, label %23, label %20, !llvm.loop !73
 
 23:                                               ; preds = %20
   %.not22 = icmp eq ptr %19, null
@@ -7207,7 +7207,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %60 = icmp slt i64 %indvars.iv.next.i, %48
   %61 = icmp samesign ult i32 %.01828.i, 7
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !72
+  br i1 %62, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !74
 
 ._crit_edge.loopexit.i:                           ; preds = %switch.lookup
   %63 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -7220,7 +7220,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   store i32 %.019.lcssa.i, ptr %64, align 4
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit, label %.preheader.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit, label %.preheader.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrintC2EiP9BasicType.exit:      ; preds = %._crit_edge.i, %42
   store ptr %34, ptr %8, align 8
@@ -7342,7 +7342,7 @@ define internal fastcc void @_ZL21post_adapter_creationPK11AdapterBlobPK19Adapte
   %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %19, i1 true)
   %20 = zext nneg i32 %.0.i.i to i64
   %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
-  br i1 %21, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
+  br i1 %21, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !76
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %8
   %22 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
@@ -7756,7 +7756,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %119 = icmp slt i64 %indvars.iv.next.i.i, %106
   %120 = icmp samesign ult i32 %.01828.i.i, 7
   %121 = select i1 %119, i1 %120, i1 false
-  br i1 %121, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !72
+  br i1 %121, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !74
 
 ._crit_edge.loopexit.i.i:                         ; preds = %switch.lookup
   %122 = trunc nsw i64 %indvars.iv.next.i.i to i32
@@ -7769,7 +7769,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   store i32 %.019.lcssa.i.i, ptr %123, align 4
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.i.i, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.i.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrintC2EiP9BasicType.exit.i:    ; preds = %._crit_edge.i.i, %101
   %124 = load ptr, ptr @_ZL22_adapter_handler_table, align 8
@@ -7941,7 +7941,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %13 = xor i32 %12, %.0.i8.us.i.i
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
+  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !77
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
@@ -7954,7 +7954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %18 = xor i32 %17, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !77
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !79
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %13, %.lr.ph.split.us.i.i ], [ %18, %.lr.ph.split.i.i ]
@@ -8013,7 +8013,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %
 46:                                               ; preds = %47
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !78
+  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !80
 
 47:                                               ; preds = %46, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %46 ]
@@ -8035,7 +8035,7 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i: ; preds = %47, %_ZN18Adap
   %56 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %26, !llvm.loop !79
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %26, !llvm.loop !81
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %.preheader.i.i.i, %46
   %58 = load ptr, ptr %2, align 8
@@ -8208,7 +8208,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %21
   store ptr @all_VMRegs, ptr %55, align 8
   %.add = add nuw nsw i64 %.idx, 16
   %56 = icmp eq i64 %.add, 256
-  br i1 %56, label %57, label %54
+  br i1 %56, label %57, label %54, !llvm.loop !82
 
 57:                                               ; preds = %54
   %58 = zext i16 %53 to i32
@@ -8529,7 +8529,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #18
   %24 = load i32, ptr %10, align 4
   %25 = icmp eq i32 %24, 3
-  br i1 %25, label %._crit_edge, label %14, !llvm.loop !80
+  br i1 %25, label %._crit_edge, label %14, !llvm.loop !83
 
 26:                                               ; preds = %._crit_edge
   %27 = add nsw i32 %.1.lcssa, 1
@@ -8590,7 +8590,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   store ptr %.034, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !81
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !84
 
 .loopexit:                                        ; preds = %54, %30
   store i32 %.3, ptr %3, align 4
@@ -8613,7 +8613,7 @@ define hidden noundef ptr @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread
   %4 = alloca %class.frame, align 8
   tail call void @_ZN17StackWatermarkSet13before_unwindEP10JavaThread(ptr noundef %0) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18, !noalias !82
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18, !noalias !85
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %0) #18
   %6 = call noundef ptr @_ZNK5frame29interpreter_frame_monitor_endEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %7 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
@@ -8631,7 +8631,7 @@ define hidden noundef ptr @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread
   %12 = call noundef ptr @_ZNK5frame33next_monitor_in_interpreter_frameEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.03235) #18
   %13 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %14 = icmp ult ptr %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !85
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !88
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = shl nuw nsw i32 %spec.select, 1
@@ -8779,19 +8779,19 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %._crit_edge, %5
   %83 = call noundef ptr @_ZNK5frame33next_monitor_in_interpreter_frameEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.02938) #18
   %84 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %85 = icmp ult ptr %83, %84
-  br i1 %85, label %.lr.ph40, label %._crit_edge41, !llvm.loop !86
+  br i1 %85, label %.lr.ph40, label %._crit_edge41, !llvm.loop !89
 
 ._crit_edge41:                                    ; preds = %82, %_ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %3)
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 4981
-  %87 = load i8, ptr %86, align 1, !noalias !87
+  %87 = load i8, ptr %86, align 1, !noalias !90
   %88 = trunc i8 %87 to i1
   br i1 %88, label %89, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 89:                                               ; preds = %._crit_edge41
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 4968
-  %91 = load ptr, ptr %90, align 8, !noalias !87
+  %91 = load ptr, ptr %90, align 8, !noalias !90
   %92 = icmp eq ptr %91, null
   br i1 %92, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -8802,7 +8802,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %89
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %89
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 4960
-  %95 = load ptr, ptr %94, align 8, !noalias !87
+  %95 = load ptr, ptr %94, align 8, !noalias !90
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %95, ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -8897,7 +8897,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   %13 = add nsw i32 %.119.i, -1
   %.011.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !90
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %11, %.preheader.i
   %.1 = phi i1 [ %.0, %.preheader.i ], [ true, %11 ]
@@ -8906,7 +8906,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   %14 = icmp sgt i32 %.1.lcssa.i, 0
   %15 = icmp samesign ult i64 %.0.idx22.i, 2336
   %or.cond.i = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !91
+  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !94
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %1
   %.2 = phi i1 [ false, %1 ], [ false, %.lr.ph.i ], [ %.1, %._crit_edge.i ]
@@ -8947,7 +8947,7 @@ define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStream
   %15 = add nsw i32 %.117.i, -1
   %.011.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !92
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !95
 
 ._crit_edge.i:                                    ; preds = %13, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %15, %13 ]
@@ -8955,7 +8955,7 @@ define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStream
   %16 = icmp sgt i32 %.1.lcssa.i, 0
   %17 = icmp samesign ult i64 %.0.idx20.i, 2336
   %or.cond.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !93
+  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !96
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %2
   ret void
@@ -8989,7 +8989,7 @@ define hidden void @_ZNK19AdapterHandlerEntry16print_adapter_onEP12outputStream(
   %.0.i.i = call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %14 = zext nneg i32 %.0.i.i to i64
   %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !74
+  br i1 %15, label %.lr.ph.i, label %_ZN18AdapterFingerPrint9as_stringEv.exit, !llvm.loop !76
 
 _ZN18AdapterFingerPrint9as_stringEv.exit:         ; preds = %.lr.ph.i, %2
   %16 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
@@ -9196,7 +9196,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
   %.2 = phi i1 [ %.141, %.lr.ph ], [ %spec.select28, %72 ]
   %79 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.042) #18
   %.not25 = icmp eq ptr %79, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %78
   br i1 %.2, label %80, label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
@@ -9224,12 +9224,12 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
 _ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit: ; preds = %57, %68, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %64, %55, %84, %80, %.loopexit, %_ZNK5frame14is_first_frameEv.exit.thread
   %.120 = phi i32 [ %.019, %.loopexit ], [ %.019, %_ZNK5frame14is_first_frameEv.exit.thread ], [ %82, %80 ], [ %82, %84 ], [ %.019, %55 ], [ %.019, %64 ], [ %.019, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ %.019, %68 ], [ %.019, %57 ]
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %4)
-  %86 = load i8, ptr %28, align 1, !noalias !95
+  %86 = load i8, ptr %28, align 1, !noalias !98
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 88:                                               ; preds = %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
-  %89 = load ptr, ptr %29, align 8, !noalias !95
+  %89 = load ptr, ptr %29, align 8, !noalias !98
   %90 = icmp eq ptr %89, null
   br i1 %90, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -9239,13 +9239,13 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %88
   br i1 %.not.i31, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %88
-  %92 = load ptr, ptr %30, align 8, !noalias !95
+  %92 = load ptr, ptr %30, align 8, !noalias !98
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(56) %6) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit, %_ZNK11RegisterMap7in_contEv.exit.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
-  br label %31, !llvm.loop !98
+  br label %31, !llvm.loop !101
 
 _ZNK5frame14is_first_frameEv.exit.thread35:       ; preds = %35, %_ZNK5frame14is_first_frameEv.exit
   %93 = load ptr, ptr %10, align 8
@@ -9694,28 +9694,28 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %11 = ptrtoint ptr %7 to i64
-  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !99
+  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !102
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %13, %11
   %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !99
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !102
   %17 = sext i32 %16 to i64
   %18 = add nsw i64 %17, %11
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 4, !noalias !99
+  %20 = load i32, ptr %19, align 4, !noalias !102
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i64, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !99
+  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !102
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !noalias !99
+  %26 = load ptr, ptr %25, align 8, !noalias !102
   %.not.i.i.i.i.i.i.i = icmp ule ptr %26, %.sroa.2.0.copyload.i
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %28 = load i32, ptr %27, align 4, !noalias !99
+  %28 = load i32, ptr %27, align 4, !noalias !102
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   %31 = icmp ult ptr %.sroa.2.0.copyload.i, %30
@@ -9762,28 +9762,28 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0.copyload.i13 = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %48 = ptrtoint ptr %47 to i64
-  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !102
+  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !105
   %50 = sext i32 %49 to i64
   %51 = add nsw i64 %50, %48
   %52 = inttoptr i64 %51 to ptr
-  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !102
+  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !105
   %54 = sext i32 %53 to i64
   %55 = add nsw i64 %54, %48
   %56 = inttoptr i64 %55 to ptr
-  %57 = load i32, ptr %56, align 4, !noalias !102
+  %57 = load i32, ptr %56, align 4, !noalias !105
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %52, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !102
+  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !105
   %.not.i.i.i.i.i.i14 = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i.i14, label %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15: ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !noalias !102
+  %63 = load ptr, ptr %62, align 8, !noalias !105
   %.not.i.i.i.i.i.i.i16 = icmp ule ptr %63, %.sroa.2.0.copyload.i9
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %65 = load i32, ptr %64, align 4, !noalias !102
+  %65 = load i32, ptr %64, align 4, !noalias !105
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = icmp ult ptr %.sroa.2.0.copyload.i9, %67
@@ -9910,7 +9910,7 @@ define linkonce_odr hidden void @_ZN18vframeStreamCommon24fill_from_compiled_fra
   %44 = icmp ult i8 %39, -64
   %45 = icmp eq i64 %indvars.iv.next.i.i, 4
   %or.cond.i.i = or i1 %45, %44
-  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !105
+  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !108
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
   %46 = trunc nsw i64 %37 to i32
@@ -9958,7 +9958,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %15, %.preheader.i.i
   %72 = icmp ult i8 %67, -64
   %73 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %73, %72
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !105
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !108
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %74 = trunc nsw i64 %65 to i32
@@ -10025,7 +10025,7 @@ _ZN19DebugInfoReadStream11read_methodEv.exit:     ; preds = %_ZN20CompressedRead
   %114 = icmp ult i8 %109, -64
   %115 = icmp eq i64 %indvars.iv.next.i.i.i10, 4
   %or.cond.i.i.i11 = or i1 %115, %114
-  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !105
+  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !108
 
 _ZN19DebugInfoReadStream8read_bciEv.exit:         ; preds = %.lr.ph.i.i.i7, %_ZN19DebugInfoReadStream11read_methodEv.exit, %.preheader.i.i.i6
   %.0.i.i.i15 = phi i32 [ %96, %_ZN19DebugInfoReadStream11read_methodEv.exit ], [ %105, %.preheader.i.i.i6 ], [ %113, %.lr.ph.i.i.i7 ]
@@ -10109,7 +10109,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !106
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !109
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10125,7 +10125,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !107
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !110
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10759,7 +10759,7 @@ _ZN24AdapterSignatureIterator7do_typeE9BasicType.exit: ; preds = %15, %22
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
   %28 = load i32, ptr %9, align 4
   %29 = icmp eq i32 %28, 3
-  br i1 %29, label %._crit_edge, label %15, !llvm.loop !108
+  br i1 %29, label %._crit_edge, label %15, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %_ZN24AdapterSignatureIterator7do_typeE9BasicType.exit, %7
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10812,7 +10812,7 @@ _ZN24AdapterSignatureIterator7do_typeE9BasicType.exit3: ; preds = %40, %48
   %55 = and i8 %54, 15
   %56 = lshr i64 %41, 4
   %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %.loopexit, label %40, !llvm.loop !109
+  br i1 %.not, label %.loopexit, label %40, !llvm.loop !112
 
 .loopexit:                                        ; preds = %_ZN24AdapterSignatureIterator7do_typeE9BasicType.exit3, %33, %._crit_edge
   ret void
@@ -10847,7 +10847,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %12 = xor i32 %11, %.0.i8.us.i.i
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !75
+  br i1 %exitcond19.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.us.i.i, !llvm.loop !77
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
@@ -10860,7 +10860,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %17 = xor i32 %16, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !77
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !79
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %2
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %12, %.lr.ph.split.us.i.i ], [ %17, %.lr.ph.split.i.i ]
@@ -10919,7 +10919,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %
 46:                                               ; preds = %47
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !78
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !80
 
 47:                                               ; preds = %46, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %46 ]
@@ -10941,7 +10941,7 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i: ; preds = %47, %_ZN18Ad
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not.i.i8 = icmp eq ptr %57, null
-  br i1 %.not.i.i8, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %25, !llvm.loop !79
+  br i1 %.not.i.i8, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %25, !llvm.loop !81
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %.preheader.i.i.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i, %46, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
   %58 = phi ptr [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit ], [ %26, %46 ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i ], [ %26, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i ], [ %26, %.preheader.i.i.i.i ]
@@ -11061,7 +11061,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !110
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !113
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #18
@@ -12325,91 +12325,94 @@ attributes #20 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !21, !"_Z21Bytecode_invoke_checkRK12methodHandlei: argument 0"}
 !21 = distinct !{!21, !"_Z21Bytecode_invoke_checkRK12methodHandlei"}
 !22 = !{i64 2145410579}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!28 = distinct !{!28, !"_ZN10JavaThread10last_frameEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!31 = distinct !{!31, !"_ZNK5frame6senderEP11RegisterMap"}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = !{i64 2145409567}
-!35 = !{i64 2145392998}
-!36 = !{i64 2157353002, i64 2157353052, i64 2157353163, i64 2157353244, i64 2157353285, i64 2157353325, i64 2157353364, i64 2157353402, i64 2157353448, i64 2157353560, i64 2157353643, i64 2157353690, i64 2157353728, i64 2157353773, i64 2157353860, i64 2157353934, i64 2157353980, i64 2157354092, i64 2157354188, i64 2157354235, i64 2157354275, i64 2157354313, i64 2157354358, i64 2157354396, i64 2157354441, i64 2157354508, i64 2157354562, i64 2157354601, i64 2157354707, i64 2157354789, i64 2157354885, i64 2157354976, i64 2157355035, i64 2157355094, i64 2157355160, i64 2157355248, i64 2157355355, i64 2157355490, i64 2157356063, i64 2157356137, i64 2157356211, i64 2157356364, i64 2157356497, i64 2157356853, i64 2157356927, i64 2157357001, i64 2157357154, i64 2157357287, i64 2157357643, i64 2157357717, i64 2157357791, i64 2157357944, i64 2157358077, i64 2157358433, i64 2157358507, i64 2157358581, i64 2157358734, i64 2157358845, i64 2157359110, i64 2157359167, i64 2157359224, i64 2157359281, i64 2157359338, i64 2157359391, i64 2157359438}
-!37 = !{i64 2157363689, i64 2157363867, i64 2157363996, i64 2157364060, i64 2157364128, i64 2157364210, i64 2157364270, i64 2157364309}
-!38 = !{i64 2157368018, i64 2157368068, i64 2157368179, i64 2157368260, i64 2157368301, i64 2157368341, i64 2157368380, i64 2157368418, i64 2157368464, i64 2157368576, i64 2157368659, i64 2157368706, i64 2157368744, i64 2157368789, i64 2157368876, i64 2157368950, i64 2157368996, i64 2157369108, i64 2157369204, i64 2157369251, i64 2157369291, i64 2157369329, i64 2157369374, i64 2157369412, i64 2157369457, i64 2157369524, i64 2157369578, i64 2157369617, i64 2157369723, i64 2157369805, i64 2157369901, i64 2157369992, i64 2157370051, i64 2157370110, i64 2157370176, i64 2157370264, i64 2157370371, i64 2157370506, i64 2157371229, i64 2157371303, i64 2157371377, i64 2157371530, i64 2157371663, i64 2157372019, i64 2157372093, i64 2157372167, i64 2157372320, i64 2157372453, i64 2157372809, i64 2157372883, i64 2157372957, i64 2157373110, i64 2157373243, i64 2157373599, i64 2157373673, i64 2157373747, i64 2157373900, i64 2157374033, i64 2157374389, i64 2157374463, i64 2157374537, i64 2157374690, i64 2157374823, i64 2157375179, i64 2157375253, i64 2157375327, i64 2157375480, i64 2157375613, i64 2157380030, i64 2157380104, i64 2157380178, i64 2157380331, i64 2157380442, i64 2157380707, i64 2157380764, i64 2157380821, i64 2157380878, i64 2157380935, i64 2157380988, i64 2157381035}
-!39 = !{i64 2157388491, i64 2157388669, i64 2157388798, i64 2157388862, i64 2157388930, i64 2157389012, i64 2157389072, i64 2157389111}
-!40 = !{i64 2157392827, i64 2157392877, i64 2157392988, i64 2157393069, i64 2157393110, i64 2157393150, i64 2157393189, i64 2157393227, i64 2157393273, i64 2157393385, i64 2157393468, i64 2157393515, i64 2157393553, i64 2157393598, i64 2157393685, i64 2157393759, i64 2157393805, i64 2157393917, i64 2157394013, i64 2157394060, i64 2157394100, i64 2157394138, i64 2157394183, i64 2157394221, i64 2157394266, i64 2157394333, i64 2157394387, i64 2157394426, i64 2157394532, i64 2157394614, i64 2157394710, i64 2157394801, i64 2157394860, i64 2157394919, i64 2157394985, i64 2157395073, i64 2157395180, i64 2157395318, i64 2157396042, i64 2157396116, i64 2157396190, i64 2157396343, i64 2157396476, i64 2157396832, i64 2157396906, i64 2157396980, i64 2157397133, i64 2157397266, i64 2157397622, i64 2157397696, i64 2157397770, i64 2157397923, i64 2157398056, i64 2157398412, i64 2157398486, i64 2157398560, i64 2157398713, i64 2157398846, i64 2157399202, i64 2157399276, i64 2157399350, i64 2157399503, i64 2157399636, i64 2157399992, i64 2157400066, i64 2157400140, i64 2157400293, i64 2157400426, i64 2157400782, i64 2157400856, i64 2157400930, i64 2157401083, i64 2157401194, i64 2157401459, i64 2157401516, i64 2157401573, i64 2157401630, i64 2157401687, i64 2157401740, i64 2157401787}
-!41 = !{i64 2157409243, i64 2157409421, i64 2157409550, i64 2157409614, i64 2157409682, i64 2157409764, i64 2157409824, i64 2157409863}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!44 = distinct !{!44, !"_ZN10JavaThread10last_frameEv"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!47 = distinct !{!47, !"_ZNK5frame6senderEP11RegisterMap"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!50 = distinct !{!50, !"_ZN10JavaThread10last_frameEv"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!53 = distinct !{!53, !"_ZNK5frame6senderEP11RegisterMap"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!56 = distinct !{!56, !"_ZN10JavaThread10last_frameEv"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!59 = distinct !{!59, !"_ZNK5frame6senderEP11RegisterMap"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!62 = distinct !{!62, !"_ZN10JavaThread10last_frameEv"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!65 = distinct !{!65, !"_ZNK5frame6senderEP11RegisterMap"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!68 = distinct !{!68, !"_ZN10JavaThread10last_frameEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!71 = distinct !{!71, !"_ZNK5frame6senderEP11RegisterMap"}
-!72 = distinct !{!72, !24}
-!73 = distinct !{!73, !24}
-!74 = distinct !{!74, !24}
-!75 = distinct !{!75, !24, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !24}
-!78 = distinct !{!78, !24}
-!79 = distinct !{!79, !24}
-!80 = distinct !{!80, !24}
-!81 = distinct !{!81, !24}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!84 = distinct !{!84, !"_ZN10JavaThread10last_frameEv"}
-!85 = distinct !{!85, !24}
-!86 = distinct !{!86, !24}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!89 = distinct !{!89, !"_ZNK5frame6senderEP11RegisterMap"}
-!90 = distinct !{!90, !24}
-!91 = distinct !{!91, !24}
-!92 = distinct !{!92, !24}
-!93 = distinct !{!93, !24}
-!94 = distinct !{!94, !24}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!97 = distinct !{!97, !"_ZNK5frame6senderEP11RegisterMap"}
-!98 = distinct !{!98, !24}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
-!101 = distinct !{!101, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!29 = distinct !{!29, !"_ZN10JavaThread10last_frameEv"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!32 = distinct !{!32, !"_ZNK5frame6senderEP11RegisterMap"}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = !{i64 2145409567}
+!36 = !{i64 2145392998}
+!37 = !{i64 2157353002, i64 2157353052, i64 2157353163, i64 2157353244, i64 2157353285, i64 2157353325, i64 2157353364, i64 2157353402, i64 2157353448, i64 2157353560, i64 2157353643, i64 2157353690, i64 2157353728, i64 2157353773, i64 2157353860, i64 2157353934, i64 2157353980, i64 2157354092, i64 2157354188, i64 2157354235, i64 2157354275, i64 2157354313, i64 2157354358, i64 2157354396, i64 2157354441, i64 2157354508, i64 2157354562, i64 2157354601, i64 2157354707, i64 2157354789, i64 2157354885, i64 2157354976, i64 2157355035, i64 2157355094, i64 2157355160, i64 2157355248, i64 2157355355, i64 2157355490, i64 2157356063, i64 2157356137, i64 2157356211, i64 2157356364, i64 2157356497, i64 2157356853, i64 2157356927, i64 2157357001, i64 2157357154, i64 2157357287, i64 2157357643, i64 2157357717, i64 2157357791, i64 2157357944, i64 2157358077, i64 2157358433, i64 2157358507, i64 2157358581, i64 2157358734, i64 2157358845, i64 2157359110, i64 2157359167, i64 2157359224, i64 2157359281, i64 2157359338, i64 2157359391, i64 2157359438}
+!38 = !{i64 2157363689, i64 2157363867, i64 2157363996, i64 2157364060, i64 2157364128, i64 2157364210, i64 2157364270, i64 2157364309}
+!39 = !{i64 2157368018, i64 2157368068, i64 2157368179, i64 2157368260, i64 2157368301, i64 2157368341, i64 2157368380, i64 2157368418, i64 2157368464, i64 2157368576, i64 2157368659, i64 2157368706, i64 2157368744, i64 2157368789, i64 2157368876, i64 2157368950, i64 2157368996, i64 2157369108, i64 2157369204, i64 2157369251, i64 2157369291, i64 2157369329, i64 2157369374, i64 2157369412, i64 2157369457, i64 2157369524, i64 2157369578, i64 2157369617, i64 2157369723, i64 2157369805, i64 2157369901, i64 2157369992, i64 2157370051, i64 2157370110, i64 2157370176, i64 2157370264, i64 2157370371, i64 2157370506, i64 2157371229, i64 2157371303, i64 2157371377, i64 2157371530, i64 2157371663, i64 2157372019, i64 2157372093, i64 2157372167, i64 2157372320, i64 2157372453, i64 2157372809, i64 2157372883, i64 2157372957, i64 2157373110, i64 2157373243, i64 2157373599, i64 2157373673, i64 2157373747, i64 2157373900, i64 2157374033, i64 2157374389, i64 2157374463, i64 2157374537, i64 2157374690, i64 2157374823, i64 2157375179, i64 2157375253, i64 2157375327, i64 2157375480, i64 2157375613, i64 2157380030, i64 2157380104, i64 2157380178, i64 2157380331, i64 2157380442, i64 2157380707, i64 2157380764, i64 2157380821, i64 2157380878, i64 2157380935, i64 2157380988, i64 2157381035}
+!40 = !{i64 2157388491, i64 2157388669, i64 2157388798, i64 2157388862, i64 2157388930, i64 2157389012, i64 2157389072, i64 2157389111}
+!41 = !{i64 2157392827, i64 2157392877, i64 2157392988, i64 2157393069, i64 2157393110, i64 2157393150, i64 2157393189, i64 2157393227, i64 2157393273, i64 2157393385, i64 2157393468, i64 2157393515, i64 2157393553, i64 2157393598, i64 2157393685, i64 2157393759, i64 2157393805, i64 2157393917, i64 2157394013, i64 2157394060, i64 2157394100, i64 2157394138, i64 2157394183, i64 2157394221, i64 2157394266, i64 2157394333, i64 2157394387, i64 2157394426, i64 2157394532, i64 2157394614, i64 2157394710, i64 2157394801, i64 2157394860, i64 2157394919, i64 2157394985, i64 2157395073, i64 2157395180, i64 2157395318, i64 2157396042, i64 2157396116, i64 2157396190, i64 2157396343, i64 2157396476, i64 2157396832, i64 2157396906, i64 2157396980, i64 2157397133, i64 2157397266, i64 2157397622, i64 2157397696, i64 2157397770, i64 2157397923, i64 2157398056, i64 2157398412, i64 2157398486, i64 2157398560, i64 2157398713, i64 2157398846, i64 2157399202, i64 2157399276, i64 2157399350, i64 2157399503, i64 2157399636, i64 2157399992, i64 2157400066, i64 2157400140, i64 2157400293, i64 2157400426, i64 2157400782, i64 2157400856, i64 2157400930, i64 2157401083, i64 2157401194, i64 2157401459, i64 2157401516, i64 2157401573, i64 2157401630, i64 2157401687, i64 2157401740, i64 2157401787}
+!42 = !{i64 2157409243, i64 2157409421, i64 2157409550, i64 2157409614, i64 2157409682, i64 2157409764, i64 2157409824, i64 2157409863}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!45 = distinct !{!45, !"_ZN10JavaThread10last_frameEv"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!48 = distinct !{!48, !"_ZNK5frame6senderEP11RegisterMap"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!51 = distinct !{!51, !"_ZN10JavaThread10last_frameEv"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!54 = distinct !{!54, !"_ZNK5frame6senderEP11RegisterMap"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!57 = distinct !{!57, !"_ZN10JavaThread10last_frameEv"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!60 = distinct !{!60, !"_ZNK5frame6senderEP11RegisterMap"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!63 = distinct !{!63, !"_ZN10JavaThread10last_frameEv"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!66 = distinct !{!66, !"_ZNK5frame6senderEP11RegisterMap"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!69 = distinct !{!69, !"_ZN10JavaThread10last_frameEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!72 = distinct !{!72, !"_ZNK5frame6senderEP11RegisterMap"}
+!73 = distinct !{!73, !25}
+!74 = distinct !{!74, !24, !25}
+!75 = distinct !{!75, !24, !25}
+!76 = distinct !{!76, !24, !25}
+!77 = distinct !{!77, !24, !25, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!79 = distinct !{!79, !24, !25}
+!80 = distinct !{!80, !24, !25}
+!81 = distinct !{!81, !24, !25}
+!82 = distinct !{!82, !25}
+!83 = distinct !{!83, !24, !25}
+!84 = distinct !{!84, !24, !25}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!87 = distinct !{!87, !"_ZN10JavaThread10last_frameEv"}
+!88 = distinct !{!88, !24, !25}
+!89 = distinct !{!89, !24, !25}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!92 = distinct !{!92, !"_ZNK5frame6senderEP11RegisterMap"}
+!93 = distinct !{!93, !24, !25}
+!94 = distinct !{!94, !24, !25}
+!95 = distinct !{!95, !24, !25}
+!96 = distinct !{!96, !24, !25}
+!97 = distinct !{!97, !24, !25}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!100 = distinct !{!100, !"_ZNK5frame6senderEP11RegisterMap"}
+!101 = distinct !{!101, !24, !25}
 !102 = !{!103}
 !103 = distinct !{!103, !104, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
 !104 = distinct !{!104, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
-!105 = distinct !{!105, !24}
-!106 = distinct !{!106, !24}
-!107 = distinct !{!107, !24}
-!108 = distinct !{!108, !24}
-!109 = distinct !{!109, !24}
-!110 = !{!"branch_weights", i32 1, i32 1048575}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
+!107 = distinct !{!107, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!108 = distinct !{!108, !24, !25}
+!109 = distinct !{!109, !24, !25}
+!110 = distinct !{!110, !24, !25}
+!111 = distinct !{!111, !24, !25}
+!112 = distinct !{!112, !24, !25}
+!113 = !{!"branch_weights", i32 1, i32 1048575}

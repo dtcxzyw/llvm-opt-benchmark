@@ -239,7 +239,7 @@ define internal range(i32 -2147483648, 1) i32 @bitpacked_decode_yuv422p10(ptr no
 ._crit_edge.us:                                   ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !47
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph56, %23, %20, %12, %3
   %.040 = phi i32 [ %10, %3 ], [ -1094995529, %12 ], [ -1163346256, %20 ], [ 0, %23 ], [ 0, %.lr.ph56 ], [ 0, %._crit_edge.us ]
@@ -305,7 +305,8 @@ attributes #3 = { nounwind }
 !41 = !{!8, !8, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"short", !8, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}

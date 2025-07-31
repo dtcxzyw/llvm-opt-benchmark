@@ -489,7 +489,7 @@ define internal i64 @mem_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64
 
 56:                                               ; preds = %4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %58 = load i32, ptr %57, align 4, !tbaa !35
+  %58 = load i32, ptr %57, align 4, !tbaa !36
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %mem_buf_free.exit, label %59
 
@@ -516,7 +516,7 @@ define internal i64 @mem_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64
 
 mem_buf_free.exit:                                ; preds = %56, %59, %66
   %67 = trunc i64 %2 to i32
-  store i32 %67, ptr %57, align 4, !tbaa !35
+  store i32 %67, ptr %57, align 4, !tbaa !36
   store ptr %3, ptr %6, align 8, !tbaa !17
   %68 = load ptr, ptr %10, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !25
@@ -571,14 +571,14 @@ mem_buf_sync.exit:                                ; preds = %.mem_buf_sync.exit_
 
 89:                                               ; preds = %4
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %91 = load i32, ptr %90, align 4, !tbaa !36
   %92 = sext i32 %91 to i64
   br label %99
 
 93:                                               ; preds = %4
   %94 = trunc i64 %2 to i32
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %94, ptr %95, align 4, !tbaa !35
+  store i32 %94, ptr %95, align 4, !tbaa !36
   br label %99
 
 96:                                               ; preds = %4
@@ -610,7 +610,7 @@ define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly captures(addr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !35
+  %7 = load i32, ptr %6, align 4, !tbaa !36
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %mem_buf_free.exit, label %8
 
@@ -697,7 +697,7 @@ define internal fastcc range(i32 0, 2) i32 @mem_init(ptr noundef writeonly captu
 15:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !25
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %16, align 4, !tbaa !35
+  store i32 1, ptr %16, align 4, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %17, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -774,6 +774,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !30 = !{!4, !11, i64 40}
 !31 = !{!19, !19, i64 0}
 !32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!4, !11, i64 44}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!4, !11, i64 44}

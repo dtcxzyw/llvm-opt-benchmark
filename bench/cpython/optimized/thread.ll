@@ -1309,7 +1309,7 @@ define hidden void @PyThread_hang_thread() local_unnamed_addr #5 {
 
 1:                                                ; preds = %1, %0
   %2 = tail call i32 @pause() #13
-  br label %1
+  br label %1, !llvm.loop !184
 }
 
 declare i32 @pause() local_unnamed_addr #3
@@ -1425,14 +1425,14 @@ define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock_timed(ptr noundef %0
 
 17:                                               ; preds = %.split.us
   %18 = tail call ptr @__errno_location() #14
-  %19 = load i32, ptr %18, align 4, !tbaa !184
+  %19 = load i32, ptr %18, align 4, !tbaa !186
   br label %fix_status.exit.us
 
 fix_status.exit.us:                               ; preds = %17, %.split.us
   %.034.us = phi i32 [ %19, %17 ], [ %15, %.split.us ]
   %20 = icmp ne i32 %.034.us, 4
   %or.cond.us = select i1 %14, i1 true, i1 %20
-  br i1 %or.cond.us, label %.split40.us, label %.split.us, !llvm.loop !185
+  br i1 %or.cond.us, label %.split40.us, label %.split.us, !llvm.loop !187
 
 .split:                                           ; preds = %9
   %21 = icmp eq i64 %.033, 0
@@ -1445,14 +1445,14 @@ fix_status.exit.us:                               ; preds = %17, %.split.us
 
 24:                                               ; preds = %.split.split.us
   %25 = tail call ptr @__errno_location() #14
-  %26 = load i32, ptr %25, align 4, !tbaa !184
+  %26 = load i32, ptr %25, align 4, !tbaa !186
   br label %fix_status.exit.us43
 
 fix_status.exit.us43:                             ; preds = %24, %.split.split.us
   %.034.us44 = phi i32 [ %26, %24 ], [ %22, %.split.split.us ]
   %27 = icmp ne i32 %.034.us44, 4
   %or.cond.us45 = select i1 %14, i1 true, i1 %27
-  br i1 %or.cond.us45, label %.split40.us, label %.split.split.us, !llvm.loop !187
+  br i1 %or.cond.us45, label %.split40.us, label %.split.split.us, !llvm.loop !189
 
 .split.split:                                     ; preds = %.split
   br i1 %14, label %.split.split.split.us, label %.split.split.split
@@ -1464,7 +1464,7 @@ fix_status.exit.us43:                             ; preds = %24, %.split.split.u
 
 30:                                               ; preds = %.split.split.split.us
   %31 = tail call ptr @__errno_location() #14
-  %32 = load i32, ptr %31, align 4, !tbaa !184
+  %32 = load i32, ptr %31, align 4, !tbaa !186
   br label %.split40.us
 
 .split.split.split:                               ; preds = %.split.split, %fix_status.exit
@@ -1474,13 +1474,13 @@ fix_status.exit.us43:                             ; preds = %24, %.split.split.u
 
 35:                                               ; preds = %.split.split.split
   %36 = tail call ptr @__errno_location() #14
-  %37 = load i32, ptr %36, align 4, !tbaa !184
+  %37 = load i32, ptr %36, align 4, !tbaa !186
   br label %fix_status.exit
 
 fix_status.exit:                                  ; preds = %35, %.split.split.split
   %.034 = phi i32 [ %37, %35 ], [ %33, %.split.split.split ]
   %.not = icmp eq i32 %.034, 4
-  br i1 %.not, label %.split.split.split, label %.split40.us.thread
+  br i1 %.not, label %.split.split.split, label %.split40.us.thread, !llvm.loop !190
 
 .split40.us:                                      ; preds = %fix_status.exit.us43, %fix_status.exit.us, %30, %.split.split.split.us
   %.us-phi = phi i32 [ %32, %30 ], [ %28, %.split.split.split.us ], [ %.034.us, %fix_status.exit.us ], [ %.034.us44, %fix_status.exit.us43 ]
@@ -1563,7 +1563,7 @@ define hidden range(i32 -1, 1) i32 @_PyThread_at_fork_reinit(ptr noundef writeon
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  store ptr %2, ptr %0, align 8, !tbaa !188
+  store ptr %2, ptr %0, align 8, !tbaa !191
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -1588,14 +1588,14 @@ define dso_local range(i32 -1, -2147483648) i32 @PyThread_create_key() local_unn
   br i1 %.not, label %3, label %9
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr %1, align 4, !tbaa !184
+  %4 = load i32, ptr %1, align 4, !tbaa !186
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = call i32 @pthread_key_delete(i32 noundef %4) #13
   %8 = tail call ptr @__errno_location() #14
-  store i32 12, ptr %8, align 4, !tbaa !184
+  store i32 12, ptr %8, align 4, !tbaa !186
   br label %9
 
 9:                                                ; preds = %3, %0, %6
@@ -1652,7 +1652,7 @@ define dso_local void @PyThread_ReInitTLS() local_unnamed_addr #9 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @PyThread_tss_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !189
+  %2 = load i32, ptr %0, align 4, !tbaa !192
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %7
 
@@ -1663,7 +1663,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_tss_create(ptr noundef %0) local
   br i1 %.not4, label %6, label %7
 
 6:                                                ; preds = %3
-  store i32 1, ptr %0, align 4, !tbaa !189
+  store i32 1, ptr %0, align 4, !tbaa !192
   br label %7
 
 7:                                                ; preds = %6, %3, %1
@@ -1673,15 +1673,15 @@ define dso_local range(i32 -1, 1) i32 @PyThread_tss_create(ptr noundef %0) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyThread_tss_delete(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !189
+  %2 = load i32, ptr %0, align 4, !tbaa !192
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !190
+  %5 = load i32, ptr %4, align 4, !tbaa !193
   %6 = tail call i32 @pthread_key_delete(i32 noundef %5) #13
-  store i32 0, ptr %0, align 4, !tbaa !189
+  store i32 0, ptr %0, align 4, !tbaa !192
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -1691,7 +1691,7 @@ define dso_local void @PyThread_tss_delete(ptr noundef captures(none) %0) local_
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @PyThread_tss_set(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !190
+  %4 = load i32, ptr %3, align 4, !tbaa !193
   %5 = tail call i32 @pthread_setspecific(i32 noundef %4, ptr noundef %1) #13
   %.not = icmp ne i32 %5, 0
   %6 = sext i1 %.not to i32
@@ -1701,7 +1701,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_tss_set(ptr noundef readonly cap
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyThread_tss_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !190
+  %3 = load i32, ptr %2, align 4, !tbaa !193
   %4 = tail call ptr @pthread_getspecific(i32 noundef %3) #13
   ret ptr %4
 }
@@ -1790,7 +1790,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %0, 
   br i1 %.not10, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !191
+  %11 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !194
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.6) #13
   br label %28
 
@@ -1806,7 +1806,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %0, 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !191
+  %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !194
   call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.7) #13
   br label %27
 
@@ -1816,7 +1816,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %0, 
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !191
+  %24 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !194
   call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.8) #13
   br label %27
 
@@ -1886,12 +1886,12 @@ define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock_timed_with_retries(p
   br i1 %22, label %.thread36, label %23
 
 23:                                               ; preds = %20
-  br i1 %9, label %24, label %10, !llvm.loop !192
+  br i1 %9, label %24, label %10, !llvm.loop !195
 
 24:                                               ; preds = %23
   %25 = tail call i64 @_PyDeadline_Get(i64 noundef %.025) #13
   %26 = icmp slt i64 %25, 0
-  br i1 %26, label %.thread36, label %.outer, !llvm.loop !192
+  br i1 %26, label %.thread36, label %.outer, !llvm.loop !195
 
 .thread36:                                        ; preds = %24, %18, %20
   %.2 = phi i32 [ %.022, %18 ], [ 2, %20 ], [ 0, %24 ]
@@ -1915,7 +1915,7 @@ define dso_local ptr @PyThread_tss_alloc() local_unnamed_addr #0 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  store i32 0, ptr %1, align 4, !tbaa !189
+  store i32 0, ptr %1, align 4, !tbaa !192
   br label %4
 
 4:                                                ; preds = %0, %3
@@ -1928,15 +1928,15 @@ define dso_local void @PyThread_tss_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 4, !tbaa !189
+  %3 = load i32, ptr %0, align 4, !tbaa !192
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %PyThread_tss_delete.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !190
+  %6 = load i32, ptr %5, align 4, !tbaa !193
   %7 = tail call i32 @pthread_key_delete(i32 noundef %6) #13
-  store i32 0, ptr %0, align 4, !tbaa !189
+  store i32 0, ptr %0, align 4, !tbaa !192
   br label %PyThread_tss_delete.exit
 
 PyThread_tss_delete.exit:                         ; preds = %2, %4
@@ -1949,7 +1949,7 @@ PyThread_tss_delete.exit:                         ; preds = %2, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @PyThread_tss_is_created(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 4, !tbaa !189
+  %2 = load i32, ptr %0, align 4, !tbaa !192
   ret i32 %2
 }
 
@@ -1976,13 +1976,13 @@ define dso_local ptr @PyThread_GetInfo() local_unnamed_addr #0 {
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %9, align 8, !tbaa !194
+  %15 = load i32, ptr %9, align 8, !tbaa !197
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %14
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %9, align 8, !tbaa !194
+  store i32 %17, ptr %9, align 8, !tbaa !197
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -1997,13 +1997,13 @@ define dso_local ptr @PyThread_GetInfo() local_unnamed_addr #0 {
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr %9, align 8, !tbaa !194
+  %24 = load i32, ptr %9, align 8, !tbaa !197
   %.not.i30 = icmp sgt i32 %24, -1
   br i1 %.not.i30, label %25, label %Py_DECREF.exit
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %24, -1
-  store i32 %26, ptr %9, align 8, !tbaa !194
+  store i32 %26, ptr %9, align 8, !tbaa !197
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Py_DECREF.exit
 
@@ -2031,13 +2031,13 @@ define dso_local ptr @PyThread_GetInfo() local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %38, %29
-  %40 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !194
+  %40 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !197
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %_Py_NewRef.exit, label %42
 
 42:                                               ; preds = %39
   %43 = add nuw i32 %40, 1
-  store i32 %43, ptr @_Py_NoneStruct, align 8, !tbaa !194
+  store i32 %43, ptr @_Py_NoneStruct, align 8, !tbaa !197
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %42, %39, %33
@@ -2317,14 +2317,17 @@ attributes #16 = { cold }
 !181 = !{!182, !29, i64 0}
 !182 = !{!"", !29, i64 0, !29, i64 8}
 !183 = !{!182, !29, i64 8}
-!184 = !{!27, !27, i64 0}
-!185 = distinct !{!185, !186}
-!186 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!187 = distinct !{!187, !186}
-!188 = !{!29, !29, i64 0}
-!189 = !{!53, !27, i64 0}
-!190 = !{!53, !27, i64 4}
-!191 = !{!52, !52, i64 0}
-!192 = distinct !{!192, !193}
-!193 = !{!"llvm.loop.mustprogress"}
-!194 = !{!7, !7, i64 0}
+!184 = distinct !{!184, !185}
+!185 = !{!"llvm.loop.estimated_trip_count"}
+!186 = !{!27, !27, i64 0}
+!187 = distinct !{!187, !185, !188}
+!188 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!189 = distinct !{!189, !185, !188}
+!190 = distinct !{!190, !185}
+!191 = !{!29, !29, i64 0}
+!192 = !{!53, !27, i64 0}
+!193 = !{!53, !27, i64 4}
+!194 = !{!52, !52, i64 0}
+!195 = distinct !{!195, !196, !185}
+!196 = !{!"llvm.loop.mustprogress"}
+!197 = !{!7, !7, i64 0}

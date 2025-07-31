@@ -102,7 +102,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 55:                                               ; preds = %54
   %56 = load ptr, ptr %7, align 8, !tbaa !36
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !48
+  %58 = load i64, ptr %57, align 8, !tbaa !49
   %59 = and i64 %58, 2
   %.not85 = icmp eq i64 %59, 0
   br i1 %.not85, label %65, label %60
@@ -131,20 +131,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %68, %.lr.ph
   %.188 = phi i32 [ %77, %.lr.ph ], [ 0, %68 ]
-  %73 = load ptr, ptr %66, align 8, !tbaa !49
+  %73 = load ptr, ptr %66, align 8, !tbaa !50
   %74 = load ptr, ptr %7, align 8, !tbaa !36
   tail call void @av_read_image_line2(ptr noundef %73, ptr noundef %1, ptr noundef nonnull %67, ptr noundef %74, i32 noundef 0, i32 noundef %.188, i32 noundef %.07989, i32 noundef %70, i32 noundef 0, i32 noundef 4) #6
-  %75 = load ptr, ptr %66, align 8, !tbaa !49
+  %75 = load ptr, ptr %66, align 8, !tbaa !50
   %76 = load ptr, ptr %7, align 8, !tbaa !36
   tail call void @av_write_image_line2(ptr noundef %75, ptr noundef nonnull %32, ptr noundef nonnull %36, ptr noundef %76, i32 noundef 0, i32 noundef %.188, i32 noundef %.07989, i32 noundef %70, i32 noundef 4) #6
   %77 = add nuw nsw i32 %.188, 1
   %exitcond91.not = icmp eq i32 %77, %71
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
   %78 = add nuw nsw i32 %.07989, 1
   %exitcond92.not = icmp eq i32 %78, 4
-  br i1 %exitcond92.not, label %79, label %68, !llvm.loop !51
+  br i1 %exitcond92.not, label %79, label %68, !llvm.loop !52
 
 79:                                               ; preds = %._crit_edge
   call void @av_frame_free(ptr noundef nonnull %3) #6
@@ -163,7 +163,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !52
+  %7 = load i32, ptr %6, align 4, !tbaa !53
   %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #6
   store ptr %8, ptr %5, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -172,7 +172,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %11 = load i32, ptr %10, align 8, !tbaa !34
   %12 = sext i32 %11 to i64
   %13 = tail call ptr @av_malloc_array(i64 noundef 4, i64 noundef %12) #6
-  store ptr %13, ptr %9, align 8, !tbaa !49
+  store ptr %13, ptr %9, align 8, !tbaa !50
   %.not = icmp eq ptr %13, null
   %. = select i1 %.not, i32 -12, i32 0
   ret i32 %.
@@ -261,10 +261,11 @@ attributes #6 = { nounwind }
 !43 = !{!41, !8, i64 10}
 !44 = !{!11, !11, i64 0}
 !45 = !{!15, !15, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!41, !42, i64 16}
-!49 = !{!37, !39, i64 8}
-!50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
-!52 = !{!23, !15, i64 36}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!41, !42, i64 16}
+!50 = !{!37, !39, i64 8}
+!51 = distinct !{!51, !47, !48}
+!52 = distinct !{!52, !47, !48}
+!53 = !{!23, !15, i64 36}

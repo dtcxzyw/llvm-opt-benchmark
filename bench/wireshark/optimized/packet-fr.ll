@@ -813,7 +813,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %56)
   %58 = and i8 %57, 1
   %.not246 = icmp eq i8 %58, 0
-  br i1 %.not246, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %.not246, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %42
   %.0234 = phi i8 [ %43, %42 ], [ %53, %46 ], [ %57, %.lr.ph ]
@@ -1125,6 +1125,7 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

@@ -160,7 +160,7 @@ switch.lookup:                                    ; preds = %17
   store i32 %51, ptr %52, align 4
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 64
-  br i1 %exitcond97.not, label %.loopexit, label %.preheader104, !llvm.loop !8
+  br i1 %exitcond97.not, label %.loopexit, label %.preheader104, !llvm.loop !9
 
 .preheader105:                                    ; preds = %46, %.preheader105
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader105 ], [ 0, %46 ]
@@ -177,7 +177,7 @@ switch.lookup:                                    ; preds = %17
   store i32 %61, ptr %62, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 64
-  br i1 %exitcond93.not, label %.loopexit, label %.preheader105, !llvm.loop !9
+  br i1 %exitcond93.not, label %.loopexit, label %.preheader105, !llvm.loop !10
 
 .preheader:                                       ; preds = %46, %76
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %76 ], [ 0, %46 ]
@@ -204,12 +204,12 @@ switch.lookup:                                    ; preds = %17
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %76, label %66, !llvm.loop !10
+  br i1 %exitcond.not, label %76, label %66, !llvm.loop !11
 
 76:                                               ; preds = %66
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 8
-  br i1 %exitcond89.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond89.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 default.unreachable101:                           ; preds = %46
   unreachable
@@ -220,7 +220,7 @@ default.unreachable101:                           ; preds = %46
   %78 = load i32, ptr %2, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next99, %79
-  br i1 %80, label %12, label %._crit_edge, !llvm.loop !12
+  br i1 %80, label %12, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -254,10 +254,11 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

@@ -129,7 +129,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr noundef readonly captures(
   br i1 %11, label %12, label %309
 
 12:                                               ; preds = %3
-  %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !8
+  %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !9
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -295,7 +295,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr noundef readonly captures(
   %117 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %.loopexit54, label %100, !llvm.loop !9
+  br i1 %119, label %.loopexit54, label %100, !llvm.loop !10
 
 .loopexit54:                                      ; preds = %116, %94
   %120 = getelementptr inbounds nuw i8, ptr %90, i64 128
@@ -363,13 +363,13 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr noundef readonly captures(
   %156 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %158, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %155, %137
   %159 = load i32, ptr %125, align 8
   %160 = and i32 %159, 1
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.thread38, label %.lr.ph, !llvm.loop !10
+  br i1 %161, label %.thread38, label %.lr.ph, !llvm.loop !12
 
 162:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -549,7 +549,7 @@ define dso_local i32 @autofs_wait(ptr noundef %0, ptr noundef readonly captures(
 
 265:                                              ; preds = %259
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !13
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #12
   %266 = call i64 @prepare_to_wait_event(ptr noundef nonnull %260, ptr noundef nonnull %5, i32 noundef 258) #12
   %267 = load ptr, ptr %262, align 8
@@ -774,7 +774,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   br label %76
 
 69:                                               ; preds = %3
-  %70 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !8
+  %70 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !9
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1320
   %73 = load i32, ptr %72, align 8
@@ -788,10 +788,10 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %80, ptr nonnull elementtype(i64) %80) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %80, ptr nonnull elementtype(i64) %80) #12, !srcloc !14
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @mutex_unlock(ptr noundef nonnull %81) #12
-  %82 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !8
+  %82 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !9
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1936
   %85 = load i64, ptr %84, align 8
@@ -807,7 +807,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %92 = sext i32 %99 to i64
   %93 = call i64 @__kernel_write(ptr noundef %79, ptr noundef %91, i64 noundef %92, ptr noundef null) #12
   %94 = icmp slt i64 %93, 1
-  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %76, %90
   %95 = phi i64 [ %93, %90 ], [ %88, %76 ]
@@ -816,7 +816,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %98 = trunc i64 %95 to i32
   %99 = sub i32 %97, %98
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.loopexit, label %90, !llvm.loop !13
+  br i1 %100, label %.loopexit, label %90, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %90, %76
   %101 = phi i64 [ %88, %76 ], [ %95, %.preheader ], [ %93, %90 ]
@@ -854,7 +854,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
 119:                                              ; preds = %114, %114
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %121 = load i32, ptr %120, align 8
-  %122 = call i32 @autofs_wait_release(ptr noundef %0, i32 noundef %121, i32 noundef %118), !range !14
+  %122 = call i32 @autofs_wait_release(ptr noundef %0, i32 noundef %121, i32 noundef %118), !range !17
   br label %124
 
 123:                                              ; preds = %114
@@ -907,14 +907,14 @@ define dso_local noundef range(i32 -22, 1) i32 @autofs_wait_release(ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %15, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %8, %12
   %16 = phi ptr [ %18, %12 ], [ %6, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %12, !llvm.loop !15
+  br i1 %19, label %.loopexit, label %12, !llvm.loop !19
 
 .loopexit2.loopexit:                              ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -1022,14 +1022,18 @@ attributes #16 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2148785071}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
-!12 = !{i64 2148005927, i64 2148005966, i64 2148005987, i64 2148006024, i64 2148006047, i64 2148005917}
-!13 = distinct !{!13, !6, !7}
-!14 = !{i32 -22, i32 1}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2148785071}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"auto-init"}
+!14 = !{i64 2148005927, i64 2148005966, i64 2148005987, i64 2148006024, i64 2148006047, i64 2148005917}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7}
+!17 = !{i32 -22, i32 1}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7}

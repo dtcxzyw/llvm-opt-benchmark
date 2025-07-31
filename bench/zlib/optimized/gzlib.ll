@@ -159,7 +159,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %50 = add i64 %49, 1
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #12
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %51, ptr %52, align 8, !tbaa !23
+  store ptr %51, ptr %52, align 8, !tbaa !24
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %55
 
@@ -175,7 +175,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
 
 .thread92:                                        ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %1, ptr %59, align 4, !tbaa !24
+  store i32 %1, ptr %59, align 4, !tbaa !25
   br label %70
 
 60:                                               ; preds = %55
@@ -186,7 +186,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %65 = or disjoint i32 %64, %41
   %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #13
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %66, ptr %67, align 4, !tbaa !24
+  store i32 %66, ptr %67, align 4, !tbaa !25
   %68 = icmp eq i32 %66, -1
   br i1 %68, label %69, label %70
 
@@ -214,30 +214,30 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %77 = icmp eq i64 %75, -1
   %spec.store.select = select i1 %77, i64 0, i64 %75
   store i64 %spec.store.select, ptr %76, align 8
-  store i32 0, ptr %6, align 8, !tbaa !25
+  store i32 0, ptr %6, align 8, !tbaa !26
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %78, align 8, !tbaa !26
+  store i32 0, ptr %78, align 8, !tbaa !27
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  store i32 0, ptr %79, align 4, !tbaa !27
+  store i32 0, ptr %79, align 4, !tbaa !28
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 68
-  store i32 0, ptr %80, align 4, !tbaa !28
+  store i32 0, ptr %80, align 4, !tbaa !29
   br label %gz_reset.exit
 
 81:                                               ; preds = %73, %.thread
-  store i32 0, ptr %6, align 8, !tbaa !25
+  store i32 0, ptr %6, align 8, !tbaa !26
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store i32 0, ptr %82, align 8, !tbaa !29
+  store i32 0, ptr %82, align 8, !tbaa !30
   br label %gz_reset.exit
 
 gz_reset.exit:                                    ; preds = %74, %81
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 0, ptr %83, align 8, !tbaa !30
+  store i32 0, ptr %83, align 8, !tbaa !31
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  store i32 0, ptr %84, align 4, !tbaa !31
+  store i32 0, ptr %84, align 4, !tbaa !32
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %85, align 8, !tbaa !32
+  store i64 0, ptr %85, align 8, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 0, ptr %86, align 8, !tbaa !33
+  store i32 0, ptr %86, align 8, !tbaa !34
   br label %87
 
 87:                                               ; preds = %5, %3, %gz_reset.exit, %69, %54, %46, %._crit_edge.thread, %27
@@ -326,7 +326,7 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %8 = load i32, ptr %7, align 4, !tbaa !31
+  %8 = load i32, ptr %7, align 4, !tbaa !32
   switch i32 %8, label %35 [
     i32 0, label %9
     i32 -5, label %9
@@ -334,43 +334,43 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) 
 
 9:                                                ; preds = %6, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = load i32, ptr %10, align 4, !tbaa !24
+  %11 = load i32, ptr %10, align 4, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = load i64, ptr %12, align 8, !tbaa !34
+  %13 = load i64, ptr %12, align 8, !tbaa !35
   %14 = tail call i64 @lseek64(i32 noundef %11, i64 noundef %13, i32 noundef 0) #13
   %15 = icmp eq i64 %14, -1
   br i1 %15, label %35, label %16
 
 16:                                               ; preds = %9
-  store i32 0, ptr %0, align 8, !tbaa !25
+  store i32 0, ptr %0, align 8, !tbaa !26
   %17 = load i32, ptr %4, align 8, !tbaa !16
   %18 = icmp eq i32 %17, 7247
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %20, align 8, !tbaa !26
+  store i32 0, ptr %20, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %21, align 4, !tbaa !27
+  store i32 0, ptr %21, align 4, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %22, align 4, !tbaa !28
+  store i32 0, ptr %22, align 4, !tbaa !29
   br label %25
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %24, align 8, !tbaa !29
+  store i32 0, ptr %24, align 8, !tbaa !30
   br label %25
 
 25:                                               ; preds = %23, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %26, align 8, !tbaa !30
+  store i32 0, ptr %26, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %gz_reset.exit, label %29
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr %7, align 4, !tbaa !31
+  %30 = load i32, ptr %7, align 4, !tbaa !32
   %.not24.i.i = icmp eq i32 %30, -4
   br i1 %.not24.i.i, label %32, label %31
 
@@ -383,11 +383,11 @@ define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) 
   br label %gz_reset.exit
 
 gz_reset.exit:                                    ; preds = %25, %32
-  store i32 0, ptr %7, align 4, !tbaa !31
+  store i32 0, ptr %7, align 4, !tbaa !32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %33, align 8, !tbaa !32
+  store i64 0, ptr %33, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %34, align 8, !tbaa !33
+  store i32 0, ptr %34, align 8, !tbaa !34
   br label %35
 
 35:                                               ; preds = %9, %3, %6, %1, %gz_reset.exit
@@ -413,7 +413,7 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
 
 8:                                                ; preds = %5, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %10 = load i32, ptr %9, align 4, !tbaa !31
+  %10 = load i32, ptr %9, align 4, !tbaa !32
   switch i32 %10, label %.thread69 [
     i32 0, label %11
     i32 -5, label %11
@@ -429,46 +429,46 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !32
+  %16 = load i64, ptr %15, align 8, !tbaa !33
   %17 = sub nsw i64 %1, %16
   br label %25
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = load i32, ptr %19, align 8, !tbaa !30
+  %20 = load i32, ptr %19, align 8, !tbaa !31
   %.not66 = icmp eq i32 %20, 0
   br i1 %.not66, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %23 = load i64, ptr %22, align 8, !tbaa !35
+  %23 = load i64, ptr %22, align 8, !tbaa !36
   %24 = add nsw i64 %23, %1
   br label %25
 
 25:                                               ; preds = %18, %21, %14
   %.058 = phi i64 [ %17, %14 ], [ %24, %21 ], [ %1, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %26, align 8, !tbaa !30
+  store i32 0, ptr %26, align 8, !tbaa !31
   %27 = icmp eq i32 %7, 7247
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %30 = load i32, ptr %29, align 4, !tbaa !28
+  %30 = load i32, ptr %29, align 4, !tbaa !29
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %57
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !32
+  %34 = load i64, ptr %33, align 8, !tbaa !33
   %35 = add nsw i64 %34, %.058
   %36 = icmp sgt i64 %35, -1
   br i1 %36, label %37, label %57
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %39 = load i32, ptr %38, align 4, !tbaa !24
-  %40 = load i32, ptr %0, align 8, !tbaa !25
+  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %40 = load i32, ptr %0, align 8, !tbaa !26
   %41 = zext i32 %40 to i64
   %42 = sub nsw i64 %.058, %41
   %43 = tail call i64 @lseek64(i32 noundef %39, i64 noundef %42, i32 noundef 1) #13
@@ -476,19 +476,19 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
   br i1 %44, label %.thread69, label %45
 
 45:                                               ; preds = %37
-  store i32 0, ptr %0, align 8, !tbaa !25
+  store i32 0, ptr %0, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %46, align 8, !tbaa !26
+  store i32 0, ptr %46, align 8, !tbaa !27
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %47, align 4, !tbaa !27
-  store i32 0, ptr %26, align 8, !tbaa !30
+  store i32 0, ptr %47, align 4, !tbaa !28
+  store i32 0, ptr %26, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %49 = load ptr, ptr %48, align 8, !tbaa !15
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %gz_error.exit, label %50
 
 50:                                               ; preds = %45
-  %51 = load i32, ptr %9, align 4, !tbaa !31
+  %51 = load i32, ptr %9, align 4, !tbaa !32
   %.not24.i = icmp eq i32 %51, -4
   br i1 %.not24.i, label %53, label %52
 
@@ -501,12 +501,12 @@ define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i
   br label %gz_error.exit
 
 gz_error.exit:                                    ; preds = %45, %53
-  store i32 0, ptr %9, align 4, !tbaa !31
+  store i32 0, ptr %9, align 4, !tbaa !32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %54, align 8, !tbaa !33
-  %55 = load i64, ptr %33, align 8, !tbaa !32
+  store i32 0, ptr %54, align 8, !tbaa !34
+  %55 = load i64, ptr %33, align 8, !tbaa !33
   %56 = add nsw i64 %55, %.058
-  store i64 %56, ptr %33, align 8, !tbaa !32
+  store i64 %56, ptr %33, align 8, !tbaa !33
   br label %.thread69
 
 57:                                               ; preds = %32, %28
@@ -519,7 +519,7 @@ gz_error.exit:                                    ; preds = %45, %53
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load i64, ptr %61, align 8, !tbaa !32
+  %62 = load i64, ptr %61, align 8, !tbaa !33
   %63 = add nsw i64 %62, %.058
   %64 = icmp slt i64 %63, 0
   br i1 %64, label %.thread69, label %65
@@ -536,20 +536,20 @@ gz_error.exit:                                    ; preds = %45, %53
 
 .thread70:                                        ; preds = %57, %68
   %.172 = phi i64 [ %63, %68 ], [ %.058, %57 ]
-  %70 = load i32, ptr %0, align 8, !tbaa !25
+  %70 = load i32, ptr %0, align 8, !tbaa !26
   %71 = zext i32 %70 to i64
   %72 = tail call i64 @llvm.umin.i64(i64 %.172, i64 %71)
   %73 = trunc nuw i64 %72 to i32
   %74 = sub i32 %70, %73
-  store i32 %74, ptr %0, align 8, !tbaa !25
+  store i32 %74, ptr %0, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !36
+  %76 = load ptr, ptr %75, align 8, !tbaa !37
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %72
-  store ptr %77, ptr %75, align 8, !tbaa !36
+  store ptr %77, ptr %75, align 8, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !32
+  %79 = load i64, ptr %78, align 8, !tbaa !33
   %80 = add nsw i64 %79, %72
-  store i64 %80, ptr %78, align 8, !tbaa !32
+  store i64 %80, ptr %78, align 8, !tbaa !33
   %81 = sub nsw i64 %.172, %72
   br label %.thread73
 
@@ -559,14 +559,14 @@ gz_error.exit:                                    ; preds = %45, %53
   br i1 %.not68, label %84, label %82
 
 82:                                               ; preds = %.thread73
-  store i32 1, ptr %26, align 8, !tbaa !30
+  store i32 1, ptr %26, align 8, !tbaa !31
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.2, ptr %83, align 8, !tbaa !35
+  store i64 %.2, ptr %83, align 8, !tbaa !36
   br label %84
 
 84:                                               ; preds = %82, %.thread73
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !32
+  %86 = load i64, ptr %85, align 8, !tbaa !33
   %87 = add nsw i64 %86, %.2
   br label %.thread69
 
@@ -584,7 +584,7 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %8 = load i32, ptr %7, align 4, !tbaa !31
+  %8 = load i32, ptr %7, align 4, !tbaa !32
   %.not24 = icmp eq i32 %8, -4
   br i1 %.not24, label %10, label %9
 
@@ -603,12 +603,12 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
   ]
 
 12:                                               ; preds = %11
-  store i32 0, ptr %0, align 8, !tbaa !25
+  store i32 0, ptr %0, align 8, !tbaa !26
   br label %13
 
 13:                                               ; preds = %11, %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %1, ptr %14, align 4, !tbaa !31
+  store i32 %1, ptr %14, align 4, !tbaa !32
   %15 = icmp eq ptr %2, null
   %16 = icmp eq i32 %1, -4
   %or.cond3 = or i1 %16, %15
@@ -616,7 +616,7 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %22 = add i64 %20, 3
@@ -627,7 +627,7 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %17
-  store i32 -4, ptr %14, align 4, !tbaa !31
+  store i32 -4, ptr %14, align 4, !tbaa !32
   br label %33
 
 27:                                               ; preds = %17
@@ -663,15 +663,15 @@ define i64 @gztell64(ptr noundef readonly captures(address_is_null) %0) local_un
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !31
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = load i64, ptr %12, align 8, !tbaa !35
+  %13 = load i64, ptr %12, align 8, !tbaa !36
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -699,15 +699,15 @@ define i64 @gztell(ptr noundef readonly captures(address_is_null) %0) local_unna
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !31
   %.not10.i = icmp eq i32 %10, 0
   br i1 %.not10.i, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = load i64, ptr %12, align 8, !tbaa !35
+  %13 = load i64, ptr %12, align 8, !tbaa !36
   br label %14
 
 14:                                               ; preds = %11, %6
@@ -735,7 +735,7 @@ define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !24
+  %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #13
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %19, label %11
@@ -747,7 +747,7 @@ define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8, !tbaa !33
+  %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 %9, %17
   br label %19
@@ -772,7 +772,7 @@ define i64 @gzoffset(ptr noundef readonly captures(address_is_null) %0) local_un
 
 6:                                                ; preds = %3, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !24
+  %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = tail call i64 @lseek64(i32 noundef %8, i64 noundef 0, i32 noundef 1) #13
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %gzoffset64.exit, label %11
@@ -784,7 +784,7 @@ define i64 @gzoffset(ptr noundef readonly captures(address_is_null) %0) local_un
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8, !tbaa !33
+  %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 %9, %17
   br label %gzoffset64.exit
@@ -807,7 +807,7 @@ define i32 @gzeof(ptr noundef readonly captures(address_is_null) %0) local_unnam
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %8 = load i32, ptr %7, align 4, !tbaa !27
+  %8 = load i32, ptr %7, align 4, !tbaa !28
   br label %9
 
 9:                                                ; preds = %3, %6, %1
@@ -831,11 +831,11 @@ define ptr @gzerror(ptr noundef readonly captures(address_is_null) %0, ptr nound
 7:                                                ; preds = %4, %4
   %.not16 = icmp eq ptr %1, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !31
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !32
   br i1 %.not16, label %._crit_edge, label %8
 
 8:                                                ; preds = %7
-  store i32 %.pre, ptr %1, align 4, !tbaa !37
+  store i32 %.pre, ptr %1, align 4, !tbaa !38
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %8
@@ -869,9 +869,9 @@ define void @gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %7, align 8, !tbaa !26
+  store i32 0, ptr %7, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %8, align 4, !tbaa !27
+  store i32 0, ptr %8, align 4, !tbaa !28
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -882,7 +882,7 @@ define void @gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %14 = load i32, ptr %13, align 4, !tbaa !31
+  %14 = load i32, ptr %13, align 4, !tbaa !32
   %.not24.i = icmp eq i32 %14, -4
   br i1 %.not24.i, label %16, label %15
 
@@ -896,7 +896,7 @@ define void @gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 gz_error.exit:                                    ; preds = %9, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %17, align 4, !tbaa !31
+  store i32 0, ptr %17, align 4, !tbaa !32
   br label %18
 
 18:                                               ; preds = %3, %1, %gz_error.exit
@@ -959,20 +959,21 @@ attributes #14 = { nounwind willreturn memory(read) }
 !18 = !{!4, !6, i64 92}
 !19 = !{!4, !6, i64 64}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!4, !9, i64 32}
-!24 = !{!4, !6, i64 28}
-!25 = !{!4, !6, i64 0}
-!26 = !{!4, !6, i64 80}
-!27 = !{!4, !6, i64 84}
-!28 = !{!4, !6, i64 68}
-!29 = !{!4, !6, i64 96}
-!30 = !{!4, !6, i64 112}
-!31 = !{!4, !6, i64 116}
-!32 = !{!4, !11, i64 16}
-!33 = !{!4, !6, i64 136}
-!34 = !{!4, !11, i64 72}
-!35 = !{!4, !11, i64 104}
-!36 = !{!4, !9, i64 8}
-!37 = !{!6, !6, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!4, !9, i64 32}
+!25 = !{!4, !6, i64 28}
+!26 = !{!4, !6, i64 0}
+!27 = !{!4, !6, i64 80}
+!28 = !{!4, !6, i64 84}
+!29 = !{!4, !6, i64 68}
+!30 = !{!4, !6, i64 96}
+!31 = !{!4, !6, i64 112}
+!32 = !{!4, !6, i64 116}
+!33 = !{!4, !11, i64 16}
+!34 = !{!4, !6, i64 136}
+!35 = !{!4, !11, i64 72}
+!36 = !{!4, !11, i64 104}
+!37 = !{!4, !9, i64 8}
+!38 = !{!6, !6, i64 0}

@@ -77,16 +77,16 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
 
 25:                                               ; preds = %.critedge.thread
   %26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #11
-  store ptr %26, ptr %5, align 8, !tbaa !21
+  store ptr %26, ptr %5, align 8, !tbaa !22
   %27 = icmp eq ptr %26, null
   br i1 %27, label %148, label %28
 
 28:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %2, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  store ptr %26, ptr %29, align 8, !tbaa !22
+  store ptr %26, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  store i64 %2, ptr %30, align 8, !tbaa !23
+  store i64 %2, ptr %30, align 8, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %2
   %32 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef nonnull %31, ptr noundef nonnull %4, i32 noundef 48) #10
   %.not118 = icmp eq i32 %32, 0
@@ -97,8 +97,8 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
   br label %148
 
 34:                                               ; preds = %28
-  %35 = load i64, ptr %4, align 8, !tbaa !24
-  %36 = load ptr, ptr %5, align 8, !tbaa !21
+  %35 = load i64, ptr %4, align 8, !tbaa !25
+  %36 = load ptr, ptr %5, align 8, !tbaa !22
   %37 = ptrtoint ptr %31 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
@@ -111,7 +111,7 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  store ptr %36, ptr %42, align 8, !tbaa !25
+  store ptr %36, ptr %42, align 8, !tbaa !26
   %43 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef nonnull %31, ptr noundef nonnull %4, i32 noundef 48) #10
   %.not120 = icmp eq i32 %43, 0
   br i1 %.not120, label %46, label %44
@@ -122,15 +122,15 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
   br label %148
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr %5, align 8, !tbaa !21
-  %48 = load i64, ptr %4, align 8, !tbaa !24
+  %47 = load ptr, ptr %5, align 8, !tbaa !22
+  %48 = load i64, ptr %4, align 8, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
-  %50 = load ptr, ptr %42, align 8, !tbaa !25
+  %50 = load ptr, ptr %42, align 8, !tbaa !26
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store i64 %53, ptr %54, align 8, !tbaa !26
+  store i64 %53, ptr %54, align 8, !tbaa !27
   %55 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %56 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %5, ptr noundef %49, ptr noundef nonnull %55) #10
   switch i32 %56, label %x509_crl_get_version.exit [
@@ -139,7 +139,7 @@ define hidden i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef readon
   ]
 
 57:                                               ; preds = %46
-  store i32 0, ptr %55, align 4, !tbaa !27
+  store i32 0, ptr %55, align 4, !tbaa !28
   br label %x509_crl_get_version.exit.thread
 
 x509_crl_get_version.exit:                        ; preds = %46
@@ -182,9 +182,9 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 72:                                               ; preds = %65
-  %73 = load ptr, ptr %5, align 8, !tbaa !21
+  %73 = load ptr, ptr %5, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %.1, i64 96
-  store ptr %73, ptr %74, align 8, !tbaa !28
+  store ptr %73, ptr %74, align 8, !tbaa !29
   %75 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %49, ptr noundef nonnull %4, i32 noundef 48) #10
   %.not124 = icmp eq i32 %75, 0
   br i1 %.not124, label %78, label %76
@@ -195,8 +195,8 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 78:                                               ; preds = %72
-  %79 = load ptr, ptr %5, align 8, !tbaa !21
-  %80 = load i64, ptr %4, align 8, !tbaa !24
+  %79 = load ptr, ptr %5, align 8, !tbaa !22
+  %80 = load i64, ptr %4, align 8, !tbaa !25
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %.1, i64 104
   %83 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %5, ptr noundef %81, ptr noundef nonnull %82) #10
@@ -208,13 +208,13 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 85:                                               ; preds = %78
-  %86 = load ptr, ptr %5, align 8, !tbaa !21
-  %87 = load ptr, ptr %74, align 8, !tbaa !28
+  %86 = load ptr, ptr %5, align 8, !tbaa !22
+  %87 = load ptr, ptr %74, align 8, !tbaa !29
   %88 = ptrtoint ptr %86 to i64
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %.1, i64 88
-  store i64 %90, ptr %91, align 8, !tbaa !29
+  store i64 %90, ptr %91, align 8, !tbaa !30
   %92 = getelementptr inbounds nuw i8, ptr %.1, i64 168
   %93 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %5, ptr noundef %49, ptr noundef nonnull %92) #10
   %.not126 = icmp eq i32 %93, 0
@@ -263,7 +263,7 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 110:                                              ; preds = %106, %103
-  %111 = load ptr, ptr %5, align 8, !tbaa !21
+  %111 = load ptr, ptr %5, align 8, !tbaa !22
   %.not132 = icmp eq ptr %111, %49
   br i1 %.not132, label %113, label %112
 
@@ -272,8 +272,8 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 113:                                              ; preds = %110
-  %114 = load ptr, ptr %29, align 8, !tbaa !22
-  %115 = load i64, ptr %30, align 8, !tbaa !23
+  %114 = load ptr, ptr %29, align 8, !tbaa !23
+  %115 = load i64, ptr %30, align 8, !tbaa !24
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 %115
   %117 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %5, ptr noundef %116, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
   %.not133 = icmp eq i32 %117, 0
@@ -285,26 +285,26 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
 
 119:                                              ; preds = %113
   %120 = getelementptr inbounds nuw i8, ptr %.1, i64 64
-  %121 = load i64, ptr %120, align 8, !tbaa !30
+  %121 = load i64, ptr %120, align 8, !tbaa !31
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %123 = load i64, ptr %122, align 8, !tbaa !31
+  %123 = load i64, ptr %122, align 8, !tbaa !32
   %.not134 = icmp eq i64 %121, %123
   br i1 %.not134, label %124, label %140
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %.1, i64 72
-  %126 = load ptr, ptr %125, align 8, !tbaa !32
+  %126 = load ptr, ptr %125, align 8, !tbaa !33
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !33
+  %128 = load ptr, ptr %127, align 8, !tbaa !34
   %bcmp = call i32 @bcmp(ptr %126, ptr %128, i64 %121)
   %.not135 = icmp eq i32 %bcmp, 0
   br i1 %.not135, label %129, label %140
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %131 = load i64, ptr %130, align 8, !tbaa !31
+  %131 = load i64, ptr %130, align 8, !tbaa !32
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %133 = load i64, ptr %132, align 8, !tbaa !31
+  %133 = load i64, ptr %132, align 8, !tbaa !32
   %.not136 = icmp eq i64 %131, %133
   br i1 %.not136, label %134, label %140
 
@@ -314,9 +314,9 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
 
 135:                                              ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !33
+  %137 = load ptr, ptr %136, align 8, !tbaa !34
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %139 = load ptr, ptr %138, align 8, !tbaa !33
+  %139 = load ptr, ptr %138, align 8, !tbaa !34
   %bcmp138 = call i32 @bcmp(ptr %137, ptr %139, i64 %131)
   %.not139 = icmp eq i32 %bcmp138, 0
   br i1 %.not139, label %141, label %140
@@ -336,7 +336,7 @@ x509_crl_get_version.exit.thread:                 ; preds = %46, %57, %x509_crl_
   br label %148
 
 145:                                              ; preds = %141
-  %146 = load ptr, ptr %5, align 8, !tbaa !21
+  %146 = load ptr, ptr %5, align 8, !tbaa !22
   %.not141 = icmp eq ptr %146, %116
   br i1 %.not141, label %148, label %147
 
@@ -371,33 +371,33 @@ define hidden void @mbedtls_x509_crl_free(ptr noundef %0) local_unnamed_addr #0 
 .lr.ph28:                                         ; preds = %1, %19
   %.026 = phi ptr [ %17, %19 ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.026, i64 400
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   tail call void @free(ptr noundef %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %.026, i64 152
-  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   tail call void @mbedtls_asn1_free_named_data_list_shallow(ptr noundef %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %.026, i64 312
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %.not2023 = icmp eq ptr %7, null
   br i1 %.not2023, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph28, %.lr.ph
   %.01824 = phi ptr [ %9, %.lr.ph ], [ %7, %.lr.ph28 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01824, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.01824, i64 noundef 104) #10
   %.not20 = icmp eq ptr %9, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph28
   %10 = getelementptr inbounds nuw i8, ptr %.026, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %15, label %12
 
 12:                                               ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !23
+  %14 = load i64, ptr %13, align 8, !tbaa !24
   tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %11, i64 noundef %14) #10
   br label %15
 
@@ -414,7 +414,7 @@ define hidden void @mbedtls_x509_crl_free(ptr noundef %0) local_unnamed_addr #0 
 
 19:                                               ; preds = %18, %15
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !39
+  br i1 %.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !40
 
 ._crit_edge29:                                    ; preds = %19, %1
   ret void
@@ -445,7 +445,7 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %7 = load ptr, ptr %0, align 8, !tbaa !22
   %8 = icmp eq ptr %7, %1
   br i1 %8, label %.loopexit, label %9
 
@@ -460,29 +460,29 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   br label %.loopexit
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %0, align 8, !tbaa !21
-  %14 = load i64, ptr %5, align 8, !tbaa !24
+  %13 = load ptr, ptr %0, align 8, !tbaa !22
+  %14 = load i64, ptr %5, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  %16 = load i8, ptr %13, align 1, !tbaa !40
+  %16 = load i8, ptr %13, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  store i32 %17, ptr %2, align 8, !tbaa !41
+  store i32 %17, ptr %2, align 8, !tbaa !42
   %18 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 48) #10
   %.not4973 = icmp eq i32 %18, 0
   br i1 %.not4973, label %.lr.ph75, label %.thread
 
 .lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0386374 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !21
+  %19 = load ptr, ptr %0, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %.0386374, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !42
-  %21 = load i64, ptr %6, align 8, !tbaa !24
+  store ptr %19, ptr %20, align 8, !tbaa !43
+  %21 = load i64, ptr %6, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %.0386374, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !43
+  store i64 %21, ptr %22, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %.0386374, i64 24
   %25 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull %24) #10
@@ -497,18 +497,18 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store i64 0, ptr %4, align 8, !tbaa !24
-  %30 = load ptr, ptr %0, align 8, !tbaa !21
+  store i64 0, ptr %4, align 8, !tbaa !25
+  %30 = load ptr, ptr %0, align 8, !tbaa !22
   %.not.i = icmp ugt ptr %23, %30
   br i1 %.not.i, label %31, label %x509_get_crl_entry_ext.exit.thread
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.0386374, i64 72
-  %33 = load i8, ptr %30, align 1, !tbaa !40
+  %33 = load i8, ptr %30, align 1, !tbaa !41
   %34 = zext i8 %33 to i32
-  store i32 %34, ptr %32, align 8, !tbaa !44
+  store i32 %34, ptr %32, align 8, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %.0386374, i64 88
-  store ptr %30, ptr %35, align 8, !tbaa !33
+  store ptr %30, ptr %35, align 8, !tbaa !34
   %36 = getelementptr inbounds nuw i8, ptr %.0386374, i64 80
   %37 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %36, i32 noundef 48) #10
   switch i32 %37, label %x509_get_crl_entry_ext.exit [
@@ -517,12 +517,12 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   ]
 
 38:                                               ; preds = %31
-  store ptr null, ptr %35, align 8, !tbaa !33
+  store ptr null, ptr %35, align 8, !tbaa !34
   br label %x509_get_crl_entry_ext.exit.thread
 
 39:                                               ; preds = %31
-  %40 = load ptr, ptr %0, align 8, !tbaa !21
-  %41 = load i64, ptr %36, align 8, !tbaa !31
+  %40 = load ptr, ptr %0, align 8, !tbaa !22
+  %41 = load i64, ptr %36, align 8, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %.not36.i = icmp eq i64 %41, 0
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
@@ -533,12 +533,12 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   br i1 %.not33.i, label %44, label %x509_get_crl_entry_ext.exit
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = load i64, ptr %4, align 8, !tbaa !24
-  %46 = load ptr, ptr %0, align 8, !tbaa !21
+  %45 = load i64, ptr %4, align 8, !tbaa !25
+  %46 = load ptr, ptr %0, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
-  store ptr %47, ptr %0, align 8, !tbaa !21
+  store ptr %47, ptr %0, align 8, !tbaa !22
   %48 = icmp ult ptr %47, %42
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !45
+  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %44, %39
   %.lcssa.i = phi ptr [ %40, %39 ], [ %47, %44 ]
@@ -561,14 +561,14 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
   br i1 %.not52, label %49, label %.thread
 
 49:                                               ; preds = %x509_get_crl_entry_ext.exit.thread, %x509_get_crl_entry_ext.exit
-  %50 = load ptr, ptr %0, align 8, !tbaa !21
+  %50 = load ptr, ptr %0, align 8, !tbaa !22
   %51 = icmp ult ptr %50, %15
   br i1 %51, label %52, label %.loopexit.loopexit
 
 52:                                               ; preds = %49
   %53 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #11
   %54 = getelementptr inbounds nuw i8, ptr %.0386374, i64 96
-  store ptr %53, ptr %54, align 8, !tbaa !37
+  store ptr %53, ptr %54, align 8, !tbaa !38
   %55 = icmp eq ptr %53, null
   br i1 %55, label %.thread, label %.lr.ph
 
@@ -580,9 +580,9 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
 .lr.ph:                                           ; preds = %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  %56 = load i8, ptr %50, align 1, !tbaa !40
+  %56 = load i8, ptr %50, align 1, !tbaa !41
   %57 = zext i8 %56 to i32
-  store i32 %57, ptr %53, align 8, !tbaa !41
+  store i32 %57, ptr %53, align 8, !tbaa !42
   %58 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 48) #10
   %.not49 = icmp eq i32 %58, 0
   br i1 %.not49, label %.lr.ph75, label %.thread
@@ -601,7 +601,7 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
 define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !21
+  %6 = load ptr, ptr %0, align 8, !tbaa !22
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %47, label %8
 
@@ -612,17 +612,17 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !31
+  %14 = load i64, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %16 = load ptr, ptr %0, align 8, !tbaa !21
+  %16 = load ptr, ptr %0, align 8, !tbaa !22
   %17 = icmp ult ptr %16, %15
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %18 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not43 = icmp eq i32 %18, 0
@@ -633,8 +633,8 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   br label %.thread
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %0, align 8, !tbaa !21
-  %23 = load i64, ptr %5, align 8, !tbaa !24
+  %22 = load ptr, ptr %0, align 8, !tbaa !22
+  %23 = load i64, ptr %5, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   %25 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %5, i32 noundef 6) #10
   %.not44 = icmp eq i32 %25, 0
@@ -645,10 +645,10 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   br label %.thread
 
 28:                                               ; preds = %21
-  %29 = load i64, ptr %5, align 8, !tbaa !24
-  %30 = load ptr, ptr %0, align 8, !tbaa !21
+  %29 = load i64, ptr %5, align 8, !tbaa !25
+  %30 = load ptr, ptr %0, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %31, ptr %0, align 8, !tbaa !21
+  store ptr %31, ptr %0, align 8, !tbaa !22
   %32 = call i32 @mbedtls_asn1_get_bool(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %4) #10
   switch i32 %32, label %33 [
     i32 -98, label %35
@@ -669,15 +669,15 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   br label %.thread
 
 39:                                               ; preds = %35
-  %40 = load i64, ptr %5, align 8, !tbaa !24
-  %41 = load ptr, ptr %0, align 8, !tbaa !21
+  %40 = load i64, ptr %5, align 8, !tbaa !25
+  %41 = load ptr, ptr %0, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
-  store ptr %42, ptr %0, align 8, !tbaa !21
+  store ptr %42, ptr %0, align 8, !tbaa !22
   %.not46 = icmp eq ptr %42, %24
   br i1 %.not46, label %43, label %.thread
 
 43:                                               ; preds = %39
-  %44 = load i32, ptr %4, align 4, !tbaa !27
+  %44 = load i32, ptr %4, align 4, !tbaa !28
   %.not47 = icmp eq i32 %44, 0
   br i1 %.not47, label %45, label %.thread
 
@@ -691,7 +691,7 @@ define internal fastcc i32 @x509_get_crl_ext(ptr noundef nonnull %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   %46 = icmp ult ptr %24, %15
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %45, %10
   %.lcssa = phi ptr [ %16, %10 ], [ %24, %45 ]
@@ -714,7 +714,7 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   %4 = alloca i64, align 8
   %5 = alloca %struct.mbedtls_pem_context, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store i64 0, ptr %4, align 8, !tbaa !24
+  store i64 0, ptr %4, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
@@ -730,7 +730,7 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = getelementptr i8, ptr %1, i64 %2
   %11 = getelementptr i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1, !tbaa !40
+  %12 = load i8, ptr %11, align 1, !tbaa !41
   %.not84 = icmp eq i8 %12, 0
   br i1 %.not84, label %.lr.ph88, label %.thread
 
@@ -739,7 +739,7 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   call void @mbedtls_pem_init(ptr noundef nonnull %5) #10
   %15 = getelementptr i8, ptr %.0234787, i64 %.0214886
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %.lr.ph88, label %.thread
 
@@ -752,9 +752,9 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %.lr.ph88
-  %21 = load i64, ptr %4, align 8, !tbaa !24
-  %22 = load ptr, ptr %5, align 8, !tbaa !47
-  %23 = load i64, ptr %9, align 8, !tbaa !49
+  %21 = load i64, ptr %4, align 8, !tbaa !25
+  %22 = load ptr, ptr %5, align 8, !tbaa !48
+  %23 = load i64, ptr %9, align 8, !tbaa !50
   %24 = call i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef %22, i64 noundef %23)
   %.not29 = icmp eq i32 %24, 0
   br i1 %.not29, label %27, label %25
@@ -778,7 +778,7 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   %28 = sub i64 %.0214886, %21
   call void @mbedtls_pem_free(ptr noundef nonnull %5) #10
   %29 = icmp ugt i64 %28, 1
-  br i1 %29, label %13, label %.thread37, !llvm.loop !50
+  br i1 %29, label %13, label %.thread37, !llvm.loop !51
 
 .thread.thread:                                   ; preds = %.preheader, %.thread
   %.021.lcssa69 = phi i64 [ %.02148.lcssa, %.thread ], [ 0, %.preheader ]
@@ -811,11 +811,11 @@ define hidden i32 @mbedtls_x509_crl_parse_file(ptr noundef %0, ptr noundef %1) l
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %4, align 8, !tbaa !21
-  %8 = load i64, ptr %3, align 8, !tbaa !24
+  %7 = load ptr, ptr %4, align 8, !tbaa !22
+  %8 = load i64, ptr %3, align 8, !tbaa !25
   %9 = call i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %7, i64 noundef %8)
-  %10 = load ptr, ptr %4, align 8, !tbaa !21
-  %11 = load i64, ptr %3, align 8, !tbaa !24
+  %10 = load ptr, ptr %4, align 8, !tbaa !22
+  %11 = load i64, ptr %3, align 8, !tbaa !25
   call void @mbedtls_zeroize_and_free(ptr noundef %10, i64 noundef %11) #10
   br label %12
 
@@ -872,17 +872,17 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %27 = sub nuw i64 %19, %25
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 %25
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %30 = load i32, ptr %29, align 8, !tbaa !51
+  %30 = load i32, ptr %29, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 172
-  %32 = load i32, ptr %31, align 4, !tbaa !52
+  %32 = load i32, ptr %31, align 4, !tbaa !53
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %34 = load i32, ptr %33, align 8, !tbaa !53
+  %34 = load i32, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 180
-  %36 = load i32, ptr %35, align 4, !tbaa !54
+  %36 = load i32, ptr %35, align 4, !tbaa !55
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %38 = load i32, ptr %37, align 8, !tbaa !55
+  %38 = load i32, ptr %37, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 188
-  %40 = load i32, ptr %39, align 4, !tbaa !56
+  %40 = load i32, ptr %39, align 4, !tbaa !57
   %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %27, ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef %40) #10
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.loopexit, label %43
@@ -896,17 +896,17 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %46 = sub nuw i64 %27, %44
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 %44
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %49 = load i32, ptr %48, align 8, !tbaa !57
+  %49 = load i32, ptr %48, align 8, !tbaa !58
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  %51 = load i32, ptr %50, align 4, !tbaa !58
+  %51 = load i32, ptr %50, align 4, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %53 = load i32, ptr %52, align 8, !tbaa !59
+  %53 = load i32, ptr %52, align 8, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 204
-  %55 = load i32, ptr %54, align 4, !tbaa !60
+  %55 = load i32, ptr %54, align 4, !tbaa !61
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %57 = load i32, ptr %56, align 8, !tbaa !61
+  %57 = load i32, ptr %56, align 8, !tbaa !62
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 212
-  %59 = load i32, ptr %58, align 4, !tbaa !62
+  %59 = load i32, ptr %58, align 4, !tbaa !63
   %60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %47, i64 noundef %46, ptr noundef nonnull @.str.6, ptr noundef %2, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59) #10
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %.loopexit, label %62
@@ -939,7 +939,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %.0148202 = phi ptr [ %74, %72 ], [ %112, %110 ]
   %.0149201 = phi i64 [ %73, %72 ], [ %111, %110 ]
   %76 = getelementptr inbounds nuw i8, ptr %.0203, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !43
+  %77 = load i64, ptr %76, align 8, !tbaa !44
   %.not191 = icmp eq i64 %77, 0
   br i1 %.not191, label %.critedge, label %78
 
@@ -970,17 +970,17 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %92 = sub nuw i64 %84, %90
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 %90
   %94 = getelementptr inbounds nuw i8, ptr %.0203, i64 48
-  %95 = load i32, ptr %94, align 8, !tbaa !63
+  %95 = load i32, ptr %94, align 8, !tbaa !64
   %96 = getelementptr inbounds nuw i8, ptr %.0203, i64 52
-  %97 = load i32, ptr %96, align 4, !tbaa !64
+  %97 = load i32, ptr %96, align 4, !tbaa !65
   %98 = getelementptr inbounds nuw i8, ptr %.0203, i64 56
-  %99 = load i32, ptr %98, align 8, !tbaa !65
+  %99 = load i32, ptr %98, align 8, !tbaa !66
   %100 = getelementptr inbounds nuw i8, ptr %.0203, i64 60
-  %101 = load i32, ptr %100, align 4, !tbaa !66
+  %101 = load i32, ptr %100, align 4, !tbaa !67
   %102 = getelementptr inbounds nuw i8, ptr %.0203, i64 64
-  %103 = load i32, ptr %102, align 8, !tbaa !67
+  %103 = load i32, ptr %102, align 8, !tbaa !68
   %104 = getelementptr inbounds nuw i8, ptr %.0203, i64 68
-  %105 = load i32, ptr %104, align 4, !tbaa !68
+  %105 = load i32, ptr %104, align 4, !tbaa !69
   %106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %93, i64 noundef %92, ptr noundef nonnull @.str.9, i32 noundef %95, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105) #10
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.loopexit, label %108
@@ -994,9 +994,9 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %111 = sub nuw i64 %92, %109
   %112 = getelementptr inbounds nuw i8, ptr %93, i64 %109
   %113 = getelementptr inbounds nuw i8, ptr %.0203, i64 96
-  %114 = load ptr, ptr %113, align 8, !tbaa !37
+  %114 = load ptr, ptr %113, align 8, !tbaa !38
   %.not190 = icmp eq ptr %114, null
-  br i1 %.not190, label %.critedge, label %75, !llvm.loop !69
+  br i1 %.not190, label %.critedge, label %75, !llvm.loop !70
 
 .critedge:                                        ; preds = %110, %75
   %.0149.lcssa = phi i64 [ %111, %110 ], [ %.0149201, %75 ]
@@ -1015,11 +1015,11 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   %121 = getelementptr inbounds nuw i8, ptr %.0148.lcssa, i64 %118
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 396
-  %124 = load i32, ptr %123, align 4, !tbaa !70
+  %124 = load i32, ptr %123, align 4, !tbaa !71
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 392
-  %126 = load i32, ptr %125, align 8, !tbaa !71
+  %126 = load i32, ptr %125, align 8, !tbaa !72
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 400
-  %128 = load ptr, ptr %127, align 8, !tbaa !34
+  %128 = load ptr, ptr %127, align 8, !tbaa !35
   %129 = tail call i32 @mbedtls_x509_sig_alg_gets(ptr noundef %121, i64 noundef %120, ptr noundef nonnull %122, i32 noundef %124, i32 noundef %126, ptr noundef %128) #10
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %.loopexit, label %131
@@ -1111,56 +1111,57 @@ attributes #11 = { nounwind allocsize(0,1) }
 !16 = !{!"p1 _ZTS22mbedtls_x509_crl_entry", !11, i64 0}
 !17 = !{!"p1 _ZTS16mbedtls_x509_crl", !11, i64 0}
 !18 = !{!4, !17, i64 408}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!10, !10, i64 0}
-!22 = !{!4, !10, i64 16}
-!23 = !{!4, !9, i64 8}
-!24 = !{!9, !9, i64 0}
-!25 = !{!4, !10, i64 40}
-!26 = !{!4, !9, i64 32}
-!27 = !{!6, !6, i64 0}
-!28 = !{!4, !10, i64 96}
-!29 = !{!4, !9, i64 88}
-!30 = !{!4, !9, i64 64}
-!31 = !{!5, !9, i64 8}
-!32 = !{!4, !10, i64 72}
-!33 = !{!5, !10, i64 16}
-!34 = !{!4, !11, i64 400}
-!35 = !{!4, !13, i64 152}
-!36 = !{!4, !16, i64 312}
-!37 = !{!15, !16, i64 96}
-!38 = distinct !{!38, !20}
-!39 = distinct !{!39, !20}
-!40 = !{!7, !7, i64 0}
-!41 = !{!15, !6, i64 0}
-!42 = !{!15, !10, i64 16}
-!43 = !{!15, !9, i64 8}
-!44 = !{!5, !6, i64 0}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
-!47 = !{!48, !10, i64 0}
-!48 = !{!"mbedtls_pem_context", !10, i64 0, !9, i64 8, !10, i64 16}
-!49 = !{!48, !9, i64 8}
-!50 = distinct !{!50, !20}
-!51 = !{!4, !6, i64 168}
-!52 = !{!4, !6, i64 172}
-!53 = !{!4, !6, i64 176}
-!54 = !{!4, !6, i64 180}
-!55 = !{!4, !6, i64 184}
-!56 = !{!4, !6, i64 188}
-!57 = !{!4, !6, i64 192}
-!58 = !{!4, !6, i64 196}
-!59 = !{!4, !6, i64 200}
-!60 = !{!4, !6, i64 204}
-!61 = !{!4, !6, i64 208}
-!62 = !{!4, !6, i64 212}
-!63 = !{!15, !6, i64 48}
-!64 = !{!15, !6, i64 52}
-!65 = !{!15, !6, i64 56}
-!66 = !{!15, !6, i64 60}
-!67 = !{!15, !6, i64 64}
-!68 = !{!15, !6, i64 68}
-!69 = distinct !{!69, !20}
-!70 = !{!4, !6, i64 396}
-!71 = !{!4, !6, i64 392}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!10, !10, i64 0}
+!23 = !{!4, !10, i64 16}
+!24 = !{!4, !9, i64 8}
+!25 = !{!9, !9, i64 0}
+!26 = !{!4, !10, i64 40}
+!27 = !{!4, !9, i64 32}
+!28 = !{!6, !6, i64 0}
+!29 = !{!4, !10, i64 96}
+!30 = !{!4, !9, i64 88}
+!31 = !{!4, !9, i64 64}
+!32 = !{!5, !9, i64 8}
+!33 = !{!4, !10, i64 72}
+!34 = !{!5, !10, i64 16}
+!35 = !{!4, !11, i64 400}
+!36 = !{!4, !13, i64 152}
+!37 = !{!4, !16, i64 312}
+!38 = !{!15, !16, i64 96}
+!39 = distinct !{!39, !20, !21}
+!40 = distinct !{!40, !20, !21}
+!41 = !{!7, !7, i64 0}
+!42 = !{!15, !6, i64 0}
+!43 = !{!15, !10, i64 16}
+!44 = !{!15, !9, i64 8}
+!45 = !{!5, !6, i64 0}
+!46 = distinct !{!46, !20, !21}
+!47 = distinct !{!47, !20, !21}
+!48 = !{!49, !10, i64 0}
+!49 = !{!"mbedtls_pem_context", !10, i64 0, !9, i64 8, !10, i64 16}
+!50 = !{!49, !9, i64 8}
+!51 = distinct !{!51, !20, !21}
+!52 = !{!4, !6, i64 168}
+!53 = !{!4, !6, i64 172}
+!54 = !{!4, !6, i64 176}
+!55 = !{!4, !6, i64 180}
+!56 = !{!4, !6, i64 184}
+!57 = !{!4, !6, i64 188}
+!58 = !{!4, !6, i64 192}
+!59 = !{!4, !6, i64 196}
+!60 = !{!4, !6, i64 200}
+!61 = !{!4, !6, i64 204}
+!62 = !{!4, !6, i64 208}
+!63 = !{!4, !6, i64 212}
+!64 = !{!15, !6, i64 48}
+!65 = !{!15, !6, i64 52}
+!66 = !{!15, !6, i64 56}
+!67 = !{!15, !6, i64 60}
+!68 = !{!15, !6, i64 64}
+!69 = !{!15, !6, i64 68}
+!70 = distinct !{!70, !20, !21}
+!71 = !{!4, !6, i64 396}
+!72 = !{!4, !6, i64 392}

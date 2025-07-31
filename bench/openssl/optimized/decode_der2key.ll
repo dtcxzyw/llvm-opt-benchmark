@@ -178,7 +178,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr re
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -206,19 +206,19 @@ define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %0, ptr 
   %16 = alloca %struct.ossl_param_st, align 8
   %17 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store ptr null, ptr %8, align 8, !tbaa !15
+  store ptr null, ptr %8, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 0, ptr %10, align 8, !tbaa !17
+  store i64 0, ptr %10, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  store ptr null, ptr %11, align 8, !tbaa !19
+  store ptr null, ptr %11, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 %2, ptr %18, align 8, !tbaa !20
+  store i32 %2, ptr %18, align 8, !tbaa !21
   %19 = icmp eq i32 %2, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %23 = load i32, ptr %22, align 4, !tbaa !21
+  %23 = load i32, ptr %22, align 4, !tbaa !22
   %. = select i1 %19, i32 %23, i32 %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %25 = and i32 %23, %.
@@ -244,18 +244,18 @@ define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %0, ptr 
   br i1 %.not54, label %58, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %35, ptr %9, align 8, !tbaa !15
+  %35 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr %35, ptr %9, align 8, !tbaa !16
   %36 = load ptr, ptr %24, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !24
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   %.not55 = icmp eq ptr %38, null
   br i1 %.not55, label %47, label %39
 
 39:                                               ; preds = %34
-  %40 = load i64, ptr %10, align 8, !tbaa !17
+  %40 = load i64, ptr %10, align 8, !tbaa !18
   %41 = call ptr %38(ptr noundef nonnull %9, i64 noundef %40, ptr noundef nonnull %0) #7
-  store ptr %41, ptr %11, align 8, !tbaa !19
+  store ptr %41, ptr %11, align 8, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %43 = load i8, ptr %42, align 4
   %44 = and i8 %43, 1
@@ -268,14 +268,14 @@ define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %0, ptr 
 
 47:                                               ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
   %.not56 = icmp eq ptr %49, null
   br i1 %.not56, label %thread-pre-split.thread, label %50
 
 50:                                               ; preds = %47
-  %51 = load i64, ptr %10, align 8, !tbaa !17
+  %51 = load i64, ptr %10, align 8, !tbaa !18
   %52 = call ptr %49(ptr noundef null, ptr noundef nonnull %9, i64 noundef %51) #7
-  store ptr %52, ptr %11, align 8, !tbaa !19
+  store ptr %52, ptr %11, align 8, !tbaa !20
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %50, %39
@@ -284,7 +284,7 @@ thread-pre-split:                                 ; preds = %50, %39
   br i1 %54, label %thread-pre-split.thread, label %.thread97
 
 thread-pre-split.thread:                          ; preds = %47, %thread-pre-split
-  %55 = load i32, ptr %18, align 8, !tbaa !20
+  %55 = load i32, ptr %18, align 8, !tbaa !21
   %.not58 = icmp eq i32 %55, 0
   br i1 %.not58, label %58, label %56
 
@@ -298,38 +298,38 @@ thread-pre-split.thread:                          ; preds = %47, %thread-pre-spl
   br i1 %.not59, label %78, label %60
 
 60:                                               ; preds = %58
-  %61 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %61, ptr %9, align 8, !tbaa !15
+  %61 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr %61, ptr %9, align 8, !tbaa !16
   %62 = load ptr, ptr %24, align 8, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
+  %64 = load ptr, ptr %63, align 8, !tbaa !27
   %.not60 = icmp eq ptr %64, null
   br i1 %.not60, label %68, label %65
 
 65:                                               ; preds = %60
-  %66 = load i64, ptr %10, align 8, !tbaa !17
+  %66 = load i64, ptr %10, align 8, !tbaa !18
   %67 = call ptr %64(ptr noundef nonnull %9, i64 noundef %66, ptr noundef nonnull %0) #7
   br label %thread-pre-split74
 
 68:                                               ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !27
+  %70 = load ptr, ptr %69, align 8, !tbaa !28
   %.not61 = icmp eq ptr %70, null
   br i1 %.not61, label %thread-pre-split74.thread, label %71
 
 71:                                               ; preds = %68
-  %72 = load i64, ptr %10, align 8, !tbaa !17
+  %72 = load i64, ptr %10, align 8, !tbaa !18
   %73 = call ptr %70(ptr noundef null, ptr noundef nonnull %9, i64 noundef %72) #7
   br label %thread-pre-split74
 
 thread-pre-split74:                               ; preds = %71, %65
   %.sink = phi ptr [ %73, %71 ], [ %67, %65 ]
-  store ptr %.sink, ptr %11, align 8, !tbaa !19
+  store ptr %.sink, ptr %11, align 8, !tbaa !20
   %74 = icmp eq ptr %.sink, null
   br i1 %74, label %thread-pre-split74.thread, label %.thread97
 
 thread-pre-split74.thread:                        ; preds = %68, %thread-pre-split74
-  %75 = load i32, ptr %18, align 8, !tbaa !20
+  %75 = load i32, ptr %18, align 8, !tbaa !21
   %.not62 = icmp eq i32 %75, 0
   br i1 %.not62, label %78, label %76
 
@@ -343,23 +343,23 @@ thread-pre-split74.thread:                        ; preds = %68, %thread-pre-spl
   br i1 %.not63, label %91, label %80
 
 80:                                               ; preds = %78
-  %81 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %81, ptr %9, align 8, !tbaa !15
+  %81 = load ptr, ptr %8, align 8, !tbaa !16
+  store ptr %81, ptr %9, align 8, !tbaa !16
   %82 = load ptr, ptr %24, align 8, !tbaa !11
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %84 = load ptr, ptr %83, align 8, !tbaa !28
+  %84 = load ptr, ptr %83, align 8, !tbaa !29
   %.not64 = icmp eq ptr %84, null
   br i1 %.not64, label %thread-pre-split76.thread, label %thread-pre-split76
 
 thread-pre-split76:                               ; preds = %80
-  %85 = load i64, ptr %10, align 8, !tbaa !17
+  %85 = load i64, ptr %10, align 8, !tbaa !18
   %86 = call ptr %84(ptr noundef null, ptr noundef nonnull %9, i64 noundef %85) #7
-  store ptr %86, ptr %11, align 8, !tbaa !19
+  store ptr %86, ptr %11, align 8, !tbaa !20
   %87 = icmp eq ptr %86, null
   br i1 %87, label %thread-pre-split76.thread, label %.thread97
 
 thread-pre-split76.thread:                        ; preds = %80, %thread-pre-split76
-  %88 = load i32, ptr %18, align 8, !tbaa !20
+  %88 = load i32, ptr %18, align 8, !tbaa !21
   %.not65 = icmp eq i32 %88, 0
   br i1 %.not65, label %91, label %89
 
@@ -376,22 +376,22 @@ thread-pre-split76.thread:                        ; preds = %80, %thread-pre-spl
   %94 = call i32 @ERR_pop_to_mark() #7
   %95 = load ptr, ptr %24, align 8, !tbaa !11
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !29
+  %97 = load ptr, ptr %96, align 8, !tbaa !30
   %.not67 = icmp eq ptr %97, null
   br i1 %.not67, label %.thread105, label %98
 
 98:                                               ; preds = %.thread97
   %99 = call i32 %97(ptr noundef nonnull %93, ptr noundef nonnull %0) #7
   %.not68 = icmp eq i32 %99, 0
-  %.pr81.pre = load ptr, ptr %11, align 8, !tbaa !19
+  %.pr81.pre = load ptr, ptr %11, align 8, !tbaa !20
   br i1 %.not68, label %100, label %104
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %24, align 8, !tbaa !11
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 88
-  %103 = load ptr, ptr %102, align 8, !tbaa !30
+  %103 = load ptr, ptr %102, align 8, !tbaa !31
   call void %103(ptr noundef %.pr81.pre) #7
-  store ptr null, ptr %11, align 8, !tbaa !19
+  store ptr null, ptr %11, align 8, !tbaa !20
   br label %.thread
 
 104:                                              ; preds = %98
@@ -402,30 +402,30 @@ thread-pre-split76.thread:                        ; preds = %80, %thread-pre-spl
   %.pr81108 = phi ptr [ %.pr81.pre, %104 ], [ %93, %.thread97 ]
   %105 = load ptr, ptr %24, align 8, !tbaa !11
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
-  %107 = load ptr, ptr %106, align 8, !tbaa !31
+  %107 = load ptr, ptr %106, align 8, !tbaa !32
   %.not70 = icmp eq ptr %107, null
   br i1 %.not70, label %.thread, label %108
 
 108:                                              ; preds = %.thread105
   call void %107(ptr noundef nonnull %.pr81108, ptr noundef nonnull %0) #7
-  %.pre88 = load ptr, ptr %11, align 8, !tbaa !19
+  %.pre88 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.thread
 
 .thread:                                          ; preds = %91, %100, %104, %.thread105, %108, %28, %89, %76, %56
   %109 = phi ptr [ null, %91 ], [ null, %100 ], [ null, %104 ], [ %.pr81108, %.thread105 ], [ %.pre88, %108 ], [ null, %28 ], [ null, %89 ], [ null, %76 ], [ null, %56 ]
-  %110 = load ptr, ptr %8, align 8, !tbaa !15
+  %110 = load ptr, ptr %8, align 8, !tbaa !16
   call void @CRYPTO_free(ptr noundef %110, ptr noundef nonnull @.str, i32 noundef 317) #7
-  store ptr null, ptr %8, align 8, !tbaa !15
+  store ptr null, ptr %8, align 8, !tbaa !16
   %.not71 = icmp eq ptr %109, null
   br i1 %.not71, label %130, label %sub_0
 
 sub_0:                                            ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
-  store i32 2, ptr %13, align 4, !tbaa !14
+  store i32 2, ptr %13, align 4, !tbaa !15
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %13) #7
   %111 = load ptr, ptr %24, align 8, !tbaa !11
-  %112 = load ptr, ptr %111, align 8, !tbaa !32
+  %112 = load ptr, ptr %111, align 8, !tbaa !33
   %113 = load i8, ptr %112, align 1
   %.not83 = icmp eq i8 %113, 69
   br i1 %.not83, label %sub_1, label %.tail.thread
@@ -450,14 +450,14 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge89:                                    ; preds = %119
   %.pre90 = load ptr, ptr %24, align 8, !tbaa !11
-  %.pre91 = load ptr, ptr %.pre90, align 8, !tbaa !32
+  %.pre91 = load ptr, ptr %.pre90, align 8, !tbaa !33
   br label %.tail.thread
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #7
   br label %126
 
@@ -466,7 +466,7 @@ sub_1:                                            ; preds = %sub_0
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.5, ptr noundef %124, i64 noundef 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #7
   br label %126
 
@@ -474,17 +474,17 @@ sub_1:                                            ; preds = %sub_0
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i64 noundef 8) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #7
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #7
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %17) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #7
   %129 = call i32 %3(ptr noundef nonnull %12, ptr noundef %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #7
-  %.pre92 = load ptr, ptr %11, align 8, !tbaa !19
+  %.pre92 = load ptr, ptr %11, align 8, !tbaa !20
   br label %130
 
 130:                                              ; preds = %.thread, %126, %45
@@ -492,9 +492,9 @@ sub_1:                                            ; preds = %sub_0
   %.0 = phi i32 [ 0, %45 ], [ %129, %126 ], [ 1, %.thread ]
   %132 = load ptr, ptr %24, align 8, !tbaa !11
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 88
-  %134 = load ptr, ptr %133, align 8, !tbaa !30
+  %134 = load ptr, ptr %133, align 8, !tbaa !31
   call void %134(ptr noundef %131) #7
-  %135 = load ptr, ptr %8, align 8, !tbaa !15
+  %135 = load ptr, ptr %8, align 8, !tbaa !16
   call void @CRYPTO_free(ptr noundef %135, ptr noundef nonnull @.str, i32 noundef 350) #7
   br label %136
 
@@ -512,7 +512,7 @@ define internal i32 @der2key_export_object(ptr noundef readonly captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
   %10 = tail call ptr @ossl_prov_get_keymgmt_export(ptr noundef %9) #7
   %11 = icmp eq i64 %2, 8
   %12 = icmp ne ptr %10, null
@@ -521,10 +521,10 @@ define internal i32 @der2key_export_object(ptr noundef readonly captures(none) %
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %15 = load i32, ptr %14, align 8, !tbaa !20
+  %15 = load i32, ptr %14, align 8, !tbaa !21
   %16 = icmp eq i32 %15, 0
   %spec.store.select = select i1 %16, i32 135, i32 %15
-  %17 = load ptr, ptr %1, align 8, !tbaa !19
+  %17 = load ptr, ptr %1, align 8, !tbaa !20
   %18 = tail call i32 %10(ptr noundef %17, i32 noundef %spec.store.select, ptr noundef %3, ptr noundef %4) #7
   br label %19
 
@@ -543,7 +543,7 @@ define internal range(i32 0, 2) i32 @der2key_set_ctx_params(ptr noundef %0, ptr 
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %3, align 8, !tbaa !15
+  store ptr %4, ptr %3, align 8, !tbaa !16
   %5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.8) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -591,7 +591,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dh_does_selection(
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -635,7 +635,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dh_does_selection(
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @DH_der2dh_does_selection(ptr readnone captu
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -723,7 +723,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr r
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -767,7 +767,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dhx_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -811,7 +811,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dhx_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -855,7 +855,7 @@ define internal range(i32 0, 2) i32 @DHX_der2dhx_does_selection(ptr readnone cap
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -899,7 +899,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr r
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -943,7 +943,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dsa_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -987,7 +987,7 @@ define internal range(i32 0, 2) i32 @type_specific_der2dsa_does_selection(ptr re
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %der2key_check_selection.exit
@@ -1026,7 +1026,7 @@ define internal range(i32 0, 2) i32 @DSA_der2dsa_does_selection(ptr readnone cap
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %der2key_check_selection.exit
@@ -1065,7 +1065,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr re
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1109,7 +1109,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ec_does_selection(
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1153,7 +1153,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1198,7 +1198,7 @@ define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr readnone captu
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1243,7 +1243,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(pt
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1287,7 +1287,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x25519_does_select
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1331,7 +1331,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1375,7 +1375,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x448_does_selectio
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1419,7 +1419,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(p
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1463,7 +1463,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed25519_does_selec
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1507,7 +1507,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1551,7 +1551,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed448_does_selecti
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1595,7 +1595,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr r
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1639,7 +1639,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2sm2_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1683,7 +1683,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1728,7 +1728,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_512_does_selectio
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1772,7 +1772,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_512_does_se
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1816,7 +1816,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_768_does_selectio
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1860,7 +1860,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_768_does_se
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1904,7 +1904,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_1024_does_selecti
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1948,7 +1948,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_1024_does_s
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -1992,7 +1992,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr r
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2036,7 +2036,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsa_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2080,7 +2080,7 @@ define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selectio
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2124,7 +2124,7 @@ define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr readnone cap
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2168,7 +2168,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(pt
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2212,7 +2212,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsapss_does_select
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2256,7 +2256,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_44_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2300,7 +2300,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_44_does_sel
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2344,7 +2344,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_65_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2388,7 +2388,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_65_does_sel
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2432,7 +2432,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_87_does_selection
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2476,7 +2476,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_87_does_sel
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !14
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -2503,7 +2503,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 define internal ptr @dh_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -2514,19 +2514,19 @@ define internal ptr @dh_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -2534,7 +2534,7 @@ define internal ptr @dh_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -2635,7 +2635,7 @@ declare ptr @d2i_DHxparams(ptr noundef, ptr noundef, i64 noundef) #4
 define internal ptr @dsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -2646,19 +2646,19 @@ define internal ptr @dsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -2666,7 +2666,7 @@ define internal ptr @dsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -2716,7 +2716,7 @@ declare ptr @d2i_DSAparams(ptr noundef, ptr noundef, i64 noundef) #4
 define internal ptr @ec_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -2727,19 +2727,19 @@ define internal ptr @ec_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -2747,7 +2747,7 @@ define internal ptr @ec_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -2773,7 +2773,7 @@ define internal range(i32 0, 2) i32 @ec_check(ptr noundef %0, ptr noundef readon
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !41
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %2
@@ -2822,7 +2822,7 @@ declare ptr @d2i_ECParameters(ptr noundef, ptr noundef, i64 noundef) #4
 define internal ptr @ecx_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -2833,19 +2833,19 @@ define internal ptr @ecx_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -2853,7 +2853,7 @@ define internal ptr @ecx_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -2921,7 +2921,7 @@ declare ptr @ossl_d2i_ED448_PUBKEY(ptr noundef, ptr noundef, i64 noundef) local_
 define internal ptr @sm2_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -2932,19 +2932,19 @@ define internal ptr @sm2_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -2952,7 +2952,7 @@ define internal ptr @sm2_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -2972,12 +2972,12 @@ der2key_decode_p8.exit:                           ; preds = %3, %6, %17, %22, %2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ml_kem_d2i_PKCS8(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !41
+  %9 = load i32, ptr %8, align 8, !tbaa !42
   %10 = load ptr, ptr %2, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = tail call ptr @ossl_ml_kem_d2i_PKCS8(ptr noundef %4, i32 noundef %5, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %11) #7
@@ -2985,9 +2985,9 @@ define internal ptr @ml_kem_d2i_PKCS8(ptr noundef captures(none) %0, i64 noundef
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds i8, ptr %14, i64 %1
-  store ptr %15, ptr %0, align 8, !tbaa !15
+  store ptr %15, ptr %0, align 8, !tbaa !16
   br label %16
 
 16:                                               ; preds = %13, %3
@@ -3000,12 +3000,12 @@ declare ptr @ossl_ml_kem_d2i_PKCS8(ptr noundef, i32 noundef, i32 noundef, ptr no
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal ptr @ml_kem_d2i_PUBKEY(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #6 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !41
+  %9 = load i32, ptr %8, align 8, !tbaa !42
   %10 = load ptr, ptr %2, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = tail call ptr @ossl_ml_kem_d2i_PUBKEY(ptr noundef %4, i32 noundef %5, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %11) #7
@@ -3013,9 +3013,9 @@ define internal ptr @ml_kem_d2i_PUBKEY(ptr noundef captures(none) %0, i64 nounde
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds i8, ptr %14, i64 %1
-  store ptr %15, ptr %0, align 8, !tbaa !15
+  store ptr %15, ptr %0, align 8, !tbaa !16
   br label %16
 
 16:                                               ; preds = %13, %3
@@ -3028,7 +3028,7 @@ declare ptr @ossl_ml_kem_d2i_PUBKEY(ptr noundef, i32 noundef, i32 noundef, ptr n
 define internal ptr @rsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !36
   %5 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %0, i64 noundef %1) #7
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %der2key_decode_p8.exit, label %6
@@ -3039,19 +3039,19 @@ define internal ptr @rsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %.not11.i, label %der2key_decode_p8.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %9 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = call i32 @OBJ_obj2nid(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !41
+  %15 = load i32, ptr %14, align 8, !tbaa !42
   %16 = icmp eq i32 %11, %15
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %4, align 8, !tbaa !35
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = call i32 @OBJ_obj2nid(ptr noundef %19) #7
   %21 = icmp eq i32 %20, 408
   br i1 %21, label %22, label %der2key_decode_p8.exit
@@ -3059,7 +3059,7 @@ define internal ptr @rsa_d2i_PKCS8(ptr noundef %0, i64 noundef %1, ptr noundef %
 22:                                               ; preds = %17
   %23 = load ptr, ptr %12, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !41
+  %25 = load i32, ptr %24, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 1172
   br i1 %26, label %27, label %der2key_decode_p8.exit
 
@@ -3089,7 +3089,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !41
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %16, label %.critedge
 
@@ -3097,7 +3097,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !41
+  %14 = load i32, ptr %13, align 8, !tbaa !42
   %15 = icmp eq i32 %14, 912
   br i1 %15, label %16, label %.critedge
 
@@ -3144,12 +3144,12 @@ declare ptr @d2i_RSAPublicKey(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ml_dsa_d2i_PKCS8(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !41
+  %9 = load i32, ptr %8, align 8, !tbaa !42
   %10 = load ptr, ptr %2, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = tail call ptr @ossl_ml_dsa_d2i_PKCS8(ptr noundef %4, i32 noundef %5, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %11) #7
@@ -3157,9 +3157,9 @@ define internal ptr @ml_dsa_d2i_PKCS8(ptr noundef captures(none) %0, i64 noundef
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds i8, ptr %14, i64 %1
-  store ptr %15, ptr %0, align 8, !tbaa !15
+  store ptr %15, ptr %0, align 8, !tbaa !16
   br label %16
 
 16:                                               ; preds = %13, %3
@@ -3172,12 +3172,12 @@ declare ptr @ossl_ml_dsa_d2i_PKCS8(ptr noundef, i32 noundef, i32 noundef, ptr no
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal ptr @ml_dsa_d2i_PUBKEY(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #6 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !41
+  %9 = load i32, ptr %8, align 8, !tbaa !42
   %10 = load ptr, ptr %2, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = tail call ptr @ossl_ml_dsa_d2i_PUBKEY(ptr noundef %4, i32 noundef %5, i32 noundef %9, ptr noundef %10, ptr noundef nonnull %11) #7
@@ -3185,9 +3185,9 @@ define internal ptr @ml_dsa_d2i_PUBKEY(ptr noundef captures(none) %0, i64 nounde
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds i8, ptr %14, i64 %1
-  store ptr %15, ptr %0, align 8, !tbaa !15
+  store ptr %15, ptr %0, align 8, !tbaa !16
   br label %16
 
 16:                                               ; preds = %13, %3
@@ -3219,33 +3219,34 @@ attributes #7 = { nounwind }
 !9 = !{!"p1 _ZTS15keytype_desc_st", !6, i64 0}
 !10 = !{!"int", !7, i64 0}
 !11 = !{!4, !9, i64 264}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!10, !10, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!6, !6, i64 0}
-!20 = !{!4, !10, i64 272}
-!21 = !{!22, !10, i64 28}
-!22 = !{!"keytype_desc_st", !16, i64 0, !23, i64 8, !16, i64 16, !10, i64 24, !10, i64 28, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88}
-!23 = !{!"p1 _ZTS16ossl_dispatch_st", !6, i64 0}
-!24 = !{!22, !6, i64 56}
-!25 = !{!22, !6, i64 32}
-!26 = !{!22, !6, i64 64}
-!27 = !{!22, !6, i64 40}
-!28 = !{!22, !6, i64 48}
-!29 = !{!22, !6, i64 72}
-!30 = !{!22, !6, i64 88}
-!31 = !{!22, !6, i64 80}
-!32 = !{!22, !16, i64 0}
-!33 = !{i64 0, i64 8, !15, i64 8, i64 4, !14, i64 16, i64 8, !19, i64 24, i64 8, !17, i64 32, i64 8, !17}
-!34 = !{!22, !23, i64 8}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"X509_algor_st", !39, i64 0, !40, i64 8}
-!39 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!40 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
-!41 = !{!22, !10, i64 24}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!10, !10, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!6, !6, i64 0}
+!21 = !{!4, !10, i64 272}
+!22 = !{!23, !10, i64 28}
+!23 = !{!"keytype_desc_st", !17, i64 0, !24, i64 8, !17, i64 16, !10, i64 24, !10, i64 28, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88}
+!24 = !{!"p1 _ZTS16ossl_dispatch_st", !6, i64 0}
+!25 = !{!23, !6, i64 56}
+!26 = !{!23, !6, i64 32}
+!27 = !{!23, !6, i64 64}
+!28 = !{!23, !6, i64 40}
+!29 = !{!23, !6, i64 48}
+!30 = !{!23, !6, i64 72}
+!31 = !{!23, !6, i64 88}
+!32 = !{!23, !6, i64 80}
+!33 = !{!23, !17, i64 0}
+!34 = !{i64 0, i64 8, !16, i64 8, i64 4, !15, i64 16, i64 8, !20, i64 24, i64 8, !18, i64 32, i64 8, !18}
+!35 = !{!23, !24, i64 8}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"X509_algor_st", !40, i64 0, !41, i64 8}
+!40 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!41 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
+!42 = !{!23, !10, i64 24}

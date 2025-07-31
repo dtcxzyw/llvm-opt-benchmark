@@ -431,7 +431,7 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread: ; preds = 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i
   %.014.i.i.i.i = phi ptr [ %17, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader ]
   %.sroa.08.013.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
-  %15 = load i8, ptr %.sroa.08.013.i.i.i.i, align 1, !tbaa !27
+  %15 = load i8, ptr %.sroa.08.013.i.i.i.i, align 1, !tbaa !28
   invoke void @_ZN4YAML5RegExC1Ec(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i.i.i, i8 noundef signext %15)
           to label %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i unwind label %18
 
@@ -439,7 +439,7 @@ _ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %16, %2
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !29
 
 18:                                               ; preds = %.lr.ph.i.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -555,7 +555,7 @@ _ZSt10_ConstructIN4YAML5RegExEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.
   %26 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %26, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML5RegExES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML5RegExES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
 
 28:                                               ; preds = %.lr.ph.i.i.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -613,7 +613,7 @@ _ZSt10_ConstructIN4YAML5RegExEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37: ; preds = %.l
   %42 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 32
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 32
   %.not.i.i.i.i.i38 = icmp eq ptr %42, %5
-  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML5RegExES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4YAML5RegExES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !30
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i29
   %44 = landingpad { ptr, i32 }
@@ -750,7 +750,7 @@ define linkonce_odr void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef
 
 9:                                                ; preds = %2
   %10 = icmp ugt i64 %8, 9223372036854775776
-  br i1 %10, label %.noexc.i, label %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i, !prof !30
+  br i1 %10, label %.noexc.i, label %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i, !prof !31
 
 .noexc.i:                                         ; preds = %9
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -768,8 +768,8 @@ _ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i: ; preds = 
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !24
-  %17 = load ptr, ptr %1, align 8, !tbaa !31
-  %18 = load ptr, ptr %3, align 8, !tbaa !31
+  %17 = load ptr, ptr %1, align 8, !tbaa !32
+  %18 = load ptr, ptr %3, align 8, !tbaa !32
   %.not12.i = icmp eq ptr %17, %18
   br i1 %.not12.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4YAML5RegExESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i
 
@@ -786,7 +786,7 @@ _ZSt10_ConstructIN4YAML5RegExEJRKS1_EEvPT_DpOT0_.exit.i: ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %.not.i = icmp eq ptr %21, %18
-  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4YAML5RegExESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4YAML5RegExESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i, !llvm.loop !33
 
 23:                                               ; preds = %.lr.ph.i
   %24 = landingpad { ptr, i32 }
@@ -896,11 +896,12 @@ attributes #16 = { builtin allocsize(0) }
 !22 = !{!11, !12, i64 0}
 !23 = !{!11, !12, i64 8}
 !24 = !{!11, !12, i64 16}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!31 = !{!12, !12, i64 0}
-!32 = distinct !{!32, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!6, !6, i64 0}
+!29 = distinct !{!29, !26, !27}
+!30 = distinct !{!30, !26, !27}
+!31 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!32 = !{!12, !12, i64 0}
+!33 = distinct !{!33, !26, !27}

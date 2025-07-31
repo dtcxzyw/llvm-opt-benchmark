@@ -76,7 +76,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %44 = icmp slt i32 %42, 0
   %45 = select i1 %44, i32 %43, i32 %42
   %46 = icmp eq i32 %36, 0
-  br i1 %46, label %47, label %.preheader, !llvm.loop !9
+  br i1 %46, label %47, label %.preheader, !llvm.loop !10
 
 47:                                               ; preds = %.preheader
   %48 = shl i32 %45, 1
@@ -102,7 +102,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %63 = icmp slt i32 %61, 0
   %64 = select i1 %63, i32 %62, i32 %61
   %65 = icmp eq i32 %55, 0
-  br i1 %65, label %66, label %.preheader2, !llvm.loop !10
+  br i1 %65, label %66, label %.preheader2, !llvm.loop !11
 
 66:                                               ; preds = %.preheader2
   %67 = shl i32 %64, 1
@@ -133,7 +133,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %84 = phi i32 [ %26, %72 ], [ %253, %80 ]
   %85 = phi i32 [ %25, %72 ], [ %252, %80 ]
   %86 = phi i32 [ %24, %72 ], [ %251, %80 ]
-  call void %70(ptr noundef %81, i32 noundef %82, ptr noundef nonnull %5, i32 noundef 8) #7, !callees !11
+  call void %70(ptr noundef %81, i32 noundef %82, ptr noundef nonnull %5, i32 noundef 8) #7, !callees !12
   %87 = xor i32 %84, %83
   %88 = and i32 %87, %85
   %89 = xor i32 %88, %83
@@ -305,7 +305,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %255 = add nsw i32 %82, -32
   %256 = getelementptr i8, ptr %81, i64 32
   %257 = icmp samesign ugt i32 %82, 32
-  br i1 %257, label %80, label %.loopexit, !llvm.loop !12
+  br i1 %257, label %80, label %.loopexit, !llvm.loop !13
 
 258:                                              ; preds = %.loopexit5
   br label %259
@@ -326,7 +326,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %268 = phi i32 [ %2, %262 ], [ %302, %299 ]
   %269 = phi i32 [ %25, %262 ], [ %301, %299 ]
   %270 = phi i32 [ %24, %262 ], [ %300, %299 ]
-  call void %260(ptr noundef %267, i32 noundef %268, ptr noundef nonnull %5, i32 noundef 4) #7, !callees !11
+  call void %260(ptr noundef %267, i32 noundef %268, ptr noundef nonnull %5, i32 noundef 4) #7, !callees !12
   %271 = load i32, ptr %5, align 16
   %272 = load i32, ptr %263, align 4
   %273 = load i32, ptr %264, align 8
@@ -357,7 +357,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %296 = add i32 %295, %278
   %297 = add nsw i32 %279, -1
   %298 = icmp eq i32 %297, 0
-  br i1 %298, label %299, label %275, !llvm.loop !13
+  br i1 %298, label %299, label %275, !llvm.loop !14
 
 299:                                              ; preds = %275
   %300 = add i32 %288, %270
@@ -365,7 +365,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %302 = add nsw i32 %268, -16
   %303 = getelementptr i8, ptr %267, i64 16
   %304 = icmp sgt i32 %268, 16
-  br i1 %304, label %266, label %.loopexit, !llvm.loop !14
+  br i1 %304, label %266, label %.loopexit, !llvm.loop !15
 
 305:                                              ; preds = %.loopexit5
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %0, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 270, ptr noundef nonnull @.str) #7
@@ -443,7 +443,7 @@ define internal void @str2hashbuf_signed(ptr noundef readonly captures(none) %0,
   %32 = phi i32 [ %8, %26 ], [ %23, %14 ]
   %33 = add nuw nsw i64 %15, 1
   %34 = icmp eq i64 %33, %13
-  br i1 %34, label %.loopexit3, label %14, !llvm.loop !15
+  br i1 %34, label %.loopexit3, label %14, !llvm.loop !16
 
 .loopexit3:                                       ; preds = %29, %4
   %35 = phi ptr [ %2, %4 ], [ %30, %29 ]
@@ -471,7 +471,7 @@ define internal void @str2hashbuf_signed(ptr noundef readonly captures(none) %0,
   store i32 %8, ptr %47, align 4
   %49 = add nsw i32 %46, -1
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %42
   ret void
@@ -518,7 +518,7 @@ define internal void @str2hashbuf_unsigned(ptr noundef readonly captures(none) %
   %32 = phi i32 [ %8, %26 ], [ %23, %14 ]
   %33 = add nuw nsw i64 %15, 1
   %34 = icmp eq i64 %33, %13
-  br i1 %34, label %.loopexit3, label %14, !llvm.loop !17
+  br i1 %34, label %.loopexit3, label %14, !llvm.loop !18
 
 .loopexit3:                                       ; preds = %29, %4
   %35 = phi ptr [ %2, %4 ], [ %30, %29 ]
@@ -546,7 +546,7 @@ define internal void @str2hashbuf_unsigned(ptr noundef readonly captures(none) %
   store i32 %8, ptr %47, align 4
   %49 = add nsw i32 %46, -1
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %42
   ret void
@@ -587,16 +587,17 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{ptr @str2hashbuf_signed, ptr @str2hashbuf_unsigned}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = !{ptr @str2hashbuf_signed, ptr @str2hashbuf_unsigned}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = distinct !{!18, !7, !8, !9}
+!19 = distinct !{!19, !7, !8, !9}

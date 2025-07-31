@@ -44,7 +44,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6ad6783d6ece380fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.43611ef61b3b23c392c56f7aeebb80e1.0.llvm.15242816679214534734)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !5
   %10 = icmp eq ptr %8, %6
-  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h3593989d53966234E.exit, label %.lr.ph.i
+  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h3593989d53966234E.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN4core3fmt8builders9DebugList7entries17h3593989d53966234E.exit: ; preds = %.lr.ph.i, %3
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h0eca50d3e55a937aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
@@ -99,3 +99,5 @@ attributes #4 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN4core3fmt8builders9DebugList7entries17h3593989d53966234E: argument 0"}
 !7 = distinct !{!7, !"_ZN4core3fmt8builders9DebugList7entries17h3593989d53966234E"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

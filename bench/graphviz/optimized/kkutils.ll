@@ -69,7 +69,7 @@ define void @fill_neighbors_vec_unweighted(ptr noundef readonly captures(none) %
   store i32 1, ptr %14, align 4, !tbaa !12
   %15 = add nuw i64 %.07, 1
   %exitcond.not = icmp eq i64 %15, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -97,13 +97,13 @@ define void @empty_neighbors_vec(ptr noundef readonly captures(none) %0, i32 nou
   store i32 0, ptr %14, align 4, !tbaa !12
   %15 = add nuw i64 %.07, 1
   %exitcond.not = icmp eq i64 %15, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -123,7 +123,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !20
   %15 = shl nuw nsw i64 %9, 2
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i64 noundef %15) #18
   tail call fastcc void @graphviz_exit() #19
@@ -135,7 +135,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   br i1 %mul.ov.i23.i, label %19, label %22
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !20
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef %18, i64 noundef 8) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
@@ -146,7 +146,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   br i1 %24, label %25, label %.lr.ph.preheader.i
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !20
   %27 = shl nuw nsw i64 %18, 3
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #18
   tail call fastcc void @graphviz_exit() #19
@@ -165,20 +165,20 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   %31 = mul nuw nsw i64 %indvars.iv.i, %30
   %32 = getelementptr inbounds nuw i32, ptr %11, i64 %31
   %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
-  store ptr %32, ptr %33, align 8, !tbaa !21
+  store ptr %32, ptr %33, align 8, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %30
-  br i1 %exitcond.not.i, label %.lr.ph29.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.lr.ph29.i, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
   %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv31.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
   %36 = trunc nuw nsw i64 %indvars.iv31.i to i32
   tail call void @bfs(i32 noundef %36, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %35) #20
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %30
-  br i1 %exitcond35.not.i, label %compute_apsp_simple.exit, label %.lr.ph29.i, !llvm.loop !23
+  br i1 %exitcond35.not.i, label %compute_apsp_simple.exit, label %.lr.ph29.i, !llvm.loop !24
 
 compute_apsp_simple.exit:                         ; preds = %.lr.ph29.i, %.preheader.thread.i, %5
   %.0 = phi ptr [ %6, %5 ], [ %29, %.preheader.thread.i ], [ %23, %.lr.ph29.i ]
@@ -198,7 +198,7 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !20
   %10 = shl nuw nsw i64 %4, 2
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.1, i64 noundef %10) #18
   tail call fastcc void @graphviz_exit() #19
@@ -210,7 +210,7 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
   br i1 %mul.ov.i23, label %14, label %17
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !20
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef %13, i64 noundef 8) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
@@ -221,7 +221,7 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
   br i1 %19, label %20, label %.lr.ph.preheader
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !20
   %22 = shl nuw nsw i64 %13, 3
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #18
   tail call fastcc void @graphviz_exit() #19
@@ -244,20 +244,20 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
   %26 = mul nuw nsw i64 %indvars.iv, %25
   %27 = getelementptr inbounds nuw i32, ptr %6, i64 %26
   %28 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  store ptr %27, ptr %28, align 8, !tbaa !21
+  store ptr %27, ptr %28, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
-  br i1 %exitcond.not, label %.lr.ph29.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph29.preheader, label %.lr.ph, !llvm.loop !25
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
   %indvars.iv31 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next32, %.lr.ph29 ]
   %29 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv31
-  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
   %31 = trunc nuw nsw i64 %indvars.iv31 to i32
   tail call void @dijkstra(i32 noundef %31, ptr noundef %0, i32 noundef %1, ptr noundef %30) #20
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph29, !llvm.loop !25
+  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph29, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph29, %.preheader.thread
   %32 = phi ptr [ %24, %.preheader.thread ], [ %18, %.lr.ph29 ]
@@ -267,12 +267,12 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   tail call void @compute_new_weights(ptr noundef %0, i32 noundef %1)
   %5 = tail call fastcc ptr @compute_apsp_dijkstra(ptr noundef %0, i32 noundef %1)
-  %6 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
   tail call void @free(ptr noundef %6) #20
-  store ptr null, ptr %3, align 8, !tbaa !18
+  store ptr null, ptr %3, align 8, !tbaa !19
   %.not.i = icmp ne ptr %4, null
   %7 = icmp sgt i32 %1, 0
   %or.cond.i = and i1 %7, %.not.i
@@ -287,12 +287,12 @@ define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 
   %.01113.i = phi ptr [ %4, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
   %8 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.01113.i, ptr %9, align 8, !tbaa !18
+  store ptr %.01113.i, ptr %9, align 8, !tbaa !19
   %10 = load i64, ptr %8, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw float, ptr %.01113.i, i64 %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %restore_old_weights.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %restore_old_weights.exit, label %.lr.ph.i, !llvm.loop !27
 
 restore_old_weights.exit:                         ; preds = %.lr.ph.i, %2
   ret ptr %5
@@ -309,7 +309,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   br i1 %mul.ov.i, label %5, label %8
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !20
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %3, i64 noundef 4) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
@@ -320,7 +320,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   br i1 %10, label %11, label %.lr.ph.preheader
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !20
   %13 = shl nuw nsw i64 %3, 2
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #18
   tail call fastcc void @graphviz_exit() #19
@@ -342,7 +342,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   %18 = add i64 %17, %.04255
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not.i45 = icmp eq i64 %18, 0
@@ -357,7 +357,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   br i1 %mul.ov.i47, label %21, label %24
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !20
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, i64 noundef %18, i64 noundef 4) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
@@ -368,7 +368,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   br i1 %26, label %27, label %.lr.ph63.preheader
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !20
   %29 = shl nuw i64 %18, 2
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.1, i64 noundef %29) #18
   tail call fastcc void @graphviz_exit() #19
@@ -384,7 +384,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   %.04062 = phi ptr [ %31, %.lr.ph63.preheader ], [ %55, %empty_neighbors_vec.exit ]
   %32 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv68
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %.04062, ptr %33, align 8, !tbaa !18
+  store ptr %.04062, ptr %33, align 8, !tbaa !19
   %34 = load i64, ptr %32, align 8, !tbaa !3
   %35 = icmp ugt i64 %34, 1
   br i1 %35, label %.lr.ph.i, label %fill_neighbors_vec_unweighted.exit
@@ -403,7 +403,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   store i32 1, ptr %42, align 4, !tbaa !12
   %43 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %43, %34
-  br i1 %exitcond.not.i, label %.lr.ph59, label %38, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph59, label %38, !llvm.loop !17
 
 fill_neighbors_vec_unweighted.exit:               ; preds = %.lr.ph63
   %.not57 = icmp eq i64 %34, 1
@@ -433,13 +433,13 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %.lr.ph63
   store i32 0, ptr %53, align 4, !tbaa !12
   %54 = add nuw i64 %.07.i51, 1
   %exitcond.not.i52 = icmp eq i64 %54, %34
-  br i1 %exitcond.not.i52, label %empty_neighbors_vec.exit, label %49, !llvm.loop !17
+  br i1 %exitcond.not.i52, label %empty_neighbors_vec.exit, label %49, !llvm.loop !18
 
 empty_neighbors_vec.exit:                         ; preds = %49, %fill_neighbors_vec_unweighted.exit, %._crit_edge60
   %55 = getelementptr inbounds nuw float, ptr %.04062, i64 %34
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !28
+  br i1 %exitcond72.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !29
 
 56:                                               ; preds = %.lr.ph59, %common_neighbors.exit
   %.058 = phi i64 [ 1, %.lr.ph59 ], [ %79, %common_neighbors.exit ]
@@ -481,10 +481,10 @@ common_neighbors.exit:                            ; preds = %common_neighbors.ex
   %76 = sub i64 %75, %.010.lcssa.i
   %77 = uitofp i64 %76 to float
   %78 = getelementptr inbounds nuw float, ptr %.04062, i64 %.058
-  store float %77, ptr %78, align 4, !tbaa !29
+  store float %77, ptr %78, align 4, !tbaa !30
   %79 = add nuw i64 %.058, 1
   %exitcond67 = icmp eq i64 %79, %umax
-  br i1 %exitcond67, label %._crit_edge60, label %56, !llvm.loop !31
+  br i1 %exitcond67, label %._crit_edge60, label %56, !llvm.loop !32
 
 ._crit_edge64:                                    ; preds = %empty_neighbors_vec.exit, %.thread.i48.thread
   %80 = phi ptr [ %15, %.thread.i48.thread ], [ %9, %empty_neighbors_vec.exit ]
@@ -495,9 +495,9 @@ common_neighbors.exit:                            ; preds = %common_neighbors.ex
 ; Function Attrs: nounwind uwtable
 define void @restore_old_weights(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   tail call void @free(ptr noundef %5) #20
-  store ptr null, ptr %4, align 8, !tbaa !18
+  store ptr null, ptr %4, align 8, !tbaa !19
   %.not = icmp ne ptr %2, null
   %6 = icmp sgt i32 %1, 0
   %or.cond = and i1 %.not, %6
@@ -512,12 +512,12 @@ define void @restore_old_weights(ptr noundef captures(none) %0, i32 noundef %1, 
   %.01113 = phi ptr [ %2, %.lr.ph.preheader ], [ %10, %.lr.ph ]
   %7 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.01113, ptr %8, align 8, !tbaa !18
+  store ptr %.01113, ptr %8, align 8, !tbaa !19
   %9 = load i64, ptr %7, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw float, ptr %.01113, i64 %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   ret void
@@ -538,16 +538,16 @@ define double @distance_kD(ptr noundef readonly captures(none) %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.01617 = phi double [ 0.000000e+00, %.lr.ph ], [ %16, %8 ]
   %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !32
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds double, ptr %10, i64 %6
-  %12 = load double, ptr %11, align 8, !tbaa !34
+  %12 = load double, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds double, ptr %10, i64 %7
-  %14 = load double, ptr %13, align 8, !tbaa !34
+  %14 = load double, ptr %13, align 8, !tbaa !35
   %15 = fsub double %12, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01617)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %8, %4
   %.016.lcssa = phi double [ 0.000000e+00, %4 ], [ %16, %8 ]
@@ -568,17 +568,17 @@ define void @quicksort_placef(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 gv_sort.exit:                                     ; preds = %4
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
-  store ptr @fcmpf, ptr %6, align 8, !tbaa !37
+  store ptr @fcmpf, ptr %6, align 8, !tbaa !38
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
-  store ptr %0, ptr %7, align 8, !tbaa !37
+  store ptr %0, ptr %7, align 8, !tbaa !38
   %reass.sub = sub i32 %3, %2
   %8 = add i32 %reass.sub, 1
   %9 = zext nneg i32 %8 to i64
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds i32, ptr %1, i64 %10
   tail call void @qsort(ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #20
-  store ptr null, ptr %6, align 8, !tbaa !37
-  store ptr null, ptr %7, align 8, !tbaa !37
+  store ptr null, ptr %6, align 8, !tbaa !38
+  store ptr null, ptr %7, align 8, !tbaa !38
   br label %12
 
 12:                                               ; preds = %gv_sort.exit, %4
@@ -590,11 +590,11 @@ define internal range(i32 -1, 2) i32 @fcmpf(ptr noundef readonly captures(none) 
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %2, i64 %5
-  %7 = load float, ptr %6, align 4, !tbaa !29
+  %7 = load float, ptr %6, align 4, !tbaa !30
   %8 = load i32, ptr %1, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds float, ptr %2, i64 %9
-  %11 = load float, ptr %10, align 4, !tbaa !29
+  %11 = load float, ptr %10, align 4, !tbaa !30
   %12 = fcmp olt float %7, %11
   %13 = fcmp ogt float %7, %11
   %. = zext i1 %13 to i32
@@ -605,9 +605,9 @@ define internal range(i32 -1, 2) i32 @fcmpf(ptr noundef readonly captures(none) 
 ; Function Attrs: nofree nounwind uwtable
 define void @quicksort_place(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
-  store ptr @cmp, ptr %4, align 8, !tbaa !37
+  store ptr @cmp, ptr %4, align 8, !tbaa !38
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
-  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %0, ptr %5, align 8, !tbaa !38
   %6 = icmp ugt i32 %2, 1
   br i1 %6, label %7, label %gv_sort.exit
 
@@ -617,8 +617,8 @@ define void @quicksort_place(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br label %gv_sort.exit
 
 gv_sort.exit:                                     ; preds = %3, %7
-  store ptr null, ptr %4, align 8, !tbaa !37
-  store ptr null, ptr %5, align 8, !tbaa !37
+  store ptr null, ptr %4, align 8, !tbaa !38
+  store ptr null, ptr %5, align 8, !tbaa !38
   ret void
 }
 
@@ -627,11 +627,11 @@ define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %0
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %2, i64 %5
-  %7 = load double, ptr %6, align 8, !tbaa !34
+  %7 = load double, ptr %6, align 8, !tbaa !35
   %8 = load i32, ptr %1, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds double, ptr %2, i64 %9
-  %11 = load double, ptr %10, align 8, !tbaa !34
+  %11 = load double, ptr %10, align 8, !tbaa !35
   %12 = fcmp olt double %7, %11
   %13 = fcmp ogt double %7, %11
   %. = zext i1 %13 to i32
@@ -655,9 +655,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 ; Function Attrs: inlinehint nounwind uwtable
 define internal i32 @gv_sort_compar_wrapper(ptr noundef %0, ptr noundef %1) #11 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %6) #20
   ret i32 %7
 }
@@ -719,27 +719,28 @@ attributes #21 = { cold noreturn nounwind }
 !11 = !{!4, !8, i64 8}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!4, !10, i64 16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"float", !6, i64 0}
-!31 = distinct !{!31, !15}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 double", !9, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = distinct !{!36, !15}
-!37 = !{!9, !9, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}
+!19 = !{!4, !10, i64 16}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!22 = !{!8, !8, i64 0}
+!23 = distinct !{!23, !15, !16}
+!24 = distinct !{!24, !15, !16}
+!25 = distinct !{!25, !15, !16}
+!26 = distinct !{!26, !15, !16}
+!27 = distinct !{!27, !15, !16}
+!28 = distinct !{!28, !15, !16}
+!29 = distinct !{!29, !15, !16}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"float", !6, i64 0}
+!32 = distinct !{!32, !15, !16}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 double", !9, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"double", !6, i64 0}
+!37 = distinct !{!37, !15, !16}
+!38 = !{!9, !9, i64 0}

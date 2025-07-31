@@ -98,7 +98,7 @@ define range(i32 0, -2147483648) i32 @gzwrite(ptr noundef %0, ptr noundef %1, i3
   br label %47
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %35, align 8, !tbaa !20
+  %45 = load ptr, ptr %35, align 8, !tbaa !21
   %46 = and i64 %42, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 0, i64 %46, i1 false)
   br label %47
@@ -106,11 +106,11 @@ define range(i32 0, -2147483648) i32 @gzwrite(ptr noundef %0, ptr noundef %1, i3
 47:                                               ; preds = %44, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %46, %44 ]
   store i32 %43, ptr %29, align 8, !tbaa !17
-  %48 = load ptr, ptr %35, align 8, !tbaa !20
-  store ptr %48, ptr %6, align 8, !tbaa !21
-  %49 = load i64, ptr %36, align 8, !tbaa !22
+  %48 = load ptr, ptr %35, align 8, !tbaa !21
+  store ptr %48, ptr %6, align 8, !tbaa !22
+  %49 = load i64, ptr %36, align 8, !tbaa !23
   %50 = add nsw i64 %49, %.pre-phi.i
-  store i64 %50, ptr %36, align 8, !tbaa !22
+  store i64 %50, ptr %36, align 8, !tbaa !23
   %51 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %gz_zero.exit.thread, label %37
@@ -134,12 +134,12 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   br i1 %60, label %61, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58
-  %.pre = load ptr, ptr %6, align 8, !tbaa !21
+  %.pre = load ptr, ptr %6, align 8, !tbaa !22
   br label %63
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %57, align 8, !tbaa !20
-  store ptr %62, ptr %6, align 8, !tbaa !21
+  %62 = load ptr, ptr %57, align 8, !tbaa !21
+  store ptr %62, ptr %6, align 8, !tbaa !22
   br label %63
 
 63:                                               ; preds = %._crit_edge, %61
@@ -154,9 +154,9 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   %70 = load i32, ptr %55, align 8, !tbaa !17
   %71 = add i32 %70, %spec.select
   store i32 %71, ptr %55, align 8, !tbaa !17
-  %72 = load i64, ptr %56, align 8, !tbaa !22
+  %72 = load i64, ptr %56, align 8, !tbaa !23
   %73 = add nsw i64 %72, %69
-  store i64 %73, ptr %56, align 8, !tbaa !22
+  store i64 %73, ptr %56, align 8, !tbaa !23
   %74 = sub i32 %.052, %spec.select
   %.not60 = icmp eq i32 %74, 0
   br i1 %.not60, label %.critedge, label %75
@@ -165,7 +165,7 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   %76 = getelementptr inbounds nuw i8, ptr %.050, i64 %69
   %77 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
   %78 = icmp eq i32 %77, -1
-  br i1 %78, label %gz_zero.exit.thread, label %58, !llvm.loop !23
+  br i1 %78, label %gz_zero.exit.thread, label %58, !llvm.loop !24
 
 79:                                               ; preds = %gz_zero.exit
   %80 = load i32, ptr %55, align 8, !tbaa !17
@@ -179,12 +179,12 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
 
 84:                                               ; preds = %81, %79
   store i32 %2, ptr %55, align 8, !tbaa !17
-  store ptr %1, ptr %6, align 8, !tbaa !21
+  store ptr %1, ptr %6, align 8, !tbaa !22
   %85 = zext nneg i32 %2 to i64
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load i64, ptr %86, align 8, !tbaa !22
+  %87 = load i64, ptr %86, align 8, !tbaa !23
   %88 = add nsw i64 %87, %85
-  store i64 %88, ptr %86, align 8, !tbaa !22
+  store i64 %88, ptr %86, align 8, !tbaa !23
   %89 = tail call fastcc i32 @gz_comp(ptr noundef %0, i32 noundef 0)
   %90 = icmp eq i32 %89, -1
   br i1 %90, label %gz_zero.exit.thread, label %.critedge
@@ -205,14 +205,14 @@ declare hidden void @gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initializes((32, 48)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !24
+  %3 = load i32, ptr %2, align 4, !tbaa !25
   %4 = zext i32 %3 to i64
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %5, ptr %6, align 8, !tbaa !20
+  store ptr %5, ptr %6, align 8, !tbaa !21
   %7 = tail call noalias ptr @malloc(i64 noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %7, ptr %8, align 8, !tbaa !25
+  store ptr %7, ptr %8, align 8, !tbaa !26
   %9 = icmp eq ptr %5, null
   %10 = icmp eq ptr %7, null
   %or.cond = or i1 %9, %10
@@ -241,30 +241,30 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %20 = load i32, ptr %19, align 8, !tbaa !26
+  %20 = load i32, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %22 = load i32, ptr %21, align 4, !tbaa !27
+  %22 = load i32, ptr %21, align 4, !tbaa !28
   %23 = tail call i32 @deflateInit2_(ptr noundef nonnull %17, i32 noundef %20, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %22, ptr noundef nonnull @.str.2, i32 noundef 112) #14
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %16
-  %25 = load ptr, ptr %6, align 8, !tbaa !20
+  %25 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void @free(ptr noundef %25) #14
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.1) #14
   br label %33
 
 26:                                               ; preds = %16
-  %27 = load i32, ptr %2, align 4, !tbaa !24
+  %27 = load i32, ptr %2, align 4, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %27, ptr %28, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %27, ptr %29, align 8, !tbaa !28
-  %30 = load ptr, ptr %8, align 8, !tbaa !25
+  store i32 %27, ptr %29, align 8, !tbaa !29
+  %30 = load ptr, ptr %8, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %30, ptr %31, align 8, !tbaa !29
+  store ptr %30, ptr %31, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %30, ptr %32, align 8, !tbaa !30
+  store ptr %30, ptr %32, align 8, !tbaa !31
   br label %33
 
 33:                                               ; preds = %26, %24, %15
@@ -300,11 +300,11 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   ]
 
 .split.split.preheader:                           ; preds = %10
-  %.pre = load i32, ptr %11, align 8, !tbaa !28
+  %.pre = load i32, ptr %11, align 8, !tbaa !29
   br label %.split.split
 
 .split.us.preheader:                              ; preds = %10
-  %.pre63 = load i32, ptr %11, align 8, !tbaa !28
+  %.pre63 = load i32, ptr %11, align 8, !tbaa !29
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %42
@@ -313,8 +313,8 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %17, label %18, label %38
 
 18:                                               ; preds = %.split.us
-  %19 = load ptr, ptr %12, align 8, !tbaa !29
-  %20 = load ptr, ptr %13, align 8, !tbaa !30
+  %19 = load ptr, ptr %12, align 8, !tbaa !30
+  %20 = load ptr, ptr %13, align 8, !tbaa !31
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -323,7 +323,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %.not39.us, label %.thread, label %25
 
 25:                                               ; preds = %18
-  %26 = load i32, ptr %14, align 4, !tbaa !31
+  %26 = load i32, ptr %14, align 4, !tbaa !32
   %27 = and i64 %23, 4294967295
   %28 = tail call i64 @write(i32 noundef %26, ptr noundef %20, i64 noundef %27) #14
   %29 = trunc i64 %28 to i32
@@ -333,25 +333,25 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %or.cond42.us, label %31, label %.split44.us
 
 31:                                               ; preds = %25
-  %.pre65 = load i32, ptr %11, align 8, !tbaa !28
+  %.pre65 = load i32, ptr %11, align 8, !tbaa !29
   %32 = icmp eq i32 %.pre65, 0
   br i1 %32, label %.thread, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %31
-  %.pre67 = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre67 = load ptr, ptr %12, align 8, !tbaa !30
   br label %35
 
 .thread:                                          ; preds = %18, %31
   %33 = load i32, ptr %4, align 8, !tbaa !14
-  store i32 %33, ptr %11, align 8, !tbaa !28
-  %34 = load ptr, ptr %15, align 8, !tbaa !25
-  store ptr %34, ptr %12, align 8, !tbaa !29
+  store i32 %33, ptr %11, align 8, !tbaa !29
+  %34 = load ptr, ptr %15, align 8, !tbaa !26
+  store ptr %34, ptr %12, align 8, !tbaa !30
   br label %35
 
 35:                                               ; preds = %._crit_edge66, %.thread
   %36 = phi i32 [ %.pre65, %._crit_edge66 ], [ %33, %.thread ]
   %37 = phi ptr [ %.pre67, %._crit_edge66 ], [ %34, %.thread ]
-  store ptr %37, ptr %13, align 8, !tbaa !30
+  store ptr %37, ptr %13, align 8, !tbaa !31
   br label %38
 
 38:                                               ; preds = %.split.us, %35
@@ -361,13 +361,13 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %41, label %.split46.us, label %42
 
 42:                                               ; preds = %38
-  %43 = load i32, ptr %11, align 8, !tbaa !28
+  %43 = load i32, ptr %11, align 8, !tbaa !29
   %.not41.us = icmp eq i32 %39, %43
-  br i1 %.not41.us, label %.split48.us, label %.split.us, !llvm.loop !32
+  br i1 %.not41.us, label %.split48.us, label %.split.us, !llvm.loop !33
 
 .split.split.us:                                  ; preds = %10, %67
-  %44 = load ptr, ptr %12, align 8, !tbaa !29
-  %45 = load ptr, ptr %13, align 8, !tbaa !30
+  %44 = load ptr, ptr %12, align 8, !tbaa !30
+  %45 = load ptr, ptr %13, align 8, !tbaa !31
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
@@ -376,7 +376,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %.not39.us50, label %56, label %50
 
 50:                                               ; preds = %.split.split.us
-  %51 = load i32, ptr %14, align 4, !tbaa !31
+  %51 = load i32, ptr %14, align 4, !tbaa !32
   %52 = and i64 %48, 4294967295
   %53 = tail call i64 @write(i32 noundef %51, ptr noundef %45, i64 noundef %52) #14
   %54 = trunc i64 %53 to i32
@@ -386,33 +386,33 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %or.cond42.us52, label %56, label %.split44.us
 
 56:                                               ; preds = %50, %.split.split.us
-  %57 = load i32, ptr %11, align 8, !tbaa !28
+  %57 = load i32, ptr %11, align 8, !tbaa !29
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %56
-  %.pre69 = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre69 = load ptr, ptr %12, align 8, !tbaa !30
   br label %62
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %4, align 8, !tbaa !14
-  store i32 %60, ptr %11, align 8, !tbaa !28
-  %61 = load ptr, ptr %15, align 8, !tbaa !25
-  store ptr %61, ptr %12, align 8, !tbaa !29
+  store i32 %60, ptr %11, align 8, !tbaa !29
+  %61 = load ptr, ptr %15, align 8, !tbaa !26
+  store ptr %61, ptr %12, align 8, !tbaa !30
   br label %62
 
 62:                                               ; preds = %._crit_edge68, %59
   %63 = phi i32 [ %57, %._crit_edge68 ], [ %60, %59 ]
   %64 = phi ptr [ %.pre69, %._crit_edge68 ], [ %61, %59 ]
-  store ptr %64, ptr %13, align 8, !tbaa !30
+  store ptr %64, ptr %13, align 8, !tbaa !31
   %65 = tail call i32 @deflate(ptr noundef nonnull %3, i32 noundef %1) #14
   %66 = icmp eq i32 %65, -2
   br i1 %66, label %.split46.us, label %67
 
 67:                                               ; preds = %62
-  %68 = load i32, ptr %11, align 8, !tbaa !28
+  %68 = load i32, ptr %11, align 8, !tbaa !29
   %.not41.us53 = icmp eq i32 %63, %68
-  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !34
+  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !35
 
 .split.split:                                     ; preds = %.split.split.preheader, %101
   %69 = phi i32 [ %102, %101 ], [ %.pre, %.split.split.preheader ]
@@ -423,8 +423,8 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %or.cond, label %72, label %97
 
 72:                                               ; preds = %.split.split
-  %73 = load ptr, ptr %12, align 8, !tbaa !29
-  %74 = load ptr, ptr %13, align 8, !tbaa !30
+  %73 = load ptr, ptr %12, align 8, !tbaa !30
+  %74 = load ptr, ptr %13, align 8, !tbaa !31
   %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
@@ -433,7 +433,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %.not39, label %88, label %79
 
 79:                                               ; preds = %72
-  %80 = load i32, ptr %14, align 4, !tbaa !31
+  %80 = load i32, ptr %14, align 4, !tbaa !32
   %81 = and i64 %77, 4294967295
   %82 = tail call i64 @write(i32 noundef %80, ptr noundef %74, i64 noundef %81) #14
   %83 = trunc i64 %82 to i32
@@ -443,12 +443,12 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %or.cond42, label %._crit_edge, label %.split44.us
 
 ._crit_edge:                                      ; preds = %79
-  %.pre60 = load i32, ptr %11, align 8, !tbaa !28
+  %.pre60 = load i32, ptr %11, align 8, !tbaa !29
   br label %88
 
 .split44.us:                                      ; preds = %79, %25, %50
   %85 = tail call ptr @__errno_location() #16
-  %86 = load i32, ptr %85, align 4, !tbaa !35
+  %86 = load i32, ptr %85, align 4, !tbaa !36
   %87 = tail call ptr @strerror(i32 noundef %86) #14
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef %87) #14
   br label %106
@@ -459,20 +459,20 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br i1 %90, label %91, label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %88
-  %.pre62 = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre62 = load ptr, ptr %12, align 8, !tbaa !30
   br label %94
 
 91:                                               ; preds = %88
   %92 = load i32, ptr %4, align 8, !tbaa !14
-  store i32 %92, ptr %11, align 8, !tbaa !28
-  %93 = load ptr, ptr %15, align 8, !tbaa !25
-  store ptr %93, ptr %12, align 8, !tbaa !29
+  store i32 %92, ptr %11, align 8, !tbaa !29
+  %93 = load ptr, ptr %15, align 8, !tbaa !26
+  store ptr %93, ptr %12, align 8, !tbaa !30
   br label %94
 
 94:                                               ; preds = %._crit_edge61, %91
   %95 = phi i32 [ %89, %._crit_edge61 ], [ %92, %91 ]
   %96 = phi ptr [ %.pre62, %._crit_edge61 ], [ %93, %91 ]
-  store ptr %96, ptr %13, align 8, !tbaa !30
+  store ptr %96, ptr %13, align 8, !tbaa !31
   br label %97
 
 97:                                               ; preds = %.split.split, %94
@@ -486,9 +486,9 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %106
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr %11, align 8, !tbaa !28
+  %102 = load i32, ptr %11, align 8, !tbaa !29
   %.not41 = icmp eq i32 %98, %102
-  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !36
+  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !37
 
 .split48.us:                                      ; preds = %101, %42, %67
   %103 = icmp eq i32 %1, 4
@@ -574,7 +574,7 @@ define i32 @gzputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %36
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %24, align 8, !tbaa !20
+  %34 = load ptr, ptr %24, align 8, !tbaa !21
   %35 = and i64 %31, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %35, i1 false)
   br label %36
@@ -582,11 +582,11 @@ define i32 @gzputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 36:                                               ; preds = %33, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %35, %33 ]
   store i32 %32, ptr %17, align 8, !tbaa !17
-  %37 = load ptr, ptr %24, align 8, !tbaa !20
-  store ptr %37, ptr %6, align 8, !tbaa !21
-  %38 = load i64, ptr %25, align 8, !tbaa !22
+  %37 = load ptr, ptr %24, align 8, !tbaa !21
+  store ptr %37, ptr %6, align 8, !tbaa !22
+  %38 = load i64, ptr %25, align 8, !tbaa !23
   %39 = add nsw i64 %38, %.pre-phi.i
-  store i64 %39, ptr %25, align 8, !tbaa !22
+  store i64 %39, ptr %25, align 8, !tbaa !23
   %40 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %gz_zero.exit.thread, label %26
@@ -604,13 +604,13 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
   br i1 %48, label %49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47
-  %.pre = load ptr, ptr %6, align 8, !tbaa !21
+  %.pre = load ptr, ptr %6, align 8, !tbaa !22
   br label %52
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !20
-  store ptr %51, ptr %6, align 8, !tbaa !21
+  %51 = load ptr, ptr %50, align 8, !tbaa !21
+  store ptr %51, ptr %6, align 8, !tbaa !22
   br label %52
 
 52:                                               ; preds = %._crit_edge, %49
@@ -620,16 +620,16 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
   store i32 %55, ptr %42, align 8, !tbaa !17
   %56 = zext i32 %43 to i64
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
-  store i8 %54, ptr %57, align 1, !tbaa !37
+  store i8 %54, ptr %57, align 1, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !22
+  %59 = load i64, ptr %58, align 8, !tbaa !23
   %60 = add nsw i64 %59, 1
-  store i64 %60, ptr %58, align 8, !tbaa !22
+  store i64 %60, ptr %58, align 8, !tbaa !23
   br label %gz_zero.exit.thread
 
 61:                                               ; preds = %gz_zero.exit
   %62 = trunc i32 %1 to i8
-  store i8 %62, ptr %3, align 1, !tbaa !37
+  store i8 %62, ptr %3, align 1, !tbaa !38
   %63 = call i32 @gzwrite(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1)
   %.not26 = icmp eq i32 %63, 1
   %. = select i1 %.not26, i32 %1, i32 -1
@@ -734,7 +734,7 @@ define range(i32 -1, 2147483647) i32 @gzprintf(ptr noundef %0, ptr noundef reado
   br label %42
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %30, align 8, !tbaa !20
+  %40 = load ptr, ptr %30, align 8, !tbaa !21
   %41 = and i64 %37, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %40, i8 0, i64 %41, i1 false)
   br label %42
@@ -742,11 +742,11 @@ define range(i32 -1, 2147483647) i32 @gzprintf(ptr noundef %0, ptr noundef reado
 42:                                               ; preds = %39, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %41, %39 ]
   store i32 %38, ptr %24, align 8, !tbaa !17
-  %43 = load ptr, ptr %30, align 8, !tbaa !20
-  store ptr %43, ptr %6, align 8, !tbaa !21
-  %44 = load i64, ptr %31, align 8, !tbaa !22
+  %43 = load ptr, ptr %30, align 8, !tbaa !21
+  store ptr %43, ptr %6, align 8, !tbaa !22
+  %44 = load i64, ptr %31, align 8, !tbaa !23
   %45 = add nsw i64 %44, %.pre-phi.i
-  store i64 %45, ptr %31, align 8, !tbaa !22
+  store i64 %45, ptr %31, align 8, !tbaa !23
   %46 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %gz_zero.exit.thread, label %32
@@ -765,13 +765,13 @@ gz_zero.exit:                                     ; preds = %32, %29, %18
 53:                                               ; preds = %50, %gz_zero.exit
   %54 = load i32, ptr %12, align 8, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !20
+  %56 = load ptr, ptr %55, align 8, !tbaa !21
   %57 = add nsw i32 %54, -1
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %56, i64 %58
-  store i8 0, ptr %59, align 1, !tbaa !37
+  store i8 0, ptr %59, align 1, !tbaa !38
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %60 = load ptr, ptr %55, align 8, !tbaa !20
+  %60 = load ptr, ptr %55, align 8, !tbaa !21
   %61 = sext i32 %54 to i64
   %62 = call i32 @vsnprintf(ptr noundef %60, i64 noundef %61, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -781,20 +781,20 @@ gz_zero.exit:                                     ; preds = %32, %29, %18
   br i1 %or.cond, label %64, label %gz_zero.exit.thread
 
 64:                                               ; preds = %53
-  %65 = load ptr, ptr %55, align 8, !tbaa !20
+  %65 = load ptr, ptr %55, align 8, !tbaa !21
   %66 = getelementptr inbounds i8, ptr %65, i64 %58
-  %67 = load i8, ptr %66, align 1, !tbaa !37
+  %67 = load i8, ptr %66, align 1, !tbaa !38
   %.not37 = icmp eq i8 %67, 0
   br i1 %.not37, label %68, label %gz_zero.exit.thread
 
 68:                                               ; preds = %64
   store i32 %62, ptr %48, align 8, !tbaa !17
-  store ptr %65, ptr %6, align 8, !tbaa !21
+  store ptr %65, ptr %6, align 8, !tbaa !22
   %69 = zext nneg i32 %62 to i64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load i64, ptr %70, align 8, !tbaa !22
+  %71 = load i64, ptr %70, align 8, !tbaa !23
   %72 = add nsw i64 %71, %69
-  store i64 %72, ptr %70, align 8, !tbaa !22
+  store i64 %72, ptr %70, align 8, !tbaa !23
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %42, %26, %53, %64, %50, %15, %5, %8, %2, %68
@@ -880,7 +880,7 @@ define i32 @gzflush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %35
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %23, align 8, !tbaa !20
+  %33 = load ptr, ptr %23, align 8, !tbaa !21
   %34 = and i64 %30, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %34, i1 false)
   br label %35
@@ -888,11 +888,11 @@ define i32 @gzflush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 35:                                               ; preds = %32, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %32 ]
   store i32 %31, ptr %16, align 8, !tbaa !17
-  %36 = load ptr, ptr %23, align 8, !tbaa !20
-  store ptr %36, ptr %15, align 8, !tbaa !21
-  %37 = load i64, ptr %24, align 8, !tbaa !22
+  %36 = load ptr, ptr %23, align 8, !tbaa !21
+  store ptr %36, ptr %15, align 8, !tbaa !22
+  %37 = load i64, ptr %24, align 8, !tbaa !23
   %38 = add nsw i64 %37, %.pre-phi.i
-  store i64 %38, ptr %24, align 8, !tbaa !22
+  store i64 %38, ptr %24, align 8, !tbaa !23
   %39 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %gz_zero.exit.thread, label %25
@@ -926,13 +926,13 @@ define i32 @gzsetparams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load i32, ptr %12, align 8, !tbaa !26
+  %13 = load i32, ptr %12, align 8, !tbaa !27
   %14 = icmp eq i32 %1, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %17 = load i32, ptr %16, align 4, !tbaa !27
+  %17 = load i32, ptr %16, align 4, !tbaa !28
   %18 = icmp eq i32 %2, %17
   br i1 %18, label %gz_zero.exit.thread, label %19
 
@@ -985,7 +985,7 @@ define i32 @gzsetparams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br label %44
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %32, align 8, !tbaa !20
+  %42 = load ptr, ptr %32, align 8, !tbaa !21
   %43 = and i64 %39, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %43, i1 false)
   br label %44
@@ -993,11 +993,11 @@ define i32 @gzsetparams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
 44:                                               ; preds = %41, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %43, %41 ]
   store i32 %40, ptr %25, align 8, !tbaa !17
-  %45 = load ptr, ptr %32, align 8, !tbaa !20
-  store ptr %45, ptr %6, align 8, !tbaa !21
-  %46 = load i64, ptr %33, align 8, !tbaa !22
+  %45 = load ptr, ptr %32, align 8, !tbaa !21
+  store ptr %45, ptr %6, align 8, !tbaa !22
+  %46 = load i64, ptr %33, align 8, !tbaa !23
   %47 = add nsw i64 %46, %.pre-phi.i
-  store i64 %47, ptr %33, align 8, !tbaa !22
+  store i64 %47, ptr %33, align 8, !tbaa !23
   %48 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %gz_zero.exit.thread, label %34
@@ -1028,9 +1028,9 @@ gz_zero.exit:                                     ; preds = %34, %30, %19
   br label %62
 
 62:                                               ; preds = %60, %gz_zero.exit
-  store i32 %1, ptr %12, align 8, !tbaa !26
+  store i32 %1, ptr %12, align 8, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %2, ptr %63, align 4, !tbaa !27
+  store i32 %2, ptr %63, align 4, !tbaa !28
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %44, %27, %15, %5, %8, %3, %62, %58
@@ -1100,7 +1100,7 @@ define range(i32 -2, 1) i32 @gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br label %31
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %19, align 8, !tbaa !20
+  %29 = load ptr, ptr %19, align 8, !tbaa !21
   %30 = and i64 %26, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 0, i64 %30, i1 false)
   br label %31
@@ -1108,11 +1108,11 @@ define range(i32 -2, 1) i32 @gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %28, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %28 ]
   store i32 %27, ptr %12, align 8, !tbaa !17
-  %32 = load ptr, ptr %19, align 8, !tbaa !20
-  store ptr %32, ptr %11, align 8, !tbaa !21
-  %33 = load i64, ptr %20, align 8, !tbaa !22
+  %32 = load ptr, ptr %19, align 8, !tbaa !21
+  store ptr %32, ptr %11, align 8, !tbaa !22
+  %33 = load i64, ptr %20, align 8, !tbaa !23
   %34 = add nsw i64 %33, %.pre-phi.i
-  store i64 %34, ptr %20, align 8, !tbaa !22
+  store i64 %34, ptr %20, align 8, !tbaa !23
   %35 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %gz_zero.exit, label %21
@@ -1124,17 +1124,17 @@ gz_zero.exit:                                     ; preds = %31, %21, %17, %14, 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = tail call i32 @deflateEnd(ptr noundef nonnull %39) #14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %41, align 8, !tbaa !26
   tail call void @free(ptr noundef %42) #14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !20
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
   tail call void @free(ptr noundef %44) #14
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !38
+  %46 = load ptr, ptr %45, align 8, !tbaa !39
   tail call void @free(ptr noundef %46) #14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !31
+  %48 = load i32, ptr %47, align 4, !tbaa !32
   %49 = tail call i32 @close(i32 noundef %48) #14
   tail call void @free(ptr noundef %0) #14
   %50 = sub i32 0, %49
@@ -1220,24 +1220,25 @@ attributes #17 = { nounwind willreturn memory(read) }
 !15 = !{!4, !5, i64 104}
 !16 = !{!4, !10, i64 96}
 !17 = !{!11, !5, i64 8}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!4, !8, i64 32}
-!21 = !{!11, !8, i64 0}
-!22 = !{!4, !10, i64 16}
-!23 = distinct !{!23, !19}
-!24 = !{!4, !5, i64 28}
-!25 = !{!4, !8, i64 40}
-!26 = !{!4, !5, i64 88}
-!27 = !{!4, !5, i64 92}
-!28 = !{!11, !5, i64 32}
-!29 = !{!11, !8, i64 24}
-!30 = !{!4, !8, i64 48}
-!31 = !{!4, !5, i64 4}
-!32 = distinct !{!32, !19, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !19, !33}
-!35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !19}
-!37 = !{!6, !6, i64 0}
-!38 = !{!4, !8, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!4, !8, i64 32}
+!22 = !{!11, !8, i64 0}
+!23 = !{!4, !10, i64 16}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!4, !5, i64 28}
+!26 = !{!4, !8, i64 40}
+!27 = !{!4, !5, i64 88}
+!28 = !{!4, !5, i64 92}
+!29 = !{!11, !5, i64 32}
+!30 = !{!11, !8, i64 24}
+!31 = !{!4, !8, i64 48}
+!32 = !{!4, !5, i64 4}
+!33 = distinct !{!33, !19, !20, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !19, !20, !34}
+!36 = !{!5, !5, i64 0}
+!37 = distinct !{!37, !19, !20}
+!38 = !{!6, !6, i64 0}
+!39 = !{!4, !8, i64 8}

@@ -347,7 +347,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   %49 = getelementptr inbounds i8, ptr %45, i64 -128
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.not.i.i = icmp eq i16 %48, -1
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !61
 
 51:                                               ; preds = %._crit_edge.i.i, %42
   %.sroa.013.1.i = phi ptr [ %49, %._crit_edge.i.i ], [ %.sroa.013.017.i, %42 ]
@@ -374,7 +374,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   %67 = getelementptr inbounds i8, ptr %65, i64 -4
   store i32 %.val9.i, ptr %67, align 4, !noalias !50
   %68 = icmp eq i64 %58, 0
-  br i1 %68, label %.loopexit, label %42
+  br i1 %68, label %.loopexit, label %42, !llvm.loop !63
 
 69:                                               ; preds = %.loopexit, %7
   ret void
@@ -433,16 +433,16 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9a12172
   br i1 %7, label %"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17he5d5389288bbc6faE.exit", label %8
 
 8:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !alias.scope !61, !noundef !3
+  %10 = load i64, ptr %9, align 8, !alias.scope !64, !noundef !3
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %13 = load ptr, ptr %0, align 8, !alias.scope !67, !noalias !68, !nonnull !3, !noundef !3
-  %14 = load <16 x i8>, ptr %13, align 16, !noalias !70
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %13 = load ptr, ptr %0, align 8, !alias.scope !70, !noalias !71, !nonnull !3, !noundef !3
+  %14 = load <16 x i8>, ptr %13, align 16, !noalias !73
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
   %17 = xor i16 %16, -1
@@ -464,13 +464,13 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9a12172
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %21 = phi ptr [ %27, %.lr.ph.i.i ], [ %.sroa.6.09.i, %19 ]
   %22 = phi ptr [ %26, %.lr.ph.i.i ], [ %.sroa.04.08.i, %19 ]
-  %23 = load <16 x i8>, ptr %21, align 16, !noalias !71
+  %23 = load <16 x i8>, ptr %21, align 16, !noalias !74
   %24 = icmp slt <16 x i8> %23, zeroinitializer
   %25 = bitcast <16 x i1> %24 to i16
   %26 = getelementptr inbounds i8, ptr %22, i64 -768
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.not.i.i = icmp eq i16 %25, -1
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !77
 
 "_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE.exit.i": ; preds = %._crit_edge.i.i, %19
   %.sroa.04.1.i = phi ptr [ %26, %._crit_edge.i.i ], [ %.sroa.04.08.i, %19 ]
@@ -484,9 +484,9 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9a12172
   %33 = getelementptr inbounds { { i8, [47 x i8] }, {} }, ptr %.sroa.04.1.i, i64 %32
   %34 = add i64 %.sroa.14.011.i, -1
   %35 = getelementptr inbounds i8, ptr %33, i64 -48
-  tail call fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE"(ptr noalias noundef nonnull align 16 dereferenceable(48) %35), !noalias !61
+  tail call fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE"(ptr noalias noundef nonnull align 16 dereferenceable(48) %35), !noalias !64
   %36 = icmp eq i64 %34, 0
-  br i1 %36, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E.exit, label %19
+  br i1 %36, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E.exit, label %19, !llvm.loop !78
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E.exit: ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE.exit.i", %8
   %37 = add i64 %6, 1
@@ -661,16 +661,21 @@ attributes #12 = { nounwind }
 !58 = !{!59, !49, !46}
 !59 = distinct !{!59, !60, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hacdf3b3000d4e291E: argument 0"}
 !60 = distinct !{!60, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hacdf3b3000d4e291E"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E: argument 0"}
-!63 = distinct !{!63, !"_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E"}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = distinct !{!63, !62}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE: argument 1"}
-!66 = distinct !{!66, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE"}
-!67 = !{!65, !62}
-!68 = !{!69}
-!69 = distinct !{!69, !66, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE: argument 0"}
-!70 = !{!69, !65, !62}
-!71 = !{!72, !62}
-!72 = distinct !{!72, !73, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE: argument 0"}
-!73 = distinct !{!73, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE"}
+!65 = distinct !{!65, !66, !"_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E: argument 0"}
+!66 = distinct !{!66, !"_ZN9hashbrown3raw13RawTableInner13drop_elements17hbab9d282c8279277E"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE: argument 1"}
+!69 = distinct !{!69, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE"}
+!70 = !{!68, !65}
+!71 = !{!72}
+!72 = distinct !{!72, !69, !"_ZN9hashbrown3raw13RawTableInner4iter17h19b7f4b71267936aE: argument 0"}
+!73 = !{!72, !68, !65}
+!74 = !{!75, !65}
+!75 = distinct !{!75, !76, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE: argument 0"}
+!76 = distinct !{!76, !"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdec270a72f74026bE"}
+!77 = distinct !{!77, !62}
+!78 = distinct !{!78, !62}

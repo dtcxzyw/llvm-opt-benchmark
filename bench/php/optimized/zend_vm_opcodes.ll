@@ -268,7 +268,7 @@ define dso_local zeroext range(i8 0, -45) i8 @zend_get_opcode_id(ptr noundef rea
 10:                                               ; preds = %5, %3, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 209
-  br i1 %exitcond.not, label %11, label %3
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !12
 
 11:                                               ; preds = %5, %10
   %.2 = phi i8 [ -46, %10 ], [ %4, %5 ]
@@ -297,3 +297,5 @@ attributes #3 = { nounwind willreturn memory(read) }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !8, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}

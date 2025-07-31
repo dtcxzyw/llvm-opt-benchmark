@@ -208,11 +208,11 @@ define void @_ZN7Imf_3_418SampleCountChannel3setEiij(ptr noundef nonnull align 8
 
 _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %48 = load i64, ptr %47, align 8, !tbaa !28
+  %48 = load i64, ptr %47, align 8, !tbaa !29
   %49 = sext i32 %.0.i to i64
   %50 = add i64 %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %52 = load i64, ptr %51, align 8, !tbaa !29
+  %52 = load i64, ptr %51, align 8, !tbaa !30
   %.not60 = icmp ugt i64 %50, %52
   br i1 %.not60, label %69, label %53
 
@@ -220,13 +220,13 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   tail call void @_ZN7Imf_3_414DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(192) %55, i64 noundef %20, i32 noundef %22, i32 noundef %3, i64 noundef %48)
-  %56 = load i64, ptr %47, align 8, !tbaa !28
+  %56 = load i64, ptr %47, align 8, !tbaa !29
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load ptr, ptr %57, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw i64, ptr %58, i64 %20
-  store i64 %56, ptr %59, align 8, !tbaa !30
+  store i64 %56, ptr %59, align 8, !tbaa !31
   %60 = add i64 %56, %49
-  store i64 %60, ptr %47, align 8, !tbaa !28
+  store i64 %60, ptr %47, align 8, !tbaa !29
   %61 = load ptr, ptr %15, align 8, !tbaa !6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %19
   %63 = load i32, ptr %62, align 4, !tbaa !24
@@ -247,7 +247,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %74 = add i64 %73, %71
   store i64 %74, ptr %72, align 8, !tbaa !25
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load i64, ptr %75, align 8, !tbaa !31
+  %76 = load i64, ptr %75, align 8, !tbaa !32
   %77 = icmp ugt i64 %76, 4611686018427387903
   %78 = shl i64 %76, 2
   %79 = select i1 %77, i64 -1, i64 %78
@@ -260,12 +260,12 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %83 = load ptr, ptr %82, align 8, !tbaa !23
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
-  %86 = load i32, ptr %85, align 4, !tbaa !32
+  %86 = load i32, ptr %85, align 4, !tbaa !33
   %87 = mul nsw i32 %86, %9
   %88 = sext i32 %87 to i64
   %89 = sub nsw i64 0, %88
   %90 = getelementptr inbounds i32, ptr %80, i64 %89
-  %91 = load i32, ptr %84, align 4, !tbaa !35
+  %91 = load i32, ptr %84, align 4, !tbaa !36
   %92 = sext i32 %91 to i64
   %93 = sub nsw i64 0, %92
   %94 = getelementptr inbounds i32, ptr %90, i64 %93
@@ -280,7 +280,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
 
 101:                                              ; preds = %81
   store ptr %100, ptr %95, align 8, !tbaa !18
-  store i64 0, ptr %47, align 8, !tbaa !28
+  store i64 0, ptr %47, align 8, !tbaa !29
   %.not73 = icmp eq i64 %76, 0
   br i1 %.not73, label %136, label %.lr.ph
 
@@ -318,15 +318,15 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !36
+  %116 = load ptr, ptr %115, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %5, align 4, !tbaa !39
+  store i32 0, ptr %5, align 4, !tbaa !40
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %118, align 4, !tbaa !40
-  store i32 -1, ptr %117, align 4, !tbaa !39
+  store i32 0, ptr %118, align 4, !tbaa !41
+  store i32 -1, ptr %117, align 4, !tbaa !40
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %119, align 4, !tbaa !40
+  store i32 -1, ptr %119, align 4, !tbaa !41
   invoke void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %116, ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %120 unwind label %148
 
@@ -351,7 +351,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %127 = getelementptr inbounds nuw i32, ptr %80, i64 %.072
   store i32 %.sink, ptr %127, align 4, !tbaa !24
   %128 = getelementptr inbounds nuw i64, ptr %100, i64 %.072
-  store i64 %121, ptr %128, align 8, !tbaa !30
+  store i64 %121, ptr %128, align 8, !tbaa !31
   %129 = icmp eq i32 %.sink, 0
   br i1 %129, label %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit65, label %.preheader.i62
 
@@ -369,17 +369,17 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit65: ; preds = %.preheader.i62, 
   %134 = add i64 %121, %133
   %135 = add nuw i64 %.072, 1
   %exitcond.not = icmp eq i64 %135, %76
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit65
-  store i64 %134, ptr %47, align 8, !tbaa !28
+  store i64 %134, ptr %47, align 8, !tbaa !29
   br label %136
 
 136:                                              ; preds = %._crit_edge, %101
   %137 = phi i64 [ %134, %._crit_edge ], [ 0, %101 ]
   %138 = lshr i64 %137, 1
   %139 = add i64 %138, %137
-  store i64 %139, ptr %51, align 8, !tbaa !29
+  store i64 %139, ptr %51, align 8, !tbaa !30
   invoke void @_ZN7Imf_3_414DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull align 8 dereferenceable(192) %83, ptr noundef %16, ptr noundef nonnull %80, ptr noundef nonnull %100)
           to label %140 unwind label %104
 
@@ -450,14 +450,14 @@ define void @_ZN7Imf_3_418SampleCountChannel16resetBasePointerEv(ptr noundef non
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !32
+  %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !20
   %11 = mul nsw i32 %10, %8
   %12 = sext i32 %11 to i64
   %13 = sub nsw i64 0, %12
   %14 = getelementptr inbounds i32, ptr %3, i64 %13
-  %15 = load i32, ptr %6, align 4, !tbaa !35
+  %15 = load i32, ptr %6, align 4, !tbaa !36
   %16 = sext i32 %15 to i64
   %17 = sub nsw i64 0, %16
   %18 = getelementptr inbounds i32, ptr %14, i64 %17
@@ -494,7 +494,7 @@ define void @_ZN7Imf_3_418SampleCountChannel3setEiPj(ptr noundef nonnull align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i32, ptr %6, align 4, !tbaa !35
+  %7 = load i32, ptr %6, align 4, !tbaa !36
   %8 = add nsw i32 %7, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !20
@@ -515,14 +515,14 @@ define void @_ZN7Imf_3_418SampleCountChannel3setEiPj(ptr noundef nonnull align 8
   %15 = load i32, ptr %9, align 4, !tbaa !20
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_418SampleCountChannel5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Imath_3_2::Box", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !31
+  %4 = load i64, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -542,11 +542,11 @@ define void @_ZN7Imf_3_418SampleCountChannel5clearEv(ptr noundef nonnull align 8
   %13 = getelementptr inbounds nuw i32, ptr %8, i64 %.0913
   store i32 0, ptr %13, align 4, !tbaa !24
   %14 = getelementptr inbounds nuw i64, ptr %10, i64 %.0913
-  store i64 0, ptr %14, align 8, !tbaa !30
+  store i64 0, ptr %14, align 8, !tbaa !31
   %15 = add nuw i64 %.0913, 1
-  %16 = load i64, ptr %3, align 8, !tbaa !31
+  %16 = load i64, ptr %3, align 8, !tbaa !32
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %11, label %._crit_edge, !llvm.loop !43
+  br i1 %17, label %11, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %11, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -563,15 +563,15 @@ define void @_ZN7Imf_3_418SampleCountChannel5clearEv(ptr noundef nonnull align 8
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #15
   %25 = load ptr, ptr %19, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !36
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %2, align 4, !tbaa !39
+  store i32 0, ptr %2, align 4, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %29, align 4, !tbaa !40
-  store i32 -1, ptr %28, align 4, !tbaa !39
+  store i32 0, ptr %29, align 4, !tbaa !41
+  store i32 -1, ptr %28, align 4, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %30, align 4, !tbaa !40
+  store i32 -1, ptr %30, align 4, !tbaa !41
   invoke void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %27, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %31 unwind label %34
 
@@ -629,7 +629,7 @@ define void @_ZN7Imf_3_418SampleCountChannel7endEditEv(ptr noundef nonnull align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %6 = load i64, ptr %5, align 8, !tbaa !31
+  %6 = load i64, ptr %5, align 8, !tbaa !32
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -661,27 +661,27 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i, %13
   %20 = getelementptr inbounds nuw i32, ptr %10, i64 %.01115
   store i32 %.06.i, ptr %20, align 4, !tbaa !24
   %21 = getelementptr inbounds nuw i64, ptr %12, i64 %.01115
-  store i64 %14, ptr %21, align 8, !tbaa !30
+  store i64 %14, ptr %21, align 8, !tbaa !31
   %22 = load i32, ptr %15, align 4, !tbaa !24
   %23 = zext i32 %22 to i64
   %24 = load i64, ptr %3, align 8, !tbaa !25
   %25 = add i64 %24, %23
   store i64 %25, ptr %3, align 8, !tbaa !25
   %26 = zext i32 %.06.i to i64
-  %27 = load i64, ptr %4, align 8, !tbaa !28
+  %27 = load i64, ptr %4, align 8, !tbaa !29
   %28 = add i64 %27, %26
-  store i64 %28, ptr %4, align 8, !tbaa !28
+  store i64 %28, ptr %4, align 8, !tbaa !29
   %29 = add nuw i64 %.01115, 1
-  %30 = load i64, ptr %5, align 8, !tbaa !31
+  %30 = load i64, ptr %5, align 8, !tbaa !32
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %13, label %._crit_edge, !llvm.loop !44
+  br i1 %31, label %13, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit, %1
   %32 = phi i64 [ 0, %1 ], [ %28, %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit ]
   %33 = lshr i64 %32, 1
   %34 = add i64 %33, %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %34, ptr %35, align 8, !tbaa !29
+  store i64 %34, ptr %35, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   invoke void @_ZN7Imf_3_414DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(192) %37)
@@ -694,15 +694,15 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i, %13
   %41 = tail call ptr @__cxa_begin_catch(ptr %40) #15
   %42 = load ptr, ptr %36, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  %44 = load ptr, ptr %43, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %2, align 4, !tbaa !39
+  store i32 0, ptr %2, align 4, !tbaa !40
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %46, align 4, !tbaa !40
-  store i32 -1, ptr %45, align 4, !tbaa !39
+  store i32 0, ptr %46, align 4, !tbaa !41
+  store i32 -1, ptr %45, align 4, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 -1, ptr %47, align 4, !tbaa !40
+  store i32 -1, ptr %47, align 4, !tbaa !41
   invoke void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %44, ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %48 unwind label %51
 
@@ -780,7 +780,7 @@ define void @_ZN7Imf_3_418SampleCountChannel6resizeEv(ptr noundef nonnull align 
   store ptr null, ptr %2, align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %18 = load i64, ptr %17, align 8, !tbaa !31
+  %18 = load i64, ptr %17, align 8, !tbaa !32
   %19 = icmp ugt i64 %18, 4611686018427387903
   %20 = shl i64 %18, 2
   %21 = select i1 %19, i64 -1, i64 %20
@@ -797,14 +797,14 @@ define void @_ZN7Imf_3_418SampleCountChannel6resizeEv(ptr noundef nonnull align 
   %29 = load ptr, ptr %28, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  %32 = load i32, ptr %31, align 4, !tbaa !32
+  %32 = load i32, ptr %31, align 4, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !20
   %35 = mul nsw i32 %34, %32
   %36 = sext i32 %35 to i64
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds i32, ptr %22, i64 %37
-  %39 = load i32, ptr %30, align 4, !tbaa !35
+  %39 = load i32, ptr %30, align 4, !tbaa !36
   %40 = sext i32 %39 to i64
   %41 = sub nsw i64 0, %40
   %42 = getelementptr inbounds i32, ptr %38, i64 %41
@@ -816,7 +816,7 @@ define void @_ZN7Imf_3_418SampleCountChannel6resizeEv(ptr noundef nonnull align 
 .lr.ph.preheader:                                 ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %20, i1 false), !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 0, i64 %20, i1 false), !tbaa !24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %25, i1 false), !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %25, i1 false), !tbaa !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %16
@@ -886,22 +886,23 @@ attributes #19 = { noreturn nounwind }
 !23 = !{!8, !9, i64 8}
 !24 = !{!12, !12, i64 0}
 !25 = !{!7, !14, i64 80}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!7, !14, i64 88}
-!29 = !{!7, !14, i64 96}
-!30 = !{!14, !14, i64 0}
-!31 = !{!8, !14, i64 40}
-!32 = !{!33, !12, i64 4}
-!33 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !34, i64 0, !34, i64 8}
-!34 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !12, i64 0, !12, i64 4}
-!35 = !{!33, !12, i64 0}
-!36 = !{!37, !38, i64 8}
-!37 = !{!"_ZTSN7Imf_3_410ImageLevelE", !38, i64 8, !12, i64 16, !12, i64 20, !33, i64 24}
-!38 = !{!"p1 _ZTSN7Imf_3_45ImageE", !10, i64 0}
-!39 = !{!34, !12, i64 0}
-!40 = !{!34, !12, i64 4}
-!41 = distinct !{!41, !27}
-!42 = distinct !{!42, !27}
-!43 = distinct !{!43, !27}
-!44 = distinct !{!44, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!7, !14, i64 88}
+!30 = !{!7, !14, i64 96}
+!31 = !{!14, !14, i64 0}
+!32 = !{!8, !14, i64 40}
+!33 = !{!34, !12, i64 4}
+!34 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !35, i64 0, !35, i64 8}
+!35 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !12, i64 0, !12, i64 4}
+!36 = !{!34, !12, i64 0}
+!37 = !{!38, !39, i64 8}
+!38 = !{!"_ZTSN7Imf_3_410ImageLevelE", !39, i64 8, !12, i64 16, !12, i64 20, !34, i64 24}
+!39 = !{!"p1 _ZTSN7Imf_3_45ImageE", !10, i64 0}
+!40 = !{!35, !12, i64 0}
+!41 = !{!35, !12, i64 4}
+!42 = distinct !{!42, !27, !28}
+!43 = distinct !{!43, !27, !28}
+!44 = distinct !{!44, !27, !28}
+!45 = distinct !{!45, !27, !28}

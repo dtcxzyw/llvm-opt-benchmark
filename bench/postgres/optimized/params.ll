@@ -230,7 +230,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %37 = load i32, ptr %7, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %11, label %.loopexit, !llvm.loop !8
+  br i1 %39, label %11, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %28, %1, %6
   %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %28 ]
@@ -337,7 +337,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %39, %.thread, %10
   ret void
@@ -396,7 +396,7 @@ define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_add
   store i64 %26, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !11
 }
 
 declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -470,7 +470,7 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
   %33 = load i32, ptr %14, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next34, %34
-  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %55, %32, %10
   store ptr %13, ptr @CurrentMemoryContext, align 8
@@ -527,7 +527,7 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
   %56 = load i32, ptr %14, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 59:                                               ; preds = %3, %8, %._crit_edge
   %.0 = phi ptr [ %36, %._crit_edge ], [ null, %8 ], [ null, %3 ]
@@ -699,11 +699,12 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}

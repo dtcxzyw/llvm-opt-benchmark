@@ -210,12 +210,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val202 = load i32, ptr %97, align 4, !tbaa !24
   %98 = sext i32 %.val202 to i64
   %99 = icmp slt i64 %indvars.iv.next465, %98
-  br i1 %99, label %.lr.ph428, label %.critedge, !llvm.loop !47
+  br i1 %99, label %.lr.ph428, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %.critedge2, %.preheader422, %Vec_IntAlloc.exit
   %100 = phi ptr [ %20, %.preheader422 ], [ %20, %Vec_IntAlloc.exit ], [ %96, %.critedge2 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 104
-  %102 = load ptr, ptr %101, align 8, !tbaa !48
+  %102 = load ptr, ptr %101, align 8, !tbaa !49
   %103 = getelementptr i8, ptr %102, i64 8
   %.val252 = load ptr, ptr %103, align 8, !tbaa !30
   %104 = getelementptr i8, ptr %102, i64 4
@@ -262,7 +262,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 120:                                              ; preds = %117
   %121 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 60
-  %123 = load i32, ptr %122, align 4, !tbaa !49
+  %123 = load i32, ptr %122, align 4, !tbaa !50
   %.not195 = icmp eq i32 %123, 0
   br i1 %.not195, label %188, label %124
 
@@ -277,7 +277,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %131 = and i16 %130, 144
   %132 = zext nneg i16 %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 80
-  %134 = load i32, ptr %133, align 8, !tbaa !50
+  %134 = load i32, ptr %133, align 8, !tbaa !51
   %135 = and i32 %134, %132
   %.not196 = icmp eq i32 %135, 0
   br i1 %.not196, label %.thread, label %136
@@ -418,7 +418,7 @@ Vec_IntGrow.exit.i:                               ; preds = %174, %172
   %196 = and i16 %195, 144
   %197 = zext nneg i16 %196 to i32
   %198 = getelementptr inbounds nuw i8, ptr %121, i64 80
-  %199 = load i32, ptr %198, align 8, !tbaa !50
+  %199 = load i32, ptr %198, align 8, !tbaa !51
   %200 = and i32 %199, %197
   %.not199 = icmp eq i32 %200, 0
   br i1 %.not199, label %.thread405, label %201
@@ -550,7 +550,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   store i32 %254, ptr %13, align 4, !tbaa !28
   %255 = sext i32 %253 to i64
   %256 = getelementptr inbounds i32, ptr %.sink564, i64 %255
-  store i32 %.sink, ptr %256, align 4, !tbaa !51
+  store i32 %.sink, ptr %256, align 4, !tbaa !52
   %257 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 112
   %259 = load ptr, ptr %258, align 8, !tbaa !43
@@ -571,7 +571,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   %.val204 = load i32, ptr %267, align 4, !tbaa !24
   %268 = sext i32 %.val204 to i64
   %269 = icmp slt i64 %indvars.iv.next468, %268
-  br i1 %269, label %.lr.ph431, label %.critedge4.preheader, !llvm.loop !52
+  br i1 %269, label %.lr.ph431, label %.critedge4.preheader, !llvm.loop !53
 
 .lr.ph454:                                        ; preds = %.lr.ph454.preheader, %.critedge4.backedge
   %.val260 = phi ptr [ %.val260.pre, %.lr.ph454.preheader ], [ %.val260503, %.critedge4.backedge ]
@@ -580,7 +580,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   %270 = getelementptr inbounds nuw ptr, ptr %.val211, i64 %indvars.iv488
   %271 = load ptr, ptr %270, align 8, !tbaa !38
   %272 = getelementptr inbounds nuw i32, ptr %.val260, i64 %indvars.iv488
-  %273 = load i32, ptr %272, align 4, !tbaa !51
+  %273 = load i32, ptr %272, align 4, !tbaa !52
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %274 = icmp eq i32 %273, 114
   br i1 %274, label %275, label %631
@@ -596,13 +596,13 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   %282 = load i32, ptr %281, align 8
   %283 = lshr i32 %282, 16
   %284 = getelementptr inbounds nuw i8, ptr %276, i64 60
-  %285 = load i32, ptr %284, align 4, !tbaa !49
+  %285 = load i32, ptr %284, align 4, !tbaa !50
   %.not184 = icmp eq i32 %285, 0
   br i1 %.not184, label %.preheader415, label %.preheader416
 
 .preheader416:                                    ; preds = %275
   %286 = getelementptr i8, ptr %271, i64 28
-  %.val261439 = load i32, ptr %286, align 4, !tbaa !53
+  %.val261439 = load i32, ptr %286, align 4, !tbaa !54
   %287 = icmp sgt i32 %.val261439, 0
   br i1 %287, label %.lr.ph441, label %.critedge6
 
@@ -614,7 +614,7 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
 
 .preheader415:                                    ; preds = %275
   %291 = getelementptr i8, ptr %271, i64 44
-  %.val267442 = load i32, ptr %291, align 4, !tbaa !54
+  %.val267442 = load i32, ptr %291, align 4, !tbaa !55
   %292 = icmp sgt i32 %.val267442, 0
   br i1 %292, label %.lr.ph444, label %.critedge6
 
@@ -629,14 +629,14 @@ Vec_IntGrow.exit.i300:                            ; preds = %239, %237
   %.val261522 = phi i32 [ %.val261439, %.lr.ph441 ], [ %.val261, %370 ]
   %.val260511 = phi ptr [ %.val260, %.lr.ph441 ], [ %.val260510, %370 ]
   %indvars.iv476 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next477, %370 ]
-  %.val263 = load ptr, ptr %271, align 8, !tbaa !55
-  %.val264 = load ptr, ptr %288, align 8, !tbaa !56
+  %.val263 = load ptr, ptr %271, align 8, !tbaa !56
+  %.val264 = load ptr, ptr %288, align 8, !tbaa !57
   %298 = getelementptr i8, ptr %.val263, i64 32
   %.val263.val = load ptr, ptr %298, align 8, !tbaa !37
   %299 = getelementptr i8, ptr %.val263.val, i64 8
   %.val263.val.val = load ptr, ptr %299, align 8, !tbaa !27
   %300 = getelementptr inbounds nuw i32, ptr %.val264, i64 %indvars.iv476
-  %301 = load i32, ptr %300, align 4, !tbaa !51
+  %301 = load i32, ptr %300, align 4, !tbaa !52
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds ptr, ptr %.val263.val.val, i64 %302
   %304 = load ptr, ptr %303, align 8, !tbaa !38
@@ -777,8 +777,8 @@ Vec_IntPush.exit315:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %367, ptr %13, align 4, !tbaa !28
   %368 = sext i32 %366 to i64
   %369 = getelementptr inbounds i32, ptr %365, i64 %368
-  store i32 101, ptr %369, align 4, !tbaa !51
-  %.val261.pre = load i32, ptr %286, align 4, !tbaa !53
+  store i32 101, ptr %369, align 4, !tbaa !52
+  %.val261.pre = load i32, ptr %286, align 4, !tbaa !54
   %.pre541 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %370
 
@@ -789,21 +789,21 @@ Vec_IntPush.exit315:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %372 = sext i32 %.val261 to i64
   %373 = icmp slt i64 %indvars.iv.next477, %372
-  br i1 %373, label %296, label %.critedge6, !llvm.loop !57
+  br i1 %373, label %296, label %.critedge6, !llvm.loop !58
 
 374:                                              ; preds = %.lr.ph444, %448
   %375 = phi ptr [ %276, %.lr.ph444 ], [ %449, %448 ]
   %.val267524 = phi i32 [ %.val267442, %.lr.ph444 ], [ %.val267, %448 ]
   %.val260513 = phi ptr [ %.val260, %.lr.ph444 ], [ %.val260512, %448 ]
   %indvars.iv479 = phi i64 [ 0, %.lr.ph444 ], [ %indvars.iv.next480, %448 ]
-  %.val269 = load ptr, ptr %271, align 8, !tbaa !55
-  %.val270 = load ptr, ptr %293, align 8, !tbaa !58
+  %.val269 = load ptr, ptr %271, align 8, !tbaa !56
+  %.val270 = load ptr, ptr %293, align 8, !tbaa !59
   %376 = getelementptr i8, ptr %.val269, i64 32
   %.val269.val = load ptr, ptr %376, align 8, !tbaa !37
   %377 = getelementptr i8, ptr %.val269.val, i64 8
   %.val269.val.val = load ptr, ptr %377, align 8, !tbaa !27
   %378 = getelementptr inbounds nuw i32, ptr %.val270, i64 %indvars.iv479
-  %379 = load i32, ptr %378, align 4, !tbaa !51
+  %379 = load i32, ptr %378, align 4, !tbaa !52
   %380 = sext i32 %379 to i64
   %381 = getelementptr inbounds ptr, ptr %.val269.val.val, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !38
@@ -944,8 +944,8 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %445, ptr %13, align 4, !tbaa !28
   %446 = sext i32 %444 to i64
   %447 = getelementptr inbounds i32, ptr %443, i64 %446
-  store i32 101, ptr %447, align 4, !tbaa !51
-  %.val267.pre = load i32, ptr %291, align 4, !tbaa !54
+  store i32 101, ptr %447, align 4, !tbaa !52
+  %.val267.pre = load i32, ptr %291, align 4, !tbaa !55
   %.pre543 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %448
 
@@ -956,7 +956,7 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %450 = sext i32 %.val267 to i64
   %451 = icmp slt i64 %indvars.iv.next480, %450
-  br i1 %451, label %374, label %.critedge6, !llvm.loop !59
+  br i1 %451, label %374, label %.critedge6, !llvm.loop !60
 
 .critedge6:                                       ; preds = %370, %448, %.preheader416, %.preheader415
   %.pre546 = phi ptr [ %276, %.preheader416 ], [ %276, %.preheader415 ], [ %449, %448 ], [ %371, %370 ]
@@ -966,13 +966,13 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
 
 453:                                              ; preds = %.critedge6
   %454 = getelementptr inbounds nuw i8, ptr %.pre546, i64 60
-  %455 = load i32, ptr %454, align 4, !tbaa !49
+  %455 = load i32, ptr %454, align 4, !tbaa !50
   %.not186 = icmp eq i32 %455, 0
   br i1 %.not186, label %.critedge4.backedge, label %.preheader414
 
 .preheader414:                                    ; preds = %453
   %456 = getelementptr i8, ptr %271, i64 44
-  %.val268445 = load i32, ptr %456, align 4, !tbaa !54
+  %.val268445 = load i32, ptr %456, align 4, !tbaa !55
   %457 = icmp sgt i32 %.val268445, 0
   br i1 %457, label %.lr.ph447, label %.critedge10
 
@@ -987,14 +987,14 @@ Vec_IntPush.exit329:                              ; preds = %.Vec_IntGrow.exit10
   %.val268526 = phi i32 [ %.val268445, %.lr.ph447 ], [ %.val268, %537 ]
   %.val260508 = phi ptr [ %.val260509, %.lr.ph447 ], [ %.val260507, %537 ]
   %indvars.iv482 = phi i64 [ 0, %.lr.ph447 ], [ %indvars.iv.next483, %537 ]
-  %.val271 = load ptr, ptr %271, align 8, !tbaa !55
-  %.val272 = load ptr, ptr %458, align 8, !tbaa !58
+  %.val271 = load ptr, ptr %271, align 8, !tbaa !56
+  %.val272 = load ptr, ptr %458, align 8, !tbaa !59
   %463 = getelementptr i8, ptr %.val271, i64 32
   %.val271.val = load ptr, ptr %463, align 8, !tbaa !37
   %464 = getelementptr i8, ptr %.val271.val, i64 8
   %.val271.val.val = load ptr, ptr %464, align 8, !tbaa !27
   %465 = getelementptr inbounds nuw i32, ptr %.val272, i64 %indvars.iv482
-  %466 = load i32, ptr %465, align 4, !tbaa !51
+  %466 = load i32, ptr %465, align 4, !tbaa !52
   %467 = sext i32 %466 to i64
   %468 = getelementptr inbounds ptr, ptr %.val271.val.val, i64 %467
   %469 = load ptr, ptr %468, align 8, !tbaa !38
@@ -1141,8 +1141,8 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %534, ptr %13, align 4, !tbaa !28
   %535 = sext i32 %533 to i64
   %536 = getelementptr inbounds i32, ptr %532, i64 %535
-  store i32 114, ptr %536, align 4, !tbaa !51
-  %.val268.pre = load i32, ptr %456, align 4, !tbaa !54
+  store i32 114, ptr %536, align 4, !tbaa !52
+  %.val268.pre = load i32, ptr %456, align 4, !tbaa !55
   %.pre545 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %537
 
@@ -1153,7 +1153,7 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %538 = sext i32 %.val268 to i64
   %539 = icmp slt i64 %indvars.iv.next483, %538
-  br i1 %539, label %461, label %.critedge10, !llvm.loop !60
+  br i1 %539, label %461, label %.critedge10, !llvm.loop !61
 
 .critedge10:                                      ; preds = %537, %.preheader414
   %540 = phi ptr [ %.pre546, %.preheader414 ], [ %.pre528, %537 ]
@@ -1328,7 +1328,7 @@ Vec_IntPush.exit357:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %618, ptr %13, align 4, !tbaa !28
   %619 = sext i32 %617 to i64
   %620 = getelementptr inbounds i32, ptr %616, i64 %619
-  store i32 114, ptr %620, align 4, !tbaa !51
+  store i32 114, ptr %620, align 4, !tbaa !52
   %.pre529 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %.val234.pre = load i32, ptr %279, align 8, !tbaa !40
   br label %621
@@ -1347,7 +1347,7 @@ Vec_IntPush.exit357:                              ; preds = %.Vec_IntGrow.exit10
   %.val206 = load i32, ptr %628, align 4, !tbaa !24
   %629 = sext i32 %.val206 to i64
   %630 = icmp slt i64 %indvars.iv.next486, %629
-  br i1 %630, label %552, label %.critedge4.backedge, !llvm.loop !61
+  br i1 %630, label %552, label %.critedge4.backedge, !llvm.loop !62
 
 631:                                              ; preds = %.lr.ph454
   %632 = getelementptr i8, ptr %271, i64 20
@@ -1496,7 +1496,7 @@ Vec_IntPush.exit371:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %699, ptr %13, align 4, !tbaa !28
   %700 = sext i32 %698 to i64
   %701 = getelementptr inbounds i32, ptr %697, i64 %700
-  store i32 114, ptr %701, align 4, !tbaa !51
+  store i32 114, ptr %701, align 4, !tbaa !52
   %.pre515 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %702
 
@@ -1504,13 +1504,13 @@ Vec_IntPush.exit371:                              ; preds = %.Vec_IntGrow.exit10
   %.pre538 = phi ptr [ %.pre515, %Vec_IntPush.exit371 ], [ %635, %634 ]
   %.val260502 = phi ptr [ %697, %Vec_IntPush.exit371 ], [ %.val260, %634 ]
   %703 = getelementptr inbounds nuw i8, ptr %.pre538, i64 60
-  %704 = load i32, ptr %703, align 4, !tbaa !49
+  %704 = load i32, ptr %703, align 4, !tbaa !50
   %.not178 = icmp eq i32 %704, 0
   br i1 %.not178, label %.preheader420, label %.critedge4.backedge
 
 .preheader420:                                    ; preds = %702
   %705 = getelementptr i8, ptr %271, i64 28
-  %.val262432 = load i32, ptr %705, align 4, !tbaa !53
+  %.val262432 = load i32, ptr %705, align 4, !tbaa !54
   %706 = icmp sgt i32 %.val262432, 0
   br i1 %706, label %.lr.ph434, label %.critedge14
 
@@ -1525,14 +1525,14 @@ Vec_IntPush.exit371:                              ; preds = %.Vec_IntGrow.exit10
   %.val262516 = phi i32 [ %.val262432, %.lr.ph434 ], [ %.val262, %787 ]
   %.val260501 = phi ptr [ %.val260502, %.lr.ph434 ], [ %.val260500, %787 ]
   %indvars.iv470 = phi i64 [ 0, %.lr.ph434 ], [ %indvars.iv.next471, %787 ]
-  %.val265 = load ptr, ptr %271, align 8, !tbaa !55
-  %.val266 = load ptr, ptr %707, align 8, !tbaa !56
+  %.val265 = load ptr, ptr %271, align 8, !tbaa !56
+  %.val266 = load ptr, ptr %707, align 8, !tbaa !57
   %712 = getelementptr i8, ptr %.val265, i64 32
   %.val265.val = load ptr, ptr %712, align 8, !tbaa !37
   %713 = getelementptr i8, ptr %.val265.val, i64 8
   %.val265.val.val = load ptr, ptr %713, align 8, !tbaa !27
   %714 = getelementptr inbounds nuw i32, ptr %.val266, i64 %indvars.iv470
-  %715 = load i32, ptr %714, align 4, !tbaa !51
+  %715 = load i32, ptr %714, align 4, !tbaa !52
   %716 = sext i32 %715 to i64
   %717 = getelementptr inbounds ptr, ptr %.val265.val.val, i64 %716
   %718 = load ptr, ptr %717, align 8, !tbaa !38
@@ -1680,8 +1680,8 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %784, ptr %13, align 4, !tbaa !28
   %785 = sext i32 %783 to i64
   %786 = getelementptr inbounds i32, ptr %782, i64 %785
-  store i32 101, ptr %786, align 4, !tbaa !51
-  %.val262.pre = load i32, ptr %705, align 4, !tbaa !53
+  store i32 101, ptr %786, align 4, !tbaa !52
+  %.val262.pre = load i32, ptr %705, align 4, !tbaa !54
   %.pre537 = load ptr, ptr @pManMR, align 8, !tbaa !31
   br label %787
 
@@ -1692,7 +1692,7 @@ Vec_IntPush.exit385:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %788 = sext i32 %.val262 to i64
   %789 = icmp slt i64 %indvars.iv.next471, %788
-  br i1 %789, label %710, label %.critedge14, !llvm.loop !62
+  br i1 %789, label %710, label %.critedge14, !llvm.loop !63
 
 .critedge14:                                      ; preds = %787, %.preheader420
   %790 = phi ptr [ %.pre538, %.preheader420 ], [ %.pre518, %787 ]
@@ -1868,7 +1868,7 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %869, ptr %13, align 4, !tbaa !28
   %870 = sext i32 %868 to i64
   %871 = getelementptr inbounds i32, ptr %867, i64 %870
-  store i32 101, ptr %871, align 4, !tbaa !51
+  store i32 101, ptr %871, align 4, !tbaa !52
   %.pre519 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %.val244.pre = load i32, ptr %638, align 8, !tbaa !40
   br label %872
@@ -1887,14 +1887,14 @@ Vec_IntPush.exit399:                              ; preds = %.Vec_IntGrow.exit10
   %.val207 = load i32, ptr %879, align 4, !tbaa !24
   %880 = sext i32 %.val207 to i64
   %881 = icmp slt i64 %indvars.iv.next474, %880
-  br i1 %881, label %802, label %.critedge4.backedge, !llvm.loop !63
+  br i1 %881, label %802, label %.critedge4.backedge, !llvm.loop !64
 
 .critedge4.backedge:                              ; preds = %872, %621, %.critedge10, %542, %453, %.critedge14, %792, %702, %.preheader413, %.preheader418, %.critedge6, %631
   %.val260503 = phi ptr [ %.val260506, %.critedge10 ], [ %.val260506, %542 ], [ %.val260509, %453 ], [ %.val260499, %.critedge14 ], [ %.val260499, %792 ], [ %.val260502, %702 ], [ %.val260506, %.preheader413 ], [ %.val260499, %.preheader418 ], [ %.val260509, %.critedge6 ], [ %.val260, %631 ], [ %.val260504, %621 ], [ %.val260497, %872 ]
   %.val205 = load i32, ptr %5, align 4, !tbaa !24
   %882 = sext i32 %.val205 to i64
   %883 = icmp slt i64 %indvars.iv.next489, %882
-  br i1 %883, label %.lr.ph454, label %.critedge4._crit_edge.loopexit, !llvm.loop !64
+  br i1 %883, label %.lr.ph454, label %.critedge4._crit_edge.loopexit, !llvm.loop !65
 
 .critedge4._crit_edge.loopexit:                   ; preds = %.critedge4.backedge
   %.pre533.pre = load ptr, ptr %107, align 8, !tbaa !37
@@ -1964,7 +1964,7 @@ Vec_PtrFree.exit:                                 ; preds = %900, %903
   %.val208 = load i32, ptr %911, align 4, !tbaa !24
   %912 = sext i32 %.val208 to i64
   %913 = icmp slt i64 %indvars.iv.next492, %912
-  br i1 %913, label %.lr.ph457, label %.critedge18, !llvm.loop !65
+  br i1 %913, label %.lr.ph457, label %.critedge18, !llvm.loop !66
 
 .critedge18:                                      ; preds = %909, %.critedge4._crit_edge
   %.val209458 = phi i32 [ %.val209458.pre, %.critedge4._crit_edge ], [ %.val208, %909 ]
@@ -1990,7 +1990,7 @@ Vec_PtrFree.exit:                                 ; preds = %900, %903
   br i1 %924, label %946, label %925
 
 925:                                              ; preds = %921
-  %926 = load ptr, ptr %919, align 8, !tbaa !48
+  %926 = load ptr, ptr %919, align 8, !tbaa !49
   %927 = load ptr, ptr %920, align 8, !tbaa !43
   %928 = getelementptr i8, ptr %923, i64 16
   %.val250 = load i32, ptr %928, align 8, !tbaa !40
@@ -2002,9 +2002,9 @@ Vec_PtrFree.exit:                                 ; preds = %900, %903
   %.val273 = load ptr, ptr %933, align 8, !tbaa !30
   %934 = zext nneg i32 %932 to i64
   %935 = getelementptr inbounds nuw i32, ptr %.val273, i64 %934
-  %936 = load i32, ptr %935, align 4, !tbaa !51
+  %936 = load i32, ptr %935, align 4, !tbaa !52
   %937 = add nsw i32 %936, 1
-  store i32 %937, ptr %935, align 4, !tbaa !51
+  store i32 %937, ptr %935, align 4, !tbaa !52
   %.val251 = load i32, ptr %928, align 8, !tbaa !40
   %938 = zext i32 %.val251 to i64
   %939 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %927, i64 %938, i32 2
@@ -2012,9 +2012,9 @@ Vec_PtrFree.exit:                                 ; preds = %900, %903
   %941 = and i32 %940, 65535
   %942 = zext nneg i32 %941 to i64
   %943 = getelementptr inbounds nuw i32, ptr %.val273, i64 %942
-  %944 = load i32, ptr %943, align 4, !tbaa !51
+  %944 = load i32, ptr %943, align 4, !tbaa !52
   %945 = add nsw i32 %944, 1
-  store i32 %945, ptr %943, align 4, !tbaa !51
+  store i32 %945, ptr %943, align 4, !tbaa !52
   %.val209.pre = load i32, ptr %915, align 4, !tbaa !24
   br label %946
 
@@ -2023,7 +2023,7 @@ Vec_PtrFree.exit:                                 ; preds = %900, %903
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
   %947 = sext i32 %.val209 to i64
   %948 = icmp slt i64 %indvars.iv.next495, %947
-  br i1 %948, label %921, label %.critedge20, !llvm.loop !66
+  br i1 %948, label %921, label %.critedge20, !llvm.loop !67
 
 .critedge20:                                      ; preds = %946, %.preheader, %.critedge18
   %949 = load ptr, ptr %11, align 8, !tbaa !27
@@ -2056,7 +2056,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i32, ptr %4, align 8, !tbaa !67
+  %5 = load i32, ptr %4, align 8, !tbaa !68
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %dfsfast_e_retreat.exit
 
@@ -2071,7 +2071,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %13 = and i16 %12, 144
   %14 = zext nneg i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %16 = load i32, ptr %15, align 8, !tbaa !50
+  %16 = load i32, ptr %15, align 8, !tbaa !51
   %17 = and i32 %16, %14
   %.not62 = icmp eq i32 %17, 0
   br i1 %.not62, label %18, label %dfsfast_e_retreat.exit
@@ -2088,30 +2088,30 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   store i16 %22, ptr %11, align 8
   %23 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 60
-  %25 = load i32, ptr %24, align 4, !tbaa !49
+  %25 = load i32, ptr %24, align 4, !tbaa !50
   %.not64 = icmp eq i32 %25, 0
   br i1 %.not64, label %.preheader121, label %.preheader123
 
 .preheader123:                                    ; preds = %21
   %26 = getelementptr i8, ptr %0, i64 44
-  %.val109126 = load i32, ptr %26, align 4, !tbaa !54
+  %.val109126 = load i32, ptr %26, align 4, !tbaa !55
   %27 = icmp sgt i32 %.val109126, 0
   br i1 %27, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader123
   %28 = getelementptr i8, ptr %0, i64 48
-  %.val112.pre153 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val112.pre153 = load ptr, ptr %0, align 8, !tbaa !56
   br label %32
 
 .preheader121:                                    ; preds = %21
   %29 = getelementptr i8, ptr %0, i64 28
-  %.val105128 = load i32, ptr %29, align 4, !tbaa !53
+  %.val105128 = load i32, ptr %29, align 4, !tbaa !54
   %30 = icmp sgt i32 %.val105128, 0
   br i1 %30, label %.lr.ph130, label %.critedge
 
 .lr.ph130:                                        ; preds = %.preheader121
   %31 = getelementptr i8, ptr %0, i64 32
-  %.val106.pre159 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val106.pre159 = load ptr, ptr %0, align 8, !tbaa !56
   br label %64
 
 32:                                               ; preds = %.lr.ph, %60
@@ -2119,13 +2119,13 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %33 = phi ptr [ %23, %.lr.ph ], [ %61, %60 ]
   %.val112 = phi ptr [ %.val112.pre153, %.lr.ph ], [ %.val112154, %60 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %.val113 = load ptr, ptr %28, align 8, !tbaa !58
+  %.val113 = load ptr, ptr %28, align 8, !tbaa !59
   %34 = getelementptr i8, ptr %.val112, i64 32
   %.val112.val = load ptr, ptr %34, align 8, !tbaa !37
   %35 = getelementptr i8, ptr %.val112.val, i64 8
   %.val112.val.val = load ptr, ptr %35, align 8, !tbaa !27
   %36 = getelementptr inbounds nuw i32, ptr %.val113, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !51
+  %37 = load i32, ptr %36, align 4, !tbaa !52
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %.val112.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !38
@@ -2160,8 +2160,8 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge:                                      ; preds = %58
   %.pre = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val112.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val109.pre = load i32, ptr %26, align 4, !tbaa !54
+  %.val112.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val109.pre = load i32, ptr %26, align 4, !tbaa !55
   br label %60
 
 60:                                               ; preds = %._crit_edge, %32, %48
@@ -2171,20 +2171,20 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %.val109 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %32, label %.critedge, !llvm.loop !68
+  br i1 %63, label %32, label %.critedge, !llvm.loop !69
 
 64:                                               ; preds = %.lr.ph130, %92
   %.val105165 = phi i32 [ %.val105128, %.lr.ph130 ], [ %.val105, %92 ]
   %65 = phi ptr [ %23, %.lr.ph130 ], [ %93, %92 ]
   %.val106 = phi ptr [ %.val106.pre159, %.lr.ph130 ], [ %.val106160, %92 ]
   %indvars.iv144 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next145, %92 ]
-  %.val107 = load ptr, ptr %31, align 8, !tbaa !56
+  %.val107 = load ptr, ptr %31, align 8, !tbaa !57
   %66 = getelementptr i8, ptr %.val106, i64 32
   %.val106.val = load ptr, ptr %66, align 8, !tbaa !37
   %67 = getelementptr i8, ptr %.val106.val, i64 8
   %.val106.val.val = load ptr, ptr %67, align 8, !tbaa !27
   %68 = getelementptr inbounds nuw i32, ptr %.val107, i64 %indvars.iv144
-  %69 = load i32, ptr %68, align 4, !tbaa !51
+  %69 = load i32, ptr %68, align 4, !tbaa !52
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %.val106.val.val, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !38
@@ -2219,8 +2219,8 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge164:                                   ; preds = %90
   %.pre162 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val106.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val105.pre = load i32, ptr %29, align 4, !tbaa !53
+  %.val106.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val105.pre = load i32, ptr %29, align 4, !tbaa !54
   br label %92
 
 92:                                               ; preds = %._crit_edge164, %64, %80
@@ -2230,7 +2230,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %94 = sext i32 %.val105 to i64
   %95 = icmp slt i64 %indvars.iv.next145, %94
-  br i1 %95, label %64, label %.critedge, !llvm.loop !69
+  br i1 %95, label %64, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %60, %92, %.preheader123, %.preheader121
   %.pre171 = phi ptr [ %23, %.preheader123 ], [ %23, %.preheader121 ], [ %93, %92 ], [ %61, %60 ]
@@ -2245,7 +2245,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 97:                                               ; preds = %.critedge
   %98 = getelementptr inbounds nuw i8, ptr %.pre171, i64 60
-  %99 = load i32, ptr %98, align 4, !tbaa !49
+  %99 = load i32, ptr %98, align 4, !tbaa !50
   %.not68 = icmp eq i32 %99, 0
   br i1 %.not68, label %.preheader119, label %..critedge6_crit_edge
 
@@ -2255,13 +2255,13 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 .preheader119:                                    ; preds = %97
   %100 = getelementptr i8, ptr %0, i64 44
-  %.val108131 = load i32, ptr %100, align 4, !tbaa !54
+  %.val108131 = load i32, ptr %100, align 4, !tbaa !55
   %101 = icmp sgt i32 %.val108131, 0
   br i1 %101, label %.lr.ph133, label %.critedge4
 
 .lr.ph133:                                        ; preds = %.preheader119
   %102 = getelementptr i8, ptr %0, i64 48
-  %.val110.pre167 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val110.pre167 = load ptr, ptr %0, align 8, !tbaa !56
   br label %103
 
 103:                                              ; preds = %.lr.ph133, %131
@@ -2269,13 +2269,13 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %104 = phi ptr [ %.pre171, %.lr.ph133 ], [ %132, %131 ]
   %.val110 = phi ptr [ %.val110.pre167, %.lr.ph133 ], [ %.val110168, %131 ]
   %indvars.iv147 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next148, %131 ]
-  %.val111 = load ptr, ptr %102, align 8, !tbaa !58
+  %.val111 = load ptr, ptr %102, align 8, !tbaa !59
   %105 = getelementptr i8, ptr %.val110, i64 32
   %.val110.val = load ptr, ptr %105, align 8, !tbaa !37
   %106 = getelementptr i8, ptr %.val110.val, i64 8
   %.val110.val.val = load ptr, ptr %106, align 8, !tbaa !27
   %107 = getelementptr inbounds nuw i32, ptr %.val111, i64 %indvars.iv147
-  %108 = load i32, ptr %107, align 4, !tbaa !51
+  %108 = load i32, ptr %107, align 4, !tbaa !52
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds ptr, ptr %.val110.val.val, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !38
@@ -2310,8 +2310,8 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge172:                                   ; preds = %129
   %.pre170 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val110.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val108.pre = load i32, ptr %100, align 4, !tbaa !54
+  %.val110.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val108.pre = load i32, ptr %100, align 4, !tbaa !55
   br label %131
 
 131:                                              ; preds = %._crit_edge172, %103, %119
@@ -2321,7 +2321,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %133 = sext i32 %.val108 to i64
   %134 = icmp slt i64 %indvars.iv.next148, %133
-  br i1 %134, label %103, label %.critedge4, !llvm.loop !70
+  br i1 %134, label %103, label %.critedge4, !llvm.loop !71
 
 .critedge4:                                       ; preds = %131, %.preheader119
   %135 = phi ptr [ %.pre171, %.preheader119 ], [ %132, %131 ]
@@ -2394,7 +2394,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.val = load i32, ptr %173, align 4, !tbaa !24
   %174 = sext i32 %.val to i64
   %175 = icmp slt i64 %indvars.iv.next151, %174
-  br i1 %175, label %.lr.ph137, label %.critedge6, !llvm.loop !71
+  br i1 %175, label %.lr.ph137, label %.critedge6, !llvm.loop !72
 
 .critedge6:                                       ; preds = %167, %..critedge6_crit_edge, %.preheader, %.critedge4
   %.val86 = phi i32 [ %.val86.pre179, %.preheader ], [ %.val86.pre179, %.critedge4 ], [ %.val86.pre, %..critedge6_crit_edge ], [ %.val91, %167 ]
@@ -2462,20 +2462,20 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %219 = load i32, ptr %218, align 8
   %220 = and i32 %219, 65535
   %221 = getelementptr inbounds nuw i8, ptr %214, i64 60
-  %222 = load i32, ptr %221, align 4, !tbaa !49
+  %222 = load i32, ptr %221, align 4, !tbaa !50
   %.not.i = icmp eq i32 %222, 0
   br i1 %.not.i, label %.preheader111.i, label %.preheader112.i
 
 .preheader112.i:                                  ; preds = %206
   %223 = getelementptr i8, ptr %0, i64 44
-  %.val104.i = load i32, ptr %223, align 4, !tbaa !54
+  %.val104.i = load i32, ptr %223, align 4, !tbaa !55
   %224 = icmp sgt i32 %.val104.i, 0
   br i1 %224, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader112.i
-  %.val107.i = load ptr, ptr %0, align 8, !tbaa !55
+  %.val107.i = load ptr, ptr %0, align 8, !tbaa !56
   %225 = getelementptr i8, ptr %0, i64 48
-  %.val108.i = load ptr, ptr %225, align 8, !tbaa !58
+  %.val108.i = load ptr, ptr %225, align 8, !tbaa !59
   %226 = getelementptr i8, ptr %.val107.i, i64 32
   %.val107.val.i = load ptr, ptr %226, align 8, !tbaa !37
   %227 = getelementptr i8, ptr %.val107.val.i, i64 8
@@ -2485,14 +2485,14 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 .preheader111.i:                                  ; preds = %206
   %228 = getelementptr i8, ptr %0, i64 28
-  %.val100.i = load i32, ptr %228, align 4, !tbaa !53
+  %.val100.i = load i32, ptr %228, align 4, !tbaa !54
   %229 = icmp sgt i32 %.val100.i, 0
   br i1 %229, label %.lr.ph118.i, label %.critedge.i
 
 .lr.ph118.i:                                      ; preds = %.preheader111.i
-  %.val101.i = load ptr, ptr %0, align 8, !tbaa !55
+  %.val101.i = load ptr, ptr %0, align 8, !tbaa !56
   %230 = getelementptr i8, ptr %0, i64 32
-  %.val102.i = load ptr, ptr %230, align 8, !tbaa !56
+  %.val102.i = load ptr, ptr %230, align 8, !tbaa !57
   %231 = getelementptr i8, ptr %.val101.i, i64 32
   %.val101.val.i = load ptr, ptr %231, align 8, !tbaa !37
   %232 = getelementptr i8, ptr %.val101.val.i, i64 8
@@ -2504,7 +2504,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %233 ]
   %.0115.i = phi i32 [ 30000, %.lr.ph.i ], [ %.1.i, %233 ]
   %234 = getelementptr inbounds nuw i32, ptr %.val108.i, i64 %indvars.iv.i
-  %235 = load i32, ptr %234, align 4, !tbaa !51
+  %235 = load i32, ptr %234, align 4, !tbaa !52
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds ptr, ptr %.val107.val.val.i, i64 %236
   %238 = load ptr, ptr %237, align 8, !tbaa !38
@@ -2519,13 +2519,13 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.1.i = select i1 %.not86.i, i32 %.0115.i, i32 %244
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %233, !llvm.loop !72
+  br i1 %exitcond.not.i, label %.critedge.i, label %233, !llvm.loop !73
 
 245:                                              ; preds = %245, %.lr.ph118.i
   %indvars.iv130.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next131.i, %245 ]
   %.3117.i = phi i32 [ 30000, %.lr.ph118.i ], [ %.4.i, %245 ]
   %246 = getelementptr inbounds nuw i32, ptr %.val102.i, i64 %indvars.iv130.i
-  %247 = load i32, ptr %246, align 4, !tbaa !51
+  %247 = load i32, ptr %246, align 4, !tbaa !52
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds ptr, ptr %.val101.val.val.i, i64 %248
   %250 = load ptr, ptr %249, align 8, !tbaa !38
@@ -2540,7 +2540,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.4.i = select i1 %.not77.i, i32 %.3117.i, i32 %256
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count133.i
-  br i1 %exitcond134.not.i, label %.critedge.i, label %245, !llvm.loop !73
+  br i1 %exitcond134.not.i, label %.critedge.i, label %245, !llvm.loop !74
 
 .critedge.i:                                      ; preds = %233, %245, %.preheader111.i, %.preheader112.i
   %.2.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.4.i, %245 ], [ %.1.i, %233 ]
@@ -2563,14 +2563,14 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 .preheader110.i:                                  ; preds = %258
   %264 = getelementptr i8, ptr %0, i64 44
-  %.val103.i = load i32, ptr %264, align 4, !tbaa !54
+  %.val103.i = load i32, ptr %264, align 4, !tbaa !55
   %265 = icmp sgt i32 %.val103.i, 0
   br i1 %265, label %.lr.ph122.i, label %.critedge4.i
 
 .lr.ph122.i:                                      ; preds = %.preheader110.i
-  %.val105.i = load ptr, ptr %0, align 8, !tbaa !55
+  %.val105.i = load ptr, ptr %0, align 8, !tbaa !56
   %266 = getelementptr i8, ptr %0, i64 48
-  %.val106.i = load ptr, ptr %266, align 8, !tbaa !58
+  %.val106.i = load ptr, ptr %266, align 8, !tbaa !59
   %267 = getelementptr i8, ptr %.val105.i, i64 32
   %.val105.val.i = load ptr, ptr %267, align 8, !tbaa !37
   %268 = getelementptr i8, ptr %.val105.val.i, i64 8
@@ -2582,7 +2582,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv135.i = phi i64 [ 0, %.lr.ph122.i ], [ %indvars.iv.next136.i, %269 ]
   %.7121.i = phi i32 [ %.6.i, %.lr.ph122.i ], [ %.8.i, %269 ]
   %270 = getelementptr inbounds nuw i32, ptr %.val106.i, i64 %indvars.iv135.i
-  %271 = load i32, ptr %270, align 4, !tbaa !51
+  %271 = load i32, ptr %270, align 4, !tbaa !52
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds ptr, ptr %.val105.val.val.i, i64 %272
   %274 = load ptr, ptr %273, align 8, !tbaa !38
@@ -2597,7 +2597,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.8.i = select i1 %.not84.i, i32 %.7121.i, i32 %280
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next136.i, %wide.trip.count138.i
-  br i1 %exitcond139.not.i, label %.critedge4.i, label %269, !llvm.loop !74
+  br i1 %exitcond139.not.i, label %.critedge4.i, label %269, !llvm.loop !75
 
 .critedge4.i:                                     ; preds = %269, %.preheader110.i
   %.7.lcssa.i = phi i32 [ %.6.i, %.preheader110.i ], [ %.8.i, %269 ]
@@ -2636,7 +2636,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.10.i = select i1 %.not83.i, i32 %.9125.i, i32 %296
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count143.i
-  br i1 %exitcond144.not.i, label %.critedge6.i, label %288, !llvm.loop !75
+  br i1 %exitcond144.not.i, label %.critedge6.i, label %288, !llvm.loop !76
 
 .critedge6.i:                                     ; preds = %288, %.preheader.i, %.critedge4.i, %258, %.critedge.i
   %.5.i = phi i32 [ %.2.i, %.critedge.i ], [ %.6.i, %258 ], [ %.7.lcssa.i, %.critedge4.i ], [ %.7.lcssa.i, %.preheader.i ], [ %.10.i, %288 ]
@@ -2648,26 +2648,26 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   store i32 %300, ptr %218, align 8
   %301 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 104
-  %303 = load ptr, ptr %302, align 8, !tbaa !48
+  %303 = load ptr, ptr %302, align 8, !tbaa !49
   %304 = getelementptr i8, ptr %303, i64 8
   %.val98.i = load ptr, ptr %304, align 8, !tbaa !30
   %305 = zext nneg i32 %220 to i64
   %306 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %305
-  %307 = load i32, ptr %306, align 4, !tbaa !51
+  %307 = load i32, ptr %306, align 4, !tbaa !52
   %308 = add nsw i32 %307, -1
-  store i32 %308, ptr %306, align 4, !tbaa !51
+  store i32 %308, ptr %306, align 4, !tbaa !52
   %309 = zext nneg i32 %spec.store.select.i to i64
   %310 = getelementptr inbounds nuw i32, ptr %.val98.i, i64 %309
-  %311 = load i32, ptr %310, align 4, !tbaa !51
+  %311 = load i32, ptr %310, align 4, !tbaa !52
   %312 = add nsw i32 %311, 1
-  store i32 %312, ptr %310, align 4, !tbaa !51
-  %313 = load i32, ptr %306, align 4, !tbaa !51
+  store i32 %312, ptr %310, align 4, !tbaa !52
+  %313 = load i32, ptr %306, align 4, !tbaa !52
   %.not85.i = icmp eq i32 %313, 0
   br i1 %.not85.i, label %314, label %dfsfast_e_retreat.exit
 
 314:                                              ; preds = %.critedge6.i
   %315 = getelementptr inbounds nuw i8, ptr %301, i64 64
-  store i32 1, ptr %315, align 8, !tbaa !67
+  store i32 1, ptr %315, align 8, !tbaa !68
   br label %dfsfast_e_retreat.exit
 
 .loopexit:                                        ; preds = %58, %90, %129, %165, %194
@@ -2691,7 +2691,7 @@ dfsfast_e_retreat.exit:                           ; preds = %314, %.critedge6.i,
 define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i32, ptr %4, align 8, !tbaa !67
+  %5 = load i32, ptr %4, align 8, !tbaa !68
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %dfsfast_r_retreat.exit
 
@@ -2704,7 +2704,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %11 = load i32, ptr %10, align 4, !tbaa !49
+  %11 = load i32, ptr %10, align 4, !tbaa !50
   %.not51 = icmp eq i32 %11, 0
   br i1 %.not51, label %..thread_crit_edge, label %12
 
@@ -2733,7 +2733,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %20 = and i16 %19, 144
   %21 = zext nneg i16 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %23 = load i32, ptr %22, align 8, !tbaa !50
+  %23 = load i32, ptr %22, align 8, !tbaa !51
   %24 = and i32 %23, %21
   %.not54 = icmp eq i32 %24, 0
   br i1 %.not54, label %.thread, label %dfsfast_r_retreat.exit
@@ -2825,7 +2825,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 76:                                               ; preds = %57, %59, %66, %37, %40, %46, %55
   %.pre125 = phi ptr [ %30, %57 ], [ %30, %59 ], [ %.pre119, %66 ], [ %30, %37 ], [ %30, %40 ], [ %30, %46 ], [ %.pre120, %55 ]
   %77 = getelementptr inbounds nuw i8, ptr %.pre125, i64 60
-  %78 = load i32, ptr %77, align 4, !tbaa !49
+  %78 = load i32, ptr %77, align 4, !tbaa !50
   %.not61 = icmp eq i32 %78, 0
   br i1 %.not61, label %..critedge2_crit_edge, label %.preheader101
 
@@ -2835,13 +2835,13 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 .preheader101:                                    ; preds = %76
   %79 = getelementptr i8, ptr %0, i64 28
-  %.val92103 = load i32, ptr %79, align 4, !tbaa !53
+  %.val92103 = load i32, ptr %79, align 4, !tbaa !54
   %80 = icmp sgt i32 %.val92103, 0
   br i1 %80, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader101
   %81 = getelementptr i8, ptr %0, i64 32
-  %.val93.pre121 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val93.pre121 = load ptr, ptr %0, align 8, !tbaa !56
   br label %82
 
 82:                                               ; preds = %.lr.ph, %113
@@ -2849,13 +2849,13 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %83 = phi ptr [ %.pre125, %.lr.ph ], [ %114, %113 ]
   %.val93 = phi ptr [ %.val93.pre121, %.lr.ph ], [ %.val93122, %113 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
-  %.val94 = load ptr, ptr %81, align 8, !tbaa !56
+  %.val94 = load ptr, ptr %81, align 8, !tbaa !57
   %84 = getelementptr i8, ptr %.val93, i64 32
   %.val93.val = load ptr, ptr %84, align 8, !tbaa !37
   %85 = getelementptr i8, ptr %.val93.val, i64 8
   %.val93.val.val = load ptr, ptr %85, align 8, !tbaa !27
   %86 = getelementptr inbounds nuw i32, ptr %.val94, i64 %indvars.iv
-  %87 = load i32, ptr %86, align 4, !tbaa !51
+  %87 = load i32, ptr %86, align 4, !tbaa !52
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds ptr, ptr %.val93.val.val, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !38
@@ -2897,8 +2897,8 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge:                                      ; preds = %111
   %.pre124 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val93.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val92.pre = load i32, ptr %79, align 4, !tbaa !53
+  %.val93.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val92.pre = load i32, ptr %79, align 4, !tbaa !54
   br label %113
 
 113:                                              ; preds = %._crit_edge, %82, %98, %108
@@ -2908,7 +2908,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = sext i32 %.val92 to i64
   %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %82, label %.critedge, !llvm.loop !76
+  br i1 %116, label %82, label %.critedge, !llvm.loop !77
 
 .critedge:                                        ; preds = %113, %.preheader101
   %117 = phi ptr [ %.pre125, %.preheader101 ], [ %114, %113 ]
@@ -2981,7 +2981,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %.val = load i32, ptr %155, align 4, !tbaa !24
   %156 = sext i32 %.val to i64
   %157 = icmp slt i64 %indvars.iv.next112, %156
-  br i1 %157, label %.lr.ph108, label %.critedge2, !llvm.loop !77
+  br i1 %157, label %.lr.ph108, label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %149, %..critedge2_crit_edge, %.preheader, %.critedge
   %.val70 = phi i32 [ %.val70.pre132, %.preheader ], [ %.val70.pre132, %.critedge ], [ %.val70.pre, %..critedge2_crit_edge ], [ %.val75, %149 ]
@@ -3039,20 +3039,20 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 190:                                              ; preds = %188, %186, %184, %178, %175
   %.0.i = phi i32 [ %185, %184 ], [ 30000, %178 ], [ 30000, %175 ], [ %189, %188 ], [ 30000, %186 ]
   %191 = getelementptr inbounds nuw i8, ptr %165, i64 60
-  %192 = load i32, ptr %191, align 4, !tbaa !49
+  %192 = load i32, ptr %191, align 4, !tbaa !50
   %.not58.i = icmp eq i32 %192, 0
   br i1 %.not58.i, label %.critedge2.i, label %.preheader82.i
 
 .preheader82.i:                                   ; preds = %190
   %193 = getelementptr i8, ptr %0, i64 28
-  %.val76.i = load i32, ptr %193, align 4, !tbaa !53
+  %.val76.i = load i32, ptr %193, align 4, !tbaa !54
   %194 = icmp sgt i32 %.val76.i, 0
   br i1 %194, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader82.i
-  %.val77.i = load ptr, ptr %0, align 8, !tbaa !55
+  %.val77.i = load ptr, ptr %0, align 8, !tbaa !56
   %195 = getelementptr i8, ptr %0, i64 32
-  %.val78.i = load ptr, ptr %195, align 8, !tbaa !56
+  %.val78.i = load ptr, ptr %195, align 8, !tbaa !57
   %196 = getelementptr i8, ptr %.val77.i, i64 32
   %.val77.val.i = load ptr, ptr %196, align 8, !tbaa !37
   %197 = getelementptr i8, ptr %.val77.val.i, i64 8
@@ -3064,7 +3064,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %214 ]
   %.284.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.3.i, %214 ]
   %199 = getelementptr inbounds nuw i32, ptr %.val78.i, i64 %indvars.iv.i
-  %200 = load i32, ptr %199, align 4, !tbaa !51
+  %200 = load i32, ptr %199, align 4, !tbaa !52
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds ptr, ptr %.val77.val.val.i, i64 %201
   %203 = load ptr, ptr %202, align 8, !tbaa !38
@@ -3092,7 +3092,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %.3.i = phi i32 [ %.284.i, %198 ], [ %213, %211 ], [ %.284.i, %206 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %198, !llvm.loop !78
+  br i1 %exitcond.not.i, label %.critedge.i, label %198, !llvm.loop !79
 
 .critedge.i:                                      ; preds = %214, %.preheader82.i
   %.2.lcssa.i = phi i32 [ %.0.i, %.preheader82.i ], [ %.3.i, %214 ]
@@ -3131,7 +3131,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %.5.i = select i1 %.not61.i, i32 %.486.i, i32 %230
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
-  br i1 %exitcond94.not.i, label %.critedge2.i, label %222, !llvm.loop !79
+  br i1 %exitcond94.not.i, label %.critedge2.i, label %222, !llvm.loop !80
 
 .critedge2.i:                                     ; preds = %222, %.preheader.i, %.critedge.i, %190
   %.1.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %.0.i, %190 ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %222 ]
@@ -3144,26 +3144,26 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   store i32 %235, ptr %169, align 8
   %236 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 104
-  %238 = load ptr, ptr %237, align 8, !tbaa !48
+  %238 = load ptr, ptr %237, align 8, !tbaa !49
   %239 = getelementptr i8, ptr %238, i64 8
   %.val74.i = load ptr, ptr %239, align 8, !tbaa !30
   %240 = zext nneg i32 %171 to i64
   %241 = getelementptr inbounds nuw i32, ptr %.val74.i, i64 %240
-  %242 = load i32, ptr %241, align 4, !tbaa !51
+  %242 = load i32, ptr %241, align 4, !tbaa !52
   %243 = add nsw i32 %242, -1
-  store i32 %243, ptr %241, align 4, !tbaa !51
+  store i32 %243, ptr %241, align 4, !tbaa !52
   %244 = zext nneg i32 %spec.store.select.i to i64
   %245 = getelementptr inbounds nuw i32, ptr %.val74.i, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !51
+  %246 = load i32, ptr %245, align 4, !tbaa !52
   %247 = add nsw i32 %246, 1
-  store i32 %247, ptr %245, align 4, !tbaa !51
-  %248 = load i32, ptr %241, align 4, !tbaa !51
+  store i32 %247, ptr %245, align 4, !tbaa !52
+  %248 = load i32, ptr %241, align 4, !tbaa !52
   %.not60.i = icmp eq i32 %248, 0
   br i1 %.not60.i, label %249, label %dfsfast_r_retreat.exit
 
 249:                                              ; preds = %.critedge2.i
   %250 = getelementptr inbounds nuw i8, ptr %236, i64 64
-  store i32 1, ptr %250, align 8, !tbaa !67
+  store i32 1, ptr %250, align 8, !tbaa !68
   br label %dfsfast_r_retreat.exit
 
 .loopexit.sink.split:                             ; preds = %55, %68
@@ -3206,7 +3206,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %10 = and i16 %9, 144
   %11 = zext nneg i16 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %13 = load i32, ptr %12, align 8, !tbaa !51
   %14 = and i32 %13, %11
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.loopexit
@@ -3223,30 +3223,30 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   store i16 %19, ptr %8, align 8
   %20 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 60
-  %22 = load i32, ptr %21, align 4, !tbaa !49
+  %22 = load i32, ptr %21, align 4, !tbaa !50
   %.not50 = icmp eq i32 %22, 0
   br i1 %.not50, label %.preheader94, label %.preheader96
 
 .preheader96:                                     ; preds = %18
   %23 = getelementptr i8, ptr %0, i64 44
-  %.val8399 = load i32, ptr %23, align 4, !tbaa !54
+  %.val8399 = load i32, ptr %23, align 4, !tbaa !55
   %24 = icmp sgt i32 %.val8399, 0
   br i1 %24, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader96
   %25 = getelementptr i8, ptr %0, i64 48
-  %.val86.pre125 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val86.pre125 = load ptr, ptr %0, align 8, !tbaa !56
   br label %29
 
 .preheader94:                                     ; preds = %18
   %26 = getelementptr i8, ptr %0, i64 28
-  %.val79101 = load i32, ptr %26, align 4, !tbaa !53
+  %.val79101 = load i32, ptr %26, align 4, !tbaa !54
   %27 = icmp sgt i32 %.val79101, 0
   br i1 %27, label %.lr.ph103, label %.critedge
 
 .lr.ph103:                                        ; preds = %.preheader94
   %28 = getelementptr i8, ptr %0, i64 32
-  %.val80.pre131 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val80.pre131 = load ptr, ptr %0, align 8, !tbaa !56
   br label %51
 
 29:                                               ; preds = %.lr.ph, %47
@@ -3254,13 +3254,13 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %30 = phi ptr [ %20, %.lr.ph ], [ %48, %47 ]
   %.val86 = phi ptr [ %.val86.pre125, %.lr.ph ], [ %.val86126, %47 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.val87 = load ptr, ptr %25, align 8, !tbaa !58
+  %.val87 = load ptr, ptr %25, align 8, !tbaa !59
   %31 = getelementptr i8, ptr %.val86, i64 32
   %.val86.val = load ptr, ptr %31, align 8, !tbaa !37
   %32 = getelementptr i8, ptr %.val86.val, i64 8
   %.val86.val.val = load ptr, ptr %32, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4, !tbaa !51
+  %34 = load i32, ptr %33, align 4, !tbaa !52
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds ptr, ptr %.val86.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !38
@@ -3282,8 +3282,8 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
 
 ._crit_edge:                                      ; preds = %45
   %.pre = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val86.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val83.pre = load i32, ptr %23, align 4, !tbaa !54
+  %.val86.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val83.pre = load i32, ptr %23, align 4, !tbaa !55
   br label %47
 
 47:                                               ; preds = %._crit_edge, %29
@@ -3293,20 +3293,20 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %.val83 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %29, label %.critedge, !llvm.loop !80
+  br i1 %50, label %29, label %.critedge, !llvm.loop !81
 
 51:                                               ; preds = %.lr.ph103, %69
   %.val79137 = phi i32 [ %.val79101, %.lr.ph103 ], [ %.val79, %69 ]
   %52 = phi ptr [ %20, %.lr.ph103 ], [ %70, %69 ]
   %.val80 = phi ptr [ %.val80.pre131, %.lr.ph103 ], [ %.val80132, %69 ]
   %indvars.iv116 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next117, %69 ]
-  %.val81 = load ptr, ptr %28, align 8, !tbaa !56
+  %.val81 = load ptr, ptr %28, align 8, !tbaa !57
   %53 = getelementptr i8, ptr %.val80, i64 32
   %.val80.val = load ptr, ptr %53, align 8, !tbaa !37
   %54 = getelementptr i8, ptr %.val80.val, i64 8
   %.val80.val.val = load ptr, ptr %54, align 8, !tbaa !27
   %55 = getelementptr inbounds nuw i32, ptr %.val81, i64 %indvars.iv116
-  %56 = load i32, ptr %55, align 4, !tbaa !51
+  %56 = load i32, ptr %55, align 4, !tbaa !52
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds ptr, ptr %.val80.val.val, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !38
@@ -3328,8 +3328,8 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
 
 ._crit_edge136:                                   ; preds = %67
   %.pre134 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val80.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val79.pre = load i32, ptr %26, align 4, !tbaa !53
+  %.val80.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val79.pre = load i32, ptr %26, align 4, !tbaa !54
   br label %69
 
 69:                                               ; preds = %._crit_edge136, %51
@@ -3339,7 +3339,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %71 = sext i32 %.val79 to i64
   %72 = icmp slt i64 %indvars.iv.next117, %71
-  br i1 %72, label %51, label %.critedge, !llvm.loop !81
+  br i1 %72, label %51, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %47, %69, %.preheader96, %.preheader94
   %.pre143 = phi ptr [ %20, %.preheader96 ], [ %20, %.preheader94 ], [ %70, %69 ], [ %48, %47 ]
@@ -3350,7 +3350,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
 
 74:                                               ; preds = %.critedge
   %75 = getelementptr inbounds nuw i8, ptr %.pre143, i64 60
-  %76 = load i32, ptr %75, align 4, !tbaa !49
+  %76 = load i32, ptr %75, align 4, !tbaa !50
   %.not54 = icmp eq i32 %76, 0
   br i1 %.not54, label %.preheader92, label %..critedge6_crit_edge
 
@@ -3360,13 +3360,13 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
 
 .preheader92:                                     ; preds = %74
   %77 = getelementptr i8, ptr %0, i64 44
-  %.val82104 = load i32, ptr %77, align 4, !tbaa !54
+  %.val82104 = load i32, ptr %77, align 4, !tbaa !55
   %78 = icmp sgt i32 %.val82104, 0
   br i1 %78, label %.lr.ph106, label %.critedge4
 
 .lr.ph106:                                        ; preds = %.preheader92
   %79 = getelementptr i8, ptr %0, i64 48
-  %.val84.pre139 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val84.pre139 = load ptr, ptr %0, align 8, !tbaa !56
   br label %80
 
 80:                                               ; preds = %.lr.ph106, %98
@@ -3374,13 +3374,13 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %81 = phi ptr [ %.pre143, %.lr.ph106 ], [ %99, %98 ]
   %.val84 = phi ptr [ %.val84.pre139, %.lr.ph106 ], [ %.val84140, %98 ]
   %indvars.iv119 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next120, %98 ]
-  %.val85 = load ptr, ptr %79, align 8, !tbaa !58
+  %.val85 = load ptr, ptr %79, align 8, !tbaa !59
   %82 = getelementptr i8, ptr %.val84, i64 32
   %.val84.val = load ptr, ptr %82, align 8, !tbaa !37
   %83 = getelementptr i8, ptr %.val84.val, i64 8
   %.val84.val.val = load ptr, ptr %83, align 8, !tbaa !27
   %84 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv119
-  %85 = load i32, ptr %84, align 4, !tbaa !51
+  %85 = load i32, ptr %84, align 4, !tbaa !52
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds ptr, ptr %.val84.val.val, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !38
@@ -3402,8 +3402,8 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
 
 ._crit_edge144:                                   ; preds = %96
   %.pre142 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val84.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val82.pre = load i32, ptr %77, align 4, !tbaa !54
+  %.val84.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val82.pre = load i32, ptr %77, align 4, !tbaa !55
   br label %98
 
 98:                                               ; preds = %._crit_edge144, %80
@@ -3413,7 +3413,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %100 = sext i32 %.val82 to i64
   %101 = icmp slt i64 %indvars.iv.next120, %100
-  br i1 %101, label %80, label %.critedge4, !llvm.loop !82
+  br i1 %101, label %80, label %.critedge4, !llvm.loop !83
 
 .critedge4:                                       ; preds = %98, %.preheader92
   %102 = phi ptr [ %.pre143, %.preheader92 ], [ %99, %98 ]
@@ -3474,7 +3474,7 @@ define range(i32 0, 2) i32 @dfsplain_e(ptr noundef %0, ptr noundef %1) local_unn
   %.val = load i32, ptr %130, align 4, !tbaa !24
   %131 = sext i32 %.val to i64
   %132 = icmp slt i64 %indvars.iv.next123, %131
-  br i1 %132, label %.lr.ph110, label %.critedge6, !llvm.loop !83
+  br i1 %132, label %.lr.ph110, label %.critedge6, !llvm.loop !84
 
 .critedge6:                                       ; preds = %124, %..critedge6_crit_edge, %.preheader, %.critedge4
   %.val68 = phi i32 [ %.val68.pre151, %.preheader ], [ %.val68.pre151, %.critedge4 ], [ %.val68.pre, %..critedge6_crit_edge ], [ %.val71, %124 ]
@@ -3530,7 +3530,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
 5:                                                ; preds = %2
   %6 = load ptr, ptr @pManMR, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %8 = load i32, ptr %7, align 4, !tbaa !49
+  %8 = load i32, ptr %7, align 4, !tbaa !50
   %.not39 = icmp eq i32 %8, 0
   br i1 %.not39, label %..thread_crit_edge, label %9
 
@@ -3559,7 +3559,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %17 = and i16 %16, 144
   %18 = zext nneg i16 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %20 = load i32, ptr %19, align 8, !tbaa !50
+  %20 = load i32, ptr %19, align 8, !tbaa !51
   %21 = and i32 %20, %18
   %.not42 = icmp eq i32 %21, 0
   br i1 %.not42, label %.thread, label %.critedge2
@@ -3631,19 +3631,19 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
 57:                                               ; preds = %45, %47, %34, %37, %43
   %.pre104 = phi ptr [ %27, %45 ], [ %.pre98, %47 ], [ %27, %34 ], [ %27, %37 ], [ %.pre99, %43 ]
   %58 = getelementptr inbounds nuw i8, ptr %.pre104, i64 60
-  %59 = load i32, ptr %58, align 4, !tbaa !49
+  %59 = load i32, ptr %58, align 4, !tbaa !50
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %.critedge2, label %.preheader78
 
 .preheader78:                                     ; preds = %57
   %60 = getelementptr i8, ptr %0, i64 28
-  %.val7080 = load i32, ptr %60, align 4, !tbaa !53
+  %.val7080 = load i32, ptr %60, align 4, !tbaa !54
   %61 = icmp sgt i32 %.val7080, 0
   br i1 %61, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader78
   %62 = getelementptr i8, ptr %0, i64 32
-  %.val71.pre100 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val71.pre100 = load ptr, ptr %0, align 8, !tbaa !56
   br label %63
 
 63:                                               ; preds = %.lr.ph, %84
@@ -3651,13 +3651,13 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %64 = phi ptr [ %.pre104, %.lr.ph ], [ %85, %84 ]
   %.val71 = phi ptr [ %.val71.pre100, %.lr.ph ], [ %.val71101, %84 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
-  %.val72 = load ptr, ptr %62, align 8, !tbaa !56
+  %.val72 = load ptr, ptr %62, align 8, !tbaa !57
   %65 = getelementptr i8, ptr %.val71, i64 32
   %.val71.val = load ptr, ptr %65, align 8, !tbaa !37
   %66 = getelementptr i8, ptr %.val71.val, i64 8
   %.val71.val.val = load ptr, ptr %66, align 8, !tbaa !27
   %67 = getelementptr inbounds nuw i32, ptr %.val72, i64 %indvars.iv
-  %68 = load i32, ptr %67, align 4, !tbaa !51
+  %68 = load i32, ptr %67, align 4, !tbaa !52
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %.val71.val.val, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !38
@@ -3686,8 +3686,8 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
 
 ._crit_edge:                                      ; preds = %82
   %.pre103 = load ptr, ptr @pManMR, align 8, !tbaa !31
-  %.val71.pre = load ptr, ptr %0, align 8, !tbaa !55
-  %.val70.pre = load i32, ptr %60, align 4, !tbaa !53
+  %.val71.pre = load ptr, ptr %0, align 8, !tbaa !56
+  %.val70.pre = load i32, ptr %60, align 4, !tbaa !54
   br label %84
 
 84:                                               ; preds = %._crit_edge, %63, %79
@@ -3697,7 +3697,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = sext i32 %.val70 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %63, label %.critedge, !llvm.loop !84
+  br i1 %87, label %63, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %84, %.preheader78
   %88 = phi ptr [ %.pre104, %.preheader78 ], [ %85, %84 ]
@@ -3758,7 +3758,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   %.val = load i32, ptr %116, align 4, !tbaa !24
   %117 = sext i32 %.val to i64
   %118 = icmp slt i64 %indvars.iv.next91, %117
-  br i1 %118, label %.lr.ph85, label %.critedge2, !llvm.loop !85
+  br i1 %118, label %.lr.ph85, label %.critedge2, !llvm.loop !86
 
 .critedge2.sink.split:                            ; preds = %43, %49
   %.pre99.sink = phi ptr [ %56, %49 ], [ %.pre99, %43 ]
@@ -3848,44 +3848,45 @@ attributes #9 = { nounwind }
 !42 = !{!"p1 _ZTS10Abc_Obj_t_", !9, i64 0}
 !43 = !{!34, !35, i64 112}
 !44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = !{!34, !21, i64 104}
-!49 = !{!34, !5, i64 60}
-!50 = !{!34, !5, i64 80}
-!51 = !{!5, !5, i64 0}
-!52 = distinct !{!52, !46}
-!53 = !{!41, !5, i64 28}
-!54 = !{!41, !5, i64 44}
-!55 = !{!41, !12, i64 0}
-!56 = !{!41, !16, i64 32}
-!57 = distinct !{!57, !46}
-!58 = !{!41, !16, i64 48}
-!59 = distinct !{!59, !46}
-!60 = distinct !{!60, !46}
-!61 = distinct !{!61, !46}
-!62 = distinct !{!62, !46}
-!63 = distinct !{!63, !46}
-!64 = distinct !{!64, !46}
-!65 = distinct !{!65, !46}
-!66 = distinct !{!66, !46}
-!67 = !{!34, !5, i64 64}
-!68 = distinct !{!68, !46}
-!69 = distinct !{!69, !46}
-!70 = distinct !{!70, !46}
-!71 = distinct !{!71, !46}
-!72 = distinct !{!72, !46}
-!73 = distinct !{!73, !46}
-!74 = distinct !{!74, !46}
-!75 = distinct !{!75, !46}
-!76 = distinct !{!76, !46}
-!77 = distinct !{!77, !46}
-!78 = distinct !{!78, !46}
-!79 = distinct !{!79, !46}
-!80 = distinct !{!80, !46}
-!81 = distinct !{!81, !46}
-!82 = distinct !{!82, !46}
-!83 = distinct !{!83, !46}
-!84 = distinct !{!84, !46}
-!85 = distinct !{!85, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = !{!34, !21, i64 104}
+!50 = !{!34, !5, i64 60}
+!51 = !{!34, !5, i64 80}
+!52 = !{!5, !5, i64 0}
+!53 = distinct !{!53, !46, !47}
+!54 = !{!41, !5, i64 28}
+!55 = !{!41, !5, i64 44}
+!56 = !{!41, !12, i64 0}
+!57 = !{!41, !16, i64 32}
+!58 = distinct !{!58, !46, !47}
+!59 = !{!41, !16, i64 48}
+!60 = distinct !{!60, !46, !47}
+!61 = distinct !{!61, !46, !47}
+!62 = distinct !{!62, !46, !47}
+!63 = distinct !{!63, !46, !47}
+!64 = distinct !{!64, !46, !47}
+!65 = distinct !{!65, !46, !47}
+!66 = distinct !{!66, !46, !47}
+!67 = distinct !{!67, !46, !47}
+!68 = !{!34, !5, i64 64}
+!69 = distinct !{!69, !46, !47}
+!70 = distinct !{!70, !46, !47}
+!71 = distinct !{!71, !46, !47}
+!72 = distinct !{!72, !46, !47}
+!73 = distinct !{!73, !46, !47}
+!74 = distinct !{!74, !46, !47}
+!75 = distinct !{!75, !46, !47}
+!76 = distinct !{!76, !46, !47}
+!77 = distinct !{!77, !46, !47}
+!78 = distinct !{!78, !46, !47}
+!79 = distinct !{!79, !46, !47}
+!80 = distinct !{!80, !46, !47}
+!81 = distinct !{!81, !46, !47}
+!82 = distinct !{!82, !46, !47}
+!83 = distinct !{!83, !46, !47}
+!84 = distinct !{!84, !46, !47}
+!85 = distinct !{!85, !46, !47}
+!86 = distinct !{!86, !46, !47}

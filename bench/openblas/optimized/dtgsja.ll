@@ -275,9 +275,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 141:                                              ; preds = %.lr.ph, %291
   %indvars.iv616 = phi i64 [ %135, %.lr.ph ], [ %indvars.iv.next617, %291 ]
-  store double 0.000000e+00, ptr %30, align 8, !tbaa !9
-  store double 0.000000e+00, ptr %31, align 8, !tbaa !9
-  store double 0.000000e+00, ptr %32, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %30, align 8, !tbaa !10
+  store double 0.000000e+00, ptr %31, align 8, !tbaa !10
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !10
   %142 = load i32, ptr %6, align 4, !tbaa !3
   %143 = add nsw i32 %142, %137
   %144 = load i32, ptr %3, align 4, !tbaa !3
@@ -293,8 +293,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %149 = add nsw i32 %148, %143
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds double, ptr %47, i64 %150
-  %152 = load double, ptr %151, align 8, !tbaa !9
-  store double %152, ptr %30, align 8, !tbaa !9
+  %152 = load double, ptr %151, align 8, !tbaa !10
+  store double %152, ptr %30, align 8, !tbaa !10
   br label %153
 
 153:                                              ; preds = %145, %141
@@ -310,8 +310,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %160 = add nsw i32 %159, %155
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds double, ptr %47, i64 %161
-  %163 = load double, ptr %162, align 8, !tbaa !9
-  store double %163, ptr %32, align 8, !tbaa !9
+  %163 = load double, ptr %162, align 8, !tbaa !10
+  store double %163, ptr %32, align 8, !tbaa !10
   br label %164
 
 164:                                              ; preds = %156, %153
@@ -320,15 +320,15 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %167 = mul nsw i32 %166, %48
   %168 = sext i32 %167 to i64
   %169 = getelementptr double, ptr %138, i64 %168
-  %170 = load double, ptr %169, align 8, !tbaa !9
-  store double %170, ptr %33, align 8, !tbaa !9
+  %170 = load double, ptr %169, align 8, !tbaa !10
+  store double %170, ptr %33, align 8, !tbaa !10
   %171 = add nsw i32 %165, %154
   %172 = mul nsw i32 %171, %48
   %173 = sext i32 %172 to i64
   %174 = getelementptr double, ptr %50, i64 %indvars.iv616
   %175 = getelementptr double, ptr %174, i64 %173
-  %176 = load double, ptr %175, align 8, !tbaa !9
-  store double %176, ptr %36, align 8, !tbaa !9
+  %176 = load double, ptr %175, align 8, !tbaa !10
+  store double %176, ptr %36, align 8, !tbaa !10
   %177 = load i32, ptr %34, align 4, !tbaa !3
   %.not529 = icmp eq i32 %177, 0
   br i1 %.not529, label %187, label %178
@@ -341,8 +341,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %181 = add nsw i32 %180, %143
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds double, ptr %47, i64 %182
-  %184 = load double, ptr %183, align 8, !tbaa !9
-  store double %184, ptr %31, align 8, !tbaa !9
+  %184 = load double, ptr %183, align 8, !tbaa !10
+  store double %184, ptr %31, align 8, !tbaa !10
   br label %185
 
 185:                                              ; preds = %179, %178
@@ -357,8 +357,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %190 = add nsw i32 %189, %155
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds double, ptr %47, i64 %191
-  %193 = load double, ptr %192, align 8, !tbaa !9
-  store double %193, ptr %31, align 8, !tbaa !9
+  %193 = load double, ptr %192, align 8, !tbaa !10
+  store double %193, ptr %31, align 8, !tbaa !10
   br label %194
 
 194:                                              ; preds = %188, %187
@@ -369,8 +369,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pn.in = phi i32 [ %195, %194 ], [ %186, %185 ]
   %.pn = sext i32 %.pn.in to i64
   %storemerge.in = getelementptr inbounds double, ptr %50, i64 %.pn
-  %storemerge = load double, ptr %storemerge.in, align 8, !tbaa !9
-  store double %storemerge, ptr %35, align 8, !tbaa !9
+  %storemerge = load double, ptr %storemerge.in, align 8, !tbaa !10
+  store double %storemerge, ptr %35, align 8, !tbaa !10
   call void @dlags2_(ptr noundef nonnull %34, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %39, ptr noundef nonnull %43, ptr noundef nonnull %40, ptr noundef nonnull %44, ptr noundef nonnull %38, ptr noundef nonnull %41) #4
   %197 = load i32, ptr %6, align 4, !tbaa !3
   %198 = add nsw i32 %197, %154
@@ -454,14 +454,14 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %251 = add nsw i32 %250, %248
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds double, ptr %47, i64 %252
-  store double 0.000000e+00, ptr %253, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %253, align 8, !tbaa !10
   br label %._crit_edge647
 
 ._crit_edge647:                                   ; preds = %247, %249
   %254 = mul nsw i32 %.pre653, %48
   %255 = sext i32 %254 to i64
   %256 = getelementptr double, ptr %140, i64 %255
-  store double 0.000000e+00, ptr %256, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %256, align 8, !tbaa !10
   br label %268
 
 257:                                              ; preds = %213
@@ -476,7 +476,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %261 = add nsw i32 %260, %258
   %262 = sext i32 %261 to i64
   %263 = getelementptr inbounds double, ptr %47, i64 %262
-  store double 0.000000e+00, ptr %263, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %263, align 8, !tbaa !10
   br label %._crit_edge648
 
 ._crit_edge648:                                   ; preds = %257, %259
@@ -484,7 +484,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %265 = sext i32 %264 to i64
   %266 = getelementptr double, ptr %50, i64 %indvars.iv616
   %267 = getelementptr double, ptr %266, i64 %265
-  store double 0.000000e+00, ptr %267, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %267, align 8, !tbaa !10
   br label %268
 
 268:                                              ; preds = %._crit_edge648, %._crit_edge647
@@ -538,7 +538,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %292 = load i32, ptr %27, align 4, !tbaa !3
   %293 = sext i32 %292 to i64
   %.not526.not = icmp slt i64 %indvars.iv616, %293
-  br i1 %.not526.not, label %141, label %.loopexit557, !llvm.loop !11
+  br i1 %.not526.not, label %141, label %.loopexit557, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit557
   %.pre643 = load i32, ptr %34, align 4, !tbaa !3
@@ -598,13 +598,13 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %325 = sext i32 %323 to i64
   %gep586 = getelementptr double, ptr %22, i64 %325
   call void @dlapll_(ptr noundef nonnull %27, ptr noundef %22, ptr noundef nonnull @c__1, ptr noundef %gep586, ptr noundef nonnull @c__1, ptr noundef nonnull %37) #4
-  %326 = load double, ptr %37, align 8, !tbaa !9
+  %326 = load double, ptr %37, align 8, !tbaa !10
   %327 = fcmp oge double %.0589, %326
   %328 = select i1 %327, double %.0589, double %326
   %329 = add nuw nsw i32 %.1588, 1
   %.1.neg = xor i32 %.1588, -1
   %.not520.not = icmp slt i32 %.1588, %300
-  br i1 %.not520.not, label %.lr.ph592, label %._crit_edge593.loopexit, !llvm.loop !12
+  br i1 %.not520.not, label %.lr.ph592, label %._crit_edge593.loopexit, !llvm.loop !13
 
 ._crit_edge593.loopexit:                          ; preds = %.lr.ph592
   %330 = call double @llvm.fabs.f64(double %328)
@@ -612,8 +612,8 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge593:                                   ; preds = %._crit_edge593.loopexit, %295
   %.0.lcssa = phi double [ 0.000000e+00, %295 ], [ %330, %._crit_edge593.loopexit ]
-  %331 = load double, ptr %12, align 8, !tbaa !9
-  %332 = load double, ptr %13, align 8, !tbaa !9
+  %331 = load double, ptr %12, align 8, !tbaa !10
+  %332 = load double, ptr %13, align 8, !tbaa !10
   %.inv = fcmp ole double %331, %332
   %.539 = select i1 %.inv, double %331, double %332
   %333 = fcmp ugt double %.0.lcssa, %.539
@@ -622,7 +622,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 334:                                              ; preds = %._crit_edge, %._crit_edge593
   %335 = add nuw nsw i32 %.0483594, 1
   %exitcond.not = icmp eq i32 %335, 41
-  br i1 %exitcond.not, label %336, label %127, !llvm.loop !13
+  br i1 %exitcond.not, label %336, label %127, !llvm.loop !14
 
 336:                                              ; preds = %334
   store i32 1, ptr %24, align 4, !tbaa !3
@@ -641,12 +641,12 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph598:                                        ; preds = %.lr.ph598.preheader, %.lr.ph598
   %indvars.iv622 = phi i64 [ 1, %.lr.ph598.preheader ], [ %indvars.iv.next623, %.lr.ph598 ]
   %340 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv622
-  store double 1.000000e+00, ptr %340, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %340, align 8, !tbaa !10
   %341 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv622
-  store double 0.000000e+00, ptr %341, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %341, align 8, !tbaa !10
   %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   %exitcond625.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count
-  br i1 %exitcond625.not, label %._crit_edge599, label %.lr.ph598, !llvm.loop !14
+  br i1 %exitcond625.not, label %._crit_edge599, label %.lr.ph598, !llvm.loop !15
 
 ._crit_edge599:                                   ; preds = %.lr.ph598, %337
   %342 = load i32, ptr %7, align 4, !tbaa !3
@@ -676,14 +676,14 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %355 = add nsw i32 %354, %349
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds double, ptr %47, i64 %356
-  %358 = load double, ptr %357, align 8, !tbaa !9
-  store double %358, ptr %30, align 8, !tbaa !9
+  %358 = load double, ptr %357, align 8, !tbaa !10
+  store double %358, ptr %30, align 8, !tbaa !10
   %359 = mul nsw i32 %353, %48
   %360 = sext i32 %359 to i64
   %361 = getelementptr double, ptr %50, i64 %indvars.iv626
   %362 = getelementptr double, ptr %361, i64 %360
-  %363 = load double, ptr %362, align 8, !tbaa !9
-  store double %363, ptr %33, align 8, !tbaa !9
+  %363 = load double, ptr %362, align 8, !tbaa !10
+  store double %363, ptr %33, align 8, !tbaa !10
   %364 = fdiv double %363, %358
   %365 = fcmp ord double %364, 0.000000e+00
   br i1 %365, label %366, label %425
@@ -709,7 +709,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %374 = fcmp oge double %364, 0.000000e+00
   %375 = fneg double %364
   %376 = select i1 %374, double %364, double %375
-  store double %376, ptr %29, align 8, !tbaa !9
+  store double %376, ptr %29, align 8, !tbaa !10
   %377 = load i32, ptr %6, align 4, !tbaa !3
   %378 = sext i32 %377 to i64
   %379 = add nsw i64 %indvars.iv626, %378
@@ -720,9 +720,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %383 = add nsw i32 %382, %348
   %384 = sext i32 %383 to i64
   %385 = getelementptr inbounds double, ptr %51, i64 %384
-  %386 = load double, ptr %385, align 8, !tbaa !9
+  %386 = load double, ptr %385, align 8, !tbaa !10
   %387 = getelementptr inbounds double, ptr %52, i64 %384
-  %388 = load double, ptr %387, align 8, !tbaa !9
+  %388 = load double, ptr %387, align 8, !tbaa !10
   %389 = fcmp ult double %386, %388
   %390 = load i32, ptr %7, align 4, !tbaa !3
   %391 = add nsw i32 %.3.neg604, 1
@@ -733,7 +733,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 394:                                              ; preds = %373
   %395 = fdiv double 1.000000e+00, %386
-  store double %395, ptr %29, align 8, !tbaa !9
+  store double %395, ptr %29, align 8, !tbaa !10
   %396 = load i32, ptr %5, align 4, !tbaa !3
   %397 = add i32 %393, %396
   %398 = mul nsw i32 %397, %45
@@ -745,7 +745,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 402:                                              ; preds = %373
   %403 = fdiv double 1.000000e+00, %388
-  store double %403, ptr %29, align 8, !tbaa !9
+  store double %403, ptr %29, align 8, !tbaa !10
   %404 = load i32, ptr %5, align 4, !tbaa !3
   %405 = add i32 %393, %404
   %406 = mul nsw i32 %405, %48
@@ -775,9 +775,9 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 425:                                              ; preds = %.lr.ph606
   %426 = sext i32 %349 to i64
   %427 = getelementptr inbounds double, ptr %51, i64 %426
-  store double 0.000000e+00, ptr %427, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %427, align 8, !tbaa !10
   %428 = getelementptr inbounds double, ptr %52, i64 %426
-  store double 1.000000e+00, ptr %428, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %428, align 8, !tbaa !10
   %429 = add nsw i32 %.3.neg604, 1
   %430 = add i32 %429, %351
   store i32 %430, ptr %27, align 4, !tbaa !3
@@ -789,7 +789,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not523.not = icmp samesign ult i64 %indvars.iv626, %346
   %432 = trunc nuw i64 %indvars.iv626 to i32
   %433 = xor i32 %432, -1
-  br i1 %.not523.not, label %.lr.ph606, label %._crit_edge607.loopexit, !llvm.loop !15
+  br i1 %.not523.not, label %.lr.ph606, label %._crit_edge607.loopexit, !llvm.loop !16
 
 ._crit_edge607.loopexit:                          ; preds = %431
   %.pre644 = load i32, ptr %6, align 4, !tbaa !3
@@ -814,11 +814,11 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv630 = phi i64 [ %438, %.lr.ph611.preheader ], [ %indvars.iv.next631, %.lr.ph611 ]
   %indvars.iv.next631 = add nsw i64 %indvars.iv630, 1
   %439 = getelementptr double, ptr %14, i64 %indvars.iv630
-  store double 0.000000e+00, ptr %439, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %439, align 8, !tbaa !10
   %440 = getelementptr double, ptr %15, i64 %indvars.iv630
-  store double 1.000000e+00, ptr %440, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %440, align 8, !tbaa !10
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
-  br i1 %exitcond634.not, label %._crit_edge612, label %.lr.ph611, !llvm.loop !16
+  br i1 %exitcond634.not, label %._crit_edge612, label %.lr.ph611, !llvm.loop !17
 
 ._crit_edge612:                                   ; preds = %.lr.ph611, %._crit_edge607
   %441 = load i32, ptr %5, align 4, !tbaa !3
@@ -836,11 +836,11 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv635 = phi i64 [ %446, %443 ], [ %indvars.iv.next636, %448 ]
   %indvars.iv.next636 = add nsw i64 %indvars.iv635, 1
   %449 = getelementptr double, ptr %14, i64 %indvars.iv635
-  store double 0.000000e+00, ptr %449, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %449, align 8, !tbaa !10
   %450 = getelementptr double, ptr %15, i64 %indvars.iv635
-  store double 0.000000e+00, ptr %450, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %450, align 8, !tbaa !10
   %.not525.not = icmp slt i64 %indvars.iv.next636, %447
-  br i1 %.not525.not, label %448, label %.loopexit, !llvm.loop !17
+  br i1 %.not525.not, label %448, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %448, %._crit_edge612, %336
   %.0483559 = phi i32 [ %.0483594, %._crit_edge612 ], [ 41, %336 ], [ %.0483594, %448 ]
@@ -918,14 +918,15 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"double", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}

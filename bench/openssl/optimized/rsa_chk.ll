@@ -223,7 +223,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 85:                                               ; preds = %87
   %86 = add nuw nsw i32 %.1200, 1
   %exitcond219.not = icmp eq i32 %86, %.0150
-  br i1 %exitcond219.not, label %._crit_edge202, label %87, !llvm.loop !33
+  br i1 %exitcond219.not, label %._crit_edge202, label %87, !llvm.loop !34
 
 87:                                               ; preds = %.lr.ph201, %85
   %.1200 = phi i32 [ 0, %.lr.ph201 ], [ %86, %85 ]
@@ -289,7 +289,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 109:                                              ; preds = %121
   %110 = add nuw nsw i32 %.2203, 1
   %exitcond220.not = icmp eq i32 %110, %.0150
-  br i1 %exitcond220.not, label %._crit_edge205, label %111, !llvm.loop !34
+  br i1 %exitcond220.not, label %._crit_edge205, label %111, !llvm.loop !35
 
 111:                                              ; preds = %.lr.ph204, %109
   %.2203 = phi i32 [ 0, %.lr.ph204 ], [ %110, %109 ]
@@ -337,19 +337,19 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 129:                                              ; preds = %128, %126
   %.8 = phi i32 [ %.7, %126 ], [ 0, %128 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %131 = load ptr, ptr %130, align 8, !tbaa !35
+  %131 = load ptr, ptr %130, align 8, !tbaa !36
   %.not173 = icmp eq ptr %131, null
   br i1 %.not173, label %168, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %134 = load ptr, ptr %133, align 8, !tbaa !36
+  %134 = load ptr, ptr %133, align 8, !tbaa !37
   %.not174 = icmp eq ptr %134, null
   br i1 %.not174, label %168, label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %137 = load ptr, ptr %136, align 8, !tbaa !37
+  %137 = load ptr, ptr %136, align 8, !tbaa !38
   %.not175 = icmp eq ptr %137, null
   br i1 %.not175, label %168, label %138
 
@@ -367,7 +367,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
   br i1 %.not177, label %.loopexit, label %145
 
 145:                                              ; preds = %142
-  %146 = load ptr, ptr %130, align 8, !tbaa !35
+  %146 = load ptr, ptr %130, align 8, !tbaa !36
   %147 = tail call i32 @BN_cmp(ptr noundef %41, ptr noundef %146) #2
   %.not178 = icmp eq i32 %147, 0
   br i1 %.not178, label %149, label %148
@@ -393,7 +393,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
   br i1 %.not180, label %.loopexit, label %156
 
 156:                                              ; preds = %153
-  %157 = load ptr, ptr %133, align 8, !tbaa !36
+  %157 = load ptr, ptr %133, align 8, !tbaa !37
   %158 = tail call i32 @BN_cmp(ptr noundef %41, ptr noundef %157) #2
   %.not181 = icmp eq i32 %158, 0
   br i1 %.not181, label %160, label %159
@@ -413,7 +413,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
   br i1 %.not182, label %.loopexit, label %164
 
 164:                                              ; preds = %160
-  %165 = load ptr, ptr %136, align 8, !tbaa !37
+  %165 = load ptr, ptr %136, align 8, !tbaa !38
   %166 = tail call i32 @BN_cmp(ptr noundef %40, ptr noundef %165) #2
   %.not183 = icmp eq i32 %166, 0
   br i1 %.not183, label %168, label %167
@@ -448,7 +448,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %180 = load ptr, ptr %179, align 8, !tbaa !38
+  %180 = load ptr, ptr %179, align 8, !tbaa !39
   %181 = tail call i32 @BN_cmp(ptr noundef %41, ptr noundef %180) #2
   %.not186 = icmp eq i32 %181, 0
   br i1 %.not186, label %183, label %182
@@ -462,7 +462,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 183:                                              ; preds = %182, %178
   %.13 = phi i32 [ 0, %182 ], [ %.12206, %178 ]
   %184 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !39
+  %185 = load ptr, ptr %184, align 8, !tbaa !40
   %186 = load ptr, ptr %171, align 8, !tbaa !29
   %187 = tail call ptr @BN_mod_inverse(ptr noundef %40, ptr noundef %185, ptr noundef %186, ptr noundef nonnull %47) #2
   %.not187 = icmp eq ptr %187, null
@@ -470,7 +470,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
 
 188:                                              ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  %190 = load ptr, ptr %189, align 8, !tbaa !40
+  %190 = load ptr, ptr %189, align 8, !tbaa !41
   %191 = tail call i32 @BN_cmp(ptr noundef %40, ptr noundef %190) #2
   %.not188 = icmp eq i32 %191, 0
   br i1 %.not188, label %193, label %192
@@ -485,7 +485,7 @@ define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr
   %.14 = phi i32 [ 0, %192 ], [ %.13, %188 ]
   %194 = add nuw nsw i32 %.3207, 1
   %exitcond221.not = icmp eq i32 %194, %.0150
-  br i1 %exitcond221.not, label %.loopexit, label %.lr.ph209, !llvm.loop !41
+  br i1 %exitcond221.not, label %.loopexit, label %.lr.ph209, !llvm.loop !42
 
 .loopexit:                                        ; preds = %87, %121, %119, %117, %111, %193, %.lr.ph209, %175, %183, %168, %160, %153, %149, %142, %138, %._crit_edge205, %106, %104, %102, %98, %94, %._crit_edge, %54
   %.0151 = phi i32 [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %94 ], [ -1, %98 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %._crit_edge205 ], [ -1, %138 ], [ -1, %142 ], [ -1, %149 ], [ -1, %153 ], [ -1, %160 ], [ %.9, %168 ], [ %.14, %193 ], [ -1, %.lr.ph209 ], [ -1, %175 ], [ -1, %183 ], [ -1, %111 ], [ -1, %117 ], [ -1, %119 ], [ -1, %121 ], [ -1, %87 ]
@@ -595,14 +595,15 @@ attributes #2 = { nounwind }
 !28 = !{!4, !8, i64 8}
 !29 = !{!30, !12, i64 0}
 !30 = !{!"rsa_prime_info_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !20, i64 32}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
-!34 = distinct !{!34, !32}
-!35 = !{!4, !12, i64 80}
-!36 = !{!4, !12, i64 88}
-!37 = !{!4, !12, i64 96}
-!38 = !{!30, !12, i64 8}
-!39 = !{!30, !12, i64 24}
-!40 = !{!30, !12, i64 16}
-!41 = distinct !{!41, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}
+!35 = distinct !{!35, !32, !33}
+!36 = !{!4, !12, i64 80}
+!37 = !{!4, !12, i64 88}
+!38 = !{!4, !12, i64 96}
+!39 = !{!30, !12, i64 8}
+!40 = !{!30, !12, i64 24}
+!41 = !{!30, !12, i64 16}
+!42 = distinct !{!42, !32, !33}

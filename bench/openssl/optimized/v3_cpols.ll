@@ -159,13 +159,13 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   %.043329 = phi i32 [ %280, %279 ], [ 0, %.preheader ]
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %.043329) #4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %20
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %25
 
@@ -175,8 +175,8 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 116, ptr noundef nonnull @__func__.r2i_certpol) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 134, ptr noundef null) #4
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !16
-  %24 = load ptr, ptr %21, align 8, !tbaa !13
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %24 = load ptr, ptr %21, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %23, ptr noundef nonnull @.str.24, ptr noundef %24) #4
   br label %.thread
 
@@ -186,7 +186,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br i1 %27, label %279, label %28
 
 28:                                               ; preds = %25
-  %29 = load i8, ptr %18, align 1, !tbaa !17
+  %29 = load i8, ptr %18, align 1, !tbaa !18
   %30 = icmp eq i8 %29, 64
   br i1 %30, label %31, label %265
 
@@ -200,7 +200,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 129, ptr noundef nonnull @__func__.r2i_certpol) #4
-  %37 = load ptr, ptr %36, align 8, !tbaa !16
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 135, ptr noundef nonnull @.str.26, ptr noundef %37) #4
   br label %.thread
 
@@ -230,14 +230,14 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   %.052198.i = phi i32 [ 0, %.lr.ph.i ], [ %259, %258 ]
   %46 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %33, i32 noundef %.052198.i) #4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !16
+  %48 = load ptr, ptr %47, align 8, !tbaa !17
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(17) @.str.27) #5
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
+  %53 = load ptr, ptr %52, align 8, !tbaa !14
   %54 = tail call ptr @OBJ_txt2obj(ptr noundef %53, i32 noundef 0) #4
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %.thread.i
@@ -251,9 +251,9 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 184, ptr noundef nonnull @__func__.policy_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 110, ptr noundef null) #4
-  %58 = load ptr, ptr %46, align 8, !tbaa !18
-  %59 = load ptr, ptr %47, align 8, !tbaa !16
-  %60 = load ptr, ptr %57, align 8, !tbaa !13
+  %58 = load ptr, ptr %46, align 8, !tbaa !19
+  %59 = load ptr, ptr %47, align 8, !tbaa !17
+  %60 = load ptr, ptr %57, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef %58, ptr noundef nonnull @.str.29, ptr noundef %59, ptr noundef nonnull @.str.30, ptr noundef %60) #4
   br label %select.unfold
 
@@ -297,7 +297,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
 
 76:                                               ; preds = %72
   %77 = tail call ptr @OBJ_nid2obj(i32 noundef 164) #4
-  store ptr %77, ptr %69, align 8, !tbaa !19
+  store ptr %77, ptr %69, align 8, !tbaa !20
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %80
 
@@ -310,7 +310,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
 80:                                               ; preds = %76
   %81 = tail call ptr @ASN1_IA5STRING_new() #4
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %81, ptr %82, align 8, !tbaa !17
+  store ptr %81, ptr %82, align 8, !tbaa !18
   %83 = icmp eq ptr %81, null
   br i1 %83, label %84, label %85
 
@@ -322,7 +322,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  %87 = load ptr, ptr %86, align 8, !tbaa !14
   %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #5
   %89 = trunc i64 %88 to i32
   %90 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %81, ptr noundef nonnull %87, i32 noundef %89) #4
@@ -336,15 +336,15 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   br label %select.unfold
 
 92:                                               ; preds = %61
-  %93 = load ptr, ptr %47, align 8, !tbaa !16
+  %93 = load ptr, ptr %47, align 8, !tbaa !17
   %94 = tail call i32 @ossl_v3_name_cmp(ptr noundef %93, ptr noundef nonnull @.str.32) #4
   %.not61.i = icmp eq i32 %94, 0
   br i1 %.not61.i, label %95, label %253
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !13
-  %98 = load i8, ptr %97, align 1, !tbaa !17
+  %97 = load ptr, ptr %96, align 8, !tbaa !14
+  %98 = load i8, ptr %97, align 1, !tbaa !18
   %.not62.i = icmp eq i8 %98, 64
   br i1 %.not62.i, label %104, label %99
 
@@ -353,9 +353,9 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 217, ptr noundef nonnull @__func__.policy_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 137, ptr noundef null) #4
-  %101 = load ptr, ptr %46, align 8, !tbaa !18
-  %102 = load ptr, ptr %47, align 8, !tbaa !16
-  %103 = load ptr, ptr %100, align 8, !tbaa !13
+  %101 = load ptr, ptr %46, align 8, !tbaa !19
+  %102 = load ptr, ptr %47, align 8, !tbaa !17
+  %103 = load ptr, ptr %100, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef %101, ptr noundef nonnull @.str.29, ptr noundef %102, ptr noundef nonnull @.str.30, ptr noundef %103) #4
   br label %select.unfold
 
@@ -370,9 +370,9 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 223, ptr noundef nonnull @__func__.policy_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 135, ptr noundef null) #4
-  %109 = load ptr, ptr %46, align 8, !tbaa !18
-  %110 = load ptr, ptr %47, align 8, !tbaa !16
-  %111 = load ptr, ptr %108, align 8, !tbaa !13
+  %109 = load ptr, ptr %46, align 8, !tbaa !19
+  %110 = load ptr, ptr %47, align 8, !tbaa !17
+  %111 = load ptr, ptr %108, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef %109, ptr noundef nonnull @.str.29, ptr noundef %110, ptr noundef nonnull @.str.30, ptr noundef %111) #4
   br label %select.unfold
 
@@ -389,7 +389,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
 
 116:                                              ; preds = %112
   %117 = tail call ptr @OBJ_nid2obj(i32 noundef 165) #4
-  store ptr %117, ptr %113, align 8, !tbaa !19
+  store ptr %117, ptr %113, align 8, !tbaa !20
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %120
 
@@ -412,7 +412,7 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store ptr %121, ptr %125, align 8, !tbaa !17
+  store ptr %121, ptr %125, align 8, !tbaa !18
   %126 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %106) #4
   %127 = icmp sgt i32 %126, 0
   br i1 %127, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -425,9 +425,9 @@ define internal ptr @r2i_certpol(ptr readnone captures(none) %0, ptr noundef %1,
   %.05735.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %235, %234 ]
   %130 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %106, i32 noundef %.05735.i.i) #4
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !13
+  %132 = load ptr, ptr %131, align 8, !tbaa !14
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !16
+  %134 = load ptr, ptr %133, align 8, !tbaa !17
   %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(13) @.str.33) #5
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %176
@@ -502,7 +502,7 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   %.not76.i.i = phi i64 [ 0, %137 ], [ 0, %.tail.thread.i.i.i ], [ 5, %147 ], [ 11, %150 ], [ 4, %.tail.i.i.i ], [ 10, %159 ], [ 8, %162 ], [ 14, %165 ]
   %.0.i.i.i = phi i32 [ 26, %137 ], [ 26, %.tail.thread.i.i.i ], [ 12, %147 ], [ 12, %150 ], [ 30, %.tail.i.i.i ], [ 30, %159 ], [ 26, %162 ], [ 26, %165 ]
   %168 = tail call ptr @ASN1_STRING_type_new(i32 noundef %.0.i.i.i) #4
-  store ptr %168, ptr %128, align 8, !tbaa !21
+  store ptr %168, ptr %128, align 8, !tbaa !22
   %169 = icmp eq ptr %168, null
   br i1 %169, label %170, label %171
 
@@ -532,7 +532,7 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   br i1 %178, label %179, label %194
 
 179:                                              ; preds = %176
-  %180 = load ptr, ptr %121, align 8, !tbaa !25
+  %180 = load ptr, ptr %121, align 8, !tbaa !26
   %.not73.i.i = icmp eq ptr %180, null
   br i1 %.not73.i.i, label %181, label %186
 
@@ -548,16 +548,16 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   br label %notice_section.exit.thread.i
 
 185:                                              ; preds = %181
-  store ptr %182, ptr %121, align 8, !tbaa !25
-  %.pre.i = load ptr, ptr %131, align 8, !tbaa !13
+  store ptr %182, ptr %121, align 8, !tbaa !26
+  %.pre.i = load ptr, ptr %131, align 8, !tbaa !14
   br label %186
 
 186:                                              ; preds = %185, %179
   %187 = phi ptr [ %.pre.i, %185 ], [ %132, %179 ]
   %.055.i.i = phi ptr [ %182, %185 ], [ %180, %179 ]
-  %188 = load ptr, ptr %.055.i.i, align 8, !tbaa !26
+  %188 = load ptr, ptr %.055.i.i, align 8, !tbaa !27
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  store i32 %..i.i, ptr %189, align 4, !tbaa !29
+  store i32 %..i.i, ptr %189, align 4, !tbaa !30
   %190 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %187) #5
   %191 = trunc i64 %190 to i32
   %192 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %188, ptr noundef nonnull %187, i32 noundef %191) #4
@@ -576,7 +576,7 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   br i1 %196, label %197, label %230
 
 197:                                              ; preds = %194
-  %198 = load ptr, ptr %121, align 8, !tbaa !25
+  %198 = load ptr, ptr %121, align 8, !tbaa !26
   %.not69.i.i = icmp eq ptr %198, null
   br i1 %.not69.i.i, label %199, label %204
 
@@ -592,8 +592,8 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   br label %notice_section.exit.thread.i
 
 203:                                              ; preds = %199
-  store ptr %200, ptr %121, align 8, !tbaa !25
-  %.pre.i.i = load ptr, ptr %131, align 8, !tbaa !13
+  store ptr %200, ptr %121, align 8, !tbaa !26
+  %.pre.i.i = load ptr, ptr %131, align 8, !tbaa !14
   br label %204
 
 204:                                              ; preds = %203, %197
@@ -613,15 +613,15 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 363, ptr noundef nonnull @__func__.notice_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 141, ptr noundef null) #4
-  %211 = load ptr, ptr %210, align 8, !tbaa !16
-  %212 = load ptr, ptr %131, align 8, !tbaa !13
+  %211 = load ptr, ptr %210, align 8, !tbaa !17
+  %212 = load ptr, ptr %131, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %211, ptr noundef nonnull @.str.24, ptr noundef %212) #4
   tail call void @OPENSSL_sk_pop_free(ptr noundef %206, ptr noundef nonnull @X509V3_conf_free) #4
   br label %notice_section.exit.thread.i
 
 213:                                              ; preds = %207
   %214 = getelementptr inbounds nuw i8, ptr %.053.i.i, i64 8
-  %215 = load ptr, ptr %214, align 8, !tbaa !33
+  %215 = load ptr, ptr %214, align 8, !tbaa !34
   %216 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %206) #4
   %217 = icmp sgt i32 %216, 0
   br i1 %217, label %.lr.ph.i.i.i, label %.loopexit10.i.i
@@ -630,13 +630,13 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   %219 = add nuw nsw i32 %.012.i.i.i, 1
   %220 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %206) #4
   %221 = icmp slt i32 %219, %220
-  br i1 %221, label %.lr.ph.i.i.i, label %.loopexit10.i.i, !llvm.loop !34
+  br i1 %221, label %.lr.ph.i.i.i, label %.loopexit10.i.i, !llvm.loop !35
 
 .lr.ph.i.i.i:                                     ; preds = %213, %218
   %.012.i.i.i = phi i32 [ %219, %218 ], [ 0, %213 ]
   %222 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %206, i32 noundef %.012.i.i.i) #4
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %224 = load ptr, ptr %223, align 8, !tbaa !16
+  %224 = load ptr, ptr %223, align 8, !tbaa !17
   %225 = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %224) #4
   %226 = icmp eq ptr %225, null
   br i1 %226, label %.loopexit.i.i, label %227
@@ -668,8 +668,8 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 373, ptr noundef nonnull @__func__.notice_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 138, ptr noundef null) #4
-  %232 = load ptr, ptr %231, align 8, !tbaa !16
-  %233 = load ptr, ptr %131, align 8, !tbaa !13
+  %232 = load ptr, ptr %231, align 8, !tbaa !17
+  %233 = load ptr, ptr %131, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %232, ptr noundef nonnull @.str.24, ptr noundef %233) #4
   br label %notice_section.exit.thread.i
 
@@ -677,21 +677,21 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   %235 = add nuw nsw i32 %.05735.i.i, 1
   %236 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %106) #4
   %237 = icmp slt i32 %235, %236
-  br i1 %237, label %129, label %._crit_edge.i.i, !llvm.loop !35
+  br i1 %237, label %129, label %._crit_edge.i.i, !llvm.loop !36
 
 ._crit_edge.i.i:                                  ; preds = %234, %124
-  %238 = load ptr, ptr %121, align 8, !tbaa !25
+  %238 = load ptr, ptr %121, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %238, null
   br i1 %.not.i.i, label %notice_section.exit.i, label %239
 
 239:                                              ; preds = %._crit_edge.i.i
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %241 = load ptr, ptr %240, align 8, !tbaa !33
+  %241 = load ptr, ptr %240, align 8, !tbaa !34
   %.not67.i.i = icmp eq ptr %241, null
   br i1 %.not67.i.i, label %244, label %242
 
 242:                                              ; preds = %239
-  %243 = load ptr, ptr %238, align 8, !tbaa !26
+  %243 = load ptr, ptr %238, align 8, !tbaa !27
   %.not68.i.i = icmp eq ptr %243, null
   br i1 %.not68.i.i, label %244, label %notice_section.exit.i
 
@@ -733,10 +733,10 @@ notice_section.exit.i:                            ; preds = %242, %._crit_edge.i
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 239, ptr noundef nonnull @__func__.policy_section) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 138, ptr noundef null) #4
-  %254 = load ptr, ptr %46, align 8, !tbaa !18
-  %255 = load ptr, ptr %47, align 8, !tbaa !16
+  %254 = load ptr, ptr %46, align 8, !tbaa !19
+  %255 = load ptr, ptr %47, align 8, !tbaa !17
   %256 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %257 = load ptr, ptr %256, align 8, !tbaa !13
+  %257 = load ptr, ptr %256, align 8, !tbaa !14
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef %254, ptr noundef nonnull @.str.29, ptr noundef %255, ptr noundef nonnull @.str.30, ptr noundef %257) #4
   br label %select.unfold
 
@@ -744,7 +744,7 @@ notice_section.exit.i:                            ; preds = %242, %._crit_edge.i
   %259 = add nuw nsw i32 %.052198.i, 1
   %260 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %33) #4
   %261 = icmp slt i32 %259, %260
-  br i1 %261, label %45, label %._crit_edge.i, !llvm.loop !36
+  br i1 %261, label %45, label %._crit_edge.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %258, %.preheader.i
   %262 = load ptr, ptr %39, align 8, !tbaa !3
@@ -775,7 +775,7 @@ select.unfold:                                    ; preds = %44, %56, %71, %75, 
   %269 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef 139, ptr noundef nonnull @__func__.r2i_certpol) #4
-  %270 = load ptr, ptr %269, align 8, !tbaa !16
+  %270 = load ptr, ptr %269, align 8, !tbaa !17
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 110, ptr noundef nonnull @.str.26, ptr noundef %270) #4
   br label %.thread
 
@@ -812,7 +812,7 @@ select.unfold:                                    ; preds = %44, %56, %71, %75, 
   %.1 = phi i32 [ %.042330, %276 ], [ 1, %25 ]
   %280 = add nuw nsw i32 %.043329, 1
   %exitcond.not = icmp eq i32 %280, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %279, %.preheader
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %4, ptr noundef nonnull @X509V3_conf_free) #4
@@ -978,20 +978,20 @@ define void @NOTICEREF_free(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @X509_POLICY_NODE_print(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !38
+  %4 = load ptr, ptr %1, align 8, !tbaa !39
   %5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %2, ptr noundef nonnull @.str.6) #4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %7) #4
   %9 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #4
   %10 = add nsw i32 %2, 2
-  %11 = load i32, ptr %4, align 8, !tbaa !45
+  %11 = load i32, ptr %4, align 8, !tbaa !46
   %12 = and i32 %11, 16
   %.not = icmp eq i32 %12, 0
   %13 = select i1 %.not, ptr @.str.10, ptr @.str.9
   %14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %10, ptr noundef nonnull @.str.6, ptr noundef nonnull %13) #4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %16 = load ptr, ptr %15, align 8, !tbaa !47
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %19, label %17
 
@@ -1035,7 +1035,7 @@ define internal fastcc void @print_qualifiers(ptr noundef %0, ptr noundef %1, i3
 
 10:                                               ; preds = %8, %7
   %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.020) #4
-  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = tail call i32 @OBJ_obj2nid(ptr noundef %12) #4
   switch i32 %13, label %68 [
     i32 164, label %14
@@ -1044,41 +1044,41 @@ define internal fastcc void @print_qualifiers(ptr noundef %0, ptr noundef %1, i3
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !17
-  %17 = load i32, ptr %16, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %17 = load i32, ptr %16, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %17, ptr noundef %19) #4
   br label %print_notice.exit
 
 21:                                               ; preds = %10
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %2, ptr noundef nonnull @.str.6) #4
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !17
-  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %.critedge.thread.i, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %25, align 8, !tbaa !26
-  %28 = load i32, ptr %27, align 8, !tbaa !47
+  %27 = load ptr, ptr %25, align 8, !tbaa !27
+  %28 = load i32, ptr %27, align 8, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !49
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef range(i32 -2147483644, -2147483648) %6, ptr noundef nonnull @.str.6, i32 noundef %28, ptr noundef %30) #4
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = tail call i32 @OPENSSL_sk_num(ptr noundef %33) #4
   %35 = icmp sgt i32 %34, 1
   %36 = select i1 %35, ptr @.str.46, ptr @.str.6
   %37 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.45, i32 noundef range(i32 -2147483644, -2147483648) %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %36) #4
-  %38 = load ptr, ptr %32, align 8, !tbaa !33
+  %38 = load ptr, ptr %32, align 8, !tbaa !34
   %39 = tail call i32 @OPENSSL_sk_num(ptr noundef %38) #4
   %.not3941.i = icmp sgt i32 %39, 0
   br i1 %.not3941.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %26, %53
   %.03242.i = phi i32 [ %54, %53 ], [ 0, %26 ]
-  %40 = load ptr, ptr %32, align 8, !tbaa !33
+  %40 = load ptr, ptr %32, align 8, !tbaa !34
   %41 = tail call ptr @OPENSSL_sk_value(ptr noundef %40, i32 noundef %.03242.i) #4
   %.not38.i = icmp eq i32 %.03242.i, 0
   br i1 %.not38.i, label %44, label %42
@@ -1107,14 +1107,14 @@ define internal fastcc void @print_qualifiers(ptr noundef %0, ptr noundef %1, i3
 
 53:                                               ; preds = %51, %46
   %54 = add nuw nsw i32 %.03242.i, 1
-  %55 = load ptr, ptr %32, align 8, !tbaa !33
+  %55 = load ptr, ptr %32, align 8, !tbaa !34
   %56 = tail call i32 @OPENSSL_sk_num(ptr noundef %55) #4
   %.not39.i = icmp slt i32 %54, %56
-  br i1 %.not39.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !49
+  br i1 %.not39.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %53, %26
   %57 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !21
+  %58 = load ptr, ptr %57, align 8, !tbaa !22
   %.not37.i = icmp eq ptr %58, null
   br i1 %.not37.i, label %.critedge.thread.i, label %59
 
@@ -1124,20 +1124,20 @@ define internal fastcc void @print_qualifiers(ptr noundef %0, ptr noundef %1, i3
 
 .critedge.thread.i:                               ; preds = %59, %._crit_edge.i, %21
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !21
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
   %.not40.i = icmp eq ptr %62, null
   br i1 %.not40.i, label %print_notice.exit, label %63
 
 63:                                               ; preds = %.critedge.thread.i
-  %64 = load i32, ptr %62, align 8, !tbaa !47
+  %64 = load i32, ptr %62, align 8, !tbaa !48
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !48
+  %66 = load ptr, ptr %65, align 8, !tbaa !49
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.49, i32 noundef range(i32 -2147483644, -2147483648) %6, ptr noundef nonnull @.str.6, i32 noundef %64, ptr noundef %66) #4
   br label %print_notice.exit
 
 68:                                               ; preds = %10
   %69 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %6, ptr noundef nonnull @.str.6) #4
-  %70 = load ptr, ptr %11, align 8, !tbaa !19
+  %70 = load ptr, ptr %11, align 8, !tbaa !20
   %71 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %70) #4
   br label %print_notice.exit
 
@@ -1145,7 +1145,7 @@ print_notice.exit:                                ; preds = %48, %63, %.critedge
   %72 = add nuw nsw i32 %.020, 1
   %73 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %7, label %._crit_edge, !llvm.loop !50
+  br i1 %74, label %7, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %print_notice.exit, %3
   ret void
@@ -1250,43 +1250,44 @@ attributes #5 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 _ZTS23stack_st_POLICYQUALINFO", !6, i64 0}
 !10 = !{!4, !9, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !15, i64 16}
-!14 = !{!"", !15, i64 0, !15, i64 8, !15, i64 16}
-!15 = !{!"p1 omnipotent char", !6, i64 0}
-!16 = !{!14, !15, i64 8}
-!17 = !{!7, !7, i64 0}
-!18 = !{!14, !15, i64 0}
-!19 = !{!20, !5, i64 0}
-!20 = !{!"POLICYQUALINFO_st", !5, i64 0, !7, i64 8}
-!21 = !{!22, !24, i64 8}
-!22 = !{!"USERNOTICE_st", !23, i64 0, !24, i64 8}
-!23 = !{!"p1 _ZTS12NOTICEREF_st", !6, i64 0}
-!24 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!25 = !{!22, !23, i64 0}
-!26 = !{!27, !24, i64 0}
-!27 = !{!"NOTICEREF_st", !24, i64 0, !28, i64 8}
-!28 = !{!"p1 _ZTS21stack_st_ASN1_INTEGER", !6, i64 0}
-!29 = !{!30, !31, i64 4}
-!30 = !{!"asn1_string_st", !31, i64 0, !31, i64 4, !15, i64 8, !32, i64 16}
-!31 = !{!"int", !7, i64 0}
-!32 = !{!"long", !7, i64 0}
-!33 = !{!27, !28, i64 8}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12}
-!37 = distinct !{!37, !12}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"X509_POLICY_NODE_st", !40, i64 0, !41, i64 8, !31, i64 16}
-!40 = !{!"p1 _ZTS19X509_POLICY_DATA_st", !6, i64 0}
-!41 = !{!"p1 _ZTS19X509_POLICY_NODE_st", !6, i64 0}
-!42 = !{!43, !5, i64 8}
-!43 = !{!"X509_POLICY_DATA_st", !31, i64 0, !5, i64 8, !9, i64 16, !44, i64 24}
-!44 = !{!"p1 _ZTS20stack_st_ASN1_OBJECT", !6, i64 0}
-!45 = !{!43, !31, i64 0}
-!46 = !{!43, !9, i64 16}
-!47 = !{!30, !31, i64 0}
-!48 = !{!30, !15, i64 8}
-!49 = distinct !{!49, !12}
-!50 = distinct !{!50, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !16, i64 16}
+!15 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!15, !16, i64 8}
+!18 = !{!7, !7, i64 0}
+!19 = !{!15, !16, i64 0}
+!20 = !{!21, !5, i64 0}
+!21 = !{!"POLICYQUALINFO_st", !5, i64 0, !7, i64 8}
+!22 = !{!23, !25, i64 8}
+!23 = !{!"USERNOTICE_st", !24, i64 0, !25, i64 8}
+!24 = !{!"p1 _ZTS12NOTICEREF_st", !6, i64 0}
+!25 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!26 = !{!23, !24, i64 0}
+!27 = !{!28, !25, i64 0}
+!28 = !{!"NOTICEREF_st", !25, i64 0, !29, i64 8}
+!29 = !{!"p1 _ZTS21stack_st_ASN1_INTEGER", !6, i64 0}
+!30 = !{!31, !32, i64 4}
+!31 = !{!"asn1_string_st", !32, i64 0, !32, i64 4, !16, i64 8, !33, i64 16}
+!32 = !{!"int", !7, i64 0}
+!33 = !{!"long", !7, i64 0}
+!34 = !{!28, !29, i64 8}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13}
+!38 = distinct !{!38, !12, !13}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"X509_POLICY_NODE_st", !41, i64 0, !42, i64 8, !32, i64 16}
+!41 = !{!"p1 _ZTS19X509_POLICY_DATA_st", !6, i64 0}
+!42 = !{!"p1 _ZTS19X509_POLICY_NODE_st", !6, i64 0}
+!43 = !{!44, !5, i64 8}
+!44 = !{!"X509_POLICY_DATA_st", !32, i64 0, !5, i64 8, !9, i64 16, !45, i64 24}
+!45 = !{!"p1 _ZTS20stack_st_ASN1_OBJECT", !6, i64 0}
+!46 = !{!44, !32, i64 0}
+!47 = !{!44, !9, i64 16}
+!48 = !{!31, !32, i64 0}
+!49 = !{!31, !16, i64 8}
+!50 = distinct !{!50, !12, !13}
+!51 = distinct !{!51, !12, !13}

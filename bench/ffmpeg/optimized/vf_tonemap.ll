@@ -309,7 +309,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %112 = phi i32 [ %.pre69, %._crit_edge.loopexit ], [ %97, %.preheader ]
   %113 = add nuw nsw i32 %.04566, 1
   %114 = icmp slt i32 %113, %112
-  br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !69
+  br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %._crit_edge, %74, %.preheader.lr.ph, %.preheader64, %86, %75
   call void @av_frame_free(ptr noundef nonnull %3) #8
@@ -394,9 +394,9 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 44
-  %45 = load i32, ptr %41, align 8, !tbaa !71
-  %46 = load i32, ptr %44, align 4, !tbaa !71
-  %47 = load i32, ptr %43, align 8, !tbaa !71
+  %45 = load i32, ptr %41, align 8, !tbaa !72
+  %46 = load i32, ptr %44, align 4, !tbaa !72
+  %47 = load i32, ptr %43, align 8, !tbaa !72
   %48 = sext i32 %45 to i64
   %49 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !61
@@ -477,12 +477,12 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %gep32.us = getelementptr i8, ptr %invariant.gep31.us, i64 %98
   %gep34.us = getelementptr i8, ptr %invariant.gep33.us, i64 %99
   %gep36.us = getelementptr i8, ptr %invariant.gep35.us, i64 %100
-  %101 = load float, ptr %gep.us, align 4, !tbaa !72
-  store float %101, ptr %gep32.us, align 4, !tbaa !72
-  %102 = load float, ptr %gep28.us, align 4, !tbaa !72
-  store float %102, ptr %gep34.us, align 4, !tbaa !72
-  %103 = load float, ptr %gep30.us, align 4, !tbaa !72
-  store float %103, ptr %gep36.us, align 4, !tbaa !72
+  %101 = load float, ptr %gep.us, align 4, !tbaa !73
+  store float %101, ptr %gep32.us, align 4, !tbaa !73
+  %102 = load float, ptr %gep28.us, align 4, !tbaa !73
+  store float %102, ptr %gep34.us, align 4, !tbaa !73
+  %103 = load float, ptr %gep30.us, align 4, !tbaa !73
+  store float %103, ptr %gep36.us, align 4, !tbaa !73
   br i1 %79, label %104, label %144
 
 104:                                              ; preds = %97
@@ -494,7 +494,7 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %107 = sitofp i32 %.sroa.0.0.extract.trunc.i.i.us to double
   %108 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.us to double
   %109 = fdiv nsz double %107, %108
-  %110 = load float, ptr %gep.us, align 4, !tbaa !72
+  %110 = load float, ptr %gep.us, align 4, !tbaa !73
   %111 = fpext nsz float %110 to double
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %113 = load i64, ptr %112, align 4
@@ -504,7 +504,7 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %114 = sitofp i32 %.sroa.0.0.extract.trunc.i152.i.us to double
   %115 = sitofp i32 %.sroa.2.0.extract.trunc.i154.i.us to double
   %116 = fdiv nsz double %114, %115
-  %117 = load float, ptr %gep28.us, align 4, !tbaa !72
+  %117 = load float, ptr %gep28.us, align 4, !tbaa !73
   %118 = fpext nsz float %117 to double
   %119 = fmul nsz double %116, %118
   %120 = tail call nsz double @llvm.fmuladd.f64(double %109, double %111, double %119)
@@ -530,19 +530,19 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %137 = fsub nsz float 1.000000e+00, %136
   %138 = fmul nsz float %128, %136
   %139 = tail call nsz float @llvm.fmuladd.f32(float %110, float %137, float %138)
-  store float %139, ptr %gep32.us, align 4, !tbaa !72
-  %140 = load float, ptr %gep28.us, align 4, !tbaa !72
+  store float %139, ptr %gep32.us, align 4, !tbaa !73
+  %140 = load float, ptr %gep28.us, align 4, !tbaa !73
   %141 = tail call nsz float @llvm.fmuladd.f32(float %140, float %137, float %138)
-  store float %141, ptr %gep34.us, align 4, !tbaa !72
-  %142 = load float, ptr %gep30.us, align 4, !tbaa !72
+  store float %141, ptr %gep34.us, align 4, !tbaa !73
+  %142 = load float, ptr %gep30.us, align 4, !tbaa !73
   %143 = tail call nsz float @llvm.fmuladd.f32(float %142, float %137, float %138)
-  store float %143, ptr %gep36.us, align 4, !tbaa !72
+  store float %143, ptr %gep36.us, align 4, !tbaa !73
   br label %144
 
 144:                                              ; preds = %104, %97
   %145 = phi float [ %143, %104 ], [ %103, %97 ]
-  %146 = load float, ptr %gep32.us, align 4, !tbaa !72
-  %147 = load float, ptr %gep34.us, align 4, !tbaa !72
+  %146 = load float, ptr %gep32.us, align 4, !tbaa !73
+  %147 = load float, ptr %gep34.us, align 4, !tbaa !73
   %148 = fcmp nsz ogt float %146, %147
   %..i.us = select nsz i1 %148, float %146, float %147
   %149 = fcmp nsz ogt float %..i.us, %145
@@ -680,21 +680,21 @@ tonemap.exit.us:                                  ; preds = %208, %204, %198, %1
   %.0.i.us = phi nsz float [ %157, %156 ], [ %203, %198 ], [ %197, %195 ], [ %..i.i.us, %175 ], [ %174, %167 ], [ %166, %158 ], [ %237, %208 ], [ %157, %204 ]
   %238 = fdiv nsz float %.0.i.us, %157
   %239 = fmul nsz float %146, %238
-  store float %239, ptr %gep32.us, align 4, !tbaa !72
-  %240 = load float, ptr %gep34.us, align 4, !tbaa !72
+  store float %239, ptr %gep32.us, align 4, !tbaa !73
+  %240 = load float, ptr %gep34.us, align 4, !tbaa !73
   %241 = fmul nsz float %238, %240
-  store float %241, ptr %gep34.us, align 4, !tbaa !72
-  %242 = load float, ptr %gep36.us, align 4, !tbaa !72
+  store float %241, ptr %gep34.us, align 4, !tbaa !73
+  %242 = load float, ptr %gep36.us, align 4, !tbaa !73
   %243 = fmul nsz float %238, %242
-  store float %243, ptr %gep36.us, align 4, !tbaa !72
+  store float %243, ptr %gep36.us, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %97, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %97, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %tonemap.exit.us
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond51.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -806,13 +806,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !64 = !{!65, !15, i64 4}
 !65 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
 !66 = !{!8, !8, i64 0}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68, !70}
-!70 = !{!"llvm.loop.unswitch.partial.disable"}
-!71 = !{!65, !15, i64 0}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"float", !8, i64 0}
-!74 = distinct !{!74, !68}
-!75 = distinct !{!75, !68, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69, !71}
+!71 = !{!"llvm.loop.unswitch.partial.disable"}
+!72 = !{!65, !15, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"float", !8, i64 0}
+!75 = distinct !{!75, !68, !69}
+!76 = distinct !{!76, !68, !69, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}

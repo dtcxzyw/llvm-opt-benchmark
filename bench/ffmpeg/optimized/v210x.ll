@@ -255,7 +255,7 @@ select.unfold.backedge:                           ; preds = %132, %114
   %.0101.be = phi ptr [ %142, %132 ], [ %117, %114 ]
   %.096.be = phi ptr [ %147, %132 ], [ %128, %114 ]
   %.095.be = phi ptr [ %148, %132 ], [ %.3, %114 ]
-  br label %select.unfold
+  br label %select.unfold, !llvm.loop !37
 
 151:                                              ; preds = %57, %95, %132
   store i32 1, ptr %2, align 4, !tbaa !34
@@ -321,3 +321,5 @@ attributes #4 = { nounwind }
 !34 = !{!10, !10, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"short", !8, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}

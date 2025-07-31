@@ -128,7 +128,7 @@ define void @Abc_FrameEnd(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %1, %5
   %.026 = phi ptr [ %.0, %5 ], [ %.024, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not23 = icmp eq ptr %3, null
   br i1 %.not23, label %5, label %4
 
@@ -140,7 +140,7 @@ define void @Abc_FrameEnd(ptr noundef %0) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %.026, i64 24
   %.0 = load ptr, ptr %6, align 8, !tbaa !3
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %5, %1
   tail call void @Abc_End(ptr noundef %0) #3
@@ -216,7 +216,8 @@ attributes #3 = { nounwind }
 !9 = !{!"Abc_FrameInitializer_t_", !5, i64 0, !5, i64 8, !4, i64 16, !4, i64 24}
 !10 = !{!9, !4, i64 24}
 !11 = !{!9, !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!9, !5, i64 8}
-!15 = distinct !{!15, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!9, !5, i64 8}
+!16 = distinct !{!16, !13, !14}

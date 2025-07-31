@@ -1949,7 +1949,7 @@ for.body.i.i.i.i.i.i312:                          ; preds = %for.body.i.i.i.i.i.
   %__first.addr.06.i.i.i.i.i.i314.add = add nuw nsw i64 %__first.addr.06.i.i.i.i.i.i314.idx, 32
   %incdec.ptr1.i.i.i.i.i.i316 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i313, i64 32
   %cmp.not.i.i.i.i.i.i317 = icmp eq i64 %__first.addr.06.i.i.i.i.i.i314.add, 2080
-  br i1 %cmp.not.i.i.i.i.i.i317, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit, label %for.body.i.i.i.i.i.i312, !llvm.loop !7
+  br i1 %cmp.not.i.i.i.i.i.i317, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit, label %for.body.i.i.i.i.i.i312, !llvm.loop !8
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit: ; preds = %for.body.i.i.i.i.i.i312
   store ptr %incdec.ptr1.i.i.i.i.i.i316, ptr getelementptr inbounds nuw (i8, ptr @_ZN4nodeL13snapshot_dataE, i64 320), align 8
@@ -5867,7 +5867,7 @@ _ZSt10_ConstructIN4node8builtins13CodeCacheInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.
   %__first.addr.06.i.i.i.i.i.i2047.add = add nuw nsw i64 %__first.addr.06.i.i.i.i.i.i2047.idx, 64
   %incdec.ptr1.i.i.i.i.i.i2049 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i2046, i64 64
   %cmp.not.i.i.i.i.i.i2050 = icmp eq i64 %__first.addr.06.i.i.i.i.i.i2047.add, 20480
-  br i1 %cmp.not.i.i.i.i.i.i2050, label %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_.exit, label %for.body.i.i.i.i.i.i2045, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i2050, label %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_.exit, label %for.body.i.i.i.i.i.i2045, !llvm.loop !9
 
 _ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_.exit: ; preds = %_ZSt10_ConstructIN4node8builtins13CodeCacheInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %add.ptr.i.i2042 = getelementptr inbounds nuw i8, ptr %ref.tmp501, i64 20480
@@ -5953,7 +5953,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 _ZN4node8builtins13CodeCacheInfoD2Ev.exit:        ; preds = %arraydestroy.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp501
-  br i1 %arraydestroy.done, label %arraydestroy.done1785, label %arraydestroy.body
+  br i1 %arraydestroy.done, label %arraydestroy.done1785, label %arraydestroy.body, !llvm.loop !10
 
 arraydestroy.done1785:                            ; preds = %_ZN4node8builtins13CodeCacheInfoD2Ev.exit
   %add.ptr.i.i432 = getelementptr inbounds nuw i8, ptr %ref.tmp455, i64 384
@@ -6284,7 +6284,7 @@ arraydestroy.body1787:                            ; preds = %arraydestroy.body17
   %arraydestroy.element1789 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1788, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1789) #9
   %arraydestroy.done1790 = icmp eq ptr %arraydestroy.element1789, %ref.tmp455
-  br i1 %arraydestroy.done1790, label %arraydestroy.done1791, label %arraydestroy.body1787
+  br i1 %arraydestroy.done1790, label %arraydestroy.done1791, label %arraydestroy.body1787, !llvm.loop !11
 
 arraydestroy.done1791:                            ; preds = %arraydestroy.body1787
   %add.ptr.i.i396 = getelementptr inbounds nuw i8, ptr %ref.tmp319, i64 1248
@@ -6303,7 +6303,7 @@ arraydestroy.body1793:                            ; preds = %arraydestroy.body17
   %arraydestroy.element1795 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1794, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1795) #9
   %arraydestroy.done1796 = icmp eq ptr %arraydestroy.element1795, %ref.tmp319
-  br i1 %arraydestroy.done1796, label %arraydestroy.done1797, label %arraydestroy.body1793
+  br i1 %arraydestroy.done1796, label %arraydestroy.done1797, label %arraydestroy.body1793, !llvm.loop !12
 
 arraydestroy.done1797:                            ; preds = %arraydestroy.body1793
   %add.ptr.i.i309 = getelementptr inbounds nuw i8, ptr %ref.tmp183, i64 2080
@@ -6340,7 +6340,7 @@ arraydestroy.body1799:                            ; preds = %arraydestroy.body17
   %arraydestroy.element1801 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1800, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element1801) #9
   %arraydestroy.done1802 = icmp eq ptr %arraydestroy.element1801, %ref.tmp183
-  br i1 %arraydestroy.done1802, label %arraydestroy.done1803, label %arraydestroy.body1799
+  br i1 %arraydestroy.done1802, label %arraydestroy.done1803, label %arraydestroy.body1799, !llvm.loop !13
 
 arraydestroy.done1803:                            ; preds = %arraydestroy.body1799
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 1680
@@ -6416,7 +6416,7 @@ arraydestroy.body1805:                            ; preds = %arraydestroy.body18
   %arraydestroy.element1807 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1806, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1807) #9
   %arraydestroy.done1808 = icmp eq ptr %arraydestroy.element1807, %ref.tmp6
-  br i1 %arraydestroy.done1808, label %arraydestroy.done1809, label %arraydestroy.body1805
+  br i1 %arraydestroy.done1808, label %arraydestroy.done1809, label %arraydestroy.body1805, !llvm.loop !14
 
 arraydestroy.done1809:                            ; preds = %arraydestroy.body1805
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp175) #9
@@ -6565,7 +6565,13 @@ attributes #10 = { builtin nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

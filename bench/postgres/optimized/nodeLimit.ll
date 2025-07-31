@@ -212,7 +212,7 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %64 = add i64 %63, 1
   store i64 %64, ptr %32, align 8
   %65 = icmp sgt i64 %64, %62
-  br i1 %65, label %66, label %36
+  br i1 %65, label %66, label %36, !llvm.loop !7
 
 66:                                               ; preds = %61
   store i32 3, ptr %14, align 4
@@ -837,3 +837,5 @@ attributes #7 = { cold nounwind }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

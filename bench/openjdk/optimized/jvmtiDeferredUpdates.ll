@@ -194,7 +194,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaT
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
   %indvars.iv.next11.i = add nsw i64 %indvars.iv10.i, 1
-  br i1 %27, label %20, label %_ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit, !llvm.loop !8
+  br i1 %27, label %20, label %_ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit, !llvm.loop !9
 
 _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; preds = %20, %16
   %.lcssa.i = phi i32 [ %17, %16 ], [ %25, %20 ]
@@ -208,7 +208,7 @@ _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; pre
   %.1 = phi i32 [ %.0, %_ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit ], [ %.06.i, %8 ]
   %30 = load i32, ptr %6, align 4
   %31 = icmp slt i32 %.1, %30
-  br i1 %31, label %8, label %32, !llvm.loop !9
+  br i1 %31, label %8, label %32, !llvm.loop !10
 
 32:                                               ; preds = %29
   %33 = load i32, ptr %4, align 8
@@ -321,7 +321,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferre
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -371,8 +371,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

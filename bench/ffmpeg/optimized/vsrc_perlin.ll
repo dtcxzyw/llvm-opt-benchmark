@@ -198,7 +198,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %61 = getelementptr inbounds i8, ptr %.04451, i64 %60
   %62 = add nuw nsw i32 %.04252, 1
   %63 = icmp slt i32 %62, %57
-  br i1 %63, label %.lr.ph54.split, label %._crit_edge55, !llvm.loop !56
+  br i1 %63, label %.lr.ph54.split, label %._crit_edge55, !llvm.loop !57
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54, %10
   %64 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef nonnull %9) #6
@@ -217,11 +217,11 @@ define internal noundef i32 @config_props(ptr noundef captures(none) initializes
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !58
+  store i32 %6, ptr %7, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %9, ptr %10, align 4, !tbaa !59
+  store i32 %9, ptr %10, align 4, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8
@@ -320,9 +320,10 @@ attributes #6 = { nounwind }
 !51 = !{!47, !25, i64 408}
 !52 = !{!11, !11, i64 0}
 !53 = !{!8, !8, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55, !57}
-!57 = !{!"llvm.loop.unswitch.partial.disable"}
-!58 = !{!37, !15, i64 40}
-!59 = !{!37, !15, i64 44}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = distinct !{!57, !55, !56, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = !{!37, !15, i64 40}
+!60 = !{!37, !15, i64 44}

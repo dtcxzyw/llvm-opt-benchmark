@@ -746,7 +746,7 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   store double %139, ptr %137, align 8, !tbaa !69
   %140 = add nsw i64 %.0152181.i, %87
   %141 = icmp slt i64 %140, %92
-  br i1 %141, label %.lr.ph.split.i, label %._crit_edge.i
+  br i1 %141, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %136, %.lr.ph.split.us.i, %91
   %142 = load ptr, ptr %42, align 8, !tbaa !27
@@ -842,18 +842,18 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   store double %195, ptr %197, align 8, !tbaa !69
   %198 = add nuw nsw i64 %.0151183.i, 1
   %.not177.not.i = icmp slt i64 %.0151183.i, %189
-  br i1 %.not177.not.i, label %.lr.ph185.i, label %._crit_edge186.i
+  br i1 %.not177.not.i, label %.lr.ph185.i, label %._crit_edge186.i, !llvm.loop !74
 
 ._crit_edge186.i:                                 ; preds = %.lr.ph185.i, %181
   %199 = add nsw i64 %.1153187.i, %87
   %200 = icmp slt i64 %199, %187
-  br i1 %200, label %.lr.ph188.i, label %._crit_edge189.i
+  br i1 %200, label %.lr.ph188.i, label %._crit_edge189.i, !llvm.loop !75
 
 ._crit_edge189.i:                                 ; preds = %._crit_edge186.i, %.preheader.i
   %201 = phi i64 [ %147, %.preheader.i ], [ %187, %._crit_edge186.i ]
   %202 = add nuw i64 %.0150191.i, 1
   %exitcond.not.i = icmp eq i64 %.0150191.i, %..i
-  br i1 %exitcond.not.i, label %.loopexit, label %91
+  br i1 %exitcond.not.i, label %.loopexit, label %91, !llvm.loop !76
 
 CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35, %41
   %.0148.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %144, %._crit_edge.i ]
@@ -1196,5 +1196,10 @@ attributes #10 = { nounwind allocsize(0) }
 !67 = !{!4, !11, i64 264}
 !68 = !{!4, !9, i64 320}
 !69 = !{!9, !9, i64 0}
-!70 = distinct !{!70, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!70 = distinct !{!70, !71, !72}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !71}
+!74 = distinct !{!74, !71}
+!75 = distinct !{!75, !71}
+!76 = distinct !{!76, !71}

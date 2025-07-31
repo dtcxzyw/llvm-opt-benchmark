@@ -330,7 +330,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %44 = tail call i32 @llvm.fshl.i32(i32 %.0234262, i32 %.0234262, i32 30)
   %45 = add nuw nsw i64 %.0250258, 1
   %exitcond.not = icmp eq i64 %45, 20
-  br i1 %exitcond.not, label %.preheader257, label %12, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader257, label %12, !llvm.loop !7
 
 .preheader257:                                    ; preds = %33, %.preheader257
   %.1269 = phi i32 [ %70, %.preheader257 ], [ %43, %33 ]
@@ -368,7 +368,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %71 = tail call i32 @llvm.fshl.i32(i32 %.1235268, i32 %.1235268, i32 30)
   %72 = add nuw nsw i64 %.1251264, 1
   %exitcond289.not = icmp eq i64 %72, 40
-  br i1 %exitcond289.not, label %.preheader256, label %.preheader257, !llvm.loop !7
+  br i1 %exitcond289.not, label %.preheader256, label %.preheader257, !llvm.loop !8
 
 .preheader256:                                    ; preds = %.preheader257, %.preheader256
   %.2275 = phi i32 [ %102, %.preheader256 ], [ %70, %.preheader257 ]
@@ -413,7 +413,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %103 = tail call i32 @llvm.fshl.i32(i32 %.2236274, i32 %.2236274, i32 30)
   %104 = add nuw nsw i64 %.2252270, 1
   %exitcond290.not = icmp eq i64 %104, 60
-  br i1 %exitcond290.not, label %.preheader, label %.preheader256, !llvm.loop !8
+  br i1 %exitcond290.not, label %.preheader, label %.preheader256, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader256, %.preheader
   %.3281 = phi i32 [ %132, %.preheader ], [ %102, %.preheader256 ]
@@ -456,7 +456,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
   %133 = tail call i32 @llvm.fshl.i32(i32 %.3237280, i32 %.3237280, i32 30)
   %134 = add nuw nsw i64 %.3253276, 1
   %exitcond291.not = icmp eq i64 %134, 80
-  br i1 %exitcond291.not, label %135, label %.preheader, !llvm.loop !9
+  br i1 %exitcond291.not, label %135, label %.preheader, !llvm.loop !10
 
 135:                                              ; preds = %.preheader
   %136 = add i32 %132, %3
@@ -774,9 +774,10 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

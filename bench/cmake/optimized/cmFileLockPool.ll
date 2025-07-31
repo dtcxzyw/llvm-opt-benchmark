@@ -61,7 +61,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Destroy
 
 8:                                                ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -70,9 +70,9 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Destroy
 
 _ZN14cmFileLockPool9ScopePoolD2Ev.exit:           ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !14
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %.not4.i.i.i.i = icmp eq ptr %15, %17
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -102,7 +102,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZS
 
 23:                                               ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !13
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
   %28 = sub i64 %26, %27
@@ -112,10 +112,10 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZS
 _ZSt8_DestroyIN14cmFileLockPool9ScopePoolEEvPT_.exit.i.i.i.i: ; preds = %23, %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i1 = icmp eq ptr %29, %17
-  br i1 %.not.i.i.i.i1, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i1, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN14cmFileLockPool9ScopePoolEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %14, align 8, !tbaa !14
+  %.pr.i = load ptr, ptr %14, align 8, !tbaa !15
   br label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZN14cmFileLockPool9ScopePoolD2Ev.exit
@@ -125,7 +125,7 @@ _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i: ; preds = 
 
 31:                                               ; preds = %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !19
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -133,9 +133,9 @@ _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i: ; preds = 
   br label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i, %31
-  %37 = load ptr, ptr %0, align 8, !tbaa !14
+  %37 = load ptr, ptr %0, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  %39 = load ptr, ptr %38, align 8, !tbaa !18
   %.not4.i.i.i.i2 = icmp eq ptr %37, %39
   br i1 %.not4.i.i.i.i2, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i17, label %.lr.ph.i.i.i.i3
 
@@ -165,7 +165,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i11: ; preds = %_
 
 45:                                               ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i11
   %46 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i4, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !13
+  %47 = load ptr, ptr %46, align 8, !tbaa !14
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %44 to i64
   %50 = sub i64 %48, %49
@@ -175,10 +175,10 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i11: ; preds = %_
 _ZSt8_DestroyIN14cmFileLockPool9ScopePoolEEvPT_.exit.i.i.i.i13: ; preds = %45, %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i.i.i11
   %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i4, i64 24
   %.not.i.i.i.i14 = icmp eq ptr %51, %39
-  br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i15, label %.lr.ph.i.i.i.i3, !llvm.loop !18
+  br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i15, label %.lr.ph.i.i.i.i3, !llvm.loop !19
 
 _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i15: ; preds = %_ZSt8_DestroyIN14cmFileLockPool9ScopePoolEEvPT_.exit.i.i.i.i13
-  %.pr.i16 = load ptr, ptr %0, align 8, !tbaa !14
+  %.pr.i16 = load ptr, ptr %0, align 8, !tbaa !15
   br label %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i17
 
 _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i17: ; preds = %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i15, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EED2Ev.exit
@@ -188,7 +188,7 @@ _ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i17: ; preds 
 
 53:                                               ; preds = %_ZSt8_DestroyIPN14cmFileLockPool9ScopePoolES1_EvT_S3_RSaIT0_E.exit.i17
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !19
+  %55 = load ptr, ptr %54, align 8, !tbaa !20
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %52 to i64
   %58 = sub i64 %56, %57
@@ -202,17 +202,17 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EED2Ev.exit19: ; preds = %_ZSt8_D
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14cmFileLockPool17PushFunctionScopeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %7 = load ptr, ptr %2, align 8, !tbaa !17
+  %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %8, ptr %2, align 8, !tbaa !17
+  store ptr %8, ptr %2, align 8, !tbaa !18
   br label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
 9:                                                ; preds = %1
@@ -226,9 +226,9 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12emplace_backIJEEERS1_DpOT_.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14cmFileLockPool16PopFunctionScopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
-  store ptr %4, ptr %2, align 8, !tbaa !17
+  store ptr %4, ptr %2, align 8, !tbaa !18
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %3, i64 -16
   %7 = load ptr, ptr %6, align 8, !tbaa !10
@@ -253,7 +253,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_D
 
 10:                                               ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %3, i64 -8
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -267,17 +267,17 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE8pop_backEv.exit: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14cmFileLockPool13PushFileScopeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %7 = load ptr, ptr %2, align 8, !tbaa !17
+  %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %8, ptr %2, align 8, !tbaa !17
+  store ptr %8, ptr %2, align 8, !tbaa !18
   br label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
 9:                                                ; preds = %1
@@ -292,9 +292,9 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12emplace_backIJEEERS1_DpOT_.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14cmFileLockPool12PopFileScopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
-  store ptr %4, ptr %2, align 8, !tbaa !17
+  store ptr %4, ptr %2, align 8, !tbaa !18
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %3, i64 -16
   %7 = load ptr, ptr %6, align 8, !tbaa !10
@@ -319,7 +319,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_D
 
 10:                                               ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %3, i64 -8
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -332,16 +332,16 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE8pop_backEv.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN14cmFileLockPool17LockFunctionScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   %.not44.i = icmp eq ptr %4, %6
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
   %.not.i = icmp eq ptr %8, %6
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %3, %7
   %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
@@ -350,16 +350,16 @@ define dso_local i64 @_ZN14cmFileLockPool17LockFunctionScopeERKNSt7__cxx1112basi
 
 ._crit_edge.i:                                    ; preds = %7, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not4246.i = icmp eq ptr %11, %13
   br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
 
 14:                                               ; preds = %.lr.ph49.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
   %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i, !llvm.loop !23
 
 .lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
   %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
@@ -376,8 +376,8 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %29
 
 20:                                               ; preds = %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %21 = load ptr, ptr %0, align 8, !tbaa !20
-  %22 = load ptr, ptr %5, align 8, !tbaa !20
+  %21 = load ptr, ptr %0, align 8, !tbaa !21
+  %22 = load ptr, ptr %5, align 8, !tbaa !21
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %24, label %26
 
@@ -397,16 +397,16 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %.not44 = icmp eq ptr %3, %5
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.032.045, i64 24
   %.not = icmp eq ptr %7, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %2, %6
   %.sroa.032.045 = phi ptr [ %7, %6 ], [ %3, %2 ]
@@ -415,16 +415,16 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt
 
 ._crit_edge:                                      ; preds = %6, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %.not4246 = icmp eq ptr %10, %12
   br i1 %.not4246, label %._crit_edge50, label %.lr.ph49
 
 13:                                               ; preds = %.lr.ph49
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 24
   %.not42 = icmp eq ptr %14, %12
-  br i1 %.not42, label %._crit_edge50, label %.lr.ph49
+  br i1 %.not42, label %._crit_edge50, label %.lr.ph49, !llvm.loop !23
 
 .lr.ph49:                                         ; preds = %._crit_edge, %13
   %.sroa.028.047 = phi ptr [ %14, %13 ], [ %10, %._crit_edge ]
@@ -467,7 +467,7 @@ define dso_local i64 @_ZN14cmFileLockPool9ScopePool4LockERKNSt7__cxx1112basic_st
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !13
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %12, %14
   br i1 %.not.i.i, label %18, label %15
 
@@ -508,16 +508,16 @@ _ZNSt6vectorI10cmFileLockSaIS0_EE9push_backEOS0_.exit: ; preds = %15, %18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN14cmFileLockPool13LockFileScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   %.not44.i = icmp eq ptr %4, %6
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
   %.not.i = icmp eq ptr %8, %6
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %3, %7
   %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
@@ -526,16 +526,16 @@ define dso_local i64 @_ZN14cmFileLockPool13LockFileScopeERKNSt7__cxx1112basic_st
 
 ._crit_edge.i:                                    ; preds = %7, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not4246.i = icmp eq ptr %11, %13
   br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
 
 14:                                               ; preds = %.lr.ph49.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
   %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i, !llvm.loop !23
 
 .lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
   %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
@@ -552,7 +552,7 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %24
 
 20:                                               ; preds = %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %21 = load ptr, ptr %12, align 8, !tbaa !20
+  %21 = load ptr, ptr %12, align 8, !tbaa !21
   %22 = getelementptr inbounds i8, ptr %21, i64 -24
   %23 = tail call i64 @_ZN14cmFileLockPool9ScopePool4LockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2)
   br label %24
@@ -564,16 +564,16 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN14cmFileLockPool16LockProcessScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   %.not44.i = icmp eq ptr %4, %6
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
   %.not.i = icmp eq ptr %8, %6
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %3, %7
   %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
@@ -582,16 +582,16 @@ define dso_local i64 @_ZN14cmFileLockPool16LockProcessScopeERKNSt7__cxx1112basic
 
 ._crit_edge.i:                                    ; preds = %7, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not4246.i = icmp eq ptr %11, %13
   br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
 
 14:                                               ; preds = %.lr.ph49.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
   %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i, !llvm.loop !23
 
 .lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
   %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
@@ -619,22 +619,22 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN14cmFileLockPool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.cmFileLockResult, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   %.not49 = icmp eq ptr %4, %6
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 24
   %.not = icmp eq ptr %8, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %2, %7
   %.sroa.034.050 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = load ptr, ptr %.sroa.034.050, align 8, !tbaa !21
+  %9 = load ptr, ptr %.sroa.034.050, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   %.not17.i = icmp eq ptr %9, %11
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -646,7 +646,7 @@ define dso_local i64 @_ZN14cmFileLockPool7ReleaseERKNSt7__cxx1112basic_stringIcS
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i, i64 40
   %.not.i = icmp eq ptr %14, %11
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 15:                                               ; preds = %.lr.ph.i
   %16 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i)
@@ -664,22 +664,22 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ._crit_edge:                                      ; preds = %7, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !20
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !20
+  %22 = load ptr, ptr %21, align 8, !tbaa !21
   %.not4451 = icmp eq ptr %20, %22
   br i1 %.not4451, label %._crit_edge55, label %.lr.ph54
 
 23:                                               ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.030.052, i64 24
   %.not44 = icmp eq ptr %24, %22
-  br i1 %.not44, label %._crit_edge55, label %.lr.ph54
+  br i1 %.not44, label %._crit_edge55, label %.lr.ph54, !llvm.loop !27
 
 .lr.ph54:                                         ; preds = %._crit_edge, %23
   %.sroa.030.052 = phi ptr [ %24, %23 ], [ %20, %._crit_edge ]
-  %25 = load ptr, ptr %.sroa.030.052, align 8, !tbaa !21
+  %25 = load ptr, ptr %.sroa.030.052, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.030.052, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %27 = load ptr, ptr %26, align 8, !tbaa !25
   %.not17.i16 = icmp eq ptr %25, %27
   br i1 %.not17.i16, label %._crit_edge.i20, label %.lr.ph.i17
 
@@ -691,7 +691,7 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
 29:                                               ; preds = %.lr.ph.i17
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i18, i64 40
   %.not.i19 = icmp eq ptr %30, %27
-  br i1 %.not.i19, label %._crit_edge.i20, label %.lr.ph.i17
+  br i1 %.not.i19, label %._crit_edge.i20, label %.lr.ph.i17, !llvm.loop !26
 
 31:                                               ; preds = %.lr.ph.i17
   %32 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i18)
@@ -709,9 +709,9 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ._crit_edge55:                                    ; preds = %23, %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !21
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   %.not17.i23 = icmp eq ptr %36, %38
   br i1 %.not17.i23, label %._crit_edge.i27, label %.lr.ph.i24
 
@@ -723,7 +723,7 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
 40:                                               ; preds = %.lr.ph.i24
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i25, i64 40
   %.not.i26 = icmp eq ptr %41, %38
-  br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i24
+  br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i24, !llvm.loop !26
 
 42:                                               ; preds = %.lr.ph.i24
   %43 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i25)
@@ -748,9 +748,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %.not17 = icmp eq ptr %3, %5
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -762,7 +762,7 @@ define dso_local i64 @_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 40
   %.not = icmp eq ptr %8, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 9:                                                ; preds = %.lr.ph
   %10 = tail call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018)
@@ -784,9 +784,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
@@ -820,7 +820,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLo
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 160
   %24 = add nsw i64 %.043.i.i.i.i.i, -1
   %25 = icmp sgt i64 %.043.i.i.i.i.i, 1
-  br i1 %25, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !22
+  br i1 %25, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !28
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %22
   %.pre.i.i.i.i.i = ptrtoint ptr %23 to i64
@@ -898,7 +898,7 @@ _ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
 
 7:                                                ; preds = %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -919,8 +919,8 @@ define dso_local void @_ZN14cmFileLockPool9ScopePoolC2EOS0_(ptr noundef nonnull 
   store ptr %6, ptr %4, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
-  store ptr %9, ptr %7, align 8, !tbaa !13
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  store ptr %9, ptr %7, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }
@@ -935,15 +935,15 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN14cmFileLoc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = load ptr, ptr %1, align 8, !tbaa !4
   store ptr %9, ptr %0, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   store ptr %11, ptr %5, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !13
-  store ptr %13, ptr %7, align 8, !tbaa !13
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
+  store ptr %13, ptr %7, align 8, !tbaa !14
   %.not4.i.i.i.i.i.i = icmp eq ptr %4, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIP10cmFileLockS0_EvT_S2_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -989,8 +989,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
-  %5 = load ptr, ptr %0, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %5 = load ptr, ptr %0, align 8, !tbaa !15
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -1022,23 +1022,23 @@ _ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %19, %_ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %21 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !26, !noalias !23
-  store ptr %21, ptr %.012.i.i.i, align 8, !tbaa !4, !alias.scope !23, !noalias !26
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %21 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !4, !alias.scope !32, !noalias !29
+  store ptr %21, ptr %.012.i.i.i, align 8, !tbaa !4, !alias.scope !29, !noalias !32
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !10, !alias.scope !26, !noalias !23
-  store ptr %24, ptr %22, align 8, !tbaa !10, !alias.scope !23, !noalias !26
+  %24 = load ptr, ptr %23, align 8, !tbaa !10, !alias.scope !32, !noalias !29
+  store ptr %24, ptr %22, align 8, !tbaa !10, !alias.scope !29, !noalias !32
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !13, !alias.scope !26, !noalias !23
-  store ptr %27, ptr %25, align 8, !tbaa !13, !alias.scope !23, !noalias !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !26, !noalias !23
+  %27 = load ptr, ptr %26, align 8, !tbaa !14, !alias.scope !32, !noalias !29
+  store ptr %27, ptr %25, align 8, !tbaa !14, !alias.scope !29, !noalias !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !32, !noalias !29
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %28, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !34
 
 _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %19, %_ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit ], [ %29, %.lr.ph.i.i.i ]
@@ -1049,23 +1049,23 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 .lr.ph.i.i.i26:                                   ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i26
   %.012.i.i.i27 = phi ptr [ %39, %.lr.ph.i.i.i26 ], [ %30, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i28 = phi ptr [ %38, %.lr.ph.i.i.i26 ], [ %1, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %31 = load ptr, ptr %.0911.i.i.i28, align 8, !tbaa !4, !alias.scope !32, !noalias !29
-  store ptr %31, ptr %.012.i.i.i27, align 8, !tbaa !4, !alias.scope !29, !noalias !32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  %31 = load ptr, ptr %.0911.i.i.i28, align 8, !tbaa !4, !alias.scope !38, !noalias !35
+  store ptr %31, ptr %.012.i.i.i27, align 8, !tbaa !4, !alias.scope !35, !noalias !38
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !10, !alias.scope !32, !noalias !29
-  store ptr %34, ptr %32, align 8, !tbaa !10, !alias.scope !29, !noalias !32
+  %34 = load ptr, ptr %33, align 8, !tbaa !10, !alias.scope !38, !noalias !35
+  store ptr %34, ptr %32, align 8, !tbaa !10, !alias.scope !35, !noalias !38
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !13, !alias.scope !32, !noalias !29
-  store ptr %37, ptr %35, align 8, !tbaa !13, !alias.scope !29, !noalias !32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !32, !noalias !29
+  %37 = load ptr, ptr %36, align 8, !tbaa !14, !alias.scope !38, !noalias !35
+  store ptr %37, ptr %35, align 8, !tbaa !14, !alias.scope !35, !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !38, !noalias !35
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i28, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i27, i64 24
   %.not.i.i.i29 = icmp eq ptr %38, %4
-  br i1 %.not.i.i.i29, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %.lr.ph.i.i.i26, !llvm.loop !28
+  br i1 %.not.i.i.i29, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %.lr.ph.i.i.i26, !llvm.loop !34
 
 _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31: ; preds = %.lr.ph.i.i.i26, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i30 = phi ptr [ %30, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %39, %.lr.ph.i.i.i26 ]
@@ -1074,17 +1074,17 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
   br i1 %.not.i32, label %_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit, label %41
 
 41:                                               ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31
-  %42 = load ptr, ptr %40, align 8, !tbaa !19
+  %42 = load ptr, ptr %40, align 8, !tbaa !20
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %43, %7
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %44) #15
   br label %_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %41
-  store ptr %19, ptr %0, align 8, !tbaa !14
-  store ptr %.0.lcssa.i.i.i30, ptr %3, align 8, !tbaa !17
+  store ptr %19, ptr %0, align 8, !tbaa !15
+  store ptr %.0.lcssa.i.i.i30, ptr %3, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw %"class.cmFileLockPool::ScopePool", ptr %19, i64 %15
-  store ptr %45, ptr %40, align 8, !tbaa !19
+  store ptr %45, ptr %40, align 8, !tbaa !20
   ret void
 }
 
@@ -1135,7 +1135,7 @@ _ZNKSt6vectorI10cmFileLockSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorI10cmFileLockSaIS0_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorI10cmFileLockSaIS0_EE12_M_check_lenEmPKc.exit ], [ %23, %.lr.ph.i.i.i ]
@@ -1151,7 +1151,7 @@ _ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %.not.i.i.i20 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !34
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !40
 
 _ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %24, %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %26, %.lr.ph.i.i.i17 ]
@@ -1160,7 +1160,7 @@ _ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22: ; preds = 
   br i1 %.not.i23, label %_ZNSt12_Vector_baseI10cmFileLockSaIS0_EE13_M_deallocateEPS0_m.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22
-  %29 = load ptr, ptr %27, align 8, !tbaa !13
+  %29 = load ptr, ptr %27, align 8, !tbaa !14
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %31) #15
@@ -1170,7 +1170,7 @@ _ZNSt12_Vector_baseI10cmFileLockSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw %class.cmFileLock, ptr %20, i64 %16
-  store ptr %32, ptr %27, align 8, !tbaa !13
+  store ptr %32, ptr %27, align 8, !tbaa !14
   ret void
 }
 
@@ -1224,27 +1224,33 @@ attributes #17 = { builtin allocsize(0) }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!5, !6, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!5, !6, i64 16}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"_ZTSNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
-!16 = !{!"p1 _ZTSN14cmFileLockPool9ScopePoolE", !7, i64 0}
-!17 = !{!15, !16, i64 8}
-!18 = distinct !{!18, !12}
-!19 = !{!15, !16, i64 16}
-!20 = !{!16, !16, i64 0}
-!21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !12}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_"}
-!26 = !{!27}
-!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!28 = distinct !{!28, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!5, !6, i64 16}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!17 = !{!"p1 _ZTSN14cmFileLockPool9ScopePoolE", !7, i64 0}
+!18 = !{!16, !17, i64 8}
+!19 = distinct !{!19, !12, !13}
+!20 = !{!16, !17, i64 16}
+!21 = !{!17, !17, i64 0}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !12, !13}
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !31 = distinct !{!31, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_"}
 !32 = !{!33}
 !33 = distinct !{!33, !31, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!34 = distinct !{!34, !12}
+!34 = distinct !{!34, !12, !13}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!37 = distinct !{!37, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_"}
+!38 = !{!39}
+!39 = distinct !{!39, !37, !"_ZSt19__relocate_object_aIN14cmFileLockPool9ScopePoolES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!40 = distinct !{!40, !12, !13}

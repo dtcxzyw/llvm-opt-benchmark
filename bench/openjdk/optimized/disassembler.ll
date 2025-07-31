@@ -429,7 +429,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %44, %.preheader ], [ %52, %.lr.ph ]
@@ -572,7 +572,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
   %119 = load i32, ptr %79, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next.i, %120
-  br i1 %121, label %114, label %.preheader16.loopexit.i, !llvm.loop !9
+  br i1 %121, label %114, label %.preheader16.loopexit.i, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %122 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -588,7 +588,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
   %125 = load i32, ptr %82, align 4
   %126 = trunc nuw i64 %indvars.iv.next22.i to i32
   %127 = icmp sgt i32 %125, %126
-  br i1 %127, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !10
+  br i1 %127, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !11
 
 128:                                              ; preds = %.preheader.i
   %129 = load i64, ptr %93, align 8
@@ -615,7 +615,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   store ptr %80, ptr %136, align 8
   %137 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 500, ptr noundef nonnull %66)
   %.not42 = icmp eq ptr %137, null
-  br i1 %.not42, label %.thread, label %.lr.ph55, !llvm.loop !11
+  br i1 %.not42, label %.thread, label %.lr.ph55, !llvm.loop !12
 
 .thread:                                          ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit, %69
   %138 = call i32 @fclose(ptr noundef nonnull %66)
@@ -671,7 +671,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %.031.in = getelementptr inbounds nuw i8, ptr %.03161, i64 16
   %.031 = load ptr, ptr %.031.in, align 8
   %.not39 = icmp eq ptr %.031, null
-  br i1 %.not39, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit.thread, label %35, !llvm.loop !12
+  br i1 %.not39, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit.thread, label %35, !llvm.loop !13
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit.thread: ; preds = %28, %158, %31, %_ZN10decode_env9src_tableEv.exit, %68
   ret void
@@ -786,7 +786,7 @@ define hidden void @_ZN10decode_env15process_optionsEP12outputStream(ptr noundef
   store i8 44, ptr %25, align 1
   %27 = tail call noundef ptr @strpbrk(ptr noundef nonnull %26, ptr noundef nonnull @.str.75) #13
   %.not15.i = icmp eq ptr %27, null
-  br i1 %.not15.i, label %_ZN10decode_env15collect_optionsEPKc.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not15.i, label %_ZN10decode_env15collect_optionsEPKc.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN10decode_env15collect_optionsEPKc.exit:        ; preds = %.lr.ph.i, %2, %8, %11, %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2616,11 +2616,12 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

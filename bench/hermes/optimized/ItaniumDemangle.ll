@@ -1074,7 +1074,7 @@ land.rhs33:                                       ; preds = %for.cond31
   %conv34 = sext i8 %3 to i32
   %isdigittmp25 = add nsw i32 %conv34, -48
   %isdigit26 = icmp ult i32 %isdigittmp25, 10
-  br i1 %isdigit26, label %for.cond31, label %if.end47, !llvm.loop !6
+  br i1 %isdigit26, label %for.cond31, label %if.end47, !llvm.loop !7
 
 if.end47:                                         ; preds = %land.rhs33, %for.cond31, %for.inc, %land.lhs.true, %if.then6, %if.else, %if.then2, %if.else24, %entry
   %first.addr.0 = phi ptr [ %add.ptr7, %if.then6 ], [ %first, %if.else ], [ %first, %if.then2 ], [ %first, %if.else24 ], [ %first, %entry ], [ %spec.select, %land.lhs.true ], [ %first, %for.inc ], [ %first, %land.rhs33 ], [ %last, %for.cond31 ]
@@ -1268,7 +1268,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i
   %13 = phi ptr [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %12, %while.body.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !8
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %if.end21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
@@ -1472,7 +1472,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i61, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %12, %incdec.ptr.i61
-  br i1 %cmp9.not.i, label %if.end31, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %if.end31, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit: ; preds = %land.rhs.i
   %17 = icmp eq ptr %14, %this.val1012.i
@@ -1586,7 +1586,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i
   %3 = phi ptr [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %2, %while.body.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !8
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
@@ -1715,7 +1715,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i
   %4 = phi ptr [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %3, %while.body.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !8
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %delete.notnull
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
@@ -1852,7 +1852,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %while.body.i.i.i
   %7 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %6, %while.body.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit, label %while.body.i.i.i, !llvm.loop !8
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit: ; preds = %if.end.i.i.i, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
@@ -1892,7 +1892,7 @@ while.body:                                       ; preds = %while.body.backedge
 while.body.backedge:                              ; preds = %while.body, %while.body, %while.body, %sw.bb5
   %.sink = phi i64 [ 24, %sw.bb5 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
   %Base = getelementptr inbounds nuw i8, ptr %Name.0, i64 %.sink
-  br label %while.body, !llvm.loop !9
+  br label %while.body, !llvm.loop !10
 
 sw.bb5:                                           ; preds = %while.body, %while.body
   br label %while.body.backedge
@@ -2069,7 +2069,7 @@ while.body:                                       ; preds = %while.body.backedge
 while.body.backedge:                              ; preds = %while.body, %while.body
   %Name.1.be.in = getelementptr inbounds nuw i8, ptr %Name.1, i64 16
   %Name.1.be = load ptr, ptr %Name.1.be.in, align 8
-  br label %while.body, !llvm.loop !10
+  br label %while.body, !llvm.loop !11
 
 if.end.i:                                         ; preds = %while.body
   %add.i.i = add i64 %4, 3
@@ -2178,7 +2178,7 @@ _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12Outp
   store i64 %add.i51, ptr %CurrentPosition.i.i, align 8
   %Entity = getelementptr inbounds nuw i8, ptr %Name.1, i64 24
   %23 = load ptr, ptr %Entity, align 8
-  br label %KeepGoingLocalFunction
+  br label %KeepGoingLocalFunction, !llvm.loop !12
 
 sw.epilog:                                        ; preds = %while.body, %if.then.i18, %sw.bb18, %_ZN12OutputStream4growEm.exit.i
   %24 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -2389,7 +2389,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %_ZNK4l
   %FirstElement.1.i = phi i1 [ %FirstElement.015.i, %if.then6.i ], [ false, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit.i ]
   %inc.i = add nuw i64 %Idx.014.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, %retval.sroa.2.0.copyload.i
-  br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream.exit, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream.exit, label %for.body.i, !llvm.loop !13
 
 _ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream.exit: ; preds = %for.inc.i, %_ZN12OutputStreampLEc.exit
   %16 = phi i64 [ 1, %_ZN12OutputStreampLEc.exit ], [ %15, %for.inc.i ]
@@ -2563,7 +2563,7 @@ for.inc:                                          ; preds = %_ZNK4llvh16itanium_
   %inc = add i64 %Idx.014, 1
   %14 = load i64, ptr %NumElements, align 8
   %cmp.not = icmp eq i64 %inc, %14
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -2739,7 +2739,7 @@ sw.epilog:                                        ; preds = %while.body, %while.
   %Child = getelementptr inbounds nuw i8, ptr %N.010, i64 %.sink
   %N.0 = load ptr, ptr %Child, align 8
   %tobool.not = icmp eq ptr %N.0, null
-  br i1 %tobool.not, label %return.loopexit, label %while.body, !llvm.loop !12
+  br i1 %tobool.not, label %return.loopexit, label %while.body, !llvm.loop !14
 
 return.loopexit:                                  ; preds = %sw.epilog, %while.body
   br label %return
@@ -3103,7 +3103,7 @@ if.end41.i:                                       ; preds = %_ZN4llvh16itanium_d
   %incdec.ptr.i120 = getelementptr inbounds nuw i8, ptr %this.val1499101.i, i64 1
   store ptr %incdec.ptr.i120, ptr %this, align 16
   %cmp.not.i48.not.i = icmp eq ptr %this.val23.i, %incdec.ptr.i120
-  br i1 %cmp.not.i48.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, !llvm.loop !13
+  br i1 %cmp.not.i48.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, !llvm.loop !15
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, %if.end41.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit58.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit30.i, %if.end113.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i116
   %22 = phi ptr [ %this.val22.i, %if.end113.i ], [ %this.val22.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i116 ], [ %this.val22.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit30.i ], [ %this.val1499101.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i ], [ %incdec.ptr.i120, %if.end41.i ], [ %this.val1499101.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit58.i ]
@@ -3244,7 +3244,7 @@ if.end.i27:                                       ; preds = %for.body.i
   store ptr %41, ptr %Ref.i, align 8
   %inc.i = add i64 %I.018.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i26
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %if.end.i27
   %.pre20.i = load ptr, ptr %ForwardTemplateRefs.i, align 8
@@ -3370,7 +3370,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call20, ptr %53, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre208 = load ptr, ptr %0, align 8
-  br label %while.cond, !llvm.loop !15
+  br label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %land.lhs.true.i
   %incdec.ptr.i41 = getelementptr inbounds nuw i8, ptr %47, i64 1
@@ -3508,7 +3508,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i9
     i8 69, label %do.end
     i8 46, label %do.end
     i8 95, label %do.end
-  ], !llvm.loop !16
+  ], !llvm.loop !18
 
 do.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i99, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i99, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i99, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit97
   %72 = load ptr, ptr %Names43, align 16
@@ -3575,7 +3575,7 @@ while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %this.val1012, i64 1
   store ptr %incdec.ptr, ptr %this, align 16
   %cmp9.not = icmp eq ptr %1, %incdec.ptr
-  br i1 %cmp9.not, label %return, label %land.rhs, !llvm.loop !8
+  br i1 %cmp9.not, label %return, label %land.rhs, !llvm.loop !9
 
 return:                                           ; preds = %while.body, %land.rhs, %if.end, %lor.lhs.false
   %retval.sroa.0.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end ], [ %0, %land.rhs ], [ %0, %while.body ]
@@ -4951,10 +4951,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %163 = add i64 %mul.i.i, -48
   %add.i.i = add i64 %163, %162
   %cmp.not.i20.not.i.i = icmp eq ptr %this.val50, %incdec.ptr.i.i.i
-  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.i
-  br label %lor.lhs.false.i, !llvm.loop !17
+  br label %lor.lhs.false.i, !llvm.loop !19
 
 lor.lhs.false.i:                                  ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
@@ -5634,7 +5634,7 @@ while.cond.i.outer:                               ; preds = %while.cond.i.outer.
   %24 = load ptr, ptr %Last.i, align 8
   %this.promoted = load ptr, ptr %this, align 16
   %cmp.i = icmp eq ptr %SoFar.i.1.ph, null
-  br i1 %cmp.i, label %while.cond.i.outer.split.us, label %while.cond.i, !llvm.loop !18
+  br i1 %cmp.i, label %while.cond.i.outer.split.us, label %while.cond.i, !llvm.loop !20
 
 while.cond.i.outer.split.us:                      ; preds = %while.cond.i.outer
   %cmp.not.i587.us = icmp eq ptr %this.promoted, %24
@@ -6201,7 +6201,7 @@ if.end92.i:                                       ; preds = %if.then6.i322, %if.
 
 while.cond.i.outer.backedge:                      ; preds = %if.end92.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit299, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit526, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit467, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit379, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit158, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit119
   %SoFar.i.1.ph.be = phi ptr [ %SoFar.i.2, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit119 ], [ %call117.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit158 ], [ %SoFar.i.9, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit379 ], [ %add.ptr13.i.i.i476, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit467 ], [ %SoFar.i.11, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit526 ], [ %SoFar.i.7, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit299 ], [ %SoFar.i.7, %if.end92.i ]
-  br label %while.cond.i.outer, !llvm.loop !18
+  br label %while.cond.i.outer, !llvm.loop !20
 
 if.then94.i:                                      ; preds = %if.end92.i
   %80 = load ptr, ptr %Last.i271, align 16
@@ -7257,7 +7257,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call10, ptr %15, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre55 = load ptr, ptr %0, align 8
-  br label %while.cond, !llvm.loop !19
+  br label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %land.lhs.true.i16
   %incdec.ptr.i20 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -7779,7 +7779,7 @@ land.rhs.i:                                       ; preds = %while.body.i
   %conv11.i = sext i8 %7 to i32
   %isdigittmp1.i = add nsw i32 %conv11.i, -48
   %isdigit2.i = icmp ult i32 %isdigittmp1.i, 10
-  br i1 %isdigit2.i, label %while.body.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, !llvm.loop !8
+  br i1 %isdigit2.i, label %while.body.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, !llvm.loop !9
 
 while.body.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
   %this.val1012.i.idx149 = phi i64 [ %this.val1012.i.add, %land.rhs.i ], [ %this.promoted.i.idx, %land.rhs.i.preheader ]
@@ -7787,7 +7787,7 @@ while.body.i:                                     ; preds = %land.rhs.i.preheade
   %incdec.ptr.i1.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %this.val1012.i.add
   store ptr %incdec.ptr.i1.ptr, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %1, %incdec.ptr.i1.ptr
-  br i1 %cmp9.not.i, label %lor.rhs, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %lor.rhs, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %land.rhs.i.preheader
   %.lcssa = phi ptr [ %4, %land.rhs.i.preheader ], [ %incdec.ptr.i1.ptr, %land.rhs.i ]
@@ -7854,7 +7854,7 @@ land.rhs.i33:                                     ; preds = %while.body.i38
   %conv11.i35 = sext i8 %15 to i32
   %isdigittmp1.i36 = add nsw i32 %conv11.i35, -48
   %isdigit2.i37 = icmp ult i32 %isdigittmp1.i36, 10
-  br i1 %isdigit2.i37, label %while.body.i38, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit45, !llvm.loop !8
+  br i1 %isdigit2.i37, label %while.body.i38, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit45, !llvm.loop !9
 
 while.body.i38:                                   ; preds = %land.rhs.i33.preheader, %land.rhs.i33
   %this.val1012.i34.idx136 = phi i64 [ %this.val1012.i34.add, %land.rhs.i33 ], [ %this.promoted.i23.idx, %land.rhs.i33.preheader ]
@@ -7862,7 +7862,7 @@ while.body.i38:                                   ; preds = %land.rhs.i33.prehea
   %incdec.ptr.i39.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %this.val1012.i34.add
   store ptr %incdec.ptr.i39.ptr, ptr %this, align 16
   %cmp9.not.i40 = icmp eq ptr %1, %incdec.ptr.i39.ptr
-  br i1 %cmp9.not.i40, label %lor.lhs.false, label %land.rhs.i33, !llvm.loop !8
+  br i1 %cmp9.not.i40, label %lor.lhs.false, label %land.rhs.i33, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit45: ; preds = %land.rhs.i33, %land.rhs.i33.preheader
   %.lcssa130 = phi ptr [ %12, %land.rhs.i33.preheader ], [ %incdec.ptr.i39.ptr, %land.rhs.i33 ]
@@ -7924,7 +7924,7 @@ land.rhs.i69:                                     ; preds = %while.body.i74
   %conv11.i71 = sext i8 %22 to i32
   %isdigittmp1.i72 = add nsw i32 %conv11.i71, -48
   %isdigit2.i73 = icmp ult i32 %isdigittmp1.i72, 10
-  br i1 %isdigit2.i73, label %while.body.i74, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit81, !llvm.loop !8
+  br i1 %isdigit2.i73, label %while.body.i74, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit81, !llvm.loop !9
 
 while.body.i74:                                   ; preds = %land.rhs.i69.preheader, %land.rhs.i69
   %this.val1012.i70.idx142 = phi i64 [ %this.val1012.i70.add, %land.rhs.i69 ], [ %this.promoted.i59.idx, %land.rhs.i69.preheader ]
@@ -7932,7 +7932,7 @@ while.body.i74:                                   ; preds = %land.rhs.i69.prehea
   %incdec.ptr.i75.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %this.val1012.i70.add
   store ptr %incdec.ptr.i75.ptr, ptr %this, align 16
   %cmp9.not.i76 = icmp eq ptr %1, %incdec.ptr.i75.ptr
-  br i1 %cmp9.not.i76, label %lor.rhs15, label %land.rhs.i69, !llvm.loop !8
+  br i1 %cmp9.not.i76, label %lor.rhs15, label %land.rhs.i69, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit81: ; preds = %land.rhs.i69, %land.rhs.i69.preheader
   %.lcssa127 = phi ptr [ %19, %land.rhs.i69.preheader ], [ %incdec.ptr.i75.ptr, %land.rhs.i69 ]
@@ -8839,7 +8839,7 @@ if.end41.i:                                       ; preds = %_ZN4llvh16itanium_d
   %incdec.ptr.i139 = getelementptr inbounds nuw i8, ptr %this.val1499101.i, i64 1
   store ptr %incdec.ptr.i139, ptr %this, align 16
   %cmp.not.i48.not.i = icmp eq ptr %1, %incdec.ptr.i139
-  br i1 %cmp.not.i48.not.i, label %if.end51, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, !llvm.loop !13
+  br i1 %cmp.not.i48.not.i, label %if.end51, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, !llvm.loop !15
 
 if.end51:                                         ; preds = %if.end41.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit72.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i
   %36 = phi ptr [ %this.val1499101.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit72.i ], [ %incdec.ptr.i139, %if.end41.i ], [ %this.val1499101.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i ]
@@ -9223,7 +9223,7 @@ if.then.i75.us:                                   ; preds = %cleanup.us
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us: ; preds = %if.then.i75.us, %cleanup.us
-  br i1 %cmp.not.us, label %return, label %while.cond.us, !llvm.loop !20
+  br i1 %cmp.not.us, label %return, label %while.cond.us, !llvm.loop !22
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit105
   %48 = phi ptr [ %1, %while.cond.preheader ], [ %.pre149, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit105 ]
@@ -9322,7 +9322,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call26, ptr %55, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre149 = load ptr, ptr %Last.i, align 8
-  br label %while.cond, !llvm.loop !22
+  br label %while.cond, !llvm.loop !24
 
 while.end:                                        ; preds = %land.lhs.true.i8, %land.lhs.true.i8.us
   %BlockList.i.i.i188 = phi ptr [ %BlockList.i.i.i169, %land.lhs.true.i8.us ], [ %BlockList.i.i.i, %land.lhs.true.i8 ]
@@ -9500,10 +9500,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %9 = add nsw i64 %8, -48
   %add.i = add i64 %9, %mul.i
   %cmp.not.i20.not.i = icmp eq ptr %1, %incdec.ptr.i.i
-  br i1 %cmp.not.i20.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end6_crit_edge, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end6_crit_edge, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end6_crit_edge: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i
-  br label %if.end6, !llvm.loop !17
+  br label %if.end6, !llvm.loop !19
 
 if.end6:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end6_crit_edge
   %cmp.not.i13 = icmp eq ptr %incdec.ptr.i.i, %1
@@ -9884,10 +9884,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %10 = add i64 %mul.i.i, -48
   %add.i.i = add i64 %10, %9
   %cmp.not.i20.not.i.i = icmp eq ptr %2, %incdec.ptr.i.i.i
-  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.i
-  br label %lor.lhs.false.i, !llvm.loop !17
+  br label %lor.lhs.false.i, !llvm.loop !19
 
 lor.lhs.false.i:                                  ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -9962,7 +9962,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Abi
   %21 = load ptr, ptr %this, align 16
   %22 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %21, %22
-  br i1 %cmp.not.i, label %return, label %land.lhs.true.i, !llvm.loop !23
+  br i1 %cmp.not.i, label %return, label %land.lhs.true.i, !llvm.loop !25
 
 return:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSourceNameEv.exit, %land.lhs.true.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit, %lor.lhs.false.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i.i, %while.body, %entry
   %retval.0 = phi ptr [ %N, %entry ], [ null, %while.body ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i.i ], [ null, %lor.lhs.false.i ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit ], [ %N.addr.014, %land.lhs.true.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSourceNameEv.exit ]
@@ -10020,7 +10020,7 @@ while.body.i220:                                  ; preds = %land.rhs.i215
   %incdec.ptr.i221 = getelementptr inbounds nuw i8, ptr %this.val1012.i216, i64 1
   store ptr %incdec.ptr.i221, ptr %this, align 16
   %cmp9.not.i222 = icmp eq ptr %this.val10, %incdec.ptr.i221
-  br i1 %cmp9.not.i222, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit224, label %land.rhs.i215, !llvm.loop !8
+  br i1 %cmp9.not.i222, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit224, label %land.rhs.i215, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit224: ; preds = %land.rhs.i215, %while.body.i220, %if.then.i, %lor.lhs.false.i207
   %4 = phi ptr [ %add.ptr.i240, %lor.lhs.false.i207 ], [ %add.ptr.i240, %if.then.i ], [ %incdec.ptr.i221, %while.body.i220 ], [ %this.val1012.i216, %land.rhs.i215 ]
@@ -10205,7 +10205,7 @@ land.lhs.true.i92:                                ; preds = %_ZN4llvh16itanium_d
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit97: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit126, %land.lhs.true.i92
   %call14.i = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this)
   %cmp.i = icmp eq ptr %call14.i, null
-  br i1 %cmp.i, label %_ZN14SwapAndRestoreIbED2Ev.exit, label %if.end16.i, !llvm.loop !24
+  br i1 %cmp.i, label %_ZN14SwapAndRestoreIbED2Ev.exit, label %if.end16.i, !llvm.loop !26
 
 do.end.i:                                         ; preds = %land.lhs.true.i92
   %incdec.ptr.i96 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -10250,7 +10250,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i83, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %29, %incdec.ptr.i83
-  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %while.body.i, %if.end20.i, %lor.lhs.false.i
   %33 = phi ptr [ %30, %lor.lhs.false.i ], [ %30, %if.end20.i ], [ %incdec.ptr.i83, %while.body.i ], [ %this.val1012.i, %land.rhs.i ]
@@ -10437,7 +10437,7 @@ land.lhs.true.i:                                  ; preds = %_ZN4llvh16itanium_d
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %land.lhs.true.i
   %call15 = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE15parseSourceNameEPNS4_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4864) %this)
   %cmp16 = icmp eq ptr %call15, null
-  br i1 %cmp16, label %return, label %if.end, !llvm.loop !25
+  br i1 %cmp16, label %return, label %if.end, !llvm.loop !27
 
 do.end:                                           ; preds = %land.lhs.true.i
   %incdec.ptr.i46 = getelementptr inbounds nuw i8, ptr %50, i64 1
@@ -11238,7 +11238,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %incdec.ptr.i63 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %incdec.ptr.i63, ptr %Last.i53, align 8
   store ptr %call90, ptr %16, align 8
-  br label %while.cond, !llvm.loop !26
+  br label %while.cond, !llvm.loop !28
 
 while.end:                                        ; preds = %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -11540,7 +11540,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call252, ptr %35, align 8
   %.pre397 = load ptr, ptr %this, align 16
   %.pre398 = load ptr, ptr %Last.i17, align 8
-  br label %while.cond247, !llvm.loop !27
+  br label %while.cond247, !llvm.loop !29
 
 while.end257:                                     ; preds = %land.lhs.true.i106
   %incdec.ptr.i110 = getelementptr inbounds nuw i8, ptr %29, i64 1
@@ -12073,7 +12073,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call573, ptr %61, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre396 = load ptr, ptr %Last.i17, align 8
-  br label %while.cond569, !llvm.loop !28
+  br label %while.cond569, !llvm.loop !30
 
 if.end584:                                        ; preds = %land.lhs.true.i257
   %incdec.ptr.i261 = getelementptr inbounds nuw i8, ptr %55, i64 1
@@ -12218,7 +12218,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %incdec.ptr.i314 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %incdec.ptr.i314, ptr %Last.i297, align 8
   store ptr %call625, ptr %77, align 8
-  br label %while.cond620, !llvm.loop !29
+  br label %while.cond620, !llvm.loop !31
 
 while.end630:                                     ; preds = %land.lhs.true.i304
   %incdec.ptr.i308 = getelementptr inbounds nuw i8, ptr %70, i64 1
@@ -12498,7 +12498,7 @@ if.end.i54:                                       ; preds = %sw.bb81
 for.cond.i:                                       ; preds = %for.body.i
   %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx8.i, 1
   %cmp5.not.i = icmp eq i64 %__begin3.0.add.i, 8
-  br i1 %cmp5.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp5.not.i, label %for.end.i, label %for.body.i, !llvm.loop !32
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end.i54
   %__begin3.0.idx8.i = phi i64 [ 0, %if.end.i54 ], [ %__begin3.0.add.i, %for.cond.i ]
@@ -12588,7 +12588,7 @@ if.end.i63:                                       ; preds = %sw.bb85
 for.cond.i71:                                     ; preds = %for.body.i65
   %__begin3.0.add.i72 = add nuw nsw i64 %__begin3.0.idx8.i66, 1
   %cmp5.not.i73 = icmp eq i64 %__begin3.0.add.i72, 16
-  br i1 %cmp5.not.i73, label %for.end.i74, label %for.body.i65
+  br i1 %cmp5.not.i73, label %for.end.i74, label %for.body.i65, !llvm.loop !33
 
 for.body.i65:                                     ; preds = %for.cond.i71, %if.end.i63
   %__begin3.0.idx8.i66 = phi i64 [ 0, %if.end.i63 ], [ %__begin3.0.add.i72, %for.cond.i71 ]
@@ -12678,7 +12678,7 @@ if.end.i108:                                      ; preds = %sw.bb89
 for.cond.i116:                                    ; preds = %for.body.i110
   %__begin3.0.add.i117 = add nuw nsw i64 %__begin3.0.idx8.i111, 1
   %cmp5.not.i118 = icmp eq i64 %__begin3.0.add.i117, 20
-  br i1 %cmp5.not.i118, label %for.end.i119, label %for.body.i110
+  br i1 %cmp5.not.i118, label %for.end.i119, label %for.body.i110, !llvm.loop !34
 
 for.body.i110:                                    ; preds = %for.cond.i116, %if.end.i108
   %__begin3.0.idx8.i111 = phi i64 [ 0, %if.end.i108 ], [ %__begin3.0.add.i117, %for.cond.i116 ]
@@ -12815,7 +12815,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i214 = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i214, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %35, %incdec.ptr.i214
-  br i1 %cmp9.not.i, label %return, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %return, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.thread: ; preds = %lor.lhs.false.i, %if.end106
   %cmp.not.i186226 = icmp eq ptr %34, %35
@@ -12950,7 +12950,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %1, %incdec.ptr.i
-  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %while.body.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualifiersEv.exit, %lor.lhs.false.i
   %10 = phi ptr [ %7, %lor.lhs.false.i ], [ %7, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualifiersEv.exit ], [ %incdec.ptr.i, %while.body.i ], [ %this.val1012.i, %land.rhs.i ]
@@ -13023,7 +13023,7 @@ land.rhs.i47:                                     ; preds = %while.body.i52
   %conv11.i49 = sext i8 %17 to i32
   %isdigittmp1.i50 = add nsw i32 %conv11.i49, -48
   %isdigit2.i51 = icmp ult i32 %isdigittmp1.i50, 10
-  br i1 %isdigit2.i51, label %while.body.i52, label %land.rhs.i47._ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit58_crit_edge, !llvm.loop !8
+  br i1 %isdigit2.i51, label %while.body.i52, label %land.rhs.i47._ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit58_crit_edge, !llvm.loop !9
 
 while.body.i52:                                   ; preds = %land.rhs.i47.preheader, %land.rhs.i47
   %this.val1012.i48.idx182 = phi i64 [ %this.val1012.i48.add, %land.rhs.i47 ], [ 2, %land.rhs.i47.preheader ]
@@ -13031,7 +13031,7 @@ while.body.i52:                                   ; preds = %land.rhs.i47.prehea
   %incdec.ptr.i53.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %this.val1012.i48.add
   store ptr %incdec.ptr.i53.ptr, ptr %this, align 16
   %exitcond = icmp eq i64 %this.val1012.i48.add, %sub.ptr.sub.i4.i.i
-  br i1 %exitcond, label %if.end14.loopexit, label %land.rhs.i47, !llvm.loop !8
+  br i1 %exitcond, label %if.end14.loopexit, label %land.rhs.i47, !llvm.loop !9
 
 land.rhs.i47._ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit58_crit_edge: ; preds = %land.rhs.i47
   %incdec.ptr.i53.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %this.val1012.i48.add
@@ -13122,7 +13122,7 @@ while.body.i110:                                  ; preds = %land.rhs.i105
   %incdec.ptr.i111 = getelementptr inbounds nuw i8, ptr %this.val1012.i106, i64 1
   store ptr %incdec.ptr.i111, ptr %this, align 16
   %cmp9.not.i112 = icmp eq ptr %1, %incdec.ptr.i111
-  br i1 %cmp9.not.i112, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit116, label %land.rhs.i105, !llvm.loop !8
+  br i1 %cmp9.not.i112, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit116, label %land.rhs.i105, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit116: ; preds = %land.rhs.i105, %while.body.i110, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualifiersEv.exit92, %lor.lhs.false.i97
   %28 = phi ptr [ %25, %lor.lhs.false.i97 ], [ %25, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualifiersEv.exit92 ], [ %incdec.ptr.i111, %while.body.i110 ], [ %this.val1012.i106, %land.rhs.i105 ]
@@ -13872,7 +13872,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call9, ptr %15, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre79 = load ptr, ptr %Last.i3, align 8
-  br label %while.cond, !llvm.loop !30
+  br label %while.cond, !llvm.loop !35
 
 while.end:                                        ; preds = %land.lhs.true.i13
   %incdec.ptr.i17 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -14363,7 +14363,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   store ptr %SoFar.1, ptr %Qualifier.i.i.i, align 8
   %Name.i.i.i29 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -8
   store ptr %retval.0.i15.ph, ptr %Name.i.i.i29, align 8
-  br label %while.cond, !llvm.loop !31
+  br label %while.cond, !llvm.loop !36
 
 while.end:                                        ; preds = %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -14726,7 +14726,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.ex
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit192: ; preds = %do.cond, %land.lhs.true.i187
   %call.i126 = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE15parseSourceNameEPNS4_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4864) %this)
   %cmp.i127 = icmp eq ptr %call.i126, null
-  br i1 %cmp.i127, label %return, label %if.end.i128, !llvm.loop !32
+  br i1 %cmp.i127, label %return, label %if.end.i128, !llvm.loop !37
 
 if.else68:                                        ; preds = %if.end43, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit123
   %call69 = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseUnresolvedTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this)
@@ -15527,7 +15527,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call10, ptr %15, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre192 = load ptr, ptr %Last.i4, align 8
-  br label %while.cond, !llvm.loop !33
+  br label %while.cond, !llvm.loop !38
 
 while.end:                                        ; preds = %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -15646,7 +15646,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call29, ptr %32, align 8
   %.pre193 = load ptr, ptr %this, align 16
   %.pre194 = load ptr, ptr %Last.i4, align 8
-  br label %while.cond25, !llvm.loop !34
+  br label %while.cond25, !llvm.loop !39
 
 while.end34:                                      ; preds = %land.lhs.true.i89
   %incdec.ptr.i93 = getelementptr inbounds nuw i8, ptr %26, i64 1
@@ -16531,7 +16531,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %1, %incdec.ptr.i
-  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %while.body.i
   %5 = phi ptr [ %this.val1012.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
@@ -17157,7 +17157,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 8
-  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !35
+  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body
   %cmp19.i.i = icmp ult ptr %0, %e.017
@@ -17174,7 +17174,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
   %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 2
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !36
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !41
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %num, i8 0, i64 24, i1 false)
@@ -17284,7 +17284,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 16
-  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !37
+  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body
   %cmp19.i.i = icmp ult ptr %0, %e.017
@@ -17301,7 +17301,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
   %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 4
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !36
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !41
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %num, i8 0, i64 32, i1 false)
@@ -17404,7 +17404,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 20
-  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !38
+  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !43
 
 for.end:                                          ; preds = %for.body
   %cmp19.i.i = icmp ult ptr %0, %e.017
@@ -17421,7 +17421,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
   %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 5
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !36
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !41
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %num, i8 0, i64 40, i1 false)
@@ -18564,7 +18564,7 @@ if.then.i47:                                      ; preds = %_ZN12OutputStream4g
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51: ; preds = %_ZN12OutputStream4growEm.exit.i38, %if.then.i47
   %inc = add nuw i32 %I.063, 1
   %exitcond.not = icmp eq i32 %inc, %7
-  br i1 %exitcond.not, label %_ZN14SwapAndRestoreIjED2Ev.exit61, label %if.end.i25, !llvm.loop !39
+  br i1 %exitcond.not, label %_ZN14SwapAndRestoreIjED2Ev.exit61, label %if.end.i25, !llvm.loop !44
 
 _ZN14SwapAndRestoreIjED2Ev.exit61.sink.split:     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %_ZN12OutputStream4growEm.exit.i
   %add.i.sink = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %2, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit ]
@@ -20265,10 +20265,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %7 = add nsw i64 %6, -48
   %add.i = add i64 %7, %mul.i
   %cmp.not.i20.not.i = icmp eq ptr %this.val9.i, %incdec.ptr.i.i
-  br i1 %cmp.not.i20.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end_crit_edge, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end_crit_edge, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end_crit_edge: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i
-  br label %if.end, !llvm.loop !17
+  br label %if.end, !llvm.loop !19
 
 if.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.if.end_crit_edge
   %sub.ptr.lhs.cast.i = ptrtoint ptr %this.val9.i to i64
@@ -25402,7 +25402,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
   %incdec.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !40
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !45
 
 for.end.loopexit.i.i.i.i:                         ; preds = %if.end12.i.i.i.i
   %9 = and i64 %Data_.coerce1, 3
@@ -25514,7 +25514,7 @@ if.end12.i.i.i.i45:                               ; preds = %if.end8.i.i.i.i41
   %incdec.ptr13.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i31, i64 32
   %dec.i.i.i.i47 = add nsw i64 %__trip_count.050.i.i.i.i30, -1
   %cmp.i.i.i.i48 = icmp sgt i64 %__trip_count.050.i.i.i.i30, 1
-  br i1 %cmp.i.i.i.i48, label %for.body.i.i.i.i29, label %for.end.loopexit.i.i.i.i49, !llvm.loop !41
+  br i1 %cmp.i.i.i.i48, label %for.body.i.i.i.i29, label %for.end.loopexit.i.i.i.i49, !llvm.loop !46
 
 for.end.loopexit.i.i.i.i49:                       ; preds = %if.end12.i.i.i.i45
   %25 = and i64 %Data_.coerce1, 3
@@ -25626,7 +25626,7 @@ if.end12.i.i.i.i96:                               ; preds = %if.end8.i.i.i.i92
   %incdec.ptr13.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i82, i64 32
   %dec.i.i.i.i98 = add nsw i64 %__trip_count.050.i.i.i.i81, -1
   %cmp.i.i.i.i99 = icmp sgt i64 %__trip_count.050.i.i.i.i81, 1
-  br i1 %cmp.i.i.i.i99, label %for.body.i.i.i.i80, label %for.end.loopexit.i.i.i.i100, !llvm.loop !42
+  br i1 %cmp.i.i.i.i99, label %for.body.i.i.i.i80, label %for.end.loopexit.i.i.i.i100, !llvm.loop !47
 
 for.end.loopexit.i.i.i.i100:                      ; preds = %if.end12.i.i.i.i96
   %41 = and i64 %Data_.coerce1, 3
@@ -27276,7 +27276,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %call22, ptr %34, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre303 = load ptr, ptr %Last.i.i, align 8
-  br label %while.cond, !llvm.loop !43
+  br label %while.cond, !llvm.loop !48
 
 while.end:                                        ; preds = %land.lhs.true.i70
   %incdec.ptr.i74 = getelementptr inbounds nuw i8, ptr %28, i64 1
@@ -27509,7 +27509,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %while.body48.backedge
 
 while.body48.backedge:                            ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit230, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit161
-  br label %while.body48, !llvm.loop !44
+  br label %while.body48, !llvm.loop !49
 
 while.end69:                                      ; preds = %_ZNK10StringView10startsWithES_.exit.i195, %_ZNK10StringView10startsWithES_.exit.i175, %land.lhs.true.i148
   %.sink = phi i64 [ 1, %land.lhs.true.i148 ], [ 2, %_ZNK10StringView10startsWithES_.exit.i175 ], [ 2, %_ZNK10StringView10startsWithES_.exit.i195 ]
@@ -27632,10 +27632,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %8 = add i64 %mul.i.i, -48
   %add.i.i = add i64 %8, %7
   %cmp.not.i20.not.i.i = icmp eq ptr %1, %incdec.ptr.i.i.i
-  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.i
-  br label %lor.lhs.false.i, !llvm.loop !17
+  br label %lor.lhs.false.i, !llvm.loop !19
 
 lor.lhs.false.i:                                  ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -27690,10 +27690,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit
   %14 = add i64 %mul.i.i28, -48
   %add.i.i30 = add i64 %14, %13
   %cmp.not.i20.not.i.i31 = icmp eq ptr %add.ptr.i, %incdec.ptr.i.i.i29
-  br i1 %cmp.not.i20.not.i.i31, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i46, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i32, !llvm.loop !17
+  br i1 %cmp.not.i20.not.i.i31, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i46, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i32, !llvm.loop !19
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.lor.lhs.false_crit_edge.i46: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE7consumeEv.exit.i.i25
-  br label %lor.lhs.false.i35, !llvm.loop !17
+  br label %lor.lhs.false.i35, !llvm.loop !19
 
 lor.lhs.false.i35.loopexit:                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit23thread-pre-split.i.i32
   %.pre = ptrtoint ptr %incdec.ptr.i.i.i29 to i64
@@ -28054,7 +28054,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %this.val1012.i, i64 1
   store ptr %incdec.ptr.i, ptr %this, align 16
   %cmp9.not.i = icmp eq ptr %1, %incdec.ptr.i
-  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp9.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, label %land.rhs.i, !llvm.loop !9
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %while.body.i
   %4 = phi ptr [ %this.val1012.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body.i ]
@@ -31425,7 +31425,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %K.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %6 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %6, 12
-  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !45
+  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !50
 
 _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; preds = %if.end.i, %if.end
   %retval.sroa.0.0.lcssa.i = phi i32 [ %1, %if.end ], [ %.sroa.speculated.i, %if.end.i ]
@@ -31628,7 +31628,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %K.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %4 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %4, 12
-  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !45
+  br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !50
 
 _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; preds = %if.end.i, %if.end
   %retval.sroa.5.0.lcssa.i = phi ptr [ %retval.sroa.5.06.i, %if.end ], [ %retval.sroa.5.0.i, %if.end.i ]
@@ -31845,45 +31845,50 @@ attributes #26 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}

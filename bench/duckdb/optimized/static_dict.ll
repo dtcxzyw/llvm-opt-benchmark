@@ -58,14 +58,14 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli36BrotliFindAllStaticDicti
 
 30:                                               ; preds = %27
   %31 = and i32 %29, 31
-  %32 = load ptr, ptr %0, align 8, !tbaa !25
+  %32 = load ptr, ptr %0, align 8, !tbaa !26
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !26
+  %35 = load i8, ptr %34, align 1, !tbaa !27
   %36 = zext nneg i8 %35 to i32
   %37 = shl nuw i32 1, %36
   %38 = and i32 %37, 134217726
-  %39 = load i32, ptr %26, align 8, !tbaa !27
+  %39 = load i32, ptr %26, align 8, !tbaa !28
   %40 = shl i32 %39, 5
   %41 = mul i32 %40, %38
   %42 = add i32 %41, %29
@@ -78,7 +78,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli36BrotliFindAllStaticDicti
 46:                                               ; preds = %27, %30
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 38
-  br i1 %exitcond45.not, label %47, label %27, !llvm.loop !28
+  br i1 %exitcond45.not, label %47, label %27, !llvm.loop !29
 
 47:                                               ; preds = %46
   %48 = or i32 %25, %7
@@ -96,13 +96,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDictionaryMatchesForPKN13duckdb_brotli23BrotliEncoderDictionaryEPKhmmPj(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %.0.copyload.i868 = load i32, ptr %1, align 1
   %8 = mul i32 %.0.copyload.i868, 506832829
   %9 = lshr i32 %8, 17
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !30
+  %12 = load i16, ptr %11, align 2, !tbaa !31
   %.not = icmp eq i16 %12, 0
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %invariant.gep1225 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -115,8 +115,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
 .lr.ph1308:                                       ; preds = %5
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %16 = load ptr, ptr %0, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %16 = load ptr, ptr %0, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -128,15 +128,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   %.07501305 = phi i64 [ %13, %.lr.ph1308 ], [ %22, %.critedge ]
   %22 = add i64 %.07501305, 1
   %23 = getelementptr inbounds nuw %"struct.duckdb_brotli::DictWord", ptr %15, i64 %.07501305
-  %.sroa.0579.0.copyload = load i8, ptr %23, align 2, !tbaa !26
+  %.sroa.0579.0.copyload = load i8, ptr %23, align 2, !tbaa !27
   %.sroa.7581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %.sroa.7581.0.copyload = load i8, ptr %.sroa.7581.0..sroa_idx, align 1, !tbaa !26
+  %.sroa.7581.0.copyload = load i8, ptr %.sroa.7581.0..sroa_idx, align 1, !tbaa !27
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 2
-  %.sroa.9.0.copyload = load i16, ptr %.sroa.9.0..sroa_idx, align 2, !tbaa !30
+  %.sroa.9.0.copyload = load i16, ptr %.sroa.9.0..sroa_idx, align 2, !tbaa !31
   %24 = and i8 %.sroa.0579.0.copyload, 31
   %25 = zext nneg i8 %24 to i64
   %26 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %27 = load i8, ptr %26, align 1, !tbaa !27
   %28 = zext nneg i8 %27 to i64
   %29 = shl nuw i64 1, %28
   %30 = zext i16 %.sroa.9.0.copyload to i64
@@ -149,7 +149,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = zext i32 %35 to i64
   %37 = mul nuw nsw i64 %30, %25
-  %38 = load ptr, ptr %18, align 8, !tbaa !33
+  %38 = load ptr, ptr %18, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %36
   %41 = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, 32) %25, i64 %3)
@@ -191,14 +191,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   %53 = getelementptr inbounds nuw i8, ptr %.022.i9981200, i64 8
   %54 = add i64 %.027.i9961198, -8
   %55 = icmp ugt i64 %54, 7
-  br i1 %55, label %.lr.ph1201, label %.preheader1139, !llvm.loop !35
+  br i1 %55, label %.lr.ph1201, label %.preheader1139, !llvm.loop !36
 
 .lr.ph1209:                                       ; preds = %.lr.ph1209.preheader, %59
   %.224.i10021208 = phi ptr [ %62, %59 ], [ %.022.i998.lcssa, %.lr.ph1209.preheader ]
   %.126.i10011207 = phi ptr [ %61, %59 ], [ %.025.i997.lcssa, %.lr.ph1209.preheader ]
   %.128.i10001206 = phi i64 [ %60, %59 ], [ %.027.i996.lcssa, %.lr.ph1209.preheader ]
-  %56 = load i8, ptr %.224.i10021208, align 1, !tbaa !26
-  %57 = load i8, ptr %.126.i10011207, align 1, !tbaa !26
+  %56 = load i8, ptr %.224.i10021208, align 1, !tbaa !27
+  %57 = load i8, ptr %.126.i10011207, align 1, !tbaa !27
   %58 = icmp eq i8 %56, %57
   br i1 %58, label %59, label %.critedge.i1004
 
@@ -207,7 +207,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   %61 = getelementptr inbounds nuw i8, ptr %.126.i10011207, i64 1
   %62 = getelementptr inbounds nuw i8, ptr %.224.i10021208, i64 1
   %.not.i1003 = icmp eq i64 %60, 0
-  br i1 %.not.i1003, label %.critedge.i1004, label %.lr.ph1209, !llvm.loop !36
+  br i1 %.not.i1003, label %.critedge.i1004, label %.lr.ph1209, !llvm.loop !37
 
 .critedge.i1004:                                  ; preds = %59, %.lr.ph1209, %.preheader1139
   %.224.i1002.lcssa = phi ptr [ %.022.i998.lcssa, %.preheader1139 ], [ %.224.i10021208, %.lr.ph1209 ], [ %scevgep1481, %59 ]
@@ -253,25 +253,25 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 87:                                               ; preds = %76
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 %75
-  %89 = load i8, ptr %88, align 1, !tbaa !26
+  %89 = load i8, ptr %88, align 1, !tbaa !27
   %90 = icmp eq i8 %89, 105
   br i1 %90, label %91, label %111
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %93 = load i8, ptr %92, align 1, !tbaa !26
+  %93 = load i8, ptr %92, align 1, !tbaa !27
   %94 = icmp eq i8 %93, 110
   br i1 %94, label %95, label %111
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %97 = load i8, ptr %96, align 1, !tbaa !26
+  %97 = load i8, ptr %96, align 1, !tbaa !27
   %98 = icmp eq i8 %97, 103
   br i1 %98, label %99, label %111
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 %85
-  %101 = load i8, ptr %100, align 1, !tbaa !26
+  %101 = load i8, ptr %100, align 1, !tbaa !27
   %102 = icmp eq i8 %101, 32
   br i1 %102, label %103, label %111
 
@@ -299,7 +299,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   br i1 %.not8191213, label %._crit_edge, label %.lr.ph1215
 
 .lr.ph1215:                                       ; preds = %111
-  %117 = load i64, ptr %20, align 8, !tbaa !37
+  %117 = load i64, ptr %20, align 8, !tbaa !38
   br label %118
 
 118:                                              ; preds = %.lr.ph1215, %118
@@ -321,21 +321,21 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   store i32 %132, ptr %130, align 4, !tbaa !22
   %133 = add i64 %.07531214, 1
   %.not819 = icmp ugt i64 %133, %116
-  br i1 %.not819, label %._crit_edge, label %118, !llvm.loop !38
+  br i1 %.not819, label %._crit_edge, label %118, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %118, %111
   %.3.lcssa = phi i32 [ %.2, %111 ], [ 1, %118 ]
   %134 = icmp ult i64 %.2.i1005, %25
-  br i1 %134, label %.critedge, label %135, !llvm.loop !39
+  br i1 %134, label %.critedge, label %135, !llvm.loop !40
 
 135:                                              ; preds = %._crit_edge
   %136 = add nuw nsw i64 %25, 6
   %.not820 = icmp ult i64 %136, %3
-  br i1 %.not820, label %137, label %.critedge, !llvm.loop !39
+  br i1 %.not820, label %137, label %.critedge, !llvm.loop !40
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %139 = load i8, ptr %138, align 1, !tbaa !26
+  %139 = load i8, ptr %138, align 1, !tbaa !27
   switch i8 %139, label %.critedge [
     i8 32, label %140
     i8 34, label %402
@@ -365,7 +365,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %146 = tail call noundef i32 @llvm.umin.i32(i32 %145, i32 %144)
   store i32 %146, ptr %gep1278, align 4, !tbaa !22
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %148 = load i8, ptr %147, align 1, !tbaa !26
+  %148 = load i8, ptr %147, align 1, !tbaa !27
   switch i8 %148, label %.critedge [
     i8 97, label %149
     i8 98, label %200
@@ -379,7 +379,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 149:                                              ; preds = %140
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %151 = load i8, ptr %150, align 1, !tbaa !26
+  %151 = load i8, ptr %150, align 1, !tbaa !27
   switch i8 %151, label %.critedge [
     i8 32, label %152
     i8 115, label %160
@@ -401,7 +401,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 160:                                              ; preds = %149
   %161 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %162 = load i8, ptr %161, align 1, !tbaa !26
+  %162 = load i8, ptr %161, align 1, !tbaa !27
   %163 = icmp eq i8 %162, 32
   br i1 %163, label %164, label %.critedge
 
@@ -419,7 +419,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 172:                                              ; preds = %149
   %173 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %174 = load i8, ptr %173, align 1, !tbaa !26
+  %174 = load i8, ptr %173, align 1, !tbaa !27
   %175 = icmp eq i8 %174, 32
   br i1 %175, label %176, label %.critedge
 
@@ -437,13 +437,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 184:                                              ; preds = %149
   %185 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %186 = load i8, ptr %185, align 1, !tbaa !26
+  %186 = load i8, ptr %185, align 1, !tbaa !27
   %187 = icmp eq i8 %186, 100
   br i1 %187, label %188, label %.critedge
 
 188:                                              ; preds = %184
   %189 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %190 = load i8, ptr %189, align 1, !tbaa !26
+  %190 = load i8, ptr %189, align 1, !tbaa !27
   %191 = icmp eq i8 %190, 32
   br i1 %191, label %192, label %.critedge
 
@@ -461,13 +461,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 200:                                              ; preds = %140
   %201 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %202 = load i8, ptr %201, align 1, !tbaa !26
+  %202 = load i8, ptr %201, align 1, !tbaa !27
   %203 = icmp eq i8 %202, 121
   br i1 %203, label %204, label %.critedge
 
 204:                                              ; preds = %200
   %205 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %206 = load i8, ptr %205, align 1, !tbaa !26
+  %206 = load i8, ptr %205, align 1, !tbaa !27
   %207 = icmp eq i8 %206, 32
   br i1 %207, label %208, label %.critedge
 
@@ -485,7 +485,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 216:                                              ; preds = %140
   %217 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %218 = load i8, ptr %217, align 1, !tbaa !26
+  %218 = load i8, ptr %217, align 1, !tbaa !27
   switch i8 %218, label %.critedge [
     i8 110, label %219
     i8 115, label %231
@@ -493,7 +493,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 219:                                              ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %221 = load i8, ptr %220, align 1, !tbaa !26
+  %221 = load i8, ptr %220, align 1, !tbaa !27
   %222 = icmp eq i8 %221, 32
   br i1 %222, label %223, label %.critedge
 
@@ -511,7 +511,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 231:                                              ; preds = %216
   %232 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %233 = load i8, ptr %232, align 1, !tbaa !26
+  %233 = load i8, ptr %232, align 1, !tbaa !27
   %234 = icmp eq i8 %233, 32
   br i1 %234, label %235, label %.critedge
 
@@ -529,7 +529,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 243:                                              ; preds = %140
   %244 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %245 = load i8, ptr %244, align 1, !tbaa !26
+  %245 = load i8, ptr %244, align 1, !tbaa !27
   switch i8 %245, label %.critedge [
     i8 111, label %246
     i8 114, label %262
@@ -537,13 +537,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %248 = load i8, ptr %247, align 1, !tbaa !26
+  %248 = load i8, ptr %247, align 1, !tbaa !27
   %249 = icmp eq i8 %248, 114
   br i1 %249, label %250, label %.critedge
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %252 = load i8, ptr %251, align 1, !tbaa !26
+  %252 = load i8, ptr %251, align 1, !tbaa !27
   %253 = icmp eq i8 %252, 32
   br i1 %253, label %254, label %.critedge
 
@@ -561,19 +561,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 262:                                              ; preds = %243
   %263 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %264 = load i8, ptr %263, align 1, !tbaa !26
+  %264 = load i8, ptr %263, align 1, !tbaa !27
   %265 = icmp eq i8 %264, 111
   br i1 %265, label %266, label %.critedge
 
 266:                                              ; preds = %262
   %267 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %268 = load i8, ptr %267, align 1, !tbaa !26
+  %268 = load i8, ptr %267, align 1, !tbaa !27
   %269 = icmp eq i8 %268, 109
   br i1 %269, label %270, label %.critedge
 
 270:                                              ; preds = %266
   %271 = getelementptr inbounds nuw i8, ptr %138, i64 5
-  %272 = load i8, ptr %271, align 1, !tbaa !26
+  %272 = load i8, ptr %271, align 1, !tbaa !27
   %273 = icmp eq i8 %272, 32
   br i1 %273, label %274, label %.critedge
 
@@ -591,7 +591,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 283:                                              ; preds = %140
   %284 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %285 = load i8, ptr %284, align 1, !tbaa !26
+  %285 = load i8, ptr %284, align 1, !tbaa !27
   switch i8 %285, label %.critedge [
     i8 102, label %286
     i8 110, label %298
@@ -599,7 +599,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %288 = load i8, ptr %287, align 1, !tbaa !26
+  %288 = load i8, ptr %287, align 1, !tbaa !27
   %289 = icmp eq i8 %288, 32
   br i1 %289, label %290, label %.critedge
 
@@ -617,7 +617,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 298:                                              ; preds = %283
   %299 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %300 = load i8, ptr %299, align 1, !tbaa !26
+  %300 = load i8, ptr %299, align 1, !tbaa !27
   %301 = icmp eq i8 %300, 32
   br i1 %301, label %302, label %.critedge
 
@@ -635,19 +635,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 310:                                              ; preds = %140
   %311 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %312 = load i8, ptr %311, align 1, !tbaa !26
+  %312 = load i8, ptr %311, align 1, !tbaa !27
   %313 = icmp eq i8 %312, 111
   br i1 %313, label %314, label %.critedge
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %316 = load i8, ptr %315, align 1, !tbaa !26
+  %316 = load i8, ptr %315, align 1, !tbaa !27
   %317 = icmp eq i8 %316, 116
   br i1 %317, label %318, label %.critedge
 
 318:                                              ; preds = %314
   %319 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %320 = load i8, ptr %319, align 1, !tbaa !26
+  %320 = load i8, ptr %319, align 1, !tbaa !27
   %321 = icmp eq i8 %320, 32
   br i1 %321, label %322, label %.critedge
 
@@ -665,7 +665,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 330:                                              ; preds = %140
   %331 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %332 = load i8, ptr %331, align 1, !tbaa !26
+  %332 = load i8, ptr %331, align 1, !tbaa !27
   switch i8 %332, label %.critedge [
     i8 104, label %333
     i8 111, label %365
@@ -673,7 +673,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %335 = load i8, ptr %334, align 1, !tbaa !26
+  %335 = load i8, ptr %334, align 1, !tbaa !27
   switch i8 %335, label %.critedge [
     i8 101, label %336
     i8 97, label %348
@@ -681,7 +681,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %338 = load i8, ptr %337, align 1, !tbaa !26
+  %338 = load i8, ptr %337, align 1, !tbaa !27
   %339 = icmp eq i8 %338, 32
   br i1 %339, label %340, label %.critedge
 
@@ -699,13 +699,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 348:                                              ; preds = %333
   %349 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %350 = load i8, ptr %349, align 1, !tbaa !26
+  %350 = load i8, ptr %349, align 1, !tbaa !27
   %351 = icmp eq i8 %350, 116
   br i1 %351, label %352, label %.critedge
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %138, i64 5
-  %354 = load i8, ptr %353, align 1, !tbaa !26
+  %354 = load i8, ptr %353, align 1, !tbaa !27
   %355 = icmp eq i8 %354, 32
   br i1 %355, label %356, label %.critedge
 
@@ -723,7 +723,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 365:                                              ; preds = %330
   %366 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %367 = load i8, ptr %366, align 1, !tbaa !26
+  %367 = load i8, ptr %366, align 1, !tbaa !27
   %368 = icmp eq i8 %367, 32
   br i1 %368, label %369, label %.critedge
 
@@ -741,25 +741,25 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 377:                                              ; preds = %140
   %378 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %379 = load i8, ptr %378, align 1, !tbaa !26
+  %379 = load i8, ptr %378, align 1, !tbaa !27
   %380 = icmp eq i8 %379, 105
   br i1 %380, label %381, label %.critedge
 
 381:                                              ; preds = %377
   %382 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %383 = load i8, ptr %382, align 1, !tbaa !26
+  %383 = load i8, ptr %382, align 1, !tbaa !27
   %384 = icmp eq i8 %383, 116
   br i1 %384, label %385, label %.critedge
 
 385:                                              ; preds = %381
   %386 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %387 = load i8, ptr %386, align 1, !tbaa !26
+  %387 = load i8, ptr %386, align 1, !tbaa !27
   %388 = icmp eq i8 %387, 104
   br i1 %388, label %389, label %.critedge
 
 389:                                              ; preds = %385
   %390 = getelementptr inbounds nuw i8, ptr %138, i64 5
-  %391 = load i8, ptr %390, align 1, !tbaa !26
+  %391 = load i8, ptr %390, align 1, !tbaa !27
   %392 = icmp eq i8 %391, 32
   br i1 %392, label %393, label %.critedge
 
@@ -786,7 +786,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %409 = tail call noundef i32 @llvm.umin.i32(i32 %408, i32 %407)
   store i32 %409, ptr %gep1274, align 4, !tbaa !22
   %410 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %411 = load i8, ptr %410, align 1, !tbaa !26
+  %411 = load i8, ptr %410, align 1, !tbaa !27
   %412 = icmp eq i8 %411, 62
   br i1 %412, label %413, label %.critedge
 
@@ -813,7 +813,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %428 = tail call noundef i32 @llvm.umin.i32(i32 %427, i32 %426)
   store i32 %428, ptr %gep1268, align 4, !tbaa !22
   %429 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %430 = load i8, ptr %429, align 1, !tbaa !26
+  %430 = load i8, ptr %429, align 1, !tbaa !27
   %431 = icmp eq i8 %430, 32
   br i1 %431, label %432, label %.critedge
 
@@ -828,19 +828,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %439 = tail call noundef i32 @llvm.umin.i32(i32 %438, i32 %437)
   store i32 %439, ptr %gep1270, align 4, !tbaa !22
   %440 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %441 = load i8, ptr %440, align 1, !tbaa !26
+  %441 = load i8, ptr %440, align 1, !tbaa !27
   %442 = icmp eq i8 %441, 84
   br i1 %442, label %443, label %.critedge
 
 443:                                              ; preds = %432
   %444 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %445 = load i8, ptr %444, align 1, !tbaa !26
+  %445 = load i8, ptr %444, align 1, !tbaa !27
   %446 = icmp eq i8 %445, 104
   br i1 %446, label %447, label %.critedge
 
 447:                                              ; preds = %443
   %448 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %449 = load i8, ptr %448, align 1, !tbaa !26
+  %449 = load i8, ptr %448, align 1, !tbaa !27
   switch i8 %449, label %.critedge [
     i8 101, label %450
     i8 105, label %463
@@ -848,7 +848,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 450:                                              ; preds = %447
   %451 = getelementptr inbounds nuw i8, ptr %138, i64 5
-  %452 = load i8, ptr %451, align 1, !tbaa !26
+  %452 = load i8, ptr %451, align 1, !tbaa !27
   %453 = icmp eq i8 %452, 32
   br i1 %453, label %454, label %.critedge
 
@@ -866,13 +866,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 463:                                              ; preds = %447
   %464 = getelementptr inbounds nuw i8, ptr %138, i64 5
-  %465 = load i8, ptr %464, align 1, !tbaa !26
+  %465 = load i8, ptr %464, align 1, !tbaa !27
   %466 = icmp eq i8 %465, 115
   br i1 %466, label %467, label %.critedge
 
 467:                                              ; preds = %463
   %468 = getelementptr inbounds nuw i8, ptr %138, i64 6
-  %469 = load i8, ptr %468, align 1, !tbaa !26
+  %469 = load i8, ptr %468, align 1, !tbaa !27
   %470 = icmp eq i8 %469, 32
   br i1 %470, label %471, label %.critedge
 
@@ -899,7 +899,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %486 = tail call noundef i32 @llvm.umin.i32(i32 %485, i32 %484)
   store i32 %486, ptr %gep1264, align 4, !tbaa !22
   %487 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %488 = load i8, ptr %487, align 1, !tbaa !26
+  %488 = load i8, ptr %487, align 1, !tbaa !27
   %489 = icmp eq i8 %488, 32
   br i1 %489, label %490, label %.critedge
 
@@ -926,7 +926,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %505 = tail call noundef i32 @llvm.umin.i32(i32 %504, i32 %503)
   store i32 %505, ptr %gep1260, align 4, !tbaa !22
   %506 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %507 = load i8, ptr %506, align 1, !tbaa !26
+  %507 = load i8, ptr %506, align 1, !tbaa !27
   %508 = icmp eq i8 %507, 9
   br i1 %508, label %509, label %.critedge
 
@@ -992,7 +992,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 549:                                              ; preds = %137
   %550 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %551 = load i8, ptr %550, align 1, !tbaa !26
+  %551 = load i8, ptr %550, align 1, !tbaa !27
   switch i8 %551, label %.critedge [
     i8 34, label %552
     i8 39, label %560
@@ -1024,13 +1024,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 568:                                              ; preds = %137
   %569 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %570 = load i8, ptr %569, align 1, !tbaa !26
+  %570 = load i8, ptr %569, align 1, !tbaa !27
   %571 = icmp eq i8 %570, 108
   br i1 %571, label %572, label %.critedge
 
 572:                                              ; preds = %568
   %573 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %574 = load i8, ptr %573, align 1, !tbaa !26
+  %574 = load i8, ptr %573, align 1, !tbaa !27
   %575 = icmp eq i8 %574, 32
   br i1 %575, label %576, label %.critedge
 
@@ -1048,7 +1048,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 584:                                              ; preds = %137
   %585 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %586 = load i8, ptr %585, align 1, !tbaa !26
+  %586 = load i8, ptr %585, align 1, !tbaa !27
   switch i8 %586, label %.critedge [
     i8 100, label %587
     i8 114, label %599
@@ -1057,7 +1057,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 587:                                              ; preds = %584
   %588 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %589 = load i8, ptr %588, align 1, !tbaa !26
+  %589 = load i8, ptr %588, align 1, !tbaa !27
   %590 = icmp eq i8 %589, 32
   br i1 %590, label %591, label %.critedge
 
@@ -1075,7 +1075,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 599:                                              ; preds = %584
   %600 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %601 = load i8, ptr %600, align 1, !tbaa !26
+  %601 = load i8, ptr %600, align 1, !tbaa !27
   %602 = icmp eq i8 %601, 32
   br i1 %602, label %603, label %.critedge
 
@@ -1093,13 +1093,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 611:                                              ; preds = %584
   %612 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %613 = load i8, ptr %612, align 1, !tbaa !26
+  %613 = load i8, ptr %612, align 1, !tbaa !27
   %614 = icmp eq i8 %613, 116
   br i1 %614, label %615, label %.critedge
 
 615:                                              ; preds = %611
   %616 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %617 = load i8, ptr %616, align 1, !tbaa !26
+  %617 = load i8, ptr %616, align 1, !tbaa !27
   %618 = icmp eq i8 %617, 32
   br i1 %618, label %619, label %.critedge
 
@@ -1117,19 +1117,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 627:                                              ; preds = %137
   %628 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %629 = load i8, ptr %628, align 1, !tbaa !26
+  %629 = load i8, ptr %628, align 1, !tbaa !27
   %630 = icmp eq i8 %629, 117
   br i1 %630, label %631, label %.critedge
 
 631:                                              ; preds = %627
   %632 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %633 = load i8, ptr %632, align 1, !tbaa !26
+  %633 = load i8, ptr %632, align 1, !tbaa !27
   %634 = icmp eq i8 %633, 108
   br i1 %634, label %635, label %.critedge
 
 635:                                              ; preds = %631
   %636 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %637 = load i8, ptr %636, align 1, !tbaa !26
+  %637 = load i8, ptr %636, align 1, !tbaa !27
   %638 = icmp eq i8 %637, 32
   br i1 %638, label %639, label %.critedge
 
@@ -1147,7 +1147,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 647:                                              ; preds = %137
   %648 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %649 = load i8, ptr %648, align 1, !tbaa !26
+  %649 = load i8, ptr %648, align 1, !tbaa !27
   switch i8 %649, label %.critedge [
     i8 118, label %650
     i8 122, label %666
@@ -1155,13 +1155,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 650:                                              ; preds = %647
   %651 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %652 = load i8, ptr %651, align 1, !tbaa !26
+  %652 = load i8, ptr %651, align 1, !tbaa !27
   %653 = icmp eq i8 %652, 101
   br i1 %653, label %654, label %.critedge
 
 654:                                              ; preds = %650
   %655 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %656 = load i8, ptr %655, align 1, !tbaa !26
+  %656 = load i8, ptr %655, align 1, !tbaa !27
   %657 = icmp eq i8 %656, 32
   br i1 %657, label %658, label %.critedge
 
@@ -1179,13 +1179,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 666:                                              ; preds = %647
   %667 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %668 = load i8, ptr %667, align 1, !tbaa !26
+  %668 = load i8, ptr %667, align 1, !tbaa !27
   %669 = icmp eq i8 %668, 101
   br i1 %669, label %670, label %.critedge
 
 670:                                              ; preds = %666
   %671 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %672 = load i8, ptr %671, align 1, !tbaa !26
+  %672 = load i8, ptr %671, align 1, !tbaa !27
   %673 = icmp eq i8 %672, 32
   br i1 %673, label %674, label %.critedge
 
@@ -1203,7 +1203,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 682:                                              ; preds = %137
   %683 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %684 = load i8, ptr %683, align 1, !tbaa !26
+  %684 = load i8, ptr %683, align 1, !tbaa !27
   switch i8 %684, label %.critedge [
     i8 101, label %685
     i8 121, label %705
@@ -1211,19 +1211,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 685:                                              ; preds = %682
   %686 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %687 = load i8, ptr %686, align 1, !tbaa !26
+  %687 = load i8, ptr %686, align 1, !tbaa !27
   %688 = icmp eq i8 %687, 115
   br i1 %688, label %689, label %.critedge
 
 689:                                              ; preds = %685
   %690 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %691 = load i8, ptr %690, align 1, !tbaa !26
+  %691 = load i8, ptr %690, align 1, !tbaa !27
   %692 = icmp eq i8 %691, 115
   br i1 %692, label %693, label %.critedge
 
 693:                                              ; preds = %689
   %694 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %695 = load i8, ptr %694, align 1, !tbaa !26
+  %695 = load i8, ptr %694, align 1, !tbaa !27
   %696 = icmp eq i8 %695, 32
   br i1 %696, label %697, label %.critedge
 
@@ -1241,7 +1241,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 705:                                              ; preds = %682
   %706 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %707 = load i8, ptr %706, align 1, !tbaa !26
+  %707 = load i8, ptr %706, align 1, !tbaa !27
   %708 = icmp eq i8 %707, 32
   br i1 %708, label %709, label %.critedge
 
@@ -1259,19 +1259,19 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 717:                                              ; preds = %137
   %718 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %719 = load i8, ptr %718, align 1, !tbaa !26
+  %719 = load i8, ptr %718, align 1, !tbaa !27
   %720 = icmp eq i8 %719, 117
   br i1 %720, label %721, label %.critedge
 
 721:                                              ; preds = %717
   %722 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  %723 = load i8, ptr %722, align 1, !tbaa !26
+  %723 = load i8, ptr %722, align 1, !tbaa !27
   %724 = icmp eq i8 %723, 115
   br i1 %724, label %725, label %.critedge
 
 725:                                              ; preds = %721
   %726 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  %727 = load i8, ptr %726, align 1, !tbaa !26
+  %727 = load i8, ptr %726, align 1, !tbaa !27
   %728 = icmp eq i8 %727, 32
   br i1 %728, label %729, label %.critedge
 
@@ -1300,7 +1300,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %742 = zext i32 %741 to i64
   %narrow.i = mul nuw nsw i32 %.sroa.9.0.insert.ext, %.sroa.0579.0.insert.ext
   %743 = zext nneg i32 %narrow.i to i64
-  %744 = load ptr, ptr %18, align 8, !tbaa !33
+  %744 = load ptr, ptr %18, align 8, !tbaa !34
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 %742
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 %743
   %cond1488 = icmp eq i8 %.sroa.7581.0.copyload, 10
@@ -1311,13 +1311,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   br i1 %.not1431, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, label %.lr.ph1197
 
 747:                                              ; preds = %739
-  %748 = load i8, ptr %746, align 1, !tbaa !26
+  %748 = load i8, ptr %746, align 1, !tbaa !27
   %749 = add i8 %748, -97
   %or.cond.i = icmp ult i8 %749, 26
   br i1 %or.cond.i, label %750, label %.critedge
 
 750:                                              ; preds = %747
-  %751 = load i8, ptr %1, align 1, !tbaa !26
+  %751 = load i8, ptr %1, align 1, !tbaa !27
   %752 = xor i8 %751, %748
   %753 = icmp eq i8 %752, 32
   br i1 %753, label %754, label %.critedge
@@ -1364,14 +1364,14 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %769 = getelementptr inbounds nuw i8, ptr %.022.i9841170, i64 8
   %770 = add i64 %.027.i9821168, -8
   %771 = icmp ugt i64 %770, 7
-  br i1 %771, label %.lr.ph, label %.preheader1143, !llvm.loop !35
+  br i1 %771, label %.lr.ph, label %.preheader1143, !llvm.loop !36
 
 .lr.ph1177:                                       ; preds = %.lr.ph1177.preheader, %775
   %.224.i9881176 = phi ptr [ %778, %775 ], [ %.022.i984.lcssa, %.lr.ph1177.preheader ]
   %.126.i9871175 = phi ptr [ %777, %775 ], [ %.025.i983.lcssa, %.lr.ph1177.preheader ]
   %.128.i9861174 = phi i64 [ %776, %775 ], [ %.027.i982.lcssa, %.lr.ph1177.preheader ]
-  %772 = load i8, ptr %.224.i9881176, align 1, !tbaa !26
-  %773 = load i8, ptr %.126.i9871175, align 1, !tbaa !26
+  %772 = load i8, ptr %.224.i9881176, align 1, !tbaa !27
+  %773 = load i8, ptr %.126.i9871175, align 1, !tbaa !27
   %774 = icmp eq i8 %772, %773
   br i1 %774, label %775, label %.critedge.i990
 
@@ -1380,7 +1380,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %777 = getelementptr inbounds nuw i8, ptr %.126.i9871175, i64 1
   %778 = getelementptr inbounds nuw i8, ptr %.224.i9881176, i64 1
   %.not.i989 = icmp eq i64 %776, 0
-  br i1 %.not.i989, label %.critedge.i990, label %.lr.ph1177, !llvm.loop !36
+  br i1 %.not.i989, label %.critedge.i990, label %.lr.ph1177, !llvm.loop !37
 
 .critedge.i990:                                   ; preds = %775, %.lr.ph1177, %.preheader1143
   %.224.i988.lcssa = phi ptr [ %.022.i984.lcssa, %.preheader1143 ], [ %.224.i9881176, %.lr.ph1177 ], [ %scevgep, %775 ]
@@ -1392,11 +1392,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 .lr.ph1197:                                       ; preds = %.preheader1140, %790
   %.0.i1196 = phi i64 [ %791, %790 ], [ 0, %.preheader1140 ]
   %782 = getelementptr inbounds nuw i8, ptr %746, i64 %.0.i1196
-  %783 = load i8, ptr %782, align 1, !tbaa !26
+  %783 = load i8, ptr %782, align 1, !tbaa !27
   %784 = add i8 %783, -97
   %or.cond40.i = icmp ult i8 %784, 26
   %785 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i1196
-  %786 = load i8, ptr %785, align 1, !tbaa !26
+  %786 = load i8, ptr %785, align 1, !tbaa !27
   br i1 %or.cond40.i, label %787, label %789
 
 787:                                              ; preds = %.lr.ph1197
@@ -1411,12 +1411,12 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 790:                                              ; preds = %789, %787
   %791 = add nuw nsw i64 %.0.i1196, 1
   %exitcond.not = icmp eq i64 %791, %25
-  br i1 %exitcond.not, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, label %.lr.ph1197, !llvm.loop !40
+  br i1 %exitcond.not, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, label %.lr.ph1197, !llvm.loop !41
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit: ; preds = %.critedge.i990, %759
   %.2.i991 = phi i64 [ %766, %759 ], [ %781, %.critedge.i990 ]
   %792 = icmp eq i64 %.2.i991, %757
-  br i1 %792, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, label %.critedge, !llvm.loop !39
+  br i1 %792, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, label %.critedge, !llvm.loop !40
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048: ; preds = %790, %.preheader1140, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit
   %793 = select i1 %.not815, i64 9, i64 44
@@ -1431,11 +1431,11 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   store i32 %801, ptr %799, align 4, !tbaa !22
   %802 = add nuw nsw i64 %25, 1
   %.not817 = icmp ult i64 %802, %3
-  br i1 %.not817, label %803, label %.critedge, !llvm.loop !39
+  br i1 %.not817, label %803, label %.critedge, !llvm.loop !40
 
 803:                                              ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048
   %804 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %805 = load i8, ptr %804, align 1, !tbaa !26
+  %805 = load i8, ptr %804, align 1, !tbaa !27
   switch i8 %805, label %.critedge [
     i8 32, label %806
     i8 34, label %816
@@ -1471,7 +1471,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %825 = tail call noundef i32 @llvm.umin.i32(i32 %824, i32 %822)
   store i32 %825, ptr %823, align 4, !tbaa !22
   %826 = getelementptr inbounds nuw i8, ptr %804, i64 1
-  %827 = load i8, ptr %826, align 1, !tbaa !26
+  %827 = load i8, ptr %826, align 1, !tbaa !27
   %828 = icmp eq i8 %827, 62
   br i1 %828, label %829, label %.critedge
 
@@ -1500,7 +1500,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %847 = tail call noundef i32 @llvm.umin.i32(i32 %846, i32 %844)
   store i32 %847, ptr %845, align 4, !tbaa !22
   %848 = getelementptr inbounds nuw i8, ptr %804, i64 1
-  %849 = load i8, ptr %848, align 1, !tbaa !26
+  %849 = load i8, ptr %848, align 1, !tbaa !27
   %850 = icmp eq i8 %849, 32
   br i1 %850, label %851, label %.critedge
 
@@ -1529,7 +1529,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %869 = tail call noundef i32 @llvm.umin.i32(i32 %868, i32 %866)
   store i32 %869, ptr %867, align 4, !tbaa !22
   %870 = getelementptr inbounds nuw i8, ptr %804, i64 1
-  %871 = load i8, ptr %870, align 1, !tbaa !26
+  %871 = load i8, ptr %870, align 1, !tbaa !27
   %872 = icmp eq i8 %871, 32
   br i1 %872, label %873, label %.critedge
 
@@ -1574,7 +1574,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
 
 902:                                              ; preds = %803
   %903 = getelementptr inbounds nuw i8, ptr %804, i64 1
-  %904 = load i8, ptr %903, align 1, !tbaa !26
+  %904 = load i8, ptr %903, align 1, !tbaa !27
   switch i8 %904, label %.critedge [
     i8 34, label %905
     i8 39, label %914
@@ -1608,7 +1608,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
 
 .critedge:                                        ; preds = %789, %787, %747, %750, %737, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048, %902, %803, %829, %816, %873, %860, %892, %905, %914, %882, %838, %851, %806, %135, %._crit_edge, %208, %204, %200, %274, %270, %266, %262, %246, %250, %254, %322, %318, %314, %310, %393, %389, %385, %381, %377, %356, %352, %348, %336, %340, %365, %369, %290, %286, %298, %302, %223, %219, %231, %235, %152, %176, %172, %184, %188, %192, %160, %164, %432, %443, %471, %467, %463, %450, %454, %421, %509, %498, %525, %541, %576, %572, %568, %639, %635, %631, %627, %709, %705, %685, %689, %693, %697, %717, %721, %725, %729, %658, %654, %650, %666, %670, %674, %591, %587, %619, %615, %611, %599, %603, %552, %560, %533, %517, %479, %490, %402, %413, %149, %216, %243, %283, %333, %330, %140, %447, %549, %584, %647, %682, %137
   %.4 = phi i32 [ %.3.lcssa, %208 ], [ %.3.lcssa, %204 ], [ %.3.lcssa, %200 ], [ %.3.lcssa, %274 ], [ %.3.lcssa, %270 ], [ %.3.lcssa, %266 ], [ %.3.lcssa, %262 ], [ %.3.lcssa, %246 ], [ %.3.lcssa, %250 ], [ %.3.lcssa, %254 ], [ %.3.lcssa, %322 ], [ %.3.lcssa, %318 ], [ %.3.lcssa, %314 ], [ %.3.lcssa, %310 ], [ %.3.lcssa, %393 ], [ %.3.lcssa, %389 ], [ %.3.lcssa, %385 ], [ %.3.lcssa, %381 ], [ %.3.lcssa, %377 ], [ %.3.lcssa, %356 ], [ %.3.lcssa, %352 ], [ %.3.lcssa, %348 ], [ %.3.lcssa, %336 ], [ %.3.lcssa, %340 ], [ %.3.lcssa, %365 ], [ %.3.lcssa, %369 ], [ %.3.lcssa, %290 ], [ %.3.lcssa, %286 ], [ %.3.lcssa, %298 ], [ %.3.lcssa, %302 ], [ %.3.lcssa, %223 ], [ %.3.lcssa, %219 ], [ %.3.lcssa, %231 ], [ %.3.lcssa, %235 ], [ %.3.lcssa, %152 ], [ %.3.lcssa, %176 ], [ %.3.lcssa, %172 ], [ %.3.lcssa, %184 ], [ %.3.lcssa, %188 ], [ %.3.lcssa, %192 ], [ %.3.lcssa, %160 ], [ %.3.lcssa, %164 ], [ %.3.lcssa, %432 ], [ %.3.lcssa, %443 ], [ %.3.lcssa, %471 ], [ %.3.lcssa, %467 ], [ %.3.lcssa, %463 ], [ %.3.lcssa, %450 ], [ %.3.lcssa, %454 ], [ %.3.lcssa, %421 ], [ %.3.lcssa, %509 ], [ %.3.lcssa, %498 ], [ %.3.lcssa, %525 ], [ %.3.lcssa, %541 ], [ %.3.lcssa, %576 ], [ %.3.lcssa, %572 ], [ %.3.lcssa, %568 ], [ %.3.lcssa, %639 ], [ %.3.lcssa, %635 ], [ %.3.lcssa, %631 ], [ %.3.lcssa, %627 ], [ %.3.lcssa, %709 ], [ %.3.lcssa, %705 ], [ %.3.lcssa, %685 ], [ %.3.lcssa, %689 ], [ %.3.lcssa, %693 ], [ %.3.lcssa, %697 ], [ %.3.lcssa, %717 ], [ %.3.lcssa, %721 ], [ %.3.lcssa, %725 ], [ %.3.lcssa, %729 ], [ %.3.lcssa, %658 ], [ %.3.lcssa, %654 ], [ %.3.lcssa, %650 ], [ %.3.lcssa, %666 ], [ %.3.lcssa, %670 ], [ %.3.lcssa, %674 ], [ %.3.lcssa, %591 ], [ %.3.lcssa, %587 ], [ %.3.lcssa, %619 ], [ %.3.lcssa, %615 ], [ %.3.lcssa, %611 ], [ %.3.lcssa, %599 ], [ %.3.lcssa, %603 ], [ %.3.lcssa, %552 ], [ %.3.lcssa, %560 ], [ %.3.lcssa, %533 ], [ %.3.lcssa, %517 ], [ %.3.lcssa, %479 ], [ %.3.lcssa, %490 ], [ %.3.lcssa, %402 ], [ %.3.lcssa, %413 ], [ %.3.lcssa, %149 ], [ %.3.lcssa, %216 ], [ %.3.lcssa, %243 ], [ %.3.lcssa, %283 ], [ %.3.lcssa, %333 ], [ %.3.lcssa, %330 ], [ %.3.lcssa, %140 ], [ %.3.lcssa, %447 ], [ %.3.lcssa, %549 ], [ %.3.lcssa, %584 ], [ %.3.lcssa, %647 ], [ %.3.lcssa, %682 ], [ %.3.lcssa, %137 ], [ %.3.lcssa, %._crit_edge ], [ %.3.lcssa, %135 ], [ %.01306, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread1048 ], [ 1, %902 ], [ 1, %803 ], [ 1, %829 ], [ 1, %816 ], [ 1, %873 ], [ 1, %860 ], [ 1, %892 ], [ 1, %905 ], [ 1, %914 ], [ 1, %882 ], [ 1, %838 ], [ 1, %851 ], [ 1, %806 ], [ %.01306, %737 ], [ %.01306, %750 ], [ %.01306, %747 ], [ %.01306, %787 ], [ %.01306, %789 ]
-  br i1 %31, label %._crit_edge1309, label %21
+  br i1 %31, label %._crit_edge1309, label %21, !llvm.loop !42
 
 ._crit_edge1309:                                  ; preds = %.critedge, %5
   %.0.lcssa = phi i32 [ 0, %5 ], [ %.4, %.critedge ]
@@ -1616,7 +1616,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   br i1 %923, label %924, label %.thread1100
 
 924:                                              ; preds = %._crit_edge1309
-  %925 = load i8, ptr %1, align 1, !tbaa !26
+  %925 = load i8, ptr %1, align 1, !tbaa !27
   switch i8 %925, label %.loopexit [
     i8 32, label %926
     i8 46, label %926
@@ -1630,15 +1630,15 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %930 = lshr i32 %929, 17
   %931 = zext nneg i32 %930 to i64
   %932 = getelementptr inbounds nuw i16, ptr %7, i64 %931
-  %933 = load i16, ptr %932, align 2, !tbaa !30
+  %933 = load i16, ptr %932, align 2, !tbaa !31
   %.not805 = icmp eq i16 %933, 0
   br i1 %.not805, label %.loopexit, label %.lr.ph1379
 
 .lr.ph1379:                                       ; preds = %926
   %934 = zext i16 %933 to i64
   %935 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %936 = load ptr, ptr %935, align 8, !tbaa !32
-  %937 = load ptr, ptr %0, align 8, !tbaa !25
+  %936 = load ptr, ptr %935, align 8, !tbaa !33
+  %937 = load ptr, ptr %0, align 8, !tbaa !26
   %938 = add i64 %3, -1
   %939 = getelementptr inbounds nuw i8, ptr %937, i64 32
   %940 = getelementptr inbounds nuw i8, ptr %937, i64 168
@@ -1653,15 +1653,15 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %.07601376 = phi i64 [ %934, %.lr.ph1379 ], [ %946, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread ]
   %946 = add i64 %.07601376, 1
   %947 = getelementptr inbounds nuw %"struct.duckdb_brotli::DictWord", ptr %936, i64 %.07601376
-  %.sroa.0155.0.copyload = load i8, ptr %947, align 2, !tbaa !26
+  %.sroa.0155.0.copyload = load i8, ptr %947, align 2, !tbaa !27
   %.sroa.8160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %947, i64 1
-  %.sroa.8160.0.copyload = load i8, ptr %.sroa.8160.0..sroa_idx, align 1, !tbaa !26
+  %.sroa.8160.0.copyload = load i8, ptr %.sroa.8160.0..sroa_idx, align 1, !tbaa !27
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %947, i64 2
-  %.sroa.10.0.copyload = load i16, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !30
+  %.sroa.10.0.copyload = load i16, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !31
   %948 = and i8 %.sroa.0155.0.copyload, 31
   %949 = zext nneg i8 %948 to i64
   %950 = getelementptr inbounds nuw [32 x i8], ptr %937, i64 0, i64 %949
-  %951 = load i8, ptr %950, align 1, !tbaa !26
+  %951 = load i8, ptr %950, align 1, !tbaa !27
   %952 = zext nneg i8 %951 to i64
   %953 = zext i16 %.sroa.10.0.copyload to i64
   %954 = icmp slt i8 %.sroa.0155.0.copyload, 0
@@ -1677,7 +1677,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %960 = load i32, ptr %959, align 4, !tbaa !22
   %961 = zext i32 %960 to i64
   %narrow.i825 = mul nuw nsw i64 %953, %949
-  %962 = load ptr, ptr %940, align 8, !tbaa !33
+  %962 = load ptr, ptr %940, align 8, !tbaa !34
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 %961
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 %narrow.i825
   %965 = icmp samesign ugt i8 %948, 7
@@ -1718,14 +1718,14 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %976 = getelementptr inbounds nuw i8, ptr %.022.i9421346, i64 8
   %977 = add i64 %.027.i9401344, -8
   %978 = icmp ugt i64 %977, 7
-  br i1 %978, label %.lr.ph1348, label %.preheader1134, !llvm.loop !35
+  br i1 %978, label %.lr.ph1348, label %.preheader1134, !llvm.loop !36
 
 .lr.ph1356:                                       ; preds = %.lr.ph1356.preheader, %982
   %.224.i9461355 = phi ptr [ %985, %982 ], [ %.022.i942.lcssa, %.lr.ph1356.preheader ]
   %.126.i9451354 = phi ptr [ %984, %982 ], [ %.025.i941.lcssa, %.lr.ph1356.preheader ]
   %.128.i9441353 = phi i64 [ %983, %982 ], [ %.027.i940.lcssa, %.lr.ph1356.preheader ]
-  %979 = load i8, ptr %.224.i9461355, align 1, !tbaa !26
-  %980 = load i8, ptr %.126.i9451354, align 1, !tbaa !26
+  %979 = load i8, ptr %.224.i9461355, align 1, !tbaa !27
+  %980 = load i8, ptr %.126.i9451354, align 1, !tbaa !27
   %981 = icmp eq i8 %979, %980
   br i1 %981, label %982, label %.critedge.i948
 
@@ -1734,7 +1734,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %984 = getelementptr inbounds nuw i8, ptr %.126.i9451354, i64 1
   %985 = getelementptr inbounds nuw i8, ptr %.224.i9461355, i64 1
   %.not.i947 = icmp eq i64 %983, 0
-  br i1 %.not.i947, label %.critedge.i948, label %.lr.ph1356, !llvm.loop !36
+  br i1 %.not.i947, label %.critedge.i948, label %.lr.ph1356, !llvm.loop !37
 
 .critedge.i948:                                   ; preds = %982, %.lr.ph1356, %.preheader1134
   %.224.i946.lcssa = phi ptr [ %.022.i942.lcssa, %.preheader1134 ], [ %.224.i9461355, %.lr.ph1356 ], [ %scevgep1485, %982 ]
@@ -1746,7 +1746,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953: ; preds = %966, %.critedge.i948
   %.2.i949 = phi i64 [ %973, %966 ], [ %988, %.critedge.i948 ]
   %.not1122 = icmp eq i64 %.2.i949, %949
-  br i1 %.not1122, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !41
+  br i1 %.not1122, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !43
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063: ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953
   %989 = shl i64 %942, %952
@@ -1761,11 +1761,11 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   store i32 %997, ptr %995, align 4, !tbaa !22
   %998 = add nuw nsw i64 %949, 2
   %.not814 = icmp ult i64 %998, %3
-  br i1 %.not814, label %999, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !41
+  br i1 %.not814, label %999, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !43
 
 999:                                              ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063
   %1000 = getelementptr inbounds nuw i8, ptr %1, i64 %991
-  %1001 = load i8, ptr %1000, align 1, !tbaa !26
+  %1001 = load i8, ptr %1000, align 1, !tbaa !27
   switch i8 %1001, label %1020 [
     i8 32, label %1002
     i8 40, label %1011
@@ -1816,7 +1816,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1030 = tail call noundef i32 @llvm.umin.i32(i32 %1029, i32 %1027)
   store i32 %1030, ptr %1028, align 4, !tbaa !22
   %1031 = getelementptr inbounds nuw i8, ptr %1000, i64 1
-  %1032 = load i8, ptr %1031, align 1, !tbaa !26
+  %1032 = load i8, ptr %1031, align 1, !tbaa !27
   %1033 = icmp eq i8 %1032, 32
   br i1 %1033, label %1034, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
@@ -1843,7 +1843,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1050 = tail call noundef i32 @llvm.umin.i32(i32 %1049, i32 %1047)
   store i32 %1050, ptr %1048, align 4, !tbaa !22
   %1051 = getelementptr inbounds nuw i8, ptr %1000, i64 1
-  %1052 = load i8, ptr %1051, align 1, !tbaa !26
+  %1052 = load i8, ptr %1051, align 1, !tbaa !27
   %1053 = icmp eq i8 %1052, 32
   br i1 %1053, label %1054, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
@@ -1861,7 +1861,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
 1062:                                             ; preds = %1021
   %1063 = getelementptr inbounds nuw i8, ptr %1000, i64 1
-  %1064 = load i8, ptr %1063, align 1, !tbaa !26
+  %1064 = load i8, ptr %1063, align 1, !tbaa !27
   switch i8 %1064, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread [
     i8 34, label %1065
     i8 39, label %1073
@@ -1907,7 +1907,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1087 = zext i32 %1086 to i64
   %narrow.i836 = mul nuw nsw i32 %.sroa.10.0.insert.ext, %.sroa.0155.0.insert.ext
   %1088 = zext nneg i32 %narrow.i836 to i64
-  %1089 = load ptr, ptr %940, align 8, !tbaa !33
+  %1089 = load ptr, ptr %940, align 8, !tbaa !34
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 %1087
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 %1088
   %cond = icmp eq i8 %.sroa.8160.0.copyload, 10
@@ -1918,13 +1918,13 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   br i1 %.not1432, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, label %.lr.ph1343
 
 1092:                                             ; preds = %1084
-  %1093 = load i8, ptr %1091, align 1, !tbaa !26
+  %1093 = load i8, ptr %1091, align 1, !tbaa !27
   %1094 = add i8 %1093, -97
   %or.cond.i837 = icmp ult i8 %1094, 26
   br i1 %or.cond.i837, label %1095, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
 1095:                                             ; preds = %1092
-  %1096 = load i8, ptr %928, align 1, !tbaa !26
+  %1096 = load i8, ptr %928, align 1, !tbaa !27
   %1097 = xor i8 %1096, %1093
   %1098 = icmp eq i8 %1097, 32
   br i1 %1098, label %1099, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
@@ -1971,14 +1971,14 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1114 = getelementptr inbounds nuw i8, ptr %.022.i9281313, i64 8
   %1115 = add i64 %.027.i9261311, -8
   %1116 = icmp ugt i64 %1115, 7
-  br i1 %1116, label %.lr.ph1315, label %.preheader1138, !llvm.loop !35
+  br i1 %1116, label %.lr.ph1315, label %.preheader1138, !llvm.loop !36
 
 .lr.ph1323:                                       ; preds = %.lr.ph1323.preheader, %1120
   %.224.i9321322 = phi ptr [ %1123, %1120 ], [ %.022.i928.lcssa, %.lr.ph1323.preheader ]
   %.126.i9311321 = phi ptr [ %1122, %1120 ], [ %.025.i927.lcssa, %.lr.ph1323.preheader ]
   %.128.i9301320 = phi i64 [ %1121, %1120 ], [ %.027.i926.lcssa, %.lr.ph1323.preheader ]
-  %1117 = load i8, ptr %.224.i9321322, align 1, !tbaa !26
-  %1118 = load i8, ptr %.126.i9311321, align 1, !tbaa !26
+  %1117 = load i8, ptr %.224.i9321322, align 1, !tbaa !27
+  %1118 = load i8, ptr %.126.i9311321, align 1, !tbaa !27
   %1119 = icmp eq i8 %1117, %1118
   br i1 %1119, label %1120, label %.critedge.i934
 
@@ -1987,7 +1987,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1122 = getelementptr inbounds nuw i8, ptr %.126.i9311321, i64 1
   %1123 = getelementptr inbounds nuw i8, ptr %.224.i9321322, i64 1
   %.not.i933 = icmp eq i64 %1121, 0
-  br i1 %.not.i933, label %.critedge.i934, label %.lr.ph1323, !llvm.loop !36
+  br i1 %.not.i933, label %.critedge.i934, label %.lr.ph1323, !llvm.loop !37
 
 .critedge.i934:                                   ; preds = %1120, %.lr.ph1323, %.preheader1138
   %.224.i932.lcssa = phi ptr [ %.022.i928.lcssa, %.preheader1138 ], [ %.224.i9321322, %.lr.ph1323 ], [ %scevgep1482, %1120 ]
@@ -1999,11 +1999,11 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 .lr.ph1343:                                       ; preds = %.preheader1135, %1135
   %.0.i8391342 = phi i64 [ %1136, %1135 ], [ 0, %.preheader1135 ]
   %1127 = getelementptr inbounds nuw i8, ptr %1091, i64 %.0.i8391342
-  %1128 = load i8, ptr %1127, align 1, !tbaa !26
+  %1128 = load i8, ptr %1127, align 1, !tbaa !27
   %1129 = add i8 %1128, -97
   %or.cond40.i840 = icmp ult i8 %1129, 26
   %1130 = getelementptr inbounds nuw i8, ptr %928, i64 %.0.i8391342
-  %1131 = load i8, ptr %1130, align 1, !tbaa !26
+  %1131 = load i8, ptr %1130, align 1, !tbaa !27
   br i1 %or.cond40.i840, label %1132, label %1134
 
 1132:                                             ; preds = %.lr.ph1343
@@ -2018,12 +2018,12 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 1135:                                             ; preds = %1134, %1132
   %1136 = add nuw nsw i64 %.0.i8391342, 1
   %exitcond1484.not = icmp eq i64 %1136, %949
-  br i1 %exitcond1484.not, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, label %.lr.ph1343, !llvm.loop !40
+  br i1 %exitcond1484.not, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, label %.lr.ph1343, !llvm.loop !41
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843: ; preds = %.critedge.i934, %1104
   %.2.i935 = phi i64 [ %1111, %1104 ], [ %1126, %.critedge.i934 ]
   %1137 = icmp eq i64 %.2.i935, %1102
-  br i1 %1137, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !41
+  br i1 %1137, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !43
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078: ; preds = %1135, %.preheader1135, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843
   %1138 = select i1 %.not810, i64 30, i64 85
@@ -2039,11 +2039,11 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
   store i32 %1147, ptr %1145, align 4, !tbaa !22
   %1148 = add nuw nsw i64 %949, 2
   %.not812 = icmp ult i64 %1148, %3
-  br i1 %.not812, label %1149, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !41
+  br i1 %.not812, label %1149, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, !llvm.loop !43
 
 1149:                                             ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078
   %1150 = getelementptr inbounds nuw i8, ptr %1, i64 %1141
-  %1151 = load i8, ptr %1150, align 1, !tbaa !26
+  %1151 = load i8, ptr %1150, align 1, !tbaa !27
   switch i8 %1151, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread [
     i8 32, label %1152
     i8 44, label %1162
@@ -2081,7 +2081,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
 
 1172:                                             ; preds = %1163, %1162
   %1173 = getelementptr inbounds nuw i8, ptr %1150, i64 1
-  %1174 = load i8, ptr %1173, align 1, !tbaa !26
+  %1174 = load i8, ptr %1173, align 1, !tbaa !27
   %1175 = icmp eq i8 %1174, 32
   br i1 %1175, label %1176, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
@@ -2110,7 +2110,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
   %1194 = tail call noundef i32 @llvm.umin.i32(i32 %1193, i32 %1191)
   store i32 %1194, ptr %1192, align 4, !tbaa !22
   %1195 = getelementptr inbounds nuw i8, ptr %1150, i64 1
-  %1196 = load i8, ptr %1195, align 1, !tbaa !26
+  %1196 = load i8, ptr %1195, align 1, !tbaa !27
   %1197 = icmp eq i8 %1196, 32
   br i1 %1197, label %1198, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
@@ -2129,7 +2129,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
 
 1207:                                             ; preds = %1149
   %1208 = getelementptr inbounds nuw i8, ptr %1150, i64 1
-  %1209 = load i8, ptr %1208, align 1, !tbaa !26
+  %1209 = load i8, ptr %1208, align 1, !tbaa !27
   switch i8 %1209, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread [
     i8 34, label %1210
     i8 39, label %1219
@@ -2163,7 +2163,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread: ; preds = %1134, %1132, %1092, %1095, %1082, %956, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078, %1207, %1149, %1176, %1172, %1219, %1210, %1185, %1198, %1152, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063, %1062, %1021, %1011, %1034, %1022, %1073, %1065, %1042, %1054, %1020, %1002, %1081
   %.10 = phi i32 [ %.81377, %1081 ], [ %.81377, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit953 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread1063 ], [ 1, %1062 ], [ 1, %1021 ], [ 1, %1011 ], [ 1, %1034 ], [ 1, %1022 ], [ 1, %1073 ], [ 1, %1065 ], [ 1, %1042 ], [ 1, %1054 ], [ 1, %1020 ], [ 1, %1002 ], [ %.81377, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit843.thread1078 ], [ 1, %1207 ], [ 1, %1149 ], [ 1, %1176 ], [ 1, %1172 ], [ 1, %1219 ], [ 1, %1210 ], [ 1, %1185 ], [ 1, %1198 ], [ 1, %1152 ], [ %.81377, %956 ], [ %.81377, %1082 ], [ %.81377, %1095 ], [ %.81377, %1092 ], [ %.81377, %1132 ], [ %.81377, %1134 ]
-  br i1 %954, label %.loopexit, label %945
+  br i1 %954, label %.loopexit, label %945, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, %926, %924
   %.7 = phi i32 [ %.0.lcssa, %924 ], [ %.0.lcssa, %926 ], [ %.10, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread ]
@@ -2172,9 +2172,9 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
 1228:                                             ; preds = %.loopexit
   %1229 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %1230 = load i8, ptr %1229, align 1, !tbaa !26
+  %1230 = load i8, ptr %1229, align 1, !tbaa !27
   %1231 = icmp eq i8 %1230, 32
-  %1232 = load i8, ptr %1, align 1, !tbaa !26
+  %1232 = load i8, ptr %1, align 1, !tbaa !27
   br i1 %1231, label %1233, label %1234
 
 1233:                                             ; preds = %1228
@@ -2191,22 +2191,22 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   br i1 %or.cond1119, label %1237, label %.thread1084
 
 1237:                                             ; preds = %1234, %1233, %1233, %1233
-  %1238 = load ptr, ptr %6, align 8, !tbaa !29
+  %1238 = load ptr, ptr %6, align 8, !tbaa !30
   %1239 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.0.copyload.i866 = load i32, ptr %1239, align 1
   %1240 = mul i32 %.0.copyload.i866, 506832829
   %1241 = lshr i32 %1240, 17
   %1242 = zext nneg i32 %1241 to i64
   %1243 = getelementptr inbounds nuw i16, ptr %1238, i64 %1242
-  %1244 = load i16, ptr %1243, align 2, !tbaa !30
+  %1244 = load i16, ptr %1243, align 2, !tbaa !31
   %.not806 = icmp eq i16 %1244, 0
   br i1 %.not806, label %.thread1084, label %.lr.ph1404
 
 .lr.ph1404:                                       ; preds = %1237
   %1245 = zext i16 %1244 to i64
   %1246 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1247 = load ptr, ptr %1246, align 8, !tbaa !32
-  %1248 = load ptr, ptr %0, align 8, !tbaa !25
+  %1247 = load ptr, ptr %1246, align 8, !tbaa !33
+  %1248 = load ptr, ptr %0, align 8, !tbaa !26
   %1249 = add i64 %3, -2
   %1250 = getelementptr inbounds nuw i8, ptr %1248, i64 32
   %1251 = getelementptr inbounds nuw i8, ptr %1248, i64 168
@@ -2217,15 +2217,15 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %.07621401 = phi i64 [ %1245, %.lr.ph1404 ], [ %1253, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread ]
   %1253 = add i64 %.07621401, 1
   %1254 = getelementptr inbounds nuw %"struct.duckdb_brotli::DictWord", ptr %1247, i64 %.07621401
-  %.sroa.047.0.copyload = load i8, ptr %1254, align 2, !tbaa !26
+  %.sroa.047.0.copyload = load i8, ptr %1254, align 2, !tbaa !27
   %.sroa.749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1254, i64 1
-  %.sroa.749.0.copyload = load i8, ptr %.sroa.749.0..sroa_idx, align 1, !tbaa !26
+  %.sroa.749.0.copyload = load i8, ptr %.sroa.749.0..sroa_idx, align 1, !tbaa !27
   %.sroa.850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1254, i64 2
-  %.sroa.850.0.copyload = load i16, ptr %.sroa.850.0..sroa_idx, align 2, !tbaa !30
+  %.sroa.850.0.copyload = load i16, ptr %.sroa.850.0..sroa_idx, align 2, !tbaa !31
   %1255 = and i8 %.sroa.047.0.copyload, 31
   %1256 = zext nneg i8 %1255 to i64
   %1257 = getelementptr inbounds nuw [32 x i8], ptr %1248, i64 0, i64 %1256
-  %1258 = load i8, ptr %1257, align 1, !tbaa !26
+  %1258 = load i8, ptr %1257, align 1, !tbaa !27
   %1259 = zext nneg i8 %1258 to i64
   %1260 = zext i16 %.sroa.850.0.copyload to i64
   %1261 = icmp slt i8 %.sroa.047.0.copyload, 0
@@ -2239,7 +2239,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1266 = load i32, ptr %1265, align 4, !tbaa !22
   %1267 = zext i32 %1266 to i64
   %narrow.i847 = mul nuw nsw i64 %1260, %1256
-  %1268 = load ptr, ptr %1251, align 8, !tbaa !33
+  %1268 = load ptr, ptr %1251, align 8, !tbaa !34
   %1269 = getelementptr inbounds nuw i8, ptr %1268, i64 %1267
   %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 %narrow.i847
   %1271 = icmp samesign ugt i8 %1255, 7
@@ -2280,14 +2280,14 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1282 = getelementptr inbounds nuw i8, ptr %.022.i8861383, i64 8
   %1283 = add i64 %.027.i8841381, -8
   %1284 = icmp ugt i64 %1283, 7
-  br i1 %1284, label %.lr.ph1385, label %.preheader1133, !llvm.loop !35
+  br i1 %1284, label %.lr.ph1385, label %.preheader1133, !llvm.loop !36
 
 .lr.ph1393:                                       ; preds = %.lr.ph1393.preheader, %1288
   %.224.i8901392 = phi ptr [ %1291, %1288 ], [ %.022.i886.lcssa, %.lr.ph1393.preheader ]
   %.126.i8891391 = phi ptr [ %1290, %1288 ], [ %.025.i885.lcssa, %.lr.ph1393.preheader ]
   %.128.i8881390 = phi i64 [ %1289, %1288 ], [ %.027.i884.lcssa, %.lr.ph1393.preheader ]
-  %1285 = load i8, ptr %.224.i8901392, align 1, !tbaa !26
-  %1286 = load i8, ptr %.126.i8891391, align 1, !tbaa !26
+  %1285 = load i8, ptr %.224.i8901392, align 1, !tbaa !27
+  %1286 = load i8, ptr %.126.i8891391, align 1, !tbaa !27
   %1287 = icmp eq i8 %1285, %1286
   br i1 %1287, label %1288, label %.critedge.i892
 
@@ -2296,7 +2296,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1290 = getelementptr inbounds nuw i8, ptr %.126.i8891391, i64 1
   %1291 = getelementptr inbounds nuw i8, ptr %.224.i8901392, i64 1
   %.not.i891 = icmp eq i64 %1289, 0
-  br i1 %.not.i891, label %.critedge.i892, label %.lr.ph1393, !llvm.loop !36
+  br i1 %.not.i891, label %.critedge.i892, label %.lr.ph1393, !llvm.loop !37
 
 .critedge.i892:                                   ; preds = %1288, %.lr.ph1393, %.preheader1133
   %.224.i890.lcssa = phi ptr [ %.022.i886.lcssa, %.preheader1133 ], [ %.224.i8901392, %.lr.ph1393 ], [ %scevgep1486, %1288 ]
@@ -2311,7 +2311,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897: ; preds = %1272, 
   br i1 %.not1124, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097: ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897
-  %1295 = load i8, ptr %1, align 1, !tbaa !26
+  %1295 = load i8, ptr %1, align 1, !tbaa !27
   %1296 = icmp eq i8 %1295, -62
   br i1 %1296, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split, label %1297
 
@@ -2322,7 +2322,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
 1300:                                             ; preds = %1297
   %1301 = getelementptr inbounds nuw i8, ptr %1, i64 %1298
-  %1302 = load i8, ptr %1301, align 1, !tbaa !26
+  %1302 = load i8, ptr %1301, align 1, !tbaa !27
   %1303 = icmp eq i8 %1302, 32
   br i1 %1303, label %1304, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
@@ -2350,7 +2350,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread: ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split, %1300, %1297, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897, %1252
   %.15 = phi i32 [ %.141402, %1300 ], [ %.141402, %1297 ], [ %.141402, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit897 ], [ %.141402, %1252 ], [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split ]
-  br i1 %1261, label %.thread1084, label %1252, !llvm.loop !42
+  br i1 %1261, label %.thread1084, label %1252, !llvm.loop !45
 
 .thread1084:                                      ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread, %1237, %1233, %1234
   %.13 = phi i32 [ %.7, %1234 ], [ %.7, %1233 ], [ %.7, %1237 ], [ %.15, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread ]
@@ -2358,67 +2358,67 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   br i1 %1318, label %1319, label %.thread1100
 
 1319:                                             ; preds = %.thread1084
-  %1320 = load i8, ptr %1, align 1, !tbaa !26
+  %1320 = load i8, ptr %1, align 1, !tbaa !27
   switch i8 %1320, label %.thread1100 [
     i8 32, label %1321
     i8 46, label %1336
   ]
 
 1321:                                             ; preds = %1319
-  %1322 = load i8, ptr %1229, align 1, !tbaa !26
+  %1322 = load i8, ptr %1229, align 1, !tbaa !27
   %1323 = icmp eq i8 %1322, 116
   br i1 %1323, label %1324, label %.thread1100
 
 1324:                                             ; preds = %1321
   %1325 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %1326 = load i8, ptr %1325, align 1, !tbaa !26
+  %1326 = load i8, ptr %1325, align 1, !tbaa !27
   %1327 = icmp eq i8 %1326, 104
   br i1 %1327, label %1328, label %.thread1100
 
 1328:                                             ; preds = %1324
   %1329 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %1330 = load i8, ptr %1329, align 1, !tbaa !26
+  %1330 = load i8, ptr %1329, align 1, !tbaa !27
   %1331 = icmp eq i8 %1330, 101
   br i1 %1331, label %1332, label %.thread1100
 
 1332:                                             ; preds = %1328
   %1333 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1334 = load i8, ptr %1333, align 1, !tbaa !26
+  %1334 = load i8, ptr %1333, align 1, !tbaa !27
   %1335 = icmp eq i8 %1334, 32
   br i1 %1335, label %1351, label %.thread1100
 
 1336:                                             ; preds = %1319
-  %1337 = load i8, ptr %1229, align 1, !tbaa !26
+  %1337 = load i8, ptr %1229, align 1, !tbaa !27
   %1338 = icmp eq i8 %1337, 99
   br i1 %1338, label %1339, label %.thread1100
 
 1339:                                             ; preds = %1336
   %1340 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %1341 = load i8, ptr %1340, align 1, !tbaa !26
+  %1341 = load i8, ptr %1340, align 1, !tbaa !27
   %1342 = icmp eq i8 %1341, 111
   br i1 %1342, label %1343, label %.thread1100
 
 1343:                                             ; preds = %1339
   %1344 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %1345 = load i8, ptr %1344, align 1, !tbaa !26
+  %1345 = load i8, ptr %1344, align 1, !tbaa !27
   %1346 = icmp eq i8 %1345, 109
   br i1 %1346, label %1347, label %.thread1100
 
 1347:                                             ; preds = %1343
   %1348 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1349 = load i8, ptr %1348, align 1, !tbaa !26
+  %1349 = load i8, ptr %1348, align 1, !tbaa !27
   %1350 = icmp eq i8 %1349, 47
   br i1 %1350, label %1351, label %.thread1100
 
 1351:                                             ; preds = %1347, %1332
-  %1352 = load ptr, ptr %6, align 8, !tbaa !29
+  %1352 = load ptr, ptr %6, align 8, !tbaa !30
   %1353 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %.0.copyload.i = load i32, ptr %1353, align 1
   %1354 = mul i32 %.0.copyload.i, 506832829
   %1355 = lshr i32 %1354, 17
   %1356 = zext nneg i32 %1355 to i64
   %1357 = getelementptr inbounds nuw i16, ptr %1352, i64 %1356
-  %1358 = load i16, ptr %1357, align 2, !tbaa !30
+  %1358 = load i16, ptr %1357, align 2, !tbaa !31
   %.not807 = icmp eq i16 %1358, 0
   %invariant.gep1422 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %invariant.gep1424 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -2427,8 +2427,8 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 .lr.ph1429:                                       ; preds = %1351
   %1359 = zext i16 %1358 to i64
   %1360 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %1361 = load ptr, ptr %1360, align 8, !tbaa !32
-  %1362 = load ptr, ptr %0, align 8, !tbaa !25
+  %1361 = load ptr, ptr %1360, align 8, !tbaa !33
+  %1362 = load ptr, ptr %0, align 8, !tbaa !26
   %1363 = add i64 %3, -5
   %1364 = getelementptr inbounds nuw i8, ptr %1362, i64 32
   %1365 = getelementptr inbounds nuw i8, ptr %1362, i64 168
@@ -2439,15 +2439,15 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %.07591426 = phi i64 [ %1359, %.lr.ph1429 ], [ %1367, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread ]
   %1367 = add i64 %.07591426, 1
   %1368 = getelementptr inbounds nuw %"struct.duckdb_brotli::DictWord", ptr %1361, i64 %.07591426
-  %.sroa.028.0.copyload = load i8, ptr %1368, align 2, !tbaa !26
+  %.sroa.028.0.copyload = load i8, ptr %1368, align 2, !tbaa !27
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1368, i64 1
-  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !26
+  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !27
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1368, i64 2
-  %.sroa.8.0.copyload = load i16, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !30
+  %.sroa.8.0.copyload = load i16, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !31
   %1369 = and i8 %.sroa.028.0.copyload, 31
   %1370 = zext nneg i8 %1369 to i64
   %1371 = getelementptr inbounds nuw [32 x i8], ptr %1362, i64 0, i64 %1370
-  %1372 = load i8, ptr %1371, align 1, !tbaa !26
+  %1372 = load i8, ptr %1371, align 1, !tbaa !27
   %1373 = zext nneg i8 %1372 to i64
   %1374 = zext i16 %.sroa.8.0.copyload to i64
   %1375 = icmp slt i8 %.sroa.028.0.copyload, 0
@@ -2461,7 +2461,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %1380 = load i32, ptr %1379, align 4, !tbaa !22
   %1381 = zext i32 %1380 to i64
   %narrow.i858 = mul nuw nsw i64 %1374, %1370
-  %1382 = load ptr, ptr %1365, align 8, !tbaa !33
+  %1382 = load ptr, ptr %1365, align 8, !tbaa !34
   %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 %1381
   %1384 = getelementptr inbounds nuw i8, ptr %1383, i64 %narrow.i858
   %1385 = icmp samesign ugt i8 %1369, 7
@@ -2502,14 +2502,14 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %1396 = getelementptr inbounds nuw i8, ptr %.022.i1408, i64 8
   %1397 = add i64 %.027.i1406, -8
   %1398 = icmp ugt i64 %1397, 7
-  br i1 %1398, label %.lr.ph1410, label %.preheader, !llvm.loop !35
+  br i1 %1398, label %.lr.ph1410, label %.preheader, !llvm.loop !36
 
 .lr.ph1418:                                       ; preds = %.lr.ph1418.preheader, %1402
   %.224.i1417 = phi ptr [ %1405, %1402 ], [ %.022.i.lcssa, %.lr.ph1418.preheader ]
   %.126.i1416 = phi ptr [ %1404, %1402 ], [ %.025.i.lcssa, %.lr.ph1418.preheader ]
   %.128.i1415 = phi i64 [ %1403, %1402 ], [ %.027.i.lcssa, %.lr.ph1418.preheader ]
-  %1399 = load i8, ptr %.224.i1417, align 1, !tbaa !26
-  %1400 = load i8, ptr %.126.i1416, align 1, !tbaa !26
+  %1399 = load i8, ptr %.224.i1417, align 1, !tbaa !27
+  %1400 = load i8, ptr %.126.i1416, align 1, !tbaa !27
   %1401 = icmp eq i8 %1399, %1400
   br i1 %1401, label %1402, label %.critedge.i
 
@@ -2518,7 +2518,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %1404 = getelementptr inbounds nuw i8, ptr %.126.i1416, i64 1
   %1405 = getelementptr inbounds nuw i8, ptr %.224.i1417, i64 1
   %.not.i869 = icmp eq i64 %1403, 0
-  br i1 %.not.i869, label %.critedge.i, label %.lr.ph1418, !llvm.loop !36
+  br i1 %.not.i869, label %.critedge.i, label %.lr.ph1418, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %1402, %.lr.ph1418, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i1417, %.lr.ph1418 ], [ %scevgep1487, %1402 ]
@@ -2533,7 +2533,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %1386, %.c
   br i1 %.not1125, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread1116, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread1116: ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %1409 = load i8, ptr %1, align 1, !tbaa !26
+  %1409 = load i8, ptr %1, align 1, !tbaa !27
   %1410 = icmp eq i8 %1409, 32
   %1411 = select i1 %1410, i64 41, i64 72
   %1412 = shl i64 %1411, %1373
@@ -2551,7 +2551,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1422:                                             ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread1116
   %1423 = getelementptr inbounds nuw i8, ptr %1, i64 %1414
-  %1424 = load i8, ptr %1, align 1, !tbaa !26
+  %1424 = load i8, ptr %1, align 1, !tbaa !27
   %1425 = icmp eq i8 %1424, 32
   %1426 = add nuw nsw i64 %1370, 8
   %1427 = icmp ult i64 %1426, %3
@@ -2559,25 +2559,25 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
   br i1 %or.cond, label %1428, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1428:                                             ; preds = %1422
-  %1429 = load i8, ptr %1423, align 1, !tbaa !26
+  %1429 = load i8, ptr %1423, align 1, !tbaa !27
   %1430 = icmp eq i8 %1429, 32
   br i1 %1430, label %1431, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1431:                                             ; preds = %1428
   %1432 = getelementptr inbounds nuw i8, ptr %1423, i64 1
-  %1433 = load i8, ptr %1432, align 1, !tbaa !26
+  %1433 = load i8, ptr %1432, align 1, !tbaa !27
   %1434 = icmp eq i8 %1433, 111
   br i1 %1434, label %1435, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1435:                                             ; preds = %1431
   %1436 = getelementptr inbounds nuw i8, ptr %1423, i64 2
-  %1437 = load i8, ptr %1436, align 1, !tbaa !26
+  %1437 = load i8, ptr %1436, align 1, !tbaa !27
   %1438 = icmp eq i8 %1437, 102
   br i1 %1438, label %1439, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1439:                                             ; preds = %1435
   %1440 = getelementptr inbounds nuw i8, ptr %1423, i64 3
-  %1441 = load i8, ptr %1440, align 1, !tbaa !26
+  %1441 = load i8, ptr %1440, align 1, !tbaa !27
   %1442 = icmp eq i8 %1441, 32
   br i1 %1442, label %1443, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
@@ -2597,25 +2597,25 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1453:                                             ; preds = %1443
   %1454 = getelementptr inbounds nuw i8, ptr %1423, i64 4
-  %1455 = load i8, ptr %1454, align 1, !tbaa !26
+  %1455 = load i8, ptr %1454, align 1, !tbaa !27
   %1456 = icmp eq i8 %1455, 116
   br i1 %1456, label %1457, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1457:                                             ; preds = %1453
   %1458 = getelementptr inbounds nuw i8, ptr %1423, i64 5
-  %1459 = load i8, ptr %1458, align 1, !tbaa !26
+  %1459 = load i8, ptr %1458, align 1, !tbaa !27
   %1460 = icmp eq i8 %1459, 104
   br i1 %1460, label %1461, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1461:                                             ; preds = %1457
   %1462 = getelementptr inbounds nuw i8, ptr %1423, i64 6
-  %1463 = load i8, ptr %1462, align 1, !tbaa !26
+  %1463 = load i8, ptr %1462, align 1, !tbaa !27
   %1464 = icmp eq i8 %1463, 101
   br i1 %1464, label %1465, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 1465:                                             ; preds = %1461
   %1466 = getelementptr inbounds nuw i8, ptr %1423, i64 7
-  %1467 = load i8, ptr %1466, align 1, !tbaa !26
+  %1467 = load i8, ptr %1466, align 1, !tbaa !27
   %1468 = icmp eq i8 %1467, 32
   br i1 %1468, label %1469, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
@@ -2633,7 +2633,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread: ; preds = %1422, %1443, %1453, %1457, %1461, %1465, %1469, %1439, %1435, %1431, %1428, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread1116, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %1366
   %.18 = phi i32 [ 1, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread1116 ], [ %.171427, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %.171427, %1366 ], [ 1, %1428 ], [ 1, %1431 ], [ 1, %1435 ], [ 1, %1439 ], [ 1, %1469 ], [ 1, %1465 ], [ 1, %1461 ], [ 1, %1457 ], [ 1, %1453 ], [ 1, %1443 ], [ 1, %1422 ]
-  br i1 %1375, label %.thread1100, label %1366, !llvm.loop !43
+  br i1 %1375, label %.thread1100, label %1366, !llvm.loop !46
 
 .thread1100:                                      ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread, %1351, %1319, %1321, %1324, %1328, %1332, %._crit_edge1309, %.loopexit, %1336, %1339, %1343, %1347, %.thread1084
   %.16 = phi i32 [ %.13, %1347 ], [ %.13, %1343 ], [ %.13, %1339 ], [ %.13, %1336 ], [ %.13, %.thread1084 ], [ %.7, %.loopexit ], [ %.0.lcssa, %._crit_edge1309 ], [ %.13, %1332 ], [ %.13, %1328 ], [ %.13, %1324 ], [ %.13, %1321 ], [ %.13, %1319 ], [ %.13, %1351 ], [ %.18, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread ]
@@ -2687,24 +2687,27 @@ attributes #5 = { nounwind }
 !20 = !{!"p1 _ZTSN13duckdb_brotli23BrotliEncoderDictionaryE", !6, i64 0}
 !21 = !{!20, !20, i64 0}
 !22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!4, !5, i64 0}
-!26 = !{!7, !7, i64 0}
-!27 = !{!4, !9, i64 8}
-!28 = distinct !{!28, !24}
-!29 = !{!4, !11, i64 40}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"short", !7, i64 0}
-!32 = !{!4, !13, i64 48}
-!33 = !{!34, !12, i64 168}
-!34 = !{!"_ZTSN13duckdb_brotli16BrotliDictionaryE", !7, i64 0, !7, i64 32, !10, i64 160, !12, i64 168}
-!35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}
-!37 = !{!4, !10, i64 16}
-!38 = distinct !{!38, !24}
-!39 = distinct !{!39, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!4, !5, i64 0}
+!27 = !{!7, !7, i64 0}
+!28 = !{!4, !9, i64 8}
+!29 = distinct !{!29, !24, !25}
+!30 = !{!4, !11, i64 40}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !7, i64 0}
+!33 = !{!4, !13, i64 48}
+!34 = !{!35, !12, i64 168}
+!35 = !{!"_ZTSN13duckdb_brotli16BrotliDictionaryE", !7, i64 0, !7, i64 32, !10, i64 160, !12, i64 168}
+!36 = distinct !{!36, !24, !25}
+!37 = distinct !{!37, !24, !25}
+!38 = !{!4, !10, i64 16}
+!39 = distinct !{!39, !24, !25}
 !40 = distinct !{!40, !24}
-!41 = distinct !{!41, !24}
-!42 = distinct !{!42, !24}
+!41 = distinct !{!41, !24, !25}
+!42 = distinct !{!42, !25}
 !43 = distinct !{!43, !24}
+!44 = distinct !{!44, !25}
+!45 = distinct !{!45, !24, !25}
+!46 = distinct !{!46, !24, !25}

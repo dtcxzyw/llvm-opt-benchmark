@@ -500,7 +500,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   store i32 %177, ptr %180, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 63
-  br i1 %exitcond.not.i.i, label %181, label %174, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %181, label %174, !llvm.loop !12
 
 181:                                              ; preds = %174
   %182 = load ptr, ptr @cpufreq, align 8
@@ -558,12 +558,12 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   store i32 %200, ptr %202, align 4
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
   %.not.not.i = icmp sgt i64 %indvars.iv51.i, %196
-  br i1 %.not.not.i, label %.lr.ph38.i, label %.loopexit.loopexit.i, !llvm.loop !12
+  br i1 %.not.not.i, label %.lr.ph38.i, label %.loopexit.loopexit.i, !llvm.loop !13
 
 203:                                              ; preds = %190
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv49.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %190, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit.i, label %190, !llvm.loop !14
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph38.i
   %.pre.i = load i32, ptr %3, align 4
@@ -580,7 +580,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   store i32 %205, ptr %208, align 4
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next50.i, 63
-  br i1 %exitcond55.not.i, label %214, label %.preheader31.i, !llvm.loop !14
+  br i1 %exitcond55.not.i, label %214, label %.preheader31.i, !llvm.loop !15
 
 209:                                              ; preds = %.preheader31.i
   %210 = trunc i64 %indvars.iv49.i to i8
@@ -643,14 +643,14 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %181, %209, %214
   %236 = load i8, ptr %235, align 1
   %237 = zext i8 %236 to i64
   %238 = icmp samesign ult i64 %indvars.iv.next66, %237
-  br i1 %238, label %.lr.ph55, label %.loopexit, !llvm.loop !15
+  br i1 %238, label %.lr.ph55, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %233, %.preheader, %_cpu_freq_cpu_avail.exit.thread, %220, %_cpu_freq_cpu_avail.exit, %.lr.ph58, %68
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %239 = load i16, ptr @cpu_freq_count, align 2
   %240 = zext i16 %239 to i64
   %241 = icmp samesign ult i64 %indvars.iv.next69, %240
-  br i1 %241, label %.lr.ph58, label %.loopexit49, !llvm.loop !16
+  br i1 %241, label %.lr.ph58, label %.loopexit49, !llvm.loop !17
 
 .loopexit49:                                      ; preds = %.loopexit, %59, %13, %16, %1, %22
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #10
@@ -750,7 +750,7 @@ define dso_local void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %17, %14
-  br label %.lr.ph.split, !llvm.loop !17
+  br label %.lr.ph.split, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %1, %.lr.ph.split.backedge
   %.0.ph98 = phi i64 [ %13, %.lr.ph.split.backedge ], [ 2, %1 ]
@@ -833,7 +833,7 @@ define dso_local void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.lr.ph101.split.backedge
 
 .lr.ph101.split.backedge:                         ; preds = %45, %42
-  br label %.lr.ph101.split, !llvm.loop !18
+  br label %.lr.ph101.split, !llvm.loop !19
 
 49:                                               ; preds = %.lr.ph131, %51
   %50 = load i32, ptr %66, align 4
@@ -875,7 +875,7 @@ define dso_local void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.lr.ph120.split.backedge
 
 .lr.ph120.split.backedge:                         ; preds = %63, %60
-  br label %.lr.ph120.split, !llvm.loop !19
+  br label %.lr.ph120.split, !llvm.loop !20
 
 .lr.ph120.split:                                  ; preds = %1, %.lr.ph120.split.backedge
   %.038.ph135 = phi ptr [ %58, %.lr.ph120.split.backedge ], [ @cpu_freq_count, %1 ]
@@ -1028,7 +1028,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %45, %42
-  br label %.lr.ph, !llvm.loop !20
+  br label %.lr.ph, !llvm.loop !21
 
 .outer58._crit_edge:                              ; preds = %.split70.us
   %46 = load i16, ptr @cpu_freq_count, align 2
@@ -1161,7 +1161,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   %103 = tail call i64 @read(i32 noundef %0, ptr noundef %94, i64 noundef %95) #10
   %104 = trunc i64 %103 to i32
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.split101.us, label %.critedge.preheader, !llvm.loop !21
+  br i1 %105, label %.split101.us, label %.critedge.preheader, !llvm.loop !22
 
 .outer._crit_edge:                                ; preds = %.split104.us, %49
   %106 = tail call i32 @get_log_level() #10
@@ -1445,7 +1445,7 @@ switch.early.test:                                ; preds = %.thread, %15
   call void @bit_or(ptr noundef %126, ptr noundef %127) #10
   %128 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %5) #10
   %.not48 = icmp eq ptr %128, null
-  br i1 %.not48, label %.preheader, label %89, !llvm.loop !22
+  br i1 %.not48, label %.preheader, label %89, !llvm.loop !23
 
 .preheader:                                       ; preds = %125
   %129 = load i16, ptr @cpu_freq_count, align 2
@@ -1469,7 +1469,7 @@ switch.early.test:                                ; preds = %.thread, %15
   %135 = load i16, ptr @cpu_freq_count, align 2
   %136 = zext i16 %135 to i64
   %137 = icmp samesign ult i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %134, %.preheader
   call void @cpu_freq_set(ptr noundef %0)
@@ -1545,7 +1545,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
   %13 = load ptr, ptr @cpufreq, align 8
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds %struct.cpu_freq_data, ptr %13, i64 %14, i32 2
-  %16 = load i8, ptr %15, align 2, !range !24, !noundef !25
+  %16 = load i8, ptr %15, align 2, !range !25, !noundef !26
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %_cpu_freq_current_state.exit, label %18
 
@@ -2148,7 +2148,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
   %147 = load i16, ptr @cpu_freq_count, align 2
   %148 = zext i16 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next, %148
-  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %50, %146, %1
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #10
@@ -2329,7 +2329,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2048
   %.not58.i = icmp eq i16 %95, 0
-  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph19.i, !llvm.loop !27
+  br i1 %.not58.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph19.i, !llvm.loop !28
 
 96:                                               ; preds = %.preheader
   %97 = icmp eq i16 %.035, -1
@@ -2382,7 +2382,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 2048
   %.not56.i = icmp eq i16 %123, 0
-  br i1 %.not56.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !28
+  br i1 %.not56.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
   %124 = phi i8 [ %129, %.lr.ph.i ], [ %102, %.preheader1.i ]
@@ -2399,7 +2399,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
   %.not.i = icmp eq i16 %133, 0
-  br i1 %.not.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i, label %_cpu_freq_next_cpu.exit, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge12.i:                                  ; preds = %.lr.ph11.i, %.preheader.i, %98, %96
   %.136 = phi i16 [ -1, %98 ], [ %.035, %96 ], [ 0, %.preheader.i ], [ %118, %.lr.ph11.i ]
@@ -2450,7 +2450,7 @@ _cpu_freq_next_cpu.exit.thread47:                 ; preds = %.preheader1.i, %77,
 
 149:                                              ; preds = %_cpu_freq_next_cpu.exit.thread47
   tail call fastcc void @_cpu_freq_setup_data(ptr noundef %0, i32 noundef %144)
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader, !llvm.loop !31
 
 _cpu_freq_next_cpu.exit.thread:                   ; preds = %98, %73, %_cpu_freq_next_cpu.exit
   tail call void @cpu_freq_set(ptr noundef %0)
@@ -2591,7 +2591,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   %78 = getelementptr inbounds nuw [64 x i32], ptr %47, i64 0, i64 %indvars.iv.next
   %79 = load i32, ptr %78, align 4
   %80 = icmp ult i32 %0, %79
-  br i1 %80, label %81, label %73, !llvm.loop !31
+  br i1 %80, label %81, label %73, !llvm.loop !32
 
 81:                                               ; preds = %77
   %82 = tail call i32 @get_log_level() #10
@@ -2990,7 +2990,7 @@ define dso_local void @cpu_freq_reset(ptr noundef readonly captures(none) %0) lo
 57:                                               ; preds = %54, %54
   %58 = add nuw nsw i32 %.0612.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %58, 10
-  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader46.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader46.i, !llvm.loop !33
 
 _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %59 = icmp slt i32 %52, 0
@@ -3077,7 +3077,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %89, %86
-  br label %.lr.ph.i, !llvm.loop !33
+  br label %.lr.ph.i, !llvm.loop !34
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
   %.032.ph79.i = phi ptr [ %3, %.lr.ph.i.preheader ], [ %84, %.lr.ph.i.backedge ]
@@ -3296,7 +3296,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %112, %119
   %193 = load i16, ptr @cpu_freq_count, align 2
   %194 = zext i16 %193 to i64
   %195 = icmp samesign ult i64 %indvars.iv.next, %194
-  br i1 %195, label %10, label %.loopexit, !llvm.loop !34
+  br i1 %195, label %10, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %192, %1
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #10
@@ -3742,7 +3742,7 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_govlist(ptr noundef %0, p
   store i32 %24, ptr %1, align 4
   %25 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %4) #10
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %26, label %.preheader, !llvm.loop !35
+  br i1 %.not, label %26, label %.preheader, !llvm.loop !36
 
 26:                                               ; preds = %22
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -4175,7 +4175,7 @@ define internal fastcc noundef i32 @_set_cpu_owner_lock(i32 noundef range(i32 -2
 28:                                               ; preds = %25, %25
   %29 = add nuw nsw i32 %.0612.i, 1
   %exitcond.not.i = icmp eq i32 %29, 10
-  br i1 %exitcond.not.i, label %_fd_lock_retry.exit, label %.preheader, !llvm.loop !32
+  br i1 %exitcond.not.i, label %_fd_lock_retry.exit, label %.preheader, !llvm.loop !33
 
 _fd_lock_retry.exit:                              ; preds = %25, %28
   %30 = icmp slt i32 %23, 0
@@ -4240,7 +4240,7 @@ _fd_lock_retry.exit:                              ; preds = %25, %28
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %50, %47
-  br label %.lr.ph.split, !llvm.loop !36
+  br label %.lr.ph.split, !llvm.loop !37
 
 51:                                               ; preds = %43, %.split37.us
   %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._set_cpu_owner_lock, ptr noundef nonnull %4) #10
@@ -4307,32 +4307,33 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}
+!31 = distinct !{!31, !9, !10, !11}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !9, !10, !11}
+!34 = distinct !{!34, !9, !10, !11}
+!35 = distinct !{!35, !9, !10, !11}
+!36 = distinct !{!36, !9, !10, !11}
+!37 = distinct !{!37, !9, !10, !11}

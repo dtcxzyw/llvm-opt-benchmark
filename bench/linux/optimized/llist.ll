@@ -48,24 +48,24 @@ declare void @llvm.assume(i1 noundef) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @llist_del_first(ptr noundef %0) #0 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %10
   %4 = phi ptr [ %11, %10 ], [ %2, %1 ]
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %5, ptr elementtype(i64) %0, ptr nonnull %4) #3, !srcloc !12
+  %6 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %5, ptr elementtype(i64) %0, ptr nonnull %4) #3, !srcloc !13
   %7 = extractvalue { i8, ptr } %6, 0
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i8 %7, 0
-  br i1 %9, label %10, label %.loopexit, !prof !13
+  br i1 %9, label %10, label %.loopexit, !prof !14
 
 10:                                               ; preds = %.preheader
   %11 = extractvalue { i8, ptr } %6, 1
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %10, %.preheader, %1
   %13 = phi ptr [ null, %1 ], [ %4, %.preheader ], [ null, %10 ]
@@ -75,13 +75,13 @@ define dso_local noundef ptr @llist_del_first(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @llist_del_first_this(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   %3 = load volatile ptr, ptr %0, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !17
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %2
   %6 = load volatile ptr, ptr %3, align 8
-  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %3) #3, !srcloc !16
+  %7 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %6, ptr elementtype(i64) %0, ptr %3) #3, !srcloc !18
   %8 = extractvalue { i8, ptr } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -90,18 +90,18 @@ define dso_local noundef zeroext i1 @llist_del_first_this(ptr noundef %0, ptr no
 
 11:                                               ; preds = %.preheader
   %12 = load volatile ptr, ptr %18, align 8
-  %13 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %12, ptr elementtype(i64) %0, ptr %18) #3, !srcloc !16
+  %13 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr %12, ptr elementtype(i64) %0, ptr %18) #3, !srcloc !18
   %14 = extractvalue { i8, ptr } %13, 0
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
-  br i1 %16, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !17
+  br i1 %16, label %.preheader, label %.loopexit, !prof !7, !llvm.loop !19
 
 .preheader:                                       ; preds = %5, %11
   %17 = phi { i8, ptr } [ %13, %11 ], [ %7, %5 ]
   %18 = extractvalue { i8, ptr } %17, 1
   %19 = icmp eq ptr %18, %1
-  br i1 %19, label %11, label %.loopexit, !llvm.loop !17
+  br i1 %19, label %11, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %11, %5, %2
   %20 = phi i1 [ false, %2 ], [ true, %5 ], [ %19, %11 ], [ %19, %.preheader ]
@@ -119,7 +119,7 @@ define dso_local noundef ptr @llist_reverse_order(ptr noundef %0) #2 align 16 {
   %5 = load ptr, ptr %3, align 8
   store ptr %4, ptr %3, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %1
   %7 = phi ptr [ null, %1 ], [ %3, %.preheader ]
@@ -141,14 +141,17 @@ attributes #3 = { nounwind }
 !5 = !{i64 2148590735, i64 2148590774, i64 2148590795, i64 2148590832, i64 2148590855, i64 2148590864, i64 2148591065}
 !6 = !{!"branch_weights", i32 1, i32 1999}
 !7 = !{!"branch_weights", i32 0, i32 1}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i64 2148597739}
-!12 = !{i64 2148603642, i64 2148603681, i64 2148603702, i64 2148603739, i64 2148603762, i64 2148603771, i64 2148603972}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = distinct !{!14, !9, !10}
-!15 = !{i64 2148610646}
-!16 = !{i64 2148616525, i64 2148616564, i64 2148616585, i64 2148616622, i64 2148616645, i64 2148616654, i64 2148616855}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!12 = !{i64 2148597739}
+!13 = !{i64 2148603642, i64 2148603681, i64 2148603702, i64 2148603739, i64 2148603762, i64 2148603771, i64 2148603972}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = distinct !{!15, !9, !10, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 2148610646}
+!18 = !{i64 2148616525, i64 2148616564, i64 2148616585, i64 2148616622, i64 2148616645, i64 2148616654, i64 2148616855}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10, !16}

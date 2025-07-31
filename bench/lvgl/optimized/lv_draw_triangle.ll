@@ -112,7 +112,7 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %.preheader, label %42
 
 .preheader:                                       ; preds = %7, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !33
 
 42:                                               ; preds = %7
   %43 = call ptr @lv_memcpy(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef 88) #4
@@ -177,3 +177,5 @@ attributes #4 = { nounwind }
 !30 = !{!22, !13, i64 4}
 !31 = !{!22, !13, i64 8}
 !32 = !{!22, !13, i64 12}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}

@@ -69,7 +69,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %27 = getelementptr inbounds nuw i8, ptr %.169142, i64 4
   %28 = load i32, ptr %27, align 4
   %.not84 = icmp eq i32 %28, 0
-  br i1 %.not84, label %._crit_edge145, label %.lr.ph144, !llvm.loop !6
+  br i1 %.not84, label %._crit_edge145, label %.lr.ph144, !llvm.loop !7
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %24
   %29 = sext i32 %.066.lcssa to i64
@@ -113,7 +113,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %46 = mul i32 %.0813.i.i.i, 8191
   %47 = add i32 %46, %44
   %.not.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i, label %Decomp_hash_func.exit.i.i, label %39, !llvm.loop !7
+  br i1 %.not.i.i.i, label %Decomp_hash_func.exit.i.i, label %39, !llvm.loop !8
 
 Decomp_hash_func.exit.i.i:                        ; preds = %39
   %48 = urem i32 %45, 13551
@@ -168,7 +168,7 @@ get_canonical_class.exit:                         ; preds = %get_code_entry.exit
   %74 = mul i32 %.0813.i.i.i89, 8191
   %75 = add i32 %74, %72
   %.not.i.i.i92 = icmp eq i64 %68, 0
-  br i1 %.not.i.i.i92, label %Decomp_hash_func.exit.i.i93, label %67, !llvm.loop !7
+  br i1 %.not.i.i.i92, label %Decomp_hash_func.exit.i.i93, label %67, !llvm.loop !8
 
 Decomp_hash_func.exit.i.i93:                      ; preds = %67
   %76 = urem i32 %73, 13551
@@ -219,7 +219,7 @@ get_canonical_class.exit98:                       ; preds = %87
   %.1 = phi i32 [ %spec.select, %95 ], [ %.067146, %get_canonical_class.exit98 ], [ %.067146, %get_canonical_class.exit98.thread ]
   %99 = add nsw i32 %.1, 1
   %100 = icmp slt i32 %99, %.066.lcssa
-  br i1 %100, label %.lr.ph147, label %._crit_edge148, !llvm.loop !8
+  br i1 %100, label %.lr.ph147, label %._crit_edge148, !llvm.loop !9
 
 ._crit_edge148:                                   ; preds = %98, %.preheader
   br i1 %12, label %101, label %206
@@ -265,7 +265,7 @@ get_canonical_class.exit98:                       ; preds = %87
   %115 = mul i32 %.0813.i.i.i100, 8191
   %116 = add i32 %115, %113
   %.not.i.i.i103 = icmp eq i64 %109, 0
-  br i1 %.not.i.i.i103, label %Decomp_hash_func.exit.i.i104, label %108, !llvm.loop !7
+  br i1 %.not.i.i.i103, label %Decomp_hash_func.exit.i.i104, label %108, !llvm.loop !8
 
 Decomp_hash_func.exit.i.i104:                     ; preds = %108
   %117 = urem i32 %114, 13551
@@ -362,7 +362,7 @@ get_canonical_class.exit109:                      ; preds = %get_code_entry.exit
   %168 = mul i32 %.0813.i.i, 17
   %169 = add i32 %168, %166
   %.not.i.i110 = icmp eq i64 %162, 0
-  br i1 %.not.i.i110, label %Recomp_hash_func.exit.i, label %161, !llvm.loop !9
+  br i1 %.not.i.i110, label %Recomp_hash_func.exit.i, label %161, !llvm.loop !10
 
 Recomp_hash_func.exit.i:                          ; preds = %161
   %170 = urem i32 %167, 1883
@@ -429,7 +429,7 @@ recompose_code.exit.thread:                       ; preds = %199, %recompose_cod
   store i32 %.sink, ptr %203, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !11
 
 ._crit_edge156.loopexit:                          ; preds = %recompose_code.exit.thread
   %204 = sext i32 %.175 to i64
@@ -490,7 +490,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
   %16 = mul i32 %.0813.i.i, 8191
   %17 = add i32 %16, %14
   %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %Decomp_hash_func.exit.i, label %9, !llvm.loop !7
+  br i1 %.not.i.i, label %Decomp_hash_func.exit.i, label %9, !llvm.loop !8
 
 Decomp_hash_func.exit.i:                          ; preds = %9
   %18 = urem i32 %15, 13551
@@ -565,7 +565,7 @@ get_code_decomposition.exit:                      ; preds = %45, %47
   %55 = add i32 %54, %.02031
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.0
-  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !12
 
 .loopexit:                                        ; preds = %51, %get_code_entry.exit.thread, %33, %39, %5
   %.1 = phi i32 [ %., %5 ], [ 1, %39 ], [ 1, %33 ], [ 1, %get_code_entry.exit.thread ], [ %55, %51 ]
@@ -633,7 +633,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
   %36 = mul i32 %.0813.i.i, 8191
   %37 = add i32 %36, %34
   %.not.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i, label %Decomp_hash_func.exit.i, label %29, !llvm.loop !7
+  br i1 %.not.i.i, label %Decomp_hash_func.exit.i, label %29, !llvm.loop !8
 
 Decomp_hash_func.exit.i:                          ; preds = %29
   %38 = urem i32 %35, 13551
@@ -711,7 +711,7 @@ get_code_decomposition.exit:                      ; preds = %68, %70
   tail call fastcc void @decompose_code(i32 noundef %76, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.046
-  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %61, %25
   %.sink64 = phi i32 [ %24, %25 ], [ %63, %61 ]
@@ -772,7 +772,7 @@ define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noun
   %17 = mul i32 %.0813.i.i.i, 8191
   %18 = add i32 %17, %15
   %.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i, label %Decomp_hash_func.exit.i.i, label %10, !llvm.loop !7
+  br i1 %.not.i.i.i, label %Decomp_hash_func.exit.i.i, label %10, !llvm.loop !8
 
 Decomp_hash_func.exit.i.i:                        ; preds = %10
   %19 = urem i32 %16, 13551
@@ -835,7 +835,7 @@ get_canonical_class.exit:                         ; preds = %30
   %47 = mul i32 %.0813.i.i, 17
   %48 = add i32 %47, %45
   %.not.i11.i = icmp eq i64 %41, 0
-  br i1 %.not.i11.i, label %NFC_QC_hash_func.exit.i, label %40, !llvm.loop !13
+  br i1 %.not.i11.i, label %NFC_QC_hash_func.exit.i, label %40, !llvm.loop !14
 
 NFC_QC_hash_func.exit.i:                          ; preds = %40
   %49 = urem i32 %46, 2463
@@ -885,7 +885,7 @@ qc_hash_lookup.exit.i:                            ; preds = %60, %NFC_QC_hash_fu
   %73 = mul i32 %.0813.i13.i, 8191
   %74 = add i32 %73, %71
   %.not.i16.i = icmp eq i64 %67, 0
-  br i1 %.not.i16.i, label %NFKC_QC_hash_func.exit.i, label %66, !llvm.loop !14
+  br i1 %.not.i16.i, label %NFKC_QC_hash_func.exit.i, label %66, !llvm.loop !15
 
 NFKC_QC_hash_func.exit.i:                         ; preds = %66
   %75 = urem i32 %72, 10079
@@ -938,7 +938,7 @@ qc_is_allowed.exit.thread:                        ; preds = %38, %91, %qc_is_all
   %96 = getelementptr inbounds nuw i8, ptr %.02951, i64 4
   %97 = load i32, ptr %96, align 4
   %.not = icmp eq i32 %97, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %get_canonical_class.exit, %qc_is_allowed.exit, %95, %.preheader, %2
   %.0 = phi i32 [ -1, %2 ], [ 1, %.preheader ], [ 0, %get_canonical_class.exit ], [ %94, %qc_is_allowed.exit ], [ %.227.ph, %95 ]
@@ -966,15 +966,16 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}

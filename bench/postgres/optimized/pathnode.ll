@@ -484,7 +484,7 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %.sroa.0.1181 = phi ptr [ %.sroa.0.0172, %231 ], [ %.sroa.0.0172, %229 ], [ %212, %compare_path_costs_fuzzily.exit.thread162 ], [ %212, %215 ]
   %21 = add i32 %.sroa.7.1182, 1
   %.not129 = icmp eq ptr %.sroa.0.1181, null
-  br i1 %.not129, label %._crit_edge.loopexit, label %22, !llvm.loop !7
+  br i1 %.not129, label %._crit_edge.loopexit, label %22, !llvm.loop !8
 
 22:                                               ; preds = %.lr.ph, %.thread
   %.0106174 = phi i32 [ 0, %.lr.ph ], [ %.2108183, %.thread ]
@@ -528,13 +528,13 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %49 = load i8, ptr %48, align 8, !range !8, !noundef !9
+  %49 = load i8, ptr %48, align 8, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %55, label %93
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 25
-  %53 = load i8, ptr %52, align 1, !range !8, !noundef !9
+  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %93
 
@@ -561,13 +561,13 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %72 = load i8, ptr %71, align 8, !range !8, !noundef !9
+  %72 = load i8, ptr %71, align 8, !range !9, !noundef !10
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %78, label %93
 
 74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 25
-  %76 = load i8, ptr %75, align 1, !range !8, !noundef !9
+  %76 = load i8, ptr %75, align 1, !range !9, !noundef !10
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %93
 
@@ -659,9 +659,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   br i1 %122, label %compare_path_costs_fuzzily.exit.thread156, label %123
 
 123:                                              ; preds = %118
-  %124 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %124 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %125 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %126 = load i8, ptr %125, align 1, !range !8, !noundef !9
+  %126 = load i8, ptr %125, align 1, !range !9, !noundef !10
   %.not147.not = icmp samesign ult i8 %124, %126
   br i1 %.not147.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
@@ -685,9 +685,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   ]
 
 135:                                              ; preds = %134
-  %136 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %136 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %137 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %138 = load i8, ptr %137, align 1, !range !8, !noundef !9
+  %138 = load i8, ptr %137, align 1, !range !9, !noundef !10
   %139 = icmp samesign ugt i8 %136, %138
   br i1 %139, label %compare_path_costs_fuzzily.exit.thread162, label %140
 
@@ -719,9 +719,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   br i1 %156, label %compare_path_costs_fuzzily.exit.thread156, label %157
 
 157:                                              ; preds = %152
-  %158 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %158 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %159 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %160 = load i8, ptr %159, align 1, !range !8, !noundef !9
+  %160 = load i8, ptr %159, align 1, !range !9, !noundef !10
   %.not144 = icmp samesign ult i8 %158, %160
   br i1 %.not144, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
@@ -813,9 +813,9 @@ default.unreachable:                              ; preds = %102
   unreachable
 
 compare_path_costs_fuzzily.exit:                  ; preds = %181
-  %207 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %207 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %208 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %209 = load i8, ptr %208, align 1, !range !8, !noundef !9
+  %209 = load i8, ptr %208, align 1, !range !9, !noundef !10
   %.not141.not = icmp samesign ult i8 %207, %209
   br i1 %.not141.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
@@ -833,9 +833,9 @@ compare_path_costs_fuzzily.exit.thread162:        ; preds = %157, %142, %135, %1
   br label %.thread
 
 compare_path_costs_fuzzily.exit.thread156.sink.split: ; preds = %202, %161, %129
-  %216 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %216 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %217 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %218 = load i8, ptr %217, align 1, !range !8, !noundef !9
+  %218 = load i8, ptr %217, align 1, !range !9, !noundef !10
   %.not137 = icmp samesign ugt i8 %216, %218
   br label %compare_path_costs_fuzzily.exit.thread156
 
@@ -924,13 +924,13 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nound
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %25 = load i8, ptr %24, align 8, !range !8, !noundef !9
+  %25 = load i8, ptr %24, align 8, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %31, label %38
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 25
-  %29 = load i8, ptr %28, align 1, !range !8, !noundef !9
+  %29 = load i8, ptr %28, align 1, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %38
 
@@ -961,13 +961,13 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nound
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %50 = load i8, ptr %49, align 8, !range !8, !noundef !9
+  %50 = load i8, ptr %49, align 8, !range !9, !noundef !10
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %56, label %63
 
 52:                                               ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 25
-  %54 = load i8, ptr %53, align 1, !range !8, !noundef !9
+  %54 = load i8, ptr %53, align 1, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %63
 
@@ -1022,7 +1022,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %6
   %.in.in.v = select i1 %.not, i64 24, i64 25
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
-  %.in = load i8, ptr %.in.in, align 1, !range !8, !noundef !9
+  %.in = load i8, ptr %.in.in, align 1, !range !9, !noundef !10
   %.not86 = icmp eq i8 %.in, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
@@ -1199,7 +1199,7 @@ define dso_local void @add_partial_path(ptr noundef captures(none) %0, ptr nound
   %.sroa.7.181 = phi i32 [ %48, %.thread76 ], [ %.sroa.7.071, %56 ], [ %.sroa.7.071, %54 ]
   %12 = add i32 %.sroa.7.181, 1
   %.not49 = icmp eq ptr %.sroa.0.182, null
-  br i1 %.not49, label %._crit_edge.loopexit, label %13, !llvm.loop !10
+  br i1 %.not49, label %._crit_edge.loopexit, label %13, !llvm.loop !11
 
 13:                                               ; preds = %.lr.ph, %11
   %.03973 = phi i32 [ 0, %.lr.ph ], [ %.24183, %11 ]
@@ -1386,7 +1386,7 @@ define dso_local noundef ptr @create_seqscan_path(ptr noundef %0, ptr noundef %1
   %15 = zext i1 %13 to i8
   store i8 %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
+  %17 = load i8, ptr %16, align 2, !range !9, !noundef !10
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %17, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1419,7 +1419,7 @@ define dso_local noundef ptr @create_samplescan_path(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -1453,7 +1453,7 @@ define dso_local noundef ptr @create_index_path(ptr noundef %0, ptr noundef %1, 
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 26
-  %25 = load i8, ptr %24, align 2, !range !8, !noundef !9
+  %25 = load i8, ptr %24, align 2, !range !9, !noundef !10
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 %25, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 36
@@ -1496,7 +1496,7 @@ define dso_local noundef ptr @create_bitmap_heap_path(ptr noundef %0, ptr nounde
   %17 = zext i1 %15 to i8
   store i8 %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %19 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %19 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 %19, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -1552,7 +1552,7 @@ define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %23 = load i8, ptr %22, align 2, !range !8, !noundef !9
+  %23 = load i8, ptr %22, align 2, !range !9, !noundef !10
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %23, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -1624,7 +1624,7 @@ define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %23 = load i8, ptr %22, align 2, !range !8, !noundef !9
+  %23 = load i8, ptr %22, align 2, !range !9, !noundef !10
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %23, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -1671,7 +1671,7 @@ define dso_local noundef ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %15, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1704,7 +1704,7 @@ define dso_local noundef ptr @create_tidrangescan_path(ptr noundef %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %15, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1756,7 +1756,7 @@ define dso_local noundef ptr @create_append_path(ptr noundef %0, ptr noundef %1,
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 %10, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %31 = load i8, ptr %30, align 2, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 2, !range !9, !noundef !10
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 %31, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 36
@@ -1817,7 +1817,7 @@ list_length.exit:                                 ; preds = %36, %37
   br i1 %59, label %.lr.ph75.preheader, label %list_length.exit71.thread
 
 .lr.ph75.preheader:                               ; preds = %.lr.ph
-  %.pre = load i8, ptr %32, align 1, !range !8
+  %.pre = load i8, ptr %32, align 1, !range !9
   br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %69
@@ -1835,7 +1835,7 @@ list_length.exit71:                               ; preds = %69
   %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 33
-  %68 = load i8, ptr %67, align 1, !range !8, !noundef !9
+  %68 = load i8, ptr %67, align 1, !range !9, !noundef !10
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph75
@@ -1852,7 +1852,7 @@ list_length.exit71:                               ; preds = %69
   %.val = load ptr, ptr %75, align 8
   %76 = load ptr, ptr %.val, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load i8, ptr %77, align 8, !range !8, !noundef !9
+  %78 = load i8, ptr %77, align 8, !range !9, !noundef !10
   %79 = icmp eq i8 %78, %10
   br i1 %79, label %80, label %90
 
@@ -2038,7 +2038,7 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %16 = load i8, ptr %15, align 2, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 2, !range !9, !noundef !10
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 %16, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -2091,7 +2091,7 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %44 = load double, ptr %31, align 8
   %45 = fadd double %43, %44
   store double %45, ptr %31, align 8
-  %46 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %46 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %49, label %52
 
@@ -2105,7 +2105,7 @@ list_length.exit:                                 ; preds = %79, %.lr.ph
 
 49:                                               ; preds = %.lr.ph97
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 33
-  %51 = load i8, ptr %50, align 1, !range !8, !noundef !9
+  %51 = load i8, ptr %50, align 1, !range !9, !noundef !10
   br label %52
 
 52:                                               ; preds = %49, %.lr.ph97
@@ -2162,8 +2162,8 @@ list_length.exit:                                 ; preds = %79, %.lr.ph
   %.val = load ptr, ptr %33, align 8
   %84 = load ptr, ptr %.val, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i8, ptr %85, align 8, !range !8, !noundef !9
-  %87 = load i8, ptr %14, align 8, !range !8, !noundef !9
+  %86 = load i8, ptr %85, align 8, !range !9, !noundef !10
+  %87 = load i8, ptr %14, align 8, !range !9, !noundef !10
   %88 = icmp eq i8 %86, %87
   br i1 %88, label %89, label %list_length.exit76
 
@@ -2211,7 +2211,7 @@ define dso_local noundef ptr @create_group_result_path(ptr noundef %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %13 = load i8, ptr %12, align 2, !range !8, !noundef !9
+  %13 = load i8, ptr %12, align 2, !range !9, !noundef !10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 %13, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -2277,13 +2277,13 @@ define dso_local noundef ptr @create_material_path(ptr noundef %0, ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %18 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 1, !range !9, !noundef !10
   br label %19
 
 19:                                               ; preds = %16, %2
@@ -2337,13 +2337,13 @@ define dso_local noundef ptr @create_memoize_path(ptr noundef readnone captures(
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %20 = load i8, ptr %19, align 2, !range !8, !noundef !9
+  %20 = load i8, ptr %19, align 2, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %24 = load i8, ptr %23, align 1, !range !8, !noundef !9
+  %24 = load i8, ptr %23, align 1, !range !9, !noundef !10
   br label %25
 
 25:                                               ; preds = %22, %8
@@ -2424,13 +2424,13 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 81
-  %11 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 82
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %239
 
@@ -2455,13 +2455,13 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %31 = load i8, ptr %30, align 2, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 2, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %17
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %35 = load i8, ptr %34, align 1, !range !8, !noundef !9
+  %35 = load i8, ptr %34, align 1, !range !9, !noundef !10
   br label %36
 
 36:                                               ; preds = %33, %17
@@ -2492,7 +2492,7 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %54, label %55, label %78
 
 55:                                               ; preds = %36
-  %56 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %56 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %.thread
 
@@ -2667,7 +2667,7 @@ translate_sub_tlist.exit:                         ; preds = %122
 
 list_length.exit:                                 ; preds = %.thread, %155
   %158 = phi i32 [ %157, %155 ], [ 0, %.thread ]
-  %159 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %159 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %161, label %179
 
@@ -2695,7 +2695,7 @@ list_length.exit:                                 ; preds = %.thread, %155
 
 179:                                              ; preds = %161, %list_length.exit
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 82
-  %181 = load i8, ptr %180, align 2, !range !8, !noundef !9
+  %181 = load i8, ptr %180, align 2, !range !9, !noundef !10
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %209
 
@@ -2734,9 +2734,9 @@ list_length.exit:                                 ; preds = %.thread, %155
   br label %209
 
 209:                                              ; preds = %195, %196, %179
-  %210 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %210 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %211 = trunc nuw i8 %210 to i1
-  %212 = load i8, ptr %180, align 2, !range !8, !noundef !9
+  %212 = load i8, ptr %180, align 2, !range !9, !noundef !10
   %213 = trunc nuw i8 %212 to i1
   br i1 %211, label %214, label %229
 
@@ -2944,13 +2944,13 @@ define dso_local noundef ptr @create_subqueryscan_path(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
+  %17 = load i8, ptr %16, align 2, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %21 = load i8, ptr %20, align 1, !range !9, !noundef !10
   br label %22
 
 22:                                               ; preds = %19, %6
@@ -2989,7 +2989,7 @@ define dso_local noundef ptr @create_functionscan_path(ptr noundef %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %15, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -3020,7 +3020,7 @@ define dso_local noundef ptr @create_tablefuncscan_path(ptr noundef %0, ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3051,7 +3051,7 @@ define dso_local noundef ptr @create_valuesscan_path(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3082,7 +3082,7 @@ define dso_local noundef ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %15, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -3113,7 +3113,7 @@ define dso_local noundef ptr @create_namedtuplestorescan_path(ptr noundef %0, pt
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3144,7 +3144,7 @@ define dso_local noundef ptr @create_resultscan_path(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3175,7 +3175,7 @@ define dso_local noundef ptr @create_worktablescan_path(ptr noundef %0, ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %14 = load i8, ptr %13, align 2, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3212,7 +3212,7 @@ define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %26 = load i8, ptr %25, align 2, !range !8, !noundef !9
+  %26 = load i8, ptr %25, align 2, !range !9, !noundef !10
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 %26, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -3278,7 +3278,7 @@ define dso_local noundef ptr @create_foreign_join_path(ptr noundef readnone capt
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %34 = load i8, ptr %33, align 2, !range !8, !noundef !9
+  %34 = load i8, ptr %33, align 2, !range !9, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 %34, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -3327,7 +3327,7 @@ define dso_local noundef ptr @create_foreign_upper_path(ptr noundef readnone cap
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %24 = load i8, ptr %23, align 2, !range !8, !noundef !9
+  %24 = load i8, ptr %23, align 2, !range !9, !noundef !10
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 %24, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 36
@@ -3498,19 +3498,19 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %59 = load i8, ptr %58, align 2, !range !8, !noundef !9
+  %59 = load i8, ptr %58, align 2, !range !9, !noundef !10
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %47
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %63 = load i8, ptr %62, align 1, !range !8, !noundef !9
+  %63 = load i8, ptr %62, align 1, !range !9, !noundef !10
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  %67 = load i8, ptr %66, align 1, !range !8, !noundef !9
+  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
   br label %68
 
 68:                                               ; preds = %65, %61, %47
@@ -3526,7 +3526,7 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i32 %2, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %77 = load i8, ptr %76, align 8, !range !8, !noundef !9
+  %77 = load i8, ptr %76, align 8, !range !9, !noundef !10
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 84
   store i8 %77, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 88
@@ -3572,19 +3572,19 @@ define dso_local noundef ptr @create_mergejoin_path(ptr noundef %0, ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %27 = load i8, ptr %26, align 2, !range !8, !noundef !9
+  %27 = load i8, ptr %26, align 2, !range !9, !noundef !10
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %31 = load i8, ptr %30, align 1, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 1, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  %35 = load i8, ptr %34, align 1, !range !8, !noundef !9
+  %35 = load i8, ptr %34, align 1, !range !9, !noundef !10
   br label %36
 
 36:                                               ; preds = %33, %29, %13
@@ -3600,7 +3600,7 @@ define dso_local noundef ptr @create_mergejoin_path(ptr noundef %0, ptr noundef 
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i32 %2, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %45 = load i8, ptr %44, align 8, !range !8, !noundef !9
+  %45 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 84
   store i8 %45, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 88
@@ -3642,25 +3642,25 @@ define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %24 = load i8, ptr %23, align 2, !range !8, !noundef !9
+  %24 = load i8, ptr %23, align 2, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
   %26 = and i1 %7, %25
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %28 = zext i1 %26 to i8
   store i8 %28, ptr %27, align 8
-  %29 = load i8, ptr %23, align 2, !range !8, !noundef !9
+  %29 = load i8, ptr %23, align 2, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %33 = load i8, ptr %32, align 1, !range !8, !noundef !9
+  %33 = load i8, ptr %32, align 1, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  %37 = load i8, ptr %36, align 1, !range !8, !noundef !9
+  %37 = load i8, ptr %36, align 1, !range !9, !noundef !10
   br label %38
 
 38:                                               ; preds = %35, %31, %11
@@ -3676,7 +3676,7 @@ define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i32 %2, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %47 = load i8, ptr %46, align 8, !range !8, !noundef !9
+  %47 = load i8, ptr %46, align 8, !range !9, !noundef !10
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 84
   store i8 %47, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 88
@@ -3720,13 +3720,13 @@ define dso_local noundef ptr @create_projection_path(ptr noundef %0, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %18 = load i8, ptr %17, align 2, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 2, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 33
-  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 1, !range !9, !noundef !10
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %29
 
@@ -3901,7 +3901,7 @@ define dso_local noundef ptr @apply_projection_to_path(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %8, %30
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %42 = load i8, ptr %41, align 1, !range !8, !noundef !9
+  %42 = load i8, ptr %41, align 1, !range !9, !noundef !10
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %49
 
@@ -3938,13 +3938,13 @@ define dso_local noundef ptr @create_set_projection_path(ptr noundef %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %12 = load i8, ptr %11, align 2, !range !8, !noundef !9
+  %12 = load i8, ptr %11, align 2, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %16 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 1, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %23
 
@@ -4052,13 +4052,13 @@ define dso_local noundef ptr @create_incremental_sort_path(ptr noundef %0, ptr n
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %16 = load i8, ptr %15, align 2, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 2, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
+  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
   br label %21
 
 21:                                               ; preds = %18, %6
@@ -4110,13 +4110,13 @@ define dso_local noundef ptr @create_sort_path(ptr noundef %0, ptr noundef %1, p
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr %18, align 1, !range !9, !noundef !10
   br label %20
 
 20:                                               ; preds = %17, %5
@@ -4162,13 +4162,13 @@ define dso_local noundef ptr @create_group_path(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %16 = load i8, ptr %15, align 2, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 2, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
+  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
   br label %21
 
 21:                                               ; preds = %18, %6
@@ -4246,13 +4246,13 @@ define dso_local noundef ptr @create_upper_unique_path(ptr noundef readnone capt
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !9
+  %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr %18, align 1, !range !9, !noundef !10
   br label %20
 
 20:                                               ; preds = %17, %5
@@ -4309,13 +4309,13 @@ define dso_local noundef ptr @create_agg_path(ptr noundef %0, ptr noundef %1, pt
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %18 = load i8, ptr %17, align 2, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 2, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 1, !range !9, !noundef !10
   br label %23
 
 23:                                               ; preds = %20, %10
@@ -4445,13 +4445,13 @@ define dso_local noundef ptr @create_groupingsets_path(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %21 = load i8, ptr %20, align 2, !range !8, !noundef !9
+  %21 = load i8, ptr %20, align 2, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %25 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %25 = load i8, ptr %24, align 1, !range !9, !noundef !10
   br label %26
 
 26:                                               ; preds = %23, %7
@@ -4609,7 +4609,7 @@ list_length.exit107:                              ; preds = %.lr.ph131, %86
   %114 = sitofp i32 %113 to double
   call void @cost_agg(ptr noundef %10, ptr noundef %0, i32 noundef %.1113, ptr noundef %6, i32 noundef %89, double noundef %106, ptr noundef %3, i32 noundef %107, double noundef %108, double noundef %109, double noundef %110, double noundef %114) #10
   %115 = getelementptr inbounds nuw i8, ptr %81, i64 41
-  %116 = load i8, ptr %115, align 1, !range !8, !noundef !9
+  %116 = load i8, ptr %115, align 1, !range !9, !noundef !10
   %117 = trunc nuw i8 %116 to i1
   %spec.select99 = select i1 %117, i1 %.090123130, i1 false
   br label %159
@@ -4618,7 +4618,7 @@ list_length.exit107:                              ; preds = %.lr.ph131, %86
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #10
   %119 = getelementptr inbounds nuw i8, ptr %81, i64 41
-  %120 = load i8, ptr %119, align 1, !range !8, !noundef !9
+  %120 = load i8, ptr %119, align 1, !range !9, !noundef !10
   %121 = trunc nuw i8 %120 to i1
   %or.cond = select i1 %121, i1 true, i1 %.090123130
   br i1 %or.cond, label %122, label %133
@@ -4633,7 +4633,7 @@ list_length.exit107:                              ; preds = %.lr.ph131, %86
   %129 = load i32, ptr %128, align 8
   %130 = sitofp i32 %129 to double
   call void @cost_agg(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %123, ptr noundef %6, i32 noundef %89, double noundef %125, ptr noundef %3, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %126, double noundef %130) #10
-  %131 = load i8, ptr %119, align 1, !range !8, !noundef !9
+  %131 = load i8, ptr %119, align 1, !range !9, !noundef !10
   %132 = trunc nuw i8 %131 to i1
   %spec.select100 = select i1 %132, i1 %.090123130, i1 false
   br label %149
@@ -4740,7 +4740,7 @@ define dso_local noundef ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef 
   %34 = load double, ptr %33, align 8
   %35 = fadd double %.05563, %34
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %37 = load i8, ptr %36, align 1, !range !8, !noundef !9
+  %37 = load i8, ptr %36, align 1, !range !9, !noundef !10
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %54, label %53
 
@@ -4794,7 +4794,7 @@ define dso_local noundef ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef 
   %67 = fadd double %66, %65
   store double %67, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  %.pre70 = load i8, ptr %13, align 1, !range !8
+  %.pre70 = load i8, ptr %13, align 1, !range !9
   br label %68
 
 68:                                               ; preds = %59, %.critedge
@@ -4837,13 +4837,13 @@ define dso_local noundef ptr @create_windowagg_path(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
+  %17 = load i8, ptr %16, align 2, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %21 = load i8, ptr %20, align 1, !range !9, !noundef !10
   br label %22
 
 22:                                               ; preds = %19, %9
@@ -4916,19 +4916,19 @@ define dso_local noundef ptr @create_setop_path(ptr noundef readnone captures(no
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %19 = load i8, ptr %18, align 2, !range !8, !noundef !9
+  %19 = load i8, ptr %18, align 2, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
+  %23 = load i8, ptr %22, align 1, !range !9, !noundef !10
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %27 = load i8, ptr %26, align 1, !range !8, !noundef !9
+  %27 = load i8, ptr %26, align 1, !range !9, !noundef !10
   br label %28
 
 28:                                               ; preds = %25, %21, %9
@@ -5042,7 +5042,7 @@ list_length.exit62:                               ; preds = %83, %96
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %104 = tail call double @llvm.fmuladd.f64(double %89, double %8, double %101)
   store double %104, ptr %103, align 8
-  %105 = load i8, ptr @enable_hashagg, align 1, !range !8, !noundef !9
+  %105 = load i8, ptr @enable_hashagg, align 1, !range !9, !noundef !10
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %109, label %107
 
@@ -5094,19 +5094,19 @@ define dso_local noundef ptr @create_recursiveunion_path(ptr noundef readnone ca
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %16 = load i8, ptr %15, align 2, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 2, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
+  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %24 = load i8, ptr %23, align 1, !range !8, !noundef !9
+  %24 = load i8, ptr %23, align 1, !range !9, !noundef !10
   br label %25
 
 25:                                               ; preds = %22, %18, %8
@@ -5294,13 +5294,13 @@ define dso_local noundef ptr @create_limit_path(ptr noundef readnone captures(no
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %18 = load i8, ptr %17, align 2, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 2, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 1, !range !9, !noundef !10
   br label %23
 
 23:                                               ; preds = %20, %8
@@ -5572,7 +5572,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr noundef re
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %29 = load i8, ptr %28, align 2, !range !8, !noundef !9
+  %29 = load i8, ptr %28, align 2, !range !9, !noundef !10
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 %29, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 36
@@ -5599,7 +5599,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr noundef re
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i8 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %44 = load i8, ptr %43, align 2, !range !8, !noundef !9
+  %44 = load i8, ptr %43, align 2, !range !9, !noundef !10
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 33
   store i8 %44, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 36
@@ -5638,7 +5638,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr noundef re
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i8 0, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %65 = load i8, ptr %64, align 2, !range !8, !noundef !9
+  %65 = load i8, ptr %64, align 2, !range !9, !noundef !10
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 33
   store i8 %65, ptr %66, align 1
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 36
@@ -5676,13 +5676,13 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr noundef re
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i8 0, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %90 = load i8, ptr %89, align 2, !range !8, !noundef !9
+  %90 = load i8, ptr %89, align 2, !range !9, !noundef !10
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %create_subqueryscan_path.exit
 
 92:                                               ; preds = %70
   %93 = getelementptr inbounds nuw i8, ptr %72, i64 33
-  %94 = load i8, ptr %93, align 1, !range !8, !noundef !9
+  %94 = load i8, ptr %93, align 1, !range !9, !noundef !10
   br label %create_subqueryscan_path.exit
 
 create_subqueryscan_path.exit:                    ; preds = %70, %92
@@ -5722,7 +5722,7 @@ create_subqueryscan_path.exit:                    ; preds = %70, %92
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store i8 0, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %116 = load i8, ptr %115, align 2, !range !8, !noundef !9
+  %116 = load i8, ptr %115, align 2, !range !9, !noundef !10
   %117 = getelementptr inbounds nuw i8, ptr %106, i64 33
   store i8 %116, ptr %117, align 1
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 36
@@ -5788,7 +5788,7 @@ create_subqueryscan_path.exit:                    ; preds = %70, %92
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %146 = load i32, ptr %145, align 4
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %148 = load i8, ptr %147, align 8, !range !8, !noundef !9
+  %148 = load i8, ptr %147, align 8, !range !9, !noundef !10
   %149 = trunc nuw i8 %148 to i1
   %150 = tail call ptr @create_append_path(ptr noundef %0, ptr noundef %6, ptr noundef %.098.lcssa, ptr noundef %.0102.lcssa, ptr noundef %144, ptr noundef %2, i32 noundef %146, i1 noundef zeroext %149, double noundef -1.000000e+00)
   br label %.loopexit
@@ -5818,13 +5818,13 @@ create_subqueryscan_path.exit:                    ; preds = %70, %92
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 32
   store i8 0, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %168 = load i8, ptr %167, align 2, !range !8, !noundef !9
+  %168 = load i8, ptr %167, align 2, !range !9, !noundef !10
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %create_material_path.exit
 
 170:                                              ; preds = %156
   %171 = getelementptr inbounds nuw i8, ptr %154, i64 33
-  %172 = load i8, ptr %171, align 1, !range !8, !noundef !9
+  %172 = load i8, ptr %171, align 1, !range !9, !noundef !10
   br label %create_material_path.exit
 
 create_material_path.exit:                        ; preds = %156, %170
@@ -5869,9 +5869,9 @@ create_material_path.exit:                        ; preds = %156, %170
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %205 = load i8, ptr %204, align 8, !range !8, !noundef !9
+  %205 = load i8, ptr %204, align 8, !range !9, !noundef !10
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 105
-  %207 = load i8, ptr %206, align 1, !range !8, !noundef !9
+  %207 = load i8, ptr %206, align 1, !range !9, !noundef !10
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %209 = load double, ptr %208, align 8
   %210 = tail call noundef ptr @palloc0(i64 noundef 128) #10
@@ -5891,13 +5891,13 @@ create_material_path.exit:                        ; preds = %156, %170
   %219 = getelementptr inbounds nuw i8, ptr %210, i64 32
   store i8 0, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %221 = load i8, ptr %220, align 2, !range !8, !noundef !9
+  %221 = load i8, ptr %220, align 2, !range !9, !noundef !10
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %223, label %create_memoize_path.exit
 
 223:                                              ; preds = %199
   %224 = getelementptr inbounds nuw i8, ptr %197, i64 33
-  %225 = load i8, ptr %224, align 1, !range !8, !noundef !9
+  %225 = load i8, ptr %224, align 1, !range !9, !noundef !10
   br label %create_memoize_path.exit
 
 create_memoize_path.exit:                         ; preds = %199, %223
@@ -6443,7 +6443,7 @@ define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr
   %14 = load i32, ptr %4, align 4
   %15 = sext i32 %14 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %15
-  br i1 %.not.not, label %7, label %.critedge, !llvm.loop !11
+  br i1 %.not.not, label %7, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %12, %3, %.thread
   %spec.select = phi ptr [ null, %.thread ], [ null, %3 ], [ %13, %12 ]
@@ -6688,10 +6688,11 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

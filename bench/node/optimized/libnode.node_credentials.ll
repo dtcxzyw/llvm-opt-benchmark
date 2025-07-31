@@ -3430,7 +3430,7 @@ _ZN4node16MaybeStackBufferIjLm64EEixEm.exit:      ; preds = %if.end63
   store i32 %call5645, ptr %arrayidx.i49, align 4
   %inc = add nuw nsw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit, %_ZN4node16MaybeStackBufferIjLm64EEC2Em.exit
   %33 = load ptr, ptr %buf_.i.i, align 8
@@ -3628,7 +3628,7 @@ for.cond.us:                                      ; preds = %_ZN4node16MaybeStac
   %sub.ptr.sub.i19.us = sub i64 %sub.ptr.lhs.cast.i17.us, %sub.ptr.rhs.cast.i18.us
   %sub.ptr.div.i20.us = ashr exact i64 %sub.ptr.sub.i19.us, 2
   %cmp7.us = icmp ult i64 %inc.us, %sub.ptr.div.i20.us
-  br i1 %cmp7.us, label %for.body.us, label %for.end, !llvm.loop !12
+  br i1 %cmp7.us, label %for.body.us, label %for.end, !llvm.loop !13
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EEixEm.exit.us: ; preds = %for.body.us
   %11 = load ptr, ptr %buf_.i.i, align 8
@@ -3646,7 +3646,7 @@ for.cond:                                         ; preds = %_ZN4node16MaybeStac
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
   %sub.ptr.div.i20 = ashr exact i64 %sub.ptr.sub.i19, 2
   %cmp7 = icmp ult i64 %inc, %sub.ptr.div.i20
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !15
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %14 = phi ptr [ %13, %for.cond ], [ %5, %for.body.lr.ph ]
@@ -4105,9 +4105,10 @@ attributes #24 = { nounwind willreturn memory(none) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4node11Environment8env_varsEv: %agg.result"}
 !8 = distinct !{!8, !"_ZN4node11Environment8env_varsEv"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !10, !11}

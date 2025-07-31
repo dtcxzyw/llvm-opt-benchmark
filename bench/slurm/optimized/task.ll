@@ -215,7 +215,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i32 -1, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 441
-  %108 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %108 = load i8, ptr %107, align 1, !range !12, !noundef !13
   %109 = zext nneg i8 %108 to i16
   %110 = load ptr, ptr %46, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 200
@@ -248,7 +248,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 208
   store ptr %131, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %135 = load i8, ptr %134, align 8, !range !11, !noundef !12
+  %135 = load i8, ptr %134, align 8, !range !12, !noundef !13
   %136 = zext nneg i8 %135 to i16
   %137 = load ptr, ptr %46, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 280
@@ -308,7 +308,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %177 = load ptr, ptr %46, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %178) #12
-  %179 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %179 = load i8, ptr %107, align 1, !range !12, !noundef !13
   %180 = trunc nuw i8 %179 to i1
   br i1 %180, label %249, label %181
 
@@ -448,7 +448,7 @@ _setup_mpi.exit:                                  ; preds = %212, %231
   unreachable
 
 253:                                              ; preds = %249
-  %254 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %254 = load i8, ptr %107, align 1, !range !12, !noundef !13
   %255 = trunc nuw i8 %254 to i1
   br i1 %255, label %272, label %256
 
@@ -600,7 +600,7 @@ _setup_mpi.exit:                                  ; preds = %212, %231
   br label %_make_tmpdir.exit
 
 _make_tmpdir.exit:                                ; preds = %325, %.critedge.i, %302, %300, %295
-  %326 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %326 = load i8, ptr %107, align 1, !range !12, !noundef !13
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %329, label %328
 
@@ -886,7 +886,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %54 = and i16 %53, 8192
   %.not86.i = icmp eq i16 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %.172.i, i64 1
-  br i1 %.not86.i, label %56, label %49, !llvm.loop !13
+  br i1 %.not86.i, label %56, label %49, !llvm.loop !14
 
 56:                                               ; preds = %49
   %57 = ptrtoint ptr %.074.i to i64
@@ -953,7 +953,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %80, %77
-  br label %.lr.ph.split.i, !llvm.loop !14
+  br label %.lr.ph.split.i, !llvm.loop !15
 
 81:                                               ; preds = %43
   %82 = call i32 @xstrncmp(ptr noundef nonnull %.071124.i, ptr noundef nonnull @.str.32, i64 noundef 7) #12
@@ -975,7 +975,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %92 = and i16 %91, 8192
   %.not91.i = icmp eq i16 %92, 0
   %93 = getelementptr inbounds nuw i8, ptr %.076.i, i64 1
-  br i1 %.not91.i, label %94, label %87, !llvm.loop !15
+  br i1 %.not91.i, label %94, label %87, !llvm.loop !16
 
 94:                                               ; preds = %87
   %95 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.076.i, i32 noundef 61) #15
@@ -993,7 +993,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 8192
   %.not93.i = icmp eq i16 %102, 0
-  br i1 %.not93.i, label %103, label %.preheader, !llvm.loop !16
+  br i1 %.not93.i, label %103, label %.preheader, !llvm.loop !17
 
 103:                                              ; preds = %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 1
@@ -1040,7 +1040,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %124 = and i16 %123, 8192
   %.not96.i = icmp eq i16 %124, 0
   %125 = getelementptr inbounds nuw i8, ptr %.177.i, i64 1
-  br i1 %.not96.i, label %126, label %119, !llvm.loop !17
+  br i1 %.not96.i, label %126, label %119, !llvm.loop !18
 
 126:                                              ; preds = %119
   switch i8 %120, label %.preheader.i [
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %131 = load i16, ptr %130, align 2
   %132 = and i16 %131, 8192
   %.not97.i = icmp eq i16 %132, 0
-  br i1 %.not97.i, label %133, label %.preheader.i, !llvm.loop !18
+  br i1 %.not97.i, label %133, label %.preheader.i, !llvm.loop !19
 
 133:                                              ; preds = %.preheader.i
   store i8 0, ptr %.2.i, align 1
@@ -1087,7 +1087,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %139 = getelementptr inbounds nuw i8, ptr %.175102.i, i64 1
   %140 = load i8, ptr %139, align 1
   %.not.i = icmp eq i8 %140, 0
-  br i1 %.not.i, label %_proc_stdout.exit, label %.lr.ph125.i, !llvm.loop !19
+  br i1 %.not.i, label %_proc_stdout.exit, label %.lr.ph125.i, !llvm.loop !20
 
 .thread.sink.split.i:                             ; preds = %137, %112
   %.074.lcssa136.sink.i = phi ptr [ %.074.i, %112 ], [ %.2.i, %137 ]
@@ -1196,7 +1196,7 @@ define internal fastcc ptr @_build_path(ptr noundef nonnull %0, ptr noundef %1) 
   %33 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.40, ptr noundef nonnull %5) #12
   store ptr %33, ptr %4, align 8
   %.not27 = icmp eq ptr %33, null
-  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !20
+  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %28
   %.pre.pre = load ptr, ptr %4, align 8
@@ -1314,16 +1314,17 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

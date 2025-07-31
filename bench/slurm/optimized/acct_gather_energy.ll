@@ -404,7 +404,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   %58 = load i32, ptr @g_context_num, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 61:                                               ; preds = %._crit_edge
   %62 = tail call ptr @__errno_location() #9
@@ -715,7 +715,7 @@ define dso_local i32 @acct_gather_energy_g_update_node_energy() local_unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #9
@@ -858,7 +858,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   %70 = load i32, ptr @g_context_num, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %32, label %._crit_edge, !llvm.loop !13
+  br i1 %72, label %32, label %._crit_edge, !llvm.loop !14
 
 73:                                               ; preds = %._crit_edge
   %74 = tail call ptr @__errno_location() #9
@@ -975,7 +975,7 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %21 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 25:                                               ; preds = %._crit_edge
   %26 = tail call ptr @__errno_location() #9
@@ -1174,7 +1174,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = sext i32 %29 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 33:                                               ; preds = %._crit_edge
   %34 = tail call ptr @__errno_location() #9
@@ -1207,7 +1207,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 44:                                               ; preds = %41, %39
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
   %.not23 = icmp eq i32 %45, 0
-  br i1 %.not23, label %9, label %46, !llvm.loop !16
+  br i1 %.not23, label %9, label %46, !llvm.loop !17
 
 46:                                               ; preds = %44
   %47 = tail call ptr @__errno_location() #9
@@ -1278,7 +1278,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %20 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 24:                                               ; preds = %._crit_edge
   %25 = tail call ptr @__errno_location() #9
@@ -1346,7 +1346,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %20 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 24:                                               ; preds = %._crit_edge
   %25 = tail call ptr @__errno_location() #9
@@ -1413,7 +1413,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #9
@@ -1454,15 +1454,16 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}

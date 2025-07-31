@@ -169,7 +169,7 @@ define i64 @OPENSSL_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef
   store i8 %6, ptr %.01123, align 1, !tbaa !3
   %10 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %10, %5
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %3
   %.not12 = icmp eq i64 %2, 0
@@ -208,7 +208,7 @@ define i64 @OPENSSL_strlcat(ptr noundef captures(none) %0, ptr noundef readonly 
   %7 = add i64 %.0818, -1
   %8 = getelementptr inbounds nuw i8, ptr %.0917, i64 1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %OPENSSL_strlcpy.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %OPENSSL_strlcpy.exit, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph
   %.not11 = icmp eq i64 %.0818, 1
@@ -232,7 +232,7 @@ define i64 @OPENSSL_strlcat(ptr noundef captures(none) %0, ptr noundef readonly 
   store i8 %10, ptr %.01123.i, align 1, !tbaa !3
   %14 = add nuw i64 %.026.i, 1
   %exitcond.not.i = icmp eq i64 %14, %9
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.thread.i:                               ; preds = %11, %.lr.ph.i, %.critedge
   %.01122.i = phi ptr [ %.0917, %.critedge ], [ %.01123.i, %.lr.ph.i ], [ %13, %11 ]
@@ -258,8 +258,8 @@ define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef captures
   %6 = icmp eq ptr %1, null
   %7 = select i1 %6, ptr %5, ptr %1
   %8 = tail call ptr @__errno_location() #17
-  store i32 0, ptr %8, align 4, !tbaa !10
-  store ptr %0, ptr %7, align 8, !tbaa !12
+  store i32 0, ptr %8, align 4, !tbaa !11
+  store ptr %0, ptr %7, align 8, !tbaa !13
   %9 = icmp eq ptr %3, null
   %10 = icmp eq ptr %0, null
   %or.cond = or i1 %10, %9
@@ -272,8 +272,8 @@ define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef captures
 
 14:                                               ; preds = %11
   %15 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %2) #16
-  store i64 %15, ptr %3, align 8, !tbaa !15
-  %16 = load i32, ptr %8, align 4, !tbaa !10
+  store i64 %15, ptr %3, align 8, !tbaa !16
+  %16 = load i32, ptr %8, align 4, !tbaa !11
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %24
 
@@ -281,13 +281,13 @@ define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef captures
   br i1 %6, label %18, label %21
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %5, align 8, !tbaa !12
+  %19 = load ptr, ptr %5, align 8, !tbaa !13
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %.not17 = icmp eq i8 %20, 0
   br i1 %.not17, label %21, label %24
 
 21:                                               ; preds = %18, %17
-  %22 = load ptr, ptr %7, align 8, !tbaa !12
+  %22 = load ptr, ptr %7, align 8, !tbaa !13
   %23 = icmp ne ptr %0, %22
   %spec.select = zext i1 %23 to i32
   br label %24
@@ -348,7 +348,7 @@ define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly
   %10 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %11 = zext i8 %8 to i32
   %12 = icmp eq i32 %11, %6
-  br i1 %12, label %7, label %13, !llvm.loop !17
+  br i1 %12, label %7, label %13, !llvm.loop !18
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %.027, i64 2
@@ -401,14 +401,14 @@ define internal fastcc range(i32 0, 2) i32 @hexstr2buf_sep(ptr noundef writeonly
 
 .outer.backedge:                                  ; preds = %28, %23
   %.029.ph.be = phi ptr [ %32, %28 ], [ null, %23 ]
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !18
 
 33:                                               ; preds = %7
   %.not35 = icmp eq ptr %2, null
   br i1 %.not35, label %35, label %34
 
 34:                                               ; preds = %33
-  store i64 %.0.ph, ptr %2, align 8, !tbaa !15
+  store i64 %.0.ph, ptr %2, align 8, !tbaa !16
   br label %35
 
 35:                                               ; preds = %33, %34, %27, %22, %16
@@ -446,15 +446,15 @@ define ptr @ossl_hexstr2buf_sep(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not17, label %18, label %19
 
 .thread:                                          ; preds = %12
-  store i64 0, ptr %1, align 8, !tbaa !15
-  store i64 0, ptr %4, align 8, !tbaa !15
+  store i64 0, ptr %1, align 8, !tbaa !16
+  store i64 0, ptr %4, align 8, !tbaa !16
   %15 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %0, i8 noundef signext %2)
   %.not1718 = icmp eq i32 %15, 0
   br i1 %.not1718, label %18, label %16
 
 16:                                               ; preds = %.thread
-  %17 = load i64, ptr %4, align 8, !tbaa !15
-  store i64 %17, ptr %1, align 8, !tbaa !15
+  %17 = load i64, ptr %4, align 8, !tbaa !16
+  store i64 %17, ptr %1, align 8, !tbaa !16
   br label %19
 
 18:                                               ; preds = %.thread, %13
@@ -499,7 +499,7 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %6
-  store i64 %.0, ptr %2, align 8, !tbaa !15
+  store i64 %.0, ptr %2, align 8, !tbaa !16
   br label %13
 
 13:                                               ; preds = %12, %6
@@ -539,7 +539,7 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
   store i8 %5, ptr %29, align 1, !tbaa !3
   %31 = add nuw i64 %.02837.us, 1
   %exitcond41.not = icmp eq i64 %31, %4
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 32:                                               ; preds = %15
   tail call void @ERR_new() #16
@@ -567,7 +567,7 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
   %45 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %46 = add nuw i64 %.02837, 1
   %exitcond.not = icmp eq i64 %46, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %.030.lcssa = phi ptr [ %0, %.preheader ], [ %30, %.lr.ph.split.us ], [ %45, %.lr.ph.split ]
@@ -628,7 +628,7 @@ define noalias ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, 
   store i8 %2, ptr %27, align 1, !tbaa !3
   %29 = add nuw i64 %.02837.us.i, 1
   %exitcond41.not.i = icmp eq i64 %29, %1
-  br i1 %exitcond41.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.us.i, !llvm.loop !18
+  br i1 %exitcond41.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.02837.i = phi i64 [ %43, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -650,7 +650,7 @@ define noalias ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, 
   %42 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
   %43 = add nuw i64 %.02837.i, 1
   %exitcond.not.i = icmp eq i64 %43, %1
-  br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !21
 
 buf2hexstr_sep.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.030.lcssa.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %42, %.lr.ph.split.i ]
@@ -703,7 +703,7 @@ define noalias ptr @OPENSSL_buf2hexstr(ptr noundef readonly captures(none) %0, i
   store i8 58, ptr %22, align 1, !tbaa !3
   %24 = add nuw i64 %.02837.us.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %24, %1
-  br i1 %exitcond41.not.i.i, label %buf2hexstr_sep.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !18
+  br i1 %exitcond41.not.i.i, label %buf2hexstr_sep.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !19
 
 buf2hexstr_sep.exit.i:                            ; preds = %.lr.ph.split.us.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.03036.us.i.i, i64 2
@@ -747,7 +747,7 @@ define i32 @OPENSSL_strcasecmp(ptr noundef readonly captures(none) %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %14 = load i8, ptr %.05, align 1, !tbaa !3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %3, !llvm.loop !21
+  br i1 %15, label %16, label %3, !llvm.loop !22
 
 16:                                               ; preds = %3, %11
   %.lcssa = phi i32 [ %9, %3 ], [ %6, %11 ]
@@ -784,7 +784,7 @@ define i32 @OPENSSL_strncasecmp(ptr noundef readonly captures(none) %0, ptr noun
   %16 = add nuw i64 %.013, 1
   %17 = icmp ult i64 %16, %2
   %or.cond = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %3
   %.07 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %10, %.lr.ph ]
@@ -838,20 +838,21 @@ attributes #17 = { nounwind willreturn memory(none) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !4, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !4, i64 0}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !4, i64 0}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

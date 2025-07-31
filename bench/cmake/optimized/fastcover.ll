@@ -467,7 +467,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr noundef non
   %136 = load i32, ptr %84, align 8, !tbaa !39
   %137 = tail call i32 @llvm.umax.i32(i32 %136, i32 8)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %139 = load i32, ptr %138, align 4, !tbaa !44
+  %139 = load i32, ptr %138, align 4, !tbaa !45
   %140 = load i32, ptr %85, align 4, !tbaa !40
   %141 = load ptr, ptr %90, align 8, !tbaa !34
   %142 = zext i32 %137 to i64
@@ -483,7 +483,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr noundef non
 
 .loopexit.i:                                      ; preds = %155, %148
   %exitcond.not.i = icmp eq i64 %150, %135
-  br i1 %exitcond.not.i, label %FASTCOVER_computeFrequency.exit, label %148, !llvm.loop !45
+  br i1 %exitcond.not.i, label %FASTCOVER_computeFrequency.exit, label %148, !llvm.loop !46
 
 148:                                              ; preds = %.loopexit.i, %.lr.ph26.i
   %149 = phi i64 [ %.pre.i, %.lr.ph26.i ], [ %152, %.loopexit.i ]
@@ -512,7 +512,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr noundef non
   %162 = add i64 %.02224.i, %147
   %.reass.i = add i64 %invariant.op.i, %.02224.i
   %.not.i = icmp ugt i64 %.reass.i, %152
-  br i1 %.not.i, label %.loopexit.i, label %155, !llvm.loop !46
+  br i1 %.not.i, label %.loopexit.i, label %155, !llvm.loop !47
 
 FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %129, %51, %54, %41, %44, %29, %32, %124, %100
   %.074 = phi i64 [ -64, %100 ], [ -64, %124 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %129 ], [ 0, %.loopexit.i ]
@@ -614,7 +614,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %44 = mul i64 %.val.i.i, %..i.i
   %45 = lshr i64 %44, %34
   %46 = getelementptr inbounds nuw i16, ptr %4, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !47
+  %47 = load i16, ptr %46, align 2, !tbaa !48
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %49, label %53
 
@@ -629,7 +629,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %54 = add i16 %47, 1
-  store i16 %54, ptr %46, align 2, !tbaa !47
+  store i16 %54, ptr %46, align 2, !tbaa !48
   %55 = sub i32 %indvars.i, %.sroa.011.02.i
   %56 = icmp eq i32 %55, %22
   br i1 %56, label %57, label %72
@@ -641,9 +641,9 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %60 = mul i64 %.val.i54.i, %..i.i
   %61 = lshr i64 %60, %34
   %62 = getelementptr inbounds nuw i16, ptr %4, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !47
+  %63 = load i16, ptr %62, align 2, !tbaa !48
   %64 = add i16 %63, -1
-  store i16 %64, ptr %62, align 2, !tbaa !47
+  store i16 %64, ptr %62, align 2, !tbaa !48
   %65 = icmp eq i16 %64, 0
   br i1 %65, label %66, label %70
 
@@ -666,7 +666,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %.sroa.049.sroa.4.1.i = select i1 %73, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
   %.sroa.049.sroa.0.1.i = select i1 %73, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i.loopexit, label %42, !llvm.loop !49
+  br i1 %exitcond.not.i, label %.preheader1.i.loopexit, label %42, !llvm.loop !50
 
 .preheader.i:                                     ; preds = %77, %.preheader1.i
   %.not13.i = icmp eq i32 %.sroa.049.sroa.0.0.lcssa.i, %.sroa.049.sroa.4.0.lcssa.i
@@ -685,12 +685,12 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   %79 = mul i64 %.val.i56.i, %..i.i
   %80 = lshr i64 %79, %40
   %81 = getelementptr inbounds nuw i16, ptr %4, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !47
+  %82 = load i16, ptr %81, align 2, !tbaa !48
   %83 = add i16 %82, -1
-  store i16 %83, ptr %81, align 2, !tbaa !47
+  store i16 %83, ptr %81, align 2, !tbaa !48
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count21.i
-  br i1 %exitcond22.not.i, label %.preheader.i, label %77, !llvm.loop !50
+  br i1 %exitcond22.not.i, label %.preheader.i, label %77, !llvm.loop !51
 
 84:                                               ; preds = %84, %.lr.ph15.i
   %.014.i = phi i32 [ %.sroa.049.sroa.0.0.lcssa.i, %.lr.ph15.i ], [ %90, %84 ]
@@ -703,7 +703,7 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captu
   store i32 0, ptr %89, align 4, !tbaa !11
   %90 = add i32 %.014.i, 1
   %.not.i = icmp eq i32 %90, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %84, !llvm.loop !51
+  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %84, !llvm.loop !52
 
 FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
@@ -761,7 +761,7 @@ FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %123 = add nsw i64 %.04315, 1
   %124 = urem i64 %123, %25
   %.not = icmp eq i64 %.27, 0
-  br i1 %.not, label %.thread8, label %26, !llvm.loop !52
+  br i1 %.not, label %.thread8, label %26, !llvm.loop !53
 
 .thread8:                                         ; preds = %.thread, %120, %91, %18
   %.040.lcssa = phi i64 [ 0, %18 ], [ %.04017, %91 ], [ %.04017, %120 ], [ 0, %.thread ]
@@ -792,22 +792,22 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeo
   %8 = alloca %struct.FASTCOVER_ctx_t, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.10.sroa.4)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !53
+  %10 = load i32, ptr %9, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = load double, ptr %11, align 8, !tbaa !54
+  %12 = load double, ptr %11, align 8, !tbaa !55
   %13 = fcmp ugt double %12, 0.000000e+00
   %14 = select i1 %13, double %12, double 7.500000e-01
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !55
+  %16 = load i32, ptr %15, align 4, !tbaa !56
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 6, i32 %16
   %19 = select i1 %17, i32 8, i32 %16
-  %20 = load i32, ptr %5, align 8, !tbaa !56
+  %20 = load i32, ptr %5, align 8, !tbaa !57
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i32 50, i32 %20
   %23 = select i1 %21, i32 2000, i32 %20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !57
+  %25 = load i32, ptr %24, align 4, !tbaa !58
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 40, i32 %25
   %28 = select i1 %21, i32 1950, i32 0
@@ -1027,11 +1027,11 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeo
   br label %185
 
 146:                                              ; preds = %138
-  store ptr %8, ptr %132, align 8, !tbaa !58
+  store ptr %8, ptr %132, align 8, !tbaa !59
   %147 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %7, ptr %147, align 8, !tbaa !61
+  store ptr %7, ptr %147, align 8, !tbaa !62
   %148 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store i64 %1, ptr %148, align 8, !tbaa !62
+  store i64 %1, ptr %148, align 8, !tbaa !63
   %149 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 28
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 32
@@ -1042,17 +1042,17 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeo
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 52
   store i32 0, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !11
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, i64 12, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, i64 12, i1 false), !tbaa.struct !64
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 68
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 4
-  store i32 %.0135214, ptr %149, align 8, !tbaa !64
-  store i32 %.0134219, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !65
-  store double %14, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !66
-  store i32 %27, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !67
-  store i32 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !68
+  store i32 %.0135214, ptr %149, align 8, !tbaa !65
+  store i32 %.0134219, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !66
+  store double %14, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !67
+  store i32 %27, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !68
+  store i32 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !69
   %150 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
   %151 = getelementptr inbounds nuw i8, ptr %132, i64 60
-  store i32 %150, ptr %151, align 4, !tbaa !69
+  store i32 %150, ptr %151, align 4, !tbaa !70
   %152 = load i32, ptr %108, align 4, !tbaa !40
   %153 = icmp eq i32 %.0135214, 0
   %or.cond.i = or i1 %153, %130
@@ -1141,7 +1141,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %.3133.ph = phi i32 [ %.2132216, %166 ], [ %184, %183 ]
   %189 = add i32 %.0135214, %30
   %.not167 = icmp ugt i32 %189, %23
-  br i1 %.not167, label %._crit_edge, label %131, !llvm.loop !70
+  br i1 %.not167, label %._crit_edge, label %131, !llvm.loop !71
 
 .thread205:                                       ; preds = %185, %126
   %.3.ph = phi i64 [ %118, %126 ], [ -64, %185 ]
@@ -1159,7 +1159,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #12
   %192 = add i32 %.0134219, 2
   %.not163 = icmp ugt i32 %192, %19
-  br i1 %.not163, label %._crit_edge223, label %.lr.ph222.split, !llvm.loop !71
+  br i1 %.not163, label %._crit_edge223, label %.lr.ph222.split, !llvm.loop !72
 
 ._crit_edge223:                                   ; preds = %._crit_edge, %105
   br i1 %99, label %193, label %198
@@ -1173,7 +1173,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
 
 198:                                              ; preds = %193, %._crit_edge223
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %200 = load i64, ptr %199, align 8, !tbaa !72
+  %200 = load i64, ptr %199, align 8, !tbaa !73
   %201 = icmp ult i64 %200, -119
   br i1 %201, label %203, label %202
 
@@ -1184,7 +1184,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %205 = load i64, ptr %204, align 8, !tbaa !74
+  %205 = load i64, ptr %204, align 8, !tbaa !75
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.0186.0.copyload = load i32, ptr %206, align 8
   %.sroa.4187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -1197,19 +1197,19 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %.sroa.7190.0.copyload = load double, ptr %.sroa.7190.0..sroa_idx, align 8
   %.sroa.8191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.sroa.8191.0.copyload = load i32, ptr %.sroa.8191.0..sroa_idx, align 8
-  store i32 %.sroa.0186.0.copyload, ptr %5, align 8, !tbaa !56
-  store i32 %.sroa.4187.0.copyload, ptr %15, align 4, !tbaa !55
-  store i32 %.sroa.5188.0.copyload, ptr %24, align 4, !tbaa !57
-  store i32 %.sroa.6189.0.copyload, ptr %9, align 8, !tbaa !53
-  store double %.sroa.7190.0.copyload, ptr %11, align 8, !tbaa !54
+  store i32 %.sroa.0186.0.copyload, ptr %5, align 8, !tbaa !57
+  store i32 %.sroa.4187.0.copyload, ptr %15, align 4, !tbaa !56
+  store i32 %.sroa.5188.0.copyload, ptr %24, align 4, !tbaa !58
+  store i32 %.sroa.6189.0.copyload, ptr %9, align 8, !tbaa !54
+  store double %.sroa.7190.0.copyload, ptr %11, align 8, !tbaa !55
   store i32 %38, ptr %35, align 8, !tbaa !12
   store i32 %41, ptr %39, align 8, !tbaa !13
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %207, ptr noundef nonnull align 8 dereferenceable(12) %208, i64 12, i1 false)
-  store i32 %.sroa.8191.0.copyload, ptr %.sroa.8179.0..sroa_idx, align 4, !tbaa !75
+  store i32 %.sroa.8191.0.copyload, ptr %.sroa.8179.0..sroa_idx, align 4, !tbaa !76
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !76
+  %210 = load ptr, ptr %209, align 8, !tbaa !77
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %210, i64 %205, i1 false)
   call void @COVER_best_destroy(ptr noundef nonnull %7) #12
   call void @POOL_free(ptr noundef %.0142) #12
@@ -1242,12 +1242,12 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
   %2 = alloca %struct.ZDICT_cover_params_t, align 8
   %3 = alloca %struct.COVER_dictSelection, align 8
   %4 = alloca %struct.COVER_dictSelection, align 8
-  %5 = load ptr, ptr %0, align 8, !tbaa !58
+  %5 = load ptr, ptr %0, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !78
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !62
+  %8 = load i64, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !40
   %11 = zext nneg i32 %10 to i64
@@ -1304,7 +1304,7 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %41, i64 noundef %8, i64 noundef %42, ptr noundef %43, ptr noundef %45, i32 noundef %40, i64 noundef %34, i64 noundef %47, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %49, i64 noundef -1) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %50 = call i32 @COVER_dictSelectionIsError(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #12
   %.not = icmp ne i32 %50, 0
@@ -1326,7 +1326,7 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
 58:                                               ; preds = %.sink.split, %28, %22
   call void @free(ptr noundef %14) #12
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !61
+  %60 = load ptr, ptr %59, align 8, !tbaa !62
   call void @COVER_best_finish(ptr noundef %60, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #12
   call void @free(ptr noundef nonnull %0) #12
   call void @free(ptr noundef %13) #12
@@ -1430,42 +1430,43 @@ attributes #16 = { nounwind allocsize(0) }
 !39 = !{!25, !6, i64 64}
 !40 = !{!25, !6, i64 68}
 !41 = !{!28, !28, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!25, !6, i64 76}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"short", !7, i64 0}
-!49 = distinct !{!49, !43}
-!50 = distinct !{!50, !43}
-!51 = distinct !{!51, !43}
-!52 = distinct !{!52, !43}
-!53 = !{!5, !6, i64 16}
-!54 = !{!5, !9, i64 24}
-!55 = !{!5, !6, i64 4}
-!56 = !{!5, !6, i64 0}
-!57 = !{!5, !6, i64 12}
-!58 = !{!59, !23, i64 0}
-!59 = !{!"FASTCOVER_tryParameters_data_s", !23, i64 0, !60, i64 8, !28, i64 16, !15, i64 24}
-!60 = !{!"p1 _ZTS12COVER_best_s", !23, i64 0}
-!61 = !{!59, !60, i64 8}
-!62 = !{!59, !28, i64 16}
-!63 = !{i64 0, i64 4, !11, i64 4, i64 4, !11, i64 8, i64 4, !11}
-!64 = !{!59, !6, i64 24}
-!65 = !{!59, !6, i64 28}
-!66 = !{!59, !9, i64 40}
-!67 = !{!59, !6, i64 32}
-!68 = !{!59, !6, i64 48}
-!69 = !{!59, !6, i64 60}
-!70 = distinct !{!70, !43}
-!71 = distinct !{!71, !43}
-!72 = !{!73, !28, i64 80}
-!73 = !{!"COVER_best_s", !6, i64 0, !6, i64 4, !28, i64 8, !23, i64 16, !28, i64 24, !15, i64 32, !28, i64 80}
-!74 = !{!73, !28, i64 24}
-!75 = !{!5, !6, i64 36}
-!76 = !{!73, !23, i64 16}
-!77 = !{i64 0, i64 4, !11, i64 4, i64 4, !11, i64 8, i64 4, !11, i64 12, i64 4, !11, i64 16, i64 8, !78, i64 24, i64 4, !11, i64 28, i64 4, !11, i64 32, i64 4, !11, i64 36, i64 4, !11, i64 40, i64 4, !11}
-!78 = !{!9, !9, i64 0}
-!79 = !{i64 0, i64 8, !80, i64 8, i64 8, !41, i64 16, i64 8, !41}
-!80 = !{!26, !26, i64 0}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!25, !6, i64 76}
+!46 = distinct !{!46, !43, !44}
+!47 = distinct !{!47, !43, !44}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"short", !7, i64 0}
+!50 = distinct !{!50, !43, !44}
+!51 = distinct !{!51, !43, !44}
+!52 = distinct !{!52, !43, !44}
+!53 = distinct !{!53, !43, !44}
+!54 = !{!5, !6, i64 16}
+!55 = !{!5, !9, i64 24}
+!56 = !{!5, !6, i64 4}
+!57 = !{!5, !6, i64 0}
+!58 = !{!5, !6, i64 12}
+!59 = !{!60, !23, i64 0}
+!60 = !{!"FASTCOVER_tryParameters_data_s", !23, i64 0, !61, i64 8, !28, i64 16, !15, i64 24}
+!61 = !{!"p1 _ZTS12COVER_best_s", !23, i64 0}
+!62 = !{!60, !61, i64 8}
+!63 = !{!60, !28, i64 16}
+!64 = !{i64 0, i64 4, !11, i64 4, i64 4, !11, i64 8, i64 4, !11}
+!65 = !{!60, !6, i64 24}
+!66 = !{!60, !6, i64 28}
+!67 = !{!60, !9, i64 40}
+!68 = !{!60, !6, i64 32}
+!69 = !{!60, !6, i64 48}
+!70 = !{!60, !6, i64 60}
+!71 = distinct !{!71, !43, !44}
+!72 = distinct !{!72, !43, !44}
+!73 = !{!74, !28, i64 80}
+!74 = !{!"COVER_best_s", !6, i64 0, !6, i64 4, !28, i64 8, !23, i64 16, !28, i64 24, !15, i64 32, !28, i64 80}
+!75 = !{!74, !28, i64 24}
+!76 = !{!5, !6, i64 36}
+!77 = !{!74, !23, i64 16}
+!78 = !{i64 0, i64 4, !11, i64 4, i64 4, !11, i64 8, i64 4, !11, i64 12, i64 4, !11, i64 16, i64 8, !79, i64 24, i64 4, !11, i64 28, i64 4, !11, i64 32, i64 4, !11, i64 36, i64 4, !11, i64 40, i64 4, !11}
+!79 = !{!9, !9, i64 0}
+!80 = !{i64 0, i64 8, !81, i64 8, i64 8, !41, i64 16, i64 8, !41}
+!81 = !{!26, !26, i64 0}

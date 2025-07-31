@@ -211,14 +211,14 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %.preheader45
   %22 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !31
+  %24 = load i32, ptr %23, align 4, !tbaa !32
   %.off = add i32 %24, -5
   %switch = icmp ult i32 %.off, 7
   br i1 %switch, label %28, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %27 = load i32, ptr %26, align 8, !tbaa !32
+  %27 = load i32, ptr %26, align 8, !tbaa !33
   br label %.loopexit
 
 28:                                               ; preds = %21
@@ -247,16 +247,16 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %.248 = phi i32 [ 4, %.lr.ph.preheader ], [ %spec.select, %37 ]
   %38 = load ptr, ptr %22, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !32
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %40, i64 %indvars.iv, i32 3
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
   %43 = tail call i32 @H5T_get_order(ptr noundef %42)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %49
@@ -377,9 +377,9 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %52 = load ptr, ptr %51, align 8, !tbaa !38
   %.not = icmp eq ptr %52, null
-  br i1 %.not, label %57, label %53, !prof !38
+  br i1 %.not, label %57, label %53, !prof !39
 
 53:                                               ; preds = %50
   %54 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -391,9 +391,9 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 8, !tbaa !39
+  %61 = load i32, ptr %60, align 8, !tbaa !40
   %.not25 = icmp eq i32 %61, 0
-  br i1 %.not25, label %66, label %62, !prof !38
+  br i1 %.not25, label %66, label %62, !prof !39
 
 62:                                               ; preds = %57
   %63 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -444,7 +444,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !31
+  %13 = load i32, ptr %12, align 4, !tbaa !32
   %14 = icmp eq i32 %13, 8
   br i1 %14, label %15, label %.preheader
 
@@ -453,7 +453,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %17 = load i32, ptr %16, align 4, !tbaa !32
+  %17 = load i32, ptr %16, align 4, !tbaa !33
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %.preheader, label %18
 
@@ -470,13 +470,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   %.not41 = icmp eq ptr %26, null
-  br i1 %.not41, label %27, label %22, !llvm.loop !40
+  br i1 %.not41, label %27, label %22, !llvm.loop !41
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.036, i64 40
   %29 = icmp eq i32 %1, 4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !31
+  %31 = load i32, ptr %30, align 4, !tbaa !32
   br i1 %29, label %32, label %._crit_edge
 
 32:                                               ; preds = %27
@@ -499,7 +499,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store i32 %1, ptr %38, align 8, !tbaa !32
+  store i32 %1, ptr %38, align 8, !tbaa !33
   br label %.loopexit
 
 39:                                               ; preds = %._crit_edge
@@ -534,15 +534,15 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
 54:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %55 = load ptr, ptr %28, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %57, i64 %indvars.iv, i32 3
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
+  %59 = load ptr, ptr %58, align 8, !tbaa !35
   %60 = tail call fastcc i32 @H5T__set_order(ptr noundef %59, i32 noundef %1)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %54
@@ -595,16 +595,17 @@ attributes #4 = { nounwind }
 !26 = !{!27, !28, i64 32}
 !27 = !{!"H5T_shared_t", !12, i64 0, !18, i64 8, !18, i64 12, !12, i64 16, !18, i64 24, !4, i64 28, !28, i64 32, !25, i64 40, !5, i64 48}
 !28 = !{!"p1 _ZTS5H5T_t", !20, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!27, !18, i64 12}
-!32 = !{!5, !5, i64 0}
-!33 = distinct !{!33, !30}
-!34 = !{!35, !28, i64 24}
-!35 = !{!"H5T_cmemb_t", !36, i64 0, !12, i64 8, !12, i64 16, !28, i64 24}
-!36 = !{!"p1 omnipotent char", !20, i64 0}
-!37 = !{!16, !25, i64 96}
-!38 = !{!"branch_weights", i32 -2147483648, i32 0}
-!39 = !{!27, !18, i64 8}
-!40 = distinct !{!40, !30}
-!41 = distinct !{!41, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!27, !18, i64 12}
+!33 = !{!5, !5, i64 0}
+!34 = distinct !{!34, !30, !31}
+!35 = !{!36, !28, i64 24}
+!36 = !{!"H5T_cmemb_t", !37, i64 0, !12, i64 8, !12, i64 16, !28, i64 24}
+!37 = !{!"p1 omnipotent char", !20, i64 0}
+!38 = !{!16, !25, i64 96}
+!39 = !{!"branch_weights", i32 -2147483648, i32 0}
+!40 = !{!27, !18, i64 8}
+!41 = distinct !{!41, !30, !31}
+!42 = distinct !{!42, !30, !31}

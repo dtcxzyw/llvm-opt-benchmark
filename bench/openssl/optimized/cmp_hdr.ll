@@ -475,7 +475,7 @@ define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonl
   br i1 %.not12, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %8, align 8, !tbaa !37
+  %10 = load ptr, ptr %8, align 8, !tbaa !38
   %11 = tail call i32 @OBJ_obj2nid(ptr noundef %10) #5
   %12 = icmp eq i32 %11, 310
   br i1 %12, label %.loopexit, label %13
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonl
 13:                                               ; preds = %.lr.ph, %9
   %14 = add nuw nsw i32 %.0913, 1
   %exitcond.not = icmp eq i32 %14, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %9, %13, %2, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %2 ], [ 1, %9 ], [ 0, %13 ]
@@ -493,7 +493,7 @@ define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonl
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cmp_hdr_set_transactionID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %13
 
@@ -503,7 +503,7 @@ define i32 @ossl_cmp_hdr_set_transactionID(ptr noundef %0, ptr noundef %1) local
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %3, align 8, !tbaa !40
+  %9 = load ptr, ptr %3, align 8, !tbaa !41
   %10 = tail call ptr @i2s_ASN1_OCTET_STRING(ptr noundef null, ptr noundef %9) #5
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %.thread, label %11
@@ -514,7 +514,7 @@ define i32 @ossl_cmp_hdr_set_transactionID(ptr noundef %0, ptr noundef %1) local
 
 .thread:                                          ; preds = %8, %11
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 265) #5
-  %.pre = load ptr, ptr %3, align 8, !tbaa !40
+  %.pre = load ptr, ptr %3, align 8, !tbaa !41
   br label %13
 
 13:                                               ; preds = %.thread, %2
@@ -535,7 +535,7 @@ define internal fastcc i32 @set_random(ptr noundef %0, ptr noundef readonly capt
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !54
+  %6 = load ptr, ptr %1, align 8, !tbaa !55
   %7 = tail call i32 @RAND_bytes_ex(ptr noundef %6, ptr noundef nonnull %3, i64 noundef 16, i32 noundef 0) #5
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %10
@@ -577,7 +577,7 @@ ossl_cmp_hdr_set_pvno.exit:                       ; preds = %2
 
 8:                                                ; preds = %ossl_cmp_hdr_set_pvno.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %.not50 = icmp eq ptr %10, null
   br i1 %.not50, label %13, label %11
 
@@ -587,7 +587,7 @@ ossl_cmp_hdr_set_pvno.exit:                       ; preds = %2
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %15 = load ptr, ptr %14, align 8, !tbaa !56
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %.not51 = icmp eq ptr %15, null
   br i1 %.not51, label %18, label %16
 
@@ -597,7 +597,7 @@ ossl_cmp_hdr_set_pvno.exit:                       ; preds = %2
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %20 = load ptr, ptr %19, align 8, !tbaa !58
   %.not52 = icmp eq ptr %20, null
   br i1 %.not52, label %23, label %21
 
@@ -607,7 +607,7 @@ ossl_cmp_hdr_set_pvno.exit:                       ; preds = %2
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %25 = load ptr, ptr %24, align 8, !tbaa !58
+  %25 = load ptr, ptr %24, align 8, !tbaa !59
   br label %ossl_cmp_hdr_set1_sender.exit
 
 ossl_cmp_hdr_set1_sender.exit:                    ; preds = %16, %23, %21, %11
@@ -619,13 +619,13 @@ ossl_cmp_hdr_set1_sender.exit:                    ; preds = %16, %23, %21, %11
 
 29:                                               ; preds = %ossl_cmp_hdr_set1_sender.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %31 = load ptr, ptr %30, align 8, !tbaa !59
+  %31 = load ptr, ptr %30, align 8, !tbaa !60
   %.not54 = icmp eq ptr %31, null
   br i1 %.not54, label %32, label %ossl_cmp_hdr_set1_recipient.exit
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = load ptr, ptr %33, align 8, !tbaa !60
+  %34 = load ptr, ptr %33, align 8, !tbaa !61
   %.not55 = icmp eq ptr %34, null
   br i1 %.not55, label %37, label %35
 
@@ -635,13 +635,13 @@ ossl_cmp_hdr_set1_sender.exit:                    ; preds = %16, %23, %21, %11
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %39 = load ptr, ptr %38, align 8, !tbaa !61
+  %39 = load ptr, ptr %38, align 8, !tbaa !62
   %.not56 = icmp eq ptr %39, null
   br i1 %.not56, label %40, label %ossl_cmp_hdr_set1_recipient.exit
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %42 = load ptr, ptr %41, align 8, !tbaa !56
+  %42 = load ptr, ptr %41, align 8, !tbaa !57
   %.not57 = icmp eq ptr %42, null
   br i1 %.not57, label %45, label %43
 
@@ -650,7 +650,7 @@ ossl_cmp_hdr_set1_sender.exit:                    ; preds = %16, %23, %21, %11
   br label %ossl_cmp_hdr_set1_recipient.exit
 
 45:                                               ; preds = %40
-  %46 = load ptr, ptr %9, align 8, !tbaa !55
+  %46 = load ptr, ptr %9, align 8, !tbaa !56
   %.not58 = icmp eq ptr %46, null
   br i1 %.not58, label %ossl_cmp_hdr_set1_recipient.exit, label %47
 
@@ -686,7 +686,7 @@ ossl_cmp_hdr_update_messageTime.exit:             ; preds = %51, %55
 
 61:                                               ; preds = %ossl_cmp_hdr_update_messageTime.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %63 = load ptr, ptr %62, align 8, !tbaa !62
+  %63 = load ptr, ptr %62, align 8, !tbaa !63
   %.not61 = icmp eq ptr %63, null
   br i1 %.not61, label %67, label %64
 
@@ -698,7 +698,7 @@ ossl_cmp_hdr_update_messageTime.exit:             ; preds = %51, %55
 
 67:                                               ; preds = %64, %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %69 = load ptr, ptr %68, align 8, !tbaa !40
+  %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %ossl_cmp_hdr_set_transactionID.exit
 
@@ -708,7 +708,7 @@ ossl_cmp_hdr_update_messageTime.exit:             ; preds = %51, %55
   br i1 %.not.i74, label %ossl_cmp_hdr_update_messageTime.exit.thread, label %73
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr %68, align 8, !tbaa !40
+  %74 = load ptr, ptr %68, align 8, !tbaa !41
   %75 = tail call ptr @i2s_ASN1_OCTET_STRING(ptr noundef null, ptr noundef %74) #5
   %.not13.i = icmp eq ptr %75, null
   br i1 %.not13.i, label %.thread.i, label %76
@@ -719,7 +719,7 @@ ossl_cmp_hdr_update_messageTime.exit:             ; preds = %51, %55
 
 .thread.i:                                        ; preds = %76, %73
   tail call void @CRYPTO_free(ptr noundef %75, ptr noundef nonnull @.str, i32 noundef 265) #5
-  %.pre.i = load ptr, ptr %68, align 8, !tbaa !40
+  %.pre.i = load ptr, ptr %68, align 8, !tbaa !41
   br label %ossl_cmp_hdr_set_transactionID.exit
 
 ossl_cmp_hdr_set_transactionID.exit:              ; preds = %67, %.thread.i
@@ -743,7 +743,7 @@ ossl_cmp_hdr_set_transactionID.exit:              ; preds = %67, %.thread.i
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %89 = load ptr, ptr %88, align 8, !tbaa !63
+  %89 = load ptr, ptr %88, align 8, !tbaa !64
   %.not66 = icmp eq ptr %89, null
   br i1 %.not66, label %92, label %90
 
@@ -818,32 +818,33 @@ attributes #5 = { nounwind }
 !32 = !{!"p1 omnipotent char", !7, i64 0}
 !33 = !{!"long", !8, i64 0}
 !34 = !{!31, !25, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38, !17, i64 0}
-!38 = !{!"ossl_cmp_itav_st", !17, i64 0, !8, i64 8}
-!39 = distinct !{!39, !36}
-!40 = !{!41, !6, i64 280}
-!41 = !{!"ossl_cmp_ctx_st", !42, i64 0, !32, i64 8, !7, i64 16, !25, i64 24, !7, i64 32, !7, i64 40, !43, i64 48, !32, i64 56, !32, i64 64, !25, i64 72, !32, i64 80, !32, i64 88, !25, i64 96, !25, i64 100, !25, i64 104, !25, i64 108, !33, i64 112, !7, i64 120, !7, i64 128, !25, i64 136, !25, i64 140, !44, i64 144, !44, i64 152, !45, i64 160, !46, i64 168, !47, i64 176, !25, i64 184, !25, i64 188, !25, i64 192, !44, i64 200, !47, i64 208, !48, i64 216, !6, i64 224, !6, i64 232, !33, i64 240, !49, i64 248, !25, i64 256, !25, i64 260, !45, i64 264, !49, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !13, i64 320, !25, i64 328, !25, i64 332, !47, i64 336, !48, i64 344, !25, i64 352, !45, i64 360, !6, i64 368, !25, i64 376, !45, i64 384, !50, i64 392, !25, i64 400, !25, i64 404, !51, i64 408, !52, i64 416, !25, i64 424, !25, i64 428, !44, i64 432, !53, i64 440, !25, i64 448, !13, i64 456, !25, i64 464, !12, i64 472, !25, i64 480, !44, i64 488, !47, i64 496, !47, i64 504, !47, i64 512, !7, i64 520, !7, i64 528}
-!42 = !{!"p1 _ZTS15ossl_lib_ctx_st", !7, i64 0}
-!43 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !7, i64 0}
-!44 = !{!"p1 _ZTS7x509_st", !7, i64 0}
-!45 = !{!"p1 _ZTS12X509_name_st", !7, i64 0}
-!46 = !{!"p1 _ZTS13x509_store_st", !7, i64 0}
-!47 = !{!"p1 _ZTS13stack_st_X509", !7, i64 0}
-!48 = !{!"p1 _ZTS11evp_pkey_st", !7, i64 0}
-!49 = !{!"p1 _ZTS9evp_md_st", !7, i64 0}
-!50 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
-!51 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !7, i64 0}
-!52 = !{!"p1 _ZTS19stack_st_POLICYINFO", !7, i64 0}
-!53 = !{!"p1 _ZTS11X509_req_st", !7, i64 0}
-!54 = !{!41, !42, i64 0}
-!55 = !{!41, !44, i64 200}
-!56 = !{!41, !44, i64 432}
-!57 = !{!41, !53, i64 440}
-!58 = !{!41, !45, i64 384}
-!59 = !{!41, !45, i64 264}
-!60 = !{!41, !44, i64 144}
-!61 = !{!41, !45, i64 360}
-!62 = !{!41, !6, i64 296}
-!63 = !{!41, !6, i64 312}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !17, i64 0}
+!39 = !{!"ossl_cmp_itav_st", !17, i64 0, !8, i64 8}
+!40 = distinct !{!40, !36, !37}
+!41 = !{!42, !6, i64 280}
+!42 = !{!"ossl_cmp_ctx_st", !43, i64 0, !32, i64 8, !7, i64 16, !25, i64 24, !7, i64 32, !7, i64 40, !44, i64 48, !32, i64 56, !32, i64 64, !25, i64 72, !32, i64 80, !32, i64 88, !25, i64 96, !25, i64 100, !25, i64 104, !25, i64 108, !33, i64 112, !7, i64 120, !7, i64 128, !25, i64 136, !25, i64 140, !45, i64 144, !45, i64 152, !46, i64 160, !47, i64 168, !48, i64 176, !25, i64 184, !25, i64 188, !25, i64 192, !45, i64 200, !48, i64 208, !49, i64 216, !6, i64 224, !6, i64 232, !33, i64 240, !50, i64 248, !25, i64 256, !25, i64 260, !46, i64 264, !50, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !13, i64 320, !25, i64 328, !25, i64 332, !48, i64 336, !49, i64 344, !25, i64 352, !46, i64 360, !6, i64 368, !25, i64 376, !46, i64 384, !51, i64 392, !25, i64 400, !25, i64 404, !52, i64 408, !53, i64 416, !25, i64 424, !25, i64 428, !45, i64 432, !54, i64 440, !25, i64 448, !13, i64 456, !25, i64 464, !12, i64 472, !25, i64 480, !45, i64 488, !48, i64 496, !48, i64 504, !48, i64 512, !7, i64 520, !7, i64 528}
+!43 = !{!"p1 _ZTS15ossl_lib_ctx_st", !7, i64 0}
+!44 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !7, i64 0}
+!45 = !{!"p1 _ZTS7x509_st", !7, i64 0}
+!46 = !{!"p1 _ZTS12X509_name_st", !7, i64 0}
+!47 = !{!"p1 _ZTS13x509_store_st", !7, i64 0}
+!48 = !{!"p1 _ZTS13stack_st_X509", !7, i64 0}
+!49 = !{!"p1 _ZTS11evp_pkey_st", !7, i64 0}
+!50 = !{!"p1 _ZTS9evp_md_st", !7, i64 0}
+!51 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
+!52 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !7, i64 0}
+!53 = !{!"p1 _ZTS19stack_st_POLICYINFO", !7, i64 0}
+!54 = !{!"p1 _ZTS11X509_req_st", !7, i64 0}
+!55 = !{!42, !43, i64 0}
+!56 = !{!42, !45, i64 200}
+!57 = !{!42, !45, i64 432}
+!58 = !{!42, !54, i64 440}
+!59 = !{!42, !46, i64 384}
+!60 = !{!42, !46, i64 264}
+!61 = !{!42, !45, i64 144}
+!62 = !{!42, !46, i64 360}
+!63 = !{!42, !6, i64 296}
+!64 = !{!42, !6, i64 312}

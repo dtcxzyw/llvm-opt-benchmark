@@ -103,7 +103,7 @@ define hidden signext i8 @nfaExecTamarama_QR(ptr noundef %0, ptr noundef capture
   %13 = load i32, ptr %8, align 8
   %14 = load i32, ptr %9, align 4
   %15 = icmp ult i32 %13, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load i32, ptr %6, align 8
@@ -221,12 +221,12 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i32 0, ptr %69, align 8, !alias.scope !5
+  store i32 0, ptr %69, align 8, !alias.scope !7
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i64 %68, ptr %70, align 8, !alias.scope !5
+  store i64 %68, ptr %70, align 8, !alias.scope !7
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store i64 0, ptr %71, align 8, !alias.scope !5
-  store i32 1, ptr %4, align 4, !alias.scope !5
+  store i64 0, ptr %71, align 8, !alias.scope !7
+  store i32 1, ptr %4, align 4, !alias.scope !7
   %72 = load i32, ptr %63, align 8
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %62, i64 0, i64 %73
@@ -286,7 +286,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
 101:                                              ; preds = %96, %.lr.ph._crit_edge.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %97, %96 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %findEngineForTop.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %findEngineForTop.exit, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.split.loop.exit20.i:         ; preds = %96
   %102 = trunc nuw i64 %indvars.iv.i to i32
@@ -306,16 +306,16 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %106 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx45
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8
-  %109 = load i32, ptr %4, align 4, !alias.scope !8
+  %109 = load i32, ptr %4, align 4, !alias.scope !11
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %110
-  store i32 1, ptr %111, align 8, !alias.scope !8
+  store i32 1, ptr %111, align 8, !alias.scope !11
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i64 %108, ptr %112, align 8, !alias.scope !8
+  store i64 %108, ptr %112, align 8, !alias.scope !11
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i64 0, ptr %113, align 8, !alias.scope !8
+  store i64 0, ptr %113, align 8, !alias.scope !11
   %114 = add i32 %109, 1
-  store i32 %114, ptr %4, align 4, !alias.scope !8
+  store i32 %114, ptr %4, align 4, !alias.scope !11
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load i32, ptr %0, align 32
   %117 = zext i32 %116 to i64
@@ -1157,7 +1157,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %22, label %.critedge.thread
+  br i1 %21, label %22, label %.critedge.thread, !llvm.loop !14
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
@@ -1165,7 +1165,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %24 = getelementptr i8, ptr %11, i64 %.idx.i
   %25 = load i64, ptr %24, align 8
   %.not = icmp sgt i64 %25, %2
-  br i1 %.not, label %.critedge, label %.lr.ph43
+  br i1 %.not, label %.critedge, label %.lr.ph43, !llvm.loop !14
 
 .lr.ph43:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
@@ -1178,7 +1178,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, 11
   %.not16 = icmp eq i8 %32, 0
-  br i1 %.not16, label %18, label %.critedge.thread
+  br i1 %.not16, label %18, label %.critedge.thread, !llvm.loop !14
 
 .critedge:                                        ; preds = %22, %.lr.ph
   %.026.lcssa = phi i8 [ 1, %.lr.ph ], [ %27, %22 ]
@@ -1377,7 +1377,7 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
   %100 = add nuw i32 %.05069, 1
   %exitcond.not = icmp eq i32 %100, %86
-  br i1 %exitcond.not, label %.loopexit, label %88
+  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !15
 
 .loopexit:                                        ; preds = %96, %76, %11
   ret void
@@ -1411,7 +1411,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %22, label %.critedge.thread
+  br i1 %21, label %22, label %.critedge.thread, !llvm.loop !16
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
@@ -1421,7 +1421,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %26 = icmp sle i64 %25, %2
   %27 = icmp ne i8 %29, 2
   %or.cond = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond, label %.lr.ph44, label %.critedge
+  br i1 %or.cond, label %.lr.ph44, label %.critedge, !llvm.loop !16
 
 .lr.ph44:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
@@ -1434,7 +1434,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %33 = load i8, ptr %32, align 8
   %34 = and i8 %33, 11
   %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %18, label %.critedge.thread
+  br i1 %.not, label %18, label %.critedge.thread, !llvm.loop !16
 
 .critedge:                                        ; preds = %22, %.lr.ph
   %.028.lcssa = phi i8 [ 0, %.lr.ph ], [ %29, %22 ]
@@ -1524,7 +1524,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   br i1 %or.cond.us, label %42, label %.thread40
 
 42:                                               ; preds = %.lr.ph.split.us
-  %43 = load i32, ptr %33, align 4, !alias.scope !11
+  %43 = load i32, ptr %33, align 4, !alias.scope !17
   %.not.i36.us = icmp eq i32 %43, 0
   br i1 %.not.i36.us, label %.thread.us, label %44
 
@@ -1532,31 +1532,31 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %45 = add i32 %43, -1
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 8, !alias.scope !11
+  %48 = load i32, ptr %47, align 8, !alias.scope !17
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %50, label %.thread.us
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load i64, ptr %51, align 8, !alias.scope !11
+  %52 = load i64, ptr %51, align 8, !alias.scope !17
   %53 = icmp eq i64 %52, %40
   br i1 %53, label %54, label %.thread.us
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 0, ptr %55, align 8, !alias.scope !11
+  store i64 0, ptr %55, align 8, !alias.scope !17
   br label %61
 
 .thread.us:                                       ; preds = %42, %50, %44
   %56 = zext i32 %43 to i64
   %57 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %56
-  store i32 2, ptr %57, align 8, !alias.scope !11
+  store i32 2, ptr %57, align 8, !alias.scope !17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 %40, ptr %58, align 8, !alias.scope !11
+  store i64 %40, ptr %58, align 8, !alias.scope !17
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 0, ptr %59, align 8, !alias.scope !11
+  store i64 0, ptr %59, align 8, !alias.scope !17
   %60 = add i32 %43, 1
-  store i32 %60, ptr %33, align 4, !alias.scope !11
+  store i32 %60, ptr %33, align 4, !alias.scope !17
   br label %61
 
 61:                                               ; preds = %.thread.us, %54
@@ -1565,7 +1565,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   store i32 %63, ptr %27, align 8
   %64 = load i32, ptr %28, align 4
   %65 = icmp ult i32 %63, %64
-  br i1 %65, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %65, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
   %66 = phi i32 [ %101, %99 ], [ %29, %.lr.ph ]
@@ -1582,7 +1582,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 73:                                               ; preds = %.lr.ph.split
   %reass.sub = sub nuw i32 %69, %9
   %74 = add i32 %reass.sub, 4
-  %75 = load i32, ptr %33, align 4, !alias.scope !11
+  %75 = load i32, ptr %33, align 4, !alias.scope !17
   %.not.i36 = icmp eq i32 %75, 0
   br i1 %.not.i36, label %.thread, label %76
 
@@ -1590,45 +1590,45 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %77 = add i32 %75, -1
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 8, !alias.scope !11
+  %80 = load i32, ptr %79, align 8, !alias.scope !17
   %81 = icmp eq i32 %80, %74
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %84 = load i64, ptr %83, align 8, !alias.scope !11
+  %84 = load i64, ptr %83, align 8, !alias.scope !17
   %85 = icmp eq i64 %84, %71
   br i1 %85, label %86, label %.thread
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i64 0, ptr %87, align 8, !alias.scope !11
+  store i64 0, ptr %87, align 8, !alias.scope !17
   br label %99
 
 .thread:                                          ; preds = %76, %82, %73
   %88 = zext i32 %75 to i64
   %89 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %88
-  store i32 %74, ptr %89, align 8, !alias.scope !11
+  store i32 %74, ptr %89, align 8, !alias.scope !17
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 %71, ptr %90, align 8, !alias.scope !11
+  store i64 %71, ptr %90, align 8, !alias.scope !17
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i64 0, ptr %91, align 8, !alias.scope !11
+  store i64 0, ptr %91, align 8, !alias.scope !17
   %92 = add i32 %75, 1
-  store i32 %92, ptr %33, align 4, !alias.scope !11
+  store i32 %92, ptr %33, align 4, !alias.scope !17
   br label %99
 
 .thread40:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %71, %.lr.ph.split ]
-  %93 = load i32, ptr %33, align 4, !alias.scope !16
+  %93 = load i32, ptr %33, align 4, !alias.scope !22
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %94
-  store i32 1, ptr %95, align 8, !alias.scope !16
+  store i32 1, ptr %95, align 8, !alias.scope !22
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 %.us-phi, ptr %96, align 8, !alias.scope !16
+  store i64 %.us-phi, ptr %96, align 8, !alias.scope !22
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i64 0, ptr %97, align 8, !alias.scope !16
+  store i64 0, ptr %97, align 8, !alias.scope !22
   %98 = add i32 %93, 1
-  store i32 %98, ptr %33, align 4, !alias.scope !16
+  store i32 %98, ptr %33, align 4, !alias.scope !22
   br label %.loopexit
 
 99:                                               ; preds = %.thread, %86
@@ -1637,7 +1637,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   store i32 %101, ptr %27, align 8
   %102 = load i32, ptr %28, align 4
   %103 = icmp ult i32 %101, %102
-  br i1 %103, label %.lr.ph.split, label %.loopexit
+  br i1 %103, label %.lr.ph.split, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %99, %61, %isMultiTopType.exit, %.thread40
   ret void
@@ -1662,17 +1662,24 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"pushQueueAt: argument 0"}
-!7 = distinct !{!7, !"pushQueueAt"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"pushQueueNoMerge: argument 0"}
-!10 = distinct !{!10, !"pushQueueNoMerge"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"pushQueueAt: argument 0"}
+!9 = distinct !{!9, !"pushQueueAt"}
+!10 = distinct !{!10, !6}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"pushQueueSom: argument 0"}
-!13 = distinct !{!13, !"pushQueueSom"}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pushQueueNoMerge: argument 0"}
-!18 = distinct !{!18, !"pushQueueNoMerge"}
+!12 = distinct !{!12, !13, !"pushQueueNoMerge: argument 0"}
+!13 = distinct !{!13, !"pushQueueNoMerge"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pushQueueSom: argument 0"}
+!19 = distinct !{!19, !"pushQueueSom"}
+!20 = distinct !{!20, !6, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"pushQueueNoMerge: argument 0"}
+!24 = distinct !{!24, !"pushQueueNoMerge"}
+!25 = distinct !{!25, !6}

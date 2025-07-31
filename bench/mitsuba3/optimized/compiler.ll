@@ -1866,7 +1866,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_
   br i1 %32, label %33, label %24, !llvm.loop !144
 
 33:                                               ; preds = %29
-  br label %13, !llvm.loop !146
+  br label %13, !llvm.loop !147
 
 .loopexit:                                        ; preds = %16, %24, %3
   %34 = phi i32 [ 0, %3 ], [ 0, %24 ], [ %22, %16 ]
@@ -1972,7 +1972,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1019GlobalConstPoolPas
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %11 = load ptr, ptr %10, align 8, !tbaa !147
+  %11 = load ptr, ptr %10, align 8, !tbaa !148
   %12 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder8addAfterEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 dereferenceable(410) %5, ptr noundef nonnull %7, ptr noundef %11) #15
   store ptr null, ptr %6, align 8, !tbaa !42
   br label %13
@@ -2165,7 +2165,8 @@ attributes #18 = { noreturn nounwind }
 !141 = !{!142, !19, i64 8}
 !142 = !{!"_ZTSN6asmjit9_abi_1_104PassE", !19, i64 8, !19, i64 16}
 !143 = !{!8, !19, i64 392}
-!144 = distinct !{!144, !145}
+!144 = distinct !{!144, !145, !146}
 !145 = !{!"llvm.loop.mustprogress"}
-!146 = distinct !{!146, !145}
-!147 = !{!8, !19, i64 400}
+!146 = !{!"llvm.loop.estimated_trip_count"}
+!147 = distinct !{!147, !145, !146}
+!148 = !{!8, !19, i64 400}

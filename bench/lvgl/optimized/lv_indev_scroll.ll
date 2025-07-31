@@ -335,9 +335,9 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
   call fastcc void @has_more_snap_points(ptr noundef nonnull %.0, i32 noundef 3, ptr noundef %4, ptr noundef %5)
-  %189 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
+  %189 = load i8, ptr %4, align 1, !tbaa !40, !range !41, !noundef !42
   %190 = trunc nuw i8 %189 to i1
-  %191 = load i8, ptr %5, align 1, !range !40
+  %191 = load i8, ptr %5, align 1, !range !41
   %192 = trunc nuw i8 %191 to i1
   %or.cond3.i = select i1 %190, i1 %192, i1 false
   br i1 %or.cond3.i, label %199, label %193
@@ -404,9 +404,9 @@ init_scroll_limits.exit:                          ; preds = %115, %119
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
   call fastcc void @has_more_snap_points(ptr noundef nonnull %.0, i32 noundef 12, ptr noundef %2, ptr noundef %3)
-  %225 = load i8, ptr %2, align 1, !tbaa !39, !range !40, !noundef !41
+  %225 = load i8, ptr %2, align 1, !tbaa !40, !range !41, !noundef !42
   %226 = trunc nuw i8 %225 to i1
-  %227 = load i8, ptr %3, align 1, !range !40
+  %227 = load i8, ptr %3, align 1, !range !41
   %228 = trunc nuw i8 %227 to i1
   %or.cond3.i81 = select i1 %226, i1 %228, i1 false
   br i1 %or.cond3.i81, label %235, label %229
@@ -462,7 +462,7 @@ elastic_diff.exit:                                ; preds = %235, %218, %216, %2
 .thread106:                                       ; preds = %247, %.thread
   %.2 = phi i32 [ 0, %.thread ], [ %spec.select109, %247 ]
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %252 = load i32, ptr %251, align 4, !tbaa !42
+  %252 = load i32, ptr %251, align 4, !tbaa !43
   %253 = add nsw i32 %252, %.2
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %255 = load i32, ptr %254, align 4, !tbaa !29
@@ -476,7 +476,7 @@ elastic_diff.exit:                                ; preds = %235, %218, %216, %2
   %261 = sub nsw i32 %259, %252
   %.4 = select i1 %260, i32 %261, i32 %spec.select110
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %263 = load i32, ptr %262, align 8, !tbaa !43
+  %263 = load i32, ptr %262, align 8, !tbaa !44
   %264 = add nsw i32 %263, %.2101
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %266 = load i32, ptr %265, align 8, !tbaa !33
@@ -497,12 +497,12 @@ elastic_diff.exit:                                ; preds = %235, %218, %216, %2
   br i1 %.not77, label %277, label %282
 
 277:                                              ; preds = %.thread106
-  %278 = load i32, ptr %262, align 8, !tbaa !43
+  %278 = load i32, ptr %262, align 8, !tbaa !44
   %279 = add nsw i32 %278, %.4103
-  store i32 %279, ptr %262, align 8, !tbaa !43
-  %280 = load i32, ptr %251, align 4, !tbaa !42
+  store i32 %279, ptr %262, align 8, !tbaa !44
+  %280 = load i32, ptr %251, align 4, !tbaa !43
   %281 = add nsw i32 %280, %.4
-  store i32 %281, ptr %251, align 4, !tbaa !42
+  store i32 %281, ptr %251, align 4, !tbaa !43
   br label %282
 
 282:                                              ; preds = %277, %.thread106, %18, %init_scroll_limits.exit, %10
@@ -521,22 +521,22 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load i8, ptr %8, align 8, !tbaa !44
+  %9 = load i8, ptr %8, align 8, !tbaa !45
   %10 = zext i8 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %16 = load i32, ptr %15, align 8, !tbaa !43
+  %16 = load i32, ptr %15, align 8, !tbaa !44
   %17 = add nsw i32 %16, %14
-  store i32 %17, ptr %15, align 8, !tbaa !43
+  store i32 %17, ptr %15, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %21 = load i32, ptr %20, align 4, !tbaa !42
+  %21 = load i32, ptr %20, align 4, !tbaa !43
   %22 = add nsw i32 %21, %19
-  store i32 %22, ptr %20, align 4, !tbaa !42
+  store i32 %22, ptr %20, align 4, !tbaa !43
   %.not184 = icmp eq ptr %12, null
   br i1 %.not184, label %.loopexit.thread, label %.lr.ph
 
@@ -578,7 +578,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %40 = lshr i32 %39, 8
   %41 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0138183) #5
   %.not142 = icmp eq ptr %41, null
-  br i1 %.not142, label %42, label %26, !llvm.loop !45
+  br i1 %.not142, label %42, label %26, !llvm.loop !46
 
 42:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
@@ -602,8 +602,8 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %53 = udiv i32 65536, %spec.store.select16
   %54 = sext i16 %51 to i32
   call void @lv_point_transform(ptr noundef nonnull %3, i32 noundef %54, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %2, i1 noundef zeroext false) #5
-  %.pre = load i32, ptr %3, align 8, !tbaa !46
-  %.pre200 = load i32, ptr %23, align 4, !tbaa !47
+  %.pre = load i32, ptr %3, align 8, !tbaa !47
+  %.pre200 = load i32, ptr %23, align 4, !tbaa !48
   br label %55
 
 55:                                               ; preds = %42, %50
@@ -629,7 +629,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %68 = xor i1 %67, true
   %69 = trunc nuw i8 %.0136. to i1
   %or.cond7 = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond7, label %.thread, label %140, !llvm.loop !48
+  br i1 %or.cond7, label %.thread, label %140, !llvm.loop !49
 
 70:                                               ; preds = %55
   %71 = trunc nuw i8 %.0136. to i1
@@ -661,9 +661,9 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
   call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 3, ptr noundef %4, ptr noundef %5)
-  %90 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
+  %90 = load i8, ptr %4, align 1, !tbaa !40, !range !41, !noundef !42
   %91 = trunc nuw i8 %90 to i1
-  %92 = load i8, ptr %5, align 1, !tbaa !39, !range !40, !noundef !41
+  %92 = load i8, ptr %5, align 1, !tbaa !40, !range !41, !noundef !42
   %93 = trunc nuw i8 %92 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
@@ -687,9 +687,9 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #5
   call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 12, ptr noundef %6, ptr noundef %7)
-  %103 = load i8, ptr %6, align 1, !tbaa !39, !range !40, !noundef !41
+  %103 = load i8, ptr %6, align 1, !tbaa !40, !range !41, !noundef !42
   %104 = trunc nuw i8 %103 to i1
-  %105 = load i8, ptr %7, align 1, !tbaa !39, !range !40, !noundef !41
+  %105 = load i8, ptr %7, align 1, !tbaa !40, !range !41, !noundef !42
   %106 = trunc nuw i8 %105 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
@@ -815,8 +815,8 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   store i16 %146, ptr %143, align 4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %.1, ptr %147, align 8, !tbaa !23
-  store i32 0, ptr %15, align 8, !tbaa !43
-  store i32 0, ptr %20, align 4, !tbaa !42
+  store i32 0, ptr %15, align 8, !tbaa !44
+  store i32 0, ptr %20, align 4, !tbaa !43
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %1, %142, %.loopexit
@@ -867,7 +867,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %16 = load i8, ptr %15, align 1, !tbaa !49
+  %16 = load i8, ptr %15, align 1, !tbaa !50
   %17 = zext i8 %16 to i32
   %18 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %7, i32 noundef 64) #5
   br i1 %18, label %22, label %19
@@ -875,8 +875,8 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %21, align 4, !tbaa !50
-  store i32 0, ptr %20, align 8, !tbaa !51
+  store i32 0, ptr %21, align 4, !tbaa !51
+  store i32 0, ptr %20, align 8, !tbaa !52
   br label %22
 
 22:                                               ; preds = %19, %14
@@ -891,20 +891,20 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %28, align 8, !tbaa !51
+  store i32 0, ptr %28, align 8, !tbaa !52
   %29 = icmp eq i32 %24, 0
   br i1 %29, label %30, label %74
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %32 = load i32, ptr %31, align 4, !tbaa !50
+  %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = sub nsw i32 100, %17
   %34 = mul nsw i32 %32, %33
   %35 = sdiv i32 %34, 100
-  store i32 %35, ptr %31, align 4, !tbaa !50
+  store i32 %35, ptr %31, align 4, !tbaa !51
   %36 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %7) #5
   %37 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %7) #5
-  %38 = load i32, ptr %31, align 4, !tbaa !50
+  %38 = load i32, ptr %31, align 4, !tbaa !51
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %elastic_diff.exit, label %40
 
@@ -946,9 +946,9 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
   call fastcc void @has_more_snap_points(ptr noundef nonnull %7, i32 noundef 12, ptr noundef %4, ptr noundef %5)
-  %59 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
+  %59 = load i8, ptr %4, align 1, !tbaa !40, !range !41, !noundef !42
   %60 = trunc nuw i8 %59 to i1
-  %61 = load i8, ptr %5, align 1, !range !40
+  %61 = load i8, ptr %5, align 1, !range !41
   %62 = trunc nuw i8 %61 to i1
   %or.cond3.i = select i1 %60, i1 %62, i1 false
   br i1 %or.cond3.i, label %69, label %63
@@ -971,7 +971,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 elastic_diff.exit:                                ; preds = %30, %42, %46, %50, %52, %69
   %.0.i = phi i32 [ 0, %30 ], [ 0, %42 ], [ %spec.select.i, %46 ], [ %57, %52 ], [ %.2.i, %69 ], [ %38, %50 ]
-  store i32 %.0.i, ptr %31, align 4, !tbaa !50
+  store i32 %.0.i, ptr %31, align 4, !tbaa !51
   %70 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.0.i) #5
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %72 = load i8, ptr %71, align 4
@@ -981,12 +981,12 @@ elastic_diff.exit:                                ; preds = %30, %42, %46, %50, 
 
 74:                                               ; preds = %27
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %.012.i = load i32, ptr %75, align 4, !tbaa !52
+  %.012.i = load i32, ptr %75, align 4, !tbaa !53
   %.not15.i = icmp eq i32 %.012.i, 0
   br i1 %.not15.i, label %lv_indev_scroll_throw_predict.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %74
-  %76 = load i8, ptr %15, align 1, !tbaa !49
+  %76 = load i8, ptr %15, align 1, !tbaa !50
   %77 = zext i8 %76 to i32
   %78 = sub nsw i32 100, %77
   br label %79
@@ -999,14 +999,14 @@ elastic_diff.exit:                                ; preds = %30, %42, %46, %50, 
   %82 = sdiv i32 %81, 100
   %.off.i = add i32 %81, 99
   %.not.i = icmp ult i32 %.off.i, 199
-  br i1 %.not.i, label %lv_indev_scroll_throw_predict.exit, label %79, !llvm.loop !53
+  br i1 %.not.i, label %lv_indev_scroll_throw_predict.exit, label %79, !llvm.loop !54
 
 lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   %.011.i = phi i32 [ 0, %74 ], [ %80, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %83, align 4, !tbaa !50
+  store i32 0, ptr %83, align 4, !tbaa !51
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %85 = load i32, ptr %84, align 4, !tbaa !42
+  %85 = load i32, ptr %84, align 4, !tbaa !43
   %86 = add nsw i32 %85, %.011.i
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %88 = load i32, ptr %87, align 4, !tbaa !29
@@ -1031,19 +1031,19 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
 100:                                              ; preds = %22
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %102, align 4, !tbaa !50
+  store i32 0, ptr %102, align 4, !tbaa !51
   %103 = icmp eq i32 %23, 0
   br i1 %103, label %104, label %147
 
 104:                                              ; preds = %100
-  %105 = load i32, ptr %101, align 8, !tbaa !51
+  %105 = load i32, ptr %101, align 8, !tbaa !52
   %106 = sub nsw i32 100, %17
   %107 = mul nsw i32 %105, %106
   %108 = sdiv i32 %107, 100
-  store i32 %108, ptr %101, align 8, !tbaa !51
+  store i32 %108, ptr %101, align 8, !tbaa !52
   %109 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %7) #5
   %110 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %7) #5
-  %111 = load i32, ptr %101, align 8, !tbaa !51
+  %111 = load i32, ptr %101, align 8, !tbaa !52
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %elastic_diff.exit127, label %113
 
@@ -1085,9 +1085,9 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
   call fastcc void @has_more_snap_points(ptr noundef nonnull %7, i32 noundef 3, ptr noundef %2, ptr noundef %3)
-  %132 = load i8, ptr %2, align 1, !tbaa !39, !range !40, !noundef !41
+  %132 = load i8, ptr %2, align 1, !tbaa !40, !range !41, !noundef !42
   %133 = trunc nuw i8 %132 to i1
-  %134 = load i8, ptr %3, align 1, !range !40
+  %134 = load i8, ptr %3, align 1, !range !41
   %135 = trunc nuw i8 %134 to i1
   %or.cond3.i120 = select i1 %133, i1 %135, i1 false
   br i1 %or.cond3.i120, label %142, label %136
@@ -1110,7 +1110,7 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %79, %74
 
 elastic_diff.exit127:                             ; preds = %104, %115, %119, %123, %125, %142
   %.0.i119 = phi i32 [ 0, %104 ], [ 0, %115 ], [ %spec.select.i118, %119 ], [ %130, %125 ], [ %.2.i123, %142 ], [ %111, %123 ]
-  store i32 %.0.i119, ptr %101, align 8, !tbaa !51
+  store i32 %.0.i119, ptr %101, align 8, !tbaa !52
   %143 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %7, i32 noundef %.0.i119, i32 noundef 0) #5
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %145 = load i8, ptr %144, align 4
@@ -1120,12 +1120,12 @@ elastic_diff.exit127:                             ; preds = %104, %115, %119, %1
 
 147:                                              ; preds = %100
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.012.i128 = load i32, ptr %148, align 4, !tbaa !52
+  %.012.i128 = load i32, ptr %148, align 4, !tbaa !53
   %.not15.i129 = icmp eq i32 %.012.i128, 0
   br i1 %.not15.i129, label %lv_indev_scroll_throw_predict.exit136, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %147
-  %149 = load i8, ptr %15, align 1, !tbaa !49
+  %149 = load i8, ptr %15, align 1, !tbaa !50
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 100, %150
   br label %152
@@ -1138,13 +1138,13 @@ elastic_diff.exit127:                             ; preds = %104, %115, %119, %1
   %155 = sdiv i32 %154, 100
   %.off.i133 = add i32 %154, 99
   %.not.i134 = icmp ult i32 %.off.i133, 199
-  br i1 %.not.i134, label %lv_indev_scroll_throw_predict.exit136, label %152, !llvm.loop !53
+  br i1 %.not.i134, label %lv_indev_scroll_throw_predict.exit136, label %152, !llvm.loop !54
 
 lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
   %.011.i135 = phi i32 [ 0, %147 ], [ %153, %152 ]
-  store i32 0, ptr %101, align 8, !tbaa !51
+  store i32 0, ptr %101, align 8, !tbaa !52
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %157 = load i32, ptr %156, align 8, !tbaa !43
+  %157 = load i32, ptr %156, align 8, !tbaa !44
   %158 = add nsw i32 %157, %.011.i135
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %160 = load i32, ptr %159, align 8, !tbaa !33
@@ -1168,13 +1168,13 @@ lv_indev_scroll_throw_predict.exit136:            ; preds = %152, %147
 
 172:                                              ; preds = %22, %lv_indev_scroll_throw_predict.exit136, %elastic_diff.exit127, %elastic_diff.exit, %lv_indev_scroll_throw_predict.exit
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %174 = load i32, ptr %173, align 8, !tbaa !51
+  %174 = load i32, ptr %173, align 8, !tbaa !52
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %226
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %178 = load i32, ptr %177, align 4, !tbaa !50
+  %178 = load i32, ptr %177, align 4, !tbaa !51
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %226
 
@@ -1294,13 +1294,13 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_
 6:                                                ; preds = %4, %5
   %.sink = phi i64 [ 136, %5 ], [ 140, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.012 = load i32, ptr %7, align 4, !tbaa !52
+  %.012 = load i32, ptr %7, align 4, !tbaa !53
   %.not15 = icmp eq i32 %.012, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %9 = load i8, ptr %8, align 1, !tbaa !49
+  %9 = load i8, ptr %8, align 1, !tbaa !50
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 100, %10
   br label %12
@@ -1313,7 +1313,7 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly captures(address_
   %15 = sdiv i32 %14, 100
   %.off = add i32 %14, 99
   %.not = icmp ult i32 %.off, 199
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !53
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !54
 
 .loopexit:                                        ; preds = %12, %6, %4, %2
   %.011 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ]
@@ -1349,10 +1349,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 18:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %58 ]
-  %19 = load ptr, ptr %13, align 8, !tbaa !54
-  %20 = load ptr, ptr %19, align 8, !tbaa !55
+  %19 = load ptr, ptr %13, align 8, !tbaa !55
+  %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !58
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
   %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #5
   br i1 %23, label %58, label %24
 
@@ -1418,7 +1418,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.1 = phi i32 [ %.04754, %18 ], [ %.04754, %24 ], [ %.04754, %26 ], [ %57, %52 ], [ %.04754, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %58
   %59 = icmp eq i32 %.1, 536870911
@@ -1463,10 +1463,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 17:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %56 ]
-  %18 = load ptr, ptr %13, align 8, !tbaa !54
-  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %18 = load ptr, ptr %13, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !58
+  %21 = load ptr, ptr %20, align 8, !tbaa !59
   %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #5
   br i1 %22, label %56, label %23
 
@@ -1531,7 +1531,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.1 = phi i32 [ %.04754, %17 ], [ %.04754, %23 ], [ %.04754, %25 ], [ %55, %50 ], [ %.04754, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %56
   %57 = icmp eq i32 %.1, 536870911
@@ -1553,21 +1553,21 @@ define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr noundef writeonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = tail call fastcc i32 @find_snap_point_x(ptr noundef %0, i32 noundef %4, i32 noundef %6, i32 noundef 0)
-  store i32 %7, ptr %1, align 4, !tbaa !46
+  store i32 %7, ptr %1, align 4, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = tail call fastcc i32 @find_snap_point_y(ptr noundef %0, i32 noundef %9, i32 noundef %11, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !47
+  store i32 %12, ptr %13, align 4, !tbaa !48
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 noundef range(i32 3, 13) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
-  store i8 1, ptr %2, align 1, !tbaa !39
-  store i8 1, ptr %3, align 1, !tbaa !39
+  store i8 1, ptr %2, align 1, !tbaa !40
+  store i8 1, ptr %3, align 1, !tbaa !40
   %5 = icmp eq i32 %1, 3
   br i1 %5, label %6, label %42
 
@@ -1622,7 +1622,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33
-  store i8 0, ptr %3, align 1, !tbaa !39
+  store i8 0, ptr %3, align 1, !tbaa !40
   br label %38
 
 38:                                               ; preds = %37, %33
@@ -1683,7 +1683,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %70
-  store i8 0, ptr %3, align 1, !tbaa !39
+  store i8 0, ptr %3, align 1, !tbaa !40
   br label %75
 
 75:                                               ; preds = %74, %70
@@ -1693,7 +1693,7 @@ define internal fastcc void @has_more_snap_points(ptr noundef nonnull %0, i32 no
   br i1 %78, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %75, %38
-  store i8 0, ptr %2, align 1, !tbaa !39
+  store i8 0, ptr %2, align 1, !tbaa !40
   br label %79
 
 79:                                               ; preds = %.sink.split, %75, %38
@@ -1773,27 +1773,28 @@ attributes #5 = { nounwind }
 !34 = !{!4, !5, i64 192}
 !35 = !{!25, !5, i64 48}
 !36 = !{!4, !14, i64 144}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!20, !20, i64 0}
-!40 = !{i8 0, i8 2}
-!41 = !{}
-!42 = !{!4, !5, i64 124}
-!43 = !{!4, !5, i64 120}
-!44 = !{!4, !6, i64 72}
-!45 = distinct !{!45, !38}
-!46 = !{!13, !5, i64 0}
-!47 = !{!13, !5, i64 4}
-!48 = distinct !{!48, !38}
-!49 = !{!4, !6, i64 73}
-!50 = !{!4, !5, i64 132}
-!51 = !{!4, !5, i64 128}
-!52 = !{!5, !5, i64 0}
-!53 = distinct !{!53, !38}
-!54 = !{!25, !27, i64 16}
-!55 = !{!56, !57, i64 0}
-!56 = !{!"_lv_obj_spec_attr_t", !57, i64 0, !16, i64 8, !17, i64 16, !13, i64 48, !5, i64 56, !5, i64 60, !11, i64 64, !11, i64 66, !11, i64 66, !11, i64 66, !11, i64 66, !11, i64 67}
-!57 = !{!"p2 _ZTS9_lv_obj_t", !8, i64 0}
-!58 = !{!14, !14, i64 0}
-!59 = distinct !{!59, !38}
-!60 = distinct !{!60, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!20, !20, i64 0}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = !{!4, !5, i64 124}
+!44 = !{!4, !5, i64 120}
+!45 = !{!4, !6, i64 72}
+!46 = distinct !{!46, !38, !39}
+!47 = !{!13, !5, i64 0}
+!48 = !{!13, !5, i64 4}
+!49 = distinct !{!49, !38}
+!50 = !{!4, !6, i64 73}
+!51 = !{!4, !5, i64 132}
+!52 = !{!4, !5, i64 128}
+!53 = !{!5, !5, i64 0}
+!54 = distinct !{!54, !38, !39}
+!55 = !{!25, !27, i64 16}
+!56 = !{!57, !58, i64 0}
+!57 = !{!"_lv_obj_spec_attr_t", !58, i64 0, !16, i64 8, !17, i64 16, !13, i64 48, !5, i64 56, !5, i64 60, !11, i64 64, !11, i64 66, !11, i64 66, !11, i64 66, !11, i64 66, !11, i64 67}
+!58 = !{!"p2 _ZTS9_lv_obj_t", !8, i64 0}
+!59 = !{!14, !14, i64 0}
+!60 = distinct !{!60, !38, !39}
+!61 = distinct !{!61, !38, !39}

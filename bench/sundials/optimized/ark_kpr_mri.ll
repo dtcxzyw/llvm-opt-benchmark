@@ -1461,7 +1461,7 @@ vtrue.exit647:                                    ; preds = %utrue.exit646, %668
   %689 = select i1 %688, double 5.000000e+00, double %687
   %690 = add nuw nsw i32 %.0869, 1
   %exitcond.not = icmp eq i32 %690, 50
-  br i1 %exitcond.not, label %.loopexit, label %642
+  br i1 %exitcond.not, label %.loopexit, label %642, !llvm.loop !36
 
 .loopexit:                                        ; preds = %vtrue.exit647, %check_retval.exit645
   %.0381864 = phi double [ %.0381866, %check_retval.exit645 ], [ %682, %vtrue.exit647 ]
@@ -1551,30 +1551,30 @@ check_retval.exit655:                             ; preds = %check_retval.exit65
 
 check_retval.exit657:                             ; preds = %check_retval.exit655, %733
   %puts507 = call i32 @puts(ptr nonnull dereferenceable(1) @str.25)
-  %736 = load i64, ptr %9, align 8, !tbaa !36
-  %737 = load i64, ptr %10, align 8, !tbaa !36
+  %736 = load i64, ptr %9, align 8, !tbaa !38
+  %737 = load i64, ptr %10, align 8, !tbaa !38
   %738 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i64 noundef %736, i64 noundef %737)
   %739 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %696, double noundef %702, double noundef %709)
   br i1 %141, label %740, label %745
 
 740:                                              ; preds = %check_retval.exit657
-  %741 = load i64, ptr %11, align 8, !tbaa !36
-  %742 = load i64, ptr %12, align 8, !tbaa !36
-  %743 = load i64, ptr %13, align 8, !tbaa !36
+  %741 = load i64, ptr %11, align 8, !tbaa !38
+  %742 = load i64, ptr %12, align 8, !tbaa !38
+  %743 = load i64, ptr %13, align 8, !tbaa !38
   %744 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i64 noundef %741, i64 noundef %742, i64 noundef %743)
   br label %.thread856
 
 745:                                              ; preds = %check_retval.exit657
-  %746 = load i64, ptr %13, align 8, !tbaa !36
+  %746 = load i64, ptr %13, align 8, !tbaa !38
   br i1 %139, label %747, label %750
 
 747:                                              ; preds = %745
-  %748 = load i64, ptr %12, align 8, !tbaa !36
+  %748 = load i64, ptr %12, align 8, !tbaa !38
   %749 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i64 noundef %748, i64 noundef %746)
   br label %.thread856
 
 750:                                              ; preds = %745
-  %751 = load i64, ptr %11, align 8, !tbaa !36
+  %751 = load i64, ptr %11, align 8, !tbaa !38
   %752 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i64 noundef %751, i64 noundef %746)
   br i1 %or.cond19, label %.thread856, label %769
 
@@ -1599,11 +1599,11 @@ check_retval.exit659:                             ; preds = %.thread856, %755
   br label %check_retval.exit661
 
 check_retval.exit661:                             ; preds = %check_retval.exit659, %760
-  %763 = load i64, ptr %17, align 8, !tbaa !36
+  %763 = load i64, ptr %17, align 8, !tbaa !38
   %764 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, i64 noundef %763)
-  %765 = load i64, ptr %18, align 8, !tbaa !36
+  %765 = load i64, ptr %18, align 8, !tbaa !38
   %766 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, i64 noundef %765)
-  %767 = load i64, ptr %19, align 8, !tbaa !36
+  %767 = load i64, ptr %19, align 8, !tbaa !38
   %768 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, i64 noundef %767)
   br label %769
 
@@ -1631,11 +1631,11 @@ check_retval.exit663:                             ; preds = %770, %773
   br label %check_retval.exit665
 
 check_retval.exit665:                             ; preds = %check_retval.exit663, %778
-  %781 = load i64, ptr %14, align 8, !tbaa !36
+  %781 = load i64, ptr %14, align 8, !tbaa !38
   %782 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, i64 noundef %781)
-  %783 = load i64, ptr %15, align 8, !tbaa !36
+  %783 = load i64, ptr %15, align 8, !tbaa !38
   %784 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, i64 noundef %783)
-  %785 = load i64, ptr %16, align 8, !tbaa !36
+  %785 = load i64, ptr %16, align 8, !tbaa !38
   %786 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.81, i64 noundef %785)
   br label %787
 
@@ -1841,9 +1841,9 @@ define internal noundef i32 @Jn(double noundef %0, ptr noundef readonly captures
   %26 = fmul double %15, %25
   %27 = fdiv double %24, %26
   %28 = fadd double %18, %27
-  %29 = load ptr, ptr %3, align 8, !tbaa !37
+  %29 = load ptr, ptr %3, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
   %32 = load ptr, ptr %31, align 8, !tbaa !30
   store double %28, ptr %32, align 8, !tbaa !12
   %33 = fmul double %11, 5.000000e-01
@@ -1889,9 +1889,9 @@ define internal noundef i32 @Jf(double noundef %0, ptr noundef readonly captures
   %14 = load double, ptr %13, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load double, ptr %15, align 8, !tbaa !12
-  %17 = load ptr, ptr %3, align 8, !tbaa !37
+  %17 = load ptr, ptr %3, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !40
+  %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   store double 0.000000e+00, ptr %20, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -2008,9 +2008,9 @@ define internal noundef i32 @Js(double noundef %0, ptr noundef readonly captures
   %26 = fmul double %15, %25
   %27 = fdiv double %24, %26
   %28 = fadd double %18, %27
-  %29 = load ptr, ptr %3, align 8, !tbaa !37
+  %29 = load ptr, ptr %3, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
   %32 = load ptr, ptr %31, align 8, !tbaa !30
   store double %28, ptr %32, align 8, !tbaa !12
   %33 = fmul double %11, 5.000000e-01
@@ -2109,9 +2109,9 @@ define internal noundef i32 @Jsi(double noundef %0, ptr noundef readonly capture
   %24 = fmul double %15, %23
   %25 = fdiv double %22, %24
   %26 = fadd double %18, %25
-  %27 = load ptr, ptr %3, align 8, !tbaa !37
+  %27 = load ptr, ptr %3, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !40
+  %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = load ptr, ptr %29, align 8, !tbaa !30
   store double %26, ptr %30, align 8, !tbaa !12
   %31 = fmul double %11, 5.000000e-01
@@ -2246,9 +2246,11 @@ attributes #10 = { cold nounwind }
 !33 = !{!28, !25, i64 24}
 !34 = !{!28, !24, i64 0}
 !35 = !{!28, !24, i64 4}
-!36 = !{!23, !23, i64 0}
-!37 = !{!38, !5, i64 0}
-!38 = !{!"_generic_SUNMatrix", !5, i64 0, !39, i64 8, !17, i64 16}
-!39 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
-!40 = !{!41, !29, i64 32}
-!41 = !{!"_SUNMatrixContent_Dense", !23, i64 0, !23, i64 8, !25, i64 16, !23, i64 24, !29, i64 32}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!23, !23, i64 0}
+!39 = !{!40, !5, i64 0}
+!40 = !{!"_generic_SUNMatrix", !5, i64 0, !41, i64 8, !17, i64 16}
+!41 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!42 = !{!43, !29, i64 32}
+!43 = !{!"_SUNMatrixContent_Dense", !23, i64 0, !23, i64 8, !25, i64 16, !23, i64 24, !29, i64 32}

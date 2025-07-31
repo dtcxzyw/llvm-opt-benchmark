@@ -776,7 +776,7 @@ aom_read_symbol_.exit358:                         ; preds = %407, %update_cdf.ex
   %.3 = add nsw i32 %450, %.2258416
   %451 = add nuw nsw i32 %.0263415, 1
   %exitcond.not = icmp eq i32 %451, %smax
-  br i1 %exitcond.not, label %.loopexit412, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit412, label %.lr.ph, !llvm.loop !7
 
 .loopexit412:                                     ; preds = %.lr.ph, %aom_read_symbol_.exit358, %aom_read_symbol_.exit288
   %.0256 = phi i32 [ 0, %aom_read_symbol_.exit288 ], [ %.1257, %aom_read_symbol_.exit358 ], [ %.3, %.lr.ph ]
@@ -1000,7 +1000,7 @@ aom_read_symbol_.exit379:                         ; preds = %543, %update_cdf.ex
   %578 = add nuw nsw i32 %.0260418, 3
   %579 = icmp samesign ult i32 %.0260418, 9
   %or.cond444 = select i1 %577, i1 %579, i1 false
-  br i1 %or.cond444, label %543, label %.loopexit, !llvm.loop !7
+  br i1 %or.cond444, label %543, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %aom_read_symbol_.exit379, %aom_read_symbol_.exit369
   %.0261 = phi i32 [ %516, %aom_read_symbol_.exit369 ], [ %576, %aom_read_symbol_.exit379 ]
@@ -1246,7 +1246,7 @@ aom_read_symbol_.exit48.i:                        ; preds = %update_cdf.exit.i46
   %728 = add nuw nsw i32 %.02950.i, 3
   %729 = icmp samesign ult i32 %.02950.i, 9
   %or.cond.i = select i1 %727, i1 %729, i1 false
-  br i1 %or.cond.i, label %693, label %.loopexit.i, !llvm.loop !8
+  br i1 %or.cond.i, label %693, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %aom_read_symbol_.exit48.i, %aom_read_symbol_.exit.i
   %.030.i = phi i32 [ %637, %aom_read_symbol_.exit.i ], [ %726, %aom_read_symbol_.exit48.i ]
@@ -1254,7 +1254,7 @@ aom_read_symbol_.exit48.i:                        ; preds = %update_cdf.exit.i46
   store i8 %730, ptr %614, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %731 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %731, label %606, label %thread-pre-split, !llvm.loop !9
+  br i1 %731, label %606, label %thread-pre-split, !llvm.loop !10
 
 thread-pre-split:                                 ; preds = %.loopexit.i, %587, %598
   %.sink = phi i32 [ 0, %598 ], [ %597, %587 ], [ 0, %.loopexit.i ]
@@ -1369,7 +1369,7 @@ aom_read_symbol_.exit390:                         ; preds = %update_cdf.exit.i38
   %792 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %71, i32 noundef 16384) #5
   %793 = add nuw nsw i32 %.011.i, 1
   %exitcond.i = icmp eq i32 %793, 21
-  br i1 %exitcond.i, label %.loopexit.thread.i, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.i, label %.loopexit.thread.i, label %.preheader, !llvm.loop !11
 
 .loopexit.thread.i:                               ; preds = %791
   %794 = load ptr, ptr %737, align 16
@@ -1393,7 +1393,7 @@ aom_read_symbol_.exit390:                         ; preds = %update_cdf.exit.i38
   %800 = add nsw i32 %799, %798
   %801 = add nuw nsw i32 %.118.i, 1
   %exitcond21.not.i = icmp eq i32 %.118.i, %796
-  br i1 %exitcond21.not.i, label %._crit_edge.loopexit.i, label %797, !llvm.loop !11
+  br i1 %exitcond21.not.i, label %._crit_edge.loopexit.i, label %797, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %797
   %802 = add nsw i32 %800, -1
@@ -1455,7 +1455,7 @@ get_dqv.exit:                                     ; preds = %804, %816
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %836 = zext i16 %835 to i64
   %837 = icmp samesign ult i64 %indvars.iv.next, %836
-  br i1 %837, label %738, label %set_dc_sign.exit, !llvm.loop !12
+  br i1 %837, label %738, label %set_dc_sign.exit, !llvm.loop !13
 
 set_dc_sign.exit:                                 ; preds = %834
   %838 = tail call i32 @llvm.smin.i32(i32 %.1403, i32 7)
@@ -1999,7 +1999,7 @@ aom_read_symbol_.exit159:                         ; preds = %234, %update_cdf.ex
   %269 = add nuw nsw i32 %.0141161, 3
   %270 = icmp samesign ult i32 %.0141161, 9
   %or.cond163 = select i1 %268, i1 %270, i1 false
-  br i1 %or.cond163, label %234, label %.loopexit, !llvm.loop !13
+  br i1 %or.cond163, label %234, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %aom_read_symbol_.exit159, %aom_read_symbol_.exit
   %.0143 = phi i32 [ %136, %aom_read_symbol_.exit ], [ %267, %aom_read_symbol_.exit159 ]
@@ -2007,7 +2007,7 @@ aom_read_symbol_.exit159:                         ; preds = %234, %update_cdf.ex
   store i8 %271, ptr %36, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %272 = icmp sgt i64 %indvars.iv, 0
-  br i1 %272, label %28, label %273, !llvm.loop !14
+  br i1 %272, label %28, label %273, !llvm.loop !15
 
 273:                                              ; preds = %.loopexit
   ret void
@@ -2062,7 +2062,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %46 = add nsw i32 %.0.i, %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader52.preheader.i, label %38, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.preheader52.preheader.i, label %38, !llvm.loop !16
 
 .preheader52.preheader.i:                         ; preds = %38
   %47 = sext i32 %4 to i64
@@ -2084,7 +2084,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %56 = add nsw i32 %.1.i, %55
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count64.i
-  br i1 %exitcond65.not.i, label %57, label %.preheader52.i, !llvm.loop !16
+  br i1 %exitcond65.not.i, label %57, label %.preheader52.i, !llvm.loop !17
 
 57:                                               ; preds = %.preheader52.i
   %58 = add nsw i32 %56, 32
@@ -2112,7 +2112,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %72 = or i32 %.049.i, %71
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i
-  br i1 %exitcond70.not.i, label %.preheader60, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond70.not.i, label %.preheader60, label %.preheader.i, !llvm.loop !18
 
 .preheader60:                                     ; preds = %.preheader.i, %.preheader60
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader60 ], [ 0, %.preheader.i ]
@@ -2123,7 +2123,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %76 = or i32 %.048.i, %75
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count64.i
-  br i1 %exitcond75.not.i, label %77, label %.preheader60, !llvm.loop !18
+  br i1 %exitcond75.not.i, label %77, label %.preheader60, !llvm.loop !19
 
 77:                                               ; preds = %.preheader60
   %78 = and i32 %72, 7
@@ -2389,12 +2389,12 @@ is_inter_block.exit.thread:                       ; preds = %get_txb_ctx.exit, %
   store i8 %226, ptr %242, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %243 = icmp slt i64 %indvars.iv.next, %233
-  br i1 %243, label %238, label %._crit_edge.us, !llvm.loop !19
+  br i1 %243, label %238, label %._crit_edge.us, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %238
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 4
   %244 = icmp slt i64 %indvars.iv.next72, %234
-  br i1 %244, label %.preheader.us, label %.loopexit, !llvm.loop !20
+  br i1 %244, label %.preheader.us, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %._crit_edge.us, %227, %is_inter_block.exit.thread, %is_inter_block.exit
   ret void
@@ -2433,21 +2433,22 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

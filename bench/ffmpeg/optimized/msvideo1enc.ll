@@ -211,12 +211,12 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 104:                                              ; preds = %94
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next570, 4
-  br i1 %exitcond572.not, label %105, label %78, !llvm.loop !46
+  br i1 %exitcond572.not, label %105, label %78, !llvm.loop !47
 
 105:                                              ; preds = %104
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
   %exitcond576.not = icmp eq i64 %indvars.iv.next574, 4
-  br i1 %exitcond576.not, label %106, label %.preheader452, !llvm.loop !47
+  br i1 %exitcond576.not, label %106, label %.preheader452, !llvm.loop !48
 
 106:                                              ; preds = %105
   br i1 %.not372, label %.preheader463, label %127
@@ -243,7 +243,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %113 = add i32 %reass.mul441, %112
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %.0308545, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !48
+  %116 = load i8, ptr %115, align 1, !tbaa !49
   %117 = zext i8 %116 to i32
   %118 = add nuw nsw i64 %indvars.iv577, %110
   %119 = getelementptr inbounds nuw [48 x i32], ptr %40, i64 0, i64 %118
@@ -253,12 +253,12 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %123 = add nsw i32 %122, %.2342492
   %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next578, 12
-  br i1 %exitcond580.not, label %124, label %111, !llvm.loop !49
+  br i1 %exitcond580.not, label %124, label %111, !llvm.loop !50
 
 124:                                              ; preds = %111
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next582, 4
-  br i1 %exitcond584.not, label %125, label %.preheader451, !llvm.loop !50
+  br i1 %exitcond584.not, label %125, label %.preheader451, !llvm.loop !51
 
 125:                                              ; preds = %124
   %126 = sdiv i32 %123, 24
@@ -308,17 +308,17 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %145 = add nsw i32 %144, %.2329497
   %indvars.iv.next586 = add nuw nsw i64 %indvars.iv585, 1
   %exitcond588.not = icmp eq i64 %indvars.iv.next586, 3
-  br i1 %exitcond588.not, label %146, label %137, !llvm.loop !51
+  br i1 %exitcond588.not, label %146, label %137, !llvm.loop !52
 
 146:                                              ; preds = %137
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond592.not = icmp eq i64 %indvars.iv.next590, 4
-  br i1 %exitcond592.not, label %147, label %.preheader444, !llvm.loop !52
+  br i1 %exitcond592.not, label %147, label %.preheader444, !llvm.loop !53
 
 147:                                              ; preds = %146
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
   %exitcond596.not = icmp eq i64 %indvars.iv.next594, 4
-  br i1 %exitcond596.not, label %148, label %.preheader450, !llvm.loop !53
+  br i1 %exitcond596.not, label %148, label %.preheader450, !llvm.loop !54
 
 148:                                              ; preds = %147
   %149 = sdiv i32 %145, 24
@@ -347,7 +347,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store i32 %161, ptr %159, align 4, !tbaa !41
   %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
   %exitcond600.not = icmp eq i64 %indvars.iv.next598, 3
-  br i1 %exitcond600.not, label %.preheader460, label %.preheader462, !llvm.loop !54
+  br i1 %exitcond600.not, label %.preheader460, label %.preheader462, !llvm.loop !55
 
 .preheader460:                                    ; preds = %.preheader462, %.preheader460
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %.preheader460 ], [ 0, %.preheader462 ]
@@ -357,7 +357,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store i32 %164, ptr %162, align 4, !tbaa !41
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next602, 16
-  br i1 %exitcond604.not, label %.preheader449.preheader, label %.preheader460, !llvm.loop !55
+  br i1 %exitcond604.not, label %.preheader449.preheader, label %.preheader460, !llvm.loop !56
 
 .preheader449.preheader:                          ; preds = %.preheader460, %154
   br label %.preheader449
@@ -395,17 +395,17 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %183 = add nsw i32 %182, %.5332505
   %indvars.iv.next606 = add nuw nsw i64 %indvars.iv605, 1
   %exitcond608.not = icmp eq i64 %indvars.iv.next606, 3
-  br i1 %exitcond608.not, label %184, label %174, !llvm.loop !56
+  br i1 %exitcond608.not, label %184, label %174, !llvm.loop !57
 
 184:                                              ; preds = %174
   %indvars.iv.next610 = add nuw nsw i64 %indvars.iv609, 1
   %exitcond612.not = icmp eq i64 %indvars.iv.next610, 4
-  br i1 %exitcond612.not, label %185, label %.preheader443, !llvm.loop !57
+  br i1 %exitcond612.not, label %185, label %.preheader443, !llvm.loop !58
 
 185:                                              ; preds = %184
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next614, 4
-  br i1 %exitcond616.not, label %186, label %.preheader449, !llvm.loop !58
+  br i1 %exitcond616.not, label %186, label %.preheader449, !llvm.loop !59
 
 186:                                              ; preds = %185
   %187 = sdiv i32 %183, 24
@@ -418,7 +418,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 190:                                              ; preds = %191
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond620.not = icmp eq i64 %indvars.iv.next618, 4
-  br i1 %exitcond620.not, label %197, label %191, !llvm.loop !59
+  br i1 %exitcond620.not, label %197, label %191, !llvm.loop !60
 
 191:                                              ; preds = %186, %190
   %indvars.iv617 = phi i64 [ 0, %186 ], [ %indvars.iv.next618, %190 ]
@@ -450,7 +450,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store i32 %205, ptr %203, align 4, !tbaa !41
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next622, 3
-  br i1 %exitcond624.not, label %.preheader456, label %.preheader458, !llvm.loop !60
+  br i1 %exitcond624.not, label %.preheader456, label %.preheader458, !llvm.loop !61
 
 .preheader456:                                    ; preds = %.preheader458, %.preheader456
   %indvars.iv625 = phi i64 [ %indvars.iv.next626, %.preheader456 ], [ 12, %.preheader458 ]
@@ -460,7 +460,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store i32 %208, ptr %206, align 4, !tbaa !41
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond628.not = icmp eq i64 %indvars.iv.next626, 16
-  br i1 %exitcond628.not, label %.preheader448.preheader, label %.preheader456, !llvm.loop !61
+  br i1 %exitcond628.not, label %.preheader448.preheader, label %.preheader456, !llvm.loop !62
 
 .preheader448.preheader:                          ; preds = %.preheader456, %197
   br label %.preheader448
@@ -508,17 +508,17 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %236 = add nsw i32 %235, %.8335514
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next630, 3
-  br i1 %exitcond632.not, label %237, label %227, !llvm.loop !62
+  br i1 %exitcond632.not, label %237, label %227, !llvm.loop !63
 
 237:                                              ; preds = %227
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond636.not = icmp eq i64 %indvars.iv.next634, 4
-  br i1 %exitcond636.not, label %238, label %.preheader442, !llvm.loop !63
+  br i1 %exitcond636.not, label %238, label %.preheader442, !llvm.loop !64
 
 238:                                              ; preds = %237
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond640.not = icmp eq i64 %indvars.iv.next638, 4
-  br i1 %exitcond640.not, label %239, label %.preheader448, !llvm.loop !64
+  br i1 %exitcond640.not, label %239, label %.preheader448, !llvm.loop !65
 
 239:                                              ; preds = %238
   %240 = sdiv i32 %236, 24
@@ -539,7 +539,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 248:                                              ; preds = %239
   %249 = trunc i32 %.3359 to i16
   %250 = or i16 %249, -31744
-  store i16 %250, ptr %.1417534, align 1, !tbaa !48
+  store i16 %250, ptr %.1417534, align 1, !tbaa !49
   %251 = getelementptr inbounds nuw i8, ptr %.1417534, i64 2
   br label %252
 
@@ -563,7 +563,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %260 = or i32 %258, %259
   %261 = trunc i32 %260 to i16
   %262 = or i16 %261, -32768
-  store i16 %262, ptr %.3419, align 1, !tbaa !48
+  store i16 %262, ptr %.3419, align 1, !tbaa !49
   %263 = trunc nuw nsw i64 %indvars.iv668 to i32
   br label %.preheader445
 
@@ -589,20 +589,20 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %271 = add i32 %reass.mul438, %270
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds i8, ptr %.0308545, i64 %272
-  store i8 %268, ptr %273, align 1, !tbaa !48
+  store i8 %268, ptr %273, align 1, !tbaa !49
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond665.not = icmp eq i64 %indvars.iv.next663, 3
-  br i1 %exitcond665.not, label %274, label %265, !llvm.loop !65
+  br i1 %exitcond665.not, label %274, label %265, !llvm.loop !66
 
 274:                                              ; preds = %265
   %275 = add nuw nsw i32 %.10532, 1
   %exitcond666.not = icmp eq i32 %275, 4
-  br i1 %exitcond666.not, label %276, label %.preheader, !llvm.loop !66
+  br i1 %exitcond666.not, label %276, label %.preheader, !llvm.loop !67
 
 276:                                              ; preds = %274
   %277 = add nuw nsw i32 %.5324533, 1
   %exitcond667.not = icmp eq i32 %277, 4
-  br i1 %exitcond667.not, label %.loopexit.loopexit, label %.preheader445, !llvm.loop !67
+  br i1 %exitcond667.not, label %.loopexit.loopexit, label %.preheader445, !llvm.loop !68
 
 .preheader446:                                    ; preds = %252, %304
   %indvars.iv658 = phi i64 [ %indvars.iv.next659, %304 ], [ 0, %252 ]
@@ -637,10 +637,10 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %295 = add i32 %reass.mul435, %.5354526
   %296 = sext i32 %295 to i64
   %297 = getelementptr inbounds i8, ptr %.0308545, i64 %296
-  store i8 %293, ptr %297, align 1, !tbaa !48
+  store i8 %293, ptr %297, align 1, !tbaa !49
   %298 = add nuw nsw i32 %.5354526, 1
   %exitcond653.not = icmp eq i32 %298, 3
-  br i1 %exitcond653.not, label %299, label %286, !llvm.loop !68
+  br i1 %exitcond653.not, label %299, label %286, !llvm.loop !69
 
 299:                                              ; preds = %286
   %300 = xor i32 %283, 1
@@ -649,16 +649,16 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %303 = or i32 %302, %.1337527
   %indvars.iv.next655 = add nuw nsw i64 %indvars.iv654, 1
   %exitcond657.not = icmp eq i64 %indvars.iv.next655, 4
-  br i1 %exitcond657.not, label %304, label %280, !llvm.loop !69
+  br i1 %exitcond657.not, label %304, label %280, !llvm.loop !70
 
 304:                                              ; preds = %299
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
   %exitcond661.not = icmp eq i64 %indvars.iv.next659, 4
-  br i1 %exitcond661.not, label %305, label %.preheader446, !llvm.loop !70
+  br i1 %exitcond661.not, label %305, label %.preheader446, !llvm.loop !71
 
 305:                                              ; preds = %304
   %306 = trunc i32 %303 to i16
-  store i16 %306, ptr %.3419, align 1, !tbaa !48
+  store i16 %306, ptr %.3419, align 1, !tbaa !49
   %307 = getelementptr inbounds nuw i8, ptr %.3419, i64 2
   %308 = load i32, ptr %45, align 8, !tbaa !41
   %309 = shl i32 %308, 10
@@ -668,7 +668,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %313 = load i32, ptr %53, align 8, !tbaa !41
   %314 = or i32 %312, %313
   %315 = trunc i32 %314 to i16
-  store i16 %315, ptr %307, align 1, !tbaa !48
+  store i16 %315, ptr %307, align 1, !tbaa !49
   %316 = getelementptr inbounds nuw i8, ptr %.3419, i64 4
   %317 = load i32, ptr %54, align 4, !tbaa !41
   %318 = shl i32 %317, 10
@@ -678,7 +678,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %322 = load i32, ptr %56, align 4, !tbaa !41
   %323 = or i32 %321, %322
   %324 = trunc i32 %323 to i16
-  store i16 %324, ptr %316, align 1, !tbaa !48
+  store i16 %324, ptr %316, align 1, !tbaa !49
   %325 = getelementptr inbounds nuw i8, ptr %.3419, i64 6
   br label %.loopexit
 
@@ -725,10 +725,10 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %352 = add i32 %reass.mul, %.6355519
   %353 = sext i32 %352 to i64
   %354 = getelementptr inbounds i8, ptr %.0308545, i64 %353
-  store i8 %350, ptr %354, align 1, !tbaa !48
+  store i8 %350, ptr %354, align 1, !tbaa !49
   %355 = add nuw nsw i32 %.6355519, 1
   %exitcond641.not = icmp eq i32 %355, 3
-  br i1 %exitcond641.not, label %356, label %342, !llvm.loop !71
+  br i1 %exitcond641.not, label %356, label %342, !llvm.loop !72
 
 356:                                              ; preds = %342
   %357 = xor i32 %336, 1
@@ -737,16 +737,16 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %360 = or i32 %359, %.3339520
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond645.not = icmp eq i64 %indvars.iv.next643, 4
-  br i1 %exitcond645.not, label %361, label %330, !llvm.loop !72
+  br i1 %exitcond645.not, label %361, label %330, !llvm.loop !73
 
 361:                                              ; preds = %356
   %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
   %exitcond649.not = icmp eq i64 %indvars.iv.next647, 4
-  br i1 %exitcond649.not, label %362, label %.preheader447, !llvm.loop !73
+  br i1 %exitcond649.not, label %362, label %.preheader447, !llvm.loop !74
 
 362:                                              ; preds = %361
   %363 = trunc i32 %360 to i16
-  store i16 %363, ptr %.3419, align 1, !tbaa !48
+  store i16 %363, ptr %.3419, align 1, !tbaa !49
   %364 = getelementptr inbounds nuw i8, ptr %.3419, i64 2
   %365 = load i32, ptr %47, align 8, !tbaa !41
   %366 = shl i32 %365, 10
@@ -757,7 +757,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %371 = or i32 %369, %370
   %372 = trunc i32 %371 to i16
   %373 = or i16 %372, -32768
-  store i16 %373, ptr %364, align 1, !tbaa !48
+  store i16 %373, ptr %364, align 1, !tbaa !49
   %374 = getelementptr inbounds nuw i8, ptr %.3419, i64 4
   br label %375
 
@@ -777,11 +777,11 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %386 = load i32, ptr %385, align 4, !tbaa !41
   %387 = or i32 %383, %386
   %388 = trunc i32 %387 to i16
-  store i16 %388, ptr %.4420524, align 1, !tbaa !48
+  store i16 %388, ptr %.4420524, align 1, !tbaa !49
   %389 = getelementptr inbounds nuw i8, ptr %.4420524, i64 2
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 3
   %390 = icmp samesign ult i64 %indvars.iv650, 21
-  br i1 %390, label %375, label %.loopexit, !llvm.loop !74
+  br i1 %390, label %375, label %.loopexit, !llvm.loop !75
 
 default.unreachable:                              ; preds = %252
   unreachable
@@ -796,7 +796,7 @@ default.unreachable:                              ; preds = %252
   %392 = load i32, ptr %7, align 8, !tbaa !32
   %393 = sext i32 %392 to i64
   %394 = icmp slt i64 %indvars.iv.next669, %393
-  br i1 %394, label %.preheader464, label %._crit_edge.loopexit, !llvm.loop !75
+  br i1 %394, label %.preheader464, label %._crit_edge.loopexit, !llvm.loop !76
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %31, align 8, !tbaa !41
@@ -820,12 +820,12 @@ default.unreachable:                              ; preds = %252
   %405 = getelementptr inbounds i8, ptr %.0308545, i64 %404
   %406 = add nuw nsw i32 %.0361542, 4
   %407 = icmp slt i32 %406, %395
-  br i1 %407, label %.preheader465, label %._crit_edge547, !llvm.loop !76
+  br i1 %407, label %.preheader465, label %._crit_edge547, !llvm.loop !77
 
 .thread679:                                       ; preds = %.preheader465.lr.ph, %.thread
-  store i8 0, ptr %19, align 1, !tbaa !48
+  store i8 0, ptr %19, align 1, !tbaa !49
   %408 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 0, ptr %408, align 1, !tbaa !48
+  store i8 0, ptr %408, align 1, !tbaa !49
   %409 = getelementptr inbounds nuw i8, ptr %19, i64 2
   br label %.critedge
 
@@ -839,17 +839,17 @@ default.unreachable:                              ; preds = %252
 413:                                              ; preds = %._crit_edge547
   %414 = trunc i32 %.1357.lcssa to i16
   %415 = or i16 %414, -31744
-  store i16 %415, ptr %.1417.lcssa, align 1, !tbaa !48
-  store i8 0, ptr %412, align 1, !tbaa !48
+  store i16 %415, ptr %.1417.lcssa, align 1, !tbaa !49
+  store i8 0, ptr %412, align 1, !tbaa !49
   %416 = getelementptr inbounds nuw i8, ptr %.1417.lcssa, i64 3
-  store i8 0, ptr %416, align 1, !tbaa !48
+  store i8 0, ptr %416, align 1, !tbaa !49
   %417 = getelementptr inbounds nuw i8, ptr %.1417.lcssa, i64 4
   br i1 %411, label %420, label %.critedge
 
 418:                                              ; preds = %._crit_edge547
-  store i8 0, ptr %.1417.lcssa, align 1, !tbaa !48
+  store i8 0, ptr %.1417.lcssa, align 1, !tbaa !49
   %419 = getelementptr inbounds nuw i8, ptr %.1417.lcssa, i64 1
-  store i8 0, ptr %419, align 1, !tbaa !48
+  store i8 0, ptr %419, align 1, !tbaa !49
   br i1 %411, label %420, label %.critedge
 
 420:                                              ; preds = %413, %418
@@ -861,9 +861,9 @@ default.unreachable:                              ; preds = %252
 .critedge:                                        ; preds = %413, %.thread679, %418
   %424 = phi ptr [ %409, %.thread679 ], [ %412, %418 ], [ %417, %413 ]
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %426 = load i32, ptr %425, align 8, !tbaa !78
+  %426 = load i32, ptr %425, align 8, !tbaa !79
   %427 = or i32 %426, 1
-  store i32 %427, ptr %425, align 8, !tbaa !78
+  store i32 %427, ptr %425, align 8, !tbaa !79
   br label %428
 
 428:                                              ; preds = %420, %.critedge
@@ -875,7 +875,7 @@ default.unreachable:                              ; preds = %252
   %432 = sub i64 %430, %431
   %433 = trunc i64 %432 to i32
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %433, ptr %434, align 8, !tbaa !79
+  store i32 %433, ptr %434, align 8, !tbaa !80
   store i32 1, ptr %3, align 4, !tbaa !41
   br label %.loopexit459
 
@@ -966,39 +966,40 @@ attributes #4 = { nounwind }
 !41 = !{!10, !10, i64 0}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"short", !8, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = !{!8, !8, i64 0}
-!49 = distinct !{!49, !45}
-!50 = distinct !{!50, !45}
-!51 = distinct !{!51, !45}
-!52 = distinct !{!52, !45}
-!53 = distinct !{!53, !45}
-!54 = distinct !{!54, !45}
-!55 = distinct !{!55, !45}
-!56 = distinct !{!56, !45}
-!57 = distinct !{!57, !45}
-!58 = distinct !{!58, !45}
-!59 = distinct !{!59, !45}
-!60 = distinct !{!60, !45}
-!61 = distinct !{!61, !45}
-!62 = distinct !{!62, !45}
-!63 = distinct !{!63, !45}
-!64 = distinct !{!64, !45}
-!65 = distinct !{!65, !45}
-!66 = distinct !{!66, !45}
-!67 = distinct !{!67, !45}
-!68 = distinct !{!68, !45}
-!69 = distinct !{!69, !45}
-!70 = distinct !{!70, !45}
-!71 = distinct !{!71, !45}
-!72 = distinct !{!72, !45}
-!73 = distinct !{!73, !45}
-!74 = distinct !{!74, !45}
-!75 = distinct !{!75, !45}
-!76 = distinct !{!76, !45, !77}
-!77 = !{!"llvm.loop.unswitch.partial.disable"}
-!78 = !{!38, !10, i64 40}
-!79 = !{!38, !10, i64 32}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = !{!8, !8, i64 0}
+!50 = distinct !{!50, !45, !46}
+!51 = distinct !{!51, !45, !46}
+!52 = distinct !{!52, !45, !46}
+!53 = distinct !{!53, !45, !46}
+!54 = distinct !{!54, !45, !46}
+!55 = distinct !{!55, !45, !46}
+!56 = distinct !{!56, !45, !46}
+!57 = distinct !{!57, !45, !46}
+!58 = distinct !{!58, !45, !46}
+!59 = distinct !{!59, !45, !46}
+!60 = distinct !{!60, !45, !46}
+!61 = distinct !{!61, !45, !46}
+!62 = distinct !{!62, !45, !46}
+!63 = distinct !{!63, !45, !46}
+!64 = distinct !{!64, !45, !46}
+!65 = distinct !{!65, !45, !46}
+!66 = distinct !{!66, !45, !46}
+!67 = distinct !{!67, !45, !46}
+!68 = distinct !{!68, !45, !46}
+!69 = distinct !{!69, !45, !46}
+!70 = distinct !{!70, !45, !46}
+!71 = distinct !{!71, !45, !46}
+!72 = distinct !{!72, !45, !46}
+!73 = distinct !{!73, !45, !46}
+!74 = distinct !{!74, !45, !46}
+!75 = distinct !{!75, !45, !46}
+!76 = distinct !{!76, !45, !46}
+!77 = distinct !{!77, !45, !46, !78}
+!78 = !{!"llvm.loop.unswitch.partial.disable"}
+!79 = !{!38, !10, i64 40}
+!80 = !{!38, !10, i64 32}

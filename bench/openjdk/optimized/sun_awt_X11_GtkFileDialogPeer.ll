@@ -646,7 +646,7 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   %82 = load ptr, ptr %81, align 8
   %83 = add nuw nsw i32 %.04460.us.i, 1
   %.not.us.i = icmp eq ptr %82, null
-  br i1 %.not.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !8
+  br i1 %.not.us.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !9
 
 84:                                               ; preds = %isFromSameDirectory.exit.i
   tail call void @free(ptr noundef %storemerge.i.i) #5
@@ -690,7 +690,7 @@ isFromSameDirectory.exit.i:                       ; preds = %44, %50
   %107 = load ptr, ptr %106, align 8
   %108 = add nuw nsw i32 %.04460.i, 1
   %.not.i = icmp eq ptr %107, null
-  br i1 %.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !10
+  br i1 %.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !11
 
 .split.us.i:                                      ; preds = %105, %97, %.preheader.split.i, %80, %72, %.preheader.split.us.i
   tail call void @free(ptr noundef %storemerge.i.i) #5
@@ -805,8 +805,9 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}

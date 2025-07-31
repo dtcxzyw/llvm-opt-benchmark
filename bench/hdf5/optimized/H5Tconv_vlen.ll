@@ -869,12 +869,12 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
   %473 = add nuw i64 %.2339930, 1
   %exitcond.not = icmp eq i64 %473, %.2388
-  br i1 %exitcond.not, label %474, label %265, !llvm.loop !46
+  br i1 %exitcond.not, label %474, label %265, !llvm.loop !47
 
 474:                                              ; preds = %469
   %475 = sub i64 %.1326944, %.2388
   %.not467.not = icmp eq i64 %475, 0
-  br i1 %.not467.not, label %.thread534, label %236, !llvm.loop !47
+  br i1 %.not467.not, label %.thread534, label %236, !llvm.loop !48
 
 476:                                              ; preds = %21
   %477 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !3
@@ -915,7 +915,7 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   %488 = getelementptr inbounds nuw i8, ptr %.4409955, i64 %.1393
   %489 = add i64 %.1956, -1
   %.not474 = icmp eq i64 %489, 0
-  br i1 %.not474, label %.loopexit, label %.lr.ph957, !llvm.loop !48
+  br i1 %.not474, label %.loopexit, label %.lr.ph957, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph957, %483, %480
   %.not1227 = xor i1 %482, true
@@ -939,7 +939,7 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   %493 = getelementptr inbounds nuw i8, ptr %.6411959, i64 %.1393
   %494 = add i64 %.2960, -1
   %.not476 = icmp eq i64 %494, 0
-  br i1 %.not476, label %.thread534, label %.lr.ph961, !llvm.loop !49
+  br i1 %.not476, label %.thread534, label %.lr.ph961, !llvm.loop !50
 
 .thread534:                                       ; preds = %474, %.lr.ph961, %227, %223, %216, %203, %.loopexit, %.loopexit658
   %.1328560 = phi i32 [ -1, %.loopexit ], [ -1, %.loopexit658 ], [ -1, %223 ], [ -1, %216 ], [ -1, %203 ], [ 0, %227 ], [ -1, %.lr.ph961 ], [ 0, %474 ]
@@ -1138,7 +1138,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !28
   %25 = tail call i32 %22(ptr noundef %24, ptr noundef %0) #6
@@ -1158,7 +1158,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph36, label %.loopexit, !llvm.loop !51
+  br i1 %36, label %.lr.ph36, label %.loopexit, !llvm.loop !52
 
 .lr.ph36:                                         ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader ]
@@ -1167,10 +1167,10 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !52
+  %42 = load i64, ptr %41, align 8, !tbaa !53
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !55
+  %45 = load ptr, ptr %44, align 8, !tbaa !56
   %46 = tail call fastcc i32 @H5T__conv_vlen_nested_free(ptr noundef %43, ptr noundef %45)
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %31
@@ -1188,7 +1188,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i64, ptr %56, align 8, !tbaa !28
   %58 = icmp ugt i64 %57, %54
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !56
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.preheader32, %52
   %59 = phi ptr [ %55, %52 ], [ %11, %.preheader32 ]
@@ -1288,16 +1288,17 @@ attributes #6 = { nounwind }
 !41 = !{!38, !15, i64 8}
 !42 = !{!38, !15, i64 32}
 !43 = !{!38, !15, i64 40}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = distinct !{!48, !45}
-!49 = distinct !{!49, !45}
-!50 = !{!38, !15, i64 48}
-!51 = distinct !{!51, !45}
-!52 = !{!53, !4, i64 8}
-!53 = !{!"H5T_cmemb_t", !54, i64 0, !4, i64 8, !4, i64 16, !27, i64 24}
-!54 = !{!"p1 omnipotent char", !15, i64 0}
-!55 = !{!53, !27, i64 24}
-!56 = distinct !{!56, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = distinct !{!49, !45, !46}
+!50 = distinct !{!50, !45, !46}
+!51 = !{!38, !15, i64 48}
+!52 = distinct !{!52, !45, !46}
+!53 = !{!54, !4, i64 8}
+!54 = !{!"H5T_cmemb_t", !55, i64 0, !4, i64 8, !4, i64 16, !27, i64 24}
+!55 = !{!"p1 omnipotent char", !15, i64 0}
+!56 = !{!54, !27, i64 24}
+!57 = distinct !{!57, !45, !46}

@@ -146,7 +146,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = icmp slt i8 %51, -64
-  br i1 %52, label %46, label %.critedge2.split.loop.exit83, !llvm.loop !11
+  br i1 %52, label %46, label %.critedge2.split.loop.exit83, !llvm.loop !12
 
 .critedge2.split.loop.exit83:                     ; preds = %48
   %indvars.le = trunc i64 %indvars.iv.next71 to i32
@@ -158,7 +158,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   %54 = icmp slt i32 %.13755, -1
   %55 = icmp ne i32 %.lcssa, 0
   %56 = and i1 %54, %55
-  br i1 %56, label %.preheader44, label %.critedge, !llvm.loop !12
+  br i1 %56, label %.preheader44, label %.critedge, !llvm.loop !13
 
 .preheader47:                                     ; preds = %.preheader48, %62
   %.23853 = phi i32 [ %.238, %62 ], [ %.23851, %.preheader48 ]
@@ -172,7 +172,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
   %60 = load i8, ptr %59, align 1, !tbaa !8
   %61 = icmp slt i8 %60, -64
-  br i1 %61, label %58, label %62, !llvm.loop !13
+  br i1 %61, label %58, label %62, !llvm.loop !14
 
 62:                                               ; preds = %58
   %63 = trunc nuw i64 %indvars.iv.next to i32
@@ -180,7 +180,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   %64 = icmp samesign ugt i32 %.23853, 1
   %65 = icmp slt i32 %63, %24
   %66 = and i1 %64, %65
-  br i1 %66, label %.preheader47, label %.critedge, !llvm.loop !14
+  br i1 %66, label %.preheader47, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %62, %.critedge2, %.preheader48
   %.036 = phi i32 [ %.23851, %.preheader48 ], [ %53, %.critedge2 ], [ %.238, %62 ]
@@ -305,7 +305,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %51 = and i32 %48, 63
   %52 = or disjoint i32 %51, %50
   %53 = shl i32 %.036.i, 1
-  br i1 %.not45.i, label %.preheader.i, label %.loopexit, !llvm.loop !15
+  br i1 %.not45.i, label %.preheader.i, label %.loopexit, !llvm.loop !16
 
 54:                                               ; preds = %.preheader.i
   %55 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -320,7 +320,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 
 62:                                               ; preds = %54
   %63 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %indvars.iv.i
-  %64 = load i32, ptr %63, align 4, !tbaa !16
+  %64 = load i32, ptr %63, align 4, !tbaa !17
   %.not44.i = icmp ule i32 %59, %64
   %65 = and i32 %59, 2095104
   %66 = icmp eq i32 %65, 55296
@@ -342,7 +342,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.032.i)
   %71 = add nuw nsw i32 %.02948, 1
   %72 = icmp ult ptr %70, %36
-  br i1 %72, label %.lr.ph, label %.loopexit40, !llvm.loop !18
+  br i1 %72, label %.lr.ph, label %.loopexit40, !llvm.loop !19
 
 .loopexit40:                                      ; preds = %69, %33, %31
   %.0 = phi i32 [ 0, %31 ], [ 0, %33 ], [ %71, %69 ]
@@ -388,7 +388,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   %18 = lshr i32 %.0.i.i, 1
   %19 = zext nneg i32 %18 to i64
   %20 = icmp samesign ugt i64 %17, %19
-  br i1 %20, label %.preheader.i.i, label %21, !llvm.loop !19
+  br i1 %20, label %.preheader.i.i, label %21, !llvm.loop !20
 
 21:                                               ; preds = %.preheader.i.i
   %22 = trunc nsw i64 %indvars.iv.next.i.i to i32
@@ -461,7 +461,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %48 = lshr i32 %.0.i.i16, 1
   %49 = zext nneg i32 %48 to i64
   %50 = icmp samesign ugt i64 %47, %49
-  br i1 %50, label %.preheader.i.i13, label %51, !llvm.loop !19
+  br i1 %50, label %.preheader.i.i13, label %51, !llvm.loop !20
 
 51:                                               ; preds = %.preheader.i.i13
   %52 = trunc nsw i64 %indvars.iv.next.i.i17 to i32
@@ -488,7 +488,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit24:        ; preds = %39, %51
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %61, i64 noundef %62)
   %63 = add nuw i32 %.031, 1
   %exitcond.not = icmp eq i32 %.031, %4
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !21
 
 64:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
@@ -599,7 +599,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %47 = and i32 %44, 63
   %48 = or disjoint i32 %47, %46
   %49 = shl i32 %.036.i, 1
-  br i1 %.not45.i, label %.preheader.i, label %.thread, !llvm.loop !15
+  br i1 %.not45.i, label %.preheader.i, label %.thread, !llvm.loop !16
 
 50:                                               ; preds = %.preheader.i
   %51 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -614,7 +614,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %indvars.iv.i
-  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %60 = load i32, ptr %59, align 4, !tbaa !17
   %.not44.i = icmp ule i32 %55, %60
   %61 = and i32 %55, 2095104
   %62 = icmp eq i32 %61, 55296
@@ -638,7 +638,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %70 = trunc i64 %69 to i32
   %71 = add nuw nsw i32 %.02553, 1
   %.not32.not = icmp sgt i32 %.0.i34, %70
-  br i1 %.not32.not, label %34, label %._crit_edge, !llvm.loop !21
+  br i1 %.not32.not, label %34, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %66, %.preheader, %.thread
   %.sink = phi i32 [ %65, %.thread ], [ 0, %.preheader ], [ %71, %66 ]
@@ -721,7 +721,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = icmp slt i8 %11, -64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %12, label %.preheader, label %.loopexit.loopexit, !llvm.loop !22
+  br i1 %12, label %.preheader, label %.loopexit.loopexit, !llvm.loop !23
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %13 = trunc nuw i64 %indvars.iv to i32
@@ -760,7 +760,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %27 = and i32 %24, 63
   %28 = or disjoint i32 %27, %26
   %29 = shl i32 %.036.i, 1
-  br i1 %.not45.i, label %.preheader.i, label %_ZL11utf8_decodePKcPi.exit.thread, !llvm.loop !15
+  br i1 %.not45.i, label %.preheader.i, label %_ZL11utf8_decodePKcPi.exit.thread, !llvm.loop !16
 
 30:                                               ; preds = %.preheader.i
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -775,7 +775,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %indvars.iv.i
-  %40 = load i32, ptr %39, align 4, !tbaa !16
+  %40 = load i32, ptr %39, align 4, !tbaa !17
   %.not44.i = icmp ule i32 %35, %40
   %41 = and i32 %35, 2095104
   %42 = icmp eq i32 %41, 55296
@@ -832,17 +832,18 @@ attributes #5 = { noreturn }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !6, i64 0}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !6, i64 0}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}

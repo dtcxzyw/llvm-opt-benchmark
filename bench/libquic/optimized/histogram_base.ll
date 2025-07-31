@@ -967,7 +967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9: ; preds 
   %27 = add nsw i32 %.011, -1
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.18, i64 noundef 1)
   %29 = icmp sgt i32 %.011, 1
-  br i1 %29, label %.lr.ph12, label %._crit_edge13, !llvm.loop !34
+  br i1 %29, label %.lr.ph12, label %._crit_edge13, !llvm.loop !35
 
 ._crit_edge13:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit8
   ret void
@@ -1184,6 +1184,7 @@ attributes #20 = { noreturn }
 !29 = !{!"p1 _ZTSN4base8internal13BindStateBaseE", !6, i64 0}
 !30 = !{!31, !6, i64 0}
 !31 = !{!"_ZTSN4base8internal13BindStateBaseE", !6, i64 0, !16, i64 8, !6, i64 16, !6, i64 24}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}

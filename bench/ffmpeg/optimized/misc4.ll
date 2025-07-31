@@ -195,7 +195,7 @@ bytestream2_get_byte.exit47..critedge_crit_edge:  ; preds = %bytestream2_get_byt
 
 .critedge:                                        ; preds = %bytestream2_get_byte.exit, %bytestream2_get_byte.exit47..critedge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %bytestream2_get_byte.exit47..critedge_crit_edge ], [ %72, %bytestream2_get_byte.exit ]
-  store i32 1, ptr %2, align 4, !tbaa !50
+  store i32 1, ptr %2, align 4, !tbaa !51
   %81 = load ptr, ptr %13, align 8, !tbaa !36
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %.pre-phi, %82
@@ -215,7 +215,7 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
   %4 = getelementptr inbounds nuw [16 x i16], ptr @diffs, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !46
   %6 = zext i16 %5 to i32
-  %7 = load i32, ptr %0, align 8, !tbaa !51
+  %7 = load i32, ptr %0, align 8, !tbaa !52
   %8 = lshr i32 %7, 2
   %9 = add nuw nsw i32 %8, %6
   %10 = and i32 %9, 4095
@@ -243,10 +243,10 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
   %23 = sext i32 %21 to i64
   %24 = shl nsw i64 %23, 12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !53
+  %26 = load i64, ptr %25, align 8, !tbaa !54
   %27 = add nsw i64 %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %27, ptr %28, align 8, !tbaa !54
+  store i64 %27, ptr %28, align 8, !tbaa !55
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = sext i32 %22 to i64
@@ -256,40 +256,40 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 76
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(20) %29, i64 20, i1 false)
   %.neg.i = mul nsw i32 %21, -16
-  store i32 %.neg.i, ptr %29, align 8, !tbaa !50
+  store i32 %.neg.i, ptr %29, align 8, !tbaa !51
   br label %44
 
 34:                                               ; preds = %34, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %34 ]
   %35 = getelementptr inbounds nuw [6 x i32], ptr %29, i64 0, i64 %indvars.iv.i
-  %36 = load i32, ptr %35, align 4, !tbaa !50
+  %36 = load i32, ptr %35, align 4, !tbaa !51
   %.inv.i = icmp slt i32 %36, 1
   %37 = getelementptr inbounds nuw [6 x i64], ptr %30, i64 0, i64 %indvars.iv.i
-  %38 = load i64, ptr %37, align 8, !tbaa !55
+  %38 = load i64, ptr %37, align 8, !tbaa !56
   %39 = mul nsw i64 %38, 255
   %40 = sdiv i64 %39, 256
   %41 = select i1 %.inv.i, i64 -134217728, i64 134217728
   %42 = mul nsw i64 %41, %31
   %43 = add nsw i64 %40, %42
-  store i64 %43, ptr %37, align 8, !tbaa !55
+  store i64 %43, ptr %37, align 8, !tbaa !56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %32, label %34, !llvm.loop !56
+  br i1 %exitcond.not.i, label %32, label %34, !llvm.loop !57
 
 44:                                               ; preds = %44, %32
   %indvars.iv42.i = phi i64 [ 0, %32 ], [ %indvars.iv.next43.i, %44 ]
   %.03639.i = phi i64 [ 0, %32 ], [ %52, %44 ]
   %45 = getelementptr inbounds nuw [6 x i32], ptr %29, i64 0, i64 %indvars.iv42.i
-  %46 = load i32, ptr %45, align 4, !tbaa !50
+  %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds nuw [6 x i64], ptr %30, i64 0, i64 %indvars.iv42.i
-  %49 = load i64, ptr %48, align 8, !tbaa !55
+  %49 = load i64, ptr %48, align 8, !tbaa !56
   %50 = mul nsw i64 %49, %47
   %51 = ashr i64 %50, 26
   %52 = add nsw i64 %51, %.03639.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 6
-  br i1 %exitcond45.not.i, label %prediction.exit, label %44, !llvm.loop !57
+  br i1 %exitcond45.not.i, label %prediction.exit, label %44, !llvm.loop !58
 
 prediction.exit:                                  ; preds = %44
   %53 = add nsw i64 %52, %27
@@ -299,7 +299,7 @@ prediction.exit:                                  ; preds = %44
   %.lhs.trunc.i = mul nsw i32 %55, 9
   %56 = sdiv i32 %.lhs.trunc.i, 10
   %.sext.i = sext i32 %56 to i64
-  store i64 %.sext.i, ptr %25, align 8, !tbaa !53
+  store i64 %.sext.i, ptr %25, align 8, !tbaa !54
   %57 = getelementptr inbounds nuw [16 x i16], ptr @steps, i64 0, i64 %3
   %58 = load i16, ptr %57, align 2, !tbaa !46
   %59 = sext i16 %58 to i32
@@ -314,7 +314,7 @@ prediction.exit:                                  ; preds = %44
   %68 = and i32 %67, 8191
   %69 = tail call i32 @llvm.umax.i32(i32 %68, i32 544)
   %.0.i = tail call i32 @llvm.umin.i32(i32 %69, i32 5120)
-  store i32 %.0.i, ptr %0, align 8, !tbaa !51
+  store i32 %.0.i, ptr %0, align 8, !tbaa !52
   %70 = lshr i64 %27, 9
   %71 = trunc i64 %70 to i32
   %72 = add i32 %71, 32768
@@ -409,13 +409,14 @@ attributes #8 = { noreturn nounwind }
 !45 = !{!14, !14, i64 0}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"short", !8, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!10, !10, i64 0}
-!51 = !{!52, !10, i64 0}
-!52 = !{!"ChannelContext", !10, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 72}
-!53 = !{!52, !13, i64 16}
-!54 = !{!52, !13, i64 8}
-!55 = !{!13, !13, i64 0}
-!56 = distinct !{!56, !49}
-!57 = distinct !{!57, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!10, !10, i64 0}
+!52 = !{!53, !10, i64 0}
+!53 = !{!"ChannelContext", !10, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 72}
+!54 = !{!53, !13, i64 16}
+!55 = !{!53, !13, i64 8}
+!56 = !{!13, !13, i64 0}
+!57 = distinct !{!57, !49, !50}
+!58 = distinct !{!58, !49, !50}

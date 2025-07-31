@@ -97,7 +97,7 @@ define internal fastcc void @voutf(ptr noundef readonly captures(none) %0, ptr n
   %34 = getelementptr inbounds nuw i8, ptr %.03242, i64 %30
   %35 = sub i64 %.03043, %30
   %.not37 = icmp eq i64 %35, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %28, %.thread, %14
   tail call void @curl_free(ptr noundef nonnull %13) #7
@@ -161,7 +161,7 @@ define dso_local void @errorf(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr %0, align 8, !tbaa !25, !range !18, !noundef !19
+  %8 = load i8, ptr %0, align 8, !tbaa !26, !range !18, !noundef !19
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -226,7 +226,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !19 = !{}
 !20 = !{!11, !11, i64 0}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!5, !6, i64 0}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = !{!5, !6, i64 0}

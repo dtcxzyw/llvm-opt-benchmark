@@ -108,15 +108,15 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   %44 = lshr i32 %.13013.i, 1
   %45 = add nsw i32 %.114.i, -1
   %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph15.i, !llvm.loop !40
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph15.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %.lr.ph15.i, %.preheader.._crit_edge_crit_edge.i
   %46 = phi ptr [ %.pre.i, %.preheader.._crit_edge_crit_edge.i ], [ %41, %.lr.ph15.i ]
   %.031.lcssa.i = phi ptr [ %27, %.preheader.._crit_edge_crit_edge.i ], [ %.132.i, %.lr.ph15.i ]
-  store ptr %46, ptr %30, align 8, !tbaa !41
+  store ptr %46, ptr %30, align 8, !tbaa !42
   store ptr %28, ptr %.031.lcssa.i, align 8, !tbaa !37
   store i32 %33, ptr %31, align 8, !tbaa !34
-  %47 = load ptr, ptr %30, align 8, !tbaa !41
+  %47 = load ptr, ptr %30, align 8, !tbaa !42
   %.not3518.i = icmp eq ptr %47, null
   br i1 %.not3518.i, label %heap_insert.exit, label %.lr.ph20.i
 
@@ -141,22 +141,22 @@ timer_less_than.exit.i:                           ; preds = %53
 
 timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exit.i, %.lr.ph20.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !tbaa.struct !43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 16, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !44
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %28, ptr %58, align 8, !tbaa !41
+  store ptr %28, ptr %58, align 8, !tbaa !42
   %59 = load ptr, ptr %28, align 8, !tbaa !37
   %60 = icmp eq ptr %59, %28
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %timer_less_than.exit.thread3.i
-  store ptr %49, ptr %28, align 8, !tbaa !44
+  store ptr %49, ptr %28, align 8, !tbaa !45
   %.0.pr.i.i = load ptr, ptr %29, align 8, !tbaa !37
   br label %63
 
 62:                                               ; preds = %timer_less_than.exit.thread3.i
-  store ptr %49, ptr %29, align 8, !tbaa !45
+  store ptr %49, ptr %29, align 8, !tbaa !46
   br label %63
 
 63:                                               ; preds = %62, %61
@@ -166,58 +166,58 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %.0.i38.i, i64 16
-  store ptr %28, ptr %65, align 8, !tbaa !41
+  store ptr %28, ptr %65, align 8, !tbaa !42
   br label %66
 
 66:                                               ; preds = %64, %63
-  %67 = load ptr, ptr %49, align 8, !tbaa !44
+  %67 = load ptr, ptr %49, align 8, !tbaa !45
   %.not36.i.i = icmp eq ptr %67, null
   br i1 %.not36.i.i, label %70, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %49, ptr %69, align 8, !tbaa !41
+  store ptr %49, ptr %69, align 8, !tbaa !42
   br label %70
 
 70:                                               ; preds = %68, %66
   %71 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !45
+  %72 = load ptr, ptr %71, align 8, !tbaa !46
   %.not37.i.i = icmp eq ptr %72, null
   br i1 %.not37.i.i, label %75, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %49, ptr %74, align 8, !tbaa !41
+  store ptr %49, ptr %74, align 8, !tbaa !42
   br label %75
 
 75:                                               ; preds = %73, %70
-  %76 = load ptr, ptr %30, align 8, !tbaa !41
+  %76 = load ptr, ptr %30, align 8, !tbaa !42
   %77 = icmp eq ptr %76, null
   br i1 %77, label %heap_node_swap.exit.thread.i, label %78
 
 heap_node_swap.exit.thread.i:                     ; preds = %75
-  store ptr %28, ptr %27, align 8, !tbaa !46
+  store ptr %28, ptr %27, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %heap_insert.exit
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %76, align 8, !tbaa !44
+  %79 = load ptr, ptr %76, align 8, !tbaa !45
   %80 = icmp eq ptr %79, %49
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %78
-  store ptr %28, ptr %76, align 8, !tbaa !44
+  store ptr %28, ptr %76, align 8, !tbaa !45
   br label %heap_node_swap.exit.i
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %28, ptr %83, align 8, !tbaa !45
+  store ptr %28, ptr %83, align 8, !tbaa !46
   br label %heap_node_swap.exit.i
 
 heap_node_swap.exit.i:                            ; preds = %82, %81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.pre = load i64, ptr %21, align 8, !tbaa !30
-  br label %.lr.ph20.i, !llvm.loop !47
+  br label %.lr.ph20.i, !llvm.loop !48
 
 heap_insert.exit:                                 ; preds = %53, %timer_less_than.exit.i, %._crit_edge.i, %heap_node_swap.exit.thread.i
   %84 = load i32, ptr %6, align 8, !tbaa !19
@@ -235,9 +235,9 @@ heap_insert.exit:                                 ; preds = %53, %timer_less_tha
 89:                                               ; preds = %86
   %90 = load ptr, ptr %16, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !48
+  %92 = load i32, ptr %91, align 8, !tbaa !49
   %93 = add i32 %92, 1
-  store i32 %93, ptr %91, align 8, !tbaa !48
+  store i32 %93, ptr %91, align 8, !tbaa !49
   br label %94
 
 94:                                               ; preds = %heap_insert.exit, %86, %89, %4
@@ -280,7 +280,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) lo
   %17 = add nuw nsw i32 %.06522.i, 1
   %18 = lshr i32 %.023.i, 1
   %19 = icmp ugt i32 %.023.i, 3
-  br i1 %19, label %.lr.ph.i, label %.lr.ph29.i, !llvm.loop !49
+  br i1 %19, label %.lr.ph.i, label %.lr.ph29.i, !llvm.loop !50
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
   %.128.i = phi i32 [ %24, %.lr.ph29.i ], [ %17, %.lr.ph.i ]
@@ -294,7 +294,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) lo
   %23 = lshr i32 %.16727.i, 1
   %24 = add nsw i32 %.128.i, -1
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph29.i, !llvm.loop !50
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph29.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %.lr.ph29.i, %7
   %.070.lcssa.i = phi ptr [ %10, %7 ], [ %.171.i, %.lr.ph29.i ]
@@ -306,31 +306,31 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) lo
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = load ptr, ptr %10, align 8, !tbaa !46
+  %29 = load ptr, ptr %10, align 8, !tbaa !47
   %30 = icmp eq ptr %11, %29
   br i1 %30, label %31, label %heap_remove.exit
 
 31:                                               ; preds = %28
-  store ptr null, ptr %10, align 8, !tbaa !46
+  store ptr null, ptr %10, align 8, !tbaa !47
   br label %heap_remove.exit
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = load ptr, ptr %11, align 8, !tbaa !44
-  store ptr %33, ptr %26, align 8, !tbaa !44
+  %33 = load ptr, ptr %11, align 8, !tbaa !45
+  store ptr %33, ptr %26, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %35 = load ptr, ptr %34, align 8, !tbaa !45
+  %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %35, ptr %36, align 8, !tbaa !45
+  store ptr %35, ptr %36, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !41
+  store ptr %38, ptr %39, align 8, !tbaa !42
   %.not82.i = icmp eq ptr %33, null
   br i1 %.not82.i, label %42, label %40
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %26, ptr %41, align 8, !tbaa !41
+  store ptr %26, ptr %41, align 8, !tbaa !42
   br label %42
 
 42:                                               ; preds = %40, %32
@@ -339,30 +339,30 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) lo
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %26, ptr %44, align 8, !tbaa !41
+  store ptr %26, ptr %44, align 8, !tbaa !42
   br label %45
 
 45:                                               ; preds = %43, %42
-  %46 = load ptr, ptr %37, align 8, !tbaa !41
+  %46 = load ptr, ptr %37, align 8, !tbaa !42
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %45
-  store ptr %26, ptr %10, align 8, !tbaa !46
+  store ptr %26, ptr %10, align 8, !tbaa !47
   br label %55
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %46, align 8, !tbaa !44
+  %50 = load ptr, ptr %46, align 8, !tbaa !45
   %51 = icmp eq ptr %50, %11
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %49
-  store ptr %26, ptr %46, align 8, !tbaa !44
+  store ptr %26, ptr %46, align 8, !tbaa !45
   br label %55
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %26, ptr %54, align 8, !tbaa !45
+  store ptr %26, ptr %54, align 8, !tbaa !46
   br label %55
 
 55:                                               ; preds = %53, %52, %48
@@ -371,7 +371,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) lo
   br label %58
 
 58:                                               ; preds = %heap_node_swap.exit.i, %55
-  %59 = load ptr, ptr %26, align 8, !tbaa !44
+  %59 = load ptr, ptr %26, align 8, !tbaa !45
   %.not84.i = icmp eq ptr %59, null
   br i1 %.not84.i, label %timer_less_than.exit.thread.i, label %60
 
@@ -398,7 +398,7 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
 
 timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exit.thread3.i, %timer_less_than.exit.i, %65, %58
   %.068.i = phi ptr [ %59, %timer_less_than.exit.thread3.i ], [ %26, %timer_less_than.exit.i ], [ %26, %58 ], [ %26, %65 ]
-  %70 = load ptr, ptr %36, align 8, !tbaa !45
+  %70 = load ptr, ptr %36, align 8, !tbaa !46
   %.not86.i = icmp eq ptr %70, null
   br i1 %.not86.i, label %timer_less_than.exit92.thread.i, label %71
 
@@ -431,29 +431,29 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br i1 %83, label %.preheader.i, label %85
 
 .preheader.i:                                     ; preds = %timer_less_than.exit92.thread.i
-  %84 = load ptr, ptr %39, align 8, !tbaa !41
+  %84 = load ptr, ptr %39, align 8, !tbaa !42
   %.not8831.i = icmp eq ptr %84, null
   br i1 %.not8831.i, label %heap_remove.exit, label %.lr.ph32.i
 
 85:                                               ; preds = %timer_less_than.exit92.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !tbaa.struct !43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.169.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.169.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !43
-  store ptr %.169.i, ptr %39, align 8, !tbaa !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.169.i, i64 16, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.169.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !44
+  store ptr %.169.i, ptr %39, align 8, !tbaa !42
   %86 = load ptr, ptr %.169.i, align 8, !tbaa !37
   %87 = icmp eq ptr %86, %.169.i
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
-  store ptr %26, ptr %.169.i, align 8, !tbaa !44
+  store ptr %26, ptr %.169.i, align 8, !tbaa !45
   %89 = getelementptr inbounds nuw i8, ptr %.169.i, i64 8
   %.0.pr.i.i = load ptr, ptr %89, align 8, !tbaa !37
   br label %92
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %.169.i, i64 8
-  store ptr %26, ptr %91, align 8, !tbaa !45
+  store ptr %26, ptr %91, align 8, !tbaa !46
   br label %92
 
 92:                                               ; preds = %90, %88
@@ -463,56 +463,56 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 
 93:                                               ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 16
-  store ptr %.169.i, ptr %94, align 8, !tbaa !41
+  store ptr %.169.i, ptr %94, align 8, !tbaa !42
   br label %95
 
 95:                                               ; preds = %93, %92
-  %96 = load ptr, ptr %26, align 8, !tbaa !44
+  %96 = load ptr, ptr %26, align 8, !tbaa !45
   %.not36.i.i = icmp eq ptr %96, null
   br i1 %.not36.i.i, label %99, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %26, ptr %98, align 8, !tbaa !41
+  store ptr %26, ptr %98, align 8, !tbaa !42
   br label %99
 
 99:                                               ; preds = %97, %95
-  %100 = load ptr, ptr %36, align 8, !tbaa !45
+  %100 = load ptr, ptr %36, align 8, !tbaa !46
   %.not37.i.i = icmp eq ptr %100, null
   br i1 %.not37.i.i, label %103, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store ptr %26, ptr %102, align 8, !tbaa !41
+  store ptr %26, ptr %102, align 8, !tbaa !42
   br label %103
 
 103:                                              ; preds = %101, %99
   %104 = getelementptr inbounds nuw i8, ptr %.169.i, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !41
+  %105 = load ptr, ptr %104, align 8, !tbaa !42
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %103
-  store ptr %.169.i, ptr %10, align 8, !tbaa !46
+  store ptr %.169.i, ptr %10, align 8, !tbaa !47
   br label %heap_node_swap.exit.i
 
 108:                                              ; preds = %103
-  %109 = load ptr, ptr %105, align 8, !tbaa !44
+  %109 = load ptr, ptr %105, align 8, !tbaa !45
   %110 = icmp eq ptr %109, %26
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %108
-  store ptr %.169.i, ptr %105, align 8, !tbaa !44
+  store ptr %.169.i, ptr %105, align 8, !tbaa !45
   br label %heap_node_swap.exit.i
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store ptr %.169.i, ptr %113, align 8, !tbaa !45
+  store ptr %.169.i, ptr %113, align 8, !tbaa !46
   br label %heap_node_swap.exit.i
 
 heap_node_swap.exit.i:                            ; preds = %112, %111, %107
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %58
+  br label %58, !llvm.loop !52
 
 .lr.ph32.i:                                       ; preds = %.preheader.i, %heap_node_swap.exit101.i
   %114 = phi ptr [ %142, %heap_node_swap.exit101.i ], [ %84, %.preheader.i ]
@@ -535,22 +535,22 @@ timer_less_than.exit95.i:                         ; preds = %119
 
 timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exit95.i, %.lr.ph32.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false), !tbaa.struct !43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 16, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !44
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store ptr %26, ptr %124, align 8, !tbaa !41
+  store ptr %26, ptr %124, align 8, !tbaa !42
   %125 = load ptr, ptr %26, align 8, !tbaa !37
   %126 = icmp eq ptr %125, %26
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %timer_less_than.exit95.thread13.i
-  store ptr %114, ptr %26, align 8, !tbaa !44
+  store ptr %114, ptr %26, align 8, !tbaa !45
   %.0.pr.i100.i = load ptr, ptr %36, align 8, !tbaa !37
   br label %129
 
 128:                                              ; preds = %timer_less_than.exit95.thread13.i
-  store ptr %114, ptr %36, align 8, !tbaa !45
+  store ptr %114, ptr %36, align 8, !tbaa !46
   br label %129
 
 129:                                              ; preds = %128, %127
@@ -560,57 +560,57 @@ timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exi
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %.0.i96.i, i64 16
-  store ptr %26, ptr %131, align 8, !tbaa !41
+  store ptr %26, ptr %131, align 8, !tbaa !42
   br label %132
 
 132:                                              ; preds = %130, %129
-  %133 = load ptr, ptr %114, align 8, !tbaa !44
+  %133 = load ptr, ptr %114, align 8, !tbaa !45
   %.not36.i98.i = icmp eq ptr %133, null
   br i1 %.not36.i98.i, label %136, label %134
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  store ptr %114, ptr %135, align 8, !tbaa !41
+  store ptr %114, ptr %135, align 8, !tbaa !42
   br label %136
 
 136:                                              ; preds = %134, %132
   %137 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !45
+  %138 = load ptr, ptr %137, align 8, !tbaa !46
   %.not37.i99.i = icmp eq ptr %138, null
   br i1 %.not37.i99.i, label %141, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %114, ptr %140, align 8, !tbaa !41
+  store ptr %114, ptr %140, align 8, !tbaa !42
   br label %141
 
 141:                                              ; preds = %139, %136
-  %142 = load ptr, ptr %39, align 8, !tbaa !41
+  %142 = load ptr, ptr %39, align 8, !tbaa !42
   %143 = icmp eq ptr %142, null
   br i1 %143, label %heap_node_swap.exit101.thread.i, label %144
 
 heap_node_swap.exit101.thread.i:                  ; preds = %141
-  store ptr %26, ptr %10, align 8, !tbaa !46
+  store ptr %26, ptr %10, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %heap_remove.exit
 
 144:                                              ; preds = %141
-  %145 = load ptr, ptr %142, align 8, !tbaa !44
+  %145 = load ptr, ptr %142, align 8, !tbaa !45
   %146 = icmp eq ptr %145, %114
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %144
-  store ptr %26, ptr %142, align 8, !tbaa !44
+  store ptr %26, ptr %142, align 8, !tbaa !45
   br label %heap_node_swap.exit101.i
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr %26, ptr %149, align 8, !tbaa !45
+  store ptr %26, ptr %149, align 8, !tbaa !46
   br label %heap_node_swap.exit101.i
 
 heap_node_swap.exit101.i:                         ; preds = %148, %147
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %.lr.ph32.i, !llvm.loop !51
+  br label %.lr.ph32.i, !llvm.loop !53
 
 heap_remove.exit:                                 ; preds = %119, %timer_less_than.exit95.i, %7, %28, %31, %.preheader.i, %heap_node_swap.exit101.thread.i
   %150 = load i32, ptr %4, align 8, !tbaa !19
@@ -628,9 +628,9 @@ heap_remove.exit:                                 ; preds = %119, %timer_less_th
 156:                                              ; preds = %153
   %157 = load ptr, ptr %8, align 8, !tbaa !20
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load i32, ptr %158, align 8, !tbaa !48
+  %159 = load i32, ptr %158, align 8, !tbaa !49
   %160 = add i32 %159, -1
-  store i32 %160, ptr %158, align 8, !tbaa !48
+  store i32 %160, ptr %158, align 8, !tbaa !49
   br label %161
 
 161:                                              ; preds = %heap_remove.exit, %156, %153, %1
@@ -694,7 +694,7 @@ define dso_local i64 @uv_timer_get_due_in(ptr noundef readonly captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.val = load ptr, ptr %2, align 8, !tbaa !46
+  %.val = load ptr, ptr %2, align 8, !tbaa !47
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %12, label %4
 
@@ -720,7 +720,7 @@ define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__run_timers(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %.val9 = load ptr, ptr %2, align 8, !tbaa !46
+  %.val9 = load ptr, ptr %2, align 8, !tbaa !47
   %3 = icmp eq ptr %.val9, null
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -755,9 +755,9 @@ define dso_local void @uv__run_timers(ptr noundef readonly captures(none) %0) lo
 uv_timer_again.exit:                              ; preds = %10, %16
   %21 = load ptr, ptr %13, align 8, !tbaa !16
   tail call void %21(ptr noundef nonnull %11) #10
-  %.val = load ptr, ptr %2, align 8, !tbaa !46
+  %.val = load ptr, ptr %2, align 8, !tbaa !47
   %22 = icmp eq ptr %.val, null
-  br i1 %22, label %._crit_edge, label %5
+  br i1 %22, label %._crit_edge, label %5, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %uv_timer_again.exit, %5, %1
   ret void
@@ -836,17 +836,20 @@ attributes #10 = { nounwind }
 !35 = !{!"heap", !36, i64 0, !10, i64 8}
 !36 = !{!"p1 _ZTS9heap_node", !6, i64 0}
 !37 = !{!36, !36, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = !{!42, !36, i64 16}
-!42 = !{!"heap_node", !36, i64 0, !36, i64 8, !36, i64 16}
-!43 = !{i64 0, i64 8, !37, i64 8, i64 8, !37, i64 16, i64 8, !37}
-!44 = !{!42, !36, i64 0}
-!45 = !{!42, !36, i64 8}
-!46 = !{!35, !36, i64 0}
-!47 = distinct !{!47, !39}
-!48 = !{!22, !10, i64 8}
-!49 = distinct !{!49, !39}
-!50 = distinct !{!50, !39}
-!51 = distinct !{!51, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = !{!43, !36, i64 16}
+!43 = !{!"heap_node", !36, i64 0, !36, i64 8, !36, i64 16}
+!44 = !{i64 0, i64 8, !37, i64 8, i64 8, !37, i64 16, i64 8, !37}
+!45 = !{!43, !36, i64 0}
+!46 = !{!43, !36, i64 8}
+!47 = !{!35, !36, i64 0}
+!48 = distinct !{!48, !39, !40}
+!49 = !{!22, !10, i64 8}
+!50 = distinct !{!50, !39, !40}
+!51 = distinct !{!51, !39, !40}
+!52 = distinct !{!52, !40}
+!53 = distinct !{!53, !39, !40}
+!54 = distinct !{!54, !40}

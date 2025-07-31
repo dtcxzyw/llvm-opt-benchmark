@@ -125,7 +125,7 @@ drbg_hmac_update.exit:                            ; preds = %10
   %28 = sub i64 %.03458, %26
   %29 = tail call i32 @EVP_MAC_init(ptr noundef %6, ptr noundef nonnull %14, i64 noundef %26, ptr noundef null) #7
   %.not37 = icmp eq i32 %29, 0
-  br i1 %.not37, label %drbg_hmac_update.exit.thread, label %.lr.ph
+  br i1 %.not37, label %drbg_hmac_update.exit.thread, label %.lr.ph, !llvm.loop !14
 
 30:                                               ; preds = %20
   %31 = tail call i32 @EVP_MAC_final(ptr noundef %6, ptr noundef nonnull %7, ptr noundef null, i64 noundef 64) #7
@@ -184,7 +184,7 @@ define internal void @drbg_hmac_free(ptr noundef %0) #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %8, label %5
 
@@ -203,7 +203,7 @@ define internal void @drbg_hmac_free(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_instantiate_wrapper(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !21
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -228,7 +228,7 @@ define internal i32 @drbg_hmac_instantiate_wrapper(ptr noundef %0, i32 noundef %
 
 16:                                               ; preds = %10, %12, %14
   %.0 = phi i32 [ %15, %14 ], [ 0, %12 ], [ 0, %10 ]
-  %17 = load ptr, ptr %0, align 8, !tbaa !19
+  %17 = load ptr, ptr %0, align 8, !tbaa !21
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %20, label %18
 
@@ -243,7 +243,7 @@ define internal i32 @drbg_hmac_instantiate_wrapper(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_uninstantiate_wrapper(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !19
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -254,13 +254,13 @@ define internal i32 @drbg_hmac_uninstantiate_wrapper(ptr noundef %0) #0 {
 
 5:                                                ; preds = %3, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 64) #7
   %10 = tail call i32 @ossl_prov_drbg_uninstantiate(ptr noundef nonnull %0) #7
-  %11 = load ptr, ptr %0, align 8, !tbaa !19
+  %11 = load ptr, ptr %0, align 8, !tbaa !21
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %14, label %12
 
@@ -298,7 +298,7 @@ define internal noundef nonnull ptr @drbg_hmac_settable_ctx_params(ptr readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -309,7 +309,7 @@ define internal i32 @drbg_hmac_set_ctx_params(ptr noundef %0, ptr noundef %1) #0
 
 6:                                                ; preds = %4, %2
   %7 = tail call fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef nonnull %0, ptr noundef %1)
-  %8 = load ptr, ptr %0, align 8, !tbaa !19
+  %8 = load ptr, ptr %0, align 8, !tbaa !21
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %11, label %9
 
@@ -331,20 +331,20 @@ define internal noundef nonnull ptr @drbg_hmac_gettable_ctx_params(ptr readnone 
 define internal i32 @drbg_hmac_get_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !tbaa !20
+  store i32 0, ptr %3, align 4, !tbaa !22
   %6 = call i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %3, align 4, !tbaa !20
+  %8 = load i32, ptr %3, align 4, !tbaa !22
   %.not30 = icmp eq i32 %8, 0
   br i1 %.not30, label %9, label %37
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %0, align 8, !tbaa !19
+  %10 = load ptr, ptr %0, align 8, !tbaa !21
   %.not31 = icmp eq ptr %10, null
   br i1 %.not31, label %13, label %11
 
@@ -393,7 +393,7 @@ define internal i32 @drbg_hmac_get_ctx_params(ptr noundef %0, ptr noundef %1) #0
 
 33:                                               ; preds = %24, %28, %18, %15, %31
   %.0 = phi i32 [ 0, %15 ], [ 0, %24 ], [ %32, %31 ], [ 0, %28 ], [ 0, %18 ]
-  %34 = load ptr, ptr %0, align 8, !tbaa !19
+  %34 = load ptr, ptr %0, align 8, !tbaa !21
   %.not37 = icmp eq ptr %34, null
   br i1 %.not37, label %37, label %35
 
@@ -410,8 +410,8 @@ define internal i32 @drbg_hmac_get_ctx_params(ptr noundef %0, ptr noundef %1) #0
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
-  %4 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -427,7 +427,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
 9:                                                ; preds = %12
   %10 = add nuw nsw i64 %.01731, 1
   %exitcond.not = icmp eq i64 %10, 64
-  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !23
 
 .preheader:                                       ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -436,25 +436,25 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
 12:                                               ; preds = %7, %9
   %.01731 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %13 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 0, i64 %.01731
-  %14 = load i8, ptr %13, align 1, !tbaa !23
+  %14 = load i8, ptr %13, align 1, !tbaa !25
   %.not24 = icmp eq i8 %14, 0
   br i1 %.not24, label %9, label %.thread
 
 15:                                               ; preds = %17
   %16 = add nuw nsw i64 %.032, 1
   %exitcond34.not = icmp eq i64 %16, 64
-  br i1 %exitcond34.not, label %.thread, label %17, !llvm.loop !24
+  br i1 %exitcond34.not, label %.thread, label %17, !llvm.loop !26
 
 17:                                               ; preds = %.preheader, %15
   %.032 = phi i64 [ 0, %.preheader ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %.032
-  %19 = load i8, ptr %18, align 1, !tbaa !23
+  %19 = load i8, ptr %18, align 1, !tbaa !25
   %.not25 = icmp eq i8 %19, 0
   br i1 %.not25, label %15, label %.thread
 
 .thread:                                          ; preds = %12, %15, %17
   %.019 = phi i32 [ 1, %15 ], [ 0, %17 ], [ 0, %12 ]
-  %20 = load ptr, ptr %0, align 8, !tbaa !19
+  %20 = load ptr, ptr %0, align 8, !tbaa !21
   %.not26 = icmp eq ptr %20, null
   br i1 %.not26, label %23, label %21
 
@@ -474,7 +474,7 @@ declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_hmac(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
-  store i8 %1, ptr %9, align 1, !tbaa !23
+  store i8 %1, ptr %9, align 1, !tbaa !25
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -566,17 +566,17 @@ define internal range(i32 0, 2) i32 @drbg_hmac_new(ptr noundef writeonly capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %2, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %5, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 2147483647, ptr %6, align 8, !tbaa !25
+  store i64 2147483647, ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 2147483647, ptr %7, align 8, !tbaa !26
+  store i64 2147483647, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 2147483647, ptr %8, align 8, !tbaa !27
+  store i64 2147483647, ptr %8, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 2147483647, ptr %9, align 8, !tbaa !28
+  store i64 2147483647, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 65536, ptr %10, align 8, !tbaa !29
+  store i64 65536, ptr %10, align 8, !tbaa !31
   br label %11
 
 11:                                               ; preds = %1, %4
@@ -587,7 +587,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_new(ptr noundef writeonly capture
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @drbg_hmac_instantiate(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = tail call i32 @ossl_drbg_hmac_init(ptr noundef %9, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6)
   ret i32 %10
 }
@@ -595,7 +595,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_instantiate(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_uninstantiate(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -607,7 +607,7 @@ define internal i32 @drbg_hmac_uninstantiate(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @drbg_hmac_reseed(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call fastcc i32 @do_hmac(ptr noundef %7, i8 noundef zeroext 0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0)
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %drbg_hmac_update.exit, label %9
@@ -629,7 +629,7 @@ drbg_hmac_update.exit:                            ; preds = %5, %9, %11
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @drbg_hmac_generate(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call i32 @ossl_drbg_hmac_generate(ptr noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
   ret i32 %8
 }
@@ -655,9 +655,9 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %6) #7
   %8 = tail call i32 @ERR_set_mark() #7
   %9 = icmp eq ptr %4, null
@@ -670,13 +670,13 @@ define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %0, ptr 
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !31
+  %15 = load i32, ptr %14, align 8, !tbaa !33
   %.not.i = icmp eq i32 %15, 4
   br i1 %.not.i, label %16, label %drbg_fetch_algs_from_prov.exit.thread
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
   %19 = tail call ptr @ossl_provider_find(ptr noundef %7, ptr noundef %18, i32 noundef 1) #7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %drbg_fetch_algs_from_prov.exit.thread, label %21
@@ -688,13 +688,13 @@ define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %0, ptr 
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !31
+  %25 = load i32, ptr %24, align 8, !tbaa !33
   %.not39.i = icmp eq i32 %25, 4
   br i1 %.not39.i, label %26, label %drbg_fetch_algs_from_prov.exit.thread51
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = load ptr, ptr %27, align 8, !tbaa !36
   %29 = tail call ptr @evp_digest_fetch_from_prov(ptr noundef nonnull %19, ptr noundef %28, ptr noundef null) #7
   %.not40.i = icmp eq ptr %29, null
   br i1 %.not40.i, label %drbg_fetch_algs_from_prov.exit.thread51, label %30
@@ -711,23 +711,23 @@ define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %0, ptr 
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !31
+  %36 = load i32, ptr %35, align 8, !tbaa !33
   %.not41.i = icmp eq i32 %36, 4
   br i1 %.not41.i, label %37, label %drbg_fetch_algs_from_prov.exit.thread51
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %4, align 8, !tbaa !35
+  %38 = load ptr, ptr %4, align 8, !tbaa !37
   tail call void @EVP_MAC_CTX_free(ptr noundef %38) #7
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !34
+  %40 = load ptr, ptr %39, align 8, !tbaa !36
   %41 = tail call ptr @evp_mac_fetch_from_prov(ptr noundef nonnull %19, ptr noundef %40, ptr noundef null) #7
   %.not42.i = icmp eq ptr %41, null
   br i1 %.not42.i, label %drbg_fetch_algs_from_prov.exit.thread51, label %42
 
 42:                                               ; preds = %37
   %43 = tail call ptr @EVP_MAC_CTX_new(ptr noundef nonnull %41) #7
-  store ptr %43, ptr %4, align 8, !tbaa !35
+  store ptr %43, ptr %4, align 8, !tbaa !37
   tail call void @EVP_MAC_free(ptr noundef nonnull %41) #7
   br label %49
 
@@ -787,16 +787,16 @@ drbg_fetch_algs_from_prov.exit.thread:            ; preds = %16, %13, %10, %2, %
   %67 = and i32 %66, 2147483584
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %spec.select = tail call i32 @llvm.umin.i32(i32 %67, i32 256)
-  store i32 %spec.select, ptr %68, align 8, !tbaa !36
+  store i32 %spec.select, ptr %68, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %64, ptr %69, align 8, !tbaa !37
+  store i64 %64, ptr %69, align 8, !tbaa !39
   %70 = lshr exact i32 %spec.select, 3
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %71, ptr %72, align 8, !tbaa !38
+  store i64 %71, ptr %72, align 8, !tbaa !40
   %73 = lshr exact i64 %71, 1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %73, ptr %74, align 8, !tbaa !39
+  store i64 %73, ptr %74, align 8, !tbaa !41
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %63, %58
@@ -898,29 +898,31 @@ attributes #7 = { nounwind }
 !11 = !{!"p1 _ZTS9engine_st", !6, i64 0}
 !12 = !{!"long", !7, i64 0}
 !13 = !{!4, !12, i64 32}
-!14 = !{!15, !6, i64 240}
-!15 = !{!"prov_drbg_st", !6, i64 0, !16, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !17, i64 112, !18, i64 116, !17, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !17, i64 184, !17, i64 188, !12, i64 192, !12, i64 200, !7, i64 208, !17, i64 212, !17, i64 216, !12, i64 224, !17, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280}
-!16 = !{!"p1 _ZTS11prov_ctx_st", !6, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = !{!"short", !7, i64 0}
-!19 = !{!15, !6, i64 0}
-!20 = !{!17, !17, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !22}
-!25 = !{!15, !12, i64 144}
-!26 = !{!15, !12, i64 160}
-!27 = !{!15, !12, i64 168}
-!28 = !{!15, !12, i64 176}
-!29 = !{!15, !12, i64 128}
-!30 = !{!15, !16, i64 8}
-!31 = !{!32, !17, i64 8}
-!32 = !{!"ossl_param_st", !33, i64 0, !17, i64 8, !6, i64 16, !12, i64 24, !12, i64 32}
-!33 = !{!"p1 omnipotent char", !6, i64 0}
-!34 = !{!32, !6, i64 16}
-!35 = !{!5, !5, i64 0}
-!36 = !{!15, !17, i64 120}
-!37 = !{!15, !12, i64 224}
-!38 = !{!15, !12, i64 136}
-!39 = !{!15, !12, i64 152}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !6, i64 240}
+!17 = !{!"prov_drbg_st", !6, i64 0, !18, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !19, i64 112, !20, i64 116, !19, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !19, i64 184, !19, i64 188, !12, i64 192, !12, i64 200, !7, i64 208, !19, i64 212, !19, i64 216, !12, i64 224, !19, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280}
+!18 = !{!"p1 _ZTS11prov_ctx_st", !6, i64 0}
+!19 = !{!"int", !7, i64 0}
+!20 = !{!"short", !7, i64 0}
+!21 = !{!17, !6, i64 0}
+!22 = !{!19, !19, i64 0}
+!23 = distinct !{!23, !24, !15}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!7, !7, i64 0}
+!26 = distinct !{!26, !24, !15}
+!27 = !{!17, !12, i64 144}
+!28 = !{!17, !12, i64 160}
+!29 = !{!17, !12, i64 168}
+!30 = !{!17, !12, i64 176}
+!31 = !{!17, !12, i64 128}
+!32 = !{!17, !18, i64 8}
+!33 = !{!34, !19, i64 8}
+!34 = !{!"ossl_param_st", !35, i64 0, !19, i64 8, !6, i64 16, !12, i64 24, !12, i64 32}
+!35 = !{!"p1 omnipotent char", !6, i64 0}
+!36 = !{!34, !6, i64 16}
+!37 = !{!5, !5, i64 0}
+!38 = !{!17, !19, i64 120}
+!39 = !{!17, !12, i64 224}
+!40 = !{!17, !12, i64 136}
+!41 = !{!17, !12, i64 152}

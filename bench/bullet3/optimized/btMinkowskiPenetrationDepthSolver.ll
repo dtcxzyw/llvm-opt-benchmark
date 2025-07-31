@@ -157,7 +157,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   br i1 %exitcond.not, label %90, label %46, !llvm.loop !13
 
 90:                                               ; preds = %46
-  %91 = load ptr, ptr %2, align 8, !tbaa !15
+  %91 = load ptr, ptr %2, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 168
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef i32 %93(ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -173,7 +173,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %indvars.iv353 = phi i64 [ 42, %.lr.ph ], [ %indvars.iv.next354, %98 ]
   %.0115332 = phi i32 [ 0, %.lr.ph ], [ %169, %98 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #12
-  %99 = load ptr, ptr %2, align 8, !tbaa !15
+  %99 = load ptr, ptr %2, align 8, !tbaa !16
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
   %101 = load ptr, ptr %100, align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.0115332, ptr noundef nonnull align 4 dereferenceable(16) %15)
@@ -205,7 +205,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   store <2 x float> %.sroa.3.12.vec.insert.i152, ptr %97, align 8, !tbaa !12
   %123 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
   %124 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv353
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !18
   %125 = load float, ptr %15, align 8, !tbaa !10
   %126 = fneg float %125
   %127 = load float, ptr %96, align 4, !tbaa !10
@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #12
   %169 = add nuw nsw i32 %.0115332, 1
   %exitcond356.not = icmp eq i32 %169, %94
-  br i1 %exitcond356.not, label %.loopexit329.loopexit, label %98, !llvm.loop !18
+  br i1 %exitcond356.not, label %.loopexit329.loopexit, label %98, !llvm.loop !19
 
 .loopexit329.loopexit:                            ; preds = %98
   %170 = trunc nuw i64 %indvars.iv.next354 to i32
@@ -274,7 +274,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
 
 .loopexit329:                                     ; preds = %.loopexit329.loopexit, %90
   %.0111 = phi i32 [ 42, %90 ], [ %170, %.loopexit329.loopexit ]
-  %171 = load ptr, ptr %3, align 8, !tbaa !15
+  %171 = load ptr, ptr %3, align 8, !tbaa !16
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 168
   %173 = load ptr, ptr %172, align 8
   %174 = call noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %indvars.iv357 = phi i64 [ %178, %.lr.ph336 ], [ %indvars.iv.next358, %179 ]
   %.0116334 = phi i32 [ 0, %.lr.ph336 ], [ %250, %179 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #12
-  %180 = load ptr, ptr %3, align 8, !tbaa !15
+  %180 = load ptr, ptr %3, align 8, !tbaa !16
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 176
   %182 = load ptr, ptr %181, align 8
   call void %182(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %.0116334, ptr noundef nonnull align 4 dereferenceable(16) %16)
@@ -323,7 +323,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   store <2 x float> %.sroa.3.12.vec.insert.i172, ptr %177, align 8, !tbaa !12
   %204 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
   %205 = getelementptr inbounds nuw %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv357
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %205, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %205, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !18
   %206 = load float, ptr %16, align 8, !tbaa !10
   %207 = fneg float %206
   %208 = load float, ptr %176, align 4, !tbaa !10
@@ -384,7 +384,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #12
   %250 = add nuw nsw i32 %.0116334, 1
   %exitcond360.not = icmp eq i32 %250, %174
-  br i1 %exitcond360.not, label %.loopexit.loopexit, label %179, !llvm.loop !19
+  br i1 %exitcond360.not, label %.loopexit.loopexit, label %179, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %179
   %251 = trunc nuw i64 %indvars.iv.next358 to i32
@@ -392,11 +392,11 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit329
   %.2113 = phi i32 [ %.0111, %.loopexit329 ], [ %251, %.loopexit.loopexit ]
-  %252 = load ptr, ptr %2, align 8, !tbaa !15
+  %252 = load ptr, ptr %2, align 8, !tbaa !16
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 152
   %254 = load ptr, ptr %253, align 8
   call void %254(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %13, ptr noundef nonnull %11, i32 noundef %.2113)
-  %255 = load ptr, ptr %3, align 8, !tbaa !15
+  %255 = load ptr, ptr %3, align 8, !tbaa !16
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 152
   %257 = load ptr, ptr %256, align 8
   call void %257(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef %.2113)
@@ -519,7 +519,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.1 = phi float [ %330, %332 ], [ %.099343, %273 ], [ %.099343, %265 ]
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count
-  br i1 %exitcond364.not, label %._crit_edge, label %265, !llvm.loop !20
+  br i1 %exitcond364.not, label %._crit_edge, label %265, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %333, %.loopexit
   %.sroa.0312.0.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ %.sroa.0312.1, %333 ]
@@ -567,19 +567,19 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.12.48..sroa_idx246 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store <2 x float> %.sroa.3.12.vec.insert.i217, ptr %.sroa.12.48..sroa_idx246, align 4, !tbaa !12
   %359 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %359, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %359, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 16, i1 false), !tbaa.struct !18
   %360 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %360, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %360, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !18
   %361 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %361, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %361, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !18
   %362 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %363 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %363, ptr noundef nonnull align 4 dereferenceable(16) %362, i64 16, i1 false), !tbaa.struct !17
-  store float 0x43ABC16D60000000, ptr %346, align 4, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %363, ptr noundef nonnull align 4 dereferenceable(16) %362, i64 16, i1 false), !tbaa.struct !18
+  store float 0x43ABC16D60000000, ptr %346, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 16), ptr %19, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 16), ptr %19, align 8, !tbaa !16
   %364 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  store i8 0, ptr %364, align 4, !tbaa !26
+  store i8 0, ptr %364, align 4, !tbaa !27
   %365 = fneg float %.sroa.0312.0.lcssa
   %366 = fneg float %.sroa.13.0.lcssa
   %367 = fneg float %.sroa.22.0.lcssa
@@ -591,13 +591,13 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   %.sroa.5.0..sroa_idx239 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store <2 x float> %.sroa.3.12.vec.insert.i222, ptr %.sroa.5.0..sroa_idx239, align 8, !tbaa !12
   call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %17, ptr noundef nonnull align 4 dereferenceable(132) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %9, i1 noundef zeroext false)
-  %369 = load i8, ptr %364, align 4, !tbaa !26, !range !30, !noundef !31
+  %369 = load i8, ptr %364, align 4, !tbaa !27, !range !31, !noundef !32
   %370 = trunc nuw i8 %369 to i1
   br i1 %370, label %371, label %387
 
 371:                                              ; preds = %337
   %372 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %373 = load float, ptr %372, align 8, !tbaa !32
+  %373 = load float, ptr %372, align 8, !tbaa !33
   %374 = fsub float %342, %373
   %375 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %376 = fmul float %.sroa.0312.0.lcssa, %374
@@ -617,7 +617,7 @@ define dso_local noundef zeroext i1 @_ZN33btMinkowskiPenetrationDepthSolver12cal
   store <2 x float> %.sroa.0.4.vec.insert.i231, ptr %7, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i232, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %375, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %375, i64 16, i1 false), !tbaa.struct !18
   store float %.sroa.0312.0.lcssa, ptr %6, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %.sroa.13.0.lcssa, ptr %.sroa.13.0..sroa_idx, align 4
@@ -652,7 +652,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local noundef nonnull ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !33
+  br i1 %2, label %3, label %6, !prof !34
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #12
@@ -890,13 +890,13 @@ define internal void @_ZZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawEN20btIntermediateResult15addContactPointERKS8_SE_f(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(45) initializes((8, 45)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, float noundef %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %3, ptr %7, align 8, !tbaa !32
+  store float %3, ptr %7, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 1, ptr %8, align 4, !tbaa !26
+  store i8 1, ptr %8, align 4, !tbaa !27
   ret void
 }
 
@@ -933,24 +933,25 @@ attributes #13 = { builtin nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"float", !7, i64 0}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"vtable pointer", !8, i64 0}
-!17 = !{i64 0, i64 16, !12}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = !{!22, !11, i64 128}
-!22 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !23, i64 0, !23, i64 64, !11, i64 128}
-!23 = !{!"_ZTS11btTransform", !24, i64 0, !25, i64 48}
-!24 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
-!25 = !{!"_ZTS9btVector3", !7, i64 0}
-!26 = !{!27, !29, i64 44}
-!27 = !{!"_ZTSZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult", !28, i64 0, !25, i64 8, !25, i64 24, !11, i64 40, !29, i64 44}
-!28 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface6ResultE"}
-!29 = !{!"bool", !7, i64 0}
-!30 = !{i8 0, i8 2}
-!31 = !{}
-!32 = !{!27, !11, i64 40}
-!33 = !{!"branch_weights", i32 1, i32 1048575}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !8, i64 0}
+!18 = !{i64 0, i64 16, !12}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!23, !11, i64 128}
+!23 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !24, i64 0, !24, i64 64, !11, i64 128}
+!24 = !{!"_ZTS11btTransform", !25, i64 0, !26, i64 48}
+!25 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!26 = !{!"_ZTS9btVector3", !7, i64 0}
+!27 = !{!28, !30, i64 44}
+!28 = !{!"_ZTSZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult", !29, i64 0, !26, i64 8, !26, i64 24, !11, i64 40, !30, i64 44}
+!29 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface6ResultE"}
+!30 = !{!"bool", !7, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = !{!28, !11, i64 40}
+!34 = !{!"branch_weights", i32 1, i32 1048575}

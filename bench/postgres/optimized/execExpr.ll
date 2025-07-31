@@ -3177,7 +3177,7 @@ ExprEvalPushStep.exit1114:                        ; preds = %1567, %._crit_edge.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   %1586 = add i32 %.sroa.22.0, 1
-  br label %1487, !llvm.loop !8
+  br label %1487, !llvm.loop !9
 
 1587:                                             ; preds = %.critedge
   store i64 24, ptr %6, align 8
@@ -3877,7 +3877,7 @@ list_length.exit1142:                             ; preds = %1867, %1870
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
   %indvars.iv.next1352 = add nuw nsw i64 %indvars.iv1351, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1352, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1227, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1227, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph1227, %1931, %.critedge1013
   call void @ExprEvalPushStep(ptr noundef %1, ptr noundef nonnull %6)
@@ -4844,7 +4844,7 @@ ExprEvalPushStep.exit:                            ; preds = %29, %._crit_edge.i,
   %48 = load i32, ptr %14, align 4
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %.preheader, !llvm.loop !10
+  br i1 %50, label %.lr.ph, label %.preheader, !llvm.loop !11
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv77 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next78, %.lr.ph75 ]
@@ -5416,7 +5416,7 @@ list_length.exit.thread:                          ; preds = %.critedge
 
 65:                                               ; preds = %56, %60
   %66 = icmp samesign ugt i64 %indvars.iv331, 1
-  br i1 %66, label %56, label %.loopexit, !llvm.loop !11
+  br i1 %66, label %56, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %65, %.critedge130, %.critedge132
   br i1 %1, label %67, label %69
@@ -5640,7 +5640,7 @@ ExprEvalPushStep.exit:                            ; preds = %170, %._crit_edge.i
   %.sroa.24.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %179, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx189, i8 0, i64 32, i1 false)
   %180 = add nuw nsw i32 %.sroa.10.0, 1
-  br label %80, !llvm.loop !12
+  br label %80, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %265, %.preheader
   %.sroa.15.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.15.1, %265 ]
@@ -5893,7 +5893,7 @@ ExprEvalPushStep.exit152:                         ; preds = %249, %._crit_edge.i
   %266 = add i32 %.0106309, 1
   %267 = load i32, ptr %3, align 8
   %.not126 = icmp sgt i32 %266, %267
-  br i1 %.not126, label %._crit_edge, label %201, !llvm.loop !13
+  br i1 %.not126, label %._crit_edge, label %201, !llvm.loop !14
 }
 
 ; Function Attrs: cold
@@ -6571,7 +6571,7 @@ define dso_local noundef ptr @ExecBuildAggTrans(ptr noundef %0, ptr noundef read
   %54 = load i32, ptr %16, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %31, label %._crit_edge, !llvm.loop !14
+  br i1 %56, label %31, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge490:                                   ; preds = %.critedge222, %._crit_edge
   %.sroa.29.0.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.29.7, %.critedge222 ]
@@ -7288,7 +7288,7 @@ ExprEvalPushStep.exit49.i:                        ; preds = %353, %._crit_edge.i
 ExecBuildAggTransCall.exit:                       ; preds = %ExprEvalPushStep.exit49.i, %365
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit435, label %299, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit435, label %299, !llvm.loop !16
 
 .loopexit435:                                     ; preds = %ExecBuildAggTransCall.exit, %291
   %.sroa.29.5 = phi ptr [ %.sroa.29.4, %291 ], [ %84, %ExecBuildAggTransCall.exit ]
@@ -7502,7 +7502,7 @@ ExecBuildAggTransCall.exit255:                    ; preds = %ExprEvalPushStep.ex
   %452 = add i32 %.1465, 1
   %453 = add nuw nsw i32 %.0185466, 1
   %exitcond512.not = icmp eq i32 %453, %372
-  br i1 %exitcond512.not, label %.loopexit, label %383, !llvm.loop !16
+  br i1 %exitcond512.not, label %.loopexit, label %383, !llvm.loop !17
 
 .loopexit:                                        ; preds = %ExecBuildAggTransCall.exit255, %376, %.loopexit435
   %.sroa.29.7 = phi ptr [ %.sroa.29.5, %.loopexit435 ], [ %.sroa.29.5, %376 ], [ %84, %ExecBuildAggTransCall.exit255 ]
@@ -7543,7 +7543,7 @@ ExecBuildAggTransCall.exit255:                    ; preds = %ExprEvalPushStep.ex
   %465 = load i32, ptr %16, align 4
   %466 = sext i32 %465 to i64
   %467 = icmp slt i64 %indvars.iv.next517, %466
-  br i1 %467, label %82, label %._crit_edge490, !llvm.loop !17
+  br i1 %467, label %82, label %._crit_edge490, !llvm.loop !18
 
 468:                                              ; preds = %.lr.ph478
   %469 = load i32, ptr %24, align 8
@@ -7634,7 +7634,7 @@ define dso_local noundef ptr @ExecBuildHash32FromAttrs(ptr noundef %0, ptr nound
   %.065. = tail call i16 @llvm.smax.i16(i16 %.06589, i16 %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 30:                                               ; preds = %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 60
@@ -7945,7 +7945,7 @@ ExprEvalPushStep.exit87:                          ; preds = %168, %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %183, ptr noundef nonnull readonly align 8 dereferenceable(64) %9, i64 64, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge94, label %125, !llvm.loop !19
+  br i1 %exitcond100.not, label %._crit_edge94, label %125, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8366,7 +8366,7 @@ ExprEvalPushStep.exit96:                          ; preds = %116, %._crit_edge.i
   %133 = add i32 %132, -1
   %134 = call ptr @lappend_int(ptr noundef %.079, i32 noundef %133) #10
   %135 = add nuw nsw i32 %.sroa.10.0, 1
-  br label %70, !llvm.loop !20
+  br label %70, !llvm.loop !21
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
   %indvars.iv = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next, %.lr.ph145 ]
@@ -8499,7 +8499,7 @@ define dso_local noundef ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.086125, i32 %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 60
@@ -8875,7 +8875,7 @@ ExprEvalPushStep.exit118:                         ; preds = %189, %._crit_edge.i
   %207 = tail call ptr @lappend_int(ptr noundef %.087128, i32 noundef %206) #10
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
   %208 = icmp sgt i64 %indvars.iv138, 0
-  br i1 %208, label %94, label %.preheader, !llvm.loop !22
+  br i1 %208, label %94, label %.preheader, !llvm.loop !23
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv141 = phi i64 [ 0, %.lr.ph136.preheader ], [ %indvars.iv.next142, %.lr.ph136 ]
@@ -9364,7 +9364,7 @@ ExprEvalPushStep.exit100:                         ; preds = %176, %._crit_edge.i
   %194 = tail call ptr @lappend_int(ptr noundef %.0106, i32 noundef %193) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %88, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader, label %88, !llvm.loop !24
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
   %indvars.iv113 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next114, %.lr.ph111 ]
@@ -9880,7 +9880,7 @@ ExprEvalPushStep.exit38:                          ; preds = %74, %._crit_edge.i3
   %.sroa.12.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %89, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.12.0..sroa_idx46, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split, !llvm.loop !24
+  br label %.split, !llvm.loop !25
 }
 
 declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -10156,7 +10156,7 @@ ExprEvalPushStep.exit272:                         ; preds = %99, %._crit_edge.i2
   %139 = tail call ptr @lappend(ptr noundef %138, ptr noundef nonnull %126) #10
   store ptr %139, ptr %71, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %ExprEvalPushStep.exit268.split.split, !llvm.loop !25
+  br label %ExprEvalPushStep.exit268.split.split, !llvm.loop !26
 
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
   %indvars.iv331 = phi i64 [ 0, %.lr.ph324.preheader ], [ %indvars.iv.next332, %.lr.ph324 ]
@@ -11066,23 +11066,24 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}

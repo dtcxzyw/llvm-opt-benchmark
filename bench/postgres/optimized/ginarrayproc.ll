@@ -292,7 +292,7 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 29:                                               ; preds = %33
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph39, !llvm.loop !8
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph39, !llvm.loop !9
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %29
   %indvars.iv55 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next56, %29 ]
@@ -323,7 +323,7 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 40:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
@@ -416,7 +416,7 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   %.133 = phi i8 [ %.03254, %.lr.ph56 ], [ %spec.store.select, %24 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count71
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph56, !llvm.loop !10
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph56, !llvm.loop !11
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %35
   %indvars.iv65 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next66, %35 ]
@@ -437,12 +437,12 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   %spec.select = select i1 %36, i8 2, i8 %.346
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !11
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !12
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
@@ -485,10 +485,11 @@ attributes #6 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

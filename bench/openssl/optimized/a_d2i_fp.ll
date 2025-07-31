@@ -180,7 +180,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 
 36:                                               ; preds = %32
   %37 = icmp ugt i64 %18, %33
-  br i1 %37, label %15, label %38
+  br i1 %37, label %15, label %38, !llvm.loop !13
 
 38:                                               ; preds = %30, %36, %15
   %.1100 = phi i64 [ %34, %36 ], [ %.099, %30 ], [ %.099, %15 ]
@@ -233,7 +233,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 
 .outer.outer.backedge:                            ; preds = %61, %68
   %.0105.ph.ph.be = phi i32 [ %69, %68 ], [ %62, %61 ]
-  br label %.outer.outer
+  br label %.outer.outer, !llvm.loop !13
 
 63:                                               ; preds = %51
   %64 = load i64, ptr %4, align 8
@@ -295,17 +295,17 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %92 = add i64 %.7149, %91
   %93 = sub i64 %.0150, %91
   %.not130 = icmp eq i64 %93, 0
-  br i1 %.not130, label %94, label %84, !llvm.loop !13
+  br i1 %.not130, label %94, label %84, !llvm.loop !15
 
 94:                                               ; preds = %90
   %95 = icmp samesign ult i64 %.094154, 1073741823
   %96 = zext i1 %95 to i64
   %spec.select = shl nuw nsw i64 %.094154, %96
   %.not128 = icmp eq i64 %83, 0
-  br i1 %.not128, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not128, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %94
-  %.pre = load i64, ptr %4, align 8, !tbaa !16
+  %.pre = load i64, ptr %4, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %71
@@ -316,7 +316,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br i1 %99, label %.thread143.sink.split, label %100
 
 100:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit166, label %.outer
+  br i1 %14, label %.loopexit166, label %.outer, !llvm.loop !13
 
 .loopexit166:                                     ; preds = %68, %100
   %.2104 = phi i64 [ %98, %100 ], [ %57, %68 ]
@@ -519,6 +519,8 @@ attributes #4 = { nounwind }
 !11 = !{!"p1 omnipotent char", !5, i64 0}
 !12 = !{!11, !11, i64 0}
 !13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!10, !10, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !16, !14}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16, !14}
+!18 = !{!10, !10, i64 0}

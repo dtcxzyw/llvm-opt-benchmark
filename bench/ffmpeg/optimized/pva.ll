@@ -460,11 +460,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_part_of_packet(ptr no
   %.084122 = phi i32 [ %39, %.thread117 ], [ %.185, %103 ]
   %.188121 = phi i64 [ %38, %.thread117 ], [ %.289, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %107 = load ptr, ptr %106, align 8, !tbaa !60
+  %107 = load ptr, ptr %106, align 8, !tbaa !61
   %108 = zext nneg i32 %105 to i64
   %109 = getelementptr ptr, ptr %107, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -8
-  %111 = load ptr, ptr %110, align 8, !tbaa !61
+  %111 = load ptr, ptr %110, align 8, !tbaa !62
   %112 = call i32 @av_add_index_entry(ptr noundef %111, i64 noundef %13, i64 noundef %.188121, i32 noundef 0, i32 noundef 0, i32 noundef 1) #5
   br label %.thread111
 
@@ -575,8 +575,9 @@ attributes #5 = { nounwind }
 !55 = !{!40, !7, i64 24}
 !56 = !{!57, !10, i64 0}
 !57 = !{!"PVAContext", !10, i64 0}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!40, !44, i64 48}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!40, !44, i64 48}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS8AVStream", !7, i64 0}

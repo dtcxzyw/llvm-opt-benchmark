@@ -1049,7 +1049,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -1153,7 +1153,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 define void @_ZN3gmx11getIsotopesEPK7t_atoms(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = load i32, ptr %1, align 8, !tbaa !46
+  %5 = load i32, ptr %1, align 8, !tbaa !47
   %6 = sext i32 %5 to i64
   %7 = icmp slt i32 %5, 0
   br i1 %7, label %.noexc, label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -1169,11 +1169,11 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
 .noexc13:                                         ; preds = %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #20
-  store ptr %9, ptr %0, align 8, !tbaa !55
+  store ptr %9, ptr %0, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !57
-  store i32 0, ptr %9, align 4, !tbaa !58
+  store ptr %10, ptr %11, align 8, !tbaa !58
+  store i32 0, ptr %9, align 4, !tbaa !59
   %12 = getelementptr i8, ptr %9, i64 4
   %13 = add nsw i64 %6, -1
   %14 = icmp eq i64 %13, 0
@@ -1181,7 +1181,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc13
   %15 = add nsw i64 %8, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %15, i1 false), !tbaa !58
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %15, i1 false), !tbaa !59
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 2
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
@@ -1195,7 +1195,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc13
   %.0.i.i.i.i.i.ph = phi ptr [ %16, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ], [ %12, %.noexc13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %20, align 8, !tbaa !60
+  store ptr %.0.i.i.i.i.i.ph, ptr %20, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1208,7 +1208,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   %27 = phi ptr [ %.0.i.i.i.i.i.ph, %.lr.ph ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %28 = phi ptr [ %9, %.lr.ph ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  %29 = load ptr, ptr %21, align 8, !tbaa !61
+  %29 = load ptr, ptr %21, align 8, !tbaa !62
   %30 = getelementptr inbounds nuw %struct.t_atom, ptr %29, i64 %indvars.iv, i32 9
   store ptr %22, ptr %4, align 8, !tbaa !31
   %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #17
@@ -1270,7 +1270,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   br i1 %.not.i.i, label %52, label %50
 
 50:                                               ; preds = %49
-  store i32 %48, ptr %27, align 4, !tbaa !58
+  store i32 %48, ptr %27, align 4, !tbaa !59
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE9push_backEOS1_.exit
 
@@ -1305,7 +1305,7 @@ _ZNKSt6vectorIN3gmx7IsotopeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %5
 
 .noexc17:                                         ; preds = %_ZNKSt6vectorIN3gmx7IsotopeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %65 = getelementptr inbounds i8, ptr %64, i64 %55
-  store i32 %48, ptr %65, align 4, !tbaa !58
+  store i32 %48, ptr %65, align 4, !tbaa !59
   %66 = icmp sgt i64 %55, 0
   br i1 %66, label %67, label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
@@ -1324,7 +1324,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
 
 _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   %70 = getelementptr inbounds nuw i32, ptr %64, i64 %62
-  store ptr %70, ptr %24, align 8, !tbaa !57
+  store ptr %70, ptr %24, align 8, !tbaa !58
   br label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN3gmx7IsotopeESaIS1_EE9push_backEOS1_.exit: ; preds = %50, %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %39
@@ -1350,10 +1350,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load i32, ptr %1, align 8, !tbaa !46
+  %80 = load i32, ptr %1, align 8, !tbaa !47
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %25, label %._crit_edge, !llvm.loop !62
+  br i1 %82, label %25, label %._crit_edge, !llvm.loop !63
 
 .loopexit:                                        ; preds = %47, %_ZNKSt6vectorIN3gmx7IsotopeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1498,23 +1498,24 @@ attributes #20 = { builtin allocsize(0) }
 !40 = !{!38, !39, i64 8}
 !41 = !{!42, !8, i64 0}
 !42 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !8, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!38, !39, i64 16}
-!46 = !{!47, !16, i64 0}
-!47 = !{!"_ZTS7t_atoms", !16, i64 0, !48, i64 8, !49, i64 16, !49, i64 24, !49, i64 32, !16, i64 40, !52, i64 48, !53, i64 56, !54, i64 64, !54, i64 65, !54, i64 66, !54, i64 67, !54, i64 68}
-!48 = !{!"p1 _ZTS6t_atom", !8, i64 0}
-!49 = !{!"p3 omnipotent char", !50, i64 0}
-!50 = !{!"any p3 pointer", !51, i64 0}
-!51 = !{!"any p2 pointer", !8, i64 0}
-!52 = !{!"p1 _ZTS9t_resinfo", !8, i64 0}
-!53 = !{!"p1 _ZTS9t_pdbinfo", !8, i64 0}
-!54 = !{!"bool", !9, i64 0}
-!55 = !{!56, !8, i64 0}
-!56 = !{!"_ZTSNSt12_Vector_baseIN3gmx7IsotopeESaIS1_EE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
-!57 = !{!56, !8, i64 16}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"_ZTSN3gmx7IsotopeE", !9, i64 0}
-!60 = !{!56, !8, i64 8}
-!61 = !{!47, !48, i64 8}
-!62 = distinct !{!62, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!38, !39, i64 16}
+!47 = !{!48, !16, i64 0}
+!48 = !{!"_ZTS7t_atoms", !16, i64 0, !49, i64 8, !50, i64 16, !50, i64 24, !50, i64 32, !16, i64 40, !53, i64 48, !54, i64 56, !55, i64 64, !55, i64 65, !55, i64 66, !55, i64 67, !55, i64 68}
+!49 = !{!"p1 _ZTS6t_atom", !8, i64 0}
+!50 = !{!"p3 omnipotent char", !51, i64 0}
+!51 = !{!"any p3 pointer", !52, i64 0}
+!52 = !{!"any p2 pointer", !8, i64 0}
+!53 = !{!"p1 _ZTS9t_resinfo", !8, i64 0}
+!54 = !{!"p1 _ZTS9t_pdbinfo", !8, i64 0}
+!55 = !{!"bool", !9, i64 0}
+!56 = !{!57, !8, i64 0}
+!57 = !{!"_ZTSNSt12_Vector_baseIN3gmx7IsotopeESaIS1_EE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
+!58 = !{!57, !8, i64 16}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"_ZTSN3gmx7IsotopeE", !9, i64 0}
+!61 = !{!57, !8, i64 8}
+!62 = !{!48, !49, i64 8}
+!63 = distinct !{!63, !44, !45}

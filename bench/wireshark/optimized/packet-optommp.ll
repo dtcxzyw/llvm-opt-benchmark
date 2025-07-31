@@ -711,7 +711,7 @@ dissect_optommp_data_block_quadlet.exit:          ; preds = %.lr.ph, %14
 dissect_optommp_data_block_byte.exit:             ; preds = %.lr.ph37, %23
   %26 = add nuw nsw i32 %.135, 1
   %exitcond40.not = icmp eq i32 %26, %7
-  br i1 %exitcond40.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !8
+  br i1 %exitcond40.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !9
 
 ._crit_edge38:                                    ; preds = %dissect_optommp_data_block_byte.exit, %._crit_edge
   ret void
@@ -730,6 +730,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

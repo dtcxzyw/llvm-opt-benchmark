@@ -2166,7 +2166,7 @@ _ZN4absl12_GLOBAL__N_18Format64EPcil.exit37:      ; preds = %.preheader.i32, %.l
   %77 = getelementptr inbounds i8, ptr %.0, i64 -1
   %78 = load i8, ptr %77, align 1, !tbaa !20
   %79 = icmp eq i8 %78, 48
-  br i1 %79, label %76, label %80, !llvm.loop !27
+  br i1 %79, label %76, label %80, !llvm.loop !28
 
 80:                                               ; preds = %76
   %81 = ptrtoint ptr %.0 to i64
@@ -2186,7 +2186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit38: ; pred
   br label %89
 
 89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %90 = load i64, ptr %2, align 8, !tbaa !28
+  %90 = load i64, ptr %2, align 8, !tbaa !29
   %91 = load i64, ptr %38, align 8, !tbaa !17
   %92 = sub i64 4611686018427387903, %91
   %93 = icmp ult i64 %92, %90
@@ -2198,7 +2198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit38: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit39: ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !29
+  %96 = load ptr, ptr %95, align 8, !tbaa !30
   %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %96, i64 noundef %90)
   br label %98
 
@@ -2390,7 +2390,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %28 = add nsw i64 %22, %24
   %29 = getelementptr inbounds nuw i8, ptr %.1142, i64 1
   %.not.i = icmp eq ptr %29, %14
-  br i1 %.not.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.lr.ph.i, !llvm.loop !31
 
 30:                                               ; preds = %.lr.ph.i
   %31 = icmp ne ptr %.1142, %.0141216
@@ -2428,7 +2428,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %.1 = phi i64 [ %41, %36 ], [ %.0134, %34 ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.2143, i64 1
   %.not52.i = icmp eq ptr %storemerge.i, %14
-  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph67.i, !llvm.loop !31
+  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph67.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %42, %.lr.ph67.i
   %.3144 = phi ptr [ %.2143, %.lr.ph67.i ], [ %storemerge.i, %42 ]
@@ -2691,7 +2691,7 @@ _ZN4absl8DurationpLES0_.exit102:                  ; preds = %128, %126, %_ZN4abs
   %.sroa.12114.1 = phi i32 [ %.sroa.12114.2, %_ZN4absl8DurationpLES0_.exit ], [ -1, %_ZN4absldvIlEENS_8DurationES1_T_.exit ], [ %124, %126 ], [ %124, %128 ], [ %.sroa.5.0.i97, %_ZN4abslngENS_8DurationE.exit.i95 ], [ -1, %114 ]
   %.sroa.0112.1 = phi i64 [ %.sroa.0112.2, %_ZN4absl8DurationpLES0_.exit ], [ %.sroa.0112.2, %_ZN4absldvIlEENS_8DurationES1_T_.exit ], [ %.sroa.0112.5, %126 ], [ %.sroa.0112.5, %128 ], [ %.sroa.013.0.i98, %_ZN4abslngENS_8DurationE.exit.i95 ], [ %.fca.0.extract, %114 ]
   %.not = icmp eq ptr %64, %14
-  br i1 %.not, label %.critedge.sink.split, label %.lr.ph.i.preheader, !llvm.loop !32
+  br i1 %.not, label %.critedge.sink.split, label %.lr.ph.i.preheader, !llvm.loop !33
 
 .critedge.sink.split:                             ; preds = %_ZN4absl8DurationpLES0_.exit102, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit79
   %.sroa.0112.1.lcssa.sink = phi i64 [ %.sroa.03.0.copyload.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit79 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.sroa.0112.1, %_ZN4absl8DurationpLES0_.exit102 ]
@@ -2962,11 +2962,12 @@ attributes #22 = { nounwind willreturn memory(argmem: readwrite) }
 !22 = !{!23, !12, i64 24}
 !23 = !{!"_ZTSN4absl12_GLOBAL__N_111DisplayUnitE", !24, i64 0, !5, i64 16, !12, i64 24}
 !24 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !19, i64 0, !15, i64 8}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!24, !19, i64 0}
-!29 = !{!24, !15, i64 8}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = !{!24, !19, i64 0}
+!30 = !{!24, !15, i64 8}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}

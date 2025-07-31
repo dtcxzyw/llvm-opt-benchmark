@@ -74,16 +74,16 @@ define dso_local noundef i32 @luaopen_math(ptr noundef %0) local_unnamed_addr #0
   %16 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
   %17 = add nuw nsw i32 %.018.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i.i, label %setrandfunc.exit, label %5
+  br i1 %exitcond.not.i.i, label %setrandfunc.exit, label %5, !llvm.loop !4
 
 setrandfunc.exit:                                 ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %12, ptr %2, align 8, !tbaa !4
-  store i64 %13, ptr %20, align 8, !tbaa !4
-  store i64 %15, ptr %19, align 8, !tbaa !4
-  store i64 %16, ptr %18, align 8, !tbaa !4
+  store i64 %12, ptr %2, align 8, !tbaa !6
+  store i64 %13, ptr %20, align 8, !tbaa !6
+  store i64 %15, ptr %19, align 8, !tbaa !6
+  store i64 %16, ptr %18, align 8, !tbaa !6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %4) #6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #6
   tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #6
@@ -128,7 +128,7 @@ define internal noundef i32 @math_abs(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_acos(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @acos(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @acos(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -136,7 +136,7 @@ define internal noundef i32 @math_acos(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_asin(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @asin(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @asin(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -145,7 +145,7 @@ define internal noundef i32 @math_asin(ptr noundef %0) #0 {
 define internal noundef i32 @math_atan(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
   %3 = tail call double @luaL_optnumber(ptr noundef %0, i32 noundef 2, double noundef 1.000000e+00) #6
-  %4 = tail call double @atan2(double noundef %2, double noundef %3) #6, !tbaa !8
+  %4 = tail call double @atan2(double noundef %2, double noundef %3) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %4) #6
   ret i32 1
 }
@@ -184,7 +184,7 @@ pushnumint.exit:                                  ; preds = %11, %9, %3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_cos(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @cos(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @cos(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -200,7 +200,7 @@ define internal noundef i32 @math_deg(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_exp(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @exp(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @exp(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -210,9 +210,9 @@ define internal noundef i32 @math_toint(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   %3 = call i64 @lua_tointegerx(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #6
-  %4 = load i32, ptr %2, align 4, !tbaa !8
+  %4 = load i32, ptr %2, align 4, !tbaa !10
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !10
+  br i1 %.not, label %6, label %5, !prof !12
 
 5:                                                ; preds = %1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %3) #6
@@ -278,7 +278,7 @@ define internal noundef i32 @math_fmod(ptr noundef %0) #0 {
 
 9:                                                ; preds = %5
   %.not13 = icmp eq i64 %6, 0
-  br i1 %.not13, label %10, label %12, !prof !10
+  br i1 %.not13, label %10, label %12, !prof !12
 
 10:                                               ; preds = %9
   %11 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.27) #6
@@ -297,7 +297,7 @@ define internal noundef i32 @math_fmod(ptr noundef %0) #0 {
 16:                                               ; preds = %3, %1
   %17 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
   %18 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 2) #6
-  %19 = tail call double @fmod(double noundef %17, double noundef %18) #6, !tbaa !8
+  %19 = tail call double @fmod(double noundef %17, double noundef %18) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %19) #6
   br label %20
 
@@ -323,7 +323,7 @@ define internal noundef i32 @math_log(ptr noundef %0) #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call double @log(double noundef %2) #6, !tbaa !8
+  %6 = tail call double @log(double noundef %2) #6, !tbaa !10
   br label %20
 
 7:                                                ; preds = %1
@@ -332,7 +332,7 @@ define internal noundef i32 @math_log(ptr noundef %0) #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call double @log2(double noundef %2) #6, !tbaa !8
+  %11 = tail call double @log2(double noundef %2) #6, !tbaa !10
   br label %20
 
 12:                                               ; preds = %7
@@ -340,12 +340,12 @@ define internal noundef i32 @math_log(ptr noundef %0) #0 {
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call double @log10(double noundef %2) #6, !tbaa !8
+  %15 = tail call double @log10(double noundef %2) #6, !tbaa !10
   br label %20
 
 16:                                               ; preds = %12
-  %17 = tail call double @log(double noundef %2) #6, !tbaa !8
-  %18 = tail call double @log(double noundef %8) #6, !tbaa !8
+  %17 = tail call double @log(double noundef %2) #6, !tbaa !10
+  %18 = tail call double @log(double noundef %8) #6, !tbaa !10
   %19 = fdiv double %17, %18
   br label %20
 
@@ -359,7 +359,7 @@ define internal noundef i32 @math_log(ptr noundef %0) #0 {
 define internal noundef i32 @math_max(ptr noundef %0) #0 {
   %2 = tail call i32 @lua_gettop(ptr noundef %0) #6
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %5, label %.thread, !prof !11
+  br i1 %3, label %5, label %.thread, !prof !13
 
 .thread:                                          ; preds = %1
   %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #6
@@ -377,7 +377,7 @@ define internal noundef i32 @math_max(ptr noundef %0) #0 {
   %spec.select = select i1 %.not12, i32 %.01114, i32 %.015
   %7 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %.015, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread, %5
   %.011.lcssa = phi i32 [ 1, %5 ], [ 1, %.thread ], [ %spec.select, %.lr.ph ]
@@ -389,7 +389,7 @@ define internal noundef i32 @math_max(ptr noundef %0) #0 {
 define internal noundef i32 @math_min(ptr noundef %0) #0 {
   %2 = tail call i32 @lua_gettop(ptr noundef %0) #6
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %5, label %.thread, !prof !11
+  br i1 %3, label %5, label %.thread, !prof !13
 
 .thread:                                          ; preds = %1
   %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.28) #6
@@ -407,7 +407,7 @@ define internal noundef i32 @math_min(ptr noundef %0) #0 {
   %spec.select = select i1 %.not12, i32 %.01114, i32 %.015
   %7 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %.015, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread, %5
   %.011.lcssa = phi i32 [ 1, %5 ], [ 1, %.thread ], [ %spec.select, %.lr.ph ]
@@ -468,7 +468,7 @@ define internal noundef i32 @math_rad(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_sin(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @sin(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @sin(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -476,7 +476,7 @@ define internal noundef i32 @math_sin(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_sqrt(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @sqrt(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @sqrt(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -484,7 +484,7 @@ define internal noundef i32 @math_sqrt(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @math_tan(ptr noundef %0) #0 {
   %2 = tail call double @luaL_checknumber(ptr noundef %0, i32 noundef 1) #6
-  %3 = tail call double @tan(double noundef %2) #6, !tbaa !8
+  %3 = tail call double @tan(double noundef %2) #6, !tbaa !10
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %3) #6
   ret i32 1
 }
@@ -599,14 +599,14 @@ declare i32 @luaL_makeseed(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @math_random(ptr noundef %0) #0 {
   %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001) #6
-  %3 = load i64, ptr %2, align 8, !tbaa !4
+  %3 = load i64, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !4
+  %5 = load i64, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !4
+  %7 = load i64, ptr %6, align 8, !tbaa !6
   %8 = xor i64 %7, %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !4
+  %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = xor i64 %10, %5
   %12 = mul i64 %5, 5
   %13 = mul i64 %5, 640
@@ -614,14 +614,14 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   %15 = or disjoint i64 %14, %13
   %16 = mul i64 %15, 9
   %17 = xor i64 %11, %3
-  store i64 %17, ptr %2, align 8, !tbaa !4
+  store i64 %17, ptr %2, align 8, !tbaa !6
   %18 = xor i64 %8, %5
-  store i64 %18, ptr %4, align 8, !tbaa !4
+  store i64 %18, ptr %4, align 8, !tbaa !6
   %19 = shl i64 %5, 17
   %20 = xor i64 %8, %19
-  store i64 %20, ptr %6, align 8, !tbaa !4
+  store i64 %20, ptr %6, align 8, !tbaa !6
   %21 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
-  store i64 %21, ptr %9, align 8, !tbaa !4
+  store i64 %21, ptr %9, align 8, !tbaa !6
   %22 = tail call i32 @lua_gettop(ptr noundef %0) #6
   switch i32 %22, label %34 [
     i32 0, label %23
@@ -658,7 +658,7 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   %.023 = phi i64 [ %28, %27 ], [ %33, %31 ]
   %.022 = phi i64 [ 1, %27 ], [ %32, %31 ]
   %.not = icmp sgt i64 %.022, %.023
-  br i1 %.not, label %37, label %39, !prof !10
+  br i1 %.not, label %37, label %39, !prof !12
 
 37:                                               ; preds = %36
   %38 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.32) #6
@@ -693,10 +693,10 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   br i1 %60, label %.lr.ph.i, label %project.exit
 
 .lr.ph.i:                                         ; preds = %46
-  %.promoted.i = load i64, ptr %2, align 8, !tbaa !4
-  %.promoted25.i = load i64, ptr %4, align 8, !tbaa !4
-  %.promoted27.i = load i64, ptr %6, align 8, !tbaa !4
-  %.promoted29.i = load i64, ptr %9, align 8, !tbaa !4
+  %.promoted.i = load i64, ptr %2, align 8, !tbaa !6
+  %.promoted25.i = load i64, ptr %4, align 8, !tbaa !6
+  %.promoted27.i = load i64, ptr %6, align 8, !tbaa !6
+  %.promoted29.i = load i64, ptr %9, align 8, !tbaa !6
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph.i
@@ -718,13 +718,13 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   %77 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 45)
   %78 = and i64 %72, %58
   %79 = icmp ugt i64 %78, %40
-  br i1 %79, label %61, label %..loopexit_crit_edge.i
+  br i1 %79, label %61, label %..loopexit_crit_edge.i, !llvm.loop !16
 
 ..loopexit_crit_edge.i:                           ; preds = %61
-  store i64 %73, ptr %2, align 8, !tbaa !4
-  store i64 %74, ptr %4, align 8, !tbaa !4
-  store i64 %76, ptr %6, align 8, !tbaa !4
-  store i64 %77, ptr %9, align 8, !tbaa !4
+  store i64 %73, ptr %2, align 8, !tbaa !6
+  store i64 %74, ptr %4, align 8, !tbaa !6
+  store i64 %76, ptr %6, align 8, !tbaa !6
+  store i64 %77, ptr %9, align 8, !tbaa !6
   br label %project.exit
 
 project.exit:                                     ; preds = %44, %46, %..loopexit_crit_edge.i
@@ -749,7 +749,7 @@ define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
   %6 = tail call i32 @luaL_makeseed(ptr noundef %0) #6
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !4
+  %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = mul i64 %9, 5
   %11 = mul i64 %9, 640
   %12 = lshr i64 %10, 57
@@ -782,16 +782,16 @@ define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
   %30 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 45)
   %31 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %31, 16
-  br i1 %exitcond.not.i, label %setseed.exit, label %19
+  br i1 %exitcond.not.i, label %setseed.exit, label %19, !llvm.loop !4
 
 setseed.exit:                                     ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %26, ptr %2, align 8, !tbaa !4
-  store i64 %27, ptr %34, align 8, !tbaa !4
-  store i64 %29, ptr %33, align 8, !tbaa !4
-  store i64 %30, ptr %32, align 8, !tbaa !4
+  store i64 %26, ptr %2, align 8, !tbaa !6
+  store i64 %27, ptr %34, align 8, !tbaa !6
+  store i64 %29, ptr %33, align 8, !tbaa !6
+  store i64 %30, ptr %32, align 8, !tbaa !6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.09) #6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0) #6
   ret i32 2
@@ -823,11 +823,16 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"long", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !6, i64 0}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !8, i64 0}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

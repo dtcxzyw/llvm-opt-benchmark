@@ -234,7 +234,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   %62 = add i32 %.048, 1
-  br i1 %61, label %63, label %56
+  br i1 %61, label %63, label %56, !llvm.loop !8
 
 63:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
@@ -248,7 +248,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   %67 = add i32 %.170, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %3, %68
-  br i1 %69, label %.lr.ph71, label %._crit_edge, !llvm.loop !7
+  br i1 %69, label %.lr.ph71, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %64, %tuplehash_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #15
@@ -323,7 +323,7 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   %11 = load i32, ptr %6, align 8
   %12 = load i32, ptr %7, align 8
   %.not = icmp ult i32 %11, %12
-  br i1 %.not, label %21, label %13, !prof !8
+  br i1 %.not, label %21, label %13, !prof !10
 
 13:                                               ; preds = %.loopexit118
   %14 = load i64, ptr %0, align 8
@@ -494,7 +494,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %93 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.286155, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   %.not95 = icmp eq i32 %91, %.078243
-  br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %94 = load i32, ptr %6, align 8
@@ -663,7 +663,7 @@ TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %tuplehash_lookup_hash_internal.exit, label %.lr.ph.i
+  br i1 %76, label %tuplehash_lookup_hash_internal.exit, label %.lr.ph.i, !llvm.loop !12
 
 tuplehash_lookup_hash_internal.exit:              ; preds = %TupleHashTableMatch.exit.i, %68, %TupleHashTableHash_internal.exit, %TupleHashTableMatch.exit.thread.i
   %.1.ph.i = phi ptr [ %41, %TupleHashTableMatch.exit.thread.i ], [ null, %TupleHashTableHash_internal.exit ], [ null, %68 ], [ %41, %TupleHashTableMatch.exit.i ]
@@ -756,7 +756,7 @@ TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %tuplehash_lookup_hash_internal.exit, label %15
+  br i1 %52, label %tuplehash_lookup_hash_internal.exit, label %15, !llvm.loop !12
 
 tuplehash_lookup_hash_internal.exit:              ; preds = %TupleHashTableMatch.exit.i, %44, %3, %TupleHashTableMatch.exit.thread.i
   %.1.ph.i = phi ptr [ %17, %TupleHashTableMatch.exit.thread.i ], [ null, %3 ], [ null, %44 ], [ %17, %TupleHashTableMatch.exit.i ]
@@ -916,13 +916,13 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8
   %.not = icmp eq i32 %89, 1
-  br i1 %.not, label %.lr.ph, label %.thread.sink.split
+  br i1 %.not, label %.lr.ph, label %.thread.sink.split, !llvm.loop !13
 
 90:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %40, %34
   %.val47 = phi i32 [ %.val47.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val4786, %40 ], [ %.val4786, %34 ]
   %91 = add i32 %.038, 1
   %92 = and i32 %.val47, %91
-  br label %34
+  br label %34, !llvm.loop !14
 
 .thread.sink.split:                               ; preds = %.lr.ph, %82, %.loopexit
   %.04275.lcssa.sink = phi ptr [ %37, %.loopexit ], [ %77, %82 ], [ %.04275, %.lr.ph ]
@@ -981,7 +981,7 @@ define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr 
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 1
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25, %2
   %.025.lcssa.sink = phi ptr [ %1, %2 ], [ %20, %25 ], [ %.02537, %.lr.ph ]
@@ -1013,7 +1013,7 @@ define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(non
   %11 = add i32 %.01315, 1
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %13, label %6, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %6, %10, %2
   %.1 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %.01315, %6 ]
@@ -1077,7 +1077,7 @@ define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, 
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %27 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %27, 1
-  br i1 %.not, label %28, label %7
+  br i1 %.not, label %28, label %7, !llvm.loop !17
 
 28:                                               ; preds = %24, %7
   %.2 = phi ptr [ %14, %24 ], [ null, %7 ]
@@ -1142,7 +1142,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %26 = add i32 %.05970, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %25, %27
-  br i1 %28, label %8, label %.preheader, !llvm.loop !11
+  br i1 %28, label %8, label %.preheader, !llvm.loop !18
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %29 = phi i64 [ %36, %.lr.ph78 ], [ 0, %.preheader ]
@@ -1160,7 +1160,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %35 = add i32 %.16075, 1
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ugt i64 %25, %36
-  br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
+  br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
   %.0.lcssa89 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
@@ -1238,7 +1238,7 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %17 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4, ptr noundef %5) #15
@@ -1302,7 +1302,7 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %20, %4
   ret void
@@ -1444,7 +1444,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
 
 39:                                               ; preds = %4
   %40 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %38, ptr noundef null, i32 noundef %37, ptr noundef nonnull %5)
-  %41 = load i8, ptr %5, align 1, !range !15, !noundef !16
+  %41 = load i8, ptr %5, align 1, !range !22, !noundef !23
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -1553,7 +1553,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initia
 
 17:                                               ; preds = %4
   %18 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %16, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5)
-  %19 = load i8, ptr %5, align 1, !range !15, !noundef !16
+  %19 = load i8, ptr %5, align 1, !range !22, !noundef !23
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %22
 
@@ -1657,15 +1657,22 @@ attributes #16 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = !{i8 0, i8 2}
+!23 = !{}

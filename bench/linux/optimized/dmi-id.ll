@@ -537,7 +537,7 @@ define internal fastcc noundef i64 @get_modalias(ptr noundef initializes((0, 4))
   %41 = getelementptr i8, ptr %31, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %39, %27
   %44 = phi ptr [ %25, %27 ], [ %40, %39 ]
@@ -627,7 +627,8 @@ attributes #9 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}

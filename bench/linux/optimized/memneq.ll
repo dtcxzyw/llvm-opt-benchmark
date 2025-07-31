@@ -65,12 +65,12 @@ define dso_local i64 @__crypto_memneq(ptr noundef readonly captures(none) %0, pt
   %43 = xor i8 %42, %41
   %44 = zext i8 %43 to i64
   %45 = or i64 %40, %44
-  %46 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %45) #1, !srcloc !11
+  %46 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %45) #1, !srcloc !12
   %47 = getelementptr i8, ptr %37, i64 1
   %48 = getelementptr i8, ptr %38, i64 1
   %49 = add nsw i64 %39, -1
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4, %5
   %51 = phi i64 [ %16, %5 ], [ %19, %.loopexit4 ], [ %46, %.preheader ]
@@ -90,8 +90,9 @@ attributes #1 = { nounwind memory(none) }
 !5 = !{i64 2153802184}
 !6 = !{i64 2153802810}
 !7 = !{i64 2153801395}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i64 2153801441}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i64 2153801441}
+!13 = distinct !{!13, !9, !10, !11}

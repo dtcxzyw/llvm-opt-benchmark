@@ -197,7 +197,7 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   %24 = load ptr, ptr %5, align 8
   %25 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %24) #12
-  br i1 %25, label %26, label %7, !llvm.loop !10
+  br i1 %25, label %26, label %7, !llvm.loop !11
 
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %0, i64 -61888
@@ -215,20 +215,20 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
   %35 = getelementptr i8, ptr %30, i64 16
   %36 = load i32, ptr %35, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_response, i64 8), i32 2) #12
-          to label %57 [label %37], !srcloc !11
+          to label %57 [label %37], !srcloc !12
 
 37:                                               ; preds = %.preheader
-  %38 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !12
+  %38 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !13
   %39 = zext i32 %38 to i64
-  %40 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %39) #12, !srcloc !13
+  %40 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %39) #12, !srcloc !14
   %41 = icmp ult i8 %40, 2
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
   br i1 %42, label %57, label %43
 
 43:                                               ; preds = %37
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_response, i64 72), align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %50, label %46
@@ -240,16 +240,16 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
   br label %50
 
 50:                                               ; preds = %46, %43
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
-  %51 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  %51 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %52 = icmp ult i8 %51, 2
   call void @llvm.assume(i1 %52)
   %53 = icmp eq i8 %51, 0
-  br i1 %53, label %57, label %54, !prof !18
+  br i1 %53, label %57, label %54, !prof !19
 
 54:                                               ; preds = %50
   %55 = call i64 @llvm.read_register.i64(metadata !0)
-  %56 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %55) #12, !srcloc !19
+  %56 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %55) #12, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %56)
   br label %57
 
@@ -304,7 +304,7 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
 83:                                               ; preds = %82, %78
   %84 = load ptr, ptr %30, align 8
   %85 = icmp eq ptr %84, %3
-  br i1 %85, label %.loopexit10, label %.preheader, !llvm.loop !20
+  br i1 %85, label %.loopexit10, label %.preheader, !llvm.loop !21
 
 .loopexit10:                                      ; preds = %83, %26
   %86 = getelementptr i8, ptr %0, i64 -24
@@ -358,7 +358,7 @@ define dso_local void @virtio_gpu_dequeue_ctrl_func(ptr noundef %0) local_unname
   %114 = load ptr, ptr %91, align 8
   call void @kmem_cache_free(ptr noundef %114, ptr noundef %94) #12
   %115 = icmp eq ptr %95, %3
-  br i1 %115, label %.loopexit, label %92, !llvm.loop !21
+  br i1 %115, label %.loopexit, label %92, !llvm.loop !22
 
 .loopexit:                                        ; preds = %111, %.loopexit10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
@@ -428,7 +428,7 @@ define dso_local void @virtio_gpu_dequeue_cursor_func(ptr noundef %0) local_unna
   %17 = add i32 %13, 1
   %18 = call ptr @virtqueue_get_buf(ptr noundef %9, ptr noundef nonnull %2) #12
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %.preheader, !llvm.loop !7
+  br i1 %19, label %20, label %.preheader, !llvm.loop !23
 
 20:                                               ; preds = %.preheader
   %21 = icmp eq i32 %17, 0
@@ -442,7 +442,7 @@ define dso_local void @virtio_gpu_dequeue_cursor_func(ptr noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   %24 = load ptr, ptr %5, align 8
   %25 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %24) #12
-  br i1 %25, label %26, label %7, !llvm.loop !22
+  br i1 %25, label %26, label %7, !llvm.loop !24
 
 26:                                               ; preds = %23
   call void @_raw_spin_unlock(ptr noundef %6) #12
@@ -464,20 +464,20 @@ define dso_local void @virtio_gpu_dequeue_cursor_func(ptr noundef %0) local_unna
   %38 = getelementptr i8, ptr %32, i64 16
   %39 = load i32, ptr %38, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_response, i64 8), i32 2) #12
-          to label %60 [label %40], !srcloc !11
+          to label %60 [label %40], !srcloc !12
 
 40:                                               ; preds = %31
-  %41 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !12
+  %41 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !13
   %42 = zext i32 %41 to i64
-  %43 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %42) #12, !srcloc !13
+  %43 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %42) #12, !srcloc !14
   %44 = icmp ult i8 %43, 2
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i8 %43, 0
   br i1 %45, label %60, label %46
 
 46:                                               ; preds = %40
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_response, i64 72), align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %53, label %49
@@ -489,16 +489,16 @@ define dso_local void @virtio_gpu_dequeue_cursor_func(ptr noundef %0) local_unna
   br label %53
 
 53:                                               ; preds = %49, %46
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
-  %54 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  %54 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %55 = icmp ult i8 %54, 2
   call void @llvm.assume(i1 %55)
   %56 = icmp eq i8 %54, 0
-  br i1 %56, label %60, label %57, !prof !18
+  br i1 %56, label %60, label %57, !prof !19
 
 57:                                               ; preds = %53
   %58 = call i64 @llvm.read_register.i64(metadata !0)
-  %59 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %58) #12, !srcloc !19
+  %59 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %58) #12, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %59)
   br label %60
 
@@ -528,7 +528,7 @@ define dso_local void @virtio_gpu_dequeue_cursor_func(ptr noundef %0) local_unna
   %73 = load ptr, ptr %30, align 8
   call void @kmem_cache_free(ptr noundef %73, ptr noundef %33) #12
   %74 = icmp eq ptr %34, %3
-  br i1 %74, label %.loopexit, label %31, !llvm.loop !23
+  br i1 %74, label %.loopexit, label %31, !llvm.loop !25
 
 .loopexit:                                        ; preds = %70, %26
   %75 = getelementptr i8, ptr %0, i64 -24
@@ -586,11 +586,11 @@ define dso_local void @virtio_gpu_cmd_create_resource(ptr noundef %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %5
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %5
@@ -614,7 +614,7 @@ define dso_local void @virtio_gpu_cmd_create_resource(ptr noundef %0, ptr nounde
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr i8, ptr %8, i64 132
   store i32 %29, ptr %30, align 4
-  %31 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef %4), !range !27
+  %31 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef %4), !range !29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 413
   store i8 1, ptr %32, align 1
   ret void
@@ -658,12 +658,12 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   %23 = ptrtoint ptr %20 to i64
   %24 = and i64 %23, 4095
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %27, label %26, !prof !18
+  br i1 %25, label %27, label %26, !prof !19
 
 26:                                               ; preds = %22
-  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #12, !srcloc !28
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 282, i32 2305, i64 12) #12, !srcloc !29
-  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_end\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !30
+  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #12, !srcloc !30
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 282, i32 2305, i64 12) #12, !srcloc !31
+  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_end\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !32
   br label %.thread
 
 27:                                               ; preds = %22
@@ -713,11 +713,11 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, 3
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %58, label %57, !prof !18
+  br i1 %56, label %58, label %57, !prof !19
 
 57:                                               ; preds = %53
-  call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #12, !srcloc !31
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 115, i32 0, i64 12) #12, !srcloc !32
+  call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #12, !srcloc !33
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 115, i32 0, i64 12) #12, !srcloc !34
   unreachable
 
 58:                                               ; preds = %53
@@ -737,7 +737,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   %69 = call ptr @sg_next(ptr noundef %48) #12
   %70 = load i32, ptr %40, align 4
   %71 = icmp ult i32 %68, %70
-  br i1 %71, label %45, label %.thread15, !llvm.loop !33
+  br i1 %71, label %45, label %.thread15, !llvm.loop !35
 
 .thread15:                                        ; preds = %58
   %72 = add nuw nsw i32 %35, 1
@@ -841,7 +841,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
 
 123:                                              ; preds = %98
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 62138
-  %125 = load i8, ptr %124, align 2, !range !34, !noundef !35
+  %125 = load i8, ptr %124, align 2, !range !36, !noundef !37
   %126 = icmp eq i8 %125, 0
   %127 = select i1 %126, i32 %99, i32 1
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 61856
@@ -895,7 +895,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   %152 = call i64 @prepare_to_wait_event(ptr noundef nonnull %134, ptr noundef nonnull %5, i32 noundef 2) #12
   %153 = load i32, ptr %129, align 4
   %154 = icmp ult i32 %153, %127
-  br i1 %154, label %.preheader, label %.loopexit
+  br i1 %154, label %.preheader, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %148
   call void @finish_wait(ptr noundef nonnull %134, ptr noundef nonnull %5) #12
@@ -906,7 +906,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   call void @_raw_spin_lock(ptr noundef nonnull %128) #12
   %156 = load i32, ptr %129, align 4
   %157 = icmp ult i32 %156, %127
-  br i1 %157, label %135, label %.loopexit16
+  br i1 %157, label %135, label %.loopexit16, !llvm.loop !39
 
 .loopexit16:                                      ; preds = %155, %123
   %158 = icmp eq ptr %2, null
@@ -929,12 +929,12 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
 166:                                              ; preds = %164, %159, %.loopexit16
   %167 = call i32 @virtqueue_add_sgs(ptr noundef %102, ptr noundef nonnull %6, i32 noundef %88, i32 noundef %100, ptr noundef %1, i32 noundef 2080) #12
   %168 = icmp eq i32 %167, 0
-  br i1 %168, label %170, label %169, !prof !18
+  br i1 %168, label %170, label %169, !prof !19
 
 169:                                              ; preds = %166
-  call void asm sideeffect "431: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 431b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 431) #12, !srcloc !36
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 358, i32 2305, i64 12) #12, !srcloc !37
-  call void asm sideeffect "432: nop\0A\09.pushsection .discard.instr_end\0A\09.long 432b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 432) #12, !srcloc !38
+  call void asm sideeffect "431: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 431b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 431) #12, !srcloc !40
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 358, i32 2305, i64 12) #12, !srcloc !41
+  call void asm sideeffect "432: nop\0A\09.pushsection .discard.instr_end\0A\09.long 432b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 432) #12, !srcloc !42
   br label %170
 
 170:                                              ; preds = %169, %166
@@ -946,20 +946,20 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   store i32 %173, ptr %174, align 8
   %175 = load ptr, ptr %1, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 8), i32 2) #12
-          to label %196 [label %176], !srcloc !11
+          to label %196 [label %176], !srcloc !12
 
 176:                                              ; preds = %170
-  %177 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !39
+  %177 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !43
   %178 = zext i32 %177 to i64
-  %179 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %178) #12, !srcloc !13
+  %179 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %178) #12, !srcloc !14
   %180 = icmp ult i8 %179, 2
   call void @llvm.assume(i1 %180)
   %181 = icmp eq i8 %179, 0
   br i1 %181, label %196, label %182
 
 182:                                              ; preds = %176
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !40
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   %183 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 72), align 8
   %184 = icmp eq ptr %183, null
   br i1 %184, label %189, label %185
@@ -971,22 +971,22 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_gpu_queue_fenced_ct
   br label %189
 
 189:                                              ; preds = %185, %182
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !41
-  %190 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !45
+  %190 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %191 = icmp ult i8 %190, 2
   call void @llvm.assume(i1 %191)
   %192 = icmp eq i8 %190, 0
-  br i1 %192, label %196, label %193, !prof !18
+  br i1 %192, label %196, label %193, !prof !19
 
 193:                                              ; preds = %189
   %194 = call i64 @llvm.read_register.i64(metadata !0)
-  %195 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %194) #12, !srcloc !42
+  %195 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %194) #12, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %195)
   br label %196
 
 196:                                              ; preds = %193, %189, %176, %170
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 62016
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %197, ptr nonnull elementtype(i32) %197) #12, !srcloc !43
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %197, ptr nonnull elementtype(i32) %197) #12, !srcloc !47
   call void @_raw_spin_unlock(ptr noundef nonnull %128) #12
   %198 = load i32, ptr %4, align 4
   call void @drm_dev_exit(i32 noundef %198) #12
@@ -1029,11 +1029,11 @@ define dso_local void @virtio_gpu_cmd_unref_resource(ptr noundef %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %13, label %14, !prof !24
+  br i1 %12, label %13, label %14, !prof !26
 
 13:                                               ; preds = %2
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 14:                                               ; preds = %2
@@ -1045,7 +1045,7 @@ define dso_local void @virtio_gpu_cmd_unref_resource(ptr noundef %0, ptr noundef
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %1, ptr %18, align 8
-  %19 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !27
+  %19 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !29
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %22
 
@@ -1086,11 +1086,11 @@ define dso_local void @virtio_gpu_cmd_set_scanout(ptr noundef %0, i32 noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %15, ptr %16, align 8
   %17 = icmp eq ptr %15, null
-  br i1 %17, label %18, label %19, !prof !24
+  br i1 %17, label %18, label %19, !prof !26
 
 18:                                               ; preds = %7
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 19:                                               ; preds = %7
@@ -1108,7 +1108,7 @@ define dso_local void @virtio_gpu_cmd_set_scanout(ptr noundef %0, i32 noundef %1
   store i32 %5, ptr %22, align 8
   %25 = getelementptr i8, ptr %10, i64 124
   store i32 %6, ptr %25, align 4
-  %26 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %10, ptr noundef null), !range !27
+  %26 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %10, ptr noundef null), !range !29
   ret void
 }
 
@@ -1129,11 +1129,11 @@ define dso_local void @virtio_gpu_cmd_resource_flush(ptr noundef %0, i32 noundef
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
-  br i1 %18, label %19, label %20, !prof !24
+  br i1 %18, label %19, label %20, !prof !26
 
 19:                                               ; preds = %8
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 20:                                               ; preds = %8
@@ -1151,7 +1151,7 @@ define dso_local void @virtio_gpu_cmd_resource_flush(ptr noundef %0, i32 noundef
   store i32 %2, ptr %23, align 8
   %26 = getelementptr i8, ptr %11, i64 124
   store i32 %3, ptr %26, align 4
-  %27 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %11, ptr noundef %7), !range !27
+  %27 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %11, ptr noundef %7), !range !29
   ret void
 }
 
@@ -1197,11 +1197,11 @@ define dso_local void @virtio_gpu_cmd_transfer_to_host_2d(ptr noundef %0, i64 no
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
-  br i1 %38, label %39, label %40, !prof !24
+  br i1 %38, label %39, label %40, !prof !26
 
 39:                                               ; preds = %28
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 40:                                               ; preds = %28
@@ -1223,7 +1223,7 @@ define dso_local void @virtio_gpu_cmd_transfer_to_host_2d(ptr noundef %0, i64 no
   store i32 %4, ptr %46, align 8
   %49 = getelementptr i8, ptr %31, i64 124
   store i32 %5, ptr %49, align 4
-  %50 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %31, ptr noundef %7), !range !27
+  %50 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %31, ptr noundef %7), !range !29
   ret void
 }
 
@@ -1255,7 +1255,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_get_display_info(
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 62068
   store i8 1, ptr %14, align 4
   store i32 256, ptr %9, align 8
-  %15 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !27
+  %15 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !29
   br label %16
 
 16:                                               ; preds = %5, %1
@@ -1310,7 +1310,7 @@ define internal void @virtio_gpu_cmd_get_display_info_cb(ptr noundef %0, ptr nou
   %30 = add nuw i32 %13, 1
   %31 = load i32, ptr %6, align 8
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %12, label %.loopexit, !llvm.loop !44
+  br i1 %32, label %12, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %29, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 62068
@@ -1356,7 +1356,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_get_capset_info(p
   store i32 264, ptr %10, align 8
   %15 = getelementptr i8, ptr %9, i64 120
   store i32 %1, ptr %15, align 8
-  %16 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef null), !range !27
+  %16 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef null), !range !29
   br label %17
 
 17:                                               ; preds = %6, %2
@@ -1502,7 +1502,7 @@ define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_capset(ptr no
 60:                                               ; preds = %55, %50
   %61 = load ptr, ptr %51, align 8
   %62 = icmp eq ptr %61, %43
-  br i1 %62, label %thread-pre-split, label %50, !llvm.loop !45
+  br i1 %62, label %thread-pre-split, label %50, !llvm.loop !49
 
 thread-pre-split:                                 ; preds = %60, %34
   %.pr = load ptr, ptr %3, align 8
@@ -1555,11 +1555,11 @@ thread-pre-split:                                 ; preds = %60, %34
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store ptr %86, ptr %87, align 8
   %88 = icmp eq ptr %86, null
-  br i1 %88, label %89, label %90, !prof !24
+  br i1 %88, label %89, label %90, !prof !26
 
 89:                                               ; preds = %75
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 90:                                               ; preds = %75
@@ -1572,7 +1572,7 @@ thread-pre-split:                                 ; preds = %60, %34
   %95 = getelementptr i8, ptr %79, i64 124
   store i32 %2, ptr %95, align 4
   store ptr %17, ptr %3, align 8
-  %96 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %79, ptr noundef null), !range !27
+  %96 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %79, ptr noundef null), !range !29
   br label %97
 
 97:                                               ; preds = %90, %73, %32, %27, %15, %8, %4
@@ -1623,7 +1623,7 @@ define internal void @virtio_gpu_cmd_capset_cb(ptr noundef %0, ptr noundef reado
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 8 %27, i64 %30, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !50
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store volatile i32 1, ptr %31, align 4
   br label %.loopexit
@@ -1631,7 +1631,7 @@ define internal void @virtio_gpu_cmd_capset_cb(ptr noundef %0, ptr noundef reado
 32:                                               ; preds = %19, %14
   %33 = load ptr, ptr %15, align 8
   %34 = icmp eq ptr %33, %7
-  br i1 %34, label %.loopexit, label %14, !llvm.loop !47
+  br i1 %34, label %.loopexit, label %14, !llvm.loop !51
 
 .loopexit:                                        ; preds = %32, %24, %2
   tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #12
@@ -1643,9 +1643,9 @@ define internal void @virtio_gpu_cmd_capset_cb(ptr noundef %0, ptr noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_edids(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 62137
-  %3 = load i8, ptr %2, align 1, !range !34, !noundef !35
+  %3 = load i8, ptr %2, align 1, !range !36, !noundef !37
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %11, label %5, !prof !24
+  br i1 %4, label %11, label %5, !prof !26
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 61840
@@ -1658,9 +1658,9 @@ define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_edids(ptr nou
   br label %12
 
 11:                                               ; preds = %1
-  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #12, !srcloc !48
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 891, i32 2305, i64 12) #12, !srcloc !49
-  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #12, !srcloc !50
+  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #12, !srcloc !52
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 891, i32 2305, i64 12) #12, !srcloc !53
+  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #12, !srcloc !54
   br label %.loopexit
 
 12:                                               ; preds = %17, %9
@@ -1686,11 +1686,11 @@ define dso_local noundef range(i32 -22, 1) i32 @virtio_gpu_cmd_get_edids(ptr nou
   store i32 266, ptr %20, align 8
   %25 = getelementptr i8, ptr %19, i64 120
   store i32 %13, ptr %25, align 8
-  %26 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %19, ptr noundef null), !range !27
+  %26 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %19, ptr noundef null), !range !29
   %27 = add nuw i32 %13, 1
   %28 = load i32, ptr %6, align 8
   %29 = icmp ult i32 %27, %28
-  br i1 %29, label %12, label %.loopexit, !llvm.loop !51
+  br i1 %29, label %12, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %17, %12, %11, %5
   %30 = phi i32 [ -22, %11 ], [ 0, %5 ], [ -12, %12 ], [ 0, %17 ]
@@ -1748,11 +1748,11 @@ define dso_local void @virtio_gpu_cmd_context_create(ptr noundef %0, i32 noundef
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %5
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %5
@@ -1766,7 +1766,7 @@ define dso_local void @virtio_gpu_cmd_context_create(ptr noundef %0, i32 noundef
   store i32 %2, ptr %20, align 4
   %21 = getelementptr i8, ptr %8, i64 128
   %22 = tail call i64 @strscpy(ptr noundef %21, ptr noundef %4, i64 noundef 64) #12
-  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !27
+  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !29
   ret void
 }
 
@@ -1790,11 +1790,11 @@ define dso_local void @virtio_gpu_cmd_context_destroy(ptr noundef %0, i32 nounde
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %13, label %14, !prof !24
+  br i1 %12, label %13, label %14, !prof !26
 
 13:                                               ; preds = %2
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 14:                                               ; preds = %2
@@ -1802,7 +1802,7 @@ define dso_local void @virtio_gpu_cmd_context_destroy(ptr noundef %0, i32 nounde
   store i32 513, ptr %6, align 8
   %15 = getelementptr i8, ptr %5, i64 112
   store i32 %1, ptr %15, align 8
-  %16 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !27
+  %16 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !29
   ret void
 }
 
@@ -1825,11 +1825,11 @@ define dso_local void @virtio_gpu_cmd_context_attach_resource(ptr noundef %0, i3
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %3
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %3
@@ -1843,7 +1843,7 @@ define dso_local void @virtio_gpu_cmd_context_attach_resource(ptr noundef %0, i3
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr i8, ptr %8, i64 120
   store i32 %21, ptr %22, align 8
-  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !27
+  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !29
   ret void
 }
 
@@ -1866,11 +1866,11 @@ define dso_local void @virtio_gpu_cmd_context_detach_resource(ptr noundef %0, i3
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %3
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %3
@@ -1884,7 +1884,7 @@ define dso_local void @virtio_gpu_cmd_context_detach_resource(ptr noundef %0, i3
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr i8, ptr %8, i64 120
   store i32 %21, ptr %22, align 8
-  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !27
+  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !29
   ret void
 }
 
@@ -1905,11 +1905,11 @@ define dso_local void @virtio_gpu_cmd_resource_create_3d(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %5
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %5
@@ -1961,7 +1961,7 @@ define dso_local void @virtio_gpu_cmd_resource_create_3d(ptr noundef %0, ptr nou
   %50 = load i32, ptr %49, align 8
   %51 = getelementptr i8, ptr %8, i64 160
   store i32 %50, ptr %51, align 8
-  %52 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef %4), !range !27
+  %52 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef %4), !range !29
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 413
   store i8 1, ptr %53, align 1
   ret void
@@ -2009,11 +2009,11 @@ define dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef %0, i32 no
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %37, ptr %38, align 8
   %39 = icmp eq ptr %37, null
-  br i1 %39, label %40, label %41, !prof !24
+  br i1 %39, label %40, label %41, !prof !26
 
 40:                                               ; preds = %29
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 41:                                               ; preds = %29
@@ -2058,7 +2058,7 @@ define dso_local void @virtio_gpu_cmd_transfer_to_host_3d(ptr noundef %0, i32 no
   store i32 %4, ptr %66, align 8
   %67 = getelementptr i8, ptr %32, i64 164
   store i32 %5, ptr %67, align 4
-  %68 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %32, ptr noundef %8), !range !27
+  %68 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %32, ptr noundef %8), !range !29
   ret void
 }
 
@@ -2081,11 +2081,11 @@ define dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef %0, i32 
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
-  br i1 %21, label %22, label %23, !prof !24
+  br i1 %21, label %22, label %23, !prof !26
 
 22:                                               ; preds = %9
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 23:                                               ; preds = %9
@@ -2130,7 +2130,7 @@ define dso_local void @virtio_gpu_cmd_transfer_from_host_3d(ptr noundef %0, i32 
   store i32 %4, ptr %48, align 8
   %49 = getelementptr i8, ptr %14, i64 164
   store i32 %5, ptr %49, align 4
-  %50 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %14, ptr noundef %8), !range !27
+  %50 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %14, ptr noundef %8), !range !29
   ret void
 }
 
@@ -2151,11 +2151,11 @@ define dso_local void @virtio_gpu_cmd_submit(ptr noundef %0, ptr noundef %1, i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %17, label %18, !prof !24
+  br i1 %16, label %17, label %18, !prof !26
 
 17:                                               ; preds = %6
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 18:                                               ; preds = %6
@@ -2171,7 +2171,7 @@ define dso_local void @virtio_gpu_cmd_submit(ptr noundef %0, ptr noundef %1, i32
   store i32 %3, ptr %22, align 8
   %23 = getelementptr i8, ptr %9, i64 120
   store i32 %2, ptr %23, align 8
-  %24 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef %5), !range !27
+  %24 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef %5), !range !29
   ret void
 }
 
@@ -2194,11 +2194,11 @@ define dso_local void @virtio_gpu_object_attach(ptr noundef %0, ptr noundef read
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %17, label %18, !prof !24
+  br i1 %16, label %17, label %18, !prof !26
 
 17:                                               ; preds = %4
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 18:                                               ; preds = %4
@@ -2213,7 +2213,7 @@ define dso_local void @virtio_gpu_object_attach(ptr noundef %0, ptr noundef read
   %22 = shl i32 %3, 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %22, ptr %23, align 8
-  %24 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef null), !range !27
+  %24 = tail call fastcc i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %9, ptr noundef null), !range !29
   ret void
 }
 
@@ -2241,11 +2241,11 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captur
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
-  br i1 %18, label %19, label %20, !prof !24
+  br i1 %18, label %19, label %20, !prof !26
 
 19:                                               ; preds = %2
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 20:                                               ; preds = %2
@@ -2324,7 +2324,7 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captur
   %58 = call i64 @prepare_to_wait_event(ptr noundef nonnull %49, ptr noundef nonnull %6, i32 noundef 2) #12
   %59 = load i32, ptr %48, align 4
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.preheader, label %.loopexit
+  br i1 %60, label %.preheader, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %54
   call void @finish_wait(ptr noundef nonnull %49, ptr noundef nonnull %6) #12
@@ -2335,7 +2335,7 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captur
   call void @_raw_spin_lock(ptr noundef nonnull %44) #12
   %62 = call i32 @virtqueue_add_sgs(ptr noundef %26, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, ptr noundef %23, i32 noundef 2080) #12
   %63 = icmp eq i32 %62, -28
-  br i1 %63, label %50, label %.loopexit1
+  br i1 %63, label %50, label %.loopexit1, !llvm.loop !57
 
 .loopexit1:                                       ; preds = %61, %40
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 62000
@@ -2346,20 +2346,20 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captur
   store i32 %66, ptr %67, align 8
   %68 = load ptr, ptr %23, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 8), i32 2) #12
-          to label %89 [label %69], !srcloc !11
+          to label %89 [label %69], !srcloc !12
 
 69:                                               ; preds = %.loopexit1
-  %70 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !39
+  %70 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !43
   %71 = zext i32 %70 to i64
-  %72 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %71) #12, !srcloc !13
+  %72 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %71) #12, !srcloc !14
   %73 = icmp ult i8 %72, 2
   call void @llvm.assume(i1 %73)
   %74 = icmp eq i8 %72, 0
   br i1 %74, label %89, label %75
 
 75:                                               ; preds = %69
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !40
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !44
   %76 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 72), align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %82, label %78
@@ -2371,16 +2371,16 @@ define dso_local void @virtio_gpu_cursor_ping(ptr noundef %0, ptr noundef captur
   br label %82
 
 82:                                               ; preds = %78, %75
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !41
-  %83 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !45
+  %83 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !18
   %84 = icmp ult i8 %83, 2
   call void @llvm.assume(i1 %84)
   %85 = icmp eq i8 %83, 0
-  br i1 %85, label %89, label %86, !prof !18
+  br i1 %85, label %89, label %86, !prof !19
 
 86:                                               ; preds = %82
   %87 = call i64 @llvm.read_register.i64(metadata !0)
-  %88 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %87) #12, !srcloc !42
+  %88 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %87) #12, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %88)
   br label %89
 
@@ -2448,7 +2448,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_resource_assign_u
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %1, ptr %23, align 8
-  %24 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %14, ptr noundef null), !range !27
+  %24 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %14, ptr noundef null), !range !29
   br label %25
 
 25:                                               ; preds = %11, %8
@@ -2473,12 +2473,12 @@ define internal void @virtio_gpu_cmd_resource_uuid_cb(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14, !prof !18
+  br i1 %13, label %15, label %14, !prof !19
 
 14:                                               ; preds = %2
-  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #12, !srcloc !52
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1132, i32 2305, i64 12) #12, !srcloc !53
-  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #12, !srcloc !54
+  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #12, !srcloc !58
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1132, i32 2305, i64 12) #12, !srcloc !59
+  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #12, !srcloc !60
   br label %15
 
 15:                                               ; preds = %14, %2
@@ -2538,7 +2538,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_cmd_map(ptr noundef %
   store i64 %2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %1, ptr %22, align 8
-  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %12, ptr noundef null), !range !27
+  %23 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %12, ptr noundef null), !range !29
   br label %24
 
 24:                                               ; preds = %9, %3
@@ -2594,11 +2594,11 @@ define dso_local void @virtio_gpu_cmd_unmap(ptr noundef %0, ptr noundef readonly
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %13, label %14, !prof !24
+  br i1 %12, label %13, label %14, !prof !26
 
 13:                                               ; preds = %2
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 14:                                               ; preds = %2
@@ -2608,7 +2608,7 @@ define dso_local void @virtio_gpu_cmd_unmap(ptr noundef %0, ptr noundef readonly
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr i8, ptr %5, i64 120
   store i32 %16, ptr %17, align 8
-  %18 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !27
+  %18 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %5, ptr noundef null), !range !29
   ret void
 }
 
@@ -2629,11 +2629,11 @@ define dso_local void @virtio_gpu_cmd_resource_create_blob(ptr noundef %0, ptr n
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %16, label %17, !prof !24
+  br i1 %15, label %16, label %17, !prof !26
 
 16:                                               ; preds = %5
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 17:                                               ; preds = %5
@@ -2669,7 +2669,7 @@ define dso_local void @virtio_gpu_cmd_resource_create_blob(ptr noundef %0, ptr n
   %37 = shl i32 %4, 4
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %37, ptr %38, align 8
-  %39 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !27
+  %39 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %8, ptr noundef null), !range !29
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 413
   store i8 1, ptr %40, align 1
   ret void
@@ -2696,11 +2696,11 @@ define dso_local void @virtio_gpu_cmd_set_scanout_blob(ptr noundef %0, i32 nound
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
-  br i1 %22, label %23, label %24, !prof !24
+  br i1 %22, label %23, label %24, !prof !26
 
 23:                                               ; preds = %8
-  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !26
+  tail call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #12, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 109, i32 0, i64 12) #12, !srcloc !28
   unreachable
 
 24:                                               ; preds = %8
@@ -2736,7 +2736,7 @@ define dso_local void @virtio_gpu_cmd_set_scanout_blob(ptr noundef %0, i32 nound
   store i32 %6, ptr %40, align 8
   %43 = getelementptr i8, ptr %15, i64 124
   store i32 %7, ptr %43, align 4
-  %44 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %15, ptr noundef null), !range !27
+  %44 = tail call fastcc noundef i32 @virtio_gpu_queue_fenced_ctrl_buffer(ptr noundef %0, ptr noundef %15, ptr noundef null), !range !29
   ret void
 }
 
@@ -2905,51 +2905,57 @@ attributes #14 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i64 328858, i64 328902, i64 2147824433, i64 2147824454, i64 2147824480, i64 2147824513, i64 2147824547, i64 2147824571}
-!12 = !{i64 2156247990}
-!13 = !{i64 2148489137, i64 2148489211}
-!14 = !{i64 2149522805}
-!15 = !{i64 2156250888}
-!16 = !{i64 2156261862}
-!17 = !{i64 2149527161, i64 2149527254}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 2156262021}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = !{!"branch_weights", i32 1, i32 2000}
-!25 = !{i64 2156292812, i64 2156292621, i64 2156292673, i64 2156292719, i64 2156292747}
-!26 = !{i64 2156292886, i64 2156292915, i64 2156292961, i64 2156293019, i64 2156293073, i64 2156293127, i64 2156293182, i64 2156293213}
-!27 = !{i32 -19, i32 1}
-!28 = !{i64 2156312182, i64 2156311991, i64 2156312043, i64 2156312089, i64 2156312117}
-!29 = !{i64 2156312256, i64 2156312285, i64 2156312331, i64 2156312389, i64 2156312443, i64 2156312497, i64 2156312552, i64 2156312583, i64 2156312891, i64 2156312897, i64 2156312944, i64 2156312967, i64 2156312993}
-!30 = !{i64 2156313461, i64 2156313272, i64 2156313322, i64 2156313368, i64 2156313396}
-!31 = !{i64 2154686365, i64 2154686174, i64 2154686226, i64 2154686272, i64 2154686300}
-!32 = !{i64 2154686439, i64 2154686468, i64 2154686514, i64 2154686572, i64 2154686626, i64 2154686680, i64 2154686735, i64 2154686766}
-!33 = distinct !{!33, !8, !9}
-!34 = !{i8 0, i8 2}
-!35 = !{}
-!36 = !{i64 2156326294, i64 2156326103, i64 2156326155, i64 2156326201, i64 2156326229}
-!37 = !{i64 2156326368, i64 2156326397, i64 2156326443, i64 2156326501, i64 2156326555, i64 2156326609, i64 2156326664, i64 2156326695, i64 2156327003, i64 2156327009, i64 2156327056, i64 2156327079, i64 2156327105}
-!38 = !{i64 2156327573, i64 2156327384, i64 2156327434, i64 2156327480, i64 2156327508}
-!39 = !{i64 2156199083}
-!40 = !{i64 2156201978}
-!41 = !{i64 2156208708}
-!42 = !{i64 2156208867}
-!43 = !{i64 2148793995, i64 2148794034, i64 2148794055, i64 2148794092, i64 2148794115, i64 2148793985}
-!44 = distinct !{!44, !8, !9}
-!45 = distinct !{!45, !8, !9}
-!46 = !{i64 2156341311}
-!47 = distinct !{!47, !8, !9}
-!48 = !{i64 2156347214, i64 2156347023, i64 2156347075, i64 2156347121, i64 2156347149}
-!49 = !{i64 2156347288, i64 2156347317, i64 2156347363, i64 2156347421, i64 2156347475, i64 2156347529, i64 2156347584, i64 2156347615, i64 2156347923, i64 2156347929, i64 2156347976, i64 2156347999, i64 2156348025}
-!50 = !{i64 2156348493, i64 2156348304, i64 2156348354, i64 2156348400, i64 2156348428}
-!51 = distinct !{!51, !8, !9}
-!52 = !{i64 2156359272, i64 2156359081, i64 2156359133, i64 2156359179, i64 2156359207}
-!53 = !{i64 2156359346, i64 2156359375, i64 2156359421, i64 2156359479, i64 2156359533, i64 2156359587, i64 2156359642, i64 2156359673, i64 2156359981, i64 2156359987, i64 2156360034, i64 2156360057, i64 2156360083}
-!54 = !{i64 2156360552, i64 2156360363, i64 2156360413, i64 2156360459, i64 2156360487}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = !{i64 328858, i64 328902, i64 2147824433, i64 2147824454, i64 2147824480, i64 2147824513, i64 2147824547, i64 2147824571}
+!13 = !{i64 2156247990}
+!14 = !{i64 2148489137, i64 2148489211}
+!15 = !{i64 2149522805}
+!16 = !{i64 2156250888}
+!17 = !{i64 2156261862}
+!18 = !{i64 2149527161, i64 2149527254}
+!19 = !{!"branch_weights", i32 2000, i32 1}
+!20 = !{i64 2156262021}
+!21 = distinct !{!21, !8, !9, !10}
+!22 = distinct !{!22, !8, !9, !10}
+!23 = distinct !{!23, !8, !9, !10}
+!24 = distinct !{!24, !8, !9, !10}
+!25 = distinct !{!25, !8, !9, !10}
+!26 = !{!"branch_weights", i32 1, i32 2000}
+!27 = !{i64 2156292812, i64 2156292621, i64 2156292673, i64 2156292719, i64 2156292747}
+!28 = !{i64 2156292886, i64 2156292915, i64 2156292961, i64 2156293019, i64 2156293073, i64 2156293127, i64 2156293182, i64 2156293213}
+!29 = !{i32 -19, i32 1}
+!30 = !{i64 2156312182, i64 2156311991, i64 2156312043, i64 2156312089, i64 2156312117}
+!31 = !{i64 2156312256, i64 2156312285, i64 2156312331, i64 2156312389, i64 2156312443, i64 2156312497, i64 2156312552, i64 2156312583, i64 2156312891, i64 2156312897, i64 2156312944, i64 2156312967, i64 2156312993}
+!32 = !{i64 2156313461, i64 2156313272, i64 2156313322, i64 2156313368, i64 2156313396}
+!33 = !{i64 2154686365, i64 2154686174, i64 2154686226, i64 2154686272, i64 2154686300}
+!34 = !{i64 2154686439, i64 2154686468, i64 2154686514, i64 2154686572, i64 2154686626, i64 2154686680, i64 2154686735, i64 2154686766}
+!35 = distinct !{!35, !8, !9, !10}
+!36 = !{i8 0, i8 2}
+!37 = !{}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}
+!40 = !{i64 2156326294, i64 2156326103, i64 2156326155, i64 2156326201, i64 2156326229}
+!41 = !{i64 2156326368, i64 2156326397, i64 2156326443, i64 2156326501, i64 2156326555, i64 2156326609, i64 2156326664, i64 2156326695, i64 2156327003, i64 2156327009, i64 2156327056, i64 2156327079, i64 2156327105}
+!42 = !{i64 2156327573, i64 2156327384, i64 2156327434, i64 2156327480, i64 2156327508}
+!43 = !{i64 2156199083}
+!44 = !{i64 2156201978}
+!45 = !{i64 2156208708}
+!46 = !{i64 2156208867}
+!47 = !{i64 2148793995, i64 2148794034, i64 2148794055, i64 2148794092, i64 2148794115, i64 2148793985}
+!48 = distinct !{!48, !8, !9, !10}
+!49 = distinct !{!49, !8, !9, !10}
+!50 = !{i64 2156341311}
+!51 = distinct !{!51, !8, !9, !10}
+!52 = !{i64 2156347214, i64 2156347023, i64 2156347075, i64 2156347121, i64 2156347149}
+!53 = !{i64 2156347288, i64 2156347317, i64 2156347363, i64 2156347421, i64 2156347475, i64 2156347529, i64 2156347584, i64 2156347615, i64 2156347923, i64 2156347929, i64 2156347976, i64 2156347999, i64 2156348025}
+!54 = !{i64 2156348493, i64 2156348304, i64 2156348354, i64 2156348400, i64 2156348428}
+!55 = distinct !{!55, !8, !9, !10}
+!56 = distinct !{!56, !10}
+!57 = distinct !{!57, !10}
+!58 = !{i64 2156359272, i64 2156359081, i64 2156359133, i64 2156359179, i64 2156359207}
+!59 = !{i64 2156359346, i64 2156359375, i64 2156359421, i64 2156359479, i64 2156359533, i64 2156359587, i64 2156359642, i64 2156359673, i64 2156359981, i64 2156359987, i64 2156360034, i64 2156360057, i64 2156360083}
+!60 = !{i64 2156360552, i64 2156360363, i64 2156360413, i64 2156360459, i64 2156360487}

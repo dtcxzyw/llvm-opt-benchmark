@@ -125,7 +125,7 @@ lzma_getbyte.exit.thread:                         ; preds = %27, %24
   %40 = add i32 %39, -1
   store i32 %40, ptr %14, align 8, !tbaa !14
   %.not34 = icmp eq i32 %40, 0
-  br i1 %.not34, label %.preheader, label %24
+  br i1 %.not34, label %.preheader, label %24, !llvm.loop !21
 
 41:                                               ; preds = %.lr.ph55, %45
   %indvars.iv = phi i64 [ %23, %.lr.ph55 ], [ %indvars.iv.next, %45 ]
@@ -156,7 +156,7 @@ lzma_getbyte.exit.thread:                         ; preds = %27, %24
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr %19, align 4, !tbaa !15
   %.not35 = icmp eq i32 %indvars, 0
-  br i1 %.not35, label %._crit_edge, label %41
+  br i1 %.not35, label %._crit_edge, label %41, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %45, %.preheader
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -225,38 +225,38 @@ define range(i32 0, 3) i32 @cli_LzmaDecode(ptr noundef %0) local_unnamed_addr #0
 ._crit_edge:                                      ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load i64, ptr %9, align 8, !tbaa !19
-  store i64 %10, ptr %3, align 8, !tbaa !21
+  store i64 %10, ptr %3, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load i64, ptr %11, align 8, !tbaa !16
   %.not23 = icmp ne i64 %12, -1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !22
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   %13 = icmp ugt i64 %.pre, %12
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %12)
   %storemerge = select i1 %.not23, i64 %spec.select, i64 %.pre
   %narrow = select i1 %.not23, i1 %13, i1 false
   %.0 = zext i1 %narrow to i32
-  store i64 %storemerge, ptr %2, align 8, !tbaa !21
+  store i64 %storemerge, ptr %2, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = call i32 @LzmaDec_DecodeToBuf(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %2, ptr noundef %17, ptr noundef nonnull %3, i32 noundef %.0, ptr noundef nonnull %4) #7
-  %19 = load i64, ptr %3, align 8, !tbaa !21
+  %19 = load i64, ptr %3, align 8, !tbaa !24
   %20 = load i64, ptr %9, align 8, !tbaa !19
   %21 = sub i64 %20, %19
   store i64 %21, ptr %9, align 8, !tbaa !19
   %22 = load ptr, ptr %16, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %19
   store ptr %23, ptr %16, align 8, !tbaa !18
-  %24 = load i64, ptr %2, align 8, !tbaa !21
+  %24 = load i64, ptr %2, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %26 = load i64, ptr %25, align 8, !tbaa !22
+  %26 = load i64, ptr %25, align 8, !tbaa !25
   %27 = sub i64 %26, %24
-  store i64 %27, ptr %25, align 8, !tbaa !22
-  %28 = load ptr, ptr %14, align 8, !tbaa !23
+  store i64 %27, ptr %25, align 8, !tbaa !25
+  %28 = load ptr, ptr %14, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  store ptr %29, ptr %14, align 8, !tbaa !23
+  store ptr %29, ptr %14, align 8, !tbaa !26
   %30 = load i64, ptr %11, align 8, !tbaa !16
   %.not24 = icmp eq i64 %30, -1
   br i1 %.not24, label %34, label %31
@@ -327,6 +327,9 @@ attributes #7 = { nounwind }
 !18 = !{!4, !12, i64 168}
 !19 = !{!4, !13, i64 184}
 !20 = !{!8, !8, i64 0}
-!21 = !{!13, !13, i64 0}
-!22 = !{!4, !13, i64 192}
-!23 = !{!4, !12, i64 176}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !22}
+!24 = !{!13, !13, i64 0}
+!25 = !{!4, !13, i64 192}
+!26 = !{!4, !12, i64 176}

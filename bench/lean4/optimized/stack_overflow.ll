@@ -236,7 +236,7 @@ _ZN4lean11stack_guardC2Ev.exit:                   ; preds = %0, %7
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #12
   %.0.add = add nuw nsw i64 %.0.idx10, 4
   %.not = icmp eq i64 %.0.add, 8
-  br i1 %.not, label %14, label %15
+  br i1 %.not, label %14, label %15, !llvm.loop !22
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -317,3 +317,5 @@ attributes #17 = { builtin nounwind }
 !19 = !{!20, !12, i64 136}
 !20 = !{!"_ZTS9sigaction", !6, i64 0, !21, i64 8, !12, i64 136, !5, i64 144}
 !21 = !{!"_ZTS10__sigset_t", !6, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}

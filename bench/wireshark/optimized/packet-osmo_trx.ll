@@ -500,7 +500,7 @@ dissect_otrxd_tx_burst_v0.exit.i:                 ; preds = %116, %dissect_otrxd
   store i32 %130, ptr %43, align 8
   %131 = load i8, ptr %41, align 4, !range !6, !noundef !7
   %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %49, label %dissect_otrxd_tx.exit
+  br i1 %132, label %49, label %dissect_otrxd_tx.exit, !llvm.loop !8
 
 dissect_otrxd_tx.exit:                            ; preds = %dissect_otrxd_tx_burst_v0.exit.i, %125
   %.0.i62 = phi i32 [ 1, %125 ], [ %.1.i, %dissect_otrxd_tx_burst_v0.exit.i ]
@@ -710,7 +710,7 @@ dissect_otrxd_rx_hdr_v2.exit.i:                   ; preds = %257, %254
   store i32 %275, ptr %139, align 8
   %276 = load i8, ptr %136, align 4, !range !6, !noundef !7
   %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %145, label %dissect_otrxd_rx.exit
+  br i1 %277, label %145, label %dissect_otrxd_rx.exit, !llvm.loop !10
 
 dissect_otrxd_rx.exit:                            ; preds = %271, %269
   %.0.i64 = phi i32 [ 1, %269 ], [ %.1.i63, %271 ]
@@ -1222,3 +1222,6 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

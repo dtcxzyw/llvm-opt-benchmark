@@ -213,7 +213,7 @@ _ZL14NextStackFrameILb1ELb0EEPPvS1_PKvmm.exit43:  ; preds = %49, %52
   %58 = and i1 %.not28.i39, %57
   %59 = icmp samesign ult i32 %.056, 999
   %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %.lr.ph57, label %._crit_edge58, !llvm.loop !14
+  br i1 %60, label %.lr.ph57, label %._crit_edge58, !llvm.loop !15
 
 61:                                               ; preds = %._crit_edge58, %._crit_edge
   ret i32 %.031.lcssa
@@ -294,7 +294,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us: ; preds = %31, %28, %19
   %41 = icmp ne ptr %.0.i.us, null
   %42 = icmp slt i32 %.132.us, %2
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %.02953 = phi i32 [ %.130, %74 ], [ %3, %.lr.ph ]
@@ -309,8 +309,8 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us: ; preds = %31, %28, %19
   %48 = load ptr, ptr %.03351, align 8, !tbaa !10
   %49 = ptrtoint ptr %.03351 to i64
   %50 = ptrtoint ptr %48 to i64
-  %.val.i = load i64, ptr %14, align 8, !tbaa !17
-  %.val42.i = load i64, ptr %15, align 8, !tbaa !17
+  %.val.i = load i64, ptr %14, align 8, !tbaa !18
+  %.val42.i = load i64, ptr %15, align 8, !tbaa !18
   %.not.i.i = icmp sge i64 %.val.i, %.val42.i
   %51 = sub nsw i64 %.val.i, %.val42.i
   %52 = icmp slt i64 %51, 100001
@@ -372,7 +372,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit:    ; preds = %53, %59, %62, %65
   %75 = icmp ne ptr %.0.i, null
   %76 = icmp slt i32 %.132, %2
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %77, label %.lr.ph.split, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %74, %.lr.ph.split, %40, %.lr.ph.split.us, %6
   %.033.lcssa = phi ptr [ %7, %6 ], [ %.03351.us, %.lr.ph.split.us ], [ %.0.i.us, %40 ], [ %.03351, %.lr.ph.split ], [ %.0.i, %74 ]
@@ -429,13 +429,13 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us: ; preds = %87, %90
   %96 = and i1 %.not37.i45.us, %95
   %97 = icmp samesign ult i32 %.068.us, 999
   %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %.lr.ph69.split.us, label %._crit_edge70, !llvm.loop !20
+  br i1 %98, label %.lr.ph69.split.us, label %._crit_edge70, !llvm.loop !21
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69
   %99 = getelementptr i8, ptr %4, i64 160
   %100 = getelementptr i8, ptr %4, i64 120
-  %.val.i36 = load i64, ptr %100, align 8, !tbaa !17
-  %.val42.i37 = load i64, ptr %99, align 8, !tbaa !17
+  %.val.i36 = load i64, ptr %100, align 8, !tbaa !18
+  %.val42.i37 = load i64, ptr %99, align 8, !tbaa !18
   %.not.i.i38 = icmp sge i64 %.val.i36, %.val42.i37
   %101 = sub nsw i64 %.val.i36, %.val42.i37
   %102 = icmp slt i64 %101, 100001
@@ -498,7 +498,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50:  ; preds = %113, %116, %119
   %125 = and i1 %.not37.i45, %124
   %126 = icmp samesign ult i32 %.068, 999
   %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %103, label %._crit_edge70, !llvm.loop !21
+  br i1 %127, label %103, label %._crit_edge70, !llvm.loop !22
 
 128:                                              ; preds = %._crit_edge70, %._crit_edge
   ret i32 %.031.lcssa
@@ -568,7 +568,7 @@ _ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit:    ; preds = %14, %20
   %37 = icmp ne ptr %.0.i, null
   %38 = icmp slt i32 %.140, %2
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %36, %.lr.ph, %6
   %.041.lcssa = phi ptr [ %7, %6 ], [ %.04151, %.lr.ph ], [ %.0.i, %36 ]
@@ -612,7 +612,7 @@ _ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit50:  ; preds = %.lr.ph64
   %49 = add nuw nsw i32 %.063, 1
   %50 = icmp samesign ult i32 %.063, 999
   %51 = select i1 %48, i1 %50, i1 false
-  br i1 %51, label %.lr.ph64, label %._crit_edge65, !llvm.loop !23
+  br i1 %51, label %.lr.ph64, label %._crit_edge65, !llvm.loop !24
 
 52:                                               ; preds = %._crit_edge65, %._crit_edge
   ret i32 %.039.lcssa
@@ -682,7 +682,7 @@ _ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit:    ; preds = %14, %20
   %37 = icmp ne ptr %.0.i, null
   %38 = icmp slt i32 %.140, %2
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %36, %.lr.ph, %6
   %.041.lcssa = phi ptr [ %7, %6 ], [ %.04151, %.lr.ph ], [ %.0.i, %36 ]
@@ -726,7 +726,7 @@ _ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit50:  ; preds = %.lr.ph64
   %49 = add nuw nsw i32 %.063, 1
   %50 = icmp samesign ult i32 %.063, 999
   %51 = select i1 %48, i1 %50, i1 false
-  br i1 %51, label %.lr.ph64, label %._crit_edge65, !llvm.loop !25
+  br i1 %51, label %.lr.ph64, label %._crit_edge65, !llvm.loop !26
 
 52:                                               ; preds = %._crit_edge65, %._crit_edge
   ret i32 %.039.lcssa
@@ -772,17 +772,18 @@ attributes #11 = { nounwind willreturn memory(none) }
 !9 = !{ptr @_ZL10UnwindImplILb0ELb0EEiPPvPiiiPKvS2_, ptr @_ZL10UnwindImplILb0ELb1EEiPPvPiiiPKvS2_, ptr @_ZL10UnwindImplILb1ELb0EEiPPvPiiiPKvS2_, ptr @_ZL10UnwindImplILb1ELb1EEiPPvPiiiPKvS2_}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long long", !7, i64 0}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13, !16}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long long", !7, i64 0}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14, !17}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}

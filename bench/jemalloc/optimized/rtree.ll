@@ -117,7 +117,7 @@ define hidden void @je_rtree_ctx_data_init(ptr noundef writeonly captures(none) 
   store ptr null, ptr %9, align 8, !tbaa !16
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %6, label %7, !llvm.loop !19
+  br i1 %exitcond18.not, label %6, label %7, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -139,20 +139,20 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %3
 
 9:                                                ; preds = %7, %malloc_mutex_trylock_final.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %11 = load i64, ptr %10, align 8, !tbaa !20
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !20
+  store i64 %12, ptr %10, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %14, %0
   br i1 %.not.i.i, label %atomic_load_p.exit, label %15
 
 15:                                               ; preds = %9
-  store ptr %0, ptr %13, align 8, !tbaa !26
+  store ptr %0, ptr %13, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8, !tbaa !27
+  store i64 %18, ptr %16, align 8, !tbaa !28
   br label %atomic_load_p.exit
 
 atomic_load_p.exit:                               ; preds = %9, %15
@@ -216,14 +216,15 @@ attributes #5 = { nounwind }
 !14 = !{!"long", !8, i64 0}
 !15 = !{!"p1 _ZTS16rtree_leaf_elm_s", !7, i64 0}
 !16 = !{!13, !15, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!21, !14, i64 56}
-!21 = !{!"", !22, i64 0, !22, i64 8, !14, i64 16, !14, i64 24, !23, i64 32, !24, i64 36, !14, i64 40, !25, i64 48, !14, i64 56}
-!22 = !{!"", !14, i64 0}
-!23 = !{!"int", !8, i64 0}
-!24 = !{!"", !23, i64 0}
-!25 = !{!"p1 _ZTS6tsdn_s", !7, i64 0}
-!26 = !{!21, !25, i64 48}
-!27 = !{!21, !14, i64 40}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!22, !14, i64 56}
+!22 = !{!"", !23, i64 0, !23, i64 8, !14, i64 16, !14, i64 24, !24, i64 32, !25, i64 36, !14, i64 40, !26, i64 48, !14, i64 56}
+!23 = !{!"", !14, i64 0}
+!24 = !{!"int", !8, i64 0}
+!25 = !{!"", !24, i64 0}
+!26 = !{!"p1 _ZTS6tsdn_s", !7, i64 0}
+!27 = !{!22, !26, i64 48}
+!28 = !{!22, !14, i64 40}

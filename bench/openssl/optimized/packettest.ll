@@ -1199,7 +1199,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_1() #0 {
   store i8 %3, ptr %4, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 255
-  br i1 %exitcond.not, label %5, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %5, label %2, !llvm.loop !10
 
 5:                                                ; preds = %2
   %6 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 360, ptr noundef nonnull @.str.29, i32 noundef 1) #6
@@ -1271,7 +1271,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_2() #0 {
   store i8 %3, ptr %5, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !11
 
 6:                                                ; preds = %2
   %7 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 384, ptr noundef nonnull @.str.111, i32 noundef 1) #6
@@ -1359,7 +1359,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_3() #0 {
   store i8 %3, ptr %4, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %5, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %5, label %2, !llvm.loop !12
 
 5:                                                ; preds = %2
   %6 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 408, ptr noundef nonnull @.str.111, i32 noundef 1) #6
@@ -1495,7 +1495,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_as_length_prefixed_2() #0 {
   store i8 %3, ptr %5, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !13
 
 6:                                                ; preds = %2
   %7 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 456, ptr noundef nonnull @.str.121, i32 noundef 1) #6
@@ -1561,7 +1561,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_vlint() #0 {
 1:                                                ; preds = %16
   %2 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %2, 20
-  br i1 %exitcond.not, label %21, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %21, label %3, !llvm.loop !14
 
 3:                                                ; preds = %0, %1
   %.014 = phi i64 [ 0, %0 ], [ %2, %1 ]
@@ -1584,14 +1584,14 @@ PACKET_get_quic_vlint.exit:                       ; preds = %3
 
 12:                                               ; preds = %PACKET_get_quic_vlint.exit
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !14
+  %14 = load i64, ptr %13, align 8, !tbaa !15
   %15 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.25, i32 noundef 511, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, i64 noundef %9, i64 noundef %14) #6
   %.not8 = icmp eq i32 %15, 0
   br i1 %.not8, label %21, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = load i64, ptr %17, align 16, !tbaa !17
+  %18 = load i64, ptr %17, align 16, !tbaa !18
   %19 = sub i64 16, %18
   %20 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 513, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.130, i64 noundef %10, i64 noundef %19) #6
   %.not9 = icmp eq i32 %20, 0
@@ -1612,13 +1612,13 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   %.sroa.0.052 = phi ptr [ null, %0 ], [ %.sroa.0.14049, %38 ]
   %2 = getelementptr inbounds nuw [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %.054
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !18
+  %4 = load i32, ptr %3, align 8, !tbaa !19
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PACKET_buf_init.exit, label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit:                             ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !21
+  %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = add i64 %6, 1
   %8 = icmp sgt i64 %7, -1
   %.0.i = zext i1 %8 to i32
@@ -1691,7 +1691,7 @@ PACKET_get_quic_length_prefixed.exit.thread:      ; preds = %11
 
 34:                                               ; preds = %.thread42
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %36 = load i64, ptr %35, align 8, !tbaa !21
+  %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %.sroa.5.14146, i64 noundef %36) #6
   %.not19 = icmp eq i32 %37, 0
   br i1 %.not19, label %40, label %38
@@ -1701,7 +1701,7 @@ PACKET_get_quic_length_prefixed.exit.thread:      ; preds = %11
   %.sroa.5.14147 = phi i64 [ %.sroa.5.14146, %34 ], [ %.sroa.5.1, %30 ]
   %39 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %39, 8
-  br i1 %exitcond.not, label %40, label %1, !llvm.loop !22
+  br i1 %exitcond.not, label %40, label %1, !llvm.loop !23
 
 40:                                               ; preds = %PACKET_get_quic_length_prefixed.exit.thread, %PACKET_buf_init.exit.thread, %38, %34, %.thread42, %30, %PACKET_get_quic_length_prefixed.exit, %PACKET_buf_init.exit
   %.013 = phi i32 [ 0, %PACKET_buf_init.exit ], [ 0, %PACKET_get_quic_length_prefixed.exit ], [ 0, %30 ], [ 0, %.thread42 ], [ 0, %34 ], [ 1, %38 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_quic_length_prefixed.exit.thread ]
@@ -1777,19 +1777,20 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = !{!15, !16, i64 24}
-!15 = !{!"quic_test_case", !5, i64 0, !16, i64 16, !16, i64 24}
-!16 = !{!"long", !5, i64 0}
-!17 = !{!15, !16, i64 16}
-!18 = !{!19, !20, i64 32}
-!19 = !{!"quic_test_case", !5, i64 0, !16, i64 16, !16, i64 24, !20, i64 32}
-!20 = !{!"int", !5, i64 0}
-!21 = !{!19, !16, i64 24}
-!22 = distinct !{!22, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{!16, !17, i64 24}
+!16 = !{!"quic_test_case", !5, i64 0, !17, i64 16, !17, i64 24}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!16, !17, i64 16}
+!19 = !{!20, !21, i64 32}
+!20 = !{!"quic_test_case", !5, i64 0, !17, i64 16, !17, i64 24, !21, i64 32}
+!21 = !{!"int", !5, i64 0}
+!22 = !{!20, !17, i64 24}
+!23 = distinct !{!23, !8, !9}

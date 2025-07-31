@@ -23,15 +23,15 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 3:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !3
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %5 = load i8, ptr %4, align 1, !tbaa !3
+  %5 = load i8, ptr %4, align 1, !tbaa !5
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !3
+  %8 = load i8, ptr %7, align 1, !tbaa !5
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.lr.ph.i11, label %3
 
@@ -44,7 +44,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
   %.03455.i = phi i32 [ %45, %.loopexit.i ], [ 0, %.lr.ph.i ]
   %10 = zext i32 %.03455.i to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !3
+  %12 = load i8, ptr %11, align 1, !tbaa !5
   %13 = zext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
   br i1 %14, label %15, label %19
@@ -52,7 +52,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 15:                                               ; preds = %.lr.ph.i11
   %16 = zext nneg i8 %12 to i64
   %17 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !3
+  %18 = load i8, ptr %17, align 1, !tbaa !5
   %.not45.i = icmp eq i8 %18, 1
   br i1 %.not45.i, label %.loopexit.i, label %td_isutf8.exit.thread
 
@@ -94,7 +94,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 
 40:                                               ; preds = %42
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next, %39
-  br i1 %exitcond.not.i13, label %.loopexit.i, label %41
+  br i1 %exitcond.not.i13, label %.loopexit.i, label %41, !llvm.loop !8
 
 41:                                               ; preds = %40, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ %10, %37 ]
@@ -104,7 +104,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %44 = load i8, ptr %43, align 1, !tbaa !3
+  %44 = load i8, ptr %43, align 1, !tbaa !5
   %or.cond.i = icmp slt i8 %44, -64
   br i1 %or.cond.i, label %40, label %td_isutf8.exit.thread.thread22
 
@@ -113,7 +113,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
   %.2.i = phi i32 [ %.03256.i, %15 ], [ 1, %40 ]
   %45 = add nuw i32 %.3.i, 1
   %46 = icmp ult i32 %45, %1
-  br i1 %46, label %.lr.ph.i11, label %td_isutf8.exit
+  br i1 %46, label %.lr.ph.i11, label %td_isutf8.exit, !llvm.loop !9
 
 td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
   %.138.i = phi i32 [ %.03256.i, %41 ], [ %.2.i, %.loopexit.i ]
@@ -129,7 +129,7 @@ td_isutf8.exit.thread:                            ; preds = %34, %19, %15, %td_i
   br i1 %48, label %select.unfold, label %td_isutf8.exit.thread.thread22
 
 td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit.thread
-  %49 = load i8, ptr %0, align 1, !tbaa !3
+  %49 = load i8, ptr %0, align 1, !tbaa !5
   switch i8 %49, label %.thread [
     i8 -1, label %50
     i8 -2, label %54
@@ -137,13 +137,13 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 
 50:                                               ; preds = %td_isutf8.exit.thread.thread22
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !3
+  %52 = load i8, ptr %51, align 1, !tbaa !5
   %53 = icmp eq i8 %52, -2
   br i1 %53, label %.thread59.i, label %.thread
 
 54:                                               ; preds = %td_isutf8.exit.thread.thread22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %56 = load i8, ptr %55, align 1, !tbaa !3
+  %56 = load i8, ptr %55, align 1, !tbaa !5
   %57 = icmp eq i8 %56, -1
   br i1 %57, label %58, label %.thread
 
@@ -165,11 +165,11 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %.03143.us.i = phi i32 [ %82, %81 ], [ 2, %.thread59.i ]
   %63 = zext i32 %.03143.us.i to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !3
+  %65 = load i8, ptr %64, align 1, !tbaa !5
   %66 = zext i8 %65 to i32
   %67 = zext i32 %62 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !3
+  %69 = load i8, ptr %68, align 1, !tbaa !5
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
   %72 = or disjoint i32 %71, %66
@@ -183,7 +183,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 76:                                               ; preds = %74
   %77 = zext nneg i32 %72 to i64
   %78 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !3
+  %79 = load i8, ptr %78, align 1, !tbaa !5
   %.not39.us.i = icmp ne i8 %79, 1
   %80 = zext i1 %.not39.us.i to i32
   %spec.select.i = add i32 %.02844.us.i, %80
@@ -194,7 +194,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %82 = add i32 %.03143.us.i, 2
   %83 = or disjoint i32 %82, 1
   %84 = icmp ult i32 %83, %1
-  br i1 %84, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !6
+  br i1 %84, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !10
 
 .lr.ph.split.split.us.i:                          ; preds = %58, %104
   %85 = phi i32 [ %106, %104 ], [ 3, %58 ]
@@ -202,11 +202,11 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %.03143.us48.i = phi i32 [ %105, %104 ], [ 2, %58 ]
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !3
+  %88 = load i8, ptr %87, align 1, !tbaa !5
   %89 = zext i8 %88 to i32
   %90 = zext i32 %.03143.us48.i to i64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !3
+  %92 = load i8, ptr %91, align 1, !tbaa !5
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 8
   %95 = or disjoint i32 %94, %89
@@ -220,7 +220,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 99:                                               ; preds = %97
   %100 = zext nneg i32 %95 to i64
   %101 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !3
+  %102 = load i8, ptr %101, align 1, !tbaa !5
   %.not39.us49.i = icmp ne i8 %102, 1
   %103 = zext i1 %.not39.us49.i to i32
   %spec.select77.i = add i32 %.02844.us47.i, %103
@@ -231,18 +231,18 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %105 = add i32 %.03143.us48.i, 2
   %106 = or disjoint i32 %105, 1
   %107 = icmp ult i32 %106, %1
-  br i1 %107, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %107, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !12
 
 .lr.ph.split.split.i:                             ; preds = %.thread, %126
   %108 = phi i32 [ %128, %126 ], [ 3, %.thread ]
   %.03143.i = phi i32 [ %127, %126 ], [ 2, %.thread ]
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !3
+  %111 = load i8, ptr %110, align 1, !tbaa !5
   %112 = zext i8 %111 to i32
   %113 = zext i32 %.03143.i to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !3
+  %115 = load i8, ptr %114, align 1, !tbaa !5
   %116 = zext i8 %115 to i32
   %117 = shl nuw nsw i32 %116, 8
   %118 = or disjoint i32 %117, %112
@@ -256,7 +256,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 122:                                              ; preds = %120
   %123 = zext nneg i32 %118 to i64
   %124 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !3
+  %125 = load i8, ptr %124, align 1, !tbaa !5
   %.not39.i = icmp eq i8 %125, 1
   br i1 %.not39.i, label %126, label %select.unfold
 
@@ -264,7 +264,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %127 = add i32 %.03143.i, 2
   %128 = or disjoint i32 %127, 1
   %129 = icmp ult i32 %128, %1
-  br i1 %129, label %.lr.ph.split.split.i, label %td_isutf16.exit
+  br i1 %129, label %.lr.ph.split.split.i, label %td_isutf16.exit, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %104, %81, %.thread59.i, %58
   %.03364.i = phi i32 [ 2, %58 ], [ 1, %.thread59.i ], [ 1, %81 ], [ 2, %104 ]
@@ -301,9 +301,14 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"omnipotent char", !5, i64 0}
-!5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !4, !11}
+!13 = distinct !{!13, !4}

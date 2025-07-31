@@ -119,7 +119,7 @@ select.unfold29.us:                               ; preds = %29, %22
 select.unfold29.us80:                             ; preds = %51, %46
   %54 = add nuw i64 %.02544.us78, 1
   %exitcond157.not = icmp eq i64 %54, %9
-  br i1 %exitcond157.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !24
+  br i1 %exitcond157.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %14, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -154,7 +154,7 @@ select.unfold29.us80:                             ; preds = %51, %46
 select.unfold29.us95:                             ; preds = %65, %67
   %70 = add nuw i64 %.02544.us93, 1
   %exitcond156.not = icmp eq i64 %70, %9
-  br i1 %exitcond156.not, label %select.unfold, label %.lr.ph.split.split.split.us, !llvm.loop !25
+  br i1 %exitcond156.not, label %select.unfold, label %.lr.ph.split.split.split.us, !llvm.loop !26
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold29
   %.02544 = phi i64 [ %82, %select.unfold29 ], [ 0, %.lr.ph.split.split ]
@@ -179,7 +179,7 @@ select.unfold29.us95:                             ; preds = %65, %67
 select.unfold29:                                  ; preds = %77
   %82 = add nuw i64 %.02544, 1
   %exitcond.not = icmp eq i64 %82, %9
-  br i1 %exitcond.not, label %select.unfold, label %.lr.ph.split.split.split.split, !llvm.loop !26
+  br i1 %exitcond.not, label %select.unfold, label %.lr.ph.split.split.split.split, !llvm.loop !27
 
 select.unfold:                                    ; preds = %select.unfold29, %77, %select.unfold29.us95, %67, %61, %select.unfold29.us80, %46, %48, %40, %51, %select.unfold29.us, %25, %29
   %.025.lcssa = phi i64 [ %.02544.us, %29 ], [ %.02544.us, %25 ], [ %9, %select.unfold29.us ], [ %.02544.us78, %51 ], [ %.02544.us78, %40 ], [ %.02544.us78, %48 ], [ %.02544.us78, %46 ], [ %9, %select.unfold29.us80 ], [ %9, %select.unfold29.us95 ], [ %.02544.us93, %67 ], [ %.02544.us93, %61 ], [ %.02544, %77 ], [ %9, %select.unfold29 ]
@@ -189,7 +189,7 @@ select.unfold:                                    ; preds = %select.unfold29, %7
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %select.unfold
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !28
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str, i64 noundef %84, i64 noundef 16) #8
   tail call fastcc void @graphviz_exit() #9
   unreachable
@@ -214,7 +214,7 @@ select.unfold:                                    ; preds = %select.unfold29, %7
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %94
-  %101 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !28
   %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.1, i64 noundef range(i64 0, -15) %95) #8
   tail call fastcc void @graphviz_exit() #9
   unreachable
@@ -311,11 +311,12 @@ attributes #12 = { cold noreturn nounwind }
 !18 = !{!"", !11, i64 0, !11, i64 16, !13, i64 32, !19, i64 40, !13, i64 48}
 !19 = !{!"p1 _ZTS8pointf_s", !8, i64 0}
 !20 = !{!15, !19, i64 104}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22, !23, !24}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !22, !23}
-!25 = distinct !{!25, !22, !23}
-!26 = distinct !{!26, !22}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !22, !23, !24}
+!26 = distinct !{!26, !22, !23, !24}
+!27 = distinct !{!27, !22, !23}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}

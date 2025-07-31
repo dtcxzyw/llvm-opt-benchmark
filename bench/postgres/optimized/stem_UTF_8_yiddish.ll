@@ -590,7 +590,7 @@ select.unfold189.i:                               ; preds = %select.unfold189.si
 .preheader.i31:                                   ; preds = %131, %.preheader.i31
   %134 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 1488, i32 noundef 1522, i32 noundef 0) #2
   %.not159.i = icmp eq i32 %134, 0
-  br i1 %.not159.i, label %.preheader.i31, label %135
+  br i1 %.not159.i, label %.preheader.i31, label %135, !llvm.loop !3
 
 135:                                              ; preds = %.preheader.i31
   %136 = load i32, ptr %2, align 8
@@ -1302,3 +1302,5 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

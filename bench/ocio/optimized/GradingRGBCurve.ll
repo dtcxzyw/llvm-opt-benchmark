@@ -694,7 +694,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %.ptr11 = getelementptr inbounds i8, ptr %0, i64 %.add9
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.ptr11) #21
   %225 = icmp eq i64 %.add9, 8
-  br i1 %225, label %226, label %224
+  br i1 %225, label %226, label %224, !llvm.loop !30
 
 226:                                              ; preds = %224
   resume { ptr, i32 } %.pn
@@ -711,7 +711,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev19GradingRGBCurveImplE, i64 16), ptr %0, align 8, !tbaa !10
   %.ptr13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr13, i8 0, i64 64, i1 false)
-  %10 = load ptr, ptr %1, align 8, !tbaa !30
+  %10 = load ptr, ptr %1, align 8, !tbaa !32
   %11 = icmp ne ptr %10, null
   %12 = load ptr, ptr %2, align 8
   %13 = icmp ne ptr %12, null
@@ -859,7 +859,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %73, %71
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit, %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
-  %77 = load ptr, ptr %2, align 8, !tbaa !30
+  %77 = load ptr, ptr %2, align 8, !tbaa !32
   %78 = load ptr, ptr %77, align 8, !tbaa !10
   %79 = load ptr, ptr %78, align 8
   invoke void %79(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %77)
@@ -974,7 +974,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27: ; preds = %126, %12
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit24, %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27, %129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  %130 = load ptr, ptr %3, align 8, !tbaa !30
+  %130 = load ptr, ptr %3, align 8, !tbaa !32
   %131 = load ptr, ptr %130, align 8, !tbaa !10
   %132 = load ptr, ptr %131, align 8
   invoke void %132(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %130)
@@ -1089,7 +1089,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37: ; preds = %179, %17
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit34, %167, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37, %182
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
-  %183 = load ptr, ptr %4, align 8, !tbaa !30
+  %183 = load ptr, ptr %4, align 8, !tbaa !32
   %184 = load ptr, ptr %183, align 8, !tbaa !10
   %185 = load ptr, ptr %184, align 8
   invoke void %185(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %183)
@@ -1239,7 +1239,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %.ptr18 = getelementptr inbounds i8, ptr %0, i64 %.add16
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.ptr18) #21
   %246 = icmp eq i64 %.add16, 8
-  br i1 %246, label %247, label %245
+  br i1 %246, label %247, label %245, !llvm.loop !34
 
 247:                                              ; preds = %245
   resume { ptr, i32 } %.pn
@@ -1266,7 +1266,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev19GradingRGBCurveImplE, i64 16), ptr %0, align 8, !tbaa !10
   %.ptr13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr13, i8 0, i64 64, i1 false)
-  %4 = load ptr, ptr %1, align 8, !tbaa !32
+  %4 = load ptr, ptr %1, align 8, !tbaa !35
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
 
@@ -1399,7 +1399,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !35
+  br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !38
 
 64:                                               ; preds = %10
   %65 = landingpad { ptr, i32 }
@@ -1416,7 +1416,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %.ptr17 = getelementptr inbounds i8, ptr %0, i64 %.add15
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.ptr17) #21
   %67 = icmp eq i64 %.add15, 8
-  br i1 %67, label %68, label %66
+  br i1 %67, label %68, label %66, !llvm.loop !40
 
 68:                                               ; preds = %66
   resume { ptr, i32 } %65
@@ -1431,24 +1431,24 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl18createEditab
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !37
+  %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !41
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %8, align 8, !tbaa !23, !noalias !37
+  store i32 1, ptr %8, align 8, !tbaa !23, !noalias !41
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %9, align 4, !tbaa !26, !noalias !37
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !10, !noalias !37
+  store i32 1, ptr %9, align 4, !tbaa !26, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !10, !noalias !41
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZSt10_ConstructIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EEvPT_DpOT0_(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %12 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !37
+          to label %12 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !41
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 88) #20, !noalias !37
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 88) #20, !noalias !41
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %2
-  store ptr %10, ptr %0, align 8, !tbaa !40
+  store ptr %10, ptr %0, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %13, align 8, !tbaa !21
   %14 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
@@ -1581,7 +1581,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
           to label %34 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %3, align 8, !tbaa !42
+  %35 = load ptr, ptr %3, align 8, !tbaa !46
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %35)
           to label %36 unwind label %42
 
@@ -1609,14 +1609,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %.0 = phi i1 [ false, %36 ], [ true, %34 ]
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %3, align 8, !tbaa !42
+  %44 = load ptr, ptr %3, align 8, !tbaa !46
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !47
+  %48 = load i64, ptr %47, align 8, !tbaa !51
   %49 = icmp ult i64 %48, 16
   call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
@@ -1648,7 +1648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42
 55:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !48
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !52
 
 56:                                               ; preds = %54, %12
   %.merged = phi { ptr, i32 } [ %13, %12 ], [ %.pn.pn.pn, %54 ]
@@ -1706,7 +1706,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #21
   %6 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr"], ptr %3, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !16
-  store ptr %7, ptr %2, align 8, !tbaa !30
+  store ptr %7, ptr %2, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   store ptr %9, ptr %4, align 8, !tbaa !21
@@ -1787,7 +1787,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp ne i64 %indvars.iv.next, 4
   %or.cond.not = select i1 %18, i1 %exitcond, i1 false
-  br i1 %or.cond.not, label %5, label %44, !llvm.loop !49
+  br i1 %or.cond.not, label %5, label %44, !llvm.loop !53
 
 42:                                               ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit
   %43 = landingpad { ptr, i32 }
@@ -1882,7 +1882,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8getCurveENS_1
   %11 = zext nneg i32 %2 to i64
   %12 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr"], ptr %10, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  store ptr %13, ptr %0, align 8, !tbaa !30
+  store ptr %13, ptr %0, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !21
@@ -1965,24 +1965,24 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2ERKS2_.exit: ; 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev15GradingRGBCurve6CreateENS_12GradingStyleE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.11") align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !50
+  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !54
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !23, !noalias !50
+  store i32 1, ptr %4, align 8, !tbaa !23, !noalias !54
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !26, !noalias !50
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !10, !noalias !50
+  store i32 1, ptr %5, align 4, !tbaa !26, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !10, !noalias !54
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %1)
-          to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !50
+          to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !54
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 88) #20, !noalias !50
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 88) #20, !noalias !54
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %2
-  store ptr %6, ptr %0, align 8, !tbaa !40
+  store ptr %6, ptr %0, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !21
   %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
@@ -2047,24 +2047,24 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingRGBCurveImplELN9__gnu_cxx12_L
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev15GradingRGBCurve6CreateERKSt10shared_ptrIKS0_E(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.11") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !53
+  %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !57
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !23, !noalias !53
+  store i32 1, ptr %4, align 8, !tbaa !23, !noalias !57
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !26, !noalias !53
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !10, !noalias !53
+  store i32 1, ptr %5, align 4, !tbaa !26, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !10, !noalias !57
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !53
+          to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !57
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 88) #20, !noalias !53
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 88) #20, !noalias !57
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %2
-  store ptr %6, ptr %0, align 8, !tbaa !40
+  store ptr %6, ptr %0, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !21
   %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
@@ -2129,24 +2129,24 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingRGBCurveImplELN9__gnu_cxx12_L
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev15GradingRGBCurve6CreateERKSt10shared_ptrIKNS_19GradingBSplineCurveEES6_S6_S6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.11") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !56
+  %6 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23, !noalias !60
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %7, align 8, !tbaa !23, !noalias !56
+  store i32 1, ptr %7, align 8, !tbaa !23, !noalias !60
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 1, ptr %8, align 4, !tbaa !26, !noalias !56
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !10, !noalias !56
+  store i32 1, ptr %8, align 4, !tbaa !26, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !10, !noalias !60
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_19GradingBSplineCurveEES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !56
+          to label %11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !60
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 88) #20, !noalias !56
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 88) #20, !noalias !60
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !tbaa !40
+  store ptr %9, ptr %0, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %12, align 8, !tbaa !21
   %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
@@ -2224,7 +2224,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.5") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %14 = load ptr, ptr %3, align 8, !tbaa !30
+  %14 = load ptr, ptr %3, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   %15 = load ptr, ptr %1, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -2233,7 +2233,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %18 unwind label %247
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8, !tbaa !30
+  %19 = load ptr, ptr %4, align 8, !tbaa !32
   %20 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %21 unwind label %249
 
@@ -2249,7 +2249,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %26 unwind label %251
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8, !tbaa !30
+  %27 = load ptr, ptr %5, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   %28 = load ptr, ptr %1, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -2258,7 +2258,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %31 unwind label %253
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %6, align 8, !tbaa !30
+  %32 = load ptr, ptr %6, align 8, !tbaa !32
   %33 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %34 unwind label %255
 
@@ -2274,7 +2274,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %39 unwind label %257
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr %7, align 8, !tbaa !30
+  %40 = load ptr, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
   %41 = load ptr, ptr %1, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -2283,7 +2283,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %44 unwind label %259
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %8, align 8, !tbaa !30
+  %45 = load ptr, ptr %8, align 8, !tbaa !32
   %46 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %45)
           to label %47 unwind label %261
 
@@ -2299,7 +2299,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %52 unwind label %263
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %9, align 8, !tbaa !30
+  %53 = load ptr, ptr %9, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
   %54 = load ptr, ptr %1, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -2308,7 +2308,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %57 unwind label %265
 
 57:                                               ; preds = %52
-  %58 = load ptr, ptr %10, align 8, !tbaa !30
+  %58 = load ptr, ptr %10, align 8, !tbaa !32
   %59 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %.critedge unwind label %267
 
@@ -2916,7 +2916,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
   %25 = icmp eq i64 %.add, 8
-  br i1 %25, label %26, label %2
+  br i1 %25, label %26, label %2, !llvm.loop !63
 
 26:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ret void
@@ -2982,7 +2982,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %9, %2
   %25 = icmp eq i64 %.add.i, 8
-  br i1 %25, label %_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplD2Ev.exit, label %2
+  br i1 %25, label %_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplD2Ev.exit, label %2, !llvm.loop !63
 
 _ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplD2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #20
@@ -3123,7 +3123,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3154,7 +3154,7 @@ define linkonce_odr hidden void @_ZSt10_ConstructIN19OpenColorIO_v2_5dev19Gradin
   %9 = alloca %"class.std::shared_ptr.5", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   %10 = load ptr, ptr %1, align 8, !tbaa !16
-  store ptr %10, ptr %6, align 8, !tbaa !30
+  store ptr %10, ptr %6, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !21
@@ -3181,7 +3181,7 @@ define linkonce_odr hidden void @_ZSt10_ConstructIN19OpenColorIO_v2_5dev19Gradin
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit: ; preds = %5, %17, %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
   %22 = load ptr, ptr %2, align 8, !tbaa !16
-  store ptr %22, ptr %7, align 8, !tbaa !30
+  store ptr %22, ptr %7, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !21
@@ -3208,7 +3208,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit8: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit, %29, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
   %34 = load ptr, ptr %3, align 8, !tbaa !16
-  store ptr %34, ptr %8, align 8, !tbaa !30
+  store ptr %34, ptr %8, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !21
@@ -3235,7 +3235,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit11: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit8, %41, %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
   %46 = load ptr, ptr %4, align 8, !tbaa !16
-  store ptr %46, ptr %9, align 8, !tbaa !30
+  store ptr %46, ptr %9, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !21
@@ -3503,7 +3503,7 @@ define internal void @_GLOBAL__sub_I_GradingRGBCurve.cpp() #17 section ".text.st
   store float 1.000000e+00, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, i64 8), align 8, !tbaa !61
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, i64 8), align 8, !tbaa !66
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, ptr nonnull @__dso_handle) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i8 0, i64 24, i1 false)
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -3521,7 +3521,7 @@ define internal void @_GLOBAL__sub_I_GradingRGBCurve.cpp() #17 section ".text.st
   store float 7.000000e+00, ptr %.sroa.8.0..sroa_idx.i4, align 4
   %.sroa.9.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 7.000000e+00, ptr %.sroa.9.0..sroa_idx.i5, align 4
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i64 8), align 8, !tbaa !61
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i64 8), align 8, !tbaa !66
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, ptr nonnull @__dso_handle) #21
   tail call void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImplC1ERKSt6vectorINS_19GradingControlPointESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImpl7DefaultE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImplD2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImpl7DefaultE, ptr nonnull @__dso_handle) #21
@@ -3594,35 +3594,40 @@ attributes #24 = { noreturn nounwind }
 !27 = !{!7, !7, i64 0}
 !28 = !{!25, !25, i64 0}
 !29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!30 = !{!31, !18, i64 0}
-!31 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EE", !34, i64 0, !19, i64 8}
-!34 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15GradingRGBCurveE", !6, i64 0}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
-!39 = distinct !{!39, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
-!40 = !{!41, !34, i64 0}
-!41 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EE", !34, i64 0, !19, i64 8}
-!42 = !{!43, !45, i64 0}
-!43 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !44, i64 0, !46, i64 8, !7, i64 16}
-!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !45, i64 0}
-!45 = !{!"p1 omnipotent char", !6, i64 0}
-!46 = !{!"long", !7, i64 0}
-!47 = !{!43, !46, i64 8}
-!48 = distinct !{!48, !36}
-!49 = distinct !{!49, !36}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRNS0_12GradingStyleEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
-!52 = distinct !{!52, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRNS0_12GradingStyleEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
-!55 = distinct !{!55, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
-!58 = distinct !{!58, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!59 = !{!60, !45, i64 8}
-!60 = !{!"_ZTSSt9type_info", !45, i64 8}
-!61 = !{!4, !5, i64 8}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !18, i64 0}
+!33 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0, !19, i64 8}
+!34 = distinct !{!34, !31}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0, !19, i64 8}
+!37 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15GradingRGBCurveE", !6, i64 0}
+!38 = distinct !{!38, !39, !31}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = distinct !{!40, !31}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!44 = !{!45, !37, i64 0}
+!45 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0, !19, i64 8}
+!46 = !{!47, !49, i64 0}
+!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !48, i64 0, !50, i64 8, !7, i64 16}
+!48 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !49, i64 0}
+!49 = !{!"p1 omnipotent char", !6, i64 0}
+!50 = !{!"long", !7, i64 0}
+!51 = !{!47, !50, i64 8}
+!52 = distinct !{!52, !39, !31}
+!53 = distinct !{!53, !39, !31}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRNS0_12GradingStyleEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
+!56 = distinct !{!56, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRNS0_12GradingStyleEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!59 = distinct !{!59, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_15GradingRGBCurveEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!62 = distinct !{!62, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!63 = distinct !{!63, !31}
+!64 = !{!65, !49, i64 8}
+!65 = !{!"_ZTSSt9type_info", !49, i64 8}
+!66 = !{!4, !5, i64 8}

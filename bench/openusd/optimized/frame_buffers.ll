@@ -125,7 +125,7 @@ define hidden void @av1_zero_unused_internal_frame_buffers(ptr noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %5, label %._crit_edge, !llvm.loop !6
+  br i1 %19, label %5, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -160,7 +160,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly ca
 12:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %9, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.thread, label %9, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -257,7 +257,8 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

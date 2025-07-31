@@ -507,7 +507,7 @@ mpeg_resync.exit:                                 ; preds = %101, %.critedge.i
   %.1 = add i32 %.025.pn, %.031
   %108 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %109 = icmp sgt i32 %108, 3
-  br i1 %109, label %16, label %._crit_edge, !llvm.loop !8
+  br i1 %109, label %16, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %107, %4
   %110 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -793,6 +793,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

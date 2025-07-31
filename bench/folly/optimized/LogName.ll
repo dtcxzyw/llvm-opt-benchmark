@@ -66,7 +66,7 @@ define void @_ZN5folly7LogName12canonicalizeB5cxx11ENS_5RangeIPKcEE(ptr dead_on_
 20:                                               ; preds = %17
   %21 = load i64, ptr %5, align 8, !tbaa !13
   %22 = add i64 %21, 1
-  %23 = load ptr, ptr %0, align 8, !tbaa !19
+  %23 = load ptr, ptr %0, align 8, !tbaa !20
   %24 = icmp eq ptr %23, %4
   br i1 %24, label %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -86,7 +86,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %30
-  %.pre.i = load ptr, ptr %0, align 8, !tbaa !19
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %.noexc
@@ -98,7 +98,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 33:                                               ; preds = %.lr.ph33
   %34 = load i64, ptr %5, align 8, !tbaa !13
   %35 = add i64 %34, 1
-  %36 = load ptr, ptr %0, align 8, !tbaa !19
+  %36 = load ptr, ptr %0, align 8, !tbaa !20
   %37 = icmp eq ptr %36, %4
   br i1 %37, label %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i18
 
@@ -118,7 +118,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i18: ; pr
           to label %.noexc20 unwind label %18
 
 .noexc20:                                         ; preds = %43
-  %.pre.i19 = load ptr, ptr %0, align 8, !tbaa !19
+  %.pre.i19 = load ptr, ptr %0, align 8, !tbaa !20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i18, %.noexc20
@@ -131,7 +131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21: ; pred
   %.sink = phi i64 [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21 ], [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   %.1.ph = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   store i64 %.sink, ptr %5, align 8, !tbaa !13
-  %46 = load ptr, ptr %0, align 8, !tbaa !19
+  %46 = load ptr, ptr %0, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink
   store i8 0, ptr %47, align 1, !tbaa !16
   br label %48
@@ -140,14 +140,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit21: ; pred
   %.1 = phi i1 [ true, %17 ], [ %.1.ph, %.sink.split ]
   %49 = add nuw i64 %.032, 1
   %exitcond.not = icmp eq i64 %49, %.01228
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %12, %48, %.preheader
   ret void
 
 50:                                               ; preds = %18, %13
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
-  %51 = load ptr, ptr %0, align 8, !tbaa !19
+  %51 = load ptr, ptr %0, align 8, !tbaa !20
   %52 = icmp eq ptr %51, %4
   br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -197,7 +197,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5folly7LogName4hashENS_5RangeIPK
 
 9:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %19
   %10 = zext i32 %.117 to i64
@@ -238,7 +238,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5folly7LogName4hashENS_5RangeIPK
   %.1 = phi i1 [ %.2, %16 ], [ true, %13 ]
   %20 = add nuw i64 %.01329, 1
   %exitcond.not = icmp eq i64 %20, %.01524
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -268,7 +268,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
 
 12:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %13 = icmp eq ptr %0, %10
-  br i1 %13, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", label %.lr.ph.i, !llvm.loop !23
+  br i1 %13, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit", label %.lr.ph.i, !llvm.loop !24
 
 "_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit.loopexit": ; preds = %12, %.lr.ph.i
   %.sroa.10.1.ph = phi ptr [ %.sroa.10.0, %.lr.ph.i ], [ %scevgep, %12 ]
@@ -298,7 +298,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
 
 18:                                               ; preds = %.lr.ph.i4, %.lr.ph.i4, %.lr.ph.i4
   %19 = icmp eq ptr %2, %16
-  br i1 %19, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit", label %.lr.ph.i4, !llvm.loop !23
+  br i1 %19, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit", label %.lr.ph.i4, !llvm.loop !24
 
 "_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit": ; preds = %18, %.lr.ph.i4
   %.sroa.12.1.ph = phi ptr [ %.sroa.12.0, %.lr.ph.i4 ], [ %scevgep52, %18 ]
@@ -339,7 +339,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
 23:                                               ; preds = %.lr.ph.i7, %.lr.ph.i7, %.lr.ph.i7
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.024.2, i64 1
   %25 = icmp eq ptr %24, %.sroa.10.1
-  br i1 %25, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit", label %.lr.ph.i7, !llvm.loop !24
+  br i1 %25, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit", label %.lr.ph.i7, !llvm.loop !25
 
 "_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit.loopexit": ; preds = %23, %.lr.ph.i7
   %.sroa.024.3.ph = phi ptr [ %.sroa.024.2, %.lr.ph.i7 ], [ %scevgep56, %23 ]
@@ -370,7 +370,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
 29:                                               ; preds = %.lr.ph.i9, %.lr.ph.i9, %.lr.ph.i9
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.2, i64 1
   %31 = icmp eq ptr %30, %.sroa.12.1
-  br i1 %31, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9, !llvm.loop !24
+  br i1 %31, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10", label %.lr.ph.i9, !llvm.loop !25
 
 "_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10": ; preds = %.lr.ph.i9, %29, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit"
   %.sroa.014.3 = phi ptr [ %.sroa.014.0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit" ], [ %scevgep60, %29 ], [ %.sroa.014.2, %.lr.ph.i9 ]
@@ -464,7 +464,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !26
 
 .critedge.preheader:                              ; preds = %10, %.lr.ph
   %.1.ph = phi i64 [ %.028, %.lr.ph ], [ 0, %10 ]
@@ -483,7 +483,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
     i8 92, label %.lr.ph33.preheader
     i8 47, label %.lr.ph33.preheader
     i8 46, label %.lr.ph33.preheader
-  ], !llvm.loop !26
+  ], !llvm.loop !27
 
 .lr.ph33.preheader:                               ; preds = %11, %11, %11
   br label %.lr.ph33
@@ -501,7 +501,7 @@ define { ptr, ptr } @_ZN5folly7LogName9getParentENS_5RangeIPKcEE(ptr %0, ptr %1)
 
 18:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33
   %.not15 = icmp eq i64 %15, 0
-  br i1 %.not15, label %.critedge4, label %.lr.ph33, !llvm.loop !27
+  br i1 %.not15, label %.critedge4, label %.lr.ph33, !llvm.loop !28
 
 .critedge4:                                       ; preds = %.critedge, %18, %.lr.ph33
   %.2.lcssa = phi i64 [ %.232, %.lr.ph33 ], [ 0, %18 ], [ 0, %.critedge ]
@@ -544,14 +544,15 @@ attributes #5 = { builtin nounwind }
 !14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !8, i64 0, !15, i64 8, !11, i64 16}
 !15 = !{!"long", !11, i64 0}
 !16 = !{!11, !11, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!14, !9, i64 0}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!14, !9, i64 0}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}

@@ -201,7 +201,7 @@ define internal zeroext i1 @V4L2_OpenDevice(ptr noundef %0, ptr noundef readonly
   %47 = tail call ptr @__errno_location() #12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.preheader, label %50, !llvm.loop !5
+  br i1 %49, label %.preheader, label %50, !llvm.loop !6
 
 50:                                               ; preds = %46
   %51 = call i32 @close(i32 noundef %17) #11
@@ -262,7 +262,7 @@ xioctl.exit:                                      ; preds = %.preheader
   %78 = tail call ptr @__errno_location() #12
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 4
-  br i1 %80, label %75, label %xioctl.exit87.thread, !llvm.loop !5
+  br i1 %80, label %75, label %xioctl.exit87.thread, !llvm.loop !6
 
 81:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #11
@@ -304,7 +304,7 @@ xioctl.exit87.thread:                             ; preds = %75, %77, %81
   %97 = tail call ptr @__errno_location() #12
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %93, label %100, !llvm.loop !5
+  br i1 %99, label %93, label %100, !llvm.loop !6
 
 100:                                              ; preds = %96
   %101 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.11) #11
@@ -573,7 +573,7 @@ define internal void @V4L2_CloseDevice(ptr noundef captures(address_is_null) %0)
   %16 = tail call ptr @__errno_location() #12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %xioctl.exit, !llvm.loop !5
+  br i1 %18, label %12, label %xioctl.exit, !llvm.loop !6
 
 xioctl.exit:                                      ; preds = %12, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
@@ -636,7 +636,7 @@ xioctl.exit:                                      ; preds = %12, %15
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph39 ], [ 0, %.preheader ]
@@ -652,7 +652,7 @@ xioctl.exit:                                      ; preds = %12, %15
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next43, %57
-  br i1 %58, label %.lr.ph39, label %.loopexit, !llvm.loop !7
+  br i1 %58, label %.lr.ph39, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %43, %.lr.ph39, %.preheader35, %.preheader, %30, %23
   %59 = phi ptr [ %20, %.preheader35 ], [ %20, %.preheader ], [ %.pre45, %30 ], [ %20, %23 ], [ %54, %.lr.ph39 ], [ %44, %43 ]
@@ -733,7 +733,7 @@ define internal zeroext i1 @V4L2_WaitDevice(ptr noundef %0) #1 {
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #11
   %28 = or i32 %27, %.015
   %or.cond = icmp eq i32 %28, 0
-  br i1 %or.cond, label %16, label %.loopexit, !llvm.loop !8
+  br i1 %or.cond, label %16, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.thread
   %.not.le = icmp ne i32 %27, 0
@@ -937,7 +937,7 @@ xioctl.exit58.preheader:                          ; preds = %84
 xioctl.exit58:                                    ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %xioctl.exit58._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %xioctl.exit58._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr.ph, %xioctl.exit58.preheader
   %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22) #11
@@ -1010,7 +1010,7 @@ define internal void @V4L2_ReleaseFrame(ptr noundef readonly captures(none) %0, 
 20:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %xioctl.exit.thread, label %16, !llvm.loop !10
+  br i1 %exitcond.not, label %xioctl.exit.thread, label %16, !llvm.loop !11
 
 21:                                               ; preds = %16
   %22 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1038,7 +1038,7 @@ define internal void @V4L2_ReleaseFrame(ptr noundef readonly captures(none) %0, 
   %31 = tail call ptr @__errno_location() #12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 4
-  br i1 %33, label %27, label %xioctl.exit.thread, !llvm.loop !5
+  br i1 %33, label %27, label %xioctl.exit.thread, !llvm.loop !6
 
 xioctl.exit:                                      ; preds = %27
   %34 = load ptr, ptr %4, align 8
@@ -1077,7 +1077,7 @@ xioctl.exit:                                      ; preds = %27
   %54 = tail call ptr @__errno_location() #12
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 4
-  br i1 %56, label %50, label %xioctl.exit.thread, !llvm.loop !5
+  br i1 %56, label %50, label %xioctl.exit.thread, !llvm.loop !6
 
 xioctl.exit21:                                    ; preds = %50
   %57 = load ptr, ptr %4, align 8
@@ -1264,7 +1264,7 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
   %53 = load i32, ptr %5, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %5, align 4
-  br label %86, !llvm.loop !11
+  br label %86, !llvm.loop !12
 
 55:                                               ; preds = %52, %50
   %.sink6.i.ph = phi i32 [ 844715353, %50 ], [ 1196444237, %52 ]
@@ -1326,18 +1326,18 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
 80:                                               ; preds = %.lr.ph70
   %81 = add nsw i32 %.14469, %77
   %.not55 = icmp sgt i32 %81, %75
-  br i1 %.not55, label %._crit_edge, label %.lr.ph70, !llvm.loop !12
+  br i1 %.not55, label %._crit_edge, label %.lr.ph70, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %80, %.lr.ph70, %.preheader
   %.144.lcssa = phi i32 [ %.04374, %.preheader ], [ %.14469, %.lr.ph70 ], [ %81, %80 ]
   %82 = add nsw i32 %.144.lcssa, %76
   %.not54 = icmp sgt i32 %82, %74
-  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !14
 
 83:                                               ; preds = %.thread, %69
   %84 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 3224131146, ptr noundef nonnull %6) #11
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %83, %62, %._crit_edge, %55, %71
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #11
@@ -1346,7 +1346,7 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
 86:                                               ; preds = %format_v4l2_to_sdl.exit, %.loopexit
   %87 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 3225441794, ptr noundef nonnull %5) #11
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %50, label %._crit_edge77
+  br i1 %88, label %50, label %._crit_edge77, !llvm.loop !16
 
 ._crit_edge77:                                    ; preds = %86, %37
   %89 = call i32 @close(i32 noundef %7) #11
@@ -1527,12 +1527,12 @@ define internal fastcc noundef zeroext i1 @AddCameraFormat(i32 noundef range(i32
   %42 = add nsw i32 %41, %.041
   %43 = load i32, ptr %31, align 4
   %.not = icmp sgt i32 %42, %43
-  br i1 %.not, label %.critedge, label %36, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %36, !llvm.loop !17
 
 44:                                               ; preds = %24, %27
   %45 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 3224655435, ptr noundef nonnull %8) #11
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %17, label %.critedge, !llvm.loop !16
+  br i1 %46, label %17, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %20, %44, %36, %38, %7, %29
   %.2 = phi i1 [ true, %29 ], [ true, %7 ], [ %37, %38 ], [ %37, %36 ], [ false, %20 ], [ true, %44 ]
@@ -1573,7 +1573,7 @@ define internal fastcc i32 @xioctl(i32 noundef %0, i32 noundef range(i32 -214064
   %9 = tail call ptr @__errno_location() #12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !5
+  br i1 %11, label %5, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %5, %8
   ret i32 %6
@@ -1643,7 +1643,7 @@ define internal fastcc zeroext i1 @AllocBufferMmap(ptr noundef readonly captures
   %20 = tail call ptr @__errno_location() #12
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %16, label %.thread, !llvm.loop !5
+  br i1 %22, label %16, label %.thread, !llvm.loop !6
 
 xioctl.exit:                                      ; preds = %16
   %23 = load i32, ptr %11, align 8
@@ -1684,7 +1684,7 @@ xioctl.exit:                                      ; preds = %16
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %14, label %.loopexit, !llvm.loop !17
+  br i1 %49, label %14, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %45, %1, %.thread
   %.2 = phi i1 [ %44, %.thread ], [ true, %1 ], [ true, %45 ]
@@ -1711,7 +1711,7 @@ define internal fastcc noundef zeroext i1 @AllocBufferUserPtr(ptr noundef readon
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not15 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %.not15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %.not15, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %12 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %21, %8 ]
@@ -1805,7 +1805,7 @@ define internal fastcc zeroext i1 @EnqueueBuffers(ptr noundef readonly captures(
   %34 = tail call ptr @__errno_location() #12
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 4
-  br i1 %36, label %30, label %42, !llvm.loop !5
+  br i1 %36, label %30, label %42, !llvm.loop !6
 
 xioctl.exit:                                      ; preds = %30
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #11
@@ -1819,7 +1819,7 @@ xioctl.exit:                                      ; preds = %30
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %.not34 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %.not34, label %21, label %.thread, !llvm.loop !19
+  br i1 %.not34, label %21, label %.thread, !llvm.loop !21
 
 42:                                               ; preds = %33
   %43 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
@@ -1864,7 +1864,7 @@ xioctl.exit:                                      ; preds = %30
   %65 = tail call ptr @__errno_location() #12
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 4
-  br i1 %67, label %61, label %73, !llvm.loop !5
+  br i1 %67, label %61, label %73, !llvm.loop !6
 
 xioctl.exit37:                                    ; preds = %61
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #11
@@ -1878,7 +1878,7 @@ xioctl.exit37:                                    ; preds = %61
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %.not36 = icmp slt i64 %indvars.iv.next55, %72
-  br i1 %.not36, label %44, label %.thread, !llvm.loop !20
+  br i1 %.not36, label %44, label %.thread, !llvm.loop !22
 
 73:                                               ; preds = %64
   %74 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
@@ -1931,21 +1931,23 @@ attributes #13 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}

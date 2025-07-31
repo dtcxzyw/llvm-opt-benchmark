@@ -698,7 +698,7 @@ define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef 
   %57 = getelementptr i8, ptr %.13439.i.i, i64 1
   %.1.i.i = getelementptr i8, ptr %.141.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %.040.i.i, %umin.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %50, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %50, !llvm.loop !9
 
 unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loopexit.i.i, %31
   %58 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %41, i32 noundef %spec.select.i.i, i32 noundef %spec.select.i.i)
@@ -786,7 +786,7 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   %95 = add i32 %88, %.1160.i
   %96 = add nsw i16 %.0146159.i, -1
   %.not152.i = icmp eq i16 %96, 0
-  br i1 %.not152.i, label %.critedge.i, label %.lr.ph161.i, !llvm.loop !9
+  br i1 %.not152.i, label %.critedge.i, label %.lr.ph161.i, !llvm.loop !10
 
 97:                                               ; preds = %unpack_digitech_message.exit.i
   %98 = load i32, ptr @hf_digitech_preset_bank, align 4
@@ -828,7 +828,7 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   %124 = tail call fastcc i32 @dissect_digitech_parameter(ptr noundef %58, ptr noundef %11, ptr noundef %.0.i49, i32 noundef %.2157.i)
   %125 = add i16 %.1147156.i, -1
   %.not.i = icmp eq i16 %125, 0
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !11
 
 126:                                              ; preds = %unpack_digitech_message.exit.i
   %127 = tail call fastcc i32 @dissect_digitech_parameter(ptr noundef %58, ptr noundef %11, ptr noundef %.0.i49, i32 noundef 0)
@@ -870,7 +870,7 @@ dissect_digitech_procedure.exit:                  ; preds = %28, %.critedge.i, %
   %144 = xor i8 %143, %.04752
   %145 = add nuw nsw i32 %.054, 1
   %exitcond.not = icmp eq i32 %145, %139
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %146 = zext i8 %144 to i32
@@ -1053,9 +1053,10 @@ attributes #4 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

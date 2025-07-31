@@ -933,7 +933,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 333:                                              ; preds = %.preheader501
   %334 = call noalias ptr @H5T__get_member_name(ptr noundef nonnull %0, i32 noundef %326) #8
   %335 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv530
-  store ptr %334, ptr %335, align 8, !tbaa !31
+  store ptr %334, ptr %335, align 8, !tbaa !32
   %336 = icmp eq ptr %334, null
   br i1 %336, label %337, label %341
 
@@ -947,7 +947,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   %342 = getelementptr inbounds nuw i64, ptr %312, i64 %indvars.iv530
   %343 = call fastcc ptr @H5T__get_native_type(ptr noundef %327, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %342, ptr noundef %6)
   %344 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv530
-  store ptr %343, ptr %344, align 8, !tbaa !33
+  store ptr %343, ptr %344, align 8, !tbaa !34
   %345 = icmp eq ptr %343, null
   br i1 %345, label %346, label %350
 
@@ -1000,16 +1000,16 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 372:                                              ; preds = %.preheader500
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
   %exitcond539.not = icmp eq i64 %indvars.iv.next536, %303
-  br i1 %exitcond539.not, label %385, label %.preheader500, !llvm.loop !34
+  br i1 %exitcond539.not, label %385, label %.preheader500, !llvm.loop !35
 
 .preheader500:                                    ; preds = %364, %372
   %indvars.iv535 = phi i64 [ %indvars.iv.next536, %372 ], [ 0, %364 ]
   %373 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv535
-  %374 = load ptr, ptr %373, align 8, !tbaa !31
+  %374 = load ptr, ptr %373, align 8, !tbaa !32
   %375 = getelementptr inbounds nuw i64, ptr %312, i64 %indvars.iv535
   %376 = load i64, ptr %375, align 8, !tbaa !3
   %377 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv535
-  %378 = load ptr, ptr %377, align 8, !tbaa !33
+  %378 = load ptr, ptr %377, align 8, !tbaa !34
   %379 = call i32 @H5T__insert(ptr noundef nonnull %366, ptr noundef %374, i64 noundef %376, ptr noundef %378) #8
   %380 = icmp slt i32 %379, 0
   br i1 %380, label %381, label %372
@@ -1027,7 +1027,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 386:                                              ; preds = %385, %395
   %indvars.iv540 = phi i64 [ 0, %385 ], [ %indvars.iv.next541, %395 ]
   %387 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv540
-  %388 = load ptr, ptr %387, align 8, !tbaa !33
+  %388 = load ptr, ptr %387, align 8, !tbaa !34
   %389 = call i32 @H5T_close_real(ptr noundef %388) #8
   %390 = icmp slt i32 %389, 0
   br i1 %390, label %391, label %395
@@ -1040,12 +1040,12 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 395:                                              ; preds = %386
   %396 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv540
-  %397 = load ptr, ptr %396, align 8, !tbaa !31
+  %397 = load ptr, ptr %396, align 8, !tbaa !32
   %398 = call ptr @H5MM_xfree(ptr noundef %397) #8
-  store ptr %398, ptr %396, align 8, !tbaa !31
+  store ptr %398, ptr %396, align 8, !tbaa !32
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %exitcond544.not = icmp eq i64 %indvars.iv.next541, %303
-  br i1 %exitcond544.not, label %399, label %386, !llvm.loop !35
+  br i1 %exitcond544.not, label %399, label %386, !llvm.loop !36
 
 399:                                              ; preds = %395
   %400 = call ptr @H5MM_xfree(ptr noundef nonnull %305) #8
@@ -1194,7 +1194,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   %484 = tail call ptr @H5MM_xfree(ptr noundef nonnull %455) #8
   %485 = add nuw i32 %.3298513, 1
   %exitcond529.not = icmp eq i32 %485, %449
-  br i1 %exitcond529.not, label %486, label %.preheader502, !llvm.loop !36
+  br i1 %exitcond529.not, label %486, label %.preheader502, !llvm.loop !37
 
 486:                                              ; preds = %483
   %487 = tail call ptr @H5MM_xfree(ptr noundef nonnull %428) #8
@@ -1323,7 +1323,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   %562 = mul i64 %561, %.0512
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %510
-  br i1 %exitcond.not, label %563, label %.preheader503, !llvm.loop !37
+  br i1 %exitcond.not, label %563, label %.preheader503, !llvm.loop !38
 
 563:                                              ; preds = %.preheader503
   %564 = load i64, ptr %9, align 8, !tbaa !3
@@ -1473,7 +1473,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   %642 = getelementptr inbounds nuw i8, ptr %628, i64 40
   %643 = load ptr, ptr %642, align 8, !tbaa !14
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 16
-  %645 = load i64, ptr %644, align 8, !tbaa !38
+  %645 = load i64, ptr %644, align 8, !tbaa !39
   %646 = load i64, ptr %14, align 8, !tbaa !3
   call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef %645, i64 noundef 1, i64 noundef %646, ptr noundef %2)
   br label %647
@@ -1556,7 +1556,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %671
   %indvars.iv545 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next546, %671 ]
   %662 = getelementptr inbounds nuw ptr, ptr %.0305404435, i64 %indvars.iv545
-  %663 = load ptr, ptr %662, align 8, !tbaa !33
+  %663 = load ptr, ptr %662, align 8, !tbaa !34
   %.not377 = icmp eq ptr %663, null
   br i1 %.not377, label %671, label %664
 
@@ -1574,7 +1574,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 671:                                              ; preds = %.lr.ph, %664, %667
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next546, %wide.trip.count548
-  br i1 %exitcond549.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond549.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %671, %.preheader499
   %672 = call ptr @H5MM_xfree(ptr noundef nonnull %.0305404435) #8
@@ -1596,7 +1596,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 .lr.ph519:                                        ; preds = %.lr.ph519.preheader, %679
   %indvars.iv550 = phi i64 [ 0, %.lr.ph519.preheader ], [ %indvars.iv.next551, %679 ]
   %675 = getelementptr inbounds nuw ptr, ptr %.0316399440, i64 %indvars.iv550
-  %676 = load ptr, ptr %675, align 8, !tbaa !31
+  %676 = load ptr, ptr %675, align 8, !tbaa !32
   %.not376 = icmp eq ptr %676, null
   br i1 %.not376, label %679, label %677
 
@@ -1607,7 +1607,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 679:                                              ; preds = %.lr.ph519, %677
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
-  br i1 %exitcond554.not, label %._crit_edge520, label %.lr.ph519, !llvm.loop !40
+  br i1 %exitcond554.not, label %._crit_edge520, label %.lr.ph519, !llvm.loop !41
 
 ._crit_edge520:                                   ; preds = %679, %.preheader
   %680 = call ptr @H5MM_xfree(ptr noundef nonnull %.0316399440) #8
@@ -1647,13 +1647,13 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %.critedge32
   %.02934 = phi i64 [ 0, %0 ], [ %29, %.critedge32 ]
   %2 = getelementptr inbounds nuw [3 x %struct.native_int_table_t], ptr @H5T__init_native_internal.table_table, i64 0, i64 %.02934
-  %3 = load ptr, ptr %2, align 16, !tbaa !41
+  %3 = load ptr, ptr %2, align 16, !tbaa !42
   br label %6
 
 4:                                                ; preds = %9
   %5 = add nuw nsw i64 %.03033, 1
   %exitcond.not = icmp eq i64 %5, 12
-  br i1 %exitcond.not, label %.critedge32, label %6, !llvm.loop !43
+  br i1 %exitcond.not, label %.critedge32, label %6, !llvm.loop !44
 
 6:                                                ; preds = %1, %4
   %.03033 = phi i64 [ 0, %1 ], [ %5, %4 ]
@@ -1665,27 +1665,27 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 2, ptr %12, align 8, !tbaa !44
+  store i32 2, ptr %12, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 0, ptr %13, align 4, !tbaa !26
   %14 = getelementptr inbounds nuw %struct.native_int_t, ptr %3, i64 %.03033
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !45
+  %16 = load i64, ptr %15, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %16, ptr %17, align 8, !tbaa !38
+  store i64 %16, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 88, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 88, i1 false), !tbaa.struct !50
   %20 = load ptr, ptr %10, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 0, ptr %21, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !51
-  %24 = load ptr, ptr %14, align 8, !tbaa !52
+  %23 = load i64, ptr %22, align 8, !tbaa !52
+  %24 = load ptr, ptr %14, align 8, !tbaa !53
   store i64 %23, ptr %24, align 8, !tbaa !3
   %25 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext false) #8
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !53
+  %27 = load ptr, ptr %26, align 8, !tbaa !54
   store i64 %25, ptr %27, align 8, !tbaa !3
   %28 = icmp sgt i64 %25, -1
   br i1 %28, label %4, label %.critedge
@@ -1693,7 +1693,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
 .critedge32:                                      ; preds = %4
   %29 = add nuw nsw i64 %.02934, 1
   %exitcond35.not = icmp eq i64 %29, 3
-  br i1 %exitcond35.not, label %30, label %1, !llvm.loop !54
+  br i1 %exitcond35.not, label %30, label %1, !llvm.loop !55
 
 30:                                               ; preds = %.critedge32
   store i64 8, ptr @H5T_POINTER_ALIGN_g, align 8, !tbaa !3
@@ -1774,7 +1774,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_complex_types() local_unnamed_addr
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i32 2, ptr %41, align 8, !tbaa !44
+  store i32 2, ptr %41, align 8, !tbaa !45
   %42 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %32, i1 noundef zeroext false) #8
   store i64 %42, ptr @H5T_NATIVE_FLOAT_COMPLEX_g, align 8, !tbaa !3
   %43 = icmp slt i64 %42, 0
@@ -1802,7 +1802,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_complex_types() local_unnamed_addr
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 2, ptr %58, align 8, !tbaa !44
+  store i32 2, ptr %58, align 8, !tbaa !45
   %59 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %49, i1 noundef zeroext false) #8
   store i64 %59, ptr @H5T_NATIVE_DOUBLE_COMPLEX_g, align 8, !tbaa !3
   %60 = icmp slt i64 %59, 0
@@ -1830,7 +1830,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_complex_types() local_unnamed_addr
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !14
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 2, ptr %75, align 8, !tbaa !44
+  store i32 2, ptr %75, align 8, !tbaa !45
   %76 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %66, i1 noundef zeroext false) #8
   store i64 %76, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_g, align 8, !tbaa !3
   %77 = icmp slt i64 %76, 0
@@ -2225,29 +2225,30 @@ attributes #10 = { nounwind allocsize(0) }
 !26 = !{!27, !17, i64 12}
 !27 = !{!"H5T_shared_t", !4, i64 0, !17, i64 8, !17, i64 12, !4, i64 16, !17, i64 24, !8, i64 28, !28, i64 32, !24, i64 40, !5, i64 48}
 !28 = !{!"p1 _ZTS5H5T_t", !19, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 omnipotent char", !19, i64 0}
-!33 = !{!28, !28, i64 0}
-!34 = distinct !{!34, !30}
-!35 = distinct !{!35, !30}
-!36 = distinct !{!36, !30}
-!37 = distinct !{!37, !30}
-!38 = !{!27, !4, i64 16}
-!39 = distinct !{!39, !30}
-!40 = distinct !{!40, !30}
-!41 = !{!42, !19, i64 0}
-!42 = !{!"", !19, i64 0, !4, i64 8}
-!43 = distinct !{!43, !30}
-!44 = !{!27, !17, i64 8}
-!45 = !{!46, !4, i64 24}
-!46 = !{!"", !47, i64 0, !4, i64 8, !47, i64 16, !4, i64 24, !48, i64 32}
-!47 = !{!"p1 long", !19, i64 0}
-!48 = !{!"H5T_atomic_t", !17, i64 0, !4, i64 8, !4, i64 16, !17, i64 24, !17, i64 28, !5, i64 32}
-!49 = !{i64 0, i64 4, !50, i64 8, i64 8, !3, i64 16, i64 8, !3, i64 24, i64 4, !50, i64 28, i64 4, !50, i64 32, i64 56, !25}
-!50 = !{!17, !17, i64 0}
-!51 = !{!46, !4, i64 8}
-!52 = !{!46, !47, i64 0}
-!53 = !{!46, !47, i64 16}
-!54 = distinct !{!54, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 omnipotent char", !19, i64 0}
+!34 = !{!28, !28, i64 0}
+!35 = distinct !{!35, !30, !31}
+!36 = distinct !{!36, !30, !31}
+!37 = distinct !{!37, !30, !31}
+!38 = distinct !{!38, !30, !31}
+!39 = !{!27, !4, i64 16}
+!40 = distinct !{!40, !30, !31}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!43, !19, i64 0}
+!43 = !{!"", !19, i64 0, !4, i64 8}
+!44 = distinct !{!44, !30, !31}
+!45 = !{!27, !17, i64 8}
+!46 = !{!47, !4, i64 24}
+!47 = !{!"", !48, i64 0, !4, i64 8, !48, i64 16, !4, i64 24, !49, i64 32}
+!48 = !{!"p1 long", !19, i64 0}
+!49 = !{!"H5T_atomic_t", !17, i64 0, !4, i64 8, !4, i64 16, !17, i64 24, !17, i64 28, !5, i64 32}
+!50 = !{i64 0, i64 4, !51, i64 8, i64 8, !3, i64 16, i64 8, !3, i64 24, i64 4, !51, i64 28, i64 4, !51, i64 32, i64 56, !25}
+!51 = !{!17, !17, i64 0}
+!52 = !{!47, !4, i64 8}
+!53 = !{!47, !48, i64 0}
+!54 = !{!47, !48, i64 16}
+!55 = distinct !{!55, !30, !31}

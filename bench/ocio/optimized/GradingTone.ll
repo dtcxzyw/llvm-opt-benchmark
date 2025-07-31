@@ -2955,7 +2955,7 @@ _ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE
 151:                                              ; preds = %133, %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
   %.0.add = add nuw nsw i64 %.0.idx168, 4
   %.not = icmp eq i64 %.0.add, 16
-  br i1 %.not, label %60, label %61
+  br i1 %.not, label %60, label %61, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2963,9 +2963,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   %3 = alloca [2 x i8], align 1
   %4 = alloca [4 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #19
-  store i8 0, ptr %3, align 1, !tbaa !56
+  store i8 0, ptr %3, align 1, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 1, ptr %5, align 1, !tbaa !56
+  store i8 1, ptr %5, align 1, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2989,7 +2989,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
 21:                                               ; preds = %2, %44
   %.0.idx126 = phi i64 [ 0, %2 ], [ %.0.add, %44 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx126
-  %22 = load i8, ptr %.0.ptr, align 1, !tbaa !56, !range !57, !noundef !58
+  %22 = load i8, ptr %.0.ptr, align 1, !tbaa !58, !range !59, !noundef !60
   %23 = trunc nuw i8 %22 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   store i32 0, ptr %4, align 4, !tbaa !54
@@ -3026,7 +3026,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %.0.add = add nuw nsw i64 %.0.idx126, 1
   %.not = icmp eq i64 %.0.add, 2
-  br i1 %.not, label %20, label %21
+  br i1 %.not, label %20, label %21, !llvm.loop !61
 
 45:                                               ; preds = %21, %128
   %.092.idx125 = phi i64 [ 0, %21 ], [ %.092.add, %128 ]
@@ -3091,9 +3091,9 @@ _ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE
   br i1 %68, label %69, label %128
 
 69:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
-  %70 = load double, ptr %.in, align 8, !tbaa !59
+  %70 = load double, ptr %.in, align 8, !tbaa !62
   %71 = fptrunc double %70 to float
-  %72 = load double, ptr %.in95, align 8, !tbaa !59
+  %72 = load double, ptr %.in95, align 8, !tbaa !62
   %73 = fptrunc double %72 to float
   %74 = select i1 %23, float %73, float %71
   store float %74, ptr %48, align 4, !tbaa !33
@@ -3194,7 +3194,7 @@ _ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE
 128:                                              ; preds = %.sink.split, %102, %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
   %.092.add = add nuw nsw i64 %.092.idx125, 4
   %.not94 = icmp eq i64 %.092.add, 16
-  br i1 %.not94, label %44, label %45
+  br i1 %.not94, label %44, label %45, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3202,9 +3202,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   %3 = alloca [2 x i8], align 1
   %4 = alloca [4 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #19
-  store i8 0, ptr %3, align 1, !tbaa !56
+  store i8 0, ptr %3, align 1, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 1, ptr %5, align 1, !tbaa !56
+  store i8 1, ptr %5, align 1, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -3228,7 +3228,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
 21:                                               ; preds = %2, %56
   %.0.idx119 = phi i64 [ 0, %2 ], [ %.0.add, %56 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx119
-  %22 = load i8, ptr %.0.ptr, align 1, !tbaa !56, !range !57, !noundef !58
+  %22 = load i8, ptr %.0.ptr, align 1, !tbaa !58, !range !59, !noundef !60
   %23 = trunc nuw i8 %22 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   store i32 0, ptr %4, align 4, !tbaa !54
@@ -3242,11 +3242,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   %28 = getelementptr inbounds nuw [2 x [4 x float]], ptr %12, i64 0, i64 %24
   %.in.v = select i1 %23, i64 32, i64 48
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %29 = load double, ptr %.in, align 8, !tbaa !59
+  %29 = load double, ptr %.in, align 8, !tbaa !62
   %30 = fptrunc double %29 to float
   %.in94.v = select i1 %23, i64 40, i64 56
   %.in94 = getelementptr inbounds nuw i8, ptr %0, i64 %.in94.v
-  %31 = load double, ptr %.in94, align 8, !tbaa !59
+  %31 = load double, ptr %.in94, align 8, !tbaa !62
   %32 = fptrunc double %31 to float
   %33 = fsub float %30, %32
   %34 = select i1 %23, float %33, float %30
@@ -3277,7 +3277,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %.0.add = add nuw nsw i64 %.0.idx119, 1
   %.not = icmp eq i64 %.0.add, 2
-  br i1 %.not, label %20, label %21
+  br i1 %.not, label %20, label %21, !llvm.loop !64
 
 57:                                               ; preds = %21, %105
   %.091.idx118 = phi i64 [ 0, %21 ], [ %.091.add, %105 ]
@@ -3405,7 +3405,7 @@ _ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE
 105:                                              ; preds = %92, %102, %82, %87
   %.091.add = add nuw nsw i64 %.091.idx118, 4
   %.not93 = icmp eq i64 %.091.add, 16
-  br i1 %.not93, label %56, label %57
+  br i1 %.not93, label %56, label %57, !llvm.loop !65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3691,7 +3691,13 @@ attributes #21 = { builtin nounwind }
 !53 = !{!"int", !6, i64 0}
 !54 = !{!55, !55, i64 0}
 !55 = !{!"_ZTSN19OpenColorIO_v2_5dev11RGBMChannelE", !6, i64 0}
-!56 = !{!26, !26, i64 0}
-!57 = !{i8 0, i8 2}
-!58 = !{}
-!59 = !{!5, !5, i64 0}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!26, !26, i64 0}
+!59 = !{i8 0, i8 2}
+!60 = !{}
+!61 = distinct !{!61, !57}
+!62 = !{!5, !5, i64 0}
+!63 = distinct !{!63, !57}
+!64 = distinct !{!64, !57}
+!65 = distinct !{!65, !57}

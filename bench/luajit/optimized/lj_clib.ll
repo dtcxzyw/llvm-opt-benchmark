@@ -298,12 +298,12 @@ clib_extname.exit.i:                              ; preds = %26, %22, %4
 58:                                               ; preds = %.preheader.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   %.pr.i.i.i = load i8, ptr %59, align 1, !tbaa !10
-  br label %.preheader.i.i.i, !llvm.loop !58
+  br label %.preheader.i.i.i, !llvm.loop !59
 
 clib_check_lds.exit.i.i:                          ; preds = %52, %51
   %60 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 256, ptr noundef nonnull %46)
   %.not14.i.i = icmp eq ptr %60, null
-  br i1 %.not14.i.i, label %clib_resolve_lds.exit.thread38.i, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %.not14.i.i, label %clib_resolve_lds.exit.thread38.i, label %.lr.ph.i.i, !llvm.loop !60
 
 61:                                               ; preds = %49
   %bcmp29.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %5, ptr noundef nonnull dereferenceable(5) @.str.7, i64 5)
@@ -339,7 +339,7 @@ clib_check_lds.exit.i.i:                          ; preds = %52, %51
 69:                                               ; preds = %.preheader.i22.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i, i64 1
   %.pr.i25.i.i = load i8, ptr %70, align 1, !tbaa !10
-  br label %.preheader.i22.i.i, !llvm.loop !58
+  br label %.preheader.i22.i.i, !llvm.loop !59
 
 clib_resolve_lds.exit.thread38.i:                 ; preds = %clib_check_lds.exit.i.i, %63, %62, %.preheader.i.i, %47
   %71 = call i32 @fclose(ptr noundef nonnull %46)
@@ -379,10 +379,10 @@ clib_loadlib.exit:                                ; preds = %clib_extname.exit.i
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 56
   store ptr %81, ptr %84, align 8, !tbaa !4
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 10
-  store i8 2, ptr %85, align 2, !tbaa !60
+  store i8 2, ptr %85, align 2, !tbaa !61
   %86 = ptrtoint ptr %1 to i64
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store i64 %86, ptr %87, align 8, !tbaa !62
+  store i64 %86, ptr %87, align 8, !tbaa !63
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !55
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -417,10 +417,10 @@ define hidden void @lj_clib_default(ptr noundef %0, ptr noundef %1) local_unname
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %3, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 2, ptr %7, align 2, !tbaa !60
+  store i8 2, ptr %7, align 2, !tbaa !61
   %8 = ptrtoint ptr %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %8, ptr %9, align 8, !tbaa !62
+  store i64 %8, ptr %9, align 8, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -544,10 +544,11 @@ attributes #12 = { nounwind willreturn memory(read) }
 !53 = !{!54, !15, i64 24}
 !54 = !{!"GCtab", !14, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !16, i64 16, !14, i64 24, !14, i64 32, !16, i64 40, !18, i64 48, !18, i64 52, !16, i64 56}
 !55 = !{!13, !17, i64 40}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57}
-!59 = distinct !{!59, !57}
-!60 = !{!61, !7, i64 10}
-!61 = !{!"GCudata", !14, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !14, i64 16, !18, i64 24, !14, i64 32, !18, i64 40}
-!62 = !{!61, !15, i64 32}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58}
+!60 = distinct !{!60, !57, !58}
+!61 = !{!62, !7, i64 10}
+!62 = !{!"GCudata", !14, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !14, i64 16, !18, i64 24, !14, i64 32, !18, i64 40}
+!63 = !{!62, !15, i64 32}

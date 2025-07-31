@@ -175,7 +175,7 @@ select.unfold:                                    ; preds = %34
   %47 = add nuw nsw i32 %.05185, 1
   %48 = call i32 @OPENSSL_sk_num(ptr noundef %7) #5
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %46
   %.pre = load ptr, ptr %4, align 8, !tbaa !21
@@ -397,7 +397,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %68 = load ptr, ptr %67, align 8, !tbaa !15
   %69 = load i32, ptr %66, align 8, !tbaa !20
   %70 = sext i32 %69 to i64
-  %71 = load i64, ptr %5, align 8, !tbaa !31
+  %71 = load i64, ptr %5, align 8, !tbaa !32
   %72 = add nsw i64 %70, 1
   %73 = add i64 %72, %71
   %74 = call ptr @CRYPTO_realloc(ptr noundef %68, i64 noundef %73, ptr noundef nonnull @.str.6, i32 noundef 138) #5
@@ -427,9 +427,9 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %87 = load i32, ptr %85, align 8, !tbaa !20
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %74, i64 %88
-  %90 = load i64, ptr %5, align 8, !tbaa !31
+  %90 = load i64, ptr %5, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %60, i64 %90, i1 false)
-  %91 = load i64, ptr %5, align 8, !tbaa !31
+  %91 = load i64, ptr %5, align 8, !tbaa !32
   %92 = load ptr, ptr %3, align 8, !tbaa !22
   %93 = load i32, ptr %92, align 8, !tbaa !20
   %94 = trunc i64 %91 to i32
@@ -477,7 +477,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
 114:                                              ; preds = %112
   %115 = call i32 @BIO_test_flags(ptr noundef nonnull %105, i32 noundef 8) #5
   %.not141 = icmp eq i32 %115, 0
-  br i1 %.not141, label %190, label %.critedge, !llvm.loop !32
+  br i1 %.not141, label %190, label %.critedge, !llvm.loop !33
 
 116:                                              ; preds = %.critedge
   %117 = load ptr, ptr %3, align 8, !tbaa !22
@@ -523,7 +523,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %144 = sext i32 %141 to i64
   %145 = getelementptr inbounds i8, ptr %143, i64 %144
   store i8 0, ptr %145, align 1, !tbaa !25
-  br label %.critedge.outer, !llvm.loop !32
+  br label %.critedge.outer, !llvm.loop !33
 
 .critedge.outer:                                  ; preds = %103, %134
   %.3.ph = phi i1 [ false, %134 ], [ true, %103 ]
@@ -740,8 +740,9 @@ attributes #6 = { nounwind willreturn memory(read) }
 !25 = !{!7, !7, i64 0}
 !26 = !{!24, !18, i64 16}
 !27 = !{!24, !18, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = !{!19, !19, i64 0}
-!32 = distinct !{!32, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = !{!19, !19, i64 0}
+!33 = distinct !{!33, !29, !30}

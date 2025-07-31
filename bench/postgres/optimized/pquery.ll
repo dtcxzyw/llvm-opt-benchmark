@@ -692,7 +692,7 @@ define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 
   store i16 0, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader, %25, %21, %3
   ret void
@@ -1156,7 +1156,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %27 = load ptr, ptr %26, align 8
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not56 = icmp eq i32 %28, 0
-  br i1 %.not56, label %30, label %29, !prof !9
+  br i1 %.not56, label %30, label %29, !prof !10
 
 29:                                               ; preds = %.lr.ph74
   tail call void @ProcessInterrupts() #11
@@ -1873,7 +1873,7 @@ define dso_local void @EnsurePortalSnapshotExists() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = load ptr, ptr @ActivePortal, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %8, !prof !10
+  br i1 %4, label %5, label %8, !prof !11
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1947,7 +1947,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %30 = load ptr, ptr %15, align 8
   %31 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %30, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #11
   store ptr %29, ptr @CurrentMemoryContext, align 8
-  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !11
+  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .split:                                           ; preds = %12, %39
   %.1 = phi i64 [ %43, %39 ], [ 0, %12 ]
@@ -1971,7 +1971,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   tail call void %42(ptr noundef %7) #11
   %43 = add nuw nsw i64 %.1, 1
   %44 = icmp eq i64 %2, %43
-  br i1 %44, label %.thread, label %.split
+  br i1 %44, label %.thread, label %.split, !llvm.loop !14
 
 .thread:                                          ; preds = %.split, %36, %39, %23, %.lr.ph, %.split.us, %4
   %.024 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us31, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
@@ -2249,10 +2249,12 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8}

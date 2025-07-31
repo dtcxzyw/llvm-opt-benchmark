@@ -472,7 +472,7 @@ define noundef i64 @_ZNK5faiss25IndexIVFAdditiveQuantizer25train_encoder_num_vec
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5faiss17AdditiveQuantizerE, ptr nonnull @_ZTIN5faiss20LocalSearchQuantizerE, i64 0) #14
   %8 = icmp eq ptr %7, null
@@ -480,7 +480,7 @@ define noundef i64 @_ZNK5faiss25IndexIVFAdditiveQuantizer25train_encoder_num_vec
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !65
+  %11 = load i64, ptr %10, align 8, !tbaa !66
   %12 = shl i64 %11, 10
   br label %.critedge
 
@@ -561,12 +561,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !83
+  %30 = load i32, ptr %29, align 4, !tbaa !84
   %31 = icmp eq i32 %30, 0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 344
-  %35 = load i32, ptr %34, align 8, !tbaa !84
+  %35 = load i32, ptr %34, align 8, !tbaa !85
   br i1 %31, label %36, label %128
 
 36:                                               ; preds = %28
@@ -579,7 +579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 41:                                               ; preds = %36
   %42 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 -1, ptr %43, align 8, !tbaa !85
+  store i64 -1, ptr %43, align 8, !tbaa !86
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 17
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -587,15 +587,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 0, ptr %46, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %42, align 8, !tbaa !58
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store ptr %0, ptr %48, align 8, !tbaa !88
+  store ptr %0, ptr %48, align 8, !tbaa !89
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  store ptr %33, ptr %49, align 8, !tbaa !90
+  store ptr %33, ptr %49, align 8, !tbaa !91
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
-  store i8 %38, ptr %45, align 1, !tbaa !91
+  store i8 %38, ptr %45, align 1, !tbaa !92
   %51 = load i64, ptr %39, align 8, !tbaa !60
-  store i64 %51, ptr %47, align 8, !tbaa !92
-  store i8 1, ptr %44, align 8, !tbaa !93
+  store i64 %51, ptr %47, align 8, !tbaa !93
+  store i8 1, ptr %44, align 8, !tbaa !94
   %52 = load i32, ptr %40, align 8, !tbaa !49
   %.not.i.i = icmp eq i32 %52, 0
   br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit, label %53
@@ -624,7 +624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %41, %53
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEE, i64 16), ptr %42, align 8, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 96
-  store float 0.000000e+00, ptr %64, align 8, !tbaa !94
+  store float 0.000000e+00, ptr %64, align 8, !tbaa !95
   br label %659
 
 .body:                                            ; preds = %55, %58
@@ -634,7 +634,7 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVF
 65:                                               ; preds = %36
   %66 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i64 -1, ptr %67, align 8, !tbaa !85
+  store i64 -1, ptr %67, align 8, !tbaa !86
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 17
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
@@ -642,15 +642,15 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVF
   store i64 0, ptr %70, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %66, align 8, !tbaa !58
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr %0, ptr %72, align 8, !tbaa !88
+  store ptr %0, ptr %72, align 8, !tbaa !89
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  store ptr %33, ptr %73, align 8, !tbaa !90
+  store ptr %33, ptr %73, align 8, !tbaa !91
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  store i8 %38, ptr %69, align 1, !tbaa !91
+  store i8 %38, ptr %69, align 1, !tbaa !92
   %75 = load i64, ptr %39, align 8, !tbaa !60
-  store i64 %75, ptr %71, align 8, !tbaa !92
-  store i8 1, ptr %68, align 8, !tbaa !93
+  store i64 %75, ptr %71, align 8, !tbaa !93
+  store i8 1, ptr %68, align 8, !tbaa !94
   %76 = load i32, ptr %40, align 8, !tbaa !49
   %.not.i.i24 = icmp eq i32 %76, 0
   br i1 %.not.i.i24, label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i, label %77
@@ -661,7 +661,7 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVF
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i unwind label %79
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i: ; preds = %77
-  %.pre.i = load ptr, ptr %73, align 8, !tbaa !97
+  %.pre.i = load ptr, ptr %73, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i
 
 79:                                               ; preds = %77
@@ -689,7 +689,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %89 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %88, i8 0, i64 48, i1 false)
-  %91 = load i64, ptr %90, align 8, !tbaa !98
+  %91 = load i64, ptr %90, align 8, !tbaa !99
   %.not.i = icmp eq i64 %91, 0
   br i1 %.not.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, label %92
 
@@ -772,7 +772,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i:                 ; preds = %120, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %103, %105, %107, %109
   %127 = getelementptr inbounds nuw i8, ptr %66, i64 144
-  store float 0.000000e+00, ptr %127, align 8, !tbaa !99
+  store float 0.000000e+00, ptr %127, align 8, !tbaa !100
   br label %659
 
 .body26:                                          ; preds = %79, %common.resume.sink.split.i, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i
@@ -798,7 +798,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13S
   %130 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   %131 = zext i1 %1 to i8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 -1, ptr %132, align 8, !tbaa !85
+  store i64 -1, ptr %132, align 8, !tbaa !86
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 17
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 24
@@ -806,18 +806,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %135, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %130, align 8, !tbaa !58
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  store ptr %0, ptr %137, align 8, !tbaa !88
+  store ptr %0, ptr %137, align 8, !tbaa !89
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  store ptr %33, ptr %138, align 8, !tbaa !90
+  store ptr %33, ptr %138, align 8, !tbaa !91
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
-  store i8 %131, ptr %134, align 1, !tbaa !91
+  store i8 %131, ptr %134, align 1, !tbaa !92
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %141 = load i64, ptr %140, align 8, !tbaa !60
-  store i64 %141, ptr %136, align 8, !tbaa !92
+  store i64 %141, ptr %136, align 8, !tbaa !93
   %142 = icmp eq i32 %30, 23
   %143 = zext i1 %142 to i8
-  store i8 %143, ptr %133, align 8, !tbaa !93
+  store i8 %143, ptr %133, align 8, !tbaa !94
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = load i32, ptr %144, align 8, !tbaa !49
   %.not.i.i28 = icmp eq i32 %145, 0
@@ -847,7 +847,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13S
 _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %129, %146
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEE, i64 16), ptr %130, align 8, !tbaa !58
   %157 = getelementptr inbounds nuw i8, ptr %130, i64 96
-  store float 0.000000e+00, ptr %157, align 8, !tbaa !101
+  store float 0.000000e+00, ptr %157, align 8, !tbaa !102
   br label %659
 
 .body32:                                          ; preds = %148, %151
@@ -858,7 +858,7 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEC2ERKNS_25IndexIVF
   %159 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %160 = zext i1 %1 to i8
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store i64 -1, ptr %161, align 8, !tbaa !85
+  store i64 -1, ptr %161, align 8, !tbaa !86
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 17
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 24
@@ -866,18 +866,18 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEC2ERKNS_25IndexIVF
   store i64 0, ptr %164, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %159, align 8, !tbaa !58
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  store ptr %0, ptr %166, align 8, !tbaa !88
+  store ptr %0, ptr %166, align 8, !tbaa !89
   %167 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  store ptr %33, ptr %167, align 8, !tbaa !90
+  store ptr %33, ptr %167, align 8, !tbaa !91
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
-  store i8 %160, ptr %163, align 1, !tbaa !91
+  store i8 %160, ptr %163, align 1, !tbaa !92
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %170 = load i64, ptr %169, align 8, !tbaa !60
-  store i64 %170, ptr %165, align 8, !tbaa !92
+  store i64 %170, ptr %165, align 8, !tbaa !93
   %171 = icmp eq i32 %30, 23
   %172 = zext i1 %171 to i8
-  store i8 %172, ptr %162, align 8, !tbaa !93
+  store i8 %172, ptr %162, align 8, !tbaa !94
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %174 = load i32, ptr %173, align 8, !tbaa !49
   %.not.i.i34 = icmp eq i32 %174, 0
@@ -889,7 +889,7 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEC2ERKNS_25IndexIVF
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i41 unwind label %177
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i41: ; preds = %175
-  %.pre.i42 = load ptr, ptr %167, align 8, !tbaa !97
+  %.pre.i42 = load ptr, ptr %167, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i43
 
 177:                                              ; preds = %175
@@ -917,7 +917,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %187 = getelementptr inbounds nuw i8, ptr %159, i64 120
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %186, i8 0, i64 48, i1 false)
-  %189 = load i64, ptr %188, align 8, !tbaa !98
+  %189 = load i64, ptr %188, align 8, !tbaa !99
   %.not.i44 = icmp eq i64 %189, 0
   br i1 %.not.i44, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i54, label %190
 
@@ -1000,7 +1000,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i48:               ; preds = %218, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %201, %203, %205, %207
   %225 = getelementptr inbounds nuw i8, ptr %159, i64 144
-  store float 0.000000e+00, ptr %225, align 8, !tbaa !103
+  store float 0.000000e+00, ptr %225, align 8, !tbaa !104
   br label %659
 
 .body56:                                          ; preds = %177, %common.resume.sink.split.i36, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i48
@@ -1012,7 +1012,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %227 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %228 = zext i1 %1 to i8
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i64 -1, ptr %229, align 8, !tbaa !85
+  store i64 -1, ptr %229, align 8, !tbaa !86
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 17
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 24
@@ -1020,18 +1020,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %232, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %227, align 8, !tbaa !58
   %234 = getelementptr inbounds nuw i8, ptr %227, i64 40
-  store ptr %0, ptr %234, align 8, !tbaa !88
+  store ptr %0, ptr %234, align 8, !tbaa !89
   %235 = getelementptr inbounds nuw i8, ptr %227, i64 48
-  store ptr %33, ptr %235, align 8, !tbaa !90
+  store ptr %33, ptr %235, align 8, !tbaa !91
   %236 = getelementptr inbounds nuw i8, ptr %227, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
-  store i8 %228, ptr %231, align 1, !tbaa !91
+  store i8 %228, ptr %231, align 1, !tbaa !92
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %238 = load i64, ptr %237, align 8, !tbaa !60
-  store i64 %238, ptr %233, align 8, !tbaa !92
+  store i64 %238, ptr %233, align 8, !tbaa !93
   %239 = icmp eq i32 %30, 23
   %240 = zext i1 %239 to i8
-  store i8 %240, ptr %230, align 8, !tbaa !93
+  store i8 %240, ptr %230, align 8, !tbaa !94
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %242 = load i32, ptr %241, align 8, !tbaa !49
   %.not.i.i58 = icmp eq i32 %242, 0
@@ -1043,7 +1043,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i65 unwind label %245
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i65: ; preds = %243
-  %.pre.i66 = load ptr, ptr %235, align 8, !tbaa !97
+  %.pre.i66 = load ptr, ptr %235, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i67
 
 245:                                              ; preds = %243
@@ -1071,7 +1071,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %255 = getelementptr inbounds nuw i8, ptr %227, i64 120
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %254, i8 0, i64 48, i1 false)
-  %257 = load i64, ptr %256, align 8, !tbaa !98
+  %257 = load i64, ptr %256, align 8, !tbaa !99
   %.not.i68 = icmp eq i64 %257, 0
   br i1 %.not.i68, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i78, label %258
 
@@ -1154,7 +1154,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i72:               ; preds = %286, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %269, %271, %273, %275
   %293 = getelementptr inbounds nuw i8, ptr %227, i64 144
-  store float 0.000000e+00, ptr %293, align 8, !tbaa !105
+  store float 0.000000e+00, ptr %293, align 8, !tbaa !106
   br label %659
 
 .body80:                                          ; preds = %245, %common.resume.sink.split.i60, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i72
@@ -1166,7 +1166,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %295 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %296 = zext i1 %1 to i8
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  store i64 -1, ptr %297, align 8, !tbaa !85
+  store i64 -1, ptr %297, align 8, !tbaa !86
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 17
   %300 = getelementptr inbounds nuw i8, ptr %295, i64 24
@@ -1174,18 +1174,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %300, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %295, align 8, !tbaa !58
   %302 = getelementptr inbounds nuw i8, ptr %295, i64 40
-  store ptr %0, ptr %302, align 8, !tbaa !88
+  store ptr %0, ptr %302, align 8, !tbaa !89
   %303 = getelementptr inbounds nuw i8, ptr %295, i64 48
-  store ptr %33, ptr %303, align 8, !tbaa !90
+  store ptr %33, ptr %303, align 8, !tbaa !91
   %304 = getelementptr inbounds nuw i8, ptr %295, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %304, i8 0, i64 24, i1 false)
-  store i8 %296, ptr %299, align 1, !tbaa !91
+  store i8 %296, ptr %299, align 1, !tbaa !92
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %306 = load i64, ptr %305, align 8, !tbaa !60
-  store i64 %306, ptr %301, align 8, !tbaa !92
+  store i64 %306, ptr %301, align 8, !tbaa !93
   %307 = icmp eq i32 %30, 23
   %308 = zext i1 %307 to i8
-  store i8 %308, ptr %298, align 8, !tbaa !93
+  store i8 %308, ptr %298, align 8, !tbaa !94
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %310 = load i32, ptr %309, align 8, !tbaa !49
   %.not.i.i82 = icmp eq i32 %310, 0
@@ -1197,7 +1197,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i89 unwind label %313
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i89: ; preds = %311
-  %.pre.i90 = load ptr, ptr %303, align 8, !tbaa !97
+  %.pre.i90 = load ptr, ptr %303, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i91
 
 313:                                              ; preds = %311
@@ -1225,7 +1225,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %323 = getelementptr inbounds nuw i8, ptr %295, i64 120
   %324 = getelementptr inbounds nuw i8, ptr %321, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
-  %325 = load i64, ptr %324, align 8, !tbaa !98
+  %325 = load i64, ptr %324, align 8, !tbaa !99
   %.not.i92 = icmp eq i64 %325, 0
   br i1 %.not.i92, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i102, label %326
 
@@ -1308,7 +1308,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i96:               ; preds = %354, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %337, %339, %341, %343
   %361 = getelementptr inbounds nuw i8, ptr %295, i64 144
-  store float 0.000000e+00, ptr %361, align 8, !tbaa !107
+  store float 0.000000e+00, ptr %361, align 8, !tbaa !108
   br label %659
 
 .body104:                                         ; preds = %313, %common.resume.sink.split.i84, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i96
@@ -1320,7 +1320,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %363 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %364 = zext i1 %1 to i8
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  store i64 -1, ptr %365, align 8, !tbaa !85
+  store i64 -1, ptr %365, align 8, !tbaa !86
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 16
   %367 = getelementptr inbounds nuw i8, ptr %363, i64 17
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 24
@@ -1328,18 +1328,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %368, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %363, align 8, !tbaa !58
   %370 = getelementptr inbounds nuw i8, ptr %363, i64 40
-  store ptr %0, ptr %370, align 8, !tbaa !88
+  store ptr %0, ptr %370, align 8, !tbaa !89
   %371 = getelementptr inbounds nuw i8, ptr %363, i64 48
-  store ptr %33, ptr %371, align 8, !tbaa !90
+  store ptr %33, ptr %371, align 8, !tbaa !91
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %372, i8 0, i64 24, i1 false)
-  store i8 %364, ptr %367, align 1, !tbaa !91
+  store i8 %364, ptr %367, align 1, !tbaa !92
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %374 = load i64, ptr %373, align 8, !tbaa !60
-  store i64 %374, ptr %369, align 8, !tbaa !92
+  store i64 %374, ptr %369, align 8, !tbaa !93
   %375 = icmp eq i32 %30, 23
   %376 = zext i1 %375 to i8
-  store i8 %376, ptr %366, align 8, !tbaa !93
+  store i8 %376, ptr %366, align 8, !tbaa !94
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %378 = load i32, ptr %377, align 8, !tbaa !49
   %.not.i.i106 = icmp eq i32 %378, 0
@@ -1351,7 +1351,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i113 unwind label %381
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i113: ; preds = %379
-  %.pre.i114 = load ptr, ptr %371, align 8, !tbaa !97
+  %.pre.i114 = load ptr, ptr %371, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i115
 
 381:                                              ; preds = %379
@@ -1379,7 +1379,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %391 = getelementptr inbounds nuw i8, ptr %363, i64 120
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %390, i8 0, i64 48, i1 false)
-  %393 = load i64, ptr %392, align 8, !tbaa !98
+  %393 = load i64, ptr %392, align 8, !tbaa !99
   %.not.i116 = icmp eq i64 %393, 0
   br i1 %.not.i116, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i126, label %394
 
@@ -1462,7 +1462,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i120:              ; preds = %422, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %405, %407, %409, %411
   %429 = getelementptr inbounds nuw i8, ptr %363, i64 144
-  store float 0.000000e+00, ptr %429, align 8, !tbaa !109
+  store float 0.000000e+00, ptr %429, align 8, !tbaa !110
   br label %659
 
 .body128:                                         ; preds = %381, %common.resume.sink.split.i108, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i120
@@ -1474,7 +1474,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %431 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %432 = zext i1 %1 to i8
   %433 = getelementptr inbounds nuw i8, ptr %431, i64 8
-  store i64 -1, ptr %433, align 8, !tbaa !85
+  store i64 -1, ptr %433, align 8, !tbaa !86
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %435 = getelementptr inbounds nuw i8, ptr %431, i64 17
   %436 = getelementptr inbounds nuw i8, ptr %431, i64 24
@@ -1482,18 +1482,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %436, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %431, align 8, !tbaa !58
   %438 = getelementptr inbounds nuw i8, ptr %431, i64 40
-  store ptr %0, ptr %438, align 8, !tbaa !88
+  store ptr %0, ptr %438, align 8, !tbaa !89
   %439 = getelementptr inbounds nuw i8, ptr %431, i64 48
-  store ptr %33, ptr %439, align 8, !tbaa !90
+  store ptr %33, ptr %439, align 8, !tbaa !91
   %440 = getelementptr inbounds nuw i8, ptr %431, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %440, i8 0, i64 24, i1 false)
-  store i8 %432, ptr %435, align 1, !tbaa !91
+  store i8 %432, ptr %435, align 1, !tbaa !92
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %442 = load i64, ptr %441, align 8, !tbaa !60
-  store i64 %442, ptr %437, align 8, !tbaa !92
+  store i64 %442, ptr %437, align 8, !tbaa !93
   %443 = icmp eq i32 %30, 23
   %444 = zext i1 %443 to i8
-  store i8 %444, ptr %434, align 8, !tbaa !93
+  store i8 %444, ptr %434, align 8, !tbaa !94
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %446 = load i32, ptr %445, align 8, !tbaa !49
   %.not.i.i130 = icmp eq i32 %446, 0
@@ -1505,7 +1505,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i137 unwind label %449
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i137: ; preds = %447
-  %.pre.i138 = load ptr, ptr %439, align 8, !tbaa !97
+  %.pre.i138 = load ptr, ptr %439, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i139
 
 449:                                              ; preds = %447
@@ -1533,7 +1533,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %459 = getelementptr inbounds nuw i8, ptr %431, i64 120
   %460 = getelementptr inbounds nuw i8, ptr %457, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %458, i8 0, i64 48, i1 false)
-  %461 = load i64, ptr %460, align 8, !tbaa !98
+  %461 = load i64, ptr %460, align 8, !tbaa !99
   %.not.i140 = icmp eq i64 %461, 0
   br i1 %.not.i140, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i150, label %462
 
@@ -1616,7 +1616,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i144:              ; preds = %490, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %473, %475, %477, %479
   %497 = getelementptr inbounds nuw i8, ptr %431, i64 144
-  store float 0.000000e+00, ptr %497, align 8, !tbaa !111
+  store float 0.000000e+00, ptr %497, align 8, !tbaa !112
   br label %659
 
 .body152:                                         ; preds = %449, %common.resume.sink.split.i132, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i144
@@ -1628,7 +1628,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %499 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %500 = zext i1 %1 to i8
   %501 = getelementptr inbounds nuw i8, ptr %499, i64 8
-  store i64 -1, ptr %501, align 8, !tbaa !85
+  store i64 -1, ptr %501, align 8, !tbaa !86
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 16
   %503 = getelementptr inbounds nuw i8, ptr %499, i64 17
   %504 = getelementptr inbounds nuw i8, ptr %499, i64 24
@@ -1636,18 +1636,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %504, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %499, align 8, !tbaa !58
   %506 = getelementptr inbounds nuw i8, ptr %499, i64 40
-  store ptr %0, ptr %506, align 8, !tbaa !88
+  store ptr %0, ptr %506, align 8, !tbaa !89
   %507 = getelementptr inbounds nuw i8, ptr %499, i64 48
-  store ptr %33, ptr %507, align 8, !tbaa !90
+  store ptr %33, ptr %507, align 8, !tbaa !91
   %508 = getelementptr inbounds nuw i8, ptr %499, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %508, i8 0, i64 24, i1 false)
-  store i8 %500, ptr %503, align 1, !tbaa !91
+  store i8 %500, ptr %503, align 1, !tbaa !92
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %510 = load i64, ptr %509, align 8, !tbaa !60
-  store i64 %510, ptr %505, align 8, !tbaa !92
+  store i64 %510, ptr %505, align 8, !tbaa !93
   %511 = icmp eq i32 %30, 23
   %512 = zext i1 %511 to i8
-  store i8 %512, ptr %502, align 8, !tbaa !93
+  store i8 %512, ptr %502, align 8, !tbaa !94
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %514 = load i32, ptr %513, align 8, !tbaa !49
   %.not.i.i154 = icmp eq i32 %514, 0
@@ -1659,7 +1659,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i161 unwind label %517
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i161: ; preds = %515
-  %.pre.i162 = load ptr, ptr %507, align 8, !tbaa !97
+  %.pre.i162 = load ptr, ptr %507, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i163
 
 517:                                              ; preds = %515
@@ -1687,7 +1687,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %527 = getelementptr inbounds nuw i8, ptr %499, i64 120
   %528 = getelementptr inbounds nuw i8, ptr %525, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %526, i8 0, i64 48, i1 false)
-  %529 = load i64, ptr %528, align 8, !tbaa !98
+  %529 = load i64, ptr %528, align 8, !tbaa !99
   %.not.i164 = icmp eq i64 %529, 0
   br i1 %.not.i164, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i174, label %530
 
@@ -1770,7 +1770,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i168:              ; preds = %558, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %541, %543, %545, %547
   %565 = getelementptr inbounds nuw i8, ptr %499, i64 144
-  store float 0.000000e+00, ptr %565, align 8, !tbaa !113
+  store float 0.000000e+00, ptr %565, align 8, !tbaa !114
   br label %659
 
 .body176:                                         ; preds = %517, %common.resume.sink.split.i156, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i168
@@ -1782,7 +1782,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   %567 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #31
   %568 = zext i1 %1 to i8
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 8
-  store i64 -1, ptr %569, align 8, !tbaa !85
+  store i64 -1, ptr %569, align 8, !tbaa !86
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 16
   %571 = getelementptr inbounds nuw i8, ptr %567, i64 17
   %572 = getelementptr inbounds nuw i8, ptr %567, i64 24
@@ -1790,18 +1790,18 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   store i64 0, ptr %572, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQInvertedListScannerE, i64 16), ptr %567, align 8, !tbaa !58
   %574 = getelementptr inbounds nuw i8, ptr %567, i64 40
-  store ptr %0, ptr %574, align 8, !tbaa !88
+  store ptr %0, ptr %574, align 8, !tbaa !89
   %575 = getelementptr inbounds nuw i8, ptr %567, i64 48
-  store ptr %33, ptr %575, align 8, !tbaa !90
+  store ptr %33, ptr %575, align 8, !tbaa !91
   %576 = getelementptr inbounds nuw i8, ptr %567, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %576, i8 0, i64 24, i1 false)
-  store i8 %568, ptr %571, align 1, !tbaa !91
+  store i8 %568, ptr %571, align 1, !tbaa !92
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %578 = load i64, ptr %577, align 8, !tbaa !60
-  store i64 %578, ptr %573, align 8, !tbaa !92
+  store i64 %578, ptr %573, align 8, !tbaa !93
   %579 = icmp eq i32 %30, 23
   %580 = zext i1 %579 to i8
-  store i8 %580, ptr %570, align 8, !tbaa !93
+  store i8 %580, ptr %570, align 8, !tbaa !94
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %582 = load i32, ptr %581, align 8, !tbaa !49
   %.not.i.i178 = icmp eq i32 %582, 0
@@ -1813,7 +1813,7 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
           to label %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i185 unwind label %585
 
 ._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i185: ; preds = %583
-  %.pre.i186 = load ptr, ptr %575, align 8, !tbaa !97
+  %.pre.i186 = load ptr, ptr %575, align 8, !tbaa !98
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i187
 
 585:                                              ; preds = %583
@@ -1841,7 +1841,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantize
   %595 = getelementptr inbounds nuw i8, ptr %567, i64 120
   %596 = getelementptr inbounds nuw i8, ptr %593, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %594, i8 0, i64 48, i1 false)
-  %597 = load i64, ptr %596, align 8, !tbaa !98
+  %597 = load i64, ptr %596, align 8, !tbaa !99
   %.not.i188 = icmp eq i64 %597, 0
   br i1 %.not.i188, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i198, label %598
 
@@ -1924,7 +1924,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit9.i192:              ; preds = %626, %_ZNSt6vectorI
 
 _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit: ; preds = %609, %611, %613, %615
   %633 = getelementptr inbounds nuw i8, ptr %567, i64 144
-  store float 0.000000e+00, ptr %633, align 8, !tbaa !115
+  store float 0.000000e+00, ptr %633, align 8, !tbaa !116
   br label %659
 
 .body200:                                         ; preds = %585, %common.resume.sink.split.i180, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i192
@@ -1950,7 +1950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit202: ; preds 
   %641 = load i64, ptr %636, align 8, !tbaa !26
   %642 = load ptr, ptr %32, align 8, !tbaa !55
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 344
-  %644 = load i32, ptr %643, align 8, !tbaa !84
+  %644 = load i32, ptr %643, align 8, !tbaa !85
   %645 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %640, i64 noundef %641, ptr noundef nonnull @.str.5, i32 noundef %644) #14
   %646 = call ptr @__cxa_allocate_exception(i64 40) #14
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %646, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss25IndexIVFAdditiveQuantizer23get_InvertedListScannerEbPKNS_10IDSelectorE, ptr noundef nonnull @.str.2, i32 noundef 288)
@@ -2010,7 +2010,7 @@ declare void @_ZN5faiss8IndexIVF14update_vectorsEiPKlPKf(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss25IndexIVFAdditiveQuantizer23reconstruct_from_offsetEllPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(284) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load ptr, ptr %5, align 8, !tbaa !117
+  %6 = load ptr, ptr %5, align 8, !tbaa !118
   %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -2059,7 +2059,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %.sroa.11.0 = phi ptr [ %26, %.noexc15 ], [ %26, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.018.0 = phi ptr [ %25, %.noexc15 ], [ %25, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !118
+  %31 = load ptr, ptr %30, align 8, !tbaa !119
   %32 = load ptr, ptr %31, align 8, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
@@ -2109,7 +2109,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   store float %50, ptr %48, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !120
 
 _ZNSt6vectorIfSaIfEED2Ev.exit17:                  ; preds = %42, %40
   resume { ptr, i32 } %41
@@ -2248,7 +2248,7 @@ define void @_ZN5faiss25IndexIVFAdditiveQuantizerC2EPNS_17AdditiveQuantizerEPNS_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %1, ptr %8, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %9, align 8, !tbaa !120
+  store i32 0, ptr %9, align 8, !tbaa !121
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %10, align 8, !tbaa !30
   ret void
@@ -2265,7 +2265,7 @@ define void @_ZN5faiss25IndexIVFAdditiveQuantizerC2EPNS_17AdditiveQuantizerE(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %5, align 8, !tbaa !120
+  store i32 0, ptr %5, align 8, !tbaa !121
   ret void
 }
 
@@ -2357,7 +2357,7 @@ define internal void @_ZNK5faiss25IndexIVFAdditiveQuantizer14encode_vectorsElPKf
 
 22:                                               ; preds = %.lr.ph, %37
   %.020 = phi i64 [ %19, %.lr.ph ], [ %38, %37 ]
-  %23 = load ptr, ptr %20, align 8, !tbaa !118
+  %23 = load ptr, ptr %20, align 8, !tbaa !119
   %24 = load ptr, ptr %4, align 8, !tbaa !11
   %25 = load i32, ptr %21, align 8, !tbaa !49
   %26 = sext i32 %25 to i64
@@ -2379,7 +2379,7 @@ define internal void @_ZNK5faiss25IndexIVFAdditiveQuantizer14encode_vectorsElPKf
   %38 = add nsw i64 %.020, 1
   %39 = load i64, ptr %9, align 8, !tbaa !4
   %.not.not = icmp slt i64 %.020, %39
-  br i1 %.not.not, label %22, label %._crit_edge
+  br i1 %.not.not, label %22, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %37, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -2419,7 +2419,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #16
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare !callback !121 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
+declare !callback !123 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #14
@@ -2556,7 +2556,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %57, label %58, label %.loopexit
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %32, align 8, !tbaa !118
+  %59 = load ptr, ptr %32, align 8, !tbaa !119
   %60 = load ptr, ptr %59, align 8, !tbaa !58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %62 = load ptr, ptr %61, align 8
@@ -2579,13 +2579,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   store float %69, ptr %67, align 4, !tbaa !53
   %70 = add nuw i64 %.035, 1
   %exitcond.not = icmp eq i64 %70, %64
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %55
   %71 = add nsw i64 %.02637, 1
   %72 = load i64, ptr %9, align 8, !tbaa !4
   %.not.not = icmp slt i64 %.02637, %72
-  br i1 %.not.not, label %35, label %._crit_edge
+  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.loopexit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2644,18 +2644,18 @@ declare void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(100) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -2667,16 +2667,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressIL
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %18, ptr noundef %20, i64 noundef %1)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !125
+  %.pre = load ptr, ptr %5, align 8, !tbaa !128
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
 
 24:                                               ; preds = %10, %3
@@ -2688,7 +2688,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %27, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %27, align 8, !tbaa !129
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %29 = load i8, ptr %28, align 8, !tbaa !30, !range !22, !noundef !23
   %30 = trunc nuw i8 %29 to i1
@@ -2696,7 +2696,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 31:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %2, ptr %32, align 8, !tbaa !94
+  store float %2, ptr %32, align 8, !tbaa !95
   br label %33
 
 33:                                               ; preds = %31, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -2706,9 +2706,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !97
+  %4 = load ptr, ptr %3, align 8, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !127
+  %6 = load i64, ptr %5, align 8, !tbaa !130
   %7 = icmp ugt i64 %6, 2305843009213693951
   br i1 %7, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -2745,12 +2745,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 17:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !126
+  %19 = load ptr, ptr %18, align 8, !tbaa !129
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %30
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !128
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !131
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EE16distance_to_codeEPKh, ptr noundef nonnull @.str.2, i32 noundef 199) #33
   tail call void @abort() #32
   unreachable
@@ -2774,17 +2774,17 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %.not4, label %31, label %34
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !128
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !131
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EE16distance_to_codeEPKh, ptr noundef nonnull @.str.2, i32 noundef 200) #33
   tail call void @abort() #32
   unreachable
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %36 = load float, ptr %35, align 8, !tbaa !94
-  %37 = load ptr, ptr %3, align 8, !tbaa !97
+  %36 = load float, ptr %35, align 8, !tbaa !95
+  %37 = load ptr, ptr %3, align 8, !tbaa !98
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !127
+  %39 = load i64, ptr %38, align 8, !tbaa !130
   %40 = invoke noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef nonnull %19, ptr noundef nonnull %.sroa.09.0, i64 noundef %39)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit8 unwind label %.thread
 
@@ -2839,11 +2839,11 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerD2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -2855,9 +2855,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -2874,7 +2874,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf
   %.sink.in = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink, ptr %27, align 8, !tbaa !126
+  store ptr %.sink, ptr %27, align 8, !tbaa !129
   ret void
 }
 
@@ -3001,18 +3001,18 @@ declare noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE9set_queryEPKf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -3024,9 +3024,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -3043,16 +3043,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -3060,7 +3060,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !99
+  store float %2, ptr %39, align 8, !tbaa !100
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -3070,9 +3070,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !99
+  %4 = load float, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1ELNS0_13Search_type_tE1EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -3190,11 +3190,11 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(100) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -3206,16 +3206,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressIL
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef %18, ptr noundef %20, i64 noundef %1)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !125
+  %.pre = load ptr, ptr %5, align 8, !tbaa !128
   br label %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
 
 24:                                               ; preds = %10, %3
@@ -3227,7 +3227,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %27, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %27, align 8, !tbaa !129
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %29 = load i8, ptr %28, align 8, !tbaa !30, !range !22, !noundef !23
   %30 = trunc nuw i8 %29 to i1
@@ -3235,7 +3235,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 31:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %2, ptr %32, align 8, !tbaa !101
+  store float %2, ptr %32, align 8, !tbaa !102
   br label %33
 
 33:                                               ; preds = %31, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -3245,9 +3245,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !97
+  %4 = load ptr, ptr %3, align 8, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !127
+  %6 = load i64, ptr %5, align 8, !tbaa !130
   %7 = icmp ugt i64 %6, 2305843009213693951
   br i1 %7, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -3284,12 +3284,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 17:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !126
+  %19 = load ptr, ptr %18, align 8, !tbaa !129
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %30
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !128
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !131
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EE16distance_to_codeEPKh, ptr noundef nonnull @.str.2, i32 noundef 199) #33
   tail call void @abort() #32
   unreachable
@@ -3313,15 +3313,15 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %.not4, label %31, label %34
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !128
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !131
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EE16distance_to_codeEPKh, ptr noundef nonnull @.str.2, i32 noundef 200) #33
   tail call void @abort() #32
   unreachable
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %3, align 8, !tbaa !97
+  %35 = load ptr, ptr %3, align 8, !tbaa !98
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !127
+  %37 = load i64, ptr %36, align 8, !tbaa !130
   %38 = invoke noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef nonnull %19, ptr noundef nonnull %.sroa.09.0, i64 noundef %37)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit8 unwind label %.thread
 
@@ -3390,9 +3390,9 @@ declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -3404,7 +3404,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !103
+  store float %13, ptr %14, align 8, !tbaa !104
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -3414,11 +3414,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -3430,9 +3430,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -3449,16 +3449,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -3466,7 +3466,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !103
+  store float %2, ptr %39, align 8, !tbaa !104
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -3476,9 +3476,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !103
+  %4 = load float, ptr %3, align 8, !tbaa !104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE1EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -3598,9 +3598,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -3612,7 +3612,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !105
+  store float %13, ptr %14, align 8, !tbaa !106
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -3622,11 +3622,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -3638,9 +3638,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -3657,16 +3657,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -3674,7 +3674,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !105
+  store float %2, ptr %39, align 8, !tbaa !106
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -3684,9 +3684,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !105
+  %4 = load float, ptr %3, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE2EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -3804,9 +3804,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -3818,7 +3818,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !107
+  store float %13, ptr %14, align 8, !tbaa !108
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -3828,11 +3828,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -3844,9 +3844,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -3863,16 +3863,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -3880,7 +3880,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !107
+  store float %2, ptr %39, align 8, !tbaa !108
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -3890,9 +3890,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !107
+  %4 = load float, ptr %3, align 8, !tbaa !108
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE3EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -4010,9 +4010,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -4024,7 +4024,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !109
+  store float %13, ptr %14, align 8, !tbaa !110
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -4034,11 +4034,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -4050,9 +4050,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -4069,16 +4069,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -4086,7 +4086,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !109
+  store float %2, ptr %39, align 8, !tbaa !110
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -4096,9 +4096,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !109
+  %4 = load float, ptr %3, align 8, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE4EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -4216,9 +4216,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -4230,7 +4230,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !111
+  store float %13, ptr %14, align 8, !tbaa !112
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -4240,11 +4240,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -4256,9 +4256,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -4275,16 +4275,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -4292,7 +4292,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !111
+  store float %2, ptr %39, align 8, !tbaa !112
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -4302,9 +4302,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !111
+  %4 = load float, ptr %3, align 8, !tbaa !112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE5EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -4422,9 +4422,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -4436,7 +4436,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !113
+  store float %13, ptr %14, align 8, !tbaa !114
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -4446,11 +4446,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -4462,9 +4462,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -4481,16 +4481,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -4498,7 +4498,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !113
+  store float %2, ptr %39, align 8, !tbaa !114
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -4508,9 +4508,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !113
+  %4 = load float, ptr %3, align 8, !tbaa !114
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE7EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -4628,9 +4628,9 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE9set_queryEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %3, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i8, ptr %6, align 8, !tbaa !30, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
@@ -4642,7 +4642,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
   %12 = sext i32 %11 to i64
   %13 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %13, ptr %14, align 8, !tbaa !115
+  store float %13, ptr %14, align 8, !tbaa !116
   br label %15
 
 15:                                               ; preds = %9, %2
@@ -4652,11 +4652,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE8set_listElf(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((8, 16)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !85
+  store i64 %1, ptr %4, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !125
+  %6 = load ptr, ptr %5, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %24
 
@@ -4668,9 +4668,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !118
+  %16 = load ptr, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = load ptr, ptr %16, align 8, !tbaa !58
@@ -4687,16 +4687,16 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
   %.sink.in.i = phi ptr [ %25, %24 ], [ %19, %14 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink.i, ptr %26, align 8, !tbaa !126
+  store ptr %.sink.i, ptr %26, align 8, !tbaa !129
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = load ptr, ptr %28, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(356) %28, i64 noundef 1, ptr noundef %.sink.i, ptr noundef %30, float noundef 1.000000e+00, i64 noundef -1)
-  %34 = load ptr, ptr %5, align 8, !tbaa !125
+  %34 = load ptr, ptr %5, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 264
   %36 = load i8, ptr %35, align 8, !tbaa !30, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
@@ -4704,7 +4704,7 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 
 38:                                               ; preds = %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store float %2, ptr %39, align 8, !tbaa !115
+  store float %2, ptr %39, align 8, !tbaa !116
   br label %40
 
 40:                                               ; preds = %38, %_ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit
@@ -4714,9 +4714,9 @@ _ZN5faiss12_GLOBAL__N_121AQInvertedListScanner8set_listElf.exit: ; preds = %14, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE16distance_to_codeEPKh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load float, ptr %3, align 8, !tbaa !115
+  %4 = load float, ptr %3, align 8, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %6 = load ptr, ptr %5, align 8, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE6EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(356) %6, ptr noundef %1, ptr noundef %8)
@@ -4841,7 +4841,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2EPNS_5IndexEmmRKSt6vectorImSa
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %9, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %11, align 8, !tbaa !120
+  store i32 0, ptr %11, align 8, !tbaa !121
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %12, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
@@ -4851,11 +4851,11 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2EPNS_5IndexEmmRKSt6vectorImSa
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %15 = load i64, ptr %14, align 8, !tbaa !130
+  %15 = load i64, ptr %14, align 8, !tbaa !133
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !117
+  %17 = load ptr, ptr %16, align 8, !tbaa !118
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %15, ptr %18, align 8, !tbaa !131
+  store i64 %15, ptr %18, align 8, !tbaa !134
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %15, ptr %19, align 8, !tbaa !60
   ret void
@@ -4879,7 +4879,7 @@ define void @_ZN5faiss25IndexIVFResidualQuantizerC2Ev(ptr noundef nonnull align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %3, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %5, align 8, !tbaa !120
+  store i32 0, ptr %5, align 8, !tbaa !121
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 304), ptr %2, align 8, !tbaa !58
   invoke void @_ZN5faiss17ResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(440) %3)
@@ -4919,10 +4919,10 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
 .noexc10:                                         ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %4, 3
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #31
-  store ptr %12, ptr %9, align 8, !tbaa !63
+  store ptr %12, ptr %9, align 8, !tbaa !64
   %13 = getelementptr inbounds nuw i64, ptr %12, i64 %4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %13, ptr %14, align 8, !tbaa !133
+  store ptr %13, ptr %14, align 8, !tbaa !136
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
@@ -4931,13 +4931,13 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   store i64 %5, ptr %.06.i.i.i.i.i.i.i.i.i, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, %15
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !134
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
   %17 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i ], [ %12, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8, !tbaa !135
+  store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8, !tbaa !138
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 304), ptr %19, align 8, !tbaa !58
@@ -4949,7 +4949,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %20, ptr %21, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %22, align 8, !tbaa !120
+  store i32 0, ptr %22, align 8, !tbaa !121
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %23, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss25IndexIVFResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
@@ -4961,25 +4961,25 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(728) %0) #14
-  %.pre = load ptr, ptr %9, align 8, !tbaa !63
+  %.pre = load ptr, ptr %9, align 8, !tbaa !64
   br label %.body
 
 26:                                               ; preds = %.noexc11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %28 = load i64, ptr %27, align 8, !tbaa !130
+  %28 = load i64, ptr %27, align 8, !tbaa !133
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %30 = load ptr, ptr %29, align 8, !tbaa !117
+  %30 = load ptr, ptr %29, align 8, !tbaa !118
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i64 %28, ptr %31, align 8, !tbaa !131
+  store i64 %28, ptr %31, align 8, !tbaa !134
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %28, ptr %32, align 8, !tbaa !60
-  %33 = load ptr, ptr %9, align 8, !tbaa !63
+  %33 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %34
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !133
+  %36 = load ptr, ptr %35, align 8, !tbaa !136
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
@@ -5003,7 +5003,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %26, %34
 
 43:                                               ; preds = %.body
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !133
+  %45 = load ptr, ptr %44, align 8, !tbaa !136
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %42 to i64
   %48 = sub i64 %46, %47
@@ -5039,7 +5039,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2EPNS_5IndexEmmmmNS_10Metri
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %10, ptr %11, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %12, align 8, !tbaa !120
+  store i32 0, ptr %12, align 8, !tbaa !121
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %13, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
@@ -5049,11 +5049,11 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2EPNS_5IndexEmmmmNS_10Metri
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %16 = load i64, ptr %15, align 8, !tbaa !130
+  %16 = load i64, ptr %15, align 8, !tbaa !133
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %18 = load ptr, ptr %17, align 8, !tbaa !117
+  %18 = load ptr, ptr %17, align 8, !tbaa !118
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %16, ptr %19, align 8, !tbaa !131
+  store i64 %16, ptr %19, align 8, !tbaa !134
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %16, ptr %20, align 8, !tbaa !60
   ret void
@@ -5077,7 +5077,7 @@ define void @_ZN5faiss28IndexIVFLocalSearchQuantizerC2Ev(ptr noundef nonnull ali
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %3, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %5, align 8, !tbaa !120
+  store i32 0, ptr %5, align 8, !tbaa !121
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss28IndexIVFLocalSearchQuantizerE, i64 304), ptr %2, align 8, !tbaa !58
   invoke void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(441) %3)
@@ -5119,7 +5119,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2EPNS_5IndexEmmmmmNS_10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %11, ptr %12, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %13, align 8, !tbaa !120
+  store i32 0, ptr %13, align 8, !tbaa !121
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %14, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
@@ -5129,11 +5129,11 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2EPNS_5IndexEmmmmmNS_10
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %17 = load i64, ptr %16, align 8, !tbaa !130
+  %17 = load i64, ptr %16, align 8, !tbaa !133
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %19 = load ptr, ptr %18, align 8, !tbaa !117
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %17, ptr %20, align 8, !tbaa !131
+  store i64 %17, ptr %20, align 8, !tbaa !134
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %17, ptr %21, align 8, !tbaa !60
   ret void
@@ -5157,7 +5157,7 @@ define void @_ZN5faiss32IndexIVFProductResidualQuantizerC2Ev(ptr noundef nonnull
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %3, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %5, align 8, !tbaa !120
+  store i32 0, ptr %5, align 8, !tbaa !121
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss32IndexIVFProductResidualQuantizerE, i64 304), ptr %2, align 8, !tbaa !58
   invoke void @_ZN5faiss24ProductResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(392) %3)
@@ -5196,7 +5196,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2EPNS_5IndexEmmmmmNS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %11, ptr %12, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %13, align 8, !tbaa !120
+  store i32 0, ptr %13, align 8, !tbaa !121
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 1, ptr %14, align 8, !tbaa !30
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
@@ -5206,11 +5206,11 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2EPNS_5IndexEmmmmmNS
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %17 = load i64, ptr %16, align 8, !tbaa !130
+  %17 = load i64, ptr %16, align 8, !tbaa !133
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %19 = load ptr, ptr %18, align 8, !tbaa !117
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %17, ptr %20, align 8, !tbaa !131
+  store i64 %17, ptr %20, align 8, !tbaa !134
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %17, ptr %21, align 8, !tbaa !60
   ret void
@@ -5234,7 +5234,7 @@ define void @_ZN5faiss35IndexIVFProductLocalSearchQuantizerC2Ev(ptr noundef nonn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %3, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %5, align 8, !tbaa !120
+  store i32 0, ptr %5, align 8, !tbaa !121
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 16), ptr %0, align 8, !tbaa !58
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5faiss35IndexIVFProductLocalSearchQuantizerE, i64 304), ptr %2, align 8, !tbaa !58
   invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(392) %3)
@@ -5389,78 +5389,81 @@ attributes #33 = { cold nounwind }
 !58 = !{!59, !59, i64 0}
 !59 = !{!"vtable pointer", !7, i64 0}
 !60 = !{!31, !5, i64 160}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!64, !16, i64 0}
-!64 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
-!65 = !{!66, !5, i64 24}
-!66 = !{!"_ZTSN5faiss17AdditiveQuantizerE", !67, i64 0, !5, i64 24, !68, i64 32, !71, i64 56, !68, i64 80, !5, i64 104, !5, i64 112, !5, i64 120, !19, i64 128, !19, i64 129, !19, i64 130, !71, i64 136, !74, i64 160, !71, i64 288, !71, i64 312, !5, i64 336, !82, i64 344, !21, i64 348, !21, i64 352}
-!67 = !{!"_ZTSN5faiss9QuantizerE", !5, i64 8, !5, i64 16}
-!68 = !{!"_ZTSSt6vectorImSaImEE", !69, i64 0}
-!69 = !{!"_ZTSSt12_Vector_baseImSaImEE", !70, i64 0}
-!70 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !64, i64 0}
-!71 = !{!"_ZTSSt6vectorIfSaIfEE", !72, i64 0}
-!72 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !73, i64 0}
-!73 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !51, i64 0}
-!74 = !{!"_ZTSN5faiss11IndexFlat1DE", !75, i64 0, !19, i64 96, !39, i64 104}
-!75 = !{!"_ZTSN5faiss11IndexFlatL2E", !76, i64 0, !71, i64 72}
-!76 = !{!"_ZTSN5faiss9IndexFlatE", !77, i64 0}
-!77 = !{!"_ZTSN5faiss14IndexFlatCodesE", !18, i64 0, !5, i64 40, !78, i64 48}
-!78 = !{!"_ZTSSt6vectorIhSaIhEE", !79, i64 0}
-!79 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !80, i64 0}
-!80 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !81, i64 0}
-!81 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!82 = !{!"_ZTSN5faiss17AdditiveQuantizer13Search_type_tE", !6, i64 0}
-!83 = !{!18, !20, i64 28}
-!84 = !{!66, !82, i64 344}
-!85 = !{!86, !5, i64 8}
-!86 = !{!"_ZTSN5faiss19InvertedListScannerE", !5, i64 8, !19, i64 16, !19, i64 17, !87, i64 24, !5, i64 32}
-!87 = !{!"p1 _ZTSN5faiss10IDSelectorE", !10, i64 0}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"p1 _ZTSN5faiss25IndexIVFAdditiveQuantizerE", !10, i64 0}
-!90 = !{!57, !57, i64 0}
-!91 = !{!86, !19, i64 17}
-!92 = !{!86, !5, i64 32}
-!93 = !{!86, !19, i64 16}
-!94 = !{!95, !21, i64 96}
-!95 = !{!"_ZTSN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEE", !96, i64 0, !21, i64 96}
-!96 = !{!"_ZTSN5faiss12_GLOBAL__N_121AQInvertedListScannerE", !86, i64 0, !89, i64 40, !57, i64 48, !71, i64 56, !12, i64 80, !12, i64 88}
-!97 = !{!96, !57, i64 48}
-!98 = !{!66, !5, i64 120}
-!99 = !{!100, !21, i64 144}
-!100 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!101 = !{!102, !21, i64 96}
-!102 = !{!"_ZTSN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEE", !96, i64 0, !21, i64 96}
-!103 = !{!104, !21, i64 144}
-!104 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!105 = !{!106, !21, i64 144}
-!106 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!107 = !{!108, !21, i64 144}
-!108 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!109 = !{!110, !21, i64 144}
-!110 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!111 = !{!112, !21, i64 144}
-!112 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!113 = !{!114, !21, i64 144}
-!114 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!115 = !{!116, !21, i64 144}
-!116 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEE", !96, i64 0, !71, i64 96, !71, i64 120, !21, i64 144}
-!117 = !{!31, !36, i64 144}
-!118 = !{!33, !34, i64 0}
-!119 = distinct !{!119, !62}
-!120 = !{!56, !14, i64 280}
-!121 = !{!122}
-!122 = !{i64 2, i64 -1, i64 -1, i1 true}
-!123 = distinct !{!123, !62}
-!124 = !{!96, !12, i64 80}
-!125 = !{!96, !89, i64 40}
-!126 = !{!96, !12, i64 88}
-!127 = !{!67, !5, i64 8}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!130 = !{!67, !5, i64 16}
-!131 = !{!132, !5, i64 16}
-!132 = !{!"_ZTSN5faiss13InvertedListsE", !5, i64 8, !5, i64 16, !19, i64 24}
-!133 = !{!64, !16, i64 16}
-!134 = distinct !{!134, !62}
-!135 = !{!64, !16, i64 8}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!65, !16, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
+!66 = !{!67, !5, i64 24}
+!67 = !{!"_ZTSN5faiss17AdditiveQuantizerE", !68, i64 0, !5, i64 24, !69, i64 32, !72, i64 56, !69, i64 80, !5, i64 104, !5, i64 112, !5, i64 120, !19, i64 128, !19, i64 129, !19, i64 130, !72, i64 136, !75, i64 160, !72, i64 288, !72, i64 312, !5, i64 336, !83, i64 344, !21, i64 348, !21, i64 352}
+!68 = !{!"_ZTSN5faiss9QuantizerE", !5, i64 8, !5, i64 16}
+!69 = !{!"_ZTSSt6vectorImSaImEE", !70, i64 0}
+!70 = !{!"_ZTSSt12_Vector_baseImSaImEE", !71, i64 0}
+!71 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !65, i64 0}
+!72 = !{!"_ZTSSt6vectorIfSaIfEE", !73, i64 0}
+!73 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !74, i64 0}
+!74 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !51, i64 0}
+!75 = !{!"_ZTSN5faiss11IndexFlat1DE", !76, i64 0, !19, i64 96, !39, i64 104}
+!76 = !{!"_ZTSN5faiss11IndexFlatL2E", !77, i64 0, !72, i64 72}
+!77 = !{!"_ZTSN5faiss9IndexFlatE", !78, i64 0}
+!78 = !{!"_ZTSN5faiss14IndexFlatCodesE", !18, i64 0, !5, i64 40, !79, i64 48}
+!79 = !{!"_ZTSSt6vectorIhSaIhEE", !80, i64 0}
+!80 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !81, i64 0}
+!81 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !82, i64 0}
+!82 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!83 = !{!"_ZTSN5faiss17AdditiveQuantizer13Search_type_tE", !6, i64 0}
+!84 = !{!18, !20, i64 28}
+!85 = !{!67, !83, i64 344}
+!86 = !{!87, !5, i64 8}
+!87 = !{!"_ZTSN5faiss19InvertedListScannerE", !5, i64 8, !19, i64 16, !19, i64 17, !88, i64 24, !5, i64 32}
+!88 = !{!"p1 _ZTSN5faiss10IDSelectorE", !10, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSN5faiss25IndexIVFAdditiveQuantizerE", !10, i64 0}
+!91 = !{!57, !57, i64 0}
+!92 = !{!87, !19, i64 17}
+!93 = !{!87, !5, i64 32}
+!94 = !{!87, !19, i64 16}
+!95 = !{!96, !21, i64 96}
+!96 = !{!"_ZTSN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEE", !97, i64 0, !21, i64 96}
+!97 = !{!"_ZTSN5faiss12_GLOBAL__N_121AQInvertedListScannerE", !87, i64 0, !90, i64 40, !57, i64 48, !72, i64 56, !12, i64 80, !12, i64 88}
+!98 = !{!97, !57, i64 48}
+!99 = !{!67, !5, i64 120}
+!100 = !{!101, !21, i64 144}
+!101 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!102 = !{!103, !21, i64 96}
+!103 = !{!"_ZTSN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEE", !97, i64 0, !21, i64 96}
+!104 = !{!105, !21, i64 144}
+!105 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!106 = !{!107, !21, i64 144}
+!107 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE2EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!108 = !{!109, !21, i64 144}
+!109 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!110 = !{!111, !21, i64 144}
+!111 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!112 = !{!113, !21, i64 144}
+!113 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!114 = !{!115, !21, i64 144}
+!115 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!116 = !{!117, !21, i64 144}
+!117 = !{!"_ZTSN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEE", !97, i64 0, !72, i64 96, !72, i64 120, !21, i64 144}
+!118 = !{!31, !36, i64 144}
+!119 = !{!33, !34, i64 0}
+!120 = distinct !{!120, !62, !63}
+!121 = !{!56, !14, i64 280}
+!122 = distinct !{!122, !63}
+!123 = !{!124}
+!124 = !{i64 2, i64 -1, i64 -1, i1 true}
+!125 = distinct !{!125, !62, !63}
+!126 = distinct !{!126, !63}
+!127 = !{!97, !12, i64 80}
+!128 = !{!97, !90, i64 40}
+!129 = !{!97, !12, i64 88}
+!130 = !{!68, !5, i64 8}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!133 = !{!68, !5, i64 16}
+!134 = !{!135, !5, i64 16}
+!135 = !{!"_ZTSN5faiss13InvertedListsE", !5, i64 8, !5, i64 16, !19, i64 24}
+!136 = !{!65, !16, i64 16}
+!137 = distinct !{!137, !62, !63}
+!138 = !{!65, !16, i64 8}

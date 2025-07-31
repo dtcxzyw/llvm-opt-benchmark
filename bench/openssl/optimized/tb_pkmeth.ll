@@ -158,7 +158,7 @@ define ptr @ENGINE_get_pkey_meth(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %11
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !25
+  %10 = load ptr, ptr %3, align 8, !tbaa !26
   br label %11
 
 11:                                               ; preds = %9, %8
@@ -212,20 +212,20 @@ define void @engine_pkey_meths_free(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load ptr, ptr %4, align 8, !tbaa !3
   %10 = load ptr, ptr %3, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !27
+  %12 = load i32, ptr %11, align 4, !tbaa !28
   %13 = call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null, i32 noundef %12) #5
   %.not8 = icmp eq i32 %13, 0
   br i1 %.not8, label %16, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %2, align 8, !tbaa !25
+  %15 = load ptr, ptr %2, align 8, !tbaa !26
   call void @EVP_PKEY_meth_free(ptr noundef %15) #5
   br label %16
 
 16:                                               ; preds = %.lr.ph, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %16, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
@@ -272,9 +272,10 @@ attributes #5 = { nounwind }
 !20 = !{!"p1 _ZTS9engine_st", !6, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"p1 int", !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS18evp_pkey_method_st", !6, i64 0}
-!27 = !{!15, !15, i64 0}
-!28 = distinct !{!28, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS18evp_pkey_method_st", !6, i64 0}
+!28 = !{!15, !15, i64 0}
+!29 = distinct !{!29, !24, !25}

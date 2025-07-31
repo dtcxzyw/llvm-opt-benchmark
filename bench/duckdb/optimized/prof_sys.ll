@@ -138,7 +138,7 @@ define internal i64 @malloc_write_fd(i32 noundef %0, ptr noundef %1, i64 noundef
 9:                                                ; preds = %4
   %10 = add i64 %7, %.014
   %11 = icmp ult i64 %10, %2
-  br i1 %11, label %4, label %12
+  br i1 %11, label %4, label %12, !llvm.loop !6
 
 12:                                               ; preds = %9, %4
   %.2 = phi i64 [ %7, %4 ], [ %10, %9 ]
@@ -163,22 +163,22 @@ define void @duckdb_je_prof_get_default_filename(ptr noundef %0, ptr noundef %1,
   br label %7
 
 7:                                                ; preds = %6, %3
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
   %9 = add i64 %8, 1
-  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %10, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %11
 
 11:                                               ; preds = %7
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   %13 = add i64 %12, 1
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %7, %11
-  %14 = load i8, ptr @duckdb_je_opt_prof_pid_namespace, align 1, !tbaa !16, !range !18, !noundef !19
+  %14 = load i8, ptr @duckdb_je_opt_prof_pid_namespace, align 1, !tbaa !18, !range !20, !noundef !21
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %26
 
@@ -242,18 +242,18 @@ define void @duckdb_je_prof_idump_impl(ptr noundef %0) local_unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
@@ -279,18 +279,18 @@ define noundef zeroext i1 @duckdb_je_prof_mdump_impl(ptr noundef %0, ptr noundef
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
   %8 = add i64 %7, 1
-  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %9, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %10
 
 10:                                               ; preds = %6
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   %12 = add i64 %11, 1
-  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %6, %10
@@ -314,18 +314,18 @@ define void @duckdb_je_prof_gdump_impl(ptr noundef %0) local_unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !16
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !17
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
@@ -378,17 +378,19 @@ attributes #12 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = !{!7, !9, i64 56}
-!7 = !{!"", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !11, i64 36, !9, i64 40, !12, i64 48, !9, i64 56}
-!8 = !{!"", !9, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = !{!"int", !4, i64 0}
-!11 = !{!"", !10, i64 0}
-!12 = !{!"p1 _ZTS6tsdn_s", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!7, !12, i64 48}
-!15 = !{!7, !9, i64 40}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"_Bool", !4, i64 0}
-!18 = !{i8 0, i8 2}
-!19 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9, !11, i64 56}
+!9 = !{!"", !10, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !12, i64 32, !13, i64 36, !11, i64 40, !14, i64 48, !11, i64 56}
+!10 = !{!"", !11, i64 0}
+!11 = !{!"long", !4, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = !{!"", !12, i64 0}
+!14 = !{!"p1 _ZTS6tsdn_s", !15, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = !{!9, !14, i64 48}
+!17 = !{!9, !11, i64 40}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"_Bool", !4, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}

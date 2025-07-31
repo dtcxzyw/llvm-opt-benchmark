@@ -635,13 +635,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %22
 _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %211
   %233 = phi i64 [ %231, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ], [ %.pre80, %211 ]
   %234 = phi i1 [ %232, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ], [ false, %211 ]
-  %.sroa.0.0.copyload.i.i.i17 = load i64, ptr %3, align 8, !tbaa !12, !noalias !59
+  %.sroa.0.0.copyload.i.i.i17 = load i64, ptr %3, align 8, !tbaa !12, !noalias !60
   %235 = icmp ne i64 %233, %.sroa.0.0.copyload.i.i.i17
   %.not3.i = select i1 %234, i1 true, i1 %235
   %236 = load ptr, ptr %0, align 8
   %.not.i18 = icmp eq ptr %236, null
   %or.cond = select i1 %.not3.i, i1 %.not.i18, i1 false
-  br i1 %or.cond, label %54, label %.critedge, !llvm.loop !61
+  br i1 %or.cond, label %54, label %.critedge, !llvm.loop !62
 
 .loopexit:                                        ; preds = %212
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -664,7 +664,7 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
   %239 = icmp eq ptr %238, null
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %spec.select.i.i = select i1 %239, ptr null, ptr %240
-  store ptr %spec.select.i.i, ptr %8, align 8, !tbaa !62
+  store ptr %spec.select.i.i, ptr %8, align 8, !tbaa !63
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %243 = load ptr, ptr %242, align 8, !tbaa !38
@@ -1041,11 +1041,12 @@ attributes #13 = { noreturn }
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi: argument 0"}
 !56 = distinct !{!56, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi"}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!60}
-!60 = distinct !{!60, !32, !"_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE3endEv: argument 0:h.rot"}
-!61 = distinct !{!61, !58}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0, !36, i64 8}
-!64 = !{!"p1 _ZTSN17grpc_event_engine12experimental8ForkableE", !7, i64 0}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!61}
+!61 = distinct !{!61, !32, !"_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE3endEv: argument 0:h.rot"}
+!62 = distinct !{!62, !58, !59}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EE", !65, i64 0, !36, i64 8}
+!65 = !{!"p1 _ZTSN17grpc_event_engine12experimental8ForkableE", !7, i64 0}

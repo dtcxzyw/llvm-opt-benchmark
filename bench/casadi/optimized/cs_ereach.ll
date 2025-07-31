@@ -105,7 +105,7 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %55 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
   store i32 %54, ptr %55, align 4, !tbaa !14
   %56 = icmp samesign ugt i64 %indvars.iv87, 1
-  br i1 %56, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !17
+  br i1 %56, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.lr.ph75
   %57 = trunc nsw i64 %indvars.iv.next86 to i32
@@ -117,7 +117,7 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %58 = load i32, ptr %26, align 4, !tbaa !14
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next93, %59
-  br i1 %60, label %.lr.ph79, label %.preheader, !llvm.loop !18
+  br i1 %60, label %.lr.ph79, label %.preheader, !llvm.loop !19
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv95 = phi i64 [ %31, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
@@ -130,7 +130,7 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   store i32 %66, ptr %64, align 4, !tbaa !14
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %13, %.preheader
   %.059.lcssa99 = phi i32 [ %.1, %.preheader ], [ %15, %13 ], [ %.1, %.lr.ph82 ]
@@ -163,8 +163,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !12 = !{!4, !8, i64 16}
 !13 = !{!4, !8, i64 24}
 !14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}

@@ -243,7 +243,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
   %143 = load i32, ptr %119, align 8
   %144 = zext i32 %143 to i64
   %145 = icmp samesign ult i64 %142, %144
-  br i1 %145, label %133, label %.loopexit5, !llvm.loop !9
+  br i1 %145, label %133, label %.loopexit5, !llvm.loop !10
 
 146:                                              ; preds = %146, %129
   %147 = phi i64 [ 0, %129 ], [ %155, %146 ]
@@ -259,14 +259,14 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
   %156 = load i32, ptr %126, align 8
   %157 = zext i32 %156 to i64
   %158 = icmp samesign ult i64 %155, %157
-  br i1 %158, label %146, label %.loopexit, !llvm.loop !10
+  br i1 %158, label %146, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %146, %.loopexit5, %.thread
   %159 = add nuw nsw i64 %10, 1
   %160 = load i32, ptr %3, align 8
   %161 = zext i32 %160 to i64
   %162 = icmp samesign ult i64 %159, %161
-  br i1 %162, label %9, label %.loopexit6, !llvm.loop !11
+  br i1 %162, label %9, label %.loopexit6, !llvm.loop !12
 
 .loopexit6:                                       ; preds = %.loopexit, %1
   ret void
@@ -327,7 +327,7 @@ define dso_local void @cond_policydb_destroy(ptr noundef %0) local_unnamed_addr 
   %21 = load i32, ptr %5, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %10, label %.loopexit, !llvm.loop !12
+  br i1 %23, label %10, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -528,7 +528,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   %34 = add nuw nsw i64 %37, 1
   %35 = icmp eq i64 %34, %13
-  br i1 %35, label %.loopexit24, label %36, !llvm.loop !13
+  br i1 %35, label %.loopexit24, label %36, !llvm.loop !14
 
 36:                                               ; preds = %33, %27
   %37 = phi i64 [ 0, %27 ], [ %34, %33 ]
@@ -565,7 +565,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
 57:                                               ; preds = %75
   %58 = add nuw nsw i64 %60, 1
   %59 = icmp eq i64 %58, %49
-  br i1 %59, label %.loopexit21, label %.preheader20, !llvm.loop !14
+  br i1 %59, label %.loopexit21, label %.preheader20, !llvm.loop !15
 
 .preheader20:                                     ; preds = %54, %57
   %60 = phi i64 [ %58, %57 ], [ 0, %54 ]
@@ -634,7 +634,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
 96:                                               ; preds = %99
   %97 = add nuw nsw i64 %100, 1
   %98 = icmp eq i64 %97, %91
-  br i1 %98, label %107, label %99, !llvm.loop !15
+  br i1 %98, label %107, label %99, !llvm.loop !16
 
 99:                                               ; preds = %96, %95
   %100 = phi i64 [ 0, %95 ], [ %97, %96 ]
@@ -696,7 +696,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
 125:                                              ; preds = %128
   %126 = add nuw nsw i64 %129, 1
   %127 = icmp eq i64 %126, %120
-  br i1 %127, label %136, label %128, !llvm.loop !15
+  br i1 %127, label %136, label %128, !llvm.loop !16
 
 128:                                              ; preds = %125, %124
   %129 = phi i64 [ 0, %124 ], [ %126, %125 ]
@@ -747,7 +747,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   %152 = load i32, ptr %139, align 8
   %153 = zext i32 %152 to i64
   %154 = icmp samesign ult i64 %151, %153
-  br i1 %154, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %154, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.thread16
   %155 = load ptr, ptr %16, align 8
@@ -849,7 +849,7 @@ define dso_local i32 @cond_write_list(ptr noundef %0, ptr noundef %1) local_unna
   %21 = load i32, ptr %3, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %thread-pre-split, label %..thread21.loopexit26_crit_edge, !llvm.loop !16
+  br i1 %23, label %thread-pre-split, label %..thread21.loopexit26_crit_edge, !llvm.loop !18
 
 thread-pre-split:                                 ; preds = %.loopexit
   %.pr = load i64, ptr %4, align 8
@@ -913,7 +913,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %60 = load i32, ptr %36, align 8
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %59, %61
-  br i1 %62, label %thread-pre-split10, label %thread-pre-split13, !llvm.loop !17
+  br i1 %62, label %thread-pre-split10, label %thread-pre-split13, !llvm.loop !19
 
 thread-pre-split10:                               ; preds = %.lr.ph
   %63 = icmp ugt i64 %58, 7
@@ -945,7 +945,7 @@ thread-pre-split13:                               ; preds = %.lr.ph, %38
   %79 = load i32, ptr %67, align 8
   %80 = zext i32 %79 to i64
   %81 = icmp samesign ult i64 %78, %80
-  br i1 %81, label %.preheader22, label %thread-pre-split17, !llvm.loop !18
+  br i1 %81, label %.preheader22, label %thread-pre-split17, !llvm.loop !20
 
 .preheader22:                                     ; preds = %69, %77
   %82 = phi i64 [ %78, %77 ], [ 0, %69 ]
@@ -986,7 +986,7 @@ thread-pre-split17:                               ; preds = %77
   %104 = load i32, ptr %91, align 8
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %103, %105
-  br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %93, %102
   %107 = phi i64 [ %103, %102 ], [ 0, %93 ]
@@ -998,7 +998,7 @@ thread-pre-split17:                               ; preds = %77
   br i1 %112, label %102, label %.thread21
 
 ..thread21.loopexit26_crit_edge:                  ; preds = %.loopexit
-  br label %.thread21, !llvm.loop !16
+  br label %.thread21, !llvm.loop !18
 
 .thread21:                                        ; preds = %thread-pre-split, %.lr.ph30, %thread-pre-split13, %88, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
   %113 = phi i32 [ 0, %7 ], [ -22, %2 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %16 ], [ %111, %.preheader ], [ %86, %.preheader22 ], [ -22, %thread-pre-split10 ], [ -22, %.preheader24 ], [ -22, %88 ], [ -22, %thread-pre-split13 ], [ -22, %.lr.ph30 ], [ -22, %thread-pre-split ]
@@ -1038,7 +1038,7 @@ define dso_local void @cond_compute_xperms(ptr noundef %0, ptr noundef %1, ptr n
   %21 = load i16, ptr %13, align 2
   %22 = tail call ptr @avtab_search_node_next(ptr noundef nonnull %15, i16 noundef zeroext %21) #13
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %14, !llvm.loop !19
+  br i1 %23, label %.loopexit, label %14, !llvm.loop !22
 
 .loopexit:                                        ; preds = %20, %9, %3
   ret void
@@ -1124,7 +1124,7 @@ define dso_local void @cond_compute_av(ptr noundef %0, ptr noundef %1, ptr nound
   %47 = load i16, ptr %17, align 2
   %48 = tail call ptr @avtab_search_node_next(ptr noundef nonnull %18, i16 noundef zeroext %47) #13
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit, label %.split.us, !llvm.loop !20
+  br i1 %49, label %.loopexit, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %13, %85
   %50 = phi ptr [ %87, %85 ], [ %11, %13 ]
@@ -1189,7 +1189,7 @@ define dso_local void @cond_compute_av(ptr noundef %0, ptr noundef %1, ptr nound
   %86 = load i16, ptr %17, align 2
   %87 = tail call ptr @avtab_search_node_next(ptr noundef nonnull %50, i16 noundef zeroext %86) #13
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %.loopexit, label %.split, !llvm.loop !22
+  br i1 %88, label %.loopexit, label %.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %85, %46, %10, %4
   ret void
@@ -1284,7 +1284,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %39 = load i32, ptr %27, align 8
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %38, %40
-  br i1 %41, label %42, label %.loopexit9, !llvm.loop !23
+  br i1 %41, label %42, label %.loopexit9, !llvm.loop !26
 
 42:                                               ; preds = %.loopexit5, %36
   %43 = phi i64 [ 0, %36 ], [ %38, %.loopexit5 ]
@@ -1358,7 +1358,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %93 = load i32, ptr %65, align 8
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %92, %94
-  br i1 %95, label %76, label %.loopexit7, !llvm.loop !24
+  br i1 %95, label %76, label %.loopexit7, !llvm.loop !27
 
 .loopexit7:                                       ; preds = %89, %71
   %96 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -1406,7 +1406,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %126 = load i32, ptr %98, align 8
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %125, %127
-  br i1 %128, label %109, label %.loopexit5, !llvm.loop !24
+  br i1 %128, label %109, label %.loopexit5, !llvm.loop !28
 
 .loopexit4:                                       ; preds = %.loopexit7, %60, %42, %76, %109, %26
   tail call void @avtab_destroy(ptr noundef nonnull %6) #13
@@ -1431,7 +1431,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %141 = load i32, ptr %5, align 8
   %142 = zext i32 %141 to i64
   %143 = icmp samesign ult i64 %140, %142
-  br i1 %143, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %143, label %.preheader, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4
   %144 = load ptr, ptr %4, align 8
@@ -1521,7 +1521,7 @@ define internal noundef range(i32 -22, 1) i32 @cond_insertf(ptr readnone capture
 37:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = icmp eq i64 %indvars.iv.next, %34
-  br i1 %38, label %.loopexit5, label %39, !llvm.loop !25
+  br i1 %38, label %.loopexit5, label %39, !llvm.loop !30
 
 39:                                               ; preds = %37, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %32 ]
@@ -1634,23 +1634,28 @@ attributes #17 = { nounwind allocsize(1) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = distinct !{!18, !7, !8, !9}
+!19 = distinct !{!19, !7, !8, !9}
+!20 = distinct !{!20, !7, !8, !9}
+!21 = distinct !{!21, !7, !8, !9}
+!22 = distinct !{!22, !7, !8, !9}
+!23 = distinct !{!23, !7, !8, !9, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7, !8, !9}
+!26 = distinct !{!26, !7, !8, !9}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = distinct !{!30, !7, !8, !9}

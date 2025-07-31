@@ -453,7 +453,7 @@ SRP_user_pwd_set_sv.exit.thread:                  ; preds = %SRP_user_pwd_set1_i
   %129 = add nuw nsw i32 %.01216.i, 1
   %130 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #7
   %131 = icmp slt i32 %129, %130
-  br i1 %131, label %.lr.ph.split.i, label %SRP_get_gN_by_id.exit, !llvm.loop !36
+  br i1 %131, label %.lr.ph.split.i, label %SRP_get_gN_by_id.exit, !llvm.loop !37
 
 SRP_get_gN_by_id.exit:                            ; preds = %128, %120
   %132 = call ptr @SRP_get_default_gN(ptr noundef nonnull %.168.lcssa) #7
@@ -465,11 +465,11 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   %134 = getelementptr inbounds nuw i8, ptr %.0.i93107, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !33
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %135, ptr %136, align 8, !tbaa !37
+  store ptr %135, ptr %136, align 8, !tbaa !38
   %137 = getelementptr inbounds nuw i8, ptr %.0.i93107, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !32
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %138, ptr %139, align 8, !tbaa !38
+  store ptr %138, ptr %139, align 8, !tbaa !39
   br label %SRP_user_pwd_free.exit
 
 140:                                              ; preds = %59, %52, %45, %40
@@ -534,19 +534,19 @@ define internal fastcc ptr @SRP_gN_place_bn(ptr noundef %0, ptr noundef %1) unna
   %8 = add nuw nsw i32 %.01830, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %.preheader, %7
   %.01830 = phi i32 [ %8, %7 ], [ 0, %.preheader ]
   %11 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.01830) #7
-  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %1) #8
   %.not23 = icmp eq i32 %13, 0
   br i1 %.not23, label %.thread, label %7
 
 .thread:                                          ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !42
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   br label %37
 
 ._crit_edge:                                      ; preds = %7, %.preheader
@@ -562,14 +562,14 @@ define internal fastcc ptr @SRP_gN_place_bn(ptr noundef %0, ptr noundef %1) unna
 
 21:                                               ; preds = %18
   %22 = call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 325) #7
-  store ptr %22, ptr %16, align 8, !tbaa !40
+  store ptr %22, ptr %16, align 8, !tbaa !41
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %21
   %25 = call ptr @BN_bin2bn(ptr noundef nonnull %3, i32 noundef %19, ptr noundef null) #7
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !42
+  store ptr %25, ptr %26, align 8, !tbaa !43
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %27, label %29
 
@@ -592,15 +592,15 @@ SRP_gN_new_init.exit.thread:                      ; preds = %28, %._crit_edge
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %16, align 8, !tbaa !40
+  %33 = load ptr, ptr %16, align 8, !tbaa !41
   call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 341) #7
-  %34 = load ptr, ptr %26, align 8, !tbaa !42
+  %34 = load ptr, ptr %26, align 8, !tbaa !43
   call void @BN_free(ptr noundef %34) #7
   call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef 343) #7
   br label %37
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr %26, align 8, !tbaa !42
+  %36 = load ptr, ptr %26, align 8, !tbaa !43
   br label %37
 
 37:                                               ; preds = %35, %32, %SRP_gN_new_init.exit.thread, %.thread, %2
@@ -630,7 +630,7 @@ define internal fastcc ptr @SRP_get_gN_by_id(ptr noundef %0, ptr noundef nonnull
   %8 = add nuw nsw i32 %.01216.us, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #7
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !43
+  br i1 %10, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.01216 = phi i32 [ %17, %16 ], [ 0, %.lr.ph ]
@@ -648,7 +648,7 @@ define internal fastcc ptr @SRP_get_gN_by_id(ptr noundef %0, ptr noundef nonnull
   %17 = add nuw nsw i32 %.01216, 1
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #7
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !36
+  br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %16, %7, %2
   %20 = tail call ptr @SRP_get_default_gN(ptr noundef %0) #7
@@ -690,7 +690,7 @@ define noundef ptr @SRP_VBASE_get_by_user(ptr noundef readonly captures(address_
   %9 = load ptr, ptr %0, align 8, !tbaa !15
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #7
   %11 = icmp slt i32 %8, %10
-  br i1 %11, label %.lr.ph.i, label %find_user.exit, !llvm.loop !45
+  br i1 %11, label %.lr.ph.i, label %find_user.exit, !llvm.loop !46
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %7
   %.0911.i = phi i32 [ %8, %7 ], [ 0, %.preheader.i ]
@@ -726,7 +726,7 @@ define ptr @SRP_VBASE_get1_by_user(ptr noundef readonly captures(address_is_null
   %11 = load ptr, ptr %0, align 8, !tbaa !15
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #7
   %13 = icmp slt i32 %10, %12
-  br i1 %13, label %.lr.ph.i, label %.loopexit, !llvm.loop !45
+  br i1 %13, label %.lr.ph.i, label %.loopexit, !llvm.loop !46
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
   %.0911.i = phi i32 [ %10, %9 ], [ 0, %.preheader.i ]
@@ -818,13 +818,13 @@ SRP_user_pwd_free.exit.i:                         ; preds = %SRP_user_pwd_set1_i
 
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !37
+  %57 = load ptr, ptr %56, align 8, !tbaa !38
   %58 = icmp eq ptr %57, null
   br i1 %58, label %srp_user_pwd_dup.exit, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !38
+  %61 = load ptr, ptr %60, align 8, !tbaa !39
   %62 = icmp eq ptr %61, null
   br i1 %62, label %srp_user_pwd_dup.exit, label %63
 
@@ -836,8 +836,8 @@ SRP_user_pwd_free.exit.i:                         ; preds = %SRP_user_pwd_set1_i
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %68 = load ptr, ptr %56, align 8, !tbaa !37
-  %69 = load ptr, ptr %60, align 8, !tbaa !38
+  %68 = load ptr, ptr %56, align 8, !tbaa !38
+  %69 = load ptr, ptr %60, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr %69, ptr %70, align 8, !tbaa !13
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
@@ -956,9 +956,9 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   %11 = alloca [2500 x i8], align 16
   %12 = alloca [2500 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store ptr null, ptr %9, align 8, !tbaa !46
+  store ptr null, ptr %9, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store ptr null, ptr %10, align 8, !tbaa !46
+  store ptr null, ptr %10, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 2500, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 2500, ptr nonnull %12) #7
   %13 = icmp eq ptr %0, null
@@ -1030,7 +1030,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 47:                                               ; preds = %44, %41
   %.sink = phi i32 [ 20, %41 ], [ %45, %44 ]
   %48 = call ptr @BN_bin2bn(ptr noundef nonnull %12, i32 noundef %.sink, ptr noundef null) #7
-  store ptr %48, ptr %9, align 8, !tbaa !46
+  store ptr %48, ptr %9, align 8, !tbaa !47
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread93, label %50
 
@@ -1040,7 +1040,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   br i1 %.not81, label %.thread93, label %52
 
 52:                                               ; preds = %50
-  %53 = load ptr, ptr %10, align 8, !tbaa !46
+  %53 = load ptr, ptr %10, align 8, !tbaa !47
   %54 = call i32 @BN_bn2bin(ptr noundef %53, ptr noundef nonnull %11) #7
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.thread93, label %56
@@ -1100,9 +1100,9 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   call void @BN_free(ptr noundef %.054) #7
   %80 = sext i32 %.051 to i64
   call void @CRYPTO_clear_free(ptr noundef %.062, i64 noundef %80, ptr noundef nonnull @.str, i32 noundef 701) #7
-  %81 = load ptr, ptr %9, align 8, !tbaa !46
+  %81 = load ptr, ptr %9, align 8, !tbaa !47
   call void @BN_clear_free(ptr noundef %81) #7
-  %82 = load ptr, ptr %10, align 8, !tbaa !46
+  %82 = load ptr, ptr %10, align 8, !tbaa !47
   call void @BN_clear_free(ptr noundef %82) #7
   call void @llvm.lifetime.end.p0(i64 2500, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 2500, ptr nonnull %11) #7
@@ -1116,9 +1116,9 @@ define internal fastcc i32 @t_fromb64(ptr noundef nonnull %0, ptr noundef %1) un
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  store i32 0, ptr %3, align 4, !tbaa !47
+  store i32 0, ptr %3, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !47
+  store i32 0, ptr %4, align 4, !tbaa !48
   br label %5
 
 5:                                                ; preds = %.critedge, %2
@@ -1132,7 +1132,7 @@ define internal fastcc i32 @t_fromb64(ptr noundef nonnull %0, ptr noundef %1) un
 
 .critedge:                                        ; preds = %5, %5, %5
   %7 = getelementptr inbounds nuw i8, ptr %.034, i64 1
-  br label %5, !llvm.loop !48
+  br label %5, !llvm.loop !49
 
 8:                                                ; preds = %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.034) #8
@@ -1172,17 +1172,17 @@ define internal fastcc i32 @t_fromb64(ptr noundef nonnull %0, ptr noundef %1) un
   br i1 %28, label %.sink.split, label %29
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr %4, align 4, !tbaa !47
-  %31 = load i32, ptr %3, align 4, !tbaa !47
+  %30 = load i32, ptr %4, align 4, !tbaa !48
+  %31 = load i32, ptr %3, align 4, !tbaa !48
   %32 = add nsw i32 %31, %30
-  store i32 %32, ptr %3, align 4, !tbaa !47
+  store i32 %32, ptr %3, align 4, !tbaa !48
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %0, i64 %33
   %35 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %16, ptr noundef nonnull %34, ptr noundef nonnull %4) #7
-  %36 = load i32, ptr %4, align 4, !tbaa !47
-  %37 = load i32, ptr %3, align 4, !tbaa !47
+  %36 = load i32, ptr %4, align 4, !tbaa !48
+  %37 = load i32, ptr %3, align 4, !tbaa !48
   %38 = add nsw i32 %37, %36
-  store i32 %38, ptr %3, align 4, !tbaa !47
+  store i32 %38, ptr %3, align 4, !tbaa !48
   br i1 %.not, label %46, label %39
 
 39:                                               ; preds = %29
@@ -1200,12 +1200,12 @@ define internal fastcc i32 @t_fromb64(ptr noundef nonnull %0, ptr noundef %1) un
 
 .sink.split:                                      ; preds = %39, %25, %21, %18, %41
   %.sink = phi i32 [ %45, %41 ], [ -1, %18 ], [ -1, %21 ], [ -1, %25 ], [ -1, %39 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !47
+  store i32 %.sink, ptr %3, align 4, !tbaa !48
   br label %46
 
 46:                                               ; preds = %.sink.split, %29
   call void @EVP_ENCODE_CTX_free(ptr noundef nonnull %16) #7
-  %47 = load i32, ptr %3, align 4, !tbaa !47
+  %47 = load i32, ptr %3, align 4, !tbaa !48
   br label %48
 
 48:                                               ; preds = %15, %8, %46
@@ -1238,7 +1238,7 @@ define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %0, ptr nounde
   br i1 %or.cond11, label %40, label %21
 
 21:                                               ; preds = %8
-  %22 = load ptr, ptr %2, align 8, !tbaa !46
+  %22 = load ptr, ptr %2, align 8, !tbaa !47
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %30
 
@@ -1273,8 +1273,8 @@ define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %0, ptr nounde
   br label %.thread
 
 39:                                               ; preds = %36
-  store ptr %.1, ptr %2, align 8, !tbaa !46
-  store ptr %34, ptr %3, align 8, !tbaa !46
+  store ptr %.1, ptr %2, align 8, !tbaa !47
+  store ptr %34, ptr %3, align 8, !tbaa !47
   br label %.thread
 
 40:                                               ; preds = %8
@@ -1284,7 +1284,7 @@ define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %0, ptr nounde
   %.065 = phi i32 [ 0, %40 ], [ 0, %38 ], [ 1, %39 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ]
   %.04664 = phi ptr [ null, %40 ], [ %.1, %38 ], [ %.1, %39 ], [ %.1, %33 ], [ %.1, %30 ], [ null, %27 ], [ null, %24 ]
   %.04762 = phi ptr [ null, %40 ], [ %31, %38 ], [ %31, %39 ], [ %31, %33 ], [ null, %30 ], [ null, %27 ], [ null, %24 ]
-  %41 = load ptr, ptr %2, align 8, !tbaa !46
+  %41 = load ptr, ptr %2, align 8, !tbaa !47
   %.not58 = icmp eq ptr %41, %.04664
   br i1 %.not58, label %43, label %42
 
@@ -1312,9 +1312,9 @@ define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef nonnull %0, ptr 
   %6 = alloca [2 x i8], align 2
   %7 = tail call ptr @EVP_ENCODE_CTX_new() #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !47
+  store i32 0, ptr %4, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  store i32 0, ptr %5, align 4, !tbaa !47
+  store i32 0, ptr %5, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #7
   store i16 0, ptr %6, align 2
   %8 = icmp eq ptr %7, null
@@ -1335,7 +1335,7 @@ define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef nonnull %0, ptr 
   br i1 %.not26, label %.sink.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
-  %.pre = load i32, ptr %4, align 4, !tbaa !47
+  %.pre = load i32, ptr %4, align 4, !tbaa !48
   %15 = sext i32 %.pre to i64
   br label %16
 
@@ -1347,17 +1347,17 @@ define internal fastcc range(i32 0, 2) i32 @t_tob64(ptr noundef nonnull %0, ptr 
   br i1 %.not27, label %.sink.split, label %20
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr %5, align 4, !tbaa !47
-  %22 = load i32, ptr %4, align 4, !tbaa !47
+  %21 = load i32, ptr %5, align 4, !tbaa !48
+  %22 = load i32, ptr %4, align 4, !tbaa !48
   %23 = add nsw i32 %22, %21
-  store i32 %23, ptr %4, align 4, !tbaa !47
+  store i32 %23, ptr %4, align 4, !tbaa !48
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   call void @EVP_EncodeFinal(ptr noundef nonnull %7, ptr noundef nonnull %25, ptr noundef nonnull %5) #7
-  %26 = load i32, ptr %5, align 4, !tbaa !47
-  %27 = load i32, ptr %4, align 4, !tbaa !47
+  %26 = load i32, ptr %5, align 4, !tbaa !48
+  %27 = load i32, ptr %4, align 4, !tbaa !48
   %28 = add nsw i32 %27, %26
-  store i32 %28, ptr %4, align 4, !tbaa !47
+  store i32 %28, ptr %4, align 4, !tbaa !48
   br i1 %.not, label %.sink.split, label %29
 
 29:                                               ; preds = %20
@@ -1485,18 +1485,19 @@ attributes #8 = { nounwind willreturn memory(read) }
 !31 = !{!7, !7, i64 0}
 !32 = !{!22, !9, i64 16}
 !33 = !{!22, !9, i64 8}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!16, !9, i64 24}
-!38 = !{!16, !9, i64 32}
-!39 = distinct !{!39, !35}
-!40 = !{!41, !5, i64 0}
-!41 = !{!"SRP_gN_cache_st", !5, i64 0, !9, i64 8}
-!42 = !{!41, !9, i64 8}
-!43 = distinct !{!43, !35, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !35}
-!46 = !{!9, !9, i64 0}
-!47 = !{!25, !25, i64 0}
-!48 = distinct !{!48, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = !{!16, !9, i64 24}
+!39 = !{!16, !9, i64 32}
+!40 = distinct !{!40, !35, !36}
+!41 = !{!42, !5, i64 0}
+!42 = !{!"SRP_gN_cache_st", !5, i64 0, !9, i64 8}
+!43 = !{!42, !9, i64 8}
+!44 = distinct !{!44, !35, !36, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !35, !36}
+!47 = !{!9, !9, i64 0}
+!48 = !{!25, !25, i64 0}
+!49 = distinct !{!49, !35, !36}

@@ -332,7 +332,7 @@ test_tapa_discover.exit:                          ; preds = %8
   %112 = add nuw nsw i32 %.01011.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i32 %112, %92
   %or.cond12.not.i.i.i = select i1 %or.cond.i.i.i, i1 %exitcond.not.i.i.i, i1 false
-  br i1 %or.cond12.not.i.i.i, label %109, label %check_ascii.exit.i.i, !llvm.loop !8
+  br i1 %or.cond12.not.i.i.i, label %109, label %check_ascii.exit.i.i, !llvm.loop !9
 
 check_ascii.exit.i.i:                             ; preds = %109
   br i1 %or.cond.i.i.i, label %113, label %.critedge.i.i
@@ -354,7 +354,7 @@ check_ascii.exit.i.i:                             ; preds = %109
   %120 = add i32 %.05460.i.i, %91
   %121 = sub nsw i32 %.05559.i.i, %91
   %122 = icmp sgt i32 %121, 3
-  br i1 %122, label %87, label %dissect_tapa_discover_unknown_new_tlv.exit.i, !llvm.loop !9
+  br i1 %122, label %87, label %dissect_tapa_discover_unknown_new_tlv.exit.i, !llvm.loop !10
 
 dissect_tapa_discover_unknown_new_tlv.exit.i:     ; preds = %.critedge.i.i, %105, %84
   %.0.i.i = phi i32 [ %103, %105 ], [ 4, %84 ], [ %120, %.critedge.i.i ]
@@ -568,7 +568,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

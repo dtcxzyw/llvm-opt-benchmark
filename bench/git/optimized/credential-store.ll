@@ -515,18 +515,18 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   br i1 %.not25.us34, label %33, label %34
 
 33:                                               ; preds = %31, %.lr.ph.split.split.us
-  call void %3(ptr noundef nonnull %6) #13, !callees !42
+  call void %3(ptr noundef nonnull %6) #13, !callees !43
   br label %34
 
 34:                                               ; preds = %31, %33
   %.2.us35 = phi i32 [ %.030.us31, %33 ], [ 1, %31 ]
   %35 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
   %.not24.us36 = icmp eq i32 %35, -1
-  br i1 %.not24.us36, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !43
+  br i1 %.not24.us36, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !44
 
 36:                                               ; preds = %5
   %37 = tail call ptr @__errno_location() #16
-  %38 = load i32, ptr %37, align 4, !tbaa !44
+  %38 = load i32, ptr %37, align 4, !tbaa !45
   switch i32 %38, label %39 [
     i32 2, label %52
     i32 13, label %52
@@ -554,14 +554,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_credential_file(ptr noundef %0
   br i1 %.not25, label %49, label %.split.us
 
 .split.us:                                        ; preds = %47, %20
-  call void %2(ptr noundef nonnull %7) #13, !callees !45
+  call void %2(ptr noundef nonnull %7) #13, !callees !46
   br label %.loopexit
 
 49:                                               ; preds = %47, %.lr.ph.split.split
-  call void %3(ptr noundef nonnull %6) #13, !callees !42
+  call void %3(ptr noundef nonnull %6) #13, !callees !43
   %50 = call i32 @strbuf_getline_lf(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
   %.not24 = icmp eq i32 %50, -1
-  br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !46
+  br i1 %.not24, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !47
 
 .loopexit:                                        ; preds = %49, %34, %22, %.preheader, %.split.us
   %.1 = phi i32 [ 1, %.split.us ], [ 0, %.preheader ], [ %.2.us, %22 ], [ %.2.us35, %34 ], [ 0, %49 ]
@@ -617,10 +617,10 @@ declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) lo
 define internal fastcc void @rewrite_credential_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  store i32 1000, ptr %5, align 4, !tbaa !44
-  %6 = load ptr, ptr @the_repository, align 8, !tbaa !47
+  store i32 1000, ptr %5, align 4, !tbaa !45
+  %6 = load ptr, ptr @the_repository, align 8, !tbaa !48
   %7 = call i32 @repo_config_get_int(ptr noundef %6, ptr noundef nonnull @.str.15, ptr noundef nonnull %5) #13
-  %8 = load i32, ptr %5, align 4, !tbaa !44
+  %8 = load i32, ptr %5, align 4, !tbaa !45
   %9 = sext i32 %8 to i64
   %10 = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull @credential_lock, ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -2147483648, 2147483648) %9, i32 noundef 438) #13
   %11 = icmp slt i32 %10, 0
@@ -628,7 +628,7 @@ define internal fastcc void @rewrite_credential_file(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %4
   %13 = call fastcc ptr @_()
-  %14 = load i32, ptr %5, align 4, !tbaa !44
+  %14 = load i32, ptr %5, align 4, !tbaa !45
   call void (ptr, ...) @die_errno(ptr noundef %13, i32 noundef %14) #14
   unreachable
 
@@ -668,7 +668,7 @@ print_line.exit:                                  ; preds = %strbuf_avail.exit.i
   %26 = load i64, ptr %23, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !37
-  %28 = load ptr, ptr @credential_lock, align 8, !tbaa !49
+  %28 = load ptr, ptr @credential_lock, align 8, !tbaa !50
   %29 = call i32 @get_tempfile_fd(ptr noundef %28) #13
   %30 = load ptr, ptr %21, align 8, !tbaa !36
   %31 = load i64, ptr %23, align 8, !tbaa !35
@@ -692,7 +692,7 @@ print_line.exit:                                  ; preds = %strbuf_avail.exit.i
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #11 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !45
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -738,7 +738,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %11 = load i64, ptr %8, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !37
-  %13 = load ptr, ptr @credential_lock, align 8, !tbaa !49
+  %13 = load ptr, ptr @credential_lock, align 8, !tbaa !50
   %14 = tail call i32 @get_tempfile_fd(ptr noundef %13) #13
   %15 = load ptr, ptr %6, align 8, !tbaa !36
   %16 = load i64, ptr %8, align 8, !tbaa !35
@@ -895,16 +895,17 @@ attributes #16 = { nounwind willreturn memory(none) }
 !36 = !{!34, !5, i64 16}
 !37 = !{!7, !7, i64 0}
 !38 = !{!26, !5, i64 168}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40, !41, !42}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = !{ptr @print_line}
-!43 = distinct !{!43, !40, !41}
-!44 = !{!11, !11, i64 0}
-!45 = !{ptr @print_entry}
-!46 = distinct !{!46, !40}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS10repository", !6, i64 0}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"lock_file", !51, i64 0}
-!51 = !{!"p1 _ZTS8tempfile", !6, i64 0}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{ptr @print_line}
+!44 = distinct !{!44, !40, !41, !42}
+!45 = !{!11, !11, i64 0}
+!46 = !{ptr @print_entry}
+!47 = distinct !{!47, !40, !41}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS10repository", !6, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"lock_file", !52, i64 0}
+!52 = !{!"p1 _ZTS8tempfile", !6, i64 0}

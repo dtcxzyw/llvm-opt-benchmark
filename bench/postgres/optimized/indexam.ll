@@ -862,7 +862,7 @@ define dso_local noundef zeroext i1 @index_getnext_slot(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %8, %5
   %12 = tail call zeroext i1 @index_fetch_heap(ptr noundef nonnull %0, ptr noundef %2)
-  br i1 %12, label %13, label %5
+  br i1 %12, label %13, label %5, !llvm.loop !8
 
 13:                                               ; preds = %8, %11
   %.07 = phi i1 [ true, %11 ], [ false, %8 ]
@@ -1184,7 +1184,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   %23 = load i32, ptr %7, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next46, %24
-  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
+  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
@@ -1249,7 +1249,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   %55 = load i32, ptr %7, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !11
+  br i1 %57, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %52, %20, %4
   ret void
@@ -1358,7 +1358,9 @@ attributes #8 = { cold nounwind }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9, !12}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !11, !9}

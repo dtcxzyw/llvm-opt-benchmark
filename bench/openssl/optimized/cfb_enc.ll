@@ -312,7 +312,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.1241 = phi i32 [ %108, %144 ], [ %.0235261, %142 ], [ %.pre, %.loopexit255.loopexit ], [ %148, %146 ]
   %.1236 = phi i32 [ %110, %144 ], [ %108, %142 ], [ %.pre282, %.loopexit255.loopexit ], [ %150, %146 ]
   %.not251 = icmp ult i64 %59, %41
-  br i1 %.not251, label %.loopexit253, label %58, !llvm.loop !10
+  br i1 %.not251, label %.loopexit253, label %58, !llvm.loop !11
 
 161:                                              ; preds = %.lr.ph273, %262
   %.9272 = phi ptr [ %0, %.lr.ph273 ], [ %209, %262 ]
@@ -457,7 +457,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %225, ptr %226, align 1, !tbaa !3
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 8
-  br i1 %exitcond281.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond281.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre283 = load i32, ptr %9, align 16, !tbaa !6
@@ -548,7 +548,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %.10199 = phi ptr [ %231, %.loopexit ], [ %261, %259 ]
   %263 = getelementptr inbounds nuw i8, ptr %.10199, i64 %41
   %.not250 = icmp ult i64 %162, %41
-  br i1 %.not250, label %.loopexit253, label %161, !llvm.loop !12
+  br i1 %.not250, label %.loopexit253, label %161, !llvm.loop !13
 
 .loopexit253:                                     ; preds = %.loopexit255, %262, %.preheader256, %.preheader252
   %.2242 = phi i32 [ %28, %.preheader252 ], [ %28, %.preheader256 ], [ %.4244, %262 ], [ %.1241, %.loopexit255 ]
@@ -586,8 +586,9 @@ attributes #3 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

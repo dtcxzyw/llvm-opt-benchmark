@@ -231,7 +231,7 @@ thread-pre-split:                                 ; preds = %._crit_edge.thread,
   %68 = tail call ptr @attr_check_append(ptr noundef %58, ptr noundef nonnull %63) #9
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %67, %57
   %69 = load ptr, ptr @source, align 8, !tbaa !31
@@ -275,8 +275,8 @@ thread-pre-split:                                 ; preds = %._crit_edge.thread,
   %82 = load i32, ptr @nul_term_line, align 4, !tbaa !30
   %.not.i = icmp eq i32 %82, 0
   %83 = select i1 %.not.i, ptr @strbuf_getline_lf, ptr @strbuf_getline_nul
-  %84 = load ptr, ptr @stdin, align 8, !tbaa !35
-  %85 = call i32 %83(ptr noundef nonnull %6, ptr noundef %84) #9, !callees !37
+  %84 = load ptr, ptr @stdin, align 8, !tbaa !36
+  %85 = call i32 %83(ptr noundef nonnull %6, ptr noundef %84) #9, !callees !38
   %.not36.i = icmp eq i32 %85, -1
   br i1 %.not36.i, label %check_attr_stdin_paths.exit, label %.lr.ph.i
 
@@ -289,23 +289,23 @@ thread-pre-split:                                 ; preds = %._crit_edge.thread,
 89:                                               ; preds = %101, %.lr.ph.i
   %90 = load i32, ptr @nul_term_line, align 4, !tbaa !30
   %.not4.i = icmp eq i32 %90, 0
-  %.pre8.i = load ptr, ptr %86, align 8, !tbaa !38
+  %.pre8.i = load ptr, ptr %86, align 8, !tbaa !39
   br i1 %.not4.i, label %91, label %101
 
 91:                                               ; preds = %89
-  %92 = load i8, ptr %.pre8.i, align 1, !tbaa !40
+  %92 = load i8, ptr %.pre8.i, align 1, !tbaa !41
   %93 = icmp eq i8 %92, 34
   br i1 %93, label %94, label %101
 
 94:                                               ; preds = %91
-  store i64 0, ptr %87, align 8, !tbaa !41
-  %95 = load ptr, ptr %88, align 8, !tbaa !38
+  store i64 0, ptr %87, align 8, !tbaa !42
+  %95 = load ptr, ptr %88, align 8, !tbaa !39
   %.not9.i.i = icmp eq ptr %95, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %96
 
 96:                                               ; preds = %94
-  store i8 0, ptr %95, align 1, !tbaa !40
-  %.pre.i = load ptr, ptr %86, align 8, !tbaa !38
+  store i8 0, ptr %95, align 1, !tbaa !41
+  %.pre.i = load ptr, ptr %86, align 8, !tbaa !39
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %96, %94
@@ -324,18 +324,18 @@ strbuf_setlen.exit.i:                             ; preds = %96, %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.pre7.i = load ptr, ptr %86, align 8, !tbaa !38
+  %.pre7.i = load ptr, ptr %86, align 8, !tbaa !39
   br label %101
 
 101:                                              ; preds = %100, %91, %89
   %102 = phi ptr [ %.pre7.i, %100 ], [ %.pre8.i, %91 ], [ %.pre8.i, %89 ]
   call fastcc void @check_attr(ptr noundef %2, ptr noundef %58, i32 noundef %81, ptr noundef %102)
-  %103 = load ptr, ptr @stdout, align 8, !tbaa !35
+  %103 = load ptr, ptr @stdout, align 8, !tbaa !36
   call void @maybe_flush_or_die(ptr noundef %103, ptr noundef nonnull @.str.8) #9
-  %104 = load ptr, ptr @stdin, align 8, !tbaa !35
-  %105 = call i32 %83(ptr noundef nonnull %6, ptr noundef %104) #9, !callees !37
+  %104 = load ptr, ptr @stdin, align 8, !tbaa !36
+  %105 = call i32 %83(ptr noundef nonnull %6, ptr noundef %104) #9, !callees !38
   %.not3.i = icmp eq i32 %105, -1
-  br i1 %.not3.i, label %check_attr_stdin_paths.exit, label %89, !llvm.loop !42
+  br i1 %.not3.i, label %check_attr_stdin_paths.exit, label %89, !llvm.loop !43
 
 check_attr_stdin_paths.exit:                      ; preds = %101, %80
   call void @strbuf_release(ptr noundef nonnull %6) #9
@@ -353,10 +353,10 @@ check_attr_stdin_paths.exit:                      ; preds = %101, %80
   %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next87 to i32
   %exitcond89.not = icmp eq i32 %13, %lftr.wideiv
-  br i1 %exitcond89.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !43
+  br i1 %exitcond89.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !44
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %.preheader
-  %109 = load ptr, ptr @stdout, align 8, !tbaa !35
+  %109 = load ptr, ptr @stdout, align 8, !tbaa !36
   call void @maybe_flush_or_die(ptr noundef %109, ptr noundef nonnull @.str.8) #9
   br label %110
 
@@ -428,7 +428,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
   %.not11 = icmp eq i32 %2, 0
   %11 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
   br i1 %.not11, label %15, label %14
 
 14:                                               ; preds = %8
@@ -440,7 +440,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = load i32, ptr %1, align 8, !tbaa !45
+  %17 = load i32, ptr %1, align 8, !tbaa !46
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.i, label %output_attr.exit
 
@@ -451,9 +451,9 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
 
 20:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %21 = load ptr, ptr %19, align 8, !tbaa !50
+  %21 = load ptr, ptr %19, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
   %24 = icmp eq ptr %23, @git_attr__true
   br i1 %24, label %29, label %25
 
@@ -474,17 +474,17 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !54
+  %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = tail call ptr @git_attr_name(ptr noundef %33) #9
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %3, i32 noundef 0, ptr noundef %34, i32 noundef 0, ptr noundef nonnull %.0.i, i32 noundef 0)
   br label %44
 
 36:                                               ; preds = %29
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !35
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !36
   %38 = tail call i64 @quote_c_style(ptr noundef %3, ptr noundef null, ptr noundef %37, i32 noundef 0) #9
-  %39 = load ptr, ptr %19, align 8, !tbaa !50
+  %39 = load ptr, ptr %19, align 8, !tbaa !51
   %40 = getelementptr inbounds nuw %struct.attr_check_item, ptr %39, i64 %indvars.iv.i
-  %41 = load ptr, ptr %40, align 8, !tbaa !54
+  %41 = load ptr, ptr %40, align 8, !tbaa !55
   %42 = tail call ptr @git_attr_name(ptr noundef %41) #9
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %42, ptr noundef nonnull %.0.i)
   br label %44
@@ -492,7 +492,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
 44:                                               ; preds = %36, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %output_attr.exit, label %20, !llvm.loop !55
+  br i1 %exitcond.not.i, label %output_attr.exit, label %20, !llvm.loop !56
 
 output_attr.exit:                                 ; preds = %44, %16
   tail call void @free(ptr noundef %10) #9
@@ -586,27 +586,28 @@ attributes #12 = { nounwind willreturn memory(read) }
 !29 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
 !30 = !{!18, !18, i64 0}
 !31 = !{!11, !11, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!37 = !{ptr @strbuf_getline_lf, ptr @strbuf_getline_nul}
-!38 = !{!39, !11, i64 16}
-!39 = !{!"strbuf", !23, i64 0, !23, i64 8, !11, i64 16}
-!40 = !{!7, !7, i64 0}
-!41 = !{!39, !23, i64 8}
-!42 = distinct !{!42, !33}
-!43 = distinct !{!43, !33}
-!44 = !{!10, !26, i64 384}
-!45 = !{!46, !18, i64 0}
-!46 = !{!"attr_check", !18, i64 0, !18, i64 4, !47, i64 8, !18, i64 16, !48, i64 24, !49, i64 32}
-!47 = !{!"p1 _ZTS15attr_check_item", !6, i64 0}
-!48 = !{!"p1 _ZTS14all_attrs_item", !6, i64 0}
-!49 = !{!"p1 _ZTS10attr_stack", !6, i64 0}
-!50 = !{!46, !47, i64 8}
-!51 = !{!52, !11, i64 8}
-!52 = !{!"attr_check_item", !53, i64 0, !11, i64 8}
-!53 = !{!"p1 _ZTS8git_attr", !6, i64 0}
-!54 = !{!52, !53, i64 0}
-!55 = distinct !{!55, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!38 = !{ptr @strbuf_getline_lf, ptr @strbuf_getline_nul}
+!39 = !{!40, !11, i64 16}
+!40 = !{!"strbuf", !23, i64 0, !23, i64 8, !11, i64 16}
+!41 = !{!7, !7, i64 0}
+!42 = !{!40, !23, i64 8}
+!43 = distinct !{!43, !33, !34}
+!44 = distinct !{!44, !33, !34}
+!45 = !{!10, !26, i64 384}
+!46 = !{!47, !18, i64 0}
+!47 = !{!"attr_check", !18, i64 0, !18, i64 4, !48, i64 8, !18, i64 16, !49, i64 24, !50, i64 32}
+!48 = !{!"p1 _ZTS15attr_check_item", !6, i64 0}
+!49 = !{!"p1 _ZTS14all_attrs_item", !6, i64 0}
+!50 = !{!"p1 _ZTS10attr_stack", !6, i64 0}
+!51 = !{!47, !48, i64 8}
+!52 = !{!53, !11, i64 8}
+!53 = !{!"attr_check_item", !54, i64 0, !11, i64 8}
+!54 = !{!"p1 _ZTS8git_attr", !6, i64 0}
+!55 = !{!53, !54, i64 0}
+!56 = distinct !{!56, !33, !34}

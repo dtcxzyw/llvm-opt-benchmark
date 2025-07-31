@@ -41,7 +41,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
   %25 = load i16, ptr %24, align 2, !tbaa !10
   %26 = and i16 %25, 2048
   %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %.critedge.preheader, label %14
+  br i1 %.not, label %.critedge.preheader, label %14, !llvm.loop !12
 
 .critedge.preheader:                              ; preds = %16, %14, %19
   br label %.critedge
@@ -66,7 +66,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
   %37 = load i16, ptr %36, align 2, !tbaa !10
   %38 = and i16 %37, 2048
   %.not84 = icmp eq i16 %38, 0
-  br i1 %.not84, label %.critedge3, label %.critedge
+  br i1 %.not84, label %.critedge3, label %.critedge, !llvm.loop !14
 
 .critedge3:                                       ; preds = %28, %.critedge, %31
   %39 = tail call ptr @__ctype_b_loc() #3
@@ -106,7 +106,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
   %55 = load i16, ptr %54, align 2, !tbaa !10
   %56 = and i16 %55, 8192
   %.not85 = icmp eq i16 %56, 0
-  br i1 %.not85, label %.preheader160, label %.lr.ph
+  br i1 %.not85, label %.preheader160, label %.lr.ph, !llvm.loop !15
 
 .lr.ph184:                                        ; preds = %.preheader160, %.lr.ph184
   %.2129183 = phi ptr [ %57, %.lr.ph184 ], [ %.1128, %.preheader160 ]
@@ -118,7 +118,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
   %62 = zext i16 %61 to i32
   %63 = and i32 %62, 8192
   %.not86 = icmp eq i32 %63, 0
-  br i1 %.not86, label %._crit_edge, label %.lr.ph184
+  br i1 %.not86, label %._crit_edge, label %.lr.ph184, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph184, %.preheader160
   %.2129.lcssa = phi ptr [ %.1128, %.preheader160 ], [ %57, %.lr.ph184 ]
@@ -200,7 +200,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %.5137, i64 1
   %100 = getelementptr inbounds nuw i8, ptr %.5, i64 1
-  br label %.preheader
+  br label %.preheader, !llvm.loop !17
 
 .split.loop.exit.i:                               ; preds = %79
   %not..not24.le.i = xor i1 %.not24.i, true
@@ -285,7 +285,7 @@ define dso_local i32 @strnatcmp_ex(ptr noundef readonly captures(address) %0, i6
   %.1.i = phi i32 [ %spec.store.select.i, %130 ], [ %spec.store.select1.i, %133 ], [ %.0.i98, %131 ]
   %135 = getelementptr inbounds nuw i8, ptr %.6138, i64 1
   %136 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  br label %.preheader157
+  br label %.preheader157, !llvm.loop !18
 
 .split.loop.exit.i105:                            ; preds = %110
   br i1 %.not29.i, label %compare_left.exit, label %compare_left.exit.thread
@@ -319,16 +319,16 @@ compare_left.exit.thread143:                      ; preds = %77, %compare_left.e
 
 143:                                              ; preds = %142
   %144 = tail call ptr @__ctype_toupper_loc() #3
-  %145 = load ptr, ptr %144, align 8, !tbaa !12
+  %145 = load ptr, ptr %144, align 8, !tbaa !19
   %146 = zext i8 %.3 to i64
   %147 = getelementptr inbounds nuw i32, ptr %145, i64 %146
-  %.075 = load i32, ptr %147, align 4, !tbaa !14
+  %.075 = load i32, ptr %147, align 4, !tbaa !21
   %148 = trunc i32 %.075 to i8
   %149 = tail call ptr @__ctype_toupper_loc() #3
-  %150 = load ptr, ptr %149, align 8, !tbaa !12
+  %150 = load ptr, ptr %149, align 8, !tbaa !19
   %151 = zext i8 %.372 to i64
   %152 = getelementptr inbounds nuw i32, ptr %150, i64 %151
-  %.068 = load i32, ptr %152, align 4, !tbaa !14
+  %.068 = load i32, ptr %152, align 4, !tbaa !21
   %153 = trunc i32 %.068 to i8
   br label %154
 
@@ -353,7 +353,7 @@ compare_left.exit.thread143:                      ; preds = %77, %compare_left.e
 161:                                              ; preds = %158
   %162 = load i8, ptr %159, align 1, !tbaa !4
   %163 = load i8, ptr %160, align 1, !tbaa !4
-  br label %41
+  br label %41, !llvm.loop !23
 
 compare_left.exit.thread.loopexit161.split.loop.exit194: ; preds = %compare_left.exit.thread143
   %or.cond96.le = select i1 %137, i1 %138, i1 false
@@ -405,7 +405,15 @@ attributes #3 = { nounwind willreturn memory(none) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !5, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 int", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 int", !9, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !5, i64 0}
+!23 = distinct !{!23, !13}

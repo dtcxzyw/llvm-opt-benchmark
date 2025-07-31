@@ -1172,7 +1172,7 @@ define dso_local void @sort_step_list(ptr noundef %0) local_unnamed_addr #0 {
   %.1 = phi i32 [ %.034, %46 ], [ %.034, %43 ], [ %.034, %47 ], [ %.034, %48 ], [ %.034, %49 ], [ %.034, %50 ], [ %.034, %51 ], [ %.034, %52 ], [ %.034, %53 ], [ %.034, %54 ], [ %41, %40 ], [ %.034, %.lr.ph ], [ %.034, %.thread ]
   %.0 = add i32 %.1, -1
   %56 = icmp sgt i32 %.0, -1
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %55, %7
   ret void
@@ -1406,7 +1406,8 @@ attributes #14 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}

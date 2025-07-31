@@ -34,13 +34,13 @@ define i32 @ossl_digest_md_to_nid(ptr noundef %0, ptr noundef readonly captures(
   %.011 = phi i64 [ %7, %6 ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw %struct.ossl_item_st, ptr %1, i64 %.011
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !5
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %0, ptr noundef %10) #2
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %6, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i32, ptr %8, align 8, !tbaa !11
+  %13 = load i32, ptr %8, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %3, %12
@@ -64,13 +64,13 @@ define i32 @ossl_digest_get_approved_nid(ptr noundef %0) local_unnamed_addr #0 {
   %.011.i = phi i64 [ %3, %2 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @ossl_digest_get_approved_nid.name_to_nid, i64 %.011.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !5
+  %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %0, ptr noundef %6) #2
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %2, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = load i32, ptr %4, align 8, !tbaa !11
+  %9 = load i32, ptr %4, align 8, !tbaa !12
   br label %ossl_digest_md_to_nid.exit
 
 ossl_digest_md_to_nid.exit:                       ; preds = %2, %1, %8
@@ -87,12 +87,13 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !10, i64 8}
-!6 = !{!"ossl_item_st", !7, i64 0, !10, i64 8}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"any pointer", !8, i64 0}
-!11 = !{!6, !7, i64 0}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !11, i64 8}
+!7 = !{!"ossl_item_st", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"any pointer", !9, i64 0}
+!12 = !{!7, !8, i64 0}

@@ -38,9 +38,9 @@ define noundef i32 @_Z9tMPI_WaitPP9tmpi_req_P12tmpi_status_(ptr noundef readonly
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %12, align 8, !tbaa !18
+  store ptr null, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !19
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %6, ptr noundef %1)
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %4, ptr noundef %15)
@@ -83,13 +83,13 @@ define noundef i32 @_Z9tMPI_TestPP9tmpi_req_PiP12tmpi_status_(ptr noundef captur
   br i1 %.not22, label %13, label %12
 
 12:                                               ; preds = %8
-  store i32 1, ptr %1, align 4, !tbaa !20
+  store i32 1, ptr %1, align 4, !tbaa !21
   br label %13
 
 13:                                               ; preds = %12, %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !19
-  %16 = load i32, ptr %7, align 8, !tbaa !21
+  %15 = load i32, ptr %14, align 4, !tbaa !20
+  %16 = load i32, ptr %7, align 8, !tbaa !22
   %.not23 = icmp eq i32 %16, 0
   br i1 %.not23, label %19, label %17
 
@@ -155,7 +155,7 @@ define noundef range(i32 0, 25) i32 @_Z12tMPI_WaitalliPP9tmpi_req_P12tmpi_status
   %.1.i = phi ptr [ %9, %13 ], [ %9, %12 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph36.i:                                       ; preds = %.preheader.i, %.lr.ph36.i
   tail call void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef %4)
@@ -181,7 +181,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.lr.ph36.
 
 20:                                               ; preds = %.lr.ph.split.us
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %22 = load i32, ptr %21, align 4, !tbaa !20
   %.not25.us = icmp eq i32 %22, 0
   %spec.select.us = select i1 %.not25.us, i32 %.02126.us, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %5, ptr noundef nonnull %19)
@@ -192,7 +192,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.lr.ph36.
   %.2.us = phi i32 [ %spec.select.us, %20 ], [ %.02126.us, %.lr.ph.split.us ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
@@ -207,7 +207,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.lr.ph36.
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %25, ptr noundef nonnull %27)
   %28 = load ptr, ptr %24, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %30 = load i32, ptr %29, align 4, !tbaa !19
+  %30 = load i32, ptr %29, align 4, !tbaa !20
   %.not25 = icmp eq i32 %30, 0
   %spec.select = select i1 %.not25, i32 %.02126, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %5, ptr noundef %28)
@@ -218,7 +218,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.lr.ph36.
   %.2 = phi i32 [ %spec.select, %26 ], [ %.02126, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %31, %23, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
   %.021.lcssa = phi i32 [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ], [ %.2.us, %23 ], [ %.2, %31 ]
@@ -269,7 +269,7 @@ define noundef range(i32 0, 25) i32 @_Z12tMPI_TestalliPP9tmpi_req_PiP12tmpi_stat
   %.1.i = phi ptr [ %9, %13 ], [ %9, %12 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   %.024.lcssa.i = phi ptr [ null, %4 ], [ %.125.i, %16 ]
@@ -278,7 +278,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
-  store i32 1, ptr %2, align 4, !tbaa !20
+  store i32 1, ptr %2, align 4, !tbaa !21
   br label %19
 
 19:                                               ; preds = %18, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
@@ -298,13 +298,13 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %.not32.us, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.us
-  %23 = load i32, ptr %21, align 8, !tbaa !21
+  %23 = load i32, ptr %21, align 8, !tbaa !22
   %.not33.us = icmp eq i32 %23, 0
   br i1 %.not33.us, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %26 = load i32, ptr %25, align 4, !tbaa !19
+  %26 = load i32, ptr %25, align 4, !tbaa !20
   %.not35.us = icmp eq i32 %26, 0
   %spec.select.us = select i1 %.not35.us, i32 %.02736.us, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %6, ptr noundef nonnull %21)
@@ -315,14 +315,14 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   br label %29
 
 29:                                               ; preds = %28, %27, %24
   %.2.us = phi i32 [ %spec.select.us, %24 ], [ %.02736.us, %28 ], [ %.02736.us, %27 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -336,7 +336,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %.not32.us40, label %39, label %32
 
 32:                                               ; preds = %.lr.ph.split.split.us
-  %33 = load i32, ptr %31, align 8, !tbaa !21
+  %33 = load i32, ptr %31, align 8, !tbaa !22
   %.not33.us41 = icmp eq i32 %33, 0
   br i1 %.not33.us41, label %39, label %34
 
@@ -345,7 +345,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %31, ptr noundef nonnull %35)
   %36 = load ptr, ptr %30, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  %38 = load i32, ptr %37, align 4, !tbaa !19
+  %38 = load i32, ptr %37, align 4, !tbaa !20
   %.not35.us42 = icmp eq i32 %38, 0
   %spec.select.us43 = select i1 %.not35.us42, i32 %.02736.us39, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %6, ptr noundef %36)
@@ -356,7 +356,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   %.2.us44 = phi i32 [ %spec.select.us43, %34 ], [ %.02736.us39, %32 ], [ %.02736.us39, %.lr.ph.split.split.us ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count58
-  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !27
+  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.lr.ph.split ]
@@ -367,7 +367,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %.not32, label %49, label %42
 
 42:                                               ; preds = %.lr.ph.split.split
-  %43 = load i32, ptr %41, align 8, !tbaa !21
+  %43 = load i32, ptr %41, align 8, !tbaa !22
   %.not33 = icmp eq i32 %43, 0
   br i1 %.not33, label %49, label %44
 
@@ -376,7 +376,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %41, ptr noundef nonnull %45)
   %46 = load ptr, ptr %40, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !19
+  %48 = load i32, ptr %47, align 4, !tbaa !20
   %.not35 = icmp eq i32 %48, 0
   %spec.select = select i1 %.not35, i32 %.02736, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %6, ptr noundef %46)
@@ -384,14 +384,14 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br label %50
 
 49:                                               ; preds = %42, %.lr.ph.split.split
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   br label %50
 
 50:                                               ; preds = %44, %49
   %.2 = phi i32 [ %spec.select, %44 ], [ %.02736, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %50, %39, %29, %19
   %.027.lcssa = phi i32 [ 0, %19 ], [ %.2.us, %29 ], [ %.2.us44, %39 ], [ %.2, %50 ]
@@ -452,7 +452,7 @@ define noundef range(i32 0, 25) i32 @_Z12tMPI_WaitanyiPP9tmpi_req_PiP12tmpi_stat
   %.1.i = phi ptr [ %11, %15 ], [ %11, %14 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheader.i, %9
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
@@ -469,7 +469,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = load i32, ptr %20, align 8, !tbaa !21
+  %22 = load i32, ptr %20, align 8, !tbaa !22
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %31, label %23
 
@@ -481,13 +481,13 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
 
 25:                                               ; preds = %23
   %26 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %26, ptr %2, align 4, !tbaa !20
+  store i32 %26, ptr %2, align 4, !tbaa !21
   br label %27
 
 27:                                               ; preds = %25, %23
   %28 = load ptr, ptr %24, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %30 = load i32, ptr %29, align 4, !tbaa !19
+  %30 = load i32, ptr %29, align 4, !tbaa !20
   %.not29 = icmp eq i32 %30, 0
   %spec.select = select i1 %.not29, i32 0, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %6, ptr noundef %28)
@@ -497,7 +497,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
 31:                                               ; preds = %.lr.ph, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %31, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, %27
   %.024 = phi i32 [ %spec.select, %27 ], [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ], [ 0, %31 ]
@@ -548,7 +548,7 @@ define noundef range(i32 0, 25) i32 @_Z12tMPI_TestanyiPP9tmpi_req_PiS2_P12tmpi_s
   %.1.i = phi ptr [ %10, %14 ], [ %10, %13 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
   %.024.lcssa.i = phi ptr [ null, %5 ], [ %.125.i, %17 ]
@@ -557,7 +557,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
-  store i32 0, ptr %3, align 4, !tbaa !20
+  store i32 0, ptr %3, align 4, !tbaa !21
   br label %20
 
 20:                                               ; preds = %19, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
@@ -565,7 +565,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
   br i1 %.not36, label %22, label %21
 
 21:                                               ; preds = %20
-  store i32 -1, ptr %2, align 4, !tbaa !20
+  store i32 -1, ptr %2, align 4, !tbaa !21
   br label %22
 
 22:                                               ; preds = %21, %20
@@ -583,7 +583,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
   br i1 %.not37, label %37, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = load i32, ptr %24, align 8, !tbaa !21
+  %26 = load i32, ptr %24, align 8, !tbaa !22
   %.not38 = icmp eq i32 %26, 0
   br i1 %.not38, label %37, label %27
 
@@ -594,20 +594,20 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
 
 29:                                               ; preds = %27
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %30, ptr %2, align 4, !tbaa !20
+  store i32 %30, ptr %2, align 4, !tbaa !21
   br label %31
 
 31:                                               ; preds = %29, %27
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %31
-  store i32 1, ptr %3, align 4, !tbaa !20
+  store i32 1, ptr %3, align 4, !tbaa !21
   br label %33
 
 33:                                               ; preds = %32, %31
   %34 = load ptr, ptr %28, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  %36 = load i32, ptr %35, align 4, !tbaa !19
+  %36 = load i32, ptr %35, align 4, !tbaa !20
   %.not39 = icmp eq i32 %36, 0
   %spec.select = select i1 %.not39, i32 0, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %7, ptr noundef %34)
@@ -617,7 +617,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
 37:                                               ; preds = %.lr.ph, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %37, %22, %33
   %.030 = phi i32 [ %spec.select, %33 ], [ 0, %22 ], [ 0, %37 ]
@@ -678,10 +678,10 @@ define noundef range(i32 0, 25) i32 @_Z13tMPI_WaitsomeiPP9tmpi_req_PiS2_P12tmpi_
   %.1.i = phi ptr [ %12, %16 ], [ %12, %15 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheader.i, %10
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
@@ -698,22 +698,22 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   br i1 %.not.us, label %34, label %22
 
 22:                                               ; preds = %.lr.ph.split.us
-  %23 = load i32, ptr %21, align 8, !tbaa !21
+  %23 = load i32, ptr %21, align 8, !tbaa !22
   %.not30.us = icmp eq i32 %23, 0
   br i1 %.not30.us, label %34, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %2, align 4, !tbaa !20
+  %25 = load i32, ptr %2, align 4, !tbaa !21
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %3, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !20
+  %28 = load i32, ptr %27, align 4, !tbaa !21
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !20
-  %30 = load i32, ptr %2, align 4, !tbaa !20
+  store i32 %29, ptr %27, align 4, !tbaa !21
+  %30 = load i32, ptr %2, align 4, !tbaa !21
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %2, align 4, !tbaa !20
+  store i32 %31, ptr %2, align 4, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %33 = load i32, ptr %32, align 4, !tbaa !20
   %.not32.us = icmp eq i32 %33, 0
   %spec.select.us = select i1 %.not32.us, i32 %.02733.us, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %7, ptr noundef nonnull %21)
@@ -724,7 +724,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   %.2.us = phi i32 [ %spec.select.us, %24 ], [ %.02733.us, %22 ], [ %.02733.us, %.lr.ph.split.us ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.lr.ph ]
@@ -735,25 +735,25 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   br i1 %.not, label %51, label %37
 
 37:                                               ; preds = %.lr.ph.split
-  %38 = load i32, ptr %36, align 8, !tbaa !21
+  %38 = load i32, ptr %36, align 8, !tbaa !22
   %.not30 = icmp eq i32 %38, 0
   br i1 %.not30, label %51, label %39
 
 39:                                               ; preds = %37
-  %40 = load i32, ptr %2, align 4, !tbaa !20
+  %40 = load i32, ptr %2, align 4, !tbaa !21
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %3, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !20
-  %45 = load i32, ptr %2, align 4, !tbaa !20
+  store i32 %44, ptr %42, align 4, !tbaa !21
+  %45 = load i32, ptr %2, align 4, !tbaa !21
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %2, align 4, !tbaa !20
+  store i32 %46, ptr %2, align 4, !tbaa !21
   %47 = getelementptr inbounds nuw %struct.tmpi_status_, ptr %4, i64 %indvars.iv
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %36, ptr noundef nonnull %47)
   %48 = load ptr, ptr %35, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  %50 = load i32, ptr %49, align 4, !tbaa !19
+  %50 = load i32, ptr %49, align 4, !tbaa !20
   %.not32 = icmp eq i32 %50, 0
   %spec.select = select i1 %.not32, i32 %.02733, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %7, ptr noundef %48)
@@ -764,7 +764,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   %.2 = phi i32 [ %spec.select, %39 ], [ %.02733, %37 ], [ %.02733, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %51, %34, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit
   %.027.lcssa = phi i32 [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ], [ %.2.us, %34 ], [ %.2, %51 ]
@@ -780,7 +780,7 @@ define noundef range(i32 0, 25) i32 @_Z13tMPI_TestsomeiPP9tmpi_req_PiS2_P12tmpi_
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread: ; preds = %5
   %9 = tail call noundef i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef %6, ptr noundef null, ptr noundef null)
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   br label %._crit_edge
 
 .lr.ph.preheader.i:                               ; preds = %5
@@ -820,11 +820,11 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread: ; preds = %5
   %.1.i = phi ptr [ %11, %15 ], [ %11, %14 ], [ %.02333.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   %19 = tail call noundef i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef %6, ptr noundef %.125.i, ptr noundef null)
-  store i32 0, ptr %2, align 4, !tbaa !20
+  store i32 0, ptr %2, align 4, !tbaa !21
   %.not31 = icmp eq ptr %4, null
   %wide.trip.count40 = zext nneg i32 %0 to i64
   br i1 %.not31, label %.lr.ph.split.us, label %.lr.ph.split
@@ -838,22 +838,22 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   br i1 %.not.us, label %34, label %22
 
 22:                                               ; preds = %.lr.ph.split.us
-  %23 = load i32, ptr %21, align 8, !tbaa !21
+  %23 = load i32, ptr %21, align 8, !tbaa !22
   %.not30.us = icmp eq i32 %23, 0
   br i1 %.not30.us, label %34, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %2, align 4, !tbaa !20
+  %25 = load i32, ptr %2, align 4, !tbaa !21
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %3, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !20
+  %28 = load i32, ptr %27, align 4, !tbaa !21
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !20
-  %30 = load i32, ptr %2, align 4, !tbaa !20
+  store i32 %29, ptr %27, align 4, !tbaa !21
+  %30 = load i32, ptr %2, align 4, !tbaa !21
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %2, align 4, !tbaa !20
+  store i32 %31, ptr %2, align 4, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %33 = load i32, ptr %32, align 4, !tbaa !20
   %.not32.us = icmp eq i32 %33, 0
   %spec.select.us = select i1 %.not32.us, i32 %.02733.us, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %7, ptr noundef nonnull %21)
@@ -864,7 +864,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   %.2.us = phi i32 [ %spec.select.us, %24 ], [ %.02733.us, %22 ], [ %.02733.us, %.lr.ph.split.us ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ]
@@ -875,25 +875,25 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   br i1 %.not, label %51, label %37
 
 37:                                               ; preds = %.lr.ph.split
-  %38 = load i32, ptr %36, align 8, !tbaa !21
+  %38 = load i32, ptr %36, align 8, !tbaa !22
   %.not30 = icmp eq i32 %38, 0
   br i1 %.not30, label %51, label %39
 
 39:                                               ; preds = %37
-  %40 = load i32, ptr %2, align 4, !tbaa !20
+  %40 = load i32, ptr %2, align 4, !tbaa !21
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %3, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !20
-  %45 = load i32, ptr %2, align 4, !tbaa !20
+  store i32 %44, ptr %42, align 4, !tbaa !21
+  %45 = load i32, ptr %2, align 4, !tbaa !21
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %2, align 4, !tbaa !20
+  store i32 %46, ptr %2, align 4, !tbaa !21
   %47 = getelementptr inbounds nuw %struct.tmpi_status_, ptr %4, i64 %indvars.iv
   tail call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %36, ptr noundef nonnull %47)
   %48 = load ptr, ptr %35, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  %50 = load i32, ptr %49, align 4, !tbaa !19
+  %50 = load i32, ptr %49, align 4, !tbaa !20
   %.not32 = icmp eq i32 %50, 0
   %spec.select = select i1 %.not32, i32 %.02733, i32 24
   tail call void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef nonnull %7, ptr noundef %48)
@@ -904,7 +904,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   %.2 = phi i32 [ %spec.select, %39 ], [ %.02733, %37 ], [ %.02733, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %51, %34, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread
   %.027.lcssa = phi i32 [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread ], [ %.2.us, %34 ], [ %.2, %51 ]
@@ -938,22 +938,23 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !13 = !{!"p1 _ZTS10tmpi_comm_", !5, i64 0}
 !14 = !{!"long", !6, i64 0}
 !15 = !{!9, !4, i64 64}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!9, !11, i64 8}
-!19 = !{!9, !10, i64 36}
-!20 = !{!10, !10, i64 0}
-!21 = !{!9, !10, i64 0}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17, !24}
-!27 = distinct !{!27, !17, !24}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17, !24}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !17, !24}
-!34 = distinct !{!34, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!9, !11, i64 8}
+!20 = !{!9, !10, i64 36}
+!21 = !{!10, !10, i64 0}
+!22 = !{!9, !10, i64 0}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !17, !18}
+!27 = distinct !{!27, !17, !18, !25}
+!28 = distinct !{!28, !17, !18, !25}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18}
+!31 = distinct !{!31, !17, !18}
+!32 = distinct !{!32, !17, !18, !25}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18, !25}
+!35 = distinct !{!35, !17, !18}

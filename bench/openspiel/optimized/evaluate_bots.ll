@@ -165,7 +165,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %41, %46
 59:                                               ; preds = %.lr.ph106
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.080.0105, i64 8
   %.not84 = icmp eq ptr %60, %53
-  br i1 %.not84, label %.loopexit95, label %.lr.ph106
+  br i1 %.not84, label %.loopexit95, label %.lr.ph106, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph114
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -217,7 +217,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %41, %46
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.076.0103, i64 8
   %.not83 = icmp eq ptr %67, %53
-  br i1 %.not83, label %.loopexit95, label %.lr.ph
+  br i1 %.not83, label %.loopexit95, label %.lr.ph, !llvm.loop !8
 
 .loopexit95:                                      ; preds = %66, %59, %61, %54
   %68 = icmp sgt i32 %28, 0
@@ -297,7 +297,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %93, %96
 107:                                              ; preds = %.lr.ph114
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.072.0113, i64 8
   %.not85 = icmp eq ptr %108, %102
-  br i1 %.not85, label %._crit_edge.invoke, label %.lr.ph114
+  br i1 %.not85, label %._crit_edge.invoke, label %.lr.ph114, !llvm.loop !9
 
 109:                                              ; preds = %91
   %110 = landingpad { ptr, i32 }
@@ -371,7 +371,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %127, %131
   store i64 %.sink, ptr %146, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
-  br i1 %exitcond122.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !6
+  br i1 %exitcond122.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !10
 
 ._crit_edge111:                                   ; preds = %144, %.preheader
   invoke void @_ZN10open_spiel5State12ApplyActionsERKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -420,7 +420,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %127, %131
 169:                                              ; preds = %.lr.ph108, %162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.invoke, label %.lr.ph108, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.invoke, label %.lr.ph108, !llvm.loop !11
 
 ._crit_edge.invoke:                               ; preds = %169, %107, %.preheader89, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
   %170 = phi i64 [ %94, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit ], [ %160, %.preheader89 ], [ %94, %107 ], [ %160, %169 ]
@@ -431,7 +431,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit67:                  ; preds = %127, %131
           to label %.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .backedge:                                        ; preds = %._crit_edge.invoke, %._crit_edge111
-  br label %75, !llvm.loop !8
+  br label %75, !llvm.loop !12
 
 174:                                              ; preds = %80
   %175 = getelementptr inbounds nuw i8, ptr %81, i64 104
@@ -602,7 +602,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlE
   %50 = phi ptr [ %47, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %22, %25 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
   %.not = icmp eq ptr %51, %5
-  br i1 %.not, label %._crit_edge, label %20
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -743,7 +743,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %31 = mul nuw i64 %30, 4294967295
   %32 = and i64 %31, 4294967295
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit, !llvm.loop !9
+  br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit, !llvm.loop !14
 
 _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
   %.018.i.i.i.i.i.i = phi i64 [ %26, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit ], [ %31, %.lr.ph.i.i.i.i.i.i ]
@@ -751,16 +751,16 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %.0.i.i.i.i.i.i = trunc nuw i64 %34 to i32
   %35 = xor i32 %.0.i.i.i.i.i.i, -2147483648
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %36 = load ptr, ptr %1, align 8, !noalias !10
+  %36 = load ptr, ptr %1, align 8, !noalias !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !10
-  call void %38(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1), !noalias !10
-  %39 = load ptr, ptr %4, align 8, !noalias !10
+  %38 = load ptr, ptr %37, align 8, !noalias !15
+  call void %38(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(280) %1), !noalias !15
+  %39 = load ptr, ptr %4, align 8, !noalias !15
   invoke void @_ZN10open_spiel12EvaluateBotsEPNS_5StateERKSt6vectorIPNS_3BotESaIS4_EEi(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef %39, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %35)
           to label %40 unwind label %45
 
 40:                                               ; preds = %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
-  %41 = load ptr, ptr %4, align 8, !noalias !10
+  %41 = load ptr, ptr %4, align 8, !noalias !15
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi.exit, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i
 
@@ -774,7 +774,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i: ; preds = %40
 45:                                               ; preds = %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %4, align 8, !noalias !10
+  %47 = load ptr, ptr %4, align 8, !noalias !15
   %.not.i4.i = icmp eq ptr %47, null
   br i1 %.not.i4.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit6.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i5.i
 
@@ -862,7 +862,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %22 = xor i64 %19, %21
   store i64 %22, ptr %8, align 8
   %exitcond.not.i = icmp eq i64 %10, 227
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !18
 
 .preheader.preheader.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1816
@@ -890,7 +890,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %38 = xor i64 %35, %37
   store i64 %38, ptr %24, align 8
   %exitcond23.not.i = icmp eq i64 %26, 623
-  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !19
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit: ; preds = %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4984
@@ -979,14 +979,19 @@ attributes #19 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi: argument 0"}
-!12 = distinct !{!12, !"_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi"}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi: argument 0"}
+!17 = distinct !{!17, !"_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi"}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}

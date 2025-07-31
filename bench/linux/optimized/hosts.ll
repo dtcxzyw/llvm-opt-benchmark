@@ -1161,7 +1161,7 @@ define internal void @scsi_host_dev_release(ptr noundef %0) #2 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit, label %2, !llvm.loop !18
+  br i1 %10, label %.loopexit, label %2, !llvm.loop !19
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %3, i64 -592
@@ -1310,7 +1310,8 @@ attributes #14 = { nounwind allocsize(0) }
 !12 = !{i64 2148848309, i64 2148848348, i64 2148848369, i64 2148848406, i64 2148848429, i64 2148848438, i64 2148848736}
 !13 = !{!"branch_weights", i32 1, i32 2000}
 !14 = !{!"branch_weights", i32 127, i32 255873}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
-!18 = distinct !{!18, !16, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !16, !17, !18}

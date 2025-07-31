@@ -131,7 +131,7 @@ wtap_file_read_pattern.exit.thread:               ; preds = %17
   %38 = add nuw nsw i32 %.06.i.i, 1
   %39 = getelementptr i8, ptr %.0185.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %38, 11
-  br i1 %exitcond.not.i.i, label %wtap_file_read_till_separator.exit.thread.i, label %26, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %wtap_file_read_till_separator.exit.thread.i, label %26, !llvm.loop !9
 
 wtap_file_read_till_separator.exit.i:             ; preds = %36, %30
   %.019.i.i = phi i32 [ %.06.i.i, %36 ], [ %33, %30 ]
@@ -391,7 +391,7 @@ define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_number(ptr noundef r
   %19 = add nuw nsw i32 %.06.i, 1
   %20 = getelementptr i8, ptr %.0185.i, i64 1
   %exitcond.not.i = icmp eq i32 %19, 11
-  br i1 %exitcond.not.i, label %wtap_file_read_till_separator.exit.thread, label %7, !llvm.loop !8
+  br i1 %exitcond.not.i, label %wtap_file_read_till_separator.exit.thread, label %7, !llvm.loop !9
 
 wtap_file_read_till_separator.exit:               ; preds = %11, %17
   %.019.i = phi i32 [ %.06.i, %17 ], [ %14, %11 ]
@@ -555,7 +555,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr noundef 
   %.1150 = phi i1 [ %.0149286, %17 ], [ %.0149286, %26 ], [ %.0149286, %32 ], [ %.0149286, %38 ], [ %.0149286, %40 ], [ %.0149286, %42 ], [ true, %46 ], [ %.0149286, %48 ], [ %.0149286, %52 ], [ %.0149286, %56 ], [ %.0149286, %60 ], [ %.0149286, %64 ], [ %.0149286, %86 ], [ %.0149286, %88 ], [ %.0149286, %90 ], [ %.0149286, %70 ], [ %.0149286, %72 ], [ %.0149286, %74 ]
   %.1148 = phi i32 [ %.0147287, %17 ], [ %.0147287, %26 ], [ %.0147287, %32 ], [ %.0147287, %38 ], [ %.0147287, %40 ], [ %.0147287, %42 ], [ %47, %46 ], [ %.0147287, %48 ], [ %.0147287, %52 ], [ %.0147287, %56 ], [ %.0147287, %60 ], [ %.0147287, %64 ], [ %.0147287, %86 ], [ %.0147287, %88 ], [ %.0147287, %90 ], [ %.0147287, %70 ], [ %.0147287, %72 ], [ %.0147287, %74 ]
   %13 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 6, ptr noundef %3, ptr noundef %4)
-  br i1 %13, label %17, label %._crit_edge, !llvm.loop !9
+  br i1 %13, label %17, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %12
   %14 = load i32, ptr %3, align 4
@@ -1019,7 +1019,7 @@ switch.lookup:                                    ; preds = %168
   store i8 %.sroa.87.0, ptr %.sroa.87.0..sroa_idx, align 1
   %.sroa.88.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %.sroa.88.0..sroa_idx, i8 0, i64 26, i1 false)
-  %174 = load i8, ptr %8, align 1, !range !10, !noundef !11
+  %174 = load i8, ptr %8, align 1, !range !11, !noundef !12
   %175 = trunc nuw i8 %174 to i1
   br i1 %175, label %176, label %177
 
@@ -1145,9 +1145,10 @@ attributes #8 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}

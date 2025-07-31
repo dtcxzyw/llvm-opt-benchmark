@@ -347,7 +347,7 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   %15 = add i32 %14, %13
   %16 = add nuw nsw i32 %.0222.i, 1
   %exitcond.not.i = icmp eq i32 %16, %10
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %4
   %.023.lcssa.i = phi i32 [ 4, %4 ], [ %15, %.lr.ph.i ]
@@ -364,7 +364,7 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   %22 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %18, i32 noundef %21, i32 noundef %.04.i)
   %23 = add nuw nsw i32 %.13.i, 1
   %exitcond10.not.i = icmp eq i32 %23, %10
-  br i1 %exitcond10.not.i, label %dissect_handleList.exit, label %.lr.ph6.i, !llvm.loop !9
+  br i1 %exitcond10.not.i, label %dissect_handleList.exit, label %.lr.ph6.i, !llvm.loop !10
 
 dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_edge.i
   %.0.lcssa.i = phi i32 [ %20, %._crit_edge.i ], [ %22, %.lr.ph6.i ]
@@ -412,7 +412,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

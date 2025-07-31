@@ -1010,7 +1010,7 @@ _ZN2cv4Mat_IhEC2Eii.exit._crit_edge:              ; preds = %.thread, %_ZN2cv4Ma
   %.278 = phi i32 [ %180, %179 ], [ %.076116, %134 ]
   %.275 = phi i32 [ %125, %179 ], [ %176, %134 ]
   %.not = icmp sgt i32 %.275, %131
-  br i1 %.not, label %.thread.loopexit, label %134
+  br i1 %.not, label %.thread.loopexit, label %134, !llvm.loop !74
 
 .thread.loopexit:                                 ; preds = %177, %181
   %.pre = load ptr, ptr %99, align 8, !tbaa !62
@@ -1026,7 +1026,7 @@ _ZN2cv4Mat_IhEC2Eii.exit._crit_edge:              ; preds = %.thread, %_ZN2cv4Ma
   %187 = sub i64 %185, %186
   %188 = sdiv exact i64 %187, 28
   %189 = icmp ult i64 %184, %188
-  br i1 %189, label %118, label %_ZN2cv4Mat_IhEC2Eii.exit._crit_edge, !llvm.loop !74
+  br i1 %189, label %118, label %_ZN2cv4Mat_IhEC2Eii.exit._crit_edge, !llvm.loop !76
 
 190:                                              ; preds = %_ZN2cv4Mat_IhEC2Eii.exit._crit_edge
   br i1 %113, label %191, label %200
@@ -1133,9 +1133,9 @@ define void @_ZNK2cv11xfeatures2d5LUCID14getDefaultNameB5cxx11Ev(ptr dead_on_unw
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   call void @_ZNK2cv9Feature2D14getDefaultNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !32, !noalias !76
+  %5 = load i64, ptr %4, align 8, !tbaa !32, !noalias !78
   %6 = add i64 %5, -4611686018427387898
   %7 = icmp ult i64 %6, 6
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -1153,7 +1153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 .noexc2:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !29, !alias.scope !76
+  store ptr %10, ptr %0, align 8, !tbaa !29, !alias.scope !78
   %11 = load ptr, ptr %9, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = icmp eq ptr %11, %12
@@ -1169,9 +1169,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   br label %20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc2
-  store ptr %11, ptr %0, align 8, !tbaa !36, !alias.scope !76
+  store ptr %11, ptr %0, align 8, !tbaa !36, !alias.scope !78
   %19 = load i64, ptr %12, align 8, !tbaa !35
-  store i64 %19, ptr %10, align 8, !tbaa !35, !alias.scope !76
+  store i64 %19, ptr %10, align 8, !tbaa !35, !alias.scope !78
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !32
   br label %20
@@ -1180,7 +1180,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %21 = phi i64 [ %16, %14 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %23, align 8, !tbaa !32, !alias.scope !76
+  store i64 %21, ptr %23, align 8, !tbaa !32, !alias.scope !78
   store ptr %12, ptr %9, align 8, !tbaa !36
   store i64 0, ptr %22, align 8, !tbaa !32
   store i8 0, ptr %12, align 8, !tbaa !35
@@ -1390,7 +1390,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11xfe
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !79
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -1537,9 +1537,11 @@ attributes #22 = { noreturn nounwind }
 !72 = !{!51, !57, i64 72}
 !73 = !{!34, !34, i64 0}
 !74 = distinct !{!74, !75}
-!75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!78 = distinct !{!78, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!79 = !{!80, !31, i64 8}
-!80 = !{!"_ZTSSt9type_info", !31, i64 8}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = distinct !{!76, !77, !75}
+!77 = !{!"llvm.loop.mustprogress"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!80 = distinct !{!80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!81 = !{!82, !31, i64 8}
+!82 = !{!"_ZTSSt9type_info", !31, i64 8}

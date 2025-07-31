@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @test_builtin_provider() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
   %2 = tail call ptr @OSSL_LIB_CTX_new() #5
-  store ptr %2, ptr %1, align 8, !tbaa !6
+  store ptr %2, ptr %1, align 8, !tbaa !7
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 225, ptr noundef nonnull @.str.21, ptr noundef %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %11, label %4
@@ -146,7 +146,7 @@ define internal range(i32 0, 2) i32 @test_builtin_provider() #1 {
 
 9:                                                ; preds = %4
   %10 = call fastcc i32 @test_provider(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef null)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !6
+  %.pre = load ptr, ptr %1, align 8, !tbaa !7
   br label %11
 
 11:                                               ; preds = %9, %4, %0
@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @test_builtin_provider_with_child() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
   %2 = tail call ptr @OSSL_LIB_CTX_new() #5
-  store ptr %2, ptr %1, align 8, !tbaa !6
+  store ptr %2, ptr %1, align 8, !tbaa !7
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 243, ptr noundef nonnull @.str.21, ptr noundef %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4
@@ -205,7 +205,7 @@ define internal range(i32 0, 2) i32 @test_loaded_provider() #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %3 = tail call ptr @OSSL_LIB_CTX_new() #5
-  store ptr %3, ptr %2, align 8, !tbaa !6
+  store ptr %3, ptr %2, align 8, !tbaa !7
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 275, ptr noundef nonnull @.str.21, ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %52, label %5
@@ -256,13 +256,13 @@ define internal range(i32 0, 2) i32 @test_loaded_provider() #1 {
   br i1 %.not22.i, label %test_provider_ex.exit, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 16), align 16, !tbaa !11
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 16), align 16, !tbaa !12
   %30 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 183, ptr noundef nonnull @.str.35, ptr noundef %29) #5
   %.not23.i = icmp eq i32 %30, 0
   br i1 %.not23.i, label %test_provider_ex.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 24), align 8, !tbaa !16
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 24), align 8, !tbaa !17
   %33 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.20, i32 noundef 184, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %32, i64 noundef 0) #5
   %.not24.i = icmp eq i32 %33, 0
   br i1 %.not24.i, label %test_provider_ex.exit, label %34
@@ -298,7 +298,7 @@ define internal range(i32 0, 2) i32 @test_loaded_provider() #1 {
 
 48:                                               ; preds = %43
   call void @OSSL_LIB_CTX_free(ptr noundef %7) #5
-  %49 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !18
   call void @ERR_print_errors_fp(ptr noundef %49) #5
   br label %test_provider_ex.exit
 
@@ -339,23 +339,23 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #5
   %.not = icmp eq ptr %2, null
   %5 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %1) #5
-  %6 = load ptr, ptr %0, align 8, !tbaa !6
+  %6 = load ptr, ptr %0, align 8, !tbaa !7
   %7 = call i32 @EVP_set_default_properties(ptr noundef %6, ptr noundef nonnull @.str.25) #5
-  %8 = load ptr, ptr %0, align 8, !tbaa !6
+  %8 = load ptr, ptr %0, align 8, !tbaa !7
   %9 = call ptr @OSSL_PROVIDER_load(ptr noundef %8, ptr noundef nonnull @.str.27) #5
   %10 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 63, ptr noundef nonnull @.str.26, ptr noundef %9) #5
   %.not45 = icmp eq i32 %10, 0
   br i1 %.not45, label %131, label %11
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %0, align 8, !tbaa !6
+  %12 = load ptr, ptr %0, align 8, !tbaa !7
   %13 = call ptr @OSSL_PROVIDER_load(ptr noundef %12, ptr noundef %1) #5
   %14 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 65, ptr noundef nonnull @.str.28, ptr noundef %13) #5
   %.not46 = icmp eq i32 %14, 0
   br i1 %.not46, label %131, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %0, align 8, !tbaa !6
+  %16 = load ptr, ptr %0, align 8, !tbaa !7
   %17 = call i32 @EVP_set_default_properties(ptr noundef %16, ptr noundef nonnull @.str.29) #5
   br i1 %.not, label %53, label %18
 
@@ -368,7 +368,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not47, label %131, label %23
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr @digestsuccess, align 4, !tbaa !19
+  %24 = load i32, ptr @digestsuccess, align 4, !tbaa !20
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
   %27 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 75, ptr noundef nonnull @.str.31, i32 noundef %26) #5
@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not49, label %131, label %33
 
 33:                                               ; preds = %28
-  %34 = load i32, ptr @stopsuccess, align 4, !tbaa !19
+  %34 = load i32, ptr @stopsuccess, align 4, !tbaa !20
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
   %37 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 83, ptr noundef nonnull @.str.33, i32 noundef %36) #5
@@ -392,7 +392,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not50, label %131, label %38
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %0, align 8, !tbaa !6
+  %39 = load ptr, ptr %0, align 8, !tbaa !7
   %40 = call i32 @EVP_set_default_properties(ptr noundef %39, ptr noundef nonnull @.str.25) #5
   %41 = call i32 @OSSL_PROVIDER_get_params(ptr noundef %13, ptr noundef nonnull @digest_check) #5
   %42 = icmp ne i32 %41, 0
@@ -402,7 +402,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not51, label %131, label %45
 
 45:                                               ; preds = %38
-  %46 = load i32, ptr @digestsuccess, align 4, !tbaa !19
+  %46 = load i32, ptr @digestsuccess, align 4, !tbaa !20
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
   %49 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 87, ptr noundef nonnull @.str.31, i32 noundef %48) #5
@@ -410,7 +410,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not52, label %131, label %50
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %0, align 8, !tbaa !6
+  %51 = load ptr, ptr %0, align 8, !tbaa !7
   %52 = call i32 @EVP_set_default_properties(ptr noundef %51, ptr noundef nonnull @.str.29) #5
   br label %53
 
@@ -423,13 +423,13 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not53, label %131, label %58
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 16), align 16, !tbaa !11
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 16), align 16, !tbaa !12
   %60 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 92, ptr noundef nonnull @.str.35, ptr noundef %59) #5
   %.not54 = icmp eq i32 %60, 0
   br i1 %.not54, label %131, label %61
 
 61:                                               ; preds = %58
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 24), align 8, !tbaa !16
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 24), align 8, !tbaa !17
   %63 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.20, i32 noundef 93, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %62, i64 noundef 0) #5
   %.not55 = icmp eq i32 %63, 0
   br i1 %.not55, label %131, label %64
@@ -468,7 +468,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not59, label %131, label %80
 
 80:                                               ; preds = %75
-  %81 = load i32, ptr @digestsuccess, align 4, !tbaa !19
+  %81 = load i32, ptr @digestsuccess, align 4, !tbaa !20
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i32
   %84 = call i32 @test_false(ptr noundef nonnull @.str.20, i32 noundef 109, ptr noundef nonnull @.str.31, i32 noundef %83) #5
@@ -476,16 +476,16 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not60, label %131, label %85
 
 85:                                               ; preds = %80
-  %86 = load ptr, ptr %0, align 8, !tbaa !6
+  %86 = load ptr, ptr %0, align 8, !tbaa !7
   %87 = call ptr @OSSL_PROVIDER_load(ptr noundef %86, ptr noundef nonnull @.str.43) #5
-  %88 = load ptr, ptr %0, align 8, !tbaa !6
+  %88 = load ptr, ptr %0, align 8, !tbaa !7
   %89 = call ptr @OSSL_PROVIDER_load(ptr noundef %88, ptr noundef nonnull @.str.44) #5
   %90 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 119, ptr noundef nonnull @.str.45, ptr noundef %89) #5
   %.not61 = icmp eq i32 %90, 0
   br i1 %.not61, label %131, label %91
 
 91:                                               ; preds = %85
-  %92 = load ptr, ptr %0, align 8, !tbaa !6
+  %92 = load ptr, ptr %0, align 8, !tbaa !7
   %93 = call i32 @OSSL_PROVIDER_available(ptr noundef %92, ptr noundef nonnull @.str.44) #5
   %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
@@ -500,7 +500,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not63, label %131, label %100
 
 100:                                              ; preds = %97
-  %101 = load ptr, ptr %0, align 8, !tbaa !6
+  %101 = load ptr, ptr %0, align 8, !tbaa !7
   %102 = call i32 @OSSL_PROVIDER_available(ptr noundef %101, ptr noundef nonnull @.str.44) #5
   %103 = icmp ne i32 %102, 0
   %104 = zext i1 %103 to i32
@@ -517,7 +517,7 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not65, label %131, label %111
 
 111:                                              ; preds = %106
-  %112 = load i32, ptr @digestsuccess, align 4, !tbaa !19
+  %112 = load i32, ptr @digestsuccess, align 4, !tbaa !20
   %113 = icmp ne i32 %112, 0
   %114 = zext i1 %113 to i32
   %115 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 127, ptr noundef nonnull @.str.31, i32 noundef %114) #5
@@ -545,10 +545,10 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   br i1 %.not68, label %131, label %128
 
 128:                                              ; preds = %123
-  %129 = load ptr, ptr %0, align 8, !tbaa !6
+  %129 = load ptr, ptr %0, align 8, !tbaa !7
   call void @OSSL_LIB_CTX_free(ptr noundef %129) #5
-  store ptr null, ptr %0, align 8, !tbaa !6
-  %130 = load ptr, ptr @stderr, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !7
+  %130 = load ptr, ptr @stderr, align 8, !tbaa !18
   call void @ERR_print_errors_fp(ptr noundef %130) #5
   br label %131
 
@@ -562,9 +562,9 @@ define internal fastcc range(i32 0, 2) i32 @test_provider(ptr noundef nonnull ca
   %133 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.039) #5
   %134 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.040) #5
   %135 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.042) #5
-  %136 = load ptr, ptr %0, align 8, !tbaa !6
+  %136 = load ptr, ptr %0, align 8, !tbaa !7
   call void @OSSL_LIB_CTX_free(ptr noundef %136) #5
-  store ptr null, ptr %0, align 8, !tbaa !6
+  store ptr null, ptr %0, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #5
   ret i32 %.043
 }
@@ -625,19 +625,20 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !8, i64 16}
-!12 = !{!"ossl_param_st", !13, i64 0, !14, i64 8, !8, i64 16, !15, i64 24, !15, i64 32}
-!13 = !{!"p1 omnipotent char", !8, i64 0}
-!14 = !{!"int", !9, i64 0}
-!15 = !{!"long", !9, i64 0}
-!16 = !{!12, !15, i64 24}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!19 = !{!14, !14, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !9, i64 16}
+!13 = !{!"ossl_param_st", !14, i64 0, !15, i64 8, !9, i64 16, !16, i64 24, !16, i64 32}
+!14 = !{!"p1 omnipotent char", !9, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!"long", !10, i64 0}
+!17 = !{!13, !16, i64 24}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!20 = !{!15, !15, i64 0}

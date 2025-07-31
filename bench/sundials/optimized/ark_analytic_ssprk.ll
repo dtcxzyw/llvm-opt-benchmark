@@ -166,7 +166,7 @@ check_flag.exit61:                                ; preds = %.lr.ph
   %70 = load double, ptr %3, align 8, !tbaa !4
   %71 = fsub double 1.000000e+01, %70
   %72 = fcmp ogt double %71, 1.000000e-15
-  br i1 %72, label %.lr.ph, label %.loopexit
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %58, %check_flag.exit61
   %puts44 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -215,7 +215,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %8 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %9 = fdiv double 1.000000e+00, %8
   %10 = tail call double @llvm.fmuladd.f64(double %5, double %7, double %9)
-  %11 = tail call double @atan(double noundef %0) #7, !tbaa !14
+  %11 = tail call double @atan(double noundef %0) #7, !tbaa !16
   %12 = fneg double %5
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %11, double %10)
   %14 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #7
@@ -250,7 +250,7 @@ declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @compute_error(ptr noundef %0, double noundef %1) unnamed_addr #0 {
-  %3 = tail call double @atan(double noundef %1) #7, !tbaa !14
+  %3 = tail call double @atan(double noundef %1) #7, !tbaa !16
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #7
   %5 = load double, ptr %4, align 8, !tbaa !4
   %6 = fsub double %5, %3
@@ -310,5 +310,7 @@ attributes #8 = { cold nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS11SUNContext_", !10, i64 0}
 !13 = !{!10, !10, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !6, i64 0}

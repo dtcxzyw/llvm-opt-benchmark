@@ -711,7 +711,7 @@ dissect_wmio_encoding_derivationlist.exit.i:      ; preds = %.lr.ph.i.i, %6
   %104 = add nuw i32 %.023.i.i, 1
   %105 = load i32, ptr %10, align 4
   %106 = icmp ult i32 %104, %105
-  br i1 %106, label %.lr.ph.i58.i, label %dissect_wmio_encoding_propertylookuptable.exit.i, !llvm.loop !8
+  br i1 %106, label %.lr.ph.i58.i, label %dissect_wmio_encoding_propertylookuptable.exit.i, !llvm.loop !9
 
 dissect_wmio_encoding_propertylookuptable.exit.i: ; preds = %.lr.ph.i58.i, %dissect_wmio_encoding_derivationlist.exit.i
   %.020.lcssa.i.i = phi i32 [ %67, %dissect_wmio_encoding_derivationlist.exit.i ], [ %103, %.lr.ph.i58.i ]
@@ -818,7 +818,7 @@ dissect_wmio_encoding_classpart.exit:             ; preds = %dissect_wmio_encodi
   call void @proto_item_set_len(ptr noundef %142, i32 noundef 24)
   %185 = add nuw i32 %.0.i2125, 1
   %exitcond.not = icmp eq i32 %185, %131
-  br i1 %exitcond.not, label %dissect_wmio_encoding_methodpart_methods.exit, label %140, !llvm.loop !9
+  br i1 %exitcond.not, label %dissect_wmio_encoding_methodpart_methods.exit, label %140, !llvm.loop !10
 
 dissect_wmio_encoding_methodpart_methods.exit:    ; preds = %140
   %186 = sub i32 %184, %130
@@ -972,7 +972,7 @@ define internal fastcc i32 @dissect_wmio_encoding_qualifierset(ptr noundef %0, i
   %71 = add i32 %70, %.1162.i
   %72 = add nuw i32 %.0159161.i, 1
   %exitcond.not.i = icmp eq i32 %72, %34
-  br i1 %exitcond.not.i, label %dissect_wmio_qualifier.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_wmio_qualifier.exit, label %.lr.ph.i, !llvm.loop !11
 
 73:                                               ; preds = %.lr.ph
   switch i32 %28, label %dissect_wmio_qualifier.exit [
@@ -1140,7 +1140,7 @@ dissect_wmio_qualifier.exit:                      ; preds = %.lr.ph.i, %33, %.pr
   %165 = load i32, ptr %6, align 4
   %166 = add i32 %165, %1
   %167 = icmp ult i32 %.2.i, %166
-  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_wmio_qualifier.exit, %5
   %.0.lcssa = phi i32 [ %13, %5 ], [ %.2.i, %dissect_wmio_qualifier.exit ]
@@ -1197,9 +1197,10 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

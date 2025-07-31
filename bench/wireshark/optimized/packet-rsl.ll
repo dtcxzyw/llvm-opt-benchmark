@@ -3576,7 +3576,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, 
   %26 = add i32 %.0392, 2
   %27 = add i32 %.0383, -2
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -4887,13 +4887,13 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   %59 = add nuw nsw i8 %.0292.i, 1
   %.1.i = add i32 %.13.i, 1
   %exitcond.not.i = icmp eq i8 %59, 5
-  br i1 %exitcond.not.i, label %dissect_rsl_paging_group_paras.exit, label %56, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_rsl_paging_group_paras.exit, label %56, !llvm.loop !12
 
 dissect_rsl_paging_group_paras.exit:              ; preds = %56, %47
   %.030.i = phi i32 [ %52, %47 ], [ %.1.i, %56 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %dissect_rsl_paging_group_paras.exit, %5
   %.0.lcssa = phi i32 [ %3, %5 ], [ %.030.i, %dissect_rsl_paging_group_paras.exit ]
@@ -5063,8 +5063,9 @@ attributes #7 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

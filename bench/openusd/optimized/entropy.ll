@@ -485,7 +485,7 @@ reset_cdf_symbol_counter.exit481:                 ; preds = %34
 reset_cdf_symbol_counter.exit487:                 ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %37, label %31, !llvm.loop !6
+  br i1 %exitcond.not, label %37, label %31, !llvm.loop !7
 
 37:                                               ; preds = %reset_cdf_symbol_counter.exit487
   %invariant.gep.i488 = getelementptr i8, ptr %0, i64 11208
@@ -717,7 +717,7 @@ reset_cdf_symbol_counter.exit56.i:                ; preds = %55
   br i1 %exitcond.not.i91.i, label %reset_cdf_symbol_counter.exit92.i, label %56, !llvm.loop !4
 
 reset_cdf_symbol_counter.exit92.i:                ; preds = %56
-  br i1 %53, label %reset_cdf_symbol_counter.exit50.i, label %reset_nmv_counter.exit, !llvm.loop !7
+  br i1 %53, label %reset_cdf_symbol_counter.exit50.i, label %reset_nmv_counter.exit, !llvm.loop !8
 
 reset_nmv_counter.exit:                           ; preds = %reset_cdf_symbol_counter.exit92.i
   %invariant.gep.i.i573 = getelementptr i8, ptr %0, i64 12206
@@ -767,7 +767,7 @@ reset_cdf_symbol_counter.exit56.i583:             ; preds = %60
   br i1 %exitcond.not.i91.i594, label %reset_cdf_symbol_counter.exit92.i595, label %61, !llvm.loop !4
 
 reset_cdf_symbol_counter.exit92.i595:             ; preds = %61
-  br i1 %58, label %reset_cdf_symbol_counter.exit50.i574, label %reset_nmv_counter.exit596, !llvm.loop !7
+  br i1 %58, label %reset_cdf_symbol_counter.exit50.i574, label %reset_nmv_counter.exit596, !llvm.loop !8
 
 reset_nmv_counter.exit596:                        ; preds = %reset_cdf_symbol_counter.exit92.i595
   %invariant.gep.i597 = getelementptr i8, ptr %0, i64 12488
@@ -894,7 +894,7 @@ reset_cdf_symbol_counter.exit674.loopexit808:     ; preds = %71
 reset_cdf_symbol_counter.exit674:                 ; preds = %reset_cdf_symbol_counter.exit674.loopexit808, %reset_cdf_symbol_counter.exit674.loopexit807, %reset_cdf_symbol_counter.exit674.loopexit
   %indvars.iv.next811 = add nuw nsw i64 %indvars.iv810, 1
   %exitcond816.not = icmp eq i64 %indvars.iv.next811, 20
-  br i1 %exitcond816.not, label %74, label %68, !llvm.loop !8
+  br i1 %exitcond816.not, label %74, label %68, !llvm.loop !9
 
 74:                                               ; preds = %reset_cdf_symbol_counter.exit674
   %invariant.gep.i687 = getelementptr i8, ptr %0, i64 14082
@@ -1002,7 +1002,7 @@ reset_cdf_symbol_counter.exit746:                 ; preds = %reset_cdf_symbol_co
   store i16 0, ptr %gep805, align 2
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond821.not = icmp eq i64 %indvars.iv.next818, 4
-  br i1 %exitcond821.not, label %83, label %reset_cdf_symbol_counter.exit746, !llvm.loop !9
+  br i1 %exitcond821.not, label %83, label %reset_cdf_symbol_counter.exit746, !llvm.loop !10
 
 83:                                               ; preds = %reset_cdf_symbol_counter.exit746
   %invariant.gep.i747 = getelementptr i8, ptr %0, i64 16970
@@ -1098,9 +1098,10 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

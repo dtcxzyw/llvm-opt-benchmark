@@ -231,7 +231,7 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !32
+  %7 = load i32, ptr %6, align 4, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !7
   %10 = getelementptr i8, ptr %9, i64 4
@@ -263,9 +263,9 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr noundef readonly capt
   br i1 %.not41, label %22, label %67
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %12, align 8, !tbaa !35
+  %23 = load ptr, ptr %12, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !36
+  %25 = load i32, ptr %24, align 8, !tbaa !37
   %26 = call ptr @Nm_ManFindNameById(ptr noundef %23, i32 noundef %25) #5
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %27, label %67
@@ -276,25 +276,25 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr noundef readonly capt
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  store ptr %32, ptr %5, align 8, !tbaa !39
+  store ptr %32, ptr %5, align 8, !tbaa !40
   %33 = call i32 @stmm_lookup(ptr noundef %1, ptr noundef %32, ptr noundef nonnull %4) #5
   %.not35 = icmp eq i32 %33, 0
   br i1 %.not35, label %67, label %34
 
 34:                                               ; preds = %27
-  %35 = load ptr, ptr %4, align 8, !tbaa !39
+  %35 = load ptr, ptr %4, align 8, !tbaa !40
   %36 = load ptr, ptr %28, align 8, !tbaa !29
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
   %39 = ptrtoint ptr %35 to i64
   %40 = xor i64 %38, %39
   %41 = inttoptr i64 %40 to ptr
-  store ptr %41, ptr %4, align 8, !tbaa !39
+  store ptr %41, ptr %4, align 8, !tbaa !40
   %42 = and i64 %39, -2
   %43 = inttoptr i64 %42 to ptr
-  %.val39 = load ptr, ptr %43, align 8, !tbaa !40
+  %.val39 = load ptr, ptr %43, align 8, !tbaa !41
   %44 = getelementptr i8, ptr %43, i64 48
-  %.val40 = load ptr, ptr %44, align 8, !tbaa !41
+  %.val40 = load ptr, ptr %44, align 8, !tbaa !42
   %45 = getelementptr i8, ptr %.val39, i64 32
   %.val39.val = load ptr, ptr %45, align 8, !tbaa !7
   %.val40.val = load i32, ptr %.val40, align 4, !tbaa !3
@@ -303,13 +303,13 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr noundef readonly capt
   %47 = sext i32 %.val40.val to i64
   %48 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !28
-  %50 = load ptr, ptr %49, align 8, !tbaa !40
+  %50 = load ptr, ptr %49, align 8, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  %52 = load ptr, ptr %51, align 8, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !36
+  %54 = load i32, ptr %53, align 8, !tbaa !37
   %55 = call ptr @Nm_ManFindNameById(ptr noundef %52, i32 noundef %54) #5
-  %56 = load ptr, ptr %4, align 8, !tbaa !39
+  %56 = load ptr, ptr %4, align 8, !tbaa !40
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1
   %.not36 = icmp eq i64 %58, 0
@@ -340,7 +340,7 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr noundef readonly capt
   %.val = load i32, ptr %69, align 4, !tbaa !25
   %70 = sext i32 %.val to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %13, label %.critedge, !llvm.loop !42
+  br i1 %71, label %13, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %67, %3
   %.028.lcssa = phi i32 [ 0, %3 ], [ %.129, %67 ]
@@ -423,16 +423,17 @@ attributes #5 = { nounwind }
 !27 = !{!26, !10, i64 8}
 !28 = !{!10, !10, i64 0}
 !29 = !{!5, !5, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33, !4, i64 20}
-!33 = !{!"stmm_table", !10, i64 0, !10, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !15, i64 32, !34, i64 40, !10, i64 48}
-!34 = !{!"p2 _ZTS16stmm_table_entry", !10, i64 0}
-!35 = !{!8, !11, i64 24}
-!36 = !{!37, !4, i64 16}
-!37 = !{!"Abc_Obj_t_", !13, i64 0, !38, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !16, i64 24, !16, i64 40, !5, i64 56, !5, i64 64}
-!38 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
-!39 = !{!38, !38, i64 0}
-!40 = !{!37, !13, i64 0}
-!41 = !{!37, !17, i64 48}
-!42 = distinct !{!42, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !4, i64 20}
+!34 = !{!"stmm_table", !10, i64 0, !10, i64 8, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !15, i64 32, !35, i64 40, !10, i64 48}
+!35 = !{!"p2 _ZTS16stmm_table_entry", !10, i64 0}
+!36 = !{!8, !11, i64 24}
+!37 = !{!38, !4, i64 16}
+!38 = !{!"Abc_Obj_t_", !13, i64 0, !39, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !16, i64 24, !16, i64 40, !5, i64 56, !5, i64 64}
+!39 = !{!"p1 _ZTS10Abc_Obj_t_", !10, i64 0}
+!40 = !{!39, !39, i64 0}
+!41 = !{!38, !13, i64 0}
+!42 = !{!38, !17, i64 48}
+!43 = distinct !{!43, !31, !32}

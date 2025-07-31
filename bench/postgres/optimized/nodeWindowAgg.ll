@@ -906,7 +906,7 @@ define internal noundef ptr @ExecWindowAgg(ptr noundef %0) #0 {
   %11 = alloca i8, align 1
   %12 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %14, label %13, !prof !8
+  br i1 %.not, label %14, label %13, !prof !9
 
 13:                                               ; preds = %1
   tail call void @ProcessInterrupts() #9
@@ -922,7 +922,7 @@ define internal noundef ptr @ExecWindowAgg(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %20 = load i8, ptr %19, align 8, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %23, !prof !9
+  br i1 %21, label %22, label %23, !prof !10
 
 22:                                               ; preds = %18
   tail call fastcc void @calculate_frame_offsets(ptr noundef nonnull %0)
@@ -1237,7 +1237,7 @@ are_peers.exit.thread:                            ; preds = %134, %are_peers.exi
   store i8 1, ptr %215, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %214, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %214, !llvm.loop !11
 
 216:                                              ; preds = %._crit_edge.i
   %217 = load i32, ptr %43, align 8
@@ -1261,7 +1261,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
 225:                                              ; preds = %180, %eval_windowfunction.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %180, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %180, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %225, %175
   %226 = load i32, ptr %52, align 4
@@ -1334,7 +1334,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
   store i8 %263, ptr %265, align 1
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i96
-  br i1 %exitcond.not.i99, label %eval_windowaggregates.exit, label %252, !llvm.loop !12
+  br i1 %exitcond.not.i99, label %eval_windowaggregates.exit, label %252, !llvm.loop !13
 
 .lr.ph212.i:                                      ; preds = %239, %241, %245, %247
   %wide.trip.count237.i = zext nneg i32 %226 to i64
@@ -1395,7 +1395,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
   %.1.i = phi i32 [ %286, %284 ], [ %.0211.i, %287 ]
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next235.i, %wide.trip.count237.i
-  br i1 %exitcond238.not.i, label %.preheader.i, label %268, !llvm.loop !13
+  br i1 %exitcond238.not.i, label %.preheader.i, label %268, !llvm.loop !14
 
 290:                                              ; preds = %._crit_edge.i94, %.lr.ph218.i
   %.2217.i = phi i32 [ %.1.i, %.lr.ph218.i ], [ %.4.i, %._crit_edge.i94 ]
@@ -1515,7 +1515,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
 352:                                              ; preds = %.lr.ph108.i.i
   %353 = add i32 %.188107.i.i, 1
   %.not92.i.i = icmp sgt i32 %353, %315
-  br i1 %.not92.i.i, label %.loopexit.i.i, label %.lr.ph108.i.i, !llvm.loop !14
+  br i1 %.not92.i.i, label %.loopexit.i.i, label %.lr.ph108.i.i, !llvm.loop !15
 
 .lr.ph108.i.i:                                    ; preds = %.critedge97.i.i, %352
   %.188107.i.i = phi i32 [ %353, %352 ], [ 1, %.critedge97.i.i ]
@@ -1738,7 +1738,7 @@ advance_windowaggregate_base.exit.thread.i:       ; preds = %456, %initialize_wi
   %.4.i = phi i32 [ %.3214.i, %.lr.ph215.i ], [ %459, %458 ], [ %.3214.i, %advance_windowaggregate_base.exit.thread.i ]
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next240.i, %wide.trip.count237.i
-  br i1 %exitcond243.not.i, label %._crit_edge.i94, label %.lr.ph215.i, !llvm.loop !15
+  br i1 %exitcond243.not.i, label %._crit_edge.i94, label %.lr.ph215.i, !llvm.loop !16
 
 ._crit_edge.i94:                                  ; preds = %460
   %461 = load ptr, ptr %38, align 8
@@ -1753,7 +1753,7 @@ advance_windowaggregate_base.exit.thread.i:       ; preds = %456, %initialize_wi
   %468 = load ptr, ptr %467, align 8
   call void %468(ptr noundef %232) #9
   %469 = icmp slt i32 %.4.i, %226
-  br i1 %469, label %290, label %.critedge.i, !llvm.loop !16
+  br i1 %469, label %290, label %.critedge.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %._crit_edge.i94, %290, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.1.i, %.preheader.i ], [ %.2217.i, %290 ], [ %.4.i, %._crit_edge.i94 ]
@@ -1871,7 +1871,7 @@ initialize_windowaggregate.exit.i:                ; preds = %495, %492
 527:                                              ; preds = %525, %513, %initialize_windowaggregate.exit.i
   %indvars.iv.next245.i = add nuw nsw i64 %indvars.iv244.i, 1
   %exitcond248.not.i = icmp eq i64 %indvars.iv.next245.i, %wide.trip.count237.i
-  br i1 %exitcond248.not.i, label %._crit_edge225.i, label %.lr.ph224.i, !llvm.loop !17
+  br i1 %exitcond248.not.i, label %._crit_edge225.i, label %.lr.ph224.i, !llvm.loop !18
 
 ._crit_edge225.i:                                 ; preds = %527
   %528 = load i64, ptr %58, align 8
@@ -2041,7 +2041,7 @@ initialize_windowaggregate.exit.i:                ; preds = %495, %492
 609:                                              ; preds = %.lr.ph112.i.i
   %610 = add i32 %.189111.i.i, 1
   %.not95.i190.i = icmp sgt i32 %610, %572
-  br i1 %.not95.i190.i, label %._crit_edge.i191.i, label %.lr.ph112.i.i, !llvm.loop !18
+  br i1 %.not95.i190.i, label %._crit_edge.i191.i, label %.lr.ph112.i.i, !llvm.loop !19
 
 .lr.ph112.i.i:                                    ; preds = %.preheader.i.i, %609
   %.189111.i.i = phi i32 [ %610, %609 ], [ 1, %.preheader.i.i ]
@@ -2243,7 +2243,7 @@ advance_windowaggregate.exit.i:                   ; preds = %708, %636, %623, %6
 710:                                              ; preds = %advance_windowaggregate.exit.i, %561
   %indvars.iv.next250.i = add nuw nsw i64 %indvars.iv249.i, 1
   %exitcond253.not.i = icmp eq i64 %indvars.iv.next250.i, %wide.trip.count237.i
-  br i1 %exitcond253.not.i, label %.critedge203.i.loopexit, label %.lr.ph228.i, !llvm.loop !19
+  br i1 %exitcond253.not.i, label %.critedge203.i.loopexit, label %.lr.ph228.i, !llvm.loop !20
 
 .critedge203.i.loopexit:                          ; preds = %710
   %.pre128 = load ptr, ptr %38, align 8
@@ -2349,7 +2349,7 @@ advance_windowaggregate.exit.i:                   ; preds = %708, %636, %623, %6
   store i8 1, ptr %763, align 8
   %indvars.iv.next.i199.i = add nuw nsw i64 %indvars.iv.i198.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i199.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i196.i, label %.lr.ph.i197.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %._crit_edge.i196.i, label %.lr.ph.i197.i, !llvm.loop !21
 
 ._crit_edge.i196.i:                               ; preds = %.lr.ph.i197.i, %758
   %.0.lcssa.i.i = phi i1 [ %.pre-phi.i.i, %758 ], [ true, %.lr.ph.i197.i ]
@@ -2465,7 +2465,7 @@ finalize_windowaggregate.exit.i:                  ; preds = %797, %782
   store i8 %821, ptr %822, align 8
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count237.i
-  br i1 %exitcond258.not.i, label %eval_windowaggregates.exit, label %721, !llvm.loop !21
+  br i1 %exitcond258.not.i, label %eval_windowaggregates.exit, label %721, !llvm.loop !22
 
 eval_windowaggregates.exit:                       ; preds = %252, %820, %._crit_edge, %172
   %823 = load i32, ptr %83, align 4
@@ -2585,7 +2585,7 @@ ExecQual.exit:                                    ; preds = %864
   store i8 1, ptr %885, align 1
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge118, label %881, !llvm.loop !22
+  br i1 %exitcond127.not, label %._crit_edge118, label %881, !llvm.loop !23
 
 ._crit_edge118:                                   ; preds = %881, %876
   %886 = load i8, ptr %87, align 1, !range !4, !noundef !5
@@ -2632,7 +2632,7 @@ ExecQual.exit102:                                 ; preds = %891
   br i1 %.not93, label %.backedge.backedge, label %901
 
 .backedge.backedge:                               ; preds = %899, %901, %888, %905
-  br label %.backedge
+  br label %.backedge, !llvm.loop !24
 
 901:                                              ; preds = %899
   %902 = getelementptr inbounds nuw i8, ptr %900, i64 240
@@ -2750,7 +2750,7 @@ define dso_local void @ExecEndWindowAgg(ptr noundef captures(none) %0) local_unn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %11, label %._crit_edge, !llvm.loop !23
+  br i1 %21, label %11, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %18, %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -2804,7 +2804,7 @@ define internal fastcc void @release_partition(ptr noundef captures(none) %0) un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !24
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %13, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -2842,7 +2842,7 @@ define internal fastcc void @release_partition(ptr noundef captures(none) %0) un
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next32, %34
-  br i1 %35, label %25, label %._crit_edge29, !llvm.loop !25
+  br i1 %35, label %25, label %._crit_edge29, !llvm.loop !27
 
 ._crit_edge29:                                    ; preds = %32, %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3213,7 +3213,7 @@ ExecQualAndReset.exit:                            ; preds = %49
   %77 = phi i64 [ %.pre, %.thread._crit_edge ], [ %75, %72 ]
   %78 = icmp sle i64 %77, %.0
   %79 = or i1 %26, %78
-  br i1 %79, label %36, label %.loopexit, !llvm.loop !26
+  br i1 %79, label %36, label %.loopexit, !llvm.loop !28
 
 .loopexit.sink.split:                             ; preds = %ExecProcNode.exit, %42, %65
   %.sink = phi i8 [ 1, %65 ], [ 0, %42 ], [ 0, %ExecProcNode.exit ]
@@ -3391,7 +3391,7 @@ define internal fastcc noundef zeroext i1 @window_gettupleslot(ptr noundef captu
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %8, label %7, !prof !8
+  br i1 %.not, label %8, label %7, !prof !9
 
 7:                                                ; preds = %3
   tail call void @ProcessInterrupts() #9
@@ -4076,7 +4076,7 @@ are_peers.exit:                                   ; preds = %76
   %95 = load ptr, ptr %37, align 8
   %96 = load ptr, ptr %59, align 8
   %97 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %95, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %96) #9
-  br i1 %97, label %63, label %.sink.split178.sink.split, !llvm.loop !27
+  br i1 %97, label %63, label %.sink.split178.sink.split, !llvm.loop !29
 
 98:                                               ; preds = %20
   %99 = and i32 %7, 10240
@@ -4273,7 +4273,7 @@ slot_getattr.exit157:                             ; preds = %slot_getattr.exit, 
   %212 = load ptr, ptr %133, align 8
   %213 = load ptr, ptr %155, align 8
   %214 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %212, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %213) #9
-  br i1 %214, label %165, label %.sink.split178.sink.split
+  br i1 %214, label %165, label %.sink.split178.sink.split, !llvm.loop !30
 
 215:                                              ; preds = %121
   %216 = and i32 %7, 8
@@ -4418,7 +4418,7 @@ are_peers.exit161:                                ; preds = %277
 are_peers.exit161.thread:                         ; preds = %272, %are_peers.exit161.thread169, %294, %are_peers.exit161
   %297 = load ptr, ptr %247, align 8
   %298 = icmp eq ptr %297, null
-  br i1 %298, label %.critedge155, label %253, !llvm.loop !28
+  br i1 %298, label %.critedge155, label %253, !llvm.loop !31
 
 .critedge155:                                     ; preds = %253, %259, %261, %are_peers.exit161.thread, %245
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -4552,7 +4552,7 @@ are_peers.exit.thread:                            ; preds = %41, %are_peers.exit
   %65 = load ptr, ptr %22, align 8
   %66 = load ptr, ptr %30, align 8
   %67 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %65, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %66) #9
-  br i1 %67, label %37, label %are_peers.exit._crit_edge
+  br i1 %67, label %37, label %are_peers.exit._crit_edge, !llvm.loop !32
 
 are_peers.exit._crit_edge:                        ; preds = %are_peers.exit.thread, %are_peers.exit, %21
   %68 = load ptr, ptr %30, align 8
@@ -4752,7 +4752,7 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %104 = load ptr, ptr %42, align 8
   %105 = load ptr, ptr %64, align 8
   %106 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %104, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %105) #9
-  br i1 %106, label %69, label %.sink.split177.sink.split, !llvm.loop !29
+  br i1 %106, label %69, label %.sink.split177.sink.split, !llvm.loop !33
 
 107:                                              ; preds = %22
   %108 = and i32 %7, 20480
@@ -4945,7 +4945,7 @@ slot_getattr.exit156:                             ; preds = %slot_getattr.exit, 
   %221 = load ptr, ptr %142, align 8
   %222 = load ptr, ptr %164, align 8
   %223 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %221, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %222) #9
-  br i1 %223, label %174, label %.sink.split177.sink.split
+  br i1 %223, label %174, label %.sink.split177.sink.split, !llvm.loop !34
 
 224:                                              ; preds = %130
   %225 = and i32 %7, 8
@@ -5090,7 +5090,7 @@ are_peers.exit160:                                ; preds = %287
 are_peers.exit160.thread:                         ; preds = %282, %are_peers.exit160.thread168, %304, %are_peers.exit160
   %307 = load ptr, ptr %256, align 8
   %308 = icmp eq ptr %307, null
-  br i1 %308, label %.critedge154, label %262, !llvm.loop !30
+  br i1 %308, label %.critedge154, label %262, !llvm.loop !35
 
 .critedge154:                                     ; preds = %262, %268, %271, %are_peers.exit160.thread, %254
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -5553,7 +5553,7 @@ ExecProcNode.exit:                                ; preds = %42, %45
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %66, !prof !9
+  br i1 %64, label %65, label %66, !prof !10
 
 65:                                               ; preds = %61
   tail call fastcc void @prepare_tuplestore(ptr noundef nonnull %0)
@@ -5613,7 +5613,7 @@ ExecProcNode.exit:                                ; preds = %42, %45
 93:                                               ; preds = %89, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !36
 
 94:                                               ; preds = %.critedge, %._crit_edge
   ret void
@@ -5718,7 +5718,7 @@ define internal fastcc void @prepare_tuplestore(ptr noundef captures(none) initi
 48:                                               ; preds = %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !37
 
 49:                                               ; preds = %._crit_edge
   %50 = and i32 %5, 512
@@ -5875,30 +5875,35 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}

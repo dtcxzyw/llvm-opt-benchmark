@@ -56,7 +56,7 @@ define void @register_reboot_notifier(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %up_irq_restore.exit, label %19
 
 19:                                               ; preds = %.loopexit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %.loopexit, %19
@@ -84,11 +84,11 @@ define void @unregister_reboot_notifier(ptr noundef readonly captures(address) %
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph16
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph16, !llvm.loop !11
+  br i1 %9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph16, !llvm.loop !12
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -107,7 +107,7 @@ define void @unregister_reboot_notifier(ptr noundef readonly captures(address) %
   br i1 %.not.i, label %up_irq_restore.exit, label %14
 
 14:                                               ; preds = %.loopexit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %.loopexit, %14
@@ -133,7 +133,7 @@ define void @reboot_notifier_call_chain(i64 noundef %0, ptr noundef %1) local_un
   %8 = load ptr, ptr %.014, align 8
   %9 = call i32 %8(ptr noundef nonnull %.014, i64 noundef %0, ptr noundef %1) #2
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %10 = and i64 %4, 512
@@ -141,7 +141,7 @@ define void @reboot_notifier_call_chain(i64 noundef %0, ptr noundef %1) local_un
   br i1 %.not.i, label %up_irq_restore.exit, label %11
 
 11:                                               ; preds = %._crit_edge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %._crit_edge, %11
@@ -168,8 +168,9 @@ attributes #2 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 544262, i64 544280}
 !7 = !{i64 544881}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 545002}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 545002}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

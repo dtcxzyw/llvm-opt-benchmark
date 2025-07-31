@@ -86,7 +86,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %18
 Vec_PtrFree.exit12:                               ; preds = %Vec_PtrFree.exit, %23
   tail call void @free(ptr noundef nonnull %20) #6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr null, ptr %24, align 8, !tbaa !24
+  store ptr null, ptr %24, align 8, !tbaa !25
   ret void
 }
 
@@ -238,20 +238,20 @@ Vec_PtrPush.exit24:                               ; preds = %.Vec_PtrGrow.exit11
   %73 = getelementptr inbounds ptr, ptr %69, i64 %72
   store ptr %40, ptr %73, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %40, ptr %74, align 8, !tbaa !24
+  store ptr %40, ptr %74, align 8, !tbaa !25
   br label %75
 
 75:                                               ; preds = %Vec_PtrPush.exit24, %75
   %.026 = phi ptr [ %40, %Vec_PtrPush.exit24 ], [ %76, %75 ]
   %.01725 = phi i32 [ 1, %Vec_PtrPush.exit24 ], [ %77, %75 ]
   %76 = getelementptr inbounds nuw i8, ptr %.026, i64 80
-  store ptr %76, ptr %.026, align 8, !tbaa !25
+  store ptr %76, ptr %.026, align 8, !tbaa !26
   %77 = add nuw nsw i32 %.01725, 1
   %exitcond.not = icmp eq i32 %77, 4096
-  br i1 %exitcond.not, label %78, label %75, !llvm.loop !27
+  br i1 %exitcond.not, label %78, label %75, !llvm.loop !28
 
 78:                                               ; preds = %75
-  store ptr null, ptr %76, align 8, !tbaa !25
+  store ptr null, ptr %76, align 8, !tbaa !26
   ret void
 }
 
@@ -294,9 +294,10 @@ attributes #7 = { nounwind allocsize(1) }
 !19 = !{!"long", !6, i64 0}
 !20 = !{!12, !13, i64 240}
 !21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!12, !14, i64 248}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !8, i64 0}
-!27 = distinct !{!27, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!12, !14, i64 248}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !8, i64 0}
+!28 = distinct !{!28, !23, !24}

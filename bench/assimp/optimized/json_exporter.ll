@@ -1973,7 +1973,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit417:  ; preds = %_ZStlsISt11char_tra
   %741 = load i32, ptr %465, align 4
   %742 = zext i32 %741 to i64
   %743 = icmp samesign ult i64 %indvars.iv.next528.i, %742
-  br i1 %743, label %.lr.ph479.i, label %._crit_edge480.i, !llvm.loop !7
+  br i1 %743, label %.lr.ph479.i, label %._crit_edge480.i, !llvm.loop !8
 
 744:                                              ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit252.i, %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i
   %745 = phi i32 [ %.pre.i, %_ZN6Assimp10JSONWriter8EndArrayEv.exit252.i ], [ %482, %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i ]
@@ -2278,7 +2278,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit402:  ; preds = %_ZStlsISt11char_tra
   %884 = load i32, ptr %465, align 4
   %885 = zext i32 %884 to i64
   %886 = icmp samesign ult i64 %indvars.iv.next531.i, %885
-  br i1 %886, label %.lr.ph482.i, label %._crit_edge483.i, !llvm.loop !8
+  br i1 %886, label %.lr.ph482.i, label %._crit_edge483.i, !llvm.loop !9
 
 887:                                              ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit268.i
   %888 = load ptr, ptr %114, align 8
@@ -2555,7 +2555,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %_ZStlsISt11char_tra
   %1020 = load i32, ptr %465, align 4
   %1021 = zext i32 %1020 to i64
   %1022 = icmp samesign ult i64 %indvars.iv.next534.i, %1021
-  br i1 %1022, label %.lr.ph485.i, label %._crit_edge486.i, !llvm.loop !9
+  br i1 %1022, label %.lr.ph485.i, label %._crit_edge486.i, !llvm.loop !10
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit283.i, %744
   %1023 = getelementptr inbounds nuw i8, ptr %399, i64 112
@@ -2571,7 +2571,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %_ZN6Assimp10JS
   %spec.select.i.i = add i32 %.056.i.i, %1027
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit.i, label %1024, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit.i, label %1024, !llvm.loop !11
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit.i:           ; preds = %1024
   %.not.i144 = icmp eq i32 %spec.select.i.i, 0
@@ -2657,7 +2657,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit297.i:   ; preds = %1048, %_ZNKSt7__cxx
   %spec.select.i301.i = add i32 %.056.i299.i, %1058
   %indvars.iv.next.i302.i = add nuw nsw i64 %indvars.iv.i298.i, 1
   %exitcond.not.i303.i = icmp eq i64 %indvars.iv.next.i302.i, 8
-  br i1 %exitcond.not.i303.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit304.i, label %1055, !llvm.loop !10
+  br i1 %exitcond.not.i303.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit304.i, label %1055, !llvm.loop !11
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit304.i:        ; preds = %1055
   %1059 = zext i32 %spec.select.i301.i to i64
@@ -2772,7 +2772,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit:     ; preds = %_ZStlsISt11char_tra
   %1109 = load i64, ptr %136, align 8
   %1110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %1108, i64 noundef %1109)
   %indvars.iv.next537.i = add nuw nsw i64 %indvars.iv536.i, 1
-  br label %1054, !llvm.loop !11
+  br label %1054, !llvm.loop !12
 
 1111:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit306.i
   %1112 = load ptr, ptr %116, align 8
@@ -2844,7 +2844,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit319.i:   ; preds = %1131, %_ZNKSt7__cxx
   %spec.select.i323.i = add i32 %.056.i321.i, %1140
   %indvars.iv.next.i324.i = add nuw nsw i64 %indvars.iv.i320.i, 1
   %exitcond.not.i325.i = icmp eq i64 %indvars.iv.next.i324.i, 8
-  br i1 %exitcond.not.i325.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit326.i, label %1137, !llvm.loop !10
+  br i1 %exitcond.not.i325.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit326.i, label %1137, !llvm.loop !11
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit326.i:        ; preds = %1137
   %1141 = zext i32 %spec.select.i323.i to i64
@@ -3011,14 +3011,14 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit333.i:      ; preds = %1209, %._crit_edge4
   %1216 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %1214, i64 noundef %1215)
   store i8 0, ptr %131, align 8
   %indvars.iv.next543.i = add nuw nsw i64 %indvars.iv542.i, 1
-  br label %1136, !llvm.loop !12
+  br label %1136, !llvm.loop !13
 
 1217:                                             ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i
   %indvars.iv.next540.i = add nuw nsw i64 %indvars.iv539.i, 1
   %1218 = load i32, ptr %465, align 4
   %1219 = zext i32 %1218 to i64
   %1220 = icmp samesign ult i64 %indvars.iv.next540.i, %1219
-  br i1 %1220, label %.preheader.i, label %._crit_edge489.i, !llvm.loop !13
+  br i1 %1220, label %.preheader.i, label %._crit_edge489.i, !llvm.loop !14
 
 1221:                                             ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i, %.preheader.i
   %.0158487.i = phi i32 [ 0, %.preheader.i ], [ %1255, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i ]
@@ -3094,7 +3094,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %1245, %_ZStlsISt11c
   %1254 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1251, ptr noundef %1252, i64 noundef %1253)
   %1255 = add nuw i32 %.0158487.i, 1
   %exitcond.not.i = icmp eq i32 %1255, %spec.select.i
-  br i1 %exitcond.not.i, label %1217, label %1221, !llvm.loop !14
+  br i1 %exitcond.not.i, label %1217, label %1221, !llvm.loop !15
 
 1256:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit328.i, %_ZNK6aiMesh16GetNumUVChannelsEv.exit.i
   %1257 = getelementptr inbounds nuw i8, ptr %399, i64 48
@@ -3110,7 +3110,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %1245, %_ZStlsISt11c
 1261:                                             ; preds = %1258
   %indvars.iv.next.i337.i = add nuw nsw i64 %indvars.iv.i335.i, 1
   %exitcond.not.i338.i = icmp eq i64 %indvars.iv.next.i337.i, 8
-  br i1 %exitcond.not.i338.i, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit.thread.i, label %1258, !llvm.loop !15
+  br i1 %exitcond.not.i338.i, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit.thread.i, label %1258, !llvm.loop !16
 
 _ZNK6aiMesh19GetNumColorChannelsEv.exit.i:        ; preds = %1258
   %.not198.i = icmp eq i64 %indvars.iv.i335.i, 0
@@ -3195,7 +3195,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit348.i:   ; preds = %1282, %_ZNKSt7__cxx
 1291:                                             ; preds = %1288
   %indvars.iv.next.i351.i = add nuw nsw i64 %indvars.iv.i349.i, 1
   %exitcond.not.i352.i = icmp eq i64 %indvars.iv.next.i351.i, 8
-  br i1 %exitcond.not.i352.i, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit355.i, label %1288, !llvm.loop !15
+  br i1 %exitcond.not.i352.i, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit355.i, label %1288, !llvm.loop !16
 
 .critedge.split.loop.exit6.i354.i:                ; preds = %1288
   %1292 = and i64 %indvars.iv.i349.i, 4294967295
@@ -3358,7 +3358,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit364.i:      ; preds = %1358, %._crit_edge5
   %1365 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %1363, i64 noundef %1364)
   store i8 0, ptr %131, align 8
   %indvars.iv.next549.i = add nuw nsw i64 %indvars.iv548.i, 1
-  br label %1287, !llvm.loop !16
+  br label %1287, !llvm.loop !17
 
 1366:                                             ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit384.i, %.lr.ph500.i
   %indvars.iv545.i = phi i64 [ 0, %.lr.ph500.i ], [ %indvars.iv.next546.i, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit384.i ]
@@ -3586,7 +3586,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit384.i: ; preds = %1473, %_ZStlsISt11
   %1483 = load i32, ptr %465, align 4
   %1484 = zext i32 %1483 to i64
   %1485 = icmp samesign ult i64 %indvars.iv.next546.i, %1484
-  br i1 %1485, label %1366, label %._crit_edge501.i, !llvm.loop !17
+  br i1 %1485, label %1366, label %._crit_edge501.i, !llvm.loop !18
 
 1486:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit358.i, %_ZNK6aiMesh19GetNumColorChannelsEv.exit.i
   %1487 = getelementptr inbounds nuw i8, ptr %399, i64 216
@@ -4238,7 +4238,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit60.i.i:     ; preds = %1767, %_ZN6Assimp10
   %1775 = load i32, ptr %1621, align 4
   %1776 = zext i32 %1775 to i64
   %1777 = icmp samesign ult i64 %indvars.iv.next.i403.i, %1776
-  br i1 %1777, label %1668, label %._crit_edge.i.i145, !llvm.loop !18
+  br i1 %1777, label %1668, label %._crit_edge.i.i145, !llvm.loop !19
 
 _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit.i: ; preds = %1640, %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i
   store i8 0, ptr %131, align 8
@@ -4250,7 +4250,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit.i: ; preds = %1640, %_ZN6Assi
   %1782 = load i32, ptr %1487, align 8
   %1783 = zext i32 %1782 to i64
   %1784 = icmp samesign ult i64 %indvars.iv.next552.i, %1783
-  br i1 %1784, label %1536, label %._crit_edge510.i, !llvm.loop !19
+  br i1 %1784, label %1536, label %._crit_edge510.i, !llvm.loop !20
 
 ._crit_edge.i.i404.i:                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit397.i, %1486
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119) #18
@@ -4545,7 +4545,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit447.i: ; preds = %1910, %_ZStlsISt11
   %1920 = load i32, ptr %1843, align 8
   %1921 = zext i32 %1920 to i64
   %1922 = icmp samesign ult i64 %indvars.iv.next.i425.i, %1921
-  br i1 %1922, label %1890, label %._crit_edge.i426.i, !llvm.loop !20
+  br i1 %1922, label %1890, label %._crit_edge.i426.i, !llvm.loop !21
 
 _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit.i: ; preds = %1886, %._crit_edge.i426.i
   %1923 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull @.str.47, i64 noundef 1)
@@ -4557,7 +4557,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit.i: ; preds = %1886, %._crit_e
   %1927 = load i32, ptr %1810, align 8
   %1928 = zext i32 %1927 to i64
   %1929 = icmp samesign ult i64 %indvars.iv.next555.i, %1928
-  br i1 %1929, label %1841, label %._crit_edge515.i, !llvm.loop !21
+  br i1 %1929, label %1841, label %._crit_edge515.i, !llvm.loop !22
 
 _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb.exit: ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit416.i, %1829
   store i8 0, ptr %131, align 8
@@ -4569,7 +4569,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb.exit: ; preds = %_ZN6Assimp10JSONW
   %1934 = load i32, ptr %271, align 8
   %1935 = zext i32 %1934 to i64
   %1936 = icmp samesign ult i64 %indvars.iv.next, %1935
-  br i1 %1936, label %396, label %._crit_edge, !llvm.loop !22
+  br i1 %1936, label %396, label %._crit_edge, !llvm.loop !23
 
 1937:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
   %1938 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5352,7 +5352,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i180: ; preds = %2270, %_ZStlsISt11
   %2281 = lshr i32 %2280, 2
   %2282 = zext nneg i32 %2281 to i64
   %2283 = icmp samesign ult i64 %indvars.iv.next235.i, %2282
-  br i1 %2283, label %2250, label %._crit_edge224.i, !llvm.loop !23
+  br i1 %2283, label %2250, label %._crit_edge224.i, !llvm.loop !24
 
 2284:                                             ; preds = %2213
   %2285 = getelementptr inbounds nuw i8, ptr %2075, i64 1048
@@ -5499,7 +5499,7 @@ _ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i:   ; preds = %2350, %_ZStlsISt11c
   %2360 = lshr i32 %2359, 3
   %2361 = zext nneg i32 %2360 to i64
   %2362 = icmp samesign ult i64 %indvars.iv.next232.i, %2361
-  br i1 %2362, label %2330, label %._crit_edge219.i, !llvm.loop !24
+  br i1 %2362, label %2330, label %._crit_edge219.i, !llvm.loop !25
 
 2363:                                             ; preds = %2293
   %2364 = getelementptr inbounds nuw i8, ptr %2075, i64 1048
@@ -5645,7 +5645,7 @@ _ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i:   ; preds = %2428, %_ZStlsISt11c
   %2438 = lshr i32 %2437, 2
   %2439 = zext nneg i32 %2438 to i64
   %2440 = icmp samesign ult i64 %indvars.iv.next.i175, %2439
-  br i1 %2440, label %2408, label %._crit_edge.i176, !llvm.loop !25
+  br i1 %2440, label %2408, label %._crit_edge.i176, !llvm.loop !26
 
 2441:                                             ; preds = %2371
   %2442 = getelementptr inbounds nuw i8, ptr %2075, i64 1048
@@ -5706,7 +5706,7 @@ _ZN6Assimp10JSONWriter6EndObjEv.exit179.i:        ; preds = %2470, %2465
   %2478 = load i32, ptr %2043, align 8
   %2479 = zext i32 %2478 to i64
   %2480 = icmp samesign ult i64 %indvars.iv.next238.i, %2479
-  br i1 %2480, label %._crit_edge.i.i101.i, label %._crit_edge226.i, !llvm.loop !26
+  br i1 %2480, label %._crit_edge.i.i101.i, label %._crit_edge226.i, !llvm.loop !27
 
 _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit: ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i171, %2061
   store i8 0, ptr %131, align 8
@@ -5718,7 +5718,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit: ; preds = %_ZN6Assimp10
   %2485 = load i32, ptr %1940, align 8
   %2486 = zext i32 %2485 to i64
   %2487 = icmp samesign ult i64 %indvars.iv.next1126, %2486
-  br i1 %2487, label %2014, label %._crit_edge1100, !llvm.loop !27
+  br i1 %2487, label %2014, label %._crit_edge1100, !llvm.loop !28
 
 2488:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit160, %1937
   %2489 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -6966,7 +6966,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit116.i.i:    ; preds = %3051, %_ZN6AssimpL5
   %3059 = load i32, ptr %2777, align 4
   %3060 = zext i32 %3059 to i64
   %3061 = icmp samesign ult i64 %indvars.iv.next.i.i222, %3060
-  br i1 %3061, label %2850, label %._crit_edge.i.i223, !llvm.loop !28
+  br i1 %3061, label %2850, label %._crit_edge.i.i223, !llvm.loop !29
 
 3062:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95.i.i
   %3063 = getelementptr inbounds nuw i8, ptr %2702, i64 1040
@@ -7557,7 +7557,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit133.i.i:    ; preds = %3341, %_ZN6AssimpL5
   %3349 = load i32, ptr %3063, align 8
   %3350 = zext i32 %3349 to i64
   %3351 = icmp samesign ult i64 %indvars.iv.next169.i.i, %3350
-  br i1 %3351, label %3112, label %._crit_edge160.i.i, !llvm.loop !29
+  br i1 %3351, label %3112, label %._crit_edge160.i.i, !llvm.loop !30
 
 3352:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit128.i.i, %3062
   %3353 = getelementptr inbounds nuw i8, ptr %2702, i64 1056
@@ -8094,7 +8094,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit150.i.i:    ; preds = %3603, %_ZN6AssimpL5
   %3611 = load i32, ptr %3353, align 8
   %3612 = zext i32 %3611 to i64
   %3613 = icmp samesign ult i64 %indvars.iv.next172.i.i, %3612
-  br i1 %3613, label %3402, label %._crit_edge163.i.i, !llvm.loop !30
+  br i1 %3613, label %3402, label %._crit_edge163.i.i, !llvm.loop !31
 
 3614:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit145.i.i, %3352
   %3615 = load i64, ptr %140, align 8
@@ -8121,7 +8121,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiNodeAnimb.exit.i: ; preds = %3619, %361
   %3627 = load i32, ptr %2644, align 8
   %3628 = zext i32 %3627 to i64
   %3629 = icmp samesign ult i64 %indvars.iv.next.i234, %3628
-  br i1 %3629, label %2699, label %._crit_edge.i235, !llvm.loop !31
+  br i1 %3629, label %2699, label %._crit_edge.i235, !llvm.loop !32
 
 _ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit: ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i237, %2663
   store i8 0, ptr %131, align 8
@@ -8133,7 +8133,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit: ; preds = %_ZN6Assimp1
   %3634 = load i32, ptr %2491, align 8
   %3635 = zext i32 %3634 to i64
   %3636 = icmp samesign ult i64 %indvars.iv.next1129, %3635
-  br i1 %3636, label %2577, label %._crit_edge1105, !llvm.loop !32
+  br i1 %3636, label %2577, label %._crit_edge1105, !llvm.loop !33
 
 3637:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit195, %2488
   %3638 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -9061,7 +9061,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK7aiLightb.exit: ; preds = %3983, %3988
   %3996 = load i32, ptr %3640, align 8
   %3997 = zext i32 %3996 to i64
   %3998 = icmp samesign ult i64 %indvars.iv.next1132, %3997
-  br i1 %3998, label %3727, label %._crit_edge1108, !llvm.loop !33
+  br i1 %3998, label %3727, label %._crit_edge1108, !llvm.loop !34
 
 3999:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit254, %3637
   %4000 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -9631,7 +9631,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK8aiCamerab.exit: ; preds = %_ZNSt7__cxx1112
   %4233 = load i32, ptr %4002, align 8
   %4234 = zext i32 %4233 to i64
   %4235 = icmp samesign ult i64 %indvars.iv.next1135, %4234
-  br i1 %4235, label %4077, label %._crit_edge1111, !llvm.loop !34
+  br i1 %4235, label %4077, label %._crit_edge1111, !llvm.loop !35
 
 4236:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit278, %3999
   %4237 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -10299,7 +10299,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit107.i:      ; preds = %4508, %._crit_edge.
   %4516 = add nuw i32 %.043150.i, 1
   %4517 = load i32, ptr %4334, align 4
   %4518 = icmp ult i32 %4516, %4517
-  br i1 %4518, label %4466, label %._crit_edge152.i, !llvm.loop !35
+  br i1 %4518, label %4466, label %._crit_edge152.i, !llvm.loop !36
 
 .lr.ph.i332:                                      ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit463, %_ZN6Assimp10JSONWriter8EndArrayEv.exit131.i
   %4519 = phi i32 [ %4685, %_ZN6Assimp10JSONWriter8EndArrayEv.exit131.i ], [ %4503, %_ZN6Assimp10JSONWriter10StartArrayEb.exit463 ]
@@ -10622,7 +10622,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit131.i:      ; preds = %4676, %_ZN6Assimp10
   %4684 = add nuw i32 %.042149.i, 1
   %4685 = load i32, ptr %4313, align 8
   %4686 = icmp ult i32 %4684, %4685
-  br i1 %4686, label %.lr.ph.i332, label %._crit_edge.i346, !llvm.loop !36
+  br i1 %4686, label %.lr.ph.i332, label %._crit_edge.i346, !llvm.loop !37
 
 4687:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i348, %4386
   %4688 = load i64, ptr %140, align 8
@@ -10649,7 +10649,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit: ; preds = %4687, %4692
   %4700 = load i32, ptr %4239, align 8
   %4701 = zext i32 %4700 to i64
   %4702 = icmp samesign ult i64 %indvars.iv.next1138, %4701
-  br i1 %4702, label %4310, label %._crit_edge1116, !llvm.loop !37
+  br i1 %4702, label %4310, label %._crit_edge1116, !llvm.loop !38
 
 4703:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit313, %4236
   %4704 = load i64, ptr %140, align 8
@@ -11012,9 +11012,9 @@ _ZN6Assimp10JSONWriter7DelimitEv.exit:            ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EES5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i8 noundef signext 34, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8, !noalias !38
+  %38 = load i64, ptr %37, align 8, !noalias !39
   %39 = and i64 %38, -2
   %40 = icmp eq i64 %39, 4611686018427387902
   br i1 %40, label %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -11032,7 +11032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 .noexc5:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %43, ptr %4, align 8, !alias.scope !38
+  store ptr %43, ptr %4, align 8, !alias.scope !39
   %44 = load ptr, ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = icmp eq ptr %44, %45
@@ -11048,9 +11048,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   br label %53
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc5
-  store ptr %44, ptr %4, align 8, !alias.scope !38
+  store ptr %44, ptr %4, align 8, !alias.scope !39
   %52 = load i64, ptr %45, align 8
-  store i64 %52, ptr %43, align 8, !alias.scope !38
+  store i64 %52, ptr %43, align 8, !alias.scope !39
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %53
@@ -11060,7 +11060,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %55 = phi i64 [ %49, %47 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %55, ptr %57, align 8, !alias.scope !38
+  store i64 %55, ptr %57, align 8, !alias.scope !39
   store ptr %45, ptr %42, align 8
   store i64 0, ptr %56, align 8
   store i8 0, ptr %45, align 8
@@ -11428,7 +11428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   %113 = load i32, ptr %36, align 8
   %114 = zext i32 %113 to i64
   %115 = icmp samesign ult i64 %indvars.iv.next, %114
-  br i1 %115, label %110, label %._crit_edge, !llvm.loop !41
+  br i1 %115, label %110, label %._crit_edge, !llvm.loop !42
 
 116:                                              ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 1104
@@ -11572,7 +11572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %179 = load i32, ptr %117, align 8
   %180 = zext i32 %179 to i64
   %181 = icmp samesign ult i64 %indvars.iv.next96, %180
-  br i1 %181, label %175, label %._crit_edge91, !llvm.loop !42
+  br i1 %181, label %175, label %._crit_edge91, !llvm.loop !43
 
 182:                                              ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit80, %116
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11873,7 +11873,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %36, %41
 49:                                               ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
   %50 = add nuw nsw i32 %.01013, 1
   %exitcond15.not = icmp eq i32 %50, 4
-  br i1 %exitcond15.not, label %36, label %.preheader, !llvm.loop !43
+  br i1 %exitcond15.not, label %36, label %.preheader, !llvm.loop !44
 
 51:                                               ; preds = %.preheader, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit ]
@@ -11954,7 +11954,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %_ZStlsISt11char_tra
   %82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %80, i64 noundef %81)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %49, label %51, !llvm.loop !44
+  br i1 %exitcond.not, label %49, label %51, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12151,7 +12151,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i21: ; pr
   %53 = load i32, ptr %2, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %52, %54
-  br i1 %55, label %15, label %._crit_edge, !llvm.loop !45
+  br i1 %55, label %15, label %._crit_edge, !llvm.loop !46
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %._crit_edge
   %56 = load ptr, ptr %4, align 8
@@ -12312,7 +12312,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN
 
 .noexc24:                                         ; preds = %._crit_edge.i.i
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %4, align 8, !alias.scope !46
+  store ptr %20, ptr %4, align 8, !alias.scope !47
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = icmp eq ptr %21, %22
@@ -12328,9 +12328,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN
   br label %30
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.noexc24
-  store ptr %21, ptr %4, align 8, !alias.scope !46
+  store ptr %21, ptr %4, align 8, !alias.scope !47
   %29 = load i64, ptr %22, align 8
-  store i64 %29, ptr %20, align 8, !alias.scope !46
+  store i64 %29, ptr %20, align 8, !alias.scope !47
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %30
@@ -12340,7 +12340,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %32 = phi i64 [ %26, %24 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %32, ptr %34, align 8, !alias.scope !46
+  store i64 %32, ptr %34, align 8, !alias.scope !47
   store ptr %22, ptr %19, align 8
   store i64 0, ptr %33, align 8
   store i8 0, ptr %22, align 8
@@ -12545,7 +12545,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %26, %28
 
 39:                                               ; preds = %16, %38
   %40 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %16, !llvm.loop !49
+  br label %16, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -12680,18 +12680,18 @@ define linkonce_odr hidden void @_ZN6Assimp10JSONWriter5FlushEv(ptr noundef nonn
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %4, ptr %2, align 8, !alias.scope !56
+  store ptr %4, ptr %2, align 8, !alias.scope !57
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !56
-  store i8 0, ptr %4, align 8, !alias.scope !56
+  store i64 0, ptr %5, align 8, !alias.scope !57
+  store i8 0, ptr %4, align 8, !alias.scope !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %7 = load ptr, ptr %6, align 8, !noalias !56
+  %7 = load ptr, ptr %6, align 8, !noalias !57
   %.not.i.not.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !noalias !56
+  %9 = load ptr, ptr %8, align 8, !noalias !57
   %10 = icmp ugt ptr %7, %9
   %.08.i.i.i = select i1 %10, ptr %7, ptr %9
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -12700,7 +12700,7 @@ define linkonce_odr hidden void @_ZN6Assimp10JSONWriter5FlushEv(ptr noundef nonn
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %13 = load ptr, ptr %12, align 8, !noalias !56
+  %13 = load ptr, ptr %12, align 8, !noalias !57
   %14 = ptrtoint ptr %.08.i.i.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -12710,18 +12710,18 @@ define linkonce_odr hidden void @_ZN6Assimp10JSONWriter5FlushEv(ptr noundef nonn
 18:                                               ; preds = %26, %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %2, align 8, !alias.scope !56
+  %20 = load ptr, ptr %2, align 8, !alias.scope !57
   %21 = icmp eq ptr %20, %4
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %18
-  %22 = load i64, ptr %5, align 8, !alias.scope !56
+  %22 = load i64, ptr %5, align 8, !alias.scope !57
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %common.resume
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %18
-  %24 = load i64, ptr %4, align 8, !alias.scope !56
+  %24 = load i64, ptr %4, align 8, !alias.scope !57
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #21
   br label %common.resume
@@ -12910,19 +12910,19 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !alias.scope !66
+  store ptr %4, ptr %3, align 8, !alias.scope !67
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !66
-  store i8 0, ptr %4, align 8, !alias.scope !66
+  store i64 0, ptr %5, align 8, !alias.scope !67
+  store i8 0, ptr %4, align 8, !alias.scope !67
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !noalias !66
+  %7 = load ptr, ptr %6, align 8, !noalias !67
   %.not.i.not.i.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !66
+  %9 = load ptr, ptr %8, align 8, !noalias !67
   %10 = icmp ugt ptr %7, %9
   %.08.i.i.i.i = select i1 %10, ptr %7, ptr %9
   %.not5.i.i.i = icmp eq ptr %.08.i.i.i.i, null
@@ -12931,7 +12931,7 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !noalias !66
+  %13 = load ptr, ptr %12, align 8, !noalias !67
   %14 = ptrtoint ptr %.08.i.i.i.i to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -12941,18 +12941,18 @@ define linkonce_odr hidden void @_ZN6Assimp9Formatter15basic_formatterIcSt11char
 18:                                               ; preds = %26, %11
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %3, align 8, !alias.scope !66
+  %20 = load ptr, ptr %3, align 8, !alias.scope !67
   %21 = icmp eq ptr %20, %4
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
-  %22 = load i64, ptr %5, align 8, !alias.scope !66
+  %22 = load i64, ptr %5, align 8, !alias.scope !67
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
-  %24 = load i64, ptr %4, align 8, !alias.scope !66
+  %24 = load i64, ptr %4, align 8, !alias.scope !67
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #21
   br label %.body
@@ -13063,65 +13063,66 @@ attributes #22 = { builtin allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!40 = distinct !{!40, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
-!48 = distinct !{!48, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
-!49 = distinct !{!49, !6}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!52 = distinct !{!52, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!55 = distinct !{!55, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!56 = !{!54, !51}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
-!59 = distinct !{!59, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!62 = distinct !{!62, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!65 = distinct !{!65, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!66 = !{!64, !61, !58}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}
+!38 = distinct !{!38, !6, !7}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!41 = distinct !{!41, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}
+!44 = distinct !{!44, !6, !7}
+!45 = distinct !{!45, !6, !7}
+!46 = distinct !{!46, !6, !7}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
+!49 = distinct !{!49, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
+!50 = distinct !{!50, !6, !7}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!53 = distinct !{!53, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!56 = distinct !{!56, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!57 = !{!55, !52}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv: argument 0"}
+!60 = distinct !{!60, !"_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!63 = distinct !{!63, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!66 = distinct !{!66, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!67 = !{!65, !62, !59}

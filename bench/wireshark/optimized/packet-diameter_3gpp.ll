@@ -2571,7 +2571,7 @@ define internal i32 @dissect_diameter_3gpp_path(ptr noundef %0, ptr readnone cap
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %.02024, i32 noundef %10, i32 noundef 0)
   %17 = add nuw i32 %10, 1
   %18 = icmp slt i32 %17, %6
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %4
   %19 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -4336,7 +4336,7 @@ define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %13 = load i8, ptr %12, align 8, !range !9, !noundef !10
+  %13 = load i8, ptr %12, align 8, !range !10, !noundef !11
   %14 = trunc nuw i8 %13 to i1
   br label %15
 
@@ -4625,8 +4625,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}

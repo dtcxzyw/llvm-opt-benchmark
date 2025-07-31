@@ -142,7 +142,7 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
 3:                                                ; preds = %15, %17
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 10
-  br i1 %5, label %27, label %.preheader, !llvm.loop !11
+  br i1 %5, label %27, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %0, %3
   %6 = phi i64 [ %4, %3 ], [ 0, %0 ]
@@ -177,7 +177,7 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
 23:                                               ; preds = %10
   %24 = add nuw nsw i32 %11, 1
   %25 = icmp eq i32 %24, 10000
-  br i1 %25, label %.thread, label %10, !llvm.loop !12
+  br i1 %25, label %.thread, label %10, !llvm.loop !13
 
 .thread:                                          ; preds = %23
   %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %9) #7
@@ -207,7 +207,7 @@ define internal i32 @init_acpi_pm_clocksource() #3 section ".init.text" align 16
 define internal noundef i32 @parse_pmtmr(ptr noundef %0) #3 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !annotation !13
+  store i32 0, ptr %2, align 4, !annotation !14
   %3 = call i32 @kstrtouint(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %2) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
@@ -261,7 +261,7 @@ define internal range(i64 0, 16777216) i64 @acpi_pm_read_slow(ptr readnone captu
   br i1 %21, label %.backedge, label %22, !prof !7
 
 .backedge:                                        ; preds = %18, %2
-  br label %2, !llvm.loop !8
+  br label %2, !llvm.loop !15
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %10 to i64
@@ -309,9 +309,11 @@ attributes #7 = { cold nounwind }
 !5 = !{i64 2151942407}
 !6 = !{!"branch_weights", i32 1, i32 4001}
 !7 = !{!"branch_weights", i32 6002, i32 8002000}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{!"auto-init"}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = !{!"auto-init"}
+!15 = distinct !{!15, !9, !10, !11}

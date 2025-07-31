@@ -110,7 +110,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   %.2103 = phi i64 [ 0, %6 ], [ %spec.select, %._crit_edge ], [ %.0101.lcssa200, %._crit_edge.thread ]
   %.096 = phi ptr [ null, %6 ], [ %16, %._crit_edge ], [ %16, %._crit_edge.thread ]
   %.093 = phi ptr [ null, %6 ], [ %2, %._crit_edge ], [ %2, %._crit_edge.thread ]
-  %22 = load i32, ptr %4, align 8, !tbaa !21
+  %22 = load i32, ptr %4, align 8, !tbaa !22
   %23 = and i32 %22, 1
   %.not119 = icmp eq i32 %23, 0
   br i1 %.not119, label %26, label %24
@@ -157,14 +157,14 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !22
+  %43 = load i32, ptr %42, align 8, !tbaa !23
   %.not8.i = icmp eq i32 %43, 0
   br i1 %.not8.i, label %.loopexit171, label %44
 
 44:                                               ; preds = %41
   %45 = trunc nuw nsw i64 %.2103 to i32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !23
+  %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = sext i32 %43 to i64
   br label %.lr.ph.i.i
 
@@ -175,7 +175,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   %50 = lshr i64 %49, 1
   %51 = shl i64 %50, 2
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !24
+  %53 = load i32, ptr %52, align 4, !tbaa !25
   %54 = icmp ugt i32 %53, %45
   br i1 %54, label %58, label %55
 
@@ -191,7 +191,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   %.118.i.i = phi i64 [ %.01720.i.i, %56 ], [ %50, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %57, %56 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %59 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %59, label %.lr.ph.i.i, label %.loopexit171, !llvm.loop !25
+  br i1 %59, label %.lr.ph.i.i, label %.loopexit171, !llvm.loop !26
 
 .loopexit171:                                     ; preds = %58, %41
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -202,10 +202,10 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
 .thread:                                          ; preds = %55, %36, %35, %.loopexit171
   %63 = phi i32 [ %61, %.loopexit171 ], [ 2, %35 ], [ 2, %36 ], [ 2, %55 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
-  store i32 1666151679, ptr %13, align 4, !tbaa !26
-  %64 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %63) #20, !srcloc !28
+  store i32 1666151679, ptr %13, align 4, !tbaa !27
+  %64 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %63) #20, !srcloc !29
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %64, ptr %65, align 4, !tbaa !29
+  store i32 %64, ptr %65, align 4, !tbaa !30
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %13, i32 noundef 8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
   br label %66
@@ -235,11 +235,11 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %.0110, align 8, !tbaa !14
-  %75 = load i8, ptr %74, align 8, !tbaa !30
+  %75 = load i8, ptr %74, align 8, !tbaa !31
   %76 = zext i8 %75 to i32
   %.not127 = icmp eq i32 %.1106174, %76
   %77 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
-  br i1 %.not127, label %71, label %hashwrite_be32.exit
+  br i1 %.not127, label %71, label %hashwrite_be32.exit, !llvm.loop !32
 
 hashwrite_be32.exit:                              ; preds = %73, %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -247,13 +247,13 @@ hashwrite_be32.exit:                              ; preds = %73, %71
   %79 = sub i64 %78, %68
   %80 = lshr exact i64 %79, 3
   %81 = trunc i64 %80 to i32
-  %82 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %81) #20, !srcloc !28
-  store i32 %82, ptr %11, align 4, !tbaa !24
+  %82 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %81) #20, !srcloc !29
+  store i32 %82, ptr %11, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %11, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %83 = add nuw nsw i32 %.1106174, 1
   %exitcond194.not = icmp eq i32 %83, 256
-  br i1 %exitcond194.not, label %.preheader169, label %.preheader170, !llvm.loop !31
+  br i1 %exitcond194.not, label %.preheader169, label %.preheader170, !llvm.loop !33
 
 84:                                               ; preds = %.lr.ph178, %103
   %.2177 = phi ptr [ %.093, %.lr.ph178 ], [ %85, %103 ]
@@ -267,17 +267,17 @@ hashwrite_be32.exit131:                           ; preds = %84
   %88 = load i64, ptr %87, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %89 = trunc i64 %88 to i32
-  %90 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %89) #20, !srcloc !28
-  store i32 %90, ptr %10, align 4, !tbaa !24
+  %90 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %89) #20, !srcloc !29
+  store i32 %90, ptr %10, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %10, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %91
 
 91:                                               ; preds = %hashwrite_be32.exit131, %84
-  %92 = load i64, ptr %70, align 8, !tbaa !32
+  %92 = load i64, ptr %70, align 8, !tbaa !34
   %93 = trunc i64 %92 to i32
   call void @hashwrite(ptr noundef %.092, ptr noundef %86, i32 noundef %93) #19
-  %94 = load i32, ptr %4, align 8, !tbaa !21
+  %94 = load i32, ptr %4, align 8, !tbaa !22
   %95 = and i32 %94, 2
   %96 = icmp ne i32 %95, 0
   %97 = icmp ne i32 %.2107176, 0
@@ -299,7 +299,7 @@ hashwrite_be32.exit131:                           ; preds = %84
 103:                                              ; preds = %98, %91
   %104 = add nuw nsw i32 %.2107176, 1
   %exitcond195.not = icmp eq i32 %104, %3
-  br i1 %exitcond195.not, label %._crit_edge179, label %84, !llvm.loop !37
+  br i1 %exitcond195.not, label %._crit_edge179, label %84, !llvm.loop !39
 
 ._crit_edge179:                                   ; preds = %103
   br i1 %67, label %.loopexit165, label %.lr.ph182
@@ -316,15 +316,15 @@ hashwrite_be32.exit131:                           ; preds = %84
   %108 = getelementptr inbounds nuw i8, ptr %.3181, i64 8
   %109 = load ptr, ptr %.3181, align 8, !tbaa !14
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 36
-  %111 = load i32, ptr %110, align 4, !tbaa !38
+  %111 = load i32, ptr %110, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %112 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %111) #20, !srcloc !28
-  store i32 %112, ptr %9, align 4, !tbaa !24
+  %112 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %111) #20, !srcloc !29
+  store i32 %112, ptr %9, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %9, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %113 = add nuw nsw i32 %.3108180, 1
   %exitcond196.not = icmp eq i32 %113, %3
-  br i1 %exitcond196.not, label %.lr.ph186, label %.lr.ph182, !llvm.loop !39
+  br i1 %exitcond196.not, label %.lr.ph186, label %.lr.ph182, !llvm.loop !41
 
 .preheader:                                       ; preds = %need_large_offset.exit144
   %.not122188 = icmp eq i32 %.198, 0
@@ -354,13 +354,13 @@ hashwrite_be32.exit131:                           ; preds = %84
   br i1 %125, label %.loopexit166, label %126
 
 126:                                              ; preds = %122
-  %127 = load i32, ptr %106, align 8, !tbaa !22
+  %127 = load i32, ptr %106, align 8, !tbaa !23
   %.not8.i137 = icmp eq i32 %127, 0
   %.pre = trunc nuw nsw i64 %121 to i32
   br i1 %.not8.i137, label %need_large_offset.exit144, label %128
 
 128:                                              ; preds = %126
-  %129 = load ptr, ptr %107, align 8, !tbaa !23
+  %129 = load ptr, ptr %107, align 8, !tbaa !24
   %130 = sext i32 %127 to i64
   br label %.lr.ph.i.i138
 
@@ -371,7 +371,7 @@ hashwrite_be32.exit131:                           ; preds = %84
   %132 = lshr i64 %131, 1
   %133 = shl i64 %132, 2
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 %133
-  %135 = load i32, ptr %134, align 4, !tbaa !24
+  %135 = load i32, ptr %134, align 4, !tbaa !25
   %136 = icmp ugt i32 %135, %.pre
   br i1 %136, label %140, label %137
 
@@ -387,7 +387,7 @@ hashwrite_be32.exit131:                           ; preds = %84
   %.118.i.i142 = phi i64 [ %.01720.i.i140, %138 ], [ %132, %.lr.ph.i.i138 ]
   %.1.i.i143 = phi i64 [ %139, %138 ], [ %.01621.i.i139, %.lr.ph.i.i138 ]
   %141 = icmp ult i64 %.1.i.i143, %.118.i.i142
-  br i1 %141, label %.lr.ph.i.i138, label %need_large_offset.exit144, !llvm.loop !25
+  br i1 %141, label %.lr.ph.i.i138, label %need_large_offset.exit144, !llvm.loop !26
 
 .loopexit166:                                     ; preds = %137, %122, %117
   %142 = add i32 %.097184, 1
@@ -398,13 +398,13 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
   %.198 = phi i32 [ %142, %.loopexit166 ], [ %.097184, %126 ], [ %.097184, %140 ]
   %144 = phi i32 [ %143, %.loopexit166 ], [ %.pre, %126 ], [ %.pre, %140 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %145 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #20, !srcloc !28
-  store i32 %145, ptr %8, align 4, !tbaa !24
+  %145 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #20, !srcloc !29
+  store i32 %145, ptr %8, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %8, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %146 = add nuw nsw i32 %.4109183, 1
   %exitcond197.not = icmp eq i32 %146, %3
-  br i1 %exitcond197.not, label %.preheader, label %117, !llvm.loop !40
+  br i1 %exitcond197.not, label %.preheader, label %117, !llvm.loop !42
 
 147:                                              ; preds = %.lr.ph191, %175
   %.5190 = phi ptr [ %.093, %.lr.ph191 ], [ %148, %175 ]
@@ -423,13 +423,13 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
   br i1 %155, label %.loopexit, label %156
 
 156:                                              ; preds = %152
-  %157 = load i32, ptr %115, align 8, !tbaa !22
+  %157 = load i32, ptr %115, align 8, !tbaa !23
   %.not8.i149 = icmp eq i32 %157, 0
   br i1 %.not8.i149, label %need_large_offset.exit156, label %158
 
 158:                                              ; preds = %156
   %159 = trunc nuw nsw i64 %151 to i32
-  %160 = load ptr, ptr %116, align 8, !tbaa !23
+  %160 = load ptr, ptr %116, align 8, !tbaa !24
   %161 = sext i32 %157 to i64
   br label %.lr.ph.i.i150
 
@@ -440,7 +440,7 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
   %163 = lshr i64 %162, 1
   %164 = shl i64 %163, 2
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 %164
-  %166 = load i32, ptr %165, align 4, !tbaa !24
+  %166 = load i32, ptr %165, align 4, !tbaa !25
   %167 = icmp ugt i32 %166, %159
   br i1 %167, label %171, label %168
 
@@ -456,15 +456,15 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
   %.118.i.i154 = phi i64 [ %.01720.i.i152, %169 ], [ %163, %.lr.ph.i.i150 ]
   %.1.i.i155 = phi i64 [ %170, %169 ], [ %.01621.i.i151, %.lr.ph.i.i150 ]
   %172 = icmp ult i64 %.1.i.i155, %.118.i.i154
-  br i1 %172, label %.lr.ph.i.i150, label %need_large_offset.exit156, !llvm.loop !25
+  br i1 %172, label %.lr.ph.i.i150, label %need_large_offset.exit156, !llvm.loop !26
 
 need_large_offset.exit156:                        ; preds = %171, %156
-  br label %175, !llvm.loop !41
+  br label %175, !llvm.loop !43
 
 .loopexit:                                        ; preds = %168, %152, %147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %173 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %151) #20, !srcloc !42
-  store i64 %173, ptr %7, align 8, !tbaa !43
+  %173 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %151) #20, !srcloc !44
+  store i64 %173, ptr %7, align 8, !tbaa !45
   call void @hashwrite(ptr noundef %.092, ptr noundef nonnull %7, i32 noundef 8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %174 = add i32 %.299189, -1
@@ -473,14 +473,14 @@ need_large_offset.exit156:                        ; preds = %171, %156
 175:                                              ; preds = %need_large_offset.exit156, %.loopexit
   %.3100 = phi i32 [ %174, %.loopexit ], [ %.299189, %need_large_offset.exit156 ]
   %.not122 = icmp eq i32 %.3100, 0
-  br i1 %.not122, label %.loopexit165, label %147
+  br i1 %.not122, label %.loopexit165, label %147, !llvm.loop !46
 
 .loopexit165:                                     ; preds = %175, %._crit_edge179, %.preheader169, %.preheader
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %177 = load i64, ptr %176, align 8, !tbaa !32
+  %177 = load i64, ptr %176, align 8, !tbaa !34
   %178 = trunc i64 %177 to i32
   call void @hashwrite(ptr noundef %.092, ptr noundef %5, i32 noundef %178) #19
-  %179 = load i32, ptr %4, align 8, !tbaa !21
+  %179 = load i32, ptr %4, align 8, !tbaa !22
   %180 = shl i32 %179, 1
   %181 = and i32 %180, 2
   %182 = xor i32 %181, 7
@@ -544,10 +544,10 @@ define dso_local ptr @write_rev_file(ptr noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %13 = trunc nuw i64 %indvars.iv to i32
-  store i32 %13, ptr %12, align 4, !tbaa !24
+  store i32 %13, ptr %12, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %14 = tail call i32 @git_qsort_s(ptr noundef %11, i64 noundef %9, i64 noundef 4, ptr noundef nonnull @pack_order_cmp, ptr noundef %2) #19
@@ -574,13 +574,13 @@ declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @pack_order_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #9 {
-  %4 = load i32, ptr %0, align 4, !tbaa !24
+  %4 = load i32, ptr %0, align 4, !tbaa !25
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !16
-  %10 = load i32, ptr %1, align 4, !tbaa !24
+  %10 = load i32, ptr %1, align 4, !tbaa !25
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
@@ -652,7 +652,7 @@ define dso_local ptr @write_rev_file_order(ptr noundef %0, ptr noundef %1, ptr n
 
 32:                                               ; preds = %30
   %33 = tail call ptr @__errno_location() #23
-  %34 = load i32, ptr %33, align 4, !tbaa !24
+  %34 = load i32, ptr %33, align 4, !tbaa !25
   %35 = icmp eq i32 %34, 2
   br i1 %35, label %40, label %36
 
@@ -675,18 +675,18 @@ write_rev_header.exit:                            ; preds = %.thread, %27
   %.030 = phi ptr [ %28, %27 ], [ %38, %.thread ]
   %.1 = phi ptr [ %.029, %27 ], [ %39, %.thread ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  store i32 1480870226, ptr %10, align 4, !tbaa !24
+  store i32 1480870226, ptr %10, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.030, ptr noundef nonnull %10, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  store i32 16777216, ptr %9, align 4, !tbaa !24
+  store i32 16777216, ptr %9, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.030, ptr noundef nonnull %9, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %41 = call zeroext i8 @oid_version(ptr noundef %0) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %42 = zext i8 %41 to i32
-  %43 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !28
-  store i32 %43, ptr %8, align 4, !tbaa !24
+  %43 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !29
+  store i32 %43, ptr %8, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.030, ptr noundef nonnull %8, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not.i = icmp eq i32 %3, 0
@@ -699,19 +699,19 @@ write_rev_header.exit:                            ; preds = %.thread, %27
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %44 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
-  %45 = load i32, ptr %44, align 4, !tbaa !24
+  %45 = load i32, ptr %44, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %46 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #20, !srcloc !28
-  store i32 %46, ptr %7, align 4, !tbaa !24
+  %46 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #20, !srcloc !29
+  store i32 %46, ptr %7, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %.030, ptr noundef nonnull %7, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %write_rev_index_positions.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %write_rev_index_positions.exit, label %.lr.ph.i, !llvm.loop !48
 
 write_rev_index_positions.exit:                   ; preds = %.lr.ph.i, %write_rev_header.exit
   %47 = getelementptr i8, ptr %0, i64 16
-  %.val = load i64, ptr %47, align 8, !tbaa !32
+  %.val = load i64, ptr %47, align 8, !tbaa !34
   %48 = trunc i64 %.val to i32
   call void @hashwrite(ptr noundef %.030, ptr noundef %4, i32 noundef %48) #19
   %49 = call i32 @adjust_shared_perm(ptr noundef %.1) #19
@@ -740,12 +740,12 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #11 {
-  %2 = load i8, ptr %0, align 1, !tbaa !30
+  %2 = load i8, ptr %0, align 1, !tbaa !31
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !24
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !25
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -776,12 +776,12 @@ define dso_local noundef i64 @write_pack_header(ptr noundef %0, i32 noundef %1) 
 git_bswap32.exit:
   %2 = alloca %struct.pack_header, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #19
-  store i32 1262698832, ptr %2, align 4, !tbaa !46
+  store i32 1262698832, ptr %2, align 4, !tbaa !49
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 33554432, ptr %3, align 4, !tbaa !48
-  %4 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #20, !srcloc !28
+  store i32 33554432, ptr %3, align 4, !tbaa !51
+  %4 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #20, !srcloc !29
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %4, ptr %5, align 4, !tbaa !49
+  store i32 %4, ptr %5, align 4, !tbaa !52
   call void @hashwrite(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 12) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #19
   ret i64 12
@@ -797,9 +797,9 @@ define dso_local void @fixup_pack_header_footer(ptr noundef readonly captures(no
   call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %9) #19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
   call void %13(ptr noundef nonnull %8) #19
-  %14 = load ptr, ptr %12, align 8, !tbaa !50
+  %14 = load ptr, ptr %12, align 8, !tbaa !53
   call void %14(ptr noundef nonnull %9) #19
   %15 = call i64 @lseek64(i32 noundef %1, i64 noundef 0, i32 noundef 0) #19
   %.not = icmp eq i64 %15, 0
@@ -837,12 +837,12 @@ define dso_local void @fixup_pack_header_footer(ptr noundef readonly captures(no
 
 git_bswap32.exit:                                 ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !54
   call void %27(ptr noundef nonnull %8, ptr noundef nonnull %10, i64 noundef 12) #19
-  %28 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %4) #20, !srcloc !28
+  %28 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %4) #20, !srcloc !29
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %28, ptr %29, align 4, !tbaa !49
-  %30 = load ptr, ptr %26, align 8, !tbaa !51
+  store i32 %28, ptr %29, align 4, !tbaa !52
+  %30 = load ptr, ptr %26, align 8, !tbaa !54
   call void %30(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 12) #19
   call void @write_or_die(i32 noundef %1, ptr noundef nonnull %10, i64 noundef 12) #19
   %31 = add i64 %6, -12
@@ -866,7 +866,7 @@ git_bswap32.exit:                                 ; preds = %23
   br i1 %39, label %.split.us, label %40
 
 40:                                               ; preds = %.lr.ph.split.us
-  %41 = load ptr, ptr %26, align 8, !tbaa !51
+  %41 = load ptr, ptr %26, align 8, !tbaa !54
   call void %41(ptr noundef nonnull %9, ptr noundef %32, i64 noundef %38) #19
   %42 = trunc i64 %38 to i32
   %43 = sub i32 %.06389.us, %42
@@ -875,7 +875,7 @@ git_bswap32.exit:                                 ; preds = %23
   %44 = sext i32 %spec.select.us to i64
   %45 = call i64 @xread(i32 noundef %1, ptr noundef %32, i64 noundef %44) #19
   %.not76.us = icmp eq i64 %45, 0
-  br i1 %.not76.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %.not76.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %46 = phi i64 [ %64, %61 ], [ %35, %.lr.ph ]
@@ -889,13 +889,13 @@ git_bswap32.exit:                                 ; preds = %23
   unreachable
 
 48:                                               ; preds = %.lr.ph.split
-  %49 = load ptr, ptr %26, align 8, !tbaa !51
+  %49 = load ptr, ptr %26, align 8, !tbaa !54
   call void %49(ptr noundef nonnull %9, ptr noundef %32, i64 noundef %46) #19
   %50 = trunc i64 %46 to i32
   %51 = sub i32 %.06389, %50
   %.not77 = icmp eq i32 %.06389, %50
   %spec.select = select i1 %.not77, i32 8192, i32 %51
-  %52 = load ptr, ptr %26, align 8, !tbaa !51
+  %52 = load ptr, ptr %26, align 8, !tbaa !54
   call void %52(ptr noundef nonnull %8, ptr noundef %32, i64 noundef %46) #19
   %53 = sub nsw i64 %.06290, %46
   %54 = icmp eq i64 %53, 0
@@ -903,9 +903,9 @@ git_bswap32.exit:                                 ; preds = %23
 
 55:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #19
-  %56 = load ptr, ptr %36, align 8, !tbaa !54
+  %56 = load ptr, ptr %36, align 8, !tbaa !57
   call void %56(ptr noundef nonnull %11, ptr noundef nonnull %8) #19
-  %.val = load i64, ptr %37, align 8, !tbaa !32
+  %.val = load i64, ptr %37, align 8, !tbaa !34
   %57 = icmp eq i64 %.val, 32
   %..i = select i1 %57, i64 32, i64 20
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %11, ptr noundef nonnull readonly dereferenceable(20) %5, i64 %..i)
@@ -917,7 +917,7 @@ git_bswap32.exit:                                 ; preds = %23
   unreachable
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr %12, align 8, !tbaa !50
+  %60 = load ptr, ptr %12, align 8, !tbaa !53
   call void %60(ptr noundef nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
   br label %61
@@ -940,7 +940,7 @@ git_bswap32.exit:                                 ; preds = %23
 
 65:                                               ; preds = %.critedge91, %._crit_edge
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load ptr, ptr %66, align 8, !tbaa !54
+  %67 = load ptr, ptr %66, align 8, !tbaa !57
   call void %67(ptr noundef nonnull %5, ptr noundef nonnull %8) #19
   br label %68
 
@@ -950,10 +950,10 @@ git_bswap32.exit:                                 ; preds = %23
 
 68:                                               ; preds = %.critedge, %65, %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !54
+  %70 = load ptr, ptr %69, align 8, !tbaa !57
   call void %70(ptr noundef %2, ptr noundef nonnull %9) #19
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !32
+  %72 = load i64, ptr %71, align 8, !tbaa !34
   call void @write_or_die(i32 noundef %1, ptr noundef %2, i64 noundef %72) #19
   call void @fsync_component_or_die(i32 noundef 2, i32 noundef %1, ptr noundef %3) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #19
@@ -978,9 +978,9 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   %4 = alloca [70 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !72
+  %8 = load i64, ptr %7, align 8, !tbaa !75
   %9 = shl i64 %8, 32
   %sext = add i64 %9, 25769803776
   %10 = ashr exact i64 %sext, 32
@@ -992,7 +992,7 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   %sext13 = add i64 %9, 21474836480
   %14 = ashr exact i64 %sext13, 32
   %15 = getelementptr inbounds [70 x i8], ptr %4, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !30
+  %16 = load i8, ptr %15, align 1, !tbaa !31
   %17 = icmp eq i8 %16, 10
   br i1 %17, label %18, label %30
 
@@ -1001,11 +1001,11 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not14, label %20, label %19
 
 19:                                               ; preds = %18
-  store i32 1, ptr %2, align 4, !tbaa !24
+  store i32 1, ptr %2, align 4, !tbaa !25
   br label %20
 
 20:                                               ; preds = %19, %18
-  store i8 0, ptr %15, align 1, !tbaa !30
+  store i8 0, ptr %15, align 1, !tbaa !31
   %scevgep.i = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %21
 
@@ -1013,16 +1013,16 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
   %.07.i = phi ptr [ %4, %20 ], [ %24, %23 ]
   %.06.idx.i = phi i64 [ 0, %20 ], [ %.06.add.i, %23 ]
   %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.06.idx.i
-  %22 = load i8, ptr %.06.ptr.i, align 1, !tbaa !30
+  %22 = load i8, ptr %.06.ptr.i, align 1, !tbaa !31
   %exitcond.i = icmp eq i64 %.06.idx.i, 5
   br i1 %exitcond.i, label %skip_prefix.exit, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  %25 = load i8, ptr %.07.i, align 1, !tbaa !30
+  %25 = load i8, ptr %.07.i, align 1, !tbaa !31
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
   %26 = icmp eq i8 %25, %22
-  br i1 %26, label %21, label %skip_prefix.exit, !llvm.loop !73
+  br i1 %26, label %21, label %skip_prefix.exit, !llvm.loop !76
 
 skip_prefix.exit:                                 ; preds = %21, %23
   %.not.i = icmp eq i8 %22, 0
@@ -1038,7 +1038,7 @@ skip_prefix.exit:                                 ; preds = %21, %23
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %30
-  store i32 0, ptr %2, align 4, !tbaa !24
+  store i32 0, ptr %2, align 4, !tbaa !25
   br label %32
 
 32:                                               ; preds = %27, %skip_prefix.exit, %30, %31
@@ -1089,19 +1089,19 @@ define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr noundef w
   %16 = trunc nuw nsw i64 %.0.in28 to i8
   %17 = or i8 %16, -128
   %18 = getelementptr inbounds nuw i8, ptr %.01925, i64 1
-  store i8 %17, ptr %.01925, align 1, !tbaa !30
+  store i8 %17, ptr %.01925, align 1, !tbaa !31
   %19 = and i64 %.01826, 127
   %20 = lshr i64 %.01826, 7
   %21 = add nuw nsw i32 %.01727, 1
   %.not = icmp samesign ult i64 %.01826, 128
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %15, %7
   %.019.lcssa = phi ptr [ %0, %7 ], [ %18, %15 ]
   %.017.lcssa = phi i32 [ 1, %7 ], [ %21, %15 ]
   %.0.in.lcssa = phi i64 [ %11, %7 ], [ %19, %15 ]
   %.0 = trunc nuw nsw i64 %.0.in.lcssa to i8
-  store i8 %.0, ptr %.019.lcssa, align 1, !tbaa !30
+  store i8 %.0, ptr %.019.lcssa, align 1, !tbaa !31
   ret i32 %.017.lcssa
 }
 
@@ -1112,7 +1112,7 @@ define dso_local ptr @create_tmp_packfile(ptr noundef writeonly captures(none) i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_mtimes_file.tmp_file, i64 24, i1 false)
   %3 = call i32 @odb_mkstemp(ptr noundef nonnull %2, ptr noundef nonnull @.str.17) #19
   %4 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #19
-  store ptr %4, ptr %0, align 8, !tbaa !75
+  store ptr %4, ptr %0, align 8, !tbaa !78
   %5 = call ptr @hashfd(i32 noundef %3, ptr noundef %4) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
   ret ptr %5
@@ -1120,23 +1120,23 @@ define dso_local ptr @create_tmp_packfile(ptr noundef writeonly captures(none) i
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rename_tmp_packfile_idx(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !75
+  %3 = load ptr, ptr %1, align 8, !tbaa !78
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !76
+  %5 = load i64, ptr %4, align 8, !tbaa !79
   tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 3) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
   %8 = tail call i32 @finalize_object_file(ptr noundef %3, ptr noundef %7) #19
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %6, align 8, !tbaa !78
+  %10 = load ptr, ptr %6, align 8, !tbaa !81
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.29, ptr noundef %10) #21
   unreachable
 
 11:                                               ; preds = %2
-  %12 = load i64, ptr %0, align 8, !tbaa !79
+  %12 = load i64, ptr %0, align 8, !tbaa !82
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
   %13 = icmp ugt i64 %5, %spec.select.i.i
   br i1 %13, label %14, label %15
@@ -1146,14 +1146,14 @@ define dso_local void @rename_tmp_packfile_idx(ptr noundef %0, ptr noundef reado
   unreachable
 
 15:                                               ; preds = %11
-  store i64 %5, ptr %4, align 8, !tbaa !76
-  %16 = load ptr, ptr %6, align 8, !tbaa !78
+  store i64 %5, ptr %4, align 8, !tbaa !79
+  %16 = load ptr, ptr %6, align 8, !tbaa !81
   %.not9.i.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %.not9.i.i, label %rename_tmp_packfile.exit, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %5
-  store i8 0, ptr %18, align 1, !tbaa !30
+  store i8 0, ptr %18, align 1, !tbaa !31
   br label %rename_tmp_packfile.exit
 
 rename_tmp_packfile.exit:                         ; preds = %15, %17
@@ -1177,7 +1177,7 @@ define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr n
 
 17:                                               ; preds = %9
   %18 = tail call ptr @write_idx_file(ptr noundef %0, ptr noundef null, ptr noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %7)
-  store ptr %18, ptr %8, align 8, !tbaa !75
+  store ptr %18, ptr %8, align 8, !tbaa !78
   %19 = tail call i32 @adjust_shared_perm(ptr noundef %18) #19
   %.not29 = icmp eq i32 %19, 0
   br i1 %.not29, label %21, label %20
@@ -1187,7 +1187,7 @@ define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr %6, align 8, !tbaa !21
+  %22 = load i32, ptr %6, align 8, !tbaa !22
   %23 = and i32 %22, 12
   %or.cond.i = icmp eq i32 %23, 0
   br i1 %or.cond.i, label %write_rev_file.exit, label %24
@@ -1203,10 +1203,10 @@ define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
   %29 = trunc nuw i64 %indvars.iv.i to i32
-  store i32 %29, ptr %28, align 4, !tbaa !24
+  store i32 %29, ptr %28, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   %30 = tail call i32 @git_qsort_s(ptr noundef %27, i64 noundef %25, i64 noundef 4, ptr noundef nonnull @pack_order_cmp, ptr noundef %3) #19
@@ -1220,7 +1220,7 @@ define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr n
 32:                                               ; preds = %._crit_edge.i
   %33 = tail call ptr @write_rev_file_order(ptr noundef %0, ptr noundef null, ptr noundef %27, i32 noundef %4, ptr noundef %7, i32 noundef %22)
   tail call void @free(ptr noundef %27) #19
-  %.pre = load i32, ptr %6, align 8, !tbaa !21
+  %.pre = load i32, ptr %6, align 8, !tbaa !22
   br label %write_rev_file.exit
 
 write_rev_file.exit:                              ; preds = %21, %32
@@ -1245,18 +1245,18 @@ write_mtimes_header.exit.i:                       ; preds = %36
   %39 = call ptr @strbuf_detach(ptr noundef nonnull %14, ptr noundef null) #19
   %40 = call ptr @hashfd(i32 noundef %38, ptr noundef %39) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  store i32 1162695757, ptr %13, align 4, !tbaa !24
+  store i32 1162695757, ptr %13, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %40, ptr noundef nonnull %13, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  store i32 16777216, ptr %12, align 4, !tbaa !24
+  store i32 16777216, ptr %12, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %40, ptr noundef nonnull %12, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %41 = call zeroext i8 @oid_version(ptr noundef %0) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %42 = zext i8 %41 to i32
-  %43 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !28
-  store i32 %43, ptr %11, align 4, !tbaa !24
+  %43 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %42) #20, !srcloc !29
+  store i32 %43, ptr %11, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %40, ptr noundef nonnull %11, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %.not.i.i = icmp eq i32 %4, 0
@@ -1270,36 +1270,36 @@ write_mtimes_header.exit.i:                       ; preds = %36
 
 46:                                               ; preds = %oe_cruft_mtime.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %oe_cruft_mtime.exit.i.i ]
-  %47 = load ptr, ptr %44, align 8, !tbaa !80
+  %47 = load ptr, ptr %44, align 8, !tbaa !83
   %.not.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i, label %oe_cruft_mtime.exit.i.i, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !14
-  %51 = load ptr, ptr %45, align 8, !tbaa !86
+  %51 = load ptr, ptr %45, align 8, !tbaa !89
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = sdiv exact i64 %54, 24
   %56 = getelementptr inbounds i8, ptr %47, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !24
+  %57 = load i32, ptr %56, align 4, !tbaa !25
   br label %oe_cruft_mtime.exit.i.i
 
 oe_cruft_mtime.exit.i.i:                          ; preds = %48, %46
   %.0.i.i.i = phi i32 [ %57, %48 ], [ 0, %46 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %58 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.i.i.i) #20, !srcloc !28
-  store i32 %58, ptr %10, align 4, !tbaa !24
+  %58 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.i.i.i) #20, !srcloc !29
+  store i32 %58, ptr %10, align 4, !tbaa !25
   call void @hashwrite(ptr noundef %40, ptr noundef nonnull %10, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %write_mtimes_objects.exit.i, label %46, !llvm.loop !87
+  br i1 %exitcond.not.i.i, label %write_mtimes_objects.exit.i, label %46, !llvm.loop !90
 
 write_mtimes_objects.exit.i:                      ; preds = %oe_cruft_mtime.exit.i.i, %write_mtimes_header.exit.i
   %59 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load i64, ptr %59, align 8, !tbaa !32
+  %.val.i = load i64, ptr %59, align 8, !tbaa !34
   %60 = trunc i64 %.val.i to i32
   call void @hashwrite(ptr noundef %40, ptr noundef %7, i32 noundef %60) #19
   %61 = call i32 @adjust_shared_perm(ptr noundef %39) #19
@@ -1319,21 +1319,21 @@ write_mtimes_file.exit:                           ; preds = %write_mtimes_object
 66:                                               ; preds = %write_mtimes_file.exit, %write_rev_file.exit
   %.0 = phi ptr [ %39, %write_mtimes_file.exit ], [ null, %write_rev_file.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !76
+  %68 = load i64, ptr %67, align 8, !tbaa !79
   call void @strbuf_add(ptr noundef %1, ptr noundef nonnull @.str.21, i64 noundef 4) #19
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !78
+  %70 = load ptr, ptr %69, align 8, !tbaa !81
   %71 = call i32 @finalize_object_file(ptr noundef %2, ptr noundef %70) #19
   %.not.i34 = icmp eq i32 %71, 0
   br i1 %.not.i34, label %74, label %72
 
 72:                                               ; preds = %66
-  %73 = load ptr, ptr %69, align 8, !tbaa !78
+  %73 = load ptr, ptr %69, align 8, !tbaa !81
   call void (ptr, ...) @die(ptr noundef nonnull @.str.29, ptr noundef %73) #21
   unreachable
 
 74:                                               ; preds = %66
-  %75 = load i64, ptr %1, align 8, !tbaa !79
+  %75 = load i64, ptr %1, align 8, !tbaa !82
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %75, i64 1)
   %76 = icmp ugt i64 %68, %spec.select.i.i
   br i1 %76, label %77, label %78
@@ -1343,14 +1343,14 @@ write_mtimes_file.exit:                           ; preds = %write_mtimes_object
   unreachable
 
 78:                                               ; preds = %74
-  store i64 %68, ptr %67, align 8, !tbaa !76
-  %79 = load ptr, ptr %69, align 8, !tbaa !78
+  store i64 %68, ptr %67, align 8, !tbaa !79
+  %79 = load ptr, ptr %69, align 8, !tbaa !81
   %.not9.i.i = icmp eq ptr %79, @strbuf_slopbuf
   br i1 %.not9.i.i, label %rename_tmp_packfile.exit, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 %68
-  store i8 0, ptr %81, align 1, !tbaa !30
+  store i8 0, ptr %81, align 1, !tbaa !31
   br label %rename_tmp_packfile.exit
 
 rename_tmp_packfile.exit:                         ; preds = %78, %80
@@ -1358,20 +1358,20 @@ rename_tmp_packfile.exit:                         ; preds = %78, %80
   br i1 %.not31, label %rename_tmp_packfile.exit38, label %82
 
 82:                                               ; preds = %rename_tmp_packfile.exit
-  %83 = load i64, ptr %67, align 8, !tbaa !76
+  %83 = load i64, ptr %67, align 8, !tbaa !79
   call void @strbuf_add(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i64 noundef 3) #19
-  %84 = load ptr, ptr %69, align 8, !tbaa !78
+  %84 = load ptr, ptr %69, align 8, !tbaa !81
   %85 = call i32 @finalize_object_file(ptr noundef nonnull %.0.i, ptr noundef %84) #19
   %.not.i35 = icmp eq i32 %85, 0
   br i1 %.not.i35, label %88, label %86
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr %69, align 8, !tbaa !78
+  %87 = load ptr, ptr %69, align 8, !tbaa !81
   call void (ptr, ...) @die(ptr noundef nonnull @.str.29, ptr noundef %87) #21
   unreachable
 
 88:                                               ; preds = %82
-  %89 = load i64, ptr %1, align 8, !tbaa !79
+  %89 = load i64, ptr %1, align 8, !tbaa !82
   %spec.select.i.i36 = call i64 @llvm.usub.sat.i64(i64 %89, i64 1)
   %90 = icmp ugt i64 %83, %spec.select.i.i36
   br i1 %90, label %91, label %92
@@ -1381,14 +1381,14 @@ rename_tmp_packfile.exit:                         ; preds = %78, %80
   unreachable
 
 92:                                               ; preds = %88
-  store i64 %83, ptr %67, align 8, !tbaa !76
-  %93 = load ptr, ptr %69, align 8, !tbaa !78
+  store i64 %83, ptr %67, align 8, !tbaa !79
+  %93 = load ptr, ptr %69, align 8, !tbaa !81
   %.not9.i.i37 = icmp eq ptr %93, @strbuf_slopbuf
   br i1 %.not9.i.i37, label %rename_tmp_packfile.exit38, label %94
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %83
-  store i8 0, ptr %95, align 1, !tbaa !30
+  store i8 0, ptr %95, align 1, !tbaa !31
   br label %rename_tmp_packfile.exit38
 
 rename_tmp_packfile.exit38:                       ; preds = %94, %92, %rename_tmp_packfile.exit
@@ -1396,20 +1396,20 @@ rename_tmp_packfile.exit38:                       ; preds = %94, %92, %rename_tm
   br i1 %.not32, label %rename_tmp_packfile.exit42, label %96
 
 96:                                               ; preds = %rename_tmp_packfile.exit38
-  %97 = load i64, ptr %67, align 8, !tbaa !76
+  %97 = load i64, ptr %67, align 8, !tbaa !79
   call void @strbuf_add(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i64 noundef 6) #19
-  %98 = load ptr, ptr %69, align 8, !tbaa !78
+  %98 = load ptr, ptr %69, align 8, !tbaa !81
   %99 = call i32 @finalize_object_file(ptr noundef nonnull %.0, ptr noundef %98) #19
   %.not.i39 = icmp eq i32 %99, 0
   br i1 %.not.i39, label %102, label %100
 
 100:                                              ; preds = %96
-  %101 = load ptr, ptr %69, align 8, !tbaa !78
+  %101 = load ptr, ptr %69, align 8, !tbaa !81
   call void (ptr, ...) @die(ptr noundef nonnull @.str.29, ptr noundef %101) #21
   unreachable
 
 102:                                              ; preds = %96
-  %103 = load i64, ptr %1, align 8, !tbaa !79
+  %103 = load i64, ptr %1, align 8, !tbaa !82
   %spec.select.i.i40 = call i64 @llvm.usub.sat.i64(i64 %103, i64 1)
   %104 = icmp ugt i64 %97, %spec.select.i.i40
   br i1 %104, label %105, label %106
@@ -1419,14 +1419,14 @@ rename_tmp_packfile.exit38:                       ; preds = %94, %92, %rename_tm
   unreachable
 
 106:                                              ; preds = %102
-  store i64 %97, ptr %67, align 8, !tbaa !76
-  %107 = load ptr, ptr %69, align 8, !tbaa !78
+  store i64 %97, ptr %67, align 8, !tbaa !79
+  %107 = load ptr, ptr %69, align 8, !tbaa !81
   %.not9.i.i41 = icmp eq ptr %107, @strbuf_slopbuf
   br i1 %.not9.i.i41, label %rename_tmp_packfile.exit42, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 %97
-  store i8 0, ptr %109, align 1, !tbaa !30
+  store i8 0, ptr %109, align 1, !tbaa !31
   br label %rename_tmp_packfile.exit42
 
 rename_tmp_packfile.exit42:                       ; preds = %108, %106, %rename_tmp_packfile.exit38
@@ -1448,15 +1448,15 @@ define dso_local void @write_promisor_file(ptr noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #19
-  %10 = load ptr, ptr %6, align 8, !tbaa !88
+  %10 = load ptr, ptr %6, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.25, ptr noundef %9, ptr noundef nonnull %11) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %13 = tail call i32 @ferror(ptr noundef %4) #19
@@ -1561,75 +1561,78 @@ attributes #23 = { nounwind willreturn memory(none) }
 !16 = !{!17, !11, i64 40}
 !17 = !{!"pack_idx_entry", !18, i64 0, !6, i64 36, !11, i64 40}
 !18 = !{!"object_id", !7, i64 0, !6, i64 32}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!5, !6, i64 0}
-!22 = !{!5, !6, i64 16}
-!23 = !{!5, !9, i64 24}
-!24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !20}
-!26 = !{!27, !6, i64 0}
-!27 = !{!"pack_idx_header", !6, i64 0, !6, i64 4}
-!28 = !{i64 3472399}
-!29 = !{!27, !6, i64 4}
-!30 = !{!7, !7, i64 0}
-!31 = distinct !{!31, !20}
-!32 = !{!33, !11, i64 16}
-!33 = !{!"git_hash_algo", !34, i64 0, !6, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !35, i64 80, !35, i64 88, !35, i64 96, !36, i64 104}
-!34 = !{!"p1 omnipotent char", !10, i64 0}
-!35 = !{!"p1 _ZTS9object_id", !10, i64 0}
-!36 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
-!37 = distinct !{!37, !20}
-!38 = !{!17, !6, i64 36}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20}
-!41 = distinct !{!41, !20}
-!42 = !{i64 3472653}
-!43 = !{!11, !11, i64 0}
-!44 = distinct !{!44, !20}
-!45 = distinct !{!45, !20}
-!46 = !{!47, !6, i64 0}
-!47 = !{!"pack_header", !6, i64 0, !6, i64 4, !6, i64 8}
-!48 = !{!47, !6, i64 4}
-!49 = !{!47, !6, i64 8}
-!50 = !{!33, !10, i64 40}
-!51 = !{!33, !10, i64 56}
-!52 = distinct !{!52, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = !{!33, !10, i64 64}
-!55 = !{!56, !36, i64 400}
-!56 = !{!"repository", !34, i64 0, !34, i64 8, !57, i64 16, !58, i64 24, !59, i64 32, !60, i64 40, !60, i64 104, !64, i64 168, !34, i64 224, !34, i64 232, !34, i64 240, !34, i64 248, !65, i64 256, !67, i64 368, !68, i64 376, !69, i64 384, !70, i64 392, !36, i64 400, !36, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !34, i64 432, !71, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
-!57 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
-!58 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
-!59 = !{!"p1 _ZTS9ref_store", !10, i64 0}
-!60 = !{!"strmap", !61, i64 0, !63, i64 48, !6, i64 56}
-!61 = !{!"hashmap", !62, i64 0, !10, i64 8, !10, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
-!62 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
-!63 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
-!64 = !{!"repo_path_cache", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !34, i64 40, !34, i64 48}
-!65 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !66, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!66 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
-!67 = !{!"p1 _ZTS10config_set", !10, i64 0}
-!68 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
-!69 = !{!"p1 _ZTS11index_state", !10, i64 0}
-!70 = !{!"p1 _ZTS12remote_state", !10, i64 0}
-!71 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
-!72 = !{!33, !11, i64 24}
-!73 = distinct !{!73, !20}
-!74 = distinct !{!74, !20}
-!75 = !{!34, !34, i64 0}
-!76 = !{!77, !11, i64 8}
-!77 = !{!"strbuf", !11, i64 0, !11, i64 8, !34, i64 16}
-!78 = !{!77, !34, i64 16}
-!79 = !{!77, !11, i64 0}
-!80 = !{!81, !9, i64 160}
-!81 = !{!"packing_data", !82, i64 0, !83, i64 8, !6, i64 16, !6, i64 20, !9, i64 24, !6, i64 32, !9, i64 40, !84, i64 48, !85, i64 56, !85, i64 64, !7, i64 72, !83, i64 112, !6, i64 120, !6, i64 124, !11, i64 128, !11, i64 136, !9, i64 144, !34, i64 152, !9, i64 160}
-!82 = !{!"p1 _ZTS10repository", !10, i64 0}
-!83 = !{!"p1 _ZTS12object_entry", !10, i64 0}
-!84 = !{!"p1 long", !10, i64 0}
-!85 = !{!"p2 _ZTS10packed_git", !10, i64 0}
-!86 = !{!81, !83, i64 8}
-!87 = distinct !{!87, !20}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"p1 _ZTS3ref", !10, i64 0}
-!90 = distinct !{!90, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!5, !6, i64 0}
+!23 = !{!5, !6, i64 16}
+!24 = !{!5, !9, i64 24}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !20, !21}
+!27 = !{!28, !6, i64 0}
+!28 = !{!"pack_idx_header", !6, i64 0, !6, i64 4}
+!29 = !{i64 3472399}
+!30 = !{!28, !6, i64 4}
+!31 = !{!7, !7, i64 0}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!35, !11, i64 16}
+!35 = !{!"git_hash_algo", !36, i64 0, !6, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !37, i64 80, !37, i64 88, !37, i64 96, !38, i64 104}
+!36 = !{!"p1 omnipotent char", !10, i64 0}
+!37 = !{!"p1 _ZTS9object_id", !10, i64 0}
+!38 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
+!39 = distinct !{!39, !20, !21}
+!40 = !{!17, !6, i64 36}
+!41 = distinct !{!41, !20, !21}
+!42 = distinct !{!42, !20, !21}
+!43 = distinct !{!43, !20}
+!44 = !{i64 3472653}
+!45 = !{!11, !11, i64 0}
+!46 = distinct !{!46, !21}
+!47 = distinct !{!47, !20, !21}
+!48 = distinct !{!48, !20, !21}
+!49 = !{!50, !6, i64 0}
+!50 = !{!"pack_header", !6, i64 0, !6, i64 4, !6, i64 8}
+!51 = !{!50, !6, i64 4}
+!52 = !{!50, !6, i64 8}
+!53 = !{!35, !10, i64 40}
+!54 = !{!35, !10, i64 56}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = !{!35, !10, i64 64}
+!58 = !{!59, !38, i64 400}
+!59 = !{!"repository", !36, i64 0, !36, i64 8, !60, i64 16, !61, i64 24, !62, i64 32, !63, i64 40, !63, i64 104, !67, i64 168, !36, i64 224, !36, i64 232, !36, i64 240, !36, i64 248, !68, i64 256, !70, i64 368, !71, i64 376, !72, i64 384, !73, i64 392, !38, i64 400, !38, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !36, i64 432, !74, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
+!60 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
+!61 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
+!62 = !{!"p1 _ZTS9ref_store", !10, i64 0}
+!63 = !{!"strmap", !64, i64 0, !66, i64 48, !6, i64 56}
+!64 = !{!"hashmap", !65, i64 0, !10, i64 8, !10, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!65 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
+!66 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
+!67 = !{!"repo_path_cache", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24, !36, i64 32, !36, i64 40, !36, i64 48}
+!68 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !69, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!69 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
+!70 = !{!"p1 _ZTS10config_set", !10, i64 0}
+!71 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
+!72 = !{!"p1 _ZTS11index_state", !10, i64 0}
+!73 = !{!"p1 _ZTS12remote_state", !10, i64 0}
+!74 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
+!75 = !{!35, !11, i64 24}
+!76 = distinct !{!76, !20, !21}
+!77 = distinct !{!77, !20, !21}
+!78 = !{!36, !36, i64 0}
+!79 = !{!80, !11, i64 8}
+!80 = !{!"strbuf", !11, i64 0, !11, i64 8, !36, i64 16}
+!81 = !{!80, !36, i64 16}
+!82 = !{!80, !11, i64 0}
+!83 = !{!84, !9, i64 160}
+!84 = !{!"packing_data", !85, i64 0, !86, i64 8, !6, i64 16, !6, i64 20, !9, i64 24, !6, i64 32, !9, i64 40, !87, i64 48, !88, i64 56, !88, i64 64, !7, i64 72, !86, i64 112, !6, i64 120, !6, i64 124, !11, i64 128, !11, i64 136, !9, i64 144, !36, i64 152, !9, i64 160}
+!85 = !{!"p1 _ZTS10repository", !10, i64 0}
+!86 = !{!"p1 _ZTS12object_entry", !10, i64 0}
+!87 = !{!"p1 long", !10, i64 0}
+!88 = !{!"p2 _ZTS10packed_git", !10, i64 0}
+!89 = !{!84, !86, i64 8}
+!90 = distinct !{!90, !20, !21}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTS3ref", !10, i64 0}
+!93 = distinct !{!93, !20, !21}

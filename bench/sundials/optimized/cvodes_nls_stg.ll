@@ -249,11 +249,11 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg(ptr noundef %0, ptr
   store ptr %115, ptr %119, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %101
+  br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %101, %88
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  store i32 0, ptr %120, align 8, !tbaa !45
+  store i32 0, ptr %120, align 8, !tbaa !47
   br label %121
 
 121:                                              ; preds = %._crit_edge, %84, %76, %69, %57, %53, %49, %45, %29, %25, %21, %7, %4
@@ -295,25 +295,25 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg(ptr noundef readonl
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 760
-  %18 = load ptr, ptr %17, align 8, !tbaa !46
+  %18 = load ptr, ptr %17, align 8, !tbaa !48
   %19 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %14, double noundef 1.000000e+00, ptr noundef %16, double noundef 1.000000e+00, ptr noundef %10, ptr noundef %18) #3
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %52
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %22 = load double, ptr %21, align 8, !tbaa !47
+  %22 = load double, ptr %21, align 8, !tbaa !49
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %26 = load ptr, ptr %25, align 8, !tbaa !49
-  %27 = load ptr, ptr %17, align 8, !tbaa !46
+  %26 = load ptr, ptr %25, align 8, !tbaa !51
+  %27 = load ptr, ptr %17, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 784
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %31 = load ptr, ptr %30, align 8, !tbaa !51
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %33 = load ptr, ptr %32, align 8, !tbaa !52
+  %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = tail call i32 @cvSensRhsWrapper(ptr noundef nonnull %2, double noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %27, ptr noundef %29, ptr noundef %31, ptr noundef %33) #3
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %52, label %36
@@ -324,21 +324,21 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg(ptr noundef readonl
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  %39 = load double, ptr %38, align 8, !tbaa !53
-  store double %39, ptr %4, align 16, !tbaa !54
+  %39 = load double, ptr %38, align 8, !tbaa !55
+  store double %39, ptr %4, align 16, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %41 = load ptr, ptr %40, align 8, !tbaa !36
   store ptr %41, ptr %5, align 16, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double 1.000000e+00, ptr %42, align 8, !tbaa !54
+  store double 1.000000e+00, ptr %42, align 8, !tbaa !56
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %43, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  %45 = load double, ptr %44, align 8, !tbaa !55
+  %45 = load double, ptr %44, align 8, !tbaa !57
   %46 = fneg double %45
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double %46, ptr %47, align 16, !tbaa !54
-  %48 = load ptr, ptr %28, align 8, !tbaa !50
+  store double %46, ptr %47, align 16, !tbaa !56
+  %48 = load ptr, ptr %28, align 8, !tbaa !52
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %48, ptr %49, align 16, !tbaa !36
   %50 = load i32, ptr %13, align 8, !tbaa !31
@@ -373,23 +373,23 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg(ptr noundef reado
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 760
-  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
   %17 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %12, double noundef 1.000000e+00, ptr noundef %14, double noundef 1.000000e+00, ptr noundef %8, ptr noundef %16) #3
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %.loopexit
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %20 = load double, ptr %19, align 8, !tbaa !47
+  %20 = load double, ptr %19, align 8, !tbaa !49
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %24 = load ptr, ptr %23, align 8, !tbaa !49
-  %25 = load ptr, ptr %15, align 8, !tbaa !46
+  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %25 = load ptr, ptr %15, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %29 = load ptr, ptr %28, align 8, !tbaa !54
   %30 = tail call i32 @cvSensRhsWrapper(ptr noundef nonnull %2, double noundef %20, ptr noundef %22, ptr noundef %24, ptr noundef %25, ptr noundef %10, ptr noundef %27, ptr noundef %29) #3
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.loopexit, label %32
@@ -411,21 +411,21 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg(ptr noundef reado
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = load double, ptr %35, align 8, !tbaa !56
+  %39 = load double, ptr %35, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = load ptr, ptr %36, align 8, !tbaa !36
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !39
   tail call void @N_VLinearSum(double noundef %39, ptr noundef %41, double noundef -1.000000e+00, ptr noundef %44, ptr noundef %41) #3
-  %45 = load double, ptr %37, align 8, !tbaa !53
+  %45 = load double, ptr %37, align 8, !tbaa !55
   %46 = load ptr, ptr %40, align 8, !tbaa !39
   tail call void @N_VScale(double noundef %45, ptr noundef %46, ptr noundef %46) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %11, align 8, !tbaa !31
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %38, label %.loopexit
+  br i1 %49, label %38, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %38, %.preheader, %32, %18, %6, %5
   %.0 = phi i32 [ -21, %5 ], [ -28, %6 ], [ -41, %18 ], [ 15, %32 ], [ 0, %.preheader ], [ 0, %38 ]
@@ -458,20 +458,20 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg(ptr noundef %0, pt
   br i1 %.not, label %19, label %55
 
 19:                                               ; preds = %10
-  %20 = load i32, ptr %7, align 4, !tbaa !57
+  %20 = load i32, ptr %7, align 4, !tbaa !60
   %21 = icmp sgt i32 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 1352
-  %23 = load double, ptr %22, align 8, !tbaa !58
+  %23 = load double, ptr %22, align 8, !tbaa !61
   br i1 %21, label %24, label %.thread
 
 24:                                               ; preds = %19
   %25 = fmul double %23, 3.000000e-01
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  %27 = load double, ptr %26, align 8, !tbaa !59
+  %27 = load double, ptr %26, align 8, !tbaa !62
   %28 = fdiv double %17, %27
   %29 = fcmp ogt double %25, %28
   %. = select i1 %29, double %25, double %28
-  store double %., ptr %22, align 8, !tbaa !58
+  store double %., ptr %22, align 8, !tbaa !61
   %30 = fcmp ogt double %., 1.000000e+00
   %31 = select i1 %30, double 1.000000e+00, double %.
   %32 = fmul double %17, %31
@@ -489,7 +489,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg(ptr noundef %0, pt
 
 40:                                               ; preds = %.thread, %24
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %42 = load i32, ptr %41, align 8, !tbaa !60
+  %42 = load i32, ptr %41, align 8, !tbaa !63
   %.not37 = icmp eq i32 %42, 0
   br i1 %.not37, label %55, label %43
 
@@ -504,9 +504,9 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg(ptr noundef %0, pt
 47:                                               ; preds = %43, %45
   %48 = phi double [ %46, %45 ], [ %17, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 1392
-  store double %48, ptr %49, align 8, !tbaa !61
+  store double %48, ptr %49, align 8, !tbaa !64
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 1400
-  store i32 1, ptr %50, align 8, !tbaa !45
+  store i32 1, ptr %50, align 8, !tbaa !47
   br label %55
 
 51:                                               ; preds = %24
@@ -516,7 +516,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg(ptr noundef %0, pt
 
 .thread38:                                        ; preds = %.thread, %51
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  store double %17, ptr %54, align 8, !tbaa !59
+  store double %17, ptr %54, align 8, !tbaa !62
   br label %55
 
 55:                                               ; preds = %51, %40, %47, %10, %.thread38, %9
@@ -537,7 +537,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @cvNlsInitSensStg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   %5 = load ptr, ptr %4, align 8, !tbaa !28
@@ -552,7 +552,7 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg(ptr noundef %0) local_unnamed_add
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  %10 = load ptr, ptr %9, align 8, !tbaa !63
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
   %.not15 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   %12 = load ptr, ptr %11, align 8, !tbaa !28
@@ -598,53 +598,53 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg(i32 noundef %0, ptr 
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %6
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !64
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !67
   br label %8
 
 7:                                                ; preds = %6
-  store i32 1, ptr %.phi.trans.insert, align 8, !tbaa !64
+  store i32 1, ptr %.phi.trans.insert, align 8, !tbaa !67
   br label %8
 
 8:                                                ; preds = %._crit_edge, %7
   %9 = phi i32 [ %.pre, %._crit_edge ], [ 1, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1992
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
+  %11 = load ptr, ptr %10, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %13 = load ptr, ptr %12, align 8, !tbaa !48
+  %13 = load ptr, ptr %12, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %15 = load ptr, ptr %14, align 8, !tbaa !49
+  %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2080
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %18 = load ptr, ptr %17, align 8, !tbaa !51
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
   %23 = tail call i32 %11(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %18, ptr noundef %20, ptr noundef %22) #3
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 1736
-  %25 = load i64, ptr %24, align 8, !tbaa !66
+  %25 = load i64, ptr %24, align 8, !tbaa !69
   %26 = add nsw i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !66
+  store i64 %26, ptr %24, align 8, !tbaa !69
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1744
-  %28 = load i64, ptr %27, align 8, !tbaa !67
+  %28 = load i64, ptr %27, align 8, !tbaa !70
   %29 = add nsw i64 %28, 1
-  store i64 %29, ptr %27, align 8, !tbaa !67
-  %30 = load i32, ptr %16, align 8, !tbaa !68
-  store i32 %30, ptr %1, align 4, !tbaa !57
+  store i64 %29, ptr %27, align 8, !tbaa !70
+  %30 = load i32, ptr %16, align 8, !tbaa !71
+  store i32 %30, ptr %1, align 4, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 1336
-  store double 1.000000e+00, ptr %31, align 8, !tbaa !69
+  store double 1.000000e+00, ptr %31, align 8, !tbaa !72
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  %33 = load double, ptr %32, align 8, !tbaa !55
+  %33 = load double, ptr %32, align 8, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 1328
-  store double %33, ptr %34, align 8, !tbaa !70
+  store double %33, ptr %34, align 8, !tbaa !73
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1344
-  store double 1.000000e+00, ptr %35, align 8, !tbaa !71
+  store double 1.000000e+00, ptr %35, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1352
-  store double 1.000000e+00, ptr %36, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %36, align 8, !tbaa !61
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 1576
-  %38 = load i64, ptr %37, align 8, !tbaa !72
+  %38 = load i64, ptr %37, align 8, !tbaa !75
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 2048
-  store i64 %38, ptr %39, align 8, !tbaa !73
+  store i64 %38, ptr %39, align 8, !tbaa !76
   %40 = icmp slt i32 %23, 0
   br i1 %40, label %42, label %41
 
@@ -689,18 +689,18 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg(ptr noundef readonly
   %16 = load i32, ptr %9, align 8, !tbaa !31
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %19, label %.loopexit
+  br i1 %18, label %19, label %.loopexit, !llvm.loop !77
 
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %20 = load ptr, ptr %8, align 8, !tbaa !63
+  %20 = load ptr, ptr %8, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !39
   %23 = load ptr, ptr %12, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !39
-  %26 = load ptr, ptr %13, align 8, !tbaa !48
-  %27 = load ptr, ptr %14, align 8, !tbaa !49
+  %26 = load ptr, ptr %13, align 8, !tbaa !50
+  %27 = load ptr, ptr %14, align 8, !tbaa !51
   %28 = tail call i32 %20(ptr noundef nonnull %1, ptr noundef %22, ptr noundef %25, ptr noundef %26, ptr noundef %27) #3
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.loopexit, label %30
@@ -782,32 +782,36 @@ attributes #3 = { nounwind }
 !42 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
 !43 = !{!44, !21, i64 0}
 !44 = !{!"_N_VectorContent_SensWrapper", !21, i64 0, !17, i64 8, !17, i64 12}
-!45 = !{!15, !17, i64 1400}
-!46 = !{!15, !21, i64 760}
-!47 = !{!15, !16, i64 1032}
-!48 = !{!15, !18, i64 448}
-!49 = !{!15, !18, i64 472}
-!50 = !{!15, !21, i64 784}
-!51 = !{!15, !18, i64 480}
-!52 = !{!15, !18, i64 488}
-!53 = !{!15, !16, i64 1312}
-!54 = !{!16, !16, i64 0}
-!55 = !{!15, !16, i64 1320}
-!56 = !{!15, !16, i64 992}
-!57 = !{!17, !17, i64 0}
-!58 = !{!15, !16, i64 1352}
-!59 = !{!15, !16, i64 1360}
-!60 = !{!15, !17, i64 224}
-!61 = !{!15, !16, i64 1392}
-!62 = !{!15, !5, i64 1992}
-!63 = !{!15, !5, i64 2000}
-!64 = !{!15, !17, i64 1920}
-!65 = !{!15, !18, i64 496}
-!66 = !{!15, !22, i64 1736}
-!67 = !{!15, !22, i64 1744}
-!68 = !{!15, !17, i64 2080}
-!69 = !{!15, !16, i64 1336}
-!70 = !{!15, !16, i64 1328}
-!71 = !{!15, !16, i64 1344}
-!72 = !{!15, !22, i64 1576}
-!73 = !{!15, !22, i64 2048}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!15, !17, i64 1400}
+!48 = !{!15, !21, i64 760}
+!49 = !{!15, !16, i64 1032}
+!50 = !{!15, !18, i64 448}
+!51 = !{!15, !18, i64 472}
+!52 = !{!15, !21, i64 784}
+!53 = !{!15, !18, i64 480}
+!54 = !{!15, !18, i64 488}
+!55 = !{!15, !16, i64 1312}
+!56 = !{!16, !16, i64 0}
+!57 = !{!15, !16, i64 1320}
+!58 = !{!15, !16, i64 992}
+!59 = distinct !{!59, !46}
+!60 = !{!17, !17, i64 0}
+!61 = !{!15, !16, i64 1352}
+!62 = !{!15, !16, i64 1360}
+!63 = !{!15, !17, i64 224}
+!64 = !{!15, !16, i64 1392}
+!65 = !{!15, !5, i64 1992}
+!66 = !{!15, !5, i64 2000}
+!67 = !{!15, !17, i64 1920}
+!68 = !{!15, !18, i64 496}
+!69 = !{!15, !22, i64 1736}
+!70 = !{!15, !22, i64 1744}
+!71 = !{!15, !17, i64 2080}
+!72 = !{!15, !16, i64 1336}
+!73 = !{!15, !16, i64 1328}
+!74 = !{!15, !16, i64 1344}
+!75 = !{!15, !22, i64 1576}
+!76 = !{!15, !22, i64 2048}
+!77 = distinct !{!77, !46}

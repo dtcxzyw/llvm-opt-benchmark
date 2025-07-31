@@ -838,7 +838,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u8(ptr noundef captures(none) %0, i8 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.pre.i.i
   store i64 %.pre-phi.i, ptr %8, align 8, !tbaa !13
   store i8 %1, ptr %27, align 1, !tbaa !27
-  br label %cbb_buffer_add_u.exit, !llvm.loop !30
+  br label %cbb_buffer_add_u.exit, !llvm.loop !31
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.preheader.i, %19, %16, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.preheader.i ]
@@ -1137,7 +1137,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr noundef captures(none) %0, i1
   %30 = lshr i16 %.01118.i, 8
   %.0.i = add nsw i64 %.019.i, -1
   %31 = icmp ult i64 %.0.i, 2
-  br i1 %31, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
+  br i1 %31, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !31
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]
@@ -1212,7 +1212,7 @@ define hidden range(i32 0, 2) i32 @CBB_add_u24(ptr noundef captures(none) %0, i3
   %30 = lshr i32 %.01118.i, 8
   %.0.i = add nsw i64 %.019.i, -1
   %31 = icmp ult i64 %.0.i, 3
-  br i1 %31, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
+  br i1 %31, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !31
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]
@@ -1385,7 +1385,7 @@ CBB_add_u8.exit:                                  ; preds = %.cbb_buffer_add.exi
 .preheader.backedge:                              ; preds = %65, %.thread61
   %.not20.be = phi i1 [ true, %65 ], [ false, %.thread61 ]
   %.01659.be = phi i64 [ %66, %65 ], [ %69, %.thread61 ]
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader, !llvm.loop !32
 
 .thread61:                                        ; preds = %.critedge.i.i.i.i33, %.cbb_buffer_add.exit_crit_edge.i.i25
   %.pre-phi.i.i28 = phi i64 [ %49, %.cbb_buffer_add.exit_crit_edge.i.i25 ], [ %.pre20.i.i35, %.critedge.i.i.i.i33 ]
@@ -1521,7 +1521,8 @@ attributes #16 = { nounwind allocsize(1) }
 !25 = !{!17, !12, i64 16}
 !26 = !{!17, !10, i64 25}
 !27 = !{!10, !10, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}

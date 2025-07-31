@@ -449,7 +449,7 @@ define ptr @EVP_MAC_settable_ctx_params(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_CTX_gettable_params(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
@@ -458,11 +458,11 @@ define ptr @EVP_MAC_CTX_gettable_params(ptr noundef readonly captures(none) %0) 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !tbaa !17
   %8 = tail call ptr @ossl_provider_ctx(ptr noundef %7) #4
-  %9 = load ptr, ptr %0, align 8, !tbaa !38
+  %9 = load ptr, ptr %0, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = tail call ptr %11(ptr noundef %13, ptr noundef %8) #4
   br label %15
 
@@ -473,7 +473,7 @@ define ptr @EVP_MAC_CTX_gettable_params(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_CTX_settable_params(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !38
+  %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = icmp eq ptr %4, null
@@ -482,11 +482,11 @@ define ptr @EVP_MAC_CTX_settable_params(ptr noundef readonly captures(none) %0) 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !tbaa !17
   %8 = tail call ptr @ossl_provider_ctx(ptr noundef %7) #4
-  %9 = load ptr, ptr %0, align 8, !tbaa !38
+  %9 = load ptr, ptr %0, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = tail call ptr %11(ptr noundef %13, ptr noundef %8) #4
   br label %15
 
@@ -571,9 +571,10 @@ attributes #4 = { nounwind }
 !33 = !{!13, !6, i64 120}
 !34 = !{!13, !6, i64 128}
 !35 = !{!13, !6, i64 136}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"evp_mac_ctx_st", !40, i64 0, !6, i64 8}
-!40 = !{!"p1 _ZTS10evp_mac_st", !6, i64 0}
-!41 = !{!39, !6, i64 8}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"evp_mac_ctx_st", !41, i64 0, !6, i64 8}
+!41 = !{!"p1 _ZTS10evp_mac_st", !6, i64 0}
+!42 = !{!40, !6, i64 8}

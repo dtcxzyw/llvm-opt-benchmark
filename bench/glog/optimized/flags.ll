@@ -852,7 +852,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %__cxx_global_var_in
 208:                                              ; preds = %206, %.preheader.i
   %.015.add.i.i = add nuw nsw i64 %.015.idx24.i.i, 8
   %.not.i.i36 = icmp eq i64 %.015.add.i.i, 16
-  br i1 %.not.i.i36, label %.loopexit.i, label %.preheader.i
+  br i1 %.not.i.i36, label %.loopexit.i, label %.preheader.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %208, %206, %__cxx_global_var_init.116.exit
   %209 = phi ptr [ %203, %__cxx_global_var_init.116.exit ], [ @.str.55, %208 ], [ %205, %206 ]
@@ -1334,3 +1334,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
 !24 = !{!11, !11, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}

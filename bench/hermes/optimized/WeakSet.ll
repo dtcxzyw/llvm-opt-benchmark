@@ -648,5 +648,6 @@ attributes #4 = { nounwind }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !15 = distinct !{!15, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!"llvm.loop.estimated_trip_count"}

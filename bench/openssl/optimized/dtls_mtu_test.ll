@@ -115,9 +115,9 @@ define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_le
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !6
+  store ptr null, ptr %1, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  store ptr null, ptr %2, align 8, !tbaa !6
+  store ptr null, ptr %2, align 8, !tbaa !7
   %3 = tail call ptr @DTLS_method() #7
   %4 = tail call ptr @SSL_CTX_new(ptr noundef %3) #7
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 201, ptr noundef nonnull @.str.3, ptr noundef %4) #7
@@ -143,9 +143,9 @@ define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_le
   br i1 %.not7, label %33, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %1, align 8, !tbaa !6
+  %17 = load ptr, ptr %1, align 8, !tbaa !7
   %18 = call i64 @SSL_set_options(ptr noundef %17, i64 noundef 4096) #7
-  %19 = load ptr, ptr %1, align 8, !tbaa !6
+  %19 = load ptr, ptr %1, align 8, !tbaa !7
   %20 = call i64 @SSL_ctrl(ptr noundef %19, i32 noundef 120, i64 noundef 1500, ptr noundef null) #7
   %21 = icmp ne i64 %20, 0
   %22 = zext i1 %21 to i32
@@ -154,10 +154,10 @@ define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_le
   br i1 %.not8, label %33, label %24
 
 24:                                               ; preds = %16
-  %25 = load ptr, ptr %2, align 8, !tbaa !6
+  %25 = load ptr, ptr %2, align 8, !tbaa !7
   %26 = call i32 @SSL_set_tlsext_max_fragment_length(ptr noundef %25, i8 noundef zeroext 1) #7
-  %27 = load ptr, ptr %1, align 8, !tbaa !6
-  %28 = load ptr, ptr %2, align 8, !tbaa !6
+  %27 = load ptr, ptr %1, align 8, !tbaa !7
+  %28 = load ptr, ptr %2, align 8, !tbaa !7
   %29 = call i32 @create_ssl_connection(ptr noundef %27, ptr noundef %28, i32 noundef 0) #7
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
@@ -168,9 +168,9 @@ define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_le
 
 33:                                               ; preds = %24, %16, %11, %6, %0
   %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %24 ]
-  %34 = load ptr, ptr %2, align 8, !tbaa !6
+  %34 = load ptr, ptr %2, align 8, !tbaa !7
   call void @SSL_free(ptr noundef %34) #7
-  %35 = load ptr, ptr %1, align 8, !tbaa !6
+  %35 = load ptr, ptr %1, align 8, !tbaa !7
   call void @SSL_free(ptr noundef %35) #7
   call void @SSL_CTX_free(ptr noundef %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
@@ -243,9 +243,9 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   %6 = alloca [30 x i64], align 16
   %7 = alloca [600 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !6
+  store ptr null, ptr %4, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store ptr null, ptr %5, align 8, !tbaa !6
+  store ptr null, ptr %5, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %7) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(600) %7, i8 90, i64 600, i1 false)
@@ -261,12 +261,12 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br i1 %.not51, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !6
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
   %15 = call i64 @SSL_set_options(ptr noundef %14, i64 noundef 524288) #7
   br label %16
 
 16:                                               ; preds = %13, %12
-  %17 = load ptr, ptr %4, align 8, !tbaa !6
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
   %18 = call i32 @SSL_set_cipher_list(ptr noundef %17, ptr noundef %1) #7
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -275,7 +275,7 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br i1 %.not52, label %.thread, label %22
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr %5, align 8, !tbaa !6
+  %23 = load ptr, ptr %5, align 8, !tbaa !7
   %24 = call i32 @SSL_set_cipher_list(ptr noundef %23, ptr noundef %1) #7
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -284,15 +284,15 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br i1 %.not53, label %.thread, label %28
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr %4, align 8, !tbaa !6
+  %29 = load ptr, ptr %4, align 8, !tbaa !7
   %30 = call ptr @SSL_get_rbio(ptr noundef %29) #7
   %31 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 72, ptr noundef nonnull @.str.16, ptr noundef %30) #7
   %.not54 = icmp eq i32 %31, 0
   br i1 %.not54, label %.thread, label %32
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr %5, align 8, !tbaa !6
-  %34 = load ptr, ptr %4, align 8, !tbaa !6
+  %33 = load ptr, ptr %5, align 8, !tbaa !7
+  %34 = load ptr, ptr %4, align 8, !tbaa !7
   %35 = call i32 @create_ssl_connection(ptr noundef %33, ptr noundef %34, i32 noundef 0) #7
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -303,17 +303,17 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 39:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %49, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %49, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %32, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %32 ]
-  %40 = load ptr, ptr %5, align 8, !tbaa !6
+  %40 = load ptr, ptr %5, align 8, !tbaa !7
   %41 = add nuw nsw i64 %indvars.iv, 500
   %42 = call i64 @SSL_ctrl(ptr noundef %40, i32 noundef 17, i64 noundef %41, ptr noundef null) #7
-  %43 = load ptr, ptr %5, align 8, !tbaa !6
+  %43 = load ptr, ptr %5, align 8, !tbaa !7
   %44 = call i64 @DTLS_get_data_mtu(ptr noundef %43) #7
   %45 = getelementptr inbounds nuw [30 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 %44, ptr %45, align 8, !tbaa !12
+  store i64 %44, ptr %45, align 8, !tbaa !13
   %46 = call i32 @test_size_t_ne(ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.8, i64 noundef %44, i64 noundef 0) #7
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %47, label %39
@@ -324,17 +324,17 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br label %.thread
 
 49:                                               ; preds = %39
-  %50 = load ptr, ptr %5, align 8, !tbaa !6
+  %50 = load ptr, ptr %5, align 8, !tbaa !7
   %51 = call i64 @SSL_ctrl(ptr noundef %50, i32 noundef 17, i64 noundef 1000, ptr noundef null) #7
-  %52 = load i64, ptr %6, align 16, !tbaa !12
+  %52 = load i64, ptr %6, align 16, !tbaa !13
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %54 = load i64, ptr %53, align 8, !tbaa !12
+  %54 = load i64, ptr %53, align 8, !tbaa !13
   %.not5681 = icmp ugt i64 %52, %54
   br i1 %.not5681, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %80
   %.04882 = phi i64 [ %81, %80 ], [ %52, %49 ]
-  %55 = load ptr, ptr %5, align 8, !tbaa !6
+  %55 = load ptr, ptr %5, align 8, !tbaa !7
   %56 = trunc i64 %.04882 to i32
   %57 = call i32 @SSL_write(ptr noundef %55, ptr noundef nonnull %7, i32 noundef %56) #7
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 105, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %57, i32 noundef %56) #7
@@ -349,12 +349,12 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 62:                                               ; preds = %73
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 30
-  br i1 %exitcond100.not, label %80, label %63, !llvm.loop !14
+  br i1 %exitcond100.not, label %80, label %63, !llvm.loop !15
 
 63:                                               ; preds = %59, %62
   %indvars.iv97 = phi i64 [ 0, %59 ], [ %indvars.iv.next98, %62 ]
   %64 = getelementptr inbounds nuw [30 x i64], ptr %6, i64 0, i64 %indvars.iv97
-  %65 = load i64, ptr %64, align 8, !tbaa !12
+  %65 = load i64, ptr %64, align 8, !tbaa !13
   %.not60 = icmp ule i64 %.04882, %65
   %66 = add nuw nsw i64 %indvars.iv97, 500
   %67 = icmp samesign ult i64 %66, %61
@@ -388,15 +388,15 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 80:                                               ; preds = %62
   %81 = add i64 %.04882, 1
   %.not56 = icmp ugt i64 %81, %54
-  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %80, %49
-  %82 = load ptr, ptr %5, align 8, !tbaa !6
+  %82 = load ptr, ptr %5, align 8, !tbaa !7
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %._crit_edge
-  %85 = load i32, ptr %82, align 8, !tbaa !16
+  %85 = load i32, ptr %82, align 8, !tbaa !17
   %86 = icmp eq i32 %85, 0
   %87 = select i1 %86, ptr %82, ptr null
   br label %88
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 352
-  %93 = load i64, ptr %92, align 8, !tbaa !25
+  %93 = load i64, ptr %92, align 8, !tbaa !26
   %94 = and i64 %93, 256
   %.not58 = icmp eq i64 %94, 0
   %spec.store.select = select i1 %.not58, i32 1, i32 2
@@ -417,9 +417,9 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %.lr.ph, %70, %77, %88, %16, %22, %28, %32, %3, %91, %47
   %.047 = phi i32 [ 0, %47 ], [ %spec.store.select, %91 ], [ 0, %88 ], [ 0, %32 ], [ 0, %28 ], [ 0, %22 ], [ 0, %16 ], [ 0, %3 ], [ 0, %77 ], [ 0, %70 ], [ 0, %.lr.ph ]
-  %95 = load ptr, ptr %5, align 8, !tbaa !6
+  %95 = load ptr, ptr %5, align 8, !tbaa !7
   call void @SSL_free(ptr noundef %95) #7
-  %96 = load ptr, ptr %4, align 8, !tbaa !6
+  %96 = load ptr, ptr %4, align 8, !tbaa !7
   call void @SSL_free(ptr noundef %96) #7
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #7
@@ -491,77 +491,78 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS6ssl_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !5}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !9, i64 0}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"ssl_st", !18, i64 0, !19, i64 8, !20, i64 16, !20, i64 24, !21, i64 32, !8, i64 40, !22, i64 48}
-!18 = !{!"int", !9, i64 0}
-!19 = !{!"p1 _ZTS10ssl_ctx_st", !8, i64 0}
-!20 = !{!"p1 _ZTS13ssl_method_st", !8, i64 0}
-!21 = !{!"", !9, i64 0}
-!22 = !{!"crypto_ex_data_st", !23, i64 0, !24, i64 8}
-!23 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!24 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
-!25 = !{!26, !13, i64 352}
-!26 = !{!"ssl_connection_st", !17, i64 0, !7, i64 64, !18, i64 72, !27, i64 80, !27, i64 88, !27, i64 96, !18, i64 104, !8, i64 112, !18, i64 120, !18, i64 124, !18, i64 128, !18, i64 132, !28, i64 136, !28, i64 144, !29, i64 152, !18, i64 240, !30, i64 248, !8, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !31, i64 288, !8, i64 336, !32, i64 344, !33, i64 352, !48, i64 1264, !8, i64 1272, !8, i64 1280, !18, i64 1288, !49, i64 1296, !50, i64 1304, !56, i64 1368, !56, i64 1376, !56, i64 1384, !56, i64 1392, !18, i64 1400, !9, i64 1404, !9, i64 1468, !9, i64 1532, !9, i64 1596, !9, i64 1660, !9, i64 1724, !9, i64 1788, !9, i64 1852, !9, i64 1916, !9, i64 1980, !9, i64 2044, !9, i64 2108, !57, i64 2176, !9, i64 2184, !13, i64 2248, !18, i64 2256, !13, i64 2264, !9, i64 2272, !58, i64 2304, !58, i64 2312, !38, i64 2320, !13, i64 2328, !8, i64 2336, !9, i64 2344, !13, i64 2376, !18, i64 2384, !8, i64 2392, !8, i64 2400, !18, i64 2408, !18, i64 2412, !8, i64 2416, !8, i64 2424, !8, i64 2432, !8, i64 2440, !53, i64 2448, !13, i64 2456, !39, i64 2464, !39, i64 2472, !13, i64 2480, !18, i64 2488, !18, i64 2492, !18, i64 2496, !13, i64 2504, !18, i64 2512, !18, i64 2516, !13, i64 2520, !13, i64 2528, !13, i64 2536, !59, i64 2544, !8, i64 2904, !18, i64 2912, !8, i64 2920, !8, i64 2928, !65, i64 2936, !18, i64 2944, !19, i64 2952, !66, i64 2960, !67, i64 2968, !18, i64 2976, !18, i64 2980, !18, i64 2984, !18, i64 2988, !38, i64 2992, !13, i64 3000, !18, i64 3008, !34, i64 3016, !68, i64 3024, !8, i64 3152, !70, i64 3160, !8, i64 5400, !8, i64 5408, !75, i64 5416, !76, i64 5424, !13, i64 5432, !18, i64 5440, !18, i64 5444, !18, i64 5448, !13, i64 5456, !13, i64 5464, !13, i64 5472, !8, i64 5480, !8, i64 5488, !8, i64 5496, !8, i64 5504, !77, i64 5512, !13, i64 5520, !38, i64 5528, !13, i64 5536, !38, i64 5544, !13, i64 5552}
-!27 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!28 = !{!"", !13, i64 0}
-!29 = !{!"ossl_statem_st", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !18, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !18, i64 80}
-!30 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
-!31 = !{!"ossl_quic_tls_callbacks_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
-!32 = !{!"p1 _ZTS11quic_tls_st", !8, i64 0}
-!33 = !{!"", !13, i64 0, !9, i64 8, !9, i64 40, !27, i64 72, !34, i64 80, !18, i64 88, !18, i64 92, !18, i64 96, !18, i64 100, !9, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !35, i64 128, !9, i64 704, !13, i64 768, !9, i64 776, !13, i64 840, !18, i64 848, !18, i64 852, !38, i64 856, !13, i64 864, !38, i64 872, !13, i64 880, !18, i64 888, !9, i64 892, !9, i64 893, !47, i64 894, !37, i64 896, !47, i64 904}
-!34 = !{!"p1 _ZTS13evp_md_ctx_st", !8, i64 0}
-!35 = !{!"", !9, i64 0, !13, i64 128, !9, i64 136, !13, i64 264, !13, i64 272, !18, i64 280, !36, i64 288, !37, i64 296, !9, i64 304, !9, i64 336, !13, i64 344, !18, i64 352, !38, i64 360, !13, i64 368, !39, i64 376, !13, i64 384, !38, i64 392, !40, i64 400, !41, i64 408, !18, i64 416, !13, i64 424, !42, i64 432, !18, i64 440, !38, i64 448, !13, i64 456, !38, i64 464, !13, i64 472, !38, i64 480, !13, i64 488, !43, i64 496, !44, i64 504, !45, i64 512, !45, i64 520, !13, i64 528, !13, i64 536, !43, i64 544, !46, i64 552, !18, i64 560, !18, i64 564, !18, i64 568, !18, i64 572}
-!36 = !{!"p1 _ZTS13ssl_cipher_st", !8, i64 0}
-!37 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
-!38 = !{!"p1 omnipotent char", !8, i64 0}
-!39 = !{!"p1 _ZTS18stack_st_X509_NAME", !8, i64 0}
-!40 = !{!"p1 _ZTS13evp_cipher_st", !8, i64 0}
-!41 = !{!"p1 _ZTS9evp_md_st", !8, i64 0}
-!42 = !{!"p1 _ZTS11ssl_comp_st", !8, i64 0}
-!43 = !{!"p1 _ZTS16sigalg_lookup_st", !8, i64 0}
-!44 = !{!"p1 _ZTS12cert_pkey_st", !8, i64 0}
-!45 = !{!"p1 short", !8, i64 0}
-!46 = !{!"p1 int", !8, i64 0}
-!47 = !{!"short", !9, i64 0}
-!48 = !{!"p1 _ZTS14dtls1_state_st", !8, i64 0}
-!49 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !8, i64 0}
-!50 = !{!"ssl_dane_st", !51, i64 0, !52, i64 8, !53, i64 16, !54, i64 24, !55, i64 32, !18, i64 40, !18, i64 44, !18, i64 48, !13, i64 56}
-!51 = !{!"p1 _ZTS11dane_ctx_st", !8, i64 0}
-!52 = !{!"p1 _ZTS23stack_st_danetls_record", !8, i64 0}
-!53 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
-!54 = !{!"p1 _ZTS17danetls_record_st", !8, i64 0}
-!55 = !{!"p1 _ZTS7x509_st", !8, i64 0}
-!56 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !8, i64 0}
-!57 = !{!"p1 _ZTS7cert_st", !8, i64 0}
-!58 = !{!"p1 _ZTS14ssl_session_st", !8, i64 0}
-!59 = !{!"", !9, i64 0, !8, i64 32, !8, i64 40, !38, i64 48, !18, i64 56, !38, i64 64, !47, i64 72, !18, i64 76, !60, i64 80, !18, i64 112, !18, i64 116, !13, i64 120, !38, i64 128, !13, i64 136, !38, i64 144, !13, i64 152, !45, i64 160, !13, i64 168, !45, i64 176, !13, i64 184, !45, i64 192, !13, i64 200, !63, i64 208, !64, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !38, i64 256, !13, i64 264, !38, i64 272, !13, i64 280, !18, i64 288, !18, i64 292, !18, i64 296, !18, i64 300, !38, i64 304, !13, i64 312, !18, i64 320, !9, i64 324, !18, i64 328, !9, i64 332, !18, i64 348, !9, i64 352, !9, i64 353, !9, i64 354, !9, i64 355}
-!60 = !{!"", !61, i64 0, !62, i64 8, !38, i64 16, !13, i64 24}
-!61 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !8, i64 0}
-!62 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
-!63 = !{!"p1 long", !8, i64 0}
-!64 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !8, i64 0}
-!65 = !{!"p1 _ZTS12stack_st_SCT", !8, i64 0}
-!66 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !8, i64 0}
-!67 = !{!"p1 _ZTS26srtp_protection_profile_st", !8, i64 0}
-!68 = !{!"srp_ctx_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !38, i64 32, !69, i64 40, !69, i64 48, !69, i64 56, !69, i64 64, !69, i64 72, !69, i64 80, !69, i64 88, !69, i64 96, !38, i64 104, !18, i64 112, !13, i64 120}
-!69 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
-!70 = !{!"record_layer_st", !71, i64 0, !72, i64 8, !8, i64 16, !72, i64 24, !72, i64 32, !73, i64 40, !73, i64 48, !27, i64 56, !13, i64 64, !18, i64 72, !13, i64 80, !9, i64 88, !13, i64 96, !13, i64 104, !9, i64 112, !38, i64 120, !18, i64 128, !74, i64 136, !8, i64 144, !8, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !9, i64 192}
-!71 = !{!"p1 _ZTS17ssl_connection_st", !8, i64 0}
-!72 = !{!"p1 _ZTS21ossl_record_method_st", !8, i64 0}
-!73 = !{!"p1 _ZTS20ossl_record_layer_st", !8, i64 0}
-!74 = !{!"p1 _ZTS20dtls_record_layer_st", !8, i64 0}
-!75 = !{!"p1 _ZTS12async_job_st", !8, i64 0}
-!76 = !{!"p1 _ZTS17async_wait_ctx_st", !8, i64 0}
-!77 = !{!"p2 _ZTS16sigalg_lookup_st", !8, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = distinct !{!12, !5, !6}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !10, i64 0}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"ssl_st", !19, i64 0, !20, i64 8, !21, i64 16, !21, i64 24, !22, i64 32, !9, i64 40, !23, i64 48}
+!19 = !{!"int", !10, i64 0}
+!20 = !{!"p1 _ZTS10ssl_ctx_st", !9, i64 0}
+!21 = !{!"p1 _ZTS13ssl_method_st", !9, i64 0}
+!22 = !{!"", !10, i64 0}
+!23 = !{!"crypto_ex_data_st", !24, i64 0, !25, i64 8}
+!24 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!25 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
+!26 = !{!27, !14, i64 352}
+!27 = !{!"ssl_connection_st", !18, i64 0, !8, i64 64, !19, i64 72, !28, i64 80, !28, i64 88, !28, i64 96, !19, i64 104, !9, i64 112, !19, i64 120, !19, i64 124, !19, i64 128, !19, i64 132, !29, i64 136, !29, i64 144, !30, i64 152, !19, i64 240, !31, i64 248, !9, i64 256, !14, i64 264, !14, i64 272, !14, i64 280, !32, i64 288, !9, i64 336, !33, i64 344, !34, i64 352, !49, i64 1264, !9, i64 1272, !9, i64 1280, !19, i64 1288, !50, i64 1296, !51, i64 1304, !57, i64 1368, !57, i64 1376, !57, i64 1384, !57, i64 1392, !19, i64 1400, !10, i64 1404, !10, i64 1468, !10, i64 1532, !10, i64 1596, !10, i64 1660, !10, i64 1724, !10, i64 1788, !10, i64 1852, !10, i64 1916, !10, i64 1980, !10, i64 2044, !10, i64 2108, !58, i64 2176, !10, i64 2184, !14, i64 2248, !19, i64 2256, !14, i64 2264, !10, i64 2272, !59, i64 2304, !59, i64 2312, !39, i64 2320, !14, i64 2328, !9, i64 2336, !10, i64 2344, !14, i64 2376, !19, i64 2384, !9, i64 2392, !9, i64 2400, !19, i64 2408, !19, i64 2412, !9, i64 2416, !9, i64 2424, !9, i64 2432, !9, i64 2440, !54, i64 2448, !14, i64 2456, !40, i64 2464, !40, i64 2472, !14, i64 2480, !19, i64 2488, !19, i64 2492, !19, i64 2496, !14, i64 2504, !19, i64 2512, !19, i64 2516, !14, i64 2520, !14, i64 2528, !14, i64 2536, !60, i64 2544, !9, i64 2904, !19, i64 2912, !9, i64 2920, !9, i64 2928, !66, i64 2936, !19, i64 2944, !20, i64 2952, !67, i64 2960, !68, i64 2968, !19, i64 2976, !19, i64 2980, !19, i64 2984, !19, i64 2988, !39, i64 2992, !14, i64 3000, !19, i64 3008, !35, i64 3016, !69, i64 3024, !9, i64 3152, !71, i64 3160, !9, i64 5400, !9, i64 5408, !76, i64 5416, !77, i64 5424, !14, i64 5432, !19, i64 5440, !19, i64 5444, !19, i64 5448, !14, i64 5456, !14, i64 5464, !14, i64 5472, !9, i64 5480, !9, i64 5488, !9, i64 5496, !9, i64 5504, !78, i64 5512, !14, i64 5520, !39, i64 5528, !14, i64 5536, !39, i64 5544, !14, i64 5552}
+!28 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!29 = !{!"", !14, i64 0}
+!30 = !{!"ossl_statem_st", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !19, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !19, i64 80}
+!31 = !{!"p1 _ZTS10buf_mem_st", !9, i64 0}
+!32 = !{!"ossl_quic_tls_callbacks_st", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!33 = !{!"p1 _ZTS11quic_tls_st", !9, i64 0}
+!34 = !{!"", !14, i64 0, !10, i64 8, !10, i64 40, !28, i64 72, !35, i64 80, !19, i64 88, !19, i64 92, !19, i64 96, !19, i64 100, !10, i64 104, !19, i64 108, !19, i64 112, !19, i64 116, !19, i64 120, !36, i64 128, !10, i64 704, !14, i64 768, !10, i64 776, !14, i64 840, !19, i64 848, !19, i64 852, !39, i64 856, !14, i64 864, !39, i64 872, !14, i64 880, !19, i64 888, !10, i64 892, !10, i64 893, !48, i64 894, !38, i64 896, !48, i64 904}
+!35 = !{!"p1 _ZTS13evp_md_ctx_st", !9, i64 0}
+!36 = !{!"", !10, i64 0, !14, i64 128, !10, i64 136, !14, i64 264, !14, i64 272, !19, i64 280, !37, i64 288, !38, i64 296, !10, i64 304, !10, i64 336, !14, i64 344, !19, i64 352, !39, i64 360, !14, i64 368, !40, i64 376, !14, i64 384, !39, i64 392, !41, i64 400, !42, i64 408, !19, i64 416, !14, i64 424, !43, i64 432, !19, i64 440, !39, i64 448, !14, i64 456, !39, i64 464, !14, i64 472, !39, i64 480, !14, i64 488, !44, i64 496, !45, i64 504, !46, i64 512, !46, i64 520, !14, i64 528, !14, i64 536, !44, i64 544, !47, i64 552, !19, i64 560, !19, i64 564, !19, i64 568, !19, i64 572}
+!37 = !{!"p1 _ZTS13ssl_cipher_st", !9, i64 0}
+!38 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!39 = !{!"p1 omnipotent char", !9, i64 0}
+!40 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
+!41 = !{!"p1 _ZTS13evp_cipher_st", !9, i64 0}
+!42 = !{!"p1 _ZTS9evp_md_st", !9, i64 0}
+!43 = !{!"p1 _ZTS11ssl_comp_st", !9, i64 0}
+!44 = !{!"p1 _ZTS16sigalg_lookup_st", !9, i64 0}
+!45 = !{!"p1 _ZTS12cert_pkey_st", !9, i64 0}
+!46 = !{!"p1 short", !9, i64 0}
+!47 = !{!"p1 int", !9, i64 0}
+!48 = !{!"short", !10, i64 0}
+!49 = !{!"p1 _ZTS14dtls1_state_st", !9, i64 0}
+!50 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!51 = !{!"ssl_dane_st", !52, i64 0, !53, i64 8, !54, i64 16, !55, i64 24, !56, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !14, i64 56}
+!52 = !{!"p1 _ZTS11dane_ctx_st", !9, i64 0}
+!53 = !{!"p1 _ZTS23stack_st_danetls_record", !9, i64 0}
+!54 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!55 = !{!"p1 _ZTS17danetls_record_st", !9, i64 0}
+!56 = !{!"p1 _ZTS7x509_st", !9, i64 0}
+!57 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
+!58 = !{!"p1 _ZTS7cert_st", !9, i64 0}
+!59 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
+!60 = !{!"", !10, i64 0, !9, i64 32, !9, i64 40, !39, i64 48, !19, i64 56, !39, i64 64, !48, i64 72, !19, i64 76, !61, i64 80, !19, i64 112, !19, i64 116, !14, i64 120, !39, i64 128, !14, i64 136, !39, i64 144, !14, i64 152, !46, i64 160, !14, i64 168, !46, i64 176, !14, i64 184, !46, i64 192, !14, i64 200, !64, i64 208, !65, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !39, i64 256, !14, i64 264, !39, i64 272, !14, i64 280, !19, i64 288, !19, i64 292, !19, i64 296, !19, i64 300, !39, i64 304, !14, i64 312, !19, i64 320, !10, i64 324, !19, i64 328, !10, i64 332, !19, i64 348, !10, i64 352, !10, i64 353, !10, i64 354, !10, i64 355}
+!61 = !{!"", !62, i64 0, !63, i64 8, !39, i64 16, !14, i64 24}
+!62 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !9, i64 0}
+!63 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
+!64 = !{!"p1 long", !9, i64 0}
+!65 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !9, i64 0}
+!66 = !{!"p1 _ZTS12stack_st_SCT", !9, i64 0}
+!67 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !9, i64 0}
+!68 = !{!"p1 _ZTS26srtp_protection_profile_st", !9, i64 0}
+!69 = !{!"srp_ctx_st", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !39, i64 32, !70, i64 40, !70, i64 48, !70, i64 56, !70, i64 64, !70, i64 72, !70, i64 80, !70, i64 88, !70, i64 96, !39, i64 104, !19, i64 112, !14, i64 120}
+!70 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!71 = !{!"record_layer_st", !72, i64 0, !73, i64 8, !9, i64 16, !73, i64 24, !73, i64 32, !74, i64 40, !74, i64 48, !28, i64 56, !14, i64 64, !19, i64 72, !14, i64 80, !10, i64 88, !14, i64 96, !14, i64 104, !10, i64 112, !39, i64 120, !19, i64 128, !75, i64 136, !9, i64 144, !9, i64 152, !14, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !10, i64 192}
+!72 = !{!"p1 _ZTS17ssl_connection_st", !9, i64 0}
+!73 = !{!"p1 _ZTS21ossl_record_method_st", !9, i64 0}
+!74 = !{!"p1 _ZTS20ossl_record_layer_st", !9, i64 0}
+!75 = !{!"p1 _ZTS20dtls_record_layer_st", !9, i64 0}
+!76 = !{!"p1 _ZTS12async_job_st", !9, i64 0}
+!77 = !{!"p1 _ZTS17async_wait_ctx_st", !9, i64 0}
+!78 = !{!"p2 _ZTS16sigalg_lookup_st", !9, i64 0}

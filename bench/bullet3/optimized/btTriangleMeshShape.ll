@@ -285,31 +285,31 @@ define dso_local void @_ZNK19btTriangleMeshShape7getAabbERK11btTransformR9btVect
   %47 = fmul float %40, 5.000000e-01
   %48 = fmul float %43, 5.000000e-01
   %49 = fmul float %46, 5.000000e-01
-  %50 = load float, ptr %1, align 4, !tbaa !18, !noalias !23
+  %50 = load float, ptr %1, align 4, !tbaa !18, !noalias !24
   %51 = tail call noundef float @llvm.fabs.f32(float %50)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %53 = load float, ptr %52, align 4, !tbaa !18, !noalias !23
+  %53 = load float, ptr %52, align 4, !tbaa !18, !noalias !24
   %54 = tail call noundef float @llvm.fabs.f32(float %53)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = load float, ptr %55, align 4, !tbaa !18, !noalias !23
+  %56 = load float, ptr %55, align 4, !tbaa !18, !noalias !24
   %57 = tail call noundef float @llvm.fabs.f32(float %56)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %59 = load float, ptr %58, align 4, !tbaa !18, !noalias !23
+  %59 = load float, ptr %58, align 4, !tbaa !18, !noalias !24
   %60 = tail call noundef float @llvm.fabs.f32(float %59)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %62 = load float, ptr %61, align 4, !tbaa !18, !noalias !23
+  %62 = load float, ptr %61, align 4, !tbaa !18, !noalias !24
   %63 = tail call noundef float @llvm.fabs.f32(float %62)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %65 = load float, ptr %64, align 4, !tbaa !18, !noalias !23
+  %65 = load float, ptr %64, align 4, !tbaa !18, !noalias !24
   %66 = tail call noundef float @llvm.fabs.f32(float %65)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %68 = load float, ptr %67, align 4, !tbaa !18, !noalias !23
+  %68 = load float, ptr %67, align 4, !tbaa !18, !noalias !24
   %69 = tail call noundef float @llvm.fabs.f32(float %68)
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %71 = load float, ptr %70, align 4, !tbaa !18, !noalias !23
+  %71 = load float, ptr %70, align 4, !tbaa !18, !noalias !24
   %72 = tail call noundef float @llvm.fabs.f32(float %71)
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %74 = load float, ptr %73, align 4, !tbaa !18, !noalias !23
+  %74 = load float, ptr %73, align 4, !tbaa !18, !noalias !24
   %75 = tail call noundef float @llvm.fabs.f32(float %74)
   %76 = fmul float %48, %53
   %77 = tail call float @llvm.fmuladd.f32(float %47, float %50, float %76)
@@ -375,7 +375,7 @@ define dso_local void @_ZN19btTriangleMeshShape15setLocalScalingERK9btVector3(pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !27
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -441,11 +441,11 @@ define dso_local void @_ZNK19btTriangleMeshShape19processAllTrianglesEP18btTrian
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #15
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback, i64 16), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !27
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !7
   %11 = load ptr, ptr %10, align 8, !tbaa !4
@@ -502,7 +502,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK19btTriangleMeshShape24localG
   %.sroa.11.32..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 0, ptr %.sroa.11.32..sroa_idx, align 4, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store float 0xC3ABC16D60000000, ptr %10, align 8, !tbaa !31
+  store float 0xC3ABC16D60000000, ptr %10, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %12 = load float, ptr %1, align 4, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -729,7 +729,7 @@ _Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit: ; preds = %51
 
 74:                                               ; preds = %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !27
+  %76 = load ptr, ptr %75, align 8, !tbaa !28
   %77 = load ptr, ptr %76, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
@@ -759,7 +759,7 @@ define linkonce_odr dso_local void @_ZN21SupportVertexCallback15processTriangleE
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %10 = load float, ptr %9, align 4, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.promoted = load float, ptr %11, align 8, !tbaa !31
+  %.promoted = load float, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
@@ -782,15 +782,15 @@ define linkonce_odr dso_local void @_ZN21SupportVertexCallback15processTriangleE
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %14
-  store float %24, ptr %11, align 8, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !26
+  store float %24, ptr %11, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !27
   br label %27
 
 27:                                               ; preds = %26, %14
   %28 = phi float [ %24, %26 ], [ %15, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %13, label %14, !llvm.loop !36
+  br i1 %exitcond.not, label %13, label %14, !llvm.loop !37
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -838,19 +838,20 @@ attributes #17 = { builtin nounwind }
 !18 = !{!14, !14, i64 0}
 !19 = !{!9, !14, i64 32}
 !20 = !{!12, !12, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK11btMatrix3x38absoluteEv"}
-!26 = !{i64 0, i64 16, !20}
-!27 = !{!28, !30, i64 8}
-!28 = !{!"_ZTSZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback", !29, i64 0, !30, i64 8, !15, i64 16, !15, i64 32}
-!29 = !{!"_ZTS31btInternalTriangleIndexCallback"}
-!30 = !{!"p1 _ZTS18btTriangleCallback", !13, i64 0}
-!31 = !{!32, !14, i64 88}
-!32 = !{!"_ZTS21SupportVertexCallback", !33, i64 0, !15, i64 8, !34, i64 24, !14, i64 88, !15, i64 92}
-!33 = !{!"_ZTS18btTriangleCallback"}
-!34 = !{!"_ZTS11btTransform", !35, i64 0, !15, i64 48}
-!35 = !{!"_ZTS11btMatrix3x3", !12, i64 0}
-!36 = distinct !{!36, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK11btMatrix3x38absoluteEv"}
+!27 = !{i64 0, i64 16, !20}
+!28 = !{!29, !31, i64 8}
+!29 = !{!"_ZTSZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback", !30, i64 0, !31, i64 8, !15, i64 16, !15, i64 32}
+!30 = !{!"_ZTS31btInternalTriangleIndexCallback"}
+!31 = !{!"p1 _ZTS18btTriangleCallback", !13, i64 0}
+!32 = !{!33, !14, i64 88}
+!33 = !{!"_ZTS21SupportVertexCallback", !34, i64 0, !15, i64 8, !35, i64 24, !14, i64 88, !15, i64 92}
+!34 = !{!"_ZTS18btTriangleCallback"}
+!35 = !{!"_ZTS11btTransform", !36, i64 0, !15, i64 48}
+!36 = !{!"_ZTS11btMatrix3x3", !12, i64 0}
+!37 = distinct !{!37, !22, !23}

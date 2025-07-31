@@ -312,7 +312,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.031.be = phi ptr [ %.0, %21 ], [ %50, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !14
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -547,7 +547,7 @@ define ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1(ptr noundef %0, ptr nound
 
 lean_dec.exit1235:                                ; preds = %20, %19, %17, %7
   %21 = getelementptr i8, ptr %11, i64 8
-  %.val1349 = load i64, ptr %21, align 8, !tbaa !14
+  %.val1349 = load i64, ptr %21, align 8, !tbaa !16
   %22 = ptrtoint ptr %11 to i64
   %23 = and i64 %22, 1
   %.not1921 = icmp eq i64 %23, 0
@@ -574,7 +574,7 @@ lean_dec.exit1235:                                ; preds = %20, %19, %17, %7
 lean_nat_lt.exit:                                 ; preds = %lean_dec.exit1235, %26, %28, %29
   %30 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3(i64 noundef %.val1349, i64 noundef 0, ptr noundef nonnull %11)
   %31 = getelementptr i8, ptr %30, i64 8
-  %.val1350 = load i64, ptr %31, align 8, !tbaa !14
+  %.val1350 = load i64, ptr %31, align 8, !tbaa !16
   %.mask = and i64 %.val1350, 9223372036854775807
   %.not1922 = icmp eq i64 %.mask, 0
   %32 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %6) #6
@@ -7623,7 +7623,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %4, align 8, !tbaa !14
+  %.val = load i64, ptr %4, align 8, !tbaa !16
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -7649,7 +7649,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3__
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %14, align 8, !tbaa !14
+  %.val10 = load i64, ptr %14, align 8, !tbaa !16
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -7681,7 +7681,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val15 = load i64, ptr %5, align 8, !tbaa !14
+  %.val15 = load i64, ptr %5, align 8, !tbaa !16
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -7707,7 +7707,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !14
+  %.val = load i64, ptr %15, align 8, !tbaa !16
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not17 = icmp eq i64 %17, 0
@@ -8943,5 +8943,7 @@ attributes #7 = { noreturn nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !6, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}

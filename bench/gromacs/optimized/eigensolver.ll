@@ -419,7 +419,7 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
 
 .backedge:                                        ; preds = %59, %59
   %61 = add nuw nsw i32 %.016, 1
-  br label %43
+  br label %43, !llvm.loop !29
 
 .critedge:                                        ; preds = %59, %50
   %62 = load ptr, ptr @stderr, align 8, !tbaa !27
@@ -606,3 +606,5 @@ attributes #19 = { cold }
 !26 = !{!"any p2 pointer", !12, i64 0}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.estimated_trip_count"}

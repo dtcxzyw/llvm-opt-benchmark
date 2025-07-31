@@ -87,7 +87,7 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
   %43 = lshr i128 %37, 64
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 7
-  br i1 %exitcond55.not, label %44, label %28, !llvm.loop !9
+  br i1 %exitcond55.not, label %44, label %28, !llvm.loop !10
 
 44:                                               ; preds = %42
   %45 = load i64, ptr %5, align 8, !tbaa !3
@@ -101,7 +101,7 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
   %52 = trunc nuw nsw i128 %51 to i64
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 7
-  br i1 %exitcond59.not, label %.preheader, label %7, !llvm.loop !10
+  br i1 %exitcond59.not, label %.preheader, label %7, !llvm.loop !11
 
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %44 ]
@@ -120,7 +120,7 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
   %63 = ashr i128 %60, 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %64, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %64, label %.preheader, !llvm.loop !12
 
 64:                                               ; preds = %.preheader
   %65 = trunc nsw i128 %63 to i64
@@ -144,7 +144,7 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
   %78 = lshr i128 %76, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %67, !llvm.loop !12
+  br i1 %exitcond9.not.i, label %sc_subx.exit, label %67, !llvm.loop !13
 
 sc_subx.exit:                                     ; preds = %67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
@@ -172,7 +172,7 @@ define void @ossl_curve448_scalar_sub(ptr noundef captures(none) %0, ptr noundef
   %15 = ashr i128 %12, 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %16, label %4, !llvm.loop !11
+  br i1 %exitcond.not.i, label %16, label %4, !llvm.loop !12
 
 16:                                               ; preds = %4
   %17 = trunc nsw i128 %15 to i64
@@ -195,7 +195,7 @@ define void @ossl_curve448_scalar_sub(ptr noundef captures(none) %0, ptr noundef
   %29 = lshr i128 %27, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %18, !llvm.loop !12
+  br i1 %exitcond9.not.i, label %sc_subx.exit, label %18, !llvm.loop !13
 
 sc_subx.exit:                                     ; preds = %18
   ret void
@@ -222,7 +222,7 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
   %15 = lshr i128 %12, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !14
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %4 ]
@@ -240,7 +240,7 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
   %25 = ashr i128 %23, 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %26, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %26, label %.preheader, !llvm.loop !12
 
 26:                                               ; preds = %.preheader
   %27 = trunc nuw nsw i128 %15 to i64
@@ -265,7 +265,7 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
   %41 = lshr i128 %39, 64
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 7
-  br i1 %exitcond9.not.i, label %sc_subx.exit, label %30, !llvm.loop !12
+  br i1 %exitcond9.not.i, label %sc_subx.exit, label %30, !llvm.loop !13
 
 sc_subx.exit:                                     ; preds = %30
   ret void
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr noundef captures(no
   %.117.i = phi i64 [ %11, %.lr.ph.i ], [ %.01321.i, %.preheader.i ]
   %.01416.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.117.i
-  %5 = load i8, ptr %4, align 1, !tbaa !14
+  %5 = load i8, ptr %4, align 1, !tbaa !15
   %6 = zext i8 %5 to i64
   %7 = shl nuw nsw i64 %.01416.i, 3
   %8 = shl nuw i64 %6, %7
@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr noundef captures(no
   %12 = icmp samesign ult i64 %.01416.i, 7
   %13 = icmp samesign ult i64 %.117.i, 55
   %14 = and i1 %13, %12
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i64 [ %.01321.i, %.preheader.i ], [ %11, %.lr.ph.i ]
@@ -311,7 +311,7 @@ define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr noundef captures(no
   store i64 %.0.lcssa.i, ptr %15, align 8, !tbaa !3
   %16 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %16, 7
-  br i1 %exitcond.not.i, label %scalar_decode_short.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %scalar_decode_short.exit, label %.preheader.i, !llvm.loop !17
 
 scalar_decode_short.exit:                         ; preds = %._crit_edge.i, %scalar_decode_short.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %scalar_decode_short.exit ], [ 0, %._crit_edge.i ]
@@ -327,7 +327,7 @@ scalar_decode_short.exit:                         ; preds = %._crit_edge.i, %sca
   %25 = ashr i128 %24, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %26, label %scalar_decode_short.exit, !llvm.loop !17
+  br i1 %exitcond.not, label %26, label %scalar_decode_short.exit, !llvm.loop !18
 
 26:                                               ; preds = %scalar_decode_short.exit
   tail call fastcc void @sc_montmul(ptr noundef nonnull %0, ptr noundef nonnull readonly %0, ptr noundef nonnull @ossl_curve448_scalar_one)
@@ -380,7 +380,7 @@ define void @ossl_curve448_scalar_decode_long(ptr noundef captures(none) %0, ptr
   %.117.i = phi i64 [ %23, %.lr.ph.i ], [ %.01321.i, %.preheader.i ]
   %.01416.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.preheader.i ]
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.117.i
-  %17 = load i8, ptr %16, align 1, !tbaa !14
+  %17 = load i8, ptr %16, align 1, !tbaa !15
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %.01416.i, 3
   %20 = shl nuw i64 %18, %19
@@ -390,7 +390,7 @@ define void @ossl_curve448_scalar_decode_long(ptr noundef captures(none) %0, ptr
   %24 = icmp samesign ult i64 %.01416.i, 7
   %25 = icmp ult i64 %23, %14
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i64 [ %.01321.i, %.preheader.i ], [ %23, %.lr.ph.i ]
@@ -399,7 +399,7 @@ define void @ossl_curve448_scalar_decode_long(ptr noundef captures(none) %0, ptr
   store i64 %.0.lcssa.i, ptr %27, align 8, !tbaa !3
   %28 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %28, 7
-  br i1 %exitcond.not.i, label %scalar_decode_short.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %scalar_decode_short.exit, label %.preheader.i, !llvm.loop !17
 
 scalar_decode_short.exit:                         ; preds = %._crit_edge.i
   %29 = icmp eq i64 %2, 56
@@ -433,7 +433,7 @@ scalar_decode_short.exit:                         ; preds = %._crit_edge.i
   %.117.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ %.01321.i.i, %.preheader.i.i ]
   %.01416.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.117.i.i
-  %35 = load i8, ptr %34, align 1, !tbaa !14
+  %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %.01416.i.i, 3
   %38 = shl nuw i64 %36, %37
@@ -443,7 +443,7 @@ scalar_decode_short.exit:                         ; preds = %._crit_edge.i
   %42 = icmp samesign ult i64 %.01416.i.i, 7
   %43 = icmp samesign ult i64 %.117.i.i, 55
   %44 = and i1 %43, %42
-  br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
+  br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i64 [ %.01321.i.i, %.preheader.i.i ], [ %41, %.lr.ph.i.i ]
@@ -452,7 +452,7 @@ scalar_decode_short.exit:                         ; preds = %._crit_edge.i
   store i64 %.0.lcssa.i.i, ptr %45, align 8, !tbaa !3
   %46 = add nuw nsw i64 %.01520.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %46, 7
-  br i1 %exitcond.not.i.i, label %scalar_decode_short.exit.i.preheader, label %.preheader.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %scalar_decode_short.exit.i.preheader, label %.preheader.i.i, !llvm.loop !17
 
 scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
   call fastcc void @sc_montmul(ptr noundef nonnull %5, ptr noundef nonnull readonly %5, ptr noundef nonnull @ossl_curve448_scalar_one)
@@ -475,7 +475,7 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
   %57 = lshr i128 %55, 64
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 7
-  br i1 %exitcond.not.i23, label %.preheader, label %47, !llvm.loop !13
+  br i1 %exitcond.not.i23, label %.preheader, label %47, !llvm.loop !14
 
 .preheader:                                       ; preds = %47, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %47 ]
@@ -493,7 +493,7 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
   %67 = ashr i128 %65, 64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i24, label %68, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i.i24, label %68, label %.preheader, !llvm.loop !12
 
 68:                                               ; preds = %.preheader
   %69 = trunc nuw nsw i128 %57 to i64
@@ -518,14 +518,14 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
   %83 = lshr i128 %81, 64
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
   %exitcond9.not.i.i = icmp eq i64 %indvars.iv.next7.i.i, 7
-  br i1 %exitcond9.not.i.i, label %ossl_curve448_scalar_add.exit, label %72, !llvm.loop !12
+  br i1 %exitcond9.not.i.i, label %ossl_curve448_scalar_add.exit, label %72, !llvm.loop !13
 
 ossl_curve448_scalar_add.exit:                    ; preds = %72
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %ossl_curve448_scalar_add.exit, %.preheader26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 16 dereferenceable(56) %4, i64 56, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 16 dereferenceable(56) %4, i64 56, i1 false), !tbaa.struct !20
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 56) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 56) #7
   br label %84
@@ -555,16 +555,16 @@ define void @ossl_curve448_scalar_encode(ptr noundef writeonly captures(none) %0
   %8 = trunc i64 %7 to i8
   %9 = zext i32 %.112 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  store i8 %8, ptr %10, align 1, !tbaa !14
+  store i8 %8, ptr %10, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = add i32 %.112, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %4, !llvm.loop !20
+  br i1 %exitcond.not, label %12, label %4, !llvm.loop !21
 
 12:                                               ; preds = %4
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 7
-  br i1 %exitcond19.not, label %13, label %.preheader, !llvm.loop !21
+  br i1 %exitcond19.not, label %13, label %.preheader, !llvm.loop !22
 
 13:                                               ; preds = %12
   ret void
@@ -586,7 +586,7 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
   store i64 %7, ptr %8, align 8, !tbaa !3
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 7
-  br i1 %exitcond35.not, label %.preheader, label %.split.us, !llvm.loop !22
+  br i1 %exitcond35.not, label %.preheader, label %.split.us, !llvm.loop !23
 
 .preheader.loopexit30:                            ; preds = %.split
   %extract.t29 = trunc nuw nsw i128 %19 to i64
@@ -614,7 +614,7 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
   %19 = lshr i128 %16, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader.loopexit30, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader.loopexit30, label %.split, !llvm.loop !25
 
 20:                                               ; preds = %.preheader, %20
   %21 = phi i64 [ %.pre, %.preheader ], [ %24, %20 ]
@@ -626,7 +626,7 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
   %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %21, i64 63)
   store i64 %25, ptr %22, align 8, !tbaa !3
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 6
-  br i1 %exitcond39.not, label %26, label %20, !llvm.loop !25
+  br i1 %exitcond39.not, label %26, label %20, !llvm.loop !26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -663,22 +663,23 @@ attributes #7 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = !{i64 0, i64 56, !14}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{!5, !5, i64 0}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = !{i64 0, i64 56, !15}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}

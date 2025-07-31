@@ -1491,13 +1491,13 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 8
   %.sroa.022.0.i = load ptr, ptr %25, align 8, !tbaa !108
   %.not.i = icmp eq ptr %.sroa.022.0.i, %22
-  br i1 %.not.i, label %.loopexit, label %.lr.ph37.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph37.i, !llvm.loop !110
 
 .lr.ph.i:                                         ; preds = %.lr.ph37.i, %35
   %.sroa.018.031.i = phi ptr [ %.sroa.018.0.i, %35 ], [ %.sroa.018.028.i, %.lr.ph37.i ]
   %.130.i = phi i64 [ %.2.i, %35 ], [ %.034.i, %.lr.ph37.i ]
   %26 = getelementptr inbounds i8, ptr %.sroa.018.031.i, i64 -24
-  %27 = load i8, ptr %26, align 8, !tbaa !110
+  %27 = load i8, ptr %26, align 8, !tbaa !112
   switch i8 %27, label %35 [
     i8 85, label %28
     i8 34, label %28
@@ -1519,7 +1519,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %16
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 8
   %.sroa.018.0.i = load ptr, ptr %36, align 8, !tbaa !109
   %.not27.i = icmp eq ptr %.sroa.018.0.i, %24
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !113
 
 .loopexit:                                        ; preds = %._crit_edge.i, %20
   %.sroa.026.0.i.ph = phi i64 [ 0, %20 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -1537,7 +1537,7 @@ _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPK
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.022.040, i64 8
   %.sroa.022.0 = load ptr, ptr %41, align 8, !tbaa !108
   %.not37 = icmp eq ptr %.sroa.022.0, %39
-  br i1 %.not37, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
+  br i1 %.not37, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph, !llvm.loop !114
 
 .lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %40
   %.sroa.022.040 = phi ptr [ %.sroa.022.0, %40 ], [ %.sroa.022.038, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
@@ -1630,13 +1630,13 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 8
   %.sroa.022.0.i = load ptr, ptr %26, align 8, !tbaa !108
   %.not.i = icmp eq ptr %.sroa.022.0.i, %23
-  br i1 %.not.i, label %.loopexit, label %.lr.ph37.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph37.i, !llvm.loop !110
 
 .lr.ph.i:                                         ; preds = %.lr.ph37.i, %36
   %.sroa.018.031.i = phi ptr [ %.sroa.018.0.i, %36 ], [ %.sroa.018.028.i, %.lr.ph37.i ]
   %.130.i = phi i64 [ %.2.i, %36 ], [ %.034.i, %.lr.ph37.i ]
   %27 = getelementptr inbounds i8, ptr %.sroa.018.031.i, i64 -24
-  %28 = load i8, ptr %27, align 8, !tbaa !110
+  %28 = load i8, ptr %27, align 8, !tbaa !112
   switch i8 %28, label %36 [
     i8 85, label %29
     i8 34, label %29
@@ -1658,7 +1658,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 8
   %.sroa.018.0.i = load ptr, ptr %37, align 8, !tbaa !109
   %.not27.i = icmp eq ptr %.sroa.018.0.i, %25
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !113
 
 .loopexit:                                        ; preds = %._crit_edge.i, %21
   %.sroa.026.0.i.ph = phi i64 [ 0, %21 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -1676,7 +1676,7 @@ _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPK
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.043, i64 8
   %.sroa.025.0 = load ptr, ptr %42, align 8, !tbaa !108
   %.not40 = icmp eq ptr %.sroa.025.0, %40
-  br i1 %.not40, label %_ZNK4llvm18ProfileSummaryInfo24isColdBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit.thread, label %.lr.ph
+  br i1 %.not40, label %_ZNK4llvm18ProfileSummaryInfo24isColdBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit.thread, label %.lr.ph, !llvm.loop !115
 
 .lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %41
   %.sroa.025.043 = phi ptr [ %.sroa.025.0, %41 ], [ %.sroa.025.041, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
@@ -1776,13 +1776,13 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 8
   %.sroa.022.0.i = load ptr, ptr %26, align 8, !tbaa !108
   %.not.i = icmp eq ptr %.sroa.022.0.i, %23
-  br i1 %.not.i, label %.loopexit41, label %.lr.ph37.i
+  br i1 %.not.i, label %.loopexit41, label %.lr.ph37.i, !llvm.loop !110
 
 .lr.ph.i:                                         ; preds = %.lr.ph37.i, %36
   %.sroa.018.031.i = phi ptr [ %.sroa.018.0.i, %36 ], [ %.sroa.018.028.i, %.lr.ph37.i ]
   %.130.i = phi i64 [ %.2.i, %36 ], [ %.034.i, %.lr.ph37.i ]
   %27 = getelementptr inbounds i8, ptr %.sroa.018.031.i, i64 -24
-  %28 = load i8, ptr %27, align 8, !tbaa !110
+  %28 = load i8, ptr %27, align 8, !tbaa !112
   switch i8 %28, label %36 [
     i8 85, label %29
     i8 34, label %29
@@ -1804,7 +1804,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 8
   %.sroa.018.0.i = load ptr, ptr %37, align 8, !tbaa !109
   %.not27.i = icmp eq ptr %.sroa.018.0.i, %25
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !113
 
 .loopexit41:                                      ; preds = %._crit_edge.i, %21
   %.sroa.026.0.i.ph = phi i64 [ 0, %21 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -1835,7 +1835,7 @@ _ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_10BasicBlockENS_18Bloc
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.044, i64 8
   %.sroa.025.0 = load ptr, ptr %47, align 8, !tbaa !108
   %.not40.not = icmp eq ptr %.sroa.025.0, %40
-  br i1 %.not40.not, label %.loopexit, label %.lr.ph
+  br i1 %.not40.not, label %.loopexit, label %.lr.ph, !llvm.loop !116
 
 .loopexit:                                        ; preds = %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit.thread, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %.loopexit41, %16, %4, %6
   %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ false, %4 ], [ true, %.loopexit41 ], [ false, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ], [ false, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit.thread ], [ true, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_10BasicBlockENS_18BlockFrequencyInfoEEEbiPKT_PT0_.exit ]
@@ -2169,4 +2169,10 @@ attributes #9 = { nounwind }
 !107 = !{!"_ZTSN4llvm8Function16ProfileCountTypeE", !9, i64 0}
 !108 = !{!89, !90, i64 8}
 !109 = !{!97, !98, i64 8}
-!110 = !{!82, !9, i64 0}
+!110 = distinct !{!110, !111}
+!111 = !{!"llvm.loop.estimated_trip_count"}
+!112 = !{!82, !9, i64 0}
+!113 = distinct !{!113, !111}
+!114 = distinct !{!114, !111}
+!115 = distinct !{!115, !111}
+!116 = distinct !{!116, !111}

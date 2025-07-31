@@ -65,7 +65,7 @@ define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef read
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @__memcpy_chk(ptr noundef %13, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %11) #17, !alias.scope !8
+  %18 = tail call ptr @__memcpy_chk(ptr noundef %13, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %11) #17, !alias.scope !9
   %19 = getelementptr i8, ptr %13, i64 %2
   store i8 0, ptr %19, align 1
   store i64 %2, ptr %10, align 8
@@ -121,7 +121,7 @@ define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly
   br i1 %.not7, label %wmem_strbuf_new_len.exit6, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef nonnull readonly %1, i64 noundef %8, i64 noundef %16) #17, !alias.scope !12
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef nonnull readonly %1, i64 noundef %8, i64 noundef %16) #17, !alias.scope !13
   %22 = getelementptr i8, ptr %18, i64 %8
   store i8 0, ptr %22, align 1
   store i64 %8, ptr %15, align 8
@@ -157,7 +157,7 @@ define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr noundef readonly
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne i64 %7, -1
   tail call void @llvm.assume(i1 %15)
-  %16 = tail call ptr @__memcpy_chk(ptr noundef %9, ptr noundef %14, i64 noundef %12, i64 noundef %7) #17, !alias.scope !16
+  %16 = tail call ptr @__memcpy_chk(ptr noundef %9, ptr noundef %14, i64 noundef %12, i64 noundef %7) #17, !alias.scope !17
   %17 = getelementptr i8, ptr %9, i64 %12
   store i8 0, ptr %17, align 1
   ret ptr %5
@@ -193,7 +193,7 @@ define void @wmem_strbuf_append(ptr noundef captures(none) %0, ptr noundef reado
   %.0.i = phi i64 [ %9, %14 ], [ %19, %17 ]
   %18 = icmp ult i64 %.0.i, %16
   %19 = shl i64 %.0.i, 1
-  br i1 %18, label %17, label %20, !llvm.loop !20
+  br i1 %18, label %17, label %20, !llvm.loop !21
 
 20:                                               ; preds = %17
   %21 = icmp eq i64 %.0.i, %9
@@ -253,7 +253,7 @@ define void @wmem_strbuf_append_len(ptr noundef captures(none) %0, ptr noundef r
   %.0.i = phi i64 [ %8, %13 ], [ %18, %16 ]
   %17 = icmp ult i64 %.0.i, %15
   %18 = shl i64 %.0.i, 1
-  br i1 %17, label %16, label %19, !llvm.loop !20
+  br i1 %17, label %16, label %19, !llvm.loop !21
 
 19:                                               ; preds = %16
   %20 = icmp eq i64 %.0.i, %8
@@ -356,7 +356,7 @@ _strbuf_vsnprintf.exit:                           ; preds = %19
   %.0.i8 = phi i64 [ %30, %34 ], [ %39, %37 ]
   %38 = icmp ult i64 %.0.i8, %36
   %39 = shl i64 %.0.i8, 1
-  br i1 %38, label %37, label %40, !llvm.loop !20
+  br i1 %38, label %37, label %40, !llvm.loop !21
 
 40:                                               ; preds = %37
   %41 = icmp eq i64 %.0.i8, %30
@@ -449,7 +449,7 @@ define void @wmem_strbuf_append_c(ptr noundef captures(none) %0, i8 noundef sign
   %.0.i = phi i64 [ %4, %7 ], [ %11, %9 ]
   %10 = icmp ult i64 %.0.i, %8
   %11 = shl i64 %.0.i, 1
-  br i1 %10, label %9, label %12, !llvm.loop !20
+  br i1 %10, label %9, label %12, !llvm.loop !21
 
 12:                                               ; preds = %9
   %13 = icmp eq i64 %.0.i, %4
@@ -500,7 +500,7 @@ define void @wmem_strbuf_append_c_count(ptr noundef captures(none) %0, i8 nounde
   %.0.i = phi i64 [ %5, %10 ], [ %15, %13 ]
   %14 = icmp ult i64 %.0.i, %12
   %15 = shl i64 %.0.i, 1
-  br i1 %14, label %13, label %16, !llvm.loop !20
+  br i1 %14, label %13, label %16, !llvm.loop !21
 
 16:                                               ; preds = %13
   %17 = icmp eq i64 %.0.i, %5
@@ -533,7 +533,7 @@ wmem_strbuf_grow.exit:                            ; preds = %3
   %29 = getelementptr i8, ptr %26, i64 %27
   store i8 %1, ptr %29, align 1
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %24, %wmem_strbuf_grow.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -568,7 +568,7 @@ define void @wmem_strbuf_append_unichar(ptr noundef captures(none) %0, i32 nound
   %.0.i = phi i64 [ %7, %12 ], [ %17, %15 ]
   %16 = icmp ult i64 %.0.i, %14
   %17 = shl i64 %.0.i, 1
-  br i1 %16, label %15, label %18, !llvm.loop !20
+  br i1 %16, label %15, label %18, !llvm.loop !21
 
 18:                                               ; preds = %15
   %19 = icmp eq i64 %.0.i, %7
@@ -633,7 +633,7 @@ define void @wmem_strbuf_append_unichar_validated(ptr noundef captures(none) %0,
   %.0.i.i = phi i64 [ %11, %15 ], [ %20, %18 ]
   %19 = icmp ult i64 %.0.i.i, %17
   %20 = shl i64 %.0.i.i, 1
-  br i1 %19, label %18, label %21, !llvm.loop !20
+  br i1 %19, label %18, label %21, !llvm.loop !21
 
 21:                                               ; preds = %18
   %22 = icmp eq i64 %.0.i.i, %11
@@ -684,7 +684,7 @@ wmem_strbuf_append_unichar.exit:                  ; preds = %8, %21, %23
   %.0.i.i4 = phi i64 [ %39, %43 ], [ %48, %46 ]
   %47 = icmp ult i64 %.0.i.i4, %45
   %48 = shl i64 %.0.i.i4, 1
-  br i1 %47, label %46, label %49, !llvm.loop !20
+  br i1 %47, label %46, label %49, !llvm.loop !21
 
 49:                                               ; preds = %46
   %50 = icmp eq i64 %.0.i.i4, %39
@@ -740,7 +740,7 @@ define void @wmem_strbuf_append_hex(ptr noundef captures(none) %0, i8 noundef ze
   %.0.i = phi i64 [ %4, %8 ], [ %12, %10 ]
   %11 = icmp ult i64 %.0.i, %9
   %12 = shl i64 %.0.i, 1
-  br i1 %11, label %10, label %13, !llvm.loop !20
+  br i1 %11, label %10, label %13, !llvm.loop !21
 
 13:                                               ; preds = %10
   %14 = icmp eq i64 %.0.i, %4
@@ -820,7 +820,7 @@ define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr noundef captures
   %.0.i.i = phi i64 [ %6, %10 ], [ %14, %12 ]
   %13 = icmp ult i64 %.0.i.i, %11
   %14 = shl i64 %.0.i.i, 1
-  br i1 %13, label %12, label %15, !llvm.loop !20
+  br i1 %13, label %12, label %15, !llvm.loop !21
 
 15:                                               ; preds = %12
   %16 = icmp eq i64 %.0.i.i, %6
@@ -897,7 +897,7 @@ wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
   %.0.i.i10 = phi i64 [ %53, %58 ], [ %62, %60 ]
   %61 = icmp ult i64 %.0.i.i10, %59
   %62 = shl i64 %.0.i.i10, 1
-  br i1 %61, label %60, label %63, !llvm.loop !20
+  br i1 %61, label %60, label %63, !llvm.loop !21
 
 63:                                               ; preds = %60
   %64 = icmp eq i64 %.0.i.i10, %53
@@ -987,7 +987,7 @@ append_hex_bmp.exit:                              ; preds = %57, %63, %65
   %.0.i.i13 = phi i64 [ %53, %117 ], [ %121, %119 ]
   %120 = icmp ult i64 %.0.i.i13, %118
   %121 = shl i64 %.0.i.i13, 1
-  br i1 %120, label %119, label %122, !llvm.loop !20
+  br i1 %120, label %119, label %122, !llvm.loop !21
 
 122:                                              ; preds = %119
   %123 = icmp eq i64 %.0.i.i13, %53
@@ -1303,7 +1303,7 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
   %25 = getelementptr i8, ptr %.01927, i64 1
   %26 = add nsw i64 %.02026, -1
   %27 = icmp sgt i64 %.02026, 1
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %24, %17
   %.020.lcssa = phi i64 [ %20, %17 ], [ 0, %24 ], [ %.02026, %.lr.ph ]
@@ -1406,20 +1406,21 @@ attributes #20 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

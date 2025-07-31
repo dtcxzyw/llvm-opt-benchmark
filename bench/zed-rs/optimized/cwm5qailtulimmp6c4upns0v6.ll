@@ -586,12 +586,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %45 = add i16 %.sroa.06.0.i27.i.i, -1
   %46 = and i16 %45, %.sroa.06.0.i27.i.i
   %47 = icmp eq i16 %46, 0
-  br i1 %47, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %47, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !140
 
 48:                                               ; preds = %._crit_edge.i.i
   %49 = add i64 %.sroa.9.0.i.i.i, 16
   %50 = add i64 %.sroa.01.0.i.i.i, %49
-  br label %28
+  br label %28, !llvm.loop !142
 
 51:                                               ; preds = %18
   %52 = landingpad { ptr, i32 }
@@ -898,3 +898,6 @@ attributes #15 = { cold noreturn nounwind }
 !137 = !{!138, !127, !112, !109, !88}
 !138 = distinct !{!138, !139, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0cd459579ab8f62fE: argument 1"}
 !139 = distinct !{!139, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0cd459579ab8f62fE"}
+!140 = distinct !{!140, !141}
+!141 = !{!"llvm.loop.estimated_trip_count"}
+!142 = distinct !{!142, !141}

@@ -739,7 +739,7 @@ autocommit_converter.exit:                        ; preds = %111, %115
   br i1 %139, label %140, label %145
 
 140:                                              ; preds = %133
-  %141 = load ptr, ptr %6, align 8, !tbaa !47
+  %141 = load ptr, ptr %6, align 8, !tbaa !48
   %142 = fmul double %.072157, 1.000000e+03
   %143 = fptosi double %142 to i32
   %144 = call i32 @sqlite3_busy_timeout(ptr noundef %141, i32 noundef %143) #7
@@ -763,7 +763,7 @@ autocommit_converter.exit:                        ; preds = %111, %115
   br label %Py_DECREF.exit87.i
 
 Py_DECREF.exit87.i:                               ; preds = %151, %148, %145
-  %152 = load ptr, ptr %6, align 8, !tbaa !47
+  %152 = load ptr, ptr %6, align 8, !tbaa !48
   %153 = icmp eq ptr %152, null
   %154 = icmp eq i32 %138, 7
   %or.cond.i = and i1 %154, %153
@@ -780,7 +780,7 @@ Py_DECREF.exit87.i:                               ; preds = %151, %148, %145
   br i1 %139, label %163, label %160
 
 160:                                              ; preds = %157
-  %161 = load ptr, ptr %6, align 8, !tbaa !47
+  %161 = load ptr, ptr %6, align 8, !tbaa !48
   %162 = call i32 @_pysqlite_seterror(ptr noundef %159, ptr noundef %161) #7
   br label %Py_DECREF.exit85.i
 
@@ -796,7 +796,7 @@ Py_DECREF.exit87.i:                               ; preds = %151, %148, %145
 
 168:                                              ; preds = %163
   %169 = getelementptr inbounds nuw i8, ptr %159, i64 88
-  %170 = load ptr, ptr %169, align 8, !tbaa !48
+  %170 = load ptr, ptr %169, align 8, !tbaa !49
   %171 = call ptr @PyObject_Vectorcall(ptr noundef %170, ptr noundef nonnull %164, i64 noundef -9223372036854775807, ptr noundef null) #7
   %172 = load ptr, ptr %164, align 8, !tbaa !25
   %173 = load i32, ptr %172, align 8, !tbaa !34
@@ -899,30 +899,30 @@ Py_DECREF.exit83.i:                               ; preds = %204, %201, %199
   br label %Py_DECREF.exit85.i
 
 210:                                              ; preds = %196
-  %211 = load ptr, ptr %6, align 8, !tbaa !47
+  %211 = load ptr, ptr %6, align 8, !tbaa !48
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %211, ptr %212, align 8, !tbaa !17
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %159, ptr %213, align 8, !tbaa !18
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.070158, ptr %214, align 8, !tbaa !49
+  store i32 %.070158, ptr %214, align 8, !tbaa !50
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.0140156, ptr %215, align 8, !tbaa !50
+  store ptr %.0140156, ptr %215, align 8, !tbaa !51
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.0138, ptr %216, align 8, !tbaa !51
+  store i32 %.0138, ptr %216, align 8, !tbaa !52
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.068159, ptr %217, align 4, !tbaa !21
   %218 = call i64 @PyThread_get_thread_ident() #7
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %218, ptr %219, align 8, !tbaa !22
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %180, ptr %220, align 8, !tbaa !52
+  store ptr %180, ptr %220, align 8, !tbaa !53
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %188, ptr %221, align 8, !tbaa !53
+  store ptr %188, ptr %221, align 8, !tbaa !54
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %197, ptr %222, align 8, !tbaa !54
+  store ptr %197, ptr %222, align 8, !tbaa !55
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %223, align 8, !tbaa !55
+  store i32 0, ptr %223, align 8, !tbaa !56
   %224 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !34
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %_Py_NewRef.exit.i, label %226
@@ -934,7 +934,7 @@ Py_DECREF.exit83.i:                               ; preds = %204, %201, %199
 
 _Py_NewRef.exit.i:                                ; preds = %226, %210
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_Py_NoneStruct, ptr %228, align 8, !tbaa !56
+  store ptr @_Py_NoneStruct, ptr %228, align 8, !tbaa !57
   %229 = load i32, ptr @PyUnicode_Type, align 8, !tbaa !34
   %230 = icmp slt i32 %229, 0
   br i1 %230, label %_Py_NewRef.exit92.i, label %231
@@ -946,48 +946,48 @@ _Py_NewRef.exit.i:                                ; preds = %226, %210
 
 _Py_NewRef.exit92.i:                              ; preds = %231, %_Py_NewRef.exit.i
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @PyUnicode_Type, ptr %233, align 8, !tbaa !57
+  store ptr @PyUnicode_Type, ptr %233, align 8, !tbaa !58
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %235 = getelementptr inbounds nuw i8, ptr %159, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, i8 0, i64 24, i1 false)
-  %236 = load ptr, ptr %235, align 8, !tbaa !58
+  %236 = load ptr, ptr %235, align 8, !tbaa !59
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %236, ptr %237, align 8, !tbaa !59
+  store ptr %236, ptr %237, align 8, !tbaa !60
   %238 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %239 = load ptr, ptr %238, align 8, !tbaa !60
+  %239 = load ptr, ptr %238, align 8, !tbaa !61
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %239, ptr %240, align 8, !tbaa !61
+  store ptr %239, ptr %240, align 8, !tbaa !62
   %241 = getelementptr inbounds nuw i8, ptr %159, i64 32
-  %242 = load ptr, ptr %241, align 8, !tbaa !62
+  %242 = load ptr, ptr %241, align 8, !tbaa !63
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %242, ptr %243, align 8, !tbaa !63
+  store ptr %242, ptr %243, align 8, !tbaa !64
   %244 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %245 = load ptr, ptr %244, align 8, !tbaa !64
+  %245 = load ptr, ptr %244, align 8, !tbaa !65
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %245, ptr %246, align 8, !tbaa !65
-  %247 = load ptr, ptr %159, align 8, !tbaa !66
+  store ptr %245, ptr %246, align 8, !tbaa !66
+  %247 = load ptr, ptr %159, align 8, !tbaa !67
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %247, ptr %248, align 8, !tbaa !67
+  store ptr %247, ptr %248, align 8, !tbaa !68
   %249 = getelementptr inbounds nuw i8, ptr %159, i64 56
-  %250 = load ptr, ptr %249, align 8, !tbaa !68
+  %250 = load ptr, ptr %249, align 8, !tbaa !69
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %250, ptr %251, align 8, !tbaa !69
+  store ptr %250, ptr %251, align 8, !tbaa !70
   %252 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %253 = load ptr, ptr %252, align 8, !tbaa !70
+  %253 = load ptr, ptr %252, align 8, !tbaa !71
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %253, ptr %254, align 8, !tbaa !71
+  store ptr %253, ptr %254, align 8, !tbaa !72
   %255 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  %256 = load ptr, ptr %255, align 8, !tbaa !72
+  %256 = load ptr, ptr %255, align 8, !tbaa !73
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %256, ptr %257, align 8, !tbaa !73
+  store ptr %256, ptr %257, align 8, !tbaa !74
   %258 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %259 = load ptr, ptr %258, align 8, !tbaa !19
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %259, ptr %260, align 8, !tbaa !23
   %261 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %262 = load ptr, ptr %261, align 8, !tbaa !74
+  %262 = load ptr, ptr %261, align 8, !tbaa !75
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %262, ptr %263, align 8, !tbaa !75
+  store ptr %262, ptr %263, align 8, !tbaa !76
   %264 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.142, ptr noundef nonnull %0) #7
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %273, label %266
@@ -1005,7 +1005,7 @@ _Py_NewRef.exit92.i:                              ; preds = %231, %_Py_NewRef.ex
   br label %273
 
 Py_DECREF.exit85.i:                               ; preds = %209, %206, %Py_DECREF.exit83.i, %195, %192, %190, %new_statement_cache.exit.i, %new_statement_cache.exit.thread.i, %160
-  %271 = load ptr, ptr %6, align 8, !tbaa !47
+  %271 = load ptr, ptr %6, align 8, !tbaa !48
   %272 = call i32 @sqlite3_close(ptr noundef %271) #7
   br label %273
 
@@ -1119,7 +1119,7 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 7:                                                ; preds = %3, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %.not136 = icmp eq ptr %9, null
   br i1 %.not136, label %12, label %10
 
@@ -1130,7 +1130,7 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 12:                                               ; preds = %7, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
   %.not138 = icmp eq ptr %14, null
   br i1 %.not138, label %17, label %15
 
@@ -1141,7 +1141,7 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 17:                                               ; preds = %12, %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !54
+  %19 = load ptr, ptr %18, align 8, !tbaa !55
   %.not140 = icmp eq ptr %19, null
   br i1 %.not140, label %22, label %20
 
@@ -1152,7 +1152,7 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 22:                                               ; preds = %17, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load ptr, ptr %23, align 8, !tbaa !56
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   %.not142 = icmp eq ptr %24, null
   br i1 %.not142, label %27, label %25
 
@@ -1163,7 +1163,7 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 27:                                               ; preds = %22, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %29 = load ptr, ptr %28, align 8, !tbaa !57
+  %29 = load ptr, ptr %28, align 8, !tbaa !58
   %.not144 = icmp eq ptr %29, null
   br i1 %.not144, label %32, label %30
 
@@ -1174,12 +1174,12 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 32:                                               ; preds = %27, %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !76
+  %34 = load ptr, ptr %33, align 8, !tbaa !77
   %.not146 = icmp eq ptr %34, null
   br i1 %.not146, label %45, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %34, align 8, !tbaa !77
+  %36 = load ptr, ptr %34, align 8, !tbaa !78
   %.not147 = icmp eq ptr %36, null
   br i1 %.not147, label %39, label %37
 
@@ -1189,13 +1189,13 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
   br i1 %.not148, label %._crit_edge, label %72
 
 ._crit_edge:                                      ; preds = %37
-  %.pre = load ptr, ptr %33, align 8, !tbaa !76
+  %.pre = load ptr, ptr %33, align 8, !tbaa !77
   br label %39
 
 39:                                               ; preds = %._crit_edge, %35
   %40 = phi ptr [ %.pre, %._crit_edge ], [ %34, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !79
+  %42 = load ptr, ptr %41, align 8, !tbaa !80
   %.not149 = icmp eq ptr %42, null
   br i1 %.not149, label %45, label %43
 
@@ -1206,12 +1206,12 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 45:                                               ; preds = %32, %43, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %47 = load ptr, ptr %46, align 8, !tbaa !80
+  %47 = load ptr, ptr %46, align 8, !tbaa !81
   %.not151 = icmp eq ptr %47, null
   br i1 %.not151, label %58, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %47, align 8, !tbaa !77
+  %49 = load ptr, ptr %47, align 8, !tbaa !78
   %.not152 = icmp eq ptr %49, null
   br i1 %.not152, label %52, label %50
 
@@ -1221,13 +1221,13 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
   br i1 %.not153, label %._crit_edge162, label %72
 
 ._crit_edge162:                                   ; preds = %50
-  %.pre163 = load ptr, ptr %46, align 8, !tbaa !80
+  %.pre163 = load ptr, ptr %46, align 8, !tbaa !81
   br label %52
 
 52:                                               ; preds = %._crit_edge162, %48
   %53 = phi ptr [ %.pre163, %._crit_edge162 ], [ %47, %48 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !79
+  %55 = load ptr, ptr %54, align 8, !tbaa !80
   %.not154 = icmp eq ptr %55, null
   br i1 %.not154, label %58, label %56
 
@@ -1238,12 +1238,12 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
 
 58:                                               ; preds = %45, %56, %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %60 = load ptr, ptr %59, align 8, !tbaa !81
+  %60 = load ptr, ptr %59, align 8, !tbaa !82
   %.not156 = icmp eq ptr %60, null
   br i1 %.not156, label %71, label %61
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %60, align 8, !tbaa !77
+  %62 = load ptr, ptr %60, align 8, !tbaa !78
   %.not157 = icmp eq ptr %62, null
   br i1 %.not157, label %65, label %63
 
@@ -1253,13 +1253,13 @@ define internal i32 @connection_traverse(ptr noundef readonly captures(none) %0,
   br i1 %.not158, label %._crit_edge164, label %72
 
 ._crit_edge164:                                   ; preds = %63
-  %.pre165 = load ptr, ptr %59, align 8, !tbaa !81
+  %.pre165 = load ptr, ptr %59, align 8, !tbaa !82
   br label %65
 
 65:                                               ; preds = %._crit_edge164, %61
   %66 = phi ptr [ %.pre165, %._crit_edge164 ], [ %60, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !79
+  %68 = load ptr, ptr %67, align 8, !tbaa !80
   %.not159 = icmp eq ptr %68, null
   br i1 %.not159, label %71, label %69
 
@@ -1389,7 +1389,7 @@ Py_DECREF.exit42:                                 ; preds = %33, %30, %28, %Py_D
 
 Py_DECREF.exit44:                                 ; preds = %41, %38, %36, %Py_DECREF.exit42
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %43 = load ptr, ptr %42, align 8, !tbaa !76
+  %43 = load ptr, ptr %42, align 8, !tbaa !77
   %.not.i49 = icmp eq ptr %43, null
   br i1 %.not.i49, label %clear_callback_context.exit, label %44
 
@@ -1438,7 +1438,7 @@ Py_DECREF.exit16.i:                               ; preds = %51, %48, %46, %44
 
 clear_callback_context.exit:                      ; preds = %Py_DECREF.exit44, %Py_DECREF.exit16.i, %54, %56, %59
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %61 = load ptr, ptr %60, align 8, !tbaa !80
+  %61 = load ptr, ptr %60, align 8, !tbaa !81
   %.not.i50 = icmp eq ptr %61, null
   br i1 %.not.i50, label %clear_callback_context.exit56, label %62
 
@@ -1487,7 +1487,7 @@ Py_DECREF.exit16.i53:                             ; preds = %69, %66, %64, %62
 
 clear_callback_context.exit56:                    ; preds = %clear_callback_context.exit, %Py_DECREF.exit16.i53, %72, %74, %77
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %79 = load ptr, ptr %78, align 8, !tbaa !81
+  %79 = load ptr, ptr %78, align 8, !tbaa !82
   %.not.i57 = icmp eq ptr %79, null
   br i1 %.not.i57, label %clear_callback_context.exit63, label %80
 
@@ -1560,7 +1560,7 @@ define internal fastcc range(i32 -1, 1) i32 @connection_close(ptr noundef captur
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i32, ptr %7, align 8, !tbaa !51
+  %8 = load i32, ptr %7, align 8, !tbaa !52
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %connection_exec_stmt.exit
 
@@ -1578,9 +1578,9 @@ define internal fastcc range(i32 -1, 1) i32 @connection_close(ptr noundef captur
   br i1 %16, label %17, label %.critedge.i
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %2, align 8, !tbaa !82
+  %18 = load ptr, ptr %2, align 8, !tbaa !83
   %19 = call i32 @sqlite3_step(ptr noundef %18) #7
-  %20 = load ptr, ptr %2, align 8, !tbaa !82
+  %20 = load ptr, ptr %2, align 8, !tbaa !83
   %21 = call i32 @sqlite3_finalize(ptr noundef %20) #7
   %22 = icmp eq i32 %21, 0
   call void @PyEval_RestoreThread(ptr noundef %13) #7
@@ -1607,13 +1607,13 @@ connection_exec_stmt.exit:                        ; preds = %23, %17, %10, %6
   %30 = call i32 @sqlite3_close_v2(ptr noundef %28) #7
   call void @PyEval_RestoreThread(ptr noundef %29) #7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !84
-  store ptr null, ptr %31, align 8, !tbaa !84
+  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  store ptr null, ptr %31, align 8, !tbaa !85
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %set_callback_context.exit.i, label %33
 
 33:                                               ; preds = %connection_exec_stmt.exit
-  %34 = load ptr, ptr %32, align 8, !tbaa !77
+  %34 = load ptr, ptr %32, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %Py_XDECREF.exit.i.i.i, label %35
 
@@ -1634,7 +1634,7 @@ connection_exec_stmt.exit:                        ; preds = %23, %17, %10, %6
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %40, %37, %35, %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !79
+  %42 = load ptr, ptr %41, align 8, !tbaa !80
   %.not.i3.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i3.i.i.i, label %free_callback_context.exit.i.i, label %43
 
@@ -1659,13 +1659,13 @@ free_callback_context.exit.i.i:                   ; preds = %48, %45, %43, %Py_X
 
 set_callback_context.exit.i:                      ; preds = %free_callback_context.exit.i.i, %connection_exec_stmt.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %50 = load ptr, ptr %49, align 8, !tbaa !84
-  store ptr null, ptr %49, align 8, !tbaa !84
+  %50 = load ptr, ptr %49, align 8, !tbaa !85
+  store ptr null, ptr %49, align 8, !tbaa !85
   %.not.i3.i = icmp eq ptr %50, null
   br i1 %.not.i3.i, label %set_callback_context.exit10.i, label %51
 
 51:                                               ; preds = %set_callback_context.exit.i
-  %52 = load ptr, ptr %50, align 8, !tbaa !77
+  %52 = load ptr, ptr %50, align 8, !tbaa !78
   %.not.i.i.i4.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i4.i, label %Py_XDECREF.exit.i.i6.i, label %53
 
@@ -1686,7 +1686,7 @@ set_callback_context.exit.i:                      ; preds = %free_callback_conte
 
 Py_XDECREF.exit.i.i6.i:                           ; preds = %58, %55, %53, %51
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !79
+  %60 = load ptr, ptr %59, align 8, !tbaa !80
   %.not.i3.i.i7.i = icmp eq ptr %60, null
   br i1 %.not.i3.i.i7.i, label %free_callback_context.exit.i9.i, label %61
 
@@ -1711,13 +1711,13 @@ free_callback_context.exit.i9.i:                  ; preds = %66, %63, %61, %Py_X
 
 set_callback_context.exit10.i:                    ; preds = %free_callback_context.exit.i9.i, %set_callback_context.exit.i
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %68 = load ptr, ptr %67, align 8, !tbaa !84
-  store ptr null, ptr %67, align 8, !tbaa !84
+  %68 = load ptr, ptr %67, align 8, !tbaa !85
+  store ptr null, ptr %67, align 8, !tbaa !85
   %.not.i11.i = icmp eq ptr %68, null
   br i1 %.not.i11.i, label %free_callback_contexts.exit, label %69
 
 69:                                               ; preds = %set_callback_context.exit10.i
-  %70 = load ptr, ptr %68, align 8, !tbaa !77
+  %70 = load ptr, ptr %68, align 8, !tbaa !78
   %.not.i.i.i12.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i12.i, label %Py_XDECREF.exit.i.i14.i, label %71
 
@@ -1738,7 +1738,7 @@ set_callback_context.exit10.i:                    ; preds = %free_callback_conte
 
 Py_XDECREF.exit.i.i14.i:                          ; preds = %76, %73, %71, %69
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !79
+  %78 = load ptr, ptr %77, align 8, !tbaa !80
   %.not.i3.i.i15.i = icmp eq ptr %78, null
   br i1 %.not.i3.i.i15.i, label %free_callback_context.exit.i17.i, label %79
 
@@ -1793,9 +1793,9 @@ define internal fastcc range(i32 -1, 1) i32 @connection_exec_stmt(ptr noundef re
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8, !tbaa !82
+  %13 = load ptr, ptr %3, align 8, !tbaa !83
   %14 = call i32 @sqlite3_step(ptr noundef %13) #7
-  %15 = load ptr, ptr %3, align 8, !tbaa !82
+  %15 = load ptr, ptr %3, align 8, !tbaa !83
   %16 = call i32 @sqlite3_finalize(ptr noundef %15) #7
   %17 = icmp eq i32 %16, 0
   call void @PyEval_RestoreThread(ptr noundef %4) #7
@@ -1899,7 +1899,7 @@ PyObject_TypeCheck.exit:                          ; preds = %.thread94
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !85
+  %33 = load ptr, ptr %32, align 8, !tbaa !86
   %34 = load ptr, ptr %16, align 8, !tbaa !25
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.43, ptr noundef %33, ptr noundef %34) #7
   br label %pysqlite_connection_backup_impl.exit
@@ -1972,7 +1972,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread94, %PyObjec
 
 62:                                               ; preds = %59
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #8
-  %64 = load i64, ptr %6, align 8, !tbaa !86
+  %64 = load i64, ptr %6, align 8, !tbaa !87
   %.not81 = icmp eq i64 %63, %64
   br i1 %.not81, label %67, label %65
 
@@ -2166,7 +2166,7 @@ pysqlite_check_connection.exit72.i:               ; preds = %111
   ]
 
 .critedge.us.i.backedge:                          ; preds = %140, %140, %140
-  br label %.critedge.us.i, !llvm.loop !87
+  br label %.critedge.us.i, !llvm.loop !88
 
 .critedge.preheader.split.i:                      ; preds = %.critedge.preheader.i
   %141 = call ptr @PyEval_SaveThread() #7
@@ -2233,7 +2233,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %156, %153, %.lr.ph.
   %167 = call i32 @sqlite3_backup_pagecount(ptr noundef nonnull %132) #7
   %168 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %.051, ptr noundef nonnull @.str.49, i32 noundef %165, i32 noundef %166, i32 noundef %167) #7
   %.not59.i = icmp eq ptr %168, null
-  br i1 %.not59.i, label %Py_DECREF.exit.i, label %.lr.ph.i
+  br i1 %.not59.i, label %Py_DECREF.exit.i, label %.lr.ph.i, !llvm.loop !90
 
 .split.us.i:                                      ; preds = %163, %140
   %169 = call ptr @PyEval_SaveThread() #7
@@ -2380,7 +2380,7 @@ define internal noundef ptr @pysqlite_connection_create_aggregate(ptr noundef re
 
 27:                                               ; preds = %24
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
-  %29 = load i64, ptr %7, align 8, !tbaa !86
+  %29 = load i64, ptr %7, align 8, !tbaa !87
   %.not35 = icmp eq i64 %28, %29
   br i1 %.not35, label %32, label %30
 
@@ -2458,7 +2458,7 @@ define internal noundef ptr @pysqlite_connection_create_collation(ptr noundef re
 
 22:                                               ; preds = %19
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %24 = load i64, ptr %7, align 8, !tbaa !86
+  %24 = load i64, ptr %7, align 8, !tbaa !87
   %.not28 = icmp eq i64 %23, %24
   br i1 %.not28, label %27, label %25
 
@@ -2552,7 +2552,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %47
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %66, %62
-  store ptr %29, ptr %61, align 8, !tbaa !77
+  store ptr %29, ptr %61, align 8, !tbaa !78
   %68 = load i32, ptr %63, align 8, !tbaa !34
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %.thread.i, label %70
@@ -2569,17 +2569,17 @@ _Py_NewRef.exit.i.i:                              ; preds = %66, %62
 
 .thread.i:                                        ; preds = %70, %_Py_NewRef.exit.i.i
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %63, ptr %74, align 8, !tbaa !79
+  store ptr %63, ptr %74, align 8, !tbaa !80
   %75 = call ptr @PyModule_GetState(ptr noundef nonnull %63) #7
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store ptr %75, ptr %76, align 8, !tbaa !89
+  store ptr %75, ptr %76, align 8, !tbaa !91
   %77 = load ptr, ptr %48, align 8, !tbaa !17
   %78 = call i32 @sqlite3_create_collation_v2(ptr noundef %77, ptr noundef nonnull %20, i32 noundef 1, ptr noundef nonnull %61, ptr noundef nonnull @collation_callback, ptr noundef nonnull @destructor_callback) #7
   %.not2537.i = icmp eq i32 %78, 0
   br i1 %.not2537.i, label %pysqlite_connection_create_collation_impl.exit, label %.thread39.i
 
 .thread39.i:                                      ; preds = %.thread.i
-  %79 = load ptr, ptr %61, align 8, !tbaa !77
+  %79 = load ptr, ptr %61, align 8, !tbaa !78
   %.not.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i, label %Py_XDECREF.exit.i.i, label %80
 
@@ -2599,7 +2599,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %66, %62
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %85, %82, %80, %.thread39.i
-  %86 = load ptr, ptr %74, align 8, !tbaa !79
+  %86 = load ptr, ptr %74, align 8, !tbaa !80
   %.not.i3.i.i = icmp eq ptr %86, null
   br i1 %.not.i3.i.i, label %free_callback_context.exit.i, label %87
 
@@ -2694,7 +2694,7 @@ define internal noundef ptr @pysqlite_connection_create_function(ptr noundef rea
 
 31:                                               ; preds = %28
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #8
-  %33 = load i64, ptr %7, align 8, !tbaa !86
+  %33 = load i64, ptr %7, align 8, !tbaa !87
   %.not44 = icmp eq i64 %32, %33
   br i1 %.not44, label %36, label %34
 
@@ -2800,7 +2800,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %69
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %82, %78
-  store ptr %45, ptr %77, align 8, !tbaa !77
+  store ptr %45, ptr %77, align 8, !tbaa !78
   %84 = load i32, ptr %79, align 8, !tbaa !34
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %88, label %86
@@ -2812,10 +2812,10 @@ _Py_NewRef.exit.i.i:                              ; preds = %82, %78
 
 88:                                               ; preds = %86, %_Py_NewRef.exit.i.i
   %89 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %79, ptr %89, align 8, !tbaa !79
+  store ptr %79, ptr %89, align 8, !tbaa !80
   %90 = call ptr @PyModule_GetState(ptr noundef nonnull %79) #7
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store ptr %90, ptr %91, align 8, !tbaa !89
+  store ptr %90, ptr %91, align 8, !tbaa !91
   %92 = load ptr, ptr %70, align 8, !tbaa !17
   %93 = call i32 @sqlite3_create_function_v2(ptr noundef %92, ptr noundef nonnull %29, i32 noundef %39, i32 noundef %spec.select.i, ptr noundef nonnull %77, ptr noundef nonnull @func_callback, ptr noundef null, ptr noundef null, ptr noundef nonnull @destructor_callback) #7
   %.not18.i = icmp eq i32 %93, 0
@@ -2823,7 +2823,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %82, %78
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %96 = load ptr, ptr %95, align 8, !tbaa !69
+  %96 = load ptr, ptr %95, align 8, !tbaa !70
   call void @PyErr_SetString(ptr noundef %96, ptr noundef nonnull @.str.73) #7
   br label %pysqlite_connection_create_function_impl.exit
 
@@ -3006,7 +3006,7 @@ define internal ptr @pysqlite_connection_executescript(ptr noundef %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %8 = load ptr, ptr %7, align 8, !tbaa !90
+  %8 = load ptr, ptr %7, align 8, !tbaa !92
   %9 = tail call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %3, ptr noundef %8, ptr noundef %1, ptr noundef null) #7
   %.not18 = icmp eq ptr %9, null
   br i1 %.not18, label %10, label %Py_DECREF.exit
@@ -3335,7 +3335,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %26
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %39 = load ptr, ptr %38, align 8, !tbaa !69
+  %39 = load ptr, ptr %38, align 8, !tbaa !70
   call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str.80) #7
   br label %pysqlite_connection_iterdump_impl.exit
 
@@ -3498,13 +3498,13 @@ pysqlite_check_connection.exit.i:                 ; preds = %36
 45:                                               ; preds = %pysqlite_check_connection.exit.i
   %46 = call i32 @sqlite3_set_authorizer(ptr noundef nonnull %38, ptr noundef null, ptr noundef null) #7
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %48 = load ptr, ptr %47, align 8, !tbaa !84
-  store ptr null, ptr %47, align 8, !tbaa !84
+  %48 = load ptr, ptr %47, align 8, !tbaa !85
+  store ptr null, ptr %47, align 8, !tbaa !85
   %.not.i27.i = icmp eq ptr %48, null
   br i1 %.not.i27.i, label %set_callback_context.exit.i, label %49
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %48, align 8, !tbaa !77
+  %50 = load ptr, ptr %48, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %Py_XDECREF.exit.i.i.i, label %51
 
@@ -3525,7 +3525,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %36
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %56, %53, %51, %49
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !79
+  %58 = load ptr, ptr %57, align 8, !tbaa !80
   %.not.i3.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i3.i.i.i, label %set_callback_context.exit.sink.split.i, label %59
 
@@ -3557,7 +3557,7 @@ Py_XDECREF.exit.i.i.i:                            ; preds = %56, %53, %51, %49
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %70, %66
-  store ptr %18, ptr %65, align 8, !tbaa !77
+  store ptr %18, ptr %65, align 8, !tbaa !78
   %72 = load i32, ptr %67, align 8, !tbaa !34
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %76, label %74
@@ -3569,20 +3569,20 @@ _Py_NewRef.exit.i.i:                              ; preds = %70, %66
 
 76:                                               ; preds = %74, %_Py_NewRef.exit.i.i
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %67, ptr %77, align 8, !tbaa !79
+  store ptr %67, ptr %77, align 8, !tbaa !80
   %78 = call ptr @PyModule_GetState(ptr noundef nonnull %67) #7
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %78, ptr %79, align 8, !tbaa !89
+  store ptr %78, ptr %79, align 8, !tbaa !91
   %80 = load ptr, ptr %37, align 8, !tbaa !17
   %81 = call i32 @sqlite3_set_authorizer(ptr noundef %80, ptr noundef nonnull @authorizer_callback, ptr noundef nonnull %65) #7
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %83 = load ptr, ptr %82, align 8, !tbaa !84
-  store ptr %65, ptr %82, align 8, !tbaa !84
+  %83 = load ptr, ptr %82, align 8, !tbaa !85
+  store ptr %65, ptr %82, align 8, !tbaa !85
   %.not.i29.i = icmp eq ptr %83, null
   br i1 %.not.i29.i, label %set_callback_context.exit.i, label %84
 
 84:                                               ; preds = %76
-  %85 = load ptr, ptr %83, align 8, !tbaa !77
+  %85 = load ptr, ptr %83, align 8, !tbaa !78
   %.not.i.i.i30.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i30.i, label %Py_XDECREF.exit.i.i32.i, label %86
 
@@ -3603,7 +3603,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %70, %66
 
 Py_XDECREF.exit.i.i32.i:                          ; preds = %91, %88, %86, %84
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !79
+  %93 = load ptr, ptr %92, align 8, !tbaa !80
   %.not.i3.i.i33.i = icmp eq ptr %93, null
   br i1 %.not.i3.i.i33.i, label %set_callback_context.exit.sink.split.i, label %94
 
@@ -3638,16 +3638,16 @@ set_callback_context.exit.i:                      ; preds = %set_callback_contex
 
 99:                                               ; preds = %set_callback_context.exit.i
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %101 = load ptr, ptr %100, align 8, !tbaa !69
+  %101 = load ptr, ptr %100, align 8, !tbaa !70
   call void @PyErr_SetString(ptr noundef %101, ptr noundef nonnull @.str.84) #7
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %103 = load ptr, ptr %102, align 8, !tbaa !84
-  store ptr null, ptr %102, align 8, !tbaa !84
+  %103 = load ptr, ptr %102, align 8, !tbaa !85
+  store ptr null, ptr %102, align 8, !tbaa !85
   %.not.i37.i = icmp eq ptr %103, null
   br i1 %.not.i37.i, label %pysqlite_connection_set_authorizer_impl.exit, label %104
 
 104:                                              ; preds = %99
-  %105 = load ptr, ptr %103, align 8, !tbaa !77
+  %105 = load ptr, ptr %103, align 8, !tbaa !78
   %.not.i.i.i38.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i38.i, label %Py_XDECREF.exit.i.i40.i, label %106
 
@@ -3668,7 +3668,7 @@ set_callback_context.exit.i:                      ; preds = %set_callback_contex
 
 Py_XDECREF.exit.i.i40.i:                          ; preds = %111, %108, %106, %104
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !79
+  %113 = load ptr, ptr %112, align 8, !tbaa !80
   %.not.i3.i.i41.i = icmp eq ptr %113, null
   br i1 %.not.i3.i.i41.i, label %free_callback_context.exit.i43.i, label %114
 
@@ -3835,13 +3835,13 @@ pysqlite_check_connection.exit.i:                 ; preds = %36
 45:                                               ; preds = %pysqlite_check_connection.exit.i
   %46 = call i32 @sqlite3_trace_v2(ptr noundef nonnull %38, i32 noundef 1, ptr noundef null, ptr noundef null) #7
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %48 = load ptr, ptr %47, align 8, !tbaa !84
-  store ptr null, ptr %47, align 8, !tbaa !84
+  %48 = load ptr, ptr %47, align 8, !tbaa !85
+  store ptr null, ptr %47, align 8, !tbaa !85
   %.not.i20.i = icmp eq ptr %48, null
   br i1 %.not.i20.i, label %pysqlite_connection_set_trace_callback_impl.exit, label %49
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %48, align 8, !tbaa !77
+  %50 = load ptr, ptr %48, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %Py_XDECREF.exit.i.i.i, label %51
 
@@ -3862,7 +3862,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %36
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %56, %53, %51, %49
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !79
+  %58 = load ptr, ptr %57, align 8, !tbaa !80
   %.not.i3.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i3.i.i.i, label %free_callback_context.exit.i.i, label %59
 
@@ -3902,7 +3902,7 @@ free_callback_context.exit.i.i:                   ; preds = %64, %61, %59, %Py_X
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %71, %67
-  store ptr %18, ptr %66, align 8, !tbaa !77
+  store ptr %18, ptr %66, align 8, !tbaa !78
   %73 = load i32, ptr %68, align 8, !tbaa !34
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %77, label %75
@@ -3914,20 +3914,20 @@ _Py_NewRef.exit.i.i:                              ; preds = %71, %67
 
 77:                                               ; preds = %75, %_Py_NewRef.exit.i.i
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %68, ptr %78, align 8, !tbaa !79
+  store ptr %68, ptr %78, align 8, !tbaa !80
   %79 = call ptr @PyModule_GetState(ptr noundef nonnull %68) #7
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %79, ptr %80, align 8, !tbaa !89
+  store ptr %79, ptr %80, align 8, !tbaa !91
   %81 = load ptr, ptr %37, align 8, !tbaa !17
   %82 = call i32 @sqlite3_trace_v2(ptr noundef %81, i32 noundef 1, ptr noundef nonnull @trace_callback, ptr noundef nonnull %66) #7
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %84 = load ptr, ptr %83, align 8, !tbaa !84
-  store ptr %66, ptr %83, align 8, !tbaa !84
+  %84 = load ptr, ptr %83, align 8, !tbaa !85
+  store ptr %66, ptr %83, align 8, !tbaa !85
   %.not.i22.i = icmp eq ptr %84, null
   br i1 %.not.i22.i, label %pysqlite_connection_set_trace_callback_impl.exit, label %85
 
 85:                                               ; preds = %77
-  %86 = load ptr, ptr %84, align 8, !tbaa !77
+  %86 = load ptr, ptr %84, align 8, !tbaa !78
   %.not.i.i.i23.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i23.i, label %Py_XDECREF.exit.i.i25.i, label %87
 
@@ -3948,7 +3948,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %71, %67
 
 Py_XDECREF.exit.i.i25.i:                          ; preds = %92, %89, %87, %85
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !79
+  %94 = load ptr, ptr %93, align 8, !tbaa !80
   %.not.i3.i.i26.i = icmp eq ptr %94, null
   br i1 %.not.i3.i.i26.i, label %free_callback_context.exit.i28.i, label %95
 
@@ -4095,7 +4095,7 @@ define internal ptr @serialize(ptr noundef readonly captures(none) %0, ptr nound
 
 27:                                               ; preds = %24
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
-  %29 = load i64, ptr %7, align 8, !tbaa !86
+  %29 = load i64, ptr %7, align 8, !tbaa !87
   %.not33 = icmp eq i64 %28, %29
   br i1 %.not33, label %32, label %30
 
@@ -4174,18 +4174,18 @@ pysqlite_check_connection.exit.i:                 ; preds = %50
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %68 = load ptr, ptr %67, align 8, !tbaa !69
+  %68 = load ptr, ptr %67, align 8, !tbaa !70
   %69 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %68, ptr noundef nonnull @.str.93, ptr noundef nonnull %.0) #7
   br label %76
 
 70:                                               ; preds = %pysqlite_check_connection.exit.i
   call void @PyEval_RestoreThread(ptr noundef %58) #7
-  %71 = load i64, ptr %5, align 8, !tbaa !91
+  %71 = load i64, ptr %5, align 8, !tbaa !93
   %72 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %60, i64 noundef %71) #7
   br label %76
 
 73:                                               ; preds = %62
-  %74 = load i64, ptr %5, align 8, !tbaa !91
+  %74 = load i64, ptr %5, align 8, !tbaa !93
   %75 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef %74) #7
   call void @sqlite3_free(ptr noundef nonnull %64) #7
   br label %76
@@ -4251,7 +4251,7 @@ define internal ptr @deserialize(ptr noundef readonly captures(none) %0, ptr nou
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %19, align 8, !tbaa !25
-  %29 = load i64, ptr %7, align 8, !tbaa !86
+  %29 = load i64, ptr %7, align 8, !tbaa !87
   %30 = call i32 @PyBuffer_FillInfo(ptr noundef nonnull %6, ptr noundef %28, ptr noundef nonnull %25, i64 noundef %29, i32 noundef 1, i32 noundef 0) #7
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.thread54, label %32
@@ -4295,7 +4295,7 @@ define internal ptr @deserialize(ptr noundef readonly captures(none) %0, ptr nou
 
 46:                                               ; preds = %43
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #8
-  %48 = load i64, ptr %8, align 8, !tbaa !86
+  %48 = load i64, ptr %8, align 8, !tbaa !87
   %.not46 = icmp eq i64 %47, %48
   br i1 %.not46, label %51, label %49
 
@@ -4359,7 +4359,7 @@ pysqlite_check_connection.exit.thread.i:          ; preds = %72, %65
 
 pysqlite_check_connection.exit.i:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !93
+  %78 = load i64, ptr %77, align 8, !tbaa !95
   %79 = call ptr @sqlite3_malloc64(i64 noundef %78) #7
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %83
@@ -4370,8 +4370,8 @@ pysqlite_check_connection.exit.i:                 ; preds = %69
 
 83:                                               ; preds = %pysqlite_check_connection.exit.i
   %84 = call ptr @PyEval_SaveThread() #7
-  %85 = load ptr, ptr %6, align 8, !tbaa !96
-  %86 = load i64, ptr %77, align 8, !tbaa !93
+  %85 = load ptr, ptr %6, align 8, !tbaa !98
+  %86 = load i64, ptr %77, align 8, !tbaa !95
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %85, i64 %86, i1 false)
   %87 = load ptr, ptr %70, align 8, !tbaa !17
   %88 = call i32 @sqlite3_deserialize(ptr noundef %87, ptr noundef nonnull %.034, ptr noundef nonnull %79, i64 noundef %78, i64 noundef %78, i32 noundef 3) #7
@@ -4389,7 +4389,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %69
 deserialize_impl.exit:                            ; preds = %89, %83, %81, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %.thread54, %43, %33, %17, %49, %42
   %.035 = phi ptr [ null, %43 ], [ null, %49 ], [ null, %42 ], [ null, %33 ], [ null, %17 ], [ null, %.thread54 ], [ null, %pysqlite_check_thread.exit.i ], [ %82, %81 ], [ null, %89 ], [ @_Py_NoneStruct, %83 ], [ null, %pysqlite_check_connection.exit.thread.i ]
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !97
+  %95 = load ptr, ptr %94, align 8, !tbaa !99
   %.not47 = icmp eq ptr %95, null
   br i1 %.not47, label %97, label %96
 
@@ -4442,7 +4442,7 @@ define internal noundef ptr @create_window_function(ptr noundef readonly capture
 
 22:                                               ; preds = %19
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %24 = load i64, ptr %7, align 8, !tbaa !86
+  %24 = load i64, ptr %7, align 8, !tbaa !87
   %.not33 = icmp eq i64 %23, %24
   br i1 %.not33, label %27, label %25
 
@@ -4532,7 +4532,7 @@ define internal ptr @blobopen(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 27:                                               ; preds = %24
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
-  %29 = load i64, ptr %6, align 8, !tbaa !86
+  %29 = load i64, ptr %6, align 8, !tbaa !87
   %.not56 = icmp eq i64 %28, %29
   br i1 %.not56, label %32, label %30
 
@@ -4563,7 +4563,7 @@ define internal ptr @blobopen(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 42:                                               ; preds = %39
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
-  %44 = load i64, ptr %7, align 8, !tbaa !86
+  %44 = load i64, ptr %7, align 8, !tbaa !87
   %.not58 = icmp eq i64 %43, %44
   br i1 %.not58, label %47, label %45
 
@@ -4636,7 +4636,7 @@ sqlite3_int64_converter.exit:                     ; preds = %47
 
 74:                                               ; preds = %71
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #8
-  %76 = load i64, ptr %8, align 8, !tbaa !86
+  %76 = load i64, ptr %8, align 8, !tbaa !87
   %.not64 = icmp eq i64 %75, %76
   br i1 %.not64, label %79, label %77
 
@@ -4768,7 +4768,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %39
   br label %64
 
 57:                                               ; preds = %50
-  %58 = load i32, ptr %4, align 4, !tbaa !98
+  %58 = load i32, ptr %4, align 4, !tbaa !100
   %.not14.i = icmp eq i32 %.0, %58
   br i1 %.not14.i, label %64, label %59
 
@@ -4776,7 +4776,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %39
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !68
+  %63 = load ptr, ptr %62, align 8, !tbaa !69
   call void @PyErr_SetString(ptr noundef %63, ptr noundef nonnull @.str.106) #7
   br label %64
 
@@ -4912,7 +4912,7 @@ pysqlite_check_connection.exit.thread:            ; preds = %18, %25
 
 pysqlite_check_connection.exit:                   ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !51
+  %31 = load i32, ptr %30, align 8, !tbaa !52
   switch i32 %31, label %connection_exec_stmt.exit [
     i32 -1, label %32
     i32 0, label %49
@@ -4932,9 +4932,9 @@ pysqlite_check_connection.exit:                   ; preds = %22
   br i1 %38, label %39, label %.critedge.i
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %4, align 8, !tbaa !82
+  %40 = load ptr, ptr %4, align 8, !tbaa !83
   %41 = call i32 @sqlite3_step(ptr noundef %40) #7
-  %42 = load ptr, ptr %4, align 8, !tbaa !82
+  %42 = load ptr, ptr %4, align 8, !tbaa !83
   %43 = call i32 @sqlite3_finalize(ptr noundef %42) #7
   %44 = icmp eq i32 %43, 0
   call void @PyEval_RestoreThread(ptr noundef %35) #7
@@ -4962,9 +4962,9 @@ connection_exec_stmt.exit.thread:                 ; preds = %39, %.critedge.i
   br i1 %53, label %54, label %.critedge.i16
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr %3, align 8, !tbaa !82
+  %55 = load ptr, ptr %3, align 8, !tbaa !83
   %56 = call i32 @sqlite3_step(ptr noundef %55) #7
-  %57 = load ptr, ptr %3, align 8, !tbaa !82
+  %57 = load ptr, ptr %3, align 8, !tbaa !83
   %58 = call i32 @sqlite3_finalize(ptr noundef %57) #7
   %59 = icmp eq i32 %58, 0
   call void @PyEval_RestoreThread(ptr noundef %50) #7
@@ -4992,9 +4992,9 @@ connection_exec_stmt.exit18:                      ; preds = %54
   br i1 %67, label %68, label %.critedge.i19
 
 68:                                               ; preds = %connection_exec_stmt.exit18
-  %69 = load ptr, ptr %2, align 8, !tbaa !82
+  %69 = load ptr, ptr %2, align 8, !tbaa !83
   %70 = call i32 @sqlite3_step(ptr noundef %69) #7
-  %71 = load ptr, ptr %2, align 8, !tbaa !82
+  %71 = load ptr, ptr %2, align 8, !tbaa !83
   %72 = call i32 @sqlite3_finalize(ptr noundef %71) #7
   %73 = icmp eq i32 %72, 0
   call void @PyEval_RestoreThread(ptr noundef %64) #7
@@ -5090,7 +5090,7 @@ pysqlite_check_connection.exit:                   ; preds = %23
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %36, %32
-  store ptr %4, ptr %31, align 8, !tbaa !77
+  store ptr %4, ptr %31, align 8, !tbaa !78
   %38 = load i32, ptr %33, align 8, !tbaa !34
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %42, label %40
@@ -5102,10 +5102,10 @@ _Py_NewRef.exit.i:                                ; preds = %36, %32
 
 42:                                               ; preds = %40, %_Py_NewRef.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %33, ptr %43, align 8, !tbaa !79
+  store ptr %33, ptr %43, align 8, !tbaa !80
   %44 = tail call ptr @PyModule_GetState(ptr noundef nonnull %33) #7
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %44, ptr %45, align 8, !tbaa !89
+  store ptr %44, ptr %45, align 8, !tbaa !91
   %46 = load ptr, ptr %24, align 8, !tbaa !17
   %47 = tail call i32 @sqlite3_create_function_v2(ptr noundef %46, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %31, ptr noundef null, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @destructor_callback) #7
   %.not13 = icmp eq i32 %47, 0
@@ -5113,7 +5113,7 @@ _Py_NewRef.exit.i:                                ; preds = %36, %32
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !69
+  %50 = load ptr, ptr %49, align 8, !tbaa !70
   tail call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.55) #7
   br label %create_callback_context.exit.thread
 
@@ -5143,7 +5143,7 @@ define internal void @step_callback(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %5, align 8, !tbaa !77
+  %14 = load ptr, ptr %5, align 8, !tbaa !78
   %15 = tail call ptr @PyObject_CallNoArgs(ptr noundef %14) #7
   store ptr %15, ptr %6, align 8, !tbaa !25
   %.not = icmp eq ptr %15, null
@@ -5156,9 +5156,9 @@ define internal void @step_callback(ptr noundef %0, i32 noundef %1, ptr noundef 
 17:                                               ; preds = %13, %10
   %18 = phi ptr [ %15, %13 ], [ %11, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !89
+  %20 = load ptr, ptr %19, align 8, !tbaa !91
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 200
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %21, align 8, !tbaa !101
   %23 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %18, ptr noundef %22) #7
   %.not30 = icmp eq ptr %23, null
   br i1 %.not30, label %24, label %25
@@ -5254,9 +5254,9 @@ define internal void @final_callback(ptr noundef %0) #0 {
   %10 = tail call ptr @sqlite3_user_data(ptr noundef %0) #7
   %11 = load ptr, ptr %4, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
-  %15 = load ptr, ptr %14, align 8, !tbaa !100
+  %15 = load ptr, ptr %14, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %11, ptr %2, align 8, !tbaa !25
   %16 = call ptr @PyObject_VectorcallMethod(ptr noundef %15, ptr noundef nonnull %2, i64 noundef -9223372036854775807, ptr noundef null) #7
@@ -5325,7 +5325,7 @@ define internal void @destructor_callback(ptr noundef %0) #0 {
 
 2:                                                ; preds = %1
   %3 = tail call i32 @PyGILState_Ensure() #7
-  %4 = load ptr, ptr %0, align 8, !tbaa !77
+  %4 = load ptr, ptr %0, align 8, !tbaa !78
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %5
 
@@ -5346,7 +5346,7 @@ define internal void @destructor_callback(ptr noundef %0) #0 {
 
 Py_XDECREF.exit.i:                                ; preds = %10, %7, %5, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %12 = load ptr, ptr %11, align 8, !tbaa !80
   %.not.i3.i = icmp eq ptr %12, null
   br i1 %.not.i3.i, label %free_callback_context.exit, label %13
 
@@ -5414,14 +5414,14 @@ define internal fastcc void @set_sqlite_error(ptr noundef %0, ptr noundef %1) un
 11:                                               ; preds = %9, %10, %5
   %12 = tail call ptr @sqlite3_user_data(ptr noundef %0) #7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 108
-  %16 = load i32, ptr %15, align 4, !tbaa !101
+  %16 = load i32, ptr %15, align 4, !tbaa !103
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %19, label %17
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %12, align 8, !tbaa !77
+  %18 = load ptr, ptr %12, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %18) #7
   br label %print_or_clear_traceback.exit
 
@@ -5456,7 +5456,7 @@ define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %0, i32 nounde
 8:                                                ; preds = %.lr.ph, %_Py_NewRef.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Py_NewRef.exit.thread ]
   %9 = getelementptr ptr, ptr %2, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !102
+  %10 = load ptr, ptr %9, align 8, !tbaa !104
   %11 = tail call i32 @sqlite3_value_type(ptr noundef %10) #7
   switch i32 %11, label %38 [
     i32 1, label %12
@@ -5530,7 +5530,7 @@ _Py_NewRef.exit.thread:                           ; preds = %41, %38, %_Py_NewRe
   store ptr %.152, ptr %43, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %Py_DECREF.exit, label %8, !llvm.loop !104
+  br i1 %exitcond.not, label %Py_DECREF.exit, label %8, !llvm.loop !106
 
 .loopexit.sink.split:                             ; preds = %32, %22
   %44 = tail call ptr @PyErr_NoMemory() #7
@@ -5664,7 +5664,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %16, %PyObject_TypeC
   br i1 %27, label %.thread57, label %28
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr %3, align 8, !tbaa !86
+  %29 = load i64, ptr %3, align 8, !tbaa !87
   %30 = icmp sgt i64 %29, 2147483647
   br i1 %30, label %31, label %33
 
@@ -5696,7 +5696,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %16, %PyObject_TypeC
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !93
+  %41 = load i64, ptr %40, align 8, !tbaa !95
   %42 = icmp sgt i64 %41, 2147483647
   br i1 %42, label %43, label %45
 
@@ -5711,7 +5711,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %16, %PyObject_TypeC
   br label %57
 
 45:                                               ; preds = %39
-  %46 = load ptr, ptr %4, align 8, !tbaa !96
+  %46 = load ptr, ptr %4, align 8, !tbaa !98
   %47 = trunc i64 %41 to i32
   call void @sqlite3_result_blob(ptr noundef %0, ptr noundef %46, i32 noundef %47, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #7
   call void @PyBuffer_Release(ptr noundef nonnull %4) #7
@@ -5721,12 +5721,12 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %16, %PyObject_TypeC
 48:                                               ; preds = %35
   %49 = tail call ptr @sqlite3_user_data(ptr noundef %0) #7
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !89
+  %51 = load ptr, ptr %50, align 8, !tbaa !91
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !19
   %.val = load ptr, ptr %8, align 8, !tbaa !16
   %54 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !85
+  %55 = load ptr, ptr %54, align 8, !tbaa !86
   %56 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %53, ptr noundef nonnull @.str.65, ptr noundef %55) #7
   br label %57
 
@@ -5765,7 +5765,7 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
   %7 = alloca [3 x ptr], align 16
   %8 = tail call i32 @PyGILState_Ensure() #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 0, ptr %6, align 4, !tbaa !98
+  store i32 0, ptr %6, align 4, !tbaa !100
   %9 = tail call ptr @PyErr_Occurred() #7
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %Py_XDECREF.exit34
@@ -5788,7 +5788,7 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
   store ptr %12, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %16, ptr %20, align 16, !tbaa !25
-  %21 = load ptr, ptr %0, align 8, !tbaa !77
+  %21 = load ptr, ptr %0, align 8, !tbaa !78
   %22 = call ptr @PyObject_Vectorcall(ptr noundef %21, ptr noundef nonnull %19, i64 noundef -9223372036854775806, ptr noundef null) #7
   %23 = icmp eq ptr %22, null
   br i1 %23, label %37, label %24
@@ -5808,12 +5808,12 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
   br label %.sink.split
 
 30:                                               ; preds = %24
-  %31 = load i32, ptr %6, align 4, !tbaa !98
+  %31 = load i32, ptr %6, align 4, !tbaa !100
   %.not28 = icmp eq i32 %31, 0
   br i1 %.not28, label %33, label %37
 
 .thread:                                          ; preds = %27
-  %32 = load i32, ptr %6, align 4, !tbaa !98
+  %32 = load i32, ptr %6, align 4, !tbaa !100
   %.not2835 = icmp eq i32 %32, 0
   br i1 %.not2835, label %.sink.split, label %37
 
@@ -5827,7 +5827,7 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
 
 .sink.split:                                      ; preds = %35, %.thread, %33, %29
   %.sink = phi i32 [ 0, %29 ], [ 1, %33 ], [ -1, %.thread ], [ -1, %35 ]
-  store i32 %.sink, ptr %6, align 4, !tbaa !98
+  store i32 %.sink, ptr %6, align 4, !tbaa !100
   br label %37
 
 37:                                               ; preds = %.sink.split, %14, %18, %30, %35, %.thread
@@ -5885,7 +5885,7 @@ Py_XDECREF.exit31:                                ; preds = %Py_XDECREF.exit, %4
 
 Py_XDECREF.exit34:                                ; preds = %5, %10, %Py_XDECREF.exit31, %49, %51, %54
   call void @PyGILState_Release(i32 noundef %8) #7
-  %55 = load i32, ptr %6, align 4, !tbaa !98
+  %55 = load i32, ptr %6, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   ret i32 %55
 }
@@ -5905,7 +5905,7 @@ define internal void @func_callback(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 6:                                                ; preds = %3
   %7 = tail call ptr @sqlite3_user_data(ptr noundef %0) #7
-  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
   %9 = tail call ptr @PyObject_CallObject(ptr noundef %8, ptr noundef nonnull %5) #7
   %10 = load i32, ptr %5, align 8, !tbaa !34
   %.not.i18 = icmp sgt i32 %10, -1
@@ -6015,7 +6015,7 @@ pysqlite_check_connection.exit:                   ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
-  %33 = load ptr, ptr %32, align 8, !tbaa !105
+  %33 = load ptr, ptr %32, align 8, !tbaa !107
   br label %34
 
 34:                                               ; preds = %29, %pysqlite_check_connection.exit
@@ -6028,7 +6028,7 @@ pysqlite_check_connection.exit:                   ; preds = %20
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %41 = load ptr, ptr %40, align 8, !tbaa !105
+  %41 = load ptr, ptr %40, align 8, !tbaa !107
   %42 = getelementptr i8, ptr %35, i64 8
   %.val29 = load ptr, ptr %42, align 8, !tbaa !16
   %.not.i34 = icmp eq ptr %.val29, %41
@@ -6043,7 +6043,7 @@ PyObject_TypeCheck.exit:                          ; preds = %37
   %45 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !25
   %.val = load ptr, ptr %42, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !85
+  %47 = load ptr, ptr %46, align 8, !tbaa !86
   %48 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %45, ptr noundef nonnull @.str.76, ptr noundef %47) #7
   %49 = load i32, ptr %35, align 8, !tbaa !34
   %.not.i = icmp sgt i32 %49, -1
@@ -6061,28 +6061,28 @@ PyObject_TypeCheck.exit:                          ; preds = %37
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %37, %PyObject_TypeCheck.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %55 = load i32, ptr %54, align 8, !tbaa !55
+  %55 = load i32, ptr %54, align 8, !tbaa !56
   %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 8, !tbaa !55
+  store i32 %56, ptr %54, align 8, !tbaa !56
   %57 = icmp slt i32 %55, 200
   br i1 %57, label %_pysqlite_drop_unused_cursor_references.exit, label %58
 
 58:                                               ; preds = %PyObject_TypeCheck.exit.thread
-  store i32 0, ptr %54, align 8, !tbaa !55
+  store i32 0, ptr %54, align 8, !tbaa !56
   %59 = tail call ptr @PyList_New(i64 noundef 0) #7
   %.not.i35 = icmp eq ptr %59, null
   br i1 %.not.i35, label %_pysqlite_drop_unused_cursor_references.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %61 = load ptr, ptr %60, align 8, !tbaa !53
+  %61 = load ptr, ptr %60, align 8, !tbaa !54
   %62 = tail call i64 @PyList_Size(ptr noundef %61) #7
   %.not2228.i = icmp sgt i64 %62, 0
   br i1 %.not2228.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %Py_DECREF.exit24.i
   %.01829.i = phi i64 [ %73, %Py_DECREF.exit24.i ], [ 0, %.preheader.i ]
-  %63 = load ptr, ptr %60, align 8, !tbaa !53
+  %63 = load ptr, ptr %60, align 8, !tbaa !54
   %64 = tail call ptr @PyList_GetItem(ptr noundef %63, i64 noundef %.01829.i) #7
   %65 = tail call i32 @_PyWeakref_IsDead(ptr noundef %64) #7
   %.not20.i = icmp eq i32 %65, 0
@@ -6106,10 +6106,10 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %37, %PyObject_TypeC
 
 Py_DECREF.exit24.i:                               ; preds = %66, %.lr.ph.i
   %73 = add nuw nsw i64 %.01829.i, 1
-  %74 = load ptr, ptr %60, align 8, !tbaa !53
+  %74 = load ptr, ptr %60, align 8, !tbaa !54
   %75 = tail call i64 @PyList_Size(ptr noundef %74) #7
   %.not22.i = icmp slt i64 %73, %75
-  br i1 %.not22.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !106
+  br i1 %.not22.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !108
 
 .critedge.i:                                      ; preds = %Py_DECREF.exit24.i, %.preheader.i
   %76 = load ptr, ptr %60, align 8, !tbaa !25
@@ -6131,7 +6131,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %78, %70
 
 _pysqlite_drop_unused_cursor_references.exit:     ; preds = %PyObject_TypeCheck.exit.thread, %58, %68, %70, %.critedge.i, %78, %Py_DECREF.exit.sink.split.i
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %82 = load ptr, ptr %81, align 8, !tbaa !56
+  %82 = load ptr, ptr %81, align 8, !tbaa !57
   %.not28 = icmp eq ptr %82, @_Py_NoneStruct
   br i1 %.not28, label %Py_DECREF.exit, label %83
 
@@ -6143,7 +6143,7 @@ _pysqlite_drop_unused_cursor_references.exit:     ; preds = %PyObject_TypeCheck.
 86:                                               ; preds = %83
   %87 = add nuw i32 %84, 1
   store i32 %87, ptr %82, align 8, !tbaa !34
-  %.pre = load ptr, ptr %81, align 8, !tbaa !56
+  %.pre = load ptr, ptr %81, align 8, !tbaa !57
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %83, %86
@@ -6250,7 +6250,7 @@ pysqlite_check_connection.exit.thread:            ; preds = %18, %25
 
 pysqlite_check_connection.exit:                   ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !51
+  %31 = load i32, ptr %30, align 8, !tbaa !52
   switch i32 %31, label %connection_exec_stmt.exit [
     i32 -1, label %32
     i32 0, label %49
@@ -6270,9 +6270,9 @@ pysqlite_check_connection.exit:                   ; preds = %22
   br i1 %38, label %39, label %.critedge.i
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %4, align 8, !tbaa !82
+  %40 = load ptr, ptr %4, align 8, !tbaa !83
   %41 = call i32 @sqlite3_step(ptr noundef %40) #7
-  %42 = load ptr, ptr %4, align 8, !tbaa !82
+  %42 = load ptr, ptr %4, align 8, !tbaa !83
   %43 = call i32 @sqlite3_finalize(ptr noundef %42) #7
   %44 = icmp eq i32 %43, 0
   call void @PyEval_RestoreThread(ptr noundef %35) #7
@@ -6300,9 +6300,9 @@ connection_exec_stmt.exit.thread:                 ; preds = %39, %.critedge.i
   br i1 %53, label %54, label %.critedge.i16
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr %3, align 8, !tbaa !82
+  %55 = load ptr, ptr %3, align 8, !tbaa !83
   %56 = call i32 @sqlite3_step(ptr noundef %55) #7
-  %57 = load ptr, ptr %3, align 8, !tbaa !82
+  %57 = load ptr, ptr %3, align 8, !tbaa !83
   %58 = call i32 @sqlite3_finalize(ptr noundef %57) #7
   %59 = icmp eq i32 %58, 0
   call void @PyEval_RestoreThread(ptr noundef %50) #7
@@ -6330,9 +6330,9 @@ connection_exec_stmt.exit18:                      ; preds = %54
   br i1 %67, label %68, label %.critedge.i19
 
 68:                                               ; preds = %connection_exec_stmt.exit18
-  %69 = load ptr, ptr %2, align 8, !tbaa !82
+  %69 = load ptr, ptr %2, align 8, !tbaa !83
   %70 = call i32 @sqlite3_step(ptr noundef %69) #7
-  %71 = load ptr, ptr %2, align 8, !tbaa !82
+  %71 = load ptr, ptr %2, align 8, !tbaa !83
   %72 = call i32 @sqlite3_finalize(ptr noundef %71) #7
   %73 = icmp eq i32 %72, 0
   call void @PyEval_RestoreThread(ptr noundef %64) #7
@@ -6365,21 +6365,21 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @authorizer_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @PyGILState_Ensure() #7
-  %8 = load ptr, ptr %0, align 8, !tbaa !77
+  %8 = load ptr, ptr %0, align 8, !tbaa !78
   %9 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %8, ptr noundef nonnull @.str.85, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 108
-  %15 = load i32, ptr %14, align 4, !tbaa !101
+  %15 = load i32, ptr %14, align 4, !tbaa !103
   %.not.i20 = icmp eq i32 %15, 0
   br i1 %.not.i20, label %18, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !77
+  %17 = load ptr, ptr %0, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %17) #7
   br label %print_or_clear_traceback.exit
 
@@ -6408,14 +6408,14 @@ define internal i32 @authorizer_callback(ptr noundef readonly captures(none) %0,
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !89
+  %30 = load ptr, ptr %29, align 8, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 108
-  %32 = load i32, ptr %31, align 4, !tbaa !101
+  %32 = load i32, ptr %31, align 4, !tbaa !103
   %.not.i21 = icmp eq i32 %32, 0
   br i1 %.not.i21, label %35, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %0, align 8, !tbaa !77
+  %34 = load ptr, ptr %0, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %34) #7
   br label %print_or_clear_traceback.exit22
 
@@ -6505,13 +6505,13 @@ pysqlite_check_connection.exit:                   ; preds = %22
 31:                                               ; preds = %pysqlite_check_connection.exit
   tail call void @sqlite3_progress_handler(ptr noundef nonnull %24, i32 noundef 0, ptr noundef null, ptr noundef null) #7
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %33 = load ptr, ptr %32, align 8, !tbaa !84
-  store ptr null, ptr %32, align 8, !tbaa !84
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
+  store ptr null, ptr %32, align 8, !tbaa !85
   %.not.i21 = icmp eq ptr %33, null
   br i1 %.not.i21, label %set_callback_context.exit30, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %33, align 8, !tbaa !77
+  %35 = load ptr, ptr %33, align 8, !tbaa !78
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %Py_XDECREF.exit.i.i, label %36
 
@@ -6532,7 +6532,7 @@ pysqlite_check_connection.exit:                   ; preds = %22
 
 Py_XDECREF.exit.i.i:                              ; preds = %41, %38, %36, %34
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !79
+  %43 = load ptr, ptr %42, align 8, !tbaa !80
   %.not.i3.i.i = icmp eq ptr %43, null
   br i1 %.not.i3.i.i, label %free_callback_context.exit.i, label %44
 
@@ -6572,7 +6572,7 @@ free_callback_context.exit.i:                     ; preds = %49, %46, %44, %Py_X
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %56, %52
-  store ptr %2, ptr %51, align 8, !tbaa !77
+  store ptr %2, ptr %51, align 8, !tbaa !78
   %58 = load i32, ptr %53, align 8, !tbaa !34
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %62, label %60
@@ -6584,20 +6584,20 @@ _Py_NewRef.exit.i:                                ; preds = %56, %52
 
 62:                                               ; preds = %60, %_Py_NewRef.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %53, ptr %63, align 8, !tbaa !79
+  store ptr %53, ptr %63, align 8, !tbaa !80
   %64 = tail call ptr @PyModule_GetState(ptr noundef nonnull %53) #7
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store ptr %64, ptr %65, align 8, !tbaa !89
+  store ptr %64, ptr %65, align 8, !tbaa !91
   %66 = load ptr, ptr %23, align 8, !tbaa !17
   tail call void @sqlite3_progress_handler(ptr noundef %66, i32 noundef %3, ptr noundef nonnull @progress_callback, ptr noundef nonnull %51) #7
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %68 = load ptr, ptr %67, align 8, !tbaa !84
-  store ptr %51, ptr %67, align 8, !tbaa !84
+  %68 = load ptr, ptr %67, align 8, !tbaa !85
+  store ptr %51, ptr %67, align 8, !tbaa !85
   %.not.i23 = icmp eq ptr %68, null
   br i1 %.not.i23, label %set_callback_context.exit30, label %69
 
 69:                                               ; preds = %62
-  %70 = load ptr, ptr %68, align 8, !tbaa !77
+  %70 = load ptr, ptr %68, align 8, !tbaa !78
   %.not.i.i.i24 = icmp eq ptr %70, null
   br i1 %.not.i.i.i24, label %Py_XDECREF.exit.i.i26, label %71
 
@@ -6618,7 +6618,7 @@ _Py_NewRef.exit.i:                                ; preds = %56, %52
 
 Py_XDECREF.exit.i.i26:                            ; preds = %76, %73, %71, %69
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !79
+  %78 = load ptr, ptr %77, align 8, !tbaa !80
   %.not.i3.i.i27 = icmp eq ptr %78, null
   br i1 %.not.i3.i.i27, label %free_callback_context.exit.i29, label %79
 
@@ -6649,7 +6649,7 @@ set_callback_context.exit30:                      ; preds = %62, %free_callback_
 ; Function Attrs: nounwind uwtable
 define internal i32 @progress_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @PyGILState_Ensure() #7
-  %3 = load ptr, ptr %0, align 8, !tbaa !77
+  %3 = load ptr, ptr %0, align 8, !tbaa !78
   %4 = tail call ptr @PyObject_CallNoArgs(ptr noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %Py_DECREF.exit.thread, label %5
@@ -6677,14 +6677,14 @@ Py_DECREF.exit:                                   ; preds = %11, %8, %5
 Py_DECREF.exit.thread:                            ; preds = %1, %Py_DECREF.exit
   %.012 = phi i32 [ %6, %Py_DECREF.exit ], [ -1, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  %14 = load ptr, ptr %13, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 108
-  %16 = load i32, ptr %15, align 4, !tbaa !101
+  %16 = load i32, ptr %15, align 4, !tbaa !103
   %.not.i9 = icmp eq i32 %16, 0
   br i1 %.not.i9, label %19, label %17
 
 17:                                               ; preds = %Py_DECREF.exit.thread
-  %18 = load ptr, ptr %0, align 8, !tbaa !77
+  %18 = load ptr, ptr %0, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %18) #7
   br label %print_or_clear_traceback.exit
 
@@ -6706,7 +6706,7 @@ define internal noundef i32 @trace_callback(i32 noundef %0, ptr noundef readonly
 5:                                                ; preds = %4
   %6 = tail call i32 @PyGILState_Ensure() #7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %8 = load ptr, ptr %7, align 8, !tbaa !91
   %9 = tail call ptr @sqlite3_expanded_sql(ptr noundef %2) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %26
@@ -6718,16 +6718,16 @@ define internal noundef i32 @trace_callback(i32 noundef %0, ptr noundef readonly
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %8, align 8, !tbaa !66
+  %16 = load ptr, ptr %8, align 8, !tbaa !67
   tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.91) #7
-  %17 = load ptr, ptr %7, align 8, !tbaa !89
+  %17 = load ptr, ptr %7, align 8, !tbaa !91
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 108
-  %19 = load i32, ptr %18, align 4, !tbaa !101
+  %19 = load i32, ptr %18, align 4, !tbaa !103
   %.not.i26 = icmp eq i32 %19, 0
   br i1 %.not.i26, label %22, label %20
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %1, align 8, !tbaa !77
+  %21 = load ptr, ptr %1, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %21) #7
   br label %.thread
 
@@ -6754,7 +6754,7 @@ define internal noundef i32 @trace_callback(i32 noundef %0, ptr noundef readonly
   br i1 %.not23, label %Py_XDECREF.exit, label %29
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr %1, align 8, !tbaa !77
+  %30 = load ptr, ptr %1, align 8, !tbaa !78
   %31 = tail call ptr @PyObject_CallOneArg(ptr noundef %30, ptr noundef nonnull %.121) #7
   %32 = load i32, ptr %.121, align 8, !tbaa !34
   %.not.i = icmp sgt i32 %32, -1
@@ -6795,14 +6795,14 @@ Py_XDECREF.exit:                                  ; preds = %42, %39, %37, %Py_D
   br i1 %.not24, label %print_or_clear_traceback.exit29, label %44
 
 44:                                               ; preds = %Py_XDECREF.exit
-  %45 = load ptr, ptr %7, align 8, !tbaa !89
+  %45 = load ptr, ptr %7, align 8, !tbaa !91
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 108
-  %47 = load i32, ptr %46, align 4, !tbaa !101
+  %47 = load i32, ptr %46, align 4, !tbaa !103
   %.not.i28 = icmp eq i32 %47, 0
   br i1 %.not.i28, label %50, label %48
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %1, align 8, !tbaa !77
+  %49 = load ptr, ptr %1, align 8, !tbaa !78
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.60, ptr noundef %49) #7
   br label %print_or_clear_traceback.exit29
 
@@ -6926,7 +6926,7 @@ define internal fastcc noundef ptr @create_window_function_impl(ptr noundef read
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %10 = load ptr, ptr %9, align 8, !tbaa !75
+  %10 = load ptr, ptr %9, align 8, !tbaa !76
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.95) #7
   br label %.critedge
 
@@ -7007,7 +7007,7 @@ pysqlite_check_connection.exit:                   ; preds = %29
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %46, %42
-  store ptr %4, ptr %41, align 8, !tbaa !77
+  store ptr %4, ptr %41, align 8, !tbaa !78
   %48 = load i32, ptr %43, align 8, !tbaa !34
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %52, label %50
@@ -7019,10 +7019,10 @@ _Py_NewRef.exit.i:                                ; preds = %46, %42
 
 52:                                               ; preds = %50, %_Py_NewRef.exit.i
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %43, ptr %53, align 8, !tbaa !79
+  store ptr %43, ptr %53, align 8, !tbaa !80
   %54 = tail call ptr @PyModule_GetState(ptr noundef nonnull %43) #7
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %54, ptr %55, align 8, !tbaa !89
+  store ptr %54, ptr %55, align 8, !tbaa !91
   %56 = load ptr, ptr %30, align 8, !tbaa !17
   %57 = tail call i32 @sqlite3_create_window_function(ptr noundef %56, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %41, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @value_callback, ptr noundef nonnull @inverse_callback, ptr noundef nonnull @destructor_callback) #7
   br label %58
@@ -7056,9 +7056,9 @@ define internal void @value_callback(ptr noundef %0) #0 {
   %5 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 8) #7
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %8 = load ptr, ptr %7, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %10 = load ptr, ptr %9, align 8, !tbaa !107
+  %10 = load ptr, ptr %9, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %6, ptr %2, align 8, !tbaa !25
   %11 = call ptr @PyObject_VectorcallMethod(ptr noundef %10, ptr noundef nonnull %2, i64 noundef -9223372036854775807, ptr noundef null) #7
@@ -7110,9 +7110,9 @@ define internal void @inverse_callback(ptr noundef %0, i32 noundef %1, ptr nound
   %6 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 8) #7
   %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  %11 = load ptr, ptr %10, align 8, !tbaa !108
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
   %12 = tail call ptr @PyObject_GetAttr(ptr noundef %7, ptr noundef %11) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Py_DECREF.exit, label %14
@@ -7262,7 +7262,7 @@ pysqlite_check_connection.exit:                   ; preds = %25
 
 39:                                               ; preds = %pysqlite_check_connection.exit
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !62
+  %41 = load ptr, ptr %40, align 8, !tbaa !63
   %42 = call ptr @sqlite3_errstr(i32 noundef 21) #7
   %43 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef %42) #7
   br label %Py_XDECREF.exit
@@ -7274,7 +7274,7 @@ pysqlite_check_connection.exit:                   ; preds = %25
 
 47:                                               ; preds = %pysqlite_check_connection.exit
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 112
-  %49 = load ptr, ptr %48, align 8, !tbaa !109
+  %49 = load ptr, ptr %48, align 8, !tbaa !111
   %50 = call ptr @_PyObject_GC_New(ptr noundef %49) #7
   %51 = icmp eq ptr %50, null
   br i1 %51, label %Py_XDECREF.exit, label %52
@@ -7291,14 +7291,14 @@ pysqlite_check_connection.exit:                   ; preds = %25
 
 _Py_NewRef.exit:                                  ; preds = %52, %55
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %0, ptr %57, align 8, !tbaa !110
-  %58 = load ptr, ptr %7, align 8, !tbaa !113
+  store ptr %0, ptr %57, align 8, !tbaa !112
+  %58 = load ptr, ptr %7, align 8, !tbaa !115
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !114
+  store ptr %58, ptr %59, align 8, !tbaa !116
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store i32 0, ptr %60, align 8, !tbaa !115
+  store i32 0, ptr %60, align 8, !tbaa !117
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store ptr null, ptr %61, align 8, !tbaa !116
+  store ptr null, ptr %61, align 8, !tbaa !118
   call void @PyObject_GC_Track(ptr noundef nonnull %50) #7
   %62 = call ptr @PyWeakref_NewRef(ptr noundef nonnull %50, ptr noundef null) #7
   %63 = icmp eq ptr %62, null
@@ -7306,7 +7306,7 @@ _Py_NewRef.exit:                                  ; preds = %52, %55
 
 64:                                               ; preds = %_Py_NewRef.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %66 = load ptr, ptr %65, align 8, !tbaa !54
+  %66 = load ptr, ptr %65, align 8, !tbaa !55
   %67 = call i32 @PyList_Append(ptr noundef %66, ptr noundef nonnull %62) #7
   %68 = load i32, ptr %62, align 8, !tbaa !34
   %.not.i = icmp sgt i32 %68, -1
@@ -7439,7 +7439,7 @@ pysqlite_check_connection.exit:                   ; preds = %21
   br label %41
 
 39:                                               ; preds = %32
-  %40 = load i32, ptr %3, align 4, !tbaa !98
+  %40 = load i32, ptr %3, align 4, !tbaa !100
   br label %41
 
 41:                                               ; preds = %39, %34
@@ -7489,7 +7489,7 @@ pysqlite_check_connection.exit.thread:            ; preds = %5, %12
 
 pysqlite_check_connection.exit:                   ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %.not6 = icmp eq ptr %18, null
   br i1 %.not6, label %21, label %19
 
@@ -7518,7 +7518,7 @@ define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(pt
   br i1 %8, label %10, label %19
 
 10:                                               ; preds = %7
-  store ptr null, ptr %9, align 8, !tbaa !50
+  store ptr null, ptr %9, align 8, !tbaa !51
   %11 = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %0)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Py_DECREF.exit, label %13
@@ -7732,7 +7732,7 @@ pysqlite_check_connection.exit.thread:            ; preds = %16, %23
 
 pysqlite_check_connection.exit:                   ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8, !tbaa !51
+  %29 = load i32, ptr %28, align 8, !tbaa !52
   switch i32 %29, label %31 [
     i32 1, label %33
     i32 0, label %30
@@ -7829,7 +7829,7 @@ pysqlite_check_connection.exit:                   ; preds = %23
   br i1 %41, label %.thread, label %autocommit_converter.exit
 
 .thread:                                          ; preds = %39
-  store i32 -1, ptr %31, align 4, !tbaa !98
+  store i32 -1, ptr %31, align 4, !tbaa !100
   br label %connection_exec_stmt.exit
 
 autocommit_converter.exit:                        ; preds = %35, %39
@@ -7838,7 +7838,7 @@ autocommit_converter.exit:                        ; preds = %35, %39
   br label %connection_exec_stmt.exit
 
 43:                                               ; preds = %pysqlite_check_connection.exit
-  store i32 1, ptr %31, align 4, !tbaa !98
+  store i32 1, ptr %31, align 4, !tbaa !100
   %44 = tail call i32 @sqlite3_get_autocommit(ptr noundef nonnull %25) #7
   %.not15 = icmp eq i32 %44, 0
   br i1 %.not15, label %45, label %connection_exec_stmt.exit
@@ -7852,9 +7852,9 @@ autocommit_converter.exit:                        ; preds = %35, %39
   br i1 %49, label %50, label %.critedge.i
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %5, align 8, !tbaa !82
+  %51 = load ptr, ptr %5, align 8, !tbaa !83
   %52 = call i32 @sqlite3_step(ptr noundef %51) #7
-  %53 = load ptr, ptr %5, align 8, !tbaa !82
+  %53 = load ptr, ptr %5, align 8, !tbaa !83
   %54 = call i32 @sqlite3_finalize(ptr noundef %53) #7
   %55 = icmp eq i32 %54, 0
   call void @PyEval_RestoreThread(ptr noundef %46) #7
@@ -7874,7 +7874,7 @@ connection_exec_stmt.exit.thread:                 ; preds = %50, %.critedge.i
   br label %connection_exec_stmt.exit
 
 60:                                               ; preds = %33
-  store i32 0, ptr %31, align 4, !tbaa !98
+  store i32 0, ptr %31, align 4, !tbaa !100
   %61 = tail call i32 @sqlite3_get_autocommit(ptr noundef nonnull %25) #7
   %.not14 = icmp eq i32 %61, 0
   br i1 %.not14, label %connection_exec_stmt.exit, label %62
@@ -7888,9 +7888,9 @@ connection_exec_stmt.exit.thread:                 ; preds = %50, %.critedge.i
   br i1 %66, label %67, label %.critedge.i23
 
 67:                                               ; preds = %62
-  %68 = load ptr, ptr %4, align 8, !tbaa !82
+  %68 = load ptr, ptr %4, align 8, !tbaa !83
   %69 = call i32 @sqlite3_step(ptr noundef %68) #7
-  %70 = load ptr, ptr %4, align 8, !tbaa !82
+  %70 = load ptr, ptr %4, align 8, !tbaa !83
   %71 = call i32 @sqlite3_finalize(ptr noundef %70) #7
   %72 = icmp eq i32 %71, 0
   call void @PyEval_RestoreThread(ptr noundef %63) #7
@@ -8003,75 +8003,77 @@ attributes #8 = { nounwind willreturn memory(read) }
 !42 = !{!"double", !6, i64 0}
 !43 = !{!27, !13, i64 168}
 !44 = !{!12, !12, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!10, !10, i64 0}
-!48 = !{!20, !14, i64 88}
-!49 = !{!4, !11, i64 32}
-!50 = !{!4, !12, i64 40}
-!51 = !{!4, !11, i64 48}
-!52 = !{!4, !14, i64 72}
-!53 = !{!4, !14, i64 80}
-!54 = !{!4, !14, i64 88}
-!55 = !{!4, !11, i64 96}
-!56 = !{!4, !14, i64 104}
-!57 = !{!4, !14, i64 112}
-!58 = !{!20, !14, i64 72}
-!59 = !{!4, !14, i64 144}
-!60 = !{!20, !14, i64 16}
-!61 = !{!4, !14, i64 152}
-!62 = !{!20, !14, i64 32}
-!63 = !{!4, !14, i64 160}
-!64 = !{!20, !14, i64 8}
-!65 = !{!4, !14, i64 168}
-!66 = !{!20, !14, i64 0}
-!67 = !{!4, !14, i64 176}
-!68 = !{!20, !14, i64 56}
-!69 = !{!4, !14, i64 184}
-!70 = !{!20, !14, i64 24}
-!71 = !{!4, !14, i64 192}
-!72 = !{!20, !14, i64 40}
-!73 = !{!4, !14, i64 200}
-!74 = !{!20, !14, i64 48}
-!75 = !{!4, !14, i64 216}
-!76 = !{!4, !15, i64 120}
-!77 = !{!78, !14, i64 0}
-!78 = !{!"_callback_context", !14, i64 0, !14, i64 8, !9, i64 16}
-!79 = !{!78, !14, i64 8}
-!80 = !{!4, !15, i64 128}
-!81 = !{!4, !15, i64 136}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"p1 _ZTS12sqlite3_stmt", !9, i64 0}
-!84 = !{!15, !15, i64 0}
-!85 = !{!27, !12, i64 24}
-!86 = !{!13, !13, i64 0}
-!87 = distinct !{!87, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!89 = !{!78, !9, i64 16}
-!90 = !{!20, !14, i64 176}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"long long", !6, i64 0}
-!93 = !{!94, !13, i64 16}
-!94 = !{!"", !9, i64 0, !14, i64 8, !13, i64 16, !13, i64 24, !11, i64 32, !11, i64 36, !12, i64 40, !95, i64 48, !95, i64 56, !95, i64 64, !9, i64 72}
-!95 = !{!"p1 long", !9, i64 0}
-!96 = !{!94, !9, i64 0}
-!97 = !{!94, !14, i64 8}
-!98 = !{!11, !11, i64 0}
-!99 = !{!20, !14, i64 200}
-!100 = !{!20, !14, i64 184}
-!101 = !{!20, !11, i64 108}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTS13sqlite3_value", !9, i64 0}
-!104 = distinct !{!104, !46}
-!105 = !{!20, !8, i64 128}
-!106 = distinct !{!106, !46}
-!107 = !{!20, !14, i64 216}
-!108 = !{!20, !14, i64 192}
-!109 = !{!20, !8, i64 112}
-!110 = !{!111, !9, i64 16}
-!111 = !{!"", !5, i64 0, !9, i64 16, !112, i64 24, !11, i64 32, !14, i64 40}
-!112 = !{!"p1 _ZTS12sqlite3_blob", !9, i64 0}
-!113 = !{!112, !112, i64 0}
-!114 = !{!111, !112, i64 24}
-!115 = !{!111, !11, i64 32}
-!116 = !{!111, !14, i64 40}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!10, !10, i64 0}
+!49 = !{!20, !14, i64 88}
+!50 = !{!4, !11, i64 32}
+!51 = !{!4, !12, i64 40}
+!52 = !{!4, !11, i64 48}
+!53 = !{!4, !14, i64 72}
+!54 = !{!4, !14, i64 80}
+!55 = !{!4, !14, i64 88}
+!56 = !{!4, !11, i64 96}
+!57 = !{!4, !14, i64 104}
+!58 = !{!4, !14, i64 112}
+!59 = !{!20, !14, i64 72}
+!60 = !{!4, !14, i64 144}
+!61 = !{!20, !14, i64 16}
+!62 = !{!4, !14, i64 152}
+!63 = !{!20, !14, i64 32}
+!64 = !{!4, !14, i64 160}
+!65 = !{!20, !14, i64 8}
+!66 = !{!4, !14, i64 168}
+!67 = !{!20, !14, i64 0}
+!68 = !{!4, !14, i64 176}
+!69 = !{!20, !14, i64 56}
+!70 = !{!4, !14, i64 184}
+!71 = !{!20, !14, i64 24}
+!72 = !{!4, !14, i64 192}
+!73 = !{!20, !14, i64 40}
+!74 = !{!4, !14, i64 200}
+!75 = !{!20, !14, i64 48}
+!76 = !{!4, !14, i64 216}
+!77 = !{!4, !15, i64 120}
+!78 = !{!79, !14, i64 0}
+!79 = !{!"_callback_context", !14, i64 0, !14, i64 8, !9, i64 16}
+!80 = !{!79, !14, i64 8}
+!81 = !{!4, !15, i64 128}
+!82 = !{!4, !15, i64 136}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS12sqlite3_stmt", !9, i64 0}
+!85 = !{!15, !15, i64 0}
+!86 = !{!27, !12, i64 24}
+!87 = !{!13, !13, i64 0}
+!88 = distinct !{!88, !47, !89}
+!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = distinct !{!90, !47}
+!91 = !{!79, !9, i64 16}
+!92 = !{!20, !14, i64 176}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"long long", !6, i64 0}
+!95 = !{!96, !13, i64 16}
+!96 = !{!"", !9, i64 0, !14, i64 8, !13, i64 16, !13, i64 24, !11, i64 32, !11, i64 36, !12, i64 40, !97, i64 48, !97, i64 56, !97, i64 64, !9, i64 72}
+!97 = !{!"p1 long", !9, i64 0}
+!98 = !{!96, !9, i64 0}
+!99 = !{!96, !14, i64 8}
+!100 = !{!11, !11, i64 0}
+!101 = !{!20, !14, i64 200}
+!102 = !{!20, !14, i64 184}
+!103 = !{!20, !11, i64 108}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS13sqlite3_value", !9, i64 0}
+!106 = distinct !{!106, !46, !47}
+!107 = !{!20, !8, i64 128}
+!108 = distinct !{!108, !46, !47}
+!109 = !{!20, !14, i64 216}
+!110 = !{!20, !14, i64 192}
+!111 = !{!20, !8, i64 112}
+!112 = !{!113, !9, i64 16}
+!113 = !{!"", !5, i64 0, !9, i64 16, !114, i64 24, !11, i64 32, !14, i64 40}
+!114 = !{!"p1 _ZTS12sqlite3_blob", !9, i64 0}
+!115 = !{!114, !114, i64 0}
+!116 = !{!113, !114, i64 24}
+!117 = !{!113, !11, i64 32}
+!118 = !{!113, !14, i64 40}

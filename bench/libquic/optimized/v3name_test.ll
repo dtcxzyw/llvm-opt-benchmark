@@ -303,7 +303,7 @@ check_message.exit.i:                             ; preds = %47, %51, %40, %.thr
 check_message.exit82.i:                           ; preds = %76, %80, %69, %.thread96.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #11
   %84 = call i32 @X509_check_email(ptr noundef nonnull %9, ptr noundef %25, i64 noundef %24, i32 noundef 0) #11
-  %85 = load i32, ptr %6, align 4, !tbaa !20
+  %85 = load i32, ptr %6, align 4, !tbaa !21
   %.not68.not.i = icmp eq i32 %85, 0
   %.not69.i = icmp eq i32 %84, 0
   br i1 %.not68.not.i, label %89, label %86
@@ -365,21 +365,21 @@ check_message.exit86.i:                           ; preds = %96, %100, %select.u
   call void @free(ptr noundef %25) #11
   %105 = load ptr, ptr %104, align 8, !tbaa !17
   %.not.i24 = icmp eq ptr %105, null
-  br i1 %.not.i24, label %106, label %.preheader34, !llvm.loop !21
+  br i1 %.not.i24, label %106, label %.preheader34, !llvm.loop !22
 
 106:                                              ; preds = %check_message.exit86.i
   call void @X509_free(ptr noundef nonnull %9) #11
   %107 = getelementptr inbounds nuw i8, ptr %.01732, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !17
   %.not22 = icmp eq ptr %108, null
-  br i1 %.not22, label %109, label %7, !llvm.loop !22
+  br i1 %.not22, label %109, label %7, !llvm.loop !23
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %.01933, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %.01933, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !23
+  %112 = load ptr, ptr %111, align 8, !tbaa !24
   %.not = icmp eq ptr %112, null
-  br i1 %.not, label %113, label %.preheader, !llvm.loop !24
+  br i1 %.not, label %113, label %.preheader, !llvm.loop !25
 
 113:                                              ; preds = %109
   %114 = load i32, ptr @errors, align 4, !tbaa !15
@@ -767,10 +767,11 @@ attributes #15 = { noreturn nounwind }
 !15 = !{!14, !14, i64 0}
 !16 = !{!12, !14, i64 16}
 !17 = !{!13, !13, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!12, !14, i64 20}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = !{!12, !13, i64 8}
-!24 = distinct !{!24, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!12, !14, i64 20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = !{!12, !13, i64 8}
+!25 = distinct !{!25, !19, !20}

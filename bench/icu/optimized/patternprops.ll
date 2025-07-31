@@ -248,7 +248,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
   %35 = trunc nsw i64 %indvars.iv.next to i32
   %36 = icmp ugt i32 %10, %35
   %or.cond = and i1 %34, %36
-  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge, !llvm.loop !12
+  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge, !llvm.loop !13
 
 .critedge.loopexit.split.loop.exit:               ; preds = %23
   %37 = trunc nsw i64 %indvars.iv to i32
@@ -348,7 +348,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 47:                                               ; preds = %43, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %37, %43
   %48 = trunc nuw nsw i64 %indvars.iv to i32
@@ -381,7 +381,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 
 63:                                               ; preds = %59, %53
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
-  br label %50, !llvm.loop !14
+  br label %50, !llvm.loop !15
 
 .critedge28.loopexit:                             ; preds = %53, %59
   %64 = trunc nsw i64 %indvars.iv53 to i32
@@ -467,7 +467,7 @@ _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %11, %20, %35
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread: ; preds = %33, %16, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
   %39 = getelementptr inbounds nuw i8, ptr %.06, i64 2
   %40 = icmp ult ptr %39, %6
-  br i1 %40, label %7, label %.loopexit, !llvm.loop !15
+  br i1 %40, label %7, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, %2
   %.0 = phi i8 [ 0, %2 ], [ 1, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread ], [ 0, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit ]
@@ -537,7 +537,7 @@ _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread: ; preds = %29, %12
   %35 = getelementptr inbounds nuw i8, ptr %.047, i64 2
   %36 = add nsw i32 %.08, -1
   %37 = icmp sgt i32 %.08, 1
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, %2
   %.04.lcssa = phi ptr [ %0, %2 ], [ %35, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread ], [ %.047, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit ]
@@ -561,10 +561,11 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !7 = !{!"int", !4, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"char16_t", !4, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}

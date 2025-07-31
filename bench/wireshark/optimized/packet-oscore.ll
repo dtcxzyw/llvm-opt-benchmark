@@ -486,12 +486,12 @@ define internal void @oscore_context_uat_algorithm_tostr_cb(ptr noundef readonly
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !9
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -833,7 +833,7 @@ define internal void @oscore_context_post_update_cb() #0 {
   %.mask.i = and i32 %93, 255
   %105 = zext nneg i32 %.mask.i to i64
   %106 = sub nuw nsw i64 84, %103
-  %107 = call ptr @__memcpy_chk(ptr noundef %104, ptr noundef nonnull readonly %91, i64 noundef range(i64 0, 4294967296) %105, i64 noundef %106) #12, !alias.scope !9
+  %107 = call ptr @__memcpy_chk(ptr noundef %104, ptr noundef nonnull readonly %91, i64 noundef range(i64 0, 4294967296) %105, i64 noundef %106) #12, !alias.scope !10
   %108 = add i8 %.0.i.i, %94
   br label %cborencoder_put_bytes.exit.i
 
@@ -881,7 +881,7 @@ cborencoder_put_bytes.exit.i:                     ; preds = %102, %99
   %.mask152.i = and i32 %114, 255
   %132 = zext nneg i32 %.mask152.i to i64
   %133 = call i64 @llvm.usub.sat.i64(i64 85, i64 %130)
-  %134 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef nonnull readonly %118, i64 noundef range(i64 0, 4294967296) %132, i64 noundef %133) #12, !alias.scope !13
+  %134 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef nonnull readonly %118, i64 noundef range(i64 0, 4294967296) %132, i64 noundef %133) #12, !alias.scope !14
   %135 = add i8 %.0.i110.i, %119
   br label %cborencoder_put_bytes.exit113.i
 
@@ -924,7 +924,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %146, %140
   %154 = select i1 %153, i64 0, i64 %152
   %155 = icmp ne i64 %154, -1
   call void @llvm.assume(i1 %155)
-  %156 = call ptr @__memcpy_chk(ptr noundef %151, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %154) #12, !alias.scope !17
+  %156 = call ptr @__memcpy_chk(ptr noundef %151, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %154) #12, !alias.scope !18
   %157 = add nuw nsw i32 %148, 4
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr [85 x i8], ptr %2, i64 0, i64 %158
@@ -983,7 +983,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %146, %140
   %.mask153.i = and i32 %180, 255
   %192 = zext nneg i32 %.mask153.i to i64
   %193 = sub nuw nsw i64 84, %190
-  %194 = call ptr @__memcpy_chk(ptr noundef %191, ptr noundef nonnull readonly %178, i64 noundef range(i64 0, 4294967296) %192, i64 noundef %193) #12, !alias.scope !21
+  %194 = call ptr @__memcpy_chk(ptr noundef %191, ptr noundef nonnull readonly %178, i64 noundef range(i64 0, 4294967296) %192, i64 noundef %193) #12, !alias.scope !22
   %195 = add i8 %.0.i121.i, %181
   br label %cborencoder_put_bytes.exit124.i
 
@@ -1030,7 +1030,7 @@ cborencoder_put_bytes.exit124.i:                  ; preds = %189, %186
   %.mask154.i = and i32 %200, 255
   %218 = zext nneg i32 %.mask154.i to i64
   %219 = call i64 @llvm.usub.sat.i64(i64 85, i64 %216)
-  %220 = call ptr @__memcpy_chk(ptr noundef %217, ptr noundef nonnull readonly %204, i64 noundef range(i64 0, 4294967296) %218, i64 noundef %219) #12, !alias.scope !25
+  %220 = call ptr @__memcpy_chk(ptr noundef %217, ptr noundef nonnull readonly %204, i64 noundef range(i64 0, 4294967296) %218, i64 noundef %219) #12, !alias.scope !26
   %221 = add i8 %.0.i126.i, %205
   br label %cborencoder_put_bytes.exit129.i
 
@@ -1073,7 +1073,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %232, %226
   %240 = select i1 %239, i64 0, i64 %238
   %241 = icmp ne i64 %240, -1
   call void @llvm.assume(i1 %241)
-  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %240) #12, !alias.scope !29
+  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %240) #12, !alias.scope !30
   %243 = add nuw nsw i32 %234, 4
   %244 = zext nneg i32 %243 to i64
   %245 = getelementptr [85 x i8], ptr %2, i64 0, i64 %244
@@ -1134,7 +1134,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %232, %226
   %.mask155.i = and i32 %262, 255
   %276 = zext nneg i32 %.mask155.i to i64
   %277 = sub nuw nsw i64 83, %274
-  %278 = call ptr @__memcpy_chk(ptr noundef %275, ptr noundef nonnull readonly %264, i64 noundef range(i64 0, 4294967296) %276, i64 noundef %277) #12, !alias.scope !33
+  %278 = call ptr @__memcpy_chk(ptr noundef %275, ptr noundef nonnull readonly %264, i64 noundef range(i64 0, 4294967296) %276, i64 noundef %277) #12, !alias.scope !34
   %279 = add i8 %.0.i141.i, %265
   br label %cborencoder_put_bytes.exit144.i
 
@@ -1176,7 +1176,7 @@ cborencoder_put_unsigned.exit147.i:               ; preds = %289, %283
   %297 = select i1 %296, i64 0, i64 %295
   %298 = icmp ne i64 %297, -1
   call void @llvm.assume(i1 %298)
-  %299 = call ptr @__memcpy_chk(ptr noundef %294, ptr noundef nonnull @.str.158, i64 noundef range(i64 0, 4294967296) 2, i64 noundef %297) #12, !alias.scope !37
+  %299 = call ptr @__memcpy_chk(ptr noundef %294, ptr noundef nonnull @.str.158, i64 noundef range(i64 0, 4294967296) 2, i64 noundef %297) #12, !alias.scope !38
   %300 = add nuw nsw i32 %291, 3
   %301 = zext nneg i32 %300 to i64
   %302 = getelementptr [85 x i8], ptr %2, i64 0, i64 %301
@@ -1207,7 +1207,7 @@ oscore_context_derive_params.exit:                ; preds = %cborencoder_put_uns
   %317 = load i32, ptr @num_oscore_contexts, align 4
   %318 = zext i32 %317 to i64
   %319 = icmp samesign ult i64 %indvars.iv.next, %318
-  br i1 %319, label %7, label %._crit_edge, !llvm.loop !41
+  br i1 %319, label %7, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %oscore_context_derive_params.exit, %0
   ret void
@@ -1315,7 +1315,7 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
 66:                                               ; preds = %61, %53, %49, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %oscore_find_context.exit.thread, label %42, !llvm.loop !42
+  br i1 %exitcond.not.i, label %oscore_find_context.exit.thread, label %42, !llvm.loop !43
 
 oscore_find_context.exit:                         ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -1384,7 +1384,7 @@ oscore_decrypt_and_verify.exit.thread78:          ; preds = %78
 
 94:                                               ; preds = %91, %89
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  %96 = load i8, ptr %95, align 1, !range !43, !noundef !44
+  %96 = load i8, ptr %95, align 1, !range !44, !noundef !45
   %97 = trunc nuw i8 %96 to i1
   %.088.in.in.v.i = select i1 %97, i64 96, i64 88
   %.088.in.in.i = getelementptr inbounds nuw i8, ptr %43, i64 %.088.in.in.v.i
@@ -1444,7 +1444,7 @@ oscore_decrypt_and_verify.exit.thread78:          ; preds = %78
   %120 = select i1 %119, i64 0, i64 %118
   %121 = icmp ne i64 %120, -1
   call void @llvm.assume(i1 %121)
-  %122 = call ptr @__memcpy_chk(ptr noundef %116, ptr noundef %.033.i.i, i64 noundef range(i64 0, 4294967296) %117, i64 noundef %120) #12, !alias.scope !45
+  %122 = call ptr @__memcpy_chk(ptr noundef %116, ptr noundef %.033.i.i, i64 noundef range(i64 0, 4294967296) %117, i64 noundef %120) #12, !alias.scope !46
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %124 = load i32, ptr %123, align 8
   %125 = add nsw i32 %..i.i.i, -6
@@ -1467,7 +1467,7 @@ oscore_decrypt_and_verify.exit.thread78:          ; preds = %78
   %136 = select i1 %135, i64 0, i64 %134
   %137 = icmp ne i64 %136, -1
   call void @llvm.assume(i1 %137)
-  %138 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef %132, i64 noundef range(i64 0, 4294967296) %133, i64 noundef %136) #12, !alias.scope !49
+  %138 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef %132, i64 noundef range(i64 0, 4294967296) %133, i64 noundef %136) #12, !alias.scope !50
   %139 = trunc i32 %124 to i8
   store i8 %139, ptr %5, align 1
   br i1 %cond.i.i.i, label %.lr.ph.i.i, label %oscore_create_nonce.exit.i
@@ -1489,7 +1489,7 @@ oscore_decrypt_and_verify.exit.thread78:          ; preds = %78
   store i8 %147, ptr %148, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %oscore_create_nonce.exit.i, label %142, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %oscore_create_nonce.exit.i, label %142, !llvm.loop !54
 
 oscore_create_nonce.exit.i:                       ; preds = %142, %127
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #12
@@ -1580,7 +1580,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %166, %159
   %183 = zext i8 %171 to i64
   %184 = add nuw nsw i64 %168, %181
   %185 = sub nuw nsw i64 23, %184
-  %186 = call ptr @__memcpy_chk(ptr noundef %182, ptr noundef nonnull readonly %170, i64 noundef range(i64 0, 4294967296) %183, i64 noundef %185) #12, !alias.scope !54
+  %186 = call ptr @__memcpy_chk(ptr noundef %182, ptr noundef nonnull readonly %170, i64 noundef range(i64 0, 4294967296) %183, i64 noundef %185) #12, !alias.scope !55
   %187 = add i8 %.0.i101.i, %171
   br label %cborencoder_put_bytes.exit.i
 
@@ -1620,7 +1620,7 @@ cborencoder_put_bytes.exit.i:                     ; preds = %180, %177
   %206 = getelementptr i8, ptr %190, i64 %204
   %207 = zext i8 %194 to i64
   %208 = call i64 @llvm.usub.sat.i64(i64 23, i64 %205)
-  %209 = call ptr @__memcpy_chk(ptr noundef %206, ptr noundef nonnull readonly %192, i64 noundef range(i64 0, 4294967296) %207, i64 noundef %208) #12, !alias.scope !58
+  %209 = call ptr @__memcpy_chk(ptr noundef %206, ptr noundef nonnull readonly %192, i64 noundef range(i64 0, 4294967296) %207, i64 noundef %208) #12, !alias.scope !59
   %210 = add i8 %.0.i103.i, %194
   br label %cborencoder_put_bytes.exit106.i
 
@@ -1655,7 +1655,7 @@ cborencoder_put_bytes.exit106.i:                  ; preds = %203, %200
 223:                                              ; preds = %217
   %224 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %225 = zext nneg i8 %214 to i64
-  %226 = call ptr @__memcpy_chk(ptr noundef nonnull %224, ptr noundef nonnull readonly %10, i64 noundef range(i64 0, 4294967296) %225, i64 noundef 25) #12, !alias.scope !62
+  %226 = call ptr @__memcpy_chk(ptr noundef nonnull %224, ptr noundef nonnull readonly %10, i64 noundef range(i64 0, 4294967296) %225, i64 noundef 25) #12, !alias.scope !63
   %227 = add nuw nsw i8 %211, 13
   %228 = zext nneg i8 %227 to i32
   br label %cborencoder_put_bytes.exit118.i
@@ -2019,63 +2019,64 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
-!31 = distinct !{!31, !"memcpy.inline"}
-!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
-!39 = distinct !{!39, !"memcpy.inline"}
-!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = !{i8 0, i8 2}
-!44 = !{}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"memcpy.inline: argument 0"}
-!47 = distinct !{!47, !"memcpy.inline"}
-!48 = distinct !{!48, !47, !"memcpy.inline: argument 1"}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"memcpy.inline: argument 0"}
-!51 = distinct !{!51, !"memcpy.inline"}
-!52 = distinct !{!52, !51, !"memcpy.inline: argument 1"}
-!53 = distinct !{!53, !7}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"memcpy.inline: argument 0"}
-!56 = distinct !{!56, !"memcpy.inline"}
-!57 = distinct !{!57, !56, !"memcpy.inline: argument 1"}
-!58 = !{!59, !61}
-!59 = distinct !{!59, !60, !"memcpy.inline: argument 0"}
-!60 = distinct !{!60, !"memcpy.inline"}
-!61 = distinct !{!61, !60, !"memcpy.inline: argument 1"}
-!62 = !{!63, !65}
-!63 = distinct !{!63, !64, !"memcpy.inline: argument 0"}
-!64 = distinct !{!64, !"memcpy.inline"}
-!65 = distinct !{!65, !64, !"memcpy.inline: argument 1"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
+!24 = distinct !{!24, !"memcpy.inline"}
+!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
+!32 = distinct !{!32, !"memcpy.inline"}
+!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
+!36 = distinct !{!36, !"memcpy.inline"}
+!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
+!40 = distinct !{!40, !"memcpy.inline"}
+!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = !{i8 0, i8 2}
+!45 = !{}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"memcpy.inline: argument 0"}
+!48 = distinct !{!48, !"memcpy.inline"}
+!49 = distinct !{!49, !48, !"memcpy.inline: argument 1"}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"memcpy.inline: argument 0"}
+!52 = distinct !{!52, !"memcpy.inline"}
+!53 = distinct !{!53, !52, !"memcpy.inline: argument 1"}
+!54 = distinct !{!54, !7, !8}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"memcpy.inline: argument 0"}
+!57 = distinct !{!57, !"memcpy.inline"}
+!58 = distinct !{!58, !57, !"memcpy.inline: argument 1"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"memcpy.inline: argument 0"}
+!61 = distinct !{!61, !"memcpy.inline"}
+!62 = distinct !{!62, !61, !"memcpy.inline: argument 1"}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"memcpy.inline: argument 0"}
+!65 = distinct !{!65, !"memcpy.inline"}
+!66 = distinct !{!66, !65, !"memcpy.inline: argument 1"}

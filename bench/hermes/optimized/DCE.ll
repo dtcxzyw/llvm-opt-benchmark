@@ -133,7 +133,7 @@ for.inc.i:                                        ; preds = %do.end.i, %for.cond
   %changed.1.ph.lcssa.i = phi i1 [ %changed.031.i, %for.body.i ], [ %changed.1.ph27.i, %for.cond9.backedge.i ], [ true, %do.end.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.030.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.not.i, label %for.end25.loopexit.i, label %for.body.i
+  br i1 %cmp.i.not.i, label %for.end25.loopexit.i, label %for.body.i, !llvm.loop !7
 
 for.end25.loopexit.i:                             ; preds = %for.inc.i
   %.pre.i = load ptr, ptr %Order.i.i, align 8
@@ -155,7 +155,7 @@ _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.th
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.065, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i.not, label %do.body10.preheader, label %for.body
+  br i1 %cmp.i.not, label %do.body10.preheader, label %for.body, !llvm.loop !8
 
 for.body17:                                       ; preds = %do.body10.preheader, %for.body17.backedge
   %__begin2.sroa.0.070 = phi ptr [ %__begin2.sroa.0.070.be, %for.body17.backedge ], [ %__begin2.sroa.0.066108, %do.body10.preheader ]
@@ -195,7 +195,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %9, i64 %idx.ext.i.i.i
   %14 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__begin2.sroa.0.070, %14
-  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !6
+  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !9
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %for.body17
   %idx.ext.i.i.i.i = zext i32 %10 to i64
@@ -287,7 +287,7 @@ for.inc30:                                        ; preds = %if.end, %land.lhs.t
 for.body17.backedge:                              ; preds = %for.inc30, %do.body10.backedge
   %__begin2.sroa.0.070.be = phi ptr [ %__begin2.sroa.0.0, %for.inc30 ], [ %__begin2.sroa.0.066, %do.body10.backedge ]
   %localChanged.068.be = phi i1 [ %localChanged.1, %for.inc30 ], [ false, %do.body10.backedge ]
-  br label %for.body17, !llvm.loop !7
+  br label %for.body17, !llvm.loop !10
 
 for.end32:                                        ; preds = %for.inc30
   %.pre = load ptr, ptr %toRemove, align 8
@@ -304,7 +304,7 @@ for.body40:                                       ; preds = %for.end32, %for.bod
   call void @_ZN6hermes8Function24eraseFromParentNoDestroyEv(ptr noundef nonnull align 8 dereferenceable(304) %30) #6
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin234.074, i64 8
   %cmp39.not = icmp eq ptr %incdec.ptr, %add.ptr.i78
-  br i1 %cmp39.not, label %for.end46.loopexit, label %for.body40
+  br i1 %cmp39.not, label %for.end46.loopexit, label %for.body40, !llvm.loop !11
 
 for.end46.loopexit:                               ; preds = %for.body40
   %.pre82 = load ptr, ptr %toRemove, align 8
@@ -349,7 +349,7 @@ for.body57:                                       ; preds = %do.end49, %for.body
   call void @_ZN6hermes5Value7destroyEPS0_(ptr noundef %spec.select) #6
   %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %__begin151.076, i64 8
   %cmp56.not = icmp eq ptr %incdec.ptr61, %add.ptr.i
-  br i1 %cmp56.not, label %for.end62.loopexit, label %for.body57
+  br i1 %cmp56.not, label %for.end62.loopexit, label %for.body57, !llvm.loop !12
 
 for.end62.loopexit:                               ; preds = %for.body57
   %.pre83 = load ptr, ptr %toDestroy, align 8
@@ -377,14 +377,14 @@ declare void @_ZN6hermes5Value7destroyEPS0_(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes9createDCEEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes3DCEESt14default_deleteIS1_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !8
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !13
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !8
+  store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !13
   %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !8
+  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !13
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store i64 3, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3DCEE, i64 16), ptr %call.i, align 8, !noalias !8
+  store i64 3, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3DCEE, i64 16), ptr %call.i, align 8, !noalias !13
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -443,10 +443,15 @@ attributes #8 = { builtin nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN6hermes3DCEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11make_uniqueIN6hermes3DCEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZSt11make_uniqueIN6hermes3DCEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!15 = distinct !{!15, !"_ZSt11make_uniqueIN6hermes3DCEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

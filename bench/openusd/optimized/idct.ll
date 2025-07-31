@@ -612,7 +612,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
 ._crit_edge.us:                                   ; preds = %15
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.preheader.us.preheader, label %.preheader35.us, !llvm.loop !6
+  br i1 %exitcond51.not, label %.preheader.us.preheader, label %.preheader35.us, !llvm.loop !7
 
 .preheader.us.preheader:                          ; preds = %._crit_edge.us
   %20 = ptrtoint ptr %4 to i64
@@ -643,12 +643,12 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none
   store i8 %30, ptr %gep65, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.us42, label %26, !llvm.loop !8
+  br i1 %exitcond57.not, label %._crit_edge.us42, label %26, !llvm.loop !9
 
 ._crit_edge.us42:                                 ; preds = %26
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !9
+  br i1 %exitcond63.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !10
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us42
   ret void
@@ -783,7 +783,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
 ._crit_edge.us.i:                                 ; preds = %67
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count50.i
-  br i1 %exitcond51.not.i, label %.preheader.us.preheader.i, label %.preheader35.us.i, !llvm.loop !6
+  br i1 %exitcond51.not.i, label %.preheader.us.preheader.i, label %.preheader35.us.i, !llvm.loop !7
 
 .preheader.us.preheader.i:                        ; preds = %._crit_edge.us.i
   %72 = ptrtoint ptr %10 to i64
@@ -809,12 +809,12 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   store i8 %81, ptr %gep65.i, align 1
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
-  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %77, !llvm.loop !8
+  br i1 %exitcond57.not.i, label %._crit_edge.us42.i, label %77, !llvm.loop !9
 
 ._crit_edge.us42.i:                               ; preds = %77
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count50.i
-  br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !9
+  br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !10
 
 av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %10)
@@ -846,9 +846,10 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !7}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6, !8}

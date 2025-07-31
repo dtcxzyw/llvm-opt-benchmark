@@ -206,7 +206,7 @@ define dso_local void @protocol_v2_serve_loop(ptr noundef %0, i32 noundef %1) lo
 5:                                                ; preds = %3, %5
   %6 = tail call fastcc i32 @process_request(ptr noundef %0)
   %.not4 = icmp eq i32 %6, 0
-  br i1 %.not4, label %5, label %.loopexit
+  br i1 %.not4, label %5, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %5, %.critedge
   ret void
@@ -223,9 +223,9 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %7 = load i32, ptr %6, align 4, !tbaa !21
   %8 = and i32 %7, -2
-  store i32 %8, ptr %6, align 4, !tbaa !19
+  store i32 %8, ptr %6, align 4, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %.outer
 
@@ -242,14 +242,14 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
     i32 2, label %73
     i32 3, label %74
     i32 4, label %76
-  ], !llvm.loop !23
+  ], !llvm.loop !25
 
 12:                                               ; preds = %10
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.13, i32 noundef 277, ptr noundef nonnull @.str.19) #9
   unreachable
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %9, align 8, !tbaa !24
+  %14 = load ptr, ptr %9, align 8, !tbaa !26
   %scevgep.i = getelementptr i8, ptr %14, i64 8
   br label %15
 
@@ -266,7 +266,7 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
   %19 = load i8, ptr %.07.i.i, align 1, !tbaa !16
   %.06.i.add.i = add nuw nsw i64 %.06.i.idx.i, 1
   %20 = icmp eq i8 %19, %17
-  br i1 %20, label %15, label %46, !llvm.loop !25
+  br i1 %20, label %15, label %46, !llvm.loop !27
 
 21:                                               ; preds = %15
   %.not.i14.i = icmp eq ptr %scevgep.i, null
@@ -290,7 +290,7 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
   %28 = load i8, ptr %.07.i.i.i, align 1, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
   %30 = icmp eq i8 %28, %25
-  br i1 %30, label %24, label %skip_prefix.exit.i.i, !llvm.loop !25
+  br i1 %30, label %24, label %skip_prefix.exit.i.i, !llvm.loop !27
 
 31:                                               ; preds = %24
   %32 = load i8, ptr %.07.i.i.i, align 1, !tbaa !16
@@ -302,7 +302,7 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
 skip_prefix.exit.i.i:                             ; preds = %26, %31
   %33 = add nuw nsw i64 %.01429.i.i, 1
   %exitcond.i.i = icmp eq i64 %33, 8
-  br i1 %exitcond.i.i, label %get_capability.exit.i, label %.preheader.i.i, !llvm.loop !26
+  br i1 %exitcond.i.i, label %get_capability.exit.i, label %.preheader.i.i, !llvm.loop !28
 
 get_capability.exit.i.loopexit:                   ; preds = %31
   br label %get_capability.exit.i
@@ -331,7 +331,7 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !27
+  %43 = load ptr, ptr %42, align 8, !tbaa !29
   %44 = icmp eq ptr %43, null
   %or.cond.i = or i1 %.018.i, %44
   br i1 %or.cond.i, label %45, label %parse_command.exit
@@ -362,7 +362,7 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
   %53 = load i8, ptr %.07.i.i.i17, align 1, !tbaa !16
   %54 = getelementptr inbounds nuw i8, ptr %.06.i.i.i18, i64 1
   %55 = icmp eq i8 %53, %50
-  br i1 %55, label %49, label %skip_prefix.exit.i.i20, !llvm.loop !25
+  br i1 %55, label %49, label %skip_prefix.exit.i.i20, !llvm.loop !27
 
 56:                                               ; preds = %49
   %57 = load i8, ptr %.07.i.i.i17, align 1, !tbaa !16
@@ -378,12 +378,12 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
 skip_prefix.exit.i.i20:                           ; preds = %51, %56
   %60 = add nuw nsw i64 %.01429.i.i16, 1
   %exitcond.i.i21 = icmp eq i64 %60, 8
-  br i1 %exitcond.i.i21, label %.loopexit, label %.preheader.i.i15, !llvm.loop !26
+  br i1 %exitcond.i.i21, label %.loopexit, label %.preheader.i.i15, !llvm.loop !28
 
 get_capability.exit.i23:                          ; preds = %56, %58
   %.013.i = phi ptr [ %59, %58 ], [ null, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
+  %62 = load ptr, ptr %61, align 8, !tbaa !29
   %.not10.i = icmp eq ptr %62, null
   br i1 %.not10.i, label %63, label %.loopexit
 
@@ -395,12 +395,12 @@ get_capability.exit.i23:                          ; preds = %56, %58
   br i1 %.not11.i, label %..loopexit.loopexit64_crit_edge, label %67
 
 ..loopexit.loopexit64_crit_edge:                  ; preds = %63
-  %.pre.pre = load ptr, ptr %9, align 8, !tbaa !24
+  %.pre.pre = load ptr, ptr %9, align 8, !tbaa !26
   br label %.loopexit
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !28
+  %69 = load ptr, ptr %68, align 8, !tbaa !30
   %.not12.i24 = icmp eq ptr %69, null
   br i1 %.not12.i24, label %parse_command.exit, label %70
 
@@ -411,7 +411,7 @@ get_capability.exit.i23:                          ; preds = %56, %58
 parse_command.exit:                               ; preds = %70, %67, %41
   %.233 = phi ptr [ %.0.i.i, %41 ], [ %.02861.ph, %67 ], [ %.02861.ph, %70 ]
   %71 = call i32 @packet_reader_read(ptr noundef nonnull %2) #7
-  br label %.outer, !llvm.loop !23
+  br label %.outer, !llvm.loop !25
 
 .loopexit:                                        ; preds = %get_capability.exit.i23, %46, %skip_prefix.exit.i.i20, %..loopexit.loopexit64_crit_edge
   %72 = phi ptr [ %.pre.pre, %..loopexit.loopexit64_crit_edge ], [ %14, %skip_prefix.exit.i.i20 ], [ null, %46 ], [ %14, %get_capability.exit.i23 ]
@@ -438,9 +438,9 @@ parse_command.exit:                               ; preds = %70, %67, %41
   unreachable
 
 79:                                               ; preds = %77
-  %80 = load i32, ptr @client_hash_algo, align 4, !tbaa !29
+  %80 = load i32, ptr @client_hash_algo, align 4, !tbaa !31
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  %82 = load ptr, ptr %81, align 8, !tbaa !32
   br label %83
 
 83:                                               ; preds = %85, %79
@@ -452,7 +452,7 @@ parse_command.exit:                               ; preds = %70, %67, %41
 85:                                               ; preds = %83
   %86 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %86, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %83, !llvm.loop !47
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %83, !llvm.loop !49
 
 .split.loop.exit9.i:                              ; preds = %83
   %87 = trunc nuw nsw i64 %.0811.i to i32
@@ -464,16 +464,16 @@ hash_algo_by_ptr.exit:                            ; preds = %85, %.split.loop.ex
   br i1 %.not11, label %93, label %88
 
 88:                                               ; preds = %hash_algo_by_ptr.exit
-  %89 = load ptr, ptr %82, align 8, !tbaa !48
+  %89 = load ptr, ptr %82, align 8, !tbaa !50
   %90 = sext i32 %80 to i64
   %91 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %90
-  %92 = load ptr, ptr %91, align 16, !tbaa !48
+  %92 = load ptr, ptr %91, align 16, !tbaa !50
   call void (ptr, ...) @die(ptr noundef nonnull @.str.23, ptr noundef %89, ptr noundef %92) #9
   unreachable
 
 93:                                               ; preds = %hash_algo_by_ptr.exit
   %94 = getelementptr inbounds nuw i8, ptr %.02861.ph, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !27
+  %95 = load ptr, ptr %94, align 8, !tbaa !29
   %96 = call i32 %95(ptr noundef %0, ptr noundef nonnull %2) #7
   br label %.loopexit37
 
@@ -518,8 +518,8 @@ define internal noundef i32 @object_format_advertise(ptr noundef readonly captur
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   tail call void @strbuf_add(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %7) #7
   br label %8
@@ -539,7 +539,7 @@ define internal void @object_format_receive(ptr readnone captures(none) %0, ptr 
 
 4:                                                ; preds = %2
   %5 = tail call i32 @hash_algo_by_name(ptr noundef nonnull %1) #7
-  store i32 %5, ptr @client_hash_algo, align 4, !tbaa !29
+  store i32 %5, ptr @client_hash_algo, align 4, !tbaa !31
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
@@ -553,7 +553,7 @@ define internal void @object_format_receive(ptr readnone captures(none) %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @session_id_advertise(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = load i32, ptr @advertise_sid, align 4, !tbaa !29
+  %3 = load i32, ptr @advertise_sid, align 4, !tbaa !31
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
 
@@ -563,11 +563,11 @@ define internal range(i32 0, 2) i32 @session_id_advertise(ptr noundef %0, ptr no
   br i1 %.not, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %5
-  store i32 0, ptr @advertise_sid, align 4, !tbaa !29
+  store i32 0, ptr @advertise_sid, align 4, !tbaa !31
   br label %13
 
 thread-pre-split:                                 ; preds = %5
-  %.pr = load i32, ptr @advertise_sid, align 4, !tbaa !29
+  %.pr = load i32, ptr @advertise_sid, align 4, !tbaa !31
   br label %7
 
 7:                                                ; preds = %thread-pre-split, %2
@@ -600,7 +600,7 @@ define internal void @session_id_receive(ptr readnone captures(none) %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @object_info_advertise(ptr noundef %0, ptr readnone captures(none) %1) #0 {
-  %3 = load i32, ptr @advertise_object_info, align 4, !tbaa !29
+  %3 = load i32, ptr @advertise_object_info, align 4, !tbaa !31
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %8
 
@@ -610,11 +610,11 @@ define internal i32 @object_info_advertise(ptr noundef %0, ptr readnone captures
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %5
-  %.pre = load i32, ptr @advertise_object_info, align 4, !tbaa !29
+  %.pre = load i32, ptr @advertise_object_info, align 4, !tbaa !31
   br label %8
 
 7:                                                ; preds = %5
-  store i32 0, ptr @advertise_object_info, align 4, !tbaa !29
+  store i32 0, ptr @advertise_object_info, align 4, !tbaa !31
   br label %8
 
 8:                                                ; preds = %._crit_edge, %7, %2
@@ -687,37 +687,39 @@ attributes #9 = { noreturn nounwind }
 !14 = !{!12, !13, i64 0}
 !15 = !{!12, !6, i64 16}
 !16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !21, i64 36}
-!20 = !{!"packet_reader", !21, i64 0, !6, i64 8, !13, i64 16, !6, i64 24, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !6, i64 48, !21, i64 56, !21, i64 60, !6, i64 64, !22, i64 72, !12, i64 80}
-!21 = !{!"int", !8, i64 0}
-!22 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
-!23 = distinct !{!23, !18}
-!24 = !{!20, !6, i64 48}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = !{!5, !7, i64 16}
-!28 = !{!5, !7, i64 24}
-!29 = !{!21, !21, i64 0}
-!30 = !{!31, !22, i64 400}
-!31 = !{!"repository", !6, i64 0, !6, i64 8, !32, i64 16, !33, i64 24, !34, i64 32, !35, i64 40, !35, i64 104, !39, i64 168, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !40, i64 256, !42, i64 368, !43, i64 376, !44, i64 384, !45, i64 392, !22, i64 400, !22, i64 408, !21, i64 416, !21, i64 420, !21, i64 424, !6, i64 432, !46, i64 440, !21, i64 448, !21, i64 452, !21, i64 456}
-!32 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
-!33 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
-!34 = !{!"p1 _ZTS9ref_store", !7, i64 0}
-!35 = !{!"strmap", !36, i64 0, !38, i64 48, !21, i64 56}
-!36 = !{!"hashmap", !37, i64 0, !7, i64 8, !7, i64 16, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !21, i64 40}
-!37 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
-!38 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
-!39 = !{!"repo_path_cache", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!40 = !{!"repo_settings", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !41, i64 48, !21, i64 56, !21, i64 60, !21, i64 64, !21, i64 68, !21, i64 72, !21, i64 76, !21, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
-!41 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
-!42 = !{!"p1 _ZTS10config_set", !7, i64 0}
-!43 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
-!44 = !{!"p1 _ZTS11index_state", !7, i64 0}
-!45 = !{!"p1 _ZTS12remote_state", !7, i64 0}
-!46 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
-!47 = distinct !{!47, !18}
-!48 = !{!49, !6, i64 0}
-!49 = !{!"git_hash_algo", !6, i64 0, !21, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !50, i64 80, !50, i64 88, !50, i64 96, !22, i64 104}
-!50 = !{!"p1 _ZTS9object_id", !7, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}
+!21 = !{!22, !23, i64 36}
+!22 = !{!"packet_reader", !23, i64 0, !6, i64 8, !13, i64 16, !6, i64 24, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !6, i64 48, !23, i64 56, !23, i64 60, !6, i64 64, !24, i64 72, !12, i64 80}
+!23 = !{!"int", !8, i64 0}
+!24 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
+!25 = distinct !{!25, !18, !19}
+!26 = !{!22, !6, i64 48}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}
+!29 = !{!5, !7, i64 16}
+!30 = !{!5, !7, i64 24}
+!31 = !{!23, !23, i64 0}
+!32 = !{!33, !24, i64 400}
+!33 = !{!"repository", !6, i64 0, !6, i64 8, !34, i64 16, !35, i64 24, !36, i64 32, !37, i64 40, !37, i64 104, !41, i64 168, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !42, i64 256, !44, i64 368, !45, i64 376, !46, i64 384, !47, i64 392, !24, i64 400, !24, i64 408, !23, i64 416, !23, i64 420, !23, i64 424, !6, i64 432, !48, i64 440, !23, i64 448, !23, i64 452, !23, i64 456}
+!34 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
+!35 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
+!36 = !{!"p1 _ZTS9ref_store", !7, i64 0}
+!37 = !{!"strmap", !38, i64 0, !40, i64 48, !23, i64 56}
+!38 = !{!"hashmap", !39, i64 0, !7, i64 8, !7, i64 16, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !23, i64 40}
+!39 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
+!40 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
+!41 = !{!"repo_path_cache", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!42 = !{!"repo_settings", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !43, i64 48, !23, i64 56, !23, i64 60, !23, i64 64, !23, i64 68, !23, i64 72, !23, i64 76, !23, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
+!43 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
+!44 = !{!"p1 _ZTS10config_set", !7, i64 0}
+!45 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
+!46 = !{!"p1 _ZTS11index_state", !7, i64 0}
+!47 = !{!"p1 _ZTS12remote_state", !7, i64 0}
+!48 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
+!49 = distinct !{!49, !18, !19}
+!50 = !{!51, !6, i64 0}
+!51 = !{!"git_hash_algo", !6, i64 0, !23, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !52, i64 80, !52, i64 88, !52, i64 96, !24, i64 104}
+!52 = !{!"p1 _ZTS9object_id", !7, i64 0}

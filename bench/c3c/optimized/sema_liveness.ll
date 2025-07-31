@@ -205,7 +205,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 57:                                               ; preds = %53, %56
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !9
+  br i1 %exitcond184.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !10
 
 ._crit_edge151:                                   ; preds = %57, %.lr.ph166, %38
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 160
@@ -240,7 +240,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 69:                                               ; preds = %.lr.ph154, %68
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !10
+  br i1 %exitcond189.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !11
 
 ._crit_edge155:                                   ; preds = %69, %._crit_edge151, %60
   %70 = getelementptr inbounds nuw i8, ptr %35, i64 144
@@ -275,7 +275,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 81:                                               ; preds = %.lr.ph158, %80
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !11
+  br i1 %exitcond194.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !12
 
 ._crit_edge159:                                   ; preds = %81, %._crit_edge155, %72
   %82 = getelementptr inbounds nuw i8, ptr %35, i64 224
@@ -310,17 +310,17 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 93:                                               ; preds = %.lr.ph162, %92
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !12
+  br i1 %exitcond199.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !13
 
 ._crit_edge163:                                   ; preds = %93, %._crit_edge159, %84
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge167, label %.lr.ph166, !llvm.loop !13
+  br i1 %exitcond204.not, label %._crit_edge167, label %.lr.ph166, !llvm.loop !14
 
 ._crit_edge167:                                   ; preds = %._crit_edge163, %.lr.ph170, %31
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !14
+  br i1 %exitcond209.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !15
 
 ._crit_edge171:                                   ; preds = %._crit_edge167, %._crit_edge, %24
   ret void
@@ -397,7 +397,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef captures(addre
   %.064.be.in = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.064.be = load ptr, ptr %.064.be.in, align 8
   %16 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.064.be) #3
-  br i1 %16, label %tailrecurse.backedge, label %.lr.ph140
+  br i1 %16, label %tailrecurse.backedge, label %.lr.ph140, !llvm.loop !16
 
 tailrecurse.backedge:                             ; preds = %.backedge111, %.backedge108, %.preheader109, %.preheader106
   %.064.lcssa.pn = phi ptr [ %11, %.preheader106 ], [ %64, %.preheader109 ], [ %.064.be, %.backedge108 ], [ %.0.i.be, %.backedge111 ]
@@ -414,7 +414,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph.backedge:                                  ; preds = %17, %tailrecurse.backedge
   %.0131.be = phi ptr [ %19, %17 ], [ %.tr.be, %tailrecurse.backedge ]
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !17
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %.0131, i64 96
@@ -446,7 +446,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   %.063.be.in = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.063.be = load ptr, ptr %.063.be.in, align 8
   %29 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.063.be) #3
-  br i1 %29, label %._crit_edge163, label %.lr.ph162
+  br i1 %29, label %._crit_edge163, label %.lr.ph162, !llvm.loop !18
 
 ._crit_edge163:                                   ; preds = %.backedge, %.preheader97
   %.063.lcssa = phi ptr [ %24, %.preheader97 ], [ %.063.be, %.backedge ]
@@ -495,7 +495,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 48:                                               ; preds = %43, %47, %.preheader
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %sema_trace_func_liveness.exit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond192.not, label %sema_trace_func_liveness.exit, label %.preheader, !llvm.loop !19
 
 49:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.sema_trace_decl_liveness, ptr noundef nonnull @.str.2, i32 noundef 596) #4
@@ -524,7 +524,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph135, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph135, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph135, %50, %53
   %58 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
@@ -562,7 +562,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   %.0.i.be.in = getelementptr inbounds nuw i8, ptr %67, i64 56
   %.0.i.be = load ptr, ptr %.0.i.be.in, align 8
   %69 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i.be) #3
-  br i1 %69, label %tailrecurse.backedge, label %.lr.ph137
+  br i1 %69, label %tailrecurse.backedge, label %.lr.ph137, !llvm.loop !21
 
 70:                                               ; preds = %5
   %71 = getelementptr inbounds nuw i8, ptr %.0131, i64 104
@@ -587,7 +587,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %77)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !16
+  br i1 %exitcond187.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !20
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %70, %73
   %78 = getelementptr inbounds nuw i8, ptr %.0131, i64 96
@@ -625,7 +625,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   %.0.i88.be.in = getelementptr inbounds nuw i8, ptr %87, i64 56
   %.0.i88.be = load ptr, ptr %.0.i88.be.in, align 8
   %89 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i88.be) #3
-  br i1 %89, label %._crit_edge151, label %.lr.ph150
+  br i1 %89, label %._crit_edge151, label %.lr.ph150, !llvm.loop !21
 
 ._crit_edge151:                                   ; preds = %.backedge105, %.preheader104
   %.0.i88.lcssa = phi ptr [ %84, %.preheader104 ], [ %.0.i88.be, %.backedge105 ]
@@ -686,7 +686,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   %.062.be.in = getelementptr inbounds nuw i8, ptr %106, i64 56
   %.062.be = load ptr, ptr %.062.be.in, align 8
   %108 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.062.be) #3
-  br i1 %108, label %._crit_edge155, label %.lr.ph154
+  br i1 %108, label %._crit_edge155, label %.lr.ph154, !llvm.loop !22
 
 ._crit_edge155:                                   ; preds = %.backedge103, %.preheader101
   %.062.lcssa = phi ptr [ %103, %.preheader101 ], [ %.062.be, %.backedge103 ]
@@ -740,7 +740,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   %.061.be.in = getelementptr inbounds nuw i8, ptr %124, i64 56
   %.061.be = load ptr, ptr %.061.be.in, align 8
   %126 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.061.be) #3
-  br i1 %126, label %._crit_edge159, label %.lr.ph158
+  br i1 %126, label %._crit_edge159, label %.lr.ph158, !llvm.loop !23
 
 ._crit_edge159:                                   ; preds = %.backedge100, %.preheader98
   %.061.lcssa = phi ptr [ %121, %.preheader98 ], [ %.061.be, %.backedge100 ]
@@ -836,7 +836,7 @@ define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly captu
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %12)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph156, !llvm.loop !17
+  br i1 %exitcond187.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph156, !llvm.loop !24
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.tr147, i64 20
@@ -875,7 +875,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
     i8 4, label %sema_trace_expr_list_liveness.exit
     i8 7, label %sema_trace_expr_list_liveness.exit
     i8 28, label %sema_trace_expr_list_liveness.exit
-  ], !llvm.loop !18
+  ], !llvm.loop !25
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
@@ -997,7 +997,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %92)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph154, !llvm.loop !19
+  br i1 %exitcond182.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph154, !llvm.loop !26
 
 93:                                               ; preds = %.lr.ph
   %94 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
@@ -1124,7 +1124,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef %156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph152, !llvm.loop !20
+  br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph152, !llvm.loop !27
 
 157:                                              ; preds = %.lr.ph
   %158 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
@@ -1186,7 +1186,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
     i8 4, label %sema_trace_stmt_chain_liveness.exit125
     i8 7, label %sema_trace_stmt_chain_liveness.exit125
     i8 28, label %sema_trace_stmt_chain_liveness.exit125
-  ], !llvm.loop !18
+  ], !llvm.loop !25
 
 sema_trace_stmt_chain_liveness.exit125:           ; preds = %180, %181, %181, %181, %181
   %189 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
@@ -1218,7 +1218,7 @@ sema_trace_stmt_chain_liveness.exit125:           ; preds = %180, %181, %181, %1
     i8 4, label %sema_trace_expr_list_liveness.exit
     i8 7, label %sema_trace_expr_list_liveness.exit
     i8 28, label %sema_trace_expr_list_liveness.exit
-  ], !llvm.loop !18
+  ], !llvm.loop !25
 
 203:                                              ; preds = %.lr.ph
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.sema_trace_stmt_liveness, ptr noundef nonnull @.str.2, i32 noundef 204) #4
@@ -1261,7 +1261,7 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
   %.0.be.in = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.0.be = load ptr, ptr %.0.be.in, align 8
   %7 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.be) #3
-  br i1 %7, label %._crit_edge, label %.lr.ph
+  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader216
   %.0.lcssa = phi ptr [ %2, %.preheader216 ], [ %.0.be, %.backedge ]
@@ -1373,7 +1373,7 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
 
 .lr.ph249.backedge:                               ; preds = %.backedge218, %tailrecurse.backedge
   %.0150248.be = phi ptr [ %.0150.be, %.backedge218 ], [ %.tr.be, %tailrecurse.backedge ]
-  br label %.lr.ph249
+  br label %.lr.ph249, !llvm.loop !29
 
 21:                                               ; preds = %.loopexit
   %22 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1439,7 +1439,7 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %51)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph262, !llvm.loop !17
+  br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph262, !llvm.loop !24
 
 sema_trace_expr_list_liveness.exit:               ; preds = %.lr.ph262, %43, %47
   %52 = getelementptr inbounds nuw i8, ptr %.0150248, i64 48
@@ -1475,7 +1475,7 @@ sema_trace_expr_list_liveness.exit:               ; preds = %.lr.ph262, %43, %47
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %63)
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count347
-  br i1 %exitcond348.not, label %sema_trace_expr_list_liveness.exit192, label %.lr.ph265, !llvm.loop !17
+  br i1 %exitcond348.not, label %sema_trace_expr_list_liveness.exit192, label %.lr.ph265, !llvm.loop !24
 
 sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58, %sema_trace_expr_list_liveness.exit
   %64 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
@@ -1566,7 +1566,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %107)
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next390, %wide.trip.count392
-  br i1 %exitcond393.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph297, !llvm.loop !21
+  br i1 %exitcond393.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph297, !llvm.loop !30
 
 108:                                              ; preds = %.loopexit
   %109 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1609,7 +1609,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %125)
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count387
-  br i1 %exitcond388.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph294, !llvm.loop !22
+  br i1 %exitcond388.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph294, !llvm.loop !31
 
 126:                                              ; preds = %.loopexit
   %127 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1640,7 +1640,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %136)
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
-  br i1 %exitcond383.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph291, !llvm.loop !17
+  br i1 %exitcond383.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph291, !llvm.loop !24
 
 137:                                              ; preds = %.loopexit
   %138 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1665,7 +1665,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %144)
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
-  br i1 %exitcond378.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph288, !llvm.loop !17
+  br i1 %exitcond378.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph288, !llvm.loop !24
 
 145:                                              ; preds = %.loopexit
   %146 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1682,7 +1682,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   %152 = load i32, ptr %151, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %150)
   %.not178 = icmp eq i32 %152, 0
-  br i1 %.not178, label %sema_trace_expr_list_liveness.exit196, label %.preheader, !llvm.loop !23
+  br i1 %.not178, label %sema_trace_expr_list_liveness.exit196, label %.preheader, !llvm.loop !32
 
 153:                                              ; preds = %.loopexit
   %154 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1713,7 +1713,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %163)
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
-  br i1 %exitcond373.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph285, !llvm.loop !24
+  br i1 %exitcond373.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph285, !llvm.loop !33
 
 164:                                              ; preds = %.loopexit
   %165 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1745,7 +1745,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %175)
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
-  br i1 %exitcond368.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !25
+  br i1 %exitcond368.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !34
 
 ._crit_edge282:                                   ; preds = %.lr.ph281, %167, %171
   %176 = load i32, ptr %168, align 8
@@ -1770,7 +1770,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
     i8 4, label %sema_trace_expr_list_liveness.exit196
     i8 7, label %sema_trace_expr_list_liveness.exit196
     i8 28, label %sema_trace_expr_list_liveness.exit196
-  ], !llvm.loop !18
+  ], !llvm.loop !25
 
 186:                                              ; preds = %.loopexit
   %187 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
@@ -1796,7 +1796,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %194)
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
-  br i1 %exitcond358.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !26
+  br i1 %exitcond358.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !35
 
 ._crit_edge274:                                   ; preds = %.lr.ph273, %186, %190
   %195 = load ptr, ptr %187, align 8
@@ -1820,7 +1820,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %200)
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
-  br i1 %exitcond363.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !27
+  br i1 %exitcond363.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !36
 
 ._crit_edge278:                                   ; preds = %.lr.ph277, %._crit_edge274, %196
   %201 = getelementptr inbounds nuw i8, ptr %.0150248, i64 40
@@ -1972,7 +1972,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %295)
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count352
-  br i1 %exitcond353.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph270, !llvm.loop !17
+  br i1 %exitcond353.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph270, !llvm.loop !24
 
 296:                                              ; preds = %.loopexit
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.sema_trace_expr_liveness, ptr noundef nonnull @.str.2, i32 noundef 497) #4
@@ -2007,7 +2007,7 @@ define internal fastcc void @sema_trace_stmt_chain_liveness(i32 noundef %0) unna
     i8 4, label %11
     i8 7, label %11
     i8 28, label %11
-  ], !llvm.loop !18
+  ], !llvm.loop !25
 
 11:                                               ; preds = %2, %3, %3, %3, %3
   ret void
@@ -2074,7 +2074,7 @@ define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly captur
 21:                                               ; preds = %13, %16, %.lr.ph, %.lr.ph, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %21, %1, %2
   ret void
@@ -2102,7 +2102,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr noundef r
 .backedge:                                        ; preds = %2, %2
   %.040.be.in = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %.040.be = load ptr, ptr %.040.be.in, align 8
-  br label %2
+  br label %2, !llvm.loop !38
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.040, i64 8
@@ -2125,7 +2125,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr noundef r
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %13)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58, !llvm.loop !29
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58, !llvm.loop !39
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %.040, i64 16
@@ -2150,7 +2150,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr noundef r
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %21)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph56, !llvm.loop !30
+  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph56, !llvm.loop !40
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %.040, i64 8
@@ -2192,7 +2192,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr noundef r
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !41
 
 43:                                               ; preds = %2
   %44 = getelementptr inbounds nuw i8, ptr %.040, i64 16
@@ -2223,28 +2223,38 @@ attributes #4 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}

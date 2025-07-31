@@ -5096,7 +5096,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %240 = sub i32 %235, %233
   %241 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %237, ptr noundef %0, i32 noundef %233, i32 noundef %240, i32 noundef 0)
   %242 = icmp ult i32 %235, %220
-  br i1 %242, label %227, label %.loopexit, !llvm.loop !10
+  br i1 %242, label %227, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %239, %.thread339
   %.4341 = phi i32 [ %220, %.thread339 ], [ %235, %239 ]
@@ -5109,7 +5109,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %.2 = phi i32 [ %217, %210 ], [ %245, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge353, label %.lr.ph352, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge353, label %.lr.ph352, !llvm.loop !12
 
 ._crit_edge353:                                   ; preds = %246, %._crit_edge
   %.1293.lcssa = phi i32 [ %191, %._crit_edge ], [ %.2, %246 ]
@@ -8108,7 +8108,8 @@ attributes #12 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

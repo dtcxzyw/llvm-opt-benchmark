@@ -538,7 +538,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %27, label %5, !prof !29
+  br i1 %4, label %27, label %5, !prof !30
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -810,6 +810,7 @@ attributes #6 = { cold nounwind }
 !24 = !{i64 2158713846}
 !25 = !{i64 2158496491}
 !26 = !{i64 2158497490}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.unroll.disable"}
-!29 = !{!"branch_weights", i32 1, i32 2000}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!"branch_weights", i32 1, i32 2000}

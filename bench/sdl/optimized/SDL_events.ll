@@ -462,7 +462,7 @@ SDL_UnlinkTemporaryMemoryEntry.exit:              ; preds = %._crit_edge19.i, %1
   tail call void @SDL_free_REAL(ptr noundef nonnull %5) #8
   %19 = load ptr, ptr %1, align 8
   %.not7 = icmp eq ptr %19, null
-  br i1 %.not7, label %.loopexit, label %4, !llvm.loop !5
+  br i1 %.not7, label %.loopexit, label %4, !llvm.loop !6
 
 .loopexit:                                        ; preds = %SDL_UnlinkTemporaryMemoryEntry.exit, %.preheader, %0
   ret void
@@ -1197,11 +1197,11 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %497 = load i32, ptr %496, align 4
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %499 = load i8, ptr %498, align 4, !range !6, !noundef !7
+  %499 = load i8, ptr %498, align 4, !range !7, !noundef !8
   %500 = trunc nuw i8 %499 to i1
   %501 = select i1 %500, ptr @.str.68, ptr @.str.69
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %503 = load i8, ptr %502, align 1, !range !6, !noundef !7
+  %503 = load i8, ptr %502, align 1, !range !7, !noundef !8
   %504 = trunc nuw i8 %503 to i1
   %505 = select i1 %504, ptr @.str.70, ptr @.str.71
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1224,11 +1224,11 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %522 = load i32, ptr %521, align 4
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %524 = load i8, ptr %523, align 4, !range !6, !noundef !7
+  %524 = load i8, ptr %523, align 4, !range !7, !noundef !8
   %525 = trunc nuw i8 %524 to i1
   %526 = select i1 %525, ptr @.str.68, ptr @.str.69
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %528 = load i8, ptr %527, align 1, !range !6, !noundef !7
+  %528 = load i8, ptr %527, align 1, !range !7, !noundef !8
   %529 = trunc nuw i8 %528 to i1
   %530 = select i1 %529, ptr @.str.70, ptr @.str.71
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1342,7 +1342,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %625 = load i8, ptr %624, align 8
   %626 = zext i8 %625 to i32
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %628 = load i8, ptr %627, align 1, !range !6, !noundef !7
+  %628 = load i8, ptr %627, align 1, !range !7, !noundef !8
   %629 = trunc nuw i8 %628 to i1
   %630 = select i1 %629, ptr @.str.68, ptr @.str.69
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -1370,7 +1370,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %651 = load i8, ptr %650, align 8
   %652 = zext i8 %651 to i32
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %654 = load i8, ptr %653, align 1, !range !6, !noundef !7
+  %654 = load i8, ptr %653, align 1, !range !7, !noundef !8
   %655 = trunc nuw i8 %654 to i1
   %656 = select i1 %655, ptr @.str.68, ptr @.str.69
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -1473,7 +1473,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %744 = load i8, ptr %743, align 4
   %745 = zext i8 %744 to i32
   %746 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %747 = load i8, ptr %746, align 1, !range !6, !noundef !7
+  %747 = load i8, ptr %746, align 1, !range !7, !noundef !8
   %748 = trunc nuw i8 %747 to i1
   %749 = select i1 %748, ptr @.str.68, ptr @.str.69
   %750 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.97, i32 noundef %740, i32 noundef %742, i32 noundef %745, ptr noundef nonnull %749) #8
@@ -1490,7 +1490,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %759 = load i8, ptr %758, align 4
   %760 = zext i8 %759 to i32
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %762 = load i8, ptr %761, align 1, !range !6, !noundef !7
+  %762 = load i8, ptr %761, align 1, !range !7, !noundef !8
   %763 = trunc nuw i8 %762 to i1
   %764 = select i1 %763, ptr @.str.68, ptr @.str.69
   %765 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.97, i32 noundef %755, i32 noundef %757, i32 noundef %760, ptr noundef nonnull %764) #8
@@ -1567,7 +1567,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %824 = load i8, ptr %823, align 4
   %825 = zext i8 %824 to i32
   %826 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %827 = load i8, ptr %826, align 1, !range !6, !noundef !7
+  %827 = load i8, ptr %826, align 1, !range !7, !noundef !8
   %828 = trunc nuw i8 %827 to i1
   %829 = select i1 %828, ptr @.str.68, ptr @.str.69
   %830 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.97, i32 noundef %820, i32 noundef %822, i32 noundef %825, ptr noundef nonnull %829) #8
@@ -1584,7 +1584,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %839 = load i8, ptr %838, align 4
   %840 = zext i8 %839 to i32
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %842 = load i8, ptr %841, align 1, !range !6, !noundef !7
+  %842 = load i8, ptr %841, align 1, !range !7, !noundef !8
   %843 = trunc nuw i8 %842 to i1
   %844 = select i1 %843, ptr @.str.68, ptr @.str.69
   %845 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.97, i32 noundef %835, i32 noundef %837, i32 noundef %840, ptr noundef nonnull %844) #8
@@ -1856,11 +1856,11 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1083 = load float, ptr %1082, align 8
   %1084 = fpext float %1083 to double
   %1085 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %1086 = load i8, ptr %1085, align 4, !range !6, !noundef !7
+  %1086 = load i8, ptr %1085, align 4, !range !7, !noundef !8
   %1087 = trunc nuw i8 %1086 to i1
   %1088 = select i1 %1087, ptr @.str.126, ptr @.str.127
   %1089 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %1090 = load i8, ptr %1089, align 1, !range !6, !noundef !7
+  %1090 = load i8, ptr %1089, align 1, !range !7, !noundef !8
   %1091 = trunc nuw i8 %1090 to i1
   %1092 = select i1 %1091, ptr @.str.128, ptr @.str.129
   %1093 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.125, i32 noundef %1072, i32 noundef %1074, i32 noundef %1076, i32 noundef %1078, double noundef %1081, double noundef %1084, ptr noundef nonnull %1088, ptr noundef nonnull %1092) #8
@@ -1884,11 +1884,11 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1109 = load float, ptr %1108, align 8
   %1110 = fpext float %1109 to double
   %1111 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %1112 = load i8, ptr %1111, align 4, !range !6, !noundef !7
+  %1112 = load i8, ptr %1111, align 4, !range !7, !noundef !8
   %1113 = trunc nuw i8 %1112 to i1
   %1114 = select i1 %1113, ptr @.str.126, ptr @.str.127
   %1115 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %1116 = load i8, ptr %1115, align 1, !range !6, !noundef !7
+  %1116 = load i8, ptr %1115, align 1, !range !7, !noundef !8
   %1117 = trunc nuw i8 %1116 to i1
   %1118 = select i1 %1117, ptr @.str.128, ptr @.str.129
   %1119 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.125, i32 noundef %1098, i32 noundef %1100, i32 noundef %1102, i32 noundef %1104, double noundef %1107, double noundef %1110, ptr noundef nonnull %1114, ptr noundef nonnull %1118) #8
@@ -1995,7 +1995,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1206 = load i8, ptr %1205, align 4
   %1207 = zext i8 %1206 to i32
   %1208 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %1209 = load i8, ptr %1208, align 1, !range !6, !noundef !7
+  %1209 = load i8, ptr %1208, align 1, !range !7, !noundef !8
   %1210 = trunc nuw i8 %1209 to i1
   %1211 = select i1 %1210, ptr @.str.128, ptr @.str.129
   %1212 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.140, i32 noundef %1192, i32 noundef %1194, i32 noundef %1196, i32 noundef %1198, double noundef %1201, double noundef %1204, i32 noundef %1207, ptr noundef nonnull %1211) #8
@@ -2022,7 +2022,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1231 = load i8, ptr %1230, align 4
   %1232 = zext i8 %1231 to i32
   %1233 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %1234 = load i8, ptr %1233, align 1, !range !6, !noundef !7
+  %1234 = load i8, ptr %1233, align 1, !range !7, !noundef !8
   %1235 = trunc nuw i8 %1234 to i1
   %1236 = select i1 %1235, ptr @.str.128, ptr @.str.129
   %1237 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.140, i32 noundef %1217, i32 noundef %1219, i32 noundef %1221, i32 noundef %1223, double noundef %1226, double noundef %1229, i32 noundef %1232, ptr noundef nonnull %1236) #8
@@ -2126,7 +2126,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1323 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1324 = load i32, ptr %1323, align 8
   %1325 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %1326 = load i8, ptr %1325, align 4, !range !6, !noundef !7
+  %1326 = load i8, ptr %1325, align 4, !range !7, !noundef !8
   %1327 = trunc nuw i8 %1326 to i1
   %1328 = select i1 %1327, ptr @.str.70, ptr @.str.71
   %1329 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.149, i32 noundef %1322, i32 noundef %1324, ptr noundef nonnull %1328) #8
@@ -2140,7 +2140,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1335 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1336 = load i32, ptr %1335, align 8
   %1337 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %1338 = load i8, ptr %1337, align 4, !range !6, !noundef !7
+  %1338 = load i8, ptr %1337, align 4, !range !7, !noundef !8
   %1339 = trunc nuw i8 %1338 to i1
   %1340 = select i1 %1339, ptr @.str.70, ptr @.str.71
   %1341 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.149, i32 noundef %1334, i32 noundef %1336, ptr noundef nonnull %1340) #8
@@ -2154,7 +2154,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %1347 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1348 = load i32, ptr %1347, align 8
   %1349 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %1350 = load i8, ptr %1349, align 4, !range !6, !noundef !7
+  %1350 = load i8, ptr %1349, align 4, !range !7, !noundef !8
   %1351 = trunc nuw i8 %1350 to i1
   %1352 = select i1 %1351, ptr @.str.70, ptr @.str.71
   %1353 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.149, i32 noundef %1346, i32 noundef %1348, ptr noundef nonnull %1352) #8
@@ -2362,7 +2362,7 @@ SDL_GetTemporaryMemoryState.exit.i:               ; preds = %17, %13
 SDL_LinkTemporaryMemoryEntry.exit.i:              ; preds = %30, %28
   store ptr %.016.i, ptr %21, align 8
   %.not11.i = icmp eq ptr %25, null
-  br i1 %.not11.i, label %._crit_edge.i, label %22, !llvm.loop !8
+  br i1 %.not11.i, label %._crit_edge.i, label %22, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %SDL_LinkTemporaryMemoryEntry.exit.i, %SDL_GetTemporaryMemoryState.exit.i
   store ptr null, ptr %11, align 8
@@ -2371,7 +2371,7 @@ SDL_LinkTemporaryMemoryEntry.exit.i:              ; preds = %30, %28
 SDL_TransferTemporaryMemoryFromEvent.exit:        ; preds = %.lr.ph, %15, %19, %._crit_edge.i
   tail call void @SDL_free_REAL(ptr noundef nonnull %.01830) #8
   %.not23 = icmp eq ptr %10, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %SDL_TransferTemporaryMemoryFromEvent.exit, %7
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 40), align 8
@@ -2384,7 +2384,7 @@ SDL_TransferTemporaryMemoryFromEvent.exit:        ; preds = %.lr.ph, %15, %19, %
   %33 = load ptr, ptr %32, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.132) #8
   %.not24 = icmp eq ptr %33, null
-  br i1 %.not24, label %._crit_edge35, label %.lr.ph34, !llvm.loop !10
+  br i1 %.not24, label %._crit_edge35, label %.lr.ph34, !llvm.loop !11
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
   %34 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 12), i32 noundef 0) #8
@@ -2401,7 +2401,7 @@ SDL_TransferTemporaryMemoryFromEvent.exit:        ; preds = %.lr.ph, %15, %19, %
   store ptr null, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %39, label %36, !llvm.loop !11
+  br i1 %exitcond.not, label %39, label %36, !llvm.loop !12
 
 39:                                               ; preds = %36
   tail call void @SDL_QuitEventWatchList(ptr noundef nonnull @SDL_event_watchers) #8
@@ -2494,7 +2494,7 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
   %7 = alloca [256 x i8], align 16
   %8 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %8) #8
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %17, label %11
 
@@ -3167,7 +3167,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   %248 = add nuw nsw i32 %.0.i, %.042102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph104, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph104, !llvm.loop !13
 
 249:                                              ; preds = %17
   %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
@@ -3216,7 +3216,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   %.345.us = phi i32 [ %.24470.us, %261 ], [ %265, %264 ], [ %.24470.us, %260 ], [ %.24470.us, %.lr.ph.split.us.split ]
   %.2.us = phi i32 [ %spec.select.us, %261 ], [ %.1.us, %264 ], [ %.04171.us, %260 ], [ %.04171.us, %.lr.ph.split.us.split ]
   %.not.us = icmp eq ptr %256, null
-  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !13
+  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -3266,7 +3266,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   %.345.us84 = phi i32 [ %.24470.us78, %278 ], [ %282, %281 ], [ %.24470.us78, %268 ]
   %.2.us85 = phi i32 [ %spec.select.us82, %278 ], [ %.1.us83, %281 ], [ %.04171.us77, %268 ]
   %.not.us86 = icmp eq ptr %270, null
-  br i1 %.not.us86, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %.not.us86, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !16
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %252, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -3299,7 +3299,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
 294:                                              ; preds = %289, %285
   %.345.us96 = phi i32 [ %.24470.us92, %285 ], [ %spec.select, %289 ]
   %.not.us97 = icmp eq ptr %287, null
-  br i1 %.not.us97, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !16
+  br i1 %.not.us97, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %305
   %.04072 = phi ptr [ %298, %305 ], [ %250, %.lr.ph.split.split ]
@@ -3328,7 +3328,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
 305:                                              ; preds = %300, %296
   %.345 = phi i32 [ %.24470, %296 ], [ %spec.select106, %300 ]
   %.not = icmp eq ptr %298, null
-  br i1 %.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !17
+  br i1 %.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !18
 
 .critedge:                                        ; preds = %305, %.lr.ph.split.split.split, %294, %.lr.ph.split.split.split.us, %283, %.lr.ph.split.split.us, %266, %SDL_AddEvent.exit, %249, %.preheader
   %.143 = phi i32 [ 0, %.preheader ], [ 0, %249 ], [ %248, %SDL_AddEvent.exit ], [ %.345.us, %266 ], [ %.345.us84, %283 ], [ %.24470.us78, %.lr.ph.split.split.us ], [ %.345.us96, %294 ], [ %.24470.us92, %.lr.ph.split.split.split.us ], [ %.345, %305 ], [ %.24470, %.lr.ph.split.split.split ]
@@ -3369,7 +3369,7 @@ SDL_SendWakeupEvent.exit:                         ; preds = %317, %314, %311, %3
 define hidden noundef zeroext i1 @SDL_HasEvent_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %2) #8
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %.0914.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not15.not.i = icmp ne ptr %.0914.i, null
@@ -3380,7 +3380,7 @@ define hidden noundef zeroext i1 @SDL_HasEvent_REAL(i32 noundef %0) local_unname
   %6 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 144
   %.09.i = load ptr, ptr %6, align 8
   %.not.not.i = icmp eq ptr %.09.i, null
-  br i1 %.not.not.i, label %SDL_HasEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.not.i, label %SDL_HasEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %1, %5
   %.0916.i = phi ptr [ %.09.i, %5 ], [ %.0914.i, %1 ]
@@ -3399,7 +3399,7 @@ SDL_HasEvents_REAL.exit:                          ; preds = %5, %.lr.ph.i, %1
 define hidden noundef zeroext i1 @SDL_HasEvents_REAL(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %3) #8
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %.0914 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not15.not = icmp ne ptr %.0914, null
@@ -3410,7 +3410,7 @@ define hidden noundef zeroext i1 @SDL_HasEvents_REAL(i32 noundef %0, i32 noundef
   %7 = getelementptr inbounds nuw i8, ptr %.0916, i64 144
   %.09 = load ptr, ptr %7, align 8
   %.not.not = icmp eq ptr %.09, null
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %2, %6
   %.0916 = phi ptr [ %.09, %6 ], [ %.0914, %2 ]
@@ -3431,7 +3431,7 @@ define hidden noundef zeroext i1 @SDL_HasEvents_REAL(i32 noundef %0, i32 noundef
 define hidden void @SDL_FlushEvent_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %2) #8
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not11.i = icmp ne ptr %5, null
@@ -3452,7 +3452,7 @@ define hidden void @SDL_FlushEvent_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %.lr.ph.i
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %SDL_FlushEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %SDL_FlushEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !20
 
 SDL_FlushEvents_REAL.exit:                        ; preds = %10, %1
   %11 = load ptr, ptr @SDL_EventQ, align 8
@@ -3464,7 +3464,7 @@ SDL_FlushEvents_REAL.exit:                        ; preds = %10, %1
 define hidden void @SDL_FlushEvents_REAL(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %3) #8
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not11 = icmp ne ptr %6, null
@@ -3487,7 +3487,7 @@ define hidden void @SDL_FlushEvents_REAL(i32 noundef %0, i32 noundef %1) local_u
 
 11:                                               ; preds = %.lr.ph, %10
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %11, %2
   %12 = load ptr, ptr @SDL_EventQ, align 8
@@ -3555,7 +3555,7 @@ SDL_GetTemporaryMemoryState.exit.i:               ; preds = %8, %4
 SDL_LinkTemporaryMemoryEntry.exit.i:              ; preds = %21, %19
   store ptr %.016.i, ptr %12, align 8
   %.not11.i = icmp eq ptr %16, null
-  br i1 %.not11.i, label %._crit_edge.i, label %13, !llvm.loop !8
+  br i1 %.not11.i, label %._crit_edge.i, label %13, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %SDL_LinkTemporaryMemoryEntry.exit.i, %SDL_GetTemporaryMemoryState.exit.i
   store ptr null, ptr %2, align 8
@@ -3771,7 +3771,7 @@ declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 define hidden void @SDL_PumpEventMaintenance() local_unnamed_addr #0 {
   tail call void @SDL_UpdateAudio() #8
   tail call void @SDL_UpdateCamera() #8
-  %1 = load i8, ptr @SDL_update_sensors, align 1, !range !6, !noundef !7
+  %1 = load i8, ptr @SDL_update_sensors, align 1, !range !7, !noundef !8
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %4
 
@@ -3780,7 +3780,7 @@ define hidden void @SDL_PumpEventMaintenance() local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  %5 = load i8, ptr @SDL_update_joysticks, align 1, !range !6, !noundef !7
+  %5 = load i8, ptr @SDL_update_joysticks, align 1, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -3871,7 +3871,7 @@ SDL_UnlinkTemporaryMemoryEntry.exit.i:            ; preds = %17, %._crit_edge19.
   tail call void @SDL_free_REAL(ptr noundef nonnull %7) #8
   %21 = load ptr, ptr %3, align 8
   %.not7.i = icmp eq ptr %21, null
-  br i1 %.not7.i, label %SDL_FreeTemporaryMemory.exit, label %6, !llvm.loop !5
+  br i1 %.not7.i, label %SDL_FreeTemporaryMemory.exit, label %6, !llvm.loop !6
 
 SDL_FreeTemporaryMemory.exit:                     ; preds = %SDL_UnlinkTemporaryMemoryEntry.exit.i, %1, %.preheader.i
   tail call void @SDL_ReleaseAutoReleaseKeys() #8
@@ -3911,7 +3911,7 @@ SDL_DestroyMainThreadCallback.exit.i:             ; preds = %.lr.ph.i3
 
 36:                                               ; preds = %SDL_DestroyMainThreadCallback.exit.i, %32
   %.not.i4 = icmp eq ptr %26, null
-  br i1 %.not.i4, label %SDL_RunMainThreadCallbacks.exit, label %.lr.ph.i3, !llvm.loop !20
+  br i1 %.not.i4, label %SDL_RunMainThreadCallbacks.exit, label %.lr.ph.i3, !llvm.loop !21
 
 SDL_RunMainThreadCallbacks.exit:                  ; preds = %36, %SDL_FreeTemporaryMemory.exit
   %37 = tail call ptr @SDL_GetVideoDevice() #8
@@ -3927,7 +3927,7 @@ SDL_RunMainThreadCallbacks.exit:                  ; preds = %36, %SDL_FreeTempor
 41:                                               ; preds = %38, %SDL_RunMainThreadCallbacks.exit
   tail call void @SDL_UpdateAudio() #8
   tail call void @SDL_UpdateCamera() #8
-  %42 = load i8, ptr @SDL_update_sensors, align 1, !range !6, !noundef !7
+  %42 = load i8, ptr @SDL_update_sensors, align 1, !range !7, !noundef !8
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %45
 
@@ -3936,7 +3936,7 @@ SDL_RunMainThreadCallbacks.exit:                  ; preds = %36, %SDL_FreeTempor
   br label %45
 
 45:                                               ; preds = %44, %41
-  %46 = load i8, ptr @SDL_update_joysticks, align 1, !range !6, !noundef !7
+  %46 = load i8, ptr @SDL_update_joysticks, align 1, !range !7, !noundef !8
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %SDL_PumpEventMaintenance.exit
 
@@ -4052,7 +4052,7 @@ define hidden zeroext i1 @SDL_WaitEventTimeoutNS(ptr noundef %0, i64 noundef %1)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
   %23 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %23) #8
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not69.i = icmp ne ptr %26, null
@@ -4095,7 +4095,7 @@ define hidden zeroext i1 @SDL_WaitEventTimeoutNS(ptr noundef %0, i64 noundef %1)
   %.345.us84.i = phi i32 [ %.24470.us78.i, %36 ], [ %40, %39 ], [ %.24470.us78.i, %28 ]
   %.2.us85.i = phi i32 [ %spec.select.us82.i, %36 ], [ %.1.us83.i, %39 ], [ %.04171.us77.i, %28 ]
   %.not.us86.i = icmp eq ptr %30, null
-  br i1 %.not.us86.i, label %SDL_PeepEventsInternal.exit, label %.lr.ph.split.split.us.i, !llvm.loop !15
+  br i1 %.not.us86.i, label %SDL_PeepEventsInternal.exit, label %.lr.ph.split.split.us.i, !llvm.loop !16
 
 SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.split.us.i
   %.143.i.ph = phi i32 [ %.345.us84.i, %41 ], [ %.24470.us78.i, %.lr.ph.split.split.us.i ]
@@ -4152,7 +4152,7 @@ SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.s
 .lr.ph.i66:                                       ; preds = %59, %64
   %.09.i = phi ptr [ %.0.i67, %64 ], [ %.07.i, %59 ]
   %61 = getelementptr inbounds nuw i8, ptr %.09.i, i64 271
-  %62 = load i8, ptr %61, align 1, !range !6, !noundef !7
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !8
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %SDL_find_active_window.exit
 
@@ -4160,12 +4160,12 @@ SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.s
   %65 = getelementptr inbounds nuw i8, ptr %.09.i, i64 416
   %.0.i67 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %.0.i67, null
-  br i1 %.not.i, label %SDL_WaitEventTimeout_Device.exit, label %.lr.ph.i66, !llvm.loop !21
+  br i1 %.not.i, label %SDL_WaitEventTimeout_Device.exit, label %.lr.ph.i66, !llvm.loop !22
 
 SDL_find_active_window.exit:                      ; preds = %.lr.ph.i66
   %66 = tail call i32 @SDL_WasInit_REAL(i32 noundef 512) #8
   %67 = icmp ne i32 %66, 0
-  %68 = load i8, ptr @SDL_update_joysticks, align 1, !range !6
+  %68 = load i8, ptr @SDL_update_joysticks, align 1, !range !7
   %69 = trunc nuw i8 %68 to i1
   %or.cond.i.i = select i1 %67, i1 %69, i1 false
   br i1 %or.cond.i.i, label %70, label %72
@@ -4179,7 +4179,7 @@ SDL_find_active_window.exit:                      ; preds = %.lr.ph.i66
   %.0.i.i = phi i64 [ 9223372036854775807, %SDL_find_active_window.exit ], [ %..i.i, %70 ]
   %73 = tail call i32 @SDL_WasInit_REAL(i32 noundef 32768) #8
   %74 = icmp ne i32 %73, 0
-  %75 = load i8, ptr @SDL_update_sensors, align 1, !range !6
+  %75 = load i8, ptr @SDL_update_sensors, align 1, !range !7
   %76 = trunc nuw i8 %75 to i1
   %or.cond3.i.i = select i1 %74, i1 %76, i1 false
   br i1 %or.cond3.i.i, label %77, label %SDL_events_get_polling_interval.exit.i
@@ -4231,7 +4231,7 @@ SDL_events_get_polling_interval.exit.split.us.i:  ; preds = %SDL_events_get_poll
   %or.cond46.us.not.i = select i1 %95, i1 true, i1 %96
   %97 = icmp slt i32 %93, 1
   %or.cond54.us.i = and i1 %97, %or.cond46.us.not.i
-  br i1 %or.cond54.us.i, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.us.i, !llvm.loop !22
+  br i1 %or.cond54.us.i, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.us.i, !llvm.loop !23
 
 SDL_events_get_polling_interval.exit.split.i:     ; preds = %SDL_events_get_polling_interval.exit.i
   br i1 %5, label %SDL_events_get_polling_interval.exit.split.split.us.i, label %SDL_events_get_polling_interval.exit.split.split.i
@@ -4259,7 +4259,7 @@ SDL_events_get_polling_interval.exit.split.split.us.i: ; preds = %SDL_events_get
   %108 = tail call i32 %107(ptr noundef nonnull %52, i64 noundef %105) #8
   %109 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
   %110 = icmp slt i32 %108, 1
-  br i1 %110, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.us.i, !llvm.loop !23
+  br i1 %110, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.us.i, !llvm.loop !24
 
 SDL_events_get_polling_interval.exit.split.split.i: ; preds = %SDL_events_get_polling_interval.exit.split.i, %112
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
@@ -4301,14 +4301,14 @@ SDL_WaitEventTimeout_Device.exit:                 ; preds = %64, %59, %.loopexit
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
   %125 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
   %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %126, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   tail call void @SDL_DelayNS_REAL(i64 noundef 1000000) #8
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
   %127 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
   %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split
+  br i1 %128, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split, !llvm.loop !26
 
 SDL_WaitEventTimeout_Device.exit.thread78.loopexit142: ; preds = %SDL_events_get_polling_interval.exit.split.split.i
   %129 = icmp sgt i32 %111, -1
@@ -4408,7 +4408,7 @@ define hidden void @SDL_SetEventFilter_REAL(ptr noundef %0, ptr noundef %1) loca
 
 11:                                               ; preds = %.lr.ph, %10
   %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %11, %4
   %12 = load ptr, ptr @SDL_EventQ, align 8
@@ -4489,7 +4489,7 @@ define hidden void @SDL_FilterEvents_REAL(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %.lr.ph, %8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %9, %2
   %10 = load ptr, ptr @SDL_EventQ, align 8
@@ -4632,7 +4632,7 @@ thread-pre-split.thread:                          ; preds = %56, %thread-pre-spl
   store i32 %66, ptr %64, align 4
   %67 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %67) #8
-  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
   %.not11.i.i = icmp ne ptr %70, null
@@ -4653,7 +4653,7 @@ thread-pre-split.thread:                          ; preds = %56, %thread-pre-spl
 
 75:                                               ; preds = %74, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %SDL_FlushEvent_REAL.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %SDL_FlushEvent_REAL.exit, label %.lr.ph.i.i, !llvm.loop !20
 
 SDL_FlushEvent_REAL.exit:                         ; preds = %75, %thread-pre-split.thread
   %76 = load ptr, ptr @SDL_EventQ, align 8
@@ -5072,7 +5072,7 @@ SDL_DestroyMainThreadCallback.exit.i:             ; preds = %.lr.ph.i
 
 12:                                               ; preds = %SDL_DestroyMainThreadCallback.exit.i, %8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %SDL_QuitMainThreadCallbacks.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %SDL_QuitMainThreadCallbacks.exit, label %.lr.ph.i, !llvm.loop !29
 
 SDL_QuitMainThreadCallbacks.exit:                 ; preds = %12, %0
   %13 = load ptr, ptr @SDL_main_callbacks_lock, align 8
@@ -5149,7 +5149,7 @@ SDL_UnlinkTemporaryMemoryEntry.exit.i:            ; preds = %16, %._crit_edge19.
   tail call void @SDL_free_REAL(ptr noundef nonnull %6) #8
   %20 = load ptr, ptr %2, align 8
   %.not7.i = icmp eq ptr %20, null
-  br i1 %.not7.i, label %SDL_FreeTemporaryMemory.exit, label %5, !llvm.loop !5
+  br i1 %.not7.i, label %SDL_FreeTemporaryMemory.exit, label %5, !llvm.loop !6
 
 SDL_FreeTemporaryMemory.exit:                     ; preds = %SDL_UnlinkTemporaryMemoryEntry.exit.i, %1, %.preheader.i
   tail call void @SDL_free_REAL(ptr noundef %0) #8
@@ -5199,28 +5199,30 @@ attributes #9 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !4, !14}
-!16 = distinct !{!16, !4, !14}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !4, !5, !15}
+!17 = distinct !{!17, !4, !5, !15}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !5, !15}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5}
+!29 = distinct !{!29, !4, !5}

@@ -153,7 +153,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   store i16 %96, ptr %97, align 2
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 4
-  br i1 %exitcond92.not, label %98, label %.preheader, !llvm.loop !6
+  br i1 %exitcond92.not, label %98, label %.preheader, !llvm.loop !7
 
 98:                                               ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false)
@@ -169,7 +169,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   store i16 %103, ptr %101, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader68, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.preheader68, !llvm.loop !8
 
 .loopexit70:                                      ; preds = %.loopexit, %.preheader69, %98
   %.1 = phi i1 [ %68, %98 ], [ %25, %.preheader69 ], [ %68, %.loopexit ]
@@ -288,7 +288,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
 .loopexit:                                        ; preds = %.preheader76
   %41 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %23, i32 noundef %19, i32 noundef 1, ptr noundef nonnull %31)
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit78, label %43, !llvm.loop !8
+  br i1 %42, label %.loopexit78, label %43, !llvm.loop !9
 
 43:                                               ; preds = %.lr.ph, %.loopexit
   %44 = phi ptr [ %32, %.lr.ph ], [ %41, %.loopexit ]
@@ -369,7 +369,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %104, ptr %105, align 2
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 4
-  br i1 %exitcond101.not, label %106, label %.preheader, !llvm.loop !9
+  br i1 %exitcond101.not, label %106, label %.preheader, !llvm.loop !10
 
 106:                                              ; preds = %.preheader
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 3324
@@ -387,7 +387,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %113, ptr %111, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader76, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.preheader76, !llvm.loop !11
 
 .loopexit78:                                      ; preds = %.loopexit, %.preheader77, %106, %4
   %.071 = phi i1 [ %16, %4 ], [ %74, %106 ], [ %17, %.preheader77 ], [ %74, %.loopexit ]
@@ -508,7 +508,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   store i16 %49, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %51, label %40, !llvm.loop !11
+  br i1 %exitcond.not, label %51, label %40, !llvm.loop !12
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 3
@@ -582,7 +582,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %.2.i = select i1 %84, i32 %85, i32 %.15273.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %86, label %81, !llvm.loop !12
+  br i1 %exitcond.not.i, label %86, label %81, !llvm.loop !13
 
 86:                                               ; preds = %81
   %.not65.i = icmp eq i16 %.255.i, 0
@@ -621,7 +621,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
 102:                                              ; preds = %99
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, 4
-  br i1 %exitcond86.not.i, label %103, label %99, !llvm.loop !13
+  br i1 %exitcond86.not.i, label %103, label %99, !llvm.loop !14
 
 103:                                              ; preds = %102, %99
   %.058.lcssa.i = phi i64 [ %indvars.iv83.i, %99 ], [ 4, %102 ]
@@ -645,7 +645,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %.4.i = select i1 %108, i32 %109, i32 %.380.i
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next88.i, 4
-  br i1 %exitcond89.not.i, label %110, label %105, !llvm.loop !14
+  br i1 %exitcond89.not.i, label %110, label %105, !llvm.loop !15
 
 110:                                              ; preds = %105
   %111 = icmp sgt i32 %spec.select69.i, 1
@@ -772,7 +772,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   store i16 %172, ptr %173, align 2
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next261, 4
-  br i1 %exitcond263.not, label %174, label %163, !llvm.loop !15
+  br i1 %exitcond263.not, label %174, label %163, !llvm.loop !16
 
 174:                                              ; preds = %163
   %175 = getelementptr inbounds nuw i8, ptr %161, i64 3
@@ -835,7 +835,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
 .loopexit232:                                     ; preds = %.preheader231
   %214 = call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %194, i32 noundef %18, i32 noundef 0, ptr noundef nonnull %17)
   %215 = icmp eq ptr %214, null
-  br i1 %215, label %._crit_edge, label %216, !llvm.loop !16
+  br i1 %215, label %._crit_edge, label %216, !llvm.loop !17
 
 216:                                              ; preds = %.lr.ph, %.loopexit232
   %217 = phi ptr [ %203, %.lr.ph ], [ %214, %.loopexit232 ]
@@ -913,7 +913,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   store i16 %273, ptr %274, align 2
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 4
-  br i1 %exitcond277.not, label %275, label %.preheader, !llvm.loop !17
+  br i1 %exitcond277.not, label %275, label %.preheader, !llvm.loop !18
 
 275:                                              ; preds = %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %196, ptr noundef nonnull align 4 dereferenceable(16) %217, i64 16, i1 false)
@@ -929,7 +929,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   store i16 %280, ptr %278, align 2
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, 4
-  br i1 %exitcond273.not, label %.loopexit232, label %.preheader231, !llvm.loop !18
+  br i1 %exitcond273.not, label %.loopexit232, label %.preheader231, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit232, %.preheader233
   %.0208.lcssa = phi i1 [ %202, %.preheader233 ], [ %245, %.loopexit232 ]
@@ -1052,7 +1052,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr noundef readonly captu
   %.2 = select i1 %12, i32 %13, i32 %.15273
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %14, label %9, !llvm.loop !13
 
 14:                                               ; preds = %9
   %.not65 = icmp eq i16 %.255, 0
@@ -1091,7 +1091,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr noundef readonly captu
 30:                                               ; preds = %27
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond86.not, label %31, label %27, !llvm.loop !13
+  br i1 %exitcond86.not, label %31, label %27, !llvm.loop !14
 
 31:                                               ; preds = %27, %30
   %.058.lcssa = phi i64 [ %indvars.iv83, %27 ], [ 4, %30 ]
@@ -1115,7 +1115,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr noundef readonly captu
   %.4 = select i1 %36, i32 %37, i32 %.380
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next88, 4
-  br i1 %exitcond89.not, label %38, label %33, !llvm.loop !14
+  br i1 %exitcond89.not, label %38, label %33, !llvm.loop !15
 
 38:                                               ; preds = %33
   %39 = icmp sgt i32 %spec.select69, 1
@@ -1264,7 +1264,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
 .loopexit:                                        ; preds = %.preheader65
   %38 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %20, i32 noundef %19, i32 noundef 2, ptr noundef nonnull %28)
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit67, label %40, !llvm.loop !19
+  br i1 %39, label %.loopexit67, label %40, !llvm.loop !20
 
 40:                                               ; preds = %.lr.ph, %.loopexit
   %41 = phi ptr [ %29, %.lr.ph ], [ %38, %.loopexit ]
@@ -1345,7 +1345,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %101, ptr %102, align 2
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 4
-  br i1 %exitcond89.not, label %103, label %.preheader, !llvm.loop !20
+  br i1 %exitcond89.not, label %103, label %.preheader, !llvm.loop !21
 
 103:                                              ; preds = %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 3324
@@ -1363,7 +1363,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %110, ptr %108, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader65, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.preheader65, !llvm.loop !22
 
 .loopexit67:                                      ; preds = %.loopexit, %.preheader66, %103
   %.1 = phi i1 [ %71, %103 ], [ %17, %.preheader66 ], [ %71, %.loopexit ]
@@ -1521,7 +1521,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
 .loopexit:                                        ; preds = %.preheader78
   %47 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %21, i32 noundef %20, i32 noundef 3, ptr noundef nonnull %29)
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit80, label %49, !llvm.loop !22
+  br i1 %48, label %.loopexit80, label %49, !llvm.loop !23
 
 49:                                               ; preds = %.lr.ph, %.loopexit
   %50 = phi ptr [ %30, %.lr.ph ], [ %47, %.loopexit ]
@@ -1605,7 +1605,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   %108 = load i32, ptr %42, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %.lr.ph.i, label %_Z5Undo0P3posiRK8moveTypePK10ThreadData.exit, !llvm.loop !23
+  br i1 %110, label %.lr.ph.i, label %_Z5Undo0P3posiRK8moveTypePK10ThreadData.exit, !llvm.loop !24
 
 _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   %111 = load i32, ptr %35, align 4
@@ -1636,7 +1636,7 @@ _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   store i16 %125, ptr %126, align 2
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 4
-  br i1 %exitcond102.not, label %127, label %.preheader, !llvm.loop !24
+  br i1 %exitcond102.not, label %127, label %.preheader, !llvm.loop !25
 
 127:                                              ; preds = %.preheader
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 3324
@@ -1657,7 +1657,7 @@ _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   store i16 %137, ptr %135, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader78, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.preheader78, !llvm.loop !26
 
 .loopexit80:                                      ; preds = %.loopexit, %.preheader79, %127
   %.1 = phi i1 [ %62, %127 ], [ %18, %.preheader79 ], [ %62, %.loopexit ]
@@ -1853,7 +1853,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr noundef captures(none)
 117:                                              ; preds = %77, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %118, label %77, !llvm.loop !26
+  br i1 %exitcond.not, label %118, label %77, !llvm.loop !27
 
 118:                                              ; preds = %117
   ret void
@@ -1939,7 +1939,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr noundef captures(none) 
   %65 = load i32, ptr %43, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %49, label %._crit_edge, !llvm.loop !23
+  br i1 %67, label %49, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %49, %4
   ret void
@@ -2080,26 +2080,27 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}

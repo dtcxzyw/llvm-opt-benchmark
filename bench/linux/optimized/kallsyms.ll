@@ -171,7 +171,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %24 = or disjoint i32 %17, %23
   %25 = add nuw nsw i64 %15, 1
   %26 = icmp eq i64 %25, 3
-  br i1 %26, label %27, label %14, !llvm.loop !7
+  br i1 %26, label %27, label %14, !llvm.loop !11
 
 27:                                               ; preds = %14
   %28 = zext i32 %24 to i64
@@ -210,7 +210,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %54 = add i32 %36, 1
   %55 = sext i32 %54 to i64
   %56 = icmp ugt i64 %34, %55
-  br i1 %56, label %.preheader49, label %.loopexit50, !llvm.loop !10
+  br i1 %56, label %.preheader49, label %.loopexit50, !llvm.loop !12
 
 .loopexit50:                                      ; preds = %49, %27
   %57 = phi ptr [ %33, %27 ], [ %53, %49 ]
@@ -245,7 +245,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %79 = phi i64 [ %85, %.preheader47 ], [ %110, %108 ]
   %80 = phi i32 [ %83, %.preheader47 ], [ 1, %108 ]
   %81 = icmp eq i32 %94, 0
-  br i1 %81, label %.loopexit45, label %.preheader47, !llvm.loop !11
+  br i1 %81, label %.loopexit45, label %.preheader47, !llvm.loop !13
 
 .preheader47:                                     ; preds = %74, %.loopexit46
   %82 = phi ptr [ %93, %.loopexit46 ], [ %76, %74 ]
@@ -293,7 +293,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %111 = getelementptr i8, ptr %99, i64 1
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 0
-  br i1 %113, label %.loopexit46, label %.preheader44, !llvm.loop !12
+  br i1 %113, label %.loopexit46, label %.preheader44, !llvm.loop !14
 
 .loopexit45:                                      ; preds = %.loopexit46, %103
   %114 = phi ptr [ %102, %103 ], [ %78, %.loopexit46 ]
@@ -327,7 +327,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %128 = phi i32 [ %122, %121 ], [ %9, %125 ]
   %129 = phi i32 [ %8, %121 ], [ %126, %125 ]
   %130 = icmp sgt i32 %128, %129
-  br i1 %130, label %.thread28, label %.preheader51, !llvm.loop !13
+  br i1 %130, label %.thread28, label %.preheader51, !llvm.loop !15
 
 .preheader43:                                     ; preds = %123, %240
   %131 = phi i32 [ %134, %240 ], [ %12, %123 ]
@@ -352,7 +352,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %146 = or disjoint i32 %139, %145
   %147 = add nuw nsw i64 %137, 1
   %148 = icmp eq i64 %147, 3
-  br i1 %148, label %149, label %136, !llvm.loop !7
+  br i1 %148, label %149, label %136, !llvm.loop !16
 
 149:                                              ; preds = %136
   %150 = zext i32 %146 to i64
@@ -391,7 +391,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %176 = add i32 %158, 1
   %177 = sext i32 %176 to i64
   %178 = icmp ugt i64 %156, %177
-  br i1 %178, label %.preheader41, label %.loopexit42, !llvm.loop !10
+  br i1 %178, label %.preheader41, label %.loopexit42, !llvm.loop !17
 
 .loopexit42:                                      ; preds = %171, %149
   %179 = phi ptr [ %155, %149 ], [ %175, %171 ]
@@ -426,7 +426,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %201 = phi i64 [ %207, %.preheader39 ], [ %232, %230 ]
   %202 = phi i32 [ %205, %.preheader39 ], [ 1, %230 ]
   %203 = icmp eq i32 %216, 0
-  br i1 %203, label %.loopexit37, label %.preheader39, !llvm.loop !11
+  br i1 %203, label %.loopexit37, label %.preheader39, !llvm.loop !18
 
 .preheader39:                                     ; preds = %196, %.loopexit38
   %204 = phi ptr [ %215, %.loopexit38 ], [ %198, %196 ]
@@ -474,7 +474,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %233 = getelementptr i8, ptr %221, i64 1
   %234 = load i8, ptr %233, align 1
   %235 = icmp eq i8 %234, 0
-  br i1 %235, label %.loopexit38, label %.preheader36, !llvm.loop !12
+  br i1 %235, label %.loopexit38, label %.preheader36, !llvm.loop !19
 
 .loopexit37:                                      ; preds = %.loopexit38, %225
   %236 = phi ptr [ %224, %225 ], [ %200, %.loopexit38 ]
@@ -490,7 +490,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 240:                                              ; preds = %.thread29, %.loopexit37
   %241 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(1) %4) #11
   %242 = icmp eq i32 %241, 0
-  br i1 %242, label %.preheader43, label %243, !llvm.loop !14
+  br i1 %242, label %.preheader43, label %243, !llvm.loop !20
 
 243:                                              ; preds = %240, %.preheader43
   store i32 %131, ptr %1, align 4
@@ -524,7 +524,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %263 = or disjoint i32 %256, %262
   %264 = add nuw nsw i64 %254, 1
   %265 = icmp eq i64 %264, 3
-  br i1 %265, label %266, label %253, !llvm.loop !7
+  br i1 %265, label %266, label %253, !llvm.loop !21
 
 266:                                              ; preds = %253
   %267 = zext i32 %263 to i64
@@ -563,7 +563,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %293 = add i32 %275, 1
   %294 = sext i32 %293 to i64
   %295 = icmp ugt i64 %273, %294
-  br i1 %295, label %.preheader34, label %.loopexit35, !llvm.loop !10
+  br i1 %295, label %.preheader34, label %.loopexit35, !llvm.loop !22
 
 .loopexit35:                                      ; preds = %288, %266
   %296 = phi ptr [ %272, %266 ], [ %292, %288 ]
@@ -598,7 +598,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %318 = phi i64 [ %324, %.preheader32 ], [ %349, %347 ]
   %319 = phi i32 [ %322, %.preheader32 ], [ 1, %347 ]
   %320 = icmp eq i32 %333, 0
-  br i1 %320, label %.loopexit, label %.preheader32, !llvm.loop !11
+  br i1 %320, label %.loopexit, label %.preheader32, !llvm.loop !23
 
 .preheader32:                                     ; preds = %313, %.loopexit31
   %321 = phi ptr [ %332, %.loopexit31 ], [ %315, %313 ]
@@ -646,7 +646,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %350 = getelementptr i8, ptr %338, i64 1
   %351 = load i8, ptr %350, align 1
   %352 = icmp eq i8 %351, 0
-  br i1 %352, label %.loopexit31, label %.preheader, !llvm.loop !12
+  br i1 %352, label %.loopexit31, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.loopexit31, %342
   %353 = phi ptr [ %341, %342 ], [ %317, %.loopexit31 ]
@@ -662,7 +662,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 357:                                              ; preds = %.thread30, %.loopexit
   %358 = call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(1) %4) #11
   %359 = icmp eq i32 %358, 0
-  br i1 %359, label %247, label %360, !llvm.loop !15
+  br i1 %359, label %247, label %360, !llvm.loop !25
 
 360:                                              ; preds = %357, %247
   %.lcssa97 = phi i32 [ %248, %357 ], [ %246, %247 ]
@@ -725,7 +725,7 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %30 = phi i64 [ %36, %.preheader10 ], [ %61, %59 ]
   %31 = phi i32 [ %34, %.preheader10 ], [ 1, %59 ]
   %32 = icmp eq i32 %45, 0
-  br i1 %32, label %.loopexit, label %.preheader10, !llvm.loop !11
+  br i1 %32, label %.loopexit, label %.preheader10, !llvm.loop !26
 
 .preheader10:                                     ; preds = %24, %.loopexit9
   %33 = phi ptr [ %44, %.loopexit9 ], [ %27, %24 ]
@@ -773,7 +773,7 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %62 = getelementptr i8, ptr %50, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.loopexit9, label %.preheader, !llvm.loop !12
+  br i1 %64, label %.loopexit9, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.loopexit9, %54
   %65 = phi ptr [ %53, %54 ], [ %29, %.loopexit9 ]
@@ -816,7 +816,7 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %88 = call i32 @__SCT__cond_resched() #11
   %89 = add nuw nsw i64 %8, 1
   %90 = icmp eq i64 %89, %5
-  br i1 %90, label %.loopexit13, label %.preheader12, !llvm.loop !16
+  br i1 %90, label %.loopexit13, label %.preheader12, !llvm.loop !28
 
 .loopexit13:                                      ; preds = %87, %83, %2
   %91 = phi i32 [ 0, %2 ], [ 0, %87 ], [ %85, %83 ]
@@ -863,7 +863,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
   %24 = or disjoint i32 %17, %23
   %25 = add nuw nsw i64 %15, 1
   %26 = icmp eq i64 %25, 3
-  br i1 %26, label %27, label %14, !llvm.loop !7
+  br i1 %26, label %27, label %14, !llvm.loop !29
 
 27:                                               ; preds = %14
   %28 = sext i32 %24 to i64
@@ -891,7 +891,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
   %44 = icmp eq i32 %41, 0
   %45 = icmp ule i32 %43, %10
   %46 = and i1 %45, %44
-  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %39, %8, %3
   %47 = phi i32 [ 0, %3 ], [ 0, %8 ], [ %41, %39 ]
@@ -940,11 +940,11 @@ define dso_local range(i32 0, 2) i32 @kallsyms_lookup_size_offset(i64 noundef %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
   %4 = icmp eq ptr @kallsyms_offsets, null
-  br i1 %4, label %5, label %6, !prof !18
+  br i1 %4, label %5, label %6, !prof !31
 
 5:                                                ; preds = %3
-  tail call void asm sideeffect "634: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 634b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 634) #11, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 332, i32 0, i64 12) #11, !srcloc !20
+  tail call void asm sideeffect "634: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 634b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 634) #11, !srcloc !32
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 332, i32 0, i64 12) #11, !srcloc !33
   unreachable
 
 6:                                                ; preds = %3
@@ -988,7 +988,7 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
   %33 = select i1 %31, i64 %16, i64 %13
   %34 = sub i64 %33, %32
   %35 = icmp ugt i64 %34, 1
-  br i1 %35, label %.preheader18, label %10, !llvm.loop !21
+  br i1 %35, label %.preheader18, label %10, !llvm.loop !34
 
 .preheader:                                       ; preds = %10, %66
   %36 = phi i64 [ %67, %66 ], [ %32, %10 ]
@@ -1038,7 +1038,7 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 66:                                               ; preds = %63
   %67 = add i64 %36, -1
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread, label %.preheader, !llvm.loop !22
+  br i1 %68, label %.thread, label %.preheader, !llvm.loop !35
 
 .thread:                                          ; preds = %66, %63, %6, %10
   %69 = phi i64 [ 0, %10 ], [ 0, %6 ], [ 0, %66 ], [ %36, %63 ]
@@ -1083,7 +1083,7 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 .backedge:                                        ; preds = %92, %.thread16
   %95 = add nuw nsw i64 %86, 1
   %exitcond.not = icmp eq i64 %95, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .thread16:                                        ; preds = %.lr.ph
   %96 = load i64, ptr @kallsyms_relative_base, align 8
@@ -1189,7 +1189,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %45 = add i32 %27, 1
   %46 = sext i32 %45 to i64
   %47 = icmp ugt i64 %25, %46
-  br i1 %47, label %.preheader10, label %.loopexit11, !llvm.loop !10
+  br i1 %47, label %.preheader10, label %.loopexit11, !llvm.loop !37
 
 .loopexit11:                                      ; preds = %40, %18
   %48 = phi ptr [ %24, %18 ], [ %44, %40 ]
@@ -1224,7 +1224,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %70 = phi i64 [ %76, %.preheader8 ], [ %101, %99 ]
   %71 = phi i32 [ %74, %.preheader8 ], [ 1, %99 ]
   %72 = icmp eq i32 %85, 0
-  br i1 %72, label %.loopexit, label %.preheader8, !llvm.loop !11
+  br i1 %72, label %.loopexit, label %.preheader8, !llvm.loop !38
 
 .preheader8:                                      ; preds = %65, %.loopexit7
   %73 = phi ptr [ %84, %.loopexit7 ], [ %67, %65 ]
@@ -1272,7 +1272,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %102 = getelementptr i8, ptr %90, i64 1
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %.loopexit7, label %.preheader, !llvm.loop !12
+  br i1 %104, label %.loopexit7, label %.preheader, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.loopexit7, %94
   %105 = phi ptr [ %93, %94 ], [ %69, %.loopexit7 ]
@@ -1368,7 +1368,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %41 = add i32 %23, 1
   %42 = sext i32 %41 to i64
   %43 = icmp ugt i64 %21, %42
-  br i1 %43, label %.preheader9, label %.loopexit10, !llvm.loop !10
+  br i1 %43, label %.preheader9, label %.loopexit10, !llvm.loop !40
 
 .loopexit10:                                      ; preds = %36, %14
   %44 = phi ptr [ %20, %14 ], [ %40, %36 ]
@@ -1403,7 +1403,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %66 = phi i64 [ %72, %.preheader7 ], [ %97, %95 ]
   %67 = phi i32 [ %70, %.preheader7 ], [ 1, %95 ]
   %68 = icmp eq i32 %81, 0
-  br i1 %68, label %.loopexit, label %.preheader7, !llvm.loop !11
+  br i1 %68, label %.loopexit, label %.preheader7, !llvm.loop !41
 
 .preheader7:                                      ; preds = %61, %.loopexit6
   %69 = phi ptr [ %80, %.loopexit6 ], [ %63, %61 ]
@@ -1451,7 +1451,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %98 = getelementptr i8, ptr %86, i64 1
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %.loopexit6, label %.preheader, !llvm.loop !12
+  br i1 %100, label %.loopexit6, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.loopexit6, %90
   %101 = phi ptr [ %89, %90 ], [ %65, %.loopexit6 ]
@@ -1664,7 +1664,7 @@ define internal ptr @s_start(ptr noundef readonly captures(none) %0, ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
-  %6 = tail call fastcc i32 @update_iter(ptr noundef %4, i64 noundef %5), !range !24
+  %6 = tail call fastcc i32 @update_iter(ptr noundef %4, i64 noundef %5), !range !43
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
@@ -1689,7 +1689,7 @@ define internal ptr @s_next(ptr noundef readonly captures(none) %0, ptr noundef 
   store i64 %5, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc i32 @update_iter(ptr noundef %7, i64 noundef %5), !range !24
+  %8 = tail call fastcc i32 @update_iter(ptr noundef %7, i64 noundef %5), !range !43
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, ptr null, ptr %1
   ret ptr %10
@@ -1892,7 +1892,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %87 = add i32 %69, 1
   %88 = sext i32 %87 to i64
   %89 = icmp ugt i64 %67, %88
-  br i1 %89, label %.preheader11, label %.loopexit12, !llvm.loop !10
+  br i1 %89, label %.preheader11, label %.loopexit12, !llvm.loop !44
 
 .loopexit12:                                      ; preds = %82, %60
   %90 = phi ptr [ %66, %60 ], [ %86, %82 ]
@@ -1978,7 +1978,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %148 = phi i64 [ %154, %.preheader9 ], [ %179, %177 ]
   %149 = phi i32 [ %152, %.preheader9 ], [ 1, %177 ]
   %150 = icmp eq i32 %163, 0
-  br i1 %150, label %.loopexit, label %.preheader9, !llvm.loop !11
+  br i1 %150, label %.loopexit, label %.preheader9, !llvm.loop !45
 
 .preheader9:                                      ; preds = %142, %.loopexit8
   %151 = phi ptr [ %162, %.loopexit8 ], [ %145, %142 ]
@@ -2026,7 +2026,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %180 = getelementptr i8, ptr %168, i64 1
   %181 = load i8, ptr %180, align 1
   %182 = icmp eq i8 %181, 0
-  br i1 %182, label %.loopexit8, label %.preheader, !llvm.loop !12
+  br i1 %182, label %.loopexit8, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.loopexit8, %172
   %183 = phi ptr [ %171, %172 ], [ %147, %.loopexit8 ]
@@ -2089,21 +2089,43 @@ attributes #11 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -3, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{i64 2158213544, i64 2158213353, i64 2158213405, i64 2158213451, i64 2158213479}
-!20 = !{i64 2158213618, i64 2158213647, i64 2158213693, i64 2158213751, i64 2158213805, i64 2158213859, i64 2158213914, i64 2158213945}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = !{i32 0, i32 2}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}
+!18 = distinct !{!18, !8, !9, !10}
+!19 = distinct !{!19, !8, !9, !10}
+!20 = distinct !{!20, !8, !9, !10}
+!21 = distinct !{!21, !8, !9, !10}
+!22 = distinct !{!22, !8, !9, !10}
+!23 = distinct !{!23, !8, !9, !10}
+!24 = distinct !{!24, !8, !9, !10}
+!25 = distinct !{!25, !8, !9, !10}
+!26 = distinct !{!26, !8, !9, !10}
+!27 = distinct !{!27, !8, !9, !10}
+!28 = distinct !{!28, !8, !9, !10}
+!29 = distinct !{!29, !8, !9, !10}
+!30 = distinct !{!30, !8, !9, !10}
+!31 = !{!"branch_weights", i32 1, i32 2000}
+!32 = !{i64 2158213544, i64 2158213353, i64 2158213405, i64 2158213451, i64 2158213479}
+!33 = !{i64 2158213618, i64 2158213647, i64 2158213693, i64 2158213751, i64 2158213805, i64 2158213859, i64 2158213914, i64 2158213945}
+!34 = distinct !{!34, !8, !9, !10}
+!35 = distinct !{!35, !8, !9, !10}
+!36 = distinct !{!36, !8, !9, !10}
+!37 = distinct !{!37, !8, !9, !10}
+!38 = distinct !{!38, !8, !9, !10}
+!39 = distinct !{!39, !8, !9, !10}
+!40 = distinct !{!40, !8, !9, !10}
+!41 = distinct !{!41, !8, !9, !10}
+!42 = distinct !{!42, !8, !9, !10}
+!43 = !{i32 0, i32 2}
+!44 = distinct !{!44, !8, !9, !10}
+!45 = distinct !{!45, !8, !9, !10}
+!46 = distinct !{!46, !8, !9, !10}

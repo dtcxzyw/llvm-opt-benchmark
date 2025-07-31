@@ -525,7 +525,7 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
 66:                                               ; preds = %48, %52, %65, %60
   %67 = phi i32 [ %49, %48 ], [ %49, %52 ], [ %.pre, %65 ], [ %49, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %29
+  br label %29, !llvm.loop !39
 
 ELgethash.exit55:                                 ; preds = %57, %39, %19
   %68 = phi ptr [ %14, %19 ], [ %53, %57 ], [ %35, %39 ]
@@ -561,7 +561,7 @@ ELgethash.exit55:                                 ; preds = %57, %39, %19
 78:                                               ; preds = %75
   %79 = tail call i32 @right_of(ptr noundef %77, ptr noundef nonnull %0)
   %.not49 = icmp eq i32 %79, 0
-  br i1 %.not49, label %.critedge, label %75, !llvm.loop !39
+  br i1 %.not49, label %.critedge, label %75, !llvm.loop !41
 
 .critedge:                                        ; preds = %75, %78
   %80 = load ptr, ptr %77, align 8, !tbaa !23
@@ -576,7 +576,7 @@ ELgethash.exit55:                                 ; preds = %57, %39, %19
 83:                                               ; preds = %81
   %84 = tail call i32 @right_of(ptr noundef %82, ptr noundef nonnull %0)
   %.not47 = icmp eq i32 %84, 0
-  br i1 %.not47, label %81, label %.critedge2, !llvm.loop !41
+  br i1 %.not47, label %81, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %81, %83, %.critedge
   %.2 = phi ptr [ %80, %.critedge ], [ %82, %83 ], [ %82, %81 ]
@@ -770,5 +770,7 @@ attributes #17 = { cold noreturn nounwind }
 !37 = !{!32, !18, i64 8}
 !38 = !{!18, !18, i64 0}
 !39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !42, !40}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = distinct !{!43, !42, !40}

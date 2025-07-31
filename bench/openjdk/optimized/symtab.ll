@@ -124,7 +124,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = zext i16 %29 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %.preheader163, !llvm.loop !8
+  br i1 %34, label %.lr.ph, label %.preheader163, !llvm.loop !9
 
 .lr.ph184:                                        ; preds = %.preheader163, %.loopexit162
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.loopexit162 ], [ 1, %.preheader163 ]
@@ -231,7 +231,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %100 = add nuw i64 %.0121180, 1
   %101 = getelementptr inbounds nuw i8, ptr %.0122179, i64 24
   %102 = icmp ult i64 %100, %50
-  br i1 %102, label %.lr.ph181, label %.loopexit162, !llvm.loop !9
+  br i1 %102, label %.lr.ph181, label %.loopexit162, !llvm.loop !10
 
 .loopexit162:                                     ; preds = %99, %.preheader161, %.lr.ph184
   %.2 = phi ptr [ %.1183, %.lr.ph184 ], [ %41, %.preheader161 ], [ %41, %99 ]
@@ -239,7 +239,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %103 = load i16, ptr %13, align 4
   %104 = zext i16 %103 to i64
   %105 = icmp samesign ult i64 %indvars.iv.next208, %104
-  br i1 %105, label %.lr.ph184, label %._crit_edge, !llvm.loop !10
+  br i1 %105, label %.lr.ph184, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit162, %.preheader163
   %106 = phi i16 [ %29, %.preheader163 ], [ %103, %.loopexit162 ]
@@ -320,7 +320,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i8, ptr %.236.i, i64 %145
   %.not26.i = icmp eq i64 %141, 0
-  br i1 %.not26.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not26.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i, %133, %129
   %.2.lcssa.i = phi ptr [ %132, %129 ], [ %139, %133 ], [ %146, %.lr.ph.i ]
@@ -349,7 +349,7 @@ build_symtab_from_build_id.exit:                  ; preds = %117, %152, %111, %.
   %156 = zext i16 %153 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next211, %156
   %158 = select i1 %155, i1 %157, i1 false
-  br i1 %158, label %.lr.ph188, label %._crit_edge189, !llvm.loop !12
+  br i1 %158, label %.lr.ph188, label %._crit_edge189, !llvm.loop !13
 
 ._crit_edge189:                                   ; preds = %build_symtab_from_build_id.exit
   br i1 %155, label %._crit_edge189.thread, label %.thread
@@ -504,7 +504,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %217 = zext i16 %216 to i64
   %218 = icmp samesign ult i64 %indvars.iv.next214, %217
-  br i1 %218, label %.lr.ph193, label %.thread156.sink.split, !llvm.loop !13
+  br i1 %218, label %.lr.ph193, label %.thread156.sink.split, !llvm.loop !14
 
 .thread156.sink.split:                            ; preds = %215, %.preheader, %11
   %.sink = phi ptr [ %9, %11 ], [ %17, %.preheader ], [ %17, %215 ]
@@ -668,7 +668,7 @@ define hidden ptr @nearest_symbol(ptr noundef readonly captures(address_is_null)
 22:                                               ; preds = %8, %11, %14
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !15
 
 .loopexit:                                        ; preds = %22, %19, %20, %.preheader, %3
   %.0 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %.pre, %20 ], [ %10, %19 ], [ null, %22 ]
@@ -766,7 +766,7 @@ gnu_debuglink_crc32.exit:                         ; preds = %.lr.ph, %._crit_edg
   %24 = call i64 @read(i32 noundef %4, ptr noundef nonnull %3, i64 noundef 8192) #14
   %25 = trunc i64 %24 to i32
   %26 = icmp slt i32 %25, 1
-  br i1 %26, label %._crit_edge, label %.lr.ph
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %gnu_debuglink_crc32.exit, %6
   %.011.lcssa = phi i32 [ 0, %6 ], [ %.0.lcssa.i, %gnu_debuglink_crc32.exit ]
@@ -815,12 +815,14 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !8}

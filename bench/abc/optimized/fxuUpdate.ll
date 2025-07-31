@@ -119,7 +119,7 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %53, %.lr.ph, %37
   %59 = getelementptr inbounds nuw i8, ptr %.068, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !44
   %.not60 = icmp eq ptr %60, inttoptr (i64 1 to ptr)
-  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %Fxu_UpdateAddNewDoubles.exit, %9
   tail call fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0)
@@ -129,9 +129,9 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %53, %.lr.ph, %37
   tail call void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %18) #7
   tail call void @Fxu_MemRecycle(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 64) #7
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %62 = load i32, ptr %61, align 4, !tbaa !49
+  %62 = load i32, ptr %61, align 4, !tbaa !50
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %61, align 4, !tbaa !49
+  store i32 %63, ptr %61, align 4, !tbaa !50
   br label %64
 
 64:                                               ; preds = %.loopexit, %8, %5
@@ -159,15 +159,15 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %13, align 8, !tbaa !33
   %14 = getelementptr i8, ptr %4, i64 16
-  %.val = load ptr, ptr %14, align 8, !tbaa !50
+  %.val = load ptr, ptr %14, align 8, !tbaa !51
   %15 = getelementptr i8, ptr %.val, i64 24
-  %.val.val = load ptr, ptr %15, align 8, !tbaa !55
+  %.val.val = load ptr, ptr %15, align 8, !tbaa !56
   %16 = getelementptr i8, ptr %.val, i64 32
-  %.val.val42 = load ptr, ptr %16, align 8, !tbaa !57
+  %.val.val42 = load ptr, ptr %16, align 8, !tbaa !58
   %17 = getelementptr i8, ptr %.val.val, i64 24
-  %.val.val.val = load ptr, ptr %17, align 8, !tbaa !58
+  %.val.val.val = load ptr, ptr %17, align 8, !tbaa !59
   %18 = getelementptr i8, ptr %.val.val42, i64 24
-  %.val.val42.val = load ptr, ptr %18, align 8, !tbaa !58
+  %.val.val42.val = load ptr, ptr %18, align 8, !tbaa !59
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %1
@@ -183,22 +183,22 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i, label %22, label %43
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr %.044.i, align 8, !tbaa !59
-  %24 = load i32, ptr %.046.i.ph, align 8, !tbaa !59
+  %23 = load i32, ptr %.044.i, align 8, !tbaa !60
+  %24 = load i32, ptr %.046.i.ph, align 8, !tbaa !60
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !61
+  %28 = load ptr, ptr %27, align 8, !tbaa !62
   %29 = getelementptr inbounds nuw i8, ptr %.046.i.ph, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %30 = load ptr, ptr %29, align 8, !tbaa !62
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %26, %38, %51, %45
   %.046.i.ph.be = phi ptr [ null, %45 ], [ %55, %51 ], [ %42, %38 ], [ %30, %26 ]
   %.044.i.ph.be = phi ptr [ %49, %45 ], [ null, %51 ], [ %.044.i, %38 ], [ %28, %26 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !63
 
 31:                                               ; preds = %22
   %32 = icmp slt i32 %23, %24
@@ -206,18 +206,18 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.044.i, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !62
+  %35 = load ptr, ptr %34, align 8, !tbaa !64
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %9, ptr noundef %35) #7
   %36 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !61
-  br label %20
+  %37 = load ptr, ptr %36, align 8, !tbaa !62
+  br label %20, !llvm.loop !63
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %.046.i.ph, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !62
+  %40 = load ptr, ptr %39, align 8, !tbaa !64
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %11, ptr noundef %40) #7
   %41 = getelementptr inbounds nuw i8, ptr %.046.i.ph, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
+  %42 = load ptr, ptr %41, align 8, !tbaa !62
   br label %.outer.backedge
 
 43:                                               ; preds = %20
@@ -227,10 +227,10 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.044.i, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !62
+  %47 = load ptr, ptr %46, align 8, !tbaa !64
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %9, ptr noundef %47) #7
   %48 = getelementptr inbounds nuw i8, ptr %.044.i, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !61
+  %49 = load ptr, ptr %48, align 8, !tbaa !62
   br label %.outer.backedge
 
 50:                                               ; preds = %43
@@ -239,10 +239,10 @@ define void @Fxu_UpdateDouble(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %.046.i.ph, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !62
+  %53 = load ptr, ptr %52, align 8, !tbaa !64
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %11, ptr noundef %53) #7
   %54 = getelementptr inbounds nuw i8, ptr %.046.i.ph, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !61
+  %55 = load ptr, ptr %54, align 8, !tbaa !62
   br label %.outer.backedge
 
 Fxu_UpdateMatrixDoubleCreateCubes.exit:           ; preds = %50
@@ -253,7 +253,7 @@ Fxu_UpdateMatrixDoubleCreateCubes.exit:           ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %58, ptr %59, align 8, !tbaa !37
-  store ptr null, ptr %58, align 8, !tbaa !63
+  store ptr null, ptr %58, align 8, !tbaa !65
   tail call fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %4, ptr noundef %7)
   %60 = load ptr, ptr %56, align 8, !tbaa !35
   %switch = icmp ult ptr %60, inttoptr (i64 2 to ptr)
@@ -314,7 +314,7 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %82, %.lr.ph, %66
   %88 = getelementptr inbounds nuw i8, ptr %.049, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !44
   %.not40 = icmp eq ptr %89, inttoptr (i64 1 to ptr)
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %Fxu_UpdateAddNewDoubles.exit, %Fxu_UpdateMatrixDoubleCreateCubes.exit
   tail call fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0)
@@ -331,16 +331,16 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %82, %.lr.ph, %66
 
 91:                                               ; preds = %90, %.loopexit
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %93 = load i32, ptr %92, align 8, !tbaa !65
+  %93 = load i32, ptr %92, align 8, !tbaa !67
   %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %92, align 8, !tbaa !65
+  store i32 %94, ptr %92, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Fxu_UpdateSingle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = tail call ptr @Fxu_HeapSingleReadMax(ptr noundef %3) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -435,7 +435,7 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %46, %.lr.ph, %30
   %52 = getelementptr inbounds nuw i8, ptr %.053, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !44
   %.not46 = icmp eq ptr %53, inttoptr (i64 1 to ptr)
-  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !67
+  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %Fxu_UpdateAddNewDoubles.exit, %1
   tail call fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0)
@@ -444,9 +444,9 @@ Fxu_UpdateAddNewDoubles.exit:                     ; preds = %46, %.lr.ph, %30
   tail call void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %9) #7
   tail call void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %11) #7
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %55 = load i32, ptr %54, align 4, !tbaa !68
+  %55 = load i32, ptr %54, align 4, !tbaa !70
   %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !68
+  store i32 %56, ptr %54, align 4, !tbaa !70
   ret void
 }
 
@@ -463,7 +463,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %.24.val, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   br label %6
 
 6:                                                ; preds = %2, %3
@@ -473,7 +473,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.24.val1, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  %10 = load ptr, ptr %9, align 8, !tbaa !71
   br label %11
 
 11:                                               ; preds = %6, %8
@@ -493,35 +493,35 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.067, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !70
+  %19 = load ptr, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !40
-  %22 = load i32, ptr %21, align 8, !tbaa !71
+  %22 = load i32, ptr %21, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %.063, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !70
+  %24 = load ptr, ptr %23, align 8, !tbaa !72
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !40
-  %27 = load i32, ptr %26, align 8, !tbaa !71
+  %27 = load i32, ptr %26, align 8, !tbaa !73
   %28 = icmp eq i32 %22, %27
   br i1 %28, label %29, label %58
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %.067, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !72
+  %31 = load i32, ptr %30, align 4, !tbaa !74
   %32 = getelementptr inbounds nuw i8, ptr %.063, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !72
+  %33 = load i32, ptr %32, align 4, !tbaa !74
   %34 = icmp eq i32 %31, %33
   br i1 %34, label %35, label %48
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %13, align 8, !tbaa !34
   store ptr %19, ptr %36, align 8, !tbaa !42
-  %37 = load ptr, ptr %18, align 8, !tbaa !70
+  %37 = load ptr, ptr %18, align 8, !tbaa !72
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   store ptr %38, ptr %13, align 8, !tbaa !34
   store ptr inttoptr (i64 1 to ptr), ptr %38, align 8, !tbaa !44
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %37, ptr noundef %1) #7
-  %39 = load ptr, ptr %18, align 8, !tbaa !70
+  %39 = load ptr, ptr %18, align 8, !tbaa !72
   tail call fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr noundef null, ptr noundef %39)
   tail call void @Fxu_MatrixDelLiteral(ptr noundef %0, ptr noundef nonnull %.067) #7
   tail call void @Fxu_MatrixDelLiteral(ptr noundef %0, ptr noundef nonnull %.063) #7
@@ -530,7 +530,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !69
+  %42 = load ptr, ptr %41, align 8, !tbaa !71
   br label %43
 
 43:                                               ; preds = %35, %40
@@ -540,7 +540,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !69
+  %47 = load ptr, ptr %46, align 8, !tbaa !71
   br label %.backedge
 
 48:                                               ; preds = %29
@@ -553,7 +553,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !69
+  %53 = load ptr, ptr %52, align 8, !tbaa !71
   br label %.backedge
 
 54:                                               ; preds = %48
@@ -562,7 +562,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %57 = load ptr, ptr %56, align 8, !tbaa !69
+  %57 = load ptr, ptr %56, align 8, !tbaa !71
   br label %.backedge
 
 58:                                               ; preds = %17
@@ -575,7 +575,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  %63 = load ptr, ptr %62, align 8, !tbaa !69
+  %63 = load ptr, ptr %62, align 8, !tbaa !71
   br label %.backedge
 
 64:                                               ; preds = %58
@@ -584,7 +584,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %67 = load ptr, ptr %66, align 8, !tbaa !69
+  %67 = load ptr, ptr %66, align 8, !tbaa !71
   br label %.backedge
 
 68:                                               ; preds = %14
@@ -598,7 +598,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !69
+  %73 = load ptr, ptr %72, align 8, !tbaa !71
   br label %.backedge
 
 74:                                               ; preds = %68
@@ -611,7 +611,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !69
+  %78 = load ptr, ptr %77, align 8, !tbaa !71
   br label %.backedge
 
 .backedge:                                        ; preds = %76, %75, %71, %70, %65, %64, %61, %60, %55, %54, %51, %50, %45, %43
@@ -619,7 +619,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
   %.065.be = phi ptr [ %44, %43 ], [ %44, %45 ], [ null, %50 ], [ %53, %51 ], [ %.065, %54 ], [ %.065, %55 ], [ null, %60 ], [ %63, %61 ], [ %.065, %64 ], [ %.065, %65 ], [ null, %70 ], [ %73, %71 ], [ %.065, %75 ], [ %.065, %76 ]
   %.063.be = phi ptr [ null, %43 ], [ %.0, %45 ], [ %.063, %50 ], [ %.063, %51 ], [ null, %54 ], [ %.0, %55 ], [ %.063, %60 ], [ %.063, %61 ], [ null, %64 ], [ %.0, %65 ], [ null, %70 ], [ null, %71 ], [ null, %75 ], [ %.0, %76 ]
   %.0.be = phi ptr [ null, %43 ], [ %47, %45 ], [ %.0, %50 ], [ %.0, %51 ], [ null, %54 ], [ %57, %55 ], [ %.0, %60 ], [ %.0, %61 ], [ null, %64 ], [ %67, %65 ], [ %.0, %70 ], [ %.0, %71 ], [ null, %75 ], [ %78, %76 ]
-  br label %14
+  br label %14, !llvm.loop !75
 
 79:                                               ; preds = %74
   ret void
@@ -628,26 +628,26 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %5 = load ptr, ptr %4, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !74
+  store i32 0, ptr %6, align 4, !tbaa !77
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.010.i = load ptr, ptr %7, align 8, !tbaa !76
+  %.010.i = load ptr, ptr %7, align 8, !tbaa !79
   %.not11.i = icmp eq ptr %.010.i, null
   br i1 %.not11.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %Vec_PtrPush.exit.i
   %.012.i = phi ptr [ %.0.i, %Vec_PtrPush.exit.i ], [ %.010.i, %3 ]
-  %8 = load ptr, ptr %4, align 8, !tbaa !73
+  %8 = load ptr, ptr %4, align 8, !tbaa !76
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !74
-  %11 = load i32, ptr %8, align 8, !tbaa !77
+  %10 = load i32, ptr %9, align 4, !tbaa !77
+  %11 = load i32, ptr %8, align 8, !tbaa !80
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %13, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i:                ; preds = %.lr.ph.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !78
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !81
   br label %Vec_PtrPush.exit.i
 
 13:                                               ; preds = %.lr.ph.i
@@ -656,7 +656,7 @@ define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef r
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %17 = load ptr, ptr %16, align 8, !tbaa !81
   %.not9.i.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i.i, label %20, label %18
 
@@ -670,14 +670,14 @@ define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef r
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %20, %18
   %22 = phi ptr [ %19, %18 ], [ %21, %20 ]
-  store ptr %22, ptr %16, align 8, !tbaa !78
-  store i32 16, ptr %8, align 8, !tbaa !77
+  store ptr %22, ptr %16, align 8, !tbaa !81
+  store i32 16, ptr %8, align 8, !tbaa !80
   br label %Vec_PtrPush.exit.i
 
 23:                                               ; preds = %13
   %24 = shl nuw nsw i32 %10, 1
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %26 = load ptr, ptr %25, align 8, !tbaa !81
   %.not9.i10.i.i = icmp eq ptr %26, null
   %27 = zext nneg i32 %24 to i64
   %28 = shl nuw nsw i64 %27, 3
@@ -693,38 +693,38 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %20, %18
 
 33:                                               ; preds = %31, %29
   %34 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  store ptr %34, ptr %25, align 8, !tbaa !78
-  store i32 %24, ptr %8, align 8, !tbaa !77
+  store ptr %34, ptr %25, align 8, !tbaa !81
+  store i32 %24, ptr %8, align 8, !tbaa !80
   br label %Vec_PtrPush.exit.i
 
 Vec_PtrPush.exit.i:                               ; preds = %33, %Vec_PtrGrow.exit.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i
   %35 = phi ptr [ %.pre.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i ], [ %34, %33 ], [ %22, %Vec_PtrGrow.exit.i.i ]
-  %36 = load i32, ptr %9, align 4, !tbaa !74
+  %36 = load i32, ptr %9, align 4, !tbaa !77
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %9, align 4, !tbaa !74
+  store i32 %37, ptr %9, align 4, !tbaa !77
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds ptr, ptr %35, i64 %38
-  store ptr %.012.i, ptr %39, align 8, !tbaa !79
+  store ptr %.012.i, ptr %39, align 8, !tbaa !82
   %40 = getelementptr inbounds nuw i8, ptr %.012.i, i64 56
-  %.0.i = load ptr, ptr %40, align 8, !tbaa !76
+  %.0.i = load ptr, ptr %40, align 8, !tbaa !79
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !80
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !83
 
 ._crit_edge.i:                                    ; preds = %Vec_PtrPush.exit.i
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !73
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !76
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
-  %.pre13.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !74
+  %.pre13.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !77
   %41 = icmp slt i32 %.pre13.i, 2
   br i1 %41, label %Fxu_UpdatePairsSort.exit, label %42
 
 42:                                               ; preds = %._crit_edge.i
   %43 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !78
+  %44 = load ptr, ptr %43, align 8, !tbaa !81
   %45 = zext nneg i32 %.pre13.i to i64
   tail call void @qsort(ptr noundef %44, i64 noundef %45, i64 noundef 8, ptr noundef nonnull @Fxu_UpdatePairCompare) #7
-  %.pre = load ptr, ptr %4, align 8, !tbaa !73
+  %.pre = load ptr, ptr %4, align 8, !tbaa !76
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %.pre43 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !74
+  %.pre43 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !77
   br label %Fxu_UpdatePairsSort.exit
 
 Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
@@ -742,13 +742,13 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
   %52 = phi ptr [ %47, %.lr.ph ], [ %168, %167 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !78
+  %54 = load ptr, ptr %53, align 8, !tbaa !81
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
-  %56 = load ptr, ptr %55, align 8, !tbaa !79
+  %56 = load ptr, ptr %55, align 8, !tbaa !82
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %58 = load i32, ptr %57, align 8, !tbaa !81
+  %58 = load i32, ptr %57, align 8, !tbaa !84
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  %60 = load i32, ptr %59, align 4, !tbaa !82
+  %60 = load i32, ptr %59, align 4, !tbaa !85
   %61 = icmp slt i32 %58, %60
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -763,15 +763,15 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
   store ptr %68, ptr %49, align 8, !tbaa !34
   store ptr inttoptr (i64 1 to ptr), ptr %68, align 8, !tbaa !44
   %69 = getelementptr i8, ptr %64, i64 24
-  %.val = load ptr, ptr %69, align 8, !tbaa !58
+  %.val = load ptr, ptr %69, align 8, !tbaa !59
   %70 = getelementptr i8, ptr %66, i64 24
-  %.val37 = load ptr, ptr %70, align 8, !tbaa !58
+  %.val37 = load ptr, ptr %70, align 8, !tbaa !59
   %.not.i38 = icmp eq ptr %.val, null
   br i1 %.not.i38, label %74, label %71
 
 71:                                               ; preds = %51
   %72 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !61
+  %73 = load ptr, ptr %72, align 8, !tbaa !62
   br label %74
 
 74:                                               ; preds = %71, %51
@@ -781,7 +781,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %.val37, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !61
+  %78 = load ptr, ptr %77, align 8, !tbaa !62
   br label %.preheader
 
 .preheader:                                       ; preds = %76, %74
@@ -799,14 +799,14 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
   br i1 %or.cond.i, label %82, label %135
 
 82:                                               ; preds = %79
-  %83 = load i32, ptr %.083.i, align 8, !tbaa !59
-  %84 = load i32, ptr %.079.i, align 8, !tbaa !59
+  %83 = load i32, ptr %.083.i, align 8, !tbaa !60
+  %84 = load i32, ptr %.079.i, align 8, !tbaa !60
   %85 = icmp eq i32 %83, %84
   br i1 %85, label %86, label %105
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %.083.i, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !62
+  %88 = load ptr, ptr %87, align 8, !tbaa !64
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
   %90 = load ptr, ptr %89, align 8, !tbaa !38
   %91 = icmp eq ptr %90, null
@@ -815,7 +815,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 92:                                               ; preds = %86
   %93 = load ptr, ptr %50, align 8, !tbaa !37
   store ptr %88, ptr %93, align 8, !tbaa !36
-  %94 = load ptr, ptr %87, align 8, !tbaa !62
+  %94 = load ptr, ptr %87, align 8, !tbaa !64
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store ptr %95, ptr %50, align 8, !tbaa !37
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !38
@@ -828,7 +828,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %.081.i, i64 32
-  %99 = load ptr, ptr %98, align 8, !tbaa !61
+  %99 = load ptr, ptr %98, align 8, !tbaa !62
   br label %100
 
 100:                                              ; preds = %97, %96
@@ -838,7 +838,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !61
+  %104 = load ptr, ptr %103, align 8, !tbaa !62
   br label %.backedge
 
 105:                                              ; preds = %82
@@ -847,7 +847,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %.083.i, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !62
+  %109 = load ptr, ptr %108, align 8, !tbaa !64
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %111 = load ptr, ptr %110, align 8, !tbaa !38
   %112 = icmp eq ptr %111, null
@@ -856,7 +856,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 113:                                              ; preds = %107
   %114 = load ptr, ptr %50, align 8, !tbaa !37
   store ptr %109, ptr %114, align 8, !tbaa !36
-  %115 = load ptr, ptr %108, align 8, !tbaa !62
+  %115 = load ptr, ptr %108, align 8, !tbaa !64
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
   store ptr %116, ptr %50, align 8, !tbaa !37
   store ptr inttoptr (i64 1 to ptr), ptr %116, align 8, !tbaa !38
@@ -869,12 +869,12 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 118:                                              ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %.081.i, i64 32
-  %120 = load ptr, ptr %119, align 8, !tbaa !61
+  %120 = load ptr, ptr %119, align 8, !tbaa !62
   br label %.backedge
 
 121:                                              ; preds = %105
   %122 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !62
+  %123 = load ptr, ptr %122, align 8, !tbaa !64
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   %125 = load ptr, ptr %124, align 8, !tbaa !38
   %126 = icmp eq ptr %125, null
@@ -883,7 +883,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 127:                                              ; preds = %121
   %128 = load ptr, ptr %50, align 8, !tbaa !37
   store ptr %123, ptr %128, align 8, !tbaa !36
-  %129 = load ptr, ptr %122, align 8, !tbaa !62
+  %129 = load ptr, ptr %122, align 8, !tbaa !64
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   store ptr %130, ptr %50, align 8, !tbaa !37
   store ptr inttoptr (i64 1 to ptr), ptr %130, align 8, !tbaa !38
@@ -896,7 +896,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 32
-  %134 = load ptr, ptr %133, align 8, !tbaa !61
+  %134 = load ptr, ptr %133, align 8, !tbaa !62
   br label %.backedge
 
 135:                                              ; preds = %79
@@ -906,7 +906,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %.083.i, i64 16
-  %139 = load ptr, ptr %138, align 8, !tbaa !62
+  %139 = load ptr, ptr %138, align 8, !tbaa !64
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %141 = load ptr, ptr %140, align 8, !tbaa !38
   %142 = icmp eq ptr %141, null
@@ -915,7 +915,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 143:                                              ; preds = %137
   %144 = load ptr, ptr %50, align 8, !tbaa !37
   store ptr %139, ptr %144, align 8, !tbaa !36
-  %145 = load ptr, ptr %138, align 8, !tbaa !62
+  %145 = load ptr, ptr %138, align 8, !tbaa !64
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
   store ptr %146, ptr %50, align 8, !tbaa !37
   store ptr inttoptr (i64 1 to ptr), ptr %146, align 8, !tbaa !38
@@ -928,7 +928,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 148:                                              ; preds = %147
   %149 = getelementptr inbounds nuw i8, ptr %.081.i, i64 32
-  %150 = load ptr, ptr %149, align 8, !tbaa !61
+  %150 = load ptr, ptr %149, align 8, !tbaa !62
   br label %.backedge
 
 151:                                              ; preds = %135
@@ -937,7 +937,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !62
+  %154 = load ptr, ptr %153, align 8, !tbaa !64
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 64
   %156 = load ptr, ptr %155, align 8, !tbaa !38
   %157 = icmp eq ptr %156, null
@@ -946,7 +946,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 158:                                              ; preds = %152
   %159 = load ptr, ptr %50, align 8, !tbaa !37
   store ptr %154, ptr %159, align 8, !tbaa !36
-  %160 = load ptr, ptr %153, align 8, !tbaa !62
+  %160 = load ptr, ptr %153, align 8, !tbaa !64
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 64
   store ptr %161, ptr %50, align 8, !tbaa !37
   store ptr inttoptr (i64 1 to ptr), ptr %161, align 8, !tbaa !38
@@ -959,7 +959,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 32
-  %165 = load ptr, ptr %164, align 8, !tbaa !61
+  %165 = load ptr, ptr %164, align 8, !tbaa !62
   br label %.backedge
 
 .backedge:                                        ; preds = %163, %162, %148, %147, %132, %131, %118, %117, %102, %100
@@ -967,7 +967,7 @@ Fxu_UpdatePairsSort.exit:                         ; preds = %._crit_edge.i, %42
   %.081.i.be = phi ptr [ %101, %100 ], [ %101, %102 ], [ null, %117 ], [ %120, %118 ], [ %.081.i, %131 ], [ %.081.i, %132 ], [ null, %147 ], [ %150, %148 ], [ %.081.i, %162 ], [ %.081.i, %163 ]
   %.079.i.be = phi ptr [ null, %100 ], [ %.0.i39, %102 ], [ %.079.i, %117 ], [ %.079.i, %118 ], [ null, %131 ], [ %.0.i39, %132 ], [ null, %147 ], [ null, %148 ], [ null, %162 ], [ %.0.i39, %163 ]
   %.0.i39.be = phi ptr [ null, %100 ], [ %104, %102 ], [ %.0.i39, %117 ], [ %.0.i39, %118 ], [ null, %131 ], [ %134, %132 ], [ %.0.i39, %147 ], [ %.0.i39, %148 ], [ null, %162 ], [ %165, %163 ]
-  br label %79
+  br label %79, !llvm.loop !86
 
 Fxu_UpdateMatrixDoubleClean.exit:                 ; preds = %151
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %64, ptr noundef %2) #7
@@ -982,17 +982,17 @@ Fxu_UpdateMatrixDoubleClean.exit:                 ; preds = %151
 
 167:                                              ; preds = %Fxu_UpdateMatrixDoubleClean.exit, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %168 = load ptr, ptr %4, align 8, !tbaa !73
+  %168 = load ptr, ptr %4, align 8, !tbaa !76
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %170 = load i32, ptr %169, align 4, !tbaa !74
+  %170 = load i32, ptr %169, align 4, !tbaa !77
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next, %171
-  br i1 %172, label %51, label %._crit_edge, !llvm.loop !83
+  br i1 %172, label %51, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %167, %3, %Fxu_UpdatePairsSort.exit
   %.lcssa40 = phi ptr [ %47, %Fxu_UpdatePairsSort.exit ], [ %5, %3 ], [ %168, %167 ]
   %173 = getelementptr inbounds nuw i8, ptr %.lcssa40, i64 4
-  store i32 0, ptr %173, align 4, !tbaa !74
+  store i32 0, ptr %173, align 4, !tbaa !77
   ret void
 }
 
@@ -1001,7 +1001,7 @@ declare void @Fxu_MatrixAddLiteral(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1012,7 +1012,7 @@ define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_a
 5:                                                ; preds = %23, %.lr.ph
   %.02434 = phi ptr [ %3, %.lr.ph ], [ %.02533, %23 ]
   %.02533.in = getelementptr inbounds nuw i8, ptr %.02434, i64 40
-  %.02533 = load ptr, ptr %.02533.in, align 8, !tbaa !85
+  %.02533 = load ptr, ptr %.02533.in, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1036,13 +1036,13 @@ define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_a
 17:                                               ; preds = %._crit_edge36
   %18 = add nsw i32 %15, -2
   %19 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
-  store i32 %18, ptr %19, align 8, !tbaa !86
-  %20 = load ptr, ptr %4, align 8, !tbaa !66
+  store i32 %18, ptr %19, align 8, !tbaa !90
+  %20 = load ptr, ptr %4, align 8, !tbaa !68
   tail call void @Fxu_HeapSingleUpdate(ptr noundef %20, ptr noundef nonnull %.02434) #7
   br label %23
 
 21:                                               ; preds = %._crit_edge36
-  %22 = load ptr, ptr %4, align 8, !tbaa !66
+  %22 = load ptr, ptr %4, align 8, !tbaa !68
   tail call void @Fxu_HeapSingleDelete(ptr noundef %22, ptr noundef nonnull %.02434) #7
   tail call void @Fxu_ListMatrixDelSingle(ptr noundef %0, ptr noundef nonnull %.02434) #7
   tail call void @Fxu_MemRecycle(ptr noundef %0, ptr noundef nonnull %.02434, i32 noundef 48) #7
@@ -1050,7 +1050,7 @@ define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_a
 
 23:                                               ; preds = %12, %21, %17
   %.not31 = icmp eq ptr %.02533, null
-  br i1 %.not31, label %._crit_edge, label %5, !llvm.loop !87
+  br i1 %.not31, label %._crit_edge, label %5, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %23, %1
   ret void
@@ -1093,22 +1093,22 @@ define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr nound
   %17 = load i32, ptr %2, align 8, !tbaa !45
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %16, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !88
+  %20 = load ptr, ptr %19, align 8, !tbaa !92
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !76
+  %22 = load ptr, ptr %21, align 8, !tbaa !79
   %23 = icmp eq ptr %22, null
   br i1 %23, label %47, label %24
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !89
+  %26 = load ptr, ptr %25, align 8, !tbaa !93
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %47, label %28
 
 28:                                               ; preds = %24
   tail call void @Fxu_ListDoubleDelPair(ptr noundef %26, ptr noundef nonnull %22) #7
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %30 = load i32, ptr %29, align 8, !tbaa !90
+  %30 = load i32, ptr %29, align 8, !tbaa !94
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -1119,18 +1119,18 @@ define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr nound
   br label %46
 
 34:                                               ; preds = %28
-  %35 = load i32, ptr %22, align 8, !tbaa !91
+  %35 = load i32, ptr %22, align 8, !tbaa !95
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !92
+  %37 = load i32, ptr %36, align 4, !tbaa !96
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !93
+  %39 = load i32, ptr %38, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !94
+  %41 = load i32, ptr %40, align 8, !tbaa !98
   %42 = add i32 %35, %37
   %43 = add i32 %42, %39
   %reass.sub = sub i32 %41, %43
   %44 = add i32 %reass.sub, 1
-  store i32 %44, ptr %40, align 8, !tbaa !94
+  store i32 %44, ptr %40, align 8, !tbaa !98
   %45 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void @Fxu_HeapDoubleUpdate(ptr noundef %45, ptr noundef nonnull %26) #7
   br label %46
@@ -1147,7 +1147,7 @@ define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr nound
   %50 = load i32, ptr %49, align 4, !tbaa !27
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %13, label %.critedge, !llvm.loop !95
+  br i1 %52, label %13, label %.critedge, !llvm.loop !99
 
 .critedge:                                        ; preds = %47, %.preheader
   tail call void @Fxu_PairClearStorage(ptr noundef nonnull %2) #7
@@ -1162,18 +1162,18 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @Fxu_UpdatePairCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !76
+  %3 = load ptr, ptr %0, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
-  %6 = load ptr, ptr %1, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %1, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !40
-  %11 = load i32, ptr %10, align 8, !tbaa !71
+  %11 = load i32, ptr %10, align 8, !tbaa !73
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !40
-  %14 = load i32, ptr %13, align 8, !tbaa !71
+  %14 = load i32, ptr %13, align 8, !tbaa !73
   %15 = icmp slt i32 %11, %14
   br i1 %15, label %31, label %16
 
@@ -1183,14 +1183,14 @@ define internal range(i32 -1, 2) i32 @Fxu_UpdatePairCompare(ptr noundef readonly
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !81
+  %20 = load i32, ptr %19, align 8, !tbaa !84
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %22 = load i32, ptr %21, align 4, !tbaa !82
+  %22 = load i32, ptr %21, align 4, !tbaa !85
   %. = tail call i32 @llvm.smin.i32(i32 %20, i32 %22)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !81
+  %24 = load i32, ptr %23, align 8, !tbaa !84
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !82
+  %26 = load i32, ptr %25, align 4, !tbaa !85
   %27 = tail call i32 @llvm.smin.i32(i32 %24, i32 %26)
   %28 = icmp slt i32 %., %27
   br i1 %28, label %31, label %29
@@ -1297,53 +1297,57 @@ attributes #9 = { nounwind allocsize(0) }
 !43 = !{!32, !5, i64 40}
 !44 = !{!32, !15, i64 64}
 !45 = !{!32, !5, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!13, !5, i64 196}
-!50 = !{!51, !53, i64 16}
-!51 = !{!"FxuDouble", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !52, i64 16, !54, i64 40, !54, i64 48, !54, i64 56}
-!52 = !{!"FxuListPair", !53, i64 0, !53, i64 8, !5, i64 16}
-!53 = !{!"p1 _ZTS7FxuPair", !9, i64 0}
-!54 = !{!"p1 _ZTS9FxuDouble", !9, i64 0}
-!55 = !{!56, !15, i64 24}
-!56 = !{!"FxuPair", !5, i64 0, !5, i64 4, !5, i64 8, !54, i64 16, !15, i64 24, !15, i64 32, !5, i64 40, !5, i64 44, !53, i64 48, !53, i64 56}
-!57 = !{!56, !15, i64 32}
-!58 = !{!32, !30, i64 24}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"FxuLit", !5, i64 0, !5, i64 4, !15, i64 8, !8, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48}
-!61 = !{!60, !30, i64 32}
-!62 = !{!60, !8, i64 16}
-!63 = !{!13, !8, i64 160}
-!64 = distinct !{!64, !47}
-!65 = !{!13, !5, i64 192}
-!66 = !{!13, !21, i64 112}
-!67 = distinct !{!67, !47}
-!68 = !{!13, !5, i64 188}
-!69 = !{!60, !30, i64 48}
-!70 = !{!60, !15, i64 8}
-!71 = !{!28, !5, i64 0}
-!72 = !{!60, !5, i64 4}
-!73 = !{!13, !25, i64 176}
-!74 = !{!75, !5, i64 4}
-!75 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
-!76 = !{!53, !53, i64 0}
-!77 = !{!75, !5, i64 0}
-!78 = !{!75, !9, i64 8}
-!79 = !{!9, !9, i64 0}
-!80 = distinct !{!80, !47}
-!81 = !{!56, !5, i64 40}
-!82 = !{!56, !5, i64 44}
-!83 = distinct !{!83, !47}
-!84 = !{!13, !10, i64 88}
-!85 = !{!4, !10, i64 40}
-!86 = !{!4, !5, i64 8}
-!87 = distinct !{!87, !47}
-!88 = !{!23, !23, i64 0}
-!89 = !{!56, !54, i64 16}
-!90 = !{!51, !5, i64 32}
-!91 = !{!56, !5, i64 0}
-!92 = !{!56, !5, i64 4}
-!93 = !{!56, !5, i64 8}
-!94 = !{!51, !5, i64 8}
-!95 = distinct !{!95, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!13, !5, i64 196}
+!51 = !{!52, !54, i64 16}
+!52 = !{!"FxuDouble", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !53, i64 16, !55, i64 40, !55, i64 48, !55, i64 56}
+!53 = !{!"FxuListPair", !54, i64 0, !54, i64 8, !5, i64 16}
+!54 = !{!"p1 _ZTS7FxuPair", !9, i64 0}
+!55 = !{!"p1 _ZTS9FxuDouble", !9, i64 0}
+!56 = !{!57, !15, i64 24}
+!57 = !{!"FxuPair", !5, i64 0, !5, i64 4, !5, i64 8, !55, i64 16, !15, i64 24, !15, i64 32, !5, i64 40, !5, i64 44, !54, i64 48, !54, i64 56}
+!58 = !{!57, !15, i64 32}
+!59 = !{!32, !30, i64 24}
+!60 = !{!61, !5, i64 0}
+!61 = !{!"FxuLit", !5, i64 0, !5, i64 4, !15, i64 8, !8, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48}
+!62 = !{!61, !30, i64 32}
+!63 = distinct !{!63, !48}
+!64 = !{!61, !8, i64 16}
+!65 = !{!13, !8, i64 160}
+!66 = distinct !{!66, !47, !48}
+!67 = !{!13, !5, i64 192}
+!68 = !{!13, !21, i64 112}
+!69 = distinct !{!69, !47, !48}
+!70 = !{!13, !5, i64 188}
+!71 = !{!61, !30, i64 48}
+!72 = !{!61, !15, i64 8}
+!73 = !{!28, !5, i64 0}
+!74 = !{!61, !5, i64 4}
+!75 = distinct !{!75, !48}
+!76 = !{!13, !25, i64 176}
+!77 = !{!78, !5, i64 4}
+!78 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
+!79 = !{!54, !54, i64 0}
+!80 = !{!78, !5, i64 0}
+!81 = !{!78, !9, i64 8}
+!82 = !{!9, !9, i64 0}
+!83 = distinct !{!83, !47, !48}
+!84 = !{!57, !5, i64 40}
+!85 = !{!57, !5, i64 44}
+!86 = distinct !{!86, !48}
+!87 = distinct !{!87, !47, !48}
+!88 = !{!13, !10, i64 88}
+!89 = !{!4, !10, i64 40}
+!90 = !{!4, !5, i64 8}
+!91 = distinct !{!91, !47, !48}
+!92 = !{!23, !23, i64 0}
+!93 = !{!57, !55, i64 16}
+!94 = !{!52, !5, i64 32}
+!95 = !{!57, !5, i64 0}
+!96 = !{!57, !5, i64 4}
+!97 = !{!57, !5, i64 8}
+!98 = !{!52, !5, i64 8}
+!99 = distinct !{!99, !47, !48}

@@ -264,7 +264,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 80:                                               ; preds = %93
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %81, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit.i, label %81, !llvm.loop !35
 
 81:                                               ; preds = %80, %.lr.ph75.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph75.i ], [ %indvars.iv.next.i, %80 ]
@@ -339,13 +339,13 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 125:                                              ; preds = %125, %123
   %.08.in.i.i = phi ptr [ %124, %123 ], [ %.08.i.i, %125 ]
   %.07.i.i = phi ptr [ null, %123 ], [ %.08.i.i, %125 ]
-  %.08.i.i = load ptr, ptr %.08.in.i.i, align 8, !tbaa !35
+  %.08.i.i = load ptr, ptr %.08.in.i.i, align 8, !tbaa !36
   %.not.i.i = icmp eq ptr %.08.i.i, null
-  br i1 %.not.i.i, label %126, label %125, !llvm.loop !37
+  br i1 %.not.i.i, label %126, label %125, !llvm.loop !38
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %115, i64 520
-  %128 = load ptr, ptr %127, align 8, !tbaa !38
+  %128 = load ptr, ptr %127, align 8, !tbaa !39
   %.not9.i.i = icmp eq ptr %.07.i.i, %128
   br i1 %.not9.i.i, label %H5S__check_internal_consistency.exit.thread, label %129
 
@@ -405,7 +405,7 @@ define range(i32 -1, 1) i32 @H5S__verify_offsets(i64 noundef %0, ptr noundef rea
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %22 = load i32, ptr %21, align 8, !tbaa !40
+  %22 = load i32, ptr %21, align 8, !tbaa !41
   switch i32 %22, label %27 [
     i32 0, label %23
     i32 2, label %23
@@ -450,7 +450,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nound
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.01118 = load ptr, ptr %9, align 8, !tbaa !41
+  %.01118 = load ptr, ptr %9, align 8, !tbaa !42
   %.not19 = icmp eq ptr %.01118, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -458,7 +458,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nound
   %.01121 = phi ptr [ %.011, %15 ], [ %.01118, %8 ]
   %.120 = phi i32 [ %.2, %15 ], [ 1, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %.01121, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !43
+  %11 = load ptr, ptr %10, align 8, !tbaa !44
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %15, label %12
 
@@ -470,15 +470,15 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nound
 15:                                               ; preds = %12, %.lr.ph
   %.2 = phi i32 [ %13, %12 ], [ %.120, %.lr.ph ]
   %16 = getelementptr inbounds nuw i8, ptr %.01121, i64 24
-  %.011 = load ptr, ptr %16, align 8, !tbaa !41
+  %.011 = load ptr, ptr %16, align 8, !tbaa !42
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %15, %8
   %.010.lcssa = phi ptr [ null, %8 ], [ %.01121, %15 ]
   %.1.lcssa = phi i32 [ 1, %8 ], [ %.2, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
   %.not14 = icmp eq ptr %.010.lcssa, %18
   br i1 %.not14, label %22, label %.sink.split
 
@@ -541,17 +541,18 @@ attributes #5 = { nounwind }
 !29 = !{!21, !15, i64 56}
 !30 = !{!14, !17, i64 2584}
 !31 = !{!25, !25, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS14H5S_pnt_node_t", !18, i64 0}
-!37 = distinct !{!37, !33}
-!38 = !{!39, !36, i64 520}
-!39 = !{!"H5S_pnt_list_t", !5, i64 0, !5, i64 256, !36, i64 512, !36, i64 520, !11, i64 528, !36, i64 536}
-!40 = !{!21, !15, i64 40}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS16H5S_hyper_span_t", !18, i64 0}
-!43 = !{!44, !17, i64 16}
-!44 = !{!"H5S_hyper_span_t", !11, i64 0, !11, i64 8, !17, i64 16, !42, i64 24}
-!45 = distinct !{!45, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS14H5S_pnt_node_t", !18, i64 0}
+!38 = distinct !{!38, !33, !34}
+!39 = !{!40, !37, i64 520}
+!40 = !{!"H5S_pnt_list_t", !5, i64 0, !5, i64 256, !37, i64 512, !37, i64 520, !11, i64 528, !37, i64 536}
+!41 = !{!21, !15, i64 40}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS16H5S_hyper_span_t", !18, i64 0}
+!44 = !{!45, !17, i64 16}
+!45 = !{!"H5S_hyper_span_t", !11, i64 0, !11, i64 8, !17, i64 16, !43, i64 24}
+!46 = distinct !{!46, !33, !34}

@@ -163,11 +163,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10: ; preds = %.lr.ph
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %16
   %17 = tail call ptr @readdir(ptr noundef nonnull %7)
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %.preheader
   %18 = tail call i32 @closedir(ptr noundef nonnull %7)
-  store i64 1, ptr %0, align 8, !tbaa !25, !alias.scope !27
+  store i64 1, ptr %0, align 8, !tbaa !27, !alias.scope !29
   br label %19
 
 19:                                               ; preds = %._crit_edge, %10
@@ -328,8 +328,10 @@ attributes #19 = { builtin nounwind }
 !22 = !{!"p1 _ZTSN9grpc_core15DirectoryReaderE", !12, i64 0}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !15, i64 0}
-!26 = !{!"_ZTSN4absl12lts_202407226StatusE", !15, i64 0}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!29 = distinct !{!29, !"_ZN4absl12lts_202407228OkStatusEv"}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !15, i64 0}
+!28 = !{!"_ZTSN4absl12lts_202407226StatusE", !15, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!31 = distinct !{!31, !"_ZN4absl12lts_202407228OkStatusEv"}

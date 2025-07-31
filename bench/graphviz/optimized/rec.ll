@@ -130,7 +130,7 @@ aggetrec.exit:                                    ; preds = %8, %13
   br i1 %25, label %26, label %gv_calloc.exit
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !19
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.4, i64 noundef range(i64 1, 4294967296) %23) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
@@ -319,7 +319,7 @@ define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr noundef readonly captu
   %29 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %.not.i19 = icmp eq ptr %30, %.021.i
-  br i1 %.not.i19, label %listdelrec.exit, label %28, !llvm.loop !20
+  br i1 %.not.i19, label %listdelrec.exit, label %28, !llvm.loop !21
 
 listdelrec.exit:                                  ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
@@ -432,7 +432,7 @@ define void @aginit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 
   tail call void @aginit(ptr noundef nonnull %.03447, i32 noundef 0, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   %12 = tail call ptr @agnxtsubg(ptr noundef nonnull %.03447) #11
   %.not38 = icmp eq ptr %12, null
-  br i1 %.not38, label %.loopexit, label %.lr.ph48, !llvm.loop !21
+  br i1 %.not38, label %.loopexit, label %.lr.ph48, !llvm.loop !22
 
 13:                                               ; preds = %5, %5, %5
   %14 = tail call ptr @agfstnode(ptr noundef %0) #11
@@ -448,7 +448,7 @@ define void @aginit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 
   %16 = tail call ptr @agbindrec(ptr noundef nonnull %.044.us, ptr noundef %2, i32 noundef %6, i32 noundef %4)
   %17 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.044.us) #11
   %.not.us = icmp eq ptr %17, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph45.split.us, !llvm.loop !22
+  br i1 %.not.us, label %.loopexit, label %.lr.ph45.split.us, !llvm.loop !23
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45, %.loopexit39
   %.044 = phi ptr [ %21, %.loopexit39 ], [ %14, %.lr.ph45 ]
@@ -461,12 +461,12 @@ define void @aginit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 
   %19 = tail call ptr @agbindrec(ptr noundef nonnull %.03342, ptr noundef %2, i32 noundef %6, i32 noundef %4)
   %20 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.03342) #11
   %.not37 = icmp eq ptr %20, null
-  br i1 %.not37, label %.loopexit39, label %.lr.ph, !llvm.loop !24
+  br i1 %.not37, label %.loopexit39, label %.lr.ph, !llvm.loop !25
 
 .loopexit39:                                      ; preds = %.lr.ph, %.lr.ph45.split
   %21 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.044) #11
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.loopexit, label %.lr.ph45.split, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %.lr.ph45.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.loopexit39, %.lr.ph45.split.us, %.lr.ph48, %13, %10, %5, %7
   ret void
@@ -514,7 +514,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %9 = tail call i32 @agdelrec(ptr noundef nonnull %.01725.us, ptr noundef %2)
   %10 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725.us) #11
   %.not.us = icmp eq ptr %10, null
-  br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us, !llvm.loop !26
+  br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us, !llvm.loop !27
 
 .lr.ph26.split:                                   ; preds = %.lr.ph26, %.loopexit
   %.01725 = phi ptr [ %56, %.loopexit ], [ %7, %.lr.ph26 ]
@@ -582,7 +582,7 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   %38 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !15
   %.not.i19.i = icmp eq ptr %39, %.021.i.i
-  br i1 %.not.i19.i, label %listdelrec.exit.i, label %37, !llvm.loop !20
+  br i1 %.not.i19.i, label %listdelrec.exit.i, label %37, !llvm.loop !21
 
 listdelrec.exit.i:                                ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 8
@@ -620,12 +620,12 @@ objdelrec.exit.i:                                 ; preds = %50, %47, %45
 agdelrec.exit:                                    ; preds = %15, %20, %objdelrec.exit.i
   %55 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.022) #11
   %.not18 = icmp eq ptr %55, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %agdelrec.exit, %.lr.ph26.split
   %56 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725) #11
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %.loopexit19, label %.lr.ph26.split, !llvm.loop !28
+  br i1 %.not, label %.loopexit19, label %.lr.ph26.split, !llvm.loop !29
 
 .loopexit19:                                      ; preds = %.loopexit, %.lr.ph26.split.us, %6, %3, %4
   ret void
@@ -654,7 +654,7 @@ define void @agrecclose(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %.0) #11
   %9 = load ptr, ptr %3, align 8, !tbaa !3
   %.not11 = icmp eq ptr %6, %9
-  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %1
   store ptr null, ptr %3, align 8, !tbaa !3
@@ -711,17 +711,18 @@ attributes #15 = { cold noreturn nounwind }
 !13 = !{!"Agrec_s", !14, i64 0, !10, i64 8}
 !14 = !{!"p1 omnipotent char", !11, i64 0}
 !15 = !{!13, !10, i64 8}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17, !23}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !17, !18, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !17, !18}
+!26 = distinct !{!26, !17, !18}
+!27 = distinct !{!27, !17, !18, !24}
+!28 = distinct !{!28, !17, !18}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18}

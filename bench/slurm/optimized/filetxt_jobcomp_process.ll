@@ -168,7 +168,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = load i32, ptr %48, align 8
   %.not78 = icmp eq i32 %49, %.154
-  br i1 %.not78, label %50, label %45, !llvm.loop !11
+  br i1 %.not78, label %50, label %45, !llvm.loop !12
 
 50:                                               ; preds = %47
   call void @list_iterator_destroy(ptr noundef %44) #8
@@ -181,7 +181,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
 _open_log_file.exit.backedge:                     ; preds = %51, %66, %301, %41, %57
   %52 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 4096, ptr noundef nonnull %5)
   %.not = icmp eq ptr %52, null
-  br i1 %.not, label %_open_log_file.exit._crit_edge, label %11, !llvm.loop !12
+  br i1 %.not, label %_open_log_file.exit._crit_edge, label %11, !llvm.loop !13
 
 53:                                               ; preds = %.loopexit, %39, %50
   %54 = load ptr, ptr %9, align 8
@@ -210,7 +210,7 @@ _open_log_file.exit.backedge:                     ; preds = %51, %66, %301, %41,
 63:                                               ; preds = %61
   %64 = call i32 @xstrcasecmp(ptr noundef nonnull %62, ptr noundef nonnull %.1) #8
   %.not83 = icmp eq i32 %64, 0
-  br i1 %.not83, label %65, label %61, !llvm.loop !13
+  br i1 %.not83, label %65, label %61, !llvm.loop !14
 
 65:                                               ; preds = %63
   call void @list_iterator_destroy(ptr noundef %60) #8
@@ -622,7 +622,7 @@ _open_log_file.exit.backedge:                     ; preds = %51, %66, %301, %41,
   %.1.i = phi i64 [ %.0137.i, %289 ], [ %.0137.i, %285 ], [ %.0137.i, %278 ], [ %.0137.i, %271 ], [ %.0137.i, %264 ], [ %.0137.i, %257 ], [ %.0137.i, %250 ], [ %.0137.i, %243 ], [ %.0137.i, %236 ], [ %.0137.i, %229 ], [ %.0137.i, %222 ], [ %.0137.i, %215 ], [ %.0137.i, %208 ], [ %.0137.i, %201 ], [ %.0137.i, %194 ], [ %.0137.i, %186 ], [ %.0137.i, %178 ], [ %.0137.i, %171 ], [ %.0137.i, %164 ], [ %.0137.i, %155 ], [ %.0137.i, %150 ], [ %.0137.i, %138 ], [ %.0137.i, %133 ], [ %126, %122 ], [ %.0137.i, %114 ], [ %.0137.i, %107 ], [ %.0137.i, %99 ]
   %295 = call ptr @list_next(ptr noundef %69) #8
   %.not.i = icmp eq ptr %295, null
-  br i1 %.not.i, label %._crit_edge.i, label %95, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %95, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %294
   %296 = icmp ne i64 %.1.i, 0
@@ -764,10 +764,11 @@ attributes #10 = { cold noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}

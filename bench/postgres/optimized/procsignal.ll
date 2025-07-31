@@ -164,7 +164,7 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   %20 = zext nneg i32 %3 to i64
   %21 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %19, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #11, !srcloc !9
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #11, !srcloc !10
   %.not31 = icmp eq i8 %23, 0
   br i1 %.not31, label %26, label %24
 
@@ -178,7 +178,7 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   br i1 %.not32, label %34, label %28
 
 28:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   store i8 0, ptr %22, align 4
   %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
   br i1 %29, label %30, label %34
@@ -222,7 +222,7 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   store i32 %1, ptr %47, align 8
   %48 = load i32, ptr @MyProcPid, align 4
   store volatile i32 %48, ptr %21, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   store i8 0, ptr %22, align 4
   store ptr %21, ptr @MyProcSignalSlot, align 8
   tail call void @on_shmem_exit(ptr noundef nonnull @CleanupProcSignalState, i64 noundef 0) #11
@@ -247,7 +247,7 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyProcSignalSlot, align 8
   store ptr null, ptr @MyProcSignalSlot, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #11, !srcloc !9
+  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #11, !srcloc !10
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -262,7 +262,7 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   br i1 %.not12, label %23, label %11
 
 11:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
   store i8 0, ptr %4, align 4
   %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
   br i1 %12, label %13, label %28
@@ -288,7 +288,7 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store volatile i64 -1, ptr %26, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store i8 0, ptr %4, align 4
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 84
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %27) #11
@@ -309,7 +309,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [0 x %struct.ProcSignalSlot], ptr %6, i64 0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  %10 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %9, i8 1, ptr nonnull elementtype(i8) %9) #11, !srcloc !9
+  %10 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %9, i8 1, ptr nonnull elementtype(i8) %9) #11, !srcloc !10
   %.not32 = icmp eq i8 %10, 0
   br i1 %.not32, label %13, label %11
 
@@ -327,13 +327,13 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %18 = zext i32 %1 to i64
   %19 = getelementptr inbounds nuw [14 x i32], ptr %17, i64 0, i64 %18
   store volatile i32 1, ptr %19, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   store volatile i8 0, ptr %9, align 4
   %20 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #11
   br label %50
 
 21:                                               ; preds = %13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   store volatile i8 0, ptr %9, align 4
   br label %.thread
 
@@ -359,7 +359,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #11, !srcloc !9
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #11, !srcloc !10
   %.not31 = icmp eq i8 %34, 0
   br i1 %.not31, label %37, label %35
 
@@ -373,7 +373,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   store volatile i8 0, ptr %33, align 4
   %.pre = load ptr, ptr @ProcSignal, align 8
   br label %41
@@ -382,14 +382,14 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %42 = phi ptr [ %27, %.lr.ph ], [ %.pre, %40 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %43 = icmp slt i64 %indvars.iv, 1
-  br i1 %43, label %.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %43, label %.thread, label %.lr.ph, !llvm.loop !18
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %46 = zext i32 %1 to i64
   %47 = getelementptr inbounds nuw [14 x i32], ptr %45, i64 0, i64 %46
   store volatile i32 1, ptr %47, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
   store volatile i8 0, ptr %33, align 4
   %48 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #11
   br label %50
@@ -420,7 +420,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = load ptr, ptr @ProcSignal, align 8
-  %7 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 1, ptr elementtype(i64) %6) #11, !srcloc !19
+  %7 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 1, ptr elementtype(i64) %6) #11, !srcloc !20
   %8 = load i32, ptr @MaxBackends, align 4
   %9 = add i32 %8, 5
   %10 = icmp sgt i32 %9, -1
@@ -442,7 +442,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
   %17 = add i32 %16, 6
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge27:                                    ; preds = %36, %._crit_edge
   %20 = add i64 %7, 1
@@ -459,7 +459,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 
 25:                                               ; preds = %.lr.ph26
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #11, !srcloc !9
+  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #11, !srcloc !10
   %.not21 = icmp eq i8 %27, 0
   br i1 %.not21, label %30, label %28
 
@@ -475,20 +475,20 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 28
   store volatile i32 1, ptr %33, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
   store volatile i8 0, ptr %26, align 4
   %34 = tail call i32 @kill(i32 noundef %31, i32 noundef 10) #11
   br label %36
 
 35:                                               ; preds = %30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   store volatile i8 0, ptr %26, align 4
   br label %36
 
 36:                                               ; preds = %32, %35, %.lr.ph26
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
   %37 = icmp sgt i64 %indvars.iv29, 0
-  br i1 %37, label %.lr.ph26, label %._crit_edge27, !llvm.loop !23
+  br i1 %37, label %.lr.ph26, label %._crit_edge27, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -546,13 +546,13 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
 24:                                               ; preds = %19, %21, %17
   %.0 = load volatile i64, ptr %14, align 8
   %25 = icmp ult i64 %.0, %0
-  br i1 %25, label %17, label %._crit_edge, !llvm.loop !24
+  br i1 %25, label %17, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %24, %.lr.ph14
   %26 = tail call zeroext i1 @ConditionVariableCancelSleep() #11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = icmp sgt i64 %indvars.iv, 0
-  br i1 %27, label %.lr.ph14, label %._crit_edge15, !llvm.loop !25
+  br i1 %27, label %.lr.ph14, label %._crit_edge15, !llvm.loop !26
 
 28:                                               ; preds = %._crit_edge15
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i64 noundef %0) #11
@@ -560,7 +560,7 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
   br label %30
 
 30:                                               ; preds = %._crit_edge15, %28
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !27
   ret void
 }
 
@@ -639,7 +639,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 27:                                               ; preds = %.critedge, %21
   %.0..0..0..0.12 = load volatile i32, ptr %1, align 4
   %.not23 = icmp eq i32 %.0..0..0..0.12, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .thread:                                          ; preds = %21
   %28 = load ptr, ptr @MyProcSignalSlot, align 8
@@ -649,7 +649,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   store volatile i32 1, ptr @InterruptPending, align 4
   %.0..0..0..0.1229 = load volatile i32, ptr %1, align 4
   %.not2330 = icmp eq i32 %.0..0..0..0.1229, 0
-  br i1 %.not2330, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !27
+  br i1 %.not2330, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !28
 
 ._crit_edge.thread:                               ; preds = %.thread
   store ptr %15, ptr @PG_exception_stack, align 8
@@ -946,7 +946,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #11, !srcloc !9
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #11, !srcloc !10
   %.not22 = icmp eq i8 %13, 0
   br i1 %.not22, label %16, label %14
 
@@ -960,7 +960,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br i1 %.not23, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
   store i8 0, ptr %12, align 4
   %.pre = load ptr, ptr @ProcSignal, align 8
   %.pre36 = load i32, ptr @MaxBackends, align 4
@@ -976,7 +976,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !30
   store i8 0, ptr %12, align 4
   br i1 %26, label %27, label %34
 
@@ -995,7 +995,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br label %47
 
 .critedge:                                        ; preds = %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !30
   store i8 0, ptr %12, align 4
   br label %34
 
@@ -1015,7 +1015,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   %41 = add i32 %39, 6
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %38, %2
   %44 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
@@ -1062,27 +1062,28 @@ attributes #15 = { noreturn nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{i64 2150801656}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 1998512, i64 1998528}
-!10 = !{i64 2150804523}
-!11 = !{i64 2150806408}
-!12 = !{i64 2150806728}
-!13 = !{i64 2150807973}
-!14 = !{i64 2150808289}
-!15 = !{i64 2150808413}
-!16 = !{i64 2150808871}
-!17 = distinct !{!17, !8}
-!18 = !{i64 2150808747}
-!19 = !{i64 1954613, i64 1954630}
-!20 = distinct !{!20, !8}
-!21 = !{i64 2150809268}
-!22 = !{i64 2150809392}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = !{i64 2150812299}
-!27 = distinct !{!27, !8}
-!28 = !{i64 2150813589}
-!29 = !{i64 2150813710}
-!30 = distinct !{!30, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 1998512, i64 1998528}
+!11 = !{i64 2150804523}
+!12 = !{i64 2150806408}
+!13 = !{i64 2150806728}
+!14 = !{i64 2150807973}
+!15 = !{i64 2150808289}
+!16 = !{i64 2150808413}
+!17 = !{i64 2150808871}
+!18 = distinct !{!18, !8, !9}
+!19 = !{i64 2150808747}
+!20 = !{i64 1954613, i64 1954630}
+!21 = distinct !{!21, !8, !9}
+!22 = !{i64 2150809268}
+!23 = !{i64 2150809392}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = !{i64 2150812299}
+!28 = distinct !{!28, !8, !9}
+!29 = !{i64 2150813589}
+!30 = !{i64 2150813710}
+!31 = distinct !{!31, !8, !9}

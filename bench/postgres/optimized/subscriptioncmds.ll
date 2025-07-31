@@ -1269,7 +1269,7 @@ define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, p
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.93, ptr noundef %18, ptr noundef %19) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %20 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -1331,7 +1331,7 @@ slot_getattr.exit:                                ; preds = %43, %slot_getsomeat
   %54 = call ptr @list_append_unique(ptr noundef %.037, ptr noundef %53) #11
   %55 = load ptr, ptr %37, align 8
   %56 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %55, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %36) #11
-  br i1 %56, label %43, label %._crit_edge40, !llvm.loop !9
+  br i1 %56, label %43, label %._crit_edge40, !llvm.loop !10
 
 ._crit_edge40:                                    ; preds = %slot_getattr.exit
   %.not34 = icmp eq ptr %54, null
@@ -1510,7 +1510,7 @@ slot_getattr.exit31.us:                           ; preds = %slot_getsomeattrs.e
   call void %61(ptr noundef nonnull %35) #11
   %62 = load ptr, ptr %36, align 8
   %63 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %62, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %35) #11
-  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
+  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %slot_getattr.exit31
   %.036 = phi ptr [ %78, %slot_getattr.exit31 ], [ null, %.lr.ph ]
@@ -1549,7 +1549,7 @@ slot_getattr.exit31:                              ; preds = %slot_getattr.exit, 
   call void %81(ptr noundef nonnull %35) #11
   %82 = load ptr, ptr %36, align 8
   %83 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %82, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %35) #11
-  br i1 %83, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %83, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 .split.us:                                        ; preds = %slot_getattr.exit31.us
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1676,7 +1676,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
 34:                                               ; preds = %32, %23
   %35 = call ptr @GetSubscription(i32 noundef %29, i1 noundef zeroext false) #11
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 34
-  %37 = load i8, ptr %36, align 2, !range !12, !noundef !13
+  %37 = load i8, ptr %36, align 2, !range !13, !noundef !14
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %46, label %39
 
@@ -2032,7 +2032,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
 
 207:                                              ; preds = %206
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %209 = load i8, ptr %208, align 1, !range !12, !noundef !13
+  %209 = load i8, ptr %208, align 1, !range !13, !noundef !14
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %211, label %219
 
@@ -2056,7 +2056,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
 
 219:                                              ; preds = %207
   %220 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %221 = load i8, ptr %220, align 2, !range !12, !noundef !13
+  %221 = load i8, ptr %220, align 2, !range !13, !noundef !14
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %223, label %231
 
@@ -2083,7 +2083,7 @@ parse_subscription_options.specialized.5.exit:    ; preds = %.critedge.i
 
 231:                                              ; preds = %219
   %232 = getelementptr inbounds nuw i8, ptr %35, i64 29
-  %233 = load i8, ptr %232, align 1, !range !12, !noundef !13
+  %233 = load i8, ptr %232, align 1, !range !13, !noundef !14
   %234 = trunc nuw i8 %233 to i1
   br i1 %234, label %235, label %243
 
@@ -2134,7 +2134,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %.not138, label %262, label %257
 
 257:                                              ; preds = %254
-  %258 = load i8, ptr %52, align 1, !range !12, !noundef !13
+  %258 = load i8, ptr %52, align 1, !range !13, !noundef !14
   %259 = zext nneg i8 %258 to i64
   %260 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %259, ptr %260, align 16
@@ -2162,7 +2162,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %.not140, label %276, label %271
 
 271:                                              ; preds = %269
-  %272 = load i8, ptr %55, align 8, !range !12, !noundef !13
+  %272 = load i8, ptr %55, align 8, !range !13, !noundef !14
   %273 = zext nneg i8 %272 to i64
   %274 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 %273, ptr %274, align 8
@@ -2176,7 +2176,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %.not141, label %293, label %278
 
 278:                                              ; preds = %276
-  %279 = load i8, ptr %56, align 1, !range !12, !noundef !13
+  %279 = load i8, ptr %56, align 1, !range !13, !noundef !14
   %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %289, label %281
 
@@ -2185,7 +2185,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %282, label %._crit_edge, label %284
 
 ._crit_edge:                                      ; preds = %281
-  %.pre299 = load i8, ptr %56, align 1, !range !12
+  %.pre299 = load i8, ptr %56, align 1, !range !13
   %.pre300.pre = load i32, ptr %7, align 8
   %283 = zext nneg i8 %.pre299 to i64
   br label %289
@@ -2215,7 +2215,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %.not142, label %301, label %296
 
 296:                                              ; preds = %293
-  %297 = load i8, ptr %57, align 2, !range !12, !noundef !13
+  %297 = load i8, ptr %57, align 2, !range !13, !noundef !14
   %298 = zext nneg i8 %297 to i64
   %299 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i64 %298, ptr %299, align 8
@@ -2229,7 +2229,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   br i1 %.not143, label %339, label %303
 
 303:                                              ; preds = %301
-  %304 = load i8, ptr %54, align 1, !range !12, !noundef !13
+  %304 = load i8, ptr %54, align 1, !range !13, !noundef !14
   %305 = trunc nuw i8 %304 to i1
   %306 = xor i1 %305, true
   call fastcc void @CheckAlterSubOption(ptr noundef %35, ptr noundef nonnull @.str.17, i1 noundef zeroext %306, i1 noundef zeroext %2)
@@ -2288,7 +2288,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   unreachable
 
 333:                                              ; preds = %314, %326, %322
-  %334 = load i8, ptr %54, align 1, !range !12, !noundef !13
+  %334 = load i8, ptr %54, align 1, !range !13, !noundef !14
   %335 = trunc nuw i8 %334 to i1
   %336 = select i1 %335, i64 112, i64 100
   %337 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -2307,7 +2307,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
 
 342:                                              ; preds = %339
   call fastcc void @CheckAlterSubOption(ptr noundef %35, ptr noundef nonnull @.str.23, i1 noundef zeroext true, i1 noundef zeroext %2)
-  %343 = load i8, ptr %58, align 1, !range !12, !noundef !13
+  %343 = load i8, ptr %58, align 1, !range !13, !noundef !14
   %344 = zext nneg i8 %343 to i64
   %345 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 %344, ptr %345, align 16
@@ -2426,7 +2426,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
 
 398:                                              ; preds = %390
   %399 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %400 = load i8, ptr %399, align 2, !range !12, !noundef !13
+  %400 = load i8, ptr %399, align 2, !range !13, !noundef !14
   %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %404, label %.thread312
 
@@ -2491,13 +2491,13 @@ parse_subscription_options.specialized.3.exit:    ; preds = %356, %.lr.ph.i153, 
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %431 = load ptr, ptr %430, align 8
-  %432 = load i8, ptr %36, align 2, !range !12, !noundef !13
+  %432 = load i8, ptr %36, align 2, !range !13, !noundef !14
   %433 = trunc nuw i8 %432 to i1
   br i1 %433, label %434, label %439
 
 434:                                              ; preds = %426
   %435 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %436 = load i8, ptr %435, align 4, !range !12, !noundef !13
+  %436 = load i8, ptr %435, align 4, !range !13, !noundef !14
   %437 = trunc nuw i8 %436 to i1
   %438 = xor i1 %437, true
   br label %439
@@ -2556,13 +2556,13 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %468 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %468, align 16
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %470 = load i8, ptr %469, align 4, !range !12, !noundef !13
+  %470 = load i8, ptr %469, align 4, !range !13, !noundef !14
   %471 = trunc nuw i8 %470 to i1
   br i1 %471, label %472, label %765
 
 472:                                              ; preds = %publicationListToArray.exit
   %473 = getelementptr inbounds nuw i8, ptr %35, i64 29
-  %474 = load i8, ptr %473, align 1, !range !12, !noundef !13
+  %474 = load i8, ptr %473, align 1, !range !13, !noundef !14
   %475 = trunc nuw i8 %474 to i1
   br i1 %475, label %481, label %476
 
@@ -2580,7 +2580,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %483 = load i8, ptr %482, align 8
   %484 = icmp eq i8 %483, 101
   %485 = getelementptr inbounds nuw i8, ptr %7, i64 27
-  %486 = load i8, ptr %485, align 1, !range !12
+  %486 = load i8, ptr %485, align 1, !range !13
   %487 = trunc nuw i8 %486 to i1
   %or.cond8 = select i1 %484, i1 %487, i1 false
   br i1 %or.cond8, label %488, label %493
@@ -2599,7 +2599,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %494 = load ptr, ptr %449, align 8
   %495 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr %494, ptr %495, align 8
-  %496 = load i8, ptr %485, align 1, !range !12, !noundef !13
+  %496 = load i8, ptr %485, align 1, !range !13, !noundef !14
   %497 = trunc nuw i8 %496 to i1
   call fastcc void @AlterSubscription_refresh(ptr noundef nonnull %35, i1 noundef zeroext %497, ptr noundef %494)
   br label %765
@@ -2738,7 +2738,7 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
   %562 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %562, align 16
   %563 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %564 = load i8, ptr %563, align 4, !range !12, !noundef !13
+  %564 = load i8, ptr %563, align 4, !range !13, !noundef !14
   %565 = trunc nuw i8 %564 to i1
   br i1 %565, label %566, label %765
 
@@ -2752,7 +2752,7 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
 569:                                              ; preds = %566, %567
   %570 = phi ptr [ %568, %567 ], [ null, %566 ]
   %571 = getelementptr inbounds nuw i8, ptr %35, i64 29
-  %572 = load i8, ptr %571, align 1, !range !12, !noundef !13
+  %572 = load i8, ptr %571, align 1, !range !13, !noundef !14
   %573 = trunc nuw i8 %572 to i1
   br i1 %573, label %580, label %574
 
@@ -2771,7 +2771,7 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
   %582 = load i8, ptr %581, align 8
   %583 = icmp eq i8 %582, 101
   %584 = getelementptr inbounds nuw i8, ptr %7, i64 27
-  %585 = load i8, ptr %584, align 1, !range !12
+  %585 = load i8, ptr %584, align 1, !range !13
   %586 = trunc nuw i8 %585 to i1
   %or.cond11 = select i1 %583, i1 %586, i1 false
   br i1 %or.cond11, label %587, label %593
@@ -2789,14 +2789,14 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
 593:                                              ; preds = %580
   call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.29) #11
   store ptr %.0.lcssa.i, ptr %502, align 8
-  %594 = load i8, ptr %584, align 1, !range !12, !noundef !13
+  %594 = load i8, ptr %584, align 1, !range !13, !noundef !14
   %595 = trunc nuw i8 %594 to i1
   call fastcc void @AlterSubscription_refresh(ptr noundef nonnull %35, i1 noundef zeroext %595, ptr noundef %570)
   br label %765
 
 596:                                              ; preds = %46
   %597 = getelementptr inbounds nuw i8, ptr %35, i64 29
-  %598 = load i8, ptr %597, align 1, !range !12, !noundef !13
+  %598 = load i8, ptr %597, align 1, !range !13, !noundef !14
   %599 = trunc nuw i8 %598 to i1
   br i1 %599, label %604, label %600
 
@@ -2881,7 +2881,7 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
 
 636:                                              ; preds = %.critedge.thread.i
   %637 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %638 = load i8, ptr %637, align 1, !range !12, !noundef !13
+  %638 = load i8, ptr %637, align 1, !range !13, !noundef !14
   %639 = trunc nuw i8 %638 to i1
   br i1 %639, label %640, label %648
 
@@ -2905,7 +2905,7 @@ publicationListToArray.exit168:                   ; preds = %.critedge.i161
 
 648:                                              ; preds = %636
   %649 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %650 = load i8, ptr %649, align 2, !range !12, !noundef !13
+  %650 = load i8, ptr %649, align 2, !range !13, !noundef !14
   %651 = trunc nuw i8 %650 to i1
   br i1 %651, label %652, label %parse_subscription_options.specialized.2.exit
 
@@ -3037,7 +3037,7 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
 
 711:                                              ; preds = %.critedge.i191
   %712 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %713 = load i8, ptr %712, align 1, !range !12, !noundef !13
+  %713 = load i8, ptr %712, align 1, !range !13, !noundef !14
   %714 = trunc nuw i8 %713 to i1
   br i1 %714, label %715, label %723
 
@@ -3061,7 +3061,7 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
 
 723:                                              ; preds = %711
   %724 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %725 = load i8, ptr %724, align 2, !range !12, !noundef !13
+  %725 = load i8, ptr %724, align 2, !range !13, !noundef !14
   %726 = trunc nuw i8 %725 to i1
   br i1 %726, label %727, label %parse_subscription_options.specialized.4.exit
 
@@ -3136,7 +3136,7 @@ parse_subscription_options.specialized.4.exit.thread: ; preds = %.lr.ph.i184, %6
 
 762:                                              ; preds = %parse_subscription_options.specialized.2.exit
   call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.39) #11
-  %763 = load i8, ptr %607, align 1, !range !12, !noundef !13
+  %763 = load i8, ptr %607, align 1, !range !13, !noundef !14
   %764 = trunc nuw i8 %763 to i1
   call fastcc void @AlterSubscription_refresh(ptr noundef nonnull %35, i1 noundef zeroext %764, ptr noundef null)
   br label %770
@@ -3161,13 +3161,13 @@ parse_subscription_options.specialized.4.exit.thread: ; preds = %.lr.ph.i184, %6
 771:                                              ; preds = %770
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
   call void @load_file(ptr noundef nonnull @.str.9, i1 noundef zeroext false) #11
-  %772 = load i8, ptr %36, align 2, !range !12, !noundef !13
+  %772 = load i8, ptr %36, align 2, !range !13, !noundef !14
   %773 = trunc nuw i8 %772 to i1
   br i1 %773, label %774, label %779
 
 774:                                              ; preds = %771
   %775 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %776 = load i8, ptr %775, align 4, !range !12, !noundef !13
+  %776 = load i8, ptr %775, align 4, !range !13, !noundef !14
   %777 = trunc nuw i8 %776 to i1
   %778 = xor i1 %777, true
   br label %779
@@ -3272,7 +3272,7 @@ declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i3
 define internal fastcc void @CheckAlterSubOption(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %7 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %7 = load i8, ptr %6, align 1, !range !13, !noundef !14
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %13
 
@@ -3332,13 +3332,13 @@ define internal fastcc void @AlterSubscription_refresh(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @load_file(ptr noundef nonnull @.str.9, i1 noundef zeroext false) #11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %12 = load i8, ptr %11, align 2, !range !12, !noundef !13
+  %12 = load i8, ptr %11, align 2, !range !13, !noundef !14
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %16 = load i8, ptr %15, align 4, !range !12, !noundef !13
+  %16 = load i8, ptr %15, align 4, !range !13, !noundef !14
   %17 = trunc nuw i8 %16 to i1
   %18 = xor i1 %17, true
   br label %19
@@ -3498,7 +3498,7 @@ list_length.exit127.thread:                       ; preds = %.critedge
   %.118.i = phi i64 [ %.01720.i, %103 ], [ %97, %.lr.ph.i ]
   %.1.i = phi i64 [ %104, %103 ], [ %.01621.i, %.lr.ph.i ]
   %106 = icmp ult i64 %.1.i, %.118.i
-  br i1 %106, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !14
+  br i1 %106, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !15
 
 list_length.exit130:                              ; preds = %bsearch.exit, %.lr.ph155, %list_length.exit127.thread
   %107 = phi ptr [ %73, %list_length.exit127.thread ], [ %78, %.lr.ph155 ], [ %78, %bsearch.exit ]
@@ -3588,7 +3588,7 @@ list_length.exit132:                              ; preds = %123
   %.118.i138 = phi i64 [ %.01720.i136, %135 ], [ %129, %.lr.ph.i134 ]
   %.1.i139 = phi i64 [ %136, %135 ], [ %.01621.i135, %.lr.ph.i134 ]
   %138 = icmp ult i64 %.1.i139, %.118.i138
-  br i1 %138, label %.lr.ph.i134, label %list_length.exit132.thread, !llvm.loop !14
+  br i1 %138, label %.lr.ph.i134, label %list_length.exit132.thread, !llvm.loop !15
 
 list_length.exit132.thread:                       ; preds = %137, %123, %list_length.exit132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
@@ -3653,7 +3653,7 @@ bsearch.exit141:                                  ; preds = %134, %166
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !16
 
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %174
   %indvars.iv174 = phi i64 [ 0, %.lr.ph162.preheader ], [ %indvars.iv.next175, %174 ]
@@ -3677,7 +3677,7 @@ bsearch.exit141:                                  ; preds = %134, %166
 174:                                              ; preds = %.lr.ph162, %171
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge, label %.lr.ph162, !llvm.loop !16
+  br i1 %exitcond178.not, label %._crit_edge, label %.lr.ph162, !llvm.loop !17
 
 175:                                              ; preds = %34
   store ptr %35, ptr @PG_exception_stack, align 8
@@ -3753,7 +3753,7 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
 17:                                               ; preds = %2
   call void @table_close(ptr noundef %10, i32 noundef 0) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i8, ptr %18, align 8, !range !12, !noundef !13
+  %19 = load i8, ptr %18, align 8, !range !13, !noundef !14
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %21
 
@@ -3791,7 +3791,7 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
 
 41:                                               ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 89
-  %43 = load i8, ptr %42, align 1, !range !12, !noundef !13
+  %43 = load i8, ptr %42, align 1, !range !13, !noundef !14
   %44 = trunc nuw i8 %43 to i1
   br label %45
 
@@ -3824,7 +3824,7 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   %59 = inttoptr i64 %58 to ptr
   %60 = call ptr @text_to_cstring(ptr noundef %59) #11
   %61 = call i64 @SysCacheGetAttr(i32 noundef 67, ptr noundef nonnull %16, i16 noundef signext 15, ptr noundef nonnull %5) #11
-  %62 = load i8, ptr %5, align 1, !range !12, !noundef !13
+  %62 = load i8, ptr %5, align 1, !range !13, !noundef !14
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %.thread, label %64
 
@@ -4320,7 +4320,7 @@ define internal fastcc void @AlterSubscriptionOwner_internal(ptr noundef %0, ptr
 
 18:                                               ; preds = %16, %12
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 89
-  %20 = load i8, ptr %19, align 1, !range !12, !noundef !13
+  %20 = load i8, ptr %19, align 1, !range !13, !noundef !14
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %29, label %22
 
@@ -4521,7 +4521,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly ca
 12:                                               ; preds = %13
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %.critedge37.us, label %.lr.ph.us, !llvm.loop !17
+  br i1 %exitcond71.not, label %.critedge37.us, label %.lr.ph.us, !llvm.loop !18
 
 .lr.ph.us:                                        ; preds = %.lr.ph86, %12
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %12 ], [ 0, %.lr.ph86 ]
@@ -4566,7 +4566,7 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly ca
 27:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge37, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge37, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
@@ -4768,7 +4768,7 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
 
 46:                                               ; preds = %.critedge.thread
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  %48 = load i8, ptr %47, align 1, !range !12, !noundef !13
+  %48 = load i8, ptr %47, align 1, !range !13, !noundef !14
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %58
 
@@ -4792,7 +4792,7 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
 
 58:                                               ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %60 = load i8, ptr %59, align 2, !range !12, !noundef !13
+  %60 = load i8, ptr %59, align 2, !range !13, !noundef !14
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %70
 
@@ -4846,15 +4846,16 @@ attributes #15 = { nounwind returns_twice }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !5}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !5}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

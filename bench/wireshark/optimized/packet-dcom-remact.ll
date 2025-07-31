@@ -179,7 +179,7 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   %52 = add i32 %51, -1
   store i32 %52, ptr %11, align 4
   %.not92 = icmp eq i32 %51, 0
-  br i1 %.not92, label %._crit_edge, label %.lr.ph98, !llvm.loop !8
+  br i1 %.not92, label %._crit_edge, label %.lr.ph98, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph98, %.loopexit
   %.3.lcssa = phi i32 [ %46, %.loopexit ], [ %50, %.lr.ph98 ]
@@ -261,7 +261,7 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   %41 = add i32 %.pr, -1
   store i32 %41, ptr %13, align 4
   %.not100 = icmp eq i32 %.pr, 0
-  br i1 %.not100, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not100, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %40, %23
   %.0.lcssa = phi i32 [ %33, %23 ], [ %.1, %40 ]
@@ -289,7 +289,7 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   %53 = add i32 %52, -1
   store i32 %53, ptr %13, align 4
   %.not101 = icmp eq i32 %52, 0
-  br i1 %.not101, label %._crit_edge111, label %46, !llvm.loop !10
+  br i1 %.not101, label %._crit_edge111, label %46, !llvm.loop !11
 
 ._crit_edge111:                                   ; preds = %46, %._crit_edge
   %.2.lcssa = phi i32 [ %42, %._crit_edge ], [ %47, %46 ]
@@ -386,8 +386,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

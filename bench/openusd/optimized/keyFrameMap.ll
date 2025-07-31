@@ -96,7 +96,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i.i = select i1 %40, ptr %41, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %40, i64 %43, i64 %37
   %.not.i.i = icmp eq i64 %.1.i.i, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !7
 
 44:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i
   %45 = icmp eq i64 %23, 0
@@ -116,7 +116,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.not.i = icmp ne i32 %50, 3
   %51 = icmp ne ptr %49, %3
   %or.cond22.i = and i1 %.not.i, %51
-  br i1 %or.cond22.i, label %.preheader25.i, label %.critedge2.i, !llvm.loop !7
+  br i1 %or.cond22.i, label %.preheader25.i, label %.critedge2.i, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %48
   %52 = icmp eq ptr %49, %3
@@ -142,7 +142,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i67.i = select i1 %59, ptr %60, ptr %.sroa.03.05.i63.i
   %.1.i68.i = select i1 %59, i64 %62, i64 %56
   %.not.i69.i = icmp eq i64 %.1.i68.i, 0
-  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !6
+  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !7
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i: ; preds = %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
@@ -158,7 +158,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i80.i = select i1 %66, ptr %67, ptr %.sroa.03.05.i76.i
   %.1.i81.i = select i1 %66, i64 %69, i64 %63
   %.not.i82.i = icmp eq i64 %.1.i81.i, 0
-  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !6
+  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SB_SB_dRKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, %.preheader25.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, %.lr.ph.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, %2, %7, %10, %.critedge.i, %44, %.critedge2.i
   %.sroa.033.0.i = phi ptr [ %5, %2 ], [ %5, %7 ], [ %3, %10 ], [ %.sroa.01.0.lcssa.i, %.critedge.i ], [ %3, %44 ], [ %3, %.critedge2.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.035.i, %.lr.ph.i ], [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %.sroa.01.130.i, %.preheader25.i ], [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ]
@@ -218,7 +218,7 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !8
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %.sroa.01.035.i = phi ptr [ %.sroa.01.0.i, %28 ], [ %.sroa.01.032.i, %.preheader.i ]
@@ -254,7 +254,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i.i = select i1 %40, ptr %41, ptr %.sroa.03.05.i.i
   %.1.i.i = select i1 %40, i64 %43, i64 %37
   %.not.i.i = icmp eq i64 %.1.i.i, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !10
 
 44:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i
   %45 = icmp eq i64 %23, 0
@@ -274,7 +274,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.not.i = icmp ne i32 %50, 3
   %51 = icmp ne ptr %49, %3
   %or.cond22.i = and i1 %.not.i, %51
-  br i1 %or.cond22.i, label %.preheader25.i, label %.critedge2.i, !llvm.loop !10
+  br i1 %or.cond22.i, label %.preheader25.i, label %.critedge2.i, !llvm.loop !11
 
 .critedge2.i:                                     ; preds = %48
   %52 = icmp eq ptr %49, %3
@@ -300,7 +300,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i67.i = select i1 %59, ptr %60, ptr %.sroa.03.05.i63.i
   %.1.i68.i = select i1 %59, i64 %62, i64 %56
   %.not.i69.i = icmp eq i64 %.1.i68.i, 0
-  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !9
+  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !10
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i: ; preds = %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
@@ -316,7 +316,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i80.i = select i1 %66, ptr %67, ptr %.sroa.03.05.i76.i
   %.1.i81.i = select i1 %66, i64 %69, i64 %63
   %.not.i82.i = icmp eq i64 %.1.i81.i, 0
-  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !9
+  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_LowerBoundPredicateEEET_SC_SC_dRKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, %.preheader25.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, %.lr.ph.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, %2, %7, %10, %.critedge.i, %44, %.critedge2.i
   %.sroa.033.0.i = phi ptr [ %5, %2 ], [ %5, %7 ], [ %3, %10 ], [ %.sroa.01.0.lcssa.i, %.critedge.i ], [ %3, %44 ], [ %3, %.critedge2.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.035.i, %.lr.ph.i ], [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %.sroa.01.130.i, %.preheader25.i ], [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ]
@@ -376,7 +376,7 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10T
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %.preheader25.i, %28
   %.sroa.01.033.i = phi ptr [ %.sroa.01.0.i, %28 ], [ %.sroa.01.030.i, %.preheader25.i ]
@@ -412,7 +412,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i.i = select i1 %40, ptr %.sroa.03.05.i.i, ptr %41
   %.1.i.i = select i1 %40, i64 %37, i64 %43
   %.not.i.i = icmp eq i64 %.1.i.i, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !13
 
 44:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i
   %45 = icmp eq i64 %23, 0
@@ -432,7 +432,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.not.i = icmp ne i32 %50, 3
   %51 = icmp ne ptr %49, %3
   %or.cond22.i = and i1 %.not.i, %51
-  br i1 %or.cond22.i, label %.preheader.i, label %.critedge2.i, !llvm.loop !13
+  br i1 %or.cond22.i, label %.preheader.i, label %.critedge2.i, !llvm.loop !14
 
 .critedge2.i:                                     ; preds = %48
   %52 = icmp eq ptr %49, %3
@@ -458,7 +458,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i67.i = select i1 %59, ptr %.sroa.03.05.i63.i, ptr %60
   %.1.i68.i = select i1 %59, i64 %56, i64 %62
   %.not.i69.i = icmp eq i64 %.1.i68.i, 0
-  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !12
+  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !13
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i: ; preds = %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
@@ -474,7 +474,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.sroa.03.1.i80.i = select i1 %66, ptr %.sroa.03.05.i76.i, ptr %67
   %.1.i81.i = select i1 %66, i64 %63, i64 %69
   %.not.i82.i = icmp eq i64 %.1.i81.i, 0
-  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !12
+  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !13
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SB_SB_dRKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, %.lr.ph.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, %.preheader.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, %2, %7, %10, %.critedge.i, %44, %.critedge2.i
   %.sroa.033.0.i = phi ptr [ %5, %2 ], [ %5, %7 ], [ %3, %10 ], [ %.sroa.01.0.lcssa.i, %.critedge.i ], [ %3, %44 ], [ %3, %.critedge2.i ], [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %.sroa.01.134.i, %.preheader.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.033.i, %.lr.ph.i ], [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ]
@@ -534,7 +534,7 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !14
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %.preheader25.i, %28
   %.sroa.01.033.i = phi ptr [ %.sroa.01.0.i, %28 ], [ %.sroa.01.030.i, %.preheader25.i ]
@@ -570,7 +570,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i.i = select i1 %40, ptr %.sroa.03.05.i.i, ptr %41
   %.1.i.i = select i1 %40, i64 %37, i64 %43
   %.not.i.i = icmp eq i64 %.1.i.i, 0
-  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, !llvm.loop !16
 
 44:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i
   %45 = icmp eq i64 %23, 0
@@ -590,7 +590,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.not.i = icmp ne i32 %50, 3
   %51 = icmp ne ptr %49, %3
   %or.cond22.i = and i1 %.not.i, %51
-  br i1 %or.cond22.i, label %.preheader.i, label %.critedge2.i, !llvm.loop !16
+  br i1 %or.cond22.i, label %.preheader.i, label %.critedge2.i, !llvm.loop !17
 
 .critedge2.i:                                     ; preds = %48
   %52 = icmp eq ptr %49, %3
@@ -616,7 +616,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i67.i = select i1 %59, ptr %.sroa.03.05.i63.i, ptr %60
   %.1.i68.i = select i1 %59, i64 %56, i64 %62
   %.not.i69.i = icmp eq i64 %.1.i68.i, 0
-  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !15
+  br i1 %.not.i69.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, !llvm.loop !16
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i: ; preds = %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
@@ -632,7 +632,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.sroa.03.1.i80.i = select i1 %66, ptr %.sroa.03.05.i76.i, ptr %67
   %.1.i81.i = select i1 %66, i64 %63, i64 %69
   %.not.i82.i = icmp eq i64 %.1.i81.i, 0
-  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !15
+  br i1 %.not.i82.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Ts_FindBoundaryImplIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS_12_GLOBAL__N_120_UpperBoundPredicateEEET_SC_SC_dRKT0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i, %.lr.ph.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i, %.preheader.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i, %2, %7, %10, %.critedge.i, %44, %.critedge2.i
   %.sroa.033.0.i = phi ptr [ %5, %2 ], [ %5, %7 ], [ %3, %10 ], [ %.sroa.01.0.lcssa.i, %.critedge.i ], [ %3, %44 ], [ %3, %.critedge2.i ], [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %.sroa.01.134.i, %.preheader.i ], [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.033.i, %.lr.ph.i ], [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ]
@@ -647,16 +647,17 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

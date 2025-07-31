@@ -881,7 +881,7 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %lftr.wideiv74 = trunc i64 %indvars.iv.next72 to i32
   %exitcond75.not = icmp eq i32 %37, %lftr.wideiv74
-  br i1 %exitcond75.not, label %._crit_edge, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond75.not, label %._crit_edge, label %.preheader.us, !llvm.loop !60
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53
   br i1 %35, label %.preheader46.us.preheader, label %._crit_edge
@@ -920,13 +920,13 @@ define internal void @_ZN4ncnnL10embed_int8ERKNS_3MatES2_fS2_RS0_iRKNS_6OptionE.
   store float %68, ptr %69, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit47_crit_edge.us, label %61, !llvm.loop !61
+  br i1 %exitcond.not, label %..loopexit47_crit_edge.us, label %61, !llvm.loop !62
 
 ..loopexit47_crit_edge.us:                        ; preds = %61
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next63 to i32
   %exitcond65.not = icmp eq i32 %52, %lftr.wideiv
-  br i1 %exitcond65.not, label %._crit_edge, label %.preheader46.us, !llvm.loop !62
+  br i1 %exitcond65.not, label %._crit_edge, label %.preheader46.us, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %..loopexit47_crit_edge.us, %.loopexit.us, %.lr.ph53.split, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -953,7 +953,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #9
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare !callback !63 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
+declare !callback !64 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #8 {
@@ -1037,13 +1037,13 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   store float %49, ptr %50, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !66
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %.preheader.us
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next45 to i32
   %exitcond47.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond47.not, label %._crit_edge, label %.preheader.us, !llvm.loop !66
+  br i1 %exitcond47.not, label %._crit_edge, label %.preheader.us, !llvm.loop !67
 
 .lr.ph41.split:                                   ; preds = %.lr.ph41.split.preheader, %.loopexit
   %51 = phi i32 [ %20, %.lr.ph41.split.preheader ], [ %80, %.loopexit ]
@@ -1090,7 +1090,7 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   store float %75, ptr %76, align 4, !tbaa !46
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 77:                                               ; preds = %.lr.ph41.split
   %78 = sext i32 %65 to i64
@@ -1104,7 +1104,7 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %81 = sext i32 %80 to i64
   %.not.not = icmp slt i64 %indvars.iv53, %81
-  br i1 %.not.not, label %.lr.ph41.split, label %._crit_edge, !llvm.loop !67
+  br i1 %.not.not, label %.lr.ph41.split, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.loopexit.us, %.loopexit, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -1209,15 +1209,16 @@ attributes #15 = { builtin nounwind }
 !54 = !{!20, !21, i64 8}
 !55 = !{!20, !21, i64 9}
 !56 = !{!10, !10, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !58}
-!62 = distinct !{!62, !60}
-!63 = !{!64}
-!64 = !{i64 2, i64 -1, i64 -1, i1 true}
-!65 = distinct !{!65, !58}
-!66 = distinct !{!66, !60}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = distinct !{!60, !59, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !58, !59}
+!63 = distinct !{!63, !59, !61}
+!64 = !{!65}
+!65 = !{i64 2, i64 -1, i64 -1, i1 true}
+!66 = distinct !{!66, !58, !59}
+!67 = distinct !{!67, !59, !61}
+!68 = distinct !{!68, !59, !69}
+!69 = !{!"llvm.loop.unswitch.partial.disable"}

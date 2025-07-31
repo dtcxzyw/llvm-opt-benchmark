@@ -88,7 +88,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.us.i.i:                               ; preds = %39
   %.not.us.i.i = icmp sgt i64 %40, %37
-  br i1 %.not.us.i.i, label %.split57.us.loopexit.i.i, label %.lr.ph.us.i.i, !llvm.loop !8
+  br i1 %.not.us.i.i, label %.split57.us.loopexit.i.i, label %.lr.ph.us.i.i, !llvm.loop !9
 
 .split57.us.loopexit.i.i:                         ; preds = %._crit_edge.us.i.i
   %42 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -163,7 +163,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv84.i.i.be = phi i64 [ %indvars.iv.next85.i.i, %72 ], [ 0, %._crit_edge.us70.i.i ]
   %.not5363.us.i.i.be = phi i1 [ false, %72 ], [ true, %._crit_edge.us70.i.i ]
   %.262.us.i.i.be = phi i32 [ %73, %72 ], [ %.2.lcssa.us.i.i, %._crit_edge.us70.i.i ]
-  br label %.lr.ph64.us.i.i, !llvm.loop !10
+  br label %.lr.ph64.us.i.i, !llvm.loop !11
 
 ._crit_edge.us70.i.i:                             ; preds = %72, %61
   %.2.lcssa.us.i.i = phi i32 [ %73, %72 ], [ %.262.us.i.i, %61 ]
@@ -178,7 +178,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
   %75 = mul nuw nsw i32 %.04560.i.i, %.us-phi.i.i
   %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
   %exitcond83.not.i.i = icmp eq i64 %indvars.iv.next80.i.i, %wide.trip.count82.i.i
-  br i1 %exitcond83.not.i.i, label %.lr.ph64.us.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond83.not.i.i, label %.lr.ph64.us.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.i, %52
   %.us-phi73.i.i = phi i32 [ 1, %52 ], [ %.2.lcssa.us.i.i, %._crit_edge.us70.i.i ]
@@ -266,7 +266,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
   %120 = add nuw nsw i32 %.05867.us.i, 1
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, %116
   %exitcond82.not.i = icmp eq i32 %120, %109
-  br i1 %exitcond82.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond82.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
   %121 = mul nuw nsw i32 %.05867.us.i, 255
@@ -287,12 +287,12 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
   store i8 %124, ptr %128, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %116
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %125, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %125, !llvm.loop !14
 
 ._crit_edge.us.us.i:                              ; preds = %125
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, %117
   %129 = icmp slt i64 %indvars.iv.next80.i, %106
-  br i1 %129, label %.preheader.us.us.i, label %._crit_edge66.split.us.us.i, !llvm.loop !14
+  br i1 %129, label %.preheader.us.us.i, label %._crit_edge66.split.us.us.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %._crit_edge66.split.us.us.i
   %.pre.i = load i32, ptr %11, align 8
@@ -303,7 +303,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next84.i, %131
-  br i1 %132, label %.lr.ph71.i, label %create_colormap.exit, !llvm.loop !15
+  br i1 %132, label %.lr.ph71.i, label %create_colormap.exit, !llvm.loop !16
 
 create_colormap.exit:                             ; preds = %._crit_edge.i, %95
   %133 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -343,7 +343,7 @@ create_colormap.exit:                             ; preds = %._crit_edge.i, %95
   %154 = load i32, ptr %11, align 8
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next.i26, %155
-  br i1 %156, label %148, label %alloc_fs_workspace.exit, !llvm.loop !16
+  br i1 %156, label %148, label %alloc_fs_workspace.exit, !llvm.loop !17
 
 alloc_fs_workspace.exit:                          ; preds = %148, %138, %create_colormap.exit
   ret void
@@ -430,7 +430,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 43:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv29.i
-  br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %40, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %40 ]
@@ -472,12 +472,12 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
   store i32 %65, ptr %66, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %67, label %58, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %67, label %58, !llvm.loop !19
 
 67:                                               ; preds = %58
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 16
-  br i1 %exitcond25.not.i.i, label %make_odither_array.exit.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %exitcond25.not.i.i, label %make_odither_array.exit.i, label %.preheader.i.i, !llvm.loop !20
 
 make_odither_array.exit.i:                        ; preds = %67, %47
   %.1.i = phi ptr [ %49, %47 ], [ %53, %67 ]
@@ -487,7 +487,7 @@ make_odither_array.exit.i:                        ; preds = %67, %47
   %69 = load i32, ptr %21, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next30.i, %70
-  br i1 %71, label %40, label %create_odither_tables.exit, !llvm.loop !20
+  br i1 %71, label %40, label %create_odither_tables.exit, !llvm.loop !21
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -533,7 +533,7 @@ make_odither_array.exit.i:                        ; preds = %67, %47
   %96 = load i32, ptr %84, align 8
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next.i32, %97
-  br i1 %98, label %90, label %alloc_fs_workspace.exit, !llvm.loop !16
+  br i1 %98, label %90, label %alloc_fs_workspace.exit, !llvm.loop !17
 
 alloc_fs_workspace.exit:                          ; preds = %90, %.alloc_fs_workspace.exit_crit_edge
   %99 = phi i32 [ %.pre, %.alloc_fs_workspace.exit_crit_edge ], [ %96, %90 ]
@@ -555,7 +555,7 @@ alloc_fs_workspace.exit:                          ; preds = %90, %.alloc_fs_work
   %109 = load i32, ptr %105, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph, label %create_odither_tables.exit, !llvm.loop !21
+  br i1 %111, label %.lr.ph, label %create_odither_tables.exit, !llvm.loop !22
 
 112:                                              ; preds = %2
   %113 = load ptr, ptr %0, align 8
@@ -651,7 +651,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   store i8 %38, ptr %gep.us, align 1
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 256
-  br i1 %exitcond79.not, label %.loopexit.us, label %35, !llvm.loop !22
+  br i1 %exitcond79.not, label %.loopexit.us, label %35, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
   %.149.lcssa.us = phi i32 [ %.04856.us, %.preheader.us ], [ %45, %.lr.ph.us ]
@@ -662,7 +662,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   store i8 %40, ptr %41, align 1
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 256
-  br i1 %exitcond75.not, label %.preheader52.us, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond75.not, label %.preheader52.us, label %.preheader.us, !llvm.loop !24
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %.lr.ph.us
   %.153.us = phi i32 [ %42, %.lr.ph.us ], [ %.04557.us, %.preheader.us ]
@@ -672,7 +672,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   %45 = sdiv i32 %44, %32
   %46 = sext i32 %45 to i64
   %47 = icmp sgt i64 %indvars.iv72, %46
-  br i1 %47, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !24
+  br i1 %47, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !25
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.lr.ph62.split.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %._crit_edge.us ], [ 0, %.lr.ph62.split.us ]
@@ -687,7 +687,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   %50 = load i32, ptr %11, align 8
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next81, %51
-  br i1 %52, label %.lr.ph62.split.us, label %._crit_edge63, !llvm.loop !25
+  br i1 %52, label %.lr.ph62.split.us, label %._crit_edge63, !llvm.loop !26
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %74
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %74 ], [ 0, %.lr.ph62 ]
@@ -720,7 +720,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   %68 = sdiv i32 %67, %61
   %69 = sext i32 %68 to i64
   %70 = icmp sgt i64 %indvars.iv, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.149.lcssa = phi i32 [ %.04856, %.preheader ], [ %68, %.lr.ph ]
@@ -731,14 +731,14 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   store i8 %72, ptr %73, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %74, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %74, label %.preheader, !llvm.loop !24
 
 74:                                               ; preds = %._crit_edge
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %75 = load i32, ptr %11, align 8
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next70, %76
-  br i1 %77, label %.lr.ph62.split, label %._crit_edge63, !llvm.loop !26
+  br i1 %77, label %.lr.ph62.split, label %._crit_edge63, !llvm.loop !27
 
 ._crit_edge63:                                    ; preds = %74, %.loopexit.us, %1
   ret void
@@ -799,12 +799,12 @@ define internal void @color_quantize3(ptr noundef readonly captures(none) %0, pt
   store i8 %38, ptr %.02628, align 1
   %40 = add i32 %.02429, -1
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge34, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge34, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %4
   ret void
@@ -867,7 +867,7 @@ define internal void @color_quantize(ptr noundef readonly captures(none) %0, ptr
   %29 = add i8 %28, %.029.us.us
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge.us.us, label %21, !llvm.loop !29
+  br i1 %exitcond45.not, label %._crit_edge.us.us, label %21, !llvm.loop !30
 
 ._crit_edge.us.us:                                ; preds = %21
   %scevgep = getelementptr i8, ptr %.02632.us.us, i64 %16
@@ -875,12 +875,12 @@ define internal void @color_quantize(ptr noundef readonly captures(none) %0, ptr
   store i8 %29, ptr %.02533.us.us, align 1
   %31 = add i32 %.02334.us.us, -1
   %.not.us.us = icmp eq i32 %31, 0
-  br i1 %.not.us.us, label %._crit_edge35.split.us.us, label %.preheader.us.us, !llvm.loop !30
+  br i1 %.not.us.us, label %._crit_edge35.split.us.us, label %.preheader.us.us, !llvm.loop !31
 
 ._crit_edge35.split.us.us:                        ; preds = %._crit_edge.us.us
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !31
+  br i1 %exitcond50.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !32
 
 .preheader.lr.ph:                                 ; preds = %.preheader.lr.ph.preheader, %.preheader.lr.ph
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph.preheader ], [ %indvars.iv.next, %.preheader.lr.ph ]
@@ -889,7 +889,7 @@ define internal void @color_quantize(ptr noundef readonly captures(none) %0, ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %15, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.preheader.lr.ph, %._crit_edge35.split.us.us, %4
   ret void
@@ -935,7 +935,7 @@ define internal void @quantize3_ord_dither(ptr noundef readonly captures(none) %
   %24 = and i32 %23, 15
   %25 = add nuw nsw i32 %.04250.us, 1
   %exitcond55.not = icmp eq i32 %25, %3
-  br i1 %exitcond55.not, label %._crit_edge53.split.us, label %21, !llvm.loop !33
+  br i1 %exitcond55.not, label %._crit_edge53.split.us, label %21, !llvm.loop !34
 
 ._crit_edge53.split.us:                           ; preds = %21
   store i32 %24, ptr %17, align 4
@@ -998,7 +998,7 @@ define internal void @quantize3_ord_dither(ptr noundef readonly captures(none) %
   %71 = and i32 %70, 15
   %72 = add i32 %.04148, -1
   %.not = icmp eq i32 %72, 0
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %38
   %73 = add nsw i32 %26, 1
@@ -1006,7 +1006,7 @@ define internal void @quantize3_ord_dither(ptr noundef readonly captures(none) %
   store i32 %74, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge53:                                    ; preds = %._crit_edge, %._crit_edge53.split.us, %4
   ret void
@@ -1085,12 +1085,12 @@ define internal void @quantize_ord_dither(ptr noundef readonly captures(none) %0
   %47 = and i32 %46, 15
   %48 = add i32 %.03746.us, -1
   %.not.us = icmp eq i32 %48, 0
-  br i1 %.not.us, label %._crit_edge.us, label %32, !llvm.loop !36
+  br i1 %.not.us, label %._crit_edge.us, label %32, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %32
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge51.us, label %.lr.ph.us, !llvm.loop !37
+  br i1 %exitcond67.not, label %._crit_edge51.us, label %.lr.ph.us, !llvm.loop !38
 
 ._crit_edge51.us:                                 ; preds = %._crit_edge.us, %.lr.ph50.us
   %49 = add nsw i32 %20, 1
@@ -1098,7 +1098,7 @@ define internal void @quantize_ord_dither(ptr noundef readonly captures(none) %0
   store i32 %50, ptr %13, align 4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge55, label %.lr.ph50.us, !llvm.loop !38
+  br i1 %exitcond72.not, label %._crit_edge55, label %.lr.ph50.us, !llvm.loop !39
 
 .lr.ph54.split:                                   ; preds = %.lr.ph54, %.lr.ph54.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph54.split ], [ 0, %.lr.ph54 ]
@@ -1111,7 +1111,7 @@ define internal void @quantize_ord_dither(ptr noundef readonly captures(none) %0
   store i32 %55, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %._crit_edge55, label %.lr.ph54.split, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge55, label %.lr.ph54.split, !llvm.loop !40
 
 ._crit_edge55:                                    ; preds = %.lr.ph54.split, %._crit_edge51.us, %4
   ret void
@@ -1242,14 +1242,14 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
   %81 = getelementptr inbounds i8, ptr %.18691.us, i64 %.080.us
   %82 = add i32 %.07695.us, -1
   %.not89.us = icmp eq i32 %82, 0
-  br i1 %.not89.us, label %._crit_edge.us, label %50, !llvm.loop !40
+  br i1 %.not89.us, label %._crit_edge.us, label %50, !llvm.loop !41
 
 ._crit_edge.us:                                   ; preds = %50
   %83 = trunc nsw i32 %78 to i16
   store i16 %83, ptr %51, align 2
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge102.us, label %.lr.ph101.split.us111, !llvm.loop !41
+  br i1 %exitcond121.not, label %._crit_edge102.us, label %.lr.ph101.split.us111, !llvm.loop !42
 
 ._crit_edge102.us:                                ; preds = %._crit_edge.us, %.lr.ph101.split.us.us
   %84 = load i32, ptr %16, align 8
@@ -1258,7 +1258,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
   store i32 %85, ptr %16, align 8
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge106, label %.lr.ph101.us, !llvm.loop !42
+  br i1 %exitcond131.not, label %._crit_edge106, label %.lr.ph101.us, !llvm.loop !43
 
 .lr.ph101.split.us.us:                            ; preds = %.lr.ph101.us, %.lr.ph101.split.us.us
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph101.split.us.us ], [ 0, %.lr.ph101.us ]
@@ -1271,7 +1271,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
   store i16 0, ptr %.082.us.us, align 2
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge102.us, label %.lr.ph101.split.us.us, !llvm.loop !43
+  br i1 %exitcond126.not, label %._crit_edge102.us, label %.lr.ph101.split.us.us, !llvm.loop !44
 
 .lr.ph105.split:                                  ; preds = %.lr.ph105, %.lr.ph105.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph105.split ], [ 0, %.lr.ph105 ]
@@ -1284,7 +1284,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
   store i32 %92, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count130
-  br i1 %exitcond.not, label %._crit_edge106, label %.lr.ph105.split, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge106, label %.lr.ph105.split, !llvm.loop !45
 
 ._crit_edge106:                                   ; preds = %.lr.ph105.split, %._crit_edge102.us, %4
   ret void
@@ -1314,42 +1314,43 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !9}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7, !9}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !9}
-!31 = distinct !{!31, !7, !9}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !9}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7, !9}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7, !9}
-!43 = distinct !{!43, !7, !9}
-!44 = distinct !{!44, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8, !10}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !10}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !10}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8, !10}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8, !10}
+!32 = distinct !{!32, !7, !8, !10}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8, !10}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8, !10}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8, !10}
+!44 = distinct !{!44, !7, !8, !10}
+!45 = distinct !{!45, !7, !8}

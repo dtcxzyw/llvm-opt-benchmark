@@ -108,16 +108,16 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %44, %41
   %.053.lcssa.i = phi ptr [ null, %41 ], [ %48, %44 ]
-  %56 = load ptr, ptr %14, align 8, !tbaa !54
+  %56 = load ptr, ptr %14, align 8, !tbaa !55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 0, ptr %57, align 8, !tbaa !22
   call fastcc void @Map_CutsCollect_rec(ptr noundef nonnull %.02734, ptr noundef %56)
-  %58 = load ptr, ptr %14, align 8, !tbaa !54
+  %58 = load ptr, ptr %14, align 8, !tbaa !55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !22
   %61 = trunc i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %.02734, i64 77
-  store i8 %61, ptr %62, align 1, !tbaa !55
+  store i8 %61, ptr %62, align 1, !tbaa !56
   %63 = load i8, ptr %38, align 4, !tbaa !49
   %64 = icmp sgt i8 %63, 0
   br i1 %64, label %.lr.ph61.i, label %.preheader.i
@@ -154,7 +154,7 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %73, align 2, !tbaa !50
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
-  br i1 %exitcond74.not.i, label %.preheader.i, label %68, !llvm.loop !56
+  br i1 %exitcond74.not.i, label %.preheader.i, label %68, !llvm.loop !57
 
 74:                                               ; preds = %115, %.lr.ph64.i
   %indvars.iv75.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next76.i, %115 ]
@@ -163,7 +163,7 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 78
   store i8 0, ptr %77, align 2, !tbaa !50
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !57
+  %79 = load ptr, ptr %78, align 8, !tbaa !58
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, 1
   %.not.i29 = icmp eq i64 %81, 0
@@ -191,7 +191,7 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.636.0.i = phi i32 [ %90, %82 ], [ %95, %91 ]
   %.sroa.034.0.i = phi i32 [ %87, %82 ], [ %93, %91 ]
   %97 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !58
+  %98 = load ptr, ptr %97, align 8, !tbaa !59
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, 1
   %.not56.i = icmp eq i64 %100, 0
@@ -219,7 +219,7 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.6.0.i = phi i32 [ %109, %101 ], [ %114, %110 ]
   %.sroa.0.0.i = phi i32 [ %106, %101 ], [ %112, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %76, i64 79
-  %117 = load i8, ptr %116, align 1, !tbaa !59
+  %117 = load i8, ptr %116, align 1, !tbaa !60
   %.not57.i = icmp ne i8 %117, 0
   %118 = and i32 %.sroa.0.0.i, %.sroa.034.0.i
   %119 = and i32 %.sroa.6.0.i, %.sroa.636.0.i
@@ -232,14 +232,14 @@ define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %.sink.i, ptr %122, align 4, !tbaa !45
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count78.i
-  br i1 %exitcond79.not.i, label %Map_TruthsCutOne.exit, label %74, !llvm.loop !60
+  br i1 %exitcond79.not.i, label %Map_TruthsCutOne.exit, label %74, !llvm.loop !61
 
 Map_TruthsCutOne.exit:                            ; preds = %115, %.preheader.._crit_edge65_crit_edge.i
   %123 = phi i32 [ %.pre, %.preheader.._crit_edge65_crit_edge.i ], [ %.sink.i, %115 ]
   %124 = phi i32 [ %.pre.i, %.preheader.._crit_edge65_crit_edge.i ], [ %.sink80.i, %115 ]
   store i32 %124, ptr %2, align 4, !tbaa !51
   store i32 %123, ptr %15, align 4, !tbaa !51
-  %125 = load i32, ptr %16, align 8, !tbaa !61
+  %125 = load i32, ptr %16, align 8, !tbaa !62
   %126 = sext i8 %63 to i32
   %127 = call i32 @Map_CanonComputeFast(ptr noundef %0, i32 noundef %125, i32 noundef %126, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #3
   %128 = load ptr, ptr %12, align 8, !tbaa !36
@@ -247,33 +247,33 @@ Map_TruthsCutOne.exit:                            ; preds = %115, %.preheader.._
   %130 = getelementptr inbounds nuw i8, ptr %.02734, i64 80
   %131 = getelementptr inbounds nuw i8, ptr %.02734, i64 120
   store ptr %129, ptr %131, align 8, !tbaa !44
-  %132 = load i8, ptr %4, align 16, !tbaa !62
+  %132 = load i8, ptr %4, align 16, !tbaa !63
   %133 = zext i8 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %.02734, i64 128
   store i32 %133, ptr %134, align 8, !tbaa !32
-  %135 = load i32, ptr %17, align 8, !tbaa !63
+  %135 = load i32, ptr %17, align 8, !tbaa !64
   %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %17, align 8, !tbaa !63
+  store i32 %136, ptr %17, align 8, !tbaa !64
   %137 = load i32, ptr %2, align 4, !tbaa !51
   %138 = xor i32 %137, -1
   store i32 %138, ptr %2, align 4, !tbaa !51
   %139 = load i32, ptr %15, align 4, !tbaa !51
   %140 = xor i32 %139, -1
   store i32 %140, ptr %15, align 4, !tbaa !51
-  %141 = load i32, ptr %16, align 8, !tbaa !61
+  %141 = load i32, ptr %16, align 8, !tbaa !62
   %142 = load i8, ptr %38, align 4, !tbaa !49
   %143 = sext i8 %142 to i32
   %144 = call i32 @Map_CanonComputeFast(ptr noundef %0, i32 noundef %141, i32 noundef %143, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #3
   %145 = load ptr, ptr %12, align 8, !tbaa !36
   %146 = call ptr @Map_SuperTableLookupC(ptr noundef %145, ptr noundef nonnull %3) #3
   store ptr %146, ptr %130, align 8, !tbaa !44
-  %147 = load i8, ptr %4, align 16, !tbaa !62
+  %147 = load i8, ptr %4, align 16, !tbaa !63
   %148 = zext i8 %147 to i32
   %149 = getelementptr inbounds nuw i8, ptr %.02734, i64 88
   store i32 %148, ptr %149, align 8, !tbaa !32
-  %150 = load i32, ptr %17, align 8, !tbaa !63
+  %150 = load i32, ptr %17, align 8, !tbaa !64
   %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %17, align 8, !tbaa !63
+  store i32 %151, ptr %17, align 8, !tbaa !64
   br label %Map_TruthsCut.exit
 
 Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_TruthsCutOne.exit
@@ -282,7 +282,7 @@ Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_Truths
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
   %.027 = load ptr, ptr %.02734, align 8, !tbaa !47
   %.not28 = icmp eq ptr %.027, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %Map_TruthsCut.exit, %24
   br i1 %.not.i, label %156, label %152
@@ -301,7 +301,7 @@ Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_Truths
 Extra_ProgressBarUpdate.exit:                     ; preds = %156, %152, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge38, label %18, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge38, label %18, !llvm.loop !66
 
 ._crit_edge38:                                    ; preds = %Extra_ProgressBarUpdate.exit, %1
   call void @Extra_ProgressBarStop(ptr noundef %10) #3
@@ -356,16 +356,16 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
 ._crit_edge:                                      ; preds = %9, %3
   %.053.lcssa = phi ptr [ null, %3 ], [ %13, %9 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %22 = load ptr, ptr %21, align 8, !tbaa !54
+  %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 0, ptr %23, align 8, !tbaa !22
   tail call fastcc void @Map_CutsCollect_rec(ptr noundef nonnull %1, ptr noundef %22)
-  %24 = load ptr, ptr %21, align 8, !tbaa !54
+  %24 = load ptr, ptr %21, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !22
   %27 = trunc i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 77
-  store i8 %27, ptr %28, align 1, !tbaa !55
+  store i8 %27, ptr %28, align 1, !tbaa !56
   %29 = load i8, ptr %4, align 4, !tbaa !49
   %30 = icmp sgt i8 %29, 0
   br i1 %30, label %.lr.ph61, label %.preheader
@@ -400,7 +400,7 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
   store i8 0, ptr %39, align 2, !tbaa !50
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.preheader, label %34, !llvm.loop !56
+  br i1 %exitcond74.not, label %.preheader, label %34, !llvm.loop !57
 
 40:                                               ; preds = %.lr.ph64, %81
   %indvars.iv75 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next76, %81 ]
@@ -409,7 +409,7 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 78
   store i8 0, ptr %43, align 2, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !57
+  %45 = load ptr, ptr %44, align 8, !tbaa !58
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
   %.not = icmp eq i64 %47, 0
@@ -437,7 +437,7 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
   %.sroa.636.0 = phi i32 [ %56, %48 ], [ %61, %57 ]
   %.sroa.034.0 = phi i32 [ %53, %48 ], [ %59, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !58
+  %64 = load ptr, ptr %63, align 8, !tbaa !59
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, 1
   %.not56 = icmp eq i64 %66, 0
@@ -465,7 +465,7 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
   %.sroa.6.0 = phi i32 [ %75, %67 ], [ %80, %76 ]
   %.sroa.0.0 = phi i32 [ %72, %67 ], [ %78, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %42, i64 79
-  %83 = load i8, ptr %82, align 1, !tbaa !59
+  %83 = load i8, ptr %82, align 1, !tbaa !60
   %.not57 = icmp ne i8 %83, 0
   %84 = and i32 %.sroa.0.0, %.sroa.034.0
   %85 = and i32 %.sroa.6.0, %.sroa.636.0
@@ -480,7 +480,7 @@ define void @Map_TruthsCutOne(ptr noundef readonly captures(none) %0, ptr nounde
   store i32 %.sink, ptr %90, align 4, !tbaa !45
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge65, label %40, !llvm.loop !60
+  br i1 %exitcond79.not, label %._crit_edge65, label %40, !llvm.loop !61
 
 ._crit_edge65:                                    ; preds = %81, %.preheader.._crit_edge65_crit_edge
   %91 = phi i32 [ %.pre, %.preheader.._crit_edge65_crit_edge ], [ %.sink80, %81 ]
@@ -505,13 +505,13 @@ common.ret8:                                      ; preds = %2, %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   tail call fastcc void @Map_CutsCollect_rec(ptr noundef %10, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !58
+  %12 = load ptr, ptr %11, align 8, !tbaa !59
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
@@ -588,17 +588,18 @@ attributes #3 = { nounwind }
 !49 = !{!48, !7, i64 76}
 !50 = !{!48, !7, i64 78}
 !51 = !{!9, !9, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!4, !11, i64 1768}
-!55 = !{!48, !7, i64 77}
-!56 = distinct !{!56, !53}
-!57 = !{!48, !31, i64 8}
-!58 = !{!48, !31, i64 16}
-!59 = !{!48, !7, i64 79}
-!60 = distinct !{!60, !53}
-!61 = !{!4, !9, i64 112}
-!62 = !{!7, !7, i64 0}
-!63 = !{!4, !9, i64 1824}
-!64 = distinct !{!64, !53}
-!65 = distinct !{!65, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!4, !11, i64 1768}
+!56 = !{!48, !7, i64 77}
+!57 = distinct !{!57, !53, !54}
+!58 = !{!48, !31, i64 8}
+!59 = !{!48, !31, i64 16}
+!60 = !{!48, !7, i64 79}
+!61 = distinct !{!61, !53, !54}
+!62 = !{!4, !9, i64 112}
+!63 = !{!7, !7, i64 0}
+!64 = !{!4, !9, i64 1824}
+!65 = distinct !{!65, !53, !54}
+!66 = distinct !{!66, !53, !54}

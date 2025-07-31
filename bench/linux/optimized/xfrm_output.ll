@@ -1459,7 +1459,7 @@ define dso_local i32 @xfrm_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 52:                                               ; preds = %.preheader
   %53 = icmp eq ptr %48, null
-  br i1 %53, label %.critedge, label %.preheader, !llvm.loop !35
+  br i1 %53, label %.critedge, label %.preheader, !llvm.loop !36
 
 54:                                               ; preds = %29
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1890,7 +1890,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   br i1 %244, label %.thread12, label %245
 
 245:                                              ; preds = %241
-  %246 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 96)) #8, !srcloc !36
+  %246 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 96)) #8, !srcloc !38
   %247 = icmp eq i16 %246, 0
   br i1 %247, label %248, label %.thread12
 
@@ -2198,6 +2198,8 @@ attributes #9 = { cold nounwind }
 !31 = !{i64 2156558979, i64 2156558788, i64 2156558840, i64 2156558886, i64 2156558914}
 !32 = !{i64 2156559053, i64 2156559082, i64 2156559128, i64 2156559186, i64 2156559240, i64 2156559294, i64 2156559349, i64 2156559380, i64 2156559688, i64 2156559694, i64 2156559741, i64 2156559764, i64 2156559790}
 !33 = !{i64 2156560248, i64 2156560059, i64 2156560109, i64 2156560155, i64 2156560183}
-!34 = distinct !{!34, !27, !28}
-!35 = distinct !{!35, !27, !28}
-!36 = !{i64 2156360720}
+!34 = distinct !{!34, !27, !28, !35}
+!35 = !{!"llvm.loop.estimated_trip_count", i32 2001}
+!36 = distinct !{!36, !27, !28, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{i64 2156360720}

@@ -74,7 +74,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %.07495 = phi ptr [ %32, %29 ], [ @mpa_hufflens, %3 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #9
   %10 = getelementptr inbounds nuw [15 x i8], ptr @mpa_huff_sizes_minus_one, i64 0, i64 %indvars.iv111
-  %11 = load i8, ptr %10, align 1, !tbaa !10
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %12, 1
   %wide.trip.count = zext nneg i32 %13 to i64
@@ -83,7 +83,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 14:                                               ; preds = %.preheader91, %14
   %indvars.iv107 = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next108, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.096, i64 %indvars.iv107
-  %16 = load i8, ptr %15, align 1, !tbaa !10
+  %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = and i8 %16, -16
   %18 = and i8 %16, 15
   %19 = zext i8 %17 to i16
@@ -99,18 +99,18 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   store i16 %27, ptr %28, align 2, !tbaa !4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count
-  br i1 %exitcond110.not, label %29, label %14, !llvm.loop !11
+  br i1 %exitcond110.not, label %29, label %14, !llvm.loop !12
 
 29:                                               ; preds = %14
   %30 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef %13, ptr noundef %.07495, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %31 = getelementptr inbounds nuw [16 x ptr], ptr @ff_huff_vlc, i64 0, i64 %indvars.iv.next112
-  store ptr %30, ptr %31, align 8, !tbaa !12
+  store ptr %30, ptr %31, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %.07495, i64 %wide.trip.count
   %33 = getelementptr inbounds nuw i8, ptr %.096, i64 %wide.trip.count
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #9
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 15
-  br i1 %exitcond114.not, label %.preheader90, label %.preheader91, !llvm.loop !15
+  br i1 %exitcond114.not, label %.preheader90, label %.preheader91, !llvm.loop !16
 
 .preheader90:                                     ; preds = %29, %.preheader90
   %34 = phi i1 [ false, %.preheader90 ], [ true, %29 ]
@@ -121,15 +121,15 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %37 = getelementptr inbounds nuw %struct.VLCElem, ptr @huff_quad_vlc_tables, i64 %36
   %38 = getelementptr inbounds nuw [2 x %struct.VLC], ptr @ff_huff_quad_vlc, i64 0, i64 %indvars.iv115
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %37, ptr %39, align 8, !tbaa !16
+  store ptr %37, ptr %39, align 8, !tbaa !17
   %40 = shl nuw nsw i32 1, %35
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 %40, ptr %41, align 4, !tbaa !19
+  store i32 %40, ptr %41, align 4, !tbaa !20
   %42 = add nuw nsw i32 %40, %.07598
   %43 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @mpa_quad_bits, i64 0, i64 %indvars.iv115
   %44 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @mpa_quad_codes, i64 0, i64 %indvars.iv115
   %45 = call i32 @ff_vlc_init_sparse(ptr noundef nonnull %38, i32 noundef %35, i32 noundef 16, ptr noundef nonnull %43, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %44, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #9
-  br i1 %34, label %.preheader90, label %.preheader88, !llvm.loop !20
+  br i1 %34, label %.preheader90, label %.preheader88, !llvm.loop !21
 
 .preheader88:                                     ; preds = %.preheader90, %48
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %48 ], [ 0, %.preheader90 ]
@@ -143,7 +143,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   store i16 %49, ptr %50, align 2, !tbaa !4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 9
-  br i1 %exitcond125.not, label %.preheader87, label %.preheader88, !llvm.loop !21
+  br i1 %exitcond125.not, label %.preheader87, label %.preheader88, !llvm.loop !22
 
 51:                                               ; preds = %.preheader88, %51
   %indvars.iv118 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next119, %51 ]
@@ -152,13 +152,13 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %53 = getelementptr inbounds nuw [23 x i16], ptr %46, i64 0, i64 %indvars.iv118
   store i16 %52, ptr %53, align 2, !tbaa !4
   %54 = getelementptr inbounds nuw [22 x i8], ptr %47, i64 0, i64 %indvars.iv118
-  %55 = load i8, ptr %54, align 1, !tbaa !10
+  %55 = load i8, ptr %54, align 1, !tbaa !11
   %56 = lshr i8 %55, 1
   %57 = zext nneg i8 %56 to i32
   %58 = add nuw nsw i32 %.08199, %57
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 22
-  br i1 %exitcond121.not, label %48, label %51, !llvm.loop !22
+  br i1 %exitcond121.not, label %48, label %51, !llvm.loop !23
 
 59:                                               ; preds = %.loopexit
   call fastcc void @mpegaudiodec_common_tableinit() #10
@@ -168,7 +168,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 .preheader87:                                     ; preds = %48, %.loopexit
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.loopexit ], [ 0, %48 ]
   %60 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_bits, i64 0, i64 %indvars.iv131
-  %61 = load i32, ptr %60, align 4, !tbaa !23
+  %61 = load i32, ptr %60, align 4, !tbaa !24
   %62 = icmp sgt i32 %61, -1
   %.not = icmp eq i32 %61, -30
   %or.cond = or i1 %62, %.not
@@ -178,9 +178,9 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %63 = sub i32 1, %61
   %64 = shl nuw i32 1, %63
   %65 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_steps, i64 0, i64 %indvars.iv131
-  %66 = load i32, ptr %65, align 4, !tbaa !23
+  %66 = load i32, ptr %65, align 4, !tbaa !24
   %67 = getelementptr inbounds nuw [4 x ptr], ptr @ff_division_tabs, i64 0, i64 %indvars.iv131
-  %68 = load ptr, ptr %67, align 8, !tbaa !24
+  %68 = load ptr, ptr %67, align 8, !tbaa !25
   %smax = call i32 @llvm.smax.i32(i32 %64, i32 1)
   %wide.trip.count129 = zext nneg i32 %smax to i64
   br label %69
@@ -201,12 +201,12 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   store i16 %79, ptr %80, align 2, !tbaa !4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.loopexit, label %69, !llvm.loop !26
+  br i1 %exitcond130.not, label %.loopexit, label %69, !llvm.loop !27
 
 .loopexit:                                        ; preds = %69, %.preheader87
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 4
-  br i1 %exitcond134.not, label %59, label %.preheader87, !llvm.loop !27
+  br i1 %exitcond134.not, label %59, label %.preheader87, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -251,23 +251,23 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #4 {
   %.1 = phi nsz double [ %12, %7 ], [ %.014, %3 ]
   %14 = and i64 %indvars.iv, 3
   %15 = getelementptr inbounds nuw [4 x double], ptr @mpegaudiodec_common_tableinit.exp2_lut, i64 0, i64 %14
-  %16 = load double, ptr %15, align 8, !tbaa !28
+  %16 = load double, ptr %15, align 8, !tbaa !29
   %17 = fmul nsz double %.1, %16
   %18 = call nsz double @frexp(double noundef %17, ptr noundef nonnull %1) #9
   %19 = fmul nsz double %18, 0x41E0000000000000
   %20 = tail call i64 @llvm.llrint.i64.f64(double %19)
   %21 = trunc i64 %20 to i32
-  %22 = load i32, ptr %1, align 4, !tbaa !23
+  %22 = load i32, ptr %1, align 4, !tbaa !24
   %23 = getelementptr inbounds nuw [32828 x i32], ptr @ff_table_4_3_value, i64 0, i64 %indvars.iv
-  store i32 %21, ptr %23, align 4, !tbaa !23
+  store i32 %21, ptr %23, align 4, !tbaa !24
   %24 = trunc i32 %22 to i8
   %25 = sub i8 103, %24
   %26 = getelementptr inbounds nuw [32828 x i8], ptr @ff_table_4_3_exp, i64 0, i64 %indvars.iv
-  store i8 %25, ptr %26, align 1, !tbaa !10
+  store i8 %25, ptr %26, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32828
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !30
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -305,26 +305,27 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS7VLCElem", !14, i64 0}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !13, i64 8}
-!17 = !{!"VLC", !18, i64 0, !13, i64 8, !18, i64 16, !18, i64 20}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!17, !18, i64 20}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = !{!18, !18, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 short", !14, i64 0}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"double", !6, i64 0}
-!30 = distinct !{!30, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS7VLCElem", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!18, !14, i64 8}
+!18 = !{!"VLC", !19, i64 0, !14, i64 8, !19, i64 16, !19, i64 20}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!18, !19, i64 20}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = !{!19, !19, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 short", !15, i64 0}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"double", !6, i64 0}
+!31 = distinct !{!31, !9, !10}

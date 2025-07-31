@@ -199,7 +199,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 115:                                              ; preds = %107, %114
   %116 = phi ptr [ null, %114 ], [ %108, %107 ]
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %46, label %.loopexit, !llvm.loop !12
+  br i1 %117, label %46, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %115, %32, %.thread20, %.thread, %1
   %118 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %.thread20 ], [ %33, %32 ], [ %116, %115 ]
@@ -255,7 +255,8 @@ attributes #7 = { cold nounwind }
 !6 = !{i64 2154242117, i64 2154241926, i64 2154241978, i64 2154242024, i64 2154242052}
 !7 = !{i64 2154242191, i64 2154242220, i64 2154242266, i64 2154242324, i64 2154242378, i64 2154242432, i64 2154242487, i64 2154242518, i64 2154242826, i64 2154242832, i64 2154242879, i64 2154242902, i64 2154242928}
 !8 = !{i64 2154243392, i64 2154243203, i64 2154243253, i64 2154243299, i64 2154243327}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

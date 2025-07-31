@@ -211,7 +211,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr
 19:                                               ; preds = %18, %17, %16, %15, %.split.us
   %.ph.us = phi i64 [ 52, %.split.us ], [ 53, %18 ], [ 54, %17 ], [ 55, %16 ], [ 56, %15 ]
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, i64 %.ph.us) #8, !srcloc !9
+  %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, i64 %.ph.us) #8, !srcloc !10
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i8 %21, 0
@@ -221,7 +221,7 @@ power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
   %24 = add nuw nsw i64 %12, 1
   %25 = icmp samesign ult i64 %12, 4
   %26 = icmp eq i64 %24, 5
-  br i1 %26, label %.split9.us, label %.split.us, !llvm.loop !10
+  br i1 %26, label %.split9.us, label %.split.us, !llvm.loop !11
 
 .split:                                           ; preds = %8, %power_supply_hwmon_to_property.exit
   %27 = phi i1 [ %39, %power_supply_hwmon_to_property.exit ], [ true, %8 ]
@@ -243,7 +243,7 @@ power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
 33:                                               ; preds = %32, %31, %.split
   %.ph = phi i64 [ 57, %.split ], [ 58, %31 ], [ 59, %32 ]
   %34 = load ptr, ptr %9, align 8
-  %35 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 %.ph) #8, !srcloc !9
+  %35 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 %.ph) #8, !srcloc !10
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
@@ -253,7 +253,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   %38 = add nuw nsw i64 %28, 1
   %39 = icmp samesign ult i64 %28, 4
   %40 = icmp eq i64 %38, 5
-  br i1 %40, label %.split9.us, label %.split, !llvm.loop !12
+  br i1 %40, label %.split9.us, label %.split, !llvm.loop !13
 
 .split9.us:                                       ; preds = %33, %power_supply_hwmon_to_property.exit, %19, %power_supply_hwmon_to_property.exit.us
   %.us-phi = phi i1 [ %11, %19 ], [ %25, %power_supply_hwmon_to_property.exit.us ], [ %27, %33 ], [ %39, %power_supply_hwmon_to_property.exit ]
@@ -340,7 +340,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = zext nneg i32 %.ph7 to i64
-  %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, i64 %63) #8, !srcloc !9
+  %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, i64 %63) #8, !srcloc !10
   %65 = icmp ult i8 %64, 2
   tail call void @llvm.assume(i1 %65)
   %66 = icmp eq i8 %64, 0
@@ -470,7 +470,7 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
 
 27:                                               ; preds = %13, %12, %11, %10, %16, %15, %14, %21, %20, %26, %25, %24, %23, %19, %22
   %.ph = phi i32 [ 52, %22 ], [ 57, %19 ], [ 53, %23 ], [ 54, %24 ], [ 55, %25 ], [ 56, %26 ], [ 58, %20 ], [ 59, %21 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 12, %13 ]
-  store i64 0, ptr %6, align 8, !annotation !13
+  store i64 0, ptr %6, align 8, !annotation !14
   %28 = call i32 @power_supply_get_property(ptr noundef %9, i32 noundef %.ph, ptr noundef nonnull %6) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %power_supply_hwmon_to_property.exit
@@ -529,7 +529,7 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store i64 0, ptr %6, align 8, !annotation !13
+  store i64 0, ptr %6, align 8, !annotation !14
   switch i32 %1, label %power_supply_hwmon_to_property.exit [
     i32 2, label %10
     i32 3, label %14
@@ -668,11 +668,12 @@ attributes #9 = { nounwind allocsize(1) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2147772813, i64 2147772852, i64 2147772873, i64 2147772910, i64 2147772933, i64 2147772803}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 2147786212, i64 2147786286}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!"auto-init"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2147786212, i64 2147786286}
+!11 = distinct !{!11, !7, !8, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = !{!"auto-init"}

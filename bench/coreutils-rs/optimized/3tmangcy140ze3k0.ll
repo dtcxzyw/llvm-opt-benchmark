@@ -96,26 +96,26 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %37 = phi i64 [ %.pre, %36 ], [ %15, %14 ]
   %38 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp eq i64 %38, %37
-  br i1 %.not, label %.loopexit, label %10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hf1c437120435c396E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 __rust_try.llvm.3460146688810921702.exit:
-  %.val.i = load ptr, ptr %0, align 8, !alias.scope !17, !noundef !4
-  store i64 0, ptr %.val.i, align 8, !noalias !20
+  %.val.i = load ptr, ptr %0, align 8, !alias.scope !19, !noundef !4
+  store i64 0, ptr %.val.i, align 8, !noalias !22
   %1 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  store i8 2, ptr %1, align 1, !noalias !20
+  store i8 2, ptr %1, align 1, !noalias !22
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h9c134fd34af01014E.llvm.3460146688810921702(ptr noundef readonly captures(none) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !23, !noundef !4
-  %.val = load ptr, ptr %2, align 8, !alias.scope !24, !noundef !4
-  store i64 0, ptr %.val, align 8, !noalias !27
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !25, !noundef !4
+  %.val = load ptr, ptr %2, align 8, !alias.scope !26, !noundef !4
+  store i64 0, ptr %.val, align 8, !noalias !29
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store i8 2, ptr %3, align 1, !noalias !27
+  store i8 2, ptr %3, align 1, !noalias !29
   ret void
 }
 
@@ -158,10 +158,10 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h414f4d5143714504E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #6 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %3 = load i64, ptr %0, align 8, !alias.scope !30, !noalias !33, !noundef !4
-  %4 = load i64, ptr %1, align 8, !alias.scope !33, !noalias !30, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %3 = load i64, ptr %0, align 8, !alias.scope !32, !noalias !35, !noundef !4
+  %4 = load i64, ptr %1, align 8, !alias.scope !35, !noalias !32, !noundef !4
   %5 = icmp eq i64 %3, %4
   ret i1 %5
 }
@@ -252,21 +252,23 @@ attributes #14 = { cold noreturn nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h4e676dcb7ede8ee8E.llvm.1671926039682192694: argument 0"}
 !16 = distinct !{!16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h4e676dcb7ede8ee8E.llvm.1671926039682192694"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
-!22 = distinct !{!22, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
-!23 = !{i64 8}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
-!26 = distinct !{!26, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
-!29 = distinct !{!29, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702: argument 0"}
-!32 = distinct !{!32, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702"}
-!33 = !{!34}
-!34 = distinct !{!34, !32, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702: argument 1"}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
+!21 = distinct !{!21, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
+!24 = distinct !{!24, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
+!25 = !{i64 8}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
+!28 = distinct !{!28, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE: argument 0"}
+!31 = distinct !{!31, !"_ZN4core3ops8function6FnOnce9call_once17hd9bf3a9b1c31a3dcE"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702: argument 0"}
+!34 = distinct !{!34, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17haf15c2831cb71ff0E.llvm.3460146688810921702: argument 1"}

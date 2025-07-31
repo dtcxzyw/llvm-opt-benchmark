@@ -800,7 +800,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddS
   %4 = alloca %"class.std::allocator", align 1
   %5 = load atomic i8, ptr @_ZGVZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern acquire, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %26, !prof !75
+  br i1 %6, label %7, label %26, !prof !76
 
 7:                                                ; preds = %2
   %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern) #21
@@ -822,7 +822,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddS
           to label %16 unwind label %38
 
 16:                                               ; preds = %11
-  store ptr %15, ptr @_ZZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern, align 8, !tbaa !76
+  store ptr %15, ptr @_ZZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern, align 8, !tbaa !77
   %17 = load ptr, ptr %3, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = icmp eq ptr %17, %18
@@ -849,7 +849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %7, %2
-  %27 = load ptr, ptr @_ZZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern, align 8, !tbaa !76
+  %27 = load ptr, ptr @_ZZN4i18n12phonenumbers18AsYouTypeFormatter36SetShouldAddSpaceAfterNationalPrefixERKNS0_12NumberFormatEE34national_prefix_separators_pattern, align 8, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !72
   %30 = load ptr, ptr %27, align 8, !tbaa !4
@@ -898,7 +898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 250
-  %4 = load i8, ptr %3, align 2, !tbaa !55, !range !79, !noundef !80
+  %4 = load i8, ptr %3, align 2, !tbaa !55, !range !80, !noundef !81
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load i64, ptr %6, align 8
@@ -911,7 +911,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !81
+  %14 = load i32, ptr %13, align 8, !tbaa !82
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %17, label %.critedge
 
@@ -923,12 +923,12 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %18 = phi ptr [ %16, %.critedge ], [ %12, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !81
+  %21 = load i32, ptr %20, align 8, !tbaa !82
   %.not2024 = icmp eq i32 %21, 0
   br i1 %.not2024, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = load ptr, ptr %19, align 8, !tbaa !82
+  %22 = load ptr, ptr %19, align 8, !tbaa !83
   %.not.i.i = icmp eq ptr %22, null
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %23
@@ -945,7 +945,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %.sroa.07.025 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %70, %69 ]
   %28 = load i64, ptr %6, align 8, !tbaa !15
   %29 = icmp eq i64 %28, 0
-  %.pre27.pre29 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %.pre27.pre29 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !84
   br i1 %29, label %43, label %30
 
 30:                                               ; preds = %27
@@ -953,18 +953,18 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %32 = getelementptr inbounds nuw i8, ptr %.pre27.pre29, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !72
   %34 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
-  %.pre27.pre = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %.pre27.pre = load ptr, ptr %.sroa.07.025, align 8, !tbaa !84
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 80
-  %37 = load i8, ptr %36, align 8, !tbaa !84, !range !79, !noundef !80
+  %37 = load i8, ptr %36, align 8, !tbaa !85, !range !80, !noundef !81
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 16
-  %41 = load i32, ptr %40, align 4, !tbaa !87
+  %41 = load i32, ptr %40, align 4, !tbaa !88
   %42 = and i32 %41, 8
   %.not21 = icmp eq i32 %42, 0
   br i1 %.not21, label %69, label %43
@@ -973,7 +973,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %.pre27 = phi ptr [ %.pre27.pre, %39 ], [ %.pre27.pre, %35 ], [ %.pre27.pre, %30 ], [ %.pre27.pre29, %27 ]
   %44 = load i64, ptr %6, align 8, !tbaa !15
   %45 = icmp ne i64 %44, 0
-  %46 = load i8, ptr %3, align 2, !range !79
+  %46 = load i8, ptr %3, align 2, !range !80
   %47 = trunc nuw i8 %46 to i1
   %or.cond = select i1 %45, i1 true, i1 %47
   br i1 %or.cond, label %57, label %48
@@ -983,12 +983,12 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %50 = getelementptr inbounds nuw i8, ptr %.pre27, i64 64
   %51 = load ptr, ptr %50, align 8, !tbaa !72
   %52 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(32) %51)
-  %.pre28 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %.pre28 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !84
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %.pre28, i64 80
-  %55 = load i8, ptr %54, align 8, !tbaa !84, !range !79, !noundef !80
+  %55 = load i8, ptr %54, align 8, !tbaa !85, !range !80, !noundef !81
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %69
 
@@ -1001,27 +1001,27 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %57
-  %64 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %64 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !84
   %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %64, ptr %66, align 8, !tbaa !70
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(24) %25) #21
-  %67 = load i64, ptr %26, align 8, !tbaa !88
+  %67 = load i64, ptr %26, align 8, !tbaa !89
   %68 = add i64 %67, 1
-  store i64 %68, ptr %26, align 8, !tbaa !88
+  store i64 %68, ptr %26, align 8, !tbaa !89
   br label %69
 
 69:                                               ; preds = %57, %63, %53, %39
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.07.025, i64 8
-  %71 = load ptr, ptr %19, align 8, !tbaa !82
+  %71 = load ptr, ptr %19, align 8, !tbaa !83
   %.not.i.i5 = icmp eq ptr %71, null
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %spec.select.i.i6 = select i1 %.not.i.i5, ptr null, ptr %72
-  %73 = load i32, ptr %20, align 8, !tbaa !81
+  %73 = load i32, ptr %20, align 8, !tbaa !82
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds ptr, ptr %spec.select.i.i6, i64 %74
   %.not20 = icmp eq ptr %70, %75
-  br i1 %.not20, label %._crit_edge, label %27, !llvm.loop !89
+  br i1 %.not20, label %._crit_edge, label %27, !llvm.loop !90
 }
 
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -1052,13 +1052,13 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPos
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.018.024, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !70
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !81
+  %15 = load i32, ptr %14, align 8, !tbaa !82
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %.sroa.018.024, align 8, !tbaa !67
-  br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit13, !llvm.loop !90
+  br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit13, !llvm.loop !91
 
 19:                                               ; preds = %11
   %20 = add nsw i32 %15, -1
@@ -1069,11 +1069,11 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPos
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !82
+  %27 = load ptr, ptr %26, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = sext i32 %spec.select to i64
   %30 = getelementptr inbounds [1 x ptr], ptr %28, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !83
+  %31 = load ptr, ptr %30, align 8, !tbaa !84
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %42
 
@@ -1089,12 +1089,12 @@ _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %33
   br i1 %37, label %49, label %39
 
 39:                                               ; preds = %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit
-  %40 = load i64, ptr %10, align 8, !tbaa !88
+  %40 = load i64, ptr %10, align 8, !tbaa !89
   %41 = add i64 %40, -1
-  store i64 %41, ptr %10, align 8, !tbaa !88
+  store i64 %41, ptr %10, align 8, !tbaa !89
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.024) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.018.024, i64 noundef 24) #22
-  br label %49, !llvm.loop !90
+  br label %49, !llvm.loop !91
 
 42:                                               ; preds = %33, %19
   %43 = landingpad { ptr, i32 }
@@ -1126,7 +1126,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %4
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit13: ; preds = %51, %49, %17
   %.sroa.018.1 = phi ptr [ %18, %17 ], [ %38, %49 ], [ %38, %51 ]
   %.not = icmp eq ptr %.sroa.018.1, %7
-  br i1 %.not, label %._crit_edge, label %11
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !92
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -1192,7 +1192,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !76
+  %2 = load ptr, ptr %0, align 8, !tbaa !77
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN5boost14checked_deleteIKN4i18n12phonenumbers6RegExpEEEvPT_.exit, label %4
 
@@ -1885,7 +1885,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter5ClearEv(ptr no
   %32 = load ptr, ptr %.09.i.i, align 8, !tbaa !67
   tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 24) #22
   %.not.i.i = icmp eq ptr %32, %30
-  br i1 %.not.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !91
+  br i1 %.not.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !93
 
 _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -2026,7 +2026,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %27
 
 42:                                               ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !79
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !80
   %43 = trunc nuw i8 %.pre to i1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br i1 %43, label %99, label %45
@@ -2034,7 +2034,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %27
 45:                                               ; preds = %.thread, %42
   %46 = phi ptr [ %33, %.thread ], [ %44, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 249
-  %48 = load i8, ptr %47, align 1, !tbaa !54, !range !79, !noundef !80
+  %48 = load i8, ptr %47, align 1, !tbaa !54, !range !80, !noundef !81
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %53
 
@@ -2074,7 +2074,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %27
   %63 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !67
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 24) #22
   %.not.i.i.i = icmp eq ptr %63, %61
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !91
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !93
 
 _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -2139,7 +2139,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   %90 = load ptr, ptr %.09.i.i.i45, align 8, !tbaa !67
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i45, i64 noundef 24) #22
   %.not.i.i.i46 = icmp eq ptr %90, %88
-  br i1 %.not.i.i.i46, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i47, label %.lr.ph.i.i.i44, !llvm.loop !91
+  br i1 %.not.i.i.i46, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i47, label %.lr.ph.i.i.i44, !llvm.loop !93
 
 _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i47: ; preds = %.lr.ph.i.i.i44, %82
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -2210,7 +2210,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit52: ; preds = %99
 
 110:                                              ; preds = %_ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit52
   %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %0, i64 251
-  %.pre74 = load i8, ptr %.phi.trans.insert73, align 1, !tbaa !56, !range !79
+  %.pre74 = load i8, ptr %.phi.trans.insert73, align 1, !tbaa !56, !range !80
   %111 = trunc nuw i8 %.pre74 to i1
   br i1 %111, label %112, label %129
 
@@ -2255,7 +2255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 
 129:                                              ; preds = %110
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %131 = load i64, ptr %130, align 8, !tbaa !88
+  %131 = load i64, ptr %130, align 8, !tbaa !89
   %.not = icmp eq i64 %131, 0
   br i1 %.not, label %.noexc48.invoke, label %132
 
@@ -2333,7 +2333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_.exit57 unwind label %143
 
 157:                                              ; preds = %155
-  %158 = load i8, ptr %44, align 8, !tbaa !26, !range !79, !noundef !80
+  %158 = load i8, ptr %44, align 8, !tbaa !26, !range !80, !noundef !81
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %161
 
@@ -2467,13 +2467,13 @@ define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString12toUT
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %5 = load ptr, ptr %0, align 8, !tbaa !95, !noalias !92
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %5 = load ptr, ptr %0, align 8, !tbaa !97, !noalias !94
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !96, !noalias !92
+  %7 = load i32, ptr %6, align 8, !tbaa !98, !noalias !94
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %9, ptr %4, align 8, !tbaa !12, !alias.scope !92
+  store ptr %9, ptr %4, align 8, !tbaa !12, !alias.scope !94
   %10 = icmp eq ptr %5, null
   %11 = icmp ne i32 %7, 0
   %or.cond.i.i = and i1 %10, %11
@@ -2484,16 +2484,16 @@ define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString12toUT
   unreachable
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21, !noalias !92
-  store i64 %8, ptr %3, align 8, !tbaa !59, !noalias !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21, !noalias !94
+  store i64 %8, ptr %3, align 8, !tbaa !59, !noalias !94
   %13 = icmp ugt i32 %7, 15
   br i1 %13, label %.noexc.i.i, label %._crit_edge.i.i.i
 
 .noexc.i.i:                                       ; preds = %12
   %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %14, ptr %4, align 8, !tbaa !58, !alias.scope !92
-  %15 = load i64, ptr %3, align 8, !tbaa !59, !noalias !92
-  store i64 %15, ptr %9, align 8, !tbaa !18, !alias.scope !92
+  store ptr %14, ptr %4, align 8, !tbaa !58, !alias.scope !94
+  %15 = load i64, ptr %3, align 8, !tbaa !59, !noalias !94
+  store i64 %15, ptr %9, align 8, !tbaa !18, !alias.scope !94
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %12
@@ -2513,13 +2513,13 @@ define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString12toUT
   br label %_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE.exit
 
 _ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE.exit: ; preds = %._crit_edge.i.i.i, %17, %19
-  %20 = load i64, ptr %3, align 8, !tbaa !59, !noalias !92
+  %20 = load i64, ptr %3, align 8, !tbaa !59, !noalias !94
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !15, !alias.scope !92
-  %22 = load ptr, ptr %4, align 8, !tbaa !58, !alias.scope !92
+  store i64 %20, ptr %21, align 8, !tbaa !15, !alias.scope !94
+  %22 = load ptr, ptr %4, align 8, !tbaa !58, !alias.scope !94
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21, !noalias !92
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21, !noalias !94
   %24 = load ptr, ptr %1, align 8, !tbaa !58
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = icmp eq ptr %24, %25
@@ -2545,7 +2545,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %37 = icmp ult i64 %36, 16
   call void @llvm.assume(i1 %37)
   %.not22.i = icmp eq ptr %4, %1
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %38, !prof !97
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %38, !prof !99
 
 38:                                               ; preds = %34
   switch i64 %36, label %41 [
@@ -3623,7 +3623,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoo
   %7 = load ptr, ptr %.09.i.i, align 8, !tbaa !67
   tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 24) #22
   %.not.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !91
+  br i1 %.not.i.i, label %_ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !93
 
 _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -3752,7 +3752,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter38RemoveNationa
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %7 = load ptr, ptr %6, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %9 = load i32, ptr %8, align 8, !tbaa !98
+  %9 = load i32, ptr %8, align 8, !tbaa !100
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %_ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit.thread
 
@@ -3828,7 +3828,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 _ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit.thread: ; preds = %2, %11, %_ZNK4i18n12phonenumbers18AsYouTypeFormatter31IsNanpaNumberWithNationalPrefixEv.exit
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %50 = load i32, ptr %49, align 4, !tbaa !87
+  %50 = load i32, ptr %49, align 4, !tbaa !88
   %51 = and i32 %50, 16
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %.thread41, label %57
@@ -3906,14 +3906,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 1, ptr %93, align 2, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #21
   %94 = and i64 %83, 2147483647
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %95 = load i64, ptr %75, align 8, !tbaa !15, !noalias !99
+  call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  %95 = load i64, ptr %75, align 8, !tbaa !15, !noalias !101
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %96, ptr %5, align 8, !tbaa !12, !alias.scope !99
-  %97 = load ptr, ptr %59, align 8, !tbaa !58, !noalias !99
+  store ptr %96, ptr %5, align 8, !tbaa !12, !alias.scope !101
+  %97 = load ptr, ptr %59, align 8, !tbaa !58, !noalias !101
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %94, i64 %95)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21, !noalias !99
-  store i64 %spec.select.i.i.i, ptr %3, align 8, !tbaa !59, !noalias !99
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21, !noalias !101
+  store i64 %spec.select.i.i.i, ptr %3, align 8, !tbaa !59, !noalias !101
   %98 = icmp samesign ugt i64 %spec.select.i.i.i, 15
   br i1 %98, label %.noexc10.i.i, label %._crit_edge.i.i.i
 
@@ -3922,9 +3922,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %.noexc unwind label %127
 
 .noexc:                                           ; preds = %.noexc10.i.i
-  store ptr %99, ptr %5, align 8, !tbaa !58, !alias.scope !99
-  %100 = load i64, ptr %3, align 8, !tbaa !59, !noalias !99
-  store i64 %100, ptr %96, align 8, !tbaa !18, !alias.scope !99
+  store ptr %99, ptr %5, align 8, !tbaa !58, !alias.scope !101
+  %100 = load i64, ptr %3, align 8, !tbaa !59, !noalias !101
+  store i64 %100, ptr %96, align 8, !tbaa !18, !alias.scope !101
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc, %92
@@ -3944,13 +3944,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %105
 
 105:                                              ; preds = %104, %102, %._crit_edge.i.i.i
-  %106 = load i64, ptr %3, align 8, !tbaa !59, !noalias !99
+  %106 = load i64, ptr %3, align 8, !tbaa !59, !noalias !101
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %106, ptr %107, align 8, !tbaa !15, !alias.scope !99
-  %108 = load ptr, ptr %5, align 8, !tbaa !58, !alias.scope !99
+  store i64 %106, ptr %107, align 8, !tbaa !15, !alias.scope !101
+  %108 = load ptr, ptr %5, align 8, !tbaa !58, !alias.scope !101
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 %106
   store i8 0, ptr %109, align 1, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21, !noalias !99
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21, !noalias !101
   %110 = load i64, ptr %107, align 8, !tbaa !15
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %112 = load i64, ptr %111, align 8, !tbaa !15
@@ -4382,7 +4382,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %40
 
 63:                                               ; preds = %24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %65 = load i64, ptr %64, align 8, !tbaa !88
+  %65 = load i64, ptr %64, align 8, !tbaa !89
   %66 = icmp eq i64 %65, 1
   br i1 %66, label %67, label %69
 
@@ -4790,7 +4790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
 .critedge21:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %21
   %.sroa.051.0 = load ptr, ptr %.sroa.051.078, align 8, !tbaa !67
   %.not = icmp eq ptr %.sroa.051.0, %8
-  br i1 %.not, label %.loopexit, label %21, !llvm.loop !102
+  br i1 %.not, label %.loopexit, label %21, !llvm.loop !104
 
 .loopexit:                                        ; preds = %.critedge21, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
   ret void
@@ -4817,7 +4817,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter26InputAccruedN
 
 12:                                               ; preds = %21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %14 = load i8, ptr %13, align 8, !tbaa !26, !range !79, !noundef !80
+  %14 = load i8, ptr %13, align 8, !tbaa !26, !range !80, !noundef !81
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %24, label %27
 
@@ -4835,7 +4835,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter26InputAccruedN
 21:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %12, label %16, !llvm.loop !103
+  br i1 %exitcond.not, label %12, label %16, !llvm.loop !105
 
 22:                                               ; preds = %16
   %23 = landingpad { ptr, i32 }
@@ -4923,7 +4923,7 @@ define dso_local void @_ZNK4i18n12phonenumbers18AsYouTypeFormatter20AppendNation
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %13 = load i8, ptr %12, align 8, !tbaa !65, !range !79, !noundef !80
+  %13 = load i8, ptr %12, align 8, !tbaa !65, !range !80, !noundef !81
   %14 = trunc nuw i8 %13 to i1
   %15 = icmp sgt i32 %11, 0
   %or.cond = and i1 %15, %14
@@ -5030,7 +5030,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %60 = icmp ult i64 %59, 16
   call void @llvm.assume(i1 %60)
   %.not22.i.i = icmp eq ptr %5, %2
-  br i1 %.not22.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_.exit, label %61, !prof !97
+  br i1 %.not22.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_.exit, label %61, !prof !99
 
 61:                                               ; preds = %56
   switch i64 %59, label %64 [
@@ -5193,7 +5193,7 @@ _ZN4i18n12phonenumbers13UnicodeStringC2EPKc.exit: ; preds = %_ZN4i18n12phonenumb
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %15 = load i8, ptr %14, align 8, !tbaa !26, !range !79, !noundef !80
+  %15 = load i8, ptr %14, align 8, !tbaa !26, !range !80, !noundef !81
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.preheader, label %21
 
@@ -5243,7 +5243,7 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %27
   %37 = add nuw nsw i32 %.017, 1
   %38 = load i32, ptr %17, align 8, !tbaa !64
   %39 = icmp slt i32 %spec.select, %38
-  br i1 %39, label %27, label %.critedge, !llvm.loop !104
+  br i1 %39, label %27, label %.critedge, !llvm.loop !106
 
 .loopexit:                                        ; preds = %30, %32, %27
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5375,7 +5375,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers18AsYouTypeFormatter
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  %5 = load i32, ptr %4, align 8, !tbaa !98
+  %5 = load i32, ptr %4, align 8, !tbaa !100
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %16
 
@@ -5433,9 +5433,9 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata24set_i
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !87
+  %6 = load i32, ptr %5, align 8, !tbaa !88
   %7 = or i32 %6, 2
-  store i32 %7, ptr %5, align 8, !tbaa !87
+  store i32 %7, ptr %5, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5486,16 +5486,16 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata24set_i
   store i8 0, ptr %24, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
+  %26 = load ptr, ptr %25, align 8, !tbaa !107
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, label %29, !prof !106
+  br i1 %.not.i, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, label %29, !prof !108
 
 29:                                               ; preds = %20
   %30 = and i64 %27, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %31, align 8, !tbaa !107
+  %32 = load ptr, ptr %31, align 8, !tbaa !109
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %29, %20
@@ -5622,9 +5622,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !109
+  %28 = load ptr, ptr %27, align 8, !tbaa !111
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %29, !prof !106
+  br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %29, !prof !108
 
 29:                                               ; preds = %26
   tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 noundef 32)
@@ -5881,49 +5881,51 @@ attributes #24 = { nounwind willreturn memory(read) }
 !70 = !{!71, !71, i64 0}
 !71 = !{!"p1 _ZTSN4i18n12phonenumbers12NumberFormatE", !10, i64 0}
 !72 = !{!44, !45, i64 0}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"branch_weights", i32 1, i32 1048575}
-!76 = !{!77, !78, i64 0}
-!77 = !{!"_ZTSN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEEE", !78, i64 0}
-!78 = !{!"p1 _ZTSN4i18n12phonenumbers6RegExpE", !10, i64 0}
-!79 = !{i8 0, i8 2}
-!80 = !{}
-!81 = !{!41, !23, i64 8}
-!82 = !{!41, !43, i64 16}
-!83 = !{!10, !10, i64 0}
-!84 = !{!85, !24, i64 80}
-!85 = !{!"_ZTSN4i18n12phonenumbers12NumberFormatE", !34, i64 0, !36, i64 16, !37, i64 20, !86, i64 24, !44, i64 48, !44, i64 56, !44, i64 64, !44, i64 72, !24, i64 80}
-!86 = !{!"_ZTSN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !41, i64 0}
-!87 = !{!23, !23, i64 0}
-!88 = !{!49, !17, i64 16}
-!89 = distinct !{!89, !74}
-!90 = distinct !{!90, !74}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = !{!"branch_weights", i32 1, i32 1048575}
+!77 = !{!78, !79, i64 0}
+!78 = !{!"_ZTSN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEEE", !79, i64 0}
+!79 = !{!"p1 _ZTSN4i18n12phonenumbers6RegExpE", !10, i64 0}
+!80 = !{i8 0, i8 2}
+!81 = !{}
+!82 = !{!41, !23, i64 8}
+!83 = !{!41, !43, i64 16}
+!84 = !{!10, !10, i64 0}
+!85 = !{!86, !24, i64 80}
+!86 = !{!"_ZTSN4i18n12phonenumbers12NumberFormatE", !34, i64 0, !36, i64 16, !37, i64 20, !87, i64 24, !44, i64 48, !44, i64 56, !44, i64 64, !44, i64 72, !24, i64 80}
+!87 = !{!"_ZTSN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !41, i64 0}
+!88 = !{!23, !23, i64 0}
+!89 = !{!49, !17, i64 16}
+!90 = distinct !{!90, !74, !75}
 !91 = distinct !{!91, !74}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE: argument 0"}
-!94 = distinct !{!94, !"_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE"}
-!95 = !{!21, !14, i64 0}
-!96 = !{!21, !23, i64 8}
-!97 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!98 = !{!33, !23, i64 272}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
-!101 = distinct !{!101, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!102 = distinct !{!102, !74}
-!103 = distinct !{!103, !74}
-!104 = distinct !{!104, !74}
-!105 = !{!35, !10, i64 0}
-!106 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!107 = !{!108, !42, i64 0}
-!108 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !42, i64 0}
-!109 = !{!110, !10, i64 112}
-!110 = !{!"_ZTSN6google8protobuf5ArenaE", !111, i64 0, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112}
-!111 = !{!"_ZTSN6google8protobuf8internal9ArenaImplE", !112, i64 0, !112, i64 8, !115, i64 16, !117, i64 24, !17, i64 32, !118, i64 40}
-!112 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !113, i64 0}
-!113 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !114, i64 0}
-!114 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl11SerialArenaE", !10, i64 0}
-!115 = !{!"_ZTSSt6atomicImE", !116, i64 0}
-!116 = !{!"_ZTSSt13__atomic_baseImE", !17, i64 0}
-!117 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl5BlockE", !10, i64 0}
-!118 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !17, i64 0, !17, i64 8, !14, i64 16, !17, i64 24, !10, i64 32, !10, i64 40}
+!92 = distinct !{!92, !75}
+!93 = distinct !{!93, !74, !75}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE: argument 0"}
+!96 = distinct !{!96, !"_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE"}
+!97 = !{!21, !14, i64 0}
+!98 = !{!21, !23, i64 8}
+!99 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!100 = !{!33, !23, i64 272}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
+!103 = distinct !{!103, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
+!104 = distinct !{!104, !74, !75}
+!105 = distinct !{!105, !74, !75}
+!106 = distinct !{!106, !74, !75}
+!107 = !{!35, !10, i64 0}
+!108 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!109 = !{!110, !42, i64 0}
+!110 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !42, i64 0}
+!111 = !{!112, !10, i64 112}
+!112 = !{!"_ZTSN6google8protobuf5ArenaE", !113, i64 0, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112}
+!113 = !{!"_ZTSN6google8protobuf8internal9ArenaImplE", !114, i64 0, !114, i64 8, !117, i64 16, !119, i64 24, !17, i64 32, !120, i64 40}
+!114 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !115, i64 0}
+!115 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !116, i64 0}
+!116 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl11SerialArenaE", !10, i64 0}
+!117 = !{!"_ZTSSt6atomicImE", !118, i64 0}
+!118 = !{!"_ZTSSt13__atomic_baseImE", !17, i64 0}
+!119 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl5BlockE", !10, i64 0}
+!120 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !17, i64 0, !17, i64 8, !14, i64 16, !17, i64 24, !10, i64 32, !10, i64 40}

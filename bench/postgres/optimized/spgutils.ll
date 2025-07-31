@@ -383,7 +383,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   %.1.i = phi ptr [ %..i.i, %51 ], [ %.05570.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %36, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.critedge.i, label %36, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %56, %list_head.exit.i
   %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -460,7 +460,7 @@ fillTypeDesc.exit:                                ; preds = %81
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 %94, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 78
-  %97 = load i8, ptr %96, align 2, !range !7, !noundef !8
+  %97 = load i8, ptr %96, align 2, !range !8, !noundef !9
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 22
   store i8 %97, ptr %98, align 2
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 128
@@ -517,7 +517,7 @@ fillTypeDesc.exit53:                              ; preds = %112
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 %126, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 78
-  %129 = load i8, ptr %128, align 2, !range !7, !noundef !8
+  %129 = load i8, ptr %128, align 2, !range !8, !noundef !9
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 34
   store i8 %129, ptr %130, align 2
   %131 = getelementptr inbounds nuw i8, ptr %124, i64 128
@@ -564,7 +564,7 @@ fillTypeDesc.exit56:                              ; preds = %139
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i16 %153, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 78
-  %156 = load i8, ptr %155, align 2, !range !7, !noundef !8
+  %156 = load i8, ptr %155, align 2, !range !8, !noundef !9
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 46
   store i8 %156, ptr %157, align 2
   %158 = getelementptr inbounds nuw i8, ptr %151, i64 128
@@ -604,7 +604,7 @@ fillTypeDesc.exit59:                              ; preds = %fillTypeDesc.exit56
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i16 %178, ptr %179, align 4
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 78
-  %181 = load i8, ptr %180, align 2, !range !7, !noundef !8
+  %181 = load i8, ptr %180, align 2, !range !8, !noundef !9
   %182 = getelementptr inbounds nuw i8, ptr %9, i64 58
   store i8 %181, ptr %182, align 2
   %183 = getelementptr inbounds nuw i8, ptr %176, i64 128
@@ -738,7 +738,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
   %24 = getelementptr i8, ptr %18, i64 96
   store i16 %23, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %26 = load i8, ptr %25, align 2, !range !7, !noundef !8
+  %26 = load i8, ptr %25, align 2, !range !8, !noundef !9
   %27 = getelementptr i8, ptr %18, i64 106
   store i8 %26, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 7
@@ -772,7 +772,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
   store i32 -1, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %42, label %40, label %._crit_edge, !llvm.loop !9
+  br i1 %42, label %40, label %._crit_edge, !llvm.loop !10
 
 43:                                               ; preds = %2, %._crit_edge
   %.024 = phi ptr [ %14, %._crit_edge ], [ %5, %2 ]
@@ -830,7 +830,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
   %35 = getelementptr i8, ptr %29, i64 96
   store i16 %34, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %37 = load i8, ptr %36, align 2, !range !7, !noundef !8
+  %37 = load i8, ptr %36, align 2, !range !8, !noundef !9
   %38 = getelementptr i8, ptr %29, i64 106
   store i8 %37, ptr %38, align 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 43
@@ -864,7 +864,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
   store i32 -1, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %._crit_edge.i, label %51, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.i, label %51, !llvm.loop !10
 
 getSpGistTupleDesc.exit:                          ; preds = %2, %._crit_edge.i
   %.024.i = phi ptr [ %25, %._crit_edge.i ], [ %16, %2 ]
@@ -1338,7 +1338,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %66, ptr %67, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %28) #10
-  br label %.split.split.us, !llvm.loop !10
+  br label %.split.split.us, !llvm.loop !11
 
 .split.split:                                     ; preds = %.split, %105
   %68 = tail call i32 @SpGistNewBuffer(ptr noundef %0)
@@ -1406,7 +1406,7 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
   %108 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %107, ptr %108, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %68) #10
-  br label %.split.split
+  br label %.split.split, !llvm.loop !13
 
 .split41:                                         ; preds = %SpGistInitBuffer.exit, %SpGistInitBuffer.exit.us42, %SpGistInitBuffer.exit.us
   %.us-phi = phi i32 [ %9, %SpGistInitBuffer.exit.us ], [ %28, %SpGistInitBuffer.exit.us42 ], [ %68, %SpGistInitBuffer.exit ]
@@ -1558,7 +1558,7 @@ define dso_local void @SpGistInitMetapage(ptr noundef %0) local_unnamed_addr #0 
   store i32 -1, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %12, label %10, !llvm.loop !14
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1571,7 +1571,7 @@ declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 1073741831) i32 @SpGistGetInnerTypeSize(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %4 = load i8, ptr %3, align 2, !range !7, !noundef !8
+  %4 = load i8, ptr %3, align 2, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %33, label %6
 
@@ -1655,12 +1655,12 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr noundef readonly captures(non
 .preheader:                                       ; preds = %.preheader, %.preheader.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 1, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %12, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ %12, %.preheader ]
@@ -1695,7 +1695,7 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr noundef readonly captures(non
   br i1 %9, label %.sink.split, label %32
 
 32:                                               ; preds = %31
-  %33 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %33 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %.sink.split
 
@@ -1717,7 +1717,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %6 = load i8, ptr %5, align 2, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 2, !range !8, !noundef !9
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %.thread, label %8
 
@@ -1807,7 +1807,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
 54:                                               ; preds = %.thread
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %57 = load i8, ptr %56, align 2, !range !7, !noundef !8
+  %57 = load i8, ptr %56, align 2, !range !8, !noundef !9
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %60
 
@@ -1876,7 +1876,7 @@ define dso_local noundef ptr @spgFormInnerTuple(ptr noundef readonly captures(no
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %8 = load i8, ptr %7, align 2, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 2, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %SpGistGetInnerTypeSize.exit, label %10
 
@@ -1951,7 +1951,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %46 = add i32 %.054, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   %.0.lcssa = phi i32 [ %narrow, %39 ], [ %46, %.lr.ph ]
@@ -2002,7 +2002,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = select i1 %.not, ptr null, ptr %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %74 = load i8, ptr %73, align 2, !range !7, !noundef !8
+  %74 = load i8, ptr %73, align 2, !range !8, !noundef !9
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %77
 
@@ -2087,7 +2087,7 @@ memcpyInnerDatum.exit:                            ; preds = %104, %76, %60
   %117 = getelementptr inbounds nuw i8, ptr %.04356, i64 %116
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !15
+  br i1 %exitcond64.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !17
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %memcpyInnerDatum.exit
   ret ptr %61
@@ -2207,7 +2207,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
   %20 = zext nneg i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %.035, i64 %20
   %exitcond.not = icmp eq i32 %18, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph36, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph36, !llvm.loop !18
 
 22:                                               ; preds = %2
   %23 = and i32 %4, 65528
@@ -2241,7 +2241,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
   unreachable
 
 38:                                               ; preds = %32
-  %39 = load i8, ptr %31, align 2, !range !7, !noundef !8
+  %39 = load i8, ptr %31, align 2, !range !8, !noundef !9
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %.133, i64 8
   br i1 %40, label %42, label %44
@@ -2268,7 +2268,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
   %54 = and i32 %53, 8191
   %55 = zext nneg i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
-  br i1 %56, label %32, label %.loopexit, !llvm.loop !17
+  br i1 %56, label %32, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %46, %17, %22, %.preheader
   %.028 = phi ptr [ null, %.preheader ], [ %25, %22 ], [ null, %17 ], [ %25, %46 ]
@@ -2330,7 +2330,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 35:                                               ; preds = %.lr.ph.us
   %36 = add i16 %.14965.us, 1
   %.not57.us = icmp ugt i16 %36, %.0.i
-  br i1 %.not57.us, label %.split70.us, label %.lr.ph.us, !llvm.loop !18
+  br i1 %.not57.us, label %.split70.us, label %.lr.ph.us, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
   %.not58.us = icmp eq i16 %.14965.us, 0
@@ -2363,7 +2363,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 48:                                               ; preds = %.lr.ph
   %49 = add i16 %.14965, 1
   %.not57 = icmp ugt i16 %49, %.0.i
-  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not58 = icmp eq i16 %.14965, 0
@@ -2375,7 +2375,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 
 50:                                               ; preds = %._crit_edge.thread
   store i16 0, ptr %4, align 2
-  br label %37
+  br label %37, !llvm.loop !22
 
 .split70.us:                                      ; preds = %._crit_edge.thread, %35, %.split.us, %._crit_edge.us
   store i16 0, ptr %11, align 2
@@ -2486,19 +2486,22 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !11}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !6, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6, !12}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !6}

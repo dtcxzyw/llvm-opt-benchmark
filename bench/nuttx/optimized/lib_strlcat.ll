@@ -67,7 +67,7 @@ define i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unname
   %22 = getelementptr inbounds nuw i8, ptr %.02736, i64 1
   %23 = load i8, ptr %22, align 1
   %.not29 = icmp eq i8 %23, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !8
+  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.027.lcssa = phi ptr [ %1, %.preheader ], [ %22, %21 ]
@@ -99,6 +99,7 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

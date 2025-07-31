@@ -449,7 +449,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %78 = add i8 %.1124, 1
   %79 = zext i8 %78 to i32
   %80 = icmp samesign ugt i32 %74, %79
-  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph127, %69, %56, %55, %68, %24
   %81 = phi i1 [ false, %55 ], [ false, %68 ], [ true, %24 ], [ false, %56 ], [ false, %69 ], [ false, %.lr.ph127 ], [ false, %.lr.ph ]
@@ -719,6 +719,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

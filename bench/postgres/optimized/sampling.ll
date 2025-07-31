@@ -99,7 +99,7 @@ sampler_random_fract.exit:                        ; preds = %13
   %26 = fsub double 1.000000e+00, %25
   %27 = fmul double %.02026, %26
   %28 = fcmp olt double %14, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %sampler_random_fract.exit
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %sampler_random_fract.exit ], [ %22, %.lr.ph ]
@@ -193,7 +193,7 @@ sampler_random_fract.exit:                        ; preds = %9
   %19 = fdiv double %18, %17
   %20 = fmul double %.080108, %19
   %21 = fcmp ogt double %20, %10
-  br i1 %21, label %.lr.ph, label %.loopexit98, !llvm.loop !8
+  br i1 %21, label %.lr.ph, label %.loopexit98, !llvm.loop !10
 
 22:                                               ; preds = %3
   %23 = load double, ptr %0, align 8
@@ -266,7 +266,7 @@ sampler_random_fract.exit92:                      ; preds = %30
   %63 = fadd double %.185111, -1.000000e+00
   %64 = fadd double %.083112, -1.000000e+00
   %65 = fcmp ult double %64, %.086
-  br i1 %65, label %.preheader, label %.lr.ph114, !llvm.loop !9
+  br i1 %65, label %.preheader, label %.lr.ph114, !llvm.loop !11
 
 66:                                               ; preds = %.preheader, %66
   %67 = tail call double @pg_prng_double(ptr noundef nonnull %26) #6
@@ -283,7 +283,7 @@ sampler_random_fract.exit93:                      ; preds = %66
   %75 = tail call double @exp(double noundef %74) #6
   %76 = fdiv double %40, %1
   %77 = fcmp ugt double %75, %76
-  br i1 %77, label %29, label %.loopexit
+  br i1 %77, label %29, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %sampler_random_fract.exit93, %49
   %.182.ph = phi double [ %50, %49 ], [ %72, %sampler_random_fract.exit93 ]
@@ -305,7 +305,7 @@ declare double @pg_prng_double(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_random_fract() local_unnamed_addr #0 {
   %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %1, !prof !10
+  br i1 %.b1, label %.preheader, label %1, !prof !13
 
 1:                                                ; preds = %0
   %2 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
@@ -329,7 +329,7 @@ sampler_random_fract.exit:                        ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local double @anl_init_selection_state(i32 noundef %0) local_unnamed_addr #0 {
   %.b1 = load i1, ptr @oldrs_initialized, align 1
-  br i1 %.b1, label %.preheader, label %2, !prof !10
+  br i1 %.b1, label %.preheader, label %2, !prof !13
 
 2:                                                ; preds = %1
   %3 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
@@ -383,9 +383,12 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!8 = distinct !{!8, !6, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !6, !9}
+!11 = distinct !{!11, !6, !9}
+!12 = distinct !{!12, !9}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}

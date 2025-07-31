@@ -261,7 +261,7 @@ is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink
   %82 = call ptr @proto_tree_add_format_text(ptr noundef %.070, ptr noundef %0, i32 noundef %.072129, i32 noundef %81)
   %83 = load i32, ptr %5, align 4
   %84 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %83)
-  br i1 %84, label %42, label %.thread
+  br i1 %84, label %42, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %is_icap_message.exit84.thread, %.preheader, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %78, %79, %.lr.ph, %39
   %.0103120 = phi i32 [ 4, %39 ], [ %.0103128, %.lr.ph ], [ %.0103128, %79 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %78 ], [ %.0103128, %.preheader ], [ %.2111, %is_icap_message.exit84.thread ]
@@ -421,5 +421,7 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

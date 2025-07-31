@@ -167,7 +167,7 @@ _ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread: ; preds = %.lr.ph
 define dso_local void @_ZN4llvm19SmallPtrSetImplBase4GrowEj(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !20, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !21, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
@@ -273,7 +273,7 @@ _ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %.lr.ph.i, %._
 50:                                               ; preds = %24, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit
   %51 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.not = icmp eq ptr %51, %11
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !24
 
 52:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef %3) #13
@@ -287,7 +287,7 @@ _ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %.lr.ph.i, %._
   %57 = sub i32 %54, %56
   store i32 %57, ptr %7, align 4, !tbaa !10
   store i32 0, ptr %55, align 8, !tbaa !11
-  store i8 0, ptr %4, align 4, !tbaa !20
+  store i8 0, ptr %4, align 4, !tbaa !21
   ret void
 }
 
@@ -377,7 +377,7 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noun
   %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = icmp eq ptr %23, %1
-  br i1 %24, label %.split.loop.exit, label %.lr.ph, !prof !17, !llvm.loop !24
+  br i1 %24, label %.split.loop.exit, label %.lr.ph, !prof !17, !llvm.loop !25
 
 .split.loop.exit:                                 ; preds = %18, %2
   %.lcssa24 = phi i64 [ %12, %2 ], [ %21, %18 ]
@@ -392,10 +392,10 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((20, 21)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !20, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !21, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %5, ptr %7, align 4, !tbaa !20
+  store i8 %5, ptr %7, align 4, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !12
   br i1 %6, label %_ZN4llvm11safe_mallocEm.exit, label %8
@@ -462,7 +462,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %7 = load i8, ptr %6, align 4, !tbaa !20, !range !21, !noundef !22
+  %7 = load i8, ptr %6, align 4, !tbaa !21, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
@@ -493,7 +493,7 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %2, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjS3_OS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(21) %4) unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %7 = load i8, ptr %6, align 4, !tbaa !20, !range !21, !noundef !22
+  %7 = load i8, ptr %6, align 4, !tbaa !21, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %15
 
@@ -509,7 +509,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjS3_OS0_(ptr noundef 
   %14 = load ptr, ptr %4, align 8, !tbaa !3
   %.idx.i = shl nuw nsw i64 %13, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %14, i64 %.idx.i, i1 false)
-  %.pre.i = load i8, ptr %6, align 4, !tbaa !20, !range !21
+  %.pre.i = load i8, ptr %6, align 4, !tbaa !21, !range !22
   br label %_ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_.exit
 
 15:                                               ; preds = %5
@@ -533,18 +533,18 @@ _ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_.exit: ; preds = %9, %12, 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %17, ptr %27, align 4, !tbaa !20
+  store i8 %17, ptr %27, align 4, !tbaa !21
   store i32 %2, ptr %18, align 8, !tbaa !12
   store i32 0, ptr %21, align 4, !tbaa !10
   store i32 0, ptr %24, align 8, !tbaa !11
-  store i8 1, ptr %6, align 4, !tbaa !20
+  store i8 1, ptr %6, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(21) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %7 = load i8, ptr %6, align 4, !tbaa !20, !range !21, !noundef !22
+  %7 = load i8, ptr %6, align 4, !tbaa !21, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %15
 
@@ -560,7 +560,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_(pt
   %14 = load ptr, ptr %4, align 8, !tbaa !3
   %.idx = shl nuw nsw i64 %13, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %14, i64 %.idx, i1 false)
-  %.pre = load i8, ptr %6, align 4, !tbaa !20, !range !21
+  %.pre = load i8, ptr %6, align 4, !tbaa !21, !range !22
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit
 
 15:                                               ; preds = %5
@@ -584,21 +584,21 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %12, %9, %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %17, ptr %27, align 4, !tbaa !20
+  store i8 %17, ptr %27, align 4, !tbaa !21
   store i32 %2, ptr %18, align 8, !tbaa !12
   store i32 0, ptr %21, align 4, !tbaa !10
   store i32 0, ptr %24, align 8, !tbaa !11
-  store i8 1, ptr %6, align 4, !tbaa !20
+  store i8 1, ptr %6, align 4, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm19SmallPtrSetImplBase8copyFromEPPKvRKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !20, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !21, !range !22, !noundef !23
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %8 = load i8, ptr %7, align 4, !tbaa !20, !range !21, !noundef !22
+  %8 = load i8, ptr %7, align 4, !tbaa !21, !range !22, !noundef !23
   %9 = trunc nuw i8 %8 to i1
   br i1 %6, label %10, label %.thread
 
@@ -682,7 +682,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase8copyFromEPPKvRKS0_(ptr noun
   %storemerge.sink = phi ptr [ %1, %10 ], [ %1, %.thread10 ], [ %24, %21 ], [ %29, %28 ], [ %36, %.thread13 ], [ %41, %40 ]
   %.sink = phi i8 [ 1, %10 ], [ 1, %.thread10 ], [ 0, %21 ], [ 0, %28 ], [ 0, %.thread13 ], [ 0, %40 ]
   store ptr %storemerge.sink, ptr %0, align 8, !tbaa !3
-  store i8 %.sink, ptr %4, align 4, !tbaa !20
+  store i8 %.sink, ptr %4, align 4, !tbaa !21
   br label %45
 
 45:                                               ; preds = %.sink.split, %.thread11, %12
@@ -690,7 +690,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase8copyFromEPPKvRKS0_(ptr noun
   %47 = load i32, ptr %46, align 8, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %47, ptr %48, align 8, !tbaa !12
-  %49 = load i8, ptr %7, align 4, !tbaa !20, !range !21, !noundef !22
+  %49 = load i8, ptr %7, align 4, !tbaa !21, !range !22, !noundef !23
   %50 = trunc nuw i8 %49 to i1
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %52 = load i32, ptr %51, align 4
@@ -721,7 +721,7 @@ _ZN4llvm19SmallPtrSetImplBase10copyHelperERKS0_.exit: ; preds = %45, %53
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN4llvm19SmallPtrSetImplBase8moveFromEPPKvjS3_OS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(21) initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(21) %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %7 = load i8, ptr %6, align 4, !tbaa !20, !range !21, !noundef !22
+  %7 = load i8, ptr %6, align 4, !tbaa !21, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %11, label %9
 
@@ -732,7 +732,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase8moveFromEPPKvjS3_OS0_(ptr n
 
 11:                                               ; preds = %9, %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %13 = load i8, ptr %12, align 4, !tbaa !20, !range !21, !noundef !22
+  %13 = load i8, ptr %12, align 4, !tbaa !21, !range !22, !noundef !23
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %21
 
@@ -748,7 +748,7 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase8moveFromEPPKvjS3_OS0_(ptr n
   %20 = load ptr, ptr %4, align 8, !tbaa !3
   %.idx.i = shl nuw nsw i64 %19, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %20, i64 %.idx.i, i1 false)
-  %.pre.i = load i8, ptr %12, align 4, !tbaa !20, !range !21
+  %.pre.i = load i8, ptr %12, align 4, !tbaa !21, !range !22
   br label %_ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_.exit
 
 21:                                               ; preds = %11
@@ -771,11 +771,11 @@ _ZN4llvm19SmallPtrSetImplBase10moveHelperEPPKvjS3_OS0_.exit: ; preds = %15, %18,
   %31 = load i32, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %32, align 8, !tbaa !11
-  store i8 %23, ptr %6, align 4, !tbaa !20
+  store i8 %23, ptr %6, align 4, !tbaa !21
   store i32 %2, ptr %24, align 8, !tbaa !12
   store i32 0, ptr %27, align 4, !tbaa !10
   store i32 0, ptr %30, align 8, !tbaa !11
-  store i8 1, ptr %12, align 4, !tbaa !20
+  store i8 1, ptr %12, align 4, !tbaa !21
   ret void
 }
 
@@ -786,10 +786,10 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase4swapEPPKvS3_RS0_(ptr nounde
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i8, ptr %7, align 4, !tbaa !20, !range !21, !noundef !22
+  %8 = load i8, ptr %7, align 4, !tbaa !21, !range !22, !noundef !23
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %11 = load i8, ptr %10, align 4, !tbaa !20, !range !21, !noundef !22
+  %11 = load i8, ptr %10, align 4, !tbaa !21, !range !22, !noundef !23
   %12 = trunc nuw i8 %11 to i1
   br i1 %9, label %47, label %13
 
@@ -803,22 +803,22 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase4swapEPPKvS3_RS0_(ptr nounde
   store ptr %15, ptr %3, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load i32, ptr %17, align 8, !tbaa !25
-  %20 = load i32, ptr %18, align 8, !tbaa !25
-  store i32 %20, ptr %17, align 8, !tbaa !25
-  store i32 %19, ptr %18, align 8, !tbaa !25
+  %19 = load i32, ptr %17, align 8, !tbaa !26
+  %20 = load i32, ptr %18, align 8, !tbaa !26
+  store i32 %20, ptr %17, align 8, !tbaa !26
+  store i32 %19, ptr %18, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %23 = load i32, ptr %21, align 4, !tbaa !25
-  %24 = load i32, ptr %22, align 4, !tbaa !25
-  store i32 %24, ptr %21, align 4, !tbaa !25
-  store i32 %23, ptr %22, align 4, !tbaa !25
+  %23 = load i32, ptr %21, align 4, !tbaa !26
+  %24 = load i32, ptr %22, align 4, !tbaa !26
+  store i32 %24, ptr %21, align 4, !tbaa !26
+  store i32 %23, ptr %22, align 4, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load i32, ptr %25, align 8, !tbaa !25
-  %28 = load i32, ptr %26, align 8, !tbaa !25
-  store i32 %28, ptr %25, align 8, !tbaa !25
-  store i32 %27, ptr %26, align 8, !tbaa !25
+  %27 = load i32, ptr %25, align 8, !tbaa !26
+  %28 = load i32, ptr %26, align 8, !tbaa !26
+  store i32 %28, ptr %25, align 8, !tbaa !26
+  store i32 %27, ptr %26, align 8, !tbaa !26
   br label %100
 
 29:                                               ; preds = %13
@@ -837,26 +837,26 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase4swapEPPKvS3_RS0_(ptr nounde
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %29, %32
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i32, ptr %35, align 8, !tbaa !25
-  %38 = load i32, ptr %36, align 8, !tbaa !25
-  store i32 %38, ptr %35, align 8, !tbaa !25
-  store i32 %37, ptr %36, align 8, !tbaa !25
+  %37 = load i32, ptr %35, align 8, !tbaa !26
+  %38 = load i32, ptr %36, align 8, !tbaa !26
+  store i32 %38, ptr %35, align 8, !tbaa !26
+  store i32 %37, ptr %36, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = load i32, ptr %30, align 4, !tbaa !25
-  store i32 %41, ptr %39, align 4, !tbaa !25
-  store i32 %40, ptr %30, align 4, !tbaa !25
+  %40 = load i32, ptr %39, align 4, !tbaa !26
+  %41 = load i32, ptr %30, align 4, !tbaa !26
+  store i32 %41, ptr %39, align 4, !tbaa !26
+  store i32 %40, ptr %30, align 4, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %44 = load i32, ptr %42, align 8, !tbaa !25
-  %45 = load i32, ptr %43, align 8, !tbaa !25
-  store i32 %45, ptr %42, align 8, !tbaa !25
-  store i32 %44, ptr %43, align 8, !tbaa !25
+  %44 = load i32, ptr %42, align 8, !tbaa !26
+  %45 = load i32, ptr %43, align 8, !tbaa !26
+  store i32 %45, ptr %42, align 8, !tbaa !26
+  store i32 %44, ptr %43, align 8, !tbaa !26
   %46 = load ptr, ptr %0, align 8, !tbaa !3
   store ptr %46, ptr %3, align 8, !tbaa !3
-  store i8 0, ptr %10, align 4, !tbaa !20
+  store i8 0, ptr %10, align 4, !tbaa !21
   store ptr %1, ptr %0, align 8, !tbaa !3
-  store i8 1, ptr %7, align 4, !tbaa !20
+  store i8 1, ptr %7, align 4, !tbaa !21
   br label %100
 
 47:                                               ; preds = %6
@@ -878,32 +878,32 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %29, %32
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit43:             ; preds = %49, %51
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i32, ptr %54, align 8, !tbaa !25
-  %57 = load i32, ptr %55, align 8, !tbaa !25
-  store i32 %57, ptr %54, align 8, !tbaa !25
-  store i32 %56, ptr %55, align 8, !tbaa !25
+  %56 = load i32, ptr %54, align 8, !tbaa !26
+  %57 = load i32, ptr %55, align 8, !tbaa !26
+  store i32 %57, ptr %54, align 8, !tbaa !26
+  store i32 %56, ptr %55, align 8, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %59 = load i32, ptr %58, align 4, !tbaa !25
-  %60 = load i32, ptr %48, align 4, !tbaa !25
-  store i32 %60, ptr %58, align 4, !tbaa !25
-  store i32 %59, ptr %48, align 4, !tbaa !25
+  %59 = load i32, ptr %58, align 4, !tbaa !26
+  %60 = load i32, ptr %48, align 4, !tbaa !26
+  store i32 %60, ptr %58, align 4, !tbaa !26
+  store i32 %59, ptr %48, align 4, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load i32, ptr %61, align 8, !tbaa !25
-  %64 = load i32, ptr %62, align 8, !tbaa !25
-  store i32 %64, ptr %61, align 8, !tbaa !25
-  store i32 %63, ptr %62, align 8, !tbaa !25
+  %63 = load i32, ptr %61, align 8, !tbaa !26
+  %64 = load i32, ptr %62, align 8, !tbaa !26
+  store i32 %64, ptr %61, align 8, !tbaa !26
+  store i32 %63, ptr %62, align 8, !tbaa !26
   %65 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %65, ptr %0, align 8, !tbaa !3
-  store i8 0, ptr %7, align 4, !tbaa !20
+  store i8 0, ptr %7, align 4, !tbaa !21
   store ptr %2, ptr %3, align 8, !tbaa !3
-  store i8 1, ptr %10, align 4, !tbaa !20
+  store i8 1, ptr %10, align 4, !tbaa !21
   br label %100
 
 66:                                               ; preds = %47
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !25
-  %69 = load i32, ptr %48, align 4, !tbaa !25
+  %68 = load i32, ptr %67, align 4, !tbaa !26
+  %69 = load i32, ptr %48, align 4, !tbaa !26
   %70 = tail call i32 @llvm.umin.i32(i32 %68, i32 %69)
   %71 = load ptr, ptr %0, align 8, !tbaa !3
   %72 = zext i32 %70 to i64
@@ -926,7 +926,7 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit43:             ; preds = %49, %51
   %77 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %77, %73
-  br i1 %.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %.lr.ph.i, !llvm.loop !27
 
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
   %79 = icmp ult i32 %68, %69
@@ -959,16 +959,16 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45
 
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45:             ; preds = %89, %87, %80
-  %94 = load i32, ptr %48, align 4, !tbaa !25
-  %95 = load i32, ptr %67, align 4, !tbaa !25
-  store i32 %95, ptr %48, align 4, !tbaa !25
-  store i32 %94, ptr %67, align 4, !tbaa !25
+  %94 = load i32, ptr %48, align 4, !tbaa !26
+  %95 = load i32, ptr %67, align 4, !tbaa !26
+  store i32 %95, ptr %48, align 4, !tbaa !26
+  store i32 %94, ptr %67, align 4, !tbaa !26
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %98 = load i32, ptr %96, align 8, !tbaa !25
-  %99 = load i32, ptr %97, align 8, !tbaa !25
-  store i32 %99, ptr %96, align 8, !tbaa !25
-  store i32 %98, ptr %97, align 8, !tbaa !25
+  %98 = load i32, ptr %96, align 8, !tbaa !26
+  %99 = load i32, ptr %97, align 8, !tbaa !26
+  store i32 %99, ptr %96, align 8, !tbaa !26
+  store i32 %98, ptr %97, align 8, !tbaa !26
   br label %100
 
 100:                                              ; preds = %4, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit43, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit, %14
@@ -1034,12 +1034,13 @@ attributes #16 = { nounwind allocsize(1) }
 !15 = !{!5, !5, i64 0}
 !16 = !{!"branch_weights", i32 1999, i32 1}
 !17 = !{!"branch_weights", i32 1, i32 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!4, !9, i64 20}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = !{!8, !8, i64 0}
-!26 = distinct !{!26, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!4, !9, i64 20}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = !{!8, !8, i64 0}
+!27 = distinct !{!27, !19, !20}

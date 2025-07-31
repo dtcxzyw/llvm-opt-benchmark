@@ -933,7 +933,7 @@ proto_item_set_hidden.exit42.i:                   ; preds = %315, %312, %proto_i
 proto_item_set_hidden.exit45.i:                   ; preds = %324, %321, %proto_item_set_hidden.exit42.i
   %328 = add nuw nsw i32 %.046.i, 2
   %329 = icmp slt i32 %328, %286
-  br i1 %329, label %.lr.ph.i184, label %._crit_edge.i, !llvm.loop !10
+  br i1 %329, label %.lr.ph.i184, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %proto_item_set_hidden.exit45.i, %279
   %330 = load i32, ptr @hf_tr_rif, align 4
@@ -1083,7 +1083,7 @@ define internal zeroext i1 @capture_tr(ptr noundef %0, i32 noundef %1, i32 nound
 10:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %check_for_old_linux.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %check_for_old_linux.exit, label %.preheader, !llvm.loop !12
 
 .split.loop.exit10.i:                             ; preds = %.preheader
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1488,7 +1488,8 @@ attributes #13 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

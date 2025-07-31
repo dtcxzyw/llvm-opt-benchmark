@@ -207,7 +207,7 @@ define internal void @CollectHistogram_SSE2(ptr noalias noundef readonly capture
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
-  br i1 %exitcond34.not, label %._crit_edge, label %11, !llvm.loop !22
+  br i1 %exitcond34.not, label %._crit_edge, label %11, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %139, %5
   call void @VP8SetHistogramData(ptr noundef nonnull %6, ptr noundef %4) #17
@@ -217,8 +217,8 @@ define internal void @CollectHistogram_SSE2(ptr noalias noundef readonly capture
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noalias noundef readonly captures(address_is_null) %2) #2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not.i, label %39, label %4
@@ -227,7 +227,7 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   br i1 %.not12.i, label %25, label %5
 
 5:                                                ; preds = %4
-  %.val23.i = load <16 x i8>, ptr %1, align 16, !tbaa !14, !alias.scope !26, !noalias !28
+  %.val23.i = load <16 x i8>, ptr %1, align 16, !tbaa !14, !alias.scope !27, !noalias !29
   %.val1424.i = load <16 x i8>, ptr %2, align 16
   %6 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.val1424.i, <16 x i8> zeroinitializer)
   %7 = bitcast <2 x i64> %6 to <4 x i32>
@@ -251,10 +251,10 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   %indvars.iv.i.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i.i, %22 ]
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
-  store <16 x i8> %21, ptr %24, align 16, !tbaa !14, !alias.scope !30, !noalias !33
+  store <16 x i8> %21, ptr %24, align 16, !tbaa !14, !alias.scope !31, !noalias !34
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %.loopexit27, label %22, !llvm.loop !34
+  br i1 %exitcond.not.i.i.i, label %.loopexit27, label %22, !llvm.loop !35
 
 25:                                               ; preds = %4
   %.val1525.i = load <16 x i8>, ptr %2, align 16
@@ -274,16 +274,16 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   %indvars.iv.i.i17.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i18.i, %36 ]
   %37 = shl nuw nsw i64 %indvars.iv.i.i17.i, 5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
-  store <16 x i8> %35, ptr %38, align 16, !tbaa !14, !alias.scope !35, !noalias !33
+  store <16 x i8> %35, ptr %38, align 16, !tbaa !14, !alias.scope !36, !noalias !34
   %indvars.iv.next.i.i18.i = add nuw nsw i64 %indvars.iv.i.i17.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %indvars.iv.next.i.i18.i, 16
-  br i1 %exitcond.not.i.i19.i, label %.loopexit27, label %36, !llvm.loop !34
+  br i1 %exitcond.not.i.i19.i, label %.loopexit27, label %36, !llvm.loop !35
 
 39:                                               ; preds = %3
   br i1 %.not12.i, label %.preheader.i, label %40
 
 40:                                               ; preds = %39
-  %.val1626.i = load <16 x i8>, ptr %1, align 16, !tbaa !14, !alias.scope !26, !noalias !28
+  %.val1626.i = load <16 x i8>, ptr %1, align 16, !tbaa !14, !alias.scope !27, !noalias !29
   %41 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.val1626.i, <16 x i8> zeroinitializer)
   %42 = bitcast <2 x i64> %41 to <4 x i32>
   %43 = shufflevector <4 x i32> %42, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -300,19 +300,19 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   %indvars.iv.i.i.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i.i.i, %51 ]
   %52 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 5
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
-  store <16 x i8> %50, ptr %53, align 16, !tbaa !14, !alias.scope !38, !noalias !33
+  store <16 x i8> %50, ptr %53, align 16, !tbaa !14, !alias.scope !39, !noalias !34
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %51, !llvm.loop !34
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %51, !llvm.loop !35
 
 .preheader.i:                                     ; preds = %39, %.preheader.i
   %indvars.iv.i.i20.i = phi i64 [ %indvars.iv.next.i.i21.i, %.preheader.i ], [ 0, %39 ]
   %54 = shl nuw nsw i64 %indvars.iv.i.i20.i, 5
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
-  store <16 x i8> splat (i8 -128), ptr %55, align 16, !tbaa !14, !alias.scope !23, !noalias !33
+  store <16 x i8> splat (i8 -128), ptr %55, align 16, !tbaa !14, !alias.scope !24, !noalias !34
   %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i.i20.i, 1
   %exitcond.not.i.i22.i = icmp eq i64 %indvars.iv.next.i.i21.i, 16
-  br i1 %exitcond.not.i.i22.i, label %.loopexit, label %.preheader.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i22.i, label %.loopexit, label %.preheader.i, !llvm.loop !35
 
 .loopexit27:                                      ; preds = %22, %36
   %.val7.i.in = phi <16 x i8> [ %.val1525.i, %36 ], [ %.val1424.i, %22 ]
@@ -323,10 +323,10 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   %indvars.iv.i8.i = phi i64 [ 0, %.loopexit27 ], [ %indvars.iv.next.i9.i, %57 ]
   %58 = shl nuw nsw i64 %indvars.iv.i8.i, 5
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 %58
-  store <16 x i8> %.val7.i.in, ptr %59, align 16, !tbaa !14, !alias.scope !43, !noalias !48
+  store <16 x i8> %.val7.i.in, ptr %59, align 16, !tbaa !14, !alias.scope !44, !noalias !49
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 16
-  br i1 %exitcond.not.i10.i, label %VerticalPred_SSE2.exit, label %57, !llvm.loop !50
+  br i1 %exitcond.not.i10.i, label %VerticalPred_SSE2.exit, label %57, !llvm.loop !51
 
 .loopexit:                                        ; preds = %51, %.preheader.i
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -336,60 +336,60 @@ define internal void @Intra16Preds_SSE2(ptr noalias noundef writeonly captures(n
   %indvars.iv.i11.i.i = phi i64 [ %indvars.iv.next.i12.i.i, %.preheader14.i ], [ 0, %.loopexit ]
   %61 = shl nuw nsw i64 %indvars.iv.i11.i.i, 5
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
-  store <16 x i8> splat (i8 127), ptr %62, align 16, !tbaa !14, !alias.scope !51, !noalias !48
+  store <16 x i8> splat (i8 127), ptr %62, align 16, !tbaa !14, !alias.scope !52, !noalias !49
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i11.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, 16
-  br i1 %exitcond.not.i13.i.i, label %VerticalPred_SSE2.exit, label %.preheader14.i, !llvm.loop !34
+  br i1 %exitcond.not.i13.i.i, label %VerticalPred_SSE2.exit, label %.preheader14.i, !llvm.loop !35
 
 VerticalPred_SSE2.exit:                           ; preds = %57, %.preheader14.i
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   br i1 %.not12.i, label %.preheader14.i14, label %64
 
 64:                                               ; preds = %VerticalPred_SSE2.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   br label %65
 
 65:                                               ; preds = %65, %64
   %indvars.iv.i7.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i9.i12, %65 ]
   %.08.i8.i = phi ptr [ %63, %64 ], [ %70, %65 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i7.i
-  %67 = load i8, ptr %66, align 1, !tbaa !14, !alias.scope !62, !noalias !63
+  %67 = load i8, ptr %66, align 1, !tbaa !14, !alias.scope !63, !noalias !64
   %68 = insertelement <16 x i8> poison, i8 %67, i64 0
   %69 = shufflevector <16 x i8> %68, <16 x i8> poison, <16 x i32> zeroinitializer
-  store <16 x i8> %69, ptr %.08.i8.i, align 16, !tbaa !14, !alias.scope !63, !noalias !62
+  store <16 x i8> %69, ptr %.08.i8.i, align 16, !tbaa !14, !alias.scope !64, !noalias !63
   %70 = getelementptr inbounds nuw i8, ptr %.08.i8.i, i64 32
   %indvars.iv.next.i9.i12 = add nuw nsw i64 %indvars.iv.i7.i, 1
   %exitcond.not.i10.i13 = icmp eq i64 %indvars.iv.next.i9.i12, 16
-  br i1 %exitcond.not.i10.i13, label %73, label %65, !llvm.loop !64
+  br i1 %exitcond.not.i10.i13, label %73, label %65, !llvm.loop !65
 
 .preheader14.i14:                                 ; preds = %VerticalPred_SSE2.exit, %.preheader14.i14
   %indvars.iv.i11.i.i15 = phi i64 [ %indvars.iv.next.i12.i.i16, %.preheader14.i14 ], [ 0, %VerticalPred_SSE2.exit ]
   %71 = shl nuw nsw i64 %indvars.iv.i11.i.i15, 5
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 %71
-  store <16 x i8> splat (i8 -127), ptr %72, align 16, !tbaa !14, !alias.scope !52, !noalias !55
+  store <16 x i8> splat (i8 -127), ptr %72, align 16, !tbaa !14, !alias.scope !53, !noalias !56
   %indvars.iv.next.i12.i.i16 = add nuw nsw i64 %indvars.iv.i11.i.i15, 1
   %exitcond.not.i13.i.i17 = icmp eq i64 %indvars.iv.next.i12.i.i16, 16
-  br i1 %exitcond.not.i13.i.i17, label %102, label %.preheader14.i14, !llvm.loop !34
+  br i1 %exitcond.not.i13.i.i17, label %102, label %.preheader14.i14, !llvm.loop !35
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   br i1 %.not.i, label %95, label %75
 
 75:                                               ; preds = %73
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %76 = load <16 x i8>, ptr %2, align 16, !tbaa !14, !alias.scope !79, !noalias !80
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  %76 = load <16 x i8>, ptr %2, align 16, !tbaa !14, !alias.scope !80, !noalias !81
   %77 = shufflevector <16 x i8> %76, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %78 = shufflevector <16 x i8> %76, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %79 = getelementptr inbounds i8, ptr %1, i64 -1
-  %80 = load i8, ptr %79, align 1, !tbaa !14, !alias.scope !81, !noalias !82
+  %80 = load i8, ptr %79, align 1, !tbaa !14, !alias.scope !82, !noalias !83
   %81 = zext i8 %80 to i16
   %82 = bitcast <16 x i8> %77 to <8 x i16>
   %83 = bitcast <16 x i8> %78 to <8 x i16>
@@ -399,7 +399,7 @@ VerticalPred_SSE2.exit:                           ; preds = %57, %.preheader14.i
   %indvars.iv.i.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i.i, %84 ]
   %.139.i.i = phi ptr [ %74, %75 ], [ %94, %84 ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
-  %86 = load i8, ptr %85, align 1, !tbaa !14, !alias.scope !81, !noalias !82
+  %86 = load i8, ptr %85, align 1, !tbaa !14, !alias.scope !82, !noalias !83
   %87 = zext i8 %86 to i16
   %88 = sub nsw i16 %87, %81
   %89 = insertelement <8 x i16> poison, i16 %88, i64 0
@@ -407,59 +407,59 @@ VerticalPred_SSE2.exit:                           ; preds = %57, %.preheader14.i
   %91 = add <8 x i16> %90, %82
   %92 = add <8 x i16> %90, %83
   %93 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %91, <8 x i16> %92)
-  store <16 x i8> %93, ptr %.139.i.i, align 16, !tbaa !14, !alias.scope !83, !noalias !84
+  store <16 x i8> %93, ptr %.139.i.i, align 16, !tbaa !14, !alias.scope !84, !noalias !85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %94 = getelementptr inbounds nuw i8, ptr %.139.i.i, i64 32
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %TrueMotion_SSE2.exit, label %84, !llvm.loop !85
+  br i1 %exitcond.not.i.i, label %TrueMotion_SSE2.exit, label %84, !llvm.loop !86
 
 95:                                               ; preds = %73
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   br label %96
 
 96:                                               ; preds = %96, %95
   %indvars.iv.i7.i.i = phi i64 [ 0, %95 ], [ %indvars.iv.next.i9.i.i, %96 ]
   %.08.i8.i.i = phi ptr [ %74, %95 ], [ %101, %96 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i7.i.i
-  %98 = load i8, ptr %97, align 1, !tbaa !14, !alias.scope !96, !noalias !97
+  %98 = load i8, ptr %97, align 1, !tbaa !14, !alias.scope !97, !noalias !98
   %99 = insertelement <16 x i8> poison, i8 %98, i64 0
   %100 = shufflevector <16 x i8> %99, <16 x i8> poison, <16 x i32> zeroinitializer
-  store <16 x i8> %100, ptr %.08.i8.i.i, align 16, !tbaa !14, !alias.scope !98, !noalias !99
+  store <16 x i8> %100, ptr %.08.i8.i.i, align 16, !tbaa !14, !alias.scope !99, !noalias !100
   %101 = getelementptr inbounds nuw i8, ptr %.08.i8.i.i, i64 32
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i7.i.i, 1
   %exitcond.not.i10.i.i = icmp eq i64 %indvars.iv.next.i9.i.i, 16
-  br i1 %exitcond.not.i10.i.i, label %TrueMotion_SSE2.exit, label %96, !llvm.loop !64
+  br i1 %exitcond.not.i10.i.i, label %TrueMotion_SSE2.exit, label %96, !llvm.loop !65
 
 102:                                              ; preds = %.preheader14.i14
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not.i, label %.preheader39.i, label %104
 
 104:                                              ; preds = %102
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %.val7.i.i = load <2 x i64>, ptr %2, align 16, !tbaa !14, !alias.scope !105, !noalias !106
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
+  %.val7.i.i = load <2 x i64>, ptr %2, align 16, !tbaa !14, !alias.scope !106, !noalias !107
   br label %105
 
 105:                                              ; preds = %105, %104
   %indvars.iv.i8.i.i = phi i64 [ 0, %104 ], [ %indvars.iv.next.i9.i19.i, %105 ]
   %106 = shl nuw nsw i64 %indvars.iv.i8.i.i, 5
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 %106
-  store <2 x i64> %.val7.i.i, ptr %107, align 16, !tbaa !14, !alias.scope !107, !noalias !110
+  store <2 x i64> %.val7.i.i, ptr %107, align 16, !tbaa !14, !alias.scope !108, !noalias !111
   %indvars.iv.next.i9.i19.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
   %exitcond.not.i10.i20.i = icmp eq i64 %indvars.iv.next.i9.i19.i, 16
-  br i1 %exitcond.not.i10.i20.i, label %TrueMotion_SSE2.exit, label %105, !llvm.loop !50
+  br i1 %exitcond.not.i10.i20.i, label %TrueMotion_SSE2.exit, label %105, !llvm.loop !51
 
 .preheader39.i:                                   ; preds = %102, %.preheader39.i
   %indvars.iv.i11.i.i19 = phi i64 [ %indvars.iv.next.i12.i.i20, %.preheader39.i ], [ 0, %102 ]
   %108 = shl nuw nsw i64 %indvars.iv.i11.i.i19, 5
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 %108
-  store <16 x i8> splat (i8 -127), ptr %109, align 16, !tbaa !14, !alias.scope !65, !noalias !111
+  store <16 x i8> splat (i8 -127), ptr %109, align 16, !tbaa !14, !alias.scope !66, !noalias !112
   %indvars.iv.next.i12.i.i20 = add nuw nsw i64 %indvars.iv.i11.i.i19, 1
   %exitcond.not.i13.i.i21 = icmp eq i64 %indvars.iv.next.i12.i.i20, 16
-  br i1 %exitcond.not.i13.i.i21, label %TrueMotion_SSE2.exit, label %.preheader39.i, !llvm.loop !34
+  br i1 %exitcond.not.i13.i.i21, label %TrueMotion_SSE2.exit, label %.preheader39.i, !llvm.loop !35
 
 TrueMotion_SSE2.exit:                             ; preds = %84, %96, %105, %.preheader39.i
   ret void
@@ -468,9 +468,9 @@ TrueMotion_SSE2.exit:                             ; preds = %84, %96, %105, %.pr
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noalias noundef readonly captures(address_is_null) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not.i, label %41, label %5
@@ -479,8 +479,8 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   br i1 %.not12.i, label %25, label %6
 
 6:                                                ; preds = %5
-  %.val.i = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !115, !noalias !119
-  %.val14.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !117, !noalias !120
+  %.val.i = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !116, !noalias !120
+  %.val14.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !118, !noalias !121
   %7 = insertelement <2 x i64> poison, i64 %.val14.i, i64 0
   %8 = insertelement <2 x i64> %7, i64 %.val.i, i64 1
   %9 = bitcast <2 x i64> %8 to <16 x i8>
@@ -502,13 +502,13 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   %indvars.iv.i.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i.i, %22 ]
   %23 = shl nuw nsw i64 %indvars.iv.i.i.i, 5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
-  store i64 %21, ptr %24, align 1, !tbaa !14, !alias.scope !121, !noalias !124
+  store i64 %21, ptr %24, align 1, !tbaa !14, !alias.scope !122, !noalias !125
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %.loopexit139, label %22, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i, label %.loopexit139, label %22, !llvm.loop !126
 
 25:                                               ; preds = %5
-  %.val15.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !117, !noalias !120
+  %.val15.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !118, !noalias !121
   %26 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val15.i, i64 0
   %27 = bitcast <2 x i64> %26 to <16 x i8>
   %28 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %27, <16 x i8> zeroinitializer)
@@ -527,16 +527,16 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   %indvars.iv.i.i17.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i18.i, %38 ]
   %39 = shl nuw nsw i64 %indvars.iv.i.i17.i, 5
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %39
-  store i64 %37, ptr %40, align 1, !tbaa !14, !alias.scope !126, !noalias !124
+  store i64 %37, ptr %40, align 1, !tbaa !14, !alias.scope !127, !noalias !125
   %indvars.iv.next.i.i18.i = add nuw nsw i64 %indvars.iv.i.i17.i, 1
   %exitcond.not.i.i19.i = icmp eq i64 %indvars.iv.next.i.i18.i, 8
-  br i1 %exitcond.not.i.i19.i, label %.loopexit139, label %38, !llvm.loop !125
+  br i1 %exitcond.not.i.i19.i, label %.loopexit139, label %38, !llvm.loop !126
 
 41:                                               ; preds = %3
   br i1 %.not12.i, label %.preheader.i, label %42
 
 42:                                               ; preds = %41
-  %.val16.i = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !115, !noalias !119
+  %.val16.i = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !116, !noalias !120
   %43 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val16.i, i64 0
   %44 = bitcast <2 x i64> %43 to <16 x i8>
   %45 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %44, <16 x i8> zeroinitializer)
@@ -555,19 +555,19 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   %indvars.iv.i.i.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i.i.i, %55 ]
   %56 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 5
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 %56
-  store i64 %54, ptr %57, align 1, !tbaa !14, !alias.scope !129, !noalias !124
+  store i64 %54, ptr %57, align 1, !tbaa !14, !alias.scope !130, !noalias !125
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 8
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit136, label %55, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit136, label %55, !llvm.loop !126
 
 .preheader.i:                                     ; preds = %41, %.preheader.i
   %indvars.iv.i.i20.i = phi i64 [ %indvars.iv.next.i.i21.i, %.preheader.i ], [ 0, %41 ]
   %58 = shl nuw nsw i64 %indvars.iv.i.i20.i, 5
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 %58
-  store i64 -9187201950435737472, ptr %59, align 1, !tbaa !14, !alias.scope !112, !noalias !124
+  store i64 -9187201950435737472, ptr %59, align 1, !tbaa !14, !alias.scope !113, !noalias !125
   %indvars.iv.next.i.i21.i = add nuw nsw i64 %indvars.iv.i.i20.i, 1
   %exitcond.not.i.i22.i = icmp eq i64 %indvars.iv.next.i.i21.i, 8
-  br i1 %exitcond.not.i.i22.i, label %.loopexit136, label %.preheader.i, !llvm.loop !125
+  br i1 %exitcond.not.i.i22.i, label %.loopexit136, label %.preheader.i, !llvm.loop !126
 
 .loopexit139:                                     ; preds = %22, %38
   %.val.i31 = phi i64 [ %.val15.i, %38 ], [ %.val14.i, %22 ]
@@ -578,10 +578,10 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit139 ], [ %indvars.iv.next.i.i, %61 ]
   %62 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
-  store i64 %.val.i31, ptr %63, align 1, !tbaa !14, !alias.scope !134, !noalias !139
+  store i64 %.val.i31, ptr %63, align 1, !tbaa !14, !alias.scope !135, !noalias !140
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %VerticalPred_SSE2.exit, label %61, !llvm.loop !141
+  br i1 %exitcond.not.i.i, label %VerticalPred_SSE2.exit, label %61, !llvm.loop !142
 
 .loopexit136:                                     ; preds = %55, %.preheader.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1280
@@ -591,63 +591,63 @@ define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captur
   %indvars.iv.i.i.i33 = phi i64 [ %indvars.iv.next.i.i.i34, %.preheader.i32 ], [ 0, %.loopexit136 ]
   %65 = shl nuw nsw i64 %indvars.iv.i.i.i33, 5
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  store i64 9187201950435737471, ptr %66, align 1, !tbaa !14, !alias.scope !142, !noalias !139
+  store i64 9187201950435737471, ptr %66, align 1, !tbaa !14, !alias.scope !143, !noalias !140
   %indvars.iv.next.i.i.i34 = add nuw nsw i64 %indvars.iv.i.i.i33, 1
   %exitcond.not.i.i.i35 = icmp eq i64 %indvars.iv.next.i.i.i34, 8
-  br i1 %exitcond.not.i.i.i35, label %VerticalPred_SSE2.exit, label %.preheader.i32, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i35, label %VerticalPred_SSE2.exit, label %.preheader.i32, !llvm.loop !126
 
 VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   br i1 %.not12.i, label %.preheader.i40, label %68
 
 68:                                               ; preds = %VerticalPred_SSE2.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   br label %69
 
 69:                                               ; preds = %69, %68
   %indvars.iv.i.i37 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i38, %69 ]
   %.08.i.i = phi ptr [ %67, %68 ], [ %76, %69 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i37
-  %71 = load i8, ptr %70, align 1, !tbaa !14, !alias.scope !153, !noalias !154
+  %71 = load i8, ptr %70, align 1, !tbaa !14, !alias.scope !154, !noalias !155
   %72 = insertelement <16 x i8> poison, i8 %71, i64 0
   %73 = shufflevector <16 x i8> %72, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %74 = bitcast <16 x i8> %73 to <2 x i64>
   %75 = extractelement <2 x i64> %74, i64 0
-  store i64 %75, ptr %.08.i.i, align 1, !tbaa !14, !alias.scope !154, !noalias !153
+  store i64 %75, ptr %.08.i.i, align 1, !tbaa !14, !alias.scope !155, !noalias !154
   %76 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 32
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i37, 1
   %exitcond.not.i.i39 = icmp eq i64 %indvars.iv.next.i.i38, 8
-  br i1 %exitcond.not.i.i39, label %79, label %69, !llvm.loop !155
+  br i1 %exitcond.not.i.i39, label %79, label %69, !llvm.loop !156
 
 .preheader.i40:                                   ; preds = %VerticalPred_SSE2.exit, %.preheader.i40
   %indvars.iv.i.i.i41 = phi i64 [ %indvars.iv.next.i.i.i42, %.preheader.i40 ], [ 0, %VerticalPred_SSE2.exit ]
   %77 = shl nuw nsw i64 %indvars.iv.i.i.i41, 5
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 %77
-  store i64 -9114861777597660799, ptr %78, align 1, !tbaa !14, !alias.scope !143, !noalias !146
+  store i64 -9114861777597660799, ptr %78, align 1, !tbaa !14, !alias.scope !144, !noalias !147
   %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
   %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, 8
-  br i1 %exitcond.not.i.i.i43, label %111, label %.preheader.i40, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i43, label %111, label %.preheader.i40, !llvm.loop !126
 
 79:                                               ; preds = %69
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   br i1 %.not.i, label %102, label %81
 
 81:                                               ; preds = %79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %82 = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !170, !noalias !171
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
+  %82 = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !171, !noalias !172
   %83 = insertelement <2 x i64> poison, i64 %82, i64 0
   %84 = bitcast <2 x i64> %83 to <16 x i8>
   %85 = shufflevector <16 x i8> %84, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %86 = getelementptr inbounds i8, ptr %1, i64 -1
-  %87 = load i8, ptr %86, align 1, !tbaa !14, !alias.scope !172, !noalias !173
+  %87 = load i8, ptr %86, align 1, !tbaa !14, !alias.scope !173, !noalias !174
   %88 = zext i8 %87 to i16
   %89 = bitcast <16 x i8> %85 to <8 x i16>
   br label %90
@@ -656,7 +656,7 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv44.i.i = phi i64 [ 0, %81 ], [ %indvars.iv.next45.i.i, %90 ]
   %.041.i.i = phi ptr [ %80, %81 ], [ %101, %90 ]
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i.i
-  %92 = load i8, ptr %91, align 1, !tbaa !14, !alias.scope !172, !noalias !173
+  %92 = load i8, ptr %91, align 1, !tbaa !14, !alias.scope !173, !noalias !174
   %93 = zext i8 %92 to i16
   %94 = sub nsw i16 %93, %88
   %95 = insertelement <8 x i16> poison, i16 %94, i64 0
@@ -665,71 +665,71 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %98 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %97, <8 x i16> poison)
   %99 = bitcast <16 x i8> %98 to <2 x i64>
   %100 = extractelement <2 x i64> %99, i64 0
-  store i64 %100, ptr %.041.i.i, align 1, !tbaa !14, !alias.scope !174, !noalias !175
+  store i64 %100, ptr %.041.i.i, align 1, !tbaa !14, !alias.scope !175, !noalias !176
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %101 = getelementptr inbounds nuw i8, ptr %.041.i.i, i64 32
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 8
-  br i1 %exitcond47.not.i.i, label %119, label %90, !llvm.loop !176
+  br i1 %exitcond47.not.i.i, label %119, label %90, !llvm.loop !177
 
 102:                                              ; preds = %79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   br label %103
 
 103:                                              ; preds = %103, %102
   %indvars.iv.i.i.i45 = phi i64 [ 0, %102 ], [ %indvars.iv.next.i.i.i46, %103 ]
   %.08.i.i.i = phi ptr [ %80, %102 ], [ %110, %103 ]
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i45
-  %105 = load i8, ptr %104, align 1, !tbaa !14, !alias.scope !187, !noalias !188
+  %105 = load i8, ptr %104, align 1, !tbaa !14, !alias.scope !188, !noalias !189
   %106 = insertelement <16 x i8> poison, i8 %105, i64 0
   %107 = shufflevector <16 x i8> %106, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %108 = bitcast <16 x i8> %107 to <2 x i64>
   %109 = extractelement <2 x i64> %108, i64 0
-  store i64 %109, ptr %.08.i.i.i, align 1, !tbaa !14, !alias.scope !189, !noalias !190
+  store i64 %109, ptr %.08.i.i.i, align 1, !tbaa !14, !alias.scope !190, !noalias !191
   %110 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   %indvars.iv.next.i.i.i46 = add nuw nsw i64 %indvars.iv.i.i.i45, 1
   %exitcond.not.i.i.i47 = icmp eq i64 %indvars.iv.next.i.i.i46, 8
-  br i1 %exitcond.not.i.i.i47, label %161, label %103, !llvm.loop !155
+  br i1 %exitcond.not.i.i.i47, label %161, label %103, !llvm.loop !156
 
 111:                                              ; preds = %.preheader.i40
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   br i1 %.not.i, label %.preheader.i48, label %113
 
 113:                                              ; preds = %111
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %.val.i.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !196, !noalias !197
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  %.val.i.i = load i64, ptr %2, align 1, !tbaa !14, !alias.scope !197, !noalias !198
   br label %114
 
 114:                                              ; preds = %114, %113
   %indvars.iv.i.i21.i = phi i64 [ 0, %113 ], [ %indvars.iv.next.i.i22.i, %114 ]
   %115 = shl nuw nsw i64 %indvars.iv.i.i21.i, 5
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 %115
-  store i64 %.val.i.i, ptr %116, align 1, !tbaa !14, !alias.scope !198, !noalias !201
+  store i64 %.val.i.i, ptr %116, align 1, !tbaa !14, !alias.scope !199, !noalias !202
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 8
-  br i1 %exitcond.not.i.i23.i, label %141, label %114, !llvm.loop !141
+  br i1 %exitcond.not.i.i23.i, label %141, label %114, !llvm.loop !142
 
 .preheader.i48:                                   ; preds = %111, %.preheader.i48
   %indvars.iv.i.i32.i = phi i64 [ %indvars.iv.next.i.i33.i, %.preheader.i48 ], [ 0, %111 ]
   %117 = shl nuw nsw i64 %indvars.iv.i.i32.i, 5
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 %117
-  store i64 -9114861777597660799, ptr %118, align 1, !tbaa !14, !alias.scope !156, !noalias !202
+  store i64 -9114861777597660799, ptr %118, align 1, !tbaa !14, !alias.scope !157, !noalias !203
   %indvars.iv.next.i.i33.i = add nuw nsw i64 %indvars.iv.i.i32.i, 1
   %exitcond.not.i.i34.i = icmp eq i64 %indvars.iv.next.i.i33.i, 8
-  br i1 %exitcond.not.i.i34.i, label %159, label %.preheader.i48, !llvm.loop !125
+  br i1 %exitcond.not.i.i34.i, label %159, label %.preheader.i48, !llvm.loop !126
 
 119:                                              ; preds = %90
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %.val.i51 = load i64, ptr %121, align 1, !tbaa !14, !alias.scope !206, !noalias !210
-  %.val14.i52 = load i64, ptr %120, align 1, !tbaa !14, !alias.scope !208, !noalias !211
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
+  %.val.i51 = load i64, ptr %121, align 1, !tbaa !14, !alias.scope !207, !noalias !211
+  %.val14.i52 = load i64, ptr %120, align 1, !tbaa !14, !alias.scope !209, !noalias !212
   %123 = insertelement <2 x i64> poison, i64 %.val14.i52, i64 0
   %124 = insertelement <2 x i64> %123, i64 %.val.i51, i64 1
   %125 = bitcast <2 x i64> %124 to <16 x i8>
@@ -751,15 +751,15 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv.i.i.i53 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i.i.i54, %138 ]
   %139 = shl nuw nsw i64 %indvars.iv.i.i.i53, 5
   %140 = getelementptr inbounds nuw i8, ptr %122, i64 %139
-  store i64 %137, ptr %140, align 1, !tbaa !14, !alias.scope !212, !noalias !215
+  store i64 %137, ptr %140, align 1, !tbaa !14, !alias.scope !213, !noalias !216
   %indvars.iv.next.i.i.i54 = add nuw nsw i64 %indvars.iv.i.i.i53, 1
   %exitcond.not.i.i.i55 = icmp eq i64 %indvars.iv.next.i.i.i54, 8
-  br i1 %exitcond.not.i.i.i55, label %.loopexit133, label %138, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i55, label %.loopexit133, label %138, !llvm.loop !126
 
 141:                                              ; preds = %114
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %.val15.i56 = load i64, ptr %142, align 1, !tbaa !14, !alias.scope !208, !noalias !211
+  %.val15.i56 = load i64, ptr %142, align 1, !tbaa !14, !alias.scope !209, !noalias !212
   %144 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val15.i56, i64 0
   %145 = bitcast <2 x i64> %144 to <16 x i8>
   %146 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %145, <16 x i8> zeroinitializer)
@@ -778,10 +778,10 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv.i.i17.i57 = phi i64 [ 0, %141 ], [ %indvars.iv.next.i.i18.i58, %156 ]
   %157 = shl nuw nsw i64 %indvars.iv.i.i17.i57, 5
   %158 = getelementptr inbounds nuw i8, ptr %143, i64 %157
-  store i64 %155, ptr %158, align 1, !tbaa !14, !alias.scope !216, !noalias !215
+  store i64 %155, ptr %158, align 1, !tbaa !14, !alias.scope !217, !noalias !216
   %indvars.iv.next.i.i18.i58 = add nuw nsw i64 %indvars.iv.i.i17.i57, 1
   %exitcond.not.i.i19.i59 = icmp eq i64 %indvars.iv.next.i.i18.i58, 8
-  br i1 %exitcond.not.i.i19.i59, label %.loopexit133, label %156, !llvm.loop !125
+  br i1 %exitcond.not.i.i19.i59, label %.loopexit133, label %156, !llvm.loop !126
 
 159:                                              ; preds = %.preheader.i48
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -790,7 +790,7 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
 161:                                              ; preds = %103
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %.val16.i60 = load i64, ptr %162, align 1, !tbaa !14, !alias.scope !206, !noalias !210
+  %.val16.i60 = load i64, ptr %162, align 1, !tbaa !14, !alias.scope !207, !noalias !211
   %164 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val16.i60, i64 0
   %165 = bitcast <2 x i64> %164 to <16 x i8>
   %166 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %165, <16 x i8> zeroinitializer)
@@ -809,19 +809,19 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv.i.i.i.i61 = phi i64 [ 0, %161 ], [ %indvars.iv.next.i.i.i.i62, %176 ]
   %177 = shl nuw nsw i64 %indvars.iv.i.i.i.i61, 5
   %178 = getelementptr inbounds nuw i8, ptr %163, i64 %177
-  store i64 %175, ptr %178, align 1, !tbaa !14, !alias.scope !219, !noalias !215
+  store i64 %175, ptr %178, align 1, !tbaa !14, !alias.scope !220, !noalias !216
   %indvars.iv.next.i.i.i.i62 = add nuw nsw i64 %indvars.iv.i.i.i.i61, 1
   %exitcond.not.i.i.i.i63 = icmp eq i64 %indvars.iv.next.i.i.i.i62, 8
-  br i1 %exitcond.not.i.i.i.i63, label %.loopexit, label %176, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i.i63, label %.loopexit, label %176, !llvm.loop !126
 
 .preheader.i64:                                   ; preds = %159, %.preheader.i64
   %indvars.iv.i.i20.i65 = phi i64 [ %indvars.iv.next.i.i21.i66, %.preheader.i64 ], [ 0, %159 ]
   %179 = shl nuw nsw i64 %indvars.iv.i.i20.i65, 5
   %180 = getelementptr inbounds nuw i8, ptr %160, i64 %179
-  store i64 -9187201950435737472, ptr %180, align 1, !tbaa !14, !alias.scope !203, !noalias !215
+  store i64 -9187201950435737472, ptr %180, align 1, !tbaa !14, !alias.scope !204, !noalias !216
   %indvars.iv.next.i.i21.i66 = add nuw nsw i64 %indvars.iv.i.i20.i65, 1
   %exitcond.not.i.i22.i67 = icmp eq i64 %indvars.iv.next.i.i21.i66, 8
-  br i1 %exitcond.not.i.i22.i67, label %.loopexit, label %.preheader.i64, !llvm.loop !125
+  br i1 %exitcond.not.i.i22.i67, label %.loopexit, label %.preheader.i64, !llvm.loop !126
 
 .loopexit133:                                     ; preds = %138, %156
   %.val.i70 = phi i64 [ %.val15.i56, %156 ], [ %.val14.i52, %138 ]
@@ -834,10 +834,10 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv.i.i71 = phi i64 [ 0, %.loopexit133 ], [ %indvars.iv.next.i.i72, %182 ]
   %183 = shl nuw nsw i64 %indvars.iv.i.i71, 5
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 %183
-  store i64 %.val.i70, ptr %184, align 1, !tbaa !14, !alias.scope !224, !noalias !229
+  store i64 %.val.i70, ptr %184, align 1, !tbaa !14, !alias.scope !225, !noalias !230
   %indvars.iv.next.i.i72 = add nuw nsw i64 %indvars.iv.i.i71, 1
   %exitcond.not.i.i73 = icmp eq i64 %indvars.iv.next.i.i72, 8
-  br i1 %exitcond.not.i.i73, label %VerticalPred_SSE2.exit78, label %182, !llvm.loop !141
+  br i1 %exitcond.not.i.i73, label %VerticalPred_SSE2.exit78, label %182, !llvm.loop !142
 
 .loopexit:                                        ; preds = %176, %.preheader.i64
   %.025113.ph = phi ptr [ null, %.preheader.i64 ], [ %162, %176 ]
@@ -848,65 +848,65 @@ VerticalPred_SSE2.exit:                           ; preds = %61, %.preheader.i32
   %indvars.iv.i.i.i75 = phi i64 [ %indvars.iv.next.i.i.i76, %.preheader.i74 ], [ 0, %.loopexit ]
   %186 = shl nuw nsw i64 %indvars.iv.i.i.i75, 5
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 %186
-  store i64 9187201950435737471, ptr %187, align 1, !tbaa !14, !alias.scope !231, !noalias !229
+  store i64 9187201950435737471, ptr %187, align 1, !tbaa !14, !alias.scope !232, !noalias !230
   %indvars.iv.next.i.i.i76 = add nuw nsw i64 %indvars.iv.i.i.i75, 1
   %exitcond.not.i.i.i77 = icmp eq i64 %indvars.iv.next.i.i.i76, 8
-  br i1 %exitcond.not.i.i.i77, label %VerticalPred_SSE2.exit78, label %.preheader.i74, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i77, label %VerticalPred_SSE2.exit78, label %.preheader.i74, !llvm.loop !126
 
 VerticalPred_SSE2.exit78:                         ; preds = %182, %.preheader.i74
   %spec.select110127 = phi ptr [ null, %.preheader.i74 ], [ %spec.select110, %182 ]
   %.025113125 = phi ptr [ %.025113.ph, %.preheader.i74 ], [ %.025113, %182 ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   br i1 %.not12.i, label %.preheader.i84, label %189
 
 189:                                              ; preds = %VerticalPred_SSE2.exit78
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   br label %190
 
 190:                                              ; preds = %190, %189
   %indvars.iv.i.i80 = phi i64 [ 0, %189 ], [ %indvars.iv.next.i.i82, %190 ]
   %.08.i.i81 = phi ptr [ %188, %189 ], [ %197, %190 ]
   %191 = getelementptr inbounds nuw i8, ptr %.025113125, i64 %indvars.iv.i.i80
-  %192 = load i8, ptr %191, align 1, !tbaa !14, !alias.scope !242, !noalias !243
+  %192 = load i8, ptr %191, align 1, !tbaa !14, !alias.scope !243, !noalias !244
   %193 = insertelement <16 x i8> poison, i8 %192, i64 0
   %194 = shufflevector <16 x i8> %193, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %195 = bitcast <16 x i8> %194 to <2 x i64>
   %196 = extractelement <2 x i64> %195, i64 0
-  store i64 %196, ptr %.08.i.i81, align 1, !tbaa !14, !alias.scope !243, !noalias !242
+  store i64 %196, ptr %.08.i.i81, align 1, !tbaa !14, !alias.scope !244, !noalias !243
   %197 = getelementptr inbounds nuw i8, ptr %.08.i.i81, i64 32
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i80, 1
   %exitcond.not.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 8
-  br i1 %exitcond.not.i.i83, label %200, label %190, !llvm.loop !155
+  br i1 %exitcond.not.i.i83, label %200, label %190, !llvm.loop !156
 
 .preheader.i84:                                   ; preds = %VerticalPred_SSE2.exit78, %.preheader.i84
   %indvars.iv.i.i.i85 = phi i64 [ %indvars.iv.next.i.i.i86, %.preheader.i84 ], [ 0, %VerticalPred_SSE2.exit78 ]
   %198 = shl nuw nsw i64 %indvars.iv.i.i.i85, 5
   %199 = getelementptr inbounds nuw i8, ptr %188, i64 %198
-  store i64 -9114861777597660799, ptr %199, align 1, !tbaa !14, !alias.scope !232, !noalias !235
+  store i64 -9114861777597660799, ptr %199, align 1, !tbaa !14, !alias.scope !233, !noalias !236
   %indvars.iv.next.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i85, 1
   %exitcond.not.i.i.i87 = icmp eq i64 %indvars.iv.next.i.i.i86, 8
-  br i1 %exitcond.not.i.i.i87, label %232, label %.preheader.i84, !llvm.loop !125
+  br i1 %exitcond.not.i.i.i87, label %232, label %.preheader.i84, !llvm.loop !126
 
 200:                                              ; preds = %190
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
   br i1 %.not.i, label %223, label %202
 
 202:                                              ; preds = %200
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  %203 = load i64, ptr %spec.select110127, align 1, !tbaa !14, !alias.scope !258, !noalias !259
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
+  %203 = load i64, ptr %spec.select110127, align 1, !tbaa !14, !alias.scope !259, !noalias !260
   %204 = insertelement <2 x i64> poison, i64 %203, i64 0
   %205 = bitcast <2 x i64> %204 to <16 x i8>
   %206 = shufflevector <16 x i8> %205, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %207 = getelementptr inbounds i8, ptr %.025113125, i64 -1
-  %208 = load i8, ptr %207, align 1, !tbaa !14, !alias.scope !260, !noalias !261
+  %208 = load i8, ptr %207, align 1, !tbaa !14, !alias.scope !261, !noalias !262
   %209 = zext i8 %208 to i16
   %210 = bitcast <16 x i8> %206 to <8 x i16>
   br label %211
@@ -915,7 +915,7 @@ VerticalPred_SSE2.exit78:                         ; preds = %182, %.preheader.i7
   %indvars.iv44.i.i91 = phi i64 [ 0, %202 ], [ %indvars.iv.next45.i.i93, %211 ]
   %.041.i.i92 = phi ptr [ %201, %202 ], [ %222, %211 ]
   %212 = getelementptr inbounds nuw i8, ptr %.025113125, i64 %indvars.iv44.i.i91
-  %213 = load i8, ptr %212, align 1, !tbaa !14, !alias.scope !260, !noalias !261
+  %213 = load i8, ptr %212, align 1, !tbaa !14, !alias.scope !261, !noalias !262
   %214 = zext i8 %213 to i16
   %215 = sub nsw i16 %214, %209
   %216 = insertelement <8 x i16> poison, i16 %215, i64 0
@@ -924,61 +924,61 @@ VerticalPred_SSE2.exit78:                         ; preds = %182, %.preheader.i7
   %219 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %218, <8 x i16> poison)
   %220 = bitcast <16 x i8> %219 to <2 x i64>
   %221 = extractelement <2 x i64> %220, i64 0
-  store i64 %221, ptr %.041.i.i92, align 1, !tbaa !14, !alias.scope !262, !noalias !263
+  store i64 %221, ptr %.041.i.i92, align 1, !tbaa !14, !alias.scope !263, !noalias !264
   %indvars.iv.next45.i.i93 = add nuw nsw i64 %indvars.iv44.i.i91, 1
   %222 = getelementptr inbounds nuw i8, ptr %.041.i.i92, i64 32
   %exitcond47.not.i.i94 = icmp eq i64 %indvars.iv.next45.i.i93, 8
-  br i1 %exitcond47.not.i.i94, label %TrueMotion_SSE2.exit107, label %211, !llvm.loop !176
+  br i1 %exitcond47.not.i.i94, label %TrueMotion_SSE2.exit107, label %211, !llvm.loop !177
 
 223:                                              ; preds = %200
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   br label %224
 
 224:                                              ; preds = %224, %223
   %indvars.iv.i.i.i95 = phi i64 [ 0, %223 ], [ %indvars.iv.next.i.i.i97, %224 ]
   %.08.i.i.i96 = phi ptr [ %201, %223 ], [ %231, %224 ]
   %225 = getelementptr inbounds nuw i8, ptr %.025113125, i64 %indvars.iv.i.i.i95
-  %226 = load i8, ptr %225, align 1, !tbaa !14, !alias.scope !274, !noalias !275
+  %226 = load i8, ptr %225, align 1, !tbaa !14, !alias.scope !275, !noalias !276
   %227 = insertelement <16 x i8> poison, i8 %226, i64 0
   %228 = shufflevector <16 x i8> %227, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %229 = bitcast <16 x i8> %228 to <2 x i64>
   %230 = extractelement <2 x i64> %229, i64 0
-  store i64 %230, ptr %.08.i.i.i96, align 1, !tbaa !14, !alias.scope !276, !noalias !277
+  store i64 %230, ptr %.08.i.i.i96, align 1, !tbaa !14, !alias.scope !277, !noalias !278
   %231 = getelementptr inbounds nuw i8, ptr %.08.i.i.i96, i64 32
   %indvars.iv.next.i.i.i97 = add nuw nsw i64 %indvars.iv.i.i.i95, 1
   %exitcond.not.i.i.i98 = icmp eq i64 %indvars.iv.next.i.i.i97, 8
-  br i1 %exitcond.not.i.i.i98, label %TrueMotion_SSE2.exit107, label %224, !llvm.loop !155
+  br i1 %exitcond.not.i.i.i98, label %TrueMotion_SSE2.exit107, label %224, !llvm.loop !156
 
 232:                                              ; preds = %.preheader.i84
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   br i1 %.not.i, label %.preheader.i103, label %234
 
 234:                                              ; preds = %232
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  %.val.i.i99 = load i64, ptr %spec.select110127, align 1, !tbaa !14, !alias.scope !283, !noalias !284
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
+  %.val.i.i99 = load i64, ptr %spec.select110127, align 1, !tbaa !14, !alias.scope !284, !noalias !285
   br label %235
 
 235:                                              ; preds = %235, %234
   %indvars.iv.i.i21.i100 = phi i64 [ 0, %234 ], [ %indvars.iv.next.i.i22.i101, %235 ]
   %236 = shl nuw nsw i64 %indvars.iv.i.i21.i100, 5
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 %236
-  store i64 %.val.i.i99, ptr %237, align 1, !tbaa !14, !alias.scope !285, !noalias !288
+  store i64 %.val.i.i99, ptr %237, align 1, !tbaa !14, !alias.scope !286, !noalias !289
   %indvars.iv.next.i.i22.i101 = add nuw nsw i64 %indvars.iv.i.i21.i100, 1
   %exitcond.not.i.i23.i102 = icmp eq i64 %indvars.iv.next.i.i22.i101, 8
-  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %235, !llvm.loop !141
+  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %235, !llvm.loop !142
 
 .preheader.i103:                                  ; preds = %232, %.preheader.i103
   %indvars.iv.i.i32.i104 = phi i64 [ %indvars.iv.next.i.i33.i105, %.preheader.i103 ], [ 0, %232 ]
   %238 = shl nuw nsw i64 %indvars.iv.i.i32.i104, 5
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 %238
-  store i64 -9114861777597660799, ptr %239, align 1, !tbaa !14, !alias.scope !244, !noalias !289
+  store i64 -9114861777597660799, ptr %239, align 1, !tbaa !14, !alias.scope !245, !noalias !290
   %indvars.iv.next.i.i33.i105 = add nuw nsw i64 %indvars.iv.i.i32.i104, 1
   %exitcond.not.i.i34.i106 = icmp eq i64 %indvars.iv.next.i.i33.i105, 8
-  br i1 %exitcond.not.i.i34.i106, label %TrueMotion_SSE2.exit107, label %.preheader.i103, !llvm.loop !125
+  br i1 %exitcond.not.i.i34.i106, label %TrueMotion_SSE2.exit107, label %.preheader.i103, !llvm.loop !126
 
 TrueMotion_SSE2.exit107:                          ; preds = %211, %224, %235, %.preheader.i103
   ret void
@@ -986,24 +986,24 @@ TrueMotion_SSE2.exit107:                          ; preds = %211, %224, %235, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @Intra4Preds_SSE2(ptr noalias noundef writeonly %0, ptr noalias noundef readonly captures(none) %1) #2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
   br label %3
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
   %.089.i = phi i32 [ 4, %2 ], [ %11, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %5 = load i8, ptr %4, align 1, !tbaa !14, !alias.scope !293, !noalias !290
+  %5 = load i8, ptr %4, align 1, !tbaa !14, !alias.scope !294, !noalias !291
   %6 = zext i8 %5 to i32
   %7 = getelementptr i8, ptr %4, i64 -5
-  %8 = load i8, ptr %7, align 1, !tbaa !14, !alias.scope !293, !noalias !290
+  %8 = load i8, ptr %7, align 1, !tbaa !14, !alias.scope !294, !noalias !291
   %9 = zext i8 %8 to i32
   %10 = add i32 %.089.i, %6
   %11 = add i32 %10, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !295
+  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !296
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1536
@@ -1015,21 +1015,21 @@ define internal void @Intra4Preds_SSE2(ptr noalias noundef writeonly %0, ptr noa
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %12 ]
   %16 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %17, i8 %15, i64 4, i1 false), !alias.scope !290, !noalias !293
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %17, i8 %15, i64 4, i1 false), !alias.scope !291, !noalias !294
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %DC4_SSE2.exit, label %.preheader.i.i, !llvm.loop !296
+  br i1 %exitcond.not.i.i, label %DC4_SSE2.exit, label %.preheader.i.i, !llvm.loop !297
 
 DC4_SSE2.exit:                                    ; preds = %.preheader.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1540
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
-  %.val.i = load i32, ptr %1, align 1, !alias.scope !300, !noalias !297
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
+  %.val.i = load i32, ptr %1, align 1, !alias.scope !301, !noalias !298
   %19 = insertelement <4 x i32> poison, i32 %.val.i, i64 0
   %20 = bitcast <4 x i32> %19 to <16 x i8>
   %21 = shufflevector <16 x i8> %20, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %22 = getelementptr inbounds i8, ptr %1, i64 -1
-  %23 = load i8, ptr %22, align 1, !tbaa !14, !alias.scope !300, !noalias !297
+  %23 = load i8, ptr %22, align 1, !tbaa !14, !alias.scope !301, !noalias !298
   %24 = zext i8 %23 to i16
   %25 = bitcast <16 x i8> %21 to <8 x i16>
   br label %26
@@ -1039,7 +1039,7 @@ DC4_SSE2.exit:                                    ; preds = %.preheader.i.i
   %.016.i = phi ptr [ %18, %DC4_SSE2.exit ], [ %38, %26 ]
   %27 = sub nuw nsw i64 -2, %indvars.iv.i23
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !14, !alias.scope !300, !noalias !297
+  %29 = load i8, ptr %28, align 1, !tbaa !14, !alias.scope !301, !noalias !298
   %30 = zext i8 %29 to i16
   %31 = sub nsw i16 %30, %24
   %32 = insertelement <8 x i16> poison, i16 %31, i64 0
@@ -1048,11 +1048,11 @@ DC4_SSE2.exit:                                    ; preds = %.preheader.i.i
   %35 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %34, <8 x i16> poison)
   %36 = bitcast <16 x i8> %35 to <4 x i32>
   %37 = extractelement <4 x i32> %36, i64 0
-  store i32 %37, ptr %.016.i, align 1, !alias.scope !297, !noalias !300
+  store i32 %37, ptr %.016.i, align 1, !alias.scope !298, !noalias !301
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %38 = getelementptr inbounds nuw i8, ptr %.016.i, i64 32
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 4
-  br i1 %exitcond.not.i25, label %TM4_SSE2.exit, label %26, !llvm.loop !302
+  br i1 %exitcond.not.i25, label %TM4_SSE2.exit, label %26, !llvm.loop !303
 
 TM4_SSE2.exit:                                    ; preds = %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1544
@@ -1074,30 +1074,30 @@ TM4_SSE2.exit:                                    ; preds = %26
   %indvars.iv.i26 = phi i64 [ 0, %TM4_SSE2.exit ], [ %indvars.iv.next.i27, %51 ]
   %52 = shl nuw nsw i64 %indvars.iv.i26, 5
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 %52
-  store i32 %50, ptr %53, align 1, !alias.scope !303
+  store i32 %50, ptr %53, align 1, !alias.scope !304
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 4
-  br i1 %exitcond.not.i28, label %VE4_SSE2.exit, label %51, !llvm.loop !306
+  br i1 %exitcond.not.i28, label %VE4_SSE2.exit, label %51, !llvm.loop !307
 
 VE4_SSE2.exit:                                    ; preds = %51
   %54 = lshr i64 %.val, 32
   %55 = trunc i64 %54 to i16
   %56 = trunc i64 %.val to i32
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1548
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %58 = and i32 %56, 255
   %59 = getelementptr inbounds i8, ptr %1, i64 -2
-  %60 = load i8, ptr %59, align 1, !tbaa !14, !alias.scope !310, !noalias !307
+  %60 = load i8, ptr %59, align 1, !tbaa !14, !alias.scope !311, !noalias !308
   %61 = zext i8 %60 to i32
   %62 = getelementptr inbounds i8, ptr %1, i64 -3
-  %63 = load i8, ptr %62, align 1, !tbaa !14, !alias.scope !310, !noalias !307
+  %63 = load i8, ptr %62, align 1, !tbaa !14, !alias.scope !311, !noalias !308
   %64 = zext i8 %63 to i32
   %65 = getelementptr inbounds i8, ptr %1, i64 -4
-  %66 = load i8, ptr %65, align 1, !tbaa !14, !alias.scope !310, !noalias !307
+  %66 = load i8, ptr %65, align 1, !tbaa !14, !alias.scope !311, !noalias !308
   %67 = zext i8 %66 to i32
   %68 = getelementptr inbounds i8, ptr %1, i64 -5
-  %69 = load i8, ptr %68, align 1, !tbaa !14, !alias.scope !310, !noalias !307
+  %69 = load i8, ptr %68, align 1, !tbaa !14, !alias.scope !311, !noalias !308
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %61, 1
   %72 = add nuw nsw i32 %64, 2
@@ -1105,7 +1105,7 @@ VE4_SSE2.exit:                                    ; preds = %51
   %74 = add nuw nsw i32 %73, %72
   %75 = lshr i32 %74, 2
   %76 = mul nuw i32 %75, 16843009
-  store i32 %76, ptr %57, align 1, !alias.scope !307, !noalias !310
+  store i32 %76, ptr %57, align 1, !alias.scope !308, !noalias !311
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %78 = shl nuw nsw i32 %64, 1
   %79 = add nuw nsw i32 %67, 2
@@ -1113,21 +1113,21 @@ VE4_SSE2.exit:                                    ; preds = %51
   %81 = add nuw nsw i32 %80, %79
   %82 = lshr i32 %81, 2
   %83 = mul nuw i32 %82, 16843009
-  store i32 %83, ptr %77, align 1, !alias.scope !307, !noalias !310
+  store i32 %83, ptr %77, align 1, !alias.scope !308, !noalias !311
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %85 = shl nuw nsw i32 %67, 1
   %86 = add nuw nsw i32 %85, %72
   %87 = add nuw nsw i32 %86, %70
   %88 = lshr i32 %87, 2
   %89 = mul nuw i32 %88, 16843009
-  store i32 %89, ptr %84, align 1, !alias.scope !307, !noalias !310
+  store i32 %89, ptr %84, align 1, !alias.scope !308, !noalias !311
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1644
   %91 = shl nuw nsw i32 %70, 1
   %92 = add nuw nsw i32 %79, %70
   %93 = add nuw nsw i32 %92, %91
   %94 = lshr i32 %93, 2
   %95 = mul nuw i32 %94, 16843009
-  store i32 %95, ptr %90, align 1, !alias.scope !307, !noalias !310
+  store i32 %95, ptr %90, align 1, !alias.scope !308, !noalias !311
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %.val20 = load i64, ptr %68, align 1, !tbaa !14
   %97 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %.val20, i64 0
@@ -1145,21 +1145,21 @@ VE4_SSE2.exit:                                    ; preds = %51
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %110 = bitcast <16 x i8> %108 to <4 x i32>
   %111 = extractelement <4 x i32> %110, i64 0
-  store i32 %111, ptr %109, align 1, !alias.scope !312
+  store i32 %111, ptr %109, align 1, !alias.scope !313
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %113 = shufflevector <16 x i8> %108, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %114 = bitcast <16 x i8> %113 to <4 x i32>
   %115 = extractelement <4 x i32> %114, i64 0
-  store i32 %115, ptr %112, align 1, !alias.scope !312
+  store i32 %115, ptr %112, align 1, !alias.scope !313
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %117 = shufflevector <16 x i8> %108, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %118 = bitcast <16 x i8> %117 to <4 x i32>
   %119 = extractelement <4 x i32> %118, i64 0
-  store i32 %119, ptr %116, align 1, !alias.scope !312
+  store i32 %119, ptr %116, align 1, !alias.scope !313
   %120 = shufflevector <16 x i8> %108, <16 x i8> poison, <16 x i32> <i32 3, i32 4, i32 5, i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %121 = bitcast <16 x i8> %120 to <4 x i32>
   %122 = extractelement <4 x i32> %121, i64 0
-  store i32 %122, ptr %96, align 1, !alias.scope !312
+  store i32 %122, ptr %96, align 1, !alias.scope !313
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1556
   %124 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %41, <16 x i8> %42)
   %125 = shufflevector <16 x i8> %41, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
@@ -1176,29 +1176,29 @@ VE4_SSE2.exit:                                    ; preds = %51
   %136 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %135, <16 x i8> %41)
   %137 = bitcast <16 x i8> %124 to <4 x i32>
   %138 = extractelement <4 x i32> %137, i64 0
-  store i32 %138, ptr %123, align 1, !alias.scope !315, !noalias !318
+  store i32 %138, ptr %123, align 1, !alias.scope !316, !noalias !319
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1588
   %140 = bitcast <16 x i8> %136 to <4 x i32>
   %141 = extractelement <4 x i32> %140, i64 0
-  store i32 %141, ptr %139, align 1, !alias.scope !315, !noalias !318
+  store i32 %141, ptr %139, align 1, !alias.scope !316, !noalias !319
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 1620
   %143 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %124, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %144 = bitcast <16 x i8> %143 to <4 x i32>
   %145 = extractelement <4 x i32> %144, i64 0
-  store i32 %145, ptr %142, align 1, !alias.scope !315, !noalias !318
+  store i32 %145, ptr %142, align 1, !alias.scope !316, !noalias !319
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   %147 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %136, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %148 = bitcast <16 x i8> %147 to <4 x i32>
   %149 = extractelement <4 x i32> %148, i64 0
-  store i32 %149, ptr %146, align 1, !alias.scope !315, !noalias !318
+  store i32 %149, ptr %146, align 1, !alias.scope !316, !noalias !319
   %150 = trunc nuw i32 %75 to i8
-  store i8 %150, ptr %142, align 1, !tbaa !14, !alias.scope !315, !noalias !318
+  store i8 %150, ptr %142, align 1, !tbaa !14, !alias.scope !316, !noalias !319
   %151 = add nuw nsw i32 %61, 2
   %152 = add nuw nsw i32 %151, %67
   %153 = add nuw nsw i32 %152, %78
   %154 = lshr i32 %153, 2
   %155 = trunc nuw i32 %154 to i8
-  store i8 %155, ptr %146, align 1, !tbaa !14, !alias.scope !315, !noalias !318
+  store i8 %155, ptr %146, align 1, !tbaa !14, !alias.scope !316, !noalias !319
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %157 = load i64, ptr %1, align 1
   %158 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %157, i64 0
@@ -1219,22 +1219,22 @@ VE4_SSE2.exit:                                    ; preds = %51
   %173 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %172, <16 x i8> %160)
   %174 = bitcast <16 x i8> %173 to <4 x i32>
   %175 = extractelement <4 x i32> %174, i64 0
-  store i32 %175, ptr %156, align 1, !alias.scope !320, !noalias !323
+  store i32 %175, ptr %156, align 1, !alias.scope !321, !noalias !324
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %177 = shufflevector <16 x i8> %173, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %178 = bitcast <16 x i8> %177 to <4 x i32>
   %179 = extractelement <4 x i32> %178, i64 0
-  store i32 %179, ptr %176, align 1, !alias.scope !320, !noalias !323
+  store i32 %179, ptr %176, align 1, !alias.scope !321, !noalias !324
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %181 = shufflevector <16 x i8> %173, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %182 = bitcast <16 x i8> %181 to <4 x i32>
   %183 = extractelement <4 x i32> %182, i64 0
-  store i32 %183, ptr %180, align 1, !alias.scope !320, !noalias !323
+  store i32 %183, ptr %180, align 1, !alias.scope !321, !noalias !324
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %185 = shufflevector <16 x i8> %173, <16 x i8> poison, <16 x i32> <i32 3, i32 4, i32 5, i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %186 = bitcast <16 x i8> %185 to <4 x i32>
   %187 = extractelement <4 x i32> %186, i64 0
-  store i32 %187, ptr %184, align 1, !alias.scope !320, !noalias !323
+  store i32 %187, ptr %184, align 1, !alias.scope !321, !noalias !324
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 1564
   %189 = shufflevector <16 x i8> %159, <16 x i8> <i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17>
   %190 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %159, <16 x i8> %160)
@@ -1249,33 +1249,33 @@ VE4_SSE2.exit:                                    ; preds = %51
   %199 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %192, <16 x i8> %198)
   %200 = bitcast <16 x i8> %190 to <4 x i32>
   %201 = extractelement <4 x i32> %200, i64 0
-  store i32 %201, ptr %188, align 1, !alias.scope !325
+  store i32 %201, ptr %188, align 1, !alias.scope !326
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 1596
   %203 = bitcast <16 x i8> %199 to <4 x i32>
   %204 = extractelement <4 x i32> %203, i64 0
-  store i32 %204, ptr %202, align 1, !alias.scope !325
+  store i32 %204, ptr %202, align 1, !alias.scope !326
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   %206 = shufflevector <16 x i8> %190, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %207 = bitcast <16 x i8> %206 to <4 x i32>
   %208 = extractelement <4 x i32> %207, i64 0
-  store i32 %208, ptr %205, align 1, !alias.scope !325
+  store i32 %208, ptr %205, align 1, !alias.scope !326
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %210 = shufflevector <16 x i8> %199, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %211 = bitcast <16 x i8> %210 to <4 x i32>
   %212 = extractelement <4 x i32> %211, i64 0
-  store i32 %212, ptr %209, align 1, !alias.scope !325
+  store i32 %212, ptr %209, align 1, !alias.scope !326
   %213 = extractelement <16 x i8> %199, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 1631
-  store i8 %213, ptr %214, align 1, !tbaa !14, !alias.scope !325
+  store i8 %213, ptr %214, align 1, !tbaa !14, !alias.scope !326
   %215 = extractelement <16 x i8> %199, i64 5
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 1663
-  store i8 %215, ptr %216, align 1, !tbaa !14, !alias.scope !325
+  store i8 %215, ptr %216, align 1, !tbaa !14, !alias.scope !326
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %218 = load i8, ptr %22, align 1, !tbaa !14, !alias.scope !331, !noalias !328
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
+  %218 = load i8, ptr %22, align 1, !tbaa !14, !alias.scope !332, !noalias !329
   %219 = zext i8 %218 to i32
-  %220 = load i8, ptr %68, align 1, !tbaa !14, !alias.scope !331, !noalias !328
+  %220 = load i8, ptr %68, align 1, !tbaa !14, !alias.scope !332, !noalias !329
   %221 = zext i8 %220 to i32
   %222 = trunc i64 %157 to i32
   %223 = and i32 %222, 255
@@ -1290,29 +1290,29 @@ VE4_SSE2.exit:                                    ; preds = %51
   %232 = lshr i32 %231, 1
   %233 = trunc nuw i32 %232 to i8
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 1698
-  store i8 %233, ptr %234, align 1, !tbaa !14, !alias.scope !328, !noalias !331
-  store i8 %233, ptr %217, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %233, ptr %234, align 1, !tbaa !14, !alias.scope !329, !noalias !332
+  store i8 %233, ptr %217, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %235 = add nuw nsw i32 %230, %64
   %236 = lshr i32 %235, 1
   %237 = trunc nuw i32 %236 to i8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 1730
-  store i8 %237, ptr %238, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %237, ptr %238, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  store i8 %237, ptr %239, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %237, ptr %239, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %240 = add nuw nsw i32 %64, 1
   %241 = add nuw nsw i32 %240, %67
   %242 = lshr i32 %241, 1
   %243 = trunc nuw i32 %242 to i8
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 1762
-  store i8 %243, ptr %244, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %243, ptr %244, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  store i8 %243, ptr %245, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %243, ptr %245, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %246 = add nuw nsw i32 %67, 1
   %247 = add nuw nsw i32 %246, %221
   %248 = lshr i32 %247, 1
   %249 = trunc nuw i32 %248 to i8
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  store i8 %249, ptr %250, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %249, ptr %250, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %251 = shl nuw nsw i32 %226, 1
   %252 = add nuw nsw i32 %223, 2
   %253 = add nuw nsw i32 %252, %251
@@ -1320,7 +1320,7 @@ VE4_SSE2.exit:                                    ; preds = %51
   %255 = lshr i32 %254, 2
   %256 = trunc nuw i32 %255 to i8
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 1667
-  store i8 %256, ptr %257, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %256, ptr %257, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %258 = shl nuw nsw i32 %223, 1
   %259 = add nuw nsw i32 %219, 2
   %260 = add nuw nsw i32 %258, %259
@@ -1328,101 +1328,101 @@ VE4_SSE2.exit:                                    ; preds = %51
   %262 = lshr i32 %261, 2
   %263 = trunc nuw i32 %262 to i8
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 1666
-  store i8 %263, ptr %264, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %263, ptr %264, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %265 = shl nuw nsw i32 %219, 1
   %266 = add nuw nsw i32 %265, %151
   %267 = add nuw nsw i32 %266, %223
   %268 = lshr i32 %267, 2
   %269 = trunc nuw i32 %268 to i8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 1699
-  store i8 %269, ptr %270, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %269, ptr %270, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 1665
-  store i8 %269, ptr %271, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %269, ptr %271, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %272 = add nuw nsw i32 %71, %64
   %273 = add nuw nsw i32 %272, %259
   %274 = lshr i32 %273, 2
   %275 = trunc nuw i32 %274 to i8
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 1731
-  store i8 %275, ptr %276, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %275, ptr %276, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 1697
-  store i8 %275, ptr %277, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %275, ptr %277, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 1763
-  store i8 %155, ptr %278, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %155, ptr %278, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 1729
-  store i8 %155, ptr %279, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %155, ptr %279, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %280 = add nuw nsw i32 %86, %221
   %281 = lshr i32 %280, 2
   %282 = trunc nuw i32 %281 to i8
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 1761
-  store i8 %282, ptr %283, align 1, !tbaa !14, !alias.scope !328, !noalias !331
+  store i8 %282, ptr %283, align 1, !tbaa !14, !alias.scope !329, !noalias !332
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %285 = add nuw nsw i32 %240, %61
   %286 = lshr i32 %285, 1
   %287 = trunc nuw i32 %286 to i8
-  store i8 %287, ptr %284, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %287, ptr %284, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 1700
-  store i8 %243, ptr %288, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %243, ptr %288, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 1670
-  store i8 %243, ptr %289, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %243, ptr %289, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 1732
-  store i8 %249, ptr %290, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %249, ptr %290, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 1702
-  store i8 %249, ptr %291, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %249, ptr %291, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %292 = trunc nuw i32 %82 to i8
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 1669
-  store i8 %292, ptr %293, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %292, ptr %293, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 1701
-  store i8 %282, ptr %294, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %282, ptr %294, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 1671
-  store i8 %282, ptr %295, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %282, ptr %295, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %296 = shl nuw nsw i32 %221, 1
   %297 = add nuw nsw i32 %79, %221
   %298 = add nuw nsw i32 %297, %296
   %299 = lshr i32 %298, 2
   %300 = trunc nuw i32 %299 to i8
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 1733
-  store i8 %300, ptr %301, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %300, ptr %301, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 1703
-  store i8 %300, ptr %302, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %300, ptr %302, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 1767
-  store i8 %220, ptr %303, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %303, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 1766
-  store i8 %220, ptr %304, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %304, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 1765
-  store i8 %220, ptr %305, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %305, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 1764
-  store i8 %220, ptr %306, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %306, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 1734
-  store i8 %220, ptr %307, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %307, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 1735
-  store i8 %220, ptr %308, align 1, !tbaa !14, !alias.scope !333, !noalias !336
+  store i8 %220, ptr %308, align 1, !tbaa !14, !alias.scope !334, !noalias !337
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noalias noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !343
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
+  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !344
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !14, !noalias !343
+  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !14, !noalias !344
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !14, !alias.scope !341, !noalias !338
-  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !14, !alias.scope !342, !noalias !339
+  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %.lobit.i.i = ashr <8 x i16> %5, splat (i16 15)
   %.lobit.i102.i = ashr <8 x i16> %7, splat (i16 15)
   %15 = xor <8 x i16> %.lobit.i.i, %5
   %16 = sub <8 x i16> %15, %.lobit.i.i
   %17 = xor <8 x i16> %.lobit.i102.i, %7
   %18 = sub <8 x i16> %17, %.lobit.i102.i
-  %19 = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !338, !noalias !341
+  %19 = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !339, !noalias !342
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %21 = load <8 x i16>, ptr %20, align 1, !tbaa !14, !alias.scope !338, !noalias !341
+  %21 = load <8 x i16>, ptr %20, align 1, !tbaa !14, !alias.scope !339, !noalias !342
   %22 = add <8 x i16> %19, %16
   %23 = add <8 x i16> %21, %18
   %24 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %22, <8 x i16> %9)
@@ -1434,13 +1434,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(non
   %30 = shufflevector <8 x i16> %27, <8 x i16> %26, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %31 = shufflevector <8 x i16> %27, <8 x i16> %26, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %39 = load <4 x i32>, ptr %38, align 1, !tbaa !14, !alias.scope !341, !noalias !338
+  %39 = load <4 x i32>, ptr %38, align 1, !tbaa !14, !alias.scope !342, !noalias !339
   %40 = bitcast <8 x i16> %28 to <4 x i32>
   %41 = add <4 x i32> %33, %40
   %42 = bitcast <8 x i16> %29 to <4 x i32>
@@ -1463,8 +1463,8 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(non
   %59 = sub <8 x i16> %57, %.lobit.i102.i
   %60 = mul <8 x i16> %58, %12
   %61 = mul <8 x i16> %59, %14
-  store <8 x i16> %60, ptr %0, align 1, !tbaa !14, !noalias !343
-  store <8 x i16> %61, ptr %6, align 1, !tbaa !14, !noalias !343
+  store <8 x i16> %60, ptr %0, align 1, !tbaa !14, !noalias !344
+  store <8 x i16> %61, ptr %6, align 1, !tbaa !14, !noalias !344
   %62 = shufflevector <8 x i16> %58, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 7, i32 5, i32 6>
   %63 = bitcast <8 x i16> %62 to <4 x i32>
   %64 = shufflevector <4 x i32> %63, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1475,16 +1475,16 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(non
   %69 = shufflevector <4 x i32> %68, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %70 = bitcast <4 x i32> %69 to <8 x i16>
   %71 = shufflevector <8 x i16> %70, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 3, i32 1, i32 4, i32 5, i32 6, i32 7>
-  store <8 x i16> %66, ptr %1, align 1, !tbaa !14, !noalias !343
+  store <8 x i16> %66, ptr %1, align 1, !tbaa !14, !noalias !344
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <8 x i16> %71, ptr %72, align 1, !tbaa !14, !noalias !343
+  store <8 x i16> %71, ptr %72, align 1, !tbaa !14, !noalias !344
   %73 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %66, <8 x i16> %71)
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = extractelement <8 x i16> %70, i64 4
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %77 = extractelement <8 x i16> %65, i64 3
-  store i16 %75, ptr %76, align 2, !tbaa !18, !noalias !343
-  store i16 %77, ptr %74, align 2, !tbaa !18, !noalias !343
+  store i16 %75, ptr %76, align 2, !tbaa !18, !noalias !344
+  store i16 %77, ptr %74, align 2, !tbaa !18, !noalias !344
   %78 = icmp ne <16 x i8> %73, zeroinitializer
   %79 = bitcast <16 x i1> %78 to i16
   %80 = icmp ne i16 %79, 0
@@ -1495,27 +1495,27 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noalias noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !349
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
+  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !350
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !14, !noalias !349
+  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !14, !noalias !350
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !14, !alias.scope !347, !noalias !344
-  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !14, !alias.scope !348, !noalias !345
+  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %.lobit.i.i = ashr <8 x i16> %5, splat (i16 15)
   %.lobit.i102.i = ashr <8 x i16> %7, splat (i16 15)
   %15 = xor <8 x i16> %.lobit.i.i, %5
   %16 = sub <8 x i16> %15, %.lobit.i.i
   %17 = xor <8 x i16> %.lobit.i102.i, %7
   %18 = sub <8 x i16> %17, %.lobit.i102.i
-  %19 = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !344, !noalias !347
+  %19 = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !345, !noalias !348
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %21 = load <8 x i16>, ptr %20, align 1, !tbaa !14, !alias.scope !344, !noalias !347
+  %21 = load <8 x i16>, ptr %20, align 1, !tbaa !14, !alias.scope !345, !noalias !348
   %22 = add <8 x i16> %19, %16
   %23 = add <8 x i16> %21, %18
   %24 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %22, <8 x i16> %9)
@@ -1527,13 +1527,13 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %30 = shufflevector <8 x i16> %27, <8 x i16> %26, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %31 = shufflevector <8 x i16> %27, <8 x i16> %26, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %39 = load <4 x i32>, ptr %38, align 1, !tbaa !14, !alias.scope !347, !noalias !344
+  %39 = load <4 x i32>, ptr %38, align 1, !tbaa !14, !alias.scope !348, !noalias !345
   %40 = bitcast <8 x i16> %28 to <4 x i32>
   %41 = add <4 x i32> %33, %40
   %42 = bitcast <8 x i16> %29 to <4 x i32>
@@ -1556,8 +1556,8 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %59 = sub <8 x i16> %57, %.lobit.i102.i
   %60 = mul <8 x i16> %58, %12
   %61 = mul <8 x i16> %59, %14
-  store <8 x i16> %60, ptr %0, align 1, !tbaa !14, !noalias !349
-  store <8 x i16> %61, ptr %6, align 1, !tbaa !14, !noalias !349
+  store <8 x i16> %60, ptr %0, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %61, ptr %6, align 1, !tbaa !14, !noalias !350
   %62 = shufflevector <8 x i16> %58, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 7, i32 5, i32 6>
   %63 = bitcast <8 x i16> %62 to <4 x i32>
   %64 = shufflevector <4 x i32> %63, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1568,25 +1568,25 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %69 = shufflevector <4 x i32> %68, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %70 = bitcast <4 x i32> %69 to <8 x i16>
   %71 = shufflevector <8 x i16> %70, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 3, i32 1, i32 4, i32 5, i32 6, i32 7>
-  store <8 x i16> %66, ptr %1, align 1, !tbaa !14, !noalias !349
+  store <8 x i16> %66, ptr %1, align 1, !tbaa !14, !noalias !350
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <8 x i16> %71, ptr %72, align 1, !tbaa !14, !noalias !349
+  store <8 x i16> %71, ptr %72, align 1, !tbaa !14, !noalias !350
   %73 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %66, <8 x i16> %71)
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = extractelement <8 x i16> %70, i64 4
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %77 = extractelement <8 x i16> %65, i64 3
-  store i16 %75, ptr %76, align 2, !tbaa !18, !noalias !349
-  store i16 %77, ptr %74, align 2, !tbaa !18, !noalias !349
+  store i16 %75, ptr %76, align 2, !tbaa !18, !noalias !350
+  store i16 %77, ptr %74, align 2, !tbaa !18, !noalias !350
   %78 = icmp ne <16 x i8> %73, zeroinitializer
   %79 = bitcast <16 x i1> %78 to i16
   %80 = icmp ne i16 %79, 0
   %81 = zext i1 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %84 = load <8 x i16>, ptr %82, align 1, !tbaa !14, !noalias !350
+  %84 = load <8 x i16>, ptr %82, align 1, !tbaa !14, !noalias !351
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %86 = load <8 x i16>, ptr %85, align 1, !tbaa !14, !noalias !350
+  %86 = load <8 x i16>, ptr %85, align 1, !tbaa !14, !noalias !351
   %.lobit.i.i10 = ashr <8 x i16> %84, splat (i16 15)
   %.lobit.i102.i11 = ashr <8 x i16> %86, splat (i16 15)
   %87 = xor <8 x i16> %.lobit.i.i10, %84
@@ -1625,8 +1625,8 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %120 = sub <8 x i16> %118, %.lobit.i102.i11
   %121 = mul <8 x i16> %119, %12
   %122 = mul <8 x i16> %120, %14
-  store <8 x i16> %121, ptr %82, align 1, !tbaa !14, !noalias !350
-  store <8 x i16> %122, ptr %85, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %121, ptr %82, align 1, !tbaa !14, !noalias !351
+  store <8 x i16> %122, ptr %85, align 1, !tbaa !14, !noalias !351
   %123 = shufflevector <8 x i16> %119, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 7, i32 5, i32 6>
   %124 = bitcast <8 x i16> %123 to <4 x i32>
   %125 = shufflevector <4 x i32> %124, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1637,16 +1637,16 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
   %130 = shufflevector <4 x i32> %129, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %131 = bitcast <4 x i32> %130 to <8 x i16>
   %132 = shufflevector <8 x i16> %131, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 3, i32 1, i32 4, i32 5, i32 6, i32 7>
-  store <8 x i16> %127, ptr %83, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %127, ptr %83, align 1, !tbaa !14, !noalias !351
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store <8 x i16> %132, ptr %133, align 1, !tbaa !14, !noalias !350
+  store <8 x i16> %132, ptr %133, align 1, !tbaa !14, !noalias !351
   %134 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %127, <8 x i16> %132)
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %136 = extractelement <8 x i16> %131, i64 4
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %138 = extractelement <8 x i16> %126, i64 3
-  store i16 %136, ptr %137, align 2, !tbaa !18, !noalias !350
-  store i16 %138, ptr %135, align 2, !tbaa !18, !noalias !350
+  store i16 %136, ptr %137, align 2, !tbaa !18, !noalias !351
+  store i16 %138, ptr %135, align 2, !tbaa !18, !noalias !351
   %139 = icmp ne <16 x i8> %134, zeroinitializer
   %140 = bitcast <16 x i1> %139 to i16
   %.not = icmp eq i16 %140, 0
@@ -1657,17 +1657,17 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noalias noundef readonly captures(none) %2) #4 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
-  %4 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !357
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
+  %4 = load <8 x i16>, ptr %0, align 1, !tbaa !14, !noalias !358
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load <8 x i16>, ptr %5, align 1, !tbaa !14, !noalias !357
+  %6 = load <8 x i16>, ptr %5, align 1, !tbaa !14, !noalias !358
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %8 = load <8 x i16>, ptr %7, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %8 = load <8 x i16>, ptr %7, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %10 = load <8 x i16>, ptr %9, align 1, !tbaa !14, !alias.scope !354, !noalias !359
-  %11 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %10 = load <8 x i16>, ptr %9, align 1, !tbaa !14, !alias.scope !355, !noalias !360
+  %11 = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load <8 x i16>, ptr %12, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %13 = load <8 x i16>, ptr %12, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %.lobit.i.i = ashr <8 x i16> %4, splat (i16 15)
   %.lobit.i102.i = ashr <8 x i16> %6, splat (i16 15)
   %14 = xor <8 x i16> %.lobit.i.i, %4
@@ -1683,13 +1683,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr noundef captures(
   %24 = shufflevector <8 x i16> %21, <8 x i16> %20, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %25 = shufflevector <8 x i16> %21, <8 x i16> %20, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %27 = load <4 x i32>, ptr %26, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %27 = load <4 x i32>, ptr %26, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %29 = load <4 x i32>, ptr %28, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %29 = load <4 x i32>, ptr %28, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %31 = load <4 x i32>, ptr %30, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %31 = load <4 x i32>, ptr %30, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !354, !noalias !359
+  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !14, !alias.scope !355, !noalias !360
   %34 = bitcast <8 x i16> %22 to <4 x i32>
   %35 = add <4 x i32> %27, %34
   %36 = bitcast <8 x i16> %23 to <4 x i32>
@@ -1712,8 +1712,8 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr noundef captures(
   %53 = sub <8 x i16> %51, %.lobit.i102.i
   %54 = mul <8 x i16> %52, %11
   %55 = mul <8 x i16> %53, %13
-  store <8 x i16> %54, ptr %0, align 1, !tbaa !14, !noalias !357
-  store <8 x i16> %55, ptr %5, align 1, !tbaa !14, !noalias !357
+  store <8 x i16> %54, ptr %0, align 1, !tbaa !14, !noalias !358
+  store <8 x i16> %55, ptr %5, align 1, !tbaa !14, !noalias !358
   %56 = shufflevector <8 x i16> %52, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 7, i32 5, i32 6>
   %57 = bitcast <8 x i16> %56 to <4 x i32>
   %58 = shufflevector <4 x i32> %57, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -1724,16 +1724,16 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr noundef captures(
   %63 = shufflevector <4 x i32> %62, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %64 = bitcast <4 x i32> %63 to <8 x i16>
   %65 = shufflevector <8 x i16> %64, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 3, i32 1, i32 4, i32 5, i32 6, i32 7>
-  store <8 x i16> %60, ptr %1, align 1, !tbaa !14, !noalias !357
+  store <8 x i16> %60, ptr %1, align 1, !tbaa !14, !noalias !358
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <8 x i16> %65, ptr %66, align 1, !tbaa !14, !noalias !357
+  store <8 x i16> %65, ptr %66, align 1, !tbaa !14, !noalias !358
   %67 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %60, <8 x i16> %65)
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = extractelement <8 x i16> %64, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %71 = extractelement <8 x i16> %59, i64 3
-  store i16 %69, ptr %70, align 2, !tbaa !18, !noalias !357
-  store i16 %71, ptr %68, align 2, !tbaa !18, !noalias !357
+  store i16 %69, ptr %70, align 2, !tbaa !18, !noalias !358
+  store i16 %71, ptr %68, align 2, !tbaa !18, !noalias !358
   %72 = icmp ne <16 x i8> %67, zeroinitializer
   %73 = bitcast <16 x i1> %72 to i16
   %74 = icmp ne i16 %73, 0
@@ -1747,16 +1747,16 @@ define internal void @ITransform_SSE2(ptr noalias noundef readonly captures(none
   br i1 %.not, label %148, label %5
 
 5:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
-  %6 = load <2 x i64>, ptr %1, align 1, !tbaa !14, !alias.scope !363, !noalias !367
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !364)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !366)
+  %6 = load <2 x i64>, ptr %1, align 1, !tbaa !14, !alias.scope !364, !noalias !368
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load <2 x i64>, ptr %7, align 1, !tbaa !14, !alias.scope !363, !noalias !367
+  %8 = load <2 x i64>, ptr %7, align 1, !tbaa !14, !alias.scope !364, !noalias !368
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load <2 x i64>, ptr %9, align 1, !tbaa !14, !alias.scope !363, !noalias !367
+  %10 = load <2 x i64>, ptr %9, align 1, !tbaa !14, !alias.scope !364, !noalias !368
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load <2 x i64>, ptr %11, align 1, !tbaa !14, !alias.scope !363, !noalias !367
+  %12 = load <2 x i64>, ptr %11, align 1, !tbaa !14, !alias.scope !364, !noalias !368
   %13 = shufflevector <2 x i64> %6, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %14 = shufflevector <2 x i64> %6, <2 x i64> %10, <2 x i32> <i32 1, i32 3>
   %15 = shufflevector <2 x i64> %8, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -1846,16 +1846,16 @@ define internal void @ITransform_SSE2(ptr noalias noundef readonly captures(none
   %99 = shufflevector <2 x i64> %89, <2 x i64> %93, <2 x i32> <i32 1, i32 3>
   %100 = shufflevector <2 x i64> %95, <2 x i64> %97, <2 x i32> <i32 0, i32 2>
   %101 = shufflevector <2 x i64> %95, <2 x i64> %97, <2 x i32> <i32 1, i32 3>
-  %102 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !360, !noalias !368
+  %102 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !361, !noalias !369
   %103 = insertelement <2 x i64> poison, i64 %102, i64 0
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %105 = load i64, ptr %104, align 1, !tbaa !14, !alias.scope !360, !noalias !368
+  %105 = load i64, ptr %104, align 1, !tbaa !14, !alias.scope !361, !noalias !369
   %106 = insertelement <2 x i64> poison, i64 %105, i64 0
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %108 = load i64, ptr %107, align 1, !tbaa !14, !alias.scope !360, !noalias !368
+  %108 = load i64, ptr %107, align 1, !tbaa !14, !alias.scope !361, !noalias !369
   %109 = insertelement <2 x i64> poison, i64 %108, i64 0
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %111 = load i64, ptr %110, align 1, !tbaa !14, !alias.scope !360, !noalias !368
+  %111 = load i64, ptr %110, align 1, !tbaa !14, !alias.scope !361, !noalias !369
   %112 = insertelement <2 x i64> poison, i64 %111, i64 0
   %113 = bitcast <2 x i64> %103 to <16 x i8>
   %114 = shufflevector <16 x i8> %113, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -1886,24 +1886,24 @@ define internal void @ITransform_SSE2(ptr noalias noundef readonly captures(none
   %139 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %132, <8 x i16> poison)
   %140 = bitcast <16 x i8> %139 to <2 x i64>
   %141 = extractelement <2 x i64> %134, i64 0
-  store i64 %141, ptr %2, align 1, !tbaa !14, !alias.scope !365, !noalias !369
+  store i64 %141, ptr %2, align 1, !tbaa !14, !alias.scope !366, !noalias !370
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %143 = extractelement <2 x i64> %136, i64 0
-  store i64 %143, ptr %142, align 1, !tbaa !14, !alias.scope !365, !noalias !369
+  store i64 %143, ptr %142, align 1, !tbaa !14, !alias.scope !366, !noalias !370
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %145 = extractelement <2 x i64> %138, i64 0
-  store i64 %145, ptr %144, align 1, !tbaa !14, !alias.scope !365, !noalias !369
+  store i64 %145, ptr %144, align 1, !tbaa !14, !alias.scope !366, !noalias !370
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %147 = extractelement <2 x i64> %140, i64 0
-  store i64 %147, ptr %146, align 1, !tbaa !14, !alias.scope !365, !noalias !369
+  store i64 %147, ptr %146, align 1, !tbaa !14, !alias.scope !366, !noalias !370
   br label %235
 
 148:                                              ; preds = %4
   %.val = load <2 x i64>, ptr %1, align 1, !tbaa !14
   %149 = getelementptr i8, ptr %1, i64 16
   %.val6 = load <2 x i64>, ptr %149, align 1, !tbaa !14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
   %150 = shufflevector <2 x i64> %.val, <2 x i64> poison, <2 x i32> <i32 1, i32 1>
   %151 = shufflevector <2 x i64> %.val6, <2 x i64> poison, <2 x i32> <i32 1, i32 1>
   %152 = bitcast <2 x i64> %.val to <8 x i16>
@@ -1969,15 +1969,15 @@ define internal void @ITransform_SSE2(ptr noalias noundef readonly captures(none
   %212 = ashr <8 x i16> %211, splat (i16 3)
   %213 = shufflevector <8 x i16> %210, <8 x i16> %212, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
   %214 = shufflevector <8 x i16> %210, <8 x i16> %212, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  %.val112.i = load i32, ptr %0, align 1, !alias.scope !370, !noalias !373
+  %.val112.i = load i32, ptr %0, align 1, !alias.scope !371, !noalias !374
   %215 = insertelement <4 x i32> poison, i32 %.val112.i, i64 0
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val111.i = load i32, ptr %216, align 1, !alias.scope !370, !noalias !373
+  %.val111.i = load i32, ptr %216, align 1, !alias.scope !371, !noalias !374
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val110.i = load i32, ptr %217, align 1, !alias.scope !370, !noalias !373
+  %.val110.i = load i32, ptr %217, align 1, !alias.scope !371, !noalias !374
   %218 = insertelement <4 x i32> poison, i32 %.val110.i, i64 0
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.val.i = load i32, ptr %219, align 1, !alias.scope !370, !noalias !373
+  %.val.i = load i32, ptr %219, align 1, !alias.scope !371, !noalias !374
   %220 = insertelement <4 x i32> %215, i32 %.val111.i, i64 1
   %221 = insertelement <4 x i32> %218, i32 %.val.i, i64 1
   %222 = bitcast <4 x i32> %220 to <16 x i8>
@@ -1991,16 +1991,16 @@ define internal void @ITransform_SSE2(ptr noalias noundef readonly captures(none
   %230 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %227, <8 x i16> %229)
   %231 = bitcast <16 x i8> %230 to <4 x i32>
   %.sroa.0.0.vec.extract.i = extractelement <4 x i32> %231, i64 0
-  store i32 %.sroa.0.0.vec.extract.i, ptr %2, align 1, !alias.scope !373, !noalias !370
+  store i32 %.sroa.0.0.vec.extract.i, ptr %2, align 1, !alias.scope !374, !noalias !371
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.0.4.vec.extract.i = extractelement <4 x i32> %231, i64 1
-  store i32 %.sroa.0.4.vec.extract.i, ptr %232, align 1, !alias.scope !373, !noalias !370
+  store i32 %.sroa.0.4.vec.extract.i, ptr %232, align 1, !alias.scope !374, !noalias !371
   %233 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.0.8.vec.extract.i = extractelement <4 x i32> %231, i64 2
-  store i32 %.sroa.0.8.vec.extract.i, ptr %233, align 1, !alias.scope !373, !noalias !370
+  store i32 %.sroa.0.8.vec.extract.i, ptr %233, align 1, !alias.scope !374, !noalias !371
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.sroa.0.12.vec.extract.i = extractelement <4 x i32> %231, i64 3
-  store i32 %.sroa.0.12.vec.extract.i, ptr %234, align 1, !alias.scope !373, !noalias !370
+  store i32 %.sroa.0.12.vec.extract.i, ptr %234, align 1, !alias.scope !374, !noalias !371
   br label %235
 
 235:                                              ; preds = %148, %5
@@ -2116,9 +2116,9 @@ define internal void @FTransform_SSE2(ptr noalias noundef readonly captures(none
   %108 = bitcast <8 x i16> %107 to <2 x i64>
   %109 = shufflevector <2 x i64> %106, <2 x i64> %97, <2 x i32> <i32 0, i32 2>
   %110 = shufflevector <2 x i64> %108, <2 x i64> %93, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %109, ptr %2, align 1, !tbaa !14, !alias.scope !375
+  store <2 x i64> %109, ptr %2, align 1, !tbaa !14, !alias.scope !376
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store <2 x i64> %110, ptr %111, align 1, !tbaa !14, !alias.scope !375
+  store <2 x i64> %110, ptr %111, align 1, !tbaa !14, !alias.scope !376
   ret void
 }
 
@@ -2271,9 +2271,9 @@ define internal void @FTransform2_SSE2(ptr noalias noundef readonly captures(non
   %148 = bitcast <8 x i16> %147 to <2 x i64>
   %149 = shufflevector <2 x i64> %146, <2 x i64> %137, <2 x i32> <i32 0, i32 2>
   %150 = shufflevector <2 x i64> %148, <2 x i64> %133, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %149, ptr %2, align 1, !tbaa !14, !alias.scope !378
+  store <2 x i64> %149, ptr %2, align 1, !tbaa !14, !alias.scope !379
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store <2 x i64> %150, ptr %151, align 1, !tbaa !14, !alias.scope !378
+  store <2 x i64> %150, ptr %151, align 1, !tbaa !14, !alias.scope !379
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %153 = bitcast <4 x i32> %116 to <8 x i16>
   %154 = bitcast <4 x i32> %117 to <8 x i16>
@@ -2308,24 +2308,24 @@ define internal void @FTransform2_SSE2(ptr noalias noundef readonly captures(non
   %183 = bitcast <8 x i16> %182 to <2 x i64>
   %184 = shufflevector <2 x i64> %181, <2 x i64> %172, <2 x i32> <i32 0, i32 2>
   %185 = shufflevector <2 x i64> %183, <2 x i64> %168, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %184, ptr %152, align 1, !tbaa !14, !alias.scope !381
+  store <2 x i64> %184, ptr %152, align 1, !tbaa !14, !alias.scope !382
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store <2 x i64> %185, ptr %186, align 1, !tbaa !14, !alias.scope !381
+  store <2 x i64> %185, ptr %186, align 1, !tbaa !14, !alias.scope !382
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @FTransformWHT_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) initializes((0, 32)) %1) #5 {
-  %3 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !384
+  %3 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !385
   %4 = insertelement <2 x i64> poison, i64 %3, i64 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i64, ptr %5, align 1, !tbaa !14, !alias.scope !384
+  %6 = load i64, ptr %5, align 1, !tbaa !14, !alias.scope !385
   %7 = insertelement <2 x i64> poison, i64 %6, i64 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i64, ptr %8, align 1, !tbaa !14, !alias.scope !384
+  %9 = load i64, ptr %8, align 1, !tbaa !14, !alias.scope !385
   %10 = insertelement <2 x i64> poison, i64 %9, i64 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = load i64, ptr %11, align 1, !tbaa !14, !alias.scope !384
+  %12 = load i64, ptr %11, align 1, !tbaa !14, !alias.scope !385
   %13 = insertelement <2 x i64> poison, i64 %12, i64 0
   %14 = bitcast <2 x i64> %4 to <8 x i16>
   %15 = bitcast <2 x i64> %7 to <8 x i16>
@@ -2345,16 +2345,16 @@ define internal void @FTransformWHT_SSE2(ptr noalias noundef readonly captures(n
   %29 = bitcast <2 x i64> %28 to <8 x i16>
   %30 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %29, <8 x i16> <i16 1, i16 1, i16 1, i16 1, i16 1, i16 -1, i16 1, i16 -1>)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %32 = load i64, ptr %31, align 1, !tbaa !14, !alias.scope !387
+  %32 = load i64, ptr %31, align 1, !tbaa !14, !alias.scope !388
   %33 = insertelement <2 x i64> poison, i64 %32, i64 0
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %35 = load i64, ptr %34, align 1, !tbaa !14, !alias.scope !387
+  %35 = load i64, ptr %34, align 1, !tbaa !14, !alias.scope !388
   %36 = insertelement <2 x i64> poison, i64 %35, i64 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %38 = load i64, ptr %37, align 1, !tbaa !14, !alias.scope !387
+  %38 = load i64, ptr %37, align 1, !tbaa !14, !alias.scope !388
   %39 = insertelement <2 x i64> poison, i64 %38, i64 0
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %41 = load i64, ptr %40, align 1, !tbaa !14, !alias.scope !387
+  %41 = load i64, ptr %40, align 1, !tbaa !14, !alias.scope !388
   %42 = insertelement <2 x i64> poison, i64 %41, i64 0
   %43 = bitcast <2 x i64> %33 to <8 x i16>
   %44 = bitcast <2 x i64> %36 to <8 x i16>
@@ -2374,16 +2374,16 @@ define internal void @FTransformWHT_SSE2(ptr noalias noundef readonly captures(n
   %58 = bitcast <2 x i64> %57 to <8 x i16>
   %59 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %58, <8 x i16> <i16 1, i16 1, i16 1, i16 1, i16 1, i16 -1, i16 1, i16 -1>)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %61 = load i64, ptr %60, align 1, !tbaa !14, !alias.scope !390
+  %61 = load i64, ptr %60, align 1, !tbaa !14, !alias.scope !391
   %62 = insertelement <2 x i64> poison, i64 %61, i64 0
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %64 = load i64, ptr %63, align 1, !tbaa !14, !alias.scope !390
+  %64 = load i64, ptr %63, align 1, !tbaa !14, !alias.scope !391
   %65 = insertelement <2 x i64> poison, i64 %64, i64 0
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %67 = load i64, ptr %66, align 1, !tbaa !14, !alias.scope !390
+  %67 = load i64, ptr %66, align 1, !tbaa !14, !alias.scope !391
   %68 = insertelement <2 x i64> poison, i64 %67, i64 0
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %70 = load i64, ptr %69, align 1, !tbaa !14, !alias.scope !390
+  %70 = load i64, ptr %69, align 1, !tbaa !14, !alias.scope !391
   %71 = insertelement <2 x i64> poison, i64 %70, i64 0
   %72 = bitcast <2 x i64> %62 to <8 x i16>
   %73 = bitcast <2 x i64> %65 to <8 x i16>
@@ -2403,16 +2403,16 @@ define internal void @FTransformWHT_SSE2(ptr noalias noundef readonly captures(n
   %87 = bitcast <2 x i64> %86 to <8 x i16>
   %88 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %87, <8 x i16> <i16 1, i16 1, i16 1, i16 1, i16 1, i16 -1, i16 1, i16 -1>)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %90 = load i64, ptr %89, align 1, !tbaa !14, !alias.scope !393
+  %90 = load i64, ptr %89, align 1, !tbaa !14, !alias.scope !394
   %91 = insertelement <2 x i64> poison, i64 %90, i64 0
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %93 = load i64, ptr %92, align 1, !tbaa !14, !alias.scope !393
+  %93 = load i64, ptr %92, align 1, !tbaa !14, !alias.scope !394
   %94 = insertelement <2 x i64> poison, i64 %93, i64 0
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %96 = load i64, ptr %95, align 1, !tbaa !14, !alias.scope !393
+  %96 = load i64, ptr %95, align 1, !tbaa !14, !alias.scope !394
   %97 = insertelement <2 x i64> poison, i64 %96, i64 0
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %99 = load i64, ptr %98, align 1, !tbaa !14, !alias.scope !393
+  %99 = load i64, ptr %98, align 1, !tbaa !14, !alias.scope !394
   %100 = insertelement <2 x i64> poison, i64 %99, i64 0
   %101 = bitcast <2 x i64> %91 to <8 x i16>
   %102 = bitcast <2 x i64> %94 to <8 x i16>
@@ -2452,8 +2452,8 @@ define internal void @FTransformWHT_SSE2(ptr noalias noundef readonly captures(n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal i32 @SSE16x16_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) #6 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2461,12 +2461,12 @@ define internal i32 @SSE16x16_SSE2(ptr noalias noundef readonly captures(none) %
   %.01424.i = phi ptr [ %1, %2 ], [ %34, %3 ]
   %4 = phi <4 x i32> [ zeroinitializer, %2 ], [ %32, %3 ]
   %.01623.i = phi i32 [ 0, %2 ], [ %35, %3 ]
-  %5 = load <16 x i8>, ptr %.025.i, align 1, !tbaa !14, !alias.scope !396, !noalias !399
-  %6 = load <16 x i8>, ptr %.01424.i, align 1, !tbaa !14, !alias.scope !399, !noalias !396
+  %5 = load <16 x i8>, ptr %.025.i, align 1, !tbaa !14, !alias.scope !397, !noalias !400
+  %6 = load <16 x i8>, ptr %.01424.i, align 1, !tbaa !14, !alias.scope !400, !noalias !397
   %7 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
-  %8 = load <16 x i8>, ptr %7, align 1, !tbaa !14, !alias.scope !396, !noalias !399
+  %8 = load <16 x i8>, ptr %7, align 1, !tbaa !14, !alias.scope !397, !noalias !400
   %9 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 32
-  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !14, !alias.scope !399, !noalias !396
+  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !14, !alias.scope !400, !noalias !397
   %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %6)
   %12 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> %5)
   %13 = or <16 x i8> %11, %12
@@ -2493,7 +2493,7 @@ define internal i32 @SSE16x16_SSE2(ptr noalias noundef readonly captures(none) %
   %34 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 64
   %35 = add nuw nsw i32 %.01623.i, 1
   %exitcond.not.i = icmp eq i32 %35, 8
-  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !401
+  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !402
 
 SSE_16xN_SSE2.exit:                               ; preds = %3
   %36 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
@@ -2508,8 +2508,8 @@ SSE_16xN_SSE2.exit:                               ; preds = %3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal i32 @SSE16x8_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) #6 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2517,12 +2517,12 @@ define internal i32 @SSE16x8_SSE2(ptr noalias noundef readonly captures(none) %0
   %.01424.i = phi ptr [ %1, %2 ], [ %34, %3 ]
   %4 = phi <4 x i32> [ zeroinitializer, %2 ], [ %32, %3 ]
   %.01623.i = phi i32 [ 0, %2 ], [ %35, %3 ]
-  %5 = load <16 x i8>, ptr %.025.i, align 1, !tbaa !14, !alias.scope !402, !noalias !405
-  %6 = load <16 x i8>, ptr %.01424.i, align 1, !tbaa !14, !alias.scope !405, !noalias !402
+  %5 = load <16 x i8>, ptr %.025.i, align 1, !tbaa !14, !alias.scope !403, !noalias !406
+  %6 = load <16 x i8>, ptr %.01424.i, align 1, !tbaa !14, !alias.scope !406, !noalias !403
   %7 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
-  %8 = load <16 x i8>, ptr %7, align 1, !tbaa !14, !alias.scope !402, !noalias !405
+  %8 = load <16 x i8>, ptr %7, align 1, !tbaa !14, !alias.scope !403, !noalias !406
   %9 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 32
-  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !14, !alias.scope !405, !noalias !402
+  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !14, !alias.scope !406, !noalias !403
   %11 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %5, <16 x i8> %6)
   %12 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> %5)
   %13 = or <16 x i8> %11, %12
@@ -2549,7 +2549,7 @@ define internal i32 @SSE16x8_SSE2(ptr noalias noundef readonly captures(none) %0
   %34 = getelementptr inbounds nuw i8, ptr %.01424.i, i64 64
   %35 = add nuw nsw i32 %.01623.i, 1
   %exitcond.not.i = icmp eq i32 %35, 4
-  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !401
+  br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !402
 
 SSE_16xN_SSE2.exit:                               ; preds = %3
   %36 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
@@ -2603,7 +2603,7 @@ define internal i32 @SSE8x8_SSE2(ptr noalias noundef readonly captures(none) %0,
   %34 = getelementptr inbounds nuw i8, ptr %.030, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %.02429, i64 64
   %36 = icmp samesign ugt i32 %.02528, 1
-  br i1 %36, label %3, label %37, !llvm.loop !407
+  br i1 %36, label %3, label %37, !llvm.loop !408
 
 37:                                               ; preds = %3
   %38 = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
@@ -2684,29 +2684,29 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr noalias noundef re
   %.val4 = load <8 x i16>, ptr %2, align 1, !tbaa !14
   %4 = getelementptr i8, ptr %2, i64 16
   %.val35 = load <8 x i16>, ptr %4, align 1, !tbaa !14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
-  %5 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !408, !noalias !411
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
+  %5 = load i64, ptr %0, align 1, !tbaa !14, !alias.scope !409, !noalias !412
   %6 = insertelement <2 x i64> poison, i64 %5, i64 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 1, !tbaa !14, !alias.scope !408, !noalias !411
+  %8 = load i64, ptr %7, align 1, !tbaa !14, !alias.scope !409, !noalias !412
   %9 = insertelement <2 x i64> poison, i64 %8, i64 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load i64, ptr %10, align 1, !tbaa !14, !alias.scope !408, !noalias !411
+  %11 = load i64, ptr %10, align 1, !tbaa !14, !alias.scope !409, !noalias !412
   %12 = insertelement <2 x i64> poison, i64 %11, i64 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load i64, ptr %13, align 1, !tbaa !14, !alias.scope !408, !noalias !411
+  %14 = load i64, ptr %13, align 1, !tbaa !14, !alias.scope !409, !noalias !412
   %15 = insertelement <2 x i64> poison, i64 %14, i64 0
-  %16 = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !411, !noalias !408
+  %16 = load i64, ptr %1, align 1, !tbaa !14, !alias.scope !412, !noalias !409
   %17 = insertelement <2 x i64> poison, i64 %16, i64 0
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load i64, ptr %18, align 1, !tbaa !14, !alias.scope !411, !noalias !408
+  %19 = load i64, ptr %18, align 1, !tbaa !14, !alias.scope !412, !noalias !409
   %20 = insertelement <2 x i64> poison, i64 %19, i64 0
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %22 = load i64, ptr %21, align 1, !tbaa !14, !alias.scope !411, !noalias !408
+  %22 = load i64, ptr %21, align 1, !tbaa !14, !alias.scope !412, !noalias !409
   %23 = insertelement <2 x i64> poison, i64 %22, i64 0
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %25 = load i64, ptr %24, align 1, !tbaa !14, !alias.scope !411, !noalias !408
+  %25 = load i64, ptr %24, align 1, !tbaa !14, !alias.scope !412, !noalias !409
   %26 = insertelement <2 x i64> poison, i64 %25, i64 0
   %27 = bitcast <2 x i64> %6 to <4 x i32>
   %28 = bitcast <2 x i64> %17 to <4 x i32>
@@ -2809,9 +2809,9 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr noalias noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal i32 @Disto16x16_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2) #6 {
-  %.val4.i = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !413, !noalias !416
+  %.val4.i = load <8 x i16>, ptr %2, align 1, !tbaa !14, !alias.scope !414, !noalias !417
   %4 = getelementptr i8, ptr %2, i64 16
-  %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !413, !noalias !416
+  %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !14, !alias.scope !414, !noalias !417
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %122
@@ -2826,32 +2826,32 @@ define internal i32 @Disto16x16_SSE2(ptr noalias noundef readonly captures(none)
   %.118 = phi i32 [ %.01320, %.preheader ], [ %120, %5 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %gep17 = getelementptr inbounds nuw i8, ptr %invariant.gep16, i64 %indvars.iv
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !420)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  %6 = load i64, ptr %gep, align 1, !tbaa !14, !alias.scope !426, !noalias !427
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !425)
+  %6 = load i64, ptr %gep, align 1, !tbaa !14, !alias.scope !427, !noalias !428
   %7 = insertelement <2 x i64> poison, i64 %6, i64 0
   %8 = getelementptr inbounds nuw i8, ptr %gep, i64 32
-  %9 = load i64, ptr %8, align 1, !tbaa !14, !alias.scope !426, !noalias !427
+  %9 = load i64, ptr %8, align 1, !tbaa !14, !alias.scope !427, !noalias !428
   %10 = insertelement <2 x i64> poison, i64 %9, i64 0
   %11 = getelementptr inbounds nuw i8, ptr %gep, i64 64
-  %12 = load i64, ptr %11, align 1, !tbaa !14, !alias.scope !426, !noalias !427
+  %12 = load i64, ptr %11, align 1, !tbaa !14, !alias.scope !427, !noalias !428
   %13 = insertelement <2 x i64> poison, i64 %12, i64 0
   %14 = getelementptr inbounds nuw i8, ptr %gep, i64 96
-  %15 = load i64, ptr %14, align 1, !tbaa !14, !alias.scope !426, !noalias !427
+  %15 = load i64, ptr %14, align 1, !tbaa !14, !alias.scope !427, !noalias !428
   %16 = insertelement <2 x i64> poison, i64 %15, i64 0
-  %17 = load i64, ptr %gep17, align 1, !tbaa !14, !alias.scope !428, !noalias !429
+  %17 = load i64, ptr %gep17, align 1, !tbaa !14, !alias.scope !429, !noalias !430
   %18 = insertelement <2 x i64> poison, i64 %17, i64 0
   %19 = getelementptr inbounds nuw i8, ptr %gep17, i64 32
-  %20 = load i64, ptr %19, align 1, !tbaa !14, !alias.scope !428, !noalias !429
+  %20 = load i64, ptr %19, align 1, !tbaa !14, !alias.scope !429, !noalias !430
   %21 = insertelement <2 x i64> poison, i64 %20, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %gep17, i64 64
-  %23 = load i64, ptr %22, align 1, !tbaa !14, !alias.scope !428, !noalias !429
+  %23 = load i64, ptr %22, align 1, !tbaa !14, !alias.scope !429, !noalias !430
   %24 = insertelement <2 x i64> poison, i64 %23, i64 0
   %25 = getelementptr inbounds nuw i8, ptr %gep17, i64 96
-  %26 = load i64, ptr %25, align 1, !tbaa !14, !alias.scope !428, !noalias !429
+  %26 = load i64, ptr %25, align 1, !tbaa !14, !alias.scope !429, !noalias !430
   %27 = insertelement <2 x i64> poison, i64 %26, i64 0
   %28 = bitcast <2 x i64> %7 to <4 x i32>
   %29 = bitcast <2 x i64> %18 to <4 x i32>
@@ -2952,12 +2952,12 @@ define internal i32 @Disto16x16_SSE2(ptr noalias noundef readonly captures(none)
   %120 = add nsw i32 %119, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %121 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %121, label %5, label %122, !llvm.loop !430
+  br i1 %121, label %5, label %122, !llvm.loop !431
 
 122:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
   %123 = icmp samesign ult i64 %indvars.iv23, 384
-  br i1 %123, label %.preheader, label %124, !llvm.loop !431
+  br i1 %123, label %.preheader, label %124, !llvm.loop !432
 
 124:                                              ; preds = %122
   ret i32 %120
@@ -3127,415 +3127,416 @@ attributes #17 = { nounwind }
 !17 = !{!10, !16}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"short", !5, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"DC16Mode_SSE2: argument 0"}
-!25 = distinct !{!25, !"DC16Mode_SSE2"}
-!26 = !{!27}
-!27 = distinct !{!27, !25, !"DC16Mode_SSE2: argument 1"}
-!28 = !{!24, !29}
-!29 = distinct !{!29, !25, !"DC16Mode_SSE2: argument 2"}
-!30 = !{!31, !24}
-!31 = distinct !{!31, !32, !"DC16_SSE2: argument 0"}
-!32 = distinct !{!32, !"DC16_SSE2"}
-!33 = !{!27, !29}
-!34 = distinct !{!34, !21}
-!35 = !{!36, !24}
-!36 = distinct !{!36, !37, !"DC16NoLeft_SSE2: argument 0"}
-!37 = distinct !{!37, !"DC16NoLeft_SSE2"}
-!38 = !{!39, !41, !24}
-!39 = distinct !{!39, !40, !"DC16NoLeft_SSE2: argument 0"}
-!40 = distinct !{!40, !"DC16NoLeft_SSE2"}
-!41 = distinct !{!41, !42, !"DC16NoTop_SSE2: argument 0"}
-!42 = distinct !{!42, !"DC16NoTop_SSE2"}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"VE16_SSE2: argument 0"}
-!45 = distinct !{!45, !"VE16_SSE2"}
-!46 = distinct !{!46, !47, !"VerticalPred_SSE2: argument 0"}
-!47 = distinct !{!47, !"VerticalPred_SSE2"}
-!48 = !{!49}
-!49 = distinct !{!49, !47, !"VerticalPred_SSE2: argument 1"}
-!50 = distinct !{!50, !21}
-!51 = !{!46}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"HorizontalPred_SSE2: argument 0"}
-!54 = distinct !{!54, !"HorizontalPred_SSE2"}
-!55 = !{!56}
-!56 = distinct !{!56, !54, !"HorizontalPred_SSE2: argument 1"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"HE16_SSE2: argument 0"}
-!59 = distinct !{!59, !"HE16_SSE2"}
-!60 = !{!61}
-!61 = distinct !{!61, !59, !"HE16_SSE2: argument 1"}
-!62 = !{!61, !56}
-!63 = !{!58, !53}
-!64 = distinct !{!64, !21}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"TrueMotion_SSE2: argument 0"}
-!67 = distinct !{!67, !"TrueMotion_SSE2"}
-!68 = !{!69}
-!69 = distinct !{!69, !67, !"TrueMotion_SSE2: argument 1"}
-!70 = !{!71}
-!71 = distinct !{!71, !67, !"TrueMotion_SSE2: argument 2"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"TM_SSE2: argument 0"}
-!74 = distinct !{!74, !"TM_SSE2"}
-!75 = !{!76}
-!76 = distinct !{!76, !74, !"TM_SSE2: argument 1"}
-!77 = !{!78}
-!78 = distinct !{!78, !74, !"TM_SSE2: argument 2"}
-!79 = !{!78, !71}
-!80 = !{!73, !76, !66, !69}
-!81 = !{!76, !69}
-!82 = !{!73, !78, !66, !71}
-!83 = !{!73, !66}
-!84 = !{!76, !78, !69, !71}
-!85 = distinct !{!85, !21}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"HorizontalPred_SSE2: argument 0"}
-!88 = distinct !{!88, !"HorizontalPred_SSE2"}
-!89 = !{!90}
-!90 = distinct !{!90, !88, !"HorizontalPred_SSE2: argument 1"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"HE16_SSE2: argument 0"}
-!93 = distinct !{!93, !"HE16_SSE2"}
-!94 = !{!95}
-!95 = distinct !{!95, !93, !"HE16_SSE2: argument 1"}
-!96 = !{!95, !90, !69}
-!97 = !{!92, !87, !66, !71}
-!98 = !{!92, !87, !66}
-!99 = !{!95, !90, !69, !71}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"VerticalPred_SSE2: argument 0"}
-!102 = distinct !{!102, !"VerticalPred_SSE2"}
-!103 = !{!104}
-!104 = distinct !{!104, !102, !"VerticalPred_SSE2: argument 1"}
-!105 = !{!104, !71}
-!106 = !{!101, !66, !69}
-!107 = !{!108, !101, !66}
-!108 = distinct !{!108, !109, !"VE16_SSE2: argument 0"}
-!109 = distinct !{!109, !"VE16_SSE2"}
-!110 = !{!104, !69, !71}
-!111 = !{!69, !71}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"DC8uvMode_SSE2: argument 0"}
-!114 = distinct !{!114, !"DC8uvMode_SSE2"}
-!115 = !{!116}
-!116 = distinct !{!116, !114, !"DC8uvMode_SSE2: argument 1"}
-!117 = !{!118}
-!118 = distinct !{!118, !114, !"DC8uvMode_SSE2: argument 2"}
-!119 = !{!113, !118}
-!120 = !{!113, !116}
-!121 = !{!122, !113}
-!122 = distinct !{!122, !123, !"DC8uv_SSE2: argument 0"}
-!123 = distinct !{!123, !"DC8uv_SSE2"}
-!124 = !{!116, !118}
-!125 = distinct !{!125, !21}
-!126 = !{!127, !113}
-!127 = distinct !{!127, !128, !"DC8uvNoLeft_SSE2: argument 0"}
-!128 = distinct !{!128, !"DC8uvNoLeft_SSE2"}
-!129 = !{!130, !132, !113}
-!130 = distinct !{!130, !131, !"DC8uvNoLeft_SSE2: argument 0"}
-!131 = distinct !{!131, !"DC8uvNoLeft_SSE2"}
-!132 = distinct !{!132, !133, !"DC8uvNoTop_SSE2: argument 0"}
-!133 = distinct !{!133, !"DC8uvNoTop_SSE2"}
-!134 = !{!135, !137}
-!135 = distinct !{!135, !136, !"VE8uv_SSE2: argument 0"}
-!136 = distinct !{!136, !"VE8uv_SSE2"}
-!137 = distinct !{!137, !138, !"VerticalPred_SSE2: argument 0"}
-!138 = distinct !{!138, !"VerticalPred_SSE2"}
-!139 = !{!140}
-!140 = distinct !{!140, !138, !"VerticalPred_SSE2: argument 1"}
-!141 = distinct !{!141, !21}
-!142 = !{!137}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"HorizontalPred_SSE2: argument 0"}
-!145 = distinct !{!145, !"HorizontalPred_SSE2"}
-!146 = !{!147}
-!147 = distinct !{!147, !145, !"HorizontalPred_SSE2: argument 1"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"HE8uv_SSE2: argument 0"}
-!150 = distinct !{!150, !"HE8uv_SSE2"}
-!151 = !{!152}
-!152 = distinct !{!152, !150, !"HE8uv_SSE2: argument 1"}
-!153 = !{!152, !147}
-!154 = !{!149, !144}
-!155 = distinct !{!155, !21}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"TrueMotion_SSE2: argument 0"}
-!158 = distinct !{!158, !"TrueMotion_SSE2"}
-!159 = !{!160}
-!160 = distinct !{!160, !158, !"TrueMotion_SSE2: argument 1"}
-!161 = !{!162}
-!162 = distinct !{!162, !158, !"TrueMotion_SSE2: argument 2"}
-!163 = !{!164}
-!164 = distinct !{!164, !165, !"TM_SSE2: argument 0"}
-!165 = distinct !{!165, !"TM_SSE2"}
-!166 = !{!167}
-!167 = distinct !{!167, !165, !"TM_SSE2: argument 1"}
-!168 = !{!169}
-!169 = distinct !{!169, !165, !"TM_SSE2: argument 2"}
-!170 = !{!169, !162}
-!171 = !{!164, !167, !157, !160}
-!172 = !{!167, !160}
-!173 = !{!164, !169, !157, !162}
-!174 = !{!164, !157}
-!175 = !{!167, !169, !160, !162}
-!176 = distinct !{!176, !21}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"HorizontalPred_SSE2: argument 0"}
-!179 = distinct !{!179, !"HorizontalPred_SSE2"}
-!180 = !{!181}
-!181 = distinct !{!181, !179, !"HorizontalPred_SSE2: argument 1"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"HE8uv_SSE2: argument 0"}
-!184 = distinct !{!184, !"HE8uv_SSE2"}
-!185 = !{!186}
-!186 = distinct !{!186, !184, !"HE8uv_SSE2: argument 1"}
-!187 = !{!186, !181, !160}
-!188 = !{!183, !178, !157, !162}
-!189 = !{!183, !178, !157}
-!190 = !{!186, !181, !160, !162}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"VerticalPred_SSE2: argument 0"}
-!193 = distinct !{!193, !"VerticalPred_SSE2"}
-!194 = !{!195}
-!195 = distinct !{!195, !193, !"VerticalPred_SSE2: argument 1"}
-!196 = !{!195, !162}
-!197 = !{!192, !157, !160}
-!198 = !{!199, !192, !157}
-!199 = distinct !{!199, !200, !"VE8uv_SSE2: argument 0"}
-!200 = distinct !{!200, !"VE8uv_SSE2"}
-!201 = !{!195, !160, !162}
-!202 = !{!160, !162}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"DC8uvMode_SSE2: argument 0"}
-!205 = distinct !{!205, !"DC8uvMode_SSE2"}
-!206 = !{!207}
-!207 = distinct !{!207, !205, !"DC8uvMode_SSE2: argument 1"}
-!208 = !{!209}
-!209 = distinct !{!209, !205, !"DC8uvMode_SSE2: argument 2"}
-!210 = !{!204, !209}
-!211 = !{!204, !207}
-!212 = !{!213, !204}
-!213 = distinct !{!213, !214, !"DC8uv_SSE2: argument 0"}
-!214 = distinct !{!214, !"DC8uv_SSE2"}
-!215 = !{!207, !209}
-!216 = !{!217, !204}
-!217 = distinct !{!217, !218, !"DC8uvNoLeft_SSE2: argument 0"}
-!218 = distinct !{!218, !"DC8uvNoLeft_SSE2"}
-!219 = !{!220, !222, !204}
-!220 = distinct !{!220, !221, !"DC8uvNoLeft_SSE2: argument 0"}
-!221 = distinct !{!221, !"DC8uvNoLeft_SSE2"}
-!222 = distinct !{!222, !223, !"DC8uvNoTop_SSE2: argument 0"}
-!223 = distinct !{!223, !"DC8uvNoTop_SSE2"}
-!224 = !{!225, !227}
-!225 = distinct !{!225, !226, !"VE8uv_SSE2: argument 0"}
-!226 = distinct !{!226, !"VE8uv_SSE2"}
-!227 = distinct !{!227, !228, !"VerticalPred_SSE2: argument 0"}
-!228 = distinct !{!228, !"VerticalPred_SSE2"}
-!229 = !{!230}
-!230 = distinct !{!230, !228, !"VerticalPred_SSE2: argument 1"}
-!231 = !{!227}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"HorizontalPred_SSE2: argument 0"}
-!234 = distinct !{!234, !"HorizontalPred_SSE2"}
-!235 = !{!236}
-!236 = distinct !{!236, !234, !"HorizontalPred_SSE2: argument 1"}
-!237 = !{!238}
-!238 = distinct !{!238, !239, !"HE8uv_SSE2: argument 0"}
-!239 = distinct !{!239, !"HE8uv_SSE2"}
-!240 = !{!241}
-!241 = distinct !{!241, !239, !"HE8uv_SSE2: argument 1"}
-!242 = !{!241, !236}
-!243 = !{!238, !233}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"TrueMotion_SSE2: argument 0"}
-!246 = distinct !{!246, !"TrueMotion_SSE2"}
-!247 = !{!248}
-!248 = distinct !{!248, !246, !"TrueMotion_SSE2: argument 1"}
-!249 = !{!250}
-!250 = distinct !{!250, !246, !"TrueMotion_SSE2: argument 2"}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"TM_SSE2: argument 0"}
-!253 = distinct !{!253, !"TM_SSE2"}
-!254 = !{!255}
-!255 = distinct !{!255, !253, !"TM_SSE2: argument 1"}
-!256 = !{!257}
-!257 = distinct !{!257, !253, !"TM_SSE2: argument 2"}
-!258 = !{!257, !250}
-!259 = !{!252, !255, !245, !248}
-!260 = !{!255, !248}
-!261 = !{!252, !257, !245, !250}
-!262 = !{!252, !245}
-!263 = !{!255, !257, !248, !250}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"HorizontalPred_SSE2: argument 0"}
-!266 = distinct !{!266, !"HorizontalPred_SSE2"}
-!267 = !{!268}
-!268 = distinct !{!268, !266, !"HorizontalPred_SSE2: argument 1"}
-!269 = !{!270}
-!270 = distinct !{!270, !271, !"HE8uv_SSE2: argument 0"}
-!271 = distinct !{!271, !"HE8uv_SSE2"}
-!272 = !{!273}
-!273 = distinct !{!273, !271, !"HE8uv_SSE2: argument 1"}
-!274 = !{!273, !268, !248}
-!275 = !{!270, !265, !245, !250}
-!276 = !{!270, !265, !245}
-!277 = !{!273, !268, !248, !250}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"VerticalPred_SSE2: argument 0"}
-!280 = distinct !{!280, !"VerticalPred_SSE2"}
-!281 = !{!282}
-!282 = distinct !{!282, !280, !"VerticalPred_SSE2: argument 1"}
-!283 = !{!282, !250}
-!284 = !{!279, !245, !248}
-!285 = !{!286, !279, !245}
-!286 = distinct !{!286, !287, !"VE8uv_SSE2: argument 0"}
-!287 = distinct !{!287, !"VE8uv_SSE2"}
-!288 = !{!282, !248, !250}
-!289 = !{!248, !250}
-!290 = !{!291}
-!291 = distinct !{!291, !292, !"DC4_SSE2: argument 0"}
-!292 = distinct !{!292, !"DC4_SSE2"}
-!293 = !{!294}
-!294 = distinct !{!294, !292, !"DC4_SSE2: argument 1"}
-!295 = distinct !{!295, !21}
-!296 = distinct !{!296, !21}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"TM4_SSE2: argument 0"}
-!299 = distinct !{!299, !"TM4_SSE2"}
-!300 = !{!301}
-!301 = distinct !{!301, !299, !"TM4_SSE2: argument 1"}
-!302 = distinct !{!302, !21}
-!303 = !{!304}
-!304 = distinct !{!304, !305, !"VE4_SSE2: argument 0"}
-!305 = distinct !{!305, !"VE4_SSE2"}
-!306 = distinct !{!306, !21}
-!307 = !{!308}
-!308 = distinct !{!308, !309, !"HE4_SSE2: argument 0"}
-!309 = distinct !{!309, !"HE4_SSE2"}
-!310 = !{!311}
-!311 = distinct !{!311, !309, !"HE4_SSE2: argument 1"}
-!312 = !{!313}
-!313 = distinct !{!313, !314, !"RD4_SSE2: argument 0"}
-!314 = distinct !{!314, !"RD4_SSE2"}
-!315 = !{!316}
-!316 = distinct !{!316, !317, !"VR4_SSE2: argument 0"}
-!317 = distinct !{!317, !"VR4_SSE2"}
-!318 = !{!319}
-!319 = distinct !{!319, !317, !"VR4_SSE2: argument 1"}
-!320 = !{!321}
-!321 = distinct !{!321, !322, !"LD4_SSE2: argument 0"}
-!322 = distinct !{!322, !"LD4_SSE2"}
-!323 = !{!324}
-!324 = distinct !{!324, !322, !"LD4_SSE2: argument 1"}
-!325 = !{!326}
-!326 = distinct !{!326, !327, !"VL4_SSE2: argument 0"}
-!327 = distinct !{!327, !"VL4_SSE2"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"HD4_SSE2: argument 0"}
-!330 = distinct !{!330, !"HD4_SSE2"}
-!331 = !{!332}
-!332 = distinct !{!332, !330, !"HD4_SSE2: argument 1"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"HU4_SSE2: argument 0"}
-!335 = distinct !{!335, !"HU4_SSE2"}
-!336 = !{!337}
-!337 = distinct !{!337, !335, !"HU4_SSE2: argument 1"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"DoQuantizeBlock_SSE2: argument 0"}
-!340 = distinct !{!340, !"DoQuantizeBlock_SSE2"}
-!341 = !{!342}
-!342 = distinct !{!342, !340, !"DoQuantizeBlock_SSE2: argument 1"}
-!343 = !{!339, !342}
-!344 = !{!345}
-!345 = distinct !{!345, !346, !"DoQuantizeBlock_SSE2: argument 0"}
-!346 = distinct !{!346, !"DoQuantizeBlock_SSE2"}
-!347 = !{!348}
-!348 = distinct !{!348, !346, !"DoQuantizeBlock_SSE2: argument 1"}
-!349 = !{!345, !348}
-!350 = !{!351, !353}
-!351 = distinct !{!351, !352, !"DoQuantizeBlock_SSE2: argument 0"}
-!352 = distinct !{!352, !"DoQuantizeBlock_SSE2"}
-!353 = distinct !{!353, !352, !"DoQuantizeBlock_SSE2: argument 1"}
-!354 = !{!355}
-!355 = distinct !{!355, !356, !"DoQuantizeBlock_SSE2: argument 1"}
-!356 = distinct !{!356, !"DoQuantizeBlock_SSE2"}
-!357 = !{!358, !355}
-!358 = distinct !{!358, !356, !"DoQuantizeBlock_SSE2: argument 0"}
-!359 = !{!358}
-!360 = !{!361}
-!361 = distinct !{!361, !362, !"ITransform_Two_SSE2: argument 0"}
-!362 = distinct !{!362, !"ITransform_Two_SSE2"}
-!363 = !{!364}
-!364 = distinct !{!364, !362, !"ITransform_Two_SSE2: argument 1"}
-!365 = !{!366}
-!366 = distinct !{!366, !362, !"ITransform_Two_SSE2: argument 2"}
-!367 = !{!361, !366}
-!368 = !{!364, !366}
-!369 = !{!361, !364}
-!370 = !{!371}
-!371 = distinct !{!371, !372, !"ITransform_One_SSE2: argument 0"}
-!372 = distinct !{!372, !"ITransform_One_SSE2"}
-!373 = !{!374}
-!374 = distinct !{!374, !372, !"ITransform_One_SSE2: argument 1"}
-!375 = !{!376}
-!376 = distinct !{!376, !377, !"FTransformPass2_SSE2: argument 0"}
-!377 = distinct !{!377, !"FTransformPass2_SSE2"}
-!378 = !{!379}
-!379 = distinct !{!379, !380, !"FTransformPass2_SSE2: argument 0"}
-!380 = distinct !{!380, !"FTransformPass2_SSE2"}
-!381 = !{!382}
-!382 = distinct !{!382, !383, !"FTransformPass2_SSE2: argument 0"}
-!383 = distinct !{!383, !"FTransformPass2_SSE2"}
-!384 = !{!385}
-!385 = distinct !{!385, !386, !"FTransformWHTRow_SSE2: argument 0"}
-!386 = distinct !{!386, !"FTransformWHTRow_SSE2"}
-!387 = !{!388}
-!388 = distinct !{!388, !389, !"FTransformWHTRow_SSE2: argument 0"}
-!389 = distinct !{!389, !"FTransformWHTRow_SSE2"}
-!390 = !{!391}
-!391 = distinct !{!391, !392, !"FTransformWHTRow_SSE2: argument 0"}
-!392 = distinct !{!392, !"FTransformWHTRow_SSE2"}
-!393 = !{!394}
-!394 = distinct !{!394, !395, !"FTransformWHTRow_SSE2: argument 0"}
-!395 = distinct !{!395, !"FTransformWHTRow_SSE2"}
-!396 = !{!397}
-!397 = distinct !{!397, !398, !"SSE_16xN_SSE2: argument 0"}
-!398 = distinct !{!398, !"SSE_16xN_SSE2"}
-!399 = !{!400}
-!400 = distinct !{!400, !398, !"SSE_16xN_SSE2: argument 1"}
-!401 = distinct !{!401, !21}
-!402 = !{!403}
-!403 = distinct !{!403, !404, !"SSE_16xN_SSE2: argument 0"}
-!404 = distinct !{!404, !"SSE_16xN_SSE2"}
-!405 = !{!406}
-!406 = distinct !{!406, !404, !"SSE_16xN_SSE2: argument 1"}
-!407 = distinct !{!407, !21}
-!408 = !{!409}
-!409 = distinct !{!409, !410, !"TTransform_SSE2: argument 0"}
-!410 = distinct !{!410, !"TTransform_SSE2"}
-!411 = !{!412}
-!412 = distinct !{!412, !410, !"TTransform_SSE2: argument 1"}
-!413 = !{!414}
-!414 = distinct !{!414, !415, !"Disto4x4_SSE2: argument 2"}
-!415 = distinct !{!415, !"Disto4x4_SSE2"}
-!416 = !{!417, !418}
-!417 = distinct !{!417, !415, !"Disto4x4_SSE2: argument 0"}
-!418 = distinct !{!418, !415, !"Disto4x4_SSE2: argument 1"}
-!419 = !{!417}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"DC16Mode_SSE2: argument 0"}
+!26 = distinct !{!26, !"DC16Mode_SSE2"}
+!27 = !{!28}
+!28 = distinct !{!28, !26, !"DC16Mode_SSE2: argument 1"}
+!29 = !{!25, !30}
+!30 = distinct !{!30, !26, !"DC16Mode_SSE2: argument 2"}
+!31 = !{!32, !25}
+!32 = distinct !{!32, !33, !"DC16_SSE2: argument 0"}
+!33 = distinct !{!33, !"DC16_SSE2"}
+!34 = !{!28, !30}
+!35 = distinct !{!35, !21, !22}
+!36 = !{!37, !25}
+!37 = distinct !{!37, !38, !"DC16NoLeft_SSE2: argument 0"}
+!38 = distinct !{!38, !"DC16NoLeft_SSE2"}
+!39 = !{!40, !42, !25}
+!40 = distinct !{!40, !41, !"DC16NoLeft_SSE2: argument 0"}
+!41 = distinct !{!41, !"DC16NoLeft_SSE2"}
+!42 = distinct !{!42, !43, !"DC16NoTop_SSE2: argument 0"}
+!43 = distinct !{!43, !"DC16NoTop_SSE2"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"VE16_SSE2: argument 0"}
+!46 = distinct !{!46, !"VE16_SSE2"}
+!47 = distinct !{!47, !48, !"VerticalPred_SSE2: argument 0"}
+!48 = distinct !{!48, !"VerticalPred_SSE2"}
+!49 = !{!50}
+!50 = distinct !{!50, !48, !"VerticalPred_SSE2: argument 1"}
+!51 = distinct !{!51, !21, !22}
+!52 = !{!47}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"HorizontalPred_SSE2: argument 0"}
+!55 = distinct !{!55, !"HorizontalPred_SSE2"}
+!56 = !{!57}
+!57 = distinct !{!57, !55, !"HorizontalPred_SSE2: argument 1"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"HE16_SSE2: argument 0"}
+!60 = distinct !{!60, !"HE16_SSE2"}
+!61 = !{!62}
+!62 = distinct !{!62, !60, !"HE16_SSE2: argument 1"}
+!63 = !{!62, !57}
+!64 = !{!59, !54}
+!65 = distinct !{!65, !21, !22}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"TrueMotion_SSE2: argument 0"}
+!68 = distinct !{!68, !"TrueMotion_SSE2"}
+!69 = !{!70}
+!70 = distinct !{!70, !68, !"TrueMotion_SSE2: argument 1"}
+!71 = !{!72}
+!72 = distinct !{!72, !68, !"TrueMotion_SSE2: argument 2"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"TM_SSE2: argument 0"}
+!75 = distinct !{!75, !"TM_SSE2"}
+!76 = !{!77}
+!77 = distinct !{!77, !75, !"TM_SSE2: argument 1"}
+!78 = !{!79}
+!79 = distinct !{!79, !75, !"TM_SSE2: argument 2"}
+!80 = !{!79, !72}
+!81 = !{!74, !77, !67, !70}
+!82 = !{!77, !70}
+!83 = !{!74, !79, !67, !72}
+!84 = !{!74, !67}
+!85 = !{!77, !79, !70, !72}
+!86 = distinct !{!86, !21, !22}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"HorizontalPred_SSE2: argument 0"}
+!89 = distinct !{!89, !"HorizontalPred_SSE2"}
+!90 = !{!91}
+!91 = distinct !{!91, !89, !"HorizontalPred_SSE2: argument 1"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"HE16_SSE2: argument 0"}
+!94 = distinct !{!94, !"HE16_SSE2"}
+!95 = !{!96}
+!96 = distinct !{!96, !94, !"HE16_SSE2: argument 1"}
+!97 = !{!96, !91, !70}
+!98 = !{!93, !88, !67, !72}
+!99 = !{!93, !88, !67}
+!100 = !{!96, !91, !70, !72}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"VerticalPred_SSE2: argument 0"}
+!103 = distinct !{!103, !"VerticalPred_SSE2"}
+!104 = !{!105}
+!105 = distinct !{!105, !103, !"VerticalPred_SSE2: argument 1"}
+!106 = !{!105, !72}
+!107 = !{!102, !67, !70}
+!108 = !{!109, !102, !67}
+!109 = distinct !{!109, !110, !"VE16_SSE2: argument 0"}
+!110 = distinct !{!110, !"VE16_SSE2"}
+!111 = !{!105, !70, !72}
+!112 = !{!70, !72}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"DC8uvMode_SSE2: argument 0"}
+!115 = distinct !{!115, !"DC8uvMode_SSE2"}
+!116 = !{!117}
+!117 = distinct !{!117, !115, !"DC8uvMode_SSE2: argument 1"}
+!118 = !{!119}
+!119 = distinct !{!119, !115, !"DC8uvMode_SSE2: argument 2"}
+!120 = !{!114, !119}
+!121 = !{!114, !117}
+!122 = !{!123, !114}
+!123 = distinct !{!123, !124, !"DC8uv_SSE2: argument 0"}
+!124 = distinct !{!124, !"DC8uv_SSE2"}
+!125 = !{!117, !119}
+!126 = distinct !{!126, !21, !22}
+!127 = !{!128, !114}
+!128 = distinct !{!128, !129, !"DC8uvNoLeft_SSE2: argument 0"}
+!129 = distinct !{!129, !"DC8uvNoLeft_SSE2"}
+!130 = !{!131, !133, !114}
+!131 = distinct !{!131, !132, !"DC8uvNoLeft_SSE2: argument 0"}
+!132 = distinct !{!132, !"DC8uvNoLeft_SSE2"}
+!133 = distinct !{!133, !134, !"DC8uvNoTop_SSE2: argument 0"}
+!134 = distinct !{!134, !"DC8uvNoTop_SSE2"}
+!135 = !{!136, !138}
+!136 = distinct !{!136, !137, !"VE8uv_SSE2: argument 0"}
+!137 = distinct !{!137, !"VE8uv_SSE2"}
+!138 = distinct !{!138, !139, !"VerticalPred_SSE2: argument 0"}
+!139 = distinct !{!139, !"VerticalPred_SSE2"}
+!140 = !{!141}
+!141 = distinct !{!141, !139, !"VerticalPred_SSE2: argument 1"}
+!142 = distinct !{!142, !21, !22}
+!143 = !{!138}
+!144 = !{!145}
+!145 = distinct !{!145, !146, !"HorizontalPred_SSE2: argument 0"}
+!146 = distinct !{!146, !"HorizontalPred_SSE2"}
+!147 = !{!148}
+!148 = distinct !{!148, !146, !"HorizontalPred_SSE2: argument 1"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"HE8uv_SSE2: argument 0"}
+!151 = distinct !{!151, !"HE8uv_SSE2"}
+!152 = !{!153}
+!153 = distinct !{!153, !151, !"HE8uv_SSE2: argument 1"}
+!154 = !{!153, !148}
+!155 = !{!150, !145}
+!156 = distinct !{!156, !21, !22}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"TrueMotion_SSE2: argument 0"}
+!159 = distinct !{!159, !"TrueMotion_SSE2"}
+!160 = !{!161}
+!161 = distinct !{!161, !159, !"TrueMotion_SSE2: argument 1"}
+!162 = !{!163}
+!163 = distinct !{!163, !159, !"TrueMotion_SSE2: argument 2"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"TM_SSE2: argument 0"}
+!166 = distinct !{!166, !"TM_SSE2"}
+!167 = !{!168}
+!168 = distinct !{!168, !166, !"TM_SSE2: argument 1"}
+!169 = !{!170}
+!170 = distinct !{!170, !166, !"TM_SSE2: argument 2"}
+!171 = !{!170, !163}
+!172 = !{!165, !168, !158, !161}
+!173 = !{!168, !161}
+!174 = !{!165, !170, !158, !163}
+!175 = !{!165, !158}
+!176 = !{!168, !170, !161, !163}
+!177 = distinct !{!177, !21, !22}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"HorizontalPred_SSE2: argument 0"}
+!180 = distinct !{!180, !"HorizontalPred_SSE2"}
+!181 = !{!182}
+!182 = distinct !{!182, !180, !"HorizontalPred_SSE2: argument 1"}
+!183 = !{!184}
+!184 = distinct !{!184, !185, !"HE8uv_SSE2: argument 0"}
+!185 = distinct !{!185, !"HE8uv_SSE2"}
+!186 = !{!187}
+!187 = distinct !{!187, !185, !"HE8uv_SSE2: argument 1"}
+!188 = !{!187, !182, !161}
+!189 = !{!184, !179, !158, !163}
+!190 = !{!184, !179, !158}
+!191 = !{!187, !182, !161, !163}
+!192 = !{!193}
+!193 = distinct !{!193, !194, !"VerticalPred_SSE2: argument 0"}
+!194 = distinct !{!194, !"VerticalPred_SSE2"}
+!195 = !{!196}
+!196 = distinct !{!196, !194, !"VerticalPred_SSE2: argument 1"}
+!197 = !{!196, !163}
+!198 = !{!193, !158, !161}
+!199 = !{!200, !193, !158}
+!200 = distinct !{!200, !201, !"VE8uv_SSE2: argument 0"}
+!201 = distinct !{!201, !"VE8uv_SSE2"}
+!202 = !{!196, !161, !163}
+!203 = !{!161, !163}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"DC8uvMode_SSE2: argument 0"}
+!206 = distinct !{!206, !"DC8uvMode_SSE2"}
+!207 = !{!208}
+!208 = distinct !{!208, !206, !"DC8uvMode_SSE2: argument 1"}
+!209 = !{!210}
+!210 = distinct !{!210, !206, !"DC8uvMode_SSE2: argument 2"}
+!211 = !{!205, !210}
+!212 = !{!205, !208}
+!213 = !{!214, !205}
+!214 = distinct !{!214, !215, !"DC8uv_SSE2: argument 0"}
+!215 = distinct !{!215, !"DC8uv_SSE2"}
+!216 = !{!208, !210}
+!217 = !{!218, !205}
+!218 = distinct !{!218, !219, !"DC8uvNoLeft_SSE2: argument 0"}
+!219 = distinct !{!219, !"DC8uvNoLeft_SSE2"}
+!220 = !{!221, !223, !205}
+!221 = distinct !{!221, !222, !"DC8uvNoLeft_SSE2: argument 0"}
+!222 = distinct !{!222, !"DC8uvNoLeft_SSE2"}
+!223 = distinct !{!223, !224, !"DC8uvNoTop_SSE2: argument 0"}
+!224 = distinct !{!224, !"DC8uvNoTop_SSE2"}
+!225 = !{!226, !228}
+!226 = distinct !{!226, !227, !"VE8uv_SSE2: argument 0"}
+!227 = distinct !{!227, !"VE8uv_SSE2"}
+!228 = distinct !{!228, !229, !"VerticalPred_SSE2: argument 0"}
+!229 = distinct !{!229, !"VerticalPred_SSE2"}
+!230 = !{!231}
+!231 = distinct !{!231, !229, !"VerticalPred_SSE2: argument 1"}
+!232 = !{!228}
+!233 = !{!234}
+!234 = distinct !{!234, !235, !"HorizontalPred_SSE2: argument 0"}
+!235 = distinct !{!235, !"HorizontalPred_SSE2"}
+!236 = !{!237}
+!237 = distinct !{!237, !235, !"HorizontalPred_SSE2: argument 1"}
+!238 = !{!239}
+!239 = distinct !{!239, !240, !"HE8uv_SSE2: argument 0"}
+!240 = distinct !{!240, !"HE8uv_SSE2"}
+!241 = !{!242}
+!242 = distinct !{!242, !240, !"HE8uv_SSE2: argument 1"}
+!243 = !{!242, !237}
+!244 = !{!239, !234}
+!245 = !{!246}
+!246 = distinct !{!246, !247, !"TrueMotion_SSE2: argument 0"}
+!247 = distinct !{!247, !"TrueMotion_SSE2"}
+!248 = !{!249}
+!249 = distinct !{!249, !247, !"TrueMotion_SSE2: argument 1"}
+!250 = !{!251}
+!251 = distinct !{!251, !247, !"TrueMotion_SSE2: argument 2"}
+!252 = !{!253}
+!253 = distinct !{!253, !254, !"TM_SSE2: argument 0"}
+!254 = distinct !{!254, !"TM_SSE2"}
+!255 = !{!256}
+!256 = distinct !{!256, !254, !"TM_SSE2: argument 1"}
+!257 = !{!258}
+!258 = distinct !{!258, !254, !"TM_SSE2: argument 2"}
+!259 = !{!258, !251}
+!260 = !{!253, !256, !246, !249}
+!261 = !{!256, !249}
+!262 = !{!253, !258, !246, !251}
+!263 = !{!253, !246}
+!264 = !{!256, !258, !249, !251}
+!265 = !{!266}
+!266 = distinct !{!266, !267, !"HorizontalPred_SSE2: argument 0"}
+!267 = distinct !{!267, !"HorizontalPred_SSE2"}
+!268 = !{!269}
+!269 = distinct !{!269, !267, !"HorizontalPred_SSE2: argument 1"}
+!270 = !{!271}
+!271 = distinct !{!271, !272, !"HE8uv_SSE2: argument 0"}
+!272 = distinct !{!272, !"HE8uv_SSE2"}
+!273 = !{!274}
+!274 = distinct !{!274, !272, !"HE8uv_SSE2: argument 1"}
+!275 = !{!274, !269, !249}
+!276 = !{!271, !266, !246, !251}
+!277 = !{!271, !266, !246}
+!278 = !{!274, !269, !249, !251}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"VerticalPred_SSE2: argument 0"}
+!281 = distinct !{!281, !"VerticalPred_SSE2"}
+!282 = !{!283}
+!283 = distinct !{!283, !281, !"VerticalPred_SSE2: argument 1"}
+!284 = !{!283, !251}
+!285 = !{!280, !246, !249}
+!286 = !{!287, !280, !246}
+!287 = distinct !{!287, !288, !"VE8uv_SSE2: argument 0"}
+!288 = distinct !{!288, !"VE8uv_SSE2"}
+!289 = !{!283, !249, !251}
+!290 = !{!249, !251}
+!291 = !{!292}
+!292 = distinct !{!292, !293, !"DC4_SSE2: argument 0"}
+!293 = distinct !{!293, !"DC4_SSE2"}
+!294 = !{!295}
+!295 = distinct !{!295, !293, !"DC4_SSE2: argument 1"}
+!296 = distinct !{!296, !21, !22}
+!297 = distinct !{!297, !21, !22}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"TM4_SSE2: argument 0"}
+!300 = distinct !{!300, !"TM4_SSE2"}
+!301 = !{!302}
+!302 = distinct !{!302, !300, !"TM4_SSE2: argument 1"}
+!303 = distinct !{!303, !21, !22}
+!304 = !{!305}
+!305 = distinct !{!305, !306, !"VE4_SSE2: argument 0"}
+!306 = distinct !{!306, !"VE4_SSE2"}
+!307 = distinct !{!307, !21, !22}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"HE4_SSE2: argument 0"}
+!310 = distinct !{!310, !"HE4_SSE2"}
+!311 = !{!312}
+!312 = distinct !{!312, !310, !"HE4_SSE2: argument 1"}
+!313 = !{!314}
+!314 = distinct !{!314, !315, !"RD4_SSE2: argument 0"}
+!315 = distinct !{!315, !"RD4_SSE2"}
+!316 = !{!317}
+!317 = distinct !{!317, !318, !"VR4_SSE2: argument 0"}
+!318 = distinct !{!318, !"VR4_SSE2"}
+!319 = !{!320}
+!320 = distinct !{!320, !318, !"VR4_SSE2: argument 1"}
+!321 = !{!322}
+!322 = distinct !{!322, !323, !"LD4_SSE2: argument 0"}
+!323 = distinct !{!323, !"LD4_SSE2"}
+!324 = !{!325}
+!325 = distinct !{!325, !323, !"LD4_SSE2: argument 1"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"VL4_SSE2: argument 0"}
+!328 = distinct !{!328, !"VL4_SSE2"}
+!329 = !{!330}
+!330 = distinct !{!330, !331, !"HD4_SSE2: argument 0"}
+!331 = distinct !{!331, !"HD4_SSE2"}
+!332 = !{!333}
+!333 = distinct !{!333, !331, !"HD4_SSE2: argument 1"}
+!334 = !{!335}
+!335 = distinct !{!335, !336, !"HU4_SSE2: argument 0"}
+!336 = distinct !{!336, !"HU4_SSE2"}
+!337 = !{!338}
+!338 = distinct !{!338, !336, !"HU4_SSE2: argument 1"}
+!339 = !{!340}
+!340 = distinct !{!340, !341, !"DoQuantizeBlock_SSE2: argument 0"}
+!341 = distinct !{!341, !"DoQuantizeBlock_SSE2"}
+!342 = !{!343}
+!343 = distinct !{!343, !341, !"DoQuantizeBlock_SSE2: argument 1"}
+!344 = !{!340, !343}
+!345 = !{!346}
+!346 = distinct !{!346, !347, !"DoQuantizeBlock_SSE2: argument 0"}
+!347 = distinct !{!347, !"DoQuantizeBlock_SSE2"}
+!348 = !{!349}
+!349 = distinct !{!349, !347, !"DoQuantizeBlock_SSE2: argument 1"}
+!350 = !{!346, !349}
+!351 = !{!352, !354}
+!352 = distinct !{!352, !353, !"DoQuantizeBlock_SSE2: argument 0"}
+!353 = distinct !{!353, !"DoQuantizeBlock_SSE2"}
+!354 = distinct !{!354, !353, !"DoQuantizeBlock_SSE2: argument 1"}
+!355 = !{!356}
+!356 = distinct !{!356, !357, !"DoQuantizeBlock_SSE2: argument 1"}
+!357 = distinct !{!357, !"DoQuantizeBlock_SSE2"}
+!358 = !{!359, !356}
+!359 = distinct !{!359, !357, !"DoQuantizeBlock_SSE2: argument 0"}
+!360 = !{!359}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"ITransform_Two_SSE2: argument 0"}
+!363 = distinct !{!363, !"ITransform_Two_SSE2"}
+!364 = !{!365}
+!365 = distinct !{!365, !363, !"ITransform_Two_SSE2: argument 1"}
+!366 = !{!367}
+!367 = distinct !{!367, !363, !"ITransform_Two_SSE2: argument 2"}
+!368 = !{!362, !367}
+!369 = !{!365, !367}
+!370 = !{!362, !365}
+!371 = !{!372}
+!372 = distinct !{!372, !373, !"ITransform_One_SSE2: argument 0"}
+!373 = distinct !{!373, !"ITransform_One_SSE2"}
+!374 = !{!375}
+!375 = distinct !{!375, !373, !"ITransform_One_SSE2: argument 1"}
+!376 = !{!377}
+!377 = distinct !{!377, !378, !"FTransformPass2_SSE2: argument 0"}
+!378 = distinct !{!378, !"FTransformPass2_SSE2"}
+!379 = !{!380}
+!380 = distinct !{!380, !381, !"FTransformPass2_SSE2: argument 0"}
+!381 = distinct !{!381, !"FTransformPass2_SSE2"}
+!382 = !{!383}
+!383 = distinct !{!383, !384, !"FTransformPass2_SSE2: argument 0"}
+!384 = distinct !{!384, !"FTransformPass2_SSE2"}
+!385 = !{!386}
+!386 = distinct !{!386, !387, !"FTransformWHTRow_SSE2: argument 0"}
+!387 = distinct !{!387, !"FTransformWHTRow_SSE2"}
+!388 = !{!389}
+!389 = distinct !{!389, !390, !"FTransformWHTRow_SSE2: argument 0"}
+!390 = distinct !{!390, !"FTransformWHTRow_SSE2"}
+!391 = !{!392}
+!392 = distinct !{!392, !393, !"FTransformWHTRow_SSE2: argument 0"}
+!393 = distinct !{!393, !"FTransformWHTRow_SSE2"}
+!394 = !{!395}
+!395 = distinct !{!395, !396, !"FTransformWHTRow_SSE2: argument 0"}
+!396 = distinct !{!396, !"FTransformWHTRow_SSE2"}
+!397 = !{!398}
+!398 = distinct !{!398, !399, !"SSE_16xN_SSE2: argument 0"}
+!399 = distinct !{!399, !"SSE_16xN_SSE2"}
+!400 = !{!401}
+!401 = distinct !{!401, !399, !"SSE_16xN_SSE2: argument 1"}
+!402 = distinct !{!402, !21, !22}
+!403 = !{!404}
+!404 = distinct !{!404, !405, !"SSE_16xN_SSE2: argument 0"}
+!405 = distinct !{!405, !"SSE_16xN_SSE2"}
+!406 = !{!407}
+!407 = distinct !{!407, !405, !"SSE_16xN_SSE2: argument 1"}
+!408 = distinct !{!408, !21, !22}
+!409 = !{!410}
+!410 = distinct !{!410, !411, !"TTransform_SSE2: argument 0"}
+!411 = distinct !{!411, !"TTransform_SSE2"}
+!412 = !{!413}
+!413 = distinct !{!413, !411, !"TTransform_SSE2: argument 1"}
+!414 = !{!415}
+!415 = distinct !{!415, !416, !"Disto4x4_SSE2: argument 2"}
+!416 = distinct !{!416, !"Disto4x4_SSE2"}
+!417 = !{!418, !419}
+!418 = distinct !{!418, !416, !"Disto4x4_SSE2: argument 0"}
+!419 = distinct !{!419, !416, !"Disto4x4_SSE2: argument 1"}
 !420 = !{!418}
-!421 = !{!422}
-!422 = distinct !{!422, !423, !"TTransform_SSE2: argument 0"}
-!423 = distinct !{!423, !"TTransform_SSE2"}
-!424 = !{!425}
-!425 = distinct !{!425, !423, !"TTransform_SSE2: argument 1"}
-!426 = !{!422, !417}
-!427 = !{!425, !418, !414}
-!428 = !{!425, !418}
-!429 = !{!422, !417, !414}
-!430 = distinct !{!430, !21}
-!431 = distinct !{!431, !21}
+!421 = !{!419}
+!422 = !{!423}
+!423 = distinct !{!423, !424, !"TTransform_SSE2: argument 0"}
+!424 = distinct !{!424, !"TTransform_SSE2"}
+!425 = !{!426}
+!426 = distinct !{!426, !424, !"TTransform_SSE2: argument 1"}
+!427 = !{!423, !418}
+!428 = !{!426, !419, !415}
+!429 = !{!426, !419}
+!430 = !{!423, !418, !415}
+!431 = distinct !{!431, !21, !22}
+!432 = distinct !{!432, !21, !22}

@@ -295,7 +295,7 @@ collect_numbers.exit:                             ; preds = %72, %.preheader.i
   %112 = call i32 @RSA_bits(ptr noundef nonnull %0) #4
   %113 = call i32 @OPENSSL_sk_num(ptr noundef %58) #4
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %115 = load ptr, ptr %114, align 8, !tbaa !28
+  %115 = load ptr, ptr %114, align 8, !tbaa !29
   %116 = call i32 @ossl_rsa_multiprime_derive(ptr noundef nonnull %0, i32 noundef %112, i32 noundef %113, ptr noundef %115, ptr noundef %58, ptr noundef %75, ptr noundef %78) #4
   %.not110 = icmp eq i32 %116, 0
   br i1 %.not110, label %117, label %118
@@ -707,13 +707,13 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !29
+  %18 = load i32, ptr %17, align 8, !tbaa !30
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %22 = load ptr, ptr %21, align 8, !tbaa !33
   br label %23
 
 23:                                               ; preds = %16, %20, %10
@@ -750,13 +750,13 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   store ptr null, ptr %6, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !29
+  %37 = load i32, ptr %36, align 8, !tbaa !30
   %38 = icmp eq i32 %37, 4
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !32
+  %41 = load ptr, ptr %40, align 8, !tbaa !33
   store ptr %41, ptr %6, align 8, !tbaa !24
   br label %44
 
@@ -767,7 +767,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %42
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !33
   br label %44
 
 44:                                               ; preds = %._crit_edge, %39
@@ -786,13 +786,13 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   store ptr null, ptr %7, align 8, !tbaa !24
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !29
+  %51 = load i32, ptr %50, align 8, !tbaa !30
   %52 = icmp eq i32 %51, 4
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !32
+  %55 = load ptr, ptr %54, align 8, !tbaa !33
   store ptr %55, ptr %7, align 8, !tbaa !24
   br label %58
 
@@ -835,13 +835,13 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store ptr null, ptr %8, align 8, !tbaa !24
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !29
+  %69 = load i32, ptr %68, align 8, !tbaa !30
   %70 = icmp eq i32 %69, 4
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !32
+  %73 = load ptr, ptr %72, align 8, !tbaa !33
   store ptr %73, ptr %8, align 8, !tbaa !24
   br label %76
 
@@ -933,7 +933,7 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_rsa_is_foreign(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
@@ -956,7 +956,7 @@ declare ptr @RSA_PKCS1_OpenSSL() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_rsa_dup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %ossl_rsa_is_foreign.exit, label %ossl_rsa_is_foreign.exit.thread
 
@@ -980,7 +980,7 @@ ossl_rsa_is_foreign.exit:                         ; preds = %2
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %.not.i83 = icmp eq ptr %16, null
   br i1 %.not.i83, label %rsa_bn_dup_check.exit, label %17
 
@@ -993,7 +993,7 @@ ossl_rsa_is_foreign.exit:                         ; preds = %2
 
 rsa_bn_dup_check.exit:                            ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.not.i85 = icmp eq ptr %22, null
   br i1 %.not.i85, label %rsa_bn_dup_check.exit87, label %23
 
@@ -1011,7 +1011,7 @@ rsa_bn_dup_check.exit87:                          ; preds = %23, %rsa_bn_dup_che
 
 28:                                               ; preds = %rsa_bn_dup_check.exit87
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  %30 = load ptr, ptr %29, align 8, !tbaa !36
   %.not.i88 = icmp eq ptr %30, null
   br i1 %.not.i88, label %rsa_bn_dup_check.exit90, label %31
 
@@ -1024,7 +1024,7 @@ rsa_bn_dup_check.exit87:                          ; preds = %23, %rsa_bn_dup_che
 
 rsa_bn_dup_check.exit90:                          ; preds = %31, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !36
+  %36 = load ptr, ptr %35, align 8, !tbaa !37
   %.not.i91 = icmp eq ptr %36, null
   br i1 %.not.i91, label %rsa_bn_dup_check.exit93, label %37
 
@@ -1037,7 +1037,7 @@ rsa_bn_dup_check.exit90:                          ; preds = %31, %28
 
 rsa_bn_dup_check.exit93:                          ; preds = %37, %rsa_bn_dup_check.exit90
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !37
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
   %.not.i94 = icmp eq ptr %42, null
   br i1 %.not.i94, label %rsa_bn_dup_check.exit96, label %43
 
@@ -1050,7 +1050,7 @@ rsa_bn_dup_check.exit93:                          ; preds = %37, %rsa_bn_dup_che
 
 rsa_bn_dup_check.exit96:                          ; preds = %43, %rsa_bn_dup_check.exit93
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %48 = load ptr, ptr %47, align 8, !tbaa !38
+  %48 = load ptr, ptr %47, align 8, !tbaa !39
   %.not.i97 = icmp eq ptr %48, null
   br i1 %.not.i97, label %rsa_bn_dup_check.exit99, label %49
 
@@ -1063,7 +1063,7 @@ rsa_bn_dup_check.exit96:                          ; preds = %43, %rsa_bn_dup_che
 
 rsa_bn_dup_check.exit99:                          ; preds = %49, %rsa_bn_dup_check.exit96
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %54 = load ptr, ptr %53, align 8, !tbaa !39
+  %54 = load ptr, ptr %53, align 8, !tbaa !40
   %.not.i100 = icmp eq ptr %54, null
   br i1 %.not.i100, label %rsa_bn_dup_check.exit102, label %55
 
@@ -1076,7 +1076,7 @@ rsa_bn_dup_check.exit99:                          ; preds = %49, %rsa_bn_dup_che
 
 rsa_bn_dup_check.exit102:                         ; preds = %55, %rsa_bn_dup_check.exit99
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %60 = load ptr, ptr %59, align 8, !tbaa !41
   %.not.i103 = icmp eq ptr %60, null
   br i1 %.not.i103, label %73, label %61
 
@@ -1089,32 +1089,32 @@ rsa_bn_dup_check.exit102:                         ; preds = %55, %rsa_bn_dup_che
 
 rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.exit87
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load i32, ptr %65, align 8, !tbaa !41
+  %66 = load i32, ptr %65, align 8, !tbaa !42
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %66, ptr %67, align 8, !tbaa !41
+  store i32 %66, ptr %67, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %69 = load i32, ptr %68, align 4, !tbaa !42
+  %69 = load i32, ptr %68, align 4, !tbaa !43
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 164
-  store i32 %69, ptr %70, align 4, !tbaa !42
+  store i32 %69, ptr %70, align 4, !tbaa !43
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %71, ptr noundef nonnull align 8 dereferenceable(20) %72, i64 20, i1 false), !tbaa.struct !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %71, ptr noundef nonnull align 8 dereferenceable(20) %72, i64 20, i1 false), !tbaa.struct !44
   br label %115
 
 73:                                               ; preds = %61, %rsa_bn_dup_check.exit102
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load i32, ptr %74, align 8, !tbaa !41
+  %75 = load i32, ptr %74, align 8, !tbaa !42
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %75, ptr %76, align 8, !tbaa !41
+  store i32 %75, ptr %76, align 8, !tbaa !42
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %78 = load i32, ptr %77, align 4, !tbaa !42
+  %78 = load i32, ptr %77, align 4, !tbaa !43
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 164
-  store i32 %78, ptr %79, align 4, !tbaa !42
+  store i32 %78, ptr %79, align 4, !tbaa !43
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %80, ptr noundef nonnull align 8 dereferenceable(20) %81, i64 20, i1 false), !tbaa.struct !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %80, ptr noundef nonnull align 8 dereferenceable(20) %81, i64 20, i1 false), !tbaa.struct !44
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %83 = load ptr, ptr %82, align 8, !tbaa !44
+  %83 = load ptr, ptr %82, align 8, !tbaa !45
   %84 = tail call i32 @OPENSSL_sk_num(ptr noundef %83) #4
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %115
@@ -1122,7 +1122,7 @@ rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.ex
 86:                                               ; preds = %73
   %87 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, -2147483648) %84) #4
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store ptr %87, ptr %88, align 8, !tbaa !44
+  store ptr %87, ptr %88, align 8, !tbaa !45
   %89 = icmp eq ptr %87, null
   br i1 %89, label %rsa_bn_dup_check.exit.thread, label %.lr.ph
 
@@ -1133,11 +1133,11 @@ rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.ex
   br i1 %91, label %rsa_bn_dup_check.exit.thread, label %92
 
 92:                                               ; preds = %.lr.ph
-  %93 = load ptr, ptr %88, align 8, !tbaa !44
+  %93 = load ptr, ptr %88, align 8, !tbaa !45
   %94 = tail call i32 @OPENSSL_sk_push(ptr noundef %93, ptr noundef nonnull %90) #4
-  %95 = load ptr, ptr %82, align 8, !tbaa !44
+  %95 = load ptr, ptr %82, align 8, !tbaa !45
   %96 = tail call ptr @OPENSSL_sk_value(ptr noundef %95, i32 noundef range(i32 -2147483648, 2147483647) %.058143) #4
-  %97 = load ptr, ptr %96, align 8, !tbaa !45
+  %97 = load ptr, ptr %96, align 8, !tbaa !46
   %.not.i106 = icmp eq ptr %97, null
   br i1 %.not.i106, label %rsa_bn_dup_check.exit108, label %98
 
@@ -1149,7 +1149,7 @@ rsa_bn_dup_check.exit105:                         ; preds = %rsa_bn_dup_check.ex
 
 rsa_bn_dup_check.exit108:                         ; preds = %98, %92
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !47
+  %102 = load ptr, ptr %101, align 8, !tbaa !48
   %.not.i109 = icmp eq ptr %102, null
   br i1 %.not.i109, label %rsa_bn_dup_check.exit111, label %103
 
@@ -1162,7 +1162,7 @@ rsa_bn_dup_check.exit108:                         ; preds = %98, %92
 
 rsa_bn_dup_check.exit111:                         ; preds = %103, %rsa_bn_dup_check.exit108
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !48
+  %108 = load ptr, ptr %107, align 8, !tbaa !49
   %.not.i112 = icmp eq ptr %108, null
   br i1 %.not.i112, label %rsa_bn_dup_check.exit114, label %109
 
@@ -1176,7 +1176,7 @@ rsa_bn_dup_check.exit111:                         ; preds = %103, %rsa_bn_dup_ch
 rsa_bn_dup_check.exit114:                         ; preds = %109, %rsa_bn_dup_check.exit111
   %113 = add nuw nsw i32 %.058143, 1
   %exitcond.not = icmp eq i32 %113, %84
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %rsa_bn_dup_check.exit114
   %114 = tail call i32 @ossl_rsa_multip_calc_product(ptr noundef nonnull %10) #4
@@ -1185,31 +1185,31 @@ rsa_bn_dup_check.exit114:                         ; preds = %109, %rsa_bn_dup_ch
 
 115:                                              ; preds = %rsa_bn_dup_check.exit105, %._crit_edge, %73
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %117 = load ptr, ptr %116, align 8, !tbaa !50
+  %117 = load ptr, ptr %116, align 8, !tbaa !51
   %.not76 = icmp eq ptr %117, null
   br i1 %.not76, label %133, label %118
 
 118:                                              ; preds = %115
   %119 = tail call ptr @RSA_PSS_PARAMS_dup(ptr noundef nonnull %117) #4
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store ptr %119, ptr %120, align 8, !tbaa !50
-  %121 = load ptr, ptr %116, align 8, !tbaa !50
+  store ptr %119, ptr %120, align 8, !tbaa !51
+  %121 = load ptr, ptr %116, align 8, !tbaa !51
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !51
+  %123 = load ptr, ptr %122, align 8, !tbaa !52
   %.not77 = icmp eq ptr %123, null
   br i1 %.not77, label %133, label %124
 
 124:                                              ; preds = %118
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !51
+  %126 = load ptr, ptr %125, align 8, !tbaa !52
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %124
   %129 = tail call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %123) #4
-  %130 = load ptr, ptr %120, align 8, !tbaa !50
+  %130 = load ptr, ptr %120, align 8, !tbaa !51
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  store ptr %129, ptr %131, align 8, !tbaa !55
+  store ptr %129, ptr %131, align 8, !tbaa !56
   %132 = icmp eq ptr %129, null
   br i1 %132, label %rsa_bn_dup_check.exit.thread, label %133
 
@@ -1250,21 +1250,21 @@ declare void @RSA_free(ptr noundef) local_unnamed_addr #2
 define ptr @ossl_rsa_pss_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @RSA_PSS_PARAMS_it() #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = tail call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %2, ptr noundef %4) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = tail call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %9) #4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %11, ptr %12, align 8, !tbaa !55
+  store ptr %11, ptr %12, align 8, !tbaa !56
   %13 = icmp eq ptr %11, null
   br i1 %13, label %14, label %15
 
@@ -1292,23 +1292,23 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readon
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %0, align 8, !tbaa !60
+  %10 = load ptr, ptr %0, align 8, !tbaa !61
   %11 = call ptr @ossl_x509_algor_get_md(ptr noundef %10) #4
-  store ptr %11, ptr %1, align 8, !tbaa !61
+  store ptr %11, ptr %1, align 8, !tbaa !62
   %12 = icmp eq ptr %11, null
   br i1 %12, label %35, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !55
+  %15 = load ptr, ptr %14, align 8, !tbaa !56
   %16 = call ptr @ossl_x509_algor_get_md(ptr noundef %15) #4
-  store ptr %16, ptr %2, align 8, !tbaa !61
+  store ptr %16, ptr %2, align 8, !tbaa !62
   %17 = icmp eq ptr %16, null
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !63
+  %20 = load ptr, ptr %19, align 8, !tbaa !64
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %24, label %21
 
@@ -1325,7 +1325,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readon
   %storemerge = phi i32 [ %25, %24 ], [ %23, %21 ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !64
+  %28 = load ptr, ptr %27, align 8, !tbaa !65
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %32, label %29
 
@@ -1369,7 +1369,7 @@ define range(i32 0, 2) i32 @ossl_rsa_param_decode(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   call void @X509_ALGOR_get0(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %1) #4
-  %11 = load ptr, ptr %8, align 8, !tbaa !65
+  %11 = load ptr, ptr %8, align 8, !tbaa !66
   %12 = call i32 @OBJ_obj2nid(ptr noundef %11) #4
   %.not = icmp eq i32 %12, 912
   br i1 %.not, label %13, label %ossl_rsa_sync_to_pss_params_30.exit.thread
@@ -1390,21 +1390,21 @@ define range(i32 0, 2) i32 @ossl_rsa_param_decode(ptr noundef %0, ptr noundef %1
 16:                                               ; preds = %13
   %17 = call ptr @RSA_PSS_PARAMS_it() #4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !56
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %17, ptr noundef %19) #4
   %21 = icmp eq ptr %20, null
   br i1 %21, label %ossl_rsa_pss_decode.exit.thread, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %ossl_rsa_pss_decode.exit, label %25
 
 25:                                               ; preds = %22
   %26 = call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %24) #4
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %26, ptr %27, align 8, !tbaa !55
+  store ptr %26, ptr %27, align 8, !tbaa !56
   %28 = icmp eq ptr %26, null
   br i1 %28, label %29, label %ossl_rsa_pss_decode.exit
 
@@ -1438,9 +1438,9 @@ ossl_rsa_pss_decode.exit.thread:                  ; preds = %16, %29, %ossl_rsa_
 
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr null, ptr %3, align 8, !tbaa !61
+  store ptr null, ptr %3, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !61
+  store ptr null, ptr %4, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #4
@@ -1449,9 +1449,9 @@ ossl_rsa_pss_decode.exit.thread:                  ; preds = %16, %29, %ossl_rsa_
   br i1 %.not14.i, label %54, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %3, align 8, !tbaa !61
+  %39 = load ptr, ptr %3, align 8, !tbaa !62
   %40 = call i32 @EVP_MD_get_type(ptr noundef %39) #4
-  %41 = load ptr, ptr %4, align 8, !tbaa !61
+  %41 = load ptr, ptr %4, align 8, !tbaa !62
   %42 = call i32 @EVP_MD_get_type(ptr noundef %41) #4
   %43 = call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %7) #4
   %.not15.i = icmp eq i32 %43, 0
@@ -1480,7 +1480,7 @@ ossl_rsa_pss_decode.exit.thread:                  ; preds = %16, %29, %ossl_rsa_
   br i1 %.not19.i, label %54, label %ossl_rsa_sync_to_pss_params_30.exit
 
 ossl_rsa_sync_to_pss_params_30.exit:              ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !44
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
@@ -1536,7 +1536,7 @@ define ptr @ossl_rsa_key_from_pkcs8(ptr noundef %0, ptr noundef readnone capture
   br label %24
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %6, align 8, !tbaa !66
+  %15 = load ptr, ptr %6, align 8, !tbaa !67
   %16 = call i32 @ossl_rsa_param_decode(ptr noundef nonnull %11, ptr noundef %15)
   %.not10 = icmp eq i32 %16, 0
   br i1 %.not10, label %17, label %18
@@ -1547,8 +1547,8 @@ define ptr @ossl_rsa_key_from_pkcs8(ptr noundef %0, ptr noundef readnone capture
 
 18:                                               ; preds = %14
   call void @RSA_clear_flags(ptr noundef nonnull %11, i32 noundef 61440) #4
-  %19 = load ptr, ptr %6, align 8, !tbaa !66
-  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %19 = load ptr, ptr %6, align 8, !tbaa !67
+  %20 = load ptr, ptr %19, align 8, !tbaa !68
   %21 = call i32 @OBJ_obj2nid(ptr noundef %20) #4
   switch i32 %21, label %24 [
     i32 6, label %22
@@ -1639,45 +1639,46 @@ attributes #4 = { nounwind }
 !23 = !{!"p1 _ZTS14bn_blinding_st", !5, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 omnipotent char", !5, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!11, !4, i64 48}
-!29 = !{!30, !9, i64 8}
-!30 = !{!"ossl_param_st", !25, i64 0, !9, i64 8, !5, i64 16, !31, i64 24, !31, i64 32}
-!31 = !{!"long", !6, i64 0}
-!32 = !{!30, !5, i64 16}
-!33 = !{!11, !14, i64 32}
-!34 = !{!11, !4, i64 40}
-!35 = !{!11, !4, i64 56}
-!36 = !{!11, !4, i64 64}
-!37 = !{!11, !4, i64 72}
-!38 = !{!11, !4, i64 80}
-!39 = !{!11, !4, i64 88}
-!40 = !{!11, !4, i64 96}
-!41 = !{!11, !9, i64 16}
-!42 = !{!11, !9, i64 164}
-!43 = !{i64 0, i64 4, !8, i64 4, i64 4, !8, i64 8, i64 4, !8, i64 12, i64 4, !8, i64 16, i64 4, !8}
-!44 = !{!11, !18, i64 136}
-!45 = !{!46, !4, i64 0}
-!46 = !{!"rsa_prime_info_st", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !22, i64 32}
-!47 = !{!46, !4, i64 8}
-!48 = !{!46, !4, i64 16}
-!49 = distinct !{!49, !27}
-!50 = !{!11, !17, i64 128}
-!51 = !{!52, !53, i64 8}
-!52 = !{!"rsa_pss_params_st", !53, i64 0, !53, i64 8, !54, i64 16, !54, i64 24, !53, i64 32}
-!53 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
-!54 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
-!55 = !{!52, !53, i64 32}
-!56 = !{!57, !59, i64 8}
-!57 = !{!"X509_algor_st", !58, i64 0, !59, i64 8}
-!58 = !{!"p1 _ZTS14asn1_object_st", !5, i64 0}
-!59 = !{!"p1 _ZTS12asn1_type_st", !5, i64 0}
-!60 = !{!52, !53, i64 0}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
-!63 = !{!52, !54, i64 16}
-!64 = !{!52, !54, i64 24}
-!65 = !{!58, !58, i64 0}
-!66 = !{!53, !53, i64 0}
-!67 = !{!57, !58, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!11, !4, i64 48}
+!30 = !{!31, !9, i64 8}
+!31 = !{!"ossl_param_st", !25, i64 0, !9, i64 8, !5, i64 16, !32, i64 24, !32, i64 32}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!31, !5, i64 16}
+!34 = !{!11, !14, i64 32}
+!35 = !{!11, !4, i64 40}
+!36 = !{!11, !4, i64 56}
+!37 = !{!11, !4, i64 64}
+!38 = !{!11, !4, i64 72}
+!39 = !{!11, !4, i64 80}
+!40 = !{!11, !4, i64 88}
+!41 = !{!11, !4, i64 96}
+!42 = !{!11, !9, i64 16}
+!43 = !{!11, !9, i64 164}
+!44 = !{i64 0, i64 4, !8, i64 4, i64 4, !8, i64 8, i64 4, !8, i64 12, i64 4, !8, i64 16, i64 4, !8}
+!45 = !{!11, !18, i64 136}
+!46 = !{!47, !4, i64 0}
+!47 = !{!"rsa_prime_info_st", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !22, i64 32}
+!48 = !{!47, !4, i64 8}
+!49 = !{!47, !4, i64 16}
+!50 = distinct !{!50, !27, !28}
+!51 = !{!11, !17, i64 128}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"rsa_pss_params_st", !54, i64 0, !54, i64 8, !55, i64 16, !55, i64 24, !54, i64 32}
+!54 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
+!55 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
+!56 = !{!53, !54, i64 32}
+!57 = !{!58, !60, i64 8}
+!58 = !{!"X509_algor_st", !59, i64 0, !60, i64 8}
+!59 = !{!"p1 _ZTS14asn1_object_st", !5, i64 0}
+!60 = !{!"p1 _ZTS12asn1_type_st", !5, i64 0}
+!61 = !{!53, !54, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS9evp_md_st", !5, i64 0}
+!64 = !{!53, !55, i64 16}
+!65 = !{!53, !55, i64 24}
+!66 = !{!59, !59, i64 0}
+!67 = !{!54, !54, i64 0}
+!68 = !{!58, !59, i64 0}

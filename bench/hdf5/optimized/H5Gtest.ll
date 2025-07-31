@@ -1381,9 +1381,9 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %29 = load ptr, ptr %21, align 8, !tbaa !50
+  %29 = load ptr, ptr %21, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %29, i64 %indvars.iv, i32 3
-  %31 = load i64, ptr %30, align 8, !tbaa !51
+  %31 = load i64, ptr %30, align 8, !tbaa !52
   store i64 %31, ptr %22, align 8, !tbaa !31
   %32 = call ptr @H5O_protect(ptr noundef nonnull %6, i32 noundef 128, i1 noundef zeroext false) #5
   %33 = icmp eq ptr %32, null
@@ -1422,7 +1422,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
   br label %.loopexit
 
 53:                                               ; preds = %46
-  %54 = load ptr, ptr %21, align 8, !tbaa !50
+  %54 = load ptr, ptr %21, align 8, !tbaa !51
   %55 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 8, !tbaa !32
   %.not46 = icmp eq i32 %56, 1
@@ -1455,7 +1455,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
   br label %.loopexit
 
 73:                                               ; preds = %45
-  %74 = load ptr, ptr %21, align 8, !tbaa !50
+  %74 = load ptr, ptr %21, align 8, !tbaa !51
   %75 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %74, i64 %indvars.iv
   %76 = load i32, ptr %75, align 8, !tbaa !32
   %77 = icmp eq i32 %76, 1
@@ -1589,7 +1589,8 @@ attributes #5 = { nounwind }
 !45 = !{!"p1 long", !20, i64 0}
 !46 = !{!"p1 _ZTS14H5C_tag_info_t", !20, i64 0}
 !47 = !{!"p1 _ZTS11H5G_entry_t", !20, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!39, !47, i64 264}
-!51 = !{!33, !11, i64 32}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!39, !47, i64 264}
+!52 = !{!33, !11, i64 32}

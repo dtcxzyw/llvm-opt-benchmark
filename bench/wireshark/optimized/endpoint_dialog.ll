@@ -1118,7 +1118,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %26, %_ZN17QArrayDat
   %38 = sext i32 %37 to i64
   %39 = load i64, ptr %10, align 8
   %40 = icmp sgt i64 %39, %38
-  br i1 %40, label %16, label %._crit_edge, !llvm.loop !22
+  br i1 %40, label %16, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit, %36, %8
   %.1 = phi i32 [ 0, %8 ], [ 0, %36 ], [ %.01637, %_ZN7QStringD2Ev.exit ]
@@ -2194,6 +2194,7 @@ attributes #16 = { noreturn nounwind }
 !17 = distinct !{!17, !"_ZN7QObject7connectIM15QAbstractButtonFvbEM14EndpointDialogFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
 !18 = !{i8 0, i8 2}
 !19 = !{}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}

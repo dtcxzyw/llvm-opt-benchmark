@@ -147,7 +147,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
   store ptr %32, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread
   ret void
@@ -202,7 +202,7 @@ define hidden void @_ZN24ShenandoahMarkingContextD2Ev(ptr noundef nonnull readon
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %.06.i.i.i.i.i.i, i64 noundef %19) #5
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !11
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %16, align 8
@@ -229,7 +229,7 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i: 
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %.06.i4.i.i.i.i.i, i64 noundef %.pre-phi3.i.i.i.i) #5
   %.not.i5.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i5.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i5.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !11
 
 .loopexit.loopexit.i.i.i.i.i:                     ; preds = %.lr.ph.i3.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %16, align 8
@@ -255,7 +255,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %42, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %43, %42 ]
@@ -308,7 +308,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %7, %10
 22:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %15
   %23 = add nuw i64 %.01112, 1
   %exitcond.not = icmp eq i64 %23, %4
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15, %22, %1
   %.lcssa = phi i1 [ true, %1 ], [ true, %22 ], [ false, %15 ]
@@ -376,7 +376,7 @@ declare void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr nounde
 define hidden noundef zeroext i1 @_ZN24ShenandoahMarkingContext11is_completeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i8, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !14
   %4 = icmp eq i8 %3, 1
   ret i1 %4
 }
@@ -510,7 +510,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19GenericTaskQueueSetI6PaddedI25Buff
   %17 = add i32 %16, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %6, %1
   %.05.lcssa = phi i32 [ 0, %1 ], [ %17, %6 ]
@@ -549,11 +549,12 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145414681}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i64 2145392468}
-!14 = distinct !{!14, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{i64 2145392468}
+!15 = distinct !{!15, !8, !9}

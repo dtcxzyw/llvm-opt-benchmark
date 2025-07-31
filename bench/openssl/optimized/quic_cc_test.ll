@@ -295,7 +295,7 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   br i1 %.not75, label %.thread86, label %110
 
 110:                                              ; preds = %107
-  br i1 %43, label %.preheader, label %111
+  br i1 %43, label %.preheader, label %111, !llvm.loop !36
 
 111:                                              ; preds = %110
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 454, ptr noundef nonnull @.str.19, i64 noundef 1, i64 noundef 16000, double noundef 0xC058FF999999999A) #8
@@ -316,7 +316,7 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   br i1 %.not77, label %116, label %114
 
 114:                                              ; preds = %113
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 8), align 8, !tbaa !36
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 8), align 8, !tbaa !38
   call void %115(ptr noundef nonnull %11) #8
   br label %116
 
@@ -412,7 +412,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br i1 %.not65, label %125, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 56), align 8, !tbaa !37
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 56), align 8, !tbaa !39
   %38 = call i64 %37(ptr noundef %12) #8
   %39 = icmp eq i64 %38, 0
   %40 = zext i1 %39 to i32
@@ -446,10 +446,10 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   %56 = load i64, ptr @fake_time.0, align 8, !tbaa !4
   store i64 %56, ptr %2, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1200, ptr %57, align 8, !tbaa !38
+  store i64 1200, ptr %57, align 8, !tbaa !40
   %.sroa.03.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %56, i64 100000000)
   store i64 %.sroa.03.0.i.i, ptr @fake_time.0, align 8, !tbaa !4
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 72), align 8, !tbaa !40
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 72), align 8, !tbaa !42
   %59 = call i32 %58(ptr noundef %12, ptr noundef nonnull %2) #8
   %60 = icmp ne i32 %59, 0
   %61 = zext i1 %60 to i32
@@ -478,7 +478,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br i1 %.not73, label %125, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 96), align 8, !tbaa !41
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 96), align 8, !tbaa !43
   %76 = call i32 %75(ptr noundef %12, i64 noundef 1200) #8
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i32
@@ -525,10 +525,10 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   %101 = load i64, ptr @fake_time.0, align 8, !tbaa !4
   store i64 %101, ptr %1, align 8, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 1200, ptr %102, align 8, !tbaa !42
+  store i64 1200, ptr %102, align 8, !tbaa !44
   %.sroa.03.0.i.i86 = call i64 @llvm.uadd.sat.i64(i64 %101, i64 100000000)
   store i64 %.sroa.03.0.i.i86, ptr @fake_time.0, align 8, !tbaa !4
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 80), align 8, !tbaa !44
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 80), align 8, !tbaa !46
   %104 = call i32 %103(ptr noundef %12, ptr noundef nonnull %1) #8
   %105 = icmp ne i32 %104, 0
   %106 = zext i1 %105 to i32
@@ -537,7 +537,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br i1 %.not80, label %125, label %108
 
 108:                                              ; preds = %100
-  store i64 1300, ptr %102, align 8, !tbaa !42
+  store i64 1300, ptr %102, align 8, !tbaa !44
   %109 = call i32 %103(ptr noundef %12, ptr noundef nonnull %1) #8
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
@@ -546,7 +546,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br i1 %.not81, label %125, label %113
 
 113:                                              ; preds = %108
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 88), align 8, !tbaa !45
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 88), align 8, !tbaa !47
   %115 = call i32 %114(ptr noundef %12, i32 noundef 0) #8
   %116 = icmp ne i32 %115, 0
   %117 = zext i1 %116 to i32
@@ -573,7 +573,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br i1 %.not85, label %128, label %126
 
 126:                                              ; preds = %125
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 8), align 8, !tbaa !36
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 8), align 8, !tbaa !38
   call void %127(ptr noundef nonnull %12) #8
   br label %128
 
@@ -658,7 +658,7 @@ define internal fastcc range(i32 0, 4) i32 @net_sim_process(ptr noundef nonnull 
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  %29 = load i32, ptr %28, align 4, !tbaa !46
+  %29 = load i32, ptr %28, align 4, !tbaa !48
   %.not46.i = icmp eq i32 %29, 0
   %.pre.i = load i64, ptr @fake_time.0, align 8
   br i1 %.not46.i, label %30, label %48
@@ -675,7 +675,7 @@ net_sim_process_one.exit:                         ; preds = %30
   %35 = load i64, ptr %10, align 8, !tbaa !19
   %36 = add i64 %35, %34
   store i64 %36, ptr %10, align 8, !tbaa !19
-  store i32 1, ptr %28, align 4, !tbaa !46
+  store i32 1, ptr %28, align 4, !tbaa !48
   %37 = load ptr, ptr %5, align 8, !tbaa !20
   %38 = call ptr @ossl_pqueue_pop(ptr noundef %37) #8
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -692,7 +692,7 @@ net_sim_process_one.exit:                         ; preds = %30
   %45 = load ptr, ptr %5, align 8, !tbaa !20
   %46 = call ptr @ossl_pqueue_peek(ptr noundef %45) #8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %net_sim_process_one.exit.thread, label %16, !llvm.loop !47
+  br i1 %47, label %net_sim_process_one.exit.thread, label %16, !llvm.loop !49
 
 48:                                               ; preds = %30, %27
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -729,10 +729,10 @@ net_sim_process_one.exit:                         ; preds = %30
   %65 = load i64, ptr %17, align 8, !tbaa !4
   store i64 %65, ptr %3, align 8, !tbaa !4
   %66 = load i64, ptr %63, align 8, !tbaa !34
-  store i64 %66, ptr %14, align 8, !tbaa !42
+  store i64 %66, ptr %14, align 8, !tbaa !44
   %67 = load ptr, ptr %0, align 8, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  %69 = load ptr, ptr %68, align 8, !tbaa !44
+  %69 = load ptr, ptr %68, align 8, !tbaa !46
   %70 = load ptr, ptr %11, align 8, !tbaa !16
   %71 = call i32 %69(ptr noundef %70, ptr noundef nonnull %3) #8
   %72 = icmp ne i32 %71, 0
@@ -744,7 +744,7 @@ net_sim_process_one.exit:                         ; preds = %30
 75:                                               ; preds = %64
   %76 = load ptr, ptr %0, align 8, !tbaa !11
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
-  %78 = load ptr, ptr %77, align 8, !tbaa !45
+  %78 = load ptr, ptr %77, align 8, !tbaa !47
   %79 = load ptr, ptr %11, align 8, !tbaa !16
   %80 = call i32 %78(ptr noundef %79, i32 noundef 0) #8
   %81 = icmp ne i32 %80, 0
@@ -755,9 +755,9 @@ net_sim_process_one.exit:                         ; preds = %30
 
 .critedge.i:                                      ; preds = %75
   %84 = load i64, ptr %63, align 8, !tbaa !34
-  %85 = load i64, ptr %15, align 8, !tbaa !49
+  %85 = load i64, ptr %15, align 8, !tbaa !51
   %86 = add i64 %85, %84
-  store i64 %86, ptr %15, align 8, !tbaa !49
+  store i64 %86, ptr %15, align 8, !tbaa !51
   %87 = load ptr, ptr %5, align 8, !tbaa !20
   %88 = call ptr @ossl_pqueue_pop(ptr noundef %87) #8
   call void @CRYPTO_free(ptr noundef nonnull %17, ptr noundef nonnull @.str.2, i32 noundef 245) #8
@@ -773,10 +773,10 @@ net_sim_process_one.exit:                         ; preds = %30
   %91 = load i64, ptr %17, align 8, !tbaa !4
   store i64 %91, ptr %4, align 8, !tbaa !4
   %92 = load i64, ptr %63, align 8, !tbaa !34
-  store i64 %92, ptr %12, align 8, !tbaa !38
+  store i64 %92, ptr %12, align 8, !tbaa !40
   %93 = load ptr, ptr %0, align 8, !tbaa !11
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 72
-  %95 = load ptr, ptr %94, align 8, !tbaa !40
+  %95 = load ptr, ptr %94, align 8, !tbaa !42
   %96 = load ptr, ptr %11, align 8, !tbaa !16
   %97 = call i32 %95(ptr noundef %96, ptr noundef nonnull %4) #8
   %98 = icmp ne i32 %97, 0
@@ -787,9 +787,9 @@ net_sim_process_one.exit:                         ; preds = %30
 
 101:                                              ; preds = %90
   %102 = load i64, ptr %63, align 8, !tbaa !34
-  %103 = load i64, ptr %13, align 8, !tbaa !50
+  %103 = load i64, ptr %13, align 8, !tbaa !52
   %104 = add i64 %103, %102
-  store i64 %104, ptr %13, align 8, !tbaa !50
+  store i64 %104, ptr %13, align 8, !tbaa !52
   %105 = load ptr, ptr %5, align 8, !tbaa !20
   %106 = call ptr @ossl_pqueue_pop(ptr noundef %105) #8
   call void @CRYPTO_free(ptr noundef nonnull %17, ptr noundef nonnull @.str.2, i32 noundef 257) #8
@@ -909,18 +909,20 @@ attributes #8 = { nounwind }
 !33 = !{!"", !5, i64 0}
 !34 = !{!32, !5, i64 40}
 !35 = !{!9, !10, i64 64}
-!36 = !{!9, !10, i64 8}
-!37 = !{!9, !10, i64 56}
-!38 = !{!39, !5, i64 8}
-!39 = !{!"ossl_cc_ack_info_st", !33, i64 0, !5, i64 8}
-!40 = !{!9, !10, i64 72}
-!41 = !{!9, !10, i64 96}
-!42 = !{!43, !5, i64 8}
-!43 = !{!"ossl_cc_loss_info_st", !33, i64 0, !5, i64 8}
-!44 = !{!9, !10, i64 80}
-!45 = !{!9, !10, i64 88}
-!46 = !{!32, !25, i64 36}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!12, !5, i64 56}
-!50 = !{!12, !5, i64 48}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!9, !10, i64 8}
+!39 = !{!9, !10, i64 56}
+!40 = !{!41, !5, i64 8}
+!41 = !{!"ossl_cc_ack_info_st", !33, i64 0, !5, i64 8}
+!42 = !{!9, !10, i64 72}
+!43 = !{!9, !10, i64 96}
+!44 = !{!45, !5, i64 8}
+!45 = !{!"ossl_cc_loss_info_st", !33, i64 0, !5, i64 8}
+!46 = !{!9, !10, i64 80}
+!47 = !{!9, !10, i64 88}
+!48 = !{!32, !25, i64 36}
+!49 = distinct !{!49, !50, !37}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = !{!12, !5, i64 56}
+!52 = !{!12, !5, i64 48}

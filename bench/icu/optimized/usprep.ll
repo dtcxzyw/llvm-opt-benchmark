@@ -1170,20 +1170,20 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
           to label %.thread253 unwind label %249
 
 .thread316:                                       ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %253, %253, %251, %._crit_edge
-  store ptr %3, ptr %12, align 8, !tbaa !54
+  store ptr %3, ptr %12, align 8, !tbaa !55
   %255 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %12, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %256 unwind label %258
 
 256:                                              ; preds = %.thread316
-  %257 = load ptr, ptr %12, align 8, !tbaa !54
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %257) #15, !srcloc !57
+  %257 = load ptr, ptr %12, align 8, !tbaa !55
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %257) #15, !srcloc !58
   br label %.thread253
 
 258:                                              ; preds = %.thread316
   %259 = landingpad { ptr, i32 }
           cleanup
-  %260 = load ptr, ptr %12, align 8, !tbaa !54
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %260) #15, !srcloc !57
+  %260 = load ptr, ptr %12, align 8, !tbaa !55
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %260) #15, !srcloc !58
   br label %261
 
 .critedge:                                        ; preds = %82
@@ -1433,7 +1433,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   switch i32 %.0.i, label %166 [
     i32 1, label %136
     i32 3, label %.loopexit
-  ], !llvm.loop !58
+  ], !llvm.loop !59
 
 136:                                              ; preds = %135
   %.not124 = icmp eq i8 %.0131, 0
@@ -1472,14 +1472,14 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   %152 = load i16, ptr %151, align 2, !tbaa !48
   %153 = zext i16 %152 to i64
   %.not153 = icmp eq i16 %152, 0
-  br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 .lr.ph:                                           ; preds = %141, %138, %144, %147
   %.098167 = phi i64 [ %153, %147 ], [ 3, %144 ], [ 1, %138 ], [ 2, %141 ]
   %.099166 = phi i32 [ %149, %147 ], [ %137, %144 ], [ %137, %138 ], [ %137, %141 ]
   %154 = sext i32 %.099166 to i64
   %155 = sext i32 %.0105150 to i64
-  br label %156, !llvm.loop !58
+  br label %156, !llvm.loop !59
 
 156:                                              ; preds = %.lr.ph, %164
   %indvars.iv156 = phi i64 [ %155, %.lr.ph ], [ %indvars.iv.next157, %164 ]
@@ -1500,7 +1500,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.098167
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %156, !llvm.loop !59
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %156, !llvm.loop !60
 
 .thread139:                                       ; preds = %136
   %165 = sub nsw i32 %.1109137, %137
@@ -1552,7 +1552,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
 
 ..loopexit_crit_edge:                             ; preds = %164
   %192 = trunc nsw i64 %indvars.iv.next157 to i32
-  br label %.loopexit, !llvm.loop !58
+  br label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %147, %..loopexit_crit_edge, %174, %190, %135
   %.1106 = phi i32 [ %.0105150, %135 ], [ %175, %174 ], [ %191, %190 ], [ %192, %..loopexit_crit_edge ], [ %.0105150, %147 ]
@@ -1679,7 +1679,7 @@ define i32 @usprep_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   store i32 %58, ptr %59, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %60, label %55, !llvm.loop !60
+  br i1 %exitcond.not, label %60, label %55, !llvm.loop !61
 
 60:                                               ; preds = %55
   %61 = load i32, ptr %6, align 16, !tbaa !25
@@ -1710,13 +1710,13 @@ define i32 @usprep_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 
 73:                                               ; preds = %71, %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !61
+  %75 = load ptr, ptr %74, align 8, !tbaa !62
   %76 = tail call noundef i32 %75(ptr noundef %0, ptr noundef nonnull %45, i32 noundef 64, ptr noundef %48, ptr noundef nonnull %4)
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %79 = tail call i32 @utrie_swap_77(ptr noundef %0, ptr noundef nonnull %77, i32 noundef %61, ptr noundef nonnull %78, ptr noundef nonnull %4)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !63
+  %81 = load ptr, ptr %80, align 8, !tbaa !64
   %82 = sext i32 %62 to i64
   %83 = getelementptr inbounds i8, ptr %45, i64 %82
   %84 = getelementptr inbounds i8, ptr %48, i64 %82
@@ -1902,7 +1902,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14usprep_cleanupv() #0 {
   %23 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8, !tbaa !17
   %24 = call ptr @uhash_nextElement_77(ptr noundef %23, ptr noundef nonnull %1)
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %22, %.preheader.i
   call void @umtx_unlock_77(ptr noundef nonnull @_ZL11usprepMutex)
@@ -1957,19 +1957,19 @@ declare ptr @udata_openChoice_77(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL17isSPrepAcceptablePvPKcS1_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #12 {
-  %5 = load i16, ptr %3, align 2, !tbaa !65
+  %5 = load i16, ptr %3, align 2, !tbaa !66
   %6 = icmp ugt i16 %5, 19
   br i1 %6, label %7, label %46
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i8, ptr %8, align 2, !tbaa !67
+  %9 = load i8, ptr %8, align 2, !tbaa !68
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %46
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %13 = load i8, ptr %12, align 1, !tbaa !68
+  %13 = load i8, ptr %12, align 1, !tbaa !69
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %46
 
@@ -2124,20 +2124,21 @@ attributes #18 = { noreturn nounwind }
 !49 = !{!"short", !5, i64 0}
 !50 = !{!20, !15, i64 80}
 !51 = !{!20, !11, i64 96}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !56, i64 0}
-!55 = !{!"_ZTSN6icu_779Char16PtrE", !56, i64 0}
-!56 = !{!"p1 char16_t", !15, i64 0}
-!57 = !{i64 2150282814}
-!58 = distinct !{!58, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"_ZTSN6icu_779Char16PtrE", !57, i64 0}
+!57 = !{!"p1 char16_t", !15, i64 0}
+!58 = !{i64 2150282814}
 !59 = distinct !{!59, !53}
-!60 = distinct !{!60, !53}
-!61 = !{!62, !15, i64 56}
-!62 = !{!"_ZTS12UDataSwapper", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88}
-!63 = !{!62, !15, i64 48}
-!64 = distinct !{!64, !53}
-!65 = !{!66, !49, i64 0}
-!66 = !{!"_ZTS9UDataInfo", !49, i64 0, !49, i64 2, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 12, !5, i64 16}
-!67 = !{!66, !5, i64 4}
-!68 = !{!66, !5, i64 5}
+!60 = distinct !{!60, !53, !54}
+!61 = distinct !{!61, !53, !54}
+!62 = !{!63, !15, i64 56}
+!63 = !{!"_ZTS12UDataSwapper", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88}
+!64 = !{!63, !15, i64 48}
+!65 = distinct !{!65, !53, !54}
+!66 = !{!67, !49, i64 0}
+!67 = !{!"_ZTS9UDataInfo", !49, i64 0, !49, i64 2, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 12, !5, i64 16}
+!68 = !{!67, !5, i64 4}
+!69 = !{!67, !5, i64 5}

@@ -172,7 +172,7 @@ define void @lv_led_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !25
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -189,7 +189,7 @@ define void @lv_led_set_brightness(ptr noundef %0, i8 noundef zeroext %1) local_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !27
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -213,7 +213,7 @@ define void @lv_led_on(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %2
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !27
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -236,7 +236,7 @@ define void @lv_led_off(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %2
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !27
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -259,7 +259,7 @@ define void @lv_led_toggle(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %.preheader.i, label %lv_led_get_brightness.exit
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !28
 
 lv_led_get_brightness.exit:                       ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -277,7 +277,7 @@ define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !28
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -344,3 +344,7 @@ attributes #5 = { nounwind }
 !22 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
 !23 = !{!18, !14, i64 124}
 !24 = !{!18, !14, i64 136}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}

@@ -38781,7 +38781,7 @@ asterix_fspec_len.exit.preheader.i.i.i:           ; preds = %50
 65:                                               ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %64
-  br i1 %exitcond.not.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %65, %.lr.ph.i.i.preheader.i.i
   %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %65 ], [ 0, %.lr.ph.i.i.preheader.i.i ]
@@ -38826,7 +38826,7 @@ asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %82
   %88 = getelementptr ptr, ptr %46, i64 %87
   %89 = load ptr, ptr %88, align 8
   %.not31.i.i.i = icmp eq ptr %89, null
-  br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %78, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
   %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
@@ -38883,7 +38883,7 @@ asterix_fspec_len.exit.preheader.i46.i.i:         ; preds = %101
 116:                                              ; preds = %.lr.ph.i.i49.i.i
   %indvars.iv.next.i52.i.i = add nuw nsw i32 %indvars.iv.i50.i.i, 1
   %exitcond69.not.i.i = icmp eq i32 %indvars.iv.next.i52.i.i, %115
-  br i1 %exitcond69.not.i.i, label %asterix_field_exists.exit.i53.i.i, label %.lr.ph.i.i49.i.i, !llvm.loop !8
+  br i1 %exitcond69.not.i.i, label %asterix_field_exists.exit.i53.i.i, label %.lr.ph.i.i49.i.i, !llvm.loop !9
 
 .lr.ph.i.i49.i.i:                                 ; preds = %116, %.lr.ph.i.i49.preheader.i.i
   %indvars.iv.i50.i.i = phi i32 [ %indvars.iv.next.i52.i.i, %116 ], [ 0, %.lr.ph.i.i49.preheader.i.i ]
@@ -38918,7 +38918,7 @@ asterix_field_exists.exit.thread.i56.i.i:         ; preds = %.lr.ph.i.i49.i.i, %
   %133 = getelementptr ptr, ptr %97, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not25.i.i.i = icmp eq ptr %134, null
-  br i1 %.not25.i.i.i, label %asterix_message_length.exit.i.i, label %.lr.ph.i47.i.i, !llvm.loop !10
+  br i1 %.not25.i.i.i, label %asterix_message_length.exit.i.i, label %.lr.ph.i47.i.i, !llvm.loop !11
 
 asterix_message_length.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i56.i.i, %asterix_fspec_len.exit.preheader.i46.i.i
   %.0.i58.i.i = phi i32 [ %108, %asterix_fspec_len.exit.preheader.i46.i.i ], [ %.1.i57.i.i, %asterix_field_exists.exit.thread.i56.i.i ]
@@ -38960,13 +38960,13 @@ asterix_message_length.exit.thread.i.i:           ; preds = %143
   %161 = add i32 %160, %159
   %162 = add i32 %.065.i.i, 1
   %163 = icmp slt i32 %161, %21
-  br i1 %163, label %36, label %dissect_asterix_data_block.exit.i, !llvm.loop !11
+  br i1 %163, label %36, label %dissect_asterix_data_block.exit.i, !llvm.loop !12
 
 dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %91, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
   %164 = add i32 %22, %.031.i
   %165 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %166 = icmp ult i32 %164, %165
-  br i1 %166, label %.lr.ph.i, label %dissect_asterix_packet.exit, !llvm.loop !12
+  br i1 %166, label %.lr.ph.i, label %dissect_asterix_packet.exit, !llvm.loop !13
 
 dissect_asterix_packet.exit:                      ; preds = %dissect_asterix_data_block.exit.i, %8, %4
   %167 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -39038,7 +39038,7 @@ define internal fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %
 14:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %13
-  br i1 %exitcond.not.i, label %asterix_field_exists.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %asterix_field_exists.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph135, %14
   %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %14 ], [ 0, %.lr.ph135 ]
@@ -39093,7 +39093,7 @@ asterix_fspec_len.exit.preheader.i:               ; preds = %27
 41:                                               ; preds = %.lr.ph.i21.i
   %indvars.iv.next43.i = add nuw nsw i32 %indvars.iv42.i, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next43.i, %39
-  br i1 %exitcond.not, label %asterix_field_exists.exit27.i, label %.lr.ph.i21.i, !llvm.loop !8
+  br i1 %exitcond.not, label %asterix_field_exists.exit27.i, label %.lr.ph.i21.i, !llvm.loop !9
 
 .lr.ph.i21.i:                                     ; preds = %.lr.ph.i, %41
   %indvars.iv42.i = phi i32 [ %indvars.iv.next43.i, %41 ], [ 0, %.lr.ph.i ]
@@ -39126,7 +39126,7 @@ asterix_field_exists.exit27.thread.i:             ; preds = %.lr.ph.i21.i, %51, 
   %.2.i = phi i32 [ %56, %51 ], [ %.137.i, %asterix_field_exists.exit27.i ], [ %.137.i, %.lr.ph.i21.i ]
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %9
-  br i1 %exitcond49.not.i, label %asterix_field_offset.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond49.not.i, label %asterix_field_offset.exit, label %.lr.ph.i, !llvm.loop !14
 
 asterix_field_offset.exit:                        ; preds = %asterix_field_exists.exit27.thread.i, %asterix_fspec_len.exit.preheader.i
   %.0.i = phi i32 [ %34, %asterix_fspec_len.exit.preheader.i ], [ %.2.i, %asterix_field_exists.exit27.thread.i ]
@@ -39200,7 +39200,7 @@ asterix_fspec_len.exit:                           ; preds = %73
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp ult i32 %97, %100
-  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %102 = load i32, ptr @hf_counter, align 4
@@ -39241,7 +39241,7 @@ asterix_fspec_len.exit:                           ; preds = %73
   %124 = add i32 %123, %.0110129
   %125 = zext i32 %120 to i64
   %126 = icmp ugt i64 %96, %125
-  br i1 %126, label %.lr.ph131, label %asterix_field_offset.exit.thread, !llvm.loop !15
+  br i1 %126, label %.lr.ph131, label %asterix_field_offset.exit.thread, !llvm.loop !16
 
 127:                                              ; preds = %57
   %128 = load ptr, ptr %8, align 8
@@ -39255,7 +39255,7 @@ asterix_field_offset.exit.thread:                 ; preds = %.lr.ph.i.i, %.lr.ph
   %131 = getelementptr ptr, ptr %4, i64 %130
   %132 = load ptr, ptr %131, align 8
   %.not = icmp eq ptr %132, null
-  br i1 %.not, label %.loopexit, label %.lr.ph135, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.lr.ph135, !llvm.loop !17
 
 .loopexit:                                        ; preds = %asterix_field_offset.exit.thread, %.preheader, %5
   %.0109 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ %.1114, %asterix_field_offset.exit.thread ]
@@ -39310,7 +39310,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %21 = icmp ugt i32 %20, %indvars.iv.next101
   %22 = icmp samesign ult i32 %indvars.iv100, 7
   %23 = and i1 %22, %21
-  br i1 %23, label %.lr.ph88, label %._crit_edge89, !llvm.loop !17
+  br i1 %23, label %.lr.ph88, label %._crit_edge89, !llvm.loop !18
 
 ._crit_edge89:                                    ; preds = %.lr.ph88, %.preheader
   %.052.lcssa = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph88 ]
@@ -39360,7 +39360,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %53 = getelementptr ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not62 = icmp eq ptr %54, null
-  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph82, !llvm.loop !18
+  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph82, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %37, %48
   %.1.ph = phi i32 [ %50, %48 ], [ %47, %37 ]
@@ -39380,7 +39380,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %63 = zext i8 %62 to i32
   %64 = load i32, ptr %5, align 4
   %65 = icmp ugt i32 %64, %63
-  br i1 %65, label %.lr.ph77, label %.loopexit, !llvm.loop !19
+  br i1 %65, label %.lr.ph77, label %.loopexit, !llvm.loop !20
 
 .preheader70:                                     ; preds = %3, %.preheader70
   %.255 = phi i32 [ %69, %.preheader70 ], [ 0, %3 ]
@@ -39389,7 +39389,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %68 = and i8 %67, 1
   %.not = icmp eq i8 %68, 0
   %69 = add i32 %.255, 1
-  br i1 %.not, label %70, label %.preheader70, !llvm.loop !20
+  br i1 %.not, label %70, label %.preheader70, !llvm.loop !21
 
 70:                                               ; preds = %.preheader70
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -39413,7 +39413,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
 79:                                               ; preds = %.lr.ph.i
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %80 = icmp samesign ult i32 %indvars.iv.next, %78
-  br i1 %80, label %.lr.ph.i, label %asterix_field_exists.exit, !llvm.loop !8
+  br i1 %80, label %.lr.ph.i, label %asterix_field_exists.exit, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %79
   %indvars.iv = phi i32 [ %indvars.iv.next, %79 ], [ 0, %.lr.ph ]
@@ -39448,7 +39448,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
   %97 = getelementptr [0 x ptr], ptr %71, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
   %.not60 = icmp eq ptr %98, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %asterix_field_exists.exit.thread, %.lr.ph77, %.preheader67, %._crit_edge.loopexit, %70, %.preheader68, %._crit_edge89, %12, %3
   %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ 0, %.preheader68 ], [ %69, %70 ], [ 0, %.preheader67 ], [ %55, %._crit_edge.loopexit ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
@@ -39703,7 +39703,7 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   %171 = add i32 %.096118, %170
   %172 = add i32 %.097117, 1
   %.not103 = icmp eq i8 %.1, 0
-  br i1 %.not103, label %.critedge, label %10, !llvm.loop !22
+  br i1 %.not103, label %.critedge, label %10, !llvm.loop !23
 
 .critedge:                                        ; preds = %10, %165, %5
   ret void
@@ -39756,20 +39756,21 @@ attributes #4 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

@@ -313,7 +313,7 @@ rock_check_overflow.exit:                         ; preds = %74
   switch i32 %160, label %.loopexit5 [
     i32 0, label %47
     i32 1, label %.loopexit6
-  ]
+  ], !llvm.loop !10
 
 .loopexit5:                                       ; preds = %157, %96, %92, %87, %86, %80, %54, %rock_check_overflow.exit
   %161 = phi i32 [ -5, %rock_check_overflow.exit ], [ 0, %96 ], [ 0, %92 ], [ 0, %87 ], [ 0, %80 ], [ 0, %54 ], [ -1, %86 ], [ %160, %157 ]
@@ -428,7 +428,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @rock_continue(ptr noundef 
   %57 = sext i32 %56 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %55, i64 %57, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #10, !srcloc !9
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, ptr nonnull elementtype(i32) %58) #10, !srcloc !11
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %59, ptr %60, align 8
@@ -744,7 +744,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %154 = load i8, ptr %129, align 1
   %155 = zext i8 %154 to i64
   %156 = icmp samesign ult i64 %153, %155
-  br i1 %156, label %147, label %.loopexit, !llvm.loop !10
+  br i1 %156, label %147, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %147, %134
   %157 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #11
@@ -971,7 +971,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %.pn9 = zext i8 %.pn9.in to i64
   %.pn = getelementptr i8, ptr %237, i64 %.pn9
   %287 = getelementptr i8, ptr %.pn, i64 2
-  br label %235
+  br label %235, !llvm.loop !13
 
 288:                                              ; preds = %._crit_edge, %277, %273, %228
   %289 = phi i64 [ %.pre, %._crit_edge ], [ %278, %277 ], [ %.pre56, %273 ], [ %230, %228 ]
@@ -1111,13 +1111,13 @@ rock_check_overflow.exit:                         ; preds = %92
 372:                                              ; preds = %366, %359, %356, %340, %314, %288, %222, %217, %181, %176, %158, %.loopexit, %121, %113, %104
   %373 = phi i32 [ %77, %104 ], [ %77, %314 ], [ %290, %288 ], [ %77, %222 ], [ %77, %217 ], [ %77, %158 ], [ %77, %.loopexit ], [ %77, %121 ], [ %77, %181 ], [ %77, %176 ], [ %77, %366 ], [ %77, %359 ], [ %77, %356 ], [ %77, %340 ], [ %77, %113 ]
   %374 = icmp sgt i32 %102, 2
-  br i1 %374, label %76, label %.loopexit12, !llvm.loop !11
+  br i1 %374, label %76, label %.loopexit12, !llvm.loop !14
 
 .loopexit12:                                      ; preds = %372, %70
   %375 = phi i32 [ %71, %70 ], [ %373, %372 ]
   %376 = call fastcc i32 @rock_continue(ptr noundef nonnull %4)
   %377 = icmp eq i32 %376, 0
-  br i1 %377, label %70, label %378
+  br i1 %377, label %70, label %378, !llvm.loop !15
 
 378:                                              ; preds = %.loopexit12
   %379 = icmp eq i32 %376, 1
@@ -1484,7 +1484,7 @@ rock_check_overflow.exit:                         ; preds = %96
   %.pn18 = zext i8 %.pn18.in to i64
   %.pn = getelementptr i8, ptr %137, i64 %.pn18
   %208 = getelementptr i8, ptr %.pn, i64 2
-  br label %136
+  br label %136, !llvm.loop !16
 
 .thread13:                                        ; preds = %.thread, %195, %189, %185, %130
   %209 = phi ptr [ %171, %189 ], [ %196, %195 ], [ %171, %185 ], [ %81, %130 ], [ %178, %.thread ]
@@ -1511,13 +1511,13 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
   %218 = phi i32 [ %106, %108 ], [ %106, %122 ], [ %106, %109 ], [ %.pr.pre, %.thread13.thread-pre-split_crit_edge ], [ %106, %211 ]
   %219 = phi ptr [ %81, %108 ], [ %81, %122 ], [ %81, %109 ], [ %209, %.thread13.thread-pre-split_crit_edge ], [ %81, %211 ]
   %220 = icmp sgt i32 %218, 2
-  br i1 %220, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %220, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %thread-pre-split, %77
   %221 = phi ptr [ %78, %77 ], [ %219, %thread-pre-split ]
   %222 = call fastcc i32 @rock_continue(ptr noundef nonnull %3)
   %223 = icmp eq i32 %222, 0
-  br i1 %223, label %77, label %224
+  br i1 %223, label %77, label %224, !llvm.loop !18
 
 224:                                              ; preds = %.loopexit
   %225 = icmp slt i32 %222, 0
@@ -1528,8 +1528,8 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
 228:                                              ; preds = %224
   tail call void @__brelse(ptr noundef nonnull %31) #10
   store i8 0, ptr %221, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #10, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #10, !srcloc !20
   br label %260
 
 .thread15:                                        ; preds = %193, %.thread13, %118, %114, %109, %102, %.preheader, %142, %154, %158, %165, %201, %rock_check_overflow.exit
@@ -1563,7 +1563,7 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
 
 241:                                              ; preds = %233
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #10
-          to label %257 [label %242], !srcloc !15
+          to label %257 [label %242], !srcloc !21
 
 242:                                              ; preds = %241
   %243 = and i64 %12, 4095
@@ -1591,7 +1591,7 @@ thread-pre-split:                                 ; preds = %211, %122, %109, %.
 257:                                              ; preds = %256, %249, %241, %238
   %258 = phi ptr [ %240, %238 ], [ %255, %249 ], [ %1, %256 ], [ %1, %241 ]
   %259 = getelementptr i8, ptr %258, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %259, i32 4, ptr elementtype(i8) %259) #10, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %259, i32 4, ptr elementtype(i8) %259) #10, !srcloc !20
   br label %260
 
 260:                                              ; preds = %257, %228
@@ -1653,13 +1653,19 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 2000, i32 1}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 2148884947, i64 2148884986, i64 2148885007, i64 2148885044, i64 2148885067, i64 2148884937}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i64 2151043453}
-!14 = !{i64 2148400882, i64 2148400921, i64 2148400942, i64 2148400979, i64 2148401002, i64 2148400872}
-!15 = !{i64 606330, i64 606374, i64 2148093349, i64 2148093370, i64 2148093396, i64 2148093429, i64 2148093463, i64 2148093487}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = !{i64 2148884947, i64 2148884986, i64 2148885007, i64 2148885044, i64 2148885067, i64 2148884937}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = distinct !{!18, !9}
+!19 = !{i64 2151043453}
+!20 = !{i64 2148400882, i64 2148400921, i64 2148400942, i64 2148400979, i64 2148401002, i64 2148400872}
+!21 = !{i64 606330, i64 606374, i64 2148093349, i64 2148093370, i64 2148093396, i64 2148093429, i64 2148093463, i64 2148093487}

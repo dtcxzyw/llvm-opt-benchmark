@@ -435,7 +435,7 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
   ]
 
 .backedge:                                        ; preds = %7, %37
-  br label %7, !llvm.loop !8
+  br label %7, !llvm.loop !9
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -590,7 +590,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i1
 
 .backedge:                                        ; preds = %6, %6, %6, %6, %32, %29, %37, %36, %19, %17, %14, %12, %9, %8
   %.015.be = phi i1 [ true, %37 ], [ %.015, %8 ], [ %.015, %9 ], [ %.015, %12 ], [ %.015, %14 ], [ %.015, %17 ], [ %.015, %19 ], [ %.015, %29 ], [ %.015, %32 ], [ %.015, %36 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ], [ %.015, %6 ]
-  br label %6, !llvm.loop !9
+  br label %6, !llvm.loop !10
 
 8:                                                ; preds = %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 8), align 8
@@ -766,7 +766,7 @@ define hidden void @commandline_options_drop(ptr noundef %0, ptr noundef %1) loc
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %14 = tail call ptr @g_slist_find_custom(ptr noundef %13, ptr noundef %6, ptr noundef nonnull @cl_find_custom)
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   tail call void @g_free(ptr noundef %6)
@@ -821,7 +821,7 @@ define hidden void @commandline_options_reapply() local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %6, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
@@ -833,7 +833,7 @@ define hidden void @commandline_options_apply_extcap() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #9
   store ptr null, ptr %1, align 8
-  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !12, !noundef !13
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !13, !noundef !14
   %3 = trunc nuw i8 %2 to i1
   %.014 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %.not15 = icmp eq ptr %.014, null
@@ -885,7 +885,7 @@ define hidden void @commandline_options_apply_extcap() local_unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.0 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
@@ -948,12 +948,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8}

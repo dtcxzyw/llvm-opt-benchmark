@@ -46,7 +46,7 @@ define void @dt_develop_blendif_raw_make_mask(ptr noundef readonly captures(none
   store float %30, ptr %27, align 4, !tbaa !32
   %31 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %31, %18
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 32:                                               ; preds = %9
   tail call void @dt_iop_image_mul_const(ptr noundef %5, float noundef %23, i64 noundef %16, i64 noundef %17, i64 noundef 1) #6
@@ -74,13 +74,13 @@ define void @dt_develop_blendif_raw_blend(ptr noundef readonly captures(none) %0
   br i1 %.not, label %12, label %65
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %4, align 4, !tbaa !33
-  %14 = load i32, ptr %3, align 4, !tbaa !33
+  %13 = load i32, ptr %4, align 4, !tbaa !35
+  %14 = load i32, ptr %3, align 4, !tbaa !35
   %15 = sub nsw i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !34
+  %17 = load i32, ptr %16, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !34
+  %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = sub nsw i32 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !27
@@ -100,7 +100,7 @@ define void @dt_develop_blendif_raw_blend(ptr noundef readonly captures(none) %0
 
 31:                                               ; preds = %12
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %33 = load i32, ptr %32, align 4, !tbaa !35
+  %33 = load i32, ptr %32, align 4, !tbaa !37
   %trunc.i = trunc i32 %33 to i8
   %switch.tableidx = add i8 %trunc.i, -2
   %34 = icmp ult i8 %switch.tableidx, 24
@@ -125,7 +125,7 @@ _choose_blend_func.exit:                          ; preds = %31, %switch.lookup
 
 41:                                               ; preds = %_choose_blend_func.exit
   tail call void @dt_iop_image_copy(ptr noundef nonnull %40, ptr noundef %2, i64 noundef %38) #6
-  %42 = load i32, ptr %32, align 4, !tbaa !35
+  %42 = load i32, ptr %32, align 4, !tbaa !37
   %.not64 = icmp sgt i32 %42, -1
   %.not73 = icmp eq i32 %26, 0
   br i1 %.not64, label %.preheader, label %.preheader65
@@ -162,7 +162,7 @@ _choose_blend_func.exit:                          ; preds = %31, %switch.lookup
   tail call void %.0.i(ptr noundef nonnull %53, ptr noundef %gep, ptr noundef %54, ptr noundef %55, i64 noundef %36) #6
   %56 = add nuw i64 %.067, 1
   %exitcond.not = icmp eq i64 %56, %37
-  br i1 %exitcond.not, label %.loopexit, label %49
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !38
 
 57:                                               ; preds = %.lr.ph69, %57
   %.06068 = phi i64 [ 0, %.lr.ph69 ], [ %64, %57 ]
@@ -176,7 +176,7 @@ _choose_blend_func.exit:                          ; preds = %31, %switch.lookup
   tail call void %.0.i(ptr noundef %gep71, ptr noundef nonnull %61, ptr noundef %62, ptr noundef %63, i64 noundef %36) #6
   %64 = add nuw i64 %.06068, 1
   %exitcond75.not = icmp eq i64 %64, %37
-  br i1 %exitcond75.not, label %.loopexit, label %57
+  br i1 %exitcond75.not, label %.loopexit, label %57, !llvm.loop !39
 
 .loopexit:                                        ; preds = %49, %57, %.preheader65, %.preheader
   tail call void @free(ptr noundef nonnull %40) #6
@@ -219,7 +219,7 @@ define internal void @_blend_lighten(ptr noalias noundef readonly captures(none)
   store float %17, ptr %18, align 4, !tbaa !32
   %19 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %19, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -248,7 +248,7 @@ define internal void @_blend_darken(ptr noalias noundef readonly captures(none) 
   store float %17, ptr %18, align 4, !tbaa !32
   %19 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %19, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -277,7 +277,7 @@ define internal void @_blend_multiply(ptr noalias noundef readonly captures(none
   store float %17, ptr %18, align 4, !tbaa !32
   %19 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %19, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -307,7 +307,7 @@ define internal void @_blend_average(ptr noalias noundef readonly captures(none)
   store float %18, ptr %19, align 4, !tbaa !32
   %20 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %20, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -334,7 +334,7 @@ define internal void @_blend_add(ptr noalias noundef readonly captures(none) %0,
   store float %15, ptr %16, align 4, !tbaa !32
   %17 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -362,7 +362,7 @@ define internal void @_blend_subtract(ptr noalias noundef readonly captures(none
   store float %16, ptr %17, align 4, !tbaa !32
   %18 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %18, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -392,7 +392,7 @@ define internal void @_blend_difference(ptr noalias noundef readonly captures(no
   store float %18, ptr %19, align 4, !tbaa !32
   %20 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %20, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -428,7 +428,7 @@ define internal void @_blend_screen(ptr noalias noundef readonly captures(none) 
   store float %22, ptr %23, align 4, !tbaa !32
   %24 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %24, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -478,7 +478,7 @@ define internal void @_blend_overlay(ptr noalias noundef readonly captures(none)
   store float %32, ptr %33, align 4, !tbaa !32
   %34 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -528,7 +528,7 @@ define internal void @_blend_softlight(ptr noalias noundef readonly captures(non
   store float %32, ptr %33, align 4, !tbaa !32
   %34 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -578,7 +578,7 @@ define internal void @_blend_hardlight(ptr noalias noundef readonly captures(non
   store float %32, ptr %33, align 4, !tbaa !32
   %34 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -637,7 +637,7 @@ define internal void @_blend_vividlight(ptr noalias noundef readonly captures(no
   store float %37, ptr %38, align 4, !tbaa !32
   %39 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %39, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -671,7 +671,7 @@ define internal void @_blend_linearlight(ptr noalias noundef readonly captures(n
   store float %22, ptr %23, align 4, !tbaa !32
   %24 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %24, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -719,7 +719,7 @@ define internal void @_blend_pinlight(ptr noalias noundef readonly captures(none
   store float %30, ptr %31, align 4, !tbaa !32
   %32 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %32, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -747,7 +747,7 @@ define internal void @_blend_normal_bounded(ptr noalias noundef readonly capture
   store float %16, ptr %17, align 4, !tbaa !32
   %18 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %18, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -773,7 +773,7 @@ define internal void @_blend_normal_unbounded(ptr noalias noundef readonly captu
   store float %14, ptr %15, align 4, !tbaa !32
   %16 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %16, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -827,6 +827,26 @@ attributes #6 = { nounwind }
 !30 = !{!"dt_develop_blend_params_t", !13, i64 0, !13, i64 4, !13, i64 8, !19, i64 12, !19, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !19, i64 32, !13, i64 36, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !13, i64 56, !10, i64 60, !10, i64 68, !10, i64 324, !10, i64 388, !13, i64 408, !13, i64 412, !13, i64 416}
 !31 = !{!30, !13, i64 20}
 !32 = !{!19, !19, i64 0}
-!33 = !{!20, !13, i64 0}
-!34 = !{!20, !13, i64 4}
-!35 = !{!30, !13, i64 8}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!20, !13, i64 0}
+!36 = !{!20, !13, i64 4}
+!37 = !{!30, !13, i64 8}
+!38 = distinct !{!38, !34}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = distinct !{!42, !34}
+!43 = distinct !{!43, !34}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
+!46 = distinct !{!46, !34}
+!47 = distinct !{!47, !34}
+!48 = distinct !{!48, !34}
+!49 = distinct !{!49, !34}
+!50 = distinct !{!50, !34}
+!51 = distinct !{!51, !34}
+!52 = distinct !{!52, !34}
+!53 = distinct !{!53, !34}
+!54 = distinct !{!54, !34}
+!55 = distinct !{!55, !34}

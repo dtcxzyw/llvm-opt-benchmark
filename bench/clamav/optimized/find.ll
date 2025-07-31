@@ -184,9 +184,9 @@ sub_133:                                          ; preds = %.tail
 
 _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
-  store i32 59, ptr %37, align 8, !tbaa !26
+  store i32 59, ptr %37, align 8, !tbaa !27
   store ptr null, ptr %5, align 8, !tbaa !23
-  store i32 2, ptr %38, align 8, !tbaa !29
+  store i32 2, ptr %38, align 8, !tbaa !30
   store ptr %8, ptr %39, align 8, !tbaa !23
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #10
@@ -235,25 +235,25 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   %73 = load ptr, ptr %33, align 8, !tbaa !12
   %74 = call ptr @readdir64(ptr noundef %73)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread29, label %sub_0, !llvm.loop !21
+  br i1 %75, label %.thread29, label %sub_0, !llvm.loop !31
 
 76:                                               ; preds = %71
   call void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 2048)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #10
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8232
-  store i32 0, ptr %77, align 8, !tbaa !30
+  store i32 0, ptr %77, align 8, !tbaa !32
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8200
-  %79 = load i32, ptr %78, align 8, !tbaa !31
+  %79 = load i32, ptr %78, align 8, !tbaa !33
   %80 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %79)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8204
   %82 = zext i1 %80 to i8
-  store i8 %82, ptr %81, align 4, !tbaa !32
-  %83 = load i32, ptr %78, align 8, !tbaa !31
+  store i8 %82, ptr %81, align 4, !tbaa !34
+  %83 = load i32, ptr %78, align 8, !tbaa !33
   %84 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %83)
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8205
   %86 = zext i1 %84 to i8
-  store i8 %86, ptr %85, align 1, !tbaa !33
+  store i8 %86, ptr %85, align 1, !tbaa !35
   store i8 0, ptr %14, align 8, !tbaa !7
   %87 = call noundef ptr @_Z11PointToNamePKw(ptr noundef %1)
   %88 = call i32 @wcscmp(ptr noundef %87, ptr noundef nonnull @.str) #12
@@ -271,10 +271,10 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
 
 .loopexit.loopexit:                               ; preds = %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
-  store i32 86, ptr %41, align 8, !tbaa !26
+  store i32 86, ptr %41, align 8, !tbaa !27
   store ptr %9, ptr %4, align 8, !tbaa !23
   store ptr @.str.3, ptr %43, align 8, !tbaa !23
-  store i32 3, ptr %42, align 8, !tbaa !29
+  store i32 3, ptr %42, align 8, !tbaa !30
   store ptr %8, ptr %44, align 8, !tbaa !23
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #10
@@ -355,30 +355,30 @@ define noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef %0, 
 
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !34
+  %24 = load i32, ptr %23, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8200
-  store i32 %24, ptr %25, align 8, !tbaa !31
+  store i32 %24, ptr %25, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %27 = load i64, ptr %26, align 8, !tbaa !37
+  %27 = load i64, ptr %26, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8192
-  store i64 %27, ptr %28, align 8, !tbaa !38
+  store i64 %27, ptr %28, align 8, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8208
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8216
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8224
   call void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31)
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %1, ptr noundef %0, i64 noundef 2048)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8232
-  store i32 0, ptr %32, align 8, !tbaa !30
-  %33 = load i32, ptr %25, align 8, !tbaa !31
+  store i32 0, ptr %32, align 8, !tbaa !32
+  %33 = load i32, ptr %25, align 8, !tbaa !33
   %34 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %33)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8204
   %36 = zext i1 %34 to i8
-  store i8 %36, ptr %35, align 4, !tbaa !32
-  %37 = load i32, ptr %25, align 8, !tbaa !31
+  store i8 %36, ptr %35, align 4, !tbaa !34
+  %37 = load i32, ptr %25, align 8, !tbaa !33
   %38 = call noundef zeroext i1 @_Z6IsLinkj(i32 noundef %37)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8205
   %40 = zext i1 %38 to i8
-  store i8 %40, ptr %39, align 1, !tbaa !33
+  store i8 %40, ptr %39, align 1, !tbaa !35
   br label %41
 
 41:                                               ; preds = %22, %17, %10
@@ -451,17 +451,19 @@ attributes #12 = { nounwind willreturn memory(read) }
 !22 = !{!"llvm.loop.mustprogress"}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 wchar_t", !11, i64 0}
-!25 = distinct !{!25, !22}
-!26 = !{!27, !28, i64 104}
-!27 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !16, i64 96, !16, i64 100, !28, i64 104}
-!28 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
-!29 = !{!27, !16, i64 96}
-!30 = !{!14, !16, i64 8232}
-!31 = !{!14, !16, i64 8200}
-!32 = !{!14, !9, i64 8204}
-!33 = !{!14, !9, i64 8205}
-!34 = !{!35, !16, i64 24}
-!35 = !{!"_ZTS4stat", !15, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !36, i64 72, !36, i64 88, !36, i64 104, !5, i64 120}
-!36 = !{!"_ZTS8timespec", !15, i64 0, !15, i64 8}
-!37 = !{!35, !15, i64 48}
-!38 = !{!14, !15, i64 8192}
+!25 = distinct !{!25, !22, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !29, i64 104}
+!28 = !{!"_ZTS10uiMsgStore", !5, i64 0, !5, i64 64, !16, i64 96, !16, i64 100, !29, i64 104}
+!29 = !{!"_ZTS14UIMESSAGE_CODE", !5, i64 0}
+!30 = !{!28, !16, i64 96}
+!31 = distinct !{!31, !22, !26}
+!32 = !{!14, !16, i64 8232}
+!33 = !{!14, !16, i64 8200}
+!34 = !{!14, !9, i64 8204}
+!35 = !{!14, !9, i64 8205}
+!36 = !{!37, !16, i64 24}
+!37 = !{!"_ZTS4stat", !15, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !38, i64 72, !38, i64 88, !38, i64 104, !5, i64 120}
+!38 = !{!"_ZTS8timespec", !15, i64 0, !15, i64 8}
+!39 = !{!37, !15, i64 48}
+!40 = !{!14, !15, i64 8192}

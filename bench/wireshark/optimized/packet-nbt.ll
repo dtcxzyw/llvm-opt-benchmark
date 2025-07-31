@@ -632,7 +632,7 @@ add_name_and_type.exit.i.i:                       ; preds = %93, %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %99 = add i32 %81, %.017.i
   %100 = icmp samesign ugt i32 %.01516.i, 1
-  br i1 %100, label %.lr.ph.split.i, label %dissect_query_records.exit, !llvm.loop !9
+  br i1 %100, label %.lr.ph.split.i, label %dissect_query_records.exit, !llvm.loop !10
 
 dissect_query_records.exit:                       ; preds = %add_name_and_type.exit.i.i, %dissect_nbns_query.exit.us.i, %53
   %.0.lcssa.i = phi i32 [ 12, %53 ], [ %69, %dissect_nbns_query.exit.us.i ], [ %99, %add_name_and_type.exit.i.i ]
@@ -854,7 +854,7 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %14 = icmp eq i32 %13, 445
   %. = zext i1 %14 to i8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %16 = load i8, ptr %15, align 4, !range !10, !noundef !11
+  %16 = load i8, ptr %15, align 4, !range !11, !noundef !12
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %97, label %18
 
@@ -866,7 +866,7 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = zext i8 %11 to i32
   %22 = tail call ptr @try_val_to_str(i32 noundef %21, ptr noundef nonnull @message_types)
   %23 = icmp ne ptr %22, null
-  %24 = load i8, ptr @nbss_desegment, align 1, !range !10
+  %24 = load i8, ptr @nbss_desegment, align 1, !range !11
   %25 = trunc nuw i8 %24 to i1
   %or.cond3 = select i1 %23, i1 %25, i1 false
   br i1 %or.cond3, label %26, label %33
@@ -1057,7 +1057,7 @@ dissect_continuation_packet.exit162:              ; preds = %65, %66
 108:                                              ; preds = %.lr.ph, %170
   %109 = phi i32 [ %101, %.lr.ph ], [ %173, %170 ]
   %.0136179 = phi i32 [ 0, %.lr.ph ], [ %172, %170 ]
-  %110 = load i8, ptr @nbss_desegment, align 1, !range !10, !noundef !11
+  %110 = load i8, ptr @nbss_desegment, align 1, !range !11, !noundef !12
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %120
 
@@ -1141,7 +1141,7 @@ dissect_continuation_packet.exit162:              ; preds = %65, %66
   br label %159
 
 159:                                              ; preds = %138, %141, %144, %148, %152, %156, %132
-  %160 = load i8, ptr @nbss_desegment, align 1, !range !10, !noundef !11
+  %160 = load i8, ptr @nbss_desegment, align 1, !range !11, !noundef !12
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %162, label %170
 
@@ -1167,7 +1167,7 @@ dissect_continuation_packet.exit162:              ; preds = %65, %66
   %172 = add i32 %133, %.0136179
   %173 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %172)
   %.not147 = icmp eq i32 %173, 0
-  br i1 %.not147, label %._crit_edge, label %108, !llvm.loop !12
+  br i1 %.not147, label %._crit_edge, label %108, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %170, %97
   %174 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1365,7 +1365,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %nbns_add_nbns_flags
   %78 = add i32 %.0471.us.i, 2
   %79 = add i16 %.0370470.us.i, -2
   %.not428.us.i = icmp eq i16 %79, 0
-  br i1 %.not428.us.i, label %dissect_nbns_answer.exit, label %.lr.ph473.split.us.i, !llvm.loop !13
+  br i1 %.not428.us.i, label %dissect_nbns_answer.exit, label %.lr.ph473.split.us.i, !llvm.loop !14
 
 .lr.ph473.split.i:                                ; preds = %.lr.ph473.i, %99
   %.0471.i = phi i32 [ %102, %99 ], [ %39, %.lr.ph473.i ]
@@ -1408,7 +1408,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %nbns_add_nbns_flags
   %102 = add i32 %.0471.i, 6
   %103 = add i16 %.0370470.i, -6
   %.not428.i = icmp eq i16 %103, 0
-  br i1 %.not428.i, label %dissect_nbns_answer.exit, label %.lr.ph473.split.i, !llvm.loop !14
+  br i1 %.not428.i, label %dissect_nbns_answer.exit, label %.lr.ph473.split.i, !llvm.loop !15
 
 104:                                              ; preds = %18
   br i1 %.not.i, label %106, label %105
@@ -1495,7 +1495,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %nbns_add_nbns_flags
   %149 = add i16 %.2372460.us.i, -18
   %150 = add nsw i32 %.0369461.us.i, -1
   %.not425.us.i = icmp eq i32 %150, 0
-  br i1 %.not425.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !15
+  br i1 %.not425.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %167, %.lr.ph.split.preheader.i
   %.3462.i = phi i32 [ %171, %167 ], [ %135, %.lr.ph.split.preheader.i ]
@@ -1542,7 +1542,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %nbns_add_nbns_flags
   %172 = add i16 %.2372460.i, -18
   %173 = add nsw i32 %.0369461.i, -1
   %.not425.i = icmp eq i32 %173, 0
-  br i1 %.not425.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !16
+  br i1 %.not425.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %167, %147, %131
   %.2372.lcssa.i = phi i16 [ %38, %131 ], [ %142, %147 ], [ %138, %167 ]
@@ -1825,7 +1825,7 @@ dissect_nbns_answer.exit:                         ; preds = %99, %nbns_add_nbns_
   %.2.i = phi i32 [ %357, %356 ], [ %.0471.us.i, %.split476.us.i ], [ %.0471.i, %82 ], [ %93, %96 ], [ %39, %129 ], [ %.us-phi464.i, %.split.us.i ], [ %164, %.split.loop.exit.i ], [ %.3.lcssa.i, %175 ], [ %181, %183 ], [ %188, %190 ], [ %195, %198 ], [ %204, %207 ], [ %213, %216 ], [ %222, %225 ], [ %231, %234 ], [ %240, %243 ], [ %249, %252 ], [ %258, %261 ], [ %267, %270 ], [ %276, %279 ], [ %285, %288 ], [ %294, %297 ], [ %303, %306 ], [ %312, %315 ], [ %321, %324 ], [ %330, %327 ], [ %39, %71 ], [ %78, %nbns_add_nbns_flags.exit.us.i ], [ %102, %99 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   %358 = icmp sgt i32 %.01845, 1
-  br i1 %358, label %18, label %._crit_edge, !llvm.loop !17
+  br i1 %358, label %18, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_nbns_answer.exit, %8
   %.0.lcssa = phi i32 [ %2, %8 ], [ %.2.i, %dissect_nbns_answer.exit ]
@@ -1909,7 +1909,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
 
 23:                                               ; preds = %21
   %24 = getelementptr i8, ptr %.079, i64 2
-  br i1 %13, label %25, label %14
+  br i1 %13, label %25, label %14, !llvm.loop !19
 
 25:                                               ; preds = %23
   %narrow.le = shl i8 %15, 4
@@ -1919,7 +1919,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
   %28 = add nuw nsw i64 %.080.ph, 1
   %29 = getelementptr i8, ptr %10, i64 %.080.ph
   store i8 %27, ptr %29, align 1
-  br label %.outer
+  br label %.outer, !llvm.loop !19
 
 30:                                               ; preds = %14, %14
   %.not = icmp eq i64 %.080.ph, 16
@@ -2382,15 +2382,17 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
 !13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7}
+!14 = distinct !{!14, !7, !8, !9}
 !15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !8}

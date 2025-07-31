@@ -483,7 +483,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   store i8 %68, ptr %67, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader86, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.preheader86, !llvm.loop !19
 
 70:                                               ; preds = %13
   %71 = icmp ugt i32 %43, 32
@@ -518,7 +518,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
   %86 = lshr i32 %85, 2
   %87 = zext nneg i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next102, %87
-  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader86, %.preheader84, %.lr.ph, %.preheader, %70
   %89 = phi i32 [ 0, %70 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 1, %.preheader84 ], [ 1, %.preheader86 ]
@@ -562,7 +562,8 @@ attributes #6 = { nounwind }
 !13 = !{!11, !7, i64 32}
 !14 = !{!11, !7, i64 104}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}

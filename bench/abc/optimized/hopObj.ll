@@ -632,7 +632,7 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
   store ptr %61, ptr %62, align 8, !tbaa !19
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %58, !llvm.loop !33
+  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %58, !llvm.loop !34
 
 Vec_PtrRemove.exit:                               ; preds = %58, %55
   %63 = add nsw i32 %43, -1
@@ -821,6 +821,7 @@ attributes #11 = { nounwind }
 !28 = !{!4, !11, i64 132}
 !29 = !{!10, !9, i64 24}
 !30 = !{!4, !11, i64 100}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}

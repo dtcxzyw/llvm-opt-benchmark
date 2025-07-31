@@ -232,23 +232,23 @@ define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCert
   %.01118 = phi i64 [ 0, %3 ], [ 1, %4 ]
   %7 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.01118
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !11
+  %9 = load i64, ptr %8, align 8, !tbaa !12
   %10 = icmp eq i64 %9, %1
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %5
   %12 = zext i32 %2 to i64
-  %13 = load i64, ptr %7, align 16, !tbaa !16
+  %13 = load i64, ptr %7, align 16, !tbaa !17
   %14 = icmp ugt i64 %13, %12
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16, !tbaa !20
+  %21 = load ptr, ptr %20, align 16, !tbaa !21
   %22 = getelementptr inbounds nuw i64, ptr %21, i64 %12
   %23 = load i64, ptr %22, align 8, !tbaa !6
   br label %.loopexit
@@ -284,21 +284,21 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %.04175 = phi i64 [ 0, %.lr.ph ], [ 1, %.thread64 ]
   %14 = getelementptr inbounds nuw [2 x %"struct.net::(anonymous namespace)::CertSet"], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 0, i64 %.04175
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %16 = load i64, ptr %15, align 8, !tbaa !12
   %.not51 = icmp eq i64 %16, %.0.copyload
   br i1 %.not51, label %17, label %.thread64
 
 17:                                               ; preds = %12
-  %18 = load i64, ptr %14, align 16, !tbaa !16
+  %18 = load i64, ptr %14, align 16, !tbaa !17
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.thread64, label %20
 
 20:                                               ; preds = %17
   %21 = add i64 %18, -1
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !17
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %25 = load ptr, ptr %24, align 16, !tbaa !20
+  %25 = load ptr, ptr %24, align 16, !tbaa !21
   br label %26
 
 26:                                               ; preds = %20, %42
@@ -308,7 +308,7 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %28 = lshr i64 %27, 1
   %29 = add i64 %28, %.04573
   %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i64, ptr %25, i64 %29
   %33 = load i64, ptr %32, align 8, !tbaa !6
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %33)
@@ -339,18 +339,18 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   br i1 %.not52, label %.thread64, label %26
 
 .thread64:                                        ; preds = %36, %42, %17, %12
-  br i1 %13, label %12, label %45, !llvm.loop !21
+  br i1 %13, label %12, label %45, !llvm.loop !22
 
 43:                                               ; preds = %39
   store i64 %.0.copyload, ptr %5, align 8, !tbaa !6
   %44 = trunc i64 %29 to i32
-  store i32 %44, ptr %6, align 4, !tbaa !22
+  store i32 %44, ptr %6, align 4, !tbaa !23
   br label %.loopexit
 
 45:                                               ; preds = %.thread64
   %46 = add nuw nsw i64 %.03677, 1
   %exitcond.not = icmp eq i64 %46, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %45, %.preheader, %43, %7
   %.0 = phi i1 [ false, %7 ], [ true, %43 ], [ false, %.preheader ], [ false, %45 ]
@@ -395,19 +395,20 @@ attributes #16 = { nounwind willreturn memory(read) }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"long", !8, i64 0}
 !8 = !{!"omnipotent char", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !7, i64 24}
-!12 = !{!"_ZTSN3net12_GLOBAL__N_17CertSetE", !7, i64 0, !13, i64 8, !15, i64 16, !7, i64 24}
-!13 = !{!"p2 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !8, i64 0}
-!15 = !{!"p1 long", !14, i64 0}
-!16 = !{!12, !7, i64 0}
-!17 = !{!12, !13, i64 8}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !14, i64 0}
-!20 = !{!12, !15, i64 16}
-!21 = distinct !{!21, !10}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !8, i64 0}
-!24 = distinct !{!24, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !7, i64 24}
+!13 = !{!"_ZTSN3net12_GLOBAL__N_17CertSetE", !7, i64 0, !14, i64 8, !16, i64 16, !7, i64 24}
+!14 = !{!"p2 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !8, i64 0}
+!16 = !{!"p1 long", !15, i64 0}
+!17 = !{!13, !7, i64 0}
+!18 = !{!13, !14, i64 8}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !15, i64 0}
+!21 = !{!13, !16, i64 16}
+!22 = distinct !{!22, !10, !11}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !8, i64 0}
+!25 = distinct !{!25, !10, !11}

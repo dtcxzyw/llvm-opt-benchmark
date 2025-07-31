@@ -194,7 +194,7 @@ testfile.exit28:                                  ; preds = %._crit_edge.thread,
   %94 = load i32, ptr %5, align 4, !tbaa !4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %15, label %._crit_edge45, !llvm.loop !25
+  br i1 %96, label %15, label %._crit_edge45, !llvm.loop !26
 
 ._crit_edge45:                                    ; preds = %93, %2
   call void @FuzzerCleanup() #9
@@ -289,6 +289,7 @@ attributes #12 = { noreturn nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !22 = !{!17, !18, i64 48}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}

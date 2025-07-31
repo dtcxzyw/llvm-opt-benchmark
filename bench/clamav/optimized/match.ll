@@ -303,7 +303,7 @@ tailrecurse.backedge:                             ; preds = %53, %53, %53
 
 .loopexit144:                                     ; preds = %50, %9
   %54 = getelementptr inbounds nuw i8, ptr %.044.ph, i64 4
-  br label %tailrecurse.outer, !llvm.loop !9
+  br label %tailrecurse.outer, !llvm.loop !10
 
 .loopexit:                                        ; preds = %53, %51, %9, %47, %.thread54, %7, %11, %17, %25, %27, %_ZL10mwcsicompcPKwS0_b.exit
   %.1.ph = phi i1 [ %30, %27 ], [ true, %25 ], [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ true, %17 ], [ true, %11 ], [ %8, %7 ], [ %.not52.not.not, %.thread54 ], [ %.not52.not.not, %47 ], [ false, %9 ], [ false, %51 ], [ false, %53 ]
@@ -345,6 +345,7 @@ attributes #6 = { nounwind }
 !4 = !{!"wchar_t", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

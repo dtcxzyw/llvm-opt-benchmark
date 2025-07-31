@@ -959,7 +959,7 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTab
   %31 = icmp sgt i32 %.1.lcssa.i.i.i, 0
   %32 = icmp samesign ult i64 %.0.idx18.i.i.i, 63344
   %or.cond.i.i.i = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %_ZN12MemStatTable15calc_flat_arrayERim.exit, !llvm.loop !8
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %_ZN12MemStatTable15calc_flat_arrayERim.exit, !llvm.loop !9
 
 _ZN12MemStatTable15calc_flat_arrayERim.exit:      ; preds = %._crit_edge.i.i.i, %13
   %.4.i = phi i32 [ 0, %13 ], [ %.3.i, %._crit_edge.i.i.i ]
@@ -988,7 +988,7 @@ _ZN12MemStatTable15calc_flat_arrayERim.exit:      ; preds = %._crit_edge.i.i.i, 
   tail call void @_ZNK12MemStatEntry8print_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull %0, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %40
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %11, %37
   %.str.19.sink = phi ptr [ @.str.19, %37 ], [ @.str.20, %11 ]
@@ -1104,7 +1104,7 @@ _ZN9QuickSort10find_pivotIP12MemStatEntryPFlPKS1_S4_EEEmPT_mT0_.exit: ; preds = 
   %38 = tail call noundef i64 %2(ptr noundef %37, ptr noundef %33) #14
   %39 = icmp slt i64 %38, 0
   %40 = add i64 %.1.i, 1
-  br i1 %39, label %35, label %.preheader.i.preheader, !llvm.loop !10
+  br i1 %39, label %35, label %.preheader.i.preheader, !llvm.loop !11
 
 .preheader.i.preheader:                           ; preds = %35
   %41 = getelementptr inbounds ptr, ptr %.tr23, i64 %.1.i
@@ -1117,7 +1117,7 @@ _ZN9QuickSort10find_pivotIP12MemStatEntryPFlPKS1_S4_EEEmPT_mT0_.exit: ; preds = 
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef i64 %2(ptr noundef %43, ptr noundef %33) #14
   %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.preheader.i, label %46, !llvm.loop !11
+  br i1 %45, label %.preheader.i, label %46, !llvm.loop !12
 
 46:                                               ; preds = %.preheader.i
   %47 = icmp ult i64 %.1.i, %.121.i
@@ -1129,7 +1129,7 @@ _ZN9QuickSort10find_pivotIP12MemStatEntryPFlPKS1_S4_EEEmPT_mT0_.exit: ; preds = 
   %51 = load ptr, ptr %49, align 8
   store ptr %51, ptr %41, align 8
   store ptr %50, ptr %49, align 8
-  br label %34, !llvm.loop !12
+  br label %34, !llvm.loop !13
 
 _ZN9QuickSort9partitionIP12MemStatEntryPFlPKS1_S4_EEEmPT_mmT0_.exit: ; preds = %46
   tail call void @_ZN9QuickSort4sortIP12MemStatEntryPFlPKS1_S4_EEEvPT_mT0_(ptr noundef nonnull %.tr23, i64 noundef %.121.in.i, ptr noundef %2)
@@ -1541,7 +1541,7 @@ _Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.thread.i.i: ; preds = %_Z16
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %94 = load ptr, ptr %93, align 8
   %.not.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit: ; preds = %_Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.i.i, %_Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.thread.i.i, %2
   %95 = phi ptr [ null, %2 ], [ %75, %_Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.i.i ], [ null, %_Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.thread.i.i ]
@@ -1660,7 +1660,7 @@ _Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.thread.i: ; preds = %_Z16pr
   %93 = getelementptr inbounds nuw i8, ptr %.pr, i64 48
   %94 = load ptr, ptr %93, align 8
   %.not.i = icmp eq ptr %94, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTableKeyP12MemStatEntryES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_ZNS1_12compute_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SD_EEE11lookup_nodeEjS9_.exit: ; preds = %_Z16primitive_equalsI15MemStatTableKeyEbRKT_S3_.exit.i
   %95 = load ptr, ptr %2, align 8
@@ -1778,11 +1778,12 @@ attributes #16 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

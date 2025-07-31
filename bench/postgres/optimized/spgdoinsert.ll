@@ -212,7 +212,7 @@ define dso_local void @spgPageIndexMultiDelete(ptr noundef %0, ptr noundef %1, p
 48:                                               ; preds = %.sink.split, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !7
 
 .loopexit:                                        ; preds = %48, %15, %8
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %9) #10
@@ -259,7 +259,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   %20 = alloca %struct.spgChooseOut, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %23 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %17) #10
   br i1 %24, label %44, label %25
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   %53 = phi i32 [ %45, %.lr.ph ], [ %73, %72 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1, !range !7, !noundef !8
+  %55 = load i8, ptr %54, align 1, !range !8, !noundef !9
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %70, label %57
 
@@ -352,14 +352,14 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %52, label %._crit_edge, !llvm.loop !9
+  br i1 %75, label %52, label %._crit_edge, !llvm.loop !10
 
 76:                                               ; preds = %._crit_edge
   br i1 %24, label %81, label %77
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %79 = load i8, ptr %78, align 1, !range !7, !noundef !8
+  %79 = load i8, ptr %78, align 1, !range !8, !noundef !9
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %91, label %81
 
@@ -381,7 +381,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   %92 = select i1 %24, i32 2, i32 1
   %93 = load volatile i32, ptr @InterruptPending, align 4
   %.not144 = icmp eq i32 %93, 0
-  br i1 %.not144, label %95, label %94, !prof !10
+  br i1 %.not144, label %95, label %94, !prof !11
 
 94:                                               ; preds = %91
   call void @ProcessInterrupts() #10
@@ -392,7 +392,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   store i8 0, ptr %18, align 1
   %96 = load volatile i32, ptr @InterruptPending, align 4
   %.not1451023 = icmp eq i32 %96, 0
-  br i1 %.not1451023, label %.lr.ph1039, label %.thread475, !prof !11
+  br i1 %.not1451023, label %.lr.ph1039, label %.thread475, !prof !12
 
 .lr.ph1039:                                       ; preds = %95
   %97 = select i1 %24, i32 7, i32 3
@@ -576,7 +576,7 @@ BufferGetPage.exit:                               ; preds = %176, %182
   br i1 %.not150, label %346, label %214
 
 214:                                              ; preds = %201
-  %215 = load i8, ptr %18, align 1, !range !7, !noundef !8
+  %215 = load i8, ptr %18, align 1, !range !8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %16) #10
   store i8 %215, ptr %16, align 2
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -770,7 +770,7 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %324, label %325, label %addLeafTuple.exit
 
 325:                                              ; preds = %322, %316
-  %326 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %326 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %addLeafTuple.exit, label %328
 
@@ -780,7 +780,7 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %329 = load i32, ptr %202, align 4
   %330 = lshr i32 %329, 2
   call void @XLogRegisterData(ptr noundef nonnull %202, i32 noundef %330) #10
-  %331 = load i8, ptr %16, align 2, !range !7, !noundef !8
+  %331 = load i8, ptr %16, align 2, !range !8, !noundef !9
   %332 = trunc nuw i8 %331 to i1
   %spec.select.i = select i1 %332, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.2, i8 noundef zeroext %spec.select.i) #10
@@ -871,7 +871,7 @@ addLeafTuple.exit:                                ; preds = %311, %319, %322, %3
   %369 = load i16, ptr %368, align 4
   %370 = and i16 %369, 16383
   %.not.i163 = icmp eq i16 %370, 0
-  br i1 %.not.i163, label %checkSplitConditions.exit.loopexit, label %349, !llvm.loop !12
+  br i1 %.not.i163, label %checkSplitConditions.exit.loopexit, label %349, !llvm.loop !13
 
 checkSplitConditions.exit.loopexit:               ; preds = %367
   %371 = icmp slt i32 %.120.i, 64
@@ -971,7 +971,7 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %416 = load i16, ptr %415, align 4
   %417 = and i16 %416, 16383
   %.not.i167 = icmp eq i16 %417, 0
-  br i1 %.not.i167, label %._crit_edge.i, label %.lr.ph.i165, !llvm.loop !13
+  br i1 %.not.i167, label %._crit_edge.i, label %.lr.ph.i165, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %414, %377
   %.0121.lcssa.i = phi i8 [ 0, %377 ], [ %.1122.i, %414 ]
@@ -1051,7 +1051,7 @@ BufferGetPage.exit.i:                             ; preds = %427, %421
   %464 = zext nneg i32 %463 to i64
   %465 = getelementptr inbounds nuw i8, ptr %.1116140.i, i64 %464
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %.lr.ph143.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %.lr.ph143.i, !llvm.loop !15
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph143.i
   %466 = and i16 %457, 16383
@@ -1081,7 +1081,7 @@ BufferGetPage.exit.i:                             ; preds = %427, %421
   %481 = lshr i32 %480, 2
   %482 = zext nneg i32 %481 to i64
   %483 = getelementptr inbounds nuw i8, ptr %.0115.i, i64 %482
-  %484 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %484 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %485 = trunc nuw i8 %484 to i1
   %486 = select i1 %485, i32 3, i32 1
   call void @spgPageIndexMultiDelete(ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %385, i32 noundef %.0111.lcssa.i, i32 noundef %486, i32 noundef 3, i32 noundef %433, i16 noundef zeroext %474)
@@ -1163,7 +1163,7 @@ saveNodeLink.exit.i177:                           ; preds = %.lr.ph.i.i.i171
   br i1 %527, label %528, label %moveLeafs.exit
 
 528:                                              ; preds = %525, %519
-  %529 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %529 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %530 = trunc nuw i8 %529 to i1
   br i1 %530, label %moveLeafs.exit, label %531
 
@@ -1197,7 +1197,7 @@ saveNodeLink.exit.i177:                           ; preds = %.lr.ph.i.i.i171
   %547 = trunc i64 %546 to i32
   call void @XLogRegisterData(ptr noundef %435, i32 noundef %547) #10
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.2, i8 noundef zeroext 8) #10
-  %548 = load i8, ptr %418, align 2, !range !7, !noundef !8
+  %548 = load i8, ptr %418, align 2, !range !8, !noundef !9
   %549 = trunc nuw i8 %548 to i1
   %550 = select i1 %549, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %419, i8 noundef zeroext %550) #10
@@ -1228,7 +1228,7 @@ moveLeafs.exit:                                   ; preds = %saveNodeLink.exit.i
   br label %.thread426
 
 checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSplitConditions.exit
-  %560 = load i8, ptr %18, align 1, !range !7, !noundef !8
+  %560 = load i8, ptr %18, align 1, !range !8, !noundef !9
   %561 = trunc nuw i8 %560 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #10
@@ -1258,7 +1258,7 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
   %578 = call ptr @palloc(i64 noundef %570) #10
   %579 = load i32, ptr %100, align 8
   store i32 %579, ptr %101, align 4
-  %580 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %580 = load i8, ptr %102, align 4, !range !8, !noundef !9
   store i8 %580, ptr %103, align 4
   br i1 %switch.i161, label %.preheader563.i, label %631
 
@@ -1294,7 +1294,7 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
 
 594:                                              ; preds = %593
   %595 = getelementptr inbounds nuw i8, ptr %589, i64 16
-  %596 = load i8, ptr %104, align 2, !range !7, !noundef !8
+  %596 = load i8, ptr %104, align 2, !range !8, !noundef !9
   %597 = trunc nuw i8 %596 to i1
   br i1 %597, label %598, label %615
 
@@ -1354,7 +1354,7 @@ fetch_att.exit.i:                                 ; preds = %615, %609, %606, %6
   %624 = add i32 %narrow487.i, %623
   %625 = add nuw nsw i32 %.0408599.i, 1
   %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, %wide.trip.count.i200
-  br i1 %exitcond.not.i204, label %.loopexit564.i, label %582, !llvm.loop !15
+  br i1 %exitcond.not.i204, label %.loopexit564.i, label %582, !llvm.loop !16
 
 626:                                              ; preds = %582
   %627 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1397,7 +1397,7 @@ fetch_att.exit.i:                                 ; preds = %615, %609, %606, %6
 
 643:                                              ; preds = %642
   %644 = getelementptr inbounds nuw i8, ptr %639, i64 16
-  %645 = load i8, ptr %104, align 2, !range !7, !noundef !8
+  %645 = load i8, ptr %104, align 2, !range !8, !noundef !9
   %646 = trunc nuw i8 %645 to i1
   br i1 %646, label %647, label %664
 
@@ -1482,7 +1482,7 @@ fetch_att.exit508.i:                              ; preds = %664, %658, %655, %6
   %688 = load i16, ptr %687, align 4
   %689 = and i16 %688, 16383
   %.not.i181 = icmp eq i16 %689, 0
-  br i1 %.not.i181, label %.loopexit564.i, label %633, !llvm.loop !16
+  br i1 %.not.i181, label %.loopexit564.i, label %633, !llvm.loop !17
 
 .loopexit564.i:                                   ; preds = %686, %fetch_att.exit.i, %631, %.preheader563.i
   %.1444.i = phi i32 [ 0, %.preheader563.i ], [ 0, %631 ], [ %568, %fetch_att.exit.i ], [ %.3446.i, %686 ]
@@ -1493,7 +1493,7 @@ fetch_att.exit508.i:                              ; preds = %664, %658, %655, %6
 
 690:                                              ; preds = %.loopexit564.i
   %691 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %692 = load i8, ptr %104, align 2, !range !7, !noundef !8
+  %692 = load i8, ptr %104, align 2, !range !8, !noundef !9
   %693 = trunc nuw i8 %692 to i1
   br i1 %693, label %694, label %711
 
@@ -1595,7 +1595,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   %746 = load i32, ptr %8, align 8
   %747 = sext i32 %746 to i64
   %748 = icmp slt i64 %indvars.iv.next677.i, %747
-  br i1 %748, label %.lr.ph606.i, label %.loopexit561.i, !llvm.loop !17
+  br i1 %748, label %.lr.ph606.i, label %.loopexit561.i, !llvm.loop !18
 
 749:                                              ; preds = %fetch_att.exit510.i
   store i32 1, ptr %110, align 8
@@ -1637,7 +1637,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   %769 = load i32, ptr %8, align 8
   %770 = sext i32 %769 to i64
   %771 = icmp slt i64 %indvars.iv.next680.i, %770
-  br i1 %771, label %.lr.ph611.i, label %.loopexit561.i, !llvm.loop !18
+  br i1 %771, label %.lr.ph611.i, label %.loopexit561.i, !llvm.loop !19
 
 .loopexit561.i:                                   ; preds = %734, %760
   %772 = phi i32 [ %769, %760 ], [ %746, %734 ]
@@ -1661,7 +1661,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
 781:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 .lr.ph.i.i:                                       ; preds = %781, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %781 ]
@@ -1697,7 +1697,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   %794 = load i32, ptr %8, align 8
   %795 = sext i32 %794 to i64
   %796 = icmp slt i64 %indvars.iv.next53.i.i, %795
-  br i1 %796, label %.lr.ph45.i.i, label %._crit_edge46.i.i, !llvm.loop !20
+  br i1 %796, label %.lr.ph45.i.i, label %._crit_edge46.i.i, !llvm.loop !21
 
 ._crit_edge46.i.i:                                ; preds = %.lr.ph45.i.i
   %797 = load ptr, ptr %112, align 8
@@ -1726,7 +1726,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   %810 = load i32, ptr %110, align 8
   %811 = sext i32 %810 to i64
   %812 = icmp slt i64 %indvars.iv.next56.i.i, %811
-  br i1 %812, label %.lr.ph49.i.i, label %checkAllTheSame.exit.i, !llvm.loop !21
+  br i1 %812, label %.lr.ph49.i.i, label %checkAllTheSame.exit.i, !llvm.loop !22
 
 checkAllTheSame.exit.i:                           ; preds = %.lr.ph49.i.i, %798, %._crit_edge46.i.i
   %.pre.i = load i32, ptr %8, align 8
@@ -1780,11 +1780,11 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %840 = load i32, ptr %110, align 8
   %841 = sext i32 %840 to i64
   %842 = icmp slt i64 %indvars.iv.next683.i, %841
-  br i1 %842, label %.lr.ph615.i, label %._crit_edge.i182, !llvm.loop !22
+  br i1 %842, label %.lr.ph615.i, label %._crit_edge.i182, !llvm.loop !23
 
 ._crit_edge.i182:                                 ; preds = %837, %checkAllTheSame.exit.thread.i
   %.lcssa.i = phi i32 [ %830, %checkAllTheSame.exit.thread.i ], [ %840, %837 ]
-  %843 = load i8, ptr %9, align 8, !range !7, !noundef !8
+  %843 = load i8, ptr %9, align 8, !range !8, !noundef !9
   %844 = trunc nuw i8 %843 to i1
   %845 = load i64, ptr %113, align 8
   %846 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %844, i64 noundef %845, i32 noundef %.lcssa.i, ptr noundef %825) #10
@@ -1827,7 +1827,7 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %863 = and i32 %862, 8191
   %864 = zext nneg i32 %863 to i64
   %865 = icmp samesign ult i64 %indvars.iv.next686.i, %864
-  br i1 %865, label %.lr.ph620.i, label %.preheader.i, !llvm.loop !23
+  br i1 %865, label %.lr.ph620.i, label %.preheader.i, !llvm.loop !24
 
 866:                                              ; preds = %875, %.lr.ph622.i
   %indvars.iv688.i = phi i64 [ 0, %.lr.ph622.i ], [ %indvars.iv.next689.i, %875 ]
@@ -1860,7 +1860,7 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   store i32 %883, ptr %881, align 4
   %indvars.iv.next689.i = add nuw nsw i64 %indvars.iv688.i, 1
   %exitcond692.not.i = icmp eq i64 %indvars.iv.next689.i, %wide.trip.count691.i
-  br i1 %exitcond692.not.i, label %._crit_edge623.i, label %866, !llvm.loop !24
+  br i1 %exitcond692.not.i, label %._crit_edge623.i, label %866, !llvm.loop !25
 
 ._crit_edge623.i:                                 ; preds = %875, %.preheader.i
   store i8 0, ptr %114, align 2
@@ -2001,7 +2001,7 @@ BufferGetPage.exit.i196:                          ; preds = %932, %926
   %952 = load i32, ptr %110, align 8
   %953 = sext i32 %952 to i64
   %954 = icmp slt i64 %indvars.iv.next697.i, %953
-  br i1 %954, label %.lr.ph630.i, label %._crit_edge631.i, !llvm.loop !25
+  br i1 %954, label %.lr.ph630.i, label %._crit_edge631.i, !llvm.loop !26
 
 ._crit_edge631.i:                                 ; preds = %951, %BufferGetPage.exit.i196
   %.0427.lcssa.i = phi i32 [ %.0431.i, %BufferGetPage.exit.i196 ], [ %.1428.i, %951 ]
@@ -2091,7 +2091,7 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   %1001 = load i32, ptr %110, align 8
   %1002 = sext i32 %1001 to i64
   %1003 = icmp slt i64 %indvars.iv.next700.i, %1002
-  br i1 %1003, label %.lr.ph637.i, label %._crit_edge638.i, !llvm.loop !26
+  br i1 %1003, label %.lr.ph637.i, label %._crit_edge638.i, !llvm.loop !27
 
 ._crit_edge638.i:                                 ; preds = %1000, %BufferGetPage.exit513.i
   %.2429.lcssa.i = phi i32 [ %.0431.i, %BufferGetPage.exit513.i ], [ %.3430.i, %1000 ]
@@ -2137,7 +2137,7 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   store i8 %1019, ptr %1020, align 1
   %indvars.iv.next703.i = add nuw nsw i64 %indvars.iv702.i, 1
   %exitcond706.not.i = icmp eq i64 %indvars.iv.next703.i, %wide.trip.count705.i
-  br i1 %exitcond706.not.i, label %.loopexit.i184, label %1014, !llvm.loop !27
+  br i1 %exitcond706.not.i, label %.loopexit.i184, label %1014, !llvm.loop !28
 
 .loopexit.i184:                                   ; preds = %1014, %1012, %915, %.lr.ph626.preheader.i, %911
   %.5448.i = phi i32 [ %.1444.i, %915 ], [ %.6449.i, %1012 ], [ %spec.select.i183, %911 ], [ %spec.select.i183, %.lr.ph626.preheader.i ], [ %.6449.i, %1014 ]
@@ -2156,7 +2156,7 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   br i1 %switch.i161, label %1054, label %1026
 
 1026:                                             ; preds = %.loopexit.i184
-  %1027 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1027 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1028 = trunc nuw i8 %1027 to i1
   br i1 %1028, label %1029, label %.thread551.i
 
@@ -2314,7 +2314,7 @@ BufferGetPage.exit517.i:                          ; preds = %1087, %1081
   %1115 = getelementptr inbounds nuw i8, ptr %.0437644.i, i64 %1114
   %indvars.iv.next708.i = add nuw nsw i64 %indvars.iv707.i, 1
   %exitcond711.not.i = icmp eq i64 %indvars.iv.next708.i, %wide.trip.count710.i
-  br i1 %exitcond711.not.i, label %._crit_edge648.i, label %1056, !llvm.loop !28
+  br i1 %exitcond711.not.i, label %._crit_edge648.i, label %1056, !llvm.loop !29
 
 ._crit_edge648.i:                                 ; preds = %BufferGetPage.exit517.i, %1054
   %.0437.lcssa.i = phi ptr [ %1023, %1054 ], [ %1115, %BufferGetPage.exit517.i ]
@@ -2582,7 +2582,7 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   br i1 %1251, label %1252, label %1326
 
 1252:                                             ; preds = %1249, %1243
-  %1253 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1253 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1254 = trunc nuw i8 %1253 to i1
   br i1 %1254, label %1326, label %1255
 
@@ -2615,7 +2615,7 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   br i1 %.not556.i, label %1275, label %1272
 
 1272:                                             ; preds = %1255
-  %1273 = load i8, ptr %118, align 2, !range !7, !noundef !8
+  %1273 = load i8, ptr %118, align 2, !range !8, !noundef !9
   %1274 = trunc nuw i8 %1273 to i1
   %spec.select491.i = select i1 %1274, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.3.0.i, i8 noundef zeroext %spec.select491.i) #10
@@ -2625,14 +2625,14 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   br i1 %.not473.i, label %1279, label %1276
 
 1276:                                             ; preds = %1275
-  %1277 = load i8, ptr %116, align 1, !range !7, !noundef !8
+  %1277 = load i8, ptr %116, align 1, !range !8, !noundef !9
   %1278 = trunc nuw i8 %1277 to i1
   %spec.select492.i = select i1 %1278, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.0416.i, i8 noundef zeroext %spec.select492.i) #10
   br label %1279
 
 1279:                                             ; preds = %1276, %1275
-  %1280 = load i8, ptr %114, align 2, !range !7, !noundef !8
+  %1280 = load i8, ptr %114, align 2, !range !8, !noundef !9
   %1281 = trunc nuw i8 %1280 to i1
   %spec.select493.i = select i1 %1281, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.29.5, i8 noundef zeroext %spec.select493.i) #10
@@ -2771,7 +2771,7 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   %.sroa.117.3.ph = phi i16 [ %.sroa.117.5, %1332 ], [ %.sroa.117.01033, %198 ]
   %1333 = load volatile i32, ptr @InterruptPending, align 4
   %.not15210061012 = icmp eq i32 %1333, 0
-  br i1 %.not15210061012, label %.lr.ph1007.lr.ph, label %.thread426, !prof !11
+  br i1 %.not15210061012, label %.lr.ph1007.lr.ph, label %.thread426, !prof !12
 
 .lr.ph1007.lr.ph:                                 ; preds = %.preheader
   %1334 = trunc i32 %.sroa.57299.01025 to i16
@@ -2823,7 +2823,7 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   br i1 %.not153, label %1369, label %1361
 
 1361:                                             ; preds = %1347
-  %1362 = load i8, ptr %135, align 2, !range !7, !noundef !8
+  %1362 = load i8, ptr %135, align 2, !range !8, !noundef !9
   %1363 = trunc nuw i8 %1362 to i1
   %1364 = getelementptr inbounds nuw i8, ptr %1350, i64 8
   br i1 %1363, label %1365, label %1367
@@ -2939,7 +2939,7 @@ thread-pre-split:                                 ; preds = %1387, %1380, %1383
   %1413 = zext nneg i16 %1412 to i64
   %1414 = getelementptr inbounds nuw i8, ptr %.04.i, i64 %1413
   %exitcond.i = icmp eq i32 %.0363.i, %umin.i
-  br i1 %exitcond.i, label %._crit_edge.loopexit.i, label %.lr.ph.i206, !llvm.loop !29
+  br i1 %exitcond.i, label %._crit_edge.loopexit.i, label %.lr.ph.i206, !llvm.loop !30
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i206
   %1415 = add nuw nsw i32 %umin.i, 1
@@ -2993,7 +2993,7 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   br i1 %1436, label %1437, label %.thread433
 
 1437:                                             ; preds = %1435
-  %1438 = load i8, ptr %159, align 1, !range !7, !noundef !8
+  %1438 = load i8, ptr %159, align 1, !range !8, !noundef !9
   %1439 = trunc nuw i8 %1438 to i1
   %.not = xor i1 %1439, true
   %or.cond3 = or i1 %24, %.not
@@ -3096,7 +3096,7 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   %1491 = and i32 %1490, 8191
   %1492 = zext nneg i32 %1491 to i64
   %1493 = icmp samesign ult i64 %indvars.iv.next.i.i213, %1492
-  br i1 %1493, label %.lr.ph.i.i211, label %._crit_edge.i.i214, !llvm.loop !30
+  br i1 %1493, label %.lr.ph.i.i211, label %._crit_edge.i.i214, !llvm.loop !31
 
 ._crit_edge.i.i214:                               ; preds = %.lr.ph.i.i211, %.._crit_edge.i_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i233, %.._crit_edge.i_crit_edge.i ], [ %1482, %.lr.ph.i.i211 ]
@@ -3108,7 +3108,7 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   br i1 %.not.i.i215, label %addNode.exit.i, label %1497
 
 1497:                                             ; preds = %._crit_edge.i.i214
-  %1498 = load i8, ptr %135, align 2, !range !7, !noundef !8
+  %1498 = load i8, ptr %135, align 2, !range !8, !noundef !9
   %1499 = trunc nuw i8 %1498 to i1
   br i1 %1499, label %1500, label %1502
 
@@ -3129,7 +3129,7 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   %1509 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %1505, i64 noundef %1504, i32 noundef %1508, ptr noundef nonnull %1475) #10
   %1510 = load i32, ptr %100, align 8
   store i32 %1510, ptr %151, align 4
-  %1511 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1511 = load i8, ptr %102, align 4, !range !8, !noundef !9
   store i8 %1511, ptr %152, align 4
   store i16 %.sroa.117.3.ph4931016, ptr %7, align 4
   store i8 -1, ptr %153, align 1
@@ -3192,7 +3192,7 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   br i1 %1544, label %1545, label %1555
 
 1545:                                             ; preds = %1542, %1536
-  %1546 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1546 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1547 = trunc nuw i8 %1546 to i1
   br i1 %1547, label %1555, label %1548
 
@@ -3331,7 +3331,7 @@ saveNodeLink.exit.i231:                           ; preds = %.lr.ph.i.i.i225
   %1617 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i227, i64 4
   store i16 %1593, ptr %1617, align 2
   call void @MarkBufferDirty(i32 noundef %.sroa.8.01031) #10
-  %1618 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1618 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1619 = trunc nuw i8 %1618 to i1
   br i1 %1619, label %1620, label %1622
 
@@ -3363,7 +3363,7 @@ saveNodeLink.exit.i231:                           ; preds = %.lr.ph.i.i.i225
   unreachable
 
 1634:                                             ; preds = %1624
-  %1635 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1635 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1636 = trunc nuw i8 %1635 to i1
   %1637 = load i16, ptr %1344, align 4
   %1638 = zext i16 %1637 to i64
@@ -3396,14 +3396,14 @@ saveNodeLink.exit.i231:                           ; preds = %.lr.ph.i.i.i225
   br i1 %1655, label %1656, label %1673
 
 1656:                                             ; preds = %1653, %1647
-  %1657 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1657 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1658 = trunc nuw i8 %1657 to i1
   br i1 %1658, label %1673, label %1659
 
 1659:                                             ; preds = %1656
   call void @XLogBeginInsert() #10
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4901013, i8 noundef zeroext 8) #10
-  %1660 = load i8, ptr %157, align 4, !range !7, !noundef !8
+  %1660 = load i8, ptr %157, align 4, !range !8, !noundef !9
   %1661 = trunc nuw i8 %1660 to i1
   %spec.select.i232 = select i1 %1661, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %1567, i8 noundef zeroext %spec.select.i232) #10
@@ -3456,7 +3456,7 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   %1678 = load volatile i32, ptr @InterruptPending, align 4
   %.not1521006 = icmp eq i32 %1678, 0
-  br i1 %.not1521006, label %.lr.ph1007, label %.thread426, !prof !31
+  br i1 %.not1521006, label %.lr.ph1007, label %.thread426, !prof !32, !llvm.loop !33
 
 1679:                                             ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #10
@@ -3514,11 +3514,11 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   %1706 = load i32, ptr %142, align 8
   %1707 = sext i32 %1706 to i64
   %1708 = icmp slt i64 %indvars.iv.next.i255, %1707
-  br i1 %1708, label %.lr.ph.i253, label %._crit_edge.i235, !llvm.loop !32
+  br i1 %1708, label %.lr.ph.i253, label %._crit_edge.i235, !llvm.loop !34
 
 ._crit_edge.i235:                                 ; preds = %1703, %1692
   %.lcssa144.i = phi i32 [ %1696, %1692 ], [ %1706, %1703 ]
-  %1709 = load i8, ptr %141, align 8, !range !7, !noundef !8
+  %1709 = load i8, ptr %141, align 8, !range !8, !noundef !9
   %1710 = trunc nuw i8 %1709 to i1
   %1711 = load i64, ptr %145, align 8
   %1712 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %1710, i64 noundef %1711, i32 noundef %.lcssa144.i, ptr noundef %1695) #10
@@ -3569,11 +3569,11 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   %1739 = and i32 %1738, 8191
   %1740 = zext nneg i32 %1739 to i64
   %1741 = icmp samesign ult i64 %indvars.iv.next158.i, %1740
-  br i1 %1741, label %.lr.ph149.i, label %._crit_edge150.i, !llvm.loop !33
+  br i1 %1741, label %.lr.ph149.i, label %._crit_edge150.i, !llvm.loop !35
 
 ._crit_edge150.i:                                 ; preds = %.lr.ph149.i, %1721
   %.lcssa.i237 = phi i32 [ 0, %1721 ], [ %1739, %.lr.ph149.i ]
-  %1742 = load i8, ptr %146, align 4, !range !7, !noundef !8
+  %1742 = load i8, ptr %146, align 4, !range !8, !noundef !9
   %1743 = trunc nuw i8 %1742 to i1
   %1744 = load i64, ptr %147, align 8
   %1745 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %1743, i64 noundef %1744, i32 noundef %.lcssa.i237, ptr noundef %1725) #10
@@ -3806,7 +3806,7 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
   br i1 %1867, label %1868, label %1907
 
 1868:                                             ; preds = %1865, %1859
-  %1869 = load i8, ptr %102, align 4, !range !7, !noundef !8
+  %1869 = load i8, ptr %102, align 4, !range !8, !noundef !9
   %1870 = trunc nuw i8 %1869 to i1
   br i1 %1870, label %1907, label %1871
 
@@ -3825,7 +3825,7 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
   br i1 %1785, label %.thread.i251, label %1878
 
 1878:                                             ; preds = %1871
-  %1879 = load i8, ptr %148, align 2, !range !7, !noundef !8
+  %1879 = load i8, ptr %148, align 2, !range !8, !noundef !9
   %1880 = trunc nuw i8 %1879 to i1
   %spec.select.i250 = select i1 %1880, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.0115.i240, i8 noundef zeroext %spec.select.i250) #10
@@ -3891,7 +3891,7 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1907
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #10
   %1911 = load volatile i32, ptr @InterruptPending, align 4
   %.not152 = icmp eq i32 %1911, 0
-  br i1 %.not152, label %1347, label %.thread426, !prof !34
+  br i1 %.not152, label %1347, label %.thread426, !prof !36, !llvm.loop !33
 
 1912:                                             ; preds = %thread-pre-split
   %1913 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3909,7 +3909,7 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1907
   store i8 0, ptr %18, align 1
   %1916 = load volatile i32, ptr @InterruptPending, align 4
   %.not145 = icmp eq i32 %1916, 0
-  br i1 %.not145, label %160, label %.thread475, !prof !34
+  br i1 %.not145, label %160, label %.thread475, !prof !36
 
 .thread426:                                       ; preds = %doPickSplit.exit, %.preheader, %spgAddNodeAction.exit, %spgSplitNodeAction.exit, %moveLeafs.exit, %addLeafTuple.exit
   %.sroa.29.1.ph = phi i32 [ %.sroa.29.2, %addLeafTuple.exit ], [ %.sroa.29.2, %moveLeafs.exit ], [ %.sroa.29.4.ph4901013, %spgSplitNodeAction.exit ], [ %.sroa.29.6, %spgAddNodeAction.exit ], [ %.sroa.29.4.ph, %.preheader ], [ %.sroa.29.5, %doPickSplit.exit ]
@@ -3940,7 +3940,7 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1907
 1920:                                             ; preds = %1918, %1919
   %1921 = load volatile i32, ptr @InterruptPending, align 4
   %.not158 = icmp eq i32 %1921, 0
-  br i1 %.not158, label %1923, label %1922, !prof !10
+  br i1 %.not158, label %1923, label %1922, !prof !11
 
 1922:                                             ; preds = %1920
   call void @ProcessInterrupts() #10
@@ -4051,34 +4051,36 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!"branch_weights", i32 127, i32 1}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = !{!"branch_weights", i32 16129, i32 127}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = !{!"branch_weights", i32 255873, i32 127}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{!"branch_weights", i32 127, i32 1}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = !{!"branch_weights", i32 16129, i32 127}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = !{!"branch_weights", i32 255873, i32 127}

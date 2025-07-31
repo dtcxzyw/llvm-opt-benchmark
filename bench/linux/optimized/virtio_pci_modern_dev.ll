@@ -865,14 +865,14 @@ define dso_local void @vp_modern_set_queue_reset(ptr noundef readonly captures(n
   %14 = tail call i32 @ioread16(ptr noundef nonnull %6) #4
   %15 = and i32 %14, 65535
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.loopexit2, label %.preheader1, !llvm.loop !9
+  br i1 %16, label %.loopexit2, label %.preheader1, !llvm.loop !10
 
 .preheader:                                       ; preds = %.loopexit2, %.preheader
   tail call void @msleep(i32 noundef 1) #4
   %17 = tail call i32 @ioread16(ptr noundef nonnull %10) #4
   %18 = and i32 %17, 65535
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2
   ret void
@@ -1143,8 +1143,9 @@ attributes #5 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}

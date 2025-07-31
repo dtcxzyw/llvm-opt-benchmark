@@ -34,7 +34,7 @@ define noundef ptr @cl_base64_decode(ptr noundef %0, i64 noundef %1, ptr noundef
   %13 = add nuw nsw i32 %.0915.i, 1
   %.0.i = add i64 %.016.i, -1
   %.not12.i = icmp eq i64 %.0.i, 0
-  br i1 %.not12.i, label %.critedge.loopexit.i, label %.lr.ph.i
+  br i1 %.not12.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 .critedge.loopexit.i:                             ; preds = %12, %.lr.ph.i
   %.09.lcssa.ph.i = phi i32 [ %.0915.i, %.lr.ph.i ], [ %8, %12 ]
@@ -117,7 +117,7 @@ define noundef ptr @cl_base64_decode(ptr noundef %0, i64 noundef %1, ptr noundef
   %41 = add nuw nsw i32 %.0915.i40, 1
   %.0.i46 = add i64 %.016.i39, -1
   %.not12.i47 = icmp eq i64 %.0.i46, 0
-  br i1 %.not12.i47, label %.critedge.loopexit.i41, label %.lr.ph.i38
+  br i1 %.not12.i47, label %.critedge.loopexit.i41, label %.lr.ph.i38, !llvm.loop !6
 
 .critedge.loopexit.i41:                           ; preds = %40, %.lr.ph.i38
   %.09.lcssa.ph.i42 = phi i32 [ %.0915.i40, %.lr.ph.i38 ], [ %36, %40 ]
@@ -136,7 +136,7 @@ base64_len.exit48:                                ; preds = %35, %.critedge.i43
   %.010.i45 = phi i32 [ %46, %.critedge.i43 ], [ 0, %35 ]
   %47 = tail call i32 @BIO_read(ptr noundef %33, ptr noundef nonnull %21, i32 noundef %.010.i45) #7
   %48 = sext i32 %47 to i64
-  store i64 %48, ptr %3, align 8, !tbaa !6
+  store i64 %48, ptr %3, align 8, !tbaa !8
   tail call void @BIO_free_all(ptr noundef %33) #7
   br label %49
 
@@ -208,13 +208,13 @@ define ptr @cl_base64_encode(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br label %26
 
 22:                                               ; preds = %11
-  %23 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = load ptr, ptr %3, align 8, !tbaa !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %23, i64 %16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %24, align 1, !tbaa !3
-  store ptr %18, ptr %3, align 8, !tbaa !8
+  store ptr %18, ptr %3, align 8, !tbaa !10
   call void @BIO_free_all(ptr noundef %12) #7
-  %25 = load ptr, ptr %3, align 8, !tbaa !8
+  %25 = load ptr, ptr %3, align 8, !tbaa !10
   br label %26
 
 26:                                               ; preds = %2, %22, %20, %9
@@ -249,8 +249,10 @@ attributes #7 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"long", !4, i64 0}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
 !8 = !{!9, !9, i64 0}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
+!9 = !{!"long", !4, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}

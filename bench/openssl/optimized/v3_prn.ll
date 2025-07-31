@@ -136,7 +136,7 @@ define void @X509V3_EXT_val_prn(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %54 = add nuw nsw i32 %.037, 1
   %55 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #3
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
+  br i1 %56, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %53, %33, %.thread, %13, %4
   ret void
@@ -162,7 +162,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %6 = tail call ptr @X509_EXTENSION_get_data(ptr noundef %1) #3
   %7 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %6) #3
-  store ptr %7, ptr %5, align 8, !tbaa !14
+  store ptr %7, ptr %5, align 8, !tbaa !15
   %8 = tail call i32 @ASN1_STRING_length(ptr noundef %6) #3
   %9 = tail call ptr @X509V3_EXT_get(ptr noundef %1) #3
   %10 = icmp eq ptr %9, null
@@ -196,7 +196,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !15
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %29, label %25
 
@@ -208,7 +208,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = sext i32 %8 to i64
   %33 = call ptr %31(ptr noundef null, ptr noundef nonnull %5, i64 noundef %32) #3
   br label %34
@@ -219,7 +219,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   br i1 %.not60, label %35, label %47
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8, !tbaa !14
+  %36 = load ptr, ptr %5, align 8, !tbaa !15
   %37 = lshr i64 %2, 16
   %38 = and i64 %37, 15
   switch i64 %38, label %46 [
@@ -247,7 +247,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 47:                                               ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !19
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
   %.not61 = icmp eq ptr %49, null
   br i1 %.not61, label %55, label %50
 
@@ -262,7 +262,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %57 = load ptr, ptr %56, align 8, !tbaa !20
+  %57 = load ptr, ptr %56, align 8, !tbaa !21
   %.not62 = icmp eq ptr %57, null
   br i1 %.not62, label %65, label %58
 
@@ -273,14 +273,14 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !21
+  %63 = load i32, ptr %62, align 4, !tbaa !22
   %64 = and i32 %63, 4
   call void @X509V3_EXT_val_prn(ptr noundef %0, ptr noundef nonnull %59, i32 noundef %3, i32 noundef %64)
   br label %70
 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %67 = load ptr, ptr %66, align 8, !tbaa !22
+  %67 = load ptr, ptr %66, align 8, !tbaa !23
   %.not63 = icmp eq ptr %67, null
   br i1 %.not63, label %70, label %68
 
@@ -296,7 +296,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   %.0 = phi i32 [ 1, %53 ], [ 1, %61 ], [ 0, %50 ], [ 0, %58 ], [ %spec.select, %68 ], [ 0, %65 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.047, ptr noundef nonnull @X509V3_conf_free) #3
   call void @CRYPTO_free(ptr noundef %.050, ptr noundef nonnull @.str.7, i32 noundef 131) #3
-  %71 = load ptr, ptr %23, align 8, !tbaa !15
+  %71 = load ptr, ptr %23, align 8, !tbaa !16
   %.not65 = icmp eq ptr %71, null
   br i1 %.not65, label %74, label %72
 
@@ -307,7 +307,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !23
+  %76 = load ptr, ptr %75, align 8, !tbaa !24
   call void %76(ptr noundef nonnull %.049) #3
   br label %unknown_ext_print.exit
 
@@ -416,7 +416,7 @@ define range(i32 0, 2) i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef 
   %44 = add nuw nsw i32 %.03544, 1
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #3
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %17, label %.thread, !llvm.loop !24
+  br i1 %46, label %17, label %.thread, !llvm.loop !25
 
 .thread:                                          ; preds = %43, %25, %28, %40, %12, %5
   %.0 = phi i32 [ 1, %5 ], [ 1, %12 ], [ 1, %43 ], [ 0, %25 ], [ 0, %28 ], [ 0, %40 ]
@@ -477,18 +477,19 @@ attributes #3 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!4, !5, i64 16}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11}
-!14 = !{!5, !5, i64 0}
-!15 = !{!16, !6, i64 8}
-!16 = !{!"v3_ext_method", !17, i64 0, !17, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96}
-!17 = !{!"int", !7, i64 0}
-!18 = !{!16, !6, i64 32}
-!19 = !{!16, !6, i64 48}
-!20 = !{!16, !6, i64 64}
-!21 = !{!16, !17, i64 4}
-!22 = !{!16, !6, i64 80}
-!23 = !{!16, !6, i64 24}
-!24 = distinct !{!24, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !11, !12}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !6, i64 8}
+!17 = !{!"v3_ext_method", !18, i64 0, !18, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!17, !6, i64 32}
+!20 = !{!17, !6, i64 48}
+!21 = !{!17, !6, i64 64}
+!22 = !{!17, !18, i64 4}
+!23 = !{!17, !6, i64 80}
+!24 = !{!17, !6, i64 24}
+!25 = distinct !{!25, !11, !12}

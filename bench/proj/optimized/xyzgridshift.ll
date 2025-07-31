@@ -158,7 +158,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 39:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !64
+  %41 = load ptr, ptr %40, align 8, !tbaa !65
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
   %44 = sub i64 %42, %43
@@ -178,7 +178,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit:  ; preds = %20, %_ZN12_GLOBAL__
   tail call void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %47 = load ptr, ptr %0, align 8, !tbaa !55
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !65
+  %49 = load ptr, ptr %48, align 8, !tbaa !66
   %50 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %47, ptr noundef %49, ptr noundef nonnull @.str.2)
   %.sroa.04.0..sroa.04.0..cast = inttoptr i64 %50 to ptr
   %.not = icmp eq i64 %50, 0
@@ -253,7 +253,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 77:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i62
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !64
+  %79 = load ptr, ptr %78, align 8, !tbaa !65
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %76 to i64
   %82 = sub i64 %80, %81
@@ -271,7 +271,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66: ; preds = %58, %_ZN12_GLOBAL_
 
 84:                                               ; preds = %57, %51, %46
   %85 = load ptr, ptr %0, align 8, !tbaa !55
-  %86 = load ptr, ptr %48, align 8, !tbaa !65
+  %86 = load ptr, ptr %48, align 8, !tbaa !66
   %87 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %85, ptr noundef %86, ptr noundef nonnull @.str.6)
   %88 = and i64 %87, 4294967295
   %89 = icmp eq i64 %88, 0
@@ -332,7 +332,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 109:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i78
   %110 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %111 = load ptr, ptr %110, align 8, !tbaa !64
+  %111 = load ptr, ptr %110, align 8, !tbaa !65
   %112 = ptrtoint ptr %111 to i64
   %113 = ptrtoint ptr %108 to i64
   %114 = sub i64 %112, %113
@@ -350,7 +350,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %90, %_ZN12_GLOBAL_
 
 116:                                              ; preds = %84
   %117 = load ptr, ptr %0, align 8, !tbaa !55
-  %118 = load ptr, ptr %48, align 8, !tbaa !65
+  %118 = load ptr, ptr %48, align 8, !tbaa !66
   %119 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %117, ptr noundef %118, ptr noundef nonnull @.str.8)
   %120 = and i64 %119, 4294967295
   %.not49 = icmp eq i64 %120, 0
@@ -358,7 +358,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %90, %_ZN12_GLOBAL_
 
 121:                                              ; preds = %116
   %122 = load ptr, ptr %0, align 8, !tbaa !55
-  %123 = load ptr, ptr %48, align 8, !tbaa !65
+  %123 = load ptr, ptr %48, align 8, !tbaa !66
   %124 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %122, ptr noundef %123, ptr noundef nonnull @.str.9)
   store i64 %124, ptr %7, align 8, !tbaa !49
   br label %125
@@ -366,13 +366,13 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %90, %_ZN12_GLOBAL_
 125:                                              ; preds = %121, %116
   %126 = load ptr, ptr %0, align 8, !tbaa !55
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 216
-  %128 = load i8, ptr %127, align 8, !tbaa !66, !range !90, !noundef !91
+  %128 = load i8, ptr %127, align 8, !tbaa !67, !range !91, !noundef !92
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 1, ptr %131, align 8, !tbaa !92
+  store i8 1, ptr %131, align 8, !tbaa !93
   br label %192
 
 132:                                              ; preds = %125
@@ -382,15 +382,15 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82: ; preds = %90, %_ZN12_GLOBAL_
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !57
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %137 = load ptr, ptr %136, align 8, !tbaa !64
+  %137 = load ptr, ptr %136, align 8, !tbaa !65
   %138 = load ptr, ptr %2, align 8, !tbaa !56
   store ptr %138, ptr %5, align 8, !tbaa !56
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !57
   store ptr %140, ptr %134, align 8, !tbaa !57
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !64
-  store ptr %142, ptr %136, align 8, !tbaa !64
+  %142 = load ptr, ptr %141, align 8, !tbaa !65
+  store ptr %142, ptr %136, align 8, !tbaa !65
   %.not4.i.i.i.i.i.i83 = icmp eq ptr %133, %135
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i83, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i90, label %.lr.ph.i.i.i.i.i.i84
@@ -460,7 +460,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %160
 
 160:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %161 = load ptr, ptr %141, align 8, !tbaa !64
+  %161 = load ptr, ptr %141, align 8, !tbaa !65
   %162 = ptrtoint ptr %161 to i64
   %163 = ptrtoint ptr %159 to i64
   %164 = sub i64 %162, %163
@@ -528,7 +528,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 185:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i104
   %186 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !64
+  %187 = load ptr, ptr %186, align 8, !tbaa !65
   %188 = ptrtoint ptr %187 to i64
   %189 = ptrtoint ptr %184 to i64
   %190 = sub i64 %188, %189
@@ -617,7 +617,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
 
 24:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !65
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
@@ -643,9 +643,9 @@ define internal void @_ZL32pj_xyzgridshift_reassign_contextP8PJconstsP6pj_ctx(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !94
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !93
+  %8 = load ptr, ptr %7, align 8, !tbaa !94
   %.not9 = icmp eq ptr %6, %8
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -661,7 +661,7 @@ define internal void @_ZL32pj_xyzgridshift_reassign_contextP8PJconstsP6pj_ctx(pt
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -678,9 +678,9 @@ define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !96
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !90, !noundef !91
+  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !91, !noundef !92
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %28
 
@@ -693,13 +693,13 @@ define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_
   %.sroa.8.0.copyload10 = load double, ptr %.sroa.8.0..sroa_idx9, align 8
   %.sroa.10.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.10.0.copyload12 = load double, ptr %.sroa.10.0..sroa_idx11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12, !noalias !96
-  %18 = load ptr, ptr %12, align 8, !tbaa !40, !noalias !96
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12, !noalias !98
+  %18 = load ptr, ptr %12, align 8, !tbaa !40, !noalias !98
   call void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12, !noalias !96
-  %19 = call fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK5PJ_LPRdS7_S7_(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !96
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !98
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !98
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12, !noalias !98
+  %19 = call fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK5PJ_LPRdS7_S7_(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !98
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
@@ -707,11 +707,11 @@ define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_
   br label %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
 
 21:                                               ; preds = %17
-  %22 = load double, ptr %5, align 8, !tbaa !95, !noalias !96
+  %22 = load double, ptr %5, align 8, !tbaa !97, !noalias !98
   %23 = fadd double %22, %.sroa.0.0.copyload6
-  %24 = load double, ptr %6, align 8, !tbaa !95, !noalias !96
+  %24 = load double, ptr %6, align 8, !tbaa !97, !noalias !98
   %25 = fadd double %24, %.sroa.6.0.copyload8
-  %26 = load double, ptr %7, align 8, !tbaa !95, !noalias !96
+  %26 = load double, ptr %7, align 8, !tbaa !97, !noalias !98
   %27 = fadd double %26, %.sroa.8.0.copyload10
   store double %23, ptr %9, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -719,27 +719,27 @@ define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %27, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %.sroa.10.0.copyload12, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !99
+  store double %.sroa.10.0.copyload12, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !101
   br label %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
 
 _ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit: ; preds = %20, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !100
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !98
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !98
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !98
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !98
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   br label %29
 
 28:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
   call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %8, double noundef 1.000000e+00)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   br label %29
 
 29:                                               ; preds = %28, %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   ret void
 }
@@ -758,16 +758,16 @@ define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !96
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !90, !noundef !91
+  %15 = load i8, ptr %14, align 8, !tbaa !47, !range !91, !noundef !92
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
   call fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK8PJ_COORDd(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %8, double noundef -1.000000e+00)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   br label %29
 
@@ -780,13 +780,13 @@ define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_
   %.sroa.8.0.copyload10 = load double, ptr %.sroa.8.0..sroa_idx9, align 8
   %.sroa.10.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.10.0.copyload12 = load double, ptr %.sroa.10.0..sroa_idx11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12, !noalias !101
-  %19 = load ptr, ptr %12, align 8, !tbaa !40, !noalias !101
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12, !noalias !103
+  %19 = load ptr, ptr %12, align 8, !tbaa !40, !noalias !103
   call void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !101
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !101
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12, !noalias !101
-  %20 = call fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK5PJ_LPRdS7_S7_(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !101
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12, !noalias !103
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12, !noalias !103
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12, !noalias !103
+  %20 = call fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataERK5PJ_LPRdS7_S7_(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !103
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %18
@@ -794,11 +794,11 @@ define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_
   br label %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
 
 22:                                               ; preds = %18
-  %23 = load double, ptr %5, align 8, !tbaa !95, !noalias !101
+  %23 = load double, ptr %5, align 8, !tbaa !97, !noalias !103
   %24 = fsub double %.sroa.0.0.copyload6, %23
-  %25 = load double, ptr %6, align 8, !tbaa !95, !noalias !101
+  %25 = load double, ptr %6, align 8, !tbaa !97, !noalias !103
   %26 = fsub double %.sroa.6.0.copyload8, %25
-  %27 = load double, ptr %7, align 8, !tbaa !95, !noalias !101
+  %27 = load double, ptr %7, align 8, !tbaa !97, !noalias !103
   %28 = fsub double %.sroa.8.0.copyload10, %27
   store double %24, ptr %10, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -806,20 +806,20 @@ define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %28, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store double %.sroa.10.0.copyload12, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !99
+  store double %.sroa.10.0.copyload12, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !101
   br label %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit
 
 _ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit: ; preds = %21, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !100
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12, !noalias !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12, !noalias !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12, !noalias !103
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12, !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   br label %29
 
 29:                                               ; preds = %_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.exit, %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   ret void
 }
@@ -867,7 +867,7 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.14.0.copyload = load double, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !99
+  %.sroa.14.0.copyload = load double, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !101
   %.sroa.8.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.11.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %12
@@ -879,12 +879,12 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   %.sroa.8.065 = phi double [ %.sroa.8.0.copyload, %5 ], [ %35, %15 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
-  store double %.sroa.0.066, ptr %8, align 8, !tbaa !95
-  store double %.sroa.8.065, ptr %.sroa.8.0..sroa_idx10, align 8, !tbaa !95
-  store double %.sroa.11.068, ptr %.sroa.11.0..sroa_idx15, align 8, !tbaa !95
+  store double %.sroa.0.066, ptr %8, align 8, !tbaa !97
+  store double %.sroa.8.065, ptr %.sroa.8.0..sroa_idx10, align 8, !tbaa !97
+  store double %.sroa.11.068, ptr %.sroa.11.0..sroa_idx15, align 8, !tbaa !97
   %13 = load ptr, ptr %2, align 8, !tbaa !40
   call void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %8, ptr noundef %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
@@ -893,21 +893,21 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   br i1 %14, label %15, label %39
 
 15:                                               ; preds = %12
-  %16 = load double, ptr %9, align 8, !tbaa !95
+  %16 = load double, ptr %9, align 8, !tbaa !97
   %17 = fmul double %4, %16
-  %18 = load double, ptr %10, align 8, !tbaa !95
+  %18 = load double, ptr %10, align 8, !tbaa !97
   %19 = fmul double %4, %18
-  %20 = load double, ptr %11, align 8, !tbaa !95
+  %20 = load double, ptr %11, align 8, !tbaa !97
   %21 = fmul double %4, %20
-  %22 = load double, ptr %3, align 8, !tbaa !99
+  %22 = load double, ptr %3, align 8, !tbaa !101
   %23 = fsub double %.sroa.0.066, %22
   %24 = fsub double %23, %17
-  %25 = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !99
+  %25 = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !101
   %26 = fsub double %.sroa.8.065, %25
   %27 = fsub double %26, %19
   %28 = fmul double %27, %27
   %29 = call double @llvm.fmuladd.f64(double %24, double %24, double %28)
-  %30 = load double, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !99
+  %30 = load double, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !101
   %31 = fsub double %.sroa.11.068, %30
   %32 = fsub double %31, %21
   %33 = call double @llvm.fmuladd.f64(double %32, double %32, double %29)
@@ -922,7 +922,7 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   %38 = add nuw nsw i32 %.03667, 1
   %exitcond.not = icmp eq i32 %38, 10
   %or.cond = select i1 %37, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.thread42, label %12, !llvm.loop !104
+  br i1 %or.cond, label %.thread42, label %12, !llvm.loop !106
 
 39:                                               ; preds = %12
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %0)
@@ -939,7 +939,7 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   %.sroa.11.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %36, ptr %.sroa.11.0..sroa_idx13, align 8
   %.sroa.14.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx18, align 8, !tbaa !99
+  store double %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx18, align 8, !tbaa !101
   br label %40
 
 40:                                               ; preds = %39, %.thread42
@@ -956,7 +956,7 @@ define internal fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GL
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load i8, ptr %12, align 8, !tbaa !92, !range !90, !noundef !91
+  %13 = load i8, ptr %12, align 8, !tbaa !93, !range !91, !noundef !92
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %._crit_edge
 
@@ -966,7 +966,7 @@ define internal fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GL
   br label %51
 
 15:                                               ; preds = %6
-  store i8 0, ptr %12, align 8, !tbaa !92
+  store i8 0, ptr %12, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
   call void @_ZN5osgeo4proj20pj_generic_grid_initEP8PJconstsPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %7, ptr noundef %0, ptr noundef nonnull @.str.10)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -974,15 +974,15 @@ define internal fastcc noundef zeroext i1 @_ZL15get_grid_valuesP8PJconstsPN12_GL
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !64
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
   %22 = load ptr, ptr %7, align 8, !tbaa !56
   store ptr %22, ptr %16, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !57
   store ptr %24, ptr %18, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
-  store ptr %26, ptr %20, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !65
+  store ptr %26, ptr %20, align 8, !tbaa !65
   %.not4.i.i.i.i.i.i = icmp eq ptr %17, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1052,7 +1052,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_dele
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %45 = load ptr, ptr %25, align 8, !tbaa !64
+  %45 = load ptr, ptr %25, align 8, !tbaa !65
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %43 to i64
   %48 = sub i64 %46, %47
@@ -1091,9 +1091,9 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %58
-  store double 0.000000e+00, ptr %3, align 8, !tbaa !95
-  store double 0.000000e+00, ptr %4, align 8, !tbaa !95
-  store double 0.000000e+00, ptr %5, align 8, !tbaa !95
+  store double 0.000000e+00, ptr %3, align 8, !tbaa !97
+  store double 0.000000e+00, ptr %4, align 8, !tbaa !97
+  store double 0.000000e+00, ptr %5, align 8, !tbaa !97
   br label %144
 
 64:                                               ; preds = %58
@@ -1120,7 +1120,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(144) %57, i32 noundef %.159)
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !105
+  %78 = load i64, ptr %77, align 8, !tbaa !107
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %105, label %100
 
@@ -1153,18 +1153,18 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
   %.159 = phi i32 [ %.05478, %80 ], [ %.05875, %86 ], [ %.05875, %89 ]
   %.157 = phi i32 [ %.05676, %80 ], [ %.05478, %86 ], [ %.05676, %89 ]
   %.1 = phi i32 [ %.05577, %80 ], [ %.05577, %86 ], [ %spec.select, %89 ]
-  %93 = load ptr, ptr %9, align 8, !tbaa !106
+  %93 = load ptr, ptr %9, align 8, !tbaa !108
   %94 = icmp eq ptr %93, %70
   br i1 %94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %92
-  %95 = load i64, ptr %71, align 8, !tbaa !105
+  %95 = load i64, ptr %71, align 8, !tbaa !107
   %96 = icmp ult i64 %95, 16
   call void @llvm.assume(i1 %96)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %92
-  %97 = load i64, ptr %70, align 8, !tbaa !99
+  %97 = load i64, ptr %70, align 8, !tbaa !101
   %98 = add i64 %97, 1
   call void @_ZdlPvm(ptr noundef %93, i64 noundef %98) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1173,7 +1173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   %99 = add nuw nsw i32 %.05478, 1
   %exitcond.not = icmp eq i32 %99, %68
-  br i1 %exitcond.not, label %73, label %80, !llvm.loop !107
+  br i1 %exitcond.not, label %73, label %80, !llvm.loop !109
 
 100:                                              ; preds = %73
   %101 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.16) #12
@@ -1191,7 +1191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 105:                                              ; preds = %100, %73
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #12
-  store i8 0, ptr %11, align 1, !tbaa !108
+  store i8 0, ptr %11, align 1, !tbaa !110
   %106 = load ptr, ptr %0, align 8, !tbaa !55
   %107 = invoke noundef zeroext i1 @_ZN5osgeo4proj39pj_bilinear_interpolation_three_samplesEP6pj_ctxPKNS0_16GenericShiftGridERK5PJ_LPiiiRdS9_S9_Rb(ptr noundef %106, ptr noundef nonnull %57, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.159, i32 noundef %.157, i32 noundef %.1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %108 unwind label %114
@@ -1200,7 +1200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %107, label %116, label %109
 
 109:                                              ; preds = %108
-  %110 = load i8, ptr %11, align 1, !tbaa !108, !range !90, !noundef !91
+  %110 = load i8, ptr %11, align 1, !tbaa !110, !range !91, !noundef !92
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %127
 
@@ -1217,17 +1217,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 116:                                              ; preds = %108
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %118 = load double, ptr %117, align 8, !tbaa !49
-  %119 = load double, ptr %3, align 8, !tbaa !95
+  %119 = load double, ptr %3, align 8, !tbaa !97
   %120 = fmul double %118, %119
-  store double %120, ptr %3, align 8, !tbaa !95
+  store double %120, ptr %3, align 8, !tbaa !97
   %121 = load double, ptr %117, align 8, !tbaa !49
-  %122 = load double, ptr %4, align 8, !tbaa !95
+  %122 = load double, ptr %4, align 8, !tbaa !97
   %123 = fmul double %121, %122
-  store double %123, ptr %4, align 8, !tbaa !95
+  store double %123, ptr %4, align 8, !tbaa !97
   %124 = load double, ptr %117, align 8, !tbaa !49
-  %125 = load double, ptr %5, align 8, !tbaa !95
+  %125 = load double, ptr %5, align 8, !tbaa !97
   %126 = fmul double %124, %125
-  store double %126, ptr %5, align 8, !tbaa !95
+  store double %126, ptr %5, align 8, !tbaa !97
   br label %127
 
 127:                                              ; preds = %109, %112, %116
@@ -1237,19 +1237,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 128:                                              ; preds = %102, %127
   %.3 = phi i1 [ %.4, %127 ], [ false, %102 ]
-  %129 = load ptr, ptr %10, align 8, !tbaa !106
+  %129 = load ptr, ptr %10, align 8, !tbaa !108
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %131 = icmp eq ptr %129, %130
   br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69: ; preds = %128
-  %132 = load i64, ptr %77, align 8, !tbaa !105
+  %132 = load i64, ptr %77, align 8, !tbaa !107
   %133 = icmp ult i64 %132, 16
   call void @llvm.assume(i1 %133)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68: ; preds = %128
-  %134 = load i64, ptr %130, align 8, !tbaa !99
+  %134 = load i64, ptr %130, align 8, !tbaa !101
   %135 = add i64 %134, 1
   call void @_ZdlPvm(ptr noundef %129, i64 noundef %135) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70
@@ -1260,19 +1260,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
 
 136:                                              ; preds = %114, %103
   %.pn = phi { ptr, i32 } [ %115, %114 ], [ %104, %103 ]
-  %137 = load ptr, ptr %10, align 8, !tbaa !106
+  %137 = load ptr, ptr %10, align 8, !tbaa !108
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %139 = icmp eq ptr %137, %138
   br i1 %139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72: ; preds = %136
-  %140 = load i64, ptr %77, align 8, !tbaa !105
+  %140 = load i64, ptr %77, align 8, !tbaa !107
   %141 = icmp ult i64 %140, 16
   call void @llvm.assume(i1 %141)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71: ; preds = %136
-  %142 = load i64, ptr %138, align 8, !tbaa !99
+  %142 = load i64, ptr %138, align 8, !tbaa !101
   %143 = add i64 %142, 1
   call void @_ZdlPvm(ptr noundef %137, i64 noundef %143) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
@@ -1391,50 +1391,52 @@ attributes #14 = { nounwind willreturn memory(read) }
 !59 = !{!"p1 _ZTSN5osgeo4proj19GenericShiftGridSetE", !6, i64 0}
 !60 = !{!61, !61, i64 0}
 !61 = !{!"vtable pointer", !8, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!45, !46, i64 16}
-!65 = !{!4, !10, i64 24}
-!66 = !{!67, !21, i64 216}
-!67 = !{!"_ZTS6pj_ctx", !22, i64 0, !13, i64 32, !13, i64 36, !21, i64 40, !21, i64 41, !6, i64 48, !6, i64 56, !68, i64 64, !13, i64 72, !21, i64 76, !13, i64 80, !22, i64 88, !69, i64 120, !74, i64 144, !6, i64 152, !6, i64 160, !76, i64 168, !21, i64 216, !85, i64 224, !22, i64 312, !22, i64 344, !21, i64 376, !22, i64 384, !86, i64 416, !22, i64 464, !21, i64 496, !87, i64 504, !89, i64 560, !13, i64 564, !13, i64 568}
-!68 = !{!"p1 _ZTS14projCppContext", !6, i64 0}
-!69 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !70, i64 0}
-!70 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !71, i64 0}
-!71 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !72, i64 0}
-!72 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !73, i64 0, !73, i64 8, !73, i64 16}
-!73 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
-!74 = !{!"p2 omnipotent char", !75, i64 0}
-!75 = !{!"any p2 pointer", !6, i64 0}
-!76 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !77, i64 0}
-!77 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !78, i64 0}
-!78 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !79, i64 0, !81, i64 8}
-!79 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !80, i64 0}
-!80 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
-!81 = !{!"_ZTSSt15_Rb_tree_header", !82, i64 0, !24, i64 32}
-!82 = !{!"_ZTSSt18_Rb_tree_node_base", !83, i64 0, !84, i64 8, !84, i64 16, !84, i64 24}
-!83 = !{!"_ZTSSt14_Rb_tree_color", !7, i64 0}
-!84 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
-!85 = !{!"_ZTS26projFileApiCallbackAndData", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80}
-!86 = !{!"_ZTS27projNetworkCallbacksAndData", !21, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
-!87 = !{!"_ZTS18projGridChunkCache", !21, i64 0, !22, i64 8, !88, i64 40, !13, i64 48}
-!88 = !{!"long long", !7, i64 0}
-!89 = !{!"_ZTS9TMercAlgo", !7, i64 0}
-!90 = !{i8 0, i8 2}
-!91 = !{}
-!92 = !{!41, !21, i64 40}
-!93 = !{!46, !46, i64 0}
-!94 = !{i64 0, i64 8, !95, i64 8, i64 8, !95, i64 16, i64 8, !95}
-!95 = !{!14, !14, i64 0}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd: argument 0"}
-!98 = distinct !{!98, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd"}
-!99 = !{!7, !7, i64 0}
-!100 = !{i64 0, i64 32, !99}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd: argument 0"}
-!103 = distinct !{!103, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd"}
-!104 = distinct !{!104, !63}
-!105 = !{!22, !24, i64 8}
-!106 = !{!22, !9, i64 0}
-!107 = distinct !{!107, !63}
-!108 = !{!21, !21, i64 0}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!45, !46, i64 16}
+!66 = !{!4, !10, i64 24}
+!67 = !{!68, !21, i64 216}
+!68 = !{!"_ZTS6pj_ctx", !22, i64 0, !13, i64 32, !13, i64 36, !21, i64 40, !21, i64 41, !6, i64 48, !6, i64 56, !69, i64 64, !13, i64 72, !21, i64 76, !13, i64 80, !22, i64 88, !70, i64 120, !75, i64 144, !6, i64 152, !6, i64 160, !77, i64 168, !21, i64 216, !86, i64 224, !22, i64 312, !22, i64 344, !21, i64 376, !22, i64 384, !87, i64 416, !22, i64 464, !21, i64 496, !88, i64 504, !90, i64 560, !13, i64 564, !13, i64 568}
+!69 = !{!"p1 _ZTS14projCppContext", !6, i64 0}
+!70 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !71, i64 0}
+!71 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !72, i64 0}
+!72 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !73, i64 0}
+!73 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !74, i64 0, !74, i64 8, !74, i64 16}
+!74 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!75 = !{!"p2 omnipotent char", !76, i64 0}
+!76 = !{!"any p2 pointer", !6, i64 0}
+!77 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !78, i64 0}
+!78 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !79, i64 0}
+!79 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !80, i64 0, !82, i64 8}
+!80 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !81, i64 0}
+!81 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!82 = !{!"_ZTSSt15_Rb_tree_header", !83, i64 0, !24, i64 32}
+!83 = !{!"_ZTSSt18_Rb_tree_node_base", !84, i64 0, !85, i64 8, !85, i64 16, !85, i64 24}
+!84 = !{!"_ZTSSt14_Rb_tree_color", !7, i64 0}
+!85 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
+!86 = !{!"_ZTS26projFileApiCallbackAndData", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80}
+!87 = !{!"_ZTS27projNetworkCallbacksAndData", !21, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!88 = !{!"_ZTS18projGridChunkCache", !21, i64 0, !22, i64 8, !89, i64 40, !13, i64 48}
+!89 = !{!"long long", !7, i64 0}
+!90 = !{!"_ZTS9TMercAlgo", !7, i64 0}
+!91 = !{i8 0, i8 2}
+!92 = !{}
+!93 = !{!41, !21, i64 40}
+!94 = !{!46, !46, i64 0}
+!95 = distinct !{!95, !64}
+!96 = !{i64 0, i64 8, !97, i64 8, i64 8, !97, i64 16, i64 8, !97}
+!97 = !{!14, !14, i64 0}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd: argument 0"}
+!100 = distinct !{!100, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd"}
+!101 = !{!7, !7, i64 0}
+!102 = !{i64 0, i64 32, !101}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd: argument 0"}
+!105 = distinct !{!105, !"_ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd"}
+!106 = distinct !{!106, !63, !64}
+!107 = !{!22, !24, i64 8}
+!108 = !{!22, !9, i64 0}
+!109 = distinct !{!109, !63, !64}
+!110 = !{!21, !21, i64 0}

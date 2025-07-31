@@ -613,7 +613,7 @@ switch.early.test.i:                              ; preds = %59
   %87 = icmp samesign ult i64 %indvars.iv.next111.i, %49
   %88 = icmp slt i32 %.183.i, %47
   %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %.lr.ph101.i, label %._crit_edge.i, !llvm.loop !5
+  br i1 %89, label %.lr.ph101.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %45
   %.082.lcssa.i = phi i32 [ 0, %45 ], [ %.183.i, %.loopexit.i ]
@@ -719,7 +719,7 @@ define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noun
   %7 = load i8, ptr %.098, align 1
   %8 = icmp eq i8 %7, 32
   %9 = getelementptr inbounds nuw i8, ptr %.098, i64 1
-  br i1 %8, label %6, label %.preheader142, !llvm.loop !6
+  br i1 %8, label %6, label %.preheader142, !llvm.loop !7
 
 .preheader142:                                    ; preds = %6
   %.not117 = icmp eq ptr %3, null
@@ -731,7 +731,7 @@ define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noun
   %11 = load i8, ptr %.0107, align 1
   %12 = icmp eq i8 %11, 32
   %13 = getelementptr inbounds nuw i8, ptr %.0107, i64 1
-  br i1 %12, label %10, label %14, !llvm.loop !7
+  br i1 %12, label %10, label %14, !llvm.loop !8
 
 14:                                               ; preds = %10
   %.not118 = icmp eq i8 %7, 0
@@ -810,7 +810,7 @@ switch.lookup:                                    ; preds = %28
 42:                                               ; preds = %.lr.ph
   %43 = add i64 %.0100149, -1
   %.not125 = icmp eq i64 %43, 0
-  br i1 %.not125, label %.critedge.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not125, label %.critedge.thread, label %.lr.ph, !llvm.loop !9
 
 .critedge.thread:                                 ; preds = %42, %.thread132
   store i8 0, ptr %.0106135, align 1
@@ -861,12 +861,12 @@ switch.lookup:                                    ; preds = %28
   %.2 = phi i64 [ %46, %54 ], [ %.1101153, %56 ]
   %59 = add i64 %.2, -1
   %60 = icmp ult i64 %.1103, %59
-  br i1 %60, label %.lr.ph154, label %.preheader, !llvm.loop !9
+  br i1 %60, label %.lr.ph154, label %.preheader, !llvm.loop !10
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.2104157, 1
   %exitcond.not = icmp eq i64 %62, 13
-  br i1 %exitcond.not, label %.thread137, label %63, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread137, label %63, !llvm.loop !11
 
 63:                                               ; preds = %.preheader, %61
   %.2104157 = phi i64 [ 0, %.preheader ], [ %62, %61 ]
@@ -942,7 +942,7 @@ switch.lookup:                                    ; preds = %28
   %101 = add nuw nsw i32 %.015.i, 1
   %102 = load i8, ptr %100, align 1
   %.not.i = icmp eq i8 %102, 0
-  br i1 %.not.i, label %.lr.ph160.preheader, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph160.preheader, label %.lr.ph.i, !llvm.loop !12
 
 PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %91
   %.not192 = icmp eq i32 %.015.i, 0
@@ -972,12 +972,12 @@ PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %91
 110:                                              ; preds = %.lr.ph160
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %111 = icmp sgt i64 %indvars.iv, 1
-  br i1 %111, label %.lr.ph160, label %.critedge128, !llvm.loop !12
+  br i1 %111, label %.lr.ph160, label %.critedge128, !llvm.loop !13
 
 .critedge128:                                     ; preds = %110, %87, %PrefixMatch.exit
   %112 = add nuw i64 %.3105161, 1
   %exitcond172.not = icmp eq i64 %112, %79
-  br i1 %exitcond172.not, label %.thread, label %.lr.ph162, !llvm.loop !13
+  br i1 %exitcond172.not, label %.thread, label %.lr.ph162, !llvm.loop !14
 
 .thread:                                          ; preds = %.critedge128, %.thread137, %35, %31, %15, %106, %37
   %.097 = phi ptr [ null, %37 ], [ %.0106135, %106 ], [ null, %15 ], [ null, %31 ], [ null, %35 ], [ %.0106135, %.thread137 ], [ %.0106135, %.critedge128 ]
@@ -1020,14 +1020,15 @@ attributes #10 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

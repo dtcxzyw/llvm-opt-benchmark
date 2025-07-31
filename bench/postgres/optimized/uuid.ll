@@ -188,7 +188,7 @@ define dso_local i64 @uuid_out(ptr noundef readonly captures(none) %0) local_unn
   store i8 %23, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %25, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %25, label %6, !llvm.loop !7
 
 25:                                               ; preds = %11
   store i8 0, ptr %24, align 1
@@ -341,7 +341,7 @@ define dso_local noundef i64 @uuid_sortsupport(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %19
 
@@ -392,7 +392,7 @@ define internal i64 @uuid_abbrev_convert(i64 noundef %0, ptr noundef readonly ca
   %7 = add i64 %6, 1
   store i64 %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %17
 
@@ -424,7 +424,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %49
 
@@ -435,7 +435,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = load i8, ptr @trace_sort, align 1, !range !7, !noundef !8
+  %18 = load i8, ptr @trace_sort, align 1, !range !8, !noundef !9
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %25
 
@@ -459,7 +459,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   %29 = fdiv double %28, 2.000000e+03
   %30 = fadd double %29, 5.000000e-01
   %31 = fcmp olt double %15, %30
-  %32 = load i8, ptr @trace_sort, align 1, !range !7, !noundef !8
+  %32 = load i8, ptr @trace_sort, align 1, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
   br i1 %31, label %34, label %43
 
@@ -873,8 +873,9 @@ attributes #18 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}

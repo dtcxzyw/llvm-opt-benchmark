@@ -1433,7 +1433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %41 = sub nsw i32 %.02331, %36
   %42 = add nuw nsw i32 %36, %.02133
   %43 = icmp sgt i32 %41, 0
-  br i1 %43, label %.preheader, label %._crit_edge34, !llvm.loop !45
+  br i1 %43, label %.preheader, label %._crit_edge34, !llvm.loop !46
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %.preheader27
   %.021.lcssa = phi i32 [ 0, %.preheader27 ], [ %42, %._crit_edge ]
@@ -2310,16 +2310,16 @@ define hidden void @_ZN2cv11WBaseStreamC2Ev(ptr noundef nonnull writeonly align 
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %3, align 8, !tbaa !46
+  store ptr null, ptr %3, align 8, !tbaa !47
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %4, align 4, !tbaa !49
+  store i32 0, ptr %4, align 4, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  store i32 32768, ptr %5, align 8, !tbaa !50
+  store i32 32768, ptr %5, align 8, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 0, ptr %6, align 8, !tbaa !51
+  store i8 0, ptr %6, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %7, align 8, !tbaa !52
+  store ptr null, ptr %7, align 8, !tbaa !53
   ret void
 }
 
@@ -2327,7 +2327,7 @@ define hidden void @_ZN2cv11WBaseStreamC2Ev(ptr noundef nonnull writeonly align 
 define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.noexc
 
@@ -2337,19 +2337,19 @@ define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 derefere
 
 .noexc:                                           ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %.noexc
   %10 = tail call i32 @fclose(ptr noundef nonnull %8)
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !47
   br label %11
 
 11:                                               ; preds = %9, %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %12, align 8, !tbaa !52
-  store i8 0, ptr %2, align 8, !tbaa !51
+  store ptr null, ptr %12, align 8, !tbaa !53
+  store i8 0, ptr %2, align 8, !tbaa !52
   %13 = load ptr, ptr %0, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -2371,7 +2371,7 @@ define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN2cv11WBaseStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.noexc.i
 
@@ -2381,19 +2381,19 @@ define hidden void @_ZN2cv11WBaseStreamD0Ev(ptr noundef nonnull align 8 derefere
 
 .noexc.i:                                         ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %.noexc.i
   %10 = tail call i32 @fclose(ptr noundef nonnull %8)
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !47
   br label %11
 
 11:                                               ; preds = %9, %.noexc.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %12, align 8, !tbaa !52
-  store i8 0, ptr %2, align 8, !tbaa !51
+  store ptr null, ptr %12, align 8, !tbaa !53
+  store i8 0, ptr %2, align 8, !tbaa !52
   %13 = load ptr, ptr %0, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -2415,7 +2415,7 @@ _ZN2cv11WBaseStreamD2Ev.exit:                     ; preds = %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN2cv11WBaseStream8isOpenedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -2423,17 +2423,17 @@ define hidden noundef zeroext i1 @_ZN2cv11WBaseStream8isOpenedEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11WBaseStream8allocateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 32)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !50
+  %5 = load i32, ptr %4, align 8, !tbaa !51
   br i1 %.not, label %6, label %._crit_edge
 
 6:                                                ; preds = %1
   %narrow = tail call i32 @llvm.smax.i32(i32 %5, i32 -1)
   %7 = sext i32 %narrow to i64
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
-  store ptr %8, ptr %2, align 8, !tbaa !53
+  store ptr %8, ptr %2, align 8, !tbaa !54
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %6
@@ -2441,9 +2441,9 @@ define hidden void @_ZN2cv11WBaseStream8allocateEv(ptr noundef nonnull align 8 c
   %10 = sext i32 %5 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !54
+  store ptr %11, ptr %12, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %9, ptr %13, align 8, !tbaa !55
+  store ptr %9, ptr %13, align 8, !tbaa !56
   ret void
 }
 
@@ -2452,15 +2452,15 @@ define hidden noundef zeroext i1 @_ZN2cv11WBaseStream10writeBlockEv(ptr noundef 
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i8, ptr %12, align 8, !tbaa !51, !range !12, !noundef !13
+  %13 = load i8, ptr %12, align 8, !tbaa !52, !range !12, !noundef !13
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %25, label %15
 
@@ -2504,14 +2504,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %29 = load ptr, ptr %28, align 8, !tbaa !53
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %47, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !56
-  %33 = load ptr, ptr %29, align 8, !tbaa !58
+  %32 = load ptr, ptr %31, align 8, !tbaa !57
+  %33 = load ptr, ptr %29, align 8, !tbaa !59
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -2519,31 +2519,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %37 = ashr exact i64 %sext18, 32
   %38 = add i64 %36, %37
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %38)
-  %39 = load ptr, ptr %28, align 8, !tbaa !52
-  %40 = load ptr, ptr %39, align 8, !tbaa !58
+  %39 = load ptr, ptr %28, align 8, !tbaa !53
+  %40 = load ptr, ptr %39, align 8, !tbaa !59
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %36
-  %42 = load ptr, ptr %6, align 8, !tbaa !53
+  %42 = load ptr, ptr %6, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %42, i64 %37, i1 false)
-  %43 = load ptr, ptr %6, align 8, !tbaa !53
-  store ptr %43, ptr %4, align 8, !tbaa !55
+  %43 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %43, ptr %4, align 8, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %45 = load i32, ptr %44, align 4, !tbaa !49
+  %45 = load i32, ptr %44, align 4, !tbaa !50
   %46 = add nsw i32 %45, %11
-  store i32 %46, ptr %44, align 4, !tbaa !49
+  store i32 %46, ptr %44, align 4, !tbaa !50
   br label %57
 
 47:                                               ; preds = %27
   %sext = shl i64 %10, 32
   %48 = ashr exact i64 %sext, 32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !46
+  %50 = load ptr, ptr %49, align 8, !tbaa !47
   %51 = tail call i64 @fwrite(ptr noundef %7, i64 noundef 1, i64 noundef %48, ptr noundef %50)
-  %52 = load ptr, ptr %6, align 8, !tbaa !53
-  store ptr %52, ptr %4, align 8, !tbaa !55
+  %52 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %52, ptr %4, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %54 = load i32, ptr %53, align 4, !tbaa !49
+  %54 = load i32, ptr %53, align 4, !tbaa !50
   %55 = add nsw i32 %54, %11
-  store i32 %55, ptr %53, align 4, !tbaa !49
+  store i32 %55, ptr %53, align 4, !tbaa !50
   %56 = icmp eq i64 %51, %48
   br label %57
 
@@ -2555,8 +2555,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
-  %5 = load ptr, ptr %0, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %5 = load ptr, ptr %0, align 8, !tbaa !59
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2566,7 +2566,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
@@ -2591,7 +2591,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
   %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
-  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !56
+  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !57
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
@@ -2635,11 +2635,11 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
-  store ptr %30, ptr %0, align 8, !tbaa !58
+  store ptr %30, ptr %0, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %1
-  store ptr %38, ptr %3, align 8, !tbaa !56
+  store ptr %38, ptr %3, align 8, !tbaa !57
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %39, ptr %12, align 8, !tbaa !59
+  store ptr %39, ptr %12, align 8, !tbaa !60
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
@@ -2652,7 +2652,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br i1 %.not.i4, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit, label %44
 
 44:                                               ; preds = %42
-  store ptr %43, ptr %3, align 8, !tbaa !56
+  store ptr %43, ptr %3, align 8, !tbaa !57
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %44, %42, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, %40
@@ -2675,19 +2675,19 @@ define hidden noundef zeroext i1 @_ZN2cv11WBaseStream4openERKNSt7__cxx1112basic_
   %9 = load ptr, ptr %1, align 8, !tbaa !23
   %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.12)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %11, align 8, !tbaa !46
+  store ptr %10, ptr %11, align 8, !tbaa !47
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 1, ptr %13, align 8, !tbaa !51
+  store i8 1, ptr %13, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %14, align 4, !tbaa !49
+  store i32 0, ptr %14, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !53
+  %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %16, ptr %17, align 8, !tbaa !55
+  store ptr %16, ptr %17, align 8, !tbaa !56
   br label %18
 
 18:                                               ; preds = %12, %2
@@ -2706,22 +2706,22 @@ define hidden noundef zeroext i1 @_ZN2cv11WBaseStream4openERSt6vectorIhSaIhEE(pt
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %9, align 8, !tbaa !52
+  store ptr %1, ptr %9, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 1, ptr %10, align 8, !tbaa !51
+  store i8 1, ptr %10, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %11, align 4, !tbaa !49
+  store i32 0, ptr %11, align 4, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !53
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !55
+  store ptr %13, ptr %14, align 8, !tbaa !56
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11WBaseStream5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
@@ -2734,26 +2734,26 @@ define hidden void @_ZN2cv11WBaseStream5closeEv(ptr noundef nonnull align 8 dere
 
 10:                                               ; preds = %5, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %12 = load ptr, ptr %11, align 8, !tbaa !47
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @fclose(ptr noundef nonnull %12)
-  store ptr null, ptr %11, align 8, !tbaa !46
+  store ptr null, ptr %11, align 8, !tbaa !47
   br label %15
 
 15:                                               ; preds = %13, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %16, align 8, !tbaa !52
-  store i8 0, ptr %2, align 8, !tbaa !51
+  store ptr null, ptr %16, align 8, !tbaa !53
+  store i8 0, ptr %2, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11WBaseStream7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 32)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -2771,7 +2771,7 @@ define hidden noundef i32 @_ZN2cv11WBaseStream6getPosEv(ptr noundef nonnull read
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i8, ptr %4, align 8, !tbaa !51, !range !12, !noundef !13
+  %5 = load i8, ptr %4, align 8, !tbaa !52, !range !12, !noundef !13
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %17, label %7
 
@@ -2811,11 +2811,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %19 = load i32, ptr %18, align 4, !tbaa !49
+  %19 = load i32, ptr %18, align 4, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -2828,7 +2828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define hidden void @_ZN2cv12WLByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.noexc.i
 
@@ -2838,19 +2838,19 @@ define hidden void @_ZN2cv12WLByteStreamD0Ev(ptr noundef nonnull align 8 derefer
 
 .noexc.i:                                         ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %.noexc.i
   %10 = tail call i32 @fclose(ptr noundef nonnull %8)
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !47
   br label %11
 
 11:                                               ; preds = %9, %.noexc.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %12, align 8, !tbaa !52
-  store i8 0, ptr %2, align 8, !tbaa !51
+  store ptr null, ptr %12, align 8, !tbaa !53
+  store i8 0, ptr %2, align 8, !tbaa !52
   %13 = load ptr, ptr %0, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -2873,13 +2873,13 @@ _ZN2cv11WBaseStreamD2Ev.exit:                     ; preds = %11
 define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putByteEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store ptr %6, ptr %4, align 8, !tbaa !55
+  store ptr %6, ptr %4, align 8, !tbaa !56
   store i8 %3, ptr %5, align 1, !tbaa !42
-  %7 = load ptr, ptr %4, align 8, !tbaa !55
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not = icmp ult ptr %7, %9
   br i1 %.not, label %15, label %10
 
@@ -2904,7 +2904,7 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = icmp ne ptr %8, null
   %10 = icmp sgt i32 %2, -1
   %or.cond = and i1 %10, %9
@@ -2955,8 +2955,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 22:                                               ; preds = %.lr.ph, %.critedge
   %.02839 = phi ptr [ %1, %.lr.ph ], [ %.129, %.critedge ]
   %.03038 = phi i32 [ %2, %.lr.ph ], [ %.131, %.critedge ]
-  %23 = load ptr, ptr %11, align 8, !tbaa !54
-  %24 = load ptr, ptr %7, align 8, !tbaa !55
+  %23 = load ptr, ptr %11, align 8, !tbaa !55
+  %24 = load ptr, ptr %7, align 8, !tbaa !56
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
@@ -2968,12 +2968,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 30:                                               ; preds = %22
   %31 = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %.02839, i64 %31, i1 false)
-  %32 = load ptr, ptr %7, align 8, !tbaa !55
+  %32 = load ptr, ptr %7, align 8, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
-  store ptr %33, ptr %7, align 8, !tbaa !55
+  store ptr %33, ptr %7, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %.02839, i64 %31
   %35 = sub nsw i32 %.03038, %spec.select
-  %.pre = load ptr, ptr %11, align 8, !tbaa !54
+  %.pre = load ptr, ptr %11, align 8, !tbaa !55
   br label %36
 
 36:                                               ; preds = %30, %22
@@ -2989,14 +2989,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  br i1 %44, label %.critedge, label %._crit_edge41, !llvm.loop !60
+  br i1 %44, label %.critedge, label %._crit_edge41, !llvm.loop !61
 
 .critedge:                                        ; preds = %40, %36
   %.not36 = icmp eq i32 %.131, 0
-  br i1 %.not36, label %._crit_edge, label %22
+  br i1 %.not36, label %._crit_edge, label %22, !llvm.loop !62
 
 ._crit_edge41:                                    ; preds = %40
-  br label %._crit_edge, !llvm.loop !60
+  br label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.critedge, %._crit_edge41, %.preheader
   %.not36.lcssa = phi i1 [ false, %._crit_edge41 ], [ true, %.preheader ], [ true, %.critedge ]
@@ -3006,10 +3006,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %9, label %19
 
@@ -3017,8 +3017,8 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putWordEi(ptr noundef non
   %10 = trunc i32 %1 to i16
   store i16 %10, ptr %4, align 1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %11, ptr %3, align 8, !tbaa !55
-  %12 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %11, ptr %3, align 8, !tbaa !56
+  %12 = load ptr, ptr %6, align 8, !tbaa !55
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %_ZN2cv12WLByteStream7putByteEi.exit12
 
@@ -3031,10 +3031,10 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putWordEi(ptr noundef non
 
 19:                                               ; preds = %2
   %20 = trunc i32 %1 to i8
-  store ptr %5, ptr %3, align 8, !tbaa !55
+  store ptr %5, ptr %3, align 8, !tbaa !56
   store i8 %20, ptr %4, align 1, !tbaa !42
-  %21 = load ptr, ptr %3, align 8, !tbaa !55
-  %22 = load ptr, ptr %6, align 8, !tbaa !54
+  %21 = load ptr, ptr %3, align 8, !tbaa !56
+  %22 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp ult ptr %21, %22
   br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %23
 
@@ -3043,7 +3043,7 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream7putWordEi(ptr noundef non
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
 _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %19, %23
@@ -3051,10 +3051,10 @@ _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %19, %23
   %29 = lshr i32 %1, 8
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store ptr %31, ptr %3, align 8, !tbaa !55
+  store ptr %31, ptr %3, align 8, !tbaa !56
   store i8 %30, ptr %28, align 1, !tbaa !42
-  %32 = load ptr, ptr %3, align 8, !tbaa !55
-  %33 = load ptr, ptr %6, align 8, !tbaa !54
+  %32 = load ptr, ptr %3, align 8, !tbaa !56
+  %33 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i10 = icmp ult ptr %32, %33
   br i1 %.not.i10, label %_ZN2cv12WLByteStream7putByteEi.exit12, label %34
 
@@ -3073,18 +3073,18 @@ _ZN2cv12WLByteStream7putByteEi.exit12:            ; preds = %34, %_ZN2cv12WLByte
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
   store i32 %1, ptr %4, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %10, ptr %3, align 8, !tbaa !55
-  %11 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %10, ptr %3, align 8, !tbaa !56
+  %11 = load ptr, ptr %6, align 8, !tbaa !55
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %13, label %_ZN2cv12WLByteStream7putByteEi.exit24
 
@@ -3098,10 +3098,10 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef no
 18:                                               ; preds = %2
   %19 = trunc i32 %1 to i8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %20, ptr %3, align 8, !tbaa !55
+  store ptr %20, ptr %3, align 8, !tbaa !56
   store i8 %19, ptr %4, align 1, !tbaa !42
-  %21 = load ptr, ptr %3, align 8, !tbaa !55
-  %22 = load ptr, ptr %6, align 8, !tbaa !54
+  %21 = load ptr, ptr %3, align 8, !tbaa !56
+  %22 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp ult ptr %21, %22
   br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %23
 
@@ -3110,7 +3110,7 @@ define hidden noundef zeroext i1 @_ZN2cv12WLByteStream8putDWordEi(ptr noundef no
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
 _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %18, %23
@@ -3118,10 +3118,10 @@ _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %18, %23
   %29 = lshr i32 %1, 8
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store ptr %31, ptr %3, align 8, !tbaa !55
+  store ptr %31, ptr %3, align 8, !tbaa !56
   store i8 %30, ptr %28, align 1, !tbaa !42
-  %32 = load ptr, ptr %3, align 8, !tbaa !55
-  %33 = load ptr, ptr %6, align 8, !tbaa !54
+  %32 = load ptr, ptr %3, align 8, !tbaa !56
+  %33 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i16 = icmp ult ptr %32, %33
   br i1 %.not.i16, label %_ZN2cv12WLByteStream7putByteEi.exit18, label %34
 
@@ -3130,7 +3130,7 @@ _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %18, %23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre25 = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre25 = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit18
 
 _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit, %34
@@ -3138,10 +3138,10 @@ _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStrea
   %40 = lshr i32 %1, 16
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store ptr %42, ptr %3, align 8, !tbaa !55
+  store ptr %42, ptr %3, align 8, !tbaa !56
   store i8 %41, ptr %39, align 1, !tbaa !42
-  %43 = load ptr, ptr %3, align 8, !tbaa !55
-  %44 = load ptr, ptr %6, align 8, !tbaa !54
+  %43 = load ptr, ptr %3, align 8, !tbaa !56
+  %44 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i19 = icmp ult ptr %43, %44
   br i1 %.not.i19, label %_ZN2cv12WLByteStream7putByteEi.exit21, label %45
 
@@ -3150,7 +3150,7 @@ _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStrea
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre26 = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre26 = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit21
 
 _ZN2cv12WLByteStream7putByteEi.exit21:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18, %45
@@ -3158,10 +3158,10 @@ _ZN2cv12WLByteStream7putByteEi.exit21:            ; preds = %_ZN2cv12WLByteStrea
   %51 = lshr i32 %1, 24
   %52 = trunc nuw i32 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  store ptr %53, ptr %3, align 8, !tbaa !55
+  store ptr %53, ptr %3, align 8, !tbaa !56
   store i8 %52, ptr %50, align 1, !tbaa !42
-  %54 = load ptr, ptr %3, align 8, !tbaa !55
-  %55 = load ptr, ptr %6, align 8, !tbaa !54
+  %54 = load ptr, ptr %3, align 8, !tbaa !56
+  %55 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i22 = icmp ult ptr %54, %55
   br i1 %.not.i22, label %_ZN2cv12WLByteStream7putByteEi.exit24, label %56
 
@@ -3181,7 +3181,7 @@ _ZN2cv12WLByteStream7putByteEi.exit24:            ; preds = %56, %_ZN2cv12WLByte
 define hidden void @_ZN2cv12WMByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !tbaa !51, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !tbaa !52, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.noexc.i
 
@@ -3191,19 +3191,19 @@ define hidden void @_ZN2cv12WMByteStreamD0Ev(ptr noundef nonnull align 8 derefer
 
 .noexc.i:                                         ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %.noexc.i
   %10 = tail call i32 @fclose(ptr noundef nonnull %8)
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !47
   br label %11
 
 11:                                               ; preds = %9, %.noexc.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %12, align 8, !tbaa !52
-  store i8 0, ptr %2, align 8, !tbaa !51
+  store ptr null, ptr %12, align 8, !tbaa !53
+  store i8 0, ptr %2, align 8, !tbaa !52
   %13 = load ptr, ptr %0, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -3225,10 +3225,10 @@ _ZN2cv11WBaseStreamD2Ev.exit:                     ; preds = %11
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv12WMByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = icmp ult ptr %5, %7
   %9 = lshr i32 %1, 8
   %10 = trunc i32 %9 to i8
@@ -3239,8 +3239,8 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream7putWordEi(ptr noundef non
   %12 = trunc i32 %1 to i8
   store i8 %12, ptr %5, align 1, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %13, ptr %3, align 8, !tbaa !55
-  %14 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %13, ptr %3, align 8, !tbaa !56
+  %14 = load ptr, ptr %6, align 8, !tbaa !55
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %16, label %_ZN2cv12WLByteStream7putByteEi.exit12
 
@@ -3252,10 +3252,10 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream7putWordEi(ptr noundef non
   br label %_ZN2cv12WLByteStream7putByteEi.exit12
 
 21:                                               ; preds = %2
-  store ptr %5, ptr %3, align 8, !tbaa !55
+  store ptr %5, ptr %3, align 8, !tbaa !56
   store i8 %10, ptr %4, align 1, !tbaa !42
-  %22 = load ptr, ptr %3, align 8, !tbaa !55
-  %23 = load ptr, ptr %6, align 8, !tbaa !54
+  %22 = load ptr, ptr %3, align 8, !tbaa !56
+  %23 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp ult ptr %22, %23
   br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %24
 
@@ -3264,17 +3264,17 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream7putWordEi(ptr noundef non
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
 _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %21, %24
   %29 = phi ptr [ %22, %21 ], [ %.pre, %24 ]
   %30 = trunc i32 %1 to i8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %31, ptr %3, align 8, !tbaa !55
+  store ptr %31, ptr %3, align 8, !tbaa !56
   store i8 %30, ptr %29, align 1, !tbaa !42
-  %32 = load ptr, ptr %3, align 8, !tbaa !55
-  %33 = load ptr, ptr %6, align 8, !tbaa !54
+  %32 = load ptr, ptr %3, align 8, !tbaa !56
+  %33 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i10 = icmp ult ptr %32, %33
   br i1 %.not.i10, label %_ZN2cv12WLByteStream7putByteEi.exit12, label %34
 
@@ -3293,10 +3293,10 @@ _ZN2cv12WLByteStream7putByteEi.exit12:            ; preds = %34, %_ZN2cv12WLByte
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN2cv12WMByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = icmp ult ptr %5, %7
   %9 = lshr i32 %1, 24
   %10 = trunc nuw i32 %9 to i8
@@ -3315,8 +3315,8 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream8putDWordEi(ptr noundef no
   %18 = trunc i32 %1 to i8
   store i8 %18, ptr %5, align 1, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %19, ptr %3, align 8, !tbaa !55
-  %20 = load ptr, ptr %6, align 8, !tbaa !54
+  store ptr %19, ptr %3, align 8, !tbaa !56
+  %20 = load ptr, ptr %6, align 8, !tbaa !55
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %22, label %_ZN2cv12WLByteStream7putByteEi.exit24
 
@@ -3329,10 +3329,10 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream8putDWordEi(ptr noundef no
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %28, ptr %3, align 8, !tbaa !55
+  store ptr %28, ptr %3, align 8, !tbaa !56
   store i8 %10, ptr %4, align 1, !tbaa !42
-  %29 = load ptr, ptr %3, align 8, !tbaa !55
-  %30 = load ptr, ptr %6, align 8, !tbaa !54
+  %29 = load ptr, ptr %3, align 8, !tbaa !56
+  %30 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp ult ptr %29, %30
   br i1 %.not.i, label %_ZN2cv12WLByteStream7putByteEi.exit, label %31
 
@@ -3341,7 +3341,7 @@ define hidden noundef zeroext i1 @_ZN2cv12WMByteStream8putDWordEi(ptr noundef no
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit
 
 _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %27, %31
@@ -3349,10 +3349,10 @@ _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %27, %31
   %37 = lshr i32 %1, 16
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %39, ptr %3, align 8, !tbaa !55
+  store ptr %39, ptr %3, align 8, !tbaa !56
   store i8 %38, ptr %36, align 1, !tbaa !42
-  %40 = load ptr, ptr %3, align 8, !tbaa !55
-  %41 = load ptr, ptr %6, align 8, !tbaa !54
+  %40 = load ptr, ptr %3, align 8, !tbaa !56
+  %41 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i16 = icmp ult ptr %40, %41
   br i1 %.not.i16, label %_ZN2cv12WLByteStream7putByteEi.exit18, label %42
 
@@ -3361,7 +3361,7 @@ _ZN2cv12WLByteStream7putByteEi.exit:              ; preds = %27, %31
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre25 = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre25 = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit18
 
 _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit, %42
@@ -3369,10 +3369,10 @@ _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStrea
   %48 = lshr i32 %1, 8
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store ptr %50, ptr %3, align 8, !tbaa !55
+  store ptr %50, ptr %3, align 8, !tbaa !56
   store i8 %49, ptr %47, align 1, !tbaa !42
-  %51 = load ptr, ptr %3, align 8, !tbaa !55
-  %52 = load ptr, ptr %6, align 8, !tbaa !54
+  %51 = load ptr, ptr %3, align 8, !tbaa !56
+  %52 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i19 = icmp ult ptr %51, %52
   br i1 %.not.i19, label %_ZN2cv12WLByteStream7putByteEi.exit21, label %53
 
@@ -3381,17 +3381,17 @@ _ZN2cv12WLByteStream7putByteEi.exit18:            ; preds = %_ZN2cv12WLByteStrea
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %.pre26 = load ptr, ptr %3, align 8, !tbaa !55
+  %.pre26 = load ptr, ptr %3, align 8, !tbaa !56
   br label %_ZN2cv12WLByteStream7putByteEi.exit21
 
 _ZN2cv12WLByteStream7putByteEi.exit21:            ; preds = %_ZN2cv12WLByteStream7putByteEi.exit18, %53
   %58 = phi ptr [ %51, %_ZN2cv12WLByteStream7putByteEi.exit18 ], [ %.pre26, %53 ]
   %59 = trunc i32 %1 to i8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store ptr %60, ptr %3, align 8, !tbaa !55
+  store ptr %60, ptr %3, align 8, !tbaa !56
   store i8 %59, ptr %58, align 1, !tbaa !42
-  %61 = load ptr, ptr %3, align 8, !tbaa !55
-  %62 = load ptr, ptr %6, align 8, !tbaa !54
+  %61 = load ptr, ptr %3, align 8, !tbaa !56
+  %62 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i22 = icmp ult ptr %61, %62
   br i1 %.not.i22, label %_ZN2cv12WLByteStream7putByteEi.exit24, label %63
 
@@ -3520,21 +3520,23 @@ attributes #24 = { noreturn }
 !40 = !{!29, !35, i64 72}
 !41 = !{!26, !26, i64 0}
 !42 = !{!6, !6, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44}
-!46 = !{!47, !10, i64 40}
-!47 = !{!"_ZTSN2cv11WBaseStreamE", !8, i64 8, !8, i64 16, !8, i64 24, !11, i64 32, !11, i64 36, !10, i64 40, !5, i64 48, !48, i64 56}
-!48 = !{!"p1 _ZTSSt6vectorIhSaIhEE", !9, i64 0}
-!49 = !{!47, !11, i64 36}
-!50 = !{!47, !11, i64 32}
-!51 = !{!47, !5, i64 48}
-!52 = !{!47, !48, i64 56}
-!53 = !{!47, !8, i64 8}
-!54 = !{!47, !8, i64 16}
-!55 = !{!47, !8, i64 24}
-!56 = !{!57, !8, i64 8}
-!57 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
-!58 = !{!57, !8, i64 0}
-!59 = !{!57, !8, i64 16}
-!60 = distinct !{!60, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = distinct !{!46, !44, !45}
+!47 = !{!48, !10, i64 40}
+!48 = !{!"_ZTSN2cv11WBaseStreamE", !8, i64 8, !8, i64 16, !8, i64 24, !11, i64 32, !11, i64 36, !10, i64 40, !5, i64 48, !49, i64 56}
+!49 = !{!"p1 _ZTSSt6vectorIhSaIhEE", !9, i64 0}
+!50 = !{!48, !11, i64 36}
+!51 = !{!48, !11, i64 32}
+!52 = !{!48, !5, i64 48}
+!53 = !{!48, !49, i64 56}
+!54 = !{!48, !8, i64 8}
+!55 = !{!48, !8, i64 16}
+!56 = !{!48, !8, i64 24}
+!57 = !{!58, !8, i64 8}
+!58 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
+!59 = !{!58, !8, i64 0}
+!60 = !{!58, !8, i64 16}
+!61 = distinct !{!61, !44}
+!62 = distinct !{!62, !45}

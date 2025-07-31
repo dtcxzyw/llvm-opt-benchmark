@@ -412,7 +412,7 @@ bytestream2_get_byte.exit31.i.us.us:              ; preds = %91, %88
 .loopexit.i.us.us:                                ; preds = %bytestream2_get_byte.exit.i.us.us, %bytestream2_get_byte.exit31.i.us.us
   %.2.i.us.us = phi ptr [ %scevgep46.i.us.us, %bytestream2_get_byte.exit31.i.us.us ], [ %83, %bytestream2_get_byte.exit.i.us.us ]
   %93 = icmp ult ptr %.2.i.us.us, %52
-  br i1 %93, label %54, label %._crit_edge.i.us.us, !llvm.loop !40
+  br i1 %93, label %54, label %._crit_edge.i.us.us, !llvm.loop !41
 
 ._crit_edge.i.us.us:                              ; preds = %62, %.loopexit.i.us.us, %47
   %.022.lcssa.i.us.us = phi ptr [ %.0.us.us, %47 ], [ %.2.i.us.us, %.loopexit.i.us.us ], [ %.02240.i.us.us, %62 ]
@@ -432,12 +432,12 @@ bytestream2_get_byte.exit31.i.us.us:              ; preds = %91, %88
   %101 = load i64, ptr %23, align 8, !tbaa !36
   %102 = sub i64 0, %101
   %103 = getelementptr inbounds i8, ptr %.0.us.us, i64 %102
-  br label %27, !llvm.loop !41
+  br label %27, !llvm.loop !42
 
 .split75.us.us:                                   ; preds = %97
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.critedge, label %.split.us.us, !llvm.loop !43
+  br i1 %exitcond98.not, label %.critedge, label %.split.us.us, !llvm.loop !44
 
 .split:                                           ; preds = %.lr.ph, %.split75
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split75 ], [ 0, %.lr.ph ]
@@ -559,7 +559,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %167, %166
   store i16 %.0.i.i46, ptr %.140.i, align 2, !tbaa !19
   %170 = getelementptr inbounds nuw i8, ptr %.140.i, i64 2
   %.not32.i = icmp eq i8 %159, 0
-  br i1 %.not32.i, label %.loopexit.i47, label %.preheader.i45, !llvm.loop !44
+  br i1 %.not32.i, label %.loopexit.i47, label %.preheader.i45, !llvm.loop !45
 
 171:                                              ; preds = %157
   %172 = ptrtoint ptr %146 to i64
@@ -588,12 +588,12 @@ bytestream2_get_le16.exit34.i:                    ; preds = %176, %175
   store i16 %.0.i33.i, ptr %.342.i, align 2, !tbaa !19
   %181 = getelementptr inbounds nuw i8, ptr %.342.i, i64 2
   %.not31.i = icmp eq i8 %180, 0
-  br i1 %.not31.i, label %.loopexit.i47, label %179, !llvm.loop !45
+  br i1 %.not31.i, label %.loopexit.i47, label %179, !llvm.loop !46
 
 .loopexit.i47:                                    ; preds = %bytestream2_get_le16.exit.i, %179
   %.2.i48 = phi ptr [ %181, %179 ], [ %170, %bytestream2_get_le16.exit.i ]
   %182 = icmp ult ptr %.2.i48, %135
-  br i1 %182, label %137, label %._crit_edge.i49, !llvm.loop !46
+  br i1 %182, label %137, label %._crit_edge.i49, !llvm.loop !47
 
 ._crit_edge.i49:                                  ; preds = %.loopexit.i47, %145, %130
   %.025.lcssa.i = phi ptr [ %.0, %130 ], [ %.2.i48, %.loopexit.i47 ], [ %.02543.i, %145 ]
@@ -614,12 +614,12 @@ bytestream2_get_le16.exit34.i:                    ; preds = %176, %175
   %191 = load i64, ptr %106, align 8, !tbaa !36
   %192 = sub i64 0, %191
   %193 = getelementptr inbounds i8, ptr %.0, i64 %192
-  br label %110
+  br label %110, !llvm.loop !48
 
 .split75:                                         ; preds = %187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count97
-  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !49
 
 .critedge.sink.split:                             ; preds = %151, %66
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #8
@@ -687,13 +687,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_uncompressed_sgi(ptr 
   store ptr %39, ptr %2, align 8, !tbaa !37
   %40 = load ptr, ptr %24, align 8, !tbaa !20
   %41 = icmp eq ptr %37, %40
-  br i1 %41, label %._crit_edge, label %.lr.ph
+  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %42 = phi ptr [ %31, %22 ], [ %39, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !51
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %7
   %.024 = phi i32 [ -1094995529, %7 ], [ 0, %.preheader ], [ 0, %._crit_edge ]
@@ -772,14 +772,17 @@ attributes #9 = { noreturn nounwind }
 !35 = !{!12, !12, i64 0}
 !36 = !{!10, !10, i64 0}
 !37 = !{!17, !11, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !39, !42}
-!44 = distinct !{!44, !39}
-!45 = distinct !{!45, !39}
-!46 = distinct !{!46, !39}
-!47 = distinct !{!47, !39}
-!48 = distinct !{!48, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = distinct !{!42, !40, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !39, !40, !43}
+!45 = distinct !{!45, !39, !40}
+!46 = distinct !{!46, !39, !40}
+!47 = distinct !{!47, !39, !40}
+!48 = distinct !{!48, !40}
+!49 = distinct !{!49, !39, !40}
+!50 = distinct !{!50, !40}
+!51 = distinct !{!51, !39, !40}

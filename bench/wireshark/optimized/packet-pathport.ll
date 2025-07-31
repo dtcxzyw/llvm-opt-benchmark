@@ -509,7 +509,7 @@ dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.
   %.0.i.i.i.i = phi i32 [ %139, %136 ], [ %133, %.lr.ph.i41.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   %140 = icmp ult i32 %.0.i.i.i.i, %113
-  br i1 %140, label %.lr.ph.i41.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !8
+  br i1 %140, label %.lr.ph.i41.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !9
 
 141:                                              ; preds = %.lr.ph.i
   %142 = add i32 %86, %81
@@ -554,7 +554,7 @@ dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.
   %175 = add i32 %174, %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
   %176 = icmp ult i32 %175, %142
-  br i1 %176, label %.lr.ph.i42.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !9
+  br i1 %176, label %.lr.ph.i42.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !10
 
 177:                                              ; preds = %.lr.ph.i
   %178 = load i32, ptr @hf_pp_pdu_payload, align 4
@@ -567,7 +567,7 @@ dissect_one_pdu.exit.i:                           ; preds = %.lr.ph.i42.i.i, %di
   %182 = add i32 %181, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
   %183 = icmp ult i32 %182, %69
-  br i1 %183, label %.lr.ph.i, label %dissect_multiple_pdus.exit, !llvm.loop !10
+  br i1 %183, label %.lr.ph.i, label %dissect_multiple_pdus.exit, !llvm.loop !11
 
 dissect_multiple_pdus.exit:                       ; preds = %dissect_one_pdu.exit.i, %49, %47
   %.0 = phi i32 [ %48, %47 ], [ 20, %49 ], [ %182, %dissect_one_pdu.exit.i ]
@@ -647,8 +647,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

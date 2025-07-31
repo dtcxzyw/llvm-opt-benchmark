@@ -742,7 +742,7 @@ _ZN3std4path4Path4join17h081f4dc02bd9adafE.exit:  ; preds = %33
   call fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$tempfile..file..NamedTempFile$C$std..io..error..Error$GT$$GT$17h31ecfc0f5fb80c6eE"(ptr noalias noundef align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %52 = icmp slt i32 %34, 0
-  br i1 %52, label %24, label %33
+  br i1 %52, label %24, label %33, !llvm.loop !120
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -962,3 +962,5 @@ attributes #11 = { cold noreturn nounwind }
 !117 = distinct !{!117, !"_ZN8tempfile7Builder11tempfile_in28_$u7b$$u7b$closure$u7d$$u7d$17hf3809e810edd2a2dE"}
 !118 = distinct !{!118, !117, !"_ZN8tempfile7Builder11tempfile_in28_$u7b$$u7b$closure$u7d$$u7d$17hf3809e810edd2a2dE: argument 1"}
 !119 = distinct !{!119, !117, !"_ZN8tempfile7Builder11tempfile_in28_$u7b$$u7b$closure$u7d$$u7d$17hf3809e810edd2a2dE: argument 2"}
+!120 = distinct !{!120, !121}
+!121 = !{!"llvm.loop.estimated_trip_count"}

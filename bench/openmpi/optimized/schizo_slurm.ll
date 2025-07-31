@@ -141,7 +141,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
 
 .preheader:                                       ; preds = %.lr.ph48
   %32 = getelementptr inbounds nuw i8, ptr %.047, i64 152
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %.not3642 = icmp eq ptr %34, null
   br i1 %.not3642, label %.loopexit, label %.lr.ph44
@@ -151,11 +151,11 @@ convert_results.exit:                             ; preds = %convert_results.exi
   %35 = phi ptr [ %38, %.lr.ph44 ], [ %34, %.preheader ]
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %35, ptr noundef nonnull @.str.8) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %36 = load ptr, ptr %32, align 8, !tbaa !20
+  %36 = load ptr, ptr %32, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.next52
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %.not36 = icmp eq ptr %38, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph44, !llvm.loop !21
+  br i1 %.not36, label %.loopexit, label %.lr.ph44, !llvm.loop !22
 
 39:                                               ; preds = %.lr.ph48
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(8) @.str.9) #7
@@ -164,7 +164,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
 
 .preheader37:                                     ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.047, i64 152
-  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %43 = load ptr, ptr %42, align 8, !tbaa !21
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %.not3540 = icmp eq ptr %44, null
   br i1 %.not3540, label %.loopexit, label %.lr.ph
@@ -174,17 +174,17 @@ convert_results.exit:                             ; preds = %convert_results.exi
   %45 = phi ptr [ %48, %.lr.ph ], [ %44, %.preheader37 ]
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %45, ptr noundef nonnull @.str.10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load ptr, ptr %42, align 8, !tbaa !20
+  %46 = load ptr, ptr %42, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %.not35 = icmp eq ptr %48, null
-  br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph44, %.preheader37, %.preheader, %39
   %49 = getelementptr inbounds nuw i8, ptr %.047, i64 120
   %.0 = load ptr, ptr %49, align 8, !tbaa !8
   %.not34 = icmp eq ptr %.0, %13
-  br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !23
+  br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !24
 
 .loopexit39:                                      ; preds = %.loopexit, %convert_results.exit, %7, %3, %10
   %.029 = phi i32 [ %11, %10 ], [ -8, %3 ], [ -72, %7 ], [ 0, %convert_results.exit ], [ 0, %.loopexit ]
@@ -198,14 +198,14 @@ define internal noundef i32 @parse_env(ptr readnone captures(none) %0, ptr readn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @detect_proxy(ptr noundef %0) #0 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4, !tbaa !24
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4, !tbaa !25
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %13
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
   %5 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4, i32 2
-  %6 = load i32, ptr %5, align 4, !tbaa !29
+  %6 = load i32, ptr %5, align 4, !tbaa !30
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %13
 
@@ -271,10 +271,10 @@ define internal void @allow_run_as_root(ptr noundef readonly captures(address) %
   %9 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 120
   %.0.i.i = load ptr, ptr %9, align 8, !tbaa !8
   %.not.i.i = icmp eq ptr %.0.i.i, %2
-  br i1 %.not.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %.not.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i, !llvm.loop !33
 
 10:                                               ; preds = %.lr.ph.i.i
-  store i8 1, ptr @prte_allow_run_as_root, align 1, !tbaa !33
+  store i8 1, ptr @prte_allow_run_as_root, align 1, !tbaa !34
   br label %23
 
 pmix_cmd_line_is_taken.exit:                      ; preds = %8, %1
@@ -310,7 +310,7 @@ sub_09:                                           ; preds = %.tail
   br i1 %21, label %22, label %.tail.thread
 
 22:                                               ; preds = %.tail8
-  store i8 1, ptr @prte_allow_run_as_root, align 1, !tbaa !33
+  store i8 1, ptr @prte_allow_run_as_root, align 1, !tbaa !34
   br label %23
 
 .tail.thread:                                     ; preds = %sub_09, %sub_0, %.tail, %.tail8, %12, %pmix_cmd_line_is_taken.exit
@@ -403,19 +403,20 @@ attributes #8 = { nounwind }
 !15 = !{!16, !4, i64 144}
 !16 = !{!"", !9, i64 0, !4, i64 144, !17, i64 152}
 !17 = !{!"p2 omnipotent char", !5, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!16, !17, i64 152}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = !{!25, !12, i64 76}
-!25 = !{!"pmix_mca_base_framework_t", !4, i64 0, !4, i64 8, !4, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !12, i64 48, !12, i64 52, !26, i64 56, !4, i64 64, !12, i64 72, !12, i64 76, !27, i64 80, !27, i64 352}
-!26 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !5, i64 0}
-!27 = !{!"pmix_list_t", !10, i64 0, !9, i64 120, !28, i64 264}
-!28 = !{!"long", !6, i64 0}
-!29 = !{!30, !12, i64 4}
-!30 = !{!"", !31, i64 0, !31, i64 1, !12, i64 4, !31, i64 8, !12, i64 12, !4, i64 16, !4, i64 24, !12, i64 32, !4, i64 40, !12, i64 48, !31, i64 52, !31, i64 53, !31, i64 54, !31, i64 55, !4, i64 56, !12, i64 64, !12, i64 68}
-!31 = !{!"_Bool", !6, i64 0}
-!32 = distinct !{!32, !19}
-!33 = !{!31, !31, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!16, !17, i64 152}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = !{!26, !12, i64 76}
+!26 = !{!"pmix_mca_base_framework_t", !4, i64 0, !4, i64 8, !4, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !12, i64 48, !12, i64 52, !27, i64 56, !4, i64 64, !12, i64 72, !12, i64 76, !28, i64 80, !28, i64 352}
+!27 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !5, i64 0}
+!28 = !{!"pmix_list_t", !10, i64 0, !9, i64 120, !29, i64 264}
+!29 = !{!"long", !6, i64 0}
+!30 = !{!31, !12, i64 4}
+!31 = !{!"", !32, i64 0, !32, i64 1, !12, i64 4, !32, i64 8, !12, i64 12, !4, i64 16, !4, i64 24, !12, i64 32, !4, i64 40, !12, i64 48, !32, i64 52, !32, i64 53, !32, i64 54, !32, i64 55, !4, i64 56, !12, i64 64, !12, i64 68}
+!32 = !{!"_Bool", !6, i64 0}
+!33 = distinct !{!33, !19, !20}
+!34 = !{!32, !32, i64 0}

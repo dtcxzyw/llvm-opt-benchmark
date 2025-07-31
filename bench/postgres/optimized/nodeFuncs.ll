@@ -2422,7 +2422,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %245, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.critedge, label %241, !llvm.loop !8
+  br i1 %or.cond, label %.critedge, label %241, !llvm.loop !9
 
 246:                                              ; preds = %.lr.ph
   %247 = getelementptr inbounds nuw i8, ptr %.tr244, i64 32
@@ -3549,7 +3549,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %369 = load i32, ptr %6, align 4
   %370 = sext i32 %369 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %370
-  br i1 %.not.not, label %371, label %.critedge619, !llvm.loop !9
+  br i1 %.not.not, label %371, label %.critedge619, !llvm.loop !10
 
 371:                                              ; preds = %.lr.ph719, %368
   %indvars.iv = phi i64 [ 0, %.lr.ph719 ], [ %indvars.iv.next, %368 ]
@@ -4856,7 +4856,7 @@ define dso_local ptr @expression_tree_mutator_impl(ptr noundef %0, ptr noundef r
   %460 = load i32, ptr %7, align 4
   %461 = sext i32 %460 to i64
   %.not = icmp slt i64 %indvars.iv.next, %461
-  br i1 %.not, label %454, label %.critedge, !llvm.loop !10
+  br i1 %.not, label %454, label %.critedge, !llvm.loop !11
 
 462:                                              ; preds = %5
   %463 = tail call ptr @palloc(i64 noundef 24) #13
@@ -5898,7 +5898,7 @@ define dso_local zeroext i1 @raw_expression_tree_walker_impl(ptr noundef readonl
   %239 = load i32, ptr %7, align 4
   %240 = sext i32 %239 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %240
-  br i1 %.not.not, label %241, label %.critedge794, !llvm.loop !11
+  br i1 %.not.not, label %241, label %.critedge794, !llvm.loop !12
 
 241:                                              ; preds = %.lr.ph, %238
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %238 ]
@@ -6724,7 +6724,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 39:                                               ; preds = %.lr.ph.i53
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i53, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i53, !llvm.loop !13
 
 .lr.ph.i53:                                       ; preds = %39, %.lr.ph.preheader.i
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i55, %39 ]
@@ -6748,7 +6748,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 49:                                               ; preds = %.lr.ph.i59
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
-  br i1 %exitcond.not.i62, label %.critedge, label %.lr.ph.i59, !llvm.loop !12
+  br i1 %exitcond.not.i62, label %.critedge, label %.lr.ph.i59, !llvm.loop !13
 
 .lr.ph.i59:                                       ; preds = %49, %.lr.ph.preheader.i57
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %49 ]
@@ -6772,7 +6772,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 59:                                               ; preds = %.lr.ph.i67
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %wide.trip.count.i66
-  br i1 %exitcond.not.i70, label %.critedge, label %.lr.ph.i67, !llvm.loop !12
+  br i1 %exitcond.not.i70, label %.critedge, label %.lr.ph.i67, !llvm.loop !13
 
 .lr.ph.i67:                                       ; preds = %59, %.lr.ph.preheader.i65
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.preheader.i65 ], [ %indvars.iv.next.i69, %59 ]
@@ -6796,7 +6796,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 69:                                               ; preds = %.lr.ph.i75
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i74
-  br i1 %exitcond.not.i78, label %.critedge, label %.lr.ph.i75, !llvm.loop !12
+  br i1 %exitcond.not.i78, label %.critedge, label %.lr.ph.i75, !llvm.loop !13
 
 .lr.ph.i75:                                       ; preds = %69, %.lr.ph.preheader.i73
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %69 ]
@@ -7603,7 +7603,7 @@ expression_returns_set_walker.exit94.thread28:    ; preds = %expression_returns_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %396 = sext i32 %395 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %396
-  br i1 %.not.not, label %377, label %.critedge64, !llvm.loop !13
+  br i1 %.not.not, label %377, label %.critedge64, !llvm.loop !14
 
 397:                                              ; preds = %.lr.ph
   %398 = getelementptr inbounds nuw i8, ptr %.tr100, i64 8
@@ -8468,7 +8468,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %367 = load i32, ptr %4, align 4
   %368 = sext i32 %367 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %368
-  br i1 %.not.not, label %369, label %.critedge64, !llvm.loop !14
+  br i1 %.not.not, label %369, label %.critedge64, !llvm.loop !15
 
 369:                                              ; preds = %.lr.ph85, %366
   %indvars.iv = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next, %366 ]
@@ -8713,12 +8713,13 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

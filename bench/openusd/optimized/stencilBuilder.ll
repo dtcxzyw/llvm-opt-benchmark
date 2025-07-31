@@ -1154,7 +1154,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 30:                                               ; preds = %31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %31, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.loopexit.i, label %31, !llvm.loop !8
 
 31:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
@@ -1237,7 +1237,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 82:                                               ; preds = %83
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i20
-  br i1 %exitcond.not.i23, label %.loopexit.i17, label %83, !llvm.loop !7
+  br i1 %exitcond.not.i23, label %.loopexit.i17, label %83, !llvm.loop !8
 
 83:                                               ; preds = %82, %.lr.ph.i19
   %indvars.iv.i21 = phi i64 [ %77, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %82 ]
@@ -1262,7 +1262,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeIfNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit24: ; preds = %87, %.loopexit.i17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %93 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %93, label %61, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeIfNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit, !llvm.loop !8
+  br i1 %93, label %61, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeIfNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit, !llvm.loop !9
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeIfNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeIfNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit24, %41, %.loopexit.i, %35
   ret void
@@ -1627,7 +1627,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Ind
 25:                                               ; preds = %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %5, %3
   ret void
@@ -1681,7 +1681,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Ind
 31:                                               ; preds = %18, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %9, %5
   ret void
@@ -1729,7 +1729,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 31:                                               ; preds = %32
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %32, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %32, !llvm.loop !12
 
 32:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
@@ -1836,7 +1836,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 101:                                              ; preds = %102
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i43
-  br i1 %exitcond.not.i46, label %.loopexit.i34, label %102, !llvm.loop !11
+  br i1 %exitcond.not.i46, label %.loopexit.i34, label %102, !llvm.loop !12
 
 102:                                              ; preds = %101, %.lr.ph.i42
   %indvars.iv.i44 = phi i64 [ %96, %.lr.ph.i42 ], [ %indvars.iv.next.i45, %101 ]
@@ -1877,7 +1877,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point1stDerivWeightIfEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit51: ; preds = %106, %.loopexit.i34
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %124 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %124, label %74, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point1stDerivWeightIfEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit, !llvm.loop !12
+  br i1 %124, label %74, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point1stDerivWeightIfEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit, !llvm.loop !13
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point1stDerivWeightIfEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point1stDerivWeightIfEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit51, %52, %.loopexit.i, %36
   ret void
@@ -2412,7 +2412,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Ind
 41:                                               ; preds = %25, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !14
 
 .loopexit:                                        ; preds = %41, %16, %8
   ret void
@@ -2484,37 +2484,37 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE13A
   %50 = load ptr, ptr %33, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %53 = load ptr, ptr %34, align 8, !noalias !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  %53 = load ptr, ptr %34, align 8, !noalias !15
   %54 = getelementptr inbounds float, ptr %53, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4, !noalias !14
-  %56 = load ptr, ptr %35, align 8, !noalias !14
+  %55 = load float, ptr %54, align 4, !noalias !15
+  %56 = load ptr, ptr %35, align 8, !noalias !15
   %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv
-  %58 = load float, ptr %57, align 4, !noalias !14
-  %59 = load ptr, ptr %36, align 8, !noalias !14
+  %58 = load float, ptr %57, align 4, !noalias !15
+  %59 = load ptr, ptr %36, align 8, !noalias !15
   %60 = getelementptr inbounds float, ptr %59, i64 %indvars.iv
-  %61 = load float, ptr %60, align 4, !noalias !14
-  %62 = load ptr, ptr %37, align 8, !noalias !14
+  %61 = load float, ptr %60, align 4, !noalias !15
+  %62 = load ptr, ptr %37, align 8, !noalias !15
   %63 = getelementptr inbounds float, ptr %62, i64 %indvars.iv
-  %64 = load float, ptr %63, align 4, !noalias !14
-  %65 = load ptr, ptr %38, align 8, !noalias !14
+  %64 = load float, ptr %63, align 4, !noalias !15
+  %65 = load ptr, ptr %38, align 8, !noalias !15
   %66 = getelementptr inbounds float, ptr %65, i64 %indvars.iv
-  %67 = load float, ptr %66, align 4, !noalias !14
-  %68 = load ptr, ptr %39, align 8, !noalias !14
+  %67 = load float, ptr %66, align 4, !noalias !15
+  %68 = load ptr, ptr %39, align 8, !noalias !15
   %69 = getelementptr inbounds float, ptr %68, i64 %indvars.iv
-  %70 = load float, ptr %69, align 4, !noalias !14
-  store float %55, ptr %7, align 8, !alias.scope !14
-  store float %58, ptr %40, align 4, !alias.scope !14
-  store float %61, ptr %41, align 8, !alias.scope !14
-  store float %64, ptr %42, align 4, !alias.scope !14
-  store float %67, ptr %43, align 8, !alias.scope !14
-  store float %70, ptr %44, align 4, !alias.scope !14
+  %70 = load float, ptr %69, align 4, !noalias !15
+  store float %55, ptr %7, align 8, !alias.scope !15
+  store float %58, ptr %40, align 4, !alias.scope !15
+  store float %61, ptr %41, align 8, !alias.scope !15
+  store float %64, ptr %42, align 4, !alias.scope !15
+  store float %67, ptr %43, align 8, !alias.scope !15
+  store float %70, ptr %44, align 4, !alias.scope !15
   %71 = load i32, ptr %45, align 4
   %72 = load i32, ptr %46, align 8
   tail call void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5mergeINS2_19Point2ndDerivWeightIfEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_(ptr noundef nonnull align 8 dereferenceable(253) %0, i32 noundef %52, i32 noundef %2, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight") align 8 %7, ptr noundef nonnull byval(%"struct.OpenSubdiv::v3_6_0::Far::internal::Point2ndDerivWeight") align 8 %3, i32 noundef %71, i32 noundef %72, ptr %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %73 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %73, label %49, label %.loopexit, !llvm.loop !17
+  br i1 %73, label %49, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %49, %21, %11
   ret void
@@ -2553,7 +2553,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5me
 26:                                               ; preds = %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !19
 
 27:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %26 ]
@@ -2574,22 +2574,22 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5me
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.sroa.629.0.copyload = load float, ptr %.sroa.629.0..sroa_idx, align 4
-  %32 = load float, ptr %4, align 8, !noalias !19
+  %32 = load float, ptr %4, align 8, !noalias !20
   %33 = fmul float %.sroa.028.0.copyload, %32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %35 = load float, ptr %34, align 4, !noalias !19
+  %35 = load float, ptr %34, align 4, !noalias !20
   %36 = fmul float %.sroa.2.0.copyload, %35
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load float, ptr %37, align 8, !noalias !19
+  %38 = load float, ptr %37, align 8, !noalias !20
   %39 = fmul float %.sroa.3.0.copyload, %38
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %41 = load float, ptr %40, align 4, !noalias !19
+  %41 = load float, ptr %40, align 4, !noalias !20
   %42 = fmul float %.sroa.4.0.copyload, %41
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %44 = load float, ptr %43, align 8, !noalias !19
+  %44 = load float, ptr %43, align 8, !noalias !20
   %45 = fmul float %.sroa.5.0.copyload, %44
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %47 = load float, ptr %46, align 4, !noalias !19
+  %47 = load float, ptr %46, align 4, !noalias !20
   %48 = fmul float %.sroa.629.0.copyload, %47
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %50 = load ptr, ptr %49, align 8
@@ -2641,22 +2641,22 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE5me
   %.sroa.563.0.copyload = load float, ptr %.sroa.563.0..sroa_idx, align 8
   %.sroa.664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.sroa.664.0.copyload = load float, ptr %.sroa.664.0..sroa_idx, align 4
-  %79 = load float, ptr %4, align 8, !noalias !22
+  %79 = load float, ptr %4, align 8, !noalias !23
   %80 = fmul float %.sroa.059.0.copyload, %79
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %82 = load float, ptr %81, align 4, !noalias !22
+  %82 = load float, ptr %81, align 4, !noalias !23
   %83 = fmul float %.sroa.260.0.copyload, %82
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %85 = load float, ptr %84, align 8, !noalias !22
+  %85 = load float, ptr %84, align 8, !noalias !23
   %86 = fmul float %.sroa.361.0.copyload, %85
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %88 = load float, ptr %87, align 4, !noalias !22
+  %88 = load float, ptr %87, align 4, !noalias !23
   %89 = fmul float %.sroa.462.0.copyload, %88
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %91 = load float, ptr %90, align 8, !noalias !22
+  %91 = load float, ptr %90, align 8, !noalias !23
   %92 = fmul float %.sroa.563.0.copyload, %91
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %94 = load float, ptr %93, align 4, !noalias !22
+  %94 = load float, ptr %93, align 4, !noalias !23
   %95 = fmul float %.sroa.664.0.copyload, %94
   store float %80, ptr %9, align 8
   %.sroa.644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -3773,7 +3773,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit57:             ; preds = %170, %172, %174, %1
   store double 1.000000e+00, ptr %188, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit57
   %189 = load ptr, ptr %115, align 8
@@ -4241,7 +4241,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
 30:                                               ; preds = %31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %31, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.loopexit.i, label %31, !llvm.loop !27
 
 31:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
@@ -4324,7 +4324,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
 82:                                               ; preds = %83
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i20
-  br i1 %exitcond.not.i23, label %.loopexit.i17, label %83, !llvm.loop !26
+  br i1 %exitcond.not.i23, label %.loopexit.i17, label %83, !llvm.loop !27
 
 83:                                               ; preds = %82, %.lr.ph.i19
   %indvars.iv.i21 = phi i64 [ %77, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %82 ]
@@ -4349,7 +4349,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeIdNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit24: ; preds = %87, %.loopexit.i17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %93 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %93, label %61, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeIdNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit, !llvm.loop !27
+  br i1 %93, label %61, label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeIdNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit, !llvm.loop !28
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeIdNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeIdNS4_17ScalarAccumulatorEEEviiT_S7_iiT0_.exit24, %41, %.loopexit.i, %35
   ret void
@@ -4714,7 +4714,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
 25:                                               ; preds = %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !29
 
 .loopexit:                                        ; preds = %25, %5, %3
   ret void
@@ -4772,7 +4772,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
 32:                                               ; preds = %19, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !30
 
 .loopexit:                                        ; preds = %32, %10, %5
   ret void
@@ -4828,7 +4828,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
 32:                                               ; preds = %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %33, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.loopexit.i, label %33, !llvm.loop !31
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
@@ -4910,15 +4910,15 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
   %76 = load ptr, ptr %65, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
-  %79 = load ptr, ptr %66, align 8, !noalias !31
+  %79 = load ptr, ptr %66, align 8, !noalias !32
   %80 = getelementptr inbounds double, ptr %79, i64 %indvars.iv
-  %81 = load double, ptr %80, align 8, !noalias !31
-  %82 = load ptr, ptr %67, align 8, !noalias !31
+  %81 = load double, ptr %80, align 8, !noalias !32
+  %82 = load ptr, ptr %67, align 8, !noalias !32
   %83 = getelementptr inbounds double, ptr %82, i64 %indvars.iv
-  %84 = load double, ptr %83, align 8, !noalias !31
-  %85 = load ptr, ptr %68, align 8, !noalias !31
+  %84 = load double, ptr %83, align 8, !noalias !32
+  %85 = load ptr, ptr %68, align 8, !noalias !32
   %86 = getelementptr inbounds double, ptr %85, i64 %indvars.iv
-  %87 = load double, ptr %86, align 8, !noalias !31
+  %87 = load double, ptr %86, align 8, !noalias !32
   %88 = load i32, ptr %69, align 4
   %89 = load i32, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -4948,7 +4948,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
 102:                                              ; preds = %103
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i25
-  br i1 %exitcond.not.i28, label %.loopexit.i15, label %103, !llvm.loop !30
+  br i1 %exitcond.not.i28, label %.loopexit.i15, label %103, !llvm.loop !31
 
 103:                                              ; preds = %102, %.lr.ph.i24
   %indvars.iv.i26 = phi i64 [ %97, %.lr.ph.i24 ], [ %indvars.iv.next.i27, %102 ]
@@ -4991,7 +4991,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %125 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %125, label %75, label %.loopexit, !llvm.loop !34
+  br i1 %125, label %75, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit34, %53, %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit
   ret void
@@ -5530,7 +5530,7 @@ define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Ind
 41:                                               ; preds = %25, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !36
 
 .loopexit:                                        ; preds = %41, %16, %8
   ret void
@@ -5592,7 +5592,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
 32:                                               ; preds = %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %33, !llvm.loop !36
+  br i1 %exitcond.not.i, label %.loopexit.i, label %33, !llvm.loop !37
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
@@ -5710,24 +5710,24 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
   %94 = load ptr, ptr %80, align 8
   %95 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
-  %97 = load ptr, ptr %81, align 8, !noalias !37
+  %97 = load ptr, ptr %81, align 8, !noalias !38
   %98 = getelementptr inbounds double, ptr %97, i64 %indvars.iv
-  %99 = load double, ptr %98, align 8, !noalias !37
-  %100 = load ptr, ptr %82, align 8, !noalias !37
+  %99 = load double, ptr %98, align 8, !noalias !38
+  %100 = load ptr, ptr %82, align 8, !noalias !38
   %101 = getelementptr inbounds double, ptr %100, i64 %indvars.iv
-  %102 = load double, ptr %101, align 8, !noalias !37
-  %103 = load ptr, ptr %83, align 8, !noalias !37
+  %102 = load double, ptr %101, align 8, !noalias !38
+  %103 = load ptr, ptr %83, align 8, !noalias !38
   %104 = getelementptr inbounds double, ptr %103, i64 %indvars.iv
-  %105 = load double, ptr %104, align 8, !noalias !37
-  %106 = load ptr, ptr %84, align 8, !noalias !37
+  %105 = load double, ptr %104, align 8, !noalias !38
+  %106 = load ptr, ptr %84, align 8, !noalias !38
   %107 = getelementptr inbounds double, ptr %106, i64 %indvars.iv
-  %108 = load double, ptr %107, align 8, !noalias !37
-  %109 = load ptr, ptr %85, align 8, !noalias !37
+  %108 = load double, ptr %107, align 8, !noalias !38
+  %109 = load ptr, ptr %85, align 8, !noalias !38
   %110 = getelementptr inbounds double, ptr %109, i64 %indvars.iv
-  %111 = load double, ptr %110, align 8, !noalias !37
-  %112 = load ptr, ptr %86, align 8, !noalias !37
+  %111 = load double, ptr %110, align 8, !noalias !38
+  %112 = load ptr, ptr %86, align 8, !noalias !38
   %113 = getelementptr inbounds double, ptr %112, i64 %indvars.iv
-  %114 = load double, ptr %113, align 8, !noalias !37
+  %114 = load double, ptr %113, align 8, !noalias !38
   %115 = load i32, ptr %87, align 4
   %116 = load i32, ptr %88, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -5757,7 +5757,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
 129:                                              ; preds = %130
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i34
-  br i1 %exitcond.not.i37, label %.loopexit.i15, label %130, !llvm.loop !36
+  br i1 %exitcond.not.i37, label %.loopexit.i15, label %130, !llvm.loop !37
 
 130:                                              ; preds = %129, %.lr.ph.i33
   %indvars.iv.i35 = phi i64 [ %124, %.lr.ph.i33 ], [ %indvars.iv.next.i36, %129 ]
@@ -5824,7 +5824,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %170 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %170, label %93, label %.loopexit, !llvm.loop !40
+  br i1 %170, label %93, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit49, %68, %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit
   ret void
@@ -6590,39 +6590,40 @@ attributes #19 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE24Point2ndDerivAccumulator3GetEm: argument 0"}
-!16 = distinct !{!16, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE24Point2ndDerivAccumulator3GetEm"}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_: argument 0"}
-!21 = distinct !{!21, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_: argument 0"}
-!24 = distinct !{!24, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_"}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point1stDerivAccumulator3GetEm: argument 0"}
-!33 = distinct !{!33, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point1stDerivAccumulator3GetEm"}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point2ndDerivAccumulator3GetEm: argument 0"}
-!39 = distinct !{!39, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point2ndDerivAccumulator3GetEm"}
-!40 = distinct !{!40, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE24Point2ndDerivAccumulator3GetEm: argument 0"}
+!17 = distinct !{!17, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIfE24Point2ndDerivAccumulator3GetEm"}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_: argument 0"}
+!22 = distinct !{!22, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_: argument 0"}
+!25 = distinct !{!25, !"_ZN10OpenSubdiv6v3_6_03Far8internalmlENS2_19Point2ndDerivWeightIfEERKS4_"}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point1stDerivAccumulator3GetEm: argument 0"}
+!34 = distinct !{!34, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point1stDerivAccumulator3GetEm"}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point2ndDerivAccumulator3GetEm: argument 0"}
+!40 = distinct !{!40, !"_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE24Point2ndDerivAccumulator3GetEm"}
+!41 = distinct !{!41, !6, !7}

@@ -183,7 +183,7 @@ bytestream2_get_le32.exit44:                      ; preds = %bytestream2_get_le3
   store i32 %98, ptr %gep.us.i, align 1, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %89, label %90, !llvm.loop !41
+  br i1 %exitcond.not.i, label %89, label %90, !llvm.loop !42
 
 .thread94.us.i:                                   ; preds = %77, %81, %64
   %.sroa.0.6 = phi ptr [ %67, %64 ], [ %82, %81 ], [ %14, %77 ]
@@ -209,7 +209,7 @@ bytestream2_get_le32.exit44:                      ; preds = %bytestream2_get_le3
   %.783.ph.us.i = phi i32 [ %.783.ph.us.ph.i, %.loopexit.us.sink.split.i ], [ 0, %89 ]
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 16
   %.not87.us.i = icmp samesign ult i64 %indvars.iv.next129.i, %56
-  br i1 %.not87.us.i, label %57, label %._crit_edge.us.i, !llvm.loop !42
+  br i1 %.not87.us.i, label %57, label %._crit_edge.us.i, !llvm.loop !43
 
 .preheader.us.i:                                  ; preds = %.preheader108.us.i, %89
   %.sroa.0.9 = phi ptr [ %67, %.preheader108.us.i ], [ %91, %89 ]
@@ -226,7 +226,7 @@ bytestream2_get_le32.exit44:                      ; preds = %bytestream2_get_le3
   %106 = getelementptr inbounds i8, ptr %.068120.us.i, i64 %54
   %107 = add nuw nsw i32 %.075119.us.i, 4
   %.not88.us.i = icmp samesign ult i32 %107, %24
-  br i1 %.not88.us.i, label %.preheader109.us.i, label %.loopexit, !llvm.loop !43
+  br i1 %.not88.us.i, label %.preheader109.us.i, label %.loopexit, !llvm.loop !44
 
 decode_rtv1.exit:                                 ; preds = %59, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
@@ -302,9 +302,10 @@ attributes #4 = { nounwind }
 !36 = !{!5, !10, i64 124}
 !37 = !{!38, !7, i64 0}
 !38 = !{!"TextureDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = distinct !{!43, !40, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = distinct !{!44, !40, !41, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}

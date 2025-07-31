@@ -190,14 +190,14 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   tail call void %92(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.sink, i32 noundef %.0156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %93, label %69, !llvm.loop !6
+  br i1 %exitcond.not, label %93, label %69, !llvm.loop !7
 
 93:                                               ; preds = %89
   %94 = add nuw nsw i32 %.0161180, 1
   %95 = load i8, ptr %57, align 1
   %96 = zext i8 %95 to i32
   %97 = icmp samesign ult i32 %94, %96
-  br i1 %97, label %62, label %.loopexit, !llvm.loop !7
+  br i1 %97, label %62, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %93, %56, %32
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
@@ -206,7 +206,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next203, %101
-  br i1 %102, label %32, label %._crit_edge, !llvm.loop !8
+  br i1 %102, label %32, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   %103 = load ptr, ptr %0, align 8
@@ -317,7 +317,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %163 = getelementptr inbounds nuw %struct.dtLink, ptr %156, i64 %158, i32 1
   %.0157 = load i32, ptr %163, align 4
   %.not172 = icmp eq i32 %.0157, -1
-  br i1 %.not172, label %._crit_edge190.loopexit, label %157, !llvm.loop !9
+  br i1 %.not172, label %._crit_edge190.loopexit, label %157, !llvm.loop !10
 
 ._crit_edge190.loopexit:                          ; preds = %157
   %164 = select i1 %spec.select, i32 %.0164, i32 -1005575972
@@ -429,7 +429,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %249 = load i32, ptr %248, align 4
   %250 = sext i32 %249 to i64
   %251 = icmp slt i64 %indvars.iv.next206, %250
-  br i1 %251, label %119, label %._crit_edge195, !llvm.loop !10
+  br i1 %251, label %119, label %._crit_edge195, !llvm.loop !11
 
 ._crit_edge195:                                   ; preds = %246, %107
   %252 = load ptr, ptr %0, align 8
@@ -473,7 +473,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %277 = load i32, ptr %276, align 4
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next209, %278
-  br i1 %279, label %264, label %._crit_edge199, !llvm.loop !11
+  br i1 %279, label %264, label %._crit_edge199, !llvm.loop !12
 
 ._crit_edge199:                                   ; preds = %264, %255
   %280 = load ptr, ptr %0, align 8
@@ -516,7 +516,7 @@ define void @_Z32duDebugDrawNavMeshWithClosedListP11duDebugDrawRK9dtNavMeshRK14d
   %15 = add nuw nsw i32 %.016, 1
   %16 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
   %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %5, %4
   ret void
@@ -592,7 +592,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %34 = getelementptr inbounds nuw i16, ptr %33, i64 %.pre86
   %.044 = load i16, ptr %34, align 2
   %.not60 = icmp eq i16 %.044, -1
-  br i1 %.not60, label %._crit_edge.loopexit80, label %.lr.ph.splitthread-pre-split, !llvm.loop !13
+  br i1 %.not60, label %._crit_edge.loopexit80, label %.lr.ph.splitthread-pre-split, !llvm.loop !14
 
 ._crit_edge.loopexit80:                           ; preds = %.lr.ph.split._crit_edge
   %.pre = load i32, ptr %10, align 4
@@ -603,7 +603,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %15, label %._crit_edge68, !llvm.loop !15
+  br i1 %37, label %15, label %._crit_edge68, !llvm.loop !16
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %6
   %38 = load ptr, ptr %0, align 8
@@ -691,7 +691,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %86 = getelementptr inbounds nuw i16, ptr %85, i64 %55
   %.045 = load i16, ptr %86, align 2
   %.not56 = icmp eq i16 %.045, -1
-  br i1 %.not56, label %._crit_edge74.loopexit79, label %.lr.ph73.splitthread-pre-split, !llvm.loop !16
+  br i1 %.not56, label %._crit_edge74.loopexit79, label %.lr.ph73.splitthread-pre-split, !llvm.loop !17
 
 ._crit_edge74.loopexit79:                         ; preds = %84
   %.pre85 = load i32, ptr %10, align 4
@@ -702,7 +702,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next83, %88
-  br i1 %89, label %48, label %._crit_edge78, !llvm.loop !17
+  br i1 %89, label %48, label %._crit_edge78, !llvm.loop !18
 
 ._crit_edge78:                                    ; preds = %._crit_edge74, %._crit_edge68
   %90 = load ptr, ptr %0, align 8
@@ -802,7 +802,7 @@ define void @_Z24duDebugDrawNavMeshBVTreeP11duDebugDrawRK9dtNavMesh(ptr noundef 
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %20, label %_ZL18drawMeshTileBVTreeP11duDebugDrawPK10dtMeshTile.exit, !llvm.loop !18
+  br i1 %62, label %20, label %_ZL18drawMeshTileBVTreeP11duDebugDrawPK10dtMeshTile.exit, !llvm.loop !19
 
 _ZL18drawMeshTileBVTreeP11duDebugDrawPK10dtMeshTile.exit: ; preds = %57, %8
   %63 = load ptr, ptr %0, align 8
@@ -815,7 +815,7 @@ _ZL18drawMeshTileBVTreeP11duDebugDrawPK10dtMeshTile.exit: ; preds = %57, %8
   %67 = add nuw nsw i32 %.010, 1
   %68 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
   %69 = icmp slt i32 %67, %68
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %66, %.preheader, %2
   ret void
@@ -1056,7 +1056,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
 166:                                              ; preds = %110, %52, %38, %._crit_edge152.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre153.i, %._crit_edge152.i ], [ %44, %38 ], [ %44, %52 ], [ %44, %110 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %33
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %34, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %34, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %166
   %.pre.i = load ptr, ptr %6, align 8
@@ -1069,14 +1069,14 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next149.i, %170
-  br i1 %171, label %.lr.ph140.i, label %._crit_edge141.i, !llvm.loop !21
+  br i1 %171, label %.lr.ph140.i, label %._crit_edge141.i, !llvm.loop !22
 
 ._crit_edge141.i:                                 ; preds = %._crit_edge.i, %.split.i
   %172 = phi ptr [ %20, %.split.i ], [ %167, %._crit_edge.i ]
   %173 = phi ptr [ %21, %.split.i ], [ %167, %._crit_edge.i ]
   %174 = add nuw nsw i32 %.0142.i, 1
   %exitcond151.not.i = icmp eq i32 %174, 8
-  br i1 %exitcond151.not.i, label %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit, label %.split.i, !llvm.loop !22
+  br i1 %exitcond151.not.i, label %_ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit, label %.split.i, !llvm.loop !23
 
 _ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit: ; preds = %._crit_edge141.i, %8
   %175 = load ptr, ptr %0, align 8
@@ -1089,7 +1089,7 @@ _ZL18drawMeshTilePortalP11duDebugDrawPK10dtMeshTile.exit: ; preds = %._crit_edge
   %179 = add nuw nsw i32 %.010, 1
   %180 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
   %181 = icmp slt i32 %179, %180
-  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %178, %.preheader, %2
   ret void
@@ -1149,13 +1149,13 @@ define void @_Z32duDebugDrawNavMeshPolysWithFlagsP11duDebugDrawRK9dtNavMeshtj(pt
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %17, label %.loopexit, !llvm.loop !24
+  br i1 %32, label %17, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %27, %10, %.lr.ph26
   %33 = add nuw nsw i32 %.025, 1
   %34 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
   %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph26, label %.loopexit23, !llvm.loop !25
+  br i1 %35, label %.lr.ph26, label %.loopexit23, !llvm.loop !26
 
 .loopexit23:                                      ; preds = %.loopexit, %.preheader, %4
   ret void
@@ -1305,14 +1305,14 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   call void %86(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.sink, i32 noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %106, label %76, !llvm.loop !26
+  br i1 %exitcond.not, label %106, label %76, !llvm.loop !27
 
 106:                                              ; preds = %105
   %107 = add nuw nsw i32 %.03844, 1
   %108 = load i8, ptr %64, align 1
   %109 = zext i8 %108 to i32
   %110 = icmp samesign ult i32 %107, %109
-  br i1 %110, label %67, label %._crit_edge, !llvm.loop !27
+  br i1 %110, label %67, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %106, %56, %27
   %111 = load ptr, ptr %0, align 8
@@ -1542,12 +1542,12 @@ define void @_Z30duDebugDrawTileCacheLayerAreasP11duDebugDrawRK16dtTileCacheLaye
 153:                                              ; preds = %128, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %84
-  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !29
 
 ._crit_edge.us:                                   ; preds = %153
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge113, label %.preheader.us, !llvm.loop !29
+  br i1 %exitcond121.not, label %._crit_edge113, label %.preheader.us, !llvm.loop !30
 
 ._crit_edge113:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   %154 = load ptr, ptr %0, align 8
@@ -1659,12 +1659,12 @@ define internal fastcc void @_ZL25debugDrawTileCachePortalsP11duDebugDrawRK16dtT
 67:                                               ; preds = %35, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit.us, label %27, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit.us, label %27, !llvm.loop !32
 
 .loopexit.us:                                     ; preds = %67, %21
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, %18
-  br i1 %exitcond69.not, label %._crit_edge.us, label %21, !llvm.loop !32
+  br i1 %exitcond69.not, label %._crit_edge.us, label %21, !llvm.loop !33
 
 .preheader.us:                                    ; preds = %21
   %68 = zext i8 %25 to i32
@@ -1676,7 +1676,7 @@ define internal fastcc void @_ZL25debugDrawTileCachePortalsP11duDebugDrawRK16dtT
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge62, label %.preheader58.us, !llvm.loop !33
+  br i1 %exitcond74.not, label %._crit_edge62, label %.preheader58.us, !llvm.loop !34
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %.preheader58.lr.ph, %4
   %72 = load ptr, ptr %0, align 8
@@ -1845,12 +1845,12 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
 125:                                              ; preds = %70, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %60
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %125
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge90, label %.preheader.us, !llvm.loop !35
+  br i1 %exitcond98.not, label %._crit_edge90, label %.preheader.us, !llvm.loop !36
 
 ._crit_edge90:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   %126 = load ptr, ptr %0, align 8
@@ -1983,14 +1983,14 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %97 = load i32, ptr %18, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %26, label %._crit_edge, !llvm.loop !36
+  br i1 %99, label %26, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %96, %16
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %100 = load i32, ptr %1, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next123, %101
-  br i1 %102, label %16, label %._crit_edge112, !llvm.loop !37
+  br i1 %102, label %16, label %._crit_edge112, !llvm.loop !38
 
 ._crit_edge112:                                   ; preds = %._crit_edge, %6
   %103 = load ptr, ptr %0, align 8
@@ -2065,7 +2065,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %154 = load i32, ptr %117, align 8
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next126, %155
-  br i1 %156, label %124, label %._crit_edge116.loopexit, !llvm.loop !38
+  br i1 %156, label %124, label %._crit_edge116.loopexit, !llvm.loop !39
 
 ._crit_edge116.loopexit:                          ; preds = %124
   %.pre = load i32, ptr %1, align 8
@@ -2076,7 +2076,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next129, %158
-  br i1 %159, label %114, label %._crit_edge120, !llvm.loop !39
+  br i1 %159, label %114, label %._crit_edge120, !llvm.loop !40
 
 ._crit_edge120:                                   ; preds = %._crit_edge116, %._crit_edge112
   %160 = load ptr, ptr %0, align 8
@@ -2174,7 +2174,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 47:                                               ; preds = %48
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count
-  br i1 %exitcond260.not, label %._crit_edge.us, label %39, !llvm.loop !40
+  br i1 %exitcond260.not, label %._crit_edge.us, label %39, !llvm.loop !41
 
 48:                                               ; preds = %48, %43
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %48 ], [ 0, %43 ]
@@ -2206,14 +2206,14 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %64, float noundef %69, i32 noundef %.0200.us)
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next255, 3
-  br i1 %exitcond.not, label %47, label %48, !llvm.loop !41
+  br i1 %exitcond.not, label %47, label %48, !llvm.loop !42
 
 ._crit_edge.us:                                   ; preds = %39, %47
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %73 = load i32, ptr %12, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next262, %74
-  br i1 %75, label %.lr.ph228.split.us, label %._crit_edge229, !llvm.loop !42
+  br i1 %75, label %.lr.ph228.split.us, label %._crit_edge229, !llvm.loop !43
 
 .lr.ph228.split:                                  ; preds = %.lr.ph228, %86
   %76 = phi i32 [ %87, %86 ], [ %13, %.lr.ph228 ]
@@ -2240,7 +2240,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph228.split, label %._crit_edge229, !llvm.loop !43
+  br i1 %89, label %.lr.ph228.split, label %._crit_edge229, !llvm.loop !44
 
 ._crit_edge229:                                   ; preds = %86, %._crit_edge.us, %7
   %90 = load ptr, ptr %0, align 8
@@ -2312,7 +2312,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 
 .loopexit222.us:                                  ; preds = %127, %115
   %exitcond271.not = icmp eq i64 %117, %104
-  br i1 %exitcond271.not, label %._crit_edge.us238, label %111, !llvm.loop !44
+  br i1 %exitcond271.not, label %._crit_edge.us238, label %111, !llvm.loop !45
 
 127:                                              ; preds = %127, %123
   %128 = phi i1 [ false, %127 ], [ true, %123 ]
@@ -2342,14 +2342,14 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %150 = load ptr, ptr %149, align 8
   tail call void %150(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %134, float noundef %142, float noundef %147, i32 noundef 541077504)
-  br i1 %128, label %127, label %.loopexit222.us, !llvm.loop !45
+  br i1 %128, label %127, label %.loopexit222.us, !llvm.loop !46
 
 ._crit_edge.us238:                                ; preds = %111, %.loopexit222.us
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %151 = load i32, ptr %12, align 8
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next273, %152
-  br i1 %153, label %.lr.ph.us237, label %._crit_edge236, !llvm.loop !46
+  br i1 %153, label %.lr.ph.us237, label %._crit_edge236, !llvm.loop !47
 
 ._crit_edge236:                                   ; preds = %._crit_edge.us238, %.lr.ph235, %._crit_edge229
   %154 = load ptr, ptr %0, align 8
@@ -2524,18 +2524,18 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 48
   %285 = load ptr, ptr %284, align 8
   tail call void %285(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %269, float noundef %277, float noundef %282, i32 noundef %.0210.us)
-  br i1 %261, label %260, label %.loopexit.us, !llvm.loop !47
+  br i1 %261, label %260, label %.loopexit.us, !llvm.loop !48
 
 .loopexit.us:                                     ; preds = %260, %181
   %exitcond282.not = icmp eq i64 %.pre289, %168
-  br i1 %exitcond282.not, label %._crit_edge.us247, label %177, !llvm.loop !48
+  br i1 %exitcond282.not, label %._crit_edge.us247, label %177, !llvm.loop !49
 
 ._crit_edge.us247:                                ; preds = %177, %.loopexit.us
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %286 = load i32, ptr %12, align 8
   %287 = sext i32 %286 to i64
   %288 = icmp slt i64 %indvars.iv.next284, %287
-  br i1 %288, label %.lr.ph.us246, label %._crit_edge245, !llvm.loop !49
+  br i1 %288, label %.lr.ph.us246, label %._crit_edge245, !llvm.loop !50
 
 ._crit_edge245:                                   ; preds = %._crit_edge.us247, %.lr.ph244, %._crit_edge236
   %289 = load ptr, ptr %0, align 8
@@ -2587,7 +2587,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %324 = load i32, ptr %295, align 4
   %325 = sext i32 %324 to i64
   %326 = icmp slt i64 %indvars.iv.next287, %325
-  br i1 %326, label %301, label %._crit_edge, !llvm.loop !50
+  br i1 %326, label %301, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %301, %._crit_edge245
   %327 = load ptr, ptr %0, align 8
@@ -2679,7 +2679,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %46 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.081 = load i32, ptr %46, align 4
   %.not88.not = icmp eq i32 %.081, -1
-  br i1 %.not88.not, label %.critedge, label %47, !llvm.loop !51
+  br i1 %.not88.not, label %.critedge, label %47, !llvm.loop !52
 
 47:                                               ; preds = %.lr.ph, %45
   %.081107 = phi i32 [ %.081105, %.lr.ph ], [ %.081, %45 ]
@@ -2769,7 +2769,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   store ptr %.sink, ptr %100, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %80, !llvm.loop !52
+  br i1 %exitcond.not, label %.preheader, label %80, !llvm.loop !53
 
 101:                                              ; preds = %.preheader, %153
   %indvars.iv122 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next123, %153 ]
@@ -2849,19 +2849,19 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %154 = trunc nuw nsw i64 %indvars.iv122 to i32
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %155, label %101, !llvm.loop !53
+  br i1 %exitcond125.not, label %155, label %101, !llvm.loop !54
 
 155:                                              ; preds = %153
   %156 = add nuw nsw i32 %.078113, 1
   %157 = load i8, ptr %35, align 1
   %158 = zext i8 %157 to i32
   %159 = icmp samesign ult i32 %156, %158
-  br i1 %159, label %71, label %.loopexit, !llvm.loop !54
+  br i1 %159, label %71, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %155, %.critedge, %54, %42
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %37
-  br i1 %exitcond129.not, label %.loopexit104.loopexit, label %38, !llvm.loop !55
+  br i1 %exitcond129.not, label %.loopexit104.loopexit, label %38, !llvm.loop !56
 
 .loopexit104.loopexit:                            ; preds = %.loopexit
   %.pre = load ptr, ptr %10, align 8
@@ -2874,7 +2874,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next131, %163
-  br i1 %164, label %21, label %._crit_edge, !llvm.loop !56
+  br i1 %164, label %21, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.loopexit104, %5
   %165 = load ptr, ptr %0, align 8
@@ -2898,56 +2898,57 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !14}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !14}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5, !30}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5, !30}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5, !30}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5, !30}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5, !30}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6, !15}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !15}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6, !31}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6, !31}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6, !31}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6, !31}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6, !31}
+!51 = distinct !{!51, !5, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5, !6}
+!54 = distinct !{!54, !5, !6}
+!55 = distinct !{!55, !5, !6}
+!56 = distinct !{!56, !5, !6}
+!57 = distinct !{!57, !5, !6}

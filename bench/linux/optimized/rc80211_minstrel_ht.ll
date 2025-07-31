@@ -187,12 +187,12 @@ define internal fastcc void @init_sample_table() unnamed_addr #2 section ".init.
   store i8 %27, ptr %26, align 1
   %28 = add nuw nsw i64 %5, 1
   %29 = icmp eq i64 %28, 10
-  br i1 %29, label %30, label %4, !llvm.loop !9
+  br i1 %29, label %30, label %4, !llvm.loop !10
 
 30:                                               ; preds = %.loopexit
   %31 = add nuw nsw i64 %3, 1
   %32 = icmp eq i64 %31, 10
-  br i1 %32, label %33, label %2, !llvm.loop !10
+  br i1 %32, label %33, label %2, !llvm.loop !11
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #14
@@ -285,7 +285,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #4 align 
 46:                                               ; preds = %49
   %47 = add nuw nsw i64 %50, 1
   %48 = icmp eq i64 %47, 4
-  br i1 %48, label %.loopexit12, label %49, !llvm.loop !11
+  br i1 %48, label %.loopexit12, label %49, !llvm.loop !12
 
 49:                                               ; preds = %46, %42
   %50 = phi i64 [ 0, %42 ], [ %47, %46 ]
@@ -304,7 +304,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #4 align 
 .loopexit12:                                      ; preds = %46, %55, %36
   %58 = add nuw nsw i64 %37, 1
   %59 = icmp eq i64 %58, %35
-  br i1 %59, label %.loopexit13, label %36, !llvm.loop !12
+  br i1 %59, label %.loopexit13, label %36, !llvm.loop !13
 
 .loopexit13:                                      ; preds = %.loopexit12, %28, %5
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -348,7 +348,7 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #4 align 
 85:                                               ; preds = %88
   %86 = add nuw nsw i64 %89, 1
   %87 = icmp eq i64 %86, 8
-  br i1 %87, label %.loopexit, label %88, !llvm.loop !11
+  br i1 %87, label %.loopexit, label %88, !llvm.loop !14
 
 88:                                               ; preds = %85, %81
   %89 = phi i64 [ 0, %81 ], [ %86, %85 ]
@@ -367,12 +367,12 @@ define internal noalias noundef ptr @minstrel_ht_alloc(ptr noundef %0) #4 align 
 .loopexit:                                        ; preds = %85, %94, %75
   %97 = add nuw nsw i64 %76, 1
   %98 = icmp eq i64 %97, %74
-  br i1 %98, label %.loopexit10, label %75, !llvm.loop !12
+  br i1 %98, label %.loopexit10, label %75, !llvm.loop !15
 
 .loopexit10:                                      ; preds = %.loopexit, %67, %61
   %99 = add nuw nsw i64 %62, 1
   %100 = icmp eq i64 %99, 6
-  br i1 %100, label %.loopexit11, label %61, !llvm.loop !13
+  br i1 %100, label %.loopexit11, label %61, !llvm.loop !16
 
 .loopexit11:                                      ; preds = %.loopexit10, %1
   ret ptr %3
@@ -525,7 +525,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 76:                                               ; preds = %84
   %77 = add nuw nsw i64 %85, 1
   %78 = icmp eq i64 %77, 4
-  br i1 %78, label %79, label %84, !llvm.loop !14
+  br i1 %78, label %79, label %84, !llvm.loop !17
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -558,7 +558,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %102 = add nuw nsw i64 %94, 1
   %103 = icmp eq i64 %102, 6
   %104 = select i1 %101, i1 true, i1 %103
-  br i1 %104, label %105, label %93, !llvm.loop !15
+  br i1 %104, label %105, label %93, !llvm.loop !18
 
 105:                                              ; preds = %93
   br i1 %101, label %.loopexit50, label %.loopexit44
@@ -610,7 +610,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 136:                                              ; preds = %142
   %137 = add nuw nsw i64 %143, 1
   %138 = icmp eq i64 %137, 4
-  br i1 %138, label %139, label %142, !llvm.loop !14
+  br i1 %138, label %139, label %142, !llvm.loop !19
 
 139:                                              ; preds = %136
   %140 = load i8, ptr %108, align 1
@@ -641,7 +641,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %160 = add nuw nsw i64 %152, 1
   %161 = icmp eq i64 %160, 6
   %162 = select i1 %159, i1 true, i1 %161
-  br i1 %162, label %.loopexit47.loopexit, label %151, !llvm.loop !15
+  br i1 %162, label %.loopexit47.loopexit, label %151, !llvm.loop !20
 
 .loopexit47.loopexit:                             ; preds = %151
   %163 = xor i1 %159, true
@@ -739,7 +739,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br i1 %236, label %.loopexit46, label %237
 
 237:                                              ; preds = %228
-  %238 = load i8, ptr %110, align 4, !range !16, !noundef !17
+  %238 = load i8, ptr %110, align 4, !range !21, !noundef !22
   %239 = icmp eq i8 %238, 0
   %240 = select i1 %239, i32 %229, i32 %232
   br label %.loopexit46
@@ -747,7 +747,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 241:                                              ; preds = %219
   %242 = add nuw nsw i64 %220, 1
   %243 = icmp eq i64 %242, 4
-  br i1 %243, label %216, label %219, !llvm.loop !18
+  br i1 %243, label %216, label %219, !llvm.loop !23
 
 244:                                              ; preds = %253, %216
   %245 = phi i64 [ 0, %216 ], [ %254, %253 ]
@@ -763,7 +763,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 253:                                              ; preds = %244
   %254 = add nuw nsw i64 %245, 1
   %255 = icmp eq i64 %254, 8
-  br i1 %255, label %.loopexit46, label %244, !llvm.loop !19
+  br i1 %255, label %.loopexit46, label %244, !llvm.loop !24
 
 256:                                              ; preds = %244
   %257 = trunc i64 %245 to i32
@@ -802,7 +802,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %279 = add i16 %277, %278
   store i16 %279, ptr %263, align 4
   %280 = add i32 %114, 1
-  br i1 %164, label %.loopexit44, label %113, !llvm.loop !20
+  br i1 %164, label %.loopexit44, label %113, !llvm.loop !25
 
 281:                                              ; preds = %59, %47
   %282 = load i8, ptr %7, align 1
@@ -828,7 +828,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 294:                                              ; preds = %302
   %295 = add nuw nsw i64 %303, 1
   %296 = icmp eq i64 %295, 4
-  br i1 %296, label %297, label %302, !llvm.loop !21
+  br i1 %296, label %297, label %302, !llvm.loop !26
 
 297:                                              ; preds = %294
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -853,7 +853,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %312 = add nuw nsw i64 %308, 1
   %313 = icmp eq i64 %312, 8
   %314 = select i1 %311, i1 true, i1 %313
-  br i1 %314, label %315, label %307, !llvm.loop !22
+  br i1 %314, label %315, label %307, !llvm.loop !27
 
 315:                                              ; preds = %307
   br i1 %311, label %.loopexit45, label %.loopexit44
@@ -895,7 +895,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 339:                                              ; preds = %.preheader
   %340 = add nuw nsw i64 %345, 1
   %341 = icmp eq i64 %340, 4
-  br i1 %341, label %342, label %.preheader, !llvm.loop !21
+  br i1 %341, label %342, label %.preheader, !llvm.loop !28
 
 342:                                              ; preds = %339
   %343 = load i8, ptr %318, align 1
@@ -918,7 +918,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %354 = add nuw nsw i64 %350, 1
   %355 = icmp eq i64 %354, 8
   %356 = select i1 %353, i1 true, i1 %355
-  br i1 %356, label %.loopexit42.loopexit, label %349, !llvm.loop !22
+  br i1 %356, label %.loopexit42.loopexit, label %349, !llvm.loop !29
 
 .loopexit42.loopexit:                             ; preds = %349
   %357 = xor i1 %353, true
@@ -1021,7 +1021,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 429:                                              ; preds = %411, %406
   %430 = add nuw nsw i64 %407, 1
   %431 = icmp eq i64 %430, 4
-  br i1 %431, label %401, label %406, !llvm.loop !23
+  br i1 %431, label %401, label %406, !llvm.loop !30
 
 432:                                              ; preds = %438, %401
   %433 = phi i64 [ 0, %401 ], [ %439, %438 ]
@@ -1034,7 +1034,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 438:                                              ; preds = %432
   %439 = add nuw nsw i64 %433, 1
   %440 = icmp eq i64 %439, 8
-  br i1 %440, label %.loopexit41, label %432, !llvm.loop !24
+  br i1 %440, label %.loopexit41, label %432, !llvm.loop !31
 
 441:                                              ; preds = %432
   %442 = trunc i64 %433 to i32
@@ -1071,7 +1071,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %462 = add i16 %460, %461
   store i16 %462, ptr %448, align 4
   %463 = add i32 %323, 1
-  br i1 %358, label %.loopexit44, label %322, !llvm.loop !25
+  br i1 %358, label %.loopexit44, label %322, !llvm.loop !32
 
 .loopexit44:                                      ; preds = %270, %455, %315, %284, %281, %105, %63
   %464 = load ptr, ptr %0, align 8
@@ -1124,7 +1124,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 498:                                              ; preds = %500, %492
   %499 = icmp samesign ugt i64 %493, 1
-  br i1 %499, label %492, label %.loopexit40, !llvm.loop !26
+  br i1 %499, label %492, label %.loopexit40, !llvm.loop !33
 
 500:                                              ; preds = %492
   %501 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %494, i32 1
@@ -1185,7 +1185,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 538:                                              ; preds = %540, %532
   %539 = icmp samesign ugt i64 %533, 1
-  br i1 %539, label %532, label %.loopexit, !llvm.loop !26
+  br i1 %539, label %532, label %.loopexit, !llvm.loop !34
 
 540:                                              ; preds = %532
   %541 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %534, i32 1
@@ -1306,7 +1306,7 @@ define internal void @minstrel_ht_get_rate(ptr noundef readonly captures(none) %
 51:                                               ; preds = %54
   %52 = add nuw nsw i64 %55, 1
   %53 = icmp eq i64 %52, 5
-  br i1 %53, label %.thread, label %54, !llvm.loop !27
+  br i1 %53, label %.thread, label %54, !llvm.loop !35
 
 54:                                               ; preds = %51, %48
   %55 = phi i64 [ 0, %48 ], [ %52, %51 ]
@@ -1329,7 +1329,7 @@ define internal void @minstrel_ht_get_rate(ptr noundef readonly captures(none) %
 67:                                               ; preds = %59
   %68 = icmp samesign ugt i16 %65, 3
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %70 = load i8, ptr %69, align 4, !range !16, !noundef !17
+  %70 = load i8, ptr %69, align 4, !range !21, !noundef !22
   %71 = zext i1 %68 to i8
   %72 = icmp eq i8 %70, %71
   br i1 %72, label %73, label %.thread
@@ -1383,12 +1383,12 @@ define internal void @minstrel_ht_get_rate(ptr noundef readonly captures(none) %
   %106 = zext i8 %105 to i32
   %107 = add nsw i32 %106, -1
   %108 = icmp ult i32 %107, 8
-  br i1 %108, label %111, label %109, !prof !28
+  br i1 %108, label %111, label %109, !prof !36
 
 109:                                              ; preds = %101
-  tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #14, !srcloc !29
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1090, i32 2305, i64 12) #14, !srcloc !30
-  tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_end\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #14, !srcloc !31
+  tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #14, !srcloc !37
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1090, i32 2305, i64 12) #14, !srcloc !38
+  tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_end\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #14, !srcloc !39
   %.pre.pre = load i16, ptr %76, align 1
   %110 = and i16 %.pre.pre, 31
   br label %111
@@ -1532,7 +1532,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 241
   %7 = load i16, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 260
-  %9 = load i8, ptr %8, align 4, !range !16, !noundef !17
+  %9 = load i8, ptr %8, align 4, !range !21, !noundef !22
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %15, label %11
 
@@ -1597,12 +1597,12 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
 52:                                               ; preds = %47
   %53 = add nuw nsw i64 %48, 1
   %54 = icmp eq i64 %53, %40
-  br i1 %54, label %.loopexit12, label %47, !llvm.loop !32
+  br i1 %54, label %.loopexit12, label %47, !llvm.loop !40
 
 .loopexit12:                                      ; preds = %52, %15
-  tail call void asm sideeffect "547: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 547b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 547) #14, !srcloc !33
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 6842, i32 2307, i64 12) #14, !srcloc !34
-  tail call void asm sideeffect "548: nop\0A\09.pushsection .discard.instr_end\0A\09.long 548b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 548) #14, !srcloc !35
+  tail call void asm sideeffect "547: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 547b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 547) #14, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 6842, i32 2307, i64 12) #14, !srcloc !42
+  tail call void asm sideeffect "548: nop\0A\09.pushsection .discard.instr_end\0A\09.long 548b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 548) #14, !srcloc !43
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %47
@@ -1721,7 +1721,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   br i1 %130, label %141, label %131
 
 131:                                              ; preds = %128
-  %132 = load i8, ptr @minstrel_vht_only, align 1, !range !16
+  %132 = load i8, ptr @minstrel_vht_only, align 1, !range !21
   %133 = icmp eq i8 %132, 0
   %134 = select i1 %16, i1 true, i1 %133
   br i1 %134, label %135, label %193
@@ -1736,30 +1736,30 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   br label %193
 
 141:                                              ; preds = %128
-  %142 = load i8, ptr %8, align 4, !range !16, !noundef !17
+  %142 = load i8, ptr %8, align 4, !range !21, !noundef !22
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %193, label %144
 
 144:                                              ; preds = %141
   %145 = and i32 %107, 256
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %148, !prof !36
+  br i1 %146, label %147, label %148, !prof !44
 
 147:                                              ; preds = %144
-  tail call void asm sideeffect "3245: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3245b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3245) #14, !srcloc !37
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1797, i32 2305, i64 12) #14, !srcloc !38
-  tail call void asm sideeffect "3246: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3246b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3246) #14, !srcloc !39
+  tail call void asm sideeffect "3245: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3245b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3245) #14, !srcloc !45
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1797, i32 2305, i64 12) #14, !srcloc !46
+  tail call void asm sideeffect "3246: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3246b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3246) #14, !srcloc !47
   br label %193
 
 148:                                              ; preds = %144
   %149 = and i32 %107, 1024
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %152, label %151, !prof !28
+  br i1 %150, label %152, label %151, !prof !36
 
 151:                                              ; preds = %148
-  tail call void asm sideeffect "3247: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3247b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3247) #14, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1798, i32 2305, i64 12) #14, !srcloc !41
-  tail call void asm sideeffect "3248: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3248b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3248) #14, !srcloc !42
+  tail call void asm sideeffect "3247: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3247b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3247) #14, !srcloc !48
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1798, i32 2305, i64 12) #14, !srcloc !49
+  tail call void asm sideeffect "3248: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3248b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3248) #14, !srcloc !50
   br label %193
 
 152:                                              ; preds = %148
@@ -1844,7 +1844,7 @@ default.unreachable19:                            ; preds = %178
 193:                                              ; preds = %190, %159, %155, %151, %147, %141, %135, %131, %.thread, %.thread22, %117, %116, %103
   %194 = add nuw nsw i64 %104, 1
   %195 = icmp eq i64 %194, 42
-  br i1 %195, label %196, label %103, !llvm.loop !43
+  br i1 %195, label %196, label %103, !llvm.loop !51
 
 196:                                              ; preds = %193
   %197 = getelementptr i8, ptr %2, i64 -2464
@@ -1857,7 +1857,7 @@ default.unreachable19:                            ; preds = %178
   %202 = getelementptr i8, ptr %2, i64 -2600
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4182
-  %205 = load i8, ptr %204, align 2, !range !16, !noundef !17
+  %205 = load i8, ptr %204, align 2, !range !21, !noundef !22
   br label %206
 
 206:                                              ; preds = %201, %196
@@ -1870,7 +1870,7 @@ default.unreachable19:                            ; preds = %178
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds nuw i8, ptr %2, i64 238
-  %213 = load i8, ptr %212, align 2, !range !16, !noundef !17
+  %213 = load i8, ptr %212, align 2, !range !21, !noundef !22
   %214 = icmp eq i8 %213, 0
   br i1 %214, label %221, label %215
 
@@ -1919,7 +1919,7 @@ default.unreachable19:                            ; preds = %178
 243:                                              ; preds = %239, %.critedge8.us, %.split14.us
   %244 = add nuw nsw i64 %226, 1
   %245 = icmp eq i64 %244, 4
-  br i1 %245, label %.loopexit11, label %.split14.us, !llvm.loop !44
+  br i1 %245, label %.loopexit11, label %.split14.us, !llvm.loop !52
 
 .split14:                                         ; preds = %221, %273
   %246 = phi i64 [ %274, %273 ], [ 0, %221 ]
@@ -1963,11 +1963,11 @@ default.unreachable19:                            ; preds = %178
 273:                                              ; preds = %269, %.critedge8, %250, %.split14
   %274 = add nuw nsw i64 %246, 1
   %275 = icmp eq i64 %274, 4
-  br i1 %275, label %.loopexit11, label %.split14, !llvm.loop !46
+  br i1 %275, label %.loopexit11, label %.split14, !llvm.loop !54
 
 .loopexit11:                                      ; preds = %273, %243, %215, %206
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 238
-  %277 = load i8, ptr %276, align 2, !range !16, !noundef !17
+  %277 = load i8, ptr %276, align 2, !range !21, !noundef !22
   %278 = icmp eq i8 %277, 0
   br i1 %278, label %279, label %.loopexit
 
@@ -1999,7 +1999,7 @@ default.unreachable19:                            ; preds = %178
 295:                                              ; preds = %.critedge10.us, %.split15.us
   %296 = add nuw nsw i64 %287, 1
   %297 = icmp eq i64 %296, 8
-  br i1 %297, label %.loopexit, label %.split15.us, !llvm.loop !47
+  br i1 %297, label %.loopexit, label %.split15.us, !llvm.loop !55
 
 .split15:                                         ; preds = %279, %316
   %298 = phi i64 [ %317, %316 ], [ 0, %279 ]
@@ -2031,7 +2031,7 @@ default.unreachable19:                            ; preds = %178
 316:                                              ; preds = %.critedge10, %302, %.split15
   %317 = add nuw nsw i64 %298, 1
   %318 = icmp eq i64 %317, 8
-  br i1 %318, label %.loopexit, label %.split15, !llvm.loop !48
+  br i1 %318, label %.loopexit, label %.split15, !llvm.loop !56
 
 .loopexit:                                        ; preds = %316, %295, %.loopexit11
   tail call fastcc void @minstrel_ht_update_stats(ptr noundef %0, ptr noundef %3)
@@ -2053,7 +2053,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 238
-  %8 = load i8, ptr %7, align 2, !range !16, !noundef !17
+  %8 = load i8, ptr %7, align 2, !range !21, !noundef !22
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
@@ -2114,7 +2114,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %44, ptr %47, align 2
   %48 = add nuw nsw i64 %46, 1
   %49 = icmp eq i64 %48, 4
-  br i1 %49, label %50, label %45, !llvm.loop !49
+  br i1 %49, label %50, label %45, !llvm.loop !57
 
 50:                                               ; preds = %45
   store i64 0, ptr %3, align 8, !annotation !5
@@ -2142,7 +2142,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %56, ptr %66, align 2
   %67 = add nuw nsw i64 %65, 1
   %68 = icmp eq i64 %67, 4
-  br i1 %68, label %57, label %64, !llvm.loop !50
+  br i1 %68, label %57, label %64, !llvm.loop !58
 
 69:                                               ; preds = %515, %57
   %70 = phi i64 [ 0, %57 ], [ %516, %515 ]
@@ -2163,7 +2163,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %77, ptr %80, align 2
   %81 = add nuw nsw i64 %79, 1
   %82 = icmp eq i64 %81, 4
-  br i1 %82, label %83, label %78, !llvm.loop !51
+  br i1 %82, label %83, label %78, !llvm.loop !59
 
 83:                                               ; preds = %78
   %84 = icmp eq i64 %70, 16
@@ -2195,7 +2195,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i8 0, ptr %105, align 2
   %106 = load i16, ptr %104, align 4
   %107 = icmp eq i16 %106, 0
-  br i1 %107, label %._crit_edge, label %108, !prof !28
+  br i1 %107, label %._crit_edge, label %108, !prof !36
 
 ._crit_edge:                                      ; preds = %101
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -2540,7 +2540,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 345:                                              ; preds = %341
   %346 = icmp eq i64 %273, 0
-  br i1 %346, label %.thread15.i, label %271, !llvm.loop !52
+  br i1 %346, label %.thread15.i, label %271, !llvm.loop !60
 
 347:                                              ; preds = %341, %338
   %348 = trunc i64 %272 to i32
@@ -2750,7 +2750,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 
 492:                                              ; preds = %488
   %493 = icmp eq i64 %420, 0
-  br i1 %493, label %.thread15.i87, label %418, !llvm.loop !52
+  br i1 %493, label %.thread15.i87, label %418, !llvm.loop !60
 
 494:                                              ; preds = %488, %485
   %495 = trunc i64 %419 to i32
@@ -2782,7 +2782,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
   %509 = phi i16 [ %156, %190 ], [ %95, %93 ], [ %156, %154 ], [ %156, %504 ], [ %156, %506 ]
   %510 = add nsw i64 %94, -1
   %511 = icmp eq i64 %94, 0
-  br i1 %511, label %512, label %93, !llvm.loop !53
+  br i1 %511, label %512, label %93, !llvm.loop !61
 
 512:                                              ; preds = %.critedge
   %513 = getelementptr inbounds nuw i8, ptr %71, i64 2
@@ -2793,7 +2793,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 515:                                              ; preds = %512, %69
   %516 = add nuw nsw i64 %70, 1
   %517 = icmp eq i64 %516, 42
-  br i1 %517, label %518, label %69, !llvm.loop !54
+  br i1 %517, label %518, label %69, !llvm.loop !62
 
 518:                                              ; preds = %515
   %519 = load i16, ptr %5, align 8
@@ -3174,7 +3174,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 
 796:                                              ; preds = %792
   %797 = icmp eq i64 %724, 0
-  br i1 %797, label %.thread15.i95, label %722, !llvm.loop !52
+  br i1 %797, label %.thread15.i95, label %722, !llvm.loop !60
 
 798:                                              ; preds = %792, %789
   %799 = trunc i64 %723 to i32
@@ -3205,7 +3205,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %357, %359
 minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %813 = add nuw nsw i64 %655, 1
   %814 = icmp eq i64 %813, 4
-  br i1 %814, label %.loopexit113, label %.preheader, !llvm.loop !55
+  br i1 %814, label %.loopexit113, label %.preheader, !llvm.loop !63
 
 .loopexit113:                                     ; preds = %minstrel_ht_sort_best_tp_rates.exit96, %652
   %815 = load i64, ptr %3, align 8
@@ -3520,18 +3520,18 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1030 = phi i16 [ %858, %855 ], [ %978, %1019 ], [ %1024, %1022 ], [ %858, %919 ], [ %1027, %1026 ], [ %858, %924 ]
   %1031 = add nuw nsw i64 %857, 1
   %1032 = icmp eq i64 %1031, 10
-  br i1 %1032, label %.loopexit112, label %855, !llvm.loop !56
+  br i1 %1032, label %.loopexit112, label %855, !llvm.loop !64
 
 .loopexit112:                                     ; preds = %1028, %840
   %1033 = phi i16 [ %842, %840 ], [ %1030, %1028 ]
   %1034 = add nuw nsw i64 %841, 1
   %1035 = icmp eq i64 %1034, 42
-  br i1 %1035, label %1036, label %840, !llvm.loop !57
+  br i1 %1035, label %1036, label %840, !llvm.loop !65
 
 1036:                                             ; preds = %.loopexit112
   %1037 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i16 %1033, ptr %1037, align 4
-  %1038 = load i8, ptr %7, align 2, !range !16, !noundef !17
+  %1038 = load i8, ptr %7, align 2, !range !21, !noundef !22
   %1039 = icmp eq i8 %1038, 0
   %.pre198 = lshr i64 %815, 4
   %.pre200 = and i64 %.pre198, 4095
@@ -3702,7 +3702,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1151 = phi i32 [ %1055, %1052 ], [ %1055, %1116 ], [ %1055, %1094 ], [ %1149, %1141 ], [ %1055, %1061 ]
   %1152 = add nuw nsw i64 %1054, 1
   %1153 = icmp eq i64 %1152, 42
-  br i1 %1153, label %.loopexit111, label %1052, !llvm.loop !58
+  br i1 %1153, label %.loopexit111, label %1052, !llvm.loop !66
 
 .loopexit111:                                     ; preds = %.critedge80, %..loopexit111_crit_edge
   %.pre-phi203 = phi i64 [ %.pre202, %..loopexit111_crit_edge ], [ %1049, %.critedge80 ]
@@ -3793,7 +3793,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1223 = phi i32 [ %1195, %1193 ], [ %1195, %1213 ], [ %1221, %1220 ]
   %1224 = add nuw nsw i64 %1194, 1
   %1225 = icmp eq i64 %1224, 5
-  br i1 %1225, label %1226, label %1193, !llvm.loop !59
+  br i1 %1225, label %1226, label %1193, !llvm.loop !67
 
 1226:                                             ; preds = %1222
   %1227 = tail call i32 @llvm.umax.i32(i32 %1175, i32 %1189)
@@ -3810,7 +3810,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1234 = add nsw i64 %1238, 1
   %1235 = and i64 %1234, 4294967295
   %1236 = icmp eq i64 %1235, 5
-  br i1 %1236, label %.loopexit110, label %1237, !llvm.loop !60
+  br i1 %1236, label %.loopexit110, label %1237, !llvm.loop !68
 
 1237:                                             ; preds = %1233, %1231
   %1238 = phi i64 [ %1232, %1231 ], [ %1234, %1233 ]
@@ -3863,7 +3863,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1275 = icmp samesign ult i64 %1255, 9
   %1276 = icmp ugt i16 %1256, 1
   %1277 = and i1 %1275, %1276
-  br i1 %1277, label %1254, label %.thread, !llvm.loop !61
+  br i1 %1277, label %1254, label %.thread, !llvm.loop !69
 
 1278:                                             ; preds = %1259
   %1279 = trunc nuw nsw i64 %1255 to i32
@@ -3889,12 +3889,12 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
 1290:                                             ; preds = %1282
   %1291 = add nuw nsw i64 %1283, 1
   %1292 = icmp eq i64 %1291, 5
-  br i1 %1292, label %1296, label %1282, !llvm.loop !62
+  br i1 %1292, label %1296, label %1282, !llvm.loop !70
 
 .thread:                                          ; preds = %1272, %1282, %1240
   %1293 = add nuw nsw i32 %1241, 1
   %1294 = icmp eq i32 %1293, 42
-  br i1 %1294, label %.thread97, label %1240, !llvm.loop !63
+  br i1 %1294, label %.thread97, label %1240, !llvm.loop !71
 
 .thread97:                                        ; preds = %.thread
   store i8 %1246, ptr %1228, align 2
@@ -3959,7 +3959,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1331 = phi i32 [ %1303, %1301 ], [ %1303, %1321 ], [ %1329, %1328 ]
   %1332 = add nuw nsw i64 %1302, 1
   %1333 = icmp eq i64 %1332, 5
-  br i1 %1333, label %1334, label %1301, !llvm.loop !59
+  br i1 %1333, label %1334, label %1301, !llvm.loop !72
 
 1334:                                             ; preds = %1330
   %1335 = getelementptr i8, ptr %1, i64 134
@@ -4012,7 +4012,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1368 = phi i32 [ %1338, %1336 ], [ %1338, %1358 ], [ %1366, %1365 ]
   %1369 = add nuw nsw i64 %1337, 1
   %1370 = icmp eq i64 %1369, 5
-  br i1 %1370, label %1371, label %1336, !llvm.loop !59
+  br i1 %1370, label %1371, label %1336, !llvm.loop !73
 
 1371:                                             ; preds = %1367
   %1372 = icmp slt i32 %1331, 5
@@ -4027,7 +4027,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1377 = add nsw i64 %1381, 1
   %1378 = and i64 %1377, 4294967295
   %1379 = icmp eq i64 %1378, 5
-  br i1 %1379, label %.loopexit.preheader, label %1380, !llvm.loop !64
+  br i1 %1379, label %.loopexit.preheader, label %1380, !llvm.loop !74
 
 1380:                                             ; preds = %1376, %1373
   %1381 = phi i64 [ %1375, %1373 ], [ %1377, %1376 ]
@@ -4085,7 +4085,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %1423 = icmp samesign ult i64 %1403, 9
   %1424 = icmp ugt i16 %1404, 1
   %1425 = and i1 %1423, %1424
-  br i1 %1425, label %1402, label %.thread98, !llvm.loop !61
+  br i1 %1425, label %1402, label %.thread98, !llvm.loop !75
 
 1426:                                             ; preds = %1407
   %1427 = getelementptr [42 x %struct.minstrel_mcs_group_data], ptr %58, i64 0, i64 %1395
@@ -4131,7 +4131,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
 1455:                                             ; preds = %1451, %1446
   %1456 = add nuw nsw i32 %1433, 1
   %1457 = icmp eq i32 %1456, 10
-  br i1 %1457, label %.thread99, label %1432, !llvm.loop !65
+  br i1 %1457, label %.thread99, label %1432, !llvm.loop !76
 
 .thread99:                                        ; preds = %1455
   store i8 %1447, ptr %1427, align 4
@@ -4176,7 +4176,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
 1484:                                             ; preds = %1476
   %1485 = add nuw nsw i64 %1477, 1
   %1486 = icmp eq i64 %1485, 5
-  br i1 %1486, label %1487, label %1476, !llvm.loop !62
+  br i1 %1486, label %1487, label %1476, !llvm.loop !77
 
 1487:                                             ; preds = %1484, %1476
   br i1 %1474, label %1506, label %1488
@@ -4211,7 +4211,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   %.ph103 = phi i32 [ %1390, %.thread99 ], [ %1390, %1488 ], [ %1502, %1497 ], [ %1390, %1492 ], [ %1390, %1386 ], [ %1390, %1476 ], [ %1390, %1420 ]
   %1503 = add nuw nsw i32 %1389, 1
   %1504 = icmp eq i32 %1503, 42
-  br i1 %1504, label %.thread107, label %1386, !llvm.loop !66
+  br i1 %1504, label %.thread107, label %1386, !llvm.loop !78
 
 .thread107:                                       ; preds = %.thread98
   store i8 %1394, ptr %1374, align 2
@@ -4237,7 +4237,7 @@ minstrel_ht_sort_best_tp_rates.exit96:            ; preds = %808, %810
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %1511, ptr noundef nonnull align 2 dereferenceable(10) %1512, i64 10, i1 false)
   %1513 = add nuw nsw i64 %1509, 1
   %1514 = icmp eq i64 %1513, 3
-  br i1 %1514, label %1515, label %.loopexit, !llvm.loop !67
+  br i1 %1514, label %1515, label %.loopexit, !llvm.loop !79
 
 1515:                                             ; preds = %.loopexit
   %1516 = load volatile i64, ptr @jiffies, align 64
@@ -4286,7 +4286,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   tail call fastcc void @minstrel_ht_set_rate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %24, i32 noundef %23)
   %25 = add nuw nsw i64 %20, 1
   %26 = icmp eq i64 %25, %18
-  br i1 %26, label %.loopexit, label %19, !llvm.loop !68
+  br i1 %26, label %.loopexit, label %19, !llvm.loop !80
 
 .loopexit:                                        ; preds = %19, %11
   %27 = phi i32 [ 1, %11 ], [ %17, %19 ]
@@ -4368,7 +4368,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
 78:                                               ; preds = %68
   %79 = load ptr, ptr %1, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 260
-  %81 = load i8, ptr %80, align 4, !range !16, !noundef !17
+  %81 = load i8, ptr %80, align 4, !range !21, !noundef !22
   %82 = icmp eq i8 %81, 0
   %83 = select i1 %82, i16 4095, i16 0
   br label %84
@@ -4410,7 +4410,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %14 = getelementptr i8, ptr %13, i64 %.idx
   %15 = getelementptr i8, ptr %14, i64 %.idx4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 22
-  %17 = load i8, ptr %16, align 2, !range !16, !noundef !17
+  %17 = load i8, ptr %16, align 2, !range !21, !noundef !22
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %..loopexit_crit_edge
 
@@ -4561,7 +4561,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %125 = zext i8 %124 to i32
   %126 = load i32, ptr %98, align 8
   %127 = icmp ugt i32 %126, %125
-  br i1 %127, label %99, label %.loopexit, !llvm.loop !69
+  br i1 %127, label %99, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %123, %119, %..loopexit_crit_edge
   %128 = phi i16 [ %.pre6, %..loopexit_crit_edge ], [ %54, %119 ], [ %54, %123 ]
@@ -4739,67 +4739,79 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = !{!"branch_weights", i32 2000, i32 1}
-!29 = !{i64 2158179796, i64 2158179605, i64 2158179657, i64 2158179703, i64 2158179731}
-!30 = !{i64 2158179870, i64 2158179899, i64 2158179945, i64 2158180003, i64 2158180057, i64 2158180111, i64 2158180166, i64 2158180197, i64 2158180505, i64 2158180511, i64 2158180558, i64 2158180581, i64 2158180607}
-!31 = !{i64 2158181063, i64 2158180874, i64 2158180924, i64 2158180970, i64 2158180998}
-!32 = distinct !{!32, !7, !8}
-!33 = !{i64 2158218921, i64 2158218730, i64 2158218782, i64 2158218828, i64 2158218856}
-!34 = !{i64 2158218995, i64 2158219024, i64 2158219070, i64 2158219128, i64 2158219182, i64 2158219236, i64 2158219291, i64 2158219322, i64 2158219630, i64 2158219636, i64 2158219683, i64 2158219706, i64 2158219732}
-!35 = !{i64 2158220188, i64 2158219999, i64 2158220049, i64 2158220095, i64 2158220123}
-!36 = !{!"branch_weights", i32 1, i32 2000}
-!37 = !{i64 2170732971, i64 2170732775, i64 2170732827, i64 2170732873, i64 2170732901}
-!38 = !{i64 2170733048, i64 2170733077, i64 2170733123, i64 2170733181, i64 2170733235, i64 2170733289, i64 2170733344, i64 2170733375, i64 2170733683, i64 2170733689, i64 2170733736, i64 2170733759, i64 2170733785}
-!39 = !{i64 2170734258, i64 2170734064, i64 2170734114, i64 2170734160, i64 2170734188}
-!40 = !{i64 2170735108, i64 2170734912, i64 2170734964, i64 2170735010, i64 2170735038}
-!41 = !{i64 2170735185, i64 2170735214, i64 2170735260, i64 2170735318, i64 2170735372, i64 2170735426, i64 2170735481, i64 2170735512, i64 2170735820, i64 2170735826, i64 2170735873, i64 2170735896, i64 2170735922}
-!42 = !{i64 2170736395, i64 2170736201, i64 2170736251, i64 2170736297, i64 2170736325}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8, !45}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = distinct !{!59, !7, !8}
-!60 = distinct !{!60, !7, !8}
-!61 = distinct !{!61, !7, !8}
-!62 = distinct !{!62, !7, !8}
-!63 = distinct !{!63, !7, !8}
-!64 = distinct !{!64, !7, !8}
-!65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8}
-!67 = distinct !{!67, !7, !8}
-!68 = distinct !{!68, !7, !8}
-!69 = distinct !{!69, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = distinct !{!16, !7, !8, !9}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = distinct !{!18, !7, !8, !9}
+!19 = distinct !{!19, !7, !8, !9}
+!20 = distinct !{!20, !7, !8, !9}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = distinct !{!23, !7, !8, !9}
+!24 = distinct !{!24, !7, !8, !9}
+!25 = distinct !{!25, !7, !8, !9}
+!26 = distinct !{!26, !7, !8, !9}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = distinct !{!30, !7, !8, !9}
+!31 = distinct !{!31, !7, !8, !9}
+!32 = distinct !{!32, !7, !8, !9}
+!33 = distinct !{!33, !7, !8, !9}
+!34 = distinct !{!34, !7, !8, !9}
+!35 = distinct !{!35, !7, !8, !9}
+!36 = !{!"branch_weights", i32 2000, i32 1}
+!37 = !{i64 2158179796, i64 2158179605, i64 2158179657, i64 2158179703, i64 2158179731}
+!38 = !{i64 2158179870, i64 2158179899, i64 2158179945, i64 2158180003, i64 2158180057, i64 2158180111, i64 2158180166, i64 2158180197, i64 2158180505, i64 2158180511, i64 2158180558, i64 2158180581, i64 2158180607}
+!39 = !{i64 2158181063, i64 2158180874, i64 2158180924, i64 2158180970, i64 2158180998}
+!40 = distinct !{!40, !7, !8, !9}
+!41 = !{i64 2158218921, i64 2158218730, i64 2158218782, i64 2158218828, i64 2158218856}
+!42 = !{i64 2158218995, i64 2158219024, i64 2158219070, i64 2158219128, i64 2158219182, i64 2158219236, i64 2158219291, i64 2158219322, i64 2158219630, i64 2158219636, i64 2158219683, i64 2158219706, i64 2158219732}
+!43 = !{i64 2158220188, i64 2158219999, i64 2158220049, i64 2158220095, i64 2158220123}
+!44 = !{!"branch_weights", i32 1, i32 2000}
+!45 = !{i64 2170732971, i64 2170732775, i64 2170732827, i64 2170732873, i64 2170732901}
+!46 = !{i64 2170733048, i64 2170733077, i64 2170733123, i64 2170733181, i64 2170733235, i64 2170733289, i64 2170733344, i64 2170733375, i64 2170733683, i64 2170733689, i64 2170733736, i64 2170733759, i64 2170733785}
+!47 = !{i64 2170734258, i64 2170734064, i64 2170734114, i64 2170734160, i64 2170734188}
+!48 = !{i64 2170735108, i64 2170734912, i64 2170734964, i64 2170735010, i64 2170735038}
+!49 = !{i64 2170735185, i64 2170735214, i64 2170735260, i64 2170735318, i64 2170735372, i64 2170735426, i64 2170735481, i64 2170735512, i64 2170735820, i64 2170735826, i64 2170735873, i64 2170735896, i64 2170735922}
+!50 = !{i64 2170736395, i64 2170736201, i64 2170736251, i64 2170736297, i64 2170736325}
+!51 = distinct !{!51, !7, !8, !9}
+!52 = distinct !{!52, !7, !8, !9, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !7, !8, !9}
+!55 = distinct !{!55, !7, !8, !9, !53}
+!56 = distinct !{!56, !7, !8, !9}
+!57 = distinct !{!57, !7, !8, !9}
+!58 = distinct !{!58, !7, !8, !9}
+!59 = distinct !{!59, !7, !8, !9}
+!60 = distinct !{!60, !7, !8, !9}
+!61 = distinct !{!61, !7, !8, !9}
+!62 = distinct !{!62, !7, !8, !9}
+!63 = distinct !{!63, !7, !8, !9}
+!64 = distinct !{!64, !7, !8, !9}
+!65 = distinct !{!65, !7, !8, !9}
+!66 = distinct !{!66, !7, !8, !9}
+!67 = distinct !{!67, !7, !8, !9}
+!68 = distinct !{!68, !7, !8, !9}
+!69 = distinct !{!69, !7, !8, !9}
+!70 = distinct !{!70, !7, !8, !9}
+!71 = distinct !{!71, !7, !8, !9}
+!72 = distinct !{!72, !7, !8, !9}
+!73 = distinct !{!73, !7, !8, !9}
+!74 = distinct !{!74, !7, !8, !9}
+!75 = distinct !{!75, !7, !8, !9}
+!76 = distinct !{!76, !7, !8, !9}
+!77 = distinct !{!77, !7, !8, !9}
+!78 = distinct !{!78, !7, !8, !9}
+!79 = distinct !{!79, !7, !8, !9}
+!80 = distinct !{!80, !7, !8, !9}
+!81 = distinct !{!81, !7, !8, !9}

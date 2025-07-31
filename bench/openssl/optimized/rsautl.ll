@@ -152,7 +152,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   br label %7, !llvm.loop !13
 
 .loopexit154:                                     ; preds = %7, %12, %43
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.57, ptr noundef %6) #3
   br label %.loopexit155
 
@@ -253,7 +253,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   br i1 %or.cond, label %50, label %53
 
 50:                                               ; preds = %47
-  %51 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %51 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %52 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.58) #3
   br label %.loopexit155
 
@@ -263,7 +263,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   br i1 %.not140, label %55, label %58
 
 55:                                               ; preds = %53
-  %56 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %56 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %57 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.59) #3
   br label %.loopexit155
 
@@ -326,7 +326,7 @@ default.unreachable233:                           ; preds = %100, %58
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %78
-  %88 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %88 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %89 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %88, ptr noundef nonnull @.str.65) #3
   br label %.loopexit155
 
@@ -344,15 +344,15 @@ default.unreachable233:                           ; preds = %100, %58
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.096194 = phi i64 [ %97, %.lr.ph ], [ 0, %.preheader ]
   %93 = getelementptr inbounds nuw i8, ptr %82, i64 %.096194
-  %94 = load i8, ptr %93, align 1, !tbaa !17
+  %94 = load i8, ptr %93, align 1, !tbaa !18
   %95 = xor i64 %.096194, -1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %95
-  %96 = load i8, ptr %gep, align 1, !tbaa !17
-  store i8 %96, ptr %93, align 1, !tbaa !17
-  store i8 %94, ptr %gep, align 1, !tbaa !17
+  %96 = load i8, ptr %gep, align 1, !tbaa !18
+  store i8 %96, ptr %93, align 1, !tbaa !18
+  store i8 %94, ptr %gep, align 1, !tbaa !18
   %97 = add nuw nsw i64 %.096194, 1
   %exitcond.not = icmp eq i64 %97, %92
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %90
   %98 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef null, ptr noundef nonnull %.1119, ptr noundef null) #3
@@ -433,9 +433,9 @@ default.unreachable233:                           ; preds = %100, %58
   br i1 %.0105.in, label %.thread151, label %141
 
 .thread151:                                       ; preds = %128, %131, %119, %122, %110, %113, %101, %104, %137
-  %138 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %138 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %139 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %138, ptr noundef nonnull @.str.66) #3
-  %140 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %140 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %140) #3
   br label %.loopexit155
 
@@ -450,7 +450,7 @@ default.unreachable233:                           ; preds = %100, %58
   br i1 %.not146, label %145, label %.loopexit155
 
 145:                                              ; preds = %142
-  %146 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %146 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %146) #3
   br label %.loopexit155
 
@@ -603,9 +603,10 @@ attributes #3 = { nounwind }
 !10 = !{!"long", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !14, !15}

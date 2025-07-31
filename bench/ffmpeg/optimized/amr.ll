@@ -250,7 +250,7 @@ define internal range(i32 0, 27) i32 @amrnb_probe(ptr noundef readonly captures(
   %.127 = phi i32 [ %.02638, %.split.loop.exit42 ], [ %30, %29 ]
   %.4 = phi i32 [ %.3, %.split.loop.exit42 ], [ %31, %29 ]
   %33 = icmp slt i32 %.4, %5
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %32, %1
   %.028.lcssa = phi i32 [ 0, %1 ], [ %.230, %32 ]
@@ -341,7 +341,7 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
   %24 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   %25 = load i8, ptr %24, align 1, !tbaa !39
   %.not34 = icmp eq i8 %25, %9
-  br i1 %.not34, label %21, label %.split.loop.exit, !llvm.loop !59
+  br i1 %.not34, label %21, label %.split.loop.exit, !llvm.loop !60
 
 .split.loop.exit:                                 ; preds = %22
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -367,7 +367,7 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
   %.127 = phi i32 [ %.02638, %.split.loop.exit42 ], [ %30, %29 ]
   %.4 = phi i32 [ %.3, %.split.loop.exit42 ], [ %31, %29 ]
   %33 = icmp slt i32 %.4, %5
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %32, %1
   %.028.lcssa = phi i32 [ 0, %1 ], [ %.230, %32 ]
@@ -418,8 +418,8 @@ define internal range(i32 -1, 1) i32 @amr_write_header(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !61
-  %6 = load ptr, ptr %5, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -535,11 +535,12 @@ attributes #7 = { nounwind }
 !53 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
 !54 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
 !55 = !{!5, !10, i64 16}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57}
-!59 = distinct !{!59, !57}
-!60 = distinct !{!60, !57}
-!61 = !{!12, !17, i64 48}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58}
+!60 = distinct !{!60, !57, !58}
+!61 = distinct !{!61, !57, !58}
+!62 = !{!12, !17, i64 48}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS8AVStream", !7, i64 0}

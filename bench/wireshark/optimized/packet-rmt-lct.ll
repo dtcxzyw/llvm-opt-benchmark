@@ -319,7 +319,7 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %78, label %73
 
 73:                                               ; preds = %72
-  %74 = load i8, ptr %27, align 1, !range !8, !noundef !9
+  %74 = load i8, ptr %27, align 1, !range !9, !noundef !10
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %78, label %76
 
@@ -394,7 +394,7 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %120 = add i32 %.1, %.0100117
   %121 = add nuw i32 %.0101116, 1
   %exitcond.not = icmp eq i32 %121, %.0104.lcssa
-  br i1 %exitcond.not, label %122, label %30, !llvm.loop !10
+  br i1 %exitcond.not, label %122, label %30, !llvm.loop !11
 
 122:                                              ; preds = %119
   %123 = sub i32 %120, %3
@@ -498,7 +498,7 @@ define internal range(i32 0, 1021) i32 @dissect_lct(ptr noundef %0, ptr noundef 
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i8, ptr %37, align 4, !range !8, !noundef !9
+  %38 = load i8, ptr %37, align 4, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %50
 
@@ -596,7 +596,7 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
 
 97:                                               ; preds = %proto_item_set_generated.exit229
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %99 = load i8, ptr %98, align 4, !range !8, !noundef !9
+  %99 = load i8, ptr %98, align 4, !range !9, !noundef !10
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %112
 
@@ -768,13 +768,13 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %187 = load i8, ptr %186, align 4, !range !8, !noundef !9
+  %187 = load i8, ptr %186, align 4, !range !9, !noundef !10
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %.sink.split, label %194
 
 .sink.split:                                      ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  %190 = load i8, ptr %189, align 1, !range !8, !noundef !9
+  %190 = load i8, ptr %189, align 1, !range !9, !noundef !10
   %191 = trunc nuw i8 %190 to i1
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %193 = load ptr, ptr %192, align 8
@@ -879,8 +879,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}

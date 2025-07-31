@@ -130,7 +130,7 @@ define dso_local range(i32 0, 2) i32 @spkac_main(i32 noundef %0, ptr noundef %1)
   br label %7, !llvm.loop !13
 
 .loopexit:                                        ; preds = %7, %23, %39
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %10 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.43, ptr noundef %6) #4
   br label %.loopexit111
 
@@ -206,7 +206,7 @@ define dso_local range(i32 0, 2) i32 @spkac_main(i32 noundef %0, ptr noundef %1)
   br i1 %.not99, label %43, label %46
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %44 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.44) #4
   br label %.loopexit111
 
@@ -249,9 +249,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not106, label %69, label %62
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr %59, align 8, !tbaa !17
+  %63 = load ptr, ptr %59, align 8, !tbaa !18
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.077) #5
   %67 = trunc i64 %66 to i32
   %68 = call i32 @ASN1_STRING_set(ptr noundef %65, ptr noundef nonnull %.077, i32 noundef %67) #4
@@ -264,7 +264,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not108, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %72 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.47) #4
   br label %.loopexit111
 
@@ -275,7 +275,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %74
-  %79 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %79 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %80 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %79, ptr noundef nonnull @.str.48) #4
   br label %.loopexit111
 
@@ -309,9 +309,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %97 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %98 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %97, ptr noundef nonnull @.str.51, ptr noundef %.066) #4
-  %99 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %99 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %99) #4
   br label %.loopexit111
 
@@ -321,9 +321,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %104 = load ptr, ptr @bio_err, align 8, !tbaa !16
   %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %104, ptr noundef nonnull @.str.52) #4
-  %106 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %106 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %106) #4
   br label %.loopexit111
 
@@ -348,7 +348,7 @@ sub_1:                                            ; preds = %sub_0
 115:                                              ; preds = %113
   %116 = call i32 @NETSCAPE_SPKI_verify(ptr noundef nonnull %101, ptr noundef %114) #4
   %117 = icmp sgt i32 %116, 0
-  %118 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %118 = load ptr, ptr @bio_err, align 8, !tbaa !16
   br i1 %117, label %119, label %121
 
 119:                                              ; preds = %115
@@ -357,7 +357,7 @@ sub_1:                                            ; preds = %sub_0
 
 121:                                              ; preds = %115
   %122 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %118, ptr noundef nonnull @.str.54) #4
-  %123 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %123 = load ptr, ptr @bio_err, align 8, !tbaa !16
   call void @ERR_print_errors(ptr noundef %123) #4
   br label %.loopexit111
 
@@ -487,17 +487,18 @@ attributes #5 = { nounwind willreturn memory(read) }
 !10 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"Netscape_spki_st", !19, i64 0, !20, i64 8, !23, i64 24}
-!19 = !{!"p1 _ZTS17Netscape_spkac_st", !6, i64 0}
-!20 = !{!"X509_algor_st", !21, i64 0, !22, i64 8}
-!21 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!22 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
-!23 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!24 = !{!25, !23, i64 8}
-!25 = !{!"Netscape_spkac_st", !26, i64 0, !23, i64 8}
-!26 = !{!"p1 _ZTS14X509_pubkey_st", !6, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"Netscape_spki_st", !20, i64 0, !21, i64 8, !24, i64 24}
+!20 = !{!"p1 _ZTS17Netscape_spkac_st", !6, i64 0}
+!21 = !{!"X509_algor_st", !22, i64 0, !23, i64 8}
+!22 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!23 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
+!24 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!25 = !{!26, !24, i64 8}
+!26 = !{!"Netscape_spkac_st", !27, i64 0, !24, i64 8}
+!27 = !{!"p1 _ZTS14X509_pubkey_st", !6, i64 0}

@@ -145,7 +145,7 @@ define internal noundef zeroext i1 @cosine_read(ptr noundef readonly captures(no
 20:                                               ; preds = %18
   %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.2) #10
   %.not12.i = icmp eq ptr %21, null
-  br i1 %.not12.i, label %8, label %cosine_seek_next_packet.exit
+  br i1 %.not12.i, label %8, label %cosine_seek_next_packet.exit, !llvm.loop !9
 
 cosine_seek_next_packet.exit.thread:              ; preds = %8, %16
   %.lcssa.sink = phi ptr [ %17, %16 ], [ %12, %8 ]
@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @parse_cosine_packet(ptr noundef %0, p
   %142 = getelementptr i8, ptr %.09.i, i64 1
   %143 = load i8, ptr %142, align 1
   %.not.i = icmp eq i8 %143, 0
-  br i1 %.not.i, label %empty_line.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %empty_line.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %139, %141
   %144 = phi i8 [ %143, %141 ], [ %140, %139 ]
@@ -559,7 +559,7 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %empty_line.exit
   store i8 %156, ptr %160, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit.thread98, label %.lr.ph.i80, !llvm.loop !9
+  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit.thread98, label %.lr.ph.i80, !llvm.loop !11
 
 parse_single_hex_dump_line.exit.thread98:         ; preds = %.lr.ph.i80
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
@@ -580,7 +580,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %152
   %164 = add i32 %spec.store.select.i, %.090
   %165 = add nuw nsw i32 %.06089, 1
   %exitcond.not = icmp eq i32 %165, %115
-  br i1 %exitcond.not, label %empty_line.exit.thread, label %133, !llvm.loop !10
+  br i1 %exitcond.not, label %empty_line.exit.thread, label %133, !llvm.loop !12
 
 empty_line.exit.thread:                           ; preds = %163, %139, %141, %88
   %.088 = phi i32 [ 0, %88 ], [ %.090, %141 ], [ %164, %163 ], [ %.090, %139 ]
@@ -663,8 +663,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

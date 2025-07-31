@@ -17,10 +17,10 @@ define ptr @ASN1_ITEM_lookup(ptr noundef readonly captures(none) %0) local_unnam
 4:                                                ; preds = %1, %2
   %.089 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [147 x ptr], ptr @asn1_item_list, i64 0, i64 %.089
-  %6 = load ptr, ptr %5, align 8, !tbaa !5
+  %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = tail call ptr %6() #3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !9
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %2
@@ -40,7 +40,7 @@ define ptr @ASN1_ITEM_get(i64 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw [147 x ptr], ptr @asn1_item_list, i64 0, i64 %0
-  %5 = load ptr, ptr %4, align 8, !tbaa !5
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call ptr %5() #3
   br label %7
 
@@ -354,14 +354,15 @@ attributes #4 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !13, i64 48}
-!10 = !{!"ASN1_ITEM_st", !7, i64 0, !11, i64 8, !12, i64 16, !11, i64 24, !6, i64 32, !11, i64 40, !13, i64 48}
-!11 = !{!"long", !7, i64 0}
-!12 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !6, i64 0}
-!13 = !{!"p1 omnipotent char", !6, i64 0}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !14, i64 48}
+!11 = !{!"ASN1_ITEM_st", !8, i64 0, !12, i64 8, !13, i64 16, !12, i64 24, !7, i64 32, !12, i64 40, !14, i64 48}
+!12 = !{!"long", !8, i64 0}
+!13 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !7, i64 0}
+!14 = !{!"p1 omnipotent char", !7, i64 0}

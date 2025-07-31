@@ -105,7 +105,7 @@ define dso_local void @net_selftest_get_strings(ptr noundef %0) #0 align 16 {
   %7 = trunc i64 %5 to i32
   call void (ptr, ptr, ...) @ethtool_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %7, ptr noundef %6) #11
   %8 = icmp eq i64 %5, 7
-  br i1 %8, label %9, label %3, !llvm.loop !8
+  br i1 %8, label %9, label %3, !llvm.loop !9
 
 9:                                                ; preds = %3
   ret void
@@ -243,7 +243,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %18 = icmp eq i8 %17, 0
   %19 = select i1 %18, i32 55, i32 67
   %20 = add i32 %19, %15
@@ -259,7 +259,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 28:                                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 200
   %30 = load ptr, ptr %29, align 8
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %30) #11, !srcloc !11
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %30) #11, !srcloc !12
   %31 = tail call ptr @skb_push(ptr noundef nonnull %26, i32 noundef 14) #11
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 192
@@ -288,7 +288,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %54 = trunc i32 %46 to i16
   %55 = add i16 %52, %54
   store i16 %55, ptr %53, align 2
-  %56 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %56 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %60, label %58
 
@@ -336,7 +336,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 82:                                               ; preds = %77, %73
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i16 8, ptr %83, align 1
-  %84 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %84 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %85 = icmp eq i8 %84, 0
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %87 = load i16, ptr %86, align 2
@@ -391,13 +391,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %117 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i8 32, ptr %117, align 4
   store i8 69, ptr %45, align 4
-  %118 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %118 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %119 = icmp eq i8 %118, 0
   %120 = getelementptr inbounds nuw i8, ptr %45, i64 9
   %121 = select i1 %119, i8 17, i8 6
   store i8 %121, ptr %120, align 1
   %122 = load i32, ptr %14, align 4
-  %123 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %123 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %124 = icmp eq i8 %123, 0
   %125 = select i1 %124, i32 41, i32 53
   %126 = add i32 %125, %122
@@ -467,7 +467,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %167 = load i8, ptr %165, align 8
   %168 = or i8 %167, 96
   store i8 %168, ptr %165, align 8
-  %169 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %169 = load i8, ptr %16, align 8, !range !10, !noundef !11
   %170 = icmp eq i8 %169, 0
   br i1 %170, label %188, label %171
 
@@ -477,10 +477,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %174 = load i32, ptr %142, align 4
   %175 = shl i32 %172, 8
   %176 = add i32 %175, 1536
-  %177 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %174, i32 %173, i32 %176, i32 0) #13, !srcloc !12
+  %177 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %174, i32 %173, i32 %176, i32 0) #13, !srcloc !13
   %178 = shl i32 %177, 16
   %179 = and i32 %177, -65536
-  %180 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %178, i32 %179) #14, !srcloc !13
+  %180 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %178, i32 %179) #14, !srcloc !14
   %181 = xor i32 %180, -1
   %182 = lshr i32 %181, 16
   %183 = trunc nuw i32 %182 to i16
@@ -585,7 +585,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr read
 26:                                               ; preds = %15
   %27 = tail call ptr @skb_copy(ptr noundef %0, i32 noundef 2080) #11
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %.thread5, !prof !14
+  br i1 %28, label %.thread, label %.thread5, !prof !15
 
 .thread5:                                         ; preds = %26
   tail call void @consume_skb(ptr noundef %0) #11
@@ -678,7 +678,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr read
   %89 = getelementptr i8, ptr %84, i64 %88
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %92 = load i8, ptr %91, align 8, !range !9, !noundef !10
+  %92 = load i8, ptr %91, align 8, !range !10, !noundef !11
   %93 = icmp eq i8 %92, 0
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 9
   %95 = load i8, ptr %94, align 1
@@ -839,13 +839,14 @@ attributes #14 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = !{i64 2149448415, i64 2149448443, i64 2149448449, i64 2149448465, i64 2149448481, i64 2149448508, i64 2149448836, i64 2149448158, i64 2149448842, i64 2149448890, i64 2149448954, i64 2149449018, i64 2149449075, i64 2149448239, i64 2149448264, i64 2149449282, i64 2149449411, i64 2149449343, i64 2149449425, i64 2149448356}
-!12 = !{i64 7019647, i64 7019671, i64 7019694, i64 7019717}
-!13 = !{i64 7017898, i64 7017921}
-!14 = !{!"branch_weights", i32 1, i32 2000}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{i64 2149448415, i64 2149448443, i64 2149448449, i64 2149448465, i64 2149448481, i64 2149448508, i64 2149448836, i64 2149448158, i64 2149448842, i64 2149448890, i64 2149448954, i64 2149449018, i64 2149449075, i64 2149448239, i64 2149448264, i64 2149449282, i64 2149449411, i64 2149449343, i64 2149449425, i64 2149448356}
+!13 = !{i64 7019647, i64 7019671, i64 7019694, i64 7019717}
+!14 = !{i64 7017898, i64 7017921}
+!15 = !{!"branch_weights", i32 1, i32 2000}

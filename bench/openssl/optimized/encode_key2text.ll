@@ -1876,5 +1876,6 @@ attributes #4 = { nounwind }
 !15 = !{!9, !12, i64 88}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!"llvm.loop.estimated_trip_count"}

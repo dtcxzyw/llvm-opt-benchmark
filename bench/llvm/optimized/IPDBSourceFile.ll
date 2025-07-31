@@ -153,7 +153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 1
   %.not28 = icmp eq ptr %61, %44
-  br i1 %.not28, label %._crit_edge.loopexit, label %57
+  br i1 %.not28, label %._crit_edge.loopexit, label %57, !llvm.loop !34
 
 62:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %63 = load ptr, ptr %13, align 8, !tbaa !9
@@ -322,3 +322,5 @@ attributes #11 = { builtin nounwind }
 !31 = !{!24, !14, i64 20}
 !32 = !{!24, !14, i64 21}
 !33 = !{!24, !14, i64 22}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}

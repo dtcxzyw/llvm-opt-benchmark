@@ -391,7 +391,7 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
   %78 = add nuw nsw i64 %.03763, 1
   %79 = load i64, ptr %54, align 8, !tbaa !36
   %80 = icmp slt i64 %78, %79
-  br i1 %80, label %71, label %.preheader.preheader, !llvm.loop !41
+  br i1 %80, label %71, label %.preheader.preheader, !llvm.loop !42
 
 .preheader.preheader:                             ; preds = %71, %.preheader59
   %.1.ph = phi ptr [ %60, %.preheader59 ], [ %77, %71 ]
@@ -407,7 +407,7 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
   %82 = getelementptr i8, ptr %.1, i64 -4
   %83 = load i32, ptr %82, align 4, !tbaa !29
   %84 = icmp eq i32 %83, 58
-  br i1 %84, label %.preheader, label %85, !llvm.loop !42
+  br i1 %84, label %.preheader, label %85, !llvm.loop !43
 
 85:                                               ; preds = %81, %.preheader
   store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_Py_path_config, i64 40), align 8, !tbaa !15
@@ -421,11 +421,11 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %88, align 8, !tbaa !43
+  store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %88, align 8, !tbaa !44
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str, ptr %89, align 8, !tbaa !44
+  store ptr @.str, ptr %89, align 8, !tbaa !45
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %90, align 8, !tbaa !45
+  store i32 0, ptr %90, align 8, !tbaa !46
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %91, align 4
   br label %92
@@ -660,13 +660,13 @@ define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef re
   %3 = alloca [4096 x i32], align 16
   %4 = alloca [4097 x i32], align 16
   %5 = alloca [8193 x i32], align 16
-  %6 = load i64, ptr %0, align 8, !tbaa !46
+  %6 = load i64, ptr %0, align 8, !tbaa !47
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %55, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i32 @wcscmp(ptr noundef %11, ptr noundef nonnull @.str.2) #13
   %13 = icmp eq i32 %12, 0
@@ -752,7 +752,7 @@ define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef re
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %.thread61
-  store ptr %50, ptr %1, align 8, !tbaa !48
+  store ptr %50, ptr %1, align 8, !tbaa !49
   br label %53
 
 53:                                               ; preds = %.thread61, %52
@@ -849,14 +849,15 @@ attributes #15 = { noreturn nounwind }
 !36 = !{!20, !21, i64 320}
 !37 = !{!20, !23, i64 328}
 !38 = !{!6, !6, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = !{!25, !26, i64 8}
-!44 = !{!25, !26, i64 16}
-!45 = !{!25, !10, i64 24}
-!46 = !{!22, !21, i64 0}
-!47 = !{!22, !23, i64 8}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS7_object", !7, i64 0}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = !{!25, !26, i64 8}
+!45 = !{!25, !26, i64 16}
+!46 = !{!25, !10, i64 24}
+!47 = !{!22, !21, i64 0}
+!48 = !{!22, !23, i64 8}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS7_object", !7, i64 0}

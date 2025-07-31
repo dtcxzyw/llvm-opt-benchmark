@@ -1007,7 +1007,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !7
+  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %isnull.i9.i = icmp eq ptr %3, null
@@ -1047,7 +1047,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %4
-  br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !7
+  br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !8
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
   %isnull.i9 = icmp eq ptr %3, null
@@ -1702,7 +1702,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %isnull.i9.i = icmp eq ptr %3, null
@@ -1742,7 +1742,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %4
-  br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !8
+  br i1 %cmp.not, label %while.end, label %_ZN5eastl9allocator10deallocateEPvm.exit, !llvm.loop !9
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
   %isnull.i9 = icmp eq ptr %3, null
@@ -2436,13 +2436,13 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %array
   %inc3.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 16
-  br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i, !llvm.loop !10
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev.exit.i
   tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #9
   %8 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %8
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
@@ -2480,7 +2480,7 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body, %if.then.
   %dec.i = add nsw i64 %dec.i1822, -1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.024, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %_ZN10TestObjectD2Ev.exit
   %12 = add i64 %add.ptr.idx, -24
@@ -3421,17 +3421,17 @@ invoke.cont9:                                     ; preds = %call.i.i.i11.i.i.no
   %21 = phi ptr [ %12, %if.then2.i.i68 ], [ %call.i.i.i.i.i78, %call.i.i.i.i.i.noexc77 ], [ %call.i.i.i11.i.i80, %call.i.i.i11.i.i.noexc79 ]
   %retval.0.i.i67 = phi ptr [ %add.ptr.i.i71, %if.then2.i.i68 ], [ %mData6.i.i66, %call.i.i.i.i.i.noexc77 ], [ %mData11.i.i76, %call.i.i.i11.i.i.noexc79 ]
   store i32 3, ptr %retval.0.i.i67, align 4
-  %22 = load ptr, ptr %mFirstSegment.i, align 8, !noalias !11
+  %22 = load ptr, ptr %mFirstSegment.i, align 8, !noalias !13
   %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %invoke.cont11, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont9
   %mData.i.i83 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %23 = load i64, ptr %22, align 8, !noalias !11
+  %23 = load i64, ptr %22, align 8, !noalias !13
   %and.i.i84 = and i64 %23, 1
   %tobool.not.i.i85 = icmp eq i64 %and.i.i84, 0
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i64, ptr %24, align 8, !noalias !11
+  %25 = load i64, ptr %24, align 8, !noalias !13
   %add.ptr.i.i86 = getelementptr inbounds i32, ptr %mData.i.i83, i64 %25
   %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %22, i64 48
   %retval.0.i.i87 = select i1 %tobool.not.i.i85, ptr %add.ptr4.i.i, ptr %add.ptr.i.i86
@@ -3451,20 +3451,20 @@ invoke.cont14:                                    ; preds = %invoke.cont11
   br i1 %cmp.i.i88, label %if.then.i.i89, label %invoke.cont17
 
 if.then.i.i89:                                    ; preds = %invoke.cont14
-  %27 = load i64, ptr %22, align 8, !noalias !14
+  %27 = load i64, ptr %22, align 8, !noalias !16
   %and.i.i90 = and i64 %27, 1
   %tobool.not.i.i91 = icmp eq i64 %and.i.i90, 0
   br i1 %tobool.not.i.i91, label %if.then4.i.i, label %invoke.cont17
 
 if.then4.i.i:                                     ; preds = %if.then.i.i89
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %29 = load ptr, ptr %28, align 8, !noalias !14
+  %29 = load ptr, ptr %28, align 8, !noalias !16
   %mData.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %30 = load i64, ptr %29, align 8, !noalias !14
+  %30 = load i64, ptr %29, align 8, !noalias !16
   %and.i.i.i = and i64 %30, 1
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !14
+  %32 = load i64, ptr %31, align 8, !noalias !16
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %mData.i.i.i, i64 %32
   %add.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 48
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr4.i.i.i, ptr %add.ptr.i.i.i
@@ -3485,20 +3485,20 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   br i1 %cmp.i.i95, label %if.then.i.i96, label %invoke.cont24
 
 if.then.i.i96:                                    ; preds = %invoke.cont21
-  %34 = load i64, ptr %i.sroa.35.0, align 8, !noalias !17
+  %34 = load i64, ptr %i.sroa.35.0, align 8, !noalias !19
   %and.i.i98 = and i64 %34, 1
   %tobool.not.i.i99 = icmp eq i64 %and.i.i98, 0
   br i1 %tobool.not.i.i99, label %if.then4.i.i101, label %invoke.cont24
 
 if.then4.i.i101:                                  ; preds = %if.then.i.i96
   %35 = getelementptr inbounds nuw i8, ptr %i.sroa.35.0, i64 8
-  %36 = load ptr, ptr %35, align 8, !noalias !17
+  %36 = load ptr, ptr %35, align 8, !noalias !19
   %mData.i.i.i102 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !17
+  %37 = load i64, ptr %36, align 8, !noalias !19
   %and.i.i.i103 = and i64 %37, 1
   %tobool.not.i.i.i104 = icmp eq i64 %and.i.i.i103, 0
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i64, ptr %38, align 8, !noalias !17
+  %39 = load i64, ptr %38, align 8, !noalias !19
   %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %mData.i.i.i102, i64 %39
   %add.ptr4.i.i.i106 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %retval.0.i.i.i107 = select i1 %tobool.not.i.i.i104, ptr %add.ptr4.i.i.i106, ptr %add.ptr.i.i.i105
@@ -3519,14 +3519,14 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   br i1 %cmp.i.i111, label %if.then.i.i112, label %invoke.cont31
 
 if.then.i.i112:                                   ; preds = %invoke.cont28
-  %41 = load i64, ptr %i.sroa.35.1, align 8, !noalias !20
+  %41 = load i64, ptr %i.sroa.35.1, align 8, !noalias !22
   %and.i.i114 = and i64 %41, 1
   %tobool.not.i.i115 = icmp eq i64 %and.i.i114, 0
   br i1 %tobool.not.i.i115, label %if.then4.i.i117, label %invoke.cont31
 
 if.then4.i.i117:                                  ; preds = %if.then.i.i112
   %42 = getelementptr inbounds nuw i8, ptr %i.sroa.35.1, i64 8
-  %43 = load ptr, ptr %42, align 8, !noalias !20
+  %43 = load ptr, ptr %42, align 8, !noalias !22
   %mData.i.i.i118 = getelementptr inbounds nuw i8, ptr %43, i64 16
   br label %invoke.cont31
 
@@ -3548,11 +3548,11 @@ invoke.cont42:                                    ; preds = %invoke.cont35
 
 if.then.i144:                                     ; preds = %invoke.cont42
   %mData.i.i145 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %46 = load i64, ptr %22, align 8, !noalias !23
+  %46 = load i64, ptr %22, align 8, !noalias !25
   %and.i.i146 = and i64 %46, 1
   %tobool.not.i.i147 = icmp eq i64 %and.i.i146, 0
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %48 = load i64, ptr %47, align 8, !noalias !23
+  %48 = load i64, ptr %47, align 8, !noalias !25
   %add.ptr.i.i148 = getelementptr inbounds i32, ptr %mData.i.i145, i64 %48
   %add.ptr4.i.i149 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %retval.0.i.i150 = select i1 %tobool.not.i.i147, ptr %add.ptr4.i.i149, ptr %add.ptr.i.i148
@@ -3669,7 +3669,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %while.cond.preheade
   %69 = load ptr, ptr %68, align 8
   call void @_ZdaPv(ptr noundef nonnull %segment.013.i.i) #9
   %cmp.not.i.i = icmp eq ptr %69, %21
-  br i1 %cmp.not.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !26
+  br i1 %cmp.not.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !28
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i.i:   ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %while.cond.preheader.i.i
   %segment.0.lcssa16.i.i = phi ptr [ %22, %while.cond.preheader.i.i ], [ %69, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ]
@@ -4009,7 +4009,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i385:    ; preds = %while.cond.preheade
   %129 = load ptr, ptr %128, align 8
   call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %cmp.not.i = icmp eq ptr %129, %125
-  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i385, !llvm.loop !27
+  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i385, !llvm.loop !29
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i385
   %isnull.i9.i = icmp eq ptr %125, null
@@ -4105,7 +4105,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !26
+  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !28
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %isnull.i9.i = icmp eq ptr %3, null
@@ -4145,7 +4145,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheade
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
-  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !27
+  br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %isnull.i9.i = icmp eq ptr %3, null
@@ -4215,13 +4215,13 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %array
   %inc3.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 16
-  br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %arraydestroy.body.i, !llvm.loop !30
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev.exit.i
   tail call void @_ZdaPv(ptr noundef nonnull %segment.015) #9
   %8 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %8
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !31
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
@@ -4259,7 +4259,7 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body, %if.then.
   %dec.i = add nsw i64 %dec.i1822, -1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.024, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.end:                                          ; preds = %_ZN10TestObjectD2Ev.exit
   %12 = add i64 %add.ptr.idx, -24
@@ -4335,11 +4335,11 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i.i) #9
   %cmp.not.i.i.i.i = icmp eq ptr %5, %arraydestroy.element.ptr.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !33
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %arraydestroy.body.i
   %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 16
-  br i1 %arraydestroy.done.i, label %_ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %_ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit, label %arraydestroy.body.i, !llvm.loop !34
 
 _ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit: ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit.i
   %isnull.i = icmp eq ptr %segment.015, null
@@ -4352,7 +4352,7 @@ delete.notnull.i:                                 ; preds = %_ZN5eastl7segmentIN
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl7segmentINS_4listI10TestObjectNS_9allocatorEEELm8ES3_ED2Ev.exit, %delete.notnull.i
   %10 = load ptr, ptr %mLastSegment, align 8
   %cmp.not = icmp eq ptr %3, %10
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !31
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !35
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
@@ -4394,12 +4394,12 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %if.then.i.i.i.i.i, 
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i) #9
   %cmp.not.i.i.i = icmp eq ptr %14, %i.017
-  br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, label %while.body.i.i.i, !llvm.loop !30
+  br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, label %while.body.i.i.i, !llvm.loop !33
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.017, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit
   %isnull.i11 = icmp eq ptr %segment.0.lcssa, null
@@ -4443,31 +4443,35 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv: %agg.result"}
-!13 = distinct !{!13, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
-!16 = distinct !{!16, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
-!19 = distinct !{!19, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
-!22 = distinct !{!22, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv: %agg.result"}
-!25 = distinct !{!25, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv"}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv: %agg.result"}
+!15 = distinct !{!15, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
+!18 = distinct !{!18, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
+!21 = distinct !{!21, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi: %agg.result"}
+!24 = distinct !{!24, !"_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEi"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv: %agg.result"}
+!27 = distinct !{!27, !"_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5beginEv"}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}

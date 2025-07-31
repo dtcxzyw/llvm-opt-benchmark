@@ -443,7 +443,7 @@ find_end_line.exit:                               ; preds = %52
   br label %115
 
 115:                                              ; preds = %106, %105
-  %116 = load i8, ptr @global_msrp_show_setup_info, align 1, !range !8, !noundef !9
+  %116 = load i8, ptr @global_msrp_show_setup_info, align 1, !range !9, !noundef !10
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %show_setup_info.exit
 
@@ -618,7 +618,7 @@ msrp_is_known_msrp_header.exit.preheader:         ; preds = %209
 213:                                              ; preds = %209, %204
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %msrp_is_known_msrp_header.exit.thread, label %204, !llvm.loop !10
+  br i1 %exitcond.not.i, label %msrp_is_known_msrp_header.exit.thread, label %204, !llvm.loop !11
 
 msrp_is_known_msrp_header.exit.thread:            ; preds = %213
   %214 = load ptr, ptr %185, align 8
@@ -640,7 +640,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %213
 msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %.0253 = add nsw i32 %.0253283, 1
   %exitcond.not = icmp eq i32 %.0253, %191
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %msrp_is_known_msrp_header.exit, %.lr.ph, %msrp_is_known_msrp_header.exit.preheader
   %.0253.lcssa = phi i32 [ %.0253282, %msrp_is_known_msrp_header.exit.preheader ], [ %.0253283, %.lr.ph ], [ %191, %msrp_is_known_msrp_header.exit ]
@@ -680,7 +680,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
 236:                                              ; preds = %.lr.ph287, %.lr.ph287
   %.0247 = add nsw i32 %.0247286, 1
   %exitcond299.not = icmp eq i32 %.0247, %191
-  br i1 %exitcond299.not, label %.critedge2, label %.lr.ph287, !llvm.loop !12
+  br i1 %exitcond299.not, label %.critedge2, label %.lr.ph287, !llvm.loop !13
 
 .critedge2:                                       ; preds = %236, %.lr.ph287, %.preheader
   %.0247.lcssa = phi i32 [ %.0247285, %.preheader ], [ %.0247286, %.lr.ph287 ], [ %191, %236 ]
@@ -704,7 +704,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %247 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %246)
   %248 = icmp slt i32 %246, %56
   %249 = and i1 %247, %248
-  br i1 %249, label %187, label %.critedge272, !llvm.loop !13
+  br i1 %249, label %187, label %.critedge272, !llvm.loop !14
 
 250:                                              ; preds = %187
   %251 = load i32, ptr %7, align 4
@@ -737,7 +737,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %267 = call ptr @proto_tree_add_format_text(ptr noundef %258, ptr noundef %253, i32 noundef %.1294, i32 noundef %266)
   %268 = load i32, ptr %7, align 4
   %269 = call zeroext i1 @tvb_offset_exists(ptr noundef %253, i32 noundef %268)
-  br i1 %269, label %.lr.ph295, label %.critedge272, !llvm.loop !14
+  br i1 %269, label %.lr.ph295, label %.critedge272, !llvm.loop !15
 
 .critedge272:                                     ; preds = %245, %.lr.ph295, %show_setup_info.exit, %.critedge274, %259
   %270 = load i32, ptr @hf_msrp_end_line, align 4
@@ -750,7 +750,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %277 = load i32, ptr @hf_msrp_cnt_flg, align 4
   %278 = add i32 %66, -1
   %279 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %277, ptr noundef %0, i32 noundef %278, i32 noundef 1, i32 noundef 2)
-  %280 = load i8, ptr @global_msrp_raw_text, align 1, !range !8, !noundef !9
+  %280 = load i8, ptr @global_msrp_raw_text, align 1, !range !9, !noundef !10
   %281 = trunc nuw i8 %280 to i1
   br i1 %281, label %282, label %292
 
@@ -769,7 +769,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %289 = call ptr @proto_tree_add_format_text(ptr noundef %284, ptr noundef %0, i32 noundef %.08.i, i32 noundef %288)
   %290 = load i32, ptr %5, align 4
   %291 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %290)
-  br i1 %291, label %.lr.ph.i276, label %tvb_raw_text_add.exit, !llvm.loop !15
+  br i1 %291, label %.lr.ph.i276, label %tvb_raw_text_add.exit, !llvm.loop !16
 
 tvb_raw_text_add.exit:                            ; preds = %.lr.ph.i276, %282
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
@@ -993,13 +993,14 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

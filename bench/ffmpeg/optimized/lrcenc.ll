@@ -92,12 +92,12 @@ define internal range(i32 -22, 1) i32 @lrc_write_header(ptr noundef %0) #0 {
   %34 = load ptr, ptr %24, align 8, !tbaa !38
   %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 13) #5
   %.not31 = icmp eq ptr %35, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph35, !llvm.loop !44
+  br i1 %.not31, label %._crit_edge, label %.lr.ph35, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   %.lcssa = phi ptr [ %28, %.preheader ], [ %34, %.lr.ph35 ]
-  %36 = load ptr, ptr %21, align 8, !tbaa !45
-  %37 = load ptr, ptr %23, align 8, !tbaa !46
+  %36 = load ptr, ptr %21, align 8, !tbaa !46
+  %37 = load ptr, ptr %23, align 8, !tbaa !47
   %38 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %36, ptr noundef nonnull @.str.5, ptr noundef %37, ptr noundef nonnull %.lcssa) #4
   br label %39
 
@@ -105,11 +105,11 @@ define internal range(i32 -22, 1) i32 @lrc_write_header(ptr noundef %0) #0 {
   %40 = load ptr, ptr %18, align 8, !tbaa !37
   %41 = tail call ptr @av_dict_iterate(ptr noundef %40, ptr noundef nonnull %23) #4
   %.not28 = icmp eq ptr %41, null
-  br i1 %.not28, label %._crit_edge39, label %22
+  br i1 %.not28, label %._crit_edge39, label %22, !llvm.loop !48
 
 ._crit_edge39:                                    ; preds = %39, %11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
   tail call void @avio_w8(ptr noundef %43, i32 noundef 10) #4
   br label %44
 
@@ -121,15 +121,15 @@ define internal range(i32 -22, 1) i32 @lrc_write_header(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !47
+  %4 = load i64, ptr %3, align 8, !tbaa !49
   %.not = icmp eq i64 %4, -9223372036854775808
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !49
+  %9 = load i32, ptr %8, align 8, !tbaa !51
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   %12 = icmp sgt i32 %9, 0
@@ -146,7 +146,7 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   %15 = icmp ugt ptr %13, %7
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !50
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %5
   %.052.lcssa = phi ptr [ %11, %5 ], [ %.05272, %.lr.ph ], [ %13, %.critedge2 ]
@@ -163,7 +163,7 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
 
 .critedge4:                                       ; preds = %.preheader, %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %.154, i64 1
-  br label %.preheader, !llvm.loop !51
+  br label %.preheader, !llvm.loop !53
 
 .loopexit71:                                      ; preds = %.critedge
   %.not6875 = icmp eq ptr %7, null
@@ -218,27 +218,27 @@ define internal noundef i32 @lrc_write_packet(ptr noundef %0, ptr noundef readon
   br label %40
 
 40:                                               ; preds = %39, %36, %35
-  %41 = load ptr, ptr %19, align 8, !tbaa !45
-  %42 = load i64, ptr %3, align 8, !tbaa !47
+  %41 = load ptr, ptr %19, align 8, !tbaa !46
+  %42 = load i64, ptr %3, align 8, !tbaa !49
   %.lobit = lshr i64 %42, 63
   %43 = trunc nuw nsw i64 %.lobit to i32
   %44 = add nuw nsw i32 %43, 1
   tail call void @avio_write(ptr noundef %41, ptr noundef nonnull @.str.7, i32 noundef %44) #4
-  %45 = load ptr, ptr %19, align 8, !tbaa !45
-  %46 = load i64, ptr %3, align 8, !tbaa !47
+  %45 = load ptr, ptr %19, align 8, !tbaa !46
+  %46 = load i64, ptr %3, align 8, !tbaa !49
   %47 = tail call i64 @llvm.abs.i64(i64 %46, i1 false)
   %48 = udiv i64 %47, 6000
   %49 = udiv i64 %47, 100
   %50 = urem i64 %49, 60
   %51 = urem i64 %47, 100
   %52 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %45, ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %50, i64 noundef %51) #4
-  %53 = load ptr, ptr %19, align 8, !tbaa !45
+  %53 = load ptr, ptr %19, align 8, !tbaa !46
   %54 = trunc i64 %.0 to i32
   tail call void @avio_write(ptr noundef %53, ptr noundef nonnull %.276, i32 noundef %54) #4
-  %55 = load ptr, ptr %19, align 8, !tbaa !45
+  %55 = load ptr, ptr %19, align 8, !tbaa !46
   tail call void @avio_w8(ptr noundef %55, i32 noundef 10) #4
   %.not68 = icmp eq ptr %.051, null
-  br i1 %.not68, label %.loopexit, label %20, !llvm.loop !52
+  br i1 %.not68, label %.loopexit, label %20, !llvm.loop !54
 
 .loopexit:                                        ; preds = %40, %.loopexit71, %2
   ret i32 0
@@ -325,13 +325,15 @@ attributes #5 = { nounwind willreturn memory(read) }
 !40 = !{!8, !8, i64 0}
 !41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
-!45 = !{!5, !12, i64 32}
-!46 = !{!39, !18, i64 0}
-!47 = !{!30, !19, i64 8}
-!48 = !{!30, !18, i64 24}
-!49 = !{!30, !13, i64 32}
-!50 = distinct !{!50, !42}
-!51 = distinct !{!51, !42}
-!52 = distinct !{!52, !42}
+!43 = distinct !{!43, !42, !44}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !42, !44}
+!46 = !{!5, !12, i64 32}
+!47 = !{!39, !18, i64 0}
+!48 = distinct !{!48, !44}
+!49 = !{!30, !19, i64 8}
+!50 = !{!30, !18, i64 24}
+!51 = !{!30, !13, i64 32}
+!52 = distinct !{!52, !42, !44}
+!53 = distinct !{!53, !42, !44}
+!54 = distinct !{!54, !42, !44}

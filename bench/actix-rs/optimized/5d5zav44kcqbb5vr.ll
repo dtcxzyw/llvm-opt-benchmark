@@ -1101,7 +1101,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   %249 = add i64 %248, 1
   store i64 %249, ptr %76, align 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr nonnull align 8 %72)
-          to label %147 unwind label %.loopexit
+          to label %147 unwind label %.loopexit, !llvm.loop !16
 
 250:                                              ; preds = %284, %276, %327, %317, %300, %278, %154
   store i32 0, ptr %21, align 4
@@ -1118,7 +1118,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 
 255:                                              ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216
   %256 = invoke i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h92adbeff2db6c127E(ptr nonnull align 8 @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E)
-          to label %257 unwind label %.loopexit.split-lp, !range !16
+          to label %257 unwind label %.loopexit.split-lp, !range !18
 
 257:                                              ; preds = %255
   %258 = icmp eq i8 %256, 0
@@ -1135,7 +1135,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 .critedge:                                        ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216, %257, %262
   store i64 2, ptr %65, align 8
   %263 = invoke i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %65, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.34)
-          to label %276 unwind label %.loopexit.split-lp, !range !17
+          to label %276 unwind label %.loopexit.split-lp, !range !19
 
 264:                                              ; preds = %262
   %265 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !4, !noundef !3
@@ -1183,7 +1183,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 282:                                              ; preds = %280
   store i64 %281, ptr %63, align 8
   %283 = invoke i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %64, ptr nonnull align 8 %63)
-          to label %284 unwind label %.loopexit.split-lp, !range !17
+          to label %284 unwind label %.loopexit.split-lp, !range !19
 
 284:                                              ; preds = %282
   switch i8 %283, label %250 [
@@ -1193,7 +1193,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 
 .critedge208:                                     ; preds = %284, %284
   %285 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !4, !noundef !3
-  %286 = load i64, ptr %64, align 8, !range !18, !noundef !3
+  %286 = load i64, ptr %64, align 8, !range !20, !noundef !3
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 32
   %288 = load ptr, ptr %287, align 8, !nonnull !3, !align !12, !noundef !3
   %289 = getelementptr inbounds nuw i8, ptr %285, i64 40
@@ -1379,7 +1379,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 
 361:                                              ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit
   %362 = invoke i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h92adbeff2db6c127E(ptr nonnull align 8 @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE)
-          to label %363 unwind label %.loopexit.split-lp, !range !16
+          to label %363 unwind label %.loopexit.split-lp, !range !18
 
 363:                                              ; preds = %361
   %364 = icmp eq i8 %362, 0
@@ -1396,7 +1396,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 .critedge211:                                     ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit, %363, %.critedge210
   store i64 2, ptr %48, align 8
   %368 = invoke i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %48, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.34)
-          to label %381 unwind label %.loopexit.split-lp, !range !17
+          to label %381 unwind label %.loopexit.split-lp, !range !19
 
 369:                                              ; preds = %.critedge210
   %370 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !4, !noundef !3
@@ -1444,7 +1444,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 387:                                              ; preds = %385
   store i64 %386, ptr %46, align 8
   %388 = invoke i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %47, ptr nonnull align 8 %46)
-          to label %389 unwind label %.loopexit.split-lp, !range !17
+          to label %389 unwind label %.loopexit.split-lp, !range !19
 
 389:                                              ; preds = %387
   switch i8 %388, label %339 [
@@ -1454,7 +1454,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 
 .critedge215:                                     ; preds = %389, %389
   %390 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !4, !noundef !3
-  %391 = load i64, ptr %47, align 8, !range !18, !noundef !3
+  %391 = load i64, ptr %47, align 8, !range !20, !noundef !3
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 32
   %393 = load ptr, ptr %392, align 8, !nonnull !3, !align !12, !noundef !3
   %394 = getelementptr inbounds nuw i8, ptr %390, i64 40
@@ -1980,6 +1980,8 @@ attributes #14 = { noreturn }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN12actix_router8resource11ResourceDef11parse_param17h4b4038e1731fa6b0E: argument 0"}
 !15 = distinct !{!15, !"_ZN12actix_router8resource11ResourceDef11parse_param17h4b4038e1731fa6b0E"}
-!16 = !{i8 0, i8 3}
-!17 = !{i8 -1, i8 3}
-!18 = !{i64 1, i64 6}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{i8 0, i8 3}
+!19 = !{i8 -1, i8 3}
+!20 = !{i64 1, i64 6}

@@ -215,7 +215,7 @@ define void @_Z16SolveChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   %24 = call i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
   %25 = and i64 %24, 4294967295
   %26 = icmp eq i64 %25, 4294967295
-  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 27:                                               ; preds = %.lr.ph._crit_edge, %8
   %.pre-phi = phi i64 [ %.pre13, %.lr.ph._crit_edge ], [ %10, %8 ]
@@ -282,7 +282,7 @@ define noundef i32 @_Z15SolveAllBoardsNR6boardsR12solvedBoards(ptr noundef nonnu
   store i32 0, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !7
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !8
 
 9:                                                ; preds = %7
   %10 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -332,7 +332,7 @@ define i32 @SolveBoardPBN(ptr noundef byval(%struct.dealPBN) align 8 %0, i32 nou
   store i32 %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %19, label %15, !llvm.loop !8
+  br i1 %exitcond.not, label %19, label %15, !llvm.loop !9
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -383,7 +383,7 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   %16 = load i32, ptr %0, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next42, %17
-  br i1 %18, label %19, label %._crit_edge, !llvm.loop !9
+  br i1 %18, label %19, label %._crit_edge, !llvm.loop !10
 
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv41 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next42, %15 ]
@@ -425,7 +425,7 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   store i32 %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %46, label %39, !llvm.loop !10
+  br i1 %exitcond.not, label %46, label %39, !llvm.loop !11
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -457,7 +457,7 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   store i32 0, ptr %gep.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %56, label %54, !llvm.loop !7
+  br i1 %exitcond.not.i, label %56, label %54, !llvm.loop !8
 
 56:                                               ; preds = %54
   %57 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -531,7 +531,7 @@ define i32 @SolveAllChunksBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   store i32 0, ptr %gep.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %12, label %10, !llvm.loop !7
+  br i1 %exitcond.not.i, label %12, label %10, !llvm.loop !8
 
 12:                                               ; preds = %10
   %13 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -613,7 +613,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   store i32 -1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.lr.ph38, label %.lr.ph, !llvm.loop !12
 
 32:                                               ; preds = %.lr.ph38, %.loopexit
   %indvars.iv51 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next52.pre-phi, %.loopexit ]
@@ -724,7 +724,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIi
 77:                                               ; preds = %78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %83, label %78, !llvm.loop !12
+  br i1 %exitcond.not.i, label %83, label %78, !llvm.loop !13
 
 78:                                               ; preds = %77, %.preheader57.i
   %indvars.iv.i = phi i64 [ 0, %.preheader57.i ], [ %indvars.iv.next.i, %77 ]
@@ -738,7 +738,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIi
 83:                                               ; preds = %77
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 4
-  br i1 %exitcond67.not.i, label %84, label %.preheader57.i, !llvm.loop !13
+  br i1 %exitcond67.not.i, label %84, label %.preheader57.i, !llvm.loop !14
 
 84:                                               ; preds = %83
   %85 = load i32, ptr %66, align 4
@@ -783,7 +783,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIi
 106:                                              ; preds = %112
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 3
-  br i1 %exitcond71.not.i, label %_Z9SameBoardRK6boardsjj.exit, label %107, !llvm.loop !14
+  br i1 %exitcond71.not.i, label %_Z9SameBoardRK6boardsjj.exit, label %107, !llvm.loop !15
 
 107:                                              ; preds = %106, %.preheader.i
   %indvars.iv68.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next69.i, %106 ]
@@ -812,13 +812,13 @@ _Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %107, %112, %78, %10
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next48 to i32
   %exitcond50.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond50.not, label %.loopexit, label %74, !llvm.loop !15
+  br i1 %exitcond50.not, label %.loopexit, label %74, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_Z9SameBoardRK6boardsjj.exit.thread, %..loopexit_crit_edge, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv.next52.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %64, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %64, %_Z9SameBoardRK6boardsjj.exit.thread ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next52.pre-phi, %9
-  br i1 %exitcond56.not, label %._crit_edge, label %32, !llvm.loop !16
+  br i1 %exitcond56.not, label %._crit_edge, label %32, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   ret void
@@ -846,7 +846,7 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
 13:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %19, label %14, !llvm.loop !12
+  br i1 %exitcond.not, label %19, label %14, !llvm.loop !13
 
 14:                                               ; preds = %.preheader57, %13
   %indvars.iv = phi i64 [ 0, %.preheader57 ], [ %indvars.iv.next, %13 ]
@@ -860,7 +860,7 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
 19:                                               ; preds = %13
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 4
-  br i1 %exitcond67.not, label %20, label %.preheader57, !llvm.loop !13
+  br i1 %exitcond67.not, label %20, label %.preheader57, !llvm.loop !14
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20804
@@ -915,7 +915,7 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
 52:                                               ; preds = %58
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 3
-  br i1 %exitcond71.not, label %.loopexit, label %53, !llvm.loop !14
+  br i1 %exitcond71.not, label %.loopexit, label %53, !llvm.loop !15
 
 53:                                               ; preds = %.preheader, %52
   %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %52 ]
@@ -1108,16 +1108,17 @@ attributes #18 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

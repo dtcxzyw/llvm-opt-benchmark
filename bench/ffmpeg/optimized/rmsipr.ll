@@ -72,7 +72,7 @@ define void @ff_rm_reorder_sipr_data(ptr noundef captures(none) %0, i32 noundef 
 ._crit_edge.us:                                   ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond43.not, label %.split40.us, label %.lr.ph.us, !llvm.loop !9
+  br i1 %exitcond43.not, label %.split40.us, label %.lr.ph.us, !llvm.loop !10
 
 .split40.us:                                      ; preds = %._crit_edge.us, %3
   ret void
@@ -89,7 +89,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

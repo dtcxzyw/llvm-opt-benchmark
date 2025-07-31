@@ -43,7 +43,7 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %23 = load i32, ptr %4, align 4, !tbaa !28
   %24 = and i32 %23, -256
   %25 = icmp eq i32 %24, 256
-  br i1 %21, label %.split.us, label %.split
+  br i1 %21, label %.split.us, label %.split, !llvm.loop !29
 
 .split.us:                                        ; preds = %19
   br i1 %25, label %26, label %.loopexit
@@ -54,11 +54,11 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %30 = load i8, ptr %29, align 1, !tbaa !29
+  %30 = load i8, ptr %29, align 1, !tbaa !31
   %31 = zext i8 %30 to i32
   %32 = lshr i32 %31, 3
   %33 = and i32 %32, 7
-  %34 = load i8, ptr %22, align 1, !tbaa !29
+  %34 = load i8, ptr %22, align 1, !tbaa !31
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 2
   %37 = lshr i32 %31, 6
@@ -103,11 +103,11 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 53:                                               ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !29
+  %55 = load i8, ptr %54, align 1, !tbaa !31
   %56 = zext i8 %55 to i32
   %57 = lshr i32 %56, 3
   %58 = and i32 %57, 7
-  %59 = load i8, ptr %51, align 1, !tbaa !29
+  %59 = load i8, ptr %51, align 1, !tbaa !31
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 2
   %62 = lshr i32 %56, 6
@@ -170,27 +170,27 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %81 = or i32 %80, %79
   %82 = or i32 %81, %.066
   %83 = or i32 %82, %76
-  %84 = load ptr, ptr %15, align 8, !tbaa !30
+  %84 = load ptr, ptr %15, align 8, !tbaa !32
   %85 = lshr i32 %83, 24
   %86 = trunc nuw nsw i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  store i8 %86, ptr %84, align 1, !tbaa !29
+  store i8 %86, ptr %84, align 1, !tbaa !31
   %88 = lshr i32 %83, 16
   %89 = trunc i32 %88 to i8
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 2
-  store i8 %89, ptr %87, align 1, !tbaa !29
+  store i8 %89, ptr %87, align 1, !tbaa !31
   %91 = lshr exact i32 %82, 8
   %92 = trunc nuw nsw i32 %91 to i8
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 3
-  store i8 %92, ptr %90, align 1, !tbaa !29
+  store i8 %92, ptr %90, align 1, !tbaa !31
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store i8 0, ptr %93, align 1, !tbaa !29
+  store i8 0, ptr %93, align 1, !tbaa !31
   %95 = sext i32 %.081 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %.065131, i64 %95, i1 false)
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  %97 = load i32, ptr %16, align 4, !tbaa !31
-  store i32 %97, ptr %17, align 4, !tbaa !32
-  %98 = load ptr, ptr %15, align 8, !tbaa !30
+  %97 = load i32, ptr %16, align 4, !tbaa !33
+  store i32 %97, ptr %17, align 4, !tbaa !34
+  %98 = load ptr, ptr %15, align 8, !tbaa !32
   %99 = ptrtoint ptr %96 to i64
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
@@ -201,7 +201,7 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %105 = getelementptr inbounds i8, ptr %.065131, i64 %95
   %106 = sub nsw i32 %.080127, %.081
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %18, label %._crit_edge, !llvm.loop !33
+  br i1 %107, label %18, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %75, %3
   ret void
@@ -257,9 +257,11 @@ attributes #4 = { nounwind }
 !26 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
 !27 = !{!"p1 _ZTS8AVStream", !7, i64 0}
 !28 = !{!13, !13, i64 0}
-!29 = !{!8, !8, i64 0}
-!30 = !{!25, !18, i64 96}
-!31 = !{!25, !13, i64 52}
-!32 = !{!25, !13, i64 44}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.mustprogress"}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!8, !8, i64 0}
+!32 = !{!25, !18, i64 96}
+!33 = !{!25, !13, i64 52}
+!34 = !{!25, !13, i64 44}
+!35 = distinct !{!35, !36, !30}
+!36 = !{!"llvm.loop.mustprogress"}

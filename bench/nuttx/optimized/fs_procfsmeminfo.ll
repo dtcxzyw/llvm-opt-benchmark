@@ -205,7 +205,7 @@ define internal noundef i64 @memdump_write(ptr readnone captures(none) %0, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   ret i64 %2
@@ -243,11 +243,11 @@ define void @procfs_unregister_meminfo(ptr noundef readonly captures(address) %0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph14
   %7 = icmp eq ptr %6, %0
-  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !9
+  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !10
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -311,7 +311,8 @@ attributes #14 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

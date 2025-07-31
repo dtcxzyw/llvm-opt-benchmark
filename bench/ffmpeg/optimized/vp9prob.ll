@@ -210,18 +210,18 @@ adapt_prob.exit483:                               ; preds = %adapt_prob.exit, %8
 adapt_prob.exit486:                               ; preds = %28, %133
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   %exitcond844.not = icmp eq i64 %indvars.iv.next842, 6
-  br i1 %exitcond844.not, label %134, label %.preheader816, !llvm.loop !36
+  br i1 %exitcond844.not, label %134, label %.preheader816, !llvm.loop !37
 
 134:                                              ; preds = %adapt_prob.exit486
-  br i1 %24, label %.preheader817, label %135, !llvm.loop !37
+  br i1 %24, label %.preheader817, label %135, !llvm.loop !38
 
 135:                                              ; preds = %134
-  br i1 %22, label %.preheader818, label %136, !llvm.loop !38
+  br i1 %22, label %.preheader818, label %136, !llvm.loop !39
 
 136:                                              ; preds = %135
   %indvars.iv.next852 = add nuw nsw i64 %indvars.iv851, 1
   %exitcond854.not = icmp eq i64 %indvars.iv.next852, 4
-  br i1 %exitcond854.not, label %137, label %.preheader819, !llvm.loop !39
+  br i1 %exitcond854.not, label %137, label %.preheader819, !llvm.loop !40
 
 137:                                              ; preds = %136
   br i1 %.not, label %138, label %146
@@ -304,7 +304,7 @@ adapt_prob.exit486:                               ; preds = %28, %133
 adapt_prob.exit489:                               ; preds = %159, %165
   %indvars.iv.next856 = add nuw nsw i64 %indvars.iv855, 1
   %exitcond858.not = icmp eq i64 %indvars.iv.next856, 3
-  br i1 %exitcond858.not, label %.preheader814, label %159, !llvm.loop !40
+  br i1 %exitcond858.not, label %.preheader814, label %159, !llvm.loop !41
 
 190:                                              ; preds = %.preheader814, %adapt_prob.exit492
   %indvars.iv859 = phi i64 [ 0, %.preheader814 ], [ %indvars.iv.next860, %adapt_prob.exit492 ]
@@ -348,11 +348,11 @@ adapt_prob.exit489:                               ; preds = %159, %165
 adapt_prob.exit492:                               ; preds = %190, %196
   %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
   %exitcond862.not = icmp eq i64 %indvars.iv.next860, 4
-  br i1 %exitcond862.not, label %221, label %190, !llvm.loop !41
+  br i1 %exitcond862.not, label %221, label %190, !llvm.loop !42
 
 221:                                              ; preds = %adapt_prob.exit492
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %223 = load i32, ptr %222, align 8, !tbaa !42
+  %223 = load i32, ptr %222, align 8, !tbaa !43
   switch i32 %223, label %.preheader812 [
     i32 2, label %.preheader813
     i32 0, label %.preheader810
@@ -405,7 +405,7 @@ adapt_prob.exit492:                               ; preds = %190, %196
 adapt_prob.exit495:                               ; preds = %226, %232
   %indvars.iv.next864 = add nuw nsw i64 %indvars.iv863, 1
   %exitcond866.not = icmp eq i64 %indvars.iv.next864, 5
-  br i1 %exitcond866.not, label %.preheader812, label %226, !llvm.loop !43
+  br i1 %exitcond866.not, label %.preheader812, label %226, !llvm.loop !44
 
 .preheader812:                                    ; preds = %adapt_prob.exit495, %221
   %257 = getelementptr inbounds nuw i8, ptr %141, i64 972
@@ -454,7 +454,7 @@ adapt_prob.exit495:                               ; preds = %226, %232
 adapt_prob.exit498:                               ; preds = %259, %265
   %indvars.iv.next868 = add nuw nsw i64 %indvars.iv867, 1
   %exitcond870.not = icmp eq i64 %indvars.iv.next868, 5
-  br i1 %exitcond870.not, label %290, label %259, !llvm.loop !44
+  br i1 %exitcond870.not, label %290, label %259, !llvm.loop !45
 
 290:                                              ; preds = %adapt_prob.exit498
   %.not472 = icmp eq i32 %223, 1
@@ -545,7 +545,7 @@ adapt_prob.exit501:                               ; preds = %293, %300
 adapt_prob.exit504:                               ; preds = %adapt_prob.exit501, %329
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
   %exitcond874.not = icmp eq i64 %indvars.iv.next872, 5
-  br i1 %exitcond874.not, label %.loopexit811, label %293, !llvm.loop !45
+  br i1 %exitcond874.not, label %.loopexit811, label %293, !llvm.loop !46
 
 .loopexit811:                                     ; preds = %adapt_prob.exit504, %290
   %354 = getelementptr inbounds nuw i8, ptr %6, i64 263
@@ -685,16 +685,16 @@ adapt_prob.exit510:                               ; preds = %adapt_prob.exit507,
 adapt_prob.exit513:                               ; preds = %adapt_prob.exit510, %428
   %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
   %exitcond878.not = icmp eq i64 %indvars.iv.next876, 4
-  br i1 %exitcond878.not, label %453, label %358, !llvm.loop !46
+  br i1 %exitcond878.not, label %453, label %358, !llvm.loop !47
 
 453:                                              ; preds = %adapt_prob.exit513
   %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
   %exitcond882.not = icmp eq i64 %indvars.iv.next880, 4
-  br i1 %exitcond882.not, label %454, label %.preheader809, !llvm.loop !47
+  br i1 %exitcond882.not, label %454, label %.preheader809, !llvm.loop !48
 
 454:                                              ; preds = %453
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %456 = load i32, ptr %455, align 4, !tbaa !48
+  %456 = load i32, ptr %455, align 4, !tbaa !49
   %457 = icmp eq i32 %456, 4
   br i1 %457, label %.preheader807, label %.loopexit808
 
@@ -950,11 +950,11 @@ adapt_prob.exit528:                               ; preds = %adapt_prob.exit525,
   br label %adapt_prob.exit531
 
 adapt_prob.exit531:                               ; preds = %adapt_prob.exit528, %626
-  br i1 %465, label %464, label %.loopexit808, !llvm.loop !49
+  br i1 %465, label %464, label %.loopexit808, !llvm.loop !50
 
 .loopexit808:                                     ; preds = %adapt_prob.exit531, %454
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %652 = load i32, ptr %651, align 4, !tbaa !50
+  %652 = load i32, ptr %651, align 4, !tbaa !51
   %653 = icmp eq i32 %652, 4
   br i1 %653, label %.preheader805, label %.loopexit806
 
@@ -1046,7 +1046,7 @@ adapt_prob.exit534:                               ; preds = %656, %666
 adapt_prob.exit537:                               ; preds = %adapt_prob.exit534, %693
   %indvars.iv.next887 = add nuw nsw i64 %indvars.iv886, 1
   %exitcond889.not = icmp eq i64 %indvars.iv.next887, 4
-  br i1 %exitcond889.not, label %.loopexit806, label %656, !llvm.loop !51
+  br i1 %exitcond889.not, label %.loopexit806, label %656, !llvm.loop !52
 
 .loopexit806:                                     ; preds = %adapt_prob.exit537, %.loopexit808
   %718 = getelementptr inbounds nuw i8, ptr %6, i64 134
@@ -1180,7 +1180,7 @@ adapt_prob.exit543:                               ; preds = %adapt_prob.exit540,
 adapt_prob.exit546:                               ; preds = %adapt_prob.exit543, %790
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
   %exitcond893.not = icmp eq i64 %indvars.iv.next891, 7
-  br i1 %exitcond893.not, label %815, label %720, !llvm.loop !52
+  br i1 %exitcond893.not, label %815, label %720, !llvm.loop !53
 
 815:                                              ; preds = %adapt_prob.exit546
   %816 = getelementptr inbounds nuw i8, ptr %141, i64 1108
@@ -1314,7 +1314,7 @@ adapt_prob.exit555:                               ; preds = %adapt_prob.exit552,
   %915 = getelementptr i8, ptr %141, i64 1264
   %916 = getelementptr i8, ptr %141, i64 1296
   %917 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %918 = load i8, ptr %917, align 8, !tbaa !53
+  %918 = load i8, ptr %917, align 8, !tbaa !54
   %.not476 = icmp eq i8 %918, 0
   %919 = getelementptr i8, ptr %141, i64 1312
   %920 = getelementptr i8, ptr %141, i64 1320
@@ -1854,7 +1854,7 @@ adapt_prob.exit591:                               ; preds = %adapt_prob.exit588,
 adapt_prob.exit594:                               ; preds = %1294, %1300
   %indvars.iv.next895 = add nuw nsw i64 %indvars.iv894, 1
   %exitcond897.not = icmp eq i64 %indvars.iv.next895, 10
-  br i1 %exitcond897.not, label %.preheader804, label %1294, !llvm.loop !54
+  br i1 %exitcond897.not, label %.preheader804, label %1294, !llvm.loop !55
 
 1325:                                             ; preds = %.preheader804, %adapt_prob.exit603
   %1326 = phi i1 [ true, %.preheader804 ], [ false, %adapt_prob.exit603 ]
@@ -1982,7 +1982,7 @@ adapt_prob.exit600:                               ; preds = %adapt_prob.exit597,
   br label %adapt_prob.exit603
 
 adapt_prob.exit603:                               ; preds = %adapt_prob.exit600, %1396
-  br i1 %1326, label %1325, label %1421, !llvm.loop !55
+  br i1 %1326, label %1325, label %1421, !llvm.loop !56
 
 1421:                                             ; preds = %adapt_prob.exit603
   %1422 = getelementptr i8, ptr %916, i64 %.idx
@@ -2187,7 +2187,7 @@ adapt_prob.exit615:                               ; preds = %1516, %1522
   br label %adapt_prob.exit618
 
 adapt_prob.exit618:                               ; preds = %1552, %adapt_prob.exit615, %adapt_prob.exit612
-  br i1 %923, label %922, label %.preheader803, !llvm.loop !56
+  br i1 %923, label %922, label %.preheader803, !llvm.loop !57
 
 .preheader:                                       ; preds = %adapt_prob.exit645
   %1577 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -2545,7 +2545,7 @@ adapt_prob.exit642:                               ; preds = %adapt_prob.exit639,
 adapt_prob.exit645:                               ; preds = %adapt_prob.exit642, %1829
   %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %exitcond907.not = icmp eq i64 %indvars.iv.next905, 4
-  br i1 %exitcond907.not, label %.preheader, label %1579, !llvm.loop !57
+  br i1 %exitcond907.not, label %.preheader, label %1579, !llvm.loop !58
 
 1854:                                             ; preds = %.preheader, %adapt_prob.exit672
   %indvars.iv908 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next909, %adapt_prob.exit672 ]
@@ -2898,7 +2898,7 @@ adapt_prob.exit669:                               ; preds = %adapt_prob.exit666,
 adapt_prob.exit672:                               ; preds = %adapt_prob.exit669, %2104
   %indvars.iv.next909 = add nuw nsw i64 %indvars.iv908, 1
   %exitcond911.not = icmp eq i64 %indvars.iv.next909, 10
-  br i1 %exitcond911.not, label %.loopexit, label %1854, !llvm.loop !58
+  br i1 %exitcond911.not, label %.loopexit, label %1854, !llvm.loop !59
 
 .loopexit:                                        ; preds = %adapt_prob.exit672, %146
   ret void
@@ -2953,28 +2953,29 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !31 = !{!5, !15, i64 656}
 !32 = !{!10, !10, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
-!42 = !{!5, !10, i64 272}
-!43 = distinct !{!43, !35}
-!44 = distinct !{!44, !35}
-!45 = distinct !{!45, !35}
-!46 = distinct !{!46, !35}
-!47 = distinct !{!47, !35}
-!48 = !{!5, !10, i64 268}
-!49 = distinct !{!49, !35}
-!50 = !{!5, !10, i64 12}
-!51 = distinct !{!51, !35}
-!52 = distinct !{!52, !35}
-!53 = !{!5, !8, i64 8}
-!54 = distinct !{!54, !35}
-!55 = distinct !{!55, !35}
-!56 = distinct !{!56, !35}
-!57 = distinct !{!57, !35}
-!58 = distinct !{!58, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = distinct !{!38, !35, !36}
+!39 = distinct !{!39, !35, !36}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36}
+!42 = distinct !{!42, !35, !36}
+!43 = !{!5, !10, i64 272}
+!44 = distinct !{!44, !35, !36}
+!45 = distinct !{!45, !35, !36}
+!46 = distinct !{!46, !35, !36}
+!47 = distinct !{!47, !35, !36}
+!48 = distinct !{!48, !35, !36}
+!49 = !{!5, !10, i64 268}
+!50 = distinct !{!50, !35, !36}
+!51 = !{!5, !10, i64 12}
+!52 = distinct !{!52, !35, !36}
+!53 = distinct !{!53, !35, !36}
+!54 = !{!5, !8, i64 8}
+!55 = distinct !{!55, !35, !36}
+!56 = distinct !{!56, !35, !36}
+!57 = distinct !{!57, !35, !36}
+!58 = distinct !{!58, !35, !36}
+!59 = distinct !{!59, !35, !36}

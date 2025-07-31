@@ -38,13 +38,13 @@ define i32 @Csw_CutHash(ptr noundef readonly captures(none) %0) local_unnamed_ad
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Csw_TableCountCuts(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i32, ptr %2, align 8, !tbaa !14
+  %3 = load i32, ptr %2, align 8, !tbaa !15
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
@@ -57,15 +57,15 @@ define i32 @Csw_TableCountCuts(ptr noundef readonly captures(none) %0) local_unn
 9:                                                ; preds = %9, %7
   %.09.in = phi ptr [ %8, %7 ], [ %.09, %9 ]
   %.1 = phi i32 [ %.011, %7 ], [ %10, %9 ]
-  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !23
+  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !24
   %.not = icmp eq ptr %.09, null
   %10 = add nsw i32 %.1, 1
-  br i1 %.not, label %11, label %9, !llvm.loop !24
+  br i1 %.not, label %11, label %9, !llvm.loop !25
 
 11:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %11, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %11 ]
@@ -100,15 +100,15 @@ define void @Csw_TableCutInsert(ptr noundef readonly captures(none) %0, ptr noun
 Csw_CutHash.exit:                                 ; preds = %7, %2
   %.07.lcssa.i = phi i32 [ 0, %2 ], [ %13, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !14
+  %15 = load i32, ptr %14, align 8, !tbaa !15
   %16 = urem i32 %.07.lcssa.i, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
-  store ptr %21, ptr %1, align 8, !tbaa !26
-  store ptr %1, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  store ptr %21, ptr %1, align 8, !tbaa !27
+  store ptr %1, ptr %20, align 8, !tbaa !24
   ret void
 }
 
@@ -140,13 +140,13 @@ define ptr @Csw_TableCutLookup(ptr noundef readonly captures(none) %0, ptr nound
 Csw_CutHash.exit:                                 ; preds = %7, %2
   %.07.lcssa.i = phi i32 [ 0, %2 ], [ %13, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load i32, ptr %14, align 8, !tbaa !14
+  %15 = load i32, ptr %14, align 8, !tbaa !15
   %16 = urem i32 %.07.lcssa.i, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %.02751 = load ptr, ptr %20, align 8, !tbaa !23
+  %.02751 = load ptr, ptr %20, align 8, !tbaa !24
   %.not52 = icmp eq ptr %.02751, null
   br i1 %.not52, label %Aig_ManObj.exit, label %.lr.ph
 
@@ -173,8 +173,8 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %.02753, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !27
-  %38 = load i32, ptr %21, align 4, !tbaa !27
+  %37 = load i32, ptr %36, align 4, !tbaa !28
+  %38 = load i32, ptr %21, align 4, !tbaa !28
   %.not29 = icmp eq i32 %37, %38
   br i1 %.not29, label %39, label %Kit_TruthIsEqual.exit.thread
 
@@ -186,10 +186,10 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.02753, i64 22
-  %43 = load i8, ptr %42, align 2, !tbaa !28
+  %43 = load i8, ptr %42, align 2, !tbaa !29
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i32, ptr %40, i64 %44
-  %46 = load i8, ptr %25, align 2, !tbaa !28
+  %46 = load i8, ptr %25, align 2, !tbaa !29
   %47 = sext i8 %46 to i64
   %48 = getelementptr inbounds i32, ptr %22, i64 %47
   %49 = load i32, ptr %45, align 4, !tbaa !11
@@ -212,24 +212,24 @@ select.unfold.i:                                  ; preds = %41, %56
   %60 = getelementptr inbounds nuw i32, ptr %48, i64 %57
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %.not.i = icmp eq i32 %59, %61
-  br i1 %.not.i, label %select.unfold.i, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !29
+  br i1 %.not.i, label %select.unfold.i, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !30
 
 Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !30
+  %63 = load ptr, ptr %62, align 8, !tbaa !31
   %64 = getelementptr i8, ptr %63, i64 32
-  %.val = load ptr, ptr %64, align 8, !tbaa !31
+  %.val = load ptr, ptr %64, align 8, !tbaa !32
   %.not.i35 = icmp eq ptr %.val, null
   br i1 %.not.i35, label %Aig_ManObj.exit, label %65
 
 65:                                               ; preds = %Kit_TruthIsEqual.exit
   %66 = getelementptr inbounds nuw i8, ptr %.02753, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !40
+  %67 = load i32, ptr %66, align 8, !tbaa !41
   %68 = getelementptr i8, ptr %.val, i64 8
-  %.val.i = load ptr, ptr %68, align 8, !tbaa !41
+  %.val.i = load ptr, ptr %68, align 8, !tbaa !42
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds ptr, ptr %.val.i, i64 %69
-  %71 = load ptr, ptr %70, align 8, !tbaa !43
+  %71 = load ptr, ptr %70, align 8, !tbaa !44
   br label %Aig_ManObj.exit
 
 select.unfold.i37:                                ; preds = %41, %74
@@ -246,24 +246,24 @@ select.unfold.i37:                                ; preds = %41, %74
   %79 = load i32, ptr %78, align 4, !tbaa !11
   %80 = xor i32 %79, %77
   %.not.i40 = icmp eq i32 %80, -1
-  br i1 %.not.i40, label %select.unfold.i37, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !44
+  br i1 %.not.i40, label %select.unfold.i37, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !45
 
 Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  %82 = load ptr, ptr %81, align 8, !tbaa !31
   %83 = getelementptr i8, ptr %82, i64 32
-  %.val33 = load ptr, ptr %83, align 8, !tbaa !31
+  %.val33 = load ptr, ptr %83, align 8, !tbaa !32
   %.not.i41 = icmp eq ptr %.val33, null
   br i1 %.not.i41, label %Aig_ManObj.exit43, label %84
 
 84:                                               ; preds = %Kit_TruthIsOpposite.exit
   %85 = getelementptr inbounds nuw i8, ptr %.02753, i64 16
-  %86 = load i32, ptr %85, align 8, !tbaa !40
+  %86 = load i32, ptr %85, align 8, !tbaa !41
   %87 = getelementptr i8, ptr %.val33, i64 8
-  %.val.i42 = load ptr, ptr %87, align 8, !tbaa !41
+  %.val.i42 = load ptr, ptr %87, align 8, !tbaa !42
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds ptr, ptr %.val.i42, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !43
+  %90 = load ptr, ptr %89, align 8, !tbaa !44
   %91 = ptrtoint ptr %90 to i64
   %92 = xor i64 %91, 1
   br label %Aig_ManObj.exit43
@@ -274,9 +274,9 @@ Aig_ManObj.exit43:                                ; preds = %Kit_TruthIsOpposite
   br label %Aig_ManObj.exit
 
 Kit_TruthIsEqual.exit.thread:                     ; preds = %74, %56, %39, %35, %32
-  %.027 = load ptr, ptr %.02753, align 8, !tbaa !23
+  %.027 = load ptr, ptr %.02753, align 8, !tbaa !24
   %.not = icmp eq ptr %.027, null
-  br i1 %.not, label %Aig_ManObj.exit, label %32, !llvm.loop !45
+  br i1 %.not, label %Aig_ManObj.exit, label %32, !llvm.loop !46
 
 Aig_ManObj.exit:                                  ; preds = %Kit_TruthIsEqual.exit.thread, %Csw_CutHash.exit, %65, %Kit_TruthIsEqual.exit, %Aig_ManObj.exit43
   %.0 = phi ptr [ %94, %Aig_ManObj.exit43 ], [ %71, %65 ], [ null, %Kit_TruthIsEqual.exit ], [ null, %Csw_CutHash.exit ], [ null, %Kit_TruthIsEqual.exit.thread ]
@@ -306,37 +306,38 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !9 = !{!"int", !7, i64 0}
 !10 = !{!"short", !7, i64 0}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !9, i64 48}
-!15 = !{!"Csw_Man_t_", !16, i64 0, !16, i64 8, !17, i64 16, !18, i64 24, !19, i64 32, !18, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !20, i64 72, !7, i64 80, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !21, i64 136, !21, i64 144, !21, i64 152, !21, i64 160}
-!16 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
-!17 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
-!18 = !{!"p2 _ZTS10Csw_Cut_t_", !6, i64 0}
-!19 = !{!"p1 int", !6, i64 0}
-!20 = !{!"p1 _ZTS14Aig_MmFixed_t_", !6, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!15, !18, i64 40}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
-!26 = !{!4, !5, i64 0}
-!27 = !{!4, !9, i64 12}
-!28 = !{!4, !7, i64 22}
-!29 = distinct !{!29, !13}
-!30 = !{!15, !16, i64 8}
-!31 = !{!32, !34, i64 32}
-!32 = !{!"Aig_Man_t_", !33, i64 0, !33, i64 8, !34, i64 16, !34, i64 24, !34, i64 32, !34, i64 40, !35, i64 48, !36, i64 56, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !7, i64 128, !9, i64 156, !17, i64 160, !9, i64 168, !19, i64 176, !9, i64 184, !37, i64 192, !9, i64 200, !9, i64 204, !9, i64 208, !19, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !17, i64 248, !17, i64 256, !9, i64 264, !20, i64 272, !38, i64 280, !9, i64 288, !6, i64 296, !6, i64 304, !9, i64 312, !9, i64 316, !9, i64 320, !17, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !19, i64 368, !19, i64 376, !34, i64 384, !38, i64 392, !38, i64 400, !39, i64 408, !34, i64 416, !16, i64 424, !34, i64 432, !9, i64 440, !38, i64 448, !37, i64 456, !38, i64 464, !38, i64 472, !9, i64 480, !21, i64 488, !21, i64 496, !21, i64 504, !34, i64 512, !34, i64 520}
-!33 = !{!"p1 omnipotent char", !6, i64 0}
-!34 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
-!35 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
-!36 = !{!"Aig_Obj_t_", !7, i64 0, !35, i64 8, !35, i64 16, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 28, !9, i64 31, !9, i64 32, !9, i64 36, !7, i64 40}
-!37 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
-!38 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
-!39 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
-!40 = !{!4, !9, i64 16}
-!41 = !{!42, !6, i64 8}
-!42 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !6, i64 8}
-!43 = !{!6, !6, i64 0}
-!44 = distinct !{!44, !13}
-!45 = distinct !{!45, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !9, i64 48}
+!16 = !{!"Csw_Man_t_", !17, i64 0, !17, i64 8, !18, i64 16, !19, i64 24, !20, i64 32, !19, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !21, i64 72, !7, i64 80, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !22, i64 136, !22, i64 144, !22, i64 152, !22, i64 160}
+!17 = !{!"p1 _ZTS10Aig_Man_t_", !6, i64 0}
+!18 = !{!"p2 _ZTS10Aig_Obj_t_", !6, i64 0}
+!19 = !{!"p2 _ZTS10Csw_Cut_t_", !6, i64 0}
+!20 = !{!"p1 int", !6, i64 0}
+!21 = !{!"p1 _ZTS14Aig_MmFixed_t_", !6, i64 0}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!16, !19, i64 40}
+!24 = !{!5, !5, i64 0}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}
+!27 = !{!4, !5, i64 0}
+!28 = !{!4, !9, i64 12}
+!29 = !{!4, !7, i64 22}
+!30 = distinct !{!30, !13, !14}
+!31 = !{!16, !17, i64 8}
+!32 = !{!33, !35, i64 32}
+!33 = !{!"Aig_Man_t_", !34, i64 0, !34, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !36, i64 48, !37, i64 56, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !7, i64 128, !9, i64 156, !18, i64 160, !9, i64 168, !20, i64 176, !9, i64 184, !38, i64 192, !9, i64 200, !9, i64 204, !9, i64 208, !20, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !18, i64 248, !18, i64 256, !9, i64 264, !21, i64 272, !39, i64 280, !9, i64 288, !6, i64 296, !6, i64 304, !9, i64 312, !9, i64 316, !9, i64 320, !18, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !20, i64 368, !20, i64 376, !35, i64 384, !39, i64 392, !39, i64 400, !40, i64 408, !35, i64 416, !17, i64 424, !35, i64 432, !9, i64 440, !39, i64 448, !38, i64 456, !39, i64 464, !39, i64 472, !9, i64 480, !22, i64 488, !22, i64 496, !22, i64 504, !35, i64 512, !35, i64 520}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!36 = !{!"p1 _ZTS10Aig_Obj_t_", !6, i64 0}
+!37 = !{!"Aig_Obj_t_", !7, i64 0, !36, i64 8, !36, i64 16, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 28, !9, i64 31, !9, i64 32, !9, i64 36, !7, i64 40}
+!38 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
+!39 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
+!40 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!41 = !{!4, !9, i64 16}
+!42 = !{!43, !6, i64 8}
+!43 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !6, i64 8}
+!44 = !{!6, !6, i64 0}
+!45 = distinct !{!45, !13, !14}
+!46 = distinct !{!46, !13, !14}

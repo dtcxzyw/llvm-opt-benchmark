@@ -96,7 +96,7 @@ define void @lv_draw_arc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %17, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !34
 
 36:                                               ; preds = %17
   %37 = call ptr @lv_memcpy(ptr noundef nonnull %34, ptr noundef nonnull %1, i64 noundef 96) #4
@@ -546,3 +546,5 @@ attributes #4 = { nounwind }
 !31 = !{!22, !10, i64 4}
 !32 = !{!22, !10, i64 8}
 !33 = !{!22, !10, i64 12}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.estimated_trip_count"}

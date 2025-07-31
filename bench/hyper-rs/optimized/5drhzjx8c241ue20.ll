@@ -231,7 +231,7 @@ define noundef zeroext i1 @_ZN5hyper5error5Error10is_timeout17h1bdf15bba89e103aE
   %.sroa.4.0.i = extractvalue { ptr, ptr } %14, 1
   %.sroa.0.0.i = extractvalue { ptr, ptr } %14, 0
   %.not.i = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %.not.i, label %_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit: ; preds = %.lr.ph.i, %11, %1
   %.0.i = phi i1 [ false, %1 ], [ %.not11.i, %11 ], [ %.not11.i, %.lr.ph.i ]
@@ -245,8 +245,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error3new17h1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %0, ptr %3, align 8
   store ptr null, ptr %2, align 8
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !20
-  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !20
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !22
+  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !22
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129.exit"
 
@@ -285,8 +285,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error12new_ca
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 4, ptr %2, align 8
   store ptr null, ptr %1, align 8
-  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !23
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !23
+  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit
 
@@ -325,8 +325,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_use
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 3, ptr %2, align 8
   store ptr null, ptr %1, align 8
-  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !26
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !26
+  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !28
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !28
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit
 
@@ -365,8 +365,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error19new_us
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 3, ptr %2, align 8
   store ptr null, ptr %1, align 8
-  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !29
+  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !31
+  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !31
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5hyper5error5Error8new_user17hbe76fa3fee32946bE.llvm.15489473380671106129.exit
 
@@ -484,8 +484,8 @@ define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$hyper..error..Error$u20$a
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %0, ptr %3, align 8
   store ptr null, ptr %2, align 8
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !32
-  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !32
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !34
+  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !34
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit
 
@@ -684,18 +684,20 @@ attributes #17 = { cold noreturn nounwind }
 !17 = distinct !{!17, !18, !"_ZN35_$LT$dyn$u20$core..error..Error$GT$12downcast_ref17h59aacfc812389c9aE.llvm.16902682049564776864: argument 0"}
 !18 = distinct !{!18, !"_ZN35_$LT$dyn$u20$core..error..Error$GT$12downcast_ref17h59aacfc812389c9aE.llvm.16902682049564776864"}
 !19 = !{!17, !10}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!22 = distinct !{!22, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!25 = distinct !{!25, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!28 = distinct !{!28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!31 = distinct !{!31, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!34 = distinct !{!34, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
+!24 = distinct !{!24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
+!27 = distinct !{!27, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
+!30 = distinct !{!30, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
+!33 = distinct !{!33, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
+!36 = distinct !{!36, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}

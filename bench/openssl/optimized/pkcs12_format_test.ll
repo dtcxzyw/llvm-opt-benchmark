@@ -171,31 +171,31 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 7:                                                ; preds = %6
   %8 = tail call ptr @OSSL_LIB_CTX_new() #4
-  store ptr %8, ptr @testctx, align 8, !tbaa !6
+  store ptr %8, ptr @testctx, align 8, !tbaa !7
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 993, ptr noundef nonnull @.str.21, ptr noundef %8) #4
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %.loopexit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call ptr @OSSL_PROVIDER_load(ptr noundef null, ptr noundef nonnull @.str.22) #4
-  store ptr %11, ptr @nullprov, align 8, !tbaa !11
+  store ptr %11, ptr @nullprov, align 8, !tbaa !12
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 996, ptr noundef nonnull @.str.23, ptr noundef %11) #4
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %.loopexit, label %13
 
 13:                                               ; preds = %10, %6
-  %14 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %14 = load ptr, ptr @testctx, align 8, !tbaa !7
   %15 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %14, ptr noundef nonnull @.str.24) #4
-  store ptr %15, ptr @deflprov, align 8, !tbaa !11
+  store ptr %15, ptr @deflprov, align 8, !tbaa !12
   %16 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 1001, ptr noundef nonnull @.str.25, ptr noundef %15) #4
   %.not8 = icmp eq i32 %16, 0
   br i1 %.not8, label %.loopexit, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %18 = load ptr, ptr @testctx, align 8, !tbaa !7
   %19 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %18, ptr noundef nonnull @.str.16) #4
-  store ptr %19, ptr @lgcyprov, align 8, !tbaa !11
-  %20 = load ptr, ptr @testctx, align 8, !tbaa !6
+  store ptr %19, ptr @lgcyprov, align 8, !tbaa !12
+  %20 = load ptr, ptr @testctx, align 8, !tbaa !7
   tail call void @PKCS12_helper_set_libctx(ptr noundef %20) #4
   %.b4 = load i1, ptr @default_libctx, align 4
   br i1 %.b4, label %21, label %31
@@ -218,7 +218,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 31:                                               ; preds = %26, %17
   tail call void @add_test(ptr noundef nonnull @.str.29, ptr noundef nonnull @test_single_cert_no_attrs) #4
-  %32 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
+  %32 = load ptr, ptr @lgcyprov, align 8, !tbaa !12
   %33 = icmp eq ptr %32, null
   %. = select i1 %33, i32 5, i32 16
   tail call void @add_all_tests(ptr noundef nonnull @.str.30, ptr noundef nonnull @test_single_key_enc_alg, i32 noundef %., i32 noundef 1) #4
@@ -301,18 +301,18 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_single_key_enc_alg(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
-  %3 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
+  %3 = load ptr, ptr @lgcyprov, align 8, !tbaa !12
   %4 = icmp eq ptr %3, null
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %5
   %7 = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %5
   %storemerge.in = select i1 %4, ptr %7, ptr %6
-  %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
-  store i32 %storemerge, ptr %2, align 8, !tbaa !15
+  %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !14
+  store i32 %storemerge, ptr %2, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.47, ptr %8, align 8, !tbaa !18
+  store ptr @.str.47, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1000, ptr %9, align 8, !tbaa !19
+  store i32 1000, ptr %9, align 8, !tbaa !20
   %10 = call fastcc i32 @test_single_key(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %10
@@ -323,23 +323,23 @@ define internal i32 @test_single_secret_enc_alg(i32 noundef %0) #1 {
   %2 = alloca [80 x i8], align 16
   %3 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
-  %4 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
+  %4 = load ptr, ptr @lgcyprov, align 8, !tbaa !12
   %5 = icmp eq ptr %4, null
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %6
   %8 = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %6
   %storemerge.in = select i1 %5, ptr %8, ptr %7
-  %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
-  store i32 %storemerge, ptr %3, align 8, !tbaa !15
+  %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !14
+  store i32 %storemerge, ptr %3, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.47, ptr %9, align 8, !tbaa !18
+  store ptr @.str.47, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1000, ptr %10, align 8, !tbaa !19
+  store i32 1000, ptr %10, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #4
   %11 = tail call ptr @OBJ_nid2sn(i32 noundef %storemerge) #4
   %12 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.50, ptr noundef %11, i32 noundef 1000) #4
   %13 = call ptr @new_pkcs12_builder(ptr noundef nonnull %2) #4
-  %14 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  %14 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   %.not.i.i = icmp eq i32 %14, -1
   br i1 %.not.i.i, label %15, label %test_single_secret.exit
 
@@ -353,7 +353,7 @@ define internal i32 @test_single_secret_enc_alg(i32 noundef %0) #1 {
 
 20:                                               ; preds = %15
   %21 = call i32 @OBJ_txt2nid(ptr noundef nonnull @.str.54) #4
-  store i32 %21, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  store i32 %21, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   br label %test_single_secret.exit
 
 test_single_secret.exit:                          ; preds = %1, %15, %20
@@ -378,7 +378,7 @@ test_single_secret.exit:                          ; preds = %1, %15, %20
 define internal range(i32 0, 2) i32 @pkcs12_create_test() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  store ptr @pkcs12_create_test.rsa_key, ptr %1, align 8, !tbaa !20
+  store ptr @pkcs12_create_test.rsa_key, ptr %1, align 8, !tbaa !21
   %2 = call ptr @d2i_PrivateKey_ex(i32 noundef 6, ptr noundef null, ptr noundef nonnull %1, i64 noundef 609, ptr noundef null, ptr noundef null) #4
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 864, ptr noundef nonnull @.str.63, ptr noundef %2) #4
   %.not = icmp eq i32 %3, 0
@@ -422,15 +422,15 @@ define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #4
-  store ptr null, ptr %1, align 8, !tbaa !21
+  store ptr null, ptr %1, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  store ptr null, ptr %2, align 8, !tbaa !23
+  store ptr null, ptr %2, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr null, ptr %3, align 8, !tbaa !25
+  store ptr null, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr @CERT1, ptr %4, align 8, !tbaa !20
+  store ptr @CERT1, ptr %4, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr @KEY1, ptr %5, align 8, !tbaa !20
+  store ptr @KEY1, ptr %5, align 8, !tbaa !21
   %6 = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %4, i64 noundef 497) #4
   %7 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 899, ptr noundef nonnull @.str.67, ptr noundef %6) #4
   %.not = icmp eq i32 %7, 0
@@ -469,30 +469,30 @@ define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
   br i1 %.not23, label %45, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %26 = load ptr, ptr @testctx, align 8, !tbaa !7
   %27 = call ptr @PKCS12_init_ex(i32 noundef 21, ptr noundef %26, ptr noundef null) #4
-  store ptr %27, ptr %3, align 8, !tbaa !25
+  store ptr %27, ptr %3, align 8, !tbaa !26
   %28 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 917, ptr noundef nonnull @.str.73, ptr noundef %27) #4
   %.not24 = icmp eq i32 %28, 0
   br i1 %.not24, label %45, label %29
 
 29:                                               ; preds = %25
   %30 = call ptr @d2i_PKCS12_bio(ptr noundef %20, ptr noundef nonnull %3) #4
-  store ptr %30, ptr %3, align 8, !tbaa !25
+  store ptr %30, ptr %3, align 8, !tbaa !26
   %31 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 920, ptr noundef nonnull @.str.73, ptr noundef %30) #4
   %.not25 = icmp eq i32 %31, 0
   br i1 %.not25, label %45, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %3, align 8, !tbaa !25
+  %33 = load ptr, ptr %3, align 8, !tbaa !26
   %34 = call i32 @PKCS12_parse(ptr noundef %33, ptr noundef nonnull @.str.69, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #4
   %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 923, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.72, i32 noundef %34, i32 noundef 1) #4
   %.not26 = icmp eq i32 %35, 0
   br i1 %.not26, label %45, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %2, align 8, !tbaa !23
-  %38 = load ptr, ptr %1, align 8, !tbaa !21
+  %37 = load ptr, ptr %2, align 8, !tbaa !24
+  %38 = load ptr, ptr %1, align 8, !tbaa !22
   %39 = call ptr @PKCS12_create(ptr noundef nonnull @.str.75, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef null, i32 noundef 427, i32 noundef 427, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
   %40 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 930, ptr noundef nonnull @.str.76, ptr noundef %39) #4
   %.not27 = icmp eq i32 %40, 0
@@ -514,14 +514,14 @@ define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
   %.0 = phi ptr [ %20, %36 ], [ %20, %32 ], [ %20, %29 ], [ %20, %25 ], [ %20, %22 ], [ %20, %18 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %0 ], [ %20, %41 ]
   %46 = call i32 @BIO_free(ptr noundef %.0) #4
   call void @PKCS12_free(ptr noundef %.016) #4
-  %47 = load ptr, ptr %3, align 8, !tbaa !25
+  %47 = load ptr, ptr %3, align 8, !tbaa !26
   call void @PKCS12_free(ptr noundef %47) #4
   call void @PKCS12_free(ptr noundef %.015) #4
   call void @EVP_PKEY_free(ptr noundef %.017) #4
-  %48 = load ptr, ptr %2, align 8, !tbaa !23
+  %48 = load ptr, ptr %2, align 8, !tbaa !24
   call void @EVP_PKEY_free(ptr noundef %48) #4
   call void @X509_free(ptr noundef %6) #4
-  %49 = load ptr, ptr %1, align 8, !tbaa !21
+  %49 = load ptr, ptr %1, align 8, !tbaa !22
   call void @X509_free(ptr noundef %49) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
@@ -535,14 +535,14 @@ define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
 define internal i32 @test_single_key_enc_pass(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
-  store i32 146, ptr %2, align 8, !tbaa !15
+  store i32 146, ptr %2, align 8, !tbaa !16
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !18
+  store ptr %5, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1000, ptr %7, align 8, !tbaa !19
+  store i32 1000, ptr %7, align 8, !tbaa !20
   %8 = call fastcc i32 @test_single_key(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %8
@@ -552,14 +552,14 @@ define internal i32 @test_single_key_enc_pass(i32 noundef %0) #1 {
 define internal i32 @test_single_key_enc_iter(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
-  store i32 146, ptr %2, align 8, !tbaa !15
+  store i32 146, ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.47, ptr %3, align 8, !tbaa !18
+  store ptr @.str.47, ptr %3, align 8, !tbaa !19
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = load i32, ptr %5, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %6, ptr %7, align 8, !tbaa !19
+  store i32 %6, ptr %7, align 8, !tbaa !20
   %8 = call fastcc i32 @test_single_key(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %8
@@ -588,12 +588,12 @@ define internal i32 @test_single_cert_mac_alg(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [6 x i32], ptr @mac_nids, i64 0, i64 %3
-  %5 = load i32, ptr %4, align 4, !tbaa !13
-  store i32 %5, ptr %2, align 8, !tbaa !15
+  %5 = load i32, ptr %4, align 4, !tbaa !14
+  store i32 %5, ptr %2, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.47, ptr %6, align 8, !tbaa !18
+  store ptr @.str.47, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1000, ptr %7, align 8, !tbaa !19
+  store i32 1000, ptr %7, align 8, !tbaa !20
   %8 = call fastcc i32 @test_single_cert_mac(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %8
@@ -603,14 +603,14 @@ define internal i32 @test_single_cert_mac_alg(i32 noundef %0) #1 {
 define internal i32 @test_single_cert_mac_pass(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
-  store i32 64, ptr %2, align 8, !tbaa !15
+  store i32 64, ptr %2, align 8, !tbaa !16
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !18
+  store ptr %5, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1000, ptr %7, align 8, !tbaa !19
+  store i32 1000, ptr %7, align 8, !tbaa !20
   %8 = call fastcc i32 @test_single_cert_mac(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %8
@@ -620,14 +620,14 @@ define internal i32 @test_single_cert_mac_pass(i32 noundef %0) #1 {
 define internal i32 @test_single_cert_mac_iter(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #4
-  store i32 64, ptr %2, align 8, !tbaa !15
+  store i32 64, ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.47, ptr %3, align 8, !tbaa !18
+  store ptr @.str.47, ptr %3, align 8, !tbaa !19
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = load i32, ptr %5, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %6, ptr %7, align 8, !tbaa !19
+  store i32 %6, ptr %7, align 8, !tbaa !20
   %8 = call fastcc i32 @test_single_cert_mac(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
   ret i32 %8
@@ -674,7 +674,7 @@ define internal i32 @test_cert_key_encrypted_content() #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_single_secret_encrypted_content() #1 {
   %1 = tail call ptr @new_pkcs12_builder(ptr noundef nonnull @.str.82) #4
-  %2 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  %2 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   %.not.i = icmp eq i32 %2, -1
   br i1 %.not.i, label %3, label %get_custom_oid.exit
 
@@ -688,7 +688,7 @@ define internal i32 @test_single_secret_encrypted_content() #1 {
 
 8:                                                ; preds = %3
   %9 = tail call i32 @OBJ_txt2nid(ptr noundef nonnull @.str.54) #4
-  store i32 %9, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  store i32 %9, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   br label %get_custom_oid.exit
 
 get_custom_oid.exit:                              ; preds = %0, %3, %8
@@ -710,7 +710,7 @@ get_custom_oid.exit:                              ; preds = %0, %3, %8
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_multiple_contents() #1 {
   %1 = tail call ptr @new_pkcs12_builder(ptr noundef nonnull @.str.83) #4
-  %2 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  %2 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   %.not.i = icmp eq i32 %2, -1
   br i1 %.not.i, label %3, label %get_custom_oid.exit
 
@@ -724,7 +724,7 @@ define internal i32 @test_multiple_contents() #1 {
 
 8:                                                ; preds = %3
   %9 = tail call i32 @OBJ_txt2nid(ptr noundef nonnull @.str.54) #4
-  store i32 %9, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  store i32 %9, ptr @get_custom_oid.sec_nid, align 4, !tbaa !14
   br label %get_custom_oid.exit
 
 get_custom_oid.exit:                              ; preds = %0, %3, %8
@@ -781,19 +781,19 @@ define internal i32 @test_set0_attrs() #1 {
   tail call void @start_contentinfo(ptr noundef %2) #4
   tail call void @add_certbag(ptr noundef %2, ptr noundef nonnull @CERT1, i32 noundef 497, ptr noundef nonnull @ATTRS4) #4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef 0) #4
   %6 = tail call ptr @PKCS12_SAFEBAG_get0_attrs(ptr noundef %5) #4
-  store ptr %6, ptr %1, align 8, !tbaa !32
+  store ptr %6, ptr %1, align 8, !tbaa !33
   %7 = tail call ptr @OBJ_txt2obj(ptr noundef nonnull @.str.93, i32 noundef 0) #4
   %8 = tail call ptr @X509_ATTRIBUTE_create(i32 noundef 1283, i32 noundef 6, ptr noundef %7) #4
   %9 = call ptr @X509at_add1_attr(ptr noundef nonnull %1, ptr noundef %8) #4
-  %10 = load ptr, ptr %1, align 8, !tbaa !32
+  %10 = load ptr, ptr %1, align 8, !tbaa !33
   call void @PKCS12_SAFEBAG_set0_attrs(ptr noundef %5, ptr noundef %10) #4
   %11 = call ptr @PKCS12_SAFEBAG_get0_attrs(ptr noundef %5) #4
-  store ptr %11, ptr %1, align 8, !tbaa !32
+  store ptr %11, ptr %1, align 8, !tbaa !33
   call void @X509_ATTRIBUTE_free(ptr noundef %8) #4
-  %12 = load ptr, ptr %1, align 8, !tbaa !32
+  %12 = load ptr, ptr %1, align 8, !tbaa !33
   %13 = call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 773, ptr noundef nonnull @.str.95, ptr noundef %12) #4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
@@ -824,13 +824,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @nullprov, align 8, !tbaa !11
+  %1 = load ptr, ptr @nullprov, align 8, !tbaa !12
   %2 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %1) #4
-  %3 = load ptr, ptr @deflprov, align 8, !tbaa !11
+  %3 = load ptr, ptr @deflprov, align 8, !tbaa !12
   %4 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %3) #4
-  %5 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
+  %5 = load ptr, ptr @lgcyprov, align 8, !tbaa !12
   %6 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %5) #4
-  %7 = load ptr, ptr @testctx, align 8, !tbaa !6
+  %7 = load ptr, ptr @testctx, align 8, !tbaa !7
   tail call void @OSSL_LIB_CTX_free(ptr noundef %7) #4
   ret void
 }
@@ -867,10 +867,10 @@ declare i32 @end_pkcs12_builder(ptr noundef) local_unnamed_addr #3
 define internal fastcc i32 @test_single_key(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #4
-  %3 = load i32, ptr %0, align 8, !tbaa !15
+  %3 = load i32, ptr %0, align 8, !tbaa !16
   %4 = tail call ptr @OBJ_nid2sn(i32 noundef %3) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !19
+  %6 = load i32, ptr %5, align 8, !tbaa !20
   %7 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.49, ptr noundef %4, i32 noundef %6) #4
   %8 = call ptr @new_pkcs12_builder(ptr noundef nonnull %2) #4
   call void @start_pkcs12(ptr noundef %8) #4
@@ -950,10 +950,10 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #3
 define internal fastcc i32 @test_single_cert_mac(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #4
-  %3 = load i32, ptr %0, align 8, !tbaa !15
+  %3 = load i32, ptr %0, align 8, !tbaa !16
   %4 = tail call ptr @OBJ_nid2sn(i32 noundef %3) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !19
+  %6 = load i32, ptr %5, align 8, !tbaa !20
   %7 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.79, ptr noundef %4, i32 noundef %6) #4
   %8 = call ptr @new_pkcs12_builder(ptr noundef nonnull %2) #4
   call void @start_pkcs12(ptr noundef %8) #4
@@ -997,33 +997,34 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !9, i64 0}
-!15 = !{!16, !14, i64 0}
-!16 = !{!"pkcs12_enc", !14, i64 0, !17, i64 8, !14, i64 16}
-!17 = !{!"p1 omnipotent char", !8, i64 0}
-!18 = !{!16, !17, i64 8}
-!19 = !{!16, !14, i64 16}
-!20 = !{!17, !17, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS7x509_st", !8, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS9PKCS12_st", !8, i64 0}
-!27 = !{!28, !31, i64 40}
-!28 = !{!"pkcs12_builder", !17, i64 0, !14, i64 8, !29, i64 16, !30, i64 24, !14, i64 32, !31, i64 40, !14, i64 48}
-!29 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!30 = !{!"p1 _ZTS14stack_st_PKCS7", !8, i64 0}
-!31 = !{!"p1 _ZTS23stack_st_PKCS12_SAFEBAG", !8, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !8, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !10, i64 0}
+!16 = !{!17, !15, i64 0}
+!17 = !{!"pkcs12_enc", !15, i64 0, !18, i64 8, !15, i64 16}
+!18 = !{!"p1 omnipotent char", !9, i64 0}
+!19 = !{!17, !18, i64 8}
+!20 = !{!17, !15, i64 16}
+!21 = !{!18, !18, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS7x509_st", !9, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS9PKCS12_st", !9, i64 0}
+!28 = !{!29, !32, i64 40}
+!29 = !{!"pkcs12_builder", !18, i64 0, !15, i64 8, !30, i64 16, !31, i64 24, !15, i64 32, !32, i64 40, !15, i64 48}
+!30 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!31 = !{!"p1 _ZTS14stack_st_PKCS7", !9, i64 0}
+!32 = !{!"p1 _ZTS23stack_st_PKCS12_SAFEBAG", !9, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}

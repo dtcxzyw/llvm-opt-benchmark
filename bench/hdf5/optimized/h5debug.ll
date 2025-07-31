@@ -375,7 +375,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %123 = load i8, ptr %122, align 1, !tbaa !16
+  %123 = load i8, ptr %122, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8) #10
   switch i8 %123, label %178 [
     i8 0, label %124
@@ -443,19 +443,19 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %160 = load i64, ptr %159, align 8, !tbaa !12
   %161 = trunc i64 %160 to i32
   %162 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %.1257483
-  store i32 %161, ptr %162, align 4, !tbaa !17
+  store i32 %161, ptr %162, align 4, !tbaa !18
   %exitcond491.not = icmp eq i64 %158, %150
-  br i1 %exitcond491.not, label %.lr.ph486, label %.lr.ph484, !llvm.loop !19
+  br i1 %exitcond491.not, label %.lr.ph486, label %.lr.ph484, !llvm.loop !20
 
 163:                                              ; preds = %.lr.ph486
   %164 = add nuw nsw i64 %.2485, 1
   %exitcond492.not = icmp eq i64 %164, %150
-  br i1 %exitcond492.not, label %._crit_edge, label %.lr.ph486, !llvm.loop !20
+  br i1 %exitcond492.not, label %._crit_edge, label %.lr.ph486, !llvm.loop !21
 
 .lr.ph486:                                        ; preds = %.lr.ph484, %163
   %.2485 = phi i64 [ %164, %163 ], [ 0, %.lr.ph484 ]
   %165 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %.2485
-  %166 = load i32, ptr %165, align 4, !tbaa !17
+  %166 = load i32, ptr %165, align 4, !tbaa !18
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %163
 
@@ -470,7 +470,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 ._crit_edge:                                      ; preds = %163, %.preheader480
   %175 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %150
-  store i32 0, ptr %175, align 4, !tbaa !17
+  store i32 0, ptr %175, align 4, !tbaa !18
   %176 = load ptr, ptr @stdout, align 8, !tbaa !8
   %177 = call i32 @H5D_btree_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %176, i32 noundef 0, i32 noundef 50, i32 noundef %148, ptr noundef nonnull %8) #10
   br label %182
@@ -497,7 +497,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val = load i8, ptr %185, align 1, !tbaa !16
+  %.val = load i8, ptr %185, align 1, !tbaa !17
   %186 = call fastcc ptr @get_H5B2_class(i8 %.val)
   %187 = icmp eq ptr %186, @H5D_BT2
   %188 = icmp eq ptr %186, @H5D_BT2_FILT
@@ -529,7 +529,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 200:                                              ; preds = %199
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val397 = load i8, ptr %201, align 1, !tbaa !16
+  %.val397 = load i8, ptr %201, align 1, !tbaa !17
   %202 = call fastcc ptr @get_H5B2_class(i8 %.val397)
   %203 = icmp eq ptr %202, @H5D_BT2
   %204 = icmp eq ptr %202, @H5D_BT2_FILT
@@ -610,7 +610,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 248:                                              ; preds = %247
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val398 = load i8, ptr %249, align 1, !tbaa !16
+  %.val398 = load i8, ptr %249, align 1, !tbaa !17
   %250 = call fastcc ptr @get_H5B2_class(i8 %.val398)
   %251 = icmp eq ptr %250, @H5D_BT2
   %252 = icmp eq ptr %250, @H5D_BT2_FILT
@@ -820,7 +820,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 364:                                              ; preds = %363
   %365 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val399 = load i8, ptr %365, align 1, !tbaa !16
+  %.val399 = load i8, ptr %365, align 1, !tbaa !17
   %366 = call fastcc ptr @get_H5EA_class(i8 %.val399)
   %367 = load i64, ptr %3, align 16
   %368 = icmp eq i64 %367, 0
@@ -848,7 +848,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 379:                                              ; preds = %378
   %380 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val400 = load i8, ptr %380, align 1, !tbaa !16
+  %.val400 = load i8, ptr %380, align 1, !tbaa !17
   %381 = call fastcc ptr @get_H5EA_class(i8 %.val400)
   %382 = load i64, ptr %3, align 16
   %383 = icmp eq i64 %382, 0
@@ -880,7 +880,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 397:                                              ; preds = %396
   %398 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val401 = load i8, ptr %398, align 1, !tbaa !16
+  %.val401 = load i8, ptr %398, align 1, !tbaa !17
   %399 = call fastcc ptr @get_H5EA_class(i8 %.val401)
   %400 = load i64, ptr %3, align 16
   %401 = icmp eq i64 %400, 0
@@ -917,7 +917,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 419:                                              ; preds = %418
   %420 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val402 = load i8, ptr %420, align 1, !tbaa !16
+  %.val402 = load i8, ptr %420, align 1, !tbaa !17
   %421 = call fastcc ptr @get_H5EA_class(i8 %.val402)
   %422 = load i64, ptr %3, align 16
   %423 = icmp eq i64 %422, 0
@@ -953,7 +953,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 440:                                              ; preds = %439
   %441 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val403 = load i8, ptr %441, align 1, !tbaa !16
+  %.val403 = load i8, ptr %441, align 1, !tbaa !17
   %442 = call fastcc ptr @get_H5FA_class(i8 %.val403)
   %443 = load i64, ptr %3, align 16
   %444 = icmp eq i64 %443, 0
@@ -981,7 +981,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 455:                                              ; preds = %454
   %456 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %.val404 = load i8, ptr %456, align 1, !tbaa !16
+  %.val404 = load i8, ptr %456, align 1, !tbaa !17
   %457 = call fastcc ptr @get_H5FA_class(i8 %.val404)
   %458 = load i64, ptr %3, align 16
   %459 = icmp eq i64 %458, 0
@@ -1017,7 +1017,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %507
 
 476:                                              ; preds = %472
-  %477 = load i8, ptr %4, align 1, !tbaa !16
+  %477 = load i8, ptr %4, align 1, !tbaa !17
   %478 = icmp eq i8 %477, 1
   br i1 %478, label %479, label %482
 
@@ -1033,7 +1033,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 484:                                              ; preds = %482, %500
   %.3482 = phi i64 [ 0, %482 ], [ %501, %500 ]
   %485 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.3482
-  %486 = load i8, ptr %485, align 1, !tbaa !16
+  %486 = load i8, ptr %485, align 1, !tbaa !17
   %487 = zext i8 %486 to i32
   %488 = add i8 %486, -127
   %or.cond395 = icmp ult i8 %488, -94
@@ -1063,7 +1063,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 500:                                              ; preds = %489, %498, %493
   %501 = add nuw nsw i64 %.3482, 1
   %exitcond490.not = icmp eq i64 %501, 8
-  br i1 %exitcond490.not, label %502, label %484, !llvm.loop !21
+  br i1 %exitcond490.not, label %502, label %484, !llvm.loop !22
 
 502:                                              ; preds = %500
   %503 = load ptr, ptr @stdout, align 8, !tbaa !8
@@ -1331,11 +1331,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = !{!"p1 omnipotent char", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!6, !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !6, i64 0}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!6, !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = distinct !{!20, !15, !16}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16}

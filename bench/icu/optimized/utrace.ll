@@ -239,7 +239,7 @@ define range(i32 -2147483647, -2147483648) i32 @utrace_vformat_77(ptr noundef %0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %41 = add nuw nsw i32 %.030.i, 1
   %exitcond.not.i = icmp eq i32 %41, %2
-  br i1 %exitcond.not.i, label %.loopexit.i.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.i.loopexit:                             ; preds = %40
   %42 = trunc nsw i64 %indvars.iv.next to i32
@@ -308,7 +308,7 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %44, %.loopexit.i
 
 64:                                               ; preds = %61, %56
   %65 = phi ptr [ %59, %56 ], [ %62, %61 ]
-  %66 = load i32, ptr %65, align 4, !tbaa !11
+  %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = trunc i32 %66 to i8
   %68 = icmp eq i32 %.promoted551, 0
   br i1 %68, label %79, label %69
@@ -364,10 +364,10 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %44, %.loopexit.i
   %85 = add nsw i32 %.pre.i170549, 1
   %86 = add nuw nsw i32 %.030.i168, 1
   %exitcond.not.i169 = icmp eq i32 %86, %2
-  br i1 %exitcond.not.i169, label %.loopexit.i161.loopexit, label %.lr.ph.i167, !llvm.loop !10
+  br i1 %exitcond.not.i169, label %.loopexit.i161.loopexit, label %.lr.ph.i167, !llvm.loop !11
 
 .loopexit.i161.loopexit:                          ; preds = %84
-  store i32 %85, ptr %8, align 4, !tbaa !11
+  store i32 %85, ptr %8, align 4, !tbaa !12
   br label %.loopexit.i161
 
 .loopexit.i161:                                   ; preds = %.loopexit.i161.loopexit, %79, %78, %76, %69
@@ -387,7 +387,7 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %44, %.loopexit.i
 
 93:                                               ; preds = %92
   %94 = add nsw i32 %87, 1
-  store i32 %94, ptr %8, align 4, !tbaa !11
+  store i32 %94, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 95:                                               ; preds = %._crit_edge
@@ -411,7 +411,7 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %44, %.loopexit.i
 
 106:                                              ; preds = %103, %98
   %107 = phi ptr [ %101, %98 ], [ %104, %103 ]
-  %108 = load ptr, ptr %107, align 8, !tbaa !13
+  %108 = load ptr, ptr %107, align 8, !tbaa !14
   %109 = icmp eq ptr %108, null
   %spec.store.select.i = select i1 %109, ptr @.str.2, ptr %108
   br i1 %.old.i, label %.split.split.split.us.i, label %.split.us.i
@@ -434,7 +434,7 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %44, %.loopexit.i
 _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %114, %.split.us.i
   %.not29.i.us.i = icmp eq i8 %112, 0
   %117 = add nsw i32 %110, 1
-  br i1 %.not29.i.us.i, label %_ZL10outputCharcPcPiii.exit175.loopexit420, label %.split.us.i, !llvm.loop !15
+  br i1 %.not29.i.us.i, label %_ZL10outputCharcPcPiii.exit175.loopexit420, label %.split.us.i, !llvm.loop !16
 
 .split.split.split.us.i:                          ; preds = %106, %_ZL10outputCharcPcPiii.exit.us37.i
   %.lcssa544546 = phi i32 [ %142, %_ZL10outputCharcPcPiii.exit.us37.i ], [ %.promoted551, %106 ]
@@ -491,7 +491,7 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %114, %.split.us.i
   %136 = add nsw i32 %.pre.i.us33.i543, 1
   %137 = add nuw nsw i32 %.030.i.us32.i, 1
   %exitcond.not.i.us34.i = icmp eq i32 %137, %2
-  br i1 %exitcond.not.i.us34.i, label %.loopexit.i.us35.i, label %.lr.ph.i.us31.i, !llvm.loop !10
+  br i1 %exitcond.not.i.us34.i, label %.loopexit.i.us35.i, label %.lr.ph.i.us31.i, !llvm.loop !11
 
 .loopexit.i.us35.i:                               ; preds = %135, %129, %122, %121
   %.lcssa544547 = phi i32 [ %.lcssa544546, %121 ], [ %.lcssa544546, %122 ], [ %.lcssa544546, %129 ], [ %136, %135 ]
@@ -507,7 +507,7 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %114, %.split.us.i
 _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.us35.i
   %.not29.i.us36.i = icmp eq i8 %119, 0
   %142 = add nsw i32 %.lcssa544547, 1
-  br i1 %.not29.i.us36.i, label %_ZL10outputCharcPcPiii.exit175.loopexit, label %.split.split.split.us.i, !llvm.loop !17
+  br i1 %.not29.i.us36.i, label %_ZL10outputCharcPcPiii.exit175.loopexit, label %.split.split.split.us.i, !llvm.loop !18
 
 143:                                              ; preds = %._crit_edge
   %144 = load i32, ptr %4, align 8
@@ -518,7 +518,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
   %146 = load ptr, ptr %9, align 8
   %147 = getelementptr i8, ptr %146, i64 8
   store ptr %147, ptr %9, align 8
-  %148 = load ptr, ptr %146, align 8, !tbaa !13
+  %148 = load ptr, ptr %146, align 8, !tbaa !14
   br label %161
 
 149:                                              ; preds = %143
@@ -527,7 +527,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
   %152 = getelementptr i8, ptr %150, i64 %151
   %153 = add nuw nsw i32 %144, 8
   store i32 %153, ptr %4, align 8
-  %154 = load ptr, ptr %152, align 8, !tbaa !13
+  %154 = load ptr, ptr %152, align 8, !tbaa !14
   %155 = icmp ult i32 %144, 33
   br i1 %155, label %156, label %161
 
@@ -549,7 +549,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
 165:                                              ; preds = %161, %156
   %166 = phi ptr [ %154, %156 ], [ %162, %161 ]
   %167 = phi ptr [ %159, %156 ], [ %163, %161 ]
-  %168 = load i32, ptr %167, align 4, !tbaa !11
+  %168 = load i32, ptr %167, align 4, !tbaa !12
   call fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %166, i32 noundef %168, ptr noundef %0, ptr noundef %8, i32 noundef %1, i32 noundef %2)
   %.promoted449.pre.pre = load i32, ptr %8, align 4
   br label %.outer.backedge
@@ -575,7 +575,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
 
 180:                                              ; preds = %177, %172
   %181 = phi ptr [ %175, %172 ], [ %178, %177 ]
-  %182 = load i32, ptr %181, align 4, !tbaa !11
+  %182 = load i32, ptr %181, align 4, !tbaa !12
   %183 = sext i32 %182 to i64
   %184 = sext i32 %.promoted551 to i64
   br label %.loopexit.i.i
@@ -599,7 +599,7 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %139, %.loopexit.i.u
 _ZL10outputCharcPcPiii.exit.i:                    ; preds = %186, %.loopexit.i.i
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %192 = icmp samesign ugt i64 %indvars.iv.i177, 7
-  br i1 %192, label %.loopexit.i.i, label %_ZL10outputCharcPcPiii.exit175.loopexit421, !llvm.loop !18
+  br i1 %192, label %.loopexit.i.i, label %_ZL10outputCharcPcPiii.exit175.loopexit421, !llvm.loop !19
 
 193:                                              ; preds = %._crit_edge
   %194 = load i32, ptr %4, align 8
@@ -622,7 +622,7 @@ _ZL10outputCharcPcPiii.exit.i:                    ; preds = %186, %.loopexit.i.i
 
 204:                                              ; preds = %201, %196
   %205 = phi ptr [ %199, %196 ], [ %202, %201 ]
-  %206 = load i32, ptr %205, align 4, !tbaa !11
+  %206 = load i32, ptr %205, align 4, !tbaa !12
   %207 = sext i32 %206 to i64
   %208 = sext i32 %.promoted551 to i64
   br label %.loopexit.i.i180
@@ -646,7 +646,7 @@ _ZL10outputCharcPcPiii.exit.i:                    ; preds = %186, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %210, %.loopexit.i.i180
   %indvars.iv.next620 = add nsw i64 %indvars.iv619, 1
   %216 = icmp samesign ugt i64 %indvars.iv.i181, 7
-  br i1 %216, label %.loopexit.i.i180, label %_ZL10outputCharcPcPiii.exit175.loopexit422, !llvm.loop !18
+  br i1 %216, label %.loopexit.i.i180, label %_ZL10outputCharcPcPiii.exit175.loopexit422, !llvm.loop !19
 
 217:                                              ; preds = %._crit_edge
   %218 = load i32, ptr %4, align 8
@@ -669,7 +669,7 @@ _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %210, %.loopexit.i.i
 
 228:                                              ; preds = %225, %220
   %229 = phi ptr [ %223, %220 ], [ %226, %225 ]
-  %230 = load i32, ptr %229, align 4, !tbaa !11
+  %230 = load i32, ptr %229, align 4, !tbaa !12
   %231 = sext i32 %230 to i64
   %232 = sext i32 %.promoted551 to i64
   br label %.loopexit.i.i187
@@ -693,7 +693,7 @@ _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %210, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i187
   %indvars.iv.next617 = add nsw i64 %indvars.iv616, 1
   %240 = icmp samesign ugt i64 %indvars.iv.i188, 7
-  br i1 %240, label %.loopexit.i.i187, label %_ZL10outputCharcPcPiii.exit175.loopexit423, !llvm.loop !18
+  br i1 %240, label %.loopexit.i.i187, label %_ZL10outputCharcPcPiii.exit175.loopexit423, !llvm.loop !19
 
 241:                                              ; preds = %._crit_edge
   %242 = load i32, ptr %4, align 8
@@ -716,7 +716,7 @@ _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i
 
 252:                                              ; preds = %249, %244
   %253 = phi ptr [ %247, %244 ], [ %250, %249 ]
-  %254 = load i64, ptr %253, align 8, !tbaa !19
+  %254 = load i64, ptr %253, align 8, !tbaa !20
   %255 = sext i32 %.promoted551 to i64
   br label %.loopexit.i.i194
 
@@ -739,7 +739,7 @@ _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %234, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %257, %.loopexit.i.i194
   %indvars.iv.next614 = add nsw i64 %indvars.iv613, 1
   %263 = icmp samesign ugt i64 %indvars.iv.i195, 7
-  br i1 %263, label %.loopexit.i.i194, label %_ZL10outputCharcPcPiii.exit175.loopexit424, !llvm.loop !18
+  br i1 %263, label %.loopexit.i.i194, label %_ZL10outputCharcPcPiii.exit175.loopexit424, !llvm.loop !19
 
 264:                                              ; preds = %._crit_edge
   %265 = load i32, ptr %4, align 8
@@ -762,7 +762,7 @@ _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %257, %.loopexit.i.i
 
 275:                                              ; preds = %272, %267
   %276 = phi ptr [ %270, %267 ], [ %273, %272 ]
-  %277 = load ptr, ptr %276, align 8, !tbaa !13
+  %277 = load ptr, ptr %276, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %277, ptr %7, align 8, !tbaa !3
   br label %278
@@ -795,14 +795,14 @@ _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %257, %.loopexit.i.i
 _ZL10outputCharcPcPiii.exit.i.i:                  ; preds = %283, %.loopexit.i.i.i
   %indvars.iv.next611 = add nsw i64 %indvars.iv610, 1
   %289 = icmp samesign ugt i64 %indvars.iv.i.i, 7
-  br i1 %289, label %.loopexit.i.i.i, label %_ZL14outputHexBytesliPcPii.exit.i, !llvm.loop !18
+  br i1 %289, label %.loopexit.i.i.i, label %_ZL14outputHexBytesliPcPii.exit.i, !llvm.loop !19
 
 _ZL14outputHexBytesliPcPii.exit.i:                ; preds = %_ZL10outputCharcPcPiii.exit.i.i
   %290 = trunc nsw i64 %indvars.iv.next611 to i32
   %291 = getelementptr inbounds i8, ptr %.010.i, i64 -1
   %292 = add nuw nsw i32 %.089.i, 1
   %exitcond.not.i200 = icmp eq i32 %292, 8
-  br i1 %exitcond.not.i200, label %_ZL14outputPtrBytesPvPcPii.exit, label %278, !llvm.loop !21
+  br i1 %exitcond.not.i200, label %_ZL14outputPtrBytesPvPcPii.exit, label %278, !llvm.loop !22
 
 _ZL14outputPtrBytesPvPcPii.exit:                  ; preds = %_ZL14outputHexBytesliPcPii.exit.i
   store i32 %290, ptr %8, align 4
@@ -847,7 +847,7 @@ _ZL14outputPtrBytesPvPcPii.exit:                  ; preds = %_ZL14outputHexBytes
   %307 = add nsw i32 %.pre.i209521, 1
   %308 = add nuw nsw i32 %.030.i207, 1
   %exitcond.not.i208 = icmp eq i32 %308, %2
-  br i1 %exitcond.not.i208, label %.loopexit.i204, label %.lr.ph.i206, !llvm.loop !10
+  br i1 %exitcond.not.i208, label %.loopexit.i204, label %.lr.ph.i206, !llvm.loop !11
 
 .loopexit.i204:                                   ; preds = %306, %295, %297, %301
   %309 = phi i32 [ 0, %301 ], [ %.promoted551, %297 ], [ %.promoted551, %295 ], [ %307, %306 ]
@@ -862,7 +862,7 @@ _ZL14outputPtrBytesPvPcPii.exit:                  ; preds = %_ZL14outputHexBytes
 
 _ZL10outputCharcPcPiii.exit211:                   ; preds = %.loopexit.i204, %311
   %314 = add nsw i32 %309, 1
-  store i32 %314, ptr %8, align 4, !tbaa !11
+  store i32 %314, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 315:                                              ; preds = %._crit_edge
@@ -911,7 +911,7 @@ _ZL10outputCharcPcPiii.exit211:                   ; preds = %.loopexit.i204, %31
 341:                                              ; preds = %337, %332
   %342 = phi ptr [ %330, %332 ], [ %338, %337 ]
   %343 = phi ptr [ %335, %332 ], [ %339, %337 ]
-  %344 = load i32, ptr %343, align 4, !tbaa !11
+  %344 = load i32, ptr %343, align 4, !tbaa !12
   %345 = icmp eq ptr %342, null
   br i1 %345, label %349, label %.preheader
 
@@ -942,7 +942,7 @@ _ZL10outputCharcPcPiii.exit211:                   ; preds = %.loopexit.i204, %31
 _ZL10outputCharcPcPiii.exit.us.i219:              ; preds = %352, %.split.us.i215
   %357 = add nsw i32 %350, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i217, 8
-  br i1 %exitcond, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.us.i215, !llvm.loop !15
+  br i1 %exitcond, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.us.i215, !llvm.loop !16
 
 .split.split.split.us.i220:                       ; preds = %349, %_ZL10outputCharcPcPiii.exit.us37.i225
   %.lcssa507509 = phi i32 [ %382, %_ZL10outputCharcPcPiii.exit.us37.i225 ], [ %.promoted551, %349 ]
@@ -999,7 +999,7 @@ _ZL10outputCharcPcPiii.exit.us.i219:              ; preds = %352, %.split.us.i21
   %376 = add nsw i32 %.pre.i.us33.i231506, 1
   %377 = add nuw nsw i32 %.030.i.us32.i229, 1
   %exitcond.not.i.us34.i230 = icmp eq i32 %377, %2
-  br i1 %exitcond.not.i.us34.i230, label %.loopexit.i.us35.i223, label %.lr.ph.i.us31.i228, !llvm.loop !10
+  br i1 %exitcond.not.i.us34.i230, label %.loopexit.i.us35.i223, label %.lr.ph.i.us31.i228, !llvm.loop !11
 
 .loopexit.i.us35.i223:                            ; preds = %375, %369, %362, %361
   %.lcssa507510 = phi i32 [ %.lcssa507509, %361 ], [ %.lcssa507509, %362 ], [ %.lcssa507509, %369 ], [ %376, %375 ]
@@ -1015,13 +1015,13 @@ _ZL10outputCharcPcPiii.exit.us.i219:              ; preds = %352, %.split.us.i21
 _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.us35.i223
   %382 = add nsw i32 %.lcssa507510, 1
   %exitcond606 = icmp eq i64 %indvars.iv.next44.i222, 8
-  br i1 %exitcond606, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.split.split.us.i220, !llvm.loop !17
+  br i1 %exitcond606, label %_ZL12outputStringPKcPcPiii.exit235, label %.split.split.split.us.i220, !llvm.loop !18
 
 383:                                              ; preds = %.thread
   %384 = add nuw nsw i32 %.0499, 1
   %385 = icmp slt i32 %384, %344
   %386 = or i1 %346, %385
-  br i1 %386, label %.lr.ph500, label %_ZL12outputStringPKcPcPiii.exit235, !llvm.loop !22
+  br i1 %386, label %.lr.ph500, label %_ZL12outputStringPKcPcPiii.exit235, !llvm.loop !23
 
 .lr.ph500:                                        ; preds = %.preheader, %383
   %.pre.i310 = phi i32 [ %569, %383 ], [ %.promoted551, %.preheader ]
@@ -1053,19 +1053,19 @@ _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.u
 
 391:                                              ; preds = %.lr.ph500
   %392 = getelementptr inbounds nuw i8, ptr %.0137494, i64 2
-  %393 = load i16, ptr %.0137494, align 2, !tbaa !23
+  %393 = load i16, ptr %.0137494, align 2, !tbaa !24
   %394 = sext i16 %393 to i64
   br label %.thread399
 
 395:                                              ; preds = %.lr.ph500
   %396 = getelementptr inbounds nuw i8, ptr %.0135495, i64 4
-  %397 = load i32, ptr %.0135495, align 4, !tbaa !11
+  %397 = load i32, ptr %.0135495, align 4, !tbaa !12
   %398 = sext i32 %397 to i64
   br label %.thread399
 
 399:                                              ; preds = %.lr.ph500
   %400 = getelementptr inbounds nuw i8, ptr %.0133496, i64 8
-  %401 = load i64, ptr %.0133496, align 8, !tbaa !19
+  %401 = load i64, ptr %.0133496, align 8, !tbaa !20
   br label %.thread399
 
 402:                                              ; preds = %.lr.ph500
@@ -1102,14 +1102,14 @@ _ZL10outputCharcPcPiii.exit.us37.i225:            ; preds = %379, %.loopexit.i.u
 _ZL10outputCharcPcPiii.exit.i.i243:               ; preds = %409, %.loopexit.i.i.i240
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %415 = icmp samesign ugt i64 %indvars.iv.i.i241, 7
-  br i1 %415, label %.loopexit.i.i.i240, label %_ZL14outputHexBytesliPcPii.exit.i244, !llvm.loop !18
+  br i1 %415, label %.loopexit.i.i.i240, label %_ZL14outputHexBytesliPcPii.exit.i244, !llvm.loop !19
 
 _ZL14outputHexBytesliPcPii.exit.i244:             ; preds = %_ZL10outputCharcPcPiii.exit.i.i243
   %416 = trunc nsw i64 %indvars.iv.next601 to i32
   %417 = getelementptr inbounds i8, ptr %.010.i238, i64 -1
   %418 = add nuw nsw i32 %.089.i239, 1
   %exitcond.not.i245 = icmp eq i32 %418, 8
-  br i1 %exitcond.not.i245, label %_ZL14outputPtrBytesPvPcPii.exit247, label %404, !llvm.loop !21
+  br i1 %exitcond.not.i245, label %_ZL14outputPtrBytesPvPcPii.exit247, label %404, !llvm.loop !22
 
 _ZL14outputPtrBytesPvPcPii.exit247:               ; preds = %_ZL14outputHexBytesliPcPii.exit.i244
   store i32 %416, ptr %8, align 4
@@ -1176,10 +1176,10 @@ _ZL14outputPtrBytesPvPcPii.exit247:               ; preds = %_ZL14outputHexBytes
   %442 = add nsw i32 %.pre.i257475, 1
   %443 = add nuw nsw i32 %.030.i255, 1
   %exitcond.not.i256 = icmp eq i32 %443, %2
-  br i1 %exitcond.not.i256, label %.loopexit.i248.loopexit, label %.lr.ph.i254, !llvm.loop !10
+  br i1 %exitcond.not.i256, label %.loopexit.i248.loopexit, label %.lr.ph.i254, !llvm.loop !11
 
 .loopexit.i248.loopexit:                          ; preds = %441
-  store i32 %442, ptr %8, align 4, !tbaa !11
+  store i32 %442, ptr %8, align 4, !tbaa !12
   br label %.loopexit.i248
 
 .loopexit.i248:                                   ; preds = %.loopexit.i248.loopexit, %436, %435, %433, %426
@@ -1199,7 +1199,7 @@ _ZL14outputPtrBytesPvPcPii.exit247:               ; preds = %_ZL14outputHexBytes
 
 450:                                              ; preds = %449
   %451 = add nsw i32 %444, 1
-  store i32 %451, ptr %8, align 4, !tbaa !11
+  store i32 %451, ptr %8, align 4, !tbaa !12
   br label %_ZL10outputCharcPcPiii.exit262
 
 _ZL10outputCharcPcPiii.exit262:                   ; preds = %449, %450
@@ -1233,7 +1233,7 @@ _ZL10outputCharcPcPiii.exit262:                   ; preds = %449, %450
 _ZL10outputCharcPcPiii.exit.us.i271:              ; preds = %463, %.split.us.i267
   %.not29.i.us.i270 = icmp eq i8 %461, 0
   %466 = add nsw i32 %459, 1
-  br i1 %.not29.i.us.i270, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.us.i267, !llvm.loop !15
+  br i1 %.not29.i.us.i270, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.us.i267, !llvm.loop !16
 
 .split.split.split.us.i272:                       ; preds = %456, %_ZL10outputCharcPcPiii.exit.us37.i277
   %.lcssa467469 = phi i32 [ %491, %_ZL10outputCharcPcPiii.exit.us37.i277 ], [ %.promoted468, %456 ]
@@ -1290,7 +1290,7 @@ _ZL10outputCharcPcPiii.exit.us.i271:              ; preds = %463, %.split.us.i26
   %485 = add nsw i32 %.pre.i.us33.i283466, 1
   %486 = add nuw nsw i32 %.030.i.us32.i281, 1
   %exitcond.not.i.us34.i282 = icmp eq i32 %486, %2
-  br i1 %exitcond.not.i.us34.i282, label %.loopexit.i.us35.i275, label %.lr.ph.i.us31.i280, !llvm.loop !10
+  br i1 %exitcond.not.i.us34.i282, label %.loopexit.i.us35.i275, label %.lr.ph.i.us31.i280, !llvm.loop !11
 
 .loopexit.i.us35.i275:                            ; preds = %484, %478, %471, %470
   %.lcssa467470 = phi i32 [ %.lcssa467469, %470 ], [ %.lcssa467469, %471 ], [ %.lcssa467469, %478 ], [ %485, %484 ]
@@ -1306,7 +1306,7 @@ _ZL10outputCharcPcPiii.exit.us.i271:              ; preds = %463, %.split.us.i26
 _ZL10outputCharcPcPiii.exit.us37.i277:            ; preds = %488, %.loopexit.i.us35.i275
   %.not29.i.us36.i276 = icmp eq i8 %468, 0
   %491 = add nsw i32 %.lcssa467470, 1
-  br i1 %.not29.i.us36.i276, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.split.split.us.i272, !llvm.loop !17
+  br i1 %.not29.i.us36.i276, label %_ZL12outputStringPKcPcPiii.exit287, label %.split.split.split.us.i272, !llvm.loop !18
 
 _ZL12outputStringPKcPcPiii.exit287:               ; preds = %_ZL10outputCharcPcPiii.exit.us.i271, %_ZL10outputCharcPcPiii.exit.us37.i277
   %.promoted471 = phi i32 [ %.lcssa467470, %_ZL10outputCharcPcPiii.exit.us37.i277 ], [ %459, %_ZL10outputCharcPcPiii.exit.us.i271 ]
@@ -1340,7 +1340,7 @@ _ZL12outputStringPKcPcPiii.exit287:               ; preds = %_ZL10outputCharcPcP
   %500 = add nsw i32 %.pre.i296472, 1
   %501 = add nuw nsw i32 %.030.i294, 1
   %exitcond.not.i295 = icmp eq i32 %501, %2
-  br i1 %exitcond.not.i295, label %.loopexit.i291, label %.lr.ph.i293, !llvm.loop !10
+  br i1 %exitcond.not.i295, label %.loopexit.i291, label %.lr.ph.i293, !llvm.loop !11
 
 .loopexit.i291:                                   ; preds = %499, %494, %493
   %502 = phi i32 [ 0, %494 ], [ %.promoted471, %493 ], [ %500, %499 ]
@@ -1355,7 +1355,7 @@ _ZL12outputStringPKcPcPiii.exit287:               ; preds = %_ZL10outputCharcPcP
 
 _ZL10outputCharcPcPiii.exit298:                   ; preds = %.loopexit.i291, %504
   %507 = add nsw i32 %502, 1
-  store i32 %507, ptr %8, align 4, !tbaa !11
+  store i32 %507, ptr %8, align 4, !tbaa !12
   %508 = load ptr, ptr %.0131497, align 8, !tbaa !3
   %509 = icmp ne ptr %508, null
   %510 = zext i1 %509 to i64
@@ -1365,7 +1365,7 @@ _ZL10outputCharcPcPiii.exit298:                   ; preds = %.loopexit.i291, %50
 512:                                              ; preds = %.lr.ph500
   %513 = load ptr, ptr %.0131497, align 8, !tbaa !3
   call fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %513, i32 noundef -1, ptr noundef %0, ptr noundef %8, i32 noundef %1, i32 noundef %2)
-  %514 = load i32, ptr %8, align 4, !tbaa !11
+  %514 = load i32, ptr %8, align 4, !tbaa !12
   %515 = icmp eq i32 %514, 0
   br i1 %515, label %517, label %516
 
@@ -1396,7 +1396,7 @@ _ZL10outputCharcPcPiii.exit298:                   ; preds = %.loopexit.i291, %50
   %523 = add nsw i32 %.pre.i307461, 1
   %524 = add nuw nsw i32 %.030.i305, 1
   %exitcond.not.i306 = icmp eq i32 %524, %2
-  br i1 %exitcond.not.i306, label %.loopexit.i302, label %.lr.ph.i304, !llvm.loop !10
+  br i1 %exitcond.not.i306, label %.loopexit.i302, label %.lr.ph.i304, !llvm.loop !11
 
 .loopexit.i302:                                   ; preds = %522, %517, %516
   %525 = phi i32 [ 0, %517 ], [ %514, %516 ], [ %523, %522 ]
@@ -1411,7 +1411,7 @@ _ZL10outputCharcPcPiii.exit298:                   ; preds = %.loopexit.i291, %50
 
 _ZL10outputCharcPcPiii.exit309:                   ; preds = %.loopexit.i302, %527
   %530 = add nsw i32 %525, 1
-  store i32 %530, ptr %8, align 4, !tbaa !11
+  store i32 %530, ptr %8, align 4, !tbaa !12
   %531 = load ptr, ptr %.0131497, align 8, !tbaa !3
   %532 = icmp ne ptr %531, null
   %533 = zext i1 %532 to i64
@@ -1453,7 +1453,7 @@ _ZL10outputCharcPcPiii.exit309:                   ; preds = %.loopexit.i302, %52
 _ZL10outputCharcPcPiii.exit.i314:                 ; preds = %540, %.loopexit.i.i311
   %indvars.iv.next604 = add nsw i64 %indvars.iv603, 1
   %546 = icmp samesign ugt i64 %indvars.iv.i312, 7
-  br i1 %546, label %.loopexit.i.i311, label %_ZL14outputHexBytesliPcPii.exit316, !llvm.loop !18
+  br i1 %546, label %.loopexit.i.i311, label %_ZL14outputHexBytesliPcPii.exit316, !llvm.loop !19
 
 _ZL14outputHexBytesliPcPii.exit316:               ; preds = %_ZL10outputCharcPcPiii.exit.i314
   %547 = trunc nsw i64 %indvars.iv.next604 to i32
@@ -1495,7 +1495,7 @@ _ZL14outputHexBytesliPcPii.exit316:               ; preds = %_ZL10outputCharcPcP
   %561 = add nsw i32 %.pre.i325486, 1
   %562 = add nuw nsw i32 %.030.i323, 1
   %exitcond.not.i324 = icmp eq i32 %562, %2
-  br i1 %exitcond.not.i324, label %.loopexit.i320, label %.lr.ph.i322, !llvm.loop !10
+  br i1 %exitcond.not.i324, label %.loopexit.i320, label %.lr.ph.i322, !llvm.loop !11
 
 .loopexit.i320:                                   ; preds = %560, %549, %551, %555
   %563 = phi i32 [ 0, %555 ], [ %547, %551 ], [ %547, %549 ], [ %561, %560 ]
@@ -1510,7 +1510,7 @@ _ZL14outputHexBytesliPcPii.exit316:               ; preds = %_ZL10outputCharcPcP
 
 _ZL10outputCharcPcPiii.exit327:                   ; preds = %.loopexit.i320, %565
   %568 = add nsw i32 %563, 1
-  store i32 %568, ptr %8, align 4, !tbaa !11
+  store i32 %568, ptr %8, align 4, !tbaa !12
   br label %.thread
 
 .thread:                                          ; preds = %_ZL10outputCharcPcPiii.exit309, %_ZL10outputCharcPcPiii.exit298, %_ZL10outputCharcPcPiii.exit262, %_ZL14outputPtrBytesPvPcPii.exit247, %_ZL10outputCharcPcPiii.exit327, %535
@@ -1567,10 +1567,10 @@ _ZL12outputStringPKcPcPiii.exit235:               ; preds = %.thread, %383, %_ZL
   %584 = add nsw i32 %.pre.i336512, 1
   %585 = add nuw nsw i32 %.030.i334, 1
   %exitcond.not.i335 = icmp eq i32 %585, %2
-  br i1 %exitcond.not.i335, label %.loopexit.i331.loopexit, label %.lr.ph.i333, !llvm.loop !10
+  br i1 %exitcond.not.i335, label %.loopexit.i331.loopexit, label %.lr.ph.i333, !llvm.loop !11
 
 .loopexit.i331.loopexit:                          ; preds = %583
-  store i32 %584, ptr %8, align 4, !tbaa !11
+  store i32 %584, ptr %8, align 4, !tbaa !12
   br label %.loopexit.i331
 
 .loopexit.i331:                                   ; preds = %.loopexit.i331.loopexit, %572, %574, %578
@@ -1609,7 +1609,7 @@ _ZL10outputCharcPcPiii.exit338:                   ; preds = %.loopexit.i331, %58
 _ZL10outputCharcPcPiii.exit.i343:                 ; preds = %595, %.loopexit.i.i340
   %indvars.iv.next608 = add nsw i64 %indvars.iv607, 1
   %601 = icmp samesign ugt i64 %indvars.iv.i341, 7
-  br i1 %601, label %.loopexit.i.i340, label %_ZL14outputHexBytesliPcPii.exit345, !llvm.loop !18
+  br i1 %601, label %.loopexit.i.i340, label %_ZL14outputHexBytesliPcPii.exit345, !llvm.loop !19
 
 _ZL14outputHexBytesliPcPii.exit345:               ; preds = %_ZL10outputCharcPcPiii.exit.i343
   %602 = trunc nsw i64 %indvars.iv.next608 to i32
@@ -1651,7 +1651,7 @@ _ZL14outputHexBytesliPcPii.exit345:               ; preds = %_ZL10outputCharcPcP
   %616 = add nsw i32 %.pre.i354518, 1
   %617 = add nuw nsw i32 %.030.i352, 1
   %exitcond.not.i353 = icmp eq i32 %617, %2
-  br i1 %exitcond.not.i353, label %.loopexit.i349, label %.lr.ph.i351, !llvm.loop !10
+  br i1 %exitcond.not.i353, label %.loopexit.i349, label %.lr.ph.i351, !llvm.loop !11
 
 .loopexit.i349:                                   ; preds = %615, %604, %606, %610
   %618 = phi i32 [ 0, %610 ], [ %602, %606 ], [ %602, %604 ], [ %616, %615 ]
@@ -1666,7 +1666,7 @@ _ZL14outputHexBytesliPcPii.exit345:               ; preds = %_ZL10outputCharcPcP
 
 _ZL10outputCharcPcPiii.exit356:                   ; preds = %.loopexit.i349, %620
   %623 = add nsw i32 %618, 1
-  store i32 %623, ptr %8, align 4, !tbaa !11
+  store i32 %623, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 624:                                              ; preds = %._crit_edge
@@ -1724,10 +1724,10 @@ _ZL10outputCharcPcPiii.exit356:                   ; preds = %.loopexit.i349, %62
   %642 = add nsw i32 %.pre.i366552, 1
   %643 = add nuw nsw i32 %.030.i364, 1
   %exitcond.not.i365 = icmp eq i32 %643, %2
-  br i1 %exitcond.not.i365, label %.loopexit.i357.loopexit, label %.lr.ph.i363, !llvm.loop !10
+  br i1 %exitcond.not.i365, label %.loopexit.i357.loopexit, label %.lr.ph.i363, !llvm.loop !11
 
 .loopexit.i357.loopexit:                          ; preds = %641
-  store i32 %642, ptr %8, align 4, !tbaa !11
+  store i32 %642, ptr %8, align 4, !tbaa !12
   br label %.loopexit.i357
 
 .loopexit.i357:                                   ; preds = %.loopexit.i357.loopexit, %636, %635, %633, %626
@@ -1747,7 +1747,7 @@ _ZL10outputCharcPcPiii.exit356:                   ; preds = %.loopexit.i349, %62
 
 650:                                              ; preds = %649
   %651 = add nsw i32 %644, 1
-  store i32 %651, ptr %8, align 4, !tbaa !11
+  store i32 %651, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 _ZL10outputCharcPcPiii.exit175.loopexit:          ; preds = %_ZL10outputCharcPcPiii.exit.us37.i
@@ -1760,22 +1760,22 @@ _ZL10outputCharcPcPiii.exit175.loopexit420:       ; preds = %_ZL10outputCharcPcP
 
 _ZL10outputCharcPcPiii.exit175.loopexit421:       ; preds = %_ZL10outputCharcPcPiii.exit.i
   %652 = trunc nsw i64 %indvars.iv.next623 to i32
-  store i32 %652, ptr %8, align 4, !tbaa !11
+  store i32 %652, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 _ZL10outputCharcPcPiii.exit175.loopexit422:       ; preds = %_ZL10outputCharcPcPiii.exit.i183
   %653 = trunc nsw i64 %indvars.iv.next620 to i32
-  store i32 %653, ptr %8, align 4, !tbaa !11
+  store i32 %653, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 _ZL10outputCharcPcPiii.exit175.loopexit423:       ; preds = %_ZL10outputCharcPcPiii.exit.i190
   %654 = trunc nsw i64 %indvars.iv.next617 to i32
-  store i32 %654, ptr %8, align 4, !tbaa !11
+  store i32 %654, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 _ZL10outputCharcPcPiii.exit175.loopexit424:       ; preds = %_ZL10outputCharcPcPiii.exit.i197
   %655 = trunc nsw i64 %indvars.iv.next614 to i32
-  store i32 %655, ptr %8, align 4, !tbaa !11
+  store i32 %655, ptr %8, align 4, !tbaa !12
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZL10outputCharcPcPiii.exit175.loopexit424, %_ZL10outputCharcPcPiii.exit175.loopexit423, %_ZL10outputCharcPcPiii.exit175.loopexit422, %_ZL10outputCharcPcPiii.exit175.loopexit421, %_ZL10outputCharcPcPiii.exit175.loopexit420, %_ZL10outputCharcPcPiii.exit175.loopexit, %650, %649, %93, %92, %_ZL10outputCharcPcPiii.exit356, %_ZL10outputCharcPcPiii.exit211, %_ZL14outputPtrBytesPvPcPii.exit, %165
@@ -1805,7 +1805,7 @@ _ZL10outputCharcPcPiii.exit175.loopexit424:       ; preds = %_ZL10outputCharcPcP
   %663 = add nuw nsw i32 %.pre.i378565, 1
   %664 = add nuw nsw i32 %.030.i376, 1
   %exitcond.not.i377 = icmp eq i32 %664, %2
-  br i1 %exitcond.not.i377, label %.loopexit.i372, label %.lr.ph.i375, !llvm.loop !10
+  br i1 %exitcond.not.i377, label %.loopexit.i372, label %.lr.ph.i375, !llvm.loop !11
 
 .loopexit.i372:                                   ; preds = %662, %656
   %665 = phi i32 [ %.promoted564, %656 ], [ %663, %662 ]
@@ -1838,11 +1838,11 @@ define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.preheader
   %.old.old.i = icmp sgt i32 %5, 0
-  %.pre.i.pre = load i32, ptr %3, align 4, !tbaa !11
+  %.pre.i.pre = load i32, ptr %3, align 4, !tbaa !12
   br label %57
 
 11:                                               ; preds = %6
-  %.pr.i = load i32, ptr %3, align 4, !tbaa !11
+  %.pr.i = load i32, ptr %3, align 4, !tbaa !12
   %.old.i.i = icmp sgt i32 %5, 0
   br i1 %.old.i.i, label %.split.split.split.us.i, label %.split.us.i
 
@@ -1866,10 +1866,10 @@ define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly 
   br i1 %exitcond, label %_ZL12outputStringPKcPcPiii.exit, label %_ZL10outputCharcPcPiii.exit.us.i
 
 _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %19
-  %20 = load i32, ptr %3, align 4, !tbaa !11
+  %20 = load i32, ptr %3, align 4, !tbaa !12
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %3, align 4, !tbaa !11
-  br label %.split.us.i, !llvm.loop !15
+  store i32 %21, ptr %3, align 4, !tbaa !12
+  br label %.split.us.i, !llvm.loop !16
 
 .split.split.split.us.i:                          ; preds = %11, %_ZL10outputCharcPcPiii.exit.us37.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZL10outputCharcPcPiii.exit.us37.i ], [ 0, %11 ]
@@ -1920,16 +1920,16 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %19
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds i8, ptr %2, i64 %39
   store i8 32, ptr %40, align 1, !tbaa !7
-  %.pre.i.us33.i = load i32, ptr %3, align 4, !tbaa !11
+  %.pre.i.us33.i = load i32, ptr %3, align 4, !tbaa !12
   br label %41
 
 41:                                               ; preds = %38, %.lr.ph.i.us31.i
   %42 = phi i32 [ %.pre.i.us33.i, %38 ], [ %36, %.lr.ph.i.us31.i ]
   %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %3, align 4, !tbaa !11
+  store i32 %43, ptr %3, align 4, !tbaa !12
   %44 = add nuw nsw i32 %.030.i.us32.i, 1
   %exitcond.not.i.us34.i = icmp eq i32 %44, %5
-  br i1 %exitcond.not.i.us34.i, label %.loopexit.i.us35.i, label %.lr.ph.i.us31.i, !llvm.loop !10
+  br i1 %exitcond.not.i.us34.i, label %.loopexit.i.us35.i, label %.lr.ph.i.us31.i, !llvm.loop !11
 
 .loopexit.i.us35.i:                               ; preds = %41, %34, %27, %26
   %45 = phi i32 [ %22, %26 ], [ %22, %27 ], [ %22, %34 ], [ %43, %41 ]
@@ -1947,23 +1947,23 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %19
   br i1 %exitcond37, label %_ZL12outputStringPKcPcPiii.exit, label %_ZL10outputCharcPcPiii.exit.us37.i
 
 _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %50
-  %51 = load i32, ptr %3, align 4, !tbaa !11
+  %51 = load i32, ptr %3, align 4, !tbaa !12
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %3, align 4, !tbaa !11
-  br label %.split.split.split.us.i, !llvm.loop !17
+  store i32 %52, ptr %3, align 4, !tbaa !12
+  br label %.split.split.split.us.i, !llvm.loop !18
 
 53:                                               ; preds = %_ZL10outputCharcPcPiii.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = trunc nuw i64 %indvars.iv.next to i32
   %55 = icmp sgt i32 %1, %54
   %56 = or i1 %8, %55
-  br i1 %56, label %57, label %_ZL12outputStringPKcPcPiii.exit, !llvm.loop !25
+  br i1 %56, label %57, label %_ZL12outputStringPKcPcPiii.exit, !llvm.loop !26
 
 57:                                               ; preds = %.lr.ph, %53
   %.pre.i = phi i32 [ %.pre.i.pre, %.lr.ph ], [ %96, %53 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %58 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %59 = load i16, ptr %58, align 2, !tbaa !26
+  %59 = load i16, ptr %58, align 2, !tbaa !27
   %60 = zext i16 %59 to i64
   br label %.loopexit.i.i
 
@@ -1982,15 +1982,15 @@ _ZL10outputCharcPcPiii.exit.us37.i:               ; preds = %50
   %68 = sext i32 %61 to i64
   %69 = getelementptr inbounds i8, ptr %2, i64 %68
   store i8 %67, ptr %69, align 1, !tbaa !7
-  %.pre10.i = load i32, ptr %3, align 4, !tbaa !11
+  %.pre10.i = load i32, ptr %3, align 4, !tbaa !12
   br label %_ZL10outputCharcPcPiii.exit.i
 
 _ZL10outputCharcPcPiii.exit.i:                    ; preds = %63, %.loopexit.i.i
   %70 = phi i32 [ %61, %.loopexit.i.i ], [ %.pre10.i, %63 ]
   %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %3, align 4, !tbaa !11
+  store i32 %71, ptr %3, align 4, !tbaa !12
   %72 = icmp samesign ugt i64 %indvars.iv.i23, 7
-  br i1 %72, label %.loopexit.i.i, label %_ZL14outputHexBytesliPcPii.exit, !llvm.loop !18
+  br i1 %72, label %.loopexit.i.i, label %_ZL14outputHexBytesliPcPii.exit, !llvm.loop !19
 
 _ZL14outputHexBytesliPcPii.exit:                  ; preds = %_ZL10outputCharcPcPiii.exit.i
   %73 = icmp eq i32 %71, 0
@@ -2024,16 +2024,16 @@ _ZL14outputHexBytesliPcPii.exit:                  ; preds = %_ZL10outputCharcPcP
   %84 = sext i32 %81 to i64
   %85 = getelementptr inbounds i8, ptr %2, i64 %84
   store i8 32, ptr %85, align 1, !tbaa !7
-  %.pre.i25 = load i32, ptr %3, align 4, !tbaa !11
+  %.pre.i25 = load i32, ptr %3, align 4, !tbaa !12
   br label %86
 
 86:                                               ; preds = %83, %.lr.ph.i
   %87 = phi i32 [ %.pre.i25, %83 ], [ %81, %.lr.ph.i ]
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %3, align 4, !tbaa !11
+  store i32 %88, ptr %3, align 4, !tbaa !12
   %89 = add nuw nsw i32 %.030.i, 1
   %exitcond.not.i = icmp eq i32 %89, %5
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %86, %74, %76, %80
   %90 = phi i32 [ 0, %80 ], [ %71, %76 ], [ %71, %74 ], [ %88, %86 ]
@@ -2044,13 +2044,13 @@ _ZL14outputHexBytesliPcPii.exit:                  ; preds = %_ZL10outputCharcPcP
   %93 = sext i32 %90 to i64
   %94 = getelementptr inbounds i8, ptr %2, i64 %93
   store i8 32, ptr %94, align 1, !tbaa !7
-  %.pre = load i32, ptr %3, align 4, !tbaa !11
+  %.pre = load i32, ptr %3, align 4, !tbaa !12
   br label %_ZL10outputCharcPcPiii.exit
 
 _ZL10outputCharcPcPiii.exit:                      ; preds = %.loopexit.i, %92
   %95 = phi i32 [ %90, %.loopexit.i ], [ %.pre, %92 ]
   %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %3, align 4, !tbaa !11
+  store i32 %96, ptr %3, align 4, !tbaa !12
   %97 = icmp eq i16 %59, 0
   %or.cond = and i1 %8, %97
   br i1 %or.cond, label %_ZL12outputStringPKcPcPiii.exit, label %53
@@ -2096,13 +2096,13 @@ define void @utrace_getFunctions_77(ptr noundef writeonly captures(none) initial
 define void @utrace_setLevel_77(i32 noundef %0) local_unnamed_addr #7 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %0, i32 -1)
   %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 9)
-  store i32 %spec.store.select1, ptr @_ZL12utrace_level, align 4, !tbaa !11
+  store i32 %spec.store.select1, ptr @_ZL12utrace_level, align 4, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @utrace_getLevel_77() local_unnamed_addr #9 {
-  %1 = load i32, ptr @_ZL12utrace_level, align 4, !tbaa !11
+  %1 = load i32, ptr @_ZL12utrace_level, align 4, !tbaa !12
   ret i32 %1
 }
 
@@ -2111,7 +2111,7 @@ define noundef signext i8 @utrace_cleanup_77() local_unnamed_addr #7 {
   store ptr null, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !3
   store ptr null, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !3
   store ptr null, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !3
-  store i32 -1, ptr @_ZL12utrace_level, align 4, !tbaa !11
+  store i32 -1, ptr @_ZL12utrace_level, align 4, !tbaa !12
   store ptr null, ptr @_ZL13gTraceContext, align 8, !tbaa !3
   ret i8 1
 }
@@ -2124,7 +2124,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #10 {
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL8trFnName, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   br label %26
 
 6:                                                ; preds = %1
@@ -2136,7 +2136,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #10 {
   %9 = add nsw i32 %0, -4096
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL11trConvNames, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   br label %26
 
 13:                                               ; preds = %6
@@ -2147,7 +2147,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #10 {
 15:                                               ; preds = %13
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL11trCollNames, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
   br label %26
 
 19:                                               ; preds = %13
@@ -2159,7 +2159,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #10 {
   %22 = add nsw i32 %0, -12288
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL14trResDataNames, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !13
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
   br label %26
 
 26:                                               ; preds = %19, %21, %15, %8, %2
@@ -2198,23 +2198,24 @@ attributes #13 = { noreturn nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !4, i64 0}
-!15 = distinct !{!15, !9, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !9, !16}
-!18 = distinct !{!18, !9}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !5, i64 0}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"short", !5, i64 0}
-!25 = distinct !{!25, !9}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"char16_t", !5, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !4, i64 0}
+!16 = distinct !{!16, !9, !10, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !9, !10, !17}
+!19 = distinct !{!19, !9, !10}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"short", !5, i64 0}
+!26 = distinct !{!26, !9, !10}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"char16_t", !5, i64 0}

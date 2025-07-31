@@ -6046,7 +6046,7 @@ define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helpe
 98:                                               ; preds = %68, %51
   %99 = add i32 %.068, 1
   %exitcond.not = icmp eq i32 %99, %6
-  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !9
 
 .loopexit:                                        ; preds = %98, %9, %69
   %100 = call noundef i32 %7(i32 noundef %4) #8
@@ -6397,7 +6397,7 @@ define hidden void @_ZN25InterpreterMacroAssembler11profile_retE8RegisterS0_(ptr
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %23, i1 noundef zeroext true) #8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %24) #8
-  br i1 %109, label %108, label %128, !llvm.loop !9
+  br i1 %109, label %108, label %128, !llvm.loop !10
 
 128:                                              ; preds = %108
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %1) #8
@@ -6464,13 +6464,13 @@ define hidden void @_ZN25InterpreterMacroAssembler17profile_null_seenE8Register(
 
 26:                                               ; preds = %23
   %27 = or disjoint i8 %24, 1
-  %28 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %27, i8 %24, ptr nonnull %22) #8, !srcloc !10
+  %28 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %27, i8 %24, ptr nonnull %22) #8, !srcloc !11
   %.not.i.i.i.i = icmp eq i8 %24, %28
-  br i1 %.not.i.i.i.i, label %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i, label %23, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i, label %23, !llvm.loop !12
 
 ._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i: ; preds = %26
   %.pre.i.i.i = load i8, ptr %22, align 1
-  br label %_ZN7BitData23null_seen_byte_constantEv.exit, !llvm.loop !11
+  br label %_ZN7BitData23null_seen_byte_constantEv.exit, !llvm.loop !12
 
 _ZN7BitData23null_seen_byte_constantEv.exit:      ; preds = %23, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i
   %29 = phi i8 [ %.pre.i.i.i, %._ZN10DataLayout11set_flag_atEh.exit_crit_edge.i.i.i ], [ %24, %23 ]
@@ -7521,9 +7521,10 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2145410579}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i64 2145410579}
+!12 = distinct !{!12, !7, !8}

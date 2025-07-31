@@ -1269,13 +1269,13 @@ vc1_pack_bitplanes.exit:                          ; preds = %.lr.ph.split._crit_
   %680 = add nuw nsw i32 %.0208356, 1
   %681 = add nsw i32 %.1357, 1
   %682 = icmp slt i32 %680, %637
-  br i1 %682, label %.lr.ph.split, label %._crit_edge, !llvm.loop !161
+  br i1 %682, label %.lr.ph.split, label %._crit_edge, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %vc1_pack_bitplanes.exit, %vc1_pack_bitplanes.exit.us
   %.1.lcssa = phi i32 [ %659, %vc1_pack_bitplanes.exit.us ], [ %681, %vc1_pack_bitplanes.exit ]
   %683 = add nuw nsw i32 %.0207358, 1
   %684 = icmp slt i32 %683, %634
-  br i1 %684, label %.lr.ph, label %._crit_edge361, !llvm.loop !162
+  br i1 %684, label %.lr.ph, label %._crit_edge361, !llvm.loop !163
 
 ._crit_edge361:                                   ; preds = %._crit_edge
   %685 = and i32 %.1.lcssa, 1
@@ -1319,7 +1319,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vc1_decode_slice(ptr nounde
   %10 = load ptr, ptr %9, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !164
+  %12 = load i32, ptr %11, align 8, !tbaa !165
   %13 = icmp eq i32 %12, 70
   br i1 %13, label %14, label %21
 
@@ -1347,9 +1347,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vc1_decode_slice(ptr nounde
   %27 = add nsw i32 %26, %.
   %28 = ashr i32 %27, %.28
   %29 = getelementptr i8, ptr %6, i64 4176
-  %.val = load i32, ptr %29, align 8, !tbaa !165
+  %.val = load i32, ptr %29, align 8, !tbaa !166
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 3352
-  %31 = load i32, ptr %30, align 8, !tbaa !166
+  %31 = load i32, ptr %30, align 8, !tbaa !167
   %32 = srem i32 %31, %28
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -1586,12 +1586,13 @@ attributes #5 = { nounwind }
 !155 = !{!58, !14, i64 10248}
 !156 = !{!58, !14, i64 10160}
 !157 = !{!28, !10, i64 548}
-!158 = distinct !{!158, !159, !160}
+!158 = distinct !{!158, !159, !160, !161}
 !159 = !{!"llvm.loop.mustprogress"}
-!160 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!161 = distinct !{!161, !159}
-!162 = distinct !{!162, !159, !163}
-!163 = !{!"llvm.loop.unswitch.partial.disable"}
-!164 = !{!5, !10, i64 24}
-!165 = !{!43, !10, i64 16}
-!166 = !{!28, !10, i64 3352}
+!160 = !{!"llvm.loop.estimated_trip_count"}
+!161 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!162 = distinct !{!162, !159, !160}
+!163 = distinct !{!163, !159, !160, !164}
+!164 = !{!"llvm.loop.unswitch.partial.disable"}
+!165 = !{!5, !10, i64 24}
+!166 = !{!43, !10, i64 16}
+!167 = !{!28, !10, i64 3352}

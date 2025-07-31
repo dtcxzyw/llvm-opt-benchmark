@@ -108,13 +108,13 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %31 = load i64, ptr %3, align 8, !noundef !3
   %32 = load i64, ptr %4, align 8, !noundef !3
   %33 = icmp ult i64 %32, %31
-  br i1 %33, label %10, label %._crit_edge
+  br i1 %33, label %10, label %._crit_edge, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %36 = tail call noundef i8 @"_ZN83_$LT$ruff_python_stdlib..open_mode..OpenMode$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h258a453953a4616fE"(i8 noundef %25)
   tail call void @_ZN8bitflags6traits5Flags6remove17h783c1c43c2d1d5b5E(ptr noalias noundef nonnull align 1 dereferenceable(1) %8, i8 noundef %36)
-  %37 = load ptr, ptr %13, align 8, !nonnull !3, !align !5, !noundef !3
+  %37 = load ptr, ptr %13, align 8, !nonnull !3, !align !7, !noundef !3
   %38 = load i64, ptr %35, align 8, !noundef !3
   %39 = tail call noundef i8 @"_ZN83_$LT$ruff_python_stdlib..open_mode..OpenMode$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h258a453953a4616fE"(i8 noundef %25)
   store ptr %37, ptr %0, align 8
@@ -196,4 +196,6 @@ attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{i64 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 1}

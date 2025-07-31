@@ -176,7 +176,7 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %5 = load i8, ptr %4, align 4, !tbaa !38
+  %5 = load i8, ptr %4, align 4, !tbaa !39
   %6 = zext i8 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = add nuw nsw i64 %7, 40
@@ -195,15 +195,15 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %16, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 61
-  %19 = load i8, ptr %18, align 1, !tbaa !39
+  %19 = load i8, ptr %18, align 1, !tbaa !40
   %20 = zext i8 %19 to i16
   %21 = add nuw nsw i16 %20, 32
   %22 = lshr i16 %21, 3
   %23 = and i16 %22, 32
   %24 = sub nuw nsw i16 %21, %23
   %25 = trunc i16 %24 to i8
-  store i8 %25, ptr %18, align 1, !tbaa !39
-  %26 = load i8, ptr %4, align 4, !tbaa !38
+  store i8 %25, ptr %18, align 1, !tbaa !40
+  %26 = load i8, ptr %4, align 4, !tbaa !39
   %.not = icmp eq i8 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -219,7 +219,7 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = tail call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 48) #2
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  store i8 5, ptr %33, align 1, !tbaa !40
+  store i8 5, ptr %33, align 1, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 10
   store i8 1, ptr %34, align 2, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -227,26 +227,26 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   %36 = ptrtoint ptr %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 %36, ptr %37, align 8, !tbaa !31
-  %38 = load i64, ptr %27, align 8, !tbaa !41
+  %38 = load i64, ptr %27, align 8, !tbaa !42
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
-  %41 = load i16, ptr %40, align 2, !tbaa !42
+  %41 = load i16, ptr %40, align 2, !tbaa !43
   %42 = zext i16 %41 to i32
   %43 = lshr i16 %41, 14
   %44 = trunc nuw nsw i16 %43 to i8
   %45 = and i8 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 11
-  store i8 %45, ptr %46, align 1, !tbaa !43
+  store i8 %45, ptr %46, align 1, !tbaa !44
   %47 = shl i32 %42, 24
   %48 = xor i32 %47, %29
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i32 %48, ptr %49, align 8, !tbaa !44
+  store i32 %48, ptr %49, align 8, !tbaa !45
   %50 = ptrtoint ptr %32 to i64
   %51 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %30, i64 0, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %31, %3
   store i8 %26, ptr %12, align 1, !tbaa !33
@@ -261,9 +261,9 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !46
+  %10 = load i64, ptr %9, align 8, !tbaa !47
   %.not = icmp ult i64 %8, %10
-  br i1 %.not, label %12, label %11, !prof !47
+  br i1 %.not, label %12, label %11, !prof !48
 
 11:                                               ; preds = %3
   tail call void @lj_gc_step_fixtop(ptr noundef nonnull %0) #2
@@ -271,9 +271,9 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 12:                                               ; preds = %11, %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !48
+  %14 = load i64, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %16 = load i8, ptr %15, align 4, !tbaa !38
+  %16 = load i8, ptr %15, align 4, !tbaa !39
   %17 = zext i8 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = add nuw nsw i64 %18, 40
@@ -291,18 +291,18 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %14, ptr %27, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 61
-  %29 = load i8, ptr %28, align 1, !tbaa !39
+  %29 = load i8, ptr %28, align 1, !tbaa !40
   %30 = zext i8 %29 to i16
   %31 = add nuw nsw i16 %30, 32
   %32 = lshr i16 %31, 3
   %33 = and i16 %32, 32
   %34 = sub nuw nsw i16 %31, %33
   %35 = trunc i16 %34 to i8
-  store i8 %35, ptr %28, align 1, !tbaa !39
+  store i8 %35, ptr %28, align 1, !tbaa !40
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %37 = load i8, ptr %15, align 4, !tbaa !38
+  %37 = load i8, ptr %15, align 4, !tbaa !39
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !50
+  %39 = load ptr, ptr %38, align 8, !tbaa !51
   %.not35 = icmp eq i8 %37, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -316,10 +316,10 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 44:                                               ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %45 = load i64, ptr %40, align 8, !tbaa !41
+  %45 = load i64, ptr %40, align 8, !tbaa !42
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2, !tbaa !42
+  %48 = load i16, ptr %47, align 2, !tbaa !43
   %.not31 = icmp sgt i16 %48, -1
   br i1 %.not31, label %104, label %49
 
@@ -334,7 +334,7 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 56:                                               ; preds = %63, %49
   %.033.i = phi ptr [ %41, %49 ], [ %58, %63 ]
-  %57 = load i64, ptr %.033.i, align 8, !tbaa !51
+  %57 = load i64, ptr %.033.i, align 8, !tbaa !52
   %58 = inttoptr i64 %57 to ptr
   %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %.critedge.i, label %59
@@ -348,7 +348,7 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 63:                                               ; preds = %59
   %64 = icmp eq ptr %53, %62
-  br i1 %64, label %65, label %56, !llvm.loop !52
+  br i1 %64, label %65, label %56, !llvm.loop !53
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -374,16 +374,16 @@ define hidden ptr @lj_func_newL_gc(ptr noundef %0, ptr noundef %1, ptr noundef r
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i8 %78, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 9
-  store i8 5, ptr %80, align 1, !tbaa !40
+  store i8 5, ptr %80, align 1, !tbaa !41
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 10
   store i8 0, ptr %81, align 2, !tbaa !35
   %82 = ptrtoint ptr %53 to i64
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i64 %82, ptr %83, align 8, !tbaa !31
-  %84 = load i64, ptr %.033.i, align 8, !tbaa !51
+  %84 = load i64, ptr %.033.i, align 8, !tbaa !52
   store i64 %84, ptr %75, align 8, !tbaa !32
   %85 = ptrtoint ptr %75 to i64
-  store i64 %85, ptr %.033.i, align 8, !tbaa !51
+  store i64 %85, ptr %.033.i, align 8, !tbaa !52
   %86 = getelementptr inbounds nuw i8, ptr %55, i64 280
   %87 = ptrtoint ptr %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -404,20 +404,20 @@ func_finduv.exit:                                 ; preds = %65, %73, %.critedge
   %95 = trunc nuw nsw i16 %94 to i8
   %96 = and i8 %95, 1
   %97 = getelementptr inbounds nuw i8, ptr %.0.i, i64 11
-  store i8 %96, ptr %97, align 1, !tbaa !43
-  %98 = load i64, ptr %42, align 8, !tbaa !53
+  store i8 %96, ptr %97, align 1, !tbaa !44
+  %98 = load i64, ptr %42, align 8, !tbaa !54
   %99 = trunc i64 %98 to i32
   %100 = shl i32 %50, 24
   %101 = xor i32 %100, %99
   %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store i32 %101, ptr %102, align 8, !tbaa !44
+  store i32 %101, ptr %102, align 8, !tbaa !45
   %103 = ptrtoint ptr %.0.i to i64
   br label %108
 
 104:                                              ; preds = %44
   %105 = zext nneg i16 %48 to i64
   %106 = getelementptr inbounds nuw %struct.GCRef, ptr %36, i64 %105
-  %107 = load i64, ptr %106, align 8, !tbaa !51
+  %107 = load i64, ptr %106, align 8, !tbaa !52
   br label %108
 
 108:                                              ; preds = %104, %func_finduv.exit
@@ -426,7 +426,7 @@ func_finduv.exit:                                 ; preds = %65, %73, %.critedge
   store i64 %.0, ptr %109, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %108, %12
   store i8 %37, ptr %23, align 1, !tbaa !33
@@ -501,22 +501,23 @@ attributes #2 = { nounwind }
 !33 = !{!8, !8, i64 0}
 !34 = !{!14, !8, i64 32}
 !35 = !{!23, !8, i64 10}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!5, !8, i64 60}
-!39 = !{!5, !8, i64 61}
-!40 = !{!23, !8, i64 9}
-!41 = !{!5, !7, i64 40}
-!42 = !{!12, !12, i64 0}
-!43 = !{!23, !8, i64 11}
-!44 = !{!23, !10, i64 40}
-!45 = distinct !{!45, !37}
-!46 = !{!14, !7, i64 24}
-!47 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!48 = !{!49, !7, i64 16}
-!49 = !{!"GCfuncL", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !6, i64 16, !6, i64 24, !11, i64 32, !8, i64 40}
-!50 = !{!28, !29, i64 32}
-!51 = !{!6, !7, i64 0}
-!52 = distinct !{!52, !37}
-!53 = !{!49, !7, i64 32}
-!54 = distinct !{!54, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!5, !8, i64 60}
+!40 = !{!5, !8, i64 61}
+!41 = !{!23, !8, i64 9}
+!42 = !{!5, !7, i64 40}
+!43 = !{!12, !12, i64 0}
+!44 = !{!23, !8, i64 11}
+!45 = !{!23, !10, i64 40}
+!46 = distinct !{!46, !37, !38}
+!47 = !{!14, !7, i64 24}
+!48 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!49 = !{!50, !7, i64 16}
+!50 = !{!"GCfuncL", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !6, i64 16, !6, i64 24, !11, i64 32, !8, i64 40}
+!51 = !{!28, !29, i64 32}
+!52 = !{!6, !7, i64 0}
+!53 = distinct !{!53, !37, !38}
+!54 = !{!50, !7, i64 32}
+!55 = distinct !{!55, !37, !38}

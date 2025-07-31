@@ -215,7 +215,7 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 152
-  %117 = load i8, ptr %116, align 8, !range !6, !noundef !7
+  %117 = load i8, ptr %116, align 8, !range !7, !noundef !8
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %160
 
@@ -319,7 +319,7 @@ gistRedoPageUpdateRecord.exit:                    ; preds = %160, %162
   call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #6
   %172 = load i32, ptr %167, align 4
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 6
-  %174 = load i8, ptr %173, align 2, !range !6, !noundef !7
+  %174 = load i8, ptr %173, align 2, !range !7, !noundef !8
   %175 = trunc nuw i8 %174 to i1
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -408,7 +408,7 @@ gistRedoDeleteRecord.exit:                        ; preds = %215, %217
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  %226 = load i8, ptr %225, align 8, !range !6, !noundef !7
+  %226 = load i8, ptr %225, align 8, !range !7, !noundef !8
   %227 = trunc nuw i8 %226 to i1
   %228 = load i64, ptr %224, align 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %223, align 8
@@ -494,10 +494,10 @@ BufferGetPage.exit.i16:                           ; preds = %255, %249
   %272 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 %271
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %263
-  br i1 %exitcond.not.i, label %decodePageSplitRecord.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %decodePageSplitRecord.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %BufferGetPage.exit.i16
-  %273 = load i8, ptr %236, align 8, !range !6, !noundef !7
+  %273 = load i8, ptr %236, align 8, !range !7, !noundef !8
   %274 = trunc nuw i8 %273 to i1
   %275 = load i32, ptr %6, align 4
   %276 = icmp ne i32 %275, 0
@@ -595,7 +595,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   br i1 %or.cond3.i, label %352, label %342
 
 342:                                              ; preds = %324
-  %343 = load i8, ptr %238, align 4, !range !6, !noundef !7
+  %343 = load i8, ptr %238, align 4, !range !7, !noundef !8
   %344 = trunc nuw i8 %343 to i1
   br i1 %344, label %345, label %352
 
@@ -638,7 +638,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %364 = load i16, ptr %233, align 2
   %365 = zext i16 %364 to i32
   %366 = icmp samesign ult i32 %243, %365
-  br i1 %366, label %242, label %._crit_edge.loopexit.i, !llvm.loop !9
+  br i1 %366, label %242, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %363
   %.pre.i = load ptr, ptr %13, align 8
@@ -654,7 +654,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
 
 371:                                              ; preds = %._crit_edge.i
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 88
-  %373 = load i8, ptr %372, align 8, !range !6, !noundef !7
+  %373 = load i8, ptr %372, align 8, !range !7, !noundef !8
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %375, label %gistRedoPageSplitRecord.exit
 
@@ -975,7 +975,7 @@ define dso_local i64 @gistXLogSplit(i1 noundef zeroext %0, ptr noundef %1, i32 n
   %11 = getelementptr inbounds nuw i8, ptr %.02228, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.023.lcssa = phi i16 [ 0, %6 ], [ %10, %.lr.ph ]
@@ -1017,7 +1017,7 @@ define dso_local i64 @gistXLogSplit(i1 noundef zeroext %0, ptr noundef %1, i32 n
   %27 = getelementptr inbounds nuw i8, ptr %.130, i64 48
   %28 = load ptr, ptr %27, align 8
   %.not24 = icmp eq ptr %28, null
-  br i1 %.not24, label %._crit_edge34, label %.lr.ph33, !llvm.loop !11
+  br i1 %.not24, label %._crit_edge34, label %.lr.ph33, !llvm.loop !12
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %18
   %29 = call i64 @XLogInsert(i8 noundef zeroext 14, i8 noundef zeroext 48) #6
@@ -1106,7 +1106,7 @@ define dso_local void @gistXLogPageReuse(ptr noundef readonly captures(none) %0,
 
 23:                                               ; preds = %19, %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %25 = load i8, ptr %24, align 8, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
   br label %26
 
 26:                                               ; preds = %23, %16, %19, %14, %8, %4
@@ -1159,7 +1159,7 @@ define dso_local i64 @gistXLogUpdate(i32 noundef %0, ptr noundef %1, i32 noundef
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %14, i32 noundef %17) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.not = icmp eq i32 %5, 0
@@ -1212,7 +1212,7 @@ define dso_local i64 @gistXLogDelete(i32 noundef %0, ptr noundef %1, i32 noundef
 
 24:                                               ; preds = %20, %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %26 = load i8, ptr %25, align 8, !range !7, !noundef !8
   br label %27
 
 27:                                               ; preds = %24, %17, %20, %15, %9, %5
@@ -1281,12 +1281,13 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

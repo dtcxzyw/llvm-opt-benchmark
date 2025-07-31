@@ -710,7 +710,7 @@ _ZN6icu_7713StringSegment15codePointsEqualEiib.exit: ; preds = %_ZNK6icu_7713Uni
   %72 = tail call i32 @uprv_min_77(i32 noundef %69, i32 noundef %71)
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %21, label %._crit_edge.loopexit.split.loop.exit25
+  br i1 %74, label %21, label %._crit_edge.loopexit.split.loop.exit25, !llvm.loop !24
 
 ._crit_edge.loopexit.split.loop.exit25:           ; preds = %.backedge
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -737,9 +737,9 @@ define noundef zeroext i1 @_ZNK6icu_7713StringSegmenteqERKNS_13UnicodeStringE(pt
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = load ptr, ptr %0, align 8, !tbaa !15, !noalias !24
+  %5 = load ptr, ptr %0, align 8, !tbaa !15, !noalias !26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i16, ptr %6, align 8, !tbaa !12, !noalias !24
+  %7 = load i16, ptr %6, align 8, !tbaa !12, !noalias !26
   %8 = and i16 %7, 17
   %.not.i.i = icmp eq i16 %8, 0
   br i1 %.not.i.i, label %9, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
@@ -755,18 +755,18 @@ define noundef zeroext i1 @_ZNK6icu_7713StringSegmenteqERKNS_13UnicodeStringE(pt
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !12, !noalias !24
+  %15 = load ptr, ptr %14, align 8, !tbaa !12, !noalias !26
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %13, %11, %2
   %.0.i.i = phi ptr [ %12, %11 ], [ %15, %13 ], [ null, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !8, !noalias !24
+  %17 = load i32, ptr %16, align 8, !tbaa !8, !noalias !26
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i16, ptr %.0.i.i, i64 %18
-  store ptr %19, ptr %3, align 8, !tbaa !18, !noalias !24
+  store ptr %19, ptr %3, align 8, !tbaa !18, !noalias !26
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !13, !noalias !24
+  %21 = load i32, ptr %20, align 4, !tbaa !13, !noalias !26
   %22 = sub nsw i32 %21, %17
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 0, ptr noundef nonnull %3, i32 noundef %22)
           to label %_ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit unwind label %23
@@ -778,12 +778,12 @@ common.resume:                                    ; preds = %60, %23
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !24
+  %25 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !26
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #9, !srcloc !21
   br label %common.resume
 
 _ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
-  %26 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !24
+  %26 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !26
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #9, !srcloc !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -890,6 +890,8 @@ attributes #9 = { nounwind }
 !21 = !{i64 2148898483}
 !22 = !{i8 0, i8 2}
 !23 = !{}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK6icu_7713StringSegment19toTempUnicodeStringEv: argument 0"}
-!26 = distinct !{!26, !"_ZNK6icu_7713StringSegment19toTempUnicodeStringEv"}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK6icu_7713StringSegment19toTempUnicodeStringEv: argument 0"}
+!28 = distinct !{!28, !"_ZNK6icu_7713StringSegment19toTempUnicodeStringEv"}

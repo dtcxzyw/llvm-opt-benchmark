@@ -146,9 +146,9 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond159, label %38, label %35
 
 35:                                               ; preds = %33
-  %36 = load i32, ptr %20, align 8, !tbaa !52
+  %36 = load i32, ptr %20, align 8, !tbaa !53
   %.not104 = icmp eq i32 %36, %34
-  %.pre152 = load i32, ptr %21, align 4, !tbaa !53
+  %.pre152 = load i32, ptr %21, align 4, !tbaa !54
   %.not105 = icmp eq i32 %.pre152, %.pre.pre
   %or.cond160 = select i1 %.not104, i1 %.not105, i1 false
   br i1 %or.cond160, label %38, label %37
@@ -159,9 +159,9 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 38:                                               ; preds = %35, %33, %37
   %.192 = phi i32 [ 1, %37 ], [ %.091121, %33 ], [ %.091121, %35 ]
-  %39 = load i32, ptr %22, align 8, !tbaa !54
+  %39 = load i32, ptr %22, align 8, !tbaa !55
   %.not106 = icmp eq i32 %39, -1
-  %.pre154 = load i32, ptr %23, align 8, !tbaa !55
+  %.pre154 = load i32, ptr %23, align 8, !tbaa !56
   br i1 %.not106, label %45, label %40
 
 40:                                               ; preds = %38
@@ -170,18 +170,18 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 41:                                               ; preds = %40
   %42 = tail call ptr @av_get_pix_fmt_name(i32 noundef %39) #4
-  %43 = load i32, ptr %23, align 8, !tbaa !55
+  %43 = load i32, ptr %23, align 8, !tbaa !56
   %44 = tail call ptr @av_get_pix_fmt_name(i32 noundef %43) #4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3, ptr noundef %42, ptr noundef %44) #4
-  %.pre153 = load i32, ptr %23, align 8, !tbaa !55
+  %.pre153 = load i32, ptr %23, align 8, !tbaa !56
   br label %45
 
 45:                                               ; preds = %41, %40, %38
   %46 = phi i32 [ %.pre153, %41 ], [ %39, %40 ], [ %.pre154, %38 ]
   %.293 = phi i32 [ 1, %41 ], [ %.192, %40 ], [ %.192, %38 ]
-  store i32 %46, ptr %22, align 8, !tbaa !54
-  %47 = load i32, ptr %20, align 8, !tbaa !52
-  %48 = load i32, ptr %21, align 4, !tbaa !53
+  store i32 %46, ptr %22, align 8, !tbaa !55
+  %47 = load i32, ptr %20, align 8, !tbaa !53
+  %48 = load i32, ptr %21, align 4, !tbaa !54
   %49 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %48) #4
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.loopexit, label %51
@@ -196,40 +196,40 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %52
-  %56 = load i32, ptr %24, align 4, !tbaa !56
+  %56 = load i32, ptr %24, align 4, !tbaa !57
   %57 = sub nsw i32 %.095120, %56
-  store i32 %57, ptr %25, align 8, !tbaa !57
+  store i32 %57, ptr %25, align 8, !tbaa !58
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds i8, ptr %.096119, i64 %58
-  store ptr %59, ptr %26, align 8, !tbaa !58
-  %60 = load ptr, ptr %27, align 8, !tbaa !59
-  %61 = load i32, ptr %28, align 8, !tbaa !60
+  store ptr %59, ptr %26, align 8, !tbaa !59
+  %60 = load ptr, ptr %27, align 8, !tbaa !60
+  %61 = load i32, ptr %28, align 8, !tbaa !61
   %62 = tail call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull @dnxhd_decode_row, ptr noundef %1, ptr noundef null, i32 noundef %61) #4
-  %63 = load i32, ptr %29, align 4, !tbaa !61
+  %63 = load i32, ptr %29, align 4, !tbaa !62
   %64 = and i32 %63, 8
   %.not109 = icmp eq i32 %64, 0
   br i1 %.not109, label %.loopexit136, label %.split98
 
 .split98:                                         ; preds = %55
-  %65 = load ptr, ptr %30, align 8, !tbaa !66
+  %65 = load ptr, ptr %30, align 8, !tbaa !67
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !67
+  %67 = load i32, ptr %66, align 8, !tbaa !68
   %68 = sub i32 %.095120, %67
   %69 = zext i32 %67 to i64
   %70 = getelementptr inbounds nuw i8, ptr %.096119, i64 %69
   %71 = tail call fastcc i32 @dnxhd_decode_header(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef %70, i32 noundef %68, i32 noundef 0)
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.loopexit, label %33
+  br i1 %72, label %.loopexit, label %33, !llvm.loop !71
 
 .critedge:                                        ; preds = %51
-  %73 = load i32, ptr %24, align 4, !tbaa !56
+  %73 = load i32, ptr %24, align 4, !tbaa !57
   %74 = sub nsw i32 %.095120, %73
-  store i32 %74, ptr %25, align 8, !tbaa !57
+  store i32 %74, ptr %25, align 8, !tbaa !58
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds i8, ptr %.096119, i64 %75
-  store ptr %76, ptr %26, align 8, !tbaa !58
-  %77 = load ptr, ptr %27, align 8, !tbaa !59
-  %78 = load i32, ptr %28, align 8, !tbaa !60
+  store ptr %76, ptr %26, align 8, !tbaa !59
+  %77 = load ptr, ptr %27, align 8, !tbaa !60
+  %78 = load i32, ptr %28, align 8, !tbaa !61
   %79 = tail call i32 %77(ptr noundef nonnull %0, ptr noundef nonnull @dnxhd_decode_row, ptr noundef %1, ptr noundef null, i32 noundef %78) #4
   br label %.loopexit136
 
@@ -248,17 +248,17 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv142 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next143, %84 ]
   %.090127 = phi i32 [ 0, %.lr.ph129 ], [ %87, %84 ]
   %85 = getelementptr inbounds nuw %struct.RowContext, ptr %83, i64 %indvars.iv142, i32 6
-  %86 = load i32, ptr %85, align 16, !tbaa !70
+  %86 = load i32, ptr %85, align 16, !tbaa !72
   %87 = add nsw i32 %86, %.090127
-  store i32 0, ptr %85, align 16, !tbaa !70
+  store i32 0, ptr %85, align 16, !tbaa !72
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge, label %84, !llvm.loop !71
+  br i1 %exitcond146.not, label %._crit_edge, label %84, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %84, %.loopexit136
   %.090.lcssa = phi i32 [ 0, %.loopexit136 ], [ %87, %84 ]
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 2436
-  %89 = load i32, ptr %88, align 4, !tbaa !72
+  %89 = load i32, ptr %88, align 4, !tbaa !74
   %.not110 = icmp eq i32 %89, 0
   br i1 %.not110, label %111, label %90
 
@@ -277,7 +277,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 96:                                               ; preds = %.lr.ph134
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !73
+  br i1 %exitcond151.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !75
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %96
   %indvars.iv147 = phi i64 [ 1, %.lr.ph134.preheader ], [ %indvars.iv.next148, %96 ]
@@ -308,23 +308,23 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 101:                                              ; preds = %._crit_edge135
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 2416
-  %103 = load i32, ptr %102, align 8, !tbaa !74
+  %103 = load i32, ptr %102, align 8, !tbaa !76
   %104 = icmp eq i32 %103, 10
   %105 = select i1 %104, i32 75, i32 135
-  store i32 %105, ptr %23, align 8, !tbaa !55
+  store i32 %105, ptr %23, align 8, !tbaa !56
   br label %111
 
 106:                                              ; preds = %._crit_edge135
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 2416
-  %108 = load i32, ptr %107, align 8, !tbaa !74
+  %108 = load i32, ptr %107, align 8, !tbaa !76
   %109 = icmp eq i32 %108, 10
   %110 = select i1 %109, i32 68, i32 131
-  store i32 %110, ptr %23, align 8, !tbaa !55
+  store i32 %110, ptr %23, align 8, !tbaa !56
   br label %111
 
 111:                                              ; preds = %._crit_edge135, %101, %106, %99, %.thread, %._crit_edge
-  %112 = load i32, ptr %23, align 8, !tbaa !55
-  store i32 %112, ptr %22, align 8, !tbaa !54
+  %112 = load i32, ptr %23, align 8, !tbaa !56
+  store i32 %112, ptr %22, align 8, !tbaa !55
   %.not113 = icmp eq i32 %.090.lcssa, 0
   br i1 %.not113, label %115, label %113
 
@@ -334,7 +334,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 115:                                              ; preds = %111
-  store i32 1, ptr %2, align 4, !tbaa !75
+  store i32 1, ptr %2, align 4, !tbaa !77
   %116 = load i32, ptr %7, align 8, !tbaa !46
   br label %.loopexit
 
@@ -363,7 +363,7 @@ declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @dnxhd_decode_header(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %7 = load i32, ptr %6, align 8, !tbaa !74
+  %7 = load i32, ptr %6, align 8, !tbaa !76
   %8 = icmp slt i32 %3, 640
   br i1 %8, label %9, label %11
 
@@ -378,7 +378,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dnxhd_decode_header(ptr no
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %17 = load i8, ptr %16, align 1, !tbaa !76
+  %17 = load i8, ptr %16, align 1, !tbaa !78
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %18, 8
   %20 = or disjoint i64 %15, %19
@@ -412,7 +412,7 @@ ff_dnxhd_check_header_prefix.exit.thread:         ; preds = %24
 
 ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %37 = load i8, ptr %36, align 1, !tbaa !76
+  %37 = load i8, ptr %36, align 1, !tbaa !78
   %38 = zext i8 %37 to i32
   %39 = and i32 %38, 2
   %.not = icmp eq i32 %39, 0
@@ -428,7 +428,7 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %45 = load i32, ptr %44, align 8, !tbaa !77
+  %45 = load i32, ptr %44, align 8, !tbaa !79
   %.not173 = icmp eq i32 %45, 0
   %46 = zext i1 %.not173 to i32
   br label %47
@@ -436,15 +436,15 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
 47:                                               ; preds = %43, %41
   %48 = phi i32 [ %42, %41 ], [ %46, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  store i32 %48, ptr %49, align 8, !tbaa !77
+  store i32 %48, ptr %49, align 8, !tbaa !79
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %51 = load i32, ptr %50, align 4, !tbaa !61
+  %51 = load i32, ptr %50, align 4, !tbaa !62
   %.not174 = icmp eq i32 %4, %48
   %spec.select.v = select i1 %.not174, i32 8, i32 24
   %spec.select = or i32 %51, %spec.select.v
-  store i32 %spec.select, ptr %50, align 4, !tbaa !61
+  store i32 %spec.select, ptr %50, align 4, !tbaa !62
   %52 = load ptr, ptr %0, align 8, !tbaa !27
-  %53 = load i8, ptr %36, align 1, !tbaa !76
+  %53 = load i8, ptr %36, align 1, !tbaa !78
   %54 = and i8 %53, 3
   %55 = zext nneg i8 %54 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %52, i32 noundef 48, ptr noundef nonnull @.str.8, i32 noundef %55, i32 noundef %48) #4
@@ -452,29 +452,29 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
 
 56:                                               ; preds = %ff_dnxhd_check_header_prefix.exit.thread195
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  store i32 0, ptr %57, align 8, !tbaa !77
+  store i32 0, ptr %57, align 8, !tbaa !79
   br label %58
 
 58:                                               ; preds = %56, %47
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %60 = load i8, ptr %59, align 1, !tbaa !76
+  %60 = load i8, ptr %59, align 1, !tbaa !78
   %61 = lshr i8 %60, 5
   %62 = and i8 %61, 1
   %63 = zext nneg i8 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2432
-  store i32 %63, ptr %64, align 8, !tbaa !78
+  store i32 %63, ptr %64, align 8, !tbaa !80
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %66 = load i8, ptr %65, align 1, !tbaa !76
+  %66 = load i8, ptr %65, align 1, !tbaa !78
   %67 = and i8 %66, 1
   %68 = zext nneg i8 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2424
-  store i32 %68, ptr %69, align 8, !tbaa !79
-  %70 = load i8, ptr %65, align 1, !tbaa !76
+  store i32 %68, ptr %69, align 8, !tbaa !81
+  %70 = load i8, ptr %65, align 1, !tbaa !78
   %71 = lshr i8 %70, 1
   %72 = and i8 %71, 1
   %73 = zext nneg i8 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2428
-  store i32 %73, ptr %74, align 4, !tbaa !80
+  store i32 %73, ptr %74, align 4, !tbaa !82
   %.not175 = icmp eq i8 %67, 0
   br i1 %.not175, label %77, label %75
 
@@ -485,19 +485,19 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
 
 77:                                               ; preds = %75, %58
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %79 = load i16, ptr %78, align 1, !tbaa !76
+  %79 = load i16, ptr %78, align 1, !tbaa !78
   %80 = tail call i16 @llvm.bswap.i16(i16 %79)
   %81 = zext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %81, ptr %82, align 4, !tbaa !53
+  store i32 %81, ptr %82, align 4, !tbaa !54
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %84 = load i16, ptr %83, align 1, !tbaa !76
+  %84 = load i16, ptr %83, align 1, !tbaa !78
   %85 = tail call i16 @llvm.bswap.i16(i16 %84)
   %86 = zext i16 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %86, ptr %87, align 8, !tbaa !52
+  store i32 %86, ptr %87, align 8, !tbaa !53
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %89 = load i8, ptr %88, align 1, !tbaa !76
+  %89 = load i8, ptr %88, align 1, !tbaa !78
   %90 = lshr i8 %89, 5
   switch i8 %90, label %93 [
     i8 1, label %dnxhd_get_profile.exit
@@ -523,7 +523,7 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
   %98 = phi i1 [ false, %91 ], [ false, %92 ], [ true, %77 ]
   %.0159 = phi i32 [ 10, %91 ], [ 12, %92 ], [ 8, %77 ]
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %100 = load i32, ptr %99, align 1, !tbaa !76
+  %100 = load i32, ptr %99, align 1, !tbaa !78
   %101 = tail call i32 @llvm.bswap.i32(i32 %100)
   %switch.tableidx = add i32 %101, -1270
   %102 = icmp ult i32 %switch.tableidx, 5
@@ -531,7 +531,7 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
   %.0.i191 = select i1 %102, i32 %switch.offset, i32 0
   %103 = load ptr, ptr %0, align 8, !tbaa !27
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 688
-  store i32 %.0.i191, ptr %104, align 8, !tbaa !81
+  store i32 %.0.i191, ptr %104, align 8, !tbaa !83
   %105 = zext i32 %101 to i64
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %107 = load i64, ptr %106, align 8, !tbaa !36
@@ -550,7 +550,7 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 28
-  %114 = load i32, ptr %113, align 4, !tbaa !82
+  %114 = load i32, ptr %113, align 4, !tbaa !84
   %.not48.i = icmp eq i32 %114, %.0159
   %.not49.i = icmp eq i32 %114, 0
   %or.cond.i193 = or i1 %.not48.i, %.not49.i
@@ -563,7 +563,7 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  store ptr %109, ptr %118, align 8, !tbaa !66
+  store ptr %109, ptr %118, align 8, !tbaa !67
   %119 = load ptr, ptr %0, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %119, i32 noundef 40, ptr noundef nonnull @.str.24, i32 noundef %101) #4
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2152
@@ -572,34 +572,34 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
   tail call void @ff_vlc_free(ptr noundef nonnull %121) #4
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   tail call void @ff_vlc_free(ptr noundef nonnull %122) #4
-  %123 = load ptr, ptr %118, align 8, !tbaa !66
+  %123 = load ptr, ptr %118, align 8, !tbaa !67
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 80
-  %125 = load ptr, ptr %124, align 8, !tbaa !83
+  %125 = load ptr, ptr %124, align 8, !tbaa !85
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 72
-  %127 = load ptr, ptr %126, align 8, !tbaa !84
+  %127 = load ptr, ptr %126, align 8, !tbaa !86
   %128 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %120, i32 noundef 9, i32 noundef 257, ptr noundef %125, i32 noundef 1, i32 noundef 1, ptr noundef %127, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %150, label %130
 
 130:                                              ; preds = %117
   %131 = select i1 %98, i32 12, i32 14
-  %132 = load ptr, ptr %118, align 8, !tbaa !66
+  %132 = load ptr, ptr %118, align 8, !tbaa !67
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %134 = load ptr, ptr %133, align 8, !tbaa !85
+  %134 = load ptr, ptr %133, align 8, !tbaa !87
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 56
-  %136 = load ptr, ptr %135, align 8, !tbaa !86
+  %136 = load ptr, ptr %135, align 8, !tbaa !88
   %137 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %121, i32 noundef 7, i32 noundef %131, ptr noundef %134, i32 noundef 1, i32 noundef 1, ptr noundef %136, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %150, label %139
 
 139:                                              ; preds = %130
-  %140 = load ptr, ptr %118, align 8, !tbaa !66
+  %140 = load ptr, ptr %118, align 8, !tbaa !67
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 104
-  %142 = load ptr, ptr %141, align 8, !tbaa !87
+  %142 = load ptr, ptr %141, align 8, !tbaa !89
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 96
-  %144 = load ptr, ptr %143, align 8, !tbaa !88
+  %144 = load ptr, ptr %143, align 8, !tbaa !90
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 112
-  %146 = load ptr, ptr %145, align 8, !tbaa !89
+  %146 = load ptr, ptr %145, align 8, !tbaa !91
   %147 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %122, i32 noundef 9, i32 noundef 62, ptr noundef %142, i32 noundef 1, i32 noundef 1, ptr noundef %144, i32 noundef 2, i32 noundef 2, ptr noundef %146, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %150, label %149
@@ -615,14 +615,14 @@ dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
   br label %dnxhd_init_vlc.exit.thread
 
 dnxhd_init_vlc.exit:                              ; preds = %149, %dnxhd_get_profile.exit
-  %152 = load i32, ptr %64, align 8, !tbaa !78
+  %152 = load i32, ptr %64, align 8, !tbaa !80
   %.not176 = icmp eq i32 %152, 0
   br i1 %.not176, label %switch.lookup227, label %153
 
 153:                                              ; preds = %dnxhd_init_vlc.exit
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %155 = load ptr, ptr %154, align 8, !tbaa !66
-  %156 = load i32, ptr %155, align 8, !tbaa !90
+  %155 = load ptr, ptr %154, align 8, !tbaa !67
+  %156 = load i32, ptr %155, align 8, !tbaa !92
   %.not177 = icmp eq i32 %156, 1260
   br i1 %.not177, label %switch.lookup227, label %157
 
@@ -633,26 +633,26 @@ dnxhd_init_vlc.exit:                              ; preds = %149, %dnxhd_get_pro
 
 switch.lookup227:                                 ; preds = %157, %153, %dnxhd_init_vlc.exit
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %160 = load i8, ptr %159, align 1, !tbaa !76
+  %160 = load i8, ptr %159, align 1, !tbaa !78
   %161 = lshr i8 %160, 1
   %162 = and i8 %161, 3
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %164 = zext nneg i8 %162 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dnxhd_decode_header, i64 0, i64 %164
   %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr %163, align 4, !tbaa !91
-  %165 = load i8, ptr %159, align 1, !tbaa !76
+  store i32 %switch.load, ptr %163, align 4, !tbaa !93
+  %165 = load i8, ptr %159, align 1, !tbaa !78
   %166 = and i8 %165, 1
   %167 = zext nneg i8 %166 to i32
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 2436
-  store i32 %167, ptr %168, align 4, !tbaa !72
+  store i32 %167, ptr %168, align 4, !tbaa !74
   %.not178 = icmp eq i8 %166, 0
   br i1 %.not178, label %175, label %169
 
 169:                                              ; preds = %switch.lookup227
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %171 = load ptr, ptr %170, align 8, !tbaa !66
-  %172 = load i32, ptr %171, align 8, !tbaa !90
+  %171 = load ptr, ptr %170, align 8, !tbaa !67
+  %172 = load i32, ptr %171, align 8, !tbaa !92
   switch i32 %172, label %173 [
     i32 1256, label %175
     i32 1270, label %175
@@ -664,12 +664,12 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   br label %175
 
 175:                                              ; preds = %169, %169, %173, %switch.lookup227
-  %176 = load i8, ptr %159, align 1, !tbaa !76
+  %176 = load i8, ptr %159, align 1, !tbaa !78
   %177 = lshr i8 %176, 6
   %178 = and i8 %177, 1
   %179 = zext nneg i8 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  store i32 %179, ptr %180, align 4, !tbaa !92
+  store i32 %179, ptr %180, align 4, !tbaa !94
   %.not181 = icmp eq i8 %178, 0
   br i1 %.not181, label %193, label %181
 
@@ -687,19 +687,19 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   br i1 %97, label %187, label %190
 
 187:                                              ; preds = %184
-  store ptr @dnxhd_decode_dct_block_10_444, ptr %185, align 8, !tbaa !93
-  %188 = load i32, ptr %168, align 4, !tbaa !72
+  store ptr @dnxhd_decode_dct_block_10_444, ptr %185, align 8, !tbaa !95
+  %188 = load i32, ptr %168, align 4, !tbaa !74
   %.not183 = icmp eq i32 %188, 0
   %189 = select i1 %.not183, i32 75, i32 68
-  store i32 %189, ptr %186, align 8, !tbaa !55
+  store i32 %189, ptr %186, align 8, !tbaa !56
   br label %208
 
 190:                                              ; preds = %184
-  store ptr @dnxhd_decode_dct_block_12_444, ptr %185, align 8, !tbaa !93
-  %191 = load i32, ptr %168, align 4, !tbaa !72
+  store ptr @dnxhd_decode_dct_block_12_444, ptr %185, align 8, !tbaa !95
+  %191 = load i32, ptr %168, align 4, !tbaa !74
   %.not182 = icmp eq i32 %191, 0
   %192 = select i1 %.not182, i32 135, i32 131
-  store i32 %192, ptr %186, align 8, !tbaa !55
+  store i32 %192, ptr %186, align 8, !tbaa !56
   br label %208
 
 193:                                              ; preds = %175
@@ -707,9 +707,9 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  store ptr @dnxhd_decode_dct_block_12, ptr %195, align 8, !tbaa !93
+  store ptr @dnxhd_decode_dct_block_12, ptr %195, align 8, !tbaa !95
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 127, ptr %196, align 8, !tbaa !55
+  store i32 127, ptr %196, align 8, !tbaa !56
   br label %208
 
 197:                                              ; preds = %193
@@ -718,27 +718,27 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
 198:                                              ; preds = %197
   %199 = load ptr, ptr %0, align 8, !tbaa !27
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 688
-  %201 = load i32, ptr %200, align 8, !tbaa !81
+  %201 = load i32, ptr %200, align 8, !tbaa !83
   %202 = icmp eq i32 %201, 4
   %spec.select221 = select i1 %202, ptr @dnxhd_decode_dct_block_10_444, ptr @dnxhd_decode_dct_block_10
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  store ptr %spec.select221, ptr %203, align 8, !tbaa !93
+  store ptr %spec.select221, ptr %203, align 8, !tbaa !95
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 64, ptr %204, align 8, !tbaa !55
+  store i32 64, ptr %204, align 8, !tbaa !56
   br label %208
 
 205:                                              ; preds = %197
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 2440
-  store ptr @dnxhd_decode_dct_block_8, ptr %206, align 8, !tbaa !93
+  store ptr @dnxhd_decode_dct_block_8, ptr %206, align 8, !tbaa !95
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 4, ptr %207, align 8, !tbaa !55
+  store i32 4, ptr %207, align 8, !tbaa !56
   br label %208
 
 208:                                              ; preds = %194, %205, %198, %190, %187
-  store i32 %.0159, ptr %6, align 8, !tbaa !74
+  store i32 %.0159, ptr %6, align 8, !tbaa !76
   %209 = load ptr, ptr %0, align 8, !tbaa !27
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 652
-  store i32 %.0159, ptr %210, align 4, !tbaa !94
+  store i32 %.0159, ptr %210, align 4, !tbaa !96
   %.not184 = icmp eq i32 %.0159, %7
   br i1 %.not184, label %217, label %211
 
@@ -754,11 +754,11 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   br label %217
 
 217:                                              ; preds = %211, %208
-  %218 = load i32, ptr %87, align 8, !tbaa !52
+  %218 = load i32, ptr %87, align 8, !tbaa !53
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %220 = load ptr, ptr %219, align 8, !tbaa !66
+  %220 = load ptr, ptr %219, align 8, !tbaa !67
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %222 = load i32, ptr %221, align 4, !tbaa !95
+  %222 = load i32, ptr %221, align 4, !tbaa !97
   %.not185 = icmp eq i32 %218, %222
   %.not186 = icmp eq i32 %222, 0
   %or.cond = or i1 %.not185, %.not186
@@ -771,17 +771,17 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   %227 = zext i32 %218 to i64
   %228 = zext i32 %222 to i64
   %229 = tail call i32 @av_reduce(ptr noundef nonnull %225, ptr noundef nonnull %226, i64 noundef %227, i64 noundef %228, i64 noundef 255) #4
-  %230 = load ptr, ptr %219, align 8, !tbaa !66
+  %230 = load ptr, ptr %219, align 8, !tbaa !67
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  %232 = load i32, ptr %231, align 4, !tbaa !95
-  store i32 %232, ptr %87, align 8, !tbaa !52
+  %232 = load i32, ptr %231, align 4, !tbaa !97
+  store i32 %232, ptr %87, align 8, !tbaa !53
   br label %233
 
 233:                                              ; preds = %223, %217
   %234 = phi i32 [ %232, %223 ], [ %218, %217 ]
   %235 = phi ptr [ %230, %223 ], [ %220, %217 ]
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load i32, ptr %236, align 8, !tbaa !67
+  %237 = load i32, ptr %236, align 8, !tbaa !68
   %238 = icmp ult i32 %3, %237
   br i1 %238, label %239, label %241
 
@@ -794,14 +794,14 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   %242 = add i32 %234, 15
   %243 = lshr i32 %242, 4
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %243, ptr %244, align 4, !tbaa !96
+  store i32 %243, ptr %244, align 4, !tbaa !98
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 364
-  %246 = load i16, ptr %245, align 1, !tbaa !76
+  %246 = load i16, ptr %245, align 1, !tbaa !78
   %247 = tail call i16 @llvm.bswap.i16(i16 %246)
   %248 = zext i16 %247 to i32
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %248, ptr %249, align 8, !tbaa !60
-  %250 = load i32, ptr %82, align 4, !tbaa !53
+  store i32 %248, ptr %249, align 8, !tbaa !61
+  %250 = load i32, ptr %82, align 4, !tbaa !54
   %251 = add i32 %250, 15
   %252 = lshr i32 %251, 4
   %253 = icmp eq i32 %252, %248
@@ -809,27 +809,27 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
 
 254:                                              ; preds = %241
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %256 = load i32, ptr %255, align 4, !tbaa !61
+  %256 = load i32, ptr %255, align 4, !tbaa !62
   %257 = and i32 %256, 8
   %.not187 = icmp eq i32 %257, 0
   br i1 %.not187, label %260, label %258
 
 258:                                              ; preds = %254
   %259 = shl i32 %250, 1
-  store i32 %259, ptr %82, align 4, !tbaa !53
+  store i32 %259, ptr %82, align 4, !tbaa !54
   br label %260
 
 260:                                              ; preds = %258, %254, %241
   %261 = phi i32 [ %259, %258 ], [ %250, %254 ], [ %250, %241 ]
   %262 = load ptr, ptr %0, align 8, !tbaa !27
-  %263 = load i32, ptr %180, align 4, !tbaa !92
+  %263 = load i32, ptr %180, align 4, !tbaa !94
   %.not188 = icmp eq i32 %263, 0
   %264 = select i1 %.not188, ptr @.str.17, ptr @.str.16
-  %265 = load i32, ptr %6, align 8, !tbaa !74
-  %266 = load i32, ptr %64, align 8, !tbaa !78
-  %267 = load i32, ptr %168, align 4, !tbaa !72
+  %265 = load i32, ptr %6, align 8, !tbaa !76
+  %266 = load i32, ptr %64, align 8, !tbaa !80
+  %267 = load i32, ptr %168, align 4, !tbaa !74
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %262, i32 noundef 40, ptr noundef nonnull @.str.15, i32 noundef %234, i32 noundef %261, ptr noundef nonnull %264, i32 noundef %265, i32 noundef %266, i32 noundef %267) #4
-  %268 = load i32, ptr %249, align 8, !tbaa !60
+  %268 = load i32, ptr %249, align 8, !tbaa !61
   %269 = icmp ugt i32 %268, 68
   br i1 %269, label %270, label %282
 
@@ -857,13 +857,13 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
 282:                                              ; preds = %260, %277
   %.sink222 = phi i32 [ %279, %277 ], [ 640, %260 ]
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 2140
-  store i32 %.sink222, ptr %283, align 4, !tbaa !56
+  store i32 %.sink222, ptr %283, align 4, !tbaa !57
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %285 = load i32, ptr %284, align 4, !tbaa !61
+  %285 = load i32, ptr %284, align 4, !tbaa !62
   %286 = lshr i32 %285, 3
   %.lobit = and i32 %286, 1
   %287 = shl i32 %268, %.lobit
-  %288 = load i32, ptr %82, align 4, !tbaa !53
+  %288 = load i32, ptr %82, align 4, !tbaa !54
   %289 = add i32 %288, 15
   %290 = lshr i32 %289, 4
   %291 = icmp ugt i32 %287, %290
@@ -906,7 +906,7 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
 305:                                              ; preds = %306
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %dnxhd_init_vlc.exit.thread, label %306, !llvm.loop !97
+  br i1 %exitcond.not, label %dnxhd_init_vlc.exit.thread, label %306, !llvm.loop !99
 
 306:                                              ; preds = %.lr.ph, %305
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %305 ]
@@ -914,11 +914,11 @@ switch.lookup227:                                 ; preds = %157, %153, %dnxhd_i
   %308 = shl i32 %307, 2
   %309 = sext i32 %308 to i64
   %310 = getelementptr inbounds i8, ptr %301, i64 %309
-  %311 = load i32, ptr %310, align 1, !tbaa !76
+  %311 = load i32, ptr %310, align 1, !tbaa !78
   %312 = tail call i32 @llvm.bswap.i32(i32 %311)
   %313 = getelementptr inbounds nuw [512 x i32], ptr %302, i64 0, i64 %indvars.iv
-  store i32 %312, ptr %313, align 4, !tbaa !75
-  %314 = load i32, ptr %295, align 4, !tbaa !56
+  store i32 %312, ptr %313, align 4, !tbaa !77
+  %314 = load i32, ptr %295, align 4, !tbaa !57
   %315 = sub nsw i32 %3, %314
   %316 = icmp ult i32 %315, %312
   br i1 %316, label %317, label %305
@@ -948,28 +948,28 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [512 x i32], ptr %7, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !75
+  %10 = load i32, ptr %9, align 4, !tbaa !77
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds %struct.RowContext, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2416
-  %16 = load i32, ptr %15, align 8, !tbaa !74
+  %16 = load i32, ptr %15, align 8, !tbaa !76
   %17 = add nsw i32 %16, 2
   %18 = shl nuw i32 1, %17
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2080
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 2088
-  store i32 %18, ptr %20, align 8, !tbaa !75
+  store i32 %18, ptr %20, align 8, !tbaa !77
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 2084
-  store i32 %18, ptr %21, align 4, !tbaa !75
-  store i32 %18, ptr %19, align 16, !tbaa !75
+  store i32 %18, ptr %21, align 4, !tbaa !77
+  store i32 %18, ptr %19, align 16, !tbaa !77
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 2048
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !59
   %25 = zext i32 %10 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %28 = load i32, ptr %27, align 8, !tbaa !57
+  %28 = load i32, ptr %27, align 8, !tbaa !58
   %29 = sub i32 %28, %10
   %or.cond.i = icmp ugt i32 %29, 268435455
   %30 = shl nuw nsw i32 %29, 3
@@ -980,23 +980,23 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %.018.i.i = select i1 %or.cond3.i.i, i32 %31, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %26, ptr null
   %33 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %22, align 8, !tbaa !98
+  store ptr %.017.i.i, ptr %22, align 8, !tbaa !100
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 2068
-  store i32 %.018.i.i, ptr %34, align 4, !tbaa !99
+  store i32 %.018.i.i, ptr %34, align 4, !tbaa !101
   %35 = add nuw nsw i32 %.018.i.i, 8
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 2072
-  store i32 %35, ptr %36, align 8, !tbaa !100
+  store i32 %35, ptr %36, align 8, !tbaa !102
   %37 = zext nneg i32 %33 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 2056
-  store ptr %38, ptr %39, align 8, !tbaa !101
+  store ptr %38, ptr %39, align 8, !tbaa !103
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 2064
-  store i32 0, ptr %40, align 8, !tbaa !102
+  store i32 0, ptr %40, align 8, !tbaa !104
   br i1 %or.cond3.i.i, label %.preheader, label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  %42 = load i32, ptr %41, align 4, !tbaa !96
+  %42 = load i32, ptr %41, align 4, !tbaa !98
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1034,30 +1034,30 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
 
 72:                                               ; preds = %.lr.ph, %262
   %.03036 = phi i32 [ 0, %.lr.ph ], [ %263, %262 ]
-  %73 = load i32, ptr %15, align 8, !tbaa !74
+  %73 = load i32, ptr %15, align 8, !tbaa !76
   %74 = icmp sgt i32 %73, 9
   %75 = zext i1 %74 to i32
-  %76 = load i32, ptr %43, align 8, !tbaa !75
-  %77 = load i32, ptr %44, align 4, !tbaa !75
-  %78 = load i32, ptr %45, align 8, !tbaa !78
+  %76 = load i32, ptr %43, align 8, !tbaa !77
+  %77 = load i32, ptr %44, align 4, !tbaa !77
+  %78 = load i32, ptr %45, align 8, !tbaa !80
   %.not.i = icmp eq i32 %78, 0
-  %79 = load i32, ptr %40, align 8, !tbaa !102
-  %80 = load ptr, ptr %22, align 8, !tbaa !98
+  %79 = load i32, ptr %40, align 8, !tbaa !104
+  %80 = load ptr, ptr %22, align 8, !tbaa !100
   %81 = lshr i32 %79, 3
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
   br i1 %.not.i, label %100, label %84
 
 84:                                               ; preds = %72
-  %85 = load i8, ptr %83, align 1, !tbaa !76
+  %85 = load i8, ptr %83, align 1, !tbaa !78
   %86 = and i32 %79, 7
   %87 = zext i8 %85 to i32
   %88 = add i32 %79, 1
-  store i32 %88, ptr %40, align 8, !tbaa !102
+  store i32 %88, ptr %40, align 8, !tbaa !104
   %89 = lshr i32 %88, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 %90
-  %92 = load i32, ptr %91, align 1, !tbaa !76
+  %92 = load i32, ptr %91, align 1, !tbaa !78
   %93 = tail call i32 @llvm.bswap.i32(i32 %92)
   %94 = and i32 %88, 7
   %95 = shl i32 %93, %94
@@ -1068,7 +1068,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br label %106
 
 100:                                              ; preds = %72
-  %101 = load i32, ptr %83, align 1, !tbaa !76
+  %101 = load i32, ptr %83, align 1, !tbaa !78
   %102 = tail call i32 @llvm.bswap.i32(i32 %101)
   %103 = and i32 %79, 7
   %104 = shl i32 %102, %103
@@ -1079,23 +1079,23 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %.0184.i = phi i32 [ %105, %100 ], [ %96, %84 ]
   %.0.i = phi i1 [ true, %100 ], [ %99, %84 ]
   %.sink = add i32 %79, 11
-  store i32 %.sink, ptr %40, align 8, !tbaa !102
+  store i32 %.sink, ptr %40, align 8, !tbaa !104
   %107 = lshr i32 %.sink, 3
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %80, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !76
+  %110 = load i8, ptr %109, align 1, !tbaa !78
   %111 = and i32 %.sink, 7
   %112 = zext i8 %110 to i32
   %113 = shl nuw nsw i32 %112, %111
   %114 = lshr i32 %113, 7
   %115 = add i32 %79, 12
-  store i32 %115, ptr %40, align 8, !tbaa !102
+  store i32 %115, ptr %40, align 8, !tbaa !104
   %116 = and i32 %114, 1
   %.not194.i = icmp eq i32 %116, 0
   br i1 %.not194.i, label %128, label %117
 
 117:                                              ; preds = %106
-  %118 = load i32, ptr %46, align 4, !tbaa !72
+  %118 = load i32, ptr %46, align 4, !tbaa !74
   %.not195.i = icmp eq i32 %118, 0
   br i1 %.not195.i, label %119, label %122
 
@@ -1127,69 +1127,69 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br label %128
 
 128:                                              ; preds = %127, %126, %125, %120, %119, %106
-  %129 = load i32, ptr %48, align 4, !tbaa !103
+  %129 = load i32, ptr %48, align 4, !tbaa !105
   %.not197.i = icmp eq i32 %.0184.i, %129
   br i1 %.not197.i, label %147, label %.preheader.i
 
 .preheader.i:                                     ; preds = %128
-  %130 = load ptr, ptr %49, align 8, !tbaa !66
+  %130 = load ptr, ptr %49, align 8, !tbaa !67
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %132 = load ptr, ptr %131, align 8, !tbaa !104
+  %132 = load ptr, ptr %131, align 8, !tbaa !106
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  %134 = load ptr, ptr %133, align 8, !tbaa !105
+  %134 = load ptr, ptr %133, align 8, !tbaa !107
   br label %135
 
 135:                                              ; preds = %135, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %135 ]
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv.i
-  %137 = load i8, ptr %136, align 1, !tbaa !76
+  %137 = load i8, ptr %136, align 1, !tbaa !78
   %138 = zext i8 %137 to i32
   %139 = mul nuw nsw i32 %.0184.i, %138
   %140 = getelementptr inbounds nuw [64 x i32], ptr %50, i64 0, i64 %indvars.iv.i
-  store i32 %139, ptr %140, align 4, !tbaa !75
+  store i32 %139, ptr %140, align 4, !tbaa !77
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv.i
-  %142 = load i8, ptr %141, align 1, !tbaa !76
+  %142 = load i8, ptr %141, align 1, !tbaa !78
   %143 = zext i8 %142 to i32
   %144 = mul nuw nsw i32 %.0184.i, %143
   %145 = getelementptr inbounds nuw [64 x i32], ptr %51, i64 0, i64 %indvars.iv.i
-  store i32 %144, ptr %145, align 4, !tbaa !75
+  store i32 %144, ptr %145, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %146, label %135, !llvm.loop !106
+  br i1 %exitcond.not.i, label %146, label %135, !llvm.loop !108
 
 146:                                              ; preds = %135
-  store i32 %.0184.i, ptr %48, align 4, !tbaa !103
+  store i32 %.0184.i, ptr %48, align 4, !tbaa !105
   br label %147
 
 147:                                              ; preds = %146, %128
-  %148 = load i32, ptr %52, align 4, !tbaa !92
+  %148 = load i32, ptr %52, align 4, !tbaa !94
   %149 = icmp sgt i32 %148, -2
   br i1 %149, label %.lr.ph.i, label %._crit_edge.i
 
 150:                                              ; preds = %.lr.ph.i
   %151 = add nuw nsw i32 %.1208.i, 1
-  %152 = load i32, ptr %52, align 4, !tbaa !92
+  %152 = load i32, ptr %52, align 4, !tbaa !94
   %153 = shl nsw i32 %152, 2
   %154 = add nsw i32 %153, 7
   %155 = icmp slt i32 %.1208.i, %154
-  br i1 %155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !107
+  br i1 %155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !109
 
 .lr.ph.i:                                         ; preds = %147, %150
   %.1208.i = phi i32 [ %151, %150 ], [ 0, %147 ]
-  %156 = load ptr, ptr %53, align 8, !tbaa !93
+  %156 = load ptr, ptr %53, align 8, !tbaa !95
   %157 = tail call i32 %156(ptr noundef nonnull %6, ptr noundef %14, i32 noundef %.1208.i) #4
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %.loopexit.sink.split, label %150
 
 ._crit_edge.i:                                    ; preds = %150, %147
   %.lcssa.i = phi i32 [ %148, %147 ], [ %152, %150 ]
-  %159 = load i32, ptr %54, align 4, !tbaa !61
+  %159 = load i32, ptr %54, align 4, !tbaa !62
   %160 = and i32 %159, 8
   %.not198.i = icmp eq i32 %160, 0
   %161 = lshr exact i32 %160, 3
   %.0190.i = shl i32 %77, %161
   %.0185.i = shl i32 %76, %161
-  %162 = load ptr, ptr %1, align 8, !tbaa !108
+  %162 = load ptr, ptr %1, align 8, !tbaa !110
   %163 = mul i32 %.0185.i, %55
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %162, i64 %164
@@ -1197,7 +1197,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %167 = shl i32 %.03036, %166
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds i8, ptr %165, i64 %168
-  %170 = load ptr, ptr %56, align 8, !tbaa !108
+  %170 = load ptr, ptr %56, align 8, !tbaa !110
   %171 = mul i32 %.0190.i, %55
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds i8, ptr %170, i64 %172
@@ -1206,24 +1206,24 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %176 = shl i32 %.03036, %175
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds i8, ptr %173, i64 %177
-  %179 = load ptr, ptr %57, align 8, !tbaa !108
+  %179 = load ptr, ptr %57, align 8, !tbaa !110
   %180 = getelementptr inbounds i8, ptr %179, i64 %172
   %181 = getelementptr inbounds i8, ptr %180, i64 %177
   br i1 %.not198.i, label %194, label %182
 
 182:                                              ; preds = %._crit_edge.i
-  %183 = load i32, ptr %58, align 8, !tbaa !77
+  %183 = load i32, ptr %58, align 8, !tbaa !79
   %.not200.i = icmp eq i32 %183, 0
   br i1 %.not200.i, label %194, label %184
 
 184:                                              ; preds = %182
-  %185 = load i32, ptr %43, align 8, !tbaa !75
+  %185 = load i32, ptr %43, align 8, !tbaa !77
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i8, ptr %169, i64 %186
-  %188 = load i32, ptr %44, align 4, !tbaa !75
+  %188 = load i32, ptr %44, align 4, !tbaa !77
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i8, ptr %178, i64 %189
-  %191 = load i32, ptr %59, align 8, !tbaa !75
+  %191 = load i32, ptr %59, align 8, !tbaa !77
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds i8, ptr %181, i64 %192
   br label %194
@@ -1239,7 +1239,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br i1 %.0.i, label %198, label %196
 
 196:                                              ; preds = %194
-  %197 = load i32, ptr %43, align 8, !tbaa !75
+  %197 = load i32, ptr %43, align 8, !tbaa !77
   br label %200
 
 198:                                              ; preds = %194
@@ -1250,14 +1250,14 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %201 = phi i32 [ %197, %196 ], [ %199, %198 ]
   %202 = shl nuw nsw i32 8, %75
   %.not202.i = icmp eq i32 %.lcssa.i, 0
-  %203 = load ptr, ptr %60, align 8, !tbaa !109
+  %203 = load ptr, ptr %60, align 8, !tbaa !111
   %204 = sext i32 %.1186.i to i64
   tail call void %203(ptr noundef %.0189.i, i64 noundef %204, ptr noundef %14) #4
-  %205 = load ptr, ptr %60, align 8, !tbaa !109
+  %205 = load ptr, ptr %60, align 8, !tbaa !111
   %206 = zext nneg i32 %202 to i64
   %207 = getelementptr inbounds nuw i8, ptr %.0189.i, i64 %206
   tail call void %205(ptr noundef nonnull %207, i64 noundef %204, ptr noundef nonnull %61) #4
-  %208 = load ptr, ptr %60, align 8, !tbaa !109
+  %208 = load ptr, ptr %60, align 8, !tbaa !111
   %209 = sext i32 %201 to i64
   %210 = getelementptr inbounds i8, ptr %.0189.i, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 %206
@@ -1265,11 +1265,11 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
 
 212:                                              ; preds = %200
   tail call void %208(ptr noundef nonnull %210, i64 noundef %204, ptr noundef nonnull %68) #4
-  %213 = load ptr, ptr %60, align 8, !tbaa !109
+  %213 = load ptr, ptr %60, align 8, !tbaa !111
   tail call void %213(ptr noundef nonnull %211, i64 noundef %204, ptr noundef nonnull %69) #4
   %214 = load ptr, ptr %6, align 8, !tbaa !27
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 64
-  %216 = load i32, ptr %215, align 8, !tbaa !110
+  %216 = load i32, ptr %215, align 8, !tbaa !112
   %217 = and i32 %216, 8192
   %.not203.i = icmp eq i32 %217, 0
   br i1 %.not203.i, label %218, label %262
@@ -1278,7 +1278,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br i1 %.0.i, label %221, label %219
 
 219:                                              ; preds = %218
-  %220 = load i32, ptr %44, align 4, !tbaa !75
+  %220 = load i32, ptr %44, align 4, !tbaa !77
   br label %223
 
 221:                                              ; preds = %218
@@ -1287,27 +1287,27 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
 
 223:                                              ; preds = %221, %219
   %224 = phi i32 [ %220, %219 ], [ %222, %221 ]
-  %225 = load ptr, ptr %60, align 8, !tbaa !109
+  %225 = load ptr, ptr %60, align 8, !tbaa !111
   %226 = sext i32 %.1191.i to i64
   tail call void %225(ptr noundef %.0188.i, i64 noundef %226, ptr noundef nonnull %64) #4
-  %227 = load ptr, ptr %60, align 8, !tbaa !109
+  %227 = load ptr, ptr %60, align 8, !tbaa !111
   tail call void %227(ptr noundef %.0187.i, i64 noundef %226, ptr noundef nonnull %65) #4
-  %228 = load ptr, ptr %60, align 8, !tbaa !109
+  %228 = load ptr, ptr %60, align 8, !tbaa !111
   %229 = sext i32 %224 to i64
   %230 = getelementptr inbounds i8, ptr %.0188.i, i64 %229
   tail call void %228(ptr noundef %230, i64 noundef %226, ptr noundef nonnull %62) #4
-  %231 = load ptr, ptr %60, align 8, !tbaa !109
+  %231 = load ptr, ptr %60, align 8, !tbaa !111
   %232 = getelementptr inbounds i8, ptr %.0187.i, i64 %229
   tail call void %231(ptr noundef %232, i64 noundef %226, ptr noundef nonnull %63) #4
   br label %262
 
 233:                                              ; preds = %200
   tail call void %208(ptr noundef nonnull %210, i64 noundef %204, ptr noundef nonnull %62) #4
-  %234 = load ptr, ptr %60, align 8, !tbaa !109
+  %234 = load ptr, ptr %60, align 8, !tbaa !111
   tail call void %234(ptr noundef nonnull %211, i64 noundef %204, ptr noundef nonnull %63) #4
   %235 = load ptr, ptr %6, align 8, !tbaa !27
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 64
-  %237 = load i32, ptr %236, align 8, !tbaa !110
+  %237 = load i32, ptr %236, align 8, !tbaa !112
   %238 = and i32 %237, 8192
   %.not204.i = icmp eq i32 %238, 0
   br i1 %.not204.i, label %239, label %262
@@ -1316,7 +1316,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br i1 %.0.i, label %242, label %240
 
 240:                                              ; preds = %239
-  %241 = load i32, ptr %44, align 4, !tbaa !75
+  %241 = load i32, ptr %44, align 4, !tbaa !77
   br label %244
 
 242:                                              ; preds = %239
@@ -1325,43 +1325,43 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
 
 244:                                              ; preds = %242, %240
   %245 = phi i32 [ %241, %240 ], [ %243, %242 ]
-  %246 = load ptr, ptr %60, align 8, !tbaa !109
+  %246 = load ptr, ptr %60, align 8, !tbaa !111
   %247 = sext i32 %.1191.i to i64
   tail call void %246(ptr noundef %.0188.i, i64 noundef %247, ptr noundef nonnull %64) #4
-  %248 = load ptr, ptr %60, align 8, !tbaa !109
+  %248 = load ptr, ptr %60, align 8, !tbaa !111
   %249 = getelementptr inbounds nuw i8, ptr %.0188.i, i64 %206
   tail call void %248(ptr noundef nonnull %249, i64 noundef %247, ptr noundef nonnull %65) #4
-  %250 = load ptr, ptr %60, align 8, !tbaa !109
+  %250 = load ptr, ptr %60, align 8, !tbaa !111
   %251 = sext i32 %245 to i64
   %252 = getelementptr inbounds i8, ptr %.0188.i, i64 %251
   tail call void %250(ptr noundef %252, i64 noundef %247, ptr noundef nonnull %66) #4
-  %253 = load ptr, ptr %60, align 8, !tbaa !109
+  %253 = load ptr, ptr %60, align 8, !tbaa !111
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 %206
   tail call void %253(ptr noundef nonnull %254, i64 noundef %247, ptr noundef nonnull %67) #4
-  %255 = load ptr, ptr %60, align 8, !tbaa !109
+  %255 = load ptr, ptr %60, align 8, !tbaa !111
   tail call void %255(ptr noundef %.0187.i, i64 noundef %247, ptr noundef nonnull %68) #4
-  %256 = load ptr, ptr %60, align 8, !tbaa !109
+  %256 = load ptr, ptr %60, align 8, !tbaa !111
   %257 = getelementptr inbounds nuw i8, ptr %.0187.i, i64 %206
   tail call void %256(ptr noundef nonnull %257, i64 noundef %247, ptr noundef nonnull %69) #4
-  %258 = load ptr, ptr %60, align 8, !tbaa !109
+  %258 = load ptr, ptr %60, align 8, !tbaa !111
   %259 = getelementptr inbounds i8, ptr %.0187.i, i64 %251
   tail call void %258(ptr noundef %259, i64 noundef %247, ptr noundef nonnull %70) #4
-  %260 = load ptr, ptr %60, align 8, !tbaa !109
+  %260 = load ptr, ptr %60, align 8, !tbaa !111
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 %206
   tail call void %260(ptr noundef nonnull %261, i64 noundef %247, ptr noundef nonnull %71) #4
   br label %262
 
 262:                                              ; preds = %233, %244, %212, %223
   %263 = add nuw nsw i32 %.03036, 1
-  %264 = load i32, ptr %41, align 4, !tbaa !96
+  %264 = load i32, ptr %41, align 4, !tbaa !98
   %265 = icmp ult i32 %263, %264
-  br i1 %265, label %72, label %.loopexit, !llvm.loop !111
+  br i1 %265, label %72, label %.loopexit, !llvm.loop !113
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.i, %4
   %266 = getelementptr inbounds nuw i8, ptr %14, i64 2096
-  %267 = load i32, ptr %266, align 16, !tbaa !70
+  %267 = load i32, ptr %266, align 16, !tbaa !72
   %268 = add nsw i32 %267, 1
-  store i32 %268, ptr %266, align 16, !tbaa !70
+  store i32 %268, ptr %266, align 16, !tbaa !72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %262, %.loopexit.sink.split, %.preheader
@@ -1374,21 +1374,21 @@ declare void @avpriv_request_sample(ptr noundef, ptr noundef, ...) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !113
+  %11 = load i32, ptr %10, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  %14 = load i32, ptr %13, align 16, !tbaa !114
+  %14 = load i32, ptr %13, align 16, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   tail call void %16(ptr noundef %9) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  %18 = load i32, ptr %17, align 4, !tbaa !92
+  %18 = load i32, ptr %17, align 4, !tbaa !94
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %31
 
@@ -1401,13 +1401,13 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %22 = and i32 %2, 1
   %23 = add nuw nsw i32 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1792
-  %25 = load ptr, ptr %4, align 8, !tbaa !66
+  %25 = load ptr, ptr %4, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %41
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1536
-  %29 = load ptr, ptr %4, align 8, !tbaa !66
+  %29 = load ptr, ptr %4, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %41
 
@@ -1415,7 +1415,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %32 = ashr i32 %2, 1
   %33 = srem i32 %32, 3
   %.not206.i = icmp eq i32 %33, 0
-  %34 = load ptr, ptr %4, align 8, !tbaa !66
+  %34 = load ptr, ptr %4, align 8, !tbaa !67
   br i1 %.not206.i, label %38, label %35
 
 35:                                               ; preds = %31
@@ -1432,24 +1432,24 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %.0191.in.i = phi ptr [ %37, %35 ], [ %40, %38 ], [ %26, %21 ], [ %30, %27 ]
   %.0190.i = phi ptr [ %36, %35 ], [ %39, %38 ], [ %24, %21 ], [ %28, %27 ]
   %.0181.i = phi i32 [ %33, %35 ], [ 0, %38 ], [ %23, %21 ], [ 0, %27 ]
-  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !108
-  %42 = load ptr, ptr %12, align 16, !tbaa !116
+  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !110
+  %42 = load ptr, ptr %12, align 16, !tbaa !118
   %43 = lshr i32 %14, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
-  %46 = load i32, ptr %45, align 1, !tbaa !76
+  %46 = load i32, ptr %45, align 1, !tbaa !78
   %47 = tail call i32 @llvm.bswap.i32(i32 %46)
   %48 = and i32 %14, 7
   %49 = shl i32 %47, %48
   %50 = lshr i32 %49, 25
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %52 = load ptr, ptr %51, align 8, !tbaa !117
+  %52 = load ptr, ptr %51, align 8, !tbaa !119
   %53 = zext nneg i32 %50 to i64
   %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !76
+  %55 = load i16, ptr %54, align 2, !tbaa !78
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %58 = load i16, ptr %57, align 2, !tbaa !76
+  %58 = load i16, ptr %57, align 2, !tbaa !78
   %59 = sext i16 %58 to i32
   %60 = shl i32 %49, %59
   %61 = add i32 %14, %59
@@ -1464,7 +1464,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
   %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
-  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
+  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !77
   br label %77
 
 64:                                               ; preds = %63
@@ -1479,32 +1479,32 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
   %74 = getelementptr inbounds [3 x i32], ptr %72, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !75
+  %75 = load i32, ptr %74, align 4, !tbaa !77
   %76 = add nsw i32 %75, %71
-  store i32 %76, ptr %74, align 4, !tbaa !75
+  store i32 %76, ptr %74, align 4, !tbaa !77
   br label %77
 
 77:                                               ; preds = %._crit_edge, %64
   %78 = phi i32 [ %76, %64 ], [ %.pre, %._crit_edge ]
   %.1186.i = phi i32 [ %65, %64 ], [ %61, %._crit_edge ]
   %79 = trunc i32 %78 to i16
-  store i16 %79, ptr %9, align 2, !tbaa !118
+  store i16 %79, ptr %9, align 2, !tbaa !120
   %80 = lshr i32 %.1186.i, 3
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %42, i64 %81
-  %83 = load i32, ptr %82, align 1, !tbaa !76
+  %83 = load i32, ptr %82, align 1, !tbaa !78
   %84 = tail call i32 @llvm.bswap.i32(i32 %83)
   %85 = and i32 %.1186.i, 7
   %86 = shl i32 %84, %85
   %87 = lshr i32 %86, 23
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %89 = load ptr, ptr %88, align 8, !tbaa !119
+  %89 = load ptr, ptr %88, align 8, !tbaa !121
   %90 = zext nneg i32 %87 to i64
   %91 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %90
-  %92 = load i16, ptr %91, align 2, !tbaa !76
+  %92 = load i16, ptr %91, align 2, !tbaa !78
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 2
-  %95 = load i16, ptr %94, align 2, !tbaa !76
+  %95 = load i16, ptr %94, align 2, !tbaa !78
   %96 = sext i16 %95 to i32
   %97 = icmp slt i16 %95, 0
   br i1 %97, label %98, label %117
@@ -1514,7 +1514,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %100 = lshr i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr %42, i64 %101
-  %103 = load i32, ptr %102, align 1, !tbaa !76
+  %103 = load i32, ptr %102, align 1, !tbaa !78
   %104 = tail call i32 @llvm.bswap.i32(i32 %103)
   %105 = and i32 %99, 7
   %106 = shl i32 %104, %105
@@ -1523,10 +1523,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %109 = add i32 %108, %93
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %110
-  %112 = load i16, ptr %111, align 2, !tbaa !76
+  %112 = load i16, ptr %111, align 2, !tbaa !78
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 2
-  %115 = load i16, ptr %114, align 2, !tbaa !76
+  %115 = load i16, ptr %114, align 2, !tbaa !78
   %116 = sext i16 %115 to i32
   br label %117
 
@@ -1553,10 +1553,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %123 = shl nsw i32 %.1175.i6, 1
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %7, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !76
+  %126 = load i8, ptr %125, align 1, !tbaa !78
   %127 = zext i8 %126 to i32
   %128 = getelementptr i8, ptr %125, i64 1
-  %129 = load i8, ptr %128, align 1, !tbaa !76
+  %129 = load i8, ptr %128, align 1, !tbaa !78
   %130 = zext i8 %129 to i32
   %131 = ashr i32 %.1183.i5, 31
   %132 = and i32 %130, 1
@@ -1575,18 +1575,18 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %138 = lshr i32 %.4.i, 3
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %42, i64 %139
-  %141 = load i32, ptr %140, align 1, !tbaa !76
+  %141 = load i32, ptr %140, align 1, !tbaa !78
   %142 = tail call i32 @llvm.bswap.i32(i32 %141)
   %143 = and i32 %.4.i, 7
   %144 = shl i32 %142, %143
   %145 = lshr i32 %144, 23
-  %146 = load ptr, ptr %120, align 8, !tbaa !120
+  %146 = load ptr, ptr %120, align 8, !tbaa !122
   %147 = zext nneg i32 %145 to i64
   %148 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %147
-  %149 = load i16, ptr %148, align 2, !tbaa !76
+  %149 = load i16, ptr %148, align 2, !tbaa !78
   %150 = sext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 2
-  %152 = load i16, ptr %151, align 2, !tbaa !76
+  %152 = load i16, ptr %151, align 2, !tbaa !78
   %153 = sext i16 %152 to i32
   %154 = icmp slt i16 %152, 0
   br i1 %154, label %155, label %174
@@ -1596,7 +1596,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %157 = lshr i32 %156, 3
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds nuw i8, ptr %42, i64 %158
-  %160 = load i32, ptr %159, align 1, !tbaa !76
+  %160 = load i32, ptr %159, align 1, !tbaa !78
   %161 = tail call i32 @llvm.bswap.i32(i32 %160)
   %162 = and i32 %156, 7
   %163 = shl i32 %161, %162
@@ -1605,10 +1605,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %166 = add i32 %165, %150
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %167
-  %169 = load i16, ptr %168, align 2, !tbaa !76
+  %169 = load i16, ptr %168, align 2, !tbaa !78
   %170 = sext i16 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 2
-  %172 = load i16, ptr %171, align 2, !tbaa !76
+  %172 = load i16, ptr %171, align 2, !tbaa !78
   %173 = sext i16 %172 to i32
   br label %174
 
@@ -1635,14 +1635,14 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
 182:                                              ; preds = %177
   %183 = sext i32 %178 to i64
   %184 = getelementptr inbounds [64 x i8], ptr %121, i64 0, i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !76
+  %185 = load i8, ptr %184, align 1, !tbaa !78
   %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
-  %187 = load i32, ptr %186, align 4, !tbaa !75
+  %187 = load i32, ptr %186, align 4, !tbaa !77
   %188 = mul nsw i32 %187, %.0178.i
   %189 = ashr i32 %187, 1
   %190 = add nsw i32 %188, %189
   %191 = getelementptr inbounds i8, ptr %.0191.i, i64 %183
-  %192 = load i8, ptr %191, align 1, !tbaa !76
+  %192 = load i8, ptr %191, align 1, !tbaa !78
   %.not211.i = icmp eq i8 %192, 32
   %193 = add nsw i32 %190, 32
   %spec.select = select i1 %.not211.i, i32 %190, i32 %193
@@ -1652,21 +1652,21 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %197 = trunc i32 %196 to i16
   %198 = zext i8 %185 to i64
   %199 = getelementptr inbounds nuw i16, ptr %9, i64 %198
-  store i16 %197, ptr %199, align 2, !tbaa !118
+  store i16 %197, ptr %199, align 2, !tbaa !120
   %200 = lshr i32 %.5.i, 3
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %42, i64 %201
-  %203 = load i32, ptr %202, align 1, !tbaa !76
+  %203 = load i32, ptr %202, align 1, !tbaa !78
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
   %205 = and i32 %.5.i, 7
   %206 = shl i32 %204, %205
   %207 = lshr i32 %206, 23
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %208
-  %210 = load i16, ptr %209, align 2, !tbaa !76
+  %210 = load i16, ptr %209, align 2, !tbaa !78
   %211 = sext i16 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 2
-  %213 = load i16, ptr %212, align 2, !tbaa !76
+  %213 = load i16, ptr %212, align 2, !tbaa !78
   %214 = sext i16 %213 to i32
   %215 = icmp slt i16 %213, 0
   br i1 %215, label %216, label %235
@@ -1676,7 +1676,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %218 = lshr i32 %217, 3
   %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw i8, ptr %42, i64 %219
-  %221 = load i32, ptr %220, align 1, !tbaa !76
+  %221 = load i32, ptr %220, align 1, !tbaa !78
   %222 = tail call i32 @llvm.bswap.i32(i32 %221)
   %223 = and i32 %217, 7
   %224 = shl i32 %222, %223
@@ -1685,10 +1685,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %227 = add i32 %226, %211
   %228 = zext i32 %227 to i64
   %229 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %228
-  %230 = load i16, ptr %229, align 2, !tbaa !76
+  %230 = load i16, ptr %229, align 2, !tbaa !78
   %231 = sext i16 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 2
-  %233 = load i16, ptr %232, align 2, !tbaa !76
+  %233 = load i16, ptr %232, align 2, !tbaa !78
   %234 = sext i16 %233 to i32
   br label %235
 
@@ -1700,33 +1700,33 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %236 = shl i32 %.3.i, %.0173.i
   %237 = add i32 %.0173.i, %.7.i
   %.not208.i = icmp eq i32 %.2.i, %11
-  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %122, !llvm.loop !121
+  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %122, !llvm.loop !123
 
 dnxhd_decode_dct_block.exit:                      ; preds = %235, %117, %41, %180
   %.0189.i = phi i32 [ -1, %180 ], [ %56, %41 ], [ 0, %117 ], [ 0, %235 ]
   %.0185.i = phi i32 [ %.5.i, %180 ], [ %61, %41 ], [ %118, %117 ], [ %237, %235 ]
-  store i32 %.0185.i, ptr %13, align 16, !tbaa !114
+  store i32 %.0185.i, ptr %13, align 16, !tbaa !116
   ret i32 %.0189.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !113
+  %11 = load i32, ptr %10, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  %14 = load i32, ptr %13, align 16, !tbaa !114
+  %14 = load i32, ptr %13, align 16, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   tail call void %16(ptr noundef %9) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  %18 = load i32, ptr %17, align 4, !tbaa !92
+  %18 = load i32, ptr %17, align 4, !tbaa !94
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %31
 
@@ -1739,13 +1739,13 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %22 = and i32 %2, 1
   %23 = add nuw nsw i32 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1792
-  %25 = load ptr, ptr %4, align 8, !tbaa !66
+  %25 = load ptr, ptr %4, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %41
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1536
-  %29 = load ptr, ptr %4, align 8, !tbaa !66
+  %29 = load ptr, ptr %4, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %41
 
@@ -1753,7 +1753,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %32 = ashr i32 %2, 1
   %33 = srem i32 %32, 3
   %.not206.i = icmp eq i32 %33, 0
-  %34 = load ptr, ptr %4, align 8, !tbaa !66
+  %34 = load ptr, ptr %4, align 8, !tbaa !67
   br i1 %.not206.i, label %38, label %35
 
 35:                                               ; preds = %31
@@ -1770,24 +1770,24 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %.0191.in.i = phi ptr [ %37, %35 ], [ %40, %38 ], [ %26, %21 ], [ %30, %27 ]
   %.0190.i = phi ptr [ %36, %35 ], [ %39, %38 ], [ %24, %21 ], [ %28, %27 ]
   %.0181.i = phi i32 [ %33, %35 ], [ 0, %38 ], [ %23, %21 ], [ 0, %27 ]
-  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !108
-  %42 = load ptr, ptr %12, align 16, !tbaa !116
+  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !110
+  %42 = load ptr, ptr %12, align 16, !tbaa !118
   %43 = lshr i32 %14, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
-  %46 = load i32, ptr %45, align 1, !tbaa !76
+  %46 = load i32, ptr %45, align 1, !tbaa !78
   %47 = tail call i32 @llvm.bswap.i32(i32 %46)
   %48 = and i32 %14, 7
   %49 = shl i32 %47, %48
   %50 = lshr i32 %49, 25
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %52 = load ptr, ptr %51, align 8, !tbaa !117
+  %52 = load ptr, ptr %51, align 8, !tbaa !119
   %53 = zext nneg i32 %50 to i64
   %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !76
+  %55 = load i16, ptr %54, align 2, !tbaa !78
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %58 = load i16, ptr %57, align 2, !tbaa !76
+  %58 = load i16, ptr %57, align 2, !tbaa !78
   %59 = sext i16 %58 to i32
   %60 = shl i32 %49, %59
   %61 = add i32 %14, %59
@@ -1802,7 +1802,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
   %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
-  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
+  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !77
   br label %78
 
 64:                                               ; preds = %63
@@ -1818,32 +1818,32 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %74 = sext i32 %.0181.i to i64
   %75 = getelementptr inbounds [3 x i32], ptr %73, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !75
+  %76 = load i32, ptr %75, align 4, !tbaa !77
   %77 = add nsw i32 %76, %72
-  store i32 %77, ptr %75, align 4, !tbaa !75
+  store i32 %77, ptr %75, align 4, !tbaa !77
   br label %78
 
 78:                                               ; preds = %._crit_edge, %64
   %79 = phi i32 [ %77, %64 ], [ %.pre, %._crit_edge ]
   %.1186.i = phi i32 [ %65, %64 ], [ %61, %._crit_edge ]
   %80 = trunc i32 %79 to i16
-  store i16 %80, ptr %9, align 2, !tbaa !118
+  store i16 %80, ptr %9, align 2, !tbaa !120
   %81 = lshr i32 %.1186.i, 3
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %42, i64 %82
-  %84 = load i32, ptr %83, align 1, !tbaa !76
+  %84 = load i32, ptr %83, align 1, !tbaa !78
   %85 = tail call i32 @llvm.bswap.i32(i32 %84)
   %86 = and i32 %.1186.i, 7
   %87 = shl i32 %85, %86
   %88 = lshr i32 %87, 23
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %90 = load ptr, ptr %89, align 8, !tbaa !119
+  %90 = load ptr, ptr %89, align 8, !tbaa !121
   %91 = zext nneg i32 %88 to i64
   %92 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !76
+  %93 = load i16, ptr %92, align 2, !tbaa !78
   %94 = sext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 2
-  %96 = load i16, ptr %95, align 2, !tbaa !76
+  %96 = load i16, ptr %95, align 2, !tbaa !78
   %97 = sext i16 %96 to i32
   %98 = icmp slt i16 %96, 0
   br i1 %98, label %99, label %118
@@ -1853,7 +1853,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %101 = lshr i32 %100, 3
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw i8, ptr %42, i64 %102
-  %104 = load i32, ptr %103, align 1, !tbaa !76
+  %104 = load i32, ptr %103, align 1, !tbaa !78
   %105 = tail call i32 @llvm.bswap.i32(i32 %104)
   %106 = and i32 %100, 7
   %107 = shl i32 %105, %106
@@ -1862,10 +1862,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %110 = add i32 %109, %94
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !76
+  %113 = load i16, ptr %112, align 2, !tbaa !78
   %114 = sext i16 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  %116 = load i16, ptr %115, align 2, !tbaa !76
+  %116 = load i16, ptr %115, align 2, !tbaa !78
   %117 = sext i16 %116 to i32
   br label %118
 
@@ -1892,10 +1892,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %124 = shl nsw i32 %.1175.i6, 1
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i8, ptr %7, i64 %125
-  %127 = load i8, ptr %126, align 1, !tbaa !76
+  %127 = load i8, ptr %126, align 1, !tbaa !78
   %128 = zext i8 %127 to i32
   %129 = getelementptr i8, ptr %126, i64 1
-  %130 = load i8, ptr %129, align 1, !tbaa !76
+  %130 = load i8, ptr %129, align 1, !tbaa !78
   %131 = zext i8 %130 to i32
   %132 = ashr i32 %.1183.i5, 31
   %133 = and i32 %131, 1
@@ -1914,18 +1914,18 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %139 = lshr i32 %.4.i, 3
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %42, i64 %140
-  %142 = load i32, ptr %141, align 1, !tbaa !76
+  %142 = load i32, ptr %141, align 1, !tbaa !78
   %143 = tail call i32 @llvm.bswap.i32(i32 %142)
   %144 = and i32 %.4.i, 7
   %145 = shl i32 %143, %144
   %146 = lshr i32 %145, 23
-  %147 = load ptr, ptr %121, align 8, !tbaa !120
+  %147 = load ptr, ptr %121, align 8, !tbaa !122
   %148 = zext nneg i32 %146 to i64
   %149 = getelementptr inbounds nuw %struct.VLCElem, ptr %147, i64 %148
-  %150 = load i16, ptr %149, align 2, !tbaa !76
+  %150 = load i16, ptr %149, align 2, !tbaa !78
   %151 = sext i16 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 2
-  %153 = load i16, ptr %152, align 2, !tbaa !76
+  %153 = load i16, ptr %152, align 2, !tbaa !78
   %154 = sext i16 %153 to i32
   %155 = icmp slt i16 %153, 0
   br i1 %155, label %156, label %175
@@ -1935,7 +1935,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %158 = lshr i32 %157, 3
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %42, i64 %159
-  %161 = load i32, ptr %160, align 1, !tbaa !76
+  %161 = load i32, ptr %160, align 1, !tbaa !78
   %162 = tail call i32 @llvm.bswap.i32(i32 %161)
   %163 = and i32 %157, 7
   %164 = shl i32 %162, %163
@@ -1944,10 +1944,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %167 = add i32 %166, %151
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw %struct.VLCElem, ptr %147, i64 %168
-  %170 = load i16, ptr %169, align 2, !tbaa !76
+  %170 = load i16, ptr %169, align 2, !tbaa !78
   %171 = sext i16 %170 to i32
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 2
-  %173 = load i16, ptr %172, align 2, !tbaa !76
+  %173 = load i16, ptr %172, align 2, !tbaa !78
   %174 = sext i16 %173 to i32
   br label %175
 
@@ -1974,14 +1974,14 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
 183:                                              ; preds = %178
   %184 = sext i32 %179 to i64
   %185 = getelementptr inbounds [64 x i8], ptr %122, i64 0, i64 %184
-  %186 = load i8, ptr %185, align 1, !tbaa !76
+  %186 = load i8, ptr %185, align 1, !tbaa !78
   %187 = getelementptr inbounds i32, ptr %.0190.i, i64 %184
-  %188 = load i32, ptr %187, align 4, !tbaa !75
+  %188 = load i32, ptr %187, align 4, !tbaa !77
   %189 = mul nsw i32 %188, %.0178.i
   %190 = ashr i32 %188, 1
   %191 = add nsw i32 %189, %190
   %192 = getelementptr inbounds i8, ptr %.0191.i, i64 %184
-  %193 = load i8, ptr %192, align 1, !tbaa !76
+  %193 = load i8, ptr %192, align 1, !tbaa !78
   %.not211.i = icmp eq i8 %193, 32
   %194 = add nsw i32 %191, 32
   %spec.select = select i1 %.not211.i, i32 %191, i32 %194
@@ -1991,21 +1991,21 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %198 = trunc i32 %197 to i16
   %199 = zext i8 %186 to i64
   %200 = getelementptr inbounds nuw i16, ptr %9, i64 %199
-  store i16 %198, ptr %200, align 2, !tbaa !118
+  store i16 %198, ptr %200, align 2, !tbaa !120
   %201 = lshr i32 %.5.i, 3
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw i8, ptr %42, i64 %202
-  %204 = load i32, ptr %203, align 1, !tbaa !76
+  %204 = load i32, ptr %203, align 1, !tbaa !78
   %205 = tail call i32 @llvm.bswap.i32(i32 %204)
   %206 = and i32 %.5.i, 7
   %207 = shl i32 %205, %206
   %208 = lshr i32 %207, 23
   %209 = zext nneg i32 %208 to i64
   %210 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %209
-  %211 = load i16, ptr %210, align 2, !tbaa !76
+  %211 = load i16, ptr %210, align 2, !tbaa !78
   %212 = sext i16 %211 to i32
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 2
-  %214 = load i16, ptr %213, align 2, !tbaa !76
+  %214 = load i16, ptr %213, align 2, !tbaa !78
   %215 = sext i16 %214 to i32
   %216 = icmp slt i16 %214, 0
   br i1 %216, label %217, label %236
@@ -2015,7 +2015,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %219 = lshr i32 %218, 3
   %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds nuw i8, ptr %42, i64 %220
-  %222 = load i32, ptr %221, align 1, !tbaa !76
+  %222 = load i32, ptr %221, align 1, !tbaa !78
   %223 = tail call i32 @llvm.bswap.i32(i32 %222)
   %224 = and i32 %218, 7
   %225 = shl i32 %223, %224
@@ -2024,10 +2024,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %228 = add i32 %227, %212
   %229 = zext i32 %228 to i64
   %230 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %229
-  %231 = load i16, ptr %230, align 2, !tbaa !76
+  %231 = load i16, ptr %230, align 2, !tbaa !78
   %232 = sext i16 %231 to i32
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 2
-  %234 = load i16, ptr %233, align 2, !tbaa !76
+  %234 = load i16, ptr %233, align 2, !tbaa !78
   %235 = sext i16 %234 to i32
   br label %236
 
@@ -2039,33 +2039,33 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %237 = shl i32 %.3.i, %.0173.i
   %238 = add i32 %.0173.i, %.7.i
   %.not208.i = icmp eq i32 %.2.i, %11
-  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %123, !llvm.loop !121
+  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %123, !llvm.loop !123
 
 dnxhd_decode_dct_block.exit:                      ; preds = %236, %118, %41, %181
   %.0189.i = phi i32 [ -1, %181 ], [ %56, %41 ], [ 0, %118 ], [ 0, %236 ]
   %.0185.i = phi i32 [ %.5.i, %181 ], [ %61, %41 ], [ %119, %118 ], [ %238, %236 ]
-  store i32 %.0185.i, ptr %13, align 16, !tbaa !114
+  store i32 %.0185.i, ptr %13, align 16, !tbaa !116
   ret i32 %.0189.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !113
+  %11 = load i32, ptr %10, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  %14 = load i32, ptr %13, align 16, !tbaa !114
+  %14 = load i32, ptr %13, align 16, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   tail call void %16(ptr noundef %9) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  %18 = load i32, ptr %17, align 4, !tbaa !92
+  %18 = load i32, ptr %17, align 4, !tbaa !94
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %24
 
@@ -2090,23 +2090,23 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %.sink = phi i64 [ 1792, %21 ], [ 1536, %19 ], [ %., %24 ]
   %.0181.i = phi i32 [ %23, %21 ], [ 0, %19 ], [ %26, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %29 = load ptr, ptr %12, align 16, !tbaa !116
+  %29 = load ptr, ptr %12, align 16, !tbaa !118
   %30 = lshr i32 %14, 3
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
-  %33 = load i32, ptr %32, align 1, !tbaa !76
+  %33 = load i32, ptr %32, align 1, !tbaa !78
   %34 = tail call i32 @llvm.bswap.i32(i32 %33)
   %35 = and i32 %14, 7
   %36 = shl i32 %34, %35
   %37 = lshr i32 %36, 25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %39 = load ptr, ptr %38, align 8, !tbaa !117
+  %39 = load ptr, ptr %38, align 8, !tbaa !119
   %40 = zext nneg i32 %37 to i64
   %41 = getelementptr inbounds nuw %struct.VLCElem, ptr %39, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !76
+  %42 = load i16, ptr %41, align 2, !tbaa !78
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %45 = load i16, ptr %44, align 2, !tbaa !76
+  %45 = load i16, ptr %44, align 2, !tbaa !78
   %46 = sext i16 %45 to i32
   %47 = shl i32 %36, %46
   %48 = add i32 %14, %46
@@ -2121,7 +2121,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
   %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
-  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
+  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !77
   br label %65
 
 51:                                               ; preds = %50
@@ -2137,32 +2137,32 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %61 = sext i32 %.0181.i to i64
   %62 = getelementptr inbounds [3 x i32], ptr %60, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !75
+  %63 = load i32, ptr %62, align 4, !tbaa !77
   %64 = add nsw i32 %63, %59
-  store i32 %64, ptr %62, align 4, !tbaa !75
+  store i32 %64, ptr %62, align 4, !tbaa !77
   br label %65
 
 65:                                               ; preds = %._crit_edge, %51
   %66 = phi i32 [ %64, %51 ], [ %.pre, %._crit_edge ]
   %.1186.i = phi i32 [ %52, %51 ], [ %48, %._crit_edge ]
   %67 = trunc i32 %66 to i16
-  store i16 %67, ptr %9, align 2, !tbaa !118
+  store i16 %67, ptr %9, align 2, !tbaa !120
   %68 = lshr i32 %.1186.i, 3
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %29, i64 %69
-  %71 = load i32, ptr %70, align 1, !tbaa !76
+  %71 = load i32, ptr %70, align 1, !tbaa !78
   %72 = tail call i32 @llvm.bswap.i32(i32 %71)
   %73 = and i32 %.1186.i, 7
   %74 = shl i32 %72, %73
   %75 = lshr i32 %74, 23
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %77 = load ptr, ptr %76, align 8, !tbaa !119
+  %77 = load ptr, ptr %76, align 8, !tbaa !121
   %78 = zext nneg i32 %75 to i64
   %79 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !76
+  %80 = load i16, ptr %79, align 2, !tbaa !78
   %81 = sext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 2
-  %83 = load i16, ptr %82, align 2, !tbaa !76
+  %83 = load i16, ptr %82, align 2, !tbaa !78
   %84 = sext i16 %83 to i32
   %85 = icmp slt i16 %83, 0
   br i1 %85, label %86, label %105
@@ -2172,7 +2172,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %88 = lshr i32 %87, 3
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %29, i64 %89
-  %91 = load i32, ptr %90, align 1, !tbaa !76
+  %91 = load i32, ptr %90, align 1, !tbaa !78
   %92 = tail call i32 @llvm.bswap.i32(i32 %91)
   %93 = and i32 %87, 7
   %94 = shl i32 %92, %93
@@ -2181,10 +2181,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %97 = add i32 %96, %81
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %98
-  %100 = load i16, ptr %99, align 2, !tbaa !76
+  %100 = load i16, ptr %99, align 2, !tbaa !78
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 2
-  %103 = load i16, ptr %102, align 2, !tbaa !76
+  %103 = load i16, ptr %102, align 2, !tbaa !78
   %104 = sext i16 %103 to i32
   br label %105
 
@@ -2211,10 +2211,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %111 = shl nsw i32 %.1175.i6, 1
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i8, ptr %7, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !76
+  %114 = load i8, ptr %113, align 1, !tbaa !78
   %115 = zext i8 %114 to i32
   %116 = getelementptr i8, ptr %113, i64 1
-  %117 = load i8, ptr %116, align 1, !tbaa !76
+  %117 = load i8, ptr %116, align 1, !tbaa !78
   %118 = zext i8 %117 to i32
   %119 = ashr i32 %.1183.i5, 31
   %120 = and i32 %118, 1
@@ -2233,18 +2233,18 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %126 = lshr i32 %.4.i, 3
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %29, i64 %127
-  %129 = load i32, ptr %128, align 1, !tbaa !76
+  %129 = load i32, ptr %128, align 1, !tbaa !78
   %130 = tail call i32 @llvm.bswap.i32(i32 %129)
   %131 = and i32 %.4.i, 7
   %132 = shl i32 %130, %131
   %133 = lshr i32 %132, 23
-  %134 = load ptr, ptr %108, align 8, !tbaa !120
+  %134 = load ptr, ptr %108, align 8, !tbaa !122
   %135 = zext nneg i32 %133 to i64
   %136 = getelementptr inbounds nuw %struct.VLCElem, ptr %134, i64 %135
-  %137 = load i16, ptr %136, align 2, !tbaa !76
+  %137 = load i16, ptr %136, align 2, !tbaa !78
   %138 = sext i16 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 2
-  %140 = load i16, ptr %139, align 2, !tbaa !76
+  %140 = load i16, ptr %139, align 2, !tbaa !78
   %141 = sext i16 %140 to i32
   %142 = icmp slt i16 %140, 0
   br i1 %142, label %143, label %162
@@ -2254,7 +2254,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %145 = lshr i32 %144, 3
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %29, i64 %146
-  %148 = load i32, ptr %147, align 1, !tbaa !76
+  %148 = load i32, ptr %147, align 1, !tbaa !78
   %149 = tail call i32 @llvm.bswap.i32(i32 %148)
   %150 = and i32 %144, 7
   %151 = shl i32 %149, %150
@@ -2263,10 +2263,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %154 = add i32 %153, %138
   %155 = zext i32 %154 to i64
   %156 = getelementptr inbounds nuw %struct.VLCElem, ptr %134, i64 %155
-  %157 = load i16, ptr %156, align 2, !tbaa !76
+  %157 = load i16, ptr %156, align 2, !tbaa !78
   %158 = sext i16 %157 to i32
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 2
-  %160 = load i16, ptr %159, align 2, !tbaa !76
+  %160 = load i16, ptr %159, align 2, !tbaa !78
   %161 = sext i16 %160 to i32
   br label %162
 
@@ -2293,9 +2293,9 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
 170:                                              ; preds = %165
   %171 = sext i32 %166 to i64
   %172 = getelementptr inbounds [64 x i8], ptr %109, i64 0, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !76
+  %173 = load i8, ptr %172, align 1, !tbaa !78
   %174 = getelementptr inbounds i32, ptr %28, i64 %171
-  %175 = load i32, ptr %174, align 4, !tbaa !75
+  %175 = load i32, ptr %174, align 4, !tbaa !77
   %176 = mul nsw i32 %175, %.0178.i
   %177 = ashr i32 %175, 1
   %178 = add nsw i32 %177, 8
@@ -2306,21 +2306,21 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %183 = trunc i32 %182 to i16
   %184 = zext i8 %173 to i64
   %185 = getelementptr inbounds nuw i16, ptr %9, i64 %184
-  store i16 %183, ptr %185, align 2, !tbaa !118
+  store i16 %183, ptr %185, align 2, !tbaa !120
   %186 = lshr i32 %.5.i, 3
   %187 = zext nneg i32 %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %29, i64 %187
-  %189 = load i32, ptr %188, align 1, !tbaa !76
+  %189 = load i32, ptr %188, align 1, !tbaa !78
   %190 = tail call i32 @llvm.bswap.i32(i32 %189)
   %191 = and i32 %.5.i, 7
   %192 = shl i32 %190, %191
   %193 = lshr i32 %192, 23
   %194 = zext nneg i32 %193 to i64
   %195 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %194
-  %196 = load i16, ptr %195, align 2, !tbaa !76
+  %196 = load i16, ptr %195, align 2, !tbaa !78
   %197 = sext i16 %196 to i32
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 2
-  %199 = load i16, ptr %198, align 2, !tbaa !76
+  %199 = load i16, ptr %198, align 2, !tbaa !78
   %200 = sext i16 %199 to i32
   %201 = icmp slt i16 %199, 0
   br i1 %201, label %202, label %221
@@ -2330,7 +2330,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %204 = lshr i32 %203, 3
   %205 = zext nneg i32 %204 to i64
   %206 = getelementptr inbounds nuw i8, ptr %29, i64 %205
-  %207 = load i32, ptr %206, align 1, !tbaa !76
+  %207 = load i32, ptr %206, align 1, !tbaa !78
   %208 = tail call i32 @llvm.bswap.i32(i32 %207)
   %209 = and i32 %203, 7
   %210 = shl i32 %208, %209
@@ -2339,10 +2339,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %213 = add i32 %212, %197
   %214 = zext i32 %213 to i64
   %215 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %214
-  %216 = load i16, ptr %215, align 2, !tbaa !76
+  %216 = load i16, ptr %215, align 2, !tbaa !78
   %217 = sext i16 %216 to i32
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 2
-  %219 = load i16, ptr %218, align 2, !tbaa !76
+  %219 = load i16, ptr %218, align 2, !tbaa !78
   %220 = sext i16 %219 to i32
   br label %221
 
@@ -2354,33 +2354,33 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %222 = shl i32 %.3.i, %.0173.i
   %223 = add i32 %.0173.i, %.7.i
   %.not208.i = icmp eq i32 %.2.i, %11
-  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %110, !llvm.loop !121
+  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %110, !llvm.loop !123
 
 dnxhd_decode_dct_block.exit:                      ; preds = %221, %105, %27, %168
   %.0189.i = phi i32 [ -1, %168 ], [ %43, %27 ], [ 0, %105 ], [ 0, %221 ]
   %.0185.i = phi i32 [ %.5.i, %168 ], [ %48, %27 ], [ %106, %105 ], [ %223, %221 ]
-  store i32 %.0185.i, ptr %13, align 16, !tbaa !114
+  store i32 %.0185.i, ptr %13, align 16, !tbaa !116
   ret i32 %.0189.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !113
+  %11 = load i32, ptr %10, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  %14 = load i32, ptr %13, align 16, !tbaa !114
+  %14 = load i32, ptr %13, align 16, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   tail call void %16(ptr noundef %9) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  %18 = load i32, ptr %17, align 4, !tbaa !92
+  %18 = load i32, ptr %17, align 4, !tbaa !94
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %24
 
@@ -2405,23 +2405,23 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %.sink = phi i64 [ 1792, %21 ], [ 1536, %19 ], [ %., %24 ]
   %.0181.i = phi i32 [ %23, %21 ], [ 0, %19 ], [ %26, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %29 = load ptr, ptr %12, align 16, !tbaa !116
+  %29 = load ptr, ptr %12, align 16, !tbaa !118
   %30 = lshr i32 %14, 3
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
-  %33 = load i32, ptr %32, align 1, !tbaa !76
+  %33 = load i32, ptr %32, align 1, !tbaa !78
   %34 = tail call i32 @llvm.bswap.i32(i32 %33)
   %35 = and i32 %14, 7
   %36 = shl i32 %34, %35
   %37 = lshr i32 %36, 25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %39 = load ptr, ptr %38, align 8, !tbaa !117
+  %39 = load ptr, ptr %38, align 8, !tbaa !119
   %40 = zext nneg i32 %37 to i64
   %41 = getelementptr inbounds nuw %struct.VLCElem, ptr %39, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !76
+  %42 = load i16, ptr %41, align 2, !tbaa !78
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %45 = load i16, ptr %44, align 2, !tbaa !76
+  %45 = load i16, ptr %44, align 2, !tbaa !78
   %46 = sext i16 %45 to i32
   %47 = shl i32 %36, %46
   %48 = add i32 %14, %46
@@ -2436,7 +2436,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
   %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
-  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
+  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !77
   br label %64
 
 51:                                               ; preds = %50
@@ -2451,32 +2451,32 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %60 = sext i32 %.0181.i to i64
   %61 = getelementptr inbounds [3 x i32], ptr %59, i64 0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !75
+  %62 = load i32, ptr %61, align 4, !tbaa !77
   %63 = add nsw i32 %62, %58
-  store i32 %63, ptr %61, align 4, !tbaa !75
+  store i32 %63, ptr %61, align 4, !tbaa !77
   br label %64
 
 64:                                               ; preds = %._crit_edge, %51
   %65 = phi i32 [ %63, %51 ], [ %.pre, %._crit_edge ]
   %.1186.i = phi i32 [ %52, %51 ], [ %48, %._crit_edge ]
   %66 = trunc i32 %65 to i16
-  store i16 %66, ptr %9, align 2, !tbaa !118
+  store i16 %66, ptr %9, align 2, !tbaa !120
   %67 = lshr i32 %.1186.i, 3
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 %68
-  %70 = load i32, ptr %69, align 1, !tbaa !76
+  %70 = load i32, ptr %69, align 1, !tbaa !78
   %71 = tail call i32 @llvm.bswap.i32(i32 %70)
   %72 = and i32 %.1186.i, 7
   %73 = shl i32 %71, %72
   %74 = lshr i32 %73, 23
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %76 = load ptr, ptr %75, align 8, !tbaa !119
+  %76 = load ptr, ptr %75, align 8, !tbaa !121
   %77 = zext nneg i32 %74 to i64
   %78 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !76
+  %79 = load i16, ptr %78, align 2, !tbaa !78
   %80 = sext i16 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 2
-  %82 = load i16, ptr %81, align 2, !tbaa !76
+  %82 = load i16, ptr %81, align 2, !tbaa !78
   %83 = sext i16 %82 to i32
   %84 = icmp slt i16 %82, 0
   br i1 %84, label %85, label %104
@@ -2486,7 +2486,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %87 = lshr i32 %86, 3
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %29, i64 %88
-  %90 = load i32, ptr %89, align 1, !tbaa !76
+  %90 = load i32, ptr %89, align 1, !tbaa !78
   %91 = tail call i32 @llvm.bswap.i32(i32 %90)
   %92 = and i32 %86, 7
   %93 = shl i32 %91, %92
@@ -2495,10 +2495,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %96 = add i32 %95, %80
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !76
+  %99 = load i16, ptr %98, align 2, !tbaa !78
   %100 = sext i16 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  %102 = load i16, ptr %101, align 2, !tbaa !76
+  %102 = load i16, ptr %101, align 2, !tbaa !78
   %103 = sext i16 %102 to i32
   br label %104
 
@@ -2525,10 +2525,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %110 = shl nsw i32 %.1175.i6, 1
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %7, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !76
+  %113 = load i8, ptr %112, align 1, !tbaa !78
   %114 = zext i8 %113 to i32
   %115 = getelementptr i8, ptr %112, i64 1
-  %116 = load i8, ptr %115, align 1, !tbaa !76
+  %116 = load i8, ptr %115, align 1, !tbaa !78
   %117 = zext i8 %116 to i32
   %118 = ashr i32 %.1183.i5, 31
   %119 = and i32 %117, 1
@@ -2547,18 +2547,18 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %125 = lshr i32 %.4.i, 3
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw i8, ptr %29, i64 %126
-  %128 = load i32, ptr %127, align 1, !tbaa !76
+  %128 = load i32, ptr %127, align 1, !tbaa !78
   %129 = tail call i32 @llvm.bswap.i32(i32 %128)
   %130 = and i32 %.4.i, 7
   %131 = shl i32 %129, %130
   %132 = lshr i32 %131, 23
-  %133 = load ptr, ptr %107, align 8, !tbaa !120
+  %133 = load ptr, ptr %107, align 8, !tbaa !122
   %134 = zext nneg i32 %132 to i64
   %135 = getelementptr inbounds nuw %struct.VLCElem, ptr %133, i64 %134
-  %136 = load i16, ptr %135, align 2, !tbaa !76
+  %136 = load i16, ptr %135, align 2, !tbaa !78
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  %139 = load i16, ptr %138, align 2, !tbaa !76
+  %139 = load i16, ptr %138, align 2, !tbaa !78
   %140 = sext i16 %139 to i32
   %141 = icmp slt i16 %139, 0
   br i1 %141, label %142, label %161
@@ -2568,7 +2568,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %144 = lshr i32 %143, 3
   %145 = zext nneg i32 %144 to i64
   %146 = getelementptr inbounds nuw i8, ptr %29, i64 %145
-  %147 = load i32, ptr %146, align 1, !tbaa !76
+  %147 = load i32, ptr %146, align 1, !tbaa !78
   %148 = tail call i32 @llvm.bswap.i32(i32 %147)
   %149 = and i32 %143, 7
   %150 = shl i32 %148, %149
@@ -2577,10 +2577,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %153 = add i32 %152, %137
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw %struct.VLCElem, ptr %133, i64 %154
-  %156 = load i16, ptr %155, align 2, !tbaa !76
+  %156 = load i16, ptr %155, align 2, !tbaa !78
   %157 = sext i16 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 2
-  %159 = load i16, ptr %158, align 2, !tbaa !76
+  %159 = load i16, ptr %158, align 2, !tbaa !78
   %160 = sext i16 %159 to i32
   br label %161
 
@@ -2607,9 +2607,9 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
 169:                                              ; preds = %164
   %170 = sext i32 %165 to i64
   %171 = getelementptr inbounds [64 x i8], ptr %108, i64 0, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !76
+  %172 = load i8, ptr %171, align 1, !tbaa !78
   %173 = getelementptr inbounds i32, ptr %28, i64 %170
-  %174 = load i32, ptr %173, align 4, !tbaa !75
+  %174 = load i32, ptr %173, align 4, !tbaa !77
   %175 = mul nsw i32 %174, %.0178.i
   %176 = ashr i32 %174, 1
   %177 = add nsw i32 %176, 8
@@ -2620,21 +2620,21 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %182 = trunc i32 %181 to i16
   %183 = zext i8 %172 to i64
   %184 = getelementptr inbounds nuw i16, ptr %9, i64 %183
-  store i16 %182, ptr %184, align 2, !tbaa !118
+  store i16 %182, ptr %184, align 2, !tbaa !120
   %185 = lshr i32 %.5.i, 3
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %29, i64 %186
-  %188 = load i32, ptr %187, align 1, !tbaa !76
+  %188 = load i32, ptr %187, align 1, !tbaa !78
   %189 = tail call i32 @llvm.bswap.i32(i32 %188)
   %190 = and i32 %.5.i, 7
   %191 = shl i32 %189, %190
   %192 = lshr i32 %191, 23
   %193 = zext nneg i32 %192 to i64
   %194 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %193
-  %195 = load i16, ptr %194, align 2, !tbaa !76
+  %195 = load i16, ptr %194, align 2, !tbaa !78
   %196 = sext i16 %195 to i32
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 2
-  %198 = load i16, ptr %197, align 2, !tbaa !76
+  %198 = load i16, ptr %197, align 2, !tbaa !78
   %199 = sext i16 %198 to i32
   %200 = icmp slt i16 %198, 0
   br i1 %200, label %201, label %220
@@ -2644,7 +2644,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %203 = lshr i32 %202, 3
   %204 = zext nneg i32 %203 to i64
   %205 = getelementptr inbounds nuw i8, ptr %29, i64 %204
-  %206 = load i32, ptr %205, align 1, !tbaa !76
+  %206 = load i32, ptr %205, align 1, !tbaa !78
   %207 = tail call i32 @llvm.bswap.i32(i32 %206)
   %208 = and i32 %202, 7
   %209 = shl i32 %207, %208
@@ -2653,10 +2653,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %212 = add i32 %211, %196
   %213 = zext i32 %212 to i64
   %214 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %213
-  %215 = load i16, ptr %214, align 2, !tbaa !76
+  %215 = load i16, ptr %214, align 2, !tbaa !78
   %216 = sext i16 %215 to i32
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 2
-  %218 = load i16, ptr %217, align 2, !tbaa !76
+  %218 = load i16, ptr %217, align 2, !tbaa !78
   %219 = sext i16 %218 to i32
   br label %220
 
@@ -2668,33 +2668,33 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %221 = shl i32 %.3.i, %.0173.i
   %222 = add i32 %.0173.i, %.7.i
   %.not208.i = icmp eq i32 %.2.i, %11
-  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %109, !llvm.loop !121
+  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %109, !llvm.loop !123
 
 dnxhd_decode_dct_block.exit:                      ; preds = %220, %104, %27, %167
   %.0189.i = phi i32 [ -1, %167 ], [ %43, %27 ], [ 0, %104 ], [ 0, %220 ]
   %.0185.i = phi i32 [ %.5.i, %167 ], [ %48, %27 ], [ %105, %104 ], [ %222, %220 ]
-  store i32 %.0185.i, ptr %13, align 16, !tbaa !114
+  store i32 %.0185.i, ptr %13, align 16, !tbaa !116
   ret i32 %.0189.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2408
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [12 x [64 x i16]], ptr %1, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !113
+  %11 = load i32, ptr %10, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  %14 = load i32, ptr %13, align 16, !tbaa !114
+  %14 = load i32, ptr %13, align 16, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !117
   tail call void %16(ptr noundef %9) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2420
-  %18 = load i32, ptr %17, align 4, !tbaa !92
+  %18 = load i32, ptr %17, align 4, !tbaa !94
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %19, label %31
 
@@ -2707,13 +2707,13 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %22 = and i32 %2, 1
   %23 = add nuw nsw i32 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1792
-  %25 = load ptr, ptr %4, align 8, !tbaa !66
+  %25 = load ptr, ptr %4, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %41
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1536
-  %29 = load ptr, ptr %4, align 8, !tbaa !66
+  %29 = load ptr, ptr %4, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %41
 
@@ -2721,7 +2721,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %32 = ashr i32 %2, 1
   %33 = srem i32 %32, 3
   %.not206.i = icmp eq i32 %33, 0
-  %34 = load ptr, ptr %4, align 8, !tbaa !66
+  %34 = load ptr, ptr %4, align 8, !tbaa !67
   br i1 %.not206.i, label %38, label %35
 
 35:                                               ; preds = %31
@@ -2738,24 +2738,24 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %.0191.in.i = phi ptr [ %37, %35 ], [ %40, %38 ], [ %26, %21 ], [ %30, %27 ]
   %.0190.i = phi ptr [ %36, %35 ], [ %39, %38 ], [ %24, %21 ], [ %28, %27 ]
   %.0181.i = phi i32 [ %33, %35 ], [ 0, %38 ], [ %23, %21 ], [ 0, %27 ]
-  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !108
-  %42 = load ptr, ptr %12, align 16, !tbaa !116
+  %.0191.i = load ptr, ptr %.0191.in.i, align 8, !tbaa !110
+  %42 = load ptr, ptr %12, align 16, !tbaa !118
   %43 = lshr i32 %14, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
-  %46 = load i32, ptr %45, align 1, !tbaa !76
+  %46 = load i32, ptr %45, align 1, !tbaa !78
   %47 = tail call i32 @llvm.bswap.i32(i32 %46)
   %48 = and i32 %14, 7
   %49 = shl i32 %47, %48
   %50 = lshr i32 %49, 25
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %52 = load ptr, ptr %51, align 8, !tbaa !117
+  %52 = load ptr, ptr %51, align 8, !tbaa !119
   %53 = zext nneg i32 %50 to i64
   %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !76
+  %55 = load i16, ptr %54, align 2, !tbaa !78
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %58 = load i16, ptr %57, align 2, !tbaa !76
+  %58 = load i16, ptr %57, align 2, !tbaa !78
   %59 = sext i16 %58 to i32
   %60 = shl i32 %49, %59
   %61 = add i32 %14, %59
@@ -2770,7 +2770,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
   %.phi.trans.insert12 = getelementptr inbounds [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert11
-  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
+  %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !77
   br label %77
 
 64:                                               ; preds = %63
@@ -2785,32 +2785,32 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
   %74 = getelementptr inbounds [3 x i32], ptr %72, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !75
+  %75 = load i32, ptr %74, align 4, !tbaa !77
   %76 = add nsw i32 %75, %71
-  store i32 %76, ptr %74, align 4, !tbaa !75
+  store i32 %76, ptr %74, align 4, !tbaa !77
   br label %77
 
 77:                                               ; preds = %._crit_edge, %64
   %78 = phi i32 [ %76, %64 ], [ %.pre, %._crit_edge ]
   %.1186.i = phi i32 [ %65, %64 ], [ %61, %._crit_edge ]
   %79 = trunc i32 %78 to i16
-  store i16 %79, ptr %9, align 2, !tbaa !118
+  store i16 %79, ptr %9, align 2, !tbaa !120
   %80 = lshr i32 %.1186.i, 3
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %42, i64 %81
-  %83 = load i32, ptr %82, align 1, !tbaa !76
+  %83 = load i32, ptr %82, align 1, !tbaa !78
   %84 = tail call i32 @llvm.bswap.i32(i32 %83)
   %85 = and i32 %.1186.i, 7
   %86 = shl i32 %84, %85
   %87 = lshr i32 %86, 23
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2160
-  %89 = load ptr, ptr %88, align 8, !tbaa !119
+  %89 = load ptr, ptr %88, align 8, !tbaa !121
   %90 = zext nneg i32 %87 to i64
   %91 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %90
-  %92 = load i16, ptr %91, align 2, !tbaa !76
+  %92 = load i16, ptr %91, align 2, !tbaa !78
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 2
-  %95 = load i16, ptr %94, align 2, !tbaa !76
+  %95 = load i16, ptr %94, align 2, !tbaa !78
   %96 = sext i16 %95 to i32
   %97 = icmp slt i16 %95, 0
   br i1 %97, label %98, label %117
@@ -2820,7 +2820,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %100 = lshr i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr %42, i64 %101
-  %103 = load i32, ptr %102, align 1, !tbaa !76
+  %103 = load i32, ptr %102, align 1, !tbaa !78
   %104 = tail call i32 @llvm.bswap.i32(i32 %103)
   %105 = and i32 %99, 7
   %106 = shl i32 %104, %105
@@ -2829,10 +2829,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %109 = add i32 %108, %93
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %110
-  %112 = load i16, ptr %111, align 2, !tbaa !76
+  %112 = load i16, ptr %111, align 2, !tbaa !78
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 2
-  %115 = load i16, ptr %114, align 2, !tbaa !76
+  %115 = load i16, ptr %114, align 2, !tbaa !78
   %116 = sext i16 %115 to i32
   br label %117
 
@@ -2859,10 +2859,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %123 = shl nsw i32 %.1175.i6, 1
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %7, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !76
+  %126 = load i8, ptr %125, align 1, !tbaa !78
   %127 = zext i8 %126 to i32
   %128 = getelementptr i8, ptr %125, i64 1
-  %129 = load i8, ptr %128, align 1, !tbaa !76
+  %129 = load i8, ptr %128, align 1, !tbaa !78
   %130 = zext i8 %129 to i32
   %131 = ashr i32 %.1183.i5, 31
   %132 = and i32 %130, 1
@@ -2881,18 +2881,18 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %138 = lshr i32 %.4.i, 3
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %42, i64 %139
-  %141 = load i32, ptr %140, align 1, !tbaa !76
+  %141 = load i32, ptr %140, align 1, !tbaa !78
   %142 = tail call i32 @llvm.bswap.i32(i32 %141)
   %143 = and i32 %.4.i, 7
   %144 = shl i32 %142, %143
   %145 = lshr i32 %144, 23
-  %146 = load ptr, ptr %120, align 8, !tbaa !120
+  %146 = load ptr, ptr %120, align 8, !tbaa !122
   %147 = zext nneg i32 %145 to i64
   %148 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %147
-  %149 = load i16, ptr %148, align 2, !tbaa !76
+  %149 = load i16, ptr %148, align 2, !tbaa !78
   %150 = sext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 2
-  %152 = load i16, ptr %151, align 2, !tbaa !76
+  %152 = load i16, ptr %151, align 2, !tbaa !78
   %153 = sext i16 %152 to i32
   %154 = icmp slt i16 %152, 0
   br i1 %154, label %155, label %174
@@ -2902,7 +2902,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %157 = lshr i32 %156, 3
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds nuw i8, ptr %42, i64 %158
-  %160 = load i32, ptr %159, align 1, !tbaa !76
+  %160 = load i32, ptr %159, align 1, !tbaa !78
   %161 = tail call i32 @llvm.bswap.i32(i32 %160)
   %162 = and i32 %156, 7
   %163 = shl i32 %161, %162
@@ -2911,10 +2911,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %166 = add i32 %165, %150
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %167
-  %169 = load i16, ptr %168, align 2, !tbaa !76
+  %169 = load i16, ptr %168, align 2, !tbaa !78
   %170 = sext i16 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 2
-  %172 = load i16, ptr %171, align 2, !tbaa !76
+  %172 = load i16, ptr %171, align 2, !tbaa !78
   %173 = sext i16 %172 to i32
   br label %174
 
@@ -2941,14 +2941,14 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
 182:                                              ; preds = %177
   %183 = sext i32 %178 to i64
   %184 = getelementptr inbounds [64 x i8], ptr %121, i64 0, i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !76
+  %185 = load i8, ptr %184, align 1, !tbaa !78
   %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
-  %187 = load i32, ptr %186, align 4, !tbaa !75
+  %187 = load i32, ptr %186, align 4, !tbaa !77
   %188 = mul nsw i32 %187, %.0178.i
   %189 = ashr i32 %187, 1
   %190 = add nsw i32 %188, %189
   %191 = getelementptr inbounds i8, ptr %.0191.i, i64 %183
-  %192 = load i8, ptr %191, align 1, !tbaa !76
+  %192 = load i8, ptr %191, align 1, !tbaa !78
   %.not211.i = icmp eq i8 %192, 32
   %193 = add nsw i32 %190, 32
   %spec.select = select i1 %.not211.i, i32 %190, i32 %193
@@ -2958,21 +2958,21 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %197 = trunc i32 %196 to i16
   %198 = zext i8 %185 to i64
   %199 = getelementptr inbounds nuw i16, ptr %9, i64 %198
-  store i16 %197, ptr %199, align 2, !tbaa !118
+  store i16 %197, ptr %199, align 2, !tbaa !120
   %200 = lshr i32 %.5.i, 3
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %42, i64 %201
-  %203 = load i32, ptr %202, align 1, !tbaa !76
+  %203 = load i32, ptr %202, align 1, !tbaa !78
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
   %205 = and i32 %.5.i, 7
   %206 = shl i32 %204, %205
   %207 = lshr i32 %206, 23
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %208
-  %210 = load i16, ptr %209, align 2, !tbaa !76
+  %210 = load i16, ptr %209, align 2, !tbaa !78
   %211 = sext i16 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 2
-  %213 = load i16, ptr %212, align 2, !tbaa !76
+  %213 = load i16, ptr %212, align 2, !tbaa !78
   %214 = sext i16 %213 to i32
   %215 = icmp slt i16 %213, 0
   br i1 %215, label %216, label %235
@@ -2982,7 +2982,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %218 = lshr i32 %217, 3
   %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw i8, ptr %42, i64 %219
-  %221 = load i32, ptr %220, align 1, !tbaa !76
+  %221 = load i32, ptr %220, align 1, !tbaa !78
   %222 = tail call i32 @llvm.bswap.i32(i32 %221)
   %223 = and i32 %217, 7
   %224 = shl i32 %222, %223
@@ -2991,10 +2991,10 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %227 = add i32 %226, %211
   %228 = zext i32 %227 to i64
   %229 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %228
-  %230 = load i16, ptr %229, align 2, !tbaa !76
+  %230 = load i16, ptr %229, align 2, !tbaa !78
   %231 = sext i16 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 2
-  %233 = load i16, ptr %232, align 2, !tbaa !76
+  %233 = load i16, ptr %232, align 2, !tbaa !78
   %234 = sext i16 %233 to i32
   br label %235
 
@@ -3006,12 +3006,12 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %236 = shl i32 %.3.i, %.0173.i
   %237 = add i32 %.0173.i, %.7.i
   %.not208.i = icmp eq i32 %.2.i, %11
-  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %122, !llvm.loop !121
+  br i1 %.not208.i, label %dnxhd_decode_dct_block.exit, label %122, !llvm.loop !123
 
 dnxhd_decode_dct_block.exit:                      ; preds = %235, %117, %41, %180
   %.0189.i = phi i32 [ -1, %180 ], [ %56, %41 ], [ 0, %117 ], [ 0, %235 ]
   %.0185.i = phi i32 [ %.5.i, %180 ], [ %61, %41 ], [ %118, %117 ], [ %237, %235 ]
-  store i32 %.0185.i, ptr %13, align 16, !tbaa !114
+  store i32 %.0185.i, ptr %13, align 16, !tbaa !116
   ret i32 %.0189.i
 }
 
@@ -3095,75 +3095,77 @@ attributes #4 = { nounwind }
 !47 = !{!48, !10, i64 2100}
 !48 = !{!"RowContext", !8, i64 0, !8, i64 1536, !8, i64 1792, !49, i64 2048, !8, i64 2080, !10, i64 2092, !10, i64 2096, !10, i64 2100}
 !49 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!28, !10, i64 72}
-!53 = !{!28, !10, i64 76}
-!54 = !{!5, !10, i64 136}
-!55 = !{!28, !10, i64 80}
-!56 = !{!28, !10, i64 2140}
-!57 = !{!28, !10, i64 56}
-!58 = !{!28, !14, i64 48}
-!59 = !{!5, !7, i64 680}
-!60 = !{!28, !10, i64 88}
-!61 = !{!62, !10, i64 276}
-!62 = !{!"AVFrame", !8, i64 0, !8, i64 64, !63, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !64, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !65, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!63 = !{!"p2 omnipotent char", !26, i64 0}
-!64 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!65 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!66 = !{!28, !35, i64 2408}
-!67 = !{!68, !10, i64 16}
-!68 = !{!"CIDEntry", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !69, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !17, i64 72, !14, i64 80, !14, i64 88, !17, i64 96, !14, i64 104, !14, i64 112, !8, i64 120, !15, i64 140}
-!69 = !{!"short", !8, i64 0}
-!70 = !{!48, !10, i64 2096}
-!71 = distinct !{!71, !51}
-!72 = !{!28, !10, i64 2436}
-!73 = distinct !{!73, !51}
-!74 = !{!28, !10, i64 2416}
-!75 = !{!10, !10, i64 0}
-!76 = !{!8, !8, i64 0}
-!77 = !{!28, !10, i64 2144}
-!78 = !{!28, !10, i64 2432}
-!79 = !{!28, !10, i64 2424}
-!80 = !{!28, !10, i64 2428}
-!81 = !{!5, !10, i64 688}
-!82 = !{!68, !10, i64 28}
-!83 = !{!68, !14, i64 80}
-!84 = !{!68, !17, i64 72}
-!85 = !{!68, !14, i64 64}
-!86 = !{!68, !14, i64 56}
-!87 = !{!68, !14, i64 104}
-!88 = !{!68, !17, i64 96}
-!89 = !{!68, !14, i64 112}
-!90 = !{!68, !10, i64 0}
-!91 = !{!62, !10, i64 292}
-!92 = !{!28, !10, i64 2420}
-!93 = !{!28, !7, i64 2440}
-!94 = !{!5, !10, i64 652}
-!95 = !{!68, !10, i64 4}
-!96 = !{!28, !10, i64 84}
-!97 = distinct !{!97, !51}
-!98 = !{!49, !14, i64 0}
-!99 = !{!49, !10, i64 20}
-!100 = !{!49, !10, i64 24}
-!101 = !{!49, !14, i64 8}
-!102 = !{!49, !10, i64 16}
-!103 = !{!48, !10, i64 2092}
-!104 = !{!68, !14, i64 40}
-!105 = !{!68, !14, i64 48}
-!106 = distinct !{!106, !51}
-!107 = distinct !{!107, !51}
-!108 = !{!14, !14, i64 0}
-!109 = !{!28, !7, i64 2256}
-!110 = !{!5, !10, i64 64}
-!111 = distinct !{!111, !51}
-!112 = !{!68, !14, i64 88}
-!113 = !{!68, !10, i64 32}
-!114 = !{!48, !10, i64 2064}
-!115 = !{!28, !7, i64 16}
-!116 = !{!48, !14, i64 2048}
-!117 = !{!28, !33, i64 2184}
-!118 = !{!69, !69, i64 0}
-!119 = !{!28, !33, i64 2160}
-!120 = !{!28, !33, i64 2208}
-!121 = distinct !{!121, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!28, !10, i64 72}
+!54 = !{!28, !10, i64 76}
+!55 = !{!5, !10, i64 136}
+!56 = !{!28, !10, i64 80}
+!57 = !{!28, !10, i64 2140}
+!58 = !{!28, !10, i64 56}
+!59 = !{!28, !14, i64 48}
+!60 = !{!5, !7, i64 680}
+!61 = !{!28, !10, i64 88}
+!62 = !{!63, !10, i64 276}
+!63 = !{!"AVFrame", !8, i64 0, !8, i64 64, !64, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !65, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !66, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!64 = !{!"p2 omnipotent char", !26, i64 0}
+!65 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!66 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!67 = !{!28, !35, i64 2408}
+!68 = !{!69, !10, i64 16}
+!69 = !{!"CIDEntry", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !70, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !17, i64 72, !14, i64 80, !14, i64 88, !17, i64 96, !14, i64 104, !14, i64 112, !8, i64 120, !15, i64 140}
+!70 = !{!"short", !8, i64 0}
+!71 = distinct !{!71, !52}
+!72 = !{!48, !10, i64 2096}
+!73 = distinct !{!73, !51, !52}
+!74 = !{!28, !10, i64 2436}
+!75 = distinct !{!75, !51, !52}
+!76 = !{!28, !10, i64 2416}
+!77 = !{!10, !10, i64 0}
+!78 = !{!8, !8, i64 0}
+!79 = !{!28, !10, i64 2144}
+!80 = !{!28, !10, i64 2432}
+!81 = !{!28, !10, i64 2424}
+!82 = !{!28, !10, i64 2428}
+!83 = !{!5, !10, i64 688}
+!84 = !{!69, !10, i64 28}
+!85 = !{!69, !14, i64 80}
+!86 = !{!69, !17, i64 72}
+!87 = !{!69, !14, i64 64}
+!88 = !{!69, !14, i64 56}
+!89 = !{!69, !14, i64 104}
+!90 = !{!69, !17, i64 96}
+!91 = !{!69, !14, i64 112}
+!92 = !{!69, !10, i64 0}
+!93 = !{!63, !10, i64 292}
+!94 = !{!28, !10, i64 2420}
+!95 = !{!28, !7, i64 2440}
+!96 = !{!5, !10, i64 652}
+!97 = !{!69, !10, i64 4}
+!98 = !{!28, !10, i64 84}
+!99 = distinct !{!99, !51, !52}
+!100 = !{!49, !14, i64 0}
+!101 = !{!49, !10, i64 20}
+!102 = !{!49, !10, i64 24}
+!103 = !{!49, !14, i64 8}
+!104 = !{!49, !10, i64 16}
+!105 = !{!48, !10, i64 2092}
+!106 = !{!69, !14, i64 40}
+!107 = !{!69, !14, i64 48}
+!108 = distinct !{!108, !51, !52}
+!109 = distinct !{!109, !51, !52}
+!110 = !{!14, !14, i64 0}
+!111 = !{!28, !7, i64 2256}
+!112 = !{!5, !10, i64 64}
+!113 = distinct !{!113, !51, !52}
+!114 = !{!69, !14, i64 88}
+!115 = !{!69, !10, i64 32}
+!116 = !{!48, !10, i64 2064}
+!117 = !{!28, !7, i64 16}
+!118 = !{!48, !14, i64 2048}
+!119 = !{!28, !33, i64 2184}
+!120 = !{!70, !70, i64 0}
+!121 = !{!28, !33, i64 2160}
+!122 = !{!28, !33, i64 2208}
+!123 = distinct !{!123, !51, !52}

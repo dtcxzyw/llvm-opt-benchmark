@@ -152,7 +152,7 @@ define void @dlarrc_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.1 = select i1 %85, double %86, double %87
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge.loopexit, label %.lr.ph107, !llvm.loop !11
+  br i1 %exitcond114.not, label %._crit_edge.loopexit, label %.lr.ph107, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %75
   %.pre = load i32, ptr %1, align 4, !tbaa !3
@@ -218,6 +218,7 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

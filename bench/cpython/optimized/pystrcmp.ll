@@ -100,7 +100,7 @@ define dso_local range(i32 -255, 256) i32 @PyOS_mystricmp(ptr noundef readonly c
   %16 = getelementptr i8, ptr %.016, i64 1
   %17 = load i8, ptr %15, align 1, !tbaa !4
   %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %14, %6
   %.0.lcssa.ph = phi ptr [ %.016, %6 ], [ %16, %14 ], [ %.016, %.lr.ph ]
@@ -134,6 +134,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

@@ -359,7 +359,7 @@ define internal fastcc range(i32 0, 2) i32 @test_quic_client_ex(i32 noundef %0) 
   %100 = call i64 @ossl_time_now() #7
   %..i = call i64 @llvm.usub.sat.i64(i64 %100, i64 %52)
   %101 = icmp ugt i64 %..i, 9999999999
-  br i1 %101, label %._crit_edge, label %.lr.ph
+  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread, %96, %91, %85, %70, %67, %58, %41, %46, %36, %33, %29, %26, %22, %17, %14, %9, %6, %._crit_edge
   %.076 = phi ptr [ %31, %._crit_edge ], [ %31, %46 ], [ %31, %36 ], [ %31, %33 ], [ %31, %29 ], [ null, %26 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %9 ], [ null, %6 ], [ %31, %41 ], [ %31, %58 ], [ %31, %67 ], [ %31, %70 ], [ %31, %85 ], [ %31, %91 ], [ %31, %96 ], [ %31, %.thread ]
@@ -503,3 +503,5 @@ attributes #7 = { nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !7, i64 0}
 !15 = !{!9, !10, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}

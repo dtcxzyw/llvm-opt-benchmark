@@ -1059,12 +1059,12 @@ define internal fastcc void @dissect_dlm_query_join_request(ptr noundef %0, ptr 
   store i8 %33, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %34, label %29, !llvm.loop !8
+  br i1 %exitcond.not, label %34, label %29, !llvm.loop !9
 
 34:                                               ; preds = %29
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 32
-  br i1 %exitcond54.not, label %35, label %24, !llvm.loop !9
+  br i1 %exitcond54.not, label %35, label %24, !llvm.loop !10
 
 35:                                               ; preds = %34
   %36 = getelementptr i8, ptr %4, i64 256
@@ -1163,7 +1163,7 @@ define internal fastcc void @dissect_dlm_query_region(ptr noundef %0, ptr nounde
   %20 = add i32 %.032, 32
   %21 = load i32, ptr %3, align 4
   %22 = icmp ult i32 %18, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
@@ -1206,7 +1206,7 @@ define internal fastcc void @dissect_dlm_query_nodeinfo(ptr noundef %0, ptr noun
   %27 = add i32 %.039, 8
   %28 = load i32, ptr %3, align 4
   %29 = icmp ult i32 %14, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
@@ -1278,9 +1278,10 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

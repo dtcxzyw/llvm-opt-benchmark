@@ -313,7 +313,7 @@ define internal void @eo_draw(ptr noundef readonly captures(none) %0) #0 {
   %52 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not34 = icmp eq ptr %53, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge, %22, %16
   ret void
@@ -380,6 +380,7 @@ attributes #8 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

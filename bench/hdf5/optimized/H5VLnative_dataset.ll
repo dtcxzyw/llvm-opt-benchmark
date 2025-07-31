@@ -654,7 +654,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64
   %.2 = phi i32 [ -1, %28 ], [ %.1, %25 ], [ %.1, %22 ], [ %.1, %18 ]
   %33 = add nuw i64 %.01721, 1
   %exitcond.not = icmp eq i64 %33, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %32, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.2, %32 ]
@@ -737,7 +737,7 @@ declare i32 @H5D__write(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 8, !tbaa !70
+  %5 = load i32, ptr %1, align 8, !tbaa !71
   switch i32 %5, label %56 [
     i32 2, label %6
     i32 3, label %14
@@ -850,7 +850,7 @@ declare i32 @H5D__get_storage_size(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 8, !tbaa !72
+  %5 = load i32, ptr %1, align 8, !tbaa !73
   switch i32 %5, label %33 [
     i32 0, label %6
     i32 1, label %15
@@ -918,9 +918,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %5 = alloca [33 x i64], align 16
   %6 = alloca [33 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   tail call void @H5CX_set_dxpl(i64 noundef %2) #5
-  %9 = load i32, ptr %1, align 8, !tbaa !76
+  %9 = load i32, ptr %1, align 8, !tbaa !77
   switch i32 %9, label %278 [
     i32 0, label %10
     i32 1, label %44
@@ -939,7 +939,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
-  %14 = load i32, ptr %13, align 8, !tbaa !77
+  %14 = load i32, ptr %13, align 8, !tbaa !78
   switch i32 %14, label %40 [
     i32 2, label %15
     i32 1, label %25
@@ -968,7 +968,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 
 25:                                               ; preds = %10, %10
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 252
-  %27 = load i32, ptr %26, align 4, !tbaa !78
+  %27 = load i32, ptr %26, align 4, !tbaa !79
   %28 = icmp ugt i32 %27, 3
   br i1 %28, label %29, label %282
 
@@ -999,7 +999,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !38
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 248
-  %48 = load i32, ptr %47, align 8, !tbaa !77
+  %48 = load i32, ptr %47, align 8, !tbaa !78
   %.not128 = icmp eq i32 %48, 2
   br i1 %.not128, label %53, label %49
 
@@ -1013,14 +1013,14 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 264
   %55 = load i32, ptr %54, align 8, !tbaa !66
   %56 = load ptr, ptr %8, align 8, !tbaa !66
-  store i32 %55, ptr %56, align 4, !tbaa !79
+  store i32 %55, ptr %56, align 4, !tbaa !80
   br label %282
 
 57:                                               ; preds = %4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 248
-  %61 = load i32, ptr %60, align 8, !tbaa !77
+  %61 = load i32, ptr %60, align 8, !tbaa !78
   %.not127 = icmp eq i32 %61, 2
   br i1 %.not127, label %66, label %62
 
@@ -1031,9 +1031,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %282
 
 66:                                               ; preds = %57
-  %67 = load ptr, ptr %8, align 8, !tbaa !80
+  %67 = load ptr, ptr %8, align 8, !tbaa !81
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !83
+  %69 = load ptr, ptr %68, align 8, !tbaa !84
   %70 = tail call i32 @H5D__get_chunk_storage_size(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69) #5
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %282
@@ -1045,7 +1045,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %282
 
 76:                                               ; preds = %4
-  %77 = load i64, ptr %8, align 8, !tbaa !84
+  %77 = load i64, ptr %8, align 8, !tbaa !85
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %79, label %84
 
@@ -1076,7 +1076,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %92 = phi ptr [ %81, %79 ], [ %.pre132, %._crit_edge130 ]
   %.0115 = phi ptr [ %83, %79 ], [ %85, %._crit_edge130 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 248
-  %94 = load i32, ptr %93, align 8, !tbaa !77
+  %94 = load i32, ptr %93, align 8, !tbaa !78
   %.not126 = icmp eq i32 %94, 2
   br i1 %.not126, label %99, label %95
 
@@ -1088,7 +1088,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !86
+  %101 = load ptr, ptr %100, align 8, !tbaa !87
   %102 = tail call i32 @H5D__get_num_chunks(ptr noundef nonnull %0, ptr noundef %.0115, ptr noundef %101) #5
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %282
@@ -1100,7 +1100,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %282
 
 108:                                              ; preds = %4
-  %109 = load i64, ptr %8, align 8, !tbaa !87
+  %109 = load i64, ptr %8, align 8, !tbaa !88
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %111, label %116
 
@@ -1131,7 +1131,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %124 = phi ptr [ %113, %111 ], [ %.pre, %._crit_edge ]
   %.0114 = phi ptr [ %115, %111 ], [ %117, %._crit_edge ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 248
-  %126 = load i32, ptr %125, align 8, !tbaa !77
+  %126 = load i32, ptr %125, align 8, !tbaa !78
   %.not125 = icmp eq i32 %126, 2
   br i1 %.not125, label %131, label %127
 
@@ -1143,15 +1143,15 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 
 131:                                              ; preds = %123
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %133 = load i64, ptr %132, align 8, !tbaa !90
+  %133 = load i64, ptr %132, align 8, !tbaa !91
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !91
+  %135 = load ptr, ptr %134, align 8, !tbaa !92
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %137 = load ptr, ptr %136, align 8, !tbaa !92
+  %137 = load ptr, ptr %136, align 8, !tbaa !93
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !93
+  %139 = load ptr, ptr %138, align 8, !tbaa !94
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %141 = load ptr, ptr %140, align 8, !tbaa !94
+  %141 = load ptr, ptr %140, align 8, !tbaa !95
   %142 = tail call i32 @H5D__get_chunk_info(ptr noundef nonnull %0, ptr noundef %.0114, i64 noundef %133, ptr noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %141) #5
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %144, label %282
@@ -1166,7 +1166,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %150 = load ptr, ptr %149, align 8, !tbaa !38
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 248
-  %152 = load i32, ptr %151, align 8, !tbaa !77
+  %152 = load i32, ptr %151, align 8, !tbaa !78
   %.not124 = icmp eq i32 %152, 2
   br i1 %.not124, label %157, label %153
 
@@ -1177,13 +1177,13 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %282
 
 157:                                              ; preds = %148
-  %158 = load ptr, ptr %8, align 8, !tbaa !95
+  %158 = load ptr, ptr %8, align 8, !tbaa !96
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %160 = load ptr, ptr %159, align 8, !tbaa !97
+  %160 = load ptr, ptr %159, align 8, !tbaa !98
   %161 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %162 = load ptr, ptr %161, align 8, !tbaa !98
+  %162 = load ptr, ptr %161, align 8, !tbaa !99
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %164 = load ptr, ptr %163, align 8, !tbaa !99
+  %164 = load ptr, ptr %163, align 8, !tbaa !100
   %165 = tail call i32 @H5D__get_chunk_info_by_coord(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %160, ptr noundef %162, ptr noundef %164) #5
   %166 = icmp slt i32 %165, 0
   br i1 %166, label %167, label %282
@@ -1210,7 +1210,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %180 = load ptr, ptr %179, align 8, !tbaa !38
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 248
-  %182 = load i32, ptr %181, align 8, !tbaa !77
+  %182 = load i32, ptr %181, align 8, !tbaa !78
   %.not123 = icmp eq i32 %182, 2
   br i1 %.not123, label %187, label %183
 
@@ -1221,7 +1221,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %205
 
 187:                                              ; preds = %178
-  %188 = load ptr, ptr %8, align 8, !tbaa !100
+  %188 = load ptr, ptr %8, align 8, !tbaa !101
   %189 = call i32 @H5D__chunk_get_offset_copy(ptr noundef nonnull %0, ptr noundef %188, ptr noundef nonnull %5) #5
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %195
@@ -1235,7 +1235,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 195:                                              ; preds = %187
   %196 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %198 = load ptr, ptr %197, align 8, !tbaa !102
+  %198 = load ptr, ptr %197, align 8, !tbaa !103
   %199 = call i32 @H5D__chunk_direct_read(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %196, ptr noundef %198) #5
   %200 = icmp slt i32 %199, 0
   br i1 %200, label %201, label %205
@@ -1267,7 +1267,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %215 = load ptr, ptr %214, align 8, !tbaa !38
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 248
-  %217 = load i32, ptr %216, align 8, !tbaa !77
+  %217 = load i32, ptr %216, align 8, !tbaa !78
   %.not122 = icmp eq i32 %217, 2
   br i1 %.not122, label %222, label %218
 
@@ -1278,7 +1278,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %243
 
 222:                                              ; preds = %213
-  %223 = load ptr, ptr %8, align 8, !tbaa !103
+  %223 = load ptr, ptr %8, align 8, !tbaa !104
   %224 = call i32 @H5D__chunk_get_offset_copy(ptr noundef nonnull %0, ptr noundef %223, ptr noundef nonnull %6) #5
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %226, label %230
@@ -1291,11 +1291,11 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 
 230:                                              ; preds = %222
   %231 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %232 = load i32, ptr %231, align 8, !tbaa !105
+  %232 = load i32, ptr %231, align 8, !tbaa !106
   %233 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %234 = load i32, ptr %233, align 4, !tbaa !106
+  %234 = load i32, ptr %233, align 4, !tbaa !107
   %235 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !107
+  %236 = load ptr, ptr %235, align 8, !tbaa !108
   %237 = call i32 @H5D__chunk_direct_write(ptr noundef nonnull %0, i32 noundef %232, ptr noundef nonnull %6, i32 noundef %234, ptr noundef %236) #5
   %238 = icmp slt i32 %237, 0
   br i1 %238, label %239, label %243
@@ -1312,11 +1312,11 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   br label %282
 
 244:                                              ; preds = %4
-  %245 = load i64, ptr %8, align 8, !tbaa !108
+  %245 = load i64, ptr %8, align 8, !tbaa !109
   %246 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %247 = load i64, ptr %246, align 8, !tbaa !110
+  %247 = load i64, ptr %246, align 8, !tbaa !111
   %248 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %249 = load ptr, ptr %248, align 8, !tbaa !111
+  %249 = load ptr, ptr %248, align 8, !tbaa !112
   %250 = tail call i32 @H5D__vlen_get_buf_size(ptr noundef %0, i64 noundef %245, i64 noundef %247, ptr noundef %249) #5
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %282
@@ -1337,7 +1337,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %261 = load ptr, ptr %260, align 8, !tbaa !38
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 248
-  %263 = load i32, ptr %262, align 8, !tbaa !77
+  %263 = load i32, ptr %262, align 8, !tbaa !78
   %.not = icmp eq i32 %263, 2
   br i1 %.not, label %268, label %264
 
@@ -1513,48 +1513,49 @@ attributes #6 = { nounwind allocsize(0) }
 !64 = !{!32, !32, i64 0}
 !65 = !{!26, !32, i64 184}
 !66 = !{!6, !6, i64 0}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = distinct !{!69, !68}
-!70 = !{!71, !5, i64 0}
-!71 = !{!"H5VL_dataset_get_args_t", !5, i64 0, !6, i64 8}
-!72 = !{!73, !5, i64 0}
-!73 = !{!"H5VL_dataset_specific_args_t", !5, i64 0, !6, i64 8}
-!74 = !{!75, !13, i64 8}
-!75 = !{!"H5VL_optional_args_t", !5, i64 0, !13, i64 8}
-!76 = !{!75, !5, i64 0}
-!77 = !{!40, !5, i64 248}
-!78 = !{!40, !5, i64 252}
-!79 = !{!5, !5, i64 0}
-!80 = !{!81, !82, i64 0}
-!81 = !{!"H5VL_native_dataset_get_chunk_storage_size_t", !82, i64 0, !82, i64 8}
-!82 = !{!"p1 long", !13, i64 0}
-!83 = !{!81, !82, i64 8}
-!84 = !{!85, !9, i64 0}
-!85 = !{!"H5VL_native_dataset_get_num_chunks_t", !9, i64 0, !82, i64 8}
-!86 = !{!85, !82, i64 8}
-!87 = !{!88, !9, i64 0}
-!88 = !{!"H5VL_native_dataset_get_chunk_info_by_idx_t", !9, i64 0, !9, i64 8, !82, i64 16, !89, i64 24, !82, i64 32, !82, i64 40}
-!89 = !{!"p1 int", !13, i64 0}
-!90 = !{!88, !9, i64 8}
-!91 = !{!88, !82, i64 16}
-!92 = !{!88, !89, i64 24}
-!93 = !{!88, !82, i64 32}
-!94 = !{!88, !82, i64 40}
-!95 = !{!96, !82, i64 0}
-!96 = !{!"H5VL_native_dataset_get_chunk_info_by_coord_t", !82, i64 0, !89, i64 8, !82, i64 16, !82, i64 24}
-!97 = !{!96, !89, i64 8}
-!98 = !{!96, !82, i64 16}
-!99 = !{!96, !82, i64 24}
-!100 = !{!101, !82, i64 0}
-!101 = !{!"H5VL_native_dataset_chunk_read_t", !82, i64 0, !5, i64 8, !13, i64 16}
-!102 = !{!101, !13, i64 16}
-!103 = !{!104, !82, i64 0}
-!104 = !{!"H5VL_native_dataset_chunk_write_t", !82, i64 0, !5, i64 8, !5, i64 12, !13, i64 16}
-!105 = !{!104, !5, i64 8}
-!106 = !{!104, !5, i64 12}
-!107 = !{!104, !13, i64 16}
-!108 = !{!109, !9, i64 0}
-!109 = !{!"H5VL_native_dataset_get_vlen_buf_size_t", !9, i64 0, !9, i64 8, !82, i64 16}
-!110 = !{!109, !9, i64 8}
-!111 = !{!109, !82, i64 16}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = distinct !{!70, !68, !69}
+!71 = !{!72, !5, i64 0}
+!72 = !{!"H5VL_dataset_get_args_t", !5, i64 0, !6, i64 8}
+!73 = !{!74, !5, i64 0}
+!74 = !{!"H5VL_dataset_specific_args_t", !5, i64 0, !6, i64 8}
+!75 = !{!76, !13, i64 8}
+!76 = !{!"H5VL_optional_args_t", !5, i64 0, !13, i64 8}
+!77 = !{!76, !5, i64 0}
+!78 = !{!40, !5, i64 248}
+!79 = !{!40, !5, i64 252}
+!80 = !{!5, !5, i64 0}
+!81 = !{!82, !83, i64 0}
+!82 = !{!"H5VL_native_dataset_get_chunk_storage_size_t", !83, i64 0, !83, i64 8}
+!83 = !{!"p1 long", !13, i64 0}
+!84 = !{!82, !83, i64 8}
+!85 = !{!86, !9, i64 0}
+!86 = !{!"H5VL_native_dataset_get_num_chunks_t", !9, i64 0, !83, i64 8}
+!87 = !{!86, !83, i64 8}
+!88 = !{!89, !9, i64 0}
+!89 = !{!"H5VL_native_dataset_get_chunk_info_by_idx_t", !9, i64 0, !9, i64 8, !83, i64 16, !90, i64 24, !83, i64 32, !83, i64 40}
+!90 = !{!"p1 int", !13, i64 0}
+!91 = !{!89, !9, i64 8}
+!92 = !{!89, !83, i64 16}
+!93 = !{!89, !90, i64 24}
+!94 = !{!89, !83, i64 32}
+!95 = !{!89, !83, i64 40}
+!96 = !{!97, !83, i64 0}
+!97 = !{!"H5VL_native_dataset_get_chunk_info_by_coord_t", !83, i64 0, !90, i64 8, !83, i64 16, !83, i64 24}
+!98 = !{!97, !90, i64 8}
+!99 = !{!97, !83, i64 16}
+!100 = !{!97, !83, i64 24}
+!101 = !{!102, !83, i64 0}
+!102 = !{!"H5VL_native_dataset_chunk_read_t", !83, i64 0, !5, i64 8, !13, i64 16}
+!103 = !{!102, !13, i64 16}
+!104 = !{!105, !83, i64 0}
+!105 = !{!"H5VL_native_dataset_chunk_write_t", !83, i64 0, !5, i64 8, !5, i64 12, !13, i64 16}
+!106 = !{!105, !5, i64 8}
+!107 = !{!105, !5, i64 12}
+!108 = !{!105, !13, i64 16}
+!109 = !{!110, !9, i64 0}
+!110 = !{!"H5VL_native_dataset_get_vlen_buf_size_t", !9, i64 0, !9, i64 8, !83, i64 16}
+!111 = !{!110, !9, i64 8}
+!112 = !{!110, !83, i64 16}

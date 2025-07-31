@@ -439,12 +439,12 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = zext i32 %200 to i64
   %203 = icmp samesign ult i64 %indvars.iv.next, %202
-  br i1 %203, label %.lr.ph217.split, label %._crit_edge218, !llvm.loop !68
+  br i1 %203, label %.lr.ph217.split, label %._crit_edge218, !llvm.loop !69
 
 ._crit_edge218:                                   ; preds = %._crit_edge, %.lr.ph217, %.preheader
   %.0160.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph217 ], [ %.1161.lcssa, %._crit_edge ]
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %204, align 8, !tbaa !70
+  store i32 0, ptr %204, align 8, !tbaa !71
   store i32 %.0160.lcssa, ptr %121, align 8, !tbaa !57
   br label %.loopexit
 
@@ -469,7 +469,7 @@ define internal i32 @vmd_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !57
   %.not = icmp ult i32 %8, %10
@@ -499,9 +499,9 @@ define internal i32 @vmd_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 27:                                               ; preds = %23
   %28 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #5
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %28, ptr %29, align 8, !tbaa !71
+  store i64 %28, ptr %29, align 8, !tbaa !72
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !72
+  %31 = load ptr, ptr %30, align 8, !tbaa !73
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -515,11 +515,11 @@ define internal i32 @vmd_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %30, align 8, !tbaa !72
+  %39 = load ptr, ptr %30, align 8, !tbaa !73
   br label %43
 
 40:                                               ; preds = %35, %27
-  %41 = load ptr, ptr %30, align 8, !tbaa !72
+  %41 = load ptr, ptr %30, align 8, !tbaa !73
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %43
 
@@ -532,19 +532,19 @@ define internal i32 @vmd_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %spec.store.select = select i1 %.not45, i32 %45, i32 -5
   %47 = load i32, ptr %15, align 8, !tbaa !63
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %47, ptr %48, align 4, !tbaa !73
+  store i32 %47, ptr %48, align 4, !tbaa !74
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !65
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %50, ptr %51, align 8, !tbaa !74
+  store i64 %50, ptr %51, align 8, !tbaa !75
   %52 = load i8, ptr %32, align 8, !tbaa !12
   %53 = icmp eq i8 %52, 2
   %54 = select i1 %53, ptr @.str.5, ptr @.str.6
   %55 = add i32 %46, 16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.4, ptr noundef nonnull %54, i32 noundef %55, i64 noundef %50) #5
-  %56 = load i32, ptr %7, align 8, !tbaa !70
+  %56 = load i32, ptr %7, align 8, !tbaa !71
   %57 = add i32 %56, 1
-  store i32 %57, ptr %7, align 8, !tbaa !70
+  store i32 %57, ptr %7, align 8, !tbaa !71
   br label %58
 
 58:                                               ; preds = %23, %11, %2, %43
@@ -671,12 +671,13 @@ attributes #5 = { nounwind }
 !63 = !{!62, !10, i64 0}
 !64 = !{!62, !10, i64 4}
 !65 = !{!62, !23, i64 16}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = distinct !{!68, !67, !69}
-!69 = !{!"llvm.loop.unswitch.partial.disable"}
-!70 = !{!30, !10, i64 24}
-!71 = !{!36, !23, i64 72}
-!72 = !{!36, !6, i64 24}
-!73 = !{!36, !10, i64 36}
-!74 = !{!36, !23, i64 8}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = distinct !{!69, !67, !68, !70}
+!70 = !{!"llvm.loop.unswitch.partial.disable"}
+!71 = !{!30, !10, i64 24}
+!72 = !{!36, !23, i64 72}
+!73 = !{!36, !6, i64 24}
+!74 = !{!36, !10, i64 36}
+!75 = !{!36, !23, i64 8}

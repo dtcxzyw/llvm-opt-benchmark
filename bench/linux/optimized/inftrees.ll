@@ -56,13 +56,13 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %27 = getelementptr [16 x i16], ptr %7, i64 0, i64 %indvars.iv.next
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, 0
-  br i1 %29, label %.preheader28, label %.loopexit29.loopexit, !llvm.loop !8
+  br i1 %29, label %.preheader28, label %.loopexit29.loopexit, !llvm.loop !9
 
 .preheader28:                                     ; preds = %.preheader28.preheader, %26
   %indvars.iv = phi i64 [ 15, %.preheader28.preheader ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %30 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %30, label %35, label %26, !llvm.loop !8
+  br i1 %30, label %35, label %26, !llvm.loop !10
 
 .loopexit29.loopexit:                             ; preds = %26
   %31 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -103,7 +103,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 49:                                               ; preds = %44
   %50 = add nuw nsw i64 %45, 1
   %51 = icmp eq i64 %50, 15
-  br i1 %51, label %.loopexit27, label %44, !llvm.loop !9
+  br i1 %51, label %.loopexit27, label %44, !llvm.loop !11
 
 52:                                               ; preds = %44
   %53 = trunc i64 %45 to i32
@@ -117,7 +117,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 56:                                               ; preds = %59
   %57 = add nuw nsw i64 %60, 1
   %58 = icmp eq i64 %57, 16
-  br i1 %58, label %68, label %59, !llvm.loop !10
+  br i1 %58, label %68, label %59, !llvm.loop !12
 
 59:                                               ; preds = %56, %.loopexit27
   %60 = phi i64 [ 1, %.loopexit27 ], [ %57, %56 ]
@@ -141,7 +141,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   br i1 %73, label %.loopexit24, label %74
 
 74:                                               ; preds = %70, %68
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !13
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %75, align 2
   br label %79
@@ -163,7 +163,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %86 = getelementptr [16 x i16], ptr %8, i64 0, i64 %85
   store i16 %84, ptr %86, align 2
   %87 = icmp eq i64 %85, 15
-  br i1 %87, label %76, label %79, !llvm.loop !12
+  br i1 %87, label %76, label %79, !llvm.loop !14
 
 88:                                               ; preds = %101, %77
   %89 = phi i64 [ 0, %77 ], [ %102, %101 ]
@@ -187,7 +187,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 101:                                              ; preds = %93, %88
   %102 = add nuw nsw i64 %89, 1
   %103 = icmp eq i64 %102, %78
-  br i1 %103, label %.loopexit25, label %88, !llvm.loop !13
+  br i1 %103, label %.loopexit25, label %88, !llvm.loop !15
 
 .loopexit25:                                      ; preds = %101, %76
   switch i32 %0, label %104 [
@@ -270,7 +270,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 2
   store i16 %147, ptr %157, align 2
   %158 = icmp eq i32 %152, 0
-  br i1 %158, label %159, label %150, !llvm.loop !14
+  br i1 %158, label %159, label %150, !llvm.loop !16
 
 159:                                              ; preds = %150
   %160 = add i32 %126, -1
@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %164 = and i32 %163, %128
   %165 = icmp eq i32 %164, 0
   %166 = lshr i32 %163, 1
-  br i1 %165, label %167, label %162, !llvm.loop !15
+  br i1 %165, label %167, label %162, !llvm.loop !17
 
 167:                                              ; preds = %162
   %168 = icmp eq i32 %163, 0
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %194 = and i32 %172, %112
   %195 = icmp eq i32 %194, %122
   %or.cond = select i1 %193, i1 true, i1 %195
-  br i1 %or.cond, label %125, label %196, !llvm.loop !16
+  br i1 %or.cond, label %125, label %196, !llvm.loop !18
 
 196:                                              ; preds = %191
   %197 = icmp eq i32 %119, 0
@@ -357,7 +357,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %218 = shl nuw i32 %214, 1
   %.reass = add i32 %209, %invariant.op
   %219 = icmp ult i32 %.reass, %33
-  br i1 %219, label %206, label %.loopexit23, !llvm.loop !17
+  br i1 %219, label %206, label %.loopexit23, !llvm.loop !19
 
 .loopexit23:                                      ; preds = %216, %206, %196
   %220 = phi i32 [ %201, %196 ], [ %209, %206 ], [ %205, %216 ]
@@ -384,7 +384,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %237 = trunc i64 %236 to i16
   %238 = getelementptr %struct.code, ptr %232, i64 %228, i32 2
   store i16 %237, ptr %238, align 2
-  br label %115, !llvm.loop !16
+  br label %115, !llvm.loop !20
 
 .preheader:                                       ; preds = %181, %267
   %239 = phi ptr [ %254, %267 ], [ %123, %181 ]
@@ -426,7 +426,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %264 = and i32 %263, %241
   %265 = icmp eq i32 %264, 0
   %266 = lshr i32 %263, 1
-  br i1 %265, label %267, label %262, !llvm.loop !18
+  br i1 %265, label %267, label %262, !llvm.loop !21
 
 267:                                              ; preds = %262
   %268 = icmp eq i32 %263, 0
@@ -435,7 +435,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %271 = add i32 %270, %263
   %272 = icmp eq i32 %271, 0
   %273 = select i1 %268, i1 true, i1 %272
-  br i1 %273, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %273, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %267, %181
   %274 = load ptr, ptr %3, align 8
@@ -484,18 +484,21 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
 !10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}

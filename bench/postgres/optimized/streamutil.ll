@@ -170,7 +170,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %.1142, i64 56
   %37 = load ptr, ptr %36, align 8
   %.not118 = icmp eq ptr %37, null
-  br i1 %.not118, label %.loopexit, label %.lr.ph144, !llvm.loop !6
+  br i1 %.not118, label %.loopexit, label %.lr.ph144, !llvm.loop !7
 
 38:                                               ; preds = %0
   %39 = tail call ptr @pg_malloc0(i64 noundef 64) #15
@@ -542,7 +542,7 @@ define dso_local ptr @GetDbnameFromConnectionOptions() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.014.i, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %FindDbnameInConnParams.exit.thread, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %FindDbnameInConnParams.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 FindDbnameInConnParams.exit.thread:               ; preds = %18, %8
   call void @PQconninfoFree(ptr noundef nonnull %4) #15
@@ -595,7 +595,7 @@ FindDbnameInConnParams.exit:                      ; preds = %16
   %39 = getelementptr inbounds nuw i8, ptr %.014.i17, i64 56
   %40 = load ptr, ptr %39, align 8
   %.not.i18 = icmp eq ptr %40, null
-  br i1 %.not.i18, label %FindDbnameInConnParams.exit22, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i18, label %FindDbnameInConnParams.exit22, label %.lr.ph.i16, !llvm.loop !8
 
 FindDbnameInConnParams.exit22:                    ; preds = %38, %26, %36
   %.08.i19 = phi ptr [ %37, %36 ], [ null, %26 ], [ null, %38 ]
@@ -1462,7 +1462,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

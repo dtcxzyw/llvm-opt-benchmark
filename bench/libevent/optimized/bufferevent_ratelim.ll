@@ -588,7 +588,7 @@ define internal fastcc void @bev_group_unsuspend_reading_(ptr noundef %0) unname
   %12 = load ptr, ptr %11, align 8
   %.0.i = load ptr, ptr %12, align 8
   %.not10.i = icmp eq i32 %10, 0
-  br i1 %.not10.i, label %bev_group_random_element_.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not10.i, label %bev_group_random_element_.exit, label %.lr.ph.i, !llvm.loop !6
 
 bev_group_random_element_.exit:                   ; preds = %.lr.ph.i, %7
   %.08.i = phi ptr [ %.011.i, %7 ], [ %.0.i, %.lr.ph.i ]
@@ -637,7 +637,7 @@ EVLOCK_TRY_LOCK_.exit.thread:                     ; preds = %.lr.ph, %EVLOCK_TRY
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !7
 
 .lr.ph43:                                         ; preds = %.preheader, %40
   %.12042 = phi ptr [ %.120, %40 ], [ %.12040, %.preheader ]
@@ -674,7 +674,7 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %43 = icmp ne ptr %.120, null
   %44 = icmp ne ptr %.120, %.08.i47
   %45 = and i1 %43, %44
-  br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !7
+  br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %.2.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %.3, %40 ]
@@ -828,7 +828,7 @@ EVLOCK_TRY_LOCK_.exit.thread.i:                   ; preds = %EVLOCK_TRY_LOCK_.ex
   %79 = load ptr, ptr %78, align 8
   %.0.i = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %bev_group_suspend_writing_.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %bev_group_suspend_writing_.exit, label %.lr.ph.i, !llvm.loop !9
 
 80:                                               ; preds = %45
   %81 = and i8 %63, 2
@@ -888,7 +888,7 @@ define internal fastcc void @bev_group_unsuspend_writing_(ptr noundef %0) unname
   %12 = load ptr, ptr %11, align 8
   %.0.i = load ptr, ptr %12, align 8
   %.not10.i = icmp eq i32 %10, 0
-  br i1 %.not10.i, label %bev_group_random_element_.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not10.i, label %bev_group_random_element_.exit, label %.lr.ph.i, !llvm.loop !6
 
 bev_group_random_element_.exit:                   ; preds = %.lr.ph.i, %7
   %.08.i = phi ptr [ %.011.i, %7 ], [ %.0.i, %.lr.ph.i ]
@@ -937,7 +937,7 @@ EVLOCK_TRY_LOCK_.exit.thread:                     ; preds = %.lr.ph, %EVLOCK_TRY
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !10
 
 .lr.ph43:                                         ; preds = %.preheader, %40
   %.12042 = phi ptr [ %.120, %40 ], [ %.12040, %.preheader ]
@@ -974,7 +974,7 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %43 = icmp ne ptr %.120, null
   %44 = icmp ne ptr %.120, %.08.i47
   %45 = and i1 %43, %44
-  br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !10
+  br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %.2.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %.3, %40 ]
@@ -2727,7 +2727,7 @@ EVLOCK_TRY_LOCK_.exit.thread.i:                   ; preds = %EVLOCK_TRY_LOCK_.ex
   %31 = load ptr, ptr %30, align 8
   %.0.i = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %bev_group_suspend_writing_.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %bev_group_suspend_writing_.exit, label %.lr.ph.i, !llvm.loop !9
 
 32:                                               ; preds = %8
   %33 = icmp slt i64 %10, 1
@@ -2834,11 +2834,12 @@ attributes #10 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}

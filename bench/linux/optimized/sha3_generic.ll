@@ -137,7 +137,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr noundef captures(none) %0, 
   %46 = add i32 %42, -1
   %47 = add i32 %46, %43
   %48 = icmp ult i32 %47, %2
-  br i1 %48, label %25, label %49, !llvm.loop !8
+  br i1 %48, label %25, label %49, !llvm.loop !9
 
 49:                                               ; preds = %.loopexit
   store i32 0, ptr %5, align 8
@@ -401,7 +401,7 @@ define internal fastcc void @keccakf(ptr noundef captures(none) %0) unnamed_addr
   %234 = xor i64 %233, %108
   %235 = add nuw nsw i64 %52, 1
   %236 = icmp eq i64 %235, 24
-  br i1 %236, label %237, label %51, !llvm.loop !9
+  br i1 %236, label %237, label %51, !llvm.loop !10
 
 237:                                              ; preds = %51
   store i64 %234, ptr %0, align 8
@@ -480,7 +480,7 @@ define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, p
   %39 = load i32, ptr %27, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %38, %40
-  br i1 %41, label %.preheader, label %.loopexit2, !llvm.loop !10
+  br i1 %41, label %.preheader, label %.loopexit2, !llvm.loop !11
 
 .loopexit2:                                       ; preds = %.preheader, %2
   tail call fastcc void @keccakf(ptr noundef %3)
@@ -501,7 +501,7 @@ define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, p
   store i64 %50, ptr %48, align 1
   %52 = add nuw nsw i64 %47, 1
   %53 = icmp eq i64 %52, %45
-  br i1 %53, label %.loopexit, label %46, !llvm.loop !11
+  br i1 %53, label %.loopexit, label %46, !llvm.loop !12
 
 .loopexit:                                        ; preds = %46, %.loopexit2
   %54 = phi i64 [ 0, %.loopexit2 ], [ %45, %46 ]
@@ -560,10 +560,11 @@ attributes #8 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}

@@ -604,7 +604,7 @@ define void @_ZN15WiresharkDialog13dialogCleanupEb(ptr noundef align 8 dereferen
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %16 = load i8, ptr %15, align 4, !range !11, !noundef !12
+  %16 = load i8, ptr %15, align 4, !range !12, !noundef !13
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %22
 
@@ -1031,7 +1031,7 @@ define void @_ZN15WiresharkDialog15endRetapPacketsEv(ptr noundef align 8 derefer
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %10 = load i8, ptr %9, align 4, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 4, !range !12, !noundef !13
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
@@ -1095,7 +1095,7 @@ _ZN5QListIPvE9takeFirstEv.exit:                   ; preds = %_ZNK17QArrayDataPoi
   tail call void @remove_tap_listener(ptr noundef %14)
   %17 = load i64, ptr %3, align 8
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge, label %7, !llvm.loop !13
+  br i1 %18, label %._crit_edge, label %7, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN5QListIPvE9takeFirstEv.exit, %1
   ret void
@@ -1737,7 +1737,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !14
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !15
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1779,7 +1779,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !15
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !16
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -2043,7 +2043,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15WiresharkDialogFv12Captu
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !12
+  %18 = load ptr, ptr %17, align 8, !nosanitize !13
   br label %21
 
 19:                                               ; preds = %10
@@ -2810,10 +2810,11 @@ attributes #19 = { builtin nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN7QObject7connectIM11CaptureFileFv12CaptureEventEM15WiresharkDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE: argument 0"}
 !8 = distinct !{!8, !"_ZN7QObject7connectIM11CaptureFileFv12CaptureEventEM15WiresharkDialogFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

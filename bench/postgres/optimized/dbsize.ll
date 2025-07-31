@@ -322,7 +322,7 @@ sub_0:                                            ; preds = %29, %26
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %61, label %sub_128, !llvm.loop !7
+  br i1 %34, label %61, label %sub_128, !llvm.loop !8
 
 sub_128:                                          ; preds = %.tail
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 20
@@ -334,7 +334,7 @@ sub_128:                                          ; preds = %.tail
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 21
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %61, label %.tail26.thread, !llvm.loop !7
+  br i1 %39, label %61, label %.tail26.thread, !llvm.loop !8
 
 .tail26.thread:                                   ; preds = %sub_0, %sub_128, %.tail26
   %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %30) #9
@@ -346,7 +346,7 @@ sub_128:                                          ; preds = %.tail
   %44 = tail call ptr @__errno_location() #11
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 2
-  br i1 %46, label %61, label %47, !llvm.loop !7
+  br i1 %46, label %61, label %47, !llvm.loop !8
 
 47:                                               ; preds = %43
   %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -378,7 +378,7 @@ sub_128:                                          ; preds = %.tail
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #9
   %62 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
   %.not24 = icmp eq ptr %62, null
-  br i1 %.not24, label %._crit_edge, label %26
+  br i1 %.not24, label %._crit_edge, label %26, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   %.017.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %61 ]
@@ -512,7 +512,7 @@ define internal fastcc i64 @calculate_relation_size(ptr noundef readonly capture
   %35 = add i64 %34, %.013
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #9
   %36 = add i32 %.012, 1
-  br label %13
+  br label %13, !llvm.loop !10
 
 37:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #9
@@ -565,7 +565,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %8 = add i64 %7, %.0913
   %9 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %9, 4
-  br i1 %exitcond.not, label %10, label %5, !llvm.loop !8
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !11
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -588,7 +588,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %21 = add i64 %20, %.031.i
   %22 = add nuw nsw i32 %.02330.i, 1
   %exitcond.not.i = icmp eq i32 %22, 4
-  br i1 %exitcond.not.i, label %23, label %18, !llvm.loop !9
+  br i1 %exitcond.not.i, label %23, label %18, !llvm.loop !12
 
 23:                                               ; preds = %18
   %24 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %16) #9
@@ -674,7 +674,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %65 = add i64 %64, %.013.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
   %66 = add i32 %.012.i.i, 1
-  br label %43
+  br label %43, !llvm.loop !10
 
 calculate_relation_size.exit.i:                   ; preds = %55
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
@@ -682,7 +682,7 @@ calculate_relation_size.exit.i:                   ; preds = %55
   %67 = add i64 %.013.i.i, %.233.i
   %68 = add nuw nsw i32 %.12432.i, 1
   %exitcond39.not.i = icmp eq i32 %68, 4
-  br i1 %exitcond39.not.i, label %69, label %37, !llvm.loop !10
+  br i1 %exitcond39.not.i, label %69, label %37, !llvm.loop !13
 
 69:                                               ; preds = %calculate_relation_size.exit.i
   call void @relation_close(ptr noundef nonnull %33, i32 noundef 1) #9
@@ -735,7 +735,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %7 = load i8, ptr %6, align 4, !range !11, !noundef !12
+  %7 = load i8, ptr %6, align 4, !range !14, !noundef !15
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %59
 
@@ -828,7 +828,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %51 = add i64 %50, %.013.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
   %52 = add i32 %.012.i, 1
-  br label %29
+  br label %29, !llvm.loop !10
 
 calculate_relation_size.exit:                     ; preds = %41
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
@@ -836,7 +836,7 @@ calculate_relation_size.exit:                     ; preds = %41
   %53 = add i64 %.013.i, %.223
   %54 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %54, 4
-  br i1 %exitcond.not, label %55, label %23, !llvm.loop !13
+  br i1 %exitcond.not, label %55, label %23, !llvm.loop !16
 
 55:                                               ; preds = %calculate_relation_size.exit
   call void @relation_close(ptr noundef nonnull %19, i32 noundef 1) #9
@@ -903,7 +903,7 @@ define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) loc
   %.02031.lcssa = phi i64 [ %.0203135, %5 ], [ %36, %22 ]
   %.02130.lcssa = phi ptr [ %.0213036, %5 ], [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 80), %22 ]
   %15 = getelementptr inbounds nuw i8, ptr %.02130.lcssa, i64 12
-  %16 = load i8, ptr %15, align 4, !range !11, !noundef !12
+  %16 = load i8, ptr %15, align 4, !range !14, !noundef !15
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %.loopexit
 
@@ -920,9 +920,9 @@ define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) loc
   %25 = getelementptr inbounds nuw i8, ptr %.0213036, i64 13
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.0213036, i64 28
-  %28 = load i8, ptr %27, align 4, !range !11, !noundef !12
+  %28 = load i8, ptr %27, align 4, !range !14, !noundef !15
   %29 = getelementptr inbounds nuw i8, ptr %.0213036, i64 12
-  %30 = load i8, ptr %29, align 4, !range !11, !noundef !12
+  %30 = load i8, ptr %29, align 4, !range !14, !noundef !15
   %31 = add i8 %26, %28
   %32 = sub i8 %24, %31
   %33 = add i8 %32, %30
@@ -980,7 +980,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %.01832.lcssa = phi ptr [ %.0183239, %6 ], [ %8, %39 ]
   %.lcssa = phi ptr [ %9, %6 ], [ %61, %39 ]
   %23 = getelementptr inbounds nuw i8, ptr %.01832.lcssa, i64 12
-  %24 = load i8, ptr %23, align 4, !range !11, !noundef !12
+  %24 = load i8, ptr %23, align 4, !range !14, !noundef !15
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.loopexit
 
@@ -1009,10 +1009,10 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %.0183239, i64 28
-  %47 = load i8, ptr %46, align 4, !range !11, !noundef !12
+  %47 = load i8, ptr %46, align 4, !range !14, !noundef !15
   %48 = zext nneg i8 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %.0183239, i64 12
-  %50 = load i8, ptr %49, align 4, !range !11, !noundef !12
+  %50 = load i8, ptr %49, align 4, !range !14, !noundef !15
   %51 = zext nneg i8 %50 to i64
   %52 = add nuw nsw i64 %45, %48
   %53 = sub nsw i64 %42, %52
@@ -1065,7 +1065,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not, label %17, label %10, !llvm.loop !14
+  br i1 %.not, label %17, label %10, !llvm.loop !17
 
 17:                                               ; preds = %10
   switch i8 %11, label %19 [
@@ -1097,7 +1097,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 2048
   %.not82 = icmp eq i16 %28, 0
-  br i1 %.not82, label %.loopexit, label %.preheader100, !llvm.loop !15
+  br i1 %.not82, label %.loopexit, label %.preheader100, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader100, %19
   %29 = phi i8 [ %21, %19 ], [ %24, %.preheader100 ]
@@ -1124,7 +1124,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 2048
   %.not84 = icmp eq i16 %43, 0
-  br i1 %.not84, label %.thread, label %.preheader99, !llvm.loop !16
+  br i1 %.not84, label %.thread, label %.preheader99, !llvm.loop !19
 
 44:                                               ; preds = %31, %.loopexit
   %45 = phi i8 [ %33, %31 ], [ %29, %.loopexit ]
@@ -1184,7 +1184,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 8192
   %.not85 = icmp eq i16 %71, 0
-  br i1 %.not85, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not85, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %56
   %.lcssa103 = phi i8 [ %57, %56 ], [ %.pr, %.lr.ph ]
@@ -1242,7 +1242,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 8192
   %.not88 = icmp eq i16 %104, 0
-  br i1 %.not88, label %105, label %99, !llvm.loop !18
+  br i1 %.not88, label %105, label %99, !llvm.loop !21
 
 105:                                              ; preds = %99
   store i8 0, ptr %.pn, align 1
@@ -1264,7 +1264,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %112 = getelementptr inbounds nuw i8, ptr %.064113, i64 16
   %113 = load ptr, ptr %112, align 8
   %.not89 = icmp eq ptr %113, null
-  br i1 %.not89, label %.preheader, label %107, !llvm.loop !19
+  br i1 %.not89, label %.preheader, label %107, !llvm.loop !22
 
 .thread95:                                        ; preds = %.preheader
   %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1374,7 +1374,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr noundef 
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 113
-  %22 = load i8, ptr %21, align 1, !range !11, !noundef !12
+  %22 = load i8, ptr %21, align 1, !range !14, !noundef !15
   %23 = trunc nuw i8 %22 to i1
   %24 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %23) #9
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
@@ -1487,7 +1487,7 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 113
-  %27 = load i8, ptr %26, align 1, !range !11, !noundef !12
+  %27 = load i8, ptr %26, align 1, !range !14, !noundef !15
   %28 = trunc nuw i8 %27 to i1
   %29 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %28) #9
   %.not34 = icmp eq i32 %29, 0
@@ -1607,7 +1607,7 @@ sub_0:                                            ; preds = %10, %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %35, label %sub_117, !llvm.loop !20
+  br i1 %15, label %35, label %sub_117, !llvm.loop !23
 
 sub_117:                                          ; preds = %.tail
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1619,7 +1619,7 @@ sub_117:                                          ; preds = %.tail
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %35, label %.tail15.thread, !llvm.loop !20
+  br i1 %20, label %35, label %.tail15.thread, !llvm.loop !23
 
 .tail15.thread:                                   ; preds = %sub_0, %sub_117, %.tail15
   %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %0, ptr noundef nonnull %11) #9
@@ -1631,7 +1631,7 @@ sub_117:                                          ; preds = %.tail
   %25 = tail call ptr @__errno_location() #11
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 2
-  br i1 %27, label %35, label %28, !llvm.loop !20
+  br i1 %27, label %35, label %28, !llvm.loop !23
 
 28:                                               ; preds = %24
   %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1651,7 +1651,7 @@ sub_117:                                          ; preds = %.tail
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
   %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
   %.not13 = icmp eq ptr %36, null
-  br i1 %.not13, label %._crit_edge, label %7
+  br i1 %.not13, label %._crit_edge, label %7, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %.011.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %35 ]
@@ -1730,19 +1730,23 @@ attributes #11 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !7}

@@ -952,7 +952,7 @@ define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull
   store i8 %51, ptr %28, align 1, !tbaa !41
   %52 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %.not64 = icmp eq i32 %52, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  br i1 %.not64, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %31, %.lr.ph, %42, %34, %36, %.preheader, %41, %39, %24, %18
   %.055 = phi i32 [ 0, %18 ], [ 0, %39 ], [ 0, %24 ], [ 1, %41 ], [ 0, %.preheader ], [ 0, %31 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %34 ], [ 1, %36 ]
@@ -1147,7 +1147,7 @@ define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %0, ptr noun
 .preheader:                                       ; preds = %4, %10
   %.01115 = phi i64 [ %11, %10 ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw [4 x %struct.anon], ptr @kek_algs, i64 0, i64 %.01115
-  %7 = load ptr, ptr %6, align 16, !tbaa !42
+  %7 = load ptr, ptr %6, align 16, !tbaa !44
   %8 = tail call i32 @EVP_CIPHER_is_a(ptr noundef nonnull %5, ptr noundef %7) #7
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %10, label %9
@@ -1159,7 +1159,7 @@ define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %0, ptr noun
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %.01115, 1
   %exitcond.not = icmp eq i64 %11, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %10, %4
   tail call void @ERR_new() #7
@@ -1241,6 +1241,8 @@ attributes #7 = { nounwind }
 !39 = !{!38, !12, i64 16}
 !40 = !{!38, !12, i64 24}
 !41 = !{!6, !6, i64 0}
-!42 = !{!38, !11, i64 0}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!38, !11, i64 0}
+!45 = distinct !{!45, !46, !43}
+!46 = !{!"llvm.loop.mustprogress"}

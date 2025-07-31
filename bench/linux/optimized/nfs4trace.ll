@@ -2308,7 +2308,7 @@ define dso_local noundef i32 @__traceiter_nfs4_setclientid_confirm(ptr readnone 
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2337,7 +2337,7 @@ define dso_local noundef i32 @__traceiter_nfs4_renew(ptr readnone captures(none)
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2366,7 +2366,7 @@ define dso_local noundef i32 @__traceiter_nfs4_renew_async(ptr readnone captures
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2395,7 +2395,7 @@ define dso_local noundef i32 @__traceiter_nfs4_setup_sequence(ptr readnone captu
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2424,7 +2424,7 @@ define dso_local noundef i32 @__traceiter_nfs4_state_mgr(ptr readnone captures(n
   %9 = getelementptr i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret i32 0
@@ -2453,7 +2453,7 @@ define dso_local noundef i32 @__traceiter_nfs4_state_mgr_failed(ptr readnone cap
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2482,7 +2482,7 @@ define dso_local noundef i32 @__traceiter_nfs4_xdr_bad_operation(ptr readnone ca
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2511,7 +2511,7 @@ define dso_local noundef i32 @__traceiter_nfs4_xdr_status(ptr readnone captures(
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2540,7 +2540,7 @@ define dso_local noundef i32 @__traceiter_nfs4_xdr_bad_filehandle(ptr readnone c
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2569,7 +2569,7 @@ define dso_local noundef i32 @__traceiter_nfs_cb_no_clp(ptr readnone captures(no
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2598,7 +2598,7 @@ define dso_local noundef i32 @__traceiter_nfs_cb_badprinc(ptr readnone captures(
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2627,7 +2627,7 @@ define dso_local noundef i32 @__traceiter_nfs4_open_reclaim(ptr readnone capture
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2656,7 +2656,7 @@ define dso_local noundef i32 @__traceiter_nfs4_open_expired(ptr readnone capture
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2685,7 +2685,7 @@ define dso_local noundef i32 @__traceiter_nfs4_open_file(ptr readnone captures(n
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2714,7 +2714,7 @@ define dso_local noundef i32 @__traceiter_nfs4_cached_open(ptr readnone captures
   %9 = getelementptr i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret i32 0
@@ -2743,7 +2743,7 @@ define dso_local noundef i32 @__traceiter_nfs4_close(ptr readnone captures(none)
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -2772,7 +2772,7 @@ define dso_local noundef i32 @__traceiter_nfs4_get_lock(ptr readnone captures(no
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -2801,7 +2801,7 @@ define dso_local noundef i32 @__traceiter_nfs4_unlock(ptr readnone captures(none
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -2830,7 +2830,7 @@ define dso_local noundef i32 @__traceiter_nfs4_set_lock(ptr readnone captures(no
   %13 = getelementptr i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %6
   ret i32 0
@@ -2859,7 +2859,7 @@ define dso_local noundef i32 @__traceiter_nfs4_state_lock_reclaim(ptr readnone c
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2888,7 +2888,7 @@ define dso_local noundef i32 @__traceiter_nfs4_set_delegation(ptr readnone captu
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2917,7 +2917,7 @@ define dso_local noundef i32 @__traceiter_nfs4_reclaim_delegation(ptr readnone c
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -2946,7 +2946,7 @@ define dso_local noundef i32 @__traceiter_nfs4_delegreturn_exit(ptr readnone cap
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -2975,7 +2975,7 @@ define dso_local noundef i32 @__traceiter_nfs4_lookup(ptr readnone captures(none
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3004,7 +3004,7 @@ define dso_local noundef i32 @__traceiter_nfs4_symlink(ptr readnone captures(non
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3033,7 +3033,7 @@ define dso_local noundef i32 @__traceiter_nfs4_mkdir(ptr readnone captures(none)
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3062,7 +3062,7 @@ define dso_local noundef i32 @__traceiter_nfs4_mknod(ptr readnone captures(none)
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3091,7 +3091,7 @@ define dso_local noundef i32 @__traceiter_nfs4_remove(ptr readnone captures(none
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3120,7 +3120,7 @@ define dso_local noundef i32 @__traceiter_nfs4_get_fs_locations(ptr readnone cap
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3149,7 +3149,7 @@ define dso_local noundef i32 @__traceiter_nfs4_secinfo(ptr readnone captures(non
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3178,7 +3178,7 @@ define dso_local noundef i32 @__traceiter_nfs4_lookupp(ptr readnone captures(non
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3207,7 +3207,7 @@ define dso_local noundef i32 @__traceiter_nfs4_rename(ptr readnone captures(none
   %13 = getelementptr i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.preheader, %6
   ret i32 0
@@ -3236,7 +3236,7 @@ define dso_local noundef i32 @__traceiter_nfs4_access(ptr readnone captures(none
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !40
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3265,7 +3265,7 @@ define dso_local noundef i32 @__traceiter_nfs4_readlink(ptr readnone captures(no
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3294,7 +3294,7 @@ define dso_local noundef i32 @__traceiter_nfs4_readdir(ptr readnone captures(non
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3323,7 +3323,7 @@ define dso_local noundef i32 @__traceiter_nfs4_get_acl(ptr readnone captures(non
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3352,7 +3352,7 @@ define dso_local noundef i32 @__traceiter_nfs4_set_acl(ptr readnone captures(non
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !44
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3381,7 +3381,7 @@ define dso_local noundef i32 @__traceiter_nfs4_setattr(ptr readnone captures(non
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !45
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3410,7 +3410,7 @@ define dso_local noundef i32 @__traceiter_nfs4_delegreturn(ptr readnone captures
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !46
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3439,7 +3439,7 @@ define dso_local noundef i32 @__traceiter_nfs4_open_stateid_update(ptr readnone 
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3468,7 +3468,7 @@ define dso_local noundef i32 @__traceiter_nfs4_open_stateid_update_wait(ptr read
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3497,7 +3497,7 @@ define dso_local noundef i32 @__traceiter_nfs4_close_stateid_update_wait(ptr rea
   %11 = getelementptr i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret i32 0
@@ -3526,7 +3526,7 @@ define dso_local noundef i32 @__traceiter_nfs4_getattr(ptr readnone captures(non
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3555,7 +3555,7 @@ define dso_local noundef i32 @__traceiter_nfs4_lookup_root(ptr readnone captures
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3584,7 +3584,7 @@ define dso_local noundef i32 @__traceiter_nfs4_fsinfo(ptr readnone captures(none
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3613,7 +3613,7 @@ define dso_local noundef i32 @__traceiter_nfs4_cb_getattr(ptr readnone captures(
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !53
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3642,7 +3642,7 @@ define dso_local noundef i32 @__traceiter_nfs4_cb_recall(ptr readnone captures(n
   %13 = getelementptr i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.preheader, %6
   ret i32 0
@@ -3671,7 +3671,7 @@ define dso_local noundef i32 @__traceiter_nfs4_cb_layoutrecall_file(ptr readnone
   %13 = getelementptr i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %6
   ret i32 0
@@ -3700,7 +3700,7 @@ define dso_local noundef i32 @__traceiter_nfs4_map_name_to_uid(ptr readnone capt
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3729,7 +3729,7 @@ define dso_local noundef i32 @__traceiter_nfs4_map_group_to_gid(ptr readnone cap
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3758,7 +3758,7 @@ define dso_local noundef i32 @__traceiter_nfs4_map_uid_to_name(ptr readnone capt
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !58
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3787,7 +3787,7 @@ define dso_local noundef i32 @__traceiter_nfs4_map_gid_to_group(ptr readnone cap
   %12 = getelementptr i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret i32 0
@@ -3816,7 +3816,7 @@ define dso_local noundef i32 @__traceiter_nfs4_read(ptr readnone captures(none) 
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !60
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3845,7 +3845,7 @@ define dso_local noundef i32 @__traceiter_nfs4_write(ptr readnone captures(none)
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !61
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3874,7 +3874,7 @@ define dso_local noundef i32 @__traceiter_nfs4_commit(ptr readnone captures(none
   %10 = getelementptr i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret i32 0
@@ -3893,19 +3893,19 @@ define internal void @trace_event_raw_event_nfs4_clientid_event(ptr noundef %0, 
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %40, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -3948,7 +3948,7 @@ define internal void @perf_trace_nfs4_clientid_event(ptr noundef %0, ptr noundef
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -3960,7 +3960,7 @@ define internal void @perf_trace_nfs4_clientid_event(ptr noundef %0, ptr noundef
   %13 = add i32 %12, 65560
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #12, !srcloc !66
+  %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #12, !srcloc !67
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load volatile ptr, ptr %18, align 8
@@ -3973,7 +3973,7 @@ define internal void @perf_trace_nfs4_clientid_event(ptr noundef %0, ptr noundef
   br i1 %23, label %53, label %24
 
 24:                                               ; preds = %21, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %25 = add i32 %11, 36
   %26 = and i32 %25, -8
   %27 = add i32 %26, -4
@@ -4033,19 +4033,19 @@ define internal void @trace_event_raw_event_nfs4_setup_sequence(ptr noundef %0, 
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %30, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 24) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
@@ -4080,11 +4080,11 @@ define internal void @perf_trace_nfs4_setup_sequence(ptr noundef %0, ptr readnon
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !67
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !68
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -4097,7 +4097,7 @@ define internal void @perf_trace_nfs4_setup_sequence(ptr noundef %0, ptr readnon
   br i1 %15, label %42, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 28, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %42, label %19
@@ -4150,19 +4150,19 @@ define internal void @trace_event_raw_event_nfs4_state_mgr(ptr noundef %0, ptr n
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 704
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %13, label %8, !prof !63
+  br i1 %7, label %13, label %8, !prof !64
 
 8:                                                ; preds = %2
   %9 = and i64 %5, 256
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %13, !prof !64
+  br i1 %10, label %11, label %13, !prof !65
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %12, label %37, label %13
 
 13:                                               ; preds = %11, %8, %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !66
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -4203,7 +4203,7 @@ define internal void @perf_trace_nfs4_state_mgr(ptr noundef %0, ptr noundef read
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !annotation !65
+  store ptr null, ptr %3, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -4215,7 +4215,7 @@ define internal void @perf_trace_nfs4_state_mgr(ptr noundef %0, ptr noundef read
   %12 = add i32 %11, 65556
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %14) #12, !srcloc !68
+  %15 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %14) #12, !srcloc !69
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load volatile ptr, ptr %17, align 8
@@ -4228,7 +4228,7 @@ define internal void @perf_trace_nfs4_state_mgr(ptr noundef %0, ptr noundef read
   br i1 %22, label %50, label %23
 
 23:                                               ; preds = %20, %2
-  store i32 0, ptr %4, align 4, !annotation !65
+  store i32 0, ptr %4, align 4, !annotation !66
   %24 = add i32 %10, 36
   %25 = and i32 %24, -8
   %26 = add i32 %25, -4
@@ -4280,19 +4280,19 @@ define internal void @trace_event_raw_event_nfs4_state_mgr_failed(ptr noundef %0
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %58, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -4354,7 +4354,7 @@ define internal void @perf_trace_nfs4_state_mgr_failed(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %8 = load ptr, ptr %7, align 8
@@ -4374,7 +4374,7 @@ define internal void @perf_trace_nfs4_state_mgr_failed(ptr noundef %0, ptr nound
   %22 = or i32 %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %24) #12, !srcloc !69
+  %25 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %24) #12, !srcloc !70
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load volatile ptr, ptr %27, align 8
@@ -4387,7 +4387,7 @@ define internal void @perf_trace_nfs4_state_mgr_failed(ptr noundef %0, ptr nound
   br i1 %32, label %71, label %33
 
 33:                                               ; preds = %30, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %34 = add i32 %12, 44
   %35 = add i32 %34, %19
   %36 = and i32 %35, -8
@@ -4452,19 +4452,19 @@ define internal void @trace_event_raw_event_nfs4_xdr_bad_operation(ptr noundef %
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 28) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %38, label %18
@@ -4507,11 +4507,11 @@ define internal void @perf_trace_nfs4_xdr_bad_operation(ptr noundef %0, ptr noun
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !70
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !71
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -4524,7 +4524,7 @@ define internal void @perf_trace_nfs4_xdr_bad_operation(ptr noundef %0, ptr noun
   br i1 %16, label %50, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 28, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %50, label %20
@@ -4585,19 +4585,19 @@ define internal void @trace_event_raw_event_nfs4_xdr_event(ptr noundef %0, ptr n
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %39, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 32) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %39, label %18
@@ -4641,11 +4641,11 @@ define internal void @perf_trace_nfs4_xdr_event(ptr noundef %0, ptr noundef read
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !71
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !72
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -4658,7 +4658,7 @@ define internal void @perf_trace_nfs4_xdr_event(ptr noundef %0, ptr noundef read
   br i1 %16, label %51, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %51, label %20
@@ -4720,19 +4720,19 @@ define internal void @trace_event_raw_event_nfs4_cb_error_class(ptr noundef %0, 
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 16) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
@@ -4756,11 +4756,11 @@ define internal void @perf_trace_nfs4_cb_error_class(ptr noundef %0, i32 noundef
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !72
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !73
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -4773,7 +4773,7 @@ define internal void @perf_trace_nfs4_cb_error_class(ptr noundef %0, i32 noundef
   br i1 %15, label %33, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 20, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %33, label %19
@@ -4815,19 +4815,19 @@ define internal void @trace_event_raw_event_nfs4_open_event(ptr noundef %0, ptr 
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %104, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -4956,7 +4956,7 @@ define internal void @perf_trace_nfs4_open_event(ptr noundef %0, ptr noundef rea
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
@@ -4970,7 +4970,7 @@ define internal void @perf_trace_nfs4_open_event(ptr noundef %0, ptr noundef rea
   %16 = add i32 %15, 65612
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #12, !srcloc !73
+  %19 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #12, !srcloc !74
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load volatile ptr, ptr %21, align 8
@@ -4983,7 +4983,7 @@ define internal void @perf_trace_nfs4_open_event(ptr noundef %0, ptr noundef rea
   br i1 %26, label %117, label %27
 
 27:                                               ; preds = %24, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %28 = add i32 %14, 92
   %29 = and i32 %28, -8
   %30 = add i32 %29, -4
@@ -5121,19 +5121,19 @@ define internal void @trace_event_raw_event_nfs4_cached_open(ptr noundef %0, ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 704
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %13, label %8, !prof !63
+  br i1 %7, label %13, label %8, !prof !64
 
 8:                                                ; preds = %2
   %9 = and i64 %5, 256
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %13, !prof !64
+  br i1 %10, label %11, label %13, !prof !65
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %11, %8, %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !66
   %14 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %3, ptr noundef %0, i64 noundef 40) #11
   %15 = icmp eq ptr %14, null
   br i1 %15, label %45, label %16
@@ -5186,11 +5186,11 @@ define internal void @perf_trace_nfs4_cached_open(ptr noundef %0, ptr noundef %1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !annotation !65
+  store ptr null, ptr %3, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %6) #12, !srcloc !74
+  %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %6) #12, !srcloc !75
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load volatile ptr, ptr %9, align 8
@@ -5203,7 +5203,7 @@ define internal void @perf_trace_nfs4_cached_open(ptr noundef %0, ptr noundef %1
   br i1 %14, label %57, label %15
 
 15:                                               ; preds = %12, %2
-  store i32 0, ptr %4, align 4, !annotation !65
+  store i32 0, ptr %4, align 4, !annotation !66
   %16 = call ptr @perf_trace_buf_alloc(i32 noundef 44, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %57, label %18
@@ -5274,19 +5274,19 @@ define internal void @trace_event_raw_event_nfs4_close(ptr noundef %0, ptr nound
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11, !prof !63
+  br i1 %10, label %16, label %11, !prof !64
 
 11:                                               ; preds = %5
   %12 = and i64 %8, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16, !prof !64
+  br i1 %13, label %14, label %16, !prof !65
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %15, label %53, label %16
 
 16:                                               ; preds = %14, %11, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !66
   %17 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef 48) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %53, label %19
@@ -5345,11 +5345,11 @@ define internal void @perf_trace_nfs4_close(ptr noundef %0, ptr noundef readonly
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !annotation !65
+  store ptr null, ptr %6, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !75
+  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !76
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load volatile ptr, ptr %12, align 8
@@ -5362,7 +5362,7 @@ define internal void @perf_trace_nfs4_close(ptr noundef %0, ptr noundef readonly
   br i1 %17, label %65, label %18
 
 18:                                               ; preds = %15, %5
-  store i32 0, ptr %7, align 4, !annotation !65
+  store i32 0, ptr %7, align 4, !annotation !66
   %19 = call ptr @perf_trace_buf_alloc(i32 noundef 52, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %65, label %21
@@ -5439,19 +5439,19 @@ define internal void @trace_event_raw_event_nfs4_lock_event(ptr noundef %0, ptr 
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11, !prof !63
+  br i1 %10, label %16, label %11, !prof !64
 
 11:                                               ; preds = %5
   %12 = and i64 %8, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16, !prof !64
+  br i1 %13, label %14, label %16, !prof !65
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %15, label %62, label %16
 
 16:                                               ; preds = %14, %11, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !66
   %17 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef 72) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %62, label %19
@@ -5522,11 +5522,11 @@ define internal void @perf_trace_nfs4_lock_event(ptr noundef %0, ptr noundef rea
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !annotation !65
+  store ptr null, ptr %6, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !76
+  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !77
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load volatile ptr, ptr %12, align 8
@@ -5539,7 +5539,7 @@ define internal void @perf_trace_nfs4_lock_event(ptr noundef %0, ptr noundef rea
   br i1 %17, label %74, label %18
 
 18:                                               ; preds = %15, %5
-  store i32 0, ptr %7, align 4, !annotation !65
+  store i32 0, ptr %7, align 4, !annotation !66
   %19 = call ptr @perf_trace_buf_alloc(i32 noundef 76, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %74, label %21
@@ -5628,19 +5628,19 @@ define internal void @trace_event_raw_event_nfs4_set_lock(ptr noundef %0, ptr no
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 704
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %17, label %12, !prof !63
+  br i1 %11, label %17, label %12, !prof !64
 
 12:                                               ; preds = %6
   %13 = and i64 %9, 256
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %17, !prof !64
+  br i1 %14, label %15, label %17, !prof !65
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %16, label %70, label %17
 
 17:                                               ; preds = %15, %12, %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !66
   %18 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %7, ptr noundef %0, i64 noundef 80) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %70, label %20
@@ -5720,11 +5720,11 @@ define internal void @perf_trace_nfs4_set_lock(ptr noundef %0, ptr noundef reado
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  store ptr null, ptr %7, align 8, !annotation !65
+  store ptr null, ptr %7, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %10) #12, !srcloc !77
+  %11 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %10) #12, !srcloc !78
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load volatile ptr, ptr %13, align 8
@@ -5737,7 +5737,7 @@ define internal void @perf_trace_nfs4_set_lock(ptr noundef %0, ptr noundef reado
   br i1 %18, label %82, label %19
 
 19:                                               ; preds = %16, %6
-  store i32 0, ptr %8, align 4, !annotation !65
+  store i32 0, ptr %8, align 4, !annotation !66
   %20 = call ptr @perf_trace_buf_alloc(i32 noundef 84, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %82, label %22
@@ -5835,19 +5835,19 @@ define internal void @trace_event_raw_event_nfs4_state_lock_reclaim(ptr noundef 
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %49, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 48) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %49, label %17
@@ -5904,11 +5904,11 @@ define internal void @perf_trace_nfs4_state_lock_reclaim(ptr noundef %0, ptr nou
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !78
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !79
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -5921,7 +5921,7 @@ define internal void @perf_trace_nfs4_state_lock_reclaim(ptr noundef %0, ptr nou
   br i1 %15, label %61, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 52, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %61, label %19
@@ -5996,19 +5996,19 @@ define internal void @trace_event_raw_event_nfs4_set_delegation_event(ptr nounde
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %34, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 32) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %34, label %17
@@ -6047,11 +6047,11 @@ define internal void @perf_trace_nfs4_set_delegation_event(ptr noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !79
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !80
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -6064,7 +6064,7 @@ define internal void @perf_trace_nfs4_set_delegation_event(ptr noundef %0, ptr n
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %46, label %19
@@ -6121,19 +6121,19 @@ define internal void @trace_event_raw_event_nfs4_delegreturn_exit(ptr noundef %0
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %47, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 32) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %47, label %18
@@ -6185,11 +6185,11 @@ define internal void @perf_trace_nfs4_delegreturn_exit(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !80
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !81
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -6202,7 +6202,7 @@ define internal void @perf_trace_nfs4_delegreturn_exit(ptr noundef %0, ptr nound
   br i1 %16, label %59, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %59, label %20
@@ -6272,19 +6272,19 @@ define internal void @trace_event_raw_event_nfs4_lookup_event(ptr noundef %0, pt
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %47, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -6335,7 +6335,7 @@ define internal void @perf_trace_nfs4_lookup_event(ptr noundef %0, ptr noundef r
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -6347,7 +6347,7 @@ define internal void @perf_trace_nfs4_lookup_event(ptr noundef %0, ptr noundef r
   %14 = add i32 %13, 65572
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #12, !srcloc !81
+  %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #12, !srcloc !82
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load volatile ptr, ptr %19, align 8
@@ -6360,7 +6360,7 @@ define internal void @perf_trace_nfs4_lookup_event(ptr noundef %0, ptr noundef r
   br i1 %24, label %60, label %25
 
 25:                                               ; preds = %22, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %26 = add i32 %12, 52
   %27 = and i32 %26, -8
   %28 = add i32 %27, -4
@@ -6422,19 +6422,19 @@ define internal void @trace_event_raw_event_nfs4_lookupp(ptr noundef %0, ptr nou
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %31, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 32) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %17
@@ -6469,11 +6469,11 @@ define internal void @perf_trace_nfs4_lookupp(ptr noundef %0, ptr noundef readon
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !82
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !83
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -6486,7 +6486,7 @@ define internal void @perf_trace_nfs4_lookupp(ptr noundef %0, ptr noundef readon
   br i1 %15, label %43, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %43, label %19
@@ -6539,19 +6539,19 @@ define internal void @trace_event_raw_event_nfs4_rename(ptr noundef %0, ptr noun
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 704
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %17, label %12, !prof !63
+  br i1 %11, label %17, label %12, !prof !64
 
 12:                                               ; preds = %6
   %13 = and i64 %9, 256
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %17, !prof !64
+  br i1 %14, label %15, label %17, !prof !65
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %16, label %73, label %17
 
 17:                                               ; preds = %15, %12, %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !66
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -6628,7 +6628,7 @@ define internal void @perf_trace_nfs4_rename(ptr noundef %0, ptr noundef readonl
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  store ptr null, ptr %7, align 8, !annotation !65
+  store ptr null, ptr %7, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6650,7 +6650,7 @@ define internal void @perf_trace_nfs4_rename(ptr noundef %0, ptr noundef readonl
   %26 = or i32 %25, %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %28) #12, !srcloc !83
+  %29 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %28) #12, !srcloc !84
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load volatile ptr, ptr %31, align 8
@@ -6663,7 +6663,7 @@ define internal void @perf_trace_nfs4_rename(ptr noundef %0, ptr noundef readonl
   br i1 %36, label %86, label %37
 
 37:                                               ; preds = %34, %6
-  store i32 0, ptr %8, align 4, !annotation !65
+  store i32 0, ptr %8, align 4, !annotation !66
   %38 = add i32 %14, 68
   %39 = add i32 %38, %23
   %40 = and i32 %39, -8
@@ -6741,19 +6741,19 @@ define internal void @trace_event_raw_event_nfs4_inode_event(ptr noundef %0, ptr
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %38, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 32) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %38, label %17
@@ -6796,11 +6796,11 @@ define internal void @perf_trace_nfs4_inode_event(ptr noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !84
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !85
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -6813,7 +6813,7 @@ define internal void @perf_trace_nfs4_inode_event(ptr noundef %0, ptr noundef %1
   br i1 %15, label %50, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %50, label %19
@@ -6874,19 +6874,19 @@ define internal void @trace_event_raw_event_nfs4_inode_stateid_event(ptr noundef
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10, !prof !63
+  br i1 %9, label %15, label %10, !prof !64
 
 10:                                               ; preds = %4
   %11 = and i64 %7, 256
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %15, !prof !64
+  br i1 %12, label %13, label %15, !prof !65
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %14, label %46, label %15
 
 15:                                               ; preds = %13, %10, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !66
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 40) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %46, label %18
@@ -6938,11 +6938,11 @@ define internal void @perf_trace_nfs4_inode_stateid_event(ptr noundef %0, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !annotation !65
+  store ptr null, ptr %5, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !85
+  %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #12, !srcloc !86
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
@@ -6955,7 +6955,7 @@ define internal void @perf_trace_nfs4_inode_stateid_event(ptr noundef %0, ptr no
   br i1 %16, label %58, label %17
 
 17:                                               ; preds = %14, %4
-  store i32 0, ptr %6, align 4, !annotation !65
+  store i32 0, ptr %6, align 4, !annotation !66
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 44, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %58, label %20
@@ -7025,19 +7025,19 @@ define internal void @trace_event_raw_event_nfs4_getattr_event(ptr noundef %0, p
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11, !prof !63
+  br i1 %10, label %16, label %11, !prof !64
 
 11:                                               ; preds = %5
   %12 = and i64 %8, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16, !prof !64
+  br i1 %13, label %14, label %16, !prof !65
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %14, %11, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !66
   %17 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %6, ptr noundef %0, i64 noundef 40) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %45, label %19
@@ -7090,11 +7090,11 @@ define internal void @perf_trace_nfs4_getattr_event(ptr noundef %0, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !annotation !65
+  store ptr null, ptr %6, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !86
+  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #12, !srcloc !87
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load volatile ptr, ptr %12, align 8
@@ -7107,7 +7107,7 @@ define internal void @perf_trace_nfs4_getattr_event(ptr noundef %0, ptr noundef 
   br i1 %17, label %57, label %18
 
 18:                                               ; preds = %15, %5
-  store i32 0, ptr %7, align 4, !annotation !65
+  store i32 0, ptr %7, align 4, !annotation !66
   %19 = call ptr @perf_trace_buf_alloc(i32 noundef 44, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %57, label %21
@@ -7178,12 +7178,12 @@ define internal void @trace_event_raw_event_nfs4_inode_callback_event(ptr nounde
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11, !prof !63
+  br i1 %10, label %16, label %11, !prof !64
 
 11:                                               ; preds = %5
   %12 = and i64 %8, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16, !prof !64
+  br i1 %13, label %14, label %16, !prof !65
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
@@ -7202,7 +7202,7 @@ define internal void @trace_event_raw_event_nfs4_inode_callback_event(ptr nounde
 
 23:                                               ; preds = %18, %16
   %24 = phi ptr [ @.str.487, %16 ], [ %22, %18 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !66
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #11
   %26 = trunc i64 %25 to i32
   %27 = add i32 %26, 1
@@ -7294,14 +7294,14 @@ define internal void @perf_trace_nfs4_inode_callback_event(ptr noundef %0, ptr n
 
 14:                                               ; preds = %9, %5
   %15 = phi ptr [ @.str.487, %5 ], [ %13, %9 ]
-  store ptr null, ptr %6, align 8, !annotation !65
+  store ptr null, ptr %6, align 8, !annotation !66
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #11
   %17 = trunc i64 %16 to i32
   %18 = shl i32 %17, 16
   %19 = add i32 %18, 65572
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %21) #12, !srcloc !87
+  %22 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %21) #12, !srcloc !88
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load volatile ptr, ptr %24, align 8
@@ -7314,7 +7314,7 @@ define internal void @perf_trace_nfs4_inode_callback_event(ptr noundef %0, ptr n
   br i1 %29, label %85, label %30
 
 30:                                               ; preds = %27, %14
-  store i32 0, ptr %7, align 4, !annotation !65
+  store i32 0, ptr %7, align 4, !annotation !66
   %31 = add i32 %17, 52
   %32 = and i32 %31, -8
   %33 = add i32 %32, -4
@@ -7408,12 +7408,12 @@ define internal void @trace_event_raw_event_nfs4_inode_stateid_callback_event(pt
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 704
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %17, label %12, !prof !63
+  br i1 %11, label %17, label %12, !prof !64
 
 12:                                               ; preds = %6
   %13 = and i64 %9, 256
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %17, !prof !64
+  br i1 %14, label %15, label %17, !prof !65
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
@@ -7432,7 +7432,7 @@ define internal void @trace_event_raw_event_nfs4_inode_stateid_callback_event(pt
 
 24:                                               ; preds = %19, %17
   %25 = phi ptr [ @.str.487, %17 ], [ %23, %19 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !66
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, 1
@@ -7533,14 +7533,14 @@ define internal void @perf_trace_nfs4_inode_stateid_callback_event(ptr noundef %
 
 15:                                               ; preds = %10, %6
   %16 = phi ptr [ @.str.487, %6 ], [ %14, %10 ]
-  store ptr null, ptr %7, align 8, !annotation !65
+  store ptr null, ptr %7, align 8, !annotation !66
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
   %18 = trunc i64 %17 to i32
   %19 = shl i32 %18, 16
   %20 = add i32 %19, 65580
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %22) #12, !srcloc !88
+  %23 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %22) #12, !srcloc !89
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load volatile ptr, ptr %25, align 8
@@ -7553,7 +7553,7 @@ define internal void @perf_trace_nfs4_inode_stateid_callback_event(ptr noundef %
   br i1 %30, label %93, label %31
 
 31:                                               ; preds = %28, %15
-  store i32 0, ptr %8, align 4, !annotation !65
+  store i32 0, ptr %8, align 4, !annotation !66
   %32 = add i32 %18, 60
   %33 = and i32 %32, -8
   %34 = add i32 %33, -4
@@ -7656,19 +7656,19 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %16, label %11, !prof !63
+  br i1 %10, label %16, label %11, !prof !64
 
 11:                                               ; preds = %5
   %12 = and i64 %8, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16, !prof !64
+  br i1 %13, label %14, label %16, !prof !65
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %15, label %34, label %16
 
 16:                                               ; preds = %14, %11, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !66
   %17 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %18 = add nuw i32 %17, 1
   %19 = sext i32 %18 to i64
@@ -7706,14 +7706,14 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr noundef re
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !annotation !65
+  store ptr null, ptr %6, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %8 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %9 = shl i32 %8, 16
   %10 = add i32 %9, 65560
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %12) #12, !srcloc !89
+  %13 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %12) #12, !srcloc !90
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load volatile ptr, ptr %15, align 8
@@ -7726,7 +7726,7 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr noundef re
   br i1 %20, label %47, label %21
 
 21:                                               ; preds = %18, %5
-  store i32 0, ptr %7, align 4, !annotation !65
+  store i32 0, ptr %7, align 4, !annotation !66
   %22 = add nuw i32 %8, 36
   %23 = and i32 %22, -8
   %24 = add i32 %23, -4
@@ -7780,19 +7780,19 @@ define internal void @trace_event_raw_event_nfs4_read_event(ptr noundef %0, ptr 
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %75, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 64) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %75, label %17
@@ -7883,11 +7883,11 @@ define internal void @perf_trace_nfs4_read_event(ptr noundef %0, ptr noundef rea
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !90
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !91
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -7900,7 +7900,7 @@ define internal void @perf_trace_nfs4_read_event(ptr noundef %0, ptr noundef rea
   br i1 %15, label %87, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 68, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %87, label %19
@@ -8009,19 +8009,19 @@ define internal void @trace_event_raw_event_nfs4_write_event(ptr noundef %0, ptr
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %75, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 64) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %75, label %17
@@ -8112,11 +8112,11 @@ define internal void @perf_trace_nfs4_write_event(ptr noundef %0, ptr noundef re
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !91
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !92
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -8129,7 +8129,7 @@ define internal void @perf_trace_nfs4_write_event(ptr noundef %0, ptr noundef re
   br i1 %15, label %87, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 68, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %87, label %19
@@ -8238,19 +8238,19 @@ define internal void @trace_event_raw_event_nfs4_commit_event(ptr noundef %0, pt
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %14, label %9, !prof !63
+  br i1 %8, label %14, label %9, !prof !64
 
 9:                                                ; preds = %3
   %10 = and i64 %6, 256
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %14, !prof !64
+  br i1 %11, label %12, label %14, !prof !65
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #11
   br i1 %13, label %60, label %14
 
 14:                                               ; preds = %12, %9, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !66
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 56) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %60, label %17
@@ -8323,11 +8323,11 @@ define internal void @perf_trace_nfs4_commit_event(ptr noundef %0, ptr noundef r
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !annotation !65
+  store ptr null, ptr %4, align 8, !annotation !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !92
+  %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #12, !srcloc !93
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
@@ -8340,7 +8340,7 @@ define internal void @perf_trace_nfs4_commit_event(ptr noundef %0, ptr noundef r
   br i1 %15, label %72, label %16
 
 16:                                               ; preds = %13, %3
-  store i32 0, ptr %5, align 4, !annotation !65
+  store i32 0, ptr %5, align 4, !annotation !66
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 60, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %72, label %19
@@ -9507,91 +9507,92 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
-!44 = distinct !{!44, !6, !7}
-!45 = distinct !{!45, !6, !7}
-!46 = distinct !{!46, !6, !7}
-!47 = distinct !{!47, !6, !7}
-!48 = distinct !{!48, !6, !7}
-!49 = distinct !{!49, !6, !7}
-!50 = distinct !{!50, !6, !7}
-!51 = distinct !{!51, !6, !7}
-!52 = distinct !{!52, !6, !7}
-!53 = distinct !{!53, !6, !7}
-!54 = distinct !{!54, !6, !7}
-!55 = distinct !{!55, !6, !7}
-!56 = distinct !{!56, !6, !7}
-!57 = distinct !{!57, !6, !7}
-!58 = distinct !{!58, !6, !7}
-!59 = distinct !{!59, !6, !7}
-!60 = distinct !{!60, !6, !7}
-!61 = distinct !{!61, !6, !7}
-!62 = distinct !{!62, !6, !7}
-!63 = !{!"branch_weights", i32 2000, i32 1}
-!64 = !{!"branch_weights", i32 1, i32 2000}
-!65 = !{!"auto-init"}
-!66 = !{i64 2167389606}
-!67 = !{i64 2167396901}
-!68 = !{i64 2167410672}
-!69 = !{i64 2167449838}
-!70 = !{i64 2167455653}
-!71 = !{i64 2167459773}
-!72 = !{i64 2167464236}
-!73 = !{i64 2167471616}
-!74 = !{i64 2167484820}
-!75 = !{i64 2167516584}
-!76 = !{i64 2167521164}
-!77 = !{i64 2167557156}
-!78 = !{i64 2167568228}
-!79 = !{i64 2167571995}
-!80 = !{i64 2167602427}
-!81 = !{i64 2167606728}
-!82 = !{i64 2167638940}
-!83 = !{i64 2167671276}
-!84 = !{i64 2167674881}
-!85 = !{i64 2167685660}
-!86 = !{i64 2167692669}
-!87 = !{i64 2167699239}
-!88 = !{i64 2167705067}
-!89 = !{i64 2167710524}
-!90 = !{i64 2167717981}
-!91 = !{i64 2167723231}
-!92 = !{i64 2167727784}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8}
+!43 = distinct !{!43, !6, !7, !8}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = distinct !{!46, !6, !7, !8}
+!47 = distinct !{!47, !6, !7, !8}
+!48 = distinct !{!48, !6, !7, !8}
+!49 = distinct !{!49, !6, !7, !8}
+!50 = distinct !{!50, !6, !7, !8}
+!51 = distinct !{!51, !6, !7, !8}
+!52 = distinct !{!52, !6, !7, !8}
+!53 = distinct !{!53, !6, !7, !8}
+!54 = distinct !{!54, !6, !7, !8}
+!55 = distinct !{!55, !6, !7, !8}
+!56 = distinct !{!56, !6, !7, !8}
+!57 = distinct !{!57, !6, !7, !8}
+!58 = distinct !{!58, !6, !7, !8}
+!59 = distinct !{!59, !6, !7, !8}
+!60 = distinct !{!60, !6, !7, !8}
+!61 = distinct !{!61, !6, !7, !8}
+!62 = distinct !{!62, !6, !7, !8}
+!63 = distinct !{!63, !6, !7, !8}
+!64 = !{!"branch_weights", i32 2000, i32 1}
+!65 = !{!"branch_weights", i32 1, i32 2000}
+!66 = !{!"auto-init"}
+!67 = !{i64 2167389606}
+!68 = !{i64 2167396901}
+!69 = !{i64 2167410672}
+!70 = !{i64 2167449838}
+!71 = !{i64 2167455653}
+!72 = !{i64 2167459773}
+!73 = !{i64 2167464236}
+!74 = !{i64 2167471616}
+!75 = !{i64 2167484820}
+!76 = !{i64 2167516584}
+!77 = !{i64 2167521164}
+!78 = !{i64 2167557156}
+!79 = !{i64 2167568228}
+!80 = !{i64 2167571995}
+!81 = !{i64 2167602427}
+!82 = !{i64 2167606728}
+!83 = !{i64 2167638940}
+!84 = !{i64 2167671276}
+!85 = !{i64 2167674881}
+!86 = !{i64 2167685660}
+!87 = !{i64 2167692669}
+!88 = !{i64 2167699239}
+!89 = !{i64 2167705067}
+!90 = !{i64 2167710524}
+!91 = !{i64 2167717981}
+!92 = !{i64 2167723231}
+!93 = !{i64 2167727784}

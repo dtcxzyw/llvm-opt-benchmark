@@ -3206,7 +3206,7 @@ define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_1
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %16 = load ptr, ptr %15, align 8, !tbaa !172
+  %16 = load ptr, ptr %15, align 8, !tbaa !173
   %.not.i.i.not.i = icmp eq ptr %16, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit, label %17
 
@@ -3216,16 +3216,16 @@ define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_1
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !174
-  store ptr %21, ptr %14, align 8, !tbaa !174
-  %22 = load ptr, ptr %15, align 8, !tbaa !172
-  store ptr %22, ptr %13, align 8, !tbaa !172
+  %21 = load ptr, ptr %20, align 8, !tbaa !175
+  store ptr %21, ptr %14, align 8, !tbaa !175
+  %22 = load ptr, ptr %15, align 8, !tbaa !173
+  store ptr %22, ptr %13, align 8, !tbaa !173
   br label %_ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit
 
 23:                                               ; preds = %17
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %13, align 8, !tbaa !172
+  %25 = load ptr, ptr %13, align 8, !tbaa !173
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %common.resume, label %26
 
@@ -3252,7 +3252,7 @@ _ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit: ; preds = %9, %19
           to label %34 unwind label %41
 
 34:                                               ; preds = %_ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit
-  %35 = load ptr, ptr %13, align 8, !tbaa !172
+  %35 = load ptr, ptr %13, align 8, !tbaa !173
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %36
 
@@ -3273,7 +3273,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %34, %36
 41:                                               ; preds = %_ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %13, align 8, !tbaa !172
+  %43 = load ptr, ptr %13, align 8, !tbaa !173
   %.not.i8 = icmp eq ptr %43, null
   br i1 %.not.i8, label %common.resume, label %44
 
@@ -4310,7 +4310,7 @@ define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper5CloseERKNS_9IOOptio
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(33) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !tbaa !153, !range !176, !noundef !177
+  %3 = load i8, ptr %2, align 8, !tbaa !153, !range !177, !noundef !178
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %13, label %5
 
@@ -4347,7 +4347,7 @@ _ZN7rocksdb18FSDirectoryWrapperD2Ev.exit:         ; preds = %13, %_ZNKSt14defaul
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !tbaa !153, !range !176, !noundef !177
+  %3 = load i8, ptr %2, align 8, !tbaa !153, !range !177, !noundef !178
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %13, label %5
 
@@ -4383,10 +4383,10 @@ _ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit: ; preds = %13, %_ZNKSt14de
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !143, !noalias !178
-  %7 = load ptr, ptr %6, align 8, !tbaa !4, !noalias !178
+  %6 = load ptr, ptr %5, align 8, !tbaa !143, !noalias !179
+  %7 = load ptr, ptr %6, align 8, !tbaa !4, !noalias !179
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !noalias !178
+  %9 = load ptr, ptr %8, align 8, !noalias !179
   tail call void %9(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3)
   %10 = load i8, ptr %0, align 8, !tbaa !64
   %11 = icmp eq i8 %10, 0
@@ -4406,10 +4406,10 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory5FsyncERKNS_9IO
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !143, !noalias !181
-  %8 = load ptr, ptr %7, align 8, !tbaa !4, !noalias !181
+  %7 = load ptr, ptr %6, align 8, !tbaa !143, !noalias !182
+  %8 = load ptr, ptr %7, align 8, !tbaa !4, !noalias !182
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8, !noalias !181
+  %10 = load ptr, ptr %9, align 8, !noalias !182
   tail call void %10(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4)
   %11 = load i8, ptr %0, align 8, !tbaa !64
   %12 = icmp eq i8 %11, 0
@@ -4429,10 +4429,10 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory19FsyncWithDirO
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !143, !noalias !184
-  %7 = load ptr, ptr %6, align 8, !tbaa !4, !noalias !184
+  %6 = load ptr, ptr %5, align 8, !tbaa !143, !noalias !185
+  %7 = load ptr, ptr %6, align 8, !tbaa !4, !noalias !185
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !noalias !184
+  %9 = load ptr, ptr %8, align 8, !noalias !185
   tail call void %9(ptr dead_on_unwind writable sret(%"class.rocksdb::IOStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(84) %2, ptr noundef %3)
   %10 = load i8, ptr %0, align 8, !tbaa !64
   %11 = icmp eq i8 %10, 0
@@ -4772,20 +4772,21 @@ attributes #21 = { noreturn nounwind }
 !167 = distinct !{!167, !"_ZN7rocksdb6Status2OKEv"}
 !168 = !{!169, !10, i64 8}
 !169 = !{!"_ZTSN7rocksdb5SliceE", !42, i64 0, !10, i64 8}
-!170 = distinct !{!170, !171}
+!170 = distinct !{!170, !171, !172}
 !171 = !{!"llvm.loop.mustprogress"}
-!172 = !{!173, !15, i64 16}
-!173 = !{!"_ZTSSt14_Function_base", !11, i64 0, !15, i64 16}
-!174 = !{!175, !15, i64 24}
-!175 = !{!"_ZTSSt8functionIFvRN7rocksdb13FSReadRequestEPvEE", !173, i64 0, !15, i64 24}
-!176 = !{i8 0, i8 2}
-!177 = !{}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN7rocksdb18FSDirectoryWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE: argument 0"}
-!180 = distinct !{!180, !"_ZN7rocksdb18FSDirectoryWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE"}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN7rocksdb18FSDirectoryWrapper19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE: argument 0"}
-!183 = distinct !{!183, !"_ZN7rocksdb18FSDirectoryWrapper19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN7rocksdb18FSDirectoryWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE: argument 0"}
-!186 = distinct !{!186, !"_ZN7rocksdb18FSDirectoryWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE"}
+!172 = !{!"llvm.loop.estimated_trip_count"}
+!173 = !{!174, !15, i64 16}
+!174 = !{!"_ZTSSt14_Function_base", !11, i64 0, !15, i64 16}
+!175 = !{!176, !15, i64 24}
+!176 = !{!"_ZTSSt8functionIFvRN7rocksdb13FSReadRequestEPvEE", !174, i64 0, !15, i64 24}
+!177 = !{i8 0, i8 2}
+!178 = !{}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN7rocksdb18FSDirectoryWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE: argument 0"}
+!181 = distinct !{!181, !"_ZN7rocksdb18FSDirectoryWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN7rocksdb18FSDirectoryWrapper19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE: argument 0"}
+!184 = distinct !{!184, !"_ZN7rocksdb18FSDirectoryWrapper19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN7rocksdb18FSDirectoryWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE: argument 0"}
+!187 = distinct !{!187, !"_ZN7rocksdb18FSDirectoryWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE"}

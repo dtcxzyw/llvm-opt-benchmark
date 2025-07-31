@@ -66,22 +66,22 @@ define void @ossl_rand_pool_cleanup() local_unnamed_addr #2 {
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !11
-  %13 = load i64, ptr %1, align 8, !tbaa !12
+  %12 = load i64, ptr %11, align 8, !tbaa !12
+  %13 = load i64, ptr %1, align 8, !tbaa !13
   %14 = icmp eq i64 %12, %13
   br i1 %14, label %15, label %check_random_device.exit.thread.i
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !15
-  %18 = load i64, ptr %2, align 8, !tbaa !16
+  %17 = load i64, ptr %16, align 8, !tbaa !16
+  %18 = load i64, ptr %2, align 8, !tbaa !17
   %19 = icmp eq i64 %17, %18
   br i1 %19, label %20, label %check_random_device.exit.thread.i
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !17
-  %23 = load i32, ptr %3, align 8, !tbaa !18
+  %22 = load i32, ptr %21, align 8, !tbaa !18
+  %23 = load i32, ptr %3, align 8, !tbaa !19
   %24 = xor i32 %23, %22
   %25 = icmp ult i32 %24, 512
   br i1 %25, label %check_random_device.exit.i, label %check_random_device.exit.thread.i
@@ -92,8 +92,8 @@ check_random_device.exit.thread.i:                ; preds = %20, %15, %10, %8, %
 
 check_random_device.exit.i:                       ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %27 = load i64, ptr %26, align 8, !tbaa !19
-  %28 = load i64, ptr %4, align 8, !tbaa !20
+  %27 = load i64, ptr %26, align 8, !tbaa !20
+  %28 = load i64, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i64 %27, %28
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #11
   br i1 %.not.i, label %29, label %close_random_device.exit
@@ -107,7 +107,7 @@ close_random_device.exit:                         ; preds = %check_random_device
   store i32 -1, ptr %6, align 8, !tbaa !3
   %32 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %32, 4
-  br i1 %exitcond.not, label %33, label %5, !llvm.loop !21
+  br i1 %exitcond.not, label %33, label %5, !llvm.loop !22
 
 33:                                               ; preds = %close_random_device.exit
   ret void
@@ -140,22 +140,22 @@ define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnam
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !11
-  %15 = load i64, ptr %2, align 8, !tbaa !12
+  %14 = load i64, ptr %13, align 8, !tbaa !12
+  %15 = load i64, ptr %2, align 8, !tbaa !13
   %16 = icmp eq i64 %14, %15
   br i1 %16, label %17, label %check_random_device.exit.thread.i.i
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !15
-  %20 = load i64, ptr %4, align 8, !tbaa !16
+  %19 = load i64, ptr %18, align 8, !tbaa !16
+  %20 = load i64, ptr %4, align 8, !tbaa !17
   %21 = icmp eq i64 %19, %20
   br i1 %21, label %22, label %check_random_device.exit.thread.i.i
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !17
-  %25 = load i32, ptr %5, align 8, !tbaa !18
+  %24 = load i32, ptr %23, align 8, !tbaa !18
+  %25 = load i32, ptr %5, align 8, !tbaa !19
   %26 = xor i32 %25, %24
   %27 = icmp ult i32 %26, 512
   br i1 %27, label %check_random_device.exit.i.i, label %check_random_device.exit.thread.i.i
@@ -166,8 +166,8 @@ check_random_device.exit.thread.i.i:              ; preds = %22, %17, %12, %10, 
 
 check_random_device.exit.i.i:                     ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %29 = load i64, ptr %28, align 8, !tbaa !19
-  %30 = load i64, ptr %6, align 8, !tbaa !20
+  %29 = load i64, ptr %28, align 8, !tbaa !20
+  %30 = load i64, ptr %6, align 8, !tbaa !21
   %.not.i.i = icmp eq i64 %29, %30
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
   br i1 %.not.i.i, label %31, label %close_random_device.exit.i
@@ -181,10 +181,10 @@ close_random_device.exit.i:                       ; preds = %31, %check_random_d
   store i32 -1, ptr %8, align 8, !tbaa !3
   %34 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %34, 4
-  br i1 %exitcond.not.i, label %ossl_rand_pool_cleanup.exit, label %7, !llvm.loop !21
+  br i1 %exitcond.not.i, label %ossl_rand_pool_cleanup.exit, label %7, !llvm.loop !22
 
 ossl_rand_pool_cleanup.exit:                      ; preds = %close_random_device.exit.i, %1
-  store i32 %0, ptr @keep_random_devices_open, align 4, !tbaa !22
+  store i32 %0, ptr @keep_random_devices_open, align 4, !tbaa !23
   ret void
 }
 
@@ -222,7 +222,7 @@ define i64 @ossl_pool_acquire_entropy(ptr noundef %0) local_unnamed_addr #2 {
 
 17:                                               ; preds = %14
   %18 = tail call ptr @__errno_location() #12
-  %19 = load i32, ptr %18, align 4, !tbaa !22
+  %19 = load i32, ptr %18, align 4, !tbaa !23
   %.not5.i = icmp eq i32 %19, 38
   br i1 %.not5.i, label %20, label %.thread
 
@@ -247,7 +247,7 @@ syscall_random.exit:                              ; preds = %14, %20
 
 ..thread_crit_edge:                               ; preds = %27
   %.pre = tail call ptr @__errno_location() #12
-  %.pr = load i32, ptr %.pre, align 4, !tbaa !22
+  %.pr = load i32, ptr %.pre, align 4, !tbaa !23
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %17
@@ -259,7 +259,7 @@ syscall_random.exit:                              ; preds = %14, %20
   %.159 = phi i64 [ %26, %23 ], [ %.05894, %.thread ], [ %.05894, %27 ]
   %.157 = phi i32 [ 3, %23 ], [ %10, %.thread ], [ %10, %27 ]
   %.not = icmp eq i64 %.159, 0
-  br i1 %.not, label %.critedge, label %9, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %9, !llvm.loop !24
 
 .critedge:                                        ; preds = %9, %.thread, %30, %1
   %31 = tail call i64 @ossl_rand_pool_entropy_available(ptr noundef %0) #11
@@ -328,16 +328,16 @@ wait_random_seeded.exit.thread:                   ; preds = %50
   br i1 %56, label %.preheader.preheader.i, label %.preheader42.i
 
 .preheader.preheader.i:                           ; preds = %55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !25
   %57 = srem i32 %54, 64
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw i64 1, %58
   %60 = sdiv i32 %54, 64
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8, !tbaa !24
+  %63 = load i64, ptr %62, align 8, !tbaa !25
   %64 = or i64 %63, %59
-  store i64 %64, ptr %62, align 8, !tbaa !24
+  store i64 %64, ptr %62, align 8, !tbaa !25
   %65 = add nuw nsw i32 %54, 1
   br label %66
 
@@ -348,9 +348,9 @@ wait_random_seeded.exit.thread:                   ; preds = %50
 
 69:                                               ; preds = %66
   %70 = tail call ptr @__errno_location() #12
-  %71 = load i32, ptr %70, align 4, !tbaa !22
+  %71 = load i32, ptr %70, align 4, !tbaa !23
   %72 = icmp eq i32 %71, 4
-  br i1 %72, label %66, label %.critedge.thread.i, !llvm.loop !25
+  br i1 %72, label %66, label %.critedge.thread.i, !llvm.loop !26
 
 .preheader42.i:                                   ; preds = %55, %76
   %73 = call i64 @read(i32 noundef %54, ptr noundef nonnull %5, i64 noundef 1) #11
@@ -360,9 +360,9 @@ wait_random_seeded.exit.thread:                   ; preds = %50
 
 76:                                               ; preds = %.preheader42.i
   %77 = tail call ptr @__errno_location() #12
-  %78 = load i32, ptr %77, align 4, !tbaa !22
+  %78 = load i32, ptr %77, align 4, !tbaa !23
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %.preheader42.i, label %.critedge.thread.i, !llvm.loop !26
+  br i1 %79, label %.preheader42.i, label %.critedge.thread.i, !llvm.loop !27
 
 .critedge.thread.i:                               ; preds = %76, %69
   %80 = call i32 @close(i32 noundef %54) #11
@@ -384,7 +384,7 @@ wait_random_seeded.exit.thread:                   ; preds = %50
   %.01941.i = phi i32 [ %84, %83 ], [ %34, %33 ]
   store i1 true, ptr @wait_random_seeded.seeded, align 4
   %85 = call ptr @shmat(i32 noundef %.01941.i, ptr noundef null, i32 noundef 4096) #11
-  store ptr %85, ptr @shm_addr, align 8, !tbaa !27
+  store ptr %85, ptr @shm_addr, align 8, !tbaa !28
   %.not32.i = icmp eq ptr %85, inttoptr (i64 -1 to ptr)
   br i1 %.not32.i, label %wait_random_seeded.exit, label %86
 
@@ -433,22 +433,22 @@ wait_random_seeded.exit:                          ; preds = %53, %.critedge.thre
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %106 = load i64, ptr %105, align 8, !tbaa !11
-  %107 = load i64, ptr %3, align 8, !tbaa !12
+  %106 = load i64, ptr %105, align 8, !tbaa !12
+  %107 = load i64, ptr %3, align 8, !tbaa !13
   %108 = icmp eq i64 %106, %107
   br i1 %108, label %109, label %check_random_device.exit.thread.i
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %111 = load i64, ptr %110, align 8, !tbaa !15
-  %112 = load i64, ptr %90, align 8, !tbaa !16
+  %111 = load i64, ptr %110, align 8, !tbaa !16
+  %112 = load i64, ptr %90, align 8, !tbaa !17
   %113 = icmp eq i64 %111, %112
   br i1 %113, label %114, label %check_random_device.exit.thread.i
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %116 = load i32, ptr %115, align 8, !tbaa !17
-  %117 = load i32, ptr %91, align 8, !tbaa !18
+  %116 = load i32, ptr %115, align 8, !tbaa !18
+  %117 = load i32, ptr %91, align 8, !tbaa !19
   %118 = xor i32 %117, %116
   %119 = icmp ult i32 %118, 512
   br i1 %119, label %check_random_device.exit.i, label %check_random_device.exit.thread.i
@@ -459,15 +459,15 @@ check_random_device.exit.thread.i:                ; preds = %114, %109, %104, %1
 
 check_random_device.exit.i:                       ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %121 = load i64, ptr %120, align 8, !tbaa !19
-  %122 = load i64, ptr %92, align 8, !tbaa !20
+  %121 = load i64, ptr %120, align 8, !tbaa !20
+  %122 = load i64, ptr %92, align 8, !tbaa !21
   %.not.i73 = icmp eq i64 %121, %122
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
   br i1 %.not.i73, label %get_random_device.exit, label %123
 
 123:                                              ; preds = %check_random_device.exit.i, %check_random_device.exit.thread.i
   %124 = getelementptr inbounds nuw [4 x ptr], ptr @random_device_paths, i64 0, i64 %.052101
-  %125 = load ptr, ptr %124, align 8, !tbaa !29
+  %125 = load ptr, ptr %124, align 8, !tbaa !30
   %126 = call i32 (ptr, i32, ...) @open(ptr noundef %125, i32 noundef 0) #11
   store i32 %126, ptr %100, align 8, !tbaa !3
   %127 = icmp eq i32 %126, -1
@@ -479,18 +479,18 @@ check_random_device.exit.i:                       ; preds = %114
   br i1 %.not15.i, label %139, label %130
 
 130:                                              ; preds = %128
-  %131 = load i64, ptr %4, align 8, !tbaa !12
+  %131 = load i64, ptr %4, align 8, !tbaa !13
   %132 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 %131, ptr %132, align 8, !tbaa !11
-  %133 = load i64, ptr %93, align 8, !tbaa !16
+  store i64 %131, ptr %132, align 8, !tbaa !12
+  %133 = load i64, ptr %93, align 8, !tbaa !17
   %134 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i64 %133, ptr %134, align 8, !tbaa !15
-  %135 = load i32, ptr %94, align 8, !tbaa !18
+  store i64 %133, ptr %134, align 8, !tbaa !16
+  %135 = load i32, ptr %94, align 8, !tbaa !19
   %136 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i32 %135, ptr %136, align 8, !tbaa !17
-  %137 = load i64, ptr %95, align 8, !tbaa !20
+  store i32 %135, ptr %136, align 8, !tbaa !18
+  %137 = load i64, ptr %95, align 8, !tbaa !21
   %138 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store i64 %137, ptr %138, align 8, !tbaa !19
+  store i64 %137, ptr %138, align 8, !tbaa !20
   br label %get_random_device.exit
 
 139:                                              ; preds = %128
@@ -529,7 +529,7 @@ get_random_device.exit:                           ; preds = %check_random_device
 
 153:                                              ; preds = %151
   %154 = tail call ptr @__errno_location() #12
-  %155 = load i32, ptr %154, align 4, !tbaa !22
+  %155 = load i32, ptr %154, align 4, !tbaa !23
   %.not69 = icmp eq i32 %155, 4
   br i1 %.not69, label %156, label %.critedge2.thread
 
@@ -540,7 +540,7 @@ get_random_device.exit:                           ; preds = %check_random_device
   %157 = add nsw i32 %.149, -1
   %158 = icmp sgt i32 %.149, 0
   %or.cond124 = select i1 %.not68, i1 %158, i1 false
-  br i1 %or.cond124, label %.preheader.preheader, label %.critedge2, !llvm.loop !31
+  br i1 %or.cond124, label %.preheader.preheader, label %.critedge2, !llvm.loop !32
 
 .critedge2:                                       ; preds = %156
   %159 = icmp sgt i64 %145, -1
@@ -562,22 +562,22 @@ get_random_device.exit:                           ; preds = %check_random_device
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !11
-  %168 = load i64, ptr %2, align 8, !tbaa !12
+  %167 = load i64, ptr %166, align 8, !tbaa !12
+  %168 = load i64, ptr %2, align 8, !tbaa !13
   %169 = icmp eq i64 %167, %168
   br i1 %169, label %170, label %check_random_device.exit.thread.i76
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %172 = load i64, ptr %171, align 8, !tbaa !15
-  %173 = load i64, ptr %96, align 8, !tbaa !16
+  %172 = load i64, ptr %171, align 8, !tbaa !16
+  %173 = load i64, ptr %96, align 8, !tbaa !17
   %174 = icmp eq i64 %172, %173
   br i1 %174, label %175, label %check_random_device.exit.thread.i76
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %177 = load i32, ptr %176, align 8, !tbaa !17
-  %178 = load i32, ptr %97, align 8, !tbaa !18
+  %177 = load i32, ptr %176, align 8, !tbaa !18
+  %178 = load i32, ptr %97, align 8, !tbaa !19
   %179 = xor i32 %178, %177
   %180 = icmp ult i32 %179, 512
   br i1 %180, label %check_random_device.exit.i77, label %check_random_device.exit.thread.i76
@@ -588,8 +588,8 @@ check_random_device.exit.thread.i76:              ; preds = %175, %170, %165, %1
 
 check_random_device.exit.i77:                     ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %182 = load i64, ptr %181, align 8, !tbaa !19
-  %183 = load i64, ptr %98, align 8, !tbaa !20
+  %182 = load i64, ptr %181, align 8, !tbaa !20
+  %183 = load i64, ptr %98, align 8, !tbaa !21
   %.not.i78 = icmp eq i64 %182, %183
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
   br i1 %.not.i78, label %184, label %close_random_device.exit
@@ -613,7 +613,7 @@ close_random_device.exit:                         ; preds = %check_random_device
   %191 = icmp ne i64 %.154, 0
   %192 = icmp samesign ult i64 %.052101, 3
   %193 = select i1 %191, i1 %192, i1 false
-  br i1 %193, label %99, label %._crit_edge, !llvm.loop !32
+  br i1 %193, label %99, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %189, %88
   %194 = call i64 @ossl_rand_pool_entropy_available(ptr noundef %0) #11
@@ -651,10 +651,10 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8
   %5 = tail call i32 @getpid() #11
-  store i32 %5, ptr %4, align 8, !tbaa !33
+  store i32 %5, ptr %4, align 8, !tbaa !34
   %6 = tail call i64 @CRYPTO_THREAD_get_current_id() #11
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %6, ptr %7, align 8, !tbaa !35
+  store i64 %6, ptr %7, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   %8 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #11
   %.not.i = icmp eq i32 %8, 0
@@ -685,7 +685,7 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
 get_time_stamp.exit:                              ; preds = %1, %14, %21
   %.14.i = phi i64 [ %22, %21 ], [ %20, %14 ], [ %13, %1 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.14.i, ptr %23, align 8, !tbaa !36
+  store i64 %.14.i, ptr %23, align 8, !tbaa !37
   %24 = call i32 @ossl_rand_pool_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 24, i64 noundef 0) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
   ret i32 %24
@@ -732,7 +732,7 @@ declare i32 @OPENSSL_atexit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @cleanup_shm() #2 {
-  %1 = load ptr, ptr @shm_addr, align 8, !tbaa !27
+  %1 = load ptr, ptr @shm_addr, align 8, !tbaa !28
   %2 = tail call i32 @shmdt(ptr noundef %1) #11
   ret void
 }
@@ -778,31 +778,32 @@ attributes #13 = { nounwind willreturn memory(read) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"long", !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!4, !8, i64 8}
-!12 = !{!13, !8, i64 0}
-!13 = !{!"stat", !8, i64 0, !8, i64 8, !8, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !14, i64 72, !14, i64 88, !14, i64 104, !6, i64 120}
-!14 = !{!"timespec", !8, i64 0, !8, i64 8}
-!15 = !{!4, !8, i64 16}
-!16 = !{!13, !8, i64 8}
-!17 = !{!4, !5, i64 24}
-!18 = !{!13, !5, i64 24}
-!19 = !{!4, !8, i64 32}
-!20 = !{!13, !8, i64 40}
-!21 = distinct !{!21, !10}
-!22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !10}
-!24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"any pointer", !6, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 omnipotent char", !28, i64 0}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"", !5, i64 0, !8, i64 8, !8, i64 16}
-!35 = !{!34, !8, i64 8}
-!36 = !{!34, !8, i64 16}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!4, !8, i64 8}
+!13 = !{!14, !8, i64 0}
+!14 = !{!"stat", !8, i64 0, !8, i64 8, !8, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !15, i64 72, !15, i64 88, !15, i64 104, !6, i64 120}
+!15 = !{!"timespec", !8, i64 0, !8, i64 8}
+!16 = !{!4, !8, i64 16}
+!17 = !{!14, !8, i64 8}
+!18 = !{!4, !5, i64 24}
+!19 = !{!14, !5, i64 24}
+!20 = !{!4, !8, i64 32}
+!21 = !{!14, !8, i64 40}
+!22 = distinct !{!22, !10, !11}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !10, !11}
+!25 = !{!8, !8, i64 0}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"any pointer", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 omnipotent char", !29, i64 0}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"", !5, i64 0, !8, i64 8, !8, i64 16}
+!36 = !{!35, !8, i64 8}
+!37 = !{!35, !8, i64 16}

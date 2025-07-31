@@ -1086,7 +1086,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %3, %6
   %22 = load i32, ptr %.0.i, align 8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %21, %expanded_record_get_tupdesc.exit
   %25 = tail call ptr @SystemAttributeByName(ptr noundef %1) #8
@@ -1624,7 +1624,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv58
   %62 = load i8, ptr %61, align 1, !range !5, !noundef !6
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %73, label %64, !prof !10
+  br i1 %63, label %73, label %64, !prof !11
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv58
@@ -1657,7 +1657,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next59, %78
-  br i1 %79, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  br i1 %79, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %131
   %80 = phi i32 [ %132, %131 ], [ %23, %.lr.ph ]
@@ -1722,7 +1722,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %117 = load i8, ptr %116, align 1, !range !5, !noundef !6
   %118 = trunc nuw i8 %117 to i1
-  br i1 %118, label %128, label %119, !prof !10
+  br i1 %118, label %128, label %119, !prof !11
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
@@ -1755,7 +1755,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %131, %76, %9
   %135 = load i32, ptr %5, align 4
@@ -1923,7 +1923,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %40, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %68, label %40, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %65
   %.pre73 = load i32, ptr %17, align 4
@@ -1950,7 +1950,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
 76:                                               ; preds = %77
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !16
 
 77:                                               ; preds = %.lr.ph67, %76
   %indvars.iv69 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next70, %76 ]
@@ -2221,12 +2221,13 @@ attributes #9 = { cold nounwind }
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !8, !9, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

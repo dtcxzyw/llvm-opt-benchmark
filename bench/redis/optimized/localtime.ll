@@ -75,7 +75,7 @@ is_leap_year.exit.thread:                         ; preds = %25
   %.0.i62 = phi i64 [ 365, %is_leap_year.exit.thread ], [ %.0.i, %is_leap_year.exit ]
   %37 = sub nsw i64 %.035, %.0.i62
   %38 = add nuw nsw i32 %storemerge54, 1
-  br label %25
+  br label %25, !llvm.loop !18
 
 39:                                               ; preds = %is_leap_year.exit
   %40 = trunc i64 %.035 to i32
@@ -97,7 +97,7 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   %46 = phi i32 [ %40, %39 ], [ %40, %43 ], [ %34, %.thread ]
   %.0.i39 = phi i32 [ 29, %39 ], [ %45, %43 ], [ 28, %.thread ]
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.0.i39, ptr %47, align 4, !tbaa !18
+  store i32 %.0.i39, ptr %47, align 4, !tbaa !20
   %.not55 = icmp slt i64 %.035, 31
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
@@ -108,10 +108,10 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   %49 = sub nsw i64 %.257, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = getelementptr inbounds nuw [12 x i32], ptr %5, i64 0, i64 %indvars.iv.next
-  %51 = load i32, ptr %50, align 4, !tbaa !18
+  %51 = load i32, ptr %50, align 4, !tbaa !20
   %52 = sext i32 %51 to i64
   %.not = icmp slt i64 %49, %52
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %53 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -123,12 +123,12 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   %storemerge.lcssa = phi i32 [ %53, %._crit_edge.loopexit ], [ 0, %is_leap_year.exit43 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %storemerge.lcssa, ptr %55, align 8, !tbaa !21
+  store i32 %storemerge.lcssa, ptr %55, align 8, !tbaa !23
   %56 = add i32 %.pre-phi, 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %56, ptr %57, align 4, !tbaa !22
+  store i32 %56, ptr %57, align 4, !tbaa !24
   %58 = add nsw i32 %storemerge54, -1900
-  store i32 %58, ptr %54, align 4, !tbaa !23
+  store i32 %58, ptr %54, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #3
   ret void
 }
@@ -167,9 +167,11 @@ attributes #3 = { nounwind }
 !15 = !{!6, !7, i64 0}
 !16 = !{!6, !7, i64 24}
 !17 = !{!6, !7, i64 28}
-!18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!6, !7, i64 16}
-!22 = !{!6, !7, i64 12}
-!23 = !{!6, !7, i64 20}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!7, !7, i64 0}
+!21 = distinct !{!21, !22, !19}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!6, !7, i64 16}
+!24 = !{!6, !7, i64 12}
+!25 = !{!6, !7, i64 20}

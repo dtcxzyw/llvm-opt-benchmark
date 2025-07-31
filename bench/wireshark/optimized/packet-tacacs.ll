@@ -941,7 +941,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %124 = call noalias ptr @wmem_alloc(ptr noundef %122, i64 noundef %123) #13
   %125 = icmp ne i64 %123, -1
   call void @llvm.assume(i1 %125)
-  %126 = call ptr @__memcpy_chk(ptr noundef %124, ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef %123) #10, !alias.scope !10
+  %126 = call ptr @__memcpy_chk(ptr noundef %124, ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef %123) #10, !alias.scope !11
   %127 = getelementptr i8, ptr %124, i64 4
   %128 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #11
   %129 = add i64 %120, 18
@@ -949,7 +949,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %131 = select i1 %130, i64 0, i64 %129
   %132 = icmp ne i64 %131, -1
   call void @llvm.assume(i1 %132)
-  %133 = call ptr @__memcpy_chk(ptr noundef %127, ptr noundef nonnull readonly %.0, i64 noundef %128, i64 noundef %131) #10, !alias.scope !14
+  %133 = call ptr @__memcpy_chk(ptr noundef %127, ptr noundef nonnull readonly %.0, i64 noundef %128, i64 noundef %131) #10, !alias.scope !15
   %134 = getelementptr i8, ptr %127, i64 %128
   %135 = getelementptr i8, ptr %134, i64 1
   store i8 %66, ptr %134, align 1
@@ -988,15 +988,15 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   store i8 %148, ptr %gep.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond39.not.i.i, label %.loopexit.i.i, label %143, !llvm.loop !18
+  br i1 %exitcond39.not.i.i, label %.loopexit.i.i, label %143, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %144, %143
   %.1.i.i = phi i32 [ %139, %143 ], [ %.037.i.i, %144 ]
-  %149 = call ptr @__memcpy_chk(ptr noundef %136, ptr noundef nonnull %5, i64 noundef 16, i64 noundef %140) #10, !alias.scope !19
+  %149 = call ptr @__memcpy_chk(ptr noundef %136, ptr noundef nonnull %5, i64 noundef 16, i64 noundef %140) #10, !alias.scope !20
   call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %124, i64 noundef %123)
   %150 = add i32 %.1.i.i, 16
   %151 = icmp slt i32 %150, %12
-  br i1 %151, label %.preheader.i.i, label %.loopexit, !llvm.loop !23
+  br i1 %151, label %.preheader.i.i, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1572,7 +1572,7 @@ define internal fastcc void @dissect_tacplus_args_list(ptr noundef %0, ptr nound
   %15 = add i32 %.026, %8
   %16 = add nuw nsw i32 %.02425, 1
   %exitcond.not = icmp eq i32 %16, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -1642,20 +1642,21 @@ attributes #13 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !9}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
-!21 = distinct !{!21, !"memcpy.inline"}
-!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = distinct !{!19, !9, !10}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

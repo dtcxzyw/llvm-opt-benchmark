@@ -286,7 +286,7 @@ index_alpha.exit:                                 ; preds = %97, %102, %106, %11
   store i64 %156, ptr %154, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %xor_block.exit.i, label %151, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %xor_block.exit.i, label %151, !llvm.loop !7
 
 xor_block.exit.i:                                 ; preds = %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(1024) %4, i64 1024, i1 false)
@@ -616,7 +616,7 @@ xor_block.exit.i:                                 ; preds = %151
   store i64 %461, ptr %162, align 8
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i70, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %157, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.preheader.i, label %157, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %157, %.preheader.i
   %indvars.iv398.i = phi i64 [ %indvars.iv.next399.i, %.preheader.i ], [ 0, %157 ]
@@ -942,7 +942,7 @@ xor_block.exit.i:                                 ; preds = %151
   store i64 %765, ptr %466, align 8
   %indvars.iv.next399.i = add nuw nsw i64 %indvars.iv398.i, 1
   %exitcond401.not.i = icmp eq i64 %indvars.iv.next399.i, 8
-  br i1 %exitcond401.not.i, label %766, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond401.not.i, label %766, label %.preheader.i, !llvm.loop !9
 
 766:                                              ; preds = %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %146, ptr noundef nonnull align 8 dereferenceable(1024) %.sroa.0, i64 1024, i1 false)
@@ -958,7 +958,7 @@ xor_block.exit.i:                                 ; preds = %151
   store i64 %772, ptr %770, align 8
   %indvars.iv.next.i392.i = add nuw nsw i64 %indvars.iv.i391.i, 1
   %exitcond.not.i393.i = icmp eq i64 %indvars.iv.next.i392.i, 128
-  br i1 %exitcond.not.i393.i, label %fill_block.exit, label %767, !llvm.loop !6
+  br i1 %exitcond.not.i393.i, label %fill_block.exit, label %767, !llvm.loop !7
 
 fill_block.exit:                                  ; preds = %767
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %.sroa.0)
@@ -972,7 +972,7 @@ fill_block.exit:                                  ; preds = %767
   %776 = load i32, ptr %64, align 4
   %777 = zext i32 %776 to i64
   %778 = icmp samesign ult i64 %indvars.iv.next, %777
-  br i1 %778, label %78, label %.loopexit, !llvm.loop !9
+  br i1 %778, label %78, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %773, %56, %3
   ret void
@@ -1000,7 +1000,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef readonly captures(n
   store i64 %11, ptr %9, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %xor_block.exit, label %6, !llvm.loop !6
+  br i1 %exitcond.not.i, label %xor_block.exit, label %6, !llvm.loop !7
 
 xor_block.exit:                                   ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, ptr noundef nonnull readonly align 8 dereferenceable(1024) %4, i64 noundef 1024, i1 noundef false) #6
@@ -1016,7 +1016,7 @@ xor_block.exit:                                   ; preds = %6
   store i64 %17, ptr %15, align 8
   %indvars.iv.next.i393 = add nuw nsw i64 %indvars.iv.i392, 1
   %exitcond.not.i394 = icmp eq i64 %indvars.iv.next.i393, 128
-  br i1 %exitcond.not.i394, label %xor_block.exit395, label %12, !llvm.loop !6
+  br i1 %exitcond.not.i394, label %xor_block.exit395, label %12, !llvm.loop !7
 
 xor_block.exit395:                                ; preds = %12, %xor_block.exit395
   %indvars.iv = phi i64 [ %indvars.iv.next, %xor_block.exit395 ], [ 0, %12 ]
@@ -1342,7 +1342,7 @@ xor_block.exit395:                                ; preds = %12, %xor_block.exit
   store i64 %321, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %xor_block.exit395, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %xor_block.exit395, !llvm.loop !11
 
 .preheader:                                       ; preds = %xor_block.exit395, %.preheader
   %indvars.iv403 = phi i64 [ %indvars.iv.next404, %.preheader ], [ 0, %xor_block.exit395 ]
@@ -1668,7 +1668,7 @@ xor_block.exit395:                                ; preds = %12, %xor_block.exit
   store i64 %625, ptr %326, align 8
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next404, 8
-  br i1 %exitcond406.not, label %626, label %.preheader, !llvm.loop !11
+  br i1 %exitcond406.not, label %626, label %.preheader, !llvm.loop !12
 
 626:                                              ; preds = %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %2, ptr noundef nonnull readonly align 8 dereferenceable(1024) %5, i64 noundef 1024, i1 noundef false) #6
@@ -1684,7 +1684,7 @@ xor_block.exit395:                                ; preds = %12, %xor_block.exit
   store i64 %632, ptr %630, align 8
   %indvars.iv.next.i397 = add nuw nsw i64 %indvars.iv.i396, 1
   %exitcond.not.i398 = icmp eq i64 %indvars.iv.next.i397, 128
-  br i1 %exitcond.not.i398, label %xor_block.exit399, label %627, !llvm.loop !6
+  br i1 %exitcond.not.i398, label %xor_block.exit399, label %627, !llvm.loop !7
 
 xor_block.exit399:                                ; preds = %627
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #6
@@ -1718,11 +1718,12 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

@@ -420,7 +420,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds 
   %230 = getelementptr inbounds nuw i8, ptr %.082, i64 20
   %231 = add nsw i64 %.086, -1
   %.not = icmp eq i64 %231, 0
-  br i1 %.not, label %232, label %189, !llvm.loop !8
+  br i1 %.not, label %232, label %189, !llvm.loop !9
 
 232:                                              ; preds = %189
   %233 = tail call i32 @llvm.fshl.i32(i32 %229, i32 %229, i32 21)
@@ -1270,7 +1270,7 @@ define linkonce_odr hidden noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   %232 = add i64 %231, %226
   %233 = getelementptr inbounds nuw i8, ptr %.054, i64 64
   %.not = icmp eq ptr %233, %177
-  br i1 %.not, label %234, label %178, !llvm.loop !9
+  br i1 %.not, label %234, label %178, !llvm.loop !10
 
 234:                                              ; preds = %178
   %235 = and i64 %175, 63
@@ -1478,7 +1478,7 @@ define linkonce_odr hidden noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   %85 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 30)
   %86 = getelementptr inbounds nuw i8, ptr %.067, i64 64
   %.not = icmp eq ptr %86, %31
-  br i1 %.not, label %87, label %32, !llvm.loop !10
+  br i1 %.not, label %87, label %32, !llvm.loop !11
 
 87:                                               ; preds = %32
   %88 = and i64 %29, 63
@@ -1737,7 +1737,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmh
   %139 = getelementptr inbounds nuw i8, ptr %.0, i64 128
   %140 = add i64 %.068, -128
   %141 = icmp ugt i64 %140, 127
-  br i1 %141, label %29, label %142, !prof !11, !llvm.loop !12
+  br i1 %141, label %29, label %142, !prof !12, !llvm.loop !13
 
 142:                                              ; preds = %29
   %143 = add i64 %120, %98
@@ -1854,7 +1854,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmh
   %229 = add i64 %228, %223
   %storemerge = mul i64 %227, -4348849565147123417
   %230 = icmp samesign ult i64 %199, %140
-  br i1 %230, label %198, label %._crit_edge, !llvm.loop !13
+  br i1 %230, label %198, label %._crit_edge, !llvm.loop !15
 
 231:                                              ; preds = %._crit_edge, %6
   %.fca.1.insert.merged = phi { i64, i64 } [ %7, %6 ], [ %197, %._crit_edge ]
@@ -2025,7 +2025,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashcc12HashLen0to16EPKcm.exit.thread: ; p
   %135 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %136 = add nsw i64 %.0, -16
   %137 = icmp samesign ugt i64 %.0, 16
-  br i1 %137, label %117, label %.loopexit, !llvm.loop !14
+  br i1 %137, label %117, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %117, %83
   %.051 = phi i64 [ %3, %83 ], [ %125, %117 ]
@@ -2094,12 +2094,14 @@ attributes #7 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.estimated_trip_count", i32 2001}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

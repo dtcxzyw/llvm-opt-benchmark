@@ -574,7 +574,7 @@ define internal i32 @acpi_ns_get_device_callback(ptr noundef %0, i32 noundef %1,
 41:                                               ; preds = %44
   %42 = add nuw nsw i64 %45, 1
   %43 = icmp eq i64 %42, %38
-  br i1 %43, label %.loopexit, label %44, !llvm.loop !10
+  br i1 %43, label %.loopexit, label %44, !llvm.loop !11
 
 44:                                               ; preds = %41, %36
   %45 = phi i64 [ 0, %36 ], [ %42, %41 ]
@@ -809,7 +809,8 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 1825465, i64 1825486}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}

@@ -284,7 +284,7 @@ define internal fastcc noundef zeroext i1 @dissect_fcip(ptr noundef %0, ptr noun
   %.0100.be.i = add i32 %.0100117.i, 1
   %.0101.be.i = add i32 %.0101116.i, -1
   %.not.i = icmp eq i32 %.0101.be.i, 0
-  br i1 %.not.i, label %get_next_fcip_header_offset.exit.thread, label %.lr.ph.i
+  br i1 %.not.i, label %get_next_fcip_header_offset.exit.thread, label %.lr.ph.i, !llvm.loop !7
 
 31:                                               ; preds = %29
   %32 = add i32 %.0100117.i, 12
@@ -346,7 +346,7 @@ define internal fastcc noundef zeroext i1 @dissect_fcip(ptr noundef %0, ptr noun
   br i1 %66, label %get_next_fcip_header_offset.exit, label %.backedge.i
 
 67:                                               ; preds = %60
-  %68 = load i8, ptr @fcip_desegment, align 1, !range !6, !noundef !7
+  %68 = load i8, ptr @fcip_desegment, align 1, !range !6, !noundef !9
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %get_next_fcip_header_offset.exit
 
@@ -615,7 +615,7 @@ dissect_fcip_sf.exit:                             ; preds = %195, %194, %187, %1
   %.1106174 = phi i32 [ %.1106188, %195 ], [ %.1106188, %194 ], [ %.1106175, %187 ], [ %.1106175, %189 ]
   %217 = sub nsw i32 %.0107144, %81
   %218 = icmp sgt i32 %217, 28
-  br i1 %218, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !8
+  br i1 %218, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !10
 
 get_next_fcip_header_offset.exit.thread.loopexit242: ; preds = %get_next_fcip_header_offset.exit
   br label %get_next_fcip_header_offset.exit.thread
@@ -688,6 +688,8 @@ attributes #3 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{}
+!10 = distinct !{!10, !11, !8}
+!11 = !{!"llvm.loop.mustprogress"}

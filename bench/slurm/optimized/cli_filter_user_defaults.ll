@@ -126,18 +126,18 @@ define dso_local noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 nou
   %54 = icmp ne i16 %53, 0
   %55 = icmp samesign ugt i64 %.021.i, 1
   %56 = and i1 %55, %54
-  br i1 %56, label %.lr.ph.i, label %_trim.exit, !llvm.loop !11
+  br i1 %56, label %.lr.ph.i, label %_trim.exit, !llvm.loop !12
 
 _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.critedge.i, %35
   %.016.i = phi ptr [ null, %23 ], [ %.015.i, %.critedge.i ], [ %.015.i, %35 ], [ %.015.i, %.lr.ph.i ]
   %57 = load i8, ptr %.016.i, align 1
   %58 = icmp eq i8 %57, 35
-  br i1 %58, label %257, label %59, !llvm.loop !12
+  br i1 %58, label %257, label %59, !llvm.loop !13
 
 59:                                               ; preds = %_trim.exit
   %60 = call ptr @slurm_xstrchr(ptr noundef nonnull %.016.i, i32 noundef 61) #13
   %.not27 = icmp eq ptr %60, null
-  br i1 %.not27, label %257, label %.preheader.i30, !llvm.loop !12
+  br i1 %.not27, label %257, label %.preheader.i30, !llvm.loop !13
 
 .preheader.i30:                                   ; preds = %59
   store i8 0, ptr %60, align 1
@@ -190,7 +190,7 @@ _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.cr
   %89 = icmp ne i16 %88, 0
   %90 = icmp samesign ugt i64 %.021.i39, 1
   %91 = and i1 %90, %89
-  br i1 %91, label %.lr.ph.i38, label %_trim.exit41, !llvm.loop !11
+  br i1 %91, label %.lr.ph.i38, label %_trim.exit41, !llvm.loop !12
 
 _trim.exit41:                                     ; preds = %.lr.ph.i38, %.critedge.i35, %70
   %92 = phi ptr [ %62, %.critedge.i35 ], [ %62, %70 ], [ %82, %.lr.ph.i38 ]
@@ -241,7 +241,7 @@ _trim.exit41:                                     ; preds = %.lr.ph.i38, %.crite
   %118 = icmp ne i16 %117, 0
   %119 = icmp samesign ugt i64 %.021.i52, 1
   %120 = and i1 %119, %118
-  br i1 %120, label %.lr.ph.i51, label %_trim.exit54, !llvm.loop !11
+  br i1 %120, label %.lr.ph.i51, label %_trim.exit54, !llvm.loop !12
 
 _trim.exit54:                                     ; preds = %.lr.ph.i51, %.critedge.i48, %99
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
@@ -262,7 +262,7 @@ _trim.exit54:                                     ; preds = %.lr.ph.i51, %.crite
   %125 = icmp ne ptr %124, null
   %126 = icmp samesign ult i64 %indvars.iv.i, 2
   %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %.lr.ph.i55, label %._crit_edge.i, !llvm.loop !13
+  br i1 %127, label %.lr.ph.i55, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i55
   %128 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -322,7 +322,7 @@ _trim.exit54:                                     ; preds = %.lr.ph.i51, %.crite
   %158 = icmp ne i16 %157, 0
   %159 = icmp samesign ugt i64 %.021.i.i, 1
   %160 = and i1 %159, %158
-  br i1 %160, label %.lr.ph.i.i, label %_trim.exit.thread.i, !llvm.loop !11
+  br i1 %160, label %.lr.ph.i.i, label %_trim.exit.thread.i, !llvm.loop !12
 
 _trim.exit.i:                                     ; preds = %._crit_edge.i
   %161 = icmp eq i64 %indvars.iv.next.i, 2
@@ -387,7 +387,7 @@ _trim.exit.thread.i:                              ; preds = %.lr.ph.i.i, %_trim.
   %193 = icmp ne i16 %192, 0
   %194 = icmp samesign ugt i64 %.021.i49.i, 1
   %195 = and i1 %194, %193
-  br i1 %195, label %.lr.ph.i48.i, label %_trim.exit51.i, !llvm.loop !11
+  br i1 %195, label %.lr.ph.i48.i, label %_trim.exit51.i, !llvm.loop !12
 
 _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %174, %.critedge.i45.i, %_trim.exit.thread.i, %_trim.exit.i, %_trim.exit54
   %.02768.i = phi ptr [ null, %_trim.exit.i ], [ %.02769.i, %_trim.exit.thread.i ], [ %.02769.i, %.critedge.i45.i ], [ %.02769.i, %174 ], [ null, %_trim.exit54 ], [ %.02769.i, %.lr.ph.i48.i ]
@@ -448,7 +448,7 @@ _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %174,
   %226 = icmp ne i16 %225, 0
   %227 = icmp samesign ugt i64 %.021.i62.i, 1
   %228 = and i1 %227, %226
-  br i1 %228, label %.lr.ph.i61.i, label %_trim.exit64.i, !llvm.loop !11
+  br i1 %228, label %.lr.ph.i61.i, label %_trim.exit64.i, !llvm.loop !12
 
 _trim.exit64.i:                                   ; preds = %.lr.ph.i61.i, %207, %.critedge.i58.i, %_trim.exit51.i
   %.016.i60.i = phi ptr [ null, %_trim.exit51.i ], [ %.015.i54.i, %.critedge.i58.i ], [ %.015.i54.i, %207 ], [ %.015.i54.i, %.lr.ph.i61.i ]
@@ -641,9 +641,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
 !13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !11}

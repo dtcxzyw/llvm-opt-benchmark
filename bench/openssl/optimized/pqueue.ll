@@ -150,7 +150,7 @@ define ptr @pqueue_find(ptr noundef readonly captures(none) %0, ptr noundef read
 7:                                                ; preds = %.preheader
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.013, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %8 = icmp eq i32 %bcmp, 0
-  br i1 %8, label %9, label %.preheader, !llvm.loop !15
+  br i1 %8, label %9, label %.preheader, !llvm.loop !16
 
 9:                                                ; preds = %7, %.preheader
   %.0 = phi ptr [ null, %.preheader ], [ %.013, %7 ]
@@ -176,14 +176,14 @@ define ptr @pqueue_next(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !16
+  %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !9
-  store ptr %8, ptr %0, align 8, !tbaa !16
+  store ptr %8, ptr %0, align 8, !tbaa !17
   br label %9
 
 9:                                                ; preds = %1, %3, %6
@@ -193,7 +193,7 @@ define ptr @pqueue_next(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @pqueue_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %.045 = load ptr, ptr %0, align 8, !tbaa !16
+  %.045 = load ptr, ptr %0, align 8, !tbaa !17
   %.not6 = icmp eq ptr %.045, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -202,9 +202,9 @@ define i64 @pqueue_size(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %.07 = phi i64 [ %2, %.lr.ph ], [ 0, %1 ]
   %2 = add i64 %.07, 1
   %3 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %.04 = load ptr, ptr %3, align 8, !tbaa !16
+  %.04 = load ptr, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %.04, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %2, %.lr.ph ]
@@ -241,8 +241,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !10 = !{!11, !8, i64 0}
 !11 = !{!"pqueue_st", !8, i64 0, !12, i64 8}
 !12 = !{!"int", !5, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!8, !8, i64 0}
+!18 = distinct !{!18, !14, !15}

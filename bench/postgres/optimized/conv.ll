@@ -114,7 +114,7 @@ define dso_local i32 @latin2mic(ptr noundef %0, ptr noundef writeonly captures(n
   %19 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %20 = add nsw i32 %.01825, -1
   %21 = icmp sgt i32 %.01825, 1
-  br i1 %21, label %9, label %.loopexit, !llvm.loop !6
+  br i1 %21, label %9, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %17, %6, %12
   %.01723 = phi ptr [ %.01726, %12 ], [ %1, %6 ], [ %18, %17 ]
@@ -192,7 +192,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   %27 = add nsw i32 %.03862, %.sink
   %.236 = getelementptr inbounds nuw i8, ptr %.03463, i64 1
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.thread, !llvm.loop !7
+  br i1 %28, label %.lr.ph, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %25, %6, %23, %17, %11
   %.03458 = phi ptr [ %.03463, %23 ], [ %.03463, %17 ], [ %.03463, %11 ], [ %1, %6 ], [ %.236, %25 ]
@@ -267,7 +267,7 @@ define dso_local i32 @latin2mic_with_table(ptr noundef %0, ptr noundef writeonly
   %29 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %30 = add nsw i32 %.02739, -1
   %31 = icmp sgt i32 %.02739, 1
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !8
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %28, %7, %26, %13
   %.02636 = phi ptr [ %.02640, %26 ], [ %.02640, %13 ], [ %1, %7 ], [ %.1, %28 ]
@@ -353,7 +353,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   %34 = add nsw i32 %.04064, %.sink
   %.238 = getelementptr inbounds nuw i8, ptr %.03665, i64 1
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %.thread, !llvm.loop !9
+  br i1 %35, label %.lr.ph, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %32, %7, %30, %18, %12
   %.03660 = phi ptr [ %.03665, %30 ], [ %.03665, %18 ], [ %.03665, %12 ], [ %1, %7 ], [ %.238, %32 ]
@@ -591,7 +591,7 @@ compare3.exit:                                    ; preds = %118
   %.118.i = phi i64 [ %.01720.i, %122 ], [ %111, %compare3.exit ]
   %.1.i = phi i64 [ %123, %122 ], [ %.01621.i, %compare3.exit ]
   %125 = icmp ult i64 %.1.i, %.118.i
-  br i1 %125, label %.lr.ph.i, label %store_coded_char.exit.thread195, !llvm.loop !10
+  br i1 %125, label %.lr.ph.i, label %store_coded_char.exit.thread195, !llvm.loop !11
 
 bsearch.exit:                                     ; preds = %compare3.exit
   %126 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -775,7 +775,7 @@ store_coded_char.exit.thread:                     ; preds = %192, %194, %168, %1
   %.2 = phi ptr [ %26, %25 ], [ %107, %144 ], [ %107, %146 ], [ %42, %170 ], [ %42, %168 ], [ %42, %194 ], [ %42, %192 ]
   %201 = sub i32 %.2124, %.1136
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %16, label %.thread215, !llvm.loop !11
+  br i1 %202, label %16, label %.thread215, !llvm.loop !12
 
 .loopexit:                                        ; preds = %16, %19, %22, %58
   %.2124.ph = phi i32 [ %55, %58 ], [ %.0122263, %22 ], [ %.0122263, %19 ], [ %.0122263, %16 ]
@@ -1328,7 +1328,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef wri
   %.118.i = phi i64 [ %.01720.i, %89 ], [ %83, %.lr.ph.i ]
   %.1.i107 = phi i64 [ %90, %89 ], [ %.01621.i, %.lr.ph.i ]
   %92 = icmp ult i64 %.1.i107, %.118.i
-  br i1 %92, label %.lr.ph.i, label %store_coded_char.exit, !llvm.loop !10
+  br i1 %92, label %.lr.ph.i, label %store_coded_char.exit, !llvm.loop !11
 
 bsearch.exit:                                     ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 %84
@@ -1507,7 +1507,7 @@ store_coded_char.exit.thread:                     ; preds = %159, %161, %137, %1
   %.2 = phi ptr [ %21, %20 ], [ %46, %76 ], [ %46, %78 ], [ %46, %135 ], [ %46, %137 ], [ %46, %161 ], [ %46, %159 ]
   %168 = sub nsw i32 %.077176, %.190
   %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %16, label %.thread150, !llvm.loop !12
+  br i1 %169, label %16, label %.thread150, !llvm.loop !13
 
 170:                                              ; preds = %16, %23
   br i1 %8, label %.thread150, label %171
@@ -1548,12 +1548,13 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

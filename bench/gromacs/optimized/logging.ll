@@ -803,7 +803,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !53
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -850,9 +850,9 @@ define internal fastcc void @_ZN3gmxL14prepareLogFileENS_25BinaryInformationSett
 
 4:                                                ; preds = %2
   tail call void @_Z22gmx_fatal_set_log_fileP8_IO_FILE(ptr noundef nonnull %1)
-  store i8 1, ptr %0, align 8, !tbaa !53
+  store i8 1, ptr %0, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 1, ptr %5, align 2, !tbaa !54
+  store i8 1, ptr %5, align 2, !tbaa !55
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()
           to label %7 unwind label %8
 
@@ -1166,8 +1166,9 @@ attributes #25 = { noreturn nounwind }
 !47 = !{!45, !46, i64 8}
 !48 = !{!49, !6, i64 0}
 !49 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!45, !46, i64 16}
-!53 = !{!24, !25, i64 0}
-!54 = !{!24, !25, i64 2}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!45, !46, i64 16}
+!54 = !{!24, !25, i64 0}
+!55 = !{!24, !25, i64 2}

@@ -73,7 +73,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   %30 = add nuw nsw i32 %.0131168, 1
   %31 = and i32 %.2145167, 524288
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.lr.ph169, label %._crit_edge, !llvm.loop !6
+  br i1 %32, label %.lr.ph169, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph169, %.preheader161
   %.2145.lcssa = phi i32 [ %.1144.lcssa, %.preheader161 ], [ %29, %.lr.ph169 ]
@@ -126,7 +126,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   %54 = lshr i32 %.0129176, 1
   %.3 = shl i32 %.3177, 1
   %.not153 = icmp samesign ult i32 %.0129176, 2
-  br i1 %.not153, label %.preheader, label %48, !llvm.loop !7
+  br i1 %.not153, label %.preheader, label %48, !llvm.loop !8
 
 .preheader:                                       ; preds = %48, %68
   %.0123183 = phi i32 [ %.1, %68 ], [ 0, %48 ]
@@ -170,7 +170,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
   %70 = shl i32 %.5, 1
   %71 = lshr i32 %.1130180, 1
   %.not154 = icmp ult i32 %.1130180, 2
-  br i1 %.not154, label %72, label %.preheader, !llvm.loop !8
+  br i1 %.not154, label %72, label %.preheader, !llvm.loop !9
 
 72:                                               ; preds = %68
   %73 = or i32 %70, %69
@@ -227,8 +227,9 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

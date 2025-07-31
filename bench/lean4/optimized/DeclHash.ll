@@ -1266,7 +1266,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %16) #3
   %20 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0, i64 noundef %19) #3
-  br label %3
+  br label %3, !llvm.loop !14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1402,9 +1402,9 @@ lean_inc.exit157:                                 ; preds = %41, %40, %38, %lean
 
 lean_inc.exit156:                                 ; preds = %51, %50, %48, %lean_inc.exit157
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = load i8, ptr %52, align 1, !tbaa !14
+  %53 = load i8, ptr %52, align 1, !tbaa !16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %55 = load i8, ptr %54, align 1, !tbaa !14
+  %55 = load i8, ptr %54, align 1, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
@@ -1511,7 +1511,7 @@ lean_obj_tag.exit.i:                              ; preds = %90, %87
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   %99 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %96) #3
   %100 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i215, i64 noundef %99) #3
-  br label %84
+  br label %84, !llvm.loop !14
 
 l_List_foldl___at___private_Lean_Compiler_LCNF_DeclHash_0__Lean_Compiler_LCNF_hashDecl____x40_Lean_Compiler_LCNF_DeclHash___hyg_319____spec__1.exit: ; preds = %lean_obj_tag.exit.i
   br i1 %.not249, label %101, label %lean_dec.exit149
@@ -2145,7 +2145,7 @@ lean_obj_tag.exit.i:                              ; preds = %18, %15
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = tail call i64 @l_Lean_Name_hash___override(ptr noundef %24) #3
   %28 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i, i64 noundef %27) #3
-  br label %lean_dec.exit6
+  br label %lean_dec.exit6, !llvm.loop !14
 
 l_List_foldl___at___private_Lean_Compiler_LCNF_DeclHash_0__Lean_Compiler_LCNF_hashDecl____x40_Lean_Compiler_LCNF_DeclHash___hyg_319____spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %29 = ptrtoint ptr %1 to i64
@@ -2270,9 +2270,9 @@ _init_l_Lean_Compiler_LCNF_instHashableDeclValue___closed__1.exit: ; preds = %le
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_DeclHash_0__Lean_Compiler_LCNF_hashDeclValue____x40_Lean_Compiler_LCNF_DeclHash___hyg_273____boxed, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 1, ptr %23, align 8, !tbaa !15
+  store i16 1, ptr %23, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 0, ptr %24, align 2, !tbaa !15
+  store i16 0, ptr %24, align 2, !tbaa !17
   store ptr %18, ptr @l_Lean_Compiler_LCNF_instHashableDeclValue___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #3
   %25 = load ptr, ptr @l_Lean_Compiler_LCNF_instHashableDeclValue___closed__1, align 8, !tbaa !4
@@ -2294,9 +2294,9 @@ _init_l_Lean_Compiler_LCNF_instHashableDecl___closed__1.exit: ; preds = %_init_l
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @l___private_Lean_Compiler_LCNF_DeclHash_0__Lean_Compiler_LCNF_hashDecl____x40_Lean_Compiler_LCNF_DeclHash___hyg_319____boxed, ptr %30, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i16 1, ptr %31, align 8, !tbaa !15
+  store i16 1, ptr %31, align 8, !tbaa !17
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  store i16 0, ptr %32, align 2, !tbaa !15
+  store i16 0, ptr %32, align 2, !tbaa !17
   store ptr %26, ptr @l_Lean_Compiler_LCNF_instHashableDecl___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %26) #3
   %33 = load ptr, ptr @l_Lean_Compiler_LCNF_instHashableDecl___closed__1, align 8, !tbaa !4
@@ -2365,6 +2365,8 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = !{!6, !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!6, !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}

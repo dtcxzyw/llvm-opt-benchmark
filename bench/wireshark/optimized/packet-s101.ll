@@ -608,7 +608,7 @@ find_s101_packet_header.exit:                     ; preds = %get_byte.exit90.i, 
   %233 = call zeroext i16 @crc16_ccitt_seed(ptr noundef nonnull %7, i32 noundef 1, i16 noundef zeroext %.12)
   %234 = xor i16 %233, -1
   %235 = icmp slt i32 %.7239, %208
-  br i1 %235, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
+  br i1 %235, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %232, %229, %.preheader.i120
   %.11255 = phi i16 [ %.12, %229 ], [ %.10254, %.preheader.i120 ], [ %234, %232 ]
@@ -832,7 +832,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
   br i1 %.old118, label %.backedge.backedge, label %find_s101_packet_header.exit.thread
 
 .backedge.backedge:                               ; preds = %341, %337
-  br label %.backedge, !llvm.loop !9
+  br label %.backedge, !llvm.loop !10
 
 find_s101_packet_header.exit.thread:              ; preds = %135, %138, %140, %.backedge, %341, %337, %4
   %.0103 = phi i32 [ 0, %4 ], [ %.0232, %135 ], [ %.0232, %138 ], [ %.0232, %140 ], [ %.0232, %.backedge ], [ %.4236, %337 ], [ %.4236, %341 ]
@@ -972,7 +972,8 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

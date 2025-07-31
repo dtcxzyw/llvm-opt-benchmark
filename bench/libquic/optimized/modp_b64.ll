@@ -179,24 +179,24 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %24 = load i8, ptr %.0131, align 1, !tbaa !3
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !8
+  %27 = load i32, ptr %26, align 4, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %.0131, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !8
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %32, %27
   %34 = getelementptr inbounds nuw i8, ptr %.0131, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !8
+  %38 = load i32, ptr %37, align 4, !tbaa !9
   %39 = or i32 %33, %38
   %40 = getelementptr inbounds nuw i8, ptr %.0131, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !8
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = or i32 %39, %44
   %46 = icmp ugt i32 %45, 33554430
   br i1 %46, label %.loopexit, label %47
@@ -216,7 +216,7 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %51 = add nuw i64 %.0124129, 1
   %52 = getelementptr inbounds nuw i8, ptr %.0131, i64 4
   %exitcond.not = icmp eq i64 %51, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %47, %17
   %.0121.lcssa = phi ptr [ %0, %17 ], [ %50, %47 ]
@@ -224,7 +224,7 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %53 = load i8, ptr %.0.lcssa, align 1, !tbaa !3
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !8
+  %56 = load i32, ptr %55, align 4, !tbaa !9
   switch i32 %19, label %default.unreachable [
     i32 0, label %57
     i32 1, label %82
@@ -237,18 +237,18 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !8
+  %62 = load i32, ptr %61, align 4, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %64 = load i8, ptr %63, align 1, !tbaa !3
   %65 = zext i8 %64 to i64
   %66 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !8
+  %67 = load i32, ptr %66, align 4, !tbaa !9
   %68 = or i32 %62, %67
   %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !8
+  %73 = load i32, ptr %72, align 4, !tbaa !9
   %74 = or i32 %68, %73
   %75 = or i32 %74, %56
   %76 = icmp ugt i32 %75, 33554430
@@ -279,7 +279,7 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = zext i8 %85 to i64
   %87 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !8
+  %88 = load i32, ptr %87, align 4, !tbaa !9
   %89 = or i32 %88, %56
   %.sroa.0.0.extract.trunc26 = trunc i32 %89 to i8
   store i8 %.sroa.0.0.extract.trunc26, ptr %.0121.lcssa, align 1, !tbaa !3
@@ -293,12 +293,12 @@ default.unreachable:                              ; preds = %._crit_edge
   %92 = load i8, ptr %91, align 1, !tbaa !3
   %93 = zext i8 %92 to i64
   %94 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !8
+  %95 = load i32, ptr %94, align 4, !tbaa !9
   %96 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %97 = load i8, ptr %96, align 1, !tbaa !3
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !8
+  %100 = load i32, ptr %99, align 4, !tbaa !9
   %101 = or i32 %95, %100
   %102 = or i32 %101, %56
   %103 = trunc i32 %102 to i16
@@ -333,8 +333,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = distinct !{!11, !7, !8}

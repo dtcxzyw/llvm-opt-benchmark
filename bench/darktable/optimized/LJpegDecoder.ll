@@ -532,13 +532,13 @@ _ZNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %15 ]
   %23 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %8, i64 0, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !127
+  %25 = load i32, ptr %24, align 8, !tbaa !128
   %.not54 = icmp eq i32 %25, 1
   br i1 %.not54, label %26, label %29
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !129
+  %28 = load i32, ptr %27, align 4, !tbaa !130
   %.not55 = icmp eq i32 %28, 1
   br i1 %.not55, label %15, label %29
 
@@ -548,11 +548,11 @@ _ZNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11
 
 _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11_M_allocateEm.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %22, ptr %2, align 8, !tbaa !130
-  store ptr %22, ptr %30, align 8, !tbaa !133
+  store ptr %22, ptr %2, align 8, !tbaa !131
+  store ptr %22, ptr %30, align 8, !tbaa !134
   %31 = getelementptr inbounds nuw %"struct.rawspeed::LJpegDecompressor::PerComponentRecipe", ptr %22, i64 %17
-  store ptr %31, ptr %20, align 8, !tbaa !134
-  store ptr %2, ptr %3, align 8, !tbaa !135
+  store ptr %31, ptr %20, align 8, !tbaa !135
+  store ptr %2, ptr %3, align 8, !tbaa !136
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.56") align 8 %32, ptr noundef nonnull align 8 dereferenceable(236) %0, i32 noundef %10)
           to label %33 unwind label %113
@@ -564,42 +564,42 @@ _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE7reserveE
 
 .lr.ph.i:                                         ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre.i = load ptr, ptr %35, align 8, !tbaa !133
-  %.pre10.i = load ptr, ptr %20, align 8, !tbaa !134
+  %.pre.i = load ptr, ptr %35, align 8, !tbaa !134
+  %.pre10.i = load ptr, ptr %20, align 8, !tbaa !135
   br label %36
 
 36:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i, %.lr.ph.i
   %37 = phi ptr [ %.pre10.i, %.lr.ph.i ], [ %75, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
   %38 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %76, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
   %.09.i = phi i32 [ %10, %.lr.ph.i ], [ %77, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
-  %39 = load ptr, ptr %3, align 8, !tbaa !137
+  %39 = load ptr, ptr %3, align 8, !tbaa !138
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !133
-  %42 = load ptr, ptr %39, align 8, !tbaa !130
+  %41 = load ptr, ptr %40, align 8, !tbaa !134
+  %42 = load ptr, ptr %39, align 8, !tbaa !131
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %sext.i.i = shl i64 %45, 28
   %46 = ashr i64 %sext.i.i, 32
-  %47 = load ptr, ptr %32, align 8, !tbaa !149
+  %47 = load ptr, ptr %32, align 8, !tbaa !150
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
-  %49 = load ptr, ptr %48, align 8, !tbaa !150
-  %50 = load ptr, ptr %34, align 8, !tbaa !152
+  %49 = load ptr, ptr %48, align 8, !tbaa !151
+  %50 = load ptr, ptr %34, align 8, !tbaa !153
   %51 = getelementptr inbounds nuw i16, ptr %50, i64 %46
-  %52 = load i16, ptr %51, align 2, !tbaa !153
+  %52 = load i16, ptr %51, align 2, !tbaa !154
   %.not.i.i.i.i = icmp eq ptr %38, %37
   br i1 %.not.i.i.i.i, label %55, label %53
 
 53:                                               ; preds = %36
-  store ptr %49, ptr %38, align 8, !tbaa !150
+  store ptr %49, ptr %38, align 8, !tbaa !151
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i16 %52, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !153
+  store i16 %52, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !154
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %54, ptr %35, align 8, !tbaa !133
+  store ptr %54, ptr %35, align 8, !tbaa !134
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i
 
 55:                                               ; preds = %36
-  %56 = load ptr, ptr %2, align 8, !tbaa !130
+  %56 = load ptr, ptr %2, align 8, !tbaa !131
   %57 = ptrtoint ptr %37 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
@@ -628,9 +628,9 @@ _ZNKSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE12_M_che
 
 .noexc58:                                         ; preds = %_ZNKSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %69 = getelementptr inbounds i8, ptr %68, i64 %59
-  store ptr %49, ptr %69, align 8, !tbaa !150
+  store ptr %49, ptr %69, align 8, !tbaa !151
   %.sroa.5.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i16 %52, ptr %.sroa.5.0..sroa_idx5.i, align 8, !tbaa !153
+  store i16 %52, ptr %.sroa.5.0..sroa_idx5.i, align 8, !tbaa !154
   %70 = icmp sgt i64 %59, 0
   br i1 %70, label %71, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
 
@@ -648,10 +648,10 @@ _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11_S_relo
   br label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %73, %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
-  store ptr %68, ptr %2, align 8, !tbaa !130
-  store ptr %72, ptr %35, align 8, !tbaa !133
+  store ptr %68, ptr %2, align 8, !tbaa !131
+  store ptr %72, ptr %35, align 8, !tbaa !134
   %74 = getelementptr inbounds nuw %"struct.rawspeed::LJpegDecompressor::PerComponentRecipe", ptr %68, i64 %66
-  store ptr %74, ptr %20, align 8, !tbaa !134
+  store ptr %74, ptr %20, align 8, !tbaa !135
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i: ; preds = %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %53
@@ -659,16 +659,16 @@ _ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponen
   %76 = phi ptr [ %54, %53 ], [ %72, %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i ]
   %77 = add nsw i32 %.09.i, -1
   %78 = icmp sgt i32 %.09.i, 1
-  br i1 %78, label %36, label %"_ZSt10generate_nISt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS4_EEEiZNS2_12LJpegDecoder10decodeScanEvE3$_0ET_SA_T0_T1_.exit", !llvm.loop !154
+  br i1 %78, label %36, label %"_ZSt10generate_nISt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS4_EEEiZNS2_12LJpegDecoder10decodeScanEvE3$_0ET_SA_T0_T1_.exit", !llvm.loop !155
 
 "_ZSt10generate_nISt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS4_EEEiZNS2_12LJpegDecoder10decodeScanEvE3$_0ET_SA_T0_T1_.exit": ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i
-  %79 = load ptr, ptr %34, align 8, !tbaa !152
+  %79 = load ptr, ptr %34, align 8, !tbaa !153
   %.not.i.i.i.i59 = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i59, label %_ZNSt6vectorItSaItEED2Ev.exit.i, label %80
 
 80:                                               ; preds = %"_ZSt10generate_nISt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS4_EEEiZNS2_12LJpegDecoder10decodeScanEvE3$_0ET_SA_T0_T1_.exit"
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !155
+  %82 = load ptr, ptr %81, align 8, !tbaa !156
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %79 to i64
   %85 = sub i64 %83, %84
@@ -676,13 +676,13 @@ _ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponen
   br label %_ZNSt6vectorItSaItEED2Ev.exit.i
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generate_nISt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS4_EEEiZNS2_12LJpegDecoder10decodeScanEvE3$_0ET_SA_T0_T1_.exit"
-  %86 = load ptr, ptr %32, align 8, !tbaa !149
+  %86 = load ptr, ptr %32, align 8, !tbaa !150
   %.not.i.i.i1.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i1.i, label %"_ZZN8rawspeed12LJpegDecoder10decodeScanEvEN3$_0D2Ev.exit", label %87
 
 87:                                               ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !156
+  %89 = load ptr, ptr %88, align 8, !tbaa !157
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %86 to i64
   %92 = sub i64 %90, %91
@@ -695,11 +695,11 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generat
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %96 = load i64, ptr %95, align 4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %98 = load i32, ptr %97, align 8, !tbaa !157
+  %98 = load i32, ptr %97, align 8, !tbaa !158
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %100 = load i32, ptr %99, align 4, !tbaa !158
+  %100 = load i32, ptr %99, align 4, !tbaa !159
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %102 = load i32, ptr %101, align 4, !tbaa !159
+  %102 = load i32, ptr %101, align 4, !tbaa !160
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %105 = load ptr, ptr %104, align 8, !tbaa !6
@@ -725,13 +725,13 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generat
 115:                                              ; preds = %33
   %116 = landingpad { ptr, i32 }
           cleanup
-  %117 = load ptr, ptr %32, align 8, !tbaa !149
+  %117 = load ptr, ptr %32, align 8, !tbaa !150
   %.not.i.i.i = icmp eq ptr %117, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit, label %118
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !156
+  %120 = load ptr, ptr %119, align 8, !tbaa !157
   %121 = ptrtoint ptr %120 to i64
   %122 = ptrtoint ptr %117 to i64
   %123 = sub i64 %121, %122
@@ -761,7 +761,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generat
 127:                                              ; preds = %"_ZZN8rawspeed12LJpegDecoder10decodeScanEvEN3$_0D2Ev.exit"
   %128 = mul nsw i32 %107, %102
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %130 = load i32, ptr %129, align 8, !tbaa !160
+  %130 = load i32, ptr %129, align 8, !tbaa !161
   %131 = call i32 @llvm.abs.i32(i32 %128, i1 false)
   %132 = zext i32 %131 to i64
   %133 = call i32 @llvm.abs.i32(i32 %130, i1 false)
@@ -832,7 +832,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generat
   %.sroa.084.0.insert.ext = zext i32 %98 to i64
   %.sroa.084.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.084.0.insert.ext
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %163 = load i16, ptr %162, align 4, !tbaa !161
+  %163 = load i16, ptr %162, align 4, !tbaa !162
   %164 = zext i16 %163 to i32
   %165 = icmp eq i16 %163, 0
   br i1 %165, label %173, label %166
@@ -883,8 +883,8 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %80, %"_ZSt10generat
   br label %_ZN8rawspeed8RawImageC2ERKS0_.exit
 
 _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %173, %180, %183
-  %185 = load ptr, ptr %35, align 8, !tbaa !133
-  %186 = load ptr, ptr %2, align 8, !tbaa !130
+  %185 = load ptr, ptr %35, align 8, !tbaa !134
+  %186 = load ptr, ptr %2, align 8, !tbaa !131
   %187 = ptrtoint ptr %185 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %187, %188
@@ -897,7 +897,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %173, %180, %183
   %191 = getelementptr inbounds nuw i8, ptr null, i64 %189
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr %191, ptr %192, align 8, !tbaa !134
+  store ptr %191, ptr %192, align 8, !tbaa !135
   br label %.loopexit
 
 193:                                              ; preds = %_ZN8rawspeed8RawImageC2ERKS0_.exit
@@ -916,32 +916,32 @@ _ZNSt16allocator_traitsISaIN8rawspeed17LJpegDecompressor18PerComponentRecipeEEE8
           to label %.noexc63 unwind label %290
 
 .noexc63:                                         ; preds = %_ZNSt16allocator_traitsISaIN8rawspeed17LJpegDecompressor18PerComponentRecipeEEE8allocateERS3_m.exit.i.i.i.i
-  store ptr %195, ptr %6, align 8, !tbaa !130
+  store ptr %195, ptr %6, align 8, !tbaa !131
   %196 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %195, ptr %196, align 8, !tbaa !133
+  store ptr %195, ptr %196, align 8, !tbaa !134
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 %189
   %198 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %197, ptr %198, align 8, !tbaa !134
+  store ptr %197, ptr %198, align 8, !tbaa !135
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc63, %.lr.ph.i.i.i.i.i
   %.08.i.i.i.i.i = phi ptr [ %200, %.lr.ph.i.i.i.i.i ], [ %195, %.noexc63 ]
   %.sroa.04.07.i.i.i.i.i = phi ptr [ %199, %.lr.ph.i.i.i.i.i ], [ %186, %.noexc63 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !163
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i, i64 16
   %200 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
   %201 = icmp eq ptr %199, %185
-  br i1 %201, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !163
+  br i1 %201, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !164
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.noexc63.thread
   %202 = phi ptr [ %192, %.noexc63.thread ], [ %198, %.lr.ph.i.i.i.i.i ]
   %203 = phi ptr [ %190, %.noexc63.thread ], [ %196, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc63.thread ], [ %200, %.lr.ph.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %203, align 8, !tbaa !133
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %203, align 8, !tbaa !134
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %205 = load i32, ptr %204, align 8, !tbaa !164
+  %205 = load i32, ptr %204, align 8, !tbaa !165
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %207 = load i32, ptr %206, align 8, !tbaa !165
+  %207 = load i32, ptr %206, align 8, !tbaa !166
   %208 = icmp samesign uge i32 %207, %205
   call void @llvm.assume(i1 %208)
   %209 = icmp sgt i32 %207, -1
@@ -965,7 +965,7 @@ _ZNSt16allocator_traitsISaIN8rawspeed17LJpegDecompressor18PerComponentRecipeEEE8
 
 217:                                              ; preds = %.loopexit
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %219 = load ptr, ptr %218, align 8, !tbaa !166, !nonnull !167, !noundef !167
+  %219 = load ptr, ptr %218, align 8, !tbaa !167, !nonnull !168, !noundef !168
   %220 = icmp sgt i32 %211, -1
   call void @llvm.assume(i1 %220)
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 %212
@@ -976,12 +976,12 @@ _ZNSt16allocator_traitsISaIN8rawspeed17LJpegDecompressor18PerComponentRecipeEEE8
           to label %222 unwind label %292
 
 222:                                              ; preds = %217
-  %223 = load ptr, ptr %6, align 8, !tbaa !130
+  %223 = load ptr, ptr %6, align 8, !tbaa !131
   %.not.i.i.i65 = icmp eq ptr %223, null
   br i1 %.not.i.i.i65, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %224
 
 224:                                              ; preds = %222
-  %225 = load ptr, ptr %202, align 8, !tbaa !134
+  %225 = load ptr, ptr %202, align 8, !tbaa !135
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %223 to i64
   %228 = sub i64 %226, %227
@@ -1043,13 +1043,13 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %_ZNSt6vectorIN8raws
 
 252:                                              ; preds = %_ZN8rawspeed8RawImageD2Ev.exit
   %253 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %254 = load ptr, ptr %253, align 8, !tbaa !130
+  %254 = load ptr, ptr %253, align 8, !tbaa !131
   %.not.i.i.i.i68 = icmp eq ptr %254, null
   br i1 %.not.i.i.i.i68, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit.i, label %255
 
 255:                                              ; preds = %252
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %257 = load ptr, ptr %256, align 8, !tbaa !134
+  %257 = load ptr, ptr %256, align 8, !tbaa !135
   %258 = ptrtoint ptr %257 to i64
   %259 = ptrtoint ptr %254 to i64
   %260 = sub i64 %258, %259
@@ -1108,12 +1108,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %280, %
 
 _ZN8rawspeed17LJpegDecompressorD2Ev.exit:         ; preds = %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit.i, %268, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %283
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #21
-  %284 = load ptr, ptr %2, align 8, !tbaa !130
+  %284 = load ptr, ptr %2, align 8, !tbaa !131
   %.not.i.i.i71 = icmp eq ptr %284, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit72, label %285
 
 285:                                              ; preds = %_ZN8rawspeed17LJpegDecompressorD2Ev.exit
-  %286 = load ptr, ptr %20, align 8, !tbaa !134
+  %286 = load ptr, ptr %20, align 8, !tbaa !135
   %287 = ptrtoint ptr %286 to i64
   %288 = ptrtoint ptr %284 to i64
   %289 = sub i64 %287, %288
@@ -1132,12 +1132,12 @@ _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit
 292:                                              ; preds = %216, %217
   %293 = landingpad { ptr, i32 }
           cleanup
-  %294 = load ptr, ptr %6, align 8, !tbaa !130
+  %294 = load ptr, ptr %6, align 8, !tbaa !131
   %.not.i.i.i73 = icmp eq ptr %294, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit74, label %295
 
 295:                                              ; preds = %292
-  %296 = load ptr, ptr %202, align 8, !tbaa !134
+  %296 = load ptr, ptr %202, align 8, !tbaa !135
   %297 = ptrtoint ptr %296 to i64
   %298 = ptrtoint ptr %294 to i64
   %299 = sub i64 %297, %298
@@ -1162,13 +1162,13 @@ _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit: ; preds = %125, %159, %302, %171, %142, %118, %115, %124, %113
   %.pn51.pn = phi { ptr, i32 } [ %lpad.phi, %124 ], [ %114, %113 ], [ %116, %115 ], [ %116, %118 ], [ %126, %125 ], [ %143, %142 ], [ %160, %159 ], [ %.pn44, %302 ], [ %172, %171 ]
-  %303 = load ptr, ptr %2, align 8, !tbaa !130
+  %303 = load ptr, ptr %2, align 8, !tbaa !131
   %.not.i.i.i75 = icmp eq ptr %303, null
   br i1 %.not.i.i.i75, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit76, label %304
 
 304:                                              ; preds = %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %306 = load ptr, ptr %305, align 8, !tbaa !134
+  %306 = load ptr, ptr %305, align 8, !tbaa !135
   %307 = ptrtoint ptr %306 to i64
   %308 = ptrtoint ptr %303 to i64
   %309 = sub i64 %307, %308
@@ -1206,11 +1206,11 @@ _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 .noexc20:                                         ; preds = %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE17_S_check_init_lenEmRKS8_.exit.i
   %6 = shl nuw nsw i64 %4, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
-  store ptr %7, ptr %0, align 8, !tbaa !149
+  store ptr %7, ptr %0, align 8, !tbaa !150
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !156
-  store ptr null, ptr %7, align 8, !tbaa !150
+  store ptr %8, ptr %9, align 8, !tbaa !157
+  store ptr null, ptr %7, align 8, !tbaa !151
   %10 = getelementptr i8, ptr %7, i64 8
   %11 = add nsw i64 %4, -1
   %12 = icmp eq i64 %11, 0
@@ -1218,7 +1218,7 @@ _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 
 _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   %13 = add nsw i64 %6, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %13, i1 false), !tbaa !150
+  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %13, i1 false), !tbaa !151
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
@@ -1230,7 +1230,7 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc20
   %.0.i.i.i.i.i.ph = phi ptr [ %14, %_ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc20 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %16, align 8, !tbaa !168
+  store ptr %.0.i.i.i.i.i.ph, ptr %16, align 8, !tbaa !169
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1240,7 +1240,7 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %20 = getelementptr i8, ptr %17, i64 %.idx
-  %21 = load i32, ptr %20, align 4, !tbaa !169
+  %21 = load i32, ptr %20, align 4, !tbaa !170
   %.not = icmp ult i32 %21, 4
   br i1 %.not, label %25, label %22
 
@@ -1255,12 +1255,12 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 25:                                               ; preds = %19
   %26 = zext nneg i32 %21 to i64
   %27 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !150
+  %28 = load ptr, ptr %27, align 8, !tbaa !151
   %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  store ptr %28, ptr %29, align 8, !tbaa !150
+  store ptr %28, ptr %29, align 8, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !170
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %25, %15
   ret void
@@ -1290,11 +1290,11 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 .noexc10:                                         ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %6 = shl nuw nsw i64 %4, 1
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
-  store ptr %7, ptr %0, align 8, !tbaa !152
+  store ptr %7, ptr %0, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw i16, ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !155
-  store i16 0, ptr %7, align 2, !tbaa !153
+  store ptr %8, ptr %9, align 8, !tbaa !156
+  store i16 0, ptr %7, align 2, !tbaa !154
   %10 = getelementptr i8, ptr %7, i64 2
   %11 = add nsw i64 %4, -1
   %12 = icmp eq i64 %11, 0
@@ -1302,7 +1302,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %13 = add nsw i64 %6, -2
-  tail call void @llvm.memset.p0.i64(ptr align 2 %10, i8 0, i64 %13, i1 false), !tbaa !153
+  tail call void @llvm.memset.p0.i64(ptr align 2 %10, i8 0, i64 %13, i1 false), !tbaa !154
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
   br label %15
@@ -1310,11 +1310,11 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
 15:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
   %.0.i.i.i.i.i = phi ptr [ %10, %.noexc10 ], [ %14, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %16, align 8, !tbaa !171
+  store ptr %.0.i.i.i.i.i, ptr %16, align 8, !tbaa !172
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 220
-  %18 = load i32, ptr %17, align 4, !tbaa !172
+  %18 = load i32, ptr %17, align 4, !tbaa !173
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %20 = load i32, ptr %19, align 8, !tbaa !173
+  %20 = load i32, ptr %19, align 8, !tbaa !174
   %21 = add i32 %20, 1
   %22 = icmp ult i32 %18, %21
   br i1 %22, label %29, label %37
@@ -1322,9 +1322,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
 .thread:                                          ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %24 = load i32, ptr %23, align 4, !tbaa !172
+  %24 = load i32, ptr %23, align 4, !tbaa !173
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %26 = load i32, ptr %25, align 8, !tbaa !173
+  %26 = load i32, ptr %25, align 8, !tbaa !174
   %27 = add i32 %26, 1
   %28 = icmp ult i32 %24, %27
   br i1 %28, label %29, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
@@ -1359,10 +1359,10 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
 
 42:                                               ; preds = %42, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %43, %42 ]
-  store i16 %41, ptr %.06.i.i.i.i, align 2, !tbaa !153
+  store i16 %41, ptr %.06.i.i.i.i, align 2, !tbaa !154
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 2
   %.not.i.i.i.i11 = icmp eq ptr %43, %.0.i.i.i.i.i
-  br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit, label %42, !llvm.loop !174
+  br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit, label %42, !llvm.loop !175
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit: ; preds = %42, %.thread, %37
   ret void
@@ -1381,13 +1381,13 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %44, %35
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN8rawspeed12LJpegDecoder10decodeScanEvEN3$_0D2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !155
+  %6 = load ptr, ptr %5, align 8, !tbaa !156
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1396,13 +1396,13 @@ define internal fastcc void @"_ZZN8rawspeed12LJpegDecoder10decodeScanEvEN3$_0D2E
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !149
+  %11 = load ptr, ptr %10, align 8, !tbaa !150
   %.not.i.i.i1 = icmp eq ptr %11, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorItSaItEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !156
+  %14 = load ptr, ptr %13, align 8, !tbaa !157
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -1420,13 +1420,13 @@ declare noundef i32 @_ZNK8rawspeed17LJpegDecompressor6decodeEv(ptr noundef nonnu
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17LJpegDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !130
+  %3 = load ptr, ptr %2, align 8, !tbaa !131
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !134
+  %6 = load ptr, ptr %5, align 8, !tbaa !135
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1543,15 +1543,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
 
 _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !175
+  %26 = load ptr, ptr %25, align 8, !tbaa !176
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !176
+  %28 = load ptr, ptr %27, align 8, !tbaa !177
   %.not4.i.i.i.i = icmp eq ptr %26, %28
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN8rawspeed8RawImageD2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %30, %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i ], [ %26, %_ZN8rawspeed8RawImageD2Ev.exit ]
-  %29 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !150
+  %29 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !151
   %.not.i.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEEclEPS6_.exit.i.i.i.i.i.i.i
 
@@ -1561,13 +1561,13 @@ _ZNKSt14default_deleteIKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagEN
   br label %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEEEclEPS6_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !150
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !151
   %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i1 = icmp eq ptr %30, %28
-  br i1 %.not.i.i.i.i1, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !177
+  br i1 %.not.i.i.i.i1, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !178
 
 _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %25, align 8, !tbaa !175
+  %.pr.i = load ptr, ptr %25, align 8, !tbaa !176
   br label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exitthread-pre-split.i, %_ZN8rawspeed8RawImageD2Ev.exit
@@ -1577,7 +1577,7 @@ _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCo
 
 32:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS3_EEEESt14default_deleteIS7_EESA_EvT_SC_RSaIT0_E.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !178
+  %34 = load ptr, ptr %33, align 8, !tbaa !179
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
@@ -1641,27 +1641,27 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !179
+  %2 = load ptr, ptr %0, align 8, !tbaa !180
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !180
+  %4 = load ptr, ptr %3, align 8, !tbaa !181
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %22, %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !181
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !182
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !183
+  %8 = load ptr, ptr %7, align 8, !tbaa !184
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !184
+  %11 = load ptr, ptr %10, align 8, !tbaa !185
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
@@ -1669,13 +1669,13 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIKN8rawspeed11Huffma
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i:    ; preds = %9, %6
-  %15 = load ptr, ptr %5, align 8, !tbaa !185
+  %15 = load ptr, ptr %5, align 8, !tbaa !186
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIKN8rawspeed11HuffmanCodeINS0_15BaselineCodeTagEEEEclEPS4_.exit.i.i.i.i.i.i, label %16
 
 16:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !187
+  %18 = load ptr, ptr %17, align 8, !tbaa !188
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
@@ -1687,13 +1687,13 @@ _ZNKSt14default_deleteIKN8rawspeed11HuffmanCodeINS0_15BaselineCodeTagEEEEclEPS4_
   br label %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIKN8rawspeed11HuffmanCodeINS0_15BaselineCodeTagEEEEclEPS4_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !181
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !182
   %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %22, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !188
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !189
 
 _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !179
+  %.pr = load ptr, ptr %0, align 8, !tbaa !180
   br label %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exitthread-pre-split, %1
@@ -1703,7 +1703,7 @@ _ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEES
 
 24:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTagEEESt14default_deleteIS5_EES8_EvT_SA_RSaIT0_E.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !189
+  %26 = load ptr, ptr %25, align 8, !tbaa !190
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
@@ -1717,13 +1717,13 @@ _ZNSt12_Vector_baseISt10unique_ptrIKN8rawspeed11HuffmanCodeINS1_15BaselineCodeTa
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !190
+  %3 = load ptr, ptr %2, align 8, !tbaa !191
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6 = load ptr, ptr %5, align 8, !tbaa !192
+  %6 = load ptr, ptr %5, align 8, !tbaa !193
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1732,13 +1732,13 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %11 = load ptr, ptr %10, align 8, !tbaa !152
+  %11 = load ptr, ptr %10, align 8, !tbaa !153
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %14 = load ptr, ptr %13, align 8, !tbaa !155
+  %14 = load ptr, ptr %13, align 8, !tbaa !156
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -1747,13 +1747,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %12, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load ptr, ptr %18, align 8, !tbaa !152
+  %19 = load ptr, ptr %18, align 8, !tbaa !153
   %.not.i.i.i1.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorItSaItEED2Ev.exit2.i, label %20
 
 20:                                               ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !155
+  %22 = load ptr, ptr %21, align 8, !tbaa !156
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
@@ -1763,13 +1763,13 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %12, %_ZNSt6vectorIi
 _ZNSt6vectorItSaItEED2Ev.exit2.i:                 ; preds = %20, %_ZNSt6vectorItSaItEED2Ev.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !193
+  %28 = load ptr, ptr %27, align 8, !tbaa !194
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EED2Ev.exit.i.i.i, label %29
 
 29:                                               ; preds = %_ZNSt6vectorItSaItEED2Ev.exit2.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load ptr, ptr %30, align 8, !tbaa !196
+  %31 = load ptr, ptr %30, align 8, !tbaa !197
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
@@ -1778,13 +1778,13 @@ _ZNSt6vectorItSaItEED2Ev.exit2.i:                 ; preds = %20, %_ZNSt6vectorIt
 
 _ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EED2Ev.exit.i.i.i: ; preds = %29, %_ZNSt6vectorItSaItEED2Ev.exit2.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !183
+  %36 = load ptr, ptr %35, align 8, !tbaa !184
   %.not.i.i.i1.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i1.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EED2Ev.exit.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !184
+  %39 = load ptr, ptr %38, align 8, !tbaa !185
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %36 to i64
   %42 = sub i64 %40, %41
@@ -1792,13 +1792,13 @@ _ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i:              ; preds = %37, %_ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EED2Ev.exit.i.i.i
-  %43 = load ptr, ptr %26, align 8, !tbaa !185
+  %43 = load ptr, ptr %26, align 8, !tbaa !186
   %.not.i.i.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !187
+  %46 = load ptr, ptr %45, align 8, !tbaa !188
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
   %49 = sub i64 %47, %48
@@ -2079,75 +2079,76 @@ attributes #25 = { cold }
 !122 = !{!98, !34, i64 96}
 !123 = !{!98, !17, i64 216}
 !124 = !{!98, !17, i64 232}
-!125 = distinct !{!125, !126}
+!125 = distinct !{!125, !126, !127}
 !126 = !{!"llvm.loop.mustprogress"}
-!127 = !{!128, !17, i64 8}
-!128 = !{!"_ZTSN8rawspeed17JpegComponentInfoE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12}
-!129 = !{!128, !17, i64 12}
-!130 = !{!131, !132, i64 0}
-!131 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_Vector_impl_dataE", !132, i64 0, !132, i64 8, !132, i64 16}
-!132 = !{!"p1 _ZTSN8rawspeed17LJpegDecompressor18PerComponentRecipeE", !9, i64 0}
-!133 = !{!131, !132, i64 8}
-!134 = !{!131, !132, i64 16}
-!135 = !{!136, !136, i64 0}
-!136 = !{!"p1 _ZTSSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE", !9, i64 0}
-!137 = !{!138, !136, i64 0}
-!138 = !{!"_ZTSZN8rawspeed12LJpegDecoder10decodeScanEvE3$_0", !136, i64 0, !139, i64 8, !144, i64 32}
-!139 = !{!"_ZTSSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE", !140, i64 0}
-!140 = !{!"_ZTSSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE", !141, i64 0}
-!141 = !{!"_ZTSNSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE12_Vector_implE", !142, i64 0}
-!142 = !{!"_ZTSNSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE17_Vector_impl_dataE", !143, i64 0, !143, i64 8, !143, i64 16}
-!143 = !{!"p2 _ZTSN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEEE", !9, i64 0}
-!144 = !{!"_ZTSSt6vectorItSaItEE", !145, i64 0}
-!145 = !{!"_ZTSSt12_Vector_baseItSaItEE", !146, i64 0}
-!146 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !147, i64 0}
-!147 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
-!148 = !{!"p1 short", !9, i64 0}
-!149 = !{!142, !143, i64 0}
-!150 = !{!151, !151, i64 0}
-!151 = !{!"p1 _ZTSN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEEE", !9, i64 0}
-!152 = !{!147, !148, i64 0}
-!153 = !{!118, !118, i64 0}
-!154 = distinct !{!154, !126}
-!155 = !{!147, !148, i64 16}
-!156 = !{!142, !143, i64 16}
-!157 = !{!98, !17, i64 208}
-!158 = !{!98, !17, i64 212}
-!159 = !{!97, !17, i64 252}
-!160 = !{!97, !17, i64 256}
-!161 = !{!98, !118, i64 228}
-!162 = !{i64 0, i64 8, !150, i64 8, i64 2, !153}
-!163 = distinct !{!163, !126}
-!164 = !{!110, !17, i64 16}
-!165 = !{!112, !17, i64 8}
-!166 = !{!112, !65, i64 0}
-!167 = !{}
-!168 = !{!142, !143, i64 8}
-!169 = !{!128, !17, i64 4}
-!170 = distinct !{!170, !126}
-!171 = !{!147, !148, i64 8}
-!172 = !{!98, !17, i64 220}
-!173 = !{!98, !17, i64 56}
-!174 = distinct !{!174, !126}
-!175 = !{!107, !108, i64 0}
-!176 = !{!107, !108, i64 8}
-!177 = distinct !{!177, !126}
-!178 = !{!107, !108, i64 16}
-!179 = !{!102, !103, i64 0}
-!180 = !{!102, !103, i64 8}
-!181 = !{!182, !182, i64 0}
-!182 = !{!"p1 _ZTSN8rawspeed11HuffmanCodeINS_15BaselineCodeTagEEE", !9, i64 0}
-!183 = !{!59, !60, i64 0}
-!184 = !{!59, !60, i64 16}
-!185 = !{!186, !65, i64 0}
-!186 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
-!187 = !{!186, !65, i64 16}
-!188 = distinct !{!188, !126}
-!189 = !{!102, !103, i64 16}
-!190 = !{!191, !60, i64 0}
-!191 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
-!192 = !{!191, !60, i64 16}
-!193 = !{!194, !195, i64 0}
-!194 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EE17_Vector_impl_dataE", !195, i64 0, !195, i64 8, !195, i64 16}
-!195 = !{!"p1 _ZTSN8rawspeed18AbstractPrefixCodeINS_15BaselineCodeTagEE10CodeSymbolE", !9, i64 0}
-!196 = !{!194, !195, i64 16}
+!127 = !{!"llvm.loop.estimated_trip_count"}
+!128 = !{!129, !17, i64 8}
+!129 = !{!"_ZTSN8rawspeed17JpegComponentInfoE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12}
+!130 = !{!129, !17, i64 12}
+!131 = !{!132, !133, i64 0}
+!132 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE17_Vector_impl_dataE", !133, i64 0, !133, i64 8, !133, i64 16}
+!133 = !{!"p1 _ZTSN8rawspeed17LJpegDecompressor18PerComponentRecipeE", !9, i64 0}
+!134 = !{!132, !133, i64 8}
+!135 = !{!132, !133, i64 16}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTSSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE", !9, i64 0}
+!138 = !{!139, !137, i64 0}
+!139 = !{!"_ZTSZN8rawspeed12LJpegDecoder10decodeScanEvE3$_0", !137, i64 0, !140, i64 8, !145, i64 32}
+!140 = !{!"_ZTSSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE", !141, i64 0}
+!141 = !{!"_ZTSSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE", !142, i64 0}
+!142 = !{!"_ZTSNSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE12_Vector_implE", !143, i64 0}
+!143 = !{!"_ZTSNSt12_Vector_baseIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EE17_Vector_impl_dataE", !144, i64 0, !144, i64 8, !144, i64 16}
+!144 = !{!"p2 _ZTSN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEEE", !9, i64 0}
+!145 = !{!"_ZTSSt6vectorItSaItEE", !146, i64 0}
+!146 = !{!"_ZTSSt12_Vector_baseItSaItEE", !147, i64 0}
+!147 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !148, i64 0}
+!148 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !149, i64 0, !149, i64 8, !149, i64 16}
+!149 = !{!"p1 short", !9, i64 0}
+!150 = !{!143, !144, i64 0}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"p1 _ZTSN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEEE", !9, i64 0}
+!153 = !{!148, !149, i64 0}
+!154 = !{!118, !118, i64 0}
+!155 = distinct !{!155, !126, !127}
+!156 = !{!148, !149, i64 16}
+!157 = !{!143, !144, i64 16}
+!158 = !{!98, !17, i64 208}
+!159 = !{!98, !17, i64 212}
+!160 = !{!97, !17, i64 252}
+!161 = !{!97, !17, i64 256}
+!162 = !{!98, !118, i64 228}
+!163 = !{i64 0, i64 8, !151, i64 8, i64 2, !154}
+!164 = distinct !{!164, !126, !127}
+!165 = !{!110, !17, i64 16}
+!166 = !{!112, !17, i64 8}
+!167 = !{!112, !65, i64 0}
+!168 = !{}
+!169 = !{!143, !144, i64 8}
+!170 = !{!129, !17, i64 4}
+!171 = distinct !{!171, !126, !127}
+!172 = !{!148, !149, i64 8}
+!173 = !{!98, !17, i64 220}
+!174 = !{!98, !17, i64 56}
+!175 = distinct !{!175, !126, !127}
+!176 = !{!107, !108, i64 0}
+!177 = !{!107, !108, i64 8}
+!178 = distinct !{!178, !126, !127}
+!179 = !{!107, !108, i64 16}
+!180 = !{!102, !103, i64 0}
+!181 = !{!102, !103, i64 8}
+!182 = !{!183, !183, i64 0}
+!183 = !{!"p1 _ZTSN8rawspeed11HuffmanCodeINS_15BaselineCodeTagEEE", !9, i64 0}
+!184 = !{!59, !60, i64 0}
+!185 = !{!59, !60, i64 16}
+!186 = !{!187, !65, i64 0}
+!187 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
+!188 = !{!187, !65, i64 16}
+!189 = distinct !{!189, !126, !127}
+!190 = !{!102, !103, i64 16}
+!191 = !{!192, !60, i64 0}
+!192 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
+!193 = !{!192, !60, i64 16}
+!194 = !{!195, !196, i64 0}
+!195 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed18AbstractPrefixCodeINS0_15BaselineCodeTagEE10CodeSymbolESaIS4_EE17_Vector_impl_dataE", !196, i64 0, !196, i64 8, !196, i64 16}
+!196 = !{!"p1 _ZTSN8rawspeed18AbstractPrefixCodeINS_15BaselineCodeTagEE10CodeSymbolE", !9, i64 0}
+!197 = !{!195, !196, i64 16}

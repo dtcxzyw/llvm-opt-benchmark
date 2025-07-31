@@ -1472,7 +1472,7 @@ decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread387.i,
   %516 = add nuw nsw i32 %176, %191
   %517 = and i32 %516, 65535
   %518 = icmp samesign ult i32 %517, %108
-  br i1 %518, label %168, label %.loopexit, !llvm.loop !10
+  br i1 %518, label %168, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %decode_xmcp_attr_value.exit, %194, %proto_item_set_generated.exit
   %519 = load i8, ptr @xmcp_msg_is_keepalive, align 1, !range !6, !noundef !7
@@ -1763,6 +1763,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

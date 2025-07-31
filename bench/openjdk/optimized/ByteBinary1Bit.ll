@@ -97,7 +97,7 @@ define hidden void @ByteBinary1BitSetRect(ptr noundef readonly captures(none) %0
   %55 = add nsw i64 %.039.in, %17
   %56 = add i32 %.040, -1
   %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %57, label %21, !llvm.loop !8
+  br i1 %.not, label %57, label %21, !llvm.loop !9
 
 57:                                               ; preds = %51
   ret void
@@ -184,7 +184,7 @@ define hidden void @ByteBinary1BitSetSpans(ptr noundef readonly captures(none) %
   %58 = add nsw i32 %.137, -1
   %59 = add nsw i32 %.0, -1
   %60 = icmp sgt i32 %.0, 1
-  br i1 %60, label %41, label %61, !llvm.loop !9
+  br i1 %60, label %41, label %61, !llvm.loop !10
 
 61:                                               ; preds = %52
   %62 = trunc i32 %57 to i8
@@ -194,13 +194,13 @@ define hidden void @ByteBinary1BitSetSpans(ptr noundef readonly captures(none) %
   %65 = add nsw i64 %.041.in, %19
   %66 = add i32 %.040, -1
   %.not44 = icmp eq i32 %66, 0
-  br i1 %.not44, label %67, label %31, !llvm.loop !10
+  br i1 %.not44, label %67, label %31, !llvm.loop !11
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %12, align 8
   %69 = call zeroext i8 %68(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %67, %6
   ret void
@@ -290,7 +290,7 @@ define hidden void @ByteBinary1BitSetLine(ptr noundef readonly captures(none) %0
   %62 = add nsw i32 %.0, %32
   %63 = add nsw i32 %.060, -1
   %64 = icmp sgt i32 %.060, 1
-  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !13
 
 65:                                               ; preds = %.preheader71, %65
   %.062 = phi i32 [ %.163, %65 ], [ %5, %.preheader71 ]
@@ -320,7 +320,7 @@ define hidden void @ByteBinary1BitSetLine(ptr noundef readonly captures(none) %0
   %.2 = add nsw i32 %.pn, %.1
   %83 = add nsw i32 %.161, -1
   %84 = icmp sgt i32 %.161, 1
-  br i1 %84, label %65, label %.loopexit, !llvm.loop !13
+  br i1 %84, label %65, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %65, %.preheader
   ret void
@@ -390,7 +390,7 @@ define hidden void @ByteBinary1BitXorRect(ptr noundef readonly captures(none) %0
   %49 = add nsw i32 %.137, -1
   %50 = add nsw i32 %.0, -1
   %51 = icmp sgt i32 %.0, 1
-  br i1 %51, label %35, label %52, !llvm.loop !14
+  br i1 %51, label %35, label %52, !llvm.loop !15
 
 52:                                               ; preds = %46
   %53 = trunc i32 %48 to i8
@@ -400,7 +400,7 @@ define hidden void @ByteBinary1BitXorRect(ptr noundef readonly captures(none) %0
   %56 = add nsw i64 %.040.in, %19
   %57 = add i32 %.041, -1
   %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %58, label %25, !llvm.loop !15
+  br i1 %.not, label %58, label %25, !llvm.loop !16
 
 58:                                               ; preds = %52
   ret void
@@ -488,7 +488,7 @@ define hidden void @ByteBinary1BitXorSpans(ptr noundef readonly captures(none) %
   %59 = add nsw i32 %.138, -1
   %60 = add nsw i32 %.0, -1
   %61 = icmp sgt i32 %.0, 1
-  br i1 %61, label %45, label %62, !llvm.loop !16
+  br i1 %61, label %45, label %62, !llvm.loop !17
 
 62:                                               ; preds = %56
   %63 = trunc i32 %58 to i8
@@ -498,13 +498,13 @@ define hidden void @ByteBinary1BitXorSpans(ptr noundef readonly captures(none) %
   %66 = add nsw i64 %.042.in, %21
   %67 = add i32 %.041, -1
   %.not45 = icmp eq i32 %67, 0
-  br i1 %.not45, label %68, label %35, !llvm.loop !17
+  br i1 %.not45, label %68, label %35, !llvm.loop !18
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %14, align 8
   %70 = call zeroext i8 %69(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %68, %6
   ret void
@@ -594,7 +594,7 @@ define hidden void @ByteBinary1BitXorLine(ptr noundef readonly captures(none) %0
   %62 = add nsw i32 %.0, %34
   %63 = add nsw i32 %.060, -1
   %64 = icmp sgt i32 %.060, 1
-  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !20
 
 65:                                               ; preds = %.preheader71, %65
   %.062 = phi i32 [ %.163, %65 ], [ %5, %.preheader71 ]
@@ -620,7 +620,7 @@ define hidden void @ByteBinary1BitXorLine(ptr noundef readonly captures(none) %0
   %.2 = add nsw i32 %.pn, %.1
   %79 = add nsw i32 %.161, -1
   %80 = icmp sgt i32 %.161, 1
-  br i1 %80, label %65, label %.loopexit, !llvm.loop !20
+  br i1 %80, label %65, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %65, %.preheader
   ret void
@@ -752,7 +752,7 @@ define hidden void @ByteBinary1BitDrawGlyphList(ptr noundef readonly captures(no
   %80 = add nsw i32 %.183, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %81, label %59, !llvm.loop !21
+  br i1 %exitcond.not, label %81, label %59, !llvm.loop !22
 
 81:                                               ; preds = %79
   %82 = trunc i32 %.2 to i8
@@ -763,12 +763,12 @@ define hidden void @ByteBinary1BitDrawGlyphList(ptr noundef readonly captures(no
   %86 = getelementptr inbounds i8, ptr %.295, i64 %48
   %87 = add nsw i32 %.089, -1
   %88 = icmp sgt i32 %.089, 1
-  br i1 %88, label %49, label %.loopexit, !llvm.loop !22
+  br i1 %88, label %49, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %81, %22, %18
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge, label %18, !llvm.loop !23
+  br i1 %exitcond119.not, label %._crit_edge, label %18, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -968,7 +968,7 @@ define hidden void @ByteBinary1BitDrawGlyphListAA(ptr noundef readonly captures(
   %144 = add nsw i32 %.1125, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %145, label %71, !llvm.loop !24
+  br i1 %exitcond.not, label %145, label %71, !llvm.loop !25
 
 145:                                              ; preds = %143
   %146 = trunc i32 %.2123 to i8
@@ -979,12 +979,12 @@ define hidden void @ByteBinary1BitDrawGlyphListAA(ptr noundef readonly captures(
   %150 = getelementptr inbounds i8, ptr %.2, i64 %60
   %151 = add nsw i32 %.0128, -1
   %152 = icmp sgt i32 %.0128, 1
-  br i1 %152, label %61, label %.loopexit, !llvm.loop !25
+  br i1 %152, label %61, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %145, %34, %30
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %._crit_edge, label %30, !llvm.loop !26
+  br i1 %exitcond156.not, label %._crit_edge, label %30, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -1111,7 +1111,7 @@ define hidden void @ByteBinary1BitDrawGlyphListXor(ptr noundef readonly captures
   %79 = add nsw i32 %.184, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %80, label %63, !llvm.loop !27
+  br i1 %exitcond.not, label %80, label %63, !llvm.loop !28
 
 80:                                               ; preds = %74
   %81 = trunc i32 %.2 to i8
@@ -1122,12 +1122,12 @@ define hidden void @ByteBinary1BitDrawGlyphListXor(ptr noundef readonly captures
   %85 = getelementptr inbounds i8, ptr %.296, i64 %52
   %86 = add nsw i32 %.090, -1
   %87 = icmp sgt i32 %.090, 1
-  br i1 %87, label %53, label %.loopexit, !llvm.loop !28
+  br i1 %87, label %53, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %80, %26, %22
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge, label %22, !llvm.loop !29
+  br i1 %exitcond120.not, label %._crit_edge, label %22, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -1247,7 +1247,7 @@ define hidden void @ByteBinary1BitToByteBinary1BitConvert(ptr noundef %0, ptr no
   %88 = add nsw i32 %.170, -1
   %89 = add i32 %.066, -1
   %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %90, label %42, !llvm.loop !30
+  br i1 %.not, label %90, label %42, !llvm.loop !31
 
 90:                                               ; preds = %64
   %91 = ptrtoint ptr %.064 to i64
@@ -1262,7 +1262,7 @@ define hidden void @ByteBinary1BitToByteBinary1BitConvert(ptr noundef %0, ptr no
   %99 = inttoptr i64 %98 to ptr
   %100 = add i32 %.0, -1
   %.not81 = icmp eq i32 %100, 0
-  br i1 %.not81, label %101, label %23, !llvm.loop !31
+  br i1 %.not81, label %101, label %23, !llvm.loop !32
 
 101:                                              ; preds = %90
   ret void
@@ -1336,7 +1336,7 @@ define hidden void @ByteBinary1BitToIntArgbConvert(ptr noundef %0, ptr noundef %
   %51 = inttoptr i64 %50 to ptr
   %52 = add i32 %.037, -1
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %53, label %31, !llvm.loop !32
+  br i1 %.not, label %53, label %31, !llvm.loop !33
 
 53:                                               ; preds = %42
   %54 = ptrtoint ptr %.043 to i64
@@ -1346,7 +1346,7 @@ define hidden void @ByteBinary1BitToIntArgbConvert(ptr noundef %0, ptr noundef %
   %58 = inttoptr i64 %57 to ptr
   %59 = add i32 %.0, -1
   %.not49 = icmp eq i32 %59, 0
-  br i1 %.not49, label %60, label %21, !llvm.loop !33
+  br i1 %.not49, label %60, label %21, !llvm.loop !34
 
 60:                                               ; preds = %53
   ret void
@@ -1432,7 +1432,7 @@ define hidden void @IntArgbToByteBinary1BitConvert(ptr noundef %0, ptr noundef %
   %64 = inttoptr i64 %63 to ptr
   %65 = add i32 %.050, -1
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %66, label %31, !llvm.loop !34
+  br i1 %.not, label %66, label %31, !llvm.loop !35
 
 66:                                               ; preds = %42
   %67 = ptrtoint ptr %.048 to i64
@@ -1446,7 +1446,7 @@ define hidden void @IntArgbToByteBinary1BitConvert(ptr noundef %0, ptr noundef %
   %74 = inttoptr i64 %73 to ptr
   %75 = add i32 %.0, -1
   %.not59 = icmp eq i32 %75, 0
-  br i1 %.not59, label %76, label %21, !llvm.loop !35
+  br i1 %.not59, label %76, label %21, !llvm.loop !36
 
 76:                                               ; preds = %66
   ret void
@@ -1541,7 +1541,7 @@ define hidden void @IntArgbToByteBinary1BitXorBlit(ptr noundef %0, ptr noundef %
   %68 = inttoptr i64 %67 to ptr
   %69 = add i32 %.053, -1
   %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %70, label %32, !llvm.loop !36
+  br i1 %.not, label %70, label %32, !llvm.loop !37
 
 70:                                               ; preds = %64
   %71 = ptrtoint ptr %.051 to i64
@@ -1555,7 +1555,7 @@ define hidden void @IntArgbToByteBinary1BitXorBlit(ptr noundef %0, ptr noundef %
   %78 = inttoptr i64 %77 to ptr
   %79 = add i32 %.0, -1
   %.not63 = icmp eq i32 %79, 0
-  br i1 %.not63, label %80, label %22, !llvm.loop !37
+  br i1 %.not63, label %80, label %22, !llvm.loop !38
 
 80:                                               ; preds = %70
   ret void
@@ -1891,7 +1891,7 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   %.2190 = inttoptr i64 %.2190.in to ptr
   %214 = add nsw i32 %.0155, -1
   %215 = icmp sgt i32 %.0155, 1
-  br i1 %215, label %73, label %216, !llvm.loop !38
+  br i1 %215, label %73, label %216, !llvm.loop !39
 
 216:                                              ; preds = %213
   %217 = ptrtoint ptr %.0191 to i64
@@ -1906,7 +1906,7 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   %.5 = select i1 %.not215, ptr null, ptr %224
   %225 = add nsw i32 %.0166, -1
   %226 = icmp sgt i32 %.0166, 1
-  br i1 %226, label %63, label %227, !llvm.loop !39
+  br i1 %226, label %63, label %227, !llvm.loop !40
 
 227:                                              ; preds = %216
   ret void
@@ -2255,7 +2255,7 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   %.2194 = inttoptr i64 %.2194.in to ptr
   %227 = add nsw i32 %.0162, -1
   %228 = icmp sgt i32 %.0162, 1
-  br i1 %228, label %75, label %229, !llvm.loop !40
+  br i1 %228, label %75, label %229, !llvm.loop !41
 
 229:                                              ; preds = %226
   %230 = trunc i32 %.2165 to i8
@@ -2274,7 +2274,7 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   %.5 = select i1 %.not223, ptr null, ptr %240
   %241 = add nsw i32 %.0174, -1
   %242 = icmp sgt i32 %.0174, 1
-  br i1 %242, label %65, label %243, !llvm.loop !41
+  br i1 %242, label %65, label %243, !llvm.loop !42
 
 243:                                              ; preds = %229
   ret void
@@ -2608,7 +2608,7 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %.2154 = add nsw i32 %.1153, -1
   %215 = add nsw i32 %.0148, -1
   %216 = icmp sgt i32 %.0148, 1
-  br i1 %216, label %85, label %217, !llvm.loop !42
+  br i1 %216, label %85, label %217, !llvm.loop !43
 
 217:                                              ; preds = %214
   %218 = trunc i32 %.2151 to i8
@@ -2625,7 +2625,7 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %.5 = select i1 %.not203, ptr null, ptr %226
   %227 = add nsw i32 %.0160, -1
   %228 = icmp sgt i32 %.0160, 1
-  br i1 %228, label %75, label %229, !llvm.loop !43
+  br i1 %228, label %75, label %229, !llvm.loop !44
 
 229:                                              ; preds = %217
   ret void
@@ -2683,41 +2683,42 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}

@@ -332,12 +332,12 @@ define internal void @wg_key_uat_key_type_tostr_cb(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !9
 
 16:                                               ; preds = %.lr.ph20
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
@@ -1292,7 +1292,7 @@ wg_kdf.exit68.i.i:                                ; preds = %410
   %421 = phi i32 [ %415, %.lr.ph.i.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
   %.1.i.i.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %419, %.sink.split.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !10
 
 ._crit_edge.i.i.i:                                ; preds = %420, %414
   %.sroa.078.1.i.i = phi i32 [ %.sroa.078.0.i.i, %414 ], [ %.sroa.078.3.i.i, %420 ]
@@ -1332,7 +1332,7 @@ wg_kdf.exit69.i.i:                                ; preds = %428
 433:                                              ; preds = %wg_kdf.exit69.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  br label %414, !llvm.loop !10
+  br label %414, !llvm.loop !11
 
 wg_psk_iter_next.exit.thread.i.i:                 ; preds = %wg_kdf.exit69.i.i
   %434 = getelementptr inbounds nuw i8, ptr %334, i64 28
@@ -1879,7 +1879,7 @@ addresses_equal.exit.i.i:                         ; preds = %685, %678, %673, %6
 713:                                              ; preds = %707, %700, %695, %addresses_equal.exit.i.i, %663
   %714 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.02240.i.i)
   %.not27.i.i = icmp eq ptr %714, null
-  br i1 %.not27.i.i, label %wg_dissect_data.exit, label %663, !llvm.loop !11
+  br i1 %.not27.i.i, label %wg_dissect_data.exit, label %663, !llvm.loop !12
 
 wg_sessions_lookup.exit.i:                        ; preds = %707, %705, %685, %683
   %.059.i = phi i8 [ 1, %685 ], [ 1, %683 ], [ 0, %707 ], [ 0, %705 ]
@@ -2006,7 +2006,7 @@ proto_item_set_generated.exit.i59:                ; preds = %766, %763, %759
   %773 = add nsw i32 %632, -16
   %.val.i = load ptr, ptr %.0, align 8
   %774 = getelementptr i8, ptr %.0, i64 8
-  %.val54.i = load i8, ptr %774, align 8, !range !12, !noundef !13
+  %.val54.i = load i8, ptr %774, align 8, !range !13, !noundef !14
   %775 = getelementptr i8, ptr %.val.i, i64 72
   %.val.val.i = load ptr, ptr %775, align 8
   %776 = trunc nuw i8 %.val54.i to i1
@@ -2064,7 +2064,7 @@ wg_aead_decrypt.exit.i.i:                         ; preds = %792
   %802 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %784, i32 noundef range(i32 0, 2147483632) %773, i32 noundef range(i32 0, 2147483632) %773)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %802, ptr noundef nonnull @.str.130)
   %803 = call ptr @proto_item_get_parent(ptr noundef %55)
-  %804 = load i8, ptr @pref_dissect_packet, align 1, !range !12, !noundef !13
+  %804 = load i8, ptr @pref_dissect_packet, align 1, !range !13, !noundef !14
   %805 = trunc nuw i8 %804 to i1
   br i1 %805, label %808, label %806
 
@@ -2229,7 +2229,7 @@ wg_keylog_reset.exit:                             ; preds = %9, %11
   %26 = load i32, ptr @num_wg_key_records, align 4
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %23, %wg_keylog_reset.exit, %0
   ret void
@@ -2318,7 +2318,7 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr i8, ptr %.06690, i64 1
   %35 = icmp ult ptr %34, %10
-  br i1 %35, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !15
+  br i1 %35, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !16
 
 .critedge.loopexit:                               ; preds = %33, %.lr.ph
   %.066.lcssa.ph = phi ptr [ %.06690, %.lr.ph ], [ %34, %33 ]
@@ -2355,14 +2355,14 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 41:                                               ; preds = %.lr.ph95
   %42 = add i64 %.06394, -1
   %.not76 = icmp eq i64 %42, 0
-  br i1 %.not76, label %.critedge2.thread.thread, label %.lr.ph95, !llvm.loop !16
+  br i1 %.not76, label %.critedge2.thread.thread, label %.lr.ph95, !llvm.loop !17
 
 .critedge2:                                       ; preds = %.lr.ph95
   %or.cond = icmp ult i64 %.06394, 28
   br i1 %or.cond, label %43, label %.critedge2.thread.thread
 
 43:                                               ; preds = %.critedge2
-  %44 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %.066.lcssa, i64 noundef range(i64 1, 46) %.06394, i64 noundef 28) #18, !alias.scope !17
+  %44 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %.066.lcssa, i64 noundef range(i64 1, 46) %.06394, i64 noundef 28) #18, !alias.scope !18
   %45 = getelementptr [28 x i8], ptr %6, i64 0, i64 %.06394
   store i8 0, ptr %45, align 1
   br label %46
@@ -2376,7 +2376,7 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 48:                                               ; preds = %46
   %49 = load i8, ptr %.167, align 1
   %50 = icmp eq i8 %49, 32
-  br i1 %50, label %46, label %.critedge5, !llvm.loop !21
+  br i1 %50, label %46, label %.critedge5, !llvm.loop !22
 
 .critedge5:                                       ; preds = %46, %48
   %51 = getelementptr i8, ptr %.096, i64 %.165
@@ -2393,11 +2393,11 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
   br label %96
 
 .critedge2.thread:                                ; preds = %.critedge5
-  %57 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %.167, i64 noundef range(i64 1, 46) %54, i64 noundef 45) #18, !alias.scope !22
+  %57 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %.167, i64 noundef range(i64 1, 46) %54, i64 noundef 45) #18, !alias.scope !23
   %.pre = load i8, ptr %7, align 16
   %58 = icmp eq i8 %.pre, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
-  br i1 %58, label %96, label %59, !llvm.loop !26
+  br i1 %58, label %96, label %59, !llvm.loop !27
 
 59:                                               ; preds = %.critedge2.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -2515,7 +2515,7 @@ wg_add_ephemeral_privkey.exit:                    ; preds = %69, %85
   %97 = icmp ne ptr %.1, null
   %98 = icmp ult ptr %.1, %10
   %99 = and i1 %97, %98
-  br i1 %99, label %15, label %._crit_edge
+  br i1 %99, label %15, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %96, %2
   ret void
@@ -2784,7 +2784,7 @@ wg_keylog_reset.exit11:                           ; preds = %18, %wg_keylog_rese
   %31 = load ptr, ptr @wg_keylog_file, align 8
   %32 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 512, ptr noundef %31)
   %.not7 = icmp eq ptr %32, null
-  br i1 %.not7, label %._crit_edge, label %wg_keylog_reset.exit11
+  br i1 %.not7, label %._crit_edge, label %wg_keylog_reset.exit11, !llvm.loop !29
 
 33:                                               ; preds = %wg_keylog_reset.exit11.thread, %wg_keylog_reset.exit.thread, %4, %0
   ret void
@@ -2859,7 +2859,7 @@ wg_mac_verify.exit:                               ; preds = %26
   %37 = load ptr, ptr %3, align 8
   call void @gcry_md_close(ptr noundef %37)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  br i1 %36, label %38, label %20, !llvm.loop !27
+  br i1 %36, label %38, label %20, !llvm.loop !30
 
 38:                                               ; preds = %20, %wg_mac_verify.exit
   %.3 = phi ptr [ %23, %wg_mac_verify.exit ], [ null, %20 ]
@@ -3391,7 +3391,7 @@ define internal fastcc ptr @wg_sessions_lookup_initiation(ptr noundef readonly c
 50:                                               ; preds = %21, %48, %27, %32, %39
   %51 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.01835)
   %.not24 = icmp eq ptr %51, null
-  br i1 %.not24, label %addresses_equal.exit, label %21, !llvm.loop !28
+  br i1 %.not24, label %addresses_equal.exit, label %21, !llvm.loop !31
 
 addresses_equal.exit:                             ; preds = %48, %45, %50, %14, %9
   %.0 = phi ptr [ null, %9 ], [ null, %14 ], [ %22, %48 ], [ %22, %45 ], [ null, %50 ]
@@ -3592,26 +3592,29 @@ attributes #23 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = distinct !{!21, !7}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"memcpy.inline: argument 0"}
-!24 = distinct !{!24, !"memcpy.inline"}
-!25 = distinct !{!25, !24, !"memcpy.inline: argument 1"}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = distinct !{!22, !7, !8}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}

@@ -94,7 +94,7 @@ define ptr @ossl_crypto_thread_start(ptr noundef %0, ptr noundef %1, ptr noundef
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store ptr %0, ptr %30, align 8, !tbaa !16
+  store ptr %0, ptr %30, align 8, !tbaa !17
   br label %31
 
 31:                                               ; preds = %24, %29, %3, %14
@@ -113,7 +113,7 @@ define range(i32 0, 2) i32 @ossl_crypto_thread_join(ptr noundef %0, ptr noundef 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %6, i32 noundef 19) #2
   %8 = icmp eq ptr %7, null
   br i1 %8, label %21, label %9
@@ -233,9 +233,10 @@ attributes #2 = { nounwind }
 !11 = !{!4, !5, i64 0}
 !12 = !{!4, !5, i64 8}
 !13 = !{!4, !10, i64 24}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !19, i64 80}
-!17 = !{!"crypto_thread_st", !18, i64 0, !9, i64 8, !9, i64 16, !18, i64 24, !9, i64 32, !8, i64 40, !8, i64 48, !10, i64 56, !5, i64 64, !18, i64 72, !19, i64 80}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !20, i64 80}
+!18 = !{!"crypto_thread_st", !19, i64 0, !9, i64 8, !9, i64 16, !19, i64 24, !9, i64 32, !8, i64 40, !8, i64 48, !10, i64 56, !5, i64 64, !19, i64 72, !20, i64 80}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}

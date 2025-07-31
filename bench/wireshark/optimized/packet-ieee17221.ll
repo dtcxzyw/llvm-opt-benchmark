@@ -2165,7 +2165,7 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
   %292 = add nuw nsw i32 %.1593, 8
   %293 = add nuw nsw i32 %.1588592, 1
   %exitcond.not = icmp eq i32 %293, %289
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 294:                                              ; preds = %20
   %295 = load i32, ptr @hf_aecp_descriptor_type, align 4
@@ -2710,7 +2710,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
   %123 = add nuw nsw i32 %.067225, 4
   %124 = add nuw nsw i32 %.026, 1
   %exitcond46.not = icmp eq i32 %124, %117
-  br i1 %exitcond46.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph27, !llvm.loop !9
+  br i1 %exitcond46.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph27, !llvm.loop !10
 
 125:                                              ; preds = %2
   %126 = load i32, ptr @hf_aem_object_name, align 4
@@ -2830,7 +2830,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
   %226 = add nuw nsw i32 %.167322, 4
   %227 = add nuw nsw i32 %.123, 1
   %exitcond45.not = icmp eq i32 %227, %206
-  br i1 %exitcond45.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph24, !llvm.loop !10
+  br i1 %exitcond45.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph24, !llvm.loop !11
 
 228:                                              ; preds = %2, %2
   %229 = load i32, ptr @hf_aem_object_name, align 4
@@ -2968,7 +2968,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
   %351 = add nuw nsw i32 %.267419, 8
   %352 = add nuw nsw i32 %.220, 1
   %exitcond44.not = icmp eq i32 %352, %345
-  br i1 %exitcond44.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph21, !llvm.loop !11
+  br i1 %exitcond44.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph21, !llvm.loop !12
 
 353:                                              ; preds = %2, %2
   %354 = load i32, ptr @hf_aem_jack_name, align 4
@@ -3158,7 +3158,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
   %516 = add nuw nsw i32 %.367516, 8
   %517 = add nuw nsw i32 %.317, 1
   %exitcond43.not = icmp eq i32 %517, %502
-  br i1 %exitcond43.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph18, !llvm.loop !12
+  br i1 %exitcond43.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph18, !llvm.loop !13
 
 518:                                              ; preds = %2
   %519 = load i32, ptr @hf_aem_configuration_name, align 4
@@ -3337,7 +3337,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %613 = add i16 %.reass142.i, 4
   %614 = add nuw nsw i32 %.0112134.i, 1
   %exitcond146.not.i = icmp eq i32 %614, %592
-  br i1 %exitcond146.not.i, label %dissect_17221_ctrl_val.exit, label %594, !llvm.loop !13
+  br i1 %exitcond146.not.i, label %dissect_17221_ctrl_val.exit, label %594, !llvm.loop !14
 
 615:                                              ; preds = %get_ctrl_ref_vals.exit.i
   %616 = icmp ult i16 %564, 20
@@ -3362,7 +3362,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %627 = add i16 %.1133.i, 2
   %628 = add nuw nsw i32 %.1113132.i, 1
   %exitcond145.not.i = icmp eq i32 %628, %624
-  br i1 %exitcond145.not.i, label %.thread127.sink.split.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond145.not.i, label %.thread127.sink.split.i, label %.lr.ph.i, !llvm.loop !15
 
 629:                                              ; preds = %615
   switch i16 %564, label %dissect_17221_ctrl_val.exit [
@@ -3386,7 +3386,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %637 = add i16 %.2131.i, 4
   %638 = add nuw nsw i32 %.2114130.i, 1
   %exitcond.not.i = icmp eq i32 %.2114130.i, %632
-  br i1 %exitcond.not.i, label %dissect_17221_ctrl_val.exit, label %633, !llvm.loop !15
+  br i1 %exitcond.not.i, label %dissect_17221_ctrl_val.exit, label %633, !llvm.loop !16
 
 639:                                              ; preds = %629
   %640 = load i32, ptr @hf_aem_guid, align 4
@@ -3465,7 +3465,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %694 = add nuw nsw i32 %.467614, 64
   %695 = add nuw nsw i32 %.415, 1
   %exitcond42.not = icmp eq i32 %695, 7
-  br i1 %exitcond42.not, label %dissect_17221_ctrl_val.exit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond42.not, label %dissect_17221_ctrl_val.exit, label %.preheader, !llvm.loop !17
 
 696:                                              ; preds = %2
   %697 = load i32, ptr @hf_aem_signals_count, align 4
@@ -3494,7 +3494,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %713 = add nuw nsw i32 %.567711, 4
   %714 = add nuw nsw i32 %.512, 1
   %exitcond41.not = icmp eq i32 %714, %706
-  br i1 %exitcond41.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph13, !llvm.loop !17
+  br i1 %exitcond41.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph13, !llvm.loop !18
 
 715:                                              ; preds = %2
   %716 = load i32, ptr @hf_aem_memory_object_type, align 4
@@ -3544,7 +3544,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   %752 = add nuw nsw i32 %.66789, 2
   %753 = add nuw nsw i32 %.610, 1
   %exitcond.not = icmp eq i32 %753, %745
-  br i1 %exitcond.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %dissect_17221_ctrl_val.exit, label %.lr.ph, !llvm.loop !19
 
 754:                                              ; preds = %2
   %755 = load i32, ptr @hf_aem_unknown_descriptor, align 4
@@ -3664,16 +3664,17 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

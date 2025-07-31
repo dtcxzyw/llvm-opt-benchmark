@@ -50,7 +50,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr noundef captu
   %23 = getelementptr inbounds nuw i8, ptr %.02838, i64 16
   %.028 = load ptr, ptr %23, align 8, !tbaa !12
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %.sink.split, label %9
+  br i1 %.not, label %.sink.split, label %9, !llvm.loop !16
 
 .sink.split:                                      ; preds = %22, %14, %19
   %.0.ph = phi i32 [ 1, %19 ], [ 1, %14 ], [ 0, %22 ]
@@ -65,29 +65,29 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr noundef captu
 
 26:                                               ; preds = %24
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7
-  %.val.pr.i = load ptr, ptr %0, align 8, !tbaa !16
+  %.val.pr.i = load ptr, ptr %0, align 8, !tbaa !18
   %27 = icmp eq ptr %.val.pr.i, null
   br i1 %27, label %partition_intersection_list_free.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %.val6.i = phi ptr [ %29, %.lr.ph.i ], [ %.val.pr.i, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
   tail call void @free(ptr noundef nonnull %.val6.i) #7
-  store ptr %29, ptr %0, align 8, !tbaa !16
+  store ptr %29, ptr %0, align 8, !tbaa !18
   %30 = load i64, ptr %5, align 8, !tbaa !3
   %31 = add i64 %30, -1
   store i64 %31, ptr %5, align 8, !tbaa !3
   %32 = icmp eq ptr %29, null
-  br i1 %32, label %partition_intersection_list_free.exit, label %.lr.ph.i
+  br i1 %32, label %partition_intersection_list_free.exit, label %.lr.ph.i, !llvm.loop !20
 
 33:                                               ; preds = %24
   store i64 %2, ptr %25, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %3, ptr %34, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %.02836, ptr %35, align 8, !tbaa !17
-  store ptr %25, ptr %0, align 8, !tbaa !16
+  store ptr %.02836, ptr %35, align 8, !tbaa !19
+  store ptr %25, ptr %0, align 8, !tbaa !18
   %36 = add i64 %6, 1
   store i64 %36, ptr %5, align 8, !tbaa !3
   br label %partition_intersection_list_free.exit
@@ -104,7 +104,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @partition_intersection_list_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  %.val.pr = load ptr, ptr %0, align 8, !tbaa !16
+  %.val.pr = load ptr, ptr %0, align 8, !tbaa !18
   %2 = icmp eq ptr %.val.pr, null
   br i1 %2, label %._crit_edge, label %.lr.ph
 
@@ -115,14 +115,14 @@ define noundef i32 @partition_intersection_list_free(ptr noundef captures(none) 
 4:                                                ; preds = %.lr.ph, %4
   %.val6 = phi ptr [ %.val.pr, %.lr.ph ], [ %6, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   tail call void @free(ptr noundef nonnull %.val6) #7
-  store ptr %6, ptr %0, align 8, !tbaa !16
+  store ptr %6, ptr %0, align 8, !tbaa !18
   %7 = load i64, ptr %3, align 8, !tbaa !3
   %8 = add i64 %7, -1
   store i64 %8, ptr %3, align 8, !tbaa !3
   %9 = icmp eq ptr %6, null
-  br i1 %9, label %._crit_edge, label %4
+  br i1 %9, label %._crit_edge, label %4, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %4, %1
   ret i32 0
@@ -161,5 +161,8 @@ attributes #7 = { nounwind }
 !13 = !{!14, !9, i64 0}
 !14 = !{!"partition_intersection_node", !9, i64 0, !9, i64 8, !5, i64 16}
 !15 = !{!14, !9, i64 8}
-!16 = !{!4, !5, i64 0}
-!17 = !{!14, !5, i64 16}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!4, !5, i64 0}
+!19 = !{!14, !5, i64 16}
+!20 = distinct !{!20, !17}

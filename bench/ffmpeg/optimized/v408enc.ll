@@ -106,24 +106,24 @@ define internal range(i32 -2147483648, 1) i32 @v408_encode_frame(ptr noundef %0,
   %50 = phi i32 [ %32, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %51 = phi i32 [ %33, %.preheader ], [ %47, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.04448, %.preheader ], [ %46, %._crit_edge.loopexit ]
-  %52 = load i32, ptr %17, align 8, !tbaa !36
+  %52 = load i32, ptr %17, align 8, !tbaa !37
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %.04349, i64 %53
-  %55 = load i32, ptr %18, align 4, !tbaa !36
+  %55 = load i32, ptr %18, align 4, !tbaa !37
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %.04250, i64 %56
-  %58 = load i32, ptr %19, align 8, !tbaa !36
+  %58 = load i32, ptr %19, align 8, !tbaa !37
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %.04151, i64 %59
-  %61 = load i32, ptr %20, align 4, !tbaa !36
+  %61 = load i32, ptr %20, align 4, !tbaa !37
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %.04052, i64 %62
   %64 = add nuw nsw i32 %.03953, 1
   %65 = icmp slt i32 %64, %50
-  br i1 %65, label %.preheader, label %._crit_edge54, !llvm.loop !37
+  br i1 %65, label %.preheader, label %._crit_edge54, !llvm.loop !38
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %14
-  store i32 1, ptr %3, align 4, !tbaa !36
+  store i32 1, ptr %3, align 4, !tbaa !37
   br label %66
 
 66:                                               ; preds = %4, %._crit_edge54
@@ -178,8 +178,9 @@ attributes #3 = { nounwind }
 !31 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!10, !10, i64 0}
-!37 = distinct !{!37, !35, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!10, !10, i64 0}
+!38 = distinct !{!38, !35, !36, !39}
+!39 = !{!"llvm.loop.unswitch.partial.disable"}

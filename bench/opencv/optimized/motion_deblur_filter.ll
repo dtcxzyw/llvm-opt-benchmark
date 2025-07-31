@@ -1305,7 +1305,7 @@ define hidden void @_Z13calcWnrFilterRKN2cv3MatERS0_d(ptr noundef nonnull align 
   %88 = getelementptr inbounds i8, ptr %87, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %88) #18
   %89 = icmp eq ptr %88, %8
-  br i1 %89, label %90, label %86
+  br i1 %89, label %90, label %86, !llvm.loop !78
 
 90:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #18
@@ -1417,7 +1417,7 @@ define hidden void @_Z13calcWnrFilterRKN2cv3MatERS0_d(ptr noundef nonnull align 
   %119 = getelementptr inbounds i8, ptr %118, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %119) #18
   %120 = icmp eq ptr %119, %8
-  br i1 %120, label %.loopexit, label %117
+  br i1 %120, label %.loopexit, label %117, !llvm.loop !80
 
 .loopexit:                                        ; preds = %117, %.loopexit.loopexit55, %.thread51, %.thread
   %.pn38.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %93, %.thread ], [ %30, %.thread51 ], [ %.pn, %.loopexit.loopexit55 ], [ %.pn38.pn.pn.pn.pn, %117 ]
@@ -1462,9 +1462,9 @@ define hidden void @_Z9edgetaperRKN2cv3MatERS0_dd(ptr noundef nonnull align 8 de
 18:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !78
+  %20 = load ptr, ptr %19, align 8, !tbaa !81
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !78
+  %22 = load ptr, ptr %21, align 8, !tbaa !81
   %23 = sitofp i32 %15 to double
   %24 = fdiv double 0x401921FB54442D18, %23
   %25 = fptrunc double %24 to float
@@ -1508,11 +1508,11 @@ define hidden void @_Z9edgetaperRKN2cv3MatERS0_dd(ptr noundef nonnull align 8 de
   %44 = fmul double %43, 5.000000e-01
   %45 = fptrunc double %44 to float
   %46 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
-  store float %45, ptr %46, align 4, !tbaa !79
+  store float %45, ptr %46, align 4, !tbaa !82
   %47 = fadd float %.03852, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !84
 
 ._crit_edge58:                                    ; preds = %48, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #18
@@ -1534,15 +1534,15 @@ define hidden void @_Z9edgetaperRKN2cv3MatERS0_dd(ptr noundef nonnull align 8 de
   %57 = fmul double %56, 5.000000e-01
   %58 = fptrunc double %57 to float
   %59 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv60
-  store float %58, ptr %59, align 4, !tbaa !79
+  store float %58, ptr %59, align 4, !tbaa !82
   %60 = fadd float %.03554, %30
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %._crit_edge58, label %48, !llvm.loop !83
+  br i1 %exitcond64.not, label %._crit_edge58, label %48, !llvm.loop !86
 
 61:                                               ; preds = %._crit_edge58
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #18
-  %62 = load ptr, ptr %10, align 8, !tbaa !67, !noalias !84
+  %62 = load ptr, ptr %10, align 8, !tbaa !67, !noalias !87
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -1695,7 +1695,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
 
 36:                                               ; preds = %29
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #18
-  %37 = load ptr, ptr %7, align 8, !tbaa !67, !noalias !87
+  %37 = load ptr, ptr %7, align 8, !tbaa !67, !noalias !90
   %38 = load ptr, ptr %37, align 8, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
@@ -1796,7 +1796,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
 
 68:                                               ; preds = %61
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #18
-  %69 = load ptr, ptr %15, align 8, !tbaa !67, !noalias !90
+  %69 = load ptr, ptr %15, align 8, !tbaa !67, !noalias !93
   %70 = load ptr, ptr %69, align 8, !tbaa !22
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
@@ -1906,7 +1906,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   %102 = getelementptr inbounds i8, ptr %101, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %102) #18
   %103 = icmp eq ptr %102, %12
-  br i1 %103, label %104, label %100
+  br i1 %103, label %104, label %100, !llvm.loop !96
 
 104:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %12) #18
@@ -1920,7 +1920,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   %108 = getelementptr inbounds i8, ptr %107, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %108) #18
   %109 = icmp eq ptr %108, %4
-  br i1 %109, label %110, label %106
+  br i1 %109, label %110, label %106, !llvm.loop !97
 
 110:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #18
@@ -2020,7 +2020,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   %133 = getelementptr inbounds i8, ptr %132, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %133) #18
   %134 = icmp eq ptr %133, %12
-  br i1 %134, label %.loopexit92, label %131
+  br i1 %134, label %.loopexit92, label %131, !llvm.loop !98
 
 .loopexit92:                                      ; preds = %131, %.loopexit92.loopexit95, %.thread89, %.thread85
   %.pn62.pn.pn = phi { ptr, i32 } [ %117, %.thread85 ], [ %60, %.thread89 ], [ %.pn49, %.loopexit92.loopexit95 ], [ %.pn62.pn, %131 ]
@@ -2039,7 +2039,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   %139 = getelementptr inbounds i8, ptr %138, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %139) #18
   %140 = icmp eq ptr %139, %4
-  br i1 %140, label %.loopexit, label %137
+  br i1 %140, label %.loopexit, label %137, !llvm.loop !99
 
 .loopexit:                                        ; preds = %137, %.loopexit.loopexit96, %.thread82
   %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %.thread82 ], [ %.pn, %.loopexit.loopexit96 ], [ %.pn62.pn.pn.pn, %137 ]
@@ -2440,7 +2440,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !93
+  %21 = load i32, ptr %20, align 4, !tbaa !100
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -2483,10 +2483,10 @@ define internal void @_GLOBAL__sub_I_motion_deblur_filter.cpp() #16 section ".te
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZL4keysB5cxx11, i64 16), ptr @_ZL4keysB5cxx11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #18
-  store i64 282, ptr %1, align 8, !tbaa !94
+  store i64 282, ptr %1, align 8, !tbaa !101
   %3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL4keysB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %3, ptr @_ZL4keysB5cxx11, align 8, !tbaa !14
-  %4 = load i64, ptr %1, align 8, !tbaa !94
+  %4 = load i64, ptr %1, align 8, !tbaa !101
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL4keysB5cxx11, i64 16), align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(282) %3, ptr noundef nonnull align 1 dereferenceable(282) @.str, i64 282, i1 false)
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL4keysB5cxx11, i64 8), align 8, !tbaa !10
@@ -2602,20 +2602,27 @@ attributes #20 = { noreturn }
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
 !77 = distinct !{!77, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!78 = !{!47, !6, i64 16}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"float", !8, i64 0}
-!81 = distinct !{!81, !82}
-!82 = !{!"llvm.loop.mustprogress"}
-!83 = distinct !{!83, !82}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!86 = distinct !{!86, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!78 = distinct !{!78, !79}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = distinct !{!80, !79}
+!81 = !{!47, !6, i64 16}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"float", !8, i64 0}
+!84 = distinct !{!84, !85, !79}
+!85 = !{!"llvm.loop.mustprogress"}
+!86 = distinct !{!86, !85, !79}
 !87 = !{!88}
 !88 = distinct !{!88, !89, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
 !89 = distinct !{!89, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
 !92 = distinct !{!92, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!93 = !{!47, !16, i64 4}
-!94 = !{!12, !12, i64 0}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!95 = distinct !{!95, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!96 = distinct !{!96, !79}
+!97 = distinct !{!97, !79}
+!98 = distinct !{!98, !79}
+!99 = distinct !{!99, !79}
+!100 = !{!47, !16, i64 4}
+!101 = !{!12, !12, i64 0}

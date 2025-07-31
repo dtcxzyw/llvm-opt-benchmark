@@ -317,7 +317,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %39, ptr noundef nonnull align 4 dereferenceable(3) %13, i64 3, i1 false)
   %42 = getelementptr i8, ptr %39, i64 3
   %43 = icmp eq i32 %41, 0
-  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !9
 
 44:                                               ; preds = %44, %29
   %45 = phi ptr [ %1, %29 ], [ %48, %44 ]
@@ -326,7 +326,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
   store i32 %30, ptr %45, align 1
   %48 = getelementptr i8, ptr %45, i64 4
   %49 = icmp eq i32 %47, 0
-  br i1 %49, label %.loopexit, label %44, !llvm.loop !9
+  br i1 %49, label %.loopexit, label %44, !llvm.loop !10
 
 50:                                               ; preds = %50, %27
   %51 = phi ptr [ %1, %27 ], [ %54, %50 ]
@@ -335,7 +335,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
   store i64 %28, ptr %51, align 1
   %54 = getelementptr i8, ptr %51, i64 8
   %55 = icmp eq i32 %53, 0
-  br i1 %55, label %.loopexit, label %50, !llvm.loop !10
+  br i1 %55, label %.loopexit, label %50, !llvm.loop !11
 
 .loopexit:                                        ; preds = %50, %44, %.preheader, %33, %25, %20, %7, %5, %3
   %56 = phi i32 [ 0, %20 ], [ -22, %3 ], [ 0, %5 ], [ -22, %7 ], [ 0, %25 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %44 ], [ 0, %50 ]
@@ -378,7 +378,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr noundef captures(none) 
 18:                                               ; preds = %7
   %19 = add nuw nsw i32 %8, 1
   %20 = icmp eq i32 %19, %2
-  br i1 %20, label %.loopexit3, label %7, !llvm.loop !11
+  br i1 %20, label %.loopexit3, label %7, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %18, %12, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -395,7 +395,7 @@ define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr noundef captures(none) 
   %28 = shl nuw i32 1, %24
   %29 = and i32 %27, %28
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %22, label %31, !llvm.loop !12
+  br i1 %30, label %22, label %31, !llvm.loop !13
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr @snd_pcm_known_rates, align 8
@@ -436,7 +436,7 @@ define dso_local range(i32 1, -2147483647) i32 @snd_pcm_rate_to_rate_bit(i32 nou
 14:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = icmp eq i64 %indvars.iv.next, %6
-  br i1 %15, label %.loopexit, label %7, !llvm.loop !13
+  br i1 %15, label %.loopexit, label %7, !llvm.loop !14
 
 .loopexit:                                        ; preds = %14, %11, %1
   %16 = phi i32 [ %13, %11 ], [ -2147483648, %1 ], [ -2147483648, %14 ]
@@ -465,7 +465,7 @@ define dso_local i32 @snd_pcm_rate_bit_to_rate(i32 noundef %0) #5 align 16 {
 12:                                               ; preds = %.preheader
   %13 = add nuw i32 %4, 1
   %14 = icmp eq i32 %13, %2
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %7, %1
   %15 = phi i32 [ %11, %7 ], [ 0, %1 ], [ 0, %12 ]
@@ -530,7 +530,7 @@ define dso_local range(i32 1, 0) i32 @snd_pcm_rate_range_to_bits(i32 noundef %0,
   %18 = or i32 %.fr2, %9
   %19 = add nuw i32 %8, 1
   %20 = icmp eq i32 %19, %3
-  br i1 %20, label %21, label %7, !llvm.loop !15
+  br i1 %20, label %21, label %7, !llvm.loop !16
 
 21:                                               ; preds = %7
   %22 = icmp eq i32 %18, 0
@@ -565,14 +565,15 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}

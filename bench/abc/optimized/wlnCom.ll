@@ -296,7 +296,7 @@ sub_1140:                                         ; preds = %sub_0139
 78:                                               ; preds = %.tail138.thread, %.tail138, %.tail134
   %79 = tail call ptr @Wln_ReadSystemVerilog(ptr noundef %41, ptr noundef %.0101, ptr noundef %.099, i32 noundef %.087, i32 noundef %.083) #10
   %80 = getelementptr i8, ptr %0, i64 520
-  %.val.i = load ptr, ptr %80, align 8, !tbaa !12
+  %.val.i = load ptr, ptr %80, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %Wln_AbcUpdateRtl.exit, label %81
 
@@ -305,7 +305,7 @@ sub_1140:                                         ; preds = %sub_0139
   br label %Wln_AbcUpdateRtl.exit
 
 Wln_AbcUpdateRtl.exit:                            ; preds = %78, %81
-  store ptr %79, ptr %80, align 8, !tbaa !12
+  store ptr %79, ptr %80, align 8, !tbaa !13
   br label %89
 
 .loopexit.sink.split:                             ; preds = %13, %6
@@ -350,7 +350,7 @@ Wln_AbcUpdateRtl.exit:                            ; preds = %78, %81
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
-  %.val = load ptr, ptr %4, align 8, !tbaa !12
+  %.val = load ptr, ptr %4, align 8, !tbaa !13
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -370,11 +370,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr noundef readonly captu
 
 7:                                                ; preds = %5
   %8 = xor i32 %.019.ph, 1
-  br label %.outer, !llvm.loop !27
+  br label %.outer, !llvm.loop !28
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !27
+  br label %5, !llvm.loop !28
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %.val, null
@@ -422,7 +422,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandHierarchy(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
-  %.val = load ptr, ptr %4, align 8, !tbaa !12
+  %.val = load ptr, ptr %4, align 8, !tbaa !13
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %5
 
@@ -436,7 +436,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandHierarchy(ptr noundef readonly c
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !28
+  br label %5, !llvm.loop !29
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %.val, null
@@ -479,7 +479,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandHierarchy(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
-  %.val = load ptr, ptr %4, align 8, !tbaa !12
+  %.val = load ptr, ptr %4, align 8, !tbaa !13
   tail call void (...) @Extra_UtilGetoptReset() #10
   br label %.outer
 
@@ -527,19 +527,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !3
-  br label %.outer, !llvm.loop !29
+  br label %.outer, !llvm.loop !30
 
 15:                                               ; preds = %5
   %16 = xor i32 %.023.ph81, 1
-  br label %.outer80, !llvm.loop !29
+  br label %.outer80, !llvm.loop !30
 
 17:                                               ; preds = %5
   %18 = xor i32 %.021.ph85, 1
-  br label %.outer84, !llvm.loop !29
+  br label %.outer84, !llvm.loop !30
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0, 1
-  br label %5, !llvm.loop !29
+  br label %5, !llvm.loop !30
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %.val, null
@@ -586,7 +586,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 520
-  %.val = load ptr, ptr %4, align 8, !tbaa !12
+  %.val = load ptr, ptr %4, align 8, !tbaa !13
   tail call void (...) @Extra_UtilGetoptReset() #10
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.54) #10
   %.not31 = icmp eq i32 %5, -1
@@ -623,7 +623,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr noundef readonly captu
   %.1 = phi i32 [ %.034, %9 ], [ %.034, %11 ], [ %14, %13 ]
   %16 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.54) #10
   %.not = icmp eq i32 %16, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %15
   %17 = icmp eq i32 %.117, 0
@@ -682,7 +682,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrint(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define void @Wln_End(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 520
-  %.val.i = load ptr, ptr %2, align 8, !tbaa !12
+  %.val.i = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %Wln_AbcUpdateRtl.exit, label %3
 
@@ -691,7 +691,7 @@ define void @Wln_End(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %Wln_AbcUpdateRtl.exit
 
 Wln_AbcUpdateRtl.exit:                            ; preds = %1, %3
-  store ptr null, ptr %2, align 8, !tbaa !12
+  store ptr null, ptr %2, align 8, !tbaa !13
   ret void
 }
 
@@ -738,12 +738,12 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   ]
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !32
   %15 = tail call i32 @Gia_ManToBridgeText(ptr noundef %14, i32 noundef 7, ptr noundef nonnull @.str.36) #10
   br label %19
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !32
   %18 = tail call i32 @Gia_ManToBridgeText(ptr noundef %17, i32 noundef 9, ptr noundef nonnull @.str.37) #10
   br label %19
 
@@ -755,7 +755,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 
 21:                                               ; preds = %19
   %22 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #10
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !32
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #11
   %25 = trunc i64 %24 to i32
   %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #10
@@ -763,7 +763,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   br label %30
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !31, !noalias !32
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !32, !noalias !33
   %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #10
   br label %30
 
@@ -867,28 +867,29 @@ attributes #11 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !9, i64 520}
-!13 = !{!"Abc_Frame_t_", !8, i64 0, !8, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !15, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !16, i64 104, !17, i64 112, !17, i64 116, !4, i64 120, !4, i64 124, !18, i64 128, !18, i64 136, !18, i64 144, !19, i64 152, !19, i64 160, !15, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !8, i64 256, !17, i64 264, !20, i64 272, !4, i64 280, !21, i64 288, !21, i64 296, !21, i64 304, !21, i64 312, !21, i64 320, !4, i64 328, !4, i64 332, !4, i64 336, !4, i64 340, !4, i64 344, !4, i64 348, !22, i64 352, !22, i64 360, !15, i64 368, !15, i64 376, !20, i64 384, !20, i64 392, !4, i64 400, !4, i64 404, !15, i64 408, !15, i64 416, !15, i64 424, !8, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !20, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !23, i64 552, !24, i64 560, !25, i64 568, !21, i64 576, !21, i64 584, !20, i64 592, !20, i64 600, !26, i64 608, !26, i64 616, !9, i64 624, !26, i64 632, !9, i64 640}
-!14 = !{!"p1 _ZTS9st__table", !9, i64 0}
-!15 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!16 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
-!17 = !{!"float", !5, i64 0}
-!18 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!19 = !{!"double", !5, i64 0}
-!20 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!21 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
-!22 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!23 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
-!24 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
-!25 = !{!"p1 _ZTS9DdManager", !9, i64 0}
-!26 = !{!"p1 int", !9, i64 0}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = !{!18, !18, i64 0}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"vprintf: argument 0"}
-!34 = distinct !{!34, !"vprintf"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !9, i64 520}
+!14 = !{!"Abc_Frame_t_", !8, i64 0, !8, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !16, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !4, i64 96, !17, i64 104, !18, i64 112, !18, i64 116, !4, i64 120, !4, i64 124, !19, i64 128, !19, i64 136, !19, i64 144, !20, i64 152, !20, i64 160, !16, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !8, i64 256, !18, i64 264, !21, i64 272, !4, i64 280, !22, i64 288, !22, i64 296, !22, i64 304, !22, i64 312, !22, i64 320, !4, i64 328, !4, i64 332, !4, i64 336, !4, i64 340, !4, i64 344, !4, i64 348, !23, i64 352, !23, i64 360, !16, i64 368, !16, i64 376, !21, i64 384, !21, i64 392, !4, i64 400, !4, i64 404, !16, i64 408, !16, i64 416, !16, i64 424, !8, i64 432, !9, i64 440, !9, i64 448, !9, i64 456, !9, i64 464, !9, i64 472, !9, i64 480, !9, i64 488, !9, i64 496, !9, i64 504, !21, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !24, i64 552, !25, i64 560, !26, i64 568, !22, i64 576, !22, i64 584, !21, i64 592, !21, i64 600, !27, i64 608, !27, i64 616, !9, i64 624, !27, i64 632, !9, i64 640}
+!15 = !{!"p1 _ZTS9st__table", !9, i64 0}
+!16 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!17 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
+!18 = !{!"float", !5, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!20 = !{!"double", !5, i64 0}
+!21 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!22 = !{!"p1 _ZTS10Gia_Man_t_", !9, i64 0}
+!23 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!24 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
+!25 = !{!"p1 _ZTS10Vec_Wec_t_", !9, i64 0}
+!26 = !{!"p1 _ZTS9DdManager", !9, i64 0}
+!27 = !{!"p1 int", !9, i64 0}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12}
+!32 = !{!19, !19, i64 0}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"vprintf: argument 0"}
+!35 = distinct !{!35, !"vprintf"}

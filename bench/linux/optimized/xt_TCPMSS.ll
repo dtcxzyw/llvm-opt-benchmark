@@ -208,7 +208,7 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   %10 = getelementptr i8, ptr %6, i64 %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
-  store i16 0, ptr %4, align 2, !annotation !11
+  store i16 0, ptr %4, align 2, !annotation !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %12 = load i8, ptr %11, align 2
   store i8 %12, ptr %3, align 1
@@ -247,9 +247,9 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   %37 = load i32, ptr %36, align 8
   %38 = zext i16 %26 to i32
   %39 = xor i32 %38, -1
-  %40 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %37, i32 %39) #12, !srcloc !12
+  %40 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %37, i32 %39) #12, !srcloc !13
   %41 = zext i16 %30 to i32
-  %42 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %40, i32 %41) #12, !srcloc !12
+  %42 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %40, i32 %41) #12, !srcloc !13
   store i32 %42, ptr %36, align 8
   br label %43
 
@@ -329,7 +329,7 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr noundef read
   %45 = zext i16 %44 to i64
   %46 = getelementptr i8, ptr %27, i64 %45
   %47 = icmp ult ptr %46, %25
-  br i1 %47, label %.preheader, label %.loopexit2, !llvm.loop !13
+  br i1 %47, label %.preheader, label %.loopexit2, !llvm.loop !14
 
 .loopexit2:                                       ; preds = %43, %20
   %48 = tail call i32 @___ratelimit(ptr noundef nonnull @tcpmss_tg6_check._rs.6, ptr noundef nonnull @__func__.tcpmss_tg6_check) #10
@@ -494,7 +494,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %104 = phi i32 [ 1, %97 ], [ %102, %.thread9 ]
   %105 = add i32 %104, %65
   %106 = icmp ugt i32 %105, %63
-  br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %106, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %103, %61
   %107 = icmp sgt i32 %18, %33
@@ -620,7 +620,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr noundef reado
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8
   %7 = icmp eq i32 %2, 2
@@ -666,7 +666,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr noundef reado
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 32
   %37 = icmp eq ptr %36, @ip6_mtu
-  br i1 %37, label %38, label %40, !prof !15
+  br i1 %37, label %38, label %40, !prof !16
 
 38:                                               ; preds = %32
   %39 = call i32 @ip6_mtu(ptr noundef nonnull %30) #10
@@ -674,7 +674,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr noundef reado
 
 40:                                               ; preds = %32
   %41 = icmp eq ptr %36, @ipv4_mtu
-  br i1 %41, label %42, label %44, !prof !15
+  br i1 %41, label %42, label %44, !prof !16
 
 42:                                               ; preds = %40
   %43 = call i32 @ipv4_mtu(ptr noundef nonnull %30) #10
@@ -704,7 +704,7 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = icmp eq ptr %5, @ip6_mtu
-  br i1 %6, label %7, label %9, !prof !15
+  br i1 %6, label %7, label %9, !prof !16
 
 7:                                                ; preds = %1
   %8 = tail call i32 @ip6_mtu(ptr noundef %0) #10
@@ -712,7 +712,7 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #5 align 16 {
 
 9:                                                ; preds = %1
   %10 = icmp eq ptr %5, @ipv4_mtu
-  br i1 %10, label %11, label %13, !prof !15
+  br i1 %10, label %11, label %13, !prof !16
 
 11:                                               ; preds = %9
   %12 = tail call i32 @ipv4_mtu(ptr noundef %0) #10
@@ -808,11 +808,12 @@ attributes #12 = { nounwind memory(read) }
 !5 = !{i32 -1, i32 5}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"auto-init"}
-!12 = !{i64 7151432, i64 7151445}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!"branch_weights", i32 2000, i32 1}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"auto-init"}
+!13 = !{i64 7151432, i64 7151445}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = !{!"branch_weights", i32 2000, i32 1}

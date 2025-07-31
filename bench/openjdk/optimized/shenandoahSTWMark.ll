@@ -619,7 +619,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
 63:                                               ; preds = %61
   %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.021.i.i, ptr nonnull %56) #7, !srcloc !6
   %65 = icmp eq i64 %64, %.021.i.i
-  br i1 %65, label %66, label %61, !llvm.loop !9
+  br i1 %65, label %66, label %61, !llvm.loop !10
 
 66:                                               ; preds = %63
   %67 = lshr i64 %.021.i.i, %59
@@ -661,7 +661,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   store i64 %.sroa.0.0.copyload.i, ptr %85, align 8
   %86 = add i32 %77, 1
   %87 = and i32 %86, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile i32 %87, ptr %76, align 4
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
@@ -835,7 +835,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
 70:                                               ; preds = %68
   %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %.021.i.i, ptr nonnull %63) #7, !srcloc !6
   %72 = icmp eq i64 %71, %.021.i.i
-  br i1 %72, label %73, label %68, !llvm.loop !9
+  br i1 %72, label %73, label %68, !llvm.loop !10
 
 73:                                               ; preds = %70
   %74 = lshr i64 %.021.i.i, %66
@@ -877,7 +877,7 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.t
   store i64 %.sroa.0.0.copyload.i, ptr %92, align 8
   %93 = add i32 %84, 1
   %94 = and i32 %93, 131071
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store volatile i32 %94, ptr %83, align 4
   br label %_ZN17OverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i
 
@@ -1008,23 +1008,23 @@ define linkonce_odr hidden void @_ZN17ShenandoahVMRootsILb0EE7oops_doI30Shenando
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %26) #7
   %.not.i.i.i.i.i.i = icmp eq i64 %24, %.0810.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
 _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEEEEEbT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %16
   %29 = add i64 %.0.i.i.i.i, 1
   %30 = load i64, ptr %8, align 8
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %16, label %32, !llvm.loop !12
+  br i1 %31, label %16, label %32, !llvm.loop !13
 
 32:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEEEEEbT_.exit.i.i.i.i
   %33 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %4) #7
-  br i1 %33, label %14, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit.i, !llvm.loop !13
+  br i1 %33, label %14, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit.i, !llvm.loop !14
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit.i: ; preds = %32, %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit, label %9
+  br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit, label %9, !llvm.loop !15
 
 _ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit: ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EEEEvPT_.exit.i
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #7
@@ -1074,10 +1074,12 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412694}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i64 2145392468}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !9}

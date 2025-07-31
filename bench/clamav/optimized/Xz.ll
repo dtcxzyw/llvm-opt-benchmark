@@ -21,7 +21,7 @@ define i32 @Xz_WriteVarInt(ptr noundef writeonly captures(none) %0, i64 noundef 
   store i8 %5, ptr %6, align 1, !tbaa !3
   %7 = lshr i64 %.07, 7
   %.not = icmp ult i64 %.07, 128
-  br i1 %.not, label %8, label %3
+  br i1 %.not, label %8, label %3, !llvm.loop !6
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
@@ -33,7 +33,7 @@ define i32 @Xz_WriteVarInt(ptr noundef writeonly captures(none) %0, i64 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Xz_Construct(ptr noundef writeonly captures(none) initializes((0, 2), (8, 32)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %0, align 8, !tbaa !6
+  store i16 0, ptr %0, align 8, !tbaa !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
@@ -41,9 +41,9 @@ define void @Xz_Construct(ptr noundef writeonly captures(none) initializes((0, 2
 ; Function Attrs: nounwind uwtable
 define void @Xz_Free(ptr noundef captures(none) initializes((8, 24)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   tail call void %4(ptr noundef %1, ptr noundef %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -71,7 +71,7 @@ define range(i32 0, 65) i32 @XzFlags_GetCheckSize(i16 noundef zeroext %0) local_
 
 ; Function Attrs: nounwind uwtable
 define void @XzCheck_Init(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  store i32 %1, ptr %0, align 8, !tbaa !15
+  store i32 %1, ptr %0, align 8, !tbaa !17
   switch i32 %1, label %10 [
     i32 1, label %3
     i32 4, label %5
@@ -80,18 +80,18 @@ define void @XzCheck_Init(ptr noundef writeonly captures(none) initializes((0, 4
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %4, align 4, !tbaa !18
+  store i32 -1, ptr %4, align 4, !tbaa !20
   br label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -1, ptr %6, align 8, !tbaa !19
+  store i64 -1, ptr %6, align 8, !tbaa !21
   br label %10
 
 7:                                                ; preds = %2
   %8 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !20
+  store ptr %8, ptr %9, align 8, !tbaa !22
   br label %10
 
 10:                                               ; preds = %7, %5, %3, %2
@@ -102,7 +102,7 @@ declare ptr @cl_hash_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @XzCheck_Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr %0, align 8, !tbaa !15
+  %4 = load i32, ptr %0, align 8, !tbaa !17
   switch i32 %4, label %18 [
     i32 1, label %5
     i32 4, label %9
@@ -111,21 +111,21 @@ define void @XzCheck_Update(ptr noundef captures(none) %0, ptr noundef %1, i64 n
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !18
+  %7 = load i32, ptr %6, align 4, !tbaa !20
   %8 = tail call i32 @CrcUpdate(i32 noundef %7, ptr noundef %1, i64 noundef %2) #6
-  store i32 %8, ptr %6, align 4, !tbaa !18
+  store i32 %8, ptr %6, align 4, !tbaa !20
   br label %18
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !19
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   %12 = tail call i64 @Crc64Update(i64 noundef %11, ptr noundef %1, i64 noundef %2) #6
-  store i64 %12, ptr %10, align 8, !tbaa !19
+  store i64 %12, ptr %10, align 8, !tbaa !21
   br label %18
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %18, label %16
 
@@ -145,7 +145,7 @@ declare i32 @cl_update_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @XzCheck_Final(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr %0, align 8, !tbaa !15
+  %3 = load i32, ptr %0, align 8, !tbaa !17
   switch i32 %3, label %.loopexit [
     i32 1, label %4
     i32 4, label %8
@@ -154,14 +154,14 @@ define range(i32 0, 2) i32 @XzCheck_Final(ptr noundef captures(none) %0, ptr nou
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !18
+  %6 = load i32, ptr %5, align 4, !tbaa !20
   %7 = xor i32 %6, -1
   store i32 %7, ptr %1, align 1, !tbaa !3
   br label %.loopexit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !19
+  %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = xor i64 %10, -1
   br label %12
 
@@ -174,17 +174,17 @@ define range(i32 0, 2) i32 @XzCheck_Final(ptr noundef captures(none) %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = lshr i64 %.018, 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %12
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !23
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.loopexit, label %19
 
 19:                                               ; preds = %16
   %20 = tail call i32 @cl_finish_hash(ptr noundef nonnull %18, ptr noundef %1) #6
-  store ptr null, ptr %17, align 8, !tbaa !20
+  store ptr null, ptr %17, align 8, !tbaa !22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %4, %19, %2, %16
@@ -213,18 +213,21 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"", !8, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !11, i64 32}
-!8 = !{!"short", !4, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = !{!"long long", !4, i64 0}
-!12 = !{!13, !10, i64 8}
-!13 = !{!"", !10, i64 0, !10, i64 8}
-!14 = !{!7, !10, i64 24}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"", !17, i64 0, !17, i64 4, !11, i64 8, !10, i64 16}
-!17 = !{!"int", !4, i64 0}
-!18 = !{!16, !17, i64 4}
-!19 = !{!16, !11, i64 8}
-!20 = !{!16, !10, i64 16}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"", !10, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !13, i64 32}
+!10 = !{!"short", !4, i64 0}
+!11 = !{!"long", !4, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"long long", !4, i64 0}
+!14 = !{!15, !12, i64 8}
+!15 = !{!"", !12, i64 0, !12, i64 8}
+!16 = !{!9, !12, i64 24}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"", !19, i64 0, !19, i64 4, !13, i64 8, !12, i64 16}
+!19 = !{!"int", !4, i64 0}
+!20 = !{!18, !19, i64 4}
+!21 = !{!18, !13, i64 8}
+!22 = !{!18, !12, i64 16}
+!23 = distinct !{!23, !7}

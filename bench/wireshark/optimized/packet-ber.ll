@@ -802,7 +802,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %17, 
   store i8 %10, ptr @last_class, align 1
   store i8 %.lobit.i, ptr @last_pc, align 1
   store i32 %.0.i, ptr @last_tag, align 4
-  %24 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %24 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %52
 
@@ -881,12 +881,12 @@ define noundef i32 @dissect_ber_length(ptr readnone captures(none) %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
   %9 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1)
-  %10 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %37
 
 12:                                               ; preds = %6
-  %13 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %13 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %19
 
@@ -931,7 +931,7 @@ define noundef i32 @dissect_ber_length(ptr readnone captures(none) %0, ptr nound
 
 40:                                               ; preds = %38, %37
   %.not33 = icmp eq ptr %5, null
-  %.pre = load i8, ptr %8, align 1, !range !8
+  %.pre = load i8, ptr %8, align 1, !range !9
   br i1 %.not33, label %42, label %41
 
 41:                                               ; preds = %40
@@ -1059,7 +1059,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br i1 %51, label %52, label %63
 
 52:                                               ; preds = %get_ber_identifier.exit
-  %53 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %53 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %58
 
@@ -1150,7 +1150,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
 
 81:                                               ; preds = %65
   store volatile i8 0, ptr %14, align 1
-  %82 = load i8, ptr @decode_octetstring_as_ber, align 1, !range !8, !noundef !9
+  %82 = load i8, ptr @decode_octetstring_as_ber, align 1, !range !9, !noundef !10
   %83 = trunc nuw i8 %82 to i1
   %84 = icmp ugt i32 %49, 1
   %or.cond = select i1 %83, i1 %84, i1 false
@@ -1247,7 +1247,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  %113 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %113 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %114 = trunc nuw i8 %113 to i1
   %115 = load i32, ptr %17, align 4
   %116 = icmp ne i32 %115, 0
@@ -1265,7 +1265,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
 
 122:                                              ; preds = %117
   store volatile i8 1, ptr %14, align 1
-  %123 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %123 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %125, label %128
 
@@ -1297,7 +1297,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br label %137
 
 137:                                              ; preds = %136, %81
-  %.0..0..0..0.42 = load volatile i8, ptr %14, align 1, !range !8, !noundef !9
+  %.0..0..0..0.42 = load volatile i8, ptr %14, align 1, !range !9, !noundef !10
   %138 = trunc nuw i8 %.0..0..0..0.42 to i1
   br i1 %138, label %.loopexit, label %139
 
@@ -1414,7 +1414,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br label %.loopexit
 
 195:                                              ; preds = %64
-  %196 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %196 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %197 = trunc nuw i8 %196 to i1
   br i1 %197, label %198, label %201
 
@@ -1439,7 +1439,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %207 = call ptr @val_to_str_const(i32 noundef %206, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %208 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %3, i32 noundef %205, ptr noundef %1, i32 noundef %.0..0..0..0.155, i32 noundef %204, ptr noundef nonnull @.str.334, ptr noundef %207, i32 noundef %202)
   store volatile i8 0, ptr %14, align 1
-  %209 = load i8, ptr @decode_primitive_as_ber, align 1, !range !8, !noundef !9
+  %209 = load i8, ptr @decode_primitive_as_ber, align 1, !range !9, !noundef !10
   %210 = trunc nuw i8 %209 to i1
   %211 = icmp ugt i32 %204, 1
   %or.cond5 = select i1 %210, i1 %211, i1 false
@@ -1536,7 +1536,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %240 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %240 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %241 = trunc nuw i8 %240 to i1
   %242 = load i32, ptr %23, align 4
   %243 = icmp ne i32 %242, 0
@@ -1570,7 +1570,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
 
 254:                                              ; preds = %253, %201
   %255 = phi i32 [ %.pre275.pre, %253 ], [ %204, %201 ]
-  %.0..0..0..0.43 = load volatile i8, ptr %14, align 1, !range !8, !noundef !9
+  %.0..0..0..0.43 = load volatile i8, ptr %14, align 1, !range !9, !noundef !10
   %256 = trunc nuw i8 %.0..0..0..0.43 to i1
   %257 = icmp eq i32 %255, 0
   %or.cond9.not = select i1 %256, i1 true, i1 %257
@@ -1604,7 +1604,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.337, i32 noundef %270)
   %271 = add nuw i32 %.0243265, 1
   %exitcond.not = icmp eq i32 %271, %255
-  br i1 %exitcond.not, label %272, label %259, !llvm.loop !10
+  br i1 %exitcond.not, label %272, label %259, !llvm.loop !11
 
 272:                                              ; preds = %269
   %273 = trunc nuw i8 %.1 to i1
@@ -1623,7 +1623,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.339, i32 noundef %276)
   %277 = add nuw i32 %.1244267, 1
   %exitcond271.not = icmp eq i32 %277, %255
-  br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !11
+  br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph268
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.340)
@@ -1636,7 +1636,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   br label %.loopexit
 
 280:                                              ; preds = %63
-  %281 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %281 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %282 = trunc nuw i8 %281 to i1
   br i1 %282, label %283, label %286
 
@@ -1678,7 +1678,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   store volatile i32 %299, ptr %8, align 4
   %.0..0..0..0.165 = load volatile i32, ptr %8, align 4
   %300 = icmp slt i32 %.0..0..0..0.165, %295
-  br i1 %300, label %298, label %.loopexit, !llvm.loop !12
+  br i1 %300, label %298, label %.loopexit, !llvm.loop !13
 
 301:                                              ; preds = %286
   %302 = sext i8 %287 to i32
@@ -1701,7 +1701,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   store volatile i32 %311, ptr %8, align 4
   %.0..0..0..0.168 = load volatile i32, ptr %8, align 4
   %312 = icmp slt i32 %.0..0..0..0.168, %307
-  br i1 %312, label %310, label %.loopexit, !llvm.loop !13
+  br i1 %312, label %310, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %310, %298, %301, %290, %137, %139, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %78, %75, %72, %69, %66, %65, %278, %254
   %.0..0..0..0.170 = load volatile i32, ptr %8, align 4
@@ -1773,12 +1773,12 @@ define i32 @call_ber_oid_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2
 34:                                               ; preds = %32, %30, %23
   %35 = phi i32 [ %24, %23 ], [ %27, %30 ], [ %27, %32 ]
   %.054 = phi ptr [ %25, %23 ], [ %31, %30 ], [ %33, %32 ]
-  %36 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %36 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %40, label %71
 
 .thread67:                                        ; preds = %26
-  %38 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %38 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %.thread72, label %71
 
@@ -1996,7 +1996,7 @@ define internal fastcc noundef i32 @try_get_ber_length(ptr noundef %0, i32 nound
   %21 = zext i8 %18 to i32
   %22 = or disjoint i32 %20, %21
   %.not54 = icmp eq i8 %17, 0
-  br i1 %.not54, label %.loopexit, label %.preheader57, !llvm.loop !14
+  br i1 %.not54, label %.loopexit, label %.preheader57, !llvm.loop !15
 
 23:                                               ; preds = %.preheader, %get_ber_identifier.exit
   %.243 = phi i32 [ %47, %get_ber_identifier.exit ], [ 0, %.preheader ]
@@ -2051,7 +2051,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %36, 
   %47 = add i32 %46, %44
   %48 = add i32 %44, %43
   %.not53 = icmp sgt i32 %48, %.2
-  br i1 %.not53, label %23, label %49, !llvm.loop !15
+  br i1 %.not53, label %23, label %49, !llvm.loop !16
 
 49:                                               ; preds = %get_ber_identifier.exit
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
@@ -2148,11 +2148,11 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %36 = load ptr, ptr %22, align 8
   %37 = sext i8 %28 to i32
   %38 = call ptr @val_to_str_const(i32 noundef %37, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %39 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %39 = load i8, ptr %15, align 1, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   %41 = call ptr @tfs_get_string(i1 noundef zeroext %40, ptr noundef nonnull @tfs_constructed_primitive)
   %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %36, ptr noundef nonnull @ei_ber_expected_octet_string, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.344, ptr noundef %38, i32 noundef %37, ptr noundef %41, i32 noundef %.pre)
-  %43 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %43 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %187
 
@@ -2166,13 +2166,13 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
 50:                                               ; preds = %20
   %51 = load i8, ptr @last_class, align 1
   store i8 %51, ptr %14, align 1
-  %52 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
+  %52 = load i8, ptr @last_pc, align 1, !range !9, !noundef !10
   store i8 %52, ptr %15, align 1
   %53 = load i32, ptr @last_tag, align 4
   store i32 %53, ptr %17, align 4
   %54 = load i32, ptr @last_length, align 4
   store i32 %54, ptr %18, align 4
-  %55 = load i8, ptr @last_ind, align 1, !range !8, !noundef !9
+  %55 = load i8, ptr @last_ind, align 1, !range !9, !noundef !10
   store i8 %55, ptr %16, align 1
   %56 = load ptr, ptr @last_length_tvb, align 8
   %57 = load i32, ptr @last_length_offset, align 4
@@ -2208,12 +2208,12 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %.082 = phi i32 [ %4, %64 ], [ %4, %66 ], [ %25, %31 ], [ %25, %21 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %75, align 8
-  %76 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %76 = load i8, ptr %15, align 1, !range !9, !noundef !10
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %160
 
 78:                                               ; preds = %73
-  %79 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %79 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %80 = trunc nuw i8 %79 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
   store ptr null, ptr %12, align 8
@@ -2283,7 +2283,7 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %110 = call i32 @tvb_reported_length(ptr noundef nonnull %94)
   %111 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef nonnull %94, i32 noundef 0, ptr noundef %109, i32 noundef %92, ptr noundef null, i32 noundef %110, i1 noundef zeroext %.1.i.us)
   %.not72.i.us = icmp eq ptr %111, null
-  br i1 %.not72.i.us, label %.split.us, label %.thread, !llvm.loop !16
+  br i1 %.not72.i.us, label %.split.us, label %.thread, !llvm.loop !17
 
 .split:                                           ; preds = %87, %139
   %.059.not.i116 = phi i1 [ true, %139 ], [ false, %87 ]
@@ -2363,7 +2363,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %126,
   %141 = call i32 @tvb_reported_length(ptr noundef nonnull %113)
   %142 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef nonnull %113, i32 noundef 0, ptr noundef %140, i32 noundef %92, ptr noundef null, i32 noundef %141, i1 noundef zeroext %spec.select75.i)
   %.not72.i = icmp eq ptr %142, null
-  br i1 %.not72.i, label %.split, label %.thread, !llvm.loop !18
+  br i1 %.not72.i, label %.split, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %139, %108
   %.us-phi123 = phi ptr [ %111, %108 ], [ %142, %139 ]
@@ -2556,7 +2556,7 @@ define i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef readonly capture
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %14 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %14 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   %16 = load i8, ptr %7, align 1
   %17 = icmp ne i8 %16, 0
@@ -2701,7 +2701,7 @@ define i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef captures(no
   %.not147 = icmp sgt i8 %23, -1
   %.1132 = select i1 %.not147, i64 0, i64 %.0129
   %53 = icmp ne i32 %21, 1
-  %54 = load i8, ptr @decode_warning_leading_zero_bits, align 1, !range !8
+  %54 = load i8, ptr @decode_warning_leading_zero_bits, align 1, !range !9
   %55 = trunc nuw i8 %54 to i1
   %or.cond18 = select i1 %53, i1 %55, i1 false
   br i1 %or.cond18, label %56, label %62
@@ -2733,7 +2733,7 @@ define i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef captures(no
   %68 = add i32 %.2157, 1
   %69 = add nuw i32 %.0138155, 1
   %exitcond.not = icmp eq i32 %69, %21
-  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !20
 
 .loopexit:                                        ; preds = %63, %20
   %.0135 = phi i1 [ false, %20 ], [ %.1136, %63 ]
@@ -3076,11 +3076,11 @@ define i32 @dissect_ber_real(i1 noundef zeroext %0, ptr noundef captures(none) %
   %14 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %13, ptr noundef nonnull %11, ptr noundef null)
   %15 = load i32, ptr %11, align 4
   %16 = add i32 %15, %14
-  %.pre = load i8, ptr %9, align 1, !range !8
+  %.pre = load i8, ptr %9, align 1, !range !9
   br label %31
 
 17:                                               ; preds = %7
-  %18 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
+  %18 = load i8, ptr @last_pc, align 1, !range !9, !noundef !10
   %19 = load i32, ptr @last_length, align 4
   %20 = load ptr, ptr @last_length_tvb, align 8
   %21 = load i32, ptr @last_length_offset, align 4
@@ -3234,7 +3234,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %52 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
   %53 = sub i32 %52, %4
   %54 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %52, ptr noundef nonnull %14, ptr noundef nonnull %11)
-  %55 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %55 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %56 = trunc nuw i8 %55 to i1
   %57 = load i32, ptr %14, align 4
   %58 = add i32 %54, -2
@@ -3246,7 +3246,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %or.cond.not, label %80, label %61
 
 61:                                               ; preds = %50
-  %62 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %62 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %63 = trunc nuw i8 %62 to i1
   %.not = xor i1 %63, true
   %64 = icmp ne i8 %59, 0
@@ -3263,7 +3263,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %70 = call ptr @val_to_str_const(i32 noundef %69, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %71 = call ptr @tfs_get_string(i1 noundef zeroext %63, ptr noundef nonnull @tfs_constructed_primitive)
   %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0272, ptr noundef %68, ptr noundef nonnull @ei_ber_expected_sequence, ptr noundef %3, i32 noundef %4, i32 noundef %53, ptr noundef nonnull @.str.13, ptr noundef %70, i32 noundef %69, ptr noundef %71, i32 noundef %65)
-  %73 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %73 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %315
 
@@ -3381,16 +3381,16 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   %120 = load i32, ptr %18, align 4
   %121 = add i32 %119, %120
   %122 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0272, ptr noundef %118, ptr noundef nonnull @ei_ber_unknown_field_sequence, ptr noundef %3, i32 noundef %.0263.ph.lcssa340, i32 noundef %121, ptr noundef nonnull @.str.16)
-  %123 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %123 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %297, !llvm.loop !20
+  br i1 %124, label %125, label %297, !llvm.loop !21
 
 125:                                              ; preds = %.outer._crit_edge
   %126 = load i32, ptr @ett_ber_unknown, align 4
   %127 = call ptr @proto_item_add_subtree(ptr noundef %122, i32 noundef %126)
   %128 = load ptr, ptr %85, align 8
   %129 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %128, ptr noundef %3, i32 noundef %.0263.ph.lcssa340, ptr noundef %127, i32 noundef 1)
-  br label %297, !llvm.loop !20
+  br label %297, !llvm.loop !21
 
 130:                                              ; preds = %.lr.ph, %.backedge
   %.2260350 = phi ptr [ %.2260.ph356, %.lr.ph ], [ %.2260.be, %.backedge ]
@@ -3427,7 +3427,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   %142 = getelementptr i8, ptr %.2260350, i64 56
   %143 = load ptr, ptr %142, align 8
   %.not288 = icmp eq ptr %143, null
-  br i1 %.not288, label %.outer._crit_edge, label %130
+  br i1 %.not288, label %.outer._crit_edge, label %130, !llvm.loop !22
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %.2260350, i64 8
@@ -3469,7 +3469,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
 
 176:                                              ; preds = %164, %152
   %.0269 = phi ptr [ %163, %152 ], [ %175, %164 ]
-  %177 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %177 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %179, label %184
 
@@ -3482,7 +3482,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
 
 184:                                              ; preds = %179, %176
   %185 = getelementptr i8, ptr %.2260350, i64 32
-  br label %297, !llvm.loop !20
+  br label %297, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %130
   %186 = and i32 %134, 8
@@ -3548,7 +3548,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
 
 225:                                              ; preds = %213, %201
   %.1270 = phi ptr [ %212, %201 ], [ %224, %213 ]
-  %226 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %226 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %228, label %233
 
@@ -3561,7 +3561,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
 
 233:                                              ; preds = %228, %225
   %234 = getelementptr i8, ptr %.2260350, i64 32
-  br label %297, !llvm.loop !20
+  br label %297, !llvm.loop !21
 
 235:                                              ; preds = %190, %139, %._crit_edge, %187, %136
   %236 = getelementptr inbounds nuw i8, ptr %.2260350, i64 24
@@ -3571,7 +3571,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   br i1 %.not301, label %239, label %258
 
 239:                                              ; preds = %235
-  %240 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %240 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %241 = trunc nuw i8 %240 to i1
   %242 = icmp eq i32 %280, 2
   %or.cond9 = and i1 %242, %241
@@ -3586,7 +3586,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
 247:                                              ; preds = %239
   %248 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %.0263.ph355, ptr noundef null, ptr noundef null, ptr noundef null)
   %249 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0272, ptr noundef %3, i32 noundef %248, ptr noundef null, ptr noundef null)
-  %250 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %250 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %251 = shl nuw nsw i8 %250, 1
   %252 = zext nneg i8 %251 to i32
   %253 = add i32 %249, %252
@@ -3636,7 +3636,7 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   %278 = getelementptr i8, ptr %.2260350, i64 56
   %279 = load ptr, ptr %278, align 8
   %.not288349 = icmp eq ptr %279, null
-  br i1 %.not288349, label %.outer._crit_edge, label %.lr.ph
+  br i1 %.not288349, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
   %280 = phi i32 [ %273, %.outer ], [ %111, %.preheader ]
@@ -3652,11 +3652,11 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   br i1 %.not304, label %285, label %295
 
 285:                                              ; preds = %283
-  %286 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %286 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %287 = trunc nuw i8 %286 to i1
   %288 = icmp ugt i32 %273, 2
   %or.cond13 = and i1 %288, %287
-  %289 = load i8, ptr @show_internal_ber_fields, align 1, !range !8
+  %289 = load i8, ptr @show_internal_ber_fields, align 1, !range !9
   %290 = trunc nuw i8 %289 to i1
   %or.cond17 = select i1 %or.cond13, i1 %290, i1 false
   br i1 %or.cond17, label %291, label %295
@@ -3695,13 +3695,13 @@ get_ber_identifier.exit313:                       ; preds = %.preheader.i309, %1
   br label %305
 
 305:                                              ; preds = %299, %._crit_edge363
-  %306 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %306 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %307 = trunc nuw i8 %306 to i1
   br i1 %307, label %308, label %315
 
 308:                                              ; preds = %305
   %309 = add i32 %.1266, 2
-  %310 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %310 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %311 = trunc nuw i8 %310 to i1
   br i1 %311, label %312, label %315
 
@@ -3753,7 +3753,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %18 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
   %19 = sub i32 %18, %4
   %20 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %18, ptr noundef nonnull %14, ptr noundef nonnull %11)
-  %21 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %21 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
   %23 = load i32, ptr %14, align 4
   %24 = add i32 %20, -2
@@ -3765,7 +3765,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond.not, label %49, label %27
 
 27:                                               ; preds = %16
-  %28 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %28 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %29 = trunc nuw i8 %28 to i1
   %.not = xor i1 %29, true
   %30 = icmp ne i8 %25, 0
@@ -3782,7 +3782,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %36 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %37 = call ptr @tfs_get_string(i1 noundef zeroext %29, ptr noundef nonnull @tfs_constructed_primitive)
   %38 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %34, ptr noundef nonnull @ei_ber_expected_set, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @.str.21, ptr noundef %36, i32 noundef %35, ptr noundef %37, i32 noundef %31)
-  %39 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %39 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %251
 
@@ -3840,7 +3840,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.critedge, label %57, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %57, !llvm.loop !23
 
 .critedge:                                        ; preds = %62, %57
   %.0210.lcssa = phi i32 [ %.1211, %62 ], [ %.0210297, %57 ]
@@ -3867,7 +3867,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   br i1 %78, label %79, label %._crit_edge332
 
 79:                                               ; preds = %76
-  %80 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %80 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %.thread262
 
@@ -3992,7 +3992,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
 143:                                              ; preds = %138
   %144 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0220, ptr noundef %3, i32 noundef %.0216299, ptr noundef null, ptr noundef null, ptr noundef null)
   %145 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0220, ptr noundef %3, i32 noundef %144, ptr noundef null, ptr noundef null)
-  %146 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %146 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %147 = shl nuw nsw i8 %146, 1
   %148 = zext nneg i8 %147 to i32
   %149 = add i32 %145, %148
@@ -4033,7 +4033,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br i1 %168, label %173, label %169
 
 169:                                              ; preds = %166
-  %170 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %170 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %171 = trunc nuw i8 %170 to i1
   %172 = icmp eq i32 %167, 2
   %or.cond9 = and i1 %172, %171
@@ -4052,9 +4052,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br i1 %.not241, label %181, label %.loopexit
 
 181:                                              ; preds = %173
-  %182 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %182 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %183 = trunc nuw i8 %182 to i1
-  %184 = load i8, ptr @show_internal_ber_fields, align 1, !range !8
+  %184 = load i8, ptr @show_internal_ber_fields, align 1, !range !9
   %185 = trunc nuw i8 %184 to i1
   %or.cond15 = select i1 %183, i1 %185, i1 false
   br i1 %or.cond15, label %186, label %.loopexit
@@ -4076,7 +4076,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %194 = icmp ne ptr %193, null
   %195 = trunc nuw i8 %.1205256 to i1
   %196 = select i1 %194, i1 true, i1 %195
-  br i1 %196, label %117, label %.loopexit, !llvm.loop !22
+  br i1 %196, label %117, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %119, %189, %173, %186, %181
   %.1217 = phi i32 [ %.0216299.sink353, %173 ], [ %.0216299.sink353, %186 ], [ %.0216299.sink353, %181 ], [ %.3219, %189 ], [ %.0216299, %119 ]
@@ -4093,7 +4093,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %201 = zext nneg i8 %87 to i32
   %202 = call ptr @val_to_str_const(i32 noundef %201, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %203 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0220, ptr noundef %200, ptr noundef nonnull @ei_ber_unknown_field_set, ptr noundef %3, i32 noundef %.1192306, i32 noundef %101, ptr noundef nonnull @.str.22, ptr noundef %202, i32 noundef %201, i32 noundef %.0.i)
-  %204 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %204 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %211
 
@@ -4112,7 +4112,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %.2193 = phi i32 [ %.3, %.loopexit ], [ %104, %206 ], [ %104, %199 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
   %212 = icmp slt i32 %.2193, %.1222
-  br i1 %212, label %72, label %._crit_edge, !llvm.loop !23
+  br i1 %212, label %72, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %211, %.critedge
   %.2212.lcssa = phi i32 [ %.0210.lcssa, %.critedge ], [ %.4214, %211 ]
@@ -4158,7 +4158,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %234 = trunc nuw nsw i64 %indvars.iv.next330 to i32
   %exitcond331.not = icmp eq i64 %indvars.iv.next330, 32
-  br i1 %exitcond331.not, label %.critedge11, label %214, !llvm.loop !24
+  br i1 %exitcond331.not, label %.critedge11, label %214, !llvm.loop !26
 
 .critedge11:                                      ; preds = %214, %233, %._crit_edge
   %.not235 = icmp eq i32 %.1192.lcssa, %.1222
@@ -4174,13 +4174,13 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
   br label %241
 
 241:                                              ; preds = %235, %.critedge11
-  %242 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %242 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %251
 
 244:                                              ; preds = %241
   %245 = add i32 %.1222, 2
-  %246 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %246 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %251
 
@@ -4314,7 +4314,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
 .loopexit.us:                                     ; preds = %.lr.ph.split.split.us.us, %89, %.lr.ph.split.us.split.us
   %62 = load ptr, ptr %55, align 8
   %.not220 = icmp eq ptr %62, null
-  br i1 %.not220, label %.outer134._crit_edge, label %.lr.ph.us, !llvm.loop !25
+  br i1 %.not220, label %.outer134._crit_edge, label %.lr.ph.us, !llvm.loop !27
 
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.us, %71
   %.not124.us166.us = phi i1 [ false, %71 ], [ %.not124.us.us180.us, %.lr.ph.us ]
@@ -4339,7 +4339,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %73 = getelementptr i8, ptr %.0148.us165.us, i64 72
   %74 = load ptr, ptr %73, align 8
   %.not219 = icmp eq ptr %74, null
-  br i1 %.not219, label %.outer134._crit_edge, label %.lr.ph.split.split.us.us, !llvm.loop !26
+  br i1 %.not219, label %.outer134._crit_edge, label %.lr.ph.split.split.us.us, !llvm.loop !28
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.us
   br i1 %.not124.us.us180.us, label %.loopexit.us, label %.lr.ph182.us
@@ -4374,7 +4374,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %91 = getelementptr i8, ptr %.0148.us.us181.us, i64 72
   %92 = load ptr, ptr %91, align 8
   %.not124.us.us.us = icmp eq ptr %92, null
-  br i1 %.not124.us.us.us, label %.loopexit.us, label %.lr.ph182.us, !llvm.loop !27
+  br i1 %.not124.us.us.us, label %.loopexit.us, label %.lr.ph182.us, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split.us
   %93 = phi ptr [ %55, %.split.us ], [ %59, %.lr.ph.lr.ph ]
@@ -4439,7 +4439,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   store i32 -1, ptr %7, align 4
   %116 = load ptr, ptr %55, align 8
   %.not218 = icmp eq ptr %116, null
-  br i1 %.not218, label %.outer134._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not218, label %.outer134._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .critedge:                                        ; preds = %.thread
   %117 = getelementptr inbounds nuw i8, ptr %.0148, i64 16
@@ -4466,7 +4466,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
 127:                                              ; preds = %.split151.us
   %128 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0116.ph209, ptr noundef %2, i32 noundef %.0114.ph210, ptr noundef null, ptr noundef null, ptr noundef null)
   %129 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0116.ph209, ptr noundef %2, i32 noundef %128, ptr noundef null, ptr noundef null)
-  %130 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %130 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %131 = trunc nuw i8 %130 to i1
   %132 = load i32, ptr %10, align 4
   %133 = add i32 %132, -2
@@ -4542,16 +4542,16 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %172 = load ptr, ptr %171, align 8
   %173 = icmp ne ptr %172, null
   %174 = or i1 %173, %.us-phi
-  br i1 %174, label %.lr.ph.lr.ph, label %.outer134._crit_edge, !llvm.loop !28
+  br i1 %174, label %.lr.ph.lr.ph, label %.outer134._crit_edge, !llvm.loop !30
 
 175:                                              ; preds = %165, %169, %148
   %176 = load i32, ptr %124, align 8
   %177 = and i32 %176, 4
   %178 = icmp eq i32 %177, 0
-  %179 = load i8, ptr %9, align 1, !range !8
+  %179 = load i8, ptr %9, align 1, !range !9
   %180 = trunc nuw i8 %179 to i1
   %or.cond7 = select i1 %178, i1 %180, i1 false
-  %181 = load i8, ptr @show_internal_ber_fields, align 1, !range !8
+  %181 = load i8, ptr @show_internal_ber_fields, align 1, !range !9
   %182 = trunc nuw i8 %181 to i1
   %or.cond10 = select i1 %or.cond7, i1 %182, i1 false
   br i1 %or.cond10, label %183, label %192
@@ -4567,7 +4567,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %189 = getelementptr i8, ptr %.0148, i64 72
   %190 = load ptr, ptr %189, align 8
   %.not217 = icmp eq ptr %190, null
-  br i1 %.not217, label %.outer134._crit_edge, label %.thread, !llvm.loop !28
+  br i1 %.not217, label %.outer134._crit_edge, label %.thread, !llvm.loop !30
 
 .outer134._crit_edge:                             ; preds = %.outer, %.split.us, %.loopexit.us, %187, %71
   %.0114.ph.lcssa147 = phi i32 [ %.0114.ph210, %71 ], [ %.0114.ph210, %187 ], [ %.0114.ph210, %.loopexit.us ], [ %.0114.ph210, %.split.us ], [ %.1115, %.outer ]
@@ -4642,7 +4642,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %22, 
   %38 = trunc i8 %16 to i1
   %39 = call ptr @tfs_get_string(i1 noundef zeroext %38, ptr noundef nonnull @tfs_constructed_primitive)
   %40 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %35, ptr noundef nonnull @ei_ber_expected_string, ptr noundef %4, i32 noundef %5, i32 noundef %33, ptr noundef nonnull @.str.26, i32 noundef %1, ptr noundef %37, i32 noundef %36, ptr noundef %39, i32 noundef %.0.i)
-  %41 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %41 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %50
 
@@ -4741,11 +4741,11 @@ define internal fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr nound
   %22 = load ptr, ptr %14, align 8
   %23 = sext i8 %19 to i32
   %24 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %25 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %25 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   %27 = call ptr @tfs_get_string(i1 noundef zeroext %26, ptr noundef nonnull @tfs_constructed_primitive)
   %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %22, ptr noundef nonnull @ei_ber_expected_object_identifier, ptr noundef %3, i32 noundef %4, i32 noundef %21, ptr noundef nonnull @.str.351, ptr noundef %24, i32 noundef %23, ptr noundef %27, i32 noundef %.pre)
-  %29 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %29 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %70
 
@@ -4971,7 +4971,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   br i1 %or.cond.not, label %53, label %29
 
 29:                                               ; preds = %20
-  %30 = load i8, ptr %13, align 1, !range !8, !noundef !9
+  %30 = load i8, ptr %13, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   %32 = icmp eq i8 %27, 0
   %or.cond5.not = and i1 %32, %31
@@ -4990,7 +4990,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   %40 = call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %41 = call ptr @tfs_get_string(i1 noundef zeroext %31, ptr noundef nonnull @tfs_constructed_primitive)
   %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %35, ptr noundef nonnull %37, ptr noundef %4, i32 noundef %5, i32 noundef %23, ptr noundef nonnull @.str.353, ptr noundef nonnull %38, ptr noundef %40, i32 noundef %39, ptr noundef %41, i32 noundef %33)
-  %43 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %43 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %231
 
@@ -5083,7 +5083,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, 
   %84 = add i32 %.1209271, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   %85 = icmp slt i32 %82, %.0216
-  br i1 %85, label %.lr.ph, label %.loopexit
+  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %83, %.preheader, %.thread, %53
   %.0213 = phi i1 [ false, %53 ], [ %.2215.ph, %.thread ], [ true, %.preheader ], [ true, %83 ]
@@ -5169,7 +5169,7 @@ ber_check_items.exit:                             ; preds = %.sink.split.i, %105
   br i1 %122, label %123, label %._crit_edge282
 
 123:                                              ; preds = %120
-  %124 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %124 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %130
 
@@ -5287,16 +5287,16 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
 
 187:                                              ; preds = %178, %169
   %.0201 = phi ptr [ %177, %169 ], [ %186, %178 ]
-  %188 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %188 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %221, !llvm.loop !29
+  br i1 %189, label %190, label %221, !llvm.loop !32
 
 190:                                              ; preds = %187
   %191 = load i32, ptr @ett_ber_unknown, align 4
   %192 = call ptr @proto_item_add_subtree(ptr noundef %.0201, i32 noundef %191)
   %193 = load ptr, ptr %114, align 8
   %194 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %193, ptr noundef %4, i32 noundef %.3274, ptr noundef %192, i32 noundef 1)
-  br label %221, !llvm.loop !29
+  br label %221, !llvm.loop !32
 
 195:                                              ; preds = %161, %163, %158
   %196 = load i32, ptr %113, align 8
@@ -5429,11 +5429,11 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
   %25 = load ptr, ptr %13, align 8
   %26 = sext i8 %19 to i32
   %27 = call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %28 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %28 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %29 = trunc nuw i8 %28 to i1
   %30 = call ptr @tfs_get_string(i1 noundef zeroext %29, ptr noundef nonnull @tfs_constructed_primitive)
   %31 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %25, ptr noundef nonnull @ei_ber_expected_generalized_time, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.27, ptr noundef %27, i32 noundef %26, ptr noundef %30, i32 noundef %21)
-  %32 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %32 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %77
 
@@ -5463,7 +5463,7 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
 
 47:                                               ; preds = %42
   %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %46, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.070, i32 noundef %.071, ptr noundef nonnull @.str.28, i32 noundef %43)
-  %49 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %49 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %77
 
@@ -5485,7 +5485,7 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
 61:                                               ; preds = %56
   %62 = load ptr, ptr %45, align 8
   %63 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %62, ptr noundef nonnull @ei_ber_invalid_format_generalized_time, ptr noundef %3, i32 noundef %.069, i32 noundef %43, ptr noundef nonnull @.str.29, ptr noundef %59)
-  %64 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %64 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %77
 
@@ -5576,11 +5576,11 @@ define i32 @dissect_ber_UTCTime(i1 noundef zeroext %0, ptr noundef readonly capt
   %31 = load ptr, ptr %13, align 8
   %32 = sext i8 %25 to i32
   %33 = call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %34 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %34 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %35 = trunc nuw i8 %34 to i1
   %36 = call ptr @tfs_get_string(i1 noundef zeroext %35, ptr noundef nonnull @tfs_constructed_primitive)
   %37 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_ber_expected_utc_time, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef nonnull @.str.30, ptr noundef %33, i32 noundef %32, ptr noundef %36, i32 noundef %27)
-  %38 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %38 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %45
 
@@ -5638,7 +5638,7 @@ thread-pre-split:                                 ; preds = %22
 69:                                               ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %70, label %65, !llvm.loop !30
+  br i1 %exitcond.not, label %70, label %65, !llvm.loop !33
 
 70:                                               ; preds = %69
   %71 = getelementptr i8, ptr %64, i64 2
@@ -5712,7 +5712,7 @@ thread-pre-split:                                 ; preds = %22
   %102 = load i8, ptr %101, align 1
   %103 = add i8 %102, -58
   %or.cond159 = icmp ult i8 %103, -10
-  br i1 %or.cond159, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %or.cond159, label %.loopexit, label %.preheader, !llvm.loop !34
 
 104:                                              ; preds = %.preheader
   %105 = zext i8 %92 to i32
@@ -5839,11 +5839,11 @@ define hidden i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext %0, ptr 
   %32 = load ptr, ptr %20, align 8
   %33 = sext i8 %26 to i32
   %34 = call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %35 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %35 = load i8, ptr %14, align 1, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
   %37 = call ptr @tfs_get_string(i1 noundef zeroext %36, ptr noundef nonnull @tfs_constructed_primitive)
   %38 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %32, ptr noundef nonnull @ei_ber_expected_bitstring, ptr noundef %3, i32 noundef %4, i32 noundef %22, ptr noundef nonnull @.str.45, ptr noundef %34, i32 noundef %33, ptr noundef %37, i32 noundef %29)
-  %39 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %39 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %ber_check_length.exit
 
@@ -5879,7 +5879,7 @@ thread-pre-split:                                 ; preds = %27, %19, %46
 57:                                               ; preds = %thread-pre-split
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %58, align 8
-  %59 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %59 = load i8, ptr %14, align 1, !range !9, !noundef !10
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %.thread, label %61
 
@@ -5956,7 +5956,7 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   %101 = call ptr @tvb_memdup(ptr noundef %99, ptr noundef %3, i32 noundef %90, i64 noundef %100)
   %102 = add i32 %8, 7
   %103 = sdiv i32 %102, 8
-  %104 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %104 = load i8, ptr @show_internal_ber_fields, align 1, !range !9, !noundef !10
   %105 = trunc nuw i8 %104 to i1
   %106 = icmp sle i32 %49, %103
   %or.cond193 = and i1 %106, %105
@@ -6044,12 +6044,12 @@ thread-pre-split:                                 ; preds = %27, %19, %46
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %119, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader.loopexit, label %119, !llvm.loop !35
 
 142:                                              ; preds = %.lr.ph198
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph198, !llvm.loop !33
+  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph198, !llvm.loop !36
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %142
   %indvars.iv201 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next202, %142 ]
@@ -6354,7 +6354,7 @@ register_ber_oid_syntax.exit:                     ; preds = %16, %17, %19
   %20 = load i32, ptr @num_oid_users, align 4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %register_ber_oid_syntax.exit, %0
   ret void
@@ -6534,7 +6534,7 @@ register_ber_oid_syntax.exit.i:                   ; preds = %34, %32, %31
   %35 = load i32, ptr @num_oid_users, align 4
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next.i, %36
-  br i1 %37, label %.lr.ph.i, label %ber_update_oids.exit, !llvm.loop !34
+  br i1 %37, label %.lr.ph.i, label %ber_update_oids.exit, !llvm.loop !37
 
 ber_update_oids.exit:                             ; preds = %register_ber_oid_syntax.exit.i, %9
   %38 = load ptr, ptr @ber_file_handle, align 8
@@ -6904,7 +6904,7 @@ define internal i32 @dissect_ber_T_octet_aligned(i1 noundef zeroext %0, ptr noun
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  %13 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %13 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %25
 
@@ -7071,12 +7071,12 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !35
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !38
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %9, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -7148,7 +7148,7 @@ define internal fastcc i32 @dissect_ber_common(ptr noundef %0, ptr noundef %1, p
 16:                                               ; preds = %11
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ber_syntax_not_implemented, ptr noundef %12, i32 noundef 0, i32 noundef %17, ptr noundef nonnull @.str.4, ptr noundef nonnull %3)
-  %19 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr @decode_unexpected, align 1, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %25
 
@@ -7232,33 +7232,36 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7, !17}
-!26 = distinct !{!26, !7, !17}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8, !18}
+!28 = distinct !{!28, !7, !8, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !8}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}

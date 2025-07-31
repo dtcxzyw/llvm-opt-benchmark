@@ -272,7 +272,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %94 = sub nsw i64 6, %indvars.iv45
   %95 = icmp slt i64 %94, %93
-  br i1 %95, label %.lr.ph37, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %95, label %.lr.ph37, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph37
   %96 = trunc nsw i64 %94 to i32
@@ -336,7 +336,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   store i8 48, ptr %27, align 1
   %28 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %28, %22
-  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit: ; preds = %.lr.ph.i, %16
   %29 = load i32, ptr %9, align 8
@@ -364,7 +364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %43, align 1
   %44 = add nuw nsw i32 %.04.i50, 1
   %exitcond.not.i51 = icmp eq i32 %44, %37
-  br i1 %exitcond.not.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %.lr.ph.i49, !llvm.loop !8
+  br i1 %exitcond.not.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %.lr.ph.i49, !llvm.loop !9
 
 45:                                               ; preds = %6
   %.not = icmp slt i32 %3, %2
@@ -396,7 +396,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %61, align 1
   %62 = add nuw nsw i32 %.04.i54, 1
   %exitcond.not.i55 = icmp eq i32 %62, %55
-  br i1 %exitcond.not.i55, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56, label %.lr.ph.i53, !llvm.loop !8
+  br i1 %exitcond.not.i55, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56, label %.lr.ph.i53, !llvm.loop !9
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56: ; preds = %.lr.ph.i53, %51
   %63 = icmp sgt i32 %4, 0
@@ -423,7 +423,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %74, align 1
   %75 = add nuw nsw i32 %.04.i58, 1
   %exitcond.not.i59 = icmp eq i32 %75, %4
-  br i1 %exitcond.not.i59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %69, !llvm.loop !8
+  br i1 %exitcond.not.i59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %69, !llvm.loop !9
 
 76:                                               ; preds = %45
   %77 = zext nneg i32 %3 to i64
@@ -462,7 +462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %99, align 1
   %100 = add nuw nsw i32 %.04.i62, 1
   %exitcond.not.i63 = icmp eq i32 %100, %93
-  br i1 %exitcond.not.i63, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !8
+  br i1 %exitcond.not.i63, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !9
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52: ; preds = %.lr.ph.i61, %76, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56, %8
   %101 = icmp eq i32 %4, 0
@@ -1166,13 +1166,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   %92 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 48
-  br i1 %94, label %.lr.ph75, label %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, !llvm.loop !9
+  br i1 %94, label %.lr.ph75, label %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, !llvm.loop !10
 
 .lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv.next74 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next73, %.lr.ph.preheader ]
   %95 = trunc nsw i64 %indvars.iv.next74 to i32
   %96 = icmp sgt i64 %indvars.iv.next74, %88
-  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
+  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
 .lr.ph..critedge.loopexit.split.loop.exit66_crit_edge: ; preds = %.lr.ph
   store i32 %95, ptr %7, align 4
@@ -1279,8 +1279,9 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

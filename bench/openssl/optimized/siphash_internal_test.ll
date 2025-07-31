@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @test_siphash(i32 noundef %0) #0 {
   store i8 %20, ptr %21, align 1, !tbaa !11
   %22 = add nuw i64 %.184, 1
   %exitcond95.not = icmp eq i64 %22, %10
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader80
   %23 = call i32 @SipHash_set_hash_size(ptr noundef nonnull %2, i64 noundef %13) #5
@@ -380,7 +380,7 @@ define internal range(i32 0, 2) i32 @test_siphash(i32 noundef %0) #0 {
 103:                                              ; preds = %100
   %104 = add i64 %.085, 16
   %105 = icmp ult i64 %104, %10
-  br i1 %105, label %.lr.ph86, label %.critedge, !llvm.loop !19
+  br i1 %105, label %.lr.ph86, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %103, %93, %.lr.ph86, %88, %39, %102, %83, %69, %63, %74, %61, %51, %41, %46, %32, %37, %._crit_edge, %27, %15, %60, %14
   %.060 = phi i32 [ 0, %14 ], [ 0, %60 ], [ 0, %15 ], [ 0, %27 ], [ 0, %._crit_edge ], [ 0, %37 ], [ 0, %32 ], [ 0, %46 ], [ 0, %41 ], [ 0, %51 ], [ 1, %61 ], [ 0, %74 ], [ 0, %63 ], [ 0, %69 ], [ 0, %83 ], [ 0, %102 ], [ 1, %39 ], [ 1, %103 ], [ 0, %93 ], [ 0, %.lr.ph86 ], [ 0, %88 ]
@@ -449,7 +449,8 @@ attributes #5 = { nounwind }
 !13 = !{!"", !6, i64 0, !14, i64 8}
 !14 = !{!"", !10, i64 0, !7, i64 8}
 !15 = !{!13, !10, i64 8}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}

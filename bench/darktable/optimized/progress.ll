@@ -275,7 +275,7 @@ define void @dt_control_progress_destroy(ptr noundef %0, ptr noundef %1) local_u
   %36 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
   %.0.i = load ptr, ptr %36, align 8, !tbaa !85
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !86
 
 37:                                               ; preds = %._crit_edge.i
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -355,9 +355,9 @@ define void @dt_control_progress_make_cancellable(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %2, ptr %7, align 8, !tbaa !86
+  store ptr %2, ptr %7, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %3, ptr %8, align 8, !tbaa !87
+  store ptr %3, ptr %8, align 8, !tbaa !89
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10136
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #6
@@ -368,7 +368,7 @@ define void @dt_control_progress_make_cancellable(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10200
-  %16 = load ptr, ptr %15, align 8, !tbaa !88
+  %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !80
   tail call void %16(ptr noundef nonnull %13, ptr noundef %18, ptr noundef nonnull %1) #6
@@ -384,9 +384,9 @@ define void @dt_control_progress_attach_job(ptr noundef %0, ptr noundef %1, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr @dt_control_progress_cancel_callback, ptr %6, align 8, !tbaa !86
+  store ptr @dt_control_progress_cancel_callback, ptr %6, align 8, !tbaa !88
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %2, ptr %7, align 8, !tbaa !87
+  store ptr %2, ptr %7, align 8, !tbaa !89
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10136
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #6
@@ -397,7 +397,7 @@ define void @dt_control_progress_attach_job(ptr noundef %0, ptr noundef %1, ptr 
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 10200
-  %15 = load ptr, ptr %14, align 8, !tbaa !88
+  %15 = load ptr, ptr %14, align 8, !tbaa !90
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !80
   tail call void %15(ptr noundef nonnull %12, ptr noundef %17, ptr noundef nonnull %1) #6
@@ -419,13 +419,13 @@ define void @dt_control_progress_cancel(ptr noundef readnone captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   tail call void %6(ptr noundef nonnull %1, ptr noundef %10) #6
   br label %11
 
@@ -455,7 +455,7 @@ define void @dt_control_progress_set_progress(ptr noundef %0, ptr noundef %1, do
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 10208
-  %19 = load ptr, ptr %18, align 8, !tbaa !89
+  %19 = load ptr, ptr %18, align 8, !tbaa !91
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !80
   tail call void %19(ptr noundef nonnull %16, ptr noundef %21, double noundef %9) #6
@@ -557,7 +557,7 @@ define void @dt_control_progress_set_message(ptr noundef %0, ptr noundef %1, ptr
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10216
-  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !80
   tail call void %16(ptr noundef nonnull %13, ptr noundef %18, ptr noundef %2) #6
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @dt_control_progress_cancellable(ptr noundef %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %5 = load ptr, ptr %4, align 8, !tbaa !88
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i32
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #6
@@ -725,8 +725,10 @@ attributes #7 = { nounwind allocsize(0,1) }
 !83 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
 !84 = !{!57, !40, i64 0}
 !85 = !{!12, !12, i64 0}
-!86 = !{!57, !13, i64 72}
-!87 = !{!57, !13, i64 80}
-!88 = !{!60, !13, i64 10200}
-!89 = !{!60, !13, i64 10208}
-!90 = !{!60, !13, i64 10216}
+!86 = distinct !{!86, !87}
+!87 = !{!"llvm.loop.estimated_trip_count"}
+!88 = !{!57, !13, i64 72}
+!89 = !{!57, !13, i64 80}
+!90 = !{!60, !13, i64 10200}
+!91 = !{!60, !13, i64 10208}
+!92 = !{!60, !13, i64 10216}

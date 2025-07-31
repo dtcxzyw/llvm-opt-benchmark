@@ -399,13 +399,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEEEEE7destroyISL_EEvRSM_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !7
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !8
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SK_E.exit, %invoke.cont12
   %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end50, label %invoke.cont12, !llvm.loop !8
+  br i1 %cmp10.not, label %if.end50, label %invoke.cont12, !llvm.loop !9
 
 if.end50:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -522,13 +522,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEPvEEEEE7destroyISM_EEvRSN_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !9
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !10
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
   %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !10
+  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !11
 
 if.end48:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -639,13 +639,13 @@ _ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit: ; preds = %while.body, %_ZNSt16allocator_traitsISaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISC_EERKN5folly7dynamicEEEEEE7destroyISM_EEvRSN_PT_.exit.i
   %cmp.i17.not = icmp eq i32 %iter.sroa.0.1, 0
-  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !11
+  br i1 %cmp.i17.not, label %for.inc, label %while.body, !llvm.loop !12
 
 for.inc:                                          ; preds = %_ZN5folly3f146detail19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISD_EERKNS_7dynamicEEEvvvE11destroyItemERPSt4pairIKS8_SL_E.exit, %invoke.cont12
   %inc = add i64 %ci.052, 1
   %15 = load i64, ptr %chunkMask_.i, align 8
   %cmp10.not = icmp ugt i64 %inc, %15
-  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !12
+  br i1 %cmp10.not, label %if.end48, label %invoke.cont12, !llvm.loop !13
 
 if.end48:                                         ; preds = %for.inc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i, i8 0, i64 16, i1 false)
@@ -685,11 +685,12 @@ attributes #13 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}

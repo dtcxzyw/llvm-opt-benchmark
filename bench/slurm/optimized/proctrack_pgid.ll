@@ -181,7 +181,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_un
   %spec.select = shl nsw i32 %.01722, %29
   %30 = tail call i32 @killpg(i32 noundef %2, i32 noundef 0) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.lr.ph, label %.loopexit
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %26, %.preheader, %.thread, %6
   %.0 = phi i32 [ -1, %6 ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %26 ]
@@ -255,7 +255,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr 
 .backedge:                                        ; preds = %36, %47, %50, %29, %32, %41, %21
   %31 = call ptr @readdir(ptr noundef nonnull %13) #10
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %.outer._crit_edge.loopexit, label %21, !llvm.loop !8
+  br i1 %.not, label %.outer._crit_edge.loopexit, label %21, !llvm.loop !10
 
 32:                                               ; preds = %26
   %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %23) #10
@@ -309,7 +309,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr 
   store i32 %59, ptr %61, align 4
   %62 = call ptr @readdir(ptr noundef nonnull %13) #10
   %.not34 = icmp eq ptr %62, null
-  br i1 %.not34, label %.outer._crit_edge.loopexit39, label %.lr.ph, !llvm.loop !8
+  br i1 %.not34, label %.outer._crit_edge.loopexit39, label %.lr.ph, !llvm.loop !10
 
 .outer._crit_edge.loopexit:                       ; preds = %.backedge
   %63 = trunc nuw nsw i64 %indvars.iv to i32
@@ -402,6 +402,8 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !12, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unroll.disable"}

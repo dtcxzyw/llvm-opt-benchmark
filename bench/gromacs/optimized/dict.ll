@@ -42,7 +42,7 @@ define void @Ptngc_comp_make_dict_hist(ptr noundef readonly captures(none) %0, i
   store i32 %12, ptr %10, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !10
 
 .preheader.preheader:                             ; preds = %.lr.ph, %5
   br label %.preheader
@@ -70,7 +70,7 @@ define void @Ptngc_comp_make_dict_hist(ptr noundef readonly captures(none) %0, i
   %.2 = phi i32 [ %20, %15 ], [ %.030, %.preheader ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 131076
-  br i1 %exitcond35.not, label %23, label %.preheader, !llvm.loop !10
+  br i1 %exitcond35.not, label %23, label %.preheader, !llvm.loop !11
 
 23:                                               ; preds = %15, %22
   %.1 = phi i32 [ %1, %15 ], [ %.2, %22 ]
@@ -94,7 +94,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

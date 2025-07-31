@@ -125,7 +125,7 @@ sub_0:                                            ; preds = %16, %.lr.ph
   %47 = phi i64 [ %11, %13 ], [ 0, %16 ], [ %19, %.tail.thread ], [ %44, %.loopexit ]
   %48 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %._crit_edge, label %.lr.ph
+  br i1 %49, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %46, %6
   %.lcssa5 = phi i64 [ -1, %6 ], [ %47, %46 ]
@@ -233,4 +233,6 @@ attributes #7 = { cold nounwind }
 !5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
+!8 = distinct !{!8, !6, !7, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

@@ -1148,8 +1148,8 @@ define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @raw_free(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %2(ptr noundef %3, ptr noundef %0) #14
   ret void
 }
@@ -1162,7 +1162,7 @@ define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_Start(i32 noundef %0) local_u
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !198
+  %5 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !199
   %6 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef 65535) #14
   br label %42
 
@@ -1176,7 +1176,7 @@ define hidden range(i32 -1, 1) i32 @_PyTraceMalloc_Start(i32 noundef %0) local_u
   br label %PyMutex_LockFlags.exit.i
 
 PyMutex_LockFlags.exit.i:                         ; preds = %10, %7
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %13 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %_PyTraceMalloc_IsTracing.exit, label %15
@@ -1190,15 +1190,15 @@ _PyTraceMalloc_IsTracing.exit:                    ; preds = %PyMutex_LockFlags.e
   br i1 %.not, label %16, label %42
 
 16:                                               ; preds = %_PyTraceMalloc_IsTracing.exit
-  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !200
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !201
   %17 = add nsw i32 %0, -1
   %18 = zext nneg i32 %17 to i64
   %19 = mul nuw nsw i64 %18, 12
   %20 = add nuw nsw i64 %19, 24
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !201
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !202
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   %23 = tail call ptr %21(ptr noundef %22, i64 noundef range(i64 12, 25769803777) %20) #14
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !202
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !203
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
@@ -1209,24 +1209,24 @@ _PyTraceMalloc_IsTracing.exit:                    ; preds = %PyMutex_LockFlags.e
 27:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @tracemalloc_raw_malloc, ptr %28, align 8, !tbaa !203
+  store ptr @tracemalloc_raw_malloc, ptr %28, align 8, !tbaa !204
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @tracemalloc_raw_calloc, ptr %29, align 8, !tbaa !204
+  store ptr @tracemalloc_raw_calloc, ptr %29, align 8, !tbaa !205
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @tracemalloc_raw_realloc, ptr %30, align 8, !tbaa !205
+  store ptr @tracemalloc_raw_realloc, ptr %30, align 8, !tbaa !206
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @tracemalloc_free, ptr %31, align 8, !tbaa !206
-  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), ptr %2, align 8, !tbaa !207
+  store ptr @tracemalloc_free, ptr %31, align 8, !tbaa !207
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), ptr %2, align 8, !tbaa !208
   tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208)) #14
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %2) #14
-  store ptr @tracemalloc_malloc_gil, ptr %28, align 8, !tbaa !203
-  store ptr @tracemalloc_calloc_gil, ptr %29, align 8, !tbaa !204
-  store ptr @tracemalloc_realloc_gil, ptr %30, align 8, !tbaa !205
-  store ptr @tracemalloc_free, ptr %31, align 8, !tbaa !206
-  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10168), ptr %2, align 8, !tbaa !207
+  store ptr @tracemalloc_malloc_gil, ptr %28, align 8, !tbaa !204
+  store ptr @tracemalloc_calloc_gil, ptr %29, align 8, !tbaa !205
+  store ptr @tracemalloc_realloc_gil, ptr %30, align 8, !tbaa !206
+  store ptr @tracemalloc_free, ptr %31, align 8, !tbaa !207
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10168), ptr %2, align 8, !tbaa !208
   call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10168)) #14
   call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull %2) #14
-  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10248), ptr %2, align 8, !tbaa !207
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10248), ptr %2, align 8, !tbaa !208
   call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10248)) #14
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %2) #14
   %32 = call i32 @PyRefTracer_SetTracer(ptr noundef nonnull @_PyTraceMalloc_TraceRef, ptr noundef null) #14
@@ -1243,7 +1243,7 @@ _PyTraceMalloc_IsTracing.exit:                    ; preds = %PyMutex_LockFlags.e
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %34, %37
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %39 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
   %40 = extractvalue { i8, i1 } %39, 1
   br i1 %40, label %_PyMutex_Unlock.exit, label %41
@@ -1275,7 +1275,7 @@ define hidden i32 @_PyTraceMalloc_IsTracing() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %6 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %_PyMutex_Unlock.exit, label %8
@@ -1318,8 +1318,8 @@ define internal void @tracemalloc_free(ptr noundef readonly captures(none) %0, p
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !206
-  %7 = load ptr, ptr %0, align 8, !tbaa !207
+  %6 = load ptr, ptr %5, align 8, !tbaa !207
+  %7 = load ptr, ptr %0, align 8, !tbaa !208
   tail call void %6(ptr noundef %7, ptr noundef nonnull %1) #14
   %8 = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10376)) #14
   %.not.i.not = icmp eq ptr %8, null
@@ -1335,7 +1335,7 @@ define internal void @tracemalloc_free(ptr noundef readonly captures(none) %0, p
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %9, %12
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not6 = icmp eq i32 %14, 0
   br i1 %.not6, label %tracemalloc_remove_trace_unlocked.exit, label %15
 
@@ -1350,12 +1350,12 @@ PyMutex_LockFlags.exit:                           ; preds = %9, %12
   br i1 %.not7.i, label %tracemalloc_remove_trace_unlocked.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = load i64, ptr %18, align 8, !tbaa !208
-  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
+  %20 = load i64, ptr %18, align 8, !tbaa !209
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
   %22 = sub i64 %21, %20
-  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %23(ptr noundef %24, ptr noundef nonnull %18) #14
   br label %tracemalloc_remove_trace_unlocked.exit
 
@@ -1414,15 +1414,15 @@ define internal noundef i32 @_PyTraceMalloc_TraceRef(ptr noundef %0, i32 noundef
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %6, %9
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not12 = icmp eq i32 %11, 0
   br i1 %.not12, label %26, label %12
 
 12:                                               ; preds = %PyMutex_LockFlags.exit
   %13 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %13, align 8, !tbaa !211
+  %.val = load ptr, ptr %13, align 8, !tbaa !212
   %14 = getelementptr i8, ptr %.val, i64 168
-  %.val15 = load i64, ptr %14, align 8, !tbaa !212
+  %.val15 = load i64, ptr %14, align 8, !tbaa !213
   %15 = shl i64 %.val15, 49
   %16 = ashr i64 %15, 63
   %17 = and i64 %.val15, 24
@@ -1443,7 +1443,7 @@ PyMutex_LockFlags.exit:                           ; preds = %6, %9
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %23, ptr %25, align 8, !tbaa !217
+  store ptr %23, ptr %25, align 8, !tbaa !218
   br label %26
 
 26:                                               ; preds = %22, %24, %12, %PyMutex_LockFlags.exit
@@ -1473,12 +1473,12 @@ define hidden void @_PyTraceMalloc_Stop() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %PyMutex_LockFlags.exit
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   tail call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208)) #14
   tail call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10168)) #14
   tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10248)) #14
@@ -1493,11 +1493,11 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %3
   tail call void @_Py_hashtable_clear(ptr noundef %11) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), i8 0, i64 16, i1 false)
   %12 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10376), ptr noundef null) #14
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !202
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !203
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %14(ptr noundef %15, ptr noundef %13) #14
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !202
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !203
   %16 = tail call i32 @PyRefTracer_SetTracer(ptr noundef null, ptr noundef null) #14
   br label %17
 
@@ -1525,7 +1525,7 @@ define hidden void @_PyMem_DumpTraceback(i32 noundef %0, ptr noundef %1) local_u
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %2, %5
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -1545,7 +1545,7 @@ PyMutex_LockFlags.exit:                           ; preds = %2, %5
 
 tracemalloc_get_traceback_unlocked.exit:          ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !217
+  %15 = load ptr, ptr %14, align 8, !tbaa !218
   %16 = icmp eq ptr %15, null
   br i1 %16, label %tracemalloc_get_traceback_unlocked.exit.thread, label %17
 
@@ -1580,7 +1580,7 @@ tracemalloc_get_traceback_unlocked.exit:          ; preds = %12
   %32 = load i16, ptr %19, align 8, !tbaa !193
   %33 = zext i16 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %23, label %._crit_edge, !llvm.loop !218
+  br i1 %34, label %23, label %._crit_edge, !llvm.loop !219
 
 tracemalloc_get_traceback_unlocked.exit.thread:   ; preds = %12, %10, %tracemalloc_get_traceback_unlocked.exit, %._crit_edge, %8
   %35 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -1609,7 +1609,7 @@ define dso_local i32 @PyTraceMalloc_Track(i32 noundef %0, i64 noundef %1, i64 no
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %3, %7
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
 
@@ -1689,49 +1689,49 @@ tracemalloc_get_traces_table.exit:                ; preds = %9, %11
   br i1 %.not, label %35, label %30
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr %29, align 8, !tbaa !208
-  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
+  %31 = load i64, ptr %29, align 8, !tbaa !209
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
   %33 = sub i64 %32, %31
-  store i64 %2, ptr %29, align 8, !tbaa !208
+  store i64 %2, ptr %29, align 8, !tbaa !209
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %5, ptr %34, align 8, !tbaa !217
+  store ptr %5, ptr %34, align 8, !tbaa !218
   br label %.critedge
 
 35:                                               ; preds = %27
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !201
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !202
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   %38 = call ptr %36(ptr noundef %37, i64 noundef 16) #14
   %39 = icmp eq ptr %38, null
   br i1 %39, label %51, label %40
 
 40:                                               ; preds = %35
-  store i64 %2, ptr %38, align 8, !tbaa !208
+  store i64 %2, ptr %38, align 8, !tbaa !209
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %5, ptr %41, align 8, !tbaa !217
+  store ptr %5, ptr %41, align 8, !tbaa !218
   %42 = call i32 @_Py_hashtable_set(ptr noundef nonnull %.028, ptr noundef %28, ptr noundef nonnull %38) #14
   %.not36 = icmp eq i32 %42, 0
   br i1 %.not36, label %..critedge_crit_edge, label %43
 
 ..critedge_crit_edge:                             ; preds = %40
-  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
   br label %.critedge
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   call void %44(ptr noundef %45, ptr noundef nonnull %38) #14
   br label %51
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %30
   %46 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %33, %30 ]
   %47 = add i64 %46, %2
-  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
-  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !219
+  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !220
   %49 = icmp ugt i64 %47, %48
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %.critedge
-  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !219
+  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !220
   br label %51
 
 51:                                               ; preds = %43, %26, %17, %.critedge, %50, %35, %3
@@ -1752,7 +1752,7 @@ define dso_local range(i32 -2, 1) i32 @PyTraceMalloc_Untrack(i32 noundef %0, i64
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %2, %5
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %tracemalloc_remove_trace_unlocked.exit, label %8
 
@@ -1783,12 +1783,12 @@ tracemalloc_get_traces_table.exit.i:              ; preds = %12, %10
   br i1 %.not7.i, label %tracemalloc_remove_trace_unlocked.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr %19, align 8, !tbaa !208
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
+  %21 = load i64, ptr %19, align 8, !tbaa !209
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
   %23 = sub i64 %22, %21
-  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %24(ptr noundef %25, ptr noundef nonnull %19) #14
   br label %tracemalloc_remove_trace_unlocked.exit
 
@@ -1841,7 +1841,7 @@ define dso_local ptr @_PyTraceMalloc_GetTraceback(i32 noundef %0, i64 noundef %1
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %2, %5
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %tracemalloc_get_traceback_unlocked.exit.thread, label %8
 
@@ -1873,7 +1873,7 @@ tracemalloc_get_traces_table.exit.i:              ; preds = %12, %10
 
 tracemalloc_get_traceback_unlocked.exit:          ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !217
+  %21 = load ptr, ptr %20, align 8, !tbaa !218
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %tracemalloc_get_traceback_unlocked.exit.thread, label %22
 
@@ -1965,7 +1965,7 @@ define internal fastcc ptr @traceback_to_pyobject(ptr noundef %0, ptr noundef %1
 
 _Py_NewRef.exit.i:                                ; preds = %27, %23
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %24, ptr %29, align 8, !tbaa !198
+  store ptr %24, ptr %29, align 8, !tbaa !199
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %31 = load i32, ptr %30, align 1, !tbaa !187
   %32 = zext i32 %31 to i64
@@ -2005,14 +2005,14 @@ _Py_NewRef.exit.i:                                ; preds = %27, %23
 
 46:                                               ; preds = %_Py_NewRef.exit.i
   %47 = getelementptr i8, ptr %21, i64 32
-  store ptr %33, ptr %47, align 8, !tbaa !198
+  store ptr %33, ptr %47, align 8, !tbaa !199
   %48 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %indvars.iv
-  store ptr %21, ptr %48, align 8, !tbaa !198
+  store ptr %21, ptr %48, align 8, !tbaa !199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i16, ptr %11, align 8, !tbaa !193
   %50 = zext i16 %49 to i64
   %.not37 = icmp samesign ult i64 %indvars.iv.next, %50
-  br i1 %.not37, label %19, label %.critedge, !llvm.loop !220
+  br i1 %.not37, label %19, label %.critedge, !llvm.loop !221
 
 .critedge:                                        ; preds = %46, %.preheader
   br i1 %.not, label %_Py_NewRef.exit, label %51
@@ -2066,7 +2066,7 @@ define hidden void @_PyTraceMalloc_ClearTraces() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
 
@@ -2115,13 +2115,13 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %7
   %9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10376), ptr noundef nonnull @_Py_TrueStruct) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %10, align 8, !tbaa !221
+  store i32 0, ptr %10, align 8, !tbaa !222
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %13 = tail call ptr @PyList_New(i64 noundef 0) #14
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !223
+  store ptr %13, ptr %14, align 8, !tbaa !224
   %15 = icmp ne ptr %13, null
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4
   %17 = icmp ne i32 %16, 0
@@ -2133,7 +2133,7 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %19 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @tracemalloc_pyobject_decref, ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  store ptr %19, ptr %12, align 8, !tbaa !224
+  store ptr %19, ptr %12, align 8, !tbaa !225
   %20 = icmp eq ptr %19, null
   br i1 %20, label %47, label %21
 
@@ -2156,11 +2156,11 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %7
   br label %tracemalloc_copy_traces.exit.thread
 
 tracemalloc_copy_traces.exit.thread:              ; preds = %21, %27
-  store ptr null, ptr %4, align 8, !tbaa !225
+  store ptr null, ptr %4, align 8, !tbaa !226
   br label %47
 
 28:                                               ; preds = %25
-  store ptr %23, ptr %4, align 8, !tbaa !225
+  store ptr %23, ptr %4, align 8, !tbaa !226
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10344), align 8, !tbaa !182
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
@@ -2179,28 +2179,28 @@ tracemalloc_copy_traces.exit.thread:              ; preds = %21, %27
   br label %tracemalloc_copy_domains.exit.thread
 
 tracemalloc_copy_domains.exit.thread:             ; preds = %28, %34
-  store ptr null, ptr %11, align 8, !tbaa !226
+  store ptr null, ptr %11, align 8, !tbaa !227
   br label %47
 
 35:                                               ; preds = %32
-  store ptr %30, ptr %11, align 8, !tbaa !226
+  store ptr %30, ptr %11, align 8, !tbaa !227
   %36 = call i32 @_Py_hashtable_foreach(ptr noundef nonnull %23, ptr noundef nonnull @tracemalloc_get_traces_fill, ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %37, label %.critedge
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %11, align 8, !tbaa !226
+  %38 = load ptr, ptr %11, align 8, !tbaa !227
   %39 = call i32 @_Py_hashtable_foreach(ptr noundef %38, ptr noundef nonnull @tracemalloc_get_traces_domain, ptr noundef nonnull %4) #14
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %Py_DECREF.exit, label %.critedge
 
 .critedge:                                        ; preds = %35, %37
-  %41 = load ptr, ptr %14, align 8, !tbaa !198
+  %41 = load ptr, ptr %14, align 8, !tbaa !199
   %.not17 = icmp eq ptr %41, null
   br i1 %.not17, label %Py_DECREF.exit, label %42
 
 42:                                               ; preds = %.critedge
-  store ptr null, ptr %14, align 8, !tbaa !198
+  store ptr null, ptr %14, align 8, !tbaa !199
   %43 = load i32, ptr %41, align 8, !tbaa !191
   %.not.i = icmp sgt i32 %43, -1
   br i1 %.not.i, label %44, label %Py_DECREF.exit
@@ -2213,7 +2213,7 @@ tracemalloc_copy_domains.exit.thread:             ; preds = %28, %34
 
 47:                                               ; preds = %18, %tracemalloc_copy_traces.exit.thread, %tracemalloc_copy_domains.exit.thread
   %48 = call ptr @PyErr_NoMemory() #14
-  store ptr null, ptr %14, align 8, !tbaa !198
+  store ptr null, ptr %14, align 8, !tbaa !199
   %49 = load i32, ptr %13, align 8, !tbaa !191
   %.not.i22 = icmp sgt i32 %49, -1
   br i1 %.not.i22, label %50, label %Py_DECREF.exit
@@ -2240,7 +2240,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink
   br label %_PyMutex_Unlock.exit
 
 _PyMutex_Unlock.exit:                             ; preds = %Py_DECREF.exit, %56
-  %57 = load ptr, ptr %12, align 8, !tbaa !224
+  %57 = load ptr, ptr %12, align 8, !tbaa !225
   %.not19 = icmp eq ptr %57, null
   br i1 %.not19, label %59, label %58
 
@@ -2249,7 +2249,7 @@ _PyMutex_Unlock.exit:                             ; preds = %Py_DECREF.exit, %56
   br label %59
 
 59:                                               ; preds = %58, %_PyMutex_Unlock.exit
-  %60 = load ptr, ptr %4, align 8, !tbaa !225
+  %60 = load ptr, ptr %4, align 8, !tbaa !226
   %.not20 = icmp eq ptr %60, null
   br i1 %.not20, label %62, label %61
 
@@ -2258,7 +2258,7 @@ _PyMutex_Unlock.exit:                             ; preds = %Py_DECREF.exit, %56
   br label %62
 
 62:                                               ; preds = %61, %59
-  %63 = load ptr, ptr %11, align 8, !tbaa !226
+  %63 = load ptr, ptr %11, align 8, !tbaa !227
   %.not21 = icmp eq ptr %63, null
   br i1 %.not21, label %65, label %64
 
@@ -2267,7 +2267,7 @@ _PyMutex_Unlock.exit:                             ; preds = %Py_DECREF.exit, %56
   br label %65
 
 65:                                               ; preds = %64, %62
-  %66 = load ptr, ptr %14, align 8, !tbaa !223
+  %66 = load ptr, ptr %14, align 8, !tbaa !224
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   ret ptr %66
 }
@@ -2303,9 +2303,9 @@ declare i32 @_Py_hashtable_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !221
+  %6 = load i32, ptr %5, align 8, !tbaa !222
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !224
+  %8 = load ptr, ptr %7, align 8, !tbaa !225
   %9 = tail call ptr @PyTuple_New(i64 noundef 4) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %trace_to_pyobject.exit.thread, label %11
@@ -2333,8 +2333,8 @@ define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone ca
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %13, ptr %22, align 8, !tbaa !198
-  %23 = load i64, ptr %2, align 8, !tbaa !208
+  store ptr %13, ptr %22, align 8, !tbaa !199
+  %23 = load i64, ptr %2, align 8, !tbaa !209
   %24 = tail call ptr @PyLong_FromSize_t(i64 noundef %23) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %32
@@ -2356,9 +2356,9 @@ define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone ca
 
 32:                                               ; preds = %21
   %33 = getelementptr i8, ptr %9, i64 32
-  store ptr %24, ptr %33, align 8, !tbaa !198
+  store ptr %24, ptr %33, align 8, !tbaa !199
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !217
+  %35 = load ptr, ptr %34, align 8, !tbaa !218
   %36 = tail call fastcc ptr @traceback_to_pyobject(ptr noundef %35, ptr noundef %8)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %44
@@ -2380,8 +2380,8 @@ define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone ca
 
 44:                                               ; preds = %32
   %45 = getelementptr i8, ptr %9, i64 40
-  store ptr %36, ptr %45, align 8, !tbaa !198
-  %46 = load ptr, ptr %34, align 8, !tbaa !217
+  store ptr %36, ptr %45, align 8, !tbaa !199
+  %46 = load ptr, ptr %34, align 8, !tbaa !218
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 10
   %48 = load i16, ptr %47, align 2, !tbaa !188
   %49 = zext i16 %48 to i64
@@ -2406,9 +2406,9 @@ define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone ca
 
 58:                                               ; preds = %44
   %59 = getelementptr i8, ptr %9, i64 48
-  store ptr %50, ptr %59, align 8, !tbaa !198
+  store ptr %50, ptr %59, align 8, !tbaa !199
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !223
+  %61 = load ptr, ptr %60, align 8, !tbaa !224
   %62 = tail call i32 @PyList_Append(ptr noundef %61, ptr noundef nonnull %9) #14
   %63 = load i32, ptr %9, align 8, !tbaa !191
   %.not.i = icmp sgt i32 %63, -1
@@ -2438,7 +2438,7 @@ define internal i32 @tracemalloc_get_traces_domain(ptr readnone captures(none) %
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %6, ptr %7, align 8, !tbaa !221
+  store i32 %6, ptr %7, align 8, !tbaa !222
   %8 = tail call i32 @_Py_hashtable_foreach(ptr noundef %2, ptr noundef nonnull @tracemalloc_get_traces_fill, ptr noundef %3) #14
   ret i32 %8
 }
@@ -2448,9 +2448,9 @@ declare void @_Py_hashtable_destroy(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTraceMalloc_GetObjectTraceback(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %2, align 8, !tbaa !211
+  %.val = load ptr, ptr %2, align 8, !tbaa !212
   %3 = getelementptr i8, ptr %.val, i64 168
-  %.val4 = load i64, ptr %3, align 8, !tbaa !212
+  %.val4 = load i64, ptr %3, align 8, !tbaa !213
   %4 = shl i64 %.val4, 49
   %5 = ashr i64 %4, 63
   %6 = and i64 %.val4, 24
@@ -2466,7 +2466,7 @@ define hidden ptr @_PyTraceMalloc_GetObjectTraceback(ptr noundef %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @_PyTraceMalloc_GetTracebackLimit() local_unnamed_addr #6 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !200
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !201
   ret i32 %1
 }
 
@@ -2483,7 +2483,7 @@ define hidden i64 @_PyTraceMalloc_GetMemory() local_unnamed_addr #0 {
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %18, label %7
 
@@ -2496,13 +2496,13 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %4
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10336), align 8, !tbaa !181
   %14 = tail call i64 @_Py_hashtable_size(ptr noundef %13) #14
   %15 = add i64 %12, %14
-  store i64 %15, ptr %1, align 8, !tbaa !227
+  store i64 %15, ptr %1, align 8, !tbaa !228
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10344), align 8, !tbaa !182
   %17 = call i32 @_Py_hashtable_foreach(ptr noundef %16, ptr noundef nonnull @tracemalloc_get_tracemalloc_memory_cb, ptr noundef nonnull %1) #14
   br label %19
 
 18:                                               ; preds = %PyMutex_LockFlags.exit
-  store i64 0, ptr %1, align 8, !tbaa !227
+  store i64 0, ptr %1, align 8, !tbaa !228
   br label %19
 
 19:                                               ; preds = %18, %7
@@ -2515,7 +2515,7 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %4
   br label %_PyMutex_Unlock.exit
 
 _PyMutex_Unlock.exit:                             ; preds = %19, %22
-  %23 = load i64, ptr %1, align 8, !tbaa !227
+  %23 = load i64, ptr %1, align 8, !tbaa !228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
   ret i64 %23
 }
@@ -2525,9 +2525,9 @@ declare i64 @_Py_hashtable_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @tracemalloc_get_tracemalloc_memory_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = tail call i64 @_Py_hashtable_size(ptr noundef %2) #14
-  %6 = load i64, ptr %3, align 8, !tbaa !227
+  %6 = load i64, ptr %3, align 8, !tbaa !228
   %7 = add i64 %6, %5
-  store i64 %7, ptr %3, align 8, !tbaa !227
+  store i64 %7, ptr %3, align 8, !tbaa !228
   ret i32 0
 }
 
@@ -2542,7 +2542,7 @@ define hidden ptr @_PyTraceMalloc_GetTracedMemory() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8
   %8 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -2574,13 +2574,13 @@ define hidden void @_PyTraceMalloc_ResetPeak() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %PyMutex_LockFlags.exit
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !219
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10304), align 8, !tbaa !220
   br label %8
 
 8:                                                ; preds = %6, %PyMutex_LockFlags.exit
@@ -2630,18 +2630,18 @@ define internal fastcc ptr @tracemalloc_alloc(i32 noundef range(i32 0, 2) %0, i3
 
 9:                                                ; preds = %7, %5
   %.not = icmp eq i32 %1, 0
-  %10 = load ptr, ptr %2, align 8, !tbaa !207
+  %10 = load ptr, ptr %2, align 8, !tbaa !208
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !204
+  %13 = load ptr, ptr %12, align 8, !tbaa !205
   %14 = tail call ptr %13(ptr noundef %10, i64 noundef %3, i64 noundef %4) #14
   br label %20
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !203
+  %17 = load ptr, ptr %16, align 8, !tbaa !204
   %18 = mul i64 %4, %3
   %19 = tail call ptr %17(ptr noundef %10, i64 noundef %18) #14
   br label %20
@@ -2671,7 +2671,7 @@ define internal fastcc ptr @tracemalloc_alloc(i32 noundef range(i32 0, 2) %0, i3
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %25, %28
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not26 = icmp eq i32 %30, 0
   br i1 %.not26, label %40, label %31
 
@@ -2684,8 +2684,8 @@ PyMutex_LockFlags.exit:                           ; preds = %25, %28
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !206
-  %39 = load ptr, ptr %2, align 8, !tbaa !207
+  %38 = load ptr, ptr %37, align 8, !tbaa !207
+  %39 = load ptr, ptr %2, align 8, !tbaa !208
   tail call void %38(ptr noundef %39, ptr noundef nonnull %.024) #14
   br label %40
 
@@ -2733,8 +2733,8 @@ define internal fastcc ptr @tracemalloc_realloc(i32 noundef range(i32 0, 2) %0, 
 
 8:                                                ; preds = %6, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !205
-  %11 = load ptr, ptr %1, align 8, !tbaa !207
+  %10 = load ptr, ptr %9, align 8, !tbaa !206
+  %11 = load ptr, ptr %1, align 8, !tbaa !208
   %12 = tail call ptr %10(ptr noundef %11, ptr noundef %2, i64 noundef %3) #14
   %13 = icmp eq ptr %12, null
   %or.cond = or i1 %.not.i, %13
@@ -2759,7 +2759,7 @@ define internal fastcc ptr @tracemalloc_realloc(i32 noundef range(i32 0, 2) %0, 
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %17, %20
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !200
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %47, label %23
 
@@ -2782,12 +2782,12 @@ PyMutex_LockFlags.exit:                           ; preds = %17, %20
   br i1 %.not7.i, label %tracemalloc_remove_trace_unlocked.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = load i64, ptr %28, align 8, !tbaa !208
-  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
+  %30 = load i64, ptr %28, align 8, !tbaa !209
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
   %32 = sub i64 %31, %30
-  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !210
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10296), align 8, !tbaa !211
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %33(ptr noundef %34, ptr noundef nonnull %28) #14
   br label %tracemalloc_remove_trace_unlocked.exit
 
@@ -2809,8 +2809,8 @@ tracemalloc_remove_trace_unlocked.exit:           ; preds = %29, %27, %25, %24
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !206
-  %46 = load ptr, ptr %1, align 8, !tbaa !207
+  %45 = load ptr, ptr %44, align 8, !tbaa !207
+  %46 = load ptr, ptr %1, align 8, !tbaa !208
   tail call void %45(ptr noundef %46, ptr noundef nonnull %12) #14
   br label %47
 
@@ -2861,22 +2861,22 @@ declare void @_Py_DumpDecimal(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @traceback_new() unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !202
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10320), align 8, !tbaa !203
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 0, ptr %2, align 8, !tbaa !193
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i16 0, ptr %3, align 2, !tbaa !188
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %5 = load ptr, ptr %4, align 8, !tbaa !228
+  %5 = load ptr, ptr %4, align 8, !tbaa !229
   %6 = getelementptr i8, ptr %5, i64 72
-  %.val.i = load ptr, ptr %6, align 8, !tbaa !229
+  %.val.i = load ptr, ptr %6, align 8, !tbaa !230
   %.not7.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not7.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %0, %_PyFrame_IsIncomplete.exit.thread.i.i.i
   %.08.i.i.i = phi ptr [ %21, %_PyFrame_IsIncomplete.exit.thread.i.i.i ], [ %.val.i, %0 ]
   %7 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 74
-  %8 = load i8, ptr %7, align 2, !tbaa !230
+  %8 = load i8, ptr %7, align 2, !tbaa !231
   %9 = icmp sgt i8 %8, 2
   br i1 %9, label %_PyFrame_IsIncomplete.exit.thread.i.i.i, label %10
 
@@ -2886,12 +2886,12 @@ define internal fastcc ptr @traceback_new() unnamed_addr #0 {
 
 _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !234
+  %12 = load ptr, ptr %11, align 8, !tbaa !235
   %.val7.i.i.i.i = load i64, ptr %.08.i.i.i, align 8, !tbaa !191
   %13 = inttoptr i64 %.val7.i.i.i.i to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %16 = load i32, ptr %15, align 8, !tbaa !235
+  %16 = load i32, ptr %15, align 8, !tbaa !236
   %17 = sext i32 %16 to i64
   %18 = getelementptr %union._Py_CODEUNIT, ptr %14, i64 %17
   %19 = icmp ult ptr %12, %18
@@ -2899,9 +2899,9 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %10
 
 _PyFrame_IsIncomplete.exit.thread.i.i.i:          ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %.lr.ph.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !237
+  %21 = load ptr, ptr %20, align 8, !tbaa !238
   %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %.critedge, label %.lr.ph.i.i.i, !llvm.loop !238
+  br i1 %.not.i.i.i, label %.critedge, label %.lr.ph.i.i.i, !llvm.loop !239
 
 .lr.ph.i:                                         ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2915,7 +2915,7 @@ _PyFrame_GetFirstComplete.exit.i:                 ; preds = %_PyFrame_GetFirstCo
   %24 = phi i16 [ 0, %.lr.ph.i ], [ %68, %_PyFrame_GetFirstComplete.exit.i.loopexit ]
   %.015.i = phi ptr [ %.08.i.i.i, %.lr.ph.i ], [ %.08.i.i, %_PyFrame_GetFirstComplete.exit.i.loopexit ]
   %25 = zext i16 %24 to i32
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !200
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !201
   %27 = icmp sgt i32 %26, %25
   br i1 %27, label %28, label %66
 
@@ -2930,15 +2930,15 @@ _PyFrame_GetFirstComplete.exit.i:                 ; preds = %_PyFrame_GetFirstCo
   %.val18.i.i = load i64, ptr %.015.i, align 8, !tbaa !191
   %33 = inttoptr i64 %.val18.i.i to ptr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %35 = load ptr, ptr %34, align 8, !tbaa !239
+  %35 = load ptr, ptr %34, align 8, !tbaa !240
   %36 = icmp eq ptr %35, null
   br i1 %36, label %tracemalloc_get_frame.exit.i, label %37
 
 37:                                               ; preds = %28
   %38 = getelementptr i8, ptr %35, i64 8
-  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !211
+  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !212
   %39 = getelementptr i8, ptr %.val.i.i, i64 168
-  %.val19.i.i = load i64, ptr %39, align 8, !tbaa !212
+  %.val19.i.i = load i64, ptr %39, align 8, !tbaa !213
   %40 = and i64 %.val19.i.i, 268435456
   %.not.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i, label %tracemalloc_get_frame.exit.i, label %41
@@ -2946,14 +2946,14 @@ _PyFrame_GetFirstComplete.exit.i:                 ; preds = %_PyFrame_GetFirstCo
 41:                                               ; preds = %37
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10312), align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !240
+  %44 = load ptr, ptr %43, align 8, !tbaa !241
   %45 = tail call ptr %44(ptr noundef %42, ptr noundef nonnull %35) #14
   %.not17.i.i = icmp eq ptr %45, null
   br i1 %.not17.i.i, label %49, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !243
+  %48 = load ptr, ptr %47, align 8, !tbaa !244
   br label %63
 
 49:                                               ; preds = %41
@@ -3013,39 +3013,39 @@ tracemalloc_get_frame.exit.i:                     ; preds = %63, %62, %59, %57, 
 71:                                               ; preds = %69, %66
   %72 = phi i16 [ %70, %69 ], [ -1, %66 ]
   %73 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !237
+  %74 = load ptr, ptr %73, align 8, !tbaa !238
   %.not7.i.i = icmp eq ptr %74, null
   br i1 %.not7.i.i, label %traceback_get_frames.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %71, %_PyFrame_IsIncomplete.exit.thread.i.i
   %.08.i.i = phi ptr [ %89, %_PyFrame_IsIncomplete.exit.thread.i.i ], [ %74, %71 ]
   %75 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 74
-  %76 = load i8, ptr %75, align 2, !tbaa !230
+  %76 = load i8, ptr %75, align 2, !tbaa !231
   %77 = icmp sgt i8 %76, 2
   br i1 %77, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %78
 
 78:                                               ; preds = %.lr.ph.i.i
   %.not.i.i12.i = icmp eq i8 %76, 1
-  br i1 %.not.i.i12.i, label %_PyFrame_GetFirstComplete.exit.i.loopexit, label %_PyFrame_IsIncomplete.exit.i.i, !llvm.loop !247
+  br i1 %.not.i.i12.i, label %_PyFrame_GetFirstComplete.exit.i.loopexit, label %_PyFrame_IsIncomplete.exit.i.i, !llvm.loop !248
 
 _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %78
   %79 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 56
-  %80 = load ptr, ptr %79, align 8, !tbaa !234
+  %80 = load ptr, ptr %79, align 8, !tbaa !235
   %.val7.i.i.i = load i64, ptr %.08.i.i, align 8, !tbaa !191
   %81 = inttoptr i64 %.val7.i.i.i to ptr
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 208
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 192
-  %84 = load i32, ptr %83, align 8, !tbaa !235
+  %84 = load i32, ptr %83, align 8, !tbaa !236
   %85 = sext i32 %84 to i64
   %86 = getelementptr %union._Py_CODEUNIT, ptr %82, i64 %85
   %87 = icmp ult ptr %80, %86
-  br i1 %87, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyFrame_GetFirstComplete.exit.i.loopexit, !llvm.loop !247
+  br i1 %87, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyFrame_GetFirstComplete.exit.i.loopexit, !llvm.loop !248
 
 _PyFrame_IsIncomplete.exit.thread.i.i:            ; preds = %_PyFrame_IsIncomplete.exit.i.i, %.lr.ph.i.i
   %88 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !237
+  %89 = load ptr, ptr %88, align 8, !tbaa !238
   %.not.i13.i = icmp eq ptr %89, null
-  br i1 %.not.i13.i, label %traceback_get_frames.exit, label %.lr.ph.i.i, !llvm.loop !238
+  br i1 %.not.i13.i, label %traceback_get_frames.exit, label %.lr.ph.i.i, !llvm.loop !239
 
 traceback_get_frames.exit:                        ; preds = %71, %_PyFrame_IsIncomplete.exit.thread.i.i
   %90 = icmp eq i16 %68, 0
@@ -3074,7 +3074,7 @@ traceback_get_frames.exit:                        ; preds = %71, %_PyFrame_IsInc
   %100 = add i64 %.01622.i, 82520
   %101 = add i64 %100, %reass.add.i
   %102 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %102, label %.lr.ph.i25, label %traceback_hash.exit, !llvm.loop !248
+  br i1 %102, label %.lr.ph.i25, label %traceback_hash.exit, !llvm.loop !249
 
 traceback_hash.exit:                              ; preds = %.lr.ph.i25
   %103 = load i16, ptr %3, align 2, !tbaa !188
@@ -3084,14 +3084,14 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
   store i64 %106, ptr %1, align 8, !tbaa !192
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10328), align 8, !tbaa !180
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !240
+  %109 = load ptr, ptr %108, align 8, !tbaa !241
   %110 = tail call ptr %109(ptr noundef %107, ptr noundef nonnull %1) #14
   %.not = icmp eq ptr %110, null
   br i1 %.not, label %114, label %111
 
 111:                                              ; preds = %traceback_hash.exit
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !243
+  %113 = load ptr, ptr %112, align 8, !tbaa !244
   br label %.critedge
 
 114:                                              ; preds = %traceback_hash.exit
@@ -3099,8 +3099,8 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
   %116 = zext i16 %115 to i64
   %117 = mul nuw nsw i64 %116, 12
   %118 = add nuw nsw i64 %117, 12
-  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !201
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !202
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   %121 = tail call ptr %119(ptr noundef %120, i64 noundef range(i64 12, 25769803777) %118) #14
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.critedge, label %123
@@ -3113,8 +3113,8 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
   br i1 %126, label %127, label %.critedge
 
 127:                                              ; preds = %123
-  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %128(ptr noundef %129, ptr noundef nonnull %121) #14
   br label %.critedge
 
@@ -3142,21 +3142,21 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !201
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10216), align 8, !tbaa !202
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   %7 = tail call ptr %5(ptr noundef %6, i64 noundef 16) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !249
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !250
   %10 = tail call i32 @_Py_hashtable_set(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %7) #14
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !197
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !198
   tail call void %13(ptr noundef %14, ptr noundef nonnull %7) #14
   br label %15
 
@@ -3419,60 +3419,61 @@ attributes #15 = { noreturn nounwind }
 !191 = !{!7, !7, i64 0}
 !192 = !{!88, !17, i64 0}
 !193 = !{!88, !89, i64 8}
-!194 = distinct !{!194, !195}
+!194 = distinct !{!194, !195, !196}
 !195 = !{!"llvm.loop.mustprogress"}
-!196 = !{!15, !10, i64 10240}
-!197 = !{!15, !10, i64 10208}
-!198 = !{!58, !58, i64 0}
-!199 = !{!15, !6, i64 10156}
-!200 = !{!15, !6, i64 10160}
-!201 = !{!15, !10, i64 10216}
-!202 = !{!15, !87, i64 10320}
-!203 = !{!45, !10, i64 8}
-!204 = !{!45, !10, i64 16}
-!205 = !{!45, !10, i64 24}
-!206 = !{!45, !10, i64 32}
-!207 = !{!45, !10, i64 0}
-!208 = !{!209, !17, i64 0}
-!209 = !{!"", !17, i64 0, !87, i64 8}
-!210 = !{!15, !17, i64 10296}
-!211 = !{!108, !109, i64 8}
-!212 = !{!213, !17, i64 168}
-!213 = !{!"_typeobject", !107, i64 0, !9, i64 24, !17, i64 32, !17, i64 40, !10, i64 48, !17, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !17, i64 168, !9, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !17, i64 208, !10, i64 216, !10, i64 224, !214, i64 232, !215, i64 240, !216, i64 248, !109, i64 256, !58, i64 264, !10, i64 272, !10, i64 280, !17, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !58, i64 336, !58, i64 344, !58, i64 352, !10, i64 360, !58, i64 368, !10, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !89, i64 410}
-!214 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
-!215 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
-!216 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
-!217 = !{!209, !87, i64 8}
-!218 = distinct !{!218, !195}
-!219 = !{!15, !17, i64 10304}
-!220 = distinct !{!220, !195}
-!221 = !{!222, !6, i64 32}
-!222 = !{!"", !68, i64 0, !68, i64 8, !68, i64 16, !58, i64 24, !6, i64 32}
-!223 = !{!222, !58, i64 24}
-!224 = !{!222, !68, i64 16}
-!225 = !{!222, !68, i64 0}
-!226 = !{!222, !68, i64 8}
-!227 = !{!17, !17, i64 0}
-!228 = !{!35, !35, i64 0}
-!229 = !{!174, !176, i64 72}
-!230 = !{!231, !7, i64 74}
-!231 = !{!"_PyInterpreterFrame", !7, i64 0, !176, i64 8, !7, i64 16, !58, i64 24, !58, i64 32, !58, i64 40, !232, i64 48, !10, i64 56, !233, i64 64, !89, i64 72, !7, i64 74, !7, i64 75, !7, i64 80}
-!232 = !{!"p1 _ZTS6_frame", !10, i64 0}
-!233 = !{!"p1 _ZTS11_PyStackRef", !10, i64 0}
-!234 = !{!231, !10, i64 56}
-!235 = !{!236, !6, i64 192}
-!236 = !{!"PyCodeObject", !107, i64 0, !58, i64 24, !58, i64 32, !58, i64 40, !6, i64 48, !6, i64 52, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !6, i64 84, !6, i64 88, !6, i64 92, !58, i64 96, !58, i64 104, !58, i64 112, !58, i64 120, !58, i64 128, !58, i64 136, !58, i64 144, !10, i64 152, !10, i64 160, !17, i64 168, !10, i64 176, !17, i64 184, !6, i64 192, !10, i64 200, !7, i64 208}
-!237 = !{!231, !176, i64 8}
-!238 = distinct !{!238, !195}
-!239 = !{!236, !58, i64 112}
-!240 = !{!241, !10, i64 24}
-!241 = !{!"_Py_hashtable_t", !17, i64 0, !17, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !242, i64 64}
-!242 = !{!"", !10, i64 0, !10, i64 8}
-!243 = !{!244, !10, i64 16}
-!244 = !{!"", !245, i64 0, !17, i64 8, !10, i64 16, !10, i64 24}
-!245 = !{!"_Py_slist_item_s", !246, i64 0}
-!246 = !{!"p1 _ZTS16_Py_slist_item_s", !10, i64 0}
-!247 = distinct !{!247, !195}
-!248 = distinct !{!248, !195}
-!249 = !{i64 0, i64 8, !227, i64 8, i64 8, !250}
-!250 = !{!87, !87, i64 0}
+!196 = !{!"llvm.loop.estimated_trip_count"}
+!197 = !{!15, !10, i64 10240}
+!198 = !{!15, !10, i64 10208}
+!199 = !{!58, !58, i64 0}
+!200 = !{!15, !6, i64 10156}
+!201 = !{!15, !6, i64 10160}
+!202 = !{!15, !10, i64 10216}
+!203 = !{!15, !87, i64 10320}
+!204 = !{!45, !10, i64 8}
+!205 = !{!45, !10, i64 16}
+!206 = !{!45, !10, i64 24}
+!207 = !{!45, !10, i64 32}
+!208 = !{!45, !10, i64 0}
+!209 = !{!210, !17, i64 0}
+!210 = !{!"", !17, i64 0, !87, i64 8}
+!211 = !{!15, !17, i64 10296}
+!212 = !{!108, !109, i64 8}
+!213 = !{!214, !17, i64 168}
+!214 = !{!"_typeobject", !107, i64 0, !9, i64 24, !17, i64 32, !17, i64 40, !10, i64 48, !17, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !17, i64 168, !9, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !17, i64 208, !10, i64 216, !10, i64 224, !215, i64 232, !216, i64 240, !217, i64 248, !109, i64 256, !58, i64 264, !10, i64 272, !10, i64 280, !17, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !58, i64 336, !58, i64 344, !58, i64 352, !10, i64 360, !58, i64 368, !10, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !89, i64 410}
+!215 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
+!216 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
+!217 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
+!218 = !{!210, !87, i64 8}
+!219 = distinct !{!219, !195, !196}
+!220 = !{!15, !17, i64 10304}
+!221 = distinct !{!221, !195, !196}
+!222 = !{!223, !6, i64 32}
+!223 = !{!"", !68, i64 0, !68, i64 8, !68, i64 16, !58, i64 24, !6, i64 32}
+!224 = !{!223, !58, i64 24}
+!225 = !{!223, !68, i64 16}
+!226 = !{!223, !68, i64 0}
+!227 = !{!223, !68, i64 8}
+!228 = !{!17, !17, i64 0}
+!229 = !{!35, !35, i64 0}
+!230 = !{!174, !176, i64 72}
+!231 = !{!232, !7, i64 74}
+!232 = !{!"_PyInterpreterFrame", !7, i64 0, !176, i64 8, !7, i64 16, !58, i64 24, !58, i64 32, !58, i64 40, !233, i64 48, !10, i64 56, !234, i64 64, !89, i64 72, !7, i64 74, !7, i64 75, !7, i64 80}
+!233 = !{!"p1 _ZTS6_frame", !10, i64 0}
+!234 = !{!"p1 _ZTS11_PyStackRef", !10, i64 0}
+!235 = !{!232, !10, i64 56}
+!236 = !{!237, !6, i64 192}
+!237 = !{!"PyCodeObject", !107, i64 0, !58, i64 24, !58, i64 32, !58, i64 40, !6, i64 48, !6, i64 52, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !6, i64 84, !6, i64 88, !6, i64 92, !58, i64 96, !58, i64 104, !58, i64 112, !58, i64 120, !58, i64 128, !58, i64 136, !58, i64 144, !10, i64 152, !10, i64 160, !17, i64 168, !10, i64 176, !17, i64 184, !6, i64 192, !10, i64 200, !7, i64 208}
+!238 = !{!232, !176, i64 8}
+!239 = distinct !{!239, !195, !196}
+!240 = !{!237, !58, i64 112}
+!241 = !{!242, !10, i64 24}
+!242 = !{!"_Py_hashtable_t", !17, i64 0, !17, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !243, i64 64}
+!243 = !{!"", !10, i64 0, !10, i64 8}
+!244 = !{!245, !10, i64 16}
+!245 = !{!"", !246, i64 0, !17, i64 8, !10, i64 16, !10, i64 24}
+!246 = !{!"_Py_slist_item_s", !247, i64 0}
+!247 = !{!"p1 _ZTS16_Py_slist_item_s", !10, i64 0}
+!248 = distinct !{!248, !195, !196}
+!249 = distinct !{!249, !195, !196}
+!250 = !{i64 0, i64 8, !228, i64 8, i64 8, !251}
+!251 = !{!87, !87, i64 0}

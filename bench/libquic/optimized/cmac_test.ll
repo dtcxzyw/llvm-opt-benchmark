@@ -152,7 +152,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   br i1 %.not63.us, label %.split37.us, label %38
 
 38:                                               ; preds = %37
-  %39 = load i64, ptr %7, align 8, !tbaa !15
+  %39 = load i64, ptr %7, align 8, !tbaa !16
   %.not64.us = icmp eq i64 %39, 16
   br i1 %.not64.us, label %40, label %.split41.us
 
@@ -169,7 +169,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   %44 = add nuw nsw i32 %.04528.us, 1
   %45 = zext nneg i32 %44 to i64
   %.not61.us.not = icmp samesign ult i32 %.04528.us, %30
-  br i1 %.not61.us.not, label %.lr.ph30.split.us, label %.critedge.thread, !llvm.loop !17
+  br i1 %.not61.us.not, label %.lr.ph30.split.us, label %.critedge.thread, !llvm.loop !18
 
 .preheader.us:                                    ; preds = %33, %34
   %.04326.us = phi i64 [ %35, %34 ], [ 0, %33 ]
@@ -397,9 +397,10 @@ attributes #11 = { noreturn nounwind }
 !10 = !{!"Simple C++ TBAA"}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS11cmac_ctx_st", !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !9, i64 0}
-!17 = distinct !{!17, !14, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !9, i64 0}
+!18 = distinct !{!18, !14, !15, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}

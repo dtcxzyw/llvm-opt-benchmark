@@ -94,27 +94,27 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.033.042.i, i64 8
   %.sroa.033.0.i = load ptr, ptr %37, align 8, !tbaa !28
   %.not37.i = icmp eq ptr %.sroa.033.0.i, null
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 38:                                               ; preds = %._crit_edge.i
   %39 = load ptr, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !30
-  %44 = load ptr, ptr %43, align 8, !tbaa !35
-  store ptr %44, ptr %6, align 8, !tbaa !35
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  store ptr %44, ptr %6, align 8, !tbaa !37
   %45 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %39, i32 noundef 146, ptr nonnull %6, i64 1) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %47 = load i16, ptr %46, align 2, !tbaa !36
+  %47 = load i16, ptr %46, align 2, !tbaa !38
   %48 = and i16 %47, 16368
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %50 = load i16, ptr %49, align 2, !tbaa !36
+  %50 = load i16, ptr %49, align 2, !tbaa !38
   %51 = and i16 %50, -16369
   %52 = or disjoint i16 %51, %48
-  store i16 %52, ptr %49, align 2, !tbaa !36
+  store i16 %52, ptr %49, align 2, !tbaa !38
   %53 = load ptr, ptr %5, align 8, !tbaa !17
   %54 = load i32, ptr %15, align 8, !tbaa !19
   %55 = zext i32 %54 to i64
@@ -125,12 +125,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
 
 .lr.ph46.i:                                       ; preds = %38, %.lr.ph46.i
   %.02644.i = phi ptr [ %59, %.lr.ph46.i ], [ %53, %38 ]
-  %57 = load ptr, ptr %.02644.i, align 8, !tbaa !37
+  %57 = load ptr, ptr %.02644.i, align 8, !tbaa !39
   call void @_ZN4llvm28makeGuardControlFlowExplicitEPNS_8FunctionEPNS_8CallInstEb(ptr noundef nonnull %45, ptr noundef %57, i1 noundef zeroext false) #5
   %58 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %57) #5
   %59 = getelementptr inbounds nuw i8, ptr %.02644.i, i64 8
   %.not29.i = icmp eq ptr %59, %56
-  br i1 %.not29.i, label %.loopexit.i, label %.lr.ph46.i
+  br i1 %.not29.i, label %.loopexit.i, label %.lr.ph46.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.lr.ph46.i, %38, %._crit_edge.i
   %60 = load ptr, ptr %5, align 8, !tbaa !17
@@ -147,47 +147,47 @@ _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit:   ; preds = %.loopexit.i, %62
 
 63:                                               ; preds = %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, i8 0, i64 64, i1 false), !alias.scope !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, i8 0, i64 64, i1 false), !alias.scope !42
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %65, ptr %0, align 8, !tbaa !42, !alias.scope !39
+  store ptr %65, ptr %0, align 8, !tbaa !45, !alias.scope !42
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %66, align 8, !tbaa !45, !alias.scope !39
+  store i32 2, ptr %66, align 8, !tbaa !48, !alias.scope !42
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %67, align 4, !tbaa !46, !alias.scope !39
+  store i32 0, ptr %67, align 4, !tbaa !49, !alias.scope !42
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %68, align 4, !tbaa !47, !alias.scope !39
+  store i8 1, ptr %68, align 4, !tbaa !50, !alias.scope !42
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %70, ptr %69, align 8, !tbaa !42, !alias.scope !39
+  store ptr %70, ptr %69, align 8, !tbaa !45, !alias.scope !42
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %71, align 8, !tbaa !45, !alias.scope !39
+  store i32 2, ptr %71, align 8, !tbaa !48, !alias.scope !42
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %72, align 4, !tbaa !47, !alias.scope !39
+  store i8 1, ptr %72, align 4, !tbaa !50, !alias.scope !42
   br label %83
 
 _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.thread: ; preds = %4, %10, %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !42, !alias.scope !48
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !45, !alias.scope !51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %73, align 8, !tbaa !45, !alias.scope !48
+  store i32 2, ptr %73, align 8, !tbaa !48, !alias.scope !51
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %75, align 8, !tbaa !51, !alias.scope !48
+  store i32 0, ptr %75, align 8, !tbaa !54, !alias.scope !51
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %76, align 4, !tbaa !47, !alias.scope !48
+  store i8 1, ptr %76, align 4, !tbaa !50, !alias.scope !51
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %78, ptr %77, align 8, !tbaa !42, !alias.scope !48
+  store ptr %78, ptr %77, align 8, !tbaa !45, !alias.scope !51
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %79, align 8, !tbaa !45, !alias.scope !48
+  store i32 2, ptr %79, align 8, !tbaa !48, !alias.scope !51
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %80, align 4, !tbaa !46, !alias.scope !48
+  store i32 0, ptr %80, align 4, !tbaa !49, !alias.scope !51
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %81, align 8, !tbaa !51, !alias.scope !48
+  store i32 0, ptr %81, align 8, !tbaa !54, !alias.scope !51
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %82, align 4, !tbaa !47, !alias.scope !48
-  store i32 1, ptr %74, align 4, !tbaa !46, !alias.scope !48, !noalias !52
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !55, !alias.scope !48, !noalias !52
+  store i8 1, ptr %82, align 4, !tbaa !50, !alias.scope !51
+  store i32 1, ptr %74, align 4, !tbaa !49, !alias.scope !51, !noalias !55
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !58, !alias.scope !51, !noalias !55
   br label %83
 
 83:                                               ; preds = %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.thread, %63
@@ -256,30 +256,33 @@ attributes #5 = { nounwind }
 !26 = !{!7, !8, i64 0}
 !27 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !28 = !{!14, !14, i64 0}
-!29 = !{!4, !12, i64 24}
-!30 = !{!31, !34, i64 16}
-!31 = !{!"_ZTSN4llvm4TypeE", !32, i64 0, !33, i64 8, !11, i64 9, !11, i64 12, !34, i64 16}
-!32 = !{!"p1 _ZTSN4llvm11LLVMContextE", !13, i64 0}
-!33 = !{!"_ZTSN4llvm4Type6TypeIDE", !8, i64 0}
-!34 = !{!"p2 _ZTSN4llvm4TypeE", !13, i64 0}
-!35 = !{!12, !12, i64 0}
-!36 = !{!7, !10, i64 2}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTSN4llvm8CallInstE", !13, i64 0}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4llvm17PreservedAnalyses4noneEv: argument 0"}
-!41 = distinct !{!41, !"_ZN4llvm17PreservedAnalyses4noneEv"}
-!42 = !{!43, !13, i64 0}
-!43 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !13, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !44, i64 20}
-!44 = !{!"bool", !8, i64 0}
-!45 = !{!43, !11, i64 8}
-!46 = !{!43, !11, i64 12}
-!47 = !{!43, !44, i64 20}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!50 = distinct !{!50, !"_ZN4llvm17PreservedAnalyses3allEv"}
-!51 = !{!43, !11, i64 16}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!54 = distinct !{!54, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!55 = !{!13, !13, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!4, !12, i64 24}
+!32 = !{!33, !36, i64 16}
+!33 = !{!"_ZTSN4llvm4TypeE", !34, i64 0, !35, i64 8, !11, i64 9, !11, i64 12, !36, i64 16}
+!34 = !{!"p1 _ZTSN4llvm11LLVMContextE", !13, i64 0}
+!35 = !{!"_ZTSN4llvm4Type6TypeIDE", !8, i64 0}
+!36 = !{!"p2 _ZTSN4llvm4TypeE", !13, i64 0}
+!37 = !{!12, !12, i64 0}
+!38 = !{!7, !10, i64 2}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN4llvm8CallInstE", !13, i64 0}
+!41 = distinct !{!41, !30}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN4llvm17PreservedAnalyses4noneEv: argument 0"}
+!44 = distinct !{!44, !"_ZN4llvm17PreservedAnalyses4noneEv"}
+!45 = !{!46, !13, i64 0}
+!46 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !13, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !47, i64 20}
+!47 = !{!"bool", !8, i64 0}
+!48 = !{!46, !11, i64 8}
+!49 = !{!46, !11, i64 12}
+!50 = !{!46, !47, i64 20}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!53 = distinct !{!53, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!54 = !{!46, !11, i64 16}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!57 = distinct !{!57, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!58 = !{!13, !13, i64 0}

@@ -11997,7 +11997,7 @@ lean_inc.exit34:                                  ; preds = %41, %40, %38, %35
   br i1 %.not.i42, label %42, label %lean_dec.exit31.backedge
 
 lean_dec.exit31.backedge:                         ; preds = %lean_inc.exit34, %45, %47, %48, %lean_obj_tag.exit61
-  br label %lean_dec.exit31
+  br label %lean_dec.exit31, !llvm.loop !16
 
 42:                                               ; preds = %lean_inc.exit34
   %43 = load i32, ptr %.0, align 4, !tbaa !8
@@ -12178,7 +12178,7 @@ lean_inc.exit:                                    ; preds = %100, %99, %97, %90
 
 lean_dec.exit:                                    ; preds = %107, %106, %104, %lean_inc.exit
   %108 = tail call ptr @lean_array_push(ptr noundef %.026.ph, ptr noundef %92) #4
-  br label %lean_dec.exit31.outer
+  br label %lean_dec.exit31.outer, !llvm.loop !16
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -12295,7 +12295,7 @@ lean_inc.exit34:                                  ; preds = %41, %40, %38, %35
   br i1 %.not.i42, label %42, label %lean_dec.exit31.backedge
 
 lean_dec.exit31.backedge:                         ; preds = %lean_inc.exit34, %45, %47, %48, %lean_obj_tag.exit61
-  br label %lean_dec.exit31
+  br label %lean_dec.exit31, !llvm.loop !18
 
 42:                                               ; preds = %lean_inc.exit34
   %43 = load i32, ptr %.0, align 4, !tbaa !8
@@ -12476,7 +12476,7 @@ lean_inc.exit:                                    ; preds = %100, %99, %97, %90
 
 lean_dec.exit:                                    ; preds = %107, %106, %104, %lean_inc.exit
   %108 = tail call ptr @lean_array_push(ptr noundef %.026.ph, ptr noundef %92) #4
-  br label %lean_dec.exit31.outer
+  br label %lean_dec.exit31.outer, !llvm.loop !18
 }
 
 declare ptr @l_Sum_getRight_x3f___rarg(ptr noundef) local_unnamed_addr #1
@@ -13695,7 +13695,7 @@ define ptr @l_Lean_Elab_Tactic_SolveByElim_processSyntax(ptr noundef %0, i8 noun
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %20, label %lean_nat_lt.exit, !prof !16
+  br i1 %.not, label %20, label %lean_nat_lt.exit, !prof !19
 
 lean_nat_lt.exit:                                 ; preds = %15
   %19 = icmp ugt ptr %16, inttoptr (i64 3 to ptr)
@@ -14242,9 +14242,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___spec__1___rarg, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 1, ptr %14, align 8, !tbaa !17
+  store i16 1, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 0, ptr %15, align 2, !tbaa !17
+  store i16 0, ptr %15, align 2, !tbaa !20
   ret ptr %9
 }
 
@@ -27234,9 +27234,9 @@ l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_SolveByElim_evalApplyAs
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___spec__1___rarg, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 1, ptr %14, align 8, !tbaa !17
+  store i16 1, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 0, ptr %15, align 2, !tbaa !17
+  store i16 0, ptr %15, align 2, !tbaa !20
   %16 = ptrtoint ptr %7 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -30078,9 +30078,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___lambda__1___boxed, ptr %184, align 8, !tbaa !4
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store i16 15, ptr %185, align 8, !tbaa !17
+  store i16 15, ptr %185, align 8, !tbaa !20
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 18
-  store i16 6, ptr %186, align 2, !tbaa !17
+  store i16 6, ptr %186, align 2, !tbaa !20
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store ptr %2, ptr %187, align 8, !tbaa !4
   %188 = getelementptr inbounds nuw i8, ptr %180, i64 32
@@ -39283,9 +39283,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1.exit: ; 
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__3___boxed, ptr %59, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i16 7, ptr %60, align 8, !tbaa !17
+  store i16 7, ptr %60, align 8, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 18
-  store i16 0, ptr %61, align 2, !tbaa !17
+  store i16 0, ptr %61, align 2, !tbaa !20
   store ptr %55, ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %55) #4
   tail call void @lean_inc_heartbeat() #4
@@ -39304,9 +39304,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__2.exit: ; 
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__4___boxed, ptr %66, align 8, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i16 6, ptr %67, align 8, !tbaa !17
+  store i16 6, ptr %67, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 18
-  store i16 0, ptr %68, align 2, !tbaa !17
+  store i16 0, ptr %68, align 2, !tbaa !20
   store ptr %62, ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %62) #4
   tail call void @lean_inc_heartbeat() #4
@@ -39325,9 +39325,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__3.exit: ; 
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__5___boxed, ptr %73, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i16 6, ptr %74, align 8, !tbaa !17
+  store i16 6, ptr %74, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 18
-  store i16 0, ptr %75, align 2, !tbaa !17
+  store i16 0, ptr %75, align 2, !tbaa !20
   store ptr %69, ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %69) #4
   %76 = load ptr, ptr @l_Lean_Elab_Tactic_SolveByElim_elabConfig___lambda__6___closed__1, align 8, !tbaa !4
@@ -39744,9 +39744,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___boxed, ptr %258, align 8, !tbaa !4
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  store i16 10, ptr %259, align 8, !tbaa !17
+  store i16 10, ptr %259, align 8, !tbaa !20
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 18
-  store i16 0, ptr %260, align 2, !tbaa !17
+  store i16 0, ptr %260, align 2, !tbaa !20
   store ptr %254, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyAssumption__1___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %254) #4
   %.not = icmp eq i8 %0, 0
@@ -39998,9 +39998,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tacti
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules, ptr %358, align 8, !tbaa !4
   %359 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  store i16 10, ptr %359, align 8, !tbaa !17
+  store i16 10, ptr %359, align 8, !tbaa !20
   %360 = getelementptr inbounds nuw i8, ptr %354, i64 18
-  store i16 0, ptr %360, align 2, !tbaa !17
+  store i16 0, ptr %360, align 2, !tbaa !20
   store ptr %354, ptr @l_Lean_Elab_Tactic_SolveByElim_evalApplyRules___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalApplyRules__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %354) #4
   br i1 %.not, label %.critedge, label %361
@@ -40295,9 +40295,9 @@ _init_l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tact
   %476 = getelementptr inbounds nuw i8, ptr %472, i64 8
   store ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___boxed, ptr %476, align 8, !tbaa !4
   %477 = getelementptr inbounds nuw i8, ptr %472, i64 16
-  store i16 10, ptr %477, align 8, !tbaa !17
+  store i16 10, ptr %477, align 8, !tbaa !20
   %478 = getelementptr inbounds nuw i8, ptr %472, i64 18
-  store i16 0, ptr %478, align 2, !tbaa !17
+  store i16 0, ptr %478, align 2, !tbaa !20
   store ptr %472, ptr @l_Lean_Elab_Tactic_SolveByElim_evalSolveByElim___regBuiltin_Lean_Elab_Tactic_SolveByElim_evalSolveByElim__1___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %472) #4
   br i1 %.not, label %lean_dec_ref.exit38, label %479
@@ -40643,6 +40643,9 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !6, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !6, i64 0}

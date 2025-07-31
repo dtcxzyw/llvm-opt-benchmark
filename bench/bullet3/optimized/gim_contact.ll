@@ -189,7 +189,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 
 82:                                               ; preds = %78
   store i32 0, ptr %75, align 4, !tbaa !12
-  %83 = load ptr, ptr %0, align 8, !tbaa !11, !nonnull !28, !noundef !28
+  %83 = load ptr, ptr %0, align 8, !tbaa !11, !nonnull !29, !noundef !29
   invoke void @_Z8gim_freePv(ptr noundef nonnull %83)
           to label %.noexc69 unwind label %125
 
@@ -259,10 +259,10 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 
 117:                                              ; preds = %.lr.ph93
   %118 = getelementptr inbounds nuw i8, ptr %.04291, i64 32
-  %119 = load float, ptr %118, align 4, !tbaa !29
+  %119 = load float, ptr %118, align 4, !tbaa !30
   %120 = fadd float %119, 0xBEE4F8B580000000
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %122 = load float, ptr %121, align 4, !tbaa !29
+  %122 = load float, ptr %121, align 4, !tbaa !30
   %123 = fcmp ogt float %120, %122
   br i1 %123, label %124, label %127
 
@@ -300,7 +300,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %134 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %135 = zext nneg i32 %.04589 to i64
   %136 = getelementptr inbounds nuw [8 x %class.btVector3], ptr %5, i64 0, i64 %135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !33
   %137 = add nuw nsw i32 %.04589, 1
   br label %200
 
@@ -342,7 +342,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
   %153 = fadd float %.sroa.11.014.i, %152
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 154:                                              ; preds = %._crit_edge.i
   %155 = fcmp ugt float %143, 0x3E7AD7F2A0000000
@@ -392,7 +392,7 @@ _ZN11GIM_CONTACT19interpolate_normalsEP9btVector3j.exit: ; preds = %166, %._crit
 
 176:                                              ; preds = %172
   store i32 0, ptr %75, align 4, !tbaa !12
-  %177 = load ptr, ptr %0, align 8, !tbaa !11, !nonnull !28, !noundef !28
+  %177 = load ptr, ptr %0, align 8, !tbaa !11, !nonnull !29, !noundef !29
   invoke void @_Z8gim_freePv(ptr noundef nonnull %177)
           to label %.noexc78 unwind label %.loopexit.split-lp
 
@@ -444,7 +444,7 @@ _ZN11GIM_CONTACT19interpolate_normalsEP9btVector3j.exit: ; preds = %166, %._crit
   %.143 = phi ptr [ %.04291, %124 ], [ %.04291, %133 ], [ %.04291, %128 ], [ %.04291, %127 ], [ %199, %190 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %201 = icmp samesign ult i64 %indvars.iv.next100, %108
-  br i1 %201, label %.lr.ph93, label %._crit_edge94, !llvm.loop !34
+  br i1 %201, label %.lr.ph93, label %._crit_edge94, !llvm.loop !35
 
 ._crit_edge94:                                    ; preds = %200, %96
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
@@ -550,7 +550,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %29 = load i64, ptr %gep.i, align 4
   store i64 %29, ptr %28, align 4
   %.not.i = icmp ugt i32 %.021.i, %3
-  br i1 %.not.i, label %.thread.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i, label %.thread.loopexit.i, label %.lr.ph.i, !llvm.loop !36
 
 .thread.loopexit.i:                               ; preds = %25, %20
   %.022.lcssa.ph.i = phi i32 [ %.021.i, %25 ], [ %.02230.i, %20 ]
@@ -559,7 +559,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %30 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i
   store i64 %8, ptr %30, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.lr.ph, label %.lr.ph.i.preheader, !llvm.loop !35
+  br i1 %.not, label %.lr.ph, label %.lr.ph.i.preheader, !llvm.loop !37
 
 31:                                               ; preds = %.lr.ph, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26
   %indvars.iv = phi i64 [ %4, %.lr.ph ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26 ]
@@ -610,7 +610,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %58 = load i64, ptr %gep.i18, align 4
   store i64 %58, ptr %57, align 4
   %.not.i24 = icmp ugt i32 %.021.i17, %38
-  br i1 %.not.i24, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26, label %.lr.ph.i15
+  br i1 %.not.i24, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26, label %.lr.ph.i15, !llvm.loop !36
 
 _Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26: ; preds = %49, %54
   %.022.lcssa.ph.i20 = phi i32 [ %.021.i17, %54 ], [ %.02230.i16, %49 ]
@@ -619,7 +619,7 @@ _Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26
   %59 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i22
   store i64 %36, ptr %59, align 4
   %60 = icmp ugt i32 %indvars, 1
-  br i1 %60, label %31, label %._crit_edge, !llvm.loop !36
+  br i1 %60, label %31, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit26, %31, %2
   ret void
@@ -784,14 +784,16 @@ attributes #11 = { noreturn nounwind }
 !23 = !{!24, !10, i64 0}
 !24 = !{!"_ZTS15GIM_RSORT_TOKEN", !10, i64 0, !10, i64 4}
 !25 = !{!24, !10, i64 4}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{}
-!29 = !{!30, !16, i64 32}
-!30 = !{!"_ZTS11GIM_CONTACT", !31, i64 0, !31, i64 16, !16, i64 32, !16, i64 36, !10, i64 40, !10, i64 44}
-!31 = !{!"_ZTS9btVector3", !8, i64 0}
-!32 = !{i64 0, i64 16, !14}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{}
+!30 = !{!31, !16, i64 32}
+!31 = !{!"_ZTS11GIM_CONTACT", !32, i64 0, !32, i64 16, !16, i64 32, !16, i64 36, !10, i64 40, !10, i64 44}
+!32 = !{!"_ZTS9btVector3", !8, i64 0}
+!33 = !{i64 0, i64 16, !14}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}
+!36 = distinct !{!36, !28}
+!37 = distinct !{!37, !27, !28}
+!38 = distinct !{!38, !27, !28}

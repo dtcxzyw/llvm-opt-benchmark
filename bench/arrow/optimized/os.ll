@@ -1105,7 +1105,7 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr %13, align 8, !tbaa !17
+  %17 = load ptr, ptr %13, align 8, !tbaa !18
   %18 = tail call i64 @_mi_heap_random_next(ptr noundef %17) #10
   %19 = shl i64 %18, 13
   %20 = and i64 %19, 4396972769280
@@ -1118,7 +1118,7 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   %24 = cmpxchg ptr @mi_huge_start, i64 %.017.i, i64 %23 acq_rel acquire, align 64
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
-  br i1 %25, label %27, label %14, !llvm.loop !20
+  br i1 %25, label %27, label %14, !llvm.loop !21
 
 27:                                               ; preds = %22
   %28 = inttoptr i64 %.0.i to ptr
@@ -1239,7 +1239,7 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
 66:                                               ; preds = %65, %57
   %67 = add nuw i64 %.04376, 1
   %exitcond.not = icmp eq i64 %67, %0
-  br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !22
 
 .thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
   %.04373 = phi i64 [ %.04376, %.thread66 ], [ %.04376, %50 ], [ %.04376, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ], [ %.04376, %mi_unix_mmapx.exit.thread.i.i ]
@@ -1298,7 +1298,7 @@ _mi_os_free_ex.exit:                              ; preds = %.lr.ph, %7
   %11 = add i64 %.0811, -1073741824
   %12 = getelementptr inbounds nuw i8, ptr %.012, i64 1073741824
   %13 = icmp ugt i64 %11, 1073741823
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_mi_os_free_ex.exit, %3
   ret void
@@ -1330,7 +1330,7 @@ define hidden range(i64 1, 0) i64 @_mi_os_numa_node_count_get() local_unnamed_ad
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 127, ptr noundef nonnull @.str.14, i32 noundef %10) #10
   %12 = call i32 @access(ptr noundef nonnull %1, i32 noundef 4) #10
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %8, label %split.i, !llvm.loop !23
+  br i1 %.not.i, label %8, label %split.i, !llvm.loop !24
 
 split.i:                                          ; preds = %9
   %13 = zext nneg i32 %10 to i64
@@ -1362,7 +1362,7 @@ define hidden i32 @_mi_os_numa_node_get(ptr noundef readnone captures(none) %0) 
   %3 = alloca i64, align 8
   %4 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_mi_os_numa_node_count.exit, !prof !24
+  br i1 %.not.i, label %5, label %_mi_os_numa_node_count.exit, !prof !25
 
 5:                                                ; preds = %1
   %6 = tail call i64 @_mi_os_numa_node_count_get()
@@ -1475,7 +1475,7 @@ use_large_os_page.exit:                           ; preds = %11
 
 35:                                               ; preds = %32
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
   %38 = tail call i64 @_mi_heap_random_next(ptr noundef %37) #10
   %39 = shl i64 %38, 9
   %40 = and i64 %39, 4397979402240
@@ -1530,7 +1530,7 @@ mi_unix_mmapx.exit.thread:                        ; preds = %.thread.i, %mi_unix
 
 61:                                               ; preds = %58
   %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %63 = load ptr, ptr %62, align 8, !tbaa !18
   %64 = tail call i64 @_mi_heap_random_next(ptr noundef %63) #10
   %65 = shl i64 %64, 9
   %66 = and i64 %65, 4397979402240
@@ -1592,7 +1592,7 @@ mi_unix_mmapx.exit101:                            ; preds = %.thread.i98, %73
 
 87:                                               ; preds = %84
   %88 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %89 = load ptr, ptr %88, align 8, !tbaa !17
+  %89 = load ptr, ptr %88, align 8, !tbaa !18
   %90 = tail call i64 @_mi_heap_random_next(ptr noundef %89) #10
   %91 = shl i64 %90, 9
   %92 = and i64 %91, 4397979402240
@@ -1742,13 +1742,14 @@ attributes #11 = { nounwind willreturn memory(none) }
 !12 = !{!5, !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS9mi_heap_s", !19, i64 0}
-!19 = !{!"any pointer", !5, i64 0}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS9mi_heap_s", !20, i64 0}
+!20 = !{!"any pointer", !5, i64 0}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}

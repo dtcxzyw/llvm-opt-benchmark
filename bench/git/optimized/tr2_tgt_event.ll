@@ -420,23 +420,23 @@ define internal void @fn_child_start_fl(ptr noundef %0, i32 noundef %1, i64 %2, 
   call void @jw_object_begin(ptr noundef nonnull %5, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.34, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %7 = load i32, ptr %6, align 4, !tbaa !17
+  %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = sext i32 %7 to i64
   call void @jw_object_intmax(ptr noundef nonnull %5, ptr noundef nonnull @.str.35, i64 noundef %8) #7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %4
   call void @jw_object_string(ptr noundef nonnull %5, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #7
-  %12 = load ptr, ptr %9, align 8, !tbaa !21
+  %12 = load ptr, ptr %9, align 8, !tbaa !22
   call void @jw_object_string(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, ptr noundef %12) #7
   br label %16
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  %15 = load ptr, ptr %14, align 8, !tbaa !23
   %.not14 = icmp eq ptr %15, null
   %spec.select = select i1 %.not14, ptr @.str.39, ptr %15
   call void @jw_object_string(ptr noundef nonnull %5, ptr noundef nonnull @.str.36, ptr noundef nonnull %spec.select) #7
@@ -444,7 +444,7 @@ define internal void @fn_child_start_fl(ptr noundef %0, i32 noundef %1, i64 %2, 
 
 16:                                               ; preds = %13, %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %20, label %19
 
@@ -470,7 +470,7 @@ define internal void @fn_child_start_fl(ptr noundef %0, i32 noundef %1, i64 %2, 
   br label %29
 
 29:                                               ; preds = %28, %20
-  %30 = load ptr, ptr %3, align 8, !tbaa !24
+  %30 = load ptr, ptr %3, align 8, !tbaa !25
   call void @jw_array_argv(ptr noundef nonnull %5, ptr noundef %30) #7
   call void @jw_end(ptr noundef nonnull %5) #7
   call void @jw_end(ptr noundef nonnull %5) #7
@@ -607,7 +607,7 @@ define internal void @fn_param_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !25
+  %8 = load i32, ptr %7, align 8, !tbaa !26
   %9 = tail call ptr @config_scope_name(i32 noundef %8) #7
   call void @jw_object_begin(ptr noundef nonnull %6, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.53, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %6)
@@ -636,7 +636,7 @@ define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef rea
   call void @jw_object_begin(ptr noundef nonnull %4, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.57, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.58, ptr noundef %6) #7
   call void @jw_end(ptr noundef nonnull %4) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %4) #7
@@ -652,7 +652,7 @@ define internal void @fn_region_enter_printf_va_fl(ptr noundef %0, i32 noundef %
   %11 = alloca %struct.json_writer, align 8
   %12 = tail call ptr @tr2tls_get_self() #7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !45
+  %14 = load i64, ptr %13, align 8, !tbaa !46
   %15 = load i32, ptr @tr2env_event_max_nesting_levels, align 4, !tbaa !7
   %16 = zext nneg i32 %15 to i64
   %.not = icmp ugt i64 %14, %16
@@ -663,7 +663,7 @@ define internal void @fn_region_enter_printf_va_fl(ptr noundef %0, i32 noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %11, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.59, ptr noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %11)
-  %18 = load i64, ptr %13, align 8, !tbaa !45
+  %18 = load i64, ptr %13, align 8, !tbaa !46
   call void @jw_object_intmax(ptr noundef nonnull %11, ptr noundef nonnull @.str.60, i64 noundef %18) #7
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %20, label %19
@@ -722,7 +722,7 @@ define internal void @fn_region_leave_printf_va_fl(ptr noundef %0, i32 noundef %
   %12 = alloca %struct.json_writer, align 8
   %13 = tail call ptr @tr2tls_get_self() #7
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !45
+  %15 = load i64, ptr %14, align 8, !tbaa !46
   %16 = load i32, ptr @tr2env_event_max_nesting_levels, align 4, !tbaa !7
   %17 = zext nneg i32 %16 to i64
   %.not = icmp ugt i64 %15, %17
@@ -736,7 +736,7 @@ define internal void @fn_region_leave_printf_va_fl(ptr noundef %0, i32 noundef %
   call void @jw_object_begin(ptr noundef nonnull %12, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.63, ptr noundef %0, i32 noundef %1, ptr noundef %6, ptr noundef %12)
   call void @jw_object_double(ptr noundef nonnull %12, ptr noundef nonnull @.str.45, i32 noundef 6, double noundef %20) #7
-  %21 = load i64, ptr %14, align 8, !tbaa !45
+  %21 = load i64, ptr %14, align 8, !tbaa !46
   call void @jw_object_intmax(ptr noundef nonnull %12, ptr noundef nonnull @.str.60, i64 noundef %21) #7
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %23, label %22
@@ -793,7 +793,7 @@ define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %9 = alloca %struct.json_writer, align 8
   %10 = tail call ptr @tr2tls_get_self() #7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = load i32, ptr @tr2env_event_max_nesting_levels, align 4, !tbaa !7
   %14 = zext nneg i32 %13 to i64
   %.not = icmp ugt i64 %12, %14
@@ -810,7 +810,7 @@ define internal void @fn_data_fl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.64, ptr noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %9)
   call void @jw_object_double(ptr noundef nonnull %9, ptr noundef nonnull @.str.15, i32 noundef 6, double noundef %17) #7
   call void @jw_object_double(ptr noundef nonnull %9, ptr noundef nonnull @.str.45, i32 noundef 6, double noundef %19) #7
-  %20 = load i64, ptr %11, align 8, !tbaa !45
+  %20 = load i64, ptr %11, align 8, !tbaa !46
   call void @jw_object_intmax(ptr noundef nonnull %9, ptr noundef nonnull @.str.60, i64 noundef %20) #7
   call void @jw_object_string(ptr noundef nonnull %9, ptr noundef nonnull @.str.61, ptr noundef %4) #7
   call void @jw_object_string(ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef %6) #7
@@ -830,7 +830,7 @@ define internal void @fn_data_json_fl(ptr noundef %0, i32 noundef %1, i64 nounde
   %9 = alloca %struct.json_writer, align 8
   %10 = tail call ptr @tr2tls_get_self() #7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = load i32, ptr @tr2env_event_max_nesting_levels, align 4, !tbaa !7
   %14 = zext nneg i32 %13 to i64
   %.not = icmp ugt i64 %12, %14
@@ -847,7 +847,7 @@ define internal void @fn_data_json_fl(ptr noundef %0, i32 noundef %1, i64 nounde
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.66, ptr noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %9)
   call void @jw_object_double(ptr noundef nonnull %9, ptr noundef nonnull @.str.15, i32 noundef 6, double noundef %17) #7
   call void @jw_object_double(ptr noundef nonnull %9, ptr noundef nonnull @.str.45, i32 noundef 6, double noundef %19) #7
-  %20 = load i64, ptr %11, align 8, !tbaa !45
+  %20 = load i64, ptr %11, align 8, !tbaa !46
   call void @jw_object_intmax(ptr noundef nonnull %9, ptr noundef nonnull @.str.60, i64 noundef %20) #7
   call void @jw_object_string(ptr noundef nonnull %9, ptr noundef nonnull @.str.61, ptr noundef %4) #7
   call void @jw_object_string(ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef %6) #7
@@ -912,26 +912,26 @@ define internal void @fn_timer(ptr noundef readonly captures(none) %0, ptr nound
   %5 = select i1 %.not, ptr @.str.69, ptr @.str.68
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
-  %6 = load i64, ptr %1, align 8, !tbaa !50
+  %6 = load i64, ptr %1, align 8, !tbaa !51
   %7 = uitofp i64 %6 to double
   %8 = fdiv double %7, 1.000000e+09
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !52
+  %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = uitofp i64 %10 to double
   %12 = fdiv double %11, 1.000000e+09
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !53
+  %14 = load i64, ptr %13, align 8, !tbaa !54
   %15 = uitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+09
   call void @jw_object_begin(ptr noundef nonnull %4, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull %5, ptr noundef nonnull @.str.20, i32 noundef 657, ptr noundef null, ptr noundef %4)
-  %17 = load ptr, ptr %0, align 8, !tbaa !54
+  %17 = load ptr, ptr %0, align 8, !tbaa !55
   call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.61, ptr noundef %17) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !56
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
   call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef %19) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !57
+  %21 = load i64, ptr %20, align 8, !tbaa !58
   call void @jw_object_intmax(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, i64 noundef %21) #7
   call void @jw_object_double(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, i32 noundef 6, double noundef %8) #7
   call void @jw_object_double(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, i32 noundef 6, double noundef %12) #7
@@ -952,12 +952,12 @@ define internal void @fn_counter(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %4, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull %5, ptr noundef nonnull @.str.20, i32 noundef 678, ptr noundef null, ptr noundef %4)
-  %6 = load ptr, ptr %0, align 8, !tbaa !58
+  %6 = load ptr, ptr %0, align 8, !tbaa !59
   call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.61, ptr noundef %6) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !60
+  %8 = load ptr, ptr %7, align 8, !tbaa !61
   call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef %8) #7
-  %9 = load i64, ptr %1, align 8, !tbaa !61
+  %9 = load i64, ptr %1, align 8, !tbaa !62
   call void @jw_object_intmax(ptr noundef nonnull %4, ptr noundef nonnull @.str.76, i64 noundef %9) #7
   call void @jw_end(ptr noundef nonnull %4) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %4) #7
@@ -996,7 +996,7 @@ define internal fastcc void @event_fmt_prepare(ptr noundef %0, ptr noundef %1, i
   tail call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, ptr noundef %0) #7
   %8 = tail call ptr @tr2_sid_get() #7
   tail call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, ptr noundef %8) #7
-  %9 = load ptr, ptr %7, align 8, !tbaa !63
+  %9 = load ptr, ptr %7, align 8, !tbaa !64
   tail call void @jw_object_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef %9) #7
   %10 = load i32, ptr @tr2env_event_be_brief, align 4, !tbaa !7
   %.not = icmp eq i32 %10, 0
@@ -1038,7 +1038,7 @@ define internal fastcc void @event_fmt_prepare(ptr noundef %0, ptr noundef %1, i
 
 22:                                               ; preds = %.thread
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 420
-  %24 = load i32, ptr %23, align 4, !tbaa !64
+  %24 = load i32, ptr %23, align 4, !tbaa !65
   %25 = sext i32 %24 to i64
   call void @jw_object_intmax(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef %25) #7
   br label %26
@@ -1118,53 +1118,54 @@ attributes #8 = { nounwind willreturn memory(read) }
 !12 = !{!"p1 omnipotent char", !13, i64 0}
 !13 = !{!"any pointer", !5, i64 0}
 !14 = !{!12, !12, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !8, i64 52}
-!18 = !{!"child_process", !19, i64 0, !19, i64 24, !8, i64 48, !8, i64 52, !11, i64 56, !12, i64 64, !12, i64 72, !8, i64 80, !8, i64 84, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 105, !8, i64 105, !13, i64 112}
-!19 = !{!"strvec", !20, i64 0, !11, i64 8, !11, i64 16}
-!20 = !{!"p2 omnipotent char", !13, i64 0}
-!21 = !{!18, !12, i64 72}
-!22 = !{!18, !12, i64 64}
-!23 = !{!18, !12, i64 96}
-!24 = !{!18, !20, i64 0}
-!25 = !{!26, !8, i64 16}
-!26 = !{!"key_value_info", !12, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !12, i64 24}
-!27 = !{!28, !12, i64 240}
-!28 = !{!"repository", !12, i64 0, !12, i64 8, !29, i64 16, !30, i64 24, !31, i64 32, !32, i64 40, !32, i64 104, !36, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !37, i64 256, !39, i64 368, !40, i64 376, !41, i64 384, !42, i64 392, !43, i64 400, !43, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !44, i64 440, !8, i64 448, !8, i64 452, !8, i64 456}
-!29 = !{!"p1 _ZTS16raw_object_store", !13, i64 0}
-!30 = !{!"p1 _ZTS18parsed_object_pool", !13, i64 0}
-!31 = !{!"p1 _ZTS9ref_store", !13, i64 0}
-!32 = !{!"strmap", !33, i64 0, !35, i64 48, !8, i64 56}
-!33 = !{!"hashmap", !34, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40}
-!34 = !{!"p2 _ZTS13hashmap_entry", !13, i64 0}
-!35 = !{!"p1 _ZTS8mem_pool", !13, i64 0}
-!36 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
-!37 = !{!"repo_settings", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !38, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!38 = !{!"p1 _ZTS18fsmonitor_settings", !13, i64 0}
-!39 = !{!"p1 _ZTS10config_set", !13, i64 0}
-!40 = !{!"p1 _ZTS15submodule_cache", !13, i64 0}
-!41 = !{!"p1 _ZTS11index_state", !13, i64 0}
-!42 = !{!"p1 _ZTS12remote_state", !13, i64 0}
-!43 = !{!"p1 _ZTS13git_hash_algo", !13, i64 0}
-!44 = !{!"p1 _ZTS22promisor_remote_config", !13, i64 0}
-!45 = !{!46, !11, i64 24}
-!46 = !{!"tr2tls_thread_ctx", !12, i64 0, !47, i64 8, !11, i64 16, !11, i64 24, !8, i64 32, !48, i64 40, !49, i64 136, !8, i64 184, !8, i64 184, !8, i64 184, !8, i64 184}
-!47 = !{!"p1 long", !13, i64 0}
-!48 = !{!"tr2_timer_block", !5, i64 0}
-!49 = !{!"tr2_counter_block", !5, i64 0}
-!50 = !{!51, !11, i64 0}
-!51 = !{!"tr2_timer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40}
-!52 = !{!51, !11, i64 8}
-!53 = !{!51, !11, i64 16}
-!54 = !{!55, !12, i64 0}
-!55 = !{!"tr2_timer_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
-!56 = !{!55, !12, i64 8}
-!57 = !{!51, !11, i64 32}
-!58 = !{!59, !12, i64 0}
-!59 = !{!"tr2_counter_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
-!60 = !{!59, !12, i64 8}
-!61 = !{!62, !11, i64 0}
-!62 = !{!"tr2_counter", !11, i64 0}
-!63 = !{!46, !12, i64 0}
-!64 = !{!28, !8, i64 420}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !8, i64 52}
+!19 = !{!"child_process", !20, i64 0, !20, i64 24, !8, i64 48, !8, i64 52, !11, i64 56, !12, i64 64, !12, i64 72, !8, i64 80, !8, i64 84, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 105, !8, i64 105, !13, i64 112}
+!20 = !{!"strvec", !21, i64 0, !11, i64 8, !11, i64 16}
+!21 = !{!"p2 omnipotent char", !13, i64 0}
+!22 = !{!19, !12, i64 72}
+!23 = !{!19, !12, i64 64}
+!24 = !{!19, !12, i64 96}
+!25 = !{!19, !21, i64 0}
+!26 = !{!27, !8, i64 16}
+!27 = !{!"key_value_info", !12, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !12, i64 24}
+!28 = !{!29, !12, i64 240}
+!29 = !{!"repository", !12, i64 0, !12, i64 8, !30, i64 16, !31, i64 24, !32, i64 32, !33, i64 40, !33, i64 104, !37, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !38, i64 256, !40, i64 368, !41, i64 376, !42, i64 384, !43, i64 392, !44, i64 400, !44, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !45, i64 440, !8, i64 448, !8, i64 452, !8, i64 456}
+!30 = !{!"p1 _ZTS16raw_object_store", !13, i64 0}
+!31 = !{!"p1 _ZTS18parsed_object_pool", !13, i64 0}
+!32 = !{!"p1 _ZTS9ref_store", !13, i64 0}
+!33 = !{!"strmap", !34, i64 0, !36, i64 48, !8, i64 56}
+!34 = !{!"hashmap", !35, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40}
+!35 = !{!"p2 _ZTS13hashmap_entry", !13, i64 0}
+!36 = !{!"p1 _ZTS8mem_pool", !13, i64 0}
+!37 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!38 = !{!"repo_settings", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !39, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!39 = !{!"p1 _ZTS18fsmonitor_settings", !13, i64 0}
+!40 = !{!"p1 _ZTS10config_set", !13, i64 0}
+!41 = !{!"p1 _ZTS15submodule_cache", !13, i64 0}
+!42 = !{!"p1 _ZTS11index_state", !13, i64 0}
+!43 = !{!"p1 _ZTS12remote_state", !13, i64 0}
+!44 = !{!"p1 _ZTS13git_hash_algo", !13, i64 0}
+!45 = !{!"p1 _ZTS22promisor_remote_config", !13, i64 0}
+!46 = !{!47, !11, i64 24}
+!47 = !{!"tr2tls_thread_ctx", !12, i64 0, !48, i64 8, !11, i64 16, !11, i64 24, !8, i64 32, !49, i64 40, !50, i64 136, !8, i64 184, !8, i64 184, !8, i64 184, !8, i64 184}
+!48 = !{!"p1 long", !13, i64 0}
+!49 = !{!"tr2_timer_block", !5, i64 0}
+!50 = !{!"tr2_counter_block", !5, i64 0}
+!51 = !{!52, !11, i64 0}
+!52 = !{!"tr2_timer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40}
+!53 = !{!52, !11, i64 8}
+!54 = !{!52, !11, i64 16}
+!55 = !{!56, !12, i64 0}
+!56 = !{!"tr2_timer_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
+!57 = !{!56, !12, i64 8}
+!58 = !{!52, !11, i64 32}
+!59 = !{!60, !12, i64 0}
+!60 = !{!"tr2_counter_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
+!61 = !{!60, !12, i64 8}
+!62 = !{!63, !11, i64 0}
+!63 = !{!"tr2_counter", !11, i64 0}
+!64 = !{!47, !12, i64 0}
+!65 = !{!29, !8, i64 420}

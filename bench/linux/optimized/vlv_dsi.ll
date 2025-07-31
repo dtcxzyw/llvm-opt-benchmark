@@ -927,7 +927,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 88:                                               ; preds = %79, %72
   %89 = add nuw nsw i64 %73, 1
   %90 = icmp eq i64 %89, 9
-  br i1 %90, label %91, label %72, !llvm.loop !25
+  br i1 %90, label %91, label %72, !llvm.loop !26
 
 91:                                               ; preds = %88
   %92 = load i32, ptr %68, align 8
@@ -976,7 +976,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 125:                                              ; preds = %108, %101
   %126 = add nuw nsw i64 %102, 1
   %127 = icmp eq i64 %126, 9
-  br i1 %127, label %98, label %101, !llvm.loop !26
+  br i1 %127, label %98, label %101, !llvm.loop !27
 
 128:                                              ; preds = %147, %98
   %129 = phi i64 [ 0, %98 ], [ %148, %147 ]
@@ -1011,7 +1011,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 147:                                              ; preds = %145, %135, %128
   %148 = add nuw nsw i64 %129, 1
   %149 = icmp eq i64 %148, 9
-  br i1 %149, label %.preheader23, label %128, !llvm.loop !27
+  br i1 %149, label %.preheader23, label %128, !llvm.loop !28
 
 .preheader23:                                     ; preds = %147, %167
   %150 = phi i64 [ %169, %167 ], [ 0, %147 ]
@@ -1039,7 +1039,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
   %168 = phi i8 [ %166, %157 ], [ %151, %.preheader23 ]
   %169 = add nuw nsw i64 %150, 1
   %170 = icmp eq i64 %169, 9
-  br i1 %170, label %171, label %.preheader23, !llvm.loop !28
+  br i1 %170, label %171, label %.preheader23, !llvm.loop !29
 
 171:                                              ; preds = %167
   %172 = and i8 %168, 1
@@ -1101,7 +1101,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 207:                                              ; preds = %205, %195, %188
   %208 = add nuw nsw i64 %189, 1
   %209 = icmp eq i64 %208, 9
-  br i1 %209, label %210, label %188, !llvm.loop !29
+  br i1 %209, label %210, label %188, !llvm.loop !30
 
 210:                                              ; preds = %207
   %211 = load i32, ptr %184, align 8
@@ -1198,7 +1198,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 276:                                              ; preds = %255, %241, %219
   %277 = add nuw nsw i64 %220, 1
   %278 = icmp eq i64 %277, 9
-  br i1 %278, label %.preheader22, label %219, !llvm.loop !30
+  br i1 %278, label %.preheader22, label %219, !llvm.loop !31
 
 .preheader22:                                     ; preds = %276, %297
   %279 = phi i64 [ %298, %297 ], [ 0, %276 ]
@@ -1233,7 +1233,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 297:                                              ; preds = %295, %285, %.preheader22
   %298 = add nuw nsw i64 %279, 1
   %299 = icmp eq i64 %298, 9
-  br i1 %299, label %.preheader, label %.preheader22, !llvm.loop !31
+  br i1 %299, label %.preheader, label %.preheader22, !llvm.loop !32
 
 .preheader:                                       ; preds = %297, %316
   %300 = phi i64 [ %317, %316 ], [ 0, %297 ]
@@ -1266,7 +1266,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 316:                                              ; preds = %314, %306, %.preheader
   %317 = add nuw nsw i64 %300, 1
   %318 = icmp eq i64 %317, 9
-  br i1 %318, label %.loopexit19, label %.preheader, !llvm.loop !32
+  br i1 %318, label %.loopexit19, label %.preheader, !llvm.loop !33
 
 319:                                              ; preds = %174
   %320 = and i64 %179, 67108864
@@ -1318,7 +1318,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 349:                                              ; preds = %342, %335
   %350 = add nuw nsw i64 %336, 1
   %351 = icmp eq i64 %350, 9
-  br i1 %351, label %333, label %335, !llvm.loop !33
+  br i1 %351, label %333, label %335, !llvm.loop !34
 
 352:                                              ; preds = %374, %333
   %353 = phi i64 [ 0, %333 ], [ %375, %374 ]
@@ -1352,7 +1352,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 374:                                              ; preds = %359, %352
   %375 = add nuw nsw i64 %353, 1
   %376 = icmp eq i64 %375, 9
-  br i1 %376, label %.loopexit19, label %352, !llvm.loop !34
+  br i1 %376, label %.loopexit19, label %352, !llvm.loop !35
 
 377:                                              ; preds = %319
   br i1 %322, label %381, label %378
@@ -1421,7 +1421,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 411:                                              ; preds = %395, %388
   %412 = add nuw nsw i64 %389, 1
   %413 = icmp eq i64 %412, 9
-  br i1 %413, label %.loopexit19, label %388, !llvm.loop !35
+  br i1 %413, label %.loopexit19, label %388, !llvm.loop !36
 
 .loopexit19:                                      ; preds = %316, %374, %411
   %414 = load i32, ptr %16, align 4
@@ -1469,7 +1469,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 441:                                              ; preds = %435, %428
   %442 = add nuw nsw i64 %429, 1
   %443 = icmp eq i64 %442, 9
-  br i1 %443, label %444, label %428, !llvm.loop !36
+  br i1 %443, label %444, label %428, !llvm.loop !37
 
 444:                                              ; preds = %441
   tail call void @intel_dsi_vbt_exec_sequence(ptr noundef %1, i32 noundef 8) #9
@@ -1499,7 +1499,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 456:                                              ; preds = %454, %447
   %457 = add nuw nsw i64 %448, 1
   %458 = icmp eq i64 %457, 9
-  br i1 %458, label %459, label %447, !llvm.loop !37
+  br i1 %458, label %459, label %447, !llvm.loop !38
 
 459:                                              ; preds = %456
   tail call void @msleep(i32 noundef 100) #9
@@ -1554,7 +1554,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 496:                                              ; preds = %486, %479
   %497 = add nuw nsw i64 %480, 1
   %498 = icmp eq i64 %497, 9
-  br i1 %498, label %.loopexit18, label %479, !llvm.loop !38
+  br i1 %498, label %.loopexit18, label %479, !llvm.loop !39
 
 499:                                              ; preds = %465
   %500 = shl i32 %468, 30
@@ -1640,7 +1640,7 @@ define internal void @intel_dsi_pre_enable(ptr readnone captures(none) %0, ptr n
 561:                                              ; preds = %551, %515
   %562 = add nuw nsw i64 %516, 1
   %563 = icmp eq i64 %562, 9
-  br i1 %563, label %.loopexit, label %515, !llvm.loop !39
+  br i1 %563, label %.loopexit, label %515, !llvm.loop !40
 
 .loopexit:                                        ; preds = %561, %444
   tail call void @intel_backlight_enable(ptr noundef %2, ptr noundef %3) #9
@@ -1697,7 +1697,7 @@ define internal void @intel_dsi_disable(ptr readnone captures(none) %0, ptr noun
 26:                                               ; preds = %24, %17
   %27 = add nuw nsw i64 %18, 1
   %28 = icmp eq i64 %27, 9
-  br i1 %28, label %29, label %17, !llvm.loop !40
+  br i1 %28, label %29, label %17, !llvm.loop !41
 
 29:                                               ; preds = %26
   tail call void @msleep(i32 noundef 10) #9
@@ -1780,7 +1780,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 47:                                               ; preds = %45, %30, %23
   %48 = add nuw nsw i64 %24, 1
   %49 = icmp eq i64 %48, 9
-  br i1 %49, label %50, label %23, !llvm.loop !41
+  br i1 %49, label %50, label %23, !llvm.loop !42
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %1, align 8
@@ -1819,7 +1819,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 77:                                               ; preds = %63, %56
   %78 = add nuw nsw i64 %57, 1
   %79 = icmp eq i64 %78, 9
-  br i1 %79, label %80, label %56, !llvm.loop !42
+  br i1 %79, label %80, label %56, !llvm.loop !43
 
 80:                                               ; preds = %77
   tail call void @usleep_range_state(i64 noundef 2000, i64 noundef 5000, i32 noundef 2) #9
@@ -1894,7 +1894,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 127:                                              ; preds = %112, %93
   %128 = add nuw nsw i64 %94, 1
   %129 = icmp eq i64 %128, 9
-  br i1 %129, label %.loopexit14, label %93, !llvm.loop !43
+  br i1 %129, label %.loopexit14, label %93, !llvm.loop !44
 
 .loopexit14:                                      ; preds = %127, %81
   %130 = load i16, ptr %18, align 8
@@ -1952,7 +1952,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 165:                                              ; preds = %155, %148
   %166 = add nuw nsw i64 %149, 1
   %167 = icmp eq i64 %166, 9
-  br i1 %167, label %145, label %148, !llvm.loop !44
+  br i1 %167, label %145, label %148, !llvm.loop !45
 
 168:                                              ; preds = %187, %145
   %169 = phi i64 [ 0, %145 ], [ %188, %187 ]
@@ -1987,7 +1987,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 187:                                              ; preds = %185, %175, %168
   %188 = add nuw nsw i64 %169, 1
   %189 = icmp eq i64 %188, 9
-  br i1 %189, label %.preheader13, label %168, !llvm.loop !45
+  br i1 %189, label %.preheader13, label %168, !llvm.loop !46
 
 .preheader13:                                     ; preds = %187, %208
   %190 = phi i64 [ %209, %208 ], [ 0, %187 ]
@@ -2022,7 +2022,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 208:                                              ; preds = %206, %196, %.preheader13
   %209 = add nuw nsw i64 %190, 1
   %210 = icmp eq i64 %209, 9
-  br i1 %210, label %211, label %.preheader13, !llvm.loop !46
+  br i1 %210, label %211, label %.preheader13, !llvm.loop !47
 
 211:                                              ; preds = %208
   %212 = load ptr, ptr %1, align 8
@@ -2074,7 +2074,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 244:                                              ; preds = %242, %232, %225
   %245 = add nuw nsw i64 %226, 1
   %246 = icmp eq i64 %245, 9
-  br i1 %246, label %.preheader, label %225, !llvm.loop !47
+  br i1 %246, label %.preheader, label %225, !llvm.loop !48
 
 .preheader:                                       ; preds = %244, %262
   %247 = phi i64 [ %263, %262 ], [ 0, %244 ]
@@ -2100,7 +2100,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 262:                                              ; preds = %253, %.preheader
   %263 = add nuw nsw i64 %247, 1
   %264 = icmp eq i64 %263, 9
-  br i1 %264, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %264, label %.loopexit, label %.preheader, !llvm.loop !49
 
 265:                                              ; preds = %133
   %266 = icmp eq ptr %134, null
@@ -2194,7 +2194,7 @@ define internal void @intel_dsi_post_disable(ptr readnone captures(none) %0, ptr
 322:                                              ; preds = %314, %278
   %323 = add nuw nsw i64 %279, 1
   %324 = icmp eq i64 %323, 9
-  br i1 %324, label %.loopexit, label %278, !llvm.loop !49
+  br i1 %324, label %.loopexit, label %278, !llvm.loop !50
 
 .loopexit:                                        ; preds = %262, %322
   %325 = load i32, ptr %12, align 4
@@ -2393,7 +2393,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly 
   br i1 %100, label %.loopexit.sink.split, label %101, !prof !11
 
 101:                                              ; preds = %92
-  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #9, !srcloc !50
+  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #9, !srcloc !51
   %102 = load ptr, ptr %26, align 8
   %103 = tail call ptr @dev_driver_string(ptr noundef %102) #9
   %104 = load ptr, ptr %26, align 8
@@ -2409,10 +2409,10 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly 
 110:                                              ; preds = %101, %108
   %111 = phi ptr [ %109, %108 ], [ %106, %101 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef %103, ptr noundef %111, ptr noundef nonnull @.str.26) #9
-  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #9, !srcloc !51
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 992, i32 2313, i64 12) #9, !srcloc !52
-  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_end\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #9, !srcloc !53
-  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #9, !srcloc !54
+  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #9, !srcloc !52
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 992, i32 2313, i64 12) #9, !srcloc !53
+  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_end\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #9, !srcloc !54
+  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #9, !srcloc !55
   br label %.thread4
 
 112:                                              ; preds = %88
@@ -2422,7 +2422,7 @@ define internal noundef zeroext i1 @intel_dsi_get_hw_state(ptr noundef readonly 
 .thread4:                                         ; preds = %72, %79, %110, %28
   %114 = add nuw nsw i64 %29, 1
   %115 = icmp eq i64 %114, 9
-  br i1 %115, label %.loopexit, label %28, !llvm.loop !55
+  br i1 %115, label %.loopexit, label %28, !llvm.loop !56
 
 .loopexit.sink.split:                             ; preds = %92, %112
   %.sink = phi i32 [ %113, %112 ], [ %99, %92 ]
@@ -2496,7 +2496,7 @@ define internal void @intel_dsi_get_config(ptr noundef %0, ptr noundef %1) #0 al
 40:                                               ; preds = %34, %27
   %41 = add nuw nsw i64 %28, 1
   %42 = icmp eq i64 %41, 9
-  br i1 %42, label %.thread12, label %27, !llvm.loop !56
+  br i1 %42, label %.thread12, label %27, !llvm.loop !57
 
 .thread12:                                        ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 2304
@@ -3056,7 +3056,7 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
 114:                                              ; preds = %91, %45
   %115 = add nuw nsw i64 %46, 1
   %116 = icmp eq i64 %115, 9
-  br i1 %116, label %117, label %45, !llvm.loop !57
+  br i1 %116, label %117, label %45, !llvm.loop !58
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %0, align 8
@@ -3247,7 +3247,7 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
 262:                                              ; preds = %232, %207
   %263 = add nuw nsw i64 %208, 1
   %264 = icmp eq i64 %263, 9
-  br i1 %264, label %265, label %207, !llvm.loop !58
+  br i1 %264, label %265, label %207, !llvm.loop !59
 
 265:                                              ; preds = %262
   %266 = load i32, ptr %125, align 4
@@ -3284,13 +3284,13 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
   br label %284
 
 282:                                              ; preds = %276
-  tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #9, !srcloc !59
+  tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #9, !srcloc !60
   %283 = zext i32 %278 to i64
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i64 noundef %283) #9
-  tail call void asm sideeffect "914: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 914b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 914) #9, !srcloc !60
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1297, i32 2313, i64 12) #9, !srcloc !61
-  tail call void asm sideeffect "915: nop\0A\09.pushsection .discard.instr_end\0A\09.long 915b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 915) #9, !srcloc !62
-  tail call void asm sideeffect "916: nop\0A\09.pushsection .discard.instr_end\0A\09.long 916b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 916) #9, !srcloc !63
+  tail call void asm sideeffect "914: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 914b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 914) #9, !srcloc !61
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1297, i32 2313, i64 12) #9, !srcloc !62
+  tail call void asm sideeffect "915: nop\0A\09.pushsection .discard.instr_end\0A\09.long 915b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 915) #9, !srcloc !63
+  tail call void asm sideeffect "916: nop\0A\09.pushsection .discard.instr_end\0A\09.long 916b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 916) #9, !srcloc !64
   br label %284
 
 284:                                              ; preds = %282, %281, %280, %279, %276
@@ -3527,14 +3527,14 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
   ]
 
 466:                                              ; preds = %463
-  tail call void asm sideeffect "917: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 917b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 917) #9, !srcloc !64
+  tail call void asm sideeffect "917: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 917b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 917) #9, !srcloc !65
   %467 = load i32, ptr %309, align 8
   %468 = sext i32 %467 to i64
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i64 noundef %468) #9
-  tail call void asm sideeffect "918: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 918b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 918) #9, !srcloc !65
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1492, i32 2313, i64 12) #9, !srcloc !66
-  tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_end\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #9, !srcloc !67
-  tail call void asm sideeffect "920: nop\0A\09.pushsection .discard.instr_end\0A\09.long 920b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 920) #9, !srcloc !68
+  tail call void asm sideeffect "918: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 918b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 918) #9, !srcloc !66
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1492, i32 2313, i64 12) #9, !srcloc !67
+  tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_end\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #9, !srcloc !68
+  tail call void asm sideeffect "920: nop\0A\09.pushsection .discard.instr_end\0A\09.long 920b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 920) #9, !srcloc !69
   br label %471
 
 469:                                              ; preds = %463
@@ -3556,7 +3556,7 @@ define internal fastcc void @intel_dsi_prepare(ptr noundef readonly captures(non
 478:                                              ; preds = %471, %445, %321
   %479 = add nuw nsw i64 %322, 1
   %480 = icmp eq i64 %479, 9
-  br i1 %480, label %481, label %321, !llvm.loop !69
+  br i1 %480, label %481, label %321, !llvm.loop !70
 
 481:                                              ; preds = %478
   ret void
@@ -3807,7 +3807,7 @@ define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none)
   %74 = or i32 %73, %68
   %75 = add nuw nsw i32 %67, 1
   %76 = icmp eq i32 %75, %64
-  br i1 %76, label %77, label %65, !llvm.loop !70
+  br i1 %76, label %77, label %65, !llvm.loop !71
 
 77:                                               ; preds = %65
   %78 = getelementptr i8, ptr %61, i64 1
@@ -3819,7 +3819,7 @@ define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none)
   %83 = add i32 %62, 4
   %84 = icmp ult i32 %83, %53
   %85 = add i32 %60, -4
-  br i1 %84, label %59, label %.loopexit7, !llvm.loop !71
+  br i1 %84, label %59, label %.loopexit7, !llvm.loop !72
 
 .loopexit7:                                       ; preds = %77, %51, %28
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3930,13 +3930,13 @@ define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none)
   store i8 %155, ptr %151, align 1
   %157 = add nuw nsw i32 %152, 1
   %158 = icmp eq i32 %157, %147
-  br i1 %158, label %159, label %150, !llvm.loop !72
+  br i1 %158, label %159, label %150, !llvm.loop !73
 
 159:                                              ; preds = %150
   %160 = add i32 %145, 4
   %161 = icmp ult i32 %160, %136
   %162 = add i32 %143, -4
-  br i1 %161, label %142, label %.loopexit, !llvm.loop !73
+  br i1 %161, label %142, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %159, %134, %109
   %163 = load i64, ptr %35, align 8
@@ -4130,55 +4130,56 @@ attributes #11 = { nounwind allocsize(2) }
 !19 = !{i64 2162198785, i64 2162198814, i64 2162198860, i64 2162198918, i64 2162198972, i64 2162199026, i64 2162199081, i64 2162199112, i64 2162199420, i64 2162199426, i64 2162199473, i64 2162199496, i64 2162199522}
 !20 = !{i64 2162199994, i64 2162199805, i64 2162199855, i64 2162199901, i64 2162199929}
 !21 = !{i64 2162200300, i64 2162200111, i64 2162200161, i64 2162200207, i64 2162200235}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23, !24, !25}
 !23 = !{!"llvm.loop.mustprogress"}
 !24 = !{!"llvm.loop.unroll.disable"}
-!25 = distinct !{!25, !23, !24}
-!26 = distinct !{!26, !23, !24}
-!27 = distinct !{!27, !23, !24}
-!28 = distinct !{!28, !23, !24}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
-!31 = distinct !{!31, !23, !24}
-!32 = distinct !{!32, !23, !24}
-!33 = distinct !{!33, !23, !24}
-!34 = distinct !{!34, !23, !24}
-!35 = distinct !{!35, !23, !24}
-!36 = distinct !{!36, !23, !24}
-!37 = distinct !{!37, !23, !24}
-!38 = distinct !{!38, !23, !24}
-!39 = distinct !{!39, !23, !24}
-!40 = distinct !{!40, !23, !24}
-!41 = distinct !{!41, !23, !24}
-!42 = distinct !{!42, !23, !24}
-!43 = distinct !{!43, !23, !24}
-!44 = distinct !{!44, !23, !24}
-!45 = distinct !{!45, !23, !24}
-!46 = distinct !{!46, !23, !24}
-!47 = distinct !{!47, !23, !24}
-!48 = distinct !{!48, !23, !24}
-!49 = distinct !{!49, !23, !24}
-!50 = !{i64 2162106962, i64 2162106771, i64 2162106823, i64 2162106869, i64 2162106897}
-!51 = !{i64 2162107520, i64 2162107329, i64 2162107381, i64 2162107427, i64 2162107455}
-!52 = !{i64 2162107594, i64 2162107623, i64 2162107669, i64 2162107727, i64 2162107781, i64 2162107835, i64 2162107890, i64 2162107921, i64 2162108229, i64 2162108235, i64 2162108282, i64 2162108305, i64 2162108331}
-!53 = !{i64 2162108802, i64 2162108613, i64 2162108663, i64 2162108709, i64 2162108737}
-!54 = !{i64 2162109108, i64 2162108919, i64 2162108969, i64 2162109015, i64 2162109043}
-!55 = distinct !{!55, !23, !24}
-!56 = distinct !{!56, !23, !24}
-!57 = distinct !{!57, !23, !24}
-!58 = distinct !{!58, !23, !24}
-!59 = !{i64 2162124503, i64 2162124312, i64 2162124364, i64 2162124410, i64 2162124438}
-!60 = !{i64 2162125061, i64 2162124870, i64 2162124922, i64 2162124968, i64 2162124996}
-!61 = !{i64 2162125135, i64 2162125164, i64 2162125210, i64 2162125268, i64 2162125322, i64 2162125376, i64 2162125431, i64 2162125462, i64 2162125770, i64 2162125776, i64 2162125823, i64 2162125846, i64 2162125872}
-!62 = !{i64 2162126344, i64 2162126155, i64 2162126205, i64 2162126251, i64 2162126279}
-!63 = !{i64 2162126650, i64 2162126461, i64 2162126511, i64 2162126557, i64 2162126585}
-!64 = !{i64 2162148524, i64 2162148333, i64 2162148385, i64 2162148431, i64 2162148459}
-!65 = !{i64 2162149082, i64 2162148891, i64 2162148943, i64 2162148989, i64 2162149017}
-!66 = !{i64 2162149156, i64 2162149185, i64 2162149231, i64 2162149289, i64 2162149343, i64 2162149397, i64 2162149452, i64 2162149483, i64 2162149791, i64 2162149797, i64 2162149844, i64 2162149867, i64 2162149893}
-!67 = !{i64 2162150365, i64 2162150176, i64 2162150226, i64 2162150272, i64 2162150300}
-!68 = !{i64 2162150671, i64 2162150482, i64 2162150532, i64 2162150578, i64 2162150606}
-!69 = distinct !{!69, !23, !24}
-!70 = distinct !{!70, !23, !24}
-!71 = distinct !{!71, !23, !24}
-!72 = distinct !{!72, !23, !24}
-!73 = distinct !{!73, !23, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !23, !24, !25}
+!27 = distinct !{!27, !23, !24, !25}
+!28 = distinct !{!28, !23, !24, !25}
+!29 = distinct !{!29, !23, !24, !25}
+!30 = distinct !{!30, !23, !24, !25}
+!31 = distinct !{!31, !23, !24, !25}
+!32 = distinct !{!32, !23, !24, !25}
+!33 = distinct !{!33, !23, !24, !25}
+!34 = distinct !{!34, !23, !24, !25}
+!35 = distinct !{!35, !23, !24, !25}
+!36 = distinct !{!36, !23, !24, !25}
+!37 = distinct !{!37, !23, !24, !25}
+!38 = distinct !{!38, !23, !24, !25}
+!39 = distinct !{!39, !23, !24, !25}
+!40 = distinct !{!40, !23, !24, !25}
+!41 = distinct !{!41, !23, !24, !25}
+!42 = distinct !{!42, !23, !24, !25}
+!43 = distinct !{!43, !23, !24, !25}
+!44 = distinct !{!44, !23, !24, !25}
+!45 = distinct !{!45, !23, !24, !25}
+!46 = distinct !{!46, !23, !24, !25}
+!47 = distinct !{!47, !23, !24, !25}
+!48 = distinct !{!48, !23, !24, !25}
+!49 = distinct !{!49, !23, !24, !25}
+!50 = distinct !{!50, !23, !24, !25}
+!51 = !{i64 2162106962, i64 2162106771, i64 2162106823, i64 2162106869, i64 2162106897}
+!52 = !{i64 2162107520, i64 2162107329, i64 2162107381, i64 2162107427, i64 2162107455}
+!53 = !{i64 2162107594, i64 2162107623, i64 2162107669, i64 2162107727, i64 2162107781, i64 2162107835, i64 2162107890, i64 2162107921, i64 2162108229, i64 2162108235, i64 2162108282, i64 2162108305, i64 2162108331}
+!54 = !{i64 2162108802, i64 2162108613, i64 2162108663, i64 2162108709, i64 2162108737}
+!55 = !{i64 2162109108, i64 2162108919, i64 2162108969, i64 2162109015, i64 2162109043}
+!56 = distinct !{!56, !23, !24, !25}
+!57 = distinct !{!57, !23, !24, !25}
+!58 = distinct !{!58, !23, !24, !25}
+!59 = distinct !{!59, !23, !24, !25}
+!60 = !{i64 2162124503, i64 2162124312, i64 2162124364, i64 2162124410, i64 2162124438}
+!61 = !{i64 2162125061, i64 2162124870, i64 2162124922, i64 2162124968, i64 2162124996}
+!62 = !{i64 2162125135, i64 2162125164, i64 2162125210, i64 2162125268, i64 2162125322, i64 2162125376, i64 2162125431, i64 2162125462, i64 2162125770, i64 2162125776, i64 2162125823, i64 2162125846, i64 2162125872}
+!63 = !{i64 2162126344, i64 2162126155, i64 2162126205, i64 2162126251, i64 2162126279}
+!64 = !{i64 2162126650, i64 2162126461, i64 2162126511, i64 2162126557, i64 2162126585}
+!65 = !{i64 2162148524, i64 2162148333, i64 2162148385, i64 2162148431, i64 2162148459}
+!66 = !{i64 2162149082, i64 2162148891, i64 2162148943, i64 2162148989, i64 2162149017}
+!67 = !{i64 2162149156, i64 2162149185, i64 2162149231, i64 2162149289, i64 2162149343, i64 2162149397, i64 2162149452, i64 2162149483, i64 2162149791, i64 2162149797, i64 2162149844, i64 2162149867, i64 2162149893}
+!68 = !{i64 2162150365, i64 2162150176, i64 2162150226, i64 2162150272, i64 2162150300}
+!69 = !{i64 2162150671, i64 2162150482, i64 2162150532, i64 2162150578, i64 2162150606}
+!70 = distinct !{!70, !23, !24, !25}
+!71 = distinct !{!71, !23, !24, !25}
+!72 = distinct !{!72, !23, !24, !25}
+!73 = distinct !{!73, !23, !24, !25}
+!74 = distinct !{!74, !23, !24, !25}

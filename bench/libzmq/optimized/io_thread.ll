@@ -286,7 +286,7 @@ define void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 derefer
   br label %.critedge, !llvm.loop !36
 
 .critedge6:                                       ; preds = %.critedge
-  %9 = load ptr, ptr %2, align 64, !tbaa !38
+  %9 = load ptr, ptr %2, align 64, !tbaa !39
   call void @_ZN3zmq8object_t15process_commandERKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 64 dereferenceable(64) %2)
   br label %.critedge.backedge
 
@@ -358,7 +358,7 @@ define noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr noundef nonnull read
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8, !tbaa !31
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %9, !prof !42
+  br i1 %.not, label %4, label %9, !prof !43
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8, !tbaa !32
@@ -379,7 +379,7 @@ define void @_ZN3zmq11io_thread_t12process_stopEv(ptr noundef nonnull readonly a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %9, !prof !42
+  br i1 %.not, label %4, label %9, !prof !43
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8, !tbaa !32
@@ -503,10 +503,11 @@ attributes #19 = { nounwind willreturn memory(none) }
 !33 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !34 = !{!12, !12, i64 0}
 !35 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"_ZTSN3zmq9command_tE", !40, i64 0, !41, i64 8, !11, i64 16}
-!40 = !{!"p1 _ZTSN3zmq8object_tE", !10, i64 0}
-!41 = !{!"_ZTSN3zmq9command_t6type_tE", !11, i64 0}
-!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSN3zmq9command_tE", !41, i64 0, !42, i64 8, !11, i64 16}
+!41 = !{!"p1 _ZTSN3zmq8object_tE", !10, i64 0}
+!42 = !{!"_ZTSN3zmq9command_t6type_tE", !11, i64 0}
+!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}

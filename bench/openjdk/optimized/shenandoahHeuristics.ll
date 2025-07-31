@@ -390,7 +390,7 @@ define hidden void @_ZN20ShenandoahHeuristics16record_cycle_endEv(ptr noundef no
 define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i8, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %4 = icmp eq i8 %3, 1
   br i1 %4, label %5, label %9
 
@@ -555,7 +555,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics21should_unload_class
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load volatile i8, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %13, label %10
 
@@ -734,6 +734,7 @@ attributes #15 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145414681}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392468}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145392468}

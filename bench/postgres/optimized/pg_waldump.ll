@@ -565,7 +565,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 1
   %185 = load i8, ptr %184, align 1
   %.not140 = icmp eq i8 %185, 0
-  br i1 %.not140, label %._crit_edge, label %176, !llvm.loop !6
+  br i1 %.not140, label %._crit_edge, label %176, !llvm.loop !7
 
 .critedge:                                        ; preds = %176
   %186 = load ptr, ptr @optarg, align 8
@@ -596,7 +596,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 .backedge258:                                     ; preds = %192, %.thread152, %201, %207, %206, %105, %210, %200, %194, %162, %156, %113, %110, %104, %97, %90, %84, %76
   %.098.be = phi ptr [ %.098, %76 ], [ %.098, %84 ], [ %.098, %90 ], [ %.098, %97 ], [ %.098, %104 ], [ %.098, %105 ], [ %112, %110 ], [ %.098, %113 ], [ %.098, %156 ], [ %.098, %162 ], [ %.098, %192 ], [ %.098, %194 ], [ %.098, %200 ], [ %.098, %206 ], [ %.098, %207 ], [ %.098, %201 ], [ %.098, %210 ], [ %.098, %.thread152 ]
-  br label %74, !llvm.loop !7
+  br label %74, !llvm.loop !8
 
 194:                                              ; preds = %74
   store i8 1, ptr %61, align 4
@@ -649,10 +649,10 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge258
 
 213:                                              ; preds = %74
-  %214 = load i8, ptr %59, align 4, !range !8, !noundef !9
+  %214 = load i8, ptr %59, align 4, !range !9, !noundef !10
   %215 = trunc nuw i8 %214 to i1
   %.not = xor i1 %215, true
-  %216 = load i8, ptr %58, align 1, !range !8
+  %216 = load i8, ptr %58, align 1, !range !9
   %217 = trunc nuw i8 %216 to i1
   %or.cond14 = select i1 %.not, i1 true, i1 %217
   br i1 %or.cond14, label %219, label %218
@@ -955,9 +955,9 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   br label %376
 
 376:                                              ; preds = %365, %360, %359
-  %377 = load i8, ptr %63, align 1, !range !8, !noundef !9
+  %377 = load i8, ptr %63, align 1, !range !9, !noundef !10
   %378 = icmp eq i8 %377, 0
-  %379 = load i8, ptr %6, align 8, !range !8
+  %379 = load i8, ptr %6, align 8, !range !9
   %380 = trunc nuw i8 %379 to i1
   %or.cond22 = select i1 %378, i1 true, i1 %380
   br i1 %or.cond22, label %382, label %381
@@ -982,10 +982,10 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   br i1 %.not131, label %388, label %395
 
 388:                                              ; preds = %386
-  %389 = load i8, ptr %53, align 4, !range !8, !noundef !9
+  %389 = load i8, ptr %53, align 4, !range !9, !noundef !10
   %390 = trunc nuw i8 %389 to i1
   %.not23 = xor i1 %390, true
-  %391 = load i8, ptr %49, align 8, !range !8
+  %391 = load i8, ptr %49, align 8, !range !9
   %392 = trunc nuw i8 %391 to i1
   %or.cond26 = select i1 %.not23, i1 true, i1 %392
   br i1 %or.cond26, label %._crit_edge194.loopexit, label %393
@@ -997,10 +997,10 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 .backedge:                                        ; preds = %441, %427, %393, %398, %408, %415, %454
   %394 = load volatile i32, ptr @time_to_stop, align 4
   %.not130 = icmp eq i32 %394, 0
-  br i1 %.not130, label %386, label %._crit_edge194.loopexit
+  br i1 %.not130, label %386, label %._crit_edge194.loopexit, !llvm.loop !11
 
 395:                                              ; preds = %386
-  %396 = load i8, ptr %54, align 1, !range !8, !noundef !9
+  %396 = load i8, ptr %54, align 1, !range !9, !noundef !10
   %397 = trunc nuw i8 %396 to i1
   br i1 %397, label %398, label %405
 
@@ -1009,12 +1009,12 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i64
   %402 = getelementptr inbounds nuw [256 x i8], ptr %71, i64 0, i64 %401
-  %403 = load i8, ptr %402, align 1, !range !8, !noundef !9
+  %403 = load i8, ptr %402, align 1, !range !9, !noundef !10
   %404 = trunc nuw i8 %403 to i1
   br i1 %404, label %405, label %.backedge
 
 405:                                              ; preds = %398, %395
-  %406 = load i8, ptr %56, align 4, !range !8, !noundef !9
+  %406 = load i8, ptr %56, align 4, !range !9, !noundef !10
   %407 = trunc nuw i8 %406 to i1
   br i1 %407, label %408, label %412
 
@@ -1026,18 +1026,18 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   br i1 %.not132, label %412, label %.backedge
 
 412:                                              ; preds = %408, %405
-  %413 = load i8, ptr %57, align 4, !range !8, !noundef !9
+  %413 = load i8, ptr %57, align 4, !range !9, !noundef !10
   %414 = trunc nuw i8 %413 to i1
   br i1 %414, label %415, label %424
 
 415:                                              ; preds = %412
-  %416 = load i8, ptr %58, align 1, !range !8, !noundef !9
+  %416 = load i8, ptr %58, align 1, !range !9, !noundef !10
   %417 = trunc nuw i8 %416 to i1
   %.sroa.030.0.copyload = load i64, ptr %68, align 8
   %.sroa.3.0.copyload = load i32, ptr %70, align 8
   %.sroa.3.0 = select i1 %417, i32 %.sroa.3.0.copyload, i32 0
   %.sroa.030.0 = select i1 %417, i64 %.sroa.030.0.copyload, i64 0
-  %418 = load i8, ptr %59, align 4, !range !8, !noundef !9
+  %418 = load i8, ptr %59, align 4, !range !9, !noundef !10
   %419 = trunc nuw i8 %418 to i1
   %420 = load i32, ptr %72, align 8
   %421 = select i1 %419, i32 %420, i32 -1
@@ -1046,7 +1046,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   br i1 %423, label %424, label %.backedge
 
 424:                                              ; preds = %415, %412
-  %425 = load i8, ptr %61, align 4, !range !8, !noundef !9
+  %425 = load i8, ptr %61, align 4, !range !9, !noundef !10
   %426 = trunc nuw i8 %425 to i1
   br i1 %426, label %427, label %XLogRecordHasFPW.exit.thread
 
@@ -1065,28 +1065,28 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %442, %441 ]
   %433 = sext i32 %.011.i to i64
   %434 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %431, i64 0, i64 %433
-  %435 = load i8, ptr %434, align 8, !range !8, !noundef !9
+  %435 = load i8, ptr %434, align 8, !range !9, !noundef !10
   %436 = trunc nuw i8 %435 to i1
   br i1 %436, label %437, label %441
 
 437:                                              ; preds = %432
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 29
-  %439 = load i8, ptr %438, align 1, !range !8, !noundef !9
+  %439 = load i8, ptr %438, align 1, !range !9, !noundef !10
   %440 = trunc nuw i8 %439 to i1
   br i1 %440, label %XLogRecordHasFPW.exit.thread, label %441
 
 441:                                              ; preds = %437, %432
   %442 = add i32 %.011.i, 1
   %.not.not.i = icmp sgt i32 %442, %430
-  br i1 %.not.not.i, label %.backedge, label %432, !llvm.loop !10
+  br i1 %.not.not.i, label %.backedge, label %432, !llvm.loop !12
 
 XLogRecordHasFPW.exit.thread:                     ; preds = %437, %424
-  %443 = load i8, ptr %6, align 8, !range !8, !noundef !9
+  %443 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %444 = trunc nuw i8 %443 to i1
   br i1 %444, label %451, label %445
 
 445:                                              ; preds = %XLogRecordHasFPW.exit.thread
-  %446 = load i8, ptr %63, align 1, !range !8, !noundef !9
+  %446 = load i8, ptr %63, align 1, !range !9, !noundef !10
   %447 = trunc nuw i8 %446 to i1
   br i1 %447, label %448, label %450
 
@@ -1120,8 +1120,8 @@ XLogRecordHasFPW.exit.thread:                     ; preds = %437, %424
   br i1 %or.cond151, label %.backedge, label %._crit_edge194.loopexit
 
 ._crit_edge194.loopexit:                          ; preds = %454, %388, %.backedge
-  %.pre220 = load i8, ptr %63, align 1, !range !8
-  %.pre221 = load i8, ptr %6, align 8, !range !8
+  %.pre220 = load i8, ptr %63, align 1, !range !9
+  %.pre221 = load i8, ptr %6, align 8, !range !9
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %382
@@ -1267,7 +1267,7 @@ define internal fastcc void @print_rmgr_list() unnamed_addr #0 {
   %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.90, ptr noundef %4) #16
   %6 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %6, 22
-  br i1 %exitcond.not, label %7, label %1, !llvm.loop !11
+  br i1 %exitcond.not, label %7, label %1, !llvm.loop !13
 
 7:                                                ; preds = %1
   ret void
@@ -1626,7 +1626,7 @@ define internal void @WALDumpOpenSegment(ptr noundef %0, i64 noundef %1, ptr nou
   store i32 2, ptr %23, align 4
   %31 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %31, 10
-  br i1 %exitcond.not, label %32, label %18, !llvm.loop !12
+  br i1 %exitcond.not, label %32, label %18, !llvm.loop !14
 
 32:                                               ; preds = %30, %27
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.110, ptr noundef nonnull %5) #16
@@ -1707,7 +1707,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 84
   %33 = load i32, ptr %32, align 4
   %.not.us.not = icmp sgt i32 %30, %33
-  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1747,7 +1747,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
   %50 = load i32, ptr %49, align 4
   %.not.us42.not = icmp sgt i32 %47, %50
-  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %20, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -1784,7 +1784,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 84
   %66 = load i32, ptr %65, align 4
   %.not.us52.not = icmp sgt i32 %63, %66
-  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !16
+  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !18
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %80
   %.01935 = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.split ]
@@ -1827,7 +1827,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
   %84 = load i32, ptr %83, align 4
   %.not.not = icmp sgt i32 %81, %84
-  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !17
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %80, %62, %46, %29, %5, %.split.us
   %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %29 ], [ false, %46 ], [ false, %62 ], [ false, %80 ]
@@ -1896,7 +1896,7 @@ define internal fastcc void @XLogDumpDisplayRecord(ptr noundef nonnull readonly 
   %46 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.114, ptr noundef %45) #16
   call void @resetStringInfo(ptr noundef nonnull %5) #16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %48 = load i8, ptr %47, align 1, !range !8, !noundef !9
+  %48 = load i8, ptr %47, align 1, !range !9, !noundef !10
   %49 = trunc nuw i8 %48 to i1
   call void @XLogRecGetBlockRefInfo(ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext %49, ptr noundef nonnull %5, ptr noundef null) #16
   %50 = load ptr, ptr %5, align 8
@@ -1943,13 +1943,13 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = sext i32 %.033 to i64
   %21 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %19, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 8, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 8, !range !9, !noundef !10
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %61
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 29
-  %26 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %26 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %61
 
@@ -2036,7 +2036,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 84
   %65 = load i32, ptr %64, align 4
   %.not = icmp sgt i32 %63, %65
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %61, %2
   ret void
@@ -2082,7 +2082,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   %.188 = phi i64 [ %20, %10 ], [ %.087114, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %22, label %7, !llvm.loop !19
+  br i1 %exitcond.not, label %22, label %7, !llvm.loop !21
 
 22:                                               ; preds = %21
   %23 = add i64 %.192, %.194
@@ -2118,7 +2118,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 43:                                               ; preds = %40
   %44 = trunc i64 %indvars.iv128 to i8
   %45 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %44) #16
-  %46 = load i8, ptr %34, align 2, !range !8, !noundef !9
+  %46 = load i8, ptr %34, align 2, !range !9, !noundef !10
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %.preheader, label %80
 
@@ -2174,7 +2174,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 79:                                               ; preds = %66, %.preheader.split.us
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 16
-  br i1 %exitcond127.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !20
+  br i1 %exitcond127.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !22
 
 80:                                               ; preds = %43
   %81 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv128
@@ -2260,12 +2260,12 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 137:                                              ; preds = %.preheader.split, %121
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 16
-  br i1 %exitcond123.not, label %.loopexit, label %.preheader.split, !llvm.loop !21
+  br i1 %exitcond123.not, label %.loopexit, label %.preheader.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %137, %79, %40, %85, %80
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 256
-  br i1 %exitcond131.not, label %138, label %40, !llvm.loop !22
+  br i1 %exitcond131.not, label %138, label %40, !llvm.loop !24
 
 138:                                              ; preds = %.loopexit
   %139 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133) #16
@@ -2359,7 +2359,7 @@ IsXLogFileName.exit.preheader:                    ; preds = %14
 IsXLogFileName.exit.backedge:                     ; preds = %21, %.lr.ph
   %24 = tail call ptr @readdir(ptr noundef nonnull %15) #16
   %.not33 = icmp eq ptr %24, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #16
@@ -2529,23 +2529,25 @@ attributes #20 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5, !14}
-!16 = distinct !{!16, !5, !14}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !14}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5, !6, !16}
+!18 = distinct !{!18, !5, !6, !16}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !16}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}

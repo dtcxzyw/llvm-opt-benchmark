@@ -568,7 +568,7 @@ define hidden noundef i64 @_ZN10OopStorage5Block17active_index_safeEPKS0_(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10OopStorage5Block20atomic_add_allocatedEm(ptr noundef nonnull align 8 dereferenceable(576) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %3) #20, !srcloc !10
+  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %3) #20, !srcloc !11
   ret void
 }
 
@@ -579,7 +579,7 @@ define hidden noundef nonnull ptr @_ZN10OopStorage5Block8allocateEv(ptr noundef 
   %4 = xor i64 %3, -1
   %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
   %6 = shl nuw i64 1, %5
-  %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %2) #20, !srcloc !10
+  %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %2) #20, !srcloc !11
   %8 = getelementptr inbounds nuw [64 x ptr], ptr %0, i64 0, i64 %5
   ret ptr %8
 }
@@ -589,7 +589,7 @@ define hidden noundef i64 @_ZN10OopStorage5Block12allocate_allEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load volatile i64, ptr %2, align 8
   %4 = xor i64 %3, -1
-  %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, ptr nonnull %2) #20, !srcloc !10
+  %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, ptr nonnull %2) #20, !srcloc !11
   ret i64 %4
 }
 
@@ -669,7 +669,7 @@ define hidden noundef ptr @_ZN10OopStorage5Block13block_for_ptrEPKS_PKP7oopDesc(
   %13 = add nuw nsw i32 %.01013, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01112, i64 64
   %exitcond.not = icmp eq i32 %13, 8
-  br i1 %exitcond.not, label %15, label %8, !llvm.loop !11
+  br i1 %exitcond.not, label %15, label %8, !llvm.loop !12
 
 15:                                               ; preds = %12, %8
   %.0 = phi ptr [ %.01112, %8 ], [ null, %12 ]
@@ -725,7 +725,7 @@ thread-pre-split.i:                               ; preds = %11, %.lr.ph.i
 17:                                               ; preds = %thread-pre-split.i, %8
   %18 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %10, %8 ]
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %.lr.ph.i, label %_ZN10OopStorage20block_for_allocationEv.exit, !llvm.loop !12
+  br i1 %.not.i, label %.lr.ph.i, label %_ZN10OopStorage20block_for_allocationEv.exit, !llvm.loop !13
 
 _ZN10OopStorage20block_for_allocationEv.exit:     ; preds = %17, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %19 = phi ptr [ %6, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %18, %17 ]
@@ -750,10 +750,10 @@ _ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit: ; preds = %25, %23, 
   %29 = xor i64 %28, -1
   %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %29, i1 true)
   %31 = shl nuw i64 1, %30
-  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %31, ptr nonnull %20) #20, !srcloc !10
+  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %31, ptr nonnull %20) #20, !srcloc !11
   %33 = getelementptr inbounds nuw [64 x ptr], ptr %19, i64 0, i64 %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %34) #20, !srcloc !10
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %34) #20, !srcloc !11
   %36 = load volatile i64, ptr %20, align 8
   %37 = icmp eq i64 %36, -1
   br i1 %37, label %38, label %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
@@ -872,7 +872,7 @@ thread-pre-split:                                 ; preds = %8, %.lr.ph
 14:                                               ; preds = %thread-pre-split, %5
   %15 = phi ptr [ %.pr, %thread-pre-split ], [ %7, %5 ]
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %1, %12, %10
   %16 = phi ptr [ null, %12 ], [ null, %10 ], [ %3, %1 ], [ %15, %14 ]
@@ -959,7 +959,7 @@ thread-pre-split.i:                               ; preds = %13, %.lr.ph.i
 19:                                               ; preds = %thread-pre-split.i, %10
   %20 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %12, %10 ]
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %.lr.ph.i, label %_ZN10OopStorage20block_for_allocationEv.exit, !llvm.loop !12
+  br i1 %.not.i, label %.lr.ph.i, label %_ZN10OopStorage20block_for_allocationEv.exit, !llvm.loop !13
 
 _ZN10OopStorage20block_for_allocationEv.exit:     ; preds = %19, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %21 = phi ptr [ %8, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %20, %19 ]
@@ -1023,7 +1023,7 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %28, %30, %3
 _ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit: ; preds = %44, %42, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
   %47 = load volatile i64, ptr %39, align 8
   %48 = xor i64 %47, -1
-  %49 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull %39) #20, !srcloc !10
+  %49 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull %39) #20, !srcloc !11
   br label %_ZN10OopStorage20block_for_allocationEv.exit.thread
 
 _ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %15, %17, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit
@@ -1042,7 +1042,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20bl
 52:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %53 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.032)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %53, ptr nonnull %54) #20, !srcloc !10
+  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %53, ptr nonnull %54) #20, !srcloc !11
   %56 = tail call noundef i64 @llvm.umin.i64(i64 %53, i64 %2)
   %.not40 = icmp eq i64 %56, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
@@ -1058,7 +1058,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20bl
   store ptr %60, ptr %61, align 8
   %62 = add nuw nsw i64 %.03139, 1
   %exitcond.not = icmp eq i64 %62, %56
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %52
   %.133.lcssa = phi i64 [ %.032, %52 ], [ %59, %.lr.ph ]
@@ -1068,7 +1068,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20bl
 64:                                               ; preds = %._crit_edge
   tail call void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %50, i64 noundef %.133.lcssa, ptr noundef nonnull %0)
   %.neg = sub nsw i64 %56, %53
-  %65 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.neg, ptr nonnull %54) #20, !srcloc !10
+  %65 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.neg, ptr nonnull %54) #20, !srcloc !11
   br label %66
 
 66:                                               ; preds = %._crit_edge, %64
@@ -1091,7 +1091,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20bl
 define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %6 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %5) #20, !srcloc !10
+  %6 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %5) #20, !srcloc !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %8 = load volatile i64, ptr %7, align 8
   br label %9
@@ -1099,9 +1099,9 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
 9:                                                ; preds = %9, %3
   %.0 = phi i64 [ %8, %3 ], [ %11, %9 ]
   %10 = xor i64 %.0, %1
-  %11 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.0, ptr nonnull %7) #20, !srcloc !14
+  %11 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.0, ptr nonnull %7) #20, !srcloc !15
   %12 = icmp eq i64 %11, %.0
-  br i1 %12, label %13, label %9, !llvm.loop !15
+  br i1 %12, label %13, label %9, !llvm.loop !16
 
 13:                                               ; preds = %9
   %14 = icmp eq i64 %1, %.0
@@ -1149,7 +1149,7 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
 _ZL23log_release_transitionsmmPK10OopStoragePKv.exit: ; preds = %16, %28
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %30 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr null, ptr nonnull %29) #20, !srcloc !14
+  %30 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr null, ptr nonnull %29) #20, !srcloc !15
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %49
 
@@ -1163,9 +1163,9 @@ _ZL23log_release_transitionsmmPK10OopStoragePKv.exit: ; preds = %16, %28
   %36 = icmp eq ptr %.025, null
   %37 = select i1 %36, ptr %0, ptr %.025
   store volatile ptr %37, ptr %29, align 8
-  %38 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %.025, ptr nonnull %33) #20, !srcloc !14
+  %38 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %.025, ptr nonnull %33) #20, !srcloc !15
   %39 = icmp eq ptr %38, %.025
-  br i1 %39, label %40, label %35, !llvm.loop !16
+  br i1 %39, label %40, label %35, !llvm.loop !17
 
 40:                                               ; preds = %35
   br i1 %14, label %41, label %44
@@ -1174,7 +1174,7 @@ _ZL23log_release_transitionsmmPK10OopStoragePKv.exit: ; preds = %16, %28
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 125
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   store volatile i8 1, ptr %42, align 1
-  %43 = call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !17
+  %43 = call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !18
   br label %44
 
 44:                                               ; preds = %41, %40
@@ -1189,7 +1189,7 @@ _ZL23log_release_transitionsmmPK10OopStoragePKv.exit: ; preds = %16, %28
   br label %49
 
 49:                                               ; preds = %13, %_ZL23log_release_transitionsmmPK10OopStoragePKv.exit, %44, %46
-  %50 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %5) #20, !srcloc !10
+  %50 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %5) #20, !srcloc !11
   ret void
 }
 
@@ -1451,14 +1451,14 @@ define hidden noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %.021, %7
   %spec.store.select = select i1 %8, ptr null, ptr %7
-  %9 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %spec.store.select, ptr nonnull %.021, ptr nonnull %2) #20, !srcloc !14
+  %9 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %spec.store.select, ptr nonnull %.021, ptr nonnull %2) #20, !srcloc !15
   %10 = icmp eq ptr %9, %.021
-  br i1 %10, label %11, label %4, !llvm.loop !18
+  br i1 %10, label %11, label %4, !llvm.loop !19
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %.021, i64 560
   store volatile ptr null, ptr %12, align 8
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !19
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   %13 = getelementptr inbounds nuw i8, ptr %.021, i64 512
   %14 = load volatile i64, ptr %13, align 8
@@ -1681,7 +1681,7 @@ define hidden noundef ptr @_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc(ptr 
   %13 = add nuw nsw i32 %.01013.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 64
   %exitcond.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond.not.i, label %_ZN10OopStorage5Block13block_for_ptrEPKS_PKP7oopDesc.exit, label %8, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN10OopStorage5Block13block_for_ptrEPKS_PKP7oopDesc.exit, label %8, !llvm.loop !12
 
 _ZN10OopStorage5Block13block_for_ptrEPKS_PKP7oopDesc.exit: ; preds = %8, %12
   %.0.i = phi ptr [ %.01112.i, %8 ], [ null, %12 ]
@@ -1693,7 +1693,7 @@ define hidden void @_ZN10OopStorage20record_needs_cleanupEv(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 125
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   store volatile i8 1, ptr %2, align 1
-  %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !17
+  %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !18
   ret void
 }
 
@@ -1718,7 +1718,7 @@ define hidden void @_ZN10OopStorage7releaseEPKP7oopDesc(ptr noundef nonnull alig
   %13 = add nuw nsw i32 %.01013.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 64
   %exitcond.not.i.i = icmp eq i32 %13, 8
-  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit, label %8, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit, label %8, !llvm.loop !12
 
 _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %8, %12
   %.0.i.i = phi ptr [ %.01112.i.i, %8 ], [ null, %12 ]
@@ -1739,7 +1739,7 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %8, %12
   %23 = shl nuw i64 1, %22
   tail call void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %.0.i.i, i64 noundef %23, ptr noundef nonnull %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %24) #20, !srcloc !10
+  %25 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %24) #20, !srcloc !11
   ret void
 }
 
@@ -1775,7 +1775,7 @@ define hidden void @_ZN10OopStorage7releaseEPKPKP7oopDescm(ptr noundef nonnull a
   %18 = add nuw nsw i32 %.01013.i.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 64
   %exitcond.not.i.i = icmp eq i32 %18, 8
-  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit, label %13, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit, label %13, !llvm.loop !12
 
 _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %13, %17
   %.0.i.i = phi ptr [ %.01112.i.i, %13 ], [ null, %17 ]
@@ -1824,7 +1824,7 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %13, %17
   %41 = add i64 %.02327, 1
   %42 = add nuw i64 %.128, 1
   %exitcond.not = icmp eq i64 %41, %23
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %35, %24, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit
   %.024.lcssa = phi i64 [ 0, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit ], [ %.02426, %24 ], [ %40, %35 ]
@@ -1832,9 +1832,9 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %13, %17
   %.1.lcssa = phi i64 [ %.035, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit ], [ %.128, %24 ], [ %2, %35 ]
   tail call void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonnull align 8 dereferenceable(576) %.0.i.i, i64 noundef %.024.lcssa, ptr noundef nonnull %0)
   %43 = sub i64 0, %.023.lcssa
-  %44 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %43, ptr nonnull %5) #20, !srcloc !10
+  %44 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %43, ptr nonnull %5) #20, !srcloc !11
   %45 = icmp ult i64 %.1.lcssa, %2
-  br i1 %45, label %6, label %._crit_edge38, !llvm.loop !21
+  br i1 %45, label %6, label %._crit_edge38, !llvm.loop !22
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %3
   ret void
@@ -1968,7 +1968,7 @@ define hidden void @_ZN10OopStorageD2Ev(ptr noundef nonnull align 8 dereferencea
   store volatile ptr null, ptr %8, align 8
   %10 = load volatile ptr, ptr %2, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !23
 
 11:                                               ; preds = %.lr.ph12, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
   %12 = phi ptr [ %5, %.lr.ph12 ], [ %29, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit ]
@@ -2018,7 +2018,7 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exitthread-pre-split: ; pred
 _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exitthread-pre-split, %19, %21
   %29 = phi ptr [ %.pr, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exitthread-pre-split ], [ null, %19 ], [ %16, %21 ]
   %.not8 = icmp eq ptr %29, null
-  br i1 %.not8, label %._crit_edge, label %11, !llvm.loop !23
+  br i1 %.not8, label %._crit_edge, label %11, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit, %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2046,7 +2046,7 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %_ZN10OopSto
   store volatile i64 0, ptr %45, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %43) #20
   %.not9 = icmp eq i64 %38, 0
-  br i1 %.not9, label %._crit_edge17.loopexit, label %.lr.ph16, !llvm.loop !24
+  br i1 %.not9, label %._crit_edge17.loopexit, label %.lr.ph16, !llvm.loop !25
 
 ._crit_edge17.loopexit:                           ; preds = %.lr.ph16
   %.pre = load ptr, ptr %30, align 8
@@ -2148,7 +2148,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr nou
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %9, %12
-  %13 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 false, ptr nonnull %2) #20, !srcloc !17
+  %13 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 false, ptr nonnull %2) #20, !srcloc !18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) %14) #20, !srcloc !7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2211,7 +2211,7 @@ _ZNK10OopStorage11block_countEv.exit:             ; preds = %_ZN10OopStorage15Wi
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 1092
   store volatile i32 10, ptr %48, align 4
   store volatile i32 6, ptr %48, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !19
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1096
   %50 = load volatile i64, ptr %49, align 8
@@ -2379,7 +2379,7 @@ _ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit: ; preds = %_ZN10OopStorag
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 1092
   store volatile i32 10, ptr %123, align 4
   store volatile i32 6, ptr %123, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !19
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !20
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 1096
   %125 = load volatile i64, ptr %124, align 8
@@ -2422,12 +2422,12 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %138, %135, %134, %_
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %.sink) #20
   %139 = add nuw i64 %.01244, 1
   %exitcond.not = icmp eq i64 %139, %36
-  br i1 %exitcond.not, label %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread, label %42, !llvm.loop !25
+  br i1 %exitcond.not, label %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread, label %42, !llvm.loop !26
 
 _ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread: ; preds = %_ZN13MutexUnlockerD2Ev.exit, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit, %71, %_ZNK10OopStorage11block_countEv.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   store volatile i8 1, ptr %2, align 1
-  %140 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !17
+  %140 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !18
   br label %_ZN11MutexLockerD2Ev.exit19
 
 141:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15.thread
@@ -2508,7 +2508,7 @@ define hidden noundef i32 @_ZNK10OopStorage17allocation_statusEPKP7oopDesc(ptr n
   %13 = add nuw nsw i32 %.01013.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 64
   %exitcond.not.i.i = icmp eq i32 %13, 8
-  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread, label %8, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread, label %8, !llvm.loop !12
 
 _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2806,7 +2806,7 @@ _ZN10OopStorage13BasicParState33update_concurrent_iteration_countEi.exit: ; pred
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 125
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   store volatile i8 1, ptr %27, align 1
-  %28 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !17
+  %28 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !18
   br label %29
 
 29:                                               ; preds = %25, %_ZN10OopStorage13BasicParState33update_concurrent_iteration_countEi.exit
@@ -2857,7 +2857,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_seg
   %30 = udiv i64 %26, %29
   %31 = add i64 %30, 1
   %32 = tail call noundef i64 @llvm.umin.i64(i64 %31, i64 10)
-  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %32, ptr nonnull %10) #20, !srcloc !10
+  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %32, ptr nonnull %10) #20, !srcloc !11
   %34 = load i64, ptr %12, align 8
   %35 = icmp ult i64 %33, %34
   br i1 %35, label %36, label %39
@@ -2937,7 +2937,7 @@ define hidden noundef i64 @_ZNK10OopStorage13BasicParState8num_deadEv(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %3) #20, !srcloc !10
+  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %3) #20, !srcloc !11
   ret void
 }
 
@@ -3251,21 +3251,22 @@ attributes #22 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145409567}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 2145411697}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = !{i64 2145412694}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = !{i64 2145414681}
-!18 = distinct !{!18, !9}
-!19 = !{i64 2145392998}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 2145411697}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{i64 2145412694}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = !{i64 2145414681}
+!19 = distinct !{!19, !9, !10}
+!20 = !{i64 2145392998}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}

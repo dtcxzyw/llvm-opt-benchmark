@@ -377,7 +377,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nounde
   ]
 
 .preheader49.i.backedge:                          ; preds = %19, %59, %51, %.loopexit.i, %32
-  br label %.preheader49.i
+  br label %.preheader49.i, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %.preheader49.i
   %22 = icmp sgt i64 %17, 0
@@ -448,7 +448,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nounde
   %54 = load i64, ptr %10, align 8, !tbaa !33
   %55 = add i64 %54, %43
   store i64 %55, ptr %10, align 8, !tbaa !33
-  %56 = load ptr, ptr %12, align 8, !tbaa !37
+  %56 = load ptr, ptr %12, align 8, !tbaa !39
   %57 = load ptr, ptr %9, align 8, !tbaa !31
   %58 = tail call i32 @__archive_write_filter(ptr noundef %56, ptr noundef %57, i64 noundef %55) #12
   %.not43.i = icmp eq i32 %58, 0
@@ -462,7 +462,7 @@ child_write.exit:                                 ; preds = %.critedge.i
   %60 = sub i64 %.01742, %17
   %61 = getelementptr inbounds nuw i8, ptr %.043, i64 %17
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.loopexit23, label %13, !llvm.loop !38
+  br i1 %.not, label %.loopexit23, label %13, !llvm.loop !40
 
 child_write.exit.thread:                          ; preds = %13, %.critedge46.i, %19, %44, %25
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -532,7 +532,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
   %33 = load i64, ptr %14, align 8, !tbaa !33
   %34 = add i64 %33, %24
   store i64 %34, ptr %14, align 8, !tbaa !33
-  %35 = load ptr, ptr %16, align 8, !tbaa !37
+  %35 = load ptr, ptr %16, align 8, !tbaa !39
   %36 = load ptr, ptr %13, align 8, !tbaa !31
   %37 = tail call i32 @__archive_write_filter(ptr noundef %35, ptr noundef %36, i64 noundef %34) #12
   %.not = icmp eq i32 %37, 0
@@ -543,7 +543,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
   br label %.backedge
 
 .backedge:                                        ; preds = %38, %25
-  br label %17
+  br label %17, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge42, %17, %25, %28
   %.1 = phi i32 [ -30, %28 ], [ -30, %.critedge42 ], [ 0, %17 ], [ 0, %25 ]
@@ -577,7 +577,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
   %51 = tail call ptr @__errno_location() #16
   %52 = load i32, ptr %51, align 4, !tbaa !36
   %53 = icmp eq i32 %52, 4
-  br i1 %53, label %46, label %.critedge2, !llvm.loop !40
+  br i1 %53, label %46, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %46, %50
   store i32 0, ptr %1, align 8, !tbaa !35
@@ -677,7 +677,10 @@ attributes #16 = { nounwind willreturn memory(none) }
 !34 = !{!5, !9, i64 8}
 !35 = !{!19, !13, i64 0}
 !36 = !{!13, !13, i64 0}
-!37 = !{!5, !11, i64 16}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!5, !11, i64 16}
+!40 = distinct !{!40, !41, !38}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !38}
+!43 = distinct !{!43, !41, !38}

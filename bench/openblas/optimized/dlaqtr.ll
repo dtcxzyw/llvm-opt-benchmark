@@ -155,7 +155,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %82, ptr %80, align 8, !tbaa !7
   %indvars.iv.next1007 = add nuw nsw i64 %indvars.iv1006, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1007, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge917, label %.lr.ph916, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge917, label %.lr.ph916, !llvm.loop !12
 
 ._crit_edge917:                                   ; preds = %.lr.ph916, %73
   %83 = shl i32 %71, 1
@@ -436,7 +436,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.3821 = phi double [ %.1819936, %141 ], [ %.1819936, %213 ], [ %.1819936, %105 ], [ %229, %._crit_edge1047.sink.split ]
   %.2808 = phi i32 [ %.1807879, %141 ], [ %216, %213 ], [ %.0806938, %105 ], [ %.2808.ph, %._crit_edge1047.sink.split ]
   %230 = icmp sgt i64 %indvars.iv1012, 1
-  br i1 %230, label %105, label %.loopexit907, !llvm.loop !12
+  br i1 %230, label %105, label %.loopexit907, !llvm.loop !13
 
 231:                                              ; preds = %97
   store i32 %98, ptr %12, align 4, !tbaa !3
@@ -694,7 +694,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %383 = load i32, ptr %12, align 4, !tbaa !3
   %384 = sext i32 %383 to i64
   %.not865.not = icmp slt i64 %indvars.iv1009, %384
-  br i1 %.not865.not, label %235, label %.loopexit907, !llvm.loop !13
+  br i1 %.not865.not, label %235, label %.loopexit907, !llvm.loop !14
 
 385:                                              ; preds = %95
   %386 = load double, ptr %6, align 8, !tbaa !7
@@ -957,7 +957,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %546 = select i1 %545, double %.11829970, double %544
   %indvars.iv.next1026 = add nuw nsw i64 %indvars.iv1025, 1
   %exitcond1029.not = icmp eq i64 %indvars.iv.next1026, %indvars.iv1032
-  br i1 %exitcond1029.not, label %.loopexit.sink.split, label %.lr.ph973, !llvm.loop !14
+  br i1 %exitcond1029.not, label %.loopexit.sink.split, label %.lr.ph973, !llvm.loop !15
 
 547:                                              ; preds = %.thread891
   store i32 2, ptr %10, align 4, !tbaa !3
@@ -1130,7 +1130,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %657 = select i1 %656, double %655, double %.12964
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1024.not = icmp eq i64 %indvars.iv.next1019, %indvars.iv1030
-  br i1 %exitcond1024.not, label %.loopexit.sink.split, label %.lr.ph967, !llvm.loop !15
+  br i1 %exitcond1024.not, label %.loopexit.sink.split, label %.lr.ph967, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %.lr.ph967, %.lr.ph973
   %.lcssa1065.sink = phi double [ %536, %.lr.ph973 ], [ %647, %.lr.ph967 ]
@@ -1144,7 +1144,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.8 = phi i32 [ %603, %604 ], [ %.7889901, %467 ], [ %603, %600 ], [ %.6995, %407 ], [ %.8.ph, %.loopexit.sink.split ]
   %658 = icmp sgt i64 %indvars.iv1032, 1
   %indvars.iv.next1031 = add nsw i64 %indvars.iv1030, -1
-  br i1 %658, label %407, label %.loopexit907, !llvm.loop !16
+  br i1 %658, label %407, label %.loopexit907, !llvm.loop !17
 
 659:                                              ; preds = %385
   store i32 %394, ptr %12, align 4, !tbaa !3
@@ -1561,7 +1561,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %938 = load i32, ptr %12, align 4, !tbaa !3
   %939 = sext i32 %938 to i64
   %.not859.not = icmp slt i64 %indvars.iv1015, %939
-  br i1 %.not859.not, label %667, label %.loopexit907, !llvm.loop !17
+  br i1 %.not859.not, label %667, label %.loopexit907, !llvm.loop !18
 
 .loopexit907:                                     ; preds = %._crit_edge1046, %173, %._crit_edge1047, %._crit_edge1048, %510, %511, %.loopexit, %231, %99, %659, %395, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #4
@@ -1628,12 +1628,13 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}

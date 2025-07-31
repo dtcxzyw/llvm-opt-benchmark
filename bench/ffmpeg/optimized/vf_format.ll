@@ -93,7 +93,7 @@ parse_pixel_format.exit:                          ; preds = %18, %22
 
 29:                                               ; preds = %8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %33
 
@@ -127,11 +127,11 @@ parse_pixel_format.exit:                          ; preds = %18, %22
   %44 = zext nneg i32 %41 to i64
   %45 = tail call i32 @ff_add_format(ptr noundef nonnull %32, i64 noundef %44) #8
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %.thread, label %33, !llvm.loop !28
+  br i1 %46, label %.thread, label %33, !llvm.loop !29
 
 47:                                               ; preds = %33
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %51
 
@@ -165,12 +165,12 @@ parse_pixel_format.exit:                          ; preds = %18, %22
   %62 = zext nneg i32 %59 to i64
   %63 = tail call i32 @ff_add_format(ptr noundef nonnull %50, i64 noundef %62) #8
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.thread, label %51, !llvm.loop !30
+  br i1 %64, label %.thread, label %51, !llvm.loop !31
 
 65:                                               ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !31
-  %68 = load ptr, ptr %67, align 8, !tbaa !32
+  %67 = load ptr, ptr %66, align 8, !tbaa !32
+  %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(9) @.str.2) #7
   %.not98 = icmp eq i32 %69, 0
   br i1 %.not98, label %70, label %82
@@ -194,7 +194,7 @@ parse_pixel_format.exit:                          ; preds = %18, %22
   br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %78, %65
-  %83 = load ptr, ptr %7, align 8, !tbaa !34
+  %83 = load ptr, ptr %7, align 8, !tbaa !35
   %.not99 = icmp eq ptr %83, null
   br i1 %.not99, label %87, label %84
 
@@ -204,7 +204,7 @@ parse_pixel_format.exit:                          ; preds = %18, %22
   br i1 %86, label %.thread, label %87
 
 87:                                               ; preds = %84, %82
-  %88 = load ptr, ptr %32, align 8, !tbaa !35
+  %88 = load ptr, ptr %32, align 8, !tbaa !36
   %.not100 = icmp eq ptr %88, null
   br i1 %.not100, label %92, label %89
 
@@ -214,7 +214,7 @@ parse_pixel_format.exit:                          ; preds = %18, %22
   br i1 %91, label %.thread, label %92
 
 92:                                               ; preds = %89, %87
-  %93 = load ptr, ptr %50, align 8, !tbaa !36
+  %93 = load ptr, ptr %50, align 8, !tbaa !37
   %.not101 = icmp eq ptr %93, null
   br i1 %.not101, label %97, label %94
 
@@ -249,7 +249,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !35
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
@@ -260,7 +260,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
 
 11:                                               ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %17, label %14
 
@@ -271,7 +271,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
 
 17:                                               ; preds = %14, %11
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %.not25 = icmp eq ptr %19, null
   br i1 %.not25, label %23, label %20
 
@@ -313,17 +313,17 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: cold nounwind optsize uwtable
 define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %3, align 8, !tbaa !38
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %36, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8, !tbaa !37
+  %5 = load ptr, ptr %0, align 8, !tbaa !38
   %.not17 = icmp eq ptr %5, null
   br i1 %.not17, label %8, label %.preheader18
 
 .preheader18:                                     ; preds = %4
-  %6 = load i32, ptr %1, align 8, !tbaa !38
+  %6 = load i32, ptr %1, align 8, !tbaa !39
   %.not25 = icmp eq i32 %6, 0
   br i1 %.not25, label %._crit_edge24, label %.preheader.lr.ph
 
@@ -338,30 +338,30 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
 .preheader:                                       ; preds = %.preheader.lr.ph, %33
   %9 = phi i32 [ %6, %.preheader.lr.ph ], [ %34, %33 ]
   %.01523 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %33 ]
-  %10 = load ptr, ptr %0, align 8, !tbaa !37
-  %11 = load i32, ptr %10, align 8, !tbaa !38
+  %10 = load ptr, ptr %0, align 8, !tbaa !38
+  %11 = load i32, ptr %10, align 8, !tbaa !39
   %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = load ptr, ptr %7, align 8, !tbaa !43
+  %12 = load ptr, ptr %7, align 8, !tbaa !44
   %13 = sext i32 %.01523 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !44
+  %15 = load i32, ptr %14, align 4, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !43
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   %wide.trip.count = zext i32 %11 to i64
   br label %20
 
 ._crit_edge24:                                    ; preds = %33, %.preheader18
   tail call void @ff_formats_unref(ptr noundef nonnull %0) #8
-  store ptr %1, ptr %0, align 8, !tbaa !37
+  store ptr %1, ptr %0, align 8, !tbaa !38
   br label %36
 
 18:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %19 = add nsw i32 %.01523, 1
@@ -370,7 +370,7 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
 20:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !45
   %23 = icmp eq i32 %15, %22
   br i1 %23, label %24, label %18
 
@@ -382,16 +382,16 @@ define internal fastcc range(i32 -12, 1) i32 @invert_formats(ptr noundef %0, ptr
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %27, i64 %30, i1 false)
-  %31 = load i32, ptr %1, align 8, !tbaa !38
+  %31 = load i32, ptr %1, align 8, !tbaa !39
   %32 = add i32 %31, -1
-  store i32 %32, ptr %1, align 8, !tbaa !38
+  store i32 %32, ptr %1, align 8, !tbaa !39
   br label %33
 
 33:                                               ; preds = %24, %._crit_edge
   %34 = phi i32 [ %32, %24 ], [ %9, %._crit_edge ]
   %.1 = phi i32 [ %.01523, %24 ], [ %19, %._crit_edge ]
   %35 = icmp ult i32 %.1, %34
-  br i1 %35, label %.preheader, label %._crit_edge24, !llvm.loop !46
+  br i1 %35, label %.preheader, label %._crit_edge24, !llvm.loop !47
 
 36:                                               ; preds = %2, %._crit_edge24, %8
   %.016 = phi i32 [ 0, %._crit_edge24 ], [ 0, %8 ], [ -12, %2 ]
@@ -464,25 +464,26 @@ attributes #9 = { cold }
 !22 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
 !23 = !{!8, !8, i64 0}
 !24 = !{!11, !11, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!21, !11, i64 16}
-!28 = distinct !{!28, !26}
-!29 = !{!21, !11, i64 24}
-!30 = distinct !{!30, !26}
-!31 = !{!5, !10, i64 8}
-!32 = !{!33, !11, i64 0}
-!33 = !{!"AVFilter", !11, i64 0, !11, i64 8, !12, i64 16, !12, i64 24, !6, i64 32, !15, i64 40}
-!34 = !{!21, !22, i64 32}
-!35 = !{!21, !22, i64 40}
-!36 = !{!21, !22, i64 48}
-!37 = !{!22, !22, i64 0}
-!38 = !{!39, !15, i64 0}
-!39 = !{!"AVFilterFormats", !15, i64 0, !40, i64 8, !15, i64 16, !41, i64 24}
-!40 = !{!"p1 int", !7, i64 0}
-!41 = !{!"p3 _ZTS15AVFilterFormats", !42, i64 0}
-!42 = !{!"any p3 pointer", !14, i64 0}
-!43 = !{!39, !40, i64 8}
-!44 = !{!15, !15, i64 0}
-!45 = distinct !{!45, !26}
-!46 = distinct !{!46, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!21, !11, i64 16}
+!29 = distinct !{!29, !26, !27}
+!30 = !{!21, !11, i64 24}
+!31 = distinct !{!31, !26, !27}
+!32 = !{!5, !10, i64 8}
+!33 = !{!34, !11, i64 0}
+!34 = !{!"AVFilter", !11, i64 0, !11, i64 8, !12, i64 16, !12, i64 24, !6, i64 32, !15, i64 40}
+!35 = !{!21, !22, i64 32}
+!36 = !{!21, !22, i64 40}
+!37 = !{!21, !22, i64 48}
+!38 = !{!22, !22, i64 0}
+!39 = !{!40, !15, i64 0}
+!40 = !{!"AVFilterFormats", !15, i64 0, !41, i64 8, !15, i64 16, !42, i64 24}
+!41 = !{!"p1 int", !7, i64 0}
+!42 = !{!"p3 _ZTS15AVFilterFormats", !43, i64 0}
+!43 = !{!"any p3 pointer", !14, i64 0}
+!44 = !{!40, !41, i64 8}
+!45 = !{!15, !15, i64 0}
+!46 = distinct !{!46, !26, !27}
+!47 = distinct !{!47, !26, !27}

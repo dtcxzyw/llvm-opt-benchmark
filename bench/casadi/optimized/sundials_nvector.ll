@@ -322,7 +322,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
 27:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !40
 
 .loopexit:                                        ; preds = %27, %4, %2, %N_VDestroyVectorArray.exit
   %.014 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ null, %2 ], [ null, %4 ], [ %7, %27 ]
@@ -435,7 +435,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
 26:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !41
 
 .loopexit:                                        ; preds = %26, %4, %2, %N_VDestroyVectorArray.exit
   %.014 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ null, %2 ], [ null, %4 ], [ %7, %26 ]
@@ -490,7 +490,8 @@ attributes #4 = { nounwind allocsize(0) }
 !34 = !{!10, !5, i64 192}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = distinct !{!40, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}
+!41 = distinct !{!41, !38, !39}

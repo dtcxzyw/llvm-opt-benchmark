@@ -89,7 +89,7 @@ define hidden i32 @skip_utf8(ptr noundef readonly captures(none) %0, i32 noundef
   %.2 = phi i32 [ %7, %6 ], [ %2, %16 ], [ %.123, %.lr.ph ]
   %18 = add nsw i32 %.027, -1
   %19 = icmp sgt i32 %.027, 1
-  br i1 %19, label %.lr.ph28, label %.loopexit22, !llvm.loop !5
+  br i1 %19, label %.lr.ph28, label %.loopexit22, !llvm.loop !6
 
 .loopexit22:                                      ; preds = %.lr.ph28, %.loopexit, %.preheader21, %4
   %.017 = phi i32 [ -1, %4 ], [ %1, %.preheader21 ], [ -1, %.lr.ph28 ], [ %.2, %.loopexit ]
@@ -132,13 +132,13 @@ define hidden i32 @skip_b_utf8(ptr noundef readonly captures(none) %0, i32 nound
 17:                                               ; preds = %.lr.ph
   %18 = add nsw i32 %.121, -1
   %19 = icmp sgt i32 %18, %2
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %6
   %.2 = phi i32 [ %7, %6 ], [ %2, %17 ], [ %.121, %.lr.ph ]
   %20 = add nsw i32 %.025, -1
   %21 = icmp sgt i32 %.025, 1
-  br i1 %21, label %.lr.ph26, label %.loopexit20, !llvm.loop !7
+  br i1 %21, label %.lr.ph26, label %.loopexit20, !llvm.loop !8
 
 .loopexit20:                                      ; preds = %.lr.ph26, %.loopexit, %.preheader19, %4
   %.015 = phi i32 [ -1, %4 ], [ %1, %.preheader19 ], [ -1, %.lr.ph26 ], [ %.2, %.loopexit ]
@@ -250,7 +250,7 @@ define hidden range(i32 -1, 5) i32 @in_grouping_U(ptr noundef captures(none) %0,
 76:                                               ; preds = %66
   %77 = add i32 %.0.i.ph, %11
   store i32 %77, ptr %7, align 8
-  br i1 %.not16, label %get_utf8.exit.thread26, label %10, !llvm.loop !8
+  br i1 %.not16, label %get_utf8.exit.thread26, label %10, !llvm.loop !9
 
 get_utf8.exit.thread26:                           ; preds = %10, %61, %63, %66, %76
   %.2 = phi i32 [ 0, %76 ], [ -1, %10 ], [ %.0.i.ph, %61 ], [ %.0.i.ph, %63 ], [ %.0.i.ph, %66 ]
@@ -360,7 +360,7 @@ define hidden range(i32 -1, 5) i32 @in_grouping_b_U(ptr noundef captures(none) %
 74:                                               ; preds = %64
   %75 = sub i32 %11, %.0.i.ph
   store i32 %75, ptr %7, align 8
-  br i1 %.not16, label %get_b_utf8.exit.thread26, label %10, !llvm.loop !9
+  br i1 %.not16, label %get_b_utf8.exit.thread26, label %10, !llvm.loop !10
 
 get_b_utf8.exit.thread26:                         ; preds = %10, %59, %61, %64, %74
   %.2 = phi i32 [ 0, %74 ], [ -1, %10 ], [ %.0.i.ph, %59 ], [ %.0.i.ph, %61 ], [ %.0.i.ph, %64 ]
@@ -472,7 +472,7 @@ define hidden range(i32 -1, 5) i32 @out_grouping_U(ptr noundef captures(none) %0
 76:                                               ; preds = %66, %63, %61
   %77 = add i32 %.0.i.ph, %11
   store i32 %77, ptr %7, align 8
-  br i1 %.not16, label %get_utf8.exit.thread26, label %10, !llvm.loop !10
+  br i1 %.not16, label %get_utf8.exit.thread26, label %10, !llvm.loop !11
 
 get_utf8.exit.thread26:                           ; preds = %10, %66, %76
   %.2 = phi i32 [ 0, %76 ], [ -1, %10 ], [ %.0.i.ph, %66 ]
@@ -582,7 +582,7 @@ define hidden range(i32 -1, 5) i32 @out_grouping_b_U(ptr noundef captures(none) 
 74:                                               ; preds = %64, %61, %59
   %75 = sub i32 %11, %.0.i.ph
   store i32 %75, ptr %7, align 8
-  br i1 %.not16, label %get_b_utf8.exit.thread26, label %10, !llvm.loop !11
+  br i1 %.not16, label %get_b_utf8.exit.thread26, label %10, !llvm.loop !12
 
 get_b_utf8.exit.thread26:                         ; preds = %10, %64, %74
   %.2 = phi i32 [ 0, %74 ], [ -1, %10 ], [ %.0.i.ph, %64 ]
@@ -597,7 +597,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping(ptr noundef captures(none) %0, p
   %.promoted = load i32, ptr %6, align 8
   %.not18 = icmp eq i32 %4, 0
   %.not.us = icmp slt i32 %.promoted, %8
-  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !12
+  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !13
 
 .split.us:                                        ; preds = %5
   br i1 %.not.us, label %9, label %.thread
@@ -686,7 +686,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping_b(ptr noundef captures(none) %0,
   %.promoted = load i32, ptr %6, align 8
   %.not18 = icmp eq i32 %4, 0
   %.not.us = icmp sgt i32 %.promoted, %8
-  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !13
+  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !14
 
 .split.us:                                        ; preds = %5
   br i1 %.not.us, label %9, label %.thread
@@ -776,7 +776,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping(ptr noundef captures(none) %0, 
   %.promoted = load i32, ptr %6, align 8
   %.not18 = icmp eq i32 %4, 0
   %.not.us = icmp slt i32 %.promoted, %8
-  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !14
+  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !15
 
 .split.us:                                        ; preds = %5
   br i1 %.not.us, label %9, label %.thread
@@ -865,7 +865,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping_b(ptr noundef captures(none) %0
   %.promoted = load i32, ptr %6, align 8
   %.not18 = icmp eq i32 %4, 0
   %.not.us = icmp sgt i32 %.promoted, %8
-  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !15
+  br i1 %.not18, label %.split.us, label %.split, !llvm.loop !16
 
 .split.us:                                        ; preds = %5
   br i1 %.not.us, label %9, label %.thread
@@ -1133,7 +1133,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
 34:                                               ; preds = %24
   %35 = add nsw i32 %.06089, 1
   %exitcond.not = icmp eq i32 %35, %18
-  br i1 %exitcond.not, label %.thread139, label %21, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread139, label %21, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %24
   %36 = icmp slt i32 %.fr, 0
@@ -1149,7 +1149,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %40 = phi i32 [ %14, %select.unfold ], [ %14, %._crit_edge ], [ %.064, %.thread146 ], [ %14, %34 ], [ %.064, %21 ]
   %41 = sub i32 %38, %40
   %42 = icmp slt i32 %41, 2
-  br i1 %42, label %43, label %select.unfold
+  br i1 %42, label %43, label %select.unfold, !llvm.loop !18
 
 43:                                               ; preds = %.thread139
   %44 = icmp slt i32 %40, 1
@@ -1158,7 +1158,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %.not81 = icmp eq i32 %.067.ph, 0
   %spec.select = select i1 %or.cond.not, i32 1, i32 %.067.ph
   %spec.select85 = select i1 %or.cond.not, i1 %.not81, i1 false
-  br i1 %spec.select85, label %.outer, label %.preheader
+  br i1 %spec.select85, label %.outer, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %43, %.thread
   %.266 = phi i32 [ %59, %.thread ], [ %40, %43 ]
@@ -1188,7 +1188,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.loopexit, label %.preheader
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %54, %49
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 20
@@ -1269,7 +1269,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %40 = add i32 %.06188, 1
   %41 = add nsw i32 %.06089, -1
   %42 = icmp sgt i32 %.06089, 0
-  br i1 %42, label %24, label %.thread139, !llvm.loop !17
+  br i1 %42, label %24, label %.thread139, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %27
   %43 = icmp slt i32 %.fr, 0
@@ -1285,7 +1285,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %47 = phi i32 [ %15, %select.unfold ], [ %15, %._crit_edge ], [ %.064, %.thread146 ], [ %15, %39 ], [ %.064, %24 ]
   %48 = sub i32 %45, %47
   %49 = icmp slt i32 %48, 2
-  br i1 %49, label %50, label %select.unfold
+  br i1 %49, label %50, label %select.unfold, !llvm.loop !21
 
 50:                                               ; preds = %.thread139
   %51 = icmp slt i32 %47, 1
@@ -1294,7 +1294,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %.not81 = icmp eq i32 %.067.ph, 0
   %spec.select = select i1 %or.cond.not, i32 1, i32 %.067.ph
   %spec.select85 = select i1 %or.cond.not, i1 %.not81, i1 false
-  br i1 %spec.select85, label %.outer, label %.preheader
+  br i1 %spec.select85, label %.outer, label %.preheader, !llvm.loop !21
 
 .preheader:                                       ; preds = %50, %.thread
   %.266 = phi i32 [ %66, %.thread ], [ %47, %50 ]
@@ -1324,7 +1324,7 @@ select.unfold:                                    ; preds = %.thread139, %.outer
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.loopexit, label %.preheader
+  br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %61, %56
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 20
@@ -1796,7 +1796,7 @@ define hidden i32 @len_utf8(ptr noundef readonly captures(none) %0) local_unname
   %7 = zext i1 %or.cond to i32
   %spec.select = add i32 %.0812, %7
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -1827,19 +1827,24 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !4, !5}

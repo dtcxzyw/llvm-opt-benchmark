@@ -283,7 +283,7 @@ define dso_local void @acpi_ds_clear_operands(ptr noundef captures(none) %0) loc
   %12 = load i8, ptr %2, align 1
   %13 = zext i8 %12 to i64
   %14 = icmp samesign ult i64 %11, %13
-  br i1 %14, label %7, label %.loopexit, !llvm.loop !10
+  br i1 %14, label %7, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %7, %1
   store i8 0, ptr %2, align 1
@@ -542,12 +542,12 @@ define dso_local i32 @acpi_ds_create_operands(ptr noundef %0, ptr noundef %1) lo
   %25 = add nuw nsw i32 %17, 1
   %26 = add nuw nsw i64 %16, 1
   %27 = icmp eq ptr %24, null
-  br i1 %27, label %12, label %15, !llvm.loop !11
+  br i1 %27, label %12, label %15, !llvm.loop !12
 
 28:                                               ; preds = %31
   %29 = add nuw nsw i32 %33, 1
   %30 = icmp eq i32 %33, %17
-  br i1 %30, label %.thread, label %31, !llvm.loop !12
+  br i1 %30, label %.thread, label %31, !llvm.loop !13
 
 31:                                               ; preds = %28, %12
   %32 = phi i32 [ %13, %12 ], [ %34, %28 ]
@@ -702,9 +702,10 @@ attributes #5 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}

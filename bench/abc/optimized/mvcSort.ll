@@ -55,7 +55,7 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %14 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3)
   %15 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %.024.lcssa, i32 noundef %10, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !12
+  store ptr null, ptr %5, align 8, !tbaa !13
   %16 = icmp ne ptr %14, null
   %17 = icmp ne ptr %15, null
   %18 = and i1 %16, %17
@@ -81,11 +81,11 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %.120.i = phi ptr [ %.01921.i, %21 ], [ %24, %23 ]
   %.1.i = phi ptr [ %22, %21 ], [ %.01822.i, %23 ]
   %.0.i = phi ptr [ %.01822.i, %21 ], [ %.01921.i, %23 ]
-  store ptr %.0.i, ptr %.01723.i, align 8, !tbaa !12
+  store ptr %.0.i, ptr %.01723.i, align 8, !tbaa !13
   %26 = icmp ne ptr %.1.i, null
   %27 = icmp ne ptr %.120.i, null
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i, label %Mvc_CoverSortMerge.exit, !llvm.loop !13
+  br i1 %28, label %.lr.ph.i, label %Mvc_CoverSortMerge.exit, !llvm.loop !14
 
 Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   %.019.lcssa.i = phi ptr [ %15, %._crit_edge ], [ %.120.i, %25 ]
@@ -93,8 +93,8 @@ Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   %.017.lcssa.i = phi ptr [ %5, %._crit_edge ], [ %.0.i, %25 ]
   %.lcssa.i = phi i1 [ %16, %._crit_edge ], [ %26, %25 ]
   %29 = select i1 %.lcssa.i, ptr %.018.lcssa.i, ptr %.019.lcssa.i
-  store ptr %29, ptr %.017.lcssa.i, align 8, !tbaa !12
-  %.0..0..0..0..0..0..i = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %29, ptr %.017.lcssa.i, align 8, !tbaa !13
+  %.0..0..0..0..0..0..i = load ptr, ptr %5, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %30
 
@@ -118,7 +118,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !12
+  store ptr null, ptr %5, align 8, !tbaa !13
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %8 = and i1 %6, %7
@@ -144,11 +144,11 @@ define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %.120 = phi ptr [ %.01921, %11 ], [ %14, %13 ]
   %.1 = phi ptr [ %12, %11 ], [ %.01822, %13 ]
   %.0 = phi ptr [ %.01822, %11 ], [ %.01921, %13 ]
-  store ptr %.0, ptr %.01723, align 8, !tbaa !12
+  store ptr %.0, ptr %.01723, align 8, !tbaa !13
   %16 = icmp ne ptr %.1, null
   %17 = icmp ne ptr %.120, null
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %15, %4
   %.019.lcssa = phi ptr [ %1, %4 ], [ %.120, %15 ]
@@ -156,8 +156,8 @@ define ptr @Mvc_CoverSortMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %.017.lcssa = phi ptr [ %5, %4 ], [ %.0, %15 ]
   %.lcssa = phi i1 [ %6, %4 ], [ %16, %15 ]
   %19 = select i1 %.lcssa, ptr %.018.lcssa, ptr %.019.lcssa
-  store ptr %19, ptr %.017.lcssa, align 8, !tbaa !12
-  %.0..0..0..0. = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %19, ptr %.017.lcssa, align 8, !tbaa !13
+  %.0..0..0..0. = load ptr, ptr %5, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret ptr %.0..0..0..0.
 }
@@ -179,7 +179,8 @@ attributes #3 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !11, !12}

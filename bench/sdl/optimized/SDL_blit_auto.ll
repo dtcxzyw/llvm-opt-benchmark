@@ -100,7 +100,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Scale(ptr noundef captures(none
   %52 = add nsw i32 %46, -1
   store i32 %52, ptr %6, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !5
+  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !6
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.lr.ph35.split.us, %1
   ret void
@@ -248,7 +248,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none
   %81 = getelementptr inbounds nuw i8, ptr %.08086, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %.not83 = icmp eq i32 %26, 0
-  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %76
   %.pre99 = load ptr, ptr %7, align 8
@@ -271,7 +271,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none
   %92 = add nsw i32 %83, -1
   store i32 %92, ptr %4, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !8
+  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !9
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89.split.us, %1
   ret void
@@ -431,7 +431,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   %100 = add i64 %.09399, %19
   %101 = getelementptr inbounds nuw i8, ptr %.09598, i64 4
   %.not96 = icmp eq i32 %37, 0
-  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %95
   %.pre108 = load ptr, ptr %21, align 8
@@ -449,7 +449,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   %108 = add nsw i32 %102, -1
   store i32 %108, ptr %8, align 4
   %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !10
+  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !11
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %.lr.ph103.split.us, %1
   ret void
@@ -530,7 +530,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -565,7 +565,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -582,7 +582,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !14
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !15
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -679,7 +679,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -722,7 +722,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -735,7 +735,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !17
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !18
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -1016,7 +1016,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %189 = getelementptr inbounds nuw i8, ptr %.0209218, i64 4
   %190 = getelementptr inbounds nuw i8, ptr %.0210217, i64 4
   %.not214 = icmp eq i32 %45, 0
-  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %184
   %.pre231 = load ptr, ptr %21, align 8
@@ -1039,7 +1039,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %200 = add nsw i32 %191, -1
   store i32 %200, ptr %18, align 4
   %.not213 = icmp eq i32 %191, 0
-  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !19
+  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !20
 
 ._crit_edge222:                                   ; preds = %._crit_edge, %.lr.ph221.split.us, %1
   ret void
@@ -1332,7 +1332,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %208 = add i64 %.0222231, %33
   %209 = getelementptr inbounds nuw i8, ptr %.0223230, i64 4
   %.not227 = icmp eq i32 %56, 0
-  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %203
   %.pre240 = load ptr, ptr %35, align 8
@@ -1350,7 +1350,7 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %216 = add nsw i32 %210, -1
   store i32 %216, ptr %22, align 4
   %.not226 = icmp eq i32 %210, 0
-  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !21
+  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !22
 
 ._crit_edge236:                                   ; preds = %._crit_edge, %.lr.ph235.split.us, %1
   ret void
@@ -1438,7 +1438,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -1456,7 +1456,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !23
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !24
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -1604,7 +1604,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none
   %81 = getelementptr inbounds nuw i8, ptr %.08086, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %.not83 = icmp eq i32 %26, 0
-  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %76
   %.pre99 = load ptr, ptr %7, align 8
@@ -1627,7 +1627,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none
   %92 = add nsw i32 %83, -1
   store i32 %92, ptr %4, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !25
+  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !26
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89.split.us, %1
   ret void
@@ -1787,7 +1787,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   %100 = add i64 %.09399, %19
   %101 = getelementptr inbounds nuw i8, ptr %.09598, i64 4
   %.not96 = icmp eq i32 %37, 0
-  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %95
   %.pre108 = load ptr, ptr %21, align 8
@@ -1805,7 +1805,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   %108 = add nsw i32 %102, -1
   store i32 %108, ptr %8, align 4
   %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !27
+  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !28
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %.lr.ph103.split.us, %1
   ret void
@@ -1892,7 +1892,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -1927,7 +1927,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -1944,7 +1944,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !30
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !31
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -2047,7 +2047,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -2090,7 +2090,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -2103,7 +2103,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !33
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !34
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -2384,7 +2384,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %189 = getelementptr inbounds nuw i8, ptr %.0209218, i64 4
   %190 = getelementptr inbounds nuw i8, ptr %.0210217, i64 4
   %.not214 = icmp eq i32 %45, 0
-  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %184
   %.pre231 = load ptr, ptr %21, align 8
@@ -2407,7 +2407,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %200 = add nsw i32 %191, -1
   store i32 %200, ptr %18, align 4
   %.not213 = icmp eq i32 %191, 0
-  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !35
+  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !36
 
 ._crit_edge222:                                   ; preds = %._crit_edge, %.lr.ph221.split.us, %1
   ret void
@@ -2700,7 +2700,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %208 = add i64 %.0222231, %33
   %209 = getelementptr inbounds nuw i8, ptr %.0223230, i64 4
   %.not227 = icmp eq i32 %56, 0
-  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %203
   %.pre240 = load ptr, ptr %35, align 8
@@ -2718,7 +2718,7 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %216 = add nsw i32 %210, -1
   store i32 %216, ptr %22, align 4
   %.not226 = icmp eq i32 %210, 0
-  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !37
+  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !38
 
 ._crit_edge236:                                   ; preds = %._crit_edge, %.lr.ph235.split.us, %1
   ret void
@@ -2800,7 +2800,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -2818,7 +2818,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !39
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !40
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -2970,7 +2970,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   %84 = getelementptr inbounds nuw i8, ptr %.08389, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %.08588, i64 4
   %.not86 = icmp eq i32 %26, 0
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %77
   %.pre102 = load ptr, ptr %7, align 8
@@ -2993,7 +2993,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   %95 = add nsw i32 %86, -1
   store i32 %95, ptr %4, align 4
   %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !41
+  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !42
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %.lr.ph92.split.us, %1
   ret void
@@ -3157,7 +3157,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   %103 = add i64 %.098101, %19
   %104 = getelementptr inbounds nuw i8, ptr %.097102, i64 4
   %.not99 = icmp eq i32 %37, 0
-  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre111 = load ptr, ptr %21, align 8
@@ -3175,7 +3175,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   %111 = add nsw i32 %105, -1
   store i32 %111, ptr %8, align 4
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !43
+  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !44
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %.lr.ph106.split.us, %1
   ret void
@@ -3264,7 +3264,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %46 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 4
   %47 = add nsw i32 %41, -1
   %.not52.us = icmp eq i32 %41, 0
-  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
+  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %48 = phi i32 [ %75, %.lr.ph.split ], [ %38, %.lr.ph ]
@@ -3300,7 +3300,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %74 = getelementptr inbounds nuw i8, ptr %.04856, i64 4
   %75 = add nsw i32 %48, -1
   %.not52 = icmp eq i32 %48, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !45
+  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph59.split
   %76 = load i32, ptr %26, align 8
@@ -3317,7 +3317,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %85 = add nsw i32 %84, -1
   store i32 %85, ptr %15, align 4
   %.not51 = icmp eq i32 %84, 0
-  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !46
+  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !47
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59.split.us, %1
   ret void
@@ -3422,7 +3422,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %65 = getelementptr inbounds nuw i8, ptr %.06069.us, i64 4
   %66 = add nsw i32 %52, -1
   %.not65.us = icmp eq i32 %52, 0
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !48
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %67 = phi i32 [ %102, %.lr.ph.split ], [ %50, %.lr.ph ]
@@ -3466,7 +3466,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %101 = getelementptr inbounds nuw i8, ptr %.06069, i64 4
   %102 = add nsw i32 %67, -1
   %.not65 = icmp eq i32 %67, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph73.split
   %103 = add i64 %.06271, %22
@@ -3479,7 +3479,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %19, align 4
   %.not64 = icmp eq i32 %108, 0
-  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !49
+  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !50
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.lr.ph73.split.us, %1
   ret void
@@ -3777,7 +3777,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %204 = getelementptr inbounds nuw i8, ptr %.0230239, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %.0231238, i64 4
   %.not235 = icmp eq i32 %45, 0
-  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %197
   %.pre252 = load ptr, ptr %21, align 8
@@ -3800,7 +3800,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %215 = add nsw i32 %206, -1
   store i32 %215, ptr %18, align 4
   %.not234 = icmp eq i32 %206, 0
-  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !51
+  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !52
 
 ._crit_edge243:                                   ; preds = %._crit_edge, %.lr.ph242.split.us, %1
   ret void
@@ -4110,7 +4110,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %223 = add i64 %.0243252, %33
   %224 = getelementptr inbounds nuw i8, ptr %.0244251, i64 4
   %.not248 = icmp eq i32 %56, 0
-  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %216
   %.pre261 = load ptr, ptr %35, align 8
@@ -4128,7 +4128,7 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %231 = add nsw i32 %225, -1
   store i32 %231, ptr %22, align 4
   %.not247 = icmp eq i32 %225, 0
-  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !53
+  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !54
 
 ._crit_edge257:                                   ; preds = %._crit_edge, %.lr.ph256.split.us, %1
   ret void
@@ -4216,7 +4216,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -4234,7 +4234,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !55
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !56
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -4386,7 +4386,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   %84 = getelementptr inbounds nuw i8, ptr %.08389, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %.08588, i64 4
   %.not86 = icmp eq i32 %26, 0
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %77
   %.pre102 = load ptr, ptr %7, align 8
@@ -4409,7 +4409,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   %95 = add nsw i32 %86, -1
   store i32 %95, ptr %4, align 4
   %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !57
+  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !58
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %.lr.ph92.split.us, %1
   ret void
@@ -4573,7 +4573,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   %103 = add i64 %.098101, %19
   %104 = getelementptr inbounds nuw i8, ptr %.097102, i64 4
   %.not99 = icmp eq i32 %37, 0
-  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre111 = load ptr, ptr %21, align 8
@@ -4591,7 +4591,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   %111 = add nsw i32 %105, -1
   store i32 %111, ptr %8, align 4
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !59
+  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !60
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %.lr.ph106.split.us, %1
   ret void
@@ -4686,7 +4686,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %52 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 4
   %53 = add nsw i32 %41, -1
   %.not52.us = icmp eq i32 %41, 0
-  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %54 = phi i32 [ %81, %.lr.ph.split ], [ %38, %.lr.ph ]
@@ -4722,7 +4722,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %80 = getelementptr inbounds nuw i8, ptr %.04856, i64 4
   %81 = add nsw i32 %54, -1
   %.not52 = icmp eq i32 %54, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !61
+  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph59.split
   %82 = load i32, ptr %26, align 8
@@ -4739,7 +4739,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %91 = add nsw i32 %90, -1
   store i32 %91, ptr %15, align 4
   %.not51 = icmp eq i32 %90, 0
-  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !62
+  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !63
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59.split.us, %1
   ret void
@@ -4850,7 +4850,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %71 = getelementptr inbounds nuw i8, ptr %.06069.us, i64 4
   %72 = add nsw i32 %52, -1
   %.not65.us = icmp eq i32 %52, 0
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %73 = phi i32 [ %108, %.lr.ph.split ], [ %50, %.lr.ph ]
@@ -4894,7 +4894,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %107 = getelementptr inbounds nuw i8, ptr %.06069, i64 4
   %108 = add nsw i32 %73, -1
   %.not65 = icmp eq i32 %73, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph73.split
   %109 = add i64 %.06271, %22
@@ -4907,7 +4907,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %115 = add nsw i32 %114, -1
   store i32 %115, ptr %19, align 4
   %.not64 = icmp eq i32 %114, 0
-  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !65
+  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !66
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.lr.ph73.split.us, %1
   ret void
@@ -5205,7 +5205,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %204 = getelementptr inbounds nuw i8, ptr %.0230239, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %.0231238, i64 4
   %.not235 = icmp eq i32 %45, 0
-  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge.loopexit:                             ; preds = %197
   %.pre252 = load ptr, ptr %21, align 8
@@ -5228,7 +5228,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %215 = add nsw i32 %206, -1
   store i32 %215, ptr %18, align 4
   %.not234 = icmp eq i32 %206, 0
-  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !67
+  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !68
 
 ._crit_edge243:                                   ; preds = %._crit_edge, %.lr.ph242.split.us, %1
   ret void
@@ -5538,7 +5538,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %223 = add i64 %.0243252, %33
   %224 = getelementptr inbounds nuw i8, ptr %.0244251, i64 4
   %.not248 = icmp eq i32 %56, 0
-  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge.loopexit:                             ; preds = %216
   %.pre261 = load ptr, ptr %35, align 8
@@ -5556,7 +5556,7 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %231 = add nsw i32 %225, -1
   store i32 %231, ptr %22, align 4
   %.not247 = icmp eq i32 %225, 0
-  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !69
+  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !70
 
 ._crit_edge257:                                   ; preds = %._crit_edge, %.lr.ph256.split.us, %1
   ret void
@@ -5644,7 +5644,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -5662,7 +5662,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !71
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !72
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -5810,7 +5810,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none
   %81 = getelementptr inbounds nuw i8, ptr %.08086, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %.not83 = icmp eq i32 %26, 0
-  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !72
+  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %76
   %.pre99 = load ptr, ptr %7, align 8
@@ -5833,7 +5833,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none
   %92 = add nsw i32 %83, -1
   store i32 %92, ptr %4, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !73
+  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !74
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89.split.us, %1
   ret void
@@ -5993,7 +5993,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   %100 = add i64 %.09399, %19
   %101 = getelementptr inbounds nuw i8, ptr %.09598, i64 4
   %.not96 = icmp eq i32 %37, 0
-  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge.loopexit:                             ; preds = %95
   %.pre108 = load ptr, ptr %21, align 8
@@ -6011,7 +6011,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   %108 = add nsw i32 %102, -1
   store i32 %108, ptr %8, align 4
   %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !75
+  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !76
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %.lr.ph103.split.us, %1
   ret void
@@ -6098,7 +6098,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !76
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !77
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -6133,7 +6133,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !77
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -6150,7 +6150,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !78
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !79
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -6253,7 +6253,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !79
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -6296,7 +6296,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !80
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -6309,7 +6309,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !81
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !82
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -6590,7 +6590,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %189 = getelementptr inbounds nuw i8, ptr %.0209218, i64 4
   %190 = getelementptr inbounds nuw i8, ptr %.0210217, i64 4
   %.not214 = icmp eq i32 %45, 0
-  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !82
+  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge.loopexit:                             ; preds = %184
   %.pre231 = load ptr, ptr %21, align 8
@@ -6613,7 +6613,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %200 = add nsw i32 %191, -1
   store i32 %200, ptr %18, align 4
   %.not213 = icmp eq i32 %191, 0
-  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !83
+  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !84
 
 ._crit_edge222:                                   ; preds = %._crit_edge, %.lr.ph221.split.us, %1
   ret void
@@ -6906,7 +6906,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %208 = add i64 %.0222231, %33
   %209 = getelementptr inbounds nuw i8, ptr %.0223230, i64 4
   %.not227 = icmp eq i32 %56, 0
-  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !84
+  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge.loopexit:                             ; preds = %203
   %.pre240 = load ptr, ptr %35, align 8
@@ -6924,7 +6924,7 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %216 = add nsw i32 %210, -1
   store i32 %216, ptr %22, align 4
   %.not226 = icmp eq i32 %210, 0
-  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !85
+  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !86
 
 ._crit_edge236:                                   ; preds = %._crit_edge, %.lr.ph235.split.us, %1
   ret void
@@ -7005,7 +7005,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Scale(ptr noundef captures(none
   %44 = add i64 %.02629, %17
   %45 = getelementptr inbounds nuw i8, ptr %.02430, i64 4
   %.not27 = icmp eq i32 %34, 0
-  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre40 = load ptr, ptr %19, align 8
@@ -7023,7 +7023,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Scale(ptr noundef captures(none
   %52 = add nsw i32 %46, -1
   store i32 %52, ptr %6, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !87
+  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !88
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.lr.ph35.split.us, %1
   ret void
@@ -7171,7 +7171,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none
   %81 = getelementptr inbounds nuw i8, ptr %.08086, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %.08185, i64 4
   %.not83 = icmp eq i32 %26, 0
-  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %76
   %.pre99 = load ptr, ptr %7, align 8
@@ -7194,7 +7194,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none
   %92 = add nsw i32 %83, -1
   store i32 %92, ptr %4, align 4
   %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !89
+  br i1 %.not, label %._crit_edge90, label %.lr.ph89.splitthread-pre-split, !llvm.loop !90
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89.split.us, %1
   ret void
@@ -7354,7 +7354,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   %100 = add i64 %.09399, %19
   %101 = getelementptr inbounds nuw i8, ptr %.09598, i64 4
   %.not96 = icmp eq i32 %37, 0
-  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !90
+  br i1 %.not96, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge.loopexit:                             ; preds = %95
   %.pre108 = load ptr, ptr %21, align 8
@@ -7372,7 +7372,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   %108 = add nsw i32 %102, -1
   store i32 %108, ptr %8, align 4
   %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !91
+  br i1 %.not, label %._crit_edge104, label %.lr.ph103.split, !llvm.loop !92
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %.lr.ph103.split.us, %1
   ret void
@@ -7453,7 +7453,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !92
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -7488,7 +7488,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !93
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -7505,7 +7505,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !94
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !95
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -7602,7 +7602,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !96
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -7645,7 +7645,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !96
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -7658,7 +7658,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !97
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !98
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -7939,7 +7939,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %189 = getelementptr inbounds nuw i8, ptr %.0209218, i64 4
   %190 = getelementptr inbounds nuw i8, ptr %.0210217, i64 4
   %.not214 = icmp eq i32 %45, 0
-  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !98
+  br i1 %.not214, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge.loopexit:                             ; preds = %184
   %.pre231 = load ptr, ptr %21, align 8
@@ -7962,7 +7962,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %200 = add nsw i32 %191, -1
   store i32 %200, ptr %18, align 4
   %.not213 = icmp eq i32 %191, 0
-  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !99
+  br i1 %.not213, label %._crit_edge222, label %.lr.ph221.splitthread-pre-split, !llvm.loop !100
 
 ._crit_edge222:                                   ; preds = %._crit_edge, %.lr.ph221.split.us, %1
   ret void
@@ -8255,7 +8255,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %208 = add i64 %.0222231, %33
   %209 = getelementptr inbounds nuw i8, ptr %.0223230, i64 4
   %.not227 = icmp eq i32 %56, 0
-  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !100
+  br i1 %.not227, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge.loopexit:                             ; preds = %203
   %.pre240 = load ptr, ptr %35, align 8
@@ -8273,7 +8273,7 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %216 = add nsw i32 %210, -1
   store i32 %216, ptr %22, align 4
   %.not226 = icmp eq i32 %210, 0
-  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !101
+  br i1 %.not226, label %._crit_edge236, label %.lr.ph235.split, !llvm.loop !102
 
 ._crit_edge236:                                   ; preds = %._crit_edge, %.lr.ph235.split.us, %1
   ret void
@@ -8361,7 +8361,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !102
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -8379,7 +8379,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !103
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !104
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -8531,7 +8531,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   %84 = getelementptr inbounds nuw i8, ptr %.08389, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %.08588, i64 4
   %.not86 = icmp eq i32 %26, 0
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !104
+  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge.loopexit:                             ; preds = %77
   %.pre102 = load ptr, ptr %7, align 8
@@ -8554,7 +8554,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   %95 = add nsw i32 %86, -1
   store i32 %95, ptr %4, align 4
   %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !105
+  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !106
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %.lr.ph92.split.us, %1
   ret void
@@ -8718,7 +8718,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   %103 = add i64 %.098101, %19
   %104 = getelementptr inbounds nuw i8, ptr %.097102, i64 4
   %.not99 = icmp eq i32 %37, 0
-  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !106
+  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre111 = load ptr, ptr %21, align 8
@@ -8736,7 +8736,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   %111 = add nsw i32 %105, -1
   store i32 %111, ptr %8, align 4
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !107
+  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !108
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %.lr.ph106.split.us, %1
   ret void
@@ -8831,7 +8831,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %52 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 4
   %53 = add nsw i32 %41, -1
   %.not52.us = icmp eq i32 %41, 0
-  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !108
+  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !109
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %54 = phi i32 [ %81, %.lr.ph.split ], [ %38, %.lr.ph ]
@@ -8867,7 +8867,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %80 = getelementptr inbounds nuw i8, ptr %.04856, i64 4
   %81 = add nsw i32 %54, -1
   %.not52 = icmp eq i32 %54, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !109
+  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph59.split
   %82 = load i32, ptr %26, align 8
@@ -8884,7 +8884,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %91 = add nsw i32 %90, -1
   store i32 %91, ptr %15, align 4
   %.not51 = icmp eq i32 %90, 0
-  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !110
+  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !111
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59.split.us, %1
   ret void
@@ -8995,7 +8995,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %71 = getelementptr inbounds nuw i8, ptr %.06069.us, i64 4
   %72 = add nsw i32 %52, -1
   %.not65.us = icmp eq i32 %52, 0
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !111
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !112
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %73 = phi i32 [ %108, %.lr.ph.split ], [ %50, %.lr.ph ]
@@ -9039,7 +9039,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %107 = getelementptr inbounds nuw i8, ptr %.06069, i64 4
   %108 = add nsw i32 %73, -1
   %.not65 = icmp eq i32 %73, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !112
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph73.split
   %109 = add i64 %.06271, %22
@@ -9052,7 +9052,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %115 = add nsw i32 %114, -1
   store i32 %115, ptr %19, align 4
   %.not64 = icmp eq i32 %114, 0
-  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !113
+  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !114
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.lr.ph73.split.us, %1
   ret void
@@ -9350,7 +9350,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %204 = getelementptr inbounds nuw i8, ptr %.0230239, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %.0231238, i64 4
   %.not235 = icmp eq i32 %45, 0
-  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !114
+  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !115
 
 ._crit_edge.loopexit:                             ; preds = %197
   %.pre252 = load ptr, ptr %21, align 8
@@ -9373,7 +9373,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %215 = add nsw i32 %206, -1
   store i32 %215, ptr %18, align 4
   %.not234 = icmp eq i32 %206, 0
-  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !115
+  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !116
 
 ._crit_edge243:                                   ; preds = %._crit_edge, %.lr.ph242.split.us, %1
   ret void
@@ -9683,7 +9683,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %223 = add i64 %.0243252, %33
   %224 = getelementptr inbounds nuw i8, ptr %.0244251, i64 4
   %.not248 = icmp eq i32 %56, 0
-  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !116
+  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !117
 
 ._crit_edge.loopexit:                             ; preds = %216
   %.pre261 = load ptr, ptr %35, align 8
@@ -9701,7 +9701,7 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %231 = add nsw i32 %225, -1
   store i32 %231, ptr %22, align 4
   %.not247 = icmp eq i32 %225, 0
-  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !117
+  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !118
 
 ._crit_edge257:                                   ; preds = %._crit_edge, %.lr.ph256.split.us, %1
   ret void
@@ -9783,7 +9783,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !118
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -9801,7 +9801,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !119
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !120
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -9953,7 +9953,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   %84 = getelementptr inbounds nuw i8, ptr %.08389, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %.08588, i64 4
   %.not86 = icmp eq i32 %26, 0
-  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !120
+  br i1 %.not86, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !121
 
 ._crit_edge.loopexit:                             ; preds = %77
   %.pre102 = load ptr, ptr %7, align 8
@@ -9976,7 +9976,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   %95 = add nsw i32 %86, -1
   store i32 %95, ptr %4, align 4
   %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !121
+  br i1 %.not, label %._crit_edge93, label %.lr.ph92.splitthread-pre-split, !llvm.loop !122
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %.lr.ph92.split.us, %1
   ret void
@@ -10140,7 +10140,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   %103 = add i64 %.098101, %19
   %104 = getelementptr inbounds nuw i8, ptr %.097102, i64 4
   %.not99 = icmp eq i32 %37, 0
-  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !122
+  br i1 %.not99, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !123
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre111 = load ptr, ptr %21, align 8
@@ -10158,7 +10158,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   %111 = add nsw i32 %105, -1
   store i32 %111, ptr %8, align 4
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !123
+  br i1 %.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !124
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %.lr.ph106.split.us, %1
   ret void
@@ -10247,7 +10247,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %46 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 4
   %47 = add nsw i32 %41, -1
   %.not52.us = icmp eq i32 %41, 0
-  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !124
+  br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !125
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %48 = phi i32 [ %75, %.lr.ph.split ], [ %38, %.lr.ph ]
@@ -10283,7 +10283,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %74 = getelementptr inbounds nuw i8, ptr %.04856, i64 4
   %75 = add nsw i32 %48, -1
   %.not52 = icmp eq i32 %48, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !125
+  br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph59.split
   %76 = load i32, ptr %26, align 8
@@ -10300,7 +10300,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %85 = add nsw i32 %84, -1
   store i32 %85, ptr %15, align 4
   %.not51 = icmp eq i32 %84, 0
-  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !126
+  br i1 %.not51, label %._crit_edge60, label %.lr.ph59.splitthread-pre-split, !llvm.loop !127
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %.lr.ph59.split.us, %1
   ret void
@@ -10405,7 +10405,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %65 = getelementptr inbounds nuw i8, ptr %.06069.us, i64 4
   %66 = add nsw i32 %52, -1
   %.not65.us = icmp eq i32 %52, 0
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !127
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !128
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %67 = phi i32 [ %102, %.lr.ph.split ], [ %50, %.lr.ph ]
@@ -10449,7 +10449,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %101 = getelementptr inbounds nuw i8, ptr %.06069, i64 4
   %102 = add nsw i32 %67, -1
   %.not65 = icmp eq i32 %67, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !128
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph73.split
   %103 = add i64 %.06271, %22
@@ -10462,7 +10462,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %19, align 4
   %.not64 = icmp eq i32 %108, 0
-  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !129
+  br i1 %.not64, label %._crit_edge74, label %.lr.ph73.split, !llvm.loop !130
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.lr.ph73.split.us, %1
   ret void
@@ -10760,7 +10760,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %204 = getelementptr inbounds nuw i8, ptr %.0230239, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %.0231238, i64 4
   %.not235 = icmp eq i32 %45, 0
-  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !130
+  br i1 %.not235, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge.loopexit:                             ; preds = %197
   %.pre252 = load ptr, ptr %21, align 8
@@ -10783,7 +10783,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %215 = add nsw i32 %206, -1
   store i32 %215, ptr %18, align 4
   %.not234 = icmp eq i32 %206, 0
-  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !131
+  br i1 %.not234, label %._crit_edge243, label %.lr.ph242.splitthread-pre-split, !llvm.loop !132
 
 ._crit_edge243:                                   ; preds = %._crit_edge, %.lr.ph242.split.us, %1
   ret void
@@ -11093,7 +11093,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %223 = add i64 %.0243252, %33
   %224 = getelementptr inbounds nuw i8, ptr %.0244251, i64 4
   %.not248 = icmp eq i32 %56, 0
-  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !132
+  br i1 %.not248, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !133
 
 ._crit_edge.loopexit:                             ; preds = %216
   %.pre261 = load ptr, ptr %35, align 8
@@ -11111,7 +11111,7 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %231 = add nsw i32 %225, -1
   store i32 %231, ptr %22, align 4
   %.not247 = icmp eq i32 %225, 0
-  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !133
+  br i1 %.not247, label %._crit_edge257, label %.lr.ph256.split, !llvm.loop !134
 
 ._crit_edge257:                                   ; preds = %._crit_edge, %.lr.ph256.split.us, %1
   ret void
@@ -11193,7 +11193,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !134
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -11211,7 +11211,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !135
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !136
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -11454,7 +11454,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !136
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !137
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -11477,7 +11477,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !137
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !138
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -11732,7 +11732,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !138
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -11750,7 +11750,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !139
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !140
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -11831,7 +11831,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !140
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !141
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -11866,7 +11866,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !141
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -11883,7 +11883,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !142
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !143
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -11980,7 +11980,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !143
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !144
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -12023,7 +12023,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !144
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -12036,7 +12036,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !145
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !146
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -12331,7 +12331,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !146
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !147
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -12354,7 +12354,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !147
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !148
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -12661,7 +12661,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !148
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !149
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -12679,7 +12679,7 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !149
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !150
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -12767,7 +12767,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !150
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !151
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -12785,7 +12785,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !151
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !152
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -13028,7 +13028,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !152
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !153
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -13051,7 +13051,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !153
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !154
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -13306,7 +13306,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !154
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !155
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -13324,7 +13324,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !155
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !156
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -13411,7 +13411,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !156
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !157
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -13446,7 +13446,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !157
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -13463,7 +13463,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !158
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !159
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -13566,7 +13566,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !159
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !160
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -13609,7 +13609,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !160
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -13622,7 +13622,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !161
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !162
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -13917,7 +13917,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !162
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -13940,7 +13940,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !163
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !164
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -14247,7 +14247,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !164
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !165
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -14265,7 +14265,7 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !165
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !166
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -14346,7 +14346,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Scale(ptr noundef captures(none
   %44 = add i64 %.02629, %17
   %45 = getelementptr inbounds nuw i8, ptr %.02430, i64 4
   %.not27 = icmp eq i32 %34, 0
-  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !166
+  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !167
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre40 = load ptr, ptr %19, align 8
@@ -14364,7 +14364,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Scale(ptr noundef captures(none
   %52 = add nsw i32 %46, -1
   store i32 %52, ptr %6, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !167
+  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !168
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.lr.ph35.split.us, %1
   ret void
@@ -14624,7 +14624,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !168
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !169
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -14647,7 +14647,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !169
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !170
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -14919,7 +14919,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !170
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !171
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -14937,7 +14937,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !171
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !172
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -15038,7 +15038,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %53 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %54 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !172
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !173
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %81
   %55 = phi i32 [ %91, %81 ], [ %36, %.lr.ph ]
@@ -15088,7 +15088,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %90 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %91 = add nsw i32 %55, -1
   %.not58 = icmp eq i32 %55, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !173
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %81, %48, %.lr.ph66.split
   %92 = load i32, ptr %24, align 8
@@ -15105,7 +15105,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate(ptr noundef captures(n
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %16, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !174
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !175
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -15222,7 +15222,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %72 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %73 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !175
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !176
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %74 = phi i32 [ %118, %108 ], [ %48, %.lr.ph ]
@@ -15280,7 +15280,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %117 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %118 = add nsw i32 %74, -1
   %.not71 = icmp eq i32 %74, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !176
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %108, %67, %.lr.ph80.split
   %119 = add i64 %.06978, %23
@@ -15293,7 +15293,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %125 = add nsw i32 %124, -1
   store i32 %125, ptr %20, align 4
   %.not = icmp eq i32 %124, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !177
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !178
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -15605,7 +15605,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !178
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !179
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -15628,7 +15628,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !179
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !180
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -15952,7 +15952,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !180
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !181
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -15970,7 +15970,7 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !181
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !182
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -16058,7 +16058,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03538, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03339, i64 4
   %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !182
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !183
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre49 = load ptr, ptr %19, align 8
@@ -16076,7 +16076,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !183
+  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !184
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %.lr.ph44.split.us, %1
   ret void
@@ -16336,7 +16336,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !184
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !185
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -16359,7 +16359,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !185
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !186
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -16631,7 +16631,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !186
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !187
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -16649,7 +16649,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !187
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !188
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -16756,7 +16756,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %59 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %60 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !188
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !189
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %87
   %61 = phi i32 [ %97, %87 ], [ %36, %.lr.ph ]
@@ -16806,7 +16806,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %96 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %97 = add nsw i32 %61, -1
   %.not58 = icmp eq i32 %61, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !189
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !190
 
 ._crit_edge:                                      ; preds = %87, %51, %.lr.ph66.split
   %98 = load i32, ptr %24, align 8
@@ -16823,7 +16823,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate(ptr noundef captures(n
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %16, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !190
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !191
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -16946,7 +16946,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %78 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %79 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !191
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !192
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %80 = phi i32 [ %124, %114 ], [ %48, %.lr.ph ]
@@ -17004,7 +17004,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %123 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %124 = add nsw i32 %80, -1
   %.not71 = icmp eq i32 %80, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !192
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !193
 
 ._crit_edge:                                      ; preds = %114, %70, %.lr.ph80.split
   %125 = add i64 %.06978, %23
@@ -17017,7 +17017,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %131 = add nsw i32 %130, -1
   store i32 %131, ptr %20, align 4
   %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !193
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !194
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -17329,7 +17329,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !194
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !195
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -17352,7 +17352,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !195
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !196
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -17676,7 +17676,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !196
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !197
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -17694,7 +17694,7 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !197
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !198
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -17776,7 +17776,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !198
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -17794,7 +17794,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !199
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !200
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -18037,7 +18037,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !200
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !201
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -18060,7 +18060,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !201
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !202
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -18315,7 +18315,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !202
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !203
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -18333,7 +18333,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !203
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !204
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -18414,7 +18414,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !204
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !205
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -18449,7 +18449,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !205
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -18466,7 +18466,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !206
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !207
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -18563,7 +18563,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !207
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !208
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -18606,7 +18606,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !208
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -18619,7 +18619,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !209
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !210
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -18914,7 +18914,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !210
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !211
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -18937,7 +18937,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !211
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !212
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -19244,7 +19244,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !212
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !213
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -19262,7 +19262,7 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !213
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !214
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -19350,7 +19350,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !214
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !215
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -19368,7 +19368,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !215
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !216
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -19611,7 +19611,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !216
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !217
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -19634,7 +19634,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !217
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !218
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -19889,7 +19889,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !218
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !219
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -19907,7 +19907,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !219
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !220
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -19994,7 +19994,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !220
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !221
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -20029,7 +20029,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !221
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -20046,7 +20046,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !222
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !223
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -20149,7 +20149,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !223
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !224
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -20192,7 +20192,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !224
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -20205,7 +20205,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !225
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !226
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -20500,7 +20500,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !226
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !227
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -20523,7 +20523,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !227
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !228
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -20830,7 +20830,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !228
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !229
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -20848,7 +20848,7 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !229
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !230
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -20930,7 +20930,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02932, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02733, i64 4
   %.not30 = icmp eq i32 %34, 0
-  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !230
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !231
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre43 = load ptr, ptr %19, align 8
@@ -20948,7 +20948,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge39, label %.lr.ph38.split, !llvm.loop !231
+  br i1 %.not, label %._crit_edge39, label %.lr.ph38.split, !llvm.loop !232
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %.lr.ph38.split.us, %1
   ret void
@@ -21208,7 +21208,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !232
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !233
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -21231,7 +21231,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !233
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !234
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -21503,7 +21503,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !234
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !235
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -21521,7 +21521,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !235
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !236
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -21620,7 +21620,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate(ptr noundef captures(n
   %51 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %52 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !236
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !237
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %79
   %53 = phi i32 [ %89, %79 ], [ %36, %.lr.ph ]
@@ -21670,7 +21670,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate(ptr noundef captures(n
   %88 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %89 = add nsw i32 %53, -1
   %.not58 = icmp eq i32 %53, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !237
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !238
 
 ._crit_edge:                                      ; preds = %79, %48, %.lr.ph66.split
   %90 = load i32, ptr %24, align 8
@@ -21687,7 +21687,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate(ptr noundef captures(n
   %99 = add nsw i32 %98, -1
   store i32 %99, ptr %16, align 4
   %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !238
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !239
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -21802,7 +21802,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %70 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %71 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !239
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !240
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %106
   %72 = phi i32 [ %116, %106 ], [ %48, %.lr.ph ]
@@ -21860,7 +21860,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %115 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %116 = add nsw i32 %72, -1
   %.not71 = icmp eq i32 %72, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !240
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %106, %67, %.lr.ph80.split
   %117 = add i64 %.06978, %23
@@ -21873,7 +21873,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %123 = add nsw i32 %122, -1
   store i32 %123, ptr %20, align 4
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !241
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !242
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -22185,7 +22185,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !242
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !243
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -22208,7 +22208,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !243
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !244
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -22532,7 +22532,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !244
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !245
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -22550,7 +22550,7 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !245
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !246
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -22632,7 +22632,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Scale(ptr noundef captures(none
   %45 = add i64 %.03538, %17
   %46 = getelementptr inbounds nuw i8, ptr %.03339, i64 4
   %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !246
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !247
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre49 = load ptr, ptr %19, align 8
@@ -22650,7 +22650,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !247
+  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !248
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %.lr.ph44.split.us, %1
   ret void
@@ -22910,7 +22910,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !248
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !249
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -22933,7 +22933,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !249
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !250
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -23205,7 +23205,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !250
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !251
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -23223,7 +23223,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !251
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !252
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -23330,7 +23330,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate(ptr noundef captures(n
   %59 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %60 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !252
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !253
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %87
   %61 = phi i32 [ %97, %87 ], [ %36, %.lr.ph ]
@@ -23380,7 +23380,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate(ptr noundef captures(n
   %96 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %97 = add nsw i32 %61, -1
   %.not58 = icmp eq i32 %61, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !253
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !254
 
 ._crit_edge:                                      ; preds = %87, %49, %.lr.ph66.split
   %98 = load i32, ptr %24, align 8
@@ -23397,7 +23397,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate(ptr noundef captures(n
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %16, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !254
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !255
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -23520,7 +23520,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %78 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %79 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !255
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !256
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %80 = phi i32 [ %124, %114 ], [ %48, %.lr.ph ]
@@ -23578,7 +23578,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %123 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %124 = add nsw i32 %80, -1
   %.not71 = icmp eq i32 %80, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !256
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %114, %68, %.lr.ph80.split
   %125 = add i64 %.06978, %23
@@ -23591,7 +23591,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %131 = add nsw i32 %130, -1
   store i32 %131, ptr %20, align 4
   %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !257
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !258
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -23903,7 +23903,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !258
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !259
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -23926,7 +23926,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !259
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !260
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -24250,7 +24250,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !260
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !261
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -24268,7 +24268,7 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !261
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !262
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -24356,7 +24356,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !262
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !263
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -24374,7 +24374,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !263
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !264
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -24617,7 +24617,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !264
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !265
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -24640,7 +24640,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !265
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !266
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -24895,7 +24895,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !266
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !267
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -24913,7 +24913,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !267
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !268
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -25000,7 +25000,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !268
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !269
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -25035,7 +25035,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !269
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -25052,7 +25052,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !270
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !271
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -25155,7 +25155,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !271
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !272
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -25198,7 +25198,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !272
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -25211,7 +25211,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !273
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !274
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -25506,7 +25506,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !274
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !275
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -25529,7 +25529,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !275
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !276
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -25836,7 +25836,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !276
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !277
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -25854,7 +25854,7 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !277
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !278
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -25936,7 +25936,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !278
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !279
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -25954,7 +25954,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !279
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !280
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -26197,7 +26197,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !280
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !281
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -26220,7 +26220,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !281
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !282
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -26475,7 +26475,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !282
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !283
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -26493,7 +26493,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !283
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !284
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -26574,7 +26574,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !284
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !285
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -26609,7 +26609,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !285
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -26626,7 +26626,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !286
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !287
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -26723,7 +26723,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !287
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !288
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -26766,7 +26766,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !288
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -26779,7 +26779,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !289
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !290
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -27074,7 +27074,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !290
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !291
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -27097,7 +27097,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !291
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !292
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -27404,7 +27404,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !292
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !293
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -27422,7 +27422,7 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !293
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !294
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -27510,7 +27510,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03538, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03339, i64 4
   %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !294
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !295
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre49 = load ptr, ptr %19, align 8
@@ -27528,7 +27528,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !295
+  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !296
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %.lr.ph44.split.us, %1
   ret void
@@ -27788,7 +27788,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !296
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !297
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -27811,7 +27811,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !297
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !298
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -28083,7 +28083,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !298
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !299
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -28101,7 +28101,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !299
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !300
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -28208,7 +28208,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %59 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %60 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !300
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !301
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %87
   %61 = phi i32 [ %97, %87 ], [ %36, %.lr.ph ]
@@ -28258,7 +28258,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %96 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %97 = add nsw i32 %61, -1
   %.not58 = icmp eq i32 %61, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !301
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !302
 
 ._crit_edge:                                      ; preds = %87, %51, %.lr.ph66.split
   %98 = load i32, ptr %24, align 8
@@ -28275,7 +28275,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate(ptr noundef captures(n
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %16, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !302
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !303
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -28398,7 +28398,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %78 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %79 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !303
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !304
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %80 = phi i32 [ %124, %114 ], [ %48, %.lr.ph ]
@@ -28456,7 +28456,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %123 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %124 = add nsw i32 %80, -1
   %.not71 = icmp eq i32 %80, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !304
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !305
 
 ._crit_edge:                                      ; preds = %114, %70, %.lr.ph80.split
   %125 = add i64 %.06978, %23
@@ -28469,7 +28469,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %131 = add nsw i32 %130, -1
   store i32 %131, ptr %20, align 4
   %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !305
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !306
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -28781,7 +28781,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !306
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !307
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -28804,7 +28804,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !307
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !308
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -29128,7 +29128,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !308
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !309
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -29146,7 +29146,7 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !309
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !310
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -29227,7 +29227,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Scale(ptr noundef captures(none
   %44 = add i64 %.02629, %17
   %45 = getelementptr inbounds nuw i8, ptr %.02430, i64 4
   %.not27 = icmp eq i32 %34, 0
-  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !310
+  br i1 %.not27, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !311
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre40 = load ptr, ptr %19, align 8
@@ -29245,7 +29245,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Scale(ptr noundef captures(none
   %52 = add nsw i32 %46, -1
   store i32 %52, ptr %6, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !311
+  br i1 %.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !312
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %.lr.ph35.split.us, %1
   ret void
@@ -29505,7 +29505,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !312
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !313
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -29528,7 +29528,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !313
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !314
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -29800,7 +29800,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !314
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !315
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -29818,7 +29818,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !315
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !316
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -29919,7 +29919,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %53 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %54 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !316
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !317
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %81
   %55 = phi i32 [ %91, %81 ], [ %36, %.lr.ph ]
@@ -29969,7 +29969,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %90 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %91 = add nsw i32 %55, -1
   %.not58 = icmp eq i32 %55, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !317
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !318
 
 ._crit_edge:                                      ; preds = %81, %48, %.lr.ph66.split
   %92 = load i32, ptr %24, align 8
@@ -29986,7 +29986,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate(ptr noundef captures(n
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %16, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !318
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !319
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -30103,7 +30103,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %72 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %73 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !319
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !320
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %74 = phi i32 [ %118, %108 ], [ %48, %.lr.ph ]
@@ -30161,7 +30161,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %117 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %118 = add nsw i32 %74, -1
   %.not71 = icmp eq i32 %74, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !320
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !321
 
 ._crit_edge:                                      ; preds = %108, %67, %.lr.ph80.split
   %119 = add i64 %.06978, %23
@@ -30174,7 +30174,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %125 = add nsw i32 %124, -1
   store i32 %125, ptr %20, align 4
   %.not = icmp eq i32 %124, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !321
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !322
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -30486,7 +30486,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !322
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !323
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -30509,7 +30509,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !323
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !324
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -30833,7 +30833,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !324
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !325
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -30851,7 +30851,7 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !325
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !326
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -30939,7 +30939,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Scale(ptr noundef captures(none
   %51 = add i64 %.03336, %17
   %52 = getelementptr inbounds nuw i8, ptr %.03137, i64 4
   %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !326
+  br i1 %.not34, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !327
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre47 = load ptr, ptr %19, align 8
@@ -30957,7 +30957,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Scale(ptr noundef captures(none
   %59 = add nsw i32 %53, -1
   store i32 %59, ptr %6, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !327
+  br i1 %.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !328
 
 ._crit_edge43:                                    ; preds = %._crit_edge, %.lr.ph42.split.us, %1
   ret void
@@ -31200,7 +31200,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !328
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !329
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -31223,7 +31223,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !329
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !330
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -31478,7 +31478,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !330
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !331
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -31496,7 +31496,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !331
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !332
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -31583,7 +31583,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate(ptr noundef captures(n
   %45 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %46 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !332
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !333
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i32 [ %73, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -31618,7 +31618,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate(ptr noundef captures(n
   %72 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %73 = add nsw i32 %47, -1
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !333
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !334
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %74 = load i32, ptr %20, align 8
@@ -31635,7 +31635,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate(ptr noundef captures(n
   %83 = add nsw i32 %82, -1
   store i32 %83, ptr %13, align 4
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !334
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !335
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -31738,7 +31738,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %64 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %65 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !335
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !336
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi i32 [ %100, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -31781,7 +31781,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %99 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %100 = add nsw i32 %66, -1
   %.not60 = icmp eq i32 %66, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !336
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !337
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %101 = add i64 %.05866, %20
@@ -31794,7 +31794,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Scale(ptr noundef capt
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %17, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !337
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !338
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -32089,7 +32089,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !338
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !339
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -32112,7 +32112,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !339
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !340
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -32419,7 +32419,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !340
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !341
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -32437,7 +32437,7 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !341
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !342
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -32519,7 +32519,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02831, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02632, i64 4
   %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !342
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !343
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre42 = load ptr, ptr %19, align 8
@@ -32537,7 +32537,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !343
+  br i1 %.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !344
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37.split.us, %1
   ret void
@@ -32780,7 +32780,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none
   %160 = getelementptr inbounds nuw i8, ptr %.0183190, i64 4
   %161 = getelementptr inbounds nuw i8, ptr %.0184189, i64 4
   %.not187 = icmp eq i32 %28, 0
-  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !344
+  br i1 %.not187, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !345
 
 ._crit_edge.loopexit:                             ; preds = %155
   %.pre203 = load ptr, ptr %7, align 8
@@ -32803,7 +32803,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none
   %171 = add nsw i32 %162, -1
   store i32 %171, ptr %4, align 4
   %.not = icmp eq i32 %162, 0
-  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !345
+  br i1 %.not, label %._crit_edge194, label %.lr.ph193.splitthread-pre-split, !llvm.loop !346
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %.lr.ph193.split.us, %1
   ret void
@@ -33058,7 +33058,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale(ptr noundef capture
   %179 = add i64 %.0196203, %19
   %180 = getelementptr inbounds nuw i8, ptr %.0197202, i64 4
   %.not200 = icmp eq i32 %39, 0
-  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !346
+  br i1 %.not200, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !347
 
 ._crit_edge.loopexit:                             ; preds = %174
   %.pre212 = load ptr, ptr %21, align 8
@@ -33076,7 +33076,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale(ptr noundef capture
   %187 = add nsw i32 %181, -1
   store i32 %187, ptr %8, align 4
   %.not = icmp eq i32 %181, 0
-  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !347
+  br i1 %.not, label %._crit_edge208, label %.lr.ph207.split, !llvm.loop !348
 
 ._crit_edge208:                                   ; preds = %._crit_edge, %.lr.ph207.split.us, %1
   ret void
@@ -33157,7 +33157,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate(ptr noundef captures(n
   %39 = getelementptr inbounds nuw i8, ptr %.04451.us, i64 4
   %40 = add nsw i32 %35, -1
   %.not47.us = icmp eq i32 %35, 0
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !348
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !349
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %41 = phi i32 [ %67, %.lr.ph.split ], [ %32, %.lr.ph ]
@@ -33192,7 +33192,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate(ptr noundef captures(n
   %66 = getelementptr inbounds nuw i8, ptr %.04451, i64 4
   %67 = add nsw i32 %41, -1
   %.not47 = icmp eq i32 %41, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !349
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.split, !llvm.loop !350
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph54.split
   %68 = load i32, ptr %20, align 8
@@ -33209,7 +33209,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate(ptr noundef captures(n
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %13, align 4
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !350
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54.splitthread-pre-split, !llvm.loop !351
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %.lr.ph54.split.us, %1
   ret void
@@ -33306,7 +33306,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %58 = getelementptr inbounds nuw i8, ptr %.05664.us, i64 4
   %59 = add nsw i32 %46, -1
   %.not60.us = icmp eq i32 %46, 0
-  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !351
+  br i1 %.not60.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !352
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %94, %.lr.ph.split ], [ %44, %.lr.ph ]
@@ -33349,7 +33349,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %.05664, i64 4
   %94 = add nsw i32 %60, -1
   %.not60 = icmp eq i32 %60, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !352
+  br i1 %.not60, label %._crit_edge, label %.lr.ph.split, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph68.split
   %95 = add i64 %.05866, %20
@@ -33362,7 +33362,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Scale(ptr noundef capt
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %17, align 4
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !353
+  br i1 %.not, label %._crit_edge69, label %.lr.ph68.split, !llvm.loop !354
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.lr.ph68.split.us, %1
   ret void
@@ -33657,7 +33657,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %198 = getelementptr inbounds nuw i8, ptr %.0216224, i64 4
   %199 = getelementptr inbounds nuw i8, ptr %.0217223, i64 4
   %.not219 = icmp eq i32 %42, 0
-  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !354
+  br i1 %.not219, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !355
 
 ._crit_edge.loopexit:                             ; preds = %193
   %.pre237 = load ptr, ptr %19, align 8
@@ -33680,7 +33680,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   %209 = add nsw i32 %200, -1
   store i32 %209, ptr %16, align 4
   %.not = icmp eq i32 %200, 0
-  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !355
+  br i1 %.not, label %._crit_edge228, label %.lr.ph227.splitthread-pre-split, !llvm.loop !356
 
 ._crit_edge228:                                   ; preds = %._crit_edge, %.lr.ph227.split.us, %1
   ret void
@@ -33987,7 +33987,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %217 = add i64 %.0229237, %31
   %218 = getelementptr inbounds nuw i8, ptr %.0230236, i64 4
   %.not232 = icmp eq i32 %53, 0
-  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !356
+  br i1 %.not232, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !357
 
 ._crit_edge.loopexit:                             ; preds = %212
   %.pre246 = load ptr, ptr %33, align 8
@@ -34005,7 +34005,7 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   %225 = add nsw i32 %219, -1
   store i32 %225, ptr %20, align 4
   %.not = icmp eq i32 %219, 0
-  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !357
+  br i1 %.not, label %._crit_edge242, label %.lr.ph241.split, !llvm.loop !358
 
 ._crit_edge242:                                   ; preds = %._crit_edge, %.lr.ph241.split.us, %1
   ret void
@@ -34087,7 +34087,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Scale(ptr noundef captures(none
   %45 = add i64 %.03538, %17
   %46 = getelementptr inbounds nuw i8, ptr %.03339, i64 4
   %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !358
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !359
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre49 = load ptr, ptr %19, align 8
@@ -34105,7 +34105,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !359
+  br i1 %.not, label %._crit_edge45, label %.lr.ph44.split, !llvm.loop !360
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %.lr.ph44.split.us, %1
   ret void
@@ -34365,7 +34365,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !360
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !361
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -34388,7 +34388,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !361
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !362
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -34660,7 +34660,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !362
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !363
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -34678,7 +34678,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !363
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !364
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -34785,7 +34785,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate(ptr noundef captures(n
   %59 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %60 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !364
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !365
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %87
   %61 = phi i32 [ %97, %87 ], [ %36, %.lr.ph ]
@@ -34835,7 +34835,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate(ptr noundef captures(n
   %96 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %97 = add nsw i32 %61, -1
   %.not58 = icmp eq i32 %61, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !365
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !366
 
 ._crit_edge:                                      ; preds = %87, %49, %.lr.ph66.split
   %98 = load i32, ptr %24, align 8
@@ -34852,7 +34852,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate(ptr noundef captures(n
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %16, align 4
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !366
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !367
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -34975,7 +34975,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %78 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %79 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !367
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !368
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %80 = phi i32 [ %124, %114 ], [ %48, %.lr.ph ]
@@ -35033,7 +35033,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %123 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %124 = add nsw i32 %80, -1
   %.not71 = icmp eq i32 %80, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !368
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !369
 
 ._crit_edge:                                      ; preds = %114, %68, %.lr.ph80.split
   %125 = add i64 %.06978, %23
@@ -35046,7 +35046,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Scale(ptr noundef capt
   %131 = add nsw i32 %130, -1
   store i32 %131, ptr %20, align 4
   %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !369
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !370
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -35358,7 +35358,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !370
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !371
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -35381,7 +35381,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !371
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !372
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -35705,7 +35705,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !372
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !373
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -35723,7 +35723,7 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !373
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !374
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -35805,7 +35805,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Scale(ptr noundef captures(none
   %45 = add i64 %.02932, %17
   %46 = getelementptr inbounds nuw i8, ptr %.02733, i64 4
   %.not30 = icmp eq i32 %34, 0
-  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !374
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !375
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre43 = load ptr, ptr %19, align 8
@@ -35823,7 +35823,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Scale(ptr noundef captures(none
   %53 = add nsw i32 %47, -1
   store i32 %53, ptr %6, align 4
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge39, label %.lr.ph38.split, !llvm.loop !375
+  br i1 %.not, label %._crit_edge39, label %.lr.ph38.split, !llvm.loop !376
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %.lr.ph38.split.us, %1
   ret void
@@ -36083,7 +36083,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none
   %175 = getelementptr inbounds nuw i8, ptr %.0204211, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.0205210, i64 4
   %.not208 = icmp eq i32 %28, 0
-  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !376
+  br i1 %.not208, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !377
 
 ._crit_edge.loopexit:                             ; preds = %168
   %.pre224 = load ptr, ptr %7, align 8
@@ -36106,7 +36106,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none
   %186 = add nsw i32 %177, -1
   store i32 %186, ptr %4, align 4
   %.not = icmp eq i32 %177, 0
-  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !377
+  br i1 %.not, label %._crit_edge215, label %.lr.ph214.splitthread-pre-split, !llvm.loop !378
 
 ._crit_edge215:                                   ; preds = %._crit_edge, %.lr.ph214.split.us, %1
   ret void
@@ -36378,7 +36378,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend_Scale(ptr noundef capture
   %194 = add i64 %.0217224, %19
   %195 = getelementptr inbounds nuw i8, ptr %.0218223, i64 4
   %.not221 = icmp eq i32 %39, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !378
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !379
 
 ._crit_edge.loopexit:                             ; preds = %187
   %.pre233 = load ptr, ptr %21, align 8
@@ -36396,7 +36396,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend_Scale(ptr noundef capture
   %202 = add nsw i32 %196, -1
   store i32 %202, ptr %8, align 4
   %.not = icmp eq i32 %196, 0
-  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !379
+  br i1 %.not, label %._crit_edge229, label %.lr.ph228.split, !llvm.loop !380
 
 ._crit_edge229:                                   ; preds = %._crit_edge, %.lr.ph228.split.us, %1
   ret void
@@ -36495,7 +36495,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate(ptr noundef captures(n
   %51 = getelementptr inbounds nuw i8, ptr %.05563.us, i64 4
   %52 = add nsw i32 %39, -1
   %.not58.us = icmp eq i32 %39, 0
-  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !380
+  br i1 %.not58.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !381
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %79
   %53 = phi i32 [ %89, %79 ], [ %36, %.lr.ph ]
@@ -36545,7 +36545,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate(ptr noundef captures(n
   %88 = getelementptr inbounds nuw i8, ptr %.05563, i64 4
   %89 = add nsw i32 %53, -1
   %.not58 = icmp eq i32 %53, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !381
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.split, !llvm.loop !382
 
 ._crit_edge:                                      ; preds = %79, %48, %.lr.ph66.split
   %90 = load i32, ptr %24, align 8
@@ -36562,7 +36562,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate(ptr noundef captures(n
   %99 = add nsw i32 %98, -1
   store i32 %99, ptr %16, align 4
   %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !382
+  br i1 %.not, label %._crit_edge67, label %.lr.ph66.splitthread-pre-split, !llvm.loop !383
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66.split.us, %1
   ret void
@@ -36677,7 +36677,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %70 = getelementptr inbounds nuw i8, ptr %.06776.us, i64 4
   %71 = add nsw i32 %50, -1
   %.not71.us = icmp eq i32 %50, 0
-  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !383
+  br i1 %.not71.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !384
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %106
   %72 = phi i32 [ %116, %106 ], [ %48, %.lr.ph ]
@@ -36735,7 +36735,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %115 = getelementptr inbounds nuw i8, ptr %.06776, i64 4
   %116 = add nsw i32 %72, -1
   %.not71 = icmp eq i32 %72, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !384
+  br i1 %.not71, label %._crit_edge, label %.lr.ph.split, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %106, %67, %.lr.ph80.split
   %117 = add i64 %.06978, %23
@@ -36748,7 +36748,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Scale(ptr noundef capt
   %123 = add nsw i32 %122, -1
   store i32 %123, ptr %20, align 4
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !385
+  br i1 %.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !386
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %.lr.ph80.split.us, %1
   ret void
@@ -37060,7 +37060,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %213 = getelementptr inbounds nuw i8, ptr %.0237245, i64 4
   %214 = getelementptr inbounds nuw i8, ptr %.0238244, i64 4
   %.not240 = icmp eq i32 %42, 0
-  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !386
+  br i1 %.not240, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !387
 
 ._crit_edge.loopexit:                             ; preds = %206
   %.pre258 = load ptr, ptr %19, align 8
@@ -37083,7 +37083,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   %224 = add nsw i32 %215, -1
   store i32 %224, ptr %16, align 4
   %.not = icmp eq i32 %215, 0
-  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !387
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248.splitthread-pre-split, !llvm.loop !388
 
 ._crit_edge249:                                   ; preds = %._crit_edge, %.lr.ph248.split.us, %1
   ret void
@@ -37407,7 +37407,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %232 = add i64 %.0250258, %31
   %233 = getelementptr inbounds nuw i8, ptr %.0251257, i64 4
   %.not253 = icmp eq i32 %53, 0
-  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !388
+  br i1 %.not253, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !389
 
 ._crit_edge.loopexit:                             ; preds = %225
   %.pre267 = load ptr, ptr %33, align 8
@@ -37425,7 +37425,7 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   %240 = add nsw i32 %234, -1
   store i32 %240, ptr %20, align 4
   %.not = icmp eq i32 %234, 0
-  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !389
+  br i1 %.not, label %._crit_edge263, label %.lr.ph262.split, !llvm.loop !390
 
 ._crit_edge263:                                   ; preds = %._crit_edge, %.lr.ph262.split.us, %1
   ret void
@@ -37448,390 +37448,391 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4, !6}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !6}
-!11 = distinct !{!11, !4, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !6}
-!15 = distinct !{!15, !4, !12}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4, !6}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !6}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !6}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4, !6}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4, !6}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4, !6}
-!28 = distinct !{!28, !4, !12}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4, !6}
-!31 = distinct !{!31, !4, !12}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4, !6}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4, !6}
-!36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4, !6}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4, !6}
-!40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4, !6}
-!42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4, !6}
-!44 = distinct !{!44, !4, !12}
-!45 = distinct !{!45, !4}
-!46 = distinct !{!46, !4, !6}
-!47 = distinct !{!47, !4, !12}
-!48 = distinct !{!48, !4}
-!49 = distinct !{!49, !4, !6}
-!50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4, !6}
-!52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4, !6}
-!54 = distinct !{!54, !4}
-!55 = distinct !{!55, !4, !6}
-!56 = distinct !{!56, !4}
-!57 = distinct !{!57, !4, !6}
-!58 = distinct !{!58, !4}
-!59 = distinct !{!59, !4, !6}
-!60 = distinct !{!60, !4, !12}
-!61 = distinct !{!61, !4}
-!62 = distinct !{!62, !4, !6}
-!63 = distinct !{!63, !4, !12}
-!64 = distinct !{!64, !4}
-!65 = distinct !{!65, !4, !6}
-!66 = distinct !{!66, !4}
-!67 = distinct !{!67, !4, !6}
-!68 = distinct !{!68, !4}
-!69 = distinct !{!69, !4, !6}
-!70 = distinct !{!70, !4}
-!71 = distinct !{!71, !4, !6}
-!72 = distinct !{!72, !4}
-!73 = distinct !{!73, !4, !6}
-!74 = distinct !{!74, !4}
-!75 = distinct !{!75, !4, !6}
-!76 = distinct !{!76, !4, !12}
-!77 = distinct !{!77, !4}
-!78 = distinct !{!78, !4, !6}
-!79 = distinct !{!79, !4, !12}
-!80 = distinct !{!80, !4}
-!81 = distinct !{!81, !4, !6}
-!82 = distinct !{!82, !4}
-!83 = distinct !{!83, !4, !6}
-!84 = distinct !{!84, !4}
-!85 = distinct !{!85, !4, !6}
-!86 = distinct !{!86, !4}
-!87 = distinct !{!87, !4, !6}
-!88 = distinct !{!88, !4}
-!89 = distinct !{!89, !4, !6}
-!90 = distinct !{!90, !4}
-!91 = distinct !{!91, !4, !6}
-!92 = distinct !{!92, !4, !12}
-!93 = distinct !{!93, !4}
-!94 = distinct !{!94, !4, !6}
-!95 = distinct !{!95, !4, !12}
-!96 = distinct !{!96, !4}
-!97 = distinct !{!97, !4, !6}
-!98 = distinct !{!98, !4}
-!99 = distinct !{!99, !4, !6}
-!100 = distinct !{!100, !4}
-!101 = distinct !{!101, !4, !6}
-!102 = distinct !{!102, !4}
-!103 = distinct !{!103, !4, !6}
-!104 = distinct !{!104, !4}
-!105 = distinct !{!105, !4, !6}
-!106 = distinct !{!106, !4}
-!107 = distinct !{!107, !4, !6}
-!108 = distinct !{!108, !4, !12}
-!109 = distinct !{!109, !4}
-!110 = distinct !{!110, !4, !6}
-!111 = distinct !{!111, !4, !12}
-!112 = distinct !{!112, !4}
-!113 = distinct !{!113, !4, !6}
-!114 = distinct !{!114, !4}
-!115 = distinct !{!115, !4, !6}
-!116 = distinct !{!116, !4}
-!117 = distinct !{!117, !4, !6}
-!118 = distinct !{!118, !4}
-!119 = distinct !{!119, !4, !6}
-!120 = distinct !{!120, !4}
-!121 = distinct !{!121, !4, !6}
-!122 = distinct !{!122, !4}
-!123 = distinct !{!123, !4, !6}
-!124 = distinct !{!124, !4, !12}
-!125 = distinct !{!125, !4}
-!126 = distinct !{!126, !4, !6}
-!127 = distinct !{!127, !4, !12}
-!128 = distinct !{!128, !4}
-!129 = distinct !{!129, !4, !6}
-!130 = distinct !{!130, !4}
-!131 = distinct !{!131, !4, !6}
-!132 = distinct !{!132, !4}
-!133 = distinct !{!133, !4, !6}
-!134 = distinct !{!134, !4}
-!135 = distinct !{!135, !4, !6}
-!136 = distinct !{!136, !4}
-!137 = distinct !{!137, !4, !6}
-!138 = distinct !{!138, !4}
-!139 = distinct !{!139, !4, !6}
-!140 = distinct !{!140, !4, !12}
-!141 = distinct !{!141, !4}
-!142 = distinct !{!142, !4, !6}
-!143 = distinct !{!143, !4, !12}
-!144 = distinct !{!144, !4}
-!145 = distinct !{!145, !4, !6}
-!146 = distinct !{!146, !4}
-!147 = distinct !{!147, !4, !6}
-!148 = distinct !{!148, !4}
-!149 = distinct !{!149, !4, !6}
-!150 = distinct !{!150, !4}
-!151 = distinct !{!151, !4, !6}
-!152 = distinct !{!152, !4}
-!153 = distinct !{!153, !4, !6}
-!154 = distinct !{!154, !4}
-!155 = distinct !{!155, !4, !6}
-!156 = distinct !{!156, !4, !12}
-!157 = distinct !{!157, !4}
-!158 = distinct !{!158, !4, !6}
-!159 = distinct !{!159, !4, !12}
-!160 = distinct !{!160, !4}
-!161 = distinct !{!161, !4, !6}
-!162 = distinct !{!162, !4}
-!163 = distinct !{!163, !4, !6}
-!164 = distinct !{!164, !4}
-!165 = distinct !{!165, !4, !6}
-!166 = distinct !{!166, !4}
-!167 = distinct !{!167, !4, !6}
-!168 = distinct !{!168, !4}
-!169 = distinct !{!169, !4, !6}
-!170 = distinct !{!170, !4}
-!171 = distinct !{!171, !4, !6}
-!172 = distinct !{!172, !4, !12}
-!173 = distinct !{!173, !4}
-!174 = distinct !{!174, !4, !6}
-!175 = distinct !{!175, !4, !12}
-!176 = distinct !{!176, !4}
-!177 = distinct !{!177, !4, !6}
-!178 = distinct !{!178, !4}
-!179 = distinct !{!179, !4, !6}
-!180 = distinct !{!180, !4}
-!181 = distinct !{!181, !4, !6}
-!182 = distinct !{!182, !4}
-!183 = distinct !{!183, !4, !6}
-!184 = distinct !{!184, !4}
-!185 = distinct !{!185, !4, !6}
-!186 = distinct !{!186, !4}
-!187 = distinct !{!187, !4, !6}
-!188 = distinct !{!188, !4, !12}
-!189 = distinct !{!189, !4}
-!190 = distinct !{!190, !4, !6}
-!191 = distinct !{!191, !4, !12}
-!192 = distinct !{!192, !4}
-!193 = distinct !{!193, !4, !6}
-!194 = distinct !{!194, !4}
-!195 = distinct !{!195, !4, !6}
-!196 = distinct !{!196, !4}
-!197 = distinct !{!197, !4, !6}
-!198 = distinct !{!198, !4}
-!199 = distinct !{!199, !4, !6}
-!200 = distinct !{!200, !4}
-!201 = distinct !{!201, !4, !6}
-!202 = distinct !{!202, !4}
-!203 = distinct !{!203, !4, !6}
-!204 = distinct !{!204, !4, !12}
-!205 = distinct !{!205, !4}
-!206 = distinct !{!206, !4, !6}
-!207 = distinct !{!207, !4, !12}
-!208 = distinct !{!208, !4}
-!209 = distinct !{!209, !4, !6}
-!210 = distinct !{!210, !4}
-!211 = distinct !{!211, !4, !6}
-!212 = distinct !{!212, !4}
-!213 = distinct !{!213, !4, !6}
-!214 = distinct !{!214, !4}
-!215 = distinct !{!215, !4, !6}
-!216 = distinct !{!216, !4}
-!217 = distinct !{!217, !4, !6}
-!218 = distinct !{!218, !4}
-!219 = distinct !{!219, !4, !6}
-!220 = distinct !{!220, !4, !12}
-!221 = distinct !{!221, !4}
-!222 = distinct !{!222, !4, !6}
-!223 = distinct !{!223, !4, !12}
-!224 = distinct !{!224, !4}
-!225 = distinct !{!225, !4, !6}
-!226 = distinct !{!226, !4}
-!227 = distinct !{!227, !4, !6}
-!228 = distinct !{!228, !4}
-!229 = distinct !{!229, !4, !6}
-!230 = distinct !{!230, !4}
-!231 = distinct !{!231, !4, !6}
-!232 = distinct !{!232, !4}
-!233 = distinct !{!233, !4, !6}
-!234 = distinct !{!234, !4}
-!235 = distinct !{!235, !4, !6}
-!236 = distinct !{!236, !4, !12}
-!237 = distinct !{!237, !4}
-!238 = distinct !{!238, !4, !6}
-!239 = distinct !{!239, !4, !12}
-!240 = distinct !{!240, !4}
-!241 = distinct !{!241, !4, !6}
-!242 = distinct !{!242, !4}
-!243 = distinct !{!243, !4, !6}
-!244 = distinct !{!244, !4}
-!245 = distinct !{!245, !4, !6}
-!246 = distinct !{!246, !4}
-!247 = distinct !{!247, !4, !6}
-!248 = distinct !{!248, !4}
-!249 = distinct !{!249, !4, !6}
-!250 = distinct !{!250, !4}
-!251 = distinct !{!251, !4, !6}
-!252 = distinct !{!252, !4, !12}
-!253 = distinct !{!253, !4}
-!254 = distinct !{!254, !4, !6}
-!255 = distinct !{!255, !4, !12}
-!256 = distinct !{!256, !4}
-!257 = distinct !{!257, !4, !6}
-!258 = distinct !{!258, !4}
-!259 = distinct !{!259, !4, !6}
-!260 = distinct !{!260, !4}
-!261 = distinct !{!261, !4, !6}
-!262 = distinct !{!262, !4}
-!263 = distinct !{!263, !4, !6}
-!264 = distinct !{!264, !4}
-!265 = distinct !{!265, !4, !6}
-!266 = distinct !{!266, !4}
-!267 = distinct !{!267, !4, !6}
-!268 = distinct !{!268, !4, !12}
-!269 = distinct !{!269, !4}
-!270 = distinct !{!270, !4, !6}
-!271 = distinct !{!271, !4, !12}
-!272 = distinct !{!272, !4}
-!273 = distinct !{!273, !4, !6}
-!274 = distinct !{!274, !4}
-!275 = distinct !{!275, !4, !6}
-!276 = distinct !{!276, !4}
-!277 = distinct !{!277, !4, !6}
-!278 = distinct !{!278, !4}
-!279 = distinct !{!279, !4, !6}
-!280 = distinct !{!280, !4}
-!281 = distinct !{!281, !4, !6}
-!282 = distinct !{!282, !4}
-!283 = distinct !{!283, !4, !6}
-!284 = distinct !{!284, !4, !12}
-!285 = distinct !{!285, !4}
-!286 = distinct !{!286, !4, !6}
-!287 = distinct !{!287, !4, !12}
-!288 = distinct !{!288, !4}
-!289 = distinct !{!289, !4, !6}
-!290 = distinct !{!290, !4}
-!291 = distinct !{!291, !4, !6}
-!292 = distinct !{!292, !4}
-!293 = distinct !{!293, !4, !6}
-!294 = distinct !{!294, !4}
-!295 = distinct !{!295, !4, !6}
-!296 = distinct !{!296, !4}
-!297 = distinct !{!297, !4, !6}
-!298 = distinct !{!298, !4}
-!299 = distinct !{!299, !4, !6}
-!300 = distinct !{!300, !4, !12}
-!301 = distinct !{!301, !4}
-!302 = distinct !{!302, !4, !6}
-!303 = distinct !{!303, !4, !12}
-!304 = distinct !{!304, !4}
-!305 = distinct !{!305, !4, !6}
-!306 = distinct !{!306, !4}
-!307 = distinct !{!307, !4, !6}
-!308 = distinct !{!308, !4}
-!309 = distinct !{!309, !4, !6}
-!310 = distinct !{!310, !4}
-!311 = distinct !{!311, !4, !6}
-!312 = distinct !{!312, !4}
-!313 = distinct !{!313, !4, !6}
-!314 = distinct !{!314, !4}
-!315 = distinct !{!315, !4, !6}
-!316 = distinct !{!316, !4, !12}
-!317 = distinct !{!317, !4}
-!318 = distinct !{!318, !4, !6}
-!319 = distinct !{!319, !4, !12}
-!320 = distinct !{!320, !4}
-!321 = distinct !{!321, !4, !6}
-!322 = distinct !{!322, !4}
-!323 = distinct !{!323, !4, !6}
-!324 = distinct !{!324, !4}
-!325 = distinct !{!325, !4, !6}
-!326 = distinct !{!326, !4}
-!327 = distinct !{!327, !4, !6}
-!328 = distinct !{!328, !4}
-!329 = distinct !{!329, !4, !6}
-!330 = distinct !{!330, !4}
-!331 = distinct !{!331, !4, !6}
-!332 = distinct !{!332, !4, !12}
-!333 = distinct !{!333, !4}
-!334 = distinct !{!334, !4, !6}
-!335 = distinct !{!335, !4, !12}
-!336 = distinct !{!336, !4}
-!337 = distinct !{!337, !4, !6}
-!338 = distinct !{!338, !4}
-!339 = distinct !{!339, !4, !6}
-!340 = distinct !{!340, !4}
-!341 = distinct !{!341, !4, !6}
-!342 = distinct !{!342, !4}
-!343 = distinct !{!343, !4, !6}
-!344 = distinct !{!344, !4}
-!345 = distinct !{!345, !4, !6}
-!346 = distinct !{!346, !4}
-!347 = distinct !{!347, !4, !6}
-!348 = distinct !{!348, !4, !12}
-!349 = distinct !{!349, !4}
-!350 = distinct !{!350, !4, !6}
-!351 = distinct !{!351, !4, !12}
-!352 = distinct !{!352, !4}
-!353 = distinct !{!353, !4, !6}
-!354 = distinct !{!354, !4}
-!355 = distinct !{!355, !4, !6}
-!356 = distinct !{!356, !4}
-!357 = distinct !{!357, !4, !6}
-!358 = distinct !{!358, !4}
-!359 = distinct !{!359, !4, !6}
-!360 = distinct !{!360, !4}
-!361 = distinct !{!361, !4, !6}
-!362 = distinct !{!362, !4}
-!363 = distinct !{!363, !4, !6}
-!364 = distinct !{!364, !4, !12}
-!365 = distinct !{!365, !4}
-!366 = distinct !{!366, !4, !6}
-!367 = distinct !{!367, !4, !12}
-!368 = distinct !{!368, !4}
-!369 = distinct !{!369, !4, !6}
-!370 = distinct !{!370, !4}
-!371 = distinct !{!371, !4, !6}
-!372 = distinct !{!372, !4}
-!373 = distinct !{!373, !4, !6}
-!374 = distinct !{!374, !4}
-!375 = distinct !{!375, !4, !6}
-!376 = distinct !{!376, !4}
-!377 = distinct !{!377, !4, !6}
-!378 = distinct !{!378, !4}
-!379 = distinct !{!379, !4, !6}
-!380 = distinct !{!380, !4, !12}
-!381 = distinct !{!381, !4}
-!382 = distinct !{!382, !4, !6}
-!383 = distinct !{!383, !4, !12}
-!384 = distinct !{!384, !4}
-!385 = distinct !{!385, !4, !6}
-!386 = distinct !{!386, !4}
-!387 = distinct !{!387, !4, !6}
-!388 = distinct !{!388, !4}
-!389 = distinct !{!389, !4, !6}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5, !7}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5, !7}
+!12 = distinct !{!12, !4, !5, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5, !7}
+!16 = distinct !{!16, !4, !5, !13}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5, !7}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5, !7}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5, !7}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5, !7}
+!25 = distinct !{!25, !4, !5}
+!26 = distinct !{!26, !4, !5, !7}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5, !7}
+!29 = distinct !{!29, !4, !5, !13}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5, !7}
+!32 = distinct !{!32, !4, !5, !13}
+!33 = distinct !{!33, !4, !5}
+!34 = distinct !{!34, !4, !5, !7}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5, !7}
+!37 = distinct !{!37, !4, !5}
+!38 = distinct !{!38, !4, !5, !7}
+!39 = distinct !{!39, !4, !5}
+!40 = distinct !{!40, !4, !5, !7}
+!41 = distinct !{!41, !4, !5}
+!42 = distinct !{!42, !4, !5, !7}
+!43 = distinct !{!43, !4, !5}
+!44 = distinct !{!44, !4, !5, !7}
+!45 = distinct !{!45, !4, !5, !13}
+!46 = distinct !{!46, !4, !5}
+!47 = distinct !{!47, !4, !5, !7}
+!48 = distinct !{!48, !4, !5, !13}
+!49 = distinct !{!49, !4, !5}
+!50 = distinct !{!50, !4, !5, !7}
+!51 = distinct !{!51, !4, !5}
+!52 = distinct !{!52, !4, !5, !7}
+!53 = distinct !{!53, !4, !5}
+!54 = distinct !{!54, !4, !5, !7}
+!55 = distinct !{!55, !4, !5}
+!56 = distinct !{!56, !4, !5, !7}
+!57 = distinct !{!57, !4, !5}
+!58 = distinct !{!58, !4, !5, !7}
+!59 = distinct !{!59, !4, !5}
+!60 = distinct !{!60, !4, !5, !7}
+!61 = distinct !{!61, !4, !5, !13}
+!62 = distinct !{!62, !4, !5}
+!63 = distinct !{!63, !4, !5, !7}
+!64 = distinct !{!64, !4, !5, !13}
+!65 = distinct !{!65, !4, !5}
+!66 = distinct !{!66, !4, !5, !7}
+!67 = distinct !{!67, !4, !5}
+!68 = distinct !{!68, !4, !5, !7}
+!69 = distinct !{!69, !4, !5}
+!70 = distinct !{!70, !4, !5, !7}
+!71 = distinct !{!71, !4, !5}
+!72 = distinct !{!72, !4, !5, !7}
+!73 = distinct !{!73, !4, !5}
+!74 = distinct !{!74, !4, !5, !7}
+!75 = distinct !{!75, !4, !5}
+!76 = distinct !{!76, !4, !5, !7}
+!77 = distinct !{!77, !4, !5, !13}
+!78 = distinct !{!78, !4, !5}
+!79 = distinct !{!79, !4, !5, !7}
+!80 = distinct !{!80, !4, !5, !13}
+!81 = distinct !{!81, !4, !5}
+!82 = distinct !{!82, !4, !5, !7}
+!83 = distinct !{!83, !4, !5}
+!84 = distinct !{!84, !4, !5, !7}
+!85 = distinct !{!85, !4, !5}
+!86 = distinct !{!86, !4, !5, !7}
+!87 = distinct !{!87, !4, !5}
+!88 = distinct !{!88, !4, !5, !7}
+!89 = distinct !{!89, !4, !5}
+!90 = distinct !{!90, !4, !5, !7}
+!91 = distinct !{!91, !4, !5}
+!92 = distinct !{!92, !4, !5, !7}
+!93 = distinct !{!93, !4, !5, !13}
+!94 = distinct !{!94, !4, !5}
+!95 = distinct !{!95, !4, !5, !7}
+!96 = distinct !{!96, !4, !5, !13}
+!97 = distinct !{!97, !4, !5}
+!98 = distinct !{!98, !4, !5, !7}
+!99 = distinct !{!99, !4, !5}
+!100 = distinct !{!100, !4, !5, !7}
+!101 = distinct !{!101, !4, !5}
+!102 = distinct !{!102, !4, !5, !7}
+!103 = distinct !{!103, !4, !5}
+!104 = distinct !{!104, !4, !5, !7}
+!105 = distinct !{!105, !4, !5}
+!106 = distinct !{!106, !4, !5, !7}
+!107 = distinct !{!107, !4, !5}
+!108 = distinct !{!108, !4, !5, !7}
+!109 = distinct !{!109, !4, !5, !13}
+!110 = distinct !{!110, !4, !5}
+!111 = distinct !{!111, !4, !5, !7}
+!112 = distinct !{!112, !4, !5, !13}
+!113 = distinct !{!113, !4, !5}
+!114 = distinct !{!114, !4, !5, !7}
+!115 = distinct !{!115, !4, !5}
+!116 = distinct !{!116, !4, !5, !7}
+!117 = distinct !{!117, !4, !5}
+!118 = distinct !{!118, !4, !5, !7}
+!119 = distinct !{!119, !4, !5}
+!120 = distinct !{!120, !4, !5, !7}
+!121 = distinct !{!121, !4, !5}
+!122 = distinct !{!122, !4, !5, !7}
+!123 = distinct !{!123, !4, !5}
+!124 = distinct !{!124, !4, !5, !7}
+!125 = distinct !{!125, !4, !5, !13}
+!126 = distinct !{!126, !4, !5}
+!127 = distinct !{!127, !4, !5, !7}
+!128 = distinct !{!128, !4, !5, !13}
+!129 = distinct !{!129, !4, !5}
+!130 = distinct !{!130, !4, !5, !7}
+!131 = distinct !{!131, !4, !5}
+!132 = distinct !{!132, !4, !5, !7}
+!133 = distinct !{!133, !4, !5}
+!134 = distinct !{!134, !4, !5, !7}
+!135 = distinct !{!135, !4, !5}
+!136 = distinct !{!136, !4, !5, !7}
+!137 = distinct !{!137, !4, !5}
+!138 = distinct !{!138, !4, !5, !7}
+!139 = distinct !{!139, !4, !5}
+!140 = distinct !{!140, !4, !5, !7}
+!141 = distinct !{!141, !4, !5, !13}
+!142 = distinct !{!142, !4, !5}
+!143 = distinct !{!143, !4, !5, !7}
+!144 = distinct !{!144, !4, !5, !13}
+!145 = distinct !{!145, !4, !5}
+!146 = distinct !{!146, !4, !5, !7}
+!147 = distinct !{!147, !4, !5}
+!148 = distinct !{!148, !4, !5, !7}
+!149 = distinct !{!149, !4, !5}
+!150 = distinct !{!150, !4, !5, !7}
+!151 = distinct !{!151, !4, !5}
+!152 = distinct !{!152, !4, !5, !7}
+!153 = distinct !{!153, !4, !5}
+!154 = distinct !{!154, !4, !5, !7}
+!155 = distinct !{!155, !4, !5}
+!156 = distinct !{!156, !4, !5, !7}
+!157 = distinct !{!157, !4, !5, !13}
+!158 = distinct !{!158, !4, !5}
+!159 = distinct !{!159, !4, !5, !7}
+!160 = distinct !{!160, !4, !5, !13}
+!161 = distinct !{!161, !4, !5}
+!162 = distinct !{!162, !4, !5, !7}
+!163 = distinct !{!163, !4, !5}
+!164 = distinct !{!164, !4, !5, !7}
+!165 = distinct !{!165, !4, !5}
+!166 = distinct !{!166, !4, !5, !7}
+!167 = distinct !{!167, !4, !5}
+!168 = distinct !{!168, !4, !5, !7}
+!169 = distinct !{!169, !4, !5}
+!170 = distinct !{!170, !4, !5, !7}
+!171 = distinct !{!171, !4, !5}
+!172 = distinct !{!172, !4, !5, !7}
+!173 = distinct !{!173, !4, !5, !13}
+!174 = distinct !{!174, !4, !5}
+!175 = distinct !{!175, !4, !5, !7}
+!176 = distinct !{!176, !4, !5, !13}
+!177 = distinct !{!177, !4, !5}
+!178 = distinct !{!178, !4, !5, !7}
+!179 = distinct !{!179, !4, !5}
+!180 = distinct !{!180, !4, !5, !7}
+!181 = distinct !{!181, !4, !5}
+!182 = distinct !{!182, !4, !5, !7}
+!183 = distinct !{!183, !4, !5}
+!184 = distinct !{!184, !4, !5, !7}
+!185 = distinct !{!185, !4, !5}
+!186 = distinct !{!186, !4, !5, !7}
+!187 = distinct !{!187, !4, !5}
+!188 = distinct !{!188, !4, !5, !7}
+!189 = distinct !{!189, !4, !5, !13}
+!190 = distinct !{!190, !4, !5}
+!191 = distinct !{!191, !4, !5, !7}
+!192 = distinct !{!192, !4, !5, !13}
+!193 = distinct !{!193, !4, !5}
+!194 = distinct !{!194, !4, !5, !7}
+!195 = distinct !{!195, !4, !5}
+!196 = distinct !{!196, !4, !5, !7}
+!197 = distinct !{!197, !4, !5}
+!198 = distinct !{!198, !4, !5, !7}
+!199 = distinct !{!199, !4, !5}
+!200 = distinct !{!200, !4, !5, !7}
+!201 = distinct !{!201, !4, !5}
+!202 = distinct !{!202, !4, !5, !7}
+!203 = distinct !{!203, !4, !5}
+!204 = distinct !{!204, !4, !5, !7}
+!205 = distinct !{!205, !4, !5, !13}
+!206 = distinct !{!206, !4, !5}
+!207 = distinct !{!207, !4, !5, !7}
+!208 = distinct !{!208, !4, !5, !13}
+!209 = distinct !{!209, !4, !5}
+!210 = distinct !{!210, !4, !5, !7}
+!211 = distinct !{!211, !4, !5}
+!212 = distinct !{!212, !4, !5, !7}
+!213 = distinct !{!213, !4, !5}
+!214 = distinct !{!214, !4, !5, !7}
+!215 = distinct !{!215, !4, !5}
+!216 = distinct !{!216, !4, !5, !7}
+!217 = distinct !{!217, !4, !5}
+!218 = distinct !{!218, !4, !5, !7}
+!219 = distinct !{!219, !4, !5}
+!220 = distinct !{!220, !4, !5, !7}
+!221 = distinct !{!221, !4, !5, !13}
+!222 = distinct !{!222, !4, !5}
+!223 = distinct !{!223, !4, !5, !7}
+!224 = distinct !{!224, !4, !5, !13}
+!225 = distinct !{!225, !4, !5}
+!226 = distinct !{!226, !4, !5, !7}
+!227 = distinct !{!227, !4, !5}
+!228 = distinct !{!228, !4, !5, !7}
+!229 = distinct !{!229, !4, !5}
+!230 = distinct !{!230, !4, !5, !7}
+!231 = distinct !{!231, !4, !5}
+!232 = distinct !{!232, !4, !5, !7}
+!233 = distinct !{!233, !4, !5}
+!234 = distinct !{!234, !4, !5, !7}
+!235 = distinct !{!235, !4, !5}
+!236 = distinct !{!236, !4, !5, !7}
+!237 = distinct !{!237, !4, !5, !13}
+!238 = distinct !{!238, !4, !5}
+!239 = distinct !{!239, !4, !5, !7}
+!240 = distinct !{!240, !4, !5, !13}
+!241 = distinct !{!241, !4, !5}
+!242 = distinct !{!242, !4, !5, !7}
+!243 = distinct !{!243, !4, !5}
+!244 = distinct !{!244, !4, !5, !7}
+!245 = distinct !{!245, !4, !5}
+!246 = distinct !{!246, !4, !5, !7}
+!247 = distinct !{!247, !4, !5}
+!248 = distinct !{!248, !4, !5, !7}
+!249 = distinct !{!249, !4, !5}
+!250 = distinct !{!250, !4, !5, !7}
+!251 = distinct !{!251, !4, !5}
+!252 = distinct !{!252, !4, !5, !7}
+!253 = distinct !{!253, !4, !5, !13}
+!254 = distinct !{!254, !4, !5}
+!255 = distinct !{!255, !4, !5, !7}
+!256 = distinct !{!256, !4, !5, !13}
+!257 = distinct !{!257, !4, !5}
+!258 = distinct !{!258, !4, !5, !7}
+!259 = distinct !{!259, !4, !5}
+!260 = distinct !{!260, !4, !5, !7}
+!261 = distinct !{!261, !4, !5}
+!262 = distinct !{!262, !4, !5, !7}
+!263 = distinct !{!263, !4, !5}
+!264 = distinct !{!264, !4, !5, !7}
+!265 = distinct !{!265, !4, !5}
+!266 = distinct !{!266, !4, !5, !7}
+!267 = distinct !{!267, !4, !5}
+!268 = distinct !{!268, !4, !5, !7}
+!269 = distinct !{!269, !4, !5, !13}
+!270 = distinct !{!270, !4, !5}
+!271 = distinct !{!271, !4, !5, !7}
+!272 = distinct !{!272, !4, !5, !13}
+!273 = distinct !{!273, !4, !5}
+!274 = distinct !{!274, !4, !5, !7}
+!275 = distinct !{!275, !4, !5}
+!276 = distinct !{!276, !4, !5, !7}
+!277 = distinct !{!277, !4, !5}
+!278 = distinct !{!278, !4, !5, !7}
+!279 = distinct !{!279, !4, !5}
+!280 = distinct !{!280, !4, !5, !7}
+!281 = distinct !{!281, !4, !5}
+!282 = distinct !{!282, !4, !5, !7}
+!283 = distinct !{!283, !4, !5}
+!284 = distinct !{!284, !4, !5, !7}
+!285 = distinct !{!285, !4, !5, !13}
+!286 = distinct !{!286, !4, !5}
+!287 = distinct !{!287, !4, !5, !7}
+!288 = distinct !{!288, !4, !5, !13}
+!289 = distinct !{!289, !4, !5}
+!290 = distinct !{!290, !4, !5, !7}
+!291 = distinct !{!291, !4, !5}
+!292 = distinct !{!292, !4, !5, !7}
+!293 = distinct !{!293, !4, !5}
+!294 = distinct !{!294, !4, !5, !7}
+!295 = distinct !{!295, !4, !5}
+!296 = distinct !{!296, !4, !5, !7}
+!297 = distinct !{!297, !4, !5}
+!298 = distinct !{!298, !4, !5, !7}
+!299 = distinct !{!299, !4, !5}
+!300 = distinct !{!300, !4, !5, !7}
+!301 = distinct !{!301, !4, !5, !13}
+!302 = distinct !{!302, !4, !5}
+!303 = distinct !{!303, !4, !5, !7}
+!304 = distinct !{!304, !4, !5, !13}
+!305 = distinct !{!305, !4, !5}
+!306 = distinct !{!306, !4, !5, !7}
+!307 = distinct !{!307, !4, !5}
+!308 = distinct !{!308, !4, !5, !7}
+!309 = distinct !{!309, !4, !5}
+!310 = distinct !{!310, !4, !5, !7}
+!311 = distinct !{!311, !4, !5}
+!312 = distinct !{!312, !4, !5, !7}
+!313 = distinct !{!313, !4, !5}
+!314 = distinct !{!314, !4, !5, !7}
+!315 = distinct !{!315, !4, !5}
+!316 = distinct !{!316, !4, !5, !7}
+!317 = distinct !{!317, !4, !5, !13}
+!318 = distinct !{!318, !4, !5}
+!319 = distinct !{!319, !4, !5, !7}
+!320 = distinct !{!320, !4, !5, !13}
+!321 = distinct !{!321, !4, !5}
+!322 = distinct !{!322, !4, !5, !7}
+!323 = distinct !{!323, !4, !5}
+!324 = distinct !{!324, !4, !5, !7}
+!325 = distinct !{!325, !4, !5}
+!326 = distinct !{!326, !4, !5, !7}
+!327 = distinct !{!327, !4, !5}
+!328 = distinct !{!328, !4, !5, !7}
+!329 = distinct !{!329, !4, !5}
+!330 = distinct !{!330, !4, !5, !7}
+!331 = distinct !{!331, !4, !5}
+!332 = distinct !{!332, !4, !5, !7}
+!333 = distinct !{!333, !4, !5, !13}
+!334 = distinct !{!334, !4, !5}
+!335 = distinct !{!335, !4, !5, !7}
+!336 = distinct !{!336, !4, !5, !13}
+!337 = distinct !{!337, !4, !5}
+!338 = distinct !{!338, !4, !5, !7}
+!339 = distinct !{!339, !4, !5}
+!340 = distinct !{!340, !4, !5, !7}
+!341 = distinct !{!341, !4, !5}
+!342 = distinct !{!342, !4, !5, !7}
+!343 = distinct !{!343, !4, !5}
+!344 = distinct !{!344, !4, !5, !7}
+!345 = distinct !{!345, !4, !5}
+!346 = distinct !{!346, !4, !5, !7}
+!347 = distinct !{!347, !4, !5}
+!348 = distinct !{!348, !4, !5, !7}
+!349 = distinct !{!349, !4, !5, !13}
+!350 = distinct !{!350, !4, !5}
+!351 = distinct !{!351, !4, !5, !7}
+!352 = distinct !{!352, !4, !5, !13}
+!353 = distinct !{!353, !4, !5}
+!354 = distinct !{!354, !4, !5, !7}
+!355 = distinct !{!355, !4, !5}
+!356 = distinct !{!356, !4, !5, !7}
+!357 = distinct !{!357, !4, !5}
+!358 = distinct !{!358, !4, !5, !7}
+!359 = distinct !{!359, !4, !5}
+!360 = distinct !{!360, !4, !5, !7}
+!361 = distinct !{!361, !4, !5}
+!362 = distinct !{!362, !4, !5, !7}
+!363 = distinct !{!363, !4, !5}
+!364 = distinct !{!364, !4, !5, !7}
+!365 = distinct !{!365, !4, !5, !13}
+!366 = distinct !{!366, !4, !5}
+!367 = distinct !{!367, !4, !5, !7}
+!368 = distinct !{!368, !4, !5, !13}
+!369 = distinct !{!369, !4, !5}
+!370 = distinct !{!370, !4, !5, !7}
+!371 = distinct !{!371, !4, !5}
+!372 = distinct !{!372, !4, !5, !7}
+!373 = distinct !{!373, !4, !5}
+!374 = distinct !{!374, !4, !5, !7}
+!375 = distinct !{!375, !4, !5}
+!376 = distinct !{!376, !4, !5, !7}
+!377 = distinct !{!377, !4, !5}
+!378 = distinct !{!378, !4, !5, !7}
+!379 = distinct !{!379, !4, !5}
+!380 = distinct !{!380, !4, !5, !7}
+!381 = distinct !{!381, !4, !5, !13}
+!382 = distinct !{!382, !4, !5}
+!383 = distinct !{!383, !4, !5, !7}
+!384 = distinct !{!384, !4, !5, !13}
+!385 = distinct !{!385, !4, !5}
+!386 = distinct !{!386, !4, !5, !7}
+!387 = distinct !{!387, !4, !5}
+!388 = distinct !{!388, !4, !5, !7}
+!389 = distinct !{!389, !4, !5}
+!390 = distinct !{!390, !4, !5, !7}

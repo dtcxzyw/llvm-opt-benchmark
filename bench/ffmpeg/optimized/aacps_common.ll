@@ -273,7 +273,7 @@ define i32 @ff_ps_read_data(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   store i32 %157, ptr %158, align 4, !tbaa !12
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
-  br i1 %exitcond454.not, label %.loopexit394, label %154, !llvm.loop !28
+  br i1 %exitcond454.not, label %.loopexit394, label %154, !llvm.loop !29
 
 .loopexit394:                                     ; preds = %151, %154, %.preheader395, %.preheader393
   %.sroa.28305.4 = phi i32 [ %127, %.preheader393 ], [ %127, %.preheader395 ], [ %127, %154 ], [ %153, %151 ]
@@ -322,7 +322,7 @@ define i32 @ff_ps_read_data(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds [10 x ptr], ptr @vlc_ps, i64 0, i64 %187
-  %189 = load ptr, ptr %188, align 8, !tbaa !29
+  %189 = load ptr, ptr %188, align 8, !tbaa !30
   %.not.i = icmp eq i32 %181, 0
   br i1 %.not.i, label %.preheader.i, label %191
 
@@ -351,7 +351,7 @@ define i32 @ff_ps_read_data(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %198 = tail call i32 @llvm.umin.i32(i32 %.sroa.83330.0.copyload, i32 %197)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit388, label %199, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.loopexit388, label %199, !llvm.loop !32
 
 199:                                              ; preds = %196, %.lr.ph.i
   %.sroa.28305.13 = phi i32 [ %spec.select.i255, %.lr.ph.i ], [ %198, %196 ]
@@ -438,7 +438,7 @@ get_vlc2.exit.i:                                  ; preds = %238, %217, %199
   %265 = tail call i32 @llvm.umin.i32(i32 %.sroa.83330.0.copyload, i32 %264)
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count.i
-  br i1 %exitcond88.not.i, label %.loopexit388, label %266, !llvm.loop !32
+  br i1 %exitcond88.not.i, label %.loopexit388, label %266, !llvm.loop !33
 
 266:                                              ; preds = %263, %.lr.ph80.i
   %.sroa.28305.15 = phi i32 [ %spec.select.i255, %.lr.ph80.i ], [ %265, %263 ]
@@ -528,7 +528,7 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   %.sroa.28305.16.ph = phi i32 [ %spec.select.i255, %191 ], [ %spec.select.i255, %.preheader.i ], [ %265, %263 ], [ %198, %196 ]
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond459.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count458
-  br i1 %exitcond459.not, label %.loopexit392, label %170, !llvm.loop !33
+  br i1 %exitcond459.not, label %.loopexit392, label %170, !llvm.loop !34
 
 330:                                              ; preds = %.loopexit394
   %331 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -573,7 +573,7 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   %.not239 = icmp eq i32 %349, 0
   %350 = select i1 %.not239, i64 4, i64 5
   %351 = getelementptr inbounds nuw [10 x ptr], ptr @vlc_ps, i64 0, i64 %350
-  %352 = load ptr, ptr %351, align 8, !tbaa !29
+  %352 = load ptr, ptr %351, align 8, !tbaa !30
   br i1 %.not239, label %.preheader.i270, label %354
 
 .preheader.i270:                                  ; preds = %339
@@ -601,7 +601,7 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   %361 = tail call i32 @llvm.umin.i32(i32 %.sroa.83330.0.copyload, i32 %360)
   %indvars.iv.next.i268 = add nuw nsw i64 %indvars.iv.i263, 1
   %exitcond.not.i269 = icmp eq i64 %indvars.iv.next.i268, %wide.trip.count.i262
-  br i1 %exitcond.not.i269, label %.loopexit383, label %362, !llvm.loop !34
+  br i1 %exitcond.not.i269, label %.loopexit383, label %362, !llvm.loop !35
 
 362:                                              ; preds = %359, %.lr.ph.i259
   %.sroa.28305.17 = phi i32 [ %spec.select.i256, %.lr.ph.i259 ], [ %361, %359 ]
@@ -663,7 +663,7 @@ get_vlc2.exit.i264:                               ; preds = %380, %362
   %406 = tail call i32 @llvm.umin.i32(i32 %.sroa.83330.0.copyload, i32 %405)
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i262
-  br i1 %exitcond69.not.i, label %.loopexit383, label %407, !llvm.loop !35
+  br i1 %exitcond69.not.i, label %.loopexit383, label %407, !llvm.loop !36
 
 407:                                              ; preds = %404, %.lr.ph61.i
   %.sroa.28305.19 = phi i32 [ %spec.select.i256, %.lr.ph61.i ], [ %406, %404 ]
@@ -728,7 +728,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i264,
   %.sroa.28305.20.ph = phi i32 [ %spec.select.i256, %354 ], [ %spec.select.i256, %.preheader.i270 ], [ %406, %404 ], [ %361, %359 ]
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond464.not = icmp eq i64 %indvars.iv.next461, %wide.trip.count463
-  br i1 %exitcond464.not, label %.loopexit387, label %339, !llvm.loop !36
+  br i1 %exitcond464.not, label %.loopexit387, label %339, !llvm.loop !37
 
 448:                                              ; preds = %.loopexit392
   %449 = getelementptr inbounds nuw i8, ptr %2, i64 246
@@ -817,7 +817,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i264,
   %503 = shl nuw nsw i32 %501, %502
   %504 = lshr i32 %503, 7
   %505 = and i32 %504, 1
-  store i32 %505, ptr %479, align 4, !tbaa !37
+  store i32 %505, ptr %479, align 4, !tbaa !38
   %.not26.i = icmp eq i32 %505, 0
   %brmerge = select i1 %.not26.i, i1 true, i1 %483
   br i1 %brmerge, label %.loopexit.i, label %.lr.ph.i273
@@ -845,7 +845,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i264,
   %.not27.i = icmp eq i32 %518, 0
   %519 = select i1 %.not27.i, i64 6, i64 7
   %520 = getelementptr inbounds nuw [10 x ptr], ptr @vlc_ps, i64 0, i64 %519
-  %521 = load ptr, ptr %520, align 8, !tbaa !29
+  %521 = load ptr, ptr %520, align 8, !tbaa !30
   br i1 %.not27.i, label %.preheader.i.i, label %523
 
 .preheader.i.i:                                   ; preds = %508
@@ -896,7 +896,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i264,
   store i8 %549, ptr %550, align 1, !tbaa !13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %read_ipdopd_data.exit.i, label %528, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %read_ipdopd_data.exit.i, label %528, !llvm.loop !39
 
 551:                                              ; preds = %551, %.lr.ph5.i.i
   %.sroa.28305.27 = phi i32 [ %spec.select.i30.i, %.lr.ph5.i.i ], [ %568, %551 ]
@@ -925,7 +925,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i264,
   store i8 %570, ptr %571, align 1, !tbaa !13
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond11.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, %wide.trip.count.i.i
-  br i1 %exitcond11.not.i.i, label %read_ipdopd_data.exit.i, label %551, !llvm.loop !39
+  br i1 %exitcond11.not.i.i, label %read_ipdopd_data.exit.i, label %551, !llvm.loop !40
 
 read_ipdopd_data.exit.i:                          ; preds = %528, %551, %523, %.preheader.i.i
   %.sroa.28305.22 = phi i32 [ %spec.select.i30.i, %.preheader.i.i ], [ %spec.select.i30.i, %523 ], [ %568, %551 ], [ %546, %528 ]
@@ -943,7 +943,7 @@ read_ipdopd_data.exit.i:                          ; preds = %528, %551, %523, %.
   %.not28.i = icmp eq i32 %581, 0
   %582 = select i1 %.not28.i, i64 8, i64 9
   %583 = getelementptr inbounds nuw [10 x ptr], ptr @vlc_ps, i64 0, i64 %582
-  %584 = load ptr, ptr %583, align 8, !tbaa !29
+  %584 = load ptr, ptr %583, align 8, !tbaa !30
   br i1 %.not28.i, label %.preheader.i42.i, label %586
 
 .preheader.i42.i:                                 ; preds = %read_ipdopd_data.exit.i
@@ -994,7 +994,7 @@ read_ipdopd_data.exit.i:                          ; preds = %528, %551, %523, %.
   store i8 %612, ptr %613, align 1, !tbaa !13
   %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
   %exitcond.not.i41.i = icmp eq i64 %indvars.iv.next.i40.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i41.i, label %read_ipdopd_data.exit49.i, label %591, !llvm.loop !38
+  br i1 %exitcond.not.i41.i, label %read_ipdopd_data.exit49.i, label %591, !llvm.loop !39
 
 614:                                              ; preds = %614, %.lr.ph5.i43.i
   %.sroa.28305.25 = phi i32 [ %spec.select.i31.i, %.lr.ph5.i43.i ], [ %631, %614 ]
@@ -1023,13 +1023,13 @@ read_ipdopd_data.exit.i:                          ; preds = %528, %551, %523, %.
   store i8 %633, ptr %634, align 1, !tbaa !13
   %indvars.iv.next9.i47.i = add nuw nsw i64 %indvars.iv8.i45.i, 1
   %exitcond11.not.i48.i = icmp eq i64 %indvars.iv.next9.i47.i, %wide.trip.count.i.i
-  br i1 %exitcond11.not.i48.i, label %read_ipdopd_data.exit49.i, label %614, !llvm.loop !39
+  br i1 %exitcond11.not.i48.i, label %read_ipdopd_data.exit49.i, label %614, !llvm.loop !40
 
 read_ipdopd_data.exit49.i:                        ; preds = %591, %614, %586, %.preheader.i42.i
   %.sroa.28305.23 = phi i32 [ %spec.select.i31.i, %.preheader.i42.i ], [ %spec.select.i31.i, %586 ], [ %631, %614 ], [ %609, %591 ]
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i275, 1
   %exitcond.not.i277 = icmp eq i64 %indvars.iv.next.i276, %wide.trip.count.i274
-  br i1 %exitcond.not.i277, label %.loopexit.i, label %508, !llvm.loop !40
+  br i1 %exitcond.not.i277, label %.loopexit.i, label %508, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %read_ipdopd_data.exit49.i, %494
   %635 = phi i32 [ %spec.select.i.i, %494 ], [ %.sroa.28305.23, %read_ipdopd_data.exit49.i ]
@@ -1044,7 +1044,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
   %.0.i.neg = phi i32 [ %.neg377, %.loopexit.i ], [ -2, %484 ]
   %638 = add i32 %.0.i.neg, %.1196424
   %639 = icmp sgt i32 %638, 7
-  br i1 %639, label %484, label %._crit_edge, !llvm.loop !41
+  br i1 %639, label %484, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %ps_read_extension_data.exit
   %640 = icmp slt i32 %638, 0
@@ -1064,9 +1064,9 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 644:                                              ; preds = %.thread366, %.loopexit387
   %.sroa.28305.9 = phi i32 [ %.sroa.28305.8, %.loopexit387 ], [ %642, %.thread366 ]
   %645 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %646 = load i32, ptr %645, align 4, !tbaa !37
+  %646 = load i32, ptr %645, align 4, !tbaa !38
   %647 = and i32 %646, 1
-  store i32 %647, ptr %645, align 4, !tbaa !37
+  store i32 %647, ptr %645, align 4, !tbaa !38
   %.not225 = icmp eq i8 %130, 0
   br i1 %.not225, label %653, label %648
 
@@ -1114,7 +1114,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
   br label %672
 
 672:                                              ; preds = %665, %663
-  %673 = load i32, ptr %645, align 4, !tbaa !37
+  %673 = load i32, ptr %645, align 4, !tbaa !38
   %.not230 = icmp eq i32 %673, 0
   br i1 %.not230, label %686, label %674
 
@@ -1160,7 +1160,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 699:                                              ; preds = %700
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next466, %wide.trip.count468
-  br i1 %exitcond469.not, label %.loopexit380, label %700, !llvm.loop !42
+  br i1 %exitcond469.not, label %.loopexit380, label %700, !llvm.loop !43
 
 700:                                              ; preds = %.lr.ph429, %699
   %indvars.iv465 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next466, %699 ]
@@ -1201,7 +1201,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 714:                                              ; preds = %715
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next471, %wide.trip.count473
-  br i1 %exitcond474.not, label %.loopexit, label %715, !llvm.loop !43
+  br i1 %exitcond474.not, label %.loopexit, label %715, !llvm.loop !44
 
 715:                                              ; preds = %.lr.ph431, %714
   %indvars.iv470 = phi i64 [ 0, %.lr.ph431 ], [ %indvars.iv.next471, %714 ]
@@ -1227,9 +1227,9 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 724:                                              ; preds = %.loopexit, %648
   %725 = phi i32 [ %.pre477, %.loopexit ], [ %160, %648 ]
   %726 = getelementptr inbounds nuw i8, ptr %2, i64 756
-  %727 = load i32, ptr %726, align 4, !tbaa !44
+  %727 = load i32, ptr %726, align 4, !tbaa !45
   %728 = getelementptr inbounds nuw i8, ptr %2, i64 760
-  store i32 %727, ptr %728, align 4, !tbaa !45
+  store i32 %727, ptr %728, align 4, !tbaa !46
   %.not233 = icmp eq i32 %725, 0
   br i1 %.not233, label %729, label %731
 
@@ -1258,11 +1258,11 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 
 740:                                              ; preds = %735, %.thread375, %731
   %741 = phi i32 [ 1, %731 ], [ 0, %735 ], [ %739, %.thread375 ]
-  store i32 %741, ptr %726, align 4, !tbaa !44
+  store i32 %741, ptr %726, align 4, !tbaa !45
   br label %742
 
 742:                                              ; preds = %740, %729
-  %743 = load i32, ptr %645, align 4, !tbaa !37
+  %743 = load i32, ptr %645, align 4, !tbaa !38
   %.not237 = icmp eq i32 %743, 0
   br i1 %.not237, label %744, label %746
 
@@ -1275,7 +1275,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
   br i1 %.not, label %748, label %747
 
 747:                                              ; preds = %746
-  store i32 1, ptr %2, align 4, !tbaa !46
+  store i32 1, ptr %2, align 4, !tbaa !47
   br label %748
 
 748:                                              ; preds = %747, %746
@@ -1286,7 +1286,7 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
 750:                                              ; preds = %748
   %751 = load i32, ptr %5, align 8, !tbaa !4
   %752 = sub nsw i32 0, %751
-  %753 = load i32, ptr %.sroa.83330.0..sroa_idx, align 8, !tbaa !47
+  %753 = load i32, ptr %.sroa.83330.0..sroa_idx, align 8, !tbaa !48
   %754 = sub nsw i32 %753, %751
   %755 = icmp slt i32 %749, %752
   %..i.i = tail call i32 @llvm.smin.i32(i32 %749, i32 %754)
@@ -1300,10 +1300,10 @@ ps_read_extension_data.exit:                      ; preds = %484, %.loopexit.i
   br label %.thread371
 
 .thread371:                                       ; preds = %719, %706, %643, %read_icc_data.exit, %read_iid_data.exit, %53, %757, %150, %78
-  store i32 0, ptr %2, align 4, !tbaa !46
+  store i32 0, ptr %2, align 4, !tbaa !47
   %758 = load i32, ptr %5, align 8, !tbaa !4
   %759 = sub nsw i32 0, %758
-  %760 = load i32, ptr %.sroa.83330.0..sroa_idx, align 8, !tbaa !47
+  %760 = load i32, ptr %.sroa.83330.0..sroa_idx, align 8, !tbaa !48
   %761 = sub nsw i32 %760, %758
   %762 = icmp slt i32 %3, %759
   %..i.i279 = tail call i32 @llvm.smin.i32(i32 %3, i32 %761)
@@ -1358,12 +1358,12 @@ define void @ff_ps_init_common() local_unnamed_addr #5 {
   %11 = sext i8 %10 to i32
   %12 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef %4, i32 noundef %7, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %.0911, i32 noundef 2, i32 noundef 1, i32 noundef %11, i32 noundef 0) #7
   %13 = getelementptr inbounds nuw [10 x ptr], ptr @vlc_ps, i64 0, i64 %indvars.iv
-  store ptr %12, ptr %13, align 8, !tbaa !29
+  store ptr %12, ptr %13, align 8, !tbaa !30
   %14 = zext i8 %6 to i64
   %15 = getelementptr inbounds nuw [2 x i8], ptr %.0911, i64 %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !48
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !49
 }
 
 declare ptr @ff_vlc_init_tables_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -1420,26 +1420,27 @@ attributes #7 = { nounwind }
 !23 = !{!15, !10, i64 36}
 !24 = !{!15, !10, i64 44}
 !25 = !{!15, !10, i64 40}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27}
-!37 = !{!15, !10, i64 48}
-!38 = distinct !{!38, !27}
-!39 = distinct !{!39, !27}
-!40 = distinct !{!40, !27}
-!41 = distinct !{!41, !27}
-!42 = distinct !{!42, !27}
-!43 = distinct !{!43, !27}
-!44 = !{!15, !10, i64 756}
-!45 = !{!15, !10, i64 760}
-!46 = !{!15, !10, i64 0}
-!47 = !{!5, !10, i64 24}
-!48 = distinct !{!48, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}
+!36 = distinct !{!36, !27, !28}
+!37 = distinct !{!37, !27, !28}
+!38 = !{!15, !10, i64 48}
+!39 = distinct !{!39, !27, !28}
+!40 = distinct !{!40, !27, !28}
+!41 = distinct !{!41, !27, !28}
+!42 = distinct !{!42, !27, !28}
+!43 = distinct !{!43, !27, !28}
+!44 = distinct !{!44, !27, !28}
+!45 = !{!15, !10, i64 756}
+!46 = !{!15, !10, i64 760}
+!47 = !{!15, !10, i64 0}
+!48 = !{!5, !10, i64 24}
+!49 = distinct !{!49, !27, !28}

@@ -351,8 +351,8 @@ define internal range(i32 -2147483648, 1) i32 @genh_read_header(ptr noundef %0) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !52
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -409,7 +409,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %36 = load ptr, ptr %20, align 8, !tbaa !27
   %37 = tail call i32 @avio_r8(ptr noundef %36) #4
   %38 = trunc i32 %37 to i8
-  %39 = load ptr, ptr %30, align 8, !tbaa !55
+  %39 = load ptr, ptr %30, align 8, !tbaa !56
   %40 = shl nsw i32 %.03850, 3
   %41 = load i32, ptr %28, align 4, !tbaa !41
   %42 = mul i32 %41, %.03951
@@ -420,7 +420,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %46 = load ptr, ptr %20, align 8, !tbaa !27
   %47 = tail call i32 @avio_r8(ptr noundef %46) #4
   %48 = trunc i32 %47 to i8
-  %49 = load ptr, ptr %30, align 8, !tbaa !55
+  %49 = load ptr, ptr %30, align 8, !tbaa !56
   %50 = load i32, ptr %28, align 4, !tbaa !41
   %51 = mul i32 %50, %.03951
   %52 = or disjoint i32 %40, 1
@@ -431,7 +431,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %56 = add nuw nsw i32 %.03850, 1
   %57 = load i32, ptr %16, align 4, !tbaa !38
   %58 = icmp slt i32 %56, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !56
+  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre55 = load i32, ptr %28, align 4, !tbaa !41
@@ -443,7 +443,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %61 = add nuw nsw i32 %.03951, 1
   %62 = udiv i32 8, %59
   %63 = icmp samesign ult i32 %61, %62
-  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !57
+  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !58
 
 ._crit_edge54:                                    ; preds = %2
   %64 = icmp eq i32 %13, 81924
@@ -480,7 +480,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader49, %65, %80
   %.1 = phi i32 [ %71, %65 ], [ %82, %80 ], [ 0, %.preheader49 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %83, align 4, !tbaa !59
+  store i32 0, ptr %83, align 4, !tbaa !60
   br label %.thread
 
 .thread:                                          ; preds = %23, %19, %.loopexit
@@ -576,13 +576,14 @@ attributes #4 = { nounwind }
 !47 = !{!36, !6, i64 16}
 !48 = !{!36, !10, i64 4}
 !49 = !{!42, !10, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!13, !18, i64 48}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!55 = !{!32, !6, i64 24}
-!56 = distinct !{!56, !51}
-!57 = distinct !{!57, !51, !58}
-!58 = !{!"llvm.loop.unswitch.partial.disable"}
-!59 = !{!32, !10, i64 36}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!13, !18, i64 48}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!56 = !{!32, !6, i64 24}
+!57 = distinct !{!57, !51, !52}
+!58 = distinct !{!58, !51, !52, !59}
+!59 = !{!"llvm.loop.unswitch.partial.disable"}
+!60 = !{!32, !10, i64 36}

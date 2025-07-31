@@ -609,7 +609,7 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   %136 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %135, i32 noundef %.267.i)
   %137 = add i16 %.06466.i, -1
   %.not.i88 = icmp eq i16 %137, 0
-  br i1 %.not.i88, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87, !llvm.loop !8
+  br i1 %.not.i88, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87, !llvm.loop !9
 
 138:                                              ; preds = %33, %33
   %139 = load i32, ptr @ett_ancp_len, align 4
@@ -623,7 +623,7 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   %.194 = phi i32 [ %144, %.lr.ph ], [ 16, %138 ]
   %144 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %140, i32 noundef %.194)
   %145 = icmp slt i32 %144, %142
-  br i1 %145, label %.lr.ph, label %dissect_ancp_adj_msg.exit, !llvm.loop !9
+  br i1 %145, label %.lr.ph, label %dissect_ancp_adj_msg.exit, !llvm.loop !10
 
 146:                                              ; preds = %33
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.185, i32 noundef %30)
@@ -741,7 +741,7 @@ define internal fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %1, i32
   %38 = add i32 %37, %23
   %39 = add nsw i16 %.06769, -1
   %.not = icmp eq i16 %39, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 40:                                               ; preds = %3
   %41 = load i32, ptr @hf_ancp_oam_opaque, align 4
@@ -809,8 +809,9 @@ attributes #3 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

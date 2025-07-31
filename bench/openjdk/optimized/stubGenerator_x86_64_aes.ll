@@ -1385,7 +1385,7 @@ define hidden noundef ptr @_ZN13StubGenerator44generate_cipherBlockChaining_encr
   call void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %110, i32 0, i32 %.0162174) #7
   %111 = add nuw nsw i32 %.0162174, 1
   %exitcond177.not = icmp eq i32 %111, 12
-  br i1 %exitcond177.not, label %112, label %109, !llvm.loop !8
+  br i1 %exitcond177.not, label %112, label %109, !llvm.loop !9
 
 112:                                              ; preds = %109
   %113 = load ptr, ptr %27, align 8
@@ -1525,7 +1525,7 @@ define hidden noundef ptr @_ZN13StubGenerator44generate_cipherBlockChaining_encr
   call void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %175, i32 0, i32 %.0163175) #7
   %176 = add nuw nsw i32 %.0163175, 1
   %exitcond178.not = icmp eq i32 %176, 14
-  br i1 %exitcond178.not, label %177, label %174, !llvm.loop !9
+  br i1 %exitcond178.not, label %177, label %174, !llvm.loop !10
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %27, align 8
@@ -1613,7 +1613,7 @@ define hidden noundef ptr @_ZN13StubGenerator44generate_cipherBlockChaining_encr
   call void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %216, i32 0, i32 %.0164176) #7
   %217 = add nuw nsw i32 %.0164176, 1
   %exitcond179.not = icmp eq i32 %217, 16
-  br i1 %exitcond179.not, label %218, label %215, !llvm.loop !10
+  br i1 %exitcond179.not, label %218, label %215, !llvm.loop !11
 
 218:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -3325,7 +3325,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %98, align 8
   %.add = add nuw nsw i64 %.idx, 40
   %99 = icmp eq i64 %.add, 120
-  br i1 %99, label %.preheader595, label %95
+  br i1 %99, label %.preheader595, label %95, !llvm.loop !12
 
 .preheader595:                                    ; preds = %95, %.preheader595
   %.idx513 = phi i64 [ %.add514, %.preheader595 ], [ 0, %95 ]
@@ -3339,7 +3339,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %102, align 8
   %.add514 = add nuw nsw i64 %.idx513, 40
   %103 = icmp eq i64 %.add514, 120
-  br i1 %103, label %.preheader594, label %.preheader595
+  br i1 %103, label %.preheader594, label %.preheader595, !llvm.loop !13
 
 .preheader594:                                    ; preds = %.preheader595, %.preheader594
   %.idx517 = phi i64 [ %.add518, %.preheader594 ], [ 0, %.preheader595 ]
@@ -3353,7 +3353,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %106, align 8
   %.add518 = add nuw nsw i64 %.idx517, 40
   %107 = icmp eq i64 %.add518, 120
-  br i1 %107, label %.preheader593, label %.preheader594
+  br i1 %107, label %.preheader593, label %.preheader594, !llvm.loop !14
 
 .preheader593:                                    ; preds = %.preheader594, %.preheader593
   %.idx521 = phi i64 [ %.add522, %.preheader593 ], [ 0, %.preheader594 ]
@@ -3367,7 +3367,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %110, align 8
   %.add522 = add nuw nsw i64 %.idx521, 40
   %111 = icmp eq i64 %.add522, 120
-  br i1 %111, label %.preheader, label %.preheader593
+  br i1 %111, label %.preheader, label %.preheader593, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader593, %.preheader
   %.idx525 = phi i64 [ %.add526, %.preheader ], [ 0, %.preheader593 ]
@@ -3381,7 +3381,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %114, align 8
   %.add526 = add nuw nsw i64 %.idx525, 40
   %115 = icmp eq i64 %.add526, 120
-  br i1 %115, label %116, label %.preheader
+  br i1 %115, label %116, label %.preheader, !llvm.loop !16
 
 116:                                              ; preds = %.preheader
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %87) #7
@@ -3430,7 +3430,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %136 = add nuw nsw i32 %.0501567, 16
   %137 = add nuw nsw i32 %.0568, 1
   %exitcond.not = icmp eq i32 %137, 15
-  br i1 %exitcond.not, label %138, label %133, !llvm.loop !11
+  br i1 %exitcond.not, label %138, label %133, !llvm.loop !17
 
 138:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38)
@@ -4239,7 +4239,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %607, i32 4, i32 %spec.select.i534) #7
   %608 = add nuw nsw i32 %.0503575, 1
   %exitcond584.not = icmp eq i32 %608, 10
-  br i1 %exitcond584.not, label %.sink.split, label %.lr.ph576, !llvm.loop !12
+  br i1 %exitcond584.not, label %.sink.split, label %.lr.ph576, !llvm.loop !18
 
 609:                                              ; preds = %594
   br i1 %582, label %.lr.ph573.preheader, label %625
@@ -4266,7 +4266,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %617, i32 4, i32 %spec.select.i542) #7
   %618 = add nuw i32 %.0504572, 1
   %exitcond582.not = icmp eq i32 %.0504572, %smax581
-  br i1 %exitcond582.not, label %._crit_edge574, label %.lr.ph573, !llvm.loop !13
+  br i1 %exitcond582.not, label %._crit_edge574, label %.lr.ph573, !llvm.loop !19
 
 ._crit_edge574:                                   ; preds = %.lr.ph573
   %619 = load ptr, ptr %83, align 8
@@ -4320,7 +4320,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %631, i32 4, i32 %spec.select.i550) #7
   %632 = add nuw i32 %.0505570, 1
   %exitcond580.not = icmp eq i32 %632, 11
-  br i1 %exitcond580.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond580.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %633 = load ptr, ptr %83, align 8
@@ -4659,7 +4659,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %710, i32 0, i32 %711) #7
   %712 = add nuw nsw i32 %.0506578, 1
   %exitcond585.not = icmp eq i32 %712, 10
-  br i1 %exitcond585.not, label %713, label %709, !llvm.loop !15
+  br i1 %exitcond585.not, label %713, label %709, !llvm.loop !21
 
 713:                                              ; preds = %709
   br i1 %582, label %.thread560, label %715
@@ -5141,7 +5141,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %89, align 8
   %.add = add nuw nsw i64 %.idx, 40
   %90 = icmp eq i64 %.add, 120
-  br i1 %90, label %.preheader684, label %86
+  br i1 %90, label %.preheader684, label %86, !llvm.loop !22
 
 .preheader684:                                    ; preds = %86, %.preheader684
   %.idx587 = phi i64 [ %.add588, %.preheader684 ], [ 0, %86 ]
@@ -5155,7 +5155,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %93, align 8
   %.add588 = add nuw nsw i64 %.idx587, 40
   %94 = icmp eq i64 %.add588, 120
-  br i1 %94, label %.preheader683, label %.preheader684
+  br i1 %94, label %.preheader683, label %.preheader684, !llvm.loop !23
 
 .preheader683:                                    ; preds = %.preheader684, %.preheader683
   %.idx591 = phi i64 [ %.add592, %.preheader683 ], [ 0, %.preheader684 ]
@@ -5169,7 +5169,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %97, align 8
   %.add592 = add nuw nsw i64 %.idx591, 40
   %98 = icmp eq i64 %.add592, 720
-  br i1 %98, label %.preheader682, label %.preheader683
+  br i1 %98, label %.preheader682, label %.preheader683, !llvm.loop !24
 
 .preheader682:                                    ; preds = %.preheader683, %.preheader682
   %.idx595 = phi i64 [ %.add596, %.preheader682 ], [ 0, %.preheader683 ]
@@ -5183,7 +5183,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %101, align 8
   %.add596 = add nuw nsw i64 %.idx595, 40
   %102 = icmp eq i64 %.add596, 120
-  br i1 %102, label %.preheader681, label %.preheader682
+  br i1 %102, label %.preheader681, label %.preheader682, !llvm.loop !25
 
 .preheader681:                                    ; preds = %.preheader682, %.preheader681
   %.idx599 = phi i64 [ %.add600, %.preheader681 ], [ 0, %.preheader682 ]
@@ -5197,7 +5197,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %105, align 8
   %.add600 = add nuw nsw i64 %.idx599, 40
   %106 = icmp eq i64 %.add600, 120
-  br i1 %106, label %.preheader680, label %.preheader681
+  br i1 %106, label %.preheader680, label %.preheader681, !llvm.loop !26
 
 .preheader680:                                    ; preds = %.preheader681, %.preheader680
   %.idx603 = phi i64 [ %.add604, %.preheader680 ], [ 0, %.preheader681 ]
@@ -5211,7 +5211,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %109, align 8
   %.add604 = add nuw nsw i64 %.idx603, 40
   %110 = icmp eq i64 %.add604, 120
-  br i1 %110, label %.preheader679, label %.preheader680
+  br i1 %110, label %.preheader679, label %.preheader680, !llvm.loop !27
 
 .preheader679:                                    ; preds = %.preheader680, %.preheader679
   %.idx607 = phi i64 [ %.add608, %.preheader679 ], [ 0, %.preheader680 ]
@@ -5225,7 +5225,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %113, align 8
   %.add608 = add nuw nsw i64 %.idx607, 40
   %114 = icmp eq i64 %.add608, 120
-  br i1 %114, label %.preheader678, label %.preheader679
+  br i1 %114, label %.preheader678, label %.preheader679, !llvm.loop !28
 
 .preheader678:                                    ; preds = %.preheader679, %.preheader678
   %.idx611 = phi i64 [ %.add612, %.preheader678 ], [ 0, %.preheader679 ]
@@ -5239,7 +5239,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %117, align 8
   %.add612 = add nuw nsw i64 %.idx611, 40
   %118 = icmp eq i64 %.add612, 120
-  br i1 %118, label %.preheader677, label %.preheader678
+  br i1 %118, label %.preheader677, label %.preheader678, !llvm.loop !29
 
 .preheader677:                                    ; preds = %.preheader678, %.preheader677
   %.idx615 = phi i64 [ %.add616, %.preheader677 ], [ 0, %.preheader678 ]
@@ -5253,7 +5253,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %121, align 8
   %.add616 = add nuw nsw i64 %.idx615, 40
   %122 = icmp eq i64 %.add616, 120
-  br i1 %122, label %.preheader676, label %.preheader677
+  br i1 %122, label %.preheader676, label %.preheader677, !llvm.loop !30
 
 .preheader676:                                    ; preds = %.preheader677, %.preheader676
   %.idx619 = phi i64 [ %.add620, %.preheader676 ], [ 0, %.preheader677 ]
@@ -5267,7 +5267,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %125, align 8
   %.add620 = add nuw nsw i64 %.idx619, 40
   %126 = icmp eq i64 %.add620, 120
-  br i1 %126, label %.preheader675, label %.preheader676
+  br i1 %126, label %.preheader675, label %.preheader676, !llvm.loop !31
 
 .preheader675:                                    ; preds = %.preheader676, %.preheader675
   %.idx623 = phi i64 [ %.add624, %.preheader675 ], [ 0, %.preheader676 ]
@@ -5281,7 +5281,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %129, align 8
   %.add624 = add nuw nsw i64 %.idx623, 40
   %130 = icmp eq i64 %.add624, 120
-  br i1 %130, label %.preheader674, label %.preheader675
+  br i1 %130, label %.preheader674, label %.preheader675, !llvm.loop !32
 
 .preheader674:                                    ; preds = %.preheader675, %.preheader674
   %.idx627 = phi i64 [ %.add628, %.preheader674 ], [ 0, %.preheader675 ]
@@ -5295,7 +5295,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %133, align 8
   %.add628 = add nuw nsw i64 %.idx627, 40
   %134 = icmp eq i64 %.add628, 120
-  br i1 %134, label %.preheader, label %.preheader674
+  br i1 %134, label %.preheader, label %.preheader674, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader674, %.preheader
   %.idx631 = phi i64 [ %.add632, %.preheader ], [ 0, %.preheader674 ]
@@ -5309,7 +5309,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %137, align 8
   %.add632 = add nuw nsw i64 %.idx631, 40
   %138 = icmp eq i64 %.add632, 120
-  br i1 %138, label %139, label %.preheader
+  br i1 %138, label %139, label %.preheader, !llvm.loop !34
 
 139:                                              ; preds = %.preheader
   store i32 -1, ptr %25, align 8
@@ -5976,7 +5976,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
 561:                                              ; preds = %555, %549
   %562 = add nuw nsw i32 %.0570666, 2
   %563 = icmp slt i32 %562, %534
-  br i1 %563, label %.lr.ph, label %.lr.ph669.preheader, !llvm.loop !16
+  br i1 %563, label %.lr.ph, label %.lr.ph669.preheader, !llvm.loop !35
 
 .lr.ph669.preheader:                              ; preds = %561
   %564 = load ptr, ptr %63, align 8
@@ -6198,7 +6198,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   call void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %608, i32 5, i32 3) #7
   %609 = add nuw nsw i32 %.0571667, 1
   %exitcond.not = icmp eq i32 %609, %smax
-  br i1 %exitcond.not, label %._crit_edge670, label %.lr.ph669, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge670, label %.lr.ph669, !llvm.loop !36
 
 ._crit_edge670:                                   ; preds = %.lr.ph669
   %610 = shl nsw i32 %534, 4
@@ -6436,7 +6436,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %681, ptr noundef nonnull align 8 dereferenceable(33) %25, i1 noundef zeroext true) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond673.not, label %.preheader665.preheader, label %.lr.ph.preheader, !llvm.loop !18
+  br i1 %exitcond673.not, label %.preheader665.preheader, label %.lr.ph.preheader, !llvm.loop !37
 
 .preheader665.preheader:                          ; preds = %._crit_edge670
   %682 = load ptr, ptr %63, align 8
@@ -6954,7 +6954,7 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit:
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %260, i32 12, i32 12, i32 6, i32 noundef 2) #7
   %261 = add nuw nsw i32 %.0940, 1
   %exitcond.not = icmp eq i32 %261, 10
-  br i1 %exitcond.not, label %262, label %252, !llvm.loop !19
+  br i1 %exitcond.not, label %262, label %252, !llvm.loop !38
 
 262:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27)
@@ -8979,7 +8979,7 @@ define hidden void @_ZN13StubGenerator14aesctr_encryptE8RegisterS0_S0_S0_S0_S0_S
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %528, i32 %.011.i, i32 %.011.i, i32 21, i32 noundef 2) #7
   %529 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %.011.i, 7
-  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, label %527, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, label %527, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit:  ; preds = %527
   %530 = load ptr, ptr %253, align 8
@@ -8998,7 +8998,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit:  ; preds = %527
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %535, i32 %.011.i952, i32 %.011.i952, i32 22, i32 noundef 2) #7
   %536 = add nuw nsw i32 %.011.i952, 1
   %exitcond.not.i955 = icmp eq i32 %.011.i952, 7
-  br i1 %exitcond.not.i955, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit956, label %534, !llvm.loop !20
+  br i1 %exitcond.not.i955, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit956, label %534, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit956: ; preds = %534
   %537 = load ptr, ptr %253, align 8
@@ -9017,7 +9017,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit956: ; preds = %534
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %542, i32 %.011.i957, i32 %.011.i957, i32 23, i32 noundef 2) #7
   %543 = add nuw nsw i32 %.011.i957, 1
   %exitcond.not.i960 = icmp eq i32 %.011.i957, 7
-  br i1 %exitcond.not.i960, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit961, label %541, !llvm.loop !20
+  br i1 %exitcond.not.i960, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit961, label %541, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit961: ; preds = %541
   %544 = load ptr, ptr %253, align 8
@@ -9036,7 +9036,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit961: ; preds = %541
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %549, i32 %.011.i962, i32 %.011.i962, i32 24, i32 noundef 2) #7
   %550 = add nuw nsw i32 %.011.i962, 1
   %exitcond.not.i965 = icmp eq i32 %.011.i962, 7
-  br i1 %exitcond.not.i965, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit966, label %548, !llvm.loop !20
+  br i1 %exitcond.not.i965, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit966, label %548, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit966: ; preds = %548
   %551 = load ptr, ptr %253, align 8
@@ -9055,7 +9055,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit966: ; preds = %548
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %556, i32 %.011.i967, i32 %.011.i967, i32 25, i32 noundef 2) #7
   %557 = add nuw nsw i32 %.011.i967, 1
   %exitcond.not.i970 = icmp eq i32 %.011.i967, 7
-  br i1 %exitcond.not.i970, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit971, label %555, !llvm.loop !20
+  br i1 %exitcond.not.i970, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit971, label %555, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit971: ; preds = %555
   %558 = load ptr, ptr %253, align 8
@@ -9074,7 +9074,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit971: ; preds = %555
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %563, i32 %.011.i972, i32 %.011.i972, i32 26, i32 noundef 2) #7
   %564 = add nuw nsw i32 %.011.i972, 1
   %exitcond.not.i975 = icmp eq i32 %.011.i972, 7
-  br i1 %exitcond.not.i975, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit976, label %562, !llvm.loop !20
+  br i1 %exitcond.not.i975, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit976, label %562, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit976: ; preds = %562
   %565 = load ptr, ptr %253, align 8
@@ -9093,7 +9093,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit976: ; preds = %562
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %570, i32 %.011.i977, i32 %.011.i977, i32 27, i32 noundef 2) #7
   %571 = add nuw nsw i32 %.011.i977, 1
   %exitcond.not.i980 = icmp eq i32 %.011.i977, 7
-  br i1 %exitcond.not.i980, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit981, label %569, !llvm.loop !20
+  br i1 %exitcond.not.i980, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit981, label %569, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit981: ; preds = %569
   %572 = load ptr, ptr %253, align 8
@@ -9112,7 +9112,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit981: ; preds = %569
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %577, i32 %.011.i982, i32 %.011.i982, i32 28, i32 noundef 2) #7
   %578 = add nuw nsw i32 %.011.i982, 1
   %exitcond.not.i985 = icmp eq i32 %.011.i982, 7
-  br i1 %exitcond.not.i985, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit986, label %576, !llvm.loop !20
+  br i1 %exitcond.not.i985, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit986, label %576, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit986: ; preds = %576
   %579 = load ptr, ptr %253, align 8
@@ -9131,7 +9131,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit986: ; preds = %576
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %584, i32 %.011.i987, i32 %.011.i987, i32 29, i32 noundef 2) #7
   %585 = add nuw nsw i32 %.011.i987, 1
   %exitcond.not.i990 = icmp eq i32 %.011.i987, 7
-  br i1 %exitcond.not.i990, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit991, label %583, !llvm.loop !20
+  br i1 %exitcond.not.i990, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit991, label %583, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit991: ; preds = %583
   %586 = load ptr, ptr %253, align 8
@@ -9146,7 +9146,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit991: ; preds = %583
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %589, i32 %.011.i992, i32 %.011.i992, i32 30, i32 noundef 2) #7
   %590 = add nuw nsw i32 %.011.i992, 1
   %exitcond.not.i995 = icmp eq i32 %.011.i992, 7
-  br i1 %exitcond.not.i995, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit, label %588, !llvm.loop !21
+  br i1 %exitcond.not.i995, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit, label %588, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit: ; preds = %588
   %591 = load ptr, ptr %253, align 8
@@ -9161,7 +9161,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit: ; preds = %588
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %594, i32 %.011.i996, i32 %.011.i996, i32 30, i32 noundef 2) #7
   %595 = add nuw nsw i32 %.011.i996, 1
   %exitcond.not.i999 = icmp eq i32 %.011.i996, 7
-  br i1 %exitcond.not.i999, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1000, label %593, !llvm.loop !20
+  br i1 %exitcond.not.i999, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1000, label %593, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1000: ; preds = %593
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %46)
@@ -9197,7 +9197,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1000: ; preds = %593
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %608, i32 %.011.i1001, i32 %.011.i1001, i32 18, i32 noundef 2) #7
   %609 = add nuw nsw i32 %.011.i1001, 1
   %exitcond.not.i1004 = icmp eq i32 %.011.i1001, 7
-  br i1 %exitcond.not.i1004, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1005, label %607, !llvm.loop !20
+  br i1 %exitcond.not.i1004, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1005, label %607, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1005: ; preds = %607
   %610 = load ptr, ptr %253, align 8
@@ -9237,7 +9237,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1005: ; preds = %607
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %624, i32 %.011.i1006, i32 %.011.i1006, i32 18, i32 noundef 2) #7
   %625 = add nuw nsw i32 %.011.i1006, 1
   %exitcond.not.i1009 = icmp eq i32 %.011.i1006, 7
-  br i1 %exitcond.not.i1009, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1010, label %623, !llvm.loop !21
+  br i1 %exitcond.not.i1009, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1010, label %623, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1010: ; preds = %623
   %626 = load ptr, ptr %253, align 8
@@ -9277,7 +9277,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1010: ; preds = %623
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %640, i32 %.011.i1011, i32 %.011.i1011, i32 18, i32 noundef 2) #7
   %641 = add nuw nsw i32 %.011.i1011, 1
   %exitcond.not.i1014 = icmp eq i32 %.011.i1011, 7
-  br i1 %exitcond.not.i1014, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1015, label %639, !llvm.loop !20
+  br i1 %exitcond.not.i1014, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1015, label %639, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1015: ; preds = %639
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43)
@@ -9313,7 +9313,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1015: ; preds = %639
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %654, i32 %.011.i1016, i32 %.011.i1016, i32 18, i32 noundef 2) #7
   %655 = add nuw nsw i32 %.011.i1016, 1
   %exitcond.not.i1019 = icmp eq i32 %.011.i1016, 7
-  br i1 %exitcond.not.i1019, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1020, label %653, !llvm.loop !20
+  br i1 %exitcond.not.i1019, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1020, label %653, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1020: ; preds = %653
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42)
@@ -9349,7 +9349,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1020: ; preds = %653
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %668, i32 %.011.i1021, i32 %.011.i1021, i32 18, i32 noundef 2) #7
   %669 = add nuw nsw i32 %.011.i1021, 1
   %exitcond.not.i1024 = icmp eq i32 %.011.i1021, 7
-  br i1 %exitcond.not.i1024, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1025, label %667, !llvm.loop !21
+  br i1 %exitcond.not.i1024, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1025, label %667, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1025: ; preds = %667
   %670 = load ptr, ptr %253, align 8
@@ -9779,7 +9779,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1025: ; preds = %667
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %863, i32 %.011.i1026, i32 %.011.i1026, i32 21, i32 noundef 2) #7
   %864 = add nuw nsw i32 %.011.i1026, 1
   %exitcond.not.i1029 = icmp eq i32 %.011.i1026, 3
-  br i1 %exitcond.not.i1029, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030, label %862, !llvm.loop !20
+  br i1 %exitcond.not.i1029, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030, label %862, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030: ; preds = %862, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030
   %.011.i1031 = phi i32 [ %866, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030 ], [ 0, %862 ]
@@ -9787,7 +9787,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030: ; preds = %862, %_ZN13StubG
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %865, i32 %.011.i1031, i32 %.011.i1031, i32 22, i32 noundef 2) #7
   %866 = add nuw nsw i32 %.011.i1031, 1
   %exitcond.not.i1034 = icmp eq i32 %.011.i1031, 3
-  br i1 %exitcond.not.i1034, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030, !llvm.loop !20
+  br i1 %exitcond.not.i1034, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035
   %.011.i1036 = phi i32 [ %868, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1030 ]
@@ -9795,7 +9795,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %867, i32 %.011.i1036, i32 %.011.i1036, i32 23, i32 noundef 2) #7
   %868 = add nuw nsw i32 %.011.i1036, 1
   %exitcond.not.i1039 = icmp eq i32 %.011.i1036, 3
-  br i1 %exitcond.not.i1039, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035, !llvm.loop !20
+  br i1 %exitcond.not.i1039, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040
   %.011.i1041 = phi i32 [ %870, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1035 ]
@@ -9803,7 +9803,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %869, i32 %.011.i1041, i32 %.011.i1041, i32 24, i32 noundef 2) #7
   %870 = add nuw nsw i32 %.011.i1041, 1
   %exitcond.not.i1044 = icmp eq i32 %.011.i1041, 3
-  br i1 %exitcond.not.i1044, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040, !llvm.loop !20
+  br i1 %exitcond.not.i1044, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045
   %.011.i1046 = phi i32 [ %872, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1040 ]
@@ -9811,7 +9811,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %871, i32 %.011.i1046, i32 %.011.i1046, i32 25, i32 noundef 2) #7
   %872 = add nuw nsw i32 %.011.i1046, 1
   %exitcond.not.i1049 = icmp eq i32 %.011.i1046, 3
-  br i1 %exitcond.not.i1049, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045, !llvm.loop !20
+  br i1 %exitcond.not.i1049, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050
   %.011.i1051 = phi i32 [ %874, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1045 ]
@@ -9819,7 +9819,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %873, i32 %.011.i1051, i32 %.011.i1051, i32 26, i32 noundef 2) #7
   %874 = add nuw nsw i32 %.011.i1051, 1
   %exitcond.not.i1054 = icmp eq i32 %.011.i1051, 3
-  br i1 %exitcond.not.i1054, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050, !llvm.loop !20
+  br i1 %exitcond.not.i1054, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055
   %.011.i1056 = phi i32 [ %876, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1050 ]
@@ -9827,7 +9827,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %875, i32 %.011.i1056, i32 %.011.i1056, i32 27, i32 noundef 2) #7
   %876 = add nuw nsw i32 %.011.i1056, 1
   %exitcond.not.i1059 = icmp eq i32 %.011.i1056, 3
-  br i1 %exitcond.not.i1059, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055, !llvm.loop !20
+  br i1 %exitcond.not.i1059, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060
   %.011.i1061 = phi i32 [ %878, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1055 ]
@@ -9835,7 +9835,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %877, i32 %.011.i1061, i32 %.011.i1061, i32 28, i32 noundef 2) #7
   %878 = add nuw nsw i32 %.011.i1061, 1
   %exitcond.not.i1064 = icmp eq i32 %.011.i1061, 3
-  br i1 %exitcond.not.i1064, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060, !llvm.loop !20
+  br i1 %exitcond.not.i1064, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065
   %.011.i1066 = phi i32 [ %880, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1060 ]
@@ -9843,7 +9843,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %879, i32 %.011.i1066, i32 %.011.i1066, i32 29, i32 noundef 2) #7
   %880 = add nuw nsw i32 %.011.i1066, 1
   %exitcond.not.i1069 = icmp eq i32 %.011.i1066, 3
-  br i1 %exitcond.not.i1069, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1070, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065, !llvm.loop !20
+  br i1 %exitcond.not.i1069, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1070, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1070: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1065
   %881 = load ptr, ptr %253, align 8
@@ -9858,7 +9858,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1070: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %884, i32 %.011.i1071, i32 %.011.i1071, i32 30, i32 noundef 2) #7
   %885 = add nuw nsw i32 %.011.i1071, 1
   %exitcond.not.i1074 = icmp eq i32 %.011.i1071, 3
-  br i1 %exitcond.not.i1074, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1075, label %883, !llvm.loop !21
+  br i1 %exitcond.not.i1074, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1075, label %883, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1075: ; preds = %883
   %886 = load ptr, ptr %253, align 8
@@ -9873,7 +9873,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1075: ; preds = %883
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %889, i32 %.011.i1076, i32 %.011.i1076, i32 30, i32 noundef 2) #7
   %890 = add nuw nsw i32 %.011.i1076, 1
   %exitcond.not.i1079 = icmp eq i32 %.011.i1076, 3
-  br i1 %exitcond.not.i1079, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1080, label %888, !llvm.loop !20
+  br i1 %exitcond.not.i1079, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1080, label %888, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1080: ; preds = %888
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33)
@@ -9909,7 +9909,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1080: ; preds = %888
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %903, i32 %.011.i1081, i32 %.011.i1081, i32 18, i32 noundef 2) #7
   %904 = add nuw nsw i32 %.011.i1081, 1
   %exitcond.not.i1084 = icmp eq i32 %.011.i1081, 3
-  br i1 %exitcond.not.i1084, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1085, label %902, !llvm.loop !20
+  br i1 %exitcond.not.i1084, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1085, label %902, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1085: ; preds = %902
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32)
@@ -9949,7 +9949,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1085: ; preds = %902
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %919, i32 %.011.i1086, i32 %.011.i1086, i32 5, i32 noundef 2) #7
   %920 = add nuw nsw i32 %.011.i1086, 1
   %exitcond.not.i1089 = icmp eq i32 %.011.i1086, 3
-  br i1 %exitcond.not.i1089, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1090, label %918, !llvm.loop !21
+  br i1 %exitcond.not.i1089, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1090, label %918, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1090: ; preds = %918
   %921 = load ptr, ptr %253, align 8
@@ -9964,7 +9964,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1090: ; preds = %918
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %924, i32 %.011.i1091, i32 %.011.i1091, i32 5, i32 noundef 2) #7
   %925 = add nuw nsw i32 %.011.i1091, 1
   %exitcond.not.i1094 = icmp eq i32 %.011.i1091, 3
-  br i1 %exitcond.not.i1094, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1095, label %923, !llvm.loop !20
+  br i1 %exitcond.not.i1094, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1095, label %923, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1095: ; preds = %923
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
@@ -10000,7 +10000,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1095: ; preds = %923
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %938, i32 %.011.i1096, i32 %.011.i1096, i32 6, i32 noundef 2) #7
   %939 = add nuw nsw i32 %.011.i1096, 1
   %exitcond.not.i1099 = icmp eq i32 %.011.i1096, 3
-  br i1 %exitcond.not.i1099, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1100, label %937, !llvm.loop !20
+  br i1 %exitcond.not.i1099, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1100, label %937, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1100: ; preds = %937
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30)
@@ -10036,7 +10036,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1100: ; preds = %937
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %952, i32 %.011.i1101, i32 %.011.i1101, i32 7, i32 noundef 2) #7
   %953 = add nuw nsw i32 %.011.i1101, 1
   %exitcond.not.i1104 = icmp eq i32 %.011.i1101, 3
-  br i1 %exitcond.not.i1104, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1105, label %951, !llvm.loop !21
+  br i1 %exitcond.not.i1104, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1105, label %951, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1105: ; preds = %951
   %954 = load ptr, ptr %253, align 8
@@ -10265,7 +10265,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1105: ; preds = %951
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1056, i32 %.011.i1106, i32 %.011.i1106, i32 21, i32 noundef 2) #7
   %1057 = add nuw nsw i32 %.011.i1106, 1
   %exitcond.not.i1109 = icmp eq i32 %.011.i1106, 1
-  br i1 %exitcond.not.i1109, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110, label %1055, !llvm.loop !20
+  br i1 %exitcond.not.i1109, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110, label %1055, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110: ; preds = %1055, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110
   %.011.i1111 = phi i32 [ %1059, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110 ], [ 0, %1055 ]
@@ -10273,7 +10273,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110: ; preds = %1055, %_ZN13Stub
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1058, i32 %.011.i1111, i32 %.011.i1111, i32 22, i32 noundef 2) #7
   %1059 = add nuw nsw i32 %.011.i1111, 1
   %exitcond.not.i1114 = icmp eq i32 %.011.i1111, 1
-  br i1 %exitcond.not.i1114, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110, !llvm.loop !20
+  br i1 %exitcond.not.i1114, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115
   %.011.i1116 = phi i32 [ %1061, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1110 ]
@@ -10281,7 +10281,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1060, i32 %.011.i1116, i32 %.011.i1116, i32 23, i32 noundef 2) #7
   %1061 = add nuw nsw i32 %.011.i1116, 1
   %exitcond.not.i1119 = icmp eq i32 %.011.i1116, 1
-  br i1 %exitcond.not.i1119, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115, !llvm.loop !20
+  br i1 %exitcond.not.i1119, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120
   %.011.i1121 = phi i32 [ %1063, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1115 ]
@@ -10289,7 +10289,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1062, i32 %.011.i1121, i32 %.011.i1121, i32 24, i32 noundef 2) #7
   %1063 = add nuw nsw i32 %.011.i1121, 1
   %exitcond.not.i1124 = icmp eq i32 %.011.i1121, 1
-  br i1 %exitcond.not.i1124, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120, !llvm.loop !20
+  br i1 %exitcond.not.i1124, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125
   %.011.i1126 = phi i32 [ %1065, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1120 ]
@@ -10297,7 +10297,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1064, i32 %.011.i1126, i32 %.011.i1126, i32 25, i32 noundef 2) #7
   %1065 = add nuw nsw i32 %.011.i1126, 1
   %exitcond.not.i1129 = icmp eq i32 %.011.i1126, 1
-  br i1 %exitcond.not.i1129, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125, !llvm.loop !20
+  br i1 %exitcond.not.i1129, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130
   %.011.i1131 = phi i32 [ %1067, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1125 ]
@@ -10305,7 +10305,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1066, i32 %.011.i1131, i32 %.011.i1131, i32 26, i32 noundef 2) #7
   %1067 = add nuw nsw i32 %.011.i1131, 1
   %exitcond.not.i1134 = icmp eq i32 %.011.i1131, 1
-  br i1 %exitcond.not.i1134, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130, !llvm.loop !20
+  br i1 %exitcond.not.i1134, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135
   %.011.i1136 = phi i32 [ %1069, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1130 ]
@@ -10313,7 +10313,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1068, i32 %.011.i1136, i32 %.011.i1136, i32 27, i32 noundef 2) #7
   %1069 = add nuw nsw i32 %.011.i1136, 1
   %exitcond.not.i1139 = icmp eq i32 %.011.i1136, 1
-  br i1 %exitcond.not.i1139, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135, !llvm.loop !20
+  br i1 %exitcond.not.i1139, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140
   %.011.i1141 = phi i32 [ %1071, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1135 ]
@@ -10321,7 +10321,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1070, i32 %.011.i1141, i32 %.011.i1141, i32 28, i32 noundef 2) #7
   %1071 = add nuw nsw i32 %.011.i1141, 1
   %exitcond.not.i1144 = icmp eq i32 %.011.i1141, 1
-  br i1 %exitcond.not.i1144, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140, !llvm.loop !20
+  br i1 %exitcond.not.i1144, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145
   %.011.i1146 = phi i32 [ %1073, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1140 ]
@@ -10329,7 +10329,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1072, i32 %.011.i1146, i32 %.011.i1146, i32 29, i32 noundef 2) #7
   %1073 = add nuw nsw i32 %.011.i1146, 1
   %exitcond.not.i1149 = icmp eq i32 %.011.i1146, 1
-  br i1 %exitcond.not.i1149, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1150, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145, !llvm.loop !20
+  br i1 %exitcond.not.i1149, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1150, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1150: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1145
   %1074 = load ptr, ptr %253, align 8
@@ -10344,7 +10344,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1150: ; preds = %_ZN13StubGenerat
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1077, i32 %.011.i1151, i32 %.011.i1151, i32 30, i32 noundef 2) #7
   %1078 = add nuw nsw i32 %.011.i1151, 1
   %exitcond.not.i1154 = icmp eq i32 %.011.i1151, 1
-  br i1 %exitcond.not.i1154, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1155, label %1076, !llvm.loop !21
+  br i1 %exitcond.not.i1154, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1155, label %1076, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1155: ; preds = %1076
   %1079 = load ptr, ptr %253, align 8
@@ -10359,7 +10359,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1155: ; preds = %1076
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1082, i32 %.011.i1156, i32 %.011.i1156, i32 30, i32 noundef 2) #7
   %1083 = add nuw nsw i32 %.011.i1156, 1
   %exitcond.not.i1159 = icmp eq i32 %.011.i1156, 1
-  br i1 %exitcond.not.i1159, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1160, label %1081, !llvm.loop !20
+  br i1 %exitcond.not.i1159, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1160, label %1081, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1160: ; preds = %1081
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
@@ -10395,7 +10395,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1160: ; preds = %1081
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1096, i32 %.011.i1161, i32 %.011.i1161, i32 18, i32 noundef 2) #7
   %1097 = add nuw nsw i32 %.011.i1161, 1
   %exitcond.not.i1164 = icmp eq i32 %.011.i1161, 1
-  br i1 %exitcond.not.i1164, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1165, label %1095, !llvm.loop !20
+  br i1 %exitcond.not.i1164, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1165, label %1095, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1165: ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
@@ -10435,7 +10435,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1165: ; preds = %1095
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1112, i32 %.011.i1166, i32 %.011.i1166, i32 5, i32 noundef 2) #7
   %1113 = add nuw nsw i32 %.011.i1166, 1
   %exitcond.not.i1169 = icmp eq i32 %.011.i1166, 1
-  br i1 %exitcond.not.i1169, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1170, label %1111, !llvm.loop !21
+  br i1 %exitcond.not.i1169, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1170, label %1111, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1170: ; preds = %1111
   %1114 = load ptr, ptr %253, align 8
@@ -10450,7 +10450,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1170: ; preds = %1111
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1117, i32 %.011.i1171, i32 %.011.i1171, i32 5, i32 noundef 2) #7
   %1118 = add nuw nsw i32 %.011.i1171, 1
   %exitcond.not.i1174 = icmp eq i32 %.011.i1171, 1
-  br i1 %exitcond.not.i1174, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1175, label %1116, !llvm.loop !20
+  br i1 %exitcond.not.i1174, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1175, label %1116, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1175: ; preds = %1116
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
@@ -10486,7 +10486,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1175: ; preds = %1116
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1131, i32 %.011.i1176, i32 %.011.i1176, i32 6, i32 noundef 2) #7
   %1132 = add nuw nsw i32 %.011.i1176, 1
   %exitcond.not.i1179 = icmp eq i32 %.011.i1176, 1
-  br i1 %exitcond.not.i1179, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1180, label %1130, !llvm.loop !20
+  br i1 %exitcond.not.i1179, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit1180, label %1130, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1180: ; preds = %1130
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
@@ -10522,7 +10522,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit1180: ; preds = %1130
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1145, i32 %.011.i1181, i32 %.011.i1181, i32 7, i32 noundef 2) #7
   %1146 = add nuw nsw i32 %.011.i1181, 1
   %exitcond.not.i1184 = icmp eq i32 %.011.i1181, 1
-  br i1 %exitcond.not.i1184, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1185, label %1144, !llvm.loop !21
+  br i1 %exitcond.not.i1184, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1185, label %1144, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit1185: ; preds = %1144
   %1147 = load ptr, ptr %253, align 8
@@ -12420,7 +12420,7 @@ define hidden void @_ZN13StubGenerator14aesecb_encryptE8RegisterS0_S0_S0_(ptr no
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %414, i32 %.011.i, i32 %.011.i, i32 9, i32 noundef 2) #7
   %415 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %.011.i, 7
-  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, label %413, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, label %413, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit:  ; preds = %413, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit
   %.011.i367 = phi i32 [ %417, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit ], [ 0, %413 ]
@@ -12428,7 +12428,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit:  ; preds = %413, %_ZN13StubGene
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %416, i32 %.011.i367, i32 %.011.i367, i32 10, i32 noundef 2) #7
   %417 = add nuw nsw i32 %.011.i367, 1
   %exitcond.not.i370 = icmp eq i32 %.011.i367, 7
-  br i1 %exitcond.not.i370, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, !llvm.loop !20
+  br i1 %exitcond.not.i370, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit371: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371
   %.011.i372 = phi i32 [ %419, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit ]
@@ -12436,7 +12436,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit371: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %418, i32 %.011.i372, i32 %.011.i372, i32 23, i32 noundef 2) #7
   %419 = add nuw nsw i32 %.011.i372, 1
   %exitcond.not.i375 = icmp eq i32 %.011.i372, 7
-  br i1 %exitcond.not.i375, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371, !llvm.loop !20
+  br i1 %exitcond.not.i375, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit376: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376
   %.011.i377 = phi i32 [ %421, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit371 ]
@@ -12444,7 +12444,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit376: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %420, i32 %.011.i377, i32 %.011.i377, i32 12, i32 noundef 2) #7
   %421 = add nuw nsw i32 %.011.i377, 1
   %exitcond.not.i380 = icmp eq i32 %.011.i377, 7
-  br i1 %exitcond.not.i380, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376, !llvm.loop !20
+  br i1 %exitcond.not.i380, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit381: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381
   %.011.i382 = phi i32 [ %423, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit376 ]
@@ -12452,7 +12452,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit381: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %422, i32 %.011.i382, i32 %.011.i382, i32 13, i32 noundef 2) #7
   %423 = add nuw nsw i32 %.011.i382, 1
   %exitcond.not.i385 = icmp eq i32 %.011.i382, 7
-  br i1 %exitcond.not.i385, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381, !llvm.loop !20
+  br i1 %exitcond.not.i385, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit386: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386
   %.011.i387 = phi i32 [ %425, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit381 ]
@@ -12460,7 +12460,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit386: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %424, i32 %.011.i387, i32 %.011.i387, i32 14, i32 noundef 2) #7
   %425 = add nuw nsw i32 %.011.i387, 1
   %exitcond.not.i390 = icmp eq i32 %.011.i387, 7
-  br i1 %exitcond.not.i390, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386, !llvm.loop !20
+  br i1 %exitcond.not.i390, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit391: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391
   %.011.i392 = phi i32 [ %427, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit386 ]
@@ -12468,7 +12468,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit391: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %426, i32 %.011.i392, i32 %.011.i392, i32 15, i32 noundef 2) #7
   %427 = add nuw nsw i32 %.011.i392, 1
   %exitcond.not.i395 = icmp eq i32 %.011.i392, 7
-  br i1 %exitcond.not.i395, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391, !llvm.loop !20
+  br i1 %exitcond.not.i395, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit396: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396
   %.011.i397 = phi i32 [ %429, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit391 ]
@@ -12476,7 +12476,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit396: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %428, i32 %.011.i397, i32 %.011.i397, i32 16, i32 noundef 2) #7
   %429 = add nuw nsw i32 %.011.i397, 1
   %exitcond.not.i400 = icmp eq i32 %.011.i397, 7
-  br i1 %exitcond.not.i400, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396, !llvm.loop !20
+  br i1 %exitcond.not.i400, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit401: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401
   %.011.i402 = phi i32 [ %431, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit396 ]
@@ -12484,7 +12484,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit401: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %430, i32 %.011.i402, i32 %.011.i402, i32 17, i32 noundef 2) #7
   %431 = add nuw nsw i32 %.011.i402, 1
   %exitcond.not.i405 = icmp eq i32 %.011.i402, 7
-  br i1 %exitcond.not.i405, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit406, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401, !llvm.loop !20
+  br i1 %exitcond.not.i405, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit406, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit406: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit401
   %432 = load ptr, ptr %110, align 8
@@ -12499,7 +12499,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit406: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %435, i32 %.011.i407, i32 %.011.i407, i32 24, i32 noundef 2) #7
   %436 = add nuw nsw i32 %.011.i407, 1
   %exitcond.not.i410 = icmp eq i32 %.011.i407, 7
-  br i1 %exitcond.not.i410, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit, label %434, !llvm.loop !21
+  br i1 %exitcond.not.i410, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit, label %434, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit: ; preds = %434
   %437 = load ptr, ptr %110, align 8
@@ -12514,7 +12514,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit: ; preds = %434
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %440, i32 %.011.i411, i32 %.011.i411, i32 24, i32 noundef 2) #7
   %441 = add nuw nsw i32 %.011.i411, 1
   %exitcond.not.i414 = icmp eq i32 %.011.i411, 7
-  br i1 %exitcond.not.i414, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415, label %439, !llvm.loop !20
+  br i1 %exitcond.not.i414, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415, label %439, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit415: ; preds = %439, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415
   %.011.i416 = phi i32 [ %443, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415 ], [ 0, %439 ]
@@ -12522,7 +12522,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit415: ; preds = %439, %_ZN13StubGe
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %442, i32 %.011.i416, i32 %.011.i416, i32 19, i32 noundef 2) #7
   %443 = add nuw nsw i32 %.011.i416, 1
   %exitcond.not.i419 = icmp eq i32 %.011.i416, 7
-  br i1 %exitcond.not.i419, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit420, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415, !llvm.loop !20
+  br i1 %exitcond.not.i419, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit420, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit420: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit415
   %444 = load ptr, ptr %110, align 8
@@ -12537,7 +12537,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit420: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %447, i32 %.011.i421, i32 %.011.i421, i32 20, i32 noundef 2) #7
   %448 = add nuw nsw i32 %.011.i421, 1
   %exitcond.not.i424 = icmp eq i32 %.011.i421, 7
-  br i1 %exitcond.not.i424, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit425, label %446, !llvm.loop !21
+  br i1 %exitcond.not.i424, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit425, label %446, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit425: ; preds = %446
   %449 = load ptr, ptr %110, align 8
@@ -12552,7 +12552,7 @@ _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit425: ; preds = %446
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %452, i32 %.011.i426, i32 %.011.i426, i32 20, i32 noundef 2) #7
   %453 = add nuw nsw i32 %.011.i426, 1
   %exitcond.not.i429 = icmp eq i32 %.011.i426, 7
-  br i1 %exitcond.not.i429, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430, label %451, !llvm.loop !20
+  br i1 %exitcond.not.i429, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430, label %451, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit430: ; preds = %451, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430
   %.011.i431 = phi i32 [ %455, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430 ], [ 0, %451 ]
@@ -12560,7 +12560,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit430: ; preds = %451, %_ZN13StubGe
   call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %454, i32 %.011.i431, i32 %.011.i431, i32 21, i32 noundef 2) #7
   %455 = add nuw nsw i32 %.011.i431, 1
   %exitcond.not.i434 = icmp eq i32 %.011.i431, 7
-  br i1 %exitcond.not.i434, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430, !llvm.loop !20
+  br i1 %exitcond.not.i434, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430, !llvm.loop !39
 
 _ZN13StubGenerator8roundEncE11XMMRegisteri.exit435: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435
   %.011.i436 = phi i32 [ %457, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435 ], [ 0, %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit430 ]
@@ -12568,7 +12568,7 @@ _ZN13StubGenerator8roundEncE11XMMRegisteri.exit435: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %456, i32 %.011.i436, i32 %.011.i436, i32 22, i32 noundef 2) #7
   %457 = add nuw nsw i32 %.011.i436, 1
   %exitcond.not.i439 = icmp eq i32 %.011.i436, 7
-  br i1 %exitcond.not.i439, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit440, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435, !llvm.loop !21
+  br i1 %exitcond.not.i439, label %_ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit440, label %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435, !llvm.loop !40
 
 _ZN13StubGenerator12lastroundEncE11XMMRegisteri.exit440: ; preds = %_ZN13StubGenerator8roundEncE11XMMRegisteri.exit435
   %458 = load ptr, ptr %110, align 8
@@ -13757,7 +13757,7 @@ define hidden void @_ZN13StubGenerator14aesecb_decryptE8RegisterS0_S0_S0_(ptr no
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %414, i32 %.011.i, i32 %.011.i, i32 10, i32 noundef 2) #7
   %415 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %.011.i, 7
-  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit, label %413, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit, label %413, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit:  ; preds = %413, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit
   %.011.i366 = phi i32 [ %417, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit ], [ 0, %413 ]
@@ -13765,7 +13765,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit:  ; preds = %413, %_ZN13StubGene
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %416, i32 %.011.i366, i32 %.011.i366, i32 11, i32 noundef 2) #7
   %417 = add nuw nsw i32 %.011.i366, 1
   %exitcond.not.i369 = icmp eq i32 %.011.i366, 7
-  br i1 %exitcond.not.i369, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit, !llvm.loop !22
+  br i1 %exitcond.not.i369, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit370: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370
   %.011.i371 = phi i32 [ %419, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit ]
@@ -13773,7 +13773,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit370: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %418, i32 %.011.i371, i32 %.011.i371, i32 12, i32 noundef 2) #7
   %419 = add nuw nsw i32 %.011.i371, 1
   %exitcond.not.i374 = icmp eq i32 %.011.i371, 7
-  br i1 %exitcond.not.i374, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370, !llvm.loop !22
+  br i1 %exitcond.not.i374, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit375: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375
   %.011.i376 = phi i32 [ %421, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit370 ]
@@ -13781,7 +13781,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit375: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %420, i32 %.011.i376, i32 %.011.i376, i32 13, i32 noundef 2) #7
   %421 = add nuw nsw i32 %.011.i376, 1
   %exitcond.not.i379 = icmp eq i32 %.011.i376, 7
-  br i1 %exitcond.not.i379, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375, !llvm.loop !22
+  br i1 %exitcond.not.i379, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit380: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380
   %.011.i381 = phi i32 [ %423, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit375 ]
@@ -13789,7 +13789,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit380: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %422, i32 %.011.i381, i32 %.011.i381, i32 14, i32 noundef 2) #7
   %423 = add nuw nsw i32 %.011.i381, 1
   %exitcond.not.i384 = icmp eq i32 %.011.i381, 7
-  br i1 %exitcond.not.i384, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380, !llvm.loop !22
+  br i1 %exitcond.not.i384, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit385: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385
   %.011.i386 = phi i32 [ %425, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit380 ]
@@ -13797,7 +13797,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit385: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %424, i32 %.011.i386, i32 %.011.i386, i32 15, i32 noundef 2) #7
   %425 = add nuw nsw i32 %.011.i386, 1
   %exitcond.not.i389 = icmp eq i32 %.011.i386, 7
-  br i1 %exitcond.not.i389, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385, !llvm.loop !22
+  br i1 %exitcond.not.i389, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit390: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390
   %.011.i391 = phi i32 [ %427, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit385 ]
@@ -13805,7 +13805,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit390: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %426, i32 %.011.i391, i32 %.011.i391, i32 16, i32 noundef 2) #7
   %427 = add nuw nsw i32 %.011.i391, 1
   %exitcond.not.i394 = icmp eq i32 %.011.i391, 7
-  br i1 %exitcond.not.i394, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390, !llvm.loop !22
+  br i1 %exitcond.not.i394, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit395: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395
   %.011.i396 = phi i32 [ %429, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit390 ]
@@ -13813,7 +13813,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit395: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %428, i32 %.011.i396, i32 %.011.i396, i32 17, i32 noundef 2) #7
   %429 = add nuw nsw i32 %.011.i396, 1
   %exitcond.not.i399 = icmp eq i32 %.011.i396, 7
-  br i1 %exitcond.not.i399, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395, !llvm.loop !22
+  br i1 %exitcond.not.i399, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit400: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400
   %.011.i401 = phi i32 [ %431, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit395 ]
@@ -13821,7 +13821,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit400: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %430, i32 %.011.i401, i32 %.011.i401, i32 18, i32 noundef 2) #7
   %431 = add nuw nsw i32 %.011.i401, 1
   %exitcond.not.i404 = icmp eq i32 %.011.i401, 7
-  br i1 %exitcond.not.i404, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit405, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400, !llvm.loop !22
+  br i1 %exitcond.not.i404, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit405, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit405: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit400
   %432 = load ptr, ptr %110, align 8
@@ -13836,7 +13836,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit405: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %435, i32 %.011.i406, i32 %.011.i406, i32 27, i32 noundef 2) #7
   %436 = add nuw nsw i32 %.011.i406, 1
   %exitcond.not.i409 = icmp eq i32 %.011.i406, 7
-  br i1 %exitcond.not.i409, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit, label %434, !llvm.loop !23
+  br i1 %exitcond.not.i409, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit, label %434, !llvm.loop !42
 
 _ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit: ; preds = %434
   %437 = load ptr, ptr %110, align 8
@@ -13851,7 +13851,7 @@ _ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit: ; preds = %434
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %440, i32 %.011.i410, i32 %.011.i410, i32 19, i32 noundef 2) #7
   %441 = add nuw nsw i32 %.011.i410, 1
   %exitcond.not.i413 = icmp eq i32 %.011.i410, 7
-  br i1 %exitcond.not.i413, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414, label %439, !llvm.loop !22
+  br i1 %exitcond.not.i413, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414, label %439, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit414: ; preds = %439, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414
   %.011.i415 = phi i32 [ %443, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414 ], [ 0, %439 ]
@@ -13859,7 +13859,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit414: ; preds = %439, %_ZN13StubGe
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %442, i32 %.011.i415, i32 %.011.i415, i32 20, i32 noundef 2) #7
   %443 = add nuw nsw i32 %.011.i415, 1
   %exitcond.not.i418 = icmp eq i32 %.011.i415, 7
-  br i1 %exitcond.not.i418, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit419, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414, !llvm.loop !22
+  br i1 %exitcond.not.i418, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit419, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit419: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit414
   %444 = load ptr, ptr %110, align 8
@@ -13874,7 +13874,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit419: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %447, i32 %.011.i420, i32 %.011.i420, i32 27, i32 noundef 2) #7
   %448 = add nuw nsw i32 %.011.i420, 1
   %exitcond.not.i423 = icmp eq i32 %.011.i420, 7
-  br i1 %exitcond.not.i423, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit424, label %446, !llvm.loop !23
+  br i1 %exitcond.not.i423, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit424, label %446, !llvm.loop !42
 
 _ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit424: ; preds = %446
   %449 = load ptr, ptr %110, align 8
@@ -13889,7 +13889,7 @@ _ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit424: ; preds = %446
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %452, i32 %.011.i425, i32 %.011.i425, i32 21, i32 noundef 2) #7
   %453 = add nuw nsw i32 %.011.i425, 1
   %exitcond.not.i428 = icmp eq i32 %.011.i425, 7
-  br i1 %exitcond.not.i428, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429, label %451, !llvm.loop !22
+  br i1 %exitcond.not.i428, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429, label %451, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit429: ; preds = %451, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429
   %.011.i430 = phi i32 [ %455, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429 ], [ 0, %451 ]
@@ -13897,7 +13897,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit429: ; preds = %451, %_ZN13StubGe
   call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %454, i32 %.011.i430, i32 %.011.i430, i32 22, i32 noundef 2) #7
   %455 = add nuw nsw i32 %.011.i430, 1
   %exitcond.not.i433 = icmp eq i32 %.011.i430, 7
-  br i1 %exitcond.not.i433, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429, !llvm.loop !22
+  br i1 %exitcond.not.i433, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429, !llvm.loop !41
 
 _ZN13StubGenerator8roundDecE11XMMRegisteri.exit434: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434
   %.011.i435 = phi i32 [ %457, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434 ], [ 0, %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit429 ]
@@ -13905,7 +13905,7 @@ _ZN13StubGenerator8roundDecE11XMMRegisteri.exit434: ; preds = %_ZN13StubGenerato
   call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %456, i32 %.011.i435, i32 %.011.i435, i32 27, i32 noundef 2) #7
   %457 = add nuw nsw i32 %.011.i435, 1
   %exitcond.not.i438 = icmp eq i32 %.011.i435, 7
-  br i1 %exitcond.not.i438, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit439, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434, !llvm.loop !23
+  br i1 %exitcond.not.i438, label %_ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit439, label %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434, !llvm.loop !42
 
 _ZN13StubGenerator12lastroundDecE11XMMRegisteri.exit439: ; preds = %_ZN13StubGenerator8roundDecE11XMMRegisteri.exit434
   %458 = load ptr, ptr %110, align 8
@@ -14270,7 +14270,7 @@ define hidden void @_ZN13StubGenerator8roundEncE11XMMRegisteri(ptr noundef nonnu
   tail call void @_ZN9Assembler7vaesencE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %2
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -14295,7 +14295,7 @@ define hidden void @_ZN13StubGenerator12lastroundEncE11XMMRegisteri(ptr noundef 
   tail call void @_ZN9Assembler11vaesenclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %2
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -14320,7 +14320,7 @@ define hidden void @_ZN13StubGenerator8roundDecE11XMMRegisteri(ptr noundef nonnu
   tail call void @_ZN9Assembler7vaesdecE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %2
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -14343,7 +14343,7 @@ define hidden void @_ZN13StubGenerator12lastroundDecE11XMMRegisteri(ptr noundef 
   tail call void @_ZN9Assembler11vaesdeclastE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %spec.select.i, i32 %spec.select.i, i32 %1, i32 noundef 2) #7
   %7 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, %2
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -16436,7 +16436,7 @@ define hidden void @_ZN13StubGenerator25generateHtbl_8_block_avx2E8Register(ptr 
   call void @_ZN14MacroAssembler6movdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull %11, i32 6) #7
   %75 = add nuw nsw i32 %.050, 1
   %exitcond.not = icmp eq i32 %75, 9
-  br i1 %exitcond.not, label %76, label %72, !llvm.loop !24
+  br i1 %exitcond.not, label %76, label %72, !llvm.loop !43
 
 76:                                               ; preds = %72
   ret void
@@ -16559,7 +16559,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN14MacroAssembler6movdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull %53, i32 %101) #7
   %102 = add nuw nsw i32 %.0714, 1
   %exitcond.not = icmp eq i32 %102, 7
-  br i1 %exitcond.not, label %103, label %98, !llvm.loop !25
+  br i1 %exitcond.not, label %103, label %98, !llvm.loop !44
 
 103:                                              ; preds = %98
   %104 = load ptr, ptr %88, align 8
@@ -16596,7 +16596,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %119, i32 %120, i32 %.0656716, i32 13, i32 noundef 0) #7
   %121 = add nuw nsw i32 %.0656716, 1
   %exitcond727.not = icmp eq i32 %121, 7
-  br i1 %exitcond727.not, label %122, label %118, !llvm.loop !26
+  br i1 %exitcond727.not, label %122, label %118, !llvm.loop !45
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %88, align 8
@@ -16619,7 +16619,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %131, i32 %.0657717, i32 %.0657717, i32 13, i32 noundef 0) #7
   %132 = add nuw nsw i32 %.0657717, 1
   %exitcond728.not = icmp eq i32 %132, 9
-  br i1 %exitcond728.not, label %.loopexit, label %130, !llvm.loop !27
+  br i1 %exitcond728.not, label %.loopexit, label %130, !llvm.loop !46
 
 133:                                              ; preds = %103
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull @COUNTER_MASK_LINC1F, i32 noundef 7) #7
@@ -16652,7 +16652,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %147, i32 %148, i32 %.0658715, i32 13, i32 noundef 0) #7
   %149 = add nuw nsw i32 %.0658715, 1
   %exitcond726.not = icmp eq i32 %149, 7
-  br i1 %exitcond726.not, label %150, label %146, !llvm.loop !28
+  br i1 %exitcond726.not, label %150, label %146, !llvm.loop !47
 
 150:                                              ; preds = %146
   %151 = load ptr, ptr %88, align 8
@@ -16703,7 +16703,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %168, i32 %.0659718, i32 %.0659718, i32 0, i32 noundef 0) #7
   %169 = add nuw nsw i32 %.0659718, 1
   %exitcond729.not = icmp eq i32 %169, 9
-  br i1 %exitcond729.not, label %170, label %167, !llvm.loop !29
+  br i1 %exitcond729.not, label %170, label %167, !llvm.loop !48
 
 170:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43)
@@ -16953,7 +16953,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   %284 = add nuw nsw i32 %.0660720, 1
   %285 = add nuw nsw i32 %.0662719, 1
   %exitcond730.not = icmp eq i32 %285, 6
-  br i1 %exitcond730.not, label %286, label %257, !llvm.loop !30
+  br i1 %exitcond730.not, label %286, label %257, !llvm.loop !49
 
 286:                                              ; preds = %257
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34)
@@ -17341,7 +17341,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler10aesenclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %463, i32 %.0663721, i32 13) #7
   %464 = add nuw nsw i32 %.0663721, 1
   %exitcond731.not = icmp eq i32 %464, 9
-  br i1 %exitcond731.not, label %.preheader, label %462, !llvm.loop !31
+  br i1 %exitcond731.not, label %.preheader, label %462, !llvm.loop !50
 
 465:                                              ; preds = %.preheader, %465
   %.0664722 = phi i32 [ 0, %.preheader ], [ %469, %465 ]
@@ -17361,7 +17361,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   %469 = add nuw nsw i32 %.0664722, 1
   call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %468, i32 %469, i32 %469, i32 10, i32 noundef 0) #7
   %exitcond732.not = icmp eq i32 %469, 8
-  br i1 %exitcond732.not, label %470, label %465, !llvm.loop !32
+  br i1 %exitcond732.not, label %470, label %465, !llvm.loop !51
 
 470:                                              ; preds = %465
   %471 = load ptr, ptr %88, align 8
@@ -17406,7 +17406,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   %491 = add nuw nsw i32 %.0665723, 1
   call void @_ZN14MacroAssembler6movdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %489, ptr noundef nonnull %72, i32 %491) #7
   %exitcond733.not = icmp eq i32 %491, 8
-  br i1 %exitcond733.not, label %492, label %488, !llvm.loop !33
+  br i1 %exitcond733.not, label %492, label %488, !llvm.loop !52
 
 492:                                              ; preds = %488
   %493 = load ptr, ptr %88, align 8
@@ -17439,7 +17439,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   store i32 0, ptr %502, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %504, i32 %505, ptr noundef nonnull %73) #7
   %exitcond734.not = icmp eq i32 %505, 8
-  br i1 %exitcond734.not, label %507, label %503, !llvm.loop !34
+  br i1 %exitcond734.not, label %507, label %503, !llvm.loop !53
 
 507:                                              ; preds = %503
   %508 = load ptr, ptr %88, align 8
@@ -17474,7 +17474,7 @@ define hidden void @_ZN13StubGenerator29ghash8_encrypt8_parallel_avx2E8RegisterS
   call void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %522, i32 %.0661725, i32 %.0661725, i32 15, i32 noundef 0) #7
   %523 = add nuw nsw i32 %.0661725, 1
   %exitcond735.not = icmp eq i32 %523, 9
-  br i1 %exitcond735.not, label %524, label %521, !llvm.loop !35
+  br i1 %exitcond735.not, label %524, label %521, !llvm.loop !54
 
 524:                                              ; preds = %521
   %525 = load ptr, ptr %88, align 8
@@ -17572,7 +17572,7 @@ define hidden void @_ZN13StubGenerator17ghash_last_8_avx2E8Register(ptr noundef 
   %45 = add nsw i32 %.0199, -1
   %46 = add nuw nsw i32 %.0179198, 1
   %exitcond.not = icmp eq i32 %46, 9
-  br i1 %exitcond.not, label %47, label %32, !llvm.loop !36
+  br i1 %exitcond.not, label %47, label %32, !llvm.loop !55
 
 47:                                               ; preds = %32
   %48 = load ptr, ptr %7, align 8
@@ -17720,7 +17720,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %76, i32 %77, i32 %.0304, i32 10, i32 noundef 0) #7
   %78 = add nuw nsw i32 %.0304, 1
   %exitcond.not = icmp eq i32 %78, 7
-  br i1 %exitcond.not, label %79, label %75, !llvm.loop !37
+  br i1 %exitcond.not, label %79, label %75, !llvm.loop !56
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %59, align 8
@@ -17743,7 +17743,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %88, i32 %.0269305, i32 %.0269305, i32 11, i32 noundef 0) #7
   %89 = add nuw nsw i32 %.0269305, 1
   %exitcond312.not = icmp eq i32 %89, 9
-  br i1 %exitcond312.not, label %90, label %87, !llvm.loop !38
+  br i1 %exitcond312.not, label %90, label %87, !llvm.loop !57
 
 90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
@@ -17802,7 +17802,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %117, i32 %.0270306, i32 %.0270306, i32 0, i32 noundef 0) #7
   %118 = add nuw nsw i32 %.0270306, 1
   %exitcond313.not = icmp eq i32 %118, 9
-  br i1 %exitcond313.not, label %.preheader303, label %116, !llvm.loop !39
+  br i1 %exitcond313.not, label %.preheader303, label %116, !llvm.loop !58
 
 119:                                              ; preds = %.preheader303, %119
   %.0271307 = phi i32 [ 1, %.preheader303 ], [ %134, %119 ]
@@ -17850,7 +17850,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %133, i32 8, i32 0) #7
   %134 = add nuw nsw i32 %.0271307, 1
   %exitcond314.not = icmp eq i32 %134, 10
-  br i1 %exitcond314.not, label %135, label %119, !llvm.loop !40
+  br i1 %exitcond314.not, label %135, label %119, !llvm.loop !59
 
 135:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
@@ -18133,7 +18133,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler10aesenclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %267, i32 %.0272308, i32 0) #7
   %268 = add nuw nsw i32 %.0272308, 1
   %exitcond315.not = icmp eq i32 %268, 9
-  br i1 %exitcond315.not, label %.preheader, label %266, !llvm.loop !41
+  br i1 %exitcond315.not, label %.preheader, label %266, !llvm.loop !60
 
 269:                                              ; preds = %.preheader, %269
   %.0273309 = phi i32 [ 0, %.preheader ], [ %273, %269 ]
@@ -18164,7 +18164,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   store i32 0, ptr %265, align 8
   call void @_ZN14MacroAssembler6movdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %274, ptr noundef nonnull %43, i32 %273) #7
   %exitcond316.not = icmp eq i32 %273, 8
-  br i1 %exitcond316.not, label %275, label %269, !llvm.loop !42
+  br i1 %exitcond316.not, label %275, label %269, !llvm.loop !61
 
 275:                                              ; preds = %269
   %276 = load ptr, ptr %59, align 8
@@ -18197,7 +18197,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   store i32 0, ptr %285, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %287, i32 %288, ptr noundef nonnull %44) #7
   %exitcond317.not = icmp eq i32 %288, 8
-  br i1 %exitcond317.not, label %290, label %286, !llvm.loop !43
+  br i1 %exitcond317.not, label %290, label %286, !llvm.loop !62
 
 290:                                              ; preds = %286
   %291 = load ptr, ptr %59, align 8
@@ -18224,7 +18224,7 @@ define hidden void @_ZN13StubGenerator19initial_blocks_avx2E11XMMRegister8Regist
   call void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %301, i32 %.0274311, i32 %.0274311, i32 15, i32 noundef 0) #7
   %302 = add nuw nsw i32 %.0274311, 1
   %exitcond318.not = icmp eq i32 %302, 9
-  br i1 %exitcond318.not, label %303, label %300, !llvm.loop !44
+  br i1 %exitcond318.not, label %303, label %300, !llvm.loop !63
 
 303:                                              ; preds = %300
   %304 = load ptr, ptr %59, align 8
@@ -18301,42 +18301,61 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}

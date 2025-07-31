@@ -691,7 +691,7 @@ _hash_initbuf.exit:                               ; preds = %151, %157
   call void @MarkBufferDirty(i32 noundef %148) #10
   call void @UnlockReleaseBuffer(i32 noundef %148) #10
   %exitcond.not = icmp eq i32 %.pre-phi99, %86
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_hash_initbuf.exit, %BufferGetPage.exit87.us, %83
   call void @LockBuffer(i32 noundef %45, i32 noundef 2) #10
@@ -1075,7 +1075,7 @@ BufferGetPage.exit163:                            ; preds = %52, %58
 
 .backedge:                                        ; preds = %72, %79
   tail call void @ReleaseBuffer(i32 noundef %48) #10
-  br label %11
+  br label %11, !llvm.loop !10
 
 77:                                               ; preds = %BufferGetPage.exit163
   %78 = and i32 %70, 64
@@ -1166,7 +1166,7 @@ BufferGetPage.exit163:                            ; preds = %52, %58
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %136, label %.thread, !prof !9
+  br i1 %135, label %136, label %.thread, !prof !11
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1543,7 +1543,7 @@ BufferGetPage.exit:                               ; preds = %24, %30
   %55 = call ptr @hash_search(ptr noundef %14, ptr noundef %54, i32 noundef 1, ptr noundef nonnull %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %49, !llvm.loop !10
+  br i1 %exitcond, label %._crit_edge, label %49, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %49, %BufferGetPage.exit
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -1561,7 +1561,7 @@ BufferGetPage.exit:                               ; preds = %24, %30
 
 61:                                               ; preds = %60, %59
   %.not59 = icmp eq i32 %57, -1
-  br i1 %.not59, label %62, label %16
+  br i1 %.not59, label %62, label %16, !llvm.loop !13
 
 62:                                               ; preds = %61
   %63 = call zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %2) #10
@@ -1732,7 +1732,7 @@ BufferGetPage.exit158:                            ; preds = %33, %39
 
 70:                                               ; preds = %66
   %71 = call ptr @hash_search(ptr noundef nonnull %6, ptr noundef %69, i32 noundef 0, ptr noundef nonnull %13) #10
-  %.pre = load i8, ptr %13, align 1, !range !11
+  %.pre = load i8, ptr %13, align 1, !range !14
   %72 = trunc nuw i8 %.pre to i1
   br i1 %72, label %147, label %.thread
 
@@ -1838,7 +1838,7 @@ log_split_page.exit:                              ; preds = %89, %99, %102, %Buf
   call void @pfree(ptr noundef %127) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %log_split_page.exit
   %128 = icmp eq i32 %.1129186, %5
@@ -1882,7 +1882,7 @@ BufferGetPage.exit160:                            ; preds = %137, %131, %76
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206 = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206, label %._crit_edge190, label %60, !llvm.loop !13
+  br i1 %exitcond206, label %._crit_edge190, label %60, !llvm.loop !16
 
 ._crit_edge190:                                   ; preds = %147, %50
   %.1149.lcssa = phi i64 [ %.0148, %50 ], [ %.2150, %147 ]
@@ -1996,7 +1996,7 @@ log_split_page.exit163:                           ; preds = %154, %164, %167, %B
   call void @pfree(ptr noundef %196) #10
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge197, label %.lr.ph196, !llvm.loop !14
+  br i1 %exitcond211.not, label %._crit_edge197, label %.lr.ph196, !llvm.loop !17
 
 _hash_getbuf.exit:                                ; preds = %153
   %197 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %149) #10
@@ -2027,7 +2027,7 @@ _hash_getbuf.exit:                                ; preds = %153
   %213 = load i16, ptr %212, align 4
   %214 = zext i16 %213 to i64
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i164, i64 %214
-  br label %50
+  br label %50, !llvm.loop !18
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %194
   call void @LockBuffer(i32 noundef %4, i32 noundef 2) #10
@@ -2390,7 +2390,7 @@ BufferGetPage.exit:                               ; preds = %31, %37
 49:                                               ; preds = %BufferGetPage.exit
   tail call void @UnlockReleaseBuffer(i32 noundef %28) #10
   %50 = call ptr @_hash_getcachedmetap(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext true)
-  br label %7
+  br label %7, !llvm.loop !19
 
 51:                                               ; preds = %BufferGetPage.exit
   %52 = load i32, ptr %5, align 4
@@ -2469,13 +2469,18 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !6}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !6}
-!11 = !{i8 0, i8 2}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !7}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i8 0, i8 2}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

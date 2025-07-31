@@ -241,7 +241,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %124, ptr %120, align 8, !tbaa !7
   store double %121, ptr %123, align 8, !tbaa !7
   %exitcond714.not = icmp eq i64 %indvars.iv.next712, %wide.trip.count
-  br i1 %exitcond714.not, label %._crit_edge656, label %.lr.ph655, !llvm.loop !11
+  br i1 %exitcond714.not, label %._crit_edge656, label %.lr.ph655, !llvm.loop !12
 
 ._crit_edge656:                                   ; preds = %.lr.ph655, %110
   %125 = add i32 %107, %spec.select
@@ -356,13 +356,13 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv.next718 = add nsw i64 %indvars.iv717, -1
   %191 = trunc nuw i64 %indvars.iv717 to i32
   %192 = icmp sgt i32 %191, 1
-  br i1 %192, label %183, label %193, !llvm.loop !12
+  br i1 %192, label %183, label %193, !llvm.loop !13
 
 193:                                              ; preds = %183
   store double %178, ptr %gep756, align 8, !tbaa !7
   store double %175, ptr %gep754, align 8, !tbaa !7
   %194 = icmp samesign ugt i64 %indvars.iv715, 1
-  br i1 %194, label %.lr.ph660, label %.loopexit645, !llvm.loop !13
+  br i1 %194, label %.lr.ph660, label %.loopexit645, !llvm.loop !14
 
 195:                                              ; preds = %.thread584, %54, %51
   %.0520.ph = phi i32 [ %.0534663, %51 ], [ %.0534663, %54 ], [ %.1521576583587, %.thread584 ]
@@ -386,7 +386,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %203 = add nsw i32 %.0526.neg597, %.0534663
   %204 = sub nsw i32 %.0504600, %203
   %205 = icmp slt i32 %203, 1
-  br i1 %205, label %.loopexit644, label %.lr.ph669
+  br i1 %205, label %.loopexit644, label %.lr.ph669, !llvm.loop !15
 
 206:                                              ; preds = %21
   %207 = add nuw nsw i32 %15, 1
@@ -485,7 +485,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %260 = add i32 %259, %.pre
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724
-  br i1 %exitcond725.not, label %._crit_edge676, label %249, !llvm.loop !14
+  br i1 %exitcond725.not, label %._crit_edge676, label %249, !llvm.loop !16
 
 ._crit_edge676:                                   ; preds = %249
   store double %252, ptr %7, align 8, !tbaa !7
@@ -602,7 +602,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %318, ptr %320, align 8, !tbaa !7
   %indvars.iv.next727 = add nuw nsw i64 %indvars.iv726, 1
   %.not557.not = icmp slt i64 %indvars.iv.next727, %312
-  br i1 %.not557.not, label %313, label %._crit_edge684, !llvm.loop !15
+  br i1 %.not557.not, label %313, label %._crit_edge684, !llvm.loop !17
 
 ._crit_edge684:                                   ; preds = %313, %306
   %322 = sext i32 %.3507740 to i64
@@ -746,7 +746,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %411, ptr %gep760, align 8, !tbaa !7
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 1
   %.not559.not = icmp slt i64 %indvars.iv731, %386
-  br i1 %.not559.not, label %404, label %412, !llvm.loop !16
+  br i1 %.not559.not, label %404, label %412, !llvm.loop !18
 
 412:                                              ; preds = %404
   store double %394, ptr %gep766, align 8, !tbaa !7
@@ -755,7 +755,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, 1
   %lftr.wideiv735 = trunc i64 %indvars.iv.next730 to i32
   %exitcond736.not = icmp eq i32 %388, %lftr.wideiv735
-  br i1 %exitcond736.not, label %.loopexit, label %389, !llvm.loop !17
+  br i1 %exitcond736.not, label %.loopexit, label %389, !llvm.loop !19
 
 413:                                              ; preds = %336, %.thread619, %240, %237
   %.2522.ph = phi i32 [ %.1535698, %237 ], [ %.1535698, %240 ], [ %.3523609617624, %.thread619 ], [ %.3523609617624, %336 ]
@@ -783,7 +783,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %424 = sub i32 %423, %420
   %.1535.neg = sub nsw i32 0, %420
   %425 = icmp sgt i32 %420, %421
-  br i1 %425, label %.loopexit644, label %.lr.ph706
+  br i1 %425, label %.loopexit644, label %.lr.ph706, !llvm.loop !20
 
 .loopexit644:                                     ; preds = %202, %419, %22, %206, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
@@ -834,12 +834,15 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !11}

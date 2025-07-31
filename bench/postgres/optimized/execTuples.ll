@@ -434,7 +434,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   %207 = load i32, ptr %3, align 8
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next119, %208
-  br i1 %209, label %109, label %.loopexit, !llvm.loop !9
+  br i1 %209, label %109, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %206, %.preheader, %97, %._crit_edge, %1
   ret void
@@ -488,7 +488,7 @@ tts_virtual_clear.exit:                           ; preds = %2, %8
   %30 = load i16, ptr %21, align 2
   %31 = sext i16 %30 to i32
   %32 = icmp sgt i32 %20, %31
-  br i1 %32, label %33, label %slot_getallattrs.exit, !prof !10
+  br i1 %32, label %33, label %slot_getallattrs.exit, !prof !11
 
 33:                                               ; preds = %25
   tail call void @slot_getmissingattrs(ptr noundef nonnull %1, i32 noundef %31, i32 noundef %20)
@@ -536,7 +536,7 @@ slot_getallattrs.exit:                            ; preds = %tts_virtual_clear.e
   %55 = load i32, ptr %4, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %44, label %._crit_edge, !llvm.loop !11
+  br i1 %57, label %44, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -838,7 +838,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 133:                                              ; preds = %126
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count185
-  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !13
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -1053,7 +1053,7 @@ fetch_att.exit33:                                 ; preds = %203, %206, %209, %2
 256:                                              ; preds = %249
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.thread71, %17
   %.159 = phi i32 [ %18, %17 ], [ %131, %.thread71 ], [ %254, %.thread76 ], [ %.361132, %156 ]
@@ -1253,7 +1253,7 @@ fetch_att.exit36:                                 ; preds = %311, %314, %317, %3
   %.9 = phi i32 [ %.7139, %285 ], [ %369, %367 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
   %.260 = phi i32 [ %.05867, %26 ], [ %.05867, %134 ], [ %128, %133 ], [ %251, %256 ]
@@ -1847,7 +1847,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 133:                                              ; preds = %126
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count185
-  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !13
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -2062,7 +2062,7 @@ fetch_att.exit33:                                 ; preds = %203, %206, %209, %2
 256:                                              ; preds = %249
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.thread71, %17
   %.159 = phi i32 [ %18, %17 ], [ %131, %.thread71 ], [ %254, %.thread76 ], [ %.361132, %156 ]
@@ -2262,7 +2262,7 @@ fetch_att.exit36:                                 ; preds = %311, %314, %317, %3
   %.9 = phi i32 [ %.7139, %285 ], [ %369, %367 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
   %.260 = phi i32 [ %.05867, %26 ], [ %.05867, %134 ], [ %128, %133 ], [ %251, %256 ]
@@ -2872,7 +2872,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 133:                                              ; preds = %126
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count185
-  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  br i1 %exitcond186.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !13
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -3087,7 +3087,7 @@ fetch_att.exit33:                                 ; preds = %203, %206, %209, %2
 256:                                              ; preds = %249
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %156, %.thread71, %17
   %.159 = phi i32 [ %18, %17 ], [ %131, %.thread71 ], [ %254, %.thread76 ], [ %.361132, %156 ]
@@ -3287,7 +3287,7 @@ fetch_att.exit36:                                 ; preds = %311, %314, %317, %3
   %.9 = phi i32 [ %.7139, %285 ], [ %369, %367 ]
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  br i1 %exitcond191.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !13
 
 slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
   %.260 = phi i32 [ %.05867, %26 ], [ %.05867, %134 ], [ %128, %133 ], [ %251, %256 ]
@@ -3400,7 +3400,7 @@ define internal void @tts_buffer_heap_materialize(ptr noundef captures(none) %0)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i32, ptr %23, align 8
   %.not18 = icmp eq i32 %24, 0
-  br i1 %.not18, label %26, label %25, !prof !10
+  br i1 %.not18, label %26, label %25, !prof !11
 
 25:                                               ; preds = %21
   tail call void @ReleaseBuffer(i32 noundef %24) #14
@@ -5379,7 +5379,7 @@ define dso_local void @slot_getmissingattrs(ptr noundef readonly captures(none) 
   store i8 %32, ptr %34, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !14
 
 .loopexit:                                        ; preds = %25, %.preheader, %.thread
   ret void
@@ -5391,7 +5391,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %1, %5
-  br i1 %6, label %7, label %10, !prof !10
+  br i1 %6, label %7, label %10, !prof !11
 
 7:                                                ; preds = %2
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5410,7 +5410,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i32
   %18 = icmp sgt i32 %1, %17
-  br i1 %18, label %19, label %21, !prof !10
+  br i1 %18, label %19, label %21, !prof !11
 
 19:                                               ; preds = %10
   tail call void @slot_getmissingattrs(ptr noundef nonnull %0, i32 noundef %17, i32 noundef %1)
@@ -5721,7 +5721,7 @@ BlessTupleDesc.exit:                              ; preds = %1, %8, %12
 36:                                               ; preds = %27, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %36, %BlessTupleDesc.exit
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5804,7 +5804,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
 38:                                               ; preds = %35, %34, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %38, %2
   %39 = tail call ptr @heap_form_tuple(ptr noundef nonnull %3, ptr noundef %7, ptr noundef %8) #14
@@ -6048,7 +6048,7 @@ define dso_local void @do_text_output_multiline(ptr noundef readonly captures(no
   tail call void @pfree(ptr noundef %17) #14
   %46 = load i8, ptr %.012, align 1
   %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %16, %2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0)
@@ -6199,13 +6199,14 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

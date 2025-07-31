@@ -1675,22 +1675,22 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
 
 46:                                               ; preds = %44, %28, %26
   %.023 = phi ptr [ null, %26 ], [ %37, %44 ], [ null, %28 ]
-  %47 = load ptr, ptr %4, align 8, !tbaa !28
+  %47 = load ptr, ptr %4, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !31
+  %49 = load i64, ptr %48, align 8, !tbaa !32
   %50 = call ptr @PyBytes_DecodeEscape(ptr noundef %47, i64 noundef %49, ptr noundef %.023, i64 noundef 0, ptr noundef null) #5
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_codecs_escape_decode_impl.exit, label %52
 
 52:                                               ; preds = %46
-  %53 = load i64, ptr %48, align 8, !tbaa !31
+  %53 = load i64, ptr %48, align 8, !tbaa !32
   %54 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %50, i64 noundef %53) #5
   br label %_codecs_escape_decode_impl.exit
 
 _codecs_escape_decode_impl.exit:                  ; preds = %52, %46, %.thread43, %.thread, %24, %8, %45
   %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread43 ], [ %54, %52 ], [ null, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !32
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
   %.not32 = icmp eq ptr %56, null
   br i1 %.not32, label %58, label %57
 
@@ -1785,7 +1785,7 @@ define internal ptr @_codecs_utf_8_encode(ptr readnone captures(none) %0, ptr no
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_8_encode_impl.exit
 
@@ -1879,17 +1879,17 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
 
 .thread39:                                        ; preds = %13, %33
   %.021.ph = phi ptr [ %.1, %33 ], [ null, %13 ]
-  %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %5, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3543 = load i64, ptr %40, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %40, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val3543, ptr %4, align 8, !tbaa !21
   br label %43
 
 41:                                               ; preds = %35
-  %.val34 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %5, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val35 = load i64, ptr %42, align 8, !tbaa !31
+  %.val35 = load i64, ptr %42, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val35, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -1918,7 +1918,7 @@ _codecs_utf_8_decode_impl.exit:                   ; preds = %43, %47
 50:                                               ; preds = %.thread, %35, %10, %8, %_codecs_utf_8_decode_impl.exit, %32
   %.022 = phi ptr [ null, %10 ], [ %.0.i.i, %_codecs_utf_8_decode_impl.exit ], [ null, %35 ], [ null, %32 ], [ null, %8 ], [ null, %.thread ]
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !32
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
   %.not31 = icmp eq ptr %52, null
   br i1 %.not31, label %54, label %53
 
@@ -2013,7 +2013,7 @@ define internal ptr @_codecs_utf_7_encode(ptr readnone captures(none) %0, ptr no
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_7_encode_impl.exit
 
@@ -2107,17 +2107,17 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
 
 .thread39:                                        ; preds = %13, %33
   %.021.ph = phi ptr [ %.1, %33 ], [ null, %13 ]
-  %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %5, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3543 = load i64, ptr %40, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %40, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val3543, ptr %4, align 8, !tbaa !21
   br label %43
 
 41:                                               ; preds = %35
-  %.val34 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %5, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val35 = load i64, ptr %42, align 8, !tbaa !31
+  %.val35 = load i64, ptr %42, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val35, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -2146,7 +2146,7 @@ _codecs_utf_7_decode_impl.exit:                   ; preds = %43, %47
 50:                                               ; preds = %.thread, %35, %10, %8, %_codecs_utf_7_decode_impl.exit, %32
   %.022 = phi ptr [ null, %10 ], [ %.0.i.i, %_codecs_utf_7_decode_impl.exit ], [ null, %35 ], [ null, %32 ], [ null, %8 ], [ null, %.thread ]
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !32
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
   %.not31 = icmp eq ptr %52, null
   br i1 %.not31, label %54, label %53
 
@@ -2259,7 +2259,7 @@ define internal ptr @_codecs_utf_16_encode(ptr readnone captures(none) %0, ptr n
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %47, align 8, !tbaa !33
+  %.val.i = load i64, ptr %47, align 8, !tbaa !34
   %48 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %44, i64 noundef %.val.i) #5
   br label %_codecs_utf_16_encode_impl.exit
 
@@ -2350,7 +2350,7 @@ define internal ptr @_codecs_utf_16_le_encode(ptr readnone captures(none) %0, pt
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_16_le_encode_impl.exit
 
@@ -2441,7 +2441,7 @@ define internal ptr @_codecs_utf_16_be_encode(ptr readnone captures(none) %0, pt
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_16_be_encode_impl.exit
 
@@ -2536,21 +2536,21 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !36
+  store i32 0, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !36
+  store i32 0, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -2580,7 +2580,7 @@ _codecs_utf_16_decode_impl.exit:                  ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_16_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -2679,21 +2679,21 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 -1, ptr %4, align 4, !tbaa !36
+  store i32 -1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 -1, ptr %4, align 4, !tbaa !36
+  store i32 -1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -2723,7 +2723,7 @@ _codecs_utf_16_le_decode_impl.exit:               ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_le_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_16_le_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -2822,21 +2822,21 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 1, ptr %4, align 4, !tbaa !36
+  store i32 1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 1, ptr %4, align 4, !tbaa !36
+  store i32 1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -2866,7 +2866,7 @@ _codecs_utf_16_be_decode_impl.exit:               ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_be_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_16_be_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -2982,21 +2982,21 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 .thread45:                                        ; preds = %14, %34, %43
   %.026.ph = phi ptr [ %.1, %43 ], [ %.1, %34 ], [ null, %14 ]
   %.025.ph = phi i32 [ %39, %43 ], [ 0, %34 ], [ 0, %14 ]
-  %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val4049 = load ptr, ptr %6, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4150 = load i64, ptr %50, align 8, !tbaa !31
+  %.val4150 = load i64, ptr %50, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %.025.ph, ptr %4, align 4, !tbaa !36
+  store i32 %.025.ph, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val4150, ptr %5, align 8, !tbaa !21
   br label %53
 
 51:                                               ; preds = %45
-  %.val40 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val40 = load ptr, ptr %6, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val41 = load i64, ptr %52, align 8, !tbaa !31
+  %.val41 = load i64, ptr %52, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %39, ptr %4, align 4, !tbaa !36
+  store i32 %39, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val41, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -3014,7 +3014,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 
 57:                                               ; preds = %53
   %58 = load i64, ptr %5, align 8, !tbaa !21
-  %59 = load i32, ptr %4, align 4, !tbaa !36
+  %59 = load i32, ptr %4, align 4, !tbaa !37
   %60 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.56, ptr noundef nonnull %55, i64 noundef %58, i32 noundef %59) #5
   br label %_codecs_utf_16_ex_decode_impl.exit
 
@@ -3027,7 +3027,7 @@ _codecs_utf_16_ex_decode_impl.exit:               ; preds = %53, %57
 61:                                               ; preds = %.thread, %45, %41, %11, %9, %_codecs_utf_16_ex_decode_impl.exit, %33
   %.027 = phi ptr [ null, %11 ], [ %.0.i, %_codecs_utf_16_ex_decode_impl.exit ], [ null, %41 ], [ null, %45 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !32
+  %63 = load ptr, ptr %62, align 8, !tbaa !33
   %.not37 = icmp eq ptr %63, null
   br i1 %.not37, label %65, label %64
 
@@ -3140,7 +3140,7 @@ define internal ptr @_codecs_utf_32_encode(ptr readnone captures(none) %0, ptr n
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %47, align 8, !tbaa !33
+  %.val.i = load i64, ptr %47, align 8, !tbaa !34
   %48 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %44, i64 noundef %.val.i) #5
   br label %_codecs_utf_32_encode_impl.exit
 
@@ -3231,7 +3231,7 @@ define internal ptr @_codecs_utf_32_le_encode(ptr readnone captures(none) %0, pt
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_32_le_encode_impl.exit
 
@@ -3322,7 +3322,7 @@ define internal ptr @_codecs_utf_32_be_encode(ptr readnone captures(none) %0, pt
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_utf_32_be_encode_impl.exit
 
@@ -3417,21 +3417,21 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !36
+  store i32 0, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !36
+  store i32 0, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -3461,7 +3461,7 @@ _codecs_utf_32_decode_impl.exit:                  ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_32_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -3560,21 +3560,21 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 -1, ptr %4, align 4, !tbaa !36
+  store i32 -1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 -1, ptr %4, align 4, !tbaa !36
+  store i32 -1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -3604,7 +3604,7 @@ _codecs_utf_32_le_decode_impl.exit:               ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_le_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_32_le_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -3703,21 +3703,21 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
 
 .thread39:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3442 = load ptr, ptr %6, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3543 = load i64, ptr %41, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 1, ptr %4, align 4, !tbaa !36
+  store i32 1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val35 = load i64, ptr %43, align 8, !tbaa !31
+  %.val35 = load i64, ptr %43, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 1, ptr %4, align 4, !tbaa !36
+  store i32 1, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -3747,7 +3747,7 @@ _codecs_utf_32_be_decode_impl.exit:               ; preds = %44, %48
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_be_decode_impl.exit, %33
   %.022 = phi ptr [ null, %11 ], [ %.0.i.i, %_codecs_utf_32_be_decode_impl.exit ], [ null, %36 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !32
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %55, label %54
 
@@ -3863,21 +3863,21 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 .thread45:                                        ; preds = %14, %34, %43
   %.026.ph = phi ptr [ %.1, %43 ], [ %.1, %34 ], [ null, %14 ]
   %.025.ph = phi i32 [ %39, %43 ], [ 0, %34 ], [ 0, %14 ]
-  %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val4049 = load ptr, ptr %6, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4150 = load i64, ptr %50, align 8, !tbaa !31
+  %.val4150 = load i64, ptr %50, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %.025.ph, ptr %4, align 4, !tbaa !36
+  store i32 %.025.ph, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val4150, ptr %5, align 8, !tbaa !21
   br label %53
 
 51:                                               ; preds = %45
-  %.val40 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val40 = load ptr, ptr %6, align 8, !tbaa !29
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val41 = load i64, ptr %52, align 8, !tbaa !31
+  %.val41 = load i64, ptr %52, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %39, ptr %4, align 4, !tbaa !36
+  store i32 %39, ptr %4, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   store i64 %.val41, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -3895,7 +3895,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 
 57:                                               ; preds = %53
   %58 = load i64, ptr %5, align 8, !tbaa !21
-  %59 = load i32, ptr %4, align 4, !tbaa !36
+  %59 = load i32, ptr %4, align 4, !tbaa !37
   %60 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.56, ptr noundef nonnull %55, i64 noundef %58, i32 noundef %59) #5
   br label %_codecs_utf_32_ex_decode_impl.exit
 
@@ -3908,7 +3908,7 @@ _codecs_utf_32_ex_decode_impl.exit:               ; preds = %53, %57
 61:                                               ; preds = %.thread, %45, %41, %11, %9, %_codecs_utf_32_ex_decode_impl.exit, %33
   %.027 = phi ptr [ null, %11 ], [ %.0.i, %_codecs_utf_32_ex_decode_impl.exit ], [ null, %41 ], [ null, %45 ], [ null, %33 ], [ null, %9 ], [ null, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !32
+  %63 = load ptr, ptr %62, align 8, !tbaa !33
   %.not37 = icmp eq ptr %63, null
   br i1 %.not37, label %65, label %64
 
@@ -4002,7 +4002,7 @@ define internal ptr @_codecs_unicode_escape_encode(ptr readnone captures(none) %
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_unicode_escape_encode_impl.exit
 
@@ -4127,17 +4127,17 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 
 .thread57:                                        ; preds = %27, %47
   %.028.ph = phi ptr [ %.129, %47 ], [ null, %27 ]
-  %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val4860 = load ptr, ptr %5, align 8, !tbaa !29
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val4961 = load i64, ptr %54, align 8, !tbaa !31
+  %.val4961 = load i64, ptr %54, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val4961, ptr %4, align 8, !tbaa !21
   br label %57
 
 55:                                               ; preds = %49
-  %.val48 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val48 = load ptr, ptr %5, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val49 = load i64, ptr %56, align 8, !tbaa !31
+  %.val49 = load i64, ptr %56, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val49, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -4166,7 +4166,7 @@ _codecs_unicode_escape_decode_impl.exit:          ; preds = %57, %61
 64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_unicode_escape_decode_impl.exit, %46
   %.030 = phi ptr [ %.0.i.i, %_codecs_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread53 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !32
+  %66 = load ptr, ptr %65, align 8, !tbaa !33
   %.not40 = icmp eq ptr %66, null
   br i1 %.not40, label %68, label %67
 
@@ -4260,7 +4260,7 @@ define internal ptr @_codecs_raw_unicode_escape_encode(ptr readnone captures(non
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_raw_unicode_escape_encode_impl.exit
 
@@ -4385,17 +4385,17 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 
 .thread57:                                        ; preds = %27, %47
   %.028.ph = phi ptr [ %.129, %47 ], [ null, %27 ]
-  %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val4860 = load ptr, ptr %5, align 8, !tbaa !29
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val4961 = load i64, ptr %54, align 8, !tbaa !31
+  %.val4961 = load i64, ptr %54, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val4961, ptr %4, align 8, !tbaa !21
   br label %57
 
 55:                                               ; preds = %49
-  %.val48 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val48 = load ptr, ptr %5, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val49 = load i64, ptr %56, align 8, !tbaa !31
+  %.val49 = load i64, ptr %56, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store i64 %.val49, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
@@ -4424,7 +4424,7 @@ _codecs_raw_unicode_escape_decode_impl.exit:      ; preds = %57, %61
 64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_raw_unicode_escape_decode_impl.exit, %46
   %.030 = phi ptr [ %.0.i.i, %_codecs_raw_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread53 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !32
+  %66 = load ptr, ptr %65, align 8, !tbaa !33
   %.not40 = icmp eq ptr %66, null
   br i1 %.not40, label %68, label %67
 
@@ -4519,7 +4519,7 @@ define internal ptr @_codecs_latin_1_encode(ptr readnone captures(none) %0, ptr 
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_latin_1_encode_impl.exit
 
@@ -4599,22 +4599,22 @@ define internal ptr @_codecs_latin_1_decode(ptr readnone captures(none) %0, ptr 
 
 32:                                               ; preds = %30, %14, %12
   %.016 = phi ptr [ null, %12 ], [ %23, %30 ], [ null, %14 ]
-  %33 = load ptr, ptr %4, align 8, !tbaa !28
+  %33 = load ptr, ptr %4, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %36 = call ptr @PyUnicode_DecodeLatin1(ptr noundef %33, i64 noundef %35, ptr noundef %.016) #5
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_codecs_latin_1_decode_impl.exit, label %38
 
 38:                                               ; preds = %32
-  %39 = load i64, ptr %34, align 8, !tbaa !31
+  %39 = load i64, ptr %34, align 8, !tbaa !32
   %40 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %36, i64 noundef %39) #5
   br label %_codecs_latin_1_decode_impl.exit
 
 _codecs_latin_1_decode_impl.exit:                 ; preds = %38, %32, %.thread, %9, %7, %31
   %.017 = phi ptr [ null, %9 ], [ null, %31 ], [ null, %7 ], [ null, %.thread ], [ %40, %38 ], [ null, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
   %.not24 = icmp eq ptr %42, null
   br i1 %.not24, label %44, label %43
 
@@ -4709,7 +4709,7 @@ define internal ptr @_codecs_ascii_encode(ptr readnone captures(none) %0, ptr no
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %38, align 8, !tbaa !33
+  %.val.i = load i64, ptr %38, align 8, !tbaa !34
   %39 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %35, i64 noundef %.val.i) #5
   br label %_codecs_ascii_encode_impl.exit
 
@@ -4789,22 +4789,22 @@ define internal ptr @_codecs_ascii_decode(ptr readnone captures(none) %0, ptr no
 
 32:                                               ; preds = %30, %14, %12
   %.016 = phi ptr [ null, %12 ], [ %23, %30 ], [ null, %14 ]
-  %33 = load ptr, ptr %4, align 8, !tbaa !28
+  %33 = load ptr, ptr %4, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %36 = call ptr @PyUnicode_DecodeASCII(ptr noundef %33, i64 noundef %35, ptr noundef %.016) #5
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_codecs_ascii_decode_impl.exit, label %38
 
 38:                                               ; preds = %32
-  %39 = load i64, ptr %34, align 8, !tbaa !31
+  %39 = load i64, ptr %34, align 8, !tbaa !32
   %40 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %36, i64 noundef %39) #5
   br label %_codecs_ascii_decode_impl.exit
 
 _codecs_ascii_decode_impl.exit:                   ; preds = %38, %32, %.thread, %9, %7, %31
   %.017 = phi ptr [ null, %9 ], [ null, %31 ], [ null, %7 ], [ null, %.thread ], [ %40, %38 ], [ null, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
   %.not24 = icmp eq ptr %42, null
   br i1 %.not24, label %44, label %43
 
@@ -4912,7 +4912,7 @@ define internal ptr @_codecs_charmap_encode(ptr readnone captures(none) %0, ptr 
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %9, i64 16
-  %.val.i = load i64, ptr %44, align 8, !tbaa !33
+  %.val.i = load i64, ptr %44, align 8, !tbaa !34
   %45 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %41, i64 noundef %.val.i) #5
   br label %_codecs_charmap_encode_impl.exit
 
@@ -5005,22 +5005,22 @@ define internal ptr @_codecs_charmap_decode(ptr readnone captures(none) %0, ptr 
   %.019 = phi ptr [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %32 ], [ %36, %34 ]
   %38 = icmp eq ptr %.019, @_Py_NoneStruct
   %spec.store.select.i = select i1 %38, ptr null, ptr %.019
-  %39 = load ptr, ptr %4, align 8, !tbaa !28
+  %39 = load ptr, ptr %4, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !31
+  %41 = load i64, ptr %40, align 8, !tbaa !32
   %42 = call ptr @PyUnicode_DecodeCharmap(ptr noundef %39, i64 noundef %41, ptr noundef %spec.store.select.i, ptr noundef %.020) #5
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_codecs_charmap_decode_impl.exit, label %44
 
 44:                                               ; preds = %37
-  %45 = load i64, ptr %40, align 8, !tbaa !31
+  %45 = load i64, ptr %40, align 8, !tbaa !32
   %46 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %42, i64 noundef %45) #5
   br label %_codecs_charmap_decode_impl.exit
 
 _codecs_charmap_decode_impl.exit:                 ; preds = %44, %37, %.thread, %9, %7, %31
   %.021 = phi ptr [ null, %9 ], [ null, %31 ], [ null, %7 ], [ null, %.thread ], [ %46, %44 ], [ null, %37 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !32
+  %48 = load ptr, ptr %47, align 8, !tbaa !33
   %.not29 = icmp eq ptr %48, null
   br i1 %.not29, label %50, label %49
 
@@ -5157,22 +5157,22 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   br label %_codecs_readbuffer_encode_impl.exit
 
 46:                                               ; preds = %44, %28, %26
-  %47 = load ptr, ptr %4, align 8, !tbaa !28
+  %47 = load ptr, ptr %4, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !31
+  %49 = load i64, ptr %48, align 8, !tbaa !32
   %50 = call ptr @PyBytes_FromStringAndSize(ptr noundef %47, i64 noundef %49) #5
   %51 = icmp eq ptr %50, null
   br i1 %51, label %_codecs_readbuffer_encode_impl.exit, label %52
 
 52:                                               ; preds = %46
-  %53 = load i64, ptr %48, align 8, !tbaa !31
+  %53 = load i64, ptr %48, align 8, !tbaa !32
   %54 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %50, i64 noundef %53) #5
   br label %_codecs_readbuffer_encode_impl.exit
 
 _codecs_readbuffer_encode_impl.exit:              ; preds = %52, %46, %.thread43, %.thread, %24, %8, %45
   %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread43 ], [ %54, %52 ], [ null, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !32
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
   %.not32 = icmp eq ptr %56, null
   br i1 %.not32, label %58, label %57
 
@@ -5466,14 +5466,15 @@ attributes #6 = { nounwind willreturn memory(read) }
 !23 = !{!12, !13, i64 16}
 !24 = !{!6, !6, i64 0}
 !25 = !{!14, !14, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !9, i64 0}
-!29 = !{!"", !9, i64 0, !18, i64 8, !13, i64 16, !13, i64 24, !19, i64 32, !19, i64 36, !14, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !9, i64 72}
-!30 = !{!"p1 long", !9, i64 0}
-!31 = !{!29, !13, i64 16}
-!32 = !{!29, !18, i64 8}
-!33 = !{!34, !13, i64 16}
-!34 = !{!"", !5, i64 0, !13, i64 16, !13, i64 24, !35, i64 32}
-!35 = !{!"", !20, i64 0, !20, i64 2, !20, i64 2, !20, i64 2, !20, i64 2}
-!36 = !{!19, !19, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30, !9, i64 0}
+!30 = !{!"", !9, i64 0, !18, i64 8, !13, i64 16, !13, i64 24, !19, i64 32, !19, i64 36, !14, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !9, i64 72}
+!31 = !{!"p1 long", !9, i64 0}
+!32 = !{!30, !13, i64 16}
+!33 = !{!30, !18, i64 8}
+!34 = !{!35, !13, i64 16}
+!35 = !{!"", !5, i64 0, !13, i64 16, !13, i64 24, !36, i64 32}
+!36 = !{!"", !20, i64 0, !20, i64 2, !20, i64 2, !20, i64 2, !20, i64 2}
+!37 = !{!19, !19, i64 0}

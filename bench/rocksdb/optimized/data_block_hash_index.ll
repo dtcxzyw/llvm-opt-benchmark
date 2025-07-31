@@ -100,11 +100,11 @@ _ZNSt6vectorISt4pairIjhESaIS1_EE17_M_realloc_insertIJRjhEEEvN9__gnu_cxx17__norma
   br label %_ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit: ; preds = %18, %_ZNSt6vectorISt4pairIjhESaIS1_EE17_M_realloc_insertIJRjhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %43 = load double, ptr %0, align 8, !tbaa !35
+  %43 = load double, ptr %0, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load double, ptr %44, align 8, !tbaa !36
+  %45 = load double, ptr %44, align 8, !tbaa !37
   %46 = fadd double %43, %45
-  store double %46, ptr %44, align 8, !tbaa !36
+  store double %46, ptr %44, align 8, !tbaa !37
   br label %47
 
 47:                                               ; preds = %_ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit, %5
@@ -122,7 +122,7 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load double, ptr %5, align 8, !tbaa !36
+  %6 = load double, ptr %5, align 8, !tbaa !37
   %7 = fptoui double %6 to i16
   %8 = or i16 %7, 1
   %9 = zext i16 %8 to i64
@@ -130,9 +130,9 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, i8 -1, i64 %9, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
   %.not4749 = icmp eq ptr %13, %15
   br i1 %.not4749, label %.lr.ph53, label %.lr.ph
 
@@ -152,7 +152,7 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
   %22 = urem i32 %19, %16
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !38
+  %25 = load i8, ptr %24, align 1, !tbaa !39
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %.sink.split, label %27
 
@@ -162,19 +162,19 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
 
 .sink.split:                                      ; preds = %27, %18
   %.sink = phi i8 [ %21, %18 ], [ -2, %27 ]
-  store i8 %.sink, ptr %24, align 1, !tbaa !38
+  store i8 %.sink, ptr %24, align 1, !tbaa !39
   br label %28
 
 28:                                               ; preds = %.sink.split, %27
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
   %.not47 = icmp eq ptr %29, %15
-  br i1 %.not47, label %.lr.ph53, label %18
+  br i1 %.not47, label %.lr.ph53, label %18, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  store i16 %8, ptr %3, align 2, !tbaa !39
+  store i16 %8, ptr %3, align 2, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !41
+  %31 = load i64, ptr %30, align 8, !tbaa !43
   %32 = and i64 %31, -2
   %33 = icmp eq i64 %32, 4611686018427387902
   br i1 %33, label %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
@@ -193,9 +193,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 36:                                               ; preds = %.lr.ph53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   %.sroa.031.052 = phi ptr [ %10, %.lr.ph53 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
-  %37 = load i8, ptr %.sroa.031.052, align 1, !tbaa !38
-  store i8 %37, ptr %4, align 1, !tbaa !38
-  %38 = load i64, ptr %17, align 8, !tbaa !41
+  %37 = load i8, ptr %.sroa.031.052, align 1, !tbaa !39
+  store i8 %37, ptr %4, align 1, !tbaa !39
+  %38 = load i64, ptr %17, align 8, !tbaa !43
   %39 = icmp eq i64 %38, 4611686018427387903
   br i1 %39, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
@@ -214,7 +214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 1
   %.not48 = icmp eq ptr %42, %11
-  br i1 %.not48, label %._crit_edge, label %36
+  br i1 %.not48, label %._crit_edge, label %36, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -252,7 +252,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb25DataBlockHashIndexBuilder5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((8, 17)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 0.000000e+00, ptr %2, align 8, !tbaa !36
+  store double 0.000000e+00, ptr %2, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -276,10 +276,10 @@ define void @_ZN7rocksdb18DataBlockHashIndex10InitializeEPKctPt(ptr noundef nonn
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -2
   %.0.copyload.i = load i16, ptr %7, align 1
-  store i16 %.0.copyload.i, ptr %0, align 2, !tbaa !44
+  store i16 %.0.copyload.i, ptr %0, align 2, !tbaa !47
   %8 = add i16 %2, -2
   %9 = sub i16 %8, %.0.copyload.i
-  store i16 %9, ptr %3, align 2, !tbaa !39
+  store i16 %9, ptr %3, align 2, !tbaa !41
   ret void
 }
 
@@ -289,14 +289,14 @@ define noundef zeroext i8 @_ZNK7rocksdb18DataBlockHashIndex6LookupEPKcjRKNS_5Sli
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !20
   %8 = tail call noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %5, i64 noundef %7, i32 noundef 397)
-  %9 = load i16, ptr %0, align 2, !tbaa !44
+  %9 = load i16, ptr %0, align 2, !tbaa !47
   %10 = zext i16 %9 to i32
   %11 = urem i32 %8, %10
   %12 = zext nneg i32 %11 to i64
   %13 = zext i32 %2 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
-  %16 = load i8, ptr %15, align 1, !tbaa !38
+  %16 = load i8, ptr %15, align 1, !tbaa !39
   ret i8 %16
 }
 
@@ -379,16 +379,19 @@ attributes #14 = { nounwind }
 !30 = distinct !{!30, !"_ZSt19__relocate_object_aISt4pairIjhES1_SaIS1_EEvPT_PT0_RT1_"}
 !31 = !{!32}
 !32 = distinct !{!32, !30, !"_ZSt19__relocate_object_aISt4pairIjhES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!5, !6, i64 0}
-!36 = !{!5, !6, i64 8}
-!37 = !{!14, !14, i64 0}
-!38 = !{!7, !7, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"short", !7, i64 0}
-!41 = !{!42, !19, i64 8}
-!42 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !43, i64 0, !19, i64 8, !7, i64 16}
-!43 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !18, i64 0}
-!44 = !{!45, !40, i64 0}
-!45 = !{!"_ZTSN7rocksdb18DataBlockHashIndexE", !40, i64 0}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!5, !6, i64 0}
+!37 = !{!5, !6, i64 8}
+!38 = !{!14, !14, i64 0}
+!39 = !{!7, !7, i64 0}
+!40 = distinct !{!40, !35}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"short", !7, i64 0}
+!43 = !{!44, !19, i64 8}
+!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !45, i64 0, !19, i64 8, !7, i64 16}
+!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !18, i64 0}
+!46 = distinct !{!46, !35}
+!47 = !{!48, !42, i64 0}
+!48 = !{!"_ZTSN7rocksdb18DataBlockHashIndexE", !42, i64 0}

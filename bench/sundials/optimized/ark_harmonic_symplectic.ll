@@ -143,7 +143,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.1.i = phi i32 [ %13, %12 ], [ %22, %21 ], [ %30, %29 ], [ %38, %37 ], [ %.050.i, %44 ], [ %.050.i, %46 ]
   %54 = add nsw i32 %.1.i, 1
   %55 = icmp slt i32 %54, %0
-  br i1 %55, label %.lr.ph.i, label %.loopexit105.loopexit
+  br i1 %55, label %.lr.ph.i, label %.loopexit105.loopexit, !llvm.loop !15
 
 ParseArgs.exit:                                   ; preds = %48, %50
   tail call fastcc void @PrintHelp()
@@ -173,11 +173,11 @@ check_retval.exit:                                ; preds = %.loopexit105
 
 63:                                               ; preds = %.loopexit105
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  store double 1.000000e+01, ptr %3, align 8, !tbaa !15
+  store double 1.000000e+01, ptr %3, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double 0.000000e+00, ptr %64, align 8, !tbaa !17
+  store double 0.000000e+00, ptr %64, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 1.000000e+00, ptr %65, align 8, !tbaa !18
+  store double 1.000000e+00, ptr %65, align 8, !tbaa !20
   %66 = load ptr, ptr %4, align 8, !tbaa !4
   %67 = call ptr @N_VNew_Serial(i64 noundef 2, ptr noundef %66) #10
   %68 = call ptr @N_VClone(ptr noundef %67) #10
@@ -187,7 +187,7 @@ check_retval.exit:                                ; preds = %.loopexit105
   store double -0.000000e+00, ptr %70, align 8, !tbaa !9
   %71 = load ptr, ptr %4, align 8, !tbaa !4
   %72 = call ptr @SPRKStepCreate(ptr noundef nonnull @xdot, ptr noundef nonnull @vdot, double noundef 0.000000e+00, ptr noundef %67, ptr noundef %71) #10
-  store ptr %72, ptr %6, align 8, !tbaa !19
+  store ptr %72, ptr %6, align 8, !tbaa !21
   %73 = call i32 @ARKodeSetOrder(ptr noundef %72, i32 noundef %.sroa.0.2.ph) #10
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %check_retval.exit64, label %77
@@ -250,7 +250,7 @@ check_retval.exit72:                              ; preds = %92
   %106 = load double, ptr %105, align 8, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load double, ptr %107, align 8, !tbaa !9
-  %109 = load double, ptr %65, align 8, !tbaa !18
+  %109 = load double, ptr %65, align 8, !tbaa !20
   %110 = fmul double %109, %109
   %111 = fmul double %106, %110
   %112 = fmul double %106, %111
@@ -280,26 +280,26 @@ check_retval.exit72:                              ; preds = %92
   %125 = call i32 @ARKodeEvolve(ptr noundef %72, double noundef %.049107, ptr noundef %67, ptr noundef nonnull %5, i32 noundef 1) #10
   %126 = load double, ptr %5, align 8, !tbaa !9
   %127 = call ptr @N_VGetArrayPointer(ptr noundef %68) #10
-  %128 = load double, ptr %3, align 8, !tbaa !15
-  %129 = load double, ptr %65, align 8, !tbaa !18
-  %130 = load double, ptr %64, align 8, !tbaa !17
+  %128 = load double, ptr %3, align 8, !tbaa !17
+  %129 = load double, ptr %65, align 8, !tbaa !20
+  %130 = load double, ptr %64, align 8, !tbaa !19
   %131 = call double @llvm.fmuladd.f64(double %129, double %126, double %130)
-  %132 = call double @cos(double noundef %131) #10, !tbaa !20
+  %132 = call double @cos(double noundef %131) #10, !tbaa !22
   %133 = fmul double %128, %132
   store double %133, ptr %127, align 8, !tbaa !9
-  %134 = load double, ptr %3, align 8, !tbaa !15
+  %134 = load double, ptr %3, align 8, !tbaa !17
   %135 = fneg double %134
-  %136 = load double, ptr %65, align 8, !tbaa !18
+  %136 = load double, ptr %65, align 8, !tbaa !20
   %137 = fmul double %136, %135
-  %138 = load double, ptr %64, align 8, !tbaa !17
+  %138 = load double, ptr %64, align 8, !tbaa !19
   %139 = call double @llvm.fmuladd.f64(double %136, double %126, double %138)
-  %140 = call double @sin(double noundef %139) #10, !tbaa !20
+  %140 = call double @sin(double noundef %139) #10, !tbaa !22
   %141 = fmul double %137, %140
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store double %141, ptr %142, align 8, !tbaa !9
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %67, double noundef -1.000000e+00, ptr noundef %68, ptr noundef %68) #10
   %143 = call double @N_VDotProd(ptr noundef %68, ptr noundef %68) #10
-  %144 = call double @sqrt(double noundef %143) #10, !tbaa !20
+  %144 = call double @sqrt(double noundef %143) #10, !tbaa !22
   %145 = load ptr, ptr @stdout, align 8, !tbaa !13
   %146 = load double, ptr %5, align 8, !tbaa !9
   %147 = fpext double %146 to x86_fp80
@@ -309,7 +309,7 @@ check_retval.exit72:                              ; preds = %92
   %151 = load double, ptr %150, align 8, !tbaa !9
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !9
-  %154 = load double, ptr %65, align 8, !tbaa !18
+  %154 = load double, ptr %65, align 8, !tbaa !20
   %155 = fmul double %154, %154
   %156 = fmul double %151, %155
   %157 = fmul double %151, %156
@@ -318,7 +318,7 @@ check_retval.exit72:                              ; preds = %92
   %160 = fpext double %159 to x86_fp80
   %161 = fpext double %144 to x86_fp80
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.8, x86_fp80 noundef %147, x86_fp80 noundef %149, x86_fp80 noundef %160, x86_fp80 noundef %161) #10
-  %163 = call double @pow(double noundef 1.000000e+01, double noundef %120) #10, !tbaa !20
+  %163 = call double @pow(double noundef 1.000000e+01, double noundef %120) #10, !tbaa !22
   %164 = fdiv double %.sroa.17.2.ph, %163
   %165 = fcmp ogt double %164, 0x3D4F400000000000
   %166 = select i1 %165, double %164, double 0x3D4F400000000000
@@ -340,7 +340,7 @@ check_retval.exit72:                              ; preds = %92
   %176 = select i1 %175, double %.sroa.14.2.ph, double %174
   %177 = add nuw nsw i32 %.048108, 1
   %exitcond.not = icmp eq i32 %177, %.sroa.5.2.ph
-  br i1 %exitcond.not, label %.loopexit, label %121
+  br i1 %exitcond.not, label %.loopexit, label %121, !llvm.loop !24
 
 178:                                              ; preds = %171
   %179 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -402,7 +402,7 @@ define internal noundef i32 @vdot(double %0, ptr noundef %1, ptr noundef %2, ptr
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
   %7 = load double, ptr %5, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load double, ptr %8, align 8, !tbaa !18
+  %9 = load double, ptr %8, align 8, !tbaa !20
   %10 = fneg double %9
   %11 = fmul double %9, %10
   %12 = fmul double %7, %11
@@ -522,10 +522,13 @@ attributes #13 = { cold }
 !12 = !{!"p1 omnipotent char", !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!15 = !{!16, !10, i64 0}
-!16 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
-!17 = !{!16, !10, i64 8}
-!18 = !{!16, !10, i64 16}
-!19 = !{!6, !6, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
+!19 = !{!18, !10, i64 8}
+!20 = !{!18, !10, i64 16}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !7, i64 0}
+!24 = distinct !{!24, !16}

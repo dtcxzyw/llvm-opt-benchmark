@@ -8332,7 +8332,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
   %258 = getelementptr inbounds nuw i8, ptr %66, i64 3
   store i8 %257, ptr %258, align 1, !tbaa !87
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %260 = load ptr, ptr %259, align 8, !tbaa !109
+  %260 = load ptr, ptr %259, align 8, !tbaa !110
   %261 = sext i32 %7 to i64
   call void %260(ptr noundef %4, i64 noundef %261, i32 noundef %225, i32 noundef %230, ptr noundef nonnull %66) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #5
@@ -8340,7 +8340,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
 
 262:                                              ; preds = %233
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %264 = load ptr, ptr %263, align 8, !tbaa !110
+  %264 = load ptr, ptr %263, align 8, !tbaa !111
   %265 = sext i32 %7 to i64
   tail call void %264(ptr noundef %4, i64 noundef %265, i32 noundef %225, i32 noundef %230) #5
   br label %filter_mb_mbaff_edgev.exit
@@ -8399,7 +8399,7 @@ filter_mb_mbaff_edgev.exit:                       ; preds = %220, %236, %262
   %307 = getelementptr inbounds nuw i8, ptr %65, i64 3
   store i8 %306, ptr %307, align 1, !tbaa !87
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %309 = load ptr, ptr %308, align 8, !tbaa !109
+  %309 = load ptr, ptr %308, align 8, !tbaa !110
   %310 = sext i32 %7 to i64
   call void %309(ptr noundef %268, i64 noundef %310, i32 noundef %274, i32 noundef %279, ptr noundef nonnull %65) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #5
@@ -8407,7 +8407,7 @@ filter_mb_mbaff_edgev.exit:                       ; preds = %220, %236, %262
 
 311:                                              ; preds = %282
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %313 = load ptr, ptr %312, align 8, !tbaa !110
+  %313 = load ptr, ptr %312, align 8, !tbaa !111
   %314 = sext i32 %7 to i64
   call void %313(ptr noundef %268, i64 noundef %314, i32 noundef %274, i32 noundef %279) #5
   br label %filter_mb_mbaff_edgev.exit305
@@ -8474,7 +8474,7 @@ filter_mb_mbaff_edgev.exit305:                    ; preds = %filter_mb_mbaff_edg
   %357 = getelementptr inbounds nuw i8, ptr %64, i64 3
   store i8 %356, ptr %357, align 1, !tbaa !87
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %359 = load ptr, ptr %358, align 8, !tbaa !109
+  %359 = load ptr, ptr %358, align 8, !tbaa !110
   %360 = sext i32 %8 to i64
   call void %359(ptr noundef %5, i64 noundef %360, i32 noundef %323, i32 noundef %328, ptr noundef nonnull %64) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #5
@@ -8482,7 +8482,7 @@ filter_mb_mbaff_edgev.exit305:                    ; preds = %filter_mb_mbaff_edg
 
 361:                                              ; preds = %332
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %363 = load ptr, ptr %362, align 8, !tbaa !110
+  %363 = load ptr, ptr %362, align 8, !tbaa !111
   %364 = sext i32 %8 to i64
   call void %363(ptr noundef %5, i64 noundef %364, i32 noundef %323, i32 noundef %328) #5
   br label %filter_mb_mbaff_edgev.exit307
@@ -8540,7 +8540,7 @@ filter_mb_mbaff_edgev.exit307:                    ; preds = %331, %335, %361
   %405 = getelementptr inbounds nuw i8, ptr %63, i64 3
   store i8 %404, ptr %405, align 1, !tbaa !87
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %407 = load ptr, ptr %406, align 8, !tbaa !109
+  %407 = load ptr, ptr %406, align 8, !tbaa !110
   %408 = sext i32 %8 to i64
   call void %407(ptr noundef %367, i64 noundef %408, i32 noundef %372, i32 noundef %377, ptr noundef nonnull %63) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #5
@@ -8548,7 +8548,7 @@ filter_mb_mbaff_edgev.exit307:                    ; preds = %331, %335, %361
 
 409:                                              ; preds = %380
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %411 = load ptr, ptr %410, align 8, !tbaa !110
+  %411 = load ptr, ptr %410, align 8, !tbaa !111
   %412 = sext i32 %8 to i64
   call void %411(ptr noundef %367, i64 noundef %412, i32 noundef %372, i32 noundef %377) #5
   br label %filter_mb_mbaff_edgev.exit309
@@ -8603,7 +8603,7 @@ filter_mb_mbaff_edgev.exit309:                    ; preds = %filter_mb_mbaff_edg
   %450 = getelementptr inbounds nuw i8, ptr %62, i64 3
   store i8 %449, ptr %450, align 1, !tbaa !87
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %452 = load ptr, ptr %451, align 8, !tbaa !109
+  %452 = load ptr, ptr %451, align 8, !tbaa !110
   %453 = sext i32 %8 to i64
   call void %452(ptr noundef %6, i64 noundef %453, i32 noundef %417, i32 noundef %422, ptr noundef nonnull %62) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #5
@@ -8611,7 +8611,7 @@ filter_mb_mbaff_edgev.exit309:                    ; preds = %filter_mb_mbaff_edg
 
 454:                                              ; preds = %425
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %456 = load ptr, ptr %455, align 8, !tbaa !110
+  %456 = load ptr, ptr %455, align 8, !tbaa !111
   %457 = sext i32 %8 to i64
   call void %456(ptr noundef %6, i64 noundef %457, i32 noundef %417, i32 noundef %422) #5
   br label %filter_mb_mbaff_edgev.exit311
@@ -8667,7 +8667,7 @@ filter_mb_mbaff_edgev.exit311:                    ; preds = %filter_mb_mbaff_edg
   %496 = getelementptr inbounds nuw i8, ptr %61, i64 3
   store i8 %495, ptr %496, align 1, !tbaa !87
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %498 = load ptr, ptr %497, align 8, !tbaa !109
+  %498 = load ptr, ptr %497, align 8, !tbaa !110
   %499 = sext i32 %8 to i64
   call void %498(ptr noundef %458, i64 noundef %499, i32 noundef %463, i32 noundef %468, ptr noundef nonnull %61) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #5
@@ -8675,7 +8675,7 @@ filter_mb_mbaff_edgev.exit311:                    ; preds = %filter_mb_mbaff_edg
 
 500:                                              ; preds = %471
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %502 = load ptr, ptr %501, align 8, !tbaa !110
+  %502 = load ptr, ptr %501, align 8, !tbaa !111
   %503 = sext i32 %8 to i64
   call void %502(ptr noundef %458, i64 noundef %503, i32 noundef %463, i32 noundef %468) #5
   br label %filter_mb_mbaff_edgev.exit313
@@ -8721,7 +8721,7 @@ filter_mb_mbaff_edgev.exit311:                    ; preds = %filter_mb_mbaff_edg
   %534 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 %533, ptr %534, align 1, !tbaa !87
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %536 = load ptr, ptr %535, align 8, !tbaa !111
+  %536 = load ptr, ptr %535, align 8, !tbaa !112
   %537 = sext i32 %8 to i64
   call void %536(ptr noundef %5, i64 noundef %537, i32 noundef %323, i32 noundef %328, ptr noundef nonnull %54) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #5
@@ -8729,7 +8729,7 @@ filter_mb_mbaff_edgev.exit311:                    ; preds = %filter_mb_mbaff_edg
 
 538:                                              ; preds = %505
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %540 = load ptr, ptr %539, align 8, !tbaa !112
+  %540 = load ptr, ptr %539, align 8, !tbaa !113
   %541 = sext i32 %8 to i64
   call void %540(ptr noundef %5, i64 noundef %541, i32 noundef %323, i32 noundef %328) #5
   br label %filter_mb_mbaff_edgecv.exit
@@ -8791,7 +8791,7 @@ filter_mb_mbaff_edgecv.exit:                      ; preds = %504, %508, %538
   %586 = getelementptr inbounds nuw i8, ptr %53, i64 3
   store i8 %585, ptr %586, align 1, !tbaa !87
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %588 = load ptr, ptr %587, align 8, !tbaa !111
+  %588 = load ptr, ptr %587, align 8, !tbaa !112
   %589 = sext i32 %8 to i64
   call void %588(ptr noundef %544, i64 noundef %589, i32 noundef %549, i32 noundef %554, ptr noundef nonnull %53) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #5
@@ -8799,7 +8799,7 @@ filter_mb_mbaff_edgecv.exit:                      ; preds = %504, %508, %538
 
 590:                                              ; preds = %557
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %592 = load ptr, ptr %591, align 8, !tbaa !112
+  %592 = load ptr, ptr %591, align 8, !tbaa !113
   %593 = sext i32 %8 to i64
   call void %592(ptr noundef %544, i64 noundef %593, i32 noundef %549, i32 noundef %554) #5
   br label %filter_mb_mbaff_edgecv.exit328
@@ -8858,7 +8858,7 @@ filter_mb_mbaff_edgecv.exit328:                   ; preds = %filter_mb_mbaff_edg
   %635 = getelementptr inbounds nuw i8, ptr %52, i64 3
   store i8 %634, ptr %635, align 1, !tbaa !87
   %636 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %637 = load ptr, ptr %636, align 8, !tbaa !111
+  %637 = load ptr, ptr %636, align 8, !tbaa !112
   %638 = sext i32 %8 to i64
   call void %637(ptr noundef %6, i64 noundef %638, i32 noundef %598, i32 noundef %603, ptr noundef nonnull %52) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #5
@@ -8866,7 +8866,7 @@ filter_mb_mbaff_edgecv.exit328:                   ; preds = %filter_mb_mbaff_edg
 
 639:                                              ; preds = %606
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %641 = load ptr, ptr %640, align 8, !tbaa !112
+  %641 = load ptr, ptr %640, align 8, !tbaa !113
   %642 = sext i32 %8 to i64
   call void %641(ptr noundef %6, i64 noundef %642, i32 noundef %598, i32 noundef %603) #5
   br label %filter_mb_mbaff_edgecv.exit330
@@ -8926,7 +8926,7 @@ filter_mb_mbaff_edgecv.exit330:                   ; preds = %filter_mb_mbaff_edg
   %685 = getelementptr inbounds nuw i8, ptr %51, i64 3
   store i8 %684, ptr %685, align 1, !tbaa !87
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %687 = load ptr, ptr %686, align 8, !tbaa !111
+  %687 = load ptr, ptr %686, align 8, !tbaa !112
   %688 = sext i32 %8 to i64
   call void %687(ptr noundef %643, i64 noundef %688, i32 noundef %648, i32 noundef %653, ptr noundef nonnull %51) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #5
@@ -8934,7 +8934,7 @@ filter_mb_mbaff_edgecv.exit330:                   ; preds = %filter_mb_mbaff_edg
 
 689:                                              ; preds = %656
   %690 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %691 = load ptr, ptr %690, align 8, !tbaa !112
+  %691 = load ptr, ptr %690, align 8, !tbaa !113
   %692 = sext i32 %8 to i64
   call void %691(ptr noundef %643, i64 noundef %692, i32 noundef %648, i32 noundef %653) #5
   br label %filter_mb_mbaff_edgev.exit313
@@ -8980,7 +8980,7 @@ filter_mb_mbaff_edgecv.exit330:                   ; preds = %filter_mb_mbaff_edg
   %723 = getelementptr inbounds nuw i8, ptr %50, i64 3
   store i8 %722, ptr %723, align 1, !tbaa !87
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %725 = load ptr, ptr %724, align 8, !tbaa !111
+  %725 = load ptr, ptr %724, align 8, !tbaa !112
   %726 = sext i32 %8 to i64
   call void %725(ptr noundef %5, i64 noundef %726, i32 noundef %323, i32 noundef %328, ptr noundef nonnull %50) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #5
@@ -8988,7 +8988,7 @@ filter_mb_mbaff_edgecv.exit330:                   ; preds = %filter_mb_mbaff_edg
 
 727:                                              ; preds = %694
   %728 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %729 = load ptr, ptr %728, align 8, !tbaa !112
+  %729 = load ptr, ptr %728, align 8, !tbaa !113
   %730 = sext i32 %8 to i64
   call void %729(ptr noundef %5, i64 noundef %730, i32 noundef %323, i32 noundef %328) #5
   br label %filter_mb_mbaff_edgecv.exit334
@@ -9050,7 +9050,7 @@ filter_mb_mbaff_edgecv.exit334:                   ; preds = %693, %697, %727
   %775 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 %774, ptr %775, align 1, !tbaa !87
   %776 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %777 = load ptr, ptr %776, align 8, !tbaa !111
+  %777 = load ptr, ptr %776, align 8, !tbaa !112
   %778 = sext i32 %8 to i64
   call void %777(ptr noundef %733, i64 noundef %778, i32 noundef %738, i32 noundef %743, ptr noundef nonnull %49) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #5
@@ -9058,7 +9058,7 @@ filter_mb_mbaff_edgecv.exit334:                   ; preds = %693, %697, %727
 
 779:                                              ; preds = %746
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %781 = load ptr, ptr %780, align 8, !tbaa !112
+  %781 = load ptr, ptr %780, align 8, !tbaa !113
   %782 = sext i32 %8 to i64
   call void %781(ptr noundef %733, i64 noundef %782, i32 noundef %738, i32 noundef %743) #5
   br label %filter_mb_mbaff_edgecv.exit336
@@ -9117,7 +9117,7 @@ filter_mb_mbaff_edgecv.exit336:                   ; preds = %filter_mb_mbaff_edg
   %824 = getelementptr inbounds nuw i8, ptr %48, i64 3
   store i8 %823, ptr %824, align 1, !tbaa !87
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %826 = load ptr, ptr %825, align 8, !tbaa !111
+  %826 = load ptr, ptr %825, align 8, !tbaa !112
   %827 = sext i32 %8 to i64
   call void %826(ptr noundef %6, i64 noundef %827, i32 noundef %787, i32 noundef %792, ptr noundef nonnull %48) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #5
@@ -9125,7 +9125,7 @@ filter_mb_mbaff_edgecv.exit336:                   ; preds = %filter_mb_mbaff_edg
 
 828:                                              ; preds = %795
   %829 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %830 = load ptr, ptr %829, align 8, !tbaa !112
+  %830 = load ptr, ptr %829, align 8, !tbaa !113
   %831 = sext i32 %8 to i64
   call void %830(ptr noundef %6, i64 noundef %831, i32 noundef %787, i32 noundef %792) #5
   br label %filter_mb_mbaff_edgecv.exit338
@@ -9185,7 +9185,7 @@ filter_mb_mbaff_edgecv.exit338:                   ; preds = %filter_mb_mbaff_edg
   %874 = getelementptr inbounds nuw i8, ptr %47, i64 3
   store i8 %873, ptr %874, align 1, !tbaa !87
   %875 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %876 = load ptr, ptr %875, align 8, !tbaa !111
+  %876 = load ptr, ptr %875, align 8, !tbaa !112
   %877 = sext i32 %8 to i64
   call void %876(ptr noundef %832, i64 noundef %877, i32 noundef %837, i32 noundef %842, ptr noundef nonnull %47) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #5
@@ -9193,7 +9193,7 @@ filter_mb_mbaff_edgecv.exit338:                   ; preds = %filter_mb_mbaff_edg
 
 878:                                              ; preds = %845
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %880 = load ptr, ptr %879, align 8, !tbaa !112
+  %880 = load ptr, ptr %879, align 8, !tbaa !113
   %881 = sext i32 %8 to i64
   call void %880(ptr noundef %832, i64 noundef %881, i32 noundef %837, i32 noundef %842) #5
   br label %filter_mb_mbaff_edgev.exit313
@@ -9249,7 +9249,7 @@ filter_mb_mbaff_edgecv.exit338:                   ; preds = %filter_mb_mbaff_edg
   %921 = getelementptr inbounds nuw i8, ptr %60, i64 3
   store i8 %920, ptr %921, align 1, !tbaa !87
   %922 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %923 = load ptr, ptr %922, align 8, !tbaa !109
+  %923 = load ptr, ptr %922, align 8, !tbaa !110
   %924 = sext i32 %883 to i64
   call void %923(ptr noundef %4, i64 noundef %924, i32 noundef %888, i32 noundef %893, ptr noundef nonnull %60) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #5
@@ -9257,7 +9257,7 @@ filter_mb_mbaff_edgecv.exit338:                   ; preds = %filter_mb_mbaff_edg
 
 925:                                              ; preds = %896
   %926 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %927 = load ptr, ptr %926, align 8, !tbaa !110
+  %927 = load ptr, ptr %926, align 8, !tbaa !111
   %928 = sext i32 %883 to i64
   tail call void %927(ptr noundef %4, i64 noundef %928, i32 noundef %888, i32 noundef %893) #5
   br label %filter_mb_mbaff_edgev.exit315
@@ -9315,7 +9315,7 @@ filter_mb_mbaff_edgev.exit315:                    ; preds = %882, %899, %925
   %969 = getelementptr inbounds nuw i8, ptr %59, i64 3
   store i8 %968, ptr %969, align 1, !tbaa !87
   %970 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %971 = load ptr, ptr %970, align 8, !tbaa !109
+  %971 = load ptr, ptr %970, align 8, !tbaa !110
   %972 = sext i32 %883 to i64
   call void %971(ptr noundef %930, i64 noundef %972, i32 noundef %936, i32 noundef %941, ptr noundef nonnull %59) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #5
@@ -9323,7 +9323,7 @@ filter_mb_mbaff_edgev.exit315:                    ; preds = %882, %899, %925
 
 973:                                              ; preds = %944
   %974 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %975 = load ptr, ptr %974, align 8, !tbaa !110
+  %975 = load ptr, ptr %974, align 8, !tbaa !111
   %976 = sext i32 %883 to i64
   call void %975(ptr noundef %930, i64 noundef %976, i32 noundef %936, i32 noundef %941) #5
   br label %filter_mb_mbaff_edgev.exit317
@@ -9389,7 +9389,7 @@ filter_mb_mbaff_edgev.exit317:                    ; preds = %filter_mb_mbaff_edg
   %1021 = getelementptr inbounds nuw i8, ptr %58, i64 3
   store i8 %1020, ptr %1021, align 1, !tbaa !87
   %1022 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1023 = load ptr, ptr %1022, align 8, !tbaa !109
+  %1023 = load ptr, ptr %1022, align 8, !tbaa !110
   %1024 = sext i32 %982 to i64
   call void %1023(ptr noundef %5, i64 noundef %1024, i32 noundef %987, i32 noundef %992, ptr noundef nonnull %58) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #5
@@ -9397,7 +9397,7 @@ filter_mb_mbaff_edgev.exit317:                    ; preds = %filter_mb_mbaff_edg
 
 1025:                                             ; preds = %996
   %1026 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1027 = load ptr, ptr %1026, align 8, !tbaa !110
+  %1027 = load ptr, ptr %1026, align 8, !tbaa !111
   %1028 = sext i32 %982 to i64
   call void %1027(ptr noundef %5, i64 noundef %1028, i32 noundef %987, i32 noundef %992) #5
   br label %filter_mb_mbaff_edgev.exit319
@@ -9454,7 +9454,7 @@ filter_mb_mbaff_edgev.exit319:                    ; preds = %995, %999, %1025
   %1068 = getelementptr inbounds nuw i8, ptr %57, i64 3
   store i8 %1067, ptr %1068, align 1, !tbaa !87
   %1069 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1070 = load ptr, ptr %1069, align 8, !tbaa !109
+  %1070 = load ptr, ptr %1069, align 8, !tbaa !110
   %1071 = sext i32 %982 to i64
   call void %1070(ptr noundef %1030, i64 noundef %1071, i32 noundef %1035, i32 noundef %1040, ptr noundef nonnull %57) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #5
@@ -9462,7 +9462,7 @@ filter_mb_mbaff_edgev.exit319:                    ; preds = %995, %999, %1025
 
 1072:                                             ; preds = %1043
   %1073 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1074 = load ptr, ptr %1073, align 8, !tbaa !110
+  %1074 = load ptr, ptr %1073, align 8, !tbaa !111
   %1075 = sext i32 %982 to i64
   call void %1074(ptr noundef %1030, i64 noundef %1075, i32 noundef %1035, i32 noundef %1040) #5
   br label %filter_mb_mbaff_edgev.exit321
@@ -9517,7 +9517,7 @@ filter_mb_mbaff_edgev.exit321:                    ; preds = %filter_mb_mbaff_edg
   %1113 = getelementptr inbounds nuw i8, ptr %56, i64 3
   store i8 %1112, ptr %1113, align 1, !tbaa !87
   %1114 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1115 = load ptr, ptr %1114, align 8, !tbaa !109
+  %1115 = load ptr, ptr %1114, align 8, !tbaa !110
   %1116 = sext i32 %982 to i64
   call void %1115(ptr noundef %6, i64 noundef %1116, i32 noundef %1080, i32 noundef %1085, ptr noundef nonnull %56) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #5
@@ -9525,7 +9525,7 @@ filter_mb_mbaff_edgev.exit321:                    ; preds = %filter_mb_mbaff_edg
 
 1117:                                             ; preds = %1088
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1119 = load ptr, ptr %1118, align 8, !tbaa !110
+  %1119 = load ptr, ptr %1118, align 8, !tbaa !111
   %1120 = sext i32 %982 to i64
   call void %1119(ptr noundef %6, i64 noundef %1120, i32 noundef %1080, i32 noundef %1085) #5
   br label %filter_mb_mbaff_edgev.exit323
@@ -9581,7 +9581,7 @@ filter_mb_mbaff_edgev.exit323:                    ; preds = %filter_mb_mbaff_edg
   %1159 = getelementptr inbounds nuw i8, ptr %55, i64 3
   store i8 %1158, ptr %1159, align 1, !tbaa !87
   %1160 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %1161 = load ptr, ptr %1160, align 8, !tbaa !109
+  %1161 = load ptr, ptr %1160, align 8, !tbaa !110
   %1162 = sext i32 %982 to i64
   call void %1161(ptr noundef %1121, i64 noundef %1162, i32 noundef %1126, i32 noundef %1131, ptr noundef nonnull %55) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #5
@@ -9589,7 +9589,7 @@ filter_mb_mbaff_edgev.exit323:                    ; preds = %filter_mb_mbaff_edg
 
 1163:                                             ; preds = %1134
   %1164 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1165 = load ptr, ptr %1164, align 8, !tbaa !110
+  %1165 = load ptr, ptr %1164, align 8, !tbaa !111
   %1166 = sext i32 %982 to i64
   call void %1165(ptr noundef %1121, i64 noundef %1166, i32 noundef %1126, i32 noundef %1131) #5
   br label %filter_mb_mbaff_edgev.exit313
@@ -9635,7 +9635,7 @@ filter_mb_mbaff_edgev.exit323:                    ; preds = %filter_mb_mbaff_edg
   %1197 = getelementptr inbounds nuw i8, ptr %46, i64 3
   store i8 %1196, ptr %1197, align 1, !tbaa !87
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %1199 = load ptr, ptr %1198, align 8, !tbaa !111
+  %1199 = load ptr, ptr %1198, align 8, !tbaa !112
   %1200 = sext i32 %982 to i64
   call void %1199(ptr noundef %5, i64 noundef %1200, i32 noundef %987, i32 noundef %992, ptr noundef nonnull %46) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #5
@@ -9643,7 +9643,7 @@ filter_mb_mbaff_edgev.exit323:                    ; preds = %filter_mb_mbaff_edg
 
 1201:                                             ; preds = %1168
   %1202 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %1203 = load ptr, ptr %1202, align 8, !tbaa !112
+  %1203 = load ptr, ptr %1202, align 8, !tbaa !113
   %1204 = sext i32 %982 to i64
   call void %1203(ptr noundef %5, i64 noundef %1204, i32 noundef %987, i32 noundef %992) #5
   br label %filter_mb_mbaff_edgecv.exit342
@@ -9704,7 +9704,7 @@ filter_mb_mbaff_edgecv.exit342:                   ; preds = %1167, %1171, %1201
   %1248 = getelementptr inbounds nuw i8, ptr %45, i64 3
   store i8 %1247, ptr %1248, align 1, !tbaa !87
   %1249 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %1250 = load ptr, ptr %1249, align 8, !tbaa !111
+  %1250 = load ptr, ptr %1249, align 8, !tbaa !112
   %1251 = sext i32 %982 to i64
   call void %1250(ptr noundef %1206, i64 noundef %1251, i32 noundef %1211, i32 noundef %1216, ptr noundef nonnull %45) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #5
@@ -9712,7 +9712,7 @@ filter_mb_mbaff_edgecv.exit342:                   ; preds = %1167, %1171, %1201
 
 1252:                                             ; preds = %1219
   %1253 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %1254 = load ptr, ptr %1253, align 8, !tbaa !112
+  %1254 = load ptr, ptr %1253, align 8, !tbaa !113
   %1255 = sext i32 %982 to i64
   call void %1254(ptr noundef %1206, i64 noundef %1255, i32 noundef %1211, i32 noundef %1216) #5
   br label %filter_mb_mbaff_edgecv.exit344
@@ -9771,7 +9771,7 @@ filter_mb_mbaff_edgecv.exit344:                   ; preds = %filter_mb_mbaff_edg
   %1297 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store i8 %1296, ptr %1297, align 1, !tbaa !87
   %1298 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %1299 = load ptr, ptr %1298, align 8, !tbaa !111
+  %1299 = load ptr, ptr %1298, align 8, !tbaa !112
   %1300 = sext i32 %982 to i64
   call void %1299(ptr noundef %6, i64 noundef %1300, i32 noundef %1260, i32 noundef %1265, ptr noundef nonnull %44) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #5
@@ -9779,7 +9779,7 @@ filter_mb_mbaff_edgecv.exit344:                   ; preds = %filter_mb_mbaff_edg
 
 1301:                                             ; preds = %1268
   %1302 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %1303 = load ptr, ptr %1302, align 8, !tbaa !112
+  %1303 = load ptr, ptr %1302, align 8, !tbaa !113
   %1304 = sext i32 %982 to i64
   call void %1303(ptr noundef %6, i64 noundef %1304, i32 noundef %1260, i32 noundef %1265) #5
   br label %filter_mb_mbaff_edgecv.exit346
@@ -9839,7 +9839,7 @@ filter_mb_mbaff_edgecv.exit346:                   ; preds = %filter_mb_mbaff_edg
   %1347 = getelementptr inbounds nuw i8, ptr %43, i64 3
   store i8 %1346, ptr %1347, align 1, !tbaa !87
   %1348 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %1349 = load ptr, ptr %1348, align 8, !tbaa !111
+  %1349 = load ptr, ptr %1348, align 8, !tbaa !112
   %1350 = sext i32 %982 to i64
   call void %1349(ptr noundef %1305, i64 noundef %1350, i32 noundef %1310, i32 noundef %1315, ptr noundef nonnull %43) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #5
@@ -9847,7 +9847,7 @@ filter_mb_mbaff_edgecv.exit346:                   ; preds = %filter_mb_mbaff_edg
 
 1351:                                             ; preds = %1318
   %1352 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %1353 = load ptr, ptr %1352, align 8, !tbaa !112
+  %1353 = load ptr, ptr %1352, align 8, !tbaa !113
   %1354 = sext i32 %982 to i64
   call void %1353(ptr noundef %1305, i64 noundef %1354, i32 noundef %1310, i32 noundef %1315) #5
   br label %filter_mb_mbaff_edgev.exit313
@@ -9966,7 +9966,7 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1351, %1321, %filte
   store i16 %.sink, ptr %1410, align 2, !tbaa !92
   %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 1
   %exitcond464.not = icmp eq i64 %indvars.iv.next462, 4
-  br i1 %exitcond464.not, label %thread-pre-split, label %.split.us, !llvm.loop !113
+  br i1 %exitcond464.not, label %thread-pre-split, label %.split.us, !llvm.loop !114
 
 .split:                                           ; preds = %.split.preheader, %1421
   %indvars.iv457 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next458, %1421 ]
@@ -9989,7 +9989,7 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1351, %1321, %filte
 1421:                                             ; preds = %.split, %1419
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond460.not = icmp eq i64 %indvars.iv.next458, 4
-  br i1 %exitcond460.not, label %thread-pre-split, label %.split, !llvm.loop !115
+  br i1 %exitcond460.not, label %thread-pre-split, label %.split, !llvm.loop !116
 
 thread-pre-split:                                 ; preds = %1421, %1409, %1385
   %.pr = load i16, ptr %41, align 8, !tbaa !92
@@ -10441,7 +10441,7 @@ filter_mb_edgev.exit:                             ; preds = %1652, %1628, %filte
   store i16 %.sink507, ptr %1716, align 2, !tbaa !92
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next471, 4
-  br i1 %exitcond474.not, label %.split438.us, label %.split436.us, !llvm.loop !116
+  br i1 %exitcond474.not, label %.split438.us, label %.split436.us, !llvm.loop !117
 
 .split436:                                        ; preds = %.split436.preheader, %1727
   %indvars.iv465 = phi i64 [ 0, %.split436.preheader ], [ %indvars.iv.next466, %1727 ]
@@ -10464,7 +10464,7 @@ filter_mb_edgev.exit:                             ; preds = %1652, %1628, %filte
 1727:                                             ; preds = %.split436, %1725
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next466, 4
-  br i1 %exitcond469.not, label %.split438.us, label %.split436, !llvm.loop !117
+  br i1 %exitcond469.not, label %.split438.us, label %.split436, !llvm.loop !118
 
 .split438.us:                                     ; preds = %1727, %1715
   %1728 = load i16, ptr %42, align 8, !tbaa !92
@@ -10743,7 +10743,7 @@ filter_mb_edgev.exit377:                          ; preds = %1896, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #5
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %exitcond479.not = icmp eq i64 %indvars.iv.next476, %wide.trip.count
-  br i1 %exitcond479.not, label %filter_mb_dir.exit, label %1687, !llvm.loop !118
+  br i1 %exitcond479.not, label %filter_mb_dir.exit, label %1687, !llvm.loop !119
 
 filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exit377, %1656
   %1928 = load ptr, ptr %77, align 8, !tbaa !68
@@ -10923,7 +10923,7 @@ filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exi
   store i16 %2043, ptr %2044, align 2, !tbaa !92
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %exitcond483.not = icmp eq i64 %indvars.iv.next481, 4
-  br i1 %exitcond483.not, label %.loopexit, label %2036, !llvm.loop !119
+  br i1 %exitcond483.not, label %.loopexit, label %2036, !llvm.loop !120
 
 .loopexit:                                        ; preds = %2036, %2031, %2007
   %2045 = load ptr, ptr %1964, align 8, !tbaa !86
@@ -11197,7 +11197,7 @@ filter_mb_edgeh.exit:                             ; preds = %2211, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #5
   %2243 = load i32, ptr %68, align 4, !tbaa !101
   %2244 = add nsw i32 %2243, %.0454.i442
-  br i1 %2000, label %1999, label %.loopexit431, !llvm.loop !120
+  br i1 %2000, label %1999, label %.loopexit431, !llvm.loop !121
 
 2245:                                             ; preds = %1955, %1950
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #5
@@ -11282,7 +11282,7 @@ filter_mb_edgeh.exit:                             ; preds = %2211, %filter_mb_ed
 2279:                                             ; preds = %.sink.split, %2274
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next488, 4
-  br i1 %exitcond490.not, label %thread-pre-split426.loopexit, label %2266, !llvm.loop !115
+  br i1 %exitcond490.not, label %thread-pre-split426.loopexit, label %2266, !llvm.loop !116
 
 thread-pre-split426.loopexit:                     ; preds = %2279
   %.pr427.pre = load i16, ptr %39, align 8, !tbaa !92
@@ -11752,7 +11752,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2510, %2486, %filte
   store i16 %.sink509, ptr %2586, align 2, !tbaa !92
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, 4
-  br i1 %exitcond500.not, label %.split449.us, label %.split447.us, !llvm.loop !121
+  br i1 %exitcond500.not, label %.split449.us, label %.split447.us, !llvm.loop !122
 
 .split447:                                        ; preds = %.split447.preheader, %2597
   %indvars.iv491 = phi i64 [ 0, %.split447.preheader ], [ %indvars.iv.next492, %2597 ]
@@ -11775,7 +11775,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2510, %2486, %filte
 2597:                                             ; preds = %.split447, %2595
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, 4
-  br i1 %exitcond495.not, label %.split449.us, label %.split447, !llvm.loop !117
+  br i1 %exitcond495.not, label %.split449.us, label %.split447, !llvm.loop !118
 
 .split449.us:                                     ; preds = %2597, %2585
   %2598 = load i16, ptr %40, align 8, !tbaa !92
@@ -12190,7 +12190,7 @@ filter_mb_edgech.exit418:                         ; preds = %2862, %filter_mb_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #5
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond506.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count505
-  br i1 %exitcond506.not, label %filter_mb_dir.exit372, label %2555, !llvm.loop !118
+  br i1 %exitcond506.not, label %filter_mb_dir.exit372, label %2555, !llvm.loop !119
 
 filter_mb_dir.exit372:                            ; preds = %filter_mb_edgech.exit418, %.loopexit431
   ret void
@@ -12464,18 +12464,19 @@ attributes #5 = { nounwind }
 !104 = !{!66, !23, i64 8}
 !105 = !{!5, !31, i64 731792}
 !106 = !{!5, !21, i64 731344}
-!107 = distinct !{!107, !108}
+!107 = distinct !{!107, !108, !109}
 !108 = !{!"llvm.loop.mustprogress"}
-!109 = !{!5, !7, i64 112}
-!110 = !{!5, !7, i64 136}
-!111 = !{!5, !7, i64 160}
-!112 = !{!5, !7, i64 184}
-!113 = distinct !{!113, !108, !114}
-!114 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!115 = distinct !{!115, !108}
-!116 = distinct !{!116, !108, !114}
-!117 = distinct !{!117, !108}
-!118 = distinct !{!118, !108}
-!119 = distinct !{!119, !108}
-!120 = distinct !{!120, !108}
-!121 = distinct !{!121, !108, !114}
+!109 = !{!"llvm.loop.estimated_trip_count"}
+!110 = !{!5, !7, i64 112}
+!111 = !{!5, !7, i64 136}
+!112 = !{!5, !7, i64 160}
+!113 = !{!5, !7, i64 184}
+!114 = distinct !{!114, !108, !109, !115}
+!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!116 = distinct !{!116, !108, !109}
+!117 = distinct !{!117, !108, !109, !115}
+!118 = distinct !{!118, !108, !109}
+!119 = distinct !{!119, !108, !109}
+!120 = distinct !{!120, !108, !109}
+!121 = distinct !{!121, !108, !109}
+!122 = distinct !{!122, !108, !109, !115}

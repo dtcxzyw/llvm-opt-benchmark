@@ -455,7 +455,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next, %254
-  br i1 %255, label %196, label %._crit_edge, !llvm.loop !63
+  br i1 %255, label %196, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %256 = call i32 @ff_filter_frame(ptr noundef %22, ptr noundef %1) #7
@@ -524,13 +524,13 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %25 = load i32, ptr %24, align 4, !tbaa !64
+  %25 = load i32, ptr %24, align 4, !tbaa !65
   %26 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %25) #7
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %26, ptr %27, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 60
   tail call void @av_image_fill_max_pixsteps(ptr noundef nonnull %28, ptr noundef null, ptr noundef %26) #7
-  %29 = load i32, ptr %24, align 4, !tbaa !64
+  %29 = load i32, ptr %24, align 4, !tbaa !65
   %30 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %29) #7
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %30, ptr %31, align 8, !tbaa !58
@@ -667,7 +667,8 @@ attributes #8 = { noreturn nounwind }
 !58 = !{!46, !15, i64 56}
 !59 = !{!11, !11, i64 0}
 !60 = !{!46, !11, i64 88}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = distinct !{!63, !62}
-!64 = !{!21, !15, i64 36}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !62, !63}
+!65 = !{!21, !15, i64 36}

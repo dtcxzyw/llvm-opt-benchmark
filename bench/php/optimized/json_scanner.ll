@@ -399,7 +399,7 @@ zend_string_alloc.exit:                           ; preds = %152
   %171 = getelementptr inbounds nuw [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !15
   %.not1419 = icmp sgt i8 %172, -1
-  br i1 %.not1419, label %173, label %166
+  br i1 %.not1419, label %173, label %166, !llvm.loop !29
 
 173:                                              ; preds = %166
   %174 = icmp ult i8 %169, 69
@@ -647,7 +647,7 @@ zend_string_alloc.exit:                           ; preds = %152
 288:                                              ; preds = %283
   %289 = add nsw i8 %286, -48
   %or.cond43 = icmp ult i8 %289, 10
-  br i1 %or.cond43, label %283, label %.loopexit1644
+  br i1 %or.cond43, label %283, label %.loopexit1644, !llvm.loop !31
 
 290:                                              ; preds = %283
   %291 = and i8 %286, -33
@@ -679,7 +679,7 @@ zend_string_alloc.exit:                           ; preds = %152
   %299 = load i8, ptr %298, align 1, !tbaa !15
   %300 = add i8 %299, -48
   %or.cond52 = icmp ult i8 %300, 10
-  br i1 %or.cond52, label %.preheader1643, label %.loopexit1644
+  br i1 %or.cond52, label %.preheader1643, label %.loopexit1644, !llvm.loop !32
 
 301:                                              ; preds = %262
   %302 = getelementptr inbounds nuw i8, ptr %.lcssa1884, i64 3
@@ -798,7 +798,7 @@ zend_string_alloc.exit:                           ; preds = %152
 
 .backedge1642.backedge:                           ; preds = %352, %429, %450, %624, %628, %632, %674
   %.be1905 = phi ptr [ %354, %352 ], [ %419, %429 ], [ %451, %450 ], [ %625, %624 ], [ %629, %628 ], [ %633, %632 ], [ %675, %674 ]
-  br label %.backedge1642
+  br label %.backedge1642, !llvm.loop !33
 
 355:                                              ; preds = %330
   %356 = getelementptr inbounds nuw i8, ptr %323, i64 1
@@ -820,7 +820,7 @@ zend_string_alloc.exit:                           ; preds = %152
 
 370:                                              ; preds = %355
   store i32 0, ptr %5, align 4, !tbaa !14
-  %371 = load ptr, ptr @zend_empty_string, align 8, !tbaa !29
+  %371 = load ptr, ptr @zend_empty_string, align 8, !tbaa !34
   store ptr %371, ptr %2, align 8, !tbaa !15
   store i32 6, ptr %3, align 8, !tbaa !15
   br label %.thread1609
@@ -852,14 +852,14 @@ zend_string_alloc.exit1506:                       ; preds = %355
 
 select.unfold.thread:                             ; preds = %381
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %378, ptr %382, align 8, !tbaa !31
+  store ptr %378, ptr %382, align 8, !tbaa !36
   %383 = load ptr, ptr %357, align 8, !tbaa !18
   store ptr %383, ptr %0, align 8, !tbaa !4
   br label %.preheader
 
 select.unfold:                                    ; preds = %zend_string_alloc.exit1506
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %378, ptr %384, align 8, !tbaa !31
+  store ptr %378, ptr %384, align 8, !tbaa !36
   %385 = load ptr, ptr %357, align 8, !tbaa !18
   store ptr %385, ptr %0, align 8, !tbaa !4
   %.not1430 = icmp eq i32 %.pre, 0
@@ -1572,11 +1572,11 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   br i1 %.not.i, label %.thread1609, label %712
 
 712:                                              ; preds = %705
-  %713 = load ptr, ptr %1166, align 8, !tbaa !31
+  %713 = load ptr, ptr %1166, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %713, ptr align 1 %707, i64 %711, i1 false)
-  %714 = load ptr, ptr %1166, align 8, !tbaa !31
+  %714 = load ptr, ptr %1166, align 8, !tbaa !36
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 %711
-  store ptr %715, ptr %1166, align 8, !tbaa !31
+  store ptr %715, ptr %1166, align 8, !tbaa !36
   br label %.thread1609
 
 716:                                              ; preds = %685
@@ -1597,11 +1597,11 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   br i1 %.not.i1516, label %php_json_scanner_copy_string.exit1517, label %726
 
 726:                                              ; preds = %720
-  %727 = load ptr, ptr %1166, align 8, !tbaa !31
+  %727 = load ptr, ptr %1166, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %727, ptr align 1 %721, i64 %725, i1 false)
-  %728 = load ptr, ptr %1166, align 8, !tbaa !31
+  %728 = load ptr, ptr %1166, align 8, !tbaa !36
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 %725
-  store ptr %729, ptr %1166, align 8, !tbaa !31
+  store ptr %729, ptr %1166, align 8, !tbaa !36
   %.pre1779 = load ptr, ptr %0, align 8, !tbaa !4
   br label %php_json_scanner_copy_string.exit1517
 
@@ -1641,9 +1641,9 @@ php_json_scanner_copy_string.exit1517:            ; preds = %720, %726
 
 select.unfold1612:                                ; preds = %php_json_scanner_copy_string.exit1517, %736, %735, %734, %733, %732
   %.01298 = phi i8 [ 12, %732 ], [ 10, %733 ], [ 13, %734 ], [ 9, %735 ], [ %731, %736 ], [ 8, %php_json_scanner_copy_string.exit1517 ]
-  %738 = load ptr, ptr %1166, align 8, !tbaa !31
+  %738 = load ptr, ptr %1166, align 8, !tbaa !36
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 1
-  store ptr %739, ptr %1166, align 8, !tbaa !31
+  store ptr %739, ptr %1166, align 8, !tbaa !36
   store i8 %.01298, ptr %738, align 1, !tbaa !15
   %740 = load ptr, ptr %0, align 8, !tbaa !4
   %741 = getelementptr inbounds nuw i8, ptr %740, i64 1
@@ -1670,7 +1670,7 @@ select.unfold1612:                                ; preds = %php_json_scanner_co
 
 .backedge.backedge:                               ; preds = %745, %767, %702, %php_json_scanner_copy_string.exit1521, %php_json_scanner_copy_string.exit1535, %php_json_scanner_copy_string.exit1549, %php_json_scanner_copy_string.exit1551, %select.unfold1612
   %.be1898 = phi ptr [ %746, %745 ], [ %768, %767 ], [ %704, %702 ], [ %959, %php_json_scanner_copy_string.exit1521 ], [ %997, %php_json_scanner_copy_string.exit1535 ], [ %1041, %php_json_scanner_copy_string.exit1549 ], [ %1116, %php_json_scanner_copy_string.exit1551 ], [ %741, %select.unfold1612 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !37
 
 748:                                              ; preds = %745
   %749 = load ptr, ptr %1165, align 8, !tbaa !18
@@ -1682,11 +1682,11 @@ select.unfold1612:                                ; preds = %php_json_scanner_co
   br i1 %.not.i1518, label %php_json_scanner_copy_string.exit1519, label %754
 
 754:                                              ; preds = %748
-  %755 = load ptr, ptr %1166, align 8, !tbaa !31
+  %755 = load ptr, ptr %1166, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %755, ptr align 1 %749, i64 %753, i1 false)
-  %756 = load ptr, ptr %1166, align 8, !tbaa !31
+  %756 = load ptr, ptr %1166, align 8, !tbaa !36
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 %753
-  store ptr %757, ptr %1166, align 8, !tbaa !31
+  store ptr %757, ptr %1166, align 8, !tbaa !36
   br label %php_json_scanner_copy_string.exit1519
 
 php_json_scanner_copy_string.exit1519:            ; preds = %748, %754
@@ -1696,17 +1696,17 @@ php_json_scanner_copy_string.exit1519:            ; preds = %748, %754
   br i1 %.not1447, label %767, label %760
 
 760:                                              ; preds = %php_json_scanner_copy_string.exit1519
-  %761 = load ptr, ptr %1166, align 8, !tbaa !31
+  %761 = load ptr, ptr %1166, align 8, !tbaa !36
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 1
-  store ptr %762, ptr %1166, align 8, !tbaa !31
+  store ptr %762, ptr %1166, align 8, !tbaa !36
   store i8 -17, ptr %761, align 1, !tbaa !15
-  %763 = load ptr, ptr %1166, align 8, !tbaa !31
+  %763 = load ptr, ptr %1166, align 8, !tbaa !36
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 1
-  store ptr %764, ptr %1166, align 8, !tbaa !31
+  store ptr %764, ptr %1166, align 8, !tbaa !36
   store i8 -65, ptr %763, align 1, !tbaa !15
-  %765 = load ptr, ptr %1166, align 8, !tbaa !31
+  %765 = load ptr, ptr %1166, align 8, !tbaa !36
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 1
-  store ptr %766, ptr %1166, align 8, !tbaa !31
+  store ptr %766, ptr %1166, align 8, !tbaa !36
   store i8 -67, ptr %765, align 1, !tbaa !15
   br label %767
 
@@ -2104,7 +2104,7 @@ php_json_hex_to_int.exit.i.i:                     ; preds = %942, %940, %936
   %947 = or i32 %946, %.082.i.i
   %948 = add nuw nsw i32 %.091.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %948, 2
-  br i1 %exitcond.not.i.i, label %php_json_ucs2_to_int.exit, label %932
+  br i1 %exitcond.not.i.i, label %php_json_ucs2_to_int.exit, label %932, !llvm.loop !38
 
 php_json_ucs2_to_int.exit:                        ; preds = %php_json_hex_to_int.exit.i.i
   %949 = load ptr, ptr %1165, align 8, !tbaa !18
@@ -2113,12 +2113,12 @@ php_json_ucs2_to_int.exit:                        ; preds = %php_json_hex_to_int
   %reass.sub1636 = sub i64 %950, %951
   %952 = add i64 %reass.sub1636, -6
   %.not.i1520 = icmp eq i64 %952, 0
-  %.pre1778 = load ptr, ptr %1166, align 8, !tbaa !31
+  %.pre1778 = load ptr, ptr %1166, align 8, !tbaa !36
   br i1 %.not.i1520, label %php_json_scanner_copy_string.exit1521, label %953
 
 953:                                              ; preds = %php_json_ucs2_to_int.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1778, ptr align 1 %949, i64 %952, i1 false)
-  %954 = load ptr, ptr %1166, align 8, !tbaa !31
+  %954 = load ptr, ptr %1166, align 8, !tbaa !36
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 %952
   br label %php_json_scanner_copy_string.exit1521
 
@@ -2126,7 +2126,7 @@ php_json_scanner_copy_string.exit1521:            ; preds = %php_json_ucs2_to_in
   %956 = phi ptr [ %.pre1778, %php_json_ucs2_to_int.exit ], [ %955, %953 ]
   %957 = trunc i32 %947 to i8
   %958 = getelementptr inbounds nuw i8, ptr %956, i64 1
-  store ptr %958, ptr %1166, align 8, !tbaa !31
+  store ptr %958, ptr %1166, align 8, !tbaa !36
   store i8 %957, ptr %956, align 1, !tbaa !15
   %959 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %959, ptr %1165, align 8, !tbaa !18
@@ -2177,7 +2177,7 @@ php_json_hex_to_int.exit.i.i1530:                 ; preds = %973, %971, %967
   %978 = or i32 %977, %.082.i.i1523
   %979 = add nuw nsw i32 %.091.i.i1524, 1
   %exitcond.not.i.i1532 = icmp eq i32 %979, 3
-  br i1 %exitcond.not.i.i1532, label %php_json_ucs2_to_int.exit1533, label %963
+  br i1 %exitcond.not.i.i1532, label %php_json_ucs2_to_int.exit1533, label %963, !llvm.loop !38
 
 php_json_ucs2_to_int.exit1533:                    ; preds = %php_json_hex_to_int.exit.i.i1530
   %980 = load ptr, ptr %1165, align 8, !tbaa !18
@@ -2186,12 +2186,12 @@ php_json_ucs2_to_int.exit1533:                    ; preds = %php_json_hex_to_int
   %reass.sub1635 = sub i64 %981, %982
   %983 = add i64 %reass.sub1635, -6
   %.not.i1534 = icmp eq i64 %983, 0
-  %.pre1777 = load ptr, ptr %1166, align 8, !tbaa !31
+  %.pre1777 = load ptr, ptr %1166, align 8, !tbaa !36
   br i1 %.not.i1534, label %php_json_scanner_copy_string.exit1535, label %984
 
 984:                                              ; preds = %php_json_ucs2_to_int.exit1533
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1777, ptr align 1 %980, i64 %983, i1 false)
-  %985 = load ptr, ptr %1166, align 8, !tbaa !31
+  %985 = load ptr, ptr %1166, align 8, !tbaa !36
   %986 = getelementptr inbounds nuw i8, ptr %985, i64 %983
   br label %php_json_scanner_copy_string.exit1535
 
@@ -2201,14 +2201,14 @@ php_json_scanner_copy_string.exit1535:            ; preds = %php_json_ucs2_to_in
   %989 = trunc i32 %988 to i8
   %990 = or i8 %989, -64
   %991 = getelementptr inbounds nuw i8, ptr %987, i64 1
-  store ptr %991, ptr %1166, align 8, !tbaa !31
+  store ptr %991, ptr %1166, align 8, !tbaa !36
   store i8 %990, ptr %987, align 1, !tbaa !15
   %992 = trunc i32 %978 to i8
   %993 = and i8 %992, 63
   %994 = or disjoint i8 %993, -128
-  %995 = load ptr, ptr %1166, align 8, !tbaa !31
+  %995 = load ptr, ptr %1166, align 8, !tbaa !36
   %996 = getelementptr inbounds nuw i8, ptr %995, i64 1
-  store ptr %996, ptr %1166, align 8, !tbaa !31
+  store ptr %996, ptr %1166, align 8, !tbaa !36
   store i8 %994, ptr %995, align 1, !tbaa !15
   %997 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %997, ptr %1165, align 8, !tbaa !18
@@ -2259,7 +2259,7 @@ php_json_hex_to_int.exit.i.i1544:                 ; preds = %1011, %1009, %1005
   %1016 = or i32 %1015, %.082.i.i1537
   %1017 = add nuw nsw i32 %.091.i.i1538, 1
   %exitcond.not.i.i1546 = icmp eq i32 %1017, 4
-  br i1 %exitcond.not.i.i1546, label %php_json_ucs2_to_int.exit1547, label %1001
+  br i1 %exitcond.not.i.i1546, label %php_json_ucs2_to_int.exit1547, label %1001, !llvm.loop !38
 
 php_json_ucs2_to_int.exit1547:                    ; preds = %php_json_hex_to_int.exit.i.i1544
   %1018 = load ptr, ptr %1165, align 8, !tbaa !18
@@ -2268,12 +2268,12 @@ php_json_ucs2_to_int.exit1547:                    ; preds = %php_json_hex_to_int
   %reass.sub1634 = sub i64 %1019, %1020
   %1021 = add i64 %reass.sub1634, -6
   %.not.i1548 = icmp eq i64 %1021, 0
-  %.pre1776 = load ptr, ptr %1166, align 8, !tbaa !31
+  %.pre1776 = load ptr, ptr %1166, align 8, !tbaa !36
   br i1 %.not.i1548, label %php_json_scanner_copy_string.exit1549, label %1022
 
 1022:                                             ; preds = %php_json_ucs2_to_int.exit1547
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1776, ptr align 1 %1018, i64 %1021, i1 false)
-  %1023 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1023 = load ptr, ptr %1166, align 8, !tbaa !36
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 %1021
   br label %php_json_scanner_copy_string.exit1549
 
@@ -2283,22 +2283,22 @@ php_json_scanner_copy_string.exit1549:            ; preds = %php_json_ucs2_to_in
   %1027 = trunc i32 %1026 to i8
   %1028 = or i8 %1027, -32
   %1029 = getelementptr inbounds nuw i8, ptr %1025, i64 1
-  store ptr %1029, ptr %1166, align 8, !tbaa !31
+  store ptr %1029, ptr %1166, align 8, !tbaa !36
   store i8 %1028, ptr %1025, align 1, !tbaa !15
   %1030 = lshr i32 %1016, 6
   %1031 = trunc i32 %1030 to i8
   %1032 = and i8 %1031, 63
   %1033 = or disjoint i8 %1032, -128
-  %1034 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1034 = load ptr, ptr %1166, align 8, !tbaa !36
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 1
-  store ptr %1035, ptr %1166, align 8, !tbaa !31
+  store ptr %1035, ptr %1166, align 8, !tbaa !36
   store i8 %1033, ptr %1034, align 1, !tbaa !15
   %1036 = trunc i32 %1016 to i8
   %1037 = and i8 %1036, 63
   %1038 = or disjoint i8 %1037, -128
-  %1039 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1039 = load ptr, ptr %1166, align 8, !tbaa !36
   %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 1
-  store ptr %1040, ptr %1166, align 8, !tbaa !31
+  store ptr %1040, ptr %1166, align 8, !tbaa !36
   store i8 %1038, ptr %1039, align 1, !tbaa !15
   %1041 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1041, ptr %1165, align 8, !tbaa !18
@@ -2396,12 +2396,12 @@ php_json_scanner_copy_string.exit1549:            ; preds = %php_json_ucs2_to_in
   %reass.sub1633 = sub i64 %1088, %1089
   %1090 = add i64 %reass.sub1633, -12
   %.not.i1550 = icmp eq i64 %1090, 0
-  %.pre1775 = load ptr, ptr %1166, align 8, !tbaa !31
+  %.pre1775 = load ptr, ptr %1166, align 8, !tbaa !36
   br i1 %.not.i1550, label %php_json_scanner_copy_string.exit1551, label %1091
 
 1091:                                             ; preds = %1078
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1775, ptr align 1 %1087, i64 %1090, i1 false)
-  %1092 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1092 = load ptr, ptr %1166, align 8, !tbaa !36
   %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 %1090
   br label %php_json_scanner_copy_string.exit1551
 
@@ -2411,30 +2411,30 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1078, %1091
   %1096 = trunc nuw nsw i32 %1095 to i8
   %1097 = or disjoint i8 %1096, -16
   %1098 = getelementptr inbounds nuw i8, ptr %1094, i64 1
-  store ptr %1098, ptr %1166, align 8, !tbaa !31
+  store ptr %1098, ptr %1166, align 8, !tbaa !36
   store i8 %1097, ptr %1094, align 1, !tbaa !15
   %1099 = lshr i32 %1086, 12
   %1100 = trunc i32 %1099 to i8
   %1101 = and i8 %1100, 63
   %1102 = or disjoint i8 %1101, -128
-  %1103 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1103 = load ptr, ptr %1166, align 8, !tbaa !36
   %1104 = getelementptr inbounds nuw i8, ptr %1103, i64 1
-  store ptr %1104, ptr %1166, align 8, !tbaa !31
+  store ptr %1104, ptr %1166, align 8, !tbaa !36
   store i8 %1102, ptr %1103, align 1, !tbaa !15
   %1105 = lshr i32 %1085, 6
   %1106 = trunc i32 %1105 to i8
   %1107 = and i8 %1106, 63
   %1108 = or disjoint i8 %1107, -128
-  %1109 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1109 = load ptr, ptr %1166, align 8, !tbaa !36
   %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 1
-  store ptr %1110, ptr %1166, align 8, !tbaa !31
+  store ptr %1110, ptr %1166, align 8, !tbaa !36
   store i8 %1108, ptr %1109, align 1, !tbaa !15
   %1111 = trunc i32 %1080 to i8
   %1112 = and i8 %1111, 63
   %1113 = or disjoint i8 %1112, -128
-  %1114 = load ptr, ptr %1166, align 8, !tbaa !31
+  %1114 = load ptr, ptr %1166, align 8, !tbaa !36
   %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 1
-  store ptr %1115, ptr %1166, align 8, !tbaa !31
+  store ptr %1115, ptr %1166, align 8, !tbaa !36
   store i8 %1113, ptr %1114, align 1, !tbaa !15
   %1116 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1116, ptr %1165, align 8, !tbaa !18
@@ -2462,7 +2462,7 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1078, %1091
 
 .backedge1638.backedge:                           ; preds = %.backedge1638, %php_json_scanner_copy_string.exit1569, %php_json_scanner_copy_string.exit1583, %php_json_scanner_copy_string.exit1597, %php_json_scanner_copy_string.exit1599, %select.unfold1618
   %.be = phi ptr [ %1333, %php_json_scanner_copy_string.exit1569 ], [ %1371, %php_json_scanner_copy_string.exit1583 ], [ %1415, %php_json_scanner_copy_string.exit1597 ], [ %1490, %php_json_scanner_copy_string.exit1599 ], [ %1160, %select.unfold1618 ], [ %1125, %.backedge1638 ]
-  br label %.backedge1638
+  br label %.backedge1638, !llvm.loop !39
 
 1126:                                             ; preds = %.backedge1638
   store i32 0, ptr %5, align 4, !tbaa !14
@@ -2475,11 +2475,11 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1078, %1091
   br i1 %.not.i1552, label %.thread1609, label %1132
 
 1132:                                             ; preds = %1126
-  %1133 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1133 = load ptr, ptr %1121, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1133, ptr align 1 %1127, i64 %1131, i1 false)
-  %1134 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1134 = load ptr, ptr %1121, align 8, !tbaa !36
   %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 %1131
-  store ptr %1135, ptr %1121, align 8, !tbaa !31
+  store ptr %1135, ptr %1121, align 8, !tbaa !36
   br label %.thread1609
 
 1136:                                             ; preds = %.backedge1638
@@ -2498,11 +2498,11 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1078, %1091
   br i1 %.not.i1554, label %php_json_scanner_copy_string.exit1555, label %1145
 
 1145:                                             ; preds = %1139
-  %1146 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1146 = load ptr, ptr %1121, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1146, ptr align 1 %1140, i64 %1144, i1 false)
-  %1147 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1147 = load ptr, ptr %1121, align 8, !tbaa !36
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 %1144
-  store ptr %1148, ptr %1121, align 8, !tbaa !31
+  store ptr %1148, ptr %1121, align 8, !tbaa !36
   %.pre1774 = load ptr, ptr %0, align 8, !tbaa !4
   br label %php_json_scanner_copy_string.exit1555
 
@@ -2542,9 +2542,9 @@ php_json_scanner_copy_string.exit1555:            ; preds = %1139, %1145
 
 select.unfold1618:                                ; preds = %php_json_scanner_copy_string.exit1555, %1155, %1154, %1153, %1152, %1151
   %.01299 = phi i8 [ 12, %1151 ], [ 10, %1152 ], [ 13, %1153 ], [ 9, %1154 ], [ %1150, %1155 ], [ 8, %php_json_scanner_copy_string.exit1555 ]
-  %1157 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1157 = load ptr, ptr %1121, align 8, !tbaa !36
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 1
-  store ptr %1158, ptr %1121, align 8, !tbaa !31
+  store ptr %1158, ptr %1121, align 8, !tbaa !36
   store i8 %.01299, ptr %1157, align 1, !tbaa !15
   %1159 = load ptr, ptr %0, align 8, !tbaa !4
   %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 1
@@ -2894,7 +2894,7 @@ php_json_hex_to_int.exit.i.i1564:                 ; preds = %1316, %1314, %1310
   %1321 = or i32 %1320, %.082.i.i1557
   %1322 = add nuw nsw i32 %.091.i.i1558, 1
   %exitcond.not.i.i1566 = icmp eq i32 %1322, 2
-  br i1 %exitcond.not.i.i1566, label %php_json_ucs2_to_int.exit1567, label %1306
+  br i1 %exitcond.not.i.i1566, label %php_json_ucs2_to_int.exit1567, label %1306, !llvm.loop !38
 
 php_json_ucs2_to_int.exit1567:                    ; preds = %php_json_hex_to_int.exit.i.i1564
   %1323 = load ptr, ptr %1120, align 8, !tbaa !18
@@ -2903,12 +2903,12 @@ php_json_ucs2_to_int.exit1567:                    ; preds = %php_json_hex_to_int
   %reass.sub1632 = sub i64 %1324, %1325
   %1326 = add i64 %reass.sub1632, -6
   %.not.i1568 = icmp eq i64 %1326, 0
-  %.pre1773 = load ptr, ptr %1121, align 8, !tbaa !31
+  %.pre1773 = load ptr, ptr %1121, align 8, !tbaa !36
   br i1 %.not.i1568, label %php_json_scanner_copy_string.exit1569, label %1327
 
 1327:                                             ; preds = %php_json_ucs2_to_int.exit1567
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1773, ptr align 1 %1323, i64 %1326, i1 false)
-  %1328 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1328 = load ptr, ptr %1121, align 8, !tbaa !36
   %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 %1326
   br label %php_json_scanner_copy_string.exit1569
 
@@ -2916,7 +2916,7 @@ php_json_scanner_copy_string.exit1569:            ; preds = %php_json_ucs2_to_in
   %1330 = phi ptr [ %.pre1773, %php_json_ucs2_to_int.exit1567 ], [ %1329, %1327 ]
   %1331 = trunc i32 %1321 to i8
   %1332 = getelementptr inbounds nuw i8, ptr %1330, i64 1
-  store ptr %1332, ptr %1121, align 8, !tbaa !31
+  store ptr %1332, ptr %1121, align 8, !tbaa !36
   store i8 %1331, ptr %1330, align 1, !tbaa !15
   %1333 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1333, ptr %1120, align 8, !tbaa !18
@@ -2967,7 +2967,7 @@ php_json_hex_to_int.exit.i.i1578:                 ; preds = %1347, %1345, %1341
   %1352 = or i32 %1351, %.082.i.i1571
   %1353 = add nuw nsw i32 %.091.i.i1572, 1
   %exitcond.not.i.i1580 = icmp eq i32 %1353, 3
-  br i1 %exitcond.not.i.i1580, label %php_json_ucs2_to_int.exit1581, label %1337
+  br i1 %exitcond.not.i.i1580, label %php_json_ucs2_to_int.exit1581, label %1337, !llvm.loop !38
 
 php_json_ucs2_to_int.exit1581:                    ; preds = %php_json_hex_to_int.exit.i.i1578
   %1354 = load ptr, ptr %1120, align 8, !tbaa !18
@@ -2976,12 +2976,12 @@ php_json_ucs2_to_int.exit1581:                    ; preds = %php_json_hex_to_int
   %reass.sub1631 = sub i64 %1355, %1356
   %1357 = add i64 %reass.sub1631, -6
   %.not.i1582 = icmp eq i64 %1357, 0
-  %.pre1772 = load ptr, ptr %1121, align 8, !tbaa !31
+  %.pre1772 = load ptr, ptr %1121, align 8, !tbaa !36
   br i1 %.not.i1582, label %php_json_scanner_copy_string.exit1583, label %1358
 
 1358:                                             ; preds = %php_json_ucs2_to_int.exit1581
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1772, ptr align 1 %1354, i64 %1357, i1 false)
-  %1359 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1359 = load ptr, ptr %1121, align 8, !tbaa !36
   %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 %1357
   br label %php_json_scanner_copy_string.exit1583
 
@@ -2991,14 +2991,14 @@ php_json_scanner_copy_string.exit1583:            ; preds = %php_json_ucs2_to_in
   %1363 = trunc i32 %1362 to i8
   %1364 = or i8 %1363, -64
   %1365 = getelementptr inbounds nuw i8, ptr %1361, i64 1
-  store ptr %1365, ptr %1121, align 8, !tbaa !31
+  store ptr %1365, ptr %1121, align 8, !tbaa !36
   store i8 %1364, ptr %1361, align 1, !tbaa !15
   %1366 = trunc i32 %1352 to i8
   %1367 = and i8 %1366, 63
   %1368 = or disjoint i8 %1367, -128
-  %1369 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1369 = load ptr, ptr %1121, align 8, !tbaa !36
   %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 1
-  store ptr %1370, ptr %1121, align 8, !tbaa !31
+  store ptr %1370, ptr %1121, align 8, !tbaa !36
   store i8 %1368, ptr %1369, align 1, !tbaa !15
   %1371 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1371, ptr %1120, align 8, !tbaa !18
@@ -3049,7 +3049,7 @@ php_json_hex_to_int.exit.i.i1592:                 ; preds = %1385, %1383, %1379
   %1390 = or i32 %1389, %.082.i.i1585
   %1391 = add nuw nsw i32 %.091.i.i1586, 1
   %exitcond.not.i.i1594 = icmp eq i32 %1391, 4
-  br i1 %exitcond.not.i.i1594, label %php_json_ucs2_to_int.exit1595, label %1375
+  br i1 %exitcond.not.i.i1594, label %php_json_ucs2_to_int.exit1595, label %1375, !llvm.loop !38
 
 php_json_ucs2_to_int.exit1595:                    ; preds = %php_json_hex_to_int.exit.i.i1592
   %1392 = load ptr, ptr %1120, align 8, !tbaa !18
@@ -3058,12 +3058,12 @@ php_json_ucs2_to_int.exit1595:                    ; preds = %php_json_hex_to_int
   %reass.sub1630 = sub i64 %1393, %1394
   %1395 = add i64 %reass.sub1630, -6
   %.not.i1596 = icmp eq i64 %1395, 0
-  %.pre1771 = load ptr, ptr %1121, align 8, !tbaa !31
+  %.pre1771 = load ptr, ptr %1121, align 8, !tbaa !36
   br i1 %.not.i1596, label %php_json_scanner_copy_string.exit1597, label %1396
 
 1396:                                             ; preds = %php_json_ucs2_to_int.exit1595
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1771, ptr align 1 %1392, i64 %1395, i1 false)
-  %1397 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1397 = load ptr, ptr %1121, align 8, !tbaa !36
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 %1395
   br label %php_json_scanner_copy_string.exit1597
 
@@ -3073,22 +3073,22 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   %1401 = trunc i32 %1400 to i8
   %1402 = or i8 %1401, -32
   %1403 = getelementptr inbounds nuw i8, ptr %1399, i64 1
-  store ptr %1403, ptr %1121, align 8, !tbaa !31
+  store ptr %1403, ptr %1121, align 8, !tbaa !36
   store i8 %1402, ptr %1399, align 1, !tbaa !15
   %1404 = lshr i32 %1390, 6
   %1405 = trunc i32 %1404 to i8
   %1406 = and i8 %1405, 63
   %1407 = or disjoint i8 %1406, -128
-  %1408 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1408 = load ptr, ptr %1121, align 8, !tbaa !36
   %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 1
-  store ptr %1409, ptr %1121, align 8, !tbaa !31
+  store ptr %1409, ptr %1121, align 8, !tbaa !36
   store i8 %1407, ptr %1408, align 1, !tbaa !15
   %1410 = trunc i32 %1390 to i8
   %1411 = and i8 %1410, 63
   %1412 = or disjoint i8 %1411, -128
-  %1413 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1413 = load ptr, ptr %1121, align 8, !tbaa !36
   %1414 = getelementptr inbounds nuw i8, ptr %1413, i64 1
-  store ptr %1414, ptr %1121, align 8, !tbaa !31
+  store ptr %1414, ptr %1121, align 8, !tbaa !36
   store i8 %1412, ptr %1413, align 1, !tbaa !15
   %1415 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1415, ptr %1120, align 8, !tbaa !18
@@ -3186,12 +3186,12 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   %reass.sub = sub i64 %1462, %1463
   %1464 = add i64 %reass.sub, -12
   %.not.i1598 = icmp eq i64 %1464, 0
-  %.pre1770 = load ptr, ptr %1121, align 8, !tbaa !31
+  %.pre1770 = load ptr, ptr %1121, align 8, !tbaa !36
   br i1 %.not.i1598, label %php_json_scanner_copy_string.exit1599, label %1465
 
 1465:                                             ; preds = %1452
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1770, ptr align 1 %1461, i64 %1464, i1 false)
-  %1466 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1466 = load ptr, ptr %1121, align 8, !tbaa !36
   %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 %1464
   br label %php_json_scanner_copy_string.exit1599
 
@@ -3201,30 +3201,30 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1452, %1465
   %1470 = trunc nuw nsw i32 %1469 to i8
   %1471 = or disjoint i8 %1470, -16
   %1472 = getelementptr inbounds nuw i8, ptr %1468, i64 1
-  store ptr %1472, ptr %1121, align 8, !tbaa !31
+  store ptr %1472, ptr %1121, align 8, !tbaa !36
   store i8 %1471, ptr %1468, align 1, !tbaa !15
   %1473 = lshr i32 %1460, 12
   %1474 = trunc i32 %1473 to i8
   %1475 = and i8 %1474, 63
   %1476 = or disjoint i8 %1475, -128
-  %1477 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1477 = load ptr, ptr %1121, align 8, !tbaa !36
   %1478 = getelementptr inbounds nuw i8, ptr %1477, i64 1
-  store ptr %1478, ptr %1121, align 8, !tbaa !31
+  store ptr %1478, ptr %1121, align 8, !tbaa !36
   store i8 %1476, ptr %1477, align 1, !tbaa !15
   %1479 = lshr i32 %1459, 6
   %1480 = trunc i32 %1479 to i8
   %1481 = and i8 %1480, 63
   %1482 = or disjoint i8 %1481, -128
-  %1483 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1483 = load ptr, ptr %1121, align 8, !tbaa !36
   %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 1
-  store ptr %1484, ptr %1121, align 8, !tbaa !31
+  store ptr %1484, ptr %1121, align 8, !tbaa !36
   store i8 %1482, ptr %1483, align 1, !tbaa !15
   %1485 = trunc i32 %1454 to i8
   %1486 = and i8 %1485, 63
   %1487 = or disjoint i8 %1486, -128
-  %1488 = load ptr, ptr %1121, align 8, !tbaa !31
+  %1488 = load ptr, ptr %1121, align 8, !tbaa !36
   %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 1
-  store ptr %1489, ptr %1121, align 8, !tbaa !31
+  store ptr %1489, ptr %1121, align 8, !tbaa !36
   store i8 %1487, ptr %1488, align 1, !tbaa !15
   %1490 = load ptr, ptr %0, align 8, !tbaa !4
   store ptr %1490, ptr %1120, align 8, !tbaa !18
@@ -3297,7 +3297,7 @@ php_json_hex_to_int.exit.i:                       ; preds = %12, %10, %6
   %17 = or i32 %16, %.082.i
   %18 = add nuw nsw i32 %.091.i, 1
   %exitcond.not.i = icmp eq i32 %18, %0
-  br i1 %exitcond.not.i, label %php_json_ucs2_to_int_ex.exit, label %2
+  br i1 %exitcond.not.i, label %php_json_ucs2_to_int_ex.exit, label %2, !llvm.loop !38
 
 php_json_ucs2_to_int_ex.exit:                     ; preds = %php_json_hex_to_int.exit.i
   ret i32 %17
@@ -3348,7 +3348,7 @@ php_json_hex_to_int.exit:                         ; preds = %11, %15, %17
   %22 = or i32 %21, %.082
   %23 = add nuw nsw i32 %.091, 1
   %exitcond.not = icmp eq i32 %23, %0
-  br i1 %exitcond.not, label %24, label %6
+  br i1 %exitcond.not, label %24, label %6, !llvm.loop !38
 
 24:                                               ; preds = %php_json_hex_to_int.exit
   ret i32 %22
@@ -3400,6 +3400,14 @@ attributes #10 = { nounwind allocsize(0) }
 !26 = !{!"_zend_string", !24, i64 0, !27, i64 8, !27, i64 16, !8, i64 24}
 !27 = !{!"long", !8, i64 0}
 !28 = !{!26, !27, i64 16}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS12_zend_string", !7, i64 0}
-!31 = !{!5, !6, i64 48}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS12_zend_string", !7, i64 0}
+!36 = !{!5, !6, i64 48}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = distinct !{!39, !30}

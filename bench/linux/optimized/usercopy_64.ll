@@ -42,9 +42,9 @@ define dso_local void @arch_wb_cache_pmem(ptr noundef %0, i64 noundef %1) #0 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = ptrtoint ptr %0 to i64
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   %5 = tail call i64 @__copy_user_nocache(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
   %6 = icmp ult i32 %2, 8
   br i1 %6, label %7, label %24
 
@@ -71,7 +71,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %21, ptr %21, ptr elementtype(%struct.anon) %21) #4, !srcloc !5
   %22 = getelementptr i8, ptr %21, i64 %15
   %23 = icmp ult ptr %22, %16
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !6
+  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !12
 
 24:                                               ; preds = %3
   %25 = and i64 %4, 7
@@ -96,7 +96,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %38, ptr %38, ptr elementtype(%struct.anon) %38) #4, !srcloc !5
   %39 = getelementptr i8, ptr %38, i64 %29
   %40 = icmp ult ptr %39, %34
-  br i1 %40, label %.preheader8, label %.loopexit9, !llvm.loop !6
+  br i1 %40, label %.preheader8, label %.loopexit9, !llvm.loop !13
 
 .loopexit9:                                       ; preds = %.preheader8, %27, %24
   %41 = phi i64 [ %4, %24 ], [ %33, %27 ], [ %33, %.preheader8 ]
@@ -128,7 +128,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %59, ptr %59, ptr elementtype(%struct.anon) %59) #4, !srcloc !5
   %60 = getelementptr i8, ptr %59, i64 %53
   %61 = icmp ult ptr %60, %50
-  br i1 %61, label %.preheader6, label %.loopexit, !llvm.loop !6
+  br i1 %61, label %.preheader6, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader6, %.preheader, %49, %45, %.loopexit9, %12, %7
   ret i64 %5
@@ -165,7 +165,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %20, ptr %20, ptr elementtype(%struct.anon) %20) #4, !srcloc !5
   %21 = getelementptr i8, ptr %20, i64 %14
   %22 = icmp ult ptr %21, %15
-  br i1 %22, label %.preheader16, label %.loopexit17, !llvm.loop !6
+  br i1 %22, label %.preheader16, label %.loopexit17, !llvm.loop !15
 
 .loopexit17:                                      ; preds = %.preheader16, %8
   %23 = add i64 %12, %4
@@ -192,12 +192,12 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %36 = phi i64 [ %41, %.preheader14 ], [ %30, %27 ]
   %37 = phi i64 [ %39, %.preheader14 ], [ %29, %27 ]
   %38 = phi i64 [ %40, %.preheader14 ], [ %28, %27 ]
-  tail call void asm sideeffect "movq    ($0), %r8\0Amovq   8($0), %r9\0Amovq  16($0), %r10\0Amovq  24($0), %r11\0Amovnti  %r8,   ($1)\0Amovnti  %r9,  8($1)\0Amovnti %r10, 16($1)\0Amovnti %r11, 24($1)\0A", "r,r,~{memory},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(i64 %38, i64 %37) #4, !srcloc !11
+  tail call void asm sideeffect "movq    ($0), %r8\0Amovq   8($0), %r9\0Amovq  16($0), %r10\0Amovq  24($0), %r11\0Amovnti  %r8,   ($1)\0Amovnti  %r9,  8($1)\0Amovnti %r10, 16($1)\0Amovnti %r11, 24($1)\0A", "r,r,~{memory},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(i64 %38, i64 %37) #4, !srcloc !16
   %39 = add i64 %37, 32
   %40 = add i64 %38, 32
   %41 = add i64 %36, -32
   %42 = icmp ugt i64 %41, 31
-  br i1 %42, label %.preheader14, label %.loopexit15, !llvm.loop !12
+  br i1 %42, label %.preheader14, label %.loopexit15, !llvm.loop !17
 
 .loopexit13:                                      ; preds = %.preheader12, %.loopexit15
   %43 = phi i64 [ %32, %.loopexit15 ], [ %51, %.preheader12 ]
@@ -210,15 +210,15 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   %47 = phi i64 [ %52, %.preheader12 ], [ %34, %.loopexit15 ]
   %48 = phi i64 [ %50, %.preheader12 ], [ %33, %.loopexit15 ]
   %49 = phi i64 [ %51, %.preheader12 ], [ %32, %.loopexit15 ]
-  tail call void asm sideeffect "movq    ($0), %r8\0Amovnti  %r8,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %49, i64 %48) #4, !srcloc !13
+  tail call void asm sideeffect "movq    ($0), %r8\0Amovnti  %r8,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %49, i64 %48) #4, !srcloc !18
   %50 = add i64 %48, 8
   %51 = add i64 %49, 8
   %52 = add nsw i64 %47, -8
   %53 = icmp ugt i64 %52, 7
-  br i1 %53, label %.preheader12, label %.loopexit13, !llvm.loop !14
+  br i1 %53, label %.preheader12, label %.loopexit13, !llvm.loop !19
 
 54:                                               ; preds = %.loopexit13
-  tail call void asm sideeffect "movl    ($0), %r8d\0Amovnti  %r8d,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %43, i64 %44) #4, !srcloc !15
+  tail call void asm sideeffect "movl    ($0), %r8d\0Amovnti  %r8d,   ($1)\0A", "r,r,~{memory},~{r8},~{dirflag},~{fpsr},~{flags}"(i64 %43, i64 %44) #4, !srcloc !20
   %55 = add i64 %44, 4
   %56 = add i64 %43, 4
   %57 = add nsw i64 %45, -4
@@ -249,7 +249,7 @@ define dso_local void @__memcpy_flushcache(ptr noundef %0, ptr noundef %1, i64 n
   tail call void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09.byte 0x3e; clflush ($1)\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+24)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x66; clflush ($1)\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09.byte 0x66, 0x0f, 0xae, 0x30\0A6652:\0A.popsection\0A", "=*m,{ax},*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.anon) %73, ptr %73, ptr elementtype(%struct.anon) %73) #4, !srcloc !5
   %74 = getelementptr i8, ptr %73, i64 %67
   %75 = icmp ult ptr %74, %68
-  br i1 %75, label %.preheader, label %.loopexit, !llvm.loop !6
+  br i1 %75, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %63, %58, %.loopexit17
   ret void
@@ -275,13 +275,19 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2149289799, i64 2149289832, i64 2149289838, i64 2149289854, i64 2149289873, i64 2149289904, i64 2149290879, i64 2149289370, i64 2149290885, i64 2149290933, i64 2149290997, i64 2149291061, i64 2149291118, i64 2149291325, i64 2149291373, i64 2149291437, i64 2149291501, i64 2149291558, i64 2149289488, i64 2149289513, i64 2149291765, i64 2149291909, i64 2149291826, i64 2149291923, i64 2149291937, i64 2149292081, i64 2149291998, i64 2149292095, i64 2149289647}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 2150702744, i64 2150702772, i64 2150702778, i64 2150702794, i64 2150702810, i64 2150702837, i64 2150703151, i64 2150702494, i64 2150703157, i64 2150703205, i64 2150703269, i64 2150703333, i64 2150703390, i64 2150702575, i64 2150702600, i64 2150703597, i64 2150703733, i64 2150703658, i64 2150703747, i64 2150702692}
-!10 = !{i64 2150701077, i64 2150701105, i64 2150701111, i64 2150701127, i64 2150701143, i64 2150701170, i64 2150701484, i64 2150700827, i64 2150701490, i64 2150701538, i64 2150701602, i64 2150701666, i64 2150701723, i64 2150700908, i64 2150700933, i64 2150701930, i64 2150702066, i64 2150701991, i64 2150702080, i64 2150701025}
-!11 = !{i64 2585, i64 2615, i64 2644, i64 2674, i64 2704, i64 2735, i64 2766, i64 2797}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i64 2998, i64 3028}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i64 3206, i64 3237}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2150702744, i64 2150702772, i64 2150702778, i64 2150702794, i64 2150702810, i64 2150702837, i64 2150703151, i64 2150702494, i64 2150703157, i64 2150703205, i64 2150703269, i64 2150703333, i64 2150703390, i64 2150702575, i64 2150702600, i64 2150703597, i64 2150703733, i64 2150703658, i64 2150703747, i64 2150702692}
+!11 = !{i64 2150701077, i64 2150701105, i64 2150701111, i64 2150701127, i64 2150701143, i64 2150701170, i64 2150701484, i64 2150700827, i64 2150701490, i64 2150701538, i64 2150701602, i64 2150701666, i64 2150701723, i64 2150700908, i64 2150700933, i64 2150701930, i64 2150702066, i64 2150701991, i64 2150702080, i64 2150701025}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = !{i64 2585, i64 2615, i64 2644, i64 2674, i64 2704, i64 2735, i64 2766, i64 2797}
+!17 = distinct !{!17, !7, !8, !9}
+!18 = !{i64 2998, i64 3028}
+!19 = distinct !{!19, !7, !8, !9}
+!20 = !{i64 3206, i64 3237}
+!21 = distinct !{!21, !7, !8, !9}

@@ -622,7 +622,7 @@ define i32 @Fra_FraigCec(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   %17 = alloca %struct.timespec, align 8
   %18 = alloca %struct.Fra_Par_t_, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18) #10
-  %19 = load ptr, ptr %0, align 8, !tbaa !67
+  %19 = load ptr, ptr %0, align 8, !tbaa !68
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %25, label %20
 
@@ -762,13 +762,13 @@ Abc_Clock.exit99:                                 ; preds = %68, %75
 85:                                               ; preds = %Abc_Clock.exit99, %Abc_Clock.exit97
   call void @Fra_ParamsDefault(ptr noundef nonnull %18) #10
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store i32 2, ptr %86, align 8, !tbaa !68
+  store i32 2, ptr %86, align 8, !tbaa !69
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  store i32 300, ptr %87, align 4, !tbaa !70
+  store i32 300, ptr %87, align 4, !tbaa !71
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  store i32 1, ptr %88, align 8, !tbaa !71
+  store i32 1, ptr %88, align 8, !tbaa !72
   %89 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i32 1, ptr %89, align 8, !tbaa !72
+  store i32 1, ptr %89, align 8, !tbaa !73
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1014,15 +1014,15 @@ Abc_Clock.exit111:                                ; preds = %184, %191
   br i1 %202, label %.thread, label %203
 
 203:                                              ; preds = %200
-  %204 = load i32, ptr %86, align 8, !tbaa !68
+  %204 = load i32, ptr %86, align 8, !tbaa !69
   %205 = shl nsw i32 %204, 3
-  store i32 %205, ptr %86, align 8, !tbaa !68
-  %206 = load i32, ptr %87, align 4, !tbaa !70
+  store i32 %205, ptr %86, align 8, !tbaa !69
+  %206 = load i32, ptr %87, align 4, !tbaa !71
   %207 = shl nsw i32 %206, 1
-  store i32 %207, ptr %87, align 4, !tbaa !70
+  store i32 %207, ptr %87, align 4, !tbaa !71
   %208 = add nuw nsw i32 %.068139, 1
   %exitcond.not = icmp eq i32 %208, 6
-  br i1 %exitcond.not, label %209, label %96, !llvm.loop !73
+  br i1 %exitcond.not, label %209, label %96, !llvm.loop !74
 
 209:                                              ; preds = %203
   %210 = icmp eq i32 %201, -1
@@ -1084,7 +1084,7 @@ Abc_Clock.exit115:                                ; preds = %220, %227
 .thread:                                          ; preds = %200, %174, %Abc_Clock.exit113, %Abc_Clock.exit115, %209
   %.170118 = phi ptr [ %183, %Abc_Clock.exit115 ], [ %183, %Abc_Clock.exit113 ], [ %183, %209 ], [ %156, %174 ], [ %183, %200 ]
   %.2 = phi i32 [ %219, %Abc_Clock.exit115 ], [ %219, %Abc_Clock.exit113 ], [ %201, %209 ], [ %175, %174 ], [ %201, %200 ]
-  store ptr %.170118, ptr %0, align 8, !tbaa !67
+  store ptr %.170118, ptr %0, align 8, !tbaa !68
   br label %237
 
 237:                                              ; preds = %58, %.thread, %28
@@ -1128,7 +1128,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val45.us = load ptr, ptr %11, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw ptr, ptr %.val45.us, i64 %indvars.iv76
   %13 = load ptr, ptr %12, align 8, !tbaa !64
-  store ptr %13, ptr %7, align 8, !tbaa !67
+  store ptr %13, ptr %7, align 8, !tbaa !68
   %14 = add nsw i32 %.052.us, 1
   %15 = tail call i32 @Fra_FraigMiterStatus(ptr noundef %13) #10
   switch i32 %15, label %16 [
@@ -1138,7 +1138,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 16:                                               ; preds = %.lr.ph.split.us
   %17 = call i32 @Fra_FraigCec(ptr noundef nonnull %7, i32 noundef %2, i32 noundef 0)
-  %18 = load ptr, ptr %7, align 8, !tbaa !67
+  %18 = load ptr, ptr %7, align 8, !tbaa !68
   %.val49.us = load ptr, ptr %11, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw ptr, ptr %.val49.us, i64 %indvars.iv76
   store ptr %18, ptr %19, align 8, !tbaa !64
@@ -1150,7 +1150,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val43.us = load i32, ptr %9, align 4, !tbaa !61
   %22 = sext i32 %.val43.us to i64
   %23 = icmp slt i64 %indvars.iv.next77, %22
-  br i1 %23, label %.lr.ph.split.us, label %.critedge, !llvm.loop !74
+  br i1 %23, label %.lr.ph.split.us, label %.critedge, !llvm.loop !75
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph ]
@@ -1159,7 +1159,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val45 = load ptr, ptr %11, align 8, !tbaa !63
   %24 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !64
-  store ptr %25, ptr %7, align 8, !tbaa !67
+  store ptr %25, ptr %7, align 8, !tbaa !68
   %26 = add nsw i32 %.052, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = getelementptr i8, ptr %25, i64 136
@@ -1184,7 +1184,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 38:                                               ; preds = %.lr.ph.split
   %39 = call i32 @Fra_FraigCec(ptr noundef nonnull %7, i32 noundef %2, i32 noundef 0)
-  %40 = load ptr, ptr %7, align 8, !tbaa !67
+  %40 = load ptr, ptr %7, align 8, !tbaa !68
   %.val49 = load ptr, ptr %11, align 8, !tbaa !63
   %41 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv
   store ptr %40, ptr %41, align 8, !tbaa !64
@@ -1195,7 +1195,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val43 = load i32, ptr %9, align 4, !tbaa !61
   %44 = sext i32 %.val43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !76
+  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !77
 
 .critedge:                                        ; preds = %38, %43, %.lr.ph.split, %16, %21, %.lr.ph.split.us, %6
   %.132 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ %37, %.lr.ph.split ], [ 1, %43 ], [ %39, %38 ]
@@ -1240,7 +1240,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val40 = load i32, ptr %9, align 4, !tbaa !61
   %62 = sext i32 %.val40 to i64
   %63 = icmp slt i64 %indvars.iv.next80, %62
-  br i1 %63, label %59, label %.critedge2, !llvm.loop !77
+  br i1 %63, label %59, label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %59, %56
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1505,16 +1505,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !62 = !{!"Vec_Ptr_t_", !16, i64 0, !16, i64 4, !12, i64 8}
 !63 = !{!62, !12, i64 8}
 !64 = !{!12, !12, i64 0}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!23, !23, i64 0}
-!68 = !{!69, !16, i64 64}
-!69 = !{!"Fra_Par_t_", !16, i64 0, !32, i64 8, !16, i64 16, !16, i64 20, !32, i64 24, !32, i64 32, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96, !16, i64 100, !16, i64 104, !16, i64 108, !16, i64 112}
-!70 = !{!69, !16, i64 68}
-!71 = !{!69, !16, i64 112}
-!72 = !{!69, !16, i64 48}
-!73 = distinct !{!73, !66}
-!74 = distinct !{!74, !66, !75}
-!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!76 = distinct !{!76, !66}
-!77 = distinct !{!77, !66}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!23, !23, i64 0}
+!69 = !{!70, !16, i64 64}
+!70 = !{!"Fra_Par_t_", !16, i64 0, !32, i64 8, !16, i64 16, !16, i64 20, !32, i64 24, !32, i64 32, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !16, i64 80, !16, i64 84, !16, i64 88, !16, i64 92, !16, i64 96, !16, i64 100, !16, i64 104, !16, i64 108, !16, i64 112}
+!71 = !{!70, !16, i64 68}
+!72 = !{!70, !16, i64 112}
+!73 = !{!70, !16, i64 48}
+!74 = distinct !{!74, !66, !67}
+!75 = distinct !{!75, !66, !67, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !66, !67}
+!78 = distinct !{!78, !66, !67}

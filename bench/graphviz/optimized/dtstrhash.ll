@@ -62,7 +62,7 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %33 = mul i32 %32, 17109811
   %34 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %35 = icmp ult ptr %34, %24
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   %.2.lcssa = phi i32 [ 0, %21 ], [ %33, %.lr.ph ]
@@ -96,6 +96,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

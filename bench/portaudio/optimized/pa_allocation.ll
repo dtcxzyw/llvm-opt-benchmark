@@ -36,14 +36,14 @@ define ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #0 {
   br i1 %.not12, label %15, label %10
 
 10:                                               ; preds = %7
-  store i64 16, ptr %9, align 8, !tbaa !12
+  store i64 16, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %1, ptr %11, align 8, !tbaa !15
+  store ptr %1, ptr %11, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !16
+  store ptr %12, ptr %13, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr null, ptr %14, align 8, !tbaa !17
+  store ptr null, ptr %14, align 8, !tbaa !18
   br label %AllocateLinks.exit.thread
 
 15:                                               ; preds = %7
@@ -62,7 +62,7 @@ declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @PaUtil_DestroyAllocationGroup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -73,7 +73,7 @@ define void @PaUtil_DestroyAllocationGroup(ptr noundef %0) local_unnamed_addr #0
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   tail call void @PaUtil_FreeMemory(ptr noundef %6) #2
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @PaUtil_FreeMemory(ptr noundef nonnull %0) #2
@@ -83,14 +83,14 @@ define void @PaUtil_DestroyAllocationGroup(ptr noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %0, align 8, !tbaa !12
+  %6 = load i64, ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = shl i64 %6, 4
   %10 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %9) #2
   %.not.i = icmp eq ptr %10, null
@@ -118,16 +118,16 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef captures(none)
   %17 = getelementptr %struct.PaUtilAllocationGroupLink, ptr %10, i64 %6
   %18 = getelementptr i8, ptr %17, i64 -16
   store ptr null, ptr %18, align 8, !tbaa !9
-  %19 = load i64, ptr %0, align 8, !tbaa !12
+  %19 = load i64, ptr %0, align 8, !tbaa !13
   %20 = shl nsw i64 %19, 1
-  store i64 %20, ptr %0, align 8, !tbaa !12
-  store ptr %10, ptr %7, align 8, !tbaa !15
+  store i64 %20, ptr %0, align 8, !tbaa !13
+  store ptr %10, ptr %7, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %21, ptr %3, align 8, !tbaa !16
+  store ptr %21, ptr %3, align 8, !tbaa !17
   br label %.thread
 
 22:                                               ; preds = %5
-  %.pr = load ptr, ptr %3, align 8, !tbaa !16
+  %.pr = load ptr, ptr %3, align 8, !tbaa !17
   %.not27 = icmp eq ptr %.pr, null
   br i1 %.not27, label %30, label %.thread
 
@@ -137,15 +137,15 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef captures(none)
   br i1 %.not28, label %30, label %24
 
 24:                                               ; preds = %.thread
-  %25 = load ptr, ptr %3, align 8, !tbaa !16
+  %25 = load ptr, ptr %3, align 8, !tbaa !17
   %26 = load ptr, ptr %25, align 8, !tbaa !9
-  store ptr %26, ptr %3, align 8, !tbaa !16
+  store ptr %26, ptr %3, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %23, ptr %27, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   store ptr %29, ptr %25, align 8, !tbaa !9
-  store ptr %25, ptr %28, align 8, !tbaa !17
+  store ptr %25, ptr %28, align 8, !tbaa !18
   br label %30
 
 30:                                               ; preds = %.thread, %24, %22
@@ -162,7 +162,7 @@ define void @PaUtil_GroupFreeMemory(ptr noundef captures(none) %0, ptr noundef %
 .preheader:                                       ; preds = %2, %5
   %.018.in = phi ptr [ %.018, %5 ], [ %3, %2 ]
   %.0 = phi ptr [ %.018, %5 ], [ null, %2 ]
-  %.018 = load ptr, ptr %.018.in, align 8, !tbaa !19
+  %.018 = load ptr, ptr %.018.in, align 8, !tbaa !20
   %.not = icmp eq ptr %.018, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -170,7 +170,7 @@ define void @PaUtil_GroupFreeMemory(ptr noundef captures(none) %0, ptr noundef %
   %6 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, %1
-  br i1 %8, label %9, label %.preheader, !llvm.loop !20
+  br i1 %8, label %9, label %.preheader, !llvm.loop !21
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.018, i64 8
@@ -183,15 +183,15 @@ define void @PaUtil_GroupFreeMemory(ptr noundef captures(none) %0, ptr noundef %
   br label %14
 
 13:                                               ; preds = %9
-  store ptr %11, ptr %3, align 8, !tbaa !17
+  store ptr %11, ptr %3, align 8, !tbaa !18
   br label %14
 
 14:                                               ; preds = %13, %12
   store ptr null, ptr %10, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   store ptr %16, ptr %.018, align 8, !tbaa !9
-  store ptr %.018, ptr %15, align 8, !tbaa !16
+  store ptr %.018, ptr %15, align 8, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %14
@@ -205,7 +205,7 @@ define void @PaUtil_GroupFreeMemory(ptr noundef captures(none) %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define void @PaUtil_FreeAllAllocations(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.01214 = load ptr, ptr %2, align 8, !tbaa !19
+  %.01214 = load ptr, ptr %2, align 8, !tbaa !20
   %.not15 = icmp eq ptr %.01214, null
   br i1 %.not15, label %._crit_edge.thread, label %.lr.ph
 
@@ -215,17 +215,17 @@ define void @PaUtil_FreeAllAllocations(ptr noundef captures(none) %0) local_unna
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   tail call void @PaUtil_FreeMemory(ptr noundef %4) #2
   store ptr null, ptr %3, align 8, !tbaa !3
-  %.012 = load ptr, ptr %.01216, align 8, !tbaa !19
+  %.012 = load ptr, ptr %.01216, align 8, !tbaa !20
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   store ptr %6, ptr %.01216, align 8, !tbaa !9
-  %7 = load ptr, ptr %2, align 8, !tbaa !17
-  store ptr %7, ptr %5, align 8, !tbaa !16
-  store ptr null, ptr %2, align 8, !tbaa !17
+  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  store ptr %7, ptr %5, align 8, !tbaa !17
+  store ptr null, ptr %2, align 8, !tbaa !18
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
@@ -248,15 +248,16 @@ attributes #2 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!4, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"", !14, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!14 = !{!"long", !7, i64 0}
-!15 = !{!13, !5, i64 8}
-!16 = !{!13, !5, i64 16}
-!17 = !{!13, !5, i64 24}
-!18 = distinct !{!18, !11}
-!19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"", !15, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!14, !5, i64 8}
+!17 = !{!14, !5, i64 16}
+!18 = !{!14, !5, i64 24}
+!19 = distinct !{!19, !11, !12}
+!20 = !{!5, !5, i64 0}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}

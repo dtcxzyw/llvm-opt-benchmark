@@ -186,16 +186,16 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
 .lr.ph:                                           ; preds = %.lr.ph240
   %104 = load i8, ptr %41, align 8
   %105 = trunc i8 %104 to i1
-  br i1 %105, label %.lr.ph240, label %.critedge, !llvm.loop !8
+  br i1 %105, label %.lr.ph240, label %.critedge, !llvm.loop !9
 
 .lr.ph240:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %32)
   %106 = load i32, ptr %34, align 4
   %107 = icmp ult i32 %106, %spec.select160
-  br i1 %107, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !8
+  br i1 %107, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !9
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph240
-  br label %.critedge, !llvm.loop !8
+  br label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %99
   %.lcssa207 = phi i32 [ %100, %99 ], [ %106, %..critedge.loopexit_crit_edge ], [ %100, %.lr.ph.preheader ], [ %106, %.lr.ph ]
@@ -229,7 +229,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
   %121 = shl nuw i32 1, %120
   %122 = and i32 %121, 7168
   %.not202 = icmp eq i32 %122, 0
-  br i1 %.not202, label %123, label %.preheader206, !llvm.loop !9
+  br i1 %.not202, label %123, label %.preheader206, !llvm.loop !10
 
 123:                                              ; preds = %115, %.preheader206
   %.2.in.lcssa = phi i32 [ %.2.in, %115 ], [ %113, %.preheader206 ]
@@ -259,7 +259,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %.2.lcssa, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %.lr.ph25.i.preheader, label %135, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph25.i.preheader, label %135, !llvm.loop !11
 
 135:                                              ; preds = %134, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %133, %.lr.ph.split.i ], [ %indvars.iv.next.i, %134 ]
@@ -610,7 +610,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit46.i.i: ; preds = %307, %299
 _ZN11hb_buffer_t10next_glyphEv.exit51.i.i:        ; preds = %333, %320
   %336 = phi i32 [ %.pre18.i.i, %320 ], [ %335, %333 ]
   %337 = icmp ult i32 %336, %.2.lcssa
-  br i1 %337, label %.lr.ph.i.i, label %.critedge2.i.i, !llvm.loop !11
+  br i1 %337, label %.lr.ph.i.i, label %.critedge2.i.i, !llvm.loop !12
 
 338:                                              ; preds = %154
   %339 = getelementptr inbounds nuw i8, ptr %168, i64 48
@@ -673,7 +673,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit53.i.i: ; preds = %341, %338
 .critedge2.i.i:                                   ; preds = %_ZN11hb_buffer_t10next_glyphEv.exit51.i.i, %290, %.lr.ph.i.i, %367, %354, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i
   %370 = phi i32 [ %285, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i ], [ %369, %367 ], [ %.pre19.i.i, %354 ], [ %287, %.lr.ph.i.i ], [ %336, %_ZN11hb_buffer_t10next_glyphEv.exit51.i.i ], [ %287, %290 ]
   %371 = icmp ult i32 %370, %.2.in.lcssa
-  br i1 %371, label %150, label %.critedge.i.i, !llvm.loop !12
+  br i1 %371, label %150, label %.critedge.i.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %.critedge2.i.i, %150, %142
   %.lcssa.i.i = phi i32 [ %126, %142 ], [ %370, %.critedge2.i.i ], [ %151, %150 ]
@@ -765,7 +765,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit60.i.i: ; preds = %387, %373
   call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef nonnull %4, i1 noundef zeroext %30)
   %425 = load i32, ptr %125, align 4
   %426 = icmp ult i32 %425, %.2.lcssa
-  br i1 %426, label %.lr.ph25.i, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit, !llvm.loop !13
+  br i1 %426, label %.lr.ph25.i, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit, !llvm.loop !14
 
 _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; preds = %.lr.ph25.i, %424, %123, %.critedge.i.i, %403, %419
   %427 = load i32, ptr %34, align 4
@@ -775,7 +775,7 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
 429:                                              ; preds = %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit
   %430 = load i8, ptr %41, align 8
   %431 = trunc i8 %430 to i1
-  br i1 %431, label %42, label %.critedge2.thread, !llvm.loop !14
+  br i1 %431, label %42, label %.critedge2.thread, !llvm.loop !15
 
 .critedge2.thread:                                ; preds = %429, %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit
   %432 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
@@ -831,7 +831,7 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %.not.i174 = icmp eq i32 %455, 0
   %456 = icmp ult i16 %.val165, 256
   %457 = or i1 %456, %.not.i174
-  br i1 %457, label %458, label %.preheader, !llvm.loop !15
+  br i1 %457, label %458, label %.preheader, !llvm.loop !16
 
 458:                                              ; preds = %449, %.preheader
   %.0140.lcssa = phi i32 [ %.0140, %449 ], [ %umax223, %.preheader ]
@@ -855,7 +855,7 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %.1142 = phi i32 [ %.0141211, %.lr.ph212 ], [ %.0140.lcssa, %458 ], [ %.0140.lcssa, %465 ], [ %.0140.lcssa, %461 ]
   %467 = add i32 %.1142, 1
   %468 = icmp ult i32 %467, %437
-  br i1 %468, label %.lr.ph212, label %._crit_edge, !llvm.loop !16
+  br i1 %468, label %.lr.ph212, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %466, %436
   %469 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %1, ptr noundef %2, ptr noundef nonnull @.str.1)
@@ -926,7 +926,7 @@ _ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit: ; p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph215, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph215, !llvm.loop !18
 
 .loopexit:                                        ; preds = %504, %475, %470
   br i1 %471, label %661, label %505
@@ -1134,7 +1134,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %572, %580
   call fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_info_tP11hb_buffer_t(ptr noundef %621, ptr noundef nonnull %1)
   %622 = load i32, ptr %34, align 4
   %623 = icmp ult i32 %622, %510
-  br i1 %623, label %539, label %_ZN11hb_buffer_t10next_glyphEv.exit188, !llvm.loop !18
+  br i1 %623, label %539, label %_ZN11hb_buffer_t10next_glyphEv.exit188, !llvm.loop !19
 
 624:                                              ; preds = %553, %566, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %539
   %625 = load i8, ptr %38, align 2
@@ -1202,7 +1202,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %572, %580
   %658 = add i32 %646, -1
   %spec.select200 = select i1 %657, i32 %658, i32 %.0.ph218
   %659 = icmp ult i32 %649, %510
-  br i1 %659, label %.lr.ph216, label %_ZN11hb_buffer_t10next_glyphEv.exit188, !llvm.loop !18
+  br i1 %659, label %.lr.ph216, label %_ZN11hb_buffer_t10next_glyphEv.exit188, !llvm.loop !19
 
 _ZN11hb_buffer_t10next_glyphEv.exit188:           ; preds = %632, %.outer, %608, %594, %_ZN11hb_buffer_t10next_glyphEv.exit
   %660 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
@@ -2513,16 +2513,17 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

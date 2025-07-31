@@ -26,7 +26,7 @@ define float @spline_cubic_val(i32 noundef %0, ptr noundef readonly captures(non
   %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.next
   %11 = load float, ptr %10, align 4, !tbaa !6
   %12 = fcmp reassoc nsz arcp contract afn olt float %2, %11
-  br i1 %12, label %.split.loop.exit, label %8
+  br i1 %12, label %.split.loop.exit, label %8, !llvm.loop !10
 
 .split.loop.exit:                                 ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -96,7 +96,7 @@ define float @catmull_rom_val(i32 noundef %0, ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.next
   %10 = load float, ptr %9, align 4, !tbaa !6
   %11 = fcmp reassoc nsz arcp contract afn olt float %2, %10
-  br i1 %11, label %.split.loop.exit, label %7
+  br i1 %11, label %.split.loop.exit, label %7, !llvm.loop !12
 
 .split.loop.exit:                                 ; preds = %8
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -172,7 +172,7 @@ define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonl
   %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %11 = load float, ptr %10, align 4, !tbaa !6
   %12 = fcmp reassoc nsz arcp contract afn ugt float %9, %11
-  br i1 %12, label %6, label %spline_cubic_set_internal.exit
+  br i1 %12, label %6, label %spline_cubic_set_internal.exit, !llvm.loop !13
 
 13:                                               ; preds = %6
   %14 = mul nuw nsw i32 %0, 3
@@ -236,7 +236,7 @@ define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonl
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   store float %48, ptr %49, align 4, !tbaa !6
   %exitcond153.not.i = icmp eq i64 %indvars.iv.next150.i, %wide.trip.count.i
-  br i1 %exitcond153.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond153.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %50 = getelementptr inbounds nuw float, ptr %18, i64 %wide.trip.count.i
@@ -281,7 +281,7 @@ define noalias noundef ptr @catmull_rom_set(i32 noundef %0, ptr noundef readonly
   %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !6
   %12 = fcmp reassoc nsz arcp contract afn ugt float %9, %11
-  br i1 %12, label %6, label %.loopexit
+  br i1 %12, label %6, label %.loopexit, !llvm.loop !15
 
 13:                                               ; preds = %6
   %14 = zext nneg i32 %0 to i64
@@ -335,7 +335,7 @@ define noalias noundef ptr @catmull_rom_set(i32 noundef %0, ptr noundef readonly
   %51 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv50
   store float %50, ptr %51, align 4, !tbaa !6
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %3, %._crit_edge
   %.039 = phi ptr [ %15, %._crit_edge ], [ null, %3 ], [ null, %7 ]
@@ -364,7 +364,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
   %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !6
   %12 = fcmp reassoc nsz arcp contract afn ugt float %9, %11
-  br i1 %12, label %6, label %.loopexit
+  br i1 %12, label %6, label %.loopexit, !llvm.loop !17
 
 .lr.ph.preheader:                                 ; preds = %6
   %13 = zext nneg i32 %0 to i64
@@ -409,7 +409,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
   %30 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv100
   store float %29, ptr %30, align 4, !tbaa !6
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
-  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph97.preheader:                               ; preds = %.lr.ph95, %._crit_edge
   %smax113 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
@@ -428,7 +428,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
   store float %36, ptr %37, align 4, !tbaa !6
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.lr.ph97.preheader, label %.lr.ph95
+  br i1 %exitcond109.not, label %.lr.ph97.preheader, label %.lr.ph95, !llvm.loop !19
 
 ._crit_edge98:                                    ; preds = %62
   tail call void @free(ptr noundef nonnull %14) #13
@@ -475,7 +475,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
 62:                                               ; preds = %45, %55, %43
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge98, label %.lr.ph97
+  br i1 %exitcond115.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !20
 
 .loopexit:                                        ; preds = %7, %3, %._crit_edge98
   %.0 = phi ptr [ %17, %._crit_edge98 ], [ null, %3 ], [ null, %7 ]
@@ -496,7 +496,7 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
@@ -577,7 +577,7 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   store float %51, ptr %48, align 4, !tbaa !6
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond90.not, label %.lr.ph80.preheader, label %.lr.ph74
+  br i1 %exitcond90.not, label %.lr.ph80.preheader, label %.lr.ph74, !llvm.loop !22
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %store_forwarded = phi float [ %load_initial, %.lr.ph80.preheader ], [ %59, %.lr.ph80 ]
@@ -596,7 +596,7 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   store float %59, ptr %52, align 4, !tbaa !6
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   %.not = icmp eq i64 %indvars.iv91, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph80
+  br i1 %.not, label %.loopexit, label %.lr.ph80, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph80, %._crit_edge75, %3
   %.058 = phi ptr [ null, %3 ], [ %8, %._crit_edge75 ], [ %8, %.lr.ph80 ], [ null, %.lr.ph ]
@@ -625,7 +625,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 define ptr @interpolate_set(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = zext i32 %3 to i64
   %6 = getelementptr inbounds nuw [3 x ptr], ptr @spline_set, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = tail call ptr %7(i32 noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret ptr %8
 }
@@ -634,7 +634,7 @@ define ptr @interpolate_set(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 
 define float @interpolate_val(i32 noundef %0, ptr noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw [3 x ptr], ptr @spline_val, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call reassoc nsz arcp contract afn float %9(i32 noundef %0, ptr noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4) #13
   ret float %10
 }
@@ -648,17 +648,17 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load float, ptr %5, align 4, !tbaa !12
+  %6 = load float, ptr %5, align 4, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load float, ptr %7, align 4, !tbaa !15
+  %8 = load float, ptr %7, align 4, !tbaa !29
   %9 = fsub reassoc nsz arcp contract afn float %6, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load float, ptr %10, align 4, !tbaa !16
+  %11 = load float, ptr %10, align 4, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load float, ptr %12, align 4, !tbaa !17
+  %13 = load float, ptr %12, align 4, !tbaa !31
   %14 = fsub reassoc nsz arcp contract afn float %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %16 = load i8, ptr %15, align 4, !tbaa !18
+  %16 = load i8, ptr %15, align 4, !tbaa !32
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %20, label %.preheader75
 
@@ -680,20 +680,20 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
 23:                                               ; preds = %.preheader75, %23
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %23 ]
   %24 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %19, i64 0, i64 %indvars.iv
-  %25 = load float, ptr %24, align 4, !tbaa !19
+  %25 = load float, ptr %24, align 4, !tbaa !33
   %26 = fmul reassoc nsz arcp contract afn float %25, %9
   %27 = fadd reassoc nsz arcp contract afn float %26, %8
   %28 = getelementptr inbounds nuw [20 x float], ptr %3, i64 0, i64 %indvars.iv
   store float %27, ptr %28, align 4, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %30 = load float, ptr %29, align 4, !tbaa !21
+  %30 = load float, ptr %29, align 4, !tbaa !35
   %31 = fmul reassoc nsz arcp contract afn float %30, %14
   %32 = fadd reassoc nsz arcp contract afn float %31, %13
   %33 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %23
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %23, !llvm.loop !36
 
 .loopexit.loopexit:                               ; preds = %23
   %.pre = load float, ptr %3, align 16, !tbaa !6
@@ -704,13 +704,13 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %34 = phi float [ %13, %20 ], [ %.pre82, %.loopexit.loopexit ]
   %35 = phi float [ %8, %20 ], [ %.pre, %.loopexit.loopexit ]
   %.068 = phi i32 [ 2, %20 ], [ %18, %.loopexit.loopexit ]
-  %36 = load i32, ptr %1, align 8, !tbaa !22
+  %36 = load i32, ptr %1, align 8, !tbaa !37
   %37 = add i32 %36, -1
   %38 = uitofp i32 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %35, %38
   %40 = fptosi float %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !25
+  %42 = load i32, ptr %41, align 4, !tbaa !40
   %43 = add i32 %42, -1
   %44 = uitofp i32 %43 to float
   %45 = fmul reassoc nsz arcp contract afn float %34, %44
@@ -729,16 +729,16 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %58 = fptosi float %57 to i32
   %59 = fmul reassoc nsz arcp contract afn float %13, %44
   %60 = fptosi float %59 to i32
-  %61 = load i32, ptr %0, align 4, !tbaa !26
+  %61 = load i32, ptr %0, align 4, !tbaa !41
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw [3 x ptr], ptr @spline_set, i64 0, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !10
+  %64 = load ptr, ptr %63, align 8, !tbaa !24
   %65 = call ptr %64(i32 noundef %.068, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %66 = icmp eq ptr %65, null
   br i1 %66, label %109, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit
-  %67 = load i32, ptr %1, align 8, !tbaa !22
+  %67 = load i32, ptr %1, align 8, !tbaa !37
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph, label %._crit_edge
 
@@ -762,9 +762,9 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %69, align 8, !tbaa !27
+  %79 = load ptr, ptr %69, align 8, !tbaa !42
   %80 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv79
-  store i16 %71, ptr %80, align 2, !tbaa !28
+  store i16 %71, ptr %80, align 2, !tbaa !43
   br label %105
 
 81:                                               ; preds = %75
@@ -772,21 +772,21 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = load ptr, ptr %69, align 8, !tbaa !27
+  %84 = load ptr, ptr %69, align 8, !tbaa !42
   %85 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv79
-  store i16 %70, ptr %85, align 2, !tbaa !28
+  store i16 %70, ptr %85, align 2, !tbaa !43
   br label %105
 
 86:                                               ; preds = %81
   %87 = trunc nuw nsw i64 %indvars.iv79 to i32
   %88 = uitofp nneg i32 %87 to float
   %89 = fmul reassoc nsz arcp contract afn float %88, %74
-  %90 = load i32, ptr %0, align 4, !tbaa !26
+  %90 = load i32, ptr %0, align 4, !tbaa !41
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw [3 x ptr], ptr @spline_val, i64 0, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !10
+  %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = call reassoc nsz arcp contract afn float %93(i32 noundef %.068, ptr noundef nonnull %3, float noundef %89, ptr noundef nonnull %4, ptr noundef nonnull %65) #13
-  %95 = load i32, ptr %41, align 4, !tbaa !25
+  %95 = load i32, ptr %41, align 4, !tbaa !40
   %96 = add i32 %95, -1
   %97 = uitofp i32 %96 to float
   %98 = fmul reassoc nsz arcp contract afn float %94, %97
@@ -796,10 +796,10 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %spec.select = call i32 @llvm.smin.i32(i32 %101, i32 %58)
   %.1 = call i32 @llvm.smax.i32(i32 %spec.select, i32 %60)
   %102 = trunc i32 %.1 to i16
-  %103 = load ptr, ptr %69, align 8, !tbaa !27
+  %103 = load ptr, ptr %69, align 8, !tbaa !42
   %104 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv79
-  store i16 %102, ptr %104, align 2, !tbaa !28
-  %.pre83 = load i32, ptr %1, align 8, !tbaa !22
+  store i16 %102, ptr %104, align 2, !tbaa !43
+  %.pre83 = load i32, ptr %1, align 8, !tbaa !37
   br label %105
 
 105:                                              ; preds = %78, %86, %83
@@ -807,7 +807,7 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next80, %107
-  br i1 %108, label %75, label %._crit_edge
+  br i1 %108, label %75, label %._crit_edge, !llvm.loop !45
 
 109:                                              ; preds = %.loopexit, %._crit_edge
   %.067 = phi i32 [ 0, %._crit_edge ], [ 100, %.loopexit ]
@@ -855,23 +855,39 @@ attributes #13 = { nounwind }
 !7 = !{!"float", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"any pointer", !8, i64 0}
-!12 = !{!13, !7, i64 8}
-!13 = !{!"", !14, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !8, i64 20, !8, i64 24}
-!14 = !{!"int", !8, i64 0}
-!15 = !{!13, !7, i64 4}
-!16 = !{!13, !7, i64 16}
-!17 = !{!13, !7, i64 12}
-!18 = !{!13, !8, i64 20}
-!19 = !{!20, !7, i64 0}
-!20 = !{!"", !7, i64 0, !7, i64 4}
-!21 = !{!20, !7, i64 4}
-!22 = !{!23, !14, i64 0}
-!23 = !{!"", !14, i64 0, !14, i64 4, !24, i64 8}
-!24 = !{!"p1 short", !11, i64 0}
-!25 = !{!23, !14, i64 4}
-!26 = !{!13, !14, i64 0}
-!27 = !{!23, !24, i64 8}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"short", !8, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"any pointer", !8, i64 0}
+!26 = !{!27, !7, i64 8}
+!27 = !{!"", !28, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !8, i64 20, !8, i64 24}
+!28 = !{!"int", !8, i64 0}
+!29 = !{!27, !7, i64 4}
+!30 = !{!27, !7, i64 16}
+!31 = !{!27, !7, i64 12}
+!32 = !{!27, !8, i64 20}
+!33 = !{!34, !7, i64 0}
+!34 = !{!"", !7, i64 0, !7, i64 4}
+!35 = !{!34, !7, i64 4}
+!36 = distinct !{!36, !11}
+!37 = !{!38, !28, i64 0}
+!38 = !{!"", !28, i64 0, !28, i64 4, !39, i64 8}
+!39 = !{!"p1 short", !25, i64 0}
+!40 = !{!38, !28, i64 4}
+!41 = !{!27, !28, i64 0}
+!42 = !{!38, !39, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"short", !8, i64 0}
+!45 = distinct !{!45, !11}

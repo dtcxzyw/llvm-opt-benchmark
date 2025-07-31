@@ -25504,7 +25504,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !19
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -25829,7 +25829,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare i64 @l___private_Lean_Expr_0__Lean_hashFVarId____x40_Lean_Expr___hyg_1730_(ptr noundef) local_unnamed_addr #1
@@ -26209,7 +26209,7 @@ lean_obj_tag.exit.i:                              ; preds = %71, %68
   %79 = load ptr, ptr %78, align 8, !tbaa !9
   %80 = tail call zeroext i8 @lean_name_eq(ptr noundef %77, ptr noundef %0) #4
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %81, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 82:                                               ; preds = %lean_obj_tag.exit.i
   %83 = ptrtoint ptr %43 to i64
@@ -26946,7 +26946,7 @@ lean_obj_tag.exit.i388:                           ; preds = %370, %367
   %378 = load ptr, ptr %377, align 8, !tbaa !9
   %379 = tail call zeroext i8 @lean_name_eq(ptr noundef %376, ptr noundef %0) #4
   %380 = icmp eq i8 %379, 0
-  br i1 %380, label %lean_array_uget.exit385, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit392
+  br i1 %380, label %lean_array_uget.exit385, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit392, !llvm.loop !19
 
 381:                                              ; preds = %lean_obj_tag.exit.i388
   br i1 %.not457, label %392, label %382, !prof !17
@@ -27825,7 +27825,7 @@ lean_obj_tag.exit.i:                              ; preds = %66, %63
   %74 = load ptr, ptr %73, align 8, !tbaa !9
   %75 = tail call zeroext i8 @lean_name_eq(ptr noundef %72, ptr noundef %0) #4
   %76 = icmp eq i8 %75, 0
-  br i1 %76, label %lean_dec.exit255, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %76, label %lean_dec.exit255, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %70
   br i1 %.not.i308, label %77, label %lean_dec.exit254
@@ -28116,7 +28116,7 @@ lean_obj_tag.exit.i325:                           ; preds = %188, %185
   %196 = load ptr, ptr %195, align 8, !tbaa !9
   %197 = tail call zeroext i8 @lean_name_eq(ptr noundef %194, ptr noundef %0) #4
   %198 = icmp eq i8 %197, 0
-  br i1 %198, label %lean_dec.exit250, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit329
+  br i1 %198, label %lean_dec.exit250, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit329, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit329: ; preds = %lean_obj_tag.exit.i325, %192
   br i1 %.not.i319, label %199, label %lean_dec.exit249
@@ -28605,7 +28605,7 @@ lean_obj_tag.exit.i365:                           ; preds = %380, %377
   %388 = load ptr, ptr %387, align 8, !tbaa !9
   %389 = tail call zeroext i8 @lean_name_eq(ptr noundef %386, ptr noundef %0) #4
   %390 = icmp eq i8 %389, 0
-  br i1 %390, label %lean_dec.exit246, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit369
+  br i1 %390, label %lean_dec.exit246, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit369, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit369: ; preds = %lean_obj_tag.exit.i365, %384
   br i1 %.not.i359, label %391, label %lean_dec.exit245
@@ -28914,7 +28914,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -68254,7 +68254,7 @@ lean_obj_tag.exit.i:                              ; preds = %33, %30
   %41 = load ptr, ptr %40, align 8, !tbaa !9
   %42 = tail call zeroext i8 @lean_name_eq(ptr noundef %39, ptr noundef %0) #4
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %43, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 44:                                               ; preds = %lean_obj_tag.exit.i
   %45 = ptrtoint ptr %5 to i64
@@ -68706,7 +68706,7 @@ lean_obj_tag.exit.i244:                           ; preds = %223, %220
   %231 = load ptr, ptr %230, align 8, !tbaa !9
   %232 = tail call zeroext i8 @lean_name_eq(ptr noundef %229, ptr noundef %0) #4
   %233 = icmp eq i8 %232, 0
-  br i1 %233, label %lean_array_uget.exit241, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit248
+  br i1 %233, label %lean_array_uget.exit241, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit248, !llvm.loop !19
 
 234:                                              ; preds = %lean_obj_tag.exit.i244
   br i1 %.not284, label %245, label %235, !prof !17
@@ -70927,7 +70927,7 @@ lean_inc.exit:                                    ; preds = %331, %330, %328, %l
 .backedge.backedge:                               ; preds = %lean_inc.exit, %337, %339, %340, %lean_inc.exit144, %72, %74, %75
   %.0113.be = phi ptr [ %58, %75 ], [ %58, %74 ], [ %58, %72 ], [ %58, %lean_inc.exit144 ], [ %323, %340 ], [ %323, %339 ], [ %323, %337 ], [ %323, %lean_inc.exit ]
   %.0112.be = phi ptr [ %23, %75 ], [ %23, %74 ], [ %23, %72 ], [ %23, %lean_inc.exit144 ], [ %214, %340 ], [ %214, %339 ], [ %214, %337 ], [ %214, %lean_inc.exit ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !22
 
 334:                                              ; preds = %lean_inc.exit
   %335 = load i32, ptr %321, align 4, !tbaa !4
@@ -72055,7 +72055,7 @@ lean_obj_tag.exit.i:                              ; preds = %137, %134
   %145 = load ptr, ptr %144, align 8, !tbaa !9
   %146 = tail call zeroext i8 @lean_name_eq(ptr noundef %143, ptr noundef %43) #4
   %147 = icmp eq i8 %146, 0
-  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %141
   br i1 %.not.i194, label %148, label %lean_dec.exit132
@@ -72905,7 +72905,7 @@ lean_obj_tag.exit.i:                              ; preds = %137, %134
   %145 = load ptr, ptr %144, align 8, !tbaa !9
   %146 = tail call zeroext i8 @lean_name_eq(ptr noundef %143, ptr noundef %43) #4
   %147 = icmp eq i8 %146, 0
-  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %141
   br i1 %.not.i194, label %148, label %lean_dec.exit132
@@ -73753,7 +73753,7 @@ lean_obj_tag.exit.i:                              ; preds = %137, %134
   %145 = load ptr, ptr %144, align 8, !tbaa !9
   %146 = tail call zeroext i8 @lean_name_eq(ptr noundef %143, ptr noundef %43) #4
   %147 = icmp eq i8 %146, 0
-  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit
+  br i1 %147, label %lean_dec.exit133, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Check_addFVarId___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %141
   br i1 %.not.i194, label %148, label %lean_dec.exit132
@@ -78309,3 +78309,7 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!"short", !7, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}

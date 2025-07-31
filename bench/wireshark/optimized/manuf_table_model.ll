@@ -1176,23 +1176,23 @@ define noundef zeroext i1 @_ZNK25ManufSortFilterProxyModel23filterAddressAccepts
   call void %11(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %5, ptr noundef align 8 dereferenceable_or_null(16) %8, i32 noundef %1, i32 noundef 0, ptr noundef align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = load ptr, ptr %12, align 8, !noalias !8
+  %13 = load ptr, ptr %12, align 8, !noalias !9
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %13, align 8, !noalias !8
+  %15 = load ptr, ptr %13, align 8, !noalias !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  %17 = load ptr, ptr %16, align 8, !noalias !8
+  %17 = load ptr, ptr %16, align 8, !noalias !9
   call void %17(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %7, ptr noundef nonnull align 8 dereferenceable_or_null(16) %13, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit
 
 18:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !9
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 2, ptr %19, align 8, !alias.scope !8
+  store i64 2, ptr %19, align 8, !alias.scope !9
   br label %_ZNK11QModelIndex4dataEi.exit
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %14, %18
@@ -1239,7 +1239,7 @@ _ZN14QByteArrayViewC2I10QByteArrayTnNSt9enable_ifIXsr3stdE9is_same_vIT_S1_EEbE4t
 40:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !noalias !11
+  %42 = load ptr, ptr %41, align 8, !noalias !12
   %.not.i.i10.i = icmp eq ptr %42, null
   %spec.select.i.i11.i = select i1 %.not.i.i10.i, ptr @_ZN10QByteArray6_emptyE, ptr %42
   invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %4, ptr noundef nonnull %spec.select.i.i11.i, i64 noundef %24)
@@ -1490,23 +1490,23 @@ define noundef zeroext i1 @_ZNK25ManufSortFilterProxyModel20filterNameAcceptsRow
   call void %11(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %4, ptr noundef align 8 dereferenceable_or_null(16) %8, i32 noundef %1, i32 noundef 2, ptr noundef align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %13 = load ptr, ptr %12, align 8, !noalias !14
+  %13 = load ptr, ptr %12, align 8, !noalias !15
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %13, align 8, !noalias !14
+  %15 = load ptr, ptr %13, align 8, !noalias !15
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  %17 = load ptr, ptr %16, align 8, !noalias !14
+  %17 = load ptr, ptr %16, align 8, !noalias !15
   call void %17(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %6, ptr noundef nonnull align 8 dereferenceable_or_null(16) %13, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %4, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit
 
 18:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !15
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %19, align 8, !alias.scope !14
+  store i64 2, ptr %19, align 8, !alias.scope !15
   br label %_ZNK11QModelIndex4dataEi.exit
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %14, %18
@@ -2357,14 +2357,15 @@ attributes #28 = { cold noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!10 = distinct !{!10, !"_ZNK11QModelIndex4dataEi"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK10QByteArray5firstEx: argument 0"}
-!13 = distinct !{!13, !"_ZNK10QByteArray5firstEx"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!16 = distinct !{!16, !"_ZNK11QModelIndex4dataEi"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!11 = distinct !{!11, !"_ZNK11QModelIndex4dataEi"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK10QByteArray5firstEx: argument 0"}
+!14 = distinct !{!14, !"_ZNK10QByteArray5firstEx"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!17 = distinct !{!17, !"_ZNK11QModelIndex4dataEi"}

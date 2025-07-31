@@ -431,7 +431,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   store i32 %.3176, ptr %207, align 4, !tbaa !34
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next299, 4
-  br i1 %exitcond301.not, label %.loopexit, label %206, !llvm.loop !47
+  br i1 %exitcond301.not, label %.loopexit, label %206, !llvm.loop !48
 
 .loopexit.loopexit296:                            ; preds = %159
   %208 = add nuw i32 %144, 5
@@ -575,7 +575,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %.1 = phi ptr [ %295, %291 ], [ %281, %265 ]
   %307 = add nuw i32 %.0185264, 1
   %exitcond302.not = icmp eq i32 %307, %umax
-  br i1 %exitcond302.not, label %._crit_edge, label %52, !llvm.loop !48
+  br i1 %exitcond302.not, label %._crit_edge, label %52, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %306, %26
   %308 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #6
@@ -586,9 +586,9 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %311 = load ptr, ptr %28, align 8, !tbaa !36
   %312 = load ptr, ptr %29, align 8, !tbaa !37
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %314 = load ptr, ptr %313, align 8, !tbaa !49
+  %314 = load ptr, ptr %313, align 8, !tbaa !50
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %316 = load ptr, ptr %315, align 8, !tbaa !49
+  %316 = load ptr, ptr %315, align 8, !tbaa !50
   %317 = load i32, ptr %12, align 4, !tbaa !29
   %318 = icmp sgt i32 %317, 0
   br i1 %318, label %.preheader258.lr.ph, label %._crit_edge294
@@ -602,7 +602,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
 
 .preheader258.preheader:                          ; preds = %.preheader258.lr.ph
   %323 = load ptr, ptr %27, align 8, !tbaa !35
-  %324 = load ptr, ptr %1, align 8, !tbaa !49
+  %324 = load ptr, ptr %1, align 8, !tbaa !50
   br label %.preheader258
 
 .preheader258:                                    ; preds = %.preheader258.preheader, %._crit_edge282
@@ -638,7 +638,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %338 = load i32, ptr %10, align 8, !tbaa !28
   %339 = sext i32 %338 to i64
   %340 = icmp slt i64 %indvars.iv.next304, %339
-  br i1 %340, label %.lr.ph281, label %._crit_edge282.loopexit, !llvm.loop !50
+  br i1 %340, label %.lr.ph281, label %._crit_edge282.loopexit, !llvm.loop !51
 
 ._crit_edge282.loopexit:                          ; preds = %.lr.ph281
   %.pre = load i32, ptr %12, align 4, !tbaa !29
@@ -653,7 +653,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %346 = getelementptr inbounds nuw i8, ptr %.2285, i64 %320
   %347 = add nuw nsw i32 %.0168284, 1
   %348 = icmp slt i32 %347, %341
-  br i1 %348, label %.preheader258, label %.preheader257, !llvm.loop !51
+  br i1 %348, label %.preheader258, label %.preheader257, !llvm.loop !52
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge288
   %349 = phi i32 [ %328, %.preheader.lr.ph ], [ %368, %._crit_edge288 ]
@@ -687,7 +687,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %365 = sdiv i32 %364, 2
   %366 = sext i32 %365 to i64
   %367 = icmp slt i64 %indvars.iv.next307, %366
-  br i1 %367, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !53
+  br i1 %367, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !54
 
 ._crit_edge288.loopexit:                          ; preds = %.lr.ph287
   %.pre310 = load i32, ptr %12, align 4, !tbaa !29
@@ -707,7 +707,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %378 = add nuw nsw i32 %.1169292, 1
   %379 = sdiv i32 %368, 2
   %380 = icmp slt i32 %378, %379
-  br i1 %380, label %.preheader, label %._crit_edge294, !llvm.loop !54
+  br i1 %380, label %.preheader, label %._crit_edge294, !llvm.loop !55
 
 ._crit_edge294:                                   ; preds = %._crit_edge288, %310, %.preheader257
   %381 = load ptr, ptr %27, align 8, !tbaa !35
@@ -824,13 +824,14 @@ attributes #6 = { nounwind }
 !42 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !43 = !{!42, !14, i64 24}
 !44 = !{!8, !8, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = !{!14, !14, i64 0}
-!50 = distinct !{!50, !46}
-!51 = distinct !{!51, !46, !52}
-!52 = !{!"llvm.loop.unswitch.partial.disable"}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46, !47}
+!50 = !{!14, !14, i64 0}
+!51 = distinct !{!51, !46, !47}
+!52 = distinct !{!52, !46, !47, !53}
+!53 = !{!"llvm.loop.unswitch.partial.disable"}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}

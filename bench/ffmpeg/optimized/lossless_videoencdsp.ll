@@ -118,7 +118,7 @@ define internal void @diff_bytes_c(ptr noundef writeonly captures(none) %0, ptr 
   store i32 %79, ptr %80, align 1, !tbaa !11
   %81 = add nuw nsw i64 %.280, 4
   %.not75 = icmp sgt i64 %81, %10
-  br i1 %.not75, label %.loopexit, label %.lr.ph81, !llvm.loop !14
+  br i1 %.not75, label %.loopexit, label %.lr.ph81, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph81, %.preheader76, %.preheader
   %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader76 ], [ %81, %.lr.ph81 ], [ %66, %.lr.ph ]
@@ -136,7 +136,7 @@ define internal void @diff_bytes_c(ptr noundef writeonly captures(none) %0, ptr 
   store i8 %87, ptr %88, align 1, !tbaa !11
   %89 = add nuw nsw i64 %.383, 1
   %exitcond.not = icmp eq i64 %89, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph84, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph84, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %.loopexit
   ret void
@@ -144,9 +144,9 @@ define internal void @diff_bytes_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sub_median_pred_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) #1 {
-  %7 = load i32, ptr %4, align 4, !tbaa !16
+  %7 = load i32, ptr %4, align 4, !tbaa !17
   %8 = trunc i32 %7 to i8
-  %9 = load i32, ptr %5, align 4, !tbaa !16
+  %9 = load i32, ptr %5, align 4, !tbaa !17
   %10 = icmp sgt i64 %3, 0
   br i1 %10, label %.lr.ph.preheader, label %.._crit_edge_crit_edge
 
@@ -198,14 +198,14 @@ mid_pred.exit:                                    ; preds = %18, %20, %21, %23
   store i8 %27, ptr %28, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %mid_pred.exit, %.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %15, %mid_pred.exit ]
   %.024.lcssa = phi i8 [ %8, %.._crit_edge_crit_edge ], [ %25, %mid_pred.exit ]
   %29 = zext i8 %.024.lcssa to i32
-  store i32 %29, ptr %4, align 4, !tbaa !16
-  store i32 %.pre-phi, ptr %5, align 4, !tbaa !16
+  store i32 %29, ptr %4, align 4, !tbaa !17
+  store i32 %.pre-phi, ptr %5, align 4, !tbaa !17
   ret void
 }
 
@@ -235,13 +235,13 @@ define internal void @sub_left_predict_c(ptr noundef writeonly captures(none) %0
   %13 = load i8, ptr %9, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %8
   %14 = getelementptr inbounds i8, ptr %.01723.us, i64 %2
   %15 = add nuw nsw i32 %.01325.us, 1
   %exitcond30.not = icmp eq i32 %15, %4
-  br i1 %exitcond30.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !20
+  br i1 %exitcond30.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !21
 
 ._crit_edge27:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -271,13 +271,14 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!5, !6, i64 8}
 !10 = !{!5, !6, i64 16}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

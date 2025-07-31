@@ -100,7 +100,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %46 = phi i32 [ %18, %15 ], [ %77, %76 ], [ %39, %37 ]
   %47 = add nsw i32 %.065, -1
   %.not.not = icmp sgt i32 %47, %8
-  br i1 %.not.not, label %15, label %._crit_edge69, !llvm.loop !20
+  br i1 %.not.not, label %15, label %._crit_edge69, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %48 = phi i32 [ %77, %76 ], [ %16, %.lr.ph ]
@@ -119,7 +119,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
 
 54:                                               ; preds = %51, %.lr.ph.split
   %55 = load i32, ptr %11, align 4, !tbaa !16
-  %56 = load i32, ptr %12, align 4, !tbaa !21
+  %56 = load i32, ptr %12, align 4, !tbaa !22
   %.not53 = icmp eq i32 %56, 0
   br i1 %.not53, label %75, label %57
 
@@ -144,7 +144,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %67 = add nsw i32 %66, 1
   %68 = load i32, ptr %11, align 4, !tbaa !16
   %69 = icmp eq i32 %67, %68
-  br i1 %69, label %.preheader, label %70, !llvm.loop !22
+  br i1 %69, label %.preheader, label %70, !llvm.loop !23
 
 70:                                               ; preds = %.preheader
   %71 = and i32 %63, 1
@@ -169,7 +169,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %79 = add nsw i32 %.04661, 1
   %80 = add nsw i32 %77, %78
   %81 = icmp slt i32 %79, %80
-  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -194,7 +194,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %8 = load i32, ptr %0, align 8, !tbaa !24
+  %8 = load i32, ptr %0, align 8, !tbaa !25
   %9 = icmp sgt i32 %8, -10
   br i1 %9, label %.split, label %._crit_edge53
 
@@ -217,7 +217,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   %14 = phi i32 [ %11, %.split ], [ %63, %generateSkyscraper.exit ]
   %15 = add nsw i32 %.02436, -1
   %16 = icmp samesign ugt i32 %.02436, 1
-  br i1 %16, label %.split, label %.split45.us, !llvm.loop !25
+  br i1 %16, label %.split, label %.split45.us, !llvm.loop !26
 
 17:                                               ; preds = %.lr.ph, %generateSkyscraper.exit
   %.02326 = phi i32 [ -10, %.lr.ph ], [ %.1, %generateSkyscraper.exit ]
@@ -288,7 +288,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
 50:                                               ; preds = %49, %.lr.ph.split.i.us
   %51 = add nsw i32 %.04661.i.us, 1
   %52 = icmp slt i32 %51, %41
-  br i1 %52, label %.lr.ph.split.i.us, label %._crit_edge.i, !llvm.loop !27
+  br i1 %52, label %.lr.ph.split.i.us, label %._crit_edge.i, !llvm.loop !28
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %55
   %.04661.us.i = phi i32 [ %56, %55 ], [ %20, %.lr.ph.i ]
@@ -312,23 +312,23 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %55, %.lr.ph.split.i, %50
   %58 = add nsw i32 %.065.i, -1
   %.not.not.i = icmp sgt i32 %58, %36
-  br i1 %.not.not.i, label %.lr.ph.i, label %generateSkyscraper.exit, !llvm.loop !20
+  br i1 %.not.not.i, label %.lr.ph.i, label %generateSkyscraper.exit, !llvm.loop !21
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %.04661.i = phi i32 [ %59, %.lr.ph.split.i ], [ %20, %.lr.ph.split.i.preheader ]
   tail call void @lwDrawPixel(ptr noundef nonnull %0, i32 noundef %.04661.i, i32 noundef %.065.i, i32 noundef %.02436) #4
   %59 = add nsw i32 %.04661.i, 1
   %60 = icmp slt i32 %59, %41
-  br i1 %60, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %60, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !24
 
 generateSkyscraper.exit:                          ; preds = %._crit_edge.i, %33
   %61 = lshr i32 %23, 1
   %62 = add nsw i32 %22, 11
   %.pn = select i1 %13, i32 %61, i32 %62
   %.1 = add nsw i32 %.pn, %20
-  %63 = load i32, ptr %0, align 8, !tbaa !24
+  %63 = load i32, ptr %0, align 8, !tbaa !25
   %64 = icmp slt i32 %.1, %63
-  br i1 %64, label %17, label %._crit_edge, !llvm.loop !28
+  br i1 %64, label %17, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge53:                                    ; preds = %75, %1, %.split45.us
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #4
@@ -365,13 +365,13 @@ generateSkyscraper.exit:                          ; preds = %._crit_edge.i, %33
   %81 = sdiv i32 %80, 2
   %82 = add nsw i32 %81, %77
   store i32 %82, ptr %6, align 4, !tbaa !12
-  store i32 1, ptr %7, align 4, !tbaa !21
+  store i32 1, ptr %7, align 4, !tbaa !22
   call void @generateSkyscraper(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %83 = add i32 %67, 5
   %84 = add i32 %83, %storemerge
-  %85 = load i32, ptr %0, align 8, !tbaa !24
+  %85 = load i32, ptr %0, align 8, !tbaa !25
   %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph52, label %._crit_edge53, !llvm.loop !29
+  br i1 %86, label %.lr.ph52, label %._crit_edge53, !llvm.loop !30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -379,38 +379,38 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  store i64 80, ptr %2, align 8, !tbaa !30
+  store i64 80, ptr %2, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 20, ptr %3, align 8, !tbaa !30
+  store i64 20, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !32
+  %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !51
   %12 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %2, ptr noundef null) #4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %83
 
 13:                                               ; preds = %7
-  %.pr = load i32, ptr %4, align 8, !tbaa !32
+  %.pr = load i32, ptr %4, align 8, !tbaa !33
   %14 = icmp sgt i32 %.pr, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %8, align 8, !tbaa !49
+  %16 = load ptr, ptr %8, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %3, ptr noundef null) #4
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %.thread, label %83
 
 .thread:                                          ; preds = %1, %15, %13
-  %20 = load i64, ptr %2, align 8, !tbaa !30
+  %20 = load i64, ptr %2, align 8, !tbaa !31
   %21 = icmp slt i64 %20, 1
   br i1 %21, label %.sink.split, label %22
 
@@ -420,12 +420,12 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %22, %.thread
   %.sink = phi i64 [ 1, %.thread ], [ 1000, %22 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !30
+  store i64 %.sink, ptr %2, align 8, !tbaa !31
   br label %24
 
 24:                                               ; preds = %.sink.split, %22
   %25 = phi i64 [ %20, %22 ], [ %.sink, %.sink.split ]
-  %26 = load i64, ptr %3, align 8, !tbaa !30
+  %26 = load i64, ptr %3, align 8, !tbaa !31
   %27 = icmp slt i64 %26, 1
   br i1 %27, label %.sink.split20, label %28
 
@@ -435,7 +435,7 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split20:                                    ; preds = %28, %24
   %.sink22 = phi i64 [ 1, %24 ], [ 1000, %28 ]
-  store i64 %.sink22, ptr %3, align 8, !tbaa !30
+  store i64 %.sink22, ptr %3, align 8, !tbaa !31
   br label %30
 
 30:                                               ; preds = %.sink.split20, %28
@@ -454,7 +454,7 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %39 = phi i32 [ %55, %54 ], [ %37, %30 ]
   %.01521.i = phi ptr [ %.2.i, %54 ], [ %35, %30 ]
   %.01720.i = phi i32 [ %56, %54 ], [ 0, %30 ]
-  %40 = load i32, ptr %34, align 8, !tbaa !24
+  %40 = load i32, ptr %34, align 8, !tbaa !25
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
@@ -487,9 +487,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.4, %.lr.ph.i ]
   %48 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.119.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i) #4
   %49 = add nuw nsw i32 %.01618.i, 1
-  %50 = load i32, ptr %34, align 8, !tbaa !24
+  %50 = load i32, ptr %34, align 8, !tbaa !25
   %51 = icmp slt i32 %49, %50
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !51
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !52
 
 52:                                               ; preds = %._crit_edge.i
   %53 = call ptr @sdscatlen(ptr noundef %.1.lcssa.i, ptr noundef nonnull @.str.2, i64 noundef 1) #4
@@ -501,7 +501,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %.2.i = phi ptr [ %53, %52 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %56 = add nuw nsw i32 %.01720.i, 1
   %57 = icmp slt i32 %56, %55
-  br i1 %57, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !52
+  br i1 %57, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !53
 
 renderCanvas.exit:                                ; preds = %54, %30
   %.015.lcssa.i = phi ptr [ %35, %30 ], [ %.2.i, %54 ]
@@ -509,7 +509,7 @@ renderCanvas.exit:                                ; preds = %54, %30
   %59 = call ptr @sdscat(ptr noundef %58, ptr noundef nonnull @.str.1) #4
   %60 = call ptr @sdscatlen(ptr noundef %59, ptr noundef nonnull @.str.2, i64 noundef 1) #4
   %61 = getelementptr inbounds i8, ptr %60, i64 -1
-  %62 = load i8, ptr %61, align 1, !tbaa !53
+  %62 = load i8, ptr %61, align 1, !tbaa !54
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 7
   switch i32 %64, label %sdslen.exit [
@@ -527,25 +527,25 @@ renderCanvas.exit:                                ; preds = %54, %30
 
 68:                                               ; preds = %renderCanvas.exit
   %69 = getelementptr inbounds i8, ptr %60, i64 -3
-  %70 = load i8, ptr %69, align 1, !tbaa !53
+  %70 = load i8, ptr %69, align 1, !tbaa !54
   %71 = zext i8 %70 to i64
   br label %sdslen.exit
 
 72:                                               ; preds = %renderCanvas.exit
   %73 = getelementptr inbounds i8, ptr %60, i64 -5
-  %74 = load i16, ptr %73, align 1, !tbaa !54
+  %74 = load i16, ptr %73, align 1, !tbaa !55
   %75 = zext i16 %74 to i64
   br label %sdslen.exit
 
 76:                                               ; preds = %renderCanvas.exit
   %77 = getelementptr inbounds i8, ptr %60, i64 -9
-  %78 = load i32, ptr %77, align 1, !tbaa !56
+  %78 = load i32, ptr %77, align 1, !tbaa !57
   %79 = zext i32 %78 to i64
   br label %sdslen.exit
 
 80:                                               ; preds = %renderCanvas.exit
   %81 = getelementptr inbounds i8, ptr %60, i64 -17
-  %82 = load i64, ptr %81, align 1, !tbaa !30
+  %82 = load i64, ptr %81, align 1, !tbaa !31
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %renderCanvas.exit, %65, %68, %72, %76, %80
@@ -604,43 +604,44 @@ attributes #4 = { nounwind }
 !14 = !{!13, !7, i64 4}
 !15 = !{!13, !7, i64 0}
 !16 = !{!13, !7, i64 16}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18, !19, !20}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !18}
-!21 = !{!13, !7, i64 12}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = !{!6, !7, i64 0}
-!25 = distinct !{!25, !18, !26}
-!26 = !{!"llvm.loop.unswitch.partial.disable"}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18}
-!29 = distinct !{!29, !18}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !8, i64 0}
-!32 = !{!33, !7, i64 88}
-!33 = !{!"client", !31, i64 0, !31, i64 8, !34, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !35, i64 32, !36, i64 40, !36, i64 48, !36, i64 56, !10, i64 64, !31, i64 72, !31, i64 80, !7, i64 88, !37, i64 96, !7, i64 104, !7, i64 108, !37, i64 112, !31, i64 120, !38, i64 128, !38, i64 136, !38, i64 144, !38, i64 152, !11, i64 160, !7, i64 168, !7, i64 172, !31, i64 176, !39, i64 184, !40, i64 192, !39, i64 200, !31, i64 208, !31, i64 216, !31, i64 224, !7, i64 232, !41, i64 240, !31, i64 248, !31, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !31, i64 280, !31, i64 288, !10, i64 296, !40, i64 304, !40, i64 312, !40, i64 320, !40, i64 328, !40, i64 336, !40, i64 344, !40, i64 352, !40, i64 360, !8, i64 368, !7, i64 412, !10, i64 416, !7, i64 424, !7, i64 428, !31, i64 432, !42, i64 440, !44, i64 480, !40, i64 552, !39, i64 560, !45, i64 568, !45, i64 576, !45, i64 584, !10, i64 592, !10, i64 600, !46, i64 608, !46, i64 616, !46, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !31, i64 672, !47, i64 680, !31, i64 688, !7, i64 696, !46, i64 704, !11, i64 712, !46, i64 720, !31, i64 728, !48, i64 736, !31, i64 760, !40, i64 768, !7, i64 776, !31, i64 784, !10, i64 792}
-!34 = !{!"p1 _ZTS10connection", !11, i64 0}
-!35 = !{!"p1 _ZTS7redisDb", !11, i64 0}
-!36 = !{!"p1 _ZTS11redisObject", !11, i64 0}
-!37 = !{!"p2 _ZTS11redisObject", !11, i64 0}
-!38 = !{!"p1 _ZTS12redisCommand", !11, i64 0}
-!39 = !{!"p1 _ZTS4list", !11, i64 0}
-!40 = !{!"long long", !8, i64 0}
-!41 = !{!"p1 _ZTS9dictEntry", !11, i64 0}
-!42 = !{!"multiState", !43, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !31, i64 24, !7, i64 32}
-!43 = !{!"p1 _ZTS8multiCmd", !11, i64 0}
-!44 = !{!"blockingState", !7, i64 0, !40, i64 8, !7, i64 16, !45, i64 24, !7, i64 32, !7, i64 36, !40, i64 40, !11, i64 48, !11, i64 56, !31, i64 64}
-!45 = !{!"p1 _ZTS4dict", !11, i64 0}
-!46 = !{!"p1 _ZTS8listNode", !11, i64 0}
-!47 = !{!"p1 _ZTS3rax", !11, i64 0}
-!48 = !{!"listNode", !46, i64 0, !46, i64 8, !11, i64 16}
-!49 = !{!33, !37, i64 96}
-!50 = !{!36, !36, i64 0}
-!51 = distinct !{!51, !18}
-!52 = distinct !{!52, !18}
-!53 = !{!8, !8, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"short", !8, i64 0}
-!56 = !{!7, !7, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !18, !19}
+!22 = !{!13, !7, i64 12}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!6, !7, i64 0}
+!26 = distinct !{!26, !18, !19, !27}
+!27 = !{!"llvm.loop.unswitch.partial.disable"}
+!28 = distinct !{!28, !18, !19, !20}
+!29 = distinct !{!29, !18, !19}
+!30 = distinct !{!30, !18, !19}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long", !8, i64 0}
+!33 = !{!34, !7, i64 88}
+!34 = !{!"client", !32, i64 0, !32, i64 8, !35, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !36, i64 32, !37, i64 40, !37, i64 48, !37, i64 56, !10, i64 64, !32, i64 72, !32, i64 80, !7, i64 88, !38, i64 96, !7, i64 104, !7, i64 108, !38, i64 112, !32, i64 120, !39, i64 128, !39, i64 136, !39, i64 144, !39, i64 152, !11, i64 160, !7, i64 168, !7, i64 172, !32, i64 176, !40, i64 184, !41, i64 192, !40, i64 200, !32, i64 208, !32, i64 216, !32, i64 224, !7, i64 232, !42, i64 240, !32, i64 248, !32, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !32, i64 280, !32, i64 288, !10, i64 296, !41, i64 304, !41, i64 312, !41, i64 320, !41, i64 328, !41, i64 336, !41, i64 344, !41, i64 352, !41, i64 360, !8, i64 368, !7, i64 412, !10, i64 416, !7, i64 424, !7, i64 428, !32, i64 432, !43, i64 440, !45, i64 480, !41, i64 552, !40, i64 560, !46, i64 568, !46, i64 576, !46, i64 584, !10, i64 592, !10, i64 600, !47, i64 608, !47, i64 616, !47, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !32, i64 672, !48, i64 680, !32, i64 688, !7, i64 696, !47, i64 704, !11, i64 712, !47, i64 720, !32, i64 728, !49, i64 736, !32, i64 760, !41, i64 768, !7, i64 776, !32, i64 784, !10, i64 792}
+!35 = !{!"p1 _ZTS10connection", !11, i64 0}
+!36 = !{!"p1 _ZTS7redisDb", !11, i64 0}
+!37 = !{!"p1 _ZTS11redisObject", !11, i64 0}
+!38 = !{!"p2 _ZTS11redisObject", !11, i64 0}
+!39 = !{!"p1 _ZTS12redisCommand", !11, i64 0}
+!40 = !{!"p1 _ZTS4list", !11, i64 0}
+!41 = !{!"long long", !8, i64 0}
+!42 = !{!"p1 _ZTS9dictEntry", !11, i64 0}
+!43 = !{!"multiState", !44, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !32, i64 24, !7, i64 32}
+!44 = !{!"p1 _ZTS8multiCmd", !11, i64 0}
+!45 = !{!"blockingState", !7, i64 0, !41, i64 8, !7, i64 16, !46, i64 24, !7, i64 32, !7, i64 36, !41, i64 40, !11, i64 48, !11, i64 56, !32, i64 64}
+!46 = !{!"p1 _ZTS4dict", !11, i64 0}
+!47 = !{!"p1 _ZTS8listNode", !11, i64 0}
+!48 = !{!"p1 _ZTS3rax", !11, i64 0}
+!49 = !{!"listNode", !47, i64 0, !47, i64 8, !11, i64 16}
+!50 = !{!34, !38, i64 96}
+!51 = !{!37, !37, i64 0}
+!52 = distinct !{!52, !18, !19}
+!53 = distinct !{!53, !18, !19}
+!54 = !{!8, !8, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"short", !8, i64 0}
+!57 = !{!7, !7, i64 0}

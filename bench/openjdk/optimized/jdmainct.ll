@@ -160,7 +160,7 @@ alloc_funny_pointers.exit:                        ; preds = %48, %27
   %105 = load i32, ptr %81, align 8
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %87, label %._crit_edge, !llvm.loop !8
+  br i1 %107, label %87, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %87, %79
   ret void
@@ -254,7 +254,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %50, ptr %52, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader54.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader54.i, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph59.preheader.i:                             ; preds = %54
   %53 = zext nneg i32 %32 to i64
@@ -275,7 +275,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %61, ptr %62, align 8
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count69.i
-  br i1 %exitcond70.not.i, label %.lr.ph59.preheader.i, label %54, !llvm.loop !10
+  br i1 %exitcond70.not.i, label %.lr.ph59.preheader.i, label %54, !llvm.loop !11
 
 .lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.lr.ph59.preheader.i
   %indvars.iv71.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph59.i ]
@@ -284,7 +284,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %.pre.i, ptr %64, align 8
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %53
-  br i1 %exitcond75.not.i, label %._crit_edge.i, label %.lr.ph59.i, !llvm.loop !11
+  br i1 %exitcond75.not.i, label %._crit_edge.i, label %.lr.ph59.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph59.i, %.preheader54.i
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
@@ -292,7 +292,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   %66 = load i32, ptr %14, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next77.i, %67
-  br i1 %68, label %25, label %make_funny_pointers.exit, !llvm.loop !12
+  br i1 %68, label %25, label %make_funny_pointers.exit, !llvm.loop !13
 
 make_funny_pointers.exit:                         ; preds = %._crit_edge.i, %11
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -481,7 +481,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   store ptr %.pre.i, ptr %gep43.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %95, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %95, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %95, %85
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
@@ -489,7 +489,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %97 = load i32, ptr %59, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next40.i, %98
-  br i1 %99, label %68, label %set_bottom_pointers.exit, !llvm.loop !14
+  br i1 %99, label %68, label %set_bottom_pointers.exit, !llvm.loop !15
 
 set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58, %47
   store i32 1, ptr %26, align 4
@@ -590,7 +590,7 @@ set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58,
   store ptr %169, ptr %170, align 8
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %153
-  br i1 %exitcond.not.i56, label %._crit_edge.loopexit.i, label %155, !llvm.loop !15
+  br i1 %exitcond.not.i56, label %._crit_edge.loopexit.i, label %155, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %155
   %.pre.i57 = load i32, ptr %123, align 8
@@ -602,7 +602,7 @@ set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58,
   %172 = getelementptr inbounds nuw i8, ptr %.04346.i, i64 96
   %173 = sext i32 %171 to i64
   %174 = icmp slt i64 %indvars.iv.next53.i, %173
-  br i1 %174, label %134, label %set_wraparound_pointers.exit, !llvm.loop !16
+  br i1 %174, label %134, label %set_wraparound_pointers.exit, !llvm.loop !17
 
 set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i51, %121, %117
   %175 = load i32, ptr %106, align 8
@@ -694,14 +694,15 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

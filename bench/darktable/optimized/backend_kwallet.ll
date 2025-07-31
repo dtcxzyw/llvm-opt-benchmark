@@ -384,7 +384,7 @@ define range(i32 0, 2) i32 @dt_pwstorage_kwallet_set(ptr noundef readonly captur
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   %37 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %33, %3
   %38 = call fastcc i32 @get_wallet_handle(ptr noundef %0)
@@ -392,9 +392,9 @@ define range(i32 0, 2) i32 @dt_pwstorage_kwallet_set(ptr noundef readonly captur
   store ptr null, ptr %9, align 8, !tbaa !6
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !57
-  %41 = load ptr, ptr %11, align 8, !tbaa !63
+  %41 = load ptr, ptr %11, align 8, !tbaa !65
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !65
+  %43 = load i32, ptr %42, align 8, !tbaa !67
   %44 = zext i32 %43 to i64
   %45 = call ptr @g_variant_new_from_data(ptr noundef nonnull @.str.4, ptr noundef %41, i64 noundef %44, i32 noundef 1, ptr noundef nonnull @g_free, ptr noundef %41) #10
   %46 = call ptr (ptr, ...) @g_variant_new(ptr noundef nonnull @.str.3, i32 noundef %38, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %45, ptr noundef nonnull @.str.32) #10
@@ -512,17 +512,17 @@ define internal fastcc noalias noundef ptr @char2qstring(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02833 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw i16, ptr %6, i64 %.02833
-  %19 = load i16, ptr %18, align 2, !tbaa !66
+  %19 = load i16, ptr %18, align 2, !tbaa !68
   %rev = call i16 @llvm.bswap.i16(i16 %19)
-  store i16 %rev, ptr %18, align 2, !tbaa !66
+  store i16 %rev, ptr %18, align 2, !tbaa !68
   %20 = add nuw nsw i64 %.02833, 1
   %exitcond.not = icmp eq i64 %20, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.tr = trunc i64 %8 to i32
   %21 = shl i32 %.tr, 1
-  %22 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %21) #11, !srcloc !68
+  %22 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %21) #11, !srcloc !71
   %23 = zext i32 %21 to i64
   %24 = add nuw nsw i64 %23, 4
   store i64 %24, ptr %1, align 8, !tbaa !62
@@ -747,16 +747,16 @@ define ptr @dt_pwstorage_kwallet_get(ptr noundef readonly captures(none) %0, ptr
 40:                                               ; preds = %35
   %41 = call ptr @g_variant_get_child_value(ptr noundef %36, i64 noundef 0) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !69
+  store ptr null, ptr %4, align 8, !tbaa !72
   call void (ptr, ptr, ...) @g_variant_get(ptr noundef %41, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %4) #10
-  %42 = load ptr, ptr %4, align 8, !tbaa !69
+  %42 = load ptr, ptr %4, align 8, !tbaa !72
   %43 = call ptr @g_variant_get_data(ptr noundef %42) #10
   %.not60 = icmp eq ptr %43, null
   br i1 %.not60, label %._crit_edge, label %44
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %43, align 4, !tbaa !60
-  %46 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #11, !srcloc !71
+  %46 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #11, !srcloc !74
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
@@ -790,10 +790,10 @@ define ptr @dt_pwstorage_kwallet_get(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   %62 = add nuw nsw i32 %.05571, 1
   %exitcond.not = icmp eq i32 %62, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %60, %44, %40
-  %63 = load ptr, ptr %4, align 8, !tbaa !69
+  %63 = load ptr, ptr %4, align 8, !tbaa !72
   call void @g_variant_unref(ptr noundef %63) #10
   call void @g_variant_unref(ptr noundef %41) #10
   call void @g_variant_unref(ptr noundef %36) #10
@@ -826,7 +826,7 @@ define internal fastcc noalias ptr @array2string(ptr noundef nonnull readonly ca
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %0, align 1
-  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #11, !srcloc !72
+  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #11, !srcloc !76
   store i32 %7, ptr %1, align 4, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = zext i32 %7 to i64
@@ -840,12 +840,12 @@ define internal fastcc noalias ptr @array2string(ptr noundef nonnull readonly ca
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %12 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 2, !tbaa !66
+  %13 = load i16, ptr %12, align 2, !tbaa !68
   %rev = tail call i16 @llvm.bswap.i16(i16 %13)
-  store i16 %rev, ptr %12, align 2, !tbaa !66
+  store i16 %rev, ptr %12, align 2, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre39
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
@@ -997,13 +997,18 @@ attributes #11 = { nounwind memory(none) }
 !60 = !{!19, !19, i64 0}
 !61 = !{!8, !8, i64 0}
 !62 = !{!50, !50, i64 0}
-!63 = !{!64, !15, i64 0}
-!64 = !{!"_GArray", !15, i64 0, !19, i64 8}
-!65 = !{!64, !19, i64 8}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"short", !9, i64 0}
-!68 = !{i64 2157571529}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTS9_GVariant", !8, i64 0}
-!71 = !{i64 2157577193}
-!72 = !{i64 2157575538}
+!63 = distinct !{!63, !64}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = !{!66, !15, i64 0}
+!66 = !{!"_GArray", !15, i64 0, !19, i64 8}
+!67 = !{!66, !19, i64 8}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"short", !9, i64 0}
+!70 = distinct !{!70, !64}
+!71 = !{i64 2157571529}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS9_GVariant", !8, i64 0}
+!74 = !{i64 2157577193}
+!75 = distinct !{!75, !64}
+!76 = !{i64 2157575538}
+!77 = distinct !{!77, !64}

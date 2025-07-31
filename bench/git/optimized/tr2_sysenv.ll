@@ -55,7 +55,7 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %4 ]
   %7 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !6
+  %9 = load ptr, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #7
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %11, label %6
@@ -70,10 +70,10 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = load ptr, ptr %15, align 16, !tbaa !13
+  %16 = load ptr, ptr %15, align 16, !tbaa !14
   tail call void @free(ptr noundef %16) #6
   %17 = tail call ptr @xstrdup(ptr noundef nonnull %1) #6
-  store ptr %17, ptr %15, align 16, !tbaa !13
+  store ptr %17, ptr %15, align 16, !tbaa !14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %4, %14, %12
@@ -100,22 +100,22 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %10, label %22
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %6, align 16, !tbaa !14
+  %11 = load ptr, ptr %6, align 16, !tbaa !15
   %12 = tail call ptr @getenv(ptr noundef %11) #6
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = load i8, ptr %12, align 1, !tbaa !15
+  %14 = load i8, ptr %12, align 1, !tbaa !16
   %.not12 = icmp eq i8 %14, 0
   br i1 %.not12, label %19, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load ptr, ptr %16, align 16, !tbaa !13
+  %17 = load ptr, ptr %16, align 16, !tbaa !14
   tail call void @free(ptr noundef %17) #6
   %18 = tail call ptr @xstrdup(ptr noundef nonnull %12) #6
-  store ptr %18, ptr %16, align 16, !tbaa !13
+  store ptr %18, ptr %16, align 16, !tbaa !14
   %.pre = load i8, ptr %7, align 8
   br label %19
 
@@ -127,7 +127,7 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %19, %4
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load ptr, ptr %23, align 16, !tbaa !13
+  %24 = load ptr, ptr %23, align 16, !tbaa !14
   ret ptr %24
 }
 
@@ -154,7 +154,7 @@ define dso_local ptr @tr2_sysenv_display_name(i32 noundef %0) local_unnamed_addr
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 16, !tbaa !14
+  %7 = load ptr, ptr %6, align 16, !tbaa !15
   ret ptr %7
 }
 
@@ -165,11 +165,11 @@ define dso_local void @tr2_sysenv_release() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv, i32 2
-  %3 = load ptr, ptr %2, align 16, !tbaa !13
+  %3 = load ptr, ptr %2, align 16, !tbaa !14
   tail call void @free(ptr noundef %3) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !16
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !17
 
 4:                                                ; preds = %1
   ret void
@@ -198,16 +198,17 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 8}
-!7 = !{!"tr2_sysenv_entry", !8, i64 0, !8, i64 8, !8, i64 16, !12, i64 24}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !8, i64 16}
-!14 = !{!7, !8, i64 0}
-!15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !9, i64 8}
+!8 = !{!"tr2_sysenv_entry", !9, i64 0, !9, i64 8, !9, i64 16, !13, i64 24}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"int", !11, i64 0}
+!14 = !{!8, !9, i64 16}
+!15 = !{!8, !9, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = distinct !{!17, !5, !6}

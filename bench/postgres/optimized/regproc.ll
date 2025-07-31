@@ -503,7 +503,7 @@ parseDashOrOid.exit:                              ; preds = %17, %15, %.tail.i
 43:                                               ; preds = %40
   %44 = load ptr, ptr %.01623, align 8
   %cond = icmp eq ptr %44, null
-  br i1 %cond, label %._crit_edge, label %40, !llvm.loop !6
+  br i1 %cond, label %._crit_edge, label %40, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %43, %34
   %45 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #9
@@ -559,7 +559,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 16:                                               ; preds = %12, %14
   %.182 = phi i1 [ %13, %12 ], [ %.081, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.078, i64 1
-  br label %10, !llvm.loop !7
+  br label %10, !llvm.loop !8
 
 18:                                               ; preds = %10
   %19 = tail call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
@@ -594,7 +594,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 30:                                               ; preds = %28
   %31 = load i8, ptr %.ptr, align 1
   %32 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %31) #9
-  br i1 %32, label %28, label %33, !llvm.loop !8
+  br i1 %32, label %28, label %33, !llvm.loop !9
 
 33:                                               ; preds = %30, %28
   %34 = load i8, ptr %.ptr, align 1
@@ -627,7 +627,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   %43 = load i8, ptr %.2, align 1
   %44 = call zeroext i1 @scanner_isspace(i8 noundef signext %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br i1 %44, label %42, label %46, !llvm.loop !9
+  br i1 %44, label %42, label %46, !llvm.loop !10
 
 46:                                               ; preds = %42
   %47 = load i8, ptr %.2, align 1
@@ -693,7 +693,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   %.384 = phi i8 [ %57, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %66 ]
   %69 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %.pr = load i8, ptr %69, align 1
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !11
 
 .thread102:                                       ; preds = %.preheader
   %70 = trunc nuw i8 %.283 to i1
@@ -733,7 +733,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   store i8 0, ptr %81, align 1
   %85 = getelementptr inbounds i8, ptr %81, i64 -1
   %.not101 = icmp ult ptr %85, %.2
-  br i1 %.not101, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not101, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %84, %.lr.ph, %.thread104
   br i1 %1, label %86, label %90
@@ -774,7 +774,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   store i32 %101, ptr %103, align 4
   %104 = load i32, ptr %3, align 4
   %105 = add i32 %104, 1
-  br label %41
+  br label %41, !llvm.loop !13
 
 106:                                              ; preds = %49
   call void @pfree(ptr noundef %9) #9
@@ -886,7 +886,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef %31) #9
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
@@ -904,7 +904,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef %36) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %35, %30, %23
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 41) #9
@@ -1000,7 +1000,7 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeo
   store ptr %32, ptr %2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %27, %11
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
@@ -2984,15 +2984,17 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !5, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

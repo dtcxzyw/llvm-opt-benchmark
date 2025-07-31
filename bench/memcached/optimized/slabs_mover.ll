@@ -301,26 +301,26 @@ define internal noalias noundef ptr @slab_rebalance_thread(ptr noundef initializ
   br label %.backedge, !llvm.loop !37
 
 65:                                               ; preds = %58
-  store ptr %60, ptr %20, align 8, !tbaa !39
-  store ptr %60, ptr %9, align 8, !tbaa !40
+  store ptr %60, ptr %20, align 8, !tbaa !40
+  store ptr %60, ptr %9, align 8, !tbaa !41
   %66 = load i32, ptr %5, align 4, !tbaa !35
   %67 = mul i32 %66, %61
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 %68
-  store ptr %69, ptr %21, align 8, !tbaa !41
-  store i8 0, ptr %22, align 8, !tbaa !42
-  store i32 %66, ptr %23, align 8, !tbaa !43
+  store ptr %69, ptr %21, align 8, !tbaa !42
+  store i8 0, ptr %22, align 8, !tbaa !43
+  store i32 %66, ptr %23, align 8, !tbaa !44
   %70 = load i32, ptr %16, align 8, !tbaa !4
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %slab_rebalance_start.exit
 
 72:                                               ; preds = %65
-  store i8 1, ptr %22, align 8, !tbaa !42
+  store i8 1, ptr %22, align 8, !tbaa !43
   br label %slab_rebalance_start.exit
 
 slab_rebalance_start.exit:                        ; preds = %65, %72
   call void @STATS_LOCK() #11
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 54), align 2, !tbaa !44
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 54), align 2, !tbaa !45
   call void @STATS_UNLOCK() #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
@@ -336,57 +336,57 @@ slab_rebalance_start.exit:                        ; preds = %65, %72
   br label %.backedge.backedge
 
 .loopexit:                                        ; preds = %46, %slab_rebalance_start.exit
-  %74 = load i8, ptr %22, align 8, !tbaa !47
+  %74 = load i8, ptr %22, align 8, !tbaa !48
   %.not25 = icmp eq i8 %74, 0
   br i1 %.not25, label %104, label %75
 
 75:                                               ; preds = %.loopexit
-  %76 = load ptr, ptr %24, align 8, !tbaa !48
+  %76 = load ptr, ptr %24, align 8, !tbaa !49
   %.not.i27 = icmp eq ptr %76, null
   %.pre61 = load i32, ptr %16, align 8, !tbaa !4
   br i1 %.not.i27, label %slab_rebalance_finish.exit, label %77
 
 77:                                               ; preds = %75
   call void @slabs_free(ptr noundef nonnull %76, i32 noundef %.pre61) #11
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store ptr null, ptr %24, align 8, !tbaa !49
   %.pre60 = load i32, ptr %16, align 8, !tbaa !4
   br label %slab_rebalance_finish.exit
 
 slab_rebalance_finish.exit:                       ; preds = %75, %77
   %78 = phi i32 [ %.pre61, %75 ], [ %.pre60, %77 ]
   %79 = load i32, ptr %17, align 4, !tbaa !17
-  %80 = load ptr, ptr %9, align 8, !tbaa !40
+  %80 = load ptr, ptr %9, align 8, !tbaa !41
   call void @slabs_finalize_page_move(i32 noundef %78, i32 noundef %79, ptr noundef %80) #11
   call void @STATS_LOCK() #11
-  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 40), align 8, !tbaa !49
+  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 40), align 8, !tbaa !50
   %82 = add i64 %81, 1
-  store i64 %82, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 40), align 8, !tbaa !49
-  %83 = load i32, ptr %25, align 8, !tbaa !52
+  store i64 %82, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 40), align 8, !tbaa !50
+  %83 = load i32, ptr %25, align 8, !tbaa !53
   %84 = zext i32 %83 to i64
-  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 48), align 8, !tbaa !53
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 48), align 8, !tbaa !54
   %86 = add i64 %85, %84
-  store i64 %86, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 48), align 8, !tbaa !53
-  %87 = load i32, ptr %26, align 4, !tbaa !54
+  store i64 %86, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 48), align 8, !tbaa !54
+  %87 = load i32, ptr %26, align 4, !tbaa !55
   %88 = zext i32 %87 to i64
-  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 56), align 8, !tbaa !55
+  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 56), align 8, !tbaa !56
   %90 = add i64 %89, %88
-  store i64 %90, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 56), align 8, !tbaa !55
-  %91 = load i32, ptr %27, align 8, !tbaa !56
+  store i64 %90, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 56), align 8, !tbaa !56
+  %91 = load i32, ptr %27, align 8, !tbaa !57
   %92 = zext i32 %91 to i64
-  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 64), align 8, !tbaa !57
+  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 64), align 8, !tbaa !58
   %94 = add i64 %93, %92
-  store i64 %94, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 64), align 8, !tbaa !57
-  %95 = load i32, ptr %28, align 8, !tbaa !58
+  store i64 %94, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 64), align 8, !tbaa !58
+  %95 = load i32, ptr %28, align 8, !tbaa !59
   %96 = zext i32 %95 to i64
-  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 80), align 8, !tbaa !59
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 80), align 8, !tbaa !60
   %98 = add i64 %97, %96
-  store i64 %98, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 80), align 8, !tbaa !59
-  %99 = load i32, ptr %29, align 4, !tbaa !60
+  store i64 %98, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 80), align 8, !tbaa !60
+  %99 = load i32, ptr %29, align 4, !tbaa !61
   %100 = zext i32 %99 to i64
-  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 88), align 8, !tbaa !61
+  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 88), align 8, !tbaa !62
   %102 = add i64 %101, %100
-  store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 88), align 8, !tbaa !61
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 54), align 2, !tbaa !44
+  store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 88), align 8, !tbaa !62
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 54), align 2, !tbaa !45
   call void @STATS_UNLOCK() #11
   %103 = load ptr, ptr %19, align 8, !tbaa !36
   call void @free(ptr noundef %103) #11
@@ -396,7 +396,7 @@ slab_rebalance_finish.exit:                       ; preds = %75, %77
 
 104:                                              ; preds = %.loopexit
   %105 = load i32, ptr %16, align 8, !tbaa !4
-  %106 = load ptr, ptr %24, align 8, !tbaa !48
+  %106 = load ptr, ptr %24, align 8, !tbaa !49
   %.not.i28 = icmp eq ptr %106, null
   br i1 %.not.i28, label %107, label %slab_rebalance_prep.exit
 
@@ -407,29 +407,29 @@ slab_rebalance_finish.exit:                       ; preds = %75, %77
 
 .lr.ph.i.i:                                       ; preds = %107, %115
   %110 = phi ptr [ %120, %115 ], [ %108, %107 ]
-  %111 = load ptr, ptr %9, align 8, !tbaa !40
+  %111 = load ptr, ptr %9, align 8, !tbaa !41
   %.not.i.i = icmp ult ptr %110, %111
   br i1 %.not.i.i, label %.loopexit23.sink.split.i, label %112
 
 112:                                              ; preds = %.lr.ph.i.i
-  %113 = load ptr, ptr %21, align 8, !tbaa !41
+  %113 = load ptr, ptr %21, align 8, !tbaa !42
   %114 = icmp ult ptr %110, %113
   br i1 %114, label %115, label %.loopexit23.sink.split.i
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 36
-  store i16 0, ptr %116, align 4, !tbaa !62
+  store i16 0, ptr %116, align 4, !tbaa !63
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 38
-  store i16 12, ptr %117, align 2, !tbaa !62
-  %118 = load i32, ptr %26, align 4, !tbaa !54
+  store i16 12, ptr %117, align 2, !tbaa !63
+  %118 = load i32, ptr %26, align 4, !tbaa !55
   %119 = add i32 %118, 1
-  store i32 %119, ptr %26, align 4, !tbaa !54
+  store i32 %119, ptr %26, align 4, !tbaa !55
   %120 = call ptr @slabs_alloc(i32 noundef %105, i32 noundef 1) #11
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.loopexit24.i, label %.lr.ph.i.i
+  br i1 %121, label %.loopexit24.i, label %.lr.ph.i.i, !llvm.loop !65
 
 .loopexit24.i:                                    ; preds = %115, %107
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store ptr null, ptr %24, align 8, !tbaa !49
   %122 = load i8, ptr %18, align 1, !tbaa !18, !range !29, !noundef !30
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %.preheader.i, label %slab_rebalance_prep.exit
@@ -454,73 +454,73 @@ slab_rebalance_finish.exit:                       ; preds = %75, %77
 
 .lr.ph.i16.i:                                     ; preds = %130, %138
   %133 = phi ptr [ %143, %138 ], [ %131, %130 ]
-  %134 = load ptr, ptr %9, align 8, !tbaa !40
+  %134 = load ptr, ptr %9, align 8, !tbaa !41
   %.not.i17.i = icmp ult ptr %133, %134
   br i1 %.not.i17.i, label %.loopexit23.sink.split.i, label %135
 
 135:                                              ; preds = %.lr.ph.i16.i
-  %136 = load ptr, ptr %21, align 8, !tbaa !41
+  %136 = load ptr, ptr %21, align 8, !tbaa !42
   %137 = icmp ult ptr %133, %136
   br i1 %137, label %138, label %.loopexit23.sink.split.i
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 36
-  store i16 0, ptr %139, align 4, !tbaa !62
+  store i16 0, ptr %139, align 4, !tbaa !63
   %140 = getelementptr inbounds nuw i8, ptr %133, i64 38
-  store i16 12, ptr %140, align 2, !tbaa !62
-  %141 = load i32, ptr %26, align 4, !tbaa !54
+  store i16 12, ptr %140, align 2, !tbaa !63
+  %141 = load i32, ptr %26, align 4, !tbaa !55
   %142 = add i32 %141, 1
-  store i32 %142, ptr %26, align 4, !tbaa !54
+  store i32 %142, ptr %26, align 4, !tbaa !55
   %143 = call ptr @slabs_alloc(i32 noundef %105, i32 noundef 1) #11
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.loopexit.i, label %.lr.ph.i16.i
+  br i1 %144, label %.loopexit.i, label %.lr.ph.i16.i, !llvm.loop !65
 
 .loopexit.i:                                      ; preds = %138, %130
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store ptr null, ptr %24, align 8, !tbaa !49
   %145 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %145, 10
-  br i1 %exitcond.not.i, label %slab_rebalance_prep.exit, label %.preheader.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %slab_rebalance_prep.exit, label %.preheader.i, !llvm.loop !66
 
 .loopexit23.sink.split.i:                         ; preds = %112, %.lr.ph.i.i, %135, %.lr.ph.i16.i
   %.lcssa.sink.i = phi ptr [ %133, %.lr.ph.i16.i ], [ %133, %135 ], [ %110, %.lr.ph.i.i ], [ %110, %112 ]
-  store ptr %.lcssa.sink.i, ptr %24, align 8, !tbaa !48
+  store ptr %.lcssa.sink.i, ptr %24, align 8, !tbaa !49
   br label %slab_rebalance_prep.exit
 
 slab_rebalance_prep.exit:                         ; preds = %.loopexit.i, %104, %.loopexit24.i, %.loopexit23.sink.split.i
-  %146 = load i32, ptr %30, align 4, !tbaa !65
+  %146 = load i32, ptr %30, align 4, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %147 = load ptr, ptr %20, align 8, !tbaa !39
-  %148 = load ptr, ptr %9, align 8, !tbaa !40
+  %147 = load ptr, ptr %20, align 8, !tbaa !40
+  %148 = load ptr, ptr %9, align 8, !tbaa !41
   %149 = ptrtoint ptr %147 to i64
   %150 = ptrtoint ptr %148 to i64
   %151 = sub i64 %149, %150
-  %152 = load i32, ptr %23, align 8, !tbaa !43
+  %152 = load i32, ptr %23, align 8, !tbaa !44
   %153 = zext i32 %152 to i64
   %154 = sdiv i64 %151, %153
   %155 = load ptr, ptr %19, align 8, !tbaa !36
   %sext.i = shl i64 %154, 32
   %156 = ashr exact i64 %sext.i, 32
   %157 = getelementptr inbounds i8, ptr %155, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !66
+  %158 = load i8, ptr %157, align 1, !tbaa !68
   %159 = icmp eq i8 %158, 0
   br i1 %159, label %160, label %350
 
 160:                                              ; preds = %slab_rebalance_prep.exit
-  store ptr %147, ptr %4, align 8, !tbaa !67
+  store ptr %147, ptr %4, align 8, !tbaa !69
   %161 = load i32, ptr %16, align 8, !tbaa !4
-  store i32 %161, ptr %31, align 4, !tbaa !70
+  store i32 %161, ptr %31, align 4, !tbaa !72
   %162 = load i32, ptr %17, align 4, !tbaa !17
-  store i32 %162, ptr %32, align 8, !tbaa !71
+  store i32 %162, ptr %32, align 8, !tbaa !73
   %163 = call i32 @slabs_locked_callback(ptr noundef nonnull @_slabs_locked_cb, ptr noundef nonnull %4) #11
-  %164 = load ptr, ptr %33, align 8, !tbaa !72
+  %164 = load ptr, ptr %33, align 8, !tbaa !74
   %.not.i30 = icmp eq ptr %164, null
   br i1 %.not.i30, label %168, label %165
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %167 = load ptr, ptr %166, align 8, !tbaa !73
-  store ptr %167, ptr %4, align 8, !tbaa !67
+  %167 = load ptr, ptr %166, align 8, !tbaa !75
+  store ptr %167, ptr %4, align 8, !tbaa !69
   br label %168
 
 168:                                              ; preds = %165, %160
@@ -559,100 +559,100 @@ slab_rebalance_prep.exit:                         ; preds = %.loopexit.i, %104, 
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 38
-  %181 = load i16, ptr %180, align 2, !tbaa !62
+  %181 = load i16, ptr %180, align 2, !tbaa !63
   %182 = and i16 %181, 32
   %183 = icmp eq i16 %182, 0
   br i1 %183, label %184, label %195
 
 184:                                              ; preds = %179
-  %185 = load i32, ptr %36, align 8, !tbaa !74
+  %185 = load i32, ptr %36, align 8, !tbaa !76
   call void @do_item_unlink(ptr noundef nonnull %.0.i31, i32 noundef %185) #11
   %186 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 36
-  %187 = load i16, ptr %186, align 4, !tbaa !62
+  %187 = load i16, ptr %186, align 4, !tbaa !63
   %188 = icmp eq i16 %187, 1
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %184
-  store i16 12, ptr %180, align 2, !tbaa !62
-  store i16 0, ptr %186, align 4, !tbaa !62
+  store i16 12, ptr %180, align 2, !tbaa !63
+  store i16 0, ptr %186, align 4, !tbaa !63
   %190 = load ptr, ptr %19, align 8, !tbaa !36
   %191 = getelementptr inbounds i8, ptr %190, i64 %156
-  store i8 1, ptr %191, align 1, !tbaa !66
+  store i8 1, ptr %191, align 1, !tbaa !68
   br label %330
 
 192:                                              ; preds = %184
   call void @do_item_remove(ptr noundef nonnull %.0.i31) #11
-  %193 = load i32, ptr %30, align 4, !tbaa !65
+  %193 = load i32, ptr %30, align 4, !tbaa !67
   %194 = add i32 %193, 1
-  store i32 %194, ptr %30, align 4, !tbaa !65
+  store i32 %194, ptr %30, align 4, !tbaa !67
   br label %330
 
 195:                                              ; preds = %179, %177
-  %196 = load i32, ptr %36, align 8, !tbaa !74
+  %196 = load i32, ptr %36, align 8, !tbaa !76
   call void @do_item_unlink(ptr noundef nonnull %.0.i31, i32 noundef %196) #11
   call void @do_item_remove(ptr noundef nonnull %.0.i31) #11
-  %197 = load i32, ptr %30, align 4, !tbaa !65
+  %197 = load i32, ptr %30, align 4, !tbaa !67
   %198 = add i32 %197, 1
-  store i32 %198, ptr %30, align 4, !tbaa !65
+  store i32 %198, ptr %30, align 4, !tbaa !67
   br label %330
 
 199:                                              ; preds = %175
-  %200 = load ptr, ptr %24, align 8, !tbaa !48
+  %200 = load ptr, ptr %24, align 8, !tbaa !49
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %210
 
 202:                                              ; preds = %199
-  %203 = load i32, ptr %30, align 4, !tbaa !65
+  %203 = load i32, ptr %30, align 4, !tbaa !67
   %204 = add i32 %203, 1
-  store i32 %204, ptr %30, align 4, !tbaa !65
-  %205 = load i32, ptr %29, align 4, !tbaa !60
+  store i32 %204, ptr %30, align 4, !tbaa !67
+  %205 = load i32, ptr %29, align 4, !tbaa !61
   %206 = add i32 %205, 1
-  store i32 %206, ptr %29, align 4, !tbaa !60
+  store i32 %206, ptr %29, align 4, !tbaa !61
   %207 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 36
-  %208 = load i16, ptr %207, align 4, !tbaa !62
+  %208 = load i16, ptr %207, align 4, !tbaa !63
   %209 = add i16 %208, -1
-  store i16 %209, ptr %207, align 4, !tbaa !62
+  store i16 %209, ptr %207, align 4, !tbaa !63
   br label %330
 
 210:                                              ; preds = %199
   %211 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 36
-  %212 = load i16, ptr %211, align 4, !tbaa !62
+  %212 = load i16, ptr %211, align 4, !tbaa !63
   %213 = icmp eq i16 %212, 2
   br i1 %213, label %214, label %281
 
 214:                                              ; preds = %210
-  %215 = load ptr, ptr %4, align 8, !tbaa !67
-  %216 = load ptr, ptr %33, align 8, !tbaa !72
+  %215 = load ptr, ptr %4, align 8, !tbaa !69
+  %216 = load ptr, ptr %33, align 8, !tbaa !74
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %261
 
 218:                                              ; preds = %214
-  %219 = load i32, ptr %23, align 8, !tbaa !43
+  %219 = load i32, ptr %23, align 8, !tbaa !44
   %220 = sext i32 %219 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %200, ptr align 8 %215, i64 %220, i1 false)
   %221 = getelementptr inbounds nuw i8, ptr %200, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %200, i8 0, i64 24, i1 false)
-  %222 = load i16, ptr %221, align 2, !tbaa !62
+  %222 = load i16, ptr %221, align 2, !tbaa !63
   %223 = and i16 %222, -2
-  store i16 %223, ptr %221, align 2, !tbaa !62
+  store i16 %223, ptr %221, align 2, !tbaa !63
   %224 = getelementptr inbounds nuw i8, ptr %200, i64 36
-  store i16 0, ptr %224, align 4, !tbaa !62
-  %225 = load i32, ptr %36, align 8, !tbaa !74
+  store i16 0, ptr %224, align 4, !tbaa !63
+  %225 = load i32, ptr %36, align 8, !tbaa !76
   %226 = getelementptr inbounds nuw i8, ptr %215, i64 38
-  %227 = load i16, ptr %226, align 2, !tbaa !62
+  %227 = load i16, ptr %226, align 2, !tbaa !63
   %228 = and i16 %227, 2
   %.not47.i = icmp eq i16 %228, 0
   br i1 %.not47.i, label %232, label %229
 
 229:                                              ; preds = %218
   %230 = getelementptr inbounds nuw i8, ptr %215, i64 48
-  %231 = load i64, ptr %230, align 8, !tbaa !66
+  %231 = load i64, ptr %230, align 8, !tbaa !68
   br label %232
 
 232:                                              ; preds = %229, %218
   %233 = phi i64 [ %231, %229 ], [ 0, %218 ]
   %234 = call i32 @do_item_replace(ptr noundef nonnull %215, ptr noundef nonnull %200, i32 noundef %225, i64 noundef %233) #11
-  %235 = load i16, ptr %221, align 2, !tbaa !62
+  %235 = load i16, ptr %221, align 2, !tbaa !63
   %236 = zext i16 %235 to i32
   %237 = and i32 %236, 32
   %.not48.i = icmp eq i32 %237, 0
@@ -661,7 +661,7 @@ slab_rebalance_prep.exit:                         ; preds = %.loopexit.i, %104, 
 238:                                              ; preds = %232
   %239 = getelementptr inbounds nuw i8, ptr %200, i64 48
   %240 = getelementptr inbounds nuw i8, ptr %200, i64 41
-  %241 = load i8, ptr %240, align 1, !tbaa !66
+  %241 = load i8, ptr %240, align 1, !tbaa !68
   %242 = zext i8 %241 to i64
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 1
@@ -673,39 +673,39 @@ slab_rebalance_prep.exit:                         ; preds = %.loopexit.i, %104, 
   %250 = and i32 %249, 8
   %251 = zext nneg i32 %250 to i64
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 %251
-  %253 = load ptr, ptr %252, align 8, !tbaa !75
+  %253 = load ptr, ptr %252, align 8, !tbaa !77
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store ptr %252, ptr %254, align 8, !tbaa !75
+  store ptr %252, ptr %254, align 8, !tbaa !77
   br label %255
 
 255:                                              ; preds = %255, %238
   %.052.i = phi ptr [ %252, %238 ], [ %257, %255 ]
   %256 = getelementptr inbounds nuw i8, ptr %.052.i, i64 16
-  store ptr %200, ptr %256, align 8, !tbaa !73
-  %257 = load ptr, ptr %.052.i, align 8, !tbaa !75
+  store ptr %200, ptr %256, align 8, !tbaa !75
+  %257 = load ptr, ptr %.052.i, align 8, !tbaa !77
   %.not51.i = icmp eq ptr %257, null
-  br i1 %.not51.i, label %.loopexit.i39, label %255, !llvm.loop !76
+  br i1 %.not51.i, label %.loopexit.i39, label %255, !llvm.loop !78
 
 .loopexit.i39:                                    ; preds = %255, %232
   %258 = getelementptr inbounds nuw i8, ptr %215, i64 36
-  store i16 0, ptr %258, align 4, !tbaa !62
-  store i16 12, ptr %226, align 2, !tbaa !62
-  %259 = load i32, ptr %25, align 8, !tbaa !52
+  store i16 0, ptr %258, align 4, !tbaa !63
+  store i16 12, ptr %226, align 2, !tbaa !63
+  %259 = load i32, ptr %25, align 8, !tbaa !53
   %260 = add i32 %259, 1
-  store i32 %260, ptr %25, align 8, !tbaa !52
+  store i32 %260, ptr %25, align 8, !tbaa !53
   br label %slab_rebalance_rescue.exit
 
 261:                                              ; preds = %214
   %262 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %263 = load ptr, ptr %262, align 8, !tbaa !75
-  store ptr %200, ptr %263, align 8, !tbaa !75
-  %264 = load ptr, ptr %216, align 8, !tbaa !75
+  %263 = load ptr, ptr %262, align 8, !tbaa !77
+  store ptr %200, ptr %263, align 8, !tbaa !77
+  %264 = load ptr, ptr %216, align 8, !tbaa !77
   %.not.i38 = icmp eq ptr %264, null
   br i1 %.not.i38, label %267, label %265
 
 265:                                              ; preds = %261
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store ptr %200, ptr %266, align 8, !tbaa !75
+  store ptr %200, ptr %266, align 8, !tbaa !77
   br label %267
 
 267:                                              ; preds = %265, %261
@@ -715,35 +715,35 @@ slab_rebalance_prep.exit:                         ; preds = %.loopexit.i, %104, 
   %271 = add nsw i64 %270, 48
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %200, ptr nonnull align 8 %216, i64 %271, i1 false)
   %272 = getelementptr inbounds nuw i8, ptr %216, i64 36
-  store i16 0, ptr %272, align 4, !tbaa !62
+  store i16 0, ptr %272, align 4, !tbaa !63
   %273 = getelementptr inbounds nuw i8, ptr %216, i64 38
-  store i16 12, ptr %273, align 2, !tbaa !62
-  %274 = load i32, ptr %27, align 8, !tbaa !56
+  store i16 12, ptr %273, align 2, !tbaa !63
+  %274 = load i32, ptr %27, align 8, !tbaa !57
   %275 = add i32 %274, 1
-  store i32 %275, ptr %27, align 8, !tbaa !56
+  store i32 %275, ptr %27, align 8, !tbaa !57
   %276 = getelementptr inbounds nuw i8, ptr %215, i64 36
-  %277 = load i16, ptr %276, align 4, !tbaa !62
+  %277 = load i16, ptr %276, align 4, !tbaa !63
   %278 = add i16 %277, -1
-  store i16 %278, ptr %276, align 4, !tbaa !62
+  store i16 %278, ptr %276, align 4, !tbaa !63
   br label %slab_rebalance_rescue.exit
 
 slab_rebalance_rescue.exit:                       ; preds = %.loopexit.i39, %267
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store ptr null, ptr %24, align 8, !tbaa !49
   %279 = load ptr, ptr %19, align 8, !tbaa !36
   %280 = getelementptr inbounds i8, ptr %279, i64 %156
-  store i8 1, ptr %280, align 1, !tbaa !66
+  store i8 1, ptr %280, align 1, !tbaa !68
   br label %330
 
 281:                                              ; preds = %210
-  %282 = load i32, ptr %23, align 8, !tbaa !43
-  %283 = load ptr, ptr %4, align 8, !tbaa !67
-  %284 = load ptr, ptr %33, align 8, !tbaa !72
+  %282 = load i32, ptr %23, align 8, !tbaa !44
+  %283 = load ptr, ptr %4, align 8, !tbaa !69
+  %284 = load ptr, ptr %33, align 8, !tbaa !74
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %308
 
 286:                                              ; preds = %281
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 38
-  %288 = load i16, ptr %287, align 2, !tbaa !62
+  %288 = load i16, ptr %287, align 2, !tbaa !63
   %289 = and i16 %288, 32
   %290 = icmp eq i16 %289, 0
   br i1 %290, label %291, label %308
@@ -753,33 +753,33 @@ slab_rebalance_rescue.exit:                       ; preds = %.loopexit.i39, %267
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %200, ptr nonnull align 8 %283, i64 %292, i1 false)
   %293 = getelementptr inbounds nuw i8, ptr %200, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %200, i8 0, i64 24, i1 false)
-  %294 = load i16, ptr %293, align 2, !tbaa !62
+  %294 = load i16, ptr %293, align 2, !tbaa !63
   %295 = and i16 %294, -2
-  store i16 %295, ptr %293, align 2, !tbaa !62
+  store i16 %295, ptr %293, align 2, !tbaa !63
   %296 = getelementptr inbounds nuw i8, ptr %200, i64 36
-  store i16 0, ptr %296, align 4, !tbaa !62
-  %297 = load i32, ptr %36, align 8, !tbaa !74
-  %298 = load i16, ptr %287, align 2, !tbaa !62
+  store i16 0, ptr %296, align 4, !tbaa !63
+  %297 = load i32, ptr %36, align 8, !tbaa !76
+  %298 = load i16, ptr %287, align 2, !tbaa !63
   %299 = and i16 %298, 2
   %.not34.i = icmp eq i16 %299, 0
   br i1 %.not34.i, label %303, label %300
 
 300:                                              ; preds = %291
   %301 = getelementptr inbounds nuw i8, ptr %283, i64 48
-  %302 = load i64, ptr %301, align 8, !tbaa !66
+  %302 = load i64, ptr %301, align 8, !tbaa !68
   br label %303
 
 303:                                              ; preds = %300, %291
   %304 = phi i64 [ %302, %300 ], [ 0, %291 ]
   %305 = call i32 @do_item_replace(ptr noundef nonnull %283, ptr noundef nonnull %200, i32 noundef %297, i64 noundef %304) #11
-  %306 = load i32, ptr %25, align 8, !tbaa !52
+  %306 = load i32, ptr %25, align 8, !tbaa !53
   %307 = add i32 %306, 1
-  store i32 %307, ptr %25, align 8, !tbaa !52
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store i32 %307, ptr %25, align 8, !tbaa !53
+  store ptr null, ptr %24, align 8, !tbaa !49
   br label %slab_rebalance_active_rescue.exit
 
 308:                                              ; preds = %286, %281
-  %309 = load i32, ptr %37, align 4, !tbaa !77
+  %309 = load i32, ptr %37, align 4, !tbaa !79
   %310 = icmp ugt i32 %309, 5000
   br i1 %310, label %311, label %slab_rebalance_active_rescue.exit
 
@@ -796,7 +796,7 @@ slab_rebalance_rescue.exit:                       ; preds = %.loopexit.i39, %267
 317:                                              ; preds = %314, %311
   %.0.i36 = phi ptr [ %316, %314 ], [ %312, %311 ]
   %318 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 84
-  %319 = load i16, ptr %318, align 4, !tbaa !78
+  %319 = load i16, ptr %318, align 4, !tbaa !80
   %320 = and i16 %319, 64
   %.not.i37 = icmp eq i16 %320, 0
   br i1 %.not.i37, label %323, label %321
@@ -808,68 +808,68 @@ slab_rebalance_rescue.exit:                       ; preds = %.loopexit.i39, %267
 323:                                              ; preds = %321, %317
   %324 = load ptr, ptr %35, align 8, !tbaa !20
   call void @storage_delete(ptr noundef %324, ptr noundef %283) #11
-  %325 = load i32, ptr %36, align 8, !tbaa !74
+  %325 = load i32, ptr %36, align 8, !tbaa !76
   call void @do_item_unlink(ptr noundef %283, i32 noundef %325) #11
-  %326 = load i32, ptr %28, align 8, !tbaa !58
+  %326 = load i32, ptr %28, align 8, !tbaa !59
   %327 = add i32 %326, 1
-  store i32 %327, ptr %28, align 8, !tbaa !58
+  store i32 %327, ptr %28, align 8, !tbaa !59
   br label %slab_rebalance_active_rescue.exit
 
 slab_rebalance_active_rescue.exit:                ; preds = %303, %308, %323
-  %328 = load i32, ptr %30, align 4, !tbaa !65
+  %328 = load i32, ptr %30, align 4, !tbaa !67
   %329 = add i32 %328, 1
-  store i32 %329, ptr %30, align 4, !tbaa !65
+  store i32 %329, ptr %30, align 4, !tbaa !67
   call void @do_item_remove(ptr noundef nonnull %.0.i31) #11
   br label %330
 
 330:                                              ; preds = %slab_rebalance_active_rescue.exit, %slab_rebalance_rescue.exit, %202, %195, %192, %189
-  %331 = load ptr, ptr %34, align 8, !tbaa !81
+  %331 = load ptr, ptr %34, align 8, !tbaa !83
   call void @item_trylock_unlock(ptr noundef %331) #11
   br label %350
 
 332:                                              ; preds = %168
   %333 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 36
-  store i16 0, ptr %333, align 4, !tbaa !62
+  store i16 0, ptr %333, align 4, !tbaa !63
   %334 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 38
-  store i16 12, ptr %334, align 2, !tbaa !62
+  store i16 12, ptr %334, align 2, !tbaa !63
   %335 = load ptr, ptr %19, align 8, !tbaa !36
   %336 = getelementptr inbounds i8, ptr %335, i64 %156
-  store i8 1, ptr %336, align 1, !tbaa !66
+  store i8 1, ptr %336, align 1, !tbaa !68
   br label %350
 
 337:                                              ; preds = %168, %168
-  %338 = load i32, ptr %30, align 4, !tbaa !65
+  %338 = load i32, ptr %30, align 4, !tbaa !67
   %339 = add i32 %338, 1
-  store i32 %339, ptr %30, align 4, !tbaa !65
+  store i32 %339, ptr %30, align 4, !tbaa !67
   %340 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 36
-  %341 = load i16, ptr %340, align 4, !tbaa !62
+  %341 = load i16, ptr %340, align 4, !tbaa !63
   %342 = add i16 %341, -1
-  store i16 %342, ptr %340, align 4, !tbaa !62
-  %343 = load ptr, ptr %34, align 8, !tbaa !81
+  store i16 %342, ptr %340, align 4, !tbaa !63
+  %343 = load ptr, ptr %34, align 8, !tbaa !83
   call void @item_trylock_unlock(ptr noundef %343) #11
   br label %350
 
 344:                                              ; preds = %168, %168
-  %345 = load i32, ptr %30, align 4, !tbaa !65
+  %345 = load i32, ptr %30, align 4, !tbaa !67
   %346 = add i32 %345, 1
-  store i32 %346, ptr %30, align 4, !tbaa !65
+  store i32 %346, ptr %30, align 4, !tbaa !67
   br label %350
 
 347:                                              ; preds = %168
   %348 = load ptr, ptr %19, align 8, !tbaa !36
   %349 = getelementptr inbounds i8, ptr %348, i64 %156
-  store i8 1, ptr %349, align 1, !tbaa !66
+  store i8 1, ptr %349, align 1, !tbaa !68
   br label %350
 
 350:                                              ; preds = %347, %344, %337, %332, %330, %168, %slab_rebalance_prep.exit
-  %351 = load ptr, ptr %20, align 8, !tbaa !39
-  %352 = load i32, ptr %23, align 8, !tbaa !43
+  %351 = load ptr, ptr %20, align 8, !tbaa !40
+  %352 = load i32, ptr %23, align 8, !tbaa !44
   %353 = zext i32 %352 to i64
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 %353
-  store ptr %354, ptr %20, align 8, !tbaa !39
-  %355 = load ptr, ptr %21, align 8, !tbaa !41
+  store ptr %354, ptr %20, align 8, !tbaa !40
+  %355 = load ptr, ptr %21, align 8, !tbaa !42
   %.not67.i = icmp ult ptr %354, %355
-  %.pre.i = load i32, ptr %30, align 4, !tbaa !65
+  %.pre.i = load i32, ptr %30, align 4, !tbaa !67
   br i1 %.not67.i, label %slab_rebalance_move.exit, label %356
 
 356:                                              ; preds = %350
@@ -877,25 +877,25 @@ slab_rebalance_active_rescue.exit:                ; preds = %303, %308, %323
   br i1 %.not68.i, label %365, label %357
 
 357:                                              ; preds = %356
-  %358 = load ptr, ptr %9, align 8, !tbaa !40
-  store ptr %358, ptr %20, align 8, !tbaa !39
+  %358 = load ptr, ptr %9, align 8, !tbaa !41
+  store ptr %358, ptr %20, align 8, !tbaa !40
   call void @STATS_LOCK() #11
-  %359 = load i32, ptr %30, align 4, !tbaa !65
+  %359 = load i32, ptr %30, align 4, !tbaa !67
   %360 = zext i32 %359 to i64
-  %361 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 72), align 8, !tbaa !82
+  %361 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 72), align 8, !tbaa !84
   %362 = add i64 %361, %360
-  store i64 %362, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 72), align 8, !tbaa !82
+  store i64 %362, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 72), align 8, !tbaa !84
   call void @STATS_UNLOCK() #11
-  store i32 0, ptr %30, align 4, !tbaa !65
-  %363 = load i32, ptr %37, align 4, !tbaa !77
+  store i32 0, ptr %30, align 4, !tbaa !67
+  %363 = load i32, ptr %37, align 4, !tbaa !79
   %364 = add i32 %363, 1
-  store i32 %364, ptr %37, align 4, !tbaa !77
+  store i32 %364, ptr %37, align 4, !tbaa !79
   br label %slab_rebalance_move.exit
 
 365:                                              ; preds = %356
-  %366 = load i8, ptr %22, align 8, !tbaa !42
+  %366 = load i8, ptr %22, align 8, !tbaa !43
   %367 = add i8 %366, 1
-  store i8 %367, ptr %22, align 8, !tbaa !42
+  store i8 %367, ptr %22, align 8, !tbaa !43
   br label %slab_rebalance_move.exit
 
 slab_rebalance_move.exit:                         ; preds = %350, %357, %365
@@ -915,19 +915,19 @@ slab_rebalance_move.exit:                         ; preds = %350, %357, %365
   %373 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 140), align 4, !tbaa !83
+  %374 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 140), align 4, !tbaa !85
   %375 = icmp eq i32 %374, 0
-  %.pre65 = load i64, ptr %8, align 8, !tbaa !87
+  %.pre65 = load i64, ptr %8, align 8, !tbaa !89
   br i1 %375, label %428, label %376
 
 376:                                              ; preds = %372
-  %377 = load i64, ptr %38, align 8, !tbaa !88
+  %377 = load i64, ptr %38, align 8, !tbaa !90
   %378 = icmp eq i64 %377, %.pre65
   br i1 %378, label %428, label %379
 
 379:                                              ; preds = %376
-  %380 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8, !tbaa !89
-  %381 = load i32, ptr %39, align 8, !tbaa !90
+  %380 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8, !tbaa !91
+  %381 = load i32, ptr %39, align 8, !tbaa !92
   %.not.i32 = icmp eq i32 %380, %381
   br i1 %.not.i32, label %393, label %382
 
@@ -941,21 +941,21 @@ slab_rebalance_move.exit:                         ; preds = %350, %357, %365
 386:                                              ; preds = %382
   %387 = load ptr, ptr %40, align 8, !tbaa !21
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %389 = load ptr, ptr %388, align 8, !tbaa !91
+  %389 = load ptr, ptr %388, align 8, !tbaa !93
   %390 = load ptr, ptr %41, align 8, !tbaa !24
   call void %389(ptr noundef %390) #11
   store ptr %385, ptr %41, align 8, !tbaa !24
   br label %391
 
 391:                                              ; preds = %386, %382
-  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8, !tbaa !89
-  store i32 %392, ptr %39, align 8, !tbaa !90
+  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 144), align 8, !tbaa !91
+  store i32 %392, ptr %39, align 8, !tbaa !92
   br label %393
 
 393:                                              ; preds = %391, %379
   %394 = load ptr, ptr %40, align 8, !tbaa !21
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 16
-  %396 = load ptr, ptr %395, align 8, !tbaa !92
+  %396 = load ptr, ptr %395, align 8, !tbaa !94
   %397 = load ptr, ptr %41, align 8, !tbaa !24
   call void %396(ptr noundef %397, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %398 = load i32, ptr %2, align 4, !tbaa !35
@@ -966,7 +966,7 @@ slab_rebalance_move.exit:                         ; preds = %350, %357, %365
   br i1 %or.cond.i33, label %402, label %._crit_edge63
 
 ._crit_edge63:                                    ; preds = %393
-  %.pre64 = load i64, ptr %8, align 8, !tbaa !87
+  %.pre64 = load i64, ptr %8, align 8, !tbaa !89
   br label %428
 
 402:                                              ; preds = %393
@@ -1004,7 +1004,7 @@ do_slabs_reassign.exit.thread.i:                  ; preds = %409, %406, %404, %4
 417:                                              ; preds = %414, %do_slabs_reassign.exit.thread.i
   %.0.i34 = phi ptr [ %416, %414 ], [ %412, %do_slabs_reassign.exit.thread.i ]
   %418 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 84
-  %419 = load i16, ptr %418, align 4, !tbaa !78
+  %419 = load i16, ptr %418, align 4, !tbaa !80
   %420 = and i16 %419, 2
   %.not29.i = icmp eq i16 %420, 0
   %.pre33.i = load i32, ptr %3, align 4, !tbaa !35
@@ -1022,8 +1022,8 @@ do_slabs_reassign.exit.thread.i:                  ; preds = %409, %406, %404, %4
   br i1 %.not30.i, label %slab_rebalance_check_automove.exit, label %426
 
 426:                                              ; preds = %424
-  %427 = load i64, ptr %8, align 8, !tbaa !87
-  store i64 %427, ptr %38, align 8, !tbaa !88
+  %427 = load i64, ptr %8, align 8, !tbaa !89
+  store i64 %427, ptr %38, align 8, !tbaa !90
   br label %slab_rebalance_check_automove.exit
 
 slab_rebalance_check_automove.exit:               ; preds = %424, %426
@@ -1036,7 +1036,7 @@ slab_rebalance_check_automove.exit:               ; preds = %424, %426
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   %430 = add nsw i64 %429, 1
-  store i64 %430, ptr %8, align 8, !tbaa !87
+  store i64 %430, ptr %8, align 8, !tbaa !89
   %431 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %42, ptr noundef nonnull %12, ptr noundef nonnull %8) #11
   br label %432
 
@@ -1086,7 +1086,7 @@ define dso_local void @stop_slab_maintenance_thread(ptr noundef %0) local_unname
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !91
+  %19 = load ptr, ptr %18, align 8, !tbaa !93
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   tail call void %19(ptr noundef %21) #11
@@ -1156,20 +1156,20 @@ declare i32 @slabs_locked_callback(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !67
+  %2 = load ptr, ptr %0, align 8, !tbaa !69
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %4 = load i16, ptr %3, align 2, !tbaa !62
+  %4 = load i16, ptr %3, align 2, !tbaa !63
   %5 = and i16 %4, 64
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %7, align 8, !tbaa !72
+  store ptr %2, ptr %7, align 8, !tbaa !74
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 38
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !62
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !63
   br label %10
 
 10:                                               ; preds = %6, %1
@@ -1187,9 +1187,9 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4, !tbaa !70
+  %18 = load i32, ptr %17, align 4, !tbaa !72
   tail call void @do_slabs_unlink_free_chunk(i32 noundef %18, ptr noundef nonnull %.025) #11
-  store i16 0, ptr %12, align 2, !tbaa !62
+  store i16 0, ptr %12, align 2, !tbaa !63
   br label %45
 
 19:                                               ; preds = %14
@@ -1198,32 +1198,32 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
   br i1 %.not30, label %45, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr @hash, align 8, !tbaa !93
+  %22 = load ptr, ptr @hash, align 8, !tbaa !95
   %23 = getelementptr inbounds nuw i8, ptr %.025, i64 48
   %24 = shl nuw nsw i32 %13, 2
   %25 = and i32 %24, 8
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %.025, i64 41
-  %29 = load i8, ptr %28, align 1, !tbaa !66
+  %29 = load i8, ptr %28, align 1, !tbaa !68
   %30 = zext i8 %29 to i64
   %31 = tail call i32 %22(ptr noundef nonnull %27, i64 noundef %30) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %31, ptr %32, align 8, !tbaa !74
+  store i32 %31, ptr %32, align 8, !tbaa !76
   %33 = tail call ptr @item_trylock(i32 noundef %31) #11
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !81
+  store ptr %33, ptr %34, align 8, !tbaa !83
   %35 = icmp eq ptr %33, null
   br i1 %35, label %45, label %36
 
 36:                                               ; preds = %21
-  %37 = load i16, ptr %12, align 2, !tbaa !62
+  %37 = load i16, ptr %12, align 2, !tbaa !63
   %38 = and i16 %37, 1
   %39 = icmp ne i16 %38, 0
   %40 = getelementptr inbounds nuw i8, ptr %.025, i64 36
-  %41 = load i16, ptr %40, align 4, !tbaa !62
+  %41 = load i16, ptr %40, align 4, !tbaa !63
   %42 = add i16 %41, 1
-  store i16 %42, ptr %40, align 4, !tbaa !62
+  store i16 %42, ptr %40, align 4, !tbaa !63
   %43 = icmp eq i16 %42, 2
   %. = select i1 %39, i32 2, i32 4
   %44 = icmp ugt i16 %42, 2
@@ -1322,60 +1322,62 @@ attributes #14 = { cold nounwind }
 !34 = !{!6, !6, i64 0}
 !35 = !{!13, !13, i64 0}
 !36 = !{!5, !16, i64 240}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!5, !9, i64 184}
-!40 = !{!5, !9, i64 168}
-!41 = !{!5, !9, i64 176}
-!42 = !{!5, !7, i64 232}
-!43 = !{!5, !13, i64 200}
-!44 = !{!45, !6, i64 54}
-!45 = !{!"stats_state", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !46, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !6, i64 52, !6, i64 53, !6, i64 54, !6, i64 55}
-!46 = !{!"float", !7, i64 0}
-!47 = !{!15, !7, i64 64}
-!48 = !{!5, !10, i64 16}
-!49 = !{!50, !11, i64 40}
-!50 = !{!"stats", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !51, i64 192, !11, i64 208, !11, i64 216}
-!51 = !{!"timeval", !11, i64 0, !11, i64 8}
-!52 = !{!5, !13, i64 208}
-!53 = !{!50, !11, i64 48}
-!54 = !{!5, !13, i64 212}
-!55 = !{!50, !11, i64 56}
-!56 = !{!5, !13, i64 216}
-!57 = !{!50, !11, i64 64}
-!58 = !{!5, !13, i64 224}
-!59 = !{!50, !11, i64 80}
-!60 = !{!5, !13, i64 220}
-!61 = !{!50, !11, i64 88}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"short", !7, i64 0}
-!64 = distinct !{!64, !38}
-!65 = !{!5, !13, i64 204}
-!66 = !{!7, !7, i64 0}
-!67 = !{!68, !10, i64 0}
-!68 = !{!"_locked_st", !10, i64 0, !69, i64 8, !9, i64 16, !13, i64 24, !13, i64 28, !13, i64 32}
-!69 = !{!"p1 _ZTS9_strchunk", !9, i64 0}
-!70 = !{!68, !13, i64 28}
-!71 = !{!68, !13, i64 32}
-!72 = !{!68, !69, i64 8}
-!73 = !{!10, !10, i64 0}
-!74 = !{!68, !13, i64 24}
-!75 = !{!69, !69, i64 0}
-!76 = distinct !{!76, !38}
-!77 = !{!5, !13, i64 228}
-!78 = !{!79, !63, i64 84}
-!79 = !{!"_logger", !12, i64 0, !12, i64 8, !7, i64 16, !11, i64 56, !11, i64 64, !11, i64 72, !63, i64 80, !63, i64 82, !63, i64 84, !9, i64 88, !80, i64 96}
-!80 = !{!"p1 _ZTS14_entry_details", !9, i64 0}
-!81 = !{!68, !9, i64 16}
-!82 = !{!50, !11, i64 72}
-!83 = !{!84, !13, i64 140}
-!84 = !{!"settings", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !16, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !16, i64 48, !16, i64 56, !13, i64 64, !85, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !7, i64 92, !13, i64 96, !13, i64 100, !6, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !13, i64 124, !13, i64 128, !6, i64 132, !6, i64 133, !6, i64 134, !6, i64 135, !6, i64 136, !6, i64 137, !6, i64 138, !13, i64 140, !13, i64 144, !85, i64 152, !85, i64 160, !13, i64 168, !13, i64 172, !6, i64 176, !13, i64 180, !6, i64 184, !6, i64 185, !16, i64 192, !13, i64 200, !13, i64 204, !13, i64 208, !13, i64 212, !85, i64 216, !85, i64 224, !13, i64 232, !6, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !13, i64 252, !13, i64 256, !6, i64 260, !6, i64 261, !6, i64 262, !86, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !13, i64 304, !13, i64 308, !85, i64 312, !6, i64 320, !13, i64 324, !13, i64 328, !16, i64 336, !13, i64 344}
-!85 = !{!"double", !7, i64 0}
-!86 = !{!"p1 _ZTS17slab_rebal_thread", !9, i64 0}
-!87 = !{!14, !11, i64 0}
-!88 = !{!5, !11, i64 136}
-!89 = !{!84, !13, i64 144}
-!90 = !{!5, !13, i64 128}
-!91 = !{!23, !9, i64 8}
-!92 = !{!23, !9, i64 16}
-!93 = !{!9, !9, i64 0}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!5, !9, i64 184}
+!41 = !{!5, !9, i64 168}
+!42 = !{!5, !9, i64 176}
+!43 = !{!5, !7, i64 232}
+!44 = !{!5, !13, i64 200}
+!45 = !{!46, !6, i64 54}
+!46 = !{!"stats_state", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !47, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !6, i64 52, !6, i64 53, !6, i64 54, !6, i64 55}
+!47 = !{!"float", !7, i64 0}
+!48 = !{!15, !7, i64 64}
+!49 = !{!5, !10, i64 16}
+!50 = !{!51, !11, i64 40}
+!51 = !{!"stats", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !52, i64 192, !11, i64 208, !11, i64 216}
+!52 = !{!"timeval", !11, i64 0, !11, i64 8}
+!53 = !{!5, !13, i64 208}
+!54 = !{!51, !11, i64 48}
+!55 = !{!5, !13, i64 212}
+!56 = !{!51, !11, i64 56}
+!57 = !{!5, !13, i64 216}
+!58 = !{!51, !11, i64 64}
+!59 = !{!5, !13, i64 224}
+!60 = !{!51, !11, i64 80}
+!61 = !{!5, !13, i64 220}
+!62 = !{!51, !11, i64 88}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"short", !7, i64 0}
+!65 = distinct !{!65, !39}
+!66 = distinct !{!66, !38, !39}
+!67 = !{!5, !13, i64 204}
+!68 = !{!7, !7, i64 0}
+!69 = !{!70, !10, i64 0}
+!70 = !{!"_locked_st", !10, i64 0, !71, i64 8, !9, i64 16, !13, i64 24, !13, i64 28, !13, i64 32}
+!71 = !{!"p1 _ZTS9_strchunk", !9, i64 0}
+!72 = !{!70, !13, i64 28}
+!73 = !{!70, !13, i64 32}
+!74 = !{!70, !71, i64 8}
+!75 = !{!10, !10, i64 0}
+!76 = !{!70, !13, i64 24}
+!77 = !{!71, !71, i64 0}
+!78 = distinct !{!78, !38, !39}
+!79 = !{!5, !13, i64 228}
+!80 = !{!81, !64, i64 84}
+!81 = !{!"_logger", !12, i64 0, !12, i64 8, !7, i64 16, !11, i64 56, !11, i64 64, !11, i64 72, !64, i64 80, !64, i64 82, !64, i64 84, !9, i64 88, !82, i64 96}
+!82 = !{!"p1 _ZTS14_entry_details", !9, i64 0}
+!83 = !{!70, !9, i64 16}
+!84 = !{!51, !11, i64 72}
+!85 = !{!86, !13, i64 140}
+!86 = !{!"settings", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !16, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !16, i64 48, !16, i64 56, !13, i64 64, !87, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !7, i64 92, !13, i64 96, !13, i64 100, !6, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !13, i64 124, !13, i64 128, !6, i64 132, !6, i64 133, !6, i64 134, !6, i64 135, !6, i64 136, !6, i64 137, !6, i64 138, !13, i64 140, !13, i64 144, !87, i64 152, !87, i64 160, !13, i64 168, !13, i64 172, !6, i64 176, !13, i64 180, !6, i64 184, !6, i64 185, !16, i64 192, !13, i64 200, !13, i64 204, !13, i64 208, !13, i64 212, !87, i64 216, !87, i64 224, !13, i64 232, !6, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !13, i64 252, !13, i64 256, !6, i64 260, !6, i64 261, !6, i64 262, !88, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !13, i64 304, !13, i64 308, !87, i64 312, !6, i64 320, !13, i64 324, !13, i64 328, !16, i64 336, !13, i64 344}
+!87 = !{!"double", !7, i64 0}
+!88 = !{!"p1 _ZTS17slab_rebal_thread", !9, i64 0}
+!89 = !{!14, !11, i64 0}
+!90 = !{!5, !11, i64 136}
+!91 = !{!86, !13, i64 144}
+!92 = !{!5, !13, i64 128}
+!93 = !{!23, !9, i64 8}
+!94 = !{!23, !9, i64 16}
+!95 = !{!9, !9, i64 0}

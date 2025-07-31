@@ -9935,29 +9935,29 @@ _ZN5QListIP13_rtpstream_idElsES1_.exit:           ; preds = %10
 define void @_ZN14SequenceDialog16rtpPlayerReplaceEv(ptr noundef align 8 dereferenceable_or_null(305) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.89, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !49
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !50
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %5 = load ptr, ptr %4, align 8, !noalias !49
+  %5 = load ptr, ptr %4, align 8, !noalias !50
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  %8 = load i32, ptr %7, align 4, !noalias !49
+  %8 = load i32, ptr %7, align 4, !noalias !50
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %12 = load ptr, ptr %11, align 8, !noalias !49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !49
-  store ptr %12, ptr %2, align 8, !noalias !49
+  %12 = load ptr, ptr %11, align 8, !noalias !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !50
+  store ptr %12, ptr %2, align 8, !noalias !50
   invoke void @_ZN9QtPrivate12QPodArrayOpsIP13_rtpstream_idE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN5QListIP13_rtpstream_idElsES1_.exit.i unwind label %13
 
 _ZN5QListIP13_rtpstream_idElsES1_.exit.i:         ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !50
   br label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 13:                                               ; preds = %10
@@ -10024,29 +10024,29 @@ declare void @_ZN14SequenceDialog32rtpPlayerDialogReplaceRtpStreamsE5QListIP13_r
 define void @_ZN14SequenceDialog12rtpPlayerAddEv(ptr noundef align 8 dereferenceable_or_null(305) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.89, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %5 = load ptr, ptr %4, align 8, !noalias !52
+  %5 = load ptr, ptr %4, align 8, !noalias !53
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  %8 = load i32, ptr %7, align 4, !noalias !52
+  %8 = load i32, ptr %7, align 4, !noalias !53
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %12 = load ptr, ptr %11, align 8, !noalias !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !52
-  store ptr %12, ptr %2, align 8, !noalias !52
+  %12 = load ptr, ptr %11, align 8, !noalias !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !53
+  store ptr %12, ptr %2, align 8, !noalias !53
   invoke void @_ZN9QtPrivate12QPodArrayOpsIP13_rtpstream_idE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN5QListIP13_rtpstream_idElsES1_.exit.i unwind label %13
 
 _ZN5QListIP13_rtpstream_idElsES1_.exit.i:         ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !53
   br label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 13:                                               ; preds = %10
@@ -10113,29 +10113,29 @@ declare void @_ZN14SequenceDialog28rtpPlayerDialogAddRtpStreamsE5QListIP13_rtpst
 define void @_ZN14SequenceDialog15rtpPlayerRemoveEv(ptr noundef align 8 dereferenceable_or_null(305) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QList.89, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !55
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3, i8 0, i64 24, i1 false), !alias.scope !56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %5 = load ptr, ptr %4, align 8, !noalias !55
+  %5 = load ptr, ptr %4, align 8, !noalias !56
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  %8 = load i32, ptr %7, align 4, !noalias !55
+  %8 = load i32, ptr %7, align 4, !noalias !56
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %12 = load ptr, ptr %11, align 8, !noalias !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !55
-  store ptr %12, ptr %2, align 8, !noalias !55
+  %12 = load ptr, ptr %11, align 8, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !56
+  store ptr %12, ptr %2, align 8, !noalias !56
   invoke void @_ZN9QtPrivate12QPodArrayOpsIP13_rtpstream_idE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN5QListIP13_rtpstream_idElsES1_.exit.i unwind label %13
 
 _ZN5QListIP13_rtpstream_idElsES1_.exit.i:         ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !55
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !56
   br label %_ZN14SequenceDialog17getSelectedRtpIdsEv.exit
 
 13:                                               ; preds = %10
@@ -14314,7 +14314,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !58
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !59
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14356,7 +14356,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !59
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !60
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -15878,16 +15878,17 @@ attributes #30 = { cold noreturn }
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZplRK7QStringS1_: argument 0"}
 !46 = distinct !{!46, !"_ZplRK7QStringS1_"}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
-!51 = distinct !{!51, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
-!54 = distinct !{!54, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
-!57 = distinct !{!57, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
-!58 = distinct !{!58, !48}
-!59 = distinct !{!59, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
+!52 = distinct !{!52, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
+!55 = distinct !{!55, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN14SequenceDialog17getSelectedRtpIdsEv: argument 0"}
+!58 = distinct !{!58, !"_ZN14SequenceDialog17getSelectedRtpIdsEv"}
+!59 = distinct !{!59, !48, !49}
+!60 = distinct !{!60, !48, !49}

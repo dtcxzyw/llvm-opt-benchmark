@@ -299,7 +299,7 @@ define dso_local void @RelationTruncate(ptr noundef %0, i32 noundef %1) local_un
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %RelationGetSmgr.exit, !prof !8
+  br i1 %9, label %10, label %RelationGetSmgr.exit, !prof !9
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -323,7 +323,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %10
   store i32 %1, ptr %5, align 4
   %17 = load ptr, ptr %7, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %RelationGetSmgr.exit49, !prof !8
+  br i1 %18, label %19, label %RelationGetSmgr.exit49, !prof !9
 
 19:                                               ; preds = %RelationGetSmgr.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -362,7 +362,7 @@ RelationGetSmgr.exit49:                           ; preds = %RelationGetSmgr.exi
   %.0 = phi i1 [ true, %28 ], [ false, %25 ], [ false, %RelationGetSmgr.exit49 ]
   %33 = load ptr, ptr %7, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %RelationGetSmgr.exit54, !prof !8
+  br i1 %34, label %35, label %RelationGetSmgr.exit54, !prof !9
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -407,7 +407,7 @@ RelationGetSmgr.exit54:                           ; preds = %32, %35
 52:                                               ; preds = %50
   %53 = load ptr, ptr %7, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %RelationGetSmgr.exit.i, !prof !8
+  br i1 %54, label %55, label %RelationGetSmgr.exit.i, !prof !9
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -482,7 +482,7 @@ RelationPreTruncate.exit:                         ; preds = %50, %RelationGetSmg
 89:                                               ; preds = %85, %81, %77, %RelationPreTruncate.exit
   %90 = load ptr, ptr %7, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %RelationGetSmgr.exit59, !prof !8
+  br i1 %91, label %92, label %RelationGetSmgr.exit59, !prof !9
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -538,7 +538,7 @@ define dso_local void @RelationPreTruncate(ptr noundef captures(none) %0) local_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %RelationGetSmgr.exit, !prof !8
+  br i1 %6, label %7, label %RelationGetSmgr.exit, !prof !9
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -601,7 +601,7 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
   %.030 = phi i32 [ %36, %35 ], [ 0, %14 ]
   %18 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %20, label %19, !prof !9
+  br i1 %.not, label %20, label %19, !prof !10
 
 19:                                               ; preds = %.lr.ph
   call void @ProcessInterrupts() #8
@@ -636,7 +636,7 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
   call void @smgr_bulk_write(ptr noundef %16, i32 noundef %.030, ptr noundef %21, i1 noundef zeroext false) #8
   %36 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %36, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %35, %14
   call void @smgr_bulk_finish(ptr noundef %16) #8
@@ -738,7 +738,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   %16 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null) #8
   %17 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
   %.not32 = icmp eq ptr %17, null
-  br i1 %.not32, label %.preheader, label %.lr.ph, !llvm.loop !11
+  br i1 %.not32, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph39:                                         ; preds = %.preheader, %23
   %.038 = phi ptr [ %.0, %23 ], [ %.036, %.preheader ]
@@ -755,7 +755,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   %24 = getelementptr inbounds nuw i8, ptr %.038, i64 24
   %.0 = load ptr, ptr %24, align 8
   %.not33 = icmp eq ptr %.0, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph39, !llvm.loop !12
+  br i1 %.not33, label %._crit_edge, label %.lr.ph39, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %12) #8
@@ -770,7 +770,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.02941, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
   %28 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
   %.not34 = icmp eq ptr %28, null
-  br i1 %.not34, label %._crit_edge44, label %.lr.ph43, !llvm.loop !13
+  br i1 %.not34, label %._crit_edge44, label %.lr.ph43, !llvm.loop !14
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge
   %.029.lcssa = phi ptr [ %1, %._crit_edge ], [ %27, %.lr.ph43 ]
@@ -839,7 +839,7 @@ AddPendingSync.exit:                              ; preds = %9, %11
   %18 = getelementptr inbounds nuw i8, ptr %.05, i64 20
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %AddPendingSync.exit, %1
   ret void
@@ -935,7 +935,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.2 = phi i32 [ %.136, %36 ], [ %.03549, %5 ]
   %.1 = phi ptr [ %.03450, %36 ], [ %.03351, %5 ]
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %37
   %38 = icmp sgt i32 %.2, 0
@@ -957,7 +957,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   tail call void @smgrclose(ptr noundef %43) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %40, label %41, !llvm.loop !16
+  br i1 %exitcond.not, label %40, label %41, !llvm.loop !17
 
 ._crit_edge.thread:                               ; preds = %1, %40, %._crit_edge
   ret void
@@ -1015,7 +1015,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %17 = getelementptr inbounds nuw i8, ptr %.067, i64 24
   %.0 = load ptr, ptr %17, align 8
   %.not57 = icmp eq ptr %.0, null
-  br i1 %.not57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %16
   %.pre = load ptr, ptr @pendingSyncHash, align 8
@@ -1067,7 +1067,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   store i32 %.sink, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit63, label %.preheader62, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit63, label %.preheader62, !llvm.loop !19
 
 .loopexit63:                                      ; preds = %31
   %.pre84 = load i8, ptr %22, align 4, !range !4
@@ -1133,7 +1133,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 58:                                               ; preds = %52, %55
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %exitcond83.not, label %.loopexit, label %52, !llvm.loop !19
+  br i1 %exitcond83.not, label %.loopexit, label %52, !llvm.loop !20
 
 .loopexit:                                        ; preds = %58, %48
   %.250 = phi ptr [ %.149, %48 ], [ %.04872, %58 ]
@@ -1142,7 +1142,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   %59 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not58 = icmp eq ptr %59, null
-  br i1 %.not58, label %._crit_edge77, label %.lr.ph76, !llvm.loop !20
+  br i1 %.not58, label %._crit_edge77, label %.lr.ph76, !llvm.loop !21
 
 ._crit_edge77:                                    ; preds = %.loopexit
   store ptr null, ptr @pendingSyncHash, align 8
@@ -1205,7 +1205,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef w
   %18 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %17
   %19 = icmp eq i32 %.127, 0
@@ -1258,7 +1258,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef w
   %39 = getelementptr inbounds nuw i8, ptr %.139, i64 24
   %.1 = load ptr, ptr %39, align 8
   %.not29 = icmp eq ptr %.1, null
-  br i1 %.not29, label %.loopexit, label %25, !llvm.loop !22
+  br i1 %.not29, label %.loopexit, label %25, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %20, %._crit_edge.thread
   %.026.lcssa43 = phi i32 [ %.127, %20 ], [ 0, %._crit_edge.thread ], [ %.127, %38 ]
@@ -1278,7 +1278,7 @@ define dso_local void @PostPrepare_smgr() local_unnamed_addr #0 {
   store ptr %3, ptr @pendingDeletes, align 8
   tail call void @pfree(ptr noundef nonnull %.06) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1310,7 +1310,7 @@ define dso_local void @AtSubCommit_smgr() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %3, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %3, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %7, %0
   ret void
@@ -1514,22 +1514,23 @@ attributes #8 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

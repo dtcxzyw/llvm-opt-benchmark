@@ -1126,7 +1126,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %167 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %166, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0)
   %.1.i.i = add i32 %.1.in37.i.i, 6
   %.not.i.i = icmp eq i8 %156, 0
-  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 168:                                              ; preds = %72
   %169 = load i32, ptr @hf_om2k_drx_dev_max, align 4
@@ -1244,7 +1244,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %253 = add i32 %.023.i.i, 5
   %254 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef 1, i32 noundef 0)
   %255 = icmp slt i32 %253, %244
-  br i1 %255, label %.lr.ph.i388.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !9
+  br i1 %255, label %.lr.ph.i388.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !10
 
 256:                                              ; preds = %72
   %257 = load i32, ptr @hf_om2k_list_nr, align 4
@@ -1474,7 +1474,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %420 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %416, ptr noundef %0, i32 noundef %412, i32 noundef range(i32 0, 256) %414, ptr noundef null, ptr noundef nonnull @.str.513, ptr noundef %417, ptr noundef %419)
   %421 = add i32 %412, %414
   %422 = icmp slt i32 %421, %402
-  br i1 %422, label %.lr.ph.i390.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !10
+  br i1 %422, label %.lr.ph.i390.i, label %dissect_om2k_con_list.exit.i, !llvm.loop !11
 
 423:                                              ; preds = %72
   %424 = load i32, ptr @hf_om2k_tta, align 4
@@ -1516,13 +1516,13 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %444 = add i32 %.123.i.i, 6
   %445 = add nuw i8 %.02122.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %445, %436
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i392.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i392.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i392.i, %.lr.ph27.i.i
   %.1.lcssa.i393.i = phi i32 [ %438, %.lr.ph27.i.i ], [ %444, %.lr.ph.i392.i ]
   %446 = add nuw i8 %.02024.i.i, 1
   %exitcond31.not.i.i = icmp eq i8 %446, %434
-  br i1 %exitcond31.not.i.i, label %dissect_om2k_con_list.exit.i, label %.lr.ph27.i.i, !llvm.loop !12
+  br i1 %exitcond31.not.i.i, label %dissect_om2k_con_list.exit.i, label %.lr.ph27.i.i, !llvm.loop !13
 
 447:                                              ; preds = %72
   %448 = add i32 %.0407.i, 2
@@ -1544,7 +1544,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %458 = add i32 %.017.i.i, 7
   %459 = add nuw i8 %.01516.i.i, 1
   %exitcond.not.i397.i = icmp eq i8 %459, %450
-  br i1 %exitcond.not.i397.i, label %dissect_om2k_con_list.exit.i, label %.lr.ph.i396.i, !llvm.loop !13
+  br i1 %exitcond.not.i397.i, label %dissect_om2k_con_list.exit.i, label %.lr.ph.i396.i, !llvm.loop !14
 
 460:                                              ; preds = %72
   %461 = load i32, ptr @hf_om2k_ea, align 4
@@ -1599,7 +1599,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   %497 = add i32 %.01617.i.i, 1
   %498 = add nuw nsw i32 %.018.i.i, 2
   %499 = icmp samesign ult i32 %.018.i.i, 6
-  br i1 %499, label %.preheader.i, label %dissect_tss_mo_state.exit.i, !llvm.loop !14
+  br i1 %499, label %.preheader.i, label %dissect_tss_mo_state.exit.i, !llvm.loop !15
 
 dissect_tss_mo_state.exit.i:                      ; preds = %.preheader.i
   %500 = add i32 %.0407.i, 5
@@ -1729,7 +1729,7 @@ dissect_om2k_con_list.exit.i:                     ; preds = %.lr.ph.i396.i, %._c
   %.1.i = phi i32 [ %590, %584 ], [ %79, %81 ], [ %79, %76 ], [ %85, %83 ], [ %89, %87 ], [ %93, %91 ], [ %97, %95 ], [ %101, %99 ], [ %110, %103 ], [ %129, %111 ], [ %137, %135 ], [ %170, %168 ], [ %174, %172 ], [ %182, %176 ], [ %191, %183 ], [ %195, %192 ], [ %198, %196 ], [ %203, %200 ], [ %213, %204 ], [ %220, %214 ], [ %223, %221 ], [ %227, %225 ], [ %235, %229 ], [ %258, %256 ], [ %262, %260 ], [ %266, %264 ], [ %271, %274 ], [ %271, %268 ], [ %278, %276 ], [ %282, %280 ], [ %286, %284 ], [ %290, %288 ], [ %294, %292 ], [ %302, %296 ], [ %305, %303 ], [ %309, %307 ], [ %313, %311 ], [ %317, %315 ], [ %321, %319 ], [ %335, %323 ], [ %345, %336 ], [ %348, %346 ], [ %355, %350 ], [ %362, %356 ], [ %369, %363 ], [ %377, %370 ], [ %380, %378 ], [ %384, %382 ], [ %388, %386 ], [ %396, %390 ], [ %400, %397 ], [ %425, %423 ], [ %430, %427 ], [ %462, %460 ], [ %466, %464 ], [ %474, %468 ], [ %478, %475 ], [ %485, %479 ], [ %500, %dissect_tss_mo_state.exit.i ], [ %503, %501 ], [ %507, %505 ], [ %511, %509 ], [ %516, %513 ], [ %520, %517 ], [ %524, %521 ], [ %531, %525 ], [ %538, %532 ], [ %545, %539 ], [ %552, %546 ], [ %562, %553 ], [ %569, %563 ], [ %576, %570 ], [ %583, %577 ], [ %148, %139 ], [ %237, %236 ], [ %407, %401 ], [ %433, %431 ], [ %449, %447 ], [ %.1.lcssa.i.i, %.loopexit.i.i ], [ %253, %.lr.ph.i388.i ], [ %421, %.lr.ph.i390.i ], [ %.1.lcssa.i393.i, %._crit_edge.i.i ], [ %458, %.lr.ph.i396.i ]
   %591 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %592 = icmp sgt i32 %591, 0
-  br i1 %592, label %72, label %dissect_om2k_attrs.exit, !llvm.loop !15
+  br i1 %592, label %72, label %dissect_om2k_attrs.exit, !llvm.loop !16
 
 dissect_om2k_attrs.exit:                          ; preds = %dissect_om2k_con_list.exit.i, %60
   %593 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1819,13 +1819,14 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

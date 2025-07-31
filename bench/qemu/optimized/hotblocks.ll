@@ -96,7 +96,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
   store i64 %4, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %5, ptr %7, align 8
@@ -130,7 +130,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 22:                                               ; preds = %14, %10
   %.0 = phi ptr [ %9, %10 ], [ %15, %14 ]
   call void @g_mutex_unlock(ptr noundef nonnull @lock) #7
-  %23 = load i8, ptr @do_inline, align 1, !range !6, !noundef !7
+  %23 = load i8, ptr @do_inline, align 1, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %28
 
@@ -188,7 +188,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %23 = add nuw nsw i32 %.01116, 1
   %24 = load ptr, ptr %11, align 8
   %exitcond.not = icmp eq i32 %23, 20
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !9
 
 .critedge:                                        ; preds = %13, %10
   %.0.lcssa = phi ptr [ %24, %13 ], [ %.017, %10 ]
@@ -336,9 +336,10 @@ attributes #9 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"auto-init"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"auto-init"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}

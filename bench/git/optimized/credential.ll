@@ -1163,7 +1163,7 @@ credential_write_item.exit130:                    ; preds = %178
 
 183:                                              ; preds = %credential_write_item.exit130, %178
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %185 = load i64, ptr %184, align 8, !tbaa !35
+  %185 = load i64, ptr %184, align 8, !tbaa !36
   %.not152 = icmp eq i64 %185, 0
   br i1 %.not152, label %credential_has_capability.exit122.thread, label %.lr.ph150
 
@@ -1174,7 +1174,7 @@ credential_write_item.exit130:                    ; preds = %178
 187:                                              ; preds = %.lr.ph150, %credential_write_item.exit134
   %188 = phi i64 [ %185, %.lr.ph150 ], [ %204, %credential_write_item.exit134 ]
   %.0148 = phi i64 [ 0, %.lr.ph150 ], [ %205, %credential_write_item.exit134 ]
-  %189 = load ptr, ptr %186, align 8, !tbaa !36
+  %189 = load ptr, ptr %186, align 8, !tbaa !37
   %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %.0148
   %191 = load ptr, ptr %190, align 8, !tbaa !32
   %192 = icmp eq ptr %191, null
@@ -1206,14 +1206,14 @@ credential_write_item.exit130:                    ; preds = %178
 
 202:                                              ; preds = %199, %196
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.12, ptr noundef nonnull %191) #19
-  %.pre153 = load i64, ptr %184, align 8, !tbaa !35
+  %.pre153 = load i64, ptr %184, align 8, !tbaa !36
   br label %credential_write_item.exit134
 
 credential_write_item.exit134:                    ; preds = %187, %202
   %204 = phi i64 [ %188, %187 ], [ %.pre153, %202 ]
   %205 = add nuw i64 %.0148, 1
   %206 = icmp ult i64 %205, %204
-  br i1 %206, label %187, label %credential_has_capability.exit122.thread, !llvm.loop !37
+  br i1 %206, label %187, label %credential_has_capability.exit122.thread, !llvm.loop !38
 
 credential_has_capability.exit122.thread:         ; preds = %credential_write_item.exit134, %154, %183, %._crit_edge, %credential_has_capability.exit122
   ret void
@@ -1321,7 +1321,7 @@ define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 nound
 
 29:                                               ; preds = %22, %16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !38
+  %31 = load i64, ptr %30, align 8, !tbaa !39
   %.not46 = icmp eq i64 %31, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
@@ -1332,20 +1332,20 @@ define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 nound
 
 34:                                               ; preds = %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i64, ptr %30, align 8, !tbaa !38
+  %35 = load i64, ptr %30, align 8, !tbaa !39
   %36 = icmp ugt i64 %35, %indvars.iv.next
-  br i1 %36, label %37, label %._crit_edge, !llvm.loop !39
+  br i1 %36, label %37, label %._crit_edge, !llvm.loop !40
 
 37:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %38 = load ptr, ptr %1, align 8, !tbaa !40
+  %38 = load ptr, ptr %1, align 8, !tbaa !41
   %39 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %40 = load ptr, ptr %39, align 8, !tbaa !42
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.21)
   %41 = load i64, ptr %32, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
   %42 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #19
-  %43 = load i64, ptr %6, align 8, !tbaa !43
+  %43 = load i64, ptr %6, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
   %44 = icmp ult i64 %41, %43
   br i1 %44, label %45, label %48
@@ -1387,9 +1387,9 @@ define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not40, label %34, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %1, align 8, !tbaa !40
+  %60 = load ptr, ptr %1, align 8, !tbaa !41
   %61 = getelementptr inbounds nuw %struct.string_list_item, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  %62 = load ptr, ptr %61, align 8, !tbaa !42
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %62) #22
   unreachable
 
@@ -1510,19 +1510,19 @@ define internal fastcc void @credential_apply_config(ptr noundef %0, ptr noundef
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr @.str.6, ptr %20, align 8, !tbaa !45
+  store ptr @.str.6, ptr %20, align 8, !tbaa !46
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  store ptr null, ptr %21, align 8, !tbaa !48
+  store ptr null, ptr %21, align 8, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store ptr @credential_config_callback, ptr %22, align 8, !tbaa !49
+  store ptr @credential_config_callback, ptr %22, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store ptr null, ptr %23, align 8, !tbaa !50
+  store ptr null, ptr %23, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  store ptr @select_all, ptr %24, align 8, !tbaa !51
+  store ptr @select_all, ptr %24, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store ptr @match_partial_url, ptr %25, align 8, !tbaa !52
+  store ptr @match_partial_url, ptr %25, align 8, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  store ptr %1, ptr %26, align 8, !tbaa !53
+  store ptr %1, ptr %26, align 8, !tbaa !54
   call fastcc void @credential_format(ptr noundef nonnull %1, ptr noundef %4)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !24
@@ -1609,12 +1609,12 @@ define internal fastcc void @credential_do(ptr noundef %0, ptr noundef %1, ptr n
   %20 = or i16 %19, 32
   store i16 %20, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i32 -1, ptr %21, align 8, !tbaa !54
+  store i32 -1, ptr %21, align 8, !tbaa !55
   br i1 %.not8.not, label %22, label %24
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i32 -1, ptr %23, align 4, !tbaa !56
+  store i32 -1, ptr %23, align 4, !tbaa !57
   br label %26
 
 24:                                               ; preds = %13
@@ -1628,7 +1628,7 @@ define internal fastcc void @credential_do(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %28, label %run_credential_helper.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %21, align 8, !tbaa !54
+  %30 = load i32, ptr %21, align 8, !tbaa !55
   %31 = call ptr @xfdopen(i32 noundef %30, ptr noundef nonnull @.str.46) #19
   %32 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #19
   %33 = select i1 %.not8.not, i32 2, i32 3
@@ -1639,7 +1639,7 @@ define internal fastcc void @credential_do(ptr noundef %0, ptr noundef %1, ptr n
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %38 = load i32, ptr %37, align 4, !tbaa !56
+  %38 = load i32, ptr %37, align 4, !tbaa !57
   %39 = call ptr @xfdopen(i32 noundef %38, ptr noundef nonnull @.str.47) #19
   %40 = call i32 @credential_read(ptr noundef %0, ptr noundef %39, i32 noundef 2)
   %41 = call i32 @fclose(ptr noundef %39)
@@ -1692,7 +1692,7 @@ define dso_local void @credential_approve(ptr noundef %0, ptr noundef %1) local_
   %19 = load i64, ptr %18, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   %20 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #19
-  %21 = load i64, ptr %4, align 8, !tbaa !43
+  %21 = load i64, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %22 = icmp ult i64 %19, %21
   br i1 %22, label %35, label %23
@@ -1708,20 +1708,20 @@ define dso_local void @credential_approve(ptr noundef %0, ptr noundef %1) local_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   tail call fastcc void @credential_apply_config(ptr noundef %0, ptr noundef nonnull %1)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !38
+  %27 = load i64, ptr %26, align 8, !tbaa !39
   %.not19 = icmp eq i64 %27, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
-  %28 = load ptr, ptr %1, align 8, !tbaa !40
+  %28 = load ptr, ptr %1, align 8, !tbaa !41
   %29 = getelementptr inbounds nuw %struct.string_list_item, ptr %28, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %30 = load ptr, ptr %29, align 8, !tbaa !42
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull @.str.24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i64, ptr %26, align 8, !tbaa !38
+  %31 = load i64, ptr %26, align 8, !tbaa !39
   %32 = icmp ugt i64 %31, %indvars.iv.next
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %33 = load i16, ptr %5, align 8
@@ -1746,20 +1746,20 @@ define dso_local void @credential_reject(ptr noundef %0, ptr noundef %1) local_u
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   tail call fastcc void @credential_apply_config(ptr noundef %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !38
+  %7 = load i64, ptr %6, align 8, !tbaa !39
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %8 = load ptr, ptr %1, align 8, !tbaa !40
+  %8 = load ptr, ptr %1, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %10, ptr noundef nonnull @.str.25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i64, ptr %6, align 8, !tbaa !38
+  %11 = load i64, ptr %6, align 8, !tbaa !39
   %12 = icmp ugt i64 %11, %indvars.iv.next
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -1948,7 +1948,7 @@ _.exit:                                           ; preds = %9, %11
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %.084, i64 1
-  br label %74, !llvm.loop !59
+  br label %74, !llvm.loop !60
 
 78:                                               ; preds = %74
   %79 = tail call ptr @url_decode(ptr noundef nonnull %.084) #19
@@ -1974,7 +1974,7 @@ _.exit:                                           ; preds = %9, %11
   %.0 = getelementptr inbounds i8, ptr %.0150, i64 -1
   %87 = load ptr, ptr %80, align 8, !tbaa !20
   %88 = icmp ugt ptr %.0, %87
-  br i1 %88, label %.lr.ph, label %.critedge, !llvm.loop !60
+  br i1 %88, label %.lr.ph, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %74, %86, %.lr.ph, %78
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2170,7 +2170,7 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   %9 = load i8, ptr %.07.i, align 1, !tbaa !27
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
   %10 = icmp eq i8 %9, %6
-  br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !61
+  br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !62
 
 skip_prefix.exit:                                 ; preds = %5, %7
   %.not.i = icmp eq i8 %6, 0
@@ -2338,7 +2338,7 @@ define internal fastcc void @credential_format(ptr noundef readonly captures(non
 
 10:                                               ; preds = %8
   tail call void @strbuf_add_percentencode(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1) #19
-  %11 = load i64, ptr %1, align 8, !tbaa !62
+  %11 = load i64, ptr %1, align 8, !tbaa !63
   %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
@@ -2388,7 +2388,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %.not20, label %42, label %29
 
 29:                                               ; preds = %26
-  %30 = load i64, ptr %1, align 8, !tbaa !62
+  %30 = load i64, ptr %1, align 8, !tbaa !63
   %.not.i.i21 = icmp eq i64 %30, 0
   br i1 %.not.i.i21, label %strbuf_avail.exit.thread.i26, label %strbuf_avail.exit.i22
 
@@ -2644,33 +2644,34 @@ attributes #22 = { noreturn nounwind }
 !30 = !{!5, !11, i64 48}
 !31 = !{!5, !14, i64 40}
 !32 = !{!16, !16, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!5, !11, i64 96}
-!36 = !{!5, !14, i64 88}
-!37 = distinct !{!37, !34}
-!38 = !{!5, !11, i64 8}
-!39 = distinct !{!39, !34}
-!40 = !{!5, !7, i64 0}
-!41 = !{!42, !16, i64 0}
-!42 = !{!"string_list_item", !16, i64 0, !8, i64 8}
-!43 = !{!44, !11, i64 0}
-!44 = !{!"timeval", !11, i64 0, !11, i64 8}
-!45 = !{!46, !16, i64 152}
-!46 = !{!"urlmatch_config", !6, i64 0, !47, i64 40, !16, i64 152, !16, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200}
-!47 = !{!"url_info", !16, i64 0, !16, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!48 = !{!46, !16, i64 160}
-!49 = !{!46, !8, i64 176}
-!50 = !{!46, !8, i64 184}
-!51 = !{!46, !8, i64 192}
-!52 = !{!46, !8, i64 200}
-!53 = !{!46, !8, i64 168}
-!54 = !{!55, !12, i64 80}
-!55 = !{!"child_process", !13, i64 0, !13, i64 24, !12, i64 48, !12, i64 52, !11, i64 56, !16, i64 64, !16, i64 72, !12, i64 80, !12, i64 84, !12, i64 88, !16, i64 96, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 105, !12, i64 105, !8, i64 112}
-!56 = !{!55, !12, i64 84}
-!57 = distinct !{!57, !34}
-!58 = distinct !{!58, !34}
-!59 = distinct !{!59, !34}
-!60 = distinct !{!60, !34}
-!61 = distinct !{!61, !34}
-!62 = !{!25, !11, i64 0}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!5, !11, i64 96}
+!37 = !{!5, !14, i64 88}
+!38 = distinct !{!38, !34, !35}
+!39 = !{!5, !11, i64 8}
+!40 = distinct !{!40, !34, !35}
+!41 = !{!5, !7, i64 0}
+!42 = !{!43, !16, i64 0}
+!43 = !{!"string_list_item", !16, i64 0, !8, i64 8}
+!44 = !{!45, !11, i64 0}
+!45 = !{!"timeval", !11, i64 0, !11, i64 8}
+!46 = !{!47, !16, i64 152}
+!47 = !{!"urlmatch_config", !6, i64 0, !48, i64 40, !16, i64 152, !16, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200}
+!48 = !{!"url_info", !16, i64 0, !16, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!49 = !{!47, !16, i64 160}
+!50 = !{!47, !8, i64 176}
+!51 = !{!47, !8, i64 184}
+!52 = !{!47, !8, i64 192}
+!53 = !{!47, !8, i64 200}
+!54 = !{!47, !8, i64 168}
+!55 = !{!56, !12, i64 80}
+!56 = !{!"child_process", !13, i64 0, !13, i64 24, !12, i64 48, !12, i64 52, !11, i64 56, !16, i64 64, !16, i64 72, !12, i64 80, !12, i64 84, !12, i64 88, !16, i64 96, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 104, !12, i64 105, !12, i64 105, !8, i64 112}
+!57 = !{!56, !12, i64 84}
+!58 = distinct !{!58, !34, !35}
+!59 = distinct !{!59, !34, !35}
+!60 = distinct !{!60, !34, !35}
+!61 = distinct !{!61, !34, !35}
+!62 = distinct !{!62, !34, !35}
+!63 = !{!25, !11, i64 0}

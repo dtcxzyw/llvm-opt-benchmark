@@ -80,7 +80,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 7:                                                ; preds = %1
   %8 = tail call ptr @test_get_argument(i64 noundef 0) #7
-  store ptr %8, ptr @filename, align 8, !tbaa !6
+  store ptr %8, ptr @filename, align 8, !tbaa !7
   %9 = tail call i32 @test_get_libctx(ptr noundef nonnull @libctx, ptr noundef nonnull @nullprov, ptr noundef %.03, ptr noundef nonnull @libprov, ptr noundef %.04) #7
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %.loopexit, label %10
@@ -111,24 +111,24 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal range(i32 0, 2) i32 @test_decode_nonfipsalg() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !11
-  %2 = load ptr, ptr @libctx, align 8, !tbaa !13
+  store ptr null, ptr %1, align 8, !tbaa !12
+  %2 = load ptr, ptr @libctx, align 8, !tbaa !14
   %3 = tail call i32 @EVP_default_properties_enable_fips(ptr noundef %2, i32 noundef 1) #7
-  %4 = load ptr, ptr @filename, align 8, !tbaa !6
+  %4 = load ptr, ptr @filename, align 8, !tbaa !7
   %5 = tail call ptr @BIO_new_file(ptr noundef %4, ptr noundef nonnull @.str.23) #7
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.21, i32 noundef 60, ptr noundef nonnull @.str.22, ptr noundef %5) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr @libctx, align 8, !tbaa !13
+  %8 = load ptr, ptr @libctx, align 8, !tbaa !14
   %9 = call ptr @PEM_read_bio_PrivateKey_ex(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull @passcb, ptr noundef null, ptr noundef %8, ptr noundef null) #7
   %10 = call i32 @test_ptr_null(ptr noundef nonnull @.str.21, i32 noundef 67, ptr noundef nonnull @.str.24, ptr noundef %9) #7
   %.not3 = icmp eq i32 %10, 0
   br i1 %.not3, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr @libctx, align 8, !tbaa !13
+  %12 = load ptr, ptr @libctx, align 8, !tbaa !14
   %13 = call ptr @PEM_read_bio_PrivateKey_ex(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull @passcb, ptr noundef null, ptr noundef %12, ptr noundef nonnull @.str.26) #7
   %14 = call i32 @test_ptr_null(ptr noundef nonnull @.str.21, i32 noundef 74, ptr noundef nonnull @.str.25, ptr noundef %13) #7
   %.not4 = icmp ne i32 %14, 0
@@ -138,7 +138,7 @@ define internal range(i32 0, 2) i32 @test_decode_nonfipsalg() #1 {
 15:                                               ; preds = %11, %7, %0
   %.0 = phi i32 [ 0, %7 ], [ 0, %0 ], [ %spec.select, %11 ]
   %16 = call i32 @BIO_free(ptr noundef %5) #7
-  %17 = load ptr, ptr %1, align 8, !tbaa !11
+  %17 = load ptr, ptr %1, align 8, !tbaa !12
   call void @EVP_PKEY_free(ptr noundef %17) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   ret i32 %.0
@@ -149,11 +149,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @libprov, align 8, !tbaa !15
+  %1 = load ptr, ptr @libprov, align 8, !tbaa !16
   %2 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %1) #7
-  %3 = load ptr, ptr @libctx, align 8, !tbaa !13
+  %3 = load ptr, ptr @libctx, align 8, !tbaa !14
   tail call void @OSSL_LIB_CTX_free(ptr noundef %3) #7
-  %4 = load ptr, ptr @nullprov, align 8, !tbaa !15
+  %4 = load ptr, ptr @nullprov, align 8, !tbaa !16
   %5 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %4) #7
   ret void
 }
@@ -206,16 +206,17 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 omnipotent char", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}

@@ -1319,7 +1319,7 @@ define internal void @job_do_yield_locked(ptr noundef %0, i64 noundef %1) #0 {
   %.0 = load ptr, ptr %10, align 8
   %14 = tail call ptr @qemu_get_current_aio_context() #15
   %.not10 = icmp eq ptr %14, %.0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %15 = load i8, ptr %6, align 4, !range !4, !noundef !5
@@ -1971,7 +1971,7 @@ job_prepare_locked.exit:                          ; preds = %41, %.thread.i.i
 
 .backedge:                                        ; preds = %job_is_cancelled_locked.exit.i.i, %19, %job_prepare_locked.exit
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 job_prepare_locked.exit.thread:                   ; preds = %15, %job_prepare_locked.exit
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -1996,9 +1996,9 @@ job_prepare_locked.exit.thread:                   ; preds = %15, %job_prepare_lo
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %.010.i6, i64 264
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %.010.i6) #15, !callees !12
+  %54 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %.010.i6) #15, !callees !13
   %.not13.i8 = icmp eq i32 %54, 0
-  br i1 %.not13.i8, label %50, label %job_txn_apply_locked.exit10, !llvm.loop !11
+  br i1 %.not13.i8, label %50, label %job_txn_apply_locked.exit10, !llvm.loop !12
 
 job_txn_apply_locked.exit10:                      ; preds = %50, %51
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -2515,7 +2515,7 @@ trace_job_completed.exit:                         ; preds = %trace_job_completed
   %49 = getelementptr inbounds nuw i8, ptr %.019.i, i64 264
   %.0.i12 = load ptr, ptr %49, align 8
   %.not.i13 = icmp eq ptr %.0.i12, null
-  br i1 %.not.i13, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i13, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %45, %48
   %.019.i = phi ptr [ %.0.i12, %48 ], [ %.017.i, %45 ]
@@ -2577,7 +2577,7 @@ trace_job_completed.exit:                         ; preds = %trace_job_completed
 
 job_transition_to_pending_locked.exit.i:          ; preds = %69, %.lr.ph23.i
   %.not.i.i14 = icmp eq ptr %65, null
-  br i1 %.not.i.i14, label %job_txn_apply_locked.exit.i, label %.lr.ph23.i, !llvm.loop !11
+  br i1 %.not.i.i14, label %job_txn_apply_locked.exit.i, label %.lr.ph23.i, !llvm.loop !12
 
 job_txn_apply_locked.exit.i:                      ; preds = %job_transition_to_pending_locked.exit.i, %._crit_edge.i
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -2599,7 +2599,7 @@ job_txn_apply_locked.exit.i:                      ; preds = %job_transition_to_p
   %78 = getelementptr inbounds nuw i8, ptr %.010.i10.i, i64 24
   %79 = load i8, ptr %78, align 8, !range !4, !noundef !5
   %.not13.i12.not.i = icmp eq i8 %79, 0
-  br i1 %.not13.i12.not.i, label %job_txn_apply_locked.exit14.i, label %75, !llvm.loop !11
+  br i1 %.not13.i12.not.i, label %job_txn_apply_locked.exit14.i, label %75, !llvm.loop !12
 
 job_txn_apply_locked.exit14.i:                    ; preds = %76
   tail call void @job_unref_locked(ptr noundef nonnull %0)
@@ -2655,7 +2655,7 @@ define internal fastcc void @job_completed_txn_abort_locked(ptr noundef %0) unna
   %16 = getelementptr inbounds nuw i8, ptr %.024, i64 264
   %.0 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph26:                                         ; preds = %.preheader, %job_is_completed_locked.exit.thread
   %17 = phi ptr [ %27, %job_is_completed_locked.exit.thread ], [ %.pre, %.preheader ]
@@ -2697,7 +2697,7 @@ job_is_completed_locked.exit.thread:              ; preds = %.lr.ph26, %.lr.ph26
   %26 = tail call fastcc i32 @job_finalize_single_locked(ptr noundef nonnull %17)
   %27 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %27, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph26, !llvm.loop !15
+  br i1 %.not19, label %._crit_edge, label %.lr.ph26, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %job_is_completed_locked.exit.thread, %6, %.preheader
   tail call void @job_unref_locked(ptr noundef %0)
@@ -2853,7 +2853,7 @@ job_enter.exit:                                   ; preds = %in_aio_context_home
 45:                                               ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
   %46 = call zeroext i1 @aio_poll(ptr noundef nonnull %14, i1 noundef zeroext true) #15
-  br label %in_aio_context_home_thread.exit, !llvm.loop !16
+  br label %in_aio_context_home_thread.exit, !llvm.loop !17
 
 in_aio_context_home_thread.exit.thread:           ; preds = %19, %22, %.thread
   %47 = call ptr @qemu_get_current_aio_context() #15
@@ -2930,7 +2930,7 @@ job_enter.exit32:                                 ; preds = %56, %59, %62, %65
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
   %74 = call ptr @qemu_get_aio_context() #15
   %75 = call zeroext i1 @aio_poll(ptr noundef %74, i1 noundef zeroext true) #15
-  br label %56, !llvm.loop !17
+  br label %56, !llvm.loop !18
 
 job_is_completed.exit.thread:                     ; preds = %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32, %job_enter.exit32
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
@@ -3006,7 +3006,7 @@ define dso_local void @job_cancel_sync_all() local_unnamed_addr #0 {
   %3 = tail call i32 @job_finish_sync_locked(ptr noundef nonnull %.0.i3, ptr noundef nonnull @job_force_cancel_err_locked, ptr noundef null)
   %.0.i = load ptr, ptr @jobs, align 8
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %.lr.ph, !llvm.loop !19
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %.lr.ph, %0
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
@@ -3474,14 +3474,15 @@ attributes #18 = { nounwind willreturn memory(read) }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{ptr @job_finalize_single_locked, null, null, null}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{ptr @job_finalize_single_locked, null, null, null}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

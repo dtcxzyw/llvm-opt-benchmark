@@ -403,7 +403,7 @@ define internal fastcc i32 @end_last_frame(ptr noundef readonly captures(none) %
   %39 = load i32, ptr %9, align 8, !tbaa !32
   %40 = load i32, ptr %10, align 4, !tbaa !29
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %16, label %._crit_edge, !llvm.loop !60
+  br i1 %41, label %16, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %16, %1
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -431,7 +431,7 @@ declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -464,7 +464,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -536,11 +536,11 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
   store i64 %54, ptr %46, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %57 = load i32, ptr %56, align 4, !tbaa !62
+  %57 = load i32, ptr %56, align 4, !tbaa !63
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %59 = load i32, ptr %58, align 8, !tbaa !63
+  %59 = load i32, ptr %58, align 8, !tbaa !64
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  %61 = load i32, ptr %60, align 4, !tbaa !64
+  %61 = load i32, ptr %60, align 4, !tbaa !65
   %62 = tail call i32 @ff_draw_init2(ptr noundef nonnull %55, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef 0) #5
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %65
@@ -648,10 +648,11 @@ attributes #6 = { nounwind willreturn memory(none) }
 !55 = !{!50, !15, i64 108}
 !56 = !{!21, !25, i64 248}
 !57 = !{!5, !13, i64 32}
-!58 = distinct !{!58, !59}
+!58 = distinct !{!58, !59, !60}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = distinct !{!60, !59}
-!61 = !{!35, !36, i64 0}
-!62 = !{!35, !15, i64 36}
-!63 = !{!35, !15, i64 56}
-!64 = !{!35, !15, i64 60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !59, !60}
+!62 = !{!35, !36, i64 0}
+!63 = !{!35, !15, i64 36}
+!64 = !{!35, !15, i64 56}
+!65 = !{!35, !15, i64 60}

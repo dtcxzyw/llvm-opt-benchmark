@@ -126,14 +126,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
 
 60:                                               ; preds = %.lr.ph
   %61 = load ptr, ptr %46, align 8
-  %62 = tail call fastcc i32 @memfd_wait_for_pins(ptr noundef %61), !range !12
+  %62 = tail call fastcc i32 @memfd_wait_for_pins(ptr noundef %61), !range !13
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %46, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, ptr nonnull elementtype(i32) %66) #9, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, ptr nonnull elementtype(i32) %66) #9, !srcloc !14
   %67 = sext i32 %62 to i64
   br label %.critedge
 
@@ -217,7 +217,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_memfd_create(
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_memfd_create(i64 noundef %3, i64 noundef %5), !range !14
+  %6 = tail call fastcc i64 @__se_sys_memfd_create(i64 noundef %3, i64 noundef %5), !range !15
   ret i64 %6
 }
 
@@ -244,7 +244,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_memfd_cr
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !15
+  %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @task_active_pid_ns(ptr noundef %17) #9
   %19 = icmp eq ptr %18, null
@@ -259,7 +259,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_memfd_cr
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %15
   %28 = phi i32 [ 0, %15 ], [ %24, %.preheader ]
@@ -416,7 +416,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_memfd_create
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_memfd_create(i64 noundef %4, i64 noundef %7), !range !14
+  %8 = tail call fastcc i64 @__se_sys_memfd_create(i64 noundef %4, i64 noundef %7), !range !15
   ret i64 %8
 }
 
@@ -464,7 +464,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %2 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %3, align 8, !annotation !17
+  store i64 0, ptr %3, align 8, !annotation !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -493,7 +493,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %18 = load volatile i64, ptr %17, align 8
   %19 = and i64 %18, 1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %24, label %21, !prof !18
+  br i1 %20, label %24, label %21, !prof !19
 
 21:                                               ; preds = %16
   %22 = add nsw i64 %18, -1
@@ -502,7 +502,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 24:                                               ; preds = %16
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %40 [label %25], !srcloc !19
+          to label %40 [label %25], !srcloc !20
 
 25:                                               ; preds = %24
   %26 = and i64 %13, 4094
@@ -540,7 +540,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %48 = load volatile i64, ptr %17, align 8
   %49 = and i64 %48, 1
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %55, !prof !18
+  br i1 %50, label %51, label %55, !prof !19
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -552,7 +552,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %56 = load volatile i64, ptr %17, align 8
   %57 = and i64 %56, 1
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %62, label %59, !prof !18
+  br i1 %58, label %62, label %59, !prof !19
 
 59:                                               ; preds = %55
   %60 = add nsw i64 %56, -1
@@ -561,7 +561,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 62:                                               ; preds = %55
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %78 [label %63], !srcloc !19
+          to label %78 [label %63], !srcloc !20
 
 63:                                               ; preds = %62
   %64 = and i64 %13, 4094
@@ -628,7 +628,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 101:                                              ; preds = %93
   %102 = load i8, ptr %95, align 8
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %.loopexit19, !prof !18
+  br i1 %103, label %104, label %.loopexit19, !prof !19
 
 104:                                              ; preds = %101
   %105 = load i8, ptr %6, align 2
@@ -636,7 +636,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %107 = load i64, ptr %5, align 8
   %108 = and i64 %107, 63
   %109 = icmp eq i64 %108, %106
-  br i1 %109, label %110, label %.loopexit19, !prof !18
+  br i1 %109, label %110, label %.loopexit19, !prof !19
 
 110:                                              ; preds = %104
   %111 = getelementptr inbounds nuw i8, ptr %95, i64 40
@@ -648,7 +648,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %115 = icmp eq i64 %114, -1
   %116 = icmp eq i8 %113, 63
   %117 = select i1 %115, i1 true, i1 %116
-  br i1 %117, label %.loopexit19, label %118, !prof !20
+  br i1 %117, label %.loopexit19, label %118, !prof !21
 
 118:                                              ; preds = %112
   %119 = zext i8 %113 to i64
@@ -666,7 +666,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %128 = add nuw i64 %114, 1
   store i64 %128, ptr %5, align 8
   %129 = icmp eq ptr %122, null
-  br i1 %129, label %112, label %.loopexit20, !llvm.loop !21
+  br i1 %129, label %112, label %.loopexit20, !llvm.loop !22
 
 .loopexit19:                                      ; preds = %118, %112, %104, %101, %93
   %130 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #9
@@ -675,7 +675,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 .loopexit20:                                      ; preds = %126, %.loopexit19
   %131 = phi ptr [ %130, %.loopexit19 ], [ %122, %126 ]
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.loopexit21, label %.preheader, !llvm.loop !22
+  br i1 %132, label %.loopexit21, label %.preheader, !llvm.loop !23
 
 .loopexit21:                                      ; preds = %.loopexit20, %1
   %133 = load ptr, ptr %2, align 8
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %167 = load volatile i64, ptr %166, align 8
   %168 = and i64 %167, 1
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %173, label %170, !prof !18
+  br i1 %169, label %173, label %170, !prof !19
 
 170:                                              ; preds = %165
   %171 = add nsw i64 %167, -1
@@ -746,7 +746,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 173:                                              ; preds = %165
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %189 [label %174], !srcloc !19
+          to label %189 [label %174], !srcloc !20
 
 174:                                              ; preds = %173
   %175 = and i64 %162, 4094
@@ -784,7 +784,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %197 = load volatile i64, ptr %166, align 8
   %198 = and i64 %197, 1
   %199 = icmp eq i64 %198, 0
-  br i1 %199, label %200, label %204, !prof !18
+  br i1 %199, label %200, label %204, !prof !19
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %159, i64 48
@@ -796,7 +796,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %205 = load volatile i64, ptr %166, align 8
   %206 = and i64 %205, 1
   %207 = icmp eq i64 %206, 0
-  br i1 %207, label %211, label %208, !prof !18
+  br i1 %207, label %211, label %208, !prof !19
 
 208:                                              ; preds = %204
   %209 = add nsw i64 %205, -1
@@ -805,7 +805,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 211:                                              ; preds = %204
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %227 [label %212], !srcloc !19
+          to label %227 [label %212], !srcloc !20
 
 212:                                              ; preds = %211
   %213 = and i64 %162, 4094
@@ -877,7 +877,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 254:                                              ; preds = %246
   %255 = load i8, ptr %248, align 8
   %256 = icmp eq i8 %255, 0
-  br i1 %256, label %257, label %283, !prof !18
+  br i1 %256, label %257, label %283, !prof !19
 
 257:                                              ; preds = %254
   %258 = load i8, ptr %6, align 2
@@ -902,7 +902,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   br label %283
 
 270:                                              ; preds = %260
-  %271 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %265) #13, !srcloc !23
+  %271 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %265) #13, !srcloc !24
   %272 = trunc i64 %271 to i8
   store i8 %272, ptr %6, align 2
   %273 = load i64, ptr %5, align 8
@@ -927,7 +927,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 285:                                              ; preds = %283, %278
   %286 = phi ptr [ %281, %278 ], [ %284, %283 ]
   %287 = icmp eq ptr %286, null
-  br i1 %287, label %.loopexit, label %158, !llvm.loop !24
+  br i1 %287, label %.loopexit, label %158, !llvm.loop !25
 
 .loopexit:                                        ; preds = %285, %151
   %288 = phi i32 [ %136, %151 ], [ %239, %285 ]
@@ -935,7 +935,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   call void @_raw_spin_unlock_irq(ptr noundef %289) #9
   %290 = add i32 %152, 1
   %291 = icmp slt i32 %290, 5
-  br i1 %291, label %134, label %.thread18, !llvm.loop !25
+  br i1 %291, label %134, label %.thread18, !llvm.loop !26
 
 .thread18:                                        ; preds = %134, %.loopexit
   %292 = phi i32 [ %288, %.loopexit ], [ %136, %134 ]
@@ -1062,20 +1062,21 @@ attributes #13 = { nounwind memory(read) }
 !6 = !{i64 2149055391, i64 2149055430, i64 2149055451, i64 2149055488, i64 2149055511, i64 2149055520, i64 2149055818}
 !7 = !{!"branch_weights", i32 1, i32 2000}
 !8 = !{!"branch_weights", i32 255873, i32 127}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i32 -16, i32 1}
-!13 = !{i64 2149037011, i64 2149037050, i64 2149037071, i64 2149037108, i64 2149037131, i64 2149037001}
-!14 = !{i64 -2147483648, i64 2147483648}
-!15 = !{i64 2148131943}
-!16 = distinct !{!16, !10, !11}
-!17 = !{!"auto-init"}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 792152, i64 792196, i64 2148276879, i64 2148276900, i64 2148276926, i64 2148276959, i64 2148276993, i64 2148277017}
-!20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = !{i64 1065938}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i32 -16, i32 1}
+!14 = !{i64 2149037011, i64 2149037050, i64 2149037071, i64 2149037108, i64 2149037131, i64 2149037001}
+!15 = !{i64 -2147483648, i64 2147483648}
+!16 = !{i64 2148131943}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = !{!"auto-init"}
+!19 = !{!"branch_weights", i32 2000, i32 1}
+!20 = !{i64 792152, i64 792196, i64 2148276879, i64 2148276900, i64 2148276926, i64 2148276959, i64 2148276993, i64 2148277017}
+!21 = !{!"branch_weights", i32 4001, i32 4000000}
+!22 = distinct !{!22, !10, !11, !12}
+!23 = distinct !{!23, !10, !11, !12}
+!24 = !{i64 1065938}
+!25 = distinct !{!25, !10, !11, !12}
+!26 = distinct !{!26, !10, !11, !12}

@@ -560,7 +560,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull 
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   tail call void @free(ptr noundef nonnull %8) #54
@@ -626,12 +626,12 @@ stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
   %57 = getelementptr inbounds nuw i8, ptr %.03034.i, i64 %55
   %58 = sub i64 %.02935.i, %55
   %.not.i = icmp eq i64 %58, 0
-  br i1 %.not.i, label %._crit_edge.i29, label %54
+  br i1 %.not.i, label %._crit_edge.i29, label %54, !llvm.loop !5
 
 ._crit_edge.i29:                                  ; preds = %54
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
-  br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27
+  br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27, !llvm.loop !6
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %37
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
@@ -773,7 +773,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull
   store i16 %31, ptr %32, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   tail call void @free(ptr noundef nonnull %8) #54
@@ -840,12 +840,12 @@ stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %.03034.i, i64 %57
   %60 = sub i64 %.02935.i, %57
   %.not.i = icmp eq i64 %60, 0
-  br i1 %.not.i, label %._crit_edge.i29, label %56
+  br i1 %.not.i, label %._crit_edge.i29, label %56, !llvm.loop !5
 
 ._crit_edge.i29:                                  ; preds = %56
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
-  br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27
+  br i1 %exitcond.not.i31, label %stbi__vertical_flip.exit, label %.lr.ph.i27, !llvm.loop !6
 
 stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %38
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
@@ -1427,19 +1427,19 @@ stbi__load_gif_main.exit:                         ; preds = %.critedge.i, %121
   %148 = getelementptr inbounds nuw i8, ptr %.03034.i.i, i64 %146
   %149 = sub i64 %.02935.i.i, %146
   %.not.i.i = icmp eq i64 %149, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %145
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %145, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %145
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.loopexit.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %stbi__vertical_flip.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 stbi__vertical_flip.exit.loopexit.i:              ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9)
   %150 = getelementptr inbounds i8, ptr %.014.i, i64 %136
   %151 = add nuw nsw i32 %.01213.i, 1
   %exitcond.not.i = icmp eq i32 %151, %125
-  br i1 %exitcond.not.i, label %stbi__vertical_flip_slices.exit, label %.lr.ph.preheader.i.i
+  br i1 %exitcond.not.i, label %stbi__vertical_flip_slices.exit, label %.lr.ph.preheader.i.i, !llvm.loop !8
 
 stbi__vertical_flip_slices.exit:                  ; preds = %stbi__vertical_flip.exit.loopexit.i, %.lr.ph.i14, %123, %stbi__load_gif_main.exit
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %11) #54
@@ -1575,12 +1575,12 @@ stbi__malloc_mad4.exit.thread.i:                  ; preds = %stbi__malloc_mad4.e
   store float %50, ptr %51, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %37
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %37, !llvm.loop !9
 
 ._crit_edge.us.i:                                 ; preds = %37
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %._crit_edge51.i, label %.preheader48.us.i, !llvm.loop !3
+  br i1 %exitcond59.not.i, label %._crit_edge51.i, label %.preheader48.us.i, !llvm.loop !10
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge.us.i, %.preheader48.lr.ph.i
   br i1 %.not.i, label %.lr.ph.preheader.i, label %.loopexit.i
@@ -1603,7 +1603,7 @@ stbi__malloc_mad4.exit.thread.i:                  ; preds = %stbi__malloc_mad4.e
   store float %59, ptr %60, align 4
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
-  br i1 %exitcond64.not.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond64.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %._crit_edge51.i, %30
   tail call void @free(ptr noundef nonnull %6) #54
@@ -1993,7 +1993,7 @@ thread-pre-split.i:                               ; preds = %stbi__parse_huffman
   br label %43
 
 43:                                               ; preds = %thread-pre-split.i, %stbi__parse_zlib_header.exit.i
-  %44 = phi ptr [ %537, %thread-pre-split.i ], [ %1, %stbi__parse_zlib_header.exit.i ]
+  %44 = phi ptr [ %538, %thread-pre-split.i ], [ %1, %stbi__parse_zlib_header.exit.i ]
   %.promoted.i.i.i = phi i32 [ %.promoted.i.i.pre.i, %thread-pre-split.i ], [ 0, %stbi__parse_zlib_header.exit.i ]
   %45 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ 0, %stbi__parse_zlib_header.exit.i ]
   %46 = icmp slt i32 %45, 1
@@ -2032,7 +2032,7 @@ stbi__zget8.exit.i.i.i:                           ; preds = %52, %51
   %59 = add nsw i32 %47, 8
   store i32 %59, ptr %35, align 8
   %60 = icmp slt i32 %47, 17
-  br i1 %60, label %.preheader172.i, label %stbi__zreceive.exit.thread.i
+  br i1 %60, label %.preheader172.i, label %stbi__zreceive.exit.thread.i, !llvm.loop !13
 
 stbi__zreceive.exit.thread.i:                     ; preds = %stbi__zget8.exit.i.i.i
   %61 = lshr i32 %58, 1
@@ -2082,7 +2082,7 @@ stbi__zget8.exit.i.i30.i:                         ; preds = %73, %72
   %80 = add nsw i32 %68, 8
   store i32 %80, ptr %35, align 8
   %81 = icmp slt i32 %68, 17
-  br i1 %81, label %.preheader171.i, label %stbi__zreceive.exit31.i
+  br i1 %81, label %.preheader171.i, label %stbi__zreceive.exit31.i, !llvm.loop !13
 
 stbi__zreceive.exit31.i:                          ; preds = %stbi__zget8.exit.i.i30.i, %70, %stbi__zreceive.exit.i, %stbi__zreceive.exit.thread.i
   %.in.i = phi i32 [ %64, %70 ], [ %64, %stbi__zreceive.exit.i ], [ %58, %stbi__zreceive.exit.thread.i ], [ %64, %stbi__zget8.exit.i.i30.i ]
@@ -2144,7 +2144,7 @@ stbi__zget8.exit.i.i.i.i:                         ; preds = %97, %96
   %104 = add nsw i32 %92, 8
   store i32 %104, ptr %35, align 8
   %105 = icmp slt i32 %92, 17
-  br i1 %105, label %.preheader.i, label %stbi__zreceive.exit.i.i
+  br i1 %105, label %.preheader.i, label %stbi__zreceive.exit.i.i, !llvm.loop !13
 
 stbi__zreceive.exit.i.i:                          ; preds = %stbi__zget8.exit.i.i.i.i, %94, %90
   %106 = phi i32 [ %92, %94 ], [ %87, %90 ], [ %104, %stbi__zget8.exit.i.i.i.i ]
@@ -2177,7 +2177,7 @@ stbi__zreceive.exit.i.i:                          ; preds = %stbi__zget8.exit.i.
   store i8 %117, ptr %118, align 1
   %119 = lshr i32 %116, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %120, label %115
+  br i1 %exitcond.not.i, label %120, label %115, !llvm.loop !14
 
 120:                                              ; preds = %115
   %121 = add nsw i32 %.pr.i.i, -8
@@ -2223,7 +2223,7 @@ stbi__zget8.exit.i34.i:                           ; preds = %130, %128
   %135 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv62.i.i
   store i8 %134, ptr %135, align 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next63.i.i, 4
-  br i1 %exitcond.not.i.i, label %._crit_edge50.i.i, label %128
+  br i1 %exitcond.not.i.i, label %._crit_edge50.i.i, label %128, !llvm.loop !15
 
 ._crit_edge50.i.i:                                ; preds = %stbi__zget8.exit.i34.i, %.preheader.i.i
   %136 = load i8, ptr %41, align 1
@@ -2283,7 +2283,7 @@ stbi__zget8.exit.i34.i:                           ; preds = %130, %128
 171:                                              ; preds = %.lr.ph.i.i.i
   %172 = shl nuw i32 %.02528.i.i.i, 1
   %173 = icmp ugt i32 %168, %172
-  br i1 %173, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  br i1 %173, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !16
 
 ._crit_edge.i.i.i:                                ; preds = %171, %.preheader.i.i.i
   %.025.lcssa.i.i.i = phi i32 [ %167, %.preheader.i.i.i ], [ %172, %171 ]
@@ -2374,7 +2374,7 @@ stbi__zget8.exit.i.i.i49.i:                       ; preds = %197, %196
   %204 = add nsw i32 %192, 8
   store i32 %204, ptr %35, align 8
   %205 = icmp slt i32 %192, 17
-  br i1 %205, label %.preheader170.i, label %stbi__zreceive.exit.i37.i
+  br i1 %205, label %.preheader170.i, label %stbi__zreceive.exit.i37.i, !llvm.loop !13
 
 stbi__zreceive.exit.i37.i:                        ; preds = %stbi__zget8.exit.i.i.i49.i, %194, %190
   %206 = phi i32 [ %192, %194 ], [ %87, %190 ], [ %204, %stbi__zget8.exit.i.i.i49.i ]
@@ -2421,7 +2421,7 @@ stbi__zget8.exit.i.i68.i.i:                       ; preds = %218, %217
   %225 = add nsw i32 %213, 8
   store i32 %225, ptr %35, align 8
   %226 = icmp slt i32 %213, 17
-  br i1 %226, label %.preheader169.i, label %stbi__zreceive.exit69.i.i
+  br i1 %226, label %.preheader169.i, label %stbi__zreceive.exit69.i.i, !llvm.loop !13
 
 stbi__zreceive.exit69.i.i:                        ; preds = %stbi__zget8.exit.i.i68.i.i, %215, %stbi__zreceive.exit.i37.i
   %227 = phi i32 [ %213, %215 ], [ %210, %stbi__zreceive.exit.i37.i ], [ %225, %stbi__zget8.exit.i.i68.i.i ]
@@ -2468,7 +2468,7 @@ stbi__zget8.exit.i.i76.i.i:                       ; preds = %239, %238
   %246 = add nsw i32 %234, 8
   store i32 %246, ptr %35, align 8
   %247 = icmp slt i32 %234, 17
-  br i1 %247, label %.preheader168.i, label %stbi__zreceive.exit77.i.i
+  br i1 %247, label %.preheader168.i, label %stbi__zreceive.exit77.i.i, !llvm.loop !13
 
 stbi__zreceive.exit77.i.i:                        ; preds = %stbi__zget8.exit.i.i76.i.i, %236, %stbi__zreceive.exit69.i.i
   %248 = phi i32 [ %234, %236 ], [ %231, %stbi__zreceive.exit69.i.i ], [ %246, %stbi__zget8.exit.i.i76.i.i ]
@@ -2523,7 +2523,7 @@ stbi__zget8.exit.i.i84.i.i:                       ; preds = %263, %262
   %270 = add nsw i32 %258, 8
   store i32 %270, ptr %35, align 8
   %271 = icmp slt i32 %258, 17
-  br i1 %271, label %.preheader160.i.i, label %stbi__zreceive.exit85.i.i
+  br i1 %271, label %.preheader160.i.i, label %stbi__zreceive.exit85.i.i, !llvm.loop !13
 
 stbi__zreceive.exit85.i.i:                        ; preds = %stbi__zget8.exit.i.i84.i.i, %260, %254
   %272 = phi i32 [ %258, %260 ], [ %255, %254 ], [ %270, %stbi__zget8.exit.i.i84.i.i ]
@@ -2541,7 +2541,7 @@ stbi__zreceive.exit85.i.i:                        ; preds = %stbi__zget8.exit.i.
   store i8 %277, ptr %281, align 1
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i38.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i39.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i40.i, label %282, label %254
+  br i1 %exitcond.not.i40.i, label %282, label %254, !llvm.loop !17
 
 282:                                              ; preds = %stbi__zreceive.exit85.i.i
   %283 = add nuw nsw i32 %232, %211
@@ -2612,7 +2612,7 @@ stbi__zget8.exit.i.i92.i.i:                       ; preds = %302, %301
   %309 = add nsw i32 %297, 8
   store i32 %309, ptr %35, align 8
   %310 = icmp slt i32 %297, 17
-  br i1 %310, label %.preheader158.i.i, label %stbi__zreceive.exit93.i.i
+  br i1 %310, label %.preheader158.i.i, label %stbi__zreceive.exit93.i.i, !llvm.loop !13
 
 stbi__zreceive.exit93.i.i:                        ; preds = %stbi__zget8.exit.i.i92.i.i, %299, %295
   %311 = phi i32 [ %297, %299 ], [ %294, %295 ], [ %309, %stbi__zget8.exit.i.i92.i.i ]
@@ -2670,7 +2670,7 @@ stbi__zget8.exit.i.i100.i.i:                      ; preds = %330, %329
   %337 = add nsw i32 %325, 8
   store i32 %337, ptr %35, align 8
   %338 = icmp slt i32 %325, 17
-  br i1 %338, label %.preheader159.i.i, label %stbi__zreceive.exit101.i.i
+  br i1 %338, label %.preheader159.i.i, label %stbi__zreceive.exit101.i.i, !llvm.loop !13
 
 stbi__zreceive.exit101.i.i:                       ; preds = %stbi__zget8.exit.i.i100.i.i, %327, %323
   %339 = phi i32 [ %325, %327 ], [ %294, %323 ], [ %337, %stbi__zget8.exit.i.i100.i.i ]
@@ -2720,7 +2720,7 @@ stbi__zget8.exit.i.i108.i.i:                      ; preds = %352, %351
   %359 = add nsw i32 %347, 8
   store i32 %359, ptr %35, align 8
   %360 = icmp slt i32 %347, 17
-  br i1 %360, label %.preheader157.i.i, label %stbi__zreceive.exit109.i.i
+  br i1 %360, label %.preheader157.i.i, label %stbi__zreceive.exit109.i.i, !llvm.loop !13
 
 stbi__zreceive.exit109.i.i:                       ; preds = %stbi__zget8.exit.i.i108.i.i, %349, %345
   %361 = phi i32 [ %347, %349 ], [ %294, %345 ], [ %359, %stbi__zget8.exit.i.i108.i.i ]
@@ -2751,7 +2751,7 @@ stbi__zreceive.exit109.i.i:                       ; preds = %stbi__zget8.exit.i.
 375:                                              ; preds = %370, %288
   %.152.i.i = phi i32 [ %290, %288 ], [ %374, %370 ]
   %376 = icmp slt i32 %.152.i.i, %283
-  br i1 %376, label %.preheader.i42.i, label %377
+  br i1 %376, label %.preheader.i42.i, label %377, !llvm.loop !18
 
 377:                                              ; preds = %375
   %.not58.i.i = icmp eq i32 %.152.i.i, %283
@@ -2784,343 +2784,343 @@ stbi__compute_huffman_codes.exit.i:               ; preds = %378
 
 383:                                              ; preds = %stbi__compute_huffman_codes.exit.i, %188
   %384 = load ptr, ptr %11, align 8
-  br label %.loopexit.i.i
+  br label %385
 
-.loopexit.i.i:                                    ; preds = %.loopexit.i.i.backedge, %383
-  %.066.i.i = phi ptr [ %384, %383 ], [ %.066.i.i.be, %.loopexit.i.i.backedge ]
-  %385 = tail call fastcc i32 @stbi__zhuffman_decode(ptr noundef nonnull %0, ptr noundef %39)
-  %386 = icmp slt i32 %385, 256
-  br i1 %386, label %387, label %416
+385:                                              ; preds = %.loopexit.i.i, %383
+  %.066.i.i = phi ptr [ %384, %383 ], [ %.167.i.i, %.loopexit.i.i ]
+  %386 = tail call fastcc i32 @stbi__zhuffman_decode(ptr noundef nonnull %0, ptr noundef %39)
+  %387 = icmp slt i32 %386, 256
+  br i1 %387, label %388, label %417
 
-387:                                              ; preds = %.loopexit.i.i
-  %388 = icmp slt i32 %385, 0
-  br i1 %388, label %stbi__parse_huffman_block.exit.i, label %389
+388:                                              ; preds = %385
+  %389 = icmp slt i32 %386, 0
+  br i1 %389, label %stbi__parse_huffman_block.exit.i, label %390
 
-389:                                              ; preds = %387
-  %390 = load ptr, ptr %14, align 8
-  %.not83.i.i = icmp ult ptr %.066.i.i, %390
-  br i1 %.not83.i.i, label %413, label %391
+390:                                              ; preds = %388
+  %391 = load ptr, ptr %14, align 8
+  %.not83.i.i = icmp ult ptr %.066.i.i, %391
+  br i1 %.not83.i.i, label %414, label %392
 
-391:                                              ; preds = %389
+392:                                              ; preds = %390
   store ptr %.066.i.i, ptr %11, align 8
-  %392 = load i32, ptr %15, align 8
-  %.not.i.i68.i = icmp eq i32 %392, 0
-  br i1 %.not.i.i68.i, label %stbi__parse_huffman_block.exit.i, label %393
+  %393 = load i32, ptr %15, align 8
+  %.not.i.i68.i = icmp eq i32 %393, 0
+  br i1 %.not.i.i68.i, label %stbi__parse_huffman_block.exit.i, label %394
 
-393:                                              ; preds = %391
-  %394 = load ptr, ptr %10, align 8
-  %395 = ptrtoint ptr %.066.i.i to i64
-  %396 = ptrtoint ptr %394 to i64
-  %397 = sub i64 %395, %396
-  %398 = trunc i64 %397 to i32
-  %399 = icmp eq i32 %398, -1
-  br i1 %399, label %stbi__parse_huffman_block.exit.i, label %.preheader.i.i69.i
+394:                                              ; preds = %392
+  %395 = load ptr, ptr %10, align 8
+  %396 = ptrtoint ptr %.066.i.i to i64
+  %397 = ptrtoint ptr %395 to i64
+  %398 = sub i64 %396, %397
+  %399 = trunc i64 %398 to i32
+  %400 = icmp eq i32 %399, -1
+  br i1 %400, label %stbi__parse_huffman_block.exit.i, label %.preheader.i.i69.i
 
-.preheader.i.i69.i:                               ; preds = %393
-  %400 = ptrtoint ptr %390 to i64
-  %401 = sub i64 %400, %396
-  %402 = trunc i64 %401 to i32
-  %.not196.i.i = icmp ult i32 %398, %402
+.preheader.i.i69.i:                               ; preds = %394
+  %401 = ptrtoint ptr %391 to i64
+  %402 = sub i64 %401, %397
+  %403 = trunc i64 %402 to i32
+  %.not196.i.i = icmp ult i32 %399, %403
   br i1 %.not196.i.i, label %._crit_edge.i.i72.i, label %.lr.ph.i.i70.i
 
-.lr.ph.i.i70.i:                                   ; preds = %.preheader.i.i69.i, %404
-  %.02528.i.i71.i = phi i32 [ %405, %404 ], [ %402, %.preheader.i.i69.i ]
-  %403 = icmp slt i32 %.02528.i.i71.i, 0
-  br i1 %403, label %stbi__parse_huffman_block.exit.i, label %404
+.lr.ph.i.i70.i:                                   ; preds = %.preheader.i.i69.i, %405
+  %.02528.i.i71.i = phi i32 [ %406, %405 ], [ %403, %.preheader.i.i69.i ]
+  %404 = icmp slt i32 %.02528.i.i71.i, 0
+  br i1 %404, label %stbi__parse_huffman_block.exit.i, label %405
 
-404:                                              ; preds = %.lr.ph.i.i70.i
-  %405 = shl nuw i32 %.02528.i.i71.i, 1
-  %.not197.i.i = icmp ugt i32 %405, %398
-  br i1 %.not197.i.i, label %._crit_edge.i.i72.i, label %.lr.ph.i.i70.i
+405:                                              ; preds = %.lr.ph.i.i70.i
+  %406 = shl nuw i32 %.02528.i.i71.i, 1
+  %.not197.i.i = icmp ugt i32 %406, %399
+  br i1 %.not197.i.i, label %._crit_edge.i.i72.i, label %.lr.ph.i.i70.i, !llvm.loop !16
 
-._crit_edge.i.i72.i:                              ; preds = %404, %.preheader.i.i69.i
-  %.025.lcssa.i.i73.i = phi i32 [ %402, %.preheader.i.i69.i ], [ %405, %404 ]
-  %406 = zext i32 %.025.lcssa.i.i73.i to i64
-  %407 = tail call ptr @realloc(ptr noundef %394, i64 noundef %406) #56
-  %408 = icmp eq ptr %407, null
-  br i1 %408, label %stbi__parse_huffman_block.exit.i, label %409
+._crit_edge.i.i72.i:                              ; preds = %405, %.preheader.i.i69.i
+  %.025.lcssa.i.i73.i = phi i32 [ %403, %.preheader.i.i69.i ], [ %406, %405 ]
+  %407 = zext i32 %.025.lcssa.i.i73.i to i64
+  %408 = tail call ptr @realloc(ptr noundef %395, i64 noundef %407) #56
+  %409 = icmp eq ptr %408, null
+  br i1 %409, label %stbi__parse_huffman_block.exit.i, label %410
 
-409:                                              ; preds = %._crit_edge.i.i72.i
-  store ptr %407, ptr %10, align 8
-  %410 = and i64 %397, 4294967295
-  %411 = getelementptr inbounds nuw i8, ptr %407, i64 %410
-  store ptr %411, ptr %11, align 8
-  %412 = getelementptr inbounds nuw i8, ptr %407, i64 %406
-  store ptr %412, ptr %14, align 8
-  br label %413
+410:                                              ; preds = %._crit_edge.i.i72.i
+  store ptr %408, ptr %10, align 8
+  %411 = and i64 %398, 4294967295
+  %412 = getelementptr inbounds nuw i8, ptr %408, i64 %411
+  store ptr %412, ptr %11, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %408, i64 %407
+  store ptr %413, ptr %14, align 8
+  br label %414
 
-413:                                              ; preds = %409, %389
-  %.268.i.i = phi ptr [ %411, %409 ], [ %.066.i.i, %389 ]
-  %414 = trunc nuw i32 %385 to i8
-  %415 = getelementptr inbounds nuw i8, ptr %.268.i.i, i64 1
-  store i8 %414, ptr %.268.i.i, align 1
-  br label %.loopexit.i.i.backedge
+414:                                              ; preds = %410, %390
+  %.268.i.i = phi ptr [ %412, %410 ], [ %.066.i.i, %390 ]
+  %415 = trunc nuw i32 %386 to i8
+  %416 = getelementptr inbounds nuw i8, ptr %.268.i.i, i64 1
+  store i8 %415, ptr %.268.i.i, align 1
+  br label %.loopexit.i.i
 
-416:                                              ; preds = %.loopexit.i.i
-  %417 = icmp eq i32 %385, 256
-  br i1 %417, label %418, label %423
+417:                                              ; preds = %385
+  %418 = icmp eq i32 %386, 256
+  br i1 %418, label %419, label %424
 
-418:                                              ; preds = %416
+419:                                              ; preds = %417
   store ptr %.066.i.i, ptr %11, align 8
-  %419 = load i32, ptr %37, align 4
-  %.not82.i.i = icmp eq i32 %419, 0
-  br i1 %.not82.i.i, label %stbi__parse_huffman_block.exit.thread.i, label %420
+  %420 = load i32, ptr %37, align 4
+  %.not82.i.i = icmp eq i32 %420, 0
+  br i1 %.not82.i.i, label %stbi__parse_huffman_block.exit.thread.i, label %421
 
-420:                                              ; preds = %418
-  %421 = load i32, ptr %35, align 8
-  %422 = icmp slt i32 %421, 16
-  br i1 %422, label %stbi__parse_huffman_block.exit.i, label %stbi__parse_huffman_block.exit.thread.i
+421:                                              ; preds = %419
+  %422 = load i32, ptr %35, align 8
+  %423 = icmp slt i32 %422, 16
+  br i1 %423, label %stbi__parse_huffman_block.exit.i, label %stbi__parse_huffman_block.exit.thread.i
 
-423:                                              ; preds = %416
-  %424 = icmp samesign ugt i32 %385, 285
-  br i1 %424, label %stbi__parse_huffman_block.exit.i, label %425
+424:                                              ; preds = %417
+  %425 = icmp samesign ugt i32 %386, 285
+  br i1 %425, label %stbi__parse_huffman_block.exit.i, label %426
 
-425:                                              ; preds = %423
-  %426 = add nsw i32 %385, -257
-  %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_base, i64 0, i64 %427
-  %429 = load i32, ptr %428, align 4
-  %430 = add nsw i64 %427, -28
-  %.not.i50.i = icmp ult i64 %430, -20
-  br i1 %.not.i50.i, label %457, label %431
+426:                                              ; preds = %424
+  %427 = add nsw i32 %386, -257
+  %428 = zext nneg i32 %427 to i64
+  %429 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_base, i64 0, i64 %428
+  %430 = load i32, ptr %429, align 4
+  %431 = add nsw i64 %428, -28
+  %.not.i50.i = icmp ult i64 %431, -20
+  br i1 %.not.i50.i, label %458, label %432
 
-431:                                              ; preds = %425
-  %432 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_extra, i64 0, i64 %427
-  %433 = load i32, ptr %432, align 4
-  %434 = load i32, ptr %35, align 8
-  %435 = icmp slt i32 %434, %433
+432:                                              ; preds = %426
+  %433 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_extra, i64 0, i64 %428
+  %434 = load i32, ptr %433, align 4
+  %435 = load i32, ptr %35, align 8
+  %436 = icmp slt i32 %435, %434
   %.promoted.i.i.i51.i = load i32, ptr %36, align 8
-  br i1 %435, label %.preheader141.i.i, label %stbi__zreceive.exit.i52.i
+  br i1 %436, label %.preheader141.i.i, label %stbi__zreceive.exit.i52.i
 
-.preheader141.i.i:                                ; preds = %431, %stbi__zget8.exit.i.i.i67.i
-  %436 = phi i32 [ %448, %stbi__zget8.exit.i.i.i67.i ], [ %434, %431 ]
-  %437 = phi i32 [ %447, %stbi__zget8.exit.i.i.i67.i ], [ %.promoted.i.i.i51.i, %431 ]
-  %.highbits.i.i.i62.i = lshr i32 %437, %436
+.preheader141.i.i:                                ; preds = %432, %stbi__zget8.exit.i.i.i67.i
+  %437 = phi i32 [ %449, %stbi__zget8.exit.i.i.i67.i ], [ %435, %432 ]
+  %438 = phi i32 [ %448, %stbi__zget8.exit.i.i.i67.i ], [ %.promoted.i.i.i51.i, %432 ]
+  %.highbits.i.i.i62.i = lshr i32 %438, %437
   %.not.i.i.i63.i = icmp eq i32 %.highbits.i.i.i62.i, 0
-  br i1 %.not.i.i.i63.i, label %440, label %438
+  br i1 %.not.i.i.i63.i, label %441, label %439
 
-438:                                              ; preds = %.preheader141.i.i
-  %439 = load ptr, ptr %38, align 8
-  store ptr %439, ptr %0, align 8
+439:                                              ; preds = %.preheader141.i.i
+  %440 = load ptr, ptr %38, align 8
+  store ptr %440, ptr %0, align 8
   br label %stbi__zreceive.exit.i52.i
 
-440:                                              ; preds = %.preheader141.i.i
+441:                                              ; preds = %.preheader141.i.i
   %.val.i.i.i.i64.i = load ptr, ptr %0, align 8
   %.val2.i.i.i.i65.i = load ptr, ptr %38, align 8
   %.not3.i.i.i.i66.i = icmp ult ptr %.val.i.i.i.i64.i, %.val2.i.i.i.i65.i
-  br i1 %.not3.i.i.i.i66.i, label %441, label %stbi__zget8.exit.i.i.i67.i
+  br i1 %.not3.i.i.i.i66.i, label %442, label %stbi__zget8.exit.i.i.i67.i
 
-441:                                              ; preds = %440
-  %442 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i64.i, i64 1
-  store ptr %442, ptr %0, align 8
-  %443 = load i8, ptr %.val.i.i.i.i64.i, align 1
-  %444 = zext i8 %443 to i32
+442:                                              ; preds = %441
+  %443 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i64.i, i64 1
+  store ptr %443, ptr %0, align 8
+  %444 = load i8, ptr %.val.i.i.i.i64.i, align 1
+  %445 = zext i8 %444 to i32
   br label %stbi__zget8.exit.i.i.i67.i
 
-stbi__zget8.exit.i.i.i67.i:                       ; preds = %441, %440
-  %445 = phi i32 [ %444, %441 ], [ 0, %440 ]
-  %446 = shl i32 %445, %436
-  %447 = or i32 %446, %437
-  store i32 %447, ptr %36, align 8
-  %448 = add nsw i32 %436, 8
-  store i32 %448, ptr %35, align 8
-  %449 = icmp slt i32 %436, 17
-  br i1 %449, label %.preheader141.i.i, label %stbi__zreceive.exit.i52.i
+stbi__zget8.exit.i.i.i67.i:                       ; preds = %442, %441
+  %446 = phi i32 [ %445, %442 ], [ 0, %441 ]
+  %447 = shl i32 %446, %437
+  %448 = or i32 %447, %438
+  store i32 %448, ptr %36, align 8
+  %449 = add nsw i32 %437, 8
+  store i32 %449, ptr %35, align 8
+  %450 = icmp slt i32 %437, 17
+  br i1 %450, label %.preheader141.i.i, label %stbi__zreceive.exit.i52.i, !llvm.loop !13
 
-stbi__zreceive.exit.i52.i:                        ; preds = %stbi__zget8.exit.i.i.i67.i, %438, %431
-  %450 = phi i32 [ %436, %438 ], [ %434, %431 ], [ %448, %stbi__zget8.exit.i.i.i67.i ]
-  %451 = phi i32 [ %437, %438 ], [ %.promoted.i.i.i51.i, %431 ], [ %447, %stbi__zget8.exit.i.i.i67.i ]
-  %notmask.i.i.i = shl nsw i32 -1, %433
-  %452 = xor i32 %notmask.i.i.i, -1
-  %453 = and i32 %451, %452
-  %454 = lshr i32 %451, %433
-  store i32 %454, ptr %36, align 8
-  %455 = sub nsw i32 %450, %433
-  store i32 %455, ptr %35, align 8
-  %456 = add i32 %453, %429
-  br label %457
+stbi__zreceive.exit.i52.i:                        ; preds = %stbi__zget8.exit.i.i.i67.i, %439, %432
+  %451 = phi i32 [ %437, %439 ], [ %435, %432 ], [ %449, %stbi__zget8.exit.i.i.i67.i ]
+  %452 = phi i32 [ %438, %439 ], [ %.promoted.i.i.i51.i, %432 ], [ %448, %stbi__zget8.exit.i.i.i67.i ]
+  %notmask.i.i.i = shl nsw i32 -1, %434
+  %453 = xor i32 %notmask.i.i.i, -1
+  %454 = and i32 %452, %453
+  %455 = lshr i32 %452, %434
+  store i32 %455, ptr %36, align 8
+  %456 = sub nsw i32 %451, %434
+  store i32 %456, ptr %35, align 8
+  %457 = add i32 %454, %430
+  br label %458
 
-457:                                              ; preds = %stbi__zreceive.exit.i52.i, %425
-  %.060.i.i = phi i32 [ %456, %stbi__zreceive.exit.i52.i ], [ %429, %425 ]
-  %458 = tail call fastcc i32 @stbi__zhuffman_decode(ptr noundef nonnull %0, ptr noundef %40)
-  %or.cond.i53.i = icmp ugt i32 %458, 29
-  br i1 %or.cond.i53.i, label %stbi__parse_huffman_block.exit.i, label %459
+458:                                              ; preds = %stbi__zreceive.exit.i52.i, %426
+  %.060.i.i = phi i32 [ %457, %stbi__zreceive.exit.i52.i ], [ %430, %426 ]
+  %459 = tail call fastcc i32 @stbi__zhuffman_decode(ptr noundef nonnull %0, ptr noundef %40)
+  %or.cond.i53.i = icmp ugt i32 %459, 29
+  br i1 %or.cond.i53.i, label %stbi__parse_huffman_block.exit.i, label %460
 
-459:                                              ; preds = %457
-  %460 = zext nneg i32 %458 to i64
-  %461 = getelementptr inbounds nuw [32 x i32], ptr @stbi__zdist_base, i64 0, i64 %460
-  %462 = load i32, ptr %461, align 4
-  %.not76.i.i = icmp samesign ult i32 %458, 4
-  br i1 %.not76.i.i, label %489, label %463
+460:                                              ; preds = %458
+  %461 = zext nneg i32 %459 to i64
+  %462 = getelementptr inbounds nuw [32 x i32], ptr @stbi__zdist_base, i64 0, i64 %461
+  %463 = load i32, ptr %462, align 4
+  %.not76.i.i = icmp samesign ult i32 %459, 4
+  br i1 %.not76.i.i, label %490, label %464
 
-463:                                              ; preds = %459
-  %464 = getelementptr inbounds nuw [32 x i32], ptr @stbi__zdist_extra, i64 0, i64 %460
-  %465 = load i32, ptr %464, align 4
-  %466 = load i32, ptr %35, align 8
-  %467 = icmp slt i32 %466, %465
+464:                                              ; preds = %460
+  %465 = getelementptr inbounds nuw [32 x i32], ptr @stbi__zdist_extra, i64 0, i64 %461
+  %466 = load i32, ptr %465, align 4
+  %467 = load i32, ptr %35, align 8
+  %468 = icmp slt i32 %467, %466
   %.promoted.i.i85.i.i = load i32, ptr %36, align 8
-  br i1 %467, label %.preheader140.i.i, label %stbi__zreceive.exit93.i54.i
+  br i1 %468, label %.preheader140.i.i, label %stbi__zreceive.exit93.i54.i
 
-.preheader140.i.i:                                ; preds = %463, %stbi__zget8.exit.i.i92.i61.i
-  %468 = phi i32 [ %480, %stbi__zget8.exit.i.i92.i61.i ], [ %466, %463 ]
-  %469 = phi i32 [ %479, %stbi__zget8.exit.i.i92.i61.i ], [ %.promoted.i.i85.i.i, %463 ]
-  %.highbits.i.i87.i56.i = lshr i32 %469, %468
+.preheader140.i.i:                                ; preds = %464, %stbi__zget8.exit.i.i92.i61.i
+  %469 = phi i32 [ %481, %stbi__zget8.exit.i.i92.i61.i ], [ %467, %464 ]
+  %470 = phi i32 [ %480, %stbi__zget8.exit.i.i92.i61.i ], [ %.promoted.i.i85.i.i, %464 ]
+  %.highbits.i.i87.i56.i = lshr i32 %470, %469
   %.not.i.i88.i57.i = icmp eq i32 %.highbits.i.i87.i56.i, 0
-  br i1 %.not.i.i88.i57.i, label %472, label %470
+  br i1 %.not.i.i88.i57.i, label %473, label %471
 
-470:                                              ; preds = %.preheader140.i.i
-  %471 = load ptr, ptr %38, align 8
-  store ptr %471, ptr %0, align 8
+471:                                              ; preds = %.preheader140.i.i
+  %472 = load ptr, ptr %38, align 8
+  store ptr %472, ptr %0, align 8
   br label %stbi__zreceive.exit93.i54.i
 
-472:                                              ; preds = %.preheader140.i.i
+473:                                              ; preds = %.preheader140.i.i
   %.val.i.i.i89.i58.i = load ptr, ptr %0, align 8
   %.val2.i.i.i90.i59.i = load ptr, ptr %38, align 8
   %.not3.i.i.i91.i60.i = icmp ult ptr %.val.i.i.i89.i58.i, %.val2.i.i.i90.i59.i
-  br i1 %.not3.i.i.i91.i60.i, label %473, label %stbi__zget8.exit.i.i92.i61.i
+  br i1 %.not3.i.i.i91.i60.i, label %474, label %stbi__zget8.exit.i.i92.i61.i
 
-473:                                              ; preds = %472
-  %474 = getelementptr inbounds nuw i8, ptr %.val.i.i.i89.i58.i, i64 1
-  store ptr %474, ptr %0, align 8
-  %475 = load i8, ptr %.val.i.i.i89.i58.i, align 1
-  %476 = zext i8 %475 to i32
+474:                                              ; preds = %473
+  %475 = getelementptr inbounds nuw i8, ptr %.val.i.i.i89.i58.i, i64 1
+  store ptr %475, ptr %0, align 8
+  %476 = load i8, ptr %.val.i.i.i89.i58.i, align 1
+  %477 = zext i8 %476 to i32
   br label %stbi__zget8.exit.i.i92.i61.i
 
-stbi__zget8.exit.i.i92.i61.i:                     ; preds = %473, %472
-  %477 = phi i32 [ %476, %473 ], [ 0, %472 ]
-  %478 = shl i32 %477, %468
-  %479 = or i32 %478, %469
-  store i32 %479, ptr %36, align 8
-  %480 = add nsw i32 %468, 8
-  store i32 %480, ptr %35, align 8
-  %481 = icmp slt i32 %468, 17
-  br i1 %481, label %.preheader140.i.i, label %stbi__zreceive.exit93.i54.i
+stbi__zget8.exit.i.i92.i61.i:                     ; preds = %474, %473
+  %478 = phi i32 [ %477, %474 ], [ 0, %473 ]
+  %479 = shl i32 %478, %469
+  %480 = or i32 %479, %470
+  store i32 %480, ptr %36, align 8
+  %481 = add nsw i32 %469, 8
+  store i32 %481, ptr %35, align 8
+  %482 = icmp slt i32 %469, 17
+  br i1 %482, label %.preheader140.i.i, label %stbi__zreceive.exit93.i54.i, !llvm.loop !13
 
-stbi__zreceive.exit93.i54.i:                      ; preds = %stbi__zget8.exit.i.i92.i61.i, %470, %463
-  %482 = phi i32 [ %468, %470 ], [ %466, %463 ], [ %480, %stbi__zget8.exit.i.i92.i61.i ]
-  %483 = phi i32 [ %469, %470 ], [ %.promoted.i.i85.i.i, %463 ], [ %479, %stbi__zget8.exit.i.i92.i61.i ]
-  %notmask.i86.i.i = shl nsw i32 -1, %465
-  %484 = xor i32 %notmask.i86.i.i, -1
-  %485 = and i32 %483, %484
-  %486 = lshr i32 %483, %465
-  store i32 %486, ptr %36, align 8
-  %487 = sub nsw i32 %482, %465
-  store i32 %487, ptr %35, align 8
-  %488 = add i32 %485, %462
-  br label %489
+stbi__zreceive.exit93.i54.i:                      ; preds = %stbi__zget8.exit.i.i92.i61.i, %471, %464
+  %483 = phi i32 [ %469, %471 ], [ %467, %464 ], [ %481, %stbi__zget8.exit.i.i92.i61.i ]
+  %484 = phi i32 [ %470, %471 ], [ %.promoted.i.i85.i.i, %464 ], [ %480, %stbi__zget8.exit.i.i92.i61.i ]
+  %notmask.i86.i.i = shl nsw i32 -1, %466
+  %485 = xor i32 %notmask.i86.i.i, -1
+  %486 = and i32 %484, %485
+  %487 = lshr i32 %484, %466
+  store i32 %487, ptr %36, align 8
+  %488 = sub nsw i32 %483, %466
+  store i32 %488, ptr %35, align 8
+  %489 = add i32 %486, %463
+  br label %490
 
-489:                                              ; preds = %stbi__zreceive.exit93.i54.i, %459
-  %.059.i.i = phi i32 [ %488, %stbi__zreceive.exit93.i54.i ], [ %462, %459 ]
-  %490 = load ptr, ptr %10, align 8
-  %491 = ptrtoint ptr %.066.i.i to i64
-  %492 = ptrtoint ptr %490 to i64
-  %493 = sub i64 %491, %492
-  %494 = sext i32 %.059.i.i to i64
-  %495 = icmp slt i64 %493, %494
-  br i1 %495, label %stbi__parse_huffman_block.exit.i, label %496
+490:                                              ; preds = %stbi__zreceive.exit93.i54.i, %460
+  %.059.i.i = phi i32 [ %489, %stbi__zreceive.exit93.i54.i ], [ %463, %460 ]
+  %491 = load ptr, ptr %10, align 8
+  %492 = ptrtoint ptr %.066.i.i to i64
+  %493 = ptrtoint ptr %491 to i64
+  %494 = sub i64 %492, %493
+  %495 = sext i32 %.059.i.i to i64
+  %496 = icmp slt i64 %494, %495
+  br i1 %496, label %stbi__parse_huffman_block.exit.i, label %497
 
-496:                                              ; preds = %489
-  %497 = sext i32 %.060.i.i to i64
-  %498 = load ptr, ptr %14, align 8
-  %499 = ptrtoint ptr %498 to i64
-  %500 = sub i64 %499, %491
-  %501 = icmp slt i64 %500, %497
-  br i1 %501, label %502, label %523
+497:                                              ; preds = %490
+  %498 = sext i32 %.060.i.i to i64
+  %499 = load ptr, ptr %14, align 8
+  %500 = ptrtoint ptr %499 to i64
+  %501 = sub i64 %500, %492
+  %502 = icmp slt i64 %501, %498
+  br i1 %502, label %503, label %524
 
-502:                                              ; preds = %496
+503:                                              ; preds = %497
   store ptr %.066.i.i, ptr %11, align 8
-  %503 = load i32, ptr %15, align 8
-  %.not.i94.i.i = icmp eq i32 %503, 0
-  br i1 %.not.i94.i.i, label %stbi__parse_huffman_block.exit.i, label %504
+  %504 = load i32, ptr %15, align 8
+  %.not.i94.i.i = icmp eq i32 %504, 0
+  br i1 %.not.i94.i.i, label %stbi__parse_huffman_block.exit.i, label %505
 
-504:                                              ; preds = %502
-  %505 = trunc i64 %493 to i32
-  %506 = xor i32 %505, -1
-  %507 = icmp ugt i32 %.060.i.i, %506
-  br i1 %507, label %stbi__parse_huffman_block.exit.i, label %.preheader.i95.i.i
+505:                                              ; preds = %503
+  %506 = trunc i64 %494 to i32
+  %507 = xor i32 %506, -1
+  %508 = icmp ugt i32 %.060.i.i, %507
+  br i1 %508, label %stbi__parse_huffman_block.exit.i, label %.preheader.i95.i.i
 
-.preheader.i95.i.i:                               ; preds = %504
-  %508 = sub i64 %499, %492
-  %509 = trunc i64 %508 to i32
-  %510 = add i32 %.060.i.i, %505
-  %511 = icmp ugt i32 %510, %509
-  br i1 %511, label %.lr.ph.i99.i.i, label %._crit_edge.i96.i.i
+.preheader.i95.i.i:                               ; preds = %505
+  %509 = sub i64 %500, %493
+  %510 = trunc i64 %509 to i32
+  %511 = add i32 %.060.i.i, %506
+  %512 = icmp ugt i32 %511, %510
+  br i1 %512, label %.lr.ph.i99.i.i, label %._crit_edge.i96.i.i
 
-.lr.ph.i99.i.i:                                   ; preds = %.preheader.i95.i.i, %513
-  %.02528.i100.i.i = phi i32 [ %514, %513 ], [ %509, %.preheader.i95.i.i ]
-  %512 = icmp slt i32 %.02528.i100.i.i, 0
-  br i1 %512, label %stbi__parse_huffman_block.exit.i, label %513
+.lr.ph.i99.i.i:                                   ; preds = %.preheader.i95.i.i, %514
+  %.02528.i100.i.i = phi i32 [ %515, %514 ], [ %510, %.preheader.i95.i.i ]
+  %513 = icmp slt i32 %.02528.i100.i.i, 0
+  br i1 %513, label %stbi__parse_huffman_block.exit.i, label %514
 
-513:                                              ; preds = %.lr.ph.i99.i.i
-  %514 = shl nuw i32 %.02528.i100.i.i, 1
-  %515 = icmp ugt i32 %510, %514
-  br i1 %515, label %.lr.ph.i99.i.i, label %._crit_edge.i96.i.i
+514:                                              ; preds = %.lr.ph.i99.i.i
+  %515 = shl nuw i32 %.02528.i100.i.i, 1
+  %516 = icmp ugt i32 %511, %515
+  br i1 %516, label %.lr.ph.i99.i.i, label %._crit_edge.i96.i.i, !llvm.loop !16
 
-._crit_edge.i96.i.i:                              ; preds = %513, %.preheader.i95.i.i
-  %.025.lcssa.i97.i.i = phi i32 [ %509, %.preheader.i95.i.i ], [ %514, %513 ]
-  %516 = zext i32 %.025.lcssa.i97.i.i to i64
-  %517 = tail call ptr @realloc(ptr noundef %490, i64 noundef %516) #56
-  %518 = icmp eq ptr %517, null
-  br i1 %518, label %stbi__parse_huffman_block.exit.i, label %519
+._crit_edge.i96.i.i:                              ; preds = %514, %.preheader.i95.i.i
+  %.025.lcssa.i97.i.i = phi i32 [ %510, %.preheader.i95.i.i ], [ %515, %514 ]
+  %517 = zext i32 %.025.lcssa.i97.i.i to i64
+  %518 = tail call ptr @realloc(ptr noundef %491, i64 noundef %517) #56
+  %519 = icmp eq ptr %518, null
+  br i1 %519, label %stbi__parse_huffman_block.exit.i, label %520
 
-519:                                              ; preds = %._crit_edge.i96.i.i
-  store ptr %517, ptr %10, align 8
-  %520 = and i64 %493, 4294967295
-  %521 = getelementptr inbounds nuw i8, ptr %517, i64 %520
-  store ptr %521, ptr %11, align 8
-  %522 = getelementptr inbounds nuw i8, ptr %517, i64 %516
-  store ptr %522, ptr %14, align 8
-  br label %523
+520:                                              ; preds = %._crit_edge.i96.i.i
+  store ptr %518, ptr %10, align 8
+  %521 = and i64 %494, 4294967295
+  %522 = getelementptr inbounds nuw i8, ptr %518, i64 %521
+  store ptr %522, ptr %11, align 8
+  %523 = getelementptr inbounds nuw i8, ptr %518, i64 %517
+  store ptr %523, ptr %14, align 8
+  br label %524
 
-523:                                              ; preds = %519, %496
-  %.5.i.i = phi ptr [ %521, %519 ], [ %.066.i.i, %496 ]
-  %524 = sub nsw i64 0, %494
-  %525 = getelementptr inbounds i8, ptr %.5.i.i, i64 %524
-  %526 = icmp eq i32 %.059.i.i, 1
+524:                                              ; preds = %520, %497
+  %.5.i.i = phi ptr [ %522, %520 ], [ %.066.i.i, %497 ]
+  %525 = sub nsw i64 0, %495
+  %526 = getelementptr inbounds i8, ptr %.5.i.i, i64 %525
+  %527 = icmp eq i32 %.059.i.i, 1
   %.not80.i.i = icmp eq i32 %.060.i.i, 0
-  br i1 %526, label %527, label %532
+  br i1 %527, label %528, label %533
 
-527:                                              ; preds = %523
-  br i1 %.not80.i.i, label %.loopexit.i.i.backedge, label %.preheader.preheader.i.i
+528:                                              ; preds = %524
+  br i1 %.not80.i.i, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %527
-  %528 = load i8, ptr %525, align 1
-  %529 = zext i32 %.060.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.5.i.i, i8 %528, i64 %529, i1 false)
+.preheader.preheader.i.i:                         ; preds = %528
+  %529 = load i8, ptr %526, align 1
+  %530 = zext i32 %.060.i.i to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.5.i.i, i8 %529, i64 %530, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %.5.i.i, i64 1
-  %530 = add i32 %.060.i.i, -1
-  %531 = zext i32 %530 to i64
-  %scevgep169.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %531
-  br label %.loopexit.i.i.backedge
-
-532:                                              ; preds = %523
-  br i1 %.not80.i.i, label %.loopexit.i.i.backedge, label %.preheader110.i.i
-
-.loopexit.i.i.backedge:                           ; preds = %.preheader110.i.i, %532, %.preheader.preheader.i.i, %527, %413
-  %.066.i.i.be = phi ptr [ %415, %413 ], [ %.5.i.i, %532 ], [ %.5.i.i, %527 ], [ %scevgep169.i.i, %.preheader.preheader.i.i ], [ %535, %.preheader110.i.i ]
+  %531 = add i32 %.060.i.i, -1
+  %532 = zext i32 %531 to i64
+  %scevgep169.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %532
   br label %.loopexit.i.i
 
-.preheader110.i.i:                                ; preds = %532, %.preheader110.i.i
-  %.9.i.i = phi ptr [ %535, %.preheader110.i.i ], [ %.5.i.i, %532 ]
-  %.063.i.i = phi ptr [ %533, %.preheader110.i.i ], [ %525, %532 ]
-  %.262.i.i = phi i32 [ %536, %.preheader110.i.i ], [ %.060.i.i, %532 ]
-  %533 = getelementptr inbounds nuw i8, ptr %.063.i.i, i64 1
-  %534 = load i8, ptr %.063.i.i, align 1
-  %535 = getelementptr inbounds nuw i8, ptr %.9.i.i, i64 1
-  store i8 %534, ptr %.9.i.i, align 1
-  %536 = add nsw i32 %.262.i.i, -1
-  %.not79.i55.i = icmp eq i32 %536, 0
-  br i1 %.not79.i55.i, label %.loopexit.i.i.backedge, label %.preheader110.i.i
+533:                                              ; preds = %524
+  br i1 %.not80.i.i, label %.loopexit.i.i, label %.preheader110.i.i
 
-stbi__parse_huffman_block.exit.i:                 ; preds = %420, %._crit_edge.i96.i.i, %504, %502, %489, %457, %423, %._crit_edge.i.i72.i, %393, %391, %387, %.lr.ph.i99.i.i, %.lr.ph.i.i70.i
-  %.str.166.sink.i.i = phi ptr [ @.str.106, %.lr.ph.i.i70.i ], [ @.str.106, %.lr.ph.i99.i.i ], [ @.str.158, %387 ], [ @.str.166, %391 ], [ @.str.106, %393 ], [ @.str.106, %._crit_edge.i.i72.i ], [ @.str.158, %423 ], [ @.str.158, %457 ], [ @.str.170, %489 ], [ @.str.166, %502 ], [ @.str.106, %504 ], [ @.str.106, %._crit_edge.i96.i.i ], [ @.str.169, %420 ]
+.preheader110.i.i:                                ; preds = %533, %.preheader110.i.i
+  %.9.i.i = phi ptr [ %536, %.preheader110.i.i ], [ %.5.i.i, %533 ]
+  %.063.i.i = phi ptr [ %534, %.preheader110.i.i ], [ %526, %533 ]
+  %.262.i.i = phi i32 [ %537, %.preheader110.i.i ], [ %.060.i.i, %533 ]
+  %534 = getelementptr inbounds nuw i8, ptr %.063.i.i, i64 1
+  %535 = load i8, ptr %.063.i.i, align 1
+  %536 = getelementptr inbounds nuw i8, ptr %.9.i.i, i64 1
+  store i8 %535, ptr %.9.i.i, align 1
+  %537 = add nsw i32 %.262.i.i, -1
+  %.not79.i55.i = icmp eq i32 %537, 0
+  br i1 %.not79.i55.i, label %.loopexit.i.i, label %.preheader110.i.i, !llvm.loop !19
+
+.loopexit.i.i:                                    ; preds = %.preheader110.i.i, %533, %.preheader.preheader.i.i, %528, %414
+  %.167.i.i = phi ptr [ %416, %414 ], [ %.5.i.i, %533 ], [ %.5.i.i, %528 ], [ %scevgep169.i.i, %.preheader.preheader.i.i ], [ %536, %.preheader110.i.i ]
+  br label %385, !llvm.loop !20
+
+stbi__parse_huffman_block.exit.i:                 ; preds = %421, %._crit_edge.i96.i.i, %505, %503, %490, %458, %424, %._crit_edge.i.i72.i, %394, %392, %388, %.lr.ph.i99.i.i, %.lr.ph.i.i70.i
+  %.str.166.sink.i.i = phi ptr [ @.str.106, %.lr.ph.i.i70.i ], [ @.str.106, %.lr.ph.i99.i.i ], [ @.str.158, %388 ], [ @.str.166, %392 ], [ @.str.106, %394 ], [ @.str.106, %._crit_edge.i.i72.i ], [ @.str.158, %424 ], [ @.str.158, %458 ], [ @.str.170, %490 ], [ @.str.166, %503 ], [ @.str.106, %505 ], [ @.str.106, %._crit_edge.i96.i.i ], [ @.str.169, %421 ]
   store ptr %.str.166.sink.i.i, ptr @stbi__g_failure_reason, align 8
   br label %stbi__parse_zlib.exit
 
-stbi__parse_huffman_block.exit.thread.i:          ; preds = %420, %418, %stbi__parse_uncompressed_block.exit.i
-  %537 = phi ptr [ %.066.i.i, %420 ], [ %.066.i.i, %418 ], [ %185, %stbi__parse_uncompressed_block.exit.i ]
+stbi__parse_huffman_block.exit.thread.i:          ; preds = %421, %419, %stbi__parse_uncompressed_block.exit.i
+  %538 = phi ptr [ %.066.i.i, %421 ], [ %.066.i.i, %419 ], [ %185, %stbi__parse_uncompressed_block.exit.i ]
   %.not23.i = icmp eq i32 %84, 0
-  br i1 %.not23.i, label %thread-pre-split.i, label %stbi__parse_zlib.exit
+  br i1 %.not23.i, label %thread-pre-split.i, label %stbi__parse_zlib.exit, !llvm.loop !21
 
 stbi__parse_zlib.exit:                            ; preds = %stbi__zreceive.exit31.i, %186, %188, %stbi__compute_huffman_codes.exit.i, %stbi__parse_huffman_block.exit.thread.i, %stbi__parse_zlib_header.exit.thread.i, %stbi__parse_uncompressed_block.exit.thread.i, %stbi__compute_huffman_codes.exit.thread.i, %stbi__parse_huffman_block.exit.i
   %.0.i = phi i32 [ 0, %stbi__parse_huffman_block.exit.i ], [ 0, %stbi__parse_zlib_header.exit.thread.i ], [ 0, %stbi__parse_uncompressed_block.exit.thread.i ], [ 0, %stbi__compute_huffman_codes.exit.thread.i ], [ 0, %stbi__zreceive.exit31.i ], [ 0, %186 ], [ 0, %188 ], [ 0, %stbi__compute_huffman_codes.exit.i ], [ 1, %stbi__parse_huffman_block.exit.thread.i ]
@@ -4169,7 +4169,7 @@ define noalias noundef ptr @rl_load_dds_from_memory(ptr noundef readonly capture
   store i16 %73, ptr %71, align 2
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge161, label %.lr.ph160
+  br i1 %exitcond170.not, label %._crit_edge161, label %.lr.ph160, !llvm.loop !22
 
 74:                                               ; preds = %57
   %75 = shl i32 %38, 1
@@ -4206,7 +4206,7 @@ define noalias noundef ptr @rl_load_dds_from_memory(ptr noundef readonly capture
   store i16 %87, ptr %85, align 2
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156
+  br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !23
 
 88:                                               ; preds = %35
   %89 = icmp eq i32 %45, 64
@@ -4271,7 +4271,7 @@ define noalias noundef ptr @rl_load_dds_from_memory(ptr noundef readonly capture
   store i8 %115, ptr %116, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %118 = icmp samesign ult i64 %indvars.iv.next, %113
-  br i1 %118, label %.lr.ph, label %._crit_edge
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 119:                                              ; preds = %98
   %120 = and i32 %45, -2
@@ -4660,7 +4660,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly captures(addr
   %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
   %167 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %167, label %71, label %.preheader.loopexit
+  br i1 %167, label %71, label %.preheader.loopexit, !llvm.loop !25
 
 168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
   %.0 = phi ptr [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %25 ]
@@ -4967,7 +4967,7 @@ default.unreachable:                              ; preds = %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
   %181 = trunc nuw i64 %indvars.iv.next to i32
   %182 = icmp sgt i32 %87, %181
-  br i1 %182, label %95, label %.loopexit
+  br i1 %182, label %95, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %180, %90, %84, %13, %76, %79, %82, %4, %8
   %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %180 ]
@@ -5272,7 +5272,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef nonn
   %63 = icmp slt i64 %indvars.iv.next, %37
   %64 = icmp samesign ult i32 %.1150.us, 127
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %.lr.ph.us, label %.loopexit147.us
+  br i1 %65, label %.lr.ph.us, label %.loopexit147.us, !llvm.loop !27
 
 66:                                               ; preds = %.lr.ph.us
   %67 = add nsw i32 %.1150.us, -1
@@ -5410,7 +5410,7 @@ stbiw__write1.exit37.i.us:                        ; preds = %126, %118
 stbiw__write_pixel.exit.us:                       ; preds = %stbiw__write1.exit37.i.us, %.sink.split.i.us, %.lr.ph153.us
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
-  br i1 %exitcond.not, label %stbiw__write_pixel.exit141.us, label %.lr.ph153.us
+  br i1 %exitcond.not, label %stbiw__write_pixel.exit141.us, label %.lr.ph153.us, !llvm.loop !28
 
 133:                                              ; preds = %49
   br i1 %55, label %.lr.ph156.us.preheader, label %._crit_edge.us
@@ -5550,7 +5550,7 @@ stbiw__write_pixel.exit141.us:                    ; preds = %stbiw__write_pixel.
   %.0104146.us = phi i32 [ %.3.lcssa.us, %stbiw__write1.exit37.i130.us ], [ %.3.lcssa.us, %.sink.split.i126.us ], [ %.3.lcssa.us, %stbiw__write1.exit124.us ], [ %.0104.ph.us, %stbiw__write1.exit.us ], [ %.0104.ph.us, %stbiw__write_pixel.exit.us ]
   %199 = add nsw i32 %.0104146.us, %.0103160.us
   %200 = icmp slt i32 %199, %1
-  br i1 %200, label %44, label %._crit_edge164.us
+  br i1 %200, label %44, label %._crit_edge164.us, !llvm.loop !29
 
 201:                                              ; preds = %.lr.ph156.us
   %202 = add nuw nsw i32 %.3155.us, 1
@@ -5558,19 +5558,19 @@ stbiw__write_pixel.exit141.us:                    ; preds = %stbiw__write_pixel.
   %203 = icmp slt i64 %indvars.iv.next177, %37
   %204 = icmp samesign ult i32 %.3155.us, 127
   %205 = select i1 %203, i1 %204, i1 false
-  br i1 %205, label %.lr.ph156.us, label %._crit_edge.us
+  br i1 %205, label %.lr.ph156.us, label %._crit_edge.us, !llvm.loop !30
 
 ._crit_edge164.us:                                ; preds = %stbiw__write_pixel.exit141.us
   %indvars.iv.next180 = add i64 %indvars.iv179, %39
   %206 = trunc i64 %indvars.iv.next180 to i32
   %.not117.us = icmp eq i32 %.0108, %206
-  br i1 %.not117.us, label %._crit_edge169, label %.lr.ph163.us, !llvm.loop !5
+  br i1 %.not117.us, label %._crit_edge169, label %.lr.ph163.us, !llvm.loop !31
 
 .lr.ph168.split:                                  ; preds = %.lr.ph168, %.lr.ph168.split
   %.1106166 = phi i32 [ %207, %.lr.ph168.split ], [ %.0105, %.lr.ph168 ]
   %207 = add nsw i32 %.1106166, %.0107
   %.not117 = icmp eq i32 %207, %.0108
-  br i1 %.not117, label %._crit_edge169, label %.lr.ph168.split
+  br i1 %.not117, label %._crit_edge169, label %.lr.ph168.split, !llvm.loop !32
 
 ._crit_edge169:                                   ; preds = %.lr.ph168.split, %._crit_edge164.us, %22
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5739,7 +5739,7 @@ stbiw__linear_to_rgbe.exit.i.us.us:               ; preds = %.preheader.i.us.spl
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %11, i32 noundef 4) #54
   %indvars.iv.next184.i.us.us = add nuw nsw i64 %indvars.iv183.i.us.us, 1
   %exitcond187.not.i.us.us = icmp eq i64 %indvars.iv.next184.i.us.us, %31
-  br i1 %exitcond187.not.i.us.us, label %stbiw__write_hdr_scanline.exit.loopexit.us, label %.preheader.i.us.split.us, !llvm.loop !6
+  br i1 %exitcond187.not.i.us.us, label %stbiw__write_hdr_scanline.exit.loopexit.us, label %.preheader.i.us.split.us, !llvm.loop !33
 
 .preheader.i.us.split:                            ; preds = %.preheader.i.us, %stbiw__linear_to_rgbe.exit.i.us
   %indvars.iv183.i.us = phi i64 [ %indvars.iv.next184.i.us, %stbiw__linear_to_rgbe.exit.i.us ], [ 0, %.preheader.i.us ]
@@ -5774,14 +5774,14 @@ stbiw__linear_to_rgbe.exit.i.us:                  ; preds = %.preheader.i.us.spl
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %11, i32 noundef 4) #54
   %indvars.iv.next184.i.us = add nuw nsw i64 %indvars.iv183.i.us, 1
   %exitcond187.not.i.us = icmp eq i64 %indvars.iv.next184.i.us, %31
-  br i1 %exitcond187.not.i.us, label %stbiw__write_hdr_scanline.exit.loopexit.us, label %.preheader.i.us.split
+  br i1 %exitcond187.not.i.us, label %stbiw__write_hdr_scanline.exit.loopexit.us, label %.preheader.i.us.split, !llvm.loop !34
 
 stbiw__write_hdr_scanline.exit.loopexit.us:       ; preds = %stbiw__linear_to_rgbe.exit.i.us, %stbiw__linear_to_rgbe.exit.i.us.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #54
   %87 = add nuw nsw i32 %.0286.us, 1
   %exitcond15.not = icmp eq i32 %87, %1
-  br i1 %exitcond15.not, label %.split8.us, label %.preheader.i.us, !llvm.loop !7
+  br i1 %exitcond15.not, label %.split8.us, label %.preheader.i.us, !llvm.loop !35
 
 .preheader131.i:                                  ; preds = %17, %stbiw__write_hdr_scanline.exit.loopexit1
   %.0286 = phi i32 [ %187, %stbiw__write_hdr_scanline.exit.loopexit1 ], [ 0, %17 ]
@@ -5850,7 +5850,7 @@ stbiw__linear_to_rgbe.exit119.us.i:               ; preds = %106, %.preheader131
   store i8 %.sink32.i117.us.i, ptr %gep202.i, align 1
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %31
-  br i1 %exitcond167.not.i, label %.split.us.i, label %.preheader131.split.us.i, !llvm.loop !8
+  br i1 %exitcond167.not.i, label %.split.us.i, label %.preheader131.split.us.i, !llvm.loop !36
 
 .preheader131.split.i:                            ; preds = %.preheader131.i, %stbiw__linear_to_rgbe.exit119.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %stbiw__linear_to_rgbe.exit119.i ], [ 0, %.preheader131.i ]
@@ -5888,7 +5888,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %128, %.preheader131
   store i8 %.sink32.i117.i, ptr %gep196.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %31
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader131.split.i
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader131.split.i, !llvm.loop !37
 
 .split.us.i:                                      ; preds = %stbiw__linear_to_rgbe.exit119.i, %stbiw__linear_to_rgbe.exit119.us.i
   call void %.0.val(ptr noundef %.8.val, ptr noundef nonnull %10, i32 noundef 4) #54
@@ -5931,7 +5931,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %128, %.preheader131
 155:                                              ; preds = %151, %.lr.ph.i
   %156 = icmp slt i64 %indvars.iv170.i, %invariant.op205.i
   %indvars.iv.next169.i = add nsw i64 %indvars.iv168.i, 1
-  br i1 %156, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %156, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %151
   %157 = trunc nsw i64 %indvars.iv170.i to i32
@@ -5956,7 +5956,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %128, %.preheader131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #54
   %163 = add nsw i32 %spec.store.select.i, %.3143.i
   %164 = icmp slt i32 %163, %spec.select.i
-  br i1 %164, label %.lr.ph145.i, label %._crit_edge146.i
+  br i1 %164, label %.lr.ph145.i, label %._crit_edge146.i, !llvm.loop !39
 
 ._crit_edge146.i:                                 ; preds = %.lr.ph145.i, %._crit_edge.i
   %.3.lcssa.i = phi i32 [ %.2152.i, %._crit_edge.i ], [ %163, %.lr.ph145.i ]
@@ -5980,7 +5980,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %128, %.preheader131
 174:                                              ; preds = %170
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next176.i, %31
-  br i1 %exitcond178.not.i, label %.critedge.i, label %170
+  br i1 %exitcond178.not.i, label %.critedge.i, label %170, !llvm.loop !40
 
 .critedge.split.loop.exit206.i:                   ; preds = %170
   %175 = trunc nsw i64 %indvars.iv175.i to i32
@@ -6010,24 +6010,24 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %128, %.preheader131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %183 = add nsw i32 %spec.store.select2.i, %.5149.i
   %184 = icmp slt i32 %183, %.2109.lcssa.i
-  br i1 %184, label %.lr.ph150.i, label %.loopexit127.i
+  br i1 %184, label %.lr.ph150.i, label %.loopexit127.i, !llvm.loop !41
 
 .loopexit127.i:                                   ; preds = %.lr.ph150.i, %.critedge.i, %._crit_edge146.i
   %.4.i = phi i32 [ %.3.lcssa.i, %._crit_edge146.i ], [ %.3.lcssa.i, %.critedge.i ], [ %183, %.lr.ph150.i ]
   %185 = icmp slt i32 %.4.i, %0
-  br i1 %185, label %.preheader129.i, label %186
+  br i1 %185, label %.preheader129.i, label %186, !llvm.loop !42
 
 186:                                              ; preds = %.loopexit127.i
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next180.i, 4
-  br i1 %exitcond182.not.i, label %stbiw__write_hdr_scanline.exit.loopexit1, label %141
+  br i1 %exitcond182.not.i, label %stbiw__write_hdr_scanline.exit.loopexit1, label %141, !llvm.loop !43
 
 stbiw__write_hdr_scanline.exit.loopexit1:         ; preds = %186
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #54
   %187 = add nuw nsw i32 %.0286, 1
   %exitcond.not = icmp eq i32 %187, %1
-  br i1 %exitcond.not, label %.split8.us, label %.preheader131.i
+  br i1 %exitcond.not, label %.split8.us, label %.preheader131.i, !llvm.loop !44
 
 .split8.us:                                       ; preds = %stbiw__write_hdr_scanline.exit.loopexit1, %stbiw__write_hdr_scanline.exit.loopexit.us
   call void @free(ptr noundef %20) #54
@@ -6184,7 +6184,7 @@ stbiw__zlib_flushf.exit.thread:                   ; preds = %7, %11
 67:                                               ; preds = %.lr.ph.i270
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %stbiw__zlib_countm.exit, label %.lr.ph.i270
+  br i1 %exitcond.not.i, label %stbiw__zlib_countm.exit, label %.lr.ph.i270, !llvm.loop !45
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i270
   %68 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -6202,7 +6202,7 @@ stbiw__zlib_countm.exit:                          ; preds = %67, %._crit_edge.lo
   %.2185 = phi ptr [ %.0183751, %57 ], [ %spec.select706, %stbiw__zlib_countm.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread874, label %57
+  br i1 %exitcond.not, label %._crit_edge.thread874, label %57, !llvm.loop !46
 
 ._crit_edge.thread874:                            ; preds = %69, %50
   %.0183.lcssa878 = phi ptr [ null, %50 ], [ %.2185, %69 ]
@@ -6339,7 +6339,7 @@ stbiw__sbgrowf.exit277:                           ; preds = %92, %.thread701, %7
 143:                                              ; preds = %.lr.ph.i282
   %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i283, 1
   %exitcond.not.i287 = icmp eq i64 %indvars.iv.next.i286, %wide.trip.count.i281
-  br i1 %exitcond.not.i287, label %stbiw__zlib_countm.exit288, label %.lr.ph.i282
+  br i1 %exitcond.not.i287, label %stbiw__zlib_countm.exit288, label %.lr.ph.i282, !llvm.loop !45
 
 ._crit_edge.loopexit.split.loop.exit.i285:        ; preds = %.lr.ph.i282
   %144 = trunc nuw nsw i64 %indvars.iv.i283 to i32
@@ -6353,7 +6353,7 @@ stbiw__zlib_countm.exit288:                       ; preds = %143, %138, %._crit_
 146:                                              ; preds = %stbiw__zlib_countm.exit288, %132
   %indvars.iv.next844 = add nuw nsw i64 %indvars.iv843, 1
   %exitcond847.not = icmp eq i64 %indvars.iv.next844, %wide.trip.count846
-  br i1 %exitcond847.not, label %stbiw__zlib_countm.exit288._crit_edge.thread.preheader, label %132
+  br i1 %exitcond847.not, label %stbiw__zlib_countm.exit288._crit_edge.thread.preheader, label %132, !llvm.loop !47
 
 stbiw__zlib_countm.exit288._crit_edge.thread.preheader: ; preds = %146, %100, %123
   br label %stbiw__zlib_countm.exit288._crit_edge.thread
@@ -6365,7 +6365,7 @@ stbiw__zlib_countm.exit288._crit_edge.thread:     ; preds = %stbiw__zlib_countm.
   %148 = load i16, ptr %147, align 2
   %149 = zext i16 %148 to i32
   %.not246 = icmp slt i32 %.0189.lcssa870, %149
-  br i1 %.not246, label %150, label %stbiw__zlib_countm.exit288._crit_edge.thread
+  br i1 %.not246, label %150, label %stbiw__zlib_countm.exit288._crit_edge.thread, !llvm.loop !48
 
 150:                                              ; preds = %stbiw__zlib_countm.exit288._crit_edge.thread
   %151 = ptrtoint ptr %28 to i64
@@ -6389,7 +6389,7 @@ stbiw__zlib_countm.exit288._crit_edge.thread:     ; preds = %stbiw__zlib_countm.
   %160 = or disjoint i32 %159, %158
   %161 = lshr i32 %.067.i, 1
   %.not.i289 = icmp eq i32 %157, 0
-  br i1 %.not.i289, label %stbiw__zlib_bitrev.exit, label %.preheader714
+  br i1 %.not.i289, label %stbiw__zlib_bitrev.exit, label %.preheader714, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit:                          ; preds = %.preheader714
   %162 = shl i32 %160, %.0635760
@@ -6455,7 +6455,7 @@ stbiw__sbgrowf.exit.i298:                         ; preds = %184, %.thread.i295,
   %192 = lshr i32 %.12676, 8
   %193 = add nsw i32 %.12647, -8
   %194 = icmp samesign ugt i32 %.12647, 15
-  br i1 %194, label %.lr.ph.i292, label %stbiw__zlib_flushf.exit300
+  br i1 %194, label %.lr.ph.i292, label %stbiw__zlib_flushf.exit300, !llvm.loop !50
 
 195:                                              ; preds = %150
   %196 = trunc nuw nsw i64 %indvars.iv848 to i32
@@ -6472,7 +6472,7 @@ stbiw__sbgrowf.exit.i298:                         ; preds = %184, %.thread.i295,
   %202 = or disjoint i32 %201, %200
   %203 = lshr i32 %.067.i303, 1
   %.not.i304 = icmp eq i32 %199, 0
-  br i1 %.not.i304, label %stbiw__zlib_bitrev.exit305, label %198
+  br i1 %.not.i304, label %stbiw__zlib_bitrev.exit305, label %198, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit305:                       ; preds = %198
   %204 = shl i32 %202, %.0635760
@@ -6538,7 +6538,7 @@ stbiw__sbgrowf.exit.i314:                         ; preds = %226, %.thread.i311,
   %234 = lshr i32 %.14678, 8
   %235 = add nsw i32 %.14649, -8
   %236 = icmp samesign ugt i32 %.14649, 15
-  br i1 %236, label %.lr.ph.i308, label %stbiw__zlib_flushf.exit300
+  br i1 %236, label %.lr.ph.i308, label %stbiw__zlib_flushf.exit300, !llvm.loop !50
 
 stbiw__zlib_flushf.exit300:                       ; preds = %stbiw__sbgrowf.exit.i314, %stbiw__sbgrowf.exit.i298, %stbiw__zlib_bitrev.exit305, %stbiw__zlib_bitrev.exit
   %.1665 = phi i32 [ %163, %stbiw__zlib_bitrev.exit ], [ %205, %stbiw__zlib_bitrev.exit305 ], [ %192, %stbiw__sbgrowf.exit.i298 ], [ %234, %stbiw__sbgrowf.exit.i314 ]
@@ -6620,7 +6620,7 @@ stbiw__sbgrowf.exit.i325:                         ; preds = %269, %.thread.i322,
   %277 = lshr i32 %.16680, 8
   %278 = add nsw i32 %.16651, -8
   %279 = icmp samesign ugt i32 %.16651, 15
-  br i1 %279, label %.lr.ph.i319, label %stbiw__zlib_flushf.exit327
+  br i1 %279, label %.lr.ph.i319, label %stbiw__zlib_flushf.exit327, !llvm.loop !50
 
 stbiw__zlib_flushf.exit327:                       ; preds = %stbiw__sbgrowf.exit.i325, %239, %stbiw__zlib_flushf.exit300
   %.2666 = phi i32 [ %.1665, %stbiw__zlib_flushf.exit300 ], [ %246, %239 ], [ %277, %stbiw__sbgrowf.exit.i325 ]
@@ -6635,7 +6635,7 @@ stbiw__zlib_flushf.exit327:                       ; preds = %stbiw__sbgrowf.exit
   %282 = load i16, ptr %281, align 2
   %283 = zext i16 %282 to i32
   %.not248 = icmp sgt i32 %283, %154
-  br i1 %.not248, label %.preheader713, label %280
+  br i1 %.not248, label %.preheader713, label %280, !llvm.loop !51
 
 .preheader713:                                    ; preds = %280
   %284 = trunc nuw nsw i64 %indvars.iv851 to i32
@@ -6651,7 +6651,7 @@ stbiw__zlib_flushf.exit327:                       ; preds = %stbiw__sbgrowf.exit
   %289 = or disjoint i32 %288, %287
   %290 = lshr i32 %.067.i330, 1
   %.not.i331 = icmp eq i32 %286, 0
-  br i1 %.not.i331, label %stbiw__zlib_bitrev.exit332, label %285
+  br i1 %.not.i331, label %stbiw__zlib_bitrev.exit332, label %285, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit332:                       ; preds = %285
   %291 = shl i32 %289, %.2637
@@ -6717,7 +6717,7 @@ stbiw__sbgrowf.exit.i341:                         ; preds = %313, %.thread.i338,
   %321 = lshr i32 %.18682, 8
   %322 = add nsw i32 %.18653, -8
   %323 = icmp samesign ugt i32 %.18653, 15
-  br i1 %323, label %.lr.ph.i335, label %stbiw__zlib_flushf.exit343
+  br i1 %323, label %.lr.ph.i335, label %stbiw__zlib_flushf.exit343, !llvm.loop !50
 
 stbiw__zlib_flushf.exit343:                       ; preds = %stbiw__sbgrowf.exit.i341, %stbiw__zlib_bitrev.exit332
   %.19683 = phi i32 [ %292, %stbiw__zlib_bitrev.exit332 ], [ %321, %stbiw__sbgrowf.exit.i341 ]
@@ -6798,7 +6798,7 @@ stbiw__sbgrowf.exit.i352:                         ; preds = %355, %.thread.i349,
   %363 = lshr i32 %.20684, 8
   %364 = add nsw i32 %.20655, -8
   %365 = icmp samesign ugt i32 %.20655, 15
-  br i1 %365, label %.lr.ph.i346, label %stbiw__zlib_flushf.exit354
+  br i1 %365, label %.lr.ph.i346, label %stbiw__zlib_flushf.exit354, !llvm.loop !50
 
 .thread702:                                       ; preds = %stbiw__zlib_countm.exit288, %stbiw__sbgrowf.exit277
   %366 = load i8, ptr %28, align 1
@@ -6820,7 +6820,7 @@ stbiw__sbgrowf.exit.i352:                         ; preds = %355, %.thread.i349,
   %375 = or disjoint i32 %374, %373
   %376 = lshr i32 %.067.i357, 1
   %.not.i358 = icmp eq i32 %372, 0
-  br i1 %.not.i358, label %stbiw__zlib_bitrev.exit359, label %371
+  br i1 %.not.i358, label %stbiw__zlib_bitrev.exit359, label %371, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit359:                       ; preds = %371
   %377 = shl i32 %375, %.0635760
@@ -6886,7 +6886,7 @@ stbiw__sbgrowf.exit.i368:                         ; preds = %399, %.thread.i365,
   %407 = lshr i32 %.22686, 8
   %408 = add nsw i32 %.22657, -8
   %409 = icmp samesign ugt i32 %.22657, 15
-  br i1 %409, label %.lr.ph.i362, label %stbiw__zlib_flushf.exit354
+  br i1 %409, label %.lr.ph.i362, label %stbiw__zlib_flushf.exit354, !llvm.loop !50
 
 410:                                              ; preds = %.thread702
   %411 = or disjoint i32 %367, 256
@@ -6902,7 +6902,7 @@ stbiw__sbgrowf.exit.i368:                         ; preds = %399, %.thread.i365,
   %416 = or disjoint i32 %415, %414
   %417 = lshr i32 %.067.i373, 1
   %.not.i374 = icmp eq i32 %413, 0
-  br i1 %.not.i374, label %stbiw__zlib_bitrev.exit375, label %412
+  br i1 %.not.i374, label %stbiw__zlib_bitrev.exit375, label %412, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit375:                       ; preds = %412
   %418 = shl i32 %416, %.0635760
@@ -6968,7 +6968,7 @@ stbiw__sbgrowf.exit.i384:                         ; preds = %440, %.thread.i381,
   %448 = lshr i32 %.24688, 8
   %449 = add nsw i32 %.24659, -8
   %450 = icmp samesign ugt i32 %.24659, 15
-  br i1 %450, label %.lr.ph.i378, label %stbiw__zlib_flushf.exit354
+  br i1 %450, label %.lr.ph.i378, label %stbiw__zlib_flushf.exit354, !llvm.loop !50
 
 stbiw__zlib_flushf.exit354:                       ; preds = %stbiw__sbgrowf.exit.i352, %stbiw__sbgrowf.exit.i384, %stbiw__sbgrowf.exit.i368, %stbiw__zlib_bitrev.exit359, %stbiw__zlib_bitrev.exit375, %324, %stbiw__zlib_flushf.exit343
   %.3667 = phi i32 [ %.19683, %stbiw__zlib_flushf.exit343 ], [ %332, %324 ], [ %378, %stbiw__zlib_bitrev.exit359 ], [ %419, %stbiw__zlib_bitrev.exit375 ], [ %407, %stbiw__sbgrowf.exit.i368 ], [ %448, %stbiw__sbgrowf.exit.i384 ], [ %363, %stbiw__sbgrowf.exit.i352 ]
@@ -6977,7 +6977,7 @@ stbiw__zlib_flushf.exit354:                       ; preds = %stbiw__sbgrowf.exit
   %.0189.pn = phi i32 [ %.0189.lcssa870, %stbiw__zlib_flushf.exit343 ], [ %.0189.lcssa870, %324 ], [ 1, %stbiw__zlib_bitrev.exit359 ], [ 1, %stbiw__zlib_bitrev.exit375 ], [ 1, %stbiw__sbgrowf.exit.i368 ], [ 1, %stbiw__sbgrowf.exit.i384 ], [ %.0189.lcssa870, %stbiw__sbgrowf.exit.i352 ]
   %.2 = add nsw i32 %.0189.pn, %.1182762
   %451 = icmp slt i32 %.2, %18
-  br i1 %451, label %26, label %.preheader710
+  br i1 %451, label %26, label %.preheader710, !llvm.loop !52
 
 .preheader708:                                    ; preds = %stbiw__zlib_flushf.exit402, %.preheader710
   %.5669.lcssa = phi i32 [ %.0664.lcssa, %.preheader710 ], [ %.6670, %stbiw__zlib_flushf.exit402 ]
@@ -7012,7 +7012,7 @@ stbiw__zlib_flushf.exit354:                       ; preds = %stbiw__sbgrowf.exit
   %464 = or disjoint i32 %463, %462
   %465 = lshr i32 %.067.i389, 1
   %.not.i390 = icmp eq i32 %461, 0
-  br i1 %.not.i390, label %stbiw__zlib_bitrev.exit391, label %460
+  br i1 %.not.i390, label %stbiw__zlib_bitrev.exit391, label %460, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit391:                       ; preds = %460
   %466 = shl i32 %464, %.5640769
@@ -7078,7 +7078,7 @@ stbiw__sbgrowf.exit.i400:                         ; preds = %488, %.thread.i397,
   %496 = lshr i32 %.26690, 8
   %497 = add nsw i32 %.26661, -8
   %498 = icmp samesign ugt i32 %.26661, 15
-  br i1 %498, label %.lr.ph.i394, label %stbiw__zlib_flushf.exit402
+  br i1 %498, label %.lr.ph.i394, label %stbiw__zlib_flushf.exit402, !llvm.loop !50
 
 499:                                              ; preds = %.lr.ph772
   %500 = or disjoint i32 %456, 256
@@ -7094,7 +7094,7 @@ stbiw__sbgrowf.exit.i400:                         ; preds = %488, %.thread.i397,
   %505 = or disjoint i32 %504, %503
   %506 = lshr i32 %.067.i405, 1
   %.not.i406 = icmp eq i32 %502, 0
-  br i1 %.not.i406, label %stbiw__zlib_bitrev.exit407, label %501
+  br i1 %.not.i406, label %stbiw__zlib_bitrev.exit407, label %501, !llvm.loop !49
 
 stbiw__zlib_bitrev.exit407:                       ; preds = %501
   %507 = shl i32 %505, %.5640769
@@ -7160,7 +7160,7 @@ stbiw__sbgrowf.exit.i416:                         ; preds = %529, %.thread.i413,
   %537 = lshr i32 %.28692, 8
   %538 = add nsw i32 %.28663, -8
   %539 = icmp samesign ugt i32 %.28663, 15
-  br i1 %539, label %.lr.ph.i410, label %stbiw__zlib_flushf.exit402
+  br i1 %539, label %.lr.ph.i410, label %stbiw__zlib_flushf.exit402, !llvm.loop !50
 
 stbiw__zlib_flushf.exit402:                       ; preds = %stbiw__sbgrowf.exit.i416, %stbiw__sbgrowf.exit.i400, %stbiw__zlib_bitrev.exit407, %stbiw__zlib_bitrev.exit391
   %.6670 = phi i32 [ %467, %stbiw__zlib_bitrev.exit391 ], [ %508, %stbiw__zlib_bitrev.exit407 ], [ %496, %stbiw__sbgrowf.exit.i400 ], [ %537, %stbiw__sbgrowf.exit.i416 ]
@@ -7168,7 +7168,7 @@ stbiw__zlib_flushf.exit402:                       ; preds = %stbiw__sbgrowf.exit
   %storemerge238 = phi ptr [ %.6634770, %stbiw__zlib_bitrev.exit391 ], [ %.6634770, %stbiw__zlib_bitrev.exit407 ], [ %.1.i401, %stbiw__sbgrowf.exit.i400 ], [ %.1.i417, %stbiw__sbgrowf.exit.i416 ]
   %indvars.iv.next855 = add nsw i64 %indvars.iv854, 1
   %exitcond858.not = icmp eq i64 %indvars.iv.next855, %wide.trip.count857
-  br i1 %exitcond858.not, label %.preheader708, label %.lr.ph772
+  br i1 %exitcond858.not, label %.preheader708, label %.lr.ph772, !llvm.loop !53
 
 .lr.ph.i426:                                      ; preds = %.preheader708, %stbiw__sbgrowf.exit.i432
   %.30694 = phi i32 [ %566, %stbiw__sbgrowf.exit.i432 ], [ %.5669.lcssa, %.preheader708 ]
@@ -7227,7 +7227,7 @@ stbiw__sbgrowf.exit.i432:                         ; preds = %558, %.thread.i429,
   %566 = lshr i32 %.30694, 8
   %567 = add nsw i32 %.30, -8
   %568 = icmp sgt i32 %.30, 15
-  br i1 %568, label %.lr.ph.i426, label %stbiw__zlib_flushf.exit434
+  br i1 %568, label %.lr.ph.i426, label %stbiw__zlib_flushf.exit434, !llvm.loop !50
 
 stbiw__zlib_flushf.exit434:                       ; preds = %stbiw__sbgrowf.exit.i432, %.preheader708
   %.31695 = phi i32 [ %.5669.lcssa, %.preheader708 ], [ %566, %stbiw__sbgrowf.exit.i432 ]
@@ -7305,14 +7305,14 @@ stbiw__sbgrowf.exit.i443:                         ; preds = %589, %.thread.i440,
   %597 = lshr i32 %.32696, 8
   %598 = add nsw i32 %.32, -8
   %599 = icmp samesign ugt i32 %.32, 15
-  br i1 %599, label %.lr.ph.i437, label %stbiw__zlib_flushf.exit445
+  br i1 %599, label %.lr.ph.i437, label %stbiw__zlib_flushf.exit445, !llvm.loop !50
 
 stbiw__zlib_flushf.exit445:                       ; preds = %stbiw__sbgrowf.exit.i443, %.lr.ph780
   %.33697 = phi i32 [ %.7671777, %.lr.ph780 ], [ %597, %stbiw__sbgrowf.exit.i443 ]
   %.33 = phi i32 [ %569, %.lr.ph780 ], [ %598, %stbiw__sbgrowf.exit.i443 ]
   %.0.lcssa.i436 = phi ptr [ %storemerge779, %.lr.ph780 ], [ %.1.i444, %stbiw__sbgrowf.exit.i443 ]
   %.not227 = icmp eq i32 %.33, 0
-  br i1 %.not227, label %.preheader707, label %.lr.ph780
+  br i1 %.not227, label %.preheader707, label %.lr.ph780, !llvm.loop !54
 
 600:                                              ; preds = %.preheader707, %605
   %indvars.iv859 = phi i64 [ 0, %.preheader707 ], [ %indvars.iv.next860, %605 ]
@@ -7329,7 +7329,7 @@ stbiw__zlib_flushf.exit445:                       ; preds = %stbiw__sbgrowf.exit
 605:                                              ; preds = %603, %600
   %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
   %exitcond862.not = icmp eq i64 %indvars.iv.next860, 16384
-  br i1 %exitcond862.not, label %606, label %600
+  br i1 %exitcond862.not, label %606, label %600, !llvm.loop !55
 
 606:                                              ; preds = %605
   tail call void @free(ptr noundef nonnull %5) #54
@@ -7524,7 +7524,7 @@ stbiw__sbgrowf.exit475:                           ; preds = %706, %701, %689
   store i32 %723, ptr %711, align 4
   %724 = add nsw i32 %spec.store.select1, %.4197784
   %725 = icmp slt i32 %724, %1
-  br i1 %725, label %.lr.ph786, label %.loopexit
+  br i1 %725, label %.lr.ph786, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %stbiw__sbgrowf.exit475, %606
   %726 = phi i32 [ %608, %606 ], [ %723, %stbiw__sbgrowf.exit475 ]
@@ -7561,7 +7561,7 @@ stbiw__sbgrowf.exit475:                           ; preds = %706, %701, %689
   %733 = add i32 %732, %.1790
   %indvars.iv.next864 = add nuw nsw i64 %indvars.iv863, 1
   %exitcond867.not = icmp eq i64 %indvars.iv.next864, %wide.trip.count866
-  br i1 %exitcond867.not, label %._crit_edge792.loopexit, label %.lr.ph791
+  br i1 %exitcond867.not, label %._crit_edge792.loopexit, label %.lr.ph791, !llvm.loop !57
 
 ._crit_edge792.loopexit:                          ; preds = %.lr.ph791
   %734 = urem i32 %732, 65521
@@ -7573,7 +7573,7 @@ stbiw__sbgrowf.exit475:                           ; preds = %706, %701, %689
   %.1.lcssa = phi i32 [ %.0177797, %.preheader ], [ %735, %._crit_edge792.loopexit ]
   %736 = add nuw nsw i32 %.0798, %.5198795
   %737 = icmp slt i32 %736, %1
-  br i1 %737, label %.preheader, label %._crit_edge799
+  br i1 %737, label %.preheader, label %._crit_edge799, !llvm.loop !58
 
 ._crit_edge799:                                   ; preds = %._crit_edge792
   %738 = icmp eq ptr %.7, null
@@ -7792,7 +7792,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %18, i64 %17, i1 false)
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
-  br i1 %exitcond217.not, label %._crit_edge, label %23, !llvm.loop !9
+  br i1 %exitcond217.not, label %._crit_edge, label %23, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = icmp sgt i32 %10, 0
@@ -7827,7 +7827,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %18, i64 %17, i1 false)
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond212.not, label %._crit_edge, label %.preheader.us, !llvm.loop !60
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader.us
   %.093186.us.us = phi i32 [ 2147483647, %.preheader.us ], [ %spec.select113.us.us, %._crit_edge.us.us ]
@@ -7846,7 +7846,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   %43 = add nuw nsw i32 %.092182.us.us, %42
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge.us.us, label %38
+  br i1 %exitcond206.not, label %._crit_edge.us.us, label %38, !llvm.loop !61
 
 ._crit_edge.us.us:                                ; preds = %38
   %44 = icmp slt i32 %43, %.093186.us.us
@@ -7854,7 +7854,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   %spec.select113.us.us = tail call i32 @llvm.smin.i32(i32 %43, i32 %.093186.us.us)
   %45 = add nuw nsw i32 %.197184.us.us, 1
   %exitcond207.not = icmp eq i32 %45, 5
-  br i1 %exitcond207.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !11
+  br i1 %exitcond207.not, label %.split.us.us, label %.lr.ph.us.us, !llvm.loop !62
 
 .split.us.us:                                     ; preds = %._crit_edge.us.us
   %.not111.us = icmp eq i32 %spec.select112.us.us, 5
@@ -7874,7 +7874,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   tail call fastcc void @stbiw__encode_png_line(ptr noundef %0, i32 noundef %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %47, i32 noundef %4, i32 noundef %.197184, ptr noundef %18)
   %49 = add nuw nsw i32 %.197184, 1
   %exitcond.not = icmp eq i32 %49, 5
-  br i1 %exitcond.not, label %50, label %48
+  br i1 %exitcond.not, label %50, label %48, !llvm.loop !63
 
 50:                                               ; preds = %48
   tail call fastcc void @stbiw__encode_png_line(ptr noundef %0, i32 noundef %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %47, i32 noundef %4, i32 noundef 0, ptr noundef %18)
@@ -7885,7 +7885,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %18, i64 %17, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next, %wide.trip.count211
-  br i1 %exitcond201.not, label %._crit_edge, label %.preheader
+  br i1 %exitcond201.not, label %._crit_edge, label %.preheader, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %50, %34, %23, %.preheader179
   tail call void @free(ptr noundef nonnull %18) #54
@@ -7983,7 +7983,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(n
   %110 = xor i32 %109, %101
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %stbiw__wpcrc.exit, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %stbiw__wpcrc.exit, label %.lr.ph.i.i, !llvm.loop !65
 
 stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
   %111 = getelementptr inbounds nuw i8, ptr %60, i64 29
@@ -8053,7 +8053,7 @@ stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
   %152 = xor i32 %151, %143
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
   %exitcond.not.i.i118 = icmp eq i64 %indvars.iv.next.i.i117, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i118, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i114
+  br i1 %exitcond.not.i.i118, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i114, !llvm.loop !65
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i114
   %153 = xor i32 %152, -1
@@ -8102,7 +8102,7 @@ stbiw__wpcrc.exit119:                             ; preds = %stbiw__wpcrc.exit, 
   %178 = xor i32 %177, %169
   %indvars.iv.next.i.i124 = add nuw nsw i64 %indvars.iv.i.i122, 1
   %exitcond.not.i.i125 = icmp eq i64 %indvars.iv.next.i.i124, 4
-  br i1 %exitcond.not.i.i125, label %stbiw__wpcrc.exit128, label %.lr.ph.i.i121
+  br i1 %exitcond.not.i.i125, label %stbiw__wpcrc.exit128, label %.lr.ph.i.i121, !llvm.loop !65
 
 stbiw__wpcrc.exit128:                             ; preds = %.lr.ph.i.i121
   %179 = getelementptr inbounds nuw i8, ptr %140, i64 12
@@ -8227,7 +8227,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
 60:                                               ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %60, %.preheader160
   switch i32 %12, label %.loopexit [
@@ -8314,7 +8314,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %87, ptr %88, align 1
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %.loopexit, label %.lr.ph173
+  br i1 %exitcond209.not, label %.loopexit, label %.lr.ph173, !llvm.loop !67
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
   %indvars.iv200 = phi i64 [ %77, %.lr.ph171.preheader ], [ %indvars.iv.next201, %.lr.ph171 ]
@@ -8328,7 +8328,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %94, ptr %95, align 1
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph171
+  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph171, !llvm.loop !68
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
   %indvars.iv195 = phi i64 [ %73, %.lr.ph169.preheader ], [ %indvars.iv.next196, %.lr.ph169 ]
@@ -8350,7 +8350,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %109, ptr %110, align 1
   %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph169
+  br i1 %exitcond199.not, label %.loopexit, label %.lr.ph169, !llvm.loop !69
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.lr.ph167
   %indvars.iv190 = phi i64 [ %69, %.lr.ph167.preheader ], [ %indvars.iv.next191, %.lr.ph167 ]
@@ -8387,7 +8387,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %134, ptr %135, align 1
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph167
+  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph167, !llvm.loop !70
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv185 = phi i64 [ %66, %.lr.ph165.preheader ], [ %indvars.iv.next186, %.lr.ph165 ]
@@ -8402,7 +8402,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %142, ptr %143, align 1
   %indvars.iv.next186 = add nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph165
+  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph165, !llvm.loop !71
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163
   %indvars.iv180 = phi i64 [ %63, %.lr.ph163.preheader ], [ %indvars.iv.next181, %.lr.ph163 ]
@@ -8416,7 +8416,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr noundef readonly capture
   store i8 %149, ptr %150, align 1
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph163
+  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph163, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph163, %.lr.ph165, %.lr.ph167, %.lr.ph169, %.lr.ph171, %.lr.ph173, %.preheader158, %.preheader156, %.preheader154, %.preheader152, %.preheader150, %.preheader, %._crit_edge, %25
   ret void
@@ -8580,7 +8580,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   store i8 %68, ptr %69, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader283, label %48
+  br i1 %exitcond.not, label %.preheader283, label %48, !llvm.loop !73
 
 .preheader283:                                    ; preds = %48, %93
   %indvars.iv359 = phi i64 [ %indvars.iv.next360, %93 ], [ 0, %48 ]
@@ -8618,12 +8618,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %indvars.iv.next354 = add nsw i64 %indvars.iv353, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next352, 8
-  br i1 %exitcond358.not, label %93, label %73
+  br i1 %exitcond358.not, label %93, label %73, !llvm.loop !74
 
 93:                                               ; preds = %73
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 8
-  br i1 %exitcond362.not, label %94, label %.preheader283
+  br i1 %exitcond362.not, label %94, label %.preheader283, !llvm.loop !75
 
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #54
@@ -8801,7 +8801,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
 168:                                              ; preds = %170
   %169 = add nuw nsw i32 %.2294.us308, 1
   %exitcond369.not = icmp eq i32 %169, %indvars.iv367
-  br i1 %exitcond369.not, label %.split296.us307, label %.split.us313
+  br i1 %exitcond369.not, label %.split296.us307, label %.split.us313, !llvm.loop !76
 
 170:                                              ; preds = %170, %.split.us313
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %170 ], [ %166, %.split.us313 ]
@@ -8839,7 +8839,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next364 to i32
   %exitcond366.not = icmp eq i32 %167, %lftr.wideiv
-  br i1 %exitcond366.not, label %168, label %170
+  br i1 %exitcond366.not, label %168, label %170, !llvm.loop !77
 
 .split296.us307:                                  ; preds = %168, %207
   %198 = call fastcc i32 @stbiw__jpg_processDU(ptr noundef %0, ptr noundef %20, ptr noundef %21, ptr noundef %27, i32 noundef 8, ptr noundef %15, i32 noundef %.3300.us, ptr noundef nonnull @stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @stbi_write_jpg_core.YAC_HT)
@@ -8850,7 +8850,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %27) #54
   %201 = add nuw nsw i32 %.1246297.us, 8
   %202 = icmp slt i32 %201, %1
-  br i1 %202, label %161, label %._crit_edge.us
+  br i1 %202, label %161, label %._crit_edge.us, !llvm.loop !78
 
 .split.us.us:                                     ; preds = %161, %207
   %.2294.us.us = phi i32 [ %208, %207 ], [ %.1248303.us, %161 ]
@@ -8864,7 +8864,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
 207:                                              ; preds = %209
   %208 = add nuw nsw i32 %.2294.us.us, 1
   %exitcond375.not = icmp eq i32 %208, %indvars.iv367
-  br i1 %exitcond375.not, label %.split296.us307, label %.split.us.us, !llvm.loop !12
+  br i1 %exitcond375.not, label %.split296.us307, label %.split.us.us, !llvm.loop !79
 
 209:                                              ; preds = %209, %.split.us.us
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %209 ], [ %205, %.split.us.us ]
@@ -8902,13 +8902,13 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %indvars.iv.next371 = add nsw i64 %indvars.iv370, 1
   %lftr.wideiv373 = trunc i64 %indvars.iv.next371 to i32
   %exitcond374.not = icmp eq i32 %206, %lftr.wideiv373
-  br i1 %exitcond374.not, label %207, label %209
+  br i1 %exitcond374.not, label %207, label %209, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %.split296.us307
   %237 = add nuw nsw i32 %.1248303.us, 8
   %238 = icmp slt i32 %237, %2
   %indvars.iv.next368 = add i32 %indvars.iv367, 8
-  br i1 %238, label %.preheader280.us, label %.loopexit, !llvm.loop !13
+  br i1 %238, label %.preheader280.us, label %.loopexit, !llvm.loop !80
 
 .preheader279:                                    ; preds = %94
   br i1 %157, label %.preheader278.lr.ph, label %.loopexit
@@ -8961,12 +8961,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %22) #54
   %255 = add nuw nsw i32 %.0245322.us, 16
   %256 = icmp slt i32 %255, %1
-  br i1 %256, label %245, label %._crit_edge.us332
+  br i1 %256, label %245, label %._crit_edge.us332, !llvm.loop !81
 
 257:                                              ; preds = %258
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next393, 8
-  br i1 %exitcond395.not, label %252, label %.preheader.us
+  br i1 %exitcond395.not, label %252, label %.preheader.us, !llvm.loop !82
 
 258:                                              ; preds = %.preheader.us, %258
   %indvars.iv386 = phi i64 [ %328, %.preheader.us ], [ %indvars.iv.next387, %258 ]
@@ -9007,7 +9007,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %indvars.iv.next387 = add nsw i64 %indvars.iv386, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next385, 8
-  br i1 %exitcond391.not, label %257, label %258
+  br i1 %exitcond391.not, label %257, label %258, !llvm.loop !83
 
 290:                                              ; preds = %297, %245
   %.1317.us = phi i32 [ %.0247328.us, %245 ], [ %298, %297 ]
@@ -9023,7 +9023,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
 297:                                              ; preds = %299
   %298 = add nuw nsw i32 %.1317.us, 1
   %exitcond383.not = icmp eq i32 %298, %indvars.iv381
-  br i1 %exitcond383.not, label %247, label %290
+  br i1 %exitcond383.not, label %247, label %290, !llvm.loop !84
 
 299:                                              ; preds = %299, %290
   %indvars.iv376 = phi i64 [ %indvars.iv.next377, %299 ], [ %295, %290 ]
@@ -9061,7 +9061,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
   %lftr.wideiv379 = trunc i64 %indvars.iv.next377 to i32
   %exitcond380.not = icmp eq i32 %296, %lftr.wideiv379
-  br i1 %exitcond380.not, label %297, label %299
+  br i1 %exitcond380.not, label %297, label %299, !llvm.loop !85
 
 .preheader.us:                                    ; preds = %257, %247
   %indvars.iv392 = phi i64 [ %indvars.iv.next393, %257 ], [ 0, %247 ]
@@ -9075,7 +9075,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %329 = add nuw nsw i32 %.0247328.us, 16
   %330 = icmp slt i32 %329, %2
   %indvars.iv.next382 = add i32 %indvars.iv381, 16
-  br i1 %330, label %.preheader278.us, label %.loopexit, !llvm.loop !14
+  br i1 %330, label %.preheader278.us, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us332, %.preheader278.lr.ph, %.preheader280.lr.ph, %.preheader281, %.preheader279
   %331 = load i32, ptr %21, align 4
@@ -9118,7 +9118,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef nonn
   %344 = shl i32 %.02.i, 8
   %345 = add nsw i32 %.0181.i, -8
   %346 = icmp sgt i32 %.0181.i, 15
-  br i1 %346, label %.lr.ph.i, label %stbiw__jpg_writeBits.exit
+  br i1 %346, label %.lr.ph.i, label %stbiw__jpg_writeBits.exit, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit:                        ; preds = %343, %.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #54
@@ -9427,7 +9427,7 @@ define hidden float @stb_perlin_ridge_noise3(float noundef %0, float noundef %1,
   %20 = fmul float %4, %.02429
   %21 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %21, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.023.lcssa = phi float [ 0.000000e+00, %7 ], [ %18, %.lr.ph ]
@@ -9457,7 +9457,7 @@ define hidden float @stb_perlin_fbm_noise3(float noundef %0, float noundef %1, f
   %15 = fmul float %4, %.01621
   %16 = add nuw nsw i32 %.01819, 1
   %exitcond.not = icmp eq i32 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %13, %.lr.ph ]
@@ -9486,7 +9486,7 @@ define hidden float @stb_perlin_turbulence_noise3(float noundef %0, float nounde
   %17 = fmul float %4, %.01821
   %18 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.017.lcssa = phi float [ 0.000000e+00, %6 ], [ %15, %.lr.ph ]
@@ -10814,13 +10814,13 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
 
 .preheader.i.i.i:                                 ; preds = %120, %.preheader.i.i.i
   %.0.i.i.i = phi ptr [ %123, %.preheader.i.i.i ], [ %94, %120 ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i) #54, !srcloc !15
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i) #54, !srcloc !91
   %121 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %116
   %122 = load i8, ptr %121, align 1
   store i8 %122, ptr %.0.i.i.i, align 1
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   %124 = icmp ult ptr %123, %113
-  br i1 %124, label %.preheader.i.i.i, label %stbir__resample_horizontal_gather.exit.i, !llvm.loop !16
+  br i1 %124, label %.preheader.i.i.i, label %stbir__resample_horizontal_gather.exit.i, !llvm.loop !92
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds i8, ptr %94, i64 %116
@@ -10834,7 +10834,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
 
 132:                                              ; preds = %136, %125
   %.1.i.i.i = phi ptr [ %130, %125 ], [ %139, %136 ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i.i.i) #54, !srcloc !19
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i.i.i) #54, !srcloc !95
   %133 = icmp ugt ptr %.1.i.i.i, %131
   br i1 %133, label %134, label %136
 
@@ -10848,7 +10848,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
   %138 = load <4 x float>, ptr %137, align 1
   store <4 x float> %138, ptr %.2.i.i.i, align 1
   %139 = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 16
-  br label %132, !llvm.loop !20
+  br label %132, !llvm.loop !96
 
 140:                                              ; preds = %107
   %141 = getelementptr inbounds i8, ptr %94, i64 %116
@@ -10874,7 +10874,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
 
 156:                                              ; preds = %160, %140
   %.3.i.i.i = phi ptr [ %154, %140 ], [ %172, %160 ]
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i.i.i) #54, !srcloc !21
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i.i.i) #54, !srcloc !97
   %157 = icmp ugt ptr %.3.i.i.i, %155
   br i1 %157, label %158, label %160
 
@@ -10900,7 +10900,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
   %171 = getelementptr inbounds nuw i8, ptr %.4.i.i.i, i64 48
   store <4 x float> %168, ptr %171, align 1
   %172 = getelementptr inbounds nuw i8, ptr %.4.i.i.i, i64 64
-  br label %156, !llvm.loop !22
+  br label %156, !llvm.loop !98
 
 173:                                              ; preds = %104, %84
   %174 = load ptr, ptr %44, align 8
@@ -10914,7 +10914,7 @@ define internal fastcc void @stbir__perform_resize(ptr noundef %0, i32 noundef r
 stbir__resample_horizontal_gather.exit.i:         ; preds = %158, %134, %.preheader.i.i.i, %173, %120, %76
   %179 = load i32, ptr %31, align 4
   %180 = icmp sgt i32 %60, %179
-  br i1 %180, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %180, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !99
 
 ._crit_edge.i:                                    ; preds = %stbir__resample_horizontal_gather.exit.i, %57
   %181 = load ptr, ptr %48, align 8
@@ -10974,7 +10974,7 @@ stbir__resample_horizontal_gather.exit.i:         ; preds = %158, %134, %.prehea
   store ptr %208, ptr %209, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %203
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %203, !llvm.loop !100
 
 ._crit_edge.loopexit.i.i:                         ; preds = %203
   %.pre.i.i = load ptr, ptr %5, align 16
@@ -10991,7 +10991,7 @@ stbir__resample_horizontal_gather.exit.i:         ; preds = %158, %134, %.prehea
   %219 = sub nsw i32 %.044.i.i, %198
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #54
   %.not47.i.i = icmp eq i32 %219, 0
-  br i1 %.not47.i.i, label %220, label %.lr.ph.i.i
+  br i1 %.not47.i.i, label %220, label %.lr.ph.i.i, !llvm.loop !101
 
 220:                                              ; preds = %._crit_edge.loopexit.i.i
   br i1 %.not.i.i, label %222, label %221
@@ -11041,7 +11041,7 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %21, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %stbir__vertical_gather_loop.exit, label %57
+  br i1 %exitcond.not.i, label %stbir__vertical_gather_loop.exit, label %57, !llvm.loop !102
 
 244:                                              ; preds = %3
   %245 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -11128,7 +11128,7 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
   %293 = add nuw nsw i32 %.0125148.i, 1
   %294 = load i32, ptr %279, align 4
   %295 = icmp slt i32 %293, %294
-  br i1 %295, label %289, label %.preheader144.i
+  br i1 %295, label %289, label %.preheader144.i, !llvm.loop !103
 
 .preheader.i:                                     ; preds = %366, %.preheader144.i
   %.0117.lcssa.i = phi i32 [ %246, %.preheader144.i ], [ %.1.i, %366 ]
@@ -11212,7 +11212,7 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
   br i1 %or.cond140.i, label %330, label %331
 
 330:                                              ; preds = %322
-  call void %.0122.i(ptr noundef nonnull %0, ptr noundef nonnull %9) #54, !callees !23
+  call void %.0122.i(ptr noundef nonnull %0, ptr noundef nonnull %9) #54, !callees !104
   br label %331
 
 331:                                              ; preds = %330, %322
@@ -11263,12 +11263,12 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
 351:                                              ; preds = %345, %338
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i19, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, %wide.trip.count.i.i18
-  br i1 %exitcond.not.i.i22, label %.._crit_edge.loopexit_crit_edge.i.i, label %338
+  br i1 %exitcond.not.i.i22, label %.._crit_edge.loopexit_crit_edge.i.i, label %338, !llvm.loop !105
 
 .._crit_edge.loopexit_crit_edge.i.i:              ; preds = %351
   %.pre.pre.i.i = load ptr, ptr %4, align 16
   %.pre.i = load float, ptr %.pre.pre.i.i, align 4
-  br label %._crit_edge.i.i
+  br label %._crit_edge.i.i, !llvm.loop !105
 
 ._crit_edge.i.i:                                  ; preds = %345, %.._crit_edge.loopexit_crit_edge.i.i
   %352 = phi float [ %.pre.i, %.._crit_edge.loopexit_crit_edge.i.i ], [ %349, %345 ]
@@ -11286,7 +11286,7 @@ stbir__resample_vertical_gather.exit.i:           ; preds = %237, %233
   %362 = sub nsw i32 %.026.i.i, %.0.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #54
   %.not30.i.i = icmp eq i32 %362, 0
-  br i1 %.not30.i.i, label %stbir__resample_vertical_scatter.exit.i, label %.lr.ph.i.i14
+  br i1 %.not30.i.i, label %stbir__resample_vertical_scatter.exit.i, label %.lr.ph.i.i14, !llvm.loop !106
 
 stbir__resample_vertical_scatter.exit.i:          ; preds = %._crit_edge.i.i
   %363 = load i32, ptr %277, align 4
@@ -11306,13 +11306,13 @@ stbir__resample_vertical_scatter.exit.i:          ; preds = %._crit_edge.i.i
   %370 = getelementptr inbounds float, ptr %.0123151.i, i64 %369
   %371 = add i32 %.1126149.i, 1
   %exitcond.not.i12 = icmp eq i32 %371, %248
-  br i1 %exitcond.not.i12, label %.preheader.i, label %298
+  br i1 %exitcond.not.i12, label %.preheader.i, label %298, !llvm.loop !107
 
 .lr.ph155.i:                                      ; preds = %.preheader.i, %.lr.ph155.i
-  call void %.0122.i(ptr noundef nonnull %0, ptr noundef nonnull %9) #54, !callees !23
+  call void %.0122.i(ptr noundef nonnull %0, ptr noundef nonnull %9) #54, !callees !104
   %372 = load i32, ptr %276, align 8
   %373 = icmp slt i32 %372, %21
-  br i1 %373, label %.lr.ph155.i, label %._crit_edge.i9
+  br i1 %373, label %.lr.ph155.i, label %._crit_edge.i9, !llvm.loop !108
 
 ._crit_edge.i9:                                   ; preds = %.lr.ph155.i, %.preheader.i
   %374 = add nsw i32 %.0117.lcssa.i, 1
@@ -11337,7 +11337,7 @@ stbir__resample_vertical_scatter.exit.i:          ; preds = %._crit_edge.i.i
 380:                                              ; preds = %379, %.lr.ph158.i
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond163.not.i = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i
-  br i1 %exitcond163.not.i, label %stbir__vertical_gather_loop.exit, label %.lr.ph158.i
+  br i1 %exitcond163.not.i, label %stbir__vertical_gather_loop.exit, label %.lr.ph158.i, !llvm.loop !109
 
 stbir__vertical_gather_loop.exit:                 ; preds = %stbir__resample_vertical_gather.exit.i, %380, %._crit_edge.i9, %22
   ret void
@@ -12250,23 +12250,23 @@ define void @LoadImageAnim(ptr dead_on_unwind noalias writable sret(%struct.Imag
 
 22:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #54
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #54, !noalias !24
-  store i32 0, ptr %4, align 4, !noalias !24
-  %23 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %4) #54, !noalias !24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !110
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #54, !noalias !110
+  store i32 0, ptr %4, align 4, !noalias !110
+  %23 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %4) #54, !noalias !110
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %LoadImage.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = call ptr @GetFileExtension(ptr noundef %1) #54, !noalias !24
-  %26 = load i32, ptr %4, align 4, !noalias !24
+  %25 = call ptr @GetFileExtension(ptr noundef %1) #54, !noalias !110
+  %26 = load i32, ptr %4, align 4, !noalias !110
   call void @LoadImageFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %9, ptr noundef %25, ptr noundef nonnull %23, i32 noundef %26)
-  call void @UnloadFileData(ptr noundef nonnull %23) #54, !noalias !24
+  call void @UnloadFileData(ptr noundef nonnull %23) #54, !noalias !110
   br label %LoadImage.exit
 
 LoadImage.exit:                                   ; preds = %22, %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #54, !noalias !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #54, !noalias !110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #54
   br label %27
@@ -13205,7 +13205,7 @@ define noundef ptr @LoadImageColors(ptr noundef readonly byval(%struct.Image) al
   %.1 = phi i32 [ %.0175195, %23 ], [ %.0175195, %24 ], [ %43, %32 ], [ %.0175195, %44 ], [ %.0175195, %61 ], [ %.0175195, %75 ], [ %108, %94 ], [ %121, %109 ], [ %132, %122 ], [ %151, %133 ], [ %174, %152 ], [ %210, %175 ], [ %304, %211 ], [ %427, %305 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %23
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !113
 
 .loopexit:                                        ; preds = %428, %20, %16, %1
   %.0 = phi ptr [ null, %1 ], [ %12, %16 ], [ %12, %20 ], [ %12, %428 ]
@@ -13383,7 +13383,7 @@ GetPixelDataSize.exit:                            ; preds = %12, %20, %22
   %63 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv.next
   %64 = load i8, ptr %63, align 1
   %.not = icmp eq i8 %64, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge82:                                    ; preds = %73, %._crit_edge
   %.073.lcssa = phi i32 [ %55, %._crit_edge ], [ %84, %73 ]
@@ -13414,7 +13414,7 @@ GetPixelDataSize.exit:                            ; preds = %12, %20, %22
   %84 = add nsw i32 %83, %.07378
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge82, label %73
+  br i1 %exitcond.not, label %._crit_edge82, label %73, !llvm.loop !115
 
 85:                                               ; preds = %._crit_edge82
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.50, ptr noundef %1) #54
@@ -13472,7 +13472,7 @@ define void @GenImageColor(ptr dead_on_unwind noalias writable writeonly sret(%s
   store i32 %3, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
@@ -13590,12 +13590,12 @@ define void @GenImageGradientLinear(ptr dead_on_unwind noalias writable writeonl
   store i8 %80, ptr %81, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %44
+  br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !117
 
 ._crit_edge.us:                                   ; preds = %44
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %40
-  br i1 %exitcond75.not, label %._crit_edge68, label %.preheader.us, !llvm.loop !27
+  br i1 %exitcond75.not, label %._crit_edge68, label %.preheader.us, !llvm.loop !118
 
 ._crit_edge68:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
@@ -13723,12 +13723,12 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias writable writeonl
   store i8 %69, ptr %70, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
-  br i1 %exitcond.not, label %._crit_edge.us, label %34
+  br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !119
 
 ._crit_edge.us:                                   ; preds = %34
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge61, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond68.not, label %._crit_edge61, label %.preheader.us, !llvm.loop !120
 
 ._crit_edge61:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
@@ -13851,12 +13851,12 @@ define void @GenImageGradientSquare(ptr dead_on_unwind noalias writable writeonl
   store i8 %66, ptr %67, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond.not, label %._crit_edge.us, label %33
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !121
 
 ._crit_edge.us:                                   ; preds = %33
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !29
+  br i1 %exitcond66.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !122
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
@@ -13913,12 +13913,12 @@ define void @GenImageChecked(ptr dead_on_unwind noalias writable writeonly sret(
   store i32 %., ptr %gep37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %._crit_edge.us, label %18
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !123
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge28, label %.preheader.us, !llvm.loop !30
+  br i1 %exitcond35.not, label %._crit_edge28, label %.preheader.us, !llvm.loop !124
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %7
   store ptr %11, ptr %0, align 8
@@ -13984,7 +13984,7 @@ define void @GenImageWhiteNoise(ptr dead_on_unwind noalias writable writeonly sr
 22:                                               ; preds = %20, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !125
 }
 
 declare i32 @GetRandomValue(i32 noundef, i32 noundef) local_unnamed_addr #23
@@ -14251,7 +14251,7 @@ define void @GenImagePerlinNoise(ptr dead_on_unwind noalias writable writeonly s
   %240 = fmul float %.01621.i.us, 5.000000e-01
   %241 = add nuw nsw i32 %.01819.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %241, 6
-  br i1 %exitcond.not.i.us, label %stb_perlin_fbm_noise3.exit.us, label %.lr.ph.i.us
+  br i1 %exitcond.not.i.us, label %stb_perlin_fbm_noise3.exit.us, label %.lr.ph.i.us, !llvm.loop !89
 
 stb_perlin_fbm_noise3.exit.us:                    ; preds = %.lr.ph.i.us
   %242 = fcmp olt float %238, -1.000000e+00
@@ -14273,12 +14273,12 @@ stb_perlin_fbm_noise3.exit.us:                    ; preds = %.lr.ph.i.us
   store i8 -1, ptr %.sroa.4.0..sroa_idx.us, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %._crit_edge.us, label %26
+  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !126
 
 ._crit_edge.us:                                   ; preds = %stb_perlin_fbm_noise3.exit.us
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge49, label %.preheader.us, !llvm.loop !31
+  br i1 %exitcond56.not, label %._crit_edge49, label %.preheader.us, !llvm.loop !127
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   store ptr %10, ptr %0, align 8
@@ -14359,7 +14359,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias writable writeonly sret
   store i8 -1, ptr %.sroa.4.0..sroa_idx.us, align 1
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %21
-  br i1 %exitcond109.not, label %._crit_edge.us, label %26
+  br i1 %exitcond109.not, label %._crit_edge.us, label %26, !llvm.loop !128
 
 34:                                               ; preds = %.loopexit.us, %26
   %.07792.us = phi float [ 6.553600e+04, %26 ], [ %.1.us, %.loopexit.us ]
@@ -14374,7 +14374,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias writable writeonly sret
   %.1.us = phi float [ %.07792.us, %34 ], [ %.3.us, %55 ]
   %37 = add nsw i32 %.07891.us, 1
   %exitcond104.not = icmp eq i32 %37, 2
-  br i1 %exitcond104.not, label %29, label %34
+  br i1 %exitcond104.not, label %29, label %34, !llvm.loop !129
 
 .preheader.us:                                    ; preds = %34, %55
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %55 ], [ -1, %34 ]
@@ -14409,12 +14409,12 @@ define void @GenImageCellular(ptr dead_on_unwind noalias writable writeonly sret
   %.3.us = phi float [ %.290.us, %.preheader.us ], [ %54, %40 ]
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 2
-  br i1 %exitcond103.not, label %.loopexit.us, label %.preheader.us
+  br i1 %exitcond103.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !130
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge97, label %.lr.ph94.us, !llvm.loop !32
+  br i1 %exitcond114.not, label %._crit_edge97, label %.lr.ph94.us, !llvm.loop !131
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
@@ -14435,7 +14435,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias writable writeonly sret
   store float %68, ptr %.sroa.235.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader87, label %56
+  br i1 %exitcond.not, label %.preheader87, label %56, !llvm.loop !132
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.lr.ph96, %.preheader87
   tail call void @free(ptr noundef %14) #54
@@ -14536,7 +14536,7 @@ GetPixelDataSize.exit.us:                         ; preds = %switch.lookup, %.lr
   %spec.store.select1.us = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
   %26 = add nuw nsw i32 %.019.us, 1
   %exitcond43.not = icmp eq i32 %26, %9
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !133
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %27 = and i32 %.fr37, -8
@@ -14586,7 +14586,7 @@ GetPixelDataSize.exit.us28:                       ; preds = %switch.lookup52, %.
   %spec.store.select1.us31 = tail call i32 @llvm.smax.i32(i32 %41, i32 1)
   %42 = add nuw nsw i32 %.019.us22, 1
   %exitcond42.not = icmp eq i32 %42, %9
-  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !34
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %GetPixelDataSize.exit, %GetPixelDataSize.exit.us28, %GetPixelDataSize.exit.us, %2
   %.012.lcssa = phi i32 [ 0, %2 ], [ %23, %GetPixelDataSize.exit.us ], [ %39, %GetPixelDataSize.exit.us28 ], [ %50, %GetPixelDataSize.exit ]
@@ -14621,7 +14621,7 @@ GetPixelDataSize.exit:                            ; preds = %switch.lookup56, %.
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
   %53 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %53, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !135
 
 54:                                               ; preds = %._crit_edge
   %55 = load ptr, ptr %1, align 8
@@ -14759,7 +14759,7 @@ GetPixelDataSize.exit:                            ; preds = %15, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %49, i64 %35, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !136
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14945,7 +14945,7 @@ GetPixelDataSize.exit.._crit_edge_crit_edge:      ; preds = %GetPixelDataSize.ex
   %indvars.iv.next = add nsw i64 %indvars.iv, %65
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %71
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !137
 
 77:                                               ; preds = %3, %6, %10, %._crit_edge, %40, %30
   ret void
@@ -15519,7 +15519,7 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %.1.i = phi i32 [ %.0159174.i, %25 ], [ %.0159174.i, %26 ], [ %61, %41 ], [ %.0159174.i, %62 ], [ %.0159174.i, %84 ], [ %.0159174.i, %102 ], [ %146, %124 ], [ %165, %147 ], [ %174, %166 ], [ %187, %175 ], [ %202, %188 ], [ %235, %203 ], [ %320, %236 ], [ %431, %321 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %LoadImageDataNormalized.exit.loopexit, label %25
+  br i1 %exitcond.not.i, label %LoadImageDataNormalized.exit.loopexit, label %25, !llvm.loop !138
 
 LoadImageDataNormalized.exit.loopexit:            ; preds = %432
   %.pre = load ptr, ptr %0, align 8
@@ -15580,7 +15580,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %458 = mul nsw i32 %457, %456
   %459 = sext i32 %458 to i64
   %460 = icmp slt i64 %indvars.iv.next420, %459
-  br i1 %460, label %.lr.ph344, label %.loopexit
+  br i1 %460, label %.lr.ph344, label %.loopexit, !llvm.loop !139
 
 461:                                              ; preds = %LoadImageDataNormalized.exit
   %462 = load i32, ptr %6, align 8
@@ -15628,7 +15628,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %494 = mul i32 %493, %492
   %495 = sext i32 %494 to i64
   %496 = icmp slt i64 %indvars.iv.next415, %495
-  br i1 %496, label %.lr.ph342, label %.loopexit
+  br i1 %496, label %.lr.ph342, label %.loopexit, !llvm.loop !140
 
 497:                                              ; preds = %LoadImageDataNormalized.exit
   %498 = load i32, ptr %6, align 8
@@ -15674,7 +15674,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %531 = mul nsw i32 %530, %529
   %532 = sext i32 %531 to i64
   %533 = icmp slt i64 %indvars.iv.next410, %532
-  br i1 %533, label %.lr.ph339, label %.loopexit
+  br i1 %533, label %.lr.ph339, label %.loopexit, !llvm.loop !141
 
 534:                                              ; preds = %LoadImageDataNormalized.exit
   %535 = load i32, ptr %6, align 8
@@ -15721,7 +15721,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %565 = mul i32 %564, %563
   %566 = sext i32 %565 to i64
   %567 = icmp slt i64 %indvars.iv.next405, %566
-  br i1 %567, label %.lr.ph337, label %.loopexit
+  br i1 %567, label %.lr.ph337, label %.loopexit, !llvm.loop !142
 
 568:                                              ; preds = %LoadImageDataNormalized.exit
   %569 = load i32, ptr %6, align 8
@@ -15773,7 +15773,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %608 = mul nsw i32 %607, %606
   %609 = sext i32 %608 to i64
   %610 = icmp slt i64 %indvars.iv.next400, %609
-  br i1 %610, label %.lr.ph334, label %.loopexit
+  br i1 %610, label %.lr.ph334, label %.loopexit, !llvm.loop !143
 
 611:                                              ; preds = %LoadImageDataNormalized.exit
   %612 = load i32, ptr %6, align 8
@@ -15827,7 +15827,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %653 = mul nsw i32 %652, %651
   %654 = sext i32 %653 to i64
   %655 = icmp slt i64 %indvars.iv.next397, %654
-  br i1 %655, label %.lr.ph332, label %.loopexit
+  br i1 %655, label %.lr.ph332, label %.loopexit, !llvm.loop !144
 
 656:                                              ; preds = %LoadImageDataNormalized.exit
   %657 = load i32, ptr %6, align 8
@@ -15882,7 +15882,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %694 = mul i32 %693, %692
   %695 = sext i32 %694 to i64
   %696 = icmp slt i64 %indvars.iv.next392, %695
-  br i1 %696, label %.lr.ph330, label %.loopexit
+  br i1 %696, label %.lr.ph330, label %.loopexit, !llvm.loop !145
 
 697:                                              ; preds = %LoadImageDataNormalized.exit
   %698 = load i32, ptr %6, align 8
@@ -15917,7 +15917,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %720 = mul nsw i32 %719, %718
   %721 = sext i32 %720 to i64
   %722 = icmp slt i64 %indvars.iv.next387, %721
-  br i1 %722, label %.lr.ph327, label %.loopexit
+  br i1 %722, label %.lr.ph327, label %.loopexit, !llvm.loop !146
 
 723:                                              ; preds = %LoadImageDataNormalized.exit
   %724 = load i32, ptr %6, align 8
@@ -15959,7 +15959,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %749 = mul i32 %748, %747
   %750 = sext i32 %749 to i64
   %751 = icmp slt i64 %indvars.iv.next382, %750
-  br i1 %751, label %.lr.ph325, label %.loopexit
+  br i1 %751, label %.lr.ph325, label %.loopexit, !llvm.loop !147
 
 752:                                              ; preds = %LoadImageDataNormalized.exit
   %753 = load i32, ptr %6, align 8
@@ -16007,7 +16007,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %783 = mul i32 %782, %781
   %784 = sext i32 %783 to i64
   %785 = icmp slt i64 %indvars.iv.next375, %784
-  br i1 %785, label %.lr.ph322, label %.loopexit
+  br i1 %785, label %.lr.ph322, label %.loopexit, !llvm.loop !148
 
 786:                                              ; preds = %LoadImageDataNormalized.exit
   %787 = load i32, ptr %6, align 8
@@ -16070,7 +16070,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %837 = mul nsw i32 %836, %835
   %838 = sext i32 %837 to i64
   %839 = icmp slt i64 %indvars.iv.next370, %838
-  br i1 %839, label %.lr.ph319, label %.loopexit
+  br i1 %839, label %.lr.ph319, label %.loopexit, !llvm.loop !149
 
 840:                                              ; preds = %LoadImageDataNormalized.exit
   %841 = load i32, ptr %6, align 8
@@ -16193,7 +16193,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %947 = mul i32 %946, %945
   %948 = sext i32 %947 to i64
   %949 = icmp slt i64 %indvars.iv.next365, %948
-  br i1 %949, label %.lr.ph317, label %.loopexit
+  br i1 %949, label %.lr.ph317, label %.loopexit, !llvm.loop !150
 
 950:                                              ; preds = %LoadImageDataNormalized.exit
   %951 = load i32, ptr %6, align 8
@@ -16349,7 +16349,7 @@ LoadImageDataNormalized.exit:                     ; preds = %LoadImageDataNormal
   %1089 = mul i32 %1088, %1087
   %1090 = sext i32 %1089 to i64
   %1091 = icmp slt i64 %indvars.iv.next358, %1090
-  br i1 %1091, label %.lr.ph, label %.loopexit
+  br i1 %1091, label %.lr.ph, label %.loopexit, !llvm.loop !151
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph317, %.lr.ph319, %.lr.ph322, %.lr.ph325, %.lr.ph327, %.lr.ph330, %.lr.ph332, %.lr.ph334, %.lr.ph337, %.lr.ph339, %.lr.ph342, %.lr.ph344, %950, %840, %786, %752, %723, %697, %656, %611, %568, %534, %497, %461, %434, %LoadImageDataNormalized.exit
   tail call void @free(ptr noundef %23) #54
@@ -16528,7 +16528,7 @@ GetPixelDataSize.exit74.us:                       ; preds = %switch.lookup138, %
   %54 = icmp ne i32 %.163.us, 1
   %55 = icmp ne i32 %.161.us, 1
   %56 = or i1 %54, %55
-  br i1 %56, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !35
+  br i1 %56, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !152
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %57 = and i32 %15, -8
@@ -16595,7 +16595,7 @@ GetPixelDataSize.exit74.us103:                    ; preds = %switch.lookup142, %
   %80 = icmp ne i32 %.163.us99, 1
   %81 = icmp ne i32 %.161.us100, 1
   %82 = or i1 %80, %81
-  br i1 %82, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !36
+  br i1 %82, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !153
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %GetPixelDataSize.exit74
   %83 = phi i1 [ %101, %GetPixelDataSize.exit74 ], [ %31, %.lr.ph.split.split.preheader ]
@@ -16640,7 +16640,7 @@ GetPixelDataSize.exit74:                          ; preds = %switch.lookup146, %
   %100 = icmp ne i32 %.163, 1
   %101 = icmp ne i32 %.161, 1
   %102 = or i1 %100, %101
-  br i1 %102, label %.lr.ph.split.split, label %._crit_edge
+  br i1 %102, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %GetPixelDataSize.exit74, %GetPixelDataSize.exit74.us103, %GetPixelDataSize.exit74.us, %GetPixelDataSize.exit
   %.059.lcssa = phi i32 [ %.0.i, %GetPixelDataSize.exit ], [ %53, %GetPixelDataSize.exit74.us ], [ %79, %GetPixelDataSize.exit74.us103 ], [ %99, %GetPixelDataSize.exit74 ]
@@ -16779,7 +16779,7 @@ GetPixelDataSize.exit88:                          ; preds = %138, %146, %148
 155:                                              ; preds = %GetPixelDataSize.exit88, %152
   %156 = add nuw i32 %.0113, 1
   %exitcond.not = icmp eq i32 %156, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge115, label %.lr.ph114
+  br i1 %exitcond.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !155
 
 157:                                              ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.67) #54
@@ -16925,7 +16925,7 @@ GenImageColor.exit:
   %74 = add nsw i32 %73, %.06366
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #54
   %75 = icmp slt i32 %74, %9
-  br i1 %75, label %28, label %._crit_edge
+  br i1 %75, label %28, label %._crit_edge, !llvm.loop !156
 
 76:                                               ; preds = %._crit_edge
   %77 = fdiv float %.sroa.029.4.vec.extract, %.sroa.032.4.vec.extract
@@ -17295,7 +17295,7 @@ GetPixelDataSize.exit278:                         ; preds = %112, %117, %119
   %154 = getelementptr inbounds i8, ptr %.0225299.us, i64 %147
   %155 = add nuw nsw i32 %.0224302.us, 1
   %exitcond328.not = icmp eq i32 %155, %138
-  br i1 %exitcond328.not, label %._crit_edge, label %.lr.ph303.split.us, !llvm.loop !37
+  br i1 %exitcond328.not, label %._crit_edge, label %.lr.ph303.split.us, !llvm.loop !157
 
 .lr.ph.split.us308:                               ; preds = %148, %.lr.ph.split.us308
   %.0221295.us304 = phi i32 [ %161, %.lr.ph.split.us308 ], [ 0, %148 ]
@@ -17309,7 +17309,7 @@ GetPixelDataSize.exit278:                         ; preds = %112, %117, %119
   %160 = getelementptr inbounds i8, ptr %.0223293.us306, i64 %145
   %161 = add nuw nsw i32 %.0221295.us304, 1
   %exitcond326.not = icmp eq i32 %161, %.fr321
-  br i1 %exitcond326.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us308
+  br i1 %exitcond326.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us308, !llvm.loop !158
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph303.split.us, %.lr.ph.split.us.us
   %.0221295.us.us = phi i32 [ %169, %.lr.ph.split.us.us ], [ 0, %.lr.ph303.split.us ]
@@ -17325,7 +17325,7 @@ GetPixelDataSize.exit278:                         ; preds = %112, %117, %119
   %168 = getelementptr inbounds i8, ptr %.0223293.us.us, i64 %145
   %169 = add nuw nsw i32 %.0221295.us.us, 1
   %exitcond327.not = icmp eq i32 %169, %.fr321
-  br i1 %exitcond327.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !38
+  br i1 %exitcond327.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !159
 
 .lr.ph303.split:                                  ; preds = %.lr.ph303
   %170 = icmp ne i32 %109, %96
@@ -17353,7 +17353,7 @@ GetPixelDataSize.exit278:                         ; preds = %112, %117, %119
   %176 = getelementptr inbounds i8, ptr %.0225299, i64 %147
   %177 = add nuw nsw i32 %.0224302, 1
   %exitcond.not = icmp eq i32 %177, %138
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph303.split.split.split, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph303.split.split.split, !llvm.loop !160
 
 178:                                              ; preds = %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
@@ -17577,12 +17577,12 @@ define void @ImageResizeNN(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   store i32 %43, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
-  br i1 %exitcond.not, label %._crit_edge.us, label %36
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !162
 
 ._crit_edge.us:                                   ; preds = %36
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge44, label %.preheader.us, !llvm.loop !41
+  br i1 %exitcond51.not, label %._crit_edge44, label %.preheader.us, !llvm.loop !163
 
 ._crit_edge44:                                    ; preds = %._crit_edge.us, %14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -18087,7 +18087,7 @@ define void @ImageFromChannel(ptr dead_on_unwind noalias writable writeonly sret
   store i8 %229, ptr %230, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !164
 
 .loopexit:                                        ; preds = %227, %.preheader, %38
   store ptr %34, ptr %0, align 8
@@ -18292,7 +18292,7 @@ GetPixelDataSize.exit:                            ; preds = %72, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 %79, i64 %81, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %85
+  br i1 %exitcond.not, label %.preheader, label %85, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %103, %.preheader
   %88 = fptosi float %.sroa.15.1 to i32
@@ -18326,7 +18326,7 @@ GetPixelDataSize.exit:                            ; preds = %72, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %79, i64 %84, i1 false)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %103
+  br i1 %exitcond112.not, label %._crit_edge, label %103, !llvm.loop !166
 
 ._crit_edge106:                                   ; preds = %108, %._crit_edge
   tail call void @free(ptr noundef %.pre122) #54
@@ -18348,7 +18348,7 @@ GetPixelDataSize.exit:                            ; preds = %72, %.thread
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, %102
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge106, label %108
+  br i1 %exitcond121.not, label %._crit_edge106, label %108, !llvm.loop !167
 
 115:                                              ; preds = %27, %._crit_edge106, %6, %9, %13, %26
   ret void
@@ -18651,12 +18651,12 @@ define void @ImageAlphaCrop(ptr noundef captures(none) %0, float noundef %1) loc
   %.3.us.i = phi i32 [ %.155.us.i, %22 ], [ %spec.select.us.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %22
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %22, !llvm.loop !168
 
 ._crit_edge.us.i:                                 ; preds = %29
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count77.i
-  br i1 %exitcond78.not.i, label %._crit_edge64.i, label %.preheader.us.i, !llvm.loop !42
+  br i1 %exitcond78.not.i, label %._crit_edge64.i, label %.preheader.us.i, !llvm.loop !169
 
 ._crit_edge64.i:                                  ; preds = %._crit_edge.us.i
   %30 = icmp ne i32 %.3.us.i, 65536
@@ -18767,12 +18767,12 @@ define { <2 x float>, <2 x float> } @GetImageAlphaBorder(ptr noundef readonly by
   %.3.us = phi i32 [ %.155.us, %15 ], [ %spec.select.us, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge.us, label %15
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !168
 
 ._crit_edge.us:                                   ; preds = %22
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge64, label %.preheader.us, !llvm.loop !42
+  br i1 %exitcond78.not, label %._crit_edge64, label %.preheader.us, !llvm.loop !169
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us
   %23 = icmp ne i32 %.3.us, 65536
@@ -19052,7 +19052,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %184 = mul i32 %183, %181
   %185 = sext i32 %184 to i64
   %186 = icmp slt i64 %indvars.iv.next154, %185
-  br i1 %186, label %.lr.ph134, label %.loopexit
+  br i1 %186, label %.lr.ph134, label %.loopexit, !llvm.loop !170
 
 187:                                              ; preds = %24
   %188 = load i32, ptr %7, align 8
@@ -19113,7 +19113,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %227 = mul nsw i32 %225, %226
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next151, %228
-  br i1 %229, label %216, label %.loopexit
+  br i1 %229, label %216, label %.loopexit, !llvm.loop !171
 
 230:                                              ; preds = %24
   %231 = load i32, ptr %7, align 8
@@ -19178,7 +19178,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %275 = mul nsw i32 %273, %274
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next148, %276
-  br i1 %277, label %264, label %.loopexit
+  br i1 %277, label %264, label %.loopexit, !llvm.loop !172
 
 278:                                              ; preds = %24
   %279 = fmul float %2, 2.550000e+02
@@ -19226,7 +19226,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %305 = mul i32 %304, %302
   %306 = sext i32 %305 to i64
   %307 = icmp slt i64 %indvars.iv.next145, %306
-  br i1 %307, label %.lr.ph128, label %.loopexit
+  br i1 %307, label %.lr.ph128, label %.loopexit, !llvm.loop !173
 
 308:                                              ; preds = %.lr.ph126, %325
   %309 = phi i32 [ %151, %.lr.ph126 ], [ %326, %325 ]
@@ -19264,7 +19264,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %329 = mul i32 %328, %326
   %330 = sext i32 %329 to i64
   %331 = icmp slt i64 %indvars.iv.next142, %330
-  br i1 %331, label %308, label %.loopexit
+  br i1 %331, label %308, label %.loopexit, !llvm.loop !174
 
 332:                                              ; preds = %.lr.ph, %372
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %372 ]
@@ -19325,7 +19325,7 @@ define void @ImageAlphaClear(ptr noundef readonly captures(none) %0, i32 %1, flo
   %376 = mul i32 %375, %374
   %377 = sext i32 %376 to i64
   %378 = icmp slt i64 %indvars.iv.next, %377
-  br i1 %378, label %332, label %.loopexit
+  br i1 %378, label %332, label %.loopexit, !llvm.loop !175
 
 .loopexit:                                        ; preds = %372, %325, %301, %272, %224, %180, %.preheader122, %.preheader, %278, %230, %187, %163, %24, %3, %6, %10, %23
   ret void
@@ -19424,7 +19424,7 @@ define void @ImageAlphaMask(ptr noundef %0, ptr noundef readonly byval(%struct.I
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.critedge
+  br i1 %exitcond.not, label %._crit_edge, label %.critedge, !llvm.loop !176
 
 44:                                               ; preds = %23
   call void @ImageFormat(ptr noundef nonnull %0, i32 noundef 7)
@@ -19462,7 +19462,7 @@ define void @ImageAlphaMask(ptr noundef %0, ptr noundef readonly byval(%struct.I
   store i8 %62, ptr %64, align 1
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 4
-  br label %48
+  br label %48, !llvm.loop !177
 
 .loopexit:                                        ; preds = %54, %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
@@ -19557,7 +19557,7 @@ define void @ImageAlphaPremultiply(ptr noundef %0) local_unnamed_addr #4 {
   %47 = mul nsw i32 %46, %45
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 50:                                               ; preds = %1, %4, %8, %._crit_edge
   ret void
@@ -19638,7 +19638,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   store float %45, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader350, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader350, label %.lr.ph, !llvm.loop !179
 
 .preheader349:                                    ; preds = %.preheader350, %._crit_edge396
   %.0294397 = phi i32 [ 0, %.preheader350 ], [ %111, %._crit_edge396 ]
@@ -19731,7 +19731,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   store float %94, ptr %95, align 4
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %29
-  br i1 %exitcond420.not, label %._crit_edge.us, label %48
+  br i1 %exitcond420.not, label %._crit_edge.us, label %48, !llvm.loop !180
 
 96:                                               ; preds = %.lr.ph357.us, %96
   %indvars.iv411 = phi i64 [ 0, %.lr.ph357.us ], [ %indvars.iv.next412, %96 ]
@@ -19753,7 +19753,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %107 = fadd float %.0320355.us, %106
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next412, %wide.trip.count414
-  br i1 %exitcond415.not, label %.preheader346.us, label %96
+  br i1 %exitcond415.not, label %.preheader346.us, label %96, !llvm.loop !181
 
 .preheader346.us:                                 ; preds = %96, %.preheader347.us
   %.0332.lcssa.us = phi float [ 0.000000e+00, %.preheader347.us ], [ %98, %96 ]
@@ -19773,7 +19773,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
 ._crit_edge.us:                                   ; preds = %85
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond425.not = icmp eq i64 %indvars.iv.next422, %wide.trip.count424
-  br i1 %exitcond425.not, label %.preheader348, label %.preheader347.us, !llvm.loop !43
+  br i1 %exitcond425.not, label %.preheader348, label %.preheader347.us, !llvm.loop !182
 
 .preheader:                                       ; preds = %._crit_edge396
   br i1 %22, label %.lr.ph399, label %._crit_edge400
@@ -19792,7 +19792,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
 ._crit_edge396:                                   ; preds = %._crit_edge, %.preheader347.lr.ph, %.preheader348
   %111 = add nuw nsw i32 %.0294397, 1
   %exitcond441.not = icmp eq i32 %111, 4
-  br i1 %exitcond441.not, label %.preheader, label %.preheader349
+  br i1 %exitcond441.not, label %.preheader, label %.preheader349, !llvm.loop !183
 
 .preheader344:                                    ; preds = %.lr.ph384, %.preheader345
   %.0310.lcssa = phi float [ 0.000000e+00, %.preheader345 ], [ %115, %.lr.ph384 ]
@@ -19827,12 +19827,12 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %124 = fadd float %.0299382, %123
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next427, %wide.trip.count429
-  br i1 %exitcond430.not, label %.preheader344, label %.lr.ph384
+  br i1 %exitcond430.not, label %.preheader344, label %.lr.ph384, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %162, %.preheader344
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond440.not = icmp eq i64 %indvars.iv.next437, %29
-  br i1 %exitcond440.not, label %._crit_edge396, label %.preheader345
+  br i1 %exitcond440.not, label %._crit_edge396, label %.preheader345, !llvm.loop !185
 
 .lr.ph394:                                        ; preds = %.lr.ph394.preheader, %162
   %indvars.iv431 = phi i64 [ 0, %.lr.ph394.preheader ], [ %indvars.iv.next432, %162 ]
@@ -19923,7 +19923,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   store float %180, ptr %181, align 4
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge, label %.lr.ph394
+  br i1 %exitcond435.not, label %._crit_edge, label %.lr.ph394, !llvm.loop !186
 
 ._crit_edge400:                                   ; preds = %211, %.preheader
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -19985,7 +19985,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %214 = mul nsw i32 %213, %212
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next443, %215
-  br i1 %216, label %.lr.ph399, label %._crit_edge400
+  br i1 %216, label %.lr.ph399, label %._crit_edge400, !llvm.loop !187
 
 217:                                              ; preds = %2, %5, %9, %._crit_edge400
   ret void
@@ -20121,7 +20121,7 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly capture
 ._crit_edge243.us:                                ; preds = %.lr.ph242.us.preheader, %._crit_edge236.us
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %51
-  br i1 %exitcond269.not, label %._crit_edge245.us, label %.preheader221.us
+  br i1 %exitcond269.not, label %._crit_edge245.us, label %.preheader221.us, !llvm.loop !188
 
 .lr.ph235.us:                                     ; preds = %.preheader220.us, %.lr.ph235.us
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %.lr.ph235.us ], [ 0, %.preheader220.us ]
@@ -20143,7 +20143,7 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly capture
   %76 = fadd float %.2214230.us, %75
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %49
-  br i1 %exitcond261.not, label %._crit_edge236.us, label %.lr.ph235.us
+  br i1 %exitcond261.not, label %._crit_edge236.us, label %.lr.ph235.us, !llvm.loop !189
 
 .preheader220.us:                                 ; preds = %._crit_edge226.us.us, %.preheader221.us
   br i1 %32, label %.lr.ph235.us, label %._crit_edge236.us
@@ -20219,17 +20219,17 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly capture
 118:                                              ; preds = %89, %86
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge226.us.us, label %83
+  br i1 %exitcond.not, label %._crit_edge226.us.us, label %83, !llvm.loop !190
 
 ._crit_edge226.us.us:                             ; preds = %118
   %119 = add nsw i32 %.0207229.us.us, 1
   %exitcond256.not = icmp eq i32 %119, %.0210
-  br i1 %exitcond256.not, label %.preheader220.us, label %.preheader219.us.us, !llvm.loop !44
+  br i1 %exitcond256.not, label %.preheader220.us, label %.preheader219.us.us, !llvm.loop !191
 
 ._crit_edge245.us:                                ; preds = %._crit_edge243.us
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count273
-  br i1 %exitcond274.not, label %.preheader, label %.preheader222.us, !llvm.loop !45
+  br i1 %exitcond274.not, label %.preheader, label %.preheader222.us, !llvm.loop !192
 
 .preheader:                                       ; preds = %._crit_edge245.us, %.preheader222.lr.ph, %43
   %120 = icmp sgt i32 %25, 0
@@ -20279,7 +20279,7 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly capture
   %146 = mul nsw i32 %145, %144
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next276, %147
-  br i1 %148, label %.lr.ph248, label %._crit_edge249
+  br i1 %148, label %.lr.ph248, label %._crit_edge249, !llvm.loop !193
 
 149:                                              ; preds = %20, %._crit_edge249, %3, %6, %10
   ret void
@@ -20435,7 +20435,7 @@ define void @ImageDither(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   %71 = phi i32 [ %.pre339, %._crit_edge.loopexit ], [ %67, %.preheader ]
   %72 = phi i32 [ %279, %._crit_edge.loopexit ], [ %68, %.preheader ]
   %73 = icmp slt i32 %70, %71
-  br i1 %73, label %.preheader, label %._crit_edge333, !llvm.loop !46
+  br i1 %73, label %.preheader, label %._crit_edge333, !llvm.loop !194
 
 .lr.ph:                                           ; preds = %.preheader, %264
   %74 = phi i32 [ %279, %264 ], [ %68, %.preheader ]
@@ -20712,7 +20712,7 @@ define void @ImageDither(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   %278 = add nuw nsw i32 %.0331, 1
   %279 = load i32, ptr %9, align 8
   %280 = icmp slt i32 %278, %279
-  br i1 %280, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %280, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !195
 
 281:                                              ; preds = %5, %8, %12, %._crit_edge333, %26, %20
   ret void
@@ -20841,7 +20841,7 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %47, i64 %40, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, %40
   %48 = icmp samesign ugt i64 %indvars.iv31, 1
-  br i1 %48, label %42, label %._crit_edge
+  br i1 %48, label %42, label %._crit_edge, !llvm.loop !196
 
 49:                                               ; preds = %1, %4, %8, %._crit_edge, %21
   ret void
@@ -20970,7 +20970,7 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
 ._crit_edge42.us:                                 ; preds = %._crit_edge.us.us, %.preheader39.us
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.preheader39.us, !llvm.loop !47
+  br i1 %exitcond63.not, label %._crit_edge, label %.preheader39.us, !llvm.loop !197
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader39.us
   %46 = load ptr, ptr %0, align 8
@@ -20997,12 +20997,12 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   store i8 %55, ptr %gep68, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %54
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %54, !llvm.loop !198
 
 ._crit_edge.us.us:                                ; preds = %54
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge42.us, label %.preheader.us.us, !llvm.loop !48
+  br i1 %exitcond58.not, label %._crit_edge42.us, label %.preheader.us.us, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %._crit_edge42.us, %.preheader39.lr.ph, %GetPixelDataSize.exit
   %56 = load ptr, ptr %0, align 8
@@ -21235,12 +21235,12 @@ GetPixelDataSize.exit:                            ; preds = %54, %.thread
   store i8 %123, ptr %gep152, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.us, label %103
+  br i1 %exitcond.not, label %.loopexit.us, label %103, !llvm.loop !200
 
 .loopexit.us:                                     ; preds = %103, %94, %90, %79
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %._crit_edge.us, label %79
+  br i1 %exitcond139.not, label %._crit_edge.us, label %79, !llvm.loop !201
 
 .lr.ph.us:                                        ; preds = %94
   %124 = add nsw i32 %98, 1
@@ -21276,7 +21276,7 @@ GetPixelDataSize.exit:                            ; preds = %54, %.thread
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %._crit_edge132, label %.preheader.us, !llvm.loop !49
+  br i1 %exitcond144.not, label %._crit_edge132, label %.preheader.us, !llvm.loop !202
 
 ._crit_edge132:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %GetPixelDataSize.exit
   %146 = load ptr, ptr %0, align 8
@@ -21417,7 +21417,7 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
 ._crit_edge48.us:                                 ; preds = %._crit_edge.us.us, %.preheader45.us
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge, label %.preheader45.us, !llvm.loop !50
+  br i1 %exitcond67.not, label %._crit_edge, label %.preheader45.us, !llvm.loop !203
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader45.us
   %47 = load ptr, ptr %0, align 8
@@ -21442,12 +21442,12 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   store i8 %54, ptr %gep72, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %53
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %53, !llvm.loop !204
 
 ._crit_edge.us.us:                                ; preds = %53
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge48.us, label %.preheader.us.us, !llvm.loop !51
+  br i1 %exitcond62.not, label %._crit_edge48.us, label %.preheader.us.us, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %._crit_edge48.us, %.preheader45.lr.ph, %GetPixelDataSize.exit
   %55 = load ptr, ptr %0, align 8
@@ -21585,7 +21585,7 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
 
 ._crit_edge48.us:                                 ; preds = %._crit_edge.us.us, %.preheader45.us
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.preheader45.us, !llvm.loop !52
+  br i1 %exitcond70.not, label %._crit_edge, label %.preheader45.us, !llvm.loop !206
 
 .preheader.lr.ph.split.us.us:                     ; preds = %.preheader45.us
   %45 = load ptr, ptr %0, align 8
@@ -21613,12 +21613,12 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   store i8 %55, ptr %gep75, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %54
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %54, !llvm.loop !207
 
 ._crit_edge.us.us:                                ; preds = %54
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge48.us, label %.preheader.us.us, !llvm.loop !53
+  br i1 %exitcond65.not, label %._crit_edge48.us, label %.preheader.us.us, !llvm.loop !208
 
 ._crit_edge:                                      ; preds = %._crit_edge48.us, %.preheader45.lr.ph, %GetPixelDataSize.exit
   %56 = load ptr, ptr %0, align 8
@@ -21719,7 +21719,7 @@ define void @ImageColorTint(ptr noundef %0, i32 %1) local_unnamed_addr #4 {
   %52 = mul nsw i32 %51, %50
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %25, label %._crit_edge
+  br i1 %54, label %25, label %._crit_edge, !llvm.loop !209
 
 55:                                               ; preds = %2, %5, %9, %._crit_edge
   ret void
@@ -21781,7 +21781,7 @@ define void @ImageColorInvert(ptr noundef %0) local_unnamed_addr #4 {
   %32 = mul nsw i32 %31, %30
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !210
 
 35:                                               ; preds = %1, %4, %8, %._crit_edge
   ret void
@@ -21886,7 +21886,7 @@ define void @ImageColorContrast(ptr noundef %0, float noundef %1) local_unnamed_
   %62 = mul nsw i32 %61, %60
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %._crit_edge
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !211
 
 65:                                               ; preds = %2, %5, %9, %._crit_edge
   ret void
@@ -21965,7 +21965,7 @@ define void @ImageColorBrightness(ptr noundef %0, i32 noundef %1) local_unnamed_
   %48 = mul nsw i32 %47, %46
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !212
 
 51:                                               ; preds = %2, %5, %9, %._crit_edge
   ret void
@@ -22057,7 +22057,7 @@ define void @ImageColorReplace(ptr noundef %0, i32 %1, i32 %2) local_unnamed_add
   %49 = mul nsw i32 %47, %48
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %26, label %._crit_edge
+  br i1 %51, label %26, label %._crit_edge, !llvm.loop !213
 
 52:                                               ; preds = %3, %6, %10, %._crit_edge
   ret void
@@ -22145,14 +22145,14 @@ define noalias noundef ptr @LoadImagePalette(ptr noundef readonly byval(%struct.
 47:                                               ; preds = %43, %38, %33, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %29
+  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %29, !llvm.loop !214
 
 .loopexit.us:                                     ; preds = %43, %28, %..critedge_crit_edge.us, %.lr.ph61.split.us
   %.3.us = phi i32 [ %.14559.us, %.lr.ph61.split.us ], [ %56, %28 ], [ %56, %..critedge_crit_edge.us ], [ %.14559.us, %43 ]
   %.2.us = phi i32 [ %.04360.us, %.lr.ph61.split.us ], [ %16, %28 ], [ %.04360.us, %..critedge_crit_edge.us ], [ %.04360.us, %43 ]
   %48 = add nsw i32 %.2.us, 1
   %49 = icmp slt i32 %48, %16
-  br i1 %49, label %.lr.ph61.split.us, label %._crit_edge, !llvm.loop !54
+  br i1 %49, label %.lr.ph61.split.us, label %._crit_edge, !llvm.loop !215
 
 .preheader.us:                                    ; preds = %.lr.ph61.split.us
   %50 = load i8, ptr %25, align 1
@@ -22202,7 +22202,7 @@ define noalias noundef ptr @LoadImagePalette(ptr noundef readonly byval(%struct.
   %.2 = phi i32 [ %.04360, %.lr.ph61.split ], [ %22, %65 ], [ %.04360, %.preheader ]
   %67 = add nsw i32 %.2, 1
   %68 = icmp slt i32 %67, %22
-  br i1 %68, label %.lr.ph61.split, label %._crit_edge
+  br i1 %68, label %.lr.ph61.split, label %._crit_edge, !llvm.loop !216
 
 69:                                               ; preds = %._crit_edge, %3
   %.047 = phi ptr [ %8, %._crit_edge ], [ null, %3 ]
@@ -22709,7 +22709,7 @@ GetPixelDataSize.exit:                            ; preds = %25, %.thread
   %38 = mul nsw i32 %37, %36
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.loopexit
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !217
 
 .loopexit:                                        ; preds = %.lr.ph, %GetPixelDataSize.exit, %2, %5, %9
   ret void
@@ -23226,7 +23226,7 @@ define void @ImageDrawLine(ptr noundef readonly captures(none) %0, i32 noundef %
   %18 = add nsw i32 %.04053, %.042
   %19 = add nsw i32 %.03954, %14
   %.not45 = icmp eq i32 %18, %7
-  br i1 %.not45, label %.loopexit, label %.lr.ph55
+  br i1 %.not45, label %.loopexit, label %.lr.ph55, !llvm.loop !218
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
   %.051 = phi i32 [ %24, %.lr.ph ], [ 0, %.thread ]
@@ -23238,7 +23238,7 @@ define void @ImageDrawLine(ptr noundef readonly captures(none) %0, i32 noundef %
   %23 = add nsw i32 %.03850, %.042
   %24 = add nsw i32 %.051, %14
   %.not = icmp eq i32 %23, %8
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !219
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph55, %6
   ret void
@@ -23286,7 +23286,7 @@ define void @ImageDrawLineV(ptr noundef readonly captures(none) %0, <2 x float> 
   %24 = add nsw i32 %.04053.i, %.042.i
   %25 = add nsw i32 %.03954.i, %20
   %.not45.i = icmp eq i32 %24, %13
-  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i
+  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i, !llvm.loop !218
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.i
   %.051.i = phi i32 [ %30, %.lr.ph.i ], [ 0, %.thread.i ]
@@ -23298,7 +23298,7 @@ define void @ImageDrawLineV(ptr noundef readonly captures(none) %0, <2 x float> 
   %29 = add nsw i32 %.03850.i, %.042.i
   %30 = add nsw i32 %.051.i, %20
   %.not.i = icmp eq i32 %29, %14
-  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i, !llvm.loop !219
 
 ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55.i, %4
   ret void
@@ -23346,7 +23346,7 @@ define void @ImageDrawLineEx(ptr noundef readonly captures(none) %0, <2 x float>
   %25 = add nsw i32 %.04053.i, %.042.i
   %26 = add nsw i32 %.03954.i, %21
   %.not45.i = icmp eq i32 %25, %15
-  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i
+  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i, !llvm.loop !218
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.i
   %.051.i = phi i32 [ %31, %.lr.ph.i ], [ 0, %.thread.i ]
@@ -23358,7 +23358,7 @@ define void @ImageDrawLineEx(ptr noundef readonly captures(none) %0, <2 x float>
   %30 = add nsw i32 %.03850.i, %.042.i
   %31 = add nsw i32 %.051.i, %21
   %.not.i = icmp eq i32 %30, %14
-  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i, !llvm.loop !219
 
 ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55.i, %5
   %.not = icmp eq i32 %11, %7
@@ -23408,7 +23408,7 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %52 = add nsw i32 %.04053.i82, %.042.i
   %53 = add nsw i32 %.03954.i81, %48
   %.not45.i83 = icmp eq i32 %52, %15
-  br i1 %.not45.i83, label %.lr.ph55.i95.preheader, label %.lr.ph55.i80
+  br i1 %.not45.i83, label %.lr.ph55.i95.preheader, label %.lr.ph55.i80, !llvm.loop !218
 
 .lr.ph.i76:                                       ; preds = %.thread.i73, %.lr.ph.i76
   %.051.i77 = phi i32 [ %58, %.lr.ph.i76 ], [ 0, %.thread.i73 ]
@@ -23420,7 +23420,7 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %57 = add nsw i32 %.03850.i78, %.042.i
   %58 = add nsw i32 %.051.i77, %48
   %.not.i79 = icmp eq i32 %57, %14
-  br i1 %.not.i79, label %.lr.ph.i91.preheader, label %.lr.ph.i76
+  br i1 %.not.i79, label %.lr.ph.i91.preheader, label %.lr.ph.i76, !llvm.loop !219
 
 .lr.ph.i91.preheader:                             ; preds = %.lr.ph.i76
   %59 = add nsw i32 %.064138, %9
@@ -23442,7 +23442,7 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %66 = add nsw i32 %.04053.i97, %.042.i
   %67 = add nsw i32 %.03954.i96, %62
   %.not45.i98 = icmp eq i32 %66, %15
-  br i1 %.not45.i98, label %ImageDrawLine.exit99, label %.lr.ph55.i95
+  br i1 %.not45.i98, label %ImageDrawLine.exit99, label %.lr.ph55.i95, !llvm.loop !218
 
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91.preheader, %.lr.ph.i91
   %.051.i92 = phi i32 [ %72, %.lr.ph.i91 ], [ 0, %.lr.ph.i91.preheader ]
@@ -23454,12 +23454,12 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %71 = add nsw i32 %.03850.i93, %.042.i
   %72 = add nsw i32 %.051.i92, %60
   %.not.i94 = icmp eq i32 %71, %14
-  br i1 %.not.i94, label %ImageDrawLine.exit99, label %.lr.ph.i91
+  br i1 %.not.i94, label %ImageDrawLine.exit99, label %.lr.ph.i91, !llvm.loop !219
 
 ImageDrawLine.exit99:                             ; preds = %.lr.ph.i91, %.lr.ph55.i95, %46
   %73 = add nuw i32 %.064138, 1
   %exitcond.not = icmp eq i32 %.064138, %44
-  br i1 %exitcond.not, label %.loopexit, label %46
+  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !220
 
 74:                                               ; preds = %32, %ImageDrawLine.exit
   %.not67 = icmp eq i32 %13, %9
@@ -23504,7 +23504,7 @@ ImageDrawLine.exit99:                             ; preds = %.lr.ph.i91, %.lr.ph
   %92 = add nsw i32 %.04053.i112, %.042.i
   %93 = add nsw i32 %.03954.i111, %88
   %.not45.i113 = icmp eq i32 %92, %15
-  br i1 %.not45.i113, label %.lr.ph55.i125.preheader, label %.lr.ph55.i110
+  br i1 %.not45.i113, label %.lr.ph55.i125.preheader, label %.lr.ph55.i110, !llvm.loop !218
 
 .lr.ph.i106:                                      ; preds = %.thread.i103, %.lr.ph.i106
   %.051.i107 = phi i32 [ %98, %.lr.ph.i106 ], [ 0, %.thread.i103 ]
@@ -23516,7 +23516,7 @@ ImageDrawLine.exit99:                             ; preds = %.lr.ph.i91, %.lr.ph
   %97 = add nsw i32 %.03850.i108, %.042.i
   %98 = add nsw i32 %.051.i107, %88
   %.not.i109 = icmp eq i32 %97, %14
-  br i1 %.not.i109, label %.lr.ph.i121.preheader, label %.lr.ph.i106
+  br i1 %.not.i109, label %.lr.ph.i121.preheader, label %.lr.ph.i106, !llvm.loop !219
 
 .lr.ph.i121.preheader:                            ; preds = %.lr.ph.i106
   %99 = add nsw i32 %.0140, %7
@@ -23538,7 +23538,7 @@ ImageDrawLine.exit99:                             ; preds = %.lr.ph.i91, %.lr.ph
   %106 = add nsw i32 %.04053.i127, %.042.i
   %107 = add nsw i32 %.03954.i126, %102
   %.not45.i128 = icmp eq i32 %106, %15
-  br i1 %.not45.i128, label %ImageDrawLine.exit129, label %.lr.ph55.i125
+  br i1 %.not45.i128, label %ImageDrawLine.exit129, label %.lr.ph55.i125, !llvm.loop !218
 
 .lr.ph.i121:                                      ; preds = %.lr.ph.i121.preheader, %.lr.ph.i121
   %.051.i122 = phi i32 [ %112, %.lr.ph.i121 ], [ 0, %.lr.ph.i121.preheader ]
@@ -23550,12 +23550,12 @@ ImageDrawLine.exit99:                             ; preds = %.lr.ph.i91, %.lr.ph
   %111 = add nsw i32 %.03850.i123, %.042.i
   %112 = add nsw i32 %.051.i122, %100
   %.not.i124 = icmp eq i32 %111, %14
-  br i1 %.not.i124, label %ImageDrawLine.exit129, label %.lr.ph.i121
+  br i1 %.not.i124, label %ImageDrawLine.exit129, label %.lr.ph.i121, !llvm.loop !219
 
 ImageDrawLine.exit129:                            ; preds = %.lr.ph.i121, %.lr.ph55.i125, %86
   %113 = add nuw i32 %.0140, 1
   %exitcond148.not = icmp eq i32 %.0140, %84
-  br i1 %exitcond148.not, label %.loopexit, label %86
+  br i1 %exitcond148.not, label %.loopexit, label %86, !llvm.loop !221
 
 .loopexit:                                        ; preds = %ImageDrawLine.exit99, %ImageDrawLine.exit129, %35, %75, %74
   ret void
@@ -23625,7 +23625,7 @@ define void @ImageDrawCircle(ptr noundef readonly captures(none) %0, i32 noundef
   %.139 = phi i32 [ %27, %26 ], [ %.03855, %32 ]
   %.1 = phi i32 [ %31, %26 ], [ %35, %32 ]
   %.not.not = icmp sgt i32 %.139, %.04054
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %36, %5
   ret void
@@ -23702,7 +23702,7 @@ define void @ImageDrawCircleV(ptr noundef readonly captures(none) %0, <2 x float
   %30 = add i32 %.056.i, %.sink3
   %31 = add i32 %30, %29
   %.not.not.i = icmp sgt i32 %.139.i, %.04054.i
-  br i1 %.not.not.i, label %.lr.ph.i, label %ImageDrawCircle.exit
+  br i1 %.not.not.i, label %.lr.ph.i, label %ImageDrawCircle.exit, !llvm.loop !222
 
 ImageDrawCircle.exit:                             ; preds = %.lr.ph.i, %4
   ret void
@@ -23760,7 +23760,7 @@ define void @ImageDrawCircleLines(ptr noundef readonly captures(none) %0, i32 no
   %.159 = phi i32 [ %19, %18 ], [ %.05863, %24 ]
   %.1 = phi i32 [ %23, %18 ], [ %27, %24 ]
   %.not.not = icmp sgt i32 %.159, %.06062
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %28, %5
   ret void
@@ -23891,7 +23891,7 @@ define void @ImageDrawRectangleRec(ptr noundef readonly captures(none) %0, <2 x 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %52, i64 %55, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %60
+  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !224
 
 63:                                               ; preds = %.lr.ph96, %63
   %.094 = phi i32 [ 1, %.lr.ph96 ], [ %69, %63 ]
@@ -23903,7 +23903,7 @@ define void @ImageDrawRectangleRec(ptr noundef readonly captures(none) %0, <2 x 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %52, i64 %59, i1 false)
   %69 = add nuw nsw i32 %.094, 1
   %exitcond98.not = icmp eq i32 %69, %56
-  br i1 %exitcond98.not, label %.loopexit, label %63
+  br i1 %exitcond98.not, label %.loopexit, label %63, !llvm.loop !225
 
 .loopexit:                                        ; preds = %63, %._crit_edge, %33, %37, %15, %4, %7, %11
   ret void
@@ -24106,7 +24106,7 @@ define void @ImageDrawTriangle(ptr noundef readonly captures(none) %0, <2 x floa
   %83 = add nsw i32 %.0184208, %.0187
   %84 = add nuw i32 %.0183209, 1
   %exitcond212.not = icmp eq i32 %.0183209, %.0193
-  br i1 %exitcond212.not, label %._crit_edge210, label %.preheader
+  br i1 %exitcond212.not, label %._crit_edge210, label %.preheader, !llvm.loop !226
 
 85:                                               ; preds = %.preheader, %90
   %.0204 = phi i32 [ %spec.store.select, %.preheader ], [ %94, %90 ]
@@ -24128,7 +24128,7 @@ define void @ImageDrawTriangle(ptr noundef readonly captures(none) %0, <2 x floa
   %93 = add nsw i32 %.0180203, %.0188
   %94 = add nuw i32 %.0204, 1
   %exitcond.not = icmp eq i32 %.0204, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %85
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !227
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -24280,7 +24280,7 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   %98 = add nsw i32 %.0216238, %.0219
   %99 = add nuw i32 %.0214239, 1
   %exitcond242.not = icmp eq i32 %.0214239, %.0215
-  br i1 %exitcond242.not, label %._crit_edge240, label %.preheader
+  br i1 %exitcond242.not, label %._crit_edge240, label %.preheader, !llvm.loop !228
 
 100:                                              ; preds = %.preheader, %141
   %.0210234 = phi i32 [ %spec.store.select, %.preheader ], [ %145, %141 ]
@@ -24347,7 +24347,7 @@ define void @ImageDrawTriangleEx(ptr noundef readonly captures(none) %0, <2 x fl
   %144 = add nsw i32 %.0211233, %.0220
   %145 = add nuw i32 %.0210234, 1
   %exitcond.not = icmp eq i32 %.0210234, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %100
+  br i1 %exitcond.not, label %._crit_edge, label %100, !llvm.loop !229
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -24388,7 +24388,7 @@ define void @ImageDrawTriangleLines(ptr noundef readonly captures(none) %0, <2 x
   %21 = add nsw i32 %.04053.i, %.042.i
   %22 = add nsw i32 %.03954.i, %17
   %.not45.i = icmp eq i32 %21, %10
-  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i
+  br i1 %.not45.i, label %ImageDrawLine.exit, label %.lr.ph55.i, !llvm.loop !218
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.i
   %.051.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %.thread.i ]
@@ -24400,7 +24400,7 @@ define void @ImageDrawTriangleLines(ptr noundef readonly captures(none) %0, <2 x
   %26 = add nsw i32 %.03850.i, %.042.i
   %27 = add nsw i32 %.051.i, %17
   %.not.i = icmp eq i32 %26, %11
-  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i
+  br i1 %.not.i, label %ImageDrawLine.exit, label %.lr.ph.i, !llvm.loop !219
 
 ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55.i, %5
   %.sroa.05.0.vec.extract = extractelement <2 x float> %3, i64 0
@@ -24435,7 +24435,7 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %41 = add nsw i32 %.04053.i32, %.042.i22
   %42 = add nsw i32 %.03954.i31, %37
   %.not45.i33 = icmp eq i32 %41, %30
-  br i1 %.not45.i33, label %ImageDrawLine.exit34, label %.lr.ph55.i30
+  br i1 %.not45.i33, label %ImageDrawLine.exit34, label %.lr.ph55.i30, !llvm.loop !218
 
 .lr.ph.i26:                                       ; preds = %.thread.i23, %.lr.ph.i26
   %.051.i27 = phi i32 [ %47, %.lr.ph.i26 ], [ 0, %.thread.i23 ]
@@ -24447,7 +24447,7 @@ ImageDrawLine.exit:                               ; preds = %.lr.ph.i, %.lr.ph55
   %46 = add nsw i32 %.03850.i28, %.042.i22
   %47 = add nsw i32 %.051.i27, %37
   %.not.i29 = icmp eq i32 %46, %31
-  br i1 %.not.i29, label %ImageDrawLine.exit34, label %.lr.ph.i26
+  br i1 %.not.i29, label %ImageDrawLine.exit34, label %.lr.ph.i26, !llvm.loop !219
 
 ImageDrawLine.exit34:                             ; preds = %.lr.ph.i26, %.lr.ph55.i30, %ImageDrawLine.exit
   %48 = sub nsw i32 %7, %29
@@ -24478,7 +24478,7 @@ ImageDrawLine.exit34:                             ; preds = %.lr.ph.i26, %.lr.ph
   %59 = add nsw i32 %.04053.i47, %.042.i37
   %60 = add nsw i32 %.03954.i46, %55
   %.not45.i48 = icmp eq i32 %59, %48
-  br i1 %.not45.i48, label %ImageDrawLine.exit49, label %.lr.ph55.i45
+  br i1 %.not45.i48, label %ImageDrawLine.exit49, label %.lr.ph55.i45, !llvm.loop !218
 
 .lr.ph.i41:                                       ; preds = %.thread.i38, %.lr.ph.i41
   %.051.i42 = phi i32 [ %65, %.lr.ph.i41 ], [ 0, %.thread.i38 ]
@@ -24490,7 +24490,7 @@ ImageDrawLine.exit34:                             ; preds = %.lr.ph.i26, %.lr.ph
   %64 = add nsw i32 %.03850.i43, %.042.i37
   %65 = add nsw i32 %.051.i42, %55
   %.not.i44 = icmp eq i32 %64, %49
-  br i1 %.not.i44, label %ImageDrawLine.exit49, label %.lr.ph.i41
+  br i1 %.not.i44, label %ImageDrawLine.exit49, label %.lr.ph.i41, !llvm.loop !219
 
 ImageDrawLine.exit49:                             ; preds = %.lr.ph.i41, %.lr.ph55.i45, %ImageDrawLine.exit34
   ret void
@@ -24516,7 +24516,7 @@ define void @ImageDrawTriangleFan(ptr noundef readonly captures(none) %0, ptr no
   %11 = load <2 x float>, ptr %8, align 4
   tail call void @ImageDrawTriangle(ptr noundef %0, <2 x float> %9, <2 x float> %10, <2 x float> %11, i32 %3)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !230
 
 .loopexit:                                        ; preds = %.lr.ph, %4
   ret void
@@ -24546,7 +24546,7 @@ define void @ImageDrawTriangleStrip(ptr noundef readonly captures(none) %0, ptr 
   tail call void @ImageDrawTriangle(ptr noundef %0, <2 x float> %9, <2 x float> %12, <2 x float> %13, i32 %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !231
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret void
@@ -25118,23 +25118,23 @@ define void @LoadTexture(ptr dead_on_unwind noalias writable writeonly sret(%str
   %4 = alloca %struct.Image, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #54, !noalias !55
-  store i32 0, ptr %3, align 4, !noalias !55
-  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #54, !noalias !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #54, !noalias !232
+  store i32 0, ptr %3, align 4, !noalias !232
+  %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #54, !noalias !232
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %LoadImage.exit.thread, label %LoadImage.exit
 
 LoadImage.exit.thread:                            ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #54, !noalias !55
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #54, !noalias !232
   br label %14
 
 LoadImage.exit:                                   ; preds = %2
-  %6 = call ptr @GetFileExtension(ptr noundef %1) #54, !noalias !55
-  %7 = load i32, ptr %3, align 4, !noalias !55
+  %6 = call ptr @GetFileExtension(ptr noundef %1) #54, !noalias !232
+  %7 = load i32, ptr %3, align 4, !noalias !232
   call void @LoadImageFromMemory(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %4, ptr noundef %6, ptr noundef nonnull %5, i32 noundef %7)
-  call void @UnloadFileData(ptr noundef nonnull %5) #54, !noalias !55
+  call void @UnloadFileData(ptr noundef nonnull %5) #54, !noalias !232
   %.pr = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #54, !noalias !55
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #54, !noalias !232
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %14, label %8
 
@@ -25153,11 +25153,11 @@ LoadImage.exit:                                   ; preds = %2
   br i1 %or.cond.i, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = call i32 @rlLoadTexture(ptr noundef nonnull %.pr, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.52.0.copyload, i32 noundef %.sroa.84.0.copyload, i32 noundef %.sroa.63.0.copyload) #54, !noalias !58
+  %12 = call i32 @rlLoadTexture(ptr noundef nonnull %.pr, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.52.0.copyload, i32 noundef %.sroa.84.0.copyload, i32 noundef %.sroa.63.0.copyload) #54, !noalias !235
   br label %LoadTextureFromImage.exit
 
 13:                                               ; preds = %8
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.78) #54, !noalias !58
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.78) #54, !noalias !235
   br label %LoadTextureFromImage.exit
 
 LoadTextureFromImage.exit:                        ; preds = %11, %13
@@ -25336,7 +25336,7 @@ define void @LoadTextureCubemap(ptr dead_on_unwind noalias writable writeonly sr
   store float %49, ptr %.sroa.419.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %50, label %51
+  br i1 %exitcond.not, label %50, label %51, !llvm.loop !238
 
 53:                                               ; preds = %50
   call void @ImageCopy(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %4, ptr noundef nonnull byval(%struct.Image) align 8 %1)
@@ -25351,7 +25351,7 @@ define void @LoadTextureCubemap(ptr dead_on_unwind noalias writable writeonly sr
   store float %56, ptr %57, align 16
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 6
-  br i1 %exitcond88.not, label %.loopexit, label %.preheader
+  br i1 %exitcond88.not, label %.loopexit, label %.preheader, !llvm.loop !239
 
 58:                                               ; preds = %50
   store float %49, ptr %5, align 16
@@ -25424,10 +25424,10 @@ define void @LoadTextureCubemap(ptr dead_on_unwind noalias writable writeonly sr
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %89 = getelementptr inbounds nuw %struct.Color, ptr %87, i64 %indvars.iv.i
-  store i32 -65281, ptr %89, align 1, !noalias !61
+  store i32 -65281, ptr %89, align 1, !noalias !240
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %GenImageColor.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %GenImageColor.exit, label %.lr.ph.i, !llvm.loop !116
 
 GenImageColor.exit:                               ; preds = %.lr.ph.i, %.loopexit
   store ptr %87, ptr %4, align 8
@@ -25478,7 +25478,7 @@ GenImageColor.exit:                               ; preds = %.lr.ph.i, %.loopexi
   call void @ImageDraw(ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.Image) align 8 %6, <2 x float> %103, <2 x float> %105, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %.sroa.33.12.vec.insert, i32 -1)
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 6
-  br i1 %exitcond92.not, label %97, label %98
+  br i1 %exitcond92.not, label %97, label %98, !llvm.loop !243
 
 106:                                              ; preds = %97, %53
   %107 = load ptr, ptr %4, align 8
@@ -26983,7 +26983,7 @@ define internal fastcc ptr @stbi__load_main(ptr noundef nonnull %0, ptr noundef 
 27:                                               ; preds = %stbi__get8.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %60, label %28
+  br i1 %exitcond.not.i.i, label %60, label %28, !llvm.loop !244
 
 28:                                               ; preds = %27, %6
   %29 = phi ptr [ %.pre7.i.i, %6 ], [ %56, %27 ]
@@ -27221,7 +27221,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %106 = getelementptr inbounds nuw i8, ptr %.0253.i.i.i, i64 4
   %.0159.i.i.i = add nsw i32 %.0159254.i.i.i, -1
   %.not291.i.i.i = icmp eq i32 %.0159254.i.i.i, 0
-  br i1 %.not291.i.i.i, label %.loopexit.i.i.i, label %.lr.ph255.i.i.i
+  br i1 %.not291.i.i.i, label %.loopexit.i.i.i, label %.lr.ph255.i.i.i, !llvm.loop !245
 
 .lr.ph250.i.i.i:                                  ; preds = %.preheader174.i.i.i, %.lr.ph250.i.i.i
   %.1160249.i.i.i = phi i32 [ %.1160.i.i.i, %.lr.ph250.i.i.i ], [ %.11170197.i.i.i, %.preheader174.i.i.i ]
@@ -27237,7 +27237,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %111 = getelementptr inbounds nuw i8, ptr %.1248.i.i.i, i64 6
   %.1160.i.i.i = add nsw i32 %.1160249.i.i.i, -1
   %.not290.i.i.i = icmp eq i32 %.1160249.i.i.i, 0
-  br i1 %.not290.i.i.i, label %.loopexit.i.i.i, label %.lr.ph250.i.i.i
+  br i1 %.not290.i.i.i, label %.loopexit.i.i.i, label %.lr.ph250.i.i.i, !llvm.loop !246
 
 .lr.ph245.i.i.i:                                  ; preds = %.preheader176.i.i.i, %.lr.ph245.i.i.i
   %.2161244.i.i.i = phi i32 [ %.2161.i.i.i, %.lr.ph245.i.i.i ], [ %.11170197.i.i.i, %.preheader176.i.i.i ]
@@ -27255,7 +27255,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %117 = getelementptr inbounds nuw i8, ptr %.2243.i.i.i, i64 8
   %.2161.i.i.i = add nsw i32 %.2161244.i.i.i, -1
   %.not289.i.i.i = icmp eq i32 %.2161244.i.i.i, 0
-  br i1 %.not289.i.i.i, label %.loopexit.i.i.i, label %.lr.ph245.i.i.i
+  br i1 %.not289.i.i.i, label %.loopexit.i.i.i, label %.lr.ph245.i.i.i, !llvm.loop !247
 
 .lr.ph240.i.i.i:                                  ; preds = %.preheader178.i.i.i, %.lr.ph240.i.i.i
   %.3162239.i.i.i = phi i32 [ %.3162.i.i.i, %.lr.ph240.i.i.i ], [ %.11170197.i.i.i, %.preheader178.i.i.i ]
@@ -27267,7 +27267,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %120 = getelementptr inbounds nuw i8, ptr %.3238.i.i.i, i64 2
   %.3162.i.i.i = add nsw i32 %.3162239.i.i.i, -1
   %.not288.i.i.i = icmp eq i32 %.3162239.i.i.i, 0
-  br i1 %.not288.i.i.i, label %.loopexit.i.i.i, label %.lr.ph240.i.i.i
+  br i1 %.not288.i.i.i, label %.loopexit.i.i.i, label %.lr.ph240.i.i.i, !llvm.loop !248
 
 .lr.ph235.i.i.i:                                  ; preds = %.preheader180.i.i.i, %.lr.ph235.i.i.i
   %.4163234.i.i.i = phi i32 [ %.4163.i.i.i, %.lr.ph235.i.i.i ], [ %.11170197.i.i.i, %.preheader180.i.i.i ]
@@ -27283,7 +27283,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %125 = getelementptr inbounds nuw i8, ptr %.4233.i.i.i, i64 6
   %.4163.i.i.i = add nsw i32 %.4163234.i.i.i, -1
   %.not287.i.i.i = icmp eq i32 %.4163234.i.i.i, 0
-  br i1 %.not287.i.i.i, label %.loopexit.i.i.i, label %.lr.ph235.i.i.i
+  br i1 %.not287.i.i.i, label %.loopexit.i.i.i, label %.lr.ph235.i.i.i, !llvm.loop !249
 
 .lr.ph230.i.i.i:                                  ; preds = %.preheader182.i.i.i, %.lr.ph230.i.i.i
   %.5164229.i.i.i = phi i32 [ %.5164.i.i.i, %.lr.ph230.i.i.i ], [ %.11170197.i.i.i, %.preheader182.i.i.i ]
@@ -27303,7 +27303,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %133 = getelementptr inbounds nuw i8, ptr %.5228.i.i.i, i64 8
   %.5164.i.i.i = add nsw i32 %.5164229.i.i.i, -1
   %.not286.i.i.i = icmp eq i32 %.5164229.i.i.i, 0
-  br i1 %.not286.i.i.i, label %.loopexit.i.i.i, label %.lr.ph230.i.i.i
+  br i1 %.not286.i.i.i, label %.loopexit.i.i.i, label %.lr.ph230.i.i.i, !llvm.loop !250
 
 .lr.ph225.i.i.i:                                  ; preds = %.preheader184.i.i.i, %.lr.ph225.i.i.i
   %.6165224.i.i.i = phi i32 [ %.6165.i.i.i, %.lr.ph225.i.i.i ], [ %.11170197.i.i.i, %.preheader184.i.i.i ]
@@ -27325,7 +27325,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %143 = getelementptr inbounds nuw i8, ptr %.6223.i.i.i, i64 8
   %.6165.i.i.i = add nsw i32 %.6165224.i.i.i, -1
   %.not285.i.i.i = icmp eq i32 %.6165224.i.i.i, 0
-  br i1 %.not285.i.i.i, label %.loopexit.i.i.i, label %.lr.ph225.i.i.i
+  br i1 %.not285.i.i.i, label %.loopexit.i.i.i, label %.lr.ph225.i.i.i, !llvm.loop !251
 
 .lr.ph220.i.i.i:                                  ; preds = %.preheader186.i.i.i, %.lr.ph220.i.i.i
   %.7166219.i.i.i = phi i32 [ %.7166.i.i.i, %.lr.ph220.i.i.i ], [ %.11170197.i.i.i, %.preheader186.i.i.i ]
@@ -27351,7 +27351,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %160 = getelementptr inbounds nuw i8, ptr %.7218.i.i.i, i64 2
   %.7166.i.i.i = add nsw i32 %.7166219.i.i.i, -1
   %.not284.i.i.i = icmp eq i32 %.7166219.i.i.i, 0
-  br i1 %.not284.i.i.i, label %.loopexit.i.i.i, label %.lr.ph220.i.i.i
+  br i1 %.not284.i.i.i, label %.loopexit.i.i.i, label %.lr.ph220.i.i.i, !llvm.loop !252
 
 .lr.ph215.i.i.i:                                  ; preds = %.preheader188.i.i.i, %.lr.ph215.i.i.i
   %.8167214.i.i.i = phi i32 [ %.8167.i.i.i, %.lr.ph215.i.i.i ], [ %.11170197.i.i.i, %.preheader188.i.i.i ]
@@ -27379,7 +27379,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %178 = getelementptr inbounds nuw i8, ptr %.8213.i.i.i, i64 4
   %.8167.i.i.i = add nsw i32 %.8167214.i.i.i, -1
   %.not283.i.i.i = icmp eq i32 %.8167214.i.i.i, 0
-  br i1 %.not283.i.i.i, label %.loopexit.i.i.i, label %.lr.ph215.i.i.i
+  br i1 %.not283.i.i.i, label %.loopexit.i.i.i, label %.lr.ph215.i.i.i, !llvm.loop !253
 
 .lr.ph210.i.i.i:                                  ; preds = %.preheader190.i.i.i, %.lr.ph210.i.i.i
   %.9168209.i.i.i = phi i32 [ %.9168.i.i.i, %.lr.ph210.i.i.i ], [ %.11170197.i.i.i, %.preheader190.i.i.i ]
@@ -27405,7 +27405,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %195 = getelementptr inbounds nuw i8, ptr %.9208.i.i.i, i64 2
   %.9168.i.i.i = add nsw i32 %.9168209.i.i.i, -1
   %.not282.i.i.i = icmp eq i32 %.9168209.i.i.i, 0
-  br i1 %.not282.i.i.i, label %.loopexit.i.i.i, label %.lr.ph210.i.i.i
+  br i1 %.not282.i.i.i, label %.loopexit.i.i.i, label %.lr.ph210.i.i.i, !llvm.loop !254
 
 .lr.ph205.i.i.i:                                  ; preds = %.preheader192.i.i.i, %.lr.ph205.i.i.i
   %.10169204.i.i.i = phi i32 [ %.10169.i.i.i, %.lr.ph205.i.i.i ], [ %.11170197.i.i.i, %.preheader192.i.i.i ]
@@ -27435,7 +27435,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %215 = getelementptr inbounds nuw i8, ptr %.10203.i.i.i, i64 4
   %.10169.i.i.i = add nsw i32 %.10169204.i.i.i, -1
   %.not.i.i.i36 = icmp eq i32 %.10169204.i.i.i, 0
-  br i1 %.not.i.i.i36, label %.loopexit.i.i.i, label %.lr.ph205.i.i.i
+  br i1 %.not.i.i.i36, label %.loopexit.i.i.i, label %.lr.ph205.i.i.i, !llvm.loop !255
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader194.i.i.i, %.lr.ph.i.i.i
   %.11170200.i.i.i = phi i32 [ %.11170.i.i.i, %.lr.ph.i.i.i ], [ %.11170197.i.i.i, %.preheader194.i.i.i ]
@@ -27455,7 +27455,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %224 = getelementptr inbounds nuw i8, ptr %.11199.i.i.i, i64 6
   %.11170.i.i.i = add nsw i32 %.11170200.i.i.i, -1
   %.not292.i.i.i = icmp eq i32 %.11170200.i.i.i, 0
-  br i1 %.not292.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not292.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !256
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph258.i.i.i
   tail call void @free(ptr noundef %76) #54
@@ -27464,7 +27464,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 .loopexit.i.i.i:                                  ; preds = %.lr.ph205.i.i.i, %.lr.ph210.i.i.i, %.lr.ph215.i.i.i, %.lr.ph220.i.i.i, %.lr.ph225.i.i.i, %.lr.ph230.i.i.i, %.lr.ph235.i.i.i, %.lr.ph240.i.i.i, %.lr.ph245.i.i.i, %.lr.ph250.i.i.i, %.lr.ph255.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i, %.preheader174.i.i.i, %.preheader176.i.i.i, %.preheader178.i.i.i, %.preheader180.i.i.i, %.preheader182.i.i.i, %.preheader184.i.i.i, %.preheader186.i.i.i, %.preheader188.i.i.i, %.preheader190.i.i.i, %.preheader192.i.i.i, %.preheader194.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %97
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %97, !llvm.loop !257
 
 ._crit_edge.i.i.i:                                ; preds = %.loopexit.i.i.i, %.preheader196.i.i.i
   tail call void @free(ptr noundef %76) #54
@@ -28145,7 +28145,7 @@ stbi__get8.exit404.i:                             ; preds = %stbi__get8.exit404.
   store i8 -1, ptr %546, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i48, label %423
+  br i1 %exitcond.not.i, label %._crit_edge.i48, label %423, !llvm.loop !258
 
 ._crit_edge.i48:                                  ; preds = %stbi__get8.exit404.i, %.preheader46.i
   %547 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -28390,7 +28390,7 @@ stbi__get8.exit416.i:                             ; preds = %stbi__refill_buffer
   %.1318.i = phi i32 [ 7, %stbi__get8.exit416.i ], [ %638, %637 ]
   %.1315.i = phi i32 [ %668, %stbi__get8.exit416.i ], [ %.031481.i, %637 ]
   %673 = icmp slt i32 %635, %670
-  br i1 %673, label %.lr.ph82.i, label %.thread7.i
+  br i1 %673, label %.lr.ph82.i, label %.thread7.i, !llvm.loop !259
 
 .thread7.i:                                       ; preds = %669, %634, %stbi__get8.exit410.i
   %.pre.i418.i = phi ptr [ %609, %stbi__get8.exit410.i ], [ %615, %634 ], [ %672, %669 ]
@@ -28428,7 +28428,7 @@ stbi__skip.exit.i:                                ; preds = %.thread.i.i, %683, 
   %688 = add nuw nsw i32 %.033386.i, 1
   %689 = load i32, ptr %319, align 4
   %690 = icmp slt i32 %688, %689
-  br i1 %690, label %580, label %.loopexit42.i
+  br i1 %690, label %580, label %.loopexit42.i, !llvm.loop !260
 
 .preheader43.i:                                   ; preds = %stbi__skip.exit436.i, %.preheader43.lr.ph.i
   %.432477.i = phi i32 [ 0, %.preheader43.lr.ph.i ], [ %.6.i, %stbi__skip.exit436.i ]
@@ -28635,7 +28635,7 @@ stbi__get8.exit430.i:                             ; preds = %stbi__refill_buffer
   %802 = add nuw nsw i32 %.232869.i, 2
   %803 = load i32, ptr %0, align 8
   %804 = icmp slt i32 %802, %803
-  br i1 %804, label %.lr.ph71.i, label %._crit_edge72.i
+  br i1 %804, label %.lr.ph71.i, label %._crit_edge72.i, !llvm.loop !261
 
 ._crit_edge72.i:                                  ; preds = %801, %745, %.preheader43.i
   %.6.i = phi i32 [ %.432477.i, %.preheader43.i ], [ %.8.ph.i, %801 ], [ %.7.i, %745 ]
@@ -28678,7 +28678,7 @@ stbi__skip.exit436.i:                             ; preds = %.thread.i432.i, %81
   %821 = add nuw nsw i32 %.133476.i, 1
   %822 = load i32, ptr %319, align 4
   %823 = icmp slt i32 %821, %822
-  br i1 %823, label %.preheader43.i, label %.loopexit42.i
+  br i1 %823, label %.preheader43.i, label %.loopexit42.i, !llvm.loop !262
 
 824:                                              ; preds = %417
   %825 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -29123,7 +29123,7 @@ stbi__get8.exit466.i:                             ; preds = %stbi__refill_buffer
   %1053 = add nuw nsw i32 %.332952.i, 1
   %1054 = load i32, ptr %0, align 8
   %1055 = icmp slt i32 %1053, %1054
-  br i1 %1055, label %.lr.ph.i, label %.loopexit48.i
+  br i1 %1055, label %.lr.ph.i, label %.loopexit48.i, !llvm.loop !263
 
 .lr.ph59.i:                                       ; preds = %.preheader47.i, %1112
   %.558.i = phi i32 [ %1106, %1112 ], [ %.229364.i, %.preheader47.i ]
@@ -29210,7 +29210,7 @@ stbi__get8.exit466.i:                             ; preds = %stbi__refill_buffer
   %1113 = add nuw nsw i32 %.433056.i, 1
   %1114 = load i32, ptr %0, align 8
   %1115 = icmp slt i32 %1113, %1114
-  br i1 %1115, label %.lr.ph59.i, label %.loopexit48.i
+  br i1 %1115, label %.lr.ph59.i, label %.loopexit48.i, !llvm.loop !264
 
 .loopexit48.i:                                    ; preds = %1052, %1112, %.preheader47.i, %.preheader49.i
   %.3300.i = phi i32 [ %.029763.i, %.preheader47.i ], [ %.029763.i, %.preheader49.i ], [ %.5302.i, %1112 ], [ %.2299.i, %1052 ]
@@ -29254,7 +29254,7 @@ stbi__skip.exit476.i:                             ; preds = %.thread.i472.i, %11
   %1132 = add nuw nsw i32 %.233562.i, 1
   %1133 = load i32, ptr %319, align 4
   %1134 = icmp slt i32 %1132, %1133
-  br i1 %1134, label %916, label %.loopexit42.i
+  br i1 %1134, label %916, label %.loopexit42.i, !llvm.loop !265
 
 .loopexit42.i:                                    ; preds = %stbi__skip.exit476.i, %stbi__skip.exit436.i, %stbi__skip.exit.i, %.thread29.i, %.preheader41.i, %.preheader44.i
   %1135 = phi i32 [ %574, %.preheader41.i ], [ %561, %.preheader44.i ], [ %885, %.thread29.i ], [ %689, %stbi__skip.exit.i ], [ %822, %stbi__skip.exit436.i ], [ %1133, %stbi__skip.exit476.i ]
@@ -29282,7 +29282,7 @@ stbi__skip.exit476.i:                             ; preds = %.thread.i472.i, %11
   store i8 -1, ptr %1145, align 1
   %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, -4
   %1146 = icmp samesign ugt i64 %indvars.iv104.i, 3
-  br i1 %1146, label %.lr.ph91.i, label %.loopexit40.i
+  br i1 %1146, label %.lr.ph91.i, label %.loopexit40.i, !llvm.loop !266
 
 .loopexit40.i:                                    ; preds = %.lr.ph91.i, %1138, %.loopexit42.i
   br i1 %321, label %.preheader.i, label %.loopexit40..loopexit_crit_edge.i
@@ -29330,12 +29330,12 @@ stbi__skip.exit476.i:                             ; preds = %.thread.i472.i, %11
   store i8 %1160, ptr %1161, align 1
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count110.i
-  br i1 %exitcond111.not.i, label %._crit_edge95.us.i, label %1158
+  br i1 %exitcond111.not.i, label %._crit_edge95.us.i, label %1158, !llvm.loop !267
 
 ._crit_edge95.us.i:                               ; preds = %1158
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %wide.trip.count115.i
-  br i1 %exitcond116.not.i, label %.loopexit.i, label %.lr.ph94.us.i, !llvm.loop !64
+  br i1 %exitcond116.not.i, label %.loopexit.i, label %.lr.ph94.us.i, !llvm.loop !268
 
 .loopexit.i:                                      ; preds = %._crit_edge95.us.i, %.lr.ph97.i, %.preheader.i, %.loopexit40..loopexit_crit_edge.i
   %.pre125.i = phi i32 [ %.pre125.pre.i, %.loopexit40..loopexit_crit_edge.i ], [ %.pre125.pre129.i, %.preheader.i ], [ %.pre125.pre129.i, %.lr.ph97.i ], [ %.pre125.pre129.i, %._crit_edge95.us.i ]
@@ -29483,7 +29483,7 @@ stbi__gif_load.exit:                              ; preds = %1176, %1181, %1183,
   %indvars.iv.next.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i57, 1
   %exitcond.not.i.i.i59 = icmp eq i64 %indvars.iv.next.i.i.i58, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep.i.i.i, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not.i.i.i59, label %1210, label %1209
+  br i1 %exitcond.not.i.i.i59, label %1210, label %1209, !llvm.loop !269
 
 1210:                                             ; preds = %1209
   %1211 = getelementptr inbounds nuw i8, ptr %calloc.i54, i64 18080
@@ -29773,7 +29773,7 @@ stbi__get8.exit83.i.i.i.i:                        ; preds = %stbi__refill_buffer
 1379:                                             ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit366.i.i, label %.lr.ph.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit366.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !270
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %1380 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
@@ -29807,7 +29807,7 @@ stbi__get8.exit83.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %1394 = load i32, ptr %1216, align 4
   %1395 = sext i32 %1394 to i64
   %1396 = icmp slt i64 %indvars.iv.next115.i.i.i.i, %1395
-  br i1 %1396, label %.lr.ph111.i.i.i.i, label %._crit_edge112.i.i.i.i
+  br i1 %1396, label %.lr.ph111.i.i.i.i, label %._crit_edge112.i.i.i.i, !llvm.loop !271
 
 ._crit_edge112.i.i.i.i:                           ; preds = %1392
   %1397 = getelementptr inbounds nuw i8, ptr %1372, i64 192
@@ -30170,12 +30170,12 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
 1589:                                             ; preds = %1587, %1568
   %indvars.iv.next342.i.i.i.i = add nuw nsw i64 %indvars.iv341.i.i.i.i, 1
   %exitcond344.not.i.i.i.i = icmp eq i64 %indvars.iv.next342.i.i.i.i, %wide.trip.count.i54.i.i.i
-  br i1 %exitcond344.not.i.i.i.i, label %._crit_edge312.us.i.i.i.i, label %1556
+  br i1 %exitcond344.not.i.i.i.i, label %._crit_edge312.us.i.i.i.i, label %1556, !llvm.loop !272
 
 ._crit_edge312.us.i.i.i.i:                        ; preds = %1589
   %1590 = add nuw nsw i32 %.0197313.us.i.i.i.i, 1
   %exitcond345.not.i.i.i.i = icmp eq i32 %1590, %1547
-  br i1 %exitcond345.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.preheader.us.i.i.i.i, !llvm.loop !65
+  br i1 %exitcond345.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.preheader.us.i.i.i.i, !llvm.loop !273
 
 .loopexit.i.i.i.i:                                ; preds = %._crit_edge312.us.i.i.i.i, %1584, %1556, %.preheader.lr.ph.i.i.i.i, %1536
   %.3.i.i.i.i = phi i32 [ 1, %1536 ], [ 1, %.preheader.lr.ph.i.i.i.i ], [ 1, %1584 ], [ 0, %1556 ], [ 1, %._crit_edge312.us.i.i.i.i ]
@@ -30275,7 +30275,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
   %1649 = add nuw nsw i32 %.0213299.i.i.i.i, 1
   %1650 = load i32, ptr %1610, align 4
   %1651 = icmp slt i32 %1649, %1650
-  br i1 %1651, label %.lr.ph300.i.i.i.i, label %._crit_edge301.loopexit.i.i.i.i
+  br i1 %1651, label %.lr.ph300.i.i.i.i, label %._crit_edge301.loopexit.i.i.i.i, !llvm.loop !274
 
 ._crit_edge301.loopexit.i.i.i.i:                  ; preds = %1634
   %.pre349.i.i.i.i = load i32, ptr %1608, align 8
@@ -30286,7 +30286,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
   %1653 = phi i32 [ %1650, %._crit_edge301.loopexit.i.i.i.i ], [ %1619, %.preheader255.i.i.i.i ]
   %1654 = add nuw nsw i32 %.0214303.i.i.i.i, 1
   %.not224.i.i.i.i = icmp slt i32 %1654, %1652
-  br i1 %.not224.i.i.i.i, label %.preheader255.i.i.i.i, label %.critedge230.loopexit.i.i.i.i, !llvm.loop !66
+  br i1 %.not224.i.i.i.i, label %.preheader255.i.i.i.i, label %.critedge230.loopexit.i.i.i.i, !llvm.loop !275
 
 .critedge230.loopexit.i.i.i.i:                    ; preds = %._crit_edge301.i.i.i.i
   %.pre350.i.i.i.i = load i32, ptr %1216, align 4
@@ -30297,7 +30297,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
   %indvars.iv.next339.i.i.i.i = add nuw nsw i64 %indvars.iv338.i.i.i.i, 1
   %1656 = sext i32 %1655 to i64
   %1657 = icmp slt i64 %indvars.iv.next339.i.i.i.i, %1656
-  br i1 %1657, label %.lr.ph305.i.i.i.i, label %._crit_edge306.loopexit.i.i.i.i
+  br i1 %1657, label %.lr.ph305.i.i.i.i, label %._crit_edge306.loopexit.i.i.i.i, !llvm.loop !276
 
 ._crit_edge306.loopexit.i.i.i.i:                  ; preds = %.critedge230.i.i.i.i
   %.pre351.i.i.i.i = load i32, ptr %1231, align 4
@@ -30346,7 +30346,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
   %1672 = add nuw nsw i32 %.0210307.i.i.i.i, 1
   %1673 = load i32, ptr %1234, align 8
   %1674 = icmp slt i32 %1672, %1673
-  br i1 %1674, label %.preheader256.i.i.i.i, label %._crit_edge308.loopexit.i.i.i.i
+  br i1 %1674, label %.preheader256.i.i.i.i, label %._crit_edge308.loopexit.i.i.i.i, !llvm.loop !277
 
 ._crit_edge308.loopexit.i.i.i.i:                  ; preds = %1670
   %.pre352.i.i.i.i = load i32, ptr %1233, align 4
@@ -30358,7 +30358,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %1531, %1526
   %1677 = phi i32 [ %1673, %._crit_edge308.loopexit.i.i.i.i ], [ %1598, %.preheader257.i.i.i.i ]
   %1678 = add nuw nsw i32 %.0211309.i.i.i.i, 1
   %1679 = icmp slt i32 %1678, %1675
-  br i1 %1679, label %.preheader257.i.i.i.i, label %.critedge.i.i.i.i, !llvm.loop !67
+  br i1 %1679, label %.preheader257.i.i.i.i, label %.critedge.i.i.i.i, !llvm.loop !278
 
 .critedge.i.i.i.i:                                ; preds = %._crit_edge308.i.i.i.i, %1665, %.lr.ph300.i.i.i.i, %.preheader257.lr.ph.i.i.i.i, %1591
   %.12.i.i.i.i = phi i32 [ 1, %1591 ], [ 1, %.preheader257.lr.ph.i.i.i.i ], [ 0, %.lr.ph300.i.i.i.i ], [ 1, %1665 ], [ 1, %._crit_edge308.i.i.i.i ]
@@ -30498,7 +30498,7 @@ stbi__jpeg_get_bit.exit.thread.i.us.i.i.i.i:      ; preds = %stbi__jpeg_get_bit.
   %1751 = load i32, ptr %1219, align 8
   %1752 = sext i32 %1751 to i64
   %.not162.not.i.us.i.i.i.i = icmp slt i64 %indvars.iv.i.us.i.i.i.i, %1752
-  br i1 %.not162.not.i.us.i.i.i.i, label %1730, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i
+  br i1 %.not162.not.i.us.i.i.i.i, label %1730, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i, !llvm.loop !279
 
 .preheader224.i.us.i.i.i.i:                       ; preds = %1722
   %1753 = getelementptr inbounds nuw i8, ptr %1716, i64 1280
@@ -30556,7 +30556,7 @@ stbi__jpeg_get_bit.exit.thread.i.us.i.i.i.i:      ; preds = %stbi__jpeg_get_bit.
   %1784 = load i32, ptr %1783, align 4
   %1785 = icmp ult i32 %1781, %1784
   %indvars.iv.next.i177.i.us.i.i.i.i = add nuw nsw i64 %indvars.iv.i176.i.us.i.i.i.i, 1
-  br i1 %1785, label %1786, label %1782
+  br i1 %1785, label %1786, label %1782, !llvm.loop !280
 
 1786:                                             ; preds = %1782
   %1787 = trunc nuw nsw i64 %indvars.iv.i176.i.us.i.i.i.i to i32
@@ -30753,7 +30753,7 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i.i:   ; preds = %1869, %1865, %1863,
   %1871 = load i32, ptr %1219, align 8
   %1872 = sext i32 %1871 to i64
   %.not157.not.i.us.i.i.i.i = icmp slt i64 %indvars.iv264.i.us.i.i.i.i, %1872
-  br i1 %.not157.not.i.us.i.i.i.i, label %.lr.ph254.i.us.i.i.i.i, label %.loopexit223.loopexit.i.us.i.i.i.i
+  br i1 %.not157.not.i.us.i.i.i.i, label %.lr.ph254.i.us.i.i.i.i, label %.loopexit223.loopexit.i.us.i.i.i.i, !llvm.loop !281
 
 .loopexit223.loopexit.i.us.i.i.i.i:               ; preds = %stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i.i
   %1873 = trunc nsw i64 %indvars.iv.next265.i.us.i.i.i.i to i32
@@ -30770,7 +30770,7 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i.i:   ; preds = %1869, %1865, %1863,
   %1876 = phi i32 [ %.pre267.i.us.i.i.i.i, %.thread219.i.us.i.i.i.i ], [ %1840, %1839 ], [ %1871, %.loopexit223.loopexit.i.us.i.i.i.i ]
   %.7122.i.us.i.i.i.i = phi i32 [ %1874, %.thread219.i.us.i.i.i.i ], [ %.6121.i.us.i.i.i.i, %1839 ], [ %1873, %.loopexit223.loopexit.i.us.i.i.i.i ]
   %.not161.i.us.i.i.i.i = icmp sgt i32 %.7122.i.us.i.i.i.i, %1876
-  br i1 %.not161.i.us.i.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i, label %1760
+  br i1 %.not161.i.us.i.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i, label %1760, !llvm.loop !282
 
 1877:                                             ; preds = %1713
   br i1 %.not166.i.us.i.i.i.i, label %.preheader.i.us.i.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.sink.split.i.i.i.i
@@ -30874,7 +30874,7 @@ stbi__jpeg_get_bit.exit190.thread.i.us.i.i.i.i:   ; preds = %1869, %1865, %1863,
   %1934 = load i32, ptr %1933, align 4
   %1935 = icmp ult i32 %1931, %1934
   %indvars.iv.next.i.i.us.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.us.i.i.i.i, 1
-  br i1 %1935, label %1936, label %1932
+  br i1 %1935, label %1936, label %1932, !llvm.loop !280
 
 1936:                                             ; preds = %1932
   %1937 = trunc nuw nsw i64 %indvars.iv.i.i.us.i.i.i.i to i32
@@ -30976,7 +30976,7 @@ stbi__extend_receive.exit.i.us.i.i.i.i:           ; preds = %1970, %1967
   %.1116.ph.i.us.i.i.i.i = phi i32 [ %1991, %1990 ], [ %1961, %stbi__extend_receive.exit.i.us.i.i.i.i ], [ %1903, %1897 ]
   %1993 = load i32, ptr %1219, align 8
   %.not169.i.us.i.i.i.i = icmp sgt i32 %.1116.ph.i.us.i.i.i.i, %1993
-  br i1 %.not169.i.us.i.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i, label %1882
+  br i1 %.not169.i.us.i.i.i.i, label %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i, label %1882, !llvm.loop !283
 
 1994:                                             ; preds = %1988
   %1995 = shl nuw nsw i32 1, %1957
@@ -31073,12 +31073,12 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
 2032:                                             ; preds = %2030, %stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i
   %2033 = add nuw nsw i32 %.0216287.us.i.i.i.i, 1
   %exitcond.not.i53.i.i.i = icmp eq i32 %2033, %1692
-  br i1 %exitcond.not.i53.i.i.i, label %._crit_edge289.us.i.i.i.i, label %1703
+  br i1 %exitcond.not.i53.i.i.i, label %._crit_edge289.us.i.i.i.i, label %1703, !llvm.loop !284
 
 ._crit_edge289.us.i.i.i.i:                        ; preds = %2032
   %2034 = add nuw nsw i32 %.0215290.us.i.i.i.i, 1
   %exitcond337.not.i.i.i.i = icmp eq i32 %2034, %1696
-  br i1 %exitcond337.not.i.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i.i, label %.preheader262.us.i.i.i.i, !llvm.loop !68
+  br i1 %exitcond337.not.i.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i.i, label %.preheader262.us.i.i.i.i, !llvm.loop !285
 
 .split296.us.i.i.i.i:                             ; preds = %1936
   %2035 = add nsw i32 %1939, -16
@@ -31137,7 +31137,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
   %2061 = add nuw nsw i32 %.0206278.i.i.i.i, 1
   %2062 = load i32, ptr %2051, align 4
   %2063 = icmp slt i32 %2061, %2062
-  br i1 %2063, label %.lr.ph.i51.i.i.i, label %._crit_edge.loopexit.i52.i.i.i
+  br i1 %2063, label %.lr.ph.i51.i.i.i, label %._crit_edge.loopexit.i52.i.i.i, !llvm.loop !286
 
 .lr.ph.i51.i.i.i:                                 ; preds = %.preheader264.i.i.i.i, %2060
   %2064 = phi i32 [ %2062, %2060 ], [ %2058, %.preheader264.i.i.i.i ]
@@ -31170,7 +31170,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
   %2082 = phi i32 [ %2062, %._crit_edge.loopexit.i52.i.i.i ], [ %2058, %.preheader264.i.i.i.i ]
   %2083 = add nuw nsw i32 %.0205280.i.i.i.i, 1
   %.not227.i.i.i.i = icmp slt i32 %2083, %2081
-  br i1 %.not227.i.i.i.i, label %.preheader264.i.i.i.i, label %.critedge234.loopexit.i.i.i.i, !llvm.loop !69
+  br i1 %.not227.i.i.i.i, label %.preheader264.i.i.i.i, label %.critedge234.loopexit.i.i.i.i, !llvm.loop !287
 
 .critedge234.loopexit.i.i.i.i:                    ; preds = %._crit_edge.i50.i.i.i
   %.pre346.i.i.i.i = load i32, ptr %1216, align 4
@@ -31181,7 +31181,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
   %indvars.iv.next.i49.i.i.i = add nuw nsw i64 %indvars.iv.i48.i.i.i, 1
   %2085 = sext i32 %2084 to i64
   %2086 = icmp slt i64 %indvars.iv.next.i49.i.i.i, %2085
-  br i1 %2086, label %.lr.ph282.i.i.i.i, label %._crit_edge283.loopexit.i.i.i.i
+  br i1 %2086, label %.lr.ph282.i.i.i.i, label %._crit_edge283.loopexit.i.i.i.i, !llvm.loop !288
 
 ._crit_edge283.loopexit.i.i.i.i:                  ; preds = %.critedge234.i.i.i.i
   %.pre347.i.i.i.i = load i32, ptr %1231, align 4
@@ -31230,7 +31230,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
   %2101 = add nuw nsw i32 %.0209284.i.i.i.i, 1
   %2102 = load i32, ptr %1234, align 8
   %2103 = icmp slt i32 %2101, %2102
-  br i1 %2103, label %.preheader266.i.i.i.i, label %._crit_edge285.loopexit.i.i.i.i
+  br i1 %2103, label %.preheader266.i.i.i.i, label %._crit_edge285.loopexit.i.i.i.i, !llvm.loop !289
 
 ._crit_edge285.loopexit.i.i.i.i:                  ; preds = %2099
   %.pre348.i.i.i.i = load i32, ptr %1233, align 4
@@ -31242,7 +31242,7 @@ stbi__jpeg_decode_block_prog_ac.exit.thread.us.i.i.i.i: ; preds = %stbi__jpeg_ge
   %2106 = phi i32 [ %2102, %._crit_edge285.loopexit.i.i.i.i ], [ %2039, %.preheader267.i.i.i.i ]
   %2107 = add nuw nsw i32 %.0208286.i.i.i.i, 1
   %2108 = icmp slt i32 %2107, %2104
-  br i1 %2108, label %.preheader267.i.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i.i, !llvm.loop !70
+  br i1 %2108, label %.preheader267.i.i.i.i, label %stbi__parse_entropy_coded_data.exit.threadthread-pre-split.i.i.i, !llvm.loop !290
 
 stbi__parse_entropy_coded_data.exit.i.i.i:        ; preds = %.critedge.i.i.i.i, %.loopexit.i.i.i.i
   %.4.i.i.i.i = phi i32 [ %.3.i.i.i.i, %.loopexit.i.i.i.i ], [ %.12.i.i.i.i, %.critedge.i.i.i.i ]
@@ -31359,7 +31359,7 @@ stbi__get8.exit.i60.i.i.i.preheader:              ; preds = %stbi__refill_buffer
 stbi__get8.exit.i60.i.i.i:                        ; preds = %stbi__get8.exit.i60.i.i.i.preheader, %stbi__get8.exit25.i.i.i.i
   %.011.i.i.i.i = phi i8 [ %.0.i24.i.i.i.i, %stbi__get8.exit25.i.i.i.i ], [ %.011.i.i.i.i.ph, %stbi__get8.exit.i60.i.i.i.preheader ]
   %2167 = icmp eq i8 %.011.i.i.i.i, -1
-  br i1 %2167, label %2168, label %.loopexit.i55.i.i.i
+  br i1 %2167, label %2168, label %.loopexit.i55.i.i.i, !llvm.loop !291
 
 2168:                                             ; preds = %stbi__get8.exit.i60.i.i.i
   %2169 = load ptr, ptr %calloc.i54, align 8
@@ -31459,7 +31459,7 @@ stbi__get8.exit25.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %.0.i24.i.i.i.i = phi i8 [ %2194, %2192 ], [ %2223, %stbi__refill_buffer.exit.i22.i.i.i.i ], [ 0, %2195 ]
   %2225 = add i8 %.0.i24.i.i.i.i, -1
   %or.cond.i62.i.i.i = icmp ult i8 %2225, -2
-  br i1 %or.cond.i62.i.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i.i, label %stbi__get8.exit.i60.i.i.i
+  br i1 %or.cond.i62.i.i.i, label %stbi__skip_jpeg_junk_at_end.exit.i.i.i, label %stbi__get8.exit.i60.i.i.i, !llvm.loop !292
 
 stbi__skip_jpeg_junk_at_end.exit.i.i.i:           ; preds = %stbi__at_eof.exit.i.i.i.i, %2120, %stbi__get8.exit25.i.i.i.i, %stbi__at_eof.exit19.i.i.i.i, %2178
   %.2.i.i.i.i = phi i8 [ -1, %2178 ], [ -1, %stbi__at_eof.exit19.i.i.i.i ], [ %.0.i24.i.i.i.i, %stbi__get8.exit25.i.i.i.i ], [ -1, %2120 ], [ -1, %stbi__at_eof.exit.i.i.i.i ]
@@ -31499,7 +31499,7 @@ stbi__skip_jpeg_junk_at_end.exit.i.i.i:           ; preds = %stbi__at_eof.exit.i
 
 .backedge:                                        ; preds = %.sink.split.i.i.i, %2226
   %.135.in.i.i.i.be = phi i8 [ %2227, %2226 ], [ %2240, %.sink.split.i.i.i ]
-  br label %1239
+  br label %1239, !llvm.loop !293
 
 2241:                                             ; preds = %1239
   %2242 = load i32, ptr %1222, align 8
@@ -31571,7 +31571,7 @@ stbi__skip_jpeg_junk_at_end.exit.i.i.i:           ; preds = %stbi__at_eof.exit.i
   store i16 %2281, ptr %2279, align 2
   %indvars.iv.next.i.us.i72.i.i.i = add nuw nsw i64 %indvars.iv.i.us.i71.i.i.i, 1
   %exitcond.not.i.us.i.i.i.i = icmp eq i64 %indvars.iv.next.i.us.i72.i.i.i, 64
-  br i1 %exitcond.not.i.us.i.i.i.i, label %stbi__jpeg_dequantize.exit.us.i.i.i.i, label %2276
+  br i1 %exitcond.not.i.us.i.i.i.i, label %stbi__jpeg_dequantize.exit.us.i.i.i.i, label %2276, !llvm.loop !294
 
 stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %2276
   %2282 = load ptr, ptr %1203, align 8
@@ -31585,12 +31585,12 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %2276
   call void %2282(ptr noundef %2289, i32 noundef %2284, ptr noundef nonnull %2272) #54
   %indvars.iv.next.i73.i.i.i = add nuw nsw i64 %indvars.iv.i70.i.i.i, 1
   %exitcond.not.i74.i.i.i = icmp eq i64 %indvars.iv.next.i73.i.i.i, %wide.trip.count.i68.i.i.i
-  br i1 %exitcond.not.i74.i.i.i, label %._crit_edge.us.i.i.i.i, label %2264
+  br i1 %exitcond.not.i74.i.i.i, label %._crit_edge.us.i.i.i.i, label %2264, !llvm.loop !295
 
 ._crit_edge.us.i.i.i.i:                           ; preds = %stbi__jpeg_dequantize.exit.us.i.i.i.i
   %2290 = add nuw nsw i32 %.03337.us.i.i.i.i, 1
   %exitcond42.not.i.i.i.i = icmp eq i32 %2290, %2255
-  br i1 %exitcond42.not.i.i.i.i, label %._crit_edge38.loopexit.i.i.i.i, label %.preheader.us.i69.i.i.i, !llvm.loop !71
+  br i1 %exitcond42.not.i.i.i.i, label %._crit_edge38.loopexit.i.i.i.i, label %.preheader.us.i69.i.i.i, !llvm.loop !296
 
 ._crit_edge38.loopexit.i.i.i.i:                   ; preds = %._crit_edge.us.i.i.i.i
   %.pre.i75.i.i.i = load ptr, ptr %calloc.i54, align 8
@@ -31603,7 +31603,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %2276
   %2293 = load i32, ptr %2292, align 8
   %2294 = sext i32 %2293 to i64
   %2295 = icmp slt i64 %indvars.iv.next44.i.i.i.i, %2294
-  br i1 %2295, label %.lr.ph.i65.i.i.i, label %stbi__decode_jpeg_image.exit.i.i
+  br i1 %2295, label %.lr.ph.i65.i.i.i, label %stbi__decode_jpeg_image.exit.i.i, !llvm.loop !297
 
 .critedge.sink.split.i.i.i:                       ; preds = %2234, %2229, %1530, %1529, %1526, %1522, %1520, %1289, %1284, %stbi__get8.exit.i.i.i.i, %1388, %1382, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i.i, %1792, %1790, %1770, %1942, %1940, %1920, %1893, %.split.us.i.i.i.i, %.split296.us.i.i.i.i, %stbi__get8.exit.thread.i.i.i.i
   %.str.158.sink.i.i.i = phi ptr [ @.str.153, %stbi__get8.exit.thread.i.i.i.i ], [ @.str.158, %.split296.us.i.i.i.i ], [ @.str.158, %.split.us.i.i.i.i ], [ @.str.158, %1893 ], [ @.str.158, %1920 ], [ @.str.158, %1940 ], [ @.str.158, %1942 ], [ @.str.158, %1770 ], [ @.str.158, %1790 ], [ @.str.158, %1792 ], [ @.str.158, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i.i ], [ @.str.156, %1388 ], [ @.str.155, %1382 ], [ @.str.152, %2234 ], [ @.str.151, %2229 ], [ @.str.157, %1530 ], [ @.str.157, %1529 ], [ @.str.157, %1520 ], [ @.str.157, %1522 ], [ @.str.157, %1526 ], [ @.str.154, %1289 ], [ @.str.153, %stbi__get8.exit.i.i.i.i ], [ @.str.153, %1284 ]
@@ -31662,7 +31662,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %2276
 2315:                                             ; preds = %2314, %2311
   %indvars.iv.next.i.i297.i.i = add nuw nsw i64 %indvars.iv.i.i295.i.i, 1
   %exitcond.not.i.i298.i.i = icmp eq i64 %indvars.iv.next.i.i297.i.i, %wide.trip.count.i.i294.i.i
-  br i1 %exitcond.not.i.i298.i.i, label %load_jpeg_image.exit.i, label %2300
+  br i1 %exitcond.not.i.i298.i.i, label %load_jpeg_image.exit.i, label %2300, !llvm.loop !298
 
 stbi__decode_jpeg_image.exit.loopexit477.i.i:     ; preds = %2238
   %.pre.pre.i.i = load ptr, ptr %calloc.i54, align 8
@@ -31756,7 +31756,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
 2354:                                             ; preds = %2353, %2350
   %indvars.iv.next.i.i305.i.i = add nuw nsw i64 %indvars.iv.i.i301.i.i, 1
   %exitcond.not.i.i306.i.i = icmp eq i64 %indvars.iv.next.i.i305.i.i, %wide.trip.count.i.i300.i.i
-  br i1 %exitcond.not.i.i306.i.i, label %load_jpeg_image.exit.i, label %2339
+  br i1 %exitcond.not.i.i306.i.i, label %load_jpeg_image.exit.i, label %2339, !llvm.loop !298
 
 2355:                                             ; preds = %2332
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #54
@@ -31835,7 +31835,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
 2384:                                             ; preds = %2383, %2380
   %indvars.iv.next.i.i314.i.i = add nuw nsw i64 %indvars.iv.i.i310.i.i, 1
   %exitcond.not.i.i315.i.i = icmp eq i64 %indvars.iv.next.i.i314.i.i, %wide.trip.count.i.i309.i.i
-  br i1 %exitcond.not.i.i315.i.i, label %2412, label %2369
+  br i1 %exitcond.not.i.i315.i.i, label %2412, label %2369, !llvm.loop !298
 
 2385:                                             ; preds = %2358
   %2386 = load i32, ptr %2356, align 8
@@ -31901,7 +31901,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   store ptr %stbi__resample_row_v_2.sink.i.i, ptr %2360, align 16
   %indvars.iv.next.i.i65 = add nuw nsw i64 %indvars.iv.i.i64, 1
   %exitcond.not.i.i66 = icmp eq i64 %indvars.iv.next.i.i65, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i66, label %2413, label %2358
+  br i1 %exitcond.not.i.i66, label %2413, label %2358, !llvm.loop !299
 
 2413:                                             ; preds = %.thread342.i.i
   %2414 = getelementptr inbounds nuw i8, ptr %.pre.i.i63, i64 4
@@ -32008,7 +32008,7 @@ stbi__malloc_mad3.exit.thread.i.i:                ; preds = %stbi__malloc_mad3.e
 2452:                                             ; preds = %2451, %2448
   %indvars.iv.next.i.i325.i.i = add nuw nsw i64 %indvars.iv.i.i321.i.i, 1
   %exitcond.not.i.i326.i.i = icmp eq i64 %indvars.iv.next.i.i325.i.i, %wide.trip.count.i.i320.i.i
-  br i1 %exitcond.not.i.i326.i.i, label %stbi__cleanup_jpeg.exit327.i.i, label %2437
+  br i1 %exitcond.not.i.i326.i.i, label %stbi__cleanup_jpeg.exit327.i.i, label %2437, !llvm.loop !298
 
 stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc_mad3.exit.thread.i.i
   store ptr @.str.106, ptr @stbi__g_failure_reason, align 8
@@ -32075,7 +32075,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
 2489:                                             ; preds = %2484, %2476, %.lr.ph.i.i
   %indvars.iv.next502.i.i = add nuw nsw i64 %indvars.iv501.i.i, 1
   %exitcond505.not.i.i = icmp eq i64 %indvars.iv.next502.i.i, %wide.trip.count.i.i
-  br i1 %exitcond505.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %exitcond505.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !300
 
 ._crit_edge.i.i:                                  ; preds = %2489
   %2490 = mul i32 %.0264438.i.i, %2319
@@ -32133,7 +32133,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2515 = load i32, ptr %2496, align 8
   %2516 = zext i32 %2515 to i64
   %2517 = icmp samesign ult i64 %indvars.iv.next531.i.i, %2516
-  br i1 %2517, label %2504, label %.loopexit.i.i
+  br i1 %2517, label %2504, label %.loopexit.i.i, !llvm.loop !301
 
 2518:                                             ; preds = %2494
   %2519 = load i32, ptr %2429, align 4
@@ -32198,7 +32198,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2559 = load i32, ptr %2496, align 8
   %2560 = zext i32 %2559 to i64
   %2561 = icmp samesign ult i64 %indvars.iv.next528.i.i, %2560
-  br i1 %2561, label %2524, label %.loopexit.i.i
+  br i1 %2561, label %2524, label %.loopexit.i.i, !llvm.loop !302
 
 2562:                                             ; preds = %2518
   %2563 = load ptr, ptr %1204, align 8
@@ -32258,7 +32258,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2604 = load i32, ptr %2567, align 8
   %2605 = zext i32 %2604 to i64
   %2606 = icmp samesign ult i64 %indvars.iv.next525.i.i.lver.orig, %2605
-  br i1 %2606, label %2570, label %.loopexit.i.i
+  br i1 %2606, label %2570, label %.loopexit.i.i, !llvm.loop !303
 
 .lr.ph437.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph437.i.i
   %indvars.iv533.i.i = phi i64 [ %indvars.iv.next534.i.i, %.lr.ph437.i.i ], [ 0, %.preheader.i.i ]
@@ -32277,7 +32277,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2613 = load i32, ptr %2496, align 8
   %2614 = zext i32 %2613 to i64
   %2615 = icmp samesign ult i64 %indvars.iv.next534.i.i, %2614
-  br i1 %2615, label %.lr.ph437.i.i, label %.loopexit.i.i
+  br i1 %2615, label %.lr.ph437.i.i, label %.loopexit.i.i, !llvm.loop !304
 
 2616:                                             ; preds = %._crit_edge.i.i
   %2617 = load ptr, ptr %calloc.i54, align 8
@@ -32331,7 +32331,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2644 = load i32, ptr %2617, align 8
   %2645 = zext i32 %2644 to i64
   %2646 = icmp samesign ult i64 %indvars.iv.next522.i.i, %2645
-  br i1 %2646, label %2626, label %.loopexit.i.i
+  br i1 %2646, label %2626, label %.loopexit.i.i, !llvm.loop !305
 
 2647:                                             ; preds = %2647, %.lr.ph421.i.i
   %indvars.iv518.i.i = phi i64 [ 0, %.lr.ph421.i.i ], [ %indvars.iv.next519.i.i, %2647 ]
@@ -32360,7 +32360,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2666 = load i32, ptr %2617, align 8
   %2667 = zext i32 %2666 to i64
   %2668 = icmp samesign ult i64 %indvars.iv.next519.i.i, %2667
-  br i1 %2668, label %2647, label %.loopexit.i.i
+  br i1 %2668, label %2647, label %.loopexit.i.i, !llvm.loop !306
 
 2669:                                             ; preds = %2616
   %2670 = getelementptr inbounds nuw i8, ptr %2617, i64 8
@@ -32432,7 +32432,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2717 = load i32, ptr %2617, align 8
   %2718 = zext i32 %2717 to i64
   %2719 = icmp samesign ult i64 %indvars.iv.next516.i.i, %2718
-  br i1 %2719, label %2680, label %.loopexit.i.i
+  br i1 %2719, label %2680, label %.loopexit.i.i, !llvm.loop !307
 
 .preheader359.i.i:                                ; preds = %2673
   %2720 = load i32, ptr %2617, align 8
@@ -32468,7 +32468,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2739 = load i32, ptr %2617, align 8
   %2740 = zext i32 %2739 to i64
   %2741 = icmp samesign ult i64 %indvars.iv.next513.i.i, %2740
-  br i1 %2741, label %2723, label %.loopexit.i.i
+  br i1 %2741, label %2723, label %.loopexit.i.i, !llvm.loop !308
 
 2742:                                             ; preds = %2673, %2669
   %2743 = load ptr, ptr %9, align 16
@@ -32492,7 +32492,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2748 = load i32, ptr %2617, align 8
   %2749 = zext i32 %2748 to i64
   %2750 = icmp samesign ult i64 %indvars.iv.next510.i.i, %2749
-  br i1 %2750, label %.lr.ph412.i.i, label %.loopexit.i.i
+  br i1 %2750, label %.lr.ph412.i.i, label %.loopexit.i.i, !llvm.loop !309
 
 .lr.ph410.i.i:                                    ; preds = %.preheader363.i.i, %.lr.ph410.i.i
   %indvars.iv506.i.i = phi i64 [ %indvars.iv.next507.i.i, %.lr.ph410.i.i ], [ 0, %.preheader363.i.i ]
@@ -32507,7 +32507,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2755 = load i32, ptr %2617, align 8
   %2756 = zext i32 %2755 to i64
   %2757 = icmp samesign ult i64 %indvars.iv.next507.i.i, %2756
-  br i1 %2757, label %.lr.ph410.i.i, label %.loopexit.i.i
+  br i1 %2757, label %.lr.ph410.i.i, label %.loopexit.i.i, !llvm.loop !310
 
 .loopexit.sink.split.i.i:                         ; preds = %2518, %2500
   %2758 = load ptr, ptr %1204, align 8
@@ -32524,7 +32524,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
   %2764 = getelementptr inbounds nuw i8, ptr %2762, i64 4
   %2765 = load i32, ptr %2764, align 4
   %2766 = icmp ult i32 %2763, %2765
-  br i1 %2766, label %.lr.ph.preheader.i.i, label %._crit_edge440.i.i
+  br i1 %2766, label %.lr.ph.preheader.i.i, label %._crit_edge440.i.i, !llvm.loop !311
 
 ._crit_edge440.i.i:                               ; preds = %.loopexit.i.i, %.preheader365.i.i
   %.lcssa.i.i = phi ptr [ %.pre.i.i63, %.preheader365.i.i ], [ %2762, %.loopexit.i.i ]
@@ -32578,7 +32578,7 @@ stbi__cleanup_jpeg.exit327.i.i:                   ; preds = %2452, %stbi__malloc
 2785:                                             ; preds = %2784, %2781
   %indvars.iv.next.i.i334.i.i = add nuw nsw i64 %indvars.iv.i.i330.i.i, 1
   %exitcond.not.i.i335.i.i = icmp eq i64 %indvars.iv.next.i.i334.i.i, %wide.trip.count.i.i329.i.i
-  br i1 %exitcond.not.i.i335.i.i, label %stbi__cleanup_jpeg.exit336.loopexit.i.i, label %2770
+  br i1 %exitcond.not.i.i335.i.i, label %stbi__cleanup_jpeg.exit336.loopexit.i.i, label %2770, !llvm.loop !298
 
 stbi__cleanup_jpeg.exit336.loopexit.i.i:          ; preds = %2785
   %.pre538.i.i = load ptr, ptr %calloc.i54, align 8
@@ -33137,7 +33137,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef non
 22:                                               ; preds = %stbi__get8.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %stbi__check_png_header.exit, label %23
+  br i1 %exitcond.not.i, label %stbi__check_png_header.exit, label %23, !llvm.loop !244
 
 23:                                               ; preds = %22, %3
   %24 = phi ptr [ %.pre7.i, %3 ], [ %51, %22 ]
@@ -33835,7 +33835,7 @@ stbi__get8.exit339:                               ; preds = %308, %311, %stbi__r
   store i8 -1, ptr %337, align 1
   %indvars.iv.next1111 = add nuw nsw i64 %indvars.iv1110, 1
   %exitcond1114.not = icmp eq i64 %indvars.iv.next1111, %wide.trip.count1113
-  br i1 %exitcond1114.not, label %.loopexit, label %.lr.ph770
+  br i1 %exitcond1114.not, label %.loopexit, label %.lr.ph770, !llvm.loop !312
 
 338:                                              ; preds = %61
   %.not276 = icmp eq i32 %.0233, 0
@@ -33955,7 +33955,7 @@ stbi__get8.exit345:                               ; preds = %356, %359, %stbi__r
   store i8 %.0.i344, ptr %384, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !313
 
 385:                                              ; preds = %343
   %386 = load i32, ptr %57, align 8
@@ -34008,7 +34008,7 @@ stbi__get8.exit345:                               ; preds = %356, %359, %stbi__r
   %404 = icmp slt i64 %indvars.iv.next1108, %403
   %405 = icmp samesign ult i64 %indvars.iv1107, 2
   %406 = select i1 %404, i1 %405, i1 false
-  br i1 %406, label %.lr.ph768, label %.loopexit
+  br i1 %406, label %.lr.ph768, label %.loopexit, !llvm.loop !314
 
 .lr.ph766:                                        ; preds = %.preheader424, %.lr.ph766
   %indvars.iv1104 = phi i64 [ %indvars.iv.next1105, %.lr.ph766 ], [ 0, %.preheader424 ]
@@ -34027,7 +34027,7 @@ stbi__get8.exit345:                               ; preds = %356, %359, %stbi__r
   %417 = icmp slt i64 %indvars.iv.next1105, %416
   %418 = icmp samesign ult i64 %indvars.iv1104, 2
   %419 = select i1 %417, i1 %418, i1 false
-  br i1 %419, label %.lr.ph766, label %.loopexit
+  br i1 %419, label %.lr.ph766, label %.loopexit, !llvm.loop !315
 
 420:                                              ; preds = %61
   %.not272 = icmp eq i32 %.0233, 0
@@ -34089,7 +34089,7 @@ stbi__get8.exit345:                               ; preds = %356, %359, %stbi__r
   %.5223 = phi i32 [ %.4222, %438 ], [ %443, %441 ]
   %442 = icmp ugt i32 %434, %.5223
   %443 = shl i32 %.5223, 1
-  br i1 %442, label %441, label %444
+  br i1 %442, label %441, label %444, !llvm.loop !316
 
 444:                                              ; preds = %441
   %445 = load ptr, ptr %10, align 8
@@ -34393,12 +34393,12 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %598, ptr align 1 %601, i64 %547, i1 false)
   %indvars.iv.next.i359 = add nuw nsw i64 %indvars.iv.i358, 1
   %602 = icmp samesign ult i64 %indvars.iv.next.i359, %586
-  br i1 %602, label %594, label %._crit_edge.us.i
+  br i1 %602, label %594, label %._crit_edge.us.i, !llvm.loop !317
 
 ._crit_edge.us.i:                                 ; preds = %594
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %603 = icmp samesign ult i64 %indvars.iv.next110.i, %587
-  br i1 %603, label %.preheader.us.i, label %._crit_edge103.i, !llvm.loop !72
+  br i1 %603, label %.preheader.us.i, label %._crit_edge103.i, !llvm.loop !318
 
 .thread.i360:                                     ; preds = %571
   call void @free(ptr noundef %546) #54
@@ -34416,7 +34416,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
   %.379.i = phi ptr [ %.076106.i, %548 ], [ %605, %._crit_edge103.i ]
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %exitcond.not.i357 = icmp eq i64 %indvars.iv.next113.i, 7
-  br i1 %exitcond.not.i357, label %stbi__create_png_image.exit.thread403, label %548
+  br i1 %exitcond.not.i357, label %stbi__create_png_image.exit.thread403, label %548, !llvm.loop !319
 
 stbi__create_png_image.exit.thread403:            ; preds = %607
   store ptr %546, ptr %11, align 8
@@ -34541,7 +34541,7 @@ stbi__expand_png_palette.exit.thread:             ; preds = %625, %stbi__mul2siz
   %653 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 3
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %stbi__expand_png_palette.exit, label %.lr.ph55.i
+  br i1 %exitcond63.not.i, label %stbi__expand_png_palette.exit, label %.lr.ph55.i, !llvm.loop !320
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i364 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i365, %.lr.ph.i ]
@@ -34568,7 +34568,7 @@ stbi__expand_png_palette.exit.thread:             ; preds = %625, %stbi__mul2siz
   %669 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 4
   %indvars.iv.next.i365 = add nuw nsw i64 %indvars.iv.i364, 1
   %exitcond.not.i366 = icmp eq i64 %indvars.iv.next.i365, %wide.trip.count.i
-  br i1 %exitcond.not.i366, label %stbi__expand_png_palette.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i366, label %stbi__expand_png_palette.exit, label %.lr.ph.i, !llvm.loop !321
 
 stbi__expand_png_palette.exit:                    ; preds = %.lr.ph.i, %.lr.ph55.i, %.preheader49.i, %.preheader.i
   call void @free(ptr noundef %633) #54
@@ -34678,7 +34678,7 @@ stbi__expand_png_palette.exit:                    ; preds = %.lr.ph.i, %.lr.ph55
   %.1208 = phi i8 [ %.0207, %stbi__getn.exit ], [ %.0207, %70 ], [ %.0207, %74 ], [ %.0207, %86 ], [ %.0207, %.thread.i ], [ %.3210, %233 ], [ 0, %224 ], [ %.0207, %stbi__getn.exit.thread396 ], [ %.0207, %690 ], [ %.0207, %694 ], [ %.0207, %706 ], [ %.0207, %.thread.i368 ], [ %.0207, %.preheader ], [ 0, %.preheader422 ], [ 0, %.preheader424 ], [ 4, %.preheader426 ], [ %.0207, %stbi__get8.exit339 ], [ 0, %.lr.ph768 ], [ 0, %.lr.ph766 ], [ 4, %stbi__get8.exit345 ]
   %713 = tail call fastcc i32 @stbi__get16be(ptr noundef %8)
   %714 = tail call fastcc i32 @stbi__get16be(ptr noundef %8)
-  br label %61
+  br label %61, !llvm.loop !322
 
 .thread409:                                       ; preds = %433, %.thread.i360, %stbi__malloc_mad3.exit.thread.i, %94, %181, %222, %232, %237, %217, %212, %210, %179, %173, %.loopexit429, %111, %107, %96, %476, %481, %674, %477, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %stbi__create_png_image.exit, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %stbi__expand_png_palette.exit.thread, %.thread392, %427, %428, %425, %stbi__getn.exit.thread, %432, %421, %388, %393, %391, %352, %348, %345, %342, %339, %246, %242, %239, %683, %679, %stbi__check_png_header.exit.thread, %stbi__check_png_header.exit
   %.0 = phi i32 [ 1, %stbi__check_png_header.exit ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %stbi__expand_png_palette.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %stbi__create_png_image.exit ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %477 ], [ 1, %674 ], [ 0, %481 ], [ 0, %476 ], [ 0, %.thread392 ], [ 1, %427 ], [ 1, %428 ], [ 0, %425 ], [ 0, %stbi__getn.exit.thread ], [ 0, %432 ], [ 0, %421 ], [ 0, %388 ], [ 1, %393 ], [ 0, %391 ], [ 0, %352 ], [ 0, %348 ], [ 1, %345 ], [ 0, %342 ], [ 0, %339 ], [ 0, %246 ], [ 0, %242 ], [ 0, %239 ], [ 0, %683 ], [ 0, %679 ], [ 0, %96 ], [ 0, %107 ], [ 0, %111 ], [ 0, %.loopexit429 ], [ 0, %173 ], [ 0, %179 ], [ 0, %210 ], [ 0, %212 ], [ 0, %217 ], [ 0, %237 ], [ 0, %232 ], [ 0, %222 ], [ 0, %181 ], [ 0, %94 ], [ 0, %stbi__malloc_mad3.exit.thread.i ], [ 0, %.thread.i360 ], [ 0, %433 ]
@@ -34834,7 +34834,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %34 = getelementptr inbounds nuw i8, ptr %.0254, i64 2
   %.0159 = add nsw i32 %.0159255, -1
   %.not292 = icmp eq i32 %.0159255, 0
-  br i1 %.not292, label %.loopexit, label %.lr.ph256
+  br i1 %.not292, label %.loopexit, label %.lr.ph256, !llvm.loop !323
 
 .lr.ph251:                                        ; preds = %.preheader175, %.lr.ph251
   %.1160250 = phi i32 [ %.1160, %.lr.ph251 ], [ %.11170198, %.preheader175 ]
@@ -34850,7 +34850,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %39 = getelementptr inbounds nuw i8, ptr %.1249, i64 3
   %.1160 = add nsw i32 %.1160250, -1
   %.not291 = icmp eq i32 %.1160250, 0
-  br i1 %.not291, label %.loopexit, label %.lr.ph251
+  br i1 %.not291, label %.loopexit, label %.lr.ph251, !llvm.loop !324
 
 .lr.ph246:                                        ; preds = %.preheader177, %.lr.ph246
   %.2161245 = phi i32 [ %.2161, %.lr.ph246 ], [ %.11170198, %.preheader177 ]
@@ -34868,7 +34868,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %45 = getelementptr inbounds nuw i8, ptr %.2244, i64 4
   %.2161 = add nsw i32 %.2161245, -1
   %.not290 = icmp eq i32 %.2161245, 0
-  br i1 %.not290, label %.loopexit, label %.lr.ph246
+  br i1 %.not290, label %.loopexit, label %.lr.ph246, !llvm.loop !325
 
 .lr.ph241:                                        ; preds = %.preheader179, %.lr.ph241
   %.3162240 = phi i32 [ %.3162, %.lr.ph241 ], [ %.11170198, %.preheader179 ]
@@ -34880,7 +34880,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %48 = getelementptr inbounds nuw i8, ptr %.3239, i64 1
   %.3162 = add nsw i32 %.3162240, -1
   %.not289 = icmp eq i32 %.3162240, 0
-  br i1 %.not289, label %.loopexit, label %.lr.ph241
+  br i1 %.not289, label %.loopexit, label %.lr.ph241, !llvm.loop !326
 
 .lr.ph236:                                        ; preds = %.preheader181, %.lr.ph236
   %.4163235 = phi i32 [ %.4163, %.lr.ph236 ], [ %.11170198, %.preheader181 ]
@@ -34896,7 +34896,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %53 = getelementptr inbounds nuw i8, ptr %.4234, i64 3
   %.4163 = add nsw i32 %.4163235, -1
   %.not288 = icmp eq i32 %.4163235, 0
-  br i1 %.not288, label %.loopexit, label %.lr.ph236
+  br i1 %.not288, label %.loopexit, label %.lr.ph236, !llvm.loop !327
 
 .lr.ph231:                                        ; preds = %.preheader183, %.lr.ph231
   %.5164230 = phi i32 [ %.5164, %.lr.ph231 ], [ %.11170198, %.preheader183 ]
@@ -34916,7 +34916,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %61 = getelementptr inbounds nuw i8, ptr %.5229, i64 4
   %.5164 = add nsw i32 %.5164230, -1
   %.not287 = icmp eq i32 %.5164230, 0
-  br i1 %.not287, label %.loopexit, label %.lr.ph231
+  br i1 %.not287, label %.loopexit, label %.lr.ph231, !llvm.loop !328
 
 .lr.ph226:                                        ; preds = %.preheader185, %.lr.ph226
   %.6165225 = phi i32 [ %.6165, %.lr.ph226 ], [ %.11170198, %.preheader185 ]
@@ -34938,7 +34938,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %71 = getelementptr inbounds nuw i8, ptr %.6224, i64 4
   %.6165 = add nsw i32 %.6165225, -1
   %.not286 = icmp eq i32 %.6165225, 0
-  br i1 %.not286, label %.loopexit, label %.lr.ph226
+  br i1 %.not286, label %.loopexit, label %.lr.ph226, !llvm.loop !329
 
 .lr.ph221:                                        ; preds = %.preheader187, %.lr.ph221
   %.7166220 = phi i32 [ %.7166, %.lr.ph221 ], [ %.11170198, %.preheader187 ]
@@ -34964,7 +34964,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %88 = getelementptr inbounds nuw i8, ptr %.7219, i64 1
   %.7166 = add nsw i32 %.7166220, -1
   %.not285 = icmp eq i32 %.7166220, 0
-  br i1 %.not285, label %.loopexit, label %.lr.ph221
+  br i1 %.not285, label %.loopexit, label %.lr.ph221, !llvm.loop !330
 
 .lr.ph216:                                        ; preds = %.preheader189, %.lr.ph216
   %.8167215 = phi i32 [ %.8167, %.lr.ph216 ], [ %.11170198, %.preheader189 ]
@@ -34992,7 +34992,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %106 = getelementptr inbounds nuw i8, ptr %.8214, i64 2
   %.8167 = add nsw i32 %.8167215, -1
   %.not284 = icmp eq i32 %.8167215, 0
-  br i1 %.not284, label %.loopexit, label %.lr.ph216
+  br i1 %.not284, label %.loopexit, label %.lr.ph216, !llvm.loop !331
 
 .lr.ph211:                                        ; preds = %.preheader191, %.lr.ph211
   %.9168210 = phi i32 [ %.9168, %.lr.ph211 ], [ %.11170198, %.preheader191 ]
@@ -35018,7 +35018,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %123 = getelementptr inbounds nuw i8, ptr %.9209, i64 1
   %.9168 = add nsw i32 %.9168210, -1
   %.not283 = icmp eq i32 %.9168210, 0
-  br i1 %.not283, label %.loopexit, label %.lr.ph211
+  br i1 %.not283, label %.loopexit, label %.lr.ph211, !llvm.loop !332
 
 .lr.ph206:                                        ; preds = %.preheader193, %.lr.ph206
   %.10169205 = phi i32 [ %.10169, %.lr.ph206 ], [ %.11170198, %.preheader193 ]
@@ -35048,7 +35048,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %143 = getelementptr inbounds nuw i8, ptr %.10204, i64 2
   %.10169 = add nsw i32 %.10169205, -1
   %.not = icmp eq i32 %.10169205, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph206
+  br i1 %.not, label %.loopexit, label %.lr.ph206, !llvm.loop !333
 
 .lr.ph:                                           ; preds = %.preheader195, %.lr.ph
   %.11170201 = phi i32 [ %.11170, %.lr.ph ], [ %.11170198, %.preheader195 ]
@@ -35068,7 +35068,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %152 = getelementptr inbounds nuw i8, ptr %.11200, i64 3
   %.11170 = add nsw i32 %.11170201, -1
   %.not293 = icmp eq i32 %.11170201, 0
-  br i1 %.not293, label %.loopexit, label %.lr.ph
+  br i1 %.not293, label %.loopexit, label %.lr.ph, !llvm.loop !334
 
 .critedge:                                        ; preds = %.lr.ph259
   tail call void @free(ptr noundef %0) #54
@@ -35079,7 +35079,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 .loopexit:                                        ; preds = %.lr.ph206, %.lr.ph211, %.lr.ph216, %.lr.ph221, %.lr.ph226, %.lr.ph231, %.lr.ph236, %.lr.ph241, %.lr.ph246, %.lr.ph251, %.lr.ph256, %.lr.ph, %.preheader195, %.preheader193, %.preheader191, %.preheader189, %.preheader187, %.preheader185, %.preheader183, %.preheader181, %.preheader179, %.preheader177, %.preheader175, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !335
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader197
   tail call void @free(ptr noundef %0) #54
@@ -35316,7 +35316,7 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
   %12 = getelementptr inbounds nuw i8, ptr %.06, i64 4
   %13 = add nuw i32 %.0225, 1
   %exitcond10.not = icmp eq i32 %13, %3
-  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph7
+  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph7, !llvm.loop !336
 
 14:                                               ; preds = %.lr.ph, %30
   %.14 = phi ptr [ %.24.val, %.lr.ph ], [ %31, %30 ]
@@ -35349,7 +35349,7 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
   %31 = getelementptr inbounds nuw i8, ptr %.14, i64 8
   %32 = add nuw i32 %.1233, 1
   %exitcond.not = icmp eq i32 %32, %3
-  br i1 %exitcond.not, label %.loopexit, label %14
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !337
 
 .loopexit:                                        ; preds = %30, %.lr.ph7, %.preheader1, %.preheader
   ret void
@@ -35385,7 +35385,7 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
   %12 = getelementptr inbounds nuw i8, ptr %.06, i64 2
   %13 = add nuw i32 %.0225, 1
   %exitcond10.not = icmp eq i32 %13, %3
-  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph7
+  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph7, !llvm.loop !338
 
 14:                                               ; preds = %.lr.ph, %30
   %.14 = phi ptr [ %.24.val, %.lr.ph ], [ %31, %30 ]
@@ -35418,7 +35418,7 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
   %31 = getelementptr inbounds nuw i8, ptr %.14, i64 4
   %32 = add nuw i32 %.1233, 1
   %exitcond.not = icmp eq i32 %32, %3
-  br i1 %exitcond.not, label %.loopexit, label %14
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !339
 
 .loopexit:                                        ; preds = %30, %.lr.ph7, %.preheader1, %.preheader
   ret void
@@ -35450,7 +35450,7 @@ define internal fastcc void @stbi__de_iphone(ptr readonly captures(none) %.0.val
   %11 = getelementptr inbounds nuw i8, ptr %.04616, i64 3
   %12 = add nuw i32 %.017, 1
   %exitcond25.not = icmp eq i32 %12, %4
-  br i1 %exitcond25.not, label %.loopexit, label %.lr.ph18
+  br i1 %exitcond25.not, label %.loopexit, label %.lr.ph18, !llvm.loop !340
 
 13:                                               ; preds = %0
   %14 = load i32, ptr @stbi__unpremultiply_on_load_global, align 4
@@ -35515,7 +35515,7 @@ define internal fastcc void @stbi__de_iphone(ptr readonly captures(none) %.0.val
   %44 = getelementptr inbounds nuw i8, ptr %.14711, i64 4
   %45 = add nuw i32 %.112, 1
   %exitcond.not = icmp eq i32 %45, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !341
 
 .lr.ph15:                                         ; preds = %.preheader7, %.lr.ph15
   %.214 = phi i32 [ %50, %.lr.ph15 ], [ 0, %.preheader7 ]
@@ -35528,7 +35528,7 @@ define internal fastcc void @stbi__de_iphone(ptr readonly captures(none) %.0.val
   %49 = getelementptr inbounds nuw i8, ptr %.24813, i64 4
   %50 = add nuw i32 %.214, 1
   %exitcond24.not = icmp eq i32 %50, %4
-  br i1 %exitcond24.not, label %.loopexit, label %.lr.ph15
+  br i1 %exitcond24.not, label %.loopexit, label %.lr.ph15, !llvm.loop !342
 
 .loopexit:                                        ; preds = %43, %.lr.ph15, %.lr.ph18, %.preheader9, %.preheader7, %.preheader
   ret void
@@ -35775,7 +35775,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow294, ptr %108, align 1
   %indvars.iv.next450 = add nsw i64 %indvars.iv449, 1
   %exitcond453.not = icmp eq i64 %indvars.iv.next450, %67
-  br i1 %exitcond453.not, label %.loopexit351, label %.lr.ph373
+  br i1 %exitcond453.not, label %.loopexit351, label %.lr.ph373, !llvm.loop !343
 
 .lr.ph371:                                        ; preds = %.preheader352, %.lr.ph371
   %indvars.iv444 = phi i64 [ %indvars.iv.next445, %.lr.ph371 ], [ 0, %.preheader352 ]
@@ -35788,7 +35788,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow292, ptr %113, align 1
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
   %exitcond448.not = icmp eq i64 %indvars.iv.next445, %wide.trip.count447
-  br i1 %exitcond448.not, label %.loopexit351, label %.lr.ph371
+  br i1 %exitcond448.not, label %.loopexit351, label %.lr.ph371, !llvm.loop !344
 
 .preheader354:                                    ; preds = %.lr.ph367, %.preheader356
   br i1 %64, label %.lr.ph369, label %.loopexit351
@@ -35805,7 +35805,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow290, ptr %119, align 1
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond438.not = icmp eq i64 %indvars.iv.next435, %wide.trip.count437
-  br i1 %exitcond438.not, label %.preheader354, label %.lr.ph367
+  br i1 %exitcond438.not, label %.preheader354, label %.lr.ph367, !llvm.loop !345
 
 .lr.ph369:                                        ; preds = %.preheader354, %.lr.ph369
   %indvars.iv439 = phi i64 [ %indvars.iv.next440, %.lr.ph369 ], [ %63, %.preheader354 ]
@@ -35826,7 +35826,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow288, ptr %131, align 1
   %indvars.iv.next440 = add nsw i64 %indvars.iv439, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next440, %67
-  br i1 %exitcond443.not, label %.loopexit351, label %.lr.ph369
+  br i1 %exitcond443.not, label %.loopexit351, label %.lr.ph369, !llvm.loop !346
 
 .preheader357:                                    ; preds = %.lr.ph363, %.preheader359
   br i1 %64, label %.lr.ph365, label %.loopexit351
@@ -35842,7 +35842,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow286, ptr %136, align 1
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
   %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count427
-  br i1 %exitcond428.not, label %.preheader357, label %.lr.ph363
+  br i1 %exitcond428.not, label %.preheader357, label %.lr.ph363, !llvm.loop !347
 
 .lr.ph365:                                        ; preds = %.preheader357, %.lr.ph365
   %indvars.iv429 = phi i64 [ %indvars.iv.next430, %.lr.ph365 ], [ %63, %.preheader357 ]
@@ -35873,7 +35873,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow284, ptr %156, align 1
   %indvars.iv.next430 = add nsw i64 %indvars.iv429, 1
   %exitcond433.not = icmp eq i64 %indvars.iv.next430, %67
-  br i1 %exitcond433.not, label %.loopexit351, label %.lr.ph365
+  br i1 %exitcond433.not, label %.loopexit351, label %.lr.ph365, !llvm.loop !348
 
 157:                                              ; preds = %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %91, i64 %63, i1 false)
@@ -35892,7 +35892,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %.narrow, ptr %164, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %67
-  br i1 %exitcond.not, label %.loopexit351, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit351, label %.lr.ph, !llvm.loop !349
 
 .loopexit351:                                     ; preds = %.lr.ph, %.lr.ph365, %.lr.ph369, %.lr.ph371, %.lr.ph373, %157, %.preheader357, %.preheader354, %.preheader352, %102, %101, %100
   %165 = getelementptr inbounds i8, ptr %91, i64 %67
@@ -35945,7 +35945,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %180 = shl i8 %.1240, 4
   %181 = add nuw i32 %.0251391, 1
   %exitcond458.not = icmp eq i32 %181, %38
-  br i1 %exitcond458.not, label %.loopexit338, label %.lr.ph395
+  br i1 %exitcond458.not, label %.loopexit338, label %.lr.ph395, !llvm.loop !350
 
 .lr.ph390:                                        ; preds = %.preheader341, %187
   %.2241389 = phi i8 [ %191, %187 ], [ 0, %.preheader341 ]
@@ -35971,7 +35971,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %191 = shl i8 %.3, 2
   %192 = add nuw i32 %.1252386, 1
   %exitcond457.not = icmp eq i32 %192, %38
-  br i1 %exitcond457.not, label %.loopexit338, label %.lr.ph390
+  br i1 %exitcond457.not, label %.loopexit338, label %.lr.ph390, !llvm.loop !351
 
 .lr.ph400:                                        ; preds = %.preheader, %198
   %.4399 = phi i8 [ %201, %198 ], [ 0, %.preheader ]
@@ -35997,7 +35997,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %201 = shl i8 %.5, 1
   %202 = add nuw i32 %.2253396, 1
   %exitcond459.not = icmp eq i32 %202, %38
-  br i1 %exitcond459.not, label %.loopexit338, label %.lr.ph400
+  br i1 %exitcond459.not, label %.loopexit338, label %.lr.ph400, !llvm.loop !352
 
 .loopexit338:                                     ; preds = %187, %176, %198, %.preheader341, %.preheader339, %.preheader
   br i1 %69, label %.loopexit, label %203
@@ -36022,7 +36022,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %208, ptr %205, align 1
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
   %.not39.i = icmp eq i64 %indvars.iv35.i, 0
-  br i1 %.not39.i, label %.loopexit, label %.lr.ph32.i
+  br i1 %.not39.i, label %.loopexit, label %.lr.ph32.i, !llvm.loop !353
 
 .lr.ph.i:                                         ; preds = %.preheader26.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %72, %.preheader26.i ]
@@ -36044,7 +36044,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %220, ptr %210, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i304 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i304, label %.loopexit, label %.lr.ph.i
+  br i1 %.not.i304, label %.loopexit, label %.lr.ph.i, !llvm.loop !354
 
 221:                                              ; preds = %.loopexit351
   br i1 %68, label %222, label %242
@@ -36076,7 +36076,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %229, ptr %226, align 1
   %indvars.iv.next36.i316 = add nsw i64 %indvars.iv35.i315, -1
   %.not39.i317 = icmp eq i64 %indvars.iv35.i315, 0
-  br i1 %.not39.i317, label %.loopexit, label %.lr.ph32.i314
+  br i1 %.not39.i317, label %.loopexit, label %.lr.ph32.i314, !llvm.loop !353
 
 .lr.ph.i308:                                      ; preds = %.preheader26.i306, %.lr.ph.i308
   %indvars.iv.i309 = phi i64 [ %indvars.iv.next.i310, %.lr.ph.i308 ], [ %72, %.preheader26.i306 ]
@@ -36098,7 +36098,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   store i8 %241, ptr %231, align 1
   %indvars.iv.next.i310 = add nsw i64 %indvars.iv.i309, -1
   %.not.i311 = icmp eq i64 %indvars.iv.i309, 0
-  br i1 %.not.i311, label %.loopexit, label %.lr.ph.i308
+  br i1 %.not.i311, label %.loopexit, label %.lr.ph.i308, !llvm.loop !354
 
 242:                                              ; preds = %221
   br i1 %9, label %243, label %.loopexit
@@ -36125,7 +36125,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %252 = getelementptr inbounds nuw i8, ptr %.0236384, i64 2
   %253 = getelementptr inbounds nuw i8, ptr %.0268382, i64 2
   %exitcond456.not = icmp eq i32 %251, %38
-  br i1 %exitcond456.not, label %.loopexit, label %.lr.ph385
+  br i1 %exitcond456.not, label %.loopexit, label %.lr.ph385, !llvm.loop !355
 
 254:                                              ; preds = %243
   br i1 %70, label %.preheader347, label %.preheader349
@@ -36154,7 +36154,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %264 = getelementptr inbounds nuw i8, ptr %.1380, i64 4
   %265 = getelementptr inbounds nuw i8, ptr %.1269378, i64 2
   %exitcond455.not = icmp eq i32 %263, %4
-  br i1 %exitcond455.not, label %.loopexit, label %.lr.ph381
+  br i1 %exitcond455.not, label %.loopexit, label %.lr.ph381, !llvm.loop !356
 
 .lr.ph377:                                        ; preds = %.preheader349, %.lr.ph377
   %.2376 = phi ptr [ %293, %.lr.ph377 ], [ %90, %.preheader349 ]
@@ -36194,12 +36194,12 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.e
   %293 = getelementptr inbounds nuw i8, ptr %.2376, i64 8
   %294 = getelementptr inbounds nuw i8, ptr %.2270374, i64 6
   %exitcond454.not = icmp eq i32 %292, %4
-  br i1 %exitcond454.not, label %.loopexit, label %.lr.ph377
+  br i1 %exitcond454.not, label %.loopexit, label %.lr.ph377, !llvm.loop !357
 
 .loopexit:                                        ; preds = %.lr.ph377, %.lr.ph381, %.lr.ph385, %.lr.ph.i308, %.lr.ph32.i314, %.lr.ph.i, %.lr.ph32.i, %.preheader349, %.preheader347, %.preheader345, %.loopexit338, %223, %242, %.preheader26.i, %.preheader.i, %.preheader26.i306, %.preheader.i312
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond464.not = icmp eq i64 %indvars.iv.next461, %wide.trip.count463
-  br i1 %exitcond464.not, label %._crit_edge, label %77
+  br i1 %exitcond464.not, label %._crit_edge, label %77, !llvm.loop !358
 
 ._crit_edge:                                      ; preds = %.loopexit, %59
   tail call void @free(ptr noundef %58) #54
@@ -36845,7 +36845,7 @@ stbi__get8.exit.thread:                           ; preds = %48, %11, %stbi__get
   %179 = tail call fastcc i32 @stbi__get16le(ptr noundef nonnull %0)
   %180 = add nuw nsw i32 %.0132, 1
   %exitcond.not = icmp eq i32 %180, 12
-  br i1 %exitcond.not, label %181, label %177
+  br i1 %exitcond.not, label %181, label %177, !llvm.loop !359
 
 181:                                              ; preds = %177
   switch i32 %91, label %.critedge [
@@ -37086,7 +37086,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
 54:                                               ; preds = %44, %48
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
-  br i1 %exitcond289.not, label %.loopexit, label %44
+  br i1 %exitcond289.not, label %.loopexit, label %44, !llvm.loop !360
 
 55:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -37109,7 +37109,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
 66:                                               ; preds = %55, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %55
+  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !361
 
 .loopexit:                                        ; preds = %66, %54, %.preheader257, %.preheader256, %28
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -37440,7 +37440,7 @@ stbi__get8.exit.thread.i:                         ; preds = %stbi__get8.exit.i, 
   store i8 %237, ptr %239, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %240, label %235
+  br i1 %exitcond.not.i, label %240, label %235, !llvm.loop !362
 
 240:                                              ; preds = %235
   %241 = add nuw nsw i32 %232, 1
@@ -37593,7 +37593,7 @@ stbi__get8.exit131.i:                             ; preds = %stbi__refill_buffer
   %310 = shl i32 %309, %.083.i
   %311 = or i32 %310, %.085.i
   %312 = add nsw i32 %.083.i, 8
-  br label %246
+  br label %246, !llvm.loop !363
 
 313:                                              ; preds = %246
   %314 = and i32 %.085.i, %.095.i.ph
@@ -37607,7 +37607,7 @@ stbi__get8.exit131.i:                             ; preds = %stbi__refill_buffer
   %.095.i.ph.be = phi i32 [ %.499.i, %407 ], [ %243, %313 ]
   %.091.i.ph.be = phi i32 [ %.4.i, %407 ], [ %244, %313 ]
   %.087.i.ph.be = phi i32 [ %314, %407 ], [ -1, %313 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !363
 
 318:                                              ; preds = %313
   %319 = icmp eq i32 %314, %245
@@ -37751,7 +37751,7 @@ stbi__get8.exit139.i:                             ; preds = %stbi__refill_buffer
   br label %stbi__skip.exit.i.backedge
 
 stbi__skip.exit.i.backedge:                       ; preds = %.thread.i141.i, %380
-  br label %stbi__skip.exit.i
+  br label %stbi__skip.exit.i, !llvm.loop !364
 
 386:                                              ; preds = %318
   %.not.i191 = icmp sgt i32 %314, %.091.i.ph
@@ -37866,7 +37866,7 @@ stbi__process_gif_raster.exit:                    ; preds = %255, %stbi__get8.ex
 439:                                              ; preds = %424, %429
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
-  br i1 %exitcond294.not, label %stbi__skip.exit225.thread, label %424
+  br i1 %exitcond294.not, label %stbi__skip.exit225.thread, label %424, !llvm.loop !365
 
 440:                                              ; preds = %stbi__get8.exit
   %441 = icmp ult ptr %123, %122
@@ -37944,7 +37944,7 @@ stbi__get8.exit199.thread.preheader:              ; preds = %445, %stbi__get8.ex
   br i1 %.not.i200, label %stbi__skip.exit225.backedge, label %476
 
 stbi__skip.exit225.backedge:                      ; preds = %stbi__get8.exit231, %605, %474, %.thread.i221, %593, %582
-  br label %stbi__skip.exit225
+  br label %stbi__skip.exit225, !llvm.loop !366
 
 476:                                              ; preds = %474
   %477 = load ptr, ptr %83, align 8
@@ -38208,7 +38208,7 @@ stbi__get8.exit199.thread:                        ; preds = %stbi__get8.exit199.
 605:                                              ; preds = %stbi__get8.exit199.thread
   %606 = load i32, ptr %82, align 8
   %.not.i226 = icmp eq i32 %606, 0
-  br i1 %.not.i226, label %stbi__skip.exit225.backedge, label %607
+  br i1 %.not.i226, label %stbi__skip.exit225.backedge, label %607, !llvm.loop !366
 
 607:                                              ; preds = %605
   %608 = load ptr, ptr %83, align 8
@@ -38250,7 +38250,7 @@ stbi__get8.exit231:                               ; preds = %602, %stbi__refill_
   %626 = phi ptr [ %600, %602 ], [ %.sink.i.i229, %stbi__refill_buffer.exit.i228 ]
   %.0.i230 = phi i8 [ %604, %602 ], [ %625, %stbi__refill_buffer.exit.i228 ]
   %.not174 = icmp eq i8 %.0.i230, 0
-  br i1 %.not174, label %stbi__skip.exit225.backedge, label %627
+  br i1 %.not174, label %stbi__skip.exit225.backedge, label %627, !llvm.loop !366
 
 627:                                              ; preds = %stbi__get8.exit231
   %628 = zext i8 %.0.i230 to i32
@@ -38275,7 +38275,7 @@ stbi__get8.exit231:                               ; preds = %602, %stbi__refill_
   br label %stbi__get8.exit199.thread.backedge
 
 stbi__get8.exit199.thread.backedge:               ; preds = %636, %.thread.i233
-  br label %stbi__get8.exit199.thread
+  br label %stbi__get8.exit199.thread, !llvm.loop !367
 
 .thread.i233:                                     ; preds = %627, %630
   %640 = zext i8 %.0.i230 to i64
@@ -39146,7 +39146,7 @@ stbi__get8.exit26:                                ; preds = %77, %80, %stbi__ref
   store i8 %102, ptr %103, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %104, label %16
+  br i1 %exitcond.not, label %104, label %16, !llvm.loop !368
 
 104:                                              ; preds = %stbi__get8.exit26
   ret void
@@ -39260,7 +39260,7 @@ define internal fastcc void @stbi__out_gif_code(ptr noundef nonnull captures(non
   %72 = add nsw i32 %64, -1
   store i32 %72, ptr %59, align 8
   %.not43 = icmp slt i32 %71, %60
-  br i1 %.not43, label %.critedge, label %63
+  br i1 %.not43, label %.critedge, label %63, !llvm.loop !369
 
 .critedge:                                        ; preds = %63, %66, %52, %47, %9
   ret void
@@ -39302,7 +39302,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr noundef
   %or.cond = icmp ne i32 %15, 192
   %16 = icmp ne i8 %.1.in.lcssa, -62
   %spec.select = and i1 %16, %or.cond
-  br i1 %spec.select, label %.lr.ph38, label %._crit_edge
+  br i1 %spec.select, label %.lr.ph38, label %._crit_edge, !llvm.loop !370
 
 .lr.ph38:                                         ; preds = %11, %.loopexit
   %.037 = phi i32 [ %.0, %.loopexit ], [ %.034, %11 ]
@@ -39352,7 +39352,7 @@ stbi__at_eof.exit.thread27:                       ; preds = %30, %stbi__at_eof.e
 stbi__at_eof.exit.thread:                         ; preds = %24, %stbi__at_eof.exit
   %38 = tail call fastcc zeroext i8 @stbi__get_marker(ptr noundef %0)
   %39 = icmp eq i8 %38, -1
-  br i1 %39, label %.lr.ph, label %.loopexit
+  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !371
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   %.0.in.lcssa = phi i8 [ %12, %11 ], [ %.1.in.lcssa, %.loopexit ]
@@ -39729,7 +39729,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %51 = or disjoint i64 %indvars.iv.next, 7
   %52 = icmp samesign ult i64 %51, %sext
-  br i1 %52, label %.lr.ph, label %.loopexit.loopexit
+  br i1 %52, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !372
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %53 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -39794,7 +39794,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(non
   %95 = getelementptr inbounds i8, ptr %.2106, i64 %55
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %57
+  br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !373
 
 ._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
@@ -39890,7 +39890,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %72, %75
   %77 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !374
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %78 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -39956,7 +39956,7 @@ define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned w
   store i8 %111, ptr %105, align 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98
+  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !375
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %._crit_edge
   %.191.lcssa = phi i32 [ %.pre-phi116, %._crit_edge ], [ %98, %.lr.ph98 ]
@@ -40133,7 +40133,7 @@ stbi__refill_buffer.exit.i13:                     ; preds = %79, %77
 stbi__get8.exit16:                                ; preds = %51, %stbi__refill_buffer.exit.i13
   %.0.i15 = phi i8 [ %53, %51 ], [ %82, %stbi__refill_buffer.exit.i13 ]
   %84 = icmp eq i8 %.0.i15, -1
-  br i1 %84, label %.preheader, label %stbi__get8.exit.thread
+  br i1 %84, label %.preheader, label %stbi__get8.exit.thread, !llvm.loop !376
 
 stbi__get8.exit.thread:                           ; preds = %54, %stbi__get8.exit16, %15, %stbi__get8.exit, %4
   %.09 = phi i8 [ %3, %4 ], [ -1, %stbi__get8.exit ], [ -1, %15 ], [ 0, %54 ], [ %.0.i15, %stbi__get8.exit16 ]
@@ -40287,7 +40287,7 @@ stbi__get8.exit.thread:                           ; preds = %stbi__get8.exit
   store i16 %70, ptr %74, align 2
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next224, 64
-  br i1 %exitcond226.not, label %.split.us, label %.preheader186.split.us, !llvm.loop !73
+  br i1 %exitcond226.not, label %.split.us, label %.preheader186.split.us, !llvm.loop !377
 
 75:                                               ; preds = %stbi__get8.exit.thread
   store ptr @.str.135, ptr @stbi__g_failure_reason, align 8
@@ -40368,13 +40368,13 @@ stbi__get8.exit148:                               ; preds = %82, %85, %stbi__ref
   store i16 %115, ptr %119, align 2
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next220, 64
-  br i1 %exitcond222.not, label %.split.us, label %.preheader186.split
+  br i1 %exitcond222.not, label %.split.us, label %.preheader186.split, !llvm.loop !378
 
 .split.us:                                        ; preds = %stbi__get8.exit148, %.preheader186.split.us
   %.neg = phi i32 [ -129, %.preheader186.split.us ], [ -65, %stbi__get8.exit148 ]
   %120 = add nsw i32 %.neg, %.0114201
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %19, label %._crit_edge204
+  br i1 %121, label %19, label %._crit_edge204, !llvm.loop !379
 
 ._crit_edge204:                                   ; preds = %.split.us, %13
   %.0114.lcssa = phi i32 [ %16, %13 ], [ %120, %.split.us ]
@@ -40542,7 +40542,7 @@ stbi__get8.exit160:                               ; preds = %180, %183, %stbi__r
   %215 = add nuw nsw i32 %.0121194, %213
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %216, label %.preheader187
+  br i1 %exitcond.not, label %216, label %.preheader187, !llvm.loop !380
 
 216:                                              ; preds = %stbi__get8.exit160
   %217 = icmp samesign ugt i32 %215, 256
@@ -40650,7 +40650,7 @@ stbi__get8.exit166:                               ; preds = %238, %241, %stbi__r
   store i8 %.0.i165, ptr %271, align 1
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count
-  br i1 %exitcond218.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond218.not, label %._crit_edge, label %.lr.ph, !llvm.loop !381
 
 ._crit_edge:                                      ; preds = %stbi__get8.exit166, %228
   br i1 %220, label %stbi__build_fast_ac.exit, label %272
@@ -40716,13 +40716,13 @@ stbi__get8.exit166:                               ; preds = %238, %241, %stbi__r
 311:                                              ; preds = %306, %295, %292, %282, %278
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %stbi__build_fast_ac.exit, label %278
+  br i1 %exitcond.not.i, label %stbi__build_fast_ac.exit, label %278, !llvm.loop !382
 
 stbi__build_fast_ac.exit:                         ; preds = %311, %._crit_edge
   %312 = sub i32 %219, %215
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #54
   %313 = icmp sgt i32 %312, 0
-  br i1 %313, label %131, label %._crit_edge199
+  br i1 %313, label %131, label %._crit_edge199, !llvm.loop !383
 
 ._crit_edge199:                                   ; preds = %stbi__build_fast_ac.exit, %123
   %.2116.lcssa = phi i32 [ %126, %123 ], [ %312, %stbi__build_fast_ac.exit ]
@@ -40833,7 +40833,7 @@ stbi__get8.exit173:                               ; preds = %334, %337, %stbi__r
   %spec.select = select i1 %.not139, i32 %.0110208, i32 0
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next232, 5
-  br i1 %exitcond234.not, label %369, label %.preheader
+  br i1 %exitcond234.not, label %369, label %.preheader, !llvm.loop !384
 
 369:                                              ; preds = %stbi__get8.exit173
   %370 = add nsw i32 %320, -7
@@ -40926,7 +40926,7 @@ stbi__get8.exit179:                               ; preds = %383, %386, %stbi__r
   %spec.select142 = select i1 %.not137, i32 %.0108206, i32 0
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next228, 6
-  br i1 %exitcond230.not, label %418, label %.preheader185
+  br i1 %exitcond230.not, label %418, label %.preheader185, !llvm.loop !385
 
 418:                                              ; preds = %stbi__get8.exit179
   %419 = add nsw i32 %320, -8
@@ -41227,7 +41227,7 @@ stbi__get8.exit203.thread:                        ; preds = %66, %stbi__get8.exi
   store ptr null, ptr %102, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %99
+  br i1 %exitcond.not, label %._crit_edge, label %99, !llvm.loop !386
 
 ._crit_edge:                                      ; preds = %99
   %.pre = load i32, ptr %97, align 8
@@ -41490,7 +41490,7 @@ stbi__get8.exit221:                               ; preds = %200, %stbi__refill_
   %230 = load i32, ptr %97, align 8
   %231 = sext i32 %230 to i64
   %232 = icmp slt i64 %indvars.iv.next269, %231
-  br i1 %232, label %119, label %._crit_edge245
+  br i1 %232, label %119, label %._crit_edge245, !llvm.loop !387
 
 ._crit_edge245:                                   ; preds = %229, %106
   %.lcssa = phi i32 [ %108, %106 ], [ %230, %229 ]
@@ -41535,12 +41535,12 @@ stbi__get8.exit221:                               ; preds = %200, %stbi__refill_
   %.1 = tail call i32 @llvm.smax.i32(i32 %246, i32 %.0175248)
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
-  br i1 %exitcond275.not, label %.lr.ph253, label %241
+  br i1 %exitcond275.not, label %.lr.ph253, label %241, !llvm.loop !388
 
 247:                                              ; preds = %254
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
-  br i1 %exitcond280.not, label %._crit_edge254, label %248
+  br i1 %exitcond280.not, label %._crit_edge254, label %248, !llvm.loop !389
 
 248:                                              ; preds = %.lr.ph253, %247
   %indvars.iv276 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next277, %247 ]
@@ -41686,7 +41686,7 @@ stbi__get8.exit221:                               ; preds = %200, %stbi__refill_
   %332 = load i32, ptr %97, align 8
   %333 = sext i32 %332 to i64
   %334 = icmp slt i64 %indvars.iv.next282, %333
-  br i1 %334, label %281, label %.loopexit
+  br i1 %334, label %281, label %.loopexit, !llvm.loop !390
 
 .loopexit:                                        ; preds = %331, %._crit_edge254, %._crit_edge245, %323, %308, %258, %253, %239, %228, %195, %.loopexit230, %105, %stbi__get8.exit203.thread, %58, %54, %50, %stbi__get8.exit.thread, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %stbi__get8.exit.thread ], [ 0, %50 ], [ 0, %54 ], [ 0, %58 ], [ 0, %stbi__get8.exit203.thread ], [ 0, %105 ], [ 0, %.loopexit230 ], [ 0, %195 ], [ 0, %228 ], [ 0, %253 ], [ 0, %258 ], [ 0, %308 ], [ 0, %323 ], [ 0, %239 ], [ 1, %._crit_edge245 ], [ 1, %._crit_edge254 ], [ 1, %331 ]
@@ -41727,7 +41727,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %14 = add nuw nsw i32 %.05572, 1
   %15 = load i32, ptr %4, align 4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %11, label %._crit_edge.loopexit
+  br i1 %16, label %11, label %._crit_edge.loopexit, !llvm.loop !391
 
 ._crit_edge.loopexit:                             ; preds = %13
   %17 = trunc nsw i64 %indvars.iv.next to i32
@@ -41737,7 +41737,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %.161.lcssa = phi i32 [ %.06073, %.preheader66 ], [ %17, %._crit_edge.loopexit ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 16
-  br i1 %exitcond95.not, label %18, label %.preheader66
+  br i1 %exitcond95.not, label %18, label %.preheader66, !llvm.loop !392
 
 18:                                               ; preds = %._crit_edge
   %19 = sext i32 %.161.lcssa to i64
@@ -41774,7 +41774,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = icmp eq i64 %indvars.iv99, %37
-  br i1 %38, label %.lr.ph77, label %._crit_edge78
+  br i1 %38, label %.lr.ph77, label %._crit_edge78, !llvm.loop !393
 
 ._crit_edge78:                                    ; preds = %.lr.ph77
   %39 = trunc nsw i64 %indvars.iv.next97 to i32
@@ -41794,7 +41794,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %46 = shl i32 %.158, 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 17
-  br i1 %exitcond102.not, label %47, label %24
+  br i1 %exitcond102.not, label %47, label %24, !llvm.loop !394
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1608
@@ -41834,12 +41834,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   %65 = trunc nuw nsw i64 %indvars.iv.next104 to i32
   %.2.highbits = lshr i32 %65, %58
   %66 = icmp eq i32 %.2.highbits, 0
-  br i1 %66, label %62, label %.loopexit
+  br i1 %66, label %62, label %.loopexit, !llvm.loop !395
 
 .loopexit:                                        ; preds = %62, %50
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond110.not, label %.loopexit65, label %50
+  br i1 %exitcond110.not, label %.loopexit65, label %50, !llvm.loop !396
 
 .loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
   %.str.142.sink = phi ptr [ @.str.142, %._crit_edge78 ], [ @.str.141, %11 ]
@@ -41902,7 +41902,7 @@ define internal fastcc void @stbi__free_jpeg_components(ptr noundef nonnull capt
 20:                                               ; preds = %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !298
 
 ._crit_edge:                                      ; preds = %20, %2
   ret void
@@ -41939,7 +41939,7 @@ define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeon
   store i8 %17, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !397
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret ptr %0
@@ -42004,7 +42004,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %41, ptr %42, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !398
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %43 = shl nuw nsw i32 %21, 1
@@ -42064,12 +42064,12 @@ define internal noundef ptr @stbi__resample_row_generic(ptr noundef returned wri
   store i8 %.pre, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %11
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !399
 
 ._crit_edge.us:                                   ; preds = %11
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !74
+  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !400
 
 ._crit_edge16:                                    ; preds = %._crit_edge.us, %5
   ret ptr %0
@@ -42132,7 +42132,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr noundef 
   %38 = load i32, ptr %37, align 4
   %39 = icmp ult i32 %34, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %39, label %40, label %36
+  br i1 %39, label %40, label %36, !llvm.loop !280
 
 40:                                               ; preds = %36
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -42361,7 +42361,7 @@ stbi__mul2shorts_valid.exit.thread:               ; preds = %100, %stbi__addints
   %162 = load i32, ptr %161, align 4
   %163 = icmp ult i32 %159, %162
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  br i1 %163, label %164, label %160
+  br i1 %163, label %164, label %160, !llvm.loop !280
 
 164:                                              ; preds = %160
   %165 = trunc nuw nsw i64 %indvars.iv.i88 to i32
@@ -42464,7 +42464,7 @@ stbi__extend_receive.exit95:                      ; preds = %198, %201
 221:                                              ; preds = %124, %stbi__extend_receive.exit95, %187
   %.167.ph = phi i32 [ %188, %187 ], [ %192, %stbi__extend_receive.exit95 ], [ %130, %124 ]
   %222 = icmp slt i32 %.167.ph, 64
-  br i1 %222, label %109, label %.thread118
+  br i1 %222, label %109, label %.thread118, !llvm.loop !401
 
 .thread118.sink.split.sink.split:                 ; preds = %164, %40
   %.lcssa.sink = phi i32 [ %43, %40 ], [ %167, %164 ]
@@ -42672,7 +42672,7 @@ stbi__get8.exit23:                                ; preds = %stbi__get8.exit23.b
 
 stbi__get8.exit23.backedge:                       ; preds = %102, %105, %stbi__refill_buffer.exit.i26
   %.016.in.be = phi i8 [ %104, %102 ], [ %133, %stbi__refill_buffer.exit.i26 ], [ 0, %105 ]
-  br label %stbi__get8.exit23
+  br label %stbi__get8.exit23, !llvm.loop !402
 
 105:                                              ; preds = %95
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 48
@@ -42741,7 +42741,7 @@ stbi__refill_buffer.exit.i26:                     ; preds = %130, %128
   %143 = add nsw i32 %138, 8
   store i32 %143, ptr %3, align 4
   %144 = icmp slt i32 %138, 17
-  br i1 %144, label %.splitthread-pre-split, label %.loopexit, !llvm.loop !75
+  br i1 %144, label %.splitthread-pre-split, label %.loopexit, !llvm.loop !403
 
 .loopexit:                                        ; preds = %.thread, %.split.us, %135
   ret void
@@ -42824,7 +42824,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr 
   %46 = load i32, ptr %45, align 4
   %47 = icmp ult i32 %42, %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %47, label %48, label %44
+  br i1 %47, label %48, label %44, !llvm.loop !280
 
 48:                                               ; preds = %44
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -43043,7 +43043,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
   store i32 %12, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.preheader, label %.lr.ph, !llvm.loop !404
 
 ._crit_edge.preheader:                            ; preds = %.lr.ph, %3
   br label %._crit_edge
@@ -43051,7 +43051,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
 13:                                               ; preds = %._crit_edge
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 16
-  br i1 %exitcond86.not, label %.preheader, label %._crit_edge
+  br i1 %exitcond86.not, label %.preheader, label %._crit_edge, !llvm.loop !405
 
 .preheader:                                       ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -43100,7 +43100,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
   %39 = add nsw i32 %29, %.06474
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 16
-  br i1 %exitcond90.not, label %40, label %22
+  br i1 %exitcond90.not, label %40, label %22, !llvm.loop !406
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -43167,7 +43167,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
   store i16 %63, ptr %78, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %76
   %79 = icmp samesign ult i64 %indvars.iv.next92, 512
-  br i1 %79, label %77, label %.loopexit
+  br i1 %79, label %77, label %.loopexit, !llvm.loop !407
 
 .loopexit:                                        ; preds = %77, %69, %48
   %80 = add nsw i32 %51, 1
@@ -43177,7 +43177,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
 81:                                               ; preds = %.loopexit, %44
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit70, label %44
+  br i1 %exitcond98.not, label %.loopexit70, label %44, !llvm.loop !408
 
 .loopexit70.sink.split:                           ; preds = %._crit_edge, %22
   %.str.168.sink = phi ptr [ @.str.168, %22 ], [ @.str.167, %._crit_edge ]
@@ -43254,7 +43254,7 @@ stbi__zget8.exit.i:                               ; preds = %20, %19
   %27 = add nsw i32 %16, 8
   store i32 %27, ptr %3, align 8
   %28 = icmp slt i32 %16, 17
-  br i1 %28, label %15, label %stbi__fill_bits.exit
+  br i1 %28, label %15, label %stbi__fill_bits.exit, !llvm.loop !13
 
 stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i, %18, %11, %2
   %29 = phi i32 [ %16, %18 ], [ %12, %11 ], [ %4, %2 ], [ %27, %stbi__zget8.exit.i ]
@@ -43290,7 +43290,7 @@ stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i,
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %48, label %49, label %45
+  br i1 %48, label %49, label %45, !llvm.loop !409
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -43395,7 +43395,7 @@ stbiw__write_flush.exit.us.i:                     ; preds = %._crit_edge.us.i, %
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, %25
   %33 = trunc nsw i64 %indvars.iv.next38.i to i32
   %.not31.us.i = icmp eq i32 %.026.i, %33
-  br i1 %.not31.us.i, label %stbiw__write_pixels.exit, label %.preheader.us.i, !llvm.loop !76
+  br i1 %.not31.us.i, label %stbiw__write_pixels.exit, label %.preheader.us.i, !llvm.loop !410
 
 34:                                               ; preds = %34, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %34 ]
@@ -43405,7 +43405,7 @@ stbiw__write_flush.exit.us.i:                     ; preds = %._crit_edge.us.i, %
   call fastcc void @stbiw__write_pixel(ptr noundef nonnull %0, i32 noundef %5, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 2) %6, ptr noundef readonly %37)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %34
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %34, !llvm.loop !411
 
 ._crit_edge.us.i:                                 ; preds = %34
   %38 = load i32, ptr %20, align 8
@@ -43431,7 +43431,7 @@ stbiw__write_flush.exit.i:                        ; preds = %40, %.preheader.i
   call void %43(ptr noundef %44, ptr noundef nonnull %12, i32 noundef range(i32 0, 4) %9) #54
   %45 = add nsw i32 %.133.i, %spec.select.i
   %.not31.i = icmp eq i32 %45, %.026.i
-  br i1 %.not31.i, label %stbiw__write_pixels.exit, label %.preheader.i
+  br i1 %.not31.i, label %stbiw__write_pixels.exit, label %.preheader.i, !llvm.loop !412
 
 stbiw__write_pixels.exit:                         ; preds = %stbiw__write_flush.exit.us.i, %stbiw__write_flush.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #54
@@ -43567,7 +43567,7 @@ define internal fastcc void @stbiw__writefv(ptr noundef nonnull readonly capture
 64:                                               ; preds = %59, %42, %25, %11
   %65 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %._crit_edge, label %11
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !413
 
 ._crit_edge:                                      ; preds = %64, %11, %3
   ret void
@@ -43669,7 +43669,7 @@ stbiw__write1.exit:                               ; preds = %29, %32
   store i8 %54, ptr %55, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %56, label %43
+  br i1 %exitcond.not, label %56, label %43, !llvm.loop !414
 
 56:                                               ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -43910,7 +43910,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr noundef nonnull readonly ca
   store float %70, ptr %43, align 4
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, %34
   %85 = icmp samesign ult i64 %indvars.iv.next.lver.orig, %35
-  br i1 %85, label %36, label %.preheader237
+  br i1 %85, label %36, label %.preheader237, !llvm.loop !415
 
 .preheader237:                                    ; preds = %36
   %86 = shl nuw nsw i32 %4, 1
@@ -43994,7 +43994,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr noundef nonnull readonly ca
   store float %125, ptr %gep335, align 4
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next286, 8
-  br i1 %exitcond.not, label %.preheader235, label %98
+  br i1 %exitcond.not, label %.preheader235, label %98, !llvm.loop !416
 
 .preheader235:                                    ; preds = %98, %154
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %154 ], [ 0, %98 ]
@@ -44025,12 +44025,12 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr noundef nonnull readonly ca
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %indvars.iv.next291 = add nsw i64 %indvars.iv290, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next289, 8
-  br i1 %exitcond295.not, label %154, label %142
+  br i1 %exitcond295.not, label %154, label %142, !llvm.loop !417
 
 154:                                              ; preds = %142
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next297, 8
-  br i1 %exitcond299.not, label %155, label %.preheader235
+  br i1 %exitcond299.not, label %155, label %.preheader235, !llvm.loop !418
 
 155:                                              ; preds = %154
   %156 = load i32, ptr %25, align 16
@@ -44084,7 +44084,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr noundef nonnull readonly ca
   %177 = shl i32 %.02.i, 8
   %178 = add nsw i32 %.0181.i, -8
   %179 = icmp sgt i32 %.0181.i, 15
-  br i1 %179, label %170, label %stbiw__jpg_writeBits.exit
+  br i1 %179, label %170, label %stbiw__jpg_writeBits.exit, !llvm.loop !87
 
 180:                                              ; preds = %155
   %181 = sub nsw i32 %156, %6
@@ -44147,7 +44147,7 @@ define internal fastcc i32 @stbiw__jpg_processDU(ptr noundef nonnull readonly ca
   %209 = shl i32 %.02.i152, 8
   %210 = add nsw i32 %.0181.i153, -8
   %211 = icmp sgt i32 %.0181.i153, 15
-  br i1 %211, label %202, label %stbiw__jpg_writeBits.exit158
+  br i1 %211, label %202, label %stbiw__jpg_writeBits.exit158, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit158:                     ; preds = %208, %180
   %.018.lcssa.i149 = phi i32 [ %195, %180 ], [ %210, %208 ]
@@ -44196,7 +44196,7 @@ stbiw__jpg_writeBits.exit158:                     ; preds = %208, %180
   %228 = shl i32 %.02.i162, 8
   %229 = add nsw i32 %.0181.i163, -8
   %230 = icmp sgt i32 %.0181.i163, 15
-  br i1 %230, label %221, label %stbiw__jpg_writeBits.exit
+  br i1 %230, label %221, label %stbiw__jpg_writeBits.exit, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__jpg_writeBits.exit158, %158
   %storemerge232 = phi i32 [ %167, %158 ], [ %218, %stbiw__jpg_writeBits.exit158 ], [ %177, %176 ], [ %228, %227 ]
@@ -44216,7 +44216,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
 237:                                              ; preds = %232
   %238 = add nsw i32 %.0126260, -1
   %239 = icmp samesign ugt i32 %.0126260, 1
-  br i1 %239, label %232, label %244
+  br i1 %239, label %232, label %244, !llvm.loop !419
 
 .preheader233:                                    ; preds = %232
   %.not263 = icmp slt i32 %.0126260, 1
@@ -44272,7 +44272,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %261 = shl i32 %.02.i172, 8
   %262 = add nsw i32 %.0181.i173, -8
   %263 = icmp sgt i32 %.0181.i173, 15
-  br i1 %263, label %254, label %.sink.split
+  br i1 %263, label %254, label %.sink.split, !llvm.loop !87
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %stbiw__jpg_writeBits.exit212
   %264 = phi i32 [ %231, %.preheader.lr.ph ], [ %.018.lcssa.i203, %stbiw__jpg_writeBits.exit212 ]
@@ -44290,7 +44290,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %271 = and i1 %270, %269
   %indvars.iv.next301 = add nsw i64 %indvars.iv300, 1
   %indvars.iv.next304 = add nuw i32 %indvars.iv303, 1
-  br i1 %271, label %266, label %272
+  br i1 %271, label %266, label %272, !llvm.loop !420
 
 272:                                              ; preds = %266
   %273 = trunc nsw i64 %indvars.iv300 to i32
@@ -44342,7 +44342,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %227, %176, %stbiw__
   %290 = shl i32 %.02.i182, 8
   %291 = add nsw i32 %.0181.i183, -8
   %292 = icmp sgt i32 %.0181.i183, 15
-  br i1 %292, label %.lr.ph.i181, label %stbiw__jpg_writeBits.exit188
+  br i1 %292, label %.lr.ph.i181, label %stbiw__jpg_writeBits.exit188, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %.018.lcssa.i179 = phi i32 [ %279, %.lr.ph ], [ %291, %289 ]
@@ -44351,7 +44351,7 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   store i32 %.018.lcssa.i179, ptr %2, align 4
   %293 = add nuw nsw i32 %.0262, 1
   %exitcond305.not = icmp eq i32 %.0262, %umax
-  br i1 %exitcond305.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond305.not, label %._crit_edge, label %.lr.ph, !llvm.loop !421
 
 ._crit_edge:                                      ; preds = %stbiw__jpg_writeBits.exit188
   %294 = and i32 %274, 15
@@ -44414,7 +44414,7 @@ stbiw__jpg_writeBits.exit188:                     ; preds = %289, %.lr.ph
   %322 = shl i32 %.02.i196, 8
   %323 = add nsw i32 %.0181.i197, -8
   %324 = icmp sgt i32 %.0181.i197, 15
-  br i1 %324, label %.lr.ph.i195, label %stbiw__jpg_writeBits.exit202
+  br i1 %324, label %.lr.ph.i195, label %stbiw__jpg_writeBits.exit202, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit202:                     ; preds = %321, %295
   %.018.lcssa.i193 = phi i32 [ %310, %295 ], [ %323, %321 ]
@@ -44459,7 +44459,7 @@ stbiw__jpg_writeBits.exit202:                     ; preds = %321, %295
   %339 = shl i32 %.02.i206, 8
   %340 = add nsw i32 %.0181.i207, -8
   %341 = icmp sgt i32 %.0181.i207, 15
-  br i1 %341, label %.lr.ph.i205, label %stbiw__jpg_writeBits.exit212
+  br i1 %341, label %.lr.ph.i205, label %stbiw__jpg_writeBits.exit212, !llvm.loop !87
 
 stbiw__jpg_writeBits.exit212:                     ; preds = %338, %stbiw__jpg_writeBits.exit202
   %.018.lcssa.i203 = phi i32 [ %326, %stbiw__jpg_writeBits.exit202 ], [ %340, %338 ]
@@ -44468,7 +44468,7 @@ stbiw__jpg_writeBits.exit212:                     ; preds = %338, %stbiw__jpg_wr
   store i32 %.018.lcssa.i203, ptr %2, align 4
   %342 = add nsw i32 %273, 1
   %.not.not = icmp sgt i32 %.0126260, %273
-  br i1 %.not.not, label %.preheader, label %._crit_edge265
+  br i1 %.not.not, label %.preheader, label %._crit_edge265, !llvm.loop !422
 
 ._crit_edge265:                                   ; preds = %stbiw__jpg_writeBits.exit212
   %.not132 = icmp eq i32 %.0126260, 63
@@ -44518,7 +44518,7 @@ stbiw__jpg_writeBits.exit212:                     ; preds = %338, %stbiw__jpg_wr
   %360 = shl i32 %.02.i216, 8
   %361 = add nsw i32 %.0181.i217, -8
   %362 = icmp sgt i32 %.0181.i217, 15
-  br i1 %362, label %353, label %.sink.split
+  br i1 %362, label %353, label %.sink.split, !llvm.loop !87
 
 .sink.split:                                      ; preds = %359, %260, %._crit_edge265.thread, %244
   %.0.lcssa.i214.sink = phi i32 [ %251, %244 ], [ %350, %._crit_edge265.thread ], [ %261, %260 ], [ %360, %359 ]
@@ -44583,12 +44583,12 @@ define internal void @stbir__decode_uint8_srgb(ptr noundef %0, i32 noundef %1, p
   %29 = getelementptr inbounds nuw i8, ptr %.030, i64 4
   %.024 = getelementptr inbounds nuw i8, ptr %.02431, i64 16
   %.not = icmp ugt ptr %.024, %5
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !423
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %.134 = phi ptr [ %35, %.lr.ph35 ], [ %.0.lcssa, %.preheader ]
   %.12533 = phi ptr [ %34, %.lr.ph35 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.12533) #54, !srcloc !77
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.12533) #54, !srcloc !424
   %30 = load i8, ptr %.134, align 1
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x float], ptr @stbir__srgb_uchar_to_linear_float, i64 0, i64 %31
@@ -44597,7 +44597,7 @@ define internal void @stbir__decode_uint8_srgb(ptr noundef %0, i32 noundef %1, p
   %34 = getelementptr inbounds nuw i8, ptr %.12533, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   %36 = icmp ult ptr %34, %5
-  br i1 %36, label %.lr.ph35, label %._crit_edge, !llvm.loop !78
+  br i1 %36, label %.lr.ph35, label %._crit_edge, !llvm.loop !425
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   ret void
@@ -44628,13 +44628,13 @@ define internal void @stbir__decode_float_linear(ptr noundef %0, i32 noundef %1,
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
   %.0.i = phi ptr [ %17, %.preheader.i ], [ %0, %14 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !15
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !91
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 %10
   %16 = load i8, ptr %15, align 1
   store i8 %16, ptr %.0.i, align 1
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %18 = icmp ult ptr %17, %7
-  br i1 %18, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !16
+  br i1 %18, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !92
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 %10
@@ -44648,7 +44648,7 @@ define internal void @stbir__decode_float_linear(ptr noundef %0, i32 noundef %1,
 
 26:                                               ; preds = %30, %19
   %.1.i = phi ptr [ %24, %19 ], [ %33, %30 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !19
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !95
   %27 = icmp ugt ptr %.1.i, %25
   br i1 %27, label %28, label %30
 
@@ -44662,7 +44662,7 @@ define internal void @stbir__decode_float_linear(ptr noundef %0, i32 noundef %1,
   %32 = load <4 x float>, ptr %31, align 1
   store <4 x float> %32, ptr %.2.i, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %26, !llvm.loop !20
+  br label %26, !llvm.loop !96
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds i8, ptr %0, i64 %10
@@ -44688,7 +44688,7 @@ define internal void @stbir__decode_float_linear(ptr noundef %0, i32 noundef %1,
 
 50:                                               ; preds = %54, %34
   %.3.i = phi ptr [ %48, %34 ], [ %66, %54 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !97
   %51 = icmp ugt ptr %.3.i, %49
   br i1 %51, label %52, label %54
 
@@ -44714,7 +44714,7 @@ define internal void @stbir__decode_float_linear(ptr noundef %0, i32 noundef %1,
   %65 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
   store <4 x float> %62, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %50, !llvm.loop !22
+  br label %50, !llvm.loop !98
 
 stbir_simd_memcpy.exit:                           ; preds = %52, %28, %.preheader.i, %14, %3
   ret void
@@ -44745,7 +44745,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.040 = phi ptr [ %2, %7 ], [ %.040.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !79
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !426
   %.040.val55 = load <8 x i16>, ptr %.040, align 1
   %11 = shufflevector <8 x i16> %.040.val55, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
@@ -44792,7 +44792,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
 .backedge.backedge:                               ; preds = %.backedge, %48
   %.040.be = phi ptr [ %47, %.backedge ], [ %9, %48 ]
   %.0.be = phi ptr [ %46, %.backedge ], [ %10, %48 ]
-  br label %.backedge, !llvm.loop !80
+  br label %.backedge, !llvm.loop !427
 
 48:                                               ; preds = %.backedge
   %49 = icmp eq ptr %46, %5
@@ -44808,7 +44808,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %.162 = phi ptr [ %.1, %.lr.ph ], [ %.158, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.162, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14160 = phi ptr [ %101, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.162) #54, !srcloc !81
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.162) #54, !srcloc !428
   %51 = load i16, ptr %.14160, align 2
   %52 = zext i16 %51 to i32
   %53 = shl nuw nsw i32 %52, 13
@@ -44874,12 +44874,12 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %101 = getelementptr inbounds nuw i8, ptr %.14160, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.162, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !429
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
   %.265 = phi ptr [ %113, %.lr.ph66 ], [ %.pn.lcssa, %.preheader ]
   %.24264 = phi ptr [ %114, %.lr.ph66 ], [ %.141.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.265) #54, !srcloc !83
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.265) #54, !srcloc !430
   %102 = load i16, ptr %.24264, align 2
   %103 = zext i16 %102 to i32
   %104 = shl nuw nsw i32 %103, 13
@@ -44897,7 +44897,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %113 = getelementptr inbounds nuw i8, ptr %.265, i64 4
   %114 = getelementptr inbounds nuw i8, ptr %.24264, i64 2
   %115 = icmp ult ptr %113, %5
-  br i1 %115, label %.lr.ph66, label %.loopexit, !llvm.loop !84
+  br i1 %115, label %.lr.ph66, label %.loopexit, !llvm.loop !431
 
 .loopexit:                                        ; preds = %.lr.ph66, %48, %.preheader
   ret void
@@ -44940,7 +44940,7 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonl
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %30 = icmp ult ptr %29, %5
-  br i1 %30, label %6, label %31
+  br i1 %30, label %6, label %31, !llvm.loop !432
 
 31:                                               ; preds = %6
   ret void
@@ -44983,7 +44983,7 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %30 = icmp ult ptr %29, %5
-  br i1 %30, label %6, label %31
+  br i1 %30, label %6, label %31, !llvm.loop !433
 
 31:                                               ; preds = %6
   ret void
@@ -45034,7 +45034,7 @@ define internal void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly captur
   %28 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   %.017 = getelementptr inbounds nuw i8, ptr %.01722, i64 16
   %.not = icmp ugt ptr %.017, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !434
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -45065,7 +45065,7 @@ define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 nounde
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.047 = phi ptr [ %2, %7 ], [ %.047.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !85
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !435
   %11 = load <4 x float>, ptr %.047, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -45092,7 +45092,7 @@ define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 nounde
 .backedge.backedge:                               ; preds = %.backedge, %27
   %.047.be = phi ptr [ %26, %.backedge ], [ %9, %27 ]
   %.0.be = phi ptr [ %25, %.backedge ], [ %10, %27 ]
-  br label %.backedge, !llvm.loop !86
+  br label %.backedge, !llvm.loop !436
 
 27:                                               ; preds = %.backedge
   %28 = icmp eq ptr %25, %5
@@ -45102,7 +45102,7 @@ define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 nounde
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14855 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !87
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !437
   %29 = getelementptr inbounds nuw i8, ptr %.14855, i64 8
   %30 = load float, ptr %29, align 4
   store float %30, ptr %.pn56, align 4
@@ -45120,7 +45120,7 @@ define internal void @stbir__decode_float_linear_BGRA(ptr noundef %0, i32 nounde
   %39 = getelementptr inbounds nuw i8, ptr %.14855, i64 16
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !438
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %.preheader
   ret void
@@ -45151,7 +45151,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.041 = phi ptr [ %2, %7 ], [ %.041.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !89
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !439
   %.041.val52 = load <8 x i16>, ptr %.041, align 1
   %11 = shufflevector <8 x i16> %.041.val52, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
@@ -45202,7 +45202,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %52
   %.041.be = phi ptr [ %51, %.backedge ], [ %9, %52 ]
   %.0.be = phi ptr [ %50, %.backedge ], [ %10, %52 ]
-  br label %.backedge, !llvm.loop !90
+  br label %.backedge, !llvm.loop !440
 
 52:                                               ; preds = %.backedge
   %53 = icmp eq ptr %50, %5
@@ -45212,7 +45212,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %.158 = phi ptr [ %.1, %.lr.ph ], [ %.154, %.lr.ph.preheader ]
   %.pn57 = phi ptr [ %.158, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14256 = phi ptr [ %104, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !91
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !441
   %54 = getelementptr inbounds nuw i8, ptr %.14256, i64 4
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
@@ -45278,7 +45278,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %104 = getelementptr inbounds nuw i8, ptr %.14256, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.158, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !442
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %.preheader
   ret void
@@ -45321,7 +45321,7 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %30 = icmp ult ptr %29, %5
-  br i1 %30, label %6, label %31
+  br i1 %30, label %6, label %31, !llvm.loop !443
 
 31:                                               ; preds = %6
   ret void
@@ -45372,7 +45372,7 @@ define internal void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly captur
   %28 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   %.017 = getelementptr inbounds nuw i8, ptr %.01722, i64 16
   %.not = icmp ugt ptr %.017, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !444
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -45403,7 +45403,7 @@ define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 nounde
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.047 = phi ptr [ %2, %7 ], [ %.047.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !93
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !445
   %11 = load <4 x float>, ptr %.047, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -45430,7 +45430,7 @@ define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 nounde
 .backedge.backedge:                               ; preds = %.backedge, %27
   %.047.be = phi ptr [ %26, %.backedge ], [ %9, %27 ]
   %.0.be = phi ptr [ %25, %.backedge ], [ %10, %27 ]
-  br label %.backedge, !llvm.loop !94
+  br label %.backedge, !llvm.loop !446
 
 27:                                               ; preds = %.backedge
   %28 = icmp eq ptr %25, %5
@@ -45440,7 +45440,7 @@ define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 nounde
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14855 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !95
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !447
   %29 = getelementptr inbounds nuw i8, ptr %.14855, i64 4
   %30 = load float, ptr %29, align 4
   store float %30, ptr %.pn56, align 4
@@ -45458,7 +45458,7 @@ define internal void @stbir__decode_float_linear_ARGB(ptr noundef %0, i32 nounde
   %39 = getelementptr inbounds nuw i8, ptr %.14855, i64 16
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !96
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !448
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %.preheader
   ret void
@@ -45489,7 +45489,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.041 = phi ptr [ %2, %7 ], [ %.041.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !97
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !449
   %.041.val52 = load <8 x i16>, ptr %.041, align 1
   %11 = shufflevector <8 x i16> %.041.val52, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
@@ -45540,7 +45540,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %52
   %.041.be = phi ptr [ %51, %.backedge ], [ %9, %52 ]
   %.0.be = phi ptr [ %50, %.backedge ], [ %10, %52 ]
-  br label %.backedge, !llvm.loop !98
+  br label %.backedge, !llvm.loop !450
 
 52:                                               ; preds = %.backedge
   %53 = icmp eq ptr %50, %5
@@ -45550,7 +45550,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %.158 = phi ptr [ %.1, %.lr.ph ], [ %.154, %.lr.ph.preheader ]
   %.pn57 = phi ptr [ %.158, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14256 = phi ptr [ %104, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !99
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !451
   %54 = getelementptr inbounds nuw i8, ptr %.14256, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
@@ -45616,7 +45616,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %104 = getelementptr inbounds nuw i8, ptr %.14256, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.158, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !452
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %.preheader
   ret void
@@ -45659,7 +45659,7 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %30 = icmp ult ptr %29, %5
-  br i1 %30, label %6, label %31
+  br i1 %30, label %6, label %31, !llvm.loop !453
 
 31:                                               ; preds = %6
   ret void
@@ -45710,7 +45710,7 @@ define internal void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly captur
   %28 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   %.017 = getelementptr inbounds nuw i8, ptr %.01722, i64 16
   %.not = icmp ugt ptr %.017, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !454
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -45741,7 +45741,7 @@ define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 nounde
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.047 = phi ptr [ %2, %7 ], [ %.047.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !101
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !455
   %11 = load <4 x float>, ptr %.047, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -45768,7 +45768,7 @@ define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 nounde
 .backedge.backedge:                               ; preds = %.backedge, %27
   %.047.be = phi ptr [ %26, %.backedge ], [ %9, %27 ]
   %.0.be = phi ptr [ %25, %.backedge ], [ %10, %27 ]
-  br label %.backedge, !llvm.loop !102
+  br label %.backedge, !llvm.loop !456
 
 27:                                               ; preds = %.backedge
   %28 = icmp eq ptr %25, %5
@@ -45778,7 +45778,7 @@ define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 nounde
   %.157 = phi ptr [ %.1, %.lr.ph ], [ %.153, %.lr.ph.preheader ]
   %.pn56 = phi ptr [ %.157, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14855 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !103
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.157) #54, !srcloc !457
   %29 = getelementptr inbounds nuw i8, ptr %.14855, i64 12
   %30 = load float, ptr %29, align 4
   store float %30, ptr %.pn56, align 4
@@ -45796,7 +45796,7 @@ define internal void @stbir__decode_float_linear_ABGR(ptr noundef %0, i32 nounde
   %39 = getelementptr inbounds nuw i8, ptr %.14855, i64 16
   %.1 = getelementptr inbounds nuw i8, ptr %.157, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !104
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !458
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %.preheader
   ret void
@@ -45827,7 +45827,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.041 = phi ptr [ %2, %7 ], [ %.041.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !105
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !459
   %.041.val52 = load <8 x i16>, ptr %.041, align 1
   %11 = shufflevector <8 x i16> %.041.val52, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
@@ -45878,7 +45878,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %52
   %.041.be = phi ptr [ %51, %.backedge ], [ %9, %52 ]
   %.0.be = phi ptr [ %50, %.backedge ], [ %10, %52 ]
-  br label %.backedge, !llvm.loop !106
+  br label %.backedge, !llvm.loop !460
 
 52:                                               ; preds = %.backedge
   %53 = icmp eq ptr %50, %5
@@ -45888,7 +45888,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %.158 = phi ptr [ %.1, %.lr.ph ], [ %.154, %.lr.ph.preheader ]
   %.pn57 = phi ptr [ %.158, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.14256 = phi ptr [ %104, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !107
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.158) #54, !srcloc !461
   %54 = getelementptr inbounds nuw i8, ptr %.14256, i64 6
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
@@ -45954,7 +45954,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %104 = getelementptr inbounds nuw i8, ptr %.14256, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.158, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !108
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !462
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %.preheader
   ret void
@@ -46003,7 +46003,7 @@ define internal void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonl
   %26 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %.022 = getelementptr inbounds nuw i8, ptr %.02229, i64 16
   %.not = icmp ugt ptr %.022, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !463
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pn.lcssa = phi ptr [ %0, %3 ], [ %.02229, %.lr.ph ]
@@ -46068,7 +46068,7 @@ define internal void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef write
   %26 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %.022 = getelementptr inbounds nuw i8, ptr %.02229, i64 16
   %.not = icmp ugt ptr %.022, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !464
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.pn.lcssa = phi ptr [ %0, %3 ], [ %.02229, %.lr.ph ]
@@ -46140,12 +46140,12 @@ define internal void @stbir__decode_uint8_srgb_AR(ptr noundef %0, i32 noundef %1
   %29 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %.026 = getelementptr inbounds nuw i8, ptr %.02633, i64 16
   %.not = icmp ugt ptr %.026, %5
-  br i1 %.not, label %.preheader, label %.lr.ph
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !465
 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %.136 = phi ptr [ %41, %.lr.ph37 ], [ %.0.lcssa, %.preheader ]
   %.12735 = phi ptr [ %40, %.lr.ph37 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.12735) #54, !srcloc !109
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.12735) #54, !srcloc !466
   %30 = getelementptr inbounds nuw i8, ptr %.136, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
@@ -46161,7 +46161,7 @@ define internal void @stbir__decode_uint8_srgb_AR(ptr noundef %0, i32 noundef %1
   %40 = getelementptr inbounds nuw i8, ptr %.12735, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.136, i64 2
   %42 = icmp ult ptr %40, %5
-  br i1 %42, label %.lr.ph37, label %._crit_edge, !llvm.loop !110
+  br i1 %42, label %.lr.ph37, label %._crit_edge, !llvm.loop !467
 
 ._crit_edge:                                      ; preds = %.lr.ph37, %.preheader
   ret void
@@ -46192,7 +46192,7 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.056 = phi ptr [ %2, %7 ], [ %.056.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !111
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !468
   %11 = load <4 x float>, ptr %.056, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -46219,7 +46219,7 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
 .backedge.backedge:                               ; preds = %.backedge, %27
   %.056.be = phi ptr [ %26, %.backedge ], [ %9, %27 ]
   %.0.be = phi ptr [ %25, %.backedge ], [ %10, %27 ]
-  br label %.backedge, !llvm.loop !112
+  br label %.backedge, !llvm.loop !469
 
 27:                                               ; preds = %.backedge
   %28 = icmp eq ptr %25, %5
@@ -46235,7 +46235,7 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
   %.169 = phi ptr [ %.1, %.lr.ph ], [ %.165, %.lr.ph.preheader ]
   %.pn68 = phi ptr [ %.169, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.15767 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.169) #54, !srcloc !113
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.169) #54, !srcloc !470
   %30 = getelementptr inbounds nuw i8, ptr %.15767, i64 4
   %31 = load float, ptr %30, align 4
   store float %31, ptr %.pn68, align 4
@@ -46253,12 +46253,12 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
   %40 = getelementptr inbounds nuw i8, ptr %.15767, i64 16
   %.1 = getelementptr inbounds nuw i8, ptr %.169, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !114
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !471
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
   %.272 = phi ptr [ %45, %.lr.ph73 ], [ %.pn.lcssa, %.preheader ]
   %.25871 = phi ptr [ %46, %.lr.ph73 ], [ %.157.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.272) #54, !srcloc !115
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.272) #54, !srcloc !472
   %41 = getelementptr inbounds nuw i8, ptr %.25871, i64 4
   %42 = load float, ptr %41, align 4
   store float %42, ptr %.272, align 4
@@ -46268,7 +46268,7 @@ define internal void @stbir__decode_float_linear_AR(ptr noundef %0, i32 noundef 
   %45 = getelementptr inbounds nuw i8, ptr %.272, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.25871, i64 8
   %47 = icmp ult ptr %45, %5
-  br i1 %47, label %.lr.ph73, label %.loopexit, !llvm.loop !116
+  br i1 %47, label %.lr.ph73, label %.loopexit, !llvm.loop !473
 
 .loopexit:                                        ; preds = %.lr.ph73, %27, %.preheader
   ret void
@@ -46299,7 +46299,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.050 = phi ptr [ %2, %7 ], [ %.050.be, %.backedge.backedge ]
   %.0 = phi ptr [ %0, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !117
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !474
   %.050.val67 = load <8 x i16>, ptr %.050, align 1
   %11 = shufflevector <8 x i16> %.050.val67, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %12 = bitcast <8 x i16> %11 to <4 x i32>
@@ -46350,7 +46350,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
 .backedge.backedge:                               ; preds = %.backedge, %52
   %.050.be = phi ptr [ %51, %.backedge ], [ %9, %52 ]
   %.0.be = phi ptr [ %50, %.backedge ], [ %10, %52 ]
-  br label %.backedge, !llvm.loop !118
+  br label %.backedge, !llvm.loop !475
 
 52:                                               ; preds = %.backedge
   %53 = icmp eq ptr %50, %5
@@ -46366,7 +46366,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %.174 = phi ptr [ %.1, %.lr.ph ], [ %.170, %.lr.ph.preheader ]
   %.pn73 = phi ptr [ %.174, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.15172 = phi ptr [ %105, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.174) #54, !srcloc !119
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.174) #54, !srcloc !476
   %55 = getelementptr inbounds nuw i8, ptr %.15172, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
@@ -46432,12 +46432,12 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %105 = getelementptr inbounds nuw i8, ptr %.15172, i64 8
   %.1 = getelementptr inbounds nuw i8, ptr %.174, i64 16
   %.not = icmp ugt ptr %.1, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !120
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !477
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %.277 = phi ptr [ %130, %.lr.ph78 ], [ %.pn.lcssa, %.preheader ]
   %.25276 = phi ptr [ %131, %.lr.ph78 ], [ %.151.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.277) #54, !srcloc !121
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.277) #54, !srcloc !478
   %106 = getelementptr inbounds nuw i8, ptr %.25276, i64 2
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i32
@@ -46471,7 +46471,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %130 = getelementptr inbounds nuw i8, ptr %.277, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %.25276, i64 4
   %132 = icmp ult ptr %130, %5
-  br i1 %132, label %.lr.ph78, label %.loopexit, !llvm.loop !122
+  br i1 %132, label %.lr.ph78, label %.loopexit, !llvm.loop !479
 
 .loopexit:                                        ; preds = %.lr.ph78, %52, %.preheader
   ret void
@@ -46502,7 +46502,7 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
 11:                                               ; preds = %11, %9
   %.069 = phi ptr [ %2, %9 ], [ %.170, %11 ]
   %.068 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.068) #54, !srcloc !123
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.068) #54, !srcloc !480
   %12 = load <16 x i8>, ptr %.069, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -46539,7 +46539,7 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
   %.78 = select i1 %38, ptr %36, ptr %10
   %.170 = select i1 %.not77, ptr %., ptr %37
   %.1 = select i1 %.not77, ptr %.78, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !481
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader81
   %.271.lcssa = phi ptr [ %2, %.preheader81 ], [ %58, %.lr.ph ]
@@ -46551,7 +46551,7 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
   %.286 = phi ptr [ %.2, %.lr.ph ], [ %.282, %.lr.ph.preheader ]
   %.pn85 = phi ptr [ %.286, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.27184 = phi ptr [ %58, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.286) #54, !srcloc !124
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.286) #54, !srcloc !482
   %40 = load i8, ptr %.27184, align 1
   %41 = uitofp i8 %40 to float
   %42 = fmul float %41, 0x3F70101020000000
@@ -46577,12 +46577,12 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
   %58 = getelementptr inbounds nuw i8, ptr %.27184, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.286, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !125
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !483
 
 .lr.ph90:                                         ; preds = %.preheader, %.lr.ph90
   %.389 = phi ptr [ %62, %.lr.ph90 ], [ %.pn.lcssa, %.preheader ]
   %.37288 = phi ptr [ %63, %.lr.ph90 ], [ %.271.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.389) #54, !srcloc !126
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.389) #54, !srcloc !484
   %59 = load i8, ptr %.37288, align 1
   %60 = uitofp i8 %59 to float
   %61 = fmul float %60, 0x3F70101020000000
@@ -46590,7 +46590,7 @@ define internal void @stbir__decode_uint8_linear_scaled(ptr noundef %0, i32 noun
   %62 = getelementptr inbounds nuw i8, ptr %.389, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.37288, i64 1
   %64 = icmp ult ptr %62, %5
-  br i1 %64, label %.lr.ph90, label %.loopexit, !llvm.loop !127
+  br i1 %64, label %.lr.ph90, label %.loopexit, !llvm.loop !485
 
 .loopexit:                                        ; preds = %.lr.ph90, %11, %.preheader
   ret void
@@ -46621,7 +46621,7 @@ define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1,
 11:                                               ; preds = %11, %9
   %.065 = phi ptr [ %2, %9 ], [ %.166, %11 ]
   %.064 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.064) #54, !srcloc !128
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.064) #54, !srcloc !486
   %12 = load <16 x i8>, ptr %.065, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -46654,7 +46654,7 @@ define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1,
   %.74 = select i1 %34, ptr %32, ptr %10
   %.166 = select i1 %.not73, ptr %., ptr %33
   %.1 = select i1 %.not73, ptr %.74, ptr %32
-  br i1 %34, label %.loopexit, label %11
+  br i1 %34, label %.loopexit, label %11, !llvm.loop !487
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader77
   %.267.lcssa = phi ptr [ %2, %.preheader77 ], [ %50, %.lr.ph ]
@@ -46666,7 +46666,7 @@ define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1,
   %.282 = phi ptr [ %.2, %.lr.ph ], [ %.278, %.lr.ph.preheader ]
   %.pn81 = phi ptr [ %.282, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26780 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.282) #54, !srcloc !129
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.282) #54, !srcloc !488
   %36 = load i8, ptr %.26780, align 1
   %37 = uitofp i8 %36 to float
   store float %37, ptr %.pn81, align 4
@@ -46688,19 +46688,19 @@ define internal void @stbir__decode_uint8_linear(ptr noundef %0, i32 noundef %1,
   %50 = getelementptr inbounds nuw i8, ptr %.26780, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.282, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !130
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !489
 
 .lr.ph86:                                         ; preds = %.preheader, %.lr.ph86
   %.385 = phi ptr [ %53, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
   %.36884 = phi ptr [ %54, %.lr.ph86 ], [ %.267.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.385) #54, !srcloc !131
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.385) #54, !srcloc !490
   %51 = load i8, ptr %.36884, align 1
   %52 = uitofp i8 %51 to float
   store float %52, ptr %.385, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.385, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %.36884, i64 1
   %55 = icmp ult ptr %53, %5
-  br i1 %55, label %.lr.ph86, label %.loopexit, !llvm.loop !132
+  br i1 %55, label %.lr.ph86, label %.loopexit, !llvm.loop !491
 
 .loopexit:                                        ; preds = %.lr.ph86, %11, %.preheader
   ret void
@@ -46731,7 +46731,7 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
 11:                                               ; preds = %11, %9
   %.053 = phi ptr [ %2, %9 ], [ %.154, %11 ]
   %.052 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.052) #54, !srcloc !133
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.052) #54, !srcloc !492
   %12 = load <8 x i16>, ptr %.053, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -46752,7 +46752,7 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
   %.62 = select i1 %24, ptr %22, ptr %10
   %.154 = select i1 %.not61, ptr %., ptr %23
   %.1 = select i1 %.not61, ptr %.62, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  br i1 %24, label %.loopexit, label %11, !llvm.loop !493
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader65
   %.255.lcssa = phi ptr [ %2, %.preheader65 ], [ %44, %.lr.ph ]
@@ -46764,7 +46764,7 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
   %.270 = phi ptr [ %.2, %.lr.ph ], [ %.266, %.lr.ph.preheader ]
   %.pn69 = phi ptr [ %.270, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25568 = phi ptr [ %44, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.270) #54, !srcloc !134
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.270) #54, !srcloc !494
   %26 = load i16, ptr %.25568, align 2
   %27 = uitofp i16 %26 to float
   %28 = fmul float %27, 0x3EF0001000000000
@@ -46790,12 +46790,12 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
   %44 = getelementptr inbounds nuw i8, ptr %.25568, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.270, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !135
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !495
 
 .lr.ph74:                                         ; preds = %.preheader, %.lr.ph74
   %.373 = phi ptr [ %48, %.lr.ph74 ], [ %.pn.lcssa, %.preheader ]
   %.35672 = phi ptr [ %49, %.lr.ph74 ], [ %.255.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.373) #54, !srcloc !136
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.373) #54, !srcloc !496
   %45 = load i16, ptr %.35672, align 2
   %46 = uitofp i16 %45 to float
   %47 = fmul float %46, 0x3EF0001000000000
@@ -46803,7 +46803,7 @@ define internal void @stbir__decode_uint16_linear_scaled(ptr noundef %0, i32 nou
   %48 = getelementptr inbounds nuw i8, ptr %.373, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.35672, i64 2
   %50 = icmp ult ptr %48, %5
-  br i1 %50, label %.lr.ph74, label %.loopexit, !llvm.loop !137
+  br i1 %50, label %.lr.ph74, label %.loopexit, !llvm.loop !497
 
 .loopexit:                                        ; preds = %.lr.ph74, %11, %.preheader
   ret void
@@ -46834,7 +46834,7 @@ define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1
 11:                                               ; preds = %11, %9
   %.051 = phi ptr [ %2, %9 ], [ %.152, %11 ]
   %.050 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.050) #54, !srcloc !138
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.050) #54, !srcloc !498
   %12 = load <8 x i16>, ptr %.051, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -46853,7 +46853,7 @@ define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1
   %.60 = select i1 %22, ptr %20, ptr %10
   %.152 = select i1 %.not59, ptr %., ptr %21
   %.1 = select i1 %.not59, ptr %.60, ptr %20
-  br i1 %22, label %.loopexit, label %11
+  br i1 %22, label %.loopexit, label %11, !llvm.loop !499
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader63
   %.253.lcssa = phi ptr [ %2, %.preheader63 ], [ %38, %.lr.ph ]
@@ -46865,7 +46865,7 @@ define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1
   %.268 = phi ptr [ %.2, %.lr.ph ], [ %.264, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.268, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25366 = phi ptr [ %38, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.268) #54, !srcloc !139
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.268) #54, !srcloc !500
   %24 = load i16, ptr %.25366, align 2
   %25 = uitofp i16 %24 to float
   store float %25, ptr %.pn67, align 4
@@ -46887,19 +46887,19 @@ define internal void @stbir__decode_uint16_linear(ptr noundef %0, i32 noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %.25366, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !140
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !501
 
 .lr.ph72:                                         ; preds = %.preheader, %.lr.ph72
   %.371 = phi ptr [ %41, %.lr.ph72 ], [ %.pn.lcssa, %.preheader ]
   %.35470 = phi ptr [ %42, %.lr.ph72 ], [ %.253.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.371) #54, !srcloc !141
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.371) #54, !srcloc !502
   %39 = load i16, ptr %.35470, align 2
   %40 = uitofp i16 %39 to float
   store float %40, ptr %.371, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.371, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %.35470, i64 2
   %43 = icmp ult ptr %41, %5
-  br i1 %43, label %.lr.ph72, label %.loopexit, !llvm.loop !142
+  br i1 %43, label %.lr.ph72, label %.loopexit, !llvm.loop !503
 
 .loopexit:                                        ; preds = %.lr.ph72, %11, %.preheader
   ret void
@@ -46930,7 +46930,7 @@ define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32
 11:                                               ; preds = %11, %9
   %.066 = phi ptr [ %2, %9 ], [ %.167, %11 ]
   %.065 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !143
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !504
   %12 = load <16 x i8>, ptr %.066, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -46971,13 +46971,13 @@ define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32
   %.73 = select i1 %42, ptr %40, ptr %10
   %.167 = select i1 %.not72, ptr %., ptr %41
   %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  br i1 %42, label %.loopexit, label %11, !llvm.loop !505
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !144
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !506
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = uitofp i8 %44 to float
@@ -47003,7 +47003,7 @@ define internal void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %0, i32
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !145
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !507
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47034,7 +47034,7 @@ define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 nounde
 11:                                               ; preds = %11, %9
   %.062 = phi ptr [ %2, %9 ], [ %.163, %11 ]
   %.061 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !146
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !508
   %12 = load <16 x i8>, ptr %.062, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -47071,13 +47071,13 @@ define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 nounde
   %.69 = select i1 %38, ptr %36, ptr %10
   %.163 = select i1 %.not68, ptr %., ptr %37
   %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !509
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !147
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !510
   %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = uitofp i8 %40 to float
@@ -47099,7 +47099,7 @@ define internal void @stbir__decode_uint8_linear_BGRA(ptr noundef %0, i32 nounde
   %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !148
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !511
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47130,7 +47130,7 @@ define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i3
 11:                                               ; preds = %11, %9
   %.048 = phi ptr [ %2, %9 ], [ %.149, %11 ]
   %.047 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !149
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !512
   %12 = load <8 x i16>, ptr %.048, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47153,13 +47153,13 @@ define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i3
   %.55 = select i1 %26, ptr %24, ptr %10
   %.149 = select i1 %.not54, ptr %., ptr %25
   %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  br i1 %26, label %.loopexit, label %11, !llvm.loop !513
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !150
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !514
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 4
   %28 = load i16, ptr %27, align 2
   %29 = uitofp i16 %28 to float
@@ -47185,7 +47185,7 @@ define internal void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %0, i3
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !151
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !515
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47216,7 +47216,7 @@ define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 nound
 11:                                               ; preds = %11, %9
   %.046 = phi ptr [ %2, %9 ], [ %.147, %11 ]
   %.045 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !152
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !516
   %12 = load <8 x i16>, ptr %.046, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47237,13 +47237,13 @@ define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 nound
   %.53 = select i1 %24, ptr %22, ptr %10
   %.147 = select i1 %.not52, ptr %., ptr %23
   %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  br i1 %24, label %.loopexit, label %11, !llvm.loop !517
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !153
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !518
   %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 4
   %26 = load i16, ptr %25, align 2
   %27 = uitofp i16 %26 to float
@@ -47265,7 +47265,7 @@ define internal void @stbir__decode_uint16_linear_BGRA(ptr noundef %0, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !154
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !519
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47296,7 +47296,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32
 11:                                               ; preds = %11, %9
   %.066 = phi ptr [ %2, %9 ], [ %.167, %11 ]
   %.065 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !155
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !520
   %12 = load <16 x i8>, ptr %.066, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -47337,13 +47337,13 @@ define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32
   %.73 = select i1 %42, ptr %40, ptr %10
   %.167 = select i1 %.not72, ptr %., ptr %41
   %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  br i1 %42, label %.loopexit, label %11, !llvm.loop !521
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !156
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !522
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = uitofp i8 %44 to float
@@ -47369,7 +47369,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %0, i32
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !157
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !523
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47400,7 +47400,7 @@ define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 nounde
 11:                                               ; preds = %11, %9
   %.062 = phi ptr [ %2, %9 ], [ %.163, %11 ]
   %.061 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !158
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !524
   %12 = load <16 x i8>, ptr %.062, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -47437,13 +47437,13 @@ define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 nounde
   %.69 = select i1 %38, ptr %36, ptr %10
   %.163 = select i1 %.not68, ptr %., ptr %37
   %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !525
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !159
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !526
   %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = uitofp i8 %40 to float
@@ -47465,7 +47465,7 @@ define internal void @stbir__decode_uint8_linear_ARGB(ptr noundef %0, i32 nounde
   %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !160
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !527
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47496,7 +47496,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i3
 11:                                               ; preds = %11, %9
   %.048 = phi ptr [ %2, %9 ], [ %.149, %11 ]
   %.047 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !161
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !528
   %12 = load <8 x i16>, ptr %.048, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47519,13 +47519,13 @@ define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i3
   %.55 = select i1 %26, ptr %24, ptr %10
   %.149 = select i1 %.not54, ptr %., ptr %25
   %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  br i1 %26, label %.loopexit, label %11, !llvm.loop !529
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !162
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !530
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = uitofp i16 %28 to float
@@ -47551,7 +47551,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %0, i3
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !163
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !531
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47582,7 +47582,7 @@ define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 nound
 11:                                               ; preds = %11, %9
   %.046 = phi ptr [ %2, %9 ], [ %.147, %11 ]
   %.045 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !164
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !532
   %12 = load <8 x i16>, ptr %.046, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47603,13 +47603,13 @@ define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 nound
   %.53 = select i1 %24, ptr %22, ptr %10
   %.147 = select i1 %.not52, ptr %., ptr %23
   %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  br i1 %24, label %.loopexit, label %11, !llvm.loop !533
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !165
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !534
   %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 2
   %26 = load i16, ptr %25, align 2
   %27 = uitofp i16 %26 to float
@@ -47631,7 +47631,7 @@ define internal void @stbir__decode_uint16_linear_ARGB(ptr noundef %0, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !166
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !535
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47662,7 +47662,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32
 11:                                               ; preds = %11, %9
   %.066 = phi ptr [ %2, %9 ], [ %.167, %11 ]
   %.065 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !167
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.065) #54, !srcloc !536
   %12 = load <16 x i8>, ptr %.066, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -47703,13 +47703,13 @@ define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32
   %.73 = select i1 %42, ptr %40, ptr %10
   %.167 = select i1 %.not72, ptr %., ptr %41
   %.1 = select i1 %.not72, ptr %.73, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  br i1 %42, label %.loopexit, label %11, !llvm.loop !537
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.280 = phi ptr [ %.2, %.lr.ph ], [ %.276, %.lr.ph.preheader ]
   %.pn79 = phi ptr [ %.280, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26878 = phi ptr [ %61, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !168
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.280) #54, !srcloc !538
   %43 = getelementptr inbounds nuw i8, ptr %.26878, i64 3
   %44 = load i8, ptr %43, align 1
   %45 = uitofp i8 %44 to float
@@ -47735,7 +47735,7 @@ define internal void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %0, i32
   %61 = getelementptr inbounds nuw i8, ptr %.26878, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.280, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !169
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !539
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47766,7 +47766,7 @@ define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 nounde
 11:                                               ; preds = %11, %9
   %.062 = phi ptr [ %2, %9 ], [ %.163, %11 ]
   %.061 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !170
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !540
   %12 = load <16 x i8>, ptr %.062, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -47803,13 +47803,13 @@ define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 nounde
   %.69 = select i1 %38, ptr %36, ptr %10
   %.163 = select i1 %.not68, ptr %., ptr %37
   %.1 = select i1 %.not68, ptr %.69, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !541
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.276 = phi ptr [ %.2, %.lr.ph ], [ %.272, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.276, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.26474 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !171
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.276) #54, !srcloc !542
   %39 = getelementptr inbounds nuw i8, ptr %.26474, i64 3
   %40 = load i8, ptr %39, align 1
   %41 = uitofp i8 %40 to float
@@ -47831,7 +47831,7 @@ define internal void @stbir__decode_uint8_linear_ABGR(ptr noundef %0, i32 nounde
   %53 = getelementptr inbounds nuw i8, ptr %.26474, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !172
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !543
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47862,7 +47862,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i3
 11:                                               ; preds = %11, %9
   %.048 = phi ptr [ %2, %9 ], [ %.149, %11 ]
   %.047 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !173
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.047) #54, !srcloc !544
   %12 = load <8 x i16>, ptr %.048, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47885,13 +47885,13 @@ define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i3
   %.55 = select i1 %26, ptr %24, ptr %10
   %.149 = select i1 %.not54, ptr %., ptr %25
   %.1 = select i1 %.not54, ptr %.55, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  br i1 %26, label %.loopexit, label %11, !llvm.loop !545
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.262 = phi ptr [ %.2, %.lr.ph ], [ %.258, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.262, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25060 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !174
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.262) #54, !srcloc !546
   %27 = getelementptr inbounds nuw i8, ptr %.25060, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = uitofp i16 %28 to float
@@ -47917,7 +47917,7 @@ define internal void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %0, i3
   %45 = getelementptr inbounds nuw i8, ptr %.25060, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !175
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !547
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -47948,7 +47948,7 @@ define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 nound
 11:                                               ; preds = %11, %9
   %.046 = phi ptr [ %2, %9 ], [ %.147, %11 ]
   %.045 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !176
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.045) #54, !srcloc !548
   %12 = load <8 x i16>, ptr %.046, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -47969,13 +47969,13 @@ define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 nound
   %.53 = select i1 %24, ptr %22, ptr %10
   %.147 = select i1 %.not52, ptr %., ptr %23
   %.1 = select i1 %.not52, ptr %.53, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  br i1 %24, label %.loopexit, label %11, !llvm.loop !549
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.260 = phi ptr [ %.2, %.lr.ph ], [ %.256, %.lr.ph.preheader ]
   %.pn59 = phi ptr [ %.260, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.24858 = phi ptr [ %39, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !177
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.260) #54, !srcloc !550
   %25 = getelementptr inbounds nuw i8, ptr %.24858, i64 6
   %26 = load i16, ptr %25, align 2
   %27 = uitofp i16 %26 to float
@@ -47997,7 +47997,7 @@ define internal void @stbir__decode_uint16_linear_ABGR(ptr noundef %0, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %.24858, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.260, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !178
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !551
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -48028,7 +48028,7 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
 11:                                               ; preds = %11, %9
   %.075 = phi ptr [ %2, %9 ], [ %.176, %11 ]
   %.074 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.074) #54, !srcloc !179
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.074) #54, !srcloc !552
   %12 = load <16 x i8>, ptr %.075, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -48069,7 +48069,7 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
   %.84 = select i1 %42, ptr %40, ptr %10
   %.176 = select i1 %.not83, ptr %., ptr %41
   %.1 = select i1 %.not83, ptr %.84, ptr %40
-  br i1 %42, label %.loopexit, label %11
+  br i1 %42, label %.loopexit, label %11, !llvm.loop !553
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader87
   %.277.lcssa = phi ptr [ %2, %.preheader87 ], [ %62, %.lr.ph ]
@@ -48081,7 +48081,7 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
   %.292 = phi ptr [ %.2, %.lr.ph ], [ %.288, %.lr.ph.preheader ]
   %.pn91 = phi ptr [ %.292, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.27790 = phi ptr [ %62, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.292) #54, !srcloc !180
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.292) #54, !srcloc !554
   %44 = getelementptr inbounds nuw i8, ptr %.27790, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = uitofp i8 %45 to float
@@ -48107,12 +48107,12 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
   %62 = getelementptr inbounds nuw i8, ptr %.27790, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.292, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !181
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !555
 
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %.395 = phi ptr [ %71, %.lr.ph96 ], [ %.pn.lcssa, %.preheader ]
   %.37894 = phi ptr [ %72, %.lr.ph96 ], [ %.277.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.395) #54, !srcloc !182
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.395) #54, !srcloc !556
   %63 = getelementptr inbounds nuw i8, ptr %.37894, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = uitofp i8 %64 to float
@@ -48126,7 +48126,7 @@ define internal void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %0, i32 n
   %71 = getelementptr inbounds nuw i8, ptr %.395, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %.37894, i64 2
   %73 = icmp ult ptr %71, %5
-  br i1 %73, label %.lr.ph96, label %.loopexit, !llvm.loop !183
+  br i1 %73, label %.lr.ph96, label %.loopexit, !llvm.loop !557
 
 .loopexit:                                        ; preds = %.lr.ph96, %11, %.preheader
   ret void
@@ -48157,7 +48157,7 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
 11:                                               ; preds = %11, %9
   %.071 = phi ptr [ %2, %9 ], [ %.172, %11 ]
   %.070 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.070) #54, !srcloc !184
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.070) #54, !srcloc !558
   %12 = load <16 x i8>, ptr %.071, align 1
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %14 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -48194,7 +48194,7 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
   %.80 = select i1 %38, ptr %36, ptr %10
   %.172 = select i1 %.not79, ptr %., ptr %37
   %.1 = select i1 %.not79, ptr %.80, ptr %36
-  br i1 %38, label %.loopexit, label %11
+  br i1 %38, label %.loopexit, label %11, !llvm.loop !559
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader83
   %.273.lcssa = phi ptr [ %2, %.preheader83 ], [ %54, %.lr.ph ]
@@ -48206,7 +48206,7 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
   %.288 = phi ptr [ %.2, %.lr.ph ], [ %.284, %.lr.ph.preheader ]
   %.pn87 = phi ptr [ %.288, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.27386 = phi ptr [ %54, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.288) #54, !srcloc !185
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.288) #54, !srcloc !560
   %40 = getelementptr inbounds nuw i8, ptr %.27386, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = uitofp i8 %41 to float
@@ -48228,12 +48228,12 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
   %54 = getelementptr inbounds nuw i8, ptr %.27386, i64 4
   %.2 = getelementptr inbounds nuw i8, ptr %.288, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !186
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !561
 
 .lr.ph92:                                         ; preds = %.preheader, %.lr.ph92
   %.391 = phi ptr [ %61, %.lr.ph92 ], [ %.pn.lcssa, %.preheader ]
   %.37490 = phi ptr [ %62, %.lr.ph92 ], [ %.273.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.391) #54, !srcloc !187
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.391) #54, !srcloc !562
   %55 = getelementptr inbounds nuw i8, ptr %.37490, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = uitofp i8 %56 to float
@@ -48245,7 +48245,7 @@ define internal void @stbir__decode_uint8_linear_AR(ptr noundef %0, i32 noundef 
   %61 = getelementptr inbounds nuw i8, ptr %.391, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %.37490, i64 2
   %63 = icmp ult ptr %61, %5
-  br i1 %63, label %.lr.ph92, label %.loopexit, !llvm.loop !188
+  br i1 %63, label %.lr.ph92, label %.loopexit, !llvm.loop !563
 
 .loopexit:                                        ; preds = %.lr.ph92, %11, %.preheader
   ret void
@@ -48276,7 +48276,7 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
 11:                                               ; preds = %11, %9
   %.057 = phi ptr [ %2, %9 ], [ %.158, %11 ]
   %.056 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.056) #54, !srcloc !189
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.056) #54, !srcloc !564
   %12 = load <8 x i16>, ptr %.057, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -48299,7 +48299,7 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
   %.66 = select i1 %26, ptr %24, ptr %10
   %.158 = select i1 %.not65, ptr %., ptr %25
   %.1 = select i1 %.not65, ptr %.66, ptr %24
-  br i1 %26, label %.loopexit, label %11
+  br i1 %26, label %.loopexit, label %11, !llvm.loop !565
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader69
   %.259.lcssa = phi ptr [ %2, %.preheader69 ], [ %46, %.lr.ph ]
@@ -48311,7 +48311,7 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
   %.274 = phi ptr [ %.2, %.lr.ph ], [ %.270, %.lr.ph.preheader ]
   %.pn73 = phi ptr [ %.274, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25972 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.274) #54, !srcloc !190
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.274) #54, !srcloc !566
   %28 = getelementptr inbounds nuw i8, ptr %.25972, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = uitofp i16 %29 to float
@@ -48337,12 +48337,12 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
   %46 = getelementptr inbounds nuw i8, ptr %.25972, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.274, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !191
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !567
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %.377 = phi ptr [ %55, %.lr.ph78 ], [ %.pn.lcssa, %.preheader ]
   %.36076 = phi ptr [ %56, %.lr.ph78 ], [ %.259.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.377) #54, !srcloc !192
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.377) #54, !srcloc !568
   %47 = getelementptr inbounds nuw i8, ptr %.36076, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = uitofp i16 %48 to float
@@ -48356,7 +48356,7 @@ define internal void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %0, i32 
   %55 = getelementptr inbounds nuw i8, ptr %.377, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %.36076, i64 4
   %57 = icmp ult ptr %55, %5
-  br i1 %57, label %.lr.ph78, label %.loopexit, !llvm.loop !193
+  br i1 %57, label %.lr.ph78, label %.loopexit, !llvm.loop !569
 
 .loopexit:                                        ; preds = %.lr.ph78, %11, %.preheader
   ret void
@@ -48387,7 +48387,7 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
 11:                                               ; preds = %11, %9
   %.055 = phi ptr [ %2, %9 ], [ %.156, %11 ]
   %.054 = phi ptr [ %0, %9 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.054) #54, !srcloc !194
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.054) #54, !srcloc !570
   %12 = load <8 x i16>, ptr %.055, align 1
   %13 = shufflevector <8 x i16> %12, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %14 = shufflevector <8 x i16> %12, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
@@ -48408,7 +48408,7 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
   %.64 = select i1 %24, ptr %22, ptr %10
   %.156 = select i1 %.not63, ptr %., ptr %23
   %.1 = select i1 %.not63, ptr %.64, ptr %22
-  br i1 %24, label %.loopexit, label %11
+  br i1 %24, label %.loopexit, label %11, !llvm.loop !571
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader67
   %.257.lcssa = phi ptr [ %2, %.preheader67 ], [ %40, %.lr.ph ]
@@ -48420,7 +48420,7 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
   %.272 = phi ptr [ %.2, %.lr.ph ], [ %.268, %.lr.ph.preheader ]
   %.pn71 = phi ptr [ %.272, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.25770 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.272) #54, !srcloc !195
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.272) #54, !srcloc !572
   %26 = getelementptr inbounds nuw i8, ptr %.25770, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = uitofp i16 %27 to float
@@ -48442,12 +48442,12 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
   %40 = getelementptr inbounds nuw i8, ptr %.25770, i64 8
   %.2 = getelementptr inbounds nuw i8, ptr %.272, i64 16
   %.not = icmp ugt ptr %.2, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !196
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !573
 
 .lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
   %.375 = phi ptr [ %47, %.lr.ph76 ], [ %.pn.lcssa, %.preheader ]
   %.35874 = phi ptr [ %48, %.lr.ph76 ], [ %.257.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.375) #54, !srcloc !197
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.375) #54, !srcloc !574
   %41 = getelementptr inbounds nuw i8, ptr %.35874, i64 2
   %42 = load i16, ptr %41, align 2
   %43 = uitofp i16 %42 to float
@@ -48459,7 +48459,7 @@ define internal void @stbir__decode_uint16_linear_AR(ptr noundef %0, i32 noundef
   %47 = getelementptr inbounds nuw i8, ptr %.375, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.35874, i64 4
   %49 = icmp ult ptr %47, %5
-  br i1 %49, label %.lr.ph76, label %.loopexit, !llvm.loop !198
+  br i1 %49, label %.lr.ph76, label %.loopexit, !llvm.loop !575
 
 .loopexit:                                        ; preds = %.lr.ph76, %11, %.preheader
   ret void
@@ -48489,7 +48489,7 @@ define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(ad
 11:                                               ; preds = %11, %7
   %.0142 = phi ptr [ %0, %7 ], [ %.1143, %11 ]
   %.0141 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0141) #54, !srcloc !199
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0141) #54, !srcloc !576
   %12 = load <4 x float>, ptr %.0141, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0141, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -48643,7 +48643,7 @@ define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(ad
   %.151 = select i1 %126, ptr %124, ptr %9
   %.1143 = select i1 %.not150, ptr %., ptr %125
   %.1 = select i1 %.not150, ptr %.151, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  br i1 %126, label %.loopexit, label %11, !llvm.loop !577
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit158, %.preheader162
   %.pn.lcssa = phi ptr [ %0, %.preheader162 ], [ %.2144167, %stbir__linear_to_srgb_uchar.exit158 ]
@@ -48655,7 +48655,7 @@ define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(ad
   %.2144167 = phi ptr [ %.2144, %stbir__linear_to_srgb_uchar.exit158 ], [ %.2144163, %.lr.ph.preheader ]
   %.2166 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit158 ], [ %2, %.lr.ph.preheader ]
   %.pn165 = phi ptr [ %.2144167, %stbir__linear_to_srgb_uchar.exit158 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2166) #54, !srcloc !200
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2166) #54, !srcloc !578
   %128 = load float, ptr %.2166, align 4
   %129 = fcmp ogt float %128, 0x3F20000000000000
   br i1 %129, label %130, label %stbir__linear_to_srgb_uchar.exit
@@ -48781,12 +48781,12 @@ stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_sr
   %214 = getelementptr inbounds nuw i8, ptr %.2166, i64 16
   %.2144 = getelementptr inbounds nuw i8, ptr %.2144167, i64 4
   %.not = icmp ugt ptr %.2144, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !201
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !579
 
 .lr.ph171:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit160
   %.3170 = phi ptr [ %236, %stbir__linear_to_srgb_uchar.exit160 ], [ %.2.lcssa, %.preheader ]
   %.3145169 = phi ptr [ %235, %stbir__linear_to_srgb_uchar.exit160 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3170) #54, !srcloc !202
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3170) #54, !srcloc !580
   %215 = load float, ptr %.3170, align 4
   %216 = fcmp ogt float %215, 0x3F20000000000000
   br i1 %216, label %217, label %stbir__linear_to_srgb_uchar.exit160
@@ -48819,7 +48819,7 @@ stbir__linear_to_srgb_uchar.exit160:              ; preds = %.lr.ph171, %217, %2
   %235 = getelementptr inbounds nuw i8, ptr %.3145169, i64 1
   %236 = getelementptr inbounds nuw i8, ptr %.3170, i64 4
   %237 = icmp ult ptr %235, %5
-  br i1 %237, label %.lr.ph171, label %.loopexit, !llvm.loop !203
+  br i1 %237, label %.lr.ph171, label %.loopexit, !llvm.loop !581
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit160, %11, %.preheader
   ret void
@@ -48850,13 +48850,13 @@ define internal void @stbir__encode_float_linear(ptr noundef %0, i32 noundef %1,
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
   %.0.i = phi ptr [ %17, %.preheader.i ], [ %0, %14 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !15
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !91
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 %10
   %16 = load i8, ptr %15, align 1
   store i8 %16, ptr %.0.i, align 1
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %18 = icmp ult ptr %17, %7
-  br i1 %18, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !16
+  br i1 %18, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !92
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %0, i64 %10
@@ -48870,7 +48870,7 @@ define internal void @stbir__encode_float_linear(ptr noundef %0, i32 noundef %1,
 
 26:                                               ; preds = %30, %19
   %.1.i = phi ptr [ %24, %19 ], [ %33, %30 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !19
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !95
   %27 = icmp ugt ptr %.1.i, %25
   br i1 %27, label %28, label %30
 
@@ -48884,7 +48884,7 @@ define internal void @stbir__encode_float_linear(ptr noundef %0, i32 noundef %1,
   %32 = load <4 x float>, ptr %31, align 1
   store <4 x float> %32, ptr %.2.i, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %26, !llvm.loop !20
+  br label %26, !llvm.loop !96
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds i8, ptr %0, i64 %10
@@ -48910,7 +48910,7 @@ define internal void @stbir__encode_float_linear(ptr noundef %0, i32 noundef %1,
 
 50:                                               ; preds = %54, %34
   %.3.i = phi ptr [ %48, %34 ], [ %66, %54 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !97
   %51 = icmp ugt ptr %.3.i, %49
   br i1 %51, label %52, label %54
 
@@ -48936,7 +48936,7 @@ define internal void @stbir__encode_float_linear(ptr noundef %0, i32 noundef %1,
   %65 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
   store <4 x float> %62, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %50, !llvm.loop !22
+  br label %50, !llvm.loop !98
 
 stbir_simd_memcpy.exit:                           ; preds = %52, %28, %.preheader.i, %14, %3
   ret void
@@ -48967,7 +48967,7 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.043 = phi ptr [ %0, %7 ], [ %.043.be, %.backedge.backedge ]
   %.0 = phi ptr [ %2, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !204
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !582
   %.0.val = load <4 x float>, ptr %.0, align 1
   %11 = getelementptr i8, ptr %.0, i64 16
   %.0.val50 = load <4 x float>, ptr %11, align 1
@@ -49039,7 +49039,7 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
 .backedge.backedge:                               ; preds = %.backedge, %71
   %.043.be = phi ptr [ %70, %.backedge ], [ %10, %71 ]
   %.0.be = phi ptr [ %69, %.backedge ], [ %9, %71 ]
-  br label %.backedge, !llvm.loop !205
+  br label %.backedge, !llvm.loop !583
 
 71:                                               ; preds = %.backedge
   %72 = icmp eq ptr %70, %5
@@ -49055,7 +49055,7 @@ define internal void @stbir__encode_half_float_linear(ptr noundef %0, i32 nounde
   %.14465 = phi ptr [ %.144, %stbir__float_to_half.exit56 ], [ %.14461, %.lr.ph.preheader ]
   %.164 = phi ptr [ %172, %stbir__float_to_half.exit56 ], [ %2, %.lr.ph.preheader ]
   %.pn63 = phi ptr [ %.14465, %stbir__float_to_half.exit56 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14465) #54, !srcloc !206
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14465) #54, !srcloc !584
   %74 = load float, ptr %.164, align 4
   %75 = tail call float @llvm.fabs.f32(float %74)
   %76 = bitcast float %75 to i32
@@ -49209,12 +49209,12 @@ stbir__float_to_half.exit56:                      ; preds = %153, %158, %161
   %172 = getelementptr inbounds nuw i8, ptr %.164, i64 16
   %.144 = getelementptr inbounds nuw i8, ptr %.14465, i64 8
   %.not = icmp ugt ptr %.144, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !207
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !585
 
 .lr.ph69:                                         ; preds = %.preheader, %stbir__float_to_half.exit58
   %.268 = phi ptr [ %197, %stbir__float_to_half.exit58 ], [ %.1.lcssa, %.preheader ]
   %.24567 = phi ptr [ %196, %stbir__float_to_half.exit58 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24567) #54, !srcloc !208
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24567) #54, !srcloc !586
   %173 = load float, ptr %.268, align 4
   %174 = tail call float @llvm.fabs.f32(float %173)
   %175 = bitcast float %174 to i32
@@ -49254,7 +49254,7 @@ stbir__float_to_half.exit58:                      ; preds = %177, %182, %185
   %196 = getelementptr inbounds nuw i8, ptr %.24567, i64 2
   %197 = getelementptr inbounds nuw i8, ptr %.268, i64 4
   %198 = icmp ult ptr %196, %5
-  br i1 %198, label %.lr.ph69, label %.loopexit, !llvm.loop !209
+  br i1 %198, label %.lr.ph69, label %.loopexit, !llvm.loop !587
 
 .loopexit:                                        ; preds = %stbir__float_to_half.exit58, %71, %.preheader
   ret void
@@ -49276,7 +49276,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonl
 11:                                               ; preds = %11, %7
   %.0125 = phi ptr [ %0, %7 ], [ %.1126, %11 ]
   %.0123 = phi ptr [ %2, %7 ], [ %.1124, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !210
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !588
   %12 = load <4 x float>, ptr %.0123, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0123, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -49404,12 +49404,12 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonl
   %.133 = select i1 %108, ptr %107, ptr %9
   %.1126 = select i1 %.not, ptr %., ptr %106
   %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  br i1 %108, label %.loopexit, label %11, !llvm.loop !589
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
   %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
   %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !211
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !590
   %109 = load float, ptr %.2, align 4
   %110 = fcmp ogt float %109, 0x3F20000000000000
   br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
@@ -49515,7 +49515,7 @@ stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_sr
   %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
   %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !212
+  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !591
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -49537,7 +49537,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
 11:                                               ; preds = %11, %7
   %.0125 = phi ptr [ %0, %7 ], [ %.1126, %11 ]
   %.0123 = phi ptr [ %2, %7 ], [ %.1124, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !213
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !592
   %12 = load <4 x float>, ptr %.0123, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0123, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -49665,12 +49665,12 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
   %.133 = select i1 %108, ptr %107, ptr %9
   %.1126 = select i1 %.not, ptr %., ptr %106
   %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  br i1 %108, label %.loopexit, label %11, !llvm.loop !593
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
   %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
   %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !214
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !594
   %109 = load float, ptr %.2, align 4
   %110 = fcmp ogt float %109, 0x3F20000000000000
   br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
@@ -49776,7 +49776,7 @@ stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_sr
   %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
   %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !215
+  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !595
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -49806,7 +49806,7 @@ define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly captur
 11:                                               ; preds = %11, %7
   %.0135 = phi ptr [ %0, %7 ], [ %.1136, %11 ]
   %.0134 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !216
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !596
   %12 = load <4 x float>, ptr %.0134, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0134, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -49960,13 +49960,13 @@ define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly captur
   %.142 = select i1 %126, ptr %124, ptr %9
   %.1136 = select i1 %.not141, ptr %., ptr %125
   %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  br i1 %126, label %.loopexit, label %11, !llvm.loop !597
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
   %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !217
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !598
   %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
   %128 = load float, ptr %127, align 4
   %129 = fcmp ogt float %128, 0x3F20000000000000
@@ -50092,7 +50092,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !218
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !599
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit149, %11, %.preheader
   ret void
@@ -50123,7 +50123,7 @@ define internal void @stbir__encode_float_linear_BGRA(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.036 = phi ptr [ %0, %7 ], [ %.137, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !219
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !600
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -50141,20 +50141,20 @@ define internal void @stbir__encode_float_linear_BGRA(ptr noundef writeonly capt
   %.1 = select i1 %22, ptr %18, ptr %9
   %not. = xor i1 %20, true
   %switch = select i1 %not., i1 %21, i1 false
-  br i1 %switch, label %.loopexit, label %11
+  br i1 %switch, label %.loopexit, label %11, !llvm.loop !601
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.23849 = phi ptr [ %.238, %.lr.ph ], [ %.23845, %.lr.ph.preheader ]
   %.248 = phi ptr [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn47 = phi ptr [ %.23849, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !220
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !602
   %23 = load <4 x float>, ptr %.248, align 1
   %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
   store <4 x float> %24, ptr %.pn47, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.248, i64 16
   %.238 = getelementptr inbounds nuw i8, ptr %.23849, i64 16
   %.not = icmp ugt ptr %.238, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !221
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !603
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -50185,7 +50185,7 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.036 = phi ptr [ %0, %7 ], [ %.036.be, %.backedge.backedge ]
   %.0 = phi ptr [ %2, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !222
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !604
   %11 = load <4 x float>, ptr %.0, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -50259,7 +50259,7 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %75
   %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
   %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
-  br label %.backedge, !llvm.loop !223
+  br label %.backedge, !llvm.loop !605
 
 75:                                               ; preds = %.backedge
   %76 = icmp eq ptr %74, %5
@@ -50269,7 +50269,7 @@ define internal void @stbir__encode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %.13755 = phi ptr [ %.137, %stbir__float_to_half.exit47 ], [ %.13751, %.lr.ph.preheader ]
   %.154 = phi ptr [ %175, %stbir__float_to_half.exit47 ], [ %2, %.lr.ph.preheader ]
   %.pn53 = phi ptr [ %.13755, %stbir__float_to_half.exit47 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !224
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !606
   %77 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
@@ -50423,7 +50423,7 @@ stbir__float_to_half.exit47:                      ; preds = %156, %161, %164
   %175 = getelementptr inbounds nuw i8, ptr %.154, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13755, i64 8
   %.not = icmp ugt ptr %.137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !225
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !607
 
 .loopexit:                                        ; preds = %stbir__float_to_half.exit47, %75, %.preheader
   ret void
@@ -50445,7 +50445,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
 11:                                               ; preds = %11, %7
   %.0125 = phi ptr [ %0, %7 ], [ %.1126, %11 ]
   %.0123 = phi ptr [ %2, %7 ], [ %.1124, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !226
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !608
   %12 = load <4 x float>, ptr %.0123, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0123, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -50573,12 +50573,12 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
   %.133 = select i1 %108, ptr %107, ptr %9
   %.1126 = select i1 %.not, ptr %., ptr %106
   %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  br i1 %108, label %.loopexit, label %11, !llvm.loop !609
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
   %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
   %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !227
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !610
   %109 = load float, ptr %.2, align 4
   %110 = fcmp ogt float %109, 0x3F20000000000000
   br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
@@ -50684,7 +50684,7 @@ stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_sr
   %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
   %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !228
+  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !611
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -50714,7 +50714,7 @@ define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly captur
 11:                                               ; preds = %11, %7
   %.0135 = phi ptr [ %0, %7 ], [ %.1136, %11 ]
   %.0134 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !229
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !612
   %12 = load <4 x float>, ptr %.0134, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0134, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -50868,13 +50868,13 @@ define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly captur
   %.142 = select i1 %126, ptr %124, ptr %9
   %.1136 = select i1 %.not141, ptr %., ptr %125
   %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  br i1 %126, label %.loopexit, label %11, !llvm.loop !613
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
   %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !230
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !614
   %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
   %128 = load float, ptr %127, align 4
   %129 = fcmp ogt float %128, 0x3F20000000000000
@@ -51000,7 +51000,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !231
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !615
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit149, %11, %.preheader
   ret void
@@ -51031,7 +51031,7 @@ define internal void @stbir__encode_float_linear_ARGB(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.036 = phi ptr [ %0, %7 ], [ %.137, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !232
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !616
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -51049,20 +51049,20 @@ define internal void @stbir__encode_float_linear_ARGB(ptr noundef writeonly capt
   %.1 = select i1 %22, ptr %18, ptr %9
   %not. = xor i1 %20, true
   %switch = select i1 %not., i1 %21, i1 false
-  br i1 %switch, label %.loopexit, label %11
+  br i1 %switch, label %.loopexit, label %11, !llvm.loop !617
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.23849 = phi ptr [ %.238, %.lr.ph ], [ %.23845, %.lr.ph.preheader ]
   %.248 = phi ptr [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn47 = phi ptr [ %.23849, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !233
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !618
   %23 = load <4 x float>, ptr %.248, align 1
   %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   store <4 x float> %24, ptr %.pn47, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.248, i64 16
   %.238 = getelementptr inbounds nuw i8, ptr %.23849, i64 16
   %.not = icmp ugt ptr %.238, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !234
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !619
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -51093,7 +51093,7 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.036 = phi ptr [ %0, %7 ], [ %.036.be, %.backedge.backedge ]
   %.0 = phi ptr [ %2, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !235
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !620
   %11 = load <4 x float>, ptr %.0, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -51167,7 +51167,7 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %75
   %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
   %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
-  br label %.backedge, !llvm.loop !236
+  br label %.backedge, !llvm.loop !621
 
 75:                                               ; preds = %.backedge
   %76 = icmp eq ptr %74, %5
@@ -51177,7 +51177,7 @@ define internal void @stbir__encode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %.13755 = phi ptr [ %.137, %stbir__float_to_half.exit47 ], [ %.13751, %.lr.ph.preheader ]
   %.154 = phi ptr [ %175, %stbir__float_to_half.exit47 ], [ %2, %.lr.ph.preheader ]
   %.pn53 = phi ptr [ %.13755, %stbir__float_to_half.exit47 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !237
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !622
   %77 = getelementptr inbounds nuw i8, ptr %.154, i64 12
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
@@ -51331,7 +51331,7 @@ stbir__float_to_half.exit47:                      ; preds = %156, %161, %164
   %175 = getelementptr inbounds nuw i8, ptr %.154, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13755, i64 8
   %.not = icmp ugt ptr %.137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !238
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !623
 
 .loopexit:                                        ; preds = %stbir__float_to_half.exit47, %75, %.preheader
   ret void
@@ -51353,7 +51353,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
 11:                                               ; preds = %11, %7
   %.0125 = phi ptr [ %0, %7 ], [ %.1126, %11 ]
   %.0123 = phi ptr [ %2, %7 ], [ %.1124, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !239
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0123) #54, !srcloc !624
   %12 = load <4 x float>, ptr %.0123, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0123, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -51481,12 +51481,12 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
   %.133 = select i1 %108, ptr %107, ptr %9
   %.1126 = select i1 %.not, ptr %., ptr %106
   %.1124 = select i1 %.not, ptr %.133, ptr %107
-  br i1 %108, label %.loopexit, label %11
+  br i1 %108, label %.loopexit, label %11, !llvm.loop !625
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit138
   %.2127 = phi ptr [ %181, %stbir__linear_to_srgb_uchar.exit138 ], [ %0, %3 ]
   %.2 = phi ptr [ %182, %stbir__linear_to_srgb_uchar.exit138 ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !240
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !626
   %109 = load float, ptr %.2, align 4
   %110 = fcmp ogt float %109, 0x3F20000000000000
   br i1 %110, label %111, label %stbir__linear_to_srgb_uchar.exit
@@ -51592,7 +51592,7 @@ stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_sr
   %181 = getelementptr inbounds nuw i8, ptr %.2127, i64 4
   %182 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %183 = icmp ult ptr %181, %5
-  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !241
+  br i1 %183, label %.preheader, label %.loopexit, !llvm.loop !627
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit138, %11
   ret void
@@ -51622,7 +51622,7 @@ define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly captur
 11:                                               ; preds = %11, %7
   %.0135 = phi ptr [ %0, %7 ], [ %.1136, %11 ]
   %.0134 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !242
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134) #54, !srcloc !628
   %12 = load <4 x float>, ptr %.0134, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0134, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -51776,13 +51776,13 @@ define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly captur
   %.142 = select i1 %126, ptr %124, ptr %9
   %.1136 = select i1 %.not141, ptr %., ptr %125
   %.1 = select i1 %.not141, ptr %.142, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  br i1 %126, label %.loopexit, label %11, !llvm.loop !629
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %stbir__linear_to_srgb_uchar.exit149
   %.2137155 = phi ptr [ %.2137, %stbir__linear_to_srgb_uchar.exit149 ], [ %.2137151, %.lr.ph.preheader ]
   %.2154 = phi ptr [ %213, %stbir__linear_to_srgb_uchar.exit149 ], [ %2, %.lr.ph.preheader ]
   %.pn153 = phi ptr [ %.2137155, %stbir__linear_to_srgb_uchar.exit149 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !243
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2154) #54, !srcloc !630
   %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
   %128 = load float, ptr %127, align 4
   %129 = fcmp ogt float %128, 0x3F20000000000000
@@ -51908,7 +51908,7 @@ stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_sr
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
   %.2137 = getelementptr inbounds nuw i8, ptr %.2137155, i64 4
   %.not = icmp ugt ptr %.2137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !244
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !631
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit149, %11, %.preheader
   ret void
@@ -51939,7 +51939,7 @@ define internal void @stbir__encode_float_linear_ABGR(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.036 = phi ptr [ %0, %7 ], [ %.137, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !245
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !632
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -51957,20 +51957,20 @@ define internal void @stbir__encode_float_linear_ABGR(ptr noundef writeonly capt
   %.1 = select i1 %22, ptr %18, ptr %9
   %not. = xor i1 %20, true
   %switch = select i1 %not., i1 %21, i1 false
-  br i1 %switch, label %.loopexit, label %11
+  br i1 %switch, label %.loopexit, label %11, !llvm.loop !633
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.23849 = phi ptr [ %.238, %.lr.ph ], [ %.23845, %.lr.ph.preheader ]
   %.248 = phi ptr [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn47 = phi ptr [ %.23849, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !246
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.248) #54, !srcloc !634
   %23 = load <4 x float>, ptr %.248, align 1
   %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %24, ptr %.pn47, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.248, i64 16
   %.238 = getelementptr inbounds nuw i8, ptr %.23849, i64 16
   %.not = icmp ugt ptr %.238, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !247
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !635
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -52001,7 +52001,7 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.036 = phi ptr [ %0, %7 ], [ %.036.be, %.backedge.backedge ]
   %.0 = phi ptr [ %2, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !248
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !636
   %11 = load <4 x float>, ptr %.0, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -52075,7 +52075,7 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
 .backedge.backedge:                               ; preds = %.backedge, %75
   %.036.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
   %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
-  br label %.backedge, !llvm.loop !249
+  br label %.backedge, !llvm.loop !637
 
 75:                                               ; preds = %.backedge
   %76 = icmp eq ptr %74, %5
@@ -52085,7 +52085,7 @@ define internal void @stbir__encode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %.13755 = phi ptr [ %.137, %stbir__float_to_half.exit47 ], [ %.13751, %.lr.ph.preheader ]
   %.154 = phi ptr [ %175, %stbir__float_to_half.exit47 ], [ %2, %.lr.ph.preheader ]
   %.pn53 = phi ptr [ %.13755, %stbir__float_to_half.exit47 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !250
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.13755) #54, !srcloc !638
   %77 = getelementptr inbounds nuw i8, ptr %.154, i64 12
   %78 = load float, ptr %77, align 4
   %79 = tail call float @llvm.fabs.f32(float %78)
@@ -52239,7 +52239,7 @@ stbir__float_to_half.exit47:                      ; preds = %156, %161, %164
   %175 = getelementptr inbounds nuw i8, ptr %.154, i64 16
   %.137 = getelementptr inbounds nuw i8, ptr %.13755, i64 8
   %.not = icmp ugt ptr %.137, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !251
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !639
 
 .loopexit:                                        ; preds = %stbir__float_to_half.exit47, %75, %.preheader
   ret void
@@ -52261,7 +52261,7 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonl
 11:                                               ; preds = %11, %7
   %.0108 = phi ptr [ %0, %7 ], [ %.1109, %11 ]
   %.0106 = phi ptr [ %2, %7 ], [ %.1107, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0106) #54, !srcloc !252
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0106) #54, !srcloc !640
   %12 = load <4 x float>, ptr %.0106, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0106, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -52363,12 +52363,12 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonl
   %.116 = select i1 %90, ptr %89, ptr %9
   %.1109 = select i1 %.not, ptr %., ptr %88
   %.1107 = select i1 %.not, ptr %.116, ptr %89
-  br i1 %90, label %.loopexit, label %11
+  br i1 %90, label %.loopexit, label %11, !llvm.loop !641
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
   %.2110 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
   %.2 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !253
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !642
   %91 = load float, ptr %.2, align 4
   %92 = fcmp ogt float %91, 0x3F20000000000000
   br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
@@ -52412,7 +52412,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %9
   %119 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
   %120 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %121 = icmp ult ptr %119, %5
-  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !254
+  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !643
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %11
   ret void
@@ -52434,7 +52434,7 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef write
 11:                                               ; preds = %11, %7
   %.0108 = phi ptr [ %0, %7 ], [ %.1109, %11 ]
   %.0106 = phi ptr [ %2, %7 ], [ %.1107, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0106) #54, !srcloc !255
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0106) #54, !srcloc !644
   %12 = load <4 x float>, ptr %.0106, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0106, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -52536,12 +52536,12 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef write
   %.116 = select i1 %90, ptr %89, ptr %9
   %.1109 = select i1 %.not, ptr %., ptr %88
   %.1107 = select i1 %.not, ptr %.116, ptr %89
-  br i1 %90, label %.loopexit, label %11
+  br i1 %90, label %.loopexit, label %11, !llvm.loop !645
 
 .preheader:                                       ; preds = %3, %stbir__linear_to_srgb_uchar.exit
   %.2110 = phi ptr [ %119, %stbir__linear_to_srgb_uchar.exit ], [ %0, %3 ]
   %.2 = phi ptr [ %120, %stbir__linear_to_srgb_uchar.exit ], [ %2, %3 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !256
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2) #54, !srcloc !646
   %91 = load float, ptr %.2, align 4
   %92 = fcmp ogt float %91, 0x3F20000000000000
   br i1 %92, label %93, label %stbir__linear_to_srgb_uchar.exit
@@ -52585,7 +52585,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %9
   %119 = getelementptr inbounds nuw i8, ptr %.2110, i64 2
   %120 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %121 = icmp ult ptr %119, %5
-  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !257
+  br i1 %121, label %.preheader, label %.loopexit, !llvm.loop !647
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit, %11
   ret void
@@ -52615,7 +52615,7 @@ define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures
 11:                                               ; preds = %11, %7
   %.0144 = phi ptr [ %0, %7 ], [ %.1145, %11 ]
   %.0143 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0143) #54, !srcloc !258
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0143) #54, !srcloc !648
   %12 = load <4 x float>, ptr %.0143, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0143, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -52769,7 +52769,7 @@ define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures
   %.153 = select i1 %126, ptr %124, ptr %9
   %.1145 = select i1 %.not152, ptr %., ptr %125
   %.1 = select i1 %.not152, ptr %.153, ptr %124
-  br i1 %126, label %.loopexit, label %11
+  br i1 %126, label %.loopexit, label %11, !llvm.loop !649
 
 .preheader:                                       ; preds = %stbir__linear_to_srgb_uchar.exit160, %.preheader166
   %.pn.lcssa = phi ptr [ %0, %.preheader166 ], [ %.2146171, %stbir__linear_to_srgb_uchar.exit160 ]
@@ -52781,7 +52781,7 @@ define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures
   %.2146171 = phi ptr [ %.2146, %stbir__linear_to_srgb_uchar.exit160 ], [ %.2146167, %.lr.ph.preheader ]
   %.2170 = phi ptr [ %214, %stbir__linear_to_srgb_uchar.exit160 ], [ %2, %.lr.ph.preheader ]
   %.pn169 = phi ptr [ %.2146171, %stbir__linear_to_srgb_uchar.exit160 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2170) #54, !srcloc !259
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2170) #54, !srcloc !650
   %128 = getelementptr inbounds nuw i8, ptr %.2170, i64 4
   %129 = load float, ptr %128, align 4
   %130 = fcmp ogt float %129, 0x3F20000000000000
@@ -52907,12 +52907,12 @@ stbir__linear_to_srgb_uchar.exit160:              ; preds = %stbir__linear_to_sr
   %214 = getelementptr inbounds nuw i8, ptr %.2170, i64 16
   %.2146 = getelementptr inbounds nuw i8, ptr %.2146171, i64 4
   %.not = icmp ugt ptr %.2146, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !260
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !651
 
 .lr.ph175:                                        ; preds = %.preheader, %stbir__linear_to_srgb_uchar.exit164
   %.3174 = phi ptr [ %258, %stbir__linear_to_srgb_uchar.exit164 ], [ %.2.lcssa, %.preheader ]
   %.3147173 = phi ptr [ %257, %stbir__linear_to_srgb_uchar.exit164 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3174) #54, !srcloc !261
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3174) #54, !srcloc !652
   %215 = getelementptr inbounds nuw i8, ptr %.3174, i64 4
   %216 = load float, ptr %215, align 4
   %217 = fcmp ogt float %216, 0x3F20000000000000
@@ -52976,7 +52976,7 @@ stbir__linear_to_srgb_uchar.exit164:              ; preds = %stbir__linear_to_sr
   %257 = getelementptr inbounds nuw i8, ptr %.3147173, i64 2
   %258 = getelementptr inbounds nuw i8, ptr %.3174, i64 8
   %259 = icmp ult ptr %257, %5
-  br i1 %259, label %.lr.ph175, label %.loopexit, !llvm.loop !262
+  br i1 %259, label %.lr.ph175, label %.loopexit, !llvm.loop !653
 
 .loopexit:                                        ; preds = %stbir__linear_to_srgb_uchar.exit164, %11, %.preheader
   ret void
@@ -53007,7 +53007,7 @@ define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly captur
 11:                                               ; preds = %11, %7
   %.046 = phi ptr [ %0, %7 ], [ %.147, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !263
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !654
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load <4 x float>, ptr %13, align 1
@@ -53025,7 +53025,7 @@ define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly captur
   %.1 = select i1 %22, ptr %18, ptr %9
   %not. = xor i1 %20, true
   %switch = select i1 %not., i1 %21, i1 false
-  br i1 %switch, label %.loopexit, label %11
+  br i1 %switch, label %.loopexit, label %11, !llvm.loop !655
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader58
   %.pn.lcssa = phi ptr [ %0, %.preheader58 ], [ %.24863, %.lr.ph ]
@@ -53037,19 +53037,19 @@ define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly captur
   %.24863 = phi ptr [ %.248, %.lr.ph ], [ %.24859, %.lr.ph.preheader ]
   %.262 = phi ptr [ %26, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.24863, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !264
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !656
   %24 = load <4 x float>, ptr %.262, align 1
   %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x float> %25, ptr %.pn61, align 1
   %26 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.248 = getelementptr inbounds nuw i8, ptr %.24863, i64 16
   %.not = icmp ugt ptr %.248, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !265
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !657
 
 .lr.ph67:                                         ; preds = %.preheader, %.lr.ph67
   %.366 = phi ptr [ %32, %.lr.ph67 ], [ %.2.lcssa, %.preheader ]
   %.34965 = phi ptr [ %31, %.lr.ph67 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.366) #54, !srcloc !266
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.366) #54, !srcloc !658
   %27 = getelementptr inbounds nuw i8, ptr %.366, i64 4
   %28 = load float, ptr %27, align 4
   store float %28, ptr %.34965, align 4
@@ -53059,7 +53059,7 @@ define internal void @stbir__encode_float_linear_AR(ptr noundef writeonly captur
   %31 = getelementptr inbounds nuw i8, ptr %.34965, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.366, i64 8
   %33 = icmp ult ptr %31, %5
-  br i1 %33, label %.lr.ph67, label %.loopexit, !llvm.loop !267
+  br i1 %33, label %.lr.ph67, label %.loopexit, !llvm.loop !659
 
 .loopexit:                                        ; preds = %.lr.ph67, %11, %.preheader
   ret void
@@ -53090,7 +53090,7 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
 .backedge:                                        ; preds = %.backedge.backedge, %7
   %.047 = phi ptr [ %0, %7 ], [ %.047.be, %.backedge.backedge ]
   %.0 = phi ptr [ %2, %7 ], [ %.0.be, %.backedge.backedge ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !268
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !660
   %11 = load <4 x float>, ptr %.0, align 1
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load <4 x float>, ptr %12, align 1
@@ -53164,7 +53164,7 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
 .backedge.backedge:                               ; preds = %.backedge, %75
   %.047.be = phi ptr [ %74, %.backedge ], [ %10, %75 ]
   %.0.be = phi ptr [ %73, %.backedge ], [ %9, %75 ]
-  br label %.backedge, !llvm.loop !269
+  br label %.backedge, !llvm.loop !661
 
 75:                                               ; preds = %.backedge
   %76 = icmp eq ptr %74, %5
@@ -53180,7 +53180,7 @@ define internal void @stbir__encode_half_float_linear_AR(ptr noundef %0, i32 nou
   %.14873 = phi ptr [ %.148, %stbir__float_to_half.exit60 ], [ %.14869, %.lr.ph.preheader ]
   %.172 = phi ptr [ %176, %stbir__float_to_half.exit60 ], [ %2, %.lr.ph.preheader ]
   %.pn71 = phi ptr [ %.14873, %stbir__float_to_half.exit60 ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14873) #54, !srcloc !270
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14873) #54, !srcloc !662
   %78 = getelementptr inbounds nuw i8, ptr %.172, i64 4
   %79 = load float, ptr %78, align 4
   %80 = tail call float @llvm.fabs.f32(float %79)
@@ -53334,12 +53334,12 @@ stbir__float_to_half.exit60:                      ; preds = %157, %162, %165
   %176 = getelementptr inbounds nuw i8, ptr %.172, i64 16
   %.148 = getelementptr inbounds nuw i8, ptr %.14873, i64 8
   %.not = icmp ugt ptr %.148, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !271
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !663
 
 .lr.ph77:                                         ; preds = %.preheader, %stbir__float_to_half.exit64
   %.276 = phi ptr [ %226, %stbir__float_to_half.exit64 ], [ %.1.lcssa, %.preheader ]
   %.24975 = phi ptr [ %225, %stbir__float_to_half.exit64 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24975) #54, !srcloc !272
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.24975) #54, !srcloc !664
   %177 = getelementptr inbounds nuw i8, ptr %.276, i64 4
   %178 = load float, ptr %177, align 4
   %179 = tail call float @llvm.fabs.f32(float %178)
@@ -53417,7 +53417,7 @@ stbir__float_to_half.exit64:                      ; preds = %206, %211, %214
   %225 = getelementptr inbounds nuw i8, ptr %.24975, i64 4
   %226 = getelementptr inbounds nuw i8, ptr %.276, i64 8
   %227 = icmp ult ptr %225, %5
-  br i1 %227, label %.lr.ph77, label %.loopexit, !llvm.loop !273
+  br i1 %227, label %.lr.ph77, label %.loopexit, !llvm.loop !665
 
 .loopexit:                                        ; preds = %stbir__float_to_half.exit64, %75, %.preheader
   ret void
@@ -53447,7 +53447,7 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly ca
 11:                                               ; preds = %11, %7
   %.059 = phi ptr [ %0, %7 ], [ %.160, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !274
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !666
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 2.550000e+02)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -53474,7 +53474,7 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly ca
   %.70 = select i1 %31, ptr %29, ptr %9
   %.160 = select i1 %.not68, ptr %.69, ptr %30
   %.1 = select i1 %.not68, ptr %.70, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !667
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader72
   %.pn.lcssa = phi ptr [ %0, %.preheader72 ], [ %.26177, %.lr.ph ]
@@ -53486,7 +53486,7 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly ca
   %.26177 = phi ptr [ %.261, %.lr.ph ], [ %.26173, %.lr.ph.preheader ]
   %.276 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.26177, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #54, !srcloc !275
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #54, !srcloc !668
   %33 = load <4 x float>, ptr %.276, align 1
   %34 = fmul <4 x float> %33, splat (float 2.550000e+02)
   %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
@@ -53501,12 +53501,12 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly ca
   %43 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.261 = getelementptr inbounds nuw i8, ptr %.26177, i64 4
   %.not = icmp ugt ptr %.261, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !276
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !669
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %.380 = phi ptr [ %54, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
   %.36279 = phi ptr [ %53, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #54, !srcloc !277
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #54, !srcloc !670
   %44 = load float, ptr %.380, align 1
   %45 = fmul float %44, 2.550000e+02
   %46 = fadd float %45, 5.000000e-01
@@ -53520,7 +53520,7 @@ define internal void @stbir__encode_uint8_linear_scaled(ptr noundef writeonly ca
   %53 = getelementptr inbounds nuw i8, ptr %.36279, i64 1
   %54 = getelementptr inbounds nuw i8, ptr %.380, i64 4
   %55 = icmp ult ptr %53, %5
-  br i1 %55, label %.lr.ph81, label %.loopexit, !llvm.loop !278
+  br i1 %55, label %.lr.ph81, label %.loopexit, !llvm.loop !671
 
 .loopexit:                                        ; preds = %.lr.ph81, %11, %.preheader
   ret void
@@ -53550,7 +53550,7 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly captures(
 11:                                               ; preds = %11, %7
   %.063 = phi ptr [ %0, %7 ], [ %.164, %11 ]
   %.061 = phi ptr [ %2, %7 ], [ %.162, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !279
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.061) #54, !srcloc !672
   %12 = load <4 x float>, ptr %.061, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.061, i64 16
@@ -53575,7 +53575,7 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly captures(
   %.75 = select i1 %29, ptr %27, ptr %9
   %.164 = select i1 %.not73, ptr %.74, ptr %28
   %.162 = select i1 %.not73, ptr %.75, ptr %27
-  br i1 %29, label %.loopexit, label %11
+  br i1 %29, label %.loopexit, label %11, !llvm.loop !673
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader77
   %.pn.lcssa = phi ptr [ %0, %.preheader77 ], [ %.26582, %.lr.ph ]
@@ -53587,7 +53587,7 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly captures(
   %.26582 = phi ptr [ %.265, %.lr.ph ], [ %.26578, %.lr.ph.preheader ]
   %.281 = phi ptr [ %40, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn80 = phi ptr [ %.26582, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.281) #54, !srcloc !280
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.281) #54, !srcloc !674
   %31 = load <4 x float>, ptr %.281, align 1
   %32 = fadd <4 x float> %31, splat (float 5.000000e-01)
   %33 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %32, <4 x float> splat (float 2.550000e+02))
@@ -53601,12 +53601,12 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly captures(
   %40 = getelementptr inbounds nuw i8, ptr %.281, i64 16
   %.265 = getelementptr inbounds nuw i8, ptr %.26582, i64 4
   %.not = icmp ugt ptr %.265, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !281
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !675
 
 .lr.ph86:                                         ; preds = %.preheader, %.lr.ph86
   %.385 = phi ptr [ %47, %.lr.ph86 ], [ %.2.lcssa, %.preheader ]
   %.36684 = phi ptr [ %46, %.lr.ph86 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.385) #54, !srcloc !282
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.385) #54, !srcloc !676
   %41 = load float, ptr %.385, align 4
   %42 = fadd float %41, 5.000000e-01
   %43 = fcmp olt float %42, 0.000000e+00
@@ -53618,7 +53618,7 @@ define internal void @stbir__encode_uint8_linear(ptr noundef writeonly captures(
   %46 = getelementptr inbounds nuw i8, ptr %.36684, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %.385, i64 4
   %48 = icmp ult ptr %46, %5
-  br i1 %48, label %.lr.ph86, label %.loopexit, !llvm.loop !283
+  br i1 %48, label %.lr.ph86, label %.loopexit, !llvm.loop !677
 
 .loopexit:                                        ; preds = %.lr.ph86, %11, %.preheader
   ret void
@@ -53649,7 +53649,7 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly c
 11:                                               ; preds = %11, %7
   %.053 = phi ptr [ %0, %7 ], [ %.154, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !284
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !678
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 6.553500e+04)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -53678,7 +53678,7 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly c
   %.64 = select i1 %33, ptr %31, ptr %9
   %.154 = select i1 %.not62, ptr %.63, ptr %32
   %.1 = select i1 %.not62, ptr %.64, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !679
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader66
   %.pn.lcssa = phi ptr [ %0, %.preheader66 ], [ %.25571, %.lr.ph ]
@@ -53690,7 +53690,7 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly c
   %.25571 = phi ptr [ %.255, %.lr.ph ], [ %.25567, %.lr.ph.preheader ]
   %.270 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn69 = phi ptr [ %.25571, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.270) #54, !srcloc !285
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.270) #54, !srcloc !680
   %35 = load <4 x float>, ptr %.270, align 1
   %36 = fmul <4 x float> %35, splat (float 6.553500e+04)
   %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
@@ -53708,12 +53708,12 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly c
   %48 = getelementptr inbounds nuw i8, ptr %.270, i64 16
   %.255 = getelementptr inbounds nuw i8, ptr %.25571, i64 8
   %.not = icmp ugt ptr %.255, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !286
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !681
 
 .lr.ph75:                                         ; preds = %.preheader, %.lr.ph75
   %.374 = phi ptr [ %59, %.lr.ph75 ], [ %.2.lcssa, %.preheader ]
   %.35673 = phi ptr [ %58, %.lr.ph75 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.374) #54, !srcloc !287
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.374) #54, !srcloc !682
   %49 = load float, ptr %.374, align 1
   %50 = fmul float %49, 6.553500e+04
   %51 = fadd float %50, 5.000000e-01
@@ -53727,7 +53727,7 @@ define internal void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly c
   %58 = getelementptr inbounds nuw i8, ptr %.35673, i64 2
   %59 = getelementptr inbounds nuw i8, ptr %.374, i64 4
   %60 = icmp ult ptr %58, %5
-  br i1 %60, label %.lr.ph75, label %.loopexit, !llvm.loop !288
+  br i1 %60, label %.lr.ph75, label %.loopexit, !llvm.loop !683
 
 .loopexit:                                        ; preds = %.lr.ph75, %11, %.preheader
   ret void
@@ -53758,7 +53758,7 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly captures
 11:                                               ; preds = %11, %7
   %.057 = phi ptr [ %0, %7 ], [ %.158, %11 ]
   %.055 = phi ptr [ %2, %7 ], [ %.156, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.055) #54, !srcloc !289
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.055) #54, !srcloc !684
   %12 = load <4 x float>, ptr %.055, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.055, i64 16
@@ -53785,7 +53785,7 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly captures
   %.69 = select i1 %31, ptr %29, ptr %9
   %.158 = select i1 %.not67, ptr %.68, ptr %30
   %.156 = select i1 %.not67, ptr %.69, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !685
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader71
   %.pn.lcssa = phi ptr [ %0, %.preheader71 ], [ %.25976, %.lr.ph ]
@@ -53797,7 +53797,7 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly captures
   %.25976 = phi ptr [ %.259, %.lr.ph ], [ %.25972, %.lr.ph.preheader ]
   %.275 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn74 = phi ptr [ %.25976, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.275) #54, !srcloc !290
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.275) #54, !srcloc !686
   %33 = load <4 x float>, ptr %.275, align 1
   %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
   %35 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> splat (float 6.553500e+04))
@@ -53814,12 +53814,12 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly captures
   %45 = getelementptr inbounds nuw i8, ptr %.275, i64 16
   %.259 = getelementptr inbounds nuw i8, ptr %.25976, i64 8
   %.not = icmp ugt ptr %.259, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !291
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !687
 
 .lr.ph80:                                         ; preds = %.preheader, %.lr.ph80
   %.379 = phi ptr [ %52, %.lr.ph80 ], [ %.2.lcssa, %.preheader ]
   %.36078 = phi ptr [ %51, %.lr.ph80 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.379) #54, !srcloc !292
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.379) #54, !srcloc !688
   %46 = load float, ptr %.379, align 4
   %47 = fadd float %46, 5.000000e-01
   %48 = fcmp olt float %47, 0.000000e+00
@@ -53831,7 +53831,7 @@ define internal void @stbir__encode_uint16_linear(ptr noundef writeonly captures
   %51 = getelementptr inbounds nuw i8, ptr %.36078, i64 2
   %52 = getelementptr inbounds nuw i8, ptr %.379, i64 4
   %53 = icmp ult ptr %51, %5
-  br i1 %53, label %.lr.ph80, label %.loopexit, !llvm.loop !293
+  br i1 %53, label %.lr.ph80, label %.loopexit, !llvm.loop !689
 
 .loopexit:                                        ; preds = %.lr.ph80, %11, %.preheader
   ret void
@@ -53861,7 +53861,7 @@ define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeon
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !294
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !690
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 2.550000e+02)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -53890,13 +53890,13 @@ define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeon
   %.63 = select i1 %33, ptr %31, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %32
   %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !691
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !295
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !692
   %34 = load <4 x float>, ptr %.268, align 1
   %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
   %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
@@ -53912,7 +53912,7 @@ define internal void @stbir__encode_uint8_linear_scaled_BGRA(ptr noundef writeon
   %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !296
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !693
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -53942,7 +53942,7 @@ define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !297
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !694
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -53969,13 +53969,13 @@ define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly capt
   %.63 = select i1 %31, ptr %29, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %30
   %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !695
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !298
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !696
   %32 = load <4 x float>, ptr %.268, align 1
   %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
   %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
@@ -53990,7 +53990,7 @@ define internal void @stbir__encode_uint8_linear_BGRA(ptr noundef writeonly capt
   %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !299
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !697
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54021,7 +54021,7 @@ define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeo
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !300
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !698
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 6.553500e+04)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54052,13 +54052,13 @@ define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeo
   %.57 = select i1 %35, ptr %33, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %34
   %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  br i1 %35, label %.loopexit, label %11, !llvm.loop !699
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !301
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !700
   %36 = load <4 x float>, ptr %.262, align 1
   %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
   %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
@@ -54077,7 +54077,7 @@ define internal void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeo
   %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !302
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !701
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54108,7 +54108,7 @@ define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly cap
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !303
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !702
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -54137,13 +54137,13 @@ define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly cap
   %.57 = select i1 %33, ptr %31, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %32
   %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !703
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !304
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !704
   %34 = load <4 x float>, ptr %.262, align 1
   %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 2, i32 1, i32 0, i32 3>
@@ -54161,7 +54161,7 @@ define internal void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly cap
   %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !305
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !705
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54191,7 +54191,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeon
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !306
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !706
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 2.550000e+02)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54220,13 +54220,13 @@ define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeon
   %.63 = select i1 %33, ptr %31, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %32
   %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !707
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !307
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !708
   %34 = load <4 x float>, ptr %.268, align 1
   %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
   %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
@@ -54242,7 +54242,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ARGB(ptr noundef writeon
   %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !308
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !709
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54272,7 +54272,7 @@ define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !309
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !710
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -54299,13 +54299,13 @@ define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly capt
   %.63 = select i1 %31, ptr %29, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %30
   %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !711
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !310
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !712
   %32 = load <4 x float>, ptr %.268, align 1
   %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
   %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -54320,7 +54320,7 @@ define internal void @stbir__encode_uint8_linear_ARGB(ptr noundef writeonly capt
   %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !311
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !713
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54351,7 +54351,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeo
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !312
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !714
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 6.553500e+04)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54382,13 +54382,13 @@ define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeo
   %.57 = select i1 %35, ptr %33, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %34
   %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  br i1 %35, label %.loopexit, label %11, !llvm.loop !715
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !313
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !716
   %36 = load <4 x float>, ptr %.262, align 1
   %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
   %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
@@ -54407,7 +54407,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeo
   %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !314
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !717
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54438,7 +54438,7 @@ define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly cap
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !315
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !718
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -54467,13 +54467,13 @@ define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly cap
   %.57 = select i1 %33, ptr %31, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %32
   %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !719
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !316
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !720
   %34 = load <4 x float>, ptr %.262, align 1
   %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -54491,7 +54491,7 @@ define internal void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly cap
   %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !317
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !721
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54521,7 +54521,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeon
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !318
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !722
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 2.550000e+02)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54550,13 +54550,13 @@ define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeon
   %.63 = select i1 %33, ptr %31, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %32
   %.1 = select i1 %.not61, ptr %.63, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !723
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %45, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !319
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !724
   %34 = load <4 x float>, ptr %.268, align 1
   %35 = fmul <4 x float> %34, splat (float 2.550000e+02)
   %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
@@ -54572,7 +54572,7 @@ define internal void @stbir__encode_uint8_linear_scaled_ABGR(ptr noundef writeon
   %45 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !320
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !725
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54602,7 +54602,7 @@ define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly capt
 11:                                               ; preds = %11, %7
   %.054 = phi ptr [ %0, %7 ], [ %.155, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !321
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !726
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -54629,13 +54629,13 @@ define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly capt
   %.63 = select i1 %31, ptr %29, ptr %9
   %.155 = select i1 %.not61, ptr %.62, ptr %30
   %.1 = select i1 %.not61, ptr %.63, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !727
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25669 = phi ptr [ %.256, %.lr.ph ], [ %.25665, %.lr.ph.preheader ]
   %.268 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn67 = phi ptr [ %.25669, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !322
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.268) #54, !srcloc !728
   %32 = load <4 x float>, ptr %.268, align 1
   %33 = fadd <4 x float> %32, splat (float 5.000000e-01)
   %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -54650,7 +54650,7 @@ define internal void @stbir__encode_uint8_linear_ABGR(ptr noundef writeonly capt
   %42 = getelementptr inbounds nuw i8, ptr %.268, i64 16
   %.256 = getelementptr inbounds nuw i8, ptr %.25669, i64 4
   %.not = icmp ugt ptr %.256, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !323
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !729
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54681,7 +54681,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeo
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !324
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !730
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 6.553500e+04)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54712,13 +54712,13 @@ define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeo
   %.57 = select i1 %35, ptr %33, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %34
   %.1 = select i1 %.not55, ptr %.57, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  br i1 %35, label %.loopexit, label %11, !llvm.loop !731
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %50, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !325
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !732
   %36 = load <4 x float>, ptr %.262, align 1
   %37 = fmul <4 x float> %36, splat (float 6.553500e+04)
   %38 = fadd <4 x float> %37, splat (float 5.000000e-01)
@@ -54737,7 +54737,7 @@ define internal void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeo
   %50 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !326
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !733
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54768,7 +54768,7 @@ define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly cap
 11:                                               ; preds = %11, %7
   %.048 = phi ptr [ %0, %7 ], [ %.149, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !327
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !734
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -54797,13 +54797,13 @@ define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly cap
   %.57 = select i1 %33, ptr %31, ptr %9
   %.149 = select i1 %.not55, ptr %.56, ptr %32
   %.1 = select i1 %.not55, ptr %.57, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !735
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.25063 = phi ptr [ %.250, %.lr.ph ], [ %.25059, %.lr.ph.preheader ]
   %.262 = phi ptr [ %47, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn61 = phi ptr [ %.25063, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !328
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.262) #54, !srcloc !736
   %34 = load <4 x float>, ptr %.262, align 1
   %35 = fadd <4 x float> %34, splat (float 5.000000e-01)
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -54821,7 +54821,7 @@ define internal void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly cap
   %47 = getelementptr inbounds nuw i8, ptr %.262, i64 16
   %.250 = getelementptr inbounds nuw i8, ptr %.25063, i64 8
   %.not = icmp ugt ptr %.250, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !329
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !737
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader
   ret void
@@ -54851,7 +54851,7 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
 11:                                               ; preds = %11, %7
   %.065 = phi ptr [ %0, %7 ], [ %.166, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !330
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !738
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 2.550000e+02)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -54880,7 +54880,7 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
   %.76 = select i1 %33, ptr %31, ptr %9
   %.166 = select i1 %.not74, ptr %.75, ptr %32
   %.1 = select i1 %.not74, ptr %.76, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !739
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader78
   %.pn.lcssa = phi ptr [ %0, %.preheader78 ], [ %.26783, %.lr.ph ]
@@ -54892,7 +54892,7 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
   %.26783 = phi ptr [ %.267, %.lr.ph ], [ %.26779, %.lr.ph.preheader ]
   %.282 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn81 = phi ptr [ %.26783, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.282) #54, !srcloc !331
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.282) #54, !srcloc !740
   %35 = load <4 x float>, ptr %.282, align 1
   %36 = fmul <4 x float> %35, splat (float 2.550000e+02)
   %37 = fadd <4 x float> %36, splat (float 5.000000e-01)
@@ -54908,12 +54908,12 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
   %46 = getelementptr inbounds nuw i8, ptr %.282, i64 16
   %.267 = getelementptr inbounds nuw i8, ptr %.26783, i64 4
   %.not = icmp ugt ptr %.267, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !332
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !741
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %.386 = phi ptr [ %68, %.lr.ph87 ], [ %.2.lcssa, %.preheader ]
   %.36885 = phi ptr [ %67, %.lr.ph87 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.386) #54, !srcloc !333
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.386) #54, !srcloc !742
   %47 = getelementptr inbounds nuw i8, ptr %.386, i64 4
   %48 = load float, ptr %47, align 1
   %49 = fmul float %48, 2.550000e+02
@@ -54939,7 +54939,7 @@ define internal void @stbir__encode_uint8_linear_scaled_AR(ptr noundef writeonly
   %67 = getelementptr inbounds nuw i8, ptr %.36885, i64 2
   %68 = getelementptr inbounds nuw i8, ptr %.386, i64 8
   %69 = icmp ult ptr %67, %5
-  br i1 %69, label %.lr.ph87, label %.loopexit, !llvm.loop !334
+  br i1 %69, label %.lr.ph87, label %.loopexit, !llvm.loop !743
 
 .loopexit:                                        ; preds = %.lr.ph87, %11, %.preheader
   ret void
@@ -54969,7 +54969,7 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captur
 11:                                               ; preds = %11, %7
   %.073 = phi ptr [ %0, %7 ], [ %.174, %11 ]
   %.069 = phi ptr [ %2, %7 ], [ %.170, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.069) #54, !srcloc !335
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.069) #54, !srcloc !744
   %12 = load <4 x float>, ptr %.069, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.069, i64 16
@@ -54996,7 +54996,7 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captur
   %.86 = select i1 %31, ptr %29, ptr %9
   %.174 = select i1 %.not84, ptr %.85, ptr %30
   %.170 = select i1 %.not84, ptr %.86, ptr %29
-  br i1 %31, label %.loopexit, label %11
+  br i1 %31, label %.loopexit, label %11, !llvm.loop !745
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader88
   %.pn.lcssa = phi ptr [ %0, %.preheader88 ], [ %.27593, %.lr.ph ]
@@ -55008,7 +55008,7 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captur
   %.27593 = phi ptr [ %.275, %.lr.ph ], [ %.27589, %.lr.ph.preheader ]
   %.27192 = phi ptr [ %43, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn91 = phi ptr [ %.27593, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.27192) #54, !srcloc !336
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.27192) #54, !srcloc !746
   %33 = load <4 x float>, ptr %.27192, align 1
   %34 = fadd <4 x float> %33, splat (float 5.000000e-01)
   %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -55023,12 +55023,12 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captur
   %43 = getelementptr inbounds nuw i8, ptr %.27192, i64 16
   %.275 = getelementptr inbounds nuw i8, ptr %.27593, i64 4
   %.not = icmp ugt ptr %.275, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !337
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !747
 
 .lr.ph97:                                         ; preds = %.preheader, %.lr.ph97
   %.37296 = phi ptr [ %57, %.lr.ph97 ], [ %.271.lcssa, %.preheader ]
   %.37695 = phi ptr [ %56, %.lr.ph97 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.37296) #54, !srcloc !338
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.37296) #54, !srcloc !748
   %44 = getelementptr inbounds nuw i8, ptr %.37296, i64 4
   %45 = load float, ptr %44, align 4
   %46 = fadd float %45, 5.000000e-01
@@ -55050,7 +55050,7 @@ define internal void @stbir__encode_uint8_linear_AR(ptr noundef writeonly captur
   %56 = getelementptr inbounds nuw i8, ptr %.37695, i64 2
   %57 = getelementptr inbounds nuw i8, ptr %.37296, i64 8
   %58 = icmp ult ptr %56, %5
-  br i1 %58, label %.lr.ph97, label %.loopexit, !llvm.loop !339
+  br i1 %58, label %.lr.ph97, label %.loopexit, !llvm.loop !749
 
 .loopexit:                                        ; preds = %.lr.ph97, %11, %.preheader
   ret void
@@ -55081,7 +55081,7 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
 11:                                               ; preds = %11, %7
   %.059 = phi ptr [ %0, %7 ], [ %.160, %11 ]
   %.0 = phi ptr [ %2, %7 ], [ %.1, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !340
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !750
   %12 = load <4 x float>, ptr %.0, align 1
   %13 = fmul <4 x float> %12, splat (float 6.553500e+04)
   %14 = fadd <4 x float> %13, splat (float 5.000000e-01)
@@ -55112,7 +55112,7 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
   %.70 = select i1 %35, ptr %33, ptr %9
   %.160 = select i1 %.not68, ptr %.69, ptr %34
   %.1 = select i1 %.not68, ptr %.70, ptr %33
-  br i1 %35, label %.loopexit, label %11
+  br i1 %35, label %.loopexit, label %11, !llvm.loop !751
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader72
   %.pn.lcssa = phi ptr [ %0, %.preheader72 ], [ %.26177, %.lr.ph ]
@@ -55124,7 +55124,7 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
   %.26177 = phi ptr [ %.261, %.lr.ph ], [ %.26173, %.lr.ph.preheader ]
   %.276 = phi ptr [ %51, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn75 = phi ptr [ %.26177, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #54, !srcloc !341
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.276) #54, !srcloc !752
   %37 = load <4 x float>, ptr %.276, align 1
   %38 = fmul <4 x float> %37, splat (float 6.553500e+04)
   %39 = fadd <4 x float> %38, splat (float 5.000000e-01)
@@ -55143,12 +55143,12 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
   %51 = getelementptr inbounds nuw i8, ptr %.276, i64 16
   %.261 = getelementptr inbounds nuw i8, ptr %.26177, i64 8
   %.not = icmp ugt ptr %.261, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !342
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !753
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %.380 = phi ptr [ %73, %.lr.ph81 ], [ %.2.lcssa, %.preheader ]
   %.36279 = phi ptr [ %72, %.lr.ph81 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #54, !srcloc !343
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.380) #54, !srcloc !754
   %52 = getelementptr inbounds nuw i8, ptr %.380, i64 4
   %53 = load float, ptr %52, align 1
   %54 = fmul float %53, 6.553500e+04
@@ -55174,7 +55174,7 @@ define internal void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonl
   %72 = getelementptr inbounds nuw i8, ptr %.36279, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %.380, i64 8
   %74 = icmp ult ptr %72, %5
-  br i1 %74, label %.lr.ph81, label %.loopexit, !llvm.loop !344
+  br i1 %74, label %.lr.ph81, label %.loopexit, !llvm.loop !755
 
 .loopexit:                                        ; preds = %.lr.ph81, %11, %.preheader
   ret void
@@ -55205,7 +55205,7 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captu
 11:                                               ; preds = %11, %7
   %.067 = phi ptr [ %0, %7 ], [ %.168, %11 ]
   %.063 = phi ptr [ %2, %7 ], [ %.164, %11 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.063) #54, !srcloc !345
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.063) #54, !srcloc !756
   %12 = load <4 x float>, ptr %.063, align 1
   %13 = fadd <4 x float> %12, splat (float 5.000000e-01)
   %14 = getelementptr inbounds nuw i8, ptr %.063, i64 16
@@ -55234,7 +55234,7 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captu
   %.80 = select i1 %33, ptr %31, ptr %9
   %.168 = select i1 %.not78, ptr %.79, ptr %32
   %.164 = select i1 %.not78, ptr %.80, ptr %31
-  br i1 %33, label %.loopexit, label %11
+  br i1 %33, label %.loopexit, label %11, !llvm.loop !757
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader82
   %.pn.lcssa = phi ptr [ %0, %.preheader82 ], [ %.26987, %.lr.ph ]
@@ -55246,7 +55246,7 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captu
   %.26987 = phi ptr [ %.269, %.lr.ph ], [ %.26983, %.lr.ph.preheader ]
   %.26586 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.pn85 = phi ptr [ %.26987, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.26586) #54, !srcloc !346
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.26586) #54, !srcloc !758
   %35 = load <4 x float>, ptr %.26586, align 1
   %36 = fadd <4 x float> %35, splat (float 5.000000e-01)
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -55264,12 +55264,12 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captu
   %48 = getelementptr inbounds nuw i8, ptr %.26586, i64 16
   %.269 = getelementptr inbounds nuw i8, ptr %.26987, i64 8
   %.not = icmp ugt ptr %.269, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !347
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !759
 
 .lr.ph91:                                         ; preds = %.preheader, %.lr.ph91
   %.36690 = phi ptr [ %62, %.lr.ph91 ], [ %.265.lcssa, %.preheader ]
   %.37089 = phi ptr [ %61, %.lr.ph91 ], [ %.pn.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.36690) #54, !srcloc !348
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.36690) #54, !srcloc !760
   %49 = getelementptr inbounds nuw i8, ptr %.36690, i64 4
   %50 = load float, ptr %49, align 4
   %51 = fadd float %50, 5.000000e-01
@@ -55291,7 +55291,7 @@ define internal void @stbir__encode_uint16_linear_AR(ptr noundef writeonly captu
   %61 = getelementptr inbounds nuw i8, ptr %.37089, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %.36690, i64 8
   %63 = icmp ult ptr %61, %5
-  br i1 %63, label %.lr.ph91, label %.loopexit, !llvm.loop !349
+  br i1 %63, label %.lr.ph91, label %.loopexit, !llvm.loop !761
 
 .loopexit:                                        ; preds = %.lr.ph91, %11, %.preheader
   ret void
@@ -55435,7 +55435,7 @@ stbir__clip.exit:                                 ; preds = %40, %45
   %81 = mul i64 %77, %.058100.us.i
   %82 = add i64 %81, %.06398.us.i
   %.not73.us.i = icmp ult i64 %82, %64
-  br i1 %.not73.us.i, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !350
+  br i1 %.not73.us.i, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !762
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %93
   %.055101.i = phi i64 [ %97, %93 ], [ 0, %.lr.ph.i ]
@@ -55964,7 +55964,7 @@ stbir__calculate_in_pixel_range.exit135:          ; preds = %stbir__calculate_in
   store i32 %.0157, ptr %1, align 4
   %159 = add nsw i32 %.0157, -1
   %.not.not = icmp sgt i32 %.0157, %124
-  br i1 %.not.not, label %126, label %.thread
+  br i1 %.not.not, label %126, label %.thread, !llvm.loop !763
 
 .thread:                                          ; preds = %158, %126, %stbir__calculate_in_pixel_range.exit135
   %160 = add nsw i32 %.126.i131, %77
@@ -56017,7 +56017,7 @@ stbir__calculate_in_pixel_range.exit135:          ; preds = %stbir__calculate_in
   store i32 %.2160, ptr %122, align 4
   %196 = add nsw i32 %.2160, 1
   %.not111.not = icmp slt i32 %.2160, %160
-  br i1 %.not111.not, label %163, label %thread-pre-split
+  br i1 %.not111.not, label %163, label %thread-pre-split, !llvm.loop !764
 
 thread-pre-split:                                 ; preds = %195, %163, %.thread, %stbir__calculate_in_pixel_range.exit123
   %.pr = load i32, ptr %12, align 8
@@ -56110,7 +56110,7 @@ define internal fastcc ptr @stbir__alloc_internal_mem_and_build_samplers(ptr nou
   %15 = sub nsw i32 %.018.i, %14
   %16 = add nuw nsw i32 %.01316.i, 1
   %exitcond.not.i = icmp eq i32 %16, %4
-  br i1 %exitcond.not.i, label %stbir__get_max_split.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %stbir__get_max_split.exit, label %.lr.ph.i, !llvm.loop !765
 
 stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %9
   %.012.lcssa.i = phi i32 [ 0, %9 ], [ %spec.select.i, %.lr.ph.i ]
@@ -56448,7 +56448,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   %218 = getelementptr inbounds i8, ptr %217, i64 %146
   %219 = add nuw nsw i32 %.032948.us, 1
   %exitcond89.not = icmp eq i32 %219, %4
-  br i1 %exitcond89.not, label %._crit_edge, label %.thread5.us, !llvm.loop !351
+  br i1 %exitcond89.not, label %._crit_edge, label %.thread5.us, !llvm.loop !766
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -56479,7 +56479,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   %240 = getelementptr inbounds i8, ptr %237, i64 %146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !767
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.thread5.us, %.thread107, %207
   %.not3613109 = phi i1 [ %.not3611, %207 ], [ true, %.thread107 ], [ true, %.thread5.us ], [ %.not3611, %.lr.ph.split ]
@@ -56725,7 +56725,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %392 = sext i32 %.1159.i to i64
   %393 = icmp slt i64 %indvars.iv.next.i, %392
-  br i1 %393, label %.lr.ph.i374, label %.lr.ph222.preheader.i
+  br i1 %393, label %.lr.ph.i374, label %.lr.ph222.preheader.i, !llvm.loop !768
 
 .lr.ph222.i:                                      ; preds = %.lr.ph222.i, %.lr.ph222.preheader.i
   %indvars.iv237.i = phi i64 [ %386, %.lr.ph222.preheader.i ], [ %indvars.iv.next238.i, %.lr.ph222.i ]
@@ -56742,7 +56742,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   %.3161.i = select i1 %396, i32 %spec.store.select.i, i32 %.2160220.i
   %399 = zext nneg i32 %.3161.i to i64
   %.not.not.i = icmp sgt i64 %indvars.iv.next238.i, %399
-  br i1 %.not.not.i, label %.lr.ph222.i, label %._crit_edge.i
+  br i1 %.not.not.i, label %.lr.ph222.i, label %._crit_edge.i, !llvm.loop !769
 
 ._crit_edge.i:                                    ; preds = %.lr.ph222.i
   %400 = icmp slt i32 %.1167.i, 0
@@ -56812,7 +56812,7 @@ stbir__edge_wrap.exit.i:                          ; preds = %stbir__edge_wrap.ex
   %.1181.i = tail call i32 @llvm.smax.i32(i32 %424, i32 %.0180224.i)
   %425 = add i32 %.2226.i, 1
   %exitcond.not.i373 = icmp eq i32 %425, 0
-  br i1 %exitcond.not.i373, label %.preheader.i, label %stbir__edge_wrap.exit.i
+  br i1 %exitcond.not.i373, label %.preheader.i, label %stbir__edge_wrap.exit.i, !llvm.loop !770
 
 426:                                              ; preds = %stbir__edge_wrap.exit212.i, %.lr.ph232.i
   %.3231.i = phi i32 [ %382, %.lr.ph232.i ], [ %432, %stbir__edge_wrap.exit212.i ]
@@ -56834,7 +56834,7 @@ stbir__edge_wrap.exit212.i:                       ; preds = %429, %426
   %.1177.i = tail call i32 @llvm.smax.i32(i32 %.0.i211.i, i32 %.0176230.i)
   %432 = add nsw i32 %.3231.i, 1
   %433 = icmp slt i32 %432, %420
-  br i1 %433, label %426, label %._crit_edge233.i
+  br i1 %433, label %426, label %._crit_edge233.i, !llvm.loop !771
 
 ._crit_edge233.i:                                 ; preds = %stbir__edge_wrap.exit212.i, %.preheader.i
   %.0178.lcssa.i = phi i32 [ 2147483647, %.preheader.i ], [ %spec.select205.i, %stbir__edge_wrap.exit212.i ]
@@ -56995,209 +56995,209 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
 .preheader291.i:                                  ; preds = %487, %.preheader291.i
   %.0252.i = phi ptr [ %493, %.preheader291.i ], [ %481, %487 ]
   %.0.i380 = phi ptr [ %492, %.preheader291.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i380) #54, !srcloc !352
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i380) #54, !srcloc !772
   %491 = load i32, ptr %.0252.i, align 4
   store i32 %491, ptr %.0.i380, align 4
   %492 = getelementptr inbounds nuw i8, ptr %.0.i380, i64 4
   %493 = getelementptr inbounds float, ptr %.0252.i, i64 %489
   %494 = icmp ult ptr %492, %488
-  br i1 %494, label %.preheader291.i, label %.loopexit.i, !llvm.loop !353
+  br i1 %494, label %.preheader291.i, label %.loopexit.i, !llvm.loop !773
 
 .preheader293.i:                                  ; preds = %487, %.preheader293.i
   %.1253.i = phi ptr [ %497, %.preheader293.i ], [ %481, %487 ]
   %.1.i = phi ptr [ %496, %.preheader293.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !354
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !774
   %495 = load i64, ptr %.1253.i, align 8
   store i64 %495, ptr %.1.i, align 8
   %496 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %497 = getelementptr inbounds float, ptr %.1253.i, i64 %489
   %498 = icmp ult ptr %496, %488
-  br i1 %498, label %.preheader293.i, label %.loopexit.i, !llvm.loop !355
+  br i1 %498, label %.preheader293.i, label %.loopexit.i, !llvm.loop !775
 
 .preheader295.i:                                  ; preds = %487, %.preheader295.i
   %.2254.i = phi ptr [ %504, %.preheader295.i ], [ %481, %487 ]
   %.2.i = phi ptr [ %503, %.preheader295.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2.i) #54, !srcloc !356
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2.i) #54, !srcloc !776
   %499 = load i64, ptr %.2254.i, align 8
   store i64 %499, ptr %.2.i, align 8
   %500 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %500) #54, !srcloc !357
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %500) #54, !srcloc !777
   %501 = getelementptr inbounds nuw i8, ptr %.2254.i, i64 8
   %502 = load i32, ptr %501, align 4
   store i32 %502, ptr %500, align 4
   %503 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
   %504 = getelementptr inbounds float, ptr %.2254.i, i64 %489
   %505 = icmp ult ptr %503, %488
-  br i1 %505, label %.preheader295.i, label %.loopexit.i, !llvm.loop !358
+  br i1 %505, label %.preheader295.i, label %.loopexit.i, !llvm.loop !778
 
 .preheader297.i:                                  ; preds = %487, %.preheader297.i
   %.3255.i = phi ptr [ %508, %.preheader297.i ], [ %481, %487 ]
   %.3.i = phi ptr [ %507, %.preheader297.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !359
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !779
   %506 = load <4 x float>, ptr %.3255.i, align 1
   store <4 x float> %506, ptr %.3.i, align 1
   %507 = getelementptr inbounds nuw i8, ptr %.3.i, i64 16
   %508 = getelementptr inbounds float, ptr %.3255.i, i64 %489
   %509 = icmp ult ptr %507, %488
-  br i1 %509, label %.preheader297.i, label %.loopexit.i, !llvm.loop !360
+  br i1 %509, label %.preheader297.i, label %.loopexit.i, !llvm.loop !780
 
 .preheader299.i:                                  ; preds = %487, %.preheader299.i
   %.4256.i = phi ptr [ %515, %.preheader299.i ], [ %481, %487 ]
   %.4.i = phi ptr [ %514, %.preheader299.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.4.i) #54, !srcloc !361
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.4.i) #54, !srcloc !781
   %510 = load <4 x float>, ptr %.4256.i, align 1
   store <4 x float> %510, ptr %.4.i, align 1
   %511 = getelementptr inbounds nuw i8, ptr %.4.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %511) #54, !srcloc !362
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %511) #54, !srcloc !782
   %512 = getelementptr inbounds nuw i8, ptr %.4256.i, i64 16
   %513 = load i32, ptr %512, align 4
   store i32 %513, ptr %511, align 4
   %514 = getelementptr inbounds nuw i8, ptr %.4.i, i64 20
   %515 = getelementptr inbounds float, ptr %.4256.i, i64 %489
   %516 = icmp ult ptr %514, %488
-  br i1 %516, label %.preheader299.i, label %.loopexit.i, !llvm.loop !363
+  br i1 %516, label %.preheader299.i, label %.loopexit.i, !llvm.loop !783
 
 .preheader301.i:                                  ; preds = %487, %.preheader301.i
   %.5257.i = phi ptr [ %522, %.preheader301.i ], [ %481, %487 ]
   %.5.i = phi ptr [ %521, %.preheader301.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.5.i) #54, !srcloc !364
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.5.i) #54, !srcloc !784
   %517 = load <4 x float>, ptr %.5257.i, align 1
   store <4 x float> %517, ptr %.5.i, align 1
   %518 = getelementptr inbounds nuw i8, ptr %.5.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %518) #54, !srcloc !365
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %518) #54, !srcloc !785
   %519 = getelementptr inbounds nuw i8, ptr %.5257.i, i64 16
   %520 = load i64, ptr %519, align 8
   store i64 %520, ptr %518, align 8
   %521 = getelementptr inbounds nuw i8, ptr %.5.i, i64 24
   %522 = getelementptr inbounds float, ptr %.5257.i, i64 %489
   %523 = icmp ult ptr %521, %488
-  br i1 %523, label %.preheader301.i, label %.loopexit.i, !llvm.loop !366
+  br i1 %523, label %.preheader301.i, label %.loopexit.i, !llvm.loop !786
 
 .preheader303.i:                                  ; preds = %487, %.preheader303.i
   %.6258.i = phi ptr [ %532, %.preheader303.i ], [ %481, %487 ]
   %.6.i = phi ptr [ %531, %.preheader303.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.6.i) #54, !srcloc !367
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.6.i) #54, !srcloc !787
   %524 = load <4 x float>, ptr %.6258.i, align 1
   store <4 x float> %524, ptr %.6.i, align 1
   %525 = getelementptr inbounds nuw i8, ptr %.6.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %525) #54, !srcloc !368
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %525) #54, !srcloc !788
   %526 = getelementptr inbounds nuw i8, ptr %.6258.i, i64 16
   %527 = load i64, ptr %526, align 8
   store i64 %527, ptr %525, align 8
   %528 = getelementptr inbounds nuw i8, ptr %.6.i, i64 24
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %528) #54, !srcloc !369
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %528) #54, !srcloc !789
   %529 = getelementptr inbounds nuw i8, ptr %.6258.i, i64 24
   %530 = load i32, ptr %529, align 4
   store i32 %530, ptr %528, align 4
   %531 = getelementptr inbounds nuw i8, ptr %.6.i, i64 28
   %532 = getelementptr inbounds float, ptr %.6258.i, i64 %489
   %533 = icmp ult ptr %531, %488
-  br i1 %533, label %.preheader303.i, label %.loopexit.i, !llvm.loop !370
+  br i1 %533, label %.preheader303.i, label %.loopexit.i, !llvm.loop !790
 
 .preheader305.i:                                  ; preds = %487, %.preheader305.i
   %.7259.i = phi ptr [ %539, %.preheader305.i ], [ %481, %487 ]
   %.7.i = phi ptr [ %538, %.preheader305.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.7.i) #54, !srcloc !371
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.7.i) #54, !srcloc !791
   %534 = load <4 x float>, ptr %.7259.i, align 1
   store <4 x float> %534, ptr %.7.i, align 1
   %535 = getelementptr inbounds nuw i8, ptr %.7.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %535) #54, !srcloc !372
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %535) #54, !srcloc !792
   %536 = getelementptr inbounds nuw i8, ptr %.7259.i, i64 16
   %537 = load <4 x float>, ptr %536, align 1
   store <4 x float> %537, ptr %535, align 1
   %538 = getelementptr inbounds nuw i8, ptr %.7.i, i64 32
   %539 = getelementptr inbounds float, ptr %.7259.i, i64 %489
   %540 = icmp ult ptr %538, %488
-  br i1 %540, label %.preheader305.i, label %.loopexit.i, !llvm.loop !373
+  br i1 %540, label %.preheader305.i, label %.loopexit.i, !llvm.loop !793
 
 .preheader307.i:                                  ; preds = %487, %.preheader307.i
   %.8260.i = phi ptr [ %549, %.preheader307.i ], [ %481, %487 ]
   %.8.i = phi ptr [ %548, %.preheader307.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.8.i) #54, !srcloc !374
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.8.i) #54, !srcloc !794
   %541 = load <4 x float>, ptr %.8260.i, align 1
   store <4 x float> %541, ptr %.8.i, align 1
   %542 = getelementptr inbounds nuw i8, ptr %.8.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %542) #54, !srcloc !375
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %542) #54, !srcloc !795
   %543 = getelementptr inbounds nuw i8, ptr %.8260.i, i64 16
   %544 = load <4 x float>, ptr %543, align 1
   store <4 x float> %544, ptr %542, align 1
   %545 = getelementptr inbounds nuw i8, ptr %.8.i, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %545) #54, !srcloc !376
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %545) #54, !srcloc !796
   %546 = getelementptr inbounds nuw i8, ptr %.8260.i, i64 32
   %547 = load i32, ptr %546, align 4
   store i32 %547, ptr %545, align 4
   %548 = getelementptr inbounds nuw i8, ptr %.8.i, i64 36
   %549 = getelementptr inbounds float, ptr %.8260.i, i64 %489
   %550 = icmp ult ptr %548, %488
-  br i1 %550, label %.preheader307.i, label %.loopexit.i, !llvm.loop !377
+  br i1 %550, label %.preheader307.i, label %.loopexit.i, !llvm.loop !797
 
 .preheader309.i:                                  ; preds = %487, %.preheader309.i
   %.9261.i = phi ptr [ %559, %.preheader309.i ], [ %481, %487 ]
   %.9.i = phi ptr [ %558, %.preheader309.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.9.i) #54, !srcloc !378
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.9.i) #54, !srcloc !798
   %551 = load <4 x float>, ptr %.9261.i, align 1
   store <4 x float> %551, ptr %.9.i, align 1
   %552 = getelementptr inbounds nuw i8, ptr %.9.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %552) #54, !srcloc !379
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %552) #54, !srcloc !799
   %553 = getelementptr inbounds nuw i8, ptr %.9261.i, i64 16
   %554 = load <4 x float>, ptr %553, align 1
   store <4 x float> %554, ptr %552, align 1
   %555 = getelementptr inbounds nuw i8, ptr %.9.i, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %555) #54, !srcloc !380
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %555) #54, !srcloc !800
   %556 = getelementptr inbounds nuw i8, ptr %.9261.i, i64 32
   %557 = load i64, ptr %556, align 8
   store i64 %557, ptr %555, align 8
   %558 = getelementptr inbounds nuw i8, ptr %.9.i, i64 40
   %559 = getelementptr inbounds float, ptr %.9261.i, i64 %489
   %560 = icmp ult ptr %558, %488
-  br i1 %560, label %.preheader309.i, label %.loopexit.i, !llvm.loop !381
+  br i1 %560, label %.preheader309.i, label %.loopexit.i, !llvm.loop !801
 
 .preheader311.i:                                  ; preds = %487, %.preheader311.i
   %.10262.i = phi ptr [ %572, %.preheader311.i ], [ %481, %487 ]
   %.10.i = phi ptr [ %571, %.preheader311.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.10.i) #54, !srcloc !382
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.10.i) #54, !srcloc !802
   %561 = load <4 x float>, ptr %.10262.i, align 1
   store <4 x float> %561, ptr %.10.i, align 1
   %562 = getelementptr inbounds nuw i8, ptr %.10.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %562) #54, !srcloc !383
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %562) #54, !srcloc !803
   %563 = getelementptr inbounds nuw i8, ptr %.10262.i, i64 16
   %564 = load <4 x float>, ptr %563, align 1
   store <4 x float> %564, ptr %562, align 1
   %565 = getelementptr inbounds nuw i8, ptr %.10.i, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %565) #54, !srcloc !384
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %565) #54, !srcloc !804
   %566 = getelementptr inbounds nuw i8, ptr %.10262.i, i64 32
   %567 = load i64, ptr %566, align 8
   store i64 %567, ptr %565, align 8
   %568 = getelementptr inbounds nuw i8, ptr %.10.i, i64 40
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %568) #54, !srcloc !385
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %568) #54, !srcloc !805
   %569 = getelementptr inbounds nuw i8, ptr %.10262.i, i64 40
   %570 = load i32, ptr %569, align 4
   store i32 %570, ptr %568, align 4
   %571 = getelementptr inbounds nuw i8, ptr %.10.i, i64 44
   %572 = getelementptr inbounds float, ptr %.10262.i, i64 %489
   %573 = icmp ult ptr %571, %488
-  br i1 %573, label %.preheader311.i, label %.loopexit.i, !llvm.loop !386
+  br i1 %573, label %.preheader311.i, label %.loopexit.i, !llvm.loop !806
 
 .preheader313.i:                                  ; preds = %487, %.preheader313.i
   %.11263.i = phi ptr [ %582, %.preheader313.i ], [ %481, %487 ]
   %.11.i = phi ptr [ %581, %.preheader313.i ], [ %481, %487 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.11.i) #54, !srcloc !387
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.11.i) #54, !srcloc !807
   %574 = load <4 x float>, ptr %.11263.i, align 1
   store <4 x float> %574, ptr %.11.i, align 1
   %575 = getelementptr inbounds nuw i8, ptr %.11.i, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %575) #54, !srcloc !388
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %575) #54, !srcloc !808
   %576 = getelementptr inbounds nuw i8, ptr %.11263.i, i64 16
   %577 = load <4 x float>, ptr %576, align 1
   store <4 x float> %577, ptr %575, align 1
   %578 = getelementptr inbounds nuw i8, ptr %.11.i, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %578) #54, !srcloc !389
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %578) #54, !srcloc !809
   %579 = getelementptr inbounds nuw i8, ptr %.11263.i, i64 32
   %580 = load <4 x float>, ptr %579, align 1
   store <4 x float> %580, ptr %578, align 1
   %581 = getelementptr inbounds nuw i8, ptr %.11.i, i64 48
   %582 = getelementptr inbounds float, ptr %.11263.i, i64 %489
   %583 = icmp ult ptr %581, %488
-  br i1 %583, label %.preheader313.i, label %.loopexit.i, !llvm.loop !390
+  br i1 %583, label %.preheader313.i, label %.loopexit.i, !llvm.loop !810
 
 584:                                              ; preds = %._crit_edge.i381, %.preheader290.i
   %.12264.i = phi ptr [ %596, %._crit_edge.i381 ], [ %481, %.preheader290.i ]
@@ -57209,14 +57209,14 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
 587:                                              ; preds = %587, %584
   %.0266.i = phi ptr [ %.12264.i, %584 ], [ %590, %587 ]
   %.13.i = phi ptr [ %.12.i, %584 ], [ %589, %587 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.13.i) #54, !srcloc !391
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.13.i) #54, !srcloc !392
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.13.i) #54, !srcloc !811
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.13.i) #54, !srcloc !812
   %588 = load <4 x float>, ptr %.0266.i, align 1
   store <4 x float> %588, ptr %.13.i, align 1
   %589 = getelementptr inbounds nuw i8, ptr %.13.i, i64 16
   %590 = getelementptr inbounds nuw i8, ptr %.0266.i, i64 16
   %.not282.i = icmp ugt ptr %589, %586
-  br i1 %.not282.i, label %.preheader289.i, label %587
+  br i1 %.not282.i, label %.preheader289.i, label %587, !llvm.loop !813
 
 .preheader289.i:                                  ; preds = %587
   %591 = icmp ult ptr %589, %585
@@ -57225,19 +57225,19 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
 .lr.ph.i382:                                      ; preds = %.preheader289.i, %.lr.ph.i382
   %.14317.i = phi ptr [ %593, %.lr.ph.i382 ], [ %589, %.preheader289.i ]
   %.1267316.i = phi ptr [ %594, %.lr.ph.i382 ], [ %590, %.preheader289.i ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14317.i) #54, !srcloc !393
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.14317.i) #54, !srcloc !814
   %592 = load i32, ptr %.1267316.i, align 4
   store i32 %592, ptr %.14317.i, align 4
   %593 = getelementptr inbounds nuw i8, ptr %.14317.i, i64 4
   %594 = getelementptr inbounds nuw i8, ptr %.1267316.i, i64 4
   %595 = icmp ult ptr %593, %585
-  br i1 %595, label %.lr.ph.i382, label %._crit_edge.i381, !llvm.loop !394
+  br i1 %595, label %.lr.ph.i382, label %._crit_edge.i381, !llvm.loop !815
 
 ._crit_edge.i381:                                 ; preds = %.lr.ph.i382, %.preheader289.i
   %.14.lcssa.i = phi ptr [ %589, %.preheader289.i ], [ %593, %.lr.ph.i382 ]
   %596 = getelementptr inbounds float, ptr %.12264.i, i64 %489
   %597 = icmp ult ptr %.14.lcssa.i, %488
-  br i1 %597, label %584, label %.loopexit.i, !llvm.loop !395
+  br i1 %597, label %584, label %.loopexit.i, !llvm.loop !816
 
 .loopexit.i:                                      ; preds = %.preheader313.i, %.preheader311.i, %.preheader309.i, %.preheader307.i, %.preheader305.i, %.preheader303.i, %.preheader301.i, %.preheader299.i, %.preheader297.i, %.preheader295.i, %.preheader293.i, %.preheader291.i, %._crit_edge.i381, %stbir__get_extents.exit
   %598 = getelementptr inbounds float, ptr %481, i64 %.pre356.i
@@ -57320,14 +57320,14 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
   store float %634, ptr %.0249321.i, align 4
   %636 = add nsw i32 %.0265319.i, -1
   %.not285.i = icmp eq i32 %636, 0
-  br i1 %.not285.i, label %.preheader.i377, label %.lr.ph323.i
+  br i1 %.not285.i, label %.preheader.i377, label %.lr.ph323.i, !llvm.loop !817
 
 .lr.ph327.i:                                      ; preds = %.preheader.i377, %.lr.ph327.i
   %.1250326.i = phi ptr [ %637, %.lr.ph327.i ], [ %.0249.lcssa.i, %.preheader.i377 ]
   %637 = getelementptr inbounds i8, ptr %.1250326.i, i64 -4
   store float 0.000000e+00, ptr %.1250326.i, align 4
   %.not286.i = icmp ult ptr %637, %.0270332.i
-  br i1 %.not286.i, label %._crit_edge328.i, label %.lr.ph327.i
+  br i1 %.not286.i, label %._crit_edge328.i, label %.lr.ph327.i, !llvm.loop !818
 
 ._crit_edge328.i:                                 ; preds = %.lr.ph327.i, %.preheader.i377
   store i32 %624, ptr %.0271333.i, align 4
@@ -57337,7 +57337,7 @@ stbir__get_extents.exit:                          ; preds = %._crit_edge.thread.
   %639 = getelementptr inbounds float, ptr %.0270332.i, i64 %609
   %.0271.i = getelementptr inbounds i8, ptr %.0271333.i, i64 -8
   %.not283.i = icmp ult ptr %.0271.i, %480
-  br i1 %.not283.i, label %stbir__pack_coefficients.exit, label %610
+  br i1 %.not283.i, label %stbir__pack_coefficients.exit, label %610, !llvm.loop !819
 
 stbir__pack_coefficients.exit:                    ; preds = %610, %638, %.loopexit.i
   store i32 %484, ptr %482, align 4
@@ -57368,7 +57368,7 @@ stbir__pack_coefficients.exit:                    ; preds = %610, %638, %.loopex
 
 659:                                              ; preds = %663, %stbir__pack_coefficients.exit
   %.3.i383 = phi ptr [ %657, %stbir__pack_coefficients.exit ], [ %675, %663 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i383) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i383) #54, !srcloc !97
   %660 = icmp ugt ptr %.3.i383, %658
   br i1 %660, label %661, label %663
 
@@ -57394,7 +57394,7 @@ stbir__pack_coefficients.exit:                    ; preds = %610, %638, %.loopex
   %674 = getelementptr inbounds nuw i8, ptr %.4.i384, i64 48
   store <4 x float> %671, ptr %674, align 1
   %675 = getelementptr inbounds nuw i8, ptr %.4.i384, i64 64
-  br label %659, !llvm.loop !22
+  br label %659, !llvm.loop !98
 
 stbir_simd_memcpy.exit:                           ; preds = %661
   br i1 %.not363, label %712, label %676
@@ -57426,7 +57426,7 @@ stbir_simd_memcpy.exit:                           ; preds = %661
 
 695:                                              ; preds = %699, %676
   %.3.i386 = phi ptr [ %693, %676 ], [ %711, %699 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i386) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i386) #54, !srcloc !97
   %696 = icmp ugt ptr %.3.i386, %694
   br i1 %696, label %697, label %699
 
@@ -57452,7 +57452,7 @@ stbir_simd_memcpy.exit:                           ; preds = %661
   %710 = getelementptr inbounds nuw i8, ptr %.4.i387, i64 48
   store <4 x float> %707, ptr %710, align 1
   %711 = getelementptr inbounds nuw i8, ptr %.4.i387, i64 64
-  br label %695, !llvm.loop !22
+  br label %695, !llvm.loop !98
 
 712:                                              ; preds = %stbir_simd_memcpy.exit
   tail call fastcc void @stbir__calculate_filters(ptr noundef %1, ptr noundef %.3, ptr noundef %8)
@@ -57483,7 +57483,7 @@ stbir_simd_memcpy.exit:                           ; preds = %661
 
 732:                                              ; preds = %736, %712
   %.3.i390 = phi ptr [ %730, %712 ], [ %748, %736 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i390) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i390) #54, !srcloc !97
   %733 = icmp ugt ptr %.3.i390, %731
   br i1 %733, label %734, label %736
 
@@ -57509,7 +57509,7 @@ stbir_simd_memcpy.exit:                           ; preds = %661
   %747 = getelementptr inbounds nuw i8, ptr %.4.i391, i64 48
   store <4 x float> %744, ptr %747, align 1
   %748 = getelementptr inbounds nuw i8, ptr %.4.i391, i64 64
-  br label %732, !llvm.loop !22
+  br label %732, !llvm.loop !98
 
 stbir_simd_memcpy.exit389:                        ; preds = %697, %734
   %749 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 416
@@ -57551,7 +57551,7 @@ stbir_simd_memcpy.exit389:                        ; preds = %697, %734
   store i32 %761, ptr %772, align 8
   %indvars.iv.next.i397 = add nuw nsw i64 %indvars.iv.i396, 1
   %exitcond.not.i398 = icmp eq i64 %indvars.iv.next.i397, %wide.trip.count.i
-  br i1 %exitcond.not.i398, label %stbir__get_split_info.exit, label %762
+  br i1 %exitcond.not.i398, label %stbir__get_split_info.exit, label %762, !llvm.loop !820
 
 stbir__get_split_info.exit:                       ; preds = %762, %stbir_simd_memcpy.exit389
   %773 = getelementptr inbounds nuw i8, ptr %170, i64 276
@@ -57592,7 +57592,7 @@ stbir__get_split_info.exit:                       ; preds = %762, %stbir_simd_me
   store float 9.999000e+03, ptr %789, align 4
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge53, label %.lr.ph52
+  br i1 %exitcond96.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !821
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %785
   br i1 %112, label %.preheader25, label %.loopexit
@@ -57620,25 +57620,25 @@ stbir__get_split_info.exit:                       ; preds = %762, %stbir_simd_me
   store float 9.999000e+03, ptr %798, align 4
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge56.us, label %792
+  br i1 %exitcond101.not, label %._crit_edge56.us, label %792, !llvm.loop !822
 
 ._crit_edge56.us:                                 ; preds = %792
   %799 = add nuw nsw i32 %.057.us, 1
   %800 = load i32, ptr %775, align 4
   %801 = icmp slt i32 %799, %800
-  br i1 %801, label %.preheader.us, label %.loopexit, !llvm.loop !396
+  br i1 %801, label %.preheader.us, label %.loopexit, !llvm.loop !823
 
 .loopexit:                                        ; preds = %._crit_edge56.us, %.preheader25, %._crit_edge53
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %.thread15, label %785
+  br i1 %exitcond106.not, label %.thread15, label %785, !llvm.loop !824
 
 .thread13:                                        ; preds = %355
   %802 = ptrtoint ptr %.3328 to i64
   %803 = add i64 %802, 15
   %804 = tail call noalias ptr @malloc(i64 noundef %803) #55
   %805 = icmp eq ptr %804, null
-  br i1 %805, label %.thread15, label %166
+  br i1 %805, label %.thread15, label %166, !llvm.loop !825
 
 .thread15:                                        ; preds = %.thread13, %.loopexit, %stbir__get_split_info.exit, %53
   %.0310 = phi ptr [ null, %53 ], [ %170, %stbir__get_split_info.exit ], [ %spec.select366, %.loopexit ], [ null, %.thread13 ]
@@ -57834,7 +57834,7 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   %.04047 = phi ptr [ %.040, %.lr.ph ], [ %.04043, %.lr.ph.preheader ]
   %.046 = phi ptr [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.pn45 = phi ptr [ %.04047, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.04047) #54, !srcloc !397
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.04047) #54, !srcloc !826
   %9 = load <4 x float>, ptr %.pn45, align 1
   %10 = getelementptr inbounds nuw i8, ptr %.pn45, i64 16
   %11 = load <4 x float>, ptr %10, align 1
@@ -57852,7 +57852,7 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   %19 = getelementptr inbounds nuw i8, ptr %.046, i64 56
   %.040 = getelementptr inbounds nuw i8, ptr %.04047, i64 32
   %.not = icmp ugt ptr %.040, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !398
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !827
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.pn.lcssa = phi ptr [ %8, %2 ], [ %.04047, %.lr.ph ]
@@ -57861,7 +57861,7 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %._crit_edge
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.pn.lcssa) #54, !srcloc !399
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.pn.lcssa) #54, !srcloc !828
   %22 = load <4 x float>, ptr %.pn.lcssa, align 1
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %24 = fmul <4 x float> %22, %23
@@ -57890,7 +57890,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
 .preheader:                                       ; preds = %2, %.preheader
   %.150 = phi ptr [ %34, %.preheader ], [ %10, %2 ]
   %.1 = phi ptr [ %35, %.preheader ], [ %0, %2 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.150) #54, !srcloc !400
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.150) #54, !srcloc !829
   %11 = getelementptr inbounds i8, ptr %.150, i64 -32
   %12 = load <4 x float>, ptr %11, align 1
   %13 = getelementptr inbounds i8, ptr %.150, i64 -16
@@ -57923,7 +57923,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %34 = getelementptr inbounds nuw i8, ptr %.150, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %.not55 = icmp ugt ptr %34, %6
-  br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !401
+  br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !830
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.049 = phi ptr [ %10, %2 ], [ %34, %.preheader ]
@@ -57938,7 +57938,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %38 = load float, ptr %.25157, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.25157, i64 4
   %40 = load float, ptr %39, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25157) #54, !srcloc !402
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25157) #54, !srcloc !831
   store float %38, ptr %.258, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.258, i64 4
   store float %40, ptr %41, align 4
@@ -57948,7 +57948,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %44 = getelementptr inbounds nuw i8, ptr %.258, i64 12
   %45 = getelementptr inbounds nuw i8, ptr %.25157, i64 8
   %46 = icmp ult ptr %45, %6
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !403
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !832
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   ret void
@@ -57965,7 +57965,7 @@ define internal void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 nounde
   %.0 = phi ptr [ %0, %2 ], [ %21, %19 ]
   %6 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   %7 = load float, ptr %6, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !404
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !833
   %8 = fcmp olt float %7, 0x3870000000000000
   br i1 %8, label %9, label %11
 
@@ -57990,7 +57990,7 @@ define internal void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 nounde
   %20 = getelementptr inbounds nuw i8, ptr %.021, i64 28
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %22 = icmp ult ptr %21, %4
-  br i1 %22, label %5, label %23, !llvm.loop !405
+  br i1 %22, label %5, label %23, !llvm.loop !834
 
 23:                                               ; preds = %19
   ret void
@@ -58025,7 +58025,7 @@ define internal void @stbir__fancy_alpha_unweight_2ch(ptr noundef captures(addre
   %16 = getelementptr inbounds nuw i8, ptr %.016, i64 12
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %18 = icmp ult ptr %17, %4
-  br i1 %18, label %5, label %19
+  br i1 %18, label %5, label %19, !llvm.loop !835
 
 19:                                               ; preds = %14
   ret void
@@ -58046,7 +58046,7 @@ define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.034 = phi ptr [ %.0, %.lr.ph ], [ %.031, %.lr.ph.preheader ]
   %.pn33 = phi ptr [ %.034, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.034) #54, !srcloc !406
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.034) #54, !srcloc !836
   %5 = load <4 x float>, ptr %.pn33, align 1
   %6 = getelementptr inbounds nuw i8, ptr %.pn33, i64 16
   %7 = load <4 x float>, ptr %6, align 1
@@ -58058,7 +58058,7 @@ define internal void @stbir__simple_alpha_weight_4ch(ptr noundef %0, i32 noundef
   store <4 x float> %11, ptr %6, align 1
   %.0 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %.not = icmp ugt ptr %.0, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !407
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !837
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.pn.lcssa = phi ptr [ %0, %2 ], [ %.034, %.lr.ph ]
@@ -58096,7 +58096,7 @@ define internal void @stbir__simple_alpha_weight_2ch(ptr noundef %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.031 = phi ptr [ %.0, %.lr.ph ], [ %.028, %.lr.ph.preheader ]
   %.pn30 = phi ptr [ %.031, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.031) #54, !srcloc !408
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.031) #54, !srcloc !838
   %6 = load <4 x float>, ptr %.pn30, align 1
   %7 = getelementptr inbounds nuw i8, ptr %.pn30, i64 16
   %8 = load <4 x float>, ptr %7, align 1
@@ -58116,19 +58116,19 @@ define internal void @stbir__simple_alpha_weight_2ch(ptr noundef %0, i32 noundef
   store <4 x float> %20, ptr %7, align 1
   %.0 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %.not = icmp ugt ptr %.0, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !409
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !839
 
 .lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
   %.132 = phi ptr [ %25, %.lr.ph33 ], [ %.pn.lcssa, %.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %.132, i64 4
   %22 = load float, ptr %21, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.132) #54, !srcloc !410
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.132) #54, !srcloc !840
   %23 = load float, ptr %.132, align 4
   %24 = fmul float %22, %23
   store float %24, ptr %.132, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.132, i64 8
   %26 = icmp ult ptr %25, %4
-  br i1 %26, label %.lr.ph33, label %._crit_edge, !llvm.loop !411
+  br i1 %26, label %.lr.ph33, label %._crit_edge, !llvm.loop !841
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
   ret void
@@ -58144,7 +58144,7 @@ define internal void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 nound
   %.0 = phi ptr [ %0, %2 ], [ %16, %15 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %7 = load float, ptr %6, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !412
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0) #54, !srcloc !842
   %8 = fcmp ult float %7, 0x3870000000000000
   br i1 %8, label %15, label %9
 
@@ -58161,7 +58161,7 @@ define internal void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 nound
 15:                                               ; preds = %9, %5
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %17 = icmp ult ptr %16, %4
-  br i1 %17, label %5, label %18, !llvm.loop !413
+  br i1 %17, label %5, label %18, !llvm.loop !843
 
 18:                                               ; preds = %15
   ret void
@@ -58189,7 +58189,7 @@ define internal void @stbir__simple_alpha_unweight_2ch(ptr noundef captures(addr
 12:                                               ; preds = %9, %5
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %14 = icmp ult ptr %13, %4
-  br i1 %14, label %5, label %15
+  br i1 %14, label %5, label %15, !llvm.loop !844
 
 15:                                               ; preds = %12
   ret void
@@ -58211,7 +58211,7 @@ define internal void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #22
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.053 = phi ptr [ %31, %.lr.ph ], [ %0, %2 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.053) #54, !srcloc !414
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.053) #54, !srcloc !845
   %7 = load <4 x float>, ptr %.053, align 1
   %8 = getelementptr inbounds nuw i8, ptr %.053, i64 12
   %9 = load <4 x float>, ptr %8, align 1
@@ -58247,19 +58247,19 @@ define internal void @stbir__simple_flip_3ch(ptr noundef %0, i32 noundef %1) #22
   store float %28, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.053, i64 96
   %.not = icmp ugt ptr %31, %5
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !415
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !846
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
   %.154 = phi ptr [ %35, %.lr.ph55 ], [ %.0.lcssa, %.preheader ]
   %32 = load float, ptr %.154, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.154) #54, !srcloc !416
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.154) #54, !srcloc !847
   %33 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   %34 = load float, ptr %33, align 4
   store float %34, ptr %.154, align 4
   store float %32, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.154, i64 12
   %36 = icmp ult ptr %35, %4
-  br i1 %36, label %.lr.ph55, label %._crit_edge, !llvm.loop !417
+  br i1 %36, label %.lr.ph55, label %._crit_edge, !llvm.loop !848
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.preheader
   ret void
@@ -58409,7 +58409,7 @@ stbir__calculate_in_pixel_range.exit.i:           ; preds = %76, %43
   %.1.i = phi i32 [ %.05069.i, %87 ], [ %.2.i, %89 ]
   %94 = sub nsw i32 %.062.i, %.164.i
   %.not56.i = icmp sgt i32 %.152.i, %94
-  br i1 %.not56.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not56.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !849
 
 ._crit_edge.i:                                    ; preds = %93, %stbir__calculate_in_pixel_range.exit.i
   %.063.lcssa.i = phi i32 [ %.0.i.i, %stbir__calculate_in_pixel_range.exit.i ], [ %.164.i, %93 ]
@@ -58422,7 +58422,7 @@ stbir__calculate_in_pixel_range.exit.i:           ; preds = %76, %43
   %98 = getelementptr inbounds float, ptr %.04872.i, i64 %42
   %99 = add nuw nsw i32 %.04971.i, 1
   %exitcond.not.i = icmp eq i32 %99, %spec.select.i
-  br i1 %exitcond.not.i, label %stbir__calculate_coefficients_for_gather_upsample.exit, label %43
+  br i1 %exitcond.not.i, label %stbir__calculate_coefficients_for_gather_upsample.exit, label %43, !llvm.loop !850
 
 stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i, %22
   %100 = load i32, ptr %25, align 8
@@ -58622,13 +58622,13 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %.3.i = phi i32 [ %198, %210 ], [ %.280.i, %216 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i159, label %.loopexit.i, label %196
+  br i1 %exitcond.not.i159, label %.loopexit.i, label %196, !llvm.loop !851
 
 .loopexit.i:                                      ; preds = %222, %192, %155
   %.1.ph.i = phi i32 [ %.06282.i, %155 ], [ %.06282.i, %192 ], [ %.3.i, %222 ]
   %223 = add i32 %.083.i, 1
   %exitcond87.not.i = icmp eq i32 %223, %108
-  br i1 %exitcond87.not.i, label %stbir__calculate_coefficients_for_gather_downsample.exit, label %155
+  br i1 %exitcond87.not.i, label %stbir__calculate_coefficients_for_gather_downsample.exit, label %155, !llvm.loop !852
 
 stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %189, %.loopexit.i, %137
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -58717,7 +58717,7 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %189, %.loop
   store i32 -1, ptr %264, align 4
   %.0134 = getelementptr i8, ptr %.0134178, i64 8
   %265 = icmp ult ptr %.0134, %.0149180
-  br i1 %265, label %.lr.ph, label %._crit_edge
+  br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !853
 
 ._crit_edge:                                      ; preds = %.lr.ph, %258
   store i32 %.0191, ptr %.0149180, align 4
@@ -58766,14 +58766,14 @@ stbir__calculate_coefficients_for_gather_downsample.exit: ; preds = %189, %.loop
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i165
   store float %280, ptr %gep.i, align 4
   %indvars.iv.next.i166 = add nsw i64 %indvars.iv.i165, -1
-  br label %.lr.ph.i164
+  br label %.lr.ph.i164, !llvm.loop !854
 
 .lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.lr.ph59.preheader.i
   %indvars.iv67.i = phi i64 [ 1, %.lr.ph59.preheader.i ], [ %indvars.iv.next68.i, %.lr.ph59.i ]
   %281 = getelementptr inbounds float, ptr %.0137183, i64 %indvars.iv67.i
   store float %.pre.i163, ptr %281, align 4
   %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
-  br label %.lr.ph59.i
+  br label %.lr.ph59.i, !llvm.loop !855
 
 ._crit_edge.i162:                                 ; preds = %.preheader.i
   store float %249, ptr %.0137183, align 4
@@ -58824,7 +58824,7 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge64.i, %2
   %302 = getelementptr inbounds float, ptr %.0137183, i64 %246
   %303 = add i32 %.0145182, 1
   %exitcond.not = icmp eq i32 %.0145182, %235
-  br i1 %exitcond.not, label %._crit_edge187, label %247
+  br i1 %exitcond.not, label %._crit_edge187, label %247, !llvm.loop !856
 
 ._crit_edge187:                                   ; preds = %stbir__insert_coeff.exit, %232
   %.1147.lcssa = phi i32 [ %.0146188, %232 ], [ %.2148, %stbir__insert_coeff.exit ]
@@ -58832,7 +58832,7 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge64.i, %2
   %305 = getelementptr inbounds float, ptr %.2142189, i64 %231
   %306 = add nuw nsw i32 %.0191, 1
   %exitcond206.not = icmp eq i32 %306, %.1
-  br i1 %exitcond206.not, label %._crit_edge194, label %232
+  br i1 %exitcond206.not, label %._crit_edge194, label %232, !llvm.loop !857
 
 ._crit_edge194:                                   ; preds = %._crit_edge187, %228
   %.0146.lcssa = phi i32 [ %229, %228 ], [ %.1147.lcssa, %._crit_edge187 ]
@@ -58855,7 +58855,7 @@ stbir__insert_coeff.exit:                         ; preds = %._crit_edge64.i, %2
   store i32 -1, ptr %315, align 4
   %.0133 = getelementptr i8, ptr %.0133198, i64 8
   %316 = icmp ult ptr %.0133, %313
-  br i1 %316, label %.lr.ph200, label %.loopexit
+  br i1 %316, label %.lr.ph200, label %.loopexit, !llvm.loop !858
 
 .loopexit:                                        ; preds = %.lr.ph200, %._crit_edge194, %stbir__calculate_coefficients_for_gather_downsample.exit, %stbir__calculate_coefficients_for_gather_upsample.exit, %3
   ret void
@@ -58907,7 +58907,7 @@ define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0
   %30 = fadd double %.0204330, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !859
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %31 = tail call double @llvm.fabs.f64(double %30)
@@ -58940,14 +58940,14 @@ define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0
   store float %40, ptr %36, align 4
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
-  br i1 %exitcond408.not, label %.loopexit284, label %.lr.ph334
+  br i1 %exitcond408.not, label %.loopexit284, label %.lr.ph334, !llvm.loop !860
 
 .loopexit284:                                     ; preds = %.lr.ph334, %32, %._crit_edge.thread
   %41 = getelementptr inbounds nuw i8, ptr %.0205335, i64 8
   %42 = getelementptr inbounds float, ptr %.0202336, i64 %20
   %43 = add nuw nsw i32 %.0183338, 1
   %exitcond409.not = icmp eq i32 %43, %spec.select
-  br i1 %exitcond409.not, label %._crit_edge341, label %21
+  br i1 %exitcond409.not, label %._crit_edge341, label %21, !llvm.loop !861
 
 ._crit_edge341:                                   ; preds = %.loopexit284, %7
   br i1 %18, label %44, label %stbir_overlapping_memcpy.exit
@@ -58973,7 +58973,7 @@ define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0
   %55 = getelementptr inbounds nuw i8, ptr %.0201342, i64 8
   %56 = add nsw i32 %.1344, 1
   %exitcond410.not = icmp eq i32 %56, %3
-  br i1 %exitcond410.not, label %57, label %47
+  br i1 %exitcond410.not, label %57, label %47, !llvm.loop !862
 
 57:                                               ; preds = %47
   %58 = mul nsw i32 %11, %6
@@ -58994,13 +58994,13 @@ define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0
 
 69:                                               ; preds = %69, %66
   %.1.i = phi ptr [ %5, %66 ], [ %72, %69 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !418
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !863
   %70 = load <4 x float>, ptr %.1.i, align 1
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %.idx
   store <4 x float> %70, ptr %71, align 1
   %72 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %73 = icmp ult ptr %72, %68
-  br i1 %73, label %69, label %74, !llvm.loop !419
+  br i1 %73, label %69, label %74, !llvm.loop !864
 
 74:                                               ; preds = %69
   %.not.i = icmp eq ptr %72, %64
@@ -59012,13 +59012,13 @@ define internal fastcc void @stbir__cleanup_gathered_coefficients(i32 noundef %0
 
 75:                                               ; preds = %.preheader510, %75
   %.2.i = phi ptr [ %78, %75 ], [ %.2.i.ph, %.preheader510 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2.i) #54, !srcloc !420
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2.i) #54, !srcloc !865
   %76 = load i32, ptr %.2.i, align 4
   %77 = getelementptr inbounds i8, ptr %.2.i, i64 %.idx
   store i32 %76, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
   %79 = icmp ult ptr %78, %64
-  br i1 %79, label %75, label %stbir_overlapping_memcpy.exit
+  br i1 %79, label %75, label %stbir_overlapping_memcpy.exit, !llvm.loop !866
 
 stbir_overlapping_memcpy.exit:                    ; preds = %75, %74, %._crit_edge341
   %80 = icmp sgt i32 %3, 0
@@ -59078,7 +59078,7 @@ stbir_overlapping_memcpy.exit:                    ; preds = %75, %74, %._crit_ed
   store float %101, ptr %102, align 4
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %exitcond422.not = icmp eq i64 %indvars.iv.next419, %wide.trip.count421
-  br i1 %exitcond422.not, label %stbir__insert_coeff.exit278, label %.preheader
+  br i1 %exitcond422.not, label %stbir__insert_coeff.exit278, label %.preheader, !llvm.loop !867
 
 103:                                              ; preds = %86
   br i1 %or.cond5, label %104, label %stbir__insert_coeff.exit278
@@ -59145,14 +59145,14 @@ stbir_overlapping_memcpy.exit:                    ; preds = %75, %74, %._crit_ed
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i
   store float %131, ptr %gep.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  br label %.lr.ph.i
+  br label %.lr.ph.i, !llvm.loop !854
 
 .lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.lr.ph59.preheader.i
   %indvars.iv67.i = phi i64 [ 1, %.lr.ph59.preheader.i ], [ %indvars.iv.next68.i, %.lr.ph59.i ]
   %132 = getelementptr inbounds float, ptr %.1203368, i64 %indvars.iv67.i
   store float %.pre.i, ptr %132, align 4
   %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
-  br label %.lr.ph59.i
+  br label %.lr.ph59.i, !llvm.loop !855
 
 ._crit_edge.i:                                    ; preds = %.preheader.i
   store float %116, ptr %.1203368, align 4
@@ -59202,7 +59202,7 @@ stbir__insert_coeff.exit:                         ; preds = %121, %._crit_edge.i
   %indvars.iv.next412 = add nsw i64 %indvars.iv411, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next412 to i32
   %exitcond414.not = icmp eq i32 %110, %lftr.wideiv
-  br i1 %exitcond414.not, label %.loopexit283.loopexit, label %111
+  br i1 %exitcond414.not, label %.loopexit283.loopexit, label %111, !llvm.loop !868
 
 .loopexit283.loopexit:                            ; preds = %stbir__insert_coeff.exit
   %.pre = load i32, ptr %.1206367, align 4
@@ -59271,14 +59271,14 @@ stbir__insert_coeff.exit:                         ; preds = %121, %._crit_edge.i
   %gep.i250 = getelementptr float, ptr %invariant.gep.i247, i64 %indvars.iv.i249
   store float %177, ptr %gep.i250, align 4
   %indvars.iv.next.i251 = add nsw i64 %indvars.iv.i249, -1
-  br label %.lr.ph.i248
+  br label %.lr.ph.i248, !llvm.loop !854
 
 .lr.ph59.i243:                                    ; preds = %.lr.ph59.i243, %.lr.ph59.preheader.i241
   %indvars.iv67.i244 = phi i64 [ 1, %.lr.ph59.preheader.i241 ], [ %indvars.iv.next68.i245, %.lr.ph59.i243 ]
   %178 = getelementptr inbounds float, ptr %.1203368, i64 %indvars.iv67.i244
   store float %.pre.i242, ptr %178, align 4
   %indvars.iv.next68.i245 = add nsw i64 %indvars.iv67.i244, -1
-  br label %.lr.ph59.i243
+  br label %.lr.ph59.i243, !llvm.loop !855
 
 ._crit_edge.i240:                                 ; preds = %.preheader.i239
   store float %162, ptr %.1203368, align 4
@@ -59328,7 +59328,7 @@ stbir__insert_coeff.exit257:                      ; preds = %167, %._crit_edge.i
   %199 = add nsw i32 %.1197346, -1
   %200 = load i32, ptr %.1206367, align 4
   %201 = icmp sgt i32 %199, %200
-  br i1 %201, label %159, label %._crit_edge350
+  br i1 %201, label %159, label %._crit_edge350, !llvm.loop !869
 
 ._crit_edge350:                                   ; preds = %stbir__insert_coeff.exit257, %155
   %.0182.lcssa = phi ptr [ %157, %155 ], [ %161, %stbir__insert_coeff.exit257 ]
@@ -59354,7 +59354,7 @@ stbir__insert_coeff.exit257:                      ; preds = %167, %._crit_edge.i
   %209 = load i32, ptr %105, align 4
   %210 = sext i32 %209 to i64
   %.not226.not = icmp slt i64 %indvars.iv415, %210
-  br i1 %.not226.not, label %.lr.ph356, label %._crit_edge357
+  br i1 %.not226.not, label %.lr.ph356, label %._crit_edge357, !llvm.loop !870
 
 ._crit_edge357:                                   ; preds = %.lr.ph356, %._crit_edge350
   %211 = load ptr, ptr %83, align 8
@@ -59400,14 +59400,14 @@ stbir__insert_coeff.exit257:                      ; preds = %167, %._crit_edge.i
   %gep.i271 = getelementptr float, ptr %invariant.gep.i268, i64 %indvars.iv.i270
   store float %227, ptr %gep.i271, align 4
   %indvars.iv.next.i272 = add nsw i64 %indvars.iv.i270, -1
-  br label %.lr.ph.i269
+  br label %.lr.ph.i269, !llvm.loop !854
 
 .lr.ph59.i264:                                    ; preds = %.lr.ph59.i264, %.lr.ph59.preheader.i262
   %indvars.iv67.i265 = phi i64 [ 1, %.lr.ph59.preheader.i262 ], [ %indvars.iv.next68.i266, %.lr.ph59.i264 ]
   %228 = getelementptr inbounds float, ptr %.1203368, i64 %indvars.iv67.i265
   store float %.pre.i263, ptr %228, align 4
   %indvars.iv.next68.i266 = add nsw i64 %indvars.iv67.i265, -1
-  br label %.lr.ph59.i264
+  br label %.lr.ph59.i264, !llvm.loop !855
 
 ._crit_edge.i261:                                 ; preds = %.preheader.i260
   store float %202, ptr %.1203368, align 4
@@ -59486,7 +59486,7 @@ stbir__insert_coeff.exit278:                      ; preds = %.preheader, %._crit
 258:                                              ; preds = %.lr.ph362
   %indvars.iv.next424 = add nsw i64 %indvars.iv423, -1
   %.not230 = icmp eq i64 %indvars.iv.next424, 0
-  br i1 %.not230, label %.critedge.thread, label %.lr.ph362
+  br i1 %.not230, label %.critedge.thread, label %.lr.ph362, !llvm.loop !871
 
 .critedge:                                        ; preds = %.lr.ph362
   %259 = trunc nsw i64 %indvars.iv423 to i32
@@ -59530,7 +59530,7 @@ stbir__insert_coeff.exit278:                      ; preds = %.preheader, %._crit
   %273 = getelementptr float, ptr %.1203368, i64 %84
   %274 = add nuw nsw i32 %.2372, 1
   %exitcond429.not = icmp eq i32 %274, %3
-  br i1 %exitcond429.not, label %._crit_edge374, label %86
+  br i1 %exitcond429.not, label %._crit_edge374, label %86, !llvm.loop !872
 
 ._crit_edge374:                                   ; preds = %.loopexit, %stbir_overlapping_memcpy.exit
   %.0192.lcssa = phi i32 [ -1, %stbir_overlapping_memcpy.exit ], [ %.1193, %.loopexit ]
@@ -59622,7 +59622,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr
   %15 = load i32, ptr %14, align 4
   %16 = sub nsw i32 %15, %11
   %17 = ashr i32 %16, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !421
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !873
   %18 = load <4 x float>, ptr %.039, align 1
   %19 = load <4 x float>, ptr %13, align 1
   %20 = fmul <4 x float> %18, %19
@@ -59635,14 +59635,14 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr
   %.0 = phi <4 x float> [ %20, %10 ], [ %27, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !422
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !874
   %24 = load <4 x float>, ptr %22, align 1
   %25 = load <4 x float>, ptr %23, align 1
   %26 = fmul <4 x float> %24, %25
   %27 = fadd <4 x float> %.0, %26
   %28 = add nsw i32 %.035, -1
   %29 = icmp sgt i32 %.035, 1
-  br i1 %29, label %21, label %30, !llvm.loop !423
+  br i1 %29, label %21, label %30, !llvm.loop !875
 
 30:                                               ; preds = %21
   %31 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
@@ -59655,7 +59655,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod0(ptr
   %36 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %38 = icmp ult ptr %37, %8
-  br i1 %38, label %10, label %39, !llvm.loop !424
+  br i1 %38, label %10, label %39, !llvm.loop !876
 
 39:                                               ; preds = %30
   ret void
@@ -59680,7 +59680,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr
   %16 = xor i32 %11, -1
   %17 = add i32 %15, %16
   %18 = ashr i32 %17, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !425
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !877
   %19 = load <4 x float>, ptr %.044, align 1
   %20 = load <4 x float>, ptr %13, align 1
   %21 = fmul <4 x float> %19, %20
@@ -59693,14 +59693,14 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr
   %.039 = phi <4 x float> [ %21, %10 ], [ %28, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.042, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %24) #54, !srcloc !426
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %24) #54, !srcloc !878
   %25 = load <4 x float>, ptr %23, align 1
   %26 = load <4 x float>, ptr %24, align 1
   %27 = fmul <4 x float> %25, %26
   %28 = fadd <4 x float> %.039, %27
   %29 = add nsw i32 %.041, -1
   %30 = icmp sgt i32 %.041, 1
-  br i1 %30, label %22, label %31, !llvm.loop !427
+  br i1 %30, label %22, label %31, !llvm.loop !879
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %.040, i64 32
@@ -59720,7 +59720,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod1(ptr
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   %45 = icmp ult ptr %44, %8
-  br i1 %45, label %10, label %46, !llvm.loop !428
+  br i1 %45, label %10, label %46, !llvm.loop !880
 
 46:                                               ; preds = %31
   ret void
@@ -59745,7 +59745,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr
   %reass.sub = sub i32 %15, %11
   %16 = add i32 %reass.sub, -2
   %17 = ashr i32 %16, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !429
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !881
   %18 = load <4 x float>, ptr %.044, align 1
   %19 = load <4 x float>, ptr %13, align 1
   %20 = fmul <4 x float> %18, %19
@@ -59758,14 +59758,14 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr
   %.039 = phi <4 x float> [ %20, %10 ], [ %27, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.042, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !430
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !882
   %24 = load <4 x float>, ptr %22, align 1
   %25 = load <4 x float>, ptr %23, align 1
   %26 = fmul <4 x float> %24, %25
   %27 = fadd <4 x float> %.039, %26
   %28 = add nsw i32 %.041, -1
   %29 = icmp sgt i32 %.041, 1
-  br i1 %29, label %21, label %30, !llvm.loop !431
+  br i1 %29, label %21, label %30, !llvm.loop !883
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.040, i64 32
@@ -59788,7 +59788,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod2(ptr
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   %48 = icmp ult ptr %47, %8
-  br i1 %48, label %10, label %49, !llvm.loop !432
+  br i1 %48, label %10, label %49, !llvm.loop !884
 
 49:                                               ; preds = %30
   ret void
@@ -59813,7 +59813,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr
   %reass.sub = sub i32 %15, %11
   %16 = add i32 %reass.sub, -3
   %17 = ashr i32 %16, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !433
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !885
   %18 = load <4 x float>, ptr %.045, align 1
   %19 = load <4 x float>, ptr %13, align 1
   %20 = fmul <4 x float> %18, %19
@@ -59826,14 +59826,14 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr
   %.0 = phi <4 x float> [ %20, %10 ], [ %27, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.042, i64 16
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !434
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #54, !srcloc !886
   %24 = load <4 x float>, ptr %22, align 1
   %25 = load <4 x float>, ptr %23, align 1
   %26 = fmul <4 x float> %24, %25
   %27 = fadd <4 x float> %.0, %26
   %28 = add nsw i32 %.041, -1
   %29 = icmp sgt i32 %.041, 1
-  br i1 %29, label %21, label %30, !llvm.loop !435
+  br i1 %29, label %21, label %30, !llvm.loop !887
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.040, i64 32
@@ -59854,7 +59854,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_n_coeffs_mod3(ptr
   %44 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %46 = icmp ult ptr %45, %8
-  br i1 %46, label %10, label %47, !llvm.loop !436
+  br i1 %46, label %10, label %47, !llvm.loop !888
 
 47:                                               ; preds = %30
   ret void
@@ -59880,7 +59880,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %17, %12
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !437
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !889
   %20 = load <4 x float>, ptr %.048, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -59899,7 +59899,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr
   %.0 = phi <4 x float> [ %27, %11 ], [ %40, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %.043, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.045, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !438
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !890
   %31 = load <4 x float>, ptr %29, align 1
   %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %33 = load <4 x float>, ptr %30, align 1
@@ -59912,7 +59912,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr
   %40 = fadd <4 x float> %.0, %39
   %41 = add nsw i32 %.044, -1
   %42 = icmp sgt i32 %.044, 1
-  br i1 %42, label %28, label %43, !llvm.loop !439
+  br i1 %42, label %28, label %43, !llvm.loop !891
 
 43:                                               ; preds = %28
   %44 = fadd <4 x float> %35, %40
@@ -59925,7 +59925,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod0(ptr
   %50 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %52 = icmp ult ptr %51, %9
-  br i1 %52, label %11, label %53, !llvm.loop !440
+  br i1 %52, label %11, label %53, !llvm.loop !892
 
 53:                                               ; preds = %43
   ret void
@@ -59952,7 +59952,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr
   %18 = xor i32 %12, -1
   %19 = add i32 %17, %18
   %20 = ashr i32 %19, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !441
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !893
   %21 = load <4 x float>, ptr %.054, align 1
   %22 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %23 = load <4 x float>, ptr %15, align 1
@@ -59971,7 +59971,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr
   %.048 = phi <4 x float> [ %28, %11 ], [ %41, %29 ]
   %30 = getelementptr inbounds nuw i8, ptr %.050, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.052, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %31) #54, !srcloc !442
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %31) #54, !srcloc !894
   %32 = load <4 x float>, ptr %30, align 1
   %33 = shufflevector <4 x float> %32, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %34 = load <4 x float>, ptr %31, align 1
@@ -59984,7 +59984,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr
   %41 = fadd <4 x float> %.048, %40
   %42 = add nsw i32 %.051, -1
   %43 = icmp sgt i32 %.051, 1
-  br i1 %43, label %29, label %44, !llvm.loop !443
+  br i1 %43, label %29, label %44, !llvm.loop !895
 
 44:                                               ; preds = %29
   %45 = getelementptr inbounds nuw i8, ptr %.050, i64 32
@@ -60007,7 +60007,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod1(ptr
   %61 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %63 = icmp ult ptr %62, %9
-  br i1 %63, label %11, label %64, !llvm.loop !444
+  br i1 %63, label %11, label %64, !llvm.loop !896
 
 64:                                               ; preds = %44
   ret void
@@ -60034,7 +60034,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -2
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !445
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !897
   %20 = load <4 x float>, ptr %.053, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -60053,7 +60053,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr
   %.0 = phi <4 x float> [ %27, %11 ], [ %40, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.050, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !446
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !898
   %31 = load <4 x float>, ptr %29, align 1
   %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %33 = load <4 x float>, ptr %30, align 1
@@ -60066,7 +60066,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr
   %40 = fadd <4 x float> %.0, %39
   %41 = add nsw i32 %.049, -1
   %42 = icmp sgt i32 %.049, 1
-  br i1 %42, label %28, label %43, !llvm.loop !447
+  br i1 %42, label %28, label %43, !llvm.loop !899
 
 43:                                               ; preds = %28
   %44 = getelementptr inbounds nuw i8, ptr %.048, i64 32
@@ -60088,7 +60088,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod2(ptr
   %59 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   %61 = icmp ult ptr %60, %9
-  br i1 %61, label %11, label %62, !llvm.loop !448
+  br i1 %61, label %11, label %62, !llvm.loop !900
 
 62:                                               ; preds = %43
   ret void
@@ -60115,7 +60115,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -3
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !449
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !901
   %20 = load <4 x float>, ptr %.058, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -60134,7 +60134,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr
   %.052 = phi <4 x float> [ %27, %11 ], [ %40, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.056, i64 32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !450
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #54, !srcloc !902
   %31 = load <4 x float>, ptr %29, align 1
   %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %33 = load <4 x float>, ptr %30, align 1
@@ -60147,7 +60147,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr
   %40 = fadd <4 x float> %.052, %39
   %41 = add nsw i32 %.055, -1
   %42 = icmp sgt i32 %.055, 1
-  br i1 %42, label %28, label %43, !llvm.loop !451
+  br i1 %42, label %28, label %43, !llvm.loop !903
 
 43:                                               ; preds = %28
   %44 = getelementptr inbounds nuw i8, ptr %.054, i64 32
@@ -60174,7 +60174,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_n_coeffs_mod3(ptr
   %64 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %66 = icmp ult ptr %65, %9
-  br i1 %66, label %11, label %67, !llvm.loop !452
+  br i1 %66, label %11, label %67, !llvm.loop !904
 
 67:                                               ; preds = %43
   ret void
@@ -60200,7 +60200,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %17, %12
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !453
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !905
   %20 = load <4 x float>, ptr %.071, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -60224,7 +60224,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   %.063 = phi <4 x float> [ %31, %11 ], [ %49, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.068, i64 48
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !454
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !906
   %35 = load <4 x float>, ptr %33, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %37 = load <4 x float>, ptr %34, align 1
@@ -60242,7 +60242,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   %49 = fadd <4 x float> %.063, %48
   %50 = add nsw i32 %.067, -1
   %51 = icmp sgt i32 %.067, 1
-  br i1 %51, label %32, label %52, !llvm.loop !455
+  br i1 %51, label %32, label %52, !llvm.loop !907
 
 52:                                               ; preds = %32
   %53 = shufflevector <4 x float> %39, <4 x float> %44, <4 x i32> <i32 3, i32 4, i32 5, i32 2>
@@ -60268,7 +60268,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod0(ptr
   %66 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %67 = getelementptr inbounds float, ptr %.071, i64 %10
   store <4 x float> %58, ptr %.069, align 1
-  br label %11
+  br label %11, !llvm.loop !908
 }
 
 ; Function Attrs: nounwind uwtable
@@ -60292,7 +60292,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %18 = xor i32 %12, -1
   %19 = add i32 %17, %18
   %20 = ashr i32 %19, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !456
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !909
   %21 = load <4 x float>, ptr %.077, align 1
   %22 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %23 = load <4 x float>, ptr %15, align 1
@@ -60316,7 +60316,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %.069 = phi <4 x float> [ %32, %11 ], [ %50, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %.074, i64 48
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %35) #54, !srcloc !457
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %35) #54, !srcloc !910
   %36 = load <4 x float>, ptr %34, align 1
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %38 = load <4 x float>, ptr %35, align 1
@@ -60334,10 +60334,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %50 = fadd <4 x float> %.069, %49
   %51 = add nsw i32 %.073, -1
   %52 = icmp sgt i32 %.073, 1
-  br i1 %52, label %33, label %53, !llvm.loop !458
+  br i1 %52, label %33, label %53, !llvm.loop !911
 
 53:                                               ; preds = %33
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %35) #54, !srcloc !459
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %35) #54, !srcloc !912
   %54 = getelementptr inbounds nuw i8, ptr %.072, i64 32
   %55 = load float, ptr %54, align 1
   %56 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %55, i64 0
@@ -60369,7 +60369,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod1(ptr
   %75 = getelementptr inbounds nuw i8, ptr %.076, i64 8
   %76 = getelementptr inbounds float, ptr %.077, i64 %10
   store <4 x float> %67, ptr %.075, align 1
-  br label %11
+  br label %11, !llvm.loop !913
 }
 
 ; Function Attrs: nounwind uwtable
@@ -60393,7 +60393,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -2
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !460
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !914
   %20 = load <4 x float>, ptr %.082, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -60417,7 +60417,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %.075 = phi <4 x float> [ %31, %11 ], [ %49, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %.078, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.080, i64 48
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !461
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !915
   %35 = load <4 x float>, ptr %33, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %37 = load <4 x float>, ptr %34, align 1
@@ -60435,10 +60435,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %49 = fadd <4 x float> %.075, %48
   %50 = add nsw i32 %.079, -1
   %51 = icmp sgt i32 %.079, 1
-  br i1 %51, label %32, label %52, !llvm.loop !462
+  br i1 %51, label %32, label %52, !llvm.loop !916
 
 52:                                               ; preds = %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !463
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !917
   %53 = getelementptr inbounds nuw i8, ptr %.078, i64 32
   %54 = load i64, ptr %53, align 1
   %55 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %54, i64 0
@@ -60478,7 +60478,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod2(ptr
   %82 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %83 = getelementptr inbounds float, ptr %.082, i64 %10
   store <4 x float> %74, ptr %.081, align 1
-  br label %11
+  br label %11, !llvm.loop !918
 }
 
 ; Function Attrs: nounwind uwtable
@@ -60502,7 +60502,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -3
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !464
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !919
   %20 = load <4 x float>, ptr %.086, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %22 = load <4 x float>, ptr %15, align 1
@@ -60526,7 +60526,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %.079 = phi <4 x float> [ %31, %11 ], [ %49, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %.082, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.084, i64 48
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !465
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !920
   %35 = load <4 x float>, ptr %33, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %37 = load <4 x float>, ptr %34, align 1
@@ -60544,10 +60544,10 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %49 = fadd <4 x float> %.079, %48
   %50 = add nsw i32 %.083, -1
   %51 = icmp sgt i32 %.083, 1
-  br i1 %51, label %32, label %52, !llvm.loop !466
+  br i1 %51, label %32, label %52, !llvm.loop !921
 
 52:                                               ; preds = %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !467
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34) #54, !srcloc !922
   %53 = getelementptr inbounds nuw i8, ptr %.082, i64 32
   %54 = load <4 x float>, ptr %53, align 1
   %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -60589,7 +60589,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_n_coeffs_mod3(ptr
   %84 = getelementptr inbounds nuw i8, ptr %.078, i64 8
   %85 = getelementptr inbounds float, ptr %.086, i64 %10
   store <4 x float> %76, ptr %.085, align 1
-  br label %11
+  br label %11, !llvm.loop !923
 }
 
 ; Function Attrs: nounwind uwtable
@@ -60612,7 +60612,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %17, %12
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !468
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !924
   %20 = load <4 x float>, ptr %.061, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -60641,7 +60641,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr
   %.0 = phi <4 x float> [ %37, %11 ], [ %60, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.058, i64 64
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !469
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !925
   %41 = load <4 x float>, ptr %39, align 1
   %42 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
   %43 = load <4 x float>, ptr %40, align 1
@@ -60664,7 +60664,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr
   %60 = fadd <4 x float> %50, %59
   %61 = add nsw i32 %.057, -1
   %62 = icmp sgt i32 %.057, 1
-  br i1 %62, label %38, label %63, !llvm.loop !470
+  br i1 %62, label %38, label %63, !llvm.loop !926
 
 63:                                               ; preds = %38
   %64 = fadd <4 x float> %55, %60
@@ -60673,7 +60673,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod0(ptr
   %66 = getelementptr inbounds nuw i8, ptr %.060, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %68 = icmp ult ptr %67, %9
-  br i1 %68, label %11, label %69, !llvm.loop !471
+  br i1 %68, label %11, label %69, !llvm.loop !927
 
 69:                                               ; preds = %63
   ret void
@@ -60700,7 +60700,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr
   %18 = xor i32 %12, -1
   %19 = add i32 %17, %18
   %20 = ashr i32 %19, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !472
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !928
   %21 = load <4 x float>, ptr %.067, align 1
   %22 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> zeroinitializer
   %23 = load <4 x float>, ptr %15, align 1
@@ -60729,7 +60729,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr
   %.0 = phi <4 x float> [ %38, %11 ], [ %61, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.062, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.064, i64 64
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %41) #54, !srcloc !473
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %41) #54, !srcloc !929
   %42 = load <4 x float>, ptr %40, align 1
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> zeroinitializer
   %44 = load <4 x float>, ptr %41, align 1
@@ -60752,10 +60752,10 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr
   %61 = fadd <4 x float> %51, %60
   %62 = add nsw i32 %.063, -1
   %63 = icmp sgt i32 %.063, 1
-  br i1 %63, label %39, label %64, !llvm.loop !474
+  br i1 %63, label %39, label %64, !llvm.loop !930
 
 64:                                               ; preds = %39
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %41) #54, !srcloc !475
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %41) #54, !srcloc !931
   %65 = getelementptr inbounds nuw i8, ptr %.062, i64 32
   %66 = load float, ptr %65, align 1
   %67 = insertelement <4 x float> poison, float %66, i64 0
@@ -60770,7 +60770,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod1(ptr
   %75 = getelementptr inbounds nuw i8, ptr %.066, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %.065, i64 16
   %77 = icmp ult ptr %76, %9
-  br i1 %77, label %11, label %78, !llvm.loop !476
+  br i1 %77, label %11, label %78, !llvm.loop !932
 
 78:                                               ; preds = %64
   ret void
@@ -60797,7 +60797,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -2
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !477
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !933
   %20 = load <4 x float>, ptr %.071, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -60826,7 +60826,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr
   %.0 = phi <4 x float> [ %37, %11 ], [ %60, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.068, i64 64
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !478
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !934
   %41 = load <4 x float>, ptr %39, align 1
   %42 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
   %43 = load <4 x float>, ptr %40, align 1
@@ -60849,10 +60849,10 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr
   %60 = fadd <4 x float> %50, %59
   %61 = add nsw i32 %.067, -1
   %62 = icmp sgt i32 %.067, 1
-  br i1 %62, label %38, label %63, !llvm.loop !479
+  br i1 %62, label %38, label %63, !llvm.loop !935
 
 63:                                               ; preds = %38
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !480
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !936
   %64 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %65 = load i64, ptr %64, align 1
   %66 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %65, i64 0
@@ -60873,7 +60873,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod2(ptr
   %80 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %82 = icmp ult ptr %81, %9
-  br i1 %82, label %11, label %83, !llvm.loop !481
+  br i1 %82, label %11, label %83, !llvm.loop !937
 
 83:                                               ; preds = %63
   ret void
@@ -60900,7 +60900,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -3
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !482
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !938
   %20 = load <4 x float>, ptr %.075, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -60929,7 +60929,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr
   %.0 = phi <4 x float> [ %37, %11 ], [ %60, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %.070, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.072, i64 64
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !483
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !939
   %41 = load <4 x float>, ptr %39, align 1
   %42 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
   %43 = load <4 x float>, ptr %40, align 1
@@ -60952,10 +60952,10 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr
   %60 = fadd <4 x float> %50, %59
   %61 = add nsw i32 %.071, -1
   %62 = icmp sgt i32 %.071, 1
-  br i1 %62, label %38, label %63, !llvm.loop !484
+  br i1 %62, label %38, label %63, !llvm.loop !940
 
 63:                                               ; preds = %38
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !485
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #54, !srcloc !941
   %64 = getelementptr inbounds nuw i8, ptr %.070, i64 32
   %65 = load <4 x float>, ptr %64, align 1
   %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> zeroinitializer
@@ -60979,7 +60979,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_n_coeffs_mod3(ptr
   %83 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %.073, i64 16
   %85 = icmp ult ptr %84, %9
-  br i1 %85, label %11, label %86, !llvm.loop !486
+  br i1 %85, label %11, label %86, !llvm.loop !942
 
 86:                                               ; preds = %63
   ret void
@@ -61005,7 +61005,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %17, %12
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !487
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !943
   %20 = load <4 x float>, ptr %.089, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -61050,7 +61050,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr
   %.0 = phi <4 x float> [ %51, %11 ], [ %90, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.086, i64 112
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !488
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !944
   %55 = load <4 x float>, ptr %53, align 1
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
   %57 = load <4 x float>, ptr %54, align 1
@@ -61089,7 +61089,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr
   %90 = fadd <4 x float> %72, %89
   %91 = add nsw i32 %.085, -1
   %92 = icmp sgt i32 %.085, 1
-  br i1 %92, label %52, label %93, !llvm.loop !489
+  br i1 %92, label %52, label %93, !llvm.loop !945
 
 93:                                               ; preds = %52
   %94 = fadd <4 x float> %77, %86
@@ -61101,7 +61101,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod0(ptr
   %98 = getelementptr inbounds nuw i8, ptr %.088, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %.087, i64 28
   %100 = icmp ult ptr %99, %9
-  br i1 %100, label %11, label %101, !llvm.loop !490
+  br i1 %100, label %11, label %101, !llvm.loop !946
 
 101:                                              ; preds = %93
   ret void
@@ -61128,7 +61128,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr
   %18 = xor i32 %12, -1
   %19 = add i32 %17, %18
   %20 = ashr i32 %19, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !491
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !947
   %21 = load <4 x float>, ptr %.098, align 1
   %22 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> zeroinitializer
   %23 = load <4 x float>, ptr %15, align 1
@@ -61173,7 +61173,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr
   %.0 = phi <4 x float> [ %52, %11 ], [ %91, %53 ]
   %54 = getelementptr inbounds nuw i8, ptr %.093, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %.095, i64 112
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55) #54, !srcloc !492
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55) #54, !srcloc !948
   %56 = load <4 x float>, ptr %54, align 1
   %57 = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> zeroinitializer
   %58 = load <4 x float>, ptr %55, align 1
@@ -61212,10 +61212,10 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr
   %91 = fadd <4 x float> %73, %90
   %92 = add nsw i32 %.094, -1
   %93 = icmp sgt i32 %.094, 1
-  br i1 %93, label %53, label %94, !llvm.loop !493
+  br i1 %93, label %53, label %94, !llvm.loop !949
 
 94:                                               ; preds = %53
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55) #54, !srcloc !494
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55) #54, !srcloc !950
   %95 = getelementptr inbounds nuw i8, ptr %.093, i64 32
   %96 = load float, ptr %95, align 1
   %97 = insertelement <4 x float> poison, float %96, i64 0
@@ -61237,7 +61237,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod1(ptr
   %111 = getelementptr inbounds nuw i8, ptr %.097, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %.096, i64 28
   %113 = icmp ult ptr %112, %9
-  br i1 %113, label %11, label %114, !llvm.loop !495
+  br i1 %113, label %11, label %114, !llvm.loop !951
 
 114:                                              ; preds = %94
   ret void
@@ -61264,7 +61264,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -2
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !496
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !952
   %20 = load <4 x float>, ptr %.0105, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -61309,7 +61309,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr
   %.0 = phi <4 x float> [ %51, %11 ], [ %90, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.0100, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.0102, i64 112
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !497
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !953
   %55 = load <4 x float>, ptr %53, align 1
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
   %57 = load <4 x float>, ptr %54, align 1
@@ -61348,10 +61348,10 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr
   %90 = fadd <4 x float> %72, %89
   %91 = add nsw i32 %.0101, -1
   %92 = icmp sgt i32 %.0101, 1
-  br i1 %92, label %52, label %93, !llvm.loop !498
+  br i1 %92, label %52, label %93, !llvm.loop !954
 
 93:                                               ; preds = %52
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !499
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !955
   %94 = getelementptr inbounds nuw i8, ptr %.0100, i64 32
   %95 = load i64, ptr %94, align 1
   %96 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %95, i64 0
@@ -61383,7 +61383,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod2(ptr
   %120 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %.0103, i64 28
   %122 = icmp ult ptr %121, %9
-  br i1 %122, label %11, label %123, !llvm.loop !500
+  br i1 %122, label %11, label %123, !llvm.loop !956
 
 123:                                              ; preds = %93
   ret void
@@ -61410,7 +61410,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr
   %reass.sub = sub i32 %17, %12
   %18 = add i32 %reass.sub, -3
   %19 = ashr i32 %18, 2
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !501
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !957
   %20 = load <4 x float>, ptr %.0112, align 1
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
   %22 = load <4 x float>, ptr %15, align 1
@@ -61455,7 +61455,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr
   %.0 = phi <4 x float> [ %51, %11 ], [ %90, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.0107, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.0109, i64 112
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !502
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !958
   %55 = load <4 x float>, ptr %53, align 1
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
   %57 = load <4 x float>, ptr %54, align 1
@@ -61494,10 +61494,10 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr
   %90 = fadd <4 x float> %72, %89
   %91 = add nsw i32 %.0108, -1
   %92 = icmp sgt i32 %.0108, 1
-  br i1 %92, label %52, label %93, !llvm.loop !503
+  br i1 %92, label %52, label %93, !llvm.loop !959
 
 93:                                               ; preds = %52
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !504
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54) #54, !srcloc !960
   %94 = getelementptr inbounds nuw i8, ptr %.0107, i64 32
   %95 = load <4 x float>, ptr %94, align 1
   %96 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> zeroinitializer
@@ -61536,7 +61536,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_n_coeffs_mod3(ptr
   %127 = getelementptr inbounds nuw i8, ptr %.0111, i64 8
   %128 = getelementptr inbounds nuw i8, ptr %.0110, i64 28
   %129 = icmp ult ptr %128, %9
-  br i1 %129, label %11, label %130, !llvm.loop !505
+  br i1 %129, label %11, label %130, !llvm.loop !961
 
 130:                                              ; preds = %93
   ret void
@@ -61556,7 +61556,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr nound
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !506
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !962
   %14 = load float, ptr %.017, align 1
   %15 = load float, ptr %13, align 1
   %16 = fmul float %14, %15
@@ -61565,7 +61565,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_1_coeff(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.018, i64 4
   %20 = icmp ult ptr %19, %8
-  br i1 %20, label %10, label %21, !llvm.loop !507
+  br i1 %20, label %10, label %21, !llvm.loop !963
 
 21:                                               ; preds = %10
   ret void
@@ -61585,7 +61585,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !508
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !964
   %14 = load i64, ptr %.021, align 1
   %15 = insertelement <2 x i64> poison, i64 %14, i64 0
   %16 = bitcast <2 x i64> %15 to <4 x float>
@@ -61601,7 +61601,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_2_coeffs(ptr noun
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %26 = icmp ult ptr %25, %8
-  br i1 %26, label %10, label %27, !llvm.loop !509
+  br i1 %26, label %10, label %27, !llvm.loop !965
 
 27:                                               ; preds = %10
   ret void
@@ -61621,7 +61621,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !510
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !966
   %14 = load <4 x float>, ptr %.023, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
@@ -61635,7 +61635,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_3_coeffs(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %.024, i64 4
   %23 = icmp ult ptr %22, %8
-  br i1 %23, label %10, label %24, !llvm.loop !511
+  br i1 %23, label %10, label %24, !llvm.loop !967
 
 24:                                               ; preds = %10
   ret void
@@ -61655,7 +61655,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !512
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !968
   %14 = load <4 x float>, ptr %.023, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
@@ -61669,7 +61669,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_4_coeffs(ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.024, i64 4
   %24 = icmp ult ptr %23, %8
-  br i1 %24, label %10, label %25, !llvm.loop !513
+  br i1 %24, label %10, label %25, !llvm.loop !969
 
 25:                                               ; preds = %10
   ret void
@@ -61689,7 +61689,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !514
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !970
   %14 = load <4 x float>, ptr %.028, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
@@ -61710,7 +61710,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_5_coeffs(ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %30 = icmp ult ptr %29, %8
-  br i1 %30, label %10, label %31, !llvm.loop !515
+  br i1 %30, label %10, label %31, !llvm.loop !971
 
 31:                                               ; preds = %10
   ret void
@@ -61730,7 +61730,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !516
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !972
   %14 = load <4 x float>, ptr %.028, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
@@ -61754,7 +61754,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_6_coeffs(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %34 = icmp ult ptr %33, %8
-  br i1 %34, label %10, label %35, !llvm.loop !517
+  br i1 %34, label %10, label %35, !llvm.loop !973
 
 35:                                               ; preds = %10
   ret void
@@ -61774,7 +61774,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !518
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !974
   %14 = load <4 x float>, ptr %.029, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
@@ -61796,7 +61796,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_7_coeffs(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.030, i64 4
   %32 = icmp ult ptr %31, %8
-  br i1 %32, label %10, label %33, !llvm.loop !519
+  br i1 %32, label %10, label %33, !llvm.loop !975
 
 33:                                               ; preds = %10
   ret void
@@ -61816,11 +61816,11 @@ define internal void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !520
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !976
   %14 = load <4 x float>, ptr %.028, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !521
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !977
   %17 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %18 = load <4 x float>, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -61837,7 +61837,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_8_coeffs(ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %30 = icmp ult ptr %29, %8
-  br i1 %30, label %10, label %31, !llvm.loop !522
+  br i1 %30, label %10, label %31, !llvm.loop !978
 
 31:                                               ; preds = %10
   ret void
@@ -61857,11 +61857,11 @@ define internal void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noun
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !523
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !979
   %14 = load <4 x float>, ptr %.033, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !524
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !980
   %17 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %18 = load <4 x float>, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -61885,7 +61885,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_9_coeffs(ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   %36 = icmp ult ptr %35, %8
-  br i1 %36, label %10, label %37, !llvm.loop !525
+  br i1 %36, label %10, label %37, !llvm.loop !981
 
 37:                                               ; preds = %10
   ret void
@@ -61905,11 +61905,11 @@ define internal void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr nou
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !526
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !982
   %14 = load <4 x float>, ptr %.033, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !527
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !983
   %17 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %18 = load <4 x float>, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -61936,7 +61936,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_10_coeffs(ptr nou
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   %40 = icmp ult ptr %39, %8
-  br i1 %40, label %10, label %41, !llvm.loop !528
+  br i1 %40, label %10, label %41, !llvm.loop !984
 
 41:                                               ; preds = %10
   ret void
@@ -61956,11 +61956,11 @@ define internal void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr nou
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !529
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !985
   %14 = load <4 x float>, ptr %.034, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !530
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !986
   %17 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %18 = load <4 x float>, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -61985,7 +61985,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_11_coeffs(ptr nou
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.035, i64 4
   %38 = icmp ult ptr %37, %8
-  br i1 %38, label %10, label %39, !llvm.loop !531
+  br i1 %38, label %10, label %39, !llvm.loop !987
 
 39:                                               ; preds = %10
   ret void
@@ -62005,18 +62005,18 @@ define internal void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr nou
   %11 = load i32, ptr %.0, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %2, i64 %12
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !532
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %13) #54, !srcloc !988
   %14 = load <4 x float>, ptr %.033, align 1
   %15 = load <4 x float>, ptr %13, align 1
   %16 = fmul <4 x float> %14, %15
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !533
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !989
   %17 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %18 = load <4 x float>, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %20 = load <4 x float>, ptr %19, align 1
   %21 = fmul <4 x float> %18, %20
   %22 = fadd <4 x float> %16, %21
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !534
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13) #54, !srcloc !990
   %23 = getelementptr inbounds nuw i8, ptr %.033, i64 32
   %24 = load <4 x float>, ptr %23, align 1
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -62033,7 +62033,7 @@ define internal void @stbir__horizontal_gather_1_channels_with_12_coeffs(ptr nou
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   %36 = icmp ult ptr %35, %8
-  br i1 %36, label %10, label %37, !llvm.loop !535
+  br i1 %36, label %10, label %37, !llvm.loop !991
 
 37:                                               ; preds = %10
   ret void
@@ -62055,7 +62055,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr nound
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !536
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !992
   %16 = load float, ptr %.022, align 1
   %17 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62072,7 +62072,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_1_coeff(ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %30 = icmp ult ptr %29, %9
-  br i1 %30, label %11, label %31, !llvm.loop !537
+  br i1 %30, label %11, label %31, !llvm.loop !993
 
 31:                                               ; preds = %11
   ret void
@@ -62094,7 +62094,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !538
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !994
   %16 = load i64, ptr %.021, align 1
   %17 = insertelement <2 x i64> poison, i64 %16, i64 0
   %18 = bitcast <2 x i64> %17 to <4 x float>
@@ -62110,7 +62110,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_2_coeffs(ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %29 = icmp ult ptr %28, %9
-  br i1 %29, label %11, label %30, !llvm.loop !539
+  br i1 %29, label %11, label %30, !llvm.loop !995
 
 30:                                               ; preds = %11
   ret void
@@ -62132,7 +62132,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !540
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !996
   %16 = load <4 x float>, ptr %.026, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62153,7 +62153,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_3_coeffs(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %34 = icmp ult ptr %33, %9
-  br i1 %34, label %11, label %35, !llvm.loop !541
+  br i1 %34, label %11, label %35, !llvm.loop !997
 
 35:                                               ; preds = %11
   ret void
@@ -62175,7 +62175,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !542
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !998
   %16 = load <4 x float>, ptr %.026, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62194,7 +62194,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_4_coeffs(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %32 = icmp ult ptr %31, %9
-  br i1 %32, label %11, label %33, !llvm.loop !543
+  br i1 %32, label %11, label %33, !llvm.loop !999
 
 33:                                               ; preds = %11
   ret void
@@ -62216,7 +62216,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !544
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1000
   %16 = load <4 x float>, ptr %.032, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62245,7 +62245,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_5_coeffs(ptr noun
   %40 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %42 = icmp ult ptr %41, %9
-  br i1 %42, label %11, label %43, !llvm.loop !545
+  br i1 %42, label %11, label %43, !llvm.loop !1001
 
 43:                                               ; preds = %11
   ret void
@@ -62267,7 +62267,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !546
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1002
   %16 = load <4 x float>, ptr %.031, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62295,7 +62295,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_6_coeffs(ptr noun
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %41 = icmp ult ptr %40, %9
-  br i1 %41, label %11, label %42, !llvm.loop !547
+  br i1 %41, label %11, label %42, !llvm.loop !1003
 
 42:                                               ; preds = %11
   ret void
@@ -62317,7 +62317,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !548
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1004
   %16 = load <4 x float>, ptr %.036, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62350,7 +62350,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_7_coeffs(ptr noun
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %46 = icmp ult ptr %45, %9
-  br i1 %46, label %11, label %47, !llvm.loop !549
+  br i1 %46, label %11, label %47, !llvm.loop !1005
 
 47:                                               ; preds = %11
   ret void
@@ -62372,7 +62372,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !550
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1006
   %16 = load <4 x float>, ptr %.036, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62381,7 +62381,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load <4 x float>, ptr %21, align 1
   %23 = fmul <4 x float> %20, %22
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !551
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1007
   %24 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %25 = load <4 x float>, ptr %24, align 1
   %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62404,7 +62404,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_8_coeffs(ptr noun
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %44 = icmp ult ptr %43, %9
-  br i1 %44, label %11, label %45, !llvm.loop !552
+  br i1 %44, label %11, label %45, !llvm.loop !1008
 
 45:                                               ; preds = %11
   ret void
@@ -62426,7 +62426,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noun
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !553
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1009
   %16 = load <4 x float>, ptr %.042, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62435,7 +62435,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load <4 x float>, ptr %21, align 1
   %23 = fmul <4 x float> %20, %22
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !554
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1010
   %24 = getelementptr inbounds nuw i8, ptr %.042, i64 16
   %25 = load <4 x float>, ptr %24, align 1
   %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62468,7 +62468,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_9_coeffs(ptr noun
   %52 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %54 = icmp ult ptr %53, %9
-  br i1 %54, label %11, label %55, !llvm.loop !555
+  br i1 %54, label %11, label %55, !llvm.loop !1011
 
 55:                                               ; preds = %11
   ret void
@@ -62490,7 +62490,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr nou
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !556
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1012
   %16 = load <4 x float>, ptr %.041, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62499,7 +62499,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load <4 x float>, ptr %21, align 1
   %23 = fmul <4 x float> %20, %22
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !557
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1013
   %24 = getelementptr inbounds nuw i8, ptr %.041, i64 16
   %25 = load <4 x float>, ptr %24, align 1
   %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62531,7 +62531,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_10_coeffs(ptr nou
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %53 = icmp ult ptr %52, %9
-  br i1 %53, label %11, label %54, !llvm.loop !558
+  br i1 %53, label %11, label %54, !llvm.loop !1014
 
 54:                                               ; preds = %11
   ret void
@@ -62553,7 +62553,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr nou
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !559
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1015
   %16 = load <4 x float>, ptr %.046, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62562,7 +62562,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load <4 x float>, ptr %21, align 1
   %23 = fmul <4 x float> %20, %22
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !560
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1016
   %24 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %25 = load <4 x float>, ptr %24, align 1
   %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62599,7 +62599,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_11_coeffs(ptr nou
   %56 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %58 = icmp ult ptr %57, %9
-  br i1 %58, label %11, label %59, !llvm.loop !561
+  br i1 %58, label %11, label %59, !llvm.loop !1017
 
 59:                                               ; preds = %11
   ret void
@@ -62621,7 +62621,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr nou
   %13 = shl nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !562
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1018
   %16 = load <4 x float>, ptr %.046, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62630,7 +62630,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load <4 x float>, ptr %21, align 1
   %23 = fmul <4 x float> %20, %22
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !563
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1019
   %24 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %25 = load <4 x float>, ptr %24, align 1
   %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62643,7 +62643,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr nou
   %33 = load <4 x float>, ptr %32, align 1
   %34 = fmul <4 x float> %31, %33
   %35 = fadd <4 x float> %23, %34
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !564
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1020
   %36 = getelementptr inbounds nuw i8, ptr %.046, i64 32
   %37 = load <4 x float>, ptr %36, align 1
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
@@ -62666,7 +62666,7 @@ define internal void @stbir__horizontal_gather_2_channels_with_12_coeffs(ptr nou
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %56 = icmp ult ptr %55, %9
-  br i1 %56, label %11, label %57, !llvm.loop !565
+  br i1 %56, label %11, label %57, !llvm.loop !1021
 
 57:                                               ; preds = %11
   ret void
@@ -62688,7 +62688,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr nound
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !566
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1022
   %16 = load float, ptr %.022, align 1
   %17 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -62704,7 +62704,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_1_coeff(ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %28 = icmp ult ptr %27, %9
-  br i1 %28, label %11, label %29, !llvm.loop !567
+  br i1 %28, label %11, label %29, !llvm.loop !1023
 
 29:                                               ; preds = %11
   ret void
@@ -62726,7 +62726,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !568
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1024
   %16 = load i64, ptr %.027, align 1
   %17 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %16, i64 0
   %18 = bitcast <2 x i64> %17 to <4 x float>
@@ -62748,7 +62748,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_2_coeffs(ptr noun
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.028, i64 12
   %34 = icmp ult ptr %33, %9
-  br i1 %34, label %11, label %35, !llvm.loop !569
+  br i1 %34, label %11, label %35, !llvm.loop !1025
 
 35:                                               ; preds = %11
   ret void
@@ -62770,7 +62770,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !570
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1026
   %16 = load <4 x float>, ptr %.032, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -62795,7 +62795,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_3_coeffs(ptr noun
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.033, i64 12
   %37 = icmp ult ptr %36, %9
-  br i1 %37, label %11, label %38, !llvm.loop !571
+  br i1 %37, label %11, label %38, !llvm.loop !1027
 
 38:                                               ; preds = %11
   ret void
@@ -62817,7 +62817,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !572
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1028
   %16 = load <4 x float>, ptr %.044, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62853,7 +62853,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_4_coeffs(ptr noun
   %41 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %42 = getelementptr inbounds float, ptr %.044, i64 %10
   store <4 x float> %33, ptr %.045, align 1
-  br label %11
+  br label %11, !llvm.loop !1029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -62872,7 +62872,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !573
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1030
   %16 = load <4 x float>, ptr %.050, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62885,7 +62885,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !574
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1031
   %28 = getelementptr inbounds nuw i8, ptr %.050, i64 16
   %29 = load float, ptr %28, align 1
   %30 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %29, i64 0
@@ -62917,7 +62917,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_5_coeffs(ptr noun
   %49 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %50 = getelementptr inbounds float, ptr %.050, i64 %10
   store <4 x float> %41, ptr %.051, align 1
-  br label %11
+  br label %11, !llvm.loop !1032
 }
 
 ; Function Attrs: nounwind uwtable
@@ -62936,7 +62936,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !575
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1033
   %16 = load <4 x float>, ptr %.055, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -62949,7 +62949,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !576
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1034
   %28 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   %29 = load i64, ptr %28, align 1
   %30 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %29, i64 0
@@ -62989,7 +62989,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_6_coeffs(ptr noun
   %57 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %58 = getelementptr inbounds float, ptr %.055, i64 %10
   store <4 x float> %49, ptr %.056, align 1
-  br label %11
+  br label %11, !llvm.loop !1035
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63008,7 +63008,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !577
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1036
   %16 = load <4 x float>, ptr %.059, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63021,7 +63021,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !578
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1037
   %28 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63063,7 +63063,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_7_coeffs(ptr noun
   %59 = getelementptr inbounds nuw i8, ptr %.058, i64 8
   %60 = getelementptr inbounds float, ptr %.059, i64 %10
   store <4 x float> %51, ptr %.060, align 1
-  br label %11
+  br label %11, !llvm.loop !1038
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63082,7 +63082,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !579
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1039
   %16 = load <4 x float>, ptr %.058, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63095,7 +63095,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !580
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1040
   %28 = getelementptr inbounds nuw i8, ptr %.058, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63136,7 +63136,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_8_coeffs(ptr noun
   %58 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %59 = getelementptr inbounds float, ptr %.058, i64 %10
   store <4 x float> %50, ptr %.059, align 1
-  br label %11
+  br label %11, !llvm.loop !1041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63155,7 +63155,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !581
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1042
   %16 = load <4 x float>, ptr %.064, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63168,7 +63168,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !582
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1043
   %28 = getelementptr inbounds nuw i8, ptr %.064, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63186,7 +63186,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %42 = load <4 x float>, ptr %41, align 1
   %43 = fmul <4 x float> %40, %42
   %44 = fadd <4 x float> %27, %43
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !583
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1044
   %45 = getelementptr inbounds nuw i8, ptr %.064, i64 32
   %46 = load float, ptr %45, align 1
   %47 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %46, i64 0
@@ -63218,7 +63218,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_9_coeffs(ptr noun
   %66 = getelementptr inbounds nuw i8, ptr %.063, i64 8
   %67 = getelementptr inbounds float, ptr %.064, i64 %10
   store <4 x float> %58, ptr %.065, align 1
-  br label %11
+  br label %11, !llvm.loop !1045
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63237,7 +63237,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !584
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1046
   %16 = load <4 x float>, ptr %.069, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63250,7 +63250,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !585
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1047
   %28 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63268,7 +63268,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %42 = load <4 x float>, ptr %41, align 1
   %43 = fmul <4 x float> %40, %42
   %44 = fadd <4 x float> %27, %43
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !586
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1048
   %45 = getelementptr inbounds nuw i8, ptr %.069, i64 32
   %46 = load i64, ptr %45, align 1
   %47 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %46, i64 0
@@ -63308,7 +63308,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_10_coeffs(ptr nou
   %74 = getelementptr inbounds nuw i8, ptr %.068, i64 8
   %75 = getelementptr inbounds float, ptr %.069, i64 %10
   store <4 x float> %66, ptr %.070, align 1
-  br label %11
+  br label %11, !llvm.loop !1049
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63327,7 +63327,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !587
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1050
   %16 = load <4 x float>, ptr %.073, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63340,7 +63340,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !588
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1051
   %28 = getelementptr inbounds nuw i8, ptr %.073, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63358,7 +63358,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %42 = load <4 x float>, ptr %41, align 1
   %43 = fmul <4 x float> %40, %42
   %44 = fadd <4 x float> %27, %43
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !589
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1052
   %45 = getelementptr inbounds nuw i8, ptr %.073, i64 32
   %46 = load <4 x float>, ptr %45, align 1
   %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63400,7 +63400,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_11_coeffs(ptr nou
   %76 = getelementptr inbounds nuw i8, ptr %.072, i64 8
   %77 = getelementptr inbounds float, ptr %.073, i64 %10
   store <4 x float> %68, ptr %.074, align 1
-  br label %11
+  br label %11, !llvm.loop !1053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63419,7 +63419,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %13 = mul nsw i32 %12, 3
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !590
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1054
   %16 = load <4 x float>, ptr %.072, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %18 = load <4 x float>, ptr %15, align 1
@@ -63432,7 +63432,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load <4 x float>, ptr %25, align 1
   %27 = fmul <4 x float> %24, %26
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !591
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1055
   %28 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %29 = load <4 x float>, ptr %28, align 1
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63450,7 +63450,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %42 = load <4 x float>, ptr %41, align 1
   %43 = fmul <4 x float> %40, %42
   %44 = fadd <4 x float> %27, %43
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !592
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1056
   %45 = getelementptr inbounds nuw i8, ptr %.072, i64 32
   %46 = load <4 x float>, ptr %45, align 1
   %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -63491,7 +63491,7 @@ define internal void @stbir__horizontal_gather_3_channels_with_12_coeffs(ptr nou
   %75 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   %76 = getelementptr inbounds float, ptr %.072, i64 %10
   store <4 x float> %67, ptr %.073, align 1
-  br label %11
+  br label %11, !llvm.loop !1057
 }
 
 ; Function Attrs: nounwind uwtable
@@ -63510,7 +63510,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr nound
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !593
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1058
   %16 = load float, ptr %.018, align 1
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
@@ -63521,7 +63521,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_1_coeff(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %24 = icmp ult ptr %23, %9
-  br i1 %24, label %11, label %25, !llvm.loop !594
+  br i1 %24, label %11, label %25, !llvm.loop !1059
 
 25:                                               ; preds = %11
   ret void
@@ -63543,7 +63543,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !595
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1060
   %16 = load i64, ptr %.022, align 1
   %17 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %16, i64 0
   %18 = bitcast <2 x i64> %17 to <4 x float>
@@ -63560,7 +63560,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_2_coeffs(ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %30 = icmp ult ptr %29, %9
-  br i1 %30, label %11, label %31, !llvm.loop !596
+  br i1 %30, label %11, label %31, !llvm.loop !1061
 
 31:                                               ; preds = %11
   ret void
@@ -63582,7 +63582,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !597
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1062
   %16 = load <4 x float>, ptr %.026, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63602,7 +63602,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_3_coeffs(ptr noun
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %33 = icmp ult ptr %32, %9
-  br i1 %33, label %11, label %34, !llvm.loop !598
+  br i1 %33, label %11, label %34, !llvm.loop !1063
 
 34:                                               ; preds = %11
   ret void
@@ -63624,7 +63624,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !599
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1064
   %16 = load <4 x float>, ptr %.031, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63649,7 +63649,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_4_coeffs(ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %38 = icmp ult ptr %37, %9
-  br i1 %38, label %11, label %39, !llvm.loop !600
+  br i1 %38, label %11, label %39, !llvm.loop !1065
 
 39:                                               ; preds = %11
   ret void
@@ -63671,7 +63671,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !601
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1066
   %16 = load <4 x float>, ptr %.037, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63690,7 +63690,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noun
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !602
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1067
   %34 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %35 = load float, ptr %34, align 1
   %36 = insertelement <4 x float> poison, float %35, i64 0
@@ -63705,7 +63705,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_5_coeffs(ptr noun
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %46 = icmp ult ptr %45, %9
-  br i1 %46, label %11, label %47, !llvm.loop !603
+  br i1 %46, label %11, label %47, !llvm.loop !1068
 
 47:                                               ; preds = %11
   ret void
@@ -63727,7 +63727,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !604
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1069
   %16 = load <4 x float>, ptr %.041, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63746,7 +63746,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noun
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !605
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1070
   %34 = getelementptr inbounds nuw i8, ptr %.041, i64 16
   %35 = load i64, ptr %34, align 1
   %36 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %35, i64 0
@@ -63767,7 +63767,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_6_coeffs(ptr noun
   %50 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.042, i64 16
   %52 = icmp ult ptr %51, %9
-  br i1 %52, label %11, label %53, !llvm.loop !606
+  br i1 %52, label %11, label %53, !llvm.loop !1071
 
 53:                                               ; preds = %11
   ret void
@@ -63789,7 +63789,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !607
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1072
   %16 = load <4 x float>, ptr %.045, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63808,7 +63808,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noun
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !608
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1073
   %34 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -63832,7 +63832,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_7_coeffs(ptr noun
   %53 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %55 = icmp ult ptr %54, %9
-  br i1 %55, label %11, label %56, !llvm.loop !609
+  br i1 %55, label %11, label %56, !llvm.loop !1074
 
 56:                                               ; preds = %11
   ret void
@@ -63854,7 +63854,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !610
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1075
   %16 = load <4 x float>, ptr %.049, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63873,7 +63873,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noun
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !611
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1076
   %34 = getelementptr inbounds nuw i8, ptr %.049, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -63902,7 +63902,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_8_coeffs(ptr noun
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %.050, i64 16
   %60 = icmp ult ptr %59, %9
-  br i1 %60, label %11, label %61, !llvm.loop !612
+  br i1 %60, label %11, label %61, !llvm.loop !1077
 
 61:                                               ; preds = %11
   ret void
@@ -63924,7 +63924,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noun
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !613
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1078
   %16 = load <4 x float>, ptr %.055, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -63943,7 +63943,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noun
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !614
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1079
   %34 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -63966,7 +63966,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noun
   %53 = load <4 x float>, ptr %52, align 1
   %54 = fmul <4 x float> %51, %53
   %55 = fadd <4 x float> %45, %54
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !615
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1080
   %56 = getelementptr inbounds nuw i8, ptr %.055, i64 32
   %57 = load float, ptr %56, align 1
   %58 = insertelement <4 x float> poison, float %57, i64 0
@@ -63981,7 +63981,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_9_coeffs(ptr noun
   %66 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %68 = icmp ult ptr %67, %9
-  br i1 %68, label %11, label %69, !llvm.loop !616
+  br i1 %68, label %11, label %69, !llvm.loop !1081
 
 69:                                               ; preds = %11
   ret void
@@ -64003,7 +64003,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr nou
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !617
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1082
   %16 = load <4 x float>, ptr %.059, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64022,7 +64022,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr nou
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !618
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1083
   %34 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64045,7 +64045,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr nou
   %53 = load <4 x float>, ptr %52, align 1
   %54 = fmul <4 x float> %51, %53
   %55 = fadd <4 x float> %45, %54
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !619
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1084
   %56 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %57 = load i64, ptr %56, align 1
   %58 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %57, i64 0
@@ -64066,7 +64066,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_10_coeffs(ptr nou
   %72 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %.060, i64 16
   %74 = icmp ult ptr %73, %9
-  br i1 %74, label %11, label %75, !llvm.loop !620
+  br i1 %74, label %11, label %75, !llvm.loop !1085
 
 75:                                               ; preds = %11
   ret void
@@ -64088,7 +64088,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr nou
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !621
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1086
   %16 = load <4 x float>, ptr %.063, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64107,7 +64107,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr nou
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !622
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1087
   %34 = getelementptr inbounds nuw i8, ptr %.063, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64130,7 +64130,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr nou
   %53 = load <4 x float>, ptr %52, align 1
   %54 = fmul <4 x float> %51, %53
   %55 = fadd <4 x float> %45, %54
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !623
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1088
   %56 = getelementptr inbounds nuw i8, ptr %.063, i64 32
   %57 = load <4 x float>, ptr %56, align 1
   %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64154,7 +64154,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_11_coeffs(ptr nou
   %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %.064, i64 16
   %77 = icmp ult ptr %76, %9
-  br i1 %77, label %11, label %78, !llvm.loop !624
+  br i1 %77, label %11, label %78, !llvm.loop !1089
 
 78:                                               ; preds = %11
   ret void
@@ -64176,7 +64176,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr nou
   %13 = shl nsw i32 %12, 2
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !625
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1090
   %16 = load <4 x float>, ptr %.067, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64195,7 +64195,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr nou
   %31 = load <4 x float>, ptr %30, align 1
   %32 = fmul <4 x float> %29, %31
   %33 = fadd <4 x float> %23, %32
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !626
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1091
   %34 = getelementptr inbounds nuw i8, ptr %.067, i64 16
   %35 = load <4 x float>, ptr %34, align 1
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64218,7 +64218,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr nou
   %53 = load <4 x float>, ptr %52, align 1
   %54 = fmul <4 x float> %51, %53
   %55 = fadd <4 x float> %45, %54
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !627
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1092
   %56 = getelementptr inbounds nuw i8, ptr %.067, i64 32
   %57 = load <4 x float>, ptr %56, align 1
   %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64247,7 +64247,7 @@ define internal void @stbir__horizontal_gather_4_channels_with_12_coeffs(ptr nou
   %80 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %.068, i64 16
   %82 = icmp ult ptr %81, %9
-  br i1 %82, label %11, label %83, !llvm.loop !628
+  br i1 %82, label %11, label %83, !llvm.loop !1093
 
 83:                                               ; preds = %11
   ret void
@@ -64269,7 +64269,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr nound
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !629
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1094
   %16 = load float, ptr %.022, align 1
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64285,7 +64285,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_1_coeff(ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.023, i64 28
   %28 = icmp ult ptr %27, %9
-  br i1 %28, label %11, label %29, !llvm.loop !630
+  br i1 %28, label %11, label %29, !llvm.loop !1095
 
 29:                                               ; preds = %11
   ret void
@@ -64307,7 +64307,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !631
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1096
   %16 = load i64, ptr %.029, align 1
   %17 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %16, i64 0
   %18 = bitcast <2 x i64> %17 to <4 x float>
@@ -64333,7 +64333,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_2_coeffs(ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.030, i64 28
   %38 = icmp ult ptr %37, %9
-  br i1 %38, label %11, label %39, !llvm.loop !632
+  br i1 %38, label %11, label %39, !llvm.loop !1097
 
 39:                                               ; preds = %11
   ret void
@@ -64355,7 +64355,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !633
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1098
   %16 = load <4 x float>, ptr %.036, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64388,7 +64388,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_3_coeffs(ptr noun
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.037, i64 28
   %45 = icmp ult ptr %44, %9
-  br i1 %45, label %11, label %46, !llvm.loop !634
+  br i1 %45, label %11, label %46, !llvm.loop !1099
 
 46:                                               ; preds = %11
   ret void
@@ -64410,7 +64410,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !635
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1100
   %16 = load <4 x float>, ptr %.045, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64452,7 +64452,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_4_coeffs(ptr noun
   %52 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.046, i64 28
   %54 = icmp ult ptr %53, %9
-  br i1 %54, label %11, label %55, !llvm.loop !636
+  br i1 %54, label %11, label %55, !llvm.loop !1101
 
 55:                                               ; preds = %11
   ret void
@@ -64474,7 +64474,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !637
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1102
   %16 = load <4 x float>, ptr %.054, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64507,7 +64507,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noun
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !638
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1103
   %48 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   %49 = load float, ptr %48, align 1
   %50 = insertelement <4 x float> poison, float %49, i64 0
@@ -64529,7 +64529,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_5_coeffs(ptr noun
   %64 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.055, i64 28
   %66 = icmp ult ptr %65, %9
-  br i1 %66, label %11, label %67, !llvm.loop !639
+  br i1 %66, label %11, label %67, !llvm.loop !1104
 
 67:                                               ; preds = %11
   ret void
@@ -64551,7 +64551,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !640
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1105
   %16 = load <4 x float>, ptr %.061, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64584,7 +64584,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noun
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !641
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1106
   %48 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %49 = load i64, ptr %48, align 1
   %50 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %49, i64 0
@@ -64616,7 +64616,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_6_coeffs(ptr noun
   %74 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %.062, i64 28
   %76 = icmp ult ptr %75, %9
-  br i1 %76, label %11, label %77, !llvm.loop !642
+  br i1 %76, label %11, label %77, !llvm.loop !1107
 
 77:                                               ; preds = %11
   ret void
@@ -64638,7 +64638,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !643
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1108
   %16 = load <4 x float>, ptr %.068, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64671,7 +64671,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noun
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !644
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1109
   %48 = getelementptr inbounds nuw i8, ptr %.068, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64710,7 +64710,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_7_coeffs(ptr noun
   %81 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.069, i64 28
   %83 = icmp ult ptr %82, %9
-  br i1 %83, label %11, label %84, !llvm.loop !645
+  br i1 %83, label %11, label %84, !llvm.loop !1110
 
 84:                                               ; preds = %11
   ret void
@@ -64732,7 +64732,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !646
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1111
   %16 = load <4 x float>, ptr %.075, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64765,7 +64765,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noun
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !647
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1112
   %48 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64813,7 +64813,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_8_coeffs(ptr noun
   %90 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %.076, i64 28
   %92 = icmp ult ptr %91, %9
-  br i1 %92, label %11, label %93, !llvm.loop !648
+  br i1 %92, label %11, label %93, !llvm.loop !1113
 
 93:                                               ; preds = %11
   ret void
@@ -64835,7 +64835,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noun
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !649
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1114
   %16 = load <4 x float>, ptr %.084, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64868,7 +64868,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noun
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !650
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1115
   %48 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -64907,7 +64907,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noun
   %83 = load <4 x float>, ptr %82, align 1
   %84 = fmul <4 x float> %77, %83
   %85 = fadd <4 x float> %67, %84
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !651
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1116
   %86 = getelementptr inbounds nuw i8, ptr %.084, i64 32
   %87 = load float, ptr %86, align 1
   %88 = insertelement <4 x float> poison, float %87, i64 0
@@ -64929,7 +64929,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_9_coeffs(ptr noun
   %102 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %.085, i64 28
   %104 = icmp ult ptr %103, %9
-  br i1 %104, label %11, label %105, !llvm.loop !652
+  br i1 %104, label %11, label %105, !llvm.loop !1117
 
 105:                                              ; preds = %11
   ret void
@@ -64951,7 +64951,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr nou
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !653
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1118
   %16 = load <4 x float>, ptr %.091, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -64984,7 +64984,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr nou
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !654
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1119
   %48 = getelementptr inbounds nuw i8, ptr %.091, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -65023,7 +65023,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr nou
   %83 = load <4 x float>, ptr %82, align 1
   %84 = fmul <4 x float> %77, %83
   %85 = fadd <4 x float> %67, %84
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !655
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1120
   %86 = getelementptr inbounds nuw i8, ptr %.091, i64 32
   %87 = load i64, ptr %86, align 1
   %88 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %87, i64 0
@@ -65055,7 +65055,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_10_coeffs(ptr nou
   %112 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %.092, i64 28
   %114 = icmp ult ptr %113, %9
-  br i1 %114, label %11, label %115, !llvm.loop !656
+  br i1 %114, label %11, label %115, !llvm.loop !1121
 
 115:                                              ; preds = %11
   ret void
@@ -65077,7 +65077,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr nou
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !657
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1122
   %16 = load <4 x float>, ptr %.098, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -65110,7 +65110,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr nou
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !658
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1123
   %48 = getelementptr inbounds nuw i8, ptr %.098, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -65149,7 +65149,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr nou
   %83 = load <4 x float>, ptr %82, align 1
   %84 = fmul <4 x float> %77, %83
   %85 = fadd <4 x float> %67, %84
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !659
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1124
   %86 = getelementptr inbounds nuw i8, ptr %.098, i64 32
   %87 = load <4 x float>, ptr %86, align 1
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
@@ -65188,7 +65188,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_11_coeffs(ptr nou
   %119 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %.099, i64 28
   %121 = icmp ult ptr %120, %9
-  br i1 %121, label %11, label %122, !llvm.loop !660
+  br i1 %121, label %11, label %122, !llvm.loop !1125
 
 122:                                              ; preds = %11
   ret void
@@ -65210,7 +65210,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr nou
   %13 = mul nsw i32 %12, 7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %2, i64 %14
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !661
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %15) #54, !srcloc !1126
   %16 = load <4 x float>, ptr %.0105, align 1
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = load <4 x float>, ptr %15, align 1
@@ -65243,7 +65243,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr nou
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %39, %45
   %47 = fadd <4 x float> %29, %46
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !662
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1127
   %48 = getelementptr inbounds nuw i8, ptr %.0105, i64 16
   %49 = load <4 x float>, ptr %48, align 1
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
@@ -65282,7 +65282,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr nou
   %83 = load <4 x float>, ptr %82, align 1
   %84 = fmul <4 x float> %77, %83
   %85 = fadd <4 x float> %67, %84
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !663
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15) #54, !srcloc !1128
   %86 = getelementptr inbounds nuw i8, ptr %.0105, i64 32
   %87 = load <4 x float>, ptr %86, align 1
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
@@ -65330,7 +65330,7 @@ define internal void @stbir__horizontal_gather_7_channels_with_12_coeffs(ptr nou
   %128 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %.0106, i64 28
   %130 = icmp ult ptr %129, %9
-  br i1 %130, label %11, label %131, !llvm.loop !664
+  br i1 %130, label %11, label %131, !llvm.loop !1129
 
 131:                                              ; preds = %11
   ret void
@@ -65446,7 +65446,7 @@ stbir__edge_wrap.exit:                            ; preds = %3, %21
 81:                                               ; preds = %74, %80
   %.0.add = add nuw nsw i64 %.0.idx, 12
   %.not87 = icmp samesign ugt i64 %.0.idx, 384
-  br i1 %.not87, label %.thread, label %46
+  br i1 %.not87, label %.thread, label %46, !llvm.loop !1130
 
 .thread:                                          ; preds = %46, %81
   %82 = icmp eq i32 %16, 2
@@ -65525,13 +65525,13 @@ stbir__edge_wrap.exit93:                          ; preds = %97, %104
 
 .preheader.i:                                     ; preds = %117, %.preheader.i
   %.0.i94 = phi ptr [ %120, %.preheader.i ], [ %101, %117 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i94) #54, !srcloc !15
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i94) #54, !srcloc !91
   %118 = getelementptr inbounds i8, ptr %.0.i94, i64 %gepdiff
   %119 = load i8, ptr %118, align 1
   store i8 %119, ptr %.0.i94, align 1
   %120 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 1
   %121 = icmp ult ptr %120, %112
-  br i1 %121, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !16
+  br i1 %121, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !92
 
 122:                                              ; preds = %115
   %123 = load <4 x float>, ptr %108, align 1
@@ -65544,7 +65544,7 @@ stbir__edge_wrap.exit93:                          ; preds = %97, %104
 
 128:                                              ; preds = %132, %122
   %.1.i = phi ptr [ %126, %122 ], [ %135, %132 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !19
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !95
   %129 = icmp ugt ptr %.1.i, %127
   br i1 %129, label %130, label %132
 
@@ -65558,7 +65558,7 @@ stbir__edge_wrap.exit93:                          ; preds = %97, %104
   %134 = load <4 x float>, ptr %133, align 1
   store <4 x float> %134, ptr %.2.i, align 1
   %135 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %128, !llvm.loop !20
+  br label %128, !llvm.loop !96
 
 136:                                              ; preds = %stbir__edge_wrap.exit93
   %137 = load <4 x float>, ptr %108, align 1
@@ -65583,7 +65583,7 @@ stbir__edge_wrap.exit93:                          ; preds = %97, %104
 
 151:                                              ; preds = %155, %136
   %.3.i = phi ptr [ %149, %136 ], [ %167, %155 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !97
   %152 = icmp ugt ptr %.3.i, %150
   br i1 %152, label %153, label %155
 
@@ -65609,10 +65609,10 @@ stbir__edge_wrap.exit93:                          ; preds = %97, %104
   %166 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
   store <4 x float> %163, ptr %166, align 1
   %167 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %151, !llvm.loop !22
+  br label %151, !llvm.loop !98
 
 stbir_simd_memcpy.exit:                           ; preds = %153, %130, %.preheader.i, %117, %93
-  br i1 %94, label %93, label %168
+  br i1 %94, label %93, label %168, !llvm.loop !1131
 
 168:                                              ; preds = %stbir_simd_memcpy.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
@@ -65668,13 +65668,13 @@ define internal fastcc void @stbir__resample_horizontal_gather(ptr noundef reado
 
 .preheader.i:                                     ; preds = %33, %.preheader.i
   %.0.i = phi ptr [ %36, %.preheader.i ], [ %1, %33 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !15
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !91
   %34 = getelementptr inbounds i8, ptr %.0.i, i64 %29
   %35 = load i8, ptr %34, align 1
   store i8 %35, ptr %.0.i, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %37 = icmp ult ptr %36, %26
-  br i1 %37, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !16
+  br i1 %37, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !92
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %1, i64 %29
@@ -65688,7 +65688,7 @@ define internal fastcc void @stbir__resample_horizontal_gather(ptr noundef reado
 
 45:                                               ; preds = %49, %38
   %.1.i = phi ptr [ %43, %38 ], [ %52, %49 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !19
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !95
   %46 = icmp ugt ptr %.1.i, %44
   br i1 %46, label %47, label %49
 
@@ -65702,7 +65702,7 @@ define internal fastcc void @stbir__resample_horizontal_gather(ptr noundef reado
   %51 = load <4 x float>, ptr %50, align 1
   store <4 x float> %51, ptr %.2.i, align 1
   %52 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %45, !llvm.loop !20
+  br label %45, !llvm.loop !96
 
 53:                                               ; preds = %19
   %54 = getelementptr inbounds i8, ptr %1, i64 %29
@@ -65728,7 +65728,7 @@ define internal fastcc void @stbir__resample_horizontal_gather(ptr noundef reado
 
 69:                                               ; preds = %73, %53
   %.3.i = phi ptr [ %67, %53 ], [ %85, %73 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !97
   %70 = icmp ugt ptr %.3.i, %68
   br i1 %70, label %71, label %73
 
@@ -65754,7 +65754,7 @@ define internal fastcc void @stbir__resample_horizontal_gather(ptr noundef reado
   %84 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
   store <4 x float> %81, ptr %84, align 1
   %85 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %69, !llvm.loop !22
+  br label %69, !llvm.loop !98
 
 86:                                               ; preds = %15, %3
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -65802,13 +65802,13 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 
 .preheader.i:                                     ; preds = %19, %.preheader.i
   %.0.i = phi ptr [ %22, %.preheader.i ], [ %0, %19 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !15
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #54, !srcloc !91
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 %15
   %21 = load i8, ptr %20, align 1
   store i8 %21, ptr %.0.i, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %23 = icmp ult ptr %22, %13
-  br i1 %23, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !16
+  br i1 %23, label %.preheader.i, label %stbir_simd_memcpy.exit, !llvm.loop !92
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -65822,7 +65822,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 
 31:                                               ; preds = %35, %24
   %.1.i = phi ptr [ %29, %24 ], [ %38, %35 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !19
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1.i) #54, !srcloc !95
   %32 = icmp ugt ptr %.1.i, %30
   br i1 %32, label %33, label %35
 
@@ -65836,7 +65836,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
   %37 = load <4 x float>, ptr %36, align 1
   store <4 x float> %37, ptr %.2.i, align 1
   %38 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
-  br label %31, !llvm.loop !20
+  br label %31, !llvm.loop !96
 
 39:                                               ; preds = %9
   %40 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -65862,7 +65862,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 
 55:                                               ; preds = %59, %39
   %.3.i = phi ptr [ %53, %39 ], [ %71, %59 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !21
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.3.i) #54, !srcloc !97
   %56 = icmp ugt ptr %.3.i, %54
   br i1 %56, label %57, label %59
 
@@ -65888,7 +65888,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
   %70 = getelementptr inbounds nuw i8, ptr %.4.i, i64 48
   store <4 x float> %67, ptr %70, align 1
   %71 = getelementptr inbounds nuw i8, ptr %.4.i, i64 64
-  br label %55, !llvm.loop !22
+  br label %55, !llvm.loop !98
 
 72:                                               ; preds = %4
   %73 = insertelement <4 x float> poison, float %6, i64 0
@@ -65909,7 +65909,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %72, %.lr.ph
   %.063 = phi ptr [ %95, %.lr.ph ], [ %0, %72 ]
   %.05562 = phi ptr [ %96, %.lr.ph ], [ %5, %72 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.063) #54, !srcloc !665
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.063) #54, !srcloc !1132
   %80 = getelementptr inbounds nuw i8, ptr %.05562, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %80, i32 0, i32 3, i32 1)
   %81 = load <4 x float>, ptr %.05562, align 1
@@ -65935,7 +65935,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
   %97 = ptrtoint ptr %96 to i64
   %98 = sub i64 %75, %97
   %99 = icmp sgt i64 %98, 63
-  br i1 %99, label %.lr.ph, label %.preheader61, !llvm.loop !666
+  br i1 %99, label %.lr.ph, label %.preheader61, !llvm.loop !1133
 
 .preheader:                                       ; preds = %.lr.ph68, %.preheader61
   %.156.lcssa = phi ptr [ %.055.lcssa, %.preheader61 ], [ %104, %.lr.ph68 ]
@@ -65946,7 +65946,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
 .lr.ph68:                                         ; preds = %.preheader61, %.lr.ph68
   %.167 = phi ptr [ %103, %.lr.ph68 ], [ %.0.lcssa, %.preheader61 ]
   %.15666 = phi ptr [ %104, %.lr.ph68 ], [ %.055.lcssa, %.preheader61 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.167) #54, !srcloc !667
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.167) #54, !srcloc !1134
   %101 = load <4 x float>, ptr %.15666, align 1
   %102 = fmul <4 x float> %74, %101
   store <4 x float> %102, ptr %.167, align 1
@@ -65955,19 +65955,19 @@ define internal void @stbir__vertical_gather_with_1_coeffs(ptr noundef %0, ptr n
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %75, %105
   %107 = icmp sgt i64 %106, 15
-  br i1 %107, label %.lr.ph68, label %.preheader, !llvm.loop !668
+  br i1 %107, label %.lr.ph68, label %.preheader, !llvm.loop !1135
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
   %.272 = phi ptr [ %110, %.lr.ph73 ], [ %.1.lcssa, %.preheader ]
   %.25771 = phi ptr [ %111, %.lr.ph73 ], [ %.156.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.272) #54, !srcloc !669
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.272) #54, !srcloc !1136
   %108 = load float, ptr %.25771, align 4
   %109 = fmul float %6, %108
   store float %109, ptr %.272, align 4
   %110 = getelementptr inbounds nuw i8, ptr %.272, i64 4
   %111 = getelementptr inbounds nuw i8, ptr %.25771, i64 4
   %112 = icmp ult ptr %111, %3
-  br i1 %112, label %.lr.ph73, label %stbir_simd_memcpy.exit, !llvm.loop !670
+  br i1 %112, label %.lr.ph73, label %stbir_simd_memcpy.exit, !llvm.loop !1137
 
 stbir_simd_memcpy.exit:                           ; preds = %.lr.ph73, %57, %33, %.preheader.i, %.preheader, %19
   ret void
@@ -66003,7 +66003,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
   %.087 = phi ptr [ %51, %.lr.ph ], [ %0, %4 ]
   %.07886 = phi ptr [ %52, %.lr.ph ], [ %5, %4 ]
   %.08185 = phi ptr [ %53, %.lr.ph ], [ %8, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.087) #54, !srcloc !671
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.087) #54, !srcloc !1138
   %20 = getelementptr inbounds nuw i8, ptr %.07886, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %20, i32 0, i32 3, i32 1)
   %21 = getelementptr inbounds nuw i8, ptr %.08185, i64 256
@@ -66047,7 +66047,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %15, %54
   %56 = icmp sgt i64 %55, 63
-  br i1 %56, label %.lr.ph, label %.preheader84, !llvm.loop !672
+  br i1 %56, label %.lr.ph, label %.preheader84, !llvm.loop !1139
 
 .preheader:                                       ; preds = %.lr.ph94, %.preheader84
   %.182.lcssa = phi ptr [ %.081.lcssa, %.preheader84 ], [ %65, %.lr.ph94 ]
@@ -66060,7 +66060,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
   %.193 = phi ptr [ %63, %.lr.ph94 ], [ %.0.lcssa, %.preheader84 ]
   %.17992 = phi ptr [ %64, %.lr.ph94 ], [ %.078.lcssa, %.preheader84 ]
   %.18291 = phi ptr [ %65, %.lr.ph94 ], [ %.081.lcssa, %.preheader84 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.193) #54, !srcloc !673
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.193) #54, !srcloc !1140
   %58 = load <4 x float>, ptr %.17992, align 1
   %59 = fmul <4 x float> %12, %58
   %60 = load <4 x float>, ptr %.18291, align 1
@@ -66073,13 +66073,13 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %15, %66
   %68 = icmp sgt i64 %67, 15
-  br i1 %68, label %.lr.ph94, label %.preheader, !llvm.loop !674
+  br i1 %68, label %.lr.ph94, label %.preheader, !llvm.loop !1141
 
 .lr.ph101:                                        ; preds = %.preheader, %.lr.ph101
   %.2100 = phi ptr [ %74, %.lr.ph101 ], [ %.1.lcssa, %.preheader ]
   %.28099 = phi ptr [ %75, %.lr.ph101 ], [ %.179.lcssa, %.preheader ]
   %.28398 = phi ptr [ %76, %.lr.ph101 ], [ %.182.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2100) #54, !srcloc !675
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2100) #54, !srcloc !1142
   %69 = load float, ptr %.28099, align 4
   %70 = fmul float %6, %69
   %71 = load float, ptr %.28398, align 4
@@ -66090,7 +66090,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs(ptr noundef %0, ptr n
   %75 = getelementptr inbounds nuw i8, ptr %.28099, i64 4
   %76 = getelementptr inbounds nuw i8, ptr %.28398, i64 4
   %77 = icmp ult ptr %75, %3
-  br i1 %77, label %.lr.ph101, label %._crit_edge, !llvm.loop !676
+  br i1 %77, label %.lr.ph101, label %._crit_edge, !llvm.loop !1143
 
 ._crit_edge:                                      ; preds = %.lr.ph101, %.preheader
   ret void
@@ -66134,7 +66134,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
   %.0108120 = phi ptr [ %74, %.lr.ph ], [ %5, %4 ]
   %.0111119 = phi ptr [ %75, %.lr.ph ], [ %8, %4 ]
   %.0114118 = phi ptr [ %76, %.lr.ph ], [ %12, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0121) #54, !srcloc !677
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0121) #54, !srcloc !1144
   %26 = getelementptr inbounds nuw i8, ptr %.0108120, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %26, i32 0, i32 3, i32 1)
   %27 = getelementptr inbounds nuw i8, ptr %.0111119, i64 256
@@ -66196,7 +66196,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
   %77 = ptrtoint ptr %74 to i64
   %78 = sub i64 %21, %77
   %79 = icmp sgt i64 %78, 63
-  br i1 %79, label %.lr.ph, label %.preheader117, !llvm.loop !678
+  br i1 %79, label %.lr.ph, label %.preheader117, !llvm.loop !1145
 
 .preheader:                                       ; preds = %.lr.ph130, %.preheader117
   %.1115.lcssa = phi ptr [ %.0114.lcssa, %.preheader117 ], [ %92, %.lr.ph130 ]
@@ -66211,7 +66211,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
   %.1109128 = phi ptr [ %90, %.lr.ph130 ], [ %.0108.lcssa, %.preheader117 ]
   %.1112127 = phi ptr [ %91, %.lr.ph130 ], [ %.0111.lcssa, %.preheader117 ]
   %.1115126 = phi ptr [ %92, %.lr.ph130 ], [ %.0114.lcssa, %.preheader117 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1129) #54, !srcloc !679
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1129) #54, !srcloc !1146
   %81 = load <4 x float>, ptr %.1109128, align 1
   %82 = fmul <4 x float> %16, %81
   %83 = load <4 x float>, ptr %.1112127, align 1
@@ -66228,14 +66228,14 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
   %93 = ptrtoint ptr %90 to i64
   %94 = sub i64 %21, %93
   %95 = icmp sgt i64 %94, 15
-  br i1 %95, label %.lr.ph130, label %.preheader, !llvm.loop !680
+  br i1 %95, label %.lr.ph130, label %.preheader, !llvm.loop !1147
 
 .lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
   %.2138 = phi ptr [ %104, %.lr.ph139 ], [ %.1.lcssa, %.preheader ]
   %.2110137 = phi ptr [ %105, %.lr.ph139 ], [ %.1109.lcssa, %.preheader ]
   %.2113136 = phi ptr [ %106, %.lr.ph139 ], [ %.1112.lcssa, %.preheader ]
   %.2116135 = phi ptr [ %107, %.lr.ph139 ], [ %.1115.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2138) #54, !srcloc !681
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2138) #54, !srcloc !1148
   %96 = load float, ptr %.2110137, align 4
   %97 = fmul float %6, %96
   %98 = load float, ptr %.2113136, align 4
@@ -66250,7 +66250,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs(ptr noundef %0, ptr n
   %106 = getelementptr inbounds nuw i8, ptr %.2113136, i64 4
   %107 = getelementptr inbounds nuw i8, ptr %.2116135, i64 4
   %108 = icmp ult ptr %105, %3
-  br i1 %108, label %.lr.ph139, label %._crit_edge, !llvm.loop !682
+  br i1 %108, label %.lr.ph139, label %._crit_edge, !llvm.loop !1149
 
 ._crit_edge:                                      ; preds = %.lr.ph139, %.preheader
   ret void
@@ -66302,7 +66302,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %.0141153 = phi ptr [ %97, %.lr.ph ], [ %8, %4 ]
   %.0144152 = phi ptr [ %98, %.lr.ph ], [ %12, %4 ]
   %.0147151 = phi ptr [ %99, %.lr.ph ], [ %16, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0155) #54, !srcloc !683
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0155) #54, !srcloc !1150
   %32 = getelementptr inbounds nuw i8, ptr %.0138154, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %32, i32 0, i32 3, i32 1)
   %33 = getelementptr inbounds nuw i8, ptr %.0141153, i64 256
@@ -66382,7 +66382,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %100 = ptrtoint ptr %96 to i64
   %101 = sub i64 %27, %100
   %102 = icmp sgt i64 %101, 63
-  br i1 %102, label %.lr.ph, label %.preheader150, !llvm.loop !684
+  br i1 %102, label %.lr.ph, label %.preheader150, !llvm.loop !1151
 
 .preheader:                                       ; preds = %.lr.ph166, %.preheader150
   %.1148.lcssa = phi ptr [ %.0147.lcssa, %.preheader150 ], [ %119, %.lr.ph166 ]
@@ -66399,7 +66399,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %.1142163 = phi ptr [ %117, %.lr.ph166 ], [ %.0141.lcssa, %.preheader150 ]
   %.1145162 = phi ptr [ %118, %.lr.ph166 ], [ %.0144.lcssa, %.preheader150 ]
   %.1148161 = phi ptr [ %119, %.lr.ph166 ], [ %.0147.lcssa, %.preheader150 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1165) #54, !srcloc !685
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1165) #54, !srcloc !1152
   %104 = load <4 x float>, ptr %.1139164, align 1
   %105 = fmul <4 x float> %20, %104
   %106 = load <4 x float>, ptr %.1142163, align 1
@@ -66420,7 +66420,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %120 = ptrtoint ptr %116 to i64
   %121 = sub i64 %27, %120
   %122 = icmp sgt i64 %121, 15
-  br i1 %122, label %.lr.ph166, label %.preheader, !llvm.loop !686
+  br i1 %122, label %.lr.ph166, label %.preheader, !llvm.loop !1153
 
 .lr.ph177:                                        ; preds = %.preheader, %.lr.ph177
   %.2176 = phi ptr [ %134, %.lr.ph177 ], [ %.1.lcssa, %.preheader ]
@@ -66428,7 +66428,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %.2143174 = phi ptr [ %136, %.lr.ph177 ], [ %.1142.lcssa, %.preheader ]
   %.2146173 = phi ptr [ %137, %.lr.ph177 ], [ %.1145.lcssa, %.preheader ]
   %.2149172 = phi ptr [ %138, %.lr.ph177 ], [ %.1148.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2176) #54, !srcloc !687
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2176) #54, !srcloc !1154
   %123 = load float, ptr %.2140175, align 4
   %124 = fmul float %6, %123
   %125 = load float, ptr %.2143174, align 4
@@ -66447,7 +66447,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs(ptr noundef %0, ptr n
   %137 = getelementptr inbounds nuw i8, ptr %.2146173, i64 4
   %138 = getelementptr inbounds nuw i8, ptr %.2149172, i64 4
   %139 = icmp ult ptr %135, %3
-  br i1 %139, label %.lr.ph177, label %._crit_edge, !llvm.loop !688
+  br i1 %139, label %.lr.ph177, label %._crit_edge, !llvm.loop !1155
 
 ._crit_edge:                                      ; preds = %.lr.ph177, %.preheader
   ret void
@@ -66507,7 +66507,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %.0174186 = phi ptr [ %120, %.lr.ph ], [ %12, %4 ]
   %.0177185 = phi ptr [ %121, %.lr.ph ], [ %16, %4 ]
   %.0180184 = phi ptr [ %122, %.lr.ph ], [ %20, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0189) #54, !srcloc !689
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0189) #54, !srcloc !1156
   %38 = getelementptr inbounds nuw i8, ptr %.0168188, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %38, i32 0, i32 3, i32 1)
   %39 = getelementptr inbounds nuw i8, ptr %.0171187, i64 256
@@ -66605,7 +66605,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %123 = ptrtoint ptr %118 to i64
   %124 = sub i64 %33, %123
   %125 = icmp sgt i64 %124, 63
-  br i1 %125, label %.lr.ph, label %.preheader183, !llvm.loop !690
+  br i1 %125, label %.lr.ph, label %.preheader183, !llvm.loop !1157
 
 .preheader:                                       ; preds = %.lr.ph202, %.preheader183
   %.1181.lcssa = phi ptr [ %.0180.lcssa, %.preheader183 ], [ %146, %.lr.ph202 ]
@@ -66624,7 +66624,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %.1175198 = phi ptr [ %144, %.lr.ph202 ], [ %.0174.lcssa, %.preheader183 ]
   %.1178197 = phi ptr [ %145, %.lr.ph202 ], [ %.0177.lcssa, %.preheader183 ]
   %.1181196 = phi ptr [ %146, %.lr.ph202 ], [ %.0180.lcssa, %.preheader183 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1201) #54, !srcloc !691
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1201) #54, !srcloc !1158
   %127 = load <4 x float>, ptr %.1169200, align 1
   %128 = fmul <4 x float> %24, %127
   %129 = load <4 x float>, ptr %.1172199, align 1
@@ -66649,7 +66649,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %147 = ptrtoint ptr %142 to i64
   %148 = sub i64 %33, %147
   %149 = icmp sgt i64 %148, 15
-  br i1 %149, label %.lr.ph202, label %.preheader, !llvm.loop !692
+  br i1 %149, label %.lr.ph202, label %.preheader, !llvm.loop !1159
 
 .lr.ph215:                                        ; preds = %.preheader, %.lr.ph215
   %.2214 = phi ptr [ %164, %.lr.ph215 ], [ %.1.lcssa, %.preheader ]
@@ -66658,7 +66658,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %.2176211 = phi ptr [ %167, %.lr.ph215 ], [ %.1175.lcssa, %.preheader ]
   %.2179210 = phi ptr [ %168, %.lr.ph215 ], [ %.1178.lcssa, %.preheader ]
   %.2182209 = phi ptr [ %169, %.lr.ph215 ], [ %.1181.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2214) #54, !srcloc !693
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2214) #54, !srcloc !1160
   %150 = load float, ptr %.2170213, align 4
   %151 = fmul float %6, %150
   %152 = load float, ptr %.2173212, align 4
@@ -66681,7 +66681,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs(ptr noundef %0, ptr n
   %168 = getelementptr inbounds nuw i8, ptr %.2179210, i64 4
   %169 = getelementptr inbounds nuw i8, ptr %.2182209, i64 4
   %170 = icmp ult ptr %165, %3
-  br i1 %170, label %.lr.ph215, label %._crit_edge, !llvm.loop !694
+  br i1 %170, label %.lr.ph215, label %._crit_edge, !llvm.loop !1161
 
 ._crit_edge:                                      ; preds = %.lr.ph215, %.preheader
   ret void
@@ -66749,7 +66749,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %.0207219 = phi ptr [ %143, %.lr.ph ], [ %16, %4 ]
   %.0210218 = phi ptr [ %144, %.lr.ph ], [ %20, %4 ]
   %.0213217 = phi ptr [ %145, %.lr.ph ], [ %24, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0223) #54, !srcloc !695
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0223) #54, !srcloc !1162
   %44 = getelementptr inbounds nuw i8, ptr %.0198222, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %44, i32 0, i32 3, i32 1)
   %45 = getelementptr inbounds nuw i8, ptr %.0201221, i64 256
@@ -66865,7 +66865,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %146 = ptrtoint ptr %140 to i64
   %147 = sub i64 %39, %146
   %148 = icmp sgt i64 %147, 63
-  br i1 %148, label %.lr.ph, label %.preheader216, !llvm.loop !696
+  br i1 %148, label %.lr.ph, label %.preheader216, !llvm.loop !1163
 
 .preheader:                                       ; preds = %.lr.ph238, %.preheader216
   %.1214.lcssa = phi ptr [ %.0213.lcssa, %.preheader216 ], [ %173, %.lr.ph238 ]
@@ -66886,7 +66886,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %.1208233 = phi ptr [ %171, %.lr.ph238 ], [ %.0207.lcssa, %.preheader216 ]
   %.1211232 = phi ptr [ %172, %.lr.ph238 ], [ %.0210.lcssa, %.preheader216 ]
   %.1214231 = phi ptr [ %173, %.lr.ph238 ], [ %.0213.lcssa, %.preheader216 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1237) #54, !srcloc !697
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1237) #54, !srcloc !1164
   %150 = load <4 x float>, ptr %.1199236, align 1
   %151 = fmul <4 x float> %28, %150
   %152 = load <4 x float>, ptr %.1202235, align 1
@@ -66915,7 +66915,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %174 = ptrtoint ptr %168 to i64
   %175 = sub i64 %39, %174
   %176 = icmp sgt i64 %175, 15
-  br i1 %176, label %.lr.ph238, label %.preheader, !llvm.loop !698
+  br i1 %176, label %.lr.ph238, label %.preheader, !llvm.loop !1165
 
 .lr.ph253:                                        ; preds = %.preheader, %.lr.ph253
   %.2252 = phi ptr [ %194, %.lr.ph253 ], [ %.1.lcssa, %.preheader ]
@@ -66925,7 +66925,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %.2209248 = phi ptr [ %198, %.lr.ph253 ], [ %.1208.lcssa, %.preheader ]
   %.2212247 = phi ptr [ %199, %.lr.ph253 ], [ %.1211.lcssa, %.preheader ]
   %.2215246 = phi ptr [ %200, %.lr.ph253 ], [ %.1214.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2252) #54, !srcloc !699
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2252) #54, !srcloc !1166
   %177 = load float, ptr %.2200251, align 4
   %178 = fmul float %6, %177
   %179 = load float, ptr %.2203250, align 4
@@ -66952,7 +66952,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs(ptr noundef %0, ptr n
   %199 = getelementptr inbounds nuw i8, ptr %.2212247, i64 4
   %200 = getelementptr inbounds nuw i8, ptr %.2215246, i64 4
   %201 = icmp ult ptr %195, %3
-  br i1 %201, label %.lr.ph253, label %._crit_edge, !llvm.loop !700
+  br i1 %201, label %.lr.ph253, label %._crit_edge, !llvm.loop !1167
 
 ._crit_edge:                                      ; preds = %.lr.ph253, %.preheader
   ret void
@@ -67028,7 +67028,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %.0240252 = phi ptr [ %166, %.lr.ph ], [ %20, %4 ]
   %.0243251 = phi ptr [ %167, %.lr.ph ], [ %24, %4 ]
   %.0246250 = phi ptr [ %168, %.lr.ph ], [ %28, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0257) #54, !srcloc !701
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0257) #54, !srcloc !1168
   %50 = getelementptr inbounds nuw i8, ptr %.0228256, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %50, i32 0, i32 3, i32 1)
   %51 = getelementptr inbounds nuw i8, ptr %.0231255, i64 256
@@ -67162,7 +67162,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %169 = ptrtoint ptr %162 to i64
   %170 = sub i64 %45, %169
   %171 = icmp sgt i64 %170, 63
-  br i1 %171, label %.lr.ph, label %.preheader249, !llvm.loop !702
+  br i1 %171, label %.lr.ph, label %.preheader249, !llvm.loop !1169
 
 .preheader:                                       ; preds = %.lr.ph274, %.preheader249
   %.1247.lcssa = phi ptr [ %.0246.lcssa, %.preheader249 ], [ %200, %.lr.ph274 ]
@@ -67185,7 +67185,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %.1241268 = phi ptr [ %198, %.lr.ph274 ], [ %.0240.lcssa, %.preheader249 ]
   %.1244267 = phi ptr [ %199, %.lr.ph274 ], [ %.0243.lcssa, %.preheader249 ]
   %.1247266 = phi ptr [ %200, %.lr.ph274 ], [ %.0246.lcssa, %.preheader249 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1273) #54, !srcloc !703
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1273) #54, !srcloc !1170
   %173 = load <4 x float>, ptr %.1229272, align 1
   %174 = fmul <4 x float> %32, %173
   %175 = load <4 x float>, ptr %.1232271, align 1
@@ -67218,7 +67218,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %201 = ptrtoint ptr %194 to i64
   %202 = sub i64 %45, %201
   %203 = icmp sgt i64 %202, 15
-  br i1 %203, label %.lr.ph274, label %.preheader, !llvm.loop !704
+  br i1 %203, label %.lr.ph274, label %.preheader, !llvm.loop !1171
 
 .lr.ph291:                                        ; preds = %.preheader, %.lr.ph291
   %.2290 = phi ptr [ %224, %.lr.ph291 ], [ %.1.lcssa, %.preheader ]
@@ -67229,7 +67229,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %.2242285 = phi ptr [ %229, %.lr.ph291 ], [ %.1241.lcssa, %.preheader ]
   %.2245284 = phi ptr [ %230, %.lr.ph291 ], [ %.1244.lcssa, %.preheader ]
   %.2248283 = phi ptr [ %231, %.lr.ph291 ], [ %.1247.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2290) #54, !srcloc !705
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2290) #54, !srcloc !1172
   %204 = load float, ptr %.2230289, align 4
   %205 = fmul float %6, %204
   %206 = load float, ptr %.2233288, align 4
@@ -67260,7 +67260,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs(ptr noundef %0, ptr n
   %230 = getelementptr inbounds nuw i8, ptr %.2245284, i64 4
   %231 = getelementptr inbounds nuw i8, ptr %.2248283, i64 4
   %232 = icmp ult ptr %225, %3
-  br i1 %232, label %.lr.ph291, label %._crit_edge, !llvm.loop !706
+  br i1 %232, label %.lr.ph291, label %._crit_edge, !llvm.loop !1173
 
 ._crit_edge:                                      ; preds = %.lr.ph291, %.preheader
   ret void
@@ -67344,7 +67344,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %.0273285 = phi ptr [ %189, %.lr.ph ], [ %24, %4 ]
   %.0276284 = phi ptr [ %190, %.lr.ph ], [ %28, %4 ]
   %.0279283 = phi ptr [ %191, %.lr.ph ], [ %32, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0291) #54, !srcloc !707
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0291) #54, !srcloc !1174
   %56 = getelementptr inbounds nuw i8, ptr %.0258290, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1)
   %57 = getelementptr inbounds nuw i8, ptr %.0261289, i64 256
@@ -67496,7 +67496,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %192 = ptrtoint ptr %184 to i64
   %193 = sub i64 %51, %192
   %194 = icmp sgt i64 %193, 63
-  br i1 %194, label %.lr.ph, label %.preheader282, !llvm.loop !708
+  br i1 %194, label %.lr.ph, label %.preheader282, !llvm.loop !1175
 
 .preheader:                                       ; preds = %.lr.ph310, %.preheader282
   %.1280.lcssa = phi ptr [ %.0279.lcssa, %.preheader282 ], [ %227, %.lr.ph310 ]
@@ -67521,7 +67521,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %.1274303 = phi ptr [ %225, %.lr.ph310 ], [ %.0273.lcssa, %.preheader282 ]
   %.1277302 = phi ptr [ %226, %.lr.ph310 ], [ %.0276.lcssa, %.preheader282 ]
   %.1280301 = phi ptr [ %227, %.lr.ph310 ], [ %.0279.lcssa, %.preheader282 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1309) #54, !srcloc !709
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1309) #54, !srcloc !1176
   %196 = load <4 x float>, ptr %.1259308, align 1
   %197 = fmul <4 x float> %36, %196
   %198 = load <4 x float>, ptr %.1262307, align 1
@@ -67558,7 +67558,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %228 = ptrtoint ptr %220 to i64
   %229 = sub i64 %51, %228
   %230 = icmp sgt i64 %229, 15
-  br i1 %230, label %.lr.ph310, label %.preheader, !llvm.loop !710
+  br i1 %230, label %.lr.ph310, label %.preheader, !llvm.loop !1177
 
 .lr.ph329:                                        ; preds = %.preheader, %.lr.ph329
   %.2328 = phi ptr [ %254, %.lr.ph329 ], [ %.1.lcssa, %.preheader ]
@@ -67570,7 +67570,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %.2275322 = phi ptr [ %260, %.lr.ph329 ], [ %.1274.lcssa, %.preheader ]
   %.2278321 = phi ptr [ %261, %.lr.ph329 ], [ %.1277.lcssa, %.preheader ]
   %.2281320 = phi ptr [ %262, %.lr.ph329 ], [ %.1280.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2328) #54, !srcloc !711
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2328) #54, !srcloc !1178
   %231 = load float, ptr %.2260327, align 4
   %232 = fmul float %6, %231
   %233 = load float, ptr %.2263326, align 4
@@ -67605,7 +67605,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs(ptr noundef %0, ptr n
   %261 = getelementptr inbounds nuw i8, ptr %.2278321, i64 4
   %262 = getelementptr inbounds nuw i8, ptr %.2281320, i64 4
   %263 = icmp ult ptr %255, %3
-  br i1 %263, label %.lr.ph329, label %._crit_edge, !llvm.loop !712
+  br i1 %263, label %.lr.ph329, label %._crit_edge, !llvm.loop !1179
 
 ._crit_edge:                                      ; preds = %.lr.ph329, %.preheader
   ret void
@@ -67636,7 +67636,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.064 = phi ptr [ %37, %.lr.ph ], [ %0, %4 ]
   %.05963 = phi ptr [ %38, %.lr.ph ], [ %5, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.064) #54, !srcloc !713
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.064) #54, !srcloc !1180
   %14 = getelementptr inbounds nuw i8, ptr %.05963, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %14, i32 0, i32 3, i32 1)
   %15 = load <4 x float>, ptr %.064, align 1
@@ -67670,7 +67670,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %9, %39
   %41 = icmp sgt i64 %40, 63
-  br i1 %41, label %.lr.ph, label %.preheader62, !llvm.loop !714
+  br i1 %41, label %.lr.ph, label %.preheader62, !llvm.loop !1181
 
 .preheader:                                       ; preds = %.lr.ph69, %.preheader62
   %.160.lcssa = phi ptr [ %.059.lcssa, %.preheader62 ], [ %48, %.lr.ph69 ]
@@ -67681,7 +67681,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
 .lr.ph69:                                         ; preds = %.preheader62, %.lr.ph69
   %.168 = phi ptr [ %47, %.lr.ph69 ], [ %.0.lcssa, %.preheader62 ]
   %.16067 = phi ptr [ %48, %.lr.ph69 ], [ %.059.lcssa, %.preheader62 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.168) #54, !srcloc !715
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.168) #54, !srcloc !1182
   %43 = load <4 x float>, ptr %.168, align 1
   %44 = load <4 x float>, ptr %.16067, align 1
   %45 = fmul <4 x float> %8, %44
@@ -67692,12 +67692,12 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
   %49 = ptrtoint ptr %48 to i64
   %50 = sub i64 %9, %49
   %51 = icmp sgt i64 %50, 15
-  br i1 %51, label %.lr.ph69, label %.preheader, !llvm.loop !716
+  br i1 %51, label %.lr.ph69, label %.preheader, !llvm.loop !1183
 
 .lr.ph74:                                         ; preds = %.preheader, %.lr.ph74
   %.273 = phi ptr [ %56, %.lr.ph74 ], [ %.1.lcssa, %.preheader ]
   %.26172 = phi ptr [ %57, %.lr.ph74 ], [ %.160.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.273) #54, !srcloc !717
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.273) #54, !srcloc !1184
   %52 = load float, ptr %.273, align 4
   %53 = load float, ptr %.26172, align 4
   %54 = fmul float %6, %53
@@ -67706,7 +67706,7 @@ define internal void @stbir__vertical_gather_with_1_coeffs_cont(ptr noundef %0, 
   %56 = getelementptr inbounds nuw i8, ptr %.273, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %.26172, i64 4
   %58 = icmp ult ptr %57, %3
-  br i1 %58, label %.lr.ph74, label %._crit_edge, !llvm.loop !718
+  br i1 %58, label %.lr.ph74, label %._crit_edge, !llvm.loop !1185
 
 ._crit_edge:                                      ; preds = %.lr.ph74, %.preheader
   ret void
@@ -67742,7 +67742,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
   %.098 = phi ptr [ %59, %.lr.ph ], [ %0, %4 ]
   %.08997 = phi ptr [ %60, %.lr.ph ], [ %5, %4 ]
   %.09296 = phi ptr [ %61, %.lr.ph ], [ %8, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.098) #54, !srcloc !719
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.098) #54, !srcloc !1186
   %20 = getelementptr inbounds nuw i8, ptr %.08997, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %20, i32 0, i32 3, i32 1)
   %21 = getelementptr inbounds nuw i8, ptr %.09296, i64 256
@@ -67794,7 +67794,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %15, %62
   %64 = icmp sgt i64 %63, 63
-  br i1 %64, label %.lr.ph, label %.preheader95, !llvm.loop !720
+  br i1 %64, label %.lr.ph, label %.preheader95, !llvm.loop !1187
 
 .preheader:                                       ; preds = %.lr.ph105, %.preheader95
   %.193.lcssa = phi ptr [ %.092.lcssa, %.preheader95 ], [ %75, %.lr.ph105 ]
@@ -67807,7 +67807,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
   %.1104 = phi ptr [ %73, %.lr.ph105 ], [ %.0.lcssa, %.preheader95 ]
   %.190103 = phi ptr [ %74, %.lr.ph105 ], [ %.089.lcssa, %.preheader95 ]
   %.193102 = phi ptr [ %75, %.lr.ph105 ], [ %.092.lcssa, %.preheader95 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1104) #54, !srcloc !721
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1104) #54, !srcloc !1188
   %66 = load <4 x float>, ptr %.1104, align 1
   %67 = load <4 x float>, ptr %.190103, align 1
   %68 = fmul <4 x float> %12, %67
@@ -67822,13 +67822,13 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %15, %76
   %78 = icmp sgt i64 %77, 15
-  br i1 %78, label %.lr.ph105, label %.preheader, !llvm.loop !722
+  br i1 %78, label %.lr.ph105, label %.preheader, !llvm.loop !1189
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %.2111 = phi ptr [ %86, %.lr.ph112 ], [ %.1.lcssa, %.preheader ]
   %.291110 = phi ptr [ %87, %.lr.ph112 ], [ %.190.lcssa, %.preheader ]
   %.294109 = phi ptr [ %88, %.lr.ph112 ], [ %.193.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2111) #54, !srcloc !723
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2111) #54, !srcloc !1190
   %79 = load float, ptr %.2111, align 4
   %80 = load float, ptr %.291110, align 4
   %81 = fmul float %6, %80
@@ -67841,7 +67841,7 @@ define internal void @stbir__vertical_gather_with_2_coeffs_cont(ptr noundef %0, 
   %87 = getelementptr inbounds nuw i8, ptr %.291110, i64 4
   %88 = getelementptr inbounds nuw i8, ptr %.294109, i64 4
   %89 = icmp ult ptr %87, %3
-  br i1 %89, label %.lr.ph112, label %._crit_edge, !llvm.loop !724
+  br i1 %89, label %.lr.ph112, label %._crit_edge, !llvm.loop !1191
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %.preheader
   ret void
@@ -67885,7 +67885,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
   %.0119131 = phi ptr [ %82, %.lr.ph ], [ %5, %4 ]
   %.0122130 = phi ptr [ %83, %.lr.ph ], [ %8, %4 ]
   %.0125129 = phi ptr [ %84, %.lr.ph ], [ %12, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0132) #54, !srcloc !725
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0132) #54, !srcloc !1192
   %26 = getelementptr inbounds nuw i8, ptr %.0119131, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %26, i32 0, i32 3, i32 1)
   %27 = getelementptr inbounds nuw i8, ptr %.0122130, i64 256
@@ -67955,7 +67955,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
   %85 = ptrtoint ptr %82 to i64
   %86 = sub i64 %21, %85
   %87 = icmp sgt i64 %86, 63
-  br i1 %87, label %.lr.ph, label %.preheader128, !llvm.loop !726
+  br i1 %87, label %.lr.ph, label %.preheader128, !llvm.loop !1193
 
 .preheader:                                       ; preds = %.lr.ph141, %.preheader128
   %.1126.lcssa = phi ptr [ %.0125.lcssa, %.preheader128 ], [ %102, %.lr.ph141 ]
@@ -67970,7 +67970,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
   %.1120139 = phi ptr [ %100, %.lr.ph141 ], [ %.0119.lcssa, %.preheader128 ]
   %.1123138 = phi ptr [ %101, %.lr.ph141 ], [ %.0122.lcssa, %.preheader128 ]
   %.1126137 = phi ptr [ %102, %.lr.ph141 ], [ %.0125.lcssa, %.preheader128 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1140) #54, !srcloc !727
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1140) #54, !srcloc !1194
   %89 = load <4 x float>, ptr %.1140, align 1
   %90 = load <4 x float>, ptr %.1120139, align 1
   %91 = fmul <4 x float> %16, %90
@@ -67989,14 +67989,14 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
   %103 = ptrtoint ptr %100 to i64
   %104 = sub i64 %21, %103
   %105 = icmp sgt i64 %104, 15
-  br i1 %105, label %.lr.ph141, label %.preheader, !llvm.loop !728
+  br i1 %105, label %.lr.ph141, label %.preheader, !llvm.loop !1195
 
 .lr.ph150:                                        ; preds = %.preheader, %.lr.ph150
   %.2149 = phi ptr [ %116, %.lr.ph150 ], [ %.1.lcssa, %.preheader ]
   %.2121148 = phi ptr [ %117, %.lr.ph150 ], [ %.1120.lcssa, %.preheader ]
   %.2124147 = phi ptr [ %118, %.lr.ph150 ], [ %.1123.lcssa, %.preheader ]
   %.2127146 = phi ptr [ %119, %.lr.ph150 ], [ %.1126.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2149) #54, !srcloc !729
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2149) #54, !srcloc !1196
   %106 = load float, ptr %.2149, align 4
   %107 = load float, ptr %.2121148, align 4
   %108 = fmul float %6, %107
@@ -68013,7 +68013,7 @@ define internal void @stbir__vertical_gather_with_3_coeffs_cont(ptr noundef %0, 
   %118 = getelementptr inbounds nuw i8, ptr %.2124147, i64 4
   %119 = getelementptr inbounds nuw i8, ptr %.2127146, i64 4
   %120 = icmp ult ptr %117, %3
-  br i1 %120, label %.lr.ph150, label %._crit_edge, !llvm.loop !730
+  br i1 %120, label %.lr.ph150, label %._crit_edge, !llvm.loop !1197
 
 ._crit_edge:                                      ; preds = %.lr.ph150, %.preheader
   ret void
@@ -68065,7 +68065,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %.0152164 = phi ptr [ %105, %.lr.ph ], [ %8, %4 ]
   %.0155163 = phi ptr [ %106, %.lr.ph ], [ %12, %4 ]
   %.0158162 = phi ptr [ %107, %.lr.ph ], [ %16, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0166) #54, !srcloc !731
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0166) #54, !srcloc !1198
   %32 = getelementptr inbounds nuw i8, ptr %.0149165, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %32, i32 0, i32 3, i32 1)
   %33 = getelementptr inbounds nuw i8, ptr %.0152164, i64 256
@@ -68153,7 +68153,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %108 = ptrtoint ptr %104 to i64
   %109 = sub i64 %27, %108
   %110 = icmp sgt i64 %109, 63
-  br i1 %110, label %.lr.ph, label %.preheader161, !llvm.loop !732
+  br i1 %110, label %.lr.ph, label %.preheader161, !llvm.loop !1199
 
 .preheader:                                       ; preds = %.lr.ph177, %.preheader161
   %.1159.lcssa = phi ptr [ %.0158.lcssa, %.preheader161 ], [ %129, %.lr.ph177 ]
@@ -68170,7 +68170,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %.1153174 = phi ptr [ %127, %.lr.ph177 ], [ %.0152.lcssa, %.preheader161 ]
   %.1156173 = phi ptr [ %128, %.lr.ph177 ], [ %.0155.lcssa, %.preheader161 ]
   %.1159172 = phi ptr [ %129, %.lr.ph177 ], [ %.0158.lcssa, %.preheader161 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1176) #54, !srcloc !733
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1176) #54, !srcloc !1200
   %112 = load <4 x float>, ptr %.1176, align 1
   %113 = load <4 x float>, ptr %.1150175, align 1
   %114 = fmul <4 x float> %20, %113
@@ -68193,7 +68193,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %130 = ptrtoint ptr %126 to i64
   %131 = sub i64 %27, %130
   %132 = icmp sgt i64 %131, 15
-  br i1 %132, label %.lr.ph177, label %.preheader, !llvm.loop !734
+  br i1 %132, label %.lr.ph177, label %.preheader, !llvm.loop !1201
 
 .lr.ph188:                                        ; preds = %.preheader, %.lr.ph188
   %.2187 = phi ptr [ %146, %.lr.ph188 ], [ %.1.lcssa, %.preheader ]
@@ -68201,7 +68201,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %.2154185 = phi ptr [ %148, %.lr.ph188 ], [ %.1153.lcssa, %.preheader ]
   %.2157184 = phi ptr [ %149, %.lr.ph188 ], [ %.1156.lcssa, %.preheader ]
   %.2160183 = phi ptr [ %150, %.lr.ph188 ], [ %.1159.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2187) #54, !srcloc !735
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2187) #54, !srcloc !1202
   %133 = load float, ptr %.2187, align 4
   %134 = load float, ptr %.2151186, align 4
   %135 = fmul float %6, %134
@@ -68222,7 +68222,7 @@ define internal void @stbir__vertical_gather_with_4_coeffs_cont(ptr noundef %0, 
   %149 = getelementptr inbounds nuw i8, ptr %.2157184, i64 4
   %150 = getelementptr inbounds nuw i8, ptr %.2160183, i64 4
   %151 = icmp ult ptr %147, %3
-  br i1 %151, label %.lr.ph188, label %._crit_edge, !llvm.loop !736
+  br i1 %151, label %.lr.ph188, label %._crit_edge, !llvm.loop !1203
 
 ._crit_edge:                                      ; preds = %.lr.ph188, %.preheader
   ret void
@@ -68282,7 +68282,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %.0185197 = phi ptr [ %128, %.lr.ph ], [ %12, %4 ]
   %.0188196 = phi ptr [ %129, %.lr.ph ], [ %16, %4 ]
   %.0191195 = phi ptr [ %130, %.lr.ph ], [ %20, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0200) #54, !srcloc !737
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0200) #54, !srcloc !1204
   %38 = getelementptr inbounds nuw i8, ptr %.0179199, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %38, i32 0, i32 3, i32 1)
   %39 = getelementptr inbounds nuw i8, ptr %.0182198, i64 256
@@ -68388,7 +68388,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %131 = ptrtoint ptr %126 to i64
   %132 = sub i64 %33, %131
   %133 = icmp sgt i64 %132, 63
-  br i1 %133, label %.lr.ph, label %.preheader194, !llvm.loop !738
+  br i1 %133, label %.lr.ph, label %.preheader194, !llvm.loop !1205
 
 .preheader:                                       ; preds = %.lr.ph213, %.preheader194
   %.1192.lcssa = phi ptr [ %.0191.lcssa, %.preheader194 ], [ %156, %.lr.ph213 ]
@@ -68407,7 +68407,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %.1186209 = phi ptr [ %154, %.lr.ph213 ], [ %.0185.lcssa, %.preheader194 ]
   %.1189208 = phi ptr [ %155, %.lr.ph213 ], [ %.0188.lcssa, %.preheader194 ]
   %.1192207 = phi ptr [ %156, %.lr.ph213 ], [ %.0191.lcssa, %.preheader194 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1212) #54, !srcloc !739
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1212) #54, !srcloc !1206
   %135 = load <4 x float>, ptr %.1212, align 1
   %136 = load <4 x float>, ptr %.1180211, align 1
   %137 = fmul <4 x float> %24, %136
@@ -68434,7 +68434,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %157 = ptrtoint ptr %152 to i64
   %158 = sub i64 %33, %157
   %159 = icmp sgt i64 %158, 15
-  br i1 %159, label %.lr.ph213, label %.preheader, !llvm.loop !740
+  br i1 %159, label %.lr.ph213, label %.preheader, !llvm.loop !1207
 
 .lr.ph226:                                        ; preds = %.preheader, %.lr.ph226
   %.2225 = phi ptr [ %176, %.lr.ph226 ], [ %.1.lcssa, %.preheader ]
@@ -68443,7 +68443,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %.2187222 = phi ptr [ %179, %.lr.ph226 ], [ %.1186.lcssa, %.preheader ]
   %.2190221 = phi ptr [ %180, %.lr.ph226 ], [ %.1189.lcssa, %.preheader ]
   %.2193220 = phi ptr [ %181, %.lr.ph226 ], [ %.1192.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2225) #54, !srcloc !741
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2225) #54, !srcloc !1208
   %160 = load float, ptr %.2225, align 4
   %161 = load float, ptr %.2181224, align 4
   %162 = fmul float %6, %161
@@ -68468,7 +68468,7 @@ define internal void @stbir__vertical_gather_with_5_coeffs_cont(ptr noundef %0, 
   %180 = getelementptr inbounds nuw i8, ptr %.2190221, i64 4
   %181 = getelementptr inbounds nuw i8, ptr %.2193220, i64 4
   %182 = icmp ult ptr %177, %3
-  br i1 %182, label %.lr.ph226, label %._crit_edge, !llvm.loop !742
+  br i1 %182, label %.lr.ph226, label %._crit_edge, !llvm.loop !1209
 
 ._crit_edge:                                      ; preds = %.lr.ph226, %.preheader
   ret void
@@ -68536,7 +68536,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %.0218230 = phi ptr [ %151, %.lr.ph ], [ %16, %4 ]
   %.0221229 = phi ptr [ %152, %.lr.ph ], [ %20, %4 ]
   %.0224228 = phi ptr [ %153, %.lr.ph ], [ %24, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0234) #54, !srcloc !743
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0234) #54, !srcloc !1210
   %44 = getelementptr inbounds nuw i8, ptr %.0209233, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %44, i32 0, i32 3, i32 1)
   %45 = getelementptr inbounds nuw i8, ptr %.0212232, i64 256
@@ -68660,7 +68660,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %154 = ptrtoint ptr %148 to i64
   %155 = sub i64 %39, %154
   %156 = icmp sgt i64 %155, 63
-  br i1 %156, label %.lr.ph, label %.preheader227, !llvm.loop !744
+  br i1 %156, label %.lr.ph, label %.preheader227, !llvm.loop !1211
 
 .preheader:                                       ; preds = %.lr.ph249, %.preheader227
   %.1225.lcssa = phi ptr [ %.0224.lcssa, %.preheader227 ], [ %183, %.lr.ph249 ]
@@ -68681,7 +68681,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %.1219244 = phi ptr [ %181, %.lr.ph249 ], [ %.0218.lcssa, %.preheader227 ]
   %.1222243 = phi ptr [ %182, %.lr.ph249 ], [ %.0221.lcssa, %.preheader227 ]
   %.1225242 = phi ptr [ %183, %.lr.ph249 ], [ %.0224.lcssa, %.preheader227 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1248) #54, !srcloc !745
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1248) #54, !srcloc !1212
   %158 = load <4 x float>, ptr %.1248, align 1
   %159 = load <4 x float>, ptr %.1210247, align 1
   %160 = fmul <4 x float> %28, %159
@@ -68712,7 +68712,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %184 = ptrtoint ptr %178 to i64
   %185 = sub i64 %39, %184
   %186 = icmp sgt i64 %185, 15
-  br i1 %186, label %.lr.ph249, label %.preheader, !llvm.loop !746
+  br i1 %186, label %.lr.ph249, label %.preheader, !llvm.loop !1213
 
 .lr.ph264:                                        ; preds = %.preheader, %.lr.ph264
   %.2263 = phi ptr [ %206, %.lr.ph264 ], [ %.1.lcssa, %.preheader ]
@@ -68722,7 +68722,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %.2220259 = phi ptr [ %210, %.lr.ph264 ], [ %.1219.lcssa, %.preheader ]
   %.2223258 = phi ptr [ %211, %.lr.ph264 ], [ %.1222.lcssa, %.preheader ]
   %.2226257 = phi ptr [ %212, %.lr.ph264 ], [ %.1225.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2263) #54, !srcloc !747
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2263) #54, !srcloc !1214
   %187 = load float, ptr %.2263, align 4
   %188 = load float, ptr %.2211262, align 4
   %189 = fmul float %6, %188
@@ -68751,7 +68751,7 @@ define internal void @stbir__vertical_gather_with_6_coeffs_cont(ptr noundef %0, 
   %211 = getelementptr inbounds nuw i8, ptr %.2223258, i64 4
   %212 = getelementptr inbounds nuw i8, ptr %.2226257, i64 4
   %213 = icmp ult ptr %207, %3
-  br i1 %213, label %.lr.ph264, label %._crit_edge, !llvm.loop !748
+  br i1 %213, label %.lr.ph264, label %._crit_edge, !llvm.loop !1215
 
 ._crit_edge:                                      ; preds = %.lr.ph264, %.preheader
   ret void
@@ -68827,7 +68827,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %.0251263 = phi ptr [ %174, %.lr.ph ], [ %20, %4 ]
   %.0254262 = phi ptr [ %175, %.lr.ph ], [ %24, %4 ]
   %.0257261 = phi ptr [ %176, %.lr.ph ], [ %28, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0268) #54, !srcloc !749
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0268) #54, !srcloc !1216
   %50 = getelementptr inbounds nuw i8, ptr %.0239267, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %50, i32 0, i32 3, i32 1)
   %51 = getelementptr inbounds nuw i8, ptr %.0242266, i64 256
@@ -68969,7 +68969,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %177 = ptrtoint ptr %170 to i64
   %178 = sub i64 %45, %177
   %179 = icmp sgt i64 %178, 63
-  br i1 %179, label %.lr.ph, label %.preheader260, !llvm.loop !750
+  br i1 %179, label %.lr.ph, label %.preheader260, !llvm.loop !1217
 
 .preheader:                                       ; preds = %.lr.ph285, %.preheader260
   %.1258.lcssa = phi ptr [ %.0257.lcssa, %.preheader260 ], [ %210, %.lr.ph285 ]
@@ -68992,7 +68992,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %.1252279 = phi ptr [ %208, %.lr.ph285 ], [ %.0251.lcssa, %.preheader260 ]
   %.1255278 = phi ptr [ %209, %.lr.ph285 ], [ %.0254.lcssa, %.preheader260 ]
   %.1258277 = phi ptr [ %210, %.lr.ph285 ], [ %.0257.lcssa, %.preheader260 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1284) #54, !srcloc !751
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1284) #54, !srcloc !1218
   %181 = load <4 x float>, ptr %.1284, align 1
   %182 = load <4 x float>, ptr %.1240283, align 1
   %183 = fmul <4 x float> %32, %182
@@ -69027,7 +69027,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %211 = ptrtoint ptr %204 to i64
   %212 = sub i64 %45, %211
   %213 = icmp sgt i64 %212, 15
-  br i1 %213, label %.lr.ph285, label %.preheader, !llvm.loop !752
+  br i1 %213, label %.lr.ph285, label %.preheader, !llvm.loop !1219
 
 .lr.ph302:                                        ; preds = %.preheader, %.lr.ph302
   %.2301 = phi ptr [ %236, %.lr.ph302 ], [ %.1.lcssa, %.preheader ]
@@ -69038,7 +69038,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %.2253296 = phi ptr [ %241, %.lr.ph302 ], [ %.1252.lcssa, %.preheader ]
   %.2256295 = phi ptr [ %242, %.lr.ph302 ], [ %.1255.lcssa, %.preheader ]
   %.2259294 = phi ptr [ %243, %.lr.ph302 ], [ %.1258.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2301) #54, !srcloc !753
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2301) #54, !srcloc !1220
   %214 = load float, ptr %.2301, align 4
   %215 = load float, ptr %.2241300, align 4
   %216 = fmul float %6, %215
@@ -69071,7 +69071,7 @@ define internal void @stbir__vertical_gather_with_7_coeffs_cont(ptr noundef %0, 
   %242 = getelementptr inbounds nuw i8, ptr %.2256295, i64 4
   %243 = getelementptr inbounds nuw i8, ptr %.2259294, i64 4
   %244 = icmp ult ptr %237, %3
-  br i1 %244, label %.lr.ph302, label %._crit_edge, !llvm.loop !754
+  br i1 %244, label %.lr.ph302, label %._crit_edge, !llvm.loop !1221
 
 ._crit_edge:                                      ; preds = %.lr.ph302, %.preheader
   ret void
@@ -69155,7 +69155,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %.0284296 = phi ptr [ %197, %.lr.ph ], [ %24, %4 ]
   %.0287295 = phi ptr [ %198, %.lr.ph ], [ %28, %4 ]
   %.0290294 = phi ptr [ %199, %.lr.ph ], [ %32, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0302) #54, !srcloc !755
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0302) #54, !srcloc !1222
   %56 = getelementptr inbounds nuw i8, ptr %.0269301, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1)
   %57 = getelementptr inbounds nuw i8, ptr %.0272300, i64 256
@@ -69315,7 +69315,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %200 = ptrtoint ptr %192 to i64
   %201 = sub i64 %51, %200
   %202 = icmp sgt i64 %201, 63
-  br i1 %202, label %.lr.ph, label %.preheader293, !llvm.loop !756
+  br i1 %202, label %.lr.ph, label %.preheader293, !llvm.loop !1223
 
 .preheader:                                       ; preds = %.lr.ph321, %.preheader293
   %.1291.lcssa = phi ptr [ %.0290.lcssa, %.preheader293 ], [ %237, %.lr.ph321 ]
@@ -69340,7 +69340,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %.1285314 = phi ptr [ %235, %.lr.ph321 ], [ %.0284.lcssa, %.preheader293 ]
   %.1288313 = phi ptr [ %236, %.lr.ph321 ], [ %.0287.lcssa, %.preheader293 ]
   %.1291312 = phi ptr [ %237, %.lr.ph321 ], [ %.0290.lcssa, %.preheader293 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1320) #54, !srcloc !757
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1320) #54, !srcloc !1224
   %204 = load <4 x float>, ptr %.1320, align 1
   %205 = load <4 x float>, ptr %.1270319, align 1
   %206 = fmul <4 x float> %36, %205
@@ -69379,7 +69379,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %238 = ptrtoint ptr %230 to i64
   %239 = sub i64 %51, %238
   %240 = icmp sgt i64 %239, 15
-  br i1 %240, label %.lr.ph321, label %.preheader, !llvm.loop !758
+  br i1 %240, label %.lr.ph321, label %.preheader, !llvm.loop !1225
 
 .lr.ph340:                                        ; preds = %.preheader, %.lr.ph340
   %.2339 = phi ptr [ %266, %.lr.ph340 ], [ %.1.lcssa, %.preheader ]
@@ -69391,7 +69391,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %.2286333 = phi ptr [ %272, %.lr.ph340 ], [ %.1285.lcssa, %.preheader ]
   %.2289332 = phi ptr [ %273, %.lr.ph340 ], [ %.1288.lcssa, %.preheader ]
   %.2292331 = phi ptr [ %274, %.lr.ph340 ], [ %.1291.lcssa, %.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2339) #54, !srcloc !759
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2339) #54, !srcloc !1226
   %241 = load float, ptr %.2339, align 4
   %242 = load float, ptr %.2271338, align 4
   %243 = fmul float %6, %242
@@ -69428,7 +69428,7 @@ define internal void @stbir__vertical_gather_with_8_coeffs_cont(ptr noundef %0, 
   %273 = getelementptr inbounds nuw i8, ptr %.2289332, i64 4
   %274 = getelementptr inbounds nuw i8, ptr %.2292331, i64 4
   %275 = icmp ult ptr %267, %3
-  br i1 %275, label %.lr.ph340, label %._crit_edge, !llvm.loop !760
+  br i1 %275, label %.lr.ph340, label %._crit_edge, !llvm.loop !1227
 
 ._crit_edge:                                      ; preds = %.lr.ph340, %.preheader
   ret void
@@ -69598,7 +69598,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs(ptr noundef readonly
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.051 = phi ptr [ %28, %.lr.ph ], [ %2, %4 ]
   %.04650 = phi ptr [ %29, %.lr.ph ], [ %5, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.04650) #54, !srcloc !761
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.04650) #54, !srcloc !1228
   %14 = load <4 x float>, ptr %.051, align 1
   %15 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %16 = load <4 x float>, ptr %15, align 1
@@ -69622,7 +69622,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs(ptr noundef readonly
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %9, %30
   %32 = icmp sgt i64 %31, 63
-  br i1 %32, label %.lr.ph, label %.preheader49, !llvm.loop !762
+  br i1 %32, label %.lr.ph, label %.preheader49, !llvm.loop !1229
 
 .preheader:                                       ; preds = %.lr.ph56, %.preheader49
   %.147.lcssa = phi ptr [ %.046.lcssa, %.preheader49 ], [ %37, %.lr.ph56 ]
@@ -69633,7 +69633,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs(ptr noundef readonly
 .lr.ph56:                                         ; preds = %.preheader49, %.lr.ph56
   %.155 = phi ptr [ %36, %.lr.ph56 ], [ %.0.lcssa, %.preheader49 ]
   %.14754 = phi ptr [ %37, %.lr.ph56 ], [ %.046.lcssa, %.preheader49 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.14754) #54, !srcloc !763
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.14754) #54, !srcloc !1230
   %34 = load <4 x float>, ptr %.155, align 1
   %35 = fmul <4 x float> %8, %34
   store <4 x float> %35, ptr %.14754, align 1
@@ -69642,19 +69642,19 @@ define internal void @stbir__vertical_scatter_with_1_coeffs(ptr noundef readonly
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %9, %38
   %40 = icmp sgt i64 %39, 15
-  br i1 %40, label %.lr.ph56, label %.preheader, !llvm.loop !764
+  br i1 %40, label %.lr.ph56, label %.preheader, !llvm.loop !1231
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %.260 = phi ptr [ %43, %.lr.ph61 ], [ %.1.lcssa, %.preheader ]
   %.24859 = phi ptr [ %44, %.lr.ph61 ], [ %.147.lcssa, %.preheader ]
   %41 = load float, ptr %.260, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.24859) #54, !srcloc !765
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.24859) #54, !srcloc !1232
   %42 = fmul float %6, %41
   store float %42, ptr %.24859, align 4
   %43 = getelementptr inbounds nuw i8, ptr %.260, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %.24859, i64 4
   %45 = icmp ult ptr %43, %3
-  br i1 %45, label %.lr.ph61, label %._crit_edge, !llvm.loop !766
+  br i1 %45, label %.lr.ph61, label %._crit_edge, !llvm.loop !1233
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %.preheader
   ret void
@@ -69690,7 +69690,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr noundef readonly
   %.084 = phi ptr [ %41, %.lr.ph ], [ %2, %4 ]
   %.07583 = phi ptr [ %42, %.lr.ph ], [ %5, %4 ]
   %.07882 = phi ptr [ %43, %.lr.ph ], [ %8, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.07583) #54, !srcloc !767
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.07583) #54, !srcloc !1234
   %20 = load <4 x float>, ptr %.084, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %22 = load <4 x float>, ptr %21, align 1
@@ -69726,7 +69726,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr noundef readonly
   %44 = ptrtoint ptr %41 to i64
   %45 = sub i64 %15, %44
   %46 = icmp sgt i64 %45, 63
-  br i1 %46, label %.lr.ph, label %.preheader81, !llvm.loop !768
+  br i1 %46, label %.lr.ph, label %.preheader81, !llvm.loop !1235
 
 .preheader:                                       ; preds = %.lr.ph91, %.preheader81
   %.179.lcssa = phi ptr [ %.078.lcssa, %.preheader81 ], [ %53, %.lr.ph91 ]
@@ -69739,7 +69739,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr noundef readonly
   %.190 = phi ptr [ %51, %.lr.ph91 ], [ %.0.lcssa, %.preheader81 ]
   %.17689 = phi ptr [ %52, %.lr.ph91 ], [ %.075.lcssa, %.preheader81 ]
   %.17988 = phi ptr [ %53, %.lr.ph91 ], [ %.078.lcssa, %.preheader81 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.17689) #54, !srcloc !769
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.17689) #54, !srcloc !1236
   %48 = load <4 x float>, ptr %.190, align 1
   %49 = fmul <4 x float> %12, %48
   store <4 x float> %49, ptr %.17689, align 1
@@ -69751,14 +69751,14 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr noundef readonly
   %54 = ptrtoint ptr %51 to i64
   %55 = sub i64 %15, %54
   %56 = icmp sgt i64 %55, 15
-  br i1 %56, label %.lr.ph91, label %.preheader, !llvm.loop !770
+  br i1 %56, label %.lr.ph91, label %.preheader, !llvm.loop !1237
 
 .lr.ph98:                                         ; preds = %.preheader, %.lr.ph98
   %.297 = phi ptr [ %60, %.lr.ph98 ], [ %.1.lcssa, %.preheader ]
   %.27796 = phi ptr [ %61, %.lr.ph98 ], [ %.176.lcssa, %.preheader ]
   %.28095 = phi ptr [ %62, %.lr.ph98 ], [ %.179.lcssa, %.preheader ]
   %57 = load float, ptr %.297, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.27796) #54, !srcloc !771
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.27796) #54, !srcloc !1238
   %58 = fmul float %6, %57
   store float %58, ptr %.27796, align 4
   %59 = fmul float %10, %57
@@ -69767,7 +69767,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs(ptr noundef readonly
   %61 = getelementptr inbounds nuw i8, ptr %.27796, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %.28095, i64 4
   %63 = icmp ult ptr %60, %3
-  br i1 %63, label %.lr.ph98, label %._crit_edge, !llvm.loop !772
+  br i1 %63, label %.lr.ph98, label %._crit_edge, !llvm.loop !1239
 
 ._crit_edge:                                      ; preds = %.lr.ph98, %.preheader
   ret void
@@ -69811,7 +69811,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %.0104116 = phi ptr [ %55, %.lr.ph ], [ %5, %4 ]
   %.0107115 = phi ptr [ %56, %.lr.ph ], [ %8, %4 ]
   %.0110114 = phi ptr [ %57, %.lr.ph ], [ %12, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0104116) #54, !srcloc !773
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0104116) #54, !srcloc !1240
   %26 = load <4 x float>, ptr %.0117, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %28 = load <4 x float>, ptr %27, align 1
@@ -69859,7 +69859,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %58 = ptrtoint ptr %54 to i64
   %59 = sub i64 %21, %58
   %60 = icmp sgt i64 %59, 63
-  br i1 %60, label %.lr.ph, label %.preheader113, !llvm.loop !774
+  br i1 %60, label %.lr.ph, label %.preheader113, !llvm.loop !1241
 
 .preheader:                                       ; preds = %.lr.ph126, %.preheader113
   %.1111.lcssa = phi ptr [ %.0110.lcssa, %.preheader113 ], [ %69, %.lr.ph126 ]
@@ -69874,7 +69874,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %.1105124 = phi ptr [ %67, %.lr.ph126 ], [ %.0104.lcssa, %.preheader113 ]
   %.1108123 = phi ptr [ %68, %.lr.ph126 ], [ %.0107.lcssa, %.preheader113 ]
   %.1111122 = phi ptr [ %69, %.lr.ph126 ], [ %.0110.lcssa, %.preheader113 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1105124) #54, !srcloc !775
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1105124) #54, !srcloc !1242
   %62 = load <4 x float>, ptr %.1125, align 1
   %63 = fmul <4 x float> %16, %62
   store <4 x float> %63, ptr %.1105124, align 1
@@ -69889,7 +69889,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %70 = ptrtoint ptr %66 to i64
   %71 = sub i64 %21, %70
   %72 = icmp sgt i64 %71, 15
-  br i1 %72, label %.lr.ph126, label %.preheader, !llvm.loop !776
+  br i1 %72, label %.lr.ph126, label %.preheader, !llvm.loop !1243
 
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
   %.2134 = phi ptr [ %77, %.lr.ph135 ], [ %.1.lcssa, %.preheader ]
@@ -69897,7 +69897,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %.2109132 = phi ptr [ %79, %.lr.ph135 ], [ %.1108.lcssa, %.preheader ]
   %.2112131 = phi ptr [ %80, %.lr.ph135 ], [ %.1111.lcssa, %.preheader ]
   %73 = load float, ptr %.2134, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2106133) #54, !srcloc !777
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2106133) #54, !srcloc !1244
   %74 = fmul float %6, %73
   store float %74, ptr %.2106133, align 4
   %75 = fmul float %10, %73
@@ -69909,7 +69909,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs(ptr noundef readonly
   %79 = getelementptr inbounds nuw i8, ptr %.2109132, i64 4
   %80 = getelementptr inbounds nuw i8, ptr %.2112131, i64 4
   %81 = icmp ult ptr %77, %3
-  br i1 %81, label %.lr.ph135, label %._crit_edge, !llvm.loop !778
+  br i1 %81, label %.lr.ph135, label %._crit_edge, !llvm.loop !1245
 
 ._crit_edge:                                      ; preds = %.lr.ph135, %.preheader
   ret void
@@ -69961,7 +69961,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %.0136148 = phi ptr [ %69, %.lr.ph ], [ %8, %4 ]
   %.0139147 = phi ptr [ %70, %.lr.ph ], [ %12, %4 ]
   %.0142146 = phi ptr [ %71, %.lr.ph ], [ %16, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0133149) #54, !srcloc !779
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0133149) #54, !srcloc !1246
   %32 = load <4 x float>, ptr %.0150, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.0150, i64 16
   %34 = load <4 x float>, ptr %33, align 1
@@ -70021,7 +70021,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %72 = ptrtoint ptr %67 to i64
   %73 = sub i64 %27, %72
   %74 = icmp sgt i64 %73, 63
-  br i1 %74, label %.lr.ph, label %.preheader145, !llvm.loop !780
+  br i1 %74, label %.lr.ph, label %.preheader145, !llvm.loop !1247
 
 .preheader:                                       ; preds = %.lr.ph161, %.preheader145
   %.1143.lcssa = phi ptr [ %.0142.lcssa, %.preheader145 ], [ %85, %.lr.ph161 ]
@@ -70038,7 +70038,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %.1137158 = phi ptr [ %83, %.lr.ph161 ], [ %.0136.lcssa, %.preheader145 ]
   %.1140157 = phi ptr [ %84, %.lr.ph161 ], [ %.0139.lcssa, %.preheader145 ]
   %.1143156 = phi ptr [ %85, %.lr.ph161 ], [ %.0142.lcssa, %.preheader145 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1134159) #54, !srcloc !781
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1134159) #54, !srcloc !1248
   %76 = load <4 x float>, ptr %.1160, align 1
   %77 = fmul <4 x float> %20, %76
   store <4 x float> %77, ptr %.1134159, align 1
@@ -70056,7 +70056,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %86 = ptrtoint ptr %81 to i64
   %87 = sub i64 %27, %86
   %88 = icmp sgt i64 %87, 15
-  br i1 %88, label %.lr.ph161, label %.preheader, !llvm.loop !782
+  br i1 %88, label %.lr.ph161, label %.preheader, !llvm.loop !1249
 
 .lr.ph172:                                        ; preds = %.preheader, %.lr.ph172
   %.2171 = phi ptr [ %94, %.lr.ph172 ], [ %.1.lcssa, %.preheader ]
@@ -70065,7 +70065,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %.2141168 = phi ptr [ %97, %.lr.ph172 ], [ %.1140.lcssa, %.preheader ]
   %.2144167 = phi ptr [ %98, %.lr.ph172 ], [ %.1143.lcssa, %.preheader ]
   %89 = load float, ptr %.2171, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2135170) #54, !srcloc !783
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2135170) #54, !srcloc !1250
   %90 = fmul float %6, %89
   store float %90, ptr %.2135170, align 4
   %91 = fmul float %10, %89
@@ -70080,7 +70080,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs(ptr noundef readonly
   %97 = getelementptr inbounds nuw i8, ptr %.2141168, i64 4
   %98 = getelementptr inbounds nuw i8, ptr %.2144167, i64 4
   %99 = icmp ult ptr %94, %3
-  br i1 %99, label %.lr.ph172, label %._crit_edge, !llvm.loop !784
+  br i1 %99, label %.lr.ph172, label %._crit_edge, !llvm.loop !1251
 
 ._crit_edge:                                      ; preds = %.lr.ph172, %.preheader
   ret void
@@ -70140,7 +70140,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %.0168180 = phi ptr [ %83, %.lr.ph ], [ %12, %4 ]
   %.0171179 = phi ptr [ %84, %.lr.ph ], [ %16, %4 ]
   %.0174178 = phi ptr [ %85, %.lr.ph ], [ %20, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0162182) #54, !srcloc !785
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0162182) #54, !srcloc !1252
   %38 = load <4 x float>, ptr %.0183, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.0183, i64 16
   %40 = load <4 x float>, ptr %39, align 1
@@ -70212,7 +70212,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %86 = ptrtoint ptr %80 to i64
   %87 = sub i64 %33, %86
   %88 = icmp sgt i64 %87, 63
-  br i1 %88, label %.lr.ph, label %.preheader177, !llvm.loop !786
+  br i1 %88, label %.lr.ph, label %.preheader177, !llvm.loop !1253
 
 .preheader:                                       ; preds = %.lr.ph196, %.preheader177
   %.1175.lcssa = phi ptr [ %.0174.lcssa, %.preheader177 ], [ %101, %.lr.ph196 ]
@@ -70231,7 +70231,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %.1169192 = phi ptr [ %99, %.lr.ph196 ], [ %.0168.lcssa, %.preheader177 ]
   %.1172191 = phi ptr [ %100, %.lr.ph196 ], [ %.0171.lcssa, %.preheader177 ]
   %.1175190 = phi ptr [ %101, %.lr.ph196 ], [ %.0174.lcssa, %.preheader177 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1163194) #54, !srcloc !787
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1163194) #54, !srcloc !1254
   %90 = load <4 x float>, ptr %.1195, align 1
   %91 = fmul <4 x float> %24, %90
   store <4 x float> %91, ptr %.1163194, align 1
@@ -70252,7 +70252,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %102 = ptrtoint ptr %96 to i64
   %103 = sub i64 %33, %102
   %104 = icmp sgt i64 %103, 15
-  br i1 %104, label %.lr.ph196, label %.preheader, !llvm.loop !788
+  br i1 %104, label %.lr.ph196, label %.preheader, !llvm.loop !1255
 
 .lr.ph209:                                        ; preds = %.preheader, %.lr.ph209
   %.2208 = phi ptr [ %111, %.lr.ph209 ], [ %.1.lcssa, %.preheader ]
@@ -70262,7 +70262,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %.2173204 = phi ptr [ %115, %.lr.ph209 ], [ %.1172.lcssa, %.preheader ]
   %.2176203 = phi ptr [ %116, %.lr.ph209 ], [ %.1175.lcssa, %.preheader ]
   %105 = load float, ptr %.2208, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2164207) #54, !srcloc !789
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2164207) #54, !srcloc !1256
   %106 = fmul float %6, %105
   store float %106, ptr %.2164207, align 4
   %107 = fmul float %10, %105
@@ -70280,7 +70280,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs(ptr noundef readonly
   %115 = getelementptr inbounds nuw i8, ptr %.2173204, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %.2176203, i64 4
   %117 = icmp ult ptr %111, %3
-  br i1 %117, label %.lr.ph209, label %._crit_edge, !llvm.loop !790
+  br i1 %117, label %.lr.ph209, label %._crit_edge, !llvm.loop !1257
 
 ._crit_edge:                                      ; preds = %.lr.ph209, %.preheader
   ret void
@@ -70348,7 +70348,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %.0200212 = phi ptr [ %97, %.lr.ph ], [ %16, %4 ]
   %.0203211 = phi ptr [ %98, %.lr.ph ], [ %20, %4 ]
   %.0206210 = phi ptr [ %99, %.lr.ph ], [ %24, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0191215) #54, !srcloc !791
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0191215) #54, !srcloc !1258
   %44 = load <4 x float>, ptr %.0216, align 1
   %45 = getelementptr inbounds nuw i8, ptr %.0216, i64 16
   %46 = load <4 x float>, ptr %45, align 1
@@ -70432,7 +70432,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %100 = ptrtoint ptr %93 to i64
   %101 = sub i64 %39, %100
   %102 = icmp sgt i64 %101, 63
-  br i1 %102, label %.lr.ph, label %.preheader209, !llvm.loop !792
+  br i1 %102, label %.lr.ph, label %.preheader209, !llvm.loop !1259
 
 .preheader:                                       ; preds = %.lr.ph231, %.preheader209
   %.1207.lcssa = phi ptr [ %.0206.lcssa, %.preheader209 ], [ %117, %.lr.ph231 ]
@@ -70453,7 +70453,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %.1201226 = phi ptr [ %115, %.lr.ph231 ], [ %.0200.lcssa, %.preheader209 ]
   %.1204225 = phi ptr [ %116, %.lr.ph231 ], [ %.0203.lcssa, %.preheader209 ]
   %.1207224 = phi ptr [ %117, %.lr.ph231 ], [ %.0206.lcssa, %.preheader209 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1192229) #54, !srcloc !793
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1192229) #54, !srcloc !1260
   %104 = load <4 x float>, ptr %.1230, align 1
   %105 = fmul <4 x float> %28, %104
   store <4 x float> %105, ptr %.1192229, align 1
@@ -70477,7 +70477,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %118 = ptrtoint ptr %111 to i64
   %119 = sub i64 %39, %118
   %120 = icmp sgt i64 %119, 15
-  br i1 %120, label %.lr.ph231, label %.preheader, !llvm.loop !794
+  br i1 %120, label %.lr.ph231, label %.preheader, !llvm.loop !1261
 
 .lr.ph246:                                        ; preds = %.preheader, %.lr.ph246
   %.2245 = phi ptr [ %128, %.lr.ph246 ], [ %.1.lcssa, %.preheader ]
@@ -70488,7 +70488,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %.2205240 = phi ptr [ %133, %.lr.ph246 ], [ %.1204.lcssa, %.preheader ]
   %.2208239 = phi ptr [ %134, %.lr.ph246 ], [ %.1207.lcssa, %.preheader ]
   %121 = load float, ptr %.2245, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2193244) #54, !srcloc !795
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2193244) #54, !srcloc !1262
   %122 = fmul float %6, %121
   store float %122, ptr %.2193244, align 4
   %123 = fmul float %10, %121
@@ -70509,7 +70509,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs(ptr noundef readonly
   %133 = getelementptr inbounds nuw i8, ptr %.2205240, i64 4
   %134 = getelementptr inbounds nuw i8, ptr %.2208239, i64 4
   %135 = icmp ult ptr %128, %3
-  br i1 %135, label %.lr.ph246, label %._crit_edge, !llvm.loop !796
+  br i1 %135, label %.lr.ph246, label %._crit_edge, !llvm.loop !1263
 
 ._crit_edge:                                      ; preds = %.lr.ph246, %.preheader
   ret void
@@ -70585,7 +70585,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %.0232244 = phi ptr [ %111, %.lr.ph ], [ %20, %4 ]
   %.0235243 = phi ptr [ %112, %.lr.ph ], [ %24, %4 ]
   %.0238242 = phi ptr [ %113, %.lr.ph ], [ %28, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0220248) #54, !srcloc !797
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0220248) #54, !srcloc !1264
   %50 = load <4 x float>, ptr %.0249, align 1
   %51 = getelementptr inbounds nuw i8, ptr %.0249, i64 16
   %52 = load <4 x float>, ptr %51, align 1
@@ -70681,7 +70681,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %114 = ptrtoint ptr %106 to i64
   %115 = sub i64 %45, %114
   %116 = icmp sgt i64 %115, 63
-  br i1 %116, label %.lr.ph, label %.preheader241, !llvm.loop !798
+  br i1 %116, label %.lr.ph, label %.preheader241, !llvm.loop !1265
 
 .preheader:                                       ; preds = %.lr.ph266, %.preheader241
   %.1239.lcssa = phi ptr [ %.0238.lcssa, %.preheader241 ], [ %133, %.lr.ph266 ]
@@ -70704,7 +70704,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %.1233260 = phi ptr [ %131, %.lr.ph266 ], [ %.0232.lcssa, %.preheader241 ]
   %.1236259 = phi ptr [ %132, %.lr.ph266 ], [ %.0235.lcssa, %.preheader241 ]
   %.1239258 = phi ptr [ %133, %.lr.ph266 ], [ %.0238.lcssa, %.preheader241 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1221264) #54, !srcloc !799
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1221264) #54, !srcloc !1266
   %118 = load <4 x float>, ptr %.1265, align 1
   %119 = fmul <4 x float> %32, %118
   store <4 x float> %119, ptr %.1221264, align 1
@@ -70731,7 +70731,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %134 = ptrtoint ptr %126 to i64
   %135 = sub i64 %45, %134
   %136 = icmp sgt i64 %135, 15
-  br i1 %136, label %.lr.ph266, label %.preheader, !llvm.loop !800
+  br i1 %136, label %.lr.ph266, label %.preheader, !llvm.loop !1267
 
 .lr.ph283:                                        ; preds = %.preheader, %.lr.ph283
   %.2282 = phi ptr [ %145, %.lr.ph283 ], [ %.1.lcssa, %.preheader ]
@@ -70743,7 +70743,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %.2237276 = phi ptr [ %151, %.lr.ph283 ], [ %.1236.lcssa, %.preheader ]
   %.2240275 = phi ptr [ %152, %.lr.ph283 ], [ %.1239.lcssa, %.preheader ]
   %137 = load float, ptr %.2282, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2222281) #54, !srcloc !801
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2222281) #54, !srcloc !1268
   %138 = fmul float %6, %137
   store float %138, ptr %.2222281, align 4
   %139 = fmul float %10, %137
@@ -70767,7 +70767,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs(ptr noundef readonly
   %151 = getelementptr inbounds nuw i8, ptr %.2237276, i64 4
   %152 = getelementptr inbounds nuw i8, ptr %.2240275, i64 4
   %153 = icmp ult ptr %145, %3
-  br i1 %153, label %.lr.ph283, label %._crit_edge, !llvm.loop !802
+  br i1 %153, label %.lr.ph283, label %._crit_edge, !llvm.loop !1269
 
 ._crit_edge:                                      ; preds = %.lr.ph283, %.preheader
   ret void
@@ -70851,7 +70851,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %.0264276 = phi ptr [ %125, %.lr.ph ], [ %24, %4 ]
   %.0267275 = phi ptr [ %126, %.lr.ph ], [ %28, %4 ]
   %.0270274 = phi ptr [ %127, %.lr.ph ], [ %32, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0249281) #54, !srcloc !803
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0249281) #54, !srcloc !1270
   %56 = load <4 x float>, ptr %.0282, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.0282, i64 16
   %58 = load <4 x float>, ptr %57, align 1
@@ -70959,7 +70959,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %128 = ptrtoint ptr %119 to i64
   %129 = sub i64 %51, %128
   %130 = icmp sgt i64 %129, 63
-  br i1 %130, label %.lr.ph, label %.preheader273, !llvm.loop !804
+  br i1 %130, label %.lr.ph, label %.preheader273, !llvm.loop !1271
 
 .preheader:                                       ; preds = %.lr.ph301, %.preheader273
   %.1271.lcssa = phi ptr [ %.0270.lcssa, %.preheader273 ], [ %149, %.lr.ph301 ]
@@ -70984,7 +70984,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %.1265294 = phi ptr [ %147, %.lr.ph301 ], [ %.0264.lcssa, %.preheader273 ]
   %.1268293 = phi ptr [ %148, %.lr.ph301 ], [ %.0267.lcssa, %.preheader273 ]
   %.1271292 = phi ptr [ %149, %.lr.ph301 ], [ %.0270.lcssa, %.preheader273 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1250299) #54, !srcloc !805
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1250299) #54, !srcloc !1272
   %132 = load <4 x float>, ptr %.1300, align 1
   %133 = fmul <4 x float> %36, %132
   store <4 x float> %133, ptr %.1250299, align 1
@@ -71014,7 +71014,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %150 = ptrtoint ptr %141 to i64
   %151 = sub i64 %51, %150
   %152 = icmp sgt i64 %151, 15
-  br i1 %152, label %.lr.ph301, label %.preheader, !llvm.loop !806
+  br i1 %152, label %.lr.ph301, label %.preheader, !llvm.loop !1273
 
 .lr.ph320:                                        ; preds = %.preheader, %.lr.ph320
   %.2319 = phi ptr [ %162, %.lr.ph320 ], [ %.1.lcssa, %.preheader ]
@@ -71027,7 +71027,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %.2269312 = phi ptr [ %169, %.lr.ph320 ], [ %.1268.lcssa, %.preheader ]
   %.2272311 = phi ptr [ %170, %.lr.ph320 ], [ %.1271.lcssa, %.preheader ]
   %153 = load float, ptr %.2319, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2251318) #54, !srcloc !807
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2251318) #54, !srcloc !1274
   %154 = fmul float %6, %153
   store float %154, ptr %.2251318, align 4
   %155 = fmul float %10, %153
@@ -71054,7 +71054,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs(ptr noundef readonly
   %169 = getelementptr inbounds nuw i8, ptr %.2269312, i64 4
   %170 = getelementptr inbounds nuw i8, ptr %.2272311, i64 4
   %171 = icmp ult ptr %162, %3
-  br i1 %171, label %.lr.ph320, label %._crit_edge, !llvm.loop !808
+  br i1 %171, label %.lr.ph320, label %._crit_edge, !llvm.loop !1275
 
 ._crit_edge:                                      ; preds = %.lr.ph320, %.preheader
   ret void
@@ -71082,7 +71082,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr noundef rea
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.061 = phi ptr [ %36, %.lr.ph ], [ %2, %4 ]
   %.05660 = phi ptr [ %37, %.lr.ph ], [ %5, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.05660) #54, !srcloc !809
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.05660) #54, !srcloc !1276
   %14 = load <4 x float>, ptr %.061, align 1
   %15 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %16 = load <4 x float>, ptr %15, align 1
@@ -71114,7 +71114,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr noundef rea
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %9, %38
   %40 = icmp sgt i64 %39, 63
-  br i1 %40, label %.lr.ph, label %.preheader59, !llvm.loop !810
+  br i1 %40, label %.lr.ph, label %.preheader59, !llvm.loop !1277
 
 .preheader:                                       ; preds = %.lr.ph66, %.preheader59
   %.157.lcssa = phi ptr [ %.056.lcssa, %.preheader59 ], [ %47, %.lr.ph66 ]
@@ -71125,7 +71125,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr noundef rea
 .lr.ph66:                                         ; preds = %.preheader59, %.lr.ph66
   %.165 = phi ptr [ %46, %.lr.ph66 ], [ %.0.lcssa, %.preheader59 ]
   %.15764 = phi ptr [ %47, %.lr.ph66 ], [ %.056.lcssa, %.preheader59 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.15764) #54, !srcloc !811
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.15764) #54, !srcloc !1278
   %42 = load <4 x float>, ptr %.165, align 1
   %43 = load <4 x float>, ptr %.15764, align 1
   %44 = fmul <4 x float> %8, %42
@@ -71136,13 +71136,13 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr noundef rea
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %9, %48
   %50 = icmp sgt i64 %49, 15
-  br i1 %50, label %.lr.ph66, label %.preheader, !llvm.loop !812
+  br i1 %50, label %.lr.ph66, label %.preheader, !llvm.loop !1279
 
 .lr.ph71:                                         ; preds = %.preheader, %.lr.ph71
   %.270 = phi ptr [ %55, %.lr.ph71 ], [ %.1.lcssa, %.preheader ]
   %.25869 = phi ptr [ %56, %.lr.ph71 ], [ %.157.lcssa, %.preheader ]
   %51 = load float, ptr %.270, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.25869) #54, !srcloc !813
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.25869) #54, !srcloc !1280
   %52 = fmul float %6, %51
   %53 = load float, ptr %.25869, align 4
   %54 = fadd float %52, %53
@@ -71150,7 +71150,7 @@ define internal void @stbir__vertical_scatter_with_1_coeffs_cont(ptr noundef rea
   %55 = getelementptr inbounds nuw i8, ptr %.270, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %.25869, i64 4
   %57 = icmp ult ptr %55, %3
-  br i1 %57, label %.lr.ph71, label %._crit_edge, !llvm.loop !814
+  br i1 %57, label %.lr.ph71, label %._crit_edge, !llvm.loop !1281
 
 ._crit_edge:                                      ; preds = %.lr.ph71, %.preheader
   ret void
@@ -71186,7 +71186,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr noundef rea
   %.0104 = phi ptr [ %57, %.lr.ph ], [ %2, %4 ]
   %.095103 = phi ptr [ %58, %.lr.ph ], [ %5, %4 ]
   %.098102 = phi ptr [ %59, %.lr.ph ], [ %8, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.095103) #54, !srcloc !815
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.095103) #54, !srcloc !1282
   %20 = load <4 x float>, ptr %.0104, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.0104, i64 16
   %22 = load <4 x float>, ptr %21, align 1
@@ -71238,7 +71238,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr noundef rea
   %60 = ptrtoint ptr %57 to i64
   %61 = sub i64 %15, %60
   %62 = icmp sgt i64 %61, 63
-  br i1 %62, label %.lr.ph, label %.preheader101, !llvm.loop !816
+  br i1 %62, label %.lr.ph, label %.preheader101, !llvm.loop !1283
 
 .preheader:                                       ; preds = %.lr.ph111, %.preheader101
   %.199.lcssa = phi ptr [ %.098.lcssa, %.preheader101 ], [ %73, %.lr.ph111 ]
@@ -71251,7 +71251,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr noundef rea
   %.1110 = phi ptr [ %71, %.lr.ph111 ], [ %.0.lcssa, %.preheader101 ]
   %.196109 = phi ptr [ %72, %.lr.ph111 ], [ %.095.lcssa, %.preheader101 ]
   %.199108 = phi ptr [ %73, %.lr.ph111 ], [ %.098.lcssa, %.preheader101 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.196109) #54, !srcloc !817
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.196109) #54, !srcloc !1284
   %64 = load <4 x float>, ptr %.1110, align 1
   %65 = load <4 x float>, ptr %.196109, align 1
   %66 = fmul <4 x float> %12, %64
@@ -71267,14 +71267,14 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr noundef rea
   %74 = ptrtoint ptr %71 to i64
   %75 = sub i64 %15, %74
   %76 = icmp sgt i64 %75, 15
-  br i1 %76, label %.lr.ph111, label %.preheader, !llvm.loop !818
+  br i1 %76, label %.lr.ph111, label %.preheader, !llvm.loop !1285
 
 .lr.ph118:                                        ; preds = %.preheader, %.lr.ph118
   %.2117 = phi ptr [ %84, %.lr.ph118 ], [ %.1.lcssa, %.preheader ]
   %.297116 = phi ptr [ %85, %.lr.ph118 ], [ %.196.lcssa, %.preheader ]
   %.2100115 = phi ptr [ %86, %.lr.ph118 ], [ %.199.lcssa, %.preheader ]
   %77 = load float, ptr %.2117, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.297116) #54, !srcloc !819
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.297116) #54, !srcloc !1286
   %78 = fmul float %6, %77
   %79 = load float, ptr %.297116, align 4
   %80 = fadd float %78, %79
@@ -71287,7 +71287,7 @@ define internal void @stbir__vertical_scatter_with_2_coeffs_cont(ptr noundef rea
   %85 = getelementptr inbounds nuw i8, ptr %.297116, i64 4
   %86 = getelementptr inbounds nuw i8, ptr %.2100115, i64 4
   %87 = icmp ult ptr %84, %3
-  br i1 %87, label %.lr.ph118, label %._crit_edge, !llvm.loop !820
+  br i1 %87, label %.lr.ph118, label %._crit_edge, !llvm.loop !1287
 
 ._crit_edge:                                      ; preds = %.lr.ph118, %.preheader
   ret void
@@ -71331,7 +71331,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %.0134146 = phi ptr [ %79, %.lr.ph ], [ %5, %4 ]
   %.0137145 = phi ptr [ %80, %.lr.ph ], [ %8, %4 ]
   %.0140144 = phi ptr [ %81, %.lr.ph ], [ %12, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134146) #54, !srcloc !821
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0134146) #54, !srcloc !1288
   %26 = load <4 x float>, ptr %.0147, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.0147, i64 16
   %28 = load <4 x float>, ptr %27, align 1
@@ -71403,7 +71403,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %82 = ptrtoint ptr %78 to i64
   %83 = sub i64 %21, %82
   %84 = icmp sgt i64 %83, 63
-  br i1 %84, label %.lr.ph, label %.preheader143, !llvm.loop !822
+  br i1 %84, label %.lr.ph, label %.preheader143, !llvm.loop !1289
 
 .preheader:                                       ; preds = %.lr.ph156, %.preheader143
   %.1141.lcssa = phi ptr [ %.0140.lcssa, %.preheader143 ], [ %99, %.lr.ph156 ]
@@ -71418,7 +71418,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %.1135154 = phi ptr [ %97, %.lr.ph156 ], [ %.0134.lcssa, %.preheader143 ]
   %.1138153 = phi ptr [ %98, %.lr.ph156 ], [ %.0137.lcssa, %.preheader143 ]
   %.1141152 = phi ptr [ %99, %.lr.ph156 ], [ %.0140.lcssa, %.preheader143 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1135154) #54, !srcloc !823
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1135154) #54, !srcloc !1290
   %86 = load <4 x float>, ptr %.1155, align 1
   %87 = load <4 x float>, ptr %.1135154, align 1
   %88 = fmul <4 x float> %16, %86
@@ -71439,7 +71439,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %100 = ptrtoint ptr %96 to i64
   %101 = sub i64 %21, %100
   %102 = icmp sgt i64 %101, 15
-  br i1 %102, label %.lr.ph156, label %.preheader, !llvm.loop !824
+  br i1 %102, label %.lr.ph156, label %.preheader, !llvm.loop !1291
 
 .lr.ph165:                                        ; preds = %.preheader, %.lr.ph165
   %.2164 = phi ptr [ %113, %.lr.ph165 ], [ %.1.lcssa, %.preheader ]
@@ -71447,7 +71447,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %.2139162 = phi ptr [ %115, %.lr.ph165 ], [ %.1138.lcssa, %.preheader ]
   %.2142161 = phi ptr [ %116, %.lr.ph165 ], [ %.1141.lcssa, %.preheader ]
   %103 = load float, ptr %.2164, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2136163) #54, !srcloc !825
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2136163) #54, !srcloc !1292
   %104 = fmul float %6, %103
   %105 = load float, ptr %.2136163, align 4
   %106 = fadd float %104, %105
@@ -71465,7 +71465,7 @@ define internal void @stbir__vertical_scatter_with_3_coeffs_cont(ptr noundef rea
   %115 = getelementptr inbounds nuw i8, ptr %.2139162, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %.2142161, i64 4
   %117 = icmp ult ptr %113, %3
-  br i1 %117, label %.lr.ph165, label %._crit_edge, !llvm.loop !826
+  br i1 %117, label %.lr.ph165, label %._crit_edge, !llvm.loop !1293
 
 ._crit_edge:                                      ; preds = %.lr.ph165, %.preheader
   ret void
@@ -71517,7 +71517,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %.0176188 = phi ptr [ %101, %.lr.ph ], [ %8, %4 ]
   %.0179187 = phi ptr [ %102, %.lr.ph ], [ %12, %4 ]
   %.0182186 = phi ptr [ %103, %.lr.ph ], [ %16, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0173189) #54, !srcloc !827
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0173189) #54, !srcloc !1294
   %32 = load <4 x float>, ptr %.0190, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.0190, i64 16
   %34 = load <4 x float>, ptr %33, align 1
@@ -71609,7 +71609,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %104 = ptrtoint ptr %99 to i64
   %105 = sub i64 %27, %104
   %106 = icmp sgt i64 %105, 63
-  br i1 %106, label %.lr.ph, label %.preheader185, !llvm.loop !828
+  br i1 %106, label %.lr.ph, label %.preheader185, !llvm.loop !1295
 
 .preheader:                                       ; preds = %.lr.ph201, %.preheader185
   %.1183.lcssa = phi ptr [ %.0182.lcssa, %.preheader185 ], [ %125, %.lr.ph201 ]
@@ -71626,7 +71626,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %.1177198 = phi ptr [ %123, %.lr.ph201 ], [ %.0176.lcssa, %.preheader185 ]
   %.1180197 = phi ptr [ %124, %.lr.ph201 ], [ %.0179.lcssa, %.preheader185 ]
   %.1183196 = phi ptr [ %125, %.lr.ph201 ], [ %.0182.lcssa, %.preheader185 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1174199) #54, !srcloc !829
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1174199) #54, !srcloc !1296
   %108 = load <4 x float>, ptr %.1200, align 1
   %109 = load <4 x float>, ptr %.1174199, align 1
   %110 = fmul <4 x float> %20, %108
@@ -71652,7 +71652,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %126 = ptrtoint ptr %121 to i64
   %127 = sub i64 %27, %126
   %128 = icmp sgt i64 %127, 15
-  br i1 %128, label %.lr.ph201, label %.preheader, !llvm.loop !830
+  br i1 %128, label %.lr.ph201, label %.preheader, !llvm.loop !1297
 
 .lr.ph212:                                        ; preds = %.preheader, %.lr.ph212
   %.2211 = phi ptr [ %142, %.lr.ph212 ], [ %.1.lcssa, %.preheader ]
@@ -71661,7 +71661,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %.2181208 = phi ptr [ %145, %.lr.ph212 ], [ %.1180.lcssa, %.preheader ]
   %.2184207 = phi ptr [ %146, %.lr.ph212 ], [ %.1183.lcssa, %.preheader ]
   %129 = load float, ptr %.2211, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2175210) #54, !srcloc !831
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2175210) #54, !srcloc !1298
   %130 = fmul float %6, %129
   %131 = load float, ptr %.2175210, align 4
   %132 = fadd float %130, %131
@@ -71684,7 +71684,7 @@ define internal void @stbir__vertical_scatter_with_4_coeffs_cont(ptr noundef rea
   %145 = getelementptr inbounds nuw i8, ptr %.2181208, i64 4
   %146 = getelementptr inbounds nuw i8, ptr %.2184207, i64 4
   %147 = icmp ult ptr %142, %3
-  br i1 %147, label %.lr.ph212, label %._crit_edge, !llvm.loop !832
+  br i1 %147, label %.lr.ph212, label %._crit_edge, !llvm.loop !1299
 
 ._crit_edge:                                      ; preds = %.lr.ph212, %.preheader
   ret void
@@ -71744,7 +71744,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %.0218230 = phi ptr [ %123, %.lr.ph ], [ %12, %4 ]
   %.0221229 = phi ptr [ %124, %.lr.ph ], [ %16, %4 ]
   %.0224228 = phi ptr [ %125, %.lr.ph ], [ %20, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0212232) #54, !srcloc !833
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0212232) #54, !srcloc !1300
   %38 = load <4 x float>, ptr %.0233, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.0233, i64 16
   %40 = load <4 x float>, ptr %39, align 1
@@ -71856,7 +71856,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %126 = ptrtoint ptr %120 to i64
   %127 = sub i64 %33, %126
   %128 = icmp sgt i64 %127, 63
-  br i1 %128, label %.lr.ph, label %.preheader227, !llvm.loop !834
+  br i1 %128, label %.lr.ph, label %.preheader227, !llvm.loop !1301
 
 .preheader:                                       ; preds = %.lr.ph246, %.preheader227
   %.1225.lcssa = phi ptr [ %.0224.lcssa, %.preheader227 ], [ %151, %.lr.ph246 ]
@@ -71875,7 +71875,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %.1219242 = phi ptr [ %149, %.lr.ph246 ], [ %.0218.lcssa, %.preheader227 ]
   %.1222241 = phi ptr [ %150, %.lr.ph246 ], [ %.0221.lcssa, %.preheader227 ]
   %.1225240 = phi ptr [ %151, %.lr.ph246 ], [ %.0224.lcssa, %.preheader227 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1213244) #54, !srcloc !835
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1213244) #54, !srcloc !1302
   %130 = load <4 x float>, ptr %.1245, align 1
   %131 = load <4 x float>, ptr %.1213244, align 1
   %132 = fmul <4 x float> %24, %130
@@ -71906,7 +71906,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %152 = ptrtoint ptr %146 to i64
   %153 = sub i64 %33, %152
   %154 = icmp sgt i64 %153, 15
-  br i1 %154, label %.lr.ph246, label %.preheader, !llvm.loop !836
+  br i1 %154, label %.lr.ph246, label %.preheader, !llvm.loop !1303
 
 .lr.ph259:                                        ; preds = %.preheader, %.lr.ph259
   %.2258 = phi ptr [ %171, %.lr.ph259 ], [ %.1.lcssa, %.preheader ]
@@ -71916,7 +71916,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %.2223254 = phi ptr [ %175, %.lr.ph259 ], [ %.1222.lcssa, %.preheader ]
   %.2226253 = phi ptr [ %176, %.lr.ph259 ], [ %.1225.lcssa, %.preheader ]
   %155 = load float, ptr %.2258, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2214257) #54, !srcloc !837
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2214257) #54, !srcloc !1304
   %156 = fmul float %6, %155
   %157 = load float, ptr %.2214257, align 4
   %158 = fadd float %156, %157
@@ -71944,7 +71944,7 @@ define internal void @stbir__vertical_scatter_with_5_coeffs_cont(ptr noundef rea
   %175 = getelementptr inbounds nuw i8, ptr %.2223254, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %.2226253, i64 4
   %177 = icmp ult ptr %171, %3
-  br i1 %177, label %.lr.ph259, label %._crit_edge, !llvm.loop !838
+  br i1 %177, label %.lr.ph259, label %._crit_edge, !llvm.loop !1305
 
 ._crit_edge:                                      ; preds = %.lr.ph259, %.preheader
   ret void
@@ -72012,7 +72012,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %.0260272 = phi ptr [ %145, %.lr.ph ], [ %16, %4 ]
   %.0263271 = phi ptr [ %146, %.lr.ph ], [ %20, %4 ]
   %.0266270 = phi ptr [ %147, %.lr.ph ], [ %24, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0251275) #54, !srcloc !839
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0251275) #54, !srcloc !1306
   %44 = load <4 x float>, ptr %.0276, align 1
   %45 = getelementptr inbounds nuw i8, ptr %.0276, i64 16
   %46 = load <4 x float>, ptr %45, align 1
@@ -72144,7 +72144,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %148 = ptrtoint ptr %141 to i64
   %149 = sub i64 %39, %148
   %150 = icmp sgt i64 %149, 63
-  br i1 %150, label %.lr.ph, label %.preheader269, !llvm.loop !840
+  br i1 %150, label %.lr.ph, label %.preheader269, !llvm.loop !1307
 
 .preheader:                                       ; preds = %.lr.ph291, %.preheader269
   %.1267.lcssa = phi ptr [ %.0266.lcssa, %.preheader269 ], [ %177, %.lr.ph291 ]
@@ -72165,7 +72165,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %.1261286 = phi ptr [ %175, %.lr.ph291 ], [ %.0260.lcssa, %.preheader269 ]
   %.1264285 = phi ptr [ %176, %.lr.ph291 ], [ %.0263.lcssa, %.preheader269 ]
   %.1267284 = phi ptr [ %177, %.lr.ph291 ], [ %.0266.lcssa, %.preheader269 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1252289) #54, !srcloc !841
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1252289) #54, !srcloc !1308
   %152 = load <4 x float>, ptr %.1290, align 1
   %153 = load <4 x float>, ptr %.1252289, align 1
   %154 = fmul <4 x float> %28, %152
@@ -72201,7 +72201,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %178 = ptrtoint ptr %171 to i64
   %179 = sub i64 %39, %178
   %180 = icmp sgt i64 %179, 15
-  br i1 %180, label %.lr.ph291, label %.preheader, !llvm.loop !842
+  br i1 %180, label %.lr.ph291, label %.preheader, !llvm.loop !1309
 
 .lr.ph306:                                        ; preds = %.preheader, %.lr.ph306
   %.2305 = phi ptr [ %200, %.lr.ph306 ], [ %.1.lcssa, %.preheader ]
@@ -72212,7 +72212,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %.2265300 = phi ptr [ %205, %.lr.ph306 ], [ %.1264.lcssa, %.preheader ]
   %.2268299 = phi ptr [ %206, %.lr.ph306 ], [ %.1267.lcssa, %.preheader ]
   %181 = load float, ptr %.2305, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2253304) #54, !srcloc !843
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2253304) #54, !srcloc !1310
   %182 = fmul float %6, %181
   %183 = load float, ptr %.2253304, align 4
   %184 = fadd float %182, %183
@@ -72245,7 +72245,7 @@ define internal void @stbir__vertical_scatter_with_6_coeffs_cont(ptr noundef rea
   %205 = getelementptr inbounds nuw i8, ptr %.2265300, i64 4
   %206 = getelementptr inbounds nuw i8, ptr %.2268299, i64 4
   %207 = icmp ult ptr %200, %3
-  br i1 %207, label %.lr.ph306, label %._crit_edge, !llvm.loop !844
+  br i1 %207, label %.lr.ph306, label %._crit_edge, !llvm.loop !1311
 
 ._crit_edge:                                      ; preds = %.lr.ph306, %.preheader
   ret void
@@ -72321,7 +72321,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %.0302314 = phi ptr [ %167, %.lr.ph ], [ %20, %4 ]
   %.0305313 = phi ptr [ %168, %.lr.ph ], [ %24, %4 ]
   %.0308312 = phi ptr [ %169, %.lr.ph ], [ %28, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0290318) #54, !srcloc !845
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0290318) #54, !srcloc !1312
   %50 = load <4 x float>, ptr %.0319, align 1
   %51 = getelementptr inbounds nuw i8, ptr %.0319, i64 16
   %52 = load <4 x float>, ptr %51, align 1
@@ -72473,7 +72473,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %170 = ptrtoint ptr %162 to i64
   %171 = sub i64 %45, %170
   %172 = icmp sgt i64 %171, 63
-  br i1 %172, label %.lr.ph, label %.preheader311, !llvm.loop !846
+  br i1 %172, label %.lr.ph, label %.preheader311, !llvm.loop !1313
 
 .preheader:                                       ; preds = %.lr.ph336, %.preheader311
   %.1309.lcssa = phi ptr [ %.0308.lcssa, %.preheader311 ], [ %203, %.lr.ph336 ]
@@ -72496,7 +72496,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %.1303330 = phi ptr [ %201, %.lr.ph336 ], [ %.0302.lcssa, %.preheader311 ]
   %.1306329 = phi ptr [ %202, %.lr.ph336 ], [ %.0305.lcssa, %.preheader311 ]
   %.1309328 = phi ptr [ %203, %.lr.ph336 ], [ %.0308.lcssa, %.preheader311 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1291334) #54, !srcloc !847
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1291334) #54, !srcloc !1314
   %174 = load <4 x float>, ptr %.1335, align 1
   %175 = load <4 x float>, ptr %.1291334, align 1
   %176 = fmul <4 x float> %32, %174
@@ -72537,7 +72537,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %204 = ptrtoint ptr %196 to i64
   %205 = sub i64 %45, %204
   %206 = icmp sgt i64 %205, 15
-  br i1 %206, label %.lr.ph336, label %.preheader, !llvm.loop !848
+  br i1 %206, label %.lr.ph336, label %.preheader, !llvm.loop !1315
 
 .lr.ph353:                                        ; preds = %.preheader, %.lr.ph353
   %.2352 = phi ptr [ %229, %.lr.ph353 ], [ %.1.lcssa, %.preheader ]
@@ -72549,7 +72549,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %.2307346 = phi ptr [ %235, %.lr.ph353 ], [ %.1306.lcssa, %.preheader ]
   %.2310345 = phi ptr [ %236, %.lr.ph353 ], [ %.1309.lcssa, %.preheader ]
   %207 = load float, ptr %.2352, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2292351) #54, !srcloc !849
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2292351) #54, !srcloc !1316
   %208 = fmul float %6, %207
   %209 = load float, ptr %.2292351, align 4
   %210 = fadd float %208, %209
@@ -72587,7 +72587,7 @@ define internal void @stbir__vertical_scatter_with_7_coeffs_cont(ptr noundef rea
   %235 = getelementptr inbounds nuw i8, ptr %.2307346, i64 4
   %236 = getelementptr inbounds nuw i8, ptr %.2310345, i64 4
   %237 = icmp ult ptr %229, %3
-  br i1 %237, label %.lr.ph353, label %._crit_edge, !llvm.loop !850
+  br i1 %237, label %.lr.ph353, label %._crit_edge, !llvm.loop !1317
 
 ._crit_edge:                                      ; preds = %.lr.ph353, %.preheader
   ret void
@@ -72671,7 +72671,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %.0344356 = phi ptr [ %189, %.lr.ph ], [ %24, %4 ]
   %.0347355 = phi ptr [ %190, %.lr.ph ], [ %28, %4 ]
   %.0350354 = phi ptr [ %191, %.lr.ph ], [ %32, %4 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0329361) #54, !srcloc !851
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.0329361) #54, !srcloc !1318
   %56 = load <4 x float>, ptr %.0362, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.0362, i64 16
   %58 = load <4 x float>, ptr %57, align 1
@@ -72843,7 +72843,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %192 = ptrtoint ptr %183 to i64
   %193 = sub i64 %51, %192
   %194 = icmp sgt i64 %193, 63
-  br i1 %194, label %.lr.ph, label %.preheader353, !llvm.loop !852
+  br i1 %194, label %.lr.ph, label %.preheader353, !llvm.loop !1319
 
 .preheader:                                       ; preds = %.lr.ph381, %.preheader353
   %.1351.lcssa = phi ptr [ %.0350.lcssa, %.preheader353 ], [ %229, %.lr.ph381 ]
@@ -72868,7 +72868,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %.1345374 = phi ptr [ %227, %.lr.ph381 ], [ %.0344.lcssa, %.preheader353 ]
   %.1348373 = phi ptr [ %228, %.lr.ph381 ], [ %.0347.lcssa, %.preheader353 ]
   %.1351372 = phi ptr [ %229, %.lr.ph381 ], [ %.0350.lcssa, %.preheader353 ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1330379) #54, !srcloc !853
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.1330379) #54, !srcloc !1320
   %196 = load <4 x float>, ptr %.1380, align 1
   %197 = load <4 x float>, ptr %.1330379, align 1
   %198 = fmul <4 x float> %36, %196
@@ -72914,7 +72914,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %230 = ptrtoint ptr %221 to i64
   %231 = sub i64 %51, %230
   %232 = icmp sgt i64 %231, 15
-  br i1 %232, label %.lr.ph381, label %.preheader, !llvm.loop !854
+  br i1 %232, label %.lr.ph381, label %.preheader, !llvm.loop !1321
 
 .lr.ph400:                                        ; preds = %.preheader, %.lr.ph400
   %.2399 = phi ptr [ %258, %.lr.ph400 ], [ %.1.lcssa, %.preheader ]
@@ -72927,7 +72927,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %.2349392 = phi ptr [ %265, %.lr.ph400 ], [ %.1348.lcssa, %.preheader ]
   %.2352391 = phi ptr [ %266, %.lr.ph400 ], [ %.1351.lcssa, %.preheader ]
   %233 = load float, ptr %.2399, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2331398) #54, !srcloc !855
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.2331398) #54, !srcloc !1322
   %234 = fmul float %6, %233
   %235 = load float, ptr %.2331398, align 4
   %236 = fadd float %234, %235
@@ -72970,7 +72970,7 @@ define internal void @stbir__vertical_scatter_with_8_coeffs_cont(ptr noundef rea
   %265 = getelementptr inbounds nuw i8, ptr %.2349392, i64 4
   %266 = getelementptr inbounds nuw i8, ptr %.2352391, i64 4
   %267 = icmp ult ptr %258, %3
-  br i1 %267, label %.lr.ph400, label %._crit_edge, !llvm.loop !856
+  br i1 %267, label %.lr.ph400, label %._crit_edge, !llvm.loop !1323
 
 ._crit_edge:                                      ; preds = %.lr.ph400, %.preheader
   ret void
@@ -73095,49 +73095,49 @@ attributes #58 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!4 = !{!"llvm.loop.estimated_trip_count"}
 !5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!10 = distinct !{!10, !4, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
-!15 = !{i64 2150532697}
-!16 = distinct !{!16, !17, !18}
-!17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{!"llvm.loop.vectorize.width", i32 1}
-!19 = !{i64 2150533126}
-!20 = distinct !{!20, !17, !18}
-!21 = !{i64 2150534228}
-!22 = distinct !{!22, !17, !18}
-!23 = !{ptr @stbir__encode_first_scanline_from_scatter, ptr @stbir__horizontal_resample_and_encode_first_scanline_from_scatter}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"LoadImage: argument 0"}
-!26 = distinct !{!26, !"LoadImage"}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
 !27 = distinct !{!27, !4}
 !28 = distinct !{!28, !4}
 !29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
+!31 = distinct !{!31, !4, !11}
 !32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
+!33 = distinct !{!33, !4, !11}
 !34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
+!35 = distinct !{!35, !4, !11}
+!36 = distinct !{!36, !4, !11}
 !37 = distinct !{!37, !4}
 !38 = distinct !{!38, !4}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.partial.disable"}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4}
 !41 = distinct !{!41, !4}
 !42 = distinct !{!42, !4}
 !43 = distinct !{!43, !4}
 !44 = distinct !{!44, !4}
 !45 = distinct !{!45, !4}
-!46 = distinct !{!46, !40}
+!46 = distinct !{!46, !4}
 !47 = distinct !{!47, !4}
 !48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
@@ -73146,805 +73146,1272 @@ attributes #58 = { nounwind allocsize(0,1) }
 !52 = distinct !{!52, !4}
 !53 = distinct !{!53, !4}
 !54 = distinct !{!54, !4}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"LoadImage: argument 0"}
-!57 = distinct !{!57, !"LoadImage"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"LoadTextureFromImage: argument 0"}
-!60 = distinct !{!60, !"LoadTextureFromImage"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"GenImageColor: argument 0"}
-!63 = distinct !{!63, !"GenImageColor"}
+!55 = distinct !{!55, !4}
+!56 = distinct !{!56, !4}
+!57 = distinct !{!57, !4}
+!58 = distinct !{!58, !4}
+!59 = distinct !{!59, !4, !11}
+!60 = distinct !{!60, !4, !11}
+!61 = distinct !{!61, !4}
+!62 = distinct !{!62, !4, !11}
+!63 = distinct !{!63, !4}
 !64 = distinct !{!64, !4}
 !65 = distinct !{!65, !4}
-!66 = distinct !{!66, !40}
-!67 = distinct !{!67, !40}
+!66 = distinct !{!66, !4}
+!67 = distinct !{!67, !4}
 !68 = distinct !{!68, !4}
-!69 = distinct !{!69, !40}
-!70 = distinct !{!70, !40}
+!69 = distinct !{!69, !4}
+!70 = distinct !{!70, !4}
 !71 = distinct !{!71, !4}
 !72 = distinct !{!72, !4}
 !73 = distinct !{!73, !4}
 !74 = distinct !{!74, !4}
-!75 = distinct !{!75, !40}
+!75 = distinct !{!75, !4}
 !76 = distinct !{!76, !4}
-!77 = !{i64 2151008212}
-!78 = distinct !{!78, !17, !18}
-!79 = !{i64 2151043637}
-!80 = distinct !{!80, !17, !18}
-!81 = !{i64 2151043931}
-!82 = distinct !{!82, !17, !18}
-!83 = !{i64 2151044178}
-!84 = distinct !{!84, !17, !18}
-!85 = !{i64 2151563868}
-!86 = distinct !{!86, !17, !18}
-!87 = !{i64 2151567483}
-!88 = distinct !{!88, !17, !18}
-!89 = !{i64 2151558853}
-!90 = distinct !{!90, !17, !18}
-!91 = !{i64 2151560810}
-!92 = distinct !{!92, !17, !18}
-!93 = !{i64 2152085534}
-!94 = distinct !{!94, !17, !18}
-!95 = !{i64 2152089149}
-!96 = distinct !{!96, !17, !18}
-!97 = !{i64 2152080519}
-!98 = distinct !{!98, !17, !18}
-!99 = !{i64 2152082476}
-!100 = distinct !{!100, !17, !18}
-!101 = !{i64 2152611261}
-!102 = distinct !{!102, !17, !18}
-!103 = !{i64 2152614876}
-!104 = distinct !{!104, !17, !18}
-!105 = !{i64 2152606246}
-!106 = distinct !{!106, !17, !18}
-!107 = !{i64 2152608203}
-!108 = distinct !{!108, !17, !18}
-!109 = !{i64 2153095138}
-!110 = distinct !{!110, !17, !18}
-!111 = !{i64 2153141038}
-!112 = distinct !{!112, !17, !18}
-!113 = !{i64 2153144653}
-!114 = distinct !{!114, !17, !18}
-!115 = !{i64 2153144900}
-!116 = distinct !{!116, !17, !18}
-!117 = !{i64 2153131480}
-!118 = distinct !{!118, !17, !18}
-!119 = !{i64 2153133437}
-!120 = distinct !{!120, !17, !18}
-!121 = !{i64 2153133684}
-!122 = distinct !{!122, !17, !18}
-!123 = !{i64 2150998633}
-!124 = !{i64 2151000212}
-!125 = distinct !{!125, !17, !18}
-!126 = !{i64 2151000515}
-!127 = distinct !{!127, !17, !18}
-!128 = !{i64 2151003966}
-!129 = !{i64 2151005069}
-!130 = distinct !{!130, !17, !18}
-!131 = !{i64 2151005316}
-!132 = distinct !{!132, !17, !18}
-!133 = !{i64 2151034149}
-!134 = !{i64 2151035103}
-!135 = distinct !{!135, !17, !18}
-!136 = !{i64 2151035414}
-!137 = distinct !{!137, !17, !18}
-!138 = !{i64 2151039335}
-!139 = !{i64 2151040047}
-!140 = distinct !{!140, !17, !18}
-!141 = !{i64 2151040294}
-!142 = distinct !{!142, !17, !18}
-!143 = !{i64 2151496942}
-!144 = !{i64 2151505478}
-!145 = distinct !{!145, !17, !18}
-!146 = !{i64 2151510925}
-!147 = !{i64 2151514924}
-!148 = distinct !{!148, !17, !18}
-!149 = !{i64 2151538808}
-!150 = !{i64 2151541210}
-!151 = distinct !{!151, !17, !18}
-!152 = !{i64 2151547130}
-!153 = !{i64 2151549290}
-!154 = distinct !{!154, !17, !18}
-!155 = !{i64 2152022669}
-!156 = !{i64 2152027144}
-!157 = distinct !{!157, !17, !18}
-!158 = !{i64 2152032591}
-!159 = !{i64 2152036590}
-!160 = distinct !{!160, !17, !18}
-!161 = !{i64 2152064535}
-!162 = !{i64 2152066937}
-!163 = distinct !{!163, !17, !18}
-!164 = !{i64 2152072857}
-!165 = !{i64 2152075017}
-!166 = distinct !{!166, !17, !18}
-!167 = !{i64 2152548396}
-!168 = !{i64 2152552871}
-!169 = distinct !{!169, !17, !18}
-!170 = !{i64 2152558318}
-!171 = !{i64 2152562317}
-!172 = distinct !{!172, !17, !18}
-!173 = !{i64 2152586201}
-!174 = !{i64 2152588603}
-!175 = distinct !{!175, !17, !18}
-!176 = !{i64 2152594523}
-!177 = !{i64 2152596683}
-!178 = distinct !{!178, !17, !18}
-!179 = !{i64 2153070054}
-!180 = !{i64 2153074529}
-!181 = distinct !{!181, !17, !18}
-!182 = !{i64 2153074832}
-!183 = distinct !{!183, !17, !18}
-!184 = !{i64 2153081235}
-!185 = !{i64 2153085234}
-!186 = distinct !{!186, !17, !18}
-!187 = !{i64 2153085481}
-!188 = distinct !{!188, !17, !18}
-!189 = !{i64 2153113417}
-!190 = !{i64 2153115819}
-!191 = distinct !{!191, !17, !18}
-!192 = !{i64 2153116130}
-!193 = distinct !{!193, !17, !18}
-!194 = !{i64 2153123008}
-!195 = !{i64 2153125168}
-!196 = distinct !{!196, !17, !18}
-!197 = !{i64 2153125415}
-!198 = distinct !{!198, !17, !18}
-!199 = !{i64 2151008644}
-!200 = !{i64 2151017531}
-!201 = distinct !{!201, !17, !18}
-!202 = !{i64 2151017778}
-!203 = distinct !{!203, !17, !18}
-!204 = !{i64 2151044602}
-!205 = distinct !{!205, !17, !18}
-!206 = !{i64 2151044896}
-!207 = distinct !{!207, !17, !18}
-!208 = !{i64 2151045143}
-!209 = distinct !{!209, !17, !18}
-!210 = !{i64 2151018312}
-!211 = !{i64 2151026139}
-!212 = distinct !{!212, !17, !18}
-!213 = !{i64 2151530237}
-!214 = !{i64 2151538064}
-!215 = distinct !{!215, !17, !18}
-!216 = !{i64 2151520346}
-!217 = !{i64 2151529233}
-!218 = distinct !{!218, !17, !18}
-!219 = !{i64 2151568130}
-!220 = !{i64 2151570158}
-!221 = distinct !{!221, !17, !18}
-!222 = !{i64 2151561451}
-!223 = distinct !{!223, !17, !18}
-!224 = !{i64 2151563340}
-!225 = distinct !{!225, !17, !18}
-!226 = !{i64 2152055964}
-!227 = !{i64 2152063791}
-!228 = distinct !{!228, !17, !18}
-!229 = !{i64 2152046073}
-!230 = !{i64 2152054960}
-!231 = distinct !{!231, !17, !18}
-!232 = !{i64 2152089796}
-!233 = !{i64 2152091824}
-!234 = distinct !{!234, !17, !18}
-!235 = !{i64 2152083117}
-!236 = distinct !{!236, !17, !18}
-!237 = !{i64 2152085006}
-!238 = distinct !{!238, !17, !18}
-!239 = !{i64 2152577630}
-!240 = !{i64 2152585457}
-!241 = distinct !{!241, !17, !18}
-!242 = !{i64 2152567739}
-!243 = !{i64 2152576626}
-!244 = distinct !{!244, !17, !18}
-!245 = !{i64 2152615523}
-!246 = !{i64 2152617551}
-!247 = distinct !{!247, !17, !18}
-!248 = !{i64 2152608844}
-!249 = distinct !{!249, !17, !18}
-!250 = !{i64 2152610733}
-!251 = distinct !{!251, !17, !18}
-!252 = !{i64 2151026870}
-!253 = !{i64 2151033639}
-!254 = distinct !{!254, !17, !18}
-!255 = !{i64 2153105920}
-!256 = !{i64 2153112689}
-!257 = distinct !{!257, !17, !18}
-!258 = !{i64 2153095760}
-!259 = !{i64 2153104647}
-!260 = distinct !{!260, !17, !18}
-!261 = !{i64 2153104894}
-!262 = distinct !{!262, !17, !18}
-!263 = !{i64 2153145541}
-!264 = !{i64 2153147569}
-!265 = distinct !{!265, !17, !18}
-!266 = !{i64 2153148628}
-!267 = distinct !{!267, !17, !18}
-!268 = !{i64 2153134319}
-!269 = distinct !{!269, !17, !18}
-!270 = !{i64 2153136208}
-!271 = distinct !{!271, !17, !18}
-!272 = !{i64 2153136455}
-!273 = distinct !{!273, !17, !18}
-!274 = !{i64 2151000954}
-!275 = !{i64 2151002339}
-!276 = distinct !{!276, !17, !18}
-!277 = !{i64 2151003254}
-!278 = distinct !{!278, !17, !18}
-!279 = !{i64 2151005769}
-!280 = !{i64 2151006914}
-!281 = distinct !{!281, !17, !18}
-!282 = !{i64 2151007743}
-!283 = distinct !{!283, !17, !18}
-!284 = !{i64 2151035904}
-!285 = !{i64 2151037509}
-!286 = distinct !{!286, !17, !18}
-!287 = !{i64 2151038619}
-!288 = distinct !{!288, !17, !18}
-!289 = !{i64 2151040761}
-!290 = !{i64 2151042120}
-!291 = distinct !{!291, !17, !18}
-!292 = !{i64 2151043142}
-!293 = distinct !{!293, !17, !18}
-!294 = !{i64 2151506182}
-!295 = !{i64 2151509003}
-!296 = distinct !{!296, !17, !18}
-!297 = !{i64 2151515579}
-!298 = !{i64 2151518160}
-!299 = distinct !{!299, !17, !18}
-!300 = !{i64 2151541974}
-!301 = !{i64 2151545015}
-!302 = distinct !{!302, !17, !18}
-!303 = !{i64 2151549962}
-!304 = !{i64 2151552757}
-!305 = distinct !{!305, !17, !18}
-!306 = !{i64 2152027848}
-!307 = !{i64 2152030669}
-!308 = distinct !{!308, !17, !18}
-!309 = !{i64 2152037245}
-!310 = !{i64 2152039826}
-!311 = distinct !{!311, !17, !18}
-!312 = !{i64 2152067701}
-!313 = !{i64 2152070742}
-!314 = distinct !{!314, !17, !18}
-!315 = !{i64 2152075689}
-!316 = !{i64 2152078484}
-!317 = distinct !{!317, !17, !18}
-!318 = !{i64 2152553575}
-!319 = !{i64 2152556396}
-!320 = distinct !{!320, !17, !18}
-!321 = !{i64 2152562972}
-!322 = !{i64 2152565553}
-!323 = distinct !{!323, !17, !18}
-!324 = !{i64 2152589367}
-!325 = !{i64 2152592408}
-!326 = distinct !{!326, !17, !18}
-!327 = !{i64 2152597355}
-!328 = !{i64 2152604211}
-!329 = distinct !{!329, !17, !18}
-!330 = !{i64 2153075502}
-!331 = !{i64 2153078323}
-!332 = distinct !{!332, !17, !18}
-!333 = !{i64 2153079956}
-!334 = distinct !{!334, !17, !18}
-!335 = !{i64 2153086130}
-!336 = !{i64 2153092772}
-!337 = distinct !{!337, !17, !18}
-!338 = !{i64 2153094319}
-!339 = distinct !{!339, !17, !18}
-!340 = !{i64 2153116856}
-!341 = !{i64 2153119897}
-!342 = distinct !{!342, !17, !18}
-!343 = !{i64 2153121719}
-!344 = distinct !{!344, !17, !18}
-!345 = !{i64 2153126081}
-!346 = !{i64 2153128876}
-!347 = distinct !{!347, !17, !18}
-!348 = !{i64 2153130610}
-!349 = distinct !{!349, !17, !18}
+!77 = distinct !{!77, !4}
+!78 = distinct !{!78, !4}
+!79 = distinct !{!79, !4, !11}
+!80 = distinct !{!80, !4, !11}
+!81 = distinct !{!81, !4}
+!82 = distinct !{!82, !4}
+!83 = distinct !{!83, !4}
+!84 = distinct !{!84, !4}
+!85 = distinct !{!85, !4}
+!86 = distinct !{!86, !4, !11}
+!87 = distinct !{!87, !4}
+!88 = distinct !{!88, !4}
+!89 = distinct !{!89, !4}
+!90 = distinct !{!90, !4}
+!91 = !{i64 2150532697}
+!92 = distinct !{!92, !93, !94, !4}
+!93 = !{!"llvm.loop.unroll.disable"}
+!94 = !{!"llvm.loop.vectorize.width", i32 1}
+!95 = !{i64 2150533126}
+!96 = distinct !{!96, !93, !94, !4}
+!97 = !{i64 2150534228}
+!98 = distinct !{!98, !93, !94, !4}
+!99 = distinct !{!99, !4}
+!100 = distinct !{!100, !4}
+!101 = distinct !{!101, !4}
+!102 = distinct !{!102, !4}
+!103 = distinct !{!103, !4}
+!104 = !{ptr @stbir__encode_first_scanline_from_scatter, ptr @stbir__horizontal_resample_and_encode_first_scanline_from_scatter}
+!105 = distinct !{!105, !4}
+!106 = distinct !{!106, !4}
+!107 = distinct !{!107, !4}
+!108 = distinct !{!108, !4}
+!109 = distinct !{!109, !4}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"LoadImage: argument 0"}
+!112 = distinct !{!112, !"LoadImage"}
+!113 = distinct !{!113, !4}
+!114 = distinct !{!114, !4}
+!115 = distinct !{!115, !4}
+!116 = distinct !{!116, !4}
+!117 = distinct !{!117, !4}
+!118 = distinct !{!118, !4, !11}
+!119 = distinct !{!119, !4}
+!120 = distinct !{!120, !4, !11}
+!121 = distinct !{!121, !4}
+!122 = distinct !{!122, !4, !11}
+!123 = distinct !{!123, !4}
+!124 = distinct !{!124, !4, !11}
+!125 = distinct !{!125, !4}
+!126 = distinct !{!126, !4}
+!127 = distinct !{!127, !4, !11}
+!128 = distinct !{!128, !4}
+!129 = distinct !{!129, !4}
+!130 = distinct !{!130, !4}
+!131 = distinct !{!131, !4, !11}
+!132 = distinct !{!132, !4}
+!133 = distinct !{!133, !4, !11}
+!134 = distinct !{!134, !4, !11}
+!135 = distinct !{!135, !4}
+!136 = distinct !{!136, !4}
+!137 = distinct !{!137, !4}
+!138 = distinct !{!138, !4}
+!139 = distinct !{!139, !4}
+!140 = distinct !{!140, !4}
+!141 = distinct !{!141, !4}
+!142 = distinct !{!142, !4}
+!143 = distinct !{!143, !4}
+!144 = distinct !{!144, !4}
+!145 = distinct !{!145, !4}
+!146 = distinct !{!146, !4}
+!147 = distinct !{!147, !4}
+!148 = distinct !{!148, !4}
+!149 = distinct !{!149, !4}
+!150 = distinct !{!150, !4}
+!151 = distinct !{!151, !4}
+!152 = distinct !{!152, !4, !11}
+!153 = distinct !{!153, !4, !11}
+!154 = distinct !{!154, !4}
+!155 = distinct !{!155, !4}
+!156 = distinct !{!156, !4}
+!157 = distinct !{!157, !4, !11}
+!158 = distinct !{!158, !4}
+!159 = distinct !{!159, !4, !11}
+!160 = distinct !{!160, !4, !161}
+!161 = !{!"llvm.loop.unswitch.partial.disable"}
+!162 = distinct !{!162, !4}
+!163 = distinct !{!163, !4, !11}
+!164 = distinct !{!164, !4}
+!165 = distinct !{!165, !4}
+!166 = distinct !{!166, !4}
+!167 = distinct !{!167, !4}
+!168 = distinct !{!168, !4}
+!169 = distinct !{!169, !4, !11}
+!170 = distinct !{!170, !4}
+!171 = distinct !{!171, !4}
+!172 = distinct !{!172, !4}
+!173 = distinct !{!173, !4}
+!174 = distinct !{!174, !4}
+!175 = distinct !{!175, !4}
+!176 = distinct !{!176, !4}
+!177 = distinct !{!177, !4}
+!178 = distinct !{!178, !4}
+!179 = distinct !{!179, !4}
+!180 = distinct !{!180, !4}
+!181 = distinct !{!181, !4}
+!182 = distinct !{!182, !4, !11}
+!183 = distinct !{!183, !4}
+!184 = distinct !{!184, !4}
+!185 = distinct !{!185, !4}
+!186 = distinct !{!186, !4}
+!187 = distinct !{!187, !4}
+!188 = distinct !{!188, !4}
+!189 = distinct !{!189, !4}
+!190 = distinct !{!190, !4}
+!191 = distinct !{!191, !4, !11}
+!192 = distinct !{!192, !4, !11}
+!193 = distinct !{!193, !4}
+!194 = distinct !{!194, !4, !161}
+!195 = distinct !{!195, !4}
+!196 = distinct !{!196, !4}
+!197 = distinct !{!197, !4, !11}
+!198 = distinct !{!198, !4}
+!199 = distinct !{!199, !4, !11}
+!200 = distinct !{!200, !4}
+!201 = distinct !{!201, !4}
+!202 = distinct !{!202, !4, !11}
+!203 = distinct !{!203, !4, !11}
+!204 = distinct !{!204, !4}
+!205 = distinct !{!205, !4, !11}
+!206 = distinct !{!206, !4, !11}
+!207 = distinct !{!207, !4}
+!208 = distinct !{!208, !4, !11}
+!209 = distinct !{!209, !4}
+!210 = distinct !{!210, !4}
+!211 = distinct !{!211, !4}
+!212 = distinct !{!212, !4}
+!213 = distinct !{!213, !4}
+!214 = distinct !{!214, !4}
+!215 = distinct !{!215, !4, !11}
+!216 = distinct !{!216, !4}
+!217 = distinct !{!217, !4}
+!218 = distinct !{!218, !4}
+!219 = distinct !{!219, !4}
+!220 = distinct !{!220, !4}
+!221 = distinct !{!221, !4}
+!222 = distinct !{!222, !4}
+!223 = distinct !{!223, !4}
+!224 = distinct !{!224, !4}
+!225 = distinct !{!225, !4}
+!226 = distinct !{!226, !4}
+!227 = distinct !{!227, !4}
+!228 = distinct !{!228, !4}
+!229 = distinct !{!229, !4}
+!230 = distinct !{!230, !4}
+!231 = distinct !{!231, !4}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"LoadImage: argument 0"}
+!234 = distinct !{!234, !"LoadImage"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"LoadTextureFromImage: argument 0"}
+!237 = distinct !{!237, !"LoadTextureFromImage"}
+!238 = distinct !{!238, !4}
+!239 = distinct !{!239, !4}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"GenImageColor: argument 0"}
+!242 = distinct !{!242, !"GenImageColor"}
+!243 = distinct !{!243, !4}
+!244 = distinct !{!244, !4}
+!245 = distinct !{!245, !4}
+!246 = distinct !{!246, !4}
+!247 = distinct !{!247, !4}
+!248 = distinct !{!248, !4}
+!249 = distinct !{!249, !4}
+!250 = distinct !{!250, !4}
+!251 = distinct !{!251, !4}
+!252 = distinct !{!252, !4}
+!253 = distinct !{!253, !4}
+!254 = distinct !{!254, !4}
+!255 = distinct !{!255, !4}
+!256 = distinct !{!256, !4}
+!257 = distinct !{!257, !4}
+!258 = distinct !{!258, !4}
+!259 = distinct !{!259, !4}
+!260 = distinct !{!260, !4}
+!261 = distinct !{!261, !4}
+!262 = distinct !{!262, !4}
+!263 = distinct !{!263, !4}
+!264 = distinct !{!264, !4}
+!265 = distinct !{!265, !4}
+!266 = distinct !{!266, !4}
+!267 = distinct !{!267, !4}
+!268 = distinct !{!268, !4, !11}
+!269 = distinct !{!269, !4}
+!270 = distinct !{!270, !4}
+!271 = distinct !{!271, !4}
+!272 = distinct !{!272, !4}
+!273 = distinct !{!273, !4, !11}
+!274 = distinct !{!274, !4}
+!275 = distinct !{!275, !4, !161}
+!276 = distinct !{!276, !4}
+!277 = distinct !{!277, !4}
+!278 = distinct !{!278, !4, !161}
+!279 = distinct !{!279, !4}
+!280 = distinct !{!280, !4}
+!281 = distinct !{!281, !4}
+!282 = distinct !{!282, !4}
+!283 = distinct !{!283, !4}
+!284 = distinct !{!284, !4}
+!285 = distinct !{!285, !4, !11}
+!286 = distinct !{!286, !4}
+!287 = distinct !{!287, !4, !161}
+!288 = distinct !{!288, !4}
+!289 = distinct !{!289, !4}
+!290 = distinct !{!290, !4, !161}
+!291 = distinct !{!291, !4}
+!292 = distinct !{!292, !4}
+!293 = distinct !{!293, !4}
+!294 = distinct !{!294, !4}
+!295 = distinct !{!295, !4}
+!296 = distinct !{!296, !4, !11}
+!297 = distinct !{!297, !4}
+!298 = distinct !{!298, !4}
+!299 = distinct !{!299, !4}
+!300 = distinct !{!300, !4}
+!301 = distinct !{!301, !4}
+!302 = distinct !{!302, !4}
+!303 = distinct !{!303, !4}
+!304 = distinct !{!304, !4}
+!305 = distinct !{!305, !4}
+!306 = distinct !{!306, !4}
+!307 = distinct !{!307, !4}
+!308 = distinct !{!308, !4}
+!309 = distinct !{!309, !4}
+!310 = distinct !{!310, !4}
+!311 = distinct !{!311, !4}
+!312 = distinct !{!312, !4}
+!313 = distinct !{!313, !4}
+!314 = distinct !{!314, !4}
+!315 = distinct !{!315, !4}
+!316 = distinct !{!316, !4}
+!317 = distinct !{!317, !4}
+!318 = distinct !{!318, !4, !11}
+!319 = distinct !{!319, !4}
+!320 = distinct !{!320, !4}
+!321 = distinct !{!321, !4}
+!322 = distinct !{!322, !4}
+!323 = distinct !{!323, !4}
+!324 = distinct !{!324, !4}
+!325 = distinct !{!325, !4}
+!326 = distinct !{!326, !4}
+!327 = distinct !{!327, !4}
+!328 = distinct !{!328, !4}
+!329 = distinct !{!329, !4}
+!330 = distinct !{!330, !4}
+!331 = distinct !{!331, !4}
+!332 = distinct !{!332, !4}
+!333 = distinct !{!333, !4}
+!334 = distinct !{!334, !4}
+!335 = distinct !{!335, !4}
+!336 = distinct !{!336, !4}
+!337 = distinct !{!337, !4}
+!338 = distinct !{!338, !4}
+!339 = distinct !{!339, !4}
+!340 = distinct !{!340, !4}
+!341 = distinct !{!341, !4}
+!342 = distinct !{!342, !4}
+!343 = distinct !{!343, !4}
+!344 = distinct !{!344, !4}
+!345 = distinct !{!345, !4}
+!346 = distinct !{!346, !4}
+!347 = distinct !{!347, !4}
+!348 = distinct !{!348, !4}
+!349 = distinct !{!349, !4}
 !350 = distinct !{!350, !4}
 !351 = distinct !{!351, !4}
-!352 = !{i64 2150538582}
-!353 = distinct !{!353, !17, !18}
-!354 = !{i64 2150538911}
-!355 = distinct !{!355, !17, !18}
-!356 = !{i64 2150539240}
-!357 = !{i64 2150539368}
-!358 = distinct !{!358, !17, !18}
-!359 = !{i64 2150539726}
-!360 = distinct !{!360, !17, !18}
-!361 = !{i64 2150540176}
-!362 = !{i64 2150540398}
-!363 = distinct !{!363, !17, !18}
-!364 = !{i64 2150540756}
-!365 = !{i64 2150540978}
-!366 = distinct !{!366, !17, !18}
-!367 = !{i64 2150541336}
-!368 = !{i64 2150541558}
-!369 = !{i64 2150541688}
-!370 = distinct !{!370, !17, !18}
-!371 = !{i64 2150542046}
-!372 = !{i64 2150542295}
-!373 = distinct !{!373, !17, !18}
-!374 = !{i64 2150542751}
-!375 = !{i64 2150543000}
-!376 = !{i64 2150543228}
-!377 = distinct !{!377, !17, !18}
-!378 = !{i64 2150543586}
-!379 = !{i64 2150543835}
-!380 = !{i64 2150544063}
-!381 = distinct !{!381, !17, !18}
-!382 = !{i64 2150544421}
-!383 = !{i64 2150544670}
-!384 = !{i64 2150544898}
-!385 = !{i64 2150545031}
-!386 = distinct !{!386, !17, !18}
-!387 = !{i64 2150545390}
-!388 = !{i64 2150545639}
-!389 = !{i64 2150545894}
-!390 = distinct !{!390, !17, !18}
-!391 = !{i64 2150546227}
-!392 = !{i64 2150546371}
-!393 = !{i64 2150546784}
-!394 = distinct !{!394, !17, !18}
-!395 = distinct !{!395, !17, !18}
+!352 = distinct !{!352, !4}
+!353 = distinct !{!353, !4}
+!354 = distinct !{!354, !4}
+!355 = distinct !{!355, !4}
+!356 = distinct !{!356, !4}
+!357 = distinct !{!357, !4}
+!358 = distinct !{!358, !4}
+!359 = distinct !{!359, !4}
+!360 = distinct !{!360, !4}
+!361 = distinct !{!361, !4}
+!362 = distinct !{!362, !4}
+!363 = distinct !{!363, !4}
+!364 = distinct !{!364, !4}
+!365 = distinct !{!365, !4}
+!366 = distinct !{!366, !4}
+!367 = distinct !{!367, !4}
+!368 = distinct !{!368, !4}
+!369 = distinct !{!369, !4}
+!370 = distinct !{!370, !4}
+!371 = distinct !{!371, !4}
+!372 = distinct !{!372, !4}
+!373 = distinct !{!373, !4}
+!374 = distinct !{!374, !4}
+!375 = distinct !{!375, !4}
+!376 = distinct !{!376, !4}
+!377 = distinct !{!377, !4, !11}
+!378 = distinct !{!378, !4}
+!379 = distinct !{!379, !4}
+!380 = distinct !{!380, !4}
+!381 = distinct !{!381, !4}
+!382 = distinct !{!382, !4}
+!383 = distinct !{!383, !4}
+!384 = distinct !{!384, !4}
+!385 = distinct !{!385, !4}
+!386 = distinct !{!386, !4}
+!387 = distinct !{!387, !4}
+!388 = distinct !{!388, !4}
+!389 = distinct !{!389, !4}
+!390 = distinct !{!390, !4}
+!391 = distinct !{!391, !4}
+!392 = distinct !{!392, !4}
+!393 = distinct !{!393, !4}
+!394 = distinct !{!394, !4}
+!395 = distinct !{!395, !4}
 !396 = distinct !{!396, !4}
-!397 = !{i64 2153148924}
-!398 = distinct !{!398, !17, !18}
-!399 = !{i64 2153149943}
-!400 = !{i64 2153150703}
-!401 = distinct !{!401, !17, !18}
-!402 = !{i64 2153152747}
-!403 = distinct !{!403, !17, !18}
-!404 = !{i64 2153153146}
-!405 = distinct !{!405, !17, !18}
-!406 = !{i64 2153153971}
-!407 = distinct !{!407, !17, !18}
-!408 = !{i64 2153155892}
-!409 = distinct !{!409, !17, !18}
-!410 = !{i64 2153156872}
-!411 = distinct !{!411, !17, !18}
-!412 = !{i64 2153157221}
-!413 = distinct !{!413, !17, !18}
-!414 = !{i64 2153157911}
-!415 = distinct !{!415, !17, !18}
-!416 = !{i64 2153160628}
-!417 = distinct !{!417, !17, !18}
-!418 = !{i64 2150535330}
-!419 = distinct !{!419, !17, !18}
-!420 = !{i64 2150535488}
-!421 = !{i64 2153641488}
-!422 = !{i64 2153642061}
-!423 = distinct !{!423, !17, !18}
-!424 = distinct !{!424, !17, !18}
-!425 = !{i64 2153644214}
-!426 = !{i64 2153644787}
-!427 = distinct !{!427, !17, !18}
-!428 = distinct !{!428, !17, !18}
-!429 = !{i64 2153647317}
-!430 = !{i64 2153647890}
-!431 = distinct !{!431, !17, !18}
-!432 = distinct !{!432, !17, !18}
-!433 = !{i64 2153654678}
-!434 = !{i64 2153655251}
-!435 = distinct !{!435, !17, !18}
-!436 = distinct !{!436, !17, !18}
-!437 = !{i64 2154158459}
-!438 = !{i64 2154159940}
-!439 = distinct !{!439, !17, !18}
-!440 = distinct !{!440, !17, !18}
-!441 = !{i64 2154162652}
-!442 = !{i64 2154164133}
-!443 = distinct !{!443, !17, !18}
-!444 = distinct !{!444, !17, !18}
-!445 = !{i64 2154167608}
-!446 = !{i64 2154169089}
-!447 = distinct !{!447, !17, !18}
-!448 = distinct !{!448, !17, !18}
-!449 = !{i64 2154176530}
-!450 = !{i64 2154178011}
-!451 = distinct !{!451, !17, !18}
-!452 = distinct !{!452, !17, !18}
-!453 = !{i64 2154715032}
-!454 = !{i64 2154717028}
-!455 = distinct !{!455, !17, !18}
-!456 = !{i64 2154722555}
-!457 = !{i64 2154724551}
-!458 = distinct !{!458, !17, !18}
-!459 = !{i64 2154726105}
-!460 = !{i64 2154730803}
-!461 = !{i64 2154732799}
-!462 = distinct !{!462, !17, !18}
-!463 = !{i64 2154734637}
-!464 = !{i64 2154739806}
-!465 = !{i64 2154745863}
-!466 = distinct !{!466, !17, !18}
-!467 = !{i64 2154747846}
-!468 = !{i64 2155267979}
-!469 = !{i64 2155270544}
-!470 = distinct !{!470, !17, !18}
-!471 = distinct !{!471, !17, !18}
-!472 = !{i64 2155273863}
-!473 = !{i64 2155276428}
-!474 = distinct !{!474, !17, !18}
-!475 = !{i64 2155278437}
-!476 = distinct !{!476, !17, !18}
-!477 = !{i64 2155280514}
-!478 = !{i64 2155283079}
-!479 = distinct !{!479, !17, !18}
-!480 = !{i64 2155285226}
-!481 = distinct !{!481, !17, !18}
-!482 = !{i64 2155287738}
-!483 = !{i64 2155290303}
-!484 = distinct !{!484, !17, !18}
-!485 = !{i64 2155292587}
-!486 = distinct !{!486, !17, !18}
-!487 = !{i64 2155828902}
-!488 = !{i64 2155832116}
-!489 = distinct !{!489, !17, !18}
-!490 = distinct !{!490, !17, !18}
-!491 = !{i64 2155836277}
-!492 = !{i64 2155839491}
-!493 = distinct !{!493, !17, !18}
-!494 = !{i64 2155842030}
-!495 = distinct !{!495, !17, !18}
-!496 = !{i64 2155844612}
-!497 = !{i64 2155847826}
-!498 = distinct !{!498, !17, !18}
-!499 = !{i64 2155850568}
-!500 = distinct !{!500, !17, !18}
-!501 = !{i64 2155853697}
-!502 = !{i64 2155856911}
-!503 = distinct !{!503, !17, !18}
-!504 = !{i64 2155859855}
-!505 = distinct !{!505, !17, !18}
-!506 = !{i64 2153612746}
-!507 = distinct !{!507, !17, !18}
-!508 = !{i64 2153614030}
-!509 = distinct !{!509, !17, !18}
-!510 = !{i64 2153615814}
-!511 = distinct !{!511, !17, !18}
-!512 = !{i64 2153617702}
-!513 = distinct !{!513, !17, !18}
-!514 = !{i64 2153619798}
-!515 = distinct !{!515, !17, !18}
-!516 = !{i64 2153622271}
-!517 = distinct !{!517, !17, !18}
-!518 = !{i64 2153624941}
-!519 = distinct !{!519, !17, !18}
-!520 = !{i64 2153627409}
-!521 = !{i64 2153627746}
-!522 = distinct !{!522, !17, !18}
-!523 = !{i64 2153629879}
-!524 = !{i64 2153630216}
-!525 = distinct !{!525, !17, !18}
-!526 = !{i64 2153632730}
-!527 = !{i64 2153633067}
-!528 = distinct !{!528, !17, !18}
-!529 = !{i64 2153635778}
-!530 = !{i64 2153636115}
-!531 = distinct !{!531, !17, !18}
-!532 = !{i64 2153638624}
-!533 = !{i64 2153638961}
-!534 = !{i64 2153639335}
-!535 = distinct !{!535, !17, !18}
-!536 = !{i64 2154114638}
-!537 = distinct !{!537, !17, !18}
-!538 = !{i64 2154116653}
-!539 = distinct !{!539, !17, !18}
-!540 = !{i64 2154118816}
-!541 = distinct !{!541, !17, !18}
-!542 = !{i64 2154121387}
-!543 = distinct !{!543, !17, !18}
-!544 = !{i64 2154124007}
-!545 = distinct !{!545, !17, !18}
-!546 = !{i64 2154127390}
-!547 = distinct !{!547, !17, !18}
-!548 = !{i64 2154130678}
-!549 = distinct !{!549, !17, !18}
-!550 = !{i64 2154134646}
-!551 = !{i64 2154135891}
-!552 = distinct !{!552, !17, !18}
-!553 = !{i64 2154138583}
-!554 = !{i64 2154139828}
-!555 = distinct !{!555, !17, !18}
-!556 = !{i64 2154143287}
-!557 = !{i64 2154144532}
-!558 = distinct !{!558, !17, !18}
-!559 = !{i64 2154147896}
-!560 = !{i64 2154149141}
-!561 = distinct !{!561, !17, !18}
-!562 = !{i64 2154153185}
-!563 = !{i64 2154154430}
-!564 = !{i64 2154155747}
-!565 = distinct !{!565, !17, !18}
-!566 = !{i64 2154638771}
-!567 = distinct !{!567, !17, !18}
-!568 = !{i64 2154640931}
-!569 = distinct !{!569, !17, !18}
-!570 = !{i64 2154643687}
-!571 = distinct !{!571, !17, !18}
-!572 = !{i64 2154646779}
-!573 = !{i64 2154652182}
-!574 = !{i64 2154653632}
-!575 = !{i64 2154658310}
-!576 = !{i64 2154660044}
-!577 = !{i64 2154665193}
-!578 = !{i64 2154667072}
-!579 = !{i64 2154672596}
-!580 = !{i64 2154674356}
-!581 = !{i64 2154679863}
-!582 = !{i64 2154681623}
-!583 = !{i64 2154683177}
-!584 = !{i64 2154687859}
-!585 = !{i64 2154689619}
-!586 = !{i64 2154691457}
-!587 = !{i64 2154696610}
-!588 = !{i64 2154698370}
-!589 = !{i64 2154700353}
-!590 = !{i64 2154705881}
-!591 = !{i64 2154707641}
-!592 = !{i64 2154709505}
-!593 = !{i64 2155209981}
-!594 = distinct !{!594, !17, !18}
-!595 = !{i64 2155211657}
-!596 = distinct !{!596, !17, !18}
-!597 = !{i64 2155213866}
-!598 = distinct !{!598, !17, !18}
-!599 = !{i64 2155216590}
-!600 = distinct !{!600, !17, !18}
-!601 = !{i64 2155219801}
-!602 = !{i64 2155221722}
-!603 = distinct !{!603, !17, !18}
-!604 = !{i64 2155223779}
-!605 = !{i64 2155225838}
-!606 = distinct !{!606, !17, !18}
-!607 = !{i64 2155228330}
-!608 = !{i64 2155230526}
-!609 = distinct !{!609, !17, !18}
-!610 = !{i64 2155233412}
-!611 = !{i64 2155235741}
-!612 = distinct !{!612, !17, !18}
-!613 = !{i64 2155239040}
-!614 = !{i64 2155241369}
-!615 = !{i64 2155243378}
-!616 = distinct !{!616, !17, !18}
-!617 = !{i64 2155245439}
-!618 = !{i64 2155247768}
-!619 = !{i64 2155249915}
-!620 = distinct !{!620, !17, !18}
-!621 = !{i64 2155252411}
-!622 = !{i64 2155254740}
-!623 = !{i64 2155257024}
-!624 = distinct !{!624, !17, !18}
-!625 = !{i64 2155259914}
-!626 = !{i64 2155262243}
-!627 = !{i64 2155264660}
-!628 = distinct !{!628, !17, !18}
-!629 = !{i64 2155756055}
-!630 = distinct !{!630, !17, !18}
-!631 = !{i64 2155758040}
-!632 = distinct !{!632, !17, !18}
-!633 = !{i64 2155760747}
-!634 = distinct !{!634, !17, !18}
-!635 = !{i64 2155764059}
-!636 = distinct !{!636, !17, !18}
-!637 = !{i64 2155768032}
-!638 = !{i64 2155770403}
-!639 = distinct !{!639, !17, !18}
-!640 = !{i64 2155772965}
-!641 = !{i64 2155775539}
-!642 = distinct !{!642, !17, !18}
-!643 = !{i64 2155778648}
-!644 = !{i64 2155781424}
-!645 = distinct !{!645, !17, !18}
-!646 = !{i64 2155785040}
-!647 = !{i64 2155788018}
-!648 = distinct !{!648, !17, !18}
-!649 = !{i64 2155792159}
-!650 = !{i64 2155795137}
-!651 = !{i64 2155797676}
-!652 = distinct !{!652, !17, !18}
-!653 = !{i64 2155800242}
-!654 = !{i64 2155803220}
-!655 = !{i64 2155805962}
-!656 = distinct !{!656, !17, !18}
-!657 = !{i64 2155809075}
-!658 = !{i64 2155812053}
-!659 = !{i64 2155814997}
-!660 = distinct !{!660, !17, !18}
-!661 = !{i64 2155818617}
-!662 = !{i64 2155821595}
-!663 = !{i64 2155824741}
-!664 = distinct !{!664, !17, !18}
-!665 = !{i64 2156326601}
-!666 = distinct !{!666, !17, !18}
-!667 = !{i64 2156328455}
-!668 = distinct !{!668, !17, !18}
-!669 = !{i64 2156328961}
-!670 = distinct !{!670, !17, !18}
-!671 = !{i64 2157244375}
-!672 = distinct !{!672, !17, !18}
-!673 = !{i64 2157247661}
-!674 = distinct !{!674, !17, !18}
-!675 = !{i64 2157248431}
-!676 = distinct !{!676, !17, !18}
-!677 = !{i64 2158169598}
-!678 = distinct !{!678, !17, !18}
-!679 = !{i64 2158178377}
-!680 = distinct !{!680, !17, !18}
-!681 = !{i64 2158179411}
-!682 = distinct !{!682, !17, !18}
-!683 = !{i64 2159106331}
-!684 = distinct !{!684, !17, !18}
-!685 = !{i64 2159112481}
-!686 = distinct !{!686, !17, !18}
-!687 = !{i64 2159113779}
-!688 = distinct !{!688, !17, !18}
-!689 = !{i64 2160046452}
-!690 = distinct !{!690, !17, !18}
-!691 = !{i64 2160054034}
-!692 = distinct !{!692, !17, !18}
-!693 = !{i64 2160055596}
-!694 = distinct !{!694, !17, !18}
-!695 = !{i64 2160994022}
-!696 = distinct !{!696, !17, !18}
-!697 = !{i64 2161003036}
-!698 = distinct !{!698, !17, !18}
-!699 = !{i64 2161004862}
-!700 = distinct !{!700, !17, !18}
-!701 = !{i64 2161953102}
-!702 = distinct !{!702, !17, !18}
-!703 = !{i64 2161963548}
-!704 = distinct !{!704, !17, !18}
-!705 = !{i64 2161965638}
-!706 = distinct !{!706, !17, !18}
-!707 = !{i64 2162915570}
-!708 = distinct !{!708, !17, !18}
-!709 = !{i64 2162927448}
-!710 = distinct !{!710, !17, !18}
-!711 = !{i64 2162929802}
-!712 = distinct !{!712, !17, !18}
-!713 = !{i64 2156784749}
-!714 = distinct !{!714, !17, !18}
-!715 = !{i64 2156787307}
-!716 = distinct !{!716, !17, !18}
-!717 = !{i64 2156787960}
-!718 = distinct !{!718, !17, !18}
-!719 = !{i64 2157706678}
-!720 = distinct !{!720, !17, !18}
-!721 = !{i64 2157710668}
-!722 = distinct !{!722, !17, !18}
-!723 = !{i64 2157711585}
-!724 = distinct !{!724, !17, !18}
-!725 = !{i64 2158640117}
-!726 = distinct !{!726, !17, !18}
-!727 = !{i64 2158645539}
-!728 = distinct !{!728, !17, !18}
-!729 = !{i64 2158646720}
-!730 = distinct !{!730, !17, !18}
-!731 = !{i64 2159576944}
-!732 = distinct !{!732, !17, !18}
-!733 = !{i64 2159583798}
-!734 = distinct !{!734, !17, !18}
-!735 = !{i64 2159585243}
-!736 = distinct !{!736, !17, !18}
-!737 = !{i64 2160521220}
-!738 = distinct !{!738, !17, !18}
-!739 = !{i64 2160529506}
-!740 = distinct !{!740, !17, !18}
-!741 = !{i64 2160531215}
-!742 = distinct !{!742, !17, !18}
-!743 = !{i64 2161472945}
-!744 = distinct !{!744, !17, !18}
-!745 = !{i64 2161482663}
-!746 = distinct !{!746, !17, !18}
-!747 = !{i64 2161488697}
-!748 = distinct !{!748, !17, !18}
-!749 = !{i64 2162436180}
-!750 = distinct !{!750, !17, !18}
-!751 = !{i64 2162447330}
-!752 = distinct !{!752, !17, !18}
-!753 = !{i64 2162449567}
-!754 = distinct !{!754, !17, !18}
-!755 = !{i64 2163402803}
-!756 = distinct !{!756, !17, !18}
-!757 = !{i64 2163415385}
-!758 = distinct !{!758, !17, !18}
-!759 = !{i64 2163417886}
-!760 = distinct !{!760, !17, !18}
-!761 = !{i64 2156323736}
-!762 = distinct !{!762, !17, !18}
-!763 = !{i64 2156325232}
-!764 = distinct !{!764, !17, !18}
-!765 = !{i64 2156325731}
-!766 = distinct !{!766, !17, !18}
-!767 = !{i64 2157240210}
-!768 = distinct !{!768, !17, !18}
-!769 = !{i64 2157242590}
-!770 = distinct !{!770, !17, !18}
-!771 = !{i64 2157243297}
-!772 = distinct !{!772, !17, !18}
-!773 = !{i64 2158164115}
-!774 = distinct !{!774, !17, !18}
-!775 = !{i64 2158167379}
-!776 = distinct !{!776, !17, !18}
-!777 = !{i64 2158168294}
-!778 = distinct !{!778, !17, !18}
-!779 = !{i64 2159099530}
-!780 = distinct !{!780, !17, !18}
-!781 = !{i64 2159103678}
-!782 = distinct !{!782, !17, !18}
-!783 = !{i64 2159104801}
-!784 = distinct !{!784, !17, !18}
-!785 = !{i64 2160038333}
-!786 = distinct !{!786, !17, !18}
-!787 = !{i64 2160043365}
-!788 = distinct !{!788, !17, !18}
-!789 = !{i64 2160044696}
-!790 = distinct !{!790, !17, !18}
-!791 = !{i64 2160984585}
-!792 = distinct !{!792, !17, !18}
-!793 = !{i64 2160990501}
-!794 = distinct !{!794, !17, !18}
-!795 = !{i64 2160992040}
-!796 = distinct !{!796, !17, !18}
-!797 = !{i64 2161942347}
-!798 = distinct !{!798, !17, !18}
-!799 = !{i64 2161949147}
-!800 = distinct !{!800, !17, !18}
-!801 = !{i64 2161950894}
-!802 = distinct !{!802, !17, !18}
-!803 = !{i64 2162903497}
-!804 = distinct !{!804, !17, !18}
-!805 = !{i64 2162911181}
-!806 = distinct !{!806, !17, !18}
-!807 = !{i64 2162913136}
-!808 = distinct !{!808, !17, !18}
-!809 = !{i64 2156781002}
-!810 = distinct !{!810, !17, !18}
-!811 = !{i64 2156783210}
-!812 = distinct !{!812, !17, !18}
-!813 = !{i64 2156783858}
-!814 = distinct !{!814, !17, !18}
-!815 = !{i64 2157700752}
-!816 = distinct !{!816, !17, !18}
-!817 = !{i64 2157704556}
-!818 = distinct !{!818, !17, !18}
-!819 = !{i64 2157705561}
-!820 = distinct !{!820, !17, !18}
-!821 = !{i64 2158632012}
-!822 = distinct !{!822, !17, !18}
-!823 = !{i64 2158637412}
-!824 = distinct !{!824, !17, !18}
-!825 = !{i64 2158638774}
-!826 = distinct !{!826, !17, !18}
-!827 = !{i64 2159566660}
-!828 = distinct !{!828, !17, !18}
-!829 = !{i64 2159573656}
-!830 = distinct !{!830, !17, !18}
-!831 = !{i64 2159575375}
-!832 = distinct !{!832, !17, !18}
-!833 = !{i64 2160508757}
-!834 = distinct !{!834, !17, !18}
-!835 = !{i64 2160517349}
-!836 = distinct !{!836, !17, !18}
-!837 = !{i64 2160519425}
-!838 = distinct !{!838, !17, !18}
-!839 = !{i64 2161458303}
-!840 = distinct !{!840, !17, !18}
-!841 = !{i64 2161468491}
-!842 = distinct !{!842, !17, !18}
-!843 = !{i64 2161470924}
-!844 = distinct !{!844, !17, !18}
-!845 = !{i64 2162419359}
-!846 = distinct !{!846, !17, !18}
-!847 = !{i64 2162431143}
-!848 = distinct !{!848, !17, !18}
-!849 = !{i64 2162433933}
-!850 = distinct !{!850, !17, !18}
-!851 = !{i64 2163383803}
-!852 = distinct !{!852, !17, !18}
-!853 = !{i64 2163397183}
-!854 = distinct !{!854, !17, !18}
-!855 = !{i64 2163400330}
-!856 = distinct !{!856, !17, !18}
+!397 = distinct !{!397, !4}
+!398 = distinct !{!398, !4}
+!399 = distinct !{!399, !4}
+!400 = distinct !{!400, !4, !11}
+!401 = distinct !{!401, !4}
+!402 = distinct !{!402, !4}
+!403 = distinct !{!403, !4, !161}
+!404 = distinct !{!404, !4}
+!405 = distinct !{!405, !4}
+!406 = distinct !{!406, !4}
+!407 = distinct !{!407, !4}
+!408 = distinct !{!408, !4}
+!409 = distinct !{!409, !4}
+!410 = distinct !{!410, !4, !11}
+!411 = distinct !{!411, !4}
+!412 = distinct !{!412, !4}
+!413 = distinct !{!413, !4}
+!414 = distinct !{!414, !4}
+!415 = distinct !{!415, !4}
+!416 = distinct !{!416, !4}
+!417 = distinct !{!417, !4}
+!418 = distinct !{!418, !4}
+!419 = distinct !{!419, !4}
+!420 = distinct !{!420, !4}
+!421 = distinct !{!421, !4}
+!422 = distinct !{!422, !4}
+!423 = distinct !{!423, !4}
+!424 = !{i64 2151008212}
+!425 = distinct !{!425, !93, !94, !4}
+!426 = !{i64 2151043637}
+!427 = distinct !{!427, !93, !94, !4}
+!428 = !{i64 2151043931}
+!429 = distinct !{!429, !93, !94, !4}
+!430 = !{i64 2151044178}
+!431 = distinct !{!431, !93, !94, !4}
+!432 = distinct !{!432, !4}
+!433 = distinct !{!433, !4}
+!434 = distinct !{!434, !4}
+!435 = !{i64 2151563868}
+!436 = distinct !{!436, !93, !94, !4}
+!437 = !{i64 2151567483}
+!438 = distinct !{!438, !93, !94, !4}
+!439 = !{i64 2151558853}
+!440 = distinct !{!440, !93, !94, !4}
+!441 = !{i64 2151560810}
+!442 = distinct !{!442, !93, !94, !4}
+!443 = distinct !{!443, !4}
+!444 = distinct !{!444, !4}
+!445 = !{i64 2152085534}
+!446 = distinct !{!446, !93, !94, !4}
+!447 = !{i64 2152089149}
+!448 = distinct !{!448, !93, !94, !4}
+!449 = !{i64 2152080519}
+!450 = distinct !{!450, !93, !94, !4}
+!451 = !{i64 2152082476}
+!452 = distinct !{!452, !93, !94, !4}
+!453 = distinct !{!453, !4}
+!454 = distinct !{!454, !4}
+!455 = !{i64 2152611261}
+!456 = distinct !{!456, !93, !94, !4}
+!457 = !{i64 2152614876}
+!458 = distinct !{!458, !93, !94, !4}
+!459 = !{i64 2152606246}
+!460 = distinct !{!460, !93, !94, !4}
+!461 = !{i64 2152608203}
+!462 = distinct !{!462, !93, !94, !4}
+!463 = distinct !{!463, !4}
+!464 = distinct !{!464, !4}
+!465 = distinct !{!465, !4}
+!466 = !{i64 2153095138}
+!467 = distinct !{!467, !93, !94, !4}
+!468 = !{i64 2153141038}
+!469 = distinct !{!469, !93, !94, !4}
+!470 = !{i64 2153144653}
+!471 = distinct !{!471, !93, !94, !4}
+!472 = !{i64 2153144900}
+!473 = distinct !{!473, !93, !94, !4}
+!474 = !{i64 2153131480}
+!475 = distinct !{!475, !93, !94, !4}
+!476 = !{i64 2153133437}
+!477 = distinct !{!477, !93, !94, !4}
+!478 = !{i64 2153133684}
+!479 = distinct !{!479, !93, !94, !4}
+!480 = !{i64 2150998633}
+!481 = distinct !{!481, !4}
+!482 = !{i64 2151000212}
+!483 = distinct !{!483, !93, !94, !4}
+!484 = !{i64 2151000515}
+!485 = distinct !{!485, !93, !94, !4}
+!486 = !{i64 2151003966}
+!487 = distinct !{!487, !4}
+!488 = !{i64 2151005069}
+!489 = distinct !{!489, !93, !94, !4}
+!490 = !{i64 2151005316}
+!491 = distinct !{!491, !93, !94, !4}
+!492 = !{i64 2151034149}
+!493 = distinct !{!493, !4}
+!494 = !{i64 2151035103}
+!495 = distinct !{!495, !93, !94, !4}
+!496 = !{i64 2151035414}
+!497 = distinct !{!497, !93, !94, !4}
+!498 = !{i64 2151039335}
+!499 = distinct !{!499, !4}
+!500 = !{i64 2151040047}
+!501 = distinct !{!501, !93, !94, !4}
+!502 = !{i64 2151040294}
+!503 = distinct !{!503, !93, !94, !4}
+!504 = !{i64 2151496942}
+!505 = distinct !{!505, !4}
+!506 = !{i64 2151505478}
+!507 = distinct !{!507, !93, !94, !4}
+!508 = !{i64 2151510925}
+!509 = distinct !{!509, !4}
+!510 = !{i64 2151514924}
+!511 = distinct !{!511, !93, !94, !4}
+!512 = !{i64 2151538808}
+!513 = distinct !{!513, !4}
+!514 = !{i64 2151541210}
+!515 = distinct !{!515, !93, !94, !4}
+!516 = !{i64 2151547130}
+!517 = distinct !{!517, !4}
+!518 = !{i64 2151549290}
+!519 = distinct !{!519, !93, !94, !4}
+!520 = !{i64 2152022669}
+!521 = distinct !{!521, !4}
+!522 = !{i64 2152027144}
+!523 = distinct !{!523, !93, !94, !4}
+!524 = !{i64 2152032591}
+!525 = distinct !{!525, !4}
+!526 = !{i64 2152036590}
+!527 = distinct !{!527, !93, !94, !4}
+!528 = !{i64 2152064535}
+!529 = distinct !{!529, !4}
+!530 = !{i64 2152066937}
+!531 = distinct !{!531, !93, !94, !4}
+!532 = !{i64 2152072857}
+!533 = distinct !{!533, !4}
+!534 = !{i64 2152075017}
+!535 = distinct !{!535, !93, !94, !4}
+!536 = !{i64 2152548396}
+!537 = distinct !{!537, !4}
+!538 = !{i64 2152552871}
+!539 = distinct !{!539, !93, !94, !4}
+!540 = !{i64 2152558318}
+!541 = distinct !{!541, !4}
+!542 = !{i64 2152562317}
+!543 = distinct !{!543, !93, !94, !4}
+!544 = !{i64 2152586201}
+!545 = distinct !{!545, !4}
+!546 = !{i64 2152588603}
+!547 = distinct !{!547, !93, !94, !4}
+!548 = !{i64 2152594523}
+!549 = distinct !{!549, !4}
+!550 = !{i64 2152596683}
+!551 = distinct !{!551, !93, !94, !4}
+!552 = !{i64 2153070054}
+!553 = distinct !{!553, !4}
+!554 = !{i64 2153074529}
+!555 = distinct !{!555, !93, !94, !4}
+!556 = !{i64 2153074832}
+!557 = distinct !{!557, !93, !94, !4}
+!558 = !{i64 2153081235}
+!559 = distinct !{!559, !4}
+!560 = !{i64 2153085234}
+!561 = distinct !{!561, !93, !94, !4}
+!562 = !{i64 2153085481}
+!563 = distinct !{!563, !93, !94, !4}
+!564 = !{i64 2153113417}
+!565 = distinct !{!565, !4}
+!566 = !{i64 2153115819}
+!567 = distinct !{!567, !93, !94, !4}
+!568 = !{i64 2153116130}
+!569 = distinct !{!569, !93, !94, !4}
+!570 = !{i64 2153123008}
+!571 = distinct !{!571, !4}
+!572 = !{i64 2153125168}
+!573 = distinct !{!573, !93, !94, !4}
+!574 = !{i64 2153125415}
+!575 = distinct !{!575, !93, !94, !4}
+!576 = !{i64 2151008644}
+!577 = distinct !{!577, !4}
+!578 = !{i64 2151017531}
+!579 = distinct !{!579, !93, !94, !4}
+!580 = !{i64 2151017778}
+!581 = distinct !{!581, !93, !94, !4}
+!582 = !{i64 2151044602}
+!583 = distinct !{!583, !93, !94, !4}
+!584 = !{i64 2151044896}
+!585 = distinct !{!585, !93, !94, !4}
+!586 = !{i64 2151045143}
+!587 = distinct !{!587, !93, !94, !4}
+!588 = !{i64 2151018312}
+!589 = distinct !{!589, !4}
+!590 = !{i64 2151026139}
+!591 = distinct !{!591, !93, !94, !4}
+!592 = !{i64 2151530237}
+!593 = distinct !{!593, !4}
+!594 = !{i64 2151538064}
+!595 = distinct !{!595, !93, !94, !4}
+!596 = !{i64 2151520346}
+!597 = distinct !{!597, !4}
+!598 = !{i64 2151529233}
+!599 = distinct !{!599, !93, !94, !4}
+!600 = !{i64 2151568130}
+!601 = distinct !{!601, !4}
+!602 = !{i64 2151570158}
+!603 = distinct !{!603, !93, !94, !4}
+!604 = !{i64 2151561451}
+!605 = distinct !{!605, !93, !94, !4}
+!606 = !{i64 2151563340}
+!607 = distinct !{!607, !93, !94, !4}
+!608 = !{i64 2152055964}
+!609 = distinct !{!609, !4}
+!610 = !{i64 2152063791}
+!611 = distinct !{!611, !93, !94, !4}
+!612 = !{i64 2152046073}
+!613 = distinct !{!613, !4}
+!614 = !{i64 2152054960}
+!615 = distinct !{!615, !93, !94, !4}
+!616 = !{i64 2152089796}
+!617 = distinct !{!617, !4}
+!618 = !{i64 2152091824}
+!619 = distinct !{!619, !93, !94, !4}
+!620 = !{i64 2152083117}
+!621 = distinct !{!621, !93, !94, !4}
+!622 = !{i64 2152085006}
+!623 = distinct !{!623, !93, !94, !4}
+!624 = !{i64 2152577630}
+!625 = distinct !{!625, !4}
+!626 = !{i64 2152585457}
+!627 = distinct !{!627, !93, !94, !4}
+!628 = !{i64 2152567739}
+!629 = distinct !{!629, !4}
+!630 = !{i64 2152576626}
+!631 = distinct !{!631, !93, !94, !4}
+!632 = !{i64 2152615523}
+!633 = distinct !{!633, !4}
+!634 = !{i64 2152617551}
+!635 = distinct !{!635, !93, !94, !4}
+!636 = !{i64 2152608844}
+!637 = distinct !{!637, !93, !94, !4}
+!638 = !{i64 2152610733}
+!639 = distinct !{!639, !93, !94, !4}
+!640 = !{i64 2151026870}
+!641 = distinct !{!641, !4}
+!642 = !{i64 2151033639}
+!643 = distinct !{!643, !93, !94, !4}
+!644 = !{i64 2153105920}
+!645 = distinct !{!645, !4}
+!646 = !{i64 2153112689}
+!647 = distinct !{!647, !93, !94, !4}
+!648 = !{i64 2153095760}
+!649 = distinct !{!649, !4}
+!650 = !{i64 2153104647}
+!651 = distinct !{!651, !93, !94, !4}
+!652 = !{i64 2153104894}
+!653 = distinct !{!653, !93, !94, !4}
+!654 = !{i64 2153145541}
+!655 = distinct !{!655, !4}
+!656 = !{i64 2153147569}
+!657 = distinct !{!657, !93, !94, !4}
+!658 = !{i64 2153148628}
+!659 = distinct !{!659, !93, !94, !4}
+!660 = !{i64 2153134319}
+!661 = distinct !{!661, !93, !94, !4}
+!662 = !{i64 2153136208}
+!663 = distinct !{!663, !93, !94, !4}
+!664 = !{i64 2153136455}
+!665 = distinct !{!665, !93, !94, !4}
+!666 = !{i64 2151000954}
+!667 = distinct !{!667, !4}
+!668 = !{i64 2151002339}
+!669 = distinct !{!669, !93, !94, !4}
+!670 = !{i64 2151003254}
+!671 = distinct !{!671, !93, !94, !4}
+!672 = !{i64 2151005769}
+!673 = distinct !{!673, !4}
+!674 = !{i64 2151006914}
+!675 = distinct !{!675, !93, !94, !4}
+!676 = !{i64 2151007743}
+!677 = distinct !{!677, !93, !94, !4}
+!678 = !{i64 2151035904}
+!679 = distinct !{!679, !4}
+!680 = !{i64 2151037509}
+!681 = distinct !{!681, !93, !94, !4}
+!682 = !{i64 2151038619}
+!683 = distinct !{!683, !93, !94, !4}
+!684 = !{i64 2151040761}
+!685 = distinct !{!685, !4}
+!686 = !{i64 2151042120}
+!687 = distinct !{!687, !93, !94, !4}
+!688 = !{i64 2151043142}
+!689 = distinct !{!689, !93, !94, !4}
+!690 = !{i64 2151506182}
+!691 = distinct !{!691, !4}
+!692 = !{i64 2151509003}
+!693 = distinct !{!693, !93, !94, !4}
+!694 = !{i64 2151515579}
+!695 = distinct !{!695, !4}
+!696 = !{i64 2151518160}
+!697 = distinct !{!697, !93, !94, !4}
+!698 = !{i64 2151541974}
+!699 = distinct !{!699, !4}
+!700 = !{i64 2151545015}
+!701 = distinct !{!701, !93, !94, !4}
+!702 = !{i64 2151549962}
+!703 = distinct !{!703, !4}
+!704 = !{i64 2151552757}
+!705 = distinct !{!705, !93, !94, !4}
+!706 = !{i64 2152027848}
+!707 = distinct !{!707, !4}
+!708 = !{i64 2152030669}
+!709 = distinct !{!709, !93, !94, !4}
+!710 = !{i64 2152037245}
+!711 = distinct !{!711, !4}
+!712 = !{i64 2152039826}
+!713 = distinct !{!713, !93, !94, !4}
+!714 = !{i64 2152067701}
+!715 = distinct !{!715, !4}
+!716 = !{i64 2152070742}
+!717 = distinct !{!717, !93, !94, !4}
+!718 = !{i64 2152075689}
+!719 = distinct !{!719, !4}
+!720 = !{i64 2152078484}
+!721 = distinct !{!721, !93, !94, !4}
+!722 = !{i64 2152553575}
+!723 = distinct !{!723, !4}
+!724 = !{i64 2152556396}
+!725 = distinct !{!725, !93, !94, !4}
+!726 = !{i64 2152562972}
+!727 = distinct !{!727, !4}
+!728 = !{i64 2152565553}
+!729 = distinct !{!729, !93, !94, !4}
+!730 = !{i64 2152589367}
+!731 = distinct !{!731, !4}
+!732 = !{i64 2152592408}
+!733 = distinct !{!733, !93, !94, !4}
+!734 = !{i64 2152597355}
+!735 = distinct !{!735, !4}
+!736 = !{i64 2152604211}
+!737 = distinct !{!737, !93, !94, !4}
+!738 = !{i64 2153075502}
+!739 = distinct !{!739, !4}
+!740 = !{i64 2153078323}
+!741 = distinct !{!741, !93, !94, !4}
+!742 = !{i64 2153079956}
+!743 = distinct !{!743, !93, !94, !4}
+!744 = !{i64 2153086130}
+!745 = distinct !{!745, !4}
+!746 = !{i64 2153092772}
+!747 = distinct !{!747, !93, !94, !4}
+!748 = !{i64 2153094319}
+!749 = distinct !{!749, !93, !94, !4}
+!750 = !{i64 2153116856}
+!751 = distinct !{!751, !4}
+!752 = !{i64 2153119897}
+!753 = distinct !{!753, !93, !94, !4}
+!754 = !{i64 2153121719}
+!755 = distinct !{!755, !93, !94, !4}
+!756 = !{i64 2153126081}
+!757 = distinct !{!757, !4}
+!758 = !{i64 2153128876}
+!759 = distinct !{!759, !93, !94, !4}
+!760 = !{i64 2153130610}
+!761 = distinct !{!761, !93, !94, !4}
+!762 = distinct !{!762, !11}
+!763 = distinct !{!763, !4}
+!764 = distinct !{!764, !4}
+!765 = distinct !{!765, !4}
+!766 = distinct !{!766, !4, !11}
+!767 = distinct !{!767, !4}
+!768 = distinct !{!768, !4}
+!769 = distinct !{!769, !4}
+!770 = distinct !{!770, !4}
+!771 = distinct !{!771, !4}
+!772 = !{i64 2150538582}
+!773 = distinct !{!773, !93, !94, !4}
+!774 = !{i64 2150538911}
+!775 = distinct !{!775, !93, !94, !4}
+!776 = !{i64 2150539240}
+!777 = !{i64 2150539368}
+!778 = distinct !{!778, !93, !94, !4}
+!779 = !{i64 2150539726}
+!780 = distinct !{!780, !93, !94, !4}
+!781 = !{i64 2150540176}
+!782 = !{i64 2150540398}
+!783 = distinct !{!783, !93, !94, !4}
+!784 = !{i64 2150540756}
+!785 = !{i64 2150540978}
+!786 = distinct !{!786, !93, !94, !4}
+!787 = !{i64 2150541336}
+!788 = !{i64 2150541558}
+!789 = !{i64 2150541688}
+!790 = distinct !{!790, !93, !94, !4}
+!791 = !{i64 2150542046}
+!792 = !{i64 2150542295}
+!793 = distinct !{!793, !93, !94, !4}
+!794 = !{i64 2150542751}
+!795 = !{i64 2150543000}
+!796 = !{i64 2150543228}
+!797 = distinct !{!797, !93, !94, !4}
+!798 = !{i64 2150543586}
+!799 = !{i64 2150543835}
+!800 = !{i64 2150544063}
+!801 = distinct !{!801, !93, !94, !4}
+!802 = !{i64 2150544421}
+!803 = !{i64 2150544670}
+!804 = !{i64 2150544898}
+!805 = !{i64 2150545031}
+!806 = distinct !{!806, !93, !94, !4}
+!807 = !{i64 2150545390}
+!808 = !{i64 2150545639}
+!809 = !{i64 2150545894}
+!810 = distinct !{!810, !93, !94, !4}
+!811 = !{i64 2150546227}
+!812 = !{i64 2150546371}
+!813 = distinct !{!813, !4}
+!814 = !{i64 2150546784}
+!815 = distinct !{!815, !93, !94, !4}
+!816 = distinct !{!816, !93, !94, !4}
+!817 = distinct !{!817, !4}
+!818 = distinct !{!818, !4}
+!819 = distinct !{!819, !4}
+!820 = distinct !{!820, !4}
+!821 = distinct !{!821, !4}
+!822 = distinct !{!822, !4}
+!823 = distinct !{!823, !4, !11}
+!824 = distinct !{!824, !4}
+!825 = distinct !{!825, !4}
+!826 = !{i64 2153148924}
+!827 = distinct !{!827, !93, !94, !4}
+!828 = !{i64 2153149943}
+!829 = !{i64 2153150703}
+!830 = distinct !{!830, !93, !94, !4}
+!831 = !{i64 2153152747}
+!832 = distinct !{!832, !93, !94, !4}
+!833 = !{i64 2153153146}
+!834 = distinct !{!834, !93, !94, !4}
+!835 = distinct !{!835, !4}
+!836 = !{i64 2153153971}
+!837 = distinct !{!837, !93, !94, !4}
+!838 = !{i64 2153155892}
+!839 = distinct !{!839, !93, !94, !4}
+!840 = !{i64 2153156872}
+!841 = distinct !{!841, !93, !94, !4}
+!842 = !{i64 2153157221}
+!843 = distinct !{!843, !93, !94, !4}
+!844 = distinct !{!844, !4}
+!845 = !{i64 2153157911}
+!846 = distinct !{!846, !93, !94, !4}
+!847 = !{i64 2153160628}
+!848 = distinct !{!848, !93, !94, !4}
+!849 = distinct !{!849, !4}
+!850 = distinct !{!850, !4}
+!851 = distinct !{!851, !4}
+!852 = distinct !{!852, !4}
+!853 = distinct !{!853, !4}
+!854 = distinct !{!854, !4}
+!855 = distinct !{!855, !4}
+!856 = distinct !{!856, !4}
+!857 = distinct !{!857, !4}
+!858 = distinct !{!858, !4}
+!859 = distinct !{!859, !4}
+!860 = distinct !{!860, !4}
+!861 = distinct !{!861, !4}
+!862 = distinct !{!862, !4}
+!863 = !{i64 2150535330}
+!864 = distinct !{!864, !93, !94, !4}
+!865 = !{i64 2150535488}
+!866 = distinct !{!866, !4}
+!867 = distinct !{!867, !4}
+!868 = distinct !{!868, !4}
+!869 = distinct !{!869, !4}
+!870 = distinct !{!870, !4}
+!871 = distinct !{!871, !4}
+!872 = distinct !{!872, !4}
+!873 = !{i64 2153641488}
+!874 = !{i64 2153642061}
+!875 = distinct !{!875, !93, !94, !4}
+!876 = distinct !{!876, !93, !94, !4}
+!877 = !{i64 2153644214}
+!878 = !{i64 2153644787}
+!879 = distinct !{!879, !93, !94, !4}
+!880 = distinct !{!880, !93, !94, !4}
+!881 = !{i64 2153647317}
+!882 = !{i64 2153647890}
+!883 = distinct !{!883, !93, !94, !4}
+!884 = distinct !{!884, !93, !94, !4}
+!885 = !{i64 2153654678}
+!886 = !{i64 2153655251}
+!887 = distinct !{!887, !93, !94, !4}
+!888 = distinct !{!888, !93, !94, !4}
+!889 = !{i64 2154158459}
+!890 = !{i64 2154159940}
+!891 = distinct !{!891, !93, !94, !4}
+!892 = distinct !{!892, !93, !94, !4}
+!893 = !{i64 2154162652}
+!894 = !{i64 2154164133}
+!895 = distinct !{!895, !93, !94, !4}
+!896 = distinct !{!896, !93, !94, !4}
+!897 = !{i64 2154167608}
+!898 = !{i64 2154169089}
+!899 = distinct !{!899, !93, !94, !4}
+!900 = distinct !{!900, !93, !94, !4}
+!901 = !{i64 2154176530}
+!902 = !{i64 2154178011}
+!903 = distinct !{!903, !93, !94, !4}
+!904 = distinct !{!904, !93, !94, !4}
+!905 = !{i64 2154715032}
+!906 = !{i64 2154717028}
+!907 = distinct !{!907, !93, !94, !4}
+!908 = distinct !{!908, !4}
+!909 = !{i64 2154722555}
+!910 = !{i64 2154724551}
+!911 = distinct !{!911, !93, !94, !4}
+!912 = !{i64 2154726105}
+!913 = distinct !{!913, !4}
+!914 = !{i64 2154730803}
+!915 = !{i64 2154732799}
+!916 = distinct !{!916, !93, !94, !4}
+!917 = !{i64 2154734637}
+!918 = distinct !{!918, !4}
+!919 = !{i64 2154739806}
+!920 = !{i64 2154745863}
+!921 = distinct !{!921, !93, !94, !4}
+!922 = !{i64 2154747846}
+!923 = distinct !{!923, !4}
+!924 = !{i64 2155267979}
+!925 = !{i64 2155270544}
+!926 = distinct !{!926, !93, !94, !4}
+!927 = distinct !{!927, !93, !94, !4}
+!928 = !{i64 2155273863}
+!929 = !{i64 2155276428}
+!930 = distinct !{!930, !93, !94, !4}
+!931 = !{i64 2155278437}
+!932 = distinct !{!932, !93, !94, !4}
+!933 = !{i64 2155280514}
+!934 = !{i64 2155283079}
+!935 = distinct !{!935, !93, !94, !4}
+!936 = !{i64 2155285226}
+!937 = distinct !{!937, !93, !94, !4}
+!938 = !{i64 2155287738}
+!939 = !{i64 2155290303}
+!940 = distinct !{!940, !93, !94, !4}
+!941 = !{i64 2155292587}
+!942 = distinct !{!942, !93, !94, !4}
+!943 = !{i64 2155828902}
+!944 = !{i64 2155832116}
+!945 = distinct !{!945, !93, !94, !4}
+!946 = distinct !{!946, !93, !94, !4}
+!947 = !{i64 2155836277}
+!948 = !{i64 2155839491}
+!949 = distinct !{!949, !93, !94, !4}
+!950 = !{i64 2155842030}
+!951 = distinct !{!951, !93, !94, !4}
+!952 = !{i64 2155844612}
+!953 = !{i64 2155847826}
+!954 = distinct !{!954, !93, !94, !4}
+!955 = !{i64 2155850568}
+!956 = distinct !{!956, !93, !94, !4}
+!957 = !{i64 2155853697}
+!958 = !{i64 2155856911}
+!959 = distinct !{!959, !93, !94, !4}
+!960 = !{i64 2155859855}
+!961 = distinct !{!961, !93, !94, !4}
+!962 = !{i64 2153612746}
+!963 = distinct !{!963, !93, !94, !4}
+!964 = !{i64 2153614030}
+!965 = distinct !{!965, !93, !94, !4}
+!966 = !{i64 2153615814}
+!967 = distinct !{!967, !93, !94, !4}
+!968 = !{i64 2153617702}
+!969 = distinct !{!969, !93, !94, !4}
+!970 = !{i64 2153619798}
+!971 = distinct !{!971, !93, !94, !4}
+!972 = !{i64 2153622271}
+!973 = distinct !{!973, !93, !94, !4}
+!974 = !{i64 2153624941}
+!975 = distinct !{!975, !93, !94, !4}
+!976 = !{i64 2153627409}
+!977 = !{i64 2153627746}
+!978 = distinct !{!978, !93, !94, !4}
+!979 = !{i64 2153629879}
+!980 = !{i64 2153630216}
+!981 = distinct !{!981, !93, !94, !4}
+!982 = !{i64 2153632730}
+!983 = !{i64 2153633067}
+!984 = distinct !{!984, !93, !94, !4}
+!985 = !{i64 2153635778}
+!986 = !{i64 2153636115}
+!987 = distinct !{!987, !93, !94, !4}
+!988 = !{i64 2153638624}
+!989 = !{i64 2153638961}
+!990 = !{i64 2153639335}
+!991 = distinct !{!991, !93, !94, !4}
+!992 = !{i64 2154114638}
+!993 = distinct !{!993, !93, !94, !4}
+!994 = !{i64 2154116653}
+!995 = distinct !{!995, !93, !94, !4}
+!996 = !{i64 2154118816}
+!997 = distinct !{!997, !93, !94, !4}
+!998 = !{i64 2154121387}
+!999 = distinct !{!999, !93, !94, !4}
+!1000 = !{i64 2154124007}
+!1001 = distinct !{!1001, !93, !94, !4}
+!1002 = !{i64 2154127390}
+!1003 = distinct !{!1003, !93, !94, !4}
+!1004 = !{i64 2154130678}
+!1005 = distinct !{!1005, !93, !94, !4}
+!1006 = !{i64 2154134646}
+!1007 = !{i64 2154135891}
+!1008 = distinct !{!1008, !93, !94, !4}
+!1009 = !{i64 2154138583}
+!1010 = !{i64 2154139828}
+!1011 = distinct !{!1011, !93, !94, !4}
+!1012 = !{i64 2154143287}
+!1013 = !{i64 2154144532}
+!1014 = distinct !{!1014, !93, !94, !4}
+!1015 = !{i64 2154147896}
+!1016 = !{i64 2154149141}
+!1017 = distinct !{!1017, !93, !94, !4}
+!1018 = !{i64 2154153185}
+!1019 = !{i64 2154154430}
+!1020 = !{i64 2154155747}
+!1021 = distinct !{!1021, !93, !94, !4}
+!1022 = !{i64 2154638771}
+!1023 = distinct !{!1023, !93, !94, !4}
+!1024 = !{i64 2154640931}
+!1025 = distinct !{!1025, !93, !94, !4}
+!1026 = !{i64 2154643687}
+!1027 = distinct !{!1027, !93, !94, !4}
+!1028 = !{i64 2154646779}
+!1029 = distinct !{!1029, !4}
+!1030 = !{i64 2154652182}
+!1031 = !{i64 2154653632}
+!1032 = distinct !{!1032, !4}
+!1033 = !{i64 2154658310}
+!1034 = !{i64 2154660044}
+!1035 = distinct !{!1035, !4}
+!1036 = !{i64 2154665193}
+!1037 = !{i64 2154667072}
+!1038 = distinct !{!1038, !4}
+!1039 = !{i64 2154672596}
+!1040 = !{i64 2154674356}
+!1041 = distinct !{!1041, !4}
+!1042 = !{i64 2154679863}
+!1043 = !{i64 2154681623}
+!1044 = !{i64 2154683177}
+!1045 = distinct !{!1045, !4}
+!1046 = !{i64 2154687859}
+!1047 = !{i64 2154689619}
+!1048 = !{i64 2154691457}
+!1049 = distinct !{!1049, !4}
+!1050 = !{i64 2154696610}
+!1051 = !{i64 2154698370}
+!1052 = !{i64 2154700353}
+!1053 = distinct !{!1053, !4}
+!1054 = !{i64 2154705881}
+!1055 = !{i64 2154707641}
+!1056 = !{i64 2154709505}
+!1057 = distinct !{!1057, !4}
+!1058 = !{i64 2155209981}
+!1059 = distinct !{!1059, !93, !94, !4}
+!1060 = !{i64 2155211657}
+!1061 = distinct !{!1061, !93, !94, !4}
+!1062 = !{i64 2155213866}
+!1063 = distinct !{!1063, !93, !94, !4}
+!1064 = !{i64 2155216590}
+!1065 = distinct !{!1065, !93, !94, !4}
+!1066 = !{i64 2155219801}
+!1067 = !{i64 2155221722}
+!1068 = distinct !{!1068, !93, !94, !4}
+!1069 = !{i64 2155223779}
+!1070 = !{i64 2155225838}
+!1071 = distinct !{!1071, !93, !94, !4}
+!1072 = !{i64 2155228330}
+!1073 = !{i64 2155230526}
+!1074 = distinct !{!1074, !93, !94, !4}
+!1075 = !{i64 2155233412}
+!1076 = !{i64 2155235741}
+!1077 = distinct !{!1077, !93, !94, !4}
+!1078 = !{i64 2155239040}
+!1079 = !{i64 2155241369}
+!1080 = !{i64 2155243378}
+!1081 = distinct !{!1081, !93, !94, !4}
+!1082 = !{i64 2155245439}
+!1083 = !{i64 2155247768}
+!1084 = !{i64 2155249915}
+!1085 = distinct !{!1085, !93, !94, !4}
+!1086 = !{i64 2155252411}
+!1087 = !{i64 2155254740}
+!1088 = !{i64 2155257024}
+!1089 = distinct !{!1089, !93, !94, !4}
+!1090 = !{i64 2155259914}
+!1091 = !{i64 2155262243}
+!1092 = !{i64 2155264660}
+!1093 = distinct !{!1093, !93, !94, !4}
+!1094 = !{i64 2155756055}
+!1095 = distinct !{!1095, !93, !94, !4}
+!1096 = !{i64 2155758040}
+!1097 = distinct !{!1097, !93, !94, !4}
+!1098 = !{i64 2155760747}
+!1099 = distinct !{!1099, !93, !94, !4}
+!1100 = !{i64 2155764059}
+!1101 = distinct !{!1101, !93, !94, !4}
+!1102 = !{i64 2155768032}
+!1103 = !{i64 2155770403}
+!1104 = distinct !{!1104, !93, !94, !4}
+!1105 = !{i64 2155772965}
+!1106 = !{i64 2155775539}
+!1107 = distinct !{!1107, !93, !94, !4}
+!1108 = !{i64 2155778648}
+!1109 = !{i64 2155781424}
+!1110 = distinct !{!1110, !93, !94, !4}
+!1111 = !{i64 2155785040}
+!1112 = !{i64 2155788018}
+!1113 = distinct !{!1113, !93, !94, !4}
+!1114 = !{i64 2155792159}
+!1115 = !{i64 2155795137}
+!1116 = !{i64 2155797676}
+!1117 = distinct !{!1117, !93, !94, !4}
+!1118 = !{i64 2155800242}
+!1119 = !{i64 2155803220}
+!1120 = !{i64 2155805962}
+!1121 = distinct !{!1121, !93, !94, !4}
+!1122 = !{i64 2155809075}
+!1123 = !{i64 2155812053}
+!1124 = !{i64 2155814997}
+!1125 = distinct !{!1125, !93, !94, !4}
+!1126 = !{i64 2155818617}
+!1127 = !{i64 2155821595}
+!1128 = !{i64 2155824741}
+!1129 = distinct !{!1129, !93, !94, !4}
+!1130 = distinct !{!1130, !4}
+!1131 = distinct !{!1131, !4}
+!1132 = !{i64 2156326601}
+!1133 = distinct !{!1133, !93, !94, !4}
+!1134 = !{i64 2156328455}
+!1135 = distinct !{!1135, !93, !94, !4}
+!1136 = !{i64 2156328961}
+!1137 = distinct !{!1137, !93, !94, !4}
+!1138 = !{i64 2157244375}
+!1139 = distinct !{!1139, !93, !94, !4}
+!1140 = !{i64 2157247661}
+!1141 = distinct !{!1141, !93, !94, !4}
+!1142 = !{i64 2157248431}
+!1143 = distinct !{!1143, !93, !94, !4}
+!1144 = !{i64 2158169598}
+!1145 = distinct !{!1145, !93, !94, !4}
+!1146 = !{i64 2158178377}
+!1147 = distinct !{!1147, !93, !94, !4}
+!1148 = !{i64 2158179411}
+!1149 = distinct !{!1149, !93, !94, !4}
+!1150 = !{i64 2159106331}
+!1151 = distinct !{!1151, !93, !94, !4}
+!1152 = !{i64 2159112481}
+!1153 = distinct !{!1153, !93, !94, !4}
+!1154 = !{i64 2159113779}
+!1155 = distinct !{!1155, !93, !94, !4}
+!1156 = !{i64 2160046452}
+!1157 = distinct !{!1157, !93, !94, !4}
+!1158 = !{i64 2160054034}
+!1159 = distinct !{!1159, !93, !94, !4}
+!1160 = !{i64 2160055596}
+!1161 = distinct !{!1161, !93, !94, !4}
+!1162 = !{i64 2160994022}
+!1163 = distinct !{!1163, !93, !94, !4}
+!1164 = !{i64 2161003036}
+!1165 = distinct !{!1165, !93, !94, !4}
+!1166 = !{i64 2161004862}
+!1167 = distinct !{!1167, !93, !94, !4}
+!1168 = !{i64 2161953102}
+!1169 = distinct !{!1169, !93, !94, !4}
+!1170 = !{i64 2161963548}
+!1171 = distinct !{!1171, !93, !94, !4}
+!1172 = !{i64 2161965638}
+!1173 = distinct !{!1173, !93, !94, !4}
+!1174 = !{i64 2162915570}
+!1175 = distinct !{!1175, !93, !94, !4}
+!1176 = !{i64 2162927448}
+!1177 = distinct !{!1177, !93, !94, !4}
+!1178 = !{i64 2162929802}
+!1179 = distinct !{!1179, !93, !94, !4}
+!1180 = !{i64 2156784749}
+!1181 = distinct !{!1181, !93, !94, !4}
+!1182 = !{i64 2156787307}
+!1183 = distinct !{!1183, !93, !94, !4}
+!1184 = !{i64 2156787960}
+!1185 = distinct !{!1185, !93, !94, !4}
+!1186 = !{i64 2157706678}
+!1187 = distinct !{!1187, !93, !94, !4}
+!1188 = !{i64 2157710668}
+!1189 = distinct !{!1189, !93, !94, !4}
+!1190 = !{i64 2157711585}
+!1191 = distinct !{!1191, !93, !94, !4}
+!1192 = !{i64 2158640117}
+!1193 = distinct !{!1193, !93, !94, !4}
+!1194 = !{i64 2158645539}
+!1195 = distinct !{!1195, !93, !94, !4}
+!1196 = !{i64 2158646720}
+!1197 = distinct !{!1197, !93, !94, !4}
+!1198 = !{i64 2159576944}
+!1199 = distinct !{!1199, !93, !94, !4}
+!1200 = !{i64 2159583798}
+!1201 = distinct !{!1201, !93, !94, !4}
+!1202 = !{i64 2159585243}
+!1203 = distinct !{!1203, !93, !94, !4}
+!1204 = !{i64 2160521220}
+!1205 = distinct !{!1205, !93, !94, !4}
+!1206 = !{i64 2160529506}
+!1207 = distinct !{!1207, !93, !94, !4}
+!1208 = !{i64 2160531215}
+!1209 = distinct !{!1209, !93, !94, !4}
+!1210 = !{i64 2161472945}
+!1211 = distinct !{!1211, !93, !94, !4}
+!1212 = !{i64 2161482663}
+!1213 = distinct !{!1213, !93, !94, !4}
+!1214 = !{i64 2161488697}
+!1215 = distinct !{!1215, !93, !94, !4}
+!1216 = !{i64 2162436180}
+!1217 = distinct !{!1217, !93, !94, !4}
+!1218 = !{i64 2162447330}
+!1219 = distinct !{!1219, !93, !94, !4}
+!1220 = !{i64 2162449567}
+!1221 = distinct !{!1221, !93, !94, !4}
+!1222 = !{i64 2163402803}
+!1223 = distinct !{!1223, !93, !94, !4}
+!1224 = !{i64 2163415385}
+!1225 = distinct !{!1225, !93, !94, !4}
+!1226 = !{i64 2163417886}
+!1227 = distinct !{!1227, !93, !94, !4}
+!1228 = !{i64 2156323736}
+!1229 = distinct !{!1229, !93, !94, !4}
+!1230 = !{i64 2156325232}
+!1231 = distinct !{!1231, !93, !94, !4}
+!1232 = !{i64 2156325731}
+!1233 = distinct !{!1233, !93, !94, !4}
+!1234 = !{i64 2157240210}
+!1235 = distinct !{!1235, !93, !94, !4}
+!1236 = !{i64 2157242590}
+!1237 = distinct !{!1237, !93, !94, !4}
+!1238 = !{i64 2157243297}
+!1239 = distinct !{!1239, !93, !94, !4}
+!1240 = !{i64 2158164115}
+!1241 = distinct !{!1241, !93, !94, !4}
+!1242 = !{i64 2158167379}
+!1243 = distinct !{!1243, !93, !94, !4}
+!1244 = !{i64 2158168294}
+!1245 = distinct !{!1245, !93, !94, !4}
+!1246 = !{i64 2159099530}
+!1247 = distinct !{!1247, !93, !94, !4}
+!1248 = !{i64 2159103678}
+!1249 = distinct !{!1249, !93, !94, !4}
+!1250 = !{i64 2159104801}
+!1251 = distinct !{!1251, !93, !94, !4}
+!1252 = !{i64 2160038333}
+!1253 = distinct !{!1253, !93, !94, !4}
+!1254 = !{i64 2160043365}
+!1255 = distinct !{!1255, !93, !94, !4}
+!1256 = !{i64 2160044696}
+!1257 = distinct !{!1257, !93, !94, !4}
+!1258 = !{i64 2160984585}
+!1259 = distinct !{!1259, !93, !94, !4}
+!1260 = !{i64 2160990501}
+!1261 = distinct !{!1261, !93, !94, !4}
+!1262 = !{i64 2160992040}
+!1263 = distinct !{!1263, !93, !94, !4}
+!1264 = !{i64 2161942347}
+!1265 = distinct !{!1265, !93, !94, !4}
+!1266 = !{i64 2161949147}
+!1267 = distinct !{!1267, !93, !94, !4}
+!1268 = !{i64 2161950894}
+!1269 = distinct !{!1269, !93, !94, !4}
+!1270 = !{i64 2162903497}
+!1271 = distinct !{!1271, !93, !94, !4}
+!1272 = !{i64 2162911181}
+!1273 = distinct !{!1273, !93, !94, !4}
+!1274 = !{i64 2162913136}
+!1275 = distinct !{!1275, !93, !94, !4}
+!1276 = !{i64 2156781002}
+!1277 = distinct !{!1277, !93, !94, !4}
+!1278 = !{i64 2156783210}
+!1279 = distinct !{!1279, !93, !94, !4}
+!1280 = !{i64 2156783858}
+!1281 = distinct !{!1281, !93, !94, !4}
+!1282 = !{i64 2157700752}
+!1283 = distinct !{!1283, !93, !94, !4}
+!1284 = !{i64 2157704556}
+!1285 = distinct !{!1285, !93, !94, !4}
+!1286 = !{i64 2157705561}
+!1287 = distinct !{!1287, !93, !94, !4}
+!1288 = !{i64 2158632012}
+!1289 = distinct !{!1289, !93, !94, !4}
+!1290 = !{i64 2158637412}
+!1291 = distinct !{!1291, !93, !94, !4}
+!1292 = !{i64 2158638774}
+!1293 = distinct !{!1293, !93, !94, !4}
+!1294 = !{i64 2159566660}
+!1295 = distinct !{!1295, !93, !94, !4}
+!1296 = !{i64 2159573656}
+!1297 = distinct !{!1297, !93, !94, !4}
+!1298 = !{i64 2159575375}
+!1299 = distinct !{!1299, !93, !94, !4}
+!1300 = !{i64 2160508757}
+!1301 = distinct !{!1301, !93, !94, !4}
+!1302 = !{i64 2160517349}
+!1303 = distinct !{!1303, !93, !94, !4}
+!1304 = !{i64 2160519425}
+!1305 = distinct !{!1305, !93, !94, !4}
+!1306 = !{i64 2161458303}
+!1307 = distinct !{!1307, !93, !94, !4}
+!1308 = !{i64 2161468491}
+!1309 = distinct !{!1309, !93, !94, !4}
+!1310 = !{i64 2161470924}
+!1311 = distinct !{!1311, !93, !94, !4}
+!1312 = !{i64 2162419359}
+!1313 = distinct !{!1313, !93, !94, !4}
+!1314 = !{i64 2162431143}
+!1315 = distinct !{!1315, !93, !94, !4}
+!1316 = !{i64 2162433933}
+!1317 = distinct !{!1317, !93, !94, !4}
+!1318 = !{i64 2163383803}
+!1319 = distinct !{!1319, !93, !94, !4}
+!1320 = !{i64 2163397183}
+!1321 = distinct !{!1321, !93, !94, !4}
+!1322 = !{i64 2163400330}
+!1323 = distinct !{!1323, !93, !94, !4}

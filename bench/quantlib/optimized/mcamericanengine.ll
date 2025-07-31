@@ -538,23 +538,23 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt8fun
   br label %invoke.cont39
 
 invoke.cont39:                                    ; preds = %"_ZNSt6vectorISt8functionIFddEESaIS2_EE17_M_realloc_insertIJZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS6_6PayoffEEEmNS6_14LsmBasisSystem14PolynomialTypeEE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i", %if.then.i
-  %36 = load ptr, ptr %payoff_, align 8, !tbaa !27, !noalias !45
+  %36 = load ptr, ptr %payoff_, align 8, !tbaa !27, !noalias !46
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit, label %dynamic_cast.end3.i
 
 dynamic_cast.end3.i:                              ; preds = %invoke.cont39
-  %38 = tail call ptr @__dynamic_cast(ptr nonnull %36, ptr nonnull @_ZTIN8QuantLib6PayoffE, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, i64 0) #22, !noalias !45
+  %38 = tail call ptr @__dynamic_cast(ptr nonnull %36, ptr nonnull @_ZTIN8QuantLib6PayoffE, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, i64 0) #22, !noalias !46
   %tobool.not.i = icmp eq ptr %38, null
   br i1 %tobool.not.i, label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %dynamic_cast.end3.i
-  %39 = load ptr, ptr %pn.i, align 8, !tbaa !16, !noalias !45
+  %39 = load ptr, ptr %pn.i, align 8, !tbaa !16, !noalias !46
   %cmp.not.i.i.i35 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i35, label %if.end51.thread67, label %if.then.i.i41
 
 if.end51.thread67:                                ; preds = %cond.true.i
   %strike_.i69 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load double, ptr %strike_.i69, align 8, !tbaa !48
+  %40 = load double, ptr %strike_.i69, align 8, !tbaa !49
   %41 = load double, ptr %scalingValue_, align 8, !tbaa !18
   %div70 = fdiv double %41, %40
   store double %div70, ptr %scalingValue_, align 8, !tbaa !18
@@ -567,9 +567,9 @@ lpad38:                                           ; preds = %_ZNKSt6vectorISt8fu
 
 if.then.i.i41:                                    ; preds = %cond.true.i
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !45
+  %43 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !46
   %strike_.i = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %44 = load double, ptr %strike_.i, align 8, !tbaa !48
+  %44 = load double, ptr %strike_.i, align 8, !tbaa !49
   %45 = load double, ptr %scalingValue_, align 8, !tbaa !18
   %div = fdiv double %45, %44
   store double %div, ptr %scalingValue_, align 8, !tbaa !18
@@ -654,7 +654,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !53
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !54
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !35
@@ -729,7 +729,7 @@ entry:
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %payoff_, align 8, !tbaa !27
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit, !prof !54
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit, !prof !55
 
 cond.false.i:                                     ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv, ptr noundef nonnull @.str.16, i64 noundef 778)
@@ -758,7 +758,7 @@ entry:
   %payoff_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %payoff_.i, align 8, !tbaa !27
   %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib18AmericanPathPricer6payoffEd.exit, !prof !54
+  br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib18AmericanPathPricer6payoffEd.exit, !prof !55
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv, ptr noundef nonnull @.str.16, i64 noundef 778)
@@ -783,7 +783,7 @@ entry:
   %values_.i = getelementptr inbounds nuw i8, ptr %path, i64 72
   %0 = load ptr, ptr %values_.i, align 8, !tbaa !30
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %0, i64 %t
-  %1 = load double, ptr %arrayidx.i.i, align 8, !tbaa !55
+  %1 = load double, ptr %arrayidx.i.i, align 8, !tbaa !56
   %scalingValue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load double, ptr %scalingValue_, align 8, !tbaa !18
   %mul = fmul double %1, %2
@@ -805,7 +805,7 @@ entry:
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFddEEEE8allocateERS3_m.exit.i.i.i.i, !prof !54
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFddEEEE8allocateERS3_m.exit.i.i.i.i, !prof !55
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
@@ -876,7 +876,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !53
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !54
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %v_, align 8, !tbaa !35
@@ -971,7 +971,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !53
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !54
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %v_.i, align 8, !tbaa !35
@@ -1090,7 +1090,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i:      ; preds = %if.then.i.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
-  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFddEEEEvT_S6_.exit, label %for.body.i, !llvm.loop !53
+  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFddEEEEvT_S6_.exit, label %for.body.i, !llvm.loop !54
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt8functionIFddEEEEvT_S6_.exit: ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i, %entry
   ret void
@@ -1102,12 +1102,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define internal noundef double @"_ZNSt17_Function_handlerIFddEZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS1_6PayoffEEEmNS1_14LsmBasisSystem14PolynomialTypeEE3$_0E9_M_invokeERKSt9_Any_dataOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #4 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !56
-  %__args.val = load double, ptr %__args, align 8, !tbaa !55
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !57
+  %__args.val = load double, ptr %__args, align 8, !tbaa !56
   %payoff_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 16
   %0 = load ptr, ptr %payoff_.i.i.i.i, align 8, !tbaa !27
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS0_6PayoffEEEmNS0_14LsmBasisSystem14PolynomialTypeEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", !prof !54
+  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS0_6PayoffEEEmNS0_14LsmBasisSystem14PolynomialTypeEE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", !prof !55
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv, ptr noundef nonnull @.str.16, i64 noundef 778)
@@ -1206,7 +1206,7 @@ for.inc:                                          ; preds = %invoke.cont.i.i, %f
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09, i64 32
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.010, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !58
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !59
 
 lpad.body:                                        ; preds = %lpad.i.i, %if.then.i.i.i
   %7 = extractvalue { ptr, i32 } %3, 0
@@ -1327,19 +1327,20 @@ attributes #26 = { builtin allocsize(0) }
 !40 = distinct !{!40, !38, !"_ZSt19__relocate_object_aISt8functionIFddEES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !41 = !{i64 0, i64 16, !12}
 !42 = !{!37, !40}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
-!47 = distinct !{!47, !"_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
-!48 = !{!49, !21, i64 16}
-!49 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !50, i64 0, !21, i64 16}
-!50 = !{!"_ZTSN8QuantLib10TypePayoffE", !51, i64 0, !52, i64 8}
-!51 = !{!"_ZTSN8QuantLib6PayoffE"}
-!52 = !{!"_ZTSN8QuantLib6Option4TypeE", !6, i64 0}
-!53 = distinct !{!53, !44}
-!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!55 = !{!21, !21, i64 0}
-!56 = !{!57, !5, i64 0}
-!57 = !{!"_ZTSZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeEE3$_0", !5, i64 0}
-!58 = distinct !{!58, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE: %agg.result"}
+!48 = distinct !{!48, !"_ZN5boost20dynamic_pointer_castIN8QuantLib17StrikedTypePayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE"}
+!49 = !{!50, !21, i64 16}
+!50 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !51, i64 0, !21, i64 16}
+!51 = !{!"_ZTSN8QuantLib10TypePayoffE", !52, i64 0, !53, i64 8}
+!52 = !{!"_ZTSN8QuantLib6PayoffE"}
+!53 = !{!"_ZTSN8QuantLib6Option4TypeE", !6, i64 0}
+!54 = distinct !{!54, !44, !45}
+!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!56 = !{!21, !21, i64 0}
+!57 = !{!58, !5, i64 0}
+!58 = !{!"_ZTSZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeEE3$_0", !5, i64 0}
+!59 = distinct !{!59, !44, !45}

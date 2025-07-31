@@ -142,7 +142,7 @@ define hidden void @ScaleRowUp2_Bilinear_C(ptr noundef readonly captures(none) %
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 %44
   store i8 %74, ptr %75, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -187,7 +187,7 @@ define hidden void @ScaleRowUp2_Linear_16_C(ptr noundef readonly captures(none) 
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i16 %26, ptr %27, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -287,7 +287,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
   %75 = getelementptr inbounds nuw i16, ptr %7, i64 %44
   store i16 %74, ptr %75, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -320,7 +320,7 @@ define hidden void @ScaleCols_C(ptr noundef writeonly captures(none) %0, ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %.01720, i64 2
   %19 = add nuw nsw i32 %.021, 2
   %20 = icmp slt i32 %19, %6
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.018.lcssa = phi i32 [ %3, %5 ], [ %.reass, %.lr.ph ]
@@ -368,7 +368,7 @@ define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
   %19 = add nuw nsw i32 %.021, 2
   %20 = icmp slt i32 %19, %6
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.018.lcssa = phi i32 [ %3, %5 ], [ %.reass, %.lr.ph ]
@@ -407,7 +407,7 @@ define hidden void @ScaleColsUp2_C(ptr noundef writeonly captures(none) %0, ptr 
   %11 = getelementptr inbounds nuw i8, ptr %.01013, i64 2
   %12 = add nuw nsw i32 %.014, 2
   %13 = icmp slt i32 %12, %6
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.011.lcssa = phi ptr [ %1, %5 ], [ %10, %.lr.ph ]
@@ -443,7 +443,7 @@ define hidden void @ScaleColsUp2_16_C(ptr noundef writeonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %.01013, i64 4
   %12 = add nuw nsw i32 %.014, 2
   %13 = icmp slt i32 %12, %6
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.011.lcssa = phi ptr [ %1, %5 ], [ %10, %.lr.ph ]
@@ -511,7 +511,7 @@ define hidden void @ScaleFilterCols_C(ptr noundef writeonly captures(none) %0, p
   %43 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   %44 = add nuw nsw i32 %.03940, 2
   %45 = icmp slt i32 %44, %6
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.038.lcssa = phi i32 [ %3, %5 ], [ %42, %.lr.ph ]
@@ -599,7 +599,7 @@ define hidden void @ScaleFilterCols64_C(ptr noundef writeonly captures(none) %0,
   %46 = getelementptr inbounds nuw i8, ptr %.043, i64 2
   %47 = add nuw nsw i32 %.04041, 2
   %48 = icmp slt i32 %47, %7
-  br i1 %48, label %10, label %._crit_edge, !llvm.loop !14
+  br i1 %48, label %10, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %10, %5
   %.039.lcssa = phi i64 [ %6, %5 ], [ %45, %10 ]
@@ -680,7 +680,7 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   %41 = getelementptr inbounds nuw i8, ptr %.042, i64 4
   %42 = add nuw nsw i32 %.03940, 2
   %43 = icmp slt i32 %42, %6
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.038.lcssa = phi i32 [ %3, %5 ], [ %40, %.lr.ph ]
@@ -763,7 +763,7 @@ define hidden void @ScaleFilterCols64_16_C(ptr noundef writeonly captures(none) 
   %42 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   %43 = add nuw nsw i32 %.04041, 2
   %44 = icmp slt i32 %43, %7
-  br i1 %44, label %10, label %._crit_edge, !llvm.loop !16
+  br i1 %44, label %10, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %10, %5
   %.039.lcssa = phi i64 [ %6, %5 ], [ %41, %10 ]
@@ -820,7 +820,7 @@ define hidden void @ScaleAddRow_C(ptr noundef readonly captures(none) %0, ptr no
   %17 = getelementptr inbounds nuw i8, ptr %.01213, i64 4
   %18 = add nuw nsw i32 %.015, 2
   %19 = icmp slt i32 %18, %4
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.012.lcssa = phi ptr [ %1, %3 ], [ %17, %.lr.ph ]
@@ -867,7 +867,7 @@ define hidden void @ScaleAddRow_16_C(ptr noundef readonly captures(none) %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %.01213, i64 8
   %18 = add nuw nsw i32 %.015, 2
   %19 = icmp slt i32 %18, %4
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.012.lcssa = phi ptr [ %1, %3 ], [ %17, %.lr.ph ]
@@ -922,7 +922,7 @@ define hidden void @ScalePlaneVertical(i32 noundef %0, i32 noundef %1, i32 nound
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
   %exitcond34.not = icmp eq i32 %31, %2
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.032 = phi ptr [ %38, %.lr.ph.split ], [ %6, %.lr.ph ]
@@ -940,7 +940,7 @@ define hidden void @ScalePlaneVertical(i32 noundef %0, i32 noundef %1, i32 nound
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
   %exitcond.not = icmp eq i32 %40, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   ret void
@@ -982,7 +982,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
   %exitcond34.not = icmp eq i32 %31, %2
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.032 = phi ptr [ %38, %.lr.ph.split ], [ %6, %.lr.ph ]
@@ -1000,7 +1000,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
   %exitcond.not = icmp eq i32 %40, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   ret void
@@ -1330,23 +1330,24 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !20}
-!23 = distinct !{!23, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !21}
+!24 = distinct !{!24, !5, !6}

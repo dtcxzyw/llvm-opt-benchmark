@@ -57,7 +57,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 12:                                               ; preds = %10, %11
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %11 ]
   %13 = getelementptr inbounds nuw [20 x %struct.ReplayGainFreqInfo], ptr @freqinfos, i64 0, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 8, !tbaa !11
+  %14 = load i32, ptr %13, align 8, !tbaa !12
   %15 = sext i32 %14 to i64
   %16 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %15) #8
   %17 = icmp slt i32 %16, 0
@@ -78,19 +78,19 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = load ptr, ptr %8, align 8, !tbaa !36
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %13 = load i32, ptr %12, align 8, !tbaa !39
+  %13 = load i32, ptr %12, align 8, !tbaa !40
   %14 = tail call ptr @ff_get_audio_buffer(ptr noundef %9, i32 noundef %13) #8
-  store ptr %14, ptr %4, align 8, !tbaa !14
+  store ptr %14, ptr %4, align 8, !tbaa !15
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %16
 
@@ -99,8 +99,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %505
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %1, align 8, !tbaa !45
-  %18 = load i32, ptr %12, align 8, !tbaa !39
+  %17 = load ptr, ptr %1, align 8, !tbaa !46
+  %18 = load i32, ptr %12, align 8, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 48008
   %.not27.i = icmp eq i32 %18, 0
   br i1 %.not27.i, label %calc_stereo_peak.exit, label %.lr.ph.i
@@ -110,7 +110,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.029.i = phi float [ %.2.i, %35 ], [ 0.000000e+00, %16 ]
   %.01828.i = phi ptr [ %36, %35 ], [ %17, %16 ]
   %20 = add nsw i32 %.in.i, -1
-  %21 = load float, ptr %.01828.i, align 4, !tbaa !46
+  %21 = load float, ptr %.01828.i, align 4, !tbaa !47
   %22 = fcmp nsz ogt float %21, %.029.i
   br i1 %22, label %27, label %23
 
@@ -125,7 +125,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 27:                                               ; preds = %26, %23, %.lr.ph.i
   %.1.i = phi nsz float [ %24, %26 ], [ %.029.i, %23 ], [ %21, %.lr.ph.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 4
-  %29 = load float, ptr %28, align 4, !tbaa !46
+  %29 = load float, ptr %28, align 4, !tbaa !47
   %30 = fcmp nsz ogt float %29, %.1.i
   br i1 %30, label %35, label %31
 
@@ -141,25 +141,25 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.2.i = phi nsz float [ %32, %34 ], [ %.1.i, %31 ], [ %29, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 8
   %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %calc_stereo_peak.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %.not.i, label %calc_stereo_peak.exit, label %.lr.ph.i, !llvm.loop !49
 
 calc_stereo_peak.exit:                            ; preds = %35, %16
   %.0.lcssa.i = phi float [ 0.000000e+00, %16 ], [ %.2.i, %35 ]
-  %37 = load float, ptr %19, align 4, !tbaa !46
+  %37 = load float, ptr %19, align 4, !tbaa !47
   %38 = fcmp nsz ogt float %.0.lcssa.i, %37
   %.0..i = select nsz i1 %38, float %.0.lcssa.i, float %37
-  store float %.0..i, ptr %19, align 4, !tbaa !46
-  %39 = load ptr, ptr %14, align 8, !tbaa !45
+  store float %.0..i, ptr %19, align 4, !tbaa !47
+  %39 = load ptr, ptr %14, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %41 = load i32, ptr %40, align 8, !tbaa !39
+  %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 48024
-  %43 = load ptr, ptr %42, align 8, !tbaa !49
+  %43 = load ptr, ptr %42, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 48032
-  %45 = load ptr, ptr %44, align 8, !tbaa !51
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 48056
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 49080
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 48016
-  %49 = load i32, ptr %48, align 8, !tbaa !52
+  %49 = load i32, ptr %48, align 8, !tbaa !53
   %50 = sext i32 %49 to i64
   br label %51
 
@@ -167,14 +167,14 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %indvars.iv.i = phi i64 [ -20, %calc_stereo_peak.exit ], [ %indvars.iv.next.i, %62 ]
   %52 = add nsw i64 %indvars.iv.i, %50
   %53 = getelementptr inbounds float, ptr %46, i64 %52
-  %54 = load float, ptr %53, align 4, !tbaa !46
+  %54 = load float, ptr %53, align 4, !tbaa !47
   %55 = tail call nsz float @llvm.fabs.f32(float %54)
   %56 = fcmp nsz ogt float %55, 0x3DDB7CDFE0000000
   br i1 %56, label %.thread.i, label %57
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds float, ptr %47, i64 %52
-  %59 = load float, ptr %58, align 4, !tbaa !46
+  %59 = load float, ptr %58, align 4, !tbaa !47
   %60 = tail call nsz float @llvm.fabs.f32(float %59)
   %61 = fcmp nsz ogt float %60, 0x3DDB7CDFE0000000
   br i1 %61, label %.thread.i, label %62
@@ -182,7 +182,7 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
 62:                                               ; preds = %57
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %exitcond.not.i, label %63, label %51, !llvm.loop !53
+  br i1 %exitcond.not.i, label %63, label %51, !llvm.loop !54
 
 63:                                               ; preds = %62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %46, i8 0, i64 2048, i1 false)
@@ -223,31 +223,31 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %.0182192.i = phi ptr [ %17, %.lr.ph.i11 ], [ %366, %371 ]
   %.0183191.i = phi ptr [ %39, %.lr.ph.i11 ], [ %367, %371 ]
   %87 = add nsw i32 %.in.i12, -1
-  %88 = load float, ptr %.0182192.i, align 4, !tbaa !46
+  %88 = load float, ptr %.0182192.i, align 4, !tbaa !47
   %89 = sext i32 %.0181193.i to i64
   %90 = getelementptr inbounds float, ptr %47, i64 %89
-  store float %88, ptr %90, align 4, !tbaa !46
+  store float %88, ptr %90, align 4, !tbaa !47
   %91 = fpext nsz float %88 to double
-  %92 = load double, ptr %45, align 8, !tbaa !54
+  %92 = load double, ptr %45, align 8, !tbaa !55
   %93 = fmul nsz double %92, %91
   %94 = getelementptr inbounds nuw i8, ptr %.0182192.i, i64 4
-  %95 = load float, ptr %94, align 4, !tbaa !46
+  %95 = load float, ptr %94, align 4, !tbaa !47
   %96 = add nsw i32 %.0181193.i, 1
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds float, ptr %47, i64 %97
-  store float %95, ptr %98, align 4, !tbaa !46
+  store float %95, ptr %98, align 4, !tbaa !47
   %99 = fpext nsz float %95 to double
   %100 = fmul nsz double %92, %99
   %101 = add nsw i32 %.0181193.i, -2
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds float, ptr %47, i64 %102
-  %104 = load float, ptr %103, align 4, !tbaa !46
+  %104 = load float, ptr %103, align 4, !tbaa !47
   %105 = fpext nsz float %104 to double
-  %106 = load double, ptr %64, align 8, !tbaa !54
+  %106 = load double, ptr %64, align 8, !tbaa !55
   %107 = getelementptr inbounds float, ptr %46, i64 %102
-  %108 = load float, ptr %107, align 4, !tbaa !46
+  %108 = load float, ptr %107, align 4, !tbaa !47
   %109 = fpext nsz float %108 to double
-  %110 = load double, ptr %65, align 8, !tbaa !54
+  %110 = load double, ptr %65, align 8, !tbaa !55
   %111 = fneg nsz double %109
   %112 = fmul nsz double %110, %111
   %113 = tail call nsz double @llvm.fmuladd.f64(double %105, double %106, double %112)
@@ -255,10 +255,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %115 = add nsw i32 %.0181193.i, -1
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds float, ptr %47, i64 %116
-  %118 = load float, ptr %117, align 4, !tbaa !46
+  %118 = load float, ptr %117, align 4, !tbaa !47
   %119 = fpext nsz float %118 to double
   %120 = getelementptr inbounds float, ptr %46, i64 %116
-  %121 = load float, ptr %120, align 4, !tbaa !46
+  %121 = load float, ptr %120, align 4, !tbaa !47
   %122 = fpext nsz float %121 to double
   %123 = fneg nsz double %122
   %124 = fmul nsz double %110, %123
@@ -267,13 +267,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %127 = add nsw i32 %.0181193.i, -4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds float, ptr %47, i64 %128
-  %130 = load float, ptr %129, align 4, !tbaa !46
+  %130 = load float, ptr %129, align 4, !tbaa !47
   %131 = fpext nsz float %130 to double
-  %132 = load double, ptr %66, align 8, !tbaa !54
+  %132 = load double, ptr %66, align 8, !tbaa !55
   %133 = getelementptr inbounds float, ptr %46, i64 %128
-  %134 = load float, ptr %133, align 4, !tbaa !46
+  %134 = load float, ptr %133, align 4, !tbaa !47
   %135 = fpext nsz float %134 to double
-  %136 = load double, ptr %67, align 8, !tbaa !54
+  %136 = load double, ptr %67, align 8, !tbaa !55
   %137 = fneg nsz double %135
   %138 = fmul nsz double %136, %137
   %139 = tail call nsz double @llvm.fmuladd.f64(double %131, double %132, double %138)
@@ -281,10 +281,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %141 = add nsw i32 %.0181193.i, -3
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds float, ptr %47, i64 %142
-  %144 = load float, ptr %143, align 4, !tbaa !46
+  %144 = load float, ptr %143, align 4, !tbaa !47
   %145 = fpext nsz float %144 to double
   %146 = getelementptr inbounds float, ptr %46, i64 %142
-  %147 = load float, ptr %146, align 4, !tbaa !46
+  %147 = load float, ptr %146, align 4, !tbaa !47
   %148 = fpext nsz float %147 to double
   %149 = fneg nsz double %148
   %150 = fmul nsz double %136, %149
@@ -293,13 +293,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %153 = add nsw i32 %.0181193.i, -6
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds float, ptr %47, i64 %154
-  %156 = load float, ptr %155, align 4, !tbaa !46
+  %156 = load float, ptr %155, align 4, !tbaa !47
   %157 = fpext nsz float %156 to double
-  %158 = load double, ptr %68, align 8, !tbaa !54
+  %158 = load double, ptr %68, align 8, !tbaa !55
   %159 = getelementptr inbounds float, ptr %46, i64 %154
-  %160 = load float, ptr %159, align 4, !tbaa !46
+  %160 = load float, ptr %159, align 4, !tbaa !47
   %161 = fpext nsz float %160 to double
-  %162 = load double, ptr %69, align 8, !tbaa !54
+  %162 = load double, ptr %69, align 8, !tbaa !55
   %163 = fneg nsz double %161
   %164 = fmul nsz double %162, %163
   %165 = tail call nsz double @llvm.fmuladd.f64(double %157, double %158, double %164)
@@ -307,10 +307,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %167 = add nsw i32 %.0181193.i, -5
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds float, ptr %47, i64 %168
-  %170 = load float, ptr %169, align 4, !tbaa !46
+  %170 = load float, ptr %169, align 4, !tbaa !47
   %171 = fpext nsz float %170 to double
   %172 = getelementptr inbounds float, ptr %46, i64 %168
-  %173 = load float, ptr %172, align 4, !tbaa !46
+  %173 = load float, ptr %172, align 4, !tbaa !47
   %174 = fpext nsz float %173 to double
   %175 = fneg nsz double %174
   %176 = fmul nsz double %162, %175
@@ -319,13 +319,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %179 = add nsw i32 %.0181193.i, -8
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds float, ptr %47, i64 %180
-  %182 = load float, ptr %181, align 4, !tbaa !46
+  %182 = load float, ptr %181, align 4, !tbaa !47
   %183 = fpext nsz float %182 to double
-  %184 = load double, ptr %70, align 8, !tbaa !54
+  %184 = load double, ptr %70, align 8, !tbaa !55
   %185 = getelementptr inbounds float, ptr %46, i64 %180
-  %186 = load float, ptr %185, align 4, !tbaa !46
+  %186 = load float, ptr %185, align 4, !tbaa !47
   %187 = fpext nsz float %186 to double
-  %188 = load double, ptr %71, align 8, !tbaa !54
+  %188 = load double, ptr %71, align 8, !tbaa !55
   %189 = fneg nsz double %187
   %190 = fmul nsz double %188, %189
   %191 = tail call nsz double @llvm.fmuladd.f64(double %183, double %184, double %190)
@@ -333,10 +333,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %193 = add nsw i32 %.0181193.i, -7
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds float, ptr %47, i64 %194
-  %196 = load float, ptr %195, align 4, !tbaa !46
+  %196 = load float, ptr %195, align 4, !tbaa !47
   %197 = fpext nsz float %196 to double
   %198 = getelementptr inbounds float, ptr %46, i64 %194
-  %199 = load float, ptr %198, align 4, !tbaa !46
+  %199 = load float, ptr %198, align 4, !tbaa !47
   %200 = fpext nsz float %199 to double
   %201 = fneg nsz double %200
   %202 = fmul nsz double %188, %201
@@ -345,13 +345,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %205 = add nsw i32 %.0181193.i, -10
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds float, ptr %47, i64 %206
-  %208 = load float, ptr %207, align 4, !tbaa !46
+  %208 = load float, ptr %207, align 4, !tbaa !47
   %209 = fpext nsz float %208 to double
-  %210 = load double, ptr %72, align 8, !tbaa !54
+  %210 = load double, ptr %72, align 8, !tbaa !55
   %211 = getelementptr inbounds float, ptr %46, i64 %206
-  %212 = load float, ptr %211, align 4, !tbaa !46
+  %212 = load float, ptr %211, align 4, !tbaa !47
   %213 = fpext nsz float %212 to double
-  %214 = load double, ptr %73, align 8, !tbaa !54
+  %214 = load double, ptr %73, align 8, !tbaa !55
   %215 = fneg nsz double %213
   %216 = fmul nsz double %214, %215
   %217 = tail call nsz double @llvm.fmuladd.f64(double %209, double %210, double %216)
@@ -359,10 +359,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %219 = add nsw i32 %.0181193.i, -9
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds float, ptr %47, i64 %220
-  %222 = load float, ptr %221, align 4, !tbaa !46
+  %222 = load float, ptr %221, align 4, !tbaa !47
   %223 = fpext nsz float %222 to double
   %224 = getelementptr inbounds float, ptr %46, i64 %220
-  %225 = load float, ptr %224, align 4, !tbaa !46
+  %225 = load float, ptr %224, align 4, !tbaa !47
   %226 = fpext nsz float %225 to double
   %227 = fneg nsz double %226
   %228 = fmul nsz double %214, %227
@@ -371,13 +371,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %231 = add nsw i32 %.0181193.i, -12
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds float, ptr %47, i64 %232
-  %234 = load float, ptr %233, align 4, !tbaa !46
+  %234 = load float, ptr %233, align 4, !tbaa !47
   %235 = fpext nsz float %234 to double
-  %236 = load double, ptr %74, align 8, !tbaa !54
+  %236 = load double, ptr %74, align 8, !tbaa !55
   %237 = getelementptr inbounds float, ptr %46, i64 %232
-  %238 = load float, ptr %237, align 4, !tbaa !46
+  %238 = load float, ptr %237, align 4, !tbaa !47
   %239 = fpext nsz float %238 to double
-  %240 = load double, ptr %75, align 8, !tbaa !54
+  %240 = load double, ptr %75, align 8, !tbaa !55
   %241 = fneg nsz double %239
   %242 = fmul nsz double %240, %241
   %243 = tail call nsz double @llvm.fmuladd.f64(double %235, double %236, double %242)
@@ -385,10 +385,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %245 = add nsw i32 %.0181193.i, -11
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds float, ptr %47, i64 %246
-  %248 = load float, ptr %247, align 4, !tbaa !46
+  %248 = load float, ptr %247, align 4, !tbaa !47
   %249 = fpext nsz float %248 to double
   %250 = getelementptr inbounds float, ptr %46, i64 %246
-  %251 = load float, ptr %250, align 4, !tbaa !46
+  %251 = load float, ptr %250, align 4, !tbaa !47
   %252 = fpext nsz float %251 to double
   %253 = fneg nsz double %252
   %254 = fmul nsz double %240, %253
@@ -397,13 +397,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %257 = add nsw i32 %.0181193.i, -14
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds float, ptr %47, i64 %258
-  %260 = load float, ptr %259, align 4, !tbaa !46
+  %260 = load float, ptr %259, align 4, !tbaa !47
   %261 = fpext nsz float %260 to double
-  %262 = load double, ptr %76, align 8, !tbaa !54
+  %262 = load double, ptr %76, align 8, !tbaa !55
   %263 = getelementptr inbounds float, ptr %46, i64 %258
-  %264 = load float, ptr %263, align 4, !tbaa !46
+  %264 = load float, ptr %263, align 4, !tbaa !47
   %265 = fpext nsz float %264 to double
-  %266 = load double, ptr %77, align 8, !tbaa !54
+  %266 = load double, ptr %77, align 8, !tbaa !55
   %267 = fneg nsz double %265
   %268 = fmul nsz double %266, %267
   %269 = tail call nsz double @llvm.fmuladd.f64(double %261, double %262, double %268)
@@ -411,10 +411,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %271 = add nsw i32 %.0181193.i, -13
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds float, ptr %47, i64 %272
-  %274 = load float, ptr %273, align 4, !tbaa !46
+  %274 = load float, ptr %273, align 4, !tbaa !47
   %275 = fpext nsz float %274 to double
   %276 = getelementptr inbounds float, ptr %46, i64 %272
-  %277 = load float, ptr %276, align 4, !tbaa !46
+  %277 = load float, ptr %276, align 4, !tbaa !47
   %278 = fpext nsz float %277 to double
   %279 = fneg nsz double %278
   %280 = fmul nsz double %266, %279
@@ -423,13 +423,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %283 = add nsw i32 %.0181193.i, -16
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds float, ptr %47, i64 %284
-  %286 = load float, ptr %285, align 4, !tbaa !46
+  %286 = load float, ptr %285, align 4, !tbaa !47
   %287 = fpext nsz float %286 to double
-  %288 = load double, ptr %78, align 8, !tbaa !54
+  %288 = load double, ptr %78, align 8, !tbaa !55
   %289 = getelementptr inbounds float, ptr %46, i64 %284
-  %290 = load float, ptr %289, align 4, !tbaa !46
+  %290 = load float, ptr %289, align 4, !tbaa !47
   %291 = fpext nsz float %290 to double
-  %292 = load double, ptr %79, align 8, !tbaa !54
+  %292 = load double, ptr %79, align 8, !tbaa !55
   %293 = fneg nsz double %291
   %294 = fmul nsz double %292, %293
   %295 = tail call nsz double @llvm.fmuladd.f64(double %287, double %288, double %294)
@@ -437,10 +437,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %297 = add nsw i32 %.0181193.i, -15
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds float, ptr %47, i64 %298
-  %300 = load float, ptr %299, align 4, !tbaa !46
+  %300 = load float, ptr %299, align 4, !tbaa !47
   %301 = fpext nsz float %300 to double
   %302 = getelementptr inbounds float, ptr %46, i64 %298
-  %303 = load float, ptr %302, align 4, !tbaa !46
+  %303 = load float, ptr %302, align 4, !tbaa !47
   %304 = fpext nsz float %303 to double
   %305 = fneg nsz double %304
   %306 = fmul nsz double %292, %305
@@ -449,13 +449,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %309 = add nsw i32 %.0181193.i, -18
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds float, ptr %47, i64 %310
-  %312 = load float, ptr %311, align 4, !tbaa !46
+  %312 = load float, ptr %311, align 4, !tbaa !47
   %313 = fpext nsz float %312 to double
-  %314 = load double, ptr %80, align 8, !tbaa !54
+  %314 = load double, ptr %80, align 8, !tbaa !55
   %315 = getelementptr inbounds float, ptr %46, i64 %310
-  %316 = load float, ptr %315, align 4, !tbaa !46
+  %316 = load float, ptr %315, align 4, !tbaa !47
   %317 = fpext nsz float %316 to double
-  %318 = load double, ptr %81, align 8, !tbaa !54
+  %318 = load double, ptr %81, align 8, !tbaa !55
   %319 = fneg nsz double %317
   %320 = fmul nsz double %318, %319
   %321 = tail call nsz double @llvm.fmuladd.f64(double %313, double %314, double %320)
@@ -463,10 +463,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %323 = add nsw i32 %.0181193.i, -17
   %324 = sext i32 %323 to i64
   %325 = getelementptr inbounds float, ptr %47, i64 %324
-  %326 = load float, ptr %325, align 4, !tbaa !46
+  %326 = load float, ptr %325, align 4, !tbaa !47
   %327 = fpext nsz float %326 to double
   %328 = getelementptr inbounds float, ptr %46, i64 %324
-  %329 = load float, ptr %328, align 4, !tbaa !46
+  %329 = load float, ptr %328, align 4, !tbaa !47
   %330 = fpext nsz float %329 to double
   %331 = fneg nsz double %330
   %332 = fmul nsz double %318, %331
@@ -475,13 +475,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %335 = add nsw i32 %.0181193.i, -20
   %336 = sext i32 %335 to i64
   %337 = getelementptr inbounds float, ptr %47, i64 %336
-  %338 = load float, ptr %337, align 4, !tbaa !46
+  %338 = load float, ptr %337, align 4, !tbaa !47
   %339 = fpext nsz float %338 to double
-  %340 = load double, ptr %82, align 8, !tbaa !54
+  %340 = load double, ptr %82, align 8, !tbaa !55
   %341 = getelementptr inbounds float, ptr %46, i64 %336
-  %342 = load float, ptr %341, align 4, !tbaa !46
+  %342 = load float, ptr %341, align 4, !tbaa !47
   %343 = fpext nsz float %342 to double
-  %344 = load double, ptr %83, align 8, !tbaa !54
+  %344 = load double, ptr %83, align 8, !tbaa !55
   %345 = fneg nsz double %343
   %346 = fmul nsz double %344, %345
   %347 = tail call nsz double @llvm.fmuladd.f64(double %339, double %340, double %346)
@@ -489,10 +489,10 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %349 = add nsw i32 %.0181193.i, -19
   %350 = sext i32 %349 to i64
   %351 = getelementptr inbounds float, ptr %47, i64 %350
-  %352 = load float, ptr %351, align 4, !tbaa !46
+  %352 = load float, ptr %351, align 4, !tbaa !47
   %353 = fpext nsz float %352 to double
   %354 = getelementptr inbounds float, ptr %46, i64 %350
-  %355 = load float, ptr %354, align 4, !tbaa !46
+  %355 = load float, ptr %354, align 4, !tbaa !47
   %356 = fpext nsz float %355 to double
   %357 = fneg nsz double %356
   %358 = fmul nsz double %344, %357
@@ -500,13 +500,13 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
   %360 = fadd nsz double %334, %359
   %361 = fptrunc nsz double %348 to float
   %362 = getelementptr inbounds float, ptr %46, i64 %89
-  store float %361, ptr %362, align 4, !tbaa !46
-  store float %361, ptr %.0183191.i, align 4, !tbaa !46
+  store float %361, ptr %362, align 4, !tbaa !47
+  store float %361, ptr %.0183191.i, align 4, !tbaa !47
   %363 = fptrunc nsz double %360 to float
   %364 = getelementptr inbounds float, ptr %46, i64 %97
-  store float %363, ptr %364, align 4, !tbaa !46
+  store float %363, ptr %364, align 4, !tbaa !47
   %365 = getelementptr inbounds nuw i8, ptr %.0183191.i, i64 4
-  store float %363, ptr %365, align 4, !tbaa !46
+  store float %363, ptr %365, align 4, !tbaa !47
   %366 = getelementptr inbounds nuw i8, ptr %.0182192.i, i64 8
   %367 = getelementptr inbounds nuw i8, ptr %.0183191.i, i64 8
   %368 = add nsw i32 %.0181193.i, 2
@@ -521,21 +521,21 @@ calc_stereo_peak.exit:                            ; preds = %35, %16
 371:                                              ; preds = %370, %86
   %.1.i13 = phi i32 [ 20, %370 ], [ %368, %86 ]
   %.not186.i = icmp eq i32 %87, 0
-  br i1 %.not186.i, label %yule_filter_stereo_samples.exit, label %86, !llvm.loop !56
+  br i1 %.not186.i, label %yule_filter_stereo_samples.exit, label %86, !llvm.loop !57
 
 yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %.0181.lcssa.i = phi i32 [ %49, %.thread.i ], [ %.1.i13, %371 ]
-  store i32 %.0181.lcssa.i, ptr %48, align 8, !tbaa !52
-  %372 = load ptr, ptr %14, align 8, !tbaa !45
-  %373 = load i32, ptr %40, align 8, !tbaa !39
+  store i32 %.0181.lcssa.i, ptr %48, align 8, !tbaa !53
+  %372 = load ptr, ptr %14, align 8, !tbaa !46
+  %373 = load i32, ptr %40, align 8, !tbaa !40
   %374 = getelementptr inbounds nuw i8, ptr %11, i64 48040
-  %375 = load ptr, ptr %374, align 8, !tbaa !57
+  %375 = load ptr, ptr %374, align 8, !tbaa !58
   %376 = getelementptr inbounds nuw i8, ptr %11, i64 48048
-  %377 = load ptr, ptr %376, align 8, !tbaa !58
+  %377 = load ptr, ptr %376, align 8, !tbaa !59
   %378 = getelementptr inbounds nuw i8, ptr %11, i64 50104
   %379 = getelementptr inbounds nuw i8, ptr %11, i64 51128
   %380 = getelementptr inbounds nuw i8, ptr %11, i64 48020
-  %381 = load i32, ptr %380, align 4, !tbaa !59
+  %381 = load i32, ptr %380, align 4, !tbaa !60
   %382 = sext i32 %381 to i64
   br label %383
 
@@ -543,14 +543,14 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %indvars.iv.i14 = phi i64 [ -4, %yule_filter_stereo_samples.exit ], [ %indvars.iv.next.i15, %394 ]
   %384 = add nsw i64 %indvars.iv.i14, %382
   %385 = getelementptr inbounds float, ptr %378, i64 %384
-  %386 = load float, ptr %385, align 4, !tbaa !46
+  %386 = load float, ptr %385, align 4, !tbaa !47
   %387 = tail call nsz float @llvm.fabs.f32(float %386)
   %388 = fcmp nsz ogt float %387, 0x3DDB7CDFE0000000
   br i1 %388, label %.thread.i17, label %389
 
 389:                                              ; preds = %383
   %390 = getelementptr inbounds float, ptr %379, i64 %384
-  %391 = load float, ptr %390, align 4, !tbaa !46
+  %391 = load float, ptr %390, align 4, !tbaa !47
   %392 = tail call nsz float @llvm.fabs.f32(float %391)
   %393 = fcmp nsz ogt float %392, 0x3DDB7CDFE0000000
   br i1 %393, label %.thread.i17, label %394
@@ -558,7 +558,7 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
 394:                                              ; preds = %389
   %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 0
-  br i1 %exitcond.not.i16, label %395, label %383, !llvm.loop !60
+  br i1 %exitcond.not.i16, label %395, label %383, !llvm.loop !61
 
 395:                                              ; preds = %394
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %378, i8 0, i64 2048, i1 false)
@@ -582,31 +582,31 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %.06878.i = phi i32 [ %381, %.lr.ph.i18 ], [ %.1.i20, %477 ]
   %.06977.i = phi ptr [ %372, %.lr.ph.i18 ], [ %473, %477 ]
   %403 = add nsw i32 %.in.i19, -1
-  %404 = load float, ptr %.06977.i, align 4, !tbaa !46
+  %404 = load float, ptr %.06977.i, align 4, !tbaa !47
   %405 = sext i32 %.06878.i to i64
   %406 = getelementptr inbounds float, ptr %379, i64 %405
-  store float %404, ptr %406, align 4, !tbaa !46
+  store float %404, ptr %406, align 4, !tbaa !47
   %407 = fpext nsz float %404 to double
-  %408 = load double, ptr %377, align 8, !tbaa !54
+  %408 = load double, ptr %377, align 8, !tbaa !55
   %409 = fmul nsz double %408, %407
   %410 = getelementptr inbounds nuw i8, ptr %.06977.i, i64 4
-  %411 = load float, ptr %410, align 4, !tbaa !46
+  %411 = load float, ptr %410, align 4, !tbaa !47
   %412 = add nsw i32 %.06878.i, 1
   %413 = sext i32 %412 to i64
   %414 = getelementptr inbounds float, ptr %379, i64 %413
-  store float %411, ptr %414, align 4, !tbaa !46
+  store float %411, ptr %414, align 4, !tbaa !47
   %415 = fpext nsz float %411 to double
   %416 = fmul nsz double %408, %415
   %417 = add nsw i32 %.06878.i, -2
   %418 = sext i32 %417 to i64
   %419 = getelementptr inbounds float, ptr %379, i64 %418
-  %420 = load float, ptr %419, align 4, !tbaa !46
+  %420 = load float, ptr %419, align 4, !tbaa !47
   %421 = fpext nsz float %420 to double
-  %422 = load double, ptr %396, align 8, !tbaa !54
+  %422 = load double, ptr %396, align 8, !tbaa !55
   %423 = getelementptr inbounds float, ptr %378, i64 %418
-  %424 = load float, ptr %423, align 4, !tbaa !46
+  %424 = load float, ptr %423, align 4, !tbaa !47
   %425 = fpext nsz float %424 to double
-  %426 = load double, ptr %397, align 8, !tbaa !54
+  %426 = load double, ptr %397, align 8, !tbaa !55
   %427 = fneg nsz double %425
   %428 = fmul nsz double %426, %427
   %429 = tail call nsz double @llvm.fmuladd.f64(double %421, double %422, double %428)
@@ -614,10 +614,10 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %431 = add nsw i32 %.06878.i, -1
   %432 = sext i32 %431 to i64
   %433 = getelementptr inbounds float, ptr %379, i64 %432
-  %434 = load float, ptr %433, align 4, !tbaa !46
+  %434 = load float, ptr %433, align 4, !tbaa !47
   %435 = fpext nsz float %434 to double
   %436 = getelementptr inbounds float, ptr %378, i64 %432
-  %437 = load float, ptr %436, align 4, !tbaa !46
+  %437 = load float, ptr %436, align 4, !tbaa !47
   %438 = fpext nsz float %437 to double
   %439 = fneg nsz double %438
   %440 = fmul nsz double %426, %439
@@ -626,13 +626,13 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %443 = add nsw i32 %.06878.i, -4
   %444 = sext i32 %443 to i64
   %445 = getelementptr inbounds float, ptr %379, i64 %444
-  %446 = load float, ptr %445, align 4, !tbaa !46
+  %446 = load float, ptr %445, align 4, !tbaa !47
   %447 = fpext nsz float %446 to double
-  %448 = load double, ptr %398, align 8, !tbaa !54
+  %448 = load double, ptr %398, align 8, !tbaa !55
   %449 = getelementptr inbounds float, ptr %378, i64 %444
-  %450 = load float, ptr %449, align 4, !tbaa !46
+  %450 = load float, ptr %449, align 4, !tbaa !47
   %451 = fpext nsz float %450 to double
-  %452 = load double, ptr %399, align 8, !tbaa !54
+  %452 = load double, ptr %399, align 8, !tbaa !55
   %453 = fneg nsz double %451
   %454 = fmul nsz double %452, %453
   %455 = tail call nsz double @llvm.fmuladd.f64(double %447, double %448, double %454)
@@ -640,10 +640,10 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %457 = add nsw i32 %.06878.i, -3
   %458 = sext i32 %457 to i64
   %459 = getelementptr inbounds float, ptr %379, i64 %458
-  %460 = load float, ptr %459, align 4, !tbaa !46
+  %460 = load float, ptr %459, align 4, !tbaa !47
   %461 = fpext nsz float %460 to double
   %462 = getelementptr inbounds float, ptr %378, i64 %458
-  %463 = load float, ptr %462, align 4, !tbaa !46
+  %463 = load float, ptr %462, align 4, !tbaa !47
   %464 = fpext nsz float %463 to double
   %465 = fneg nsz double %464
   %466 = fmul nsz double %452, %465
@@ -651,12 +651,12 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
   %468 = fadd nsz double %442, %467
   %469 = fptrunc nsz double %456 to float
   %470 = getelementptr inbounds float, ptr %378, i64 %405
-  store float %469, ptr %470, align 4, !tbaa !46
-  store float %469, ptr %.06977.i, align 4, !tbaa !46
+  store float %469, ptr %470, align 4, !tbaa !47
+  store float %469, ptr %.06977.i, align 4, !tbaa !47
   %471 = fptrunc nsz double %468 to float
   %472 = getelementptr inbounds float, ptr %378, i64 %413
-  store float %471, ptr %472, align 4, !tbaa !46
-  store float %471, ptr %410, align 4, !tbaa !46
+  store float %471, ptr %472, align 4, !tbaa !47
+  store float %471, ptr %410, align 4, !tbaa !47
   %473 = getelementptr inbounds nuw i8, ptr %.06977.i, i64 8
   %474 = add nsw i32 %.06878.i, 2
   %475 = icmp eq i32 %474, 256
@@ -670,17 +670,17 @@ yule_filter_stereo_samples.exit:                  ; preds = %371, %.thread.i
 477:                                              ; preds = %476, %402
   %.1.i20 = phi i32 [ 4, %476 ], [ %474, %402 ]
   %.not72.i = icmp eq i32 %403, 0
-  br i1 %.not72.i, label %butter_filter_stereo_samples.exit, label %402, !llvm.loop !61
+  br i1 %.not72.i, label %butter_filter_stereo_samples.exit, label %402, !llvm.loop !62
 
 butter_filter_stereo_samples.exit:                ; preds = %477, %.thread.i17
   %.068.lcssa.i = phi i32 [ %381, %.thread.i17 ], [ %.1.i20, %477 ]
-  store i32 %.068.lcssa.i, ptr %380, align 4, !tbaa !59
-  %478 = load i32, ptr %40, align 8, !tbaa !39
+  store i32 %.068.lcssa.i, ptr %380, align 4, !tbaa !60
+  %478 = load i32, ptr %40, align 8, !tbaa !40
   %.not11.i = icmp eq i32 %478, 0
   br i1 %.not11.i, label %calc_stereo_rms.exit, label %.lr.ph.i21.preheader
 
 .lr.ph.i21.preheader:                             ; preds = %butter_filter_stereo_samples.exit
-  %479 = load ptr, ptr %14, align 8, !tbaa !45
+  %479 = load ptr, ptr %14, align 8, !tbaa !46
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
@@ -688,16 +688,16 @@ butter_filter_stereo_samples.exit:                ; preds = %477, %.thread.i17
   %.0913.i = phi i32 [ %480, %.lr.ph.i21 ], [ %478, %.lr.ph.i21.preheader ]
   %.01012.i = phi ptr [ %488, %.lr.ph.i21 ], [ %479, %.lr.ph.i21.preheader ]
   %480 = add nsw i32 %.0913.i, -1
-  %481 = load float, ptr %.01012.i, align 4, !tbaa !46
+  %481 = load float, ptr %.01012.i, align 4, !tbaa !47
   %482 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 4
-  %483 = load float, ptr %482, align 4, !tbaa !46
+  %483 = load float, ptr %482, align 4, !tbaa !47
   %484 = fmul nsz float %483, %483
   %485 = tail call nsz float @llvm.fmuladd.f32(float %481, float %481, float %484)
   %486 = fpext nsz float %485 to double
   %487 = fadd nsz double %.014.i, %486
   %488 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 8
   %.not.i22 = icmp eq i32 %480, 0
-  br i1 %.not.i22, label %calc_stereo_rms.exit, label %.lr.ph.i21, !llvm.loop !62
+  br i1 %.not.i22, label %calc_stereo_rms.exit, label %.lr.ph.i21, !llvm.loop !63
 
 calc_stereo_rms.exit:                             ; preds = %.lr.ph.i21, %butter_filter_stereo_samples.exit
   %.0.lcssa.i23 = phi double [ 0x3C9CD2B297D889BC, %butter_filter_stereo_samples.exit ], [ %487, %.lr.ph.i21 ]
@@ -713,11 +713,11 @@ calc_stereo_rms.exit:                             ; preds = %.lr.ph.i21, %butter
   %498 = tail call i64 @llvm.umin.i64(i64 %497, i64 11999)
   %499 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %500 = getelementptr inbounds nuw [12000 x i32], ptr %499, i64 0, i64 %498
-  %501 = load i32, ptr %500, align 4, !tbaa !63
+  %501 = load i32, ptr %500, align 4, !tbaa !64
   %502 = add i32 %501, 1
-  store i32 %502, ptr %500, align 4, !tbaa !63
+  store i32 %502, ptr %500, align 4, !tbaa !64
   call void @av_frame_free(ptr noundef nonnull %4) #8
-  %503 = load ptr, ptr %3, align 8, !tbaa !14
+  %503 = load ptr, ptr %3, align 8, !tbaa !15
   %504 = call i32 @ff_filter_frame(ptr noundef %9, ptr noundef %503) #8
   br label %505
 
@@ -730,22 +730,22 @@ calc_stereo_rms.exit:                             ; preds = %.lr.ph.i21, %butter
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_input(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !64
+  %7 = load i32, ptr %6, align 8, !tbaa !65
   br label %9
 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !65
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !66
 
 9:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %10 = getelementptr inbounds nuw [20 x %struct.ReplayGainFreqInfo], ptr @freqinfos, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 8, !tbaa !11
+  %11 = load i32, ptr %10, align 8, !tbaa !12
   %12 = icmp eq i32 %11, %7
   br i1 %12, label %13, label %8
 
@@ -757,25 +757,25 @@ define internal noundef i32 @config_input(ptr noundef captures(none) %0) #0 {
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48024
-  store ptr %14, ptr %15, align 8, !tbaa !49
+  store ptr %14, ptr %15, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 48032
-  store ptr %16, ptr %17, align 8, !tbaa !51
+  store ptr %16, ptr %17, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48040
-  store ptr %18, ptr %19, align 8, !tbaa !57
+  store ptr %18, ptr %19, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48048
-  store ptr %20, ptr %21, align 8, !tbaa !58
+  store ptr %20, ptr %21, align 8, !tbaa !59
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48016
-  store i32 20, ptr %22, align 8, !tbaa !52
+  store i32 20, ptr %22, align 8, !tbaa !53
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48020
-  store i32 4, ptr %23, align 4, !tbaa !59
+  store i32 4, ptr %23, align 4, !tbaa !60
   %24 = sdiv i32 %7, 20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 %24, ptr %25, align 4, !tbaa !66
+  store i32 %24, ptr %25, align 4, !tbaa !67
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %24, ptr %26, align 8, !tbaa !68
+  store i32 %24, ptr %26, align 8, !tbaa !69
   ret i32 0
 }
 
@@ -822,12 +822,12 @@ declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !69
+  %2 = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #8
   %9 = icmp eq i32 %8, -541478725
   br i1 %9, label %10, label %34
@@ -840,11 +840,11 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %12 ]
   %.01214.i = phi i32 [ 0, %10 ], [ %15, %12 ]
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
-  %14 = load i32, ptr %13, align 4, !tbaa !63
+  %14 = load i32, ptr %13, align 4, !tbaa !64
   %15 = add i32 %14, %.01214.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12000
-  br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !71
+  br i1 %exitcond.not.i, label %.preheader.i, label %12, !llvm.loop !72
 
 .preheader.i:                                     ; preds = %12, %16
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %16 ], [ 12000, %12 ]
@@ -855,11 +855,11 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #0 {
 16:                                               ; preds = %.preheader.i
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, -1
   %17 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next20.i
-  %18 = load i32, ptr %17, align 4, !tbaa !63
+  %18 = load i32, ptr %17, align 4, !tbaa !64
   %19 = add i32 %18, %.011.i
   %20 = mul i32 %19, 20
   %.not13.i = icmp ult i32 %20, %15
-  br i1 %.not13.i, label %.preheader.i, label %.split.loop.exit.i, !llvm.loop !72
+  br i1 %.not13.i, label %.preheader.i, label %.split.loop.exit.i, !llvm.loop !73
 
 .split.loop.exit.i:                               ; preds = %16
   %21 = trunc nsw i64 %indvars.iv.next20.i to i32
@@ -876,11 +876,11 @@ calc_replaygain.exit:                             ; preds = %.preheader.i, %.spl
   %28 = fcmp nsz ogt float %27, 6.400000e+01
   %..i.i = select nsz i1 %28, float 6.400000e+01, float %27
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48012
-  store float %..i.i, ptr %29, align 4, !tbaa !73
+  store float %..i.i, ptr %29, align 4, !tbaa !74
   %30 = fpext nsz float %..i.i to double
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.7, double noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48008
-  %32 = load float, ptr %31, align 8, !tbaa !74
+  %32 = load float, ptr %31, align 8, !tbaa !75
   %33 = fpext nsz float %32 to double
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.8, double noundef %33) #8
   br label %34
@@ -929,69 +929,70 @@ attributes #9 = { noreturn nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"ReplayGainFreqInfo", !13, i64 0, !7, i64 8, !7, i64 96, !7, i64 184, !7, i64 208}
-!13 = !{!"int", !7, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
-!16 = !{!17, !18, i64 16}
-!17 = !{!"AVFilterLink", !18, i64 0, !19, i64 8, !18, i64 16, !19, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !20, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !21, i64 72, !20, i64 96, !22, i64 104, !13, i64 112, !24, i64 120, !24, i64 160}
-!18 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
-!19 = !{!"p1 _ZTS11AVFilterPad", !6, i64 0}
-!20 = !{!"AVRational", !13, i64 0, !13, i64 4}
-!21 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !7, i64 8, !6, i64 16}
-!22 = !{!"p2 _ZTS15AVFrameSideData", !23, i64 0}
-!23 = !{!"any p2 pointer", !6, i64 0}
-!24 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !25, i64 16, !5, i64 24, !5, i64 32}
-!25 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
-!26 = !{!27, !31, i64 56}
-!27 = !{!"AVFilterContext", !28, i64 0, !29, i64 8, !30, i64 16, !19, i64 24, !31, i64 32, !13, i64 40, !19, i64 48, !31, i64 56, !13, i64 64, !6, i64 72, !32, i64 80, !13, i64 88, !13, i64 92, !33, i64 96, !30, i64 104, !6, i64 112, !34, i64 120, !13, i64 128, !35, i64 136, !13, i64 144, !13, i64 148}
-!28 = !{!"p1 _ZTS7AVClass", !6, i64 0}
-!29 = !{!"p1 _ZTS8AVFilter", !6, i64 0}
-!30 = !{!"p1 omnipotent char", !6, i64 0}
-!31 = !{!"p2 _ZTS12AVFilterLink", !23, i64 0}
-!32 = !{!"p1 _ZTS13AVFilterGraph", !6, i64 0}
-!33 = !{!"p1 _ZTS15AVFilterCommand", !6, i64 0}
-!34 = !{!"p1 double", !6, i64 0}
-!35 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
-!38 = !{!27, !6, i64 72}
-!39 = !{!40, !13, i64 112}
-!40 = !{!"AVFrame", !7, i64 0, !7, i64 64, !41, i64 96, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !20, i64 124, !42, i64 136, !42, i64 144, !20, i64 152, !13, i64 160, !6, i64 168, !13, i64 176, !13, i64 180, !7, i64 184, !43, i64 248, !13, i64 256, !22, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !42, i64 304, !44, i64 312, !13, i64 320, !35, i64 328, !35, i64 336, !42, i64 344, !42, i64 352, !42, i64 360, !42, i64 368, !6, i64 376, !21, i64 384, !42, i64 408}
-!41 = !{!"p2 omnipotent char", !23, i64 0}
-!42 = !{!"long", !7, i64 0}
-!43 = !{!"p2 _ZTS11AVBufferRef", !23, i64 0}
-!44 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
-!45 = !{!30, !30, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"float", !7, i64 0}
-!48 = distinct !{!48, !10}
-!49 = !{!50, !34, i64 48024}
-!50 = !{!"ReplayGainContext", !28, i64 0, !7, i64 8, !47, i64 48008, !47, i64 48012, !13, i64 48016, !13, i64 48020, !34, i64 48024, !34, i64 48032, !34, i64 48040, !34, i64 48048, !7, i64 48056, !7, i64 49080, !7, i64 50104, !7, i64 51128}
-!51 = !{!50, !34, i64 48032}
-!52 = !{!50, !13, i64 48016}
-!53 = distinct !{!53, !10}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"double", !7, i64 0}
-!56 = distinct !{!56, !10}
-!57 = !{!50, !34, i64 48040}
-!58 = !{!50, !34, i64 48048}
-!59 = !{!50, !13, i64 48020}
-!60 = distinct !{!60, !10}
-!61 = distinct !{!61, !10}
-!62 = distinct !{!62, !10}
-!63 = !{!13, !13, i64 0}
-!64 = !{!17, !13, i64 64}
-!65 = distinct !{!65, !10}
-!66 = !{!67, !13, i64 228}
-!67 = !{!"FilterLink", !17, i64 0, !32, i64 200, !42, i64 208, !42, i64 216, !13, i64 224, !13, i64 228, !42, i64 232, !42, i64 240, !42, i64 248, !42, i64 256, !20, i64 264, !35, i64 272}
-!68 = !{!67, !13, i64 224}
-!69 = !{!17, !18, i64 0}
-!70 = !{!27, !31, i64 32}
-!71 = distinct !{!71, !10}
-!72 = distinct !{!72, !10}
-!73 = !{!50, !47, i64 48012}
-!74 = !{!50, !47, i64 48008}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"ReplayGainFreqInfo", !14, i64 0, !7, i64 8, !7, i64 96, !7, i64 184, !7, i64 208}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS7AVFrame", !6, i64 0}
+!17 = !{!18, !19, i64 16}
+!18 = !{!"AVFilterLink", !19, i64 0, !20, i64 8, !19, i64 16, !20, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !21, i64 48, !14, i64 56, !14, i64 60, !14, i64 64, !22, i64 72, !21, i64 96, !23, i64 104, !14, i64 112, !25, i64 120, !25, i64 160}
+!19 = !{!"p1 _ZTS15AVFilterContext", !6, i64 0}
+!20 = !{!"p1 _ZTS11AVFilterPad", !6, i64 0}
+!21 = !{!"AVRational", !14, i64 0, !14, i64 4}
+!22 = !{!"AVChannelLayout", !14, i64 0, !14, i64 4, !7, i64 8, !6, i64 16}
+!23 = !{!"p2 _ZTS15AVFrameSideData", !24, i64 0}
+!24 = !{!"any p2 pointer", !6, i64 0}
+!25 = !{!"AVFilterFormatsConfig", !5, i64 0, !5, i64 8, !26, i64 16, !5, i64 24, !5, i64 32}
+!26 = !{!"p1 _ZTS22AVFilterChannelLayouts", !6, i64 0}
+!27 = !{!28, !32, i64 56}
+!28 = !{!"AVFilterContext", !29, i64 0, !30, i64 8, !31, i64 16, !20, i64 24, !32, i64 32, !14, i64 40, !20, i64 48, !32, i64 56, !14, i64 64, !6, i64 72, !33, i64 80, !14, i64 88, !14, i64 92, !34, i64 96, !31, i64 104, !6, i64 112, !35, i64 120, !14, i64 128, !36, i64 136, !14, i64 144, !14, i64 148}
+!29 = !{!"p1 _ZTS7AVClass", !6, i64 0}
+!30 = !{!"p1 _ZTS8AVFilter", !6, i64 0}
+!31 = !{!"p1 omnipotent char", !6, i64 0}
+!32 = !{!"p2 _ZTS12AVFilterLink", !24, i64 0}
+!33 = !{!"p1 _ZTS13AVFilterGraph", !6, i64 0}
+!34 = !{!"p1 _ZTS15AVFilterCommand", !6, i64 0}
+!35 = !{!"p1 double", !6, i64 0}
+!36 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS12AVFilterLink", !6, i64 0}
+!39 = !{!28, !6, i64 72}
+!40 = !{!41, !14, i64 112}
+!41 = !{!"AVFrame", !7, i64 0, !7, i64 64, !42, i64 96, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !14, i64 120, !21, i64 124, !43, i64 136, !43, i64 144, !21, i64 152, !14, i64 160, !6, i64 168, !14, i64 176, !14, i64 180, !7, i64 184, !44, i64 248, !14, i64 256, !23, i64 264, !14, i64 272, !14, i64 276, !14, i64 280, !14, i64 284, !14, i64 288, !14, i64 292, !14, i64 296, !43, i64 304, !45, i64 312, !14, i64 320, !36, i64 328, !36, i64 336, !43, i64 344, !43, i64 352, !43, i64 360, !43, i64 368, !6, i64 376, !22, i64 384, !43, i64 408}
+!42 = !{!"p2 omnipotent char", !24, i64 0}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!"p2 _ZTS11AVBufferRef", !24, i64 0}
+!45 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
+!46 = !{!31, !31, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"float", !7, i64 0}
+!49 = distinct !{!49, !10, !11}
+!50 = !{!51, !35, i64 48024}
+!51 = !{!"ReplayGainContext", !29, i64 0, !7, i64 8, !48, i64 48008, !48, i64 48012, !14, i64 48016, !14, i64 48020, !35, i64 48024, !35, i64 48032, !35, i64 48040, !35, i64 48048, !7, i64 48056, !7, i64 49080, !7, i64 50104, !7, i64 51128}
+!52 = !{!51, !35, i64 48032}
+!53 = !{!51, !14, i64 48016}
+!54 = distinct !{!54, !10, !11}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"double", !7, i64 0}
+!57 = distinct !{!57, !10, !11}
+!58 = !{!51, !35, i64 48040}
+!59 = !{!51, !35, i64 48048}
+!60 = !{!51, !14, i64 48020}
+!61 = distinct !{!61, !10, !11}
+!62 = distinct !{!62, !10, !11}
+!63 = distinct !{!63, !10, !11}
+!64 = !{!14, !14, i64 0}
+!65 = !{!18, !14, i64 64}
+!66 = distinct !{!66, !10, !11}
+!67 = !{!68, !14, i64 228}
+!68 = !{!"FilterLink", !18, i64 0, !33, i64 200, !43, i64 208, !43, i64 216, !14, i64 224, !14, i64 228, !43, i64 232, !43, i64 240, !43, i64 248, !43, i64 256, !21, i64 264, !36, i64 272}
+!69 = !{!68, !14, i64 224}
+!70 = !{!18, !19, i64 0}
+!71 = !{!28, !32, i64 32}
+!72 = distinct !{!72, !10, !11}
+!73 = distinct !{!73, !10, !11}
+!74 = !{!51, !48, i64 48012}
+!75 = !{!51, !48, i64 48008}

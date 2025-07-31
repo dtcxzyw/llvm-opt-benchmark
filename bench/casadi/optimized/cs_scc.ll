@@ -86,7 +86,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %38, ptr %36, align 4, !tbaa !16
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %.lr.ph131.preheader, label %.lr.ph127, !llvm.loop !19
+  br i1 %exitcond155.not, label %.lr.ph131.preheader, label %.lr.ph127, !llvm.loop !20
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %50
   %indvars.iv156 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next157, %50 ]
@@ -113,7 +113,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %.1109 = phi i32 [ %.0108129, %.lr.ph131 ], [ %46, %45 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !20
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %50
   %.pre183 = sext i32 %.1109 to i64
@@ -138,13 +138,13 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next162 to i32
   %exitcond164.not = icmp eq i32 %52, %lftr.wideiv
-  br i1 %exitcond164.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !21
+  br i1 %exitcond164.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !22
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %._crit_edge
   %.0108.lcssa189 = phi i32 [ %.1109, %._crit_edge ], [ %.0108.lcssa188, %.lr.ph135 ]
   %57 = sub nsw i32 %8, %.0108.lcssa189
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 %57, ptr %58, align 8, !tbaa !22
+  store i32 %57, ptr %58, align 8, !tbaa !23
   %59 = icmp sgt i32 %57, 0
   br i1 %59, label %.lr.ph143.preheader, label %.preheader121
 
@@ -156,7 +156,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.lr.ph139, %.lr.ph143
   %60 = phi i32 [ %65, %.lr.ph143 ], [ %73, %.lr.ph139 ]
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.preheader121, label %.lr.ph143, !llvm.loop !23
+  br i1 %exitcond172.not, label %.preheader121, label %.lr.ph143, !llvm.loop !24
 
 .preheader121:                                    ; preds = %.loopexit, %._crit_edge136
   %.not120144 = icmp slt i32 %57, 0
@@ -193,7 +193,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   %73 = load i32, ptr %64, align 4, !tbaa !16
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next166, %74
-  br i1 %75, label %.lr.ph139, label %.loopexit, !llvm.loop !24
+  br i1 %75, label %.lr.ph139, label %.loopexit, !llvm.loop !25
 
 .preheader:                                       ; preds = %.lr.ph146, %.preheader121
   br i1 %27, label %.lr.ph148.preheader, label %.sink.split
@@ -210,7 +210,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %77, ptr %78, align 4, !tbaa !16
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.preheader, label %.lr.ph146, !llvm.loop !25
+  br i1 %exitcond177.not, label %.preheader, label %.lr.ph146, !llvm.loop !26
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv178 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next179, %.lr.ph148 ]
@@ -227,7 +227,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %87, ptr %86, align 4, !tbaa !16
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %.sink.split, label %.lr.ph148, !llvm.loop !26
+  br i1 %exitcond182.not, label %.sink.split, label %.lr.ph148, !llvm.loop !27
 
 .sink.split:                                      ; preds = %.lr.ph148, %.preheader, %6
   %.sink = phi i32 [ 0, %6 ], [ 1, %.preheader ], [ 1, %.lr.ph148 ]
@@ -272,13 +272,14 @@ attributes #2 = { nounwind }
 !14 = !{!"cs_dmperm_results", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !5, i64 32, !6, i64 36, !6, i64 56}
 !15 = !{!14, !8, i64 16}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = !{!14, !5, i64 32}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = !{!14, !5, i64 32}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !18, !19}

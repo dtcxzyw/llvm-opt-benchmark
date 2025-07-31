@@ -303,13 +303,13 @@ switch.early.test:                                ; preds = %71
   %89 = icmp ne i64 %87, 0
   %90 = icmp ult i64 %88, %4
   %91 = select i1 %89, i1 %90, i1 false
-  br i1 %91, label %.lr.ph, label %._crit_edge
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %83, %.thread101, %54
   %.373.lcssa = phi i64 [ %.171, %54 ], [ %87, %.thread101 ], [ %.373124, %83 ]
   %.168 = phi i64 [ %.067135, %54 ], [ %88, %.thread101 ], [ %.5, %83 ]
   %92 = icmp ult i64 %.168, %4
-  br i1 %92, label %35, label %._crit_edge138.loopexit
+  br i1 %92, label %35, label %._crit_edge138.loopexit, !llvm.loop !25
 
 ._crit_edge138.loopexit:                          ; preds = %._crit_edge
   %.pre156 = load i64, ptr %30, align 8, !tbaa !12
@@ -348,7 +348,7 @@ define i32 @cli_scanmsxml(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !15
   %7 = call ptr @xmlReaderForIO(ptr noundef nonnull @msxml_read_cb, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef null, i32 noundef 2080) #5
@@ -358,7 +358,7 @@ define i32 @cli_scanmsxml(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %3
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = call i32 @cli_json_parse_error(ptr noundef %10, ptr noundef nonnull @.str.4) #5
   br label %15
 
@@ -424,15 +424,18 @@ attributes #5 = { nounwind }
 !20 = !{!17, !9, i64 104}
 !21 = !{!5, !5, i64 0}
 !22 = !{!6, !6, i64 0}
-!23 = !{!24, !8, i64 96}
-!24 = !{!"cli_ctx_tag", !10, i64 0, !10, i64 8, !10, i64 16, !9, i64 24, !19, i64 32, !25, i64 40, !26, i64 48, !11, i64 56, !27, i64 64, !5, i64 72, !5, i64 76, !28, i64 80, !5, i64 88, !5, i64 92, !8, i64 96, !6, i64 104, !29, i64 120, !30, i64 128, !9, i64 136, !31, i64 144, !32, i64 152, !32, i64 160, !33, i64 168, !18, i64 184, !18, i64 185}
-!25 = !{!"p1 _ZTS11cli_matcher", !9, i64 0}
-!26 = !{!"p1 _ZTS9cl_engine", !9, i64 0}
-!27 = !{!"p1 _ZTS15cl_scan_options", !9, i64 0}
-!28 = !{!"p1 _ZTS19recursion_level_tag", !9, i64 0}
-!29 = !{!"p1 _ZTS9cli_dconf", !9, i64 0}
-!30 = !{!"p1 _ZTS10bitset_tag", !9, i64 0}
-!31 = !{!"p1 _ZTS10cli_events", !9, i64 0}
-!32 = !{!"p1 _ZTS11json_object", !9, i64 0}
-!33 = !{!"timeval", !11, i64 0, !11, i64 8}
-!34 = !{!24, !32, i64 160}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}
+!26 = !{!27, !8, i64 96}
+!27 = !{!"cli_ctx_tag", !10, i64 0, !10, i64 8, !10, i64 16, !9, i64 24, !19, i64 32, !28, i64 40, !29, i64 48, !11, i64 56, !30, i64 64, !5, i64 72, !5, i64 76, !31, i64 80, !5, i64 88, !5, i64 92, !8, i64 96, !6, i64 104, !32, i64 120, !33, i64 128, !9, i64 136, !34, i64 144, !35, i64 152, !35, i64 160, !36, i64 168, !18, i64 184, !18, i64 185}
+!28 = !{!"p1 _ZTS11cli_matcher", !9, i64 0}
+!29 = !{!"p1 _ZTS9cl_engine", !9, i64 0}
+!30 = !{!"p1 _ZTS15cl_scan_options", !9, i64 0}
+!31 = !{!"p1 _ZTS19recursion_level_tag", !9, i64 0}
+!32 = !{!"p1 _ZTS9cli_dconf", !9, i64 0}
+!33 = !{!"p1 _ZTS10bitset_tag", !9, i64 0}
+!34 = !{!"p1 _ZTS10cli_events", !9, i64 0}
+!35 = !{!"p1 _ZTS11json_object", !9, i64 0}
+!36 = !{!"timeval", !11, i64 0, !11, i64 8}
+!37 = !{!27, !35, i64 160}

@@ -4290,7 +4290,7 @@ parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %112, %138, %144
 166:                                              ; preds = %.thread
   %167 = load i8, ptr %107, align 1, !range !6, !noundef !7
   %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %110, label %169
+  br i1 %168, label %110, label %169, !llvm.loop !11
 
 169:                                              ; preds = %.thread, %166, %parse_PAYLOAD_reassemble_tvb.exit
   %170 = call i32 @tvb_reported_length(ptr noundef %3)
@@ -5075,7 +5075,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %222, ptr noundef nonnull @.str.1398, i32 noundef %.02.i.i)
   %224 = add nuw nsw i32 %.02.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %224, 8
-  br i1 %exitcond.not.i.i, label %parse_SUBA_Attribute.exit, label %.preheader.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %parse_SUBA_Attribute.exit, label %.preheader.i.i, !llvm.loop !12
 
 225:                                              ; preds = %parse_RID.exit.i
   br i1 %.not.i.i, label %parse_SUBA_Attribute.exit, label %226
@@ -5362,7 +5362,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %461, ptr noundef nonnull @.str.1545, ptr noundef nonnull @.str.704, i32 noundef %.02.i114.i)
   %463 = add nuw nsw i32 %.02.i114.i, 1
   %exitcond.not.i115.i = icmp eq i32 %463, %458
-  br i1 %exitcond.not.i115.i, label %.preheader.i116.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i115.i, label %.preheader.i116.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i116.i, %.lr.ph5.i.i
   %.14.i.i = phi i32 [ %467, %.lr.ph5.i.i ], [ 0, %.preheader.i116.i ]
@@ -5373,7 +5373,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %465, ptr noundef nonnull @.str.1545, ptr noundef nonnull @.str.702, i32 noundef %.14.i.i)
   %467 = add nuw nsw i32 %.14.i.i, 1
   %exitcond10.not.i.i = icmp eq i32 %467, %459
-  br i1 %exitcond10.not.i.i, label %parse_SUBA_Attribute.exit, label %.lr.ph5.i.i, !llvm.loop !12
+  br i1 %exitcond10.not.i.i, label %parse_SUBA_Attribute.exit, label %.lr.ph5.i.i, !llvm.loop !14
 
 468:                                              ; preds = %parse_RID.exit.i
   br i1 %.not.i.i, label %parse_SUBA_Attribute.exit, label %469
@@ -5937,7 +5937,7 @@ parse_CM_Req_ServiceID.exit.i:                    ; preds = %50, %37
   %257 = xor i64 %256, %255
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %make_hash_key.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i, label %make_hash_key.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 make_hash_key.exit.i.i:                           ; preds = %.lr.ph.i.i.i.i, %239
   %.011.lcssa.i.i.i.i = phi i64 [ %246, %239 ], [ %257, %.lr.ph.i.i.i.i ]
@@ -6151,7 +6151,7 @@ parse_CM_Req.exit:                                ; preds = %parse_IP_CM_Req_Msg
   %408 = xor i64 %407, %406
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %lookup_connection.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i, label %lookup_connection.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
 lookup_connection.exit.i.i:                       ; preds = %.lr.ph.i.i.i.i.i, %395
   %.011.lcssa.i.i.i.i.i = phi i64 [ %397, %395 ], [ %408, %.lr.ph.i.i.i.i.i ]
@@ -6308,7 +6308,7 @@ parse_CM_Rsp.exit:                                ; preds = %335, %lookup_connec
   %487 = xor i64 %486, %485
   %indvars.iv.next.i.i.i.i.i46 = add nuw nsw i64 %indvars.iv.i.i.i.i.i44, 1
   %exitcond.not.i.i.i.i.i47 = icmp eq i64 %indvars.iv.next.i.i.i.i.i46, %wide.trip.count.i.i.i.i.i42
-  br i1 %exitcond.not.i.i.i.i.i47, label %parse_CM_Rtu.exit, label %.lr.ph.i.i.i.i.i43, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i47, label %parse_CM_Rtu.exit, label %.lr.ph.i.i.i.i.i43, !llvm.loop !15
 
 parse_CM_Rtu.exit:                                ; preds = %.lr.ph.i.i.i.i.i43, %467
   %.011.lcssa.i.i.i.i.i40 = phi i64 [ %.val22.i, %467 ], [ %487, %.lr.ph.i.i.i.i.i43 ]
@@ -6377,7 +6377,7 @@ parse_CM_Rtu.exit:                                ; preds = %.lr.ph.i.i.i.i.i43,
   %530 = xor i64 %529, %528
   %indvars.iv.next.i.i.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i.i.i53, 1
   %exitcond.not.i.i.i.i.i56 = icmp eq i64 %indvars.iv.next.i.i.i.i.i55, %wide.trip.count.i.i.i.i.i51
-  br i1 %exitcond.not.i.i.i.i.i56, label %parse_CM_Rej.exit, label %.lr.ph.i.i.i.i.i52, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i56, label %parse_CM_Rej.exit, label %.lr.ph.i.i.i.i.i52, !llvm.loop !15
 
 parse_CM_Rej.exit:                                ; preds = %.lr.ph.i.i.i.i.i52, %494
   %.011.lcssa.i.i.i.i.i49 = phi i64 [ %.val44.i, %494 ], [ %530, %.lr.ph.i.i.i.i.i52 ]
@@ -6436,7 +6436,7 @@ parse_CM_Rej.exit:                                ; preds = %.lr.ph.i.i.i.i.i52,
   %563 = xor i64 %562, %561
   %indvars.iv.next.i.i.i.i.i64 = add nuw nsw i64 %indvars.iv.i.i.i.i.i62, 1
   %exitcond.not.i.i.i.i.i65 = icmp eq i64 %indvars.iv.next.i.i.i.i.i64, %wide.trip.count.i.i.i.i.i60
-  br i1 %exitcond.not.i.i.i.i.i65, label %parse_CM_DReq.exit, label %.lr.ph.i.i.i.i.i61, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i65, label %parse_CM_DReq.exit, label %.lr.ph.i.i.i.i.i61, !llvm.loop !15
 
 parse_CM_DReq.exit:                               ; preds = %.lr.ph.i.i.i.i.i61, %537
   %.011.lcssa.i.i.i.i.i58 = phi i64 [ %.val30.i, %537 ], [ %563, %.lr.ph.i.i.i.i.i61 ]
@@ -6489,7 +6489,7 @@ parse_CM_DReq.exit:                               ; preds = %.lr.ph.i.i.i.i.i61,
   %590 = xor i64 %589, %588
   %indvars.iv.next.i.i.i.i.i81 = add nuw nsw i64 %indvars.iv.i.i.i.i.i79, 1
   %exitcond.not.i.i.i.i.i82 = icmp eq i64 %indvars.iv.next.i.i.i.i.i81, %wide.trip.count.i.i.i.i.i77
-  br i1 %exitcond.not.i.i.i.i.i82, label %try_connection_dissectors.exit.i, label %.lr.ph.i.i.i.i.i78, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i.i82, label %try_connection_dissectors.exit.i, label %.lr.ph.i.i.i.i.i78, !llvm.loop !15
 
 try_connection_dissectors.exit.i:                 ; preds = %.lr.ph.i.i.i.i.i78, %570
   %.011.lcssa.i.i.i.i.i67 = phi i64 [ %.val25.i, %570 ], [ %590, %.lr.ph.i.i.i.i.i78 ]
@@ -6528,7 +6528,7 @@ try_connection_dissectors.exit.i:                 ; preds = %.lr.ph.i.i.i.i.i78,
   %605 = xor i64 %604, %603
   %indvars.iv.next.i.i.i.i74 = add nuw nsw i64 %indvars.iv.i.i.i.i72, 1
   %exitcond.not.i.i.i.i75 = icmp eq i64 %indvars.iv.next.i.i.i.i74, %wide.trip.count.i.i.i.i70
-  br i1 %exitcond.not.i.i.i.i75, label %remove_connection.exit.i, label %.lr.ph.i.i.i.i71, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.i75, label %remove_connection.exit.i, label %.lr.ph.i.i.i.i71, !llvm.loop !15
 
 remove_connection.exit.i:                         ; preds = %.lr.ph.i.i.i.i71, %596
   %.011.lcssa.i.i.i.i68 = phi i64 [ %597, %596 ], [ %605, %.lr.ph.i.i.i.i71 ]
@@ -6746,7 +6746,7 @@ define internal fastcc void @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.1398, i32 noundef %.02.i)
   %23 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond.not.i, label %parse_NodeDescription.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %parse_NodeDescription.exit, label %.preheader.i, !llvm.loop !12
 
 24:                                               ; preds = %3
   %.val59 = load i32, ptr %2, align 4
@@ -7522,7 +7522,7 @@ define internal fastcc void @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, pt
   %16 = add nuw nsw i32 %.01921, 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.1398, i32 noundef %16)
   %exitcond.not = icmp eq i32 %16, 32
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !16
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7554,7 +7554,7 @@ define internal fastcc void @parse_SLtoVLMappingTable(ptr noundef %0, ptr nounde
   %16 = add nuw nsw i32 %.022, 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.1398, i32 noundef %16)
   %exitcond.not = icmp eq i32 %16, 8
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !17
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7587,7 +7587,7 @@ define internal fastcc void @parse_VLArbitrationTable(ptr noundef %0, ptr nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.1398, i32 noundef %.02022)
   %17 = add nuw nsw i32 %.02022, 1
   %exitcond.not = icmp eq i32 %17, 32
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !18
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7616,7 +7616,7 @@ define internal fastcc void @parse_LinearForwardingTable(ptr noundef %0, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1398, i32 noundef %.017)
   %14 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %14, 64
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !19
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7656,7 +7656,7 @@ define internal fastcc void @parse_RandomForwardingTable(ptr noundef %0, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.1398, i32 noundef %.034)
   %22 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %22, 16
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !20
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7685,7 +7685,7 @@ define internal fastcc void @parse_MulticastForwardingTable(ptr noundef %0, ptr 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1398, i32 noundef %.017)
   %14 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %14, 16
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !21
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -8022,15 +8022,17 @@ attributes #20 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

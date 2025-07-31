@@ -144,7 +144,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly captures(
   %54 = getelementptr inbounds i8, ptr %.066113, i64 %51
   %55 = add nuw nsw i32 %.0114, 1
   %exitcond118.not = icmp eq i32 %55, %.val93
-  br i1 %exitcond118.not, label %mlib_c_ImageCopy_a1.exit, label %52, !llvm.loop !8
+  br i1 %exitcond118.not, label %mlib_c_ImageCopy_a1.exit, label %52, !llvm.loop !9
 
 56:                                               ; preds = %.lr.ph, %56
   %.1111 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
@@ -155,7 +155,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly captures(
   %58 = getelementptr inbounds i8, ptr %.167110, i64 %49
   %59 = add nuw nsw i32 %.1111, 1
   %exitcond.not = icmp eq i32 %59, %.val93
-  br i1 %exitcond.not, label %mlib_c_ImageCopy_a1.exit, label %56, !llvm.loop !9
+  br i1 %exitcond.not, label %mlib_c_ImageCopy_a1.exit, label %56, !llvm.loop !10
 
 60:                                               ; preds = %15
   tail call fastcc void @mlib_c_ImageCopy_u8(ptr noundef %1, ptr noundef %0)
@@ -211,7 +211,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i64 %17, 7
   %19 = icmp ne i64 %18, 0
   %20 = select i1 %16, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader52
   %.044.lcssa = phi i32 [ %2, %.preheader52 ], [ %15, %.lr.ph ]
@@ -249,7 +249,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %37 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %38 = add nsw i32 %.14558, -8
   %39 = icmp samesign ugt i32 %.14558, 16
-  br i1 %39, label %31, label %.lr.ph86.preheader, !llvm.loop !11
+  br i1 %39, label %31, label %.lr.ph86.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph71, %.preheader50
   %.347.lcssa = phi i32 [ %2, %.preheader50 ], [ %44, %.lr.ph71 ]
@@ -272,7 +272,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %47 = and i64 %46, 7
   %48 = icmp ne i64 %47, 0
   %49 = select i1 %45, i1 %48, i1 false
-  br i1 %49, label %.lr.ph71, label %.preheader, !llvm.loop !12
+  br i1 %49, label %.lr.ph71, label %.preheader, !llvm.loop !13
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %.477 = phi ptr [ %52, %.lr.ph78 ], [ %.3.lcssa, %.preheader ]
@@ -284,7 +284,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %52 = getelementptr inbounds nuw i8, ptr %.477, i64 8
   %53 = add nsw i32 %.44875, -8
   %54 = icmp samesign ugt i32 %.44875, 16
-  br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !13
+  br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader
   %.246 = phi i32 [ %.347.lcssa, %.preheader ], [ %.044.lcssa, %._crit_edge ]
@@ -309,7 +309,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 %57, ptr %.54383, align 1
   %59 = add nsw i32 %.54982, -1
   %60 = icmp samesign ugt i32 %.54982, 1
-  br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !14
+  br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !15
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.loopexit
   ret void
@@ -370,7 +370,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %36 = and i64 %35, 7
   %37 = icmp ne i64 %36, 0
   %38 = select i1 %34, i1 %37, i1 false
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.092.lcssa = phi i32 [ 0, %13 ], [ %33, %.lr.ph ]
@@ -405,7 +405,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %50 = add nuw nsw i32 %.193121, 8
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150 = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150, label %.loopexit, label %.lr.ph123, !llvm.loop !16
+  br i1 %exitcond150, label %.loopexit, label %.lr.ph123, !llvm.loop !17
 
 51:                                               ; preds = %._crit_edge
   %52 = and i64 %39, 7
@@ -443,7 +443,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   store i64 %71, ptr %72, align 8
   %73 = add nuw nsw i32 %.3113, 8
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %66, !llvm.loop !17
+  br i1 %exitcond, label %.loopexit, label %66, !llvm.loop !18
 
 .loopexit:                                        ; preds = %66, %.lr.ph123, %51, %.preheader
   %.294 = phi i32 [ %.092.lcssa, %.preheader ], [ %.092.lcssa, %51 ], [ %50, %.lr.ph123 ], [ %73, %66 ]
@@ -465,7 +465,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   store i8 %76, ptr %.289127, align 1
   %78 = add nuw nsw i32 %.4126, 1
   %exitcond151.not = icmp eq i32 %78, %26
-  br i1 %exitcond151.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !18
+  br i1 %exitcond151.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !19
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %.loopexit
   %.289.lcssa = phi ptr [ %.188, %.loopexit ], [ %77, %.lr.ph130 ]
@@ -595,12 +595,12 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i8 %35, ptr %36, align 1
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 2
   %37 = icmp samesign ult i64 %indvars.iv.next199, %24
-  br i1 %37, label %32, label %._crit_edge154.us, !llvm.loop !19
+  br i1 %37, label %32, label %._crit_edge154.us, !llvm.loop !20
 
 ._crit_edge154.us:                                ; preds = %32
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph156.split.us, !llvm.loop !20
+  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph156.split.us, !llvm.loop !21
 
 .lr.ph156.split:                                  ; preds = %.lr.ph156
   br i1 %.not116, label %.loopexit, label %.lr.ph156.split.split.preheader
@@ -621,7 +621,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i8 %42, ptr %44, align 1
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph156.split.split, !llvm.loop !22
+  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph156.split.split, !llvm.loop !23
 
 45:                                               ; preds = %.lr.ph150, %._crit_edge148
   %indvars.iv188 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next189, %._crit_edge148 ]
@@ -679,7 +679,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i8 %65, ptr %66, align 1
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %67 = icmp samesign ult i64 %indvars.iv.next174, %61
-  br i1 %67, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !23
+  br i1 %67, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !24
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv179 = phi i64 [ %63, %.lr.ph143.preheader ], [ %indvars.iv.next180, %.lr.ph143 ]
@@ -689,7 +689,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store double %69, ptr %70, align 8
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 8
   %.not114 = icmp samesign ugt i64 %indvars.iv.next180, %17
-  br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !24
+  br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -699,7 +699,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i8 %72, ptr %73, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %74, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %74, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %75 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -738,7 +738,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i64 %93, ptr %94, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 8
   %.not115 = icmp samesign ugt i64 %indvars.iv.next170, %17
-  br i1 %.not115, label %.loopexit124.loopexit162, label %88, !llvm.loop !26
+  br i1 %.not115, label %.loopexit124.loopexit162, label %88, !llvm.loop !27
 
 .loopexit124.loopexit:                            ; preds = %.lr.ph143
   %95 = trunc nuw nsw i64 %indvars.iv.next180 to i32
@@ -765,12 +765,12 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   store i8 %100, ptr %101, align 1
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !28
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %.loopexit124
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %45, !llvm.loop !28
+  br i1 %exitcond192.not, label %.loopexit, label %45, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge148, %.lr.ph156.split.split, %._crit_edge154.us, %.lr.ph156.split, %.preheader128, %.preheader
   ret void
@@ -870,12 +870,12 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i16 %37, ptr %38, align 2
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 2
   %39 = icmp samesign ult i64 %indvars.iv.next199, %26
-  br i1 %39, label %34, label %._crit_edge154.us, !llvm.loop !29
+  br i1 %39, label %34, label %._crit_edge154.us, !llvm.loop !30
 
 ._crit_edge154.us:                                ; preds = %34
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph156.split.us, !llvm.loop !30
+  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph156.split.us, !llvm.loop !31
 
 .lr.ph156.split:                                  ; preds = %.lr.ph156
   br i1 %.not116, label %.loopexit, label %.lr.ph156.split.split.preheader
@@ -896,7 +896,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i16 %44, ptr %46, align 2
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph156.split.split, !llvm.loop !31
+  br i1 %exitcond197.not, label %.loopexit, label %.lr.ph156.split.split, !llvm.loop !32
 
 47:                                               ; preds = %.lr.ph150, %._crit_edge148
   %indvars.iv188 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next189, %._crit_edge148 ]
@@ -956,7 +956,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i16 %69, ptr %70, align 2
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %71 = icmp samesign ult i64 %indvars.iv.next174, %65
-  br i1 %71, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !32
+  br i1 %71, label %.lr.ph139, label %.preheader123.loopexit, !llvm.loop !33
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv179 = phi i64 [ %67, %.lr.ph143.preheader ], [ %indvars.iv.next180, %.lr.ph143 ]
@@ -966,7 +966,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store double %73, ptr %74, align 8
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 4
   %.not114 = icmp samesign ugt i64 %indvars.iv.next180, %19
-  br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !33
+  br i1 %.not114, label %.loopexit124.loopexit, label %.lr.ph143, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -976,7 +976,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i16 %76, ptr %77, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = icmp samesign ult i64 %indvars.iv.next, %60
-  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
+  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %79 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -1015,7 +1015,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i64 %97, ptr %98, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 4
   %.not115 = icmp samesign ugt i64 %indvars.iv.next170, %19
-  br i1 %.not115, label %.loopexit124.loopexit162, label %92, !llvm.loop !35
+  br i1 %.not115, label %.loopexit124.loopexit162, label %92, !llvm.loop !36
 
 .loopexit124.loopexit:                            ; preds = %.lr.ph143
   %99 = trunc nuw nsw i64 %indvars.iv.next180 to i32
@@ -1042,12 +1042,12 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   store i16 %104, ptr %105, align 2
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !37
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %.loopexit124
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %47, !llvm.loop !37
+  br i1 %exitcond192.not, label %.loopexit, label %47, !llvm.loop !38
 
 .loopexit:                                        ; preds = %._crit_edge148, %.lr.ph156.split.split, %._crit_edge154.us, %.lr.ph156.split, %.preheader128, %.preheader
   ret void
@@ -1153,12 +1153,12 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   store i32 %41, ptr %42, align 4
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 2
   %43 = icmp samesign ult i64 %indvars.iv.next171, %30
-  br i1 %43, label %38, label %._crit_edge131.us, !llvm.loop !38
+  br i1 %43, label %38, label %._crit_edge131.us, !llvm.loop !39
 
 ._crit_edge131.us:                                ; preds = %38
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.loopexit, label %.lr.ph133.split.us, !llvm.loop !39
+  br i1 %exitcond177.not, label %.loopexit, label %.lr.ph133.split.us, !llvm.loop !40
 
 .lr.ph133.split:                                  ; preds = %.lr.ph133
   br i1 %.not105, label %.loopexit, label %.lr.ph133.split.split.preheader
@@ -1179,7 +1179,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   store i32 %48, ptr %50, align 4
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
-  br i1 %exitcond169.not, label %.loopexit, label %.lr.ph133.split.split, !llvm.loop !40
+  br i1 %exitcond169.not, label %.loopexit, label %.lr.ph133.split.split, !llvm.loop !41
 
 51:                                               ; preds = %.lr.ph127, %._crit_edge
   %indvars.iv160 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next161, %._crit_edge ]
@@ -1226,7 +1226,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   store double %72, ptr %73, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 2
   %.not102 = icmp samesign ugt i64 %indvars.iv.next152, %21
-  br i1 %.not102, label %.loopexit112.loopexit, label %.lr.ph122, !llvm.loop !41
+  br i1 %.not102, label %.loopexit112.loopexit, label %.lr.ph122, !llvm.loop !42
 
 74:                                               ; preds = %51
   %75 = trunc i64 %61 to i32
@@ -1262,7 +1262,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   store i64 %87, ptr %88, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 2
   %.not104 = icmp samesign ugt i64 %indvars.iv.next142, %21
-  br i1 %.not104, label %.loopexit112.loopexit137, label %.lr.ph, !llvm.loop !42
+  br i1 %.not104, label %.loopexit112.loopexit137, label %.lr.ph, !llvm.loop !43
 
 .loopexit112.loopexit:                            ; preds = %.lr.ph122
   %89 = trunc nuw nsw i64 %indvars.iv.next152 to i32
@@ -1289,14 +1289,14 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   store i32 %94, ptr %95, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph125, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph125, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph125, %.loopexit112
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %indvars.iv.next = add i32 %indvars.iv, %20
   %indvars.iv.next150 = add i32 %indvars.iv149, %23
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %51, !llvm.loop !44
+  br i1 %exitcond164.not, label %.loopexit, label %51, !llvm.loop !45
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph133.split.split, %._crit_edge131.us, %.lr.ph133.split, %.preheader114, %.preheader
   ret void
@@ -1355,12 +1355,12 @@ define internal fastcc void @mlib_c_ImageCopy_d64(ptr noundef nonnull readonly c
   store double %26, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph.us, !llvm.loop !46
+  br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph.us, !llvm.loop !47
 
 ._crit_edge44:                                    ; preds = %._crit_edge.us, %2
   ret void
@@ -1384,44 +1384,45 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !21}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7, !21}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7, !21}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8, !22}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8, !22}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8, !22}

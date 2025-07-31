@@ -486,23 +486,23 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %147, %_ZN17QArrayDa
   %154 = load ptr, ptr %153, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), ptr %7, align 8, !noalias !8
+  store i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), ptr %7, align 8, !noalias !9
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !8
-  store i64 ptrtoint (ptr @_ZN14SyntaxLineEdit17checkCustomColumnE7QString to i64), ptr %8, align 8, !noalias !8
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN14SyntaxLineEdit17checkCustomColumnE7QString to i64), ptr %8, align 8, !noalias !9
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !8
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !9
   %155 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12
           to label %.noexc79 unwind label %48
 
 .noexc79:                                         ; preds = %_ZN7QStringD2Ev.exit78
-  store i32 1, ptr %155, align 4, !noalias !8
+  store i32 1, ptr %155, align 4, !noalias !9
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM14SyntaxLineEditFv7QStringENS_4ListIJRKS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %156, align 8, !noalias !8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM14SyntaxLineEditFv7QStringENS_4ListIJRKS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %156, align 8, !noalias !9
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i64 ptrtoint (ptr @_ZN14SyntaxLineEdit17checkCustomColumnE7QString to i64), ptr %157, align 8, !noalias !8
+  store i64 ptrtoint (ptr @_ZN14SyntaxLineEdit17checkCustomColumnE7QString to i64), ptr %157, align 8, !noalias !9
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %155, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !8
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !9
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %22, ptr noundef %154, ptr noundef nonnull %7, ptr noundef %154, ptr noundef nonnull %8, ptr noundef %155, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QLineEdit16staticMetaObjectE)
           to label %158 unwind label %48
 
@@ -515,23 +515,23 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %147, %_ZN17QArrayDa
   %161 = load ptr, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), ptr %5, align 8, !noalias !11
+  store i64 ptrtoint (ptr @_ZN9QLineEdit11textChangedERK7QString to i64), ptr %5, align 8, !noalias !12
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !11
-  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame15checkCanResolveEv to i64), ptr %6, align 8, !noalias !11
+  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !12
+  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame15checkCanResolveEv to i64), ptr %6, align 8, !noalias !12
   %.fca.1.gep.i82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %.fca.1.gep.i82, align 8, !noalias !11
+  store i64 0, ptr %.fca.1.gep.i82, align 8, !noalias !12
   %162 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12
           to label %.noexc84 unwind label %48
 
 .noexc84:                                         ; preds = %158
-  store i32 1, ptr %162, align 4, !noalias !11
+  store i32 1, ptr %162, align 4, !noalias !12
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %163, align 8, !noalias !11
+  store ptr @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %163, align 8, !noalias !12
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame15checkCanResolveEv to i64), ptr %164, align 8, !noalias !11
+  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame15checkCanResolveEv to i64), ptr %164, align 8, !noalias !12
   %.repack7.i.i83 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  store i64 0, ptr %.repack7.i.i83, align 8, !noalias !11
+  store i64 0, ptr %.repack7.i.i83, align 8, !noalias !12
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %23, ptr noundef %161, ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %162, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QLineEdit16staticMetaObjectE)
           to label %165 unwind label %48
 
@@ -544,23 +544,23 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %147, %_ZN17QArrayDa
   %168 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), ptr %3, align 8, !noalias !14
+  store i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), ptr %3, align 8, !noalias !15
   %.fca.1.gep12.i89 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep12.i89, align 8, !noalias !14
-  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame11typeChangedEi to i64), ptr %4, align 8, !noalias !14
+  store i64 0, ptr %.fca.1.gep12.i89, align 8, !noalias !15
+  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame11typeChangedEi to i64), ptr %4, align 8, !noalias !15
   %.fca.1.gep.i90 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i90, align 8, !noalias !14
+  store i64 0, ptr %.fca.1.gep.i90, align 8, !noalias !15
   %169 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12
           to label %.noexc92 unwind label %48
 
 .noexc92:                                         ; preds = %165
-  store i32 1, ptr %169, align 4, !noalias !14
+  store i32 1, ptr %169, align 4, !noalias !15
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %170, align 8, !noalias !14
+  store ptr @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %170, align 8, !noalias !15
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame11typeChangedEi to i64), ptr %171, align 8, !noalias !14
+  store i64 ptrtoint (ptr @_ZN17ColumnEditorFrame11typeChangedEi to i64), ptr %171, align 8, !noalias !15
   %.repack7.i.i91 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i64 0, ptr %.repack7.i.i91, align 8, !noalias !14
+  store i64 0, ptr %.repack7.i.i91, align 8, !noalias !15
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %24, ptr noundef %168, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %169, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QComboBox16staticMetaObjectE)
           to label %172 unwind label %48
 
@@ -2241,7 +2241,7 @@ define void @_ZN17ColumnEditorFrame11typeChangedEi(ptr noundef readonly align 8 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !noalias !17
+  %11 = load ptr, ptr %10, align 8, !noalias !18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   call void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3, ptr noundef nonnull align 8 dereferenceable(12) %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
@@ -4582,7 +4582,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM14SyntaxLineEditFv7QString
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !20
+  %18 = load ptr, ptr %17, align 8, !nosanitize !21
   br label %21
 
 19:                                               ; preds = %10
@@ -4704,7 +4704,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFvvENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !20
+  %17 = load ptr, ptr %16, align 8, !nosanitize !21
   br label %_ZN9QtPrivate15FunctionPointerIM17ColumnEditorFrameFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4767,7 +4767,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM17ColumnEditorFrameFviENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !20
+  %17 = load ptr, ptr %16, align 8, !nosanitize !21
   br label %_ZN9QtPrivate15FunctionPointerIM17ColumnEditorFrameFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4830,18 +4830,19 @@ attributes #14 = { builtin nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM14SyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE: argument 0"}
-!10 = distinct !{!10, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM14SyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17ColumnEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE: argument 0"}
-!13 = distinct !{!13, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17ColumnEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7QObject7connectIM9QComboBoxFviEM17ColumnEditorFrameFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!16 = distinct !{!16, !"_ZN7QObject7connectIM9QComboBoxFviEM17ColumnEditorFrameFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK7QWidget11fontMetricsEv"}
-!20 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM14SyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE: argument 0"}
+!11 = distinct !{!11, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM14SyntaxLineEditFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17ColumnEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE: argument 0"}
+!14 = distinct !{!14, !"_ZN7QObject7connectIM9QLineEditFvRK7QStringEM17ColumnEditorFrameFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN7QObject7connectIM9QComboBoxFviEM17ColumnEditorFrameFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!17 = distinct !{!17, !"_ZN7QObject7connectIM9QComboBoxFviEM17ColumnEditorFrameFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK7QWidget11fontMetricsEv"}
+!21 = !{}

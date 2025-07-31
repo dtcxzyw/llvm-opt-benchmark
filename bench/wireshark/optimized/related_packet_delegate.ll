@@ -148,7 +148,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %4
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i: ; preds = %24, %.preheader.i.i
   %25 = icmp eq ptr %21, %13
-  br i1 %25, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %25, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i, %15
   %26 = or disjoint i64 %.idx.i.i, 8
@@ -219,7 +219,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i: ; preds = %23, %.preheader.i
   %24 = icmp eq ptr %20, %12
-  br i1 %24, label %.loopexit.i, label %.preheader.i
+  br i1 %24, label %.loopexit.i, label %.preheader.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i, %14
   %25 = or disjoint i64 %.idx.i, 8
@@ -426,7 +426,7 @@ define void @_ZNK21RelatedPacketDelegate5paintEP8QPainterRK20QStyleOptionViewIte
   %128 = getelementptr [128 x i8], ptr %127, i64 0, i64 %126
   %129 = load i8, ptr %128, align 1
   %130 = icmp eq i8 %129, -1
-  br i1 %130, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %130, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
@@ -467,7 +467,7 @@ _ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit: ; preds = %_ZNK12QHashPrivate
   %149 = getelementptr [128 x i8], ptr %148, i64 0, i64 %147
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, -1
-  br i1 %151, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %151, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre7.i.i.i = and i64 %.01827.i.i.i.i, 127
@@ -1972,34 +1972,34 @@ define void @_ZN21RelatedPacketDelegate15setCurrentFrameEj(ptr noundef align 8 d
   store i32 %1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %8 = load ptr, ptr %7, align 8, !noalias !8
-  store ptr %8, ptr %5, align 8, !alias.scope !8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %8 = load ptr, ptr %7, align 8, !noalias !10
+  store ptr %8, ptr %5, align 8, !alias.scope !10
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = load atomic i32, ptr %8 monotonic, align 4, !noalias !8
+  %10 = load atomic i32, ptr %8 monotonic, align 4, !noalias !10
   %.not.i.i.i.i = icmp eq i32 %10, -1
   br i1 %.not.i.i.i.i, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i
 
 _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i:  ; preds = %9
-  %11 = atomicrmw add ptr %8, i32 1 seq_cst, align 4, !noalias !8
-  %.pr.pre.i.i = load ptr, ptr %5, align 8, !alias.scope !8
+  %11 = atomicrmw add ptr %8, i32 1 seq_cst, align 4, !noalias !10
+  %.pr.pre.i.i = load ptr, ptr %5, align 8, !alias.scope !10
   %.not.i2.i.i = icmp eq ptr %.pr.pre.i.i, null
   br i1 %.not.i2.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
 
 _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i: ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i, %9
   %.pr7.i.i = phi ptr [ %.pr.pre.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %8, %9 ]
   %12 = getelementptr inbounds nuw i8, ptr %.pr7.i.i, i64 32
-  %13 = load ptr, ptr %12, align 8, !noalias !8
-  %14 = load i8, ptr %13, align 1, !noalias !8
+  %13 = load ptr, ptr %12, align 8, !noalias !10
+  %14 = load i8, ptr %13, align 1, !noalias !10
   %.not.i.i.i.i.i = icmp eq i8 %14, -1
   br i1 %.not.i.i.i.i.i, label %15, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit
 
 15:                                               ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.pr7.i.i, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !8
+  %17 = load i64, ptr %16, align 8, !noalias !10
   br label %18
 
 18:                                               ; preds = %22, %15
@@ -2013,22 +2013,22 @@ _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i: ; preds = %_ZN5QHashIi16
   %24 = getelementptr %"struct.QHashPrivate::Span", ptr %13, i64 %23
   %25 = and i64 %20, 127
   %26 = getelementptr [128 x i8], ptr %24, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !noalias !8
+  %27 = load i8, ptr %26, align 1, !noalias !10
   %.not.i.i.i.i.i.i = icmp eq i8 %27, -1
-  br i1 %.not.i.i.i.i.i.i, label %18, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i, label %18, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, !llvm.loop !13
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit: ; preds = %18, %22, %2, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
   %28 = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr7.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ %.pr7.i.i, %22 ], [ %.pr7.i.i, %18 ]
   %.sroa.0.0.i.i.i = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr7.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ null, %18 ], [ %.pr7.i.i, %22 ]
   %.sroa.4.0.i.i.i = phi i64 [ 0, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ 0, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ 0, %2 ], [ 0, %18 ], [ %20, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.0.0.i.i.i, ptr %29, align 8, !alias.scope !8
+  store ptr %.sroa.0.0.i.i.i, ptr %29, align 8, !alias.scope !10
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.4.0.i.i.i, ptr %30, align 8, !alias.scope !8
+  store i64 %.sroa.4.0.i.i.i, ptr %30, align 8, !alias.scope !10
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !8
-  store i32 1, ptr %32, align 8, !alias.scope !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !10
+  store i32 1, ptr %32, align 8, !alias.scope !10
   %33 = icmp eq ptr %.sroa.0.0.i.i.i, null
   %.not9 = icmp eq i64 %.sroa.4.0.i.i.i, 0
   %or.cond10 = and i1 %33, %.not9
@@ -2085,7 +2085,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %34
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i.i: ; preds = %54, %.preheader.i.i.i
   %55 = icmp eq ptr %51, %43
-  br i1 %55, label %.loopexit.i.i.i, label %.preheader.i.i.i
+  br i1 %55, label %.loopexit.i.i.i, label %.preheader.i.i.i, !llvm.loop !6
 
 .loopexit.i.i.i:                                  ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i.i, %45
   %56 = or disjoint i64 %.idx.i.i.i, 8
@@ -2172,7 +2172,7 @@ _ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type.exit: ; preds = 
   %89 = getelementptr [128 x i8], ptr %87, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %.not.i.i.i6 = icmp eq i8 %90, -1
-  br i1 %.not.i.i.i6, label %78, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit, !llvm.loop !11
+  br i1 %.not.i.i.i6, label %78, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit, !llvm.loop !13
 
 _ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit: ; preds = %84, %83
   %91 = phi ptr [ null, %83 ], [ %57, %84 ]
@@ -2180,7 +2180,7 @@ _ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit: ; preds = %84, %83
   %93 = icmp eq ptr %91, null
   %.not = icmp eq i64 %92, 0
   %or.cond = and i1 %93, %.not
-  br i1 %or.cond, label %._crit_edge, label %_ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread, !llvm.loop !12
+  br i1 %or.cond, label %._crit_edge, label %_ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread, !llvm.loop !14
 
 94:                                               ; preds = %74, %72
   %95 = landingpad { ptr, i32 }
@@ -2260,7 +2260,7 @@ define void @_ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type(ptr
   %52 = getelementptr [128 x i8], ptr %51, i64 0, i64 %50
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, -1
-  br i1 %54, label %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %54, label %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
@@ -2371,7 +2371,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %3
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i: ; preds = %23, %.preheader.i.i
   %24 = icmp eq ptr %20, %12
-  br i1 %24, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %24, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i, %14
   %25 = or disjoint i64 %.idx.i.i, 8
@@ -2440,7 +2440,7 @@ _ZN5QHashIi16ft_framenum_typeE6detachEv.exit:     ; preds = %.noexc, %_ZN5QHashI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
   call void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, ft_framenum_type>>::InsertionResult") align 8 %4, ptr noundef align 8 dereferenceable_or_null(40) %17, ptr noundef align 4 dereferenceable(4) %1) #19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = load i8, ptr %18, align 8, !range !13, !noundef !14
+  %19 = load i8, ptr %18, align 8, !range !15, !noundef !16
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %40, label %21
 
@@ -2537,7 +2537,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %54
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i: ; preds = %74, %.preheader.i.i
   %75 = icmp eq ptr %71, %63
-  br i1 %75, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %75, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i.i, %65
   %76 = or disjoint i64 %.idx.i.i, 8
@@ -2715,7 +2715,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE
   %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
-  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds = %38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.loopexit_crit_edge, %6
   %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.loopexit_crit_edge ], [ %41, %38 ]
@@ -2795,7 +2795,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !6
+  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11: ; preds = %89, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11_crit_edge, %56
   %98 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11_crit_edge ], [ %74, %56 ], [ %74, %.lr.ph.i5 ], [ %74, %89 ]
@@ -2834,7 +2834,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11: ; preds
   %113 = getelementptr inbounds nuw i8, ptr %100, i64 128
   %114 = load ptr, ptr %113, align 8
   %115 = shl nuw nsw i64 %108, 3
-  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef range(i64 8, 2041) %115, i64 noundef %110) #19, !alias.scope !15
+  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef range(i64 8, 2041) %115, i64 noundef %110) #19, !alias.scope !17
   br label %.preheader
 
 117:                                              ; preds = %121
@@ -2850,7 +2850,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit11: ; preds
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, ft_framenum_type>>::Entry", ptr %111, i64 %.011.i.i
   store i8 %123, ptr %124, align 1
   %exitcond.not.i.i = icmp eq i64 %122, %109
-  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !21
 
 125:                                              ; preds = %117
   tail call void @_ZdaPv(ptr noundef nonnull %119) #18
@@ -2962,7 +2962,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   %36 = add i64 %28, 144
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %38 = icmp eq ptr %37, %26
-  br i1 %38, label %_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEEC2Em.exit, label %27
+  br i1 %38, label %_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEEC2Em.exit, label %27, !llvm.loop !22
 
 _ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEEC2Em.exit: ; preds = %27, %.noexc
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3023,7 +3023,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %45
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i: ; preds = %62, %.preheader.i
   %63 = icmp eq ptr %59, %51
-  br i1 %63, label %.loopexit.i, label %.preheader.i
+  br i1 %63, label %.loopexit.i, label %.preheader.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit.i, %53
   %64 = or disjoint i64 %.idx.i, 8
@@ -3130,7 +3130,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %47 = add i64 %39, 144
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %49 = icmp eq ptr %48, %37
-  br i1 %49, label %.loopexit, label %38
+  br i1 %49, label %.loopexit, label %38, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %23
   store ptr %34, ptr %13, align 8
@@ -3158,7 +3158,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 59:                                               ; preds = %146
   %60 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %60, %52
-  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !20
+  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !24
 
 61:                                               ; preds = %54, %146
   %.02331 = phi i64 [ 0, %54 ], [ %147, %146 ]
@@ -3220,7 +3220,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %105 = getelementptr [128 x i8], ptr %104, i64 0, i64 %103
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, -1
-  br i1 %107, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %107, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !8
 
 108:                                              ; preds = %64
   %109 = add nuw nsw i64 %.02331, %58
@@ -3260,7 +3260,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %126 = load ptr, ptr %125, align 8
   %127 = shl nuw nsw i64 %120, 3
-  %128 = tail call ptr @__memcpy_chk(ptr noundef %123, ptr noundef %126, i64 noundef range(i64 8, 2041) %127, i64 noundef %122) #19, !alias.scope !21
+  %128 = tail call ptr @__memcpy_chk(ptr noundef %123, ptr noundef %126, i64 noundef range(i64 8, 2041) %127, i64 noundef %122) #19, !alias.scope !25
   br label %.preheader
 
 129:                                              ; preds = %133
@@ -3276,7 +3276,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %136 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, ft_framenum_type>>::Entry", ptr %123, i64 %.011.i.i
   store i8 %135, ptr %136, align 1
   %exitcond.not.i.i = icmp eq i64 %134, %121
-  br i1 %exitcond.not.i.i, label %129, label %133, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %129, label %133, !llvm.loop !21
 
 137:                                              ; preds = %129
   tail call void @_ZdaPv(ptr noundef nonnull %131) #18
@@ -3306,7 +3306,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 146:                                              ; preds = %61, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
   %147 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %147, 128
-  br i1 %exitcond.not, label %59, label %61, !llvm.loop !25
+  br i1 %exitcond.not, label %59, label %61, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3393,7 +3393,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %41 = add i64 %33, 144
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %43 = icmp eq ptr %42, %31
-  br i1 %43, label %.loopexit31, label %32
+  br i1 %43, label %.loopexit31, label %32, !llvm.loop !30
 
 .loopexit31:                                      ; preds = %32, %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
   store ptr %28, ptr %16, align 8
@@ -3430,7 +3430,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit: ; preds = %51, %53
   %54 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %54, %45
-  br i1 %exitcond35.not, label %._crit_edge, label %48, !llvm.loop !26
+  br i1 %exitcond35.not, label %._crit_edge, label %48, !llvm.loop !31
 
 55:                                               ; preds = %48, %134
   %.02332 = phi i64 [ 0, %48 ], [ %135, %134 ]
@@ -3494,7 +3494,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit: ; preds 
   %98 = getelementptr [128 x i8], ptr %97, i64 0, i64 %96
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, -1
-  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds = %92, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.loopexit_crit_edge, %58
   %.pre-phi37 = phi i64 [ %79, %58 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.loopexit_crit_edge ], [ %96, %92 ]
@@ -3527,7 +3527,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %113 = getelementptr inbounds nuw i8, ptr %101, i64 128
   %114 = load ptr, ptr %113, align 8
   %115 = shl nuw nsw i64 %108, 3
-  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef range(i64 8, 2041) %115, i64 noundef %110) #19, !alias.scope !27
+  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef range(i64 8, 2041) %115, i64 noundef %110) #19, !alias.scope !32
   br label %.preheader43
 
 117:                                              ; preds = %121
@@ -3543,7 +3543,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, ft_framenum_type>>::Entry", ptr %111, i64 %.011.i.i
   store i8 %123, ptr %124, align 1
   %exitcond.not.i.i = icmp eq i64 %122, %109
-  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !21
 
 125:                                              ; preds = %117
   tail call void @_ZdaPv(ptr noundef nonnull %119) #18
@@ -3573,7 +3573,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 134:                                              ; preds = %55, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
   %135 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %135, 128
-  br i1 %exitcond.not, label %51, label %55, !llvm.loop !31
+  br i1 %exitcond.not, label %51, label %55, !llvm.loop !36
 
 136:                                              ; preds = %._crit_edge
   %137 = getelementptr inbounds i8, ptr %17, i64 -8
@@ -3601,7 +3601,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit: ; preds = %.preheader, %145
   %146 = icmp eq ptr %142, %17
-  br i1 %146, label %.loopexit, label %.preheader
+  br i1 %146, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit, %136
   %147 = or disjoint i64 %.idx, 8
@@ -3656,28 +3656,34 @@ attributes #21 = { builtin allocsize(0) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
-!10 = distinct !{!10, !"_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
-!29 = distinct !{!29, !"memcpy.inline"}
-!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
-!31 = distinct !{!31, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
+!12 = distinct !{!12, !"_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
+!13 = distinct !{!13, !9, !7}
+!14 = distinct !{!14, !9, !7}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = distinct !{!21, !9, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !9, !7}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
+!27 = distinct !{!27, !"memcpy.inline"}
+!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
+!29 = distinct !{!29, !9, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !9, !7}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
+!34 = distinct !{!34, !"memcpy.inline"}
+!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
+!36 = distinct !{!36, !9, !7}
+!37 = distinct !{!37, !7}

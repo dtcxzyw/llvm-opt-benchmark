@@ -165,7 +165,7 @@ _ZN4core3ops8function5FnMut8call_mut17h89ebcd1db5553a9bE.exit.i.i.i.i: ; preds =
   call void @"_ZN79_$LT$std..env..SplitPaths$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2bf866ac28233252E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %30 = load i64, ptr %11, align 8, !range !23, !noundef !24
   %.not = icmp eq i64 %30, -9223372036854775808
-  br i1 %.not, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17heea8c68be8e8548dE.exit", label %16
+  br i1 %.not, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17heea8c68be8e8548dE.exit", label %16, !llvm.loop !69
 
 31:                                               ; preds = %27
   %.sroa.76.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -173,9 +173,9 @@ _ZN4core3ops8function5FnMut8call_mut17h89ebcd1db5553a9bE.exit.i.i.i.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !26
-  store i64 %28, ptr %0, align 8, !alias.scope !69
+  store i64 %28, ptr %0, align 8, !alias.scope !71
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2, i64 16, i1 false), !alias.scope !69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2, i64 16, i1 false), !alias.scope !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %32
 
@@ -296,7 +296,9 @@ attributes #6 = { cold noreturn nounwind }
 !66 = !{!67}
 !67 = distinct !{!67, !68, !"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h6665f4fb76ba2620E: argument 0"}
 !68 = distinct !{!68, !"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h6665f4fb76ba2620E"}
-!69 = !{!70, !72}
-!70 = distinct !{!70, !71, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E: argument 0"}
-!71 = distinct !{!71, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E"}
-!72 = distinct !{!72, !71, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E: argument 1"}
+!69 = distinct !{!69, !70}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!72, !74}
+!72 = distinct !{!72, !73, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E: argument 0"}
+!73 = distinct !{!73, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E"}
+!74 = distinct !{!74, !73, !"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h93dca9eecb587c68E: argument 1"}

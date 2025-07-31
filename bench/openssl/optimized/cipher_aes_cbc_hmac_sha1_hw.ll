@@ -738,15 +738,15 @@ sha1_update.exit421:                              ; preds = %266, %267
   %405 = load i32, ptr %281, align 16, !tbaa !8
   %406 = and i32 %404, %385
   %407 = or i32 %406, %405
-  %408 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %387) #10, !srcloc !38
+  %408 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %387) #10, !srcloc !39
   store i32 %408, ptr %150, align 32, !tbaa !8
-  %409 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %392) #10, !srcloc !39
+  %409 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %392) #10, !srcloc !40
   store i32 %409, ptr %278, align 4, !tbaa !8
-  %410 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %397) #10, !srcloc !40
+  %410 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %397) #10, !srcloc !41
   store i32 %410, ptr %279, align 8, !tbaa !8
-  %411 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %402) #10, !srcloc !41
+  %411 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %402) #10, !srcloc !42
   store i32 %411, ptr %280, align 4, !tbaa !8
-  %412 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %407) #10, !srcloc !42
+  %412 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %407) #10, !srcloc !43
   store i32 %412, ptr %281, align 16, !tbaa !8
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %413, i64 96, i1 false), !tbaa.struct !7
@@ -811,7 +811,7 @@ sha1_update.exit430:                              ; preds = %415, %.thread451
   %452 = add i64 %.1355474, %451
   %453 = add nuw nsw i64 %.3475, 1
   %exitcond482.not = icmp eq i64 %453, %429
-  br i1 %exitcond482.not, label %sha1_update.exit439, label %430, !llvm.loop !43
+  br i1 %exitcond482.not, label %sha1_update.exit439, label %430, !llvm.loop !44
 
 454:                                              ; preds = %146
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -976,7 +976,7 @@ sha1_update.exit:                                 ; preds = %35, %36
   store i8 %43, ptr %41, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %44, label %40, !llvm.loop !44
+  br i1 %exitcond.not, label %44, label %40, !llvm.loop !45
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -1041,7 +1041,7 @@ sha1_update.exit30:                               ; preds = %sha1_update.exit30.
   store i8 %75, ptr %73, align 1, !tbaa !8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 64
-  br i1 %exitcond57.not, label %76, label %sha1_update.exit30, !llvm.loop !45
+  br i1 %exitcond57.not, label %76, label %sha1_update.exit30, !llvm.loop !46
 
 76:                                               ; preds = %sha1_update.exit30
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -1194,7 +1194,7 @@ sha1_update.exit:                                 ; preds = %41, %.thread45
 .sink.split:                                      ; preds = %sha1_update.exit, %53
   %.sink = phi i64 [ 20, %53 ], [ %52, %sha1_update.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store i64 %.sink, ptr %56, align 8, !tbaa !46
+  store i64 %.sink, ptr %56, align 8, !tbaa !47
   br label %57
 
 57:                                               ; preds = %.sink.split, %29, %3
@@ -1205,7 +1205,7 @@ sha1_update.exit:                                 ; preds = %41, %.thread45
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483627, -2147483648) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_max_bufsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %3 = load i64, ptr %2, align 8, !tbaa !47
+  %3 = load i64, ptr %2, align 8, !tbaa !48
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1224,7 +1224,7 @@ define internal range(i32 -2147483627, -2147483648) i32 @aesni_cbc_hmac_sha1_tls
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(ptr noundef initializes((472, 476)) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %6 = load i8, ptr %5, align 1, !tbaa !8
   %7 = zext i8 %6 to i32
@@ -1234,9 +1234,9 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(pt
   %11 = zext i8 %10 to i32
   %12 = or disjoint i32 %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !50
+  %14 = load i32, ptr %13, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i32 %14, ptr %15, align 8, !tbaa !51
+  store i32 %14, ptr %15, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %17 = load i8, ptr %16, align 4
   %18 = and i8 %17, 2
@@ -1282,7 +1282,7 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(pt
 39:                                               ; preds = %37
   %40 = lshr i32 %14, 2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !52
+  %42 = load i64, ptr %41, align 8, !tbaa !53
   %43 = trunc i64 %42 to i32
   br label %44
 
@@ -1292,7 +1292,7 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(pt
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 8 dereferenceable(96) %46, i64 96, i1 false), !tbaa.struct !7
-  %47 = load ptr, ptr %3, align 8, !tbaa !48
+  %47 = load ptr, ptr %3, align 8, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %.not.i = icmp eq i32 %49, 0
@@ -1347,10 +1347,10 @@ sha1_update.exit:                                 ; preds = %50, %.thread62
   %79 = and i32 %78, -16
   %80 = sub i32 %79, %75
   %81 = add i32 %80, %77
-  store i32 %58, ptr %13, align 8, !tbaa !50
-  store i32 %58, ptr %15, align 8, !tbaa !51
+  store i32 %58, ptr %13, align 8, !tbaa !51
+  store i32 %58, ptr %15, align 8, !tbaa !52
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  store i32 %81, ptr %82, align 4, !tbaa !53
+  store i32 %81, ptr %82, align 4, !tbaa !54
   br label %83
 
 83:                                               ; preds = %2, %37, %30, %19, %73
@@ -1365,13 +1365,13 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %5 = alloca [8 x %struct.CIPH_DESC], align 16
   %6 = alloca [192 x i8], align 16
   %7 = alloca [8 x %union.anon.3], align 16
-  %8 = load ptr, ptr %1, align 8, !tbaa !54
+  %8 = load ptr, ptr %1, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !52
+  %12 = load i64, ptr %11, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !50
+  %14 = load i32, ptr %13, align 8, !tbaa !51
   %15 = lshr i32 %14, 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
@@ -1380,7 +1380,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #9
   %16 = and i32 %14, -4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = shl i32 %15, 6
   %20 = zext i32 %19 to i64
   %21 = call i32 @RAND_bytes_ex(ptr noundef %18, ptr noundef nonnull %7, i64 noundef %20, i32 noundef 0) #9
@@ -1417,11 +1417,11 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
 44:                                               ; preds = %41, %36, %23
   %.0303.i = phi i32 [ %43, %41 ], [ %34, %36 ], [ %34, %23 ]
   %.0302.i = phi i32 [ %42, %41 ], [ %31, %36 ], [ %31, %23 ]
-  store ptr %10, ptr %3, align 16, !tbaa !56
-  store ptr %10, ptr %5, align 16, !tbaa !58
+  store ptr %10, ptr %3, align 16, !tbaa !57
+  store ptr %10, ptr %5, align 16, !tbaa !59
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !60
+  store ptr %45, ptr %46, align 8, !tbaa !61
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %47, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1433,7 +1433,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %50 = load i64, ptr %49, align 4
   store i64 %50, ptr %7, align 16
-  %51 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %50) #10, !srcloc !61
+  %51 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %50) #10, !srcloc !62
   br label %._crit_edge330.i
 
 .lr.ph.i:                                         ; preds = %44
@@ -1453,27 +1453,27 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %59 = add nsw i64 %indvars.iv.i, -1
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %55
   %61 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %3, i64 0, i64 %indvars.iv.i
-  store ptr %60, ptr %61, align 16, !tbaa !56
+  store ptr %60, ptr %61, align 16, !tbaa !57
   %62 = getelementptr inbounds nuw [8 x %struct.CIPH_DESC], ptr %5, i64 0, i64 %indvars.iv.i
-  store ptr %60, ptr %62, align 8, !tbaa !58
+  store ptr %60, ptr %62, align 8, !tbaa !59
   %63 = getelementptr inbounds nuw [8 x %struct.CIPH_DESC], ptr %5, i64 0, i64 %59, i32 1
-  %64 = load ptr, ptr %63, align 8, !tbaa !60
+  %64 = load ptr, ptr %63, align 8, !tbaa !61
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %56
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %65, ptr %66, align 8, !tbaa !60
+  store ptr %65, ptr %66, align 8, !tbaa !61
   %67 = getelementptr inbounds i8, ptr %65, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %67, ptr noundef nonnull align 1 dereferenceable(16) %.0310.i, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 1 dereferenceable(16) %.0310.i, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph329.i, label %57, !llvm.loop !62
+  br i1 %exitcond.not.i, label %.lr.ph329.i, label %57, !llvm.loop !63
 
 .lr.ph329.i:                                      ; preds = %57
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %70 = load i64, ptr %69, align 4
   store i64 %70, ptr %7, align 16
-  %71 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %70) #10, !srcloc !61
+  %71 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %70) #10, !srcloc !62
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %73 = add nsw i32 %16, -1
   %74 = load i32, ptr %72, align 8, !tbaa !31
@@ -1510,7 +1510,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %98 = getelementptr inbounds nuw [8 x i32], ptr %86, i64 0, i64 %indvars.iv365.i
   store i32 %85, ptr %98, align 4, !tbaa !3
   %99 = add i64 %indvars.iv365.i, %71
-  %100 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %99) #10, !srcloc !63
+  %100 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %99) #10, !srcloc !64
   %101 = getelementptr inbounds nuw [8 x %union.anon.3], ptr %7, i64 0, i64 %indvars.iv365.i
   store i64 %100, ptr %101, align 16, !tbaa !8
   %102 = load i8, ptr %87, align 4, !tbaa !8
@@ -1531,21 +1531,21 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   store i8 %111, ptr %112, align 4, !tbaa !8
   %113 = getelementptr inbounds nuw i8, ptr %101, i64 13
   %114 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %3, i64 0, i64 %indvars.iv365.i
-  %115 = load ptr, ptr %114, align 16, !tbaa !56
+  %115 = load ptr, ptr %114, align 16, !tbaa !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %113, ptr noundef nonnull align 1 dereferenceable(51) %115, i64 51, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 51
-  store ptr %116, ptr %114, align 16, !tbaa !56
+  store ptr %116, ptr %114, align 16, !tbaa !57
   %117 = add i32 %93, -51
   %118 = lshr i32 %117, 6
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 %118, ptr %119, align 8, !tbaa !64
+  store i32 %118, ptr %119, align 8, !tbaa !65
   %120 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv365.i
-  store ptr %101, ptr %120, align 16, !tbaa !56
+  store ptr %101, ptr %120, align 16, !tbaa !57
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i32 1, ptr %121, align 8, !tbaa !64
+  store i32 1, ptr %121, align 8, !tbaa !65
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
   %exitcond369.not.i = icmp eq i64 %indvars.iv.next366.i, %wide.trip.count.i
-  br i1 %exitcond369.not.i, label %._crit_edge330.i, label %91, !llvm.loop !65
+  br i1 %exitcond369.not.i, label %._crit_edge330.i, label %91, !llvm.loop !66
 
 ._crit_edge330.i:                                 ; preds = %91, %._crit_edge.thread.i
   call void @sha1_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef range(i32 0, 1073741824) %15) #9
@@ -1580,53 +1580,53 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
 128:                                              ; preds = %128, %.lr.ph335.us.i
   %indvars.iv375.i = phi i64 [ 0, %.lr.ph335.us.i ], [ %indvars.iv.next376.i, %128 ]
   %129 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %3, i64 0, i64 %indvars.iv375.i
-  %130 = load ptr, ptr %129, align 16, !tbaa !56
+  %130 = load ptr, ptr %129, align 16, !tbaa !57
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2048
-  store ptr %131, ptr %129, align 16, !tbaa !56
+  store ptr %131, ptr %129, align 16, !tbaa !57
   %132 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv375.i
-  store ptr %131, ptr %132, align 16, !tbaa !56
+  store ptr %131, ptr %132, align 16, !tbaa !57
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !64
+  %134 = load i32, ptr %133, align 8, !tbaa !65
   %135 = add nsw i32 %134, -32
-  store i32 %135, ptr %133, align 8, !tbaa !64
+  store i32 %135, ptr %133, align 8, !tbaa !65
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 32, ptr %136, align 8, !tbaa !64
+  store i32 32, ptr %136, align 8, !tbaa !65
   %137 = getelementptr inbounds nuw [8 x %struct.CIPH_DESC], ptr %5, i64 0, i64 %indvars.iv375.i
-  %138 = load ptr, ptr %137, align 8, !tbaa !58
+  %138 = load ptr, ptr %137, align 8, !tbaa !59
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 2048
-  store ptr %139, ptr %137, align 8, !tbaa !58
+  store ptr %139, ptr %137, align 8, !tbaa !59
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %141 = load ptr, ptr %140, align 8, !tbaa !60
+  %141 = load ptr, ptr %140, align 8, !tbaa !61
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 2048
-  store ptr %142, ptr %140, align 8, !tbaa !60
+  store ptr %142, ptr %140, align 8, !tbaa !61
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store i32 128, ptr %143, align 8, !tbaa !66
+  store i32 128, ptr %143, align 8, !tbaa !67
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 2032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 1 dereferenceable(16) %145, i64 16, i1 false)
   %indvars.iv.next376.i = add nuw nsw i64 %indvars.iv375.i, 1
   %exitcond379.not.i = icmp eq i64 %indvars.iv.next376.i, %wide.trip.count373.i
-  br i1 %exitcond379.not.i, label %._crit_edge336.us.i, label %128, !llvm.loop !67
+  br i1 %exitcond379.not.i, label %._crit_edge336.us.i, label %128, !llvm.loop !68
 
 ._crit_edge336.us.i:                              ; preds = %128
   %146 = add i32 %.1308.us.i, 2048
   %147 = add nsw i32 %.0306.us.i, -32
   %148 = icmp ugt i32 %147, 32
-  br i1 %148, label %.lr.ph335.us.i, label %.loopexit.i, !llvm.loop !68
+  br i1 %148, label %.lr.ph335.us.i, label %.loopexit.i, !llvm.loop !69
 
 .lr.ph332.i:                                      ; preds = %.lr.ph332.i, %.lr.ph332.preheader.i
   %indvars.iv370.i = phi i64 [ 0, %.lr.ph332.preheader.i ], [ %indvars.iv.next371.i, %.lr.ph332.i ]
   %149 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %3, i64 0, i64 %indvars.iv370.i
-  %150 = load ptr, ptr %149, align 16, !tbaa !56
+  %150 = load ptr, ptr %149, align 16, !tbaa !57
   %151 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv370.i
-  store ptr %150, ptr %151, align 16, !tbaa !56
+  store ptr %150, ptr %151, align 16, !tbaa !57
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store i32 32, ptr %152, align 8, !tbaa !64
+  store i32 32, ptr %152, align 8, !tbaa !65
   %153 = getelementptr inbounds nuw [8 x %struct.CIPH_DESC], ptr %5, i64 0, i64 %indvars.iv370.i, i32 2
-  store i32 128, ptr %153, align 8, !tbaa !66
+  store i32 128, ptr %153, align 8, !tbaa !67
   %indvars.iv.next371.i = add nuw nsw i64 %indvars.iv370.i, 1
   %exitcond374.not.i = icmp eq i64 %indvars.iv.next371.i, %wide.trip.count373.i
-  br i1 %exitcond374.not.i, label %.lr.ph335.us.preheader.i, label %.lr.ph332.i, !llvm.loop !70
+  br i1 %exitcond374.not.i, label %.lr.ph335.us.preheader.i, label %.lr.ph332.i, !llvm.loop !71
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %.0306.i = phi i32 [ %154, %.preheader.split.i ], [ %124, %.preheader.split.preheader.i ]
@@ -1634,7 +1634,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %127, i32 noundef 0) #9
   %154 = add nsw i32 %.0306.i, -32
   %155 = icmp ugt i32 %154, 32
-  br i1 %155, label %.preheader.split.i, label %.loopexit.thread.i, !llvm.loop !71
+  br i1 %155, label %.preheader.split.i, label %.loopexit.thread.i, !llvm.loop !72
 
 .loopexit.thread.i:                               ; preds = %.preheader.split.i
   call void @sha1_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef range(i32 0, 1073741824) %15) #9
@@ -1659,9 +1659,9 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %160 = select i1 %159, i32 %.0303.i, i32 %.0302.i
   %161 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %3, i64 0, i64 %indvars.iv380.i
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !64
+  %163 = load i32, ptr %162, align 8, !tbaa !65
   %164 = shl nsw i32 %163, 6
-  %165 = load ptr, ptr %161, align 16, !tbaa !56
+  %165 = load ptr, ptr %161, align 16, !tbaa !57
   %166 = zext i32 %164 to i64
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 %166
   %168 = add i32 %160, -51
@@ -1681,12 +1681,12 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %171, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i32 %177, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !8
   %178 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv380.i, i32 1
-  store i32 %.404.i, ptr %178, align 8, !tbaa !64
+  store i32 %.404.i, ptr %178, align 8, !tbaa !65
   %179 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv380.i
-  store ptr %171, ptr %179, align 16, !tbaa !56
+  store ptr %171, ptr %179, align 16, !tbaa !57
   %indvars.iv.next381.i = add nuw nsw i64 %indvars.iv380.i, 1
   %exitcond384.not.i = icmp eq i64 %indvars.iv.next381.i, %wide.trip.count383.i
-  br i1 %exitcond384.not.i, label %._crit_edge340.i, label %158, !llvm.loop !72
+  br i1 %exitcond384.not.i, label %._crit_edge340.i, label %158, !llvm.loop !73
 
 ._crit_edge340.thread.i:                          ; preds = %.loopexit.i, %.loopexit.thread.i
   call void @sha1_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef range(i32 0, 1073741824) %15) #9
@@ -1712,51 +1712,51 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %indvars.iv385.i = phi i64 [ 0, %._crit_edge340.i ], [ %indvars.iv.next386.i, %189 ]
   %190 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv385.i
   %191 = load i32, ptr %190, align 4, !tbaa !3
-  %192 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %191) #10, !srcloc !73
+  %192 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %191) #10, !srcloc !74
   %193 = getelementptr inbounds nuw [8 x %union.anon.3], ptr %7, i64 0, i64 %indvars.iv385.i
   store i32 %192, ptr %193, align 16, !tbaa !8
-  %194 = load i32, ptr %180, align 8, !tbaa !74
+  %194 = load i32, ptr %180, align 8, !tbaa !75
   store i32 %194, ptr %190, align 4, !tbaa !3
   %195 = getelementptr inbounds nuw [8 x i32], ptr %181, i64 0, i64 %indvars.iv385.i
   %196 = load i32, ptr %195, align 4, !tbaa !3
-  %197 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %196) #10, !srcloc !75
+  %197 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %196) #10, !srcloc !76
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store i32 %197, ptr %198, align 4, !tbaa !8
-  %199 = load i32, ptr %182, align 4, !tbaa !76
+  %199 = load i32, ptr %182, align 4, !tbaa !77
   store i32 %199, ptr %195, align 4, !tbaa !3
   %200 = getelementptr inbounds nuw [8 x i32], ptr %183, i64 0, i64 %indvars.iv385.i
   %201 = load i32, ptr %200, align 4, !tbaa !3
-  %202 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %201) #10, !srcloc !77
+  %202 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %201) #10, !srcloc !78
   %203 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i32 %202, ptr %203, align 8, !tbaa !8
-  %204 = load i32, ptr %184, align 8, !tbaa !78
+  %204 = load i32, ptr %184, align 8, !tbaa !79
   store i32 %204, ptr %200, align 4, !tbaa !3
   %205 = getelementptr inbounds nuw [8 x i32], ptr %185, i64 0, i64 %indvars.iv385.i
   %206 = load i32, ptr %205, align 4, !tbaa !3
-  %207 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %206) #10, !srcloc !79
+  %207 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %206) #10, !srcloc !80
   %208 = getelementptr inbounds nuw i8, ptr %193, i64 12
   store i32 %207, ptr %208, align 4, !tbaa !8
-  %209 = load i32, ptr %186, align 4, !tbaa !80
+  %209 = load i32, ptr %186, align 4, !tbaa !81
   store i32 %209, ptr %205, align 4, !tbaa !3
   %210 = getelementptr inbounds nuw [8 x i32], ptr %187, i64 0, i64 %indvars.iv385.i
   %211 = load i32, ptr %210, align 4, !tbaa !3
-  %212 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %211) #10, !srcloc !81
+  %212 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %211) #10, !srcloc !82
   %213 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i32 %212, ptr %213, align 16, !tbaa !8
-  %214 = load i32, ptr %188, align 8, !tbaa !82
+  %214 = load i32, ptr %188, align 8, !tbaa !83
   store i32 %214, ptr %210, align 4, !tbaa !3
   %215 = getelementptr inbounds nuw i8, ptr %193, i64 20
   store i8 -128, ptr %215, align 4, !tbaa !8
-  %216 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 672) #10, !srcloc !83
+  %216 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 672) #10, !srcloc !84
   %217 = getelementptr inbounds nuw i8, ptr %193, i64 60
   store i32 %216, ptr %217, align 4, !tbaa !8
   %218 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv385.i
-  store ptr %193, ptr %218, align 16, !tbaa !56
+  store ptr %193, ptr %218, align 16, !tbaa !57
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  store i32 1, ptr %219, align 8, !tbaa !64
+  store i32 1, ptr %219, align 8, !tbaa !65
   %indvars.iv.next386.i = add nuw nsw i64 %indvars.iv385.i, 1
   %exitcond389.not.i = icmp eq i64 %indvars.iv.next386.i, %wide.trip.count383.i
-  br i1 %exitcond389.not.i, label %.lr.ph351.i, label %189, !llvm.loop !84
+  br i1 %exitcond389.not.i, label %.lr.ph351.i, label %189, !llvm.loop !85
 
 .lr.ph351.i:                                      ; preds = %189
   call void @sha1_multi_block(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef range(i32 0, 1073741824) %15) #9
@@ -1773,38 +1773,38 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %225 = select i1 %224, i32 %.0303.i, i32 %.0302.i
   %226 = getelementptr inbounds nuw [8 x %struct.CIPH_DESC], ptr %5, i64 0, i64 %indvars.iv391.i
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !60
-  %229 = load ptr, ptr %226, align 8, !tbaa !58
+  %228 = load ptr, ptr %227, align 8, !tbaa !61
+  %229 = load ptr, ptr %226, align 8, !tbaa !59
   %230 = sub i32 %225, %.0307.i
   %231 = zext i32 %230 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr align 1 %229, i64 %231, i1 false)
-  %232 = load ptr, ptr %227, align 8, !tbaa !60
-  store ptr %232, ptr %226, align 8, !tbaa !58
+  %232 = load ptr, ptr %227, align 8, !tbaa !61
+  store ptr %232, ptr %226, align 8, !tbaa !59
   %233 = add i32 %225, 21
   %234 = zext i32 %233 to i64
   %235 = getelementptr i8, ptr %.0300349.i, i64 %234
   %236 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv391.i
   %237 = load i32, ptr %236, align 4, !tbaa !3
-  %238 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %237) #10, !srcloc !85
+  %238 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %237) #10, !srcloc !86
   store i32 %238, ptr %235, align 4, !tbaa !3
   %239 = getelementptr inbounds nuw [8 x i32], ptr %181, i64 0, i64 %indvars.iv391.i
   %240 = load i32, ptr %239, align 4, !tbaa !3
-  %241 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %240) #10, !srcloc !86
+  %241 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %240) #10, !srcloc !87
   %242 = getelementptr inbounds nuw i8, ptr %235, i64 4
   store i32 %241, ptr %242, align 4, !tbaa !3
   %243 = getelementptr inbounds nuw [8 x i32], ptr %183, i64 0, i64 %indvars.iv391.i
   %244 = load i32, ptr %243, align 4, !tbaa !3
-  %245 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #10, !srcloc !87
+  %245 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #10, !srcloc !88
   %246 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i32 %245, ptr %246, align 4, !tbaa !3
   %247 = getelementptr inbounds nuw [8 x i32], ptr %185, i64 0, i64 %indvars.iv391.i
   %248 = load i32, ptr %247, align 4, !tbaa !3
-  %249 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %248) #10, !srcloc !88
+  %249 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %248) #10, !srcloc !89
   %250 = getelementptr inbounds nuw i8, ptr %235, i64 12
   store i32 %249, ptr %250, align 4, !tbaa !3
   %251 = getelementptr inbounds nuw [8 x i32], ptr %187, i64 0, i64 %indvars.iv391.i
   %252 = load i32, ptr %251, align 4, !tbaa !3
-  %253 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %252) #10, !srcloc !89
+  %253 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %252) #10, !srcloc !90
   %254 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store i32 %253, ptr %254, align 4, !tbaa !3
   %255 = getelementptr i8, ptr %235, i64 20
@@ -1825,7 +1825,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %266 = add i32 %reass.sub, 36
   %267 = lshr i32 %266, 4
   %268 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  store i32 %267, ptr %268, align 8, !tbaa !66
+  store i32 %267, ptr %268, align 8, !tbaa !67
   %269 = add i32 %265, 52
   %270 = load i8, ptr %220, align 4, !tbaa !8
   store i8 %270, ptr %.0300349.i, align 1, !tbaa !8
@@ -1847,7 +1847,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %282 = add i64 %.0309347.i, %281
   %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
   %exitcond395.not.i = icmp eq i64 %indvars.iv.next392.i, %wide.trip.count383.i
-  br i1 %exitcond395.not.i, label %._crit_edge352.i, label %223, !llvm.loop !90
+  br i1 %exitcond395.not.i, label %._crit_edge352.i, label %223, !llvm.loop !91
 
 ._crit_edge352.i:                                 ; preds = %223, %._crit_edge340.thread.i
   %.0309.lcssa.i = phi i64 [ 0, %._crit_edge340.thread.i ], [ %282, %223 ]
@@ -1856,7 +1856,7 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 1024) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %28, i64 noundef 160) #9
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i64 %.0309.lcssa.i, ptr %284, align 8, !tbaa !91
+  store i64 %.0309.lcssa.i, ptr %284, align 8, !tbaa !92
   %285 = trunc i64 %.0309.lcssa.i to i32
   br label %tls1_multi_block_encrypt.exit
 
@@ -1966,59 +1966,60 @@ attributes #11 = { noreturn nounwind }
 !33 = !{!22, !4, i64 704}
 !34 = !{!22, !4, i64 708}
 !35 = !{!22, !4, i64 712}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{i64 2149766990}
-!39 = !{i64 2149767155}
-!40 = !{i64 2149767320}
-!41 = !{i64 2149767485}
-!42 = !{i64 2149767650}
-!43 = distinct !{!43, !37}
-!44 = distinct !{!44, !37}
-!45 = distinct !{!45, !37}
-!46 = !{!10, !13, i64 496}
-!47 = !{!10, !13, i64 480}
-!48 = !{!49, !14, i64 8}
-!49 = !{!"", !14, i64 0, !14, i64 8, !13, i64 16, !4, i64 24}
-!50 = !{!49, !4, i64 24}
-!51 = !{!10, !4, i64 472}
-!52 = !{!49, !13, i64 16}
-!53 = !{!10, !4, i64 476}
-!54 = !{!49, !14, i64 0}
-!55 = !{!10, !16, i64 184}
-!56 = !{!57, !14, i64 0}
-!57 = !{!"", !14, i64 0, !4, i64 8}
-!58 = !{!59, !14, i64 0}
-!59 = !{!"", !14, i64 0, !14, i64 8, !4, i64 16, !5, i64 24}
-!60 = !{!59, !14, i64 8}
-!61 = !{i64 2149763736}
-!62 = distinct !{!62, !37}
-!63 = !{i64 2149763905}
-!64 = !{!57, !4, i64 8}
-!65 = distinct !{!65, !37}
-!66 = !{!59, !4, i64 16}
-!67 = distinct !{!67, !37}
-!68 = distinct !{!68, !37, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!70 = distinct !{!70, !37}
-!71 = distinct !{!71, !37}
-!72 = distinct !{!72, !37}
-!73 = !{i64 2149764456}
-!74 = !{!22, !4, i64 600}
-!75 = !{i64 2149764621}
-!76 = !{!22, !4, i64 604}
-!77 = !{i64 2149764786}
-!78 = !{!22, !4, i64 608}
-!79 = !{i64 2149764951}
-!80 = !{!22, !4, i64 612}
-!81 = !{i64 2149765116}
-!82 = !{!22, !4, i64 616}
-!83 = !{i64 2149765281}
-!84 = distinct !{!84, !37}
-!85 = !{i64 2149765492}
-!86 = !{i64 2149765700}
-!87 = !{i64 2149765908}
-!88 = !{i64 2149766117}
-!89 = !{i64 2149766326}
-!90 = distinct !{!90, !37}
-!91 = !{!10, !13, i64 488}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{i64 2149766990}
+!40 = !{i64 2149767155}
+!41 = !{i64 2149767320}
+!42 = !{i64 2149767485}
+!43 = !{i64 2149767650}
+!44 = distinct !{!44, !37, !38}
+!45 = distinct !{!45, !37, !38}
+!46 = distinct !{!46, !37, !38}
+!47 = !{!10, !13, i64 496}
+!48 = !{!10, !13, i64 480}
+!49 = !{!50, !14, i64 8}
+!50 = !{!"", !14, i64 0, !14, i64 8, !13, i64 16, !4, i64 24}
+!51 = !{!50, !4, i64 24}
+!52 = !{!10, !4, i64 472}
+!53 = !{!50, !13, i64 16}
+!54 = !{!10, !4, i64 476}
+!55 = !{!50, !14, i64 0}
+!56 = !{!10, !16, i64 184}
+!57 = !{!58, !14, i64 0}
+!58 = !{!"", !14, i64 0, !4, i64 8}
+!59 = !{!60, !14, i64 0}
+!60 = !{!"", !14, i64 0, !14, i64 8, !4, i64 16, !5, i64 24}
+!61 = !{!60, !14, i64 8}
+!62 = !{i64 2149763736}
+!63 = distinct !{!63, !37, !38}
+!64 = !{i64 2149763905}
+!65 = !{!58, !4, i64 8}
+!66 = distinct !{!66, !37, !38}
+!67 = !{!60, !4, i64 16}
+!68 = distinct !{!68, !37, !38}
+!69 = distinct !{!69, !37, !38, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !37, !38}
+!72 = distinct !{!72, !37, !38}
+!73 = distinct !{!73, !37, !38}
+!74 = !{i64 2149764456}
+!75 = !{!22, !4, i64 600}
+!76 = !{i64 2149764621}
+!77 = !{!22, !4, i64 604}
+!78 = !{i64 2149764786}
+!79 = !{!22, !4, i64 608}
+!80 = !{i64 2149764951}
+!81 = !{!22, !4, i64 612}
+!82 = !{i64 2149765116}
+!83 = !{!22, !4, i64 616}
+!84 = !{i64 2149765281}
+!85 = distinct !{!85, !37, !38}
+!86 = !{i64 2149765492}
+!87 = !{i64 2149765700}
+!88 = !{i64 2149765908}
+!89 = !{i64 2149766117}
+!90 = !{i64 2149766326}
+!91 = distinct !{!91, !37, !38}
+!92 = !{!10, !13, i64 488}

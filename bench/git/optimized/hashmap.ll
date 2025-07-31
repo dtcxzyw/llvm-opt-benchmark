@@ -59,7 +59,7 @@ define dso_local i32 @strihash(ptr noundef readonly captures(none) %0) local_unn
   %9 = xor i32 %spec.select, %8
   %10 = load i8, ptr %5, align 1, !tbaa !4
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ -2128831035, %1 ], [ %9, %.lr.ph ]
@@ -82,7 +82,7 @@ define dso_local i32 @memhash(ptr noundef readonly captures(none) %0, i64 nounde
   %7 = mul i32 %.068, 16777619
   %8 = xor i32 %7, %6
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.06.lcssa = phi i32 [ -2128831035, %2 ], [ %8, %.lr.ph ]
@@ -109,7 +109,7 @@ define dso_local i32 @memihash(ptr noundef readonly captures(none) %0, i64 nound
   %9 = mul i32 %.01015, 16777619
   %10 = xor i32 %spec.select, %9
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.010.lcssa = phi i32 [ -2128831035, %2 ], [ %10, %.lr.ph ]
@@ -136,7 +136,7 @@ define dso_local i32 @memihash_cont(i32 noundef %0, ptr noundef readonly capture
   %10 = mul i32 %.01116, 16777619
   %11 = xor i32 %spec.select, %10
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i32 [ %0, %3 ], [ %11, %.lr.ph ]
@@ -146,7 +146,7 @@ define dso_local i32 @memihash_cont(i32 noundef %0, ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @hashmap_bucket(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !13
+  %4 = load i32, ptr %3, align 4, !tbaa !14
   %5 = add i32 %4, -1
   %6 = and i32 %5, %1
   ret i32 %6
@@ -158,9 +158,9 @@ define dso_local void @hashmap_init(ptr noundef captures(none) initializes((0, 4
   %.not = icmp eq ptr %1, null
   %5 = select i1 %.not, ptr @always_equal, ptr %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !18
+  store ptr %5, ptr %6, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %7, align 8, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !20
   %8 = mul i64 %3, 100
   %9 = udiv i64 %8, 80
   %10 = and i64 %9, 4294967295
@@ -171,23 +171,23 @@ define dso_local void @hashmap_init(ptr noundef captures(none) initializes((0, 4
   %12 = zext i32 %.0 to i64
   %13 = icmp samesign ugt i64 %10, %12
   %14 = shl i32 %.0, 2
-  br i1 %13, label %11, label %15, !llvm.loop !20
+  br i1 %13, label %11, label %15, !llvm.loop !21
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0, ptr %16, align 4, !tbaa !13
+  store i32 %.0, ptr %16, align 4, !tbaa !14
   %17 = tail call ptr @xcalloc(i64 noundef %12, i64 noundef 8) #15
-  store ptr %17, ptr %0, align 8, !tbaa !21
+  store ptr %17, ptr %0, align 8, !tbaa !22
   %18 = mul nuw nsw i64 %12, 80
   %19 = udiv i64 %18, 100
   %20 = trunc nuw i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %20, ptr %21, align 8, !tbaa !22
+  store i32 %20, ptr %21, align 8, !tbaa !23
   %22 = icmp ult i32 %.0, 65
   %23 = udiv i32 %20, 5
   %.sink.i = select i1 %22, i32 0, i32 %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink.i, ptr %24, align 4, !tbaa !23
+  store i32 %.sink.i, ptr %24, align 4, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i8, ptr %25, align 8
   %27 = or i8 %26, 1
@@ -209,7 +209,7 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
   br i1 %.not, label %26, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !21
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %.not9 = icmp eq ptr %4, null
   br i1 %.not9, label %26, label %5
 
@@ -219,7 +219,7 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
   br i1 %6, label %8, label %.free_individual_entries.exit_crit_edge
 
 .free_individual_entries.exit_crit_edge:          ; preds = %5
-  %.pre10 = load i32, ptr %7, align 4, !tbaa !13
+  %.pre10 = load i32, ptr %7, align 4, !tbaa !14
   br label %free_individual_entries.exit
 
 8:                                                ; preds = %5
@@ -233,11 +233,11 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
   br i1 %.not16.i.i, label %.lr.ph.i.i, label %17
 
 .lr.ph.i.i:                                       ; preds = %10
-  %11 = load i32, ptr %7, align 4, !tbaa !13
+  %11 = load i32, ptr %7, align 4, !tbaa !14
   %12 = zext i32 %.sroa.7.0.i to i64
   %umax.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.7.0.i, i32 %11)
   %wide.trip.count.i.i = zext i32 %umax.i.i to i64
-  %.pre = load ptr, ptr %0, align 8, !tbaa !21
+  %.pre = load ptr, ptr %0, align 8, !tbaa !22
   br label %13
 
 13:                                               ; preds = %14, %.lr.ph.i.i
@@ -248,9 +248,9 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
 14:                                               ; preds = %13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i.i
-  %.0.i.i = load ptr, ptr %15, align 8, !tbaa !24
+  %.0.i.i = load ptr, ptr %15, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %13, label %.loopexit.i
+  br i1 %.not.i.i, label %13, label %.loopexit.i, !llvm.loop !27
 
 .loopexit.i:                                      ; preds = %14
   %16 = trunc nuw i64 %indvars.iv.next.i.i to i32
@@ -259,10 +259,10 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
 17:                                               ; preds = %.loopexit.i, %10
   %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %10 ], [ %16, %.loopexit.i ]
   %.0.lcssa.i.i = phi ptr [ %.sroa.4.0.i, %10 ], [ %.0.i.i, %.loopexit.i ]
-  %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !26
+  %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !28
   %19 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %9
   tail call void @free(ptr noundef nonnull %19) #15
-  br label %10, !llvm.loop !28
+  br label %10, !llvm.loop !30
 
 free_individual_entries.exit:                     ; preds = %13, %.free_individual_entries.exit_crit_edge
   %20 = phi i32 [ %.pre10, %.free_individual_entries.exit_crit_edge ], [ %11, %13 ]
@@ -271,9 +271,9 @@ free_individual_entries.exit:                     ; preds = %13, %.free_individu
   %23 = shl nuw nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %23, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %24, align 4, !tbaa !23
+  store i32 0, ptr %24, align 4, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %25, align 8, !tbaa !29
+  store i32 0, ptr %25, align 8, !tbaa !31
   br label %26
 
 26:                                               ; preds = %2, %3, %free_individual_entries.exit
@@ -286,7 +286,7 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !21
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %.not7 = icmp eq ptr %4, null
   br i1 %.not7, label %21, label %5
 
@@ -306,11 +306,11 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
   br i1 %.not16.i.i, label %.lr.ph.i.i, label %17
 
 .lr.ph.i.i:                                       ; preds = %10
-  %11 = load i32, ptr %8, align 4, !tbaa !13
+  %11 = load i32, ptr %8, align 4, !tbaa !14
   %12 = zext i32 %.sroa.7.0.i to i64
   %umax.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.7.0.i, i32 %11)
   %wide.trip.count.i.i = zext i32 %umax.i.i to i64
-  %.pre = load ptr, ptr %0, align 8, !tbaa !21
+  %.pre = load ptr, ptr %0, align 8, !tbaa !22
   br label %13
 
 13:                                               ; preds = %14, %.lr.ph.i.i
@@ -321,9 +321,9 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
 14:                                               ; preds = %13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i.i
-  %.0.i.i = load ptr, ptr %15, align 8, !tbaa !24
+  %.0.i.i = load ptr, ptr %15, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %13, label %.loopexit.i
+  br i1 %.not.i.i, label %13, label %.loopexit.i, !llvm.loop !27
 
 .loopexit.i:                                      ; preds = %14
   %16 = trunc nuw i64 %indvars.iv.next.i.i to i32
@@ -332,10 +332,10 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
 17:                                               ; preds = %.loopexit.i, %10
   %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %10 ], [ %16, %.loopexit.i ]
   %.0.lcssa.i.i = phi ptr [ %.sroa.4.0.i, %10 ], [ %.0.i.i, %.loopexit.i ]
-  %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !26
+  %18 = load ptr, ptr %.0.lcssa.i.i, align 8, !tbaa !28
   %19 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %9
   tail call void @free(ptr noundef nonnull %19) #15
-  br label %10, !llvm.loop !28
+  br label %10, !llvm.loop !30
 
 free_individual_entries.exit:                     ; preds = %13, %5
   %20 = phi ptr [ %4, %5 ], [ %.pre, %13 ]
@@ -352,21 +352,21 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashmap_get(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !21
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %find_entry_ptr.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 28
-  %.val.i = load i32, ptr %6, align 4, !tbaa !13
+  %.val.i = load i32, ptr %6, align 4, !tbaa !14
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val12.i = load i32, ptr %7, align 8, !tbaa !30
+  %.val12.i = load i32, ptr %7, align 8, !tbaa !32
   %8 = add i32 %.val.i, -1
   %9 = and i32 %.val12.i, %8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %11, align 8, !tbaa !24
+  %13 = load ptr, ptr %11, align 8, !tbaa !25
   %.not16.i = icmp eq ptr %13, null
   %14 = icmp eq ptr %13, %1
   %or.cond17.i = or i1 %.not16.i, %14
@@ -380,26 +380,26 @@ define dso_local ptr @hashmap_get(ptr noundef readonly captures(none) %0, ptr no
   %17 = phi ptr [ %13, %.lr.ph.i ], [ %26, %entry_equals.exit.thread.i ]
   %.018.i = phi ptr [ %11, %.lr.ph.i ], [ %25, %entry_equals.exit.thread.i ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !30
-  %20 = load i32, ptr %7, align 8, !tbaa !30
+  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %20 = load i32, ptr %7, align 8, !tbaa !32
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %entry_equals.exit.i, label %entry_equals.exit.thread.i
 
 entry_equals.exit.i:                              ; preds = %16
-  %22 = load ptr, ptr %12, align 8, !tbaa !18
-  %23 = load ptr, ptr %15, align 8, !tbaa !19
+  %22 = load ptr, ptr %12, align 8, !tbaa !19
+  %23 = load ptr, ptr %15, align 8, !tbaa !20
   %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #15
   %.not.i.not.i = icmp eq i32 %24, 0
-  %.pre.pre = load ptr, ptr %.018.i, align 8, !tbaa !24
+  %.pre.pre = load ptr, ptr %.018.i, align 8, !tbaa !25
   br i1 %.not.i.not.i, label %find_entry_ptr.exit, label %entry_equals.exit.thread.i
 
 entry_equals.exit.thread.i:                       ; preds = %entry_equals.exit.i, %16
   %25 = phi ptr [ %17, %16 ], [ %.pre.pre, %entry_equals.exit.i ]
-  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i = icmp eq ptr %26, null
   %27 = icmp eq ptr %26, %1
   %or.cond.i = or i1 %.not.i, %27
-  br i1 %or.cond.i, label %find_entry_ptr.exit, label %16, !llvm.loop !31
+  br i1 %or.cond.i, label %find_entry_ptr.exit, label %16, !llvm.loop !33
 
 find_entry_ptr.exit:                              ; preds = %entry_equals.exit.thread.i, %entry_equals.exit.i, %5, %3
   %.0 = phi ptr [ null, %3 ], [ %13, %5 ], [ %26, %entry_equals.exit.thread.i ], [ %.pre.pre, %entry_equals.exit.i ]
@@ -409,7 +409,7 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashmap_get_next(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.011 = load ptr, ptr %1, align 8, !tbaa !26
+  %.011 = load ptr, ptr %1, align 8, !tbaa !28
   %.not12 = icmp eq ptr %.011, null
   %4 = icmp eq ptr %1, %.011
   %or.cond13 = or i1 %.not12, %4
@@ -422,25 +422,25 @@ define dso_local ptr @hashmap_get_next(ptr noundef readonly captures(none) %0, p
 
 7:                                                ; preds = %.lr.ph, %.critedge.backedge
   %.014 = phi ptr [ %.011, %.lr.ph ], [ %.0, %.critedge.backedge ]
-  %8 = load i32, ptr %5, align 8, !tbaa !30
+  %8 = load i32, ptr %5, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !32
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %entry_equals.exit, label %.critedge.backedge
 
 entry_equals.exit:                                ; preds = %7
-  %12 = load ptr, ptr %3, align 8, !tbaa !18
-  %13 = load ptr, ptr %6, align 8, !tbaa !19
+  %12 = load ptr, ptr %3, align 8, !tbaa !19
+  %13 = load ptr, ptr %6, align 8, !tbaa !20
   %14 = tail call i32 %12(ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %.014, ptr noundef null) #15
   %.not.i.not = icmp eq i32 %14, 0
   br i1 %.not.i.not, label %entry_equals.exit.thread, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %entry_equals.exit, %7
-  %.0 = load ptr, ptr %.014, align 8, !tbaa !26
+  %.0 = load ptr, ptr %.014, align 8, !tbaa !28
   %.not = icmp eq ptr %.0, null
   %15 = icmp eq ptr %1, %.0
   %or.cond = or i1 %.not, %15
-  br i1 %or.cond, label %entry_equals.exit.thread, label %7, !llvm.loop !32
+  br i1 %or.cond, label %entry_equals.exit.thread, label %7, !llvm.loop !34
 
 entry_equals.exit.thread:                         ; preds = %entry_equals.exit, %.critedge.backedge, %2
   %.0.lcssa = phi ptr [ %.011, %2 ], [ %.0, %.critedge.backedge ], [ %.014, %entry_equals.exit ]
@@ -449,34 +449,34 @@ entry_equals.exit.thread:                         ; preds = %entry_equals.exit, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %3 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 64, ptr %5, align 4, !tbaa !13
+  store i32 64, ptr %5, align 4, !tbaa !14
   %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #15
-  store ptr %6, ptr %0, align 8, !tbaa !21
+  store ptr %6, ptr %0, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 51, ptr %7, align 8, !tbaa !22
+  store i32 51, ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %8, align 4, !tbaa !23
+  store i32 0, ptr %8, align 4, !tbaa !24
   br label %9
 
 9:                                                ; preds = %4, %2
   %10 = phi ptr [ %6, %4 ], [ %3, %2 ]
   %11 = getelementptr i8, ptr %0, i64 28
-  %.val = load i32, ptr %11, align 4, !tbaa !13
+  %.val = load i32, ptr %11, align 4, !tbaa !14
   %12 = getelementptr i8, ptr %1, i64 8
-  %.val16 = load i32, ptr %12, align 8, !tbaa !30
+  %.val16 = load i32, ptr %12, align 8, !tbaa !32
   %13 = add i32 %.val, -1
   %14 = and i32 %.val16, %13
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
-  store ptr %17, ptr %1, align 8, !tbaa !26
-  store ptr %1, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  store ptr %17, ptr %1, align 8, !tbaa !28
+  store ptr %1, ptr %16, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 1
@@ -485,29 +485,29 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !29
+  %23 = load i32, ptr %22, align 8, !tbaa !31
   %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8, !tbaa !29
+  store i32 %24, ptr %22, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !22
+  %26 = load i32, ptr %25, align 8, !tbaa !23
   %27 = icmp ugt i32 %24, %26
   br i1 %27, label %28, label %48
 
 28:                                               ; preds = %21
   %29 = shl i32 %.val, 2
-  store i32 %29, ptr %11, align 4, !tbaa !13
+  store i32 %29, ptr %11, align 4, !tbaa !14
   %30 = zext i32 %29 to i64
   %31 = tail call ptr @xcalloc(i64 noundef %30, i64 noundef 8) #15
-  store ptr %31, ptr %0, align 8, !tbaa !21
+  store ptr %31, ptr %0, align 8, !tbaa !22
   %32 = mul nuw nsw i64 %30, 80
   %33 = udiv i64 %32, 100
   %34 = trunc nuw i64 %33 to i32
-  store i32 %34, ptr %25, align 8, !tbaa !22
+  store i32 %34, ptr %25, align 8, !tbaa !23
   %35 = icmp ult i32 %29, 65
   %36 = udiv i32 %34, 5
   %.sink.i.i = select i1 %35, i32 0, i32 %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink.i.i, ptr %37, align 4, !tbaa !23
+  store i32 %.sink.i.i, ptr %37, align 4, !tbaa !24
   %.not27.i = icmp eq i32 %.val, 0
   br i1 %.not27.i, label %rehash.exit, label %.lr.ph25.preheader.i
 
@@ -518,33 +518,33 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   %.not21.i = icmp eq ptr %39, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25.i
-  %.val.i = load i32, ptr %11, align 4, !tbaa !13
+  %.val.i = load i32, ptr %11, align 4, !tbaa !14
   %40 = add i32 %.val.i, -1
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
   %.02022.i = phi ptr [ %39, %.lr.ph.i ], [ %42, %41 ]
-  %42 = load ptr, ptr %.02022.i, align 8, !tbaa !26
+  %42 = load ptr, ptr %.02022.i, align 8, !tbaa !28
   %43 = getelementptr i8, ptr %.02022.i, i64 8
-  %.020.val.i = load i32, ptr %43, align 8, !tbaa !30
+  %.020.val.i = load i32, ptr %43, align 8, !tbaa !32
   %44 = and i32 %.020.val.i, %40
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw ptr, ptr %31, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !24
-  store ptr %47, ptr %.02022.i, align 8, !tbaa !26
-  store ptr %.02022.i, ptr %46, align 8, !tbaa !24
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  store ptr %47, ptr %.02022.i, align 8, !tbaa !28
+  store ptr %.02022.i, ptr %46, align 8, !tbaa !25
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %._crit_edge.i, label %41, !llvm.loop !33
+  br i1 %.not.i, label %._crit_edge.i, label %41, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %41, %.lr.ph25.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !36
 
 rehash.exit:                                      ; preds = %._crit_edge.i, %28
   tail call void @free(ptr noundef nonnull %10) #15
@@ -556,21 +556,21 @@ rehash.exit:                                      ; preds = %._crit_edge.i, %28
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashmap_remove(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !21
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %63, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 28
-  %.val.i = load i32, ptr %6, align 4, !tbaa !13
+  %.val.i = load i32, ptr %6, align 4, !tbaa !14
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val12.i = load i32, ptr %7, align 8, !tbaa !30
+  %.val12.i = load i32, ptr %7, align 8, !tbaa !32
   %8 = add i32 %.val.i, -1
   %9 = and i32 %.val12.i, %8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %11, align 8, !tbaa !24
+  %13 = load ptr, ptr %11, align 8, !tbaa !25
   %.not16.i = icmp eq ptr %13, null
   %14 = icmp eq ptr %13, %1
   %or.cond17.i = or i1 %.not16.i, %14
@@ -584,26 +584,26 @@ define dso_local ptr @hashmap_remove(ptr noundef captures(none) %0, ptr noundef 
   %17 = phi ptr [ %13, %.lr.ph.i ], [ %26, %entry_equals.exit.thread.i ]
   %.018.i = phi ptr [ %11, %.lr.ph.i ], [ %25, %entry_equals.exit.thread.i ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !30
-  %20 = load i32, ptr %7, align 8, !tbaa !30
+  %19 = load i32, ptr %18, align 8, !tbaa !32
+  %20 = load i32, ptr %7, align 8, !tbaa !32
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %entry_equals.exit.i, label %entry_equals.exit.thread.i
 
 entry_equals.exit.i:                              ; preds = %16
-  %22 = load ptr, ptr %12, align 8, !tbaa !18
-  %23 = load ptr, ptr %15, align 8, !tbaa !19
+  %22 = load ptr, ptr %12, align 8, !tbaa !19
+  %23 = load ptr, ptr %15, align 8, !tbaa !20
   %24 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %17, ptr noundef nonnull %1, ptr noundef %2) #15
   %.not.i.not.i = icmp eq i32 %24, 0
-  %.pr = load ptr, ptr %.018.i, align 8, !tbaa !24
+  %.pr = load ptr, ptr %.018.i, align 8, !tbaa !25
   br i1 %.not.i.not.i, label %find_entry_ptr.exit, label %entry_equals.exit.thread.i
 
 entry_equals.exit.thread.i:                       ; preds = %entry_equals.exit.i, %16
   %25 = phi ptr [ %17, %16 ], [ %.pr, %entry_equals.exit.i ]
-  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i = icmp eq ptr %26, null
   %27 = icmp eq ptr %26, %1
   %or.cond.i = or i1 %.not.i, %27
-  br i1 %or.cond.i, label %find_entry_ptr.exit, label %16, !llvm.loop !31
+  br i1 %or.cond.i, label %find_entry_ptr.exit, label %16, !llvm.loop !33
 
 find_entry_ptr.exit:                              ; preds = %entry_equals.exit.thread.i, %entry_equals.exit.i, %5
   %28 = phi ptr [ %13, %5 ], [ %26, %entry_equals.exit.thread.i ], [ %.pr, %entry_equals.exit.i ]
@@ -612,9 +612,9 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
   br i1 %.not18, label %63, label %29
 
 29:                                               ; preds = %find_entry_ptr.exit
-  %30 = load ptr, ptr %28, align 8, !tbaa !26
-  store ptr %30, ptr %.0.lcssa.i, align 8, !tbaa !24
-  store ptr null, ptr %28, align 8, !tbaa !26
+  %30 = load ptr, ptr %28, align 8, !tbaa !28
+  store ptr %30, ptr %.0.lcssa.i, align 8, !tbaa !25
+  store ptr null, ptr %28, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i8, ptr %31, align 8
   %33 = and i8 %32, 1
@@ -623,31 +623,31 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !29
+  %36 = load i32, ptr %35, align 8, !tbaa !31
   %37 = add i32 %36, -1
-  store i32 %37, ptr %35, align 8, !tbaa !29
+  store i32 %37, ptr %35, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %39 = load i32, ptr %38, align 4, !tbaa !23
+  %39 = load i32, ptr %38, align 4, !tbaa !24
   %40 = icmp ult i32 %37, %39
   br i1 %40, label %41, label %63
 
 41:                                               ; preds = %34
-  %42 = load i32, ptr %6, align 4, !tbaa !13
+  %42 = load i32, ptr %6, align 4, !tbaa !14
   %43 = lshr i32 %42, 2
-  %44 = load ptr, ptr %0, align 8, !tbaa !21
-  store i32 %43, ptr %6, align 4, !tbaa !13
+  %44 = load ptr, ptr %0, align 8, !tbaa !22
+  store i32 %43, ptr %6, align 4, !tbaa !14
   %45 = zext nneg i32 %43 to i64
   %46 = tail call ptr @xcalloc(i64 noundef %45, i64 noundef 8) #15
-  store ptr %46, ptr %0, align 8, !tbaa !21
+  store ptr %46, ptr %0, align 8, !tbaa !22
   %47 = mul nuw nsw i64 %45, 80
   %48 = udiv i64 %47, 100
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %49, ptr %50, align 8, !tbaa !22
+  store i32 %49, ptr %50, align 8, !tbaa !23
   %51 = icmp ult i32 %42, 260
   %52 = udiv i32 %49, 5
   %.sink.i.i = select i1 %51, i32 0, i32 %52
-  store i32 %.sink.i.i, ptr %38, align 4, !tbaa !23
+  store i32 %.sink.i.i, ptr %38, align 4, !tbaa !24
   %.not27.i = icmp eq i32 %42, 0
   br i1 %.not27.i, label %rehash.exit, label %.lr.ph25.preheader.i
 
@@ -658,33 +658,33 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
-  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
   %.not21.i = icmp eq ptr %54, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph25.i
-  %.val.i21 = load i32, ptr %6, align 4, !tbaa !13
+  %.val.i21 = load i32, ptr %6, align 4, !tbaa !14
   %55 = add i32 %.val.i21, -1
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph.i20
   %.02022.i = phi ptr [ %54, %.lr.ph.i20 ], [ %57, %56 ]
-  %57 = load ptr, ptr %.02022.i, align 8, !tbaa !26
+  %57 = load ptr, ptr %.02022.i, align 8, !tbaa !28
   %58 = getelementptr i8, ptr %.02022.i, i64 8
-  %.020.val.i = load i32, ptr %58, align 8, !tbaa !30
+  %.020.val.i = load i32, ptr %58, align 8, !tbaa !32
   %59 = and i32 %.020.val.i, %55
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw ptr, ptr %46, i64 %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !24
-  store ptr %62, ptr %.02022.i, align 8, !tbaa !26
-  store ptr %.02022.i, ptr %61, align 8, !tbaa !24
+  %62 = load ptr, ptr %61, align 8, !tbaa !25
+  store ptr %62, ptr %.02022.i, align 8, !tbaa !28
+  store ptr %.02022.i, ptr %61, align 8, !tbaa !25
   %.not.i22 = icmp eq ptr %57, null
-  br i1 %.not.i22, label %._crit_edge.i, label %56, !llvm.loop !33
+  br i1 %.not.i22, label %._crit_edge.i, label %56, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %56, %.lr.ph25.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !36
 
 rehash.exit:                                      ; preds = %._crit_edge.i, %41
   tail call void @free(ptr noundef %44) #15
@@ -704,27 +704,27 @@ define dso_local ptr @hashmap_put(ptr noundef captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @hashmap_iter_init(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 20)) %1) local_unnamed_addr #7 {
-  store ptr %0, ptr %1, align 8, !tbaa !35
+  store ptr %0, ptr %1, align 8, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %3, align 8, !tbaa !38
+  store i32 0, ptr %3, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !39
+  store ptr null, ptr %4, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.015 = load ptr, ptr %2, align 8, !tbaa !24
+  %.015 = load ptr, ptr %2, align 8, !tbaa !25
   %.not16 = icmp eq ptr %.015, null
   br i1 %.not16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %0, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %6 = load i32, ptr %5, align 4, !tbaa !13
-  %.promoted = load i32, ptr %3, align 8, !tbaa !38
+  %6 = load i32, ptr %5, align 4, !tbaa !14
+  %.promoted = load i32, ptr %3, align 8, !tbaa !40
   %7 = zext i32 %.promoted to i64
   %umax = tail call i32 @llvm.umax.i32(i32 %.promoted, i32 %6)
   %wide.trip.count = zext i32 %umax to i64
@@ -732,8 +732,8 @@ define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) l
 
 ._crit_edge:                                      ; preds = %10, %1
   %.0.lcssa = phi ptr [ %.015, %1 ], [ %.0, %10 ]
-  %8 = load ptr, ptr %.0.lcssa, align 8, !tbaa !26
-  store ptr %8, ptr %2, align 8, !tbaa !39
+  %8 = load ptr, ptr %.0.lcssa, align 8, !tbaa !28
+  store ptr %8, ptr %2, align 8, !tbaa !41
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph, %10
@@ -742,14 +742,14 @@ define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) l
   br i1 %exitcond.not, label %.loopexit, label %10
 
 10:                                               ; preds = %9
-  %11 = load ptr, ptr %4, align 8, !tbaa !21
+  %11 = load ptr, ptr %4, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %12, ptr %3, align 8, !tbaa !38
+  store i32 %12, ptr %3, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  %.0 = load ptr, ptr %13, align 8, !tbaa !24
+  %.0 = load ptr, ptr %13, align 8, !tbaa !25
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %9, label %._crit_edge
+  br i1 %.not, label %9, label %._crit_edge, !llvm.loop !27
 
 .loopexit:                                        ; preds = %9, %._crit_edge
   %.014 = phi ptr [ %.0.lcssa, %._crit_edge ], [ null, %9 ]
@@ -760,18 +760,18 @@ define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) l
 define dso_local nonnull ptr @memintern(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.pool_entry, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !13
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !14
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @memintern.map, i8 0, i64 48, i1 false)
-  store ptr @pool_entry_cmp, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !18
-  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !13
+  store ptr @pool_entry_cmp, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !19
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !14
   %6 = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #15
-  store ptr %6, ptr @memintern.map, align 8, !tbaa !21
-  store i32 51, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 32), align 8, !tbaa !22
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 36), align 4, !tbaa !23
+  store ptr %6, ptr @memintern.map, align 8, !tbaa !22
+  store i32 51, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 32), align 8, !tbaa !23
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 36), align 4, !tbaa !24
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 40), align 8
   %8 = or i8 %7, 1
   store i8 %8, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 40), align 8
@@ -792,26 +792,26 @@ define dso_local nonnull ptr @memintern(ptr noundef %0, i64 noundef %1) local_un
   %14 = mul i32 %.068.i, 16777619
   %15 = xor i32 %14, %13
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %memhash.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %memhash.exit, label %.lr.ph.i, !llvm.loop !11
 
 memhash.exit:                                     ; preds = %.lr.ph.i, %9
   %.06.lcssa.i = phi i32 [ -2128831035, %9 ], [ %15, %.lr.ph.i ]
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.06.lcssa.i, ptr %16, align 8, !tbaa !30
-  store ptr null, ptr %3, align 8, !tbaa !26
+  store i32 %.06.lcssa.i, ptr %16, align 8, !tbaa !32
+  store ptr null, ptr %3, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %1, ptr %17, align 8, !tbaa !40
-  %18 = load ptr, ptr @memintern.map, align 8, !tbaa !21
+  store i64 %1, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr @memintern.map, align 8, !tbaa !22
   %.not.i16 = icmp eq ptr %18, null
   br i1 %.not.i16, label %hashmap_get.exit.thread, label %19
 
 19:                                               ; preds = %memhash.exit
-  %.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !13
+  %.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !14
   %20 = add i32 %.val.i.i, -1
   %21 = and i32 %20, %.06.lcssa.i
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not16.i.i = icmp eq ptr %24, null
   %25 = icmp eq ptr %24, %3
   %or.cond17.i.i = or i1 %.not16.i.i, %25
@@ -821,26 +821,26 @@ memhash.exit:                                     ; preds = %.lr.ph.i, %9
   %26 = phi ptr [ %35, %entry_equals.exit.thread.i.i ], [ %24, %19 ]
   %.018.i.i = phi ptr [ %34, %entry_equals.exit.thread.i.i ], [ %23, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !30
-  %29 = load i32, ptr %16, align 8, !tbaa !30
+  %28 = load i32, ptr %27, align 8, !tbaa !32
+  %29 = load i32, ptr %16, align 8, !tbaa !32
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %entry_equals.exit.i.i, label %entry_equals.exit.thread.i.i
 
 entry_equals.exit.i.i:                            ; preds = %.lr.ph.i.i
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !18
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 16), align 8, !tbaa !19
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 8), align 8, !tbaa !19
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 16), align 8, !tbaa !20
   %33 = call i32 %31(ptr noundef %32, ptr noundef nonnull %26, ptr noundef nonnull %3, ptr noundef %0) #15
   %.not.i.not.i.i = icmp eq i32 %33, 0
-  %.pre.pre.i = load ptr, ptr %.018.i.i, align 8, !tbaa !24
+  %.pre.pre.i = load ptr, ptr %.018.i.i, align 8, !tbaa !25
   br i1 %.not.i.not.i.i, label %hashmap_get.exit, label %entry_equals.exit.thread.i.i
 
 entry_equals.exit.thread.i.i:                     ; preds = %entry_equals.exit.i.i, %.lr.ph.i.i
   %34 = phi ptr [ %26, %.lr.ph.i.i ], [ %.pre.pre.i, %entry_equals.exit.i.i ]
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %35 = load ptr, ptr %34, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %35, null
   %36 = icmp eq ptr %35, %3
   %or.cond.i.i = or i1 %.not.i.i, %36
-  br i1 %or.cond.i.i, label %hashmap_get.exit, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %or.cond.i.i, label %hashmap_get.exit, label %.lr.ph.i.i, !llvm.loop !33
 
 hashmap_get.exit:                                 ; preds = %entry_equals.exit.thread.i.i, %entry_equals.exit.i.i, %19
   %.0.i = phi ptr [ %24, %19 ], [ %35, %entry_equals.exit.thread.i.i ], [ %.pre.pre.i, %entry_equals.exit.i.i ]
@@ -868,12 +868,12 @@ st_add.exit17:                                    ; preds = %st_add.exit
   %42 = call ptr @xcalloc(i64 noundef 1, i64 noundef %41) #15
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %0, i64 %1, i1 false)
-  %44 = load i32, ptr %16, align 8, !tbaa !30
+  %44 = load i32, ptr %16, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 %44, ptr %45, align 8, !tbaa !30
-  store ptr null, ptr %42, align 8, !tbaa !26
+  store i32 %44, ptr %45, align 8, !tbaa !32
+  store ptr null, ptr %42, align 8, !tbaa !28
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %1, ptr %46, align 8, !tbaa !40
+  store i64 %1, ptr %46, align 8, !tbaa !42
   call void @hashmap_add(ptr noundef nonnull @memintern.map, ptr noundef nonnull %42)
   br label %47
 
@@ -892,9 +892,9 @@ define internal range(i32 0, 2) i32 @pool_entry_cmp(ptr readnone captures(none) 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %8 = load i64, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !42
   %.not11 = icmp eq i64 %8, %10
   br i1 %.not11, label %11, label %14
 
@@ -950,38 +950,40 @@ attributes #16 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{!14, !17, i64 28}
-!14 = !{!"hashmap", !15, i64 0, !16, i64 8, !16, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40}
-!15 = !{!"p2 _ZTS13hashmap_entry", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!14, !16, i64 8}
-!19 = !{!14, !16, i64 16}
-!20 = distinct !{!20, !8}
-!21 = !{!14, !15, i64 0}
-!22 = !{!14, !17, i64 32}
-!23 = !{!14, !17, i64 36}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS13hashmap_entry", !16, i64 0}
-!26 = !{!27, !25, i64 0}
-!27 = !{!"hashmap_entry", !25, i64 0, !17, i64 8}
-!28 = distinct !{!28, !8}
-!29 = !{!14, !17, i64 24}
-!30 = !{!27, !17, i64 8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"hashmap_iter", !37, i64 0, !25, i64 8, !17, i64 16}
-!37 = !{!"p1 _ZTS7hashmap", !16, i64 0}
-!38 = !{!36, !17, i64 16}
-!39 = !{!36, !25, i64 8}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"long", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{!15, !18, i64 28}
+!15 = !{!"hashmap", !16, i64 0, !17, i64 8, !17, i64 16, !18, i64 24, !18, i64 28, !18, i64 32, !18, i64 36, !18, i64 40}
+!16 = !{!"p2 _ZTS13hashmap_entry", !17, i64 0}
+!17 = !{!"any pointer", !5, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!15, !17, i64 8}
+!20 = !{!15, !17, i64 16}
+!21 = distinct !{!21, !8, !9}
+!22 = !{!15, !16, i64 0}
+!23 = !{!15, !18, i64 32}
+!24 = !{!15, !18, i64 36}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS13hashmap_entry", !17, i64 0}
+!27 = distinct !{!27, !9}
+!28 = !{!29, !26, i64 0}
+!29 = !{!"hashmap_entry", !26, i64 0, !18, i64 8}
+!30 = distinct !{!30, !8, !9}
+!31 = !{!15, !18, i64 24}
+!32 = !{!29, !18, i64 8}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"hashmap_iter", !39, i64 0, !26, i64 8, !18, i64 16}
+!39 = !{!"p1 _ZTS7hashmap", !17, i64 0}
+!40 = !{!38, !18, i64 16}
+!41 = !{!38, !26, i64 8}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long", !5, i64 0}

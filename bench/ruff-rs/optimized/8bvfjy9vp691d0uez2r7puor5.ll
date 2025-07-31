@@ -492,7 +492,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.067.1 = getelementptr inbounds nuw i8, ptr %.sroa.067.1201, i64 %.sroa.067.1.idx
   %.not120 = icmp eq ptr %.sroa.067.1201, null
   %.not = or i1 %139, %.not120
-  br i1 %.not, label %.outer._crit_edge, label %43
+  br i1 %.not, label %.outer._crit_edge, label %43, !llvm.loop !3
 
 140:                                              ; preds = %143, %84
   %.sroa.051.4 = phi i8 [ 0, %143 ], [ 1, %84 ]
@@ -679,7 +679,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.067.1193 = getelementptr inbounds nuw i8, ptr %.sroa.067.1201, i64 %.sroa.067.1.idx192
   %.not120194 = icmp eq ptr %.sroa.067.1201, null
   %.not195 = or i1 %202, %.not120194
-  br i1 %.not195, label %.outer._crit_edge, label %.lr.ph
+  br i1 %.not195, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !3
 
 .thread104:                                       ; preds = %.thread110.loopexit.split-lp, %.thread110.loopexit.loopexit.split-lp, %.thread110.loopexit.loopexit, %69, %166, %117, %198, %49
   %.pn108 = phi { ptr, i32 } [ %lpad.phi127, %49 ], [ %70, %69 ], [ %167, %166 ], [ %118, %117 ], [ %199, %198 ], [ %lpad.loopexit.split-lp, %.thread110.loopexit.split-lp ], [ %lpad.loopexit128, %.thread110.loopexit.loopexit ], [ %lpad.loopexit.split-lp129, %.thread110.loopexit.loopexit.split-lp ]
@@ -890,3 +890,5 @@ attributes #12 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

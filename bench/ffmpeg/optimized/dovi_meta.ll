@@ -80,7 +80,7 @@ define ptr @av_dovi_find_level(ptr noundef readonly captures(ret: address, prove
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %12 = mul i64 %9, %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  %14 = load i8, ptr %13, align 4, !tbaa !16
+  %14 = load i8, ptr %13, align 4, !tbaa !17
   %.not = icmp eq i8 %14, %1
   br i1 %.not, label %.split.loop.exit.loopexit.split.loop.exit, label %10
 
@@ -114,7 +114,8 @@ attributes #3 = { nounwind }
 !11 = !{!"AVDOVIMetadata", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !9, i64 40}
 !12 = !{!11, !5, i64 24}
 !13 = !{!11, !5, i64 32}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !6, i64 0}
-!17 = !{!"AVDOVIDmData", !6, i64 0, !6, i64 4}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !6, i64 0}
+!18 = !{!"AVDOVIDmData", !6, i64 0, !6, i64 4}

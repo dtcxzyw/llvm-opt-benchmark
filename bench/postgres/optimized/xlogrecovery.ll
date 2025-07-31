@@ -1128,7 +1128,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %349 = call i32 @fgetc(ptr noundef nonnull %302)
   %.not45.i = icmp eq i32 %349, -1
-  br i1 %.not45.i, label %.outer._crit_edge.thread.i, label %.lr.ph.split.i
+  br i1 %.not45.i, label %.outer._crit_edge.thread.i, label %.lr.ph.split.i, !llvm.loop !11
 
 .thread.i177:                                     ; preds = %.lr.ph.split.i, %.lr.ph.i
   %.5 = phi ptr [ %.0, %.lr.ph.i ], [ %.1179, %.lr.ph.split.i ]
@@ -1151,7 +1151,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %.1.i = phi i8 [ 0, %351 ], [ 0, %.thread.i177 ], [ 1, %.lr.ph.split.i ]
   %356 = call i32 @fgetc(ptr noundef nonnull %302)
   %.not4566.i = icmp eq i32 %356, -1
-  br i1 %.not4566.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not4566.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.i
   %.0 = phi ptr [ %.2, %.outer.i ], [ null, %.preheader.i ]
@@ -2403,7 +2403,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   store i64 %281, ptr @XLogReceiptTime, align 8
   %282 = load ptr, ptr @XLogRecoveryCtl, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 96
-  %284 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %283, i8 1, ptr nonnull elementtype(i8) %283) #23, !srcloc !10
+  %284 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %283, i8 1, ptr nonnull elementtype(i8) %283) #23, !srcloc !12
   %.not.i78.i = icmp eq i8 %284, 0
   br i1 %.not.i78.i, label %SetCurrentChunkStartTime.exit.i, label %285
 
@@ -2417,7 +2417,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %285, %280
   %289 = load ptr, ptr @XLogRecoveryCtl, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 72
   store i64 %281, ptr %290, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !13
   %291 = load ptr, ptr @XLogRecoveryCtl, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 96
   store i8 0, ptr %292, align 8
@@ -2509,7 +2509,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
 325:                                              ; preds = %324, %.thread.i
   call void @HandleStartupProcInterrupts() #23
   %.pre.i = load i32, ptr @currentSource, align 4
-  br label %86
+  br label %86, !llvm.loop !14
 
 .loopexit:                                        ; preds = %90, %96, %95
   %326 = load i32, ptr @readFile, align 4
@@ -2747,7 +2747,7 @@ emode_for_corrupt_record.exit68:                  ; preds = %416, %422, %425
   store i32 0, ptr @readSource, align 4
   %443 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
   %444 = trunc nuw i8 %443 to i1
-  br i1 %444, label %.critedge, label %WaitForWALToBecomeAvailable.exit
+  br i1 %444, label %.critedge, label %WaitForWALToBecomeAvailable.exit, !llvm.loop !15
 
 WaitForWALToBecomeAvailable.exit:                 ; preds = %293, %88, %52, %442, %433, %431, %330
   %.0 = phi i32 [ %432, %431 ], [ -1, %330 ], [ -2, %433 ], [ -1, %442 ], [ -2, %52 ], [ -2, %88 ], [ -2, %293 ]
@@ -3044,7 +3044,7 @@ emode_for_corrupt_record.exit51:                  ; preds = %59, %74, %77
 
 109:                                              ; preds = %107, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  br label %25
+  br label %25, !llvm.loop !16
 
 110:                                              ; preds = %104, %107, %55
   %.1.ph = phi ptr [ %26, %55 ], [ null, %107 ], [ null, %104 ]
@@ -3291,7 +3291,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #2 {
   %11 = alloca i32, align 4
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #23, !srcloc !10
+  %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #23, !srcloc !12
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %19, label %15
 
@@ -3339,7 +3339,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #2 {
   store i32 %36, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sink161, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !17
   %41 = load ptr, ptr @XLogRecoveryCtl, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i8 0, ptr %42, align 8
@@ -3782,7 +3782,7 @@ recoveryStopsBefore.exit:                         ; preds = %202, %201, %199, %g
   call void @ResetLatch(ptr noundef nonnull %265) #23
   call void @HandleStartupProcInterrupts() #23
   %266 = call fastcc zeroext i1 @CheckForStandbyTrigger()
-  br i1 %266, label %recoveryApplyDelay.exit, label %.lr.ph.i
+  br i1 %266, label %recoveryApplyDelay.exit, label %.lr.ph.i, !llvm.loop !18
 
 recoveryApplyDelay.exit:                          ; preds = %260, %.lr.ph.i, %.preheader.i
   %267 = load ptr, ptr @XLogRecoveryCtl, align 8
@@ -3886,7 +3886,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   %.0.i26 = phi i1 [ false, %282 ], [ false, %recoveryApplyDelay.exit.thread ], [ true, %297 ], [ false, %278 ]
   %310 = load ptr, ptr @XLogRecoveryCtl, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 96
-  %312 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #23, !srcloc !10
+  %312 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #23, !srcloc !12
   %.not45.i = icmp eq i8 %312, 0
   br i1 %.not45.i, label %317, label %313
 
@@ -3904,7 +3904,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   store i64 %319, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store i32 %.2, ptr %322, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !19
   %323 = load ptr, ptr @XLogRecoveryCtl, align 8
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 96
   store i8 0, ptr %324, align 8
@@ -4022,12 +4022,12 @@ xlogrecovery_redo.exit.i:                         ; preds = %374, %373, %372, %3
   %383 = load i8, ptr %275, align 1
   %384 = zext i8 %383 to i64
   %385 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %384
-  %386 = load ptr, ptr %385, align 8, !noalias !14
+  %386 = load ptr, ptr %385, align 8, !noalias !20
   %.not.i52.i = icmp eq ptr %386, null
-  br i1 %.not.i52.i, label %387, label %GetRmgr.exit.i, !prof !17
+  br i1 %.not.i52.i, label %387, label %GetRmgr.exit.i, !prof !23
 
 387:                                              ; preds = %xlogrecovery_redo.exit.i
-  call void @RmgrNotFound(i8 noundef zeroext %383) #23, !noalias !14
+  call void @RmgrNotFound(i8 noundef zeroext %383) #23, !noalias !20
   br label %GetRmgr.exit.i
 
 GetRmgr.exit.i:                                   ; preds = %387, %xlogrecovery_redo.exit.i
@@ -4047,12 +4047,12 @@ GetRmgr.exit.i:                                   ; preds = %387, %xlogrecovery_
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i64
   %397 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %396
-  %398 = load ptr, ptr %397, align 8, !noalias !18
+  %398 = load ptr, ptr %397, align 8, !noalias !24
   %.not.i.i.i = icmp eq ptr %398, null
-  br i1 %.not.i.i.i, label %399, label %GetRmgr.exit.i.i, !prof !17
+  br i1 %.not.i.i.i, label %399, label %GetRmgr.exit.i.i, !prof !23
 
 399:                                              ; preds = %391
-  call void @RmgrNotFound(i8 noundef zeroext %395) #23, !noalias !18
+  call void @RmgrNotFound(i8 noundef zeroext %395) #23, !noalias !24
   %.pre.i.i = load ptr, ptr %392, align 8
   br label %GetRmgr.exit.i.i
 
@@ -4183,7 +4183,7 @@ BufferGetPage.exit.i.i:                           ; preds = %426, %420
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 84
   %468 = load i32, ptr %467, align 4
   %.not.i53.i = icmp sgt i32 %465, %468
-  br i1 %.not.i53.i, label %verifyBackupPageConsistency.exit.i, label %404, !llvm.loop !21
+  br i1 %.not.i53.i, label %verifyBackupPageConsistency.exit.i, label %404, !llvm.loop !27
 
 verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
@@ -4196,7 +4196,7 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
   store ptr %470, ptr @error_context_stack, align 8
   %471 = load ptr, ptr @XLogRecoveryCtl, align 8
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 96
-  %473 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %472, i8 1, ptr nonnull elementtype(i8) %472) #23, !srcloc !10
+  %473 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %472, i8 1, ptr nonnull elementtype(i8) %472) #23, !srcloc !12
   %.not49.i = icmp eq i8 %473, 0
   br i1 %.not49.i, label %478, label %474
 
@@ -4217,7 +4217,7 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
   store i64 %483, ptr %484, align 8
   %485 = getelementptr inbounds nuw i8, ptr %481, i64 40
   store i32 %.2, ptr %485, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !28
   %486 = load ptr, ptr @XLogRecoveryCtl, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 96
   store i8 0, ptr %487, align 8
@@ -4362,7 +4362,7 @@ getRecordTimestamp.exit.i32:                      ; preds = %513
   %551 = load i64, ptr %550, align 8
   %552 = load ptr, ptr @XLogRecoveryCtl, align 8
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 96
-  %554 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %553, i8 1, ptr nonnull elementtype(i8) %553) #23, !srcloc !10
+  %554 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %553, i8 1, ptr nonnull elementtype(i8) %553) #23, !srcloc !12
   %.not.i.i30 = icmp eq i8 %554, 0
   br i1 %.not.i.i30, label %SetLatestXTime.exit.i, label %555
 
@@ -4376,7 +4376,7 @@ SetLatestXTime.exit.i:                            ; preds = %555, %548
   %559 = load ptr, ptr @XLogRecoveryCtl, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 64
   store i64 %551, ptr %560, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
   %561 = load ptr, ptr @XLogRecoveryCtl, align 8
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 96
   store i8 0, ptr %562, align 8
@@ -4496,7 +4496,7 @@ recoveryStopsAfter.exit:                          ; preds = %601, %541, %513, %A
   %611 = load ptr, ptr @xlogprefetcher, align 8
   %612 = call fastcc ptr @ReadRecord(ptr noundef %611, i32 noundef 15, i1 noundef zeroext false, i32 noundef %.2)
   %.not20 = icmp eq ptr %612, null
-  br i1 %.not20, label %.loopexit, label %94, !llvm.loop !24
+  br i1 %.not20, label %.loopexit, label %94, !llvm.loop !30
 
 recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTimestamp.exit.i32, %586, %596, %594, %587, %589, %533, %535, %610, %211, %212, %205, %206, %140, %142, %131
   %613 = load i8, ptr @reachedConsistency, align 1, !range !4, !noundef !5
@@ -4524,7 +4524,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTime
 621:                                              ; preds = %618
   %622 = load ptr, ptr @XLogRecoveryCtl, align 8
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 96
-  %624 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %623, i8 1, ptr nonnull elementtype(i8) %623) #23, !srcloc !10
+  %624 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %623, i8 1, ptr nonnull elementtype(i8) %623) #23, !srcloc !12
   %.not.i33 = icmp eq i8 %624, 0
   br i1 %.not.i33, label %629, label %625
 
@@ -4546,7 +4546,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTime
   br label %SetRecoveryPause.exit
 
 SetRecoveryPause.exit:                            ; preds = %629, %634
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !31
   %635 = load ptr, ptr @XLogRecoveryCtl, align 8
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 96
   store i8 0, ptr %636, align 8
@@ -4574,7 +4574,7 @@ SetRecoveryPause.exit:                            ; preds = %629, %634
 647:                                              ; preds = %638, %.loopexit
   %648 = load ptr, ptr @XLogRecoveryCtl, align 8
   %649 = getelementptr inbounds nuw i8, ptr %648, i64 96
-  %650 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %649, i8 1, ptr nonnull elementtype(i8) %649) #23, !srcloc !10
+  %650 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %649, i8 1, ptr nonnull elementtype(i8) %649) #23, !srcloc !12
   %.not.i35 = icmp eq i8 %650, 0
   br i1 %.not.i35, label %GetLatestXTime.exit, label %651
 
@@ -4588,7 +4588,7 @@ GetLatestXTime.exit:                              ; preds = %647, %651
   %655 = load ptr, ptr @XLogRecoveryCtl, align 8
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 64
   %657 = load i64, ptr %656, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !32
   %658 = load ptr, ptr @XLogRecoveryCtl, align 8
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 96
   store i8 0, ptr %659, align 8
@@ -4721,7 +4721,7 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #2 {
   %39 = call i64 @strspn(ptr noundef nonnull %38, ptr noundef nonnull @.str.128) #26
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #26
   %.not7.i = icmp eq i64 %39, %40
-  br i1 %.not7.i, label %41, label %54, !llvm.loop !27
+  br i1 %.not7.i, label %41, label %54, !llvm.loop !33
 
 41:                                               ; preds = %.lr.ph.i
   %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1034, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.13, ptr noundef nonnull %38) #23
@@ -4748,7 +4748,7 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #2 {
   call void @llvm.lifetime.end.p0(i64 1034, ptr nonnull %1) #23
   %55 = call ptr @ReadDir(ptr noundef %35, ptr noundef nonnull @.str.13) #23
   %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %CheckTablespaceDirectory.exit, label %.lr.ph.i
+  br i1 %.not.i, label %CheckTablespaceDirectory.exit, label %.lr.ph.i, !llvm.loop !34
 
 CheckTablespaceDirectory.exit:                    ; preds = %54, %34
   store i8 1, ptr @reachedConsistency, align 1
@@ -4781,7 +4781,7 @@ CheckTablespaceDirectory.exit:                    ; preds = %54, %34
 71:                                               ; preds = %62
   %72 = load ptr, ptr @XLogRecoveryCtl, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  %74 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %73, i8 1, ptr nonnull elementtype(i8) %73) #23, !srcloc !10
+  %74 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %73, i8 1, ptr nonnull elementtype(i8) %73) #23, !srcloc !12
   %.not19 = icmp eq i8 %74, 0
   br i1 %.not19, label %79, label %75
 
@@ -4794,7 +4794,7 @@ CheckTablespaceDirectory.exit:                    ; preds = %54, %34
 79:                                               ; preds = %71, %75
   %80 = load ptr, ptr @XLogRecoveryCtl, align 8
   store i8 1, ptr %80, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !28
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !35
   %81 = load ptr, ptr @XLogRecoveryCtl, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   store i8 0, ptr %82, align 8
@@ -4845,7 +4845,7 @@ define internal fastcc void @recoveryPausesHere(i1 noundef zeroext %0) unnamed_a
 10:                                               ; preds = %.preheader, %ConfirmRecoveryPaused.exit
   %11 = load ptr, ptr @XLogRecoveryCtl, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #23, !srcloc !10
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #23, !srcloc !12
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %14
 
@@ -4859,7 +4859,7 @@ GetRecoveryPauseState.exit:                       ; preds = %10, %14
   %18 = load ptr, ptr @XLogRecoveryCtl, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i8 0, ptr %22, align 8
@@ -4874,7 +4874,7 @@ GetRecoveryPauseState.exit:                       ; preds = %10, %14
 25:                                               ; preds = %23
   %26 = load ptr, ptr @XLogRecoveryCtl, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %28 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i8 1, ptr nonnull elementtype(i8) %27) #23, !srcloc !10
+  %28 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i8 1, ptr nonnull elementtype(i8) %27) #23, !srcloc !12
   %.not.i3 = icmp eq i8 %28, 0
   br i1 %.not.i3, label %33, label %29
 
@@ -4896,13 +4896,13 @@ GetRecoveryPauseState.exit:                       ; preds = %10, %14
   br label %ConfirmRecoveryPaused.exit
 
 ConfirmRecoveryPaused.exit:                       ; preds = %33, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !37
   %39 = load ptr, ptr @XLogRecoveryCtl, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 84
   %42 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %41, i64 noundef 1000, i32 noundef 134217775) #23
-  br label %10, !llvm.loop !31
+  br label %10, !llvm.loop !38
 
 43:                                               ; preds = %GetRecoveryPauseState.exit
   %44 = tail call zeroext i1 @ConditionVariableCancelSleep() #23
@@ -4919,7 +4919,7 @@ declare void @proc_exit(i32 noundef) local_unnamed_addr #9
 define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !12
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -4944,7 +4944,7 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %15, %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !31
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i8 0, ptr %17, align 8
@@ -4952,7 +4952,7 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
 
 18:                                               ; preds = %9
   store i32 0, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !31
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   store i8 0, ptr %20, align 8
@@ -4972,7 +4972,7 @@ declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #3
 define dso_local i64 @GetLatestXTime() local_unnamed_addr #2 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !12
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -4986,7 +4986,7 @@ define dso_local i64 @GetLatestXTime() local_unnamed_addr #2 {
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i64, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !32
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5001,12 +5001,12 @@ define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unname
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !noalias !32
+  %9 = load ptr, ptr %8, align 8, !noalias !39
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %10, label %GetRmgr.exit, !prof !17
+  br i1 %.not.i, label %10, label %GetRmgr.exit, !prof !23
 
 10:                                               ; preds = %2
-  tail call void @RmgrNotFound(i8 noundef zeroext %6) #23, !noalias !32
+  tail call void @RmgrNotFound(i8 noundef zeroext %6) #23, !noalias !39
   %.sroa.0.0.copyload.pre = load ptr, ptr %8, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %GetRmgr.exit
@@ -5051,7 +5051,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 define dso_local i32 @GetRecoveryPauseState() local_unnamed_addr #2 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !12
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -5065,7 +5065,7 @@ define dso_local i32 @GetRecoveryPauseState() local_unnamed_addr #2 {
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5112,7 +5112,7 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #2 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !10
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !12
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
@@ -5127,7 +5127,7 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #2 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   store i8 %14, ptr @LocalPromoteIsTriggered, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !42
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5181,7 +5181,7 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #2 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !10
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !12
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
@@ -5195,7 +5195,7 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #2 {
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   store i8 %13, ptr @LocalHotStandbyActive, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !43
   %14 = load ptr, ptr @XLogRecoveryCtl, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i8 0, ptr %15, align 8
@@ -5212,7 +5212,7 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #2 {
 define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !12
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -5228,7 +5228,7 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !44
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5247,7 +5247,7 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address
 define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !12
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -5263,7 +5263,7 @@ define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(addr
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load i32, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !45
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5282,7 +5282,7 @@ define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(addr
 define dso_local i64 @GetCurrentChunkReplayStartTime() local_unnamed_addr #2 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !12
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -5296,7 +5296,7 @@ define dso_local i64 @GetCurrentChunkReplayStartTime() local_unnamed_addr #2 {
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load i64, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !39
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !46
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5354,7 +5354,7 @@ define dso_local void @RecoveryRequiresIntParameter(ptr noundef %0, i32 noundef 
   %.0 = phi i1 [ %.1, %ConfirmRecoveryPaused.exit ], [ false, %.preheader ]
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #23, !srcloc !10
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #23, !srcloc !12
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %24
 
@@ -5368,7 +5368,7 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   %28 = load ptr, ptr @XLogRecoveryCtl, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
   %31 = load ptr, ptr @XLogRecoveryCtl, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i8 0, ptr %32, align 8
@@ -5399,7 +5399,7 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   %.1 = phi i1 [ %.0.mux, %33 ], [ true, %35 ], [ true, %37 ]
   %43 = load ptr, ptr @XLogRecoveryCtl, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %44, i8 1, ptr nonnull elementtype(i8) %44) #23, !srcloc !10
+  %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %44, i8 1, ptr nonnull elementtype(i8) %44) #23, !srcloc !12
   %.not.i13 = icmp eq i8 %45, 0
   br i1 %.not.i13, label %50, label %46
 
@@ -5421,13 +5421,13 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   br label %ConfirmRecoveryPaused.exit
 
 ConfirmRecoveryPaused.exit:                       ; preds = %50, %55
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !37
   %56 = load ptr, ptr @XLogRecoveryCtl, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   store i8 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 84
   %59 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %58, i64 noundef 1000, i32 noundef 134217775) #23
-  br label %20, !llvm.loop !40
+  br label %20, !llvm.loop !47
 
 60:                                               ; preds = %GetRecoveryPauseState.exit
   %61 = tail call zeroext i1 @ConditionVariableCancelSleep() #23
@@ -5479,7 +5479,7 @@ define internal fastcc noundef zeroext i1 @CheckForStandbyTrigger() unnamed_addr
   tail call void @ResetPromoteSignaled() #23
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #23, !srcloc !10
+  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #23, !srcloc !12
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %22, label %18
 
@@ -5493,11 +5493,11 @@ define internal fastcc noundef zeroext i1 @CheckForStandbyTrigger() unnamed_addr
   %23 = load ptr, ptr @XLogRecoveryCtl, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 1, ptr %24, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !41
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !48
   %25 = load ptr, ptr @XLogRecoveryCtl, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 0, ptr %26, align 8
-  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #23, !srcloc !10
+  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #23, !srcloc !12
   %.not.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i, label %SetPromoteIsTriggered.exit, label %28
 
@@ -5511,7 +5511,7 @@ SetPromoteIsTriggered.exit:                       ; preds = %22, %28
   %32 = load ptr, ptr @XLogRecoveryCtl, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i32 0, ptr %33, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !31
   %34 = load ptr, ptr @XLogRecoveryCtl, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   store i8 0, ptr %35, align 8
@@ -6110,7 +6110,7 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #2 {
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 84
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp sgt i32 %32, %35
-  br i1 %.not.i, label %xlog_block_info.exit, label %12, !llvm.loop !42
+  br i1 %.not.i, label %xlog_block_info.exit, label %12, !llvm.loop !49
 
 xlog_block_info.exit:                             ; preds = %31, %1
   %36 = call i32 @set_errcontext_domain(ptr noundef null) #23
@@ -6469,37 +6469,44 @@ attributes #28 = { noreturn }
 !6 = !{i64 2151460358}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 3032612, i64 3032628}
-!11 = !{i64 2151625578}
-!12 = !{i64 2151529637}
-!13 = !{i64 2151542754}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"GetRmgr: argument 0"}
-!16 = distinct !{!16, !"GetRmgr"}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"GetRmgr: argument 0"}
-!20 = distinct !{!20, !"GetRmgr"}
-!21 = distinct !{!21, !8}
-!22 = !{i64 2151543183}
-!23 = !{i64 2151624864}
-!24 = distinct !{!24, !8}
-!25 = !{i64 2151590156}
-!26 = !{i64 2151625221}
-!27 = distinct !{!27, !8}
-!28 = !{i64 2151563692}
-!29 = !{i64 2151589793}
-!30 = !{i64 2151590513}
-!31 = distinct !{!31, !8}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"GetRmgr: argument 0"}
-!34 = distinct !{!34, !"GetRmgr"}
-!35 = !{i64 2151622376}
-!36 = !{i64 2151623772}
-!37 = !{i64 2151624150}
-!38 = !{i64 2151624507}
-!39 = !{i64 2151625935}
-!40 = distinct !{!40, !8}
-!41 = !{i64 2151622735}
-!42 = distinct !{!42, !8}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = !{i64 3032612, i64 3032628}
+!13 = !{i64 2151625578}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = !{i64 2151529637}
+!18 = distinct !{!18, !10}
+!19 = !{i64 2151542754}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"GetRmgr: argument 0"}
+!22 = distinct !{!22, !"GetRmgr"}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"GetRmgr: argument 0"}
+!26 = distinct !{!26, !"GetRmgr"}
+!27 = distinct !{!27, !8, !10}
+!28 = !{i64 2151543183}
+!29 = !{i64 2151624864}
+!30 = distinct !{!30, !8, !10}
+!31 = !{i64 2151590156}
+!32 = !{i64 2151625221}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !10}
+!35 = !{i64 2151563692}
+!36 = !{i64 2151589793}
+!37 = !{i64 2151590513}
+!38 = distinct !{!38, !8, !10}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"GetRmgr: argument 0"}
+!41 = distinct !{!41, !"GetRmgr"}
+!42 = !{i64 2151622376}
+!43 = !{i64 2151623772}
+!44 = !{i64 2151624150}
+!45 = !{i64 2151624507}
+!46 = !{i64 2151625935}
+!47 = distinct !{!47, !8, !10}
+!48 = !{i64 2151622735}
+!49 = distinct !{!49, !8, !10}

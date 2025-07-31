@@ -41895,7 +41895,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %15, ptr noundef %0) #9
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20
+  br i1 %19, label %3, label %20, !llvm.loop !19
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -42220,7 +42220,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare i64 @l_Lean_HeadIndex_hash(ptr noundef) local_unnamed_addr #2
@@ -42686,7 +42686,7 @@ lean_obj_tag.exit.i:                              ; preds = %99, %96
   %107 = load ptr, ptr %106, align 8, !tbaa !9
   %108 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %105, ptr noundef %0) #9
   %109 = icmp eq i8 %108, 0
-  br i1 %109, label %lean_dec.exit731, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit
+  br i1 %109, label %lean_dec.exit731, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %103
   br i1 %.not.i941, label %110, label %lean_dec.exit730
@@ -42898,7 +42898,7 @@ lean_obj_tag.exit.i960:                           ; preds = %188, %185
   %196 = load ptr, ptr %195, align 8, !tbaa !9
   %197 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %194, ptr noundef %0) #9
   %198 = icmp eq i8 %197, 0
-  br i1 %198, label %lean_array_uget.exit957, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit964
+  br i1 %198, label %lean_array_uget.exit957, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit964, !llvm.loop !19
 
 199:                                              ; preds = %lean_obj_tag.exit.i960
   %200 = ptrtoint ptr %165 to i64
@@ -43522,7 +43522,7 @@ lean_obj_tag.exit.i991:                           ; preds = %442, %439
   %450 = load ptr, ptr %449, align 8, !tbaa !9
   %451 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %448, ptr noundef %0) #9
   %452 = icmp eq i8 %451, 0
-  br i1 %452, label %lean_array_uget.exit988, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit995
+  br i1 %452, label %lean_array_uget.exit988, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit995, !llvm.loop !19
 
 453:                                              ; preds = %lean_obj_tag.exit.i991
   br i1 %.not1269, label %464, label %454, !prof !14
@@ -44284,7 +44284,7 @@ lean_obj_tag.exit.i1041:                          ; preds = %738, %735
   %746 = load ptr, ptr %745, align 8, !tbaa !9
   %747 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %744, ptr noundef %0) #9
   %748 = icmp eq i8 %747, 0
-  br i1 %748, label %lean_array_uget.exit1038, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1045
+  br i1 %748, label %lean_array_uget.exit1038, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1045, !llvm.loop !19
 
 749:                                              ; preds = %lean_obj_tag.exit.i1041
   br i1 %.not1252, label %760, label %750, !prof !14
@@ -45126,7 +45126,7 @@ lean_obj_tag.exit.i1089:                          ; preds = %1071, %1068
   %1079 = load ptr, ptr %1078, align 8, !tbaa !9
   %1080 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %1077, ptr noundef %0) #9
   %1081 = icmp eq i8 %1080, 0
-  br i1 %1081, label %lean_dec.exit695, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1093
+  br i1 %1081, label %lean_dec.exit695, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1093, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1093: ; preds = %lean_obj_tag.exit.i1089, %1075
   br i1 %.not.i1083, label %1082, label %lean_dec.exit694
@@ -45631,7 +45631,7 @@ lean_obj_tag.exit.i1140:                          ; preds = %1265, %1262
   %1273 = load ptr, ptr %1272, align 8, !tbaa !9
   %1274 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %1271, ptr noundef %0) #9
   %1275 = icmp eq i8 %1274, 0
-  br i1 %1275, label %lean_array_uget.exit1137, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1144
+  br i1 %1275, label %lean_array_uget.exit1137, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit1144, !llvm.loop !19
 
 1276:                                             ; preds = %lean_obj_tag.exit.i1140
   br i1 %.not1224, label %1287, label %1277, !prof !14
@@ -46473,7 +46473,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69_(ptr noundef %15, ptr noundef %0) #9
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_saveSymbol___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -46692,7 +46692,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not = icmp eq i64 %20, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !22
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -46703,7 +46703,7 @@ lean_nat_eq.exit:                                 ; preds = %14
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %21
-  br label %.backedge
+  br label %.backedge, !llvm.loop !23
 
 24:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %21 ]
@@ -46968,7 +46968,7 @@ lean_obj_tag.exit.i:                              ; preds = %103, %100
   %112 = ptrtoint ptr %109 to i64
   %113 = and i64 %68, %112
   %or.cond.not.i = icmp eq i64 %113, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %114, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %114, !prof !22
 
 114:                                              ; preds = %107
   %115 = icmp eq ptr %109, %0
@@ -46979,7 +46979,7 @@ lean_nat_eq.exit.i:                               ; preds = %107
   br i1 %116, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit, label %lean_dec.exit81.backedge
 
 lean_dec.exit81.backedge:                         ; preds = %lean_nat_eq.exit.i, %114
-  br label %lean_dec.exit81
+  br label %lean_dec.exit81, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %114, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %114 ]
@@ -47211,7 +47211,7 @@ lean_obj_tag.exit.i139:                           ; preds = %200, %197
   %209 = ptrtoint ptr %206 to i64
   %210 = and i64 %165, %209
   %or.cond.not.i141 = icmp eq i64 %210, 0
-  br i1 %or.cond.not.i141, label %lean_nat_eq.exit.i144, label %211, !prof !19
+  br i1 %or.cond.not.i141, label %lean_nat_eq.exit.i144, label %211, !prof !22
 
 211:                                              ; preds = %204
   %212 = icmp eq ptr %206, %0
@@ -47222,7 +47222,7 @@ lean_nat_eq.exit.i144:                            ; preds = %204
   br i1 %213, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit146, label %lean_dec.exit76.backedge
 
 lean_dec.exit76.backedge:                         ; preds = %lean_nat_eq.exit.i144, %211
-  br label %lean_dec.exit76
+  br label %lean_dec.exit76, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit146: ; preds = %lean_obj_tag.exit.i139, %211, %lean_nat_eq.exit.i144
   %.1.i143 = phi i64 [ 3, %lean_nat_eq.exit.i144 ], [ 1, %lean_obj_tag.exit.i139 ], [ 3, %211 ]
@@ -47309,7 +47309,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not.i = icmp eq i64 %20, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !22
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -47320,7 +47320,7 @@ lean_nat_eq.exit.i:                               ; preds = %14
   br i1 %23, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %21
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %21, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %21 ]
@@ -48003,7 +48003,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !24
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -48349,7 +48349,7 @@ lean_array_uset.exit106:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit106, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %66, %lean_array_uset.exit106 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i103, %lean_array_uset.exit106 ]
-  br label %3
+  br label %3, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -48797,7 +48797,7 @@ lean_obj_tag.exit.i:                              ; preds = %98, %95
   %107 = ptrtoint ptr %104 to i64
   %108 = and i64 %70, %107
   %or.cond.not.i = icmp eq i64 %108, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %109, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %109, !prof !22
 
 109:                                              ; preds = %102
   %110 = icmp eq ptr %104, %0
@@ -48808,7 +48808,7 @@ lean_nat_eq.exit.i:                               ; preds = %102
   br i1 %111, label %291, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %109
-  br label %lean_array_uget.exit
+  br label %lean_array_uget.exit, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %112 = ptrtoint ptr %63 to i64
@@ -49545,7 +49545,7 @@ lean_obj_tag.exit.i625:                           ; preds = %401, %398
   %410 = ptrtoint ptr %407 to i64
   %411 = and i64 %373, %410
   %or.cond.not.i627 = icmp eq i64 %411, 0
-  br i1 %or.cond.not.i627, label %lean_nat_eq.exit.i630, label %412, !prof !19
+  br i1 %or.cond.not.i627, label %lean_nat_eq.exit.i630, label %412, !prof !22
 
 412:                                              ; preds = %405
   %413 = icmp eq ptr %407, %0
@@ -49556,7 +49556,7 @@ lean_nat_eq.exit.i630:                            ; preds = %405
   br i1 %414, label %603, label %lean_array_uget.exit622.backedge
 
 lean_array_uget.exit622.backedge:                 ; preds = %lean_nat_eq.exit.i630, %412
-  br label %lean_array_uget.exit622
+  br label %lean_array_uget.exit622, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit632: ; preds = %lean_obj_tag.exit.i625
   br i1 %.not803, label %425, label %415, !prof !14
@@ -50512,7 +50512,7 @@ lean_obj_tag.exit.i702:                           ; preds = %780, %777
   %789 = ptrtoint ptr %786 to i64
   %790 = and i64 %752, %789
   %or.cond.not.i704 = icmp eq i64 %790, 0
-  br i1 %or.cond.not.i704, label %lean_nat_eq.exit.i707, label %791, !prof !19
+  br i1 %or.cond.not.i704, label %lean_nat_eq.exit.i707, label %791, !prof !22
 
 791:                                              ; preds = %784
   %792 = icmp eq ptr %786, %0
@@ -50523,7 +50523,7 @@ lean_nat_eq.exit.i707:                            ; preds = %784
   br i1 %793, label %1028, label %lean_array_uget.exit699.backedge
 
 lean_array_uget.exit699.backedge:                 ; preds = %lean_nat_eq.exit.i707, %791
-  br label %lean_array_uget.exit699
+  br label %lean_array_uget.exit699, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit709: ; preds = %lean_obj_tag.exit.i702
   br i1 %.not786, label %804, label %794, !prof !14
@@ -60217,7 +60217,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %38 = and i64 %37, 1
   %39 = icmp ne i64 %38, 0
   %or.cond = select i1 %36, i1 %39, i1 false
-  br i1 %or.cond, label %40, label %lean_nat_lt.exit, !prof !20
+  br i1 %or.cond, label %40, label %lean_nat_lt.exit, !prof !26
 
 40:                                               ; preds = %lean_dec.exit
   %41 = icmp ult ptr %.0236, %33
@@ -74323,7 +74323,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit136.backedge:                        ; preds = %73, %75, %85, %84, %82
   %.0112.be = phi ptr [ %77, %75 ], [ %79, %82 ], [ %79, %84 ], [ %79, %85 ], [ inttoptr (i64 1 to ptr), %73 ]
   %.0111.be = phi ptr [ %.1.i211260, %75 ], [ %78, %82 ], [ %78, %84 ], [ %78, %85 ], [ %.1.i211260, %73 ]
-  br label %lean_dec.exit136
+  br label %lean_dec.exit136, !llvm.loop !27
 
 75:                                               ; preds = %73
   %76 = add i64 %50, -2
@@ -76390,7 +76390,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit32
   %.029.be = phi ptr [ %.0, %lean_dec.exit32 ], [ %64, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -77033,7 +77033,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit64
   %.049.be = phi ptr [ %.0, %lean_dec.exit64 ], [ %212, %lean_alloc_ctor.exit ]
-  br label %10
+  br label %10, !llvm.loop !29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -123654,7 +123654,7 @@ lean_dec.exit542:                                 ; preds = %lean_dec.exit542.ba
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
   %or.cond = select i1 %30, i1 %33, i1 false
-  br i1 %or.cond, label %34, label %lean_nat_lt.exit, !prof !20
+  br i1 %or.cond, label %34, label %lean_nat_lt.exit, !prof !26
 
 34:                                               ; preds = %lean_dec.exit542
   %35 = icmp ult ptr %.0396, %27
@@ -129134,7 +129134,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.027.be = phi ptr [ %.0, %21 ], [ %48, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -129276,7 +129276,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %17
   %.022.be = phi ptr [ %.0, %17 ], [ %48, %lean_alloc_ctor.exit ]
   %.0.be = phi ptr [ %19, %17 ], [ %24, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -154152,7 +154152,7 @@ define ptr @l_Array_filterMapM___at___private_Lean_Meta_Tactic_Grind_EMatchTheor
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %10, %11
   %or.cond.not = icmp eq i64 %12, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %13, !prof !19
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %13, !prof !22
 
 13:                                               ; preds = %8
   %14 = icmp ult ptr %1, %2
@@ -155190,7 +155190,7 @@ lean_dec.exit331:                                 ; preds = %90, %89, %87, %80
 
 93:                                               ; preds = %lean_dec.exit331
   %94 = load ptr, ptr %92, align 8, !tbaa !9
-  %95 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !21
+  %95 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !32
   %96 = load ptr, ptr @l_Lean_Meta_Grind_ppPattern___closed__3, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %97 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -155212,9 +155212,9 @@ lean_alloc_ctor.exit:                             ; preds = %93
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %96, ptr %103, align 8, !tbaa !9
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store double %95, ptr %104, align 8, !tbaa !21
+  store double %95, ptr %104, align 8, !tbaa !32
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  store double %95, ptr %105, align 8, !tbaa !21
+  store double %95, ptr %105, align 8, !tbaa !32
   %106 = load ptr, ptr @l_Lean_Meta_Grind_NormalizePattern_main___closed__1, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %107 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -155417,7 +155417,7 @@ lean_inc.exit358:                                 ; preds = %174, %173, %171, %1
   br label %lean_dec.exit328
 
 lean_dec.exit328:                                 ; preds = %181, %180, %178, %lean_inc.exit358
-  %182 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !21
+  %182 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !32
   %183 = load ptr, ptr @l_Lean_Meta_Grind_ppPattern___closed__3, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %184 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -155439,9 +155439,9 @@ lean_alloc_ctor.exit422:                          ; preds = %lean_dec.exit328
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store ptr %183, ptr %190, align 8, !tbaa !9
   %191 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  store double %182, ptr %191, align 8, !tbaa !21
+  store double %182, ptr %191, align 8, !tbaa !32
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  store double %182, ptr %192, align 8, !tbaa !21
+  store double %182, ptr %192, align 8, !tbaa !32
   %193 = load ptr, ptr @l_Lean_Meta_Grind_NormalizePattern_main___closed__1, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -155951,7 +155951,7 @@ lean_ctor_release.exit465:                        ; preds = %366, %373, %375, %3
 
 lean_dec_ref.exit388:                             ; preds = %382, %381, %379, %lean_ctor_release.exit465
   %.0321 = phi ptr [ %56, %lean_ctor_release.exit465 ], [ inttoptr (i64 1 to ptr), %379 ], [ inttoptr (i64 1 to ptr), %381 ], [ inttoptr (i64 1 to ptr), %382 ]
-  %383 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !21
+  %383 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !32
   %384 = load ptr, ptr @l_Lean_Meta_Grind_ppPattern___closed__3, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %385 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -155973,9 +155973,9 @@ lean_alloc_ctor.exit467:                          ; preds = %lean_dec_ref.exit38
   %391 = getelementptr inbounds nuw i8, ptr %385, i64 16
   store ptr %384, ptr %391, align 8, !tbaa !9
   %392 = getelementptr inbounds nuw i8, ptr %385, i64 24
-  store double %383, ptr %392, align 8, !tbaa !21
+  store double %383, ptr %392, align 8, !tbaa !32
   %393 = getelementptr inbounds nuw i8, ptr %385, i64 32
-  store double %383, ptr %393, align 8, !tbaa !21
+  store double %383, ptr %393, align 8, !tbaa !32
   %394 = load ptr, ptr @l_Lean_Meta_Grind_NormalizePattern_main___closed__1, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %395 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -156812,7 +156812,7 @@ lean_ctor_release.exit543:                        ; preds = %692, %699, %701, %7
 
 lean_dec_ref.exit382:                             ; preds = %708, %707, %705, %lean_ctor_release.exit543
   %.0326 = phi ptr [ %56, %lean_ctor_release.exit543 ], [ inttoptr (i64 1 to ptr), %705 ], [ inttoptr (i64 1 to ptr), %707 ], [ inttoptr (i64 1 to ptr), %708 ]
-  %709 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !21
+  %709 = load double, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !32
   %710 = load ptr, ptr @l_Lean_Meta_Grind_ppPattern___closed__3, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %711 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #9
@@ -156834,9 +156834,9 @@ lean_alloc_ctor.exit545:                          ; preds = %lean_dec_ref.exit38
   %717 = getelementptr inbounds nuw i8, ptr %711, i64 16
   store ptr %710, ptr %717, align 8, !tbaa !9
   %718 = getelementptr inbounds nuw i8, ptr %711, i64 24
-  store double %709, ptr %718, align 8, !tbaa !21
+  store double %709, ptr %718, align 8, !tbaa !32
   %719 = getelementptr inbounds nuw i8, ptr %711, i64 32
-  store double %709, ptr %719, align 8, !tbaa !21
+  store double %709, ptr %719, align 8, !tbaa !32
   %720 = load ptr, ptr @l_Lean_Meta_Grind_NormalizePattern_main___closed__1, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #9
   %721 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #9
@@ -159806,12 +159806,12 @@ lean_inc.exit:                                    ; preds = %54, %53, %51, %39
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %63, %62, %60, %lean_inc.exit
-  br label %.outer
+  br label %.outer, !llvm.loop !34
 
 64:                                               ; preds = %lean_obj_tag.exit
   %65 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !9
-  br label %3
+  br label %3, !llvm.loop !34
 
 67:                                               ; preds = %lean_obj_tag.exit
   tail call void @lean_inc_heartbeat() #9
@@ -160130,7 +160130,7 @@ lean_obj_tag.exit.i:                              ; preds = %55, %52
   %64 = ptrtoint ptr %61 to i64
   %65 = and i64 %27, %64
   %or.cond.not.i = icmp eq i64 %65, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %66, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %66, !prof !22
 
 66:                                               ; preds = %59
   %67 = icmp eq ptr %61, %19
@@ -160141,7 +160141,7 @@ lean_nat_eq.exit.i:                               ; preds = %59
   br i1 %68, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %66
-  br label %lean_array_uget.exit
+  br label %lean_array_uget.exit, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %66, %lean_nat_eq.exit.i
   br i1 %.not.i103, label %69, label %lean_dec.exit84
@@ -160345,7 +160345,7 @@ lean_obj_tag.exit.i120:                           ; preds = %139, %136
   %148 = ptrtoint ptr %145 to i64
   %149 = and i64 %95, %148
   %or.cond.not.i122 = icmp eq i64 %149, 0
-  br i1 %or.cond.not.i122, label %lean_nat_eq.exit.i125, label %150, !prof !19
+  br i1 %or.cond.not.i122, label %lean_nat_eq.exit.i125, label %150, !prof !22
 
 150:                                              ; preds = %143
   %151 = icmp eq ptr %145, %19
@@ -160356,7 +160356,7 @@ lean_nat_eq.exit.i125:                            ; preds = %143
   br i1 %152, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit127, label %lean_array_uget.exit117.backedge
 
 lean_array_uget.exit117.backedge:                 ; preds = %lean_nat_eq.exit.i125, %150
-  br label %lean_array_uget.exit117
+  br label %lean_array_uget.exit117, !llvm.loop !23
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_NormalizePattern_foundBVar___spec__1.exit127: ; preds = %lean_obj_tag.exit.i120, %150, %lean_nat_eq.exit.i125
   br i1 %.not.i114, label %153, label %lean_dec.exit80
@@ -160407,7 +160407,7 @@ lean_alloc_ctor.exit:                             ; preds = %160
 
 lean_dec.exit83.backedge:                         ; preds = %167, %171, %173, %174, %77, %81, %83, %84, %lean_alloc_ctor.exit, %76
   %.076.be = phi ptr [ %.0, %76 ], [ %161, %lean_alloc_ctor.exit ], [ %.076, %84 ], [ %.076, %83 ], [ %.076, %81 ], [ %.076, %77 ], [ %.076, %174 ], [ %.076, %173 ], [ %.076, %171 ], [ %.076, %167 ]
-  br label %lean_dec.exit83
+  br label %lean_dec.exit83, !llvm.loop !35
 
 168:                                              ; preds = %167
   %169 = load i32, ptr %19, align 4, !tbaa !4
@@ -240518,7 +240518,7 @@ lean_dec_ref.exit:                                ; preds = %326, %325, %323, %l
   store ptr %541, ptr @l_Lean_ScopedEnvExtension_add___at_Lean_Meta_Grind_addEMatchTheorem___spec__1___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %541) #9
   %542 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #9
-  store double %542, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !21
+  store double %542, ptr @l_Lean_addTrace___at___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___spec__2___closed__1, align 8, !tbaa !32
   %543 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.97, i64 noundef 19, i64 noundef 19) #9
   store ptr %543, ptr @l___private_Lean_Meta_Tactic_Grind_EMatchTheorem_0__Lean_Meta_Grind_addNewPattern___lambda__2___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %543) #9
@@ -243968,7 +243968,20 @@ attributes #10 = { noreturn nounwind }
 !16 = !{!"short", !7, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!7, !7, i64 0}
-!19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = !{!"branch_weights", i32 4001, i32 4000000}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = !{!"branch_weights", i32 4000000, i32 4001}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"double", !7, i64 0}
+!34 = distinct !{!34, !20}
+!35 = distinct !{!35, !20}

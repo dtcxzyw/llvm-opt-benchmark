@@ -161,7 +161,7 @@ define void @dt_overlays_remove(i32 noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @g_list_free(ptr noundef %2) #4
@@ -226,7 +226,7 @@ define ptr @dt_overlay_get_imgs(i32 noundef %0) local_unnamed_addr #0 {
   %34 = load ptr, ptr %2, align 8, !tbaa !51
   %35 = call i32 @sqlite3_step(ptr noundef %34) #4
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %.0.lcssa = phi ptr [ null, %25 ], [ %33, %.lr.ph ]
@@ -388,7 +388,7 @@ define ptr @dt_overlay_get_used_in_imgs(i32 noundef %0, i32 noundef %1) local_un
   %45 = load ptr, ptr %3, align 8, !tbaa !51
   %46 = call i32 @sqlite3_step(ptr noundef %45) #4
   %47 = icmp eq i32 %46, 100
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.0.lcssa = phi ptr [ null, %36 ], [ %44, %.lr.ph ]
@@ -486,7 +486,7 @@ define void @dt_overlay_add_from_history(i32 noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %dt_overlays_remove.exit, label %.lr.ph.i
+  br i1 %.not.i, label %dt_overlays_remove.exit, label %.lr.ph.i, !llvm.loop !57
 
 dt_overlays_remove.exit:                          ; preds = %.lr.ph.i, %5
   tail call void @g_list_free(ptr noundef %6) #4
@@ -542,7 +542,7 @@ dt_overlays_remove.exit:                          ; preds = %.lr.ph.i, %5
 39:                                               ; preds = %.lr.ph, %50
   %40 = load ptr, ptr %2, align 8, !tbaa !51
   %41 = call ptr @sqlite3_column_blob(ptr noundef %40, i32 noundef 0) #4
-  %42 = load ptr, ptr %38, align 8, !tbaa !57
+  %42 = load ptr, ptr %38, align 8, !tbaa !61
   %43 = call ptr %42(ptr noundef %41, ptr noundef nonnull @.str.12) #4
   %.not14 = icmp eq ptr %43, null
   br i1 %.not14, label %50, label %44
@@ -564,7 +564,7 @@ dt_overlays_remove.exit:                          ; preds = %.lr.ph.i, %5
   %51 = load ptr, ptr %2, align 8, !tbaa !51
   %52 = call i32 @sqlite3_step(ptr noundef %51) #4
   %53 = icmp eq i32 %52, 100
-  br i1 %53, label %39, label %._crit_edge
+  br i1 %53, label %39, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %50, %34
   %54 = load ptr, ptr %2, align 8, !tbaa !51
@@ -654,7 +654,7 @@ define void @dt_overlay_remove_from_history(i32 noundef %0, i32 noundef %1) loca
 43:                                               ; preds = %.lr.ph, %54
   %44 = load ptr, ptr %3, align 8, !tbaa !51
   %45 = call ptr @sqlite3_column_blob(ptr noundef %44, i32 noundef 0) #4
-  %46 = load ptr, ptr %42, align 8, !tbaa !57
+  %46 = load ptr, ptr %42, align 8, !tbaa !61
   %47 = call ptr %46(ptr noundef %45, ptr noundef nonnull @.str.12) #4
   %.not16 = icmp eq ptr %47, null
   br i1 %.not16, label %54, label %48
@@ -676,7 +676,7 @@ define void @dt_overlay_remove_from_history(i32 noundef %0, i32 noundef %1) loca
   %55 = load ptr, ptr %3, align 8, !tbaa !51
   %56 = call i32 @sqlite3_step(ptr noundef %55) #4
   %57 = icmp eq i32 %56, 100
-  br i1 %57, label %43, label %._crit_edge
+  br i1 %57, label %43, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %54, %38
   %58 = load ptr, ptr %3, align 8, !tbaa !51
@@ -754,8 +754,14 @@ attributes #5 = { cold nounwind }
 !54 = !{!55, !13, i64 0}
 !55 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
 !56 = !{!55, !12, i64 8}
-!57 = !{!58, !13, i64 464}
-!58 = !{!"dt_iop_module_so_t", !59, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !61, i64 488, !10, i64 496, !13, i64 520, !9, i64 528, !13, i64 536, !9, i64 544, !9, i64 548}
-!59 = !{!"dt_action_t", !9, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !60, i64 32, !60, i64 40}
-!60 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
-!61 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !58}
+!60 = distinct !{!60, !58}
+!61 = !{!62, !13, i64 464}
+!62 = !{!"dt_iop_module_so_t", !63, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !65, i64 488, !10, i64 496, !13, i64 520, !9, i64 528, !13, i64 536, !9, i64 544, !9, i64 548}
+!63 = !{!"dt_action_t", !9, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !64, i64 32, !64, i64 40}
+!64 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
+!65 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!66 = distinct !{!66, !58}
+!67 = distinct !{!67, !58}

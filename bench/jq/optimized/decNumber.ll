@@ -94,7 +94,7 @@ define dso_local noundef ptr @decNumberFromInt32(ptr noundef returned initialize
   %25 = add nsw i32 %.018.i.i, -3
   %.01317.i.add.i = add nsw i64 %.01317.i.idx.i, -2
   %.not.i.i = icmp slt i64 %.01317.i.idx.i, 11
-  br i1 %.not.i.i, label %decNumberFromUInt32.exit, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %decNumberFromUInt32.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 26:                                               ; preds = %.lr.ph.i.i
   %27 = icmp ult i16 %20, 10
@@ -180,7 +180,7 @@ define dso_local noundef ptr @decNumberFromUInt32(ptr noundef returned initializ
   %25 = add nsw i32 %.018.i, -3
   %.01317.i.add = add nsw i64 %.01317.i.idx, -2
   %.not.i = icmp slt i64 %.01317.i.idx, 11
-  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !16
 
 26:                                               ; preds = %.lr.ph.i
   %27 = icmp ult i16 %20, 10
@@ -245,7 +245,7 @@ define internal fastcc i32 @decGetDigits(ptr noundef readonly captures(address) 
   %13 = add nsw i32 %.018, -3
   %14 = getelementptr inbounds i8, ptr %.01317, i64 -2
   %.not = icmp ult ptr %14, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 15:                                               ; preds = %.lr.ph
   %16 = icmp ult i16 %8, 10
@@ -304,13 +304,13 @@ define dso_local i32 @decNumberToInt32(ptr noundef readonly captures(none) %0, p
   %21 = zext i16 %20 to i32
   %22 = add nsw i64 %indvars.iv, -1
   %23 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !16
+  %24 = load i32, ptr %23, align 4, !tbaa !17
   %25 = mul i32 %24, %21
   %26 = add i32 %25, %.03657
   %27 = getelementptr inbounds nuw i8, ptr %.03756, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %28 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = icmp ugt i32 %26, 214748364
@@ -399,13 +399,13 @@ define dso_local i32 @decNumberToUInt32(ptr noundef readonly captures(none) %0, 
   %23 = zext i16 %22 to i32
   %24 = add nsw i64 %indvars.iv, -1
   %25 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !16
+  %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = mul i32 %26, %23
   %28 = add i32 %27, %.02844
   %29 = getelementptr inbounds nuw i8, ptr %.02943, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %30 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %31 = icmp ugt i32 %28, 429496729
@@ -452,7 +452,7 @@ define internal fastcc void @decToString(ptr noundef readonly captures(none) %0,
 8:                                                ; preds = %3
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !19
+  %11 = load i8, ptr %10, align 1, !tbaa !20
   %12 = zext i8 %11 to i32
   br label %16
 
@@ -473,7 +473,7 @@ define internal fastcc void @decToString(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %16
-  store i8 45, ptr %1, align 1, !tbaa !19
+  store i8 45, ptr %1, align 1, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = load i8, ptr %19, align 4, !tbaa !4
   br label %23
@@ -507,7 +507,7 @@ define internal fastcc void @decToString(ptr noundef readonly captures(none) %0,
   br i1 %.not341, label %35, label %33
 
 33:                                               ; preds = %31
-  store i8 115, ptr %.0276, align 1, !tbaa !19
+  store i8 115, ptr %.0276, align 1, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %.0276, i64 1
   br label %35
 
@@ -535,7 +535,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
 43:                                               ; preds = %thread-pre-split
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !19
+  %46 = load i8, ptr %45, align 1, !tbaa !20
   %47 = zext i8 %46 to i32
   %.pre422 = add nsw i32 %41, 2
   br label %51
@@ -575,9 +575,9 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %indvars.iv417 = phi i64 [ %58, %.lr.ph403.preheader ], [ %indvars.iv.next418, %85 ]
   %.0264402 = phi i32 [ %57, %.lr.ph403.preheader ], [ %.5, %85 ]
   %.4280401 = phi ptr [ %.3279407, %.lr.ph403.preheader ], [ %86, %85 ]
-  store i8 48, ptr %.4280401, align 1, !tbaa !19
+  store i8 48, ptr %.4280401, align 1, !tbaa !20
   %59 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv417
-  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %60 = load i32, ptr %59, align 4, !tbaa !17
   %61 = shl i32 %60, 1
   %62 = icmp ugt i32 %.0264402, %61
   br i1 %62, label %63, label %75
@@ -598,7 +598,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %63
-  store i8 %69, ptr %.4280401, align 1, !tbaa !19
+  store i8 %69, ptr %.4280401, align 1, !tbaa !20
   br label %73
 
 73:                                               ; preds = %63, %72
@@ -624,24 +624,24 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %83 = select i1 %.not374, i8 %82, i8 %76
   %84 = zext i1 %.not375 to i8
   %simplifycfg.merge = add nuw nsw i8 %83, %84
-  store i8 %simplifycfg.merge, ptr %.4280401, align 1, !tbaa !19
+  store i8 %simplifycfg.merge, ptr %.4280401, align 1, !tbaa !20
   br label %85
 
 85:                                               ; preds = %75, %81
   %86 = getelementptr inbounds nuw i8, ptr %.4280401, i64 1
   %indvars.iv.next418 = add nsw i64 %indvars.iv417, -1
   %87 = icmp sgt i64 %indvars.iv417, 0
-  br i1 %87, label %.lr.ph403, label %._crit_edge, !llvm.loop !20
+  br i1 %87, label %.lr.ph403, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %85, %.lr.ph409
   %.4280.lcssa = phi ptr [ %.3279407, %.lr.ph409 ], [ %86, %85 ]
   %.0269.add = add nsw i64 %.0269.idx408, -2
   %.not370 = icmp slt i64 %.0269.idx408, 11
-  br i1 %.not370, label %._crit_edge410, label %.lr.ph409, !llvm.loop !21
+  br i1 %.not370, label %._crit_edge410, label %.lr.ph409, !llvm.loop !22
 
 ._crit_edge410:                                   ; preds = %._crit_edge, %.preheader
   %.3279.lcssa = phi ptr [ %.1277, %.preheader ], [ %.4280.lcssa, %._crit_edge ]
-  store i8 0, ptr %.3279.lcssa, align 1, !tbaa !19
+  store i8 0, ptr %.3279.lcssa, align 1, !tbaa !20
   br label %290
 
 88:                                               ; preds = %51
@@ -747,10 +747,10 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.3294 = phi i32 [ 2, %128 ], [ %.2293388, %.preheader382 ]
   %.2271.idx = phi i64 [ %.1270.add, %128 ], [ %.1270.idx390, %.preheader382 ]
   %.7 = phi i32 [ %130, %128 ], [ %.6391, %.preheader382 ]
-  store i8 48, ptr %.5281389, align 1, !tbaa !19
+  store i8 48, ptr %.5281389, align 1, !tbaa !20
   %132 = zext nneg i32 %.3294 to i64
   %133 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %132
-  %134 = load i32, ptr %133, align 4, !tbaa !16
+  %134 = load i32, ptr %133, align 4, !tbaa !17
   %135 = shl i32 %134, 1
   %136 = icmp ugt i32 %.7, %135
   br i1 %136, label %137, label %149
@@ -771,7 +771,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %137
-  store i8 %143, ptr %.5281389, align 1, !tbaa !19
+  store i8 %143, ptr %.5281389, align 1, !tbaa !20
   br label %147
 
 147:                                              ; preds = %137, %146
@@ -797,7 +797,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %157 = select i1 %.not358, i8 %156, i8 %150
   %158 = zext i1 %.not359 to i8
   %simplifycfg.merge451 = add nuw nsw i8 %157, %158
-  store i8 %simplifycfg.merge451, ptr %.5281389, align 1, !tbaa !19
+  store i8 %simplifycfg.merge451, ptr %.5281389, align 1, !tbaa !20
   br label %159
 
 159:                                              ; preds = %149, %155
@@ -805,7 +805,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %161 = getelementptr inbounds nuw i8, ptr %.5281389, i64 1
   %162 = add nsw i32 %.3294, -1
   %163 = icmp sgt i32 %.2302387, 1
-  br i1 %163, label %.preheader382, label %.thread429, !llvm.loop !22
+  br i1 %163, label %.preheader382, label %.thread429, !llvm.loop !23
 
 164:                                              ; preds = %126
   %165 = load i32, ptr %0, align 4, !tbaa !10
@@ -819,7 +819,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
 
 .lr.ph394.preheader:                              ; preds = %164
   %169 = zext nneg i32 %.2302387 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.5281389, i8 48, i64 %169, i1 false), !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.5281389, i8 48, i64 %169, i1 false), !tbaa !20
   %170 = zext nneg i32 %.2302387 to i64
   %scevgep416 = getelementptr i8, ptr %.5281389, i64 %170
   br label %.loopexit379
@@ -829,7 +829,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.1270.idx.lcssa439 = phi i64 [ %.2271.idx, %.thread429 ], [ 10, %164 ]
   %.5281.lcssa437 = phi ptr [ %161, %.thread429 ], [ %.5281389, %164 ]
   %.2293.lcssa436 = phi i32 [ %162, %.thread429 ], [ %.2293388, %164 ]
-  store i8 46, ptr %.5281.lcssa437, align 1, !tbaa !19
+  store i8 46, ptr %.5281.lcssa437, align 1, !tbaa !20
   br label %172
 
 172:                                              ; preds = %207, %171
@@ -856,10 +856,10 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.5296 = phi i32 [ 2, %176 ], [ %.4295, %172 ]
   %.4273.idx = phi i64 [ %.3272.add, %176 ], [ %.3272.idx, %172 ]
   %.14 = phi i32 [ %178, %176 ], [ %.13, %172 ]
-  store i8 48, ptr %.6282, align 1, !tbaa !19
+  store i8 48, ptr %.6282, align 1, !tbaa !20
   %180 = zext nneg i32 %.5296 to i64
   %181 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4, !tbaa !16
+  %182 = load i32, ptr %181, align 4, !tbaa !17
   %183 = shl i32 %182, 1
   %184 = icmp ugt i32 %.14, %183
   br i1 %184, label %185, label %197
@@ -880,7 +880,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %193, label %194, label %195
 
 194:                                              ; preds = %185
-  store i8 %191, ptr %.6282, align 1, !tbaa !19
+  store i8 %191, ptr %.6282, align 1, !tbaa !20
   br label %195
 
 195:                                              ; preds = %185, %194
@@ -906,17 +906,17 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %205 = select i1 %.not363, i8 %204, i8 %198
   %206 = zext i1 %.not364 to i8
   %simplifycfg.merge452 = add nuw nsw i8 %205, %206
-  store i8 %simplifycfg.merge452, ptr %.6282, align 1, !tbaa !19
+  store i8 %simplifycfg.merge452, ptr %.6282, align 1, !tbaa !20
   br label %207
 
 207:                                              ; preds = %197, %203
   %208 = add nsw i32 %.5296, -1
-  br label %172
+  br label %172, !llvm.loop !24
 
 209:                                              ; preds = %120
-  store i8 48, ptr %.1277, align 1, !tbaa !19
+  store i8 48, ptr %.1277, align 1, !tbaa !20
   %210 = getelementptr inbounds nuw i8, ptr %.1277, i64 1
-  store i8 46, ptr %210, align 1, !tbaa !19
+  store i8 46, ptr %210, align 1, !tbaa !20
   %211 = getelementptr i8, ptr %.1277, i64 2
   %212 = icmp slt i32 %.0300, 0
   br i1 %212, label %.lr.ph.preheader, label %.preheader383.preheader
@@ -925,7 +925,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %213 = xor i32 %.0300, -1
   %214 = zext nneg i32 %213 to i64
   %215 = add nuw nsw i64 %214, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %211, i8 48, i64 %215, i1 false), !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %211, i8 48, i64 %215, i1 false), !tbaa !20
   %216 = getelementptr i8, ptr %.1277, i64 %214
   %scevgep = getelementptr i8, ptr %216, i64 3
   br label %.preheader383.preheader
@@ -957,10 +957,10 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.7298 = phi i32 [ 2, %220 ], [ %.6297, %.preheader383 ]
   %.6275.idx = phi i64 [ %.5274.add, %220 ], [ %.5274.idx, %.preheader383 ]
   %.21 = phi i32 [ %222, %220 ], [ %.20, %.preheader383 ]
-  store i8 48, ptr %.11287, align 1, !tbaa !19
+  store i8 48, ptr %.11287, align 1, !tbaa !20
   %224 = zext nneg i32 %.7298 to i64
   %225 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %224
-  %226 = load i32, ptr %225, align 4, !tbaa !16
+  %226 = load i32, ptr %225, align 4, !tbaa !17
   %227 = shl i32 %226, 1
   %228 = icmp ugt i32 %.21, %227
   br i1 %228, label %229, label %241
@@ -981,7 +981,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %237, label %238, label %239
 
 238:                                              ; preds = %229
-  store i8 %235, ptr %.11287, align 1, !tbaa !19
+  store i8 %235, ptr %.11287, align 1, !tbaa !20
   br label %239
 
 239:                                              ; preds = %229, %238
@@ -1007,13 +1007,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %249 = select i1 %.not353, i8 %248, i8 %242
   %250 = zext i1 %.not354 to i8
   %simplifycfg.merge453 = add nuw nsw i8 %249, %250
-  store i8 %simplifycfg.merge453, ptr %.11287, align 1, !tbaa !19
+  store i8 %simplifycfg.merge453, ptr %.11287, align 1, !tbaa !20
   br label %251
 
 251:                                              ; preds = %241, %247
   %252 = getelementptr inbounds nuw i8, ptr %.11287, i64 1
   %253 = add nsw i32 %.7298, -1
-  br label %.preheader383
+  br label %.preheader383, !llvm.loop !25
 
 .loopexit379:                                     ; preds = %218, %174, %.thread429, %.lr.ph394.preheader
   %.0259427 = phi i32 [ %.0259428, %.lr.ph394.preheader ], [ %.0259428, %.thread429 ], [ %.0259428, %174 ], [ %.0259, %218 ]
@@ -1022,15 +1022,15 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %.not365, label %.loopexit, label %254
 
 254:                                              ; preds = %.loopexit379
-  store i8 69, ptr %.9285, align 1, !tbaa !19
+  store i8 69, ptr %.9285, align 1, !tbaa !20
   %255 = getelementptr inbounds nuw i8, ptr %.9285, i64 1
-  store i8 43, ptr %255, align 1, !tbaa !19
+  store i8 43, ptr %255, align 1, !tbaa !20
   %256 = getelementptr inbounds nuw i8, ptr %.9285, i64 2
   %257 = icmp slt i32 %.0259427, 0
   br i1 %257, label %258, label %.preheader461
 
 258:                                              ; preds = %254
-  store i8 45, ptr %255, align 1, !tbaa !19
+  store i8 45, ptr %255, align 1, !tbaa !20
   %259 = sub nsw i32 0, %.0259427
   br label %.preheader461
 
@@ -1043,9 +1043,9 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.0399 = phi i1 [ %or.cond5, %288 ], [ false, %.preheader461 ]
   %.28398 = phi i32 [ %.33, %288 ], [ %.28398.ph, %.preheader461 ]
   %.13289397 = phi ptr [ %spec.select376, %288 ], [ %256, %.preheader461 ]
-  store i8 48, ptr %.13289397, align 1, !tbaa !19
+  store i8 48, ptr %.13289397, align 1, !tbaa !20
   %261 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %262 = load i32, ptr %261, align 4, !tbaa !16
+  %262 = load i32, ptr %261, align 4, !tbaa !17
   %263 = shl i32 %262, 1
   %264 = icmp ugt i32 %.28398, %263
   br i1 %264, label %265, label %277
@@ -1066,7 +1066,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %273, label %274, label %275
 
 274:                                              ; preds = %265
-  store i8 %271, ptr %.13289397, align 1, !tbaa !19
+  store i8 %271, ptr %.13289397, align 1, !tbaa !20
   br label %275
 
 275:                                              ; preds = %265, %274
@@ -1092,7 +1092,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   br i1 %286, label %287, label %288
 
 287:                                              ; preds = %277
-  store i8 %284, ptr %.13289397, align 1, !tbaa !19
+  store i8 %284, ptr %.13289397, align 1, !tbaa !20
   br label %288
 
 288:                                              ; preds = %277, %287
@@ -1102,11 +1102,11 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %spec.select376 = getelementptr inbounds nuw i8, ptr %.13289397, i64 %spec.select376.idx
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not423 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not423, label %.loopexit, label %260, !llvm.loop !23
+  br i1 %.not423, label %.loopexit, label %260, !llvm.loop !26
 
 .loopexit:                                        ; preds = %288, %.loopexit379
   %.12288 = phi ptr [ %.9285, %.loopexit379 ], [ %spec.select376, %288 ]
-  store i8 0, ptr %.12288, align 1, !tbaa !19
+  store i8 0, ptr %.12288, align 1, !tbaa !20
   br label %290
 
 290:                                              ; preds = %36, %35, %.loopexit, %._crit_edge410, %29
@@ -1127,7 +1127,7 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   br label %7
 
 7:                                                ; preds = %24, %3
@@ -1137,7 +1137,7 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   %.0184 = phi ptr [ null, %3 ], [ %.1185, %24 ]
   %.0180 = phi ptr [ %1, %3 ], [ %25, %24 ]
   %.0170 = phi i8 [ 0, %3 ], [ %.1171, %24 ]
-  %8 = load i8, ptr %.0180, align 1, !tbaa !19
+  %8 = load i8, ptr %.0180, align 1, !tbaa !20
   %9 = add i8 %8, -48
   %or.cond256 = icmp ult i8 %9, 10
   br i1 %or.cond256, label %10, label %12
@@ -1183,7 +1183,7 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   %.1185 = phi ptr [ %.0180, %10 ], [ %.0184, %20 ], [ %.0184, %22 ], [ %.0184, %15 ]
   %.1171 = phi i8 [ %.0170, %10 ], [ -128, %20 ], [ %.0170, %22 ], [ %.0170, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %.0180, i64 1
-  br label %7
+  br label %7, !llvm.loop !27
 
 26:                                               ; preds = %19, %17
   %.0180.lcssa = phi ptr [ %1, %19 ], [ %.0180, %17 ]
@@ -1191,7 +1191,7 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   br i1 %27, label %28, label %88
 
 28:                                               ; preds = %26
-  store i32 1, ptr %6, align 4, !tbaa !16
+  store i32 1, ptr %6, align 4, !tbaa !17
   %29 = icmp eq i8 %8, 0
   %30 = icmp ne ptr %.0194, null
   %or.cond3 = select i1 %29, i1 true, i1 %30
@@ -1211,13 +1211,13 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   %.09.i = phi ptr [ %.0180.lcssa, %31 ], [ %43, %42 ]
   %.08.i = phi ptr [ @.str, %31 ], [ %44, %42 ]
   %.0.i = phi ptr [ @.str.1, %31 ], [ %45, %42 ]
-  %36 = load i8, ptr %.09.i, align 1, !tbaa !19
-  %37 = load i8, ptr %.08.i, align 1, !tbaa !19
+  %36 = load i8, ptr %.09.i, align 1, !tbaa !20
+  %37 = load i8, ptr %.08.i, align 1, !tbaa !20
   %.not.i = icmp eq i8 %36, %37
   br i1 %.not.i, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr %.0.i, align 1, !tbaa !19
+  %39 = load i8, ptr %.0.i, align 1, !tbaa !20
   %.not12.i = icmp eq i8 %36, %39
   br i1 %.not12.i, label %40, label %.preheader303
 
@@ -1229,19 +1229,19 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   %43 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %44 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %35
+  br label %35, !llvm.loop !28
 
 .preheader303:                                    ; preds = %38, %52
   %.09.i265 = phi ptr [ %53, %52 ], [ %.0180.lcssa, %38 ]
   %.08.i266 = phi ptr [ %54, %52 ], [ @.str.2, %38 ]
   %.0.i267 = phi ptr [ %55, %52 ], [ @.str.3, %38 ]
-  %46 = load i8, ptr %.09.i265, align 1, !tbaa !19
-  %47 = load i8, ptr %.08.i266, align 1, !tbaa !19
+  %46 = load i8, ptr %.09.i265, align 1, !tbaa !20
+  %47 = load i8, ptr %.08.i266, align 1, !tbaa !20
   %.not.i268 = icmp eq i8 %46, %47
   br i1 %.not.i268, label %50, label %48
 
 48:                                               ; preds = %.preheader303
-  %49 = load i8, ptr %.0.i267, align 1, !tbaa !19
+  %49 = load i8, ptr %.0.i267, align 1, !tbaa !20
   %.not12.i269 = icmp eq i8 %46, %49
   br i1 %.not12.i269, label %50, label %57
 
@@ -1253,7 +1253,7 @@ define dso_local noundef ptr @decNumberFromString(ptr noundef returned %0, ptr n
   %53 = getelementptr inbounds nuw i8, ptr %.09.i265, i64 1
   %54 = getelementptr inbounds nuw i8, ptr %.08.i266, i64 1
   %55 = getelementptr inbounds nuw i8, ptr %.0.i267, i64 1
-  br label %.preheader303
+  br label %.preheader303, !llvm.loop !28
 
 decBiStr.exit:                                    ; preds = %40, %50
   %56 = or i8 %.0170, 64
@@ -1263,7 +1263,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 57:                                               ; preds = %48
   %58 = or i8 %.0170, 32
   store i8 %58, ptr %32, align 4, !tbaa !4
-  %59 = load i8, ptr %.0180.lcssa, align 1, !tbaa !19
+  %59 = load i8, ptr %.0180.lcssa, align 1, !tbaa !20
   switch i8 %59, label %63 [
     i8 115, label %60
     i8 83, label %60
@@ -1273,7 +1273,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %61 = getelementptr inbounds nuw i8, ptr %.0180.lcssa, i64 1
   %62 = or i8 %.0170, 16
   store i8 %62, ptr %32, align 4, !tbaa !4
-  %.pr = load i8, ptr %61, align 1, !tbaa !19
+  %.pr = load i8, ptr %61, align 1, !tbaa !20
   br label %63
 
 63:                                               ; preds = %57, %60
@@ -1287,7 +1287,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 66:                                               ; preds = %63, %63
   %67 = getelementptr inbounds nuw i8, ptr %.1181, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !19
+  %68 = load i8, ptr %67, align 1, !tbaa !20
   switch i8 %68, label %.thread289 [
     i8 97, label %69
     i8 65, label %69
@@ -1295,7 +1295,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 69:                                               ; preds = %66, %66
   %70 = getelementptr inbounds nuw i8, ptr %.1181, i64 2
-  %71 = load i8, ptr %70, align 1, !tbaa !19
+  %71 = load i8, ptr %70, align 1, !tbaa !20
   switch i8 %71, label %.thread289 [
     i8 110, label %72
     i8 78, label %72
@@ -1307,7 +1307,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 74:                                               ; preds = %77, %72
   %.2190 = phi ptr [ %73, %72 ], [ %78, %77 ]
-  %75 = load i8, ptr %.2190, align 1, !tbaa !19
+  %75 = load i8, ptr %.2190, align 1, !tbaa !20
   switch i8 %75, label %.preheader302 [
     i8 48, label %77
     i8 0, label %.thread289.thread295
@@ -1320,17 +1320,17 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %.2190, i64 1
-  br label %74, !llvm.loop !24
+  br label %74, !llvm.loop !29
 
 .lr.ph321:                                        ; preds = %.preheader302, %.lr.ph321
   %.2182320 = phi ptr [ %79, %.lr.ph321 ], [ %.2190, %.preheader302 ]
   %.2198319 = phi i32 [ %80, %.lr.ph321 ], [ %.0196, %.preheader302 ]
   %79 = getelementptr inbounds nuw i8, ptr %.2182320, i64 1
   %80 = add nsw i32 %.2198319, 1
-  %.pr278 = load i8, ptr %79, align 1, !tbaa !19
+  %.pr278 = load i8, ptr %79, align 1, !tbaa !20
   %81 = add i8 %.pr278, -58
   %or.cond257 = icmp ult i8 %81, -10
-  br i1 %or.cond257, label %._crit_edge322, label %.lr.ph321
+  br i1 %or.cond257, label %._crit_edge322, label %.lr.ph321, !llvm.loop !30
 
 ._crit_edge322:                                   ; preds = %.lr.ph321, %.preheader302
   %.lcssa306 = phi i8 [ %75, %.preheader302 ], [ %.pr278, %.lr.ph321 ]
@@ -1340,13 +1340,13 @@ decBiStr.exit:                                    ; preds = %40, %50
   br i1 %.not247, label %82, label %.thread289
 
 82:                                               ; preds = %._crit_edge322
-  %83 = load i32, ptr %2, align 4, !tbaa !25
+  %83 = load i32, ptr %2, align 4, !tbaa !31
   %.not248 = icmp slt i32 %.2198.lcssa, %83
   br i1 %.not248, label %.sink.split, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %86 = load i8, ptr %85, align 4, !tbaa !27
+  %86 = load i8, ptr %85, align 4, !tbaa !33
   %.not249 = icmp ne i8 %86, 0
   %87 = icmp sgt i32 %.2198.lcssa, %83
   %or.cond258 = select i1 %.not249, i1 true, i1 %87
@@ -1357,7 +1357,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   br i1 %.not, label %115, label %89
 
 89:                                               ; preds = %88
-  store i32 1, ptr %6, align 4, !tbaa !16
+  store i32 1, ptr %6, align 4, !tbaa !17
   switch i8 %8, label %.thread298 [
     i8 101, label %90
     i8 69, label %90
@@ -1365,13 +1365,13 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 90:                                               ; preds = %89, %89
   %91 = getelementptr inbounds nuw i8, ptr %.0180.lcssa, i64 1
-  %92 = load i8, ptr %91, align 1, !tbaa !19
+  %92 = load i8, ptr %91, align 1, !tbaa !20
   %.not238 = icmp eq i8 %92, 45
   %93 = getelementptr inbounds nuw i8, ptr %.0180.lcssa, i64 2
   %94 = icmp eq i8 %92, 43
   %95 = or i1 %.not238, %94
   %.3183 = select i1 %95, ptr %93, ptr %91
-  %96 = load i8, ptr %.3183, align 1, !tbaa !19
+  %96 = load i8, ptr %.3183, align 1, !tbaa !20
   %97 = icmp eq i8 %96, 0
   br i1 %97, label %.thread289, label %.preheader305
 
@@ -1383,12 +1383,12 @@ decBiStr.exit:                                    ; preds = %40, %50
 
 100:                                              ; preds = %.preheader305
   %101 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %102 = load i8, ptr %101, align 1, !tbaa !19
+  %102 = load i8, ptr %101, align 1, !tbaa !20
   %.not233 = icmp eq i8 %102, 0
-  br i1 %.not233, label %.critedge, label %.preheader305, !llvm.loop !28
+  br i1 %.not233, label %.critedge, label %.preheader305, !llvm.loop !34
 
 .critedge:                                        ; preds = %.preheader305, %100
-  %103 = load i8, ptr %.4, align 1, !tbaa !19
+  %103 = load i8, ptr %.4, align 1, !tbaa !20
   %104 = add i8 %103, -58
   %or.cond260313 = icmp ult i8 %104, -10
   br i1 %or.cond260313, label %._crit_edge, label %.lr.ph
@@ -1403,10 +1403,10 @@ decBiStr.exit:                                    ; preds = %40, %50
   %109 = add i32 %108, %106
   %.5.add = add nuw nsw i64 %.5.idx314, 1
   %.5.ptr = getelementptr inbounds nuw i8, ptr %.4, i64 %.5.add
-  %110 = load i8, ptr %.5.ptr, align 1, !tbaa !19
+  %110 = load i8, ptr %.5.ptr, align 1, !tbaa !20
   %111 = add i8 %110, -58
   %or.cond260 = icmp ult i8 %111, -10
-  br i1 %or.cond260, label %._crit_edge, label %.lr.ph
+  br i1 %or.cond260, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   %.5.idx.lcssa = phi i64 [ 0, %.critedge ], [ %.5.add, %.lr.ph ]
@@ -1432,7 +1432,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.3187.ph = phi ptr [ %.0184, %112 ], [ %.2186.lcssa, %84 ], [ %.2186.lcssa, %82 ]
   %.2172.ph = phi i8 [ %.0170, %112 ], [ %64, %84 ], [ %64, %82 ]
   %.0.ph = phi i32 [ %spec.select261, %112 ], [ 0, %84 ], [ 0, %82 ]
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   br label %115
 
 115:                                              ; preds = %.sink.split, %88
@@ -1442,7 +1442,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.2172 = phi i8 [ %.0170, %88 ], [ %.2172.ph, %.sink.split ]
   %.0 = phi i32 [ 0, %88 ], [ %.0.ph, %.sink.split ]
   %.3187345 = ptrtoint ptr %.3187 to i64
-  %116 = load i8, ptr %.3191, align 1, !tbaa !19
+  %116 = load i8, ptr %.3191, align 1, !tbaa !20
   %117 = icmp eq i8 %116, 48
   %118 = icmp ult ptr %.3191, %.3187
   %or.cond335 = and i1 %117, %118
@@ -1457,7 +1457,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 .lr.ph329:                                        ; preds = %.lr.ph329.preheader, %123
   %.6328 = phi ptr [ %124, %123 ], [ %.3191, %.lr.ph329.preheader ]
   %.5201326 = phi i32 [ %.6202, %123 ], [ %.3199, %.lr.ph329.preheader ]
-  %120 = load i8, ptr %.6328, align 1, !tbaa !19
+  %120 = load i8, ptr %.6328, align 1, !tbaa !20
   switch i8 %120, label %.loopexit [
     i8 46, label %123
     i8 48, label %121
@@ -1471,7 +1471,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.6202 = phi i32 [ %.5201326, %.lr.ph329 ], [ %122, %121 ]
   %124 = getelementptr i8, ptr %.6328, i64 1
   %exitcond.not = icmp eq ptr %124, %.3187
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph329, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph329, !llvm.loop !36
 
 .loopexit:                                        ; preds = %123, %.lr.ph329, %115
   %.4200 = phi i32 [ %.3199, %115 ], [ %.6202, %123 ], [ %.5201326, %.lr.ph329 ]
@@ -1484,7 +1484,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %127 = trunc i64 %.neg to i32
   %128 = select i1 %or.cond262, i32 %127, i32 0
   %.3 = add i32 %128, %.0
-  %129 = load i32, ptr %2, align 4, !tbaa !25
+  %129 = load i32, ptr %2, align 4, !tbaa !31
   %.not252 = icmp sgt i32 %.4200, %129
   br i1 %.not252, label %132, label %130
 
@@ -1504,7 +1504,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 136:                                              ; preds = %132
   %137 = sext i32 %.4200 to i64
   %138 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !19
+  %139 = load i8, ptr %138, align 1, !tbaa !20
   %140 = zext i8 %139 to i32
   %141 = add nsw i64 %137, -46
   %142 = icmp ult i64 %141, 4
@@ -1529,7 +1529,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.0207350 = phi ptr [ %.0207, %.thread283 ], [ %4, %136 ]
   %150 = sext i32 %.4200 to i64
   %151 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !19
+  %152 = load i8, ptr %151, align 1, !tbaa !20
   %153 = zext i8 %152 to i32
   br label %157
 
@@ -1558,7 +1558,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.0178 = phi ptr [ %161, %157 ], [ %.1179, %182 ]
   %.0176 = phi i32 [ %166, %157 ], [ %.1177, %182 ]
   %.0174 = phi i32 [ 0, %157 ], [ %.1175, %182 ]
-  %168 = load i8, ptr %.7, align 1, !tbaa !19
+  %168 = load i8, ptr %.7, align 1, !tbaa !20
   %169 = icmp eq i8 %168, 46
   br i1 %169, label %182, label %170
 
@@ -1586,7 +1586,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   %.1177 = phi i32 [ %.0176, %167 ], [ %177, %176 ], [ 3, %179 ]
   %.1175 = phi i32 [ %.0174, %167 ], [ %174, %176 ], [ 0, %179 ]
   %183 = getelementptr inbounds nuw i8, ptr %.7, i64 1
-  br label %167
+  br label %167, !llvm.loop !37
 
 184:                                              ; preds = %170
   %185 = trunc i32 %174 to i16
@@ -1599,13 +1599,13 @@ decBiStr.exit:                                    ; preds = %40, %50
   br i1 %.not252, label %188, label %189
 
 188:                                              ; preds = %184
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.0207349, i32 noundef %.4200, ptr noundef %5, ptr noundef %6)
   br label %.sink.split365
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %191 = load i32, ptr %190, align 4, !tbaa !30
+  %191 = load i32, ptr %190, align 4, !tbaa !38
   %192 = sub nsw i32 %191, %.4200
   %.not253 = icmp sgt i32 %.3, %192
   br i1 %.not253, label %193, label %199
@@ -1613,13 +1613,13 @@ decBiStr.exit:                                    ; preds = %40, %50
 193:                                              ; preds = %189
   %194 = add nsw i32 %.3, -1
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %196 = load i32, ptr %195, align 4, !tbaa !31
+  %196 = load i32, ptr %195, align 4, !tbaa !39
   %197 = sub nsw i32 %196, %129
   %198 = icmp sgt i32 %194, %197
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %193, %189
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   br label %.sink.split365
 
 .sink.split365:                                   ; preds = %188, %199
@@ -1635,7 +1635,7 @@ decBiStr.exit:                                    ; preds = %40, %50
   br label %.thread289
 
 .thread289:                                       ; preds = %._crit_edge, %90, %69, %66, %63, %84, %._crit_edge322, %201, %200
-  %.pr292 = load i32, ptr %6, align 4, !tbaa !16
+  %.pr292 = load i32, ptr %6, align 4, !tbaa !17
   %.not255 = icmp eq i32 %.pr292, 0
   br i1 %.not255, label %.thread289.thread295, label %.thread289.thread
 
@@ -1681,7 +1681,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
-  %7 = load i32, ptr %1, align 4, !tbaa !25
+  %7 = load i32, ptr %1, align 4, !tbaa !31
   %8 = sub nsw i32 %3, %7
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %23
@@ -1705,21 +1705,21 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.0116170, i64 2
   %16 = add nsw i32 %.0121168, -3
   %17 = icmp samesign ugt i32 %.0121168, 3
-  br i1 %17, label %.lr.ph171, label %._crit_edge172, !llvm.loop !32
+  br i1 %17, label %.lr.ph171, label %._crit_edge172, !llvm.loop !40
 
 ._crit_edge172:                                   ; preds = %.lr.ph171, %.preheader
   store i32 %3, ptr %0, align 4, !tbaa !10
   br label %18
 
 18:                                               ; preds = %._crit_edge172, %10
-  %19 = load i32, ptr %4, align 4, !tbaa !16
+  %19 = load i32, ptr %4, align 4, !tbaa !17
   %.not147 = icmp eq i32 %19, 0
   br i1 %.not147, label %143, label %20
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr %5, align 4, !tbaa !16
+  %21 = load i32, ptr %5, align 4, !tbaa !17
   %22 = or i32 %21, 2080
-  store i32 %22, ptr %5, align 4, !tbaa !16
+  store i32 %22, ptr %5, align 4, !tbaa !17
   br label %143
 
 23:                                               ; preds = %6
@@ -1727,10 +1727,10 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %25 = load i32, ptr %24, align 4, !tbaa !9
   %26 = add nsw i32 %25, %8
   store i32 %26, ptr %24, align 4, !tbaa !9
-  %27 = load i32, ptr %5, align 4, !tbaa !16
+  %27 = load i32, ptr %5, align 4, !tbaa !17
   %28 = or i32 %27, 2048
-  store i32 %28, ptr %5, align 4, !tbaa !16
-  %29 = load i32, ptr %4, align 4, !tbaa !16
+  store i32 %28, ptr %5, align 4, !tbaa !17
+  %29 = load i32, ptr %4, align 4, !tbaa !17
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %.thread175, label %31
 
@@ -1739,7 +1739,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   br i1 %32, label %34, label %.preheader151
 
 .thread175:                                       ; preds = %23
-  store i32 1, ptr %4, align 4, !tbaa !16
+  store i32 1, ptr %4, align 4, !tbaa !17
   %33 = icmp slt i32 %7, 0
   br i1 %33, label %.thread, label %.preheader151
 
@@ -1764,23 +1764,23 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   br i1 %.not144, label %38, label %37
 
 37:                                               ; preds = %.lr.ph166
-  store i32 1, ptr %4, align 4, !tbaa !16
+  store i32 1, ptr %4, align 4, !tbaa !17
   br label %.thread
 
 38:                                               ; preds = %.lr.ph166
   %39 = getelementptr inbounds nuw i8, ptr %.1117165, i64 2
   %40 = add nsw i32 %.1122164, -3
   %41 = icmp sgt i32 %.1122164, 3
-  br i1 %41, label %.lr.ph166, label %._crit_edge167, !llvm.loop !33
+  br i1 %41, label %.lr.ph166, label %._crit_edge167, !llvm.loop !41
 
 ._crit_edge167:                                   ; preds = %38, %.preheader149
   %.not145 = icmp eq i32 %29, 0
   br i1 %.not145, label %44, label %.thread
 
 .thread:                                          ; preds = %.thread175, %34, %37, %._crit_edge167
-  %42 = load i32, ptr %5, align 4, !tbaa !16
+  %42 = load i32, ptr %5, align 4, !tbaa !17
   %43 = or i32 %42, 32
-  store i32 %43, ptr %5, align 4, !tbaa !16
+  store i32 %43, ptr %5, align 4, !tbaa !17
   br label %44
 
 44:                                               ; preds = %.thread, %._crit_edge167
@@ -1798,7 +1798,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   br i1 %.not139, label %50, label %49
 
 49:                                               ; preds = %.lr.ph
-  store i32 1, ptr %4, align 4, !tbaa !16
+  store i32 1, ptr %4, align 4, !tbaa !17
   br label %50
 
 50:                                               ; preds = %.lr.ph, %49
@@ -1806,7 +1806,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %52 = getelementptr inbounds nuw i8, ptr %.2153, i64 2
   %53 = add nuw nsw i32 %47, 3
   %.not = icmp slt i32 %53, %8
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %50, %.preheader151
   %54 = phi i32 [ %.pr177, %.preheader151 ], [ %51, %50 ]
@@ -1819,7 +1819,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   ]
 
 56:                                               ; preds = %._crit_edge
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !16
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !17
   %58 = lshr i32 %57, 1
   %59 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
   %60 = zext i16 %59 to i32
@@ -1839,11 +1839,11 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
 
 .sink.split:                                      ; preds = %62, %65
   %.sink = phi i32 [ 3, %65 ], [ %spec.select185, %62 ]
-  store i32 %.sink, ptr %4, align 4, !tbaa !16
+  store i32 %.sink, ptr %4, align 4, !tbaa !17
   br label %66
 
 66:                                               ; preds = %.sink.split, %65
-  %67 = load i32, ptr %1, align 4, !tbaa !25
+  %67 = load i32, ptr %1, align 4, !tbaa !31
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %.loopexit.sink.split, label %69
 
@@ -1862,7 +1862,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %73 = getelementptr inbounds nuw i8, ptr %.1119156, i64 2
   %74 = add nsw i32 %.3124155, -3
   %75 = icmp samesign ugt i32 %.3124155, 3
-  br i1 %75, label %71, label %.loopexit, !llvm.loop !34
+  br i1 %75, label %71, label %.loopexit, !llvm.loop !43
 
 76:                                               ; preds = %._crit_edge
   %77 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
@@ -1876,11 +1876,11 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %83 = lshr i32 %82, %80
   %84 = zext i32 %80 to i64
   %85 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !16
+  %86 = load i32, ptr %85, align 4, !tbaa !17
   %87 = mul i32 %83, %86
   %88 = lshr i32 %87, 17
   %89 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %84
-  %90 = load i32, ptr %89, align 4, !tbaa !16
+  %90 = load i32, ptr %89, align 4, !tbaa !17
   %91 = mul i32 %88, %90
   %.not140 = icmp eq i32 %91, %82
   %spec.select = select i1 %.not140, i32 %54, i32 1
@@ -1895,11 +1895,11 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %96 = add nsw i32 %.neg, %.0
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw [10 x i8], ptr @resmap, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !19
+  %99 = load i8, ptr %98, align 1, !tbaa !20
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %93, %100
-  store i32 %101, ptr %4, align 4, !tbaa !16
-  %102 = load i32, ptr %1, align 4, !tbaa !25
+  store i32 %101, ptr %4, align 4, !tbaa !17
+  %102 = load i32, ptr %1, align 4, !tbaa !31
   %103 = icmp slt i32 %102, 1
   br i1 %103, label %.loopexit.sink.split, label %104
 
@@ -1916,12 +1916,12 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
 .lr.ph162:                                        ; preds = %104
   %110 = zext i32 %55 to i64
   %111 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !16
+  %112 = load i32, ptr %111, align 4, !tbaa !17
   %113 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %110
-  %114 = load i32, ptr %113, align 4, !tbaa !16
+  %114 = load i32, ptr %113, align 4, !tbaa !17
   %115 = zext i32 %106 to i64
   %116 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %115
-  %117 = load i32, ptr %116, align 4, !tbaa !16
+  %117 = load i32, ptr %116, align 4, !tbaa !17
   br label %123
 
 118:                                              ; preds = %123
@@ -1930,7 +1930,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   store i16 %120, ptr %119, align 2, !tbaa !11
   %121 = sub i32 %136, %106
   %122 = icmp slt i32 %121, 1
-  br i1 %122, label %.loopexit, label %123
+  br i1 %122, label %.loopexit, label %123, !llvm.loop !44
 
 123:                                              ; preds = %.lr.ph162, %118
   %124 = phi i32 [ %108, %.lr.ph162 ], [ %121, %118 ]
@@ -1960,14 +1960,14 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %118, %123, %.loopexit.sink.split, %104
-  %139 = load i32, ptr %4, align 4, !tbaa !16
+  %139 = load i32, ptr %4, align 4, !tbaa !17
   %.not143 = icmp eq i32 %139, 0
   br i1 %.not143, label %143, label %140
 
 140:                                              ; preds = %.loopexit
-  %141 = load i32, ptr %5, align 4, !tbaa !16
+  %141 = load i32, ptr %5, align 4, !tbaa !17
   %142 = or i32 %141, 32
-  store i32 %142, ptr %5, align 4, !tbaa !16
+  store i32 %142, ptr %5, align 4, !tbaa !17
   br label %143
 
 143:                                              ; preds = %.loopexit, %140, %18, %20, %44
@@ -1978,7 +1978,7 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
 define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
   %5 = alloca %struct.decNumber, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !30
+  %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = load i32, ptr %0, align 4, !tbaa !10
   %9 = sub nsw i32 %7, %8
   %10 = add nsw i32 %9, 1
@@ -1988,7 +1988,7 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load i32, ptr %2, align 4, !tbaa !16
+  %.pre = load i32, ptr %2, align 4, !tbaa !17
   br label %30
 
 13:                                               ; preds = %4
@@ -2013,13 +2013,13 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %15
-  %22 = load i32, ptr %3, align 4, !tbaa !16
+  %22 = load i32, ptr %3, align 4, !tbaa !17
   %23 = or i32 %22, 16
-  store i32 %23, ptr %3, align 4, !tbaa !16
+  store i32 %23, ptr %3, align 4, !tbaa !17
   br label %.critedge
 
 24:                                               ; preds = %15
-  %25 = load i32, ptr %2, align 4, !tbaa !16
+  %25 = load i32, ptr %2, align 4, !tbaa !17
   %26 = icmp slt i32 %25, 0
   %27 = icmp eq i32 %19, 0
   %or.cond = and i1 %27, %26
@@ -2046,8 +2046,8 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
 33:                                               ; preds = %32, %30
   %34 = load i32, ptr %11, align 4, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !31
-  %37 = load i32, ptr %1, align 4, !tbaa !25
+  %36 = load i32, ptr %35, align 4, !tbaa !39
+  %37 = load i32, ptr %1, align 4, !tbaa !31
   %38 = sub nsw i32 %36, %37
   %39 = add nsw i32 %38, 1
   %.not61 = icmp sgt i32 %34, %39
@@ -2066,7 +2066,7 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load i8, ptr %47, align 4, !tbaa !27
+  %48 = load i8, ptr %47, align 4, !tbaa !33
   %.not62 = icmp eq i8 %48, 0
   br i1 %.not62, label %67, label %49
 
@@ -2096,9 +2096,9 @@ define internal fastcc void @decFinalize(ptr noundef %0, ptr noundef readonly ca
   %63 = phi i32 [ %.pre64, %60 ], [ %34, %55 ]
   %64 = sub nsw i32 %63, %50
   store i32 %64, ptr %11, align 4, !tbaa !9
-  %65 = load i32, ptr %3, align 4, !tbaa !16
+  %65 = load i32, ptr %3, align 4, !tbaa !17
   %66 = or i32 %65, 1024
-  store i32 %66, ptr %3, align 4, !tbaa !16
+  store i32 %66, ptr %3, align 4, !tbaa !17
   br label %67
 
 .critedge:                                        ; preds = %28, %21, %14
@@ -2118,7 +2118,7 @@ define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef 
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2132,7 +2132,7 @@ define dso_local noundef ptr @decNumberAbs(ptr noundef returned %0, ptr noundef 
   %12 = load i8, ptr %11, align 4, !tbaa !4
   %13 = and i8 %12, -128
   %14 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %13, ptr noundef %5)
-  %15 = load i32, ptr %5, align 4, !tbaa !16
+  %15 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %27, label %16
 
@@ -2177,7 +2177,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %8 = alloca [31 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 62, ptr nonnull %8) #18
-  %9 = load i32, ptr %3, align 4, !tbaa !25
+  %9 = load i32, ptr %3, align 4, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 4, !tbaa !4
   %12 = zext i8 %11 to i32
@@ -2214,9 +2214,9 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br i1 %or.cond, label %31, label %34
 
 31:                                               ; preds = %27
-  %32 = load i32, ptr %5, align 4, !tbaa !16
+  %32 = load i32, ptr %5, align 4, !tbaa !17
   %33 = or i32 %32, 128
-  store i32 %33, ptr %5, align 4, !tbaa !16
+  store i32 %33, ptr %5, align 4, !tbaa !17
   br label %.thread370
 
 34:                                               ; preds = %25, %27
@@ -2249,7 +2249,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !9
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %51, align 4, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2291,7 +2291,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %75 = load i32, ptr %74, align 4, !tbaa !45
   %.not325 = icmp eq i32 %75, 6
   br i1 %.not325, label %77, label %76
 
@@ -2310,15 +2310,15 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 80:                                               ; preds = %78
   %81 = load i32, ptr %0, align 4, !tbaa !10
   %82 = sub nsw i32 %81, %60
-  %83 = load i32, ptr %3, align 4, !tbaa !25
+  %83 = load i32, ptr %3, align 4, !tbaa !31
   %84 = icmp sgt i32 %82, %83
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %80
   %86 = sub nsw i32 %81, %83
-  %87 = load i32, ptr %5, align 4, !tbaa !16
+  %87 = load i32, ptr %5, align 4, !tbaa !17
   %88 = or i32 %87, 2048
-  store i32 %88, ptr %5, align 4, !tbaa !16
+  store i32 %88, ptr %5, align 4, !tbaa !17
   %.pre390 = load i32, ptr %0, align 4, !tbaa !10
   br label %89
 
@@ -2354,7 +2354,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %107 = load i32, ptr %106, align 4, !tbaa !9
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %11, ptr %108, align 4, !tbaa !4
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2371,15 +2371,15 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 116:                                              ; preds = %105
   %117 = load i32, ptr %0, align 4, !tbaa !10
   %118 = sub nsw i32 %117, %114
-  %119 = load i32, ptr %3, align 4, !tbaa !25
+  %119 = load i32, ptr %3, align 4, !tbaa !31
   %120 = icmp sgt i32 %118, %119
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %116
   %122 = sub nsw i32 %117, %119
-  %123 = load i32, ptr %5, align 4, !tbaa !16
+  %123 = load i32, ptr %5, align 4, !tbaa !17
   %124 = or i32 %123, 2048
-  store i32 %124, ptr %5, align 4, !tbaa !16
+  store i32 %124, ptr %5, align 4, !tbaa !17
   %.pre389 = load i32, ptr %0, align 4, !tbaa !10
   br label %125
 
@@ -2415,13 +2415,13 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %145 = load i32, ptr %144, align 4, !tbaa !30
+  %145 = load i32, ptr %144, align 4, !tbaa !38
   %.not311 = icmp slt i32 %135, %145
   br i1 %.not311, label %.thread353, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %148 = load i32, ptr %147, align 4, !tbaa !31
+  %148 = load i32, ptr %147, align 4, !tbaa !39
   %reass.sub = sub i32 %148, %9
   %149 = add i32 %reass.sub, 1
   %.not312 = icmp sgt i32 %135, %149
@@ -2452,7 +2452,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 160:                                              ; preds = %158
   %161 = sext i32 %151 to i64
   %162 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !16
+  %163 = load i32, ptr %162, align 4, !tbaa !17
   %164 = icmp slt i32 %156, %163
   br i1 %164, label %165, label %.thread353
 
@@ -2494,7 +2494,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 182:                                              ; preds = %177
   %183 = sext i32 %180 to i64
   %184 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !19
+  %185 = load i8, ptr %184, align 1, !tbaa !20
   %186 = zext i8 %185 to i32
   br label %190
 
@@ -2538,7 +2538,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %205 = sub nsw i32 %9, %198
   %.not319 = icmp eq i8 %18, 0
   %spec.select = select i1 %.not319, i32 1, i32 -1
-  store i32 %spec.select, ptr %7, align 4, !tbaa !16
+  store i32 %spec.select, ptr %7, align 4, !tbaa !17
   %206 = getelementptr inbounds nuw i8, ptr %.1253, i64 8
   %207 = load i8, ptr %206, align 4, !tbaa !4
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2579,7 +2579,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %227 = add nuw nsw i32 %.1266, 1
   %228 = zext nneg i32 %227 to i64
   %229 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %228
-  %230 = load i8, ptr %229, align 1, !tbaa !19
+  %230 = load i8, ptr %229, align 1, !tbaa !20
   %231 = zext i8 %230 to i32
   br label %.thread354
 
@@ -2595,7 +2595,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %237 = add i32 %.neg, %.1266
   %238 = sext i32 %237 to i64
   %239 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %238
-  %240 = load i32, ptr %239, align 4, !tbaa !16
+  %240 = load i32, ptr %239, align 4, !tbaa !17
   br label %242
 
 241:                                              ; preds = %220, %221
@@ -2633,7 +2633,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 252:                                              ; preds = %250
   %253 = sext i32 %.0259 to i64
   %254 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %253
-  %255 = load i8, ptr %254, align 1, !tbaa !19
+  %255 = load i8, ptr %254, align 1, !tbaa !20
   %256 = zext i8 %255 to i32
   br label %260
 
@@ -2656,9 +2656,9 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br i1 %268, label %269, label %.thread360
 
 269:                                              ; preds = %263
-  %270 = load i32, ptr %5, align 4, !tbaa !16
+  %270 = load i32, ptr %5, align 4, !tbaa !17
   %271 = or i32 %270, 16
-  store i32 %271, ptr %5, align 4, !tbaa !16
+  store i32 %271, ptr %5, align 4, !tbaa !17
   br label %.thread370
 
 .thread360:                                       ; preds = %260, %263, %247
@@ -2678,7 +2678,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 279:                                              ; preds = %.thread360
   %280 = sext i32 %243 to i64
   %281 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %280
-  %282 = load i8, ptr %281, align 1, !tbaa !19
+  %282 = load i8, ptr %281, align 1, !tbaa !20
   %283 = zext i8 %282 to i32
   br label %287
 
@@ -2696,7 +2696,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 291:                                              ; preds = %287
   %292 = sext i32 %244 to i64
   %293 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %292
-  %294 = load i8, ptr %293, align 1, !tbaa !19
+  %294 = load i8, ptr %293, align 1, !tbaa !20
   %295 = zext i8 %294 to i32
   br label %299
 
@@ -2723,7 +2723,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 
 308:                                              ; preds = %304, %299
   %309 = phi i32 [ %305, %304 ], [ %302, %299 ]
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %.not323 = icmp eq ptr %.0273, %.ptr375
   br i1 %.not323, label %344, label %310
 
@@ -2746,7 +2746,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
 319:                                              ; preds = %312
   %320 = sext i32 %309 to i64
   %321 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %320
-  %322 = load i8, ptr %321, align 1, !tbaa !19
+  %322 = load i8, ptr %321, align 1, !tbaa !20
   %323 = zext i8 %322 to i32
   %324 = add nsw i32 %323, -1
   %325 = mul nsw i32 %324, 3
@@ -2777,7 +2777,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   %336 = add nsw i32 %.018.i, -3
   %337 = getelementptr inbounds i8, ptr %.01317.i, i64 -2
   %.not.i = icmp ult ptr %337, %.0273
-  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !16
 
 338:                                              ; preds = %.lr.ph.i
   %339 = icmp ult i16 %331, 10
@@ -2816,7 +2816,7 @@ decGetDigits.exit:                                ; preds = %333, %335, %319, %3
 352:                                              ; preds = %344
   %353 = sext i32 %345 to i64
   %354 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %353
-  %355 = load i8, ptr %354, align 1, !tbaa !19
+  %355 = load i8, ptr %354, align 1, !tbaa !20
   %356 = zext i8 %355 to i32
   %357 = add nsw i32 %356, -1
   %358 = mul nsw i32 %357, 3
@@ -2848,7 +2848,7 @@ decGetDigits.exit:                                ; preds = %333, %335, %319, %3
   %368 = add nsw i32 %.018.i343, -3
   %.01317.i344.add = add nsw i64 %.01317.i344.idx, -2
   %.not.i348 = icmp slt i64 %.01317.i344.idx, 11
-  br i1 %.not.i348, label %decGetDigits.exit349, label %.lr.ph.i342, !llvm.loop !15
+  br i1 %.not.i348, label %decGetDigits.exit349, label %.lr.ph.i342, !llvm.loop !16
 
 369:                                              ; preds = %.lr.ph.i342
   %370 = icmp ult i16 %363, 10
@@ -2882,14 +2882,14 @@ decGetDigits.exit349:                             ; preds = %365, %367, %352, %3
   br i1 %or.cond7, label %383, label %392
 
 383:                                              ; preds = %378
-  %384 = load i32, ptr %5, align 4, !tbaa !16
+  %384 = load i32, ptr %5, align 4, !tbaa !17
   %385 = and i32 %384, 32
   %386 = icmp eq i32 %385, 0
   br i1 %386, label %.sink.split, label %392
 
 .sink.split:                                      ; preds = %383
   %387 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %388 = load i32, ptr %387, align 4, !tbaa !35
+  %388 = load i32, ptr %387, align 4, !tbaa !45
   %389 = icmp eq i32 %388, 6
   %390 = or i8 %379, -128
   %391 = and i8 %379, 15
@@ -2915,9 +2915,9 @@ decGetDigits.exit349:                             ; preds = %365, %367, %352, %3
 define dso_local noundef ptr @decNumberAdd(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -3002,7 +3002,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 27:                                               ; preds = %21
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !19
+  %30 = load i8, ptr %29, align 1, !tbaa !20
   %31 = zext i8 %30 to i32
   br label %35
 
@@ -3023,7 +3023,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 42:                                               ; preds = %35
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !19
+  %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = zext i8 %45 to i32
   br label %50
 
@@ -3037,7 +3037,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr %23, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -2
-  %55 = load i32, ptr %3, align 4, !tbaa !25
+  %55 = load i32, ptr %3, align 4, !tbaa !31
   %56 = icmp slt i32 %55, 50
   br i1 %56, label %60, label %.thread
 
@@ -3051,7 +3051,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 60:                                               ; preds = %50
   %61 = sext i32 %55 to i64
   %62 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !19
+  %63 = load i8, ptr %62, align 1, !tbaa !20
   %64 = zext i8 %63 to i64
   %65 = zext i8 %63 to i32
   %.pn.idx = shl nuw nsw i64 %64, 1
@@ -3115,7 +3115,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 
 86:                                               ; preds = %.split.us
   %87 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !16
+  %88 = load i32, ptr %87, align 4, !tbaa !17
   %89 = trunc i32 %88 to i16
   %90 = add i16 %83, %89
   store i16 %90, ptr %.082118, align 2, !tbaa !11
@@ -3134,7 +3134,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 99:                                               ; preds = %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.split.us, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.split.us, !llvm.loop !46
 
 .split:                                           ; preds = %81, %116
   %100 = phi i16 [ %109, %116 ], [ 0, %81 ]
@@ -3148,7 +3148,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 
 103:                                              ; preds = %.split
   %104 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv125
-  %105 = load i32, ptr %104, align 4, !tbaa !16
+  %105 = load i32, ptr %104, align 4, !tbaa !17
   %106 = trunc i32 %105 to i16
   %107 = add i16 %100, %106
   store i16 %107, ptr %.082118, align 2, !tbaa !11
@@ -3167,7 +3167,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 116:                                              ; preds = %108
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
-  br i1 %exitcond127.not, label %.loopexit, label %.split, !llvm.loop !38
+  br i1 %exitcond127.not, label %.loopexit, label %.split, !llvm.loop !48
 
 .split116.us:                                     ; preds = %91, %108
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3184,7 +3184,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
   %121 = getelementptr inbounds nuw i8, ptr %.081120, i64 2
   %122 = getelementptr inbounds nuw i8, ptr %.082118, i64 2
   %.not98 = icmp ugt ptr %122, %67
-  br i1 %.not98, label %._crit_edge, label %71, !llvm.loop !39
+  br i1 %.not98, label %._crit_edge, label %71, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.082.lcssa = phi ptr [ %24, %60 ], [ %122, %.loopexit ]
@@ -3209,7 +3209,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 define dso_local noundef ptr @decNumberCompare(ptr noundef returned captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3246,7 +3246,7 @@ define dso_local noundef ptr @decNumberCompare(ptr noundef returned captures(add
 
 decCompareOp.exit:                                ; preds = %4
   %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %5)
-  %.pr.pre = load i32, ptr %5, align 4, !tbaa !16
+  %.pr.pre = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
 
@@ -3322,9 +3322,9 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
   ]
 
 24:                                               ; preds = %23
-  %25 = load i32, ptr %5, align 4, !tbaa !16
+  %25 = load i32, ptr %5, align 4, !tbaa !17
   %26 = or i32 %25, 1073741952
-  store i32 %26, ptr %5, align 4, !tbaa !16
+  store i32 %26, ptr %5, align 4, !tbaa !17
   br label %.thread.thread159
 
 27:                                               ; preds = %23
@@ -3364,7 +3364,7 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !19
+  %44 = load i8, ptr %43, align 1, !tbaa !20
   %45 = zext i8 %44 to i32
   br label %49
 
@@ -3383,7 +3383,7 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 54:                                               ; preds = %49
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !19
+  %57 = load i8, ptr %56, align 1, !tbaa !20
   %58 = zext i8 %57 to i32
   br label %62
 
@@ -3425,7 +3425,7 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 
 75:                                               ; preds = %71
   %76 = icmp ult i16 %72, %73
-  br i1 %76, label %decUnitCompare.exit, label %70, !llvm.loop !40
+  br i1 %76, label %decUnitCompare.exit, label %70, !llvm.loop !50
 
 decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, %65, %62, %32, %30, %28
   %.1 = phi i32 [ -1, %28 ], [ 1, %30 ], [ -1, %32 ], [ 1, %62 ], [ -1, %65 ], [ 1, %35 ], [ 1, %71 ], [ -1, %75 ], [ 0, %70 ]
@@ -3452,7 +3452,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   %.not120 = icmp eq i8 %83, 0
   %. = select i1 %.not120, i32 1, i32 -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   br label %138
 
 .thread.thread159:                                ; preds = %78, %24, %23, %80
@@ -3468,9 +3468,9 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   br i1 %88, label %89, label %.thread
 
 89:                                               ; preds = %85
-  %90 = load i32, ptr %5, align 4, !tbaa !16
+  %90 = load i32, ptr %5, align 4, !tbaa !17
   %91 = or i32 %90, 16
-  store i32 %91, ptr %5, align 4, !tbaa !16
+  store i32 %91, ptr %5, align 4, !tbaa !17
   br label %149
 
 .thread:                                          ; preds = %decUnitCompare.exit, %85
@@ -3548,7 +3548,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 
 117:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %118 = icmp eq i32 %.0103142, 0
   br i1 %118, label %119, label %135
 
@@ -3657,9 +3657,9 @@ define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned captur
   br label %decCompareOp.exit.thread
 
 decCompareOp.exit:                                ; preds = %4
-  store i32 1073741952, ptr %5, align 4, !tbaa !16
+  store i32 1073741952, ptr %5, align 4, !tbaa !17
   %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, ptr noundef nonnull %5)
-  %.pr.pre = load i32, ptr %5, align 4, !tbaa !16
+  %.pr.pre = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %.pr.pre, 0
   br i1 %.not, label %decCompareOp.exit.thread, label %23
 
@@ -3702,9 +3702,9 @@ decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i
 define dso_local noundef ptr @decNumberCompareTotal(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 4, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -3750,7 +3750,7 @@ define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, 
   %8 = alloca [3 x %struct.decNumber], align 16
   %9 = alloca [3 x %struct.decNumber], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3771,7 +3771,7 @@ define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, 
 17:                                               ; preds = %12
   %18 = sext i32 %13 to i64
   %19 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !19
+  %20 = load i8, ptr %19, align 1, !tbaa !20
   %21 = zext i8 %20 to i32
   %22 = add nsw i64 %18, -40
   %23 = icmp ult i64 %22, 10
@@ -3823,7 +3823,7 @@ define dso_local noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, 
 46:                                               ; preds = %41
   %47 = zext nneg i32 %13 to i64
   %48 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !19
+  %49 = load i8, ptr %48, align 1, !tbaa !20
   %50 = zext i8 %49 to i32
   br label %.lr.ph.preheader.i
 
@@ -3871,7 +3871,7 @@ decNumberCopy.exit:                               ; preds = %.decNumberCopy.exit
 70:                                               ; preds = %65
   %71 = sext i32 %66 to i64
   %72 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !19
+  %73 = load i8, ptr %72, align 1, !tbaa !20
   %74 = zext i8 %73 to i32
   %75 = add nsw i64 %71, -40
   %76 = icmp ult i64 %75, 10
@@ -3887,7 +3887,7 @@ decNumberCopy.exit:                               ; preds = %.decNumberCopy.exit
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %77
-  store i32 16, ptr %7, align 4, !tbaa !16
+  store i32 16, ptr %7, align 4, !tbaa !17
   br label %118
 
 85:                                               ; preds = %77, %70
@@ -3927,7 +3927,7 @@ decNumberCopy.exit:                               ; preds = %.decNumberCopy.exit
 100:                                              ; preds = %95
   %101 = zext nneg i32 %66 to i64
   %102 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !19
+  %103 = load i8, ptr %102, align 1, !tbaa !20
   %104 = zext i8 %103 to i32
   br label %.lr.ph.preheader.i57
 
@@ -3978,7 +3978,7 @@ decNumberCopy.exit64:                             ; preds = %.decNumberCopy.exit
   br label %122
 
 122:                                              ; preds = %121, %120
-  %.pr = load i32, ptr %7, align 4, !tbaa !16
+  %.pr = load i32, ptr %7, align 4, !tbaa !17
   %.not55 = icmp eq i32 %.pr, 0
   br i1 %.not55, label %134, label %123
 
@@ -4055,7 +4055,7 @@ define dso_local noundef ptr @decNumberCopy(ptr noundef returned writeonly captu
 21:                                               ; preds = %16
   %22 = zext nneg i32 %11 to i64
   %23 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !19
+  %24 = load i8, ptr %23, align 1, !tbaa !20
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %11, -4
   %27 = icmp ult i32 %26, 46
@@ -4077,7 +4077,7 @@ define dso_local noundef ptr @decNumberCopy(ptr noundef returned writeonly captu
   %31 = getelementptr inbounds nuw i8, ptr %.02631, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %.032, i64 2
   %33 = icmp ult ptr %31, %28
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %4, %2
   ret ptr %0
@@ -4087,9 +4087,9 @@ define dso_local noundef ptr @decNumberCopy(ptr noundef returned writeonly captu
 define dso_local noundef ptr @decNumberDivide(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -4135,7 +4135,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
-  %10 = load i32, ptr %3, align 4, !tbaa !25
+  %10 = load i32, ptr %3, align 4, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 4, !tbaa !4
   %13 = zext i8 %12 to i32
@@ -4172,9 +4172,9 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   br i1 %or.cond593, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %5, align 4, !tbaa !16
+  %31 = load i32, ptr %5, align 4, !tbaa !17
   %32 = or i32 %31, 128
-  store i32 %32, ptr %5, align 4, !tbaa !16
+  store i32 %32, ptr %5, align 4, !tbaa !17
   br label %.thread651.thread
 
 33:                                               ; preds = %27
@@ -4189,7 +4189,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   br label %.thread651.thread
 
 38:                                               ; preds = %25
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !17
   %39 = and i8 %4, 80
   %.not587 = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4218,13 +4218,13 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %52 = load i32, ptr %51, align 4, !tbaa !30
+  %52 = load i32, ptr %51, align 4, !tbaa !38
   %reass.sub = sub i32 %52, %10
   %53 = add i32 %reass.sub, 1
   store i32 %53, ptr %48, align 4, !tbaa !9
-  %54 = load i32, ptr %5, align 4, !tbaa !16
+  %54 = load i32, ptr %5, align 4, !tbaa !17
   %55 = or i32 %54, 1024
-  store i32 %55, ptr %5, align 4, !tbaa !16
+  store i32 %55, ptr %5, align 4, !tbaa !17
   br label %56
 
 56:                                               ; preds = %47, %50, %41
@@ -4267,9 +4267,9 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   store i32 1, ptr %0, align 4, !tbaa !10
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %77, align 2, !tbaa !11
-  %78 = load i32, ptr %5, align 4, !tbaa !16
+  %78 = load i32, ptr %5, align 4, !tbaa !17
   %79 = or i32 %78, 8
-  store i32 %79, ptr %5, align 4, !tbaa !16
+  store i32 %79, ptr %5, align 4, !tbaa !17
   br label %.thread651.thread
 
 80:                                               ; preds = %69, %65
@@ -4282,17 +4282,17 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   store i16 0, ptr %83, align 2, !tbaa !11
   %84 = and i8 %4, 80
   %.not584 = icmp eq i8 %84, 0
-  %85 = load i32, ptr %5, align 4, !tbaa !16
+  %85 = load i32, ptr %5, align 4, !tbaa !17
   br i1 %.not584, label %88, label %86
 
 86:                                               ; preds = %80
   %87 = or i32 %85, 128
-  store i32 %87, ptr %5, align 4, !tbaa !16
+  store i32 %87, ptr %5, align 4, !tbaa !17
   br label %.thread651.thread
 
 88:                                               ; preds = %80
   %89 = or i32 %85, 2
-  store i32 %89, ptr %5, align 4, !tbaa !16
+  store i32 %89, ptr %5, align 4, !tbaa !17
   %90 = or disjoint i8 %18, 64
   store i8 %90, ptr %81, align 4, !tbaa !4
   br label %.thread651.thread
@@ -4316,7 +4316,7 @@ define internal fastcc noundef ptr @decDivideOp(ptr noundef returned %0, ptr nou
   br i1 %.not582, label %109, label %100
 
 100:                                              ; preds = %99
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !9
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4401,7 +4401,7 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %or.cond5, label %145, label %148
 
 145:                                              ; preds = %141
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !17
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %12, ptr %146, align 4, !tbaa !4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4418,7 +4418,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %151 = add nsw i32 %10, 3
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %152
-  %154 = load i8, ptr %153, align 1, !tbaa !19
+  %154 = load i8, ptr %153, align 1, !tbaa !20
   %155 = zext i8 %154 to i32
   br label %159
 
@@ -4440,9 +4440,9 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %166, label %167, label %170
 
 167:                                              ; preds = %163
-  %168 = load i32, ptr %5, align 4, !tbaa !16
+  %168 = load i32, ptr %5, align 4, !tbaa !17
   %169 = or i32 %168, 16
-  store i32 %169, ptr %5, align 4, !tbaa !16
+  store i32 %169, ptr %5, align 4, !tbaa !17
   br label %.thread651.thread
 
 170:                                              ; preds = %163, %159
@@ -4458,7 +4458,7 @@ thread-pre-split:                                 ; preds = %91, %96
 174:                                              ; preds = %170
   %175 = sext i32 %spec.select to i64
   %176 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !19
+  %177 = load i8, ptr %176, align 1, !tbaa !20
   %178 = zext i8 %177 to i32
   br label %182
 
@@ -4485,9 +4485,9 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %187
-  %194 = load i32, ptr %5, align 4, !tbaa !16
+  %194 = load i32, ptr %5, align 4, !tbaa !17
   %195 = or i32 %194, 16
-  store i32 %195, ptr %5, align 4, !tbaa !16
+  store i32 %195, ptr %5, align 4, !tbaa !17
   br label %.thread651
 
 196:                                              ; preds = %187, %182
@@ -4507,7 +4507,7 @@ thread-pre-split:                                 ; preds = %91, %96
 203:                                              ; preds = %196
   %204 = sext i32 %123 to i64
   %205 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %204
-  %206 = load i8, ptr %205, align 1, !tbaa !19
+  %206 = load i8, ptr %205, align 1, !tbaa !20
   %207 = zext i8 %206 to i32
   %.not554687 = icmp eq i32 %123, 0
   br i1 %.not554687, label %.preheader678, label %.lr.ph.preheader
@@ -4542,7 +4542,7 @@ thread-pre-split:                                 ; preds = %91, %96
   store i16 0, ptr %.1470691, align 2, !tbaa !11
   %221 = getelementptr inbounds i8, ptr %.1470691, i64 -2
   %.not559 = icmp ult ptr %221, %.0443
-  br i1 %.not559, label %._crit_edge, label %.lr.ph692, !llvm.loop !42
+  br i1 %.not559, label %._crit_edge, label %.lr.ph692, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph692, %.preheader678
   %222 = icmp slt i32 %128, 50
@@ -4551,7 +4551,7 @@ thread-pre-split:                                 ; preds = %91, %96
 223:                                              ; preds = %._crit_edge
   %224 = sext i32 %128 to i64
   %225 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %224
-  %226 = load i8, ptr %225, align 1, !tbaa !19
+  %226 = load i8, ptr %225, align 1, !tbaa !20
   %227 = zext i8 %226 to i32
   br label %231
 
@@ -4589,7 +4589,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %.0487 = phi i32 [ %238, %231 ], [ %spec.select600, %239 ]
   %247 = load i16, ptr %199, align 2, !tbaa !11
   %248 = zext i16 %247 to i32
-  %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !16
+  %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !17
   %.not561693 = icmp ugt i32 %249, %248
   br i1 %.not561693, label %.preheader677, label %.lr.ph697
 
@@ -4603,18 +4603,18 @@ thread-pre-split:                                 ; preds = %91, %96
   %.0478694 = phi i32 [ %250, %.lr.ph697 ], [ %130, %246 ]
   %250 = add nsw i32 %.0478694, -1
   %251 = getelementptr inbounds nuw i8, ptr %.0465695, i64 4
-  %252 = load i32, ptr %251, align 4, !tbaa !16
+  %252 = load i32, ptr %251, align 4, !tbaa !17
   %.not561 = icmp ugt i32 %252, %248
-  br i1 %.not561, label %.preheader677, label %.lr.ph697, !llvm.loop !43
+  br i1 %.not561, label %.preheader677, label %.lr.ph697, !llvm.loop !53
 
 .lr.ph703:                                        ; preds = %.preheader677, %.lr.ph703
   %.1466702 = phi ptr [ %254, %.lr.ph703 ], [ getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), %.preheader677 ]
   %.1479701 = phi i32 [ %253, %.lr.ph703 ], [ %.0478.lcssa, %.preheader677 ]
   %253 = add nsw i32 %.1479701, 1
   %254 = getelementptr inbounds nuw i8, ptr %.1466702, i64 4
-  %255 = load i32, ptr %254, align 4, !tbaa !16
+  %255 = load i32, ptr %254, align 4, !tbaa !17
   %.not562 = icmp ugt i32 %255, %235
-  br i1 %.not562, label %._crit_edge704, label %.lr.ph703, !llvm.loop !44
+  br i1 %.not562, label %._crit_edge704, label %.lr.ph703, !llvm.loop !54
 
 ._crit_edge704:                                   ; preds = %.lr.ph703, %.preheader677
   %.1479.lcssa = phi i32 [ %.0478.lcssa, %.preheader677 ], [ %253, %.lr.ph703 ]
@@ -4626,7 +4626,7 @@ thread-pre-split:                                 ; preds = %91, %96
 257:                                              ; preds = %256
   %258 = sext i32 %123 to i64
   %259 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %258
-  %260 = load i8, ptr %259, align 1, !tbaa !19
+  %260 = load i8, ptr %259, align 1, !tbaa !20
   %261 = zext i8 %260 to i32
   br label %265
 
@@ -4731,7 +4731,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %314 = icmp eq i16 %313, 0
   %315 = icmp ugt ptr %312, %.0443
   %316 = and i1 %315, %314
-  br i1 %316, label %.lr.ph714, label %._crit_edge715, !llvm.loop !45
+  br i1 %316, label %.lr.ph714, label %._crit_edge715, !llvm.loop !55
 
 ._crit_edge715:                                   ; preds = %.lr.ph714, %306
   %.lcssa710 = phi i16 [ %307, %306 ], [ %313, %.lr.ph714 ]
@@ -4770,7 +4770,7 @@ thread-pre-split:                                 ; preds = %91, %96
 329:                                              ; preds = %325
   %330 = getelementptr inbounds i8, ptr %.0460, i64 -2
   %.0459.add = add nsw i64 %.0459.idx, -2
-  br label %.preheader674
+  br label %.preheader674, !llvm.loop !56
 
 331:                                              ; preds = %325
   %332 = icmp samesign ugt i32 %.0458, %327
@@ -4799,7 +4799,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %346 = sub nsw i32 %.3504.lcssa, %305
   %347 = sub nsw i32 0, %spec.store.select
   %348 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %303, i32 noundef %346, ptr noundef nonnull %.ptr566, i32 noundef %232, i32 noundef 0, ptr noundef nonnull %303, i32 noundef %347)
-  br label %306
+  br label %306, !llvm.loop !57
 
 .thread:                                          ; preds = %331, %._crit_edge715, %335
   %.4505 = phi i32 [ 1, %335 ], [ %.3504.lcssa, %._crit_edge715 ], [ %.3504.lcssa, %331 ]
@@ -4819,10 +4819,10 @@ thread-pre-split:                                 ; preds = %91, %96
   %.2467 = phi ptr [ %355, %.preheader675 ], [ getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), %352 ]
   %.2439.in = phi i32 [ %.2439, %.preheader675 ], [ %.0437, %352 ]
   %.2439 = add nsw i32 %.2439.in, 1
-  %354 = load i32, ptr %.2467, align 4, !tbaa !16
+  %354 = load i32, ptr %.2467, align 4, !tbaa !17
   %.not570 = icmp ugt i32 %354, %350
   %355 = getelementptr inbounds nuw i8, ptr %.2467, i64 4
-  br i1 %.not570, label %.loopexit, label %.preheader675, !llvm.loop !46
+  br i1 %.not570, label %.loopexit, label %.preheader675, !llvm.loop !58
 
 356:                                              ; preds = %352
   %357 = add nsw i32 %.0437, 3
@@ -4864,7 +4864,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %369 = add nsw i32 %.3481, -3
   %indvars.iv.next759 = add i32 %indvars.iv758, 3
-  br label %301
+  br label %301, !llvm.loop !59
 
 370:                                              ; preds = %367, %365, %.loopexit
   %.3481.lcssa = phi i32 [ 0, %367 ], [ %.3481, %365 ], [ %.3481, %.loopexit ]
@@ -4886,7 +4886,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %.5442 = phi i32 [ 1, %372 ], [ %.4441, %373 ]
   %.3434 = phi i32 [ 1, %372 ], [ %.2433, %373 ]
   %.3 = phi ptr [ %.2, %372 ], [ %374, %373 ]
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !17
   br i1 %.not553, label %402, label %376
 
 376:                                              ; preds = %375
@@ -4897,7 +4897,7 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %or.cond12, label %380, label %381
 
 380:                                              ; preds = %376
-  store i32 1, ptr %9, align 4, !tbaa !16
+  store i32 1, ptr %9, align 4, !tbaa !17
   br label %.thread623
 
 381:                                              ; preds = %376
@@ -4922,11 +4922,11 @@ thread-pre-split:                                 ; preds = %91, %96
   %387 = trunc nuw nsw i64 %indvars.iv.next757 to i32
   %388 = lshr i32 %383, %387
   %389 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %indvars.iv.next757
-  %390 = load i32, ptr %389, align 4, !tbaa !16
+  %390 = load i32, ptr %389, align 4, !tbaa !17
   %391 = mul i32 %390, %388
   %392 = lshr i32 %391, 17
   %393 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv.next757
-  %394 = load i32, ptr %393, align 4, !tbaa !16
+  %394 = load i32, ptr %393, align 4, !tbaa !17
   %395 = mul i32 %392, %394
   %.not580 = icmp eq i32 %395, %383
   br i1 %.not580, label %396, label %._crit_edge723.split.loop.exit777
@@ -4934,7 +4934,7 @@ thread-pre-split:                                 ; preds = %91, %96
 396:                                              ; preds = %.lr.ph722
   %397 = add nsw i32 %.5483720, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge723, label %.lr.ph722
+  br i1 %exitcond.not, label %._crit_edge723, label %.lr.ph722, !llvm.loop !60
 
 ._crit_edge723.split.loop.exit777:                ; preds = %.lr.ph722
   %398 = trunc nuw nsw i64 %indvars.iv756 to i32
@@ -4957,9 +4957,9 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %404, label %405, label %408
 
 405:                                              ; preds = %402
-  %406 = load i32, ptr %5, align 4, !tbaa !16
+  %406 = load i32, ptr %5, align 4, !tbaa !17
   %407 = or i32 %406, 4
-  store i32 %407, ptr %5, align 4, !tbaa !16
+  store i32 %407, ptr %5, align 4, !tbaa !17
   br label %514
 
 408:                                              ; preds = %402
@@ -5001,7 +5001,7 @@ thread-pre-split:                                 ; preds = %91, %96
 426:                                              ; preds = %417
   %427 = sext i32 %424 to i64
   %428 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %427
-  %429 = load i8, ptr %428, align 1, !tbaa !19
+  %429 = load i8, ptr %428, align 1, !tbaa !20
   %430 = zext i8 %429 to i32
   br label %434
 
@@ -5026,7 +5026,7 @@ thread-pre-split:                                 ; preds = %91, %96
 441:                                              ; preds = %437
   %442 = sext i32 %439 to i64
   %443 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %442
-  %444 = load i8, ptr %443, align 1, !tbaa !19
+  %444 = load i8, ptr %443, align 1, !tbaa !20
   %445 = zext i8 %444 to i32
   br label %449
 
@@ -5050,9 +5050,9 @@ thread-pre-split:                                 ; preds = %91, %96
   br i1 %456, label %.lr.ph730, label %._crit_edge731
 
 .thread644:                                       ; preds = %449
-  %457 = load i32, ptr %5, align 4, !tbaa !16
+  %457 = load i32, ptr %5, align 4, !tbaa !17
   %458 = or i32 %457, 16
-  store i32 %458, ptr %5, align 4, !tbaa !16
+  store i32 %458, ptr %5, align 4, !tbaa !17
   br label %514
 
 .lr.ph730:                                        ; preds = %.preheader672, %466
@@ -5074,7 +5074,7 @@ thread-pre-split:                                 ; preds = %91, %96
 466:                                              ; preds = %.lr.ph730, %462
   %467 = getelementptr inbounds nuw i8, ptr %.0435729, i64 2
   %468 = icmp ult ptr %467, %455
-  br i1 %468, label %.lr.ph730, label %._crit_edge731, !llvm.loop !47
+  br i1 %468, label %.lr.ph730, label %._crit_edge731, !llvm.loop !61
 
 ._crit_edge731:                                   ; preds = %466, %.preheader672
   %469 = icmp sgt i32 %452, 0
@@ -5102,7 +5102,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %476 = add nsw i32 %.0445732, -3
   %477 = getelementptr inbounds nuw i8, ptr %.1436733, i64 2
   %478 = icmp sgt i32 %.0445732, 6
-  br i1 %478, label %.lr.ph734, label %._crit_edge735
+  br i1 %478, label %.lr.ph734, label %._crit_edge735, !llvm.loop !62
 
 ._crit_edge735:                                   ; preds = %475, %.preheader
   %.0445.lcssa = phi i32 [ %10, %.preheader ], [ %476, %475 ]
@@ -5111,7 +5111,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %480 = zext i16 %479 to i32
   %481 = sext i32 %.0445.lcssa to i64
   %482 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %481
-  %483 = load i32, ptr %482, align 4, !tbaa !16
+  %483 = load i32, ptr %482, align 4, !tbaa !17
   %484 = add i32 %483, -1
   %.not666 = icmp eq i32 %484, %480
   br i1 %.not666, label %508, label %.thread619
@@ -5128,7 +5128,7 @@ thread-pre-split:                                 ; preds = %91, %96
 491:                                              ; preds = %.thread619
   %492 = sext i32 %489 to i64
   %493 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %492
-  %494 = load i8, ptr %493, align 1, !tbaa !19
+  %494 = load i8, ptr %493, align 1, !tbaa !20
   %495 = zext i8 %494 to i32
   br label %select.unfold
 
@@ -5141,7 +5141,7 @@ select.unfold:                                    ; preds = %491, %496
   %499 = phi i32 [ %495, %491 ], [ %498, %496 ]
   %500 = sext i32 %488 to i64
   %501 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %500
-  %502 = load i32, ptr %501, align 4, !tbaa !16
+  %502 = load i32, ptr %501, align 4, !tbaa !17
   %503 = sub nsw i32 0, %502
   %504 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %.0443, i32 noundef %435, ptr noundef nonnull %.ptr566, i32 noundef %499, i32 noundef %487, ptr noundef nonnull %.0443, i32 noundef %503)
   %505 = sub nsw i32 0, %504
@@ -5150,9 +5150,9 @@ select.unfold:                                    ; preds = %491, %496
   br label %.thread623
 
 508:                                              ; preds = %._crit_edge735
-  %509 = load i32, ptr %5, align 4, !tbaa !16
+  %509 = load i32, ptr %5, align 4, !tbaa !17
   %510 = or i32 %509, 4
-  store i32 %510, ptr %5, align 4, !tbaa !16
+  store i32 %510, ptr %5, align 4, !tbaa !17
   br label %514
 
 .thread623:                                       ; preds = %select.unfold, %._crit_edge731, %434, %381, %399, %._crit_edge723, %408, %380
@@ -5196,9 +5196,9 @@ select.unfold:                                    ; preds = %491, %496
 define dso_local noundef ptr @decNumberDivideInteger(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 32, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -5240,20 +5240,20 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  store i32 0, ptr %4, align 4, !tbaa !16
-  %5 = load i32, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %4, align 4, !tbaa !17
+  %5 = load i32, ptr %2, align 4, !tbaa !31
   %6 = icmp sgt i32 %5, 999999
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !31
+  %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = icmp sgt i32 %9, 999999
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !30
+  %13 = load i32, ptr %12, align 4, !tbaa !38
   %14 = icmp slt i32 %13, -999999
   br i1 %14, label %.thread, label %15
 
@@ -5287,7 +5287,7 @@ define dso_local noundef ptr @decNumberExp(ptr noundef returned %0, ptr noundef 
 
 33:                                               ; preds = %28, %18
   %34 = call fastcc ptr @decExpOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4)
-  %.pr = load i32, ptr %4, align 4, !tbaa !16
+  %.pr = load i32, ptr %4, align 4, !tbaa !17
   %.not8 = icmp eq i32 %.pr, 0
   br i1 %.not8, label %46, label %.thread
 
@@ -5339,7 +5339,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %13 = alloca [2 x %struct.decNumber], align 16
   %14 = alloca %struct.decNumber, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #18
@@ -5408,7 +5408,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 43:                                               ; preds = %38
   %44 = zext nneg i32 %33 to i64
   %45 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !19
+  %46 = load i8, ptr %45, align 1, !tbaa !20
   %47 = zext i8 %46 to i32
   br label %.lr.ph.preheader.i
 
@@ -5428,7 +5428,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %51 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %52 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %53 = icmp ult ptr %51, %48
-  br i1 %53, label %.lr.ph.i, label %.thread278, !llvm.loop !41
+  br i1 %53, label %.lr.ph.i, label %.thread278, !llvm.loop !51
 
 54:                                               ; preds = %19
   %55 = tail call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
@@ -5462,7 +5462,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   store i32 1, ptr %13, align 16, !tbaa !10
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 10
   store i16 4, ptr %70, align 2, !tbaa !11
-  %71 = load i32, ptr %2, align 4, !tbaa !25
+  %71 = load i32, ptr %2, align 4, !tbaa !31
   %72 = sub nsw i32 0, %71
   %73 = xor i32 %71, -1
   %.not213296 = icmp slt i8 %16, 0
@@ -5473,9 +5473,9 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %67
-  %77 = load i32, ptr %3, align 4, !tbaa !16
+  %77 = load i32, ptr %3, align 4, !tbaa !17
   %78 = or i32 %77, 16
-  store i32 %78, ptr %3, align 4, !tbaa !16
+  store i32 %78, ptr %3, align 4, !tbaa !17
   br label %.thread278
 
 79:                                               ; preds = %67
@@ -5483,7 +5483,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %79
-  %82 = load i32, ptr %2, align 4, !tbaa !25
+  %82 = load i32, ptr %2, align 4, !tbaa !31
   %83 = add nsw i32 %82, -1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %84, align 4, !tbaa !4
@@ -5496,23 +5496,23 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   store i32 %87, ptr %0, align 4, !tbaa !10
   %88 = sub nsw i32 1, %82
   store i32 %88, ptr %85, align 4, !tbaa !9
-  %89 = load i32, ptr %3, align 4, !tbaa !16
+  %89 = load i32, ptr %3, align 4, !tbaa !17
   %90 = or i32 %89, 2080
-  store i32 %90, ptr %3, align 4, !tbaa !16
+  store i32 %90, ptr %3, align 4, !tbaa !17
   br label %.thread278
 
 91:                                               ; preds = %79
   %92 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #18
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !31
+  %94 = load i32, ptr %93, align 4, !tbaa !39
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %94, ptr %95, align 4, !tbaa !31
+  store i32 %94, ptr %95, align 4, !tbaa !39
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %97 = load i32, ptr %96, align 4, !tbaa !30
+  %97 = load i32, ptr %96, align 4, !tbaa !38
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %97, ptr %98, align 4, !tbaa !30
+  store i32 %97, ptr %98, align 4, !tbaa !38
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %99, align 4, !tbaa !27
+  store i8 0, ptr %99, align 4, !tbaa !33
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %101 = load i32, ptr %100, align 4, !tbaa !9
   %102 = load i32, ptr %1, align 4, !tbaa !10
@@ -5557,7 +5557,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 122:                                              ; preds = %120
   %123 = sext i32 %102 to i64
   %124 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !19
+  %125 = load i8, ptr %124, align 1, !tbaa !20
   %126 = zext i8 %125 to i32
   br label %130
 
@@ -5589,16 +5589,16 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br label %143
 
 .thread290:                                       ; preds = %133
-  %141 = load i32, ptr %3, align 4, !tbaa !16
+  %141 = load i32, ptr %3, align 4, !tbaa !17
   %142 = or i32 %141, 16
-  store i32 %142, ptr %3, align 4, !tbaa !16
+  store i32 %142, ptr %3, align 4, !tbaa !17
   br label %.thread278
 
 143:                                              ; preds = %.thread, %111
   %144 = phi i32 [ %102, %111 ], [ %.pre, %.thread ]
   %.2189 = phi ptr [ null, %111 ], [ %.3190, %.thread ]
   %.0172 = phi ptr [ %1, %111 ], [ %.0166, %.thread ]
-  %145 = load i32, ptr %2, align 4, !tbaa !25
+  %145 = load i32, ptr %2, align 4, !tbaa !31
   %. = call i32 @llvm.smax.i32(i32 %144, i32 %145)
   %146 = add nsw i32 %., %spec.select
   %147 = add nsw i32 %146, 2
@@ -5609,7 +5609,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 150:                                              ; preds = %143
   %151 = sext i32 %148 to i64
   %152 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 2, !tbaa !19
+  %153 = load i8, ptr %152, align 2, !tbaa !20
   %154 = zext i8 %153 to i32
   br label %158
 
@@ -5632,9 +5632,9 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %166, label %167, label %170
 
 167:                                              ; preds = %161
-  %168 = load i32, ptr %3, align 4, !tbaa !16
+  %168 = load i32, ptr %3, align 4, !tbaa !17
   %169 = or i32 %168, 16
-  store i32 %169, ptr %3, align 4, !tbaa !16
+  store i32 %169, ptr %3, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 170:                                              ; preds = %161, %158
@@ -5647,7 +5647,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %173 = add nsw i32 %146, 4
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !19
+  %176 = load i8, ptr %175, align 1, !tbaa !20
   %177 = zext i8 %176 to i32
   br label %181
 
@@ -5670,9 +5670,9 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %189, label %190, label %193
 
 190:                                              ; preds = %184
-  %191 = load i32, ptr %3, align 4, !tbaa !16
+  %191 = load i32, ptr %3, align 4, !tbaa !17
   %192 = or i32 %191, 16
-  store i32 %192, ptr %3, align 4, !tbaa !16
+  store i32 %192, ptr %3, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 193:                                              ; preds = %184, %181
@@ -5698,11 +5698,11 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %200 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %200, align 2, !tbaa !11
   %201 = call ptr @decContextDefault(ptr noundef nonnull %8, i32 noundef 64) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !48
-  store i32 %148, ptr %7, align 4, !tbaa !25
-  store i32 %147, ptr %8, align 4, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !63
+  store i32 %148, ptr %7, align 4, !tbaa !31
+  store i32 %147, ptr %8, align 4, !tbaa !31
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 -999999999, ptr %202, align 4, !tbaa !30
+  store i32 -999999999, ptr %202, align 4, !tbaa !38
   %203 = getelementptr inbounds nuw i8, ptr %.2182, i64 4
   br label %204
 
@@ -5724,7 +5724,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 215:                                              ; preds = %204
   %216 = call fastcc ptr @decAddOp(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %9, i8 noundef zeroext 0, ptr noundef %5)
-  br label %204
+  br label %204, !llvm.loop !64
 
 217:                                              ; preds = %204
   %.not294 = icmp slt i32 %118, 1
@@ -5740,9 +5740,9 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %.1188250 = phi ptr [ %.2189, %217 ], [ null, %110 ], [ null, %105 ]
   %218 = zext nneg i32 %.0168258 to i64
   %219 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %218
-  %220 = load i32, ptr %219, align 4, !tbaa !16
+  %220 = load i32, ptr %219, align 4, !tbaa !17
   %221 = add nsw i32 %.0170257, 2
-  store i32 %221, ptr %7, align 4, !tbaa !25
+  store i32 %221, ptr %7, align 4, !tbaa !31
   %222 = getelementptr inbounds nuw i8, ptr %.0180253, i64 8
   store i8 0, ptr %222, align 4, !tbaa !4
   %223 = getelementptr inbounds nuw i8, ptr %.0180253, i64 4
@@ -5756,7 +5756,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %.0163 = phi i32 [ 0, %.thread241 ], [ %.1261266, %249 ]
   %.0162 = phi i32 [ 1, %.thread241 ], [ %250, %249 ]
   %.0 = phi i32 [ %220, %.thread241 ], [ %241, %249 ]
-  %226 = load i32, ptr %3, align 4, !tbaa !16
+  %226 = load i32, ptr %3, align 4, !tbaa !17
   %227 = and i32 %226, 8704
   %.not218 = icmp eq i32 %227, 0
   br i1 %.not218, label %240, label %228
@@ -5808,14 +5808,14 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 249:                                              ; preds = %247, %.thread262
   %.1261266 = phi i32 [ 0, %247 ], [ %.1261265, %.thread262 ]
   %250 = add nuw nsw i32 %.0162, 1
-  br label %225
+  br label %225, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.thread259, %236, %228, %243, %217
   %.1177254 = phi ptr [ %.3179, %217 ], [ %.1177255, %243 ], [ %.1177255, %228 ], [ %.1177255, %236 ], [ %.1177255, %.thread259 ]
   %.1184251 = phi ptr [ %.3186, %217 ], [ %.1184252, %243 ], [ %.1184252, %228 ], [ %.1184252, %236 ], [ %.1184252, %.thread259 ]
   %.1188249 = phi ptr [ %.2189, %217 ], [ %.1188250, %243 ], [ %.1188250, %228 ], [ %.1188250, %236 ], [ %.1188250, %.thread259 ]
   %.3 = phi ptr [ %.2, %217 ], [ %.0180253, %243 ], [ %.0180253, %228 ], [ %.0180253, %236 ], [ %.0180253, %.thread259 ]
-  store i32 1, ptr %6, align 4, !tbaa !16
+  store i32 1, ptr %6, align 4, !tbaa !17
   %251 = getelementptr inbounds nuw i8, ptr %.3, i64 10
   %252 = load i16, ptr %251, align 2, !tbaa !11
   %253 = icmp eq i16 %252, 0
@@ -5832,14 +5832,14 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %255
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   %.pre297 = load i32, ptr %.3, align 4, !tbaa !10
   br label %261
 
 261:                                              ; preds = %260, %255, %.loopexit
   %262 = phi i32 [ %.pre297, %260 ], [ 1, %255 ], [ %.pre298, %.loopexit ]
-  %263 = load i32, ptr %2, align 4, !tbaa !25
-  store i32 %263, ptr %7, align 4, !tbaa !25
+  %263 = load i32, ptr %2, align 4, !tbaa !31
+  store i32 %263, ptr %7, align 4, !tbaa !31
   %264 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   %265 = load i8, ptr %264, align 4, !tbaa !4
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5900,7 +5900,7 @@ define dso_local noundef ptr @decNumberFMA(ptr noundef returned %0, ptr noundef 
   %8 = alloca [5 x %struct.decNumber], align 16
   %9 = alloca %struct.decNumber, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #18
@@ -5911,19 +5911,19 @@ define dso_local noundef ptr @decNumberFMA(ptr noundef returned %0, ptr noundef 
   br i1 %.not, label %13, label %decCheckMath.exit.thread
 
 13:                                               ; preds = %5
-  %14 = load i32, ptr %4, align 4, !tbaa !25
+  %14 = load i32, ptr %4, align 4, !tbaa !31
   %15 = icmp sgt i32 %14, 999999
   br i1 %15, label %.thread.thread, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !31
+  %18 = load i32, ptr %17, align 4, !tbaa !39
   %19 = icmp sgt i32 %18, 999999
   br i1 %19, label %.thread.thread, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i32, ptr %21, align 4, !tbaa !30
+  %22 = load i32, ptr %21, align 4, !tbaa !38
   %23 = icmp slt i32 %22, -999999
   br i1 %23, label %.thread.thread, label %24
 
@@ -5956,19 +5956,19 @@ decCheckMath.exit.thread:                         ; preds = %32, %27, %5
   br i1 %.not38, label %40, label %decCheckMath.exit50.thread
 
 40:                                               ; preds = %decCheckMath.exit.thread
-  %41 = load i32, ptr %4, align 4, !tbaa !25
+  %41 = load i32, ptr %4, align 4, !tbaa !31
   %42 = icmp sgt i32 %41, 999999
   br i1 %42, label %.thread.thread, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !39
   %46 = icmp sgt i32 %45, 999999
   br i1 %46, label %.thread.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !30
+  %49 = load i32, ptr %48, align 4, !tbaa !38
   %50 = icmp slt i32 %49, -999999
   br i1 %50, label %.thread.thread, label %51
 
@@ -6001,19 +6001,19 @@ decCheckMath.exit50.thread:                       ; preds = %59, %54, %decCheckM
   br i1 %.not40, label %67, label %decCheckMath.exit55.thread
 
 67:                                               ; preds = %decCheckMath.exit50.thread
-  %68 = load i32, ptr %4, align 4, !tbaa !25
+  %68 = load i32, ptr %4, align 4, !tbaa !31
   %69 = icmp sgt i32 %68, 999999
   br i1 %69, label %.thread.thread, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !31
+  %72 = load i32, ptr %71, align 4, !tbaa !39
   %73 = icmp sgt i32 %72, 999999
   br i1 %73, label %.thread.thread, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %76 = load i32, ptr %75, align 4, !tbaa !30
+  %76 = load i32, ptr %75, align 4, !tbaa !38
   %77 = icmp slt i32 %76, -999999
   br i1 %77, label %.thread.thread, label %78
 
@@ -6039,22 +6039,22 @@ decCheckMath.exit50.thread:                       ; preds = %59, %54, %decCheckM
   br i1 %or.cond16.i52, label %decCheckMath.exit55.thread, label %.thread.thread
 
 decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckMath.exit50.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !63
   %91 = load i32, ptr %1, align 4, !tbaa !10
   %92 = load i32, ptr %2, align 4, !tbaa !10
   %93 = add nsw i32 %92, %91
-  store i32 %93, ptr %7, align 4, !tbaa !25
+  store i32 %93, ptr %7, align 4, !tbaa !31
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 999999999, ptr %94, align 4, !tbaa !31
+  store i32 999999999, ptr %94, align 4, !tbaa !39
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 -999999999, ptr %95, align 4, !tbaa !30
+  store i32 -999999999, ptr %95, align 4, !tbaa !38
   %96 = icmp slt i32 %93, 50
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %decCheckMath.exit55.thread
   %98 = sext i32 %93 to i64
   %99 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !19
+  %100 = load i8, ptr %99, align 1, !tbaa !20
   %101 = zext i8 %100 to i32
   br label %105
 
@@ -6080,7 +6080,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
   %.1 = phi ptr [ null, %105 ], [ %112, %108 ]
   %.0 = phi ptr [ %8, %105 ], [ %112, %108 ]
   %115 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef %6)
-  %116 = load i32, ptr %6, align 4, !tbaa !16
+  %116 = load i32, ptr %6, align 4, !tbaa !17
   %117 = and i32 %116, 128
   %.not42 = icmp eq i32 %117, 0
   br i1 %.not42, label %128, label %118
@@ -6124,7 +6124,7 @@ decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckM
   br label %.thread
 
 .thread:                                          ; preds = %131, %130
-  %.pr = load i32, ptr %6, align 4, !tbaa !16
+  %.pr = load i32, ptr %6, align 4, !tbaa !17
   %.not45 = icmp eq i32 %.pr, 0
   br i1 %.not45, label %143, label %.thread.thread
 
@@ -6178,7 +6178,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %9 = alloca [10 x i32], align 16
   %10 = alloca [20 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 98, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
@@ -6244,9 +6244,9 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   br i1 %or.cond299, label %49, label %52
 
 49:                                               ; preds = %44, %31
-  %50 = load i32, ptr %4, align 4, !tbaa !16
+  %50 = load i32, ptr %4, align 4, !tbaa !17
   %51 = or i32 %50, 128
-  store i32 %51, ptr %4, align 4, !tbaa !16
+  store i32 %51, ptr %4, align 4, !tbaa !17
   br label %285
 
 52:                                               ; preds = %44, %40, %36
@@ -6323,9 +6323,9 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   br i1 %or.cond3, label %92, label %95
 
 92:                                               ; preds = %88
-  %93 = load i32, ptr %4, align 4, !tbaa !16
+  %93 = load i32, ptr %4, align 4, !tbaa !17
   %94 = or i32 %93, 16
-  store i32 %94, ptr %4, align 4, !tbaa !16
+  store i32 %94, ptr %4, align 4, !tbaa !17
   br label %279
 
 95:                                               ; preds = %88
@@ -6350,7 +6350,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %100 = load i16, ptr %.1228326, align 2, !tbaa !11
   %101 = zext i16 %100 to i32
   %102 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv388
-  %103 = load i32, ptr %102, align 4, !tbaa !16
+  %103 = load i32, ptr %102, align 4, !tbaa !17
   %104 = mul i32 %103, %101
   %105 = add i32 %99, %104
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 3
@@ -6359,12 +6359,12 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %108 = icmp samesign ult i64 %indvars.iv388, 6
   %109 = icmp samesign ugt i32 %.1232325, 3
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %98, label %111, !llvm.loop !49
+  br i1 %110, label %98, label %111, !llvm.loop !66
 
 111:                                              ; preds = %98
-  store i32 %105, ptr %.0251329, align 4, !tbaa !16
+  store i32 %105, ptr %.0251329, align 4, !tbaa !17
   %112 = getelementptr inbounds nuw i8, ptr %.0251329, i64 4
-  br i1 %109, label %.lr.ph332, label %.lr.ph342.preheader, !llvm.loop !50
+  br i1 %109, label %.lr.ph332, label %.lr.ph342.preheader, !llvm.loop !67
 
 .lr.ph342.preheader:                              ; preds = %111, %95
   %.0251.lcssa = phi ptr [ %.0261, %95 ], [ %112, %111 ]
@@ -6386,7 +6386,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %117 = load i16, ptr %.3230335, align 2, !tbaa !11
   %118 = zext i16 %117 to i32
   %119 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv391
-  %120 = load i32, ptr %119, align 4, !tbaa !16
+  %120 = load i32, ptr %119, align 4, !tbaa !17
   %121 = mul i32 %120, %118
   %122 = add i32 %116, %121
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 3
@@ -6395,12 +6395,12 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %125 = icmp samesign ult i64 %indvars.iv391, 6
   %126 = icmp sgt i32 %.3234334, 3
   %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %115, label %128, !llvm.loop !51
+  br i1 %127, label %115, label %128, !llvm.loop !68
 
 128:                                              ; preds = %115
-  store i32 %122, ptr %.0249338, align 4, !tbaa !16
+  store i32 %122, ptr %.0249338, align 4, !tbaa !17
   %129 = getelementptr inbounds nuw i8, ptr %.0249338, i64 4
-  br i1 %126, label %.lr.ph342, label %._crit_edge343, !llvm.loop !52
+  br i1 %126, label %.lr.ph342, label %._crit_edge343, !llvm.loop !69
 
 ._crit_edge343:                                   ; preds = %128
   %.idx371 = shl nsw i64 %82, 3
@@ -6416,7 +6416,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %135 = add i64 %umax, %134
   %136 = and i64 %135, -8
   %137 = add i64 %136, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.0253, i8 0, i64 %137, i1 false), !tbaa !53
+  call void @llvm.memset.p0.i64(ptr align 8 %.0253, i8 0, i64 %137, i1 false), !tbaa !70
   br label %.preheader317
 
 .preheader317:                                    ; preds = %.lr.ph347.preheader, %._crit_edge343
@@ -6442,23 +6442,23 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %142 = sub i64 %141, %138
   %143 = ashr exact i64 %142, 2
   %144 = getelementptr inbounds i64, ptr %.0253, i64 %143
-  %145 = load i32, ptr %.1250358, align 4, !tbaa !16
+  %145 = load i32, ptr %.1250358, align 4, !tbaa !17
   %146 = zext i32 %145 to i64
   br label %147
 
 147:                                              ; preds = %.lr.ph353, %147
   %.1223351 = phi ptr [ %144, %.lr.ph353 ], [ %154, %147 ]
   %.1252350 = phi ptr [ %.0261, %.lr.ph353 ], [ %153, %147 ]
-  %148 = load i32, ptr %.1252350, align 4, !tbaa !16
+  %148 = load i32, ptr %.1252350, align 4, !tbaa !17
   %149 = zext i32 %148 to i64
   %150 = mul nuw i64 %146, %149
-  %151 = load i64, ptr %.1223351, align 8, !tbaa !53
+  %151 = load i64, ptr %.1223351, align 8, !tbaa !70
   %152 = add i64 %150, %151
-  store i64 %152, ptr %.1223351, align 8, !tbaa !53
+  store i64 %152, ptr %.1223351, align 8, !tbaa !70
   %153 = getelementptr inbounds nuw i8, ptr %.1252350, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %.1223351, i64 8
   %.not287 = icmp ugt ptr %153, %113
-  br i1 %.not287, label %._crit_edge354, label %147, !llvm.loop !55
+  br i1 %.not287, label %._crit_edge354, label %147, !llvm.loop !72
 
 ._crit_edge354:                                   ; preds = %147, %140
   %155 = icmp sgt i32 %.0239359, 1
@@ -6471,7 +6471,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 
 .lr.ph356:                                        ; preds = %._crit_edge354, %176
   %.2224355 = phi ptr [ %177, %176 ], [ %.0253, %._crit_edge354 ]
-  %157 = load i64, ptr %.2224355, align 8, !tbaa !53
+  %157 = load i64, ptr %.2224355, align 8, !tbaa !70
   %158 = icmp ult i64 %157, 1000000000
   br i1 %158, label %176, label %159
 
@@ -6483,9 +6483,9 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 162:                                              ; preds = %159
   %163 = udiv i64 %157, 1000000000000000000
   %164 = getelementptr inbounds nuw i8, ptr %.2224355, i64 16
-  %165 = load i64, ptr %164, align 8, !tbaa !53
+  %165 = load i64, ptr %164, align 8, !tbaa !70
   %166 = add i64 %165, %163
-  store i64 %166, ptr %164, align 8, !tbaa !53
+  store i64 %166, ptr %164, align 8, !tbaa !70
   %.neg289 = mul i64 %163, -1000000000000000000
   %167 = add i64 %.neg289, %157
   %.neg290 = mul nuw nsw i64 %163, 3294967296
@@ -6497,29 +6497,29 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %.0235.in = phi i64 [ %168, %162 ], [ %160, %159 ]
   %171 = and i64 %.0235.in, 4294967295
   %172 = getelementptr inbounds nuw i8, ptr %.2224355, i64 8
-  %173 = load i64, ptr %172, align 8, !tbaa !53
+  %173 = load i64, ptr %172, align 8, !tbaa !70
   %174 = add i64 %173, %171
-  store i64 %174, ptr %172, align 8, !tbaa !53
+  store i64 %174, ptr %172, align 8, !tbaa !70
   %.neg291 = mul nsw i64 %171, -1000000000
   %175 = add i64 %170, %.neg291
-  store i64 %175, ptr %.2224355, align 8, !tbaa !53
+  store i64 %175, ptr %.2224355, align 8, !tbaa !70
   br label %176
 
 176:                                              ; preds = %.lr.ph356, %169
   %177 = getelementptr inbounds nuw i8, ptr %.2224355, i64 8
   %178 = icmp ult ptr %177, %130
-  br i1 %178, label %.lr.ph356, label %.loopexit, !llvm.loop !56
+  br i1 %178, label %.lr.ph356, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %176, %._crit_edge354
   %.1240 = phi i32 [ %.mux, %._crit_edge354 ], [ 18, %176 ]
   %179 = getelementptr inbounds nuw i8, ptr %.1250358, i64 4
   %.not286 = icmp ugt ptr %179, %.0249338
-  br i1 %.not286, label %.preheader, label %140, !llvm.loop !57
+  br i1 %.not286, label %.preheader, label %140, !llvm.loop !74
 
 .lr.ph366:                                        ; preds = %.preheader, %189
   %.3365 = phi ptr [ %192, %189 ], [ %.0253, %.preheader ]
   %.0225364 = phi ptr [ %191, %189 ], [ %.0253, %.preheader ]
-  %180 = load i64, ptr %.3365, align 8, !tbaa !53
+  %180 = load i64, ptr %.3365, align 8, !tbaa !70
   %181 = trunc i64 %180 to i32
   br label %182
 
@@ -6535,7 +6535,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %186 = add nuw nsw i32 %.2362, 3
   %187 = getelementptr inbounds nuw i8, ptr %.1226361, i64 2
   %188 = icmp samesign ult i32 %.2362, 3
-  br i1 %188, label %182, label %189, !llvm.loop !58
+  br i1 %188, label %182, label %189, !llvm.loop !75
 
 189:                                              ; preds = %182
   %190 = trunc i32 %183 to i16
@@ -6543,7 +6543,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %191 = getelementptr inbounds nuw i8, ptr %.1226361, i64 4
   %192 = getelementptr inbounds nuw i8, ptr %.3365, i64 8
   %193 = icmp ult ptr %192, %130
-  br i1 %193, label %.lr.ph366, label %._crit_edge367.loopexit, !llvm.loop !59
+  br i1 %193, label %.lr.ph366, label %._crit_edge367.loopexit, !llvm.loop !76
 
 ._crit_edge367.loopexit:                          ; preds = %189
   %.pre = ptrtoint ptr %191 to i64
@@ -6563,7 +6563,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 199:                                              ; preds = %197
   %200 = sext i32 %62 to i64
   %201 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %200
-  %202 = load i8, ptr %201, align 1, !tbaa !19
+  %202 = load i8, ptr %201, align 1, !tbaa !20
   %203 = zext i8 %202 to i32
   br label %207
 
@@ -6576,7 +6576,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %208 = phi i32 [ %203, %199 ], [ %206, %204 ]
   %209 = sext i32 %61 to i64
   %210 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1, !tbaa !19
+  %211 = load i8, ptr %210, align 1, !tbaa !20
   %212 = zext i8 %211 to i32
   %213 = add nuw nsw i32 %208, %212
   %214 = icmp samesign ugt i32 %213, 49
@@ -6590,9 +6590,9 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   br i1 %219, label %.thread313, label %222
 
 .thread313:                                       ; preds = %215
-  %220 = load i32, ptr %4, align 4, !tbaa !16
+  %220 = load i32, ptr %4, align 4, !tbaa !17
   %221 = or i32 %220, 16
-  store i32 %221, ptr %4, align 4, !tbaa !16
+  store i32 %221, ptr %4, align 4, !tbaa !17
   br label %285
 
 222:                                              ; preds = %215, %207
@@ -6604,7 +6604,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 223:                                              ; preds = %222
   %224 = sext i32 %62 to i64
   %225 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %224
-  %226 = load i8, ptr %225, align 1, !tbaa !19
+  %226 = load i8, ptr %225, align 1, !tbaa !20
   %227 = zext i8 %226 to i32
   br label %231
 
@@ -6660,7 +6660,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %252 = getelementptr inbounds nuw i8, ptr %.0248323, i64 2
   %253 = icmp ult ptr %252, %235
-  br i1 %253, label %238, label %.loopexit318, !llvm.loop !60
+  br i1 %253, label %238, label %.loopexit318, !llvm.loop !77
 
 .loopexit318:                                     ; preds = %251, %._crit_edge367
   %.2260 = phi ptr [ %.0258, %._crit_edge367 ], [ null, %251 ]
@@ -6703,7 +6703,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %267 = add nsw i32 %.018.i, -3
   %268 = getelementptr inbounds i8, ptr %.01317.i, i64 -2
   %.not.i = icmp ult ptr %268, %.0242407
-  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !16
 
 269:                                              ; preds = %.lr.ph.i
   %270 = icmp ult i16 %262, 10
@@ -6803,7 +6803,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 18:                                               ; preds = %14
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !19
+  %21 = load i8, ptr %20, align 1, !tbaa !20
   %22 = zext i8 %21 to i32
   br label %26
 
@@ -6817,7 +6817,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i16, ptr %15, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -2
-  %31 = load i32, ptr %2, align 4, !tbaa !25
+  %31 = load i32, ptr %2, align 4, !tbaa !31
   %32 = icmp slt i32 %31, 50
   br i1 %32, label %36, label %.thread
 
@@ -6831,7 +6831,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 36:                                               ; preds = %26
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !19
+  %39 = load i8, ptr %38, align 1, !tbaa !20
   %40 = zext i8 %39 to i64
   %41 = zext i8 %39 to i32
   %.pn.idx = shl nuw nsw i64 %40, 1
@@ -6878,7 +6878,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 
 55:                                               ; preds = %.split.us
   %56 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4, !tbaa !16
+  %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = trunc i32 %57 to i16
   %59 = add i16 %53, %58
   store i16 %59, ptr %.05789, align 2, !tbaa !11
@@ -6894,7 +6894,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 65:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split85.us, label %.split.us, !llvm.loop !61
+  br i1 %exitcond.not, label %.split85.us, label %.split.us, !llvm.loop !78
 
 .split:                                           ; preds = %51, %78
   %66 = phi i16 [ %74, %78 ], [ 0, %51 ]
@@ -6906,7 +6906,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 
 68:                                               ; preds = %.split
   %69 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv97
-  %70 = load i32, ptr %69, align 4, !tbaa !16
+  %70 = load i32, ptr %69, align 4, !tbaa !17
   %71 = trunc i32 %70 to i16
   %72 = add i16 %66, %71
   store i16 %72, ptr %.05789, align 2, !tbaa !11
@@ -6922,7 +6922,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 78:                                               ; preds = %73
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond99.not, label %.split85.us, label %.split, !llvm.loop !62
+  br i1 %exitcond99.not, label %.split85.us, label %.split, !llvm.loop !79
 
 .split87.us:                                      ; preds = %60, %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6938,7 +6938,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   %82 = getelementptr inbounds nuw i8, ptr %.05690, i64 2
   %83 = getelementptr inbounds nuw i8, ptr %.05789, i64 2
   %.not68 = icmp ugt ptr %83, %43
-  br i1 %.not68, label %._crit_edge, label %47, !llvm.loop !63
+  br i1 %.not68, label %._crit_edge, label %47, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.split85.us, %36
   %.057.lcssa = phi ptr [ %.ptr77, %36 ], [ %83, %.split85.us ]
@@ -6975,7 +6975,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   %98 = add nsw i32 %.018.i, -3
   %.01317.i.add = add nsw i64 %.01317.i.idx, -2
   %.not.i = icmp slt i64 %.01317.i.idx, 11
-  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !16
 
 99:                                               ; preds = %.lr.ph.i
   %100 = icmp ult i16 %93, 10
@@ -7004,20 +7004,20 @@ decGetDigits.exit:                                ; preds = %95, %97, %._crit_ed
 define dso_local noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  store i32 0, ptr %4, align 4, !tbaa !16
-  %5 = load i32, ptr %2, align 4, !tbaa !25
+  store i32 0, ptr %4, align 4, !tbaa !17
+  %5 = load i32, ptr %2, align 4, !tbaa !31
   %6 = icmp sgt i32 %5, 999999
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !31
+  %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = icmp sgt i32 %9, 999999
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !30
+  %13 = load i32, ptr %12, align 4, !tbaa !38
   %14 = icmp slt i32 %13, -999999
   br i1 %14, label %.thread, label %15
 
@@ -7051,7 +7051,7 @@ define dso_local noundef ptr @decNumberLn(ptr noundef returned %0, ptr noundef r
 
 33:                                               ; preds = %28, %18
   %34 = call fastcc ptr @decLnOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4)
-  %.pr = load i32, ptr %4, align 4, !tbaa !16
+  %.pr = load i32, ptr %4, align 4, !tbaa !17
   %.not8 = icmp eq i32 %.pr, 0
   br i1 %.not8, label %46, label %.thread
 
@@ -7101,7 +7101,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %11 = alloca %struct.decContext, align 4
   %12 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %8) #18
@@ -7126,9 +7126,9 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %.not175, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = load i32, ptr %3, align 4, !tbaa !16
+  %21 = load i32, ptr %3, align 4, !tbaa !17
   %22 = or i32 %21, 128
-  store i32 %22, ptr %3, align 4, !tbaa !16
+  store i32 %22, ptr %3, align 4, !tbaa !17
   br label %.thread229
 
 23:                                               ; preds = %19
@@ -7164,7 +7164,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 40:                                               ; preds = %35
   %41 = zext nneg i32 %30 to i64
   %42 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !19
+  %43 = load i8, ptr %42, align 1, !tbaa !20
   %44 = zext i8 %43 to i32
   br label %.lr.ph.preheader.i
 
@@ -7184,7 +7184,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %49 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %50 = icmp ult ptr %48, %45
-  br i1 %50, label %.lr.ph.i, label %.thread229, !llvm.loop !41
+  br i1 %50, label %.lr.ph.i, label %.thread229, !llvm.loop !51
 
 51:                                               ; preds = %17
   %52 = tail call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
@@ -7216,16 +7216,16 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %.not172, label %68, label %65
 
 65:                                               ; preds = %64
-  %66 = load i32, ptr %3, align 4, !tbaa !16
+  %66 = load i32, ptr %3, align 4, !tbaa !17
   %67 = or i32 %66, 128
-  store i32 %67, ptr %3, align 4, !tbaa !16
+  store i32 %67, ptr %3, align 4, !tbaa !17
   br label %.thread229
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !9
   %71 = icmp eq i32 %70, 0
-  %.pre = load i32, ptr %2, align 4, !tbaa !25
+  %.pre = load i32, ptr %2, align 4, !tbaa !31
   %72 = icmp slt i32 %.pre, 41
   %or.cond274 = select i1 %71, i1 %72, i1 false
   br i1 %or.cond274, label %73, label %.thread
@@ -7242,13 +7242,13 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %76, label %77, label %.thread
 
 77:                                               ; preds = %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 3, ptr %78, align 4, !tbaa !35
+  store i32 3, ptr %78, align 4, !tbaa !45
   %79 = call ptr @decNumberFromString(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %11)
-  %80 = load i32, ptr %3, align 4, !tbaa !16
+  %80 = load i32, ptr %3, align 4, !tbaa !17
   %81 = or i32 %80, 2080
-  store i32 %81, ptr %3, align 4, !tbaa !16
+  store i32 %81, ptr %3, align 4, !tbaa !17
   br label %.thread229
 
 82:                                               ; preds = %73
@@ -7257,13 +7257,13 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 3, ptr %86, align 4, !tbaa !35
+  store i32 3, ptr %86, align 4, !tbaa !45
   %87 = call ptr @decNumberFromString(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %11)
-  %88 = load i32, ptr %3, align 4, !tbaa !16
+  %88 = load i32, ptr %3, align 4, !tbaa !17
   %89 = or i32 %88, 2080
-  store i32 %89, ptr %3, align 4, !tbaa !16
+  store i32 %89, ptr %3, align 4, !tbaa !17
   br label %.thread229
 
 .thread:                                          ; preds = %73, %74, %82, %68
@@ -7278,7 +7278,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 94:                                               ; preds = %.thread
   %95 = zext nneg i32 %92 to i64
   %96 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !19
+  %97 = load i8, ptr %96, align 1, !tbaa !20
   %98 = zext i8 %97 to i32
   br label %102
 
@@ -7301,9 +7301,9 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %105
-  %112 = load i32, ptr %3, align 4, !tbaa !16
+  %112 = load i32, ptr %3, align 4, !tbaa !17
   %113 = or i32 %112, 16
-  store i32 %113, ptr %3, align 4, !tbaa !16
+  store i32 %113, ptr %3, align 4, !tbaa !17
   br label %.thread229
 
 114:                                              ; preds = %105, %102
@@ -7317,7 +7317,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 118:                                              ; preds = %114
   %119 = zext nneg i32 %116 to i64
   %120 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !19
+  %121 = load i8, ptr %120, align 1, !tbaa !20
   %122 = zext i8 %121 to i32
   br label %126
 
@@ -7340,9 +7340,9 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %129
-  %136 = load i32, ptr %3, align 4, !tbaa !16
+  %136 = load i32, ptr %3, align 4, !tbaa !17
   %137 = or i32 %136, 16
-  store i32 %137, ptr %3, align 4, !tbaa !16
+  store i32 %137, ptr %3, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 138:                                              ; preds = %129, %126
@@ -7411,7 +7411,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %165 = add nsw i32 %.018.i.i.i, -3
   %.01317.i.add.i.i = add nsw i64 %.01317.i.idx.i.i, -2
   %.not.i.i.i = icmp slt i64 %.01317.i.idx.i.i, 11
-  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 166:                                              ; preds = %.lr.ph.i.i.i
   %167 = icmp ult i16 %160, 10
@@ -7504,10 +7504,10 @@ decNumberFromInt32.exit201:                       ; preds = %.lr.ph, %178, %.lr.
   store i32 %.1.i.i.i198, ptr %.0, align 4, !tbaa !10
   store i32 -6, ptr %173, align 4, !tbaa !9
   %197 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, ptr noundef %5)
-  store i32 0, ptr %6, align 4, !tbaa !16
-  store i32 2, ptr %11, align 4, !tbaa !25
+  store i32 0, ptr %6, align 4, !tbaa !17
+  store i32 2, ptr %11, align 4, !tbaa !31
   %198 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 5, ptr %198, align 4, !tbaa !35
+  store i32 5, ptr %198, align 4, !tbaa !45
   %199 = load i8, ptr %13, align 4, !tbaa !4
   store i8 %199, ptr %172, align 4, !tbaa !4
   %200 = load i32, ptr %69, align 4, !tbaa !9
@@ -7572,7 +7572,7 @@ decNumberFromInt32.exit201:                       ; preds = %.lr.ph, %178, %.lr.
   %229 = add nsw i32 %.018.i.i.i214, -3
   %.01317.i.add.i.i221 = add nsw i64 %.01317.i.idx.i.i215, -2
   %.not.i.i.i222 = icmp slt i64 %.01317.i.idx.i.i215, 11
-  br i1 %.not.i.i.i222, label %decNumberFromUInt32.exit.i219, label %.lr.ph.i.i.i213, !llvm.loop !15
+  br i1 %.not.i.i.i222, label %decNumberFromUInt32.exit.i219, label %.lr.ph.i.i.i213, !llvm.loop !16
 
 230:                                              ; preds = %.lr.ph.i.i.i213
   %231 = icmp ult i16 %224, 10
@@ -7591,8 +7591,8 @@ decNumberFromUInt32.exit.i219:                    ; preds = %228, %226, %232, %2
   %235 = sub nuw nsw i32 -3, %234
   store i32 %235, ptr %173, align 4, !tbaa !9
   store i8 -128, ptr %172, align 4, !tbaa !4
-  store i32 16, ptr %11, align 4, !tbaa !25
-  store i32 3, ptr %198, align 4, !tbaa !35
+  store i32 16, ptr %11, align 4, !tbaa !31
+  store i32 3, ptr %198, align 4, !tbaa !45
   %236 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
   %237 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 0, ptr %237, align 4, !tbaa !4
@@ -7602,28 +7602,28 @@ decNumberFromUInt32.exit.i219:                    ; preds = %228, %226, %232, %2
   %239 = getelementptr inbounds nuw i8, ptr %9, i64 10
   store i16 1, ptr %239, align 2, !tbaa !11
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %241 = load i32, ptr %240, align 4, !tbaa !31
+  %241 = load i32, ptr %240, align 4, !tbaa !39
   %242 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %241, ptr %242, align 4, !tbaa !31
+  store i32 %241, ptr %242, align 4, !tbaa !39
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %244 = load i32, ptr %243, align 4, !tbaa !30
+  %244 = load i32, ptr %243, align 4, !tbaa !38
   %245 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %244, ptr %245, align 4, !tbaa !30
+  store i32 %244, ptr %245, align 4, !tbaa !38
   %246 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i8 0, ptr %246, align 4, !tbaa !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !48
+  store i8 0, ptr %246, align 4, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !63
   %247 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1999998, ptr %247, align 4, !tbaa !31
+  store i32 1999998, ptr %247, align 4, !tbaa !39
   %248 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 -1999998, ptr %248, align 4, !tbaa !30
+  store i32 -1999998, ptr %248, align 4, !tbaa !38
   br label %.outer
 
 .outer:                                           ; preds = %316, %decNumberFromUInt32.exit.i219
   %spec.select180.sink275 = phi i32 [ %spec.select180, %316 ], [ 9, %decNumberFromUInt32.exit.i219 ]
-  store i32 %spec.select180.sink275, ptr %11, align 4, !tbaa !25
+  store i32 %spec.select180.sink275, ptr %11, align 4, !tbaa !31
   %249 = load i32, ptr %1, align 4, !tbaa !10
   %250 = add nsw i32 %249, %spec.select180.sink275
-  store i32 %250, ptr %12, align 4, !tbaa !25
+  store i32 %250, ptr %12, align 4, !tbaa !31
   %251 = icmp eq i32 %spec.select180.sink275, %91
   br label %252
 
@@ -7660,7 +7660,7 @@ decNumberFromUInt32.exit.i219:                    ; preds = %228, %226, %232, %2
   %270 = add nsw i32 %269, %268
   %271 = load i32, ptr %173, align 4, !tbaa !9
   %272 = add nsw i32 %271, %.pre255
-  %273 = load i32, ptr %2, align 4, !tbaa !25
+  %273 = load i32, ptr %2, align 4, !tbaa !31
   %274 = add nsw i32 %272, %273
   %.not173.not = icmp sgt i32 %270, %274
   br i1 %.not173.not, label %275, label %314
@@ -7695,9 +7695,9 @@ decNumberFromUInt32.exit.i219:                    ; preds = %228, %226, %232, %2
   br i1 %291, label %decCompareOp.exit.thread262, label %.thread.i224
 
 decCompareOp.exit.thread262:                      ; preds = %289
-  %292 = load i32, ptr %5, align 4, !tbaa !16
+  %292 = load i32, ptr %5, align 4, !tbaa !17
   %293 = or i32 %292, 16
-  store i32 %293, ptr %5, align 4, !tbaa !16
+  store i32 %293, ptr %5, align 4, !tbaa !17
   br label %decCompareOp.exit.thread261
 
 .thread.i224:                                     ; preds = %289
@@ -7732,9 +7732,9 @@ decCompareOp.exit.thread261:                      ; preds = %.thread.i224, %decC
   br label %.loopexit
 
 decCompareOp.exit.thread:                         ; preds = %300, %298, %decCompareOp.exit
-  %303 = load i32, ptr %3, align 4, !tbaa !16
+  %303 = load i32, ptr %3, align 4, !tbaa !17
   %304 = or i32 %303, 2080
-  store i32 %304, ptr %3, align 4, !tbaa !16
+  store i32 %304, ptr %3, align 4, !tbaa !17
   br label %.loopexit
 
 305:                                              ; preds = %282, %278
@@ -7756,15 +7756,15 @@ decCompareOp.exit.thread:                         ; preds = %300, %298, %decComp
 
 314:                                              ; preds = %305, %307, %311, %267
   %315 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0147, ptr noundef nonnull %.0147, ptr noundef nonnull %.0, ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %5)
-  br i1 %251, label %252, label %316
+  br i1 %251, label %252, label %316, !llvm.loop !81
 
 316:                                              ; preds = %314
   %317 = shl nsw i32 %spec.select180.sink275, 1
   %spec.select180 = call i32 @llvm.smin.i32(i32 %317, i32 %91)
-  br label %.outer
+  br label %.outer, !llvm.loop !81
 
 .loopexit:                                        ; preds = %275, %decCompareOp.exit.thread261, %decCompareOp.exit.thread
-  store i32 1, ptr %6, align 4, !tbaa !16
+  store i32 1, ptr %6, align 4, !tbaa !17
   %318 = load i16, ptr %.ptr17.i.i, align 2, !tbaa !11
   %319 = icmp eq i16 %318, 0
   br i1 %319, label %320, label %.loopexit._crit_edge
@@ -7786,14 +7786,14 @@ decCompareOp.exit.thread:                         ; preds = %300, %298, %decComp
   br i1 %325, label %326, label %327
 
 326:                                              ; preds = %323
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   br label %327
 
 327:                                              ; preds = %.loopexit._crit_edge, %326, %323, %320
   %328 = phi i32 [ %.pre260, %.loopexit._crit_edge ], [ 1, %326 ], [ 1, %323 ], [ %321, %320 ]
   %329 = phi i8 [ %.pre258, %.loopexit._crit_edge ], [ %.pre259, %326 ], [ %.pre259, %323 ], [ %.pre259, %320 ]
-  %330 = load i32, ptr %2, align 4, !tbaa !25
-  store i32 %330, ptr %11, align 4, !tbaa !25
+  %330 = load i32, ptr %2, align 4, !tbaa !31
+  store i32 %330, ptr %11, align 4, !tbaa !31
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %329, ptr %331, align 4, !tbaa !4
   %332 = load i32, ptr %144, align 4, !tbaa !9
@@ -7839,7 +7839,7 @@ define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef
   %6 = alloca i32, align 4
   %7 = alloca [2 x %struct.decNumber], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 4, !tbaa !4
   %10 = zext i8 %9 to i32
@@ -7888,7 +7888,7 @@ define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef
 30:                                               ; preds = %25
   %31 = zext nneg i32 %20 to i64
   %32 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !19
+  %33 = load i8, ptr %32, align 1, !tbaa !20
   %34 = zext i8 %33 to i32
   br label %.lr.ph.preheader.i.i
 
@@ -7908,7 +7908,7 @@ define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef
   %38 = getelementptr inbounds nuw i8, ptr %.02631.i.i, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 2
   %40 = icmp ult ptr %38, %35
-  br i1 %40, label %.lr.ph.i.i, label %decNumberCopyAbs.exit, !llvm.loop !41
+  br i1 %40, label %.lr.ph.i.i, label %decNumberCopyAbs.exit, !llvm.loop !51
 
 decNumberCopyAbs.exit:                            ; preds = %.lr.ph.i.i, %.decNumberCopy.exit_crit_edge.i, %16
   %41 = phi i8 [ %.pre.i, %.decNumberCopy.exit_crit_edge.i ], [ %9, %16 ], [ %9, %.lr.ph.i.i ]
@@ -7941,7 +7941,7 @@ decNumberCopyAbs.exit:                            ; preds = %.lr.ph.i.i, %.decNu
   %54 = load i32, ptr %53, align 4, !tbaa !9
   %55 = add nsw i32 %.pre, %54
   %56 = add nsw i32 %55, -1
-  %57 = load i32, ptr %2, align 4, !tbaa !25
+  %57 = load i32, ptr %2, align 4, !tbaa !31
   %58 = icmp sgt i32 %57, 9
   br i1 %58, label %59, label %89
 
@@ -8005,7 +8005,7 @@ decNumberCopyAbs.exit:                            ; preds = %.lr.ph.i.i, %.decNu
   %82 = add nsw i32 %.018.i.i.i, -3
   %.01317.i.add.i.i = add nsw i64 %.01317.i.idx.i.i, -2
   %.not.i.i.i = icmp slt i64 %.01317.i.idx.i.i, 11
-  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 83:                                               ; preds = %.lr.ph.i.i.i
   %84 = icmp ult i16 %77, 10
@@ -8088,7 +8088,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %81, %79, %85, %83, 
   %112 = add nsw i32 %.018.i.i.i38, -3
   %.01317.i.add.i.i45 = add nsw i64 %.01317.i.idx.i.i39, -2
   %.not.i.i.i46 = icmp slt i64 %.01317.i.idx.i.i39, 11
-  br i1 %.not.i.i.i46, label %decNumberFromUInt32.exit.i43, label %.lr.ph.i.i.i37, !llvm.loop !15
+  br i1 %.not.i.i.i46, label %decNumberFromUInt32.exit.i43, label %.lr.ph.i.i.i37, !llvm.loop !16
 
 113:                                              ; preds = %.lr.ph.i.i.i37
   %114 = icmp ult i16 %107, 10
@@ -8113,7 +8113,7 @@ decNumberFromUInt32.exit.i43:                     ; preds = %111, %109, %115, %1
 decNumberFromInt32.exit47:                        ; preds = %89, %decNumberFromUInt32.exit.i43, %118
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %119, align 4, !tbaa !4
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -8122,7 +8122,7 @@ decNumberFromInt32.exit47:                        ; preds = %89, %decNumberFromU
   store i16 0, ptr %121, align 2, !tbaa !11
   store i32 0, ptr %120, align 4, !tbaa !9
   %122 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull readonly %7, ptr noundef nonnull %2, i8 noundef zeroext 0, ptr noundef %5)
-  %123 = load i32, ptr %5, align 4, !tbaa !16
+  %123 = load i32, ptr %5, align 4, !tbaa !17
   %.not.i = icmp eq i32 %123, 0
   br i1 %.not.i, label %decNumberPlus.exit, label %124
 
@@ -8163,7 +8163,7 @@ decNumberPlus.exit:                               ; preds = %decNumberFromInt32.
 
 decNumberFromInt32.exit:                          ; preds = %3
   %135 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %6)
-  %.pr.pre = load i32, ptr %6, align 4, !tbaa !16
+  %.pr.pre = load i32, ptr %6, align 4, !tbaa !17
   %.not25 = icmp eq i32 %.pr.pre, 0
   br i1 %.not25, label %decNumberFromInt32.exit.thread, label %136
 
@@ -8211,9 +8211,9 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %4, align 4, !tbaa !16
+  %11 = load i32, ptr %4, align 4, !tbaa !17
   %12 = or i32 %11, 1073741952
-  store i32 %12, ptr %4, align 4, !tbaa !16
+  store i32 %12, ptr %4, align 4, !tbaa !17
   br label %24
 
 13:                                               ; preds = %5
@@ -8228,9 +8228,9 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   br i1 %.not47, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr %4, align 4, !tbaa !16
+  %20 = load i32, ptr %4, align 4, !tbaa !17
   %21 = or i32 %20, 1073741952
-  store i32 %21, ptr %4, align 4, !tbaa !16
+  store i32 %21, ptr %4, align 4, !tbaa !17
   br label %24
 
 22:                                               ; preds = %15
@@ -8242,7 +8242,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
 24:                                               ; preds = %22, %13, %19, %10
   %.0 = phi ptr [ %1, %10 ], [ %1, %13 ], [ %2, %19 ], [ %spec.select, %22 ]
   %25 = load i32, ptr %.0, align 4, !tbaa !10
-  %26 = load i32, ptr %3, align 4, !tbaa !25
+  %26 = load i32, ptr %3, align 4, !tbaa !31
   %.not49 = icmp sgt i32 %25, %26
   br i1 %.not49, label %52, label %27
 
@@ -8279,7 +8279,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
 41:                                               ; preds = %36
   %42 = zext nneg i32 %25 to i64
   %43 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !19
+  %44 = load i8, ptr %43, align 1, !tbaa !20
   %45 = zext i8 %44 to i32
   br label %.lr.ph.preheader.i
 
@@ -8299,7 +8299,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %49 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %51 = icmp ult ptr %49, %46
-  br i1 %51, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %51, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !51
 
 52:                                               ; preds = %24
   %53 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -8318,7 +8318,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
 60:                                               ; preds = %52
   %61 = sext i32 %26 to i64
   %62 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !19
+  %63 = load i8, ptr %62, align 1, !tbaa !20
   %64 = zext i8 %63 to i32
   %.not54 = icmp eq i32 %26, 0
   br i1 %.not54, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -8339,7 +8339,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %68 = getelementptr inbounds nuw i8, ptr %.03953, i64 2
   %69 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   %70 = icmp ult ptr %68, %65
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %57, label %._crit_edge.thread, label %75
@@ -8347,7 +8347,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
 ._crit_edge.thread:                               ; preds = %60, %._crit_edge
   %71 = sext i32 %26 to i64
   %72 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !19
+  %73 = load i8, ptr %72, align 1, !tbaa !20
   %74 = zext i8 %73 to i32
   br label %78
 
@@ -8377,7 +8377,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
 85:                                               ; preds = %84
   %86 = zext nneg i32 %26 to i64
   %87 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !19
+  %88 = load i8, ptr %87, align 1, !tbaa !20
   %89 = zext i8 %88 to i32
   %90 = zext i8 %88 to i64
   br label %95
@@ -8402,7 +8402,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %99 = getelementptr inbounds i8, ptr %.pn.i, i64 -2
   %100 = sext i32 %97 to i64
   %101 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !16
+  %102 = load i32, ptr %101, align 4, !tbaa !17
   %103 = load i16, ptr %99, align 2, !tbaa !11
   %104 = zext i16 %103 to i32
   %105 = urem i32 %104, %102
@@ -8439,7 +8439,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %117 = add nsw i32 %.018.i.i, -3
   %.01317.i.add.i = add nsw i64 %.01317.i.idx.i, -2
   %.not.i.i = icmp slt i64 %.01317.i.idx.i, 11
-  br i1 %.not.i.i, label %decDecap.exit, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %decDecap.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 118:                                              ; preds = %.lr.ph.i.i
   %119 = icmp ult i16 %112, 10
@@ -8506,7 +8506,7 @@ define dso_local noundef ptr @decNumberCopyAbs(ptr noundef returned captures(add
 20:                                               ; preds = %15
   %21 = zext nneg i32 %10 to i64
   %22 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !19
+  %23 = load i8, ptr %22, align 1, !tbaa !20
   %24 = zext i8 %23 to i32
   br label %.lr.ph.preheader.i
 
@@ -8526,7 +8526,7 @@ define dso_local noundef ptr @decNumberCopyAbs(ptr noundef returned captures(add
   %28 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %30 = icmp ult ptr %28, %25
-  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !51
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %4
   %31 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %6, %4 ], [ %6, %.lr.ph.i ]
@@ -8542,7 +8542,7 @@ define dso_local noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -8553,7 +8553,7 @@ define dso_local noundef ptr @decNumberPlus(ptr noundef returned %0, ptr noundef
   %10 = load i32, ptr %9, align 4, !tbaa !9
   store i32 %10, ptr %7, align 4, !tbaa !9
   %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 0, ptr noundef %5)
-  %12 = load i32, ptr %5, align 4, !tbaa !16
+  %12 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %24, label %13
 
@@ -8603,26 +8603,26 @@ define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr nounde
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #18
-  %12 = load i32, ptr %2, align 4, !tbaa !25
+  %12 = load i32, ptr %2, align 4, !tbaa !31
   %13 = icmp sgt i32 %12, 999999
   br i1 %13, label %.thread101.thread, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !31
+  %16 = load i32, ptr %15, align 4, !tbaa !39
   %17 = icmp sgt i32 %16, 999999
   br i1 %17, label %.thread101.thread, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i32, ptr %19, align 4, !tbaa !30
+  %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = icmp slt i32 %20, -999999
   br i1 %21, label %.thread101.thread, label %22
 
@@ -8672,17 +8672,17 @@ define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr nounde
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
-  store i32 0, ptr %10, align 4, !tbaa !16
+  store i32 0, ptr %10, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #18
-  store i32 0, ptr %11, align 4, !tbaa !16
-  store i32 1, ptr %9, align 4, !tbaa !25
+  store i32 0, ptr %11, align 4, !tbaa !17
+  store i32 1, ptr %9, align 4, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %43, ptr %50, align 8, !tbaa !4
   %51 = load i32, ptr %26, align 4, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %51, ptr %52, align 4, !tbaa !9
   call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %45, i32 noundef %.pre112, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %53 = load i32, ptr %11, align 4, !tbaa !16
+  %53 = load i32, ptr %11, align 4, !tbaa !17
   %54 = and i32 %53, 32
   %.not83 = icmp eq i32 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 10
@@ -8754,7 +8754,7 @@ define dso_local noundef ptr @decNumberLog10(ptr noundef returned %0, ptr nounde
   %80 = add nsw i32 %.018.i.i.i, -3
   %.01317.i.add.i.i = add nsw i64 %.01317.i.idx.i.i, -2
   %.not.i.i.i = icmp slt i64 %.01317.i.idx.i.i, 11
-  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %decNumberFromUInt32.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 81:                                               ; preds = %.lr.ph.i.i.i
   %82 = icmp ult i16 %75, 10
@@ -8779,7 +8779,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 87:                                               ; preds = %86, %decNumberFromUInt32.exit.i, %58
   %88 = phi i32 [ %.1.i.i.i, %86 ], [ %.1.i.i.i, %decNumberFromUInt32.exit.i ], [ 1, %58 ]
   %89 = phi i8 [ -128, %86 ], [ 0, %decNumberFromUInt32.exit.i ], [ 0, %58 ]
-  store i32 0, ptr %10, align 4, !tbaa !16
+  store i32 0, ptr %10, align 4, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %89, ptr %90, align 4, !tbaa !4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8792,7 +8792,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 
 92:                                               ; preds = %44, %.thread, %40
   %93 = add nsw i32 %.pre112, 6
-  %94 = load i32, ptr %2, align 4, !tbaa !25
+  %94 = load i32, ptr %2, align 4, !tbaa !31
   %. = call i32 @llvm.smax.i32(i32 %93, i32 %94)
   %95 = add nsw i32 %., 3
   %96 = icmp slt i32 %., 47
@@ -8806,7 +8806,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 99:                                               ; preds = %92
   %100 = sext i32 %95 to i64
   %101 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !19
+  %102 = load i8, ptr %101, align 1, !tbaa !20
   %103 = zext i8 %102 to i32
   %104 = add nsw i64 %100, -40
   %105 = icmp ult i64 %104, 10
@@ -8825,15 +8825,15 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   %.167 = phi ptr [ null, %99 ], [ %111, %106 ]
   %.065 = phi ptr [ %6, %99 ], [ %111, %106 ]
   %.065111 = ptrtoint ptr %.065 to i64
-  store i32 %95, ptr %9, align 4, !tbaa !25
+  store i32 %95, ptr %9, align 4, !tbaa !31
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 999999, ptr %114, align 4, !tbaa !31
+  store i32 999999, ptr %114, align 4, !tbaa !39
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 -999999, ptr %115, align 4, !tbaa !30
+  store i32 -999999, ptr %115, align 4, !tbaa !38
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i8 0, ptr %116, align 4, !tbaa !27
+  store i8 0, ptr %116, align 4, !tbaa !33
   %117 = call fastcc ptr @decLnOp(ptr noundef nonnull %.065, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef %4)
-  %118 = load i32, ptr %4, align 4, !tbaa !16
+  %118 = load i32, ptr %4, align 4, !tbaa !17
   %119 = and i32 %118, 221
   %.not84 = icmp ne i32 %119, 0
   %120 = and i32 %118, 1073741824
@@ -8892,7 +8892,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 149:                                              ; preds = %144
   %150 = zext nneg i32 %139 to i64
   %151 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !19
+  %152 = load i8, ptr %151, align 1, !tbaa !20
   %153 = zext i8 %152 to i32
   br label %.lr.ph.preheader.i
 
@@ -8913,7 +8913,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   br label %decNumberCopy.exit
 
 162:                                              ; preds = %129, %125
-  %163 = load i32, ptr %2, align 4, !tbaa !25
+  %163 = load i32, ptr %2, align 4, !tbaa !31
   %164 = add nsw i32 %163, 3
   %165 = icmp slt i32 %163, 47
   br i1 %165, label %168, label %.thread114
@@ -8926,7 +8926,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 168:                                              ; preds = %162
   %169 = sext i32 %164 to i64
   %170 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %169
-  %171 = load i8, ptr %170, align 1, !tbaa !19
+  %171 = load i8, ptr %170, align 1, !tbaa !20
   %172 = zext i8 %171 to i32
   %173 = add nsw i64 %169, -40
   %174 = icmp ult i64 %173, 10
@@ -8943,7 +8943,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
 
 182:                                              ; preds = %175
   %183 = or i32 %118, 16
-  store i32 %183, ptr %4, align 4, !tbaa !16
+  store i32 %183, ptr %4, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 184:                                              ; preds = %175, %168
@@ -8956,10 +8956,10 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i16 10, ptr %187, align 2, !tbaa !11
   store i32 2, ptr %8, align 16, !tbaa !10
-  store i32 %164, ptr %9, align 4, !tbaa !25
+  store i32 %164, ptr %9, align 4, !tbaa !31
   %188 = call fastcc ptr @decLnOp(ptr noundef nonnull %.063, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %5)
-  %189 = load i32, ptr %2, align 4, !tbaa !25
-  store i32 %189, ptr %9, align 4, !tbaa !25
+  %189 = load i32, ptr %2, align 4, !tbaa !31
+  store i32 %189, ptr %9, align 4, !tbaa !31
   %190 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef nonnull %.065, ptr noundef nonnull %.063, ptr noundef nonnull %9, i8 noundef zeroext -128, ptr noundef %4)
   br label %decNumberCopy.exit
 
@@ -8981,7 +8981,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i,
   br label %.thread101
 
 .thread101:                                       ; preds = %87, %193, %192
-  %.pr = load i32, ptr %4, align 4, !tbaa !16
+  %.pr = load i32, ptr %4, align 4, !tbaa !17
   %.not89 = icmp eq i32 %.pr, 0
   br i1 %.not89, label %205, label %.thread101.thread
 
@@ -9032,9 +9032,9 @@ declare ptr @decContextDefault(ptr noundef, i32 noundef) local_unnamed_addr #5
 define dso_local noundef ptr @decNumberMax(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -9076,9 +9076,9 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberMaxMag(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 7, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -9120,9 +9120,9 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberMin(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 3, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -9164,9 +9164,9 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberMinMag(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 8, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -9210,7 +9210,7 @@ define dso_local noundef ptr @decNumberMinus(ptr noundef returned %0, ptr nounde
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9221,7 +9221,7 @@ define dso_local noundef ptr @decNumberMinus(ptr noundef returned %0, ptr nounde
   %10 = load i32, ptr %9, align 4, !tbaa !9
   store i32 %10, ptr %7, align 4, !tbaa !9
   %11 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -128, ptr noundef %5)
-  %12 = load i32, ptr %5, align 4, !tbaa !16
+  %12 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %24, label %13
 
@@ -9267,9 +9267,9 @@ define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr no
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !4
   %9 = and i8 %8, -64
@@ -9277,7 +9277,7 @@ define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr no
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr %2, align 4, !tbaa !25
+  %12 = load i32, ptr %2, align 4, !tbaa !31
   store i32 %12, ptr %0, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = icmp sgt i32 %12, 3
@@ -9290,21 +9290,21 @@ define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr no
   %15 = add nsw i32 %.015.i, -3
   %16 = getelementptr inbounds nuw i8, ptr %.01314.i, i64 2
   %17 = icmp samesign ugt i32 %.015.i, 6
-  br i1 %17, label %.lr.ph.i, label %decSetMaxValue.exit
+  br i1 %17, label %.lr.ph.i, label %decSetMaxValue.exit, !llvm.loop !83
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
   %.013.lcssa.i = phi ptr [ %13, %11 ], [ %16, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %12, %11 ], [ %15, %.lr.ph.i ]
   %18 = sext i32 %.0.lcssa.i to i64
   %19 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !16
+  %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = trunc i32 %20 to i16
   %22 = add i16 %21, -1
   store i16 %22, ptr %.013.lcssa.i, align 2, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %23, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !31
+  %25 = load i32, ptr %24, align 4, !tbaa !39
   %reass.sub = sub i32 %25, %12
   %26 = add i32 %reass.sub, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9320,9 +9320,9 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
   store i16 1, ptr %31, align 2, !tbaa !11
   store i32 -1000000000, ptr %30, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 6, ptr %32, align 4, !tbaa !35
+  store i32 6, ptr %32, align 4, !tbaa !45
   %33 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %6)
-  %34 = load i32, ptr %6, align 4, !tbaa !16
+  %34 = load i32, ptr %6, align 4, !tbaa !17
   %35 = and i32 %34, 1073741952
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %45, label %36
@@ -9361,7 +9361,7 @@ decStatus.exit:                                   ; preds = %38, %36, %40
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @decSetMaxValue(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 4, !tbaa !25
+  %3 = load i32, ptr %1, align 4, !tbaa !31
   store i32 %3, ptr %0, align 4, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = icmp sgt i32 %3, 3
@@ -9374,21 +9374,21 @@ define internal fastcc void @decSetMaxValue(ptr noundef writeonly captures(none)
   %6 = add nsw i32 %.015, -3
   %7 = getelementptr inbounds nuw i8, ptr %.01314, i64 2
   %8 = icmp samesign ugt i32 %.015, 6
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi ptr [ %4, %2 ], [ %7, %.lr.ph ]
   %.0.lcssa = phi i32 [ %3, %2 ], [ %6, %.lr.ph ]
   %9 = sext i32 %.0.lcssa to i64
   %10 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !16
+  %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = trunc i32 %11 to i16
   %13 = add i16 %12, -1
   store i16 %13, ptr %.013.lcssa, align 2, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %14, align 4, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !31
+  %16 = load i32, ptr %15, align 4, !tbaa !39
   %reass.sub = sub i32 %16, %3
   %17 = add i32 %reass.sub, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9403,16 +9403,16 @@ define dso_local noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr nou
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !4
   %9 = icmp ugt i8 %8, -65
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %3
-  %11 = load i32, ptr %2, align 4, !tbaa !25
+  %11 = load i32, ptr %2, align 4, !tbaa !31
   store i32 %11, ptr %0, align 4, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = icmp sgt i32 %11, 3
@@ -9425,20 +9425,20 @@ define dso_local noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr nou
   %14 = add nsw i32 %.015.i, -3
   %15 = getelementptr inbounds nuw i8, ptr %.01314.i, i64 2
   %16 = icmp samesign ugt i32 %.015.i, 6
-  br i1 %16, label %.lr.ph.i, label %decSetMaxValue.exit
+  br i1 %16, label %.lr.ph.i, label %decSetMaxValue.exit, !llvm.loop !83
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
   %.013.lcssa.i = phi ptr [ %12, %10 ], [ %15, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %11, %10 ], [ %14, %.lr.ph.i ]
   %17 = sext i32 %.0.lcssa.i to i64
   %18 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !16
+  %19 = load i32, ptr %18, align 4, !tbaa !17
   %20 = trunc i32 %19 to i16
   %21 = add i16 %20, -1
   store i16 %21, ptr %.013.lcssa.i, align 2, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !31
+  %24 = load i32, ptr %23, align 4, !tbaa !39
   %reass.sub = sub i32 %24, %11
   %25 = add i32 %reass.sub, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9455,9 +9455,9 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
   store i16 1, ptr %30, align 2, !tbaa !11
   store i32 -1000000000, ptr %29, align 4, !tbaa !9
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %31, align 4, !tbaa !35
+  store i32 0, ptr %31, align 4, !tbaa !45
   %32 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %6)
-  %33 = load i32, ptr %6, align 4, !tbaa !16
+  %33 = load i32, ptr %6, align 4, !tbaa !17
   %34 = and i32 %33, 1073741952
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %44, label %35
@@ -9501,9 +9501,9 @@ define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr n
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 4, !tbaa !4
   %10 = and i8 %9, 48
@@ -9566,7 +9566,7 @@ define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr n
 37:                                               ; preds = %32
   %38 = zext nneg i32 %27 to i64
   %39 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !19
+  %40 = load i8, ptr %39, align 1, !tbaa !20
   %41 = zext i8 %40 to i32
   br label %.lr.ph.preheader.i.i
 
@@ -9586,7 +9586,7 @@ define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr n
   %45 = getelementptr inbounds nuw i8, ptr %.02631.i.i, i64 2
   %46 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 2
   %47 = icmp ult ptr %45, %42
-  br i1 %47, label %.lr.ph.i.i, label %decNumberCopySign.exit, !llvm.loop !41
+  br i1 %47, label %.lr.ph.i.i, label %decNumberCopySign.exit, !llvm.loop !51
 
 decNumberCopySign.exit:                           ; preds = %.lr.ph.i.i, %.decNumberCopy.exit_crit_edge.i, %22
   %48 = phi i8 [ %.pre.i, %.decNumberCopy.exit_crit_edge.i ], [ %23, %22 ], [ %23, %.lr.ph.i.i ]
@@ -9625,7 +9625,7 @@ decNumberCopySign.exit:                           ; preds = %.lr.ph.i.i, %.decNu
   %.sink = phi i32 [ 0, %56 ], [ 6, %60 ]
   %.033 = phi i8 [ 0, %56 ], [ -128, %60 ]
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %.sink, ptr %65, align 4, !tbaa !35
+  store i32 %.sink, ptr %65, align 4, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %66, align 4, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -9654,12 +9654,12 @@ decNumberIsNormal.exit:                           ; preds = %73
   %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = add nsw i32 %79, %.pre.i40
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %82 = load i32, ptr %81, align 4, !tbaa !30
+  %82 = load i32, ptr %81, align 4, !tbaa !38
   %.not9.i.not = icmp sgt i32 %80, %82
   br i1 %.not9.i.not, label %.critedge, label %decNumberIsNormal.exit.thread
 
 decNumberIsNormal.exit.thread:                    ; preds = %73, %64, %decNumberIsNormal.exit, %decNumberCopySign.exit, %15
-  %.pr = load i32, ptr %7, align 4, !tbaa !16
+  %.pr = load i32, ptr %7, align 4, !tbaa !17
   %.not39 = icmp eq i32 %.pr, 0
   br i1 %.not39, label %.critedge, label %83
 
@@ -9845,7 +9845,7 @@ define internal fastcc i32 @decCompare(ptr noundef readonly captures(address) %0
 76:                                               ; preds = %66
   %77 = sext i32 %74 to i64
   %78 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !19
+  %79 = load i8, ptr %78, align 1, !tbaa !20
   %80 = zext i8 %79 to i32
   br label %84
 
@@ -9864,7 +9864,7 @@ define internal fastcc i32 @decCompare(ptr noundef readonly captures(address) %0
 89:                                               ; preds = %84
   %90 = sext i32 %87 to i64
   %91 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !19
+  %92 = load i8, ptr %91, align 1, !tbaa !20
   %93 = zext i8 %92 to i32
   br label %97
 
@@ -9932,7 +9932,7 @@ define dso_local noundef ptr @decNumberCopySign(ptr noundef returned captures(ad
 23:                                               ; preds = %18
   %24 = zext nneg i32 %13 to i64
   %25 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !19
+  %26 = load i8, ptr %25, align 1, !tbaa !20
   %27 = zext i8 %26 to i32
   br label %.lr.ph.preheader.i
 
@@ -9952,7 +9952,7 @@ define dso_local noundef ptr @decNumberCopySign(ptr noundef returned captures(ad
   %31 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %33 = icmp ult ptr %31, %28
-  br i1 %33, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %33, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !51
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %7
   %34 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %9, %7 ], [ %9, %.lr.ph.i ]
@@ -9986,7 +9986,7 @@ define dso_local range(i32 0, 2) i32 @decNumberIsNormal(ptr noundef readonly cap
   %13 = load i32, ptr %12, align 4, !tbaa !9
   %14 = add nsw i32 %.pre, %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !30
+  %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not9 = icmp sgt i32 %14, %16
   %. = zext i1 %.not9 to i32
   br label %17
@@ -10043,7 +10043,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 27:                                               ; preds = %21
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !19
+  %30 = load i8, ptr %29, align 1, !tbaa !20
   %31 = zext i8 %30 to i32
   br label %35
 
@@ -10064,7 +10064,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 42:                                               ; preds = %35
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !19
+  %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = zext i8 %45 to i32
   br label %50
 
@@ -10078,7 +10078,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr %23, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -2
-  %55 = load i32, ptr %3, align 4, !tbaa !25
+  %55 = load i32, ptr %3, align 4, !tbaa !31
   %56 = icmp slt i32 %55, 50
   br i1 %56, label %60, label %.thread
 
@@ -10092,7 +10092,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 60:                                               ; preds = %50
   %61 = sext i32 %55 to i64
   %62 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !19
+  %63 = load i8, ptr %62, align 1, !tbaa !20
   %64 = zext i8 %63 to i64
   %65 = zext i8 %63 to i32
   %.pn.idx = shl nuw nsw i64 %64, 1
@@ -10156,7 +10156,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 
 85:                                               ; preds = %.preheader.split.us
   %86 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %87 = load i32, ptr %86, align 4, !tbaa !16
+  %87 = load i32, ptr %86, align 4, !tbaa !17
   %88 = trunc i32 %87 to i16
   %89 = add i16 %82, %88
   store i16 %89, ptr %.081115, align 2, !tbaa !11
@@ -10175,7 +10175,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 98:                                               ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !84
 
 .preheader.split:                                 ; preds = %.preheader, %115
   %99 = phi i16 [ %108, %115 ], [ 0, %.preheader ]
@@ -10189,7 +10189,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 
 102:                                              ; preds = %.preheader.split
   %103 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv122
-  %104 = load i32, ptr %103, align 4, !tbaa !16
+  %104 = load i32, ptr %103, align 4, !tbaa !17
   %105 = trunc i32 %104 to i16
   %106 = add i16 %99, %105
   store i16 %106, ptr %.081115, align 2, !tbaa !11
@@ -10208,7 +10208,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 115:                                              ; preds = %107
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
-  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !66
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !85
 
 .split.us:                                        ; preds = %90, %107
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10225,7 +10225,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
   %120 = getelementptr inbounds nuw i8, ptr %.080117, i64 2
   %121 = getelementptr inbounds nuw i8, ptr %.081115, i64 2
   %.not97 = icmp ugt ptr %121, %67
-  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !67
+  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.081.lcssa = phi ptr [ %24, %60 ], [ %121, %.loopexit ]
@@ -10250,9 +10250,9 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 define dso_local noundef ptr @decNumberMultiply(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decMultiplyOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -10298,11 +10298,11 @@ define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr nounde
   %8 = alloca %struct.decNumber, align 4
   %9 = alloca [4 x %struct.decNumber], align 16
   %10 = alloca [4 x %struct.decNumber], align 16
-  %11 = load i32, ptr %3, align 4, !tbaa !25
+  %11 = load i32, ptr %3, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #18
@@ -10387,7 +10387,7 @@ define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr nounde
   br i1 %52, label %.thread244.thread.thread249, label %57
 
 .thread244.thread.thread249:                      ; preds = %49
-  %53 = load i32, ptr %3, align 4, !tbaa !25
+  %53 = load i32, ptr %3, align 4, !tbaa !31
   %54 = add nsw i32 %53, -1
   store i16 1, ptr %44, align 2, !tbaa !11
   %55 = call fastcc i32 @decShiftToMost(ptr noundef nonnull %44, i32 noundef 1, i32 noundef %54)
@@ -10495,13 +10495,13 @@ define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr nounde
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !31
+  %99 = load i32, ptr %98, align 4, !tbaa !39
   %100 = icmp sgt i32 %99, 999999
   br i1 %100, label %.thread244.thread, label %101
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %103 = load i32, ptr %102, align 4, !tbaa !30
+  %103 = load i32, ptr %102, align 4, !tbaa !38
   %104 = icmp slt i32 %103, -999999
   br i1 %104, label %.thread244.thread, label %105
 
@@ -10552,16 +10552,16 @@ define dso_local noundef ptr @decNumberPower(ptr noundef returned %0, ptr nounde
 decCheckMath.exit224.thread:                      ; preds = %125, %120
   %132 = call ptr @decContextDefault(ptr noundef nonnull %7, i32 noundef 64) #18
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 999999, ptr %133, align 4, !tbaa !31
+  store i32 999999, ptr %133, align 4, !tbaa !39
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 -999999, ptr %134, align 4, !tbaa !30
+  store i32 -999999, ptr %134, align 4, !tbaa !38
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %135, align 4, !tbaa !27
+  store i8 0, ptr %135, align 4, !tbaa !33
   %136 = load i32, ptr %1, align 4, !tbaa !10
-  %137 = load i32, ptr %3, align 4, !tbaa !25
+  %137 = load i32, ptr %3, align 4, !tbaa !31
   %. = call i32 @llvm.smax.i32(i32 %136, i32 %137)
   %138 = add nsw i32 %., 10
-  store i32 %138, ptr %7, align 4, !tbaa !25
+  store i32 %138, ptr %7, align 4, !tbaa !31
   br label %152
 
 139:                                              ; preds = %93
@@ -10576,16 +10576,16 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
 
 143:                                              ; preds = %93
   %spec.select219 = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !63
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 3, ptr %144, align 4, !tbaa !35
+  store i32 3, ptr %144, align 4, !tbaa !45
   %145 = load i32, ptr %2, align 4, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %147 = load i32, ptr %146, align 4, !tbaa !9
   %148 = add i32 %145, %11
   %149 = add i32 %148, %147
   %150 = add nsw i32 %149, 2
-  store i32 %150, ptr %7, align 4, !tbaa !25
+  store i32 %150, ptr %7, align 4, !tbaa !31
   %151 = icmp sgt i32 %149, 999999997
   br i1 %151, label %.thread251, label %152
 
@@ -10598,7 +10598,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
 155:                                              ; preds = %152
   %156 = sext i32 %153 to i64
   %157 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !19
+  %158 = load i8, ptr %157, align 1, !tbaa !20
   %159 = zext i8 %158 to i32
   br label %163
 
@@ -10653,16 +10653,16 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   br i1 %.not188, label %187, label %245
 
 187:                                              ; preds = %186
-  %188 = load i32, ptr %3, align 4, !tbaa !25
+  %188 = load i32, ptr %3, align 4, !tbaa !31
   %189 = add nsw i32 %188, -1
   %190 = call fastcc i32 @decShiftToMost(ptr noundef nonnull %175, i32 noundef 1, i32 noundef %189)
   store i32 %190, ptr %.0163, align 4, !tbaa !10
   %191 = sub nsw i32 1, %188
   %192 = getelementptr inbounds nuw i8, ptr %.0163, i64 4
   store i32 %191, ptr %192, align 4, !tbaa !9
-  %193 = load i32, ptr %6, align 4, !tbaa !16
+  %193 = load i32, ptr %6, align 4, !tbaa !17
   %194 = or i32 %193, 2080
-  store i32 %194, ptr %6, align 4, !tbaa !16
+  store i32 %194, ptr %6, align 4, !tbaa !17
   br label %245
 
 195:                                              ; preds = %181, %178, %173
@@ -10700,9 +10700,9 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   br label %214
 
 211:                                              ; preds = %206
-  %212 = load i32, ptr %6, align 4, !tbaa !16
+  %212 = load i32, ptr %6, align 4, !tbaa !17
   %213 = or i32 %212, 16
-  store i32 %213, ptr %6, align 4, !tbaa !16
+  store i32 %213, ptr %6, align 4, !tbaa !17
   br label %254
 
 214:                                              ; preds = %.thread, %198
@@ -10714,7 +10714,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   %.0170 = phi i32 [ 1, %214 ], [ %240, %239 ]
   %.0167 = phi i8 [ 0, %214 ], [ %.1168233238, %239 ]
   %.2161 = phi i32 [ %.0159, %214 ], [ %231, %239 ]
-  %216 = load i32, ptr %6, align 4, !tbaa !16
+  %216 = load i32, ptr %6, align 4, !tbaa !17
   %217 = and i32 %216, 8704
   %.not196 = icmp eq i32 %217, 0
   br i1 %.not196, label %230, label %218
@@ -10755,7 +10755,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
   br i1 %236, label %.thread231._crit_edge, label %.thread234
 
 .thread231._crit_edge:                            ; preds = %.thread231
-  %.pre = load i32, ptr %6, align 4, !tbaa !16
+  %.pre = load i32, ptr %6, align 4, !tbaa !17
   %.pre261 = and i32 %.pre, 8704
   br label %split
 
@@ -10771,7 +10771,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
 239:                                              ; preds = %237, %.thread234
   %.1168233238 = phi i8 [ 0, %237 ], [ %.1168233237, %.thread234 ]
   %240 = add nuw nsw i32 %.0170, 1
-  br label %215
+  br label %215, !llvm.loop !87
 
 split:                                            ; preds = %233, %.thread231._crit_edge
   %.pre-phi = phi i32 [ %.pre261, %.thread231._crit_edge ], [ %217, %233 ]
@@ -10821,7 +10821,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br label %.thread244
 
 .thread244:                                       ; preds = %22, %87, %139, %48, %47, %57, %58, %70, %74, %257, %256
-  %.pr = load i32, ptr %6, align 4, !tbaa !16
+  %.pr = load i32, ptr %6, align 4, !tbaa !17
   %.not210 = icmp eq i32 %.pr, 0
   br i1 %.not210, label %268, label %.thread244.thread
 
@@ -10880,7 +10880,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   %9 = load i16, ptr %0, align 2, !tbaa !11
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !16
+  %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = trunc i32 %12 to i16
   %14 = mul i16 %9, %13
   store i16 %14, ptr %0, align 2, !tbaa !11
@@ -10893,7 +10893,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
 17:                                               ; preds = %15
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !19
+  %20 = load i8, ptr %19, align 1, !tbaa !20
   %21 = zext i8 %20 to i32
   br label %25
 
@@ -10914,7 +10914,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
 31:                                               ; preds = %25
   %32 = sext i32 %2 to i64
   %33 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !19
+  %34 = load i8, ptr %33, align 1, !tbaa !20
   %35 = zext i8 %34 to i64
   %36 = zext i8 %34 to i32
   br label %41
@@ -10948,7 +10948,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   %48 = getelementptr inbounds i8, ptr %.06484, i64 -2
   %49 = getelementptr inbounds i8, ptr %.06085, i64 -2
   %.not74 = icmp ult ptr %48, %0
-  br i1 %.not74, label %.loopexit76, label %.lr.ph86, !llvm.loop !68
+  br i1 %.not74, label %.loopexit76, label %.lr.ph86, !llvm.loop !88
 
 50:                                               ; preds = %41
   %51 = icmp samesign ult i32 %6, 50
@@ -10957,7 +10957,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
 52:                                               ; preds = %50
   %53 = zext nneg i32 %6 to i64
   %54 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !19
+  %55 = load i8, ptr %54, align 1, !tbaa !20
   %56 = zext i8 %55 to i32
   br label %60
 
@@ -10977,12 +10977,12 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
 .lr.ph:                                           ; preds = %60
   %65 = sext i32 %45 to i64
   %66 = getelementptr inbounds [5 x i32], ptr @multies, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !16
+  %67 = load i32, ptr %66, align 4, !tbaa !17
   %68 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %65
-  %69 = load i32, ptr %68, align 4, !tbaa !16
+  %69 = load i32, ptr %68, align 4, !tbaa !17
   %70 = sext i32 %44 to i64
   %71 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !16
+  %72 = load i32, ptr %71, align 4, !tbaa !17
   br label %73
 
 73:                                               ; preds = %.lr.ph, %84
@@ -11010,7 +11010,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   %86 = getelementptr inbounds i8, ptr %.16579, i64 -2
   %87 = getelementptr inbounds i8, ptr %.281, i64 -2
   %.not = icmp ult ptr %86, %0
-  br i1 %.not, label %.loopexit76.loopexit92, label %73, !llvm.loop !69
+  br i1 %.not, label %.loopexit76.loopexit92, label %73, !llvm.loop !89
 
 .loopexit76.loopexit92:                           ; preds = %84
   %88 = trunc i32 %85 to i16
@@ -11028,7 +11028,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   store i16 %.26389, ptr %.390, align 2, !tbaa !11
   %89 = getelementptr inbounds i8, ptr %.390, i64 -2
   %.not75 = icmp ult ptr %89, %0
-  br i1 %.not75, label %.loopexit, label %.lr.ph91, !llvm.loop !70
+  br i1 %.not75, label %.loopexit, label %.lr.ph91, !llvm.loop !90
 
 .loopexit:                                        ; preds = %.lr.ph91, %.loopexit76, %3, %8
   %.0 = phi i32 [ %6, %8 ], [ %1, %3 ], [ %6, %.loopexit76 ], [ %6, %.lr.ph91 ]
@@ -11073,7 +11073,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %21 = add nsw i32 %.062128, -3
   %22 = getelementptr inbounds nuw i8, ptr %.166127, i64 2
   %23 = icmp samesign ugt i32 %21, 2
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %20
   %24 = icmp eq i32 %21, 0
@@ -11091,11 +11091,11 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %27 = lshr i32 %26, %.062.lcssa146
   %28 = zext nneg i32 %.062.lcssa146 to i64
   %29 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !16
+  %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = mul i32 %27, %30
   %32 = lshr i32 %31, 17
   %33 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %28
-  %34 = load i32, ptr %33, align 4, !tbaa !16
+  %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = mul i32 %32, %34
   %.not = icmp eq i32 %35, %26
   %36 = xor i32 %.062.lcssa146, 3
@@ -11135,14 +11135,14 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %46 = load i16, ptr %.671131, align 2, !tbaa !11
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 4, !tbaa !16
+  %49 = load i32, ptr %48, align 4, !tbaa !17
   %50 = mul i32 %49, %47
   %51 = add i32 %50, %.5132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %52 = getelementptr inbounds nuw i8, ptr %.671131, i64 2
   %53 = trunc nuw i64 %indvars.iv.next to i32
   %54 = icmp sgt i32 %5, %53
-  br i1 %54, label %.lr.ph133, label %._crit_edge134, !llvm.loop !72
+  br i1 %54, label %.lr.ph133, label %._crit_edge134, !llvm.loop !92
 
 ._crit_edge134:                                   ; preds = %.lr.ph133, %.preheader
   %.580.lcssa = phi i32 [ %.479, %.preheader ], [ %53, %.lr.ph133 ]
@@ -11155,7 +11155,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %57 = add nsw i32 %.580.lcssa, -3
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %60 = load i32, ptr %59, align 4, !tbaa !17
   %61 = sdiv i32 %.5.lcssa, %60
   %62 = getelementptr inbounds i8, ptr %.671.lcssa, i64 -2
   %63 = load i16, ptr %62, align 2, !tbaa !11
@@ -11196,9 +11196,9 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
 define dso_local noundef ptr @decNumberQuantize(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 1, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -11240,11 +11240,11 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.decContext, align 4
-  %9 = load i32, ptr %3, align 4, !tbaa !25
+  %9 = load i32, ptr %3, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !30
+  %11 = load i32, ptr %10, align 4, !tbaa !38
   %reass.sub = sub i32 %11, %9
   %12 = add i32 %reass.sub, 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11274,9 +11274,9 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   br i1 %.not91, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr %5, align 4, !tbaa !16
+  %29 = load i32, ptr %5, align 4, !tbaa !17
   %30 = or i32 %29, 128
-  store i32 %30, ptr %5, align 4, !tbaa !16
+  store i32 %30, ptr %5, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 31:                                               ; preds = %25
@@ -11312,7 +11312,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 48:                                               ; preds = %43
   %49 = zext nneg i32 %38 to i64
   %50 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !19
+  %51 = load i8, ptr %50, align 1, !tbaa !20
   %52 = zext i8 %51 to i32
   br label %.lr.ph.preheader.i
 
@@ -11332,7 +11332,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   %56 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %57 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %58 = icmp ult ptr %56, %53
-  br i1 %58, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %58, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !51
 
 59:                                               ; preds = %6
   %.not89 = icmp eq i8 %4, 0
@@ -11361,14 +11361,14 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !31
+  %70 = load i32, ptr %69, align 4, !tbaa !39
   %71 = icmp sgt i32 %.083, %70
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %65, %65, %65, %68, %66
-  %73 = load i32, ptr %5, align 4, !tbaa !16
+  %73 = load i32, ptr %5, align 4, !tbaa !17
   %74 = or i32 %73, 128
-  store i32 %74, ptr %5, align 4, !tbaa !16
+  store i32 %74, ptr %5, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 75:                                               ; preds = %68
@@ -11400,9 +11400,9 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %86
-  %93 = load i32, ptr %5, align 4, !tbaa !16
+  %93 = load i32, ptr %5, align 4, !tbaa !17
   %94 = or i32 %93, 128
-  store i32 %94, ptr %5, align 4, !tbaa !16
+  store i32 %94, ptr %5, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 95:                                               ; preds = %86
@@ -11411,16 +11411,16 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
-  store i32 %90, ptr %8, align 4, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !63
+  store i32 %90, ptr %8, align 4, !tbaa !31
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %98, align 4, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %88, ptr %99, align 4, !tbaa !9
   call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %76, i32 noundef %.pre, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  %100 = load i32, ptr %7, align 4, !tbaa !16
+  %100 = load i32, ptr %7, align 4, !tbaa !17
   call fastcc void @decApplyRound(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %100, ptr noundef %5)
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %101 = load i32, ptr %99, align 4, !tbaa !9
   %102 = icmp sgt i32 %101, %.083
   br i1 %102, label %103, label %.thread
@@ -11445,10 +11445,10 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   br label %.thread95
 
 112:                                              ; preds = %103
-  %113 = load i32, ptr %5, align 4, !tbaa !16
+  %113 = load i32, ptr %5, align 4, !tbaa !17
   %114 = and i32 %113, -2209
   %115 = or disjoint i32 %114, 128
-  store i32 %115, ptr %5, align 4, !tbaa !16
+  store i32 %115, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8) #18
   br label %decNumberCopy.exit
 
@@ -11476,7 +11476,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 
 .thread95:                                        ; preds = %..thread95_crit_edge, %119, %.thread, %83
   %127 = phi i32 [ %.pre101, %..thread95_crit_edge ], [ %126, %119 ], [ %111, %.thread ], [ %.083, %83 ]
-  %128 = load i32, ptr %69, align 4, !tbaa !31
+  %128 = load i32, ptr %69, align 4, !tbaa !39
   %129 = load i32, ptr %0, align 4, !tbaa !10
   %130 = add i32 %128, 1
   %131 = sub i32 %130, %129
@@ -11484,16 +11484,16 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %.thread95
-  %134 = load i32, ptr %5, align 4, !tbaa !16
+  %134 = load i32, ptr %5, align 4, !tbaa !17
   %135 = or i32 %134, 128
-  store i32 %135, ptr %5, align 4, !tbaa !16
+  store i32 %135, ptr %5, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 136:                                              ; preds = %.thread95
   call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %7, ptr noundef %5)
-  %137 = load i32, ptr %5, align 4, !tbaa !16
+  %137 = load i32, ptr %5, align 4, !tbaa !17
   %138 = and i32 %137, -8193
-  store i32 %138, ptr %5, align 4, !tbaa !16
+  store i32 %138, ptr %5, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %92, %112, %33, %31, %23, %28, %136, %133, %72
@@ -11513,9 +11513,9 @@ define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !4
@@ -11542,7 +11542,7 @@ define dso_local noundef ptr @decNumberReduce(ptr noundef returned %0, ptr nound
   br label %20
 
 20:                                               ; preds = %12, %10
-  %21 = load i32, ptr %4, align 4, !tbaa !16
+  %21 = load i32, ptr %4, align 4, !tbaa !17
   %.not14 = icmp eq i32 %21, 0
   br i1 %.not14, label %33, label %22
 
@@ -11584,7 +11584,7 @@ decStatus.exit:                                   ; preds = %22, %26, %28
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
-  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %4, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 4, !tbaa !4
   %8 = and i8 %7, 112
@@ -11629,11 +11629,11 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %25 = lshr i32 %24, %.06384.us
   %26 = zext nneg i32 %.06384.us to i64
   %27 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !16
+  %28 = load i32, ptr %27, align 4, !tbaa !17
   %29 = mul i32 %25, %28
   %30 = lshr i32 %29, 17
   %31 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %26
-  %32 = load i32, ptr %31, align 4, !tbaa !16
+  %32 = load i32, ptr %31, align 4, !tbaa !17
   %33 = mul i32 %30, %32
   %.not73.us = icmp eq i32 %33, %24
   br i1 %.not73.us, label %34, label %.thread
@@ -11646,7 +11646,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %spec.select74.us = getelementptr inbounds nuw i8, ptr %.06085.us, i64 %spec.select74.idx.us
   %37 = add nuw nsw i32 %.05686.us, 1
   %exitcond.not = icmp eq i32 %37, %20
-  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph.split.us, !llvm.loop !73
+  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph.split.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %.05686 = phi i32 [ %58, %55 ], [ 0, %.lr.ph ]
@@ -11658,11 +11658,11 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %40 = lshr i32 %39, %.06384
   %41 = zext nneg i32 %.06384 to i64
   %42 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !16
+  %43 = load i32, ptr %42, align 4, !tbaa !17
   %44 = mul i32 %40, %43
   %45 = lshr i32 %44, 17
   %46 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %41
-  %47 = load i32, ptr %46, align 4, !tbaa !16
+  %47 = load i32, ptr %46, align 4, !tbaa !17
   %48 = mul i32 %45, %47
   %.not73 = icmp eq i32 %48, %39
   br i1 %.not73, label %49, label %.thread
@@ -11688,7 +11688,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %spec.select74 = getelementptr inbounds nuw i8, ptr %.06085, i64 %spec.select74.idx
   %58 = add nuw nsw i32 %.05686, 1
   %exitcond99.not = icmp eq i32 %58, %20
-  br i1 %exitcond99.not, label %.thread.thread, label %.lr.ph.split, !llvm.loop !74
+  br i1 %exitcond99.not, label %.thread.thread, label %.lr.ph.split, !llvm.loop !94
 
 .thread:                                          ; preds = %.lr.ph.split.us, %.lr.ph.split, %51
   %.056.lcssa = phi i32 [ %.05686, %51 ], [ %.05686, %.lr.ph.split ], [ %.05686.us, %.lr.ph.split.us ]
@@ -11698,7 +11698,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
 .thread.thread:                                   ; preds = %34, %55, %.thread
   %.056.lcssa101 = phi i32 [ %.056.lcssa, %.thread ], [ %20, %55 ], [ %20, %34 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %61 = load i8, ptr %60, align 4, !tbaa !27
+  %61 = load i8, ptr %60, align 4, !tbaa !33
   %62 = icmp eq i8 %61, 0
   %63 = icmp ne i8 %3, 0
   %or.cond = or i1 %63, %62
@@ -11706,8 +11706,8 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
 
 64:                                               ; preds = %.thread.thread
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !31
-  %67 = load i32, ptr %1, align 4, !tbaa !25
+  %66 = load i32, ptr %65, align 4, !tbaa !39
+  %67 = load i32, ptr %1, align 4, !tbaa !31
   %68 = add i32 %66, 1
   %69 = add i32 %19, %67
   %70 = sub i32 %68, %69
@@ -11723,7 +11723,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
 74:                                               ; preds = %72
   %75 = zext nneg i32 %.pre to i64
   %76 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !19
+  %77 = load i8, ptr %76, align 1, !tbaa !20
   %78 = zext i8 %77 to i32
   br label %82
 
@@ -11741,7 +11741,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %87 = load i32, ptr %0, align 4, !tbaa !10
   %88 = sub nsw i32 %87, %.157
   store i32 %88, ptr %0, align 4, !tbaa !10
-  store i32 %.157, ptr %4, align 4, !tbaa !16
+  store i32 %.157, ptr %4, align 4, !tbaa !17
   br label %.thread.thread102
 
 .thread.thread102:                                ; preds = %18, %.thread, %5, %9, %64, %82, %17
@@ -11752,9 +11752,9 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
 define dso_local noundef ptr @decNumberRescale(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -11796,9 +11796,9 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberRemainder(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 64, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -11840,9 +11840,9 @@ decStatus.exit:                                   ; preds = %8, %12, %14
 define dso_local noundef ptr @decNumberRemainderNear(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 16, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -11885,7 +11885,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %5 = ptrtoint ptr %0 to i64
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !4
   %9 = and i8 %8, 48
@@ -11921,7 +11921,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
 
 22:                                               ; preds = %20
   %23 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
-  %24 = load i32, ptr %3, align 4, !tbaa !25
+  %24 = load i32, ptr %3, align 4, !tbaa !31
   %25 = icmp sgt i32 %23, %24
   br i1 %25, label %.thread141, label %26
 
@@ -11931,7 +11931,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %3, align 4, !tbaa !25
+  %30 = load i32, ptr %3, align 4, !tbaa !31
   %31 = add nsw i32 %30, %21
   br label %32
 
@@ -11941,7 +11941,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   br i1 %.not121, label %.thread, label %33
 
 33:                                               ; preds = %32
-  %34 = load i32, ptr %3, align 4, !tbaa !25
+  %34 = load i32, ptr %3, align 4, !tbaa !31
   %.not122 = icmp eq i32 %.0, %34
   br i1 %.not122, label %.thread, label %35
 
@@ -11961,7 +11961,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
 43:                                               ; preds = %39
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !19
+  %46 = load i8, ptr %45, align 1, !tbaa !20
   %47 = zext i8 %46 to i32
   br label %51
 
@@ -11981,7 +11981,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
 56:                                               ; preds = %51
   %57 = sext i32 %34 to i64
   %58 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !19
+  %59 = load i8, ptr %58, align 1, !tbaa !20
   %60 = zext i8 %59 to i32
   br label %64
 
@@ -12020,7 +12020,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
 78:                                               ; preds = %._crit_edge
   %79 = sext i32 %34 to i64
   %80 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !19
+  %81 = load i8, ptr %80, align 1, !tbaa !20
   %82 = zext i8 %81 to i32
   br label %86
 
@@ -12045,14 +12045,14 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %94 = zext i16 %93 to i32
   %95 = zext i32 %91 to i64
   %96 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !16
+  %97 = load i32, ptr %96, align 4, !tbaa !17
   %98 = urem i32 %94, %97
   br i1 %55, label %99, label %104
 
 99:                                               ; preds = %92
   %100 = sext i32 %34 to i64
   %101 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !19
+  %102 = load i8, ptr %101, align 1, !tbaa !20
   %103 = zext i8 %102 to i32
   br label %107
 
@@ -12071,7 +12071,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %112 = sub nuw i32 %91, %88
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !16
+  %115 = load i32, ptr %114, align 4, !tbaa !17
   %116 = urem i32 %98, %115
   %117 = udiv i32 %98, %115
   %118 = trunc nuw i32 %117 to i16
@@ -12081,7 +12081,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %121 = sub i32 3, %112
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !16
+  %124 = load i32, ptr %123, align 4, !tbaa !17
   %125 = mul i32 %124, %116
   %126 = trunc i32 %125 to i16
   %127 = add i16 %120, %126
@@ -12093,7 +12093,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %130 = sub nuw i32 %88, %91
   %131 = zext i32 %130 to i64
   %132 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !16
+  %133 = load i32, ptr %132, align 4, !tbaa !17
   %134 = mul i32 %133, %98
   %135 = trunc i32 %134 to i16
   %136 = add i16 %129, %135
@@ -12115,13 +12115,13 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %142 = zext i16 %141 to i32
   %143 = zext i32 %140 to i64
   %144 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %143
-  %145 = load i32, ptr %144, align 4, !tbaa !16
+  %145 = load i32, ptr %144, align 4, !tbaa !17
   %146 = urem i32 %142, %145
   %147 = tail call fastcc i32 @decShiftToLeast(ptr noundef nonnull %40, i32 noundef %90, i32 noundef %140)
   %148 = load i16, ptr %68, align 2, !tbaa !11
   %149 = zext i32 %88 to i64
   %150 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !16
+  %151 = load i32, ptr %150, align 4, !tbaa !17
   %152 = mul i32 %151, %146
   %153 = trunc i32 %152 to i16
   %154 = add i16 %148, %153
@@ -12146,7 +12146,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %162 = getelementptr inbounds nuw i8, ptr %.010.i, i64 2
   %163 = getelementptr inbounds i8, ptr %.089.i, i64 -2
   %164 = icmp ult ptr %162, %163
-  br i1 %164, label %.lr.ph.i, label %decReverse.exit, !llvm.loop !75
+  br i1 %164, label %.lr.ph.i, label %decReverse.exit, !llvm.loop !95
 
 decReverse.exit:                                  ; preds = %.lr.ph.i, %155
   %165 = icmp ugt i32 %90, 1
@@ -12166,7 +12166,7 @@ decReverse.exit:                                  ; preds = %.lr.ph.i, %155
   %169 = getelementptr inbounds nuw i8, ptr %.010.i131, i64 2
   %170 = getelementptr inbounds i8, ptr %.089.i132, i64 -2
   %171 = icmp ult ptr %169, %170
-  br i1 %171, label %.lr.ph.i130, label %decReverse.exit133, !llvm.loop !75
+  br i1 %171, label %.lr.ph.i130, label %decReverse.exit133, !llvm.loop !95
 
 decReverse.exit133:                               ; preds = %.lr.ph.i130, %decReverse.exit
   %172 = icmp samesign ugt i32 %65, 1
@@ -12182,7 +12182,7 @@ decReverse.exit133:                               ; preds = %.lr.ph.i130, %decRe
   %175 = getelementptr inbounds nuw i8, ptr %.010.i135, i64 2
   %176 = getelementptr inbounds i8, ptr %.089.i136, i64 -2
   %177 = icmp ult ptr %175, %176
-  br i1 %177, label %.lr.ph.i134, label %decReverse.exit137, !llvm.loop !75
+  br i1 %177, label %.lr.ph.i134, label %decReverse.exit137, !llvm.loop !95
 
 decReverse.exit137:                               ; preds = %.lr.ph.i134, %decReverse.exit133, %137
   %178 = tail call fastcc i32 @decGetDigits(ptr noundef nonnull %40, i32 noundef %65)
@@ -12191,7 +12191,7 @@ decReverse.exit137:                               ; preds = %.lr.ph.i134, %decRe
 
 179:                                              ; preds = %4, %10
   %180 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
-  %.pr.pre = load i32, ptr %6, align 4, !tbaa !16
+  %.pr.pre = load i32, ptr %6, align 4, !tbaa !17
   %.not129 = icmp eq i32 %.pr.pre, 0
   br i1 %.not129, label %.thread, label %181
 
@@ -12254,7 +12254,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 11:                                               ; preds = %9
   %12 = sext i32 %2 to i64
   %13 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !19
+  %14 = load i8, ptr %13, align 1, !tbaa !20
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 3
   %17 = add nsw i32 %16, -3
@@ -12292,7 +12292,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   %34 = getelementptr inbounds nuw i8, ptr %.06178, i64 2
   %35 = getelementptr inbounds nuw i8, ptr %.06277, i64 2
   %36 = icmp ult ptr %35, %29
-  br i1 %36, label %.lr.ph80, label %._crit_edge81, !llvm.loop !76
+  br i1 %36, label %.lr.ph80, label %._crit_edge81, !llvm.loop !96
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %.thread71
   %.061.lcssa = phi ptr [ %0, %.thread71 ], [ %34, %.lr.ph80 ]
@@ -12313,7 +12313,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 47:                                               ; preds = %42
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !19
+  %50 = load i8, ptr %49, align 1, !tbaa !20
   %51 = zext i8 %50 to i32
   br label %55
 
@@ -12331,7 +12331,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   %61 = lshr i32 %60, %43
   %62 = sext i32 %43 to i64
   %63 = getelementptr inbounds [5 x i32], ptr @multies, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !16
+  %64 = load i32, ptr %63, align 4, !tbaa !17
   %65 = mul i32 %61, %64
   %66 = lshr i32 %65, 17
   %67 = sub nsw i32 3, %43
@@ -12344,10 +12344,10 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 
 .lr.ph:                                           ; preds = %55
   %72 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %62
-  %73 = load i32, ptr %72, align 4, !tbaa !16
+  %73 = load i32, ptr %72, align 4, !tbaa !17
   %74 = sext i32 %67 to i64
   %75 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !16
+  %76 = load i32, ptr %75, align 4, !tbaa !17
   br label %77
 
 77:                                               ; preds = %.lr.ph, %92
@@ -12377,7 +12377,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   store i16 %94, ptr %93, align 2, !tbaa !11
   %95 = sub nsw i32 %90, %67
   %96 = icmp slt i32 %95, 1
-  br i1 %96, label %._crit_edge, label %77
+  br i1 %96, label %._crit_edge, label %77, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %92, %77, %55
   %.1.lcssa = phi ptr [ %0, %55 ], [ %.173, %77 ], [ %93, %92 ]
@@ -12452,7 +12452,7 @@ define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !4
@@ -12495,9 +12495,9 @@ define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr nound
   %25 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
   %26 = add nuw nsw i32 %25, 1
   %27 = lshr i32 %26, 1
-  %28 = load i32, ptr %3, align 4, !tbaa !25
+  %28 = load i32, ptr %3, align 4, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !31
+  %30 = load i32, ptr %29, align 4, !tbaa !39
   %31 = add nsw i32 %30, %28
   %32 = icmp sgt i32 %27, %31
   br i1 %32, label %.thread45, label %33
@@ -12523,12 +12523,12 @@ define dso_local noundef ptr @decNumberScaleB(ptr noundef returned %0, ptr nound
   %. = select i1 %46, i32 -1999999998, i32 1000000000
   %storemerge = select i1 %or.cond, i32 %., i32 %41
   store i32 %storemerge, ptr %39, align 4, !tbaa !9
-  store i32 0, ptr %6, align 4, !tbaa !16
+  store i32 0, ptr %6, align 4, !tbaa !17
   call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %6, ptr noundef %5)
   br label %47
 
 47:                                               ; preds = %33, %38, %15
-  %.pr = load i32, ptr %5, align 4, !tbaa !16
+  %.pr = load i32, ptr %5, align 4, !tbaa !17
   %.not40 = icmp eq i32 %.pr, 0
   br i1 %.not40, label %59, label %48
 
@@ -12572,7 +12572,7 @@ decStatus.exit:                                   ; preds = %48, %52, %.thread45
 define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 4, !tbaa !4
   %8 = and i8 %7, 48
@@ -12608,7 +12608,7 @@ define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr nounde
 
 21:                                               ; preds = %19
   %22 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %23 = load i32, ptr %3, align 4, !tbaa !25
+  %23 = load i32, ptr %3, align 4, !tbaa !31
   %24 = icmp sgt i32 %22, %23
   br i1 %24, label %.thread69, label %25
 
@@ -12629,7 +12629,7 @@ define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr nounde
   br i1 %32, label %33, label %54
 
 33:                                               ; preds = %31
-  %34 = load i32, ptr %3, align 4, !tbaa !25
+  %34 = load i32, ptr %3, align 4, !tbaa !31
   %35 = icmp eq i32 %20, %34
   br i1 %35, label %36, label %38
 
@@ -12687,7 +12687,7 @@ define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr nounde
 61:                                               ; preds = %59
   %62 = zext nneg i32 %56 to i64
   %63 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !19
+  %64 = load i8, ptr %63, align 1, !tbaa !20
   %65 = zext i8 %64 to i32
   br label %69
 
@@ -12706,7 +12706,7 @@ define dso_local noundef ptr @decNumberShift(ptr noundef returned %0, ptr nounde
 
 74:                                               ; preds = %4, %9
   %75 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
-  %.pr65.pre = load i32, ptr %5, align 4, !tbaa !16
+  %.pr65.pre = load i32, ptr %5, align 4, !tbaa !17
   %.not64 = icmp eq i32 %.pr65.pre, 0
   br i1 %.not64, label %.thread, label %76
 
@@ -12764,7 +12764,7 @@ define internal fastcc noundef ptr @decDecap(ptr noundef returned captures(ret: 
 8:                                                ; preds = %5
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !19
+  %11 = load i8, ptr %10, align 1, !tbaa !20
   %12 = zext i8 %11 to i32
   %13 = zext i8 %11 to i64
   br label %18
@@ -12789,7 +12789,7 @@ define internal fastcc noundef ptr @decDecap(ptr noundef returned captures(ret: 
   %22 = getelementptr inbounds i8, ptr %.pn, i64 -2
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !16
+  %25 = load i32, ptr %24, align 4, !tbaa !17
   %26 = load i16, ptr %22, align 2, !tbaa !11
   %27 = zext i16 %26 to i32
   %28 = urem i32 %27, %25
@@ -12826,7 +12826,7 @@ define internal fastcc noundef ptr @decDecap(ptr noundef returned captures(ret: 
   %40 = add nsw i32 %.018.i, -3
   %.01317.i.add = add nsw i64 %.01317.i.idx, -2
   %.not.i = icmp slt i64 %.01317.i.idx, 11
-  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %decGetDigits.exit, label %.lr.ph.i, !llvm.loop !16
 
 41:                                               ; preds = %.lr.ph.i
   %42 = icmp ult i16 %35, 10
@@ -12863,11 +12863,11 @@ define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr n
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
-  store i32 0, ptr %8, align 4, !tbaa !16
+  store i32 0, ptr %8, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
-  store i32 0, ptr %10, align 4, !tbaa !16
+  store i32 0, ptr %10, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #18
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #18
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %13) #18
@@ -12922,7 +12922,7 @@ define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr n
 41:                                               ; preds = %36
   %42 = zext nneg i32 %31 to i64
   %43 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !19
+  %44 = load i8, ptr %43, align 1, !tbaa !20
   %45 = zext i8 %44 to i32
   br label %.lr.ph.preheader.i
 
@@ -12942,7 +12942,7 @@ define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr n
   %49 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %51 = icmp ult ptr %49, %46
-  br i1 %51, label %.lr.ph.i, label %.thread304, !llvm.loop !41
+  br i1 %51, label %.lr.ph.i, label %.thread304, !llvm.loop !51
 
 52:                                               ; preds = %21
   %53 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %9)
@@ -12985,7 +12985,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
   br i1 %.not220, label %71, label %.thread304.thread.thread.thread
 
 71:                                               ; preds = %70
-  %72 = load i32, ptr %2, align 4, !tbaa !25
+  %72 = load i32, ptr %2, align 4, !tbaa !31
   %73 = add nsw i32 %72, 1
   %74 = load i32, ptr %1, align 4, !tbaa !10
   %. = tail call i32 @llvm.smax.i32(i32 %73, i32 %74)
@@ -13002,7 +13002,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
 80:                                               ; preds = %71
   %81 = sext i32 %74 to i64
   %82 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !19
+  %83 = load i8, ptr %82, align 1, !tbaa !20
   %84 = zext i8 %83 to i32
   %85 = add nsw i64 %81, -40
   %86 = icmp ult i64 %85, 10
@@ -13026,7 +13026,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
 96:                                               ; preds = %94
   %97 = zext nneg i32 %76 to i64
   %98 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !19
+  %99 = load i8, ptr %98, align 1, !tbaa !20
   %100 = zext i8 %99 to i32
   br label %104
 
@@ -13052,7 +13052,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
   br i1 %or.cond, label %115, label %116
 
 115:                                              ; preds = %107
-  store i32 16, ptr %9, align 4, !tbaa !16
+  store i32 16, ptr %9, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 116:                                              ; preds = %107, %104
@@ -13091,7 +13091,7 @@ decNumberCopy.exit245:                            ; preds = %66, %64
 127:                                              ; preds = %122
   %128 = zext nneg i32 %74 to i64
   %129 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !19
+  %130 = load i8, ptr %129, align 1, !tbaa !20
   %131 = zext i8 %130 to i32
   br label %.lr.ph.preheader.i247
 
@@ -13119,10 +13119,10 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
   store i32 %143, ptr %141, align 4, !tbaa !9
   %144 = call ptr @decContextDefault(ptr noundef nonnull %5, i32 noundef 64) #18
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 999999999, ptr %145, align 4, !tbaa !31
+  store i32 999999999, ptr %145, align 4, !tbaa !39
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -999999999, ptr %146, align 4, !tbaa !30
-  store i32 %75, ptr %5, align 4, !tbaa !25
+  store i32 -999999999, ptr %146, align 4, !tbaa !38
+  store i32 %75, ptr %5, align 4, !tbaa !31
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 0, ptr %147, align 4, !tbaa !4
   store i32 3, ptr %15, align 4, !tbaa !10
@@ -13174,34 +13174,34 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
   %165 = shl nsw i32 %164, 1
   %166 = add nsw i32 %165, -2
   %167 = call i32 @llvm.smin.i32(i32 %166, i32 %76)
-  store i32 %167, ptr %5, align 4, !tbaa !25
+  store i32 %167, ptr %5, align 4, !tbaa !31
   %168 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
   %169 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
   %170 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %10)
-  %171 = load i32, ptr %5, align 4, !tbaa !25
+  %171 = load i32, ptr %5, align 4, !tbaa !31
   %172 = icmp slt i32 %171, %76
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !77
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 3, ptr %173, align 4, !tbaa !35
+  store i32 3, ptr %173, align 4, !tbaa !45
   %174 = sdiv i32 %.0, 2
   %175 = load i32, ptr %156, align 4, !tbaa !9
   %176 = add nsw i32 %175, %174
-  store i32 0, ptr %11, align 4, !tbaa !16
-  store i32 0, ptr %8, align 4, !tbaa !16
+  store i32 0, ptr %11, align 4, !tbaa !17
+  store i32 0, ptr %8, align 4, !tbaa !17
   store i32 %176, ptr %156, align 4, !tbaa !9
   %177 = load i32, ptr %.0194, align 4, !tbaa !10
   call fastcc void @decSetCoeff(ptr noundef nonnull %.0194, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %158, i32 noundef %177, ptr noundef nonnull %8, ptr noundef nonnull %11)
   call fastcc void @decFinalize(ptr noundef nonnull %.0194, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %11)
-  %178 = load i32, ptr %11, align 4, !tbaa !16
+  %178 = load i32, ptr %11, align 4, !tbaa !17
   %179 = and i32 %178, 512
   %.not221 = icmp eq i32 %179, 0
   br i1 %.not221, label %209, label %180
 
 180:                                              ; preds = %._crit_edge
-  store i32 %178, ptr %9, align 4, !tbaa !16
+  store i32 %178, ptr %9, align 4, !tbaa !17
   %181 = icmp eq ptr %0, %.0194
   br i1 %181, label %decNumberCopy.exit, label %182
 
@@ -13233,7 +13233,7 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
 196:                                              ; preds = %191
   %197 = zext nneg i32 %187 to i64
   %198 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !19
+  %199 = load i8, ptr %198, align 1, !tbaa !20
   %200 = zext i8 %199 to i32
   br label %.lr.ph.preheader.i256
 
@@ -13255,19 +13255,19 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
 
 209:                                              ; preds = %._crit_edge
   %210 = and i32 %178, -2593
-  store i32 %210, ptr %9, align 4, !tbaa !16
+  store i32 %210, ptr %9, align 4, !tbaa !17
   %211 = load i32, ptr %156, align 4, !tbaa !9
   %212 = sub nsw i32 %211, %174
   store i32 %212, ptr %156, align 4, !tbaa !9
-  %213 = load i32, ptr %5, align 4, !tbaa !25
+  %213 = load i32, ptr %5, align 4, !tbaa !31
   %214 = add nsw i32 %213, -1
-  store i32 %214, ptr %5, align 4, !tbaa !25
+  store i32 %214, ptr %5, align 4, !tbaa !31
   %215 = load i32, ptr %.0194, align 4, !tbaa !10
   %216 = xor i32 %215, -1
   store i32 %216, ptr %155, align 4, !tbaa !9
   %217 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
   %218 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 1, ptr %218, align 4, !tbaa !35
+  store i32 1, ptr %218, align 4, !tbaa !45
   %219 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %10)
   %220 = getelementptr inbounds nuw i8, ptr %.0195, i64 8
   %221 = load i8, ptr %220, align 4, !tbaa !4
@@ -13288,9 +13288,9 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
   br i1 %230, label %231, label %.thread.i264
 
 231:                                              ; preds = %228
-  %232 = load i32, ptr %10, align 4, !tbaa !16
+  %232 = load i32, ptr %10, align 4, !tbaa !17
   %233 = or i32 %232, 16
-  store i32 %233, ptr %10, align 4, !tbaa !16
+  store i32 %233, ptr %10, align 4, !tbaa !17
   br label %decCompareOp.exit
 
 .thread.i264:                                     ; preds = %228
@@ -13315,7 +13315,7 @@ decCompareOp.exit:                                ; preds = %226, %231, %.thread
 
 239:                                              ; preds = %decCompareOp.exit
   %240 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
-  store i32 5, ptr %218, align 4, !tbaa !35
+  store i32 5, ptr %218, align 4, !tbaa !45
   %241 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %10)
   %242 = load i8, ptr %222, align 4, !tbaa !4
   %243 = load i8, ptr %220, align 4, !tbaa !4
@@ -13334,9 +13334,9 @@ decCompareOp.exit:                                ; preds = %226, %231, %.thread
   br i1 %250, label %251, label %.thread.i266
 
 251:                                              ; preds = %248
-  %252 = load i32, ptr %10, align 4, !tbaa !16
+  %252 = load i32, ptr %10, align 4, !tbaa !17
   %253 = or i32 %252, 16
-  store i32 %253, ptr %10, align 4, !tbaa !16
+  store i32 %253, ptr %10, align 4, !tbaa !17
   br label %decCompareOp.exit267
 
 .thread.i266:                                     ; preds = %248
@@ -13372,13 +13372,13 @@ decCompareOp.exit267:                             ; preds = %246, %251, %.thread
   store i16 1, ptr %157, align 2, !tbaa !11
   %261 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext %.sink338, ptr noundef %10)
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %263 = load i32, ptr %262, align 4, !tbaa !30
+  %263 = load i32, ptr %262, align 4, !tbaa !38
   %264 = sub nsw i32 %263, %174
-  store i32 %264, ptr %262, align 4, !tbaa !30
+  store i32 %264, ptr %262, align 4, !tbaa !38
   %265 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %266 = load i32, ptr %265, align 4, !tbaa !31
+  %266 = load i32, ptr %265, align 4, !tbaa !39
   %267 = sub nsw i32 %266, %174
-  store i32 %267, ptr %265, align 4, !tbaa !31
+  store i32 %267, ptr %265, align 4, !tbaa !39
   %268 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0194, ptr noundef nonnull %7, ptr noundef nonnull %.0194, ptr noundef nonnull %6, i8 noundef zeroext 0, ptr noundef %10)
   br label %269
 
@@ -13419,7 +13419,7 @@ decCompareOp.exit267:                             ; preds = %246, %251, %.thread
 285:                                              ; preds = %280
   %286 = zext nneg i32 %276 to i64
   %287 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %286
-  %288 = load i8, ptr %287, align 1, !tbaa !19
+  %288 = load i8, ptr %287, align 1, !tbaa !20
   %289 = zext i8 %288 to i32
   br label %.lr.ph.preheader.i269
 
@@ -13482,11 +13482,11 @@ decNumberCopy.exit276.decTrim.exit_crit_edge:     ; preds = %decNumberCopy.exit2
   %314 = lshr i32 %313, %.06384.us.i
   %315 = zext nneg i32 %.06384.us.i to i64
   %316 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %315
-  %317 = load i32, ptr %316, align 4, !tbaa !16
+  %317 = load i32, ptr %316, align 4, !tbaa !17
   %318 = mul i32 %314, %317
   %319 = lshr i32 %318, 17
   %320 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %315
-  %321 = load i32, ptr %320, align 4, !tbaa !16
+  %321 = load i32, ptr %320, align 4, !tbaa !17
   %322 = mul i32 %319, %321
   %.not73.us.i = icmp eq i32 %322, %313
   br i1 %.not73.us.i, label %323, label %.thread.i278
@@ -13499,7 +13499,7 @@ decNumberCopy.exit276.decTrim.exit_crit_edge:     ; preds = %decNumberCopy.exit2
   %spec.select74.idx.us.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.06085.us.i, i64 %spec.select74.idx.us.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %326 = add nuw nsw i32 %.05686.us.i, 1
   %exitcond.not.i = icmp eq i32 %326, %310
-  br i1 %exitcond.not.i, label %.thread.thread.i, label %.lr.ph.split.us.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %.thread.thread.i, label %.lr.ph.split.us.i, !llvm.loop !93
 
 .thread.i278:                                     ; preds = %.lr.ph.split.us.i
   %327 = icmp eq i32 %.05686.us.i, 0
@@ -13513,7 +13513,7 @@ decNumberCopy.exit276.decTrim.exit_crit_edge:     ; preds = %decNumberCopy.exit2
 329:                                              ; preds = %.thread.thread.i
   %330 = zext nneg i32 %.pre327 to i64
   %331 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %330
-  %332 = load i8, ptr %331, align 1, !tbaa !19
+  %332 = load i8, ptr %331, align 1, !tbaa !20
   %333 = zext i8 %332 to i32
   br label %337
 
@@ -13542,24 +13542,24 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
   br i1 %347, label %348, label %351
 
 348:                                              ; preds = %decTrim.exit
-  %349 = load i32, ptr %9, align 4, !tbaa !16
+  %349 = load i32, ptr %9, align 4, !tbaa !17
   %350 = or i32 %349, 2080
-  store i32 %350, ptr %9, align 4, !tbaa !16
+  store i32 %350, ptr %9, align 4, !tbaa !17
   br label %418
 
 351:                                              ; preds = %decTrim.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #18
-  store i32 0, ptr %16, align 4, !tbaa !16
+  store i32 0, ptr %16, align 4, !tbaa !17
   %352 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %16)
-  %353 = load i32, ptr %16, align 4, !tbaa !16
+  %353 = load i32, ptr %16, align 4, !tbaa !17
   %354 = and i32 %353, 512
   %.not224 = icmp eq i32 %354, 0
   br i1 %.not224, label %358, label %355
 
 355:                                              ; preds = %351
-  %356 = load i32, ptr %9, align 4, !tbaa !16
+  %356 = load i32, ptr %9, align 4, !tbaa !17
   %357 = or i32 %356, 2080
-  store i32 %357, ptr %9, align 4, !tbaa !16
+  store i32 %357, ptr %9, align 4, !tbaa !17
   br label %417
 
 358:                                              ; preds = %351
@@ -13578,9 +13578,9 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
   br i1 %367, label %371, label %368
 
 368:                                              ; preds = %364, %358
-  %369 = load i32, ptr %9, align 4, !tbaa !16
+  %369 = load i32, ptr %9, align 4, !tbaa !17
   %370 = or i32 %369, 2080
-  store i32 %370, ptr %9, align 4, !tbaa !16
+  store i32 %370, ptr %9, align 4, !tbaa !17
   br label %417
 
 371:                                              ; preds = %364
@@ -13590,15 +13590,15 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
   br i1 %374, label %375, label %378
 
 375:                                              ; preds = %371
-  %376 = load i32, ptr %9, align 4, !tbaa !16
+  %376 = load i32, ptr %9, align 4, !tbaa !17
   %377 = or i32 %376, 2048
-  store i32 %377, ptr %9, align 4, !tbaa !16
+  store i32 %377, ptr %9, align 4, !tbaa !17
   br label %417
 
 378:                                              ; preds = %371
   %379 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %380 = load i32, ptr %379, align 4, !tbaa !31
-  %381 = load i32, ptr %2, align 4, !tbaa !25
+  %380 = load i32, ptr %379, align 4, !tbaa !39
+  %381 = load i32, ptr %2, align 4, !tbaa !31
   %382 = add i32 %380, 1
   %383 = add i32 %372, %381
   %384 = sub i32 %382, %383
@@ -13607,14 +13607,14 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
 
 386:                                              ; preds = %378
   %387 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %388 = load i8, ptr %387, align 4, !tbaa !27
+  %388 = load i8, ptr %387, align 4, !tbaa !33
   %.not225 = icmp eq i8 %388, 0
   br i1 %.not225, label %392, label %389
 
 389:                                              ; preds = %386
-  %390 = load i32, ptr %9, align 4, !tbaa !16
+  %390 = load i32, ptr %9, align 4, !tbaa !17
   %391 = or i32 %390, 1024
-  store i32 %391, ptr %9, align 4, !tbaa !16
+  store i32 %391, ptr %9, align 4, !tbaa !17
   br label %392
 
 392:                                              ; preds = %389, %386, %378
@@ -13623,9 +13623,9 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
   br i1 %393, label %394, label %397
 
 394:                                              ; preds = %392
-  %395 = load i32, ptr %9, align 4, !tbaa !16
+  %395 = load i32, ptr %9, align 4, !tbaa !17
   %396 = or i32 %395, 1024
-  store i32 %396, ptr %9, align 4, !tbaa !16
+  store i32 %396, ptr %9, align 4, !tbaa !17
   br label %397
 
 397:                                              ; preds = %394, %392
@@ -13641,7 +13641,7 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
 402:                                              ; preds = %399
   %403 = sext i32 %400 to i64
   %404 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %403
-  %405 = load i8, ptr %404, align 1, !tbaa !19
+  %405 = load i8, ptr %404, align 1, !tbaa !20
   %406 = zext i8 %405 to i32
   br label %410
 
@@ -13663,7 +13663,7 @@ decTrim.exit:                                     ; preds = %decNumberCopy.exit2
 
 417:                                              ; preds = %375, %410, %397, %368, %355
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #18
-  %.pre328 = load i32, ptr %9, align 4, !tbaa !16
+  %.pre328 = load i32, ptr %9, align 4, !tbaa !17
   br label %418
 
 418:                                              ; preds = %417, %348
@@ -13677,7 +13677,7 @@ condstore.split:                                  ; preds = %418
   %422 = load i32, ptr %1, align 4, !tbaa !10
   %423 = add nsw i32 %422, %421
   %424 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %425 = load i32, ptr %424, align 4, !tbaa !30
+  %425 = load i32, ptr %424, align 4, !tbaa !38
   %426 = shl nsw i32 %425, 1
   %.not227.not.not = icmp sgt i32 %423, %426
   %427 = and i32 %419, -12289
@@ -13690,7 +13690,7 @@ condstore.split:                                  ; preds = %418
 431:                                              ; preds = %condstore.split
   %432 = and i32 %428, -8225
   %simplifycfg.merge = select i1 %.not228.not, i32 %432, i32 %428
-  store i32 %simplifycfg.merge, ptr %9, align 4, !tbaa !16
+  store i32 %simplifycfg.merge, ptr %9, align 4, !tbaa !17
   br label %433
 
 433:                                              ; preds = %431, %condstore.split, %418
@@ -13725,7 +13725,7 @@ condstore.split:                                  ; preds = %418
 449:                                              ; preds = %444
   %450 = zext nneg i32 %440 to i64
   %451 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !19
+  %452 = load i8, ptr %451, align 1, !tbaa !20
   %453 = zext i8 %452 to i32
   br label %.lr.ph.preheader.i280
 
@@ -13772,7 +13772,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i2
   br label %.thread304
 
 .thread304:                                       ; preds = %.lr.ph.i, %26, %24, %decNumberCopy.exit245, %52, %466, %465
-  %.pr307 = load i32, ptr %9, align 4, !tbaa !16
+  %.pr307 = load i32, ptr %9, align 4, !tbaa !17
   %.not234 = icmp eq i32 %.pr307, 0
   br i1 %.not234, label %476, label %.thread304.thread
 
@@ -13825,9 +13825,9 @@ decStatus.exit:                                   ; preds = %.thread304.thread, 
 define dso_local noundef ptr @decNumberSubtract(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 0, ptr %5, align 4, !tbaa !17
   %6 = call fastcc ptr @decAddOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext -128, ptr noundef %5)
-  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %7 = load i32, ptr %5, align 4, !tbaa !17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -13874,7 +13874,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
-  store i32 0, ptr %7, align 4, !tbaa !16
+  store i32 0, ptr %7, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 4, !tbaa !4
   %10 = zext i8 %9 to i32
@@ -13920,7 +13920,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
 31:                                               ; preds = %26
   %32 = zext nneg i32 %21 to i64
   %33 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !19
+  %34 = load i8, ptr %33, align 1, !tbaa !20
   %35 = zext i8 %34 to i32
   br label %.lr.ph.preheader.i
 
@@ -13940,11 +13940,11 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   %39 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %40 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %41 = icmp ult ptr %39, %36
-  br i1 %41, label %.lr.ph.i, label %decNumberCopy.exit29, !llvm.loop !41
+  br i1 %41, label %.lr.ph.i, label %decNumberCopy.exit29, !llvm.loop !51
 
 42:                                               ; preds = %12
   %43 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %7)
-  %.pr.pre = load i32, ptr %7, align 4, !tbaa !16
+  %.pr.pre = load i32, ptr %7, align 4, !tbaa !17
   br label %decNumberCopy.exit
 
 44:                                               ; preds = %3
@@ -13984,7 +13984,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
 63:                                               ; preds = %58
   %64 = zext nneg i32 %53 to i64
   %65 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !19
+  %66 = load i8, ptr %65, align 1, !tbaa !20
   %67 = zext i8 %66 to i32
   br label %.lr.ph.preheader.i22
 
@@ -14004,14 +14004,14 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   %71 = getelementptr inbounds nuw i8, ptr %.02631.i28, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %.032.i27, i64 2
   %73 = icmp ult ptr %71, %68
-  br i1 %73, label %.lr.ph.i26, label %decNumberCopy.exit29, !llvm.loop !41
+  br i1 %73, label %.lr.ph.i26, label %decNumberCopy.exit29, !llvm.loop !51
 
 74:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   %75 = load i32, ptr %1, align 4, !tbaa !10
-  store i32 %75, ptr %6, align 4, !tbaa !25
+  store i32 %75, ptr %6, align 4, !tbaa !31
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %76, align 4, !tbaa !78
+  store i32 0, ptr %76, align 4, !tbaa !99
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %77, align 4, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -14020,9 +14020,9 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 0, ptr %79, align 2, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %4, align 4, !tbaa !17
   %80 = call fastcc ptr @decQuantizeOp(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %5, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef %4)
-  %81 = load i32, ptr %4, align 4, !tbaa !16
+  %81 = load i32, ptr %4, align 4, !tbaa !17
   %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %decNumberQuantize.exit, label %82
 
@@ -14058,7 +14058,7 @@ decStatus.exit.i:                                 ; preds = %88, %86, %82
 decNumberQuantize.exit:                           ; preds = %74, %decStatus.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %94 = load i32, ptr %93, align 4, !tbaa !79
+  %94 = load i32, ptr %93, align 4, !tbaa !100
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %42, %decNumberQuantize.exit
@@ -14106,17 +14106,17 @@ decNumberCopy.exit29:                             ; preds = %.lr.ph.i, %.lr.ph.i
 define dso_local noundef ptr @decNumberToIntegralValue(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !63
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %5, align 4, !tbaa !78
+  store i32 0, ptr %5, align 4, !tbaa !99
   %6 = call ptr @decNumberToIntegralExact(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !79
+  %8 = load i32, ptr %7, align 4, !tbaa !100
   %9 = and i32 %8, 128
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !79
+  %11 = load i32, ptr %10, align 4, !tbaa !100
   %12 = or i32 %11, %9
-  store i32 %12, ptr %10, align 4, !tbaa !79
+  store i32 %12, ptr %10, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #18
   ret ptr %0
 }
@@ -14168,7 +14168,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 27:                                               ; preds = %21
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !19
+  %30 = load i8, ptr %29, align 1, !tbaa !20
   %31 = zext i8 %30 to i32
   br label %35
 
@@ -14189,7 +14189,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 42:                                               ; preds = %35
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !19
+  %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = zext i8 %45 to i32
   br label %50
 
@@ -14203,7 +14203,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr %23, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -2
-  %55 = load i32, ptr %3, align 4, !tbaa !25
+  %55 = load i32, ptr %3, align 4, !tbaa !31
   %56 = icmp slt i32 %55, 50
   br i1 %56, label %60, label %.thread
 
@@ -14217,7 +14217,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 60:                                               ; preds = %50
   %61 = sext i32 %55 to i64
   %62 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !19
+  %63 = load i8, ptr %62, align 1, !tbaa !20
   %64 = zext i8 %63 to i64
   %65 = zext i8 %63 to i32
   %.pn.idx = shl nuw nsw i64 %64, 1
@@ -14281,7 +14281,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 
 85:                                               ; preds = %.preheader.split.us
   %86 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
-  %87 = load i32, ptr %86, align 4, !tbaa !16
+  %87 = load i32, ptr %86, align 4, !tbaa !17
   %88 = trunc i32 %87 to i16
   %89 = add i16 %82, %88
   store i16 %89, ptr %.081115, align 2, !tbaa !11
@@ -14300,7 +14300,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 98:                                               ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !80
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !101
 
 .preheader.split:                                 ; preds = %.preheader, %115
   %99 = phi i16 [ %108, %115 ], [ 0, %.preheader ]
@@ -14314,7 +14314,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 
 102:                                              ; preds = %.preheader.split
   %103 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv122
-  %104 = load i32, ptr %103, align 4, !tbaa !16
+  %104 = load i32, ptr %103, align 4, !tbaa !17
   %105 = trunc i32 %104 to i16
   %106 = add i16 %99, %105
   store i16 %106, ptr %.081115, align 2, !tbaa !11
@@ -14333,7 +14333,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 115:                                              ; preds = %107
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
-  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !81
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !102
 
 .split.us:                                        ; preds = %90, %107
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14350,7 +14350,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
   %120 = getelementptr inbounds nuw i8, ptr %.080117, i64 2
   %121 = getelementptr inbounds nuw i8, ptr %.081115, i64 2
   %.not97 = icmp ugt ptr %121, %67
-  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !82
+  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.081.lcssa = phi ptr [ %24, %60 ], [ %121, %.loopexit ]
@@ -14414,7 +14414,7 @@ decNumberIsNormal.exit:                           ; preds = %14
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = add nsw i32 %18, %.pre.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i32, ptr %20, align 4, !tbaa !30
+  %21 = load i32, ptr %20, align 4, !tbaa !38
   %.not9.i.not = icmp sgt i32 %19, %21
   br i1 %.not9.i.not, label %22, label %decNumberIsNormal.exit.thread
 
@@ -14503,7 +14503,7 @@ define dso_local noundef ptr @decNumberCopyNegate(ptr noundef returned captures(
 20:                                               ; preds = %15
   %21 = zext nneg i32 %10 to i64
   %22 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !19
+  %23 = load i8, ptr %22, align 1, !tbaa !20
   %24 = zext i8 %23 to i32
   br label %.lr.ph.preheader.i
 
@@ -14523,7 +14523,7 @@ define dso_local noundef ptr @decNumberCopyNegate(ptr noundef returned captures(
   %28 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %30 = icmp ult ptr %28, %25
-  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !51
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %4
   %31 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %6, %4 ], [ %6, %.lr.ph.i ]
@@ -14555,7 +14555,7 @@ define dso_local noundef ptr @decNumberGetBCD(ptr noundef readonly captures(none
   %.01624 = phi ptr [ %.117, %17 ], [ %6, %.lr.ph.preheader ]
   %9 = urem i32 %.01425, 10
   %10 = trunc nuw nsw i32 %9 to i8
-  store i8 %10, ptr %.01827, align 1, !tbaa !19
+  store i8 %10, ptr %.01827, align 1, !tbaa !20
   %11 = udiv i32 %.01425, 10
   %12 = add nsw i32 %.026, -1
   %.not21 = icmp eq i32 %12, 0
@@ -14573,7 +14573,7 @@ define dso_local noundef ptr @decNumberGetBCD(ptr noundef readonly captures(none
   %.1 = phi i32 [ %12, %.lr.ph ], [ 3, %13 ]
   %.018 = getelementptr inbounds i8, ptr %.01827, i64 -1
   %.not = icmp ult ptr %.018, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %17, %2
   ret ptr %1
@@ -14588,7 +14588,7 @@ define dso_local noundef ptr @decNumberSetBCD(ptr noundef returned captures(ret:
 6:                                                ; preds = %3
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !19
+  %9 = load i8, ptr %8, align 1, !tbaa !20
   %10 = zext i8 %9 to i32
   br label %14
 
@@ -14608,7 +14608,7 @@ define dso_local noundef ptr @decNumberSetBCD(ptr noundef returned captures(ret:
 18:                                               ; preds = %14
   %19 = zext nneg i32 %2 to i64
   %20 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !19
+  %21 = load i8, ptr %20, align 1, !tbaa !20
   %22 = zext i8 %21 to i32
   br label %26
 
@@ -14642,20 +14642,20 @@ define dso_local noundef ptr @decNumberSetBCD(ptr noundef returned captures(ret:
   %.135 = phi i32 [ %36, %.lr.ph ], [ %.040, %.lr.ph43 ]
   %.12334 = phi ptr [ %35, %.lr.ph ], [ %.02239, %.lr.ph43 ]
   %31 = mul i16 %30, 10
-  %32 = load i8, ptr %.12334, align 1, !tbaa !19
+  %32 = load i8, ptr %.12334, align 1, !tbaa !20
   %33 = zext i8 %32 to i16
   %34 = add i16 %31, %33
   store i16 %34, ptr %.024.ptr41, align 2, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %.12334, i64 1
   %36 = add nsw i32 %.135, -1
   %37 = icmp samesign ugt i32 %.135, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph43
   %.123.lcssa = phi ptr [ %.02239, %.lr.ph43 ], [ %35, %.lr.ph ]
   %.024.add = add nsw i64 %.024.idx38, -2
   %.not = icmp slt i64 %.024.idx38, 11
-  br i1 %.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !85
+  br i1 %.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !106
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %26
   store i32 %2, ptr %0, align 4, !tbaa !10
@@ -14684,7 +14684,7 @@ define dso_local range(i32 0, 2) i32 @decNumberIsSubnormal(ptr noundef readonly 
   %13 = load i32, ptr %12, align 4, !tbaa !9
   %14 = add nsw i32 %.pre, %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !30
+  %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not9 = icmp sle i32 %14, %16
   %. = zext i1 %.not9 to i32
   br label %17
@@ -14760,7 +14760,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %27 = getelementptr inbounds nuw i8, ptr %.1134172, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %.1142171, i64 2
   %29 = icmp ult ptr %28, %16
-  br i1 %29, label %22, label %.loopexit170, !llvm.loop !86
+  br i1 %29, label %22, label %.loopexit170, !llvm.loop !107
 
 .loopexit170:                                     ; preds = %26, %.preheader169, %19, %7
   %.0141 = phi ptr [ %20, %19 ], [ %5, %7 ], [ %5, %.preheader169 ], [ %28, %26 ]
@@ -14843,7 +14843,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %.1129 = phi i32 [ %49, %46 ], [ %64, %57 ], [ %.1129.ph, %.sink.split ]
   %71 = getelementptr inbounds nuw i8, ptr %.2143174, i64 2
   %72 = icmp ult ptr %71, %spec.select
-  br i1 %72, label %.lr.ph178, label %._crit_edge, !llvm.loop !87
+  br i1 %72, label %.lr.ph178, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %70, %.loopexit170
   %.2143.lcssa = phi ptr [ %.0141, %.loopexit170 ], [ %71, %70 ]
@@ -14940,7 +14940,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %.5 = phi i32 [ %95, %92 ], [ %110, %103 ], [ %.5.ph, %.sink.split205 ]
   %117 = getelementptr inbounds nuw i8, ptr %.4145183, i64 2
   %118 = icmp ult ptr %117, %spec.select166
-  br i1 %118, label %75, label %.loopexit, !llvm.loop !88
+  br i1 %118, label %75, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %116, %._crit_edge
   %.3144 = phi ptr [ %.2143.lcssa, %._crit_edge ], [ %117, %116 ]
@@ -14976,7 +14976,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   store i16 %storemerge162, ptr %.5146187, align 2, !tbaa !11
   %132 = getelementptr inbounds nuw i8, ptr %.5146187, i64 2
   %133 = icmp ult ptr %132, %spec.select166
-  br i1 %133, label %.lr.ph189, label %._crit_edge190, !llvm.loop !89
+  br i1 %133, label %.lr.ph189, label %._crit_edge190, !llvm.loop !110
 
 ._crit_edge190:                                   ; preds = %.lr.ph189, %.preheader
   %.5146.lcssa = phi ptr [ %5, %.preheader ], [ %132, %.lr.ph189 ]
@@ -15040,7 +15040,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 
 21:                                               ; preds = %17
   %22 = icmp ult i16 %18, %19
-  br i1 %22, label %.loopexit, label %16, !llvm.loop !40
+  br i1 %22, label %.loopexit, label %16, !llvm.loop !50
 
 23:                                               ; preds = %5
   %24 = icmp slt i32 %4, 50
@@ -15049,7 +15049,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 25:                                               ; preds = %23
   %26 = sext i32 %4 to i64
   %27 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !19
+  %28 = load i8, ptr %27, align 1, !tbaa !20
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %3, %29
   %31 = icmp sgt i32 %1, %30
@@ -15092,7 +15092,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
   %50 = srem i32 %4, 3
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !16
+  %53 = load i32, ptr %52, align 4, !tbaa !17
   %54 = sub nsw i32 0, %53
   %55 = call fastcc i32 @decUnitAddSub(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %49, ptr noundef nonnull %.060, i32 noundef %54)
   %56 = icmp slt i32 %55, 0
@@ -15115,7 +15115,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %.06180, i64 2
   %65 = icmp ult ptr %64, %59
-  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !90
+  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %.lr.ph, %63, %.preheader
   %.061.lcssa = phi ptr [ %.060, %.preheader ], [ %64, %63 ], [ %.06180, %.lr.ph ]
@@ -15146,7 +15146,7 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr noundef readonly 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !35
+  %8 = load i32, ptr %7, align 4, !tbaa !45
   switch i32 %8, label %48 [
     i32 7, label %9
     i32 5, label %18
@@ -15233,9 +15233,9 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr noundef readonly 
   br i1 %47, label %select.unfold, label %.critedge
 
 48:                                               ; preds = %6
-  %49 = load i32, ptr %3, align 4, !tbaa !16
+  %49 = load i32, ptr %3, align 4, !tbaa !17
   %50 = or i32 %49, 64
-  store i32 %50, ptr %3, align 4, !tbaa !16
+  store i32 %50, ptr %3, align 4, !tbaa !17
   br label %.critedge
 
 select.unfold:                                    ; preds = %46, %39, %32, %30, %20, %15, %22, %26
@@ -15252,7 +15252,7 @@ select.unfold:                                    ; preds = %46, %39, %32, %30, 
   %54 = zext i16 %53 to i32
   %55 = zext nneg i32 %.087.lcssa to i64
   %56 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !16
+  %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = add i32 %57, -1
   %.not105 = icmp eq i32 %58, %54
   br i1 %.not105, label %59, label %.loopexit
@@ -15261,7 +15261,7 @@ select.unfold:                                    ; preds = %46, %39, %32, %30, 
   %60 = add nsw i32 %.087.lcssa, -1
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !16
+  %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = trunc i32 %63 to i16
   store i16 %64, ptr %.088.ptr.lcssa, align 2, !tbaa !11
   %.not106151 = icmp slt i64 %.088.idx.lcssa, 11
@@ -15284,7 +15284,7 @@ select.unfold:                                    ; preds = %46, %39, %32, %30, 
   store i32 %72, ptr %70, align 4, !tbaa !9
   %73 = add nsw i32 %72, %51
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !31
+  %75 = load i32, ptr %74, align 4, !tbaa !39
   %76 = add nsw i32 %75, 1
   %77 = icmp sgt i32 %73, %76
   br i1 %77, label %78, label %.critedge
@@ -15306,7 +15306,7 @@ select.unfold:                                    ; preds = %46, %39, %32, %30, 
   %.088.add107 = add nuw nsw i64 %.088.idx146, 2
   %.088.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.088.add107
   %82 = icmp ult i32 %81, 4
-  br i1 %82, label %._crit_edge, label %.lr.ph
+  br i1 %82, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 select.unfold122:                                 ; preds = %44, %37, %18, %9
   %83 = load i32, ptr %0, align 4, !tbaa !10
@@ -15323,14 +15323,14 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %87 = add nsw i32 %.0.lcssa, -1
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !16
+  %90 = load i32, ptr %89, align 4, !tbaa !17
   %.not98 = icmp eq i32 %90, %86
   br i1 %.not98, label %91, label %.loopexit
 
 91:                                               ; preds = %._crit_edge161
   %92 = zext nneg i32 %.0.lcssa to i64
   %93 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !16
+  %94 = load i32, ptr %93, align 4, !tbaa !17
   %95 = trunc i32 %94 to i16
   %96 = add i16 %95, -1
   store i16 %96, ptr %.085.ptr.lcssa, align 2, !tbaa !11
@@ -15338,7 +15338,7 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   br i1 %.not99165, label %._crit_edge169, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %91
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !16
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !17
   %98 = trunc i32 %97 to i16
   %99 = add i16 %98, -1
   br label %100
@@ -15349,7 +15349,7 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %.186.ptr = getelementptr inbounds i8, ptr %0, i64 %.186.idx
   store i16 %99, ptr %.186.ptr, align 2, !tbaa !11
   %.not99 = icmp samesign ult i64 %.186.idx.in166, 13
-  br i1 %.not99, label %._crit_edge169, label %100, !llvm.loop !91
+  br i1 %.not99, label %._crit_edge169, label %100, !llvm.loop !113
 
 ._crit_edge169:                                   ; preds = %100, %91
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15357,8 +15357,8 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %103 = add nsw i32 %102, -1
   store i32 %103, ptr %101, align 4, !tbaa !9
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %105 = load i32, ptr %104, align 4, !tbaa !30
-  %106 = load i32, ptr %1, align 4, !tbaa !25
+  %105 = load i32, ptr %104, align 4, !tbaa !38
+  %106 = load i32, ptr %1, align 4, !tbaa !31
   %107 = add i32 %105, 1
   %108 = sub i32 %107, %106
   %109 = icmp eq i32 %102, %108
@@ -15380,9 +15380,9 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %.sink = phi i16 [ %114, %113 ], [ 0, %110 ]
   store i16 %.sink, ptr %.085.ptr.lcssa, align 2, !tbaa !11
   store i32 %102, ptr %101, align 4, !tbaa !9
-  %117 = load i32, ptr %3, align 4, !tbaa !16
+  %117 = load i32, ptr %3, align 4, !tbaa !17
   %118 = or i32 %117, 14368
-  store i32 %118, ptr %3, align 4, !tbaa !16
+  store i32 %118, ptr %3, align 4, !tbaa !17
   br label %.critedge
 
 .lr.ph160:                                        ; preds = %select.unfold122, %120
@@ -15398,7 +15398,7 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %.085.add100 = add nuw nsw i64 %.085.idx157, 2
   %.085.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.085.add100
   %122 = icmp ult i32 %121, 4
-  br i1 %122, label %._crit_edge161, label %.lr.ph160
+  br i1 %122, label %._crit_edge161, label %.lr.ph160, !llvm.loop !114
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph160, %._crit_edge161, %._crit_edge
   %123 = phi i32 [ %83, %._crit_edge161 ], [ %51, %._crit_edge ], [ %83, %.lr.ph160 ], [ %51, %.lr.ph ]
@@ -15410,7 +15410,7 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
 126:                                              ; preds = %.loopexit
   %127 = sext i32 %123 to i64
   %128 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !19
+  %129 = load i8, ptr %128, align 1, !tbaa !20
   %130 = zext i8 %129 to i32
   br label %134
 
@@ -15448,14 +15448,14 @@ define internal fastcc void @decSetOverflow(ptr noundef captures(none) %0, ptr n
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !31
+  %17 = load i32, ptr %16, align 4, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load i8, ptr %18, align 4, !tbaa !27
+  %19 = load i8, ptr %18, align 4, !tbaa !33
   %.not27 = icmp eq i8 %19, 0
   br i1 %.not27, label %23, label %20
 
 20:                                               ; preds = %15
-  %21 = load i32, ptr %1, align 4, !tbaa !25
+  %21 = load i32, ptr %1, align 4, !tbaa !31
   %.neg33 = add i32 %17, 1
   %22 = sub i32 %.neg33, %21
   br label %23
@@ -15477,7 +15477,7 @@ define internal fastcc void @decSetOverflow(ptr noundef captures(none) %0, ptr n
   store i32 1, ptr %0, align 4, !tbaa !10
   store i16 0, ptr %7, align 2, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !35
+  %31 = load i32, ptr %30, align 4, !tbaa !45
   switch i32 %31, label %.critedge [
     i32 5, label %.critedge31
     i32 7, label %.critedge31
@@ -15494,7 +15494,7 @@ define internal fastcc void @decSetOverflow(ptr noundef captures(none) %0, ptr n
   br i1 %.not.not, label %.critedge31, label %.critedge
 
 .critedge31:                                      ; preds = %32, %28, %28, %33
-  %34 = load i32, ptr %1, align 4, !tbaa !25
+  %34 = load i32, ptr %1, align 4, !tbaa !31
   store i32 %34, ptr %0, align 4, !tbaa !10
   %35 = icmp sgt i32 %34, 3
   br i1 %35, label %.lr.ph.i, label %decSetMaxValue.exit
@@ -15506,19 +15506,19 @@ define internal fastcc void @decSetOverflow(ptr noundef captures(none) %0, ptr n
   %36 = add nsw i32 %.015.i, -3
   %37 = getelementptr inbounds nuw i8, ptr %.01314.i, i64 2
   %38 = icmp samesign ugt i32 %.015.i, 6
-  br i1 %38, label %.lr.ph.i, label %decSetMaxValue.exit
+  br i1 %38, label %.lr.ph.i, label %decSetMaxValue.exit, !llvm.loop !83
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedge31
   %.013.lcssa.i = phi ptr [ %7, %.critedge31 ], [ %37, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %34, %.critedge31 ], [ %36, %.lr.ph.i ]
   %39 = sext i32 %.0.lcssa.i to i64
   %40 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !16
+  %41 = load i32, ptr %40, align 4, !tbaa !17
   %42 = trunc i32 %41 to i16
   %43 = add i16 %42, -1
   store i16 %43, ptr %.013.lcssa.i, align 2, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %45 = load i32, ptr %44, align 4, !tbaa !39
   %reass.sub = sub i32 %45, %34
   %46 = add i32 %reass.sub, 1
   store i32 %46, ptr %29, align 4, !tbaa !9
@@ -15535,9 +15535,9 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedg
 
 .sink.split:                                      ; preds = %48, %27
   %.sink38 = phi i32 [ 1024, %27 ], [ 2592, %48 ]
-  %49 = load i32, ptr %2, align 4, !tbaa !16
+  %49 = load i32, ptr %2, align 4, !tbaa !17
   %50 = or i32 %49, %.sink38
-  store i32 %50, ptr %2, align 4, !tbaa !16
+  store i32 %50, ptr %2, align 4, !tbaa !17
   br label %51
 
 51:                                               ; preds = %.sink.split, %23
@@ -15549,8 +15549,8 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %5 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !30
-  %8 = load i32, ptr %1, align 4, !tbaa !25
+  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %8 = load i32, ptr %1, align 4, !tbaa !31
   %.neg41 = add i32 %7, 1
   %9 = sub i32 %.neg41, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -15578,14 +15578,14 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
 
 25:                                               ; preds = %21
   store i32 %9, ptr %22, align 4, !tbaa !9
-  %26 = load i32, ptr %3, align 4, !tbaa !16
+  %26 = load i32, ptr %3, align 4, !tbaa !17
   %27 = or i32 %26, 1024
   br label %.sink.split
 
 28:                                               ; preds = %16, %13, %4
-  %29 = load i32, ptr %3, align 4, !tbaa !16
+  %29 = load i32, ptr %3, align 4, !tbaa !17
   %30 = or i32 %29, 4096
-  store i32 %30, ptr %3, align 4, !tbaa !16
+  store i32 %30, ptr %3, align 4, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = sub nsw i32 %9, %32
@@ -15602,25 +15602,25 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br label %.sink.split
 
 39:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !63
   %40 = load i32, ptr %0, align 4, !tbaa !10
   %41 = sub nsw i32 %40, %33
-  store i32 %41, ptr %5, align 4, !tbaa !25
+  store i32 %41, ptr %5, align 4, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !30
+  %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = sub nsw i32 %43, %33
-  store i32 %44, ptr %42, align 4, !tbaa !30
+  store i32 %44, ptr %42, align 4, !tbaa !38
   call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef %40, ptr noundef %2, ptr noundef %3)
-  %45 = load i32, ptr %2, align 4, !tbaa !16
+  %45 = load i32, ptr %2, align 4, !tbaa !17
   call fastcc void @decApplyRound(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %45, ptr noundef %3)
-  %46 = load i32, ptr %3, align 4, !tbaa !16
+  %46 = load i32, ptr %3, align 4, !tbaa !17
   %47 = and i32 %46, 32
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %50, label %48
 
 48:                                               ; preds = %39
   %49 = or i32 %46, 8192
-  store i32 %49, ptr %3, align 4, !tbaa !16
+  store i32 %49, ptr %3, align 4, !tbaa !17
   br label %50
 
 50:                                               ; preds = %48, %39
@@ -15636,7 +15636,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
 
 57:                                               ; preds = %53
   %58 = load i16, ptr %10, align 2, !tbaa !11
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !16
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !17
   %60 = trunc i32 %59 to i16
   %61 = mul i16 %58, %60
   store i16 %61, ptr %10, align 2, !tbaa !11
@@ -15658,7 +15658,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
 69:                                               ; preds = %62
   %70 = zext nneg i32 %54 to i64
   %71 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !19
+  %72 = load i8, ptr %71, align 1, !tbaa !20
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 1
   %.idx.i = zext nneg i32 %74 to i64
@@ -15670,7 +15670,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
 78:                                               ; preds = %69
   %79 = zext nneg i32 %55 to i64
   %80 = getelementptr inbounds nuw [50 x i8], ptr @d2utable, i64 0, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !19
+  %81 = load i8, ptr %80, align 1, !tbaa !20
   %82 = zext i8 %81 to i32
   br label %89
 
@@ -15694,8 +15694,8 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br i1 %.not78.i, label %.loopexit76.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %89
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 8), align 8, !tbaa !16
-  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !16
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 8), align 8, !tbaa !17
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !17
   br label %99
 
 99:                                               ; preds = %110, %.lr.ph.i
@@ -15723,7 +15723,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %112 = getelementptr inbounds i8, ptr %.16579.i, i64 -2
   %113 = getelementptr inbounds i8, ptr %.281.i, i64 -2
   %.not.i = icmp ult ptr %112, %10
-  br i1 %.not.i, label %.loopexit76.loopexit92.i, label %99, !llvm.loop !69
+  br i1 %.not.i, label %.loopexit76.loopexit92.i, label %99, !llvm.loop !89
 
 .loopexit76.loopexit92.i:                         ; preds = %110
   %114 = trunc i32 %111 to i16
@@ -15741,7 +15741,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   store i16 %.26389.i, ptr %.390.i, align 2, !tbaa !11
   %115 = getelementptr inbounds i8, ptr %.390.i, i64 -2
   %.not75.i = icmp ult ptr %115, %10
-  br i1 %.not75.i, label %decShiftToMost.exit, label %.lr.ph91.i, !llvm.loop !70
+  br i1 %.not75.i, label %decShiftToMost.exit, label %.lr.ph91.i, !llvm.loop !90
 
 decShiftToMost.exit:                              ; preds = %.lr.ph91.i, %57, %.loopexit76.i
   store i32 %55, ptr %0, align 4, !tbaa !10
@@ -15767,13 +15767,13 @@ decShiftToMost.exit:                              ; preds = %.lr.ph91.i, %57, %.
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %123
-  %129 = load i32, ptr %3, align 4, !tbaa !16
+  %129 = load i32, ptr %3, align 4, !tbaa !17
   %130 = or i32 %129, 1024
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %37, %128
   %.sink = phi i32 [ %130, %128 ], [ %38, %37 ], [ %27, %25 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !16
+  store i32 %.sink, ptr %3, align 4, !tbaa !17
   br label %131
 
 131:                                              ; preds = %.sink.split, %117, %120, %123, %35, %21
@@ -15838,82 +15838,105 @@ attributes #19 = { nounwind allocsize(0) }
 !10 = !{!5, !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = !{!26, !6, i64 0}
-!26 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24}
-!27 = !{!26, !7, i64 24}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = !{!26, !6, i64 8}
-!31 = !{!26, !6, i64 4}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = !{!26, !6, i64 12}
-!36 = distinct !{!36, !14, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !14}
-!39 = distinct !{!39, !14}
-!40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
-!44 = distinct !{!44, !14}
-!45 = distinct !{!45, !14}
-!46 = distinct !{!46, !14}
-!47 = distinct !{!47, !14}
-!48 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 1, !19}
-!49 = distinct !{!49, !14}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = distinct !{!52, !14}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"long", !7, i64 0}
-!55 = distinct !{!55, !14}
-!56 = distinct !{!56, !14}
-!57 = distinct !{!57, !14}
-!58 = distinct !{!58, !14}
-!59 = distinct !{!59, !14}
-!60 = distinct !{!60, !14}
-!61 = distinct !{!61, !14, !37}
-!62 = distinct !{!62, !14}
-!63 = distinct !{!63, !14}
-!64 = distinct !{!64, !14}
-!65 = distinct !{!65, !14, !37}
-!66 = distinct !{!66, !14}
-!67 = distinct !{!67, !14}
-!68 = distinct !{!68, !14}
-!69 = distinct !{!69, !14}
-!70 = distinct !{!70, !14}
-!71 = distinct !{!71, !14}
-!72 = distinct !{!72, !14}
-!73 = distinct !{!73, !14, !37}
-!74 = distinct !{!74, !14}
-!75 = distinct !{!75, !14}
-!76 = distinct !{!76, !14}
-!77 = distinct !{!77, !14}
-!78 = !{!26, !6, i64 16}
-!79 = !{!26, !6, i64 20}
-!80 = distinct !{!80, !14, !37}
-!81 = distinct !{!81, !14}
-!82 = distinct !{!82, !14}
-!83 = distinct !{!83, !14}
-!84 = distinct !{!84, !14}
-!85 = distinct !{!85, !14}
-!86 = distinct !{!86, !14}
-!87 = distinct !{!87, !14}
-!88 = distinct !{!88, !14}
-!89 = distinct !{!89, !14}
-!90 = distinct !{!90, !14}
-!91 = distinct !{!91, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = !{!7, !7, i64 0}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !14, !15}
+!30 = distinct !{!30, !15}
+!31 = !{!32, !6, i64 0}
+!32 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24}
+!33 = !{!32, !7, i64 24}
+!34 = distinct !{!34, !14, !15}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !14, !15}
+!37 = distinct !{!37, !15}
+!38 = !{!32, !6, i64 8}
+!39 = !{!32, !6, i64 4}
+!40 = distinct !{!40, !14, !15}
+!41 = distinct !{!41, !14, !15}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !14, !15}
+!44 = distinct !{!44, !15}
+!45 = !{!32, !6, i64 12}
+!46 = distinct !{!46, !14, !15, !47}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !14, !15}
+!49 = distinct !{!49, !14, !15}
+!50 = distinct !{!50, !14, !15}
+!51 = distinct !{!51, !14, !15}
+!52 = distinct !{!52, !14, !15}
+!53 = distinct !{!53, !14, !15}
+!54 = distinct !{!54, !14, !15}
+!55 = distinct !{!55, !14, !15}
+!56 = distinct !{!56, !15}
+!57 = distinct !{!57, !15}
+!58 = distinct !{!58, !14, !15}
+!59 = distinct !{!59, !15}
+!60 = distinct !{!60, !15}
+!61 = distinct !{!61, !14, !15}
+!62 = distinct !{!62, !15}
+!63 = !{i64 0, i64 4, !17, i64 4, i64 4, !17, i64 8, i64 4, !17, i64 12, i64 4, !17, i64 16, i64 4, !17, i64 20, i64 4, !17, i64 24, i64 1, !20}
+!64 = distinct !{!64, !15}
+!65 = distinct !{!65, !15}
+!66 = distinct !{!66, !14, !15}
+!67 = distinct !{!67, !14, !15}
+!68 = distinct !{!68, !14, !15}
+!69 = distinct !{!69, !14, !15}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"long", !7, i64 0}
+!72 = distinct !{!72, !14, !15}
+!73 = distinct !{!73, !14, !15}
+!74 = distinct !{!74, !14, !15}
+!75 = distinct !{!75, !14, !15}
+!76 = distinct !{!76, !14, !15}
+!77 = distinct !{!77, !14, !15}
+!78 = distinct !{!78, !14, !15, !47}
+!79 = distinct !{!79, !14, !15}
+!80 = distinct !{!80, !14, !15}
+!81 = distinct !{!81, !15}
+!82 = distinct !{!82, !14, !15}
+!83 = distinct !{!83, !15}
+!84 = distinct !{!84, !14, !15, !47}
+!85 = distinct !{!85, !14, !15}
+!86 = distinct !{!86, !14, !15}
+!87 = distinct !{!87, !15}
+!88 = distinct !{!88, !14, !15}
+!89 = distinct !{!89, !14, !15}
+!90 = distinct !{!90, !14, !15}
+!91 = distinct !{!91, !14, !15}
+!92 = distinct !{!92, !14, !15}
+!93 = distinct !{!93, !14, !15, !47}
+!94 = distinct !{!94, !14, !15}
+!95 = distinct !{!95, !14, !15}
+!96 = distinct !{!96, !14, !15}
+!97 = distinct !{!97, !15}
+!98 = distinct !{!98, !14, !15}
+!99 = !{!32, !6, i64 16}
+!100 = !{!32, !6, i64 20}
+!101 = distinct !{!101, !14, !15, !47}
+!102 = distinct !{!102, !14, !15}
+!103 = distinct !{!103, !14, !15}
+!104 = distinct !{!104, !14, !15}
+!105 = distinct !{!105, !14, !15}
+!106 = distinct !{!106, !14, !15}
+!107 = distinct !{!107, !14, !15}
+!108 = distinct !{!108, !14, !15}
+!109 = distinct !{!109, !14, !15}
+!110 = distinct !{!110, !14, !15}
+!111 = distinct !{!111, !14, !15}
+!112 = distinct !{!112, !15}
+!113 = distinct !{!113, !14, !15}
+!114 = distinct !{!114, !15}

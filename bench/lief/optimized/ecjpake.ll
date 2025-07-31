@@ -1505,7 +1505,7 @@ define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr n
   store i8 %8, ptr %9, align 1, !tbaa !24
   %10 = add nuw i64 %.04, 1
   %exitcond.not = icmp eq i64 %10, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 }
 
 ; Function Attrs: nofree nounwind
@@ -1568,6 +1568,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !25 = !{!9, !12, i64 8}
 !26 = !{!4, !14, i64 128}
 !27 = !{!5, !5, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}

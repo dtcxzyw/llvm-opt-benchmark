@@ -139,7 +139,7 @@ define dso_local i32 @select_string_to_plugin_id(ptr noundef %0) local_unnamed_a
   br label %3
 
 2:                                                ; preds = %3
-  br i1 %4, label %3, label %11, !llvm.loop !11
+  br i1 %4, label %3, label %11, !llvm.loop !12
 
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
@@ -283,7 +283,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next58 to i32
   %exitcond.not = icmp eq i32 %28, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %33, %39
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %39 ], [ %indvars.iv, %33 ]
@@ -309,7 +309,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
 ._crit_edge:                                      ; preds = %39, %33
   %53 = icmp ult i32 %38, 100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %53, label %54, label %32, !llvm.loop !13
+  br i1 %53, label %54, label %32, !llvm.loop !14
 
 54:                                               ; preds = %._crit_edge
   %55 = load ptr, ptr @select_context, align 8
@@ -775,7 +775,7 @@ define dso_local i32 @select_g_fini() local_unnamed_addr #0 {
   %12 = load i32, ptr @select_context_cnt, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -826,7 +826,7 @@ define dso_local i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_add
 9:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %4
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1105,7 +1105,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nound
 20:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !15
+  br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !16
 
 select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
   br label %select_get_plugin_id_pos.exit.thread
@@ -1534,7 +1534,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nounde
 20:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !15
+  br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !16
 
 select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
   br label %select_get_plugin_id_pos.exit.thread
@@ -1732,11 +1732,12 @@ attributes #17 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}

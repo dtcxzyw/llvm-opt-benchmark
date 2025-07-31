@@ -528,7 +528,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 37:                                               ; preds = %33
   %38 = load i32, ptr %7, align 4
   %39 = icmp eq i32 %38, 4
-  br i1 %39, label %33, label %40
+  br i1 %39, label %33, label %40, !llvm.loop !3
 
 40:                                               ; preds = %37
   %41 = sext i32 %2 to i64
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 55:                                               ; preds = %53
   %56 = load i32, ptr %7, align 4
   %57 = icmp eq i32 %56, 4
-  br i1 %57, label %53, label %58
+  br i1 %57, label %53, label %58, !llvm.loop !5
 
 58:                                               ; preds = %55
   %59 = sext i32 %2 to i64
@@ -574,7 +574,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 63:                                               ; preds = %.preheader
   %64 = load i32, ptr %7, align 4
   %65 = icmp eq i32 %64, 4
-  br i1 %65, label %.preheader, label %66
+  br i1 %65, label %.preheader, label %66, !llvm.loop !6
 
 66:                                               ; preds = %63, %.preheader
   %67 = call i32 @close(i32 noundef %15) #16
@@ -605,7 +605,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
   store i8 %80, ptr %81, align 1
   %82 = udiv i32 %.042, 10
   %83 = icmp sgt i32 %.042, 9
-  br i1 %83, label %77, label %84, !llvm.loop !3
+  br i1 %83, label %77, label %84, !llvm.loop !7
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds i8, ptr %.0, i64 -7
@@ -747,4 +747,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !8, !4}
+!8 = !{!"llvm.loop.mustprogress"}

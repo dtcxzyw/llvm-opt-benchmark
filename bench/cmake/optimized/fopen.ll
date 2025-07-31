@@ -79,7 +79,7 @@ define dso_local i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr noundef cap
 30:                                               ; preds = %.lr.ph.i
   %31 = add i64 %.228.i, -1
   %.not20.i = icmp eq i64 %31, 0
-  br i1 %.not20.i, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not20.i, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !20
 
 .critedge2.i:                                     ; preds = %26, %30, %.lr.ph.i, %22
   %.0.i = phi i64 [ 0, %22 ], [ %.228.i, %.lr.ph.i ], [ 0, %30 ], [ 0, %26 ]
@@ -108,7 +108,7 @@ dirslash.exit:                                    ; preds = %33, %34
 
 37:                                               ; preds = %dirslash.exit
   %38 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.1, ptr noundef nonnull %36, ptr noundef nonnull %6) #6
-  %39 = load ptr, ptr @Curl_cfree, align 8, !tbaa !20
+  %39 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
   call void %39(ptr noundef nonnull %36) #6
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %.thread44, label %40
@@ -137,7 +137,7 @@ dirslash.exit:                                    ; preds = %33, %34
 .thread44:                                        ; preds = %dirslash.exit.thread, %dirslash.exit, %37, %4, %40, %18, %47
   %.02650 = phi ptr [ %38, %47 ], [ null, %37 ], [ null, %4 ], [ %38, %40 ], [ null, %18 ], [ null, %dirslash.exit ], [ null, %dirslash.exit.thread ]
   %.02749 = phi i32 [ 23, %47 ], [ 27, %37 ], [ 23, %4 ], [ 23, %40 ], [ %21, %18 ], [ 27, %dirslash.exit ], [ 27, %dirslash.exit.thread ]
-  %50 = load ptr, ptr @Curl_cfree, align 8, !tbaa !20
+  %50 = load ptr, ptr @Curl_cfree, align 8, !tbaa !21
   call void %50(ptr noundef %.02650) #6
   br label %51
 
@@ -218,7 +218,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !14 = !{!"int", !7, i64 0}
 !15 = !{!"timespec", !13, i64 0, !13, i64 8}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!6, !6, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!6, !6, i64 0}

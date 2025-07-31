@@ -483,7 +483,7 @@ memiszero.exit:                                   ; preds = %41
   store i32 %276, ptr %264, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %268, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %268, !llvm.loop !9
 
 277:                                              ; preds = %243
   %278 = icmp ult i16 %192, 24
@@ -598,7 +598,7 @@ memiszero.exit:                                   ; preds = %41
   %337 = add i32 %336, -1
   store i32 %337, ptr %12, align 4
   %338 = icmp eq i32 %337, 0
-  br i1 %338, label %._crit_edge, label %.lr.ph245
+  br i1 %338, label %._crit_edge, label %.lr.ph245, !llvm.loop !10
 
 339:                                              ; preds = %173
   %340 = load i32, ptr @k12_file_type_subtype, align 4
@@ -751,7 +751,7 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
   store ptr %54, ptr %7, align 8
   store i32 %52, ptr %10, align 8
   %55 = icmp samesign ugt i32 %44, %52
-  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
+  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
 56:                                               ; preds = %49
   store i32 -13, ptr %4, align 4
@@ -768,7 +768,7 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
   store ptr %60, ptr %8, align 8
   store i32 %58, ptr %11, align 8
   %61 = icmp samesign ugt i32 %44, %58
-  br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %.184.lcssa = phi ptr [ %.083, %.preheader ], [ %54, %.lr.ph.split.us ], [ %60, %.lr.ph.split ]
@@ -805,7 +805,7 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
   %77 = add i32 %76, %.0
   %78 = sub i32 %.079, %.0
   %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %.loopexit, label %64, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %64, !llvm.loop !14
 
 .loopexit:                                        ; preds = %73, %71, %69, %66, %25, %23, %56, %47
   %.085 = phi i32 [ -1, %47 ], [ -1, %56 ], [ -1, %23 ], [ -1, %25 ], [ %spec.select, %66 ], [ %77, %73 ], [ -1, %71 ], [ -1, %69 ]
@@ -962,7 +962,7 @@ define internal noundef zeroext i1 @k12_read(ptr noundef readonly captures(none)
 .backedge:                                        ; preds = %83, %80
   %84 = load i32, ptr %10, align 4
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %._crit_edge, label %15, !llvm.loop !13
+  br i1 %85, label %._crit_edge, label %15, !llvm.loop !15
 
 86:                                               ; preds = %83, %80
   %87 = tail call fastcc zeroext i1 @process_packet_data(ptr noundef %1, ptr noundef %29, i32 noundef %17, ptr noundef %7, ptr noundef %2, ptr noundef %3)
@@ -1448,15 +1448,15 @@ define internal noundef zeroext i1 @k12_dump(ptr noundef %0, ptr noundef readonl
   %32 = sub nuw nsw i32 4, %31
   %33 = select i1 %.not71, i32 0, i32 %32
   %34 = add i32 %30, %33
-  %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #14, !srcloc !14
+  %35 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #14, !srcloc !16
   store i32 %35, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 536871168, ptr %36, align 4
-  %37 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #14, !srcloc !15
+  %37 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #14, !srcloc !17
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %37, ptr %38, align 8
   %39 = load i32, ptr %8, align 8
-  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #14, !srcloc !16
+  %40 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #14, !srcloc !18
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %40, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1469,12 +1469,12 @@ define internal noundef zeroext i1 @k12_dump(ptr noundef %0, ptr noundef readonl
   %49 = shl nsw i32 %48, 1
   %50 = sext i32 %49 to i64
   %51 = add i64 %45, %50
-  %52 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %51) #14, !srcloc !17
+  %52 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %51) #14, !srcloc !19
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %55 = zext i32 %29 to i64
-  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %54, ptr noundef %2, i64 noundef range(i64 0, 4294967296) %55, i64 noundef 8160) #11, !alias.scope !18
+  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %54, ptr noundef %2, i64 noundef range(i64 0, 4294967296) %55, i64 noundef 8160) #11, !alias.scope !20
   %57 = call fastcc zeroext i1 @k12_dump_record(ptr noundef %0, i32 noundef %34, ptr noundef nonnull %6, ptr noundef %3)
   br label %58
 
@@ -1503,7 +1503,7 @@ define internal noundef zeroext i1 @k12_dump_finish(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %8
   %14 = load i32, ptr %6, align 4
-  %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #14, !srcloc !22
+  %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #14, !srcloc !24
   store i32 %15, ptr %4, align 4
   %16 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1)
   br i1 %16, label %17, label %41
@@ -1526,7 +1526,7 @@ define internal noundef zeroext i1 @k12_dump_finish(ptr noundef %0, ptr noundef 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %27) #14, !srcloc !23
+  %28 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %27) #14, !srcloc !25
   store i32 %28, ptr %4, align 4
   %29 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1)
   br i1 %29, label %30, label %41
@@ -1538,7 +1538,7 @@ define internal noundef zeroext i1 @k12_dump_finish(ptr noundef %0, ptr noundef 
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %26, align 4
-  %35 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #14, !srcloc !24
+  %35 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %34) #14, !srcloc !26
   store i32 %35, ptr %4, align 4
   %36 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1)
   br i1 %36, label %37, label %41
@@ -1570,7 +1570,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 16777216, ptr %7, align 4
   %8 = load i32, ptr %1, align 8
-  %9 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #14, !srcloc !25
+  %9 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #14, !srcloc !27
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1601,7 +1601,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %28 = add i16 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 34
   store i16 %28, ptr %29, align 2
-  %30 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #14, !srcloc !26
+  %30 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #14, !srcloc !28
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %30, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 30
@@ -1642,7 +1642,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   store i8 %48, ptr %49, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !29
 
 50:                                               ; preds = %3
   store i16 2048, ptr %32, align 2
@@ -1654,7 +1654,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %52 = getelementptr i8, ptr %5, i64 %51
   %53 = zext i16 %22 to i64
   %54 = sub nuw nsw i64 8192, %51
-  %55 = call ptr @__memcpy_chk(ptr noundef %52, ptr noundef %19, i64 noundef range(i64 0, 4294967296) %53, i64 noundef %54) #11, !alias.scope !28
+  %55 = call ptr @__memcpy_chk(ptr noundef %52, ptr noundef %19, i64 noundef range(i64 0, 4294967296) %53, i64 noundef %54) #11, !alias.scope !30
   %56 = load i16, ptr %23, align 4
   %57 = zext i16 %56 to i64
   %58 = add nuw nsw i64 %57, %51
@@ -1662,7 +1662,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %60 = load i16, ptr %29, align 2
   %61 = zext i16 %60 to i64
   %62 = call i64 @llvm.usub.sat.i64(i64 8192, i64 %58)
-  %63 = call ptr @__memcpy_chk(ptr noundef %59, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #11, !alias.scope !32
+  %63 = call ptr @__memcpy_chk(ptr noundef %59, ptr noundef %25, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #11, !alias.scope !34
   %64 = load i16, ptr %23, align 4
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %.0, %65
@@ -1674,7 +1674,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %71 = sub nuw nsw i32 4, %70
   %72 = select i1 %.not101, i32 0, i32 %71
   %73 = add nuw nsw i32 %72, %69
-  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #14, !srcloc !36
+  %74 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %73) #14, !srcloc !38
   store i32 %74, ptr %5, align 4
   %rev104 = call i16 @llvm.bswap.i16(i16 %64)
   store i16 %rev104, ptr %23, align 4
@@ -1783,34 +1783,36 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2150009034}
-!15 = !{i64 2150010487}
-!16 = !{i64 2150011235}
-!17 = !{i64 2150012027}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = !{i64 2150013775}
-!23 = !{i64 2150015163}
-!24 = !{i64 2150015890}
-!25 = !{i64 2150002384}
-!26 = !{i64 2150005795}
-!27 = distinct !{!27, !7}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
-!34 = distinct !{!34, !"memcpy.inline"}
-!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
-!36 = !{i64 2150007741}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = !{i64 2150009034}
+!17 = !{i64 2150010487}
+!18 = !{i64 2150011235}
+!19 = !{i64 2150012027}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = !{i64 2150013775}
+!25 = !{i64 2150015163}
+!26 = !{i64 2150015890}
+!27 = !{i64 2150002384}
+!28 = !{i64 2150005795}
+!29 = distinct !{!29, !7, !8}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
+!32 = distinct !{!32, !"memcpy.inline"}
+!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
+!36 = distinct !{!36, !"memcpy.inline"}
+!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
+!38 = !{i64 2150007741}

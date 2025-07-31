@@ -407,7 +407,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 84:                                               ; preds = %.preheader
   %85 = add nuw nsw i32 %.2, 1
   %exitcond.not = icmp eq i32 %85, 17
-  br i1 %exitcond.not, label %.critedge.thread, label %.preheader
+  br i1 %exitcond.not, label %.critedge.thread, label %.preheader, !llvm.loop !113
 
 .critedge:                                        ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit
   %86 = add nsw i32 %.sroa.13.5, -3
@@ -462,10 +462,10 @@ _ZN8rawspeed20SonyArw1Decompressor7getDiffERNS_14BitStreamerMSBEj.exit: ; preds 
   tail call void @llvm.assume(i1 %108)
   %109 = zext nneg i32 %106 to i64
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %109
-  store i16 %103, ptr %gep, align 2, !tbaa !112
+  store i16 %103, ptr %gep, align 2, !tbaa !114
   %110 = add nuw nsw i32 %spec.store.select, 2
   %.not = icmp sgt i32 %110, %12
-  br i1 %.not, label %._ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.loopexit_crit_edge, label %48, !llvm.loop !114
+  br i1 %.not, label %._ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.loopexit_crit_edge, label %48, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -738,8 +738,10 @@ attributes #18 = { cold }
 !107 = !{!"_ZTSN8rawspeed10EndiannessE", !10, i64 0}
 !108 = !{!106, !25, i64 8}
 !109 = !{!106, !57, i64 0}
-!110 = distinct !{!110, !111}
+!110 = distinct !{!110, !111, !112}
 !111 = !{!"llvm.loop.mustprogress"}
-!112 = !{!113, !113, i64 0}
-!113 = !{!"short", !10, i64 0}
-!114 = distinct !{!114, !111}
+!112 = !{!"llvm.loop.estimated_trip_count"}
+!113 = distinct !{!113, !112}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"short", !10, i64 0}
+!116 = distinct !{!116, !111, !112}

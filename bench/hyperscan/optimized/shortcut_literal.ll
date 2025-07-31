@@ -314,7 +314,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define hidden noundef zeroext i1 @_ZN3ue215shortcutLiteralERNS_2NGERKNS_16ParsedExpressionE(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ue2::ConstructLiteralVisitor", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 805
-  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %5 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %81
 
@@ -407,7 +407,7 @@ _ZN3ue223ConstructLiteralVisitorC2Ev.exit:        ; preds = %18
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
+  %48 = load i8, ptr %47, align 1, !range !8, !noundef !9
   %49 = trunc nuw i8 %48 to i1
   %50 = icmp eq i64 %42, 1
   %or.cond36 = and i1 %50, %49
@@ -420,7 +420,7 @@ _ZN3ue223ConstructLiteralVisitorC2Ev.exit:        ; preds = %18
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = load i8, ptr %57, align 8, !range !7, !noundef !8
+  %58 = load i8, ptr %57, align 8, !range !8, !noundef !9
   %59 = trunc nuw i8 %58 to i1
   %60 = invoke noundef zeroext i1 @_ZN3ue22NG10addLiteralERKNS_11ue2_literalEjjbNS_8som_typeEb(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, i32 noundef %52, i32 noundef %54, i1 noundef zeroext %49, i32 noundef %56, i1 noundef zeroext %59)
           to label %61 unwind label %44
@@ -558,7 +558,7 @@ define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor3preERKNS_19Asc
 28:                                               ; preds = %20
   %29 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %29, 4
-  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %20, !llvm.loop !9
+  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %20, !llvm.loop !10
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %28, %23
   %spec.select.i.i = phi i8 [ %27, %23 ], [ 0, %28 ]
@@ -590,7 +590,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %28, %23
 42:                                               ; preds = %34
   %43 = add nuw nsw i64 %.0710.i.i7, 1
   %exitcond.i.i10 = icmp eq i64 %43, 4
-  br i1 %exitcond.i.i10, label %_ZNK3ue29CharReach10find_firstEv.exit11, label %34, !llvm.loop !9
+  br i1 %exitcond.i.i10, label %_ZNK3ue29CharReach10find_firstEv.exit11, label %34, !llvm.loop !10
 
 _ZNK3ue29CharReach10find_firstEv.exit11:          ; preds = %42, %37
   %spec.select.i.i9 = phi i8 [ %41, %37 ], [ 0, %42 ]
@@ -923,15 +923,15 @@ define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor4postERKNS_15Co
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !noalias !10
+  %6 = load ptr, ptr %5, align 8, !noalias !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = load ptr, ptr %7, align 8, !noalias !10
+  %8 = load ptr, ptr %7, align 8, !noalias !11
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %10, label %_ZNSt5stackImSt5dequeImSaImEEE3topEv.exit
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = load ptr, ptr %11, align 8, !noalias !10
+  %12 = load ptr, ptr %11, align 8, !noalias !11
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 512
@@ -1014,7 +1014,7 @@ _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %45 = add nuw i32 %.05, 1
   %46 = load i32, ptr %32, align 8
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 48:                                               ; preds = %.lr.ph
   %49 = landingpad { ptr, i32 }
@@ -1080,7 +1080,7 @@ _ZNSt11_Deque_baseImSaImEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
   store ptr %12, ptr %.011.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseImSaImEE15_M_create_nodesEPPmS3_.exit, !llvm.loop !14
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseImSaImEE15_M_create_nodesEPPmS3_.exit, !llvm.loop !15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1341,7 +1341,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeImSaImEE17_M_reallocate_mapEmb(pt
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, !prof !15
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, !prof !16
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -1448,14 +1448,15 @@ attributes #22 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNSt5dequeImSaImEE3endEv: argument 0"}
-!12 = distinct !{!12, !"_ZNSt5dequeImSaImEE3endEv"}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !6, !7}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNSt5dequeImSaImEE3endEv: argument 0"}
+!13 = distinct !{!13, !"_ZNSt5dequeImSaImEE3endEv"}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}

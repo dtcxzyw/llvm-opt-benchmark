@@ -117,7 +117,7 @@ define dso_local void @alloc_destroy(ptr noundef readonly captures(none) %0) loc
 42:                                               ; preds = %34, %25
   tail call void @g_free(ptr noundef nonnull %.134) #7
   %.not26 = icmp eq ptr %26, null
-  br i1 %.not26, label %.critedge2, label %25, !llvm.loop !6
+  br i1 %.not26, label %.critedge2, label %25, !llvm.loop !7
 
 .critedge2:                                       ; preds = %42, %.critedge
   %43 = load ptr, ptr %2, align 8
@@ -187,7 +187,7 @@ define dso_local i64 @guest_alloc(ptr noundef readonly captures(none) %0, i64 no
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %30 = load i64, ptr %29, align 8
   %.not7.i.i = icmp ult i64 %30, %11
-  br i1 %.not7.i.i, label %27, label %mlist_find_space.exit.i, !llvm.loop !7
+  br i1 %.not7.i.i, label %27, label %mlist_find_space.exit.i, !llvm.loop !8
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr @stderr, align 8
@@ -255,7 +255,7 @@ mlist_new.exit.i.i:                               ; preds = %55, %49
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %mlist_new.exit.thread.i.i, label %.preheader.i.i.i, !prof !8
+  br i1 %61, label %mlist_new.exit.thread.i.i, label %.preheader.i.i.i, !prof !9
 
 .preheader.i.i.i:                                 ; preds = %mlist_new.exit.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.0.i6.i, i64 24
@@ -276,7 +276,7 @@ mlist_new.exit.thread.i.i:                        ; preds = %mlist_new.exit.i.i,
   %66 = getelementptr inbounds nuw i8, ptr %.028.i.i.i, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = icmp ult i64 %65, %67
-  br i1 %68, label %69, label %63, !llvm.loop !9
+  br i1 %68, label %69, label %63, !llvm.loop !10
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %.028.i.i.i, i64 8
@@ -362,7 +362,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
   %21 = add i64 %20, %18
   %.0 = load ptr, ptr %.061, align 8
   %.not51 = icmp eq ptr %.0, null
-  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not51, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %17
   %.pre71 = load i64, ptr %2, align 8
@@ -413,7 +413,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
   %40 = add i64 %39, %37
   %.1 = load ptr, ptr %.166, align 8
   %.not53 = icmp eq ptr %.1, null
-  br i1 %.not53, label %._crit_edge69, label %.lr.ph68, !llvm.loop !11
+  br i1 %.not53, label %._crit_edge69, label %.lr.ph68, !llvm.loop !12
 
 ._crit_edge69:                                    ; preds = %36, %._crit_edge
   ret void
@@ -439,7 +439,7 @@ define dso_local void @guest_free(ptr noundef readonly captures(none) %0, i64 no
   %8 = getelementptr i8, ptr %.0.i.i, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, %1
-  br i1 %10, label %mlist_find_key.exit.i, label %6, !llvm.loop !12
+  br i1 %10, label %mlist_find_key.exit.i, label %6, !llvm.loop !13
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @stderr, align 8
@@ -462,7 +462,7 @@ mlist_find_key.exit.i:                            ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %.preheader.i.i, !prof !13
+  br i1 %22, label %23, label %.preheader.i.i, !prof !14
 
 23:                                               ; preds = %mlist_find_key.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.mlist_sort_insert, ptr noundef nonnull @.str.13) #8
@@ -479,7 +479,7 @@ mlist_find_key.exit.i:                            ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = icmp ult i64 %25, %27
-  br i1 %28, label %29, label %.preheader.i.i, !llvm.loop !9
+  br i1 %28, label %29, label %.preheader.i.i, !llvm.loop !10
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 8
@@ -503,7 +503,7 @@ mlist_find_key.exit.i:                            ; preds = %7
 mlist_sort_insert.exit.i:                         ; preds = %33, %29
   %36 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %37, label %.split.split.i.i, !prof !13
+  br i1 %.not.i.i.i, label %37, label %.split.split.i.i, !prof !14
 
 37:                                               ; preds = %mlist_sort_insert.exit.i
   %38 = getelementptr i8, ptr %.0.i.i, i64 16
@@ -623,7 +623,7 @@ mlist_join.exit29.i.i:                            ; preds = %72
 87:                                               ; preds = %mlist_join.exit29.i.i, %72, %71
   %.1.i.i = phi i8 [ 1, %mlist_join.exit29.i.i ], [ %.0.i23.i, %72 ], [ %.0.i23.i, %71 ]
   %.not23.i.i = icmp eq i8 %.1.i.i, 0
-  br i1 %.not23.i.i, label %mlist_free.exit, label %.split.split.i.i, !llvm.loop !14
+  br i1 %.not23.i.i, label %mlist_free.exit, label %.split.split.i.i, !llvm.loop !15
 
 mlist_free.exit:                                  ; preds = %87, %45, %46
   %88 = load i32, ptr %0, align 8
@@ -749,7 +749,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
   %24 = load ptr, ptr %.059, align 8
   tail call void @g_free(ptr noundef nonnull %.059) #7
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -763,7 +763,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
   %28 = load ptr, ptr %.161, align 8
   tail call void @g_free(ptr noundef nonnull %.161) #7
   %.not56 = icmp eq ptr %28, null
-  br i1 %.not56, label %.critedge2.loopexit, label %.lr.ph62, !llvm.loop !16
+  br i1 %.not56, label %.critedge2.loopexit, label %.lr.ph62, !llvm.loop !17
 
 .critedge2.loopexit:                              ; preds = %.lr.ph62
   %.pre = load ptr, ptr %25, align 8
@@ -847,16 +847,17 @@ attributes #9 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

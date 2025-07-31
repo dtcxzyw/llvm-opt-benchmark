@@ -435,7 +435,7 @@ define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly captur
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !46
+  %3 = load i32, ptr %0, align 8, !tbaa !47
   %.not18 = icmp eq i32 %3, 2
   br i1 %.not18, label %5, label %4
 
@@ -445,9 +445,9 @@ define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly captur
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !48
+  %7 = load i64, ptr %6, align 8, !tbaa !49
   %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #14
-  %9 = load i64, ptr %6, align 8, !tbaa !48
+  %9 = load i64, ptr %6, align 8, !tbaa !49
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %.loopexit
 
@@ -458,22 +458,22 @@ define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly captur
 12:                                               ; preds = %.lr.ph, %12
   %13 = phi i64 [ 0, %.lr.ph ], [ %26, %12 ]
   %.01419 = phi i32 [ 0, %.lr.ph ], [ %25, %12 ]
-  %14 = load ptr, ptr %11, align 8, !tbaa !49
+  %14 = load ptr, ptr %11, align 8, !tbaa !50
   %15 = getelementptr ptr, ptr %14, i64 %13
-  %16 = load ptr, ptr %15, align 8, !tbaa !50
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !51
+  %18 = load ptr, ptr %17, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !54
+  %20 = load i64, ptr %19, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
   %23 = tail call i64 @rb_enc_str_new(ptr noundef %18, i64 noundef %20, ptr noundef %22) #14
   %24 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %23) #14
   %25 = add i32 %.01419, 1
   %26 = sext i32 %25 to i64
-  %27 = load i64, ptr %6, align 8, !tbaa !48
+  %27 = load i64, ptr %6, align 8, !tbaa !49
   %28 = icmp sgt i64 %27, %26
-  br i1 %28, label %12, label %.loopexit, !llvm.loop !56
+  br i1 %28, label %12, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %12, %5, %1
   %.0 = phi i64 [ 4, %1 ], [ %8, %5 ], [ %8, %12 ]
@@ -492,11 +492,11 @@ declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_str_new_parser_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !54
+  %5 = load i64, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = tail call i64 @rb_enc_literal_str(ptr noundef %3, i64 noundef %5, ptr noundef %7) #14
   %9 = tail call i32 @rb_enc_str_coderange(i64 noundef %8) #14
   ret i64 %8
@@ -509,11 +509,11 @@ declare i32 @rb_enc_str_coderange(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_str_new_mutable_parser_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !54
+  %5 = load i64, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = tail call i64 @rb_enc_str_new(ptr noundef %3, i64 noundef %5, ptr noundef %7) #14
   ret i64 %8
 }
@@ -521,12 +521,12 @@ define dso_local i64 @rb_str_new_mutable_parser_string(ptr noundef readonly capt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_integer_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !62
+  %5 = load i32, ptr %4, align 4, !tbaa !63
   %6 = tail call i64 @rb_cstr_to_inum(ptr noundef %3, i32 noundef %5, i32 noundef 0) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !63
+  %8 = load i32, ptr %7, align 8, !tbaa !64
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
 
@@ -624,7 +624,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !64
+  %45 = load i64, ptr %44, align 8, !tbaa !65
   %46 = tail call fastcc i64 @negative_numeric(i64 noundef %45)
   store i64 %46, ptr %44, align 8, !tbaa !29
   %47 = icmp eq i64 %46, 0
@@ -639,7 +639,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !66
+  %54 = load i64, ptr %53, align 8, !tbaa !67
   %55 = tail call fastcc i64 @negative_numeric(i64 noundef %54)
   store i64 %55, ptr %53, align 8, !tbaa !29
   %56 = icmp eq i64 %55, 0
@@ -654,7 +654,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
 
 rb_obj_write.exit:                                ; preds = %52, %60
   %61 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !68
+  %62 = load i64, ptr %61, align 8, !tbaa !69
   %63 = tail call fastcc i64 @negative_numeric(i64 noundef %62)
   store i64 %63, ptr %61, align 8, !tbaa !29
   %64 = icmp eq i64 %63, 0
@@ -669,7 +669,7 @@ rb_obj_write.exit:                                ; preds = %52, %60
 
 rb_float_value_inline.exit26:                     ; preds = %35
   %69 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %70 = load double, ptr %69, align 8, !tbaa !69
+  %70 = load double, ptr %69, align 8, !tbaa !70
   %71 = fneg double %70
   %72 = bitcast double %71 to i64
   %cond.i27 = icmp eq i64 %72, 3458764513820540928
@@ -710,10 +710,10 @@ rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_float_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !73
   %4 = tail call double @strtod(ptr noundef captures(none) %3, ptr noundef null) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !74
+  %6 = load i32, ptr %5, align 8, !tbaa !75
   %.not = icmp eq i32 %6, 0
   %7 = fneg double %4
   %.0 = select i1 %.not, double %4, double %7
@@ -754,14 +754,14 @@ declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_rational_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !77
+  %5 = load i32, ptr %4, align 4, !tbaa !78
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !78
+  %7 = load i32, ptr %6, align 8, !tbaa !79
   %8 = tail call fastcc i64 @rational_value(ptr noundef %3, i32 noundef %5, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !79
+  %10 = load i32, ptr %9, align 8, !tbaa !80
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
 
@@ -810,7 +810,7 @@ define internal fastcc i64 @rational_value(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !80
+  %3 = load i32, ptr %2, align 4, !tbaa !81
   switch i32 %3, label %36 [
     i32 0, label %4
     i32 1, label %10
@@ -819,15 +819,15 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly capture
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !82
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %8 = load i32, ptr %7, align 4, !tbaa !83
+  %8 = load i32, ptr %7, align 4, !tbaa !84
   %9 = tail call i64 @rb_cstr_to_inum(ptr noundef %6, i32 noundef %8, i32 noundef 0) #14
   br label %rb_float_new_inline.exit
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %12 = load ptr, ptr %11, align 8, !tbaa !83
   %13 = tail call double @strtod(ptr noundef captures(none) %12, ptr noundef null) #14
   %14 = bitcast double %13 to i64
   %cond.i = icmp eq i64 %14, 3458764513820540928
@@ -857,11 +857,11 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly capture
 
 28:                                               ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %30 = load ptr, ptr %29, align 8, !tbaa !83
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %32 = load i32, ptr %31, align 4, !tbaa !83
+  %32 = load i32, ptr %31, align 4, !tbaa !84
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i32, ptr %33, align 8, !tbaa !84
+  %34 = load i32, ptr %33, align 8, !tbaa !85
   %35 = tail call fastcc i64 @rational_value(ptr noundef %30, i32 noundef %32, i32 noundef %34)
   br label %rb_float_new_inline.exit
 
@@ -873,7 +873,7 @@ rb_float_new_inline.exit:                         ; preds = %26, %24, %20, %28, 
   %.0 = phi i64 [ %9, %4 ], [ %35, %28 ], [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
   %37 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !85
+  %39 = load i32, ptr %38, align 8, !tbaa !86
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %42, label %40
 
@@ -891,13 +891,13 @@ declare i64 @rb_complex_raw(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_node_str_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = tail call i64 @rb_enc_literal_str(ptr noundef %5, i64 noundef %7, ptr noundef %9) #14
   %11 = tail call i32 @rb_enc_str_coderange(i64 noundef %10) #14
   ret i64 %10
@@ -906,13 +906,13 @@ define dso_local noundef i64 @rb_node_str_string_val(ptr noundef readonly captur
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_sym_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = tail call i64 @rb_intern3(ptr noundef %5, i64 noundef %7, ptr noundef %9) #14
   %11 = tail call i64 @rb_id2sym(i64 noundef %10) #14
   ret i64 %11
@@ -925,17 +925,17 @@ declare i64 @rb_intern3(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_node_dstr_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !54
+  %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = tail call i64 @rb_enc_literal_str(ptr noundef %6, i64 noundef %8, ptr noundef %10) #14
   %12 = tail call i32 @rb_enc_str_coderange(i64 noundef %11) #14
   br label %13
@@ -948,13 +948,13 @@ define dso_local noundef i64 @rb_node_dstr_string_val(ptr noundef readonly captu
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_node_dregx_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = tail call i64 @rb_enc_literal_str(ptr noundef %5, i64 noundef %7, ptr noundef %9) #14
   %11 = tail call i32 @rb_enc_str_coderange(i64 noundef %10) #14
   ret i64 %10
@@ -963,16 +963,16 @@ define dso_local noundef i64 @rb_node_dregx_string_val(ptr noundef readonly capt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_regx_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = tail call i64 @rb_enc_str_new(ptr noundef %5, i64 noundef %7, ptr noundef %9) #14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !96
+  %12 = load i32, ptr %11, align 8, !tbaa !97
   %13 = tail call i64 @rb_reg_compile(i64 noundef %10, i32 noundef %12, ptr noundef null, i32 noundef 0) #14
   ret i64 %13
 }
@@ -982,7 +982,7 @@ declare i64 @rb_reg_compile(i64 noundef, i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !97
+  %3 = load i32, ptr %2, align 8, !tbaa !98
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 1
   %6 = or disjoint i64 %5, 1
@@ -992,13 +992,13 @@ define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_node_file_path_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = tail call i64 @rb_enc_literal_str(ptr noundef %5, i64 noundef %7, ptr noundef %9) #14
   %11 = tail call i32 @rb_enc_str_coderange(i64 noundef %10) #14
   ret i64 %10
@@ -1007,7 +1007,7 @@ define dso_local noundef i64 @rb_node_file_path_val(ptr noundef readonly capture
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_encoding_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !101
   %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #14
   ret i64 %4
 }
@@ -1030,11 +1030,11 @@ define hidden i64 @rb_ruby_ast_new(ptr noundef %0) local_unnamed_addr #0 {
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %11, align 8, !tbaa !102
+  store ptr %0, ptr %11, align 8, !tbaa !103
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !104
+  store ptr null, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !105
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !106
+  store i32 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !107
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i8 15, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !31
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 29
@@ -1109,7 +1109,7 @@ declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) lo
 define internal fastcc ptr @parser_compile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @rb_parser_compile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !107
+  %8 = load ptr, ptr %7, align 8, !tbaa !108
   %9 = icmp eq i64 %2, 4
   %10 = icmp eq ptr %8, null
   %or.cond.not.i = or i1 %9, %10
@@ -1155,7 +1155,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %15
   br i1 %28, label %parser_aset_script_lines_for.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = load i32, ptr %8, align 8, !tbaa !46
+  %30 = load i32, ptr %8, align 8, !tbaa !47
   %.not18.i.i = icmp eq i32 %30, 2
   br i1 %.not18.i.i, label %32, label %31
 
@@ -1165,9 +1165,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %15
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !48
+  %34 = load i64, ptr %33, align 8, !tbaa !49
   %35 = tail call i64 @rb_ary_new_capa(i64 noundef %34) #14
-  %36 = load i64, ptr %33, align 8, !tbaa !48
+  %36 = load i64, ptr %33, align 8, !tbaa !49
   %37 = icmp sgt i64 %36, 0
   br i1 %37, label %.lr.ph.i14.i, label %rb_parser_build_script_lines_from.exit.i
 
@@ -1178,22 +1178,22 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %15
 39:                                               ; preds = %39, %.lr.ph.i14.i
   %40 = phi i64 [ 0, %.lr.ph.i14.i ], [ %53, %39 ]
   %.01419.i.i = phi i32 [ 0, %.lr.ph.i14.i ], [ %52, %39 ]
-  %41 = load ptr, ptr %38, align 8, !tbaa !49
+  %41 = load ptr, ptr %38, align 8, !tbaa !50
   %42 = getelementptr ptr, ptr %41, i64 %40
-  %43 = load ptr, ptr %42, align 8, !tbaa !50
+  %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !51
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !54
+  %47 = load i64, ptr %46, align 8, !tbaa !55
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !55
+  %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = tail call i64 @rb_enc_str_new(ptr noundef %45, i64 noundef %47, ptr noundef %49) #14
   %51 = tail call i64 @rb_ary_push(i64 noundef %35, i64 noundef %50) #14
   %52 = add i32 %.01419.i.i, 1
   %53 = sext i32 %52 to i64
-  %54 = load i64, ptr %33, align 8, !tbaa !48
+  %54 = load i64, ptr %33, align 8, !tbaa !49
   %55 = icmp sgt i64 %54, %53
-  br i1 %55, label %39, label %rb_parser_build_script_lines_from.exit.i, !llvm.loop !56
+  br i1 %55, label %39, label %rb_parser_build_script_lines_from.exit.i, !llvm.loop !57
 
 rb_parser_build_script_lines_from.exit.i:         ; preds = %39, %32
   %56 = tail call i64 @rb_hash_aset(i64 noundef %17, i64 noundef %2, i64 noundef %35) #14
@@ -1287,7 +1287,7 @@ declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #1
 define internal ptr @lex_get_str(ptr noundef %0, ptr noundef captures(none) %1, i32 %2) #0 {
   %4 = load i64, ptr %1, align 8, !tbaa !20
   %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %5, align 8, !tbaa !22, !noalias !111
+  %6 = load i64, ptr %5, align 8, !tbaa !22, !noalias !112
   %7 = and i64 %6, 8192
   %.not.i.i.i = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1444,73 +1444,74 @@ attributes #17 = { cold noreturn nounwind }
 !41 = !{!"p1 omnipotent char", !14, i64 0}
 !42 = !{i64 2155039785}
 !43 = !{i64 2155040280}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!47, !19, i64 0}
-!47 = !{!"rb_parser_ary", !19, i64 0, !14, i64 8, !10, i64 16, !10, i64 24}
-!48 = !{!47, !10, i64 16}
-!49 = !{!47, !14, i64 8}
-!50 = !{!14, !14, i64 0}
-!51 = !{!52, !41, i64 24}
-!52 = !{!"rb_parser_string", !19, i64 0, !53, i64 8, !10, i64 16, !41, i64 24}
-!53 = !{!"p1 _ZTS18OnigEncodingTypeST", !14, i64 0}
-!54 = !{!52, !10, i64 16}
-!55 = !{!52, !53, i64 8}
-!56 = distinct !{!56, !45}
-!57 = !{!58, !41, i64 32}
-!58 = !{!"RNode_INTEGER", !59, i64 0, !41, i64 32, !19, i64 40, !19, i64 44}
-!59 = !{!"RNode", !10, i64 0, !60, i64 8, !19, i64 24}
-!60 = !{!"rb_code_location_struct", !61, i64 0, !61, i64 8}
-!61 = !{!"rb_code_position_struct", !19, i64 0, !19, i64 4}
-!62 = !{!58, !19, i64 44}
-!63 = !{!58, !19, i64 40}
-!64 = !{!65, !10, i64 16}
-!65 = !{!"RRational", !9, i64 0, !10, i64 16, !10, i64 24}
-!66 = !{!67, !10, i64 16}
-!67 = !{!"RComplex", !9, i64 0, !10, i64 16, !10, i64 24}
-!68 = !{!67, !10, i64 24}
-!69 = !{!70, !71, i64 16}
-!70 = !{!"RFloat", !9, i64 0, !71, i64 16}
-!71 = !{!"double", !11, i64 0}
-!72 = !{!73, !41, i64 32}
-!73 = !{!"RNode_FLOAT", !59, i64 0, !41, i64 32, !19, i64 40}
-!74 = !{!73, !19, i64 40}
-!75 = !{!76, !41, i64 32}
-!76 = !{!"RNode_RATIONAL", !59, i64 0, !41, i64 32, !19, i64 40, !19, i64 44, !19, i64 48}
-!77 = !{!76, !19, i64 44}
-!78 = !{!76, !19, i64 48}
-!79 = !{!76, !19, i64 40}
-!80 = !{!81, !19, i64 52}
-!81 = !{!"RNode_IMAGINARY", !59, i64 0, !41, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52}
-!82 = !{!81, !41, i64 32}
-!83 = !{!81, !19, i64 44}
-!84 = !{!81, !19, i64 48}
-!85 = !{!81, !19, i64 40}
-!86 = !{!87, !88, i64 32}
-!87 = !{!"RNode_STR", !59, i64 0, !88, i64 32}
-!88 = !{!"p1 _ZTS16rb_parser_string", !14, i64 0}
-!89 = !{!90, !88, i64 32}
-!90 = !{!"RNode_SYM", !59, i64 0, !88, i64 32}
-!91 = !{!92, !88, i64 32}
-!92 = !{!"RNode_DSTR", !59, i64 0, !88, i64 32, !11, i64 40, !93, i64 48}
-!93 = !{!"p1 _ZTS10RNode_LIST", !14, i64 0}
-!94 = !{!95, !88, i64 32}
-!95 = !{!"RNode_REGX", !59, i64 0, !88, i64 32, !19, i64 40, !60, i64 44, !60, i64 60, !60, i64 76}
-!96 = !{!95, !19, i64 40}
-!97 = !{!59, !19, i64 8}
-!98 = !{!99, !88, i64 32}
-!99 = !{!"RNode_FILE", !59, i64 0, !88, i64 32}
-!100 = !{!101, !53, i64 32}
-!101 = !{!"RNode_ENCODING", !59, i64 0, !53, i64 32}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTS5RNode", !14, i64 0}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"p1 _ZTS13rb_parser_ary", !14, i64 0}
-!106 = !{!19, !19, i64 0}
-!107 = !{!108, !105, i64 16}
-!108 = !{!"rb_ast_struct", !109, i64 0, !110, i64 8}
-!109 = !{!"p1 _ZTS18node_buffer_struct", !14, i64 0}
-!110 = !{!"rb_ast_body_struct", !103, i64 0, !105, i64 8, !19, i64 16, !19, i64 20, !19, i64 20}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"rbimpl_rstring_getmem: argument 0"}
-!113 = distinct !{!113, !"rbimpl_rstring_getmem"}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!48, !19, i64 0}
+!48 = !{!"rb_parser_ary", !19, i64 0, !14, i64 8, !10, i64 16, !10, i64 24}
+!49 = !{!48, !10, i64 16}
+!50 = !{!48, !14, i64 8}
+!51 = !{!14, !14, i64 0}
+!52 = !{!53, !41, i64 24}
+!53 = !{!"rb_parser_string", !19, i64 0, !54, i64 8, !10, i64 16, !41, i64 24}
+!54 = !{!"p1 _ZTS18OnigEncodingTypeST", !14, i64 0}
+!55 = !{!53, !10, i64 16}
+!56 = !{!53, !54, i64 8}
+!57 = distinct !{!57, !45, !46}
+!58 = !{!59, !41, i64 32}
+!59 = !{!"RNode_INTEGER", !60, i64 0, !41, i64 32, !19, i64 40, !19, i64 44}
+!60 = !{!"RNode", !10, i64 0, !61, i64 8, !19, i64 24}
+!61 = !{!"rb_code_location_struct", !62, i64 0, !62, i64 8}
+!62 = !{!"rb_code_position_struct", !19, i64 0, !19, i64 4}
+!63 = !{!59, !19, i64 44}
+!64 = !{!59, !19, i64 40}
+!65 = !{!66, !10, i64 16}
+!66 = !{!"RRational", !9, i64 0, !10, i64 16, !10, i64 24}
+!67 = !{!68, !10, i64 16}
+!68 = !{!"RComplex", !9, i64 0, !10, i64 16, !10, i64 24}
+!69 = !{!68, !10, i64 24}
+!70 = !{!71, !72, i64 16}
+!71 = !{!"RFloat", !9, i64 0, !72, i64 16}
+!72 = !{!"double", !11, i64 0}
+!73 = !{!74, !41, i64 32}
+!74 = !{!"RNode_FLOAT", !60, i64 0, !41, i64 32, !19, i64 40}
+!75 = !{!74, !19, i64 40}
+!76 = !{!77, !41, i64 32}
+!77 = !{!"RNode_RATIONAL", !60, i64 0, !41, i64 32, !19, i64 40, !19, i64 44, !19, i64 48}
+!78 = !{!77, !19, i64 44}
+!79 = !{!77, !19, i64 48}
+!80 = !{!77, !19, i64 40}
+!81 = !{!82, !19, i64 52}
+!82 = !{!"RNode_IMAGINARY", !60, i64 0, !41, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52}
+!83 = !{!82, !41, i64 32}
+!84 = !{!82, !19, i64 44}
+!85 = !{!82, !19, i64 48}
+!86 = !{!82, !19, i64 40}
+!87 = !{!88, !89, i64 32}
+!88 = !{!"RNode_STR", !60, i64 0, !89, i64 32}
+!89 = !{!"p1 _ZTS16rb_parser_string", !14, i64 0}
+!90 = !{!91, !89, i64 32}
+!91 = !{!"RNode_SYM", !60, i64 0, !89, i64 32}
+!92 = !{!93, !89, i64 32}
+!93 = !{!"RNode_DSTR", !60, i64 0, !89, i64 32, !11, i64 40, !94, i64 48}
+!94 = !{!"p1 _ZTS10RNode_LIST", !14, i64 0}
+!95 = !{!96, !89, i64 32}
+!96 = !{!"RNode_REGX", !60, i64 0, !89, i64 32, !19, i64 40, !61, i64 44, !61, i64 60, !61, i64 76}
+!97 = !{!96, !19, i64 40}
+!98 = !{!60, !19, i64 8}
+!99 = !{!100, !89, i64 32}
+!100 = !{!"RNode_FILE", !60, i64 0, !89, i64 32}
+!101 = !{!102, !54, i64 32}
+!102 = !{!"RNode_ENCODING", !60, i64 0, !54, i64 32}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTS5RNode", !14, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTS13rb_parser_ary", !14, i64 0}
+!107 = !{!19, !19, i64 0}
+!108 = !{!109, !106, i64 16}
+!109 = !{!"rb_ast_struct", !110, i64 0, !111, i64 8}
+!110 = !{!"p1 _ZTS18node_buffer_struct", !14, i64 0}
+!111 = !{!"rb_ast_body_struct", !104, i64 0, !106, i64 8, !19, i64 16, !19, i64 20, !19, i64 20}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"rbimpl_rstring_getmem: argument 0"}
+!114 = distinct !{!114, !"rbimpl_rstring_getmem"}

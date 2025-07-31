@@ -55,7 +55,7 @@ define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser6parsed17h5
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !3
   invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hdaf9de41c7d0f3d5E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %10 unwind label %.loopexit.i, !noalias !3
+          to label %10 unwind label %.loopexit.i, !noalias !3, !llvm.loop !6
 
 15:                                               ; preds = %12
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %4)
@@ -144,7 +144,7 @@ define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_t
 11:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hdaf9de41c7d0f3d5E"(ptr nonnull align 8 %6, ptr nonnull align 8 %4)
-          to label %7 unwind label %.loopexit
+          to label %7 unwind label %.loopexit, !llvm.loop !8
 
 12:                                               ; preds = %9
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %5)
@@ -199,7 +199,7 @@ define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_t
 10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hdaf9de41c7d0f3d5E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit
+          to label %6 unwind label %.loopexit, !llvm.loop !9
 
 11:                                               ; preds = %8
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %4)
@@ -281,3 +281,7 @@ attributes #6 = { cold noreturn nounwind }
 !3 = !{!4}
 !4 = distinct !{!4, !5, !"_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17h317c918fc9a0b8e1E: argument 0"}
 !5 = distinct !{!5, !"_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17h317c918fc9a0b8e1E"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

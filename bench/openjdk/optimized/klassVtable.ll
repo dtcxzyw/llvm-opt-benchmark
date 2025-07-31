@@ -421,7 +421,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us: ; preds = %64, %63
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 120
   %70 = load ptr, ptr %69, align 8
   %.not36.us = icmp eq ptr %70, null
-  br i1 %.not36.us, label %.split58.us, label %.split.us, !llvm.loop !8
+  br i1 %.not36.us, label %.split58.us, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %39
   %71 = load ptr, ptr %1, align 8
@@ -599,7 +599,7 @@ define hidden void @_ZN11klassVtable12get_mirandasEP13GrowableArrayIP6MethodES4_
 77:                                               ; preds = %66, %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %52, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge.i, label %52, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %77, %35
   %78 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -663,7 +663,7 @@ define hidden void @_ZN11klassVtable12get_mirandasEP13GrowableArrayIP6MethodES4_
   %109 = getelementptr inbounds nuw i8, ptr %.02132.us.i, i64 120
   %110 = load ptr, ptr %109, align 8
   %.not26.us.i = icmp eq ptr %110, null
-  br i1 %.not26.us.i, label %_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb.exit, label %.lr.ph.split.us.i, !llvm.loop !11
+  br i1 %.not26.us.i, label %_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb.exit, label %.lr.ph.split.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i50, %112
   %.02132.i = phi ptr [ %114, %112 ], [ %2, %.lr.ph.i50 ]
@@ -675,7 +675,7 @@ define hidden void @_ZN11klassVtable12get_mirandasEP13GrowableArrayIP6MethodES4_
   %113 = getelementptr inbounds nuw i8, ptr %.02132.i, i64 120
   %114 = load ptr, ptr %113, align 8
   %.not26.i = icmp eq ptr %114, null
-  br i1 %.not26.i, label %_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %.not26.i, label %_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb.exit, label %.lr.ph.split.i, !llvm.loop !13
 
 _ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb.exit: ; preds = %112, %108, %104
   %115 = load ptr, ptr %81, align 8
@@ -772,7 +772,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit.i32: ; preds = %153, %149, %145
   %166 = load i32, ptr %0, align 8
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next.i45, %167
-  br i1 %168, label %.lr.ph.i43, label %.preheader16.loopexit.i46, !llvm.loop !13
+  br i1 %168, label %.lr.ph.i43, label %.preheader16.loopexit.i46, !llvm.loop !14
 
 .preheader.i36:                                   ; preds = %.lr.ph19.i40, %.preheader16.i34
   %169 = load ptr, ptr %11, align 8
@@ -787,7 +787,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit.i32: ; preds = %153, %149, %145
   %171 = load i32, ptr %12, align 4
   %172 = trunc nuw i64 %indvars.iv.next22.i42 to i32
   %173 = icmp sgt i32 %171, %172
-  br i1 %173, label %.lr.ph19.i40, label %.preheader.i36, !llvm.loop !14
+  br i1 %173, label %.lr.ph19.i40, label %.preheader.i36, !llvm.loop !15
 
 174:                                              ; preds = %.preheader.i36
   %175 = load i64, ptr %15, align 8
@@ -893,7 +893,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit.i:   ; preds = %206, %202, %198
   %219 = load i32, ptr %1, align 8
   %220 = sext i32 %219 to i64
   %221 = icmp slt i64 %indvars.iv.next.i30, %220
-  br i1 %221, label %.lr.ph.i28, label %.preheader16.loopexit.i, !llvm.loop !13
+  br i1 %221, label %.lr.ph.i28, label %.preheader16.loopexit.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %222 = load ptr, ptr %14, align 8
@@ -908,7 +908,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit.i:   ; preds = %206, %202, %198
   %224 = load i32, ptr %13, align 4
   %225 = trunc nuw i64 %indvars.iv.next22.i to i32
   %226 = icmp sgt i32 %224, %225
-  br i1 %226, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !14
+  br i1 %226, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !15
 
 227:                                              ; preds = %.preheader.i
   %228 = load i64, ptr %16, align 8
@@ -938,17 +938,17 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE6appendERKS1_.exit2
 .loopexit.i:                                      ; preds = %66, %.lr.ph.split.i, %106, %102, %86, %.critedge.i, %80, %_ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE6appendERKS1_.exit29.i, %183
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
-  br i1 %exitcond44.not.i, label %_ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArrayIP6MethodES4_P5ArrayIS2_ES7_S7_PK5Klassb.exit, label %35, !llvm.loop !15
+  br i1 %exitcond44.not.i, label %_ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArrayIP6MethodES4_P5ArrayIS2_ES7_S7_PK5Klassb.exit, label %35, !llvm.loop !16
 
 _ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArrayIP6MethodES4_P5ArrayIS2_ES7_S7_PK5Klassb.exit: ; preds = %.loopexit.i, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArrayIP6MethodES4_P5ArrayIS2_ES7_S7_PK5Klassb.exit, %17
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge59, label %17, !llvm.loop !17
+  br i1 %exitcond68.not, label %._crit_edge59, label %17, !llvm.loop !18
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %7
   ret void
@@ -1214,7 +1214,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %16, %30, %26, %2
   %43 = load i32, ptr %33, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next90, %44
-  br i1 %45, label %37, label %.loopexit, !llvm.loop !18
+  br i1 %45, label %37, label %.loopexit, !llvm.loop !19
 
 46:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %47 = icmp eq ptr %9, null
@@ -1412,7 +1412,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %133, %_ZN11klassVta
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %109, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %109, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %147
   %.pre93 = load ptr, ptr %0, align 8
@@ -1536,7 +1536,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassV
   %.4 = phi i32 [ %205, %204 ], [ %.373, %_ZN12methodHandleC2EP6ThreadP6Method.exit48 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.loopexit70.loopexit, label %162, !llvm.loop !20
+  br i1 %exitcond85.not, label %.loopexit70.loopexit, label %162, !llvm.loop !21
 
 .loopexit70.loopexit:                             ; preds = %206
   %.pre97 = load ptr, ptr %0, align 8
@@ -1586,7 +1586,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassV
   %228 = load i32, ptr %217, align 4
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next87, %229
-  br i1 %230, label %222, label %.loopexit, !llvm.loop !21
+  br i1 %230, label %222, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %222, %37, %.preheader68, %.preheader, %213, %_ZN11klassVtable21initialize_from_superEP5Klass.exit
   ret void
@@ -1914,7 +1914,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread: ; preds = %178
   %.4 = phi i8 [ %.1100, %134 ], [ %.1100, %124 ], [ %.1100, %102 ], [ %spec.select67, %_ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread ], [ %spec.select67, %177 ], [ %spec.select67, %174 ], [ %.1100, %152 ], [ %.1100, %149 ], [ %.1100, %136 ], [ %spec.select67, %178 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %102, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %102, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %187, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   %.1.lcssa = phi i8 [ %.056, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %.4, %187 ]
@@ -2038,7 +2038,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %36, %_ZN11klassVtab
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = sext i32 %52 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %36, label %._crit_edge.loopexit, !llvm.loop !23
+  br i1 %55, label %36, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit
   %56 = trunc nsw i64 %indvars.iv.next15 to i32
@@ -2145,7 +2145,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us: ; preds = %15
 28:                                               ; preds = %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us
   %29 = load ptr, ptr %9, align 8
   %.not.us = icmp eq ptr %29, null
-  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %.015 = phi ptr [ %51, %50 ], [ %1, %.lr.ph ]
@@ -2184,7 +2184,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %36
 50:                                               ; preds = %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit
   %51 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %50, %32, %36, %.lr.ph.split.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %28, %11, %15, %6
   %.1 = phi ptr [ null, %6 ], [ %.015.us, %15 ], [ null, %11 ], [ null, %28 ], [ %.015.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ %.015.us, %.lr.ph.split.us ], [ %.015, %36 ], [ null, %32 ], [ null, %50 ], [ %.015, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ %.015, %.lr.ph.split ]
@@ -2488,7 +2488,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.thread: ; preds = %16, %.critedge33, %
   %160 = load i32, ptr %7, align 4
   %161 = sext i32 %160 to i64
   %162 = icmp slt i64 %indvars.iv.next, %161
-  br i1 %162, label %16, label %.loopexit, !llvm.loop !26
+  br i1 %162, label %16, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread, %3, %159
   ret void
@@ -2649,7 +2649,7 @@ define hidden noundef range(i32 -4, 2147483647) i32 @_ZN11klassVtable16index_of_
 
 _ZN11klassVtable19is_miranda_entry_atEi.exit:     ; preds = %25, %9, %37, %48
   %55 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %55, label %9, label %._crit_edge, !llvm.loop !27
+  br i1 %55, label %9, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge.loopexit.split.loop.exit17:           ; preds = %48
   %56 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2769,7 +2769,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS
   %37 = getelementptr inbounds nuw i8, ptr %.02132.us, i64 120
   %38 = load ptr, ptr %37, align 8
   %.not26.us = icmp eq ptr %38, null
-  br i1 %.not26.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not26.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %.02132 = phi ptr [ %42, %40 ], [ %3, %.lr.ph ]
@@ -2781,7 +2781,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS
   %41 = getelementptr inbounds nuw i8, ptr %.02132, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not26 = icmp eq ptr %42, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not26, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.split, %40, %34, %36, %32, %30, %14, %5, %8
   %.0 = phi i1 [ false, %8 ], [ false, %5 ], [ false, %14 ], [ false, %30 ], [ true, %32 ], [ false, %34 ], [ true, %36 ], [ %.not27, %40 ], [ %.not27, %.lr.ph.split ]
@@ -2867,7 +2867,7 @@ define hidden void @_ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArray
 57:                                               ; preds = %32, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %32, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge, label %32, !llvm.loop !11
 
 .critedge:                                        ; preds = %57, %15
   %58 = tail call noundef zeroext i1 @_ZN11klassVtable10is_mirandaEP6MethodP5ArrayIS1_ES4_PK5Klassb(ptr noundef %17, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6)
@@ -2959,7 +2959,7 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE6appendERKS1_.exit2
 .loopexit:                                        ; preds = %46, %94, %_ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE6appendERKS1_.exit29, %.critedge
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %._crit_edge, label %15, !llvm.loop !15
+  br i1 %exitcond44.not, label %._crit_edge, label %15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   ret void
@@ -2988,7 +2988,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable21adjust_default_methodEiP6Met
 14:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !29
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
@@ -3109,7 +3109,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %31, %_ZN11klassVtab
 64:                                               ; preds = %65
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread, label %65, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread, label %65, !llvm.loop !29
 
 65:                                               ; preds = %64, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
@@ -3174,7 +3174,7 @@ _ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread: ; preds = %64,
   %97 = load i32, ptr %15, align 4
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %19, label %._crit_edge, !llvm.loop !29
+  br i1 %99, label %19, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %96, %2
   %100 = load ptr, ptr %8, align 8
@@ -3285,7 +3285,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable32check_no_old_or_obsolete_ent
 38:                                               ; preds = %25, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !31
 
 .loopexit:                                        ; preds = %38, %1, %31, %29
   %39 = phi i1 [ false, %31 ], [ false, %29 ], [ true, %1 ], [ true, %38 ]
@@ -3385,7 +3385,7 @@ define hidden void @_ZN11klassVtable11dump_vtableEv(ptr noundef nonnull readonly
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %8, label %._crit_edge, !llvm.loop !31
+  br i1 %39, label %8, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %36, %1
   ret void
@@ -3524,7 +3524,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %25, %2
   %.1.i = phi i32 [ %.015.i, %21 ], [ %26, %25 ], [ %.015.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ], [ %.015.i, %13 ], [ %.015.i, %18 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11klassItable35assign_itable_indices_for_interfaceEP13InstanceKlass.exit, label %13, !llvm.loop !32
+  br i1 %exitcond.not.i, label %_ZN11klassItable35assign_itable_indices_for_interfaceEP13InstanceKlass.exit, label %13, !llvm.loop !33
 
 _ZN11klassItable35assign_itable_indices_for_interfaceEP13InstanceKlass.exit: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i, %7, %2
   %27 = load i8, ptr @_ZN8Universe14_bootstrappingE, align 1
@@ -3584,7 +3584,7 @@ _ZN11klassItable35assign_itable_indices_for_interfaceEP13InstanceKlass.exit: ; p
   tail call void @_ZN11klassItable31initialize_itable_for_interfaceEiP13InstanceKlassP13GrowableArrayIP6MethodEi(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %55, ptr noundef %53, ptr noundef %1, i32 noundef %59)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %47, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %47, !llvm.loop !34
 
 .loopexit.loopexit:                               ; preds = %47
   %.pre = load i32, ptr %39, align 4
@@ -3670,7 +3670,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread: ; preds = %12, %7, 
   %.1 = phi i32 [ %.015, %15 ], [ %20, %19 ], [ %.015, %_Z35interface_method_needs_itable_indexP6Method.exit ], [ %.015, %7 ], [ %.015, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %_Z35interface_method_needs_itable_indexP6Method.exit.thread ]
@@ -3789,7 +3789,7 @@ _ZN17itableMethodEntry10initializeEP13InstanceKlassP6Method.exit26: ; preds = %5
 .critedge:                                        ; preds = %.critedge.sink.split, %43, %41, %13, %49, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.critedge, %_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass.exit
   ret void
@@ -4053,7 +4053,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %135, %133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = sext i32 %142 to i64
   %145 = icmp slt i64 %indvars.iv.next, %144
-  br i1 %145, label %22, label %.loopexit, !llvm.loop !35
+  br i1 %145, label %22, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %141, %3, %_ZN12ResourceMarkD2Ev.exit
   ret void
@@ -4143,7 +4143,7 @@ define hidden noundef range(i32 0, 2147483640) i32 @_ZN11klassItable26method_cou
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %14, -9
-  br i1 %15, label %16, label %6, !llvm.loop !36
+  br i1 %15, label %16, label %6, !llvm.loop !37
 
 16:                                               ; preds = %9
   %17 = sub nuw nsw i32 -9, %14
@@ -4263,7 +4263,7 @@ _ZN17itableMethodEntry10initializeEP13InstanceKlassP6Method.exit: ; preds = %34,
   %67 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %68 = load i32, ptr %15, align 8
   %69 = icmp slt i32 %66, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %65, %2
   %70 = load ptr, ptr %8, align 8
@@ -4366,7 +4366,7 @@ define hidden noundef zeroext i1 @_ZN11klassItable32check_no_old_or_obsolete_ent
   %42 = getelementptr inbounds nuw i8, ptr %.01224, i64 8
   %43 = add nuw nsw i32 %.01125, 1
   %exitcond.not = icmp eq i32 %43, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %41, %1, %34, %32
   %44 = phi i1 [ false, %34 ], [ false, %32 ], [ true, %1 ], [ true, %41 ]
@@ -4456,7 +4456,7 @@ define hidden void @_ZN11klassItable11dump_itableEv(ptr noundef nonnull readonly
   %32 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %33 = add nuw nsw i32 %.0911, 1
   %34 = icmp slt i32 %33, %31
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %30, %1
   ret void
@@ -4520,7 +4520,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %21
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %21, %16
   %26 = phi i32 [ %.124.i, %16 ], [ %.124.i, %21 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
   %27 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %27, label %16, label %28, !llvm.loop !40
+  br i1 %27, label %16, label %28, !llvm.loop !41
 
 28:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
   %29 = icmp sgt i32 %26, 0
@@ -4546,7 +4546,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   %38 = load i32, ptr %0, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next28.i, %39
-  br i1 %40, label %8, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit.loopexit, !llvm.loop !41
+  br i1 %40, label %8, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit.loopexit, !llvm.loop !42
 
 _ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit.loopexit: ; preds = %37
   %.pre = load i32, ptr %4, align 4
@@ -4628,7 +4628,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %28
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %28, %23
   %33 = phi i32 [ %.124.i, %23 ], [ %.124.i, %28 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
   %34 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %34, label %23, label %35, !llvm.loop !40
+  br i1 %34, label %23, label %35, !llvm.loop !41
 
 35:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
   %36 = icmp sgt i32 %33, 0
@@ -4654,7 +4654,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   %45 = load i32, ptr %11, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next28.i, %46
-  br i1 %47, label %15, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit, !llvm.loop !41
+  br i1 %47, label %15, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit, !llvm.loop !42
 
 _ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit: ; preds = %44
   %.pre = load i32, ptr %9, align 4
@@ -4724,7 +4724,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i23: ; preds = %74
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i23, %74, %69
   %79 = phi i32 [ %.124.i18, %69 ], [ %.124.i18, %74 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ]
   %80 = icmp samesign ugt i64 %indvars.iv.i17, 1
-  br i1 %80, label %69, label %81, !llvm.loop !40
+  br i1 %80, label %69, label %81, !llvm.loop !41
 
 81:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22
   %82 = icmp sgt i32 %79, 0
@@ -4750,7 +4750,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35
   %91 = load i32, ptr %.pre30, align 8
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next28.i14, %92
-  br i1 %93, label %61, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit27, !llvm.loop !41
+  br i1 %93, label %61, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit27, !llvm.loop !42
 
 _ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit27: ; preds = %90, %7, %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit, %1
   ret void
@@ -4856,7 +4856,7 @@ _ZN11vtableEntry6verifyEP11klassVtableP12outputStream.exit: ; preds = %42, %44, 
   %63 = load i32, ptr %19, align 4
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
+  br i1 %65, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11vtableEntry6verifyEP11klassVtableP12outputStream.exit
   %.pre = load ptr, ptr %0, align 8
@@ -4886,7 +4886,7 @@ _ZN11vtableEntry6verifyEP11klassVtableP12outputStream.exit: ; preds = %42, %44, 
 77:                                               ; preds = %_ZN11klassVtable14verify_againstEP12outputStreamPS_i.exit
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !44
 
 78:                                               ; preds = %.lr.ph22, %77
   %indvars.iv25 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next26, %77 ]
@@ -5319,7 +5319,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !44
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !45
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5335,7 +5335,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !45
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !46
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -5437,7 +5437,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #15, !srcloc !46
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #15, !srcloc !47
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -5460,7 +5460,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #15, !srcloc !46
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #15, !srcloc !47
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -5472,9 +5472,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #15, !srcloc !46
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #15, !srcloc !47
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !48
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -5504,7 +5504,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -5539,7 +5539,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -5569,7 +5569,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #15
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !48
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -5722,7 +5722,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !46
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #15, !srcloc !47
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -5730,7 +5730,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !49
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !50
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -5770,7 +5770,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #15, !srcloc !46
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #15, !srcloc !47
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -5793,7 +5793,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #15, !srcloc !46
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #15, !srcloc !47
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -5805,9 +5805,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #15, !srcloc !46
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #15, !srcloc !47
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !48
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -5942,7 +5942,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5958,7 +5958,7 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -6015,47 +6015,48 @@ attributes #16 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !9}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !9}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = !{i64 2145412694}
-!47 = distinct !{!47, !7}
-!48 = !{i64 2145392468}
-!49 = distinct !{!49, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !10}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8, !10}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = !{i64 2145412694}
+!48 = distinct !{!48, !7, !8}
+!49 = !{i64 2145392468}
+!50 = distinct !{!50, !7, !8}

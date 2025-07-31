@@ -322,7 +322,7 @@ define void @uat_update_record(ptr noundef readonly captures(none) %0, ptr nound
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.thread, label %11, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %11
   %16 = trunc nuw i64 %indvars.iv to i32
@@ -385,9 +385,9 @@ define void @uat_swap(ptr noundef readonly captures(none) %0, i32 noundef %1, i3
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %13
-  %29 = load i8, ptr %28, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %28, align 1, !range !10, !noundef !11
   %30 = getelementptr i8, ptr %27, i64 %17
-  %31 = load i8, ptr %30, align 1, !range !9, !noundef !10
+  %31 = load i8, ptr %30, align 1, !range !10, !noundef !11
   store i8 %31, ptr %28, align 1
   %32 = load ptr, ptr %25, align 8
   %33 = load ptr, ptr %32, align 8
@@ -468,7 +468,7 @@ define void @uat_remove_record_range(ptr noundef readonly captures(none) %0, i32
   tail call void %11(ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %10, %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -527,16 +527,16 @@ define void @uat_move_index(ptr noundef readonly captures(none) %0, i32 noundef 
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %15
-  %30 = load i8, ptr %29, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %29, align 1, !range !10, !noundef !11
   %31 = getelementptr i8, ptr %28, i64 %19
-  %32 = load i8, ptr %31, align 1, !range !9, !noundef !10
+  %32 = load i8, ptr %31, align 1, !range !10, !noundef !11
   store i8 %32, ptr %29, align 1
   %33 = load ptr, ptr %7, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 %19
   store i8 %30, ptr %35, align 1
   %.not = icmp eq i32 %9, %2
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %8, %3
   ret void
@@ -547,7 +547,7 @@ define ptr @uat_get_actual_filename(ptr noundef readonly captures(none) %0, i1 n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
+  %6 = load i8, ptr %5, align 8, !range !10, !noundef !11
   %7 = trunc nuw i8 %6 to i1
   %8 = tail call ptr @get_persconffile_path(ptr noundef %4, i1 noundef zeroext %7)
   br i1 %1, label %16, label %9
@@ -600,7 +600,7 @@ define noundef ptr @uat_get_table_by_name(ptr noundef %0) local_unnamed_addr #0 
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -685,7 +685,7 @@ define ptr @uat_fld_tostr(ptr noundef %0, ptr noundef readonly captures(none) %1
   %29 = load i32, ptr %3, align 4
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %32 = call ptr @g_string_free(ptr noundef %23, i32 noundef 0)
@@ -724,7 +724,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call ptr @get_persconffile_path(ptr noundef %7, i1 noundef zeroext %10)
   %.not = icmp eq ptr %11, null
@@ -820,7 +820,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !15
+  br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %44, %.lr.ph, %.thread119
   %.lcssa123 = phi ptr [ %30, %.thread119 ], [ %30, %.lr.ph ], [ %45, %44 ]
@@ -854,7 +854,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %68 = load ptr, ptr %60, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i8, ptr %69, i64 %indvars.iv155
-  %71 = load i8, ptr %70, align 1, !range !9, !noundef !10
+  %71 = load i8, ptr %70, align 1, !range !10, !noundef !11
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %97
 
@@ -899,7 +899,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next156, %101
-  br i1 %102, label %62, label %._crit_edge129, !llvm.loop !17
+  br i1 %102, label %62, label %._crit_edge129, !llvm.loop !18
 
 ._crit_edge129:                                   ; preds = %97, %._crit_edge
   %103 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %.0101122, i32 noundef 2, ptr noundef nonnull @.str.7)
@@ -935,7 +935,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %123 = load i32, ptr %107, align 8
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next159, %124
-  br i1 %125, label %110, label %._crit_edge133, !llvm.loop !18
+  br i1 %125, label %110, label %._crit_edge133, !llvm.loop !19
 
 ._crit_edge133:                                   ; preds = %110, %._crit_edge129
   %126 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %.0101122, i32 noundef 2, ptr noundef nonnull @.str.14)
@@ -982,7 +982,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %148 = load i32, ptr %107, align 8
   %149 = zext i32 %148 to i64
   %150 = icmp samesign ult i64 %indvars.iv.next162, %149
-  br i1 %150, label %136, label %.preheader, !llvm.loop !19
+  br i1 %150, label %136, label %.preheader, !llvm.loop !20
 
 .lr.ph143.split:                                  ; preds = %.lr.ph143, %._crit_edge141
   %151 = phi ptr [ %210, %._crit_edge141 ], [ %129, %.lr.ph143 ]
@@ -1068,7 +1068,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %186 = load i32, ptr %3, align 4
   %187 = zext i32 %186 to i64
   %188 = icmp samesign ult i64 %indvars.iv.next32.i, %187
-  br i1 %188, label %.lr.ph27.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %188, label %.lr.ph27.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %185, %168
   %189 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %.0101122)
@@ -1085,7 +1085,7 @@ define noundef zeroext i1 @uat_save(ptr noundef captures(none) %0, ptr noundef w
   %195 = load i32, ptr %3, align 4
   %196 = zext i32 %195 to i64
   %197 = icmp samesign ult i64 %indvars.iv.next.i, %196
-  br i1 %197, label %.lr.ph.i, label %putfld.exit, !llvm.loop !21
+  br i1 %197, label %.lr.ph.i, label %putfld.exit, !llvm.loop !22
 
 198:                                              ; preds = %.lr.ph140
   %199 = load ptr, ptr %4, align 8
@@ -1111,7 +1111,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   %207 = load i32, ptr %107, align 8
   %208 = zext i32 %207 to i64
   %209 = icmp samesign ult i64 %indvars.iv.next165, %208
-  br i1 %209, label %.lr.ph140, label %._crit_edge141.loopexit, !llvm.loop !22
+  br i1 %209, label %.lr.ph140, label %._crit_edge141.loopexit, !llvm.loop !23
 
 ._crit_edge141.loopexit:                          ; preds = %putfld.exit
   %.pre171 = load ptr, ptr %29, align 8
@@ -1125,7 +1125,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   %213 = load i32, ptr %212, align 8
   %214 = zext i32 %213 to i64
   %215 = icmp samesign ult i64 %indvars.iv.next168, %214
-  br i1 %215, label %.lr.ph143.split, label %._crit_edge144, !llvm.loop !23
+  br i1 %215, label %.lr.ph143.split, label %._crit_edge144, !llvm.loop !24
 
 ._crit_edge144:                                   ; preds = %._crit_edge141, %._crit_edge133, %.lr.ph143, %.preheader
   %216 = call i32 @fclose(ptr noundef nonnull %.0101122)
@@ -1181,7 +1181,7 @@ define hidden noundef ptr @uat_find(ptr noundef readonly captures(none) %0) loca
 6:                                                ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !24
+  br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !25
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -1265,7 +1265,7 @@ define void @uat_clear(ptr noundef readonly captures(none) %0) local_unnamed_add
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !25
+  br i1 %30, label %.lr.ph.splitthread-pre-split, label %.preheader, !llvm.loop !26
 
 .lr.ph30.splitthread-pre-split:                   ; preds = %38
   %.pr41 = load ptr, ptr %14, align 8
@@ -1294,7 +1294,7 @@ define void @uat_clear(ptr noundef readonly captures(none) %0) local_unnamed_add
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next38, %42
-  br i1 %43, label %.lr.ph30.splitthread-pre-split, label %._crit_edge, !llvm.loop !26
+  br i1 %43, label %.lr.ph30.splitthread-pre-split, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %38, %.lr.ph30, %.preheader
   %.lcssa = phi ptr [ %11, %.preheader ], [ %11, %.lr.ph30 ], [ %39, %38 ]
@@ -1338,7 +1338,7 @@ define hidden void @uat_unload_all() local_unnamed_addr #0 {
   %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %13
 
@@ -1356,7 +1356,7 @@ define hidden void @uat_unload_all() local_unnamed_addr #0 {
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %13, %0
   ret void
@@ -1383,7 +1383,7 @@ define hidden void @uat_cleanup() local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = icmp samesign ult i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.lcssa = phi ptr [ %1, %0 ], [ %8, %.lr.ph ]
@@ -1431,7 +1431,7 @@ define internal fastcc void @free_uat(ptr noundef %0) unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @g_free(ptr noundef %0)
@@ -1473,7 +1473,7 @@ define void @uat_foreach_table(ptr noundef readonly captures(none) %0, ptr nound
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1496,7 +1496,7 @@ define hidden void @uat_load_all() local_unnamed_addr #0 {
   %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %18, label %12
 
@@ -1520,7 +1520,7 @@ define hidden void @uat_load_all() local_unnamed_addr #0 {
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %18, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
@@ -1566,7 +1566,7 @@ define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %20, label %12, !llvm.loop !32
+  br i1 %exitcond.not, label %20, label %12, !llvm.loop !33
 
 12:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
@@ -2043,7 +2043,7 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr noundef readnone captures(none) 
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
   %15 = load ptr, ptr %14, align 8
   %.not.not = icmp eq ptr %15, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %6, %11
   %16 = phi ptr [ %15, %11 ], [ %10, %6 ]
@@ -2175,7 +2175,7 @@ define hidden noalias ptr @uat_unbinstring(ptr noundef readonly captures(none) %
   store i8 %20, ptr %23, align 1
   %24 = add i32 %.01722, -2
   %.not20 = icmp eq i32 %24, 0
-  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %3
   %.0 = phi ptr [ null, %3 ], [ %9, %11 ], [ %9, %.lr.ph ]
@@ -2361,7 +2361,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, 
   %.2 = getelementptr i8, ptr %.079, i64 1
   %79 = getelementptr i8, ptr %.3, i64 1
   %80 = icmp ult ptr %79, %8
-  br i1 %80, label %11, label %._crit_edge, !llvm.loop !35
+  br i1 %80, label %11, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %78, %3
   %.062.lcssa = phi i32 [ 0, %3 ], [ %.163, %78 ]
@@ -2436,7 +2436,7 @@ define hidden ptr @uat_esc(ptr noundef readonly captures(address) %0, i32 nounde
   %.1 = phi ptr [ %24, %19 ], [ %27, %25 ]
   %30 = getelementptr i8, ptr %.01719, i64 1
   %exitcond.not = icmp eq ptr %30, %4
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %28, %2
   ret ptr %8
@@ -2475,7 +2475,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isprint(ptr noundef readnone captures
 .critedge:                                        ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %20 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %.critedge ]
@@ -2514,7 +2514,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isalpha(ptr noundef readnone captures
 .critedge:                                        ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %20 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %.critedge ]
@@ -2553,7 +2553,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isalnum(ptr noundef readnone captures
 .critedge:                                        ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %20 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %.critedge ]
@@ -2592,7 +2592,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isdigit(ptr noundef readnone captures
 .critedge:                                        ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %20 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %.critedge ]
@@ -2631,7 +2631,7 @@ define noundef zeroext i1 @uat_fld_chk_str_isxdigit(ptr noundef readnone capture
 .critedge:                                        ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge, %6, %16
   %20 = phi i1 [ false, %16 ], [ true, %6 ], [ true, %.critedge ]
@@ -2700,39 +2700,40 @@ attributes #20 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7, !16}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7, !16}
-!26 = distinct !{!26, !7, !16}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8, !17}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8, !17}
+!27 = distinct !{!27, !7, !8, !17}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}

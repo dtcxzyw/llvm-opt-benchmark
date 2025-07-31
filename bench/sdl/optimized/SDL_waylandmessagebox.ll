@@ -344,7 +344,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next132, %138
-  br i1 %139, label %124, label %.loopexit, !llvm.loop !5
+  br i1 %139, label %124, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %136, %120, %132
   call void @SDL_free_REAL(ptr noundef nonnull %116) #4
@@ -412,6 +412,7 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

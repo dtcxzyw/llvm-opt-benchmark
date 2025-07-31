@@ -510,7 +510,7 @@ Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %
   store ptr %.1.i65.sink, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %91, label %17, !llvm.loop !5
+  br i1 %exitcond.not, label %91, label %17, !llvm.loop !6
 
 91:                                               ; preds = %Wayland_CreateSystemCursor.exit
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -910,7 +910,7 @@ Wayland_SeatSetCursor.exit:                       ; preds = %31, %20, %17, %18
   %40 = getelementptr inbounds nuw i8, ptr %.pn19, i64 8
   %.pn = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.pn, %6
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %Wayland_SeatSetCursor.exit, %1
   ret i1 true
@@ -977,11 +977,11 @@ define internal void @Wayland_FreeCursor(ptr noundef %0) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %.pn37.i, i64 8
   %.pn.i = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %.pn.i, %9
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %28, %5
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %31 = load i8, ptr %30, align 8, !range !8, !noundef !9
+  %31 = load i8, ptr %30, align 8, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
@@ -1005,7 +1005,7 @@ define internal void @Wayland_FreeCursor(ptr noundef %0) #0 {
   tail call void @Wayland_ReleaseSHMBuffer(ptr noundef nonnull %.024.i) #6
   tail call void @SDL_free_REAL(ptr noundef nonnull %.024.i) #6
   %.not30.i = icmp eq ptr %.pn29.i, %36
-  br i1 %.not30.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !10
+  br i1 %.not30.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !11
 
 ._crit_edge42.i:                                  ; preds = %.lr.ph41.i, %35
   %39 = load ptr, ptr %4, align 8
@@ -1057,7 +1057,7 @@ define internal zeroext i1 @Wayland_WarpMouseRelative(ptr noundef readonly captu
   %19 = getelementptr inbounds nuw i8, ptr %.pn21, i64 8
   %.pn = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %.pn, %12
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 20:                                               ; preds = %3
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #6
@@ -1147,7 +1147,7 @@ SDL_PointInRectFloat.exit.thread:                 ; preds = %.thread, %40
   %44 = getelementptr inbounds nuw i8, ptr %.pn44, i64 8
   %.pn = load ptr, ptr %44, align 8
   %.not25 = icmp eq ptr %.pn, %11
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 45:                                               ; preds = %2
   %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #6
@@ -1240,7 +1240,7 @@ define internal i32 @Wayland_GetGlobalMouseState(ptr noundef writeonly captures(
   %32 = getelementptr inbounds nuw i8, ptr %.pn22, i64 8
   %.pn = load ptr, ptr %32, align 8
   %.not18 = icmp eq ptr %.pn, %27
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.016.lcssa = phi i32 [ 0, %8 ], [ %31, %.lr.ph ]
@@ -1282,7 +1282,7 @@ define hidden void @Wayland_FiniMouse(ptr noundef captures(none) %0) local_unnam
   %11 = load i32, ptr %2, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %13, label %6, label %Wayland_FreeCursorThemes.exit, !llvm.loop !14
+  br i1 %13, label %6, label %Wayland_FreeCursorThemes.exit, !llvm.loop !15
 
 Wayland_FreeCursorThemes.exit:                    ; preds = %6, %1
   store i32 0, ptr %2, align 8
@@ -1306,7 +1306,7 @@ Wayland_FreeCursorThemes.exit:                    ; preds = %6, %1
   store ptr null, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !15
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1339,7 +1339,7 @@ define internal fastcc void @Wayland_FreeCursorThemes(ptr noundef captures(none)
   %13 = load i32, ptr %2, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %8, label %._crit_edge, !llvm.loop !14
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1352,7 +1352,7 @@ define hidden void @Wayland_SeatUpdateCursor(ptr noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 288
-  %7 = load i8, ptr %6, align 8, !range !8, !noundef !9
+  %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %46
 
@@ -1364,7 +1364,7 @@ define hidden void @Wayland_SeatUpdateCursor(ptr noundef %0) local_unnamed_addr 
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 187
-  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %26, label %.thread
 
@@ -1513,7 +1513,7 @@ define internal fastcc void @Wayland_SeatSetCursor(ptr noundef %0, ptr noundef r
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
+  %27 = load i8, ptr %26, align 8, !range !9, !noundef !10
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %255
 
@@ -1638,7 +1638,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 96:                                               ; preds = %97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.i, label %97, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.thread.i, label %97, !llvm.loop !17
 
 97:                                               ; preds = %96, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %96 ]
@@ -1803,7 +1803,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %188 = load i32, ptr %.297129.i, align 8
   %189 = zext i32 %188 to i64
   %190 = icmp samesign ult i64 %indvars.iv.next148.i, %189
-  br i1 %190, label %166, label %._crit_edge.i, !llvm.loop !17
+  br i1 %190, label %166, label %._crit_edge.i, !llvm.loop !18
 
 191:                                              ; preds = %._crit_edge.i
   %192 = getelementptr inbounds nuw i8, ptr %68, i64 160
@@ -1829,7 +1829,7 @@ thread-pre-split.i:                               ; preds = %191
 198:                                              ; preds = %.lr.ph138.i
   %199 = add nsw i32 %.3, -1
   %200 = icmp sgt i32 %.3, 2
-  br i1 %200, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !18
+  br i1 %200, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !19
 
 ._crit_edge139.i:                                 ; preds = %198, %.lr.ph138.i, %thread-pre-split.i
   %.2101 = phi i32 [ %161, %thread-pre-split.i ], [ %195, %198 ], [ %.3, %.lr.ph138.i ]
@@ -2129,7 +2129,7 @@ define internal fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %0, doub
   %12 = getelementptr inbounds nuw i8, ptr %.pn49, i64 8
   %.pn = load ptr, ptr %12, align 8
   %.not40 = icmp eq ptr %.pn, %4
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %11, %6, %2
   %13 = tail call noalias dereferenceable_or_null(48) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 48) #7
@@ -2440,20 +2440,21 @@ attributes #8 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}

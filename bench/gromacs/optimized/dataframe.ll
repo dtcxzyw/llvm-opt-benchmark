@@ -221,16 +221,16 @@ define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKSt
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   store ptr %13, ptr %7, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %3, align 8, !tbaa !36
-  store ptr %15, ptr %14, align 8, !tbaa !39
+  %15 = load ptr, ptr %3, align 8, !tbaa !37
+  store ptr %15, ptr %14, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
-  store ptr %22, ptr %16, align 8, !tbaa !39
+  store ptr %22, ptr %16, align 8, !tbaa !40
   ret void
 }
 
@@ -274,7 +274,7 @@ define noundef zeroext i1 @_ZNK3gmx20AnalysisDataFrameRef10allPresentEv(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 16
   %.not = icmp ne ptr %7, %.sroa.0.0.copyload.i4
   %or.cond.not = select i1 %.not6.not, i1 %.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.not.lcssa = phi i1 [ true, %1 ], [ %.not6.not, %.lr.ph ]
@@ -327,12 +327,13 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !31 = !{!32, !33, i64 0}
 !32 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !33, i64 0}
 !33 = !{!"long", !7, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"_ZTSNSt12_Vector_baseIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
-!38 = !{!"p1 _ZTSN3gmx24AnalysisDataPointSetInfoE", !22, i64 0}
-!39 = !{!40, !38, i64 0}
-!40 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_24AnalysisDataPointSetInfoEEE", !38, i64 0}
-!41 = !{!37, !38, i64 8}
-!42 = distinct !{!42, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTSNSt12_Vector_baseIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!39 = !{!"p1 _ZTSN3gmx24AnalysisDataPointSetInfoE", !22, i64 0}
+!40 = !{!41, !39, i64 0}
+!41 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_24AnalysisDataPointSetInfoEEE", !39, i64 0}
+!42 = !{!38, !39, i64 8}
+!43 = distinct !{!43, !35, !36}

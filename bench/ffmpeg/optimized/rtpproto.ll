@@ -454,8 +454,8 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   %153 = load ptr, ptr %142, align 8, !tbaa !38
   %154 = load i32, ptr %5, align 4, !tbaa !15
   call fastcc void @build_udp_url(ptr noundef nonnull %13, ptr noundef %9, ptr noundef %6, ptr noundef %153, i32 noundef %154, i32 noundef %152, ptr noundef %.0114, ptr noundef %.0118)
-  %155 = load ptr, ptr %146, align 8, !tbaa !44
-  %156 = load ptr, ptr %147, align 8, !tbaa !45
+  %155 = load ptr, ptr %146, align 8, !tbaa !45
+  %156 = load ptr, ptr %147, align 8, !tbaa !46
   %157 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %144, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull %145, ptr noundef null, ptr noundef %155, ptr noundef %156, ptr noundef nonnull %0) #12
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %.loopexit148, label %159
@@ -478,8 +478,8 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   %168 = load ptr, ptr %142, align 8, !tbaa !38
   %169 = load i32, ptr %14, align 8, !tbaa !26
   call fastcc void @build_udp_url(ptr noundef nonnull %13, ptr noundef %9, ptr noundef %6, ptr noundef %168, i32 noundef %169, i32 noundef %167, ptr noundef %.0114, ptr noundef %.0118)
-  %170 = load ptr, ptr %146, align 8, !tbaa !44
-  %171 = load ptr, ptr %147, align 8, !tbaa !45
+  %170 = load ptr, ptr %146, align 8, !tbaa !45
+  %171 = load ptr, ptr %147, align 8, !tbaa !46
   %172 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %150, ptr noundef nonnull %9, i32 noundef %148, ptr noundef nonnull %145, ptr noundef null, ptr noundef %170, ptr noundef %171, ptr noundef nonnull %0) #12
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %174, label %.loopexit
@@ -492,8 +492,8 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   %176 = load ptr, ptr %142, align 8, !tbaa !38
   %177 = load i32, ptr %14, align 8, !tbaa !26
   call fastcc void @build_udp_url(ptr noundef nonnull %13, ptr noundef %9, ptr noundef %6, ptr noundef %176, i32 noundef %177, i32 noundef %164, ptr noundef %.0114, ptr noundef %.0118)
-  %178 = load ptr, ptr %146, align 8, !tbaa !44
-  %179 = load ptr, ptr %147, align 8, !tbaa !45
+  %178 = load ptr, ptr %146, align 8, !tbaa !45
+  %179 = load ptr, ptr %147, align 8, !tbaa !46
   %180 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %150, ptr noundef nonnull %9, i32 noundef %148, ptr noundef nonnull %145, ptr noundef null, ptr noundef %178, ptr noundef %179, ptr noundef nonnull %0) #12
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %.loopexit148, label %.loopexit
@@ -502,19 +502,19 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   store i32 -1, ptr %143, align 4, !tbaa !29
   %183 = add nuw nsw i32 %.0115158, 1
   %exitcond.not = icmp eq i32 %183, 3
-  br i1 %exitcond.not, label %.loopexit, label %151, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %151, !llvm.loop !47
 
 .loopexit:                                        ; preds = %166, %182, %175
   %184 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr null, ptr %184, align 8, !tbaa !47
+  store ptr null, ptr %184, align 8, !tbaa !48
   %.not147 = icmp eq ptr %.1117, null
   br i1 %.not147, label %192, label %185
 
 185:                                              ; preds = %.loopexit
   %186 = load i32, ptr %5, align 4, !tbaa !15
   %187 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %.1117, ptr noundef null, ptr noundef nonnull %6, i32 noundef %186, ptr noundef null) #12
-  %188 = load ptr, ptr %146, align 8, !tbaa !44
-  %189 = load ptr, ptr %147, align 8, !tbaa !45
+  %188 = load ptr, ptr %146, align 8, !tbaa !45
+  %189 = load ptr, ptr %147, align 8, !tbaa !46
   %190 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %184, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull %145, ptr noundef nonnull %4, ptr noundef %188, ptr noundef %189, ptr noundef nonnull %0) #12
   %191 = icmp slt i32 %190, 0
   br i1 %191, label %.loopexit148, label %192
@@ -523,18 +523,18 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   %193 = load ptr, ptr %144, align 8, !tbaa !16
   %194 = call i32 @ffurl_get_file_handle(ptr noundef %193) #12
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 %194, ptr %195, align 8, !tbaa !48
+  store i32 %194, ptr %195, align 8, !tbaa !49
   %196 = load ptr, ptr %150, align 8, !tbaa !23
   %197 = call i32 @ffurl_get_file_handle(ptr noundef %196) #12
   %198 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 %197, ptr %198, align 4, !tbaa !49
+  store i32 %197, ptr %198, align 4, !tbaa !50
   %199 = load ptr, ptr %144, align 8, !tbaa !16
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 36
-  %201 = load i32, ptr %200, align 4, !tbaa !50
+  %201 = load i32, ptr %200, align 4, !tbaa !51
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %201, ptr %202, align 4, !tbaa !50
+  store i32 %201, ptr %202, align 4, !tbaa !51
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %203, align 8, !tbaa !51
+  store i32 1, ptr %203, align 8, !tbaa !52
   br label %211
 
 .loopexit148:                                     ; preds = %151, %185, %175, %106, %133, %123, %120
@@ -574,37 +574,37 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !48
-  store i32 %10, ptr %4, align 16, !tbaa !52
+  %10 = load i32, ptr %9, align 8, !tbaa !49
+  store i32 %10, ptr %4, align 16, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 1, ptr %11, align 4, !tbaa !54
+  store i16 1, ptr %11, align 4, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i16 0, ptr %12, align 2, !tbaa !55
+  store i16 0, ptr %12, align 2, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !49
-  store i32 %15, ptr %13, align 8, !tbaa !52
+  %15 = load i32, ptr %14, align 4, !tbaa !50
+  store i32 %15, ptr %13, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i16 1, ptr %16, align 4, !tbaa !54
+  store i16 1, ptr %16, align 4, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i16 0, ptr %17, align 2, !tbaa !55
+  store i16 0, ptr %17, align 2, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !56
+  %19 = load i32, ptr %18, align 8, !tbaa !57
   %20 = and i32 %19, 8
   %.not = icmp eq i32 %20, 0
   %21 = select i1 %.not, i32 100, i32 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %22, ptr %5, align 16, !tbaa !57
+  store ptr %22, ptr %5, align 16, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  store ptr %24, ptr %23, align 8, !tbaa !57
+  store ptr %24, ptr %23, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 328
-  store ptr %25, ptr %6, align 16, !tbaa !58
+  store ptr %25, ptr %6, align 16, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 332
-  store ptr %27, ptr %26, align 8, !tbaa !58
+  store ptr %27, ptr %26, align 8, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i64, ptr %28, align 8, !tbaa !39
   %30 = sdiv i64 %29, 100000
@@ -632,18 +632,18 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 1, %37 ]
   %40 = getelementptr inbounds nuw [2 x %struct.pollfd], ptr %4, i64 0, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
-  %42 = load i16, ptr %41, align 2, !tbaa !55
+  %42 = load i16, ptr %41, align 2, !tbaa !56
   %43 = and i16 %42, 1
   %.not38 = icmp eq i16 %43, 0
   br i1 %.not38, label %58, label %44
 
 44:                                               ; preds = %.preheader
   %45 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  %46 = load ptr, ptr %45, align 8, !tbaa !58
+  %46 = load ptr, ptr %45, align 8, !tbaa !59
   store i32 128, ptr %46, align 4, !tbaa !15
-  %47 = load i32, ptr %40, align 8, !tbaa !52
+  %47 = load i32, ptr %40, align 8, !tbaa !53
   %48 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8, !tbaa !57
+  %49 = load ptr, ptr %48, align 8, !tbaa !58
   %50 = call i64 @recvfrom(i32 noundef %47, ptr noundef %1, i64 noundef %33, i32 noundef 0, ptr noundef %49, ptr noundef nonnull %46) #12
   %51 = trunc i64 %50 to i32
   %52 = icmp slt i32 %51, 0
@@ -665,7 +665,7 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
 58:                                               ; preds = %53, %53, %56, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not51 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not51, label %.thread, label %.preheader, !llvm.loop !60
+  br i1 %.not51, label %.thread, label %.preheader, !llvm.loop !61
 
 59:                                               ; preds = %37
   %60 = icmp eq i32 %38, 0
@@ -685,14 +685,14 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   %68 = tail call ptr @__errno_location() #14
   %69 = load i32, ptr %68, align 4, !tbaa !15
   %70 = icmp eq i32 %69, 4
-  br i1 %70, label %35, label %.loopexit
+  br i1 %70, label %35, label %.loopexit, !llvm.loop !62
 
 .thread:                                          ; preds = %58, %61, %64
   %.1 = phi i32 [ %.0.ph, %61 ], [ %65, %64 ], [ %.0.ph, %58 ]
-  %71 = load i32, ptr %18, align 8, !tbaa !56
+  %71 = load i32, ptr %18, align 8, !tbaa !57
   %72 = and i32 %71, 8
   %.not37 = icmp eq i32 %72, 0
-  br i1 %.not37, label %.outer, label %.loopexit
+  br i1 %.not37, label %.outer, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.thread, %64, %67, %35, %56, %53
   %.030 = phi i32 [ %51, %56 ], [ -5, %53 ], [ -1414092869, %35 ], [ -5, %67 ], [ -110, %64 ], [ -11, %.thread ]
@@ -730,13 +730,13 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %17 = load i16, ptr %16, align 8, !tbaa !61
+  %17 = load i16, ptr %16, align 8, !tbaa !63
   %.not88 = icmp eq i16 %17, 0
   br i1 %.not88, label %18, label %22
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %20 = load i16, ptr %19, align 8, !tbaa !62
+  %20 = load i16, ptr %19, align 8, !tbaa !64
   %.not89 = icmp eq i16 %20, 0
   br i1 %.not89, label %21, label %22
 
@@ -761,7 +761,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 332
   %.068 = load i32, ptr %29, align 4, !tbaa !15
-  %32 = load i16, ptr %30, align 8, !tbaa !63
+  %32 = load i16, ptr %30, align 8, !tbaa !65
   %.not90 = icmp eq i16 %32, 0
   br i1 %.not90, label %.thread118.thread, label %46
 
@@ -770,7 +770,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 332
   %.068127 = load i32, ptr %33, align 4, !tbaa !15
-  %36 = load i16, ptr %34, align 8, !tbaa !63
+  %36 = load i16, ptr %34, align 8, !tbaa !65
   %.not90128 = icmp eq i16 %36, 0
   br i1 %.not90128, label %.thread118.thread, label %46
 
@@ -782,11 +782,11 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 .thread118.thread:                                ; preds = %.thread126, %28
   %.068117121 = phi i32 [ %.068, %28 ], [ %.068127, %.thread126 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 128, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 128, i1 false), !tbaa.struct !66
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 328
-  %40 = load i32, ptr %39, align 8, !tbaa !67
+  %40 = load i32, ptr %39, align 8, !tbaa !69
   store i32 %40, ptr %5, align 4, !tbaa !15
-  %.val = load i16, ptr %4, align 8, !tbaa !63
+  %.val = load i16, ptr %4, align 8, !tbaa !65
   switch i16 %.val, label %.sink.split [
     i16 2, label %.sink.split.sink.split
     i16 10, label %.sink.split.sink.split
@@ -794,11 +794,11 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 .thread118:                                       ; preds = %.thread
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %41, i64 128, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %41, i64 128, i1 false), !tbaa.struct !66
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 332
-  %43 = load i32, ptr %42, align 4, !tbaa !68
+  %43 = load i32, ptr %42, align 4, !tbaa !70
   store i32 %43, ptr %5, align 4, !tbaa !15
-  %.val100 = load i16, ptr %4, align 8, !tbaa !63
+  %.val100 = load i16, ptr %4, align 8, !tbaa !65
   switch i16 %.val100, label %.sink.split [
     i16 2, label %.sink.split.sink.split
     i16 10, label %.sink.split.sink.split
@@ -813,7 +813,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %rev.i.i106 = tail call noundef i16 @llvm.bswap.i16(i16 %.val101)
   %45 = add i16 %rev.i.i106, %.sink136
   %rev.i5.i109 = tail call noundef i16 @llvm.bswap.i16(i16 %45)
-  store i16 %rev.i5.i109, ptr %44, align 2, !tbaa !65
+  store i16 %rev.i5.i109, ptr %44, align 2, !tbaa !67
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread118, %.thread118.thread
@@ -827,7 +827,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %.167 = phi ptr [ %30, %28 ], [ %16, %.thread ], [ %34, %.thread126 ], [ %4, %.sink.split ]
   %.1 = phi ptr [ %31, %28 ], [ %38, %.thread ], [ %35, %.thread126 ], [ %5, %.sink.split ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !56
+  %48 = load i32, ptr %47, align 8, !tbaa !57
   %49 = and i32 %48, 8
   %.not91 = icmp eq i32 %49, 0
   br i1 %.not91, label %50, label %53
@@ -867,14 +867,14 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %or.cond132 = or i1 %or.cond95, %or.cond96
   %.069.in.v = select i1 %or.cond132, i64 16, i64 8
   %.069.in = getelementptr inbounds nuw i8, ptr %7, i64 %.069.in.v
-  %.069 = load ptr, ptr %.069.in, align 8, !tbaa !69
+  %.069 = load ptr, ptr %.069.in, align 8, !tbaa !71
   %69 = tail call i32 @ffurl_write2(ptr noundef %.069, ptr noundef nonnull %1, i32 noundef range(i32 2, -2147483648) %2) #12
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %82, label %71
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !47
+  %73 = load ptr, ptr %72, align 8, !tbaa !48
   %.not87 = icmp eq ptr %73, null
   br i1 %.not87, label %82, label %74
 
@@ -921,7 +921,7 @@ define internal i32 @rtp_get_file_handle(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !48
+  %5 = load i32, ptr %4, align 8, !tbaa !49
   ret i32 %5
 }
 
@@ -930,16 +930,16 @@ define internal range(i32 -12, 1) i32 @rtp_get_multi_file_handle(ptr noundef rea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call noalias ptr @av_malloc(i64 noundef 8) #12
-  store ptr %6, ptr %1, align 8, !tbaa !58
+  store ptr %6, ptr %1, align 8, !tbaa !59
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !48
+  %9 = load i32, ptr %8, align 8, !tbaa !49
   store i32 %9, ptr %6, align 4, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !49
+  %11 = load i32, ptr %10, align 4, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %11, ptr %12, align 4, !tbaa !15
   store i32 2, ptr %2, align 4, !tbaa !15
@@ -999,7 +999,7 @@ define internal fastcc void @build_udp_url(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %19 = load i32, ptr %18, align 4, !tbaa !70
+  %19 = load i32, ptr %18, align 4, !tbaa !72
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %21, label %22
 
@@ -1210,32 +1210,34 @@ attributes #14 = { nounwind willreturn memory(none) }
 !39 = !{!5, !14, i64 64}
 !40 = !{!17, !11, i64 384}
 !41 = !{!8, !8, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!5, !11, i64 72}
-!45 = !{!5, !11, i64 80}
-!46 = distinct !{!46, !43}
-!47 = !{!17, !18, i64 24}
-!48 = !{!17, !12, i64 32}
-!49 = !{!17, !12, i64 36}
-!50 = !{!5, !12, i64 36}
-!51 = !{!5, !12, i64 40}
-!52 = !{!53, !12, i64 0}
-!53 = !{!"pollfd", !12, i64 0, !22, i64 4, !22, i64 6}
-!54 = !{!53, !22, i64 4}
-!55 = !{!53, !22, i64 6}
-!56 = !{!5, !12, i64 32}
-!57 = !{!20, !20, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 int", !7, i64 0}
-!60 = distinct !{!60, !43}
-!61 = !{!17, !22, i64 72}
-!62 = !{!17, !22, i64 200}
-!63 = !{!21, !22, i64 0}
-!64 = !{i64 0, i64 2, !65, i64 2, i64 118, !41, i64 120, i64 8, !66}
-!65 = !{!22, !22, i64 0}
-!66 = !{!14, !14, i64 0}
-!67 = !{!17, !12, i64 328}
-!68 = !{!17, !12, i64 332}
-!69 = !{!18, !18, i64 0}
-!70 = !{!17, !12, i64 340}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!5, !11, i64 72}
+!46 = !{!5, !11, i64 80}
+!47 = distinct !{!47, !43, !44}
+!48 = !{!17, !18, i64 24}
+!49 = !{!17, !12, i64 32}
+!50 = !{!17, !12, i64 36}
+!51 = !{!5, !12, i64 36}
+!52 = !{!5, !12, i64 40}
+!53 = !{!54, !12, i64 0}
+!54 = !{!"pollfd", !12, i64 0, !22, i64 4, !22, i64 6}
+!55 = !{!54, !22, i64 4}
+!56 = !{!54, !22, i64 6}
+!57 = !{!5, !12, i64 32}
+!58 = !{!20, !20, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 int", !7, i64 0}
+!61 = distinct !{!61, !43, !44}
+!62 = distinct !{!62, !44}
+!63 = !{!17, !22, i64 72}
+!64 = !{!17, !22, i64 200}
+!65 = !{!21, !22, i64 0}
+!66 = !{i64 0, i64 2, !67, i64 2, i64 118, !41, i64 120, i64 8, !68}
+!67 = !{!22, !22, i64 0}
+!68 = !{!14, !14, i64 0}
+!69 = !{!17, !12, i64 328}
+!70 = !{!17, !12, i64 332}
+!71 = !{!18, !18, i64 0}
+!72 = !{!17, !12, i64 340}

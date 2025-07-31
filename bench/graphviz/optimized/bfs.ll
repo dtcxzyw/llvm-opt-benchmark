@@ -76,13 +76,13 @@ mkQueue.exit:                                     ; preds = %17
   %33 = getelementptr inbounds i32, ptr %3, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = getelementptr inbounds %struct.vtx_data, ptr %1, i64 %32
-  %36 = load i64, ptr %35, align 8, !tbaa !17
+  %36 = load i64, ptr %35, align 8, !tbaa !18
   %37 = icmp ugt i64 %36, 1
   br i1 %37, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !18
+  %39 = load ptr, ptr %38, align 8, !tbaa !19
   %40 = add nsw i32 %34, 1
   br label %41
 
@@ -113,13 +113,13 @@ enQueue.exit:                                     ; preds = %49, %48, %41
   %.sroa.12.2 = phi i32 [ %.sroa.12.187, %41 ], [ %50, %49 ], [ %.sroa.12.187, %48 ]
   %53 = add nuw i64 %.04488, 1
   %exitcond101.not = icmp eq i64 %53, %36
-  br i1 %exitcond101.not, label %.loopexit, label %41, !llvm.loop !19
+  br i1 %exitcond101.not, label %.loopexit, label %41, !llvm.loop !20
 
 .loopexit77:                                      ; preds = %enQueue.exit52, %.preheader78
   %.sroa.12.4.lcssa = phi i32 [ %.sroa.12.385, %.preheader78 ], [ %.sroa.12.5, %enQueue.exit52 ]
   %54 = sext i32 %.sroa.12.4.lcssa to i64
   %.not.i49 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %.not.i49, label %.preheader78, label %deQueue.exit, !llvm.loop !20
+  br i1 %.not.i49, label %.preheader78, label %deQueue.exit, !llvm.loop !21
 
 .preheader78:                                     ; preds = %mkQueue.exit, %.loopexit77
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit77 ], [ 0, %mkQueue.exit ]
@@ -131,13 +131,13 @@ enQueue.exit:                                     ; preds = %49, %48, %41
   %58 = getelementptr inbounds i32, ptr %3, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = getelementptr inbounds %struct.vtx_data, ptr %1, i64 %57
-  %61 = load i64, ptr %60, align 8, !tbaa !17
+  %61 = load i64, ptr %60, align 8, !tbaa !18
   %62 = icmp ugt i64 %61, 1
   br i1 %62, label %.lr.ph84, label %.loopexit77
 
 .lr.ph84:                                         ; preds = %.preheader78
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !18
+  %64 = load ptr, ptr %63, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
   br label %66
 
@@ -155,7 +155,7 @@ enQueue.exit:                                     ; preds = %49, %48, %41
 73:                                               ; preds = %66
   %74 = load ptr, ptr %65, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw float, ptr %74, i64 %.04382
-  %76 = load float, ptr %75, align 4, !tbaa !21
+  %76 = load float, ptr %75, align 4, !tbaa !22
   %77 = fptosi float %76 to i32
   %78 = add nsw i32 %59, %77
   store i32 %78, ptr %70, align 4, !tbaa !3
@@ -173,7 +173,7 @@ enQueue.exit52:                                   ; preds = %79, %73, %66
   %.sroa.12.5 = phi i32 [ %.sroa.12.481, %66 ], [ %80, %79 ], [ %.sroa.12.481, %73 ]
   %83 = add nuw i64 %.04382, 1
   %exitcond.not = icmp eq i64 %83, %61
-  br i1 %exitcond.not, label %.loopexit77, label %66, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit77, label %66, !llvm.loop !24
 
 deQueue.exit:                                     ; preds = %.loopexit77, %.loopexit
   %.1 = phi i32 [ %34, %.loopexit ], [ %59, %.loopexit77 ]
@@ -204,7 +204,7 @@ deQueue.exit:                                     ; preds = %.loopexit77, %.loop
 90:                                               ; preds = %85, %89
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
-  br i1 %exitcond108.not, label %._crit_edge96, label %85, !llvm.loop !24
+  br i1 %exitcond108.not, label %._crit_edge96, label %85, !llvm.loop !25
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -234,40 +234,40 @@ define void @mkQueue(ptr noundef writeonly captures(none) %0, i32 noundef %1) lo
   unreachable
 
 gv_calloc.exit:                                   ; preds = %7
-  store ptr %9, ptr %0, align 8, !tbaa !25
+  store ptr %9, ptr %0, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %15, align 8, !tbaa !27
+  store i32 %1, ptr %15, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !28
+  store i32 0, ptr %16, align 4, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !29
+  store i32 0, ptr %17, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @initQueue(ptr noundef captures(none) initializes((12, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %3 = load ptr, ptr %0, align 8, !tbaa !26
   store i32 %1, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %4, align 8, !tbaa !29
+  store i32 0, ptr %4, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !28
+  store i32 1, ptr %5, align 4, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @deQueue(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !29
+  %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !28
+  %6 = load i32, ptr %5, align 4, !tbaa !29
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !25
+  %8 = load ptr, ptr %0, align 8, !tbaa !26
   %9 = add nsw i32 %4, 1
-  store i32 %9, ptr %3, align 8, !tbaa !29
+  store i32 %9, ptr %3, align 8, !tbaa !30
   %10 = sext i32 %4 to i64
   %11 = getelementptr inbounds i32, ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
@@ -281,16 +281,16 @@ define noundef zeroext i1 @deQueue(ptr noundef captures(none) %0, ptr noundef wr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @enQueue(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !28
+  %4 = load i32, ptr %3, align 4, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !27
+  %6 = load i32, ptr %5, align 8, !tbaa !28
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !25
+  %8 = load ptr, ptr %0, align 8, !tbaa !26
   %9 = add nsw i32 %4, 1
-  store i32 %9, ptr %3, align 4, !tbaa !28
+  store i32 %9, ptr %3, align 4, !tbaa !29
   %10 = sext i32 %4 to i64
   %11 = getelementptr inbounds i32, ptr %8, i64 %10
   store i32 %1, ptr %11, align 4, !tbaa !3
@@ -302,7 +302,7 @@ define noundef zeroext i1 @enQueue(ptr noundef captures(none) %0, i32 noundef %1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @freeQueue(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   tail call void @free(ptr noundef %2) #15
   ret void
 }
@@ -366,18 +366,19 @@ attributes #16 = { cold noreturn nounwind }
 !12 = !{!"long", !5, i64 0}
 !13 = !{!"p1 int", !9, i64 0}
 !14 = !{!"p1 float", !9, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!11, !12, i64 0}
-!18 = !{!11, !13, i64 8}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"float", !5, i64 0}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = !{!26, !13, i64 0}
-!26 = !{!"", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
-!27 = !{!26, !4, i64 8}
-!28 = !{!26, !4, i64 12}
-!29 = !{!26, !4, i64 16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!11, !12, i64 0}
+!19 = !{!11, !13, i64 8}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"float", !5, i64 0}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
+!26 = !{!27, !13, i64 0}
+!27 = !{!"", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
+!28 = !{!27, !4, i64 8}
+!29 = !{!27, !4, i64 12}
+!30 = !{!27, !4, i64 16}

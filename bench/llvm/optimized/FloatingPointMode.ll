@@ -230,7 +230,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %50, %52, %53
   %.1 = phi i32 [ %58, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25 ], [ %.050, %.preheader ]
   %.017.add = add nuw nsw i64 %.017.idx51, 24
   %.not = icmp eq i64 %.017.add, 384
-  br i1 %.not, label %24, label %.preheader
+  br i1 %.not, label %24, label %.preheader, !llvm.loop !14
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %29, %27, %21, %19
   ret ptr %0
@@ -265,3 +265,5 @@ attributes #4 = { nounwind }
 !11 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
 !12 = !{!4, !8, i64 24}
 !13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}

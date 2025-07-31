@@ -619,7 +619,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
 61:                                               ; preds = %.preheader
   %62 = load i8, ptr %.046.i, align 1
   %63 = icmp eq i8 %62, %56
-  br i1 %63, label %rvermicelliExec.exit, label %.preheader
+  br i1 %63, label %rvermicelliExec.exit, label %.preheader, !llvm.loop !7
 
 64:                                               ; preds = %54
   %65 = ptrtoint ptr %.ptr157 to i64
@@ -665,7 +665,7 @@ initSomState.exit:                                ; preds = %2, %13, %24
   %83 = icmp eq <16 x i8> %58, %82
   %84 = bitcast <16 x i1> %83 to i16
   %.not.i75.not = icmp eq i16 %84, 0
-  br i1 %.not.i75.not, label %79, label %rvermSearchAligned.exit, !prof !6
+  br i1 %.not.i75.not, label %79, label %rvermSearchAligned.exit, !prof !6, !llvm.loop !9
 
 rvermSearchAligned.exit:                          ; preds = %81
   %.014.i73.ptr.le = getelementptr inbounds nuw i8, ptr %37, i64 %.014.i73.idx
@@ -736,7 +736,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
   %122 = load i8, ptr %.046.i48, align 1
   %123 = and i8 %122, -33
   %124 = icmp eq i8 %123, %116
-  br i1 %124, label %rvermicelliExec.exit50, label %.preheader166
+  br i1 %124, label %rvermicelliExec.exit50, label %.preheader166, !llvm.loop !7
 
 125:                                              ; preds = %114
   %126 = ptrtoint ptr %.ptr153 to i64
@@ -784,7 +784,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %61, %r
   %146 = icmp eq <16 x i8> %118, %145
   %147 = bitcast <16 x i1> %146 to i16
   %.not.i71 = icmp eq i16 %147, 0
-  br i1 %.not.i71, label %141, label %rvermSearchAlignedNocase.exit, !prof !6
+  br i1 %.not.i71, label %141, label %rvermSearchAlignedNocase.exit, !prof !6, !llvm.loop !10
 
 rvermSearchAlignedNocase.exit:                    ; preds = %143
   %.015.i.ptr.le = getelementptr inbounds nuw i8, ptr %37, i64 %.015.i.idx
@@ -911,7 +911,7 @@ rdvermPrecondition.exit:                          ; preds = %189
 
 221:                                              ; preds = %207
   %.not.i86.not = icmp eq i16 %215, 0
-  br i1 %.not.i86.not, label %205, label %.thread122, !prof !7
+  br i1 %.not.i86.not, label %205, label %.thread122, !prof !11, !llvm.loop !12
 
 .thread122.split.loop.exit178:                    ; preds = %207
   %222 = or i16 %215, 1
@@ -1023,7 +1023,7 @@ rdvermPreconditionNocase.exit:                    ; preds = %250
 
 286:                                              ; preds = %269
   %.not.i82 = icmp eq i16 %278, 0
-  br i1 %.not.i82, label %267, label %.thread139, !prof !7
+  br i1 %.not.i82, label %267, label %.thread139, !prof !11
 
 .thread139.split.loop.exit172:                    ; preds = %269
   %287 = or i16 %278, 1
@@ -1159,22 +1159,22 @@ nfaRevAccelCheck.exit:                            ; preds = %44, %337
   store i64 %.0.i, ptr %363, align 8
   %373 = tail call signext i8 @nfaQueueInitState(ptr noundef %35, ptr noundef nonnull %341) #13
   %374 = getelementptr inbounds nuw i8, ptr %341, i64 104
-  store i32 0, ptr %374, align 8, !alias.scope !8
+  store i32 0, ptr %374, align 8, !alias.scope !13
   %375 = getelementptr inbounds nuw i8, ptr %341, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %375, i8 0, i64 16, i1 false)
   %376 = getelementptr inbounds nuw i8, ptr %341, i64 128
-  store i32 2, ptr %376, align 8, !alias.scope !11
+  store i32 2, ptr %376, align 8, !alias.scope !16
   %377 = getelementptr inbounds nuw i8, ptr %341, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, i8 0, i64 16, i1 false)
-  store i32 2, ptr %342, align 4, !alias.scope !11
+  store i32 2, ptr %342, align 4, !alias.scope !16
   %378 = load i64, ptr %38, align 8
   %379 = getelementptr inbounds nuw i8, ptr %341, i64 152
-  store i32 1, ptr %379, align 8, !alias.scope !14
+  store i32 1, ptr %379, align 8, !alias.scope !19
   %380 = getelementptr inbounds nuw i8, ptr %341, i64 160
-  store i64 %378, ptr %380, align 8, !alias.scope !14
+  store i64 %378, ptr %380, align 8, !alias.scope !19
   %381 = getelementptr inbounds nuw i8, ptr %341, i64 168
-  store i64 0, ptr %381, align 8, !alias.scope !14
-  store i32 3, ptr %342, align 4, !alias.scope !14
+  store i64 0, ptr %381, align 8, !alias.scope !19
+  store i32 3, ptr %342, align 4, !alias.scope !19
   %382 = load ptr, ptr %341, align 8
   %383 = load i64, ptr %38, align 8
   %384 = tail call signext i8 @nfaQueueExec(ptr noundef %382, ptr noundef nonnull %341, i64 noundef %383) #13
@@ -1209,7 +1209,7 @@ declare i32 @roseRunLastFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -7, 1) i32 @hs_open_stream(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %validDatabase.exit.thread, label %4, !prof !17
+  br i1 %.not, label %validDatabase.exit.thread, label %4, !prof !22
 
 4:                                                ; preds = %3
   store ptr null, ptr %2, align 8
@@ -1251,7 +1251,7 @@ validDatabase.exit:                               ; preds = %7
   %24 = add nuw nsw i64 %22, 16
   %25 = tail call ptr %23(i64 noundef %24) #13
   %.not19 = icmp eq ptr %25, null
-  br i1 %.not19, label %validDatabase.exit.thread, label %26, !prof !17
+  br i1 %.not19, label %validDatabase.exit.thread, label %26, !prof !22
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1689,7 +1689,7 @@ validScratch.exit:                                ; preds = %28
   %132 = getelementptr inbounds nuw i8, ptr %.013.i86, i64 8
   %133 = add i32 %.012.i87, -64
   %134 = icmp ugt i32 %133, 64
-  br i1 %134, label %.lr.ph, label %.preheader
+  br i1 %134, label %.lr.ph, label %.preheader, !llvm.loop !23
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %136
   %.1.i90 = phi i32 [ %138, %136 ], [ %.012.i.lcssa, %.lr.ph91.preheader ]
@@ -1702,7 +1702,7 @@ validScratch.exit:                                ; preds = %28
   %137 = getelementptr inbounds nuw i8, ptr %.114.i89, i64 1
   %138 = add i32 %.1.i90, -8
   %139 = icmp ugt i32 %138, 8
-  br i1 %139, label %.lr.ph91, label %isAllExhausted.exit
+  br i1 %139, label %.lr.ph91, label %isAllExhausted.exit, !llvm.loop !24
 
 140:                                              ; preds = %120
   %141 = add i32 %122, -1
@@ -1751,7 +1751,7 @@ validScratch.exit:                                ; preds = %28
   %.not43.i = icmp eq i64 %167, -1
   %168 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %169 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %164, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %164, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 170:                                              ; preds = %164
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -1879,7 +1879,7 @@ define dso_local range(i32 -13, 1) i32 @hs_scan_stream(ptr noundef %0, ptr nound
   %or.cond = and i1 %8, %9
   %10 = icmp ne ptr %1, null
   %or.cond3 = and i1 %10, %or.cond
-  br i1 %or.cond3, label %11, label %.critedge, !prof !18
+  br i1 %or.cond3, label %11, label %.critedge, !prof !26
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
@@ -1935,7 +1935,7 @@ validScratch.exit:                                ; preds = %28
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %354, label %7, !prof !17
+  br i1 %.not, label %354, label %7, !prof !22
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %0, align 8
@@ -1959,7 +1959,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
 
 17:                                               ; preds = %7
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %354, label %19, !prof !17
+  br i1 %18, label %354, label %19, !prof !22
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2147,7 +2147,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
   %114 = getelementptr inbounds nuw i8, ptr %.013.i.i199, i64 8
   %115 = add i32 %.012.i.i200, -64
   %116 = icmp ugt i32 %115, 64
-  br i1 %116, label %.lr.ph201, label %.preheader
+  br i1 %116, label %.lr.ph201, label %.preheader, !llvm.loop !23
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %118
   %.1.i.i205 = phi i32 [ %120, %118 ], [ %.012.i.i.lcssa, %.lr.ph206.preheader ]
@@ -2160,7 +2160,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
   %119 = getelementptr inbounds nuw i8, ptr %.114.i.i204, i64 1
   %120 = add i32 %.1.i.i205, -8
   %121 = icmp ugt i32 %120, 8
-  br i1 %121, label %.lr.ph206, label %isAllExhausted.exit.i
+  br i1 %121, label %.lr.ph206, label %isAllExhausted.exit.i, !llvm.loop !24
 
 122:                                              ; preds = %102
   %123 = add i32 %104, -1
@@ -2209,7 +2209,7 @@ define internal fastcc range(i32 -13, 1) i32 @hs_scan_stream_internal(ptr nounde
   %.not43.i.i = icmp eq i64 %149, -1
   %150 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
   %151 = add i32 %.138.i.i, -64
-  br i1 %.not43.i.i, label %146, label %rawStreamExec.exit
+  br i1 %.not43.i.i, label %146, label %rawStreamExec.exit, !llvm.loop !25
 
 152:                                              ; preds = %146
   %.not41.i.i = icmp eq i32 %.138.i.i, 0
@@ -2407,7 +2407,7 @@ partial_load_u64a.exit:                           ; preds = %167, %187, %189, %2
   %260 = getelementptr inbounds nuw i8, ptr %.013.i.i102191, i64 8
   %261 = add i32 %.012.i.i103192, -64
   %262 = icmp ugt i32 %261, 64
-  br i1 %262, label %.lr.ph, label %.preheader175
+  br i1 %262, label %.lr.ph, label %.preheader175, !llvm.loop !23
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %264
   %.1.i.i105195 = phi i32 [ %266, %264 ], [ %.012.i.i103.lcssa, %.lr.ph196.preheader ]
@@ -2420,7 +2420,7 @@ partial_load_u64a.exit:                           ; preds = %167, %187, %189, %2
   %265 = getelementptr inbounds nuw i8, ptr %.114.i.i104194, i64 1
   %266 = add i32 %.1.i.i105195, -8
   %267 = icmp ugt i32 %266, 8
-  br i1 %267, label %.lr.ph196, label %isAllExhausted.exit.i108
+  br i1 %267, label %.lr.ph196, label %isAllExhausted.exit.i108, !llvm.loop !24
 
 268:                                              ; preds = %248
   %269 = add i32 %250, -1
@@ -2469,7 +2469,7 @@ partial_load_u64a.exit:                           ; preds = %167, %187, %189, %2
   %.not43.i.i122 = icmp eq i64 %295, -1
   %296 = getelementptr inbounds nuw i8, ptr %.035.i.i114, i64 8
   %297 = add i32 %.138.i.i113, -64
-  br i1 %.not43.i.i122, label %292, label %rawStreamExec.exit
+  br i1 %.not43.i.i122, label %292, label %rawStreamExec.exit, !llvm.loop !25
 
 298:                                              ; preds = %292
   %.not41.i.i115 = icmp eq i32 %.138.i.i113, 0
@@ -2851,7 +2851,7 @@ validScratch.exit:                                ; preds = %24
   %128 = getelementptr inbounds nuw i8, ptr %.013.i68, i64 8
   %129 = add i32 %.012.i69, -64
   %130 = icmp ugt i32 %129, 64
-  br i1 %130, label %.lr.ph, label %.preheader
+  br i1 %130, label %.lr.ph, label %.preheader, !llvm.loop !23
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %132
   %.1.i72 = phi i32 [ %134, %132 ], [ %.012.i.lcssa, %.lr.ph73.preheader ]
@@ -2864,7 +2864,7 @@ validScratch.exit:                                ; preds = %24
   %133 = getelementptr inbounds nuw i8, ptr %.114.i71, i64 1
   %134 = add i32 %.1.i72, -8
   %135 = icmp ugt i32 %134, 8
-  br i1 %135, label %.lr.ph73, label %isAllExhausted.exit
+  br i1 %135, label %.lr.ph73, label %isAllExhausted.exit, !llvm.loop !24
 
 136:                                              ; preds = %116
   %137 = add i32 %118, -1
@@ -2913,7 +2913,7 @@ validScratch.exit:                                ; preds = %24
   %.not43.i = icmp eq i64 %163, -1
   %164 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %165 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %160, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %160, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 166:                                              ; preds = %160
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -3271,7 +3271,7 @@ validScratch.exit:                                ; preds = %25
   %129 = getelementptr inbounds nuw i8, ptr %.013.i76, i64 8
   %130 = add i32 %.012.i77, -64
   %131 = icmp ugt i32 %130, 64
-  br i1 %131, label %.lr.ph, label %.preheader
+  br i1 %131, label %.lr.ph, label %.preheader, !llvm.loop !23
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %133
   %.1.i80 = phi i32 [ %135, %133 ], [ %.012.i.lcssa, %.lr.ph81.preheader ]
@@ -3284,7 +3284,7 @@ validScratch.exit:                                ; preds = %25
   %134 = getelementptr inbounds nuw i8, ptr %.114.i79, i64 1
   %135 = add i32 %.1.i80, -8
   %136 = icmp ugt i32 %135, 8
-  br i1 %136, label %.lr.ph81, label %isAllExhausted.exit
+  br i1 %136, label %.lr.ph81, label %isAllExhausted.exit, !llvm.loop !24
 
 137:                                              ; preds = %117
   %138 = add i32 %119, -1
@@ -3333,7 +3333,7 @@ validScratch.exit:                                ; preds = %25
   %.not43.i = icmp eq i64 %164, -1
   %165 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %166 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %161, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %161, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 167:                                              ; preds = %161
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -3829,7 +3829,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
 122:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %122 ]
@@ -4030,7 +4030,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   %222 = getelementptr inbounds nuw i8, ptr %.013.i128, i64 8
   %223 = add i32 %.012.i129, -64
   %224 = icmp ugt i32 %223, 64
-  br i1 %224, label %.lr.ph130, label %.preheader
+  br i1 %224, label %.lr.ph130, label %.preheader, !llvm.loop !23
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %226
   %.1.i133 = phi i32 [ %228, %226 ], [ %.012.i.lcssa, %.lr.ph134.preheader ]
@@ -4043,7 +4043,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   %227 = getelementptr inbounds nuw i8, ptr %.114.i132, i64 1
   %228 = add i32 %.1.i133, -8
   %229 = icmp ugt i32 %228, 8
-  br i1 %229, label %.lr.ph134, label %isAllExhausted.exit
+  br i1 %229, label %.lr.ph134, label %isAllExhausted.exit, !llvm.loop !24
 
 230:                                              ; preds = %210
   %231 = add i32 %212, -1
@@ -4092,7 +4092,7 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   %.not43.i = icmp eq i64 %257, -1
   %258 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %259 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %254, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %254, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 260:                                              ; preds = %254
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -4217,13 +4217,13 @@ define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %0, ptr n
   %.not = icmp eq ptr %0, null
   %.not16 = icmp eq ptr %3, null
   %5 = or i1 %.not, %.not16
-  br i1 %5, label %15, label %6, !prof !17
+  br i1 %5, label %15, label %6, !prof !22
 
 6:                                                ; preds = %4
   %7 = icmp ne i64 %2, 0
   %.not17 = icmp eq ptr %1, null
   %8 = and i1 %.not17, %7
-  br i1 %8, label %15, label %9, !prof !17
+  br i1 %8, label %15, label %9, !prof !22
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
@@ -4250,7 +4250,7 @@ define dso_local range(i32 -7, 1) i32 @hs_expand_stream(ptr noundef %0, ptr noun
   %.not = icmp eq ptr %1, null
   %.not20 = icmp eq ptr %2, null
   %5 = or i1 %.not, %.not20
-  br i1 %5, label %validDatabase.exit.thread, label %6, !prof !17
+  br i1 %5, label %validDatabase.exit.thread, label %6, !prof !22
 
 6:                                                ; preds = %4
   store ptr null, ptr %1, align 8
@@ -4292,7 +4292,7 @@ validDatabase.exit:                               ; preds = %9
   %26 = load ptr, ptr @hs_stream_alloc, align 8
   %27 = tail call ptr %26(i64 noundef %25) #13
   %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %validDatabase.exit.thread, label %28, !prof !17
+  br i1 %.not24, label %validDatabase.exit.thread, label %28, !prof !22
 
 28:                                               ; preds = %21
   %29 = tail call i32 @expand_stream(ptr noundef nonnull %27, ptr noundef nonnull %15, ptr noundef nonnull %2, i64 noundef %3) #13
@@ -4320,7 +4320,7 @@ define dso_local range(i32 -13, 1) i32 @hs_reset_and_expand_stream(ptr noundef %
   %.not = icmp eq ptr %0, null
   %.not21 = icmp eq ptr %1, null
   %7 = or i1 %.not, %.not21
-  br i1 %7, label %markScratchInUse.exit, label %8, !prof !17
+  br i1 %7, label %markScratchInUse.exit, label %8, !prof !22
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
@@ -4556,7 +4556,7 @@ validScratch.exit:                                ; preds = %26
   %130 = getelementptr inbounds nuw i8, ptr %.013.i75, i64 8
   %131 = add i32 %.012.i76, -64
   %132 = icmp ugt i32 %131, 64
-  br i1 %132, label %.lr.ph, label %.preheader
+  br i1 %132, label %.lr.ph, label %.preheader, !llvm.loop !23
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %134
   %.1.i79 = phi i32 [ %136, %134 ], [ %.012.i.lcssa, %.lr.ph80.preheader ]
@@ -4569,7 +4569,7 @@ validScratch.exit:                                ; preds = %26
   %135 = getelementptr inbounds nuw i8, ptr %.114.i78, i64 1
   %136 = add i32 %.1.i79, -8
   %137 = icmp ugt i32 %136, 8
-  br i1 %137, label %.lr.ph80, label %isAllExhausted.exit
+  br i1 %137, label %.lr.ph80, label %isAllExhausted.exit, !llvm.loop !24
 
 138:                                              ; preds = %118
   %139 = add i32 %120, -1
@@ -4618,7 +4618,7 @@ validScratch.exit:                                ; preds = %26
   %.not43.i = icmp eq i64 %165, -1
   %166 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %167 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %162, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %162, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 168:                                              ; preds = %162
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -4826,7 +4826,7 @@ define internal fastcc void @soleOutfixEodExec(ptr %.0.val, ptr noundef %0) unna
   %22 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 8
   %23 = add i32 %.012.i29, -64
   %24 = icmp ugt i32 %23, 64
-  br i1 %24, label %.lr.ph, label %.preheader
+  br i1 %24, label %.lr.ph, label %.preheader, !llvm.loop !23
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %26
   %.1.i32 = phi i32 [ %28, %26 ], [ %.012.i.lcssa, %.lr.ph33.preheader ]
@@ -4839,7 +4839,7 @@ define internal fastcc void @soleOutfixEodExec(ptr %.0.val, ptr noundef %0) unna
   %27 = getelementptr inbounds nuw i8, ptr %.114.i31, i64 1
   %28 = add i32 %.1.i32, -8
   %29 = icmp ugt i32 %28, 8
-  br i1 %29, label %.lr.ph33, label %isAllExhausted.exit
+  br i1 %29, label %.lr.ph33, label %isAllExhausted.exit, !llvm.loop !24
 
 30:                                               ; preds = %10
   %31 = add i32 %12, -1
@@ -4888,7 +4888,7 @@ define internal fastcc void @soleOutfixEodExec(ptr %.0.val, ptr noundef %0) unna
   %.not43.i = icmp eq i64 %57, -1
   %58 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %59 = add i32 %.138.i, -64
-  br i1 %.not43.i, label %54, label %isAllExhausted.exit.thread
+  br i1 %.not43.i, label %54, label %isAllExhausted.exit.thread, !llvm.loop !25
 
 60:                                               ; preds = %54
   %.not41.i = icmp eq i32 %.138.i, 0
@@ -5076,7 +5076,7 @@ define internal fastcc void @soleOutfixStreamExec(ptr %.0.val, ptr noundef %0) u
 46:                                               ; preds = %1
   %47 = tail call signext i8 @nfaQueueInitState(ptr noundef nonnull %8, ptr noundef nonnull %10) #13
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i32 0, ptr %48, align 8, !alias.scope !19
+  store i32 0, ptr %48, align 8, !alias.scope !28
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %57
@@ -5183,18 +5183,27 @@ attributes #13 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 2002, i32 2000}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"pushQueueAt: argument 0"}
-!10 = distinct !{!10, !"pushQueueAt"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"pushQueueAt: argument 0"}
-!13 = distinct !{!13, !"pushQueueAt"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"pushQueueAt: argument 0"}
-!16 = distinct !{!16, !"pushQueueAt"}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!12 = distinct !{!12, !8}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"pushQueueAt: argument 0"}
+!15 = distinct !{!15, !"pushQueueAt"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"pushQueueAt: argument 0"}
+!18 = distinct !{!18, !"pushQueueAt"}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"pushQueueAt: argument 0"}
 !21 = distinct !{!21, !"pushQueueAt"}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!27 = distinct !{!27, !8}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"pushQueueAt: argument 0"}
+!30 = distinct !{!30, !"pushQueueAt"}

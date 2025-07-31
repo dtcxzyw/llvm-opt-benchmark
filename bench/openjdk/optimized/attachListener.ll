@@ -245,7 +245,7 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %44
   %45 = call noundef ptr @_ZN14AttachListener7dequeueEv() #8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %._crit_edge, label %10, !llvm.loop !8
+  br i1 %46, label %._crit_edge, label %10, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %6, %2
   store volatile i32 0, ptr @_ZN14AttachListener6_stateE, align 4
@@ -667,7 +667,7 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.next
   %11 = load i8, ptr %10, align 1
   %.not15 = icmp eq i8 %11, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.113.lcssa = phi i8 [ 0, %2 ], [ %spec.select, %.lr.ph ]
@@ -1176,7 +1176,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread21is_active_Java_
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load volatile i32, ptr %6, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   %8 = add i32 %7, -57007
   %9 = icmp ult i32 %8, -2
   br label %10
@@ -1238,8 +1238,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2145392468}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i64 2145392468}

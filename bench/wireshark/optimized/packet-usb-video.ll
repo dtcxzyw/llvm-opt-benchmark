@@ -1351,7 +1351,7 @@ dissect_usb_video_control_interface_descriptor.exit: ; preds = %190, %191, %205,
   %256 = add nuw nsw i32 %.154.i.i, %251
   %257 = add nuw i8 %.055.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %257, %227
-  br i1 %exitcond.not.i.i, label %dissect_usb_video_streaming_input_header.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %dissect_usb_video_streaming_input_header.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 258:                                              ; preds = %217, %217, %217
   %259 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef 3)
@@ -1506,7 +1506,7 @@ dissect_usb_video_control_interface_descriptor.exit: ; preds = %190, %191, %205,
   %361 = add nuw nsw i32 %.487.i.i, 4
   %362 = add nuw i8 %.088.i.i, 1
   %exitcond.not.i39.i = icmp eq i8 %362, %328
-  br i1 %exitcond.not.i39.i, label %dissect_usb_video_streaming_input_header.exit.i, label %358, !llvm.loop !9
+  br i1 %exitcond.not.i39.i, label %dissect_usb_video_streaming_input_header.exit.i, label %358, !llvm.loop !10
 
 363:                                              ; preds = %217
   %364 = load i32, ptr @hf_usb_vid_color_primaries, align 4
@@ -2250,7 +2250,8 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

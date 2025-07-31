@@ -375,7 +375,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %34)
   %36 = icmp slt i32 %33, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %32
   %.not100 = icmp eq ptr %.1, null
@@ -473,7 +473,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %97 = fadd float %.090115, %96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge118, label %76, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge118, label %76, !llvm.loop !8
 
 ._crit_edge118:                                   ; preds = %76, %.preheader
   %.090.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %97, %76 ]
@@ -496,7 +496,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next135, %107
-  br i1 %108, label %49, label %._crit_edge126, !llvm.loop !8
+  br i1 %108, label %49, label %._crit_edge126, !llvm.loop !9
 
 ._crit_edge126:                                   ; preds = %103
   %.not101 = icmp eq ptr %.186, null
@@ -549,7 +549,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %140 = load i8, ptr %123, align 2
   %141 = zext i8 %140 to i64
   %142 = icmp samesign ult i64 %indvars.iv.next138, %141
-  br i1 %142, label %.lr.ph131, label %._crit_edge132, !llvm.loop !9
+  br i1 %142, label %.lr.ph131, label %._crit_edge132, !llvm.loop !10
 
 ._crit_edge132:                                   ; preds = %.lr.ph131, %109
   %143 = tail call noundef float %2()
@@ -847,7 +847,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %47
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %._crit_edge198, label %112, !llvm.loop !10
+  br i1 %111, label %._crit_edge198, label %112, !llvm.loop !11
 
 112:                                              ; preds = %.lr.ph197, %.loopexit
   %113 = phi i32 [ %102, %.lr.ph197 ], [ %110, %.loopexit ]
@@ -934,7 +934,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %47
   %167 = fadd float %.0135184, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %146, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %146, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %146, %.preheader
   %.0135.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %167, %146 ]
@@ -1153,7 +1153,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %259, %243
 287:                                              ; preds = %281
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %281, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %281, !llvm.loop !13
 
 288:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %289 = and i32 %273, -469762049
@@ -1175,7 +1175,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %287, %285, %275, %2
   %298 = getelementptr inbounds nuw %struct.dtLink, ptr %297, i64 %194, i32 1
   %.0136 = load i32, ptr %298, align 4
   %.not157 = icmp eq i32 %.0136, -1
-  br i1 %.not157, label %.loopexit, label %192, !llvm.loop !13
+  br i1 %.not157, label %.loopexit, label %192, !llvm.loop !14
 
 ._crit_edge198:                                   ; preds = %.loopexit
   %.not = icmp eq ptr %.1132, null
@@ -1228,7 +1228,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %287, %285, %275, %2
   %330 = load i8, ptr %313, align 2
   %331 = zext i8 %330 to i64
   %332 = icmp samesign ult i64 %indvars.iv.next210, %331
-  br i1 %332, label %.lr.ph205, label %._crit_edge206, !llvm.loop !14
+  br i1 %332, label %.lr.ph205, label %._crit_edge206, !llvm.loop !15
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %299
   %333 = call noundef float %5()
@@ -1325,7 +1325,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.075 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %.075, -1
-  br i1 %.not, label %.thread, label %12, !llvm.loop !15
+  br i1 %.not, label %.thread, label %12, !llvm.loop !16
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 31
@@ -1385,7 +1385,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
   %57 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.076 = load i32, ptr %57, align 4
   %.not84 = icmp eq i32 %.076, -1
-  br i1 %.not84, label %.thread, label %.lr.ph105, !llvm.loop !16
+  br i1 %.not84, label %.thread, label %.lr.ph105, !llvm.loop !17
 
 58:                                               ; preds = %19
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 31
@@ -1455,7 +1455,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15get
   %99 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %.077 = load i32, ptr %99, align 4
   %.not82 = icmp eq i32 %.077, -1
-  br i1 %.not82, label %.thread, label %64, !llvm.loop !17
+  br i1 %.not82, label %.thread, label %64, !llvm.loop !18
 
 100:                                              ; preds = %58
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1664,7 +1664,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %53, label %39, label %._crit_edge, !llvm.loop !18
+  br i1 %53, label %39, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %39
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -1706,7 +1706,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   %.1 = select i1 %66, i32 %67, i32 %.03449
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !20
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %62
   %.032.lcssa6466 = phi i32 [ 1, %62 ], [ %54, %.lr.ph52 ]
@@ -2151,13 +2151,13 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   call void @_ZNK14dtNavMeshQuery19queryPolygonsInTileEPK10dtMeshTilePKfS4_PK13dtQueryFilterP11dtPolyQuery(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %72, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph50
   %73 = add nsw i32 %.03148, 1
   %74 = load i32, ptr %10, align 4
   %.not40.not = icmp slt i32 %.03148, %74
-  br i1 %.not40.not, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !21
+  br i1 %.not40.not, label %.lr.ph50, label %._crit_edge51.loopexit, !llvm.loop !22
 
 ._crit_edge51.loopexit:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %11, align 4
@@ -2168,7 +2168,7 @@ _Z11dtVisfinitePKf.exit42:                        ; preds = %36
   %76 = phi i32 [ %74, %._crit_edge51.loopexit ], [ %66, %.lr.ph55.split ]
   %77 = add nsw i32 %.03253, 1
   %.not39.not = icmp slt i32 %.03253, %75
-  br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !22
+  br i1 %.not39.not, label %.lr.ph55.split, label %_Z11dtVisfinitePKf.exit.thread, !llvm.loop !23
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge51, %.lr.ph55, %47, %32, %36, %18, %22, %17, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit42
   %.030 = phi i32 [ -2147483640, %_Z11dtVisfinitePKf.exit42 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %17 ], [ -2147483640, %22 ], [ -2147483640, %18 ], [ -2147483640, %36 ], [ -2147483640, %32 ], [ 1073741824, %47 ], [ 1073741824, %.lr.ph55 ], [ 1073741824, %._crit_edge51 ]
@@ -2399,7 +2399,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   %.1179 = phi i32 [ %.1180, %.thread ], [ %.0117146, %162 ]
   %.1119 = phi ptr [ %161, %.thread ], [ %166, %162 ]
   %168 = icmp ult ptr %.1119, %22
-  br i1 %168, label %101, label %.loopexit, !llvm.loop !24
+  br i1 %168, label %101, label %.loopexit, !llvm.loop !25
 
 169:                                              ; preds = %13
   %170 = load ptr, ptr %0, align 8
@@ -2501,7 +2501,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   %237 = select i1 %236, float %.sroa.8.0150, float %229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph154, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph154, %203
   %.sroa.8135.0.lcssa = phi float [ %213, %203 ], [ %231, %.lr.ph154 ]
@@ -2577,7 +2577,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %255, %252, %267, %2
   %271 = load i32, ptr %270, align 4
   %272 = sext i32 %271 to i64
   %273 = icmp slt i64 %indvars.iv.next175, %272
-  br i1 %273, label %185, label %.loopexit, !llvm.loop !26
+  br i1 %273, label %185, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %167, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
   %.2 = phi i32 [ %.4, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.1179, %167 ]
@@ -2856,7 +2856,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %._crit_edge.loopexit, label %126, !llvm.loop !27
+  br i1 %125, label %._crit_edge.loopexit, label %126, !llvm.loop !28
 
 126:                                              ; preds = %.lr.ph214, %.loopexit
   %127 = phi i32 [ %113, %.lr.ph214 ], [ %124, %.loopexit ]
@@ -3154,7 +3154,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %281, %279
 310:                                              ; preds = %304
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %304, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %304, !llvm.loop !13
 
 311:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %312 = or disjoint i32 %295, 67108864
@@ -3184,7 +3184,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %310, %308, %298, %3
   %323 = getelementptr inbounds nuw %struct.dtLink, ptr %322, i64 %163, i32 1
   %.0150 = load i32, ptr %323, align 4
   %.not172 = icmp eq i32 %.0150, -1
-  br i1 %.not172, label %.loopexit, label %161, !llvm.loop !28
+  br i1 %.not172, label %.loopexit, label %161, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %126, %.loopexit
   %.0143.lcssa.ph = phi i8 [ %.1144.lcssa, %.loopexit ], [ %.0143211, %126 ]
@@ -3270,7 +3270,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   %.not.i = icmp eq i32 %12, 0
   %13 = zext nneg i32 %12 to i64
   %gep = getelementptr %struct.dtNode, ptr %invariant.gep, i64 %13
-  br i1 %.not.i, label %.preheader51, label %.split, !llvm.loop !29
+  br i1 %.not.i, label %.preheader51, label %.split, !llvm.loop !30
 
 .preheader51:                                     ; preds = %.split, %5
   %.us-phi = phi i32 [ 0, %5 ], [ %.039, %.split ]
@@ -3314,7 +3314,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   %.0.i47 = select i1 %.not.i46, ptr null, ptr %29
   %30 = add nsw i32 %.04054, -1
   %31 = icmp sgt i32 %30, %4
-  br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !30
+  br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !31
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %36
   %indvars.iv = phi i64 [ %16, %.lr.ph60.preheader ], [ %indvars.iv.next, %36 ]
@@ -3346,7 +3346,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   %47 = getelementptr inbounds nuw %struct.dtNode, ptr %44, i64 %46
   %.0.i49 = select i1 %.not.i48, ptr null, ptr %47
   %48 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !31
+  br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %36, %.preheader
   %.2.lcssa = phi ptr [ %.0.i47, %.preheader ], [ %.0.i49, %36 ]
@@ -3660,7 +3660,7 @@ define noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef no
 
 .loopexit:                                        ; preds = %333, %.thread150
   %exitcond.not = icmp eq i32 %51, %1
-  br i1 %exitcond.not, label %.critedge, label %45, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %45, !llvm.loop !33
 
 45:                                               ; preds = %.lr.ph178, %.loopexit
   %.0106177 = phi i32 [ 0, %.lr.ph178 ], [ %51, %.loopexit ]
@@ -4127,7 +4127,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %291, %289
 323:                                              ; preds = %317
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %317, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %317, !llvm.loop !13
 
 324:                                              ; preds = %308
   %325 = or disjoint i32 %309, 67108864
@@ -4157,7 +4157,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %323, %321, %311, %3
   %337 = getelementptr inbounds nuw %struct.dtLink, ptr %336, i64 %138, i32 1
   %.0114 = load i32, ptr %337, align 4
   %.not126 = icmp eq i32 %.0114, -1
-  br i1 %.not126, label %.loopexit, label %136, !llvm.loop !33
+  br i1 %.not126, label %.loopexit, label %136, !llvm.loop !34
 
 .critedge:                                        ; preds = %45, %.loopexit, %27
   %.0106.lcssa = phi i32 [ 0, %27 ], [ %1, %.loopexit ], [ %.0106177, %45 ]
@@ -4382,7 +4382,7 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %107 = load i8, ptr %87, align 2
   %108 = zext i8 %107 to i64
   %109 = icmp samesign ult i64 %indvars.iv.next, %108
-  br i1 %109, label %92, label %._crit_edge.loopexit, !llvm.loop !34
+  br i1 %109, label %92, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %92
   %110 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -4621,7 +4621,7 @@ _Z11dtVisfinitePKf.exit179:                       ; preds = %49
   %257 = getelementptr inbounds nuw %struct.dtLink, ptr %256, i64 %156, i32 1
   %.0152 = load i32, ptr %257, align 4
   %.not167 = icmp eq i32 %.0152, -1
-  br i1 %.not167, label %.loopexit, label %.lr.ph243, !llvm.loop !35
+  br i1 %.not167, label %.loopexit, label %.lr.ph243, !llvm.loop !36
 
 .loopexit.sink.split:                             ; preds = %233, %211, %186, %178
   %258 = load i32, ptr %157, align 4
@@ -4848,7 +4848,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   store i32 %61, ptr %39, align 4
   %.not6578 = icmp eq ptr %42, null
   %.not65 = select i1 %.not.i, i1 true, i1 %.not6578
-  br i1 %.not65, label %.preheader, label %37, !llvm.loop !36
+  br i1 %.not65, label %.preheader, label %37, !llvm.loop !37
 
 .preheader:                                       ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %invariant.gep = getelementptr i8, ptr %1, i64 -4
@@ -4918,7 +4918,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 .thread:                                          ; preds = %80, %82
   %.286 = phi i32 [ %spec.select, %82 ], [ %81, %80 ]
   %.not69 = icmp eq ptr %.0.i76, null
-  br i1 %.not69, label %.loopexit, label %66, !llvm.loop !37
+  br i1 %.not69, label %.loopexit, label %66, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.thread, %.thread87, %20
   %.049 = phi i32 [ 1, %20 ], [ %.291, %.thread87 ], [ %.286, %.thread ]
@@ -5034,7 +5034,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery29fina
   %35 = call noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr noundef nonnull align 8 dereferenceable(36) %32, i32 noundef %34, ptr noundef nonnull %8, i32 noundef 1)
   %36 = load ptr, ptr %8, align 8
   %.not68 = icmp eq ptr %36, null
-  br i1 %.not68, label %29, label %.thread.preheader, !llvm.loop !38
+  br i1 %.not68, label %29, label %.thread.preheader, !llvm.loop !39
 
 37:                                               ; preds = %29
   %38 = load i32, ptr %15, align 8
@@ -5102,7 +5102,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   store i32 %70, ptr %48, align 4
   store ptr %.0.i, ptr %8, align 8
   %.not71 = icmp eq ptr %.0.i, null
-  br i1 %.not71, label %71, label %.thread, !llvm.loop !39
+  br i1 %.not71, label %71, label %.thread, !llvm.loop !40
 
 71:                                               ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   store ptr %.0.i87, ptr %8, align 8
@@ -5174,7 +5174,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   %.298 = phi i32 [ %spec.select, %93 ], [ %92, %91 ]
   store ptr %.0.i81, ptr %8, align 8
   %.not75 = icmp eq ptr %.0.i81, null
-  br i1 %.not75, label %.loopexit, label %76, !llvm.loop !40
+  br i1 %.not75, label %.loopexit, label %76, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.thread94, %.thread99, %25
   %.050 = phi i32 [ 1, %25 ], [ %.2103, %.thread99 ], [ %.298, %.thread94 ]
@@ -5209,7 +5209,7 @@ define noundef range(i32 536870912, 1073741841) i32 @_ZNK14dtNavMeshQuery12appen
   %16 = getelementptr inbounds nuw float, ptr %4, i64 %15
   %17 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %_Z8dtVequalPKfS0_.exit, !prof !41
+  br i1 %18, label %19, label %_Z8dtVequalPKfS0_.exit, !prof !42
 
 19:                                               ; preds = %12
   %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
@@ -5432,7 +5432,7 @@ define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appe
   %83 = getelementptr inbounds nuw float, ptr %5, i64 %82
   %84 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %85 = icmp eq i8 %84, 0
-  br i1 %85, label %86, label %_Z8dtVequalPKfS0_.exit.i, !prof !41
+  br i1 %85, label %86, label %_Z8dtVequalPKfS0_.exit.i, !prof !42
 
 86:                                               ; preds = %79
   %87 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
@@ -5522,7 +5522,7 @@ _Z8dtVequalPKfS0_.exit._crit_edge.i:              ; preds = %_Z8dtVequalPKfS0_.e
 
 _ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread: ; preds = %125, %107, %106, %60, %52
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %32, !llvm.loop !42
+  br i1 %exitcond.not, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %32, !llvm.loop !43
 
 _ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit: ; preds = %32, %38, %44, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, %125, %11
   %.0 = phi i32 [ 536870912, %11 ], [ 1073741840, %125 ], [ 536870912, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread ], [ 536870912, %44 ], [ -2147483640, %38 ], [ -2147483640, %32 ]
@@ -5760,7 +5760,7 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
 145:                                              ; preds = %130
   %146 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %147 = icmp eq i8 %146, 0
-  br i1 %147, label %148, label %_Z8dtVequalPKfS0_.exit, !prof !41
+  br i1 %147, label %148, label %_Z8dtVequalPKfS0_.exit, !prof !42
 
 148:                                              ; preds = %145
   %149 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
@@ -5885,7 +5885,7 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %145, %148, %150
 213:                                              ; preds = %198
   %214 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %215 = icmp eq i8 %214, 0
-  br i1 %215, label %216, label %_Z8dtVequalPKfS0_.exit209, !prof !41
+  br i1 %215, label %216, label %_Z8dtVequalPKfS0_.exit209, !prof !42
 
 216:                                              ; preds = %213
   %217 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
@@ -5998,7 +5998,7 @@ _Z8dtVequalPKfS0_.exit209:                        ; preds = %213, %216, %218
   %.1 = phi i32 [ 0, %123 ], [ %.0155229, %250 ], [ %.2167, %262 ], [ %.0155229, %198 ], [ %.0168220, %194 ]
   %267 = add nsw i32 %.1, 1
   %268 = icmp slt i32 %267, %4
-  br i1 %268, label %96, label %269, !llvm.loop !43
+  br i1 %268, label %96, label %269, !llvm.loop !44
 
 269:                                              ; preds = %266
   br i1 %.not195, label %272, label %270
@@ -6234,7 +6234,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %.1145.lcssa = phi float [ %.0144253, %138 ], [ %.2146, %.loopexit207 ]
   %.1143.lcssa = phi i32 [ %105, %138 ], [ %.4, %.loopexit207 ]
   %.not175 = icmp eq i32 %.1143.lcssa, 0
-  br i1 %.not175, label %.loopexit211, label %103, !llvm.loop !44
+  br i1 %.not175, label %.loopexit211, label %103, !llvm.loop !45
 
 103:                                              ; preds = %68, %.loopexit210
   %.0142254 = phi i32 [ 1, %68 ], [ %.1143.lcssa, %.loopexit210 ]
@@ -6297,7 +6297,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   store float %132, ptr %133, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge222, label %119, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge222, label %119, !llvm.loop !46
 
 ._crit_edge222:                                   ; preds = %119, %._crit_edge
   %134 = call noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef nonnull %3, ptr noundef nonnull %12, i32 noundef %115)
@@ -6404,7 +6404,7 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   %183 = getelementptr inbounds nuw %struct.dtLink, ptr %182, i64 %153, i32 1
   %.0159 = load i32, ptr %183, align 4
   %.not178 = icmp eq i32 %.0159, -1
-  br i1 %.not178, label %.loopexit209, label %.lr.ph227, !llvm.loop !46
+  br i1 %.not178, label %.loopexit209, label %.lr.ph227, !llvm.loop !47
 
 184:                                              ; preds = %145
   %.not177 = icmp eq i16 %150, 0
@@ -6531,7 +6531,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %243
   %.3 = phi i32 [ %.2230, %239 ], [ %259, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.2230, %243 ], [ %.2230, %234 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
-  br i1 %exitcond265.not, label %.loopexit207, label %234, !llvm.loop !47
+  br i1 %exitcond265.not, label %.loopexit207, label %234, !llvm.loop !48
 
 .loopexit207:                                     ; preds = %262, %.preheader206, %216, %.thread
   %.sroa.8.3 = phi float [ %233, %216 ], [ %.sroa.8.2233, %.thread ], [ %.sroa.8.2233, %.preheader206 ], [ %.sroa.8.2233, %262 ]
@@ -6547,7 +6547,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %243
   %266 = zext i8 %265 to i64
   %267 = icmp samesign ult i64 %indvars.iv.next267, %266
   %268 = trunc nuw nsw i64 %indvars.iv266 to i32
-  br i1 %267, label %145, label %.loopexit210, !llvm.loop !48
+  br i1 %267, label %145, label %.loopexit210, !llvm.loop !49
 
 .loopexit211:                                     ; preds = %.loopexit210
   %.not183 = icmp eq ptr %.2149.lcssa, null
@@ -6592,7 +6592,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %277
   store i32 %286, ptr %270, align 4
   %.not184203 = icmp eq ptr %273, null
   %.not184 = select i1 %.not.i193, i1 true, i1 %.not184203
-  br i1 %.not184, label %.preheader.preheader, label %.preheader205, !llvm.loop !49
+  br i1 %.not184, label %.preheader.preheader, label %.preheader205, !llvm.loop !50
 
 .preheader.preheader:                             ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197
   %smax = call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -6623,7 +6623,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %277
   %299 = getelementptr i8, ptr %298, i64 -28
   %.not186204 = icmp eq ptr %296, null
   %.not186 = select i1 %.not.i198, i1 true, i1 %.not186204
-  br i1 %.not186, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !50
+  br i1 %.not186, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !51
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %291
   %300 = trunc nuw nsw i64 %indvars.iv.next270 to i32
@@ -6863,7 +6863,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %._crit_edge, label %97, !llvm.loop !51
+  br i1 %96, label %._crit_edge, label %97, !llvm.loop !52
 
 97:                                               ; preds = %.lr.ph157, %.loopexit
   %98 = phi i32 [ %85, %.lr.ph157 ], [ %95, %.loopexit ]
@@ -7139,7 +7139,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %225, %201
 253:                                              ; preds = %247
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %247, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %247, !llvm.loop !13
 
 254:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %255 = and i32 %239, -469762049
@@ -7161,7 +7161,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %253, %251, %241, %2
   %264 = getelementptr inbounds nuw %struct.dtLink, ptr %263, i64 %152, i32 1
   %.0107 = load i32, ptr %264, align 4
   %.not130 = icmp eq i32 %.0107, -1
-  br i1 %.not130, label %.loopexit, label %150, !llvm.loop !52
+  br i1 %.not130, label %.loopexit, label %150, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.0104.lcssa = phi i32 [ 0, %60 ], [ %.1105, %.loopexit ]
@@ -7276,7 +7276,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %61 = fadd float %.sroa.11.0168, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %62 = uitofp nneg i32 %3 to float
@@ -7332,7 +7332,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryF
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %._crit_edge183, label %96, !llvm.loop !54
+  br i1 %95, label %._crit_edge183, label %96, !llvm.loop !55
 
 96:                                               ; preds = %.lr.ph182, %.loopexit
   %97 = phi i32 [ %84, %.lr.ph182 ], [ %94, %.loopexit ]
@@ -7615,7 +7615,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %228, %204
 256:                                              ; preds = %250
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %250, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %250, !llvm.loop !13
 
 257:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %258 = and i32 %242, -469762049
@@ -7637,7 +7637,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %256, %254, %244, %2
   %267 = getelementptr inbounds nuw %struct.dtLink, ptr %266, i64 %151, i32 1
   %.0113 = load i32, ptr %267, align 4
   %.not139 = icmp eq i32 %.0113, -1
-  br i1 %.not139, label %.loopexit, label %149, !llvm.loop !55
+  br i1 %.not139, label %.loopexit, label %149, !llvm.loop !56
 
 ._crit_edge183:                                   ; preds = %.loopexit, %._crit_edge
   %.0110.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1111, %.loopexit ]
@@ -7809,7 +7809,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %41
   %.2117.lcssa = phi i32 [ %.1116184, %._crit_edge ], [ %.3, %.loopexit157 ]
   %.1.lcssa = phi i32 [ %73, %._crit_edge ], [ %.2, %.loopexit157 ]
   %.not141 = icmp eq i32 %.1.lcssa, 0
-  br i1 %.not141, label %208, label %71, !llvm.loop !56
+  br i1 %.not141, label %208, label %71, !llvm.loop !57
 
 71:                                               ; preds = %68, %.loopexit158
   %.0111185 = phi i32 [ 1, %68 ], [ %.1.lcssa, %.loopexit158 ]
@@ -7962,7 +7962,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   store float %149, ptr %150, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %136, !llvm.loop !57
+  br i1 %exitcond.not, label %.preheader, label %136, !llvm.loop !58
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.loopexit
   %indvars.iv195 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next196, %.loopexit ]
@@ -7983,7 +7983,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   %158 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %.0109 = load i32, ptr %158, align 4
   %.not146.not = icmp eq i32 %.0109, -1
-  br i1 %.not146.not, label %.critedge, label %159, !llvm.loop !58
+  br i1 %.not146.not, label %.critedge, label %159, !llvm.loop !59
 
 159:                                              ; preds = %.lr.ph166, %157
   %.0109164 = phi i32 [ %.0109162, %.lr.ph166 ], [ %.0109, %157 ]
@@ -8034,7 +8034,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   store float %185, ptr %186, align 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge169, label %172, !llvm.loop !59
+  br i1 %exitcond194.not, label %._crit_edge169, label %172, !llvm.loop !60
 
 ._crit_edge169:                                   ; preds = %172, %.critedge
   %187 = call noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef nonnull %11, i32 noundef %131, ptr noundef nonnull %12, i32 noundef %168)
@@ -8043,7 +8043,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
 .loopexit:                                        ; preds = %159, %._crit_edge169
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.critedge153, label %.lr.ph171, !llvm.loop !60
+  br i1 %exitcond199.not, label %.critedge153, label %.lr.ph171, !llvm.loop !61
 
 .critedge153:                                     ; preds = %.loopexit, %.preheader
   %188 = icmp slt i32 %.2120174, %8
@@ -8091,7 +8091,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %109
   %207 = getelementptr inbounds nuw %struct.dtLink, ptr %206, i64 %84, i32 1
   %.0124 = load i32, ptr %207, align 4
   %.not142 = icmp eq i32 %.0124, -1
-  br i1 %.not142, label %.loopexit158, label %82, !llvm.loop !61
+  br i1 %.not142, label %.loopexit158, label %82, !llvm.loop !62
 
 208:                                              ; preds = %.loopexit158
   store i32 %.2120.lcssa, ptr %7, align 4
@@ -8247,7 +8247,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery19get
 75:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
+  br i1 %exitcond.not.i, label %._crit_edge._crit_edge.i, label %.lr.ph.i, !llvm.loop !63
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %76 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -8291,7 +8291,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
   %91 = getelementptr inbounds nuw %struct.dtLink, ptr %90, i64 %43, i32 1
   %.0114 = load i32, ptr %91, align 4
   %.not132 = icmp eq i32 %.0114, -1
-  br i1 %.not132, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not132, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 92:                                               ; preds = %35
   %.not130 = icmp eq i16 %40, 0
@@ -8404,7 +8404,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
 156:                                              ; preds = %.lr.ph.i150
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i151, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, %wide.trip.count.i149
-  br i1 %exitcond.not.i155, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156, label %.lr.ph.i150, !llvm.loop !62
+  br i1 %exitcond.not.i155, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156, label %.lr.ph.i150, !llvm.loop !63
 
 ._crit_edge.loopexit.i153:                        ; preds = %.lr.ph.i150
   %157 = trunc nuw nsw i64 %indvars.iv.i151 to i32
@@ -8461,7 +8461,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit156: ; preds = %156, %._crit_edge.
 173:                                              ; preds = %.lr.ph.i167
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i172 = icmp eq i64 %indvars.iv.next.i171, %wide.trip.count.i166
-  br i1 %exitcond.not.i172, label %._crit_edge._crit_edge.i162, label %.lr.ph.i167, !llvm.loop !62
+  br i1 %exitcond.not.i172, label %._crit_edge._crit_edge.i162, label %.lr.ph.i167, !llvm.loop !63
 
 ._crit_edge.loopexit.i170:                        ; preds = %.lr.ph.i167
   %174 = trunc nuw nsw i64 %indvars.iv.i168 to i32
@@ -8677,7 +8677,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   %.4 = phi i32 [ %305, %304 ], [ %.3, %306 ], [ %.3, %256 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %204, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %204, !llvm.loop !65
 
 .loopexit:                                        ; preds = %308, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173, %148, %150, %93
   %.1108 = phi i32 [ %.0107207, %148 ], [ %151, %150 ], [ %.0107207, %93 ], [ %.0107207, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173 ], [ %.4111, %308 ]
@@ -8689,7 +8689,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
   %312 = zext i8 %311 to i64
   %313 = icmp samesign ult i64 %indvars.iv.next220, %312
   %314 = trunc nuw nsw i64 %indvars.iv219 to i32
-  br i1 %313, label %35, label %._crit_edge211, !llvm.loop !65
+  br i1 %313, label %35, label %._crit_edge211, !llvm.loop !66
 
 ._crit_edge211:                                   ; preds = %.loopexit, %26
   %.0107.lcssa = phi i32 [ 1073741824, %26 ], [ %.1108, %.loopexit ]
@@ -8852,7 +8852,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %._crit_edge, label %101, !llvm.loop !66
+  br i1 %100, label %._crit_edge, label %101, !llvm.loop !67
 
 101:                                              ; preds = %.lr.ph213, %.loopexit
   %102 = phi i32 [ %87, %.lr.ph213 ], [ %99, %.loopexit ]
@@ -8996,7 +8996,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %167 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %.0144 = load i32, ptr %167, align 4
   %.not171 = icmp eq i32 %.0144, -1
-  br i1 %.not171, label %.critedge, label %146, !llvm.loop !67
+  br i1 %.not171, label %.critedge, label %146, !llvm.loop !68
 
 168:                                              ; preds = %.lr.ph203
   %.not170 = icmp eq i16 %142, 0
@@ -9074,7 +9074,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %222 = zext i8 %221 to i64
   %223 = icmp samesign ult i64 %indvars.iv.next, %222
   %224 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %223, label %.lr.ph203, label %.preheader194, !llvm.loop !68
+  br i1 %223, label %.lr.ph203, label %.preheader194, !llvm.loop !69
 
 225:                                              ; preds = %.lr.ph209, %_ZN11dtNodeQueue6modifyEP6dtNode.exit
   %226 = phi ptr [ %.pre224, %.lr.ph209 ], [ %363, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ]
@@ -9275,7 +9275,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %323, %305
 351:                                              ; preds = %345
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %345, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN11dtNodeQueue6modifyEP6dtNode.exit, label %345, !llvm.loop !13
 
 352:                                              ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
   %353 = and i32 %278, 268435456
@@ -9299,7 +9299,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %351, %349, %339, %3
   %364 = getelementptr inbounds nuw %struct.dtLink, ptr %363, i64 %227, i32 1
   %.0143 = load i32, ptr %364, align 4
   %.not162 = icmp eq i32 %.0143, -1
-  br i1 %.not162, label %.loopexit, label %225, !llvm.loop !69
+  br i1 %.not162, label %.loopexit, label %225, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.loopexit, %62
   %.0136.lcssa = phi i32 [ 1073741824, %62 ], [ %.1137.lcssa, %.loopexit ]
@@ -9400,7 +9400,7 @@ define noundef zeroext i1 @_ZNK14dtNavMeshQuery14isInClosedListEj(ptr noundef no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not8.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   %.06 = phi i1 [ false, %2 ], [ false, %6 ], [ %.not8.not, %.lr.ph ]
@@ -9538,7 +9538,7 @@ _ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit: ; preds = %29, %33, %37,
 82:                                               ; preds = %77, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %82, %5
   ret void
@@ -9646,71 +9646,72 @@ attributes #24 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !23}
-!23 = !{!"llvm.loop.unswitch.partial.disable"}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = !{!"branch_weights", i32 1, i32 1048575}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}
-!58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !24}
+!24 = !{!"llvm.loop.unswitch.partial.disable"}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = !{!"branch_weights", i32 1, i32 1048575}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5, !6}
+!45 = distinct !{!45, !5, !6}
+!46 = distinct !{!46, !5, !6}
+!47 = distinct !{!47, !5, !6}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}
+!51 = distinct !{!51, !5, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5, !6}
+!54 = distinct !{!54, !5, !6}
+!55 = distinct !{!55, !5, !6}
+!56 = distinct !{!56, !5, !6}
+!57 = distinct !{!57, !5, !6}
+!58 = distinct !{!58, !5, !6}
+!59 = distinct !{!59, !5, !6}
+!60 = distinct !{!60, !5, !6}
+!61 = distinct !{!61, !5, !6}
+!62 = distinct !{!62, !5, !6}
+!63 = distinct !{!63, !5, !6}
+!64 = distinct !{!64, !5, !6}
+!65 = distinct !{!65, !5, !6}
+!66 = distinct !{!66, !5, !6}
+!67 = distinct !{!67, !5, !6}
+!68 = distinct !{!68, !5, !6}
+!69 = distinct !{!69, !5, !6}
+!70 = distinct !{!70, !5, !6}
+!71 = distinct !{!71, !5, !6}
+!72 = distinct !{!72, !5, !6}

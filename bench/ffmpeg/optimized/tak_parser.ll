@@ -115,8 +115,8 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   %59 = phi i32 [ %79, %.loopexit ], [ %5, %.preheader ]
   %.069 = phi i32 [ %.170, %.loopexit ], [ 0, %.preheader ]
   %.not79 = icmp eq i32 %59, 0
-  %60 = load i32, ptr %19, align 8, !tbaa !32
-  %61 = load i32, ptr %20, align 8, !tbaa !33
+  %60 = load i32, ptr %19, align 8, !tbaa !33
+  %61 = load i32, ptr %20, align 8, !tbaa !34
   br i1 %.not79, label %62, label %.critedge
 
 62:                                               ; preds = %56
@@ -149,8 +149,8 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   store i32 %73, ptr %8, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
-  %.pre = load i32, ptr %19, align 8, !tbaa !32
-  %.pre149 = load i32, ptr %20, align 8, !tbaa !33
+  %.pre = load i32, ptr %19, align 8, !tbaa !33
+  %.pre149 = load i32, ptr %20, align 8, !tbaa !34
   br label %.critedge.thread
 
 74:                                               ; preds = %66
@@ -172,7 +172,7 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
 .lr.ph:                                           ; preds = %.critedge.thread, %130
   %81 = phi i32 [ %131, %130 ], [ %75, %.critedge.thread ]
   %82 = phi i32 [ %133, %130 ], [ %76, %.critedge.thread ]
-  %83 = load ptr, ptr %14, align 8, !tbaa !34
+  %83 = load ptr, ptr %14, align 8, !tbaa !35
   %84 = sext i32 %82 to i64
   %85 = getelementptr inbounds i8, ptr %83, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !23
@@ -213,7 +213,7 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   br label %bits_init8_le.exit100
 
 bits_init8_le.exit100:                            ; preds = %99, %95
-  %102 = load i32, ptr %26, align 8, !tbaa !35
+  %102 = load i32, ptr %26, align 8, !tbaa !36
   %.not84 = icmp eq i32 %102, 0
   %103 = select i1 %.not84, ptr %27, ptr %13
   %104 = call i32 @ff_tak_decode_frame_header(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %103, i32 noundef 127) #4
@@ -221,8 +221,8 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   br i1 %.not85, label %105, label %bits_init8_le.exit100.thread._crit_edge
 
 105:                                              ; preds = %bits_init8_le.exit100
-  %106 = load ptr, ptr %14, align 8, !tbaa !34
-  %107 = load i32, ptr %19, align 8, !tbaa !32
+  %106 = load ptr, ptr %14, align 8, !tbaa !35
+  %107 = load i32, ptr %19, align 8, !tbaa !33
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %106, i64 %108
   %110 = load ptr, ptr %23, align 8, !tbaa !19
@@ -240,12 +240,12 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   br i1 %.not86, label %120, label %bits_init8_le.exit100.thread._crit_edge
 
 120:                                              ; preds = %105
-  %121 = load i32, ptr %26, align 8, !tbaa !35
+  %121 = load i32, ptr %26, align 8, !tbaa !36
   %.not87 = icmp eq i32 %121, 0
   br i1 %.not87, label %122, label %.loopexit106.loopexit
 
 122:                                              ; preds = %120
-  store i32 1, ptr %26, align 8, !tbaa !35
+  store i32 1, ptr %26, align 8, !tbaa !36
   %123 = load i32, ptr %28, align 8, !tbaa !24
   %.not88 = icmp eq i32 %123, 0
   br i1 %.not88, label %124, label %126
@@ -257,33 +257,33 @@ bits_init8_le.exit100:                            ; preds = %99, %95
 126:                                              ; preds = %122, %124
   %127 = phi i32 [ %125, %124 ], [ %123, %122 ]
   store i32 %127, ptr %30, align 8, !tbaa !29
-  %128 = load i32, ptr %27, align 8, !tbaa !36
+  %128 = load i32, ptr %27, align 8, !tbaa !37
   %129 = lshr i32 %128, 1
   %.lobit = and i32 %129, 1
-  store i32 %.lobit, ptr %31, align 8, !tbaa !37
+  store i32 %.lobit, ptr %31, align 8, !tbaa !38
   br label %bits_init8_le.exit100.thread._crit_edge
 
 bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_init8_le.exit100
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #4
-  %.pre150 = load i32, ptr %19, align 8, !tbaa !32
-  %.pre151 = load i32, ptr %20, align 8, !tbaa !33
+  %.pre150 = load i32, ptr %19, align 8, !tbaa !33
+  %.pre151 = load i32, ptr %20, align 8, !tbaa !34
   br label %130
 
 130:                                              ; preds = %bits_init8_le.exit100.thread._crit_edge, %.lr.ph, %88
   %131 = phi i32 [ %.pre151, %bits_init8_le.exit100.thread._crit_edge ], [ %81, %88 ], [ %81, %.lr.ph ]
   %132 = phi i32 [ %.pre150, %bits_init8_le.exit100.thread._crit_edge ], [ %82, %88 ], [ %82, %.lr.ph ]
   %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %19, align 8, !tbaa !32
+  store i32 %133, ptr %19, align 8, !tbaa !33
   %134 = add nsw i32 %133, %15
   %.not83 = icmp sgt i32 %134, %131
-  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit106.loopexit:                            ; preds = %120
-  store i32 0, ptr %26, align 8, !tbaa !35
-  %135 = load i32, ptr %19, align 8, !tbaa !32
-  %136 = load i32, ptr %20, align 8, !tbaa !33
+  store i32 0, ptr %26, align 8, !tbaa !36
+  %135 = load i32, ptr %19, align 8, !tbaa !33
+  %136 = load i32, ptr %20, align 8, !tbaa !34
   %137 = sub nsw i32 %135, %136
-  store i32 0, ptr %19, align 8, !tbaa !32
+  store i32 0, ptr %19, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #4
   br label %.loopexit106
 
@@ -315,7 +315,7 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
   %148 = sub nsw i32 0, %147
   %149 = call i32 @llvm.smax.i32(i32 %148, i32 0)
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  store i32 %149, ptr %150, align 4, !tbaa !39
+  store i32 %149, ptr %150, align 4, !tbaa !40
   br label %151
 
 151:                                              ; preds = %146, %145
@@ -402,13 +402,14 @@ attributes #4 = { nounwind }
 !27 = !{!"TAKStreamInfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40, !14, i64 48}
 !28 = !{!25, !10, i64 76}
 !29 = !{!12, !10, i64 296}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!25, !10, i64 104}
-!33 = !{!26, !10, i64 8}
-!34 = !{!26, !5, i64 0}
-!35 = !{!26, !10, i64 24}
-!36 = !{!25, !10, i64 48}
-!37 = !{!12, !10, i64 232}
-!38 = distinct !{!38, !31}
-!39 = !{!26, !10, i64 28}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!25, !10, i64 104}
+!34 = !{!26, !10, i64 8}
+!35 = !{!26, !5, i64 0}
+!36 = !{!26, !10, i64 24}
+!37 = !{!25, !10, i64 48}
+!38 = !{!12, !10, i64 232}
+!39 = distinct !{!39, !31, !32}
+!40 = !{!26, !10, i64 28}

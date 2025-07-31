@@ -1304,7 +1304,7 @@ define internal i32 @wmi_dev_probe(ptr noundef %0) #0 align 16 {
   %42 = getelementptr i8, ptr %31, i64 48
   %43 = load i8, ptr %42, align 8
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %.loopexit, label %30, !llvm.loop !9
+  br i1 %44, label %.loopexit, label %30, !llvm.loop !10
 
 .loopexit:                                        ; preds = %41, %37, %25, %21
   %45 = phi ptr [ %39, %37 ], [ null, %21 ], [ null, %25 ], [ null, %41 ]
@@ -1622,13 +1622,13 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 105:                                              ; preds = %104, %101
   %106 = add nuw nsw i64 %96, 1
   %107 = icmp eq i64 %106, 5
-  br i1 %107, label %108, label %.preheader, !llvm.loop !10
+  br i1 %107, label %108, label %.preheader, !llvm.loop !11
 
 108:                                              ; preds = %105
   %109 = getelementptr i8, ptr %94, i64 16
   %110 = call i32 @bcmp(ptr noundef dereferenceable(16) %109, ptr noundef dereferenceable(16) %88, i64 16)
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %.preheader21, !llvm.loop !11
+  br i1 %111, label %112, label %.preheader21, !llvm.loop !12
 
 112:                                              ; preds = %108
   %113 = getelementptr i8, ptr %94, i64 40
@@ -1740,7 +1740,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 166:                                              ; preds = %162, %156
   %167 = getelementptr inbounds nuw i8, ptr %124, i64 848
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %167, i32 1, ptr nonnull elementtype(i8) %167) #12, !srcloc !12
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %167, i32 1, ptr nonnull elementtype(i8) %167) #12, !srcloc !13
   %.pre = load ptr, ptr %3, align 8
   br label %168
 
@@ -1786,7 +1786,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %189 = add i32 %184, %188
   %190 = load ptr, ptr %183, align 8
   %191 = icmp eq ptr %190, @wmi_block_list
-  br i1 %191, label %192, label %.preheader20, !llvm.loop !13
+  br i1 %191, label %192, label %.preheader20, !llvm.loop !14
 
 192:                                              ; preds = %.preheader20
   %193 = icmp eq i32 %189, 0
@@ -1835,7 +1835,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 209:                                              ; preds = %.critedge, %203, %155, %126, %121, %92
   %210 = add nuw nsw i64 %87, 1
   %211 = icmp eq i64 %210, %85
-  br i1 %211, label %212, label %86, !llvm.loop !14
+  br i1 %211, label %212, label %86, !llvm.loop !15
 
 212:                                              ; preds = %209
   call void @kfree(ptr noundef nonnull %67) #12
@@ -2011,7 +2011,7 @@ define internal noundef range(i32 -16, 1) i32 @wmi_notify_device(ptr noundef %0,
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %23 = load i8, ptr %22, align 8, !range !15, !noundef !16
+  %23 = load i8, ptr %22, align 8, !range !16, !noundef !17
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %50, label %25
 
@@ -2021,7 +2021,7 @@ define internal noundef range(i32 -16, 1) i32 @wmi_notify_device(ptr noundef %0,
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 152
-  %28 = load i8, ptr %27, align 8, !range !15, !noundef !16
+  %28 = load i8, ptr %27, align 8, !range !16, !noundef !17
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %42
 
@@ -2190,7 +2190,7 @@ declare dso_local i32 @acpi_get_object_info(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @setable_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
+  %5 = load i8, ptr %4, align 8, !range !16, !noundef !17
   %6 = zext nneg i8 %5 to i32
   %7 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %6) #12
   %8 = sext i32 %7 to i64
@@ -2257,14 +2257,15 @@ attributes #14 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i64 2148628130, i64 2148628169, i64 2148628190, i64 2148628227, i64 2148628250, i64 2148628120}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = !{i64 2148628130, i64 2148628169, i64 2148628190, i64 2148628227, i64 2148628250, i64 2148628120}
+!14 = distinct !{!14, !7, !8, !9}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = !{i8 0, i8 2}
+!17 = !{}

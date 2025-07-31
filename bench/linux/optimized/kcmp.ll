@@ -413,7 +413,7 @@ define internal fastcc ptr @get_file_raw_ptr(ptr noundef nonnull %0, i32 noundef
 define internal fastcc i32 @kcmp_epoll_target(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.kcmp_epoll_slot, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !15
   %6 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %3, i64 noundef 12) #5
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %41
@@ -530,7 +530,8 @@ attributes #5 = { nounwind }
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i64 2149105508, i64 2149105547, i64 2149105568, i64 2149105605, i64 2149105628, i64 2149105637}
 !10 = !{i64 2150688258}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"auto-init"}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!"auto-init"}

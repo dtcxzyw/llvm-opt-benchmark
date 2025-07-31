@@ -4153,7 +4153,7 @@ indentation.exit705:                              ; preds = %897, %899
 911:                                              ; preds = %958
   %912 = add nuw nsw i32 %.1437764, 1
   %exitcond.not = icmp eq i32 %912, %904
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %906, %911
   %.9765 = phi ptr [ %961, %911 ], [ %.036.i716, %906 ]
@@ -4617,7 +4617,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
 28:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
@@ -4655,7 +4655,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
 45:                                               ; preds = %70
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count163
-  br i1 %exitcond164.not, label %.lr.ph152.preheader, label %46, !llvm.loop !38
+  br i1 %exitcond164.not, label %.lr.ph152.preheader, label %46, !llvm.loop !39
 
 .lr.ph152.preheader:                              ; preds = %45
   %smax168 = call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -4728,7 +4728,7 @@ indentation.exit:                                 ; preds = %47, %48
   %74 = call i32 @H5free_memory(ptr noundef %73) #20
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge153, label %.lr.ph152, !llvm.loop !39
+  br i1 %exitcond170.not, label %._crit_edge153, label %.lr.ph152, !llvm.loop !40
 
 ._crit_edge153:                                   ; preds = %.lr.ph152
   call void @free(ptr noundef nonnull %25) #20
@@ -4772,7 +4772,7 @@ indentation.exit:                                 ; preds = %47, %48
 85:                                               ; preds = %.lr.ph155, %84
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !40
+  br i1 %exitcond175.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !41
 
 ._crit_edge156:                                   ; preds = %85
   call void @free(ptr noundef %25) #20
@@ -5370,7 +5370,7 @@ sub_1:                                            ; preds = %sub_0
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %34 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef 47) #21
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %32, %31, %.tail
   %35 = tail call i32 @H5Lexists(i64 noundef %0, ptr noundef nonnull %16, i64 noundef 0) #20
@@ -5502,11 +5502,12 @@ attributes #25 = { nounwind allocsize(0,1) }
 !31 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"p1 omnipotent char", !9, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = distinct !{!38, !35, !36}
+!39 = distinct !{!39, !35, !36}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36}
+!42 = distinct !{!42, !35, !36}

@@ -107,7 +107,7 @@ define dso_local void @bloom_add_element(ptr noundef captures(none) %0, ptr noun
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !7
 
 k_hashes.exit:                                    ; preds = %3
   %25 = icmp eq i32 %15, 1
@@ -133,7 +133,7 @@ k_hashes.exit:                                    ; preds = %3
   store i8 %37, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond10.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond10.not, label %._crit_edge, label %27, !llvm.loop !7
+  br i1 %exitcond10.not, label %._crit_edge, label %27, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %27, %k_hashes.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #5
@@ -178,7 +178,7 @@ define dso_local noundef zeroext i1 @bloom_lacks_element(ptr noundef readonly ca
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !7
 
 k_hashes.exit:                                    ; preds = %3
   %25 = icmp eq i32 %15, 1
@@ -205,7 +205,7 @@ k_hashes.exit:                                    ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not, i1 true, i1 %exitcond14.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %k_hashes.exit
   %.lcssa = phi i1 [ false, %k_hashes.exit ], [ %.not, %.lr.ph ]
@@ -240,7 +240,7 @@ define dso_local double @bloom_prop_bits_set(ptr noundef %0) local_unnamed_addr 
   %14 = zext i8 %13 to i64
   %15 = add i64 %.015.i, %14
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !10
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr @pg_popcount_optimized, align 8
@@ -287,9 +287,10 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

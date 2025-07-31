@@ -350,7 +350,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_init() local_unnamed_ad
   %13 = tail call i32 @acpi_pci_irq_enable(ptr noundef nonnull %12) #8
   %14 = tail call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %12) #8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %8, %3, %0
   %16 = phi i32 [ -19, %0 ], [ 0, %3 ], [ 0, %8 ], [ 0, %.preheader ]
@@ -505,7 +505,7 @@ define internal noundef range(i32 -5, 1) i32 @pci_acpi_root_init_info(ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pci_acpi_root_release_info(ptr noundef %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load i8, ptr %2, align 8, !range !5, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !5, !noundef !12
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %14, label %5
 
@@ -579,7 +579,7 @@ define internal i32 @pci_acpi_root_prepare_resources(ptr noundef %0) #3 align 16
 
 33:                                               ; preds = %29, %25, %22, %.preheader
   %34 = icmp eq ptr %15, %10
-  br i1 %34, label %.loopexit3, label %.preheader, !llvm.loop !12
+  br i1 %34, label %.loopexit3, label %.preheader, !llvm.loop !13
 
 35:                                               ; preds = %1
   br i1 %12, label %.loopexit, label %36
@@ -604,7 +604,7 @@ define internal i32 @pci_acpi_root_prepare_resources(ptr noundef %0) #3 align 16
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %43, align 8
   tail call void @kfree(ptr noundef %39) #8
   %47 = icmp eq ptr %40, %10
-  br i1 %47, label %.loopexit, label %38, !llvm.loop !13
+  br i1 %47, label %.loopexit, label %38, !llvm.loop !14
 
 .loopexit:                                        ; preds = %38, %35
   tail call void @x86_pci_root_bus_resources(i32 noundef %7, ptr noundef nonnull %10) #8
@@ -660,10 +660,11 @@ attributes #10 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{i64 2148416815, i64 2148416889}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = !{}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}

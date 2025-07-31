@@ -108,11 +108,11 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %24 = xor i32 %.masked91.i, %23
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond109.not.i = icmp eq i64 %indvars.iv.next107.i, 10
-  br i1 %exitcond109.not.i, label %25, label %.preheader98.i, !llvm.loop !14
+  br i1 %exitcond109.not.i, label %25, label %.preheader98.i, !llvm.loop !15
 
 25:                                               ; preds = %.preheader98.i
-  store i8 99, ptr @_ZL6AESFSb, align 16, !tbaa !15
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL3RSb, i64 99), align 1, !tbaa !15
+  store i8 99, ptr @_ZL6AESFSb, align 16, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL3RSb, i64 99), align 1, !tbaa !16
   br label %34
 
 .preheader.i:                                     ; preds = %34
@@ -157,19 +157,19 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %58 = xor i32 %57, 99
   %59 = trunc i32 %58 to i8
   %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %indvars.iv110.i
-  store i8 %59, ptr %60, align 1, !tbaa !15
+  store i8 %59, ptr %60, align 1, !tbaa !16
   %61 = trunc i64 %indvars.iv110.i to i8
   %62 = sext i32 %58 to i64
   %63 = getelementptr inbounds [256 x i8], ptr @_ZL3RSb, i64 0, i64 %62
-  store i8 %61, ptr %63, align 1, !tbaa !15
+  store i8 %61, ptr %63, align 1, !tbaa !16
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 256
-  br i1 %exitcond113.not.i, label %.preheader.i, label %34, !llvm.loop !16
+  br i1 %exitcond113.not.i, label %.preheader.i, label %34, !llvm.loop !17
 
 64:                                               ; preds = %.thread97.i, %.preheader.i
   %indvars.iv114.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next115.i, %.thread97.i ]
   %65 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %indvars.iv114.i
-  %66 = load i8, ptr %65, align 1, !tbaa !15
+  %66 = load i8, ptr %65, align 1, !tbaa !16
   %67 = zext i8 %66 to i32
   %68 = shl i8 %66, 1
   %.not.inv.i = icmp slt i8 %66, 0
@@ -197,7 +197,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %87 = getelementptr inbounds nuw [256 x i32], ptr @_ZL3FT3, i64 0, i64 %indvars.iv114.i
   store i32 %86, ptr %87, align 4, !tbaa !11
   %88 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %indvars.iv114.i
-  %89 = load i8, ptr %88, align 1, !tbaa !15
+  %89 = load i8, ptr %88, align 1, !tbaa !16
   %.not.i = icmp eq i8 %89, 0
   br i1 %.not.i, label %.thread97.i, label %90
 
@@ -248,7 +248,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   store i32 %126, ptr %127, align 4, !tbaa !11
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond117.not.i = icmp eq i64 %indvars.iv.next115.i, 256
-  br i1 %exitcond117.not.i, label %128, label %64, !llvm.loop !17
+  br i1 %exitcond117.not.i, label %128, label %64, !llvm.loop !18
 
 128:                                              ; preds = %.thread97.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #7
@@ -276,7 +276,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   store i32 %136, ptr %137, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
   %138 = phi ptr [ %129, %128 ], [ %131, %.lr.ph ]
@@ -312,28 +312,28 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %146 = and i32 %145, 255
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %147
-  %149 = load i8, ptr %148, align 1, !tbaa !15
+  %149 = load i8, ptr %148, align 1, !tbaa !16
   %150 = zext i8 %149 to i32
   %151 = xor i32 %142, %150
   %152 = lshr i32 %144, 16
   %153 = and i32 %152, 255
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !15
+  %156 = load i8, ptr %155, align 1, !tbaa !16
   %157 = zext i8 %156 to i32
   %158 = shl nuw nsw i32 %157, 8
   %159 = xor i32 %151, %158
   %160 = lshr i32 %144, 24
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %161
-  %163 = load i8, ptr %162, align 1, !tbaa !15
+  %163 = load i8, ptr %162, align 1, !tbaa !16
   %164 = zext i8 %163 to i32
   %165 = shl nuw nsw i32 %164, 16
   %166 = xor i32 %159, %165
   %167 = and i32 %144, 255
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !15
+  %170 = load i8, ptr %169, align 1, !tbaa !16
   %171 = zext i8 %170 to i32
   %172 = shl nuw i32 %171, 24
   %173 = xor i32 %166, %172
@@ -354,7 +354,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   store i32 %183, ptr %184, align 4, !tbaa !11
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 10
-  br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .preheader102:                                    ; preds = %.preheader102.preheader, %.preheader102
   %185 = phi i32 [ %.pre128, %.preheader102.preheader ], [ %219, %.preheader102 ]
@@ -369,28 +369,28 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %192 = and i32 %191, 255
   %193 = zext nneg i32 %192 to i64
   %194 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !15
+  %195 = load i8, ptr %194, align 1, !tbaa !16
   %196 = zext i8 %195 to i32
   %197 = xor i32 %188, %196
   %198 = lshr i32 %190, 16
   %199 = and i32 %198, 255
   %200 = zext nneg i32 %199 to i64
   %201 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %200
-  %202 = load i8, ptr %201, align 1, !tbaa !15
+  %202 = load i8, ptr %201, align 1, !tbaa !16
   %203 = zext i8 %202 to i32
   %204 = shl nuw nsw i32 %203, 8
   %205 = xor i32 %197, %204
   %206 = lshr i32 %190, 24
   %207 = zext nneg i32 %206 to i64
   %208 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %207
-  %209 = load i8, ptr %208, align 1, !tbaa !15
+  %209 = load i8, ptr %208, align 1, !tbaa !16
   %210 = zext i8 %209 to i32
   %211 = shl nuw nsw i32 %210, 16
   %212 = xor i32 %205, %211
   %213 = and i32 %190, 255
   %214 = zext nneg i32 %213 to i64
   %215 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %214
-  %216 = load i8, ptr %215, align 1, !tbaa !15
+  %216 = load i8, ptr %215, align 1, !tbaa !16
   %217 = zext i8 %216 to i32
   %218 = shl nuw i32 %217, 24
   %219 = xor i32 %212, %218
@@ -421,7 +421,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   store i32 %237, ptr %238, align 4, !tbaa !11
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 8
-  br i1 %exitcond123.not, label %.loopexit, label %.preheader102, !llvm.loop !20
+  br i1 %exitcond123.not, label %.loopexit, label %.preheader102, !llvm.loop !21
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.preheader104
   %239 = phi i32 [ %.pre, %.preheader104.preheader ], [ %273, %.preheader104 ]
@@ -436,28 +436,28 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %246 = and i32 %245, 255
   %247 = zext nneg i32 %246 to i64
   %248 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %247
-  %249 = load i8, ptr %248, align 1, !tbaa !15
+  %249 = load i8, ptr %248, align 1, !tbaa !16
   %250 = zext i8 %249 to i32
   %251 = xor i32 %242, %250
   %252 = lshr i32 %244, 16
   %253 = and i32 %252, 255
   %254 = zext nneg i32 %253 to i64
   %255 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %254
-  %256 = load i8, ptr %255, align 1, !tbaa !15
+  %256 = load i8, ptr %255, align 1, !tbaa !16
   %257 = zext i8 %256 to i32
   %258 = shl nuw nsw i32 %257, 8
   %259 = xor i32 %251, %258
   %260 = lshr i32 %244, 24
   %261 = zext nneg i32 %260 to i64
   %262 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %261
-  %263 = load i8, ptr %262, align 1, !tbaa !15
+  %263 = load i8, ptr %262, align 1, !tbaa !16
   %264 = zext i8 %263 to i32
   %265 = shl nuw nsw i32 %264, 16
   %266 = xor i32 %259, %265
   %267 = and i32 %244, 255
   %268 = zext nneg i32 %267 to i64
   %269 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %268
-  %270 = load i8, ptr %269, align 1, !tbaa !15
+  %270 = load i8, ptr %269, align 1, !tbaa !16
   %271 = zext i8 %270 to i32
   %272 = shl nuw i32 %271, 24
   %273 = xor i32 %266, %272
@@ -483,14 +483,14 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %289 = and i32 %285, 255
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !15
+  %292 = load i8, ptr %291, align 1, !tbaa !16
   %293 = zext i8 %292 to i32
   %294 = xor i32 %288, %293
   %295 = lshr i32 %285, 8
   %296 = and i32 %295, 255
   %297 = zext nneg i32 %296 to i64
   %298 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %297
-  %299 = load i8, ptr %298, align 1, !tbaa !15
+  %299 = load i8, ptr %298, align 1, !tbaa !16
   %300 = zext i8 %299 to i32
   %301 = shl nuw nsw i32 %300, 8
   %302 = xor i32 %294, %301
@@ -498,14 +498,14 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %304 = and i32 %303, 255
   %305 = zext nneg i32 %304 to i64
   %306 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %305
-  %307 = load i8, ptr %306, align 1, !tbaa !15
+  %307 = load i8, ptr %306, align 1, !tbaa !16
   %308 = zext i8 %307 to i32
   %309 = shl nuw nsw i32 %308, 16
   %310 = xor i32 %302, %309
   %311 = lshr i32 %285, 24
   %312 = zext nneg i32 %311 to i64
   %313 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %312
-  %314 = load i8, ptr %313, align 1, !tbaa !15
+  %314 = load i8, ptr %313, align 1, !tbaa !16
   %315 = zext i8 %314 to i32
   %316 = shl nuw i32 %315, 24
   %317 = xor i32 %310, %316
@@ -526,7 +526,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   store i32 %327, ptr %328, align 4, !tbaa !11
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 7
-  br i1 %exitcond119.not, label %.loopexit, label %.preheader104, !llvm.loop !21
+  br i1 %exitcond119.not, label %.loopexit, label %.preheader104, !llvm.loop !22
 
 ._crit_edge.unreachabledefault:                   ; preds = %._crit_edge
   unreachable
@@ -595,7 +595,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %30 = and i32 %29, 255
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !15
+  %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i32], ptr @_ZL3RT0, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !11
@@ -603,7 +603,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %38 = and i32 %37, 255
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !15
+  %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i32], ptr @_ZL3RT1, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !11
@@ -612,7 +612,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %47 = and i32 %46, 255
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !15
+  %50 = load i8, ptr %49, align 1, !tbaa !16
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i32], ptr @_ZL3RT2, i64 0, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !11
@@ -620,7 +620,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %55 = lshr i32 %29, 24
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !15
+  %58 = load i8, ptr %57, align 1, !tbaa !16
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw [256 x i32], ptr @_ZL3RT3, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !11
@@ -630,13 +630,13 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
   %64 = add nuw nsw i32 %.03738, 1
   %65 = getelementptr inbounds nuw i8, ptr %.140, i64 4
   %exitcond.not = icmp eq i32 %64, 4
-  br i1 %exitcond.not, label %66, label %28, !llvm.loop !22
+  br i1 %exitcond.not, label %66, label %28, !llvm.loop !23
 
 66:                                               ; preds = %28
   %.03644 = add nsw i32 %.03644.in, -1
   %67 = getelementptr inbounds i8, ptr %.140, i64 -28
   %68 = icmp sgt i32 %.03644.in, 2
-  br i1 %68, label %.preheader, label %._crit_edge, !llvm.loop !23
+  br i1 %68, label %.preheader, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %66, %8
   %.034.lcssa = phi ptr [ %25, %8 ], [ %63, %66 ]
@@ -672,12 +672,12 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %7 = load i16, ptr %1, align 1
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i8, ptr %9, align 1, !tbaa !15
+  %10 = load i8, ptr %9, align 1, !tbaa !16
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = or disjoint i32 %12, %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %15 = load i8, ptr %14, align 1, !tbaa !15
+  %15 = load i8, ptr %14, align 1, !tbaa !16
   %16 = zext i8 %15 to i32
   %17 = shl nuw i32 %16, 24
   %18 = or disjoint i32 %13, %17
@@ -688,12 +688,12 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %23 = load i16, ptr %22, align 1
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %26 = load i8, ptr %25, align 1, !tbaa !15
+  %26 = load i8, ptr %25, align 1, !tbaa !16
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 16
   %29 = or disjoint i32 %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %31 = load i8, ptr %30, align 1, !tbaa !15
+  %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i32
   %33 = shl nuw i32 %32, 24
   %34 = or disjoint i32 %29, %33
@@ -705,12 +705,12 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %40 = load i16, ptr %39, align 1
   %41 = zext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %43 = load i8, ptr %42, align 1, !tbaa !15
+  %43 = load i8, ptr %42, align 1, !tbaa !16
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 16
   %46 = or disjoint i32 %45, %41
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %48 = load i8, ptr %47, align 1, !tbaa !15
+  %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = zext i8 %48 to i32
   %50 = shl nuw i32 %49, 24
   %51 = or disjoint i32 %46, %50
@@ -723,12 +723,12 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %57 = load i16, ptr %56, align 1
   %58 = zext i16 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %60 = load i8, ptr %59, align 1, !tbaa !15
+  %60 = load i8, ptr %59, align 1, !tbaa !16
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 16
   %63 = or disjoint i32 %62, %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %65 = load i8, ptr %64, align 1, !tbaa !15
+  %65 = load i8, ptr %64, align 1, !tbaa !16
   %66 = zext i8 %65 to i32
   %67 = shl nuw i32 %66, 24
   %68 = or disjoint i32 %63, %67
@@ -956,7 +956,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %275 = xor i32 %270, %274
   store i32 %275, ptr %69, align 4, !tbaa !11
   %276 = icmp samesign ugt i32 %.055.in59, 2
-  br i1 %276, label %79, label %._crit_edge, !llvm.loop !24
+  br i1 %276, label %79, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %79, %3
   %277 = phi i32 [ %72, %3 ], [ %275, %79 ]
@@ -1073,27 +1073,27 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %383 = and i32 %304, 255
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %384
-  %386 = load i8, ptr %385, align 1, !tbaa !15
+  %386 = load i8, ptr %385, align 1, !tbaa !16
   %387 = zext i8 %386 to i32
   %388 = xor i32 %382, %387
   %389 = lshr i32 %329, 8
   %390 = and i32 %389, 255
   %391 = zext nneg i32 %390 to i64
   %392 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %391
-  %393 = load i8, ptr %392, align 1, !tbaa !15
+  %393 = load i8, ptr %392, align 1, !tbaa !16
   %394 = zext i8 %393 to i32
   %395 = shl nuw nsw i32 %394, 8
   %396 = lshr i32 %354, 16
   %397 = and i32 %396, 255
   %398 = zext nneg i32 %397 to i64
   %399 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %398
-  %400 = load i8, ptr %399, align 1, !tbaa !15
+  %400 = load i8, ptr %399, align 1, !tbaa !16
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 16
   %403 = lshr i32 %379, 24
   %404 = zext nneg i32 %403 to i64
   %405 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %404
-  %406 = load i8, ptr %405, align 1, !tbaa !15
+  %406 = load i8, ptr %405, align 1, !tbaa !16
   %407 = zext i8 %406 to i32
   %408 = shl nuw i32 %407, 24
   %409 = or disjoint i32 %402, %395
@@ -1105,27 +1105,27 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %414 = and i32 %329, 255
   %415 = zext nneg i32 %414 to i64
   %416 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %415
-  %417 = load i8, ptr %416, align 1, !tbaa !15
+  %417 = load i8, ptr %416, align 1, !tbaa !16
   %418 = zext i8 %417 to i32
   %419 = xor i32 %413, %418
   %420 = lshr i32 %354, 8
   %421 = and i32 %420, 255
   %422 = zext nneg i32 %421 to i64
   %423 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %422
-  %424 = load i8, ptr %423, align 1, !tbaa !15
+  %424 = load i8, ptr %423, align 1, !tbaa !16
   %425 = zext i8 %424 to i32
   %426 = shl nuw nsw i32 %425, 8
   %427 = lshr i32 %379, 16
   %428 = and i32 %427, 255
   %429 = zext nneg i32 %428 to i64
   %430 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %429
-  %431 = load i8, ptr %430, align 1, !tbaa !15
+  %431 = load i8, ptr %430, align 1, !tbaa !16
   %432 = zext i8 %431 to i32
   %433 = shl nuw nsw i32 %432, 16
   %434 = lshr i32 %304, 24
   %435 = zext nneg i32 %434 to i64
   %436 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %435
-  %437 = load i8, ptr %436, align 1, !tbaa !15
+  %437 = load i8, ptr %436, align 1, !tbaa !16
   %438 = zext i8 %437 to i32
   %439 = shl nuw i32 %438, 24
   %440 = or disjoint i32 %433, %426
@@ -1137,27 +1137,27 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %445 = and i32 %354, 255
   %446 = zext nneg i32 %445 to i64
   %447 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %446
-  %448 = load i8, ptr %447, align 1, !tbaa !15
+  %448 = load i8, ptr %447, align 1, !tbaa !16
   %449 = zext i8 %448 to i32
   %450 = xor i32 %444, %449
   %451 = lshr i32 %379, 8
   %452 = and i32 %451, 255
   %453 = zext nneg i32 %452 to i64
   %454 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %453
-  %455 = load i8, ptr %454, align 1, !tbaa !15
+  %455 = load i8, ptr %454, align 1, !tbaa !16
   %456 = zext i8 %455 to i32
   %457 = shl nuw nsw i32 %456, 8
   %458 = lshr i32 %304, 16
   %459 = and i32 %458, 255
   %460 = zext nneg i32 %459 to i64
   %461 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !15
+  %462 = load i8, ptr %461, align 1, !tbaa !16
   %463 = zext i8 %462 to i32
   %464 = shl nuw nsw i32 %463, 16
   %465 = lshr i32 %329, 24
   %466 = zext nneg i32 %465 to i64
   %467 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %466
-  %468 = load i8, ptr %467, align 1, !tbaa !15
+  %468 = load i8, ptr %467, align 1, !tbaa !16
   %469 = zext i8 %468 to i32
   %470 = shl nuw i32 %469, 24
   %471 = or disjoint i32 %464, %457
@@ -1168,27 +1168,27 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %475 = and i32 %379, 255
   %476 = zext nneg i32 %475 to i64
   %477 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %476
-  %478 = load i8, ptr %477, align 1, !tbaa !15
+  %478 = load i8, ptr %477, align 1, !tbaa !16
   %479 = zext i8 %478 to i32
   %480 = xor i32 %474, %479
   %481 = lshr i32 %304, 8
   %482 = and i32 %481, 255
   %483 = zext nneg i32 %482 to i64
   %484 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %483
-  %485 = load i8, ptr %484, align 1, !tbaa !15
+  %485 = load i8, ptr %484, align 1, !tbaa !16
   %486 = zext i8 %485 to i32
   %487 = shl nuw nsw i32 %486, 8
   %488 = lshr i32 %329, 16
   %489 = and i32 %488, 255
   %490 = zext nneg i32 %489 to i64
   %491 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %490
-  %492 = load i8, ptr %491, align 1, !tbaa !15
+  %492 = load i8, ptr %491, align 1, !tbaa !16
   %493 = zext i8 %492 to i32
   %494 = shl nuw nsw i32 %493, 16
   %495 = lshr i32 %354, 24
   %496 = zext nneg i32 %495 to i64
   %497 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %496
-  %498 = load i8, ptr %497, align 1, !tbaa !15
+  %498 = load i8, ptr %497, align 1, !tbaa !16
   %499 = zext i8 %498 to i32
   %500 = shl nuw i32 %499, 24
   %501 = or disjoint i32 %494, %487
@@ -1196,64 +1196,64 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %503 = xor i32 %502, %480
   store i32 %503, ptr %69, align 4, !tbaa !11
   %504 = trunc i32 %388 to i8
-  store i8 %504, ptr %2, align 1, !tbaa !15
+  store i8 %504, ptr %2, align 1, !tbaa !16
   %505 = lshr i32 %411, 8
   %506 = trunc i32 %505 to i8
   %507 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %506, ptr %507, align 1, !tbaa !15
+  store i8 %506, ptr %507, align 1, !tbaa !16
   %508 = lshr i32 %411, 16
   %509 = trunc i32 %508 to i8
   %510 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %509, ptr %510, align 1, !tbaa !15
+  store i8 %509, ptr %510, align 1, !tbaa !16
   %511 = lshr i32 %411, 24
   %512 = trunc nuw i32 %511 to i8
   %513 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %512, ptr %513, align 1, !tbaa !15
+  store i8 %512, ptr %513, align 1, !tbaa !16
   %514 = trunc i32 %419 to i8
   %515 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %514, ptr %515, align 1, !tbaa !15
+  store i8 %514, ptr %515, align 1, !tbaa !16
   %516 = lshr i32 %442, 8
   %517 = trunc i32 %516 to i8
   %518 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %517, ptr %518, align 1, !tbaa !15
+  store i8 %517, ptr %518, align 1, !tbaa !16
   %519 = lshr i32 %442, 16
   %520 = trunc i32 %519 to i8
   %521 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %520, ptr %521, align 1, !tbaa !15
+  store i8 %520, ptr %521, align 1, !tbaa !16
   %522 = lshr i32 %442, 24
   %523 = trunc nuw i32 %522 to i8
   %524 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %523, ptr %524, align 1, !tbaa !15
+  store i8 %523, ptr %524, align 1, !tbaa !16
   %525 = trunc i32 %450 to i8
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %525, ptr %526, align 1, !tbaa !15
+  store i8 %525, ptr %526, align 1, !tbaa !16
   %527 = lshr i32 %473, 8
   %528 = trunc i32 %527 to i8
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %528, ptr %529, align 1, !tbaa !15
+  store i8 %528, ptr %529, align 1, !tbaa !16
   %530 = lshr i32 %473, 16
   %531 = trunc i32 %530 to i8
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %531, ptr %532, align 1, !tbaa !15
+  store i8 %531, ptr %532, align 1, !tbaa !16
   %533 = lshr i32 %473, 24
   %534 = trunc nuw i32 %533 to i8
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %534, ptr %535, align 1, !tbaa !15
+  store i8 %534, ptr %535, align 1, !tbaa !16
   %536 = trunc i32 %480 to i8
   %537 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %536, ptr %537, align 1, !tbaa !15
+  store i8 %536, ptr %537, align 1, !tbaa !16
   %538 = lshr i32 %503, 8
   %539 = trunc i32 %538 to i8
   %540 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  store i8 %539, ptr %540, align 1, !tbaa !15
+  store i8 %539, ptr %540, align 1, !tbaa !16
   %541 = lshr i32 %503, 16
   %542 = trunc i32 %541 to i8
   %543 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %542, ptr %543, align 1, !tbaa !15
+  store i8 %542, ptr %543, align 1, !tbaa !16
   %544 = lshr i32 %503, 24
   %545 = trunc nuw i32 %544 to i8
   %546 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  store i8 %545, ptr %546, align 1, !tbaa !15
+  store i8 %545, ptr %546, align 1, !tbaa !16
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   ret i32 0
@@ -1268,12 +1268,12 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %7 = load i16, ptr %1, align 1
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i8, ptr %9, align 1, !tbaa !15
+  %10 = load i8, ptr %9, align 1, !tbaa !16
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = or disjoint i32 %12, %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %15 = load i8, ptr %14, align 1, !tbaa !15
+  %15 = load i8, ptr %14, align 1, !tbaa !16
   %16 = zext i8 %15 to i32
   %17 = shl nuw i32 %16, 24
   %18 = or disjoint i32 %13, %17
@@ -1284,12 +1284,12 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %23 = load i16, ptr %22, align 1
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %26 = load i8, ptr %25, align 1, !tbaa !15
+  %26 = load i8, ptr %25, align 1, !tbaa !16
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 16
   %29 = or disjoint i32 %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %31 = load i8, ptr %30, align 1, !tbaa !15
+  %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i32
   %33 = shl nuw i32 %32, 24
   %34 = or disjoint i32 %29, %33
@@ -1301,12 +1301,12 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %40 = load i16, ptr %39, align 1
   %41 = zext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %43 = load i8, ptr %42, align 1, !tbaa !15
+  %43 = load i8, ptr %42, align 1, !tbaa !16
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 16
   %46 = or disjoint i32 %45, %41
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %48 = load i8, ptr %47, align 1, !tbaa !15
+  %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = zext i8 %48 to i32
   %50 = shl nuw i32 %49, 24
   %51 = or disjoint i32 %46, %50
@@ -1319,12 +1319,12 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %57 = load i16, ptr %56, align 1
   %58 = zext i16 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %60 = load i8, ptr %59, align 1, !tbaa !15
+  %60 = load i8, ptr %59, align 1, !tbaa !16
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 16
   %63 = or disjoint i32 %62, %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %65 = load i8, ptr %64, align 1, !tbaa !15
+  %65 = load i8, ptr %64, align 1, !tbaa !16
   %66 = zext i8 %65 to i32
   %67 = shl nuw i32 %66, 24
   %68 = or disjoint i32 %63, %67
@@ -1552,7 +1552,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %275 = xor i32 %270, %274
   store i32 %275, ptr %69, align 4, !tbaa !11
   %276 = icmp samesign ugt i32 %.055.in59, 2
-  br i1 %276, label %79, label %._crit_edge, !llvm.loop !25
+  br i1 %276, label %79, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %79, %3
   %277 = phi i32 [ %38, %3 ], [ %227, %79 ]
@@ -1669,27 +1669,27 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %383 = and i32 %304, 255
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %384
-  %386 = load i8, ptr %385, align 1, !tbaa !15
+  %386 = load i8, ptr %385, align 1, !tbaa !16
   %387 = zext i8 %386 to i32
   %388 = xor i32 %382, %387
   %389 = lshr i32 %379, 8
   %390 = and i32 %389, 255
   %391 = zext nneg i32 %390 to i64
   %392 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %391
-  %393 = load i8, ptr %392, align 1, !tbaa !15
+  %393 = load i8, ptr %392, align 1, !tbaa !16
   %394 = zext i8 %393 to i32
   %395 = shl nuw nsw i32 %394, 8
   %396 = lshr i32 %354, 16
   %397 = and i32 %396, 255
   %398 = zext nneg i32 %397 to i64
   %399 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %398
-  %400 = load i8, ptr %399, align 1, !tbaa !15
+  %400 = load i8, ptr %399, align 1, !tbaa !16
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 16
   %403 = lshr i32 %329, 24
   %404 = zext nneg i32 %403 to i64
   %405 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %404
-  %406 = load i8, ptr %405, align 1, !tbaa !15
+  %406 = load i8, ptr %405, align 1, !tbaa !16
   %407 = zext i8 %406 to i32
   %408 = shl nuw i32 %407, 24
   %409 = or disjoint i32 %402, %395
@@ -1701,27 +1701,27 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %414 = and i32 %329, 255
   %415 = zext nneg i32 %414 to i64
   %416 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %415
-  %417 = load i8, ptr %416, align 1, !tbaa !15
+  %417 = load i8, ptr %416, align 1, !tbaa !16
   %418 = zext i8 %417 to i32
   %419 = xor i32 %413, %418
   %420 = lshr i32 %304, 8
   %421 = and i32 %420, 255
   %422 = zext nneg i32 %421 to i64
   %423 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %422
-  %424 = load i8, ptr %423, align 1, !tbaa !15
+  %424 = load i8, ptr %423, align 1, !tbaa !16
   %425 = zext i8 %424 to i32
   %426 = shl nuw nsw i32 %425, 8
   %427 = lshr i32 %379, 16
   %428 = and i32 %427, 255
   %429 = zext nneg i32 %428 to i64
   %430 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %429
-  %431 = load i8, ptr %430, align 1, !tbaa !15
+  %431 = load i8, ptr %430, align 1, !tbaa !16
   %432 = zext i8 %431 to i32
   %433 = shl nuw nsw i32 %432, 16
   %434 = lshr i32 %354, 24
   %435 = zext nneg i32 %434 to i64
   %436 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %435
-  %437 = load i8, ptr %436, align 1, !tbaa !15
+  %437 = load i8, ptr %436, align 1, !tbaa !16
   %438 = zext i8 %437 to i32
   %439 = shl nuw i32 %438, 24
   %440 = or disjoint i32 %433, %426
@@ -1733,27 +1733,27 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %445 = and i32 %354, 255
   %446 = zext nneg i32 %445 to i64
   %447 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %446
-  %448 = load i8, ptr %447, align 1, !tbaa !15
+  %448 = load i8, ptr %447, align 1, !tbaa !16
   %449 = zext i8 %448 to i32
   %450 = xor i32 %444, %449
   %451 = lshr i32 %329, 8
   %452 = and i32 %451, 255
   %453 = zext nneg i32 %452 to i64
   %454 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %453
-  %455 = load i8, ptr %454, align 1, !tbaa !15
+  %455 = load i8, ptr %454, align 1, !tbaa !16
   %456 = zext i8 %455 to i32
   %457 = shl nuw nsw i32 %456, 8
   %458 = lshr i32 %304, 16
   %459 = and i32 %458, 255
   %460 = zext nneg i32 %459 to i64
   %461 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !15
+  %462 = load i8, ptr %461, align 1, !tbaa !16
   %463 = zext i8 %462 to i32
   %464 = shl nuw nsw i32 %463, 16
   %465 = lshr i32 %379, 24
   %466 = zext nneg i32 %465 to i64
   %467 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %466
-  %468 = load i8, ptr %467, align 1, !tbaa !15
+  %468 = load i8, ptr %467, align 1, !tbaa !16
   %469 = zext i8 %468 to i32
   %470 = shl nuw i32 %469, 24
   %471 = or disjoint i32 %464, %457
@@ -1764,27 +1764,27 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %475 = and i32 %379, 255
   %476 = zext nneg i32 %475 to i64
   %477 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %476
-  %478 = load i8, ptr %477, align 1, !tbaa !15
+  %478 = load i8, ptr %477, align 1, !tbaa !16
   %479 = zext i8 %478 to i32
   %480 = xor i32 %474, %479
   %481 = lshr i32 %354, 8
   %482 = and i32 %481, 255
   %483 = zext nneg i32 %482 to i64
   %484 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %483
-  %485 = load i8, ptr %484, align 1, !tbaa !15
+  %485 = load i8, ptr %484, align 1, !tbaa !16
   %486 = zext i8 %485 to i32
   %487 = shl nuw nsw i32 %486, 8
   %488 = lshr i32 %329, 16
   %489 = and i32 %488, 255
   %490 = zext nneg i32 %489 to i64
   %491 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %490
-  %492 = load i8, ptr %491, align 1, !tbaa !15
+  %492 = load i8, ptr %491, align 1, !tbaa !16
   %493 = zext i8 %492 to i32
   %494 = shl nuw nsw i32 %493, 16
   %495 = lshr i32 %304, 24
   %496 = zext nneg i32 %495 to i64
   %497 = getelementptr inbounds nuw [256 x i8], ptr @_ZL3RSb, i64 0, i64 %496
-  %498 = load i8, ptr %497, align 1, !tbaa !15
+  %498 = load i8, ptr %497, align 1, !tbaa !16
   %499 = zext i8 %498 to i32
   %500 = shl nuw i32 %499, 24
   %501 = or disjoint i32 %494, %487
@@ -1792,64 +1792,64 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %503 = xor i32 %502, %480
   store i32 %503, ptr %69, align 4, !tbaa !11
   %504 = trunc i32 %388 to i8
-  store i8 %504, ptr %2, align 1, !tbaa !15
+  store i8 %504, ptr %2, align 1, !tbaa !16
   %505 = lshr i32 %411, 8
   %506 = trunc i32 %505 to i8
   %507 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %506, ptr %507, align 1, !tbaa !15
+  store i8 %506, ptr %507, align 1, !tbaa !16
   %508 = lshr i32 %411, 16
   %509 = trunc i32 %508 to i8
   %510 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %509, ptr %510, align 1, !tbaa !15
+  store i8 %509, ptr %510, align 1, !tbaa !16
   %511 = lshr i32 %411, 24
   %512 = trunc nuw i32 %511 to i8
   %513 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %512, ptr %513, align 1, !tbaa !15
+  store i8 %512, ptr %513, align 1, !tbaa !16
   %514 = trunc i32 %419 to i8
   %515 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %514, ptr %515, align 1, !tbaa !15
+  store i8 %514, ptr %515, align 1, !tbaa !16
   %516 = lshr i32 %442, 8
   %517 = trunc i32 %516 to i8
   %518 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %517, ptr %518, align 1, !tbaa !15
+  store i8 %517, ptr %518, align 1, !tbaa !16
   %519 = lshr i32 %442, 16
   %520 = trunc i32 %519 to i8
   %521 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %520, ptr %521, align 1, !tbaa !15
+  store i8 %520, ptr %521, align 1, !tbaa !16
   %522 = lshr i32 %442, 24
   %523 = trunc nuw i32 %522 to i8
   %524 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %523, ptr %524, align 1, !tbaa !15
+  store i8 %523, ptr %524, align 1, !tbaa !16
   %525 = trunc i32 %450 to i8
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 %525, ptr %526, align 1, !tbaa !15
+  store i8 %525, ptr %526, align 1, !tbaa !16
   %527 = lshr i32 %473, 8
   %528 = trunc i32 %527 to i8
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %528, ptr %529, align 1, !tbaa !15
+  store i8 %528, ptr %529, align 1, !tbaa !16
   %530 = lshr i32 %473, 16
   %531 = trunc i32 %530 to i8
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %531, ptr %532, align 1, !tbaa !15
+  store i8 %531, ptr %532, align 1, !tbaa !16
   %533 = lshr i32 %473, 24
   %534 = trunc nuw i32 %533 to i8
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %534, ptr %535, align 1, !tbaa !15
+  store i8 %534, ptr %535, align 1, !tbaa !16
   %536 = trunc i32 %480 to i8
   %537 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %536, ptr %537, align 1, !tbaa !15
+  store i8 %536, ptr %537, align 1, !tbaa !16
   %538 = lshr i32 %503, 8
   %539 = trunc i32 %538 to i8
   %540 = getelementptr inbounds nuw i8, ptr %2, i64 13
-  store i8 %539, ptr %540, align 1, !tbaa !15
+  store i8 %539, ptr %540, align 1, !tbaa !16
   %541 = lshr i32 %503, 16
   %542 = trunc i32 %541 to i8
   %543 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %542, ptr %543, align 1, !tbaa !15
+  store i8 %542, ptr %543, align 1, !tbaa !16
   %544 = lshr i32 %503, 24
   %545 = trunc nuw i32 %544 to i8
   %546 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  store i8 %545, ptr %546, align 1, !tbaa !15
+  store i8 %545, ptr %546, align 1, !tbaa !16
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   ret i32 0
@@ -1898,17 +1898,18 @@ attributes #7 = { nounwind }
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!4, !8, i64 8}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}

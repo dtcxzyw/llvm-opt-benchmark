@@ -110,7 +110,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next52, %39
-  br i1 %40, label %.lr.ph47, label %._crit_edge48, !llvm.loop !6
+  br i1 %40, label %.lr.ph47, label %._crit_edge48, !llvm.loop !7
 
 41:                                               ; preds = %.lr.ph41, %58
   %42 = phi i32 [ %34, %.lr.ph41 ], [ %59, %58 ]
@@ -119,7 +119,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %43 = load ptr, ptr %36, align 8
   %44 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
+  %46 = load i8, ptr %45, align 2, !range !8, !noundef !9
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %58, label %48
 
@@ -144,7 +144,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %41, label %._crit_edge42, !llvm.loop !9
+  br i1 %61, label %41, label %._crit_edge42, !llvm.loop !10
 
 ._crit_edge48:                                    ; preds = %._crit_edge42, %0
   %.033.lcssa = phi i32 [ 0, %0 ], [ %.2.lcssa, %._crit_edge42 ]
@@ -307,7 +307,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %47
   call void @PQfinish(ptr noundef %3) #9
@@ -424,10 +424,11 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

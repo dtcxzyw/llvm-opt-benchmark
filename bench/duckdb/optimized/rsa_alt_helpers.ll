@@ -180,7 +180,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %87 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %86)
   %88 = call i32 @mbedtls_mpi_gcd(ptr noundef %3, ptr noundef nonnull %7, ptr noundef %0)
   %.not58 = icmp eq i32 %88, 0
-  br i1 %.not58, label %54, label %.loopexit, !llvm.loop !15
+  br i1 %.not58, label %54, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %82, %._crit_edge, %56, %.split.backedge, %78, %76, %74, %64, %62, %.split.preheader, %35, %72, %39, %33, %31
   %.037 = phi i32 [ %32, %31 ], [ %34, %33 ], [ %41, %39 ], [ %73, %72 ], [ -4, %35 ], [ %53, %.split.preheader ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %65, %64 ], [ %63, %62 ], [ %88, %.split.backedge ], [ %57, %56 ], [ -4, %._crit_edge ], [ -4, %82 ]
@@ -634,6 +634,7 @@ attributes #3 = { nounwind }
 !10 = !{!"any pointer", !6, i64 0}
 !11 = !{!8, !8, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

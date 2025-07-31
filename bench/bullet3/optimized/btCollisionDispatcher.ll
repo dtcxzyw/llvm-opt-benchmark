@@ -132,7 +132,7 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw [36 x ptr], ptr %24, i64 0, i64 %indvars.iv
-  store ptr %36, ptr %38, align 8, !tbaa !29
+  store ptr %36, ptr %38, align 8, !tbaa !30
   %39 = load ptr, ptr %8, align 8, !tbaa !23
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -142,10 +142,10 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw [36 x ptr], ptr %25, i64 0, i64 %indvars.iv
-  store ptr %43, ptr %45, align 8, !tbaa !29
+  store ptr %43, ptr %45, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %27, label %30, !llvm.loop !31
+  br i1 %exitcond.not, label %27, label %30, !llvm.loop !32
 
 46:                                               ; preds = %37, %30
   %47 = landingpad { ptr, i32 }
@@ -173,11 +173,11 @@ define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroa
   %4 = alloca %struct.btCollisionObjectWrapper, align 8
   %5 = alloca %struct.btCollisionObjectWrapper, align 8
   %6 = alloca %class.btManifoldResult, align 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !32
-  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  %7 = load ptr, ptr %0, align 8, !tbaa !33
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !39
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = load ptr, ptr %1, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -187,40 +187,40 @@ define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroa
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #11
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !49
+  store ptr null, ptr %4, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %20, align 8, !tbaa !54
+  store ptr %18, ptr %20, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %8, ptr %21, align 8, !tbaa !55
+  store ptr %8, ptr %21, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %19, ptr %22, align 8, !tbaa !56
+  store ptr %19, ptr %22, align 8, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %23, align 8, !tbaa !57
+  store ptr null, ptr %23, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 -1, ptr %24, align 8, !tbaa !58
+  store i32 -1, ptr %24, align 8, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 -1, ptr %25, align 4, !tbaa !59
+  store i32 -1, ptr %25, align 4, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #11
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !49
+  store ptr null, ptr %5, align 8, !tbaa !50
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %27, ptr %29, align 8, !tbaa !54
+  store ptr %27, ptr %29, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %11, ptr %30, align 8, !tbaa !55
+  store ptr %11, ptr %30, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %28, ptr %31, align 8, !tbaa !56
+  store ptr %28, ptr %31, align 8, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %32, align 8, !tbaa !57
+  store ptr null, ptr %32, align 8, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 -1, ptr %33, align 8, !tbaa !58
+  store i32 -1, ptr %33, align 8, !tbaa !59
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i32 -1, ptr %34, align 4, !tbaa !59
+  store i32 -1, ptr %34, align 4, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !60
+  %36 = load ptr, ptr %35, align 8, !tbaa !61
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %37, label %.thread
 
@@ -229,7 +229,7 @@ define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroa
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(20816) %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, i32 noundef 1)
-  store ptr %41, ptr %35, align 8, !tbaa !60
+  store ptr %41, ptr %35, align 8, !tbaa !61
   %.not29 = icmp eq ptr %41, null
   br i1 %.not29, label %59, label %.thread
 
@@ -237,9 +237,9 @@ define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroa
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #11
   call void @_ZN16btManifoldResultC1EPK24btCollisionObjectWrapperS2_(ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !61
+  %43 = load i32, ptr %42, align 8, !tbaa !62
   %44 = icmp eq i32 %43, 1
-  %45 = load ptr, ptr %35, align 8, !tbaa !60
+  %45 = load ptr, ptr %35, align 8, !tbaa !61
   %46 = load ptr, ptr %45, align 8, !tbaa !4
   br i1 %44, label %47, label %50
 
@@ -254,12 +254,12 @@ define dso_local void @_ZN21btCollisionDispatcher19defaultNearCallbackER16btBroa
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef float %52(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull %6)
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %55 = load float, ptr %54, align 4, !tbaa !64
+  %55 = load float, ptr %54, align 4, !tbaa !65
   %56 = fcmp ogt float %55, %53
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %50
-  store float %53, ptr %54, align 4, !tbaa !64
+  store float %53, ptr %54, align 4, !tbaa !65
   br label %58
 
 58:                                               ; preds = %47, %50, %57
@@ -284,7 +284,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP20btPersistentMan
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !range !65
+  %5 = load i8, ptr %4, align 8, !range !66
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %or.cond.i, label %7, label %8
@@ -320,7 +320,7 @@ define dso_local void @_ZN21btCollisionDispatcher27registerCollisionCreateFuncEi
   %7 = getelementptr inbounds [36 x [36 x ptr]], ptr %5, i64 0, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [36 x ptr], ptr %7, i64 0, i64 %8
-  store ptr %3, ptr %9, align 8, !tbaa !29
+  store ptr %3, ptr %9, align 8, !tbaa !30
   ret void
 }
 
@@ -331,7 +331,7 @@ define dso_local void @_ZN21btCollisionDispatcher31registerClosestPointsCreateFu
   %7 = getelementptr inbounds [36 x [36 x ptr]], ptr %5, i64 0, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [36 x ptr], ptr %7, i64 0, i64 %8
-  store ptr %3, ptr %9, align 8, !tbaa !29
+  store ptr %3, ptr %9, align 8, !tbaa !30
   ret void
 }
 
@@ -342,7 +342,7 @@ define dso_local void @_ZN21btCollisionDispatcherD2Ev(ptr noundef nonnull align 
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !range !65
+  %5 = load i8, ptr %4, align 8, !range !66
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit
@@ -376,7 +376,7 @@ define dso_local void @_ZN21btCollisionDispatcherD0Ev(ptr noundef nonnull align 
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i.i.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !range !65
+  %5 = load i8, ptr %4, align 8, !range !66
   %6 = trunc nuw i8 %5 to i1
   %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
   br i1 %or.cond.i.i.i, label %7, label %_ZN21btCollisionDispatcherD2Ev.exit
@@ -421,50 +421,50 @@ define dso_local noundef ptr @_ZN21btCollisionDispatcher14getNewManifoldEPK17btC
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %11 = load ptr, ptr %10, align 8, !tbaa !40
-  %12 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !67
   %13 = load ptr, ptr %11, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %11, float noundef %12)
-  store float %16, ptr %4, align 4, !tbaa !66
+  store float %16, ptr %4, align 4, !tbaa !67
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
-  %19 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !67
   %20 = load ptr, ptr %18, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef float %22(ptr noundef nonnull align 8 dereferenceable(32) %18, float noundef %19)
-  store float %23, ptr %5, align 4, !tbaa !66
+  store float %23, ptr %5, align 4, !tbaa !67
   %24 = fcmp olt float %16, %23
   %25 = select i1 %24, ptr %4, ptr %5
   br label %26
 
 26:                                               ; preds = %3, %9
   %.in = phi ptr [ %25, %9 ], [ @gContactBreakingThreshold, %3 ]
-  %27 = load float, ptr %.in, align 4, !tbaa !66
+  %27 = load float, ptr %.in, align 4, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %29 = load float, ptr %28, align 4, !tbaa !67
+  %29 = load float, ptr %28, align 4, !tbaa !68
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 188
-  %31 = load float, ptr %30, align 4, !tbaa !67
+  %31 = load float, ptr %30, align 4, !tbaa !68
   %32 = fcmp olt float %29, %31
   %.sroa.speculated = select i1 %32, float %29, float %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !68
+  %36 = load ptr, ptr %35, align 8, !tbaa !69
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %41, label %_ZN15btPoolAllocator8allocateEi.exit
 
 _ZN15btPoolAllocator8allocateEi.exit:             ; preds = %26
-  %37 = load ptr, ptr %36, align 8, !tbaa !72
-  store ptr %37, ptr %35, align 8, !tbaa !68
+  %37 = load ptr, ptr %36, align 8, !tbaa !73
+  store ptr %37, ptr %35, align 8, !tbaa !69
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !73
+  %39 = load i32, ptr %38, align 8, !tbaa !74
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !73
+  store i32 %40, ptr %38, align 8, !tbaa !74
   br label %47
 
 41:                                               ; preds = %26
@@ -479,7 +479,7 @@ _ZN15btPoolAllocator8allocateEi.exit:             ; preds = %26
 
 47:                                               ; preds = %_ZN15btPoolAllocator8allocateEi.exit, %45
   %.013 = phi ptr [ %46, %45 ], [ %36, %_ZN15btPoolAllocator8allocateEi.exit ]
-  store i32 1025, ptr %.013, align 4, !tbaa !74
+  store i32 1025, ptr %.013, align 4, !tbaa !75
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.013, i64 120
   br label %48
 
@@ -489,27 +489,27 @@ _ZN15btPoolAllocator8allocateEi.exit:             ; preds = %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %gep.i, i8 0, i64 52, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 208
   %49 = icmp eq i64 %.add.i, 840
-  br i1 %49, label %50, label %48
+  br i1 %49, label %50, label %48, !llvm.loop !77
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %.013, i64 840
-  store ptr %1, ptr %51, align 8, !tbaa !76
+  store ptr %1, ptr %51, align 8, !tbaa !78
   %52 = getelementptr inbounds nuw i8, ptr %.013, i64 848
-  store ptr %2, ptr %52, align 8, !tbaa !78
+  store ptr %2, ptr %52, align 8, !tbaa !80
   %53 = getelementptr inbounds nuw i8, ptr %.013, i64 856
-  store i32 0, ptr %53, align 8, !tbaa !79
+  store i32 0, ptr %53, align 8, !tbaa !81
   %54 = getelementptr inbounds nuw i8, ptr %.013, i64 860
-  store float %27, ptr %54, align 4, !tbaa !80
+  store float %27, ptr %54, align 4, !tbaa !82
   %55 = getelementptr inbounds nuw i8, ptr %.013, i64 864
-  store float %.sroa.speculated, ptr %55, align 8, !tbaa !81
+  store float %.sroa.speculated, ptr %55, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %.013, i64 868
-  store i32 0, ptr %56, align 4, !tbaa !82
+  store i32 0, ptr %56, align 4, !tbaa !84
   %57 = getelementptr inbounds nuw i8, ptr %.013, i64 872
-  store i32 0, ptr %57, align 8, !tbaa !83
+  store i32 0, ptr %57, align 8, !tbaa !85
   %58 = getelementptr inbounds nuw i8, ptr %.013, i64 876
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !21
-  store i32 %60, ptr %58, align 4, !tbaa !84
+  store i32 %60, ptr %58, align 4, !tbaa !86
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i32, ptr %61, align 8, !tbaa !22
   %63 = icmp eq i32 %60, %62
@@ -549,23 +549,23 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %77 ]
   %78 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i.i.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !85
-  store ptr %80, ptr %78, align 8, !tbaa !85
+  %80 = load ptr, ptr %79, align 8, !tbaa !87
+  store ptr %80, ptr %78, align 8, !tbaa !87
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %77, !llvm.loop !87
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %77, !llvm.loop !89
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp ne ptr %76, null
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %82 = load i8, ptr %81, align 8, !range !65
+  %82 = load i8, ptr %81, align 8, !range !66
   %83 = trunc nuw i8 %82 to i1
   %or.cond.i = select i1 %.not.i5.i.i, i1 %83, i1 false
   br i1 %or.cond.i, label %84, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %77
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !19, !range !65, !noundef !88
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !19, !range !66, !noundef !90
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %84, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
@@ -588,7 +588,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %88 = load ptr, ptr %87, align 8, !tbaa !20
   %89 = sext i32 %86 to i64
   %90 = getelementptr inbounds ptr, ptr %88, i64 %89
-  store ptr %.013, ptr %90, align 8, !tbaa !85
+  store ptr %.013, ptr %90, align 8, !tbaa !87
   %91 = add nsw i32 %86, 1
   store i32 %91, ptr %59, align 4, !tbaa !21
   br label %92
@@ -604,7 +604,7 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistentManifold(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 856
-  %5 = load i32, ptr %4, align 8, !tbaa !79
+  %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %._crit_edge.i
 
@@ -617,14 +617,14 @@ define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistent
   %9 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %7, i64 0, i64 %indvars.iv.i
   tail call void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %1, ptr noundef nonnull align 8 dereferenceable(204) %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = load i32, ptr %4, align 8, !tbaa !79
+  %10 = load i32, ptr %4, align 8, !tbaa !81
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %12, label %8, label %._crit_edge.i, !llvm.loop !89
+  br i1 %12, label %8, label %._crit_edge.i, !llvm.loop !91
 
 ._crit_edge.i:                                    ; preds = %8, %2
   %.lcssa.i = phi i32 [ %5, %2 ], [ %10, %8 ]
-  %13 = load ptr, ptr @gContactEndedCallback, align 8, !tbaa !72
+  %13 = load ptr, ptr @gContactEndedCallback, align 8, !tbaa !73
   %.not.i = icmp eq ptr %13, null
   %.not5.i = icmp eq i32 %.lcssa.i, 0
   %or.cond.i = or i1 %.not5.i, %.not.i
@@ -632,13 +632,13 @@ define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistent
 
 14:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr %1, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %3, align 8, !tbaa !87
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   br label %_ZN20btPersistentManifold13clearManifoldEv.exit
 
 _ZN20btPersistentManifold13clearManifoldEv.exit:  ; preds = %._crit_edge.i, %14
-  store i32 0, ptr %4, align 8, !tbaa !79
+  store i32 0, ptr %4, align 8, !tbaa !81
   ret void
 }
 
@@ -649,7 +649,7 @@ define dso_local void @_ZN21btCollisionDispatcher15releaseManifoldEP20btPersiste
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(20816) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %7 = load i32, ptr %6, align 4, !tbaa !84
+  %7 = load i32, ptr %6, align 4, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = add nsw i32 %9, -1
@@ -657,27 +657,27 @@ define dso_local void @_ZN21btCollisionDispatcher15releaseManifoldEP20btPersiste
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = sext i32 %7 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !85
+  %15 = load ptr, ptr %14, align 8, !tbaa !87
   %16 = sext i32 %10 to i64
   %17 = getelementptr inbounds ptr, ptr %12, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
-  store ptr %18, ptr %14, align 8, !tbaa !85
-  store ptr %15, ptr %17, align 8, !tbaa !85
-  %19 = load ptr, ptr %14, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  store ptr %18, ptr %14, align 8, !tbaa !87
+  store ptr %15, ptr %17, align 8, !tbaa !87
+  %19 = load ptr, ptr %14, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 876
-  store i32 %7, ptr %20, align 4, !tbaa !84
+  store i32 %7, ptr %20, align 4, !tbaa !86
   store i32 %10, ptr %8, align 4, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !90
+  %24 = load ptr, ptr %23, align 8, !tbaa !92
   %.not7.i = icmp ult ptr %1, %24
   br i1 %.not7.i, label %_ZN15btPoolAllocator8validPtrEPv.exit, label %25
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !91
-  %28 = load i32, ptr %22, align 8, !tbaa !92
+  %27 = load i32, ptr %26, align 4, !tbaa !93
+  %28 = load i32, ptr %22, align 8, !tbaa !94
   %29 = mul nsw i32 %28, %27
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %24, i64 %30
@@ -686,13 +686,13 @@ define dso_local void @_ZN21btCollisionDispatcher15releaseManifoldEP20btPersiste
 
 _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !68
-  store ptr %34, ptr %1, align 8, !tbaa !72
-  store ptr %1, ptr %33, align 8, !tbaa !68
+  %34 = load ptr, ptr %33, align 8, !tbaa !69
+  store ptr %34, ptr %1, align 8, !tbaa !73
+  store ptr %1, ptr %33, align 8, !tbaa !69
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !73
+  %36 = load i32, ptr %35, align 8, !tbaa !74
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !73
+  store i32 %37, ptr %35, align 8, !tbaa !74
   br label %38
 
 _ZN15btPoolAllocator8validPtrEPv.exit:            ; preds = %25, %2
@@ -709,25 +709,25 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
 define dso_local noundef ptr @_ZN21btCollisionDispatcher13findAlgorithmEPK24btCollisionObjectWrapperS2_P20btPersistentManifold22ebtDispatcherQueryType(ptr noundef nonnull align 8 dereferenceable(20816) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %struct.btCollisionAlgorithmConstructionInfo, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  store ptr %0, ptr %6, align 8, !tbaa !93
+  store ptr %0, ptr %6, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %7, align 8, !tbaa !96
+  store ptr %3, ptr %7, align 8, !tbaa !98
   %8 = icmp eq i32 %4, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !54
+  %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !97
+  %12 = load i32, ptr %11, align 8, !tbaa !99
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !97
+  %17 = load i32, ptr %16, align 8, !tbaa !99
   %18 = sext i32 %17 to i64
   %. = select i1 %8, i64 72, i64 10440
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %20 = getelementptr inbounds [36 x [36 x ptr]], ptr %19, i64 0, i64 %13
   %21 = getelementptr inbounds [36 x ptr], ptr %20, i64 0, i64 %18
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
@@ -739,14 +739,14 @@ define dso_local noundef ptr @_ZN21btCollisionDispatcher13findAlgorithmEPK24btCo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher13needsResponseEPK17btCollisionObjectS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %5 = load i32, ptr %4, align 8, !tbaa !99
+  %5 = load i32, ptr %4, align 8, !tbaa !101
   %6 = and i32 %5, 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !99
+  %10 = load i32, ptr %9, align 8, !tbaa !101
   %11 = and i32 %10, 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %.critedge
@@ -769,7 +769,7 @@ define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher13needsResponseEP
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher14needsCollisionEPK17btCollisionObjectS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %5 = load i32, ptr %4, align 8, !tbaa !100
+  %5 = load i32, ptr %4, align 8, !tbaa !102
   switch i32 %5, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -778,7 +778,7 @@ define dso_local noundef zeroext i1 @_ZN21btCollisionDispatcher14needsCollisionE
 
 _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %3, %3, %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %7 = load i32, ptr %6, align 8, !tbaa !100
+  %7 = load i32, ptr %6, align 8, !tbaa !102
   switch i32 %7, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit6
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit6
@@ -787,7 +787,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %3, %3, %3
 
 _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %9 = load i32, ptr %8, align 8, !tbaa !101
+  %9 = load i32, ptr %8, align 8, !tbaa !103
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
 
@@ -800,7 +800,7 @@ _ZNK17btCollisionObject16checkCollideWithEPKS_.exit: ; preds = %_ZNK17btCollisio
 
 _ZNK17btCollisionObject16checkCollideWithEPKS_.exit.thread: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %15 = load i32, ptr %14, align 8, !tbaa !101
+  %15 = load i32, ptr %14, align 8, !tbaa !103
   %.not.i7 = icmp eq i32 %15, 0
   br i1 %.not.i7, label %_ZNK17btCollisionObject8isActiveEv.exit6, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit9
 
@@ -826,9 +826,9 @@ define dso_local void @_ZN21btCollisionDispatcher25dispatchAllCollisionPairsEP22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23btCollisionPairCallback, i64 16), ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %7, align 8, !tbaa !102
+  store ptr %2, ptr %7, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %8, align 8, !tbaa !104
+  store ptr %0, ptr %8, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str)
   %9 = load ptr, ptr %1, align 8, !tbaa !4
@@ -869,17 +869,17 @@ define dso_local noundef ptr @_ZN21btCollisionDispatcher26allocateCollisionAlgor
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %11, label %_ZN15btPoolAllocator8allocateEi.exit
 
 _ZN15btPoolAllocator8allocateEi.exit:             ; preds = %2
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
-  store ptr %7, ptr %5, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  store ptr %7, ptr %5, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !73
+  %9 = load i32, ptr %8, align 8, !tbaa !74
   %10 = add nsw i32 %9, -1
-  store i32 %10, ptr %8, align 8, !tbaa !73
+  store i32 %10, ptr %8, align 8, !tbaa !74
   br label %14
 
 11:                                               ; preds = %2
@@ -901,14 +901,14 @@ define dso_local void @_ZN21btCollisionDispatcher22freeCollisionAlgorithmEPv(ptr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !92
   %.not7.i = icmp ult ptr %1, %7
   br i1 %.not7.i, label %_ZN15btPoolAllocator8validPtrEPv.exit, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !91
-  %11 = load i32, ptr %4, align 8, !tbaa !92
+  %10 = load i32, ptr %9, align 4, !tbaa !93
+  %11 = load i32, ptr %4, align 8, !tbaa !94
   %12 = mul nsw i32 %11, %10
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %7, i64 %13
@@ -917,13 +917,13 @@ define dso_local void @_ZN21btCollisionDispatcher22freeCollisionAlgorithmEPv(ptr
 
 _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !68
-  store ptr %17, ptr %1, align 8, !tbaa !72
-  store ptr %1, ptr %16, align 8, !tbaa !68
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
+  store ptr %17, ptr %1, align 8, !tbaa !73
+  store ptr %1, ptr %16, align 8, !tbaa !69
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !73
+  %19 = load i32, ptr %18, align 8, !tbaa !74
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !73
+  store i32 %20, ptr %18, align 8, !tbaa !74
   br label %21
 
 _ZN15btPoolAllocator8validPtrEPv.exit:            ; preds = %8, %5, %2
@@ -947,7 +947,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21btCollisionDispatcher26getManifo
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !87
   ret ptr %7
 }
 
@@ -987,11 +987,11 @@ define linkonce_odr dso_local void @_ZN23btCollisionPairCallbackD0Ev(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN23btCollisionPairCallback14processOverlapER16btBroadphasePair(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !104
+  %4 = load ptr, ptr %3, align 8, !tbaa !106
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !108
+  %8 = load ptr, ptr %7, align 8, !tbaa !110
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(20816) %4, ptr noundef nonnull align 8 dereferenceable(49) %8)
   ret i1 false
 }
@@ -1055,85 +1055,87 @@ attributes #13 = { builtin nounwind }
 !24 = !{!8, !15, i64 48}
 !25 = !{!8, !17, i64 56}
 !26 = !{!8, !17, i64 64}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS30btCollisionAlgorithmCreateFunc", !15, i64 0}
-!31 = distinct !{!31, !28}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTS16btBroadphasePair", !34, i64 0, !34, i64 8, !35, i64 16, !11, i64 24}
-!34 = !{!"p1 _ZTS17btBroadphaseProxy", !15, i64 0}
-!35 = !{!"p1 _ZTS20btCollisionAlgorithm", !15, i64 0}
-!36 = !{!37, !15, i64 0}
-!37 = !{!"_ZTS17btBroadphaseProxy", !15, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !38, i64 20, !38, i64 36}
-!38 = !{!"_ZTS9btVector3", !11, i64 0}
-!39 = !{!33, !34, i64 8}
-!40 = !{!41, !45, i64 200}
-!41 = !{!"_ZTS17btCollisionObject", !42, i64 8, !42, i64 72, !38, i64 136, !38, i64 152, !38, i64 168, !10, i64 184, !44, i64 188, !34, i64 192, !45, i64 200, !15, i64 208, !45, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !44, i64 244, !44, i64 248, !44, i64 252, !44, i64 256, !44, i64 260, !44, i64 264, !44, i64 268, !10, i64 272, !15, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !44, i64 300, !44, i64 304, !44, i64 308, !10, i64 312, !46, i64 320, !10, i64 352, !38, i64 356}
-!42 = !{!"_ZTS11btTransform", !43, i64 0, !38, i64 48}
-!43 = !{!"_ZTS11btMatrix3x3", !11, i64 0}
-!44 = !{!"float", !11, i64 0}
-!45 = !{!"p1 _ZTS16btCollisionShape", !15, i64 0}
-!46 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !47, i64 0, !10, i64 4, !10, i64 8, !48, i64 16, !16, i64 24}
-!47 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
-!48 = !{!"p2 _ZTS17btCollisionObject", !15, i64 0}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTS24btCollisionObjectWrapper", !51, i64 0, !45, i64 8, !52, i64 16, !53, i64 24, !53, i64 32, !10, i64 40, !10, i64 44}
-!51 = !{!"p1 _ZTS24btCollisionObjectWrapper", !15, i64 0}
-!52 = !{!"p1 _ZTS17btCollisionObject", !15, i64 0}
-!53 = !{!"p1 _ZTS11btTransform", !15, i64 0}
-!54 = !{!50, !45, i64 8}
-!55 = !{!50, !52, i64 16}
-!56 = !{!53, !53, i64 0}
-!57 = !{!50, !53, i64 32}
-!58 = !{!50, !10, i64 40}
-!59 = !{!50, !10, i64 44}
-!60 = !{!33, !35, i64 16}
-!61 = !{!62, !10, i64 8}
-!62 = !{!"_ZTS16btDispatcherInfo", !44, i64 0, !10, i64 4, !10, i64 8, !44, i64 12, !16, i64 16, !63, i64 24, !16, i64 32, !16, i64 33, !16, i64 34, !44, i64 36, !16, i64 40, !44, i64 44, !16, i64 48}
-!63 = !{!"p1 _ZTS12btIDebugDraw", !15, i64 0}
-!64 = !{!62, !44, i64 12}
-!65 = !{i8 0, i8 2}
-!66 = !{!44, !44, i64 0}
-!67 = !{!41, !44, i64 188}
-!68 = !{!69, !15, i64 16}
-!69 = !{!"_ZTS15btPoolAllocator", !10, i64 0, !10, i64 4, !10, i64 8, !15, i64 16, !70, i64 24, !71, i64 32}
-!70 = !{!"p1 omnipotent char", !15, i64 0}
-!71 = !{!"_ZTS11btSpinMutex", !10, i64 0}
-!72 = !{!15, !15, i64 0}
-!73 = !{!69, !10, i64 8}
-!74 = !{!75, !10, i64 0}
-!75 = !{!"_ZTS13btTypedObject", !10, i64 0}
-!76 = !{!77, !52, i64 840}
-!77 = !{!"_ZTS20btPersistentManifold", !75, i64 0, !11, i64 8, !52, i64 840, !52, i64 848, !10, i64 856, !44, i64 860, !44, i64 864, !10, i64 868, !10, i64 872, !10, i64 876}
-!78 = !{!77, !52, i64 848}
-!79 = !{!77, !10, i64 856}
-!80 = !{!77, !44, i64 860}
-!81 = !{!77, !44, i64 864}
-!82 = !{!77, !10, i64 868}
-!83 = !{!77, !10, i64 872}
-!84 = !{!77, !10, i64 876}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"p1 _ZTS20btPersistentManifold", !15, i64 0}
-!87 = distinct !{!87, !28}
-!88 = !{}
-!89 = distinct !{!89, !28}
-!90 = !{!69, !70, i64 24}
-!91 = !{!69, !10, i64 4}
-!92 = !{!69, !10, i64 0}
-!93 = !{!94, !95, i64 0}
-!94 = !{!"_ZTS36btCollisionAlgorithmConstructionInfo", !95, i64 0, !86, i64 8}
-!95 = !{!"p1 _ZTS12btDispatcher", !15, i64 0}
-!96 = !{!94, !86, i64 8}
-!97 = !{!98, !10, i64 8}
-!98 = !{!"_ZTS16btCollisionShape", !10, i64 8, !15, i64 16, !10, i64 24, !10, i64 28}
-!99 = !{!41, !10, i64 224}
-!100 = !{!41, !10, i64 240}
-!101 = !{!41, !10, i64 312}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTS16btDispatcherInfo", !15, i64 0}
-!104 = !{!105, !107, i64 16}
-!105 = !{!"_ZTS23btCollisionPairCallback", !106, i64 0, !103, i64 8, !107, i64 16}
-!106 = !{!"_ZTS17btOverlapCallback"}
-!107 = !{!"p1 _ZTS21btCollisionDispatcher", !15, i64 0}
-!108 = !{!105, !103, i64 8}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS30btCollisionAlgorithmCreateFunc", !15, i64 0}
+!32 = distinct !{!32, !28, !29}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTS16btBroadphasePair", !35, i64 0, !35, i64 8, !36, i64 16, !11, i64 24}
+!35 = !{!"p1 _ZTS17btBroadphaseProxy", !15, i64 0}
+!36 = !{!"p1 _ZTS20btCollisionAlgorithm", !15, i64 0}
+!37 = !{!38, !15, i64 0}
+!38 = !{!"_ZTS17btBroadphaseProxy", !15, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !39, i64 20, !39, i64 36}
+!39 = !{!"_ZTS9btVector3", !11, i64 0}
+!40 = !{!34, !35, i64 8}
+!41 = !{!42, !46, i64 200}
+!42 = !{!"_ZTS17btCollisionObject", !43, i64 8, !43, i64 72, !39, i64 136, !39, i64 152, !39, i64 168, !10, i64 184, !45, i64 188, !35, i64 192, !46, i64 200, !15, i64 208, !46, i64 216, !10, i64 224, !10, i64 228, !10, i64 232, !10, i64 236, !10, i64 240, !45, i64 244, !45, i64 248, !45, i64 252, !45, i64 256, !45, i64 260, !45, i64 264, !45, i64 268, !10, i64 272, !15, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !45, i64 300, !45, i64 304, !45, i64 308, !10, i64 312, !47, i64 320, !10, i64 352, !39, i64 356}
+!43 = !{!"_ZTS11btTransform", !44, i64 0, !39, i64 48}
+!44 = !{!"_ZTS11btMatrix3x3", !11, i64 0}
+!45 = !{!"float", !11, i64 0}
+!46 = !{!"p1 _ZTS16btCollisionShape", !15, i64 0}
+!47 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !48, i64 0, !10, i64 4, !10, i64 8, !49, i64 16, !16, i64 24}
+!48 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!49 = !{!"p2 _ZTS17btCollisionObject", !15, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTS24btCollisionObjectWrapper", !52, i64 0, !46, i64 8, !53, i64 16, !54, i64 24, !54, i64 32, !10, i64 40, !10, i64 44}
+!52 = !{!"p1 _ZTS24btCollisionObjectWrapper", !15, i64 0}
+!53 = !{!"p1 _ZTS17btCollisionObject", !15, i64 0}
+!54 = !{!"p1 _ZTS11btTransform", !15, i64 0}
+!55 = !{!51, !46, i64 8}
+!56 = !{!51, !53, i64 16}
+!57 = !{!54, !54, i64 0}
+!58 = !{!51, !54, i64 32}
+!59 = !{!51, !10, i64 40}
+!60 = !{!51, !10, i64 44}
+!61 = !{!34, !36, i64 16}
+!62 = !{!63, !10, i64 8}
+!63 = !{!"_ZTS16btDispatcherInfo", !45, i64 0, !10, i64 4, !10, i64 8, !45, i64 12, !16, i64 16, !64, i64 24, !16, i64 32, !16, i64 33, !16, i64 34, !45, i64 36, !16, i64 40, !45, i64 44, !16, i64 48}
+!64 = !{!"p1 _ZTS12btIDebugDraw", !15, i64 0}
+!65 = !{!63, !45, i64 12}
+!66 = !{i8 0, i8 2}
+!67 = !{!45, !45, i64 0}
+!68 = !{!42, !45, i64 188}
+!69 = !{!70, !15, i64 16}
+!70 = !{!"_ZTS15btPoolAllocator", !10, i64 0, !10, i64 4, !10, i64 8, !15, i64 16, !71, i64 24, !72, i64 32}
+!71 = !{!"p1 omnipotent char", !15, i64 0}
+!72 = !{!"_ZTS11btSpinMutex", !10, i64 0}
+!73 = !{!15, !15, i64 0}
+!74 = !{!70, !10, i64 8}
+!75 = !{!76, !10, i64 0}
+!76 = !{!"_ZTS13btTypedObject", !10, i64 0}
+!77 = distinct !{!77, !29}
+!78 = !{!79, !53, i64 840}
+!79 = !{!"_ZTS20btPersistentManifold", !76, i64 0, !11, i64 8, !53, i64 840, !53, i64 848, !10, i64 856, !45, i64 860, !45, i64 864, !10, i64 868, !10, i64 872, !10, i64 876}
+!80 = !{!79, !53, i64 848}
+!81 = !{!79, !10, i64 856}
+!82 = !{!79, !45, i64 860}
+!83 = !{!79, !45, i64 864}
+!84 = !{!79, !10, i64 868}
+!85 = !{!79, !10, i64 872}
+!86 = !{!79, !10, i64 876}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS20btPersistentManifold", !15, i64 0}
+!89 = distinct !{!89, !28, !29}
+!90 = !{}
+!91 = distinct !{!91, !28, !29}
+!92 = !{!70, !71, i64 24}
+!93 = !{!70, !10, i64 4}
+!94 = !{!70, !10, i64 0}
+!95 = !{!96, !97, i64 0}
+!96 = !{!"_ZTS36btCollisionAlgorithmConstructionInfo", !97, i64 0, !88, i64 8}
+!97 = !{!"p1 _ZTS12btDispatcher", !15, i64 0}
+!98 = !{!96, !88, i64 8}
+!99 = !{!100, !10, i64 8}
+!100 = !{!"_ZTS16btCollisionShape", !10, i64 8, !15, i64 16, !10, i64 24, !10, i64 28}
+!101 = !{!42, !10, i64 224}
+!102 = !{!42, !10, i64 240}
+!103 = !{!42, !10, i64 312}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS16btDispatcherInfo", !15, i64 0}
+!106 = !{!107, !109, i64 16}
+!107 = !{!"_ZTS23btCollisionPairCallback", !108, i64 0, !105, i64 8, !109, i64 16}
+!108 = !{!"_ZTS17btOverlapCallback"}
+!109 = !{!"p1 _ZTS21btCollisionDispatcher", !15, i64 0}
+!110 = !{!107, !105, i64 8}

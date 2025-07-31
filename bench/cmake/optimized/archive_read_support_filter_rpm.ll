@@ -348,7 +348,7 @@ define internal i64 @rpm_filter_read(ptr noundef readonly captures(none) %0, ptr
   %132 = icmp eq i64 %.290114, 0
   %133 = icmp sgt i64 %131, 0
   %134 = select i1 %132, i1 %133, i1 false
-  br i1 %134, label %23, label %135, !llvm.loop !32
+  br i1 %134, label %23, label %135, !llvm.loop !33
 
 135:                                              ; preds = %130
   %136 = icmp sgt i64 %.487, 0
@@ -440,6 +440,7 @@ attributes #11 = { nounwind allocsize(0,1) }
 !27 = !{!25, !16, i64 44}
 !28 = !{!25, !9, i64 8}
 !29 = !{!25, !9, i64 16}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}

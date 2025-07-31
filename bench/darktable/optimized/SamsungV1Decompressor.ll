@@ -283,16 +283,16 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nound
 4:                                                ; preds = %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  %7 = load ptr, ptr %6, align 8, !tbaa !97, !noalias !98, !nonnull !101, !noundef !101
+  %7 = load ptr, ptr %6, align 8, !tbaa !98, !noalias !99, !nonnull !102, !noundef !102
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 584
-  %9 = load i32, ptr %8, align 8, !tbaa !18, !noalias !98
+  %9 = load i32, ptr %8, align 8, !tbaa !18, !noalias !99
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %11 = load i32, ptr %10, align 8, !tbaa !102, !noalias !98
+  %11 = load i32, ptr %10, align 8, !tbaa !103, !noalias !99
   %12 = mul nsw i32 %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 604
-  %14 = load i32, ptr %13, align 4, !tbaa !103, !noalias !98
+  %14 = load i32, ptr %13, align 4, !tbaa !104, !noalias !99
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %16 = load i32, ptr %15, align 8, !tbaa !104, !noalias !98
+  %16 = load i32, ptr %15, align 8, !tbaa !105, !noalias !99
   %17 = ashr i32 %16, 1
   %18 = mul nuw nsw i32 %17, %14
   %19 = icmp sgt i32 %12, -1
@@ -316,9 +316,9 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nound
   %30 = icmp eq i32 %29, 0
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !105
+  %32 = load i32, ptr %31, align 8, !tbaa !106
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load i32, ptr %33, align 8, !tbaa !110
+  %34 = load i32, ptr %33, align 8, !tbaa !111
   %35 = icmp samesign uge i32 %34, %32
   tail call void @llvm.assume(i1 %35)
   %36 = icmp sgt i32 %34, -1
@@ -352,7 +352,7 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.e
   %.138.lcssa = phi i32 [ %.037202, %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit.preheader ], [ %46, %.lr.ph ]
   %.039.add = add nuw nsw i64 %.039.idx201, 2
   %.not = icmp eq i64 %.039.add, 28
-  br i1 %.not, label %4, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit.preheader
+  br i1 %.not, label %4, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit.preheader, !llvm.loop !112
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.138200 = phi i32 [ %49, %.lr.ph ], [ %.037202, %.lr.ph.preheader ]
@@ -361,11 +361,11 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.e
   store i16 %43, ptr %48, align 1
   %49 = add i32 %.138200, 1
   %exitcond.not = icmp eq i32 %49, %46
-  br i1 %exitcond.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EEC2EmRKS3_.exit, label %.lr.ph, !llvm.loop !113
 
 50:                                               ; preds = %4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !112, !nonnull !101, !noundef !101
+  %52 = load ptr, ptr %51, align 8, !tbaa !114, !nonnull !102, !noundef !102
   %53 = icmp sgt i32 %38, -1
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %39
@@ -415,10 +415,10 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %70 = icmp samesign ule i64 %69, %60
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds nuw i16, ptr %7, i64 %68
-  %72 = load i16, ptr %71, align 2, !tbaa !113
+  %72 = load i16, ptr %71, align 2, !tbaa !115
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %74 = zext i16 %72 to i32
-  %75 = load i16, ptr %73, align 2, !tbaa !113
+  %75 = load i16, ptr %73, align 2, !tbaa !115
   %76 = zext i16 %75 to i32
   store i32 %74, ptr %1, align 8
   store i32 %76, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !15
@@ -489,7 +489,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %105 = phi i32 [ %99, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv.exit.i.i.us ], [ %.sroa.8.1204.us, %81 ]
   %106 = lshr i64 %104, 54
   %107 = getelementptr inbounds nuw %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %2, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !115
+  %108 = load i8, ptr %107, align 1, !tbaa !117
   %109 = zext nneg i8 %108 to i32
   %110 = icmp ult i8 %108, 33
   tail call void @llvm.assume(i1 %110)
@@ -499,7 +499,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %113 = zext nneg i8 %108 to i64
   %114 = shl i64 %104, %113
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  %116 = load i8, ptr %115, align 1, !tbaa !117
+  %116 = load i8, ptr %115, align 1, !tbaa !119
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %_ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vectorINS0_12encTableItemESaIS4_EE.exit.us, label %118
 
@@ -541,16 +541,16 @@ _ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vecto
   tail call void @llvm.assume(i1 %79)
   %138 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv
   %139 = trunc nuw nsw i32 %135 to i16
-  store i16 %139, ptr %138, align 2, !tbaa !113
+  store i16 %139, ptr %138, align 2, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next, %62
-  br i1 %exitcond228.not, label %._crit_edge209.us, label %81, !llvm.loop !118
+  br i1 %exitcond228.not, label %._crit_edge209.us, label %81, !llvm.loop !120
 
 ._crit_edge209.us:                                ; preds = %137
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count232
-  br i1 %exitcond233.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split.us, !llvm.loop !119
+  br i1 %exitcond233.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split.us, !llvm.loop !121
 
 .invoke:                                          ; preds = %50, %4
   %140 = phi ptr [ @.str.7, %4 ], [ @.str.10, %50 ]
@@ -578,7 +578,7 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
-  br i1 %exitcond238.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split, !llvm.loop !121
+  br i1 %exitcond238.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split, !llvm.loop !123
 
 .split.us:                                        ; preds = %88
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv) #14
@@ -877,30 +877,32 @@ attributes #22 = { cold }
 !92 = !{!93, !93, i64 0}
 !93 = !{!"vtable pointer", !11, i64 0}
 !94 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!95 = distinct !{!95, !96}
+!95 = distinct !{!95, !96, !97}
 !96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!77, !59, i64 0}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!100 = distinct !{!100, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!101 = !{}
-!102 = !{!19, !17, i64 600}
-!103 = !{!19, !17, i64 604}
-!104 = !{!19, !17, i64 48}
-!105 = !{!106, !17, i64 16}
-!106 = !{!"_ZTSN8rawspeed10ByteStreamE", !107, i64 0, !17, i64 16}
-!107 = !{!"_ZTSN8rawspeed10DataBufferE", !108, i64 0, !109, i64 12}
-!108 = !{!"_ZTSN8rawspeed6BufferE", !59, i64 0, !17, i64 8}
-!109 = !{!"_ZTSN8rawspeed10EndiannessE", !10, i64 0}
-!110 = !{!108, !17, i64 8}
-!111 = distinct !{!111, !96}
-!112 = !{!108, !59, i64 0}
-!113 = !{!114, !114, i64 0}
-!114 = !{!"short", !10, i64 0}
-!115 = !{!116, !10, i64 0}
-!116 = !{!"_ZTSN8rawspeed21SamsungV1Decompressor12encTableItemE", !10, i64 0, !10, i64 1}
-!117 = !{!116, !10, i64 1}
-!118 = distinct !{!118, !96}
-!119 = distinct !{!119, !96, !120}
-!120 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!121 = distinct !{!121, !96}
+!97 = !{!"llvm.loop.estimated_trip_count"}
+!98 = !{!77, !59, i64 0}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!101 = distinct !{!101, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!102 = !{}
+!103 = !{!19, !17, i64 600}
+!104 = !{!19, !17, i64 604}
+!105 = !{!19, !17, i64 48}
+!106 = !{!107, !17, i64 16}
+!107 = !{!"_ZTSN8rawspeed10ByteStreamE", !108, i64 0, !17, i64 16}
+!108 = !{!"_ZTSN8rawspeed10DataBufferE", !109, i64 0, !110, i64 12}
+!109 = !{!"_ZTSN8rawspeed6BufferE", !59, i64 0, !17, i64 8}
+!110 = !{!"_ZTSN8rawspeed10EndiannessE", !10, i64 0}
+!111 = !{!109, !17, i64 8}
+!112 = distinct !{!112, !97}
+!113 = distinct !{!113, !96, !97}
+!114 = !{!109, !59, i64 0}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"short", !10, i64 0}
+!117 = !{!118, !10, i64 0}
+!118 = !{!"_ZTSN8rawspeed21SamsungV1Decompressor12encTableItemE", !10, i64 0, !10, i64 1}
+!119 = !{!118, !10, i64 1}
+!120 = distinct !{!120, !96, !97}
+!121 = distinct !{!121, !96, !97, !122}
+!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!123 = distinct !{!123, !96, !97}

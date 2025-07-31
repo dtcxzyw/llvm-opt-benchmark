@@ -225,7 +225,7 @@ lean_dec.exit13:                                  ; preds = %41, %40, %38, %lean
 
 lean_dec.exit:                                    ; preds = %50, %49, %47, %lean_dec.exit13
   %51 = tail call ptr @lean_string_push(ptr noundef %.0, i32 noundef %43) #3
-  br label %3
+  br label %3, !llvm.loop !13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1703,7 +1703,7 @@ declare i32 @l_Nat_digitChar(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_String_mangle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
-  %.val = load i64, ptr %2, align 8, !tbaa !13
+  %.val = load i64, ptr %2, align 8, !tbaa !15
   tail call void @lean_inc_heartbeat() #3
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %4 = icmp eq ptr %3, null
@@ -1833,7 +1833,7 @@ lean_inc.exit37:                                  ; preds = %32, %31, %29, %lean
 
 lean_dec.exit35:                                  ; preds = %39, %38, %36, %lean_inc.exit37
   %40 = getelementptr i8, ptr %24, i64 24
-  %.val.i51 = load i64, ptr %40, align 8, !tbaa !13
+  %.val.i51 = load i64, ptr %40, align 8, !tbaa !15
   tail call void @lean_inc_heartbeat() #3
   %41 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %42 = icmp eq ptr %41, null
@@ -2235,5 +2235,7 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"any pointer", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !8, i64 0}

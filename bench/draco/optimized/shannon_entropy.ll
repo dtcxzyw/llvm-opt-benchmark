@@ -107,7 +107,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %.1 = phi i32 [ %24, %23 ], [ %.02140, %.lr.ph43 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !9
+  br i1 %exitcond51.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !10
 
 30:                                               ; preds = %._crit_edge44
   store i32 %.021.lcssa, ptr %3, align 4, !tbaa !3
@@ -187,11 +187,11 @@ define void @_ZN5draco21ShannonEntropyTracker4PeekEPKji(ptr dead_on_unwind noali
 define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_unwind noalias writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !13
+  %9 = load i32, ptr %8, align 8, !tbaa !14
   %10 = add nsw i32 %9, %3
-  store i32 %10, ptr %8, align 8, !tbaa !13
+  store i32 %10, ptr %8, align 8, !tbaa !14
   %11 = icmp sgt i32 %3, 0
   br i1 %11, label %.lr.ph, label %.thread
 
@@ -203,7 +203,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   %.promoted33 = load i32, ptr %13, align 8
   %.promoted35 = load i32, ptr %14, align 4
   %wide.trip.count = zext nneg i32 %3 to i64
-  %.pre = load ptr, ptr %1, align 8, !tbaa !15
+  %.pre = load ptr, ptr %1, align 8, !tbaa !16
   br label %17
 
 15:                                               ; preds = %54
@@ -216,7 +216,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br i1 %4, label %64, label %.loopexit
 
 .lr.ph38:                                         ; preds = %15
-  %16 = load ptr, ptr %1, align 8, !tbaa !15
+  %16 = load ptr, ptr %1, align 8, !tbaa !16
   %wide.trip.count46 = zext nneg i32 %3 to i64
   br label %65
 
@@ -229,7 +229,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   %21 = phi double [ %.promoted, %.lr.ph ], [ %63, %54 ]
   %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = load ptr, ptr %12, align 8, !tbaa !19
+  %24 = load ptr, ptr %12, align 8, !tbaa !20
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %18 to i64
   %27 = sub i64 %25, %26
@@ -249,7 +249,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
 34:                                               ; preds = %30
   %35 = sub nuw nsw i64 %32, %28
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %24, i64 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %.pre48.pre = load ptr, ptr %1, align 8, !tbaa !15
+  %.pre48.pre = load ptr, ptr %1, align 8, !tbaa !16
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 36:                                               ; preds = %30
@@ -262,7 +262,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %40
 
 40:                                               ; preds = %38
-  store ptr %39, ptr %12, align 8, !tbaa !19
+  store ptr %39, ptr %12, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
@@ -308,10 +308,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
   %63 = fadd double %21, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %15, label %17, !llvm.loop !20
+  br i1 %exitcond.not, label %15, label %17, !llvm.loop !21
 
 64:                                               ; preds = %.thread, %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !11
   br label %.loopexit
 
 65:                                               ; preds = %.lr.ph38, %65
@@ -325,7 +325,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
   store i32 %71, ptr %69, align 4, !tbaa !3
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %.loopexit, label %65, !llvm.loop !21
+  br i1 %exitcond47.not, label %.loopexit, label %65, !llvm.loop !22
 
 .loopexit:                                        ; preds = %65, %.thread, %64
   ret void
@@ -343,14 +343,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef i64 @_ZN5draco21ShannonEntropyTracker19GetNumberOfDataBitsERKNS0_11EntropyDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !13
+  %3 = load i32, ptr %2, align 8, !tbaa !14
   %4 = icmp slt i32 %3, 2
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = uitofp nneg i32 %3 to double
   %7 = tail call noundef double @log2(double noundef %6) #20, !tbaa !3
-  %8 = load double, ptr %0, align 8, !tbaa !22
+  %8 = load double, ptr %0, align 8, !tbaa !23
   %9 = fneg double %8
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %9)
   %11 = tail call double @llvm.ceil.f64(double %10)
@@ -368,10 +368,10 @@ declare double @llvm.ceil.f64(double) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 -4294967296, 4294967281) i64 @_ZN5draco21ShannonEntropyTracker24GetNumberOfRAnsTableBitsERKNS0_11EntropyDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !23
+  %3 = load i32, ptr %2, align 4, !tbaa !24
   %4 = add nsw i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !24
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = sub i32 %4, %6
   %8 = sdiv i32 %7, 64
   %9 = add nsw i32 %8, %6
@@ -399,9 +399,9 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -427,13 +427,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 23:                                               ; preds = %20
   %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
-  %.pre = load ptr, ptr %8, align 8, !tbaa !19
+  %.pre = load ptr, ptr %8, align 8, !tbaa !20
   br label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
-  store ptr %25, ptr %8, align 8, !tbaa !19
+  store ptr %25, ptr %8, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
 
@@ -455,7 +455,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i, align 4, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !27
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -472,24 +472,24 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %39, ptr %8, align 8, !tbaa !19
+  store ptr %39, ptr %8, align 8, !tbaa !20
   %.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i68, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %17
-  store ptr %40, ptr %8, align 8, !tbaa !19
+  store ptr %40, ptr %8, align 8, !tbaa !20
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %39, ptr align 4 %1, i64 %17, i1 false)
-  %41 = load ptr, ptr %8, align 8, !tbaa !19
+  %41 = load ptr, ptr %8, align 8, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %17
-  store ptr %42, ptr %8, align 8, !tbaa !19
+  store ptr %42, ptr %8, align 8, !tbaa !20
   br label %.lr.ph.i.i.i71
 
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
@@ -497,10 +497,10 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   store i32 %15, ptr %.06.i.i.i72, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !26
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !27
 
 44:                                               ; preds = %5
-  %45 = load ptr, ptr %0, align 8, !tbaa !15
+  %45 = load ptr, ptr %0, align 8, !tbaa !16
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %11, %46
   %48 = ashr exact i64 %47, 2
@@ -541,7 +541,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
   store i32 %65, ptr %.06.i.i.i.i.i.i.i77, align 4, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !27
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -572,10 +572,10 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
-  store ptr %62, ptr %0, align 8, !tbaa !15
-  store ptr %72, ptr %8, align 8, !tbaa !19
+  store ptr %62, ptr %0, align 8, !tbaa !16
+  store ptr %72, ptr %8, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
-  store ptr %75, ptr %6, align 8, !tbaa !25
+  store ptr %75, ptr %6, align 8, !tbaa !26
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, %4
@@ -636,23 +636,24 @@ attributes #21 = { builtin nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 0, i64 8, !11, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !5, i64 0}
-!13 = !{!14, !4, i64 8}
-!14 = !{!"_ZTSN5draco21ShannonEntropyTracker11EntropyDataE", !12, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
-!17 = !{!"p1 int", !18, i64 0}
-!18 = !{!"any pointer", !5, i64 0}
-!19 = !{!16, !17, i64 8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = !{!14, !12, i64 0}
-!23 = !{!14, !4, i64 12}
-!24 = !{!14, !4, i64 16}
-!25 = !{!16, !17, i64 16}
-!26 = distinct !{!26, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i64 0, i64 8, !12, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"double", !5, i64 0}
+!14 = !{!15, !4, i64 8}
+!15 = !{!"_ZTSN5draco21ShannonEntropyTracker11EntropyDataE", !13, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !18, i64 0, !18, i64 8, !18, i64 16}
+!18 = !{!"p1 int", !19, i64 0}
+!19 = !{!"any pointer", !5, i64 0}
+!20 = !{!17, !18, i64 8}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = !{!15, !13, i64 0}
+!24 = !{!15, !4, i64 12}
+!25 = !{!15, !4, i64 16}
+!26 = !{!17, !18, i64 16}
+!27 = distinct !{!27, !8, !9}

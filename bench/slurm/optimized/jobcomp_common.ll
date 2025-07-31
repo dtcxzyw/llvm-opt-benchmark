@@ -899,7 +899,7 @@ _valid_date_format.exit304.thread:                ; preds = %223, %225, %228, %_
   %447 = load ptr, ptr %446, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.55, ptr noundef %447) #6
   %448 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %448, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %448, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %12) #6
@@ -998,7 +998,8 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}

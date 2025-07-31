@@ -697,9 +697,9 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
   br i1 %38, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %.020.i.i, ptr nonnull %29) #7, !srcloc !9
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %.020.i.i, ptr nonnull %29) #7, !srcloc !10
   %41 = icmp eq i64 %40, %.020.i.i
-  br i1 %41, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit, label %34, !llvm.loop !10
+  br i1 %41, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit, label %34, !llvm.loop !11
 
 42:                                               ; preds = %7
   br i1 %.not.i, label %43, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit
@@ -731,9 +731,9 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
   br i1 %.not.not.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.021.i.i, ptr nonnull %56) #7, !srcloc !9
+  %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.021.i.i, ptr nonnull %56) #7, !srcloc !10
   %65 = icmp eq i64 %64, %.021.i.i
-  br i1 %65, label %66, label %61, !llvm.loop !11
+  br i1 %65, label %66, label %61, !llvm.loop !12
 
 66:                                               ; preds = %63
   %67 = lshr i64 %.021.i.i, %59
@@ -913,9 +913,9 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   br i1 %45, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %44, i64 %.020.i.i, ptr nonnull %36) #7, !srcloc !9
+  %47 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %44, i64 %.020.i.i, ptr nonnull %36) #7, !srcloc !10
   %48 = icmp eq i64 %47, %.020.i.i
-  br i1 %48, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit, label %41, !llvm.loop !10
+  br i1 %48, label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit, label %41, !llvm.loop !11
 
 49:                                               ; preds = %7
   br i1 %.not.i, label %50, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit
@@ -947,9 +947,9 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   br i1 %.not.not.not.i.not.i, label %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %.021.i.i, ptr nonnull %63) #7, !srcloc !9
+  %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %.021.i.i, ptr nonnull %63) #7, !srcloc !10
   %72 = icmp eq i64 %71, %.021.i.i
-  br i1 %72, label %73, label %68, !llvm.loop !11
+  br i1 %72, label %73, label %68, !llvm.loop !12
 
 73:                                               ; preds = %70
   %74 = lshr i64 %.021.i.i, %66
@@ -1207,7 +1207,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %11
 
 31:                                               ; preds = %31, %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
   %32 = call noundef zeroext i1 @_ZN16SATBMarkQueueSet33apply_closure_to_completed_bufferEP17SATBBufferClosure(ptr noundef nonnull align 8 dereferenceable(393) %30, ptr noundef nonnull %5) #7
-  br i1 %32, label %31, label %33, !llvm.loop !12
+  br i1 %32, label %31, label %33, !llvm.loop !13
 
 33:                                               ; preds = %31
   call void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP28ShenandoahReferenceProcessor(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef %22, ptr noundef %14) #7
@@ -1259,7 +1259,7 @@ define linkonce_odr hidden void @_ZN27ShenandoahSATBBufferClosureIL24ShenandoahG
   tail call void @_ZN14ShenandoahMark16mark_through_refIP7oopDescL24ShenandoahGenerationType0EEEvPT_P6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP24ShenandoahMarkingContextb(ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext false)
   %10 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %10, %2
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %6, %3
   ret void
@@ -1357,10 +1357,11 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

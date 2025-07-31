@@ -73,7 +73,7 @@ define dso_local void @clear_prio_queue(ptr noundef captures(none) initializes((
   tail call void @free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !tbaa !15
+  store i64 0, ptr %5, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
@@ -88,7 +88,7 @@ define dso_local void @prio_queue_put(ptr noundef captures(none) %0, ptr noundef
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = add i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !16
+  %8 = load i64, ptr %7, align 8, !tbaa !17
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %._crit_edge
 
@@ -102,7 +102,7 @@ define dso_local void @prio_queue_put(ptr noundef captures(none) %0, ptr noundef
   %12 = add i64 %11, 48
   %13 = lshr i64 %12, 1
   %. = tail call i64 @llvm.umax.i64(i64 %13, i64 %6)
-  store i64 %., ptr %7, align 8, !tbaa !16
+  store i64 %., ptr %7, align 8, !tbaa !17
   %14 = icmp ugt i64 %., 1152921504606846975
   br i1 %14, label %15, label %st_mult.exit
 
@@ -125,14 +125,14 @@ st_mult.exit:                                     ; preds = %10
   %21 = phi i64 [ %5, %._crit_edge ], [ %.pre34, %st_mult.exit ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %19, %st_mult.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !15
+  %24 = load i64, ptr %23, align 8, !tbaa !16
   %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8, !tbaa !15
+  store i64 %25, ptr %23, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %22, i64 %21
-  store i64 %24, ptr %27, align 8, !tbaa !17
+  store i64 %24, ptr %27, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %22, i64 %21, i32 1
-  store ptr %1, ptr %28, align 8, !tbaa !19
+  store ptr %1, ptr %28, align 8, !tbaa !20
   store i64 %.pre-phi, ptr %4, align 8, !tbaa !11
   %29 = load ptr, ptr %0, align 8, !tbaa !4
   %.not = icmp eq ptr %29, null
@@ -151,10 +151,10 @@ st_mult.exit:                                     ; preds = %10
   %34 = load ptr, ptr %0, align 8, !tbaa !4
   %35 = load ptr, ptr %26, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %35, i64 %33, i32 1
-  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %35, i64 %.033, i32 1
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
-  %40 = load ptr, ptr %30, align 8, !tbaa !20
+  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %40 = load ptr, ptr %30, align 8, !tbaa !21
   %41 = tail call i32 %34(ptr noundef %37, ptr noundef %39, ptr noundef %40) #11
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %42, label %compare.exit
@@ -162,9 +162,9 @@ st_mult.exit:                                     ; preds = %10
 42:                                               ; preds = %31
   %43 = load ptr, ptr %26, align 8, !tbaa !12
   %44 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %43, i64 %33
-  %45 = load i64, ptr %44, align 8, !tbaa !17
+  %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %43, i64 %.033
-  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %47 = load i64, ptr %46, align 8, !tbaa !18
   %48 = tail call i32 @llvm.ucmp.i32.i64(i64 %45, i64 %47)
   br label %compare.exit
 
@@ -183,7 +183,7 @@ compare.exit:                                     ; preds = %31, %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %52, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not31 = icmp ult i64 %32, 2
-  br i1 %.not31, label %.loopexit, label %31, !llvm.loop !21
+  br i1 %.not31, label %.loopexit, label %31, !llvm.loop !22
 
 .loopexit:                                        ; preds = %compare.exit, %50, %20
   ret void
@@ -210,12 +210,12 @@ define dso_local ptr @prio_queue_get(ptr noundef captures(none) %0) local_unname
   %10 = add i64 %4, -1
   store i64 %10, ptr %3, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %10, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.loopexit
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = add i64 %4, -1
   store i64 %16, ptr %3, align 8, !tbaa !11
   %.not35 = icmp eq i64 %16, 0
@@ -223,7 +223,7 @@ define dso_local ptr @prio_queue_get(ptr noundef captures(none) %0) local_unname
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !23
   %19 = load i64, ptr %3, align 8, !tbaa !11
   %20 = icmp ugt i64 %19, 1
   br i1 %20, label %.lr.ph, label %.loopexit
@@ -245,10 +245,10 @@ define dso_local ptr @prio_queue_get(ptr noundef captures(none) %0) local_unname
 28:                                               ; preds = %22
   %29 = load ptr, ptr %0, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre40, i64 %24, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre40, i64 %26, i32 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !19
-  %34 = load ptr, ptr %21, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %34 = load ptr, ptr %21, align 8, !tbaa !21
   %35 = tail call i32 %29(ptr noundef %31, ptr noundef %33, ptr noundef %34) #11
   %.not.i = icmp eq i32 %35, 0
   %.pre.pre = load ptr, ptr %7, align 8, !tbaa !12
@@ -256,9 +256,9 @@ define dso_local ptr @prio_queue_get(ptr noundef captures(none) %0) local_unname
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre.pre, i64 %24
-  %38 = load i64, ptr %37, align 8, !tbaa !17
+  %38 = load i64, ptr %37, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %.pre.pre, i64 %26
-  %40 = load i64, ptr %39, align 8, !tbaa !17
+  %40 = load i64, ptr %39, align 8, !tbaa !18
   %41 = tail call i32 @llvm.ucmp.i32.i64(i64 %38, i64 %40)
   br label %compare.exit
 
@@ -273,10 +273,10 @@ compare.exit:                                     ; preds = %28, %36
   %.0 = phi i64 [ %24, %22 ], [ %spec.select, %compare.exit ]
   %45 = load ptr, ptr %0, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %44, i64 %.02739, i32 1
-  %47 = load ptr, ptr %46, align 8, !tbaa !19
+  %47 = load ptr, ptr %46, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %44, i64 %.0, i32 1
-  %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = load ptr, ptr %21, align 8, !tbaa !20
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
+  %50 = load ptr, ptr %21, align 8, !tbaa !21
   %51 = tail call i32 %45(ptr noundef %47, ptr noundef %49, ptr noundef %50) #11
   %.not.i36 = icmp eq i32 %51, 0
   br i1 %.not.i36, label %52, label %compare.exit38
@@ -284,9 +284,9 @@ compare.exit:                                     ; preds = %28, %36
 52:                                               ; preds = %43
   %53 = load ptr, ptr %7, align 8, !tbaa !12
   %54 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %53, i64 %.02739
-  %55 = load i64, ptr %54, align 8, !tbaa !17
+  %55 = load i64, ptr %54, align 8, !tbaa !18
   %56 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %53, i64 %.0
-  %57 = load i64, ptr %56, align 8, !tbaa !17
+  %57 = load i64, ptr %56, align 8, !tbaa !18
   %58 = tail call i32 @llvm.ucmp.i32.i64(i64 %55, i64 %57)
   br label %compare.exit38
 
@@ -308,7 +308,7 @@ compare.exit38:                                   ; preds = %43, %52
   %64 = or disjoint i64 %63, 1
   %65 = load i64, ptr %3, align 8, !tbaa !11
   %66 = icmp ult i64 %64, %65
-  br i1 %66, label %22, label %.loopexit, !llvm.loop !25
+  br i1 %66, label %22, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %compare.exit38, %60, %17, %13, %1, %9
   %.028 = phi ptr [ %12, %9 ], [ null, %1 ], [ %15, %13 ], [ %15, %17 ], [ %15, %60 ], [ %15, %compare.exit38 ]
@@ -335,12 +335,12 @@ define dso_local ptr @prio_queue_peek(ptr noundef readonly captures(none) %0) lo
 8:                                                ; preds = %4
   %9 = getelementptr %struct.prio_queue_entry, ptr %7, i64 %3
   %10 = getelementptr i8, ptr %9, i64 -8
-  %11 = load ptr, ptr %10, align 8, !tbaa !19
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
   br label %15
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
   br label %15
 
 15:                                               ; preds = %1, %12, %8
@@ -388,16 +388,17 @@ attributes #11 = { nounwind }
 !10 = !{!"p1 _ZTS16prio_queue_entry", !6, i64 0}
 !11 = !{!5, !9, i64 32}
 !12 = !{!5, !10, i64 40}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!5, !9, i64 8}
-!16 = !{!5, !9, i64 24}
-!17 = !{!18, !9, i64 0}
-!18 = !{!"prio_queue_entry", !9, i64 0, !6, i64 8}
-!19 = !{!18, !6, i64 8}
-!20 = !{!5, !6, i64 16}
-!21 = distinct !{!21, !14}
-!22 = !{i64 0, i64 8, !23, i64 8, i64 8, !24}
-!23 = !{!9, !9, i64 0}
-!24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!5, !9, i64 8}
+!17 = !{!5, !9, i64 24}
+!18 = !{!19, !9, i64 0}
+!19 = !{!"prio_queue_entry", !9, i64 0, !6, i64 8}
+!20 = !{!19, !6, i64 8}
+!21 = !{!5, !6, i64 16}
+!22 = distinct !{!22, !14, !15}
+!23 = !{i64 0, i64 8, !24, i64 8, i64 8, !25}
+!24 = !{!9, !9, i64 0}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !14, !15}

@@ -56,7 +56,7 @@ define void @_ZN11dtPathQueueD2Ev(ptr noundef nonnull align 8 captures(none) der
   store ptr null, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN11dtPathQueue5purgeEv.exit, label %4, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN11dtPathQueue5purgeEv.exit, label %4, !llvm.loop !7
 
 _ZN11dtPathQueue5purgeEv.exit:                    ; preds = %.noexc1
   ret void
@@ -94,7 +94,7 @@ define void @_ZN11dtPathQueue5purgeEv(ptr noundef nonnull align 8 captures(none)
   store ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !6
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !7
 
 7:                                                ; preds = %4
   ret void
@@ -134,7 +134,7 @@ define noundef zeroext i1 @_ZN11dtPathQueue4initEiiP9dtNavMesh(ptr noundef nonnu
   store ptr null, ptr %8, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN11dtPathQueue5purgeEv.exit, label %7, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN11dtPathQueue5purgeEv.exit, label %7, !llvm.loop !7
 
 _ZN11dtPathQueue5purgeEv.exit:                    ; preds = %7
   %10 = tail call noundef ptr @_Z19dtAllocNavMeshQueryv()
@@ -155,7 +155,7 @@ _ZN11dtPathQueue5purgeEv.exit:                    ; preds = %7
 16:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %24, label %17, !llvm.loop !7
+  br i1 %exitcond.not, label %24, label %17, !llvm.loop !8
 
 17:                                               ; preds = %14, %16
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %16 ]
@@ -290,7 +290,7 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
   store i32 %59, ptr %4, align 8
   %60 = add nuw nsw i32 %.02628, 1
   %exitcond.not = icmp eq i32 %60, 8
-  br i1 %exitcond.not, label %61, label %7, !llvm.loop !8
+  br i1 %exitcond.not, label %61, label %7, !llvm.loop !9
 
 61:                                               ; preds = %54, %58
   ret void
@@ -316,7 +316,7 @@ define noundef i32 @_ZN11dtPathQueue7requestEjjPKfS1_PK13dtQueryFilter(ptr nound
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !10
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -375,7 +375,7 @@ define noundef i32 @_ZNK11dtPathQueue16getRequestStatusEj(ptr noundef nonnull re
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !11
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
@@ -401,7 +401,7 @@ define noundef range(i32 1073741824, -2147483647) i32 @_ZN11dtPathQueue13getPath
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !12
 
 7:                                                ; preds = %5, %6
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %6 ]
@@ -462,11 +462,12 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

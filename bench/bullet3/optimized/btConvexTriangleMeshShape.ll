@@ -232,7 +232,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV26LocalSupportVertexCallback, i64 16), ptr %5, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 0xC3ABC16D60000000, ptr %10, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
   store float 0x43ABC16D60000000, ptr %6, align 4, !tbaa !27
   store float 0x43ABC16D60000000, ptr %12, align 4, !tbaa !27
@@ -261,7 +261,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #19
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
-  br i1 %exitcond29.not, label %._crit_edge, label %18, !llvm.loop !31
+  br i1 %exitcond29.not, label %._crit_edge, label %18, !llvm.loop !32
 
 26:                                               ; preds = %18
   %27 = landingpad { ptr, i32 }
@@ -374,7 +374,7 @@ define dso_local void @_ZN25btConvexTriangleMeshShape15setLocalScalingERK9btVect
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !31
   tail call void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %0)
   ret void
 }
@@ -397,7 +397,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback, i64 16), ptr %5, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 1, ptr %10, align 8, !tbaa !32
+  store i8 1, ptr %10, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
@@ -423,7 +423,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
 21:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %23 = load float, ptr %22, align 4, !tbaa !34
+  %23 = load float, ptr %22, align 4, !tbaa !35
   %24 = fcmp ogt float %23, 0.000000e+00
   br i1 %24, label %25, label %36
 
@@ -704,12 +704,12 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   store float %100, ptr %94, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %101, label %90, !llvm.loop !35
+  br i1 %exitcond.not, label %101, label %90, !llvm.loop !36
 
 101:                                              ; preds = %90
   %102 = add nsw i32 %.1, -1
   %103 = icmp sgt i32 %.1, 1
-  br i1 %103, label %16, label %.critedge, !llvm.loop !36
+  br i1 %103, label %16, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %101, %37, %4
   ret void
@@ -761,14 +761,14 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK16btCollisionSha
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21btConvexInternalShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %1, ptr %3, align 8, !tbaa !37
+  store float %1, ptr %3, align 8, !tbaa !38
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK21btConvexInternalShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load float, ptr %2, align 8, !tbaa !37
+  %3 = load float, ptr %2, align 8, !tbaa !38
   ret float %3
 }
 
@@ -792,7 +792,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   store float %9, ptr %10, align 4, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !39
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -807,15 +807,15 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !27
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !38
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !39
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load float, ptr %17, align 8, !tbaa !37
+  %18 = load float, ptr %17, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !39
+  store float %18, ptr %19, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !44
+  store i32 0, ptr %20, align 4, !tbaa !45
   ret ptr @.str.1
 }
 
@@ -882,14 +882,14 @@ define linkonce_odr dso_local void @_ZN26LocalSupportVertexCallback28internalPro
 
 26:                                               ; preds = %14
   store float %24, ptr %11, align 8, !tbaa !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !31
   br label %27
 
 27:                                               ; preds = %26, %14
   %28 = phi float [ %24, %26 ], [ %15, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %13, label %14, !llvm.loop !45
+  br i1 %exitcond.not, label %13, label %14, !llvm.loop !46
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -905,14 +905,14 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfEN14CenterCallback28internalProcessTriangleIndexEPS2_ii(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !32, !range !46, !noundef !47
+  %6 = load i8, ptr %5, align 8, !tbaa !33, !range !47, !noundef !48
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %7, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !30
-  store i8 0, ptr %5, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !31
+  store i8 0, ptr %5, align 8, !tbaa !33
   br label %80
 
 10:                                               ; preds = %4
@@ -986,9 +986,9 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
   %76 = fadd float %75, %67
   store float %76, ptr %74, align 4, !tbaa !27
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %78 = load float, ptr %77, align 4, !tbaa !34
+  %78 = load float, ptr %77, align 4, !tbaa !35
   %79 = fadd float %78, %54
-  store float %79, ptr %77, align 4, !tbaa !34
+  store float %79, ptr %77, align 4, !tbaa !35
   br label %80
 
 80:                                               ; preds = %10, %9
@@ -1164,7 +1164,7 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next56, 3
-  br i1 %exitcond60.not, label %65, label %.preheader, !llvm.loop !48
+  br i1 %exitcond60.not, label %65, label %.preheader, !llvm.loop !49
 
 117:                                              ; preds = %.preheader, %117
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %117 ]
@@ -1192,7 +1192,7 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
   store float %135, ptr %136, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv53
-  br i1 %exitcond.not, label %116, label %117, !llvm.loop !49
+  br i1 %exitcond.not, label %116, label %117, !llvm.loop !50
 }
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
@@ -1270,25 +1270,26 @@ attributes #21 = { builtin nounwind }
 !25 = !{!"_ZTS26LocalSupportVertexCallback", !26, i64 0, !17, i64 8, !18, i64 24, !17, i64 28}
 !26 = !{!"_ZTS31btInternalTriangleIndexCallback"}
 !27 = !{!18, !18, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{i64 0, i64 16, !23}
-!31 = distinct !{!31, !29}
-!32 = !{!33, !20, i64 8}
-!33 = !{!"_ZTSZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback", !26, i64 0, !20, i64 8, !17, i64 12, !17, i64 28, !18, i64 44}
-!34 = !{!33, !18, i64 44}
-!35 = distinct !{!35, !29}
-!36 = distinct !{!36, !29}
-!37 = !{!11, !18, i64 64}
-!38 = distinct !{!38, !29}
-!39 = !{!40, !18, i64 48}
-!40 = !{!"_ZTS25btConvexInternalShapeData", !41, i64 0, !43, i64 16, !43, i64 32, !18, i64 48, !14, i64 52}
-!41 = !{!"_ZTS20btCollisionShapeData", !42, i64 0, !14, i64 8, !15, i64 12}
-!42 = !{!"p1 omnipotent char", !16, i64 0}
-!43 = !{!"_ZTS18btVector3FloatData", !15, i64 0}
-!44 = !{!40, !14, i64 52}
-!45 = distinct !{!45, !29}
-!46 = !{i8 0, i8 2}
-!47 = !{}
-!48 = distinct !{!48, !29}
-!49 = distinct !{!49, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{i64 0, i64 16, !23}
+!32 = distinct !{!32, !29, !30}
+!33 = !{!34, !20, i64 8}
+!34 = !{!"_ZTSZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback", !26, i64 0, !20, i64 8, !17, i64 12, !17, i64 28, !18, i64 44}
+!35 = !{!34, !18, i64 44}
+!36 = distinct !{!36, !29, !30}
+!37 = distinct !{!37, !29, !30}
+!38 = !{!11, !18, i64 64}
+!39 = distinct !{!39, !29, !30}
+!40 = !{!41, !18, i64 48}
+!41 = !{!"_ZTS25btConvexInternalShapeData", !42, i64 0, !44, i64 16, !44, i64 32, !18, i64 48, !14, i64 52}
+!42 = !{!"_ZTS20btCollisionShapeData", !43, i64 0, !14, i64 8, !15, i64 12}
+!43 = !{!"p1 omnipotent char", !16, i64 0}
+!44 = !{!"_ZTS18btVector3FloatData", !15, i64 0}
+!45 = !{!41, !14, i64 52}
+!46 = distinct !{!46, !29, !30}
+!47 = !{i8 0, i8 2}
+!48 = !{}
+!49 = distinct !{!49, !29, !30}
+!50 = distinct !{!50, !29, !30}

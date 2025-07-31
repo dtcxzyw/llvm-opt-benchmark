@@ -177,7 +177,7 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   %31 = add nuw nsw i64 %9, 1
   %32 = zext i16 %30 to i64
   %33 = icmp samesign ult i64 %31, %32
-  br i1 %33, label %7, label %.loopexit3, !llvm.loop !11
+  br i1 %33, label %7, label %.loopexit3, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %.loopexit, %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -214,13 +214,13 @@ define dso_local void @ieee80211_stop_rx_ba_session(ptr noundef %0, i16 noundef 
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 %11) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 %11) #10, !srcloc !13
   br label %16
 
 16:                                               ; preds = %15, %10
   %17 = add nuw nsw i64 %11, 1
   %18 = icmp eq i64 %17, 16
-  br i1 %18, label %19, label %10, !llvm.loop !13
+  br i1 %18, label %19, label %10, !llvm.loop !14
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -270,13 +270,13 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 25:                                               ; preds = %10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2916
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2918
-  %28 = load i8, ptr %27, align 2, !range !14, !noundef !15
+  %28 = load i8, ptr %27, align 2, !range !15, !noundef !16
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2956
-  %32 = load i8, ptr %31, align 4, !range !14, !noundef !15
+  %32 = load i8, ptr %31, align 4, !range !15, !noundef !16
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %.thread, label %34
 
@@ -289,13 +289,13 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 3013
-  %41 = load i8, ptr %40, align 1, !range !14, !noundef !15
+  %41 = load i8, ptr %40, align 1, !range !15, !noundef !16
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2956
-  %45 = load i8, ptr %44, align 4, !range !14, !noundef !15
+  %45 = load i8, ptr %44, align 4, !range !15, !noundef !16
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %46, i16 64, i16 256
   br label %48
@@ -424,7 +424,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   store i32 0, ptr %121, align 8
   %122 = add nuw nsw i64 %117, 1
   %123 = icmp eq i64 %122, %102
-  br i1 %123, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %123, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %113
   %124 = load ptr, ptr %13, align 8
@@ -463,7 +463,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   store i8 %141, ptr %142, align 2
   %143 = getelementptr inbounds nuw i8, ptr %96, i64 48
   store ptr %0, ptr %143, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %145 = getelementptr [16 x ptr], ptr %144, i64 0, i64 %66
   store volatile ptr %96, ptr %145, align 8
@@ -487,7 +487,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br label %.thread
 
 .thread9:                                         ; preds = %90, %130, %147, %.thread10
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %65, i64 %66) #10, !srcloc !18
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %65, i64 %66) #10, !srcloc !19
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %157, i64 %66) #10, !srcloc !7
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -583,7 +583,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %212 = getelementptr inbounds nuw i8, ptr %182, i64 27
   store i16 %161, ptr %212, align 1
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 2956
-  %214 = load i8, ptr %213, align 4, !range !14, !noundef !15
+  %214 = load i8, ptr %213, align 4, !range !15, !noundef !16
   %215 = icmp ne i8 %214, 0
   %216 = icmp ne ptr %9, null
   %217 = and i1 %216, %215
@@ -647,7 +647,7 @@ define internal void @sta_rx_agg_session_timer_expired(ptr noundef %0) #0 align 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 840
   %21 = zext i8 %5 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %21) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %21) #10, !srcloc !13
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -723,13 +723,13 @@ define dso_local void @ieee80211_process_addba_request(ptr noundef readnone capt
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 640
-  %35 = load i8, ptr %34, align 8, !range !14, !noundef !15
+  %35 = load i8, ptr %34, align 8, !range !15, !noundef !16
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 3013
-  %39 = load i8, ptr %38, align 1, !range !14, !noundef !15
+  %39 = load i8, ptr %38, align 1, !range !15, !noundef !16
   %.not = icmp eq i8 %39, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 456
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -771,7 +771,7 @@ define dso_local void @ieee80211_manage_rx_ba_offl(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %9 = zext i32 %2 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -796,7 +796,7 @@ define dso_local void @ieee80211_rx_ba_timer_expired(ptr noundef %0, ptr noundef
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 840
   %9 = zext i32 %2 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -883,14 +883,15 @@ attributes #13 = { nounwind allocsize(0) }
 !5 = !{!"auto-init"}
 !6 = !{i64 2148129740, i64 2148129814}
 !7 = !{i64 2148118587}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i64 2148116413, i64 2148116452, i64 2148116473, i64 2148116510, i64 2148116533, i64 2148116403}
-!13 = distinct !{!13, !9, !10}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10}
-!17 = !{i64 2167303642}
-!18 = !{i64 2148117054}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i64 2148116413, i64 2148116452, i64 2148116473, i64 2148116510, i64 2148116533, i64 2148116403}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = !{i64 2167303642}
+!19 = !{i64 2148117054}

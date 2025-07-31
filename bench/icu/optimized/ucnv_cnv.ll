@@ -71,12 +71,12 @@ define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly captures(address_is_n
   %30 = getelementptr inbounds nuw i8, ptr %.244, i64 1
   store i8 %29, ptr %.244, align 1, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %.045, i64 4
-  store i32 %6, ptr %.045, align 4, !tbaa !17
+  store i32 %6, ptr %.045, align 4, !tbaa !18
   %32 = add nsw i32 %.23642, -1
   %33 = icmp samesign ugt i32 %.23642, 1
   %34 = icmp ult ptr %30, %4
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.236.lcssa = phi i32 [ %2, %.preheader ], [ %32, %.lr.ph ]
@@ -102,7 +102,7 @@ define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly captures(address_is_n
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = trunc i32 %.135 to i8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 91
-  store i8 %40, ptr %41, align 1, !tbaa !20
+  store i8 %40, ptr %41, align 1, !tbaa !21
   br label %42
 
 42:                                               ; preds = %42, %38
@@ -115,10 +115,10 @@ define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly captures(address_is_n
   store i8 %44, ptr %.3, align 1, !tbaa !14
   %46 = add nsw i32 %.337, -1
   %47 = icmp samesign ugt i32 %.337, 1
-  br i1 %47, label %42, label %.loopexit, !llvm.loop !24
+  br i1 %47, label %42, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %42, %37
-  store i32 15, ptr %7, align 4, !tbaa !25
+  store i32 15, ptr %7, align 4, !tbaa !26
   br label %48
 
 48:                                               ; preds = %.loopexit, %.loopexit41
@@ -127,7 +127,7 @@ define void @ucnv_fromUWriteBytes_77(ptr noundef writeonly captures(address_is_n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
-  %9 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !28
   %10 = icmp eq ptr %5, null
   br i1 %10, label %17, label %11
 
@@ -153,14 +153,14 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
   %.03050 = phi ptr [ %21, %.lr.ph53 ], [ %1, %17 ]
   %.03449 = phi i32 [ %24, %.lr.ph53 ], [ %2, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %.03050, i64 2
-  %22 = load i16, ptr %.03050, align 2, !tbaa !29
+  %22 = load i16, ptr %.03050, align 2, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %.02951, i64 2
-  store i16 %22, ptr %.02951, align 2, !tbaa !29
+  store i16 %22, ptr %.02951, align 2, !tbaa !30
   %24 = add nsw i32 %.03449, -1
   %25 = icmp samesign ugt i32 %.03449, 1
   %26 = icmp ult ptr %23, %4
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph53, label %.loopexit41, !llvm.loop !31
+  br i1 %27, label %.lr.ph53, label %.loopexit41, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.045 = phi ptr [ %31, %.lr.ph ], [ %12, %.preheader ]
@@ -168,16 +168,16 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
   %.23243 = phi ptr [ %28, %.lr.ph ], [ %1, %.preheader ]
   %.23642 = phi i32 [ %32, %.lr.ph ], [ %2, %.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.23243, i64 2
-  %29 = load i16, ptr %.23243, align 2, !tbaa !29
+  %29 = load i16, ptr %.23243, align 2, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %.244, i64 2
-  store i16 %29, ptr %.244, align 2, !tbaa !29
+  store i16 %29, ptr %.244, align 2, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %.045, i64 4
-  store i32 %6, ptr %.045, align 4, !tbaa !17
+  store i32 %6, ptr %.045, align 4, !tbaa !18
   %32 = add nsw i32 %.23642, -1
   %33 = icmp samesign ugt i32 %.23642, 1
   %34 = icmp ult ptr %30, %4
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.236.lcssa = phi i32 [ %2, %.preheader ], [ %32, %.lr.ph ]
@@ -191,7 +191,7 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
   %.135 = phi i32 [ %.236.lcssa, %._crit_edge ], [ %2, %17 ], [ %24, %.lr.ph53 ]
   %.131 = phi ptr [ %.232.lcssa, %._crit_edge ], [ %1, %17 ], [ %21, %.lr.ph53 ]
   %.1 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %9, %17 ], [ %23, %.lr.ph53 ]
-  store ptr %.1, ptr %3, align 8, !tbaa !27
+  store ptr %.1, ptr %3, align 8, !tbaa !28
   %36 = icmp sgt i32 %.135, 0
   br i1 %36, label %37, label %48
 
@@ -203,7 +203,7 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %40 = trunc i32 %.135 to i8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  store i8 %40, ptr %41, align 1, !tbaa !33
+  store i8 %40, ptr %41, align 1, !tbaa !34
   br label %42
 
 42:                                               ; preds = %42, %38
@@ -211,15 +211,15 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
   %.333 = phi ptr [ %.131, %38 ], [ %43, %42 ]
   %.3 = phi ptr [ %39, %38 ], [ %45, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.333, i64 2
-  %44 = load i16, ptr %.333, align 2, !tbaa !29
+  %44 = load i16, ptr %.333, align 2, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  store i16 %44, ptr %.3, align 2, !tbaa !29
+  store i16 %44, ptr %.3, align 2, !tbaa !30
   %46 = add nsw i32 %.337, -1
   %47 = icmp samesign ugt i32 %.337, 1
-  br i1 %47, label %42, label %.loopexit, !llvm.loop !34
+  br i1 %47, label %42, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %42, %37
-  store i32 15, ptr %7, align 4, !tbaa !25
+  store i32 15, ptr %7, align 4, !tbaa !26
   br label %48
 
 48:                                               ; preds = %.loopexit, %.loopexit41
@@ -228,7 +228,7 @@ define void @ucnv_toUWriteUChars_77(ptr noundef writeonly captures(address_is_nu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
-  %8 = load ptr, ptr %2, align 8, !tbaa !27
+  %8 = load ptr, ptr %2, align 8, !tbaa !28
   %9 = icmp ult ptr %8, %3
   br i1 %9, label %10, label %33
 
@@ -238,7 +238,7 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
 
 12:                                               ; preds = %10
   %13 = trunc i32 %1 to i16
-  store i16 %13, ptr %8, align 2, !tbaa !29
+  store i16 %13, ptr %8, align 2, !tbaa !30
   br label %24
 
 14:                                               ; preds = %10
@@ -246,7 +246,7 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
   %16 = trunc i32 %15 to i16
   %17 = add i16 %16, -10304
   %.ptr = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i16 %17, ptr %8, align 2, !tbaa !29
+  store i16 %17, ptr %8, align 2, !tbaa !30
   %18 = trunc i32 %1 to i16
   %19 = and i16 %18, 1023
   %20 = or disjoint i16 %19, -9216
@@ -255,7 +255,7 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %14
-  store i16 %20, ptr %.ptr, align 2, !tbaa !29
+  store i16 %20, ptr %.ptr, align 2, !tbaa !30
   br label %24
 
 24:                                               ; preds = %14, %23, %12
@@ -273,12 +273,12 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %5, ptr %27, align 4, !tbaa !17
+  store i32 %5, ptr %27, align 4, !tbaa !18
   br i1 %25, label %30, label %32
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %5, ptr %29, align 4, !tbaa !17
+  store i32 %5, ptr %29, align 4, !tbaa !18
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -289,7 +289,7 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
 33:                                               ; preds = %24, %26, %32, %7
   %.041 = phi i32 [ %.142, %32 ], [ %.142, %26 ], [ %.142, %24 ], [ %1, %7 ]
   %.040 = phi ptr [ %.1.ptr, %32 ], [ %.1.ptr, %26 ], [ %.1.ptr, %24 ], [ %8, %7 ]
-  store ptr %.040, ptr %2, align 8, !tbaa !27
+  store ptr %.040, ptr %2, align 8, !tbaa !28
   %34 = icmp sgt i32 %.041, -1
   br i1 %34, label %35, label %52
 
@@ -313,20 +313,20 @@ define void @ucnv_toUWriteCodePoint_77(ptr noundef writeonly captures(address_is
   %45 = and i16 %44, 1023
   %46 = or disjoint i16 %45, -9216
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 146
-  store i16 %46, ptr %47, align 2, !tbaa !29
+  store i16 %46, ptr %47, align 2, !tbaa !30
   br label %48
 
 48:                                               ; preds = %40, %38
   %.sink = phi i16 [ %39, %38 ], [ %43, %40 ]
   %.0 = phi i8 [ 1, %38 ], [ 2, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i16 %.sink, ptr %49, align 2, !tbaa !29
+  store i16 %.sink, ptr %49, align 2, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  store i8 %.0, ptr %50, align 1, !tbaa !33
+  store i8 %.0, ptr %50, align 1, !tbaa !34
   br label %51
 
 51:                                               ; preds = %48, %35
-  store i32 15, ptr %6, align 4, !tbaa !25
+  store i32 15, ptr %6, align 4, !tbaa !26
   br label %52
 
 52:                                               ; preds = %51, %33
@@ -354,23 +354,24 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 int", !6, i64 0}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !7, i64 0}
-!19 = distinct !{!19, !16}
-!20 = !{!21, !7, i64 91}
-!21 = !{!"_ZTS10UConverter", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !11, i64 40, !22, i64 48, !18, i64 56, !7, i64 60, !7, i64 61, !7, i64 62, !7, i64 63, !7, i64 64, !7, i64 65, !18, i64 72, !18, i64 76, !18, i64 80, !18, i64 84, !7, i64 88, !7, i64 89, !7, i64 90, !7, i64 91, !7, i64 92, !7, i64 93, !7, i64 94, !7, i64 95, !7, i64 96, !7, i64 104, !7, i64 136, !7, i64 140, !7, i64 144, !18, i64 208, !7, i64 212, !7, i64 250, !7, i64 281, !7, i64 282, !7, i64 283, !23, i64 284}
-!22 = !{!"p1 _ZTS20UConverterSharedData", !6, i64 0}
-!23 = !{!"_ZTS24UConverterCallbackReason", !7, i64 0}
-!24 = distinct !{!24, !16}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"_ZTS10UErrorCode", !7, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 char16_t", !6, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"char16_t", !7, i64 0}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = !{!21, !7, i64 93}
-!34 = distinct !{!34, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !7, i64 0}
+!20 = distinct !{!20, !16, !17}
+!21 = !{!22, !7, i64 91}
+!22 = !{!"_ZTS10UConverter", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !11, i64 40, !23, i64 48, !19, i64 56, !7, i64 60, !7, i64 61, !7, i64 62, !7, i64 63, !7, i64 64, !7, i64 65, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84, !7, i64 88, !7, i64 89, !7, i64 90, !7, i64 91, !7, i64 92, !7, i64 93, !7, i64 94, !7, i64 95, !7, i64 96, !7, i64 104, !7, i64 136, !7, i64 140, !7, i64 144, !19, i64 208, !7, i64 212, !7, i64 250, !7, i64 281, !7, i64 282, !7, i64 283, !24, i64 284}
+!23 = !{!"p1 _ZTS20UConverterSharedData", !6, i64 0}
+!24 = !{!"_ZTS24UConverterCallbackReason", !7, i64 0}
+!25 = distinct !{!25, !16, !17}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"_ZTS10UErrorCode", !7, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 char16_t", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"char16_t", !7, i64 0}
+!32 = distinct !{!32, !16, !17}
+!33 = distinct !{!33, !16, !17}
+!34 = !{!22, !7, i64 93}
+!35 = distinct !{!35, !16, !17}

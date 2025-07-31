@@ -1240,7 +1240,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116ECLinearRenderer5
   %115 = getelementptr inbounds nuw i8, ptr %.13945, i64 16
   %116 = add nuw nsw i64 %.04044, 1
   %exitcond.not = icmp eq i64 %116, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph50, %45, %.preheader
   ret void
@@ -1314,7 +1314,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114ECRendererBase18g
   br i1 %9, label %10, label %63
 
 10:                                               ; preds = %4
-  store ptr %6, ptr %0, align 8, !tbaa !100
+  store ptr %6, ptr %0, align 8, !tbaa !101
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !73
@@ -1347,7 +1347,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114ECRendererBase18g
   br i1 %27, label %28, label %63
 
 28:                                               ; preds = %22
-  store ptr %24, ptr %0, align 8, !tbaa !100
+  store ptr %24, ptr %0, align 8, !tbaa !101
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !73
@@ -1380,7 +1380,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114ECRendererBase18g
   br i1 %45, label %46, label %63
 
 46:                                               ; preds = %40
-  store ptr %42, ptr %0, align 8, !tbaa !100
+  store ptr %42, ptr %0, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !73
@@ -1652,7 +1652,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119ECLinearRevRender
   %44 = getelementptr inbounds nuw i8, ptr %.04150, i64 16
   %45 = add nuw nsw i64 %.04449, 1
   %exitcond54.not = icmp eq i64 %45, %3
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph52, !llvm.loop !103
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph52, !llvm.loop !104
 
 46:                                               ; preds = %4
   %47 = fdiv float 1.000000e+00, %19
@@ -1737,7 +1737,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119ECLinearRevRender
   %118 = getelementptr inbounds nuw i8, ptr %.14247, i64 16
   %119 = add nuw nsw i64 %.04346, 1
   %exitcond.not = icmp eq i64 %119, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !105
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph52, %46, %.preheader
   ret void
@@ -1875,7 +1875,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115ECVideoRenderer5a
   %44 = getelementptr inbounds nuw i8, ptr %.03848, i64 16
   %45 = add nuw nsw i64 %.04147, 1
   %exitcond52.not = icmp eq i64 %45, %3
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph50, !llvm.loop !105
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph50, !llvm.loop !106
 
 46:                                               ; preds = %4
   %47 = insertelement <4 x float> poison, float %19, i64 0
@@ -1958,7 +1958,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115ECVideoRenderer5a
   %116 = getelementptr inbounds nuw i8, ptr %.13945, i64 16
   %117 = add nuw nsw i64 %.04044, 1
   %exitcond.not = icmp eq i64 %117, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !106
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !107
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph50, %46, %.preheader
   ret void
@@ -2098,7 +2098,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_118ECVideoRevRendere
   %45 = getelementptr inbounds nuw i8, ptr %.04150, i64 16
   %46 = add nuw nsw i64 %.04449, 1
   %exitcond54.not = icmp eq i64 %46, %3
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph52, !llvm.loop !107
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph52, !llvm.loop !108
 
 47:                                               ; preds = %4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2183,7 +2183,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_118ECVideoRevRendere
   %119 = getelementptr inbounds nuw i8, ptr %.14247, i64 16
   %120 = add nuw nsw i64 %.04346, 1
   %exitcond.not = icmp eq i64 %120, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph52, %47, %.preheader
   ret void
@@ -2329,7 +2329,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121ECLogarithmicRend
   %54 = getelementptr inbounds nuw i8, ptr %.02225, i64 16
   %55 = add nuw nsw i64 %.02324, 1
   %exitcond.not = icmp eq i64 %55, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
@@ -2654,7 +2654,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124ECLogarithmicRevR
   %51 = getelementptr inbounds nuw i8, ptr %.02326, i64 16
   %52 = add nuw nsw i64 %.027, 1
   %exitcond.not = icmp eq i64 %52, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
@@ -2819,17 +2819,18 @@ attributes #28 = { noreturn nounwind }
 !94 = !{i8 0, i8 2}
 !95 = !{}
 !96 = !{!50, !50, i64 0}
-!97 = distinct !{!97, !98}
+!97 = distinct !{!97, !98, !99}
 !98 = !{!"llvm.loop.mustprogress"}
-!99 = distinct !{!99, !98}
-!100 = !{!101, !102, i64 0}
-!101 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !102, i64 0, !9, i64 8}
-!102 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
-!103 = distinct !{!103, !98}
-!104 = distinct !{!104, !98}
-!105 = distinct !{!105, !98}
-!106 = distinct !{!106, !98}
-!107 = distinct !{!107, !98}
-!108 = distinct !{!108, !98}
-!109 = distinct !{!109, !98}
-!110 = distinct !{!110, !98}
+!99 = !{!"llvm.loop.estimated_trip_count"}
+!100 = distinct !{!100, !98, !99}
+!101 = !{!102, !103, i64 0}
+!102 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EE", !103, i64 0, !9, i64 8}
+!103 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE", !6, i64 0}
+!104 = distinct !{!104, !98, !99}
+!105 = distinct !{!105, !98, !99}
+!106 = distinct !{!106, !98, !99}
+!107 = distinct !{!107, !98, !99}
+!108 = distinct !{!108, !98, !99}
+!109 = distinct !{!109, !98, !99}
+!110 = distinct !{!110, !98, !99}
+!111 = distinct !{!111, !98, !99}

@@ -344,7 +344,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   store i32 %185, ptr %186, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit266, label %170, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit266, label %170, !llvm.loop !9
 
 .loopexit266:                                     ; preds = %170, %._crit_edge
   %187 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -453,14 +453,14 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %indvars.iv.next286 = add nsw i64 %indvars.iv285, %78
   %240 = add nuw nsw i32 %.0214275, 1
   %241 = icmp slt i32 %240, %110
-  br i1 %241, label %237, label %.loopexit, !llvm.loop !9
+  br i1 %241, label %237, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %237, %228, %200, %204, %226
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %242 = load i32, ptr %38, align 8
   %243 = sext i32 %242 to i64
   %244 = icmp slt i64 %indvars.iv.next289, %243
-  br i1 %244, label %79, label %._crit_edge282, !llvm.loop !10
+  br i1 %244, label %79, label %._crit_edge282, !llvm.loop !11
 
 ._crit_edge282:                                   ; preds = %.loopexit, %62
   call void @free(ptr noundef %44) #8
@@ -546,8 +546,9 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

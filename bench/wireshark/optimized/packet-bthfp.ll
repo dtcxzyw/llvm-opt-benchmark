@@ -1500,7 +1500,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %.1263 = phi i32 [ %.2264332, %.thread333.thread ], [ %.2264332, %312 ], [ %.2264332, %307 ], [ %.2264332, %302 ], [ %.2264332, %297 ], [ %.2264332, %293 ], [ %.2264332, %.thread329 ], [ %.0262347, %279 ], [ %.0262347, %275 ], [ %.0262347, %273 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %272
-  br i1 %exitcond.not, label %.loopexit340, label %273, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit340, label %273, !llvm.loop !11
 
 .loopexit340:                                     ; preds = %.thread326, %250, %178
   %375 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1606,7 +1606,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %442 = select i1 %441, i64 0, i64 %440
   %443 = icmp ne i64 %442, -1
   call void @llvm.assume(i1 %443)
-  %444 = call ptr @__memcpy_chk(ptr noundef %436, ptr noundef %438, i64 noundef range(i64 -2147483648, 4294967296) %439, i64 noundef %442) #10, !alias.scope !11
+  %444 = call ptr @__memcpy_chk(ptr noundef %436, ptr noundef %438, i64 noundef range(i64 -2147483648, 4294967296) %439, i64 noundef %442) #10, !alias.scope !12
   %445 = getelementptr inbounds nuw i8, ptr %391, i64 40
   %446 = load ptr, ptr %445, align 8
   %.not295 = icmp eq ptr %446, null
@@ -1639,11 +1639,11 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %460 = select i1 %459, i64 0, i64 %458
   %461 = icmp ne i64 %460, -1
   call void @llvm.assume(i1 %461)
-  %462 = call ptr @__memcpy_chk(ptr noundef %454, ptr noundef %456, i64 noundef range(i64 -2147483648, 4294967296) %457, i64 noundef %460) #10, !alias.scope !15
+  %462 = call ptr @__memcpy_chk(ptr noundef %454, ptr noundef %456, i64 noundef range(i64 -2147483648, 4294967296) %457, i64 noundef %460) #10, !alias.scope !16
   %463 = getelementptr inbounds nuw i8, ptr %.2275348, i64 40
   %464 = load ptr, ptr %463, align 8
   %.not296 = icmp eq ptr %464, null
-  br i1 %.not296, label %.critedge307, label %.preheader338, !llvm.loop !19
+  br i1 %.not296, label %.critedge307, label %.preheader338, !llvm.loop !20
 
 .critedge13:                                      ; preds = %.preheader338
   %465 = getelementptr inbounds nuw i8, ptr %.2275348, i64 56
@@ -1670,7 +1670,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %484 = select i1 %483, i64 0, i64 %482
   %485 = icmp ne i64 %484, -1
   call void @llvm.assume(i1 %485)
-  %486 = call ptr @__memcpy_chk(ptr noundef %476, ptr noundef %480, i64 noundef range(i64 -2147483648, 4294967296) %481, i64 noundef %484) #10, !alias.scope !20
+  %486 = call ptr @__memcpy_chk(ptr noundef %476, ptr noundef %480, i64 noundef range(i64 -2147483648, 4294967296) %481, i64 noundef %484) #10, !alias.scope !21
   br label %.critedge307
 
 .critedge306:                                     ; preds = %.critedge13
@@ -1685,7 +1685,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %495 = select i1 %494, i64 0, i64 %493
   %496 = icmp ne i64 %495, -1
   call void @llvm.assume(i1 %496)
-  %497 = call ptr @__memcpy_chk(ptr noundef %489, ptr noundef %491, i64 noundef range(i64 -2147483648, 4294967296) %492, i64 noundef %495) #10, !alias.scope !24
+  %497 = call ptr @__memcpy_chk(ptr noundef %489, ptr noundef %491, i64 noundef range(i64 -2147483648, 4294967296) %492, i64 noundef %495) #10, !alias.scope !25
   br label %.critedge307
 
 .critedge307:                                     ; preds = %449, %470, %.critedge306, %431
@@ -1728,7 +1728,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %513 = add i32 %.0270350, 1
   %514 = call i32 @tvb_reported_length(ptr noundef nonnull %508)
   %515 = icmp ugt i32 %514, %512
-  br i1 %515, label %.lr.ph352, label %._crit_edge, !llvm.loop !28
+  br i1 %515, label %.lr.ph352, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph352, %.preheader337
   %516 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1742,7 +1742,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %519 = add i32 %.1271353, 1
   %520 = call i32 @tvb_reported_length(ptr noundef %0)
   %521 = icmp ugt i32 %520, %518
-  br i1 %521, label %.lr.ph355, label %.loopexit, !llvm.loop !29
+  br i1 %521, label %.lr.ph355, label %.loopexit, !llvm.loop !30
 
 522:                                              ; preds = %416, %411, %406, %401, %396, %392, %.loopexit340
   %523 = load i32, ptr @hf_fragmented, align 4
@@ -1969,7 +1969,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %45 = getelementptr i8, ptr %27, i64 %44
   %46 = load i8, ptr %45, align 1
   %.not408.us = icmp eq i8 %46, 0
-  br i1 %.not408.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %.not408.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %47 = phi i8 [ %53, %.lr.ph.split ], [ %30, %.lr.ph ]
@@ -1982,7 +1982,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %52 = getelementptr i8, ptr %27, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not408 = icmp eq i8 %53, 0
-  br i1 %.not408, label %.thread, label %.lr.ph.split, !llvm.loop !32
+  br i1 %.not408, label %.thread, label %.lr.ph.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %24
   br i1 %.not, label %._crit_edge.thread, label %.thread
@@ -2065,7 +2065,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 .critedge2:                                       ; preds = %.lr.ph545, %.lr.ph545, %.lr.ph545, %.lr.ph545
   %95 = add i32 %.2369543, 1
   %.not409 = icmp sgt i32 %95, %8
-  br i1 %.not409, label %.critedge, label %.lr.ph545, !llvm.loop !33
+  br i1 %.not409, label %.critedge, label %.lr.ph545, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph545
   %.2369.lcssa.ph = phi i32 [ %95, %.critedge2 ], [ %.2369543, %.lr.ph545 ]
@@ -2108,7 +2108,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 103:                                              ; preds = %.lr.ph549
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph549, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph549, !llvm.loop !35
 
 .critedge4.loopexit.split.loop.exit:              ; preds = %.lr.ph549, %.lr.ph549, %.lr.ph549, %.lr.ph549, %.lr.ph549
   %104 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2137,7 +2137,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %113 = getelementptr i8, ptr %.1364561, i64 32
   %114 = load ptr, ptr %113, align 8
   %.not418 = icmp eq ptr %114, null
-  br i1 %.not418, label %.thread448, label %.preheader520, !llvm.loop !35
+  br i1 %.not418, label %.thread448, label %.preheader520, !llvm.loop !36
 
 115:                                              ; preds = %.preheader520
   %116 = load i32, ptr @hf_at_cmd, align 4
@@ -2311,7 +2311,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 
 198:                                              ; preds = %270
   %199 = icmp slt i32 %.8, %.0365
-  br i1 %199, label %.preheader519, label %.loopexit, !llvm.loop !36
+  br i1 %199, label %.preheader519, label %.loopexit, !llvm.loop !37
 
 .preheader519:                                    ; preds = %.preheader519.lr.ph, %198
   %.0358575 = phi i32 [ 0, %.preheader519.lr.ph ], [ %.2360, %198 ]
@@ -2339,7 +2339,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 .critedge7:                                       ; preds = %200, %200
   %206 = add i32 %.5377, 1
   %207 = add i32 %.7, 1
-  br label %200, !llvm.loop !37
+  br label %200, !llvm.loop !38
 
 208:                                              ; preds = %.lr.ph565, %215
   %209 = phi i32 [ %229, %.lr.ph565 ], [ %217, %215 ]
@@ -2364,7 +2364,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %216 = add i32 %.1362563, 1
   %217 = add i32 %216, %.7
   %218 = icmp slt i32 %217, %.0365
-  br i1 %218, label %208, label %.critedge9, !llvm.loop !38
+  br i1 %218, label %208, label %.critedge9, !llvm.loop !39
 
 219:                                              ; preds = %213, %214
   %220 = icmp eq i8 %212, 40
@@ -2382,7 +2382,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %226 = add i32 %.1362563, 1
   %227 = add i32 %226, %.7
   %228 = icmp slt i32 %227, %.0365
-  br i1 %228, label %.lr.ph565, label %.critedge9, !llvm.loop !38
+  br i1 %228, label %.lr.ph565, label %.critedge9, !llvm.loop !39
 
 .lr.ph565:                                        ; preds = %.preheader, %.outer
   %229 = phi i32 [ %227, %.outer ], [ %.7, %.preheader ]
@@ -2491,7 +2491,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 270:                                              ; preds = %263, %267
   %.6378 = phi i32 [ %269, %267 ], [ %247, %263 ]
   %.8 = phi i32 [ %268, %267 ], [ %246, %263 ]
-  br i1 %.0348, label %..loopexit_crit_edge, label %198, !llvm.loop !36
+  br i1 %.0348, label %..loopexit_crit_edge, label %198, !llvm.loop !37
 
 .thread509:                                       ; preds = %.thread433, %58, %84, %81
   %.1373445 = phi i32 [ %.1373, %.thread433 ], [ %3, %58 ], [ %3, %84 ], [ %3, %81 ]
@@ -2501,7 +2501,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   br label %279
 
 ..loopexit_crit_edge:                             ; preds = %270
-  br label %.loopexit, !llvm.loop !36
+  br label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %198, %..loopexit_crit_edge, %260
   %.4376 = phi i32 [ %261, %260 ], [ %.6378, %..loopexit_crit_edge ], [ %.6378, %198 ]
@@ -2675,7 +2675,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   %57 = sext i32 %8 to i64
   %58 = icmp ne i32 %54, -1
   tail call void @llvm.assume(i1 %58)
-  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %57, i64 noundef %55) #10, !alias.scope !39
+  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %57, i64 noundef %55) #10, !alias.scope !40
   %60 = getelementptr i8, ptr %56, i64 %57
   store i8 0, ptr %60, align 1
   %61 = tail call i64 @g_ascii_strtoull(ptr noundef %56, ptr noundef null, i32 noundef 10)
@@ -2723,7 +2723,7 @@ define internal noundef zeroext i1 @dissect_iphoneaccev_parameter(ptr noundef %0
   %20 = sext i32 %8 to i64
   %21 = icmp ne i32 %17, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %20, i64 noundef %18) #10, !alias.scope !43
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %20, i64 noundef %18) #10, !alias.scope !44
   %23 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10)
@@ -2814,7 +2814,7 @@ check_aplsiri.exit:                               ; preds = %10, %13
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !47
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !48
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -2878,7 +2878,7 @@ check_aplefm.exit:                                ; preds = %10, %13
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !51
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !52
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -2925,7 +2925,7 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !55
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !56
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -2955,7 +2955,7 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
   %39 = sext i32 %8 to i64
   %40 = icmp ne i32 %36, -1
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !59
+  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !60
   %42 = getelementptr i8, ptr %38, i64 %39
   store i8 0, ptr %42, align 1
   %43 = tail call i64 @g_ascii_strtoull(ptr noundef %38, ptr noundef null, i32 noundef 10)
@@ -3024,7 +3024,7 @@ check_bind.exit:                                  ; preds = %12, %12, %12, %13
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !63
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !64
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3060,7 +3060,7 @@ define internal noundef zeroext i1 @dissect_bac_parameter(ptr noundef %0, ptr no
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !67
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !68
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -3124,7 +3124,7 @@ check_bcs.exit:                                   ; preds = %10, %13
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !71
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !72
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -3202,7 +3202,7 @@ define internal noundef zeroext i1 @dissect_btrh_parameter(ptr noundef %0, ptr n
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !75
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !76
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3246,7 +3246,7 @@ define internal noundef zeroext i1 @dissect_bsir_parameter(ptr noundef %0, ptr n
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !79
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !80
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -3309,7 +3309,7 @@ define internal noundef zeroext i1 @dissect_vgs_parameter(ptr noundef %0, ptr no
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !83
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !84
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3373,7 +3373,7 @@ define internal noundef zeroext i1 @dissect_vgm_parameter(ptr noundef %0, ptr no
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !87
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !88
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3427,7 +3427,7 @@ define internal noundef zeroext i1 @dissect_nrec_parameter(ptr noundef %0, ptr n
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !91
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !92
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3491,7 +3491,7 @@ define internal noundef zeroext i1 @dissect_brsf_parameter(ptr noundef %0, ptr n
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !95
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !96
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3571,7 +3571,7 @@ define internal noundef zeroext i1 @dissect_bvra_parameter(ptr noundef %0, ptr n
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !99
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !100
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3641,7 +3641,7 @@ define internal noundef zeroext i1 @dissect_binp_parameter(ptr noundef %0, ptr n
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !103
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !104
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3690,7 +3690,7 @@ define internal noundef zeroext i1 @dissect_bia_parameter(ptr noundef %0, ptr no
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !107
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !108
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -4093,7 +4093,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %24 = sext i32 %8 to i64
   %25 = icmp ne i32 %21, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !111
+  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !112
   %27 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10)
@@ -4110,7 +4110,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %37 = sext i32 %8 to i64
   %38 = icmp ne i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !115
+  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !116
   %40 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %40, align 1
   %41 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10)
@@ -4127,7 +4127,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %50 = sext i32 %8 to i64
   %51 = icmp ne i32 %47, -1
   tail call void @llvm.assume(i1 %51)
-  %52 = tail call ptr @__memcpy_chk(ptr noundef %49, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %50, i64 noundef %48) #10, !alias.scope !119
+  %52 = tail call ptr @__memcpy_chk(ptr noundef %49, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %50, i64 noundef %48) #10, !alias.scope !120
   %53 = getelementptr i8, ptr %49, i64 %50
   store i8 0, ptr %53, align 1
   %54 = tail call i64 @g_ascii_strtoull(ptr noundef %49, ptr noundef null, i32 noundef 10)
@@ -4144,7 +4144,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %63 = sext i32 %8 to i64
   %64 = icmp ne i32 %60, -1
   tail call void @llvm.assume(i1 %64)
-  %65 = tail call ptr @__memcpy_chk(ptr noundef %62, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %63, i64 noundef %61) #10, !alias.scope !123
+  %65 = tail call ptr @__memcpy_chk(ptr noundef %62, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %63, i64 noundef %61) #10, !alias.scope !124
   %66 = getelementptr i8, ptr %62, i64 %63
   store i8 0, ptr %66, align 1
   %67 = tail call i64 @g_ascii_strtoull(ptr noundef %62, ptr noundef null, i32 noundef 10)
@@ -4161,7 +4161,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %76 = sext i32 %8 to i64
   %77 = icmp ne i32 %73, -1
   tail call void @llvm.assume(i1 %77)
-  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %76, i64 noundef %74) #10, !alias.scope !127
+  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %76, i64 noundef %74) #10, !alias.scope !128
   %79 = getelementptr i8, ptr %75, i64 %76
   store i8 0, ptr %79, align 1
   %80 = tail call i64 @g_ascii_strtoull(ptr noundef %75, ptr noundef null, i32 noundef 10)
@@ -4183,7 +4183,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %92 = sext i32 %8 to i64
   %93 = icmp ne i32 %89, -1
   tail call void @llvm.assume(i1 %93)
-  %94 = tail call ptr @__memcpy_chk(ptr noundef %91, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %92, i64 noundef %90) #10, !alias.scope !131
+  %94 = tail call ptr @__memcpy_chk(ptr noundef %91, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %92, i64 noundef %90) #10, !alias.scope !132
   %95 = getelementptr i8, ptr %91, i64 %92
   store i8 0, ptr %95, align 1
   %96 = tail call i64 @g_ascii_strtoull(ptr noundef %91, ptr noundef null, i32 noundef 10)
@@ -4211,7 +4211,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %111 = sext i32 %8 to i64
   %112 = icmp ne i32 %108, -1
   tail call void @llvm.assume(i1 %112)
-  %113 = tail call ptr @__memcpy_chk(ptr noundef %110, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %111, i64 noundef %109) #10, !alias.scope !135
+  %113 = tail call ptr @__memcpy_chk(ptr noundef %110, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %111, i64 noundef %109) #10, !alias.scope !136
   %114 = getelementptr i8, ptr %110, i64 %111
   store i8 0, ptr %114, align 1
   %115 = tail call i64 @g_ascii_strtoull(ptr noundef %110, ptr noundef null, i32 noundef 10)
@@ -4283,7 +4283,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %24 = sext i32 %8 to i64
   %25 = icmp ne i32 %21, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !139
+  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !140
   %27 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10)
@@ -4300,7 +4300,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %37 = sext i32 %8 to i64
   %38 = icmp ne i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !143
+  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !144
   %40 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %40, align 1
   %41 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10)
@@ -4322,7 +4322,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %53 = sext i32 %8 to i64
   %54 = icmp ne i32 %50, -1
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %53, i64 noundef %51) #10, !alias.scope !147
+  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %53, i64 noundef %51) #10, !alias.scope !148
   %56 = getelementptr i8, ptr %52, i64 %53
   store i8 0, ptr %56, align 1
   %57 = tail call i64 @g_ascii_strtoull(ptr noundef %52, ptr noundef null, i32 noundef 10)
@@ -4364,7 +4364,7 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr r
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !151
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !152
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -4402,7 +4402,7 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !155
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !156
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -4481,7 +4481,7 @@ check_clip.exit:                                  ; preds = %10
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !159
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !160
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4498,7 +4498,7 @@ check_clip.exit:                                  ; preds = %10
   %39 = sext i32 %8 to i64
   %40 = icmp ne i32 %36, -1
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !163
+  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !164
   %42 = getelementptr i8, ptr %38, i64 %39
   store i8 0, ptr %42, align 1
   %43 = tail call i64 @g_ascii_strtoull(ptr noundef %38, ptr noundef null, i32 noundef 10)
@@ -4601,7 +4601,7 @@ define internal noundef zeroext i1 @dissect_cmer_parameter(ptr noundef %0, ptr n
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !167
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !168
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -4702,7 +4702,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !171
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !172
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -4794,7 +4794,7 @@ define internal noundef zeroext i1 @dissect_vts_parameter(ptr noundef %0, ptr no
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !175
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !176
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4870,7 +4870,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %30 = sext i32 %8 to i64
   %31 = icmp ne i32 %27, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call ptr @__memcpy_chk(ptr noundef %29, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %30, i64 noundef %28) #10, !alias.scope !179
+  %32 = tail call ptr @__memcpy_chk(ptr noundef %29, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %30, i64 noundef %28) #10, !alias.scope !180
   %33 = getelementptr i8, ptr %29, i64 %30
   store i8 0, ptr %33, align 1
   %34 = tail call i64 @g_ascii_strtoull(ptr noundef %29, ptr noundef null, i32 noundef 10)
@@ -4893,7 +4893,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %46 = sext i32 %8 to i64
   %47 = icmp ne i32 %43, -1
   tail call void @llvm.assume(i1 %47)
-  %48 = tail call ptr @__memcpy_chk(ptr noundef %45, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %46, i64 noundef %44) #10, !alias.scope !183
+  %48 = tail call ptr @__memcpy_chk(ptr noundef %45, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %46, i64 noundef %44) #10, !alias.scope !184
   %49 = getelementptr i8, ptr %45, i64 %46
   store i8 0, ptr %49, align 1
   %50 = tail call i64 @g_ascii_strtoull(ptr noundef %45, ptr noundef null, i32 noundef 10)
@@ -4915,7 +4915,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %62 = sext i32 %8 to i64
   %63 = icmp ne i32 %59, -1
   tail call void @llvm.assume(i1 %63)
-  %64 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %62, i64 noundef %60) #10, !alias.scope !187
+  %64 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %62, i64 noundef %60) #10, !alias.scope !188
   %65 = getelementptr i8, ptr %61, i64 %62
   store i8 0, ptr %65, align 1
   %66 = tail call i64 @g_ascii_strtoull(ptr noundef %61, ptr noundef null, i32 noundef 10)
@@ -4937,7 +4937,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %78 = sext i32 %8 to i64
   %79 = icmp ne i32 %75, -1
   tail call void @llvm.assume(i1 %79)
-  %80 = tail call ptr @__memcpy_chk(ptr noundef %77, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %78, i64 noundef %76) #10, !alias.scope !191
+  %80 = tail call ptr @__memcpy_chk(ptr noundef %77, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %78, i64 noundef %76) #10, !alias.scope !192
   %81 = getelementptr i8, ptr %77, i64 %78
   store i8 0, ptr %81, align 1
   %82 = tail call i64 @g_ascii_strtoull(ptr noundef %77, ptr noundef null, i32 noundef 10)
@@ -4984,7 +4984,7 @@ define internal fastcc i32 @get_uint_parameter(ptr noundef readonly captures(non
   %7 = sext i32 %1 to i64
   %8 = icmp ne i32 %4, -1
   tail call void @llvm.assume(i1 %8)
-  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %7, i64 noundef %5) #10, !alias.scope !195
+  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %7, i64 noundef %5) #10, !alias.scope !196
   %10 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %10, align 1
   %11 = tail call i64 @g_ascii_strtoull(ptr noundef %6, ptr noundef null, i32 noundef 10)
@@ -5038,194 +5038,195 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = distinct !{!19, !9}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
-!41 = distinct !{!41, !"memcpy.inline"}
-!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
-!45 = distinct !{!45, !"memcpy.inline"}
-!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"memcpy.inline: argument 0"}
-!53 = distinct !{!53, !"memcpy.inline"}
-!54 = distinct !{!54, !53, !"memcpy.inline: argument 1"}
-!55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"memcpy.inline: argument 0"}
-!57 = distinct !{!57, !"memcpy.inline"}
-!58 = distinct !{!58, !57, !"memcpy.inline: argument 1"}
-!59 = !{!60, !62}
-!60 = distinct !{!60, !61, !"memcpy.inline: argument 0"}
-!61 = distinct !{!61, !"memcpy.inline"}
-!62 = distinct !{!62, !61, !"memcpy.inline: argument 1"}
-!63 = !{!64, !66}
-!64 = distinct !{!64, !65, !"memcpy.inline: argument 0"}
-!65 = distinct !{!65, !"memcpy.inline"}
-!66 = distinct !{!66, !65, !"memcpy.inline: argument 1"}
-!67 = !{!68, !70}
-!68 = distinct !{!68, !69, !"memcpy.inline: argument 0"}
-!69 = distinct !{!69, !"memcpy.inline"}
-!70 = distinct !{!70, !69, !"memcpy.inline: argument 1"}
-!71 = !{!72, !74}
-!72 = distinct !{!72, !73, !"memcpy.inline: argument 0"}
-!73 = distinct !{!73, !"memcpy.inline"}
-!74 = distinct !{!74, !73, !"memcpy.inline: argument 1"}
-!75 = !{!76, !78}
-!76 = distinct !{!76, !77, !"memcpy.inline: argument 0"}
-!77 = distinct !{!77, !"memcpy.inline"}
-!78 = distinct !{!78, !77, !"memcpy.inline: argument 1"}
-!79 = !{!80, !82}
-!80 = distinct !{!80, !81, !"memcpy.inline: argument 0"}
-!81 = distinct !{!81, !"memcpy.inline"}
-!82 = distinct !{!82, !81, !"memcpy.inline: argument 1"}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"memcpy.inline: argument 0"}
-!85 = distinct !{!85, !"memcpy.inline"}
-!86 = distinct !{!86, !85, !"memcpy.inline: argument 1"}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"memcpy.inline: argument 0"}
-!89 = distinct !{!89, !"memcpy.inline"}
-!90 = distinct !{!90, !89, !"memcpy.inline: argument 1"}
-!91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"memcpy.inline: argument 0"}
-!93 = distinct !{!93, !"memcpy.inline"}
-!94 = distinct !{!94, !93, !"memcpy.inline: argument 1"}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"memcpy.inline: argument 0"}
-!97 = distinct !{!97, !"memcpy.inline"}
-!98 = distinct !{!98, !97, !"memcpy.inline: argument 1"}
-!99 = !{!100, !102}
-!100 = distinct !{!100, !101, !"memcpy.inline: argument 0"}
-!101 = distinct !{!101, !"memcpy.inline"}
-!102 = distinct !{!102, !101, !"memcpy.inline: argument 1"}
-!103 = !{!104, !106}
-!104 = distinct !{!104, !105, !"memcpy.inline: argument 0"}
-!105 = distinct !{!105, !"memcpy.inline"}
-!106 = distinct !{!106, !105, !"memcpy.inline: argument 1"}
-!107 = !{!108, !110}
-!108 = distinct !{!108, !109, !"memcpy.inline: argument 0"}
-!109 = distinct !{!109, !"memcpy.inline"}
-!110 = distinct !{!110, !109, !"memcpy.inline: argument 1"}
-!111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"memcpy.inline: argument 0"}
-!113 = distinct !{!113, !"memcpy.inline"}
-!114 = distinct !{!114, !113, !"memcpy.inline: argument 1"}
-!115 = !{!116, !118}
-!116 = distinct !{!116, !117, !"memcpy.inline: argument 0"}
-!117 = distinct !{!117, !"memcpy.inline"}
-!118 = distinct !{!118, !117, !"memcpy.inline: argument 1"}
-!119 = !{!120, !122}
-!120 = distinct !{!120, !121, !"memcpy.inline: argument 0"}
-!121 = distinct !{!121, !"memcpy.inline"}
-!122 = distinct !{!122, !121, !"memcpy.inline: argument 1"}
-!123 = !{!124, !126}
-!124 = distinct !{!124, !125, !"memcpy.inline: argument 0"}
-!125 = distinct !{!125, !"memcpy.inline"}
-!126 = distinct !{!126, !125, !"memcpy.inline: argument 1"}
-!127 = !{!128, !130}
-!128 = distinct !{!128, !129, !"memcpy.inline: argument 0"}
-!129 = distinct !{!129, !"memcpy.inline"}
-!130 = distinct !{!130, !129, !"memcpy.inline: argument 1"}
-!131 = !{!132, !134}
-!132 = distinct !{!132, !133, !"memcpy.inline: argument 0"}
-!133 = distinct !{!133, !"memcpy.inline"}
-!134 = distinct !{!134, !133, !"memcpy.inline: argument 1"}
-!135 = !{!136, !138}
-!136 = distinct !{!136, !137, !"memcpy.inline: argument 0"}
-!137 = distinct !{!137, !"memcpy.inline"}
-!138 = distinct !{!138, !137, !"memcpy.inline: argument 1"}
-!139 = !{!140, !142}
-!140 = distinct !{!140, !141, !"memcpy.inline: argument 0"}
-!141 = distinct !{!141, !"memcpy.inline"}
-!142 = distinct !{!142, !141, !"memcpy.inline: argument 1"}
-!143 = !{!144, !146}
-!144 = distinct !{!144, !145, !"memcpy.inline: argument 0"}
-!145 = distinct !{!145, !"memcpy.inline"}
-!146 = distinct !{!146, !145, !"memcpy.inline: argument 1"}
-!147 = !{!148, !150}
-!148 = distinct !{!148, !149, !"memcpy.inline: argument 0"}
-!149 = distinct !{!149, !"memcpy.inline"}
-!150 = distinct !{!150, !149, !"memcpy.inline: argument 1"}
-!151 = !{!152, !154}
-!152 = distinct !{!152, !153, !"memcpy.inline: argument 0"}
-!153 = distinct !{!153, !"memcpy.inline"}
-!154 = distinct !{!154, !153, !"memcpy.inline: argument 1"}
-!155 = !{!156, !158}
-!156 = distinct !{!156, !157, !"memcpy.inline: argument 0"}
-!157 = distinct !{!157, !"memcpy.inline"}
-!158 = distinct !{!158, !157, !"memcpy.inline: argument 1"}
-!159 = !{!160, !162}
-!160 = distinct !{!160, !161, !"memcpy.inline: argument 0"}
-!161 = distinct !{!161, !"memcpy.inline"}
-!162 = distinct !{!162, !161, !"memcpy.inline: argument 1"}
-!163 = !{!164, !166}
-!164 = distinct !{!164, !165, !"memcpy.inline: argument 0"}
-!165 = distinct !{!165, !"memcpy.inline"}
-!166 = distinct !{!166, !165, !"memcpy.inline: argument 1"}
-!167 = !{!168, !170}
-!168 = distinct !{!168, !169, !"memcpy.inline: argument 0"}
-!169 = distinct !{!169, !"memcpy.inline"}
-!170 = distinct !{!170, !169, !"memcpy.inline: argument 1"}
-!171 = !{!172, !174}
-!172 = distinct !{!172, !173, !"memcpy.inline: argument 0"}
-!173 = distinct !{!173, !"memcpy.inline"}
-!174 = distinct !{!174, !173, !"memcpy.inline: argument 1"}
-!175 = !{!176, !178}
-!176 = distinct !{!176, !177, !"memcpy.inline: argument 0"}
-!177 = distinct !{!177, !"memcpy.inline"}
-!178 = distinct !{!178, !177, !"memcpy.inline: argument 1"}
-!179 = !{!180, !182}
-!180 = distinct !{!180, !181, !"memcpy.inline: argument 0"}
-!181 = distinct !{!181, !"memcpy.inline"}
-!182 = distinct !{!182, !181, !"memcpy.inline: argument 1"}
-!183 = !{!184, !186}
-!184 = distinct !{!184, !185, !"memcpy.inline: argument 0"}
-!185 = distinct !{!185, !"memcpy.inline"}
-!186 = distinct !{!186, !185, !"memcpy.inline: argument 1"}
-!187 = !{!188, !190}
-!188 = distinct !{!188, !189, !"memcpy.inline: argument 0"}
-!189 = distinct !{!189, !"memcpy.inline"}
-!190 = distinct !{!190, !189, !"memcpy.inline: argument 1"}
-!191 = !{!192, !194}
-!192 = distinct !{!192, !193, !"memcpy.inline: argument 0"}
-!193 = distinct !{!193, !"memcpy.inline"}
-!194 = distinct !{!194, !193, !"memcpy.inline: argument 1"}
-!195 = !{!196, !198}
-!196 = distinct !{!196, !197, !"memcpy.inline: argument 0"}
-!197 = distinct !{!197, !"memcpy.inline"}
-!198 = distinct !{!198, !197, !"memcpy.inline: argument 1"}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
+!14 = distinct !{!14, !"memcpy.inline"}
+!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = distinct !{!20, !9, !10}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
+!23 = distinct !{!23, !"memcpy.inline"}
+!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
+!27 = distinct !{!27, !"memcpy.inline"}
+!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
+!42 = distinct !{!42, !"memcpy.inline"}
+!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"memcpy.inline: argument 0"}
+!46 = distinct !{!46, !"memcpy.inline"}
+!47 = distinct !{!47, !46, !"memcpy.inline: argument 1"}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"memcpy.inline: argument 0"}
+!50 = distinct !{!50, !"memcpy.inline"}
+!51 = distinct !{!51, !50, !"memcpy.inline: argument 1"}
+!52 = !{!53, !55}
+!53 = distinct !{!53, !54, !"memcpy.inline: argument 0"}
+!54 = distinct !{!54, !"memcpy.inline"}
+!55 = distinct !{!55, !54, !"memcpy.inline: argument 1"}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"memcpy.inline: argument 0"}
+!58 = distinct !{!58, !"memcpy.inline"}
+!59 = distinct !{!59, !58, !"memcpy.inline: argument 1"}
+!60 = !{!61, !63}
+!61 = distinct !{!61, !62, !"memcpy.inline: argument 0"}
+!62 = distinct !{!62, !"memcpy.inline"}
+!63 = distinct !{!63, !62, !"memcpy.inline: argument 1"}
+!64 = !{!65, !67}
+!65 = distinct !{!65, !66, !"memcpy.inline: argument 0"}
+!66 = distinct !{!66, !"memcpy.inline"}
+!67 = distinct !{!67, !66, !"memcpy.inline: argument 1"}
+!68 = !{!69, !71}
+!69 = distinct !{!69, !70, !"memcpy.inline: argument 0"}
+!70 = distinct !{!70, !"memcpy.inline"}
+!71 = distinct !{!71, !70, !"memcpy.inline: argument 1"}
+!72 = !{!73, !75}
+!73 = distinct !{!73, !74, !"memcpy.inline: argument 0"}
+!74 = distinct !{!74, !"memcpy.inline"}
+!75 = distinct !{!75, !74, !"memcpy.inline: argument 1"}
+!76 = !{!77, !79}
+!77 = distinct !{!77, !78, !"memcpy.inline: argument 0"}
+!78 = distinct !{!78, !"memcpy.inline"}
+!79 = distinct !{!79, !78, !"memcpy.inline: argument 1"}
+!80 = !{!81, !83}
+!81 = distinct !{!81, !82, !"memcpy.inline: argument 0"}
+!82 = distinct !{!82, !"memcpy.inline"}
+!83 = distinct !{!83, !82, !"memcpy.inline: argument 1"}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"memcpy.inline: argument 0"}
+!86 = distinct !{!86, !"memcpy.inline"}
+!87 = distinct !{!87, !86, !"memcpy.inline: argument 1"}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"memcpy.inline: argument 0"}
+!90 = distinct !{!90, !"memcpy.inline"}
+!91 = distinct !{!91, !90, !"memcpy.inline: argument 1"}
+!92 = !{!93, !95}
+!93 = distinct !{!93, !94, !"memcpy.inline: argument 0"}
+!94 = distinct !{!94, !"memcpy.inline"}
+!95 = distinct !{!95, !94, !"memcpy.inline: argument 1"}
+!96 = !{!97, !99}
+!97 = distinct !{!97, !98, !"memcpy.inline: argument 0"}
+!98 = distinct !{!98, !"memcpy.inline"}
+!99 = distinct !{!99, !98, !"memcpy.inline: argument 1"}
+!100 = !{!101, !103}
+!101 = distinct !{!101, !102, !"memcpy.inline: argument 0"}
+!102 = distinct !{!102, !"memcpy.inline"}
+!103 = distinct !{!103, !102, !"memcpy.inline: argument 1"}
+!104 = !{!105, !107}
+!105 = distinct !{!105, !106, !"memcpy.inline: argument 0"}
+!106 = distinct !{!106, !"memcpy.inline"}
+!107 = distinct !{!107, !106, !"memcpy.inline: argument 1"}
+!108 = !{!109, !111}
+!109 = distinct !{!109, !110, !"memcpy.inline: argument 0"}
+!110 = distinct !{!110, !"memcpy.inline"}
+!111 = distinct !{!111, !110, !"memcpy.inline: argument 1"}
+!112 = !{!113, !115}
+!113 = distinct !{!113, !114, !"memcpy.inline: argument 0"}
+!114 = distinct !{!114, !"memcpy.inline"}
+!115 = distinct !{!115, !114, !"memcpy.inline: argument 1"}
+!116 = !{!117, !119}
+!117 = distinct !{!117, !118, !"memcpy.inline: argument 0"}
+!118 = distinct !{!118, !"memcpy.inline"}
+!119 = distinct !{!119, !118, !"memcpy.inline: argument 1"}
+!120 = !{!121, !123}
+!121 = distinct !{!121, !122, !"memcpy.inline: argument 0"}
+!122 = distinct !{!122, !"memcpy.inline"}
+!123 = distinct !{!123, !122, !"memcpy.inline: argument 1"}
+!124 = !{!125, !127}
+!125 = distinct !{!125, !126, !"memcpy.inline: argument 0"}
+!126 = distinct !{!126, !"memcpy.inline"}
+!127 = distinct !{!127, !126, !"memcpy.inline: argument 1"}
+!128 = !{!129, !131}
+!129 = distinct !{!129, !130, !"memcpy.inline: argument 0"}
+!130 = distinct !{!130, !"memcpy.inline"}
+!131 = distinct !{!131, !130, !"memcpy.inline: argument 1"}
+!132 = !{!133, !135}
+!133 = distinct !{!133, !134, !"memcpy.inline: argument 0"}
+!134 = distinct !{!134, !"memcpy.inline"}
+!135 = distinct !{!135, !134, !"memcpy.inline: argument 1"}
+!136 = !{!137, !139}
+!137 = distinct !{!137, !138, !"memcpy.inline: argument 0"}
+!138 = distinct !{!138, !"memcpy.inline"}
+!139 = distinct !{!139, !138, !"memcpy.inline: argument 1"}
+!140 = !{!141, !143}
+!141 = distinct !{!141, !142, !"memcpy.inline: argument 0"}
+!142 = distinct !{!142, !"memcpy.inline"}
+!143 = distinct !{!143, !142, !"memcpy.inline: argument 1"}
+!144 = !{!145, !147}
+!145 = distinct !{!145, !146, !"memcpy.inline: argument 0"}
+!146 = distinct !{!146, !"memcpy.inline"}
+!147 = distinct !{!147, !146, !"memcpy.inline: argument 1"}
+!148 = !{!149, !151}
+!149 = distinct !{!149, !150, !"memcpy.inline: argument 0"}
+!150 = distinct !{!150, !"memcpy.inline"}
+!151 = distinct !{!151, !150, !"memcpy.inline: argument 1"}
+!152 = !{!153, !155}
+!153 = distinct !{!153, !154, !"memcpy.inline: argument 0"}
+!154 = distinct !{!154, !"memcpy.inline"}
+!155 = distinct !{!155, !154, !"memcpy.inline: argument 1"}
+!156 = !{!157, !159}
+!157 = distinct !{!157, !158, !"memcpy.inline: argument 0"}
+!158 = distinct !{!158, !"memcpy.inline"}
+!159 = distinct !{!159, !158, !"memcpy.inline: argument 1"}
+!160 = !{!161, !163}
+!161 = distinct !{!161, !162, !"memcpy.inline: argument 0"}
+!162 = distinct !{!162, !"memcpy.inline"}
+!163 = distinct !{!163, !162, !"memcpy.inline: argument 1"}
+!164 = !{!165, !167}
+!165 = distinct !{!165, !166, !"memcpy.inline: argument 0"}
+!166 = distinct !{!166, !"memcpy.inline"}
+!167 = distinct !{!167, !166, !"memcpy.inline: argument 1"}
+!168 = !{!169, !171}
+!169 = distinct !{!169, !170, !"memcpy.inline: argument 0"}
+!170 = distinct !{!170, !"memcpy.inline"}
+!171 = distinct !{!171, !170, !"memcpy.inline: argument 1"}
+!172 = !{!173, !175}
+!173 = distinct !{!173, !174, !"memcpy.inline: argument 0"}
+!174 = distinct !{!174, !"memcpy.inline"}
+!175 = distinct !{!175, !174, !"memcpy.inline: argument 1"}
+!176 = !{!177, !179}
+!177 = distinct !{!177, !178, !"memcpy.inline: argument 0"}
+!178 = distinct !{!178, !"memcpy.inline"}
+!179 = distinct !{!179, !178, !"memcpy.inline: argument 1"}
+!180 = !{!181, !183}
+!181 = distinct !{!181, !182, !"memcpy.inline: argument 0"}
+!182 = distinct !{!182, !"memcpy.inline"}
+!183 = distinct !{!183, !182, !"memcpy.inline: argument 1"}
+!184 = !{!185, !187}
+!185 = distinct !{!185, !186, !"memcpy.inline: argument 0"}
+!186 = distinct !{!186, !"memcpy.inline"}
+!187 = distinct !{!187, !186, !"memcpy.inline: argument 1"}
+!188 = !{!189, !191}
+!189 = distinct !{!189, !190, !"memcpy.inline: argument 0"}
+!190 = distinct !{!190, !"memcpy.inline"}
+!191 = distinct !{!191, !190, !"memcpy.inline: argument 1"}
+!192 = !{!193, !195}
+!193 = distinct !{!193, !194, !"memcpy.inline: argument 0"}
+!194 = distinct !{!194, !"memcpy.inline"}
+!195 = distinct !{!195, !194, !"memcpy.inline: argument 1"}
+!196 = !{!197, !199}
+!197 = distinct !{!197, !198, !"memcpy.inline: argument 0"}
+!198 = distinct !{!198, !"memcpy.inline"}
+!199 = distinct !{!199, !198, !"memcpy.inline: argument 1"}

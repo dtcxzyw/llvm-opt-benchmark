@@ -176,7 +176,7 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   call void @CORD_set_pos(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef 0) #16
   call void @CORD_set_pos(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0) #16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !13
+  %19 = load i32, ptr %18, align 8, !tbaa !14
   %.not4359 = icmp eq i32 %19, 1431655765
   br i1 %.not4359, label %._crit_edge, label %.lr.ph
 
@@ -192,26 +192,26 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.thread, %17
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !13
+  %28 = load i32, ptr %27, align 8, !tbaa !14
   %.not44 = icmp ne i32 %28, 1431655765
   %29 = sext i1 %.not44 to i32
   br label %.thread56
 
 30:                                               ; preds = %.lr.ph, %.thread
-  %31 = load i32, ptr %20, align 8, !tbaa !13
+  %31 = load i32, ptr %20, align 8, !tbaa !14
   %.not45 = icmp eq i32 %31, 1431655765
   br i1 %.not45, label %.thread56, label %32
 
 32:                                               ; preds = %30
-  %33 = load i64, ptr %21, align 16, !tbaa !17
-  %34 = load i64, ptr %3, align 16, !tbaa !18
+  %33 = load i64, ptr %21, align 16, !tbaa !18
+  %34 = load i64, ptr %3, align 16, !tbaa !19
   %35 = sub nsw i64 %33, %34
   %36 = icmp eq i64 %33, %34
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %32
-  %38 = load i64, ptr %22, align 16, !tbaa !17
-  %39 = load i64, ptr %4, align 16, !tbaa !18
+  %38 = load i64, ptr %22, align 16, !tbaa !18
+  %39 = load i64, ptr %4, align 16, !tbaa !19
   %40 = icmp eq i64 %38, %39
   br i1 %40, label %41, label %80
 
@@ -220,8 +220,8 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not47, label %48, label %42
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr %23, align 16, !tbaa !19
-  %44 = load i64, ptr %24, align 8, !tbaa !20
+  %43 = load ptr, ptr %23, align 16, !tbaa !20
+  %44 = load i64, ptr %24, align 8, !tbaa !21
   %45 = sub i64 %34, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !8
@@ -233,14 +233,14 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 50:                                               ; preds = %48, %42
   %.in = phi i8 [ %47, %42 ], [ %49, %48 ]
-  %51 = load i64, ptr %22, align 16, !tbaa !17
+  %51 = load i64, ptr %22, align 16, !tbaa !18
   %.not48 = icmp eq i64 %51, 0
   br i1 %.not48, label %59, label %52
 
 52:                                               ; preds = %50
-  %53 = load ptr, ptr %25, align 16, !tbaa !19
-  %54 = load i64, ptr %4, align 16, !tbaa !18
-  %55 = load i64, ptr %26, align 8, !tbaa !20
+  %53 = load ptr, ptr %25, align 16, !tbaa !20
+  %54 = load i64, ptr %4, align 16, !tbaa !19
+  %55 = load i64, ptr %26, align 8, !tbaa !21
   %56 = sub i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
@@ -256,14 +256,14 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not50, label %62, label %76
 
 62:                                               ; preds = %61
-  %63 = load i64, ptr %3, align 16, !tbaa !18
+  %63 = load i64, ptr %3, align 16, !tbaa !19
   %64 = add i64 %63, 1
-  %65 = load i64, ptr %21, align 16, !tbaa !17
+  %65 = load i64, ptr %21, align 16, !tbaa !18
   %66 = icmp ult i64 %64, %65
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %62
-  store i64 %64, ptr %3, align 16, !tbaa !18
+  store i64 %64, ptr %3, align 16, !tbaa !19
   br label %69
 
 68:                                               ; preds = %62
@@ -271,14 +271,14 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %69
 
 69:                                               ; preds = %68, %67
-  %70 = load i64, ptr %4, align 16, !tbaa !18
+  %70 = load i64, ptr %4, align 16, !tbaa !19
   %71 = add i64 %70, 1
-  %72 = load i64, ptr %22, align 16, !tbaa !17
+  %72 = load i64, ptr %22, align 16, !tbaa !18
   %73 = icmp ult i64 %71, %72
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %69
-  store i64 %71, ptr %4, align 16, !tbaa !18
+  store i64 %71, ptr %4, align 16, !tbaa !19
   br label %.thread
 
 75:                                               ; preds = %69
@@ -294,12 +294,12 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 80:                                               ; preds = %37
   %81 = sub nsw i64 %38, %39
   %spec.select = call i64 @llvm.smin.i64(i64 %35, i64 %81)
-  %82 = load ptr, ptr %23, align 16, !tbaa !19
-  %83 = load i64, ptr %24, align 8, !tbaa !20
+  %82 = load ptr, ptr %23, align 16, !tbaa !20
+  %83 = load i64, ptr %24, align 8, !tbaa !21
   %84 = sub i64 %34, %83
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
-  %86 = load ptr, ptr %25, align 16, !tbaa !19
-  %87 = load i64, ptr %26, align 8, !tbaa !20
+  %86 = load ptr, ptr %25, align 16, !tbaa !20
+  %87 = load i64, ptr %26, align 8, !tbaa !21
   %88 = sub i64 %39, %87
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 %88
   %90 = call i32 @strncmp(ptr noundef %85, ptr noundef %89, i64 noundef %spec.select) #20
@@ -309,32 +309,32 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 91:                                               ; preds = %80
   %92 = add i64 %spec.select, -1
   %93 = add i64 %92, %34
-  store i64 %93, ptr %3, align 16, !tbaa !18
+  store i64 %93, ptr %3, align 16, !tbaa !19
   %94 = add i64 %spec.select, %34
   %95 = icmp ult i64 %94, %33
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %91
-  store i64 %94, ptr %3, align 16, !tbaa !18
+  store i64 %94, ptr %3, align 16, !tbaa !19
   br label %98
 
 97:                                               ; preds = %91
   call void @CORD__next(ptr noundef nonnull %3) #16
-  %.pre = load i64, ptr %4, align 16, !tbaa !18
-  %.pre60 = load i64, ptr %22, align 16, !tbaa !17
+  %.pre = load i64, ptr %4, align 16, !tbaa !19
+  %.pre60 = load i64, ptr %22, align 16, !tbaa !18
   br label %98
 
 98:                                               ; preds = %97, %96
   %99 = phi i64 [ %.pre60, %97 ], [ %38, %96 ]
   %100 = phi i64 [ %.pre, %97 ], [ %39, %96 ]
   %101 = add i64 %100, %92
-  store i64 %101, ptr %4, align 16, !tbaa !18
+  store i64 %101, ptr %4, align 16, !tbaa !19
   %102 = add i64 %100, %spec.select
   %103 = icmp ult i64 %102, %99
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %98
-  store i64 %102, ptr %4, align 16, !tbaa !18
+  store i64 %102, ptr %4, align 16, !tbaa !19
   br label %.thread
 
 105:                                              ; preds = %98
@@ -342,9 +342,9 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %105, %104, %75, %74
-  %106 = load i32, ptr %18, align 8, !tbaa !13
+  %106 = load i32, ptr %18, align 8, !tbaa !14
   %.not43 = icmp eq i32 %106, 1431655765
-  br i1 %.not43, label %._crit_edge, label %30
+  br i1 %.not43, label %._crit_edge, label %30, !llvm.loop !22
 
 .thread56:                                        ; preds = %80, %30, %._crit_edge, %76, %9, %15, %6
   %.0 = phi i32 [ %8, %6 ], [ %16, %15 ], [ -1, %9 ], [ %29, %._crit_edge ], [ %79, %76 ], [ 1, %30 ], [ %90, %80 ]
@@ -389,9 +389,9 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 
 16:                                               ; preds = %.lr.ph, %.thread60
   %.03167 = phi i64 [ 0, %.lr.ph ], [ %.132, %.thread60 ]
-  %17 = load i32, ptr %8, align 8, !tbaa !13
+  %17 = load i32, ptr %8, align 8, !tbaa !14
   %.not = icmp eq i32 %17, 1431655765
-  %18 = load i32, ptr %9, align 8, !tbaa !13
+  %18 = load i32, ptr %9, align 8, !tbaa !14
   br i1 %.not, label %19, label %21
 
 19:                                               ; preds = %16
@@ -404,15 +404,15 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br i1 %.not52, label %.thread63, label %22
 
 22:                                               ; preds = %21
-  %23 = load i64, ptr %10, align 16, !tbaa !17
-  %24 = load i64, ptr %6, align 16, !tbaa !18
+  %23 = load i64, ptr %10, align 16, !tbaa !18
+  %24 = load i64, ptr %6, align 16, !tbaa !19
   %25 = sub nsw i64 %23, %24
   %26 = icmp slt i64 %25, 1
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %22
-  %28 = load i64, ptr %11, align 16, !tbaa !17
-  %29 = load i64, ptr %7, align 16, !tbaa !18
+  %28 = load i64, ptr %11, align 16, !tbaa !18
+  %29 = load i64, ptr %7, align 16, !tbaa !19
   %30 = sub nsw i64 %28, %29
   %31 = icmp slt i64 %30, 1
   br i1 %31, label %32, label %72
@@ -422,8 +422,8 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br i1 %.not54, label %39, label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr %12, align 16, !tbaa !19
-  %35 = load i64, ptr %13, align 8, !tbaa !20
+  %34 = load ptr, ptr %12, align 16, !tbaa !20
+  %35 = load i64, ptr %13, align 8, !tbaa !21
   %36 = sub i64 %24, %35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !8
@@ -435,14 +435,14 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 
 41:                                               ; preds = %39, %33
   %.in = phi i8 [ %38, %33 ], [ %40, %39 ]
-  %42 = load i64, ptr %11, align 16, !tbaa !17
+  %42 = load i64, ptr %11, align 16, !tbaa !18
   %.not55 = icmp eq i64 %42, 0
   br i1 %.not55, label %50, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %14, align 16, !tbaa !19
-  %45 = load i64, ptr %7, align 16, !tbaa !18
-  %46 = load i64, ptr %15, align 8, !tbaa !20
+  %44 = load ptr, ptr %14, align 16, !tbaa !20
+  %45 = load i64, ptr %7, align 16, !tbaa !19
+  %46 = load i64, ptr %15, align 8, !tbaa !21
   %47 = sub i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !8
@@ -458,14 +458,14 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br i1 %.not57, label %53, label %68
 
 53:                                               ; preds = %52
-  %54 = load i64, ptr %6, align 16, !tbaa !18
+  %54 = load i64, ptr %6, align 16, !tbaa !19
   %55 = add i64 %54, 1
-  %56 = load i64, ptr %10, align 16, !tbaa !17
+  %56 = load i64, ptr %10, align 16, !tbaa !18
   %57 = icmp ult i64 %55, %56
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %53
-  store i64 %55, ptr %6, align 16, !tbaa !18
+  store i64 %55, ptr %6, align 16, !tbaa !19
   br label %60
 
 59:                                               ; preds = %53
@@ -473,14 +473,14 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %60
 
 60:                                               ; preds = %59, %58
-  %61 = load i64, ptr %7, align 16, !tbaa !18
+  %61 = load i64, ptr %7, align 16, !tbaa !19
   %62 = add i64 %61, 1
-  %63 = load i64, ptr %11, align 16, !tbaa !17
+  %63 = load i64, ptr %11, align 16, !tbaa !18
   %64 = icmp ult i64 %62, %63
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %60
-  store i64 %62, ptr %7, align 16, !tbaa !18
+  store i64 %62, ptr %7, align 16, !tbaa !19
   br label %.thread
 
 66:                                               ; preds = %60
@@ -502,12 +502,12 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   %73 = add i64 %spec.select, %.03167
   %74 = call i64 @llvm.usub.sat.i64(i64 %73, i64 %4)
   %.136 = sub i64 %spec.select, %74
-  %75 = load ptr, ptr %12, align 16, !tbaa !19
-  %76 = load i64, ptr %13, align 8, !tbaa !20
+  %75 = load ptr, ptr %12, align 16, !tbaa !20
+  %76 = load i64, ptr %13, align 8, !tbaa !21
   %77 = sub i64 %24, %76
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
-  %79 = load ptr, ptr %14, align 16, !tbaa !19
-  %80 = load i64, ptr %15, align 8, !tbaa !20
+  %79 = load ptr, ptr %14, align 16, !tbaa !20
+  %80 = load i64, ptr %15, align 8, !tbaa !21
   %81 = sub i64 %29, %80
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
   %83 = call i32 @strncmp(ptr noundef %78, ptr noundef %82, i64 noundef %.136) #20
@@ -517,32 +517,32 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 84:                                               ; preds = %72
   %85 = add nsw i64 %.136, -1
   %86 = add i64 %85, %24
-  store i64 %86, ptr %6, align 16, !tbaa !18
+  store i64 %86, ptr %6, align 16, !tbaa !19
   %87 = add i64 %.136, %24
   %88 = icmp ult i64 %87, %23
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %84
-  store i64 %87, ptr %6, align 16, !tbaa !18
+  store i64 %87, ptr %6, align 16, !tbaa !19
   br label %91
 
 90:                                               ; preds = %84
   call void @CORD__next(ptr noundef nonnull %6) #16
-  %.pre = load i64, ptr %7, align 16, !tbaa !18
-  %.pre73 = load i64, ptr %11, align 16, !tbaa !17
+  %.pre = load i64, ptr %7, align 16, !tbaa !19
+  %.pre73 = load i64, ptr %11, align 16, !tbaa !18
   br label %91
 
 91:                                               ; preds = %90, %89
   %92 = phi i64 [ %.pre73, %90 ], [ %28, %89 ]
   %93 = phi i64 [ %.pre, %90 ], [ %29, %89 ]
   %94 = add i64 %93, %85
-  store i64 %94, ptr %7, align 16, !tbaa !18
+  store i64 %94, ptr %7, align 16, !tbaa !19
   %95 = add i64 %93, %.136
   %96 = icmp ult i64 %95, %92
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %91
-  store i64 %95, ptr %7, align 16, !tbaa !18
+  store i64 %95, ptr %7, align 16, !tbaa !19
   br label %.thread60
 
 98:                                               ; preds = %91
@@ -552,7 +552,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 .thread60:                                        ; preds = %98, %97, %.thread
   %.132 = phi i64 [ %67, %.thread ], [ %73, %97 ], [ %73, %98 ]
   %99 = icmp ult i64 %.132, %4
-  br i1 %99, label %16, label %.thread63, !llvm.loop !21
+  br i1 %99, label %16, label %.thread63, !llvm.loop !23
 
 .thread63:                                        ; preds = %.thread60, %21, %72, %5, %19, %68
   %.5 = phi i32 [ %20, %19 ], [ %71, %68 ], [ 0, %5 ], [ 0, %.thread60 ], [ 1, %21 ], [ %83, %72 ]
@@ -583,11 +583,11 @@ define nonnull ptr @CORD_to_char_star(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
-  store i64 %3, ptr %2, align 8, !tbaa !22
+  store i64 %3, ptr %2, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %5, ptr %12, align 8, !tbaa !24
+  store ptr %5, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !25
+  store i64 0, ptr %13, align 8, !tbaa !27
   %14 = call i32 @CORD_iter5(ptr noundef %0, i64 noundef 0, ptr noundef nonnull @CORD_fill_proc, ptr noundef nonnull @CORD_batched_fill_proc, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
   %.not10 = icmp eq i32 %14, 1
@@ -666,7 +666,7 @@ define signext i8 @CORD_fetch(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %3) #16
   call void @CORD_set_pos(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !13
+  %5 = load i32, ptr %4, align 8, !tbaa !14
   %.not = icmp eq i32 %5, 1431655765
   br i1 %.not, label %6, label %9
 
@@ -678,16 +678,16 @@ define signext i8 @CORD_fetch(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %11 = load i64, ptr %10, align 16, !tbaa !17
+  %11 = load i64, ptr %10, align 16, !tbaa !18
   %.not1 = icmp eq i64 %11, 0
   br i1 %.not1, label %21, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 16, !tbaa !19
-  %15 = load i64, ptr %3, align 16, !tbaa !18
+  %14 = load ptr, ptr %13, align 16, !tbaa !20
+  %15 = load i64, ptr %3, align 16, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !20
+  %17 = load i64, ptr %16, align 8, !tbaa !21
   %18 = sub i64 %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !8
@@ -734,10 +734,10 @@ define internal range(i32 0, 2) i32 @CORD_batched_put_proc(ptr noundef readonly 
 define i64 @CORD_chr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.chr_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  store i64 %1, ptr %4, align 8, !tbaa !26
+  store i64 %1, ptr %4, align 8, !tbaa !28
   %5 = trunc i32 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %5, ptr %6, align 8, !tbaa !28
+  store i8 %5, ptr %6, align 8, !tbaa !30
   %7 = call i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @CORD_chr_proc, ptr noundef nonnull @CORD_batched_chr_proc, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %7, 0
   %8 = load i64, ptr %4, align 8
@@ -749,14 +749,14 @@ define i64 @CORD_chr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i8, ptr %3, align 8, !tbaa !28
+  %4 = load i8, ptr %3, align 8, !tbaa !30
   %5 = icmp eq i8 %0, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %1, align 8, !tbaa !26
+  %7 = load i64, ptr %1, align 8, !tbaa !28
   %8 = add i64 %7, 1
-  store i64 %8, ptr %1, align 8, !tbaa !26
+  store i64 %8, ptr %1, align 8, !tbaa !28
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -767,7 +767,7 @@ define internal range(i32 0, 2) i32 @CORD_chr_proc(i8 noundef signext %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr noundef captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i8, ptr %3, align 8, !tbaa !28
+  %4 = load i8, ptr %3, align 8, !tbaa !30
   %5 = sext i8 %4 to i32
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %5) #20
   %7 = icmp eq ptr %6, null
@@ -775,7 +775,7 @@ define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr n
 
 8:                                                ; preds = %2
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
-  %10 = load i64, ptr %1, align 8, !tbaa !26
+  %10 = load i64, ptr %1, align 8, !tbaa !28
   %11 = add i64 %10, %9
   br label %18
 
@@ -783,14 +783,14 @@ define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr n
   %13 = ptrtoint ptr %6 to i64
   %14 = ptrtoint ptr %0 to i64
   %15 = sub i64 %13, %14
-  %16 = load i64, ptr %1, align 8, !tbaa !26
+  %16 = load i64, ptr %1, align 8, !tbaa !28
   %17 = add i64 %15, %16
   br label %18
 
 18:                                               ; preds = %12, %8
   %storemerge = phi i64 [ %17, %12 ], [ %11, %8 ]
   %.0 = phi i32 [ 1, %12 ], [ 0, %8 ]
-  store i64 %storemerge, ptr %1, align 8, !tbaa !26
+  store i64 %storemerge, ptr %1, align 8, !tbaa !28
   ret i32 %.0
 }
 
@@ -798,10 +798,10 @@ define internal range(i32 0, 2) i32 @CORD_batched_chr_proc(ptr noundef %0, ptr n
 define i64 @CORD_rchr(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.chr_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  store i64 %1, ptr %4, align 8, !tbaa !26
+  store i64 %1, ptr %4, align 8, !tbaa !28
   %5 = trunc i32 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %5, ptr %6, align 8, !tbaa !28
+  store i8 %5, ptr %6, align 8, !tbaa !30
   %7 = call i32 @CORD_riter4(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @CORD_rchr_proc, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %7, 0
   %8 = load i64, ptr %4, align 8
@@ -815,14 +815,14 @@ declare i32 @CORD_riter4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @CORD_rchr_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i8, ptr %3, align 8, !tbaa !28
+  %4 = load i8, ptr %3, align 8, !tbaa !30
   %5 = icmp eq i8 %0, %4
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %1, align 8, !tbaa !26
+  %7 = load i64, ptr %1, align 8, !tbaa !28
   %8 = add i64 %7, -1
-  store i64 %8, ptr %1, align 8, !tbaa !26
+  store i64 %8, ptr %1, align 8, !tbaa !28
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -911,14 +911,14 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 40:                                               ; preds = %.lr.ph73
   %41 = shl i64 %.1.us71, 8
-  %42 = load i64, ptr %35, align 16, !tbaa !17
+  %42 = load i64, ptr %35, align 16, !tbaa !18
   %.not60.us = icmp eq i64 %42, 0
   br i1 %.not60.us, label %50, label %43
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %34, align 16, !tbaa !19
-  %45 = load i64, ptr %4, align 16, !tbaa !18
-  %46 = load i64, ptr %33, align 8, !tbaa !20
+  %44 = load ptr, ptr %34, align 16, !tbaa !20
+  %45 = load i64, ptr %4, align 16, !tbaa !19
+  %46 = load i64, ptr %33, align 8, !tbaa !21
   %47 = sub i64 %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !8
@@ -926,8 +926,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 50:                                               ; preds = %40
   %51 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
-  %.pre83 = load i64, ptr %4, align 16, !tbaa !18
-  %.pre84 = load i64, ptr %35, align 16, !tbaa !17
+  %.pre83 = load i64, ptr %4, align 16, !tbaa !19
+  %.pre84 = load i64, ptr %35, align 16, !tbaa !18
   br label %52
 
 52:                                               ; preds = %50, %43
@@ -945,14 +945,14 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %61
 
 60:                                               ; preds = %52
-  store i64 %57, ptr %4, align 16, !tbaa !18
+  store i64 %57, ptr %4, align 16, !tbaa !19
   br label %61
 
 61:                                               ; preds = %60, %59
   %62 = add i64 %.0.us72, 1
   %63 = and i64 %56, %.049.lcssa90
   %64 = icmp eq i64 %63, %.051.lcssa88
-  br i1 %64, label %.loopexit, label %.lr.ph73, !llvm.loop !29
+  br i1 %64, label %.loopexit, label %.lr.ph73, !llvm.loop !31
 
 65:                                               ; preds = %.lr.ph, %93
   %.04867 = phi i64 [ 0, %.lr.ph ], [ %94, %93 ]
@@ -967,14 +967,14 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %71 = zext i8 %70 to i64
   %72 = or disjoint i64 %68, %71
   %73 = shl i64 %.05065, 8
-  %74 = load i64, ptr %24, align 16, !tbaa !17
+  %74 = load i64, ptr %24, align 16, !tbaa !18
   %.not61 = icmp eq i64 %74, 0
   br i1 %.not61, label %82, label %75
 
 75:                                               ; preds = %65
-  %76 = load ptr, ptr %25, align 16, !tbaa !19
-  %77 = load i64, ptr %4, align 16, !tbaa !18
-  %78 = load i64, ptr %26, align 8, !tbaa !20
+  %76 = load ptr, ptr %25, align 16, !tbaa !20
+  %77 = load i64, ptr %4, align 16, !tbaa !19
+  %78 = load i64, ptr %26, align 8, !tbaa !21
   %79 = sub i64 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !8
@@ -982,8 +982,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 82:                                               ; preds = %65
   %83 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
-  %.pre = load i64, ptr %4, align 16, !tbaa !18
-  %.pre80 = load i64, ptr %24, align 16, !tbaa !17
+  %.pre = load i64, ptr %4, align 16, !tbaa !19
+  %.pre80 = load i64, ptr %24, align 16, !tbaa !18
   br label %84
 
 84:                                               ; preds = %82, %75
@@ -997,7 +997,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %84
-  store i64 %89, ptr %4, align 16, !tbaa !18
+  store i64 %89, ptr %4, align 16, !tbaa !19
   br label %93
 
 92:                                               ; preds = %84
@@ -1007,7 +1007,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 93:                                               ; preds = %91, %92
   %94 = add nuw nsw i64 %.04867, 1
   %exitcond.not = icmp eq i64 %94, %spec.store.select
-  br i1 %exitcond.not, label %.preheader, label %65, !llvm.loop !31
+  br i1 %exitcond.not, label %.preheader, label %65, !llvm.loop !33
 
 .preheader.split:                                 ; preds = %.preheader, %124
   %.1 = phi i64 [ %119, %124 ], [ %88, %.preheader ]
@@ -1028,14 +1028,14 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 103:                                              ; preds = %101
   %104 = shl i64 %.1, 8
-  %105 = load i64, ptr %30, align 16, !tbaa !17
+  %105 = load i64, ptr %30, align 16, !tbaa !18
   %.not60 = icmp eq i64 %105, 0
   br i1 %.not60, label %113, label %106
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr %31, align 16, !tbaa !19
-  %108 = load i64, ptr %4, align 16, !tbaa !18
-  %109 = load i64, ptr %32, align 8, !tbaa !20
+  %107 = load ptr, ptr %31, align 16, !tbaa !20
+  %108 = load i64, ptr %4, align 16, !tbaa !19
+  %109 = load i64, ptr %32, align 8, !tbaa !21
   %110 = sub i64 %108, %109
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !8
@@ -1043,8 +1043,8 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 113:                                              ; preds = %103
   %114 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %4) #16
-  %.pre81 = load i64, ptr %4, align 16, !tbaa !18
-  %.pre82 = load i64, ptr %30, align 16, !tbaa !17
+  %.pre81 = load i64, ptr %4, align 16, !tbaa !19
+  %.pre82 = load i64, ptr %30, align 16, !tbaa !18
   br label %115
 
 115:                                              ; preds = %113, %106
@@ -1058,7 +1058,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %115
-  store i64 %120, ptr %4, align 16, !tbaa !18
+  store i64 %120, ptr %4, align 16, !tbaa !19
   br label %124
 
 123:                                              ; preds = %115
@@ -1067,7 +1067,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 124:                                              ; preds = %122, %123
   %125 = add i64 %.0, 1
-  br label %.preheader.split
+  br label %.preheader.split, !llvm.loop !34
 
 .loopexit:                                        ; preds = %101, %97, %.lr.ph73, %61, %.preheader.split.us, %15, %3
   %.054 = phi i64 [ %1, %3 ], [ -1, %15 ], [ %1, %.preheader.split.us ], [ %62, %61 ], [ -1, %.lr.ph73 ], [ %.0, %97 ], [ -1, %101 ]
@@ -1080,7 +1080,7 @@ declare ptr @CORD_substr(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @CORD_ec_flush_buf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -1105,10 +1105,10 @@ define void @CORD_ec_flush_buf(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 8 %4, i64 %7, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 %7
   store i8 0, ptr %17, align 1, !tbaa !8
-  %18 = load ptr, ptr %0, align 8, !tbaa !34
+  %18 = load ptr, ptr %0, align 8, !tbaa !37
   %19 = tail call ptr @CORD_cat_char_star(ptr noundef %18, ptr noundef nonnull %11, i64 noundef %7) #16
-  store ptr %19, ptr %0, align 8, !tbaa !34
-  store ptr %4, ptr %2, align 8, !tbaa !32
+  store ptr %19, ptr %0, align 8, !tbaa !37
+  store ptr %4, ptr %2, align 8, !tbaa !35
   br label %20
 
 20:                                               ; preds = %1, %16
@@ -1118,7 +1118,7 @@ define void @CORD_ec_flush_buf(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @CORD_ec_append_cord(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !32
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1127,7 +1127,7 @@ define void @CORD_ec_append_cord(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %9, label %.CORD_ec_flush_buf.exit_crit_edge, label %10
 
 .CORD_ec_flush_buf.exit_crit_edge:                ; preds = %2
-  %.pre = load ptr, ptr %0, align 8, !tbaa !34
+  %.pre = load ptr, ptr %0, align 8, !tbaa !37
   br label %CORD_ec_flush_buf.exit
 
 10:                                               ; preds = %2
@@ -1147,16 +1147,16 @@ define void @CORD_ec_append_cord(ptr noundef %0, ptr noundef %1) local_unnamed_a
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 8 %5, i64 %8, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %8
   store i8 0, ptr %18, align 1, !tbaa !8
-  %19 = load ptr, ptr %0, align 8, !tbaa !34
+  %19 = load ptr, ptr %0, align 8, !tbaa !37
   %20 = tail call ptr @CORD_cat_char_star(ptr noundef %19, ptr noundef nonnull %12, i64 noundef %8) #16
-  store ptr %20, ptr %0, align 8, !tbaa !34
-  store ptr %5, ptr %3, align 8, !tbaa !32
+  store ptr %20, ptr %0, align 8, !tbaa !37
+  store ptr %5, ptr %3, align 8, !tbaa !35
   br label %CORD_ec_flush_buf.exit
 
 CORD_ec_flush_buf.exit:                           ; preds = %.CORD_ec_flush_buf.exit_crit_edge, %17
   %21 = phi ptr [ %.pre, %.CORD_ec_flush_buf.exit_crit_edge ], [ %20, %17 ]
   %22 = tail call ptr @CORD_cat(ptr noundef %21, ptr noundef %1) #16
-  store ptr %22, ptr %0, align 8, !tbaa !34
+  store ptr %22, ptr %0, align 8, !tbaa !37
   ret void
 }
 
@@ -1173,10 +1173,10 @@ define internal noundef signext i8 @CORD_nul_func(i64 %0, ptr noundef %1) #12 {
 define ptr @CORD_from_file_eager(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.CORD_ec_struct], align 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #16
-  store ptr null, ptr %2, align 16, !tbaa !34
+  store ptr null, ptr %2, align 16, !tbaa !37
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !32
+  store ptr %3, ptr %4, align 8, !tbaa !35
   %5 = ptrtoint ptr %3 to i64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   br label %7
@@ -1187,7 +1187,7 @@ define ptr @CORD_from_file_eager(ptr noundef captures(none) %0) local_unnamed_ad
   br i1 %9, label %10, label %33
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8, !tbaa !32
+  %11 = load ptr, ptr %4, align 8, !tbaa !35
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %5
   %14 = icmp eq ptr %11, %3
@@ -1210,10 +1210,10 @@ define ptr @CORD_from_file_eager(ptr noundef captures(none) %0) local_unnamed_ad
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 16 %3, i64 %13, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   store i8 0, ptr %23, align 1, !tbaa !8
-  %24 = load ptr, ptr %2, align 16, !tbaa !34
+  %24 = load ptr, ptr %2, align 16, !tbaa !37
   %25 = call ptr @CORD_cat_char_star(ptr noundef %24, ptr noundef nonnull %17, i64 noundef %13) #16
-  store ptr %25, ptr %2, align 16, !tbaa !34
-  store ptr %3, ptr %4, align 8, !tbaa !32
+  store ptr %25, ptr %2, align 16, !tbaa !37
+  store ptr %3, ptr %4, align 8, !tbaa !35
   br label %CORD_ec_flush_buf.exit.preheader
 
 CORD_ec_flush_buf.exit.preheader:                 ; preds = %10, %22
@@ -1224,13 +1224,13 @@ CORD_ec_flush_buf.exit:                           ; preds = %CORD_ec_flush_buf.e
   %26 = call i32 @getc(ptr noundef %0)
   %27 = icmp eq i32 %26, 0
   %28 = add i64 %.08, 1
-  br i1 %27, label %CORD_ec_flush_buf.exit, label %29, !llvm.loop !35
+  br i1 %27, label %CORD_ec_flush_buf.exit, label %29, !llvm.loop !38
 
 29:                                               ; preds = %CORD_ec_flush_buf.exit
-  %30 = load ptr, ptr %2, align 16, !tbaa !34
+  %30 = load ptr, ptr %2, align 16, !tbaa !37
   %31 = call ptr @CORD_from_fn(ptr noundef nonnull @CORD_nul_func, ptr noundef null, i64 noundef %.08) #16
   %32 = call ptr @CORD_cat(ptr noundef %30, ptr noundef %31) #16
-  store ptr %32, ptr %2, align 16, !tbaa !34
+  store ptr %32, ptr %2, align 16, !tbaa !37
   br label %33
 
 33:                                               ; preds = %29, %7
@@ -1239,7 +1239,7 @@ CORD_ec_flush_buf.exit:                           ; preds = %CORD_ec_flush_buf.e
   br i1 %34, label %52, label %35
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %4, align 8, !tbaa !32
+  %36 = load ptr, ptr %4, align 8, !tbaa !35
   %37 = icmp eq ptr %36, %6
   br i1 %37, label %38, label %48
 
@@ -1259,29 +1259,29 @@ CORD_ec_flush_buf.exit:                           ; preds = %CORD_ec_flush_buf.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %39, ptr noundef nonnull align 16 dereferenceable(128) %3, i64 128, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 128
   store i8 0, ptr %45, align 1, !tbaa !8
-  %46 = load ptr, ptr %2, align 16, !tbaa !34
+  %46 = load ptr, ptr %2, align 16, !tbaa !37
   %47 = call ptr @CORD_cat_char_star(ptr noundef %46, ptr noundef nonnull %39, i64 noundef 128) #16
-  store ptr %47, ptr %2, align 16, !tbaa !34
+  store ptr %47, ptr %2, align 16, !tbaa !37
   br label %48
 
 48:                                               ; preds = %35, %44
   %49 = phi ptr [ %36, %35 ], [ %3, %44 ]
   %50 = trunc i32 %.09 to i8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  store ptr %51, ptr %4, align 8, !tbaa !32
+  store ptr %51, ptr %4, align 8, !tbaa !35
   store i8 %50, ptr %49, align 1, !tbaa !8
-  br label %7
+  br label %7, !llvm.loop !39
 
 52:                                               ; preds = %33
   %53 = call i32 @fclose(ptr noundef %0)
-  %54 = load ptr, ptr %4, align 8, !tbaa !32
+  %54 = load ptr, ptr %4, align 8, !tbaa !35
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %55, %5
   %57 = icmp eq ptr %54, %3
   br i1 %57, label %.CORD_ec_flush_buf.exit13_crit_edge, label %58
 
 .CORD_ec_flush_buf.exit13_crit_edge:              ; preds = %52
-  %.pre = load ptr, ptr %2, align 16, !tbaa !34
+  %.pre = load ptr, ptr %2, align 16, !tbaa !37
   br label %CORD_ec_flush_buf.exit13
 
 58:                                               ; preds = %52
@@ -1301,10 +1301,10 @@ CORD_ec_flush_buf.exit:                           ; preds = %CORD_ec_flush_buf.e
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 16 %3, i64 %56, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 %56
   store i8 0, ptr %66, align 1, !tbaa !8
-  %67 = load ptr, ptr %2, align 16, !tbaa !34
+  %67 = load ptr, ptr %2, align 16, !tbaa !37
   %68 = call ptr @CORD_cat_char_star(ptr noundef %67, ptr noundef nonnull %60, i64 noundef %56) #16
-  store ptr %68, ptr %2, align 16, !tbaa !34
-  store ptr %3, ptr %4, align 8, !tbaa !32
+  store ptr %68, ptr %2, align 16, !tbaa !37
+  store ptr %3, ptr %4, align 8, !tbaa !35
   br label %CORD_ec_flush_buf.exit13
 
 CORD_ec_flush_buf.exit13:                         ; preds = %.CORD_ec_flush_buf.exit13_crit_edge, %65
@@ -1395,21 +1395,21 @@ define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 nounde
   br label %19
 
 19:                                               ; preds = %18, %9
-  store ptr %0, ptr %4, align 8, !tbaa !36
+  store ptr %0, ptr %4, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %21
 
 21:                                               ; preds = %19, %21
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds nuw [32 x ptr], ptr %20, i64 0, i64 %indvars.iv
-  store volatile ptr null, ptr %22, align 8, !tbaa !38
+  store volatile ptr null, ptr %22, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %23, label %21, !llvm.loop !39
+  br i1 %exitcond.not, label %23, label %21, !llvm.loop !43
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !40
+  store i64 0, ptr %24, align 8, !tbaa !44
   tail call void @GC_register_finalizer(ptr noundef nonnull %4, ptr noundef nonnull @CORD_lf_close_proc, ptr noundef null, ptr noundef null, ptr noundef null) #16
   %25 = tail call ptr @CORD_from_fn(ptr noundef nonnull @CORD_lf_func, ptr noundef nonnull %4, i64 noundef %1) #16
   ret ptr %25
@@ -1457,14 +1457,14 @@ define ptr @CORD_from_file(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @CORD_fill_proc(i8 noundef signext %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !25
+  %4 = load i64, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %4
   store i8 %0, ptr %7, align 1, !tbaa !8
   %8 = add i64 %4, 1
-  store i64 %8, ptr %3, align 8, !tbaa !25
-  %9 = load i64, ptr %1, align 8, !tbaa !22
+  store i64 %8, ptr %3, align 8, !tbaa !27
+  %9 = load i64, ptr %1, align 8, !tbaa !24
   %.not = icmp uge i64 %8, %9
   %10 = zext i1 %.not to i32
   ret i32 %10
@@ -1473,10 +1473,10 @@ define internal range(i32 0, 2) i32 @CORD_fill_proc(i8 noundef signext %0, ptr n
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !25
-  %5 = load i64, ptr %1, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !27
+  %5 = load i64, ptr %1, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   br label %8
 
 8:                                                ; preds = %11, %2
@@ -1492,12 +1492,12 @@ define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %13 = add i64 %.016, 1
   %.not18 = icmp ult i64 %13, %5
-  br i1 %.not18, label %8, label %14, !llvm.loop !41
+  br i1 %.not18, label %8, label %14, !llvm.loop !45
 
 14:                                               ; preds = %8, %11
   %storemerge = phi i64 [ %13, %11 ], [ %.016, %8 ]
   %.015 = phi i32 [ 1, %11 ], [ 0, %8 ]
-  store i64 %storemerge, ptr %3, align 8, !tbaa !25
+  store i64 %storemerge, ptr %3, align 8, !tbaa !27
   ret i32 %.015
 }
 
@@ -1520,7 +1520,7 @@ declare void @GC_register_finalizer(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @CORD_lf_close_proc(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #9 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %3 = load ptr, ptr %0, align 8, !tbaa !40
   %4 = tail call i32 @fclose(ptr noundef %3)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -1548,18 +1548,18 @@ define internal signext i8 @CORD_lf_func(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = load i64, ptr %9, align 8, !tbaa !26
+  %12 = load i64, ptr %9, align 8, !tbaa !28
   %.not = icmp eq i64 %12, %5
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %11, %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
-  store ptr %1, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %3, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %0, ptr %14, align 8, !tbaa !44
+  store i64 %0, ptr %14, align 8, !tbaa !48
   %15 = tail call noalias dereferenceable_or_null(520) ptr @GC_malloc_atomic(i64 noundef 520) #17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !45
+  store ptr %15, ptr %16, align 8, !tbaa !49
   %17 = icmp eq ptr %15, null
   br i1 %17, label %18, label %21
 
@@ -1593,15 +1593,15 @@ declare ptr @GC_call_with_alloc_lock(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @refill_cache(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !44
-  %5 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = load i64, ptr %3, align 8, !tbaa !48
+  %5 = load ptr, ptr %2, align 8, !tbaa !40
   %6 = and i64 %4, -512
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !44
   %.not = icmp eq i64 %6, %10
   br i1 %.not, label %16, label %11
 
@@ -1632,14 +1632,14 @@ define internal ptr @refill_cache(ptr noundef readonly captures(none) %0) #0 {
 23:                                               ; preds = %16
   %24 = lshr i64 %4, 9
   %25 = and i64 %24, 31
-  store i64 %24, ptr %8, align 8, !tbaa !26
+  store i64 %24, ptr %8, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = getelementptr inbounds nuw [32 x ptr], ptr %26, i64 0, i64 %25
   %28 = ptrtoint ptr %8 to i64
   store atomic volatile i64 %28, ptr %27 release, align 8
   tail call void @GC_end_stubborn_change(ptr noundef nonnull %27) #16
   %29 = add i64 %6, 512
-  store i64 %29, ptr %9, align 8, !tbaa !40
+  store i64 %29, ptr %9, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw [512 x i8], ptr %17, i64 0, i64 %19
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
@@ -1693,38 +1693,42 @@ attributes #20 = { nounwind willreturn memory(read) }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !16, i64 8}
-!14 = !{!"CORD_Pos", !15, i64 0, !16, i64 8, !10, i64 16, !15, i64 24, !15, i64 32, !6, i64 40, !6, i64 824}
-!15 = !{!"long", !6, i64 0}
-!16 = !{!"int", !6, i64 0}
-!17 = !{!14, !15, i64 32}
-!18 = !{!14, !15, i64 0}
-!19 = !{!14, !10, i64 16}
-!20 = !{!14, !15, i64 24}
-!21 = distinct !{!21, !12}
-!22 = !{!23, !15, i64 0}
-!23 = !{!"", !15, i64 0, !15, i64 8, !10, i64 16}
-!24 = !{!23, !10, i64 16}
-!25 = !{!23, !15, i64 8}
-!26 = !{!27, !15, i64 0}
-!27 = !{!"", !15, i64 0, !6, i64 8}
-!28 = !{!27, !6, i64 8}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !12}
-!32 = !{!33, !10, i64 8}
-!33 = !{!"CORD_ec_struct", !10, i64 0, !10, i64 8, !6, i64 16}
-!34 = !{!33, !10, i64 0}
-!35 = distinct !{!35, !12}
-!36 = !{!37, !4, i64 0}
-!37 = !{!"", !4, i64 0, !15, i64 8, !6, i64 16}
-!38 = !{!5, !5, i64 0}
-!39 = distinct !{!39, !12}
-!40 = !{!37, !15, i64 8}
-!41 = distinct !{!41, !12}
-!42 = !{!43, !5, i64 0}
-!43 = !{!"", !5, i64 0, !15, i64 8, !5, i64 16}
-!44 = !{!43, !15, i64 8}
-!45 = !{!43, !5, i64 16}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"CORD_Pos", !16, i64 0, !17, i64 8, !10, i64 16, !16, i64 24, !16, i64 32, !6, i64 40, !6, i64 824}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!15, !16, i64 32}
+!19 = !{!15, !16, i64 0}
+!20 = !{!15, !10, i64 16}
+!21 = !{!15, !16, i64 24}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = !{!25, !16, i64 0}
+!25 = !{!"", !16, i64 0, !16, i64 8, !10, i64 16}
+!26 = !{!25, !10, i64 16}
+!27 = !{!25, !16, i64 8}
+!28 = !{!29, !16, i64 0}
+!29 = !{!"", !16, i64 0, !6, i64 8}
+!30 = !{!29, !6, i64 8}
+!31 = distinct !{!31, !13, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !13}
+!35 = !{!36, !10, i64 8}
+!36 = !{!"CORD_ec_struct", !10, i64 0, !10, i64 8, !6, i64 16}
+!37 = !{!36, !10, i64 0}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !13}
+!40 = !{!41, !4, i64 0}
+!41 = !{!"", !4, i64 0, !16, i64 8, !6, i64 16}
+!42 = !{!5, !5, i64 0}
+!43 = distinct !{!43, !12, !13}
+!44 = !{!41, !16, i64 8}
+!45 = distinct !{!45, !12, !13}
+!46 = !{!47, !5, i64 0}
+!47 = !{!"", !5, i64 0, !16, i64 8, !5, i64 16}
+!48 = !{!47, !16, i64 8}
+!49 = !{!47, !5, i64 16}

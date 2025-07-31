@@ -83,12 +83,12 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   store i32 %43, ptr %gep188, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 16
-  br i1 %exitcond171.not, label %46, label %45, !llvm.loop !8
+  br i1 %exitcond171.not, label %46, label %45, !llvm.loop !9
 
 46:                                               ; preds = %45
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next173, 16
-  br i1 %exitcond175.not, label %.preheader, label %37, !llvm.loop !9
+  br i1 %exitcond175.not, label %.preheader, label %37, !llvm.loop !10
 
 47:                                               ; preds = %.lr.ph162, %123
   %.0116160 = phi ptr [ %0, %.lr.ph162 ], [ %124, %123 ]
@@ -137,7 +137,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %65 = add nsw i32 %.1115143, -1
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %66 = icmp samesign ult i64 %indvars.iv.next177, %53
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %53, %.lr.ph ]
@@ -207,7 +207,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %96 = getelementptr inbounds nuw i8, ptr %.1108150, i64 2
   %97 = add nuw nsw i32 %.2120149, 16
   %.not136 = icmp sgt i32 %97, %83
-  br i1 %.not136, label %._crit_edge154, label %.lr.ph153, !llvm.loop !11
+  br i1 %.not136, label %._crit_edge154, label %.lr.ph153, !llvm.loop !12
 
 ._crit_edge154:                                   ; preds = %.lr.ph153, %82
   %.2120.lcssa = phi i32 [ %.1119, %82 ], [ %97, %.lr.ph153 ]
@@ -258,7 +258,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %125 = getelementptr inbounds i8, ptr %.0117159, i64 %35
   %126 = add nuw nsw i32 %.2124158, 1
   %exitcond179.not = icmp eq i32 %126, %5
-  br i1 %exitcond179.not, label %._crit_edge163, label %47, !llvm.loop !12
+  br i1 %exitcond179.not, label %._crit_edge163, label %47, !llvm.loop !13
 
 ._crit_edge163:                                   ; preds = %123, %.preheader
   %.not = icmp eq ptr %.0125, %11
@@ -408,7 +408,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %82 = getelementptr inbounds i8, ptr %.091115.us, i64 %48
   %83 = add nuw nsw i32 %.197114.us, 1
   %exitcond144.not = icmp eq i32 %83, %5
-  br i1 %exitcond144.not, label %._crit_edge118, label %51, !llvm.loop !13
+  br i1 %exitcond144.not, label %._crit_edge118, label %51, !llvm.loop !14
 
 .lr.ph117.split:                                  ; preds = %.lr.ph117
   br i1 %.not103, label %.lr.ph.us, label %.lr.ph
@@ -444,7 +444,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   store i64 %98, ptr %94, align 8
   %100 = add nuw nsw i32 %.194109.us, 16
   %.not104.us = icmp sgt i32 %100, %45
-  br i1 %.not104.us, label %._crit_edge.us, label %86, !llvm.loop !15
+  br i1 %.not104.us, label %._crit_edge.us, label %86, !llvm.loop !16
 
 101:                                              ; preds = %._crit_edge.us
   %102 = load i8, ptr %87, align 1
@@ -496,7 +496,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %130 = getelementptr inbounds i8, ptr %.091115.us120, i64 %48
   %131 = add nuw nsw i32 %.197114.us121, 1
   %exitcond143.not = icmp eq i32 %131, %5
-  br i1 %exitcond143.not, label %._crit_edge118, label %.lr.ph.us, !llvm.loop !16
+  br i1 %exitcond143.not, label %._crit_edge118, label %.lr.ph.us, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %86
   %132 = icmp slt i32 %100, %12
@@ -526,12 +526,12 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   store i32 %139, ptr %gep157, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %141, label %140, !llvm.loop !17
+  br i1 %exitcond.not, label %141, label %140, !llvm.loop !18
 
 141:                                              ; preds = %140
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 4
-  br i1 %exitcond141.not, label %.preheader, label %133, !llvm.loop !18
+  br i1 %exitcond141.not, label %.preheader, label %133, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph117.split, %187
   %.090116 = phi ptr [ %188, %187 ], [ %0, %.lr.ph117.split ]
@@ -565,7 +565,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   store i64 %156, ptr %152, align 8
   %158 = add nuw nsw i32 %.194109, 16
   %.not104 = icmp sgt i32 %158, %45
-  br i1 %.not104, label %._crit_edge, label %144, !llvm.loop !15
+  br i1 %.not104, label %._crit_edge, label %144, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %144
   %159 = icmp slt i32 %158, %12
@@ -621,7 +621,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %189 = getelementptr inbounds i8, ptr %.091115, i64 %48
   %190 = add nuw nsw i32 %.197114, 1
   %exitcond142.not = icmp eq i32 %190, %5
-  br i1 %exitcond142.not, label %._crit_edge118, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond142.not, label %._crit_edge118, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge118:                                   ; preds = %187, %128, %80, %.preheader
   %.not = icmp eq ptr %.092, %11
@@ -754,7 +754,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   store i32 %92, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %67, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader, label %67, !llvm.loop !21
 
 99:                                               ; preds = %.lr.ph173, %179
   %.0136172 = phi ptr [ %0, %.lr.ph173 ], [ %180, %179 ]
@@ -804,7 +804,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %120 = getelementptr inbounds nuw i8, ptr %.0163, i64 24
   %121 = add nuw nsw i32 %.1139161, 24
   %.not157 = icmp sgt i32 %121, %63
-  br i1 %.not157, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not157, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %103
   %.1139.lcssa = phi i32 [ 0, %103 ], [ %121, %.lr.ph ]
@@ -926,7 +926,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %181 = getelementptr inbounds i8, ptr %.0137171, i64 %66
   %182 = add nuw nsw i32 %.0144170, 1
   %exitcond178.not = icmp eq i32 %182, %5
-  br i1 %exitcond178.not, label %._crit_edge174, label %99, !llvm.loop !22
+  br i1 %exitcond178.not, label %._crit_edge174, label %99, !llvm.loop !23
 
 ._crit_edge174:                                   ; preds = %179, %.preheader
   %.not = icmp eq ptr %.0150, %12
@@ -1128,7 +1128,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   store i64 %118, ptr %116, align 8
   %120 = add nuw nsw i32 %.0371388, 32
   %.not382 = icmp sgt i32 %120, %92
-  br i1 %.not382, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not382, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %100
   %.0371.lcssa = phi i32 [ 0, %100 ], [ %120, %.lr.ph ]
@@ -1214,7 +1214,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %157 = getelementptr inbounds i8, ptr %.0369394, i64 %95
   %158 = add nuw nsw i32 %.0375393, 1
   %exitcond.not = icmp eq i32 %158, %5
-  br i1 %exitcond.not, label %._crit_edge398, label %96, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge398, label %96, !llvm.loop !25
 
 ._crit_edge398:                                   ; preds = %155, %21
   %.not = icmp eq ptr %.0370, %12
@@ -1248,22 +1248,23 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !14}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !15}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

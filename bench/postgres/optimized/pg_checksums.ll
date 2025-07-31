@@ -149,7 +149,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 16:                                               ; preds = %7
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 64
-  br i1 %exitcond39.not.i, label %.preheader26.i, label %.preheader28.i, !llvm.loop !6
+  br i1 %exitcond39.not.i, label %.preheader26.i, label %.preheader28.i, !llvm.loop !7
 
 .preheader26.i:                                   ; preds = %16, %24
   %17 = phi i1 [ false, %24 ], [ true, %16 ]
@@ -165,10 +165,10 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
   store i32 %23, ptr %19, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 32
-  br i1 %exitcond43.not.i, label %24, label %18, !llvm.loop !7
+  br i1 %exitcond43.not.i, label %24, label %18, !llvm.loop !8
 
 24:                                               ; preds = %18
-  br i1 %17, label %.preheader26.i, label %.preheader.i, !llvm.loop !8
+  br i1 %17, label %.preheader26.i, label %.preheader.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %24, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %24 ]
@@ -178,7 +178,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
   %27 = xor i32 %26, %.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 32
-  br i1 %exitcond47.not.i, label %pg_checksum_block.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond47.not.i, label %pg_checksum_block.exit, label %.preheader.i, !llvm.loop !10
 
 pg_checksum_block.exit:                           ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
@@ -342,7 +342,7 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
 
 .tail52.thread.backedge:                          ; preds = %51, %50, %49, %48, %45, %40, %38, %37, %36
   %.0.be = phi ptr [ %.0, %36 ], [ %.0, %37 ], [ %39, %38 ], [ %.0, %40 ], [ %.0, %45 ], [ %.0, %48 ], [ %.0, %49 ], [ %.0, %50 ], [ %.0, %51 ]
-  br label %.tail52.thread, !llvm.loop !10
+  br label %.tail52.thread, !llvm.loop !11
 
 54:                                               ; preds = %51
   call void @exit(i32 noundef 1) #15
@@ -422,7 +422,7 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
 88:                                               ; preds = %81
   %89 = call ptr @get_controlfile(ptr noundef nonnull %.2, ptr noundef nonnull %4) #12
   store ptr %89, ptr @ControlFile, align 8
-  %90 = load i8, ptr %4, align 1, !range !11, !noundef !12
+  %90 = load i8, ptr %4, align 1, !range !12, !noundef !13
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %93, label %92
 
@@ -750,7 +750,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %89
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %89, label %sub_148, !llvm.loop !13
+  br i1 %21, label %89, label %sub_148, !llvm.loop !14
 
 sub_148:                                          ; preds = %.tail
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -762,17 +762,17 @@ sub_148:                                          ; preds = %.tail
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 21
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %89, label %.tail46.thread, !llvm.loop !13
+  br i1 %26, label %89, label %.tail46.thread, !llvm.loop !14
 
 .tail46.thread:                                   ; preds = %sub_0, %sub_148, %.tail46
   %27 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.69, i64 noundef 9) #13
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %89, label %29, !llvm.loop !13
+  br i1 %28, label %89, label %29, !llvm.loop !14
 
 29:                                               ; preds = %.tail46.thread
   %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.70) #13
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %89, label %32, !llvm.loop !13
+  br i1 %31, label %89, label %32, !llvm.loop !14
 
 32:                                               ; preds = %29
   %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, ptr noundef nonnull %17) #12
@@ -804,7 +804,7 @@ sub_148:                                          ; preds = %.tail
   %42 = getelementptr inbounds nuw [5 x %struct.exclude_list_item], ptr @skip, i64 0, i64 %indvars.iv.next.i
   %43 = load ptr, ptr %42, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %54, label %44, !llvm.loop !14
+  br i1 %exitcond.i, label %54, label %44, !llvm.loop !15
 
 44:                                               ; preds = %41, %40
   %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %41 ]
@@ -812,7 +812,7 @@ sub_148:                                          ; preds = %.tail
   %46 = phi ptr [ @skip, %40 ], [ %42, %41 ]
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #13
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i8, ptr %48, align 8, !range !11, !noundef !12
+  %49 = load i8, ptr %48, align 8, !range !12, !noundef !13
   %50 = xor i8 %49, 1
   %51 = zext nneg i8 %50 to i64
   %spec.select.i = add i64 %47, %51
@@ -859,7 +859,7 @@ sub_148:                                          ; preds = %.tail
 68:                                               ; preds = %66
   %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %7) #13
   %.not45 = icmp eq i32 %69, 0
-  br i1 %.not45, label %70, label %skipfile.exit.thread, !llvm.loop !13
+  br i1 %.not45, label %70, label %skipfile.exit.thread, !llvm.loop !14
 
 70:                                               ; preds = %68, %66
   %71 = load i64, ptr %14, align 8
@@ -912,7 +912,7 @@ skipfile.exit.thread:                             ; preds = %44, %70, %73, %68
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #12
   %90 = call ptr @readdir(ptr noundef nonnull %11) #12
   %.not41 = icmp eq ptr %90, null
-  br i1 %.not41, label %._crit_edge, label %sub_0
+  br i1 %.not41, label %._crit_edge, label %sub_0, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %89, %.preheader
   %.033.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %89 ]
@@ -1096,7 +1096,7 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
 42:                                               ; preds = %33
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 64
-  br i1 %exitcond39.not.i.i, label %.preheader26.i.i, label %.preheader28.i.i, !llvm.loop !6
+  br i1 %exitcond39.not.i.i, label %.preheader26.i.i, label %.preheader28.i.i, !llvm.loop !7
 
 .preheader26.i.i:                                 ; preds = %42, %50
   %43 = phi i1 [ false, %50 ], [ true, %42 ]
@@ -1112,10 +1112,10 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   store i32 %49, ptr %45, align 4
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 32
-  br i1 %exitcond43.not.i.i, label %50, label %44, !llvm.loop !7
+  br i1 %exitcond43.not.i.i, label %50, label %44, !llvm.loop !8
 
 50:                                               ; preds = %44
-  br i1 %43, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %43, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %50, %.preheader.i.i
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %50 ]
@@ -1125,7 +1125,7 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   %53 = xor i32 %52, %.034.i.i
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 32
-  br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !10
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   %54 = add i32 %.0, %15
@@ -1212,7 +1212,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
 .thread:                                          ; preds = %72, %24, %86, %85
   %.147.ph = phi i64 [ %.2, %85 ], [ %.2, %86 ], [ %.046, %24 ], [ %.046, %72 ]
   %87 = add i32 %.0, 1
-  br label %17
+  br label %17, !llvm.loop !17
 
 88:                                               ; preds = %17
   %.b5459 = load i1, ptr @verbose, align 1
@@ -1316,14 +1316,17 @@ attributes #15 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = !{i8 0, i8 2}
+!13 = !{}
 !14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

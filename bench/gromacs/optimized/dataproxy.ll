@@ -176,7 +176,7 @@ define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_2
   %16 = xor i1 %15, true
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = zext i1 %16 to i8
-  store i8 %18, ptr %17, align 8, !tbaa !30
+  store i8 %18, ptr %17, align 8, !tbaa !31
   ret i1 %16
 
 19:                                               ; preds = %.lr.ph, %19
@@ -186,13 +186,13 @@ define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_2
   %21 = add nuw nsw i32 %.07, 1
   %22 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %19, label %._crit_edge, !llvm.loop !31
+  br i1 %23, label %19, label %._crit_edge, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !30, !range !32, !noundef !33
+  %4 = load i8, ptr %3, align 8, !tbaa !31, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %5, label %7, label %8
@@ -221,7 +221,7 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
   %13 = sub i64 %11, %12
@@ -232,7 +232,7 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i8, ptr %18, align 8, !tbaa !30, !range !32, !noundef !33
+  %19 = load i8, ptr %18, align 8, !tbaa !31, !range !33, !noundef !34
   %20 = trunc nuw i8 %19 to i1
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %20, label %22, label %23
@@ -253,7 +253,7 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !30, !range !32, !noundef !33
+  %4 = load i8, ptr %3, align 8, !tbaa !31, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %5, label %7, label %8
@@ -274,7 +274,7 @@ define void @_ZN3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameH
 define void @_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.gmx::AnalysisDataFrameHeader", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !tbaa !30, !range !32, !noundef !33
+  %5 = load i8, ptr %4, align 8, !tbaa !31, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %9
 
@@ -335,7 +335,7 @@ define noundef zeroext i1 @_ZThn16_N3gmx17AnalysisDataProxy19parallelDataStarted
 define void @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !30, !range !32, !noundef !33
+  %5 = load i8, ptr %4, align 8, !tbaa !31, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
   br i1 %6, label %8, label %9
@@ -364,7 +364,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPo
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i to i64
   %13 = sub i64 %11, %12
@@ -376,7 +376,7 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPo
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 -16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i8, ptr %19, align 8, !tbaa !30, !range !32, !noundef !33
+  %20 = load i8, ptr %19, align 8, !tbaa !31, !range !33, !noundef !34
   %21 = trunc nuw i8 %20 to i1
   %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %18)
   br i1 %21, label %23, label %24
@@ -398,7 +398,7 @@ _ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit: ; 
 define void @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !30, !range !32, !noundef !33
+  %5 = load i8, ptr %4, align 8, !tbaa !31, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
   br i1 %6, label %8, label %9
@@ -419,7 +419,7 @@ _ZN3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE.exit: 
 define void @_ZThn16_N3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.gmx::AnalysisDataFrameHeader", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !30, !range !32, !noundef !33
+  %5 = load i8, ptr %4, align 8, !tbaa !31, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi.exit
 
@@ -451,13 +451,13 @@ define void @_ZN3gmx17AnalysisDataProxyC2EiiPNS_20AbstractAnalysisDataE(ptr noun
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 16), ptr %0, align 8, !tbaa !21
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx17AnalysisDataProxyE, i64 136), ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %2, ptr %8, align 4, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %9, align 8, !tbaa !30
+  store i8 0, ptr %9, align 8, !tbaa !31
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %11
 
@@ -620,13 +620,14 @@ attributes #12 = { noreturn }
 !25 = !{!"float", !15, i64 0}
 !26 = !{!5, !19, i64 32}
 !27 = !{!5, !19, i64 36}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!5, !20, i64 40}
-!31 = distinct !{!31, !29}
-!32 = !{i8 0, i8 2}
-!33 = !{}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !36, i64 0}
-!36 = !{!"p1 _ZTSN3gmx17AnalysisDataValueE", !14, i64 0}
-!37 = !{!18, !18, i64 0}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!5, !20, i64 40}
+!32 = distinct !{!32, !29, !30}
+!33 = !{i8 0, i8 2}
+!34 = !{}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !37, i64 0}
+!37 = !{!"p1 _ZTSN3gmx17AnalysisDataValueE", !14, i64 0}
+!38 = !{!18, !18, i64 0}

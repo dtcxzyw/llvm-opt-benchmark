@@ -729,7 +729,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
 28:                                               ; preds = %25, %.lr.ph
   %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.019) #21
   %.not17 = icmp eq ptr %29, %20
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 30:                                               ; preds = %._crit_edge
   invoke void @_ZN9grpc_core8Executor15SetThreadingAllEb(i1 noundef zeroext true)
@@ -1020,3 +1020,5 @@ attributes #22 = { noreturn nounwind }
 !36 = !{!"_ZTSSt18_Rb_tree_node_base", !37, i64 0, !38, i64 8, !38, i64 16, !38, i64 24}
 !37 = !{!"_ZTSSt14_Rb_tree_color", !5, i64 0}
 !38 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !4, i64 0}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.estimated_trip_count"}

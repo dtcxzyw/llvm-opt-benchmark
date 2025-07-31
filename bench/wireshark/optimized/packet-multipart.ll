@@ -521,7 +521,7 @@ process_preamble.exit.thread:                     ; preds = %.thread.i, %103, %p
   store i32 %183, ptr %5, align 4
   %184 = add i32 %183, %131
   %185 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %184)
-  br i1 %185, label %135, label %find_next_boundary.exit.thread.i, !llvm.loop !8
+  br i1 %185, label %135, label %find_next_boundary.exit.thread.i, !llvm.loop !9
 
 find_next_boundary.exit.thread.i:                 ; preds = %123, %182, %135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
@@ -538,7 +538,7 @@ find_next_boundary.exit.i:                        ; preds = %179, %161
   br i1 %186, label %process_body_part.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %find_next_boundary.exit.i
-  %187 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %187 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %.loopexit.i, label %.lr.ph.i
 
@@ -558,7 +558,7 @@ find_next_boundary.exit.i:                        ; preds = %179, %161
   %191 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0194136.i)
   %192 = add i32 %191, %.0194136.i
   %193 = call i32 @imf_find_field_end(ptr noundef %0, i32 noundef %.0194136.i, i32 noundef %192, ptr noundef nonnull %8)
-  %194 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %194 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %195 = trunc nuw i8 %194 to i1
   %196 = add i32 %193, 2
   %.not272.i = icmp sle i32 %196, %.0.i.i
@@ -626,7 +626,7 @@ find_next_boundary.exit.i:                        ; preds = %179, %161
 229:                                              ; preds = %226, %223, %220
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %is_known_multipart_header.exit.thread.i, label %212, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %is_known_multipart_header.exit.thread.i, label %212, !llvm.loop !12
 
 is_known_multipart_header.exit.i:                 ; preds = %226, %217
   %.015.i.i = trunc i64 %indvars.iv.i.i to i32
@@ -778,7 +778,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %229, %is_known_mult
   %.2217.i = phi ptr [ %.0215134.i, %232 ], [ %.0215134.i, %291 ], [ %.0215134.i, %288 ], [ %287, %285 ], [ %.0215134.i, %279 ], [ %.0215134.i, %253 ], [ %.0215134.i, %234 ], [ %.0215134.i, %273 ], [ %.0215134.i, %262 ]
   %.2209.i = phi ptr [ %.0207135.i, %232 ], [ %.0207135.i, %291 ], [ %.0207135.i, %288 ], [ %.0207135.i, %285 ], [ %.0207135.i, %279 ], [ %.0207135.i, %253 ], [ %.0207135.i, %234 ], [ %264, %273 ], [ %264, %262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  %294 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %294 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %295 = trunc nuw i8 %294 to i1
   br i1 %295, label %.loopexit.i, label %190
 
@@ -859,7 +859,7 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %302
 
 326:                                              ; preds = %323
   %327 = icmp ne ptr %.0215115.i, null
-  %328 = load i8, ptr @remove_base64_encoding, align 1, !range !9
+  %328 = load i8, ptr @remove_base64_encoding, align 1, !range !10
   %329 = trunc nuw i8 %328 to i1
   %or.cond11.i = select i1 %327, i1 %329, i1 false
   br i1 %or.cond11.i, label %330, label %339
@@ -884,7 +884,7 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %302
 339:                                              ; preds = %332, %330, %326
   %.2199.i = phi ptr [ %.0197.i, %330 ], [ %338, %332 ], [ %.0197.i, %326 ]
   %340 = icmp ne ptr %.0222118.i, null
-  %341 = load i8, ptr @uncompress_data, align 1, !range !9
+  %341 = load i8, ptr @uncompress_data, align 1, !range !10
   %342 = trunc nuw i8 %341 to i1
   %or.cond13.i = select i1 %340, i1 %342, i1 false
   br i1 %or.cond13.i, label %343, label %358
@@ -964,7 +964,7 @@ process_body_part.exit:                           ; preds = %.thread101.i, %368
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
   %375 = icmp eq i32 %374, -1
-  br i1 %375, label %.loopexit, label %121, !llvm.loop !12
+  br i1 %375, label %.loopexit, label %121, !llvm.loop !13
 
 .loopexit:                                        ; preds = %process_body_part.exit, %process_body_part.exit.thread
   %376 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -1145,7 +1145,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   %.085.be = phi i8 [ %.186132, %.thread ], [ %.085, %.thread146 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %28 ]
   %.083.be = phi i8 [ %.184134, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
   %.0.be = phi i32 [ %.2136, %.thread ], [ %.0, %.thread146 ], [ %.0, %27 ], [ %.0, %22 ], [ %.0, %36 ], [ %.0, %31 ], [ %.0, %39 ], [ %.0, %28 ]
-  br label %.thread139, !llvm.loop !13
+  br label %.thread139, !llvm.loop !14
 
 31:                                               ; preds = %28
   %32 = getelementptr i8, ptr %.098, i64 2
@@ -1205,7 +1205,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   %.496 = phi i8 [ %49, %47 ], [ %45, %43 ]
   %.4 = phi ptr [ %50, %47 ], [ %46, %43 ]
   %.not116 = icmp eq i8 %.496, 0
-  br i1 %.not116, label %.thread146, label %43, !llvm.loop !14
+  br i1 %.not116, label %.thread146, label %43, !llvm.loop !15
 
 52:                                               ; preds = %.thread139
   %.not114 = icmp ne i8 %.085, 0
@@ -1359,12 +1359,13 @@ attributes #11 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

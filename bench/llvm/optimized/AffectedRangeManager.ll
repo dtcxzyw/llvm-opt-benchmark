@@ -58,14 +58,14 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager20com
 .critedge.i.i:                                    ; preds = %23, %.lr.ph.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %27, %20
-  br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i
+  br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i, !llvm.loop !59
 
 _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit: ; preds = %23, %.critedge.i.i, %10
   %.not.lcssa.i.i = phi i8 [ 0, %10 ], [ 1, %23 ], [ 0, %.critedge.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 73
-  store i8 %.not.lcssa.i.i, ptr %28, align 1, !tbaa !59
+  store i8 %.not.lcssa.i.i, ptr %28, align 1, !tbaa !61
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %30 = load i8, ptr %29, align 8, !tbaa !60, !range !61, !noundef !62
+  %30 = load i8, ptr %29, align 8, !tbaa !62, !range !63, !noundef !64
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.preheader, label %64
 
@@ -81,17 +81,17 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
   %.not3470 = icmp eq i8 %36, 0
-  br i1 %.not3470, label %.lr.ph72, label %..critedge_crit_edge51, !llvm.loop !63
+  br i1 %.not3470, label %.lr.ph72, label %..critedge_crit_edge51, !llvm.loop !65
 
 .lr.ph72:                                         ; preds = %.lr.ph.preheader
-  br label %37, !llvm.loop !63
+  br label %37, !llvm.loop !65
 
 37:                                               ; preds = %.lr.ph72, %.lr.ph
   %38 = phi ptr [ %32, %.lr.ph72 ], [ %39, %.lr.ph ]
   %.04971 = phi ptr [ %.046, %.lr.ph72 ], [ %.0, %.lr.ph ]
   %.0 = getelementptr inbounds nuw i8, ptr %.04971, i64 8
   %.not33 = icmp eq ptr %.0, %7
-  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %37
   %39 = load ptr, ptr %.0, align 8, !tbaa !10
@@ -100,21 +100,21 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 1
   %.not34 = icmp eq i8 %43, 0
-  br i1 %.not34, label %37, label %.lr.ph...critedge_crit_edge51_crit_edge, !llvm.loop !63
+  br i1 %.not34, label %37, label %.lr.ph...critedge_crit_edge51_crit_edge, !llvm.loop !65
 
 .lr.ph...critedge_crit_edge51_crit_edge:          ; preds = %.lr.ph
-  br label %..critedge_crit_edge51, !llvm.loop !63
+  br label %..critedge_crit_edge51, !llvm.loop !65
 
 ..critedge_crit_edge51:                           ; preds = %.lr.ph...critedge_crit_edge51_crit_edge, %.lr.ph.preheader
   %.049.lcssa = phi ptr [ %.0, %.lr.ph...critedge_crit_edge51_crit_edge ], [ %.046, %.lr.ph.preheader ]
   %.pn48.lcssa = phi ptr [ %38, %.lr.ph...critedge_crit_edge51_crit_edge ], [ %11, %.lr.ph.preheader ]
-  br label %.critedge, !llvm.loop !63
+  br label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %37, %..critedge_crit_edge51, %.preheader
   %.pn.lcssa = phi ptr [ %.pn48.lcssa, %..critedge_crit_edge51 ], [ %11, %.preheader ], [ %38, %37 ]
   %.0.lcssa = phi ptr [ %.049.lcssa, %..critedge_crit_edge51 ], [ %7, %.preheader ], [ %7, %37 ]
   %.026.in.le = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 8
-  %.026.le = load ptr, ptr %.026.in.le, align 8, !tbaa !65
+  %.026.le = load ptr, ptr %.026.in.le, align 8, !tbaa !67
   %44 = load ptr, ptr %11, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %.sroa.0.0.copyload.i.i35 = load i32, ptr %45, align 4, !tbaa !22
@@ -124,7 +124,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %48 = getelementptr inbounds nuw i8, ptr %.026.le, i64 60
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %48, align 4, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %.026.le, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !66
+  %50 = load i64, ptr %49, align 8, !tbaa !68
   %51 = trunc i64 %50 to i32
   %52 = add i32 %.sroa.0.0.copyload.i.i.i, %51
   %53 = load ptr, ptr %8, align 8, !tbaa !3
@@ -152,7 +152,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
 .critedge.i.i43:                                  ; preds = %59, %.lr.ph.i.i38
   %63 = getelementptr inbounds nuw i8, ptr %.01623.i.i39, i64 12
   %.not.not.i.i44 = icmp eq ptr %63, %56
-  br i1 %.not.not.i.i44, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i38
+  br i1 %.not.not.i.i44, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i38, !llvm.loop !59
 
 _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit: ; preds = %59
   tail call void @_ZN5clang6format20AffectedRangeManager17markAllAsAffectedEPKPNS0_13AnnotatedLineES5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %.02757, ptr noundef nonnull %.0.lcssa)
@@ -169,7 +169,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %.129 = phi ptr [ %11, %64 ], [ %.02856, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.02856, %.critedge ], [ %.02856, %.critedge.i.i43 ]
   %.1 = phi ptr [ %66, %64 ], [ %.0.lcssa, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.critedge.i.i43 ]
   %.not = icmp eq ptr %.1, %7
-  br i1 %.not, label %._crit_edge, label %10
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, %2
   %.030.lcssa = phi i1 [ false, %2 ], [ %.2, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread ]
@@ -210,7 +210,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager24aff
 .critedge.i:                                      ; preds = %15, %.lr.ph.i
   %19 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 12
   %.not.not.i = icmp eq ptr %19, %12
-  br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
+  br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i, !llvm.loop !59
 
 _ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit: ; preds = %15, %.critedge.i, %2
   %.not.lcssa.i = phi i1 [ false, %2 ], [ false, %.critedge.i ], [ true, %15 ]
@@ -228,7 +228,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17aff
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !66
+  %11 = load i64, ptr %10, align 8, !tbaa !68
   %12 = trunc i64 %11 to i32
   %13 = add i32 %.sroa.0.0.copyload.i.i, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -258,7 +258,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17aff
 .critedge.i:                                      ; preds = %22, %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 12
   %.not.not.i = icmp eq ptr %26, %19
-  br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
+  br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i, !llvm.loop !59
 
 _ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit: ; preds = %22, %.critedge.i, %4
   %.not.lcssa.i = phi i1 [ false, %4 ], [ false, %.critedge.i ], [ true, %22 ]
@@ -274,7 +274,7 @@ define dso_local void @_ZN5clang6format20AffectedRangeManager17markAllAsAffected
   %.08 = phi ptr [ %12, %.lr.ph ], [ %1, %3 ]
   %4 = load ptr, ptr %.08, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i8 1, ptr %5, align 8, !tbaa !67
+  store i8 1, ptr %5, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -284,7 +284,7 @@ define dso_local void @_ZN5clang6format20AffectedRangeManager17markAllAsAffected
   tail call void @_ZN5clang6format20AffectedRangeManager17markAllAsAffectedEPKPNS0_13AnnotatedLineES5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %7, ptr noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.not = icmp eq ptr %12, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -296,8 +296,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17non
   %6 = tail call noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager20computeAffectedLinesERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %8 = zext i1 %6 to i8
-  store i8 %8, ptr %7, align 2, !tbaa !69
-  %.04455 = load ptr, ptr %1, align 8, !tbaa !70
+  store i8 %8, ptr %7, align 2, !tbaa !72
+  %.04455 = load ptr, ptr %1, align 8, !tbaa !73
   %.not56 = icmp eq ptr %.04455, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
@@ -321,7 +321,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %20 = load i8, ptr %19, align 8, !tbaa !67, !range !61, !noundef !62
+  %20 = load i8, ptr %19, align 8, !tbaa !70, !range !63, !noundef !64
   %21 = trunc nuw i8 %20 to i1
   %spec.select52.us = select i1 %21, i1 true, i1 %.04557.us
   br label %22
@@ -329,9 +329,9 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 22:                                               ; preds = %15, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.us
   %.146.us = phi i1 [ %.04557.us, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.us ], [ %spec.select52.us, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %.04460.us, i64 216
-  %.044.us = load ptr, ptr %23, align 8, !tbaa !70
+  %.044.us = load ptr, ptr %23, align 8, !tbaa !73
   %.not.us = icmp eq ptr %.044.us, null
-  br i1 %.not.us, label %._crit_edge, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.us, !llvm.loop !71
+  br i1 %.not.us, label %._crit_edge, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.us, !llvm.loop !74
 
 ._crit_edge.loopexit63:                           ; preds = %56
   %24 = select i1 %46, i1 true, i1 %.146
@@ -360,7 +360,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %30 = getelementptr inbounds nuw i8, ptr %.04460, i64 60
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %30, align 4, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %.04460, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !66
+  %32 = load i64, ptr %31, align 8, !tbaa !68
   %33 = trunc i64 %32 to i32
   %34 = add i32 %.sroa.0.0.copyload.i.i.i, %33
   %35 = load ptr, ptr %9, align 8, !tbaa !3
@@ -388,7 +388,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 .critedge.i.i:                                    ; preds = %41, %.lr.ph.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %45, %38
-  br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i
+  br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i, !llvm.loop !59
 
 _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit: ; preds = %.critedge.i.i, %41, %.lr.ph.split
   %46 = phi i1 [ %.04159, %.lr.ph.split ], [ %.04159, %.critedge.i.i ], [ true, %41 ]
@@ -402,7 +402,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   %52 = load ptr, ptr %51, align 8, !tbaa !10
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %54 = load i8, ptr %53, align 8, !tbaa !67, !range !61, !noundef !62
+  %54 = load i8, ptr %53, align 8, !tbaa !70, !range !63, !noundef !64
   %55 = trunc nuw i8 %54 to i1
   %spec.select52 = select i1 %55, i1 true, i1 %.04557
   br label %56
@@ -410,20 +410,20 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 56:                                               ; preds = %49, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
   %.146 = phi i1 [ %.04557, %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit ], [ %spec.select52, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.04460, i64 216
-  %.044 = load ptr, ptr %57, align 8, !tbaa !70
+  %.044 = load ptr, ptr %57, align 8, !tbaa !73
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %._crit_edge.loopexit63, label %.lr.ph.split, !llvm.loop !73
+  br i1 %.not, label %._crit_edge.loopexit63, label %.lr.ph.split, !llvm.loop !76
 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %60 = load i8, ptr %59, align 8, !tbaa !67, !range !61, !noundef !62
+  %60 = load i8, ptr %59, align 8, !tbaa !70, !range !63, !noundef !64
   %61 = trunc nuw i8 %60 to i1
   %.pre64 = load ptr, ptr %1, align 8, !tbaa !12
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %.pre64, i64 72
-  %64 = load i32, ptr %63, align 8, !tbaa !75
+  %64 = load i32, ptr %63, align 8, !tbaa !78
   %65 = icmp eq i32 %64, 0
   br label %66
 
@@ -431,7 +431,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %67 = phi ptr [ %.pre64, %58 ], [ %.pre, %._crit_edge._crit_edge ], [ %.pre64, %62 ]
   %68 = phi i1 [ false, %58 ], [ false, %._crit_edge._crit_edge ], [ %65, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %70 = load i16, ptr %69, align 8, !tbaa !76
+  %70 = load i16, ptr %69, align 8, !tbaa !79
   switch i16 %70, label %.thread [
     i16 4, label %71
     i16 25, label %88
@@ -439,34 +439,34 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 216
-  %73 = load ptr, ptr %72, align 8, !tbaa !77
+  %73 = load ptr, ptr %72, align 8, !tbaa !80
   %.not50 = icmp eq ptr %73, null
   br i1 %.not50, label %74, label %.thread
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !75
+  %76 = load i32, ptr %75, align 8, !tbaa !78
   %77 = icmp ult i32 %76, 2
   %or.cond = and i1 %25, %77
   br i1 %or.cond, label %78, label %.thread
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %80 = load i8, ptr %79, align 8, !tbaa !67, !range !61, !noundef !62
+  %80 = load i8, ptr %79, align 8, !tbaa !70, !range !63, !noundef !64
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !65
+  %84 = load ptr, ptr %83, align 8, !tbaa !67
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load i16, ptr %85, align 8, !tbaa !76
+  %86 = load i16, ptr %85, align 8, !tbaa !79
   %87 = icmp eq i16 %86, 4
   br label %.thread
 
 88:                                               ; preds = %66
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %90 = load i64, ptr %89, align 8, !tbaa !78
+  %90 = load i64, ptr %89, align 8, !tbaa !81
   %.not51 = icmp eq i64 %90, -1
   br i1 %.not51, label %.thread, label %91
 
@@ -475,7 +475,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 72
-  %96 = load i8, ptr %95, align 8, !tbaa !67, !range !61, !noundef !62
+  %96 = load i8, ptr %95, align 8, !tbaa !70, !range !63, !noundef !64
   %97 = trunc nuw i8 %96 to i1
   br label %.thread
 
@@ -489,7 +489,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 
 100:                                              ; preds = %.thread
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i8 1, ptr %101, align 8, !tbaa !67
+  store i8 1, ptr %101, align 8, !tbaa !70
   br label %102
 
 102:                                              ; preds = %.thread, %100
@@ -532,7 +532,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager22aff
 .critedge:                                        ; preds = %13, %10
   %17 = getelementptr inbounds nuw i8, ptr %.01623, i64 12
   %.not.not = icmp eq ptr %17, %8
-  br i1 %.not.not, label %._crit_edge, label %10
+  br i1 %.not.not, label %._crit_edge, label %10, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.critedge, %13, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %13 ], [ false, %.critedge ]
@@ -607,23 +607,26 @@ attributes #3 = { nounwind }
 !56 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EEE", !57, i64 0}
 !57 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang15CharSourceRangeEvEE", !4, i64 0}
 !58 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang15CharSourceRangeELj8EEE", !6, i64 0}
-!59 = !{!13, !21, i64 73}
-!60 = !{!13, !21, i64 64}
-!61 = !{i8 0, i8 2}
-!62 = !{}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!13, !14, i64 8}
-!66 = !{!28, !20, i64 8}
-!67 = !{!13, !21, i64 72}
-!68 = distinct !{!68, !64}
-!69 = !{!13, !21, i64 74}
-!70 = !{!14, !14, i64 0}
-!71 = distinct !{!71, !64, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !64, !74}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = !{!24, !8, i64 72}
-!76 = !{!25, !26, i64 16}
-!77 = !{!24, !14, i64 216}
-!78 = !{!13, !20, i64 48}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!13, !21, i64 73}
+!62 = !{!13, !21, i64 64}
+!63 = !{i8 0, i8 2}
+!64 = !{}
+!65 = distinct !{!65, !66, !60}
+!66 = !{!"llvm.loop.mustprogress"}
+!67 = !{!13, !14, i64 8}
+!68 = !{!28, !20, i64 8}
+!69 = distinct !{!69, !60}
+!70 = !{!13, !21, i64 72}
+!71 = distinct !{!71, !66, !60}
+!72 = !{!13, !21, i64 74}
+!73 = !{!14, !14, i64 0}
+!74 = distinct !{!74, !66, !60, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !66, !60, !77}
+!77 = !{!"llvm.loop.unswitch.partial.disable"}
+!78 = !{!24, !8, i64 72}
+!79 = !{!25, !26, i64 16}
+!80 = !{!24, !14, i64 216}
+!81 = !{!13, !20, i64 48}

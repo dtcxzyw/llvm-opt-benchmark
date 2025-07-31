@@ -1934,7 +1934,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %200, %206,
   %250 = getelementptr inbounds nuw i8, ptr %.1206, i64 16
   %251 = load ptr, ptr %250, align 8
   %.not = icmp eq ptr %251, null
-  br i1 %.not, label %._crit_edge209, label %30, !llvm.loop !16
+  br i1 %.not, label %._crit_edge209, label %30, !llvm.loop !17
 
 ._crit_edge209:                                   ; preds = %._crit_edge, %2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #18
@@ -2410,23 +2410,23 @@ define void @_ZN20SCTPGraphArwndDialog12graphClickedEP20QCPAbstractPlottableiP11
   %11 = alloca %class.QString, align 8
   %12 = alloca %class.QString, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %14 = load ptr, ptr %13, align 8, !noalias !17
-  store ptr %14, ptr %6, align 8, !alias.scope !17
+  %14 = load ptr, ptr %13, align 8, !noalias !18
+  store ptr %14, ptr %6, align 8, !alias.scope !18
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %17 = load ptr, ptr %16, align 8, !noalias !17
-  store ptr %17, ptr %15, align 8, !alias.scope !17
+  %17 = load ptr, ptr %16, align 8, !noalias !18
+  store ptr %17, ptr %15, align 8, !alias.scope !18
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load i64, ptr %19, align 8, !noalias !17
-  store i64 %20, ptr %18, align 8, !alias.scope !17
+  %20 = load i64, ptr %19, align 8, !noalias !18
+  store i64 %20, ptr %18, align 8, !alias.scope !18
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZNK20QCPAbstractPlottable4nameEv.exit, label %21
 
 21:                                               ; preds = %4
-  %22 = atomicrmw add ptr %14, i32 1 seq_cst, align 4, !noalias !17
+  %22 = atomicrmw add ptr %14, i32 1 seq_cst, align 4, !noalias !18
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit
 
 _ZNK20QCPAbstractPlottable4nameEv.exit:           ; preds = %4, %21
@@ -2515,7 +2515,7 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %_ZN7QStringD2Ev.exi
   %62 = add i32 %.093, 1
   %63 = sext i32 %62 to i64
   %64 = icmp sgt i64 %58, %63
-  br i1 %64, label %65, label %.loopexit, !llvm.loop !20
+  br i1 %64, label %65, label %.loopexit, !llvm.loop !21
 
 65:                                               ; preds = %.lr.ph, %61
   %66 = phi i64 [ 0, %.lr.ph ], [ %63, %61 ]
@@ -2613,20 +2613,20 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable_or_null(56) @_ZN20SCTPGraphArwndDialog16staticMetaObjectE, ptr noundef nonnull @.str.5, ptr noundef null, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %105 = load ptr, ptr %13, align 8, !noalias !21
-  store ptr %105, ptr %12, align 8, !alias.scope !21
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %105 = load ptr, ptr %13, align 8, !noalias !22
+  store ptr %105, ptr %12, align 8, !alias.scope !22
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %107 = load ptr, ptr %16, align 8, !noalias !21
-  store ptr %107, ptr %106, align 8, !alias.scope !21
+  %107 = load ptr, ptr %16, align 8, !noalias !22
+  store ptr %107, ptr %106, align 8, !alias.scope !22
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %109 = load i64, ptr %19, align 8, !noalias !21
-  store i64 %109, ptr %108, align 8, !alias.scope !21
+  %109 = load i64, ptr %19, align 8, !noalias !22
+  store i64 %109, ptr %108, align 8, !alias.scope !22
   %.not.i.i.i.i39 = icmp eq ptr %105, null
   br i1 %.not.i.i.i.i39, label %_ZNK20QCPAbstractPlottable4nameEv.exit40, label %110
 
 110:                                              ; preds = %101
-  %111 = atomicrmw add ptr %105, i32 1 seq_cst, align 4, !noalias !21
+  %111 = atomicrmw add ptr %105, i32 1 seq_cst, align 4, !noalias !22
   br label %_ZNK20QCPAbstractPlottable4nameEv.exit40
 
 _ZNK20QCPAbstractPlottable4nameEv.exit40:         ; preds = %101, %110
@@ -3352,7 +3352,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QWidgetFbvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !24
+  %17 = load ptr, ptr %16, align 8, !nosanitize !25
   br label %_ZN9QtPrivate15FunctionPointerIM7QWidgetFbvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4046,7 +4046,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM20SCTPGraphArwndDialogFvP2
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !24
+  %17 = load ptr, ptr %16, align 8, !nosanitize !25
   br label %_ZN9QtPrivate15FunctionPointerIM20SCTPGraphArwndDialogFvP20QCPAbstractPlottableiP11QMouseEventEE4callINS_4ListIJS3_iS5_EEEvEEvS7_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -4145,14 +4145,15 @@ attributes #21 = { cold noreturn }
 !11 = distinct !{!11, !"_ZN7QObject7connectIM11QCustomPlotFvP20QCPAbstractPlottableiP11QMouseEventEM20SCTPGraphArwndDialogFvS3_iS5_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE"}
 !12 = !{i64 2170470113}
 !13 = !{i64 2170471000}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!20 = distinct !{!20, !15}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK20QCPAbstractPlottable4nameEv"}
-!24 = !{}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!21 = distinct !{!21, !15, !16}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK20QCPAbstractPlottable4nameEv: argument 0"}
+!24 = distinct !{!24, !"_ZNK20QCPAbstractPlottable4nameEv"}
+!25 = !{}

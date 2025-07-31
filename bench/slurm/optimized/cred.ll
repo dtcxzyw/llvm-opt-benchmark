@@ -693,7 +693,7 @@ define dso_local ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load i8, ptr %8, align 8, !range !11, !noundef !12
+  %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %21
 
@@ -1058,7 +1058,7 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
   %55 = sub nuw i32 %.07593, %43
   %56 = add i32 %.07394, 1
   %.not81 = icmp eq i32 %55, 0
-  br i1 %.not81, label %.loopexit, label %40, !llvm.loop !13
+  br i1 %.not81, label %.loopexit, label %40, !llvm.loop !14
 
 57:                                               ; preds = %40
   %58 = mul nuw nsw i32 %50, %47
@@ -1113,7 +1113,7 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %63, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %.loopexit
   %80 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31) #11
@@ -1874,10 +1874,11 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}

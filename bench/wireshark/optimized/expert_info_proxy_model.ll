@@ -1404,7 +1404,7 @@ define noundef zeroext i1 @_ZNK20ExpertInfoProxyModel16filterAcceptItemER16Exper
 22:                                               ; preds = %20
   %23 = load i32, ptr %21, align 4
   %24 = icmp eq i32 %23, %11
-  br i1 %24, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %20, !llvm.loop !65
+  br i1 %24, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %20, !llvm.loop !66
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %22
   %25 = ptrtoint ptr %21 to i64
@@ -1436,42 +1436,42 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %20, %
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17, !noalias !66
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17, !noalias !67
   %39 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %38)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i unwind label %40, !noalias !69
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i unwind label %40, !noalias !70
 
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18, !noalias !69
+  call void @__clang_call_terminate(ptr %42) #18, !noalias !70
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i:              ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %44 = load ptr, ptr %43, align 8, !noalias !69
+  %44 = load ptr, ptr %43, align 8, !noalias !70
   %.not.i.i.i.i.i = icmp eq ptr %44, null
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr @_ZN10QByteArray6_emptyE, ptr %44
   %45 = select i1 %39, ptr null, ptr %spec.select.i.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %47 = load i64, ptr %46, align 8, !noalias !69
+  %47 = load i64, ptr %46, align 8, !noalias !70
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 %47, ptr %45)
           to label %48 unwind label %62
 
 48:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i
-  %49 = load ptr, ptr %5, align 8, !noalias !66
-  store ptr %49, ptr %7, align 8, !alias.scope !66
+  %49 = load ptr, ptr %5, align 8, !noalias !67
+  store ptr %49, ptr %7, align 8, !alias.scope !67
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %51, align 8, !noalias !66
-  store ptr %52, ptr %50, align 8, !alias.scope !66
+  %52 = load ptr, ptr %51, align 8, !noalias !67
+  store ptr %52, ptr %50, align 8, !alias.scope !67
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %55 = load i64, ptr %54, align 8, !noalias !66
-  store i64 %55, ptr %53, align 8, !alias.scope !66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17, !noalias !66
+  %55 = load i64, ptr %54, align 8, !noalias !67
+  store i64 %55, ptr %53, align 8, !alias.scope !67
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17, !noalias !67
   %56 = invoke noundef zeroext i1 @_ZNK7QString8containsERK18QRegularExpressionP23QRegularExpressionMatch(ptr noundef nonnull align 8 dereferenceable_or_null(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null)
           to label %57 unwind label %64
 
@@ -1523,42 +1523,42 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %68, %_ZN17QArrayDat
 
 70:                                               ; preds = %_ZN7QStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17, !noalias !72
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17, !noalias !73
   %72 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %71)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i24 unwind label %73, !noalias !75
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i24 unwind label %73, !noalias !76
 
 73:                                               ; preds = %70
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #18, !noalias !75
+  call void @__clang_call_terminate(ptr %75) #18, !noalias !76
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i24:            ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %77 = load ptr, ptr %76, align 8, !noalias !75
+  %77 = load ptr, ptr %76, align 8, !noalias !76
   %.not.i.i.i.i.i25 = icmp eq ptr %77, null
   %spec.select.i.i.i.i.i26 = select i1 %.not.i.i.i.i.i25, ptr @_ZN10QByteArray6_emptyE, ptr %77
   %78 = select i1 %72, ptr null, ptr %spec.select.i.i.i.i.i26
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %80 = load i64, ptr %79, align 8, !noalias !75
+  %80 = load i64, ptr %79, align 8, !noalias !76
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 %80, ptr %78)
           to label %81 unwind label %95
 
 81:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i24
-  %82 = load ptr, ptr %4, align 8, !noalias !72
-  store ptr %82, ptr %8, align 8, !alias.scope !72
+  %82 = load ptr, ptr %4, align 8, !noalias !73
+  store ptr %82, ptr %8, align 8, !alias.scope !73
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %85 = load ptr, ptr %84, align 8, !noalias !72
-  store ptr %85, ptr %83, align 8, !alias.scope !72
+  %85 = load ptr, ptr %84, align 8, !noalias !73
+  store ptr %85, ptr %83, align 8, !alias.scope !73
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %88 = load i64, ptr %87, align 8, !noalias !72
-  store i64 %88, ptr %86, align 8, !alias.scope !72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17, !noalias !72
+  %88 = load i64, ptr %87, align 8, !noalias !73
+  store i64 %88, ptr %86, align 8, !alias.scope !73
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17, !noalias !73
   %89 = invoke noundef zeroext i1 @_ZNK7QString8containsERK18QRegularExpressionP23QRegularExpressionMatch(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null)
           to label %90 unwind label %97
 
@@ -1610,42 +1610,42 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %101, %_ZN17QArrayDa
 
 103:                                              ; preds = %_ZN7QStringD2Ev.exit30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
-  call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17, !noalias !78
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17, !noalias !79
   %105 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %104)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i35 unwind label %106, !noalias !81
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i35 unwind label %106, !noalias !82
 
 106:                                              ; preds = %103
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #18, !noalias !81
+  call void @__clang_call_terminate(ptr %108) #18, !noalias !82
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i35:            ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %110 = load ptr, ptr %109, align 8, !noalias !81
+  %110 = load ptr, ptr %109, align 8, !noalias !82
   %.not.i.i.i.i.i36 = icmp eq ptr %110, null
   %spec.select.i.i.i.i.i37 = select i1 %.not.i.i.i.i.i36, ptr @_ZN10QByteArray6_emptyE, ptr %110
   %111 = select i1 %105, ptr null, ptr %spec.select.i.i.i.i.i37
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %113 = load i64, ptr %112, align 8, !noalias !81
+  %113 = load i64, ptr %112, align 8, !noalias !82
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 %113, ptr %111)
           to label %114 unwind label %128
 
 114:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i35
-  %115 = load ptr, ptr %3, align 8, !noalias !78
-  store ptr %115, ptr %9, align 8, !alias.scope !78
+  %115 = load ptr, ptr %3, align 8, !noalias !79
+  store ptr %115, ptr %9, align 8, !alias.scope !79
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %118 = load ptr, ptr %117, align 8, !noalias !78
-  store ptr %118, ptr %116, align 8, !alias.scope !78
+  %118 = load ptr, ptr %117, align 8, !noalias !79
+  store ptr %118, ptr %116, align 8, !alias.scope !79
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %121 = load i64, ptr %120, align 8, !noalias !78
-  store i64 %121, ptr %119, align 8, !alias.scope !78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17, !noalias !78
+  %121 = load i64, ptr %120, align 8, !noalias !79
+  store i64 %121, ptr %119, align 8, !alias.scope !79
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17, !noalias !79
   %122 = invoke noundef zeroext i1 @_ZNK7QString8containsERK18QRegularExpressionP23QRegularExpressionMatch(ptr noundef nonnull align 8 dereferenceable_or_null(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null)
           to label %123 unwind label %130
 
@@ -2859,7 +2859,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !84
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !85
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %gepdiff = and i64 %.idx11, 12
@@ -3090,25 +3090,26 @@ attributes #19 = { cold noreturn }
 !60 = !{!61}
 !61 = distinct !{!61, !62, !"_ZNK11QModelIndex6parentEv: argument 0"}
 !62 = distinct !{!62, !"_ZNK11QModelIndex6parentEv"}
-!63 = distinct !{!63, !64}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = distinct !{!65, !64}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK16ExpertPacketItem8protocolEv: argument 0"}
-!68 = distinct !{!68, !"_ZNK16ExpertPacketItem8protocolEv"}
-!69 = !{!70, !67}
-!70 = distinct !{!70, !71, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
-!71 = distinct !{!71, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZNK16ExpertPacketItem7summaryEv: argument 0"}
-!74 = distinct !{!74, !"_ZNK16ExpertPacketItem7summaryEv"}
-!75 = !{!76, !73}
-!76 = distinct !{!76, !77, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
-!77 = distinct !{!77, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK16ExpertPacketItem7colInfoEv: argument 0"}
-!80 = distinct !{!80, !"_ZNK16ExpertPacketItem7colInfoEv"}
-!81 = !{!82, !79}
-!82 = distinct !{!82, !83, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
-!83 = distinct !{!83, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
-!84 = distinct !{!84, !64}
+!65 = !{!"llvm.loop.estimated_trip_count"}
+!66 = distinct !{!66, !64, !65}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZNK16ExpertPacketItem8protocolEv: argument 0"}
+!69 = distinct !{!69, !"_ZNK16ExpertPacketItem8protocolEv"}
+!70 = !{!71, !68}
+!71 = distinct !{!71, !72, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
+!72 = distinct !{!72, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK16ExpertPacketItem7summaryEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK16ExpertPacketItem7summaryEv"}
+!76 = !{!77, !74}
+!77 = distinct !{!77, !78, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
+!78 = distinct !{!78, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZNK16ExpertPacketItem7colInfoEv: argument 0"}
+!81 = distinct !{!81, !"_ZNK16ExpertPacketItem7colInfoEv"}
+!82 = !{!83, !80}
+!83 = distinct !{!83, !84, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray: argument 0"}
+!84 = distinct !{!84, !"_ZN7QString8fromUtf8IvEES_RK10QByteArray"}
+!85 = distinct !{!85, !64, !65}

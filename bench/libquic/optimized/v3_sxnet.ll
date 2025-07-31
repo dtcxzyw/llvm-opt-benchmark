@@ -44,9 +44,9 @@ define internal ptr @sxnet_v2i(ptr readnone captures(none) %0, ptr readnone capt
   %.010 = phi i64 [ %7, %6 ], [ 0, %3 ]
   %10 = call ptr @sk_value(ptr noundef %2, i64 noundef %.010) #5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %12) #5
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %SXNET_add_id_asc.exit.thread, label %SXNET_add_id_asc.exit
@@ -72,32 +72,32 @@ SXNET_add_id_asc.exit:                            ; preds = %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sxnet_i2r(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !17
+  %5 = load ptr, ptr %1, align 8, !tbaa !18
   %6 = tail call i64 @ASN1_INTEGER_get(ptr noundef %5) #5
   %7 = add nsw i64 %6, 1
   %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.8, i32 noundef %3, ptr noundef nonnull @.str.9, i64 noundef %7, i64 noundef %6) #5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = tail call i64 @sk_num(ptr noundef %10) #5
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.016 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
-  %12 = load ptr, ptr %9, align 8, !tbaa !21
+  %12 = load ptr, ptr %9, align 8, !tbaa !22
   %13 = tail call ptr @sk_value(ptr noundef %12, i64 noundef %.016) #5
-  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %14) #5
   %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef %15) #5
   tail call void @free(ptr noundef %15) #5
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = tail call i32 @ASN1_STRING_print(ptr noundef %2, ptr noundef %18) #5
   %20 = add nuw i64 %.016, 1
-  %21 = load ptr, ptr %9, align 8, !tbaa !21
+  %21 = load ptr, ptr %9, align 8, !tbaa !22
   %22 = tail call i64 @sk_num(ptr noundef %21) #5
   %23 = icmp ult i64 %20, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret i32 1
@@ -227,7 +227,7 @@ define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(add
   br i1 %.not41, label %55, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = load ptr, ptr %20, align 8, !tbaa !18
   %23 = tail call i32 @ASN1_INTEGER_set(ptr noundef %22, i64 noundef 0) #5
   %.not42 = icmp eq i32 %23, 0
   br i1 %.not42, label %55, label %24
@@ -239,30 +239,30 @@ define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(add
 25:                                               ; preds = %17, %24
   %.1 = phi ptr [ %20, %24 ], [ %18, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = tail call i64 @sk_num(ptr noundef %27) #5
   %.not10.i = icmp eq i64 %28, 0
   br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit.thread, label %.lr.ph.i
 
 29:                                               ; preds = %.lr.ph.i
   %30 = add nuw i64 %.09.i, 1
-  %31 = load ptr, ptr %26, align 8, !tbaa !21
+  %31 = load ptr, ptr %26, align 8, !tbaa !22
   %32 = tail call i64 @sk_num(ptr noundef %31) #5
   %33 = icmp ult i64 %30, %32
-  br i1 %33, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit.thread, !llvm.loop !26
+  br i1 %33, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit.thread, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %25, %29
   %.09.i = phi i64 [ %30, %29 ], [ 0, %25 ]
-  %34 = load ptr, ptr %26, align 8, !tbaa !21
+  %34 = load ptr, ptr %26, align 8, !tbaa !22
   %35 = tail call ptr @sk_value(ptr noundef %34, i64 noundef %.09.i) #5
-  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = tail call i32 @ASN1_STRING_cmp(ptr noundef %36, ptr noundef nonnull %1) #5
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %SXNET_get_id_INTEGER.exit, label %29
 
 SXNET_get_id_INTEGER.exit:                        ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   %.not43 = icmp eq ptr %39, null
   br i1 %.not43, label %SXNET_get_id_INTEGER.exit.thread, label %40
 
@@ -287,19 +287,19 @@ SXNET_get_id_INTEGER.exit.thread:                 ; preds = %29, %25, %SXNET_get
 47:                                               ; preds = %44, %42
   %.130 = phi i32 [ %46, %44 ], [ %.029, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !24
+  %49 = load ptr, ptr %48, align 8, !tbaa !25
   %50 = tail call i32 @ASN1_STRING_set(ptr noundef %49, ptr noundef nonnull %2, i32 noundef %.130) #5
   %.not45 = icmp eq i32 %50, 0
   br i1 %.not45, label %55, label %51
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr %26, align 8, !tbaa !21
+  %52 = load ptr, ptr %26, align 8, !tbaa !22
   %53 = tail call i64 @sk_push(ptr noundef %52, ptr noundef nonnull %41) #5
   %.not46 = icmp eq i64 %53, 0
   br i1 %.not46, label %55, label %54
 
 54:                                               ; preds = %51
-  store ptr %1, ptr %41, align 8, !tbaa !22
+  store ptr %1, ptr %41, align 8, !tbaa !23
   br label %56
 
 55:                                               ; preds = %51, %47, %SXNET_get_id_INTEGER.exit.thread, %21, %19
@@ -356,30 +356,30 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SXNET_get_id_INTEGER(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = tail call i64 @sk_num(ptr noundef %4) #5
   %.not10 = icmp eq i64 %5, 0
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw i64 %.09, 1
-  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = load ptr, ptr %3, align 8, !tbaa !22
   %9 = tail call i64 @sk_num(ptr noundef %8) #5
   %10 = icmp ult i64 %7, %9
-  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %2, %6
   %.09 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !21
+  %11 = load ptr, ptr %3, align 8, !tbaa !22
   %12 = tail call ptr @sk_value(ptr noundef %11, i64 noundef %.09) #5
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = tail call i32 @ASN1_STRING_cmp(ptr noundef %13, ptr noundef %1) #5
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %6
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %2, %15
@@ -403,30 +403,30 @@ define hidden ptr @SXNET_get_id_asc(ptr noundef readonly captures(none) %0, ptr 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = tail call i64 @sk_num(ptr noundef %7) #5
   %.not10.i = icmp eq i64 %8, 0
   br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit, label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph.i
   %10 = add nuw i64 %.09.i, 1
-  %11 = load ptr, ptr %6, align 8, !tbaa !21
+  %11 = load ptr, ptr %6, align 8, !tbaa !22
   %12 = tail call i64 @sk_num(ptr noundef %11) #5
   %13 = icmp ult i64 %10, %12
-  br i1 %13, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !26
+  br i1 %13, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %5, %9
   %.09.i = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %14 = load ptr, ptr %6, align 8, !tbaa !21
+  %14 = load ptr, ptr %6, align 8, !tbaa !22
   %15 = tail call ptr @sk_value(ptr noundef %14, i64 noundef %.09.i) #5
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = tail call i32 @ASN1_STRING_cmp(ptr noundef %16, ptr noundef nonnull %3) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %9
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
   br label %SXNET_get_id_INTEGER.exit
 
 SXNET_get_id_INTEGER.exit:                        ; preds = %9, %5, %18
@@ -456,30 +456,30 @@ define hidden ptr @SXNET_get_id_ulong(ptr noundef readonly captures(none) %0, i6
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = tail call i64 @sk_num(ptr noundef %9) #5
   %.not10.i = icmp eq i64 %10, 0
   br i1 %.not10.i, label %SXNET_get_id_INTEGER.exit, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
   %12 = add nuw i64 %.09.i, 1
-  %13 = load ptr, ptr %8, align 8, !tbaa !21
+  %13 = load ptr, ptr %8, align 8, !tbaa !22
   %14 = tail call i64 @sk_num(ptr noundef %13) #5
   %15 = icmp ult i64 %12, %14
-  br i1 %15, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !26
+  br i1 %15, label %.lr.ph.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !27
 
 .lr.ph.i:                                         ; preds = %7, %11
   %.09.i = phi i64 [ %12, %11 ], [ 0, %7 ]
-  %16 = load ptr, ptr %8, align 8, !tbaa !21
+  %16 = load ptr, ptr %8, align 8, !tbaa !22
   %17 = tail call ptr @sk_value(ptr noundef %16, i64 noundef %.09.i) #5
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = tail call i32 @ASN1_STRING_cmp(ptr noundef %18, ptr noundef nonnull %3) #5
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %11
 
 20:                                               ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
   br label %SXNET_get_id_INTEGER.exit
 
 SXNET_get_id_INTEGER.exit:                        ; preds = %11, %20, %7, %6
@@ -526,19 +526,20 @@ attributes #6 = { nounwind willreturn memory(read) }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !15, i64 8}
-!14 = !{!"conf_value_st", !15, i64 0, !15, i64 8, !15, i64 16}
-!15 = !{!"p1 omnipotent char", !8, i64 0}
-!16 = !{!14, !15, i64 16}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"SXNET_st", !19, i64 0, !20, i64 8}
-!19 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!20 = !{!"p1 _ZTS16stack_st_SXNETID", !8, i64 0}
-!21 = !{!18, !20, i64 8}
-!22 = !{!23, !19, i64 0}
-!23 = !{!"SXNET_ID_st", !19, i64 0, !19, i64 8}
-!24 = !{!23, !19, i64 8}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !16, i64 8}
+!15 = !{!"conf_value_st", !16, i64 0, !16, i64 8, !16, i64 16}
+!16 = !{!"p1 omnipotent char", !8, i64 0}
+!17 = !{!15, !16, i64 16}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"SXNET_st", !20, i64 0, !21, i64 8}
+!20 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!21 = !{!"p1 _ZTS16stack_st_SXNETID", !8, i64 0}
+!22 = !{!19, !21, i64 8}
+!23 = !{!24, !20, i64 0}
+!24 = !{!"SXNET_ID_st", !20, i64 0, !20, i64 8}
+!25 = !{!24, !20, i64 8}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13}

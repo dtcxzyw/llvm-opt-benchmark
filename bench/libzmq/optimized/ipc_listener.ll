@@ -1129,7 +1129,7 @@ _ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread: ; preds = %_ZNSt3setIjSt4les
   %.1.in.i.i.i41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i37, i64 %.1.in.v.i.i.i40
   %.1.i.i.i42 = load ptr, ptr %.1.in.i.i.i41, align 8, !tbaa !84
   %.not.i.i.i43 = icmp eq ptr %.1.i.i.i42, null
-  br i1 %.not.i.i.i43, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, label %47, !llvm.loop !87
+  br i1 %.not.i.i.i43, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, label %47, !llvm.loop !88
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i: ; preds = %47
   %51 = icmp eq ptr %.19.i.i.i39, %45
@@ -1142,7 +1142,7 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit:        ; preds = %_ZNSt8_Rb_treeIiiSt
   br i1 %54, label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread, label %.critedge
 
 _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
-  %55 = load i32, ptr %17, align 4, !tbaa !88
+  %55 = load i32, ptr %17, align 4, !tbaa !89
   %56 = call ptr @getpwuid(i32 noundef %55)
   %.not16 = icmp eq ptr %56, null
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -1161,20 +1161,20 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt3setIjSt4lessI
 
 62:                                               ; preds = %.lr.ph73
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !90
-  %65 = load ptr, ptr %64, align 8, !tbaa !94
+  %64 = load ptr, ptr %63, align 8, !tbaa !91
+  %65 = load ptr, ptr %64, align 8, !tbaa !95
   %.not1869 = icmp eq ptr %65, null
   br i1 %.not1869, label %.critedge21, label %.lr.ph
 
 .lr.ph:                                           ; preds = %62
-  %66 = load ptr, ptr %56, align 8, !tbaa !95
+  %66 = load ptr, ptr %56, align 8, !tbaa !96
   br label %70
 
 67:                                               ; preds = %70
   %68 = getelementptr inbounds nuw i8, ptr %.01070, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !94
+  %69 = load ptr, ptr %68, align 8, !tbaa !95
   %.not18 = icmp eq ptr %69, null
-  br i1 %.not18, label %.critedge21, label %70, !llvm.loop !97
+  br i1 %.not18, label %.critedge21, label %70, !llvm.loop !98
 
 70:                                               ; preds = %.lr.ph, %67
   %71 = phi ptr [ %65, %.lr.ph ], [ %69, %67 ]
@@ -1186,7 +1186,7 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt3setIjSt4lessI
 .critedge21:                                      ; preds = %67, %62, %.lr.ph73
   %73 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.046.072) #20
   %.not67 = icmp eq ptr %73, %32
-  br i1 %.not67, label %.critedge, label %.lr.ph73, !llvm.loop !98
+  br i1 %.not67, label %.critedge, label %.lr.ph73, !llvm.loop !99
 
 .critedge:                                        ; preds = %.critedge21, %70, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %14
   %.1 = phi i1 [ false, %14 ], [ true, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ], [ false, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34 ], [ true, %70 ], [ false, %.critedge21 ]
@@ -1571,17 +1571,18 @@ attributes #20 = { nounwind willreturn memory(read) }
 !82 = !{!34, !16, i64 32}
 !83 = !{!34, !37, i64 8}
 !84 = !{!37, !37, i64 0}
-!85 = distinct !{!85, !86}
+!85 = distinct !{!85, !86, !87}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = distinct !{!87, !86}
-!88 = !{!89, !14, i64 4}
-!89 = !{!"_ZTS5ucred", !14, i64 0, !14, i64 4, !14, i64 8}
-!90 = !{!91, !92, i64 24}
-!91 = !{!"_ZTS5group", !23, i64 0, !23, i64 8, !14, i64 16, !92, i64 24}
-!92 = !{!"p2 omnipotent char", !93, i64 0}
-!93 = !{!"any p2 pointer", !12, i64 0}
-!94 = !{!23, !23, i64 0}
-!95 = !{!96, !23, i64 0}
-!96 = !{!"_ZTS6passwd", !23, i64 0, !23, i64 8, !14, i64 16, !14, i64 20, !23, i64 24, !23, i64 32, !23, i64 40}
-!97 = distinct !{!97, !86}
-!98 = distinct !{!98, !86}
+!87 = !{!"llvm.loop.estimated_trip_count"}
+!88 = distinct !{!88, !86, !87}
+!89 = !{!90, !14, i64 4}
+!90 = !{!"_ZTS5ucred", !14, i64 0, !14, i64 4, !14, i64 8}
+!91 = !{!92, !93, i64 24}
+!92 = !{!"_ZTS5group", !23, i64 0, !23, i64 8, !14, i64 16, !93, i64 24}
+!93 = !{!"p2 omnipotent char", !94, i64 0}
+!94 = !{!"any p2 pointer", !12, i64 0}
+!95 = !{!23, !23, i64 0}
+!96 = !{!97, !23, i64 0}
+!97 = !{!"_ZTS6passwd", !23, i64 0, !23, i64 8, !14, i64 16, !14, i64 20, !23, i64 24, !23, i64 32, !23, i64 40}
+!98 = distinct !{!98, !86, !87}
+!99 = distinct !{!99, !86, !87}

@@ -135,13 +135,13 @@ _ZN3euflsERSoRKNS_6egraph4b_ppE.exit:             ; preds = %15, %23
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q6clause7displayERN3euf6solverERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8456) %1, ptr noundef nonnull returned align 8 dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.5, i64 noundef 8)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
+  %6 = load ptr, ptr %5, align 8, !tbaa !170
   %7 = icmp eq ptr %6, null
   br i1 %7, label %._crit_edge, label %_ZNK6vectorIN1q3litELb1EjE3endEv.exit
 
 _ZNK6vectorIN1q3litELb1EjE3endEv.exit:            ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
-  %9 = load i32, ptr %8, align 4, !tbaa !172
+  %9 = load i32, ptr %8, align 4, !tbaa !173
   %10 = zext i32 %9 to i64
   %11 = mul nuw nsw i64 %10, 40
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
@@ -150,7 +150,7 @@ _ZNK6vectorIN1q3litELb1EjE3endEv.exit:            ; preds = %3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %_ZNK6vectorIN1q3litELb1EjE3endEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !173
+  %14 = load ptr, ptr %13, align 8, !tbaa !174
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %.loopexit, label %.preheader
 
@@ -160,16 +160,16 @@ _ZNK6vectorIN1q3litELb1EjE3endEv.exit:            ; preds = %3
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.6, i64 noundef 1)
   %17 = getelementptr inbounds nuw i8, ptr %.02025, i64 40
   %.not = icmp eq ptr %17, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %.0 = phi ptr [ %20, %.preheader ], [ %14, %._crit_edge ]
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q7binding7displayERN3euf6solverERSo(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef nonnull align 8 dereferenceable(8456) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %20 = load ptr, ptr %.0, align 8, !tbaa !177
-  %21 = load ptr, ptr %13, align 8, !tbaa !173
+  %20 = load ptr, ptr %.0, align 8, !tbaa !179
+  %21 = load ptr, ptr %13, align 8, !tbaa !174
   %.not23 = icmp eq ptr %20, %21
-  br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !178
+  br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !180
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   ret ptr %2
@@ -365,15 +365,17 @@ attributes #5 = { nounwind }
 !164 = !{!"_ZTSSt8functionIFvP4exprS1_S1_EE", !162, i64 0, !6, i64 24}
 !165 = !{!"_ZTSSt8functionIFvP3appS1_EE", !162, i64 0, !6, i64 24}
 !166 = !{!"_ZTSSt8functionIFvRSoPvEE", !162, i64 0, !6, i64 24}
-!167 = distinct !{!167, !168}
+!167 = distinct !{!167, !168, !169}
 !168 = !{!"llvm.loop.mustprogress"}
-!169 = !{!170, !171, i64 0}
-!170 = !{!"_ZTS6vectorIN1q3litELb1EjE", !171, i64 0}
-!171 = !{!"p1 _ZTSN1q3litE", !6, i64 0}
-!172 = !{!16, !16, i64 0}
-!173 = !{!174, !87, i64 48}
-!174 = !{!"_ZTSN1q6clauseE", !16, i64 0, !170, i64 8, !90, i64 16, !16, i64 32, !175, i64 36, !176, i64 40, !87, i64 48}
-!175 = !{!"_ZTSN3sat7literalE", !16, i64 0}
-!176 = !{!"p1 _ZTSN1q15quantifier_statE", !6, i64 0}
-!177 = !{!86, !87, i64 0}
-!178 = distinct !{!178, !168}
+!169 = !{!"llvm.loop.estimated_trip_count"}
+!170 = !{!171, !172, i64 0}
+!171 = !{!"_ZTS6vectorIN1q3litELb1EjE", !172, i64 0}
+!172 = !{!"p1 _ZTSN1q3litE", !6, i64 0}
+!173 = !{!16, !16, i64 0}
+!174 = !{!175, !87, i64 48}
+!175 = !{!"_ZTSN1q6clauseE", !16, i64 0, !171, i64 8, !90, i64 16, !16, i64 32, !176, i64 36, !177, i64 40, !87, i64 48}
+!176 = !{!"_ZTSN3sat7literalE", !16, i64 0}
+!177 = !{!"p1 _ZTSN1q15quantifier_statE", !6, i64 0}
+!178 = distinct !{!178, !169}
+!179 = !{!86, !87, i64 0}
+!180 = distinct !{!180, !168, !169}

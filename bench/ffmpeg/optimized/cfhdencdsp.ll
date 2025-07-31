@@ -158,7 +158,7 @@ filter.exit:                                      ; preds = %.lr.ph, %16
   %112 = getelementptr inbounds i16, ptr %.01440, i64 %5
   %113 = add nuw nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %113, %7
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -337,7 +337,7 @@ filter.exit:                                      ; preds = %.lr.ph, %33
   store i16 %.0.i16, ptr %145, align 2, !tbaa !10
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !16
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -367,7 +367,8 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!5, !6, i64 8}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}

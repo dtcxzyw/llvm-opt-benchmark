@@ -60,7 +60,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
 19:                                               ; preds = %.lr.ph124
   %20 = add i64 %.079123, -1
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.critedge2, label %.lr.ph124, !llvm.loop !8
+  br i1 %.not, label %.critedge2, label %.lr.ph124, !llvm.loop !9
 
 .critedge2:                                       ; preds = %13, %.lr.ph124, %19, %.critedge
   %21 = phi i64 [ 0, %.critedge ], [ %17, %19 ], [ %17, %.lr.ph124 ], [ 0, %13 ]
@@ -244,7 +244,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
 .backedge:                                        ; preds = %94, %91, %104
   %97 = call ptr @readdir(ptr noundef nonnull %.075) #6
   %.not98 = icmp eq ptr %97, null
-  br i1 %.not98, label %._crit_edge, label %86, !llvm.loop !9
+  br i1 %.not98, label %._crit_edge, label %86, !llvm.loop !10
 
 98:                                               ; preds = %91, %94, %86
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #6
@@ -380,7 +380,8 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

@@ -571,7 +571,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
   %104 = phi i32 [ %60, %65 ], [ %60, %64 ], [ %60, %69 ], [ %60, %68 ], [ %60, %73 ], [ %60, %72 ], [ %60, %77 ], [ %60, %76 ], [ %83, %81 ], [ %60, %80 ], [ %60, %85 ], [ %60, %84 ], [ %60, %89 ], [ %60, %88 ], [ %60, %93 ], [ %60, %92 ], [ %60, %53 ]
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
   %exitcond231.not.i = icmp eq i64 %indvars.iv.next228.i, %wide.trip.count230.i
-  br i1 %exitcond231.not.i, label %._crit_edge199.i, label %53, !llvm.loop !6
+  br i1 %exitcond231.not.i, label %._crit_edge199.i, label %53, !llvm.loop !7
 
 ._crit_edge199.i:                                 ; preds = %96
   store i32 %102, ptr %49, align 4
@@ -818,7 +818,7 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
 204:                                              ; preds = %200, %196, %192, %188, %184, %180, %176, %172, %165
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
   %exitcond236.not.i = icmp eq i64 %indvars.iv.next233.i, %29
-  br i1 %exitcond236.not.i, label %.loopexit, label %165, !llvm.loop !7
+  br i1 %exitcond236.not.i, label %.loopexit, label %165, !llvm.loop !8
 
 .loopexit:                                        ; preds = %204, %._crit_edge.i, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
@@ -1072,7 +1072,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
   tail call void @TupleDescInitEntryCollation(ptr noundef %26, i16 noundef signext %.082, i32 noundef %58) #8
   %59 = add i16 %.082, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split.split, !llvm.loop !8
+  br label %list_length.exit.split.split, !llvm.loop !9
 
 60:                                               ; preds = %.thread
   %61 = load i32, ptr %16, align 8
@@ -1096,7 +1096,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load i8, ptr %70, align 8, !range !9, !noundef !10
+  %71 = load i8, ptr %70, align 8, !range !10, !noundef !11
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %.critedge105, label %73
 
@@ -1510,7 +1510,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   %.1151 = phi i32 [ %73, %72 ], [ %.0150222, %63 ], [ %.0150222, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %75, label %14, !llvm.loop !11
+  br i1 %exitcond.not, label %75, label %14, !llvm.loop !12
 
 75:                                               ; preds = %74
   store i32 %69, ptr %8, align 4
@@ -1670,7 +1670,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
 130:                                              ; preds = %.sink.split288, %120
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %.critedge, label %120, !llvm.loop !12
+  br i1 %exitcond262.not, label %.critedge, label %120, !llvm.loop !13
 
 .critedge:                                        ; preds = %33, %37, %41, %45, %49, %53, %57, %61, %130, %4, %75
   %131 = phi i1 [ true, %75 ], [ true, %4 ], [ true, %130 ], [ false, %61 ], [ false, %57 ], [ false, %53 ], [ false, %49 ], [ false, %45 ], [ false, %41 ], [ false, %37 ], [ false, %33 ]
@@ -1898,7 +1898,7 @@ define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr noundef writeonly ca
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %11 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef %0, i16 noundef signext 21, ptr noundef nonnull %5) #8
-  %12 = load i8, ptr %5, align 1, !range !9, !noundef !10
+  %12 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %48, label %14
 
@@ -1976,7 +1976,7 @@ define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr noundef writeonly ca
 57:                                               ; preds = %48, %45
   %.052 = phi i32 [ %52, %48 ], [ %18, %45 ]
   %58 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef nonnull %0, i16 noundef signext 23, ptr noundef nonnull %5) #8
-  %59 = load i8, ptr %5, align 1, !range !9, !noundef !10
+  %59 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %62
 
@@ -2023,11 +2023,11 @@ define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr noundef writeonly ca
   store ptr %78, ptr %80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %69, %61
   %81 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef nonnull %0, i16 noundef signext 22, ptr noundef nonnull %5) #8
-  %82 = load i8, ptr %5, align 1, !range !9, !noundef !10
+  %82 = load i8, ptr %5, align 1, !range !10, !noundef !11
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %85
 
@@ -2117,7 +2117,7 @@ define dso_local range(i32 0, -2147483648) i32 @get_func_trftypes(ptr noundef %0
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
   %4 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef %0, i16 noundef signext 25, ptr noundef nonnull %3) #8
-  %5 = load i8, ptr %3, align 1, !range !9, !noundef !10
+  %5 = load i8, ptr %3, align 1, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %41, label %7
 
@@ -2303,7 +2303,7 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   %60 = load i32, ptr %4, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next60, %61
-  br i1 %62, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %62, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %63 = phi i32 [ %77, %76 ], [ %50, %.lr.ph ]
@@ -2339,7 +2339,7 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %80 = trunc nuw nsw i64 %indvars.iv.next60 to i32
@@ -2490,7 +2490,7 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
   %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %62 ], [ %.03855, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %65, %54, %62, %55, %51, %9, %11
   %.039 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.2, %65 ], [ null, %54 ], [ null, %62 ], [ null, %55 ]
@@ -2535,7 +2535,7 @@ define dso_local ptr @build_function_result_tupdesc_t(ptr noundef %0) local_unna
   %15 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 47, ptr noundef nonnull %0, i16 noundef signext 21) #8
   %16 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 47, ptr noundef nonnull %0, i16 noundef signext 22) #8
   %17 = call i64 @SysCacheGetAttr(i32 noundef 47, ptr noundef nonnull %0, i16 noundef signext 23, ptr noundef nonnull %2) #8
-  %18 = load i8, ptr %2, align 1, !range !9, !noundef !10
+  %18 = load i8, ptr %2, align 1, !range !10, !noundef !11
   %19 = trunc nuw i8 %18 to i1
   %spec.select = select i1 %19, i64 0, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -2734,7 +2734,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %.174 = phi i32 [ %.pre-phi, %91 ], [ %.07399, %.lr.ph ], [ %.07399, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %93
   %94 = icmp slt i32 %.174, 2
@@ -2761,7 +2761,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %103 = load i32, ptr %102, align 4
   call void @TupleDescInitEntry(ptr noundef %97, i16 noundef signext %99, ptr noundef %101, i32 noundef %103, i32 noundef -1, i32 noundef 0) #8
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !19
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph103, %96, %._crit_edge, %65, %4
   %.075 = phi ptr [ null, %4 ], [ null, %65 ], [ null, %._crit_edge ], [ %97, %96 ], [ %97, %.lr.ph103 ]
@@ -2871,7 +2871,7 @@ list_length.exit:                                 ; preds = %9
 30:                                               ; preds = %25, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %30, %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2964,7 +2964,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %17 = sext i32 %1 to i64
   %18 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %16, i64 0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i8, ptr %19, align 8, !range !9, !noundef !10
+  %20 = load i8, ptr %19, align 8, !range !10, !noundef !11
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.critedge, label %22
 
@@ -2977,7 +2977,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   call void @get_typlenbyvalalign(i32 noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %28 = load i16, ptr %12, align 2
   %29 = sext i16 %28 to i32
-  %30 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %10, align 1, !range !10, !noundef !11
   %31 = trunc nuw i8 %30 to i1
   %32 = load i8, ptr %11, align 1
   call void @deconstruct_array(ptr noundef %25, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %31, i8 noundef signext %32, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
@@ -2997,7 +2997,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %40 = load i32, ptr %9, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next83, %41
-  br i1 %42, label %.lr.ph73, label %._crit_edge, !llvm.loop !21
+  br i1 %42, label %.lr.ph73, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph73, %22
   %43 = phi i32 [ %37, %22 ], [ %40, %.lr.ph73 ]
@@ -3033,7 +3033,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %56, i64 0, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load i8, ptr %61, align 8, !range !9, !noundef !10
+  %62 = load i8, ptr %61, align 8, !range !10, !noundef !11
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
   store i8 %62, ptr %63, align 1
   %64 = load ptr, ptr %0, align 8
@@ -3050,7 +3050,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
 70:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
+  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %103 ], [ 0, %.lr.ph ]
@@ -3059,7 +3059,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %56, i64 0, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load i8, ptr %76, align 8, !range !9, !noundef !10
+  %77 = load i8, ptr %76, align 8, !range !10, !noundef !11
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv79
   store i8 %77, ptr %78, align 1
   %79 = load ptr, ptr %0, align 8
@@ -3076,7 +3076,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
 
 86:                                               ; preds = %83
   store i32 25, ptr %81, align 4
-  %87 = load i8, ptr %76, align 8, !range !9, !noundef !10
+  %87 = load i8, ptr %76, align 8, !range !10, !noundef !11
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %96, label %89
 
@@ -3114,7 +3114,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
 103:                                              ; preds = %96
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %104 = icmp slt i64 %indvars.iv.next80, %49
-  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
+  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %70, %103, %44, %._crit_edge
   %105 = phi i32 [ %43, %._crit_edge ], [ %48, %44 ], [ %48, %103 ], [ %48, %70 ]
@@ -3196,23 +3196,24 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !15}
-!23 = distinct !{!23, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6, !16}
+!24 = distinct !{!24, !5, !6}

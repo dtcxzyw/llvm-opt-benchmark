@@ -297,7 +297,7 @@ clean_encoding_name.exit:                         ; preds = %21
   %.124 = select i1 %44, ptr %45, ptr %.02328
   %.1 = select i1 %44, ptr %.02229, ptr %46
   %.not = icmp ult ptr %.124, %.1
-  br i1 %.not, label %.loopexit, label %26, !llvm.loop !6
+  br i1 %.not, label %.loopexit, label %26, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %7, %1, %4, %40
   %.0 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
@@ -363,6 +363,7 @@ attributes #7 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

@@ -113,9 +113,9 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 65:                                               ; preds = %._crit_edge.i, %.lr.ph17.i
   %66 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !25
+  %67 = load ptr, ptr %66, align 8, !tbaa !26
   %.not.i = icmp eq ptr %67, null
-  br i1 %.not.i, label %Cut_NodeShiftCutLeaves.exit, label %.lr.ph17.i, !llvm.loop !26
+  br i1 %.not.i, label %Cut_NodeShiftCutLeaves.exit, label %.lr.ph17.i, !llvm.loop !27
 
 Cut_NodeShiftCutLeaves.exit:                      ; preds = %65, %50
   %68 = load ptr, ptr %31, align 8, !tbaa !19
@@ -156,9 +156,9 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %65, %50
 
 82:                                               ; preds = %._crit_edge.i147, %.lr.ph17.i141
   %83 = getelementptr inbounds nuw i8, ptr %.01215.i142, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !25
+  %84 = load ptr, ptr %83, align 8, !tbaa !26
   %.not.i148 = icmp eq ptr %84, null
-  br i1 %.not.i148, label %.critedge, label %.lr.ph17.i141, !llvm.loop !26
+  br i1 %.not.i148, label %.critedge, label %.lr.ph17.i141, !llvm.loop !27
 
 .critedge:                                        ; preds = %82, %Cut_NodeShiftCutLeaves.exit, %48
   %.not129 = icmp eq i32 %7, 0
@@ -203,9 +203,9 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %65, %50
 
 100:                                              ; preds = %._crit_edge.i157, %.lr.ph17.i151
   %101 = getelementptr inbounds nuw i8, ptr %.01215.i152, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !25
+  %102 = load ptr, ptr %101, align 8, !tbaa !26
   %.not.i158 = icmp eq ptr %102, null
-  br i1 %.not.i158, label %Cut_NodeShiftCutLeaves.exit159, label %.lr.ph17.i151, !llvm.loop !26
+  br i1 %.not.i158, label %Cut_NodeShiftCutLeaves.exit159, label %.lr.ph17.i151, !llvm.loop !27
 
 Cut_NodeShiftCutLeaves.exit159:                   ; preds = %100, %85
   %.not14.i160 = icmp eq ptr %49, null
@@ -245,27 +245,27 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %100, %85
 
 116:                                              ; preds = %._crit_edge.i167, %.lr.ph17.i161
   %117 = getelementptr inbounds nuw i8, ptr %.01215.i162, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !25
+  %118 = load ptr, ptr %117, align 8, !tbaa !26
   %.not.i168 = icmp eq ptr %118, null
-  br i1 %.not.i168, label %.critedge133, label %.lr.ph17.i161, !llvm.loop !26
+  br i1 %.not.i168, label %.critedge133, label %.lr.ph17.i161, !llvm.loop !27
 
 .critedge133:                                     ; preds = %116, %Cut_NodeShiftCutLeaves.exit159, %.critedge
   %119 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef nonnull %0, i32 noundef %1) #5
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %119, ptr %120, align 8, !tbaa !27
+  store ptr %119, ptr %120, align 8, !tbaa !28
   %121 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef nonnull %0, i32 noundef %1) #5
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %121, ptr %122, align 8, !tbaa !28
+  store ptr %121, ptr %122, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #5
   %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #5
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %Abc_Clock.exit, label %125
 
 125:                                              ; preds = %.critedge133
-  %126 = load i64, ptr %13, align 8, !tbaa !29
+  %126 = load i64, ptr %13, align 8, !tbaa !30
   %.neg217 = mul i64 %126, -1000000
   %127 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %128 = load i64, ptr %127, align 8, !tbaa !31
+  %128 = load i64, ptr %127, align 8, !tbaa !32
   %.neg = sdiv i64 %128, -1000
   %.neg218 = add i64 %.neg, %.neg217
   br label %Abc_Clock.exit
@@ -282,10 +282,10 @@ Abc_Clock.exit:                                   ; preds = %.critedge133, %125
   %indvars.iv.i170 = phi i64 [ 1, %Abc_Clock.exit ], [ %indvars.iv.next.i171, %130 ]
   %131 = getelementptr inbounds nuw [13 x ptr], ptr %14, i64 0, i64 %indvars.iv.i170
   %132 = getelementptr inbounds nuw [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i170
-  store ptr %131, ptr %132, align 8, !tbaa !32
+  store ptr %131, ptr %132, align 8, !tbaa !33
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i171, 13
-  br i1 %exitcond.not.i, label %Cut_ListStart.exit, label %130, !llvm.loop !34
+  br i1 %exitcond.not.i, label %Cut_ListStart.exit, label %130, !llvm.loop !35
 
 Cut_ListStart.exit:                               ; preds = %130
   %133 = load ptr, ptr %29, align 8, !tbaa !19
@@ -312,14 +312,14 @@ Cut_ListStart.exit:                               ; preds = %130
 143:                                              ; preds = %139
   store ptr %141, ptr %.0911.i, align 8, !tbaa !19
   %144 = getelementptr inbounds nuw [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i172
-  %145 = load ptr, ptr %144, align 8, !tbaa !32
+  %145 = load ptr, ptr %144, align 8, !tbaa !33
   br label %146
 
 146:                                              ; preds = %143, %139
   %.1.i = phi ptr [ %.0911.i, %139 ], [ %145, %143 ]
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i172, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, 13
-  br i1 %exitcond.not.i174, label %Cut_ListFinish.exit, label %139, !llvm.loop !35
+  br i1 %exitcond.not.i174, label %Cut_ListFinish.exit, label %139, !llvm.loop !36
 
 Cut_ListFinish.exit:                              ; preds = %146
   store ptr null, ptr %.1.i, align 8, !tbaa !19
@@ -331,10 +331,10 @@ Cut_ListFinish.exit:                              ; preds = %146
   br i1 %148, label %Abc_Clock.exit176, label %149
 
 149:                                              ; preds = %Cut_ListFinish.exit
-  %150 = load i64, ptr %11, align 8, !tbaa !29
+  %150 = load i64, ptr %11, align 8, !tbaa !30
   %151 = mul nsw i64 %150, 1000000
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %153 = load i64, ptr %152, align 8, !tbaa !31
+  %153 = load i64, ptr %152, align 8, !tbaa !32
   %154 = sdiv i64 %153, 1000
   %155 = add nsw i64 %154, %151
   br label %Abc_Clock.exit176
@@ -344,9 +344,9 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #5
   %156 = add i64 %.0.i175, %.0.i.neg
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %158 = load i64, ptr %157, align 8, !tbaa !36
+  %158 = load i64, ptr %157, align 8, !tbaa !37
   %159 = add nsw i64 %156, %158
-  store i64 %159, ptr %157, align 8, !tbaa !36
+  store i64 %159, ptr %157, align 8, !tbaa !37
   br i1 %or.cond131, label %160, label %165
 
 160:                                              ; preds = %Abc_Clock.exit176
@@ -402,9 +402,9 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
 
 181:                                              ; preds = %._crit_edge.i184, %.lr.ph17.i178
   %182 = getelementptr inbounds nuw i8, ptr %.01215.i179, i64 16
-  %183 = load ptr, ptr %182, align 8, !tbaa !25
+  %183 = load ptr, ptr %182, align 8, !tbaa !26
   %.not.i185 = icmp eq ptr %183, null
-  br i1 %.not.i185, label %Cut_NodeShiftCutLeaves.exit186, label %.lr.ph17.i178, !llvm.loop !26
+  br i1 %.not.i185, label %Cut_NodeShiftCutLeaves.exit186, label %.lr.ph17.i178, !llvm.loop !27
 
 Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
   %184 = load ptr, ptr %31, align 8, !tbaa !19
@@ -445,9 +445,9 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 
 198:                                              ; preds = %._crit_edge.i194, %.lr.ph17.i188
   %199 = getelementptr inbounds nuw i8, ptr %.01215.i189, i64 16
-  %200 = load ptr, ptr %199, align 8, !tbaa !25
+  %200 = load ptr, ptr %199, align 8, !tbaa !26
   %.not.i195 = icmp eq ptr %200, null
-  br i1 %.not.i195, label %.critedge137, label %.lr.ph17.i188, !llvm.loop !26
+  br i1 %.not.i195, label %.critedge137, label %.lr.ph17.i188, !llvm.loop !27
 
 .critedge137:                                     ; preds = %198, %Cut_NodeShiftCutLeaves.exit186, %165
   br i1 %.not129, label %.critedge139, label %201
@@ -491,9 +491,9 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 
 216:                                              ; preds = %._crit_edge.i204, %.lr.ph17.i198
   %217 = getelementptr inbounds nuw i8, ptr %.01215.i199, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !25
+  %218 = load ptr, ptr %217, align 8, !tbaa !26
   %.not.i205 = icmp eq ptr %218, null
-  br i1 %.not.i205, label %Cut_NodeShiftCutLeaves.exit206, label %.lr.ph17.i198, !llvm.loop !26
+  br i1 %.not.i205, label %Cut_NodeShiftCutLeaves.exit206, label %.lr.ph17.i198, !llvm.loop !27
 
 Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
   %219 = load ptr, ptr %35, align 8, !tbaa !19
@@ -534,9 +534,9 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
 
 233:                                              ; preds = %._crit_edge.i214, %.lr.ph17.i208
   %234 = getelementptr inbounds nuw i8, ptr %.01215.i209, i64 16
-  %235 = load ptr, ptr %234, align 8, !tbaa !25
+  %235 = load ptr, ptr %234, align 8, !tbaa !26
   %.not.i215 = icmp eq ptr %235, null
-  br i1 %.not.i215, label %.critedge139, label %.lr.ph17.i208, !llvm.loop !26
+  br i1 %.not.i215, label %.critedge139, label %.lr.ph17.i208, !llvm.loop !27
 
 .critedge139:                                     ; preds = %233, %Cut_NodeShiftCutLeaves.exit206, %.critedge137, %160
   %236 = icmp sgt i32 %9, -1
@@ -560,9 +560,9 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
 
 244:                                              ; preds = %239
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %246 = load i32, ptr %245, align 4, !tbaa !37
+  %246 = load i32, ptr %245, align 4, !tbaa !38
   %247 = add nsw i32 %246, 1
-  store i32 %247, ptr %245, align 4, !tbaa !37
+  store i32 %247, ptr %245, align 4, !tbaa !38
   br label %248
 
 248:                                              ; preds = %239, %244, %10
@@ -679,18 +679,19 @@ attributes #5 = { nounwind }
 !20 = !{!21, !12, i64 4}
 !21 = !{!"Cut_CutStruct_t_", !12, i64 0, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 8, !12, i64 12, !13, i64 16, !7, i64 24}
 !22 = !{!12, !12, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!21, !13, i64 16}
-!26 = distinct !{!26, !24}
-!27 = !{!4, !13, i64 128}
-!28 = !{!4, !13, i64 136}
-!29 = !{!30, !14, i64 0}
-!30 = !{!"timespec", !14, i64 0, !14, i64 8}
-!31 = !{!30, !14, i64 8}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p2 _ZTS16Cut_CutStruct_t_", !6, i64 0}
-!34 = distinct !{!34, !24}
-!35 = distinct !{!35, !24}
-!36 = !{!4, !14, i64 272}
-!37 = !{!4, !12, i64 252}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!21, !13, i64 16}
+!27 = distinct !{!27, !24, !25}
+!28 = !{!4, !13, i64 128}
+!29 = !{!4, !13, i64 136}
+!30 = !{!31, !14, i64 0}
+!31 = !{!"timespec", !14, i64 0, !14, i64 8}
+!32 = !{!31, !14, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p2 _ZTS16Cut_CutStruct_t_", !6, i64 0}
+!35 = distinct !{!35, !24, !25}
+!36 = distinct !{!36, !24, !25}
+!37 = !{!4, !14, i64 272}
+!38 = !{!4, !12, i64 252}

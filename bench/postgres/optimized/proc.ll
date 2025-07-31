@@ -527,7 +527,7 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
   store volatile i64 0, ptr %193, align 8
   %194 = add nuw i32 %.0176, 1
   %exitcond188.not = icmp eq i32 %194, %5
-  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph177, !llvm.loop !6
+  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph177, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %188, %.loopexit
   %195 = load i32, ptr @MaxBackends, align 4
@@ -540,7 +540,7 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
   store ptr %200, ptr @PreparedXactProcs, align 8
   %201 = call ptr @ShmemAlloc(i64 noundef 1) #14
   store ptr %201, ptr @ProcStructLock, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   %202 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %202, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #14
@@ -586,7 +586,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %6
-  %12 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
+  %12 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
@@ -611,7 +611,7 @@ switch.lookup:                                    ; preds = %15
   %20 = load ptr, ptr @ProcGlobal, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink7
   %22 = load ptr, ptr @ProcStructLock, align 8
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #14, !srcloc !10
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #14, !srcloc !11
   %.not6 = icmp eq i8 %23, 0
   br i1 %.not6, label %27, label %24
 
@@ -641,7 +641,7 @@ switch.lookup:                                    ; preds = %15
   %40 = load ptr, ptr %32, align 8
   store ptr %40, ptr %37, align 8
   store ptr %32, ptr @MyProc, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   %41 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %41, align 1
   %42 = load ptr, ptr @MyProc, align 8
@@ -727,7 +727,7 @@ switch.lookup:                                    ; preds = %15
   ret void
 
 87:                                               ; preds = %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
   %88 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %88, align 1
   %89 = load i32, ptr @MyBackendType, align 4
@@ -844,7 +844,7 @@ define internal void @ProcKill(i32 %0, i64 %1) #0 {
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @ProcStructLock, align 8
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #14, !srcloc !10
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #14, !srcloc !11
   %.not23 = icmp eq i8 %46, 0
   br i1 %.not23, label %50, label %47
 
@@ -870,7 +870,7 @@ dlist_push_head.exit:                             ; preds = %50, %54
   store ptr %44, ptr %14, align 8
   store ptr %14, ptr %55, align 8
   store ptr %14, ptr %51, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   %57 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %57, align 1
   br label %62
@@ -906,7 +906,7 @@ dlist_push_head.exit:                             ; preds = %50, %54
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr @ProcStructLock, align 8
-  %72 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71, i8 1, ptr elementtype(i8) %71) #14, !srcloc !10
+  %72 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71, i8 1, ptr elementtype(i8) %71) #14, !srcloc !11
   %.not24 = icmp eq i8 %72, 0
   br i1 %.not24, label %76, label %73
 
@@ -950,7 +950,7 @@ dlist_push_tail.exit:                             ; preds = %80, %84
   %93 = load ptr, ptr @ProcGlobal, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 120
   store i32 %92, ptr %94, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !15
   %95 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %95, align 1
   %96 = load i32, ptr @AutovacuumLauncherPid, align 4
@@ -1015,7 +1015,7 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   unreachable
 
 13:                                               ; preds = %8
-  %14 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
+  %14 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -1025,7 +1025,7 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
 
 17:                                               ; preds = %16, %13
   %18 = load ptr, ptr @ProcStructLock, align 8
-  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18, i8 1, ptr elementtype(i8) %18) #14, !srcloc !10
+  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18, i8 1, ptr elementtype(i8) %18) #14, !srcloc !11
   %.not9 = icmp eq i8 %19, 0
   br i1 %.not9, label %23, label %20
 
@@ -1053,10 +1053,10 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
 33:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %34, label %28, !llvm.loop !15
+  br i1 %exitcond.not, label %34, label %28, !llvm.loop !16
 
 34:                                               ; preds = %33
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
   %35 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %35, align 1
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
@@ -1069,7 +1069,7 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 60
   %40 = load i32, ptr @MyProcPid, align 4
   store volatile i32 %40, ptr %39, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
   %41 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %41, align 1
   store ptr %29, ptr @MyProc, align 8
@@ -1151,7 +1151,7 @@ define internal void @AuxiliaryProcKill(i32 %0, i64 %1) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   tail call void @DisownLatch(ptr noundef nonnull %13) #14
   %14 = load ptr, ptr @ProcStructLock, align 8
-  %15 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i8 1, ptr elementtype(i8) %14) #14, !srcloc !10
+  %15 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i8 1, ptr elementtype(i8) %14) #14, !srcloc !11
   %.not5 = icmp eq i8 %15, 0
   br i1 %.not5, label %19, label %16
 
@@ -1174,7 +1174,7 @@ define internal void @AuxiliaryProcKill(i32 %0, i64 %1) #0 {
   %27 = load ptr, ptr @ProcGlobal, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i32 %26, ptr %28, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   %29 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %29, align 1
   ret void
@@ -1199,7 +1199,7 @@ define dso_local i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #7 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ProcStructLock, align 8
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #14, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #14, !srcloc !11
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -1231,10 +1231,10 @@ define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not10 = icmp eq ptr %18, %10
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16, %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !21
   %19 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %19, align 1
   %20 = load i32, ptr %1, align 4
@@ -1349,7 +1349,7 @@ define dso_local ptr @AuxiliaryPidGetProc(i32 noundef %0) local_unnamed_addr #8 
 4:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !22
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
@@ -1411,7 +1411,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.016.0126, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not91 = icmp eq ptr %30, %18
-  br i1 %.not91, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not91, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %28, %17, %3
   %.076 = phi i32 [ %15, %3 ], [ %15, %17 ], [ %.278, %28 ]
@@ -1458,7 +1458,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130.us, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not94.us = icmp eq ptr %50, %10
-  br i1 %.not94.us, label %.thread115, label %39, !llvm.loop !23
+  br i1 %.not94.us, label %.thread115, label %39, !llvm.loop !24
 
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %76
   %.sroa.0.0130 = phi ptr [ %78, %76 ], [ %36, %.lr.ph131 ]
@@ -1515,7 +1515,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not94 = icmp eq ptr %78, %10
-  br i1 %.not94, label %.thread115, label %.lr.ph131.split, !llvm.loop !25
+  br i1 %.not94, label %.thread115, label %.lr.ph131.split, !llvm.loop !26
 
 79:                                               ; preds = %71
   tail call void @GrantLock(ptr noundef %7, ptr noundef %9, i32 noundef %5) #14
@@ -1624,7 +1624,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 23168
   %24 = tail call zeroext i1 @RecoveryInProgress() #14
   %.not = xor i1 %24, true
-  %25 = load i8, ptr @InRecovery, align 1, !range !8
+  %25 = load i8, ptr @InRecovery, align 1, !range !9
   %26 = trunc nuw i8 %25 to i1
   %or.cond = select i1 %.not, i1 true, i1 %26
   br i1 %or.cond, label %28, label %27
@@ -1676,7 +1676,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   br label %52
 
 47:                                               ; preds = %28
-  %48 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !8, !noundef !9
+  %48 = load i8, ptr @log_recovery_conflict_waits, align 1, !range !9, !noundef !10
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %52
 
@@ -1747,7 +1747,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %89 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %88, i32 noundef 0) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %90, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not.i, label %90, label %.preheader, !llvm.loop !27
 
 90:                                               ; preds = %.preheader
   %91 = load ptr, ptr @MyProc, align 8
@@ -1786,7 +1786,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %109 = getelementptr i8, ptr %108, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %109) #14
   %110 = icmp samesign ugt i64 %indvars.iv9.i, 1
-  br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !27
+  br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !28
 
 CheckDeadLock.exit:                               ; preds = %106
   store volatile i32 0, ptr @got_deadlock_timeout, align 4
@@ -1795,7 +1795,7 @@ CheckDeadLock.exit:                               ; preds = %106
 111:                                              ; preds = %78, %CheckDeadLock.exit
   %112 = load volatile i32, ptr @InterruptPending, align 4
   %.not89 = icmp eq i32 %112, 0
-  br i1 %.not89, label %114, label %113, !prof !28
+  br i1 %.not89, label %114, label %113, !prof !29
 
 113:                                              ; preds = %111
   call void @ProcessInterrupts() #14
@@ -1898,7 +1898,7 @@ CheckDeadLock.exit:                               ; preds = %106
 165:                                              ; preds = %164, %114
   %166 = phi i32 [ %.pre, %164 ], [ %118, %114 ]
   %.1 = phi i1 [ false, %164 ], [ %.074, %114 ]
-  %167 = load i8, ptr @log_lock_waits, align 1, !range !8, !noundef !9
+  %167 = load i8, ptr @log_lock_waits, align 1, !range !9, !noundef !10
   %168 = trunc nuw i8 %167 to i1
   %169 = icmp ne i32 %166, 0
   %or.cond5 = select i1 %168, i1 %169, i1 false
@@ -1974,7 +1974,7 @@ CheckDeadLock.exit:                               ; preds = %106
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.0.0101, i64 8
   %200 = load ptr, ptr %199, align 8
   %.not94 = icmp eq ptr %200, %58
-  br i1 %.not94, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not94, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %198
   %201 = sext i32 %.178 to i64
@@ -2082,7 +2082,7 @@ CheckDeadLock.exit:                               ; preds = %106
 
 248:                                              ; preds = %165, %244
   %249 = icmp eq i32 %117, 1
-  br i1 %249, label %60, label %250, !llvm.loop !30
+  br i1 %249, label %60, label %250, !llvm.loop !31
 
 250:                                              ; preds = %248
   %251 = load i32, ptr @standbyState, align 4
@@ -2299,7 +2299,7 @@ define dso_local void @ProcLockWakeup(ptr noundef %0, ptr noundef %1) local_unna
 ProcWakeup.exit:                                  ; preds = %26, %23, %39
   %.1 = phi i32 [ %41, %39 ], [ %.028, %23 ], [ %.028, %26 ]
   %.not23 = icmp eq ptr %.sroa.8.030, %3
-  br i1 %.not23, label %.loopexit, label %10, !llvm.loop !31
+  br i1 %.not23, label %.loopexit, label %10, !llvm.loop !32
 
 .loopexit:                                        ; preds = %ProcWakeup.exit, %6, %2
   ret void
@@ -2324,7 +2324,7 @@ define dso_local void @ProcWaitForSignal(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @ResetLatch(ptr noundef %4) #14
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6, !prof !28
+  br i1 %.not, label %7, label %6, !prof !29
 
 6:                                                ; preds = %1
   tail call void @ProcessInterrupts() #14
@@ -2518,31 +2518,32 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i64 2150954670}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = !{i64 2084685, i64 2084701}
-!11 = !{i64 2150958495}
-!12 = !{i64 2150958612}
-!13 = !{i64 2150968546}
-!14 = !{i64 2150968900}
-!15 = distinct !{!15, !5}
-!16 = !{i64 2150963493}
-!17 = !{i64 2150964334}
-!18 = !{i64 2150970063}
-!19 = distinct !{!19, !5}
-!20 = !{i64 2150966477}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i64 2150954670}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{i64 2084685, i64 2084701}
+!12 = !{i64 2150958495}
+!13 = !{i64 2150958612}
+!14 = !{i64 2150968546}
+!15 = !{i64 2150968900}
+!16 = distinct !{!16, !5, !6}
+!17 = !{i64 2150963493}
+!18 = !{i64 2150964334}
+!19 = !{i64 2150970063}
+!20 = distinct !{!20, !5, !6}
+!21 = !{i64 2150966477}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}

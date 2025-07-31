@@ -93,7 +93,7 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %23 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.046, double %22)
   %24 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.032.044, double %23)
   %25 = icmp samesign ugt i32 %.in, 1
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16, %5
   %.sroa.032.0.lcssa = phi double [ %.sroa.032.0.copyload, %5 ], [ %20, %16 ]
@@ -133,6 +133,7 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !7 = !{!8, !4, i64 0}
 !8 = !{!"_ZTS7COMPLEX", !4, i64 0, !4, i64 8}
 !9 = !{!8, !4, i64 8}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

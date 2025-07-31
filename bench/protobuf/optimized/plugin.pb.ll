@@ -838,22 +838,22 @@ entry:
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %suffix_, align 8
   %major_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %major_8 = getelementptr inbounds nuw i8, ptr %other, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %major_8, %entry ]
   %__first1.addr.06.i.idx.i = phi i64 [ %__first1.addr.06.i.add.i, %for.body.i.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr.i = getelementptr inbounds nuw i8, ptr %major_, i64 %__first1.addr.06.i.idx.i
-  %7 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
-  %8 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
-  store i8 %8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
-  store i8 %7, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
+  %7 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
+  %8 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
+  store i8 %8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
+  store i8 %7, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
   %__first1.addr.06.i.add.i = add nuw nsw i64 %__first1.addr.06.i.idx.i, 1
   %incdec.ptr1.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %__first1.addr.06.i.add.i, 12
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !12
 
 _ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit: ; preds = %for.body.i.i
   ret void
@@ -899,7 +899,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i: ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -940,7 +940,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i: ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -1360,7 +1360,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvv.exit.i.i: ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -1395,7 +1395,7 @@ do.body.i.i.i12:                                  ; preds = %do.body.i.i.i12, %i
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i14, %wide.trip.count.i.i.i11
-  br i1 %exitcond.not.i.i.i16, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i12, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i16, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i12, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i: ; preds = %do.body.i.i.i12
   store i32 0, ptr %current_size_.i.i3, align 8
@@ -1430,7 +1430,7 @@ do.body.i.i.i26:                                  ; preds = %do.body.i.i.i26, %i
   %17 = load ptr, ptr %vfn.i.i.i.i31, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %16)
   %exitcond.not.i.i.i32 = icmp eq i64 %indvars.iv.next.i.i.i28, %wide.trip.count.i.i.i25
-  br i1 %exitcond.not.i.i.i32, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i33, label %do.body.i.i.i26, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i32, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i33, label %do.body.i.i.i26, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i33: ; preds = %do.body.i.i.i26
   store i32 0, ptr %current_size_.i.i17, align 8
@@ -1592,7 +1592,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %retval.i58.0 = phi ptr [ %call6.i, %if.then.i63 ], [ %add.ptr.i, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %retval.i58.0, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
@@ -1682,7 +1682,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %call29 = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef %19, ptr noundef %target.addr.378, ptr noundef %stream)
   %inc31 = add nuw i32 %i20.079, 1
   %exitcond87.not = icmp eq i32 %inc31, %14
-  br i1 %exitcond87.not, label %for.end32, label %for.body25, !llvm.loop !15
+  br i1 %exitcond87.not, label %for.end32, label %for.body25, !llvm.loop !16
 
 for.end32:                                        ; preds = %for.body25, %if.end19
   %target.addr.3.lcssa = phi ptr [ %target.addr.2, %if.end19 ], [ %call29, %for.body25 ]
@@ -1714,7 +1714,7 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %call43 = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 17, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef %25, ptr noundef %target.addr.482, ptr noundef %stream)
   %inc45 = add nuw i32 %i33.083, 1
   %exitcond88.not = icmp eq i32 %inc45, %20
-  br i1 %exitcond88.not, label %for.end46, label %for.body38, !llvm.loop !16
+  br i1 %exitcond88.not, label %for.end46, label %for.body38, !llvm.loop !17
 
 for.end46:                                        ; preds = %for.body38, %for.end32
   %target.addr.4.lcssa = phi ptr [ %target.addr.3.lcssa, %for.end32 ], [ %call43, %for.body38 ]
@@ -1774,7 +1774,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add9 = add i64 %add.i.i, %conv.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ %conv.i, %entry ], [ %add9, %for.body ]
@@ -1813,7 +1813,7 @@ for.body19:                                       ; preds = %for.end, %for.body1
   %add22 = add i64 %add.i.i33, %conv.i.i.i32
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.085, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i.not, label %for.end25, label %for.body19
+  br i1 %cmp.i.not, label %for.end25, label %for.body19, !llvm.loop !19
 
 for.end25:                                        ; preds = %for.body19, %for.end
   %total_size.1.lcssa = phi i64 [ %add12, %for.end ], [ %add22, %for.body19 ]
@@ -1853,7 +1853,7 @@ for.body40:                                       ; preds = %for.end25, %for.bod
   %add44 = add i64 %add.i.i57, %conv.i.i.i56
   %incdec.ptr.i58 = getelementptr inbounds nuw i8, ptr %__begin232.sroa.0.089, i64 8
   %cmp.i48.not = icmp eq ptr %incdec.ptr.i58, %add.ptr.i47
-  br i1 %cmp.i48.not, label %for.end47, label %for.body40
+  br i1 %cmp.i48.not, label %for.end47, label %for.body40, !llvm.loop !20
 
 for.end47:                                        ; preds = %for.body40, %for.end25
   %total_size.2.lcssa = phi i64 [ %add29, %for.end25 ], [ %add44, %for.body40 ]
@@ -1961,7 +1961,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %proto_file_.i, ptr %arrayidx.i.i.i.i.i
   %7 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %call2.i = tail call noundef zeroext i1 @_ZNK6google8protobuf19FileDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(224) %7)
-  br i1 %call2.i, label %for.cond.i, label %return, !llvm.loop !18
+  br i1 %call2.i, label %for.cond.i, label %return, !llvm.loop !21
 
 if.end:                                           ; preds = %for.cond.i
   %source_file_descriptors_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1989,7 +1989,7 @@ for.body.i5:                                      ; preds = %for.cond.i2
   %retval.0.i.i.i.i.i11 = select i1 %cmp.i.i.i.i.i.i7, ptr %source_file_descriptors_.i, ptr %arrayidx.i.i.i.i.i10
   %15 = load ptr, ptr %retval.0.i.i.i.i.i11, align 8
   %call2.i12 = tail call noundef zeroext i1 @_ZNK6google8protobuf19FileDescriptorProto13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(224) %15)
-  br i1 %call2.i12, label %for.cond.i2, label %return, !llvm.loop !18
+  br i1 %call2.i12, label %for.cond.i2, label %return, !llvm.loop !21
 
 return:                                           ; preds = %for.body.i, %for.body.i5, %for.cond.i2
   %retval.0 = phi i1 [ %cmp.i4, %for.cond.i2 ], [ %cmp.i4, %for.body.i5 ], [ false, %for.body.i ]
@@ -3172,7 +3172,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i, label %do.body.i.i.i, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i: ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -3434,7 +3434,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call29 = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %20, ptr noundef %target.addr.451, ptr noundef %stream)
   %inc = add nuw i32 %i.050, 1
   %exitcond.not = icmp eq i32 %inc, %15
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %if.end24
   %target.addr.4.lcssa = phi ptr [ %target.addr.3, %if.end24 ], [ %call29, %for.body ]
@@ -3493,7 +3493,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add9 = add i64 %add.i.i, %conv.i.i.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.039, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add9, %for.body ]
@@ -3627,7 +3627,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i.i, label %do.body.i.i.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i.i, label %do.body.i.i.i.i, !llvm.loop !13
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase13ClearNonEmptyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit.i.i.i: ; preds = %do.body.i.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -3895,7 +3895,7 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !24
 
 for.end.i:                                        ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i
   %.pre.i = load ptr, ptr %this, align 8
@@ -4004,7 +4004,7 @@ delete.notnull.i.i.i.i:                           ; preds = %for.body.i.i
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !24
 
 for.end.i.i:                                      ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i.i
   %.pre.i.i = load ptr, ptr %file_to_generate_, align 8
@@ -4170,20 +4170,24 @@ attributes #21 = { allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
-!8 = distinct !{!8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
-!9 = !{!10}
-!10 = distinct !{!10, !8, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
+!9 = distinct !{!9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
+!10 = !{!11}
+!11 = distinct !{!11, !9, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !5, !6}

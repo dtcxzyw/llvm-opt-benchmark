@@ -170,7 +170,7 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %91 = getelementptr inbounds nuw double, ptr %.2123.i, i64 %47
   %92 = add nuw nsw i64 %.1104119.i, 2
   %93 = icmp samesign ult i64 %92, %.0102129.i
-  br i1 %93, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !9
+  br i1 %93, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !10
 
 ._crit_edge125.i:                                 ; preds = %.lr.ph124.i, %.preheader.i
   %.2101.lcssa.i = phi ptr [ %.0105128.i, %.preheader.i ], [ %87, %.lr.ph124.i ]
@@ -182,7 +182,7 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
 95:                                               ; preds = %._crit_edge125.i, %82, %.thread.i
   %96 = add nuw nsw i64 %.0102129.i, 2
   %97 = icmp slt i64 %96, %36
-  br i1 %97, label %48, label %SYMCOPY_U.exit.loopexit, !llvm.loop !10
+  br i1 %97, label %48, label %SYMCOPY_U.exit.loopexit, !llvm.loop !11
 
 SYMCOPY_U.exit.loopexit:                          ; preds = %95
   %98 = getelementptr inbounds double, ptr %.078, i64 %.07691
@@ -190,7 +190,7 @@ SYMCOPY_U.exit.loopexit:                          ; preds = %95
   %100 = tail call i32 @dgemv_n(i64 noundef %36, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %9, i64 noundef %36, ptr noundef %98, i64 noundef 1, ptr noundef %99, i64 noundef 1, ptr noundef %.1) #3
   %101 = add nsw i64 %.07691, 8
   %102 = icmp slt i64 %101, %0
-  br i1 %102, label %34, label %._crit_edge, !llvm.loop !11
+  br i1 %102, label %34, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %SYMCOPY_U.exit.loopexit, %31
   br i1 %.not, label %105, label %103
@@ -226,8 +226,9 @@ attributes #3 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

@@ -509,9 +509,9 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
 
 _ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv.exit.i: ; preds = %call.i.i.noexc
   %data_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %data.0.val, i64 16
-  %0 = load ptr, ptr %data_.i.i.i.i.i.i, align 8, !noalias !6
+  %0 = load ptr, ptr %data_.i.i.i.i.i.i, align 8, !noalias !7
   %length_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %data.0.val, i64 32
-  %1 = load i64, ptr %length_.i.i.i.i.i.i, align 8, !noalias !6
+  %1 = load i64, ptr %length_.i.i.i.i.i.i, align 8, !noalias !7
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp1739.i = icmp ugt i64 %call.i.i6, 2
   br i1 %cmp1739.i, label %for.body.i, label %if.then29.i
@@ -569,7 +569,7 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.039.i.i, i64 %sub.ptr.sub.i41.i.i
   %sub.i.i = sub i64 %len.addr.038.i.i, %sub.ptr.sub.i41.i.i
   %cmp.i.i = icmp ult i64 %8, %sub.i.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !9
+  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %if.end6.i.i
   %cmp7.not.i.i = icmp eq i64 %sub.i.i, 0
@@ -683,7 +683,7 @@ if.end6.i184.i:                                   ; preds = %if.end.i162.i
   %add.ptr.i185.i = getelementptr inbounds i8, ptr %p.039.i157.i, i64 %sub.ptr.sub.i41.i155.i
   %sub.i186.i = sub i64 %len.addr.038.i158.i, %sub.ptr.sub.i41.i155.i
   %cmp.i189.i = icmp ult i64 %18, %sub.i186.i
-  br i1 %cmp.i189.i, label %for.body.i154.i, label %for.end.i108.i, !llvm.loop !9
+  br i1 %cmp.i189.i, label %for.body.i154.i, label %for.end.i108.i, !llvm.loop !10
 
 for.end.i108.i:                                   ; preds = %if.end6.i184.i
   %cmp7.not.i113.i = icmp eq i64 %sub.i186.i, 0
@@ -797,7 +797,7 @@ if.end6.i279.i:                                   ; preds = %if.end.i257.i
   %add.ptr.i280.i = getelementptr inbounds i8, ptr %p.039.i252.i, i64 %sub.ptr.sub.i41.i250.i
   %sub.i281.i = sub i64 %len.addr.038.i253.i, %sub.ptr.sub.i41.i250.i
   %cmp.i284.i = icmp ult i64 %28, %sub.i281.i
-  br i1 %cmp.i284.i, label %for.body.i249.i, label %for.end.i203.i, !llvm.loop !9
+  br i1 %cmp.i284.i, label %for.body.i249.i, label %for.end.i203.i, !llvm.loop !10
 
 for.end.i203.i:                                   ; preds = %if.end6.i279.i
   %cmp7.not.i208.i = icmp eq i64 %sub.i281.i, 0
@@ -892,7 +892,7 @@ _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i: ;
   store i8 %37, ptr %incdec.ptr23.i, align 1
   %sub.i5 = add i64 %len.0747.i, -3
   %cmp1.i = icmp ugt i64 %sub.i5, 2
-  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !10
+  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
   %cmp28.not.i = icmp eq i64 %sub.i5, 0
@@ -951,7 +951,7 @@ if.end6.i374.i:                                   ; preds = %if.end.i352.i
   %add.ptr.i375.i = getelementptr inbounds i8, ptr %p.039.i347.i, i64 %sub.ptr.sub.i41.i345.i
   %sub.i376.i = sub i64 %len.addr.038.i348.i, %sub.ptr.sub.i41.i345.i
   %cmp.i379.i = icmp ult i64 %44, %sub.i376.i
-  br i1 %cmp.i379.i, label %for.body.i344.i, label %for.end.i298.i, !llvm.loop !9
+  br i1 %cmp.i379.i, label %for.body.i344.i, label %for.end.i298.i, !llvm.loop !10
 
 for.end.i298.i:                                   ; preds = %if.end6.i374.i
   %cmp7.not.i303.i = icmp eq i64 %sub.i376.i, 0
@@ -1073,7 +1073,7 @@ if.end6.i469.i:                                   ; preds = %if.end.i447.i
   %add.ptr.i470.i = getelementptr inbounds i8, ptr %p.039.i442.i, i64 %sub.ptr.sub.i41.i440.i
   %sub.i471.i = sub i64 %len.addr.038.i443.i, %sub.ptr.sub.i41.i440.i
   %cmp.i474.i = icmp ult i64 %57, %sub.i471.i
-  br i1 %cmp.i474.i, label %for.body.i439.i, label %for.end.i393.i, !llvm.loop !9
+  br i1 %cmp.i474.i, label %for.body.i439.i, label %for.end.i393.i, !llvm.loop !10
 
 for.end.i393.i:                                   ; preds = %if.end6.i469.i
   %cmp7.not.i398.i = icmp eq i64 %sub.i471.i, 0
@@ -1540,7 +1540,7 @@ _ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exi
   %add.ptr = getelementptr inbounds nuw i8, ptr %src.addr.099, i64 4
   %add.ptr28 = getelementptr inbounds nuw i8, ptr %dst.addr.098, i64 3
   %cmp4 = icmp ugt i64 %sub, 4
-  br i1 %cmp4, label %for.body, label %while.end, !llvm.loop !11
+  br i1 %cmp4, label %for.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit50, %for.condthread-pre-split
   %.lcssa = phi i64 [ %.pr, %for.condthread-pre-split ], [ %sub, %_ZN8facebook5velox8encoding6Base6419Base64ReverseLookupEcRKSt5arrayIhLm256EE.exit50 ]
@@ -2058,11 +2058,12 @@ attributes #13 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv: %agg.result"}
-!8 = distinct !{!8, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv: %agg.result"}
+!9 = distinct !{!9, !"_ZNK8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper5beginEv"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

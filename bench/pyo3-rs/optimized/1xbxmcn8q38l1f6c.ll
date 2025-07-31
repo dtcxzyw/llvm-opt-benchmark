@@ -109,7 +109,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %17 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %8, label %._crit_edge.i
+  br i1 %.not.i, label %8, label %._crit_edge.i, !llvm.loop !3
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha87f1cebff4c4010E.exit": ; preds = %._crit_edge.i, %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -164,7 +164,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %16 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %16, 4
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h470e508dd1dfd64cE.exit": ; preds = %._crit_edge.i, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -228,7 +228,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %17 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %8, label %._crit_edge.i
+  br i1 %.not.i, label %8, label %._crit_edge.i, !llvm.loop !6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf08d9122edb6bbb6E.exit": ; preds = %._crit_edge.i, %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -286,7 +286,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %17 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %8, label %._crit_edge.i
+  br i1 %.not.i, label %8, label %._crit_edge.i, !llvm.loop !7
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h267e85af2bf588c7E.exit": ; preds = %._crit_edge.i, %11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -341,7 +341,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %16 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %16, 4
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h817ee0290540dfe8E.exit": ; preds = %._crit_edge.i, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -483,7 +483,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h389dedaa3bd64092E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %1)
   %16 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %16, -9223372036854775807
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 17:                                               ; preds = %8
   %18 = landingpad { ptr, i32 }
@@ -544,7 +544,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %18 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %18, 4
-  br i1 %.not, label %8, label %._crit_edge
+  br i1 %.not, label %8, label %._crit_edge, !llvm.loop !7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -593,7 +593,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %17 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %17, 4
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -642,7 +642,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %17 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %17, 4
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -694,7 +694,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %18 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %18, 4
-  br i1 %.not, label %8, label %._crit_edge
+  br i1 %.not, label %8, label %._crit_edge, !llvm.loop !3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -889,7 +889,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %18 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %18, 4
-  br i1 %.not, label %8, label %._crit_edge
+  br i1 %.not, label %8, label %._crit_edge, !llvm.loop !6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2200,3 +2200,10 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

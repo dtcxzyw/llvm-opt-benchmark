@@ -301,7 +301,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %gep422, ptr noundef nonnull %9) #4
   %162 = add nuw nsw i32 %84, %.1428
   %.not462 = icmp sgt i32 %162, %45
-  br i1 %.not462, label %.loopexit, label %125, !llvm.loop !11
+  br i1 %.not462, label %.loopexit, label %125, !llvm.loop !12
 
 163:                                              ; preds = %82
   %invariant.gep441 = getelementptr i8, ptr %19, i64 8
@@ -374,7 +374,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %gep470, ptr noundef nonnull %9) #4
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, %165
   %.not411 = icmp samesign ugt i64 %indvars.iv.next460, %167
-  br i1 %.not411, label %.loopexit, label %168, !llvm.loop !12
+  br i1 %.not411, label %.loopexit, label %168, !llvm.loop !13
 
 .lr.ph451:                                        ; preds = %163, %.lr.ph451
   %.3450 = phi i32 [ %251, %.lr.ph451 ], [ 1, %163 ]
@@ -436,7 +436,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %224, ptr noundef nonnull %9) #4
   %251 = add nuw nsw i32 %84, %.3450
   %.not463 = icmp sgt i32 %251, %42
-  br i1 %.not463, label %.loopexit, label %.lr.ph451, !llvm.loop !13
+  br i1 %.not463, label %.loopexit, label %.lr.ph451, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %125, %168, %.lr.ph451
   store double %71, ptr %10, align 8, !tbaa !7
@@ -491,8 +491,9 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

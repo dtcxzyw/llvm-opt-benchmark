@@ -167,7 +167,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   %spec.select = add i64 %.03755, %11
   %12 = add nuw i64 %.04054, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = icmp ne i64 %spec.select, 0
@@ -246,7 +246,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   %.1 = phi i32 [ %.062, %23 ], [ %spec.select50, %36 ], [ %spec.select50, %30 ]
   %55 = add nuw i64 %.14160, 1
   %exitcond70.not = icmp eq i64 %55, %1
-  br i1 %exitcond70.not, label %.loopexit, label %23, !llvm.loop !10
+  br i1 %exitcond70.not, label %.loopexit, label %23, !llvm.loop !11
 
 .loopexit.split.loop.exit56:                      ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %.04259, i64 2
@@ -282,7 +282,8 @@ attributes #2 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

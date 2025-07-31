@@ -307,7 +307,7 @@ Wayland_IsPreferred.exit.thread109:               ; preds = %19
   %30 = call i32 %29(ptr noundef nonnull %.097) #12
   %31 = load ptr, ptr @WAYLAND_wl_proxy_destroy, align 8
   call void %31(ptr noundef nonnull %24) #12
-  %32 = load i8, ptr %2, align 1, !range !5, !noundef !6
+  %32 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %Wayland_IsPreferred.exit.thread, label %Wayland_IsPreferred.exit
 
@@ -317,7 +317,7 @@ Wayland_IsPreferred.exit.thread:                  ; preds = %26
 
 Wayland_IsPreferred.exit:                         ; preds = %26
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 5, ptr noundef nonnull @.str.9) #12
-  %.pre.i = load i8, ptr %2, align 1, !range !5
+  %.pre.i = load i8, ptr %2, align 1, !range !6
   %34 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
   br i1 %34, label %39, label %35
@@ -608,7 +608,7 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   %29 = load ptr, ptr %15, align 8
   %30 = tail call i32 %28(ptr noundef %29) #12
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 305
-  %32 = load i8, ptr %31, align 1, !range !5, !noundef !6
+  %32 = load i8, ptr %31, align 1, !range !6, !noundef !7
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %42
 
@@ -776,7 +776,7 @@ define internal zeroext i1 @Wayland_VideoInit(ptr noundef %0) #0 {
   %120 = load ptr, ptr %72, align 8
   %121 = call i32 %120(ptr noundef nonnull %85) #12
   %.not55.i.i.i.i = icmp eq i32 %121, 0
-  br i1 %.not55.i.i.i.i, label %.loopexit.i.i.i.i, label %90, !llvm.loop !7
+  br i1 %.not55.i.i.i.i, label %.loopexit.i.i.i.i, label %90, !llvm.loop !8
 
 .loopexit.i.i.i.i:                                ; preds = %119, %.thread58.i.i.i.i, %82, %77, %71, %64
   %122 = load ptr, ptr %62, align 8
@@ -823,7 +823,7 @@ Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
 138:                                              ; preds = %134, %128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.critedge.i.i.i, label %128, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.critedge.i.i.i, label %128, !llvm.loop !9
 
 .critedge.i.i.i:                                  ; preds = %138, %Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.thread89.i.i.i, %42
   %.pr.i.i = load i32, ptr %48, align 8
@@ -926,7 +926,7 @@ Wayland_GetGNOMEPrimaryDisplayCoordinates.exit.i.i.i: ; preds = %116
   %187 = load i32, ptr %48, align 8
   %188 = sext i32 %187 to i64
   %189 = icmp slt i64 %indvars.iv.next110.i.i.i, %188
-  br i1 %189, label %.lr.ph105.i.i.i, label %Wayland_GetPrimaryDisplay.exit.i.i, !llvm.loop !9
+  br i1 %189, label %.lr.ph105.i.i.i, label %Wayland_GetPrimaryDisplay.exit.i.i, !llvm.loop !10
 
 .loopexit.loopexit106.i.i.i:                      ; preds = %134
   %190 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -1028,13 +1028,13 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
   %indvars.iv.next.i17.i.i = add nuw nsw i64 %indvars.iv.i16.i.i, 1
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next.i17.i.i, %233
-  br i1 %234, label %.lr.ph.i15.i.i, label %.loopexit.i.i.i, !llvm.loop !10
+  br i1 %234, label %.lr.ph.i15.i.i, label %.loopexit.i.i.i, !llvm.loop !11
 
 .loopexit.i.i.i:                                  ; preds = %231, %225, %.preheader54.i.i.i
   %.2.i.i.i = phi i32 [ %226, %225 ], [ %.03661.i.i.i, %.preheader54.i.i.i ], [ %.03661.i.i.i, %231 ]
   %235 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.47, ptr noundef nonnull %2) #12
   %.not47.i.i.i = icmp eq ptr %235, null
-  br i1 %.not47.i.i.i, label %.preheader.i.i.i, label %.preheader54.i.i.i, !llvm.loop !11
+  br i1 %.not47.i.i.i, label %.preheader.i.i.i, label %.preheader54.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %245, %.preheader.i.i.i
   %236 = sext i32 %212 to i64
@@ -1061,7 +1061,7 @@ Wayland_GetPrimaryDisplay.exit.thread.i.i:        ; preds = %191, %Wayland_GetPr
   %.5.i.i.i = phi i32 [ %242, %241 ], [ %.462.i.i.i, %238 ]
   %indvars.iv.next71.i.i.i = add nuw nsw i64 %indvars.iv70.i.i.i, 1
   %exitcond.not.i14.i.i = icmp eq i64 %indvars.iv.next71.i.i.i, %wide.trip.count.i13.i.i
-  br i1 %exitcond.not.i14.i.i, label %._crit_edge.i.i.i, label %238, !llvm.loop !12
+  br i1 %exitcond.not.i14.i.i, label %._crit_edge.i.i.i, label %238, !llvm.loop !13
 
 246:                                              ; preds = %._crit_edge.i.i.i, %200
   call void @SDL_free_REAL(ptr noundef %201) #12
@@ -1091,7 +1091,7 @@ Wayland_SortOutputs.exit.i:                       ; preds = %246, %Wayland_GetPr
   %257 = load i32, ptr %48, align 8
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next.i, %258
-  br i1 %259, label %.lr.ph.i, label %Wayland_FinalizeDisplays.exit, !llvm.loop !13
+  br i1 %259, label %.lr.ph.i, label %Wayland_FinalizeDisplays.exit, !llvm.loop !14
 
 Wayland_FinalizeDisplays.exit:                    ; preds = %.lr.ph.i, %Wayland_SortOutputs.exit.i
   call void @Wayland_InitMouse() #12
@@ -1145,7 +1145,7 @@ define internal void @Wayland_VideoQuit(ptr noundef %0) #0 {
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @Wayland_free_display(ptr noundef %12, i1 noundef zeroext false)
   %13 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %13, label %9, label %._crit_edge.i, !llvm.loop !14
+  br i1 %13, label %9, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %9, %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -1164,7 +1164,7 @@ define internal void @Wayland_VideoQuit(ptr noundef %0) #0 {
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   tail call void @Wayland_SeatDestroy(ptr noundef nonnull %.0.i, i1 noundef zeroext false) #12
   %.not.i = icmp eq ptr %.pn.i, %16
-  br i1 %.not.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !16
 
 ._crit_edge155.i:                                 ; preds = %.lr.ph154.i, %._crit_edge.i
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1545,7 +1545,7 @@ define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonl
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 93
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %37
 
@@ -1553,7 +1553,7 @@ define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonl
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 392
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 395
-  %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %37
 
@@ -1581,7 +1581,7 @@ define internal noundef zeroext i1 @Wayland_GetDisplayBounds(ptr noundef readonl
 
 37:                                               ; preds = %28, %25, %19, %15, %3
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 305
-  %39 = load i8, ptr %38, align 1, !range !5, !noundef !6
+  %39 = load i8, ptr %38, align 1, !range !6, !noundef !7
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %40, label %51, label %42
@@ -1766,7 +1766,7 @@ define internal void @Wayland_DeleteDevice(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %17, label %10
 
@@ -2365,7 +2365,7 @@ define internal void @display_remove_global(ptr noundef captures(address) %0, pt
 .critedge:                                        ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge44, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge44, label %8, !llvm.loop !17
 
 28:                                               ; preds = %13, %20
   %29 = phi i32 [ %18, %13 ], [ %.pre, %20 ]
@@ -2416,7 +2416,7 @@ define internal void @display_remove_global(ptr noundef captures(address) %0, pt
 
 46:                                               ; preds = %.lr.ph60, %.thread
   %.not38 = icmp eq ptr %.pn59, %31
-  br i1 %.not38, label %.loopexit, label %.lr.ph60, !llvm.loop !17
+  br i1 %.not38, label %.loopexit, label %.lr.ph60, !llvm.loop !18
 
 .loopexit:                                        ; preds = %46, %.critedge44, %28
   ret void
@@ -2468,7 +2468,7 @@ define internal fastcc void @Wayland_init_xdg_output(ptr noundef readonly captur
   %22 = load i32, ptr %2, align 8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %6, label %._crit_edge, !llvm.loop !18
+  br i1 %24, label %6, label %._crit_edge, !llvm.loop !19
 }
 
 declare void @Wayland_DisplayInitInputTimestampManager(ptr noundef) local_unnamed_addr #2
@@ -2512,7 +2512,7 @@ define internal fastcc void @Wayland_InitColorManager(ptr noundef readonly captu
   %22 = load i32, ptr %2, align 8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %6, label %._crit_edge, !llvm.loop !19
+  br i1 %24, label %6, label %._crit_edge, !llvm.loop !20
 }
 
 ; Function Attrs: allocsize(1)
@@ -2523,7 +2523,7 @@ declare void @Wayland_GetColorInfoForOutput(ptr noundef, i1 noundef zeroext) loc
 ; Function Attrs: nounwind uwtable
 define internal void @display_handle_geometry(ptr noundef captures(none) initializes((80, 84), (88, 96)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7, ptr noundef %8, i32 noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %17, label %14
 
@@ -2591,7 +2591,7 @@ define internal void @display_handle_mode(ptr noundef captures(none) %0, ptr rea
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %4, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %17, label %14
 
@@ -2668,7 +2668,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 1000, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
+  %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %68
 
@@ -2741,7 +2741,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 370546692, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 305
-  %81 = load i8, ptr %80, align 1, !range !5, !noundef !6
+  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %87, label %83
 
@@ -2771,7 +2771,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
 
 94:                                               ; preds = %87
   %95 = tail call ptr @SDL_GetVideoDisplay(i32 noundef %93) #12
-  %.pre = load i8, ptr %80, align 1, !range !5
+  %.pre = load i8, ptr %80, align 1, !range !6
   br label %98
 
 96:                                               ; preds = %87
@@ -2843,7 +2843,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   %131 = call zeroext i1 @SDL_AddFullscreenDisplayMode(ptr noundef %.087, ptr noundef nonnull %5) #12
   %132 = add nsw i32 %.0104, -1
   %133 = icmp samesign ugt i32 %.0104, 1
-  br i1 %133, label %126, label %.loopexit, !llvm.loop !20
+  br i1 %133, label %126, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %126, %121, %116, %119
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 160
@@ -2912,7 +2912,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
 169:                                              ; preds = %167, %.split.us.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 31
-  br i1 %exitcond41.not.i, label %AddEmulatedModes.exit, label %.split.us.i, !llvm.loop !21
+  br i1 %exitcond41.not.i, label %AddEmulatedModes.exit, label %.split.us.i, !llvm.loop !22
 
 .split.i:                                         ; preds = %145, %183
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %183 ], [ 0, %145 ]
@@ -2945,7 +2945,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
 183:                                              ; preds = %181, %.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
-  br i1 %exitcond.not.i, label %AddEmulatedModes.exit, label %.split.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %AddEmulatedModes.exit, label %.split.i, !llvm.loop !24
 
 AddEmulatedModes.exit:                            ; preds = %183, %169
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
@@ -2979,7 +2979,7 @@ AddEmulatedModes.exit:                            ; preds = %183, %169
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %201 = load ptr, ptr %200, align 8
   %202 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %198, ptr noundef nonnull @.str.42, ptr noundef %201) #12
-  %203 = load i8, ptr %7, align 8, !range !5, !noundef !6
+  %203 = load i8, ptr %7, align 8, !range !6, !noundef !7
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %213, label %205
 
@@ -3204,7 +3204,7 @@ define internal fastcc void @Wayland_free_display(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %.023, i64 416
   %.0 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 15:                                               ; preds = %._crit_edge
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 256
@@ -3402,25 +3402,26 @@ attributes #14 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !4, !5}
+!25 = distinct !{!25, !4, !5}

@@ -177,7 +177,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 69:                                               ; preds = %59, %64, %68
   %70 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %71 = icmp ugt i64 %70, %39
-  br i1 %71, label %43, label %.thread107
+  br i1 %71, label %43, label %.thread107, !llvm.loop !4
 
 .thread107:                                       ; preds = %69, %43, %37
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -201,7 +201,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %79, i32 noundef %11) #8
   %82 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %83 = icmp ugt i64 %82, %39
-  br i1 %83, label %.lr.ph120, label %.critedge
+  br i1 %83, label %.lr.ph120, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph120, %81, %78, %.thread107
   %84 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
@@ -217,7 +217,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %86) #8
   %89 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %90 = icmp ugt i64 %89, %39
-  br i1 %90, label %.lr.ph123, label %.thread113
+  br i1 %90, label %.lr.ph123, label %.thread113, !llvm.loop !7
 
 .thread113:                                       ; preds = %88, %.lr.ph123, %.critedge
   %91 = sub nsw i64 8160, %.083
@@ -241,7 +241,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %98, i32 noundef %11) #8
   %101 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %102 = icmp ugt i64 %101, %91
-  br i1 %102, label %.lr.ph125, label %.critedge2
+  br i1 %102, label %.lr.ph125, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %.lr.ph125, %100, %97, %.thread113
   %103 = load i8, ptr %22, align 8
@@ -360,7 +360,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 10:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %11 = getelementptr inbounds nuw [1664 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %12 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %28, label %14
 
@@ -390,7 +390,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 28:                                               ; preds = %18, %24, %10, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %2
   %29 = call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -448,7 +448,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %74
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next44, %74 ]
   %67 = getelementptr inbounds nuw [1664 x i8], ptr %5, i64 0, i64 %indvars.iv43
-  %68 = load i8, ptr %67, align 1, !range !4, !noundef !5
+  %68 = load i8, ptr %67, align 1, !range !9, !noundef !10
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %74
 
@@ -462,7 +462,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 74:                                               ; preds = %.lr.ph40, %70
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !8
+  br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !13
 
 ._crit_edge41:                                    ; preds = %74, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %5) #8
@@ -517,7 +517,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.058 = phi i1 [ false, %.lr.ph ], [ %.1, %37 ]
   %18 = getelementptr inbounds nuw [1664 x i8], ptr %6, i64 0, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !range !4, !noundef !5
+  %19 = load i8, ptr %18, align 1, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %37, label %21
 
@@ -551,7 +551,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %.1 = phi i1 [ %.058, %21 ], [ true, %17 ], [ %.058, %25 ], [ %.058, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %37
   br i1 %.1, label %38, label %._crit_edge.thread
@@ -608,7 +608,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %73
   %indvars.iv63 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next64, %73 ]
   %66 = getelementptr inbounds nuw [1664 x i8], ptr %7, i64 0, i64 %indvars.iv63
-  %67 = load i8, ptr %66, align 1, !range !4, !noundef !5
+  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %73
 
@@ -622,7 +622,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 73:                                               ; preds = %.lr.ph61, %69
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !10
+  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !15
 
 ._crit_edge62:                                    ; preds = %73, %._crit_edge.thread
   %74 = ptrtoint ptr %46 to i64
@@ -661,7 +661,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.02325 = phi i32 [ 0, %.lr.ph ], [ %.2, %32 ]
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %32, label %16
 
@@ -694,7 +694,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   %.2 = phi i32 [ %.02325, %12 ], [ %.02325, %16 ], [ %29, %26 ], [ %.02325, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %32
   %33 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #8
@@ -712,7 +712,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   call void @pfree(ptr noundef %36) #8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !12
+  br i1 %exitcond36.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !17
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %._crit_edge.thread, %._crit_edge
   %37 = phi ptr [ %10, %._crit_edge.thread ], [ %33, %._crit_edge ], [ %33, %.lr.ph29 ]
@@ -906,7 +906,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
   %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #8
   %.not = icmp eq ptr %121, null
-  br i1 %.not, label %._crit_edge, label %52, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %52, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %106, %39
   %.083.lcssa = phi i32 [ %21, %39 ], [ %120, %106 ]
@@ -974,7 +974,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %23 = load i8, ptr %22, align 2, !range !4, !noundef !5
+  %23 = load i8, ptr %22, align 2, !range !9, !noundef !10
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %26 = load i16, ptr %25, align 4
@@ -1080,13 +1080,18 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = !{}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !12, !5}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !5}
+!14 = distinct !{!14, !12, !5}
+!15 = distinct !{!15, !12, !5}
+!16 = distinct !{!16, !12, !5}
+!17 = distinct !{!17, !12, !5}
+!18 = distinct !{!18, !12, !5}

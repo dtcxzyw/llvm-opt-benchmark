@@ -68,7 +68,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_asc(ptr noundef %0, ptr noundef 
   %7 = phi ptr [ %18, %15 ], [ %6, %4 ]
   %.012.i = phi ptr [ %16, %15 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %ASN1_BIT_STRING_num_asc.exit, label %12
@@ -83,7 +83,7 @@ define range(i32 0, 2) i32 @ASN1_BIT_STRING_set_asc(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %ASN1_BIT_STRING_num_asc.exit.thread, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %ASN1_BIT_STRING_num_asc.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 ASN1_BIT_STRING_num_asc.exit:                     ; preds = %.lr.ph.i, %12
   %19 = load i32, ptr %.012.i, align 8, !tbaa !10
@@ -118,7 +118,7 @@ define i32 @ASN1_BIT_STRING_num_asc(ptr noundef readonly captures(none) %0, ptr 
   %5 = phi ptr [ %18, %15 ], [ %4, %2 ]
   %.012 = phi ptr [ %16, %15 ], [ %1, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #5
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
@@ -137,7 +137,7 @@ define i32 @ASN1_BIT_STRING_num_asc(ptr noundef readonly captures(none) %0, ptr 
   %17 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %15, %2, %13
   %.08 = phi i32 [ %14, %13 ], [ -1, %2 ], [ -1, %15 ]
@@ -169,7 +169,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!4, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!4, !8, i64 16}
-!14 = distinct !{!14, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!4, !8, i64 16}
+!15 = distinct !{!15, !12, !13}

@@ -727,7 +727,7 @@ thread-pre-split486:                              ; preds = %288
   store double %373, ptr %371, align 8, !tbaa !7
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next546, %wide.trip.count548
-  br i1 %exitcond549.not, label %..loopexit499_crit_edge, label %.lr.ph505, !llvm.loop !11
+  br i1 %exitcond549.not, label %..loopexit499_crit_edge, label %.lr.ph505, !llvm.loop !12
 
 ..loopexit499_crit_edge:                          ; preds = %.lr.ph505
   store i32 %364, ptr %24, align 4, !tbaa !3
@@ -787,7 +787,7 @@ thread-pre-split486:                              ; preds = %288
 394:                                              ; preds = %.lr.ph509
   %indvars.iv.next551 = add nsw i64 %indvars.iv550, 1
   %395 = icmp slt i64 %indvars.iv.next551, %390
-  br i1 %395, label %.lr.ph509, label %._crit_edge510
+  br i1 %395, label %.lr.ph509, label %._crit_edge510, !llvm.loop !13
 
 ._crit_edge510.loopexit.split.loop.exit:          ; preds = %.lr.ph509
   %396 = trunc nsw i64 %indvars.iv550 to i32
@@ -832,7 +832,7 @@ thread-pre-split486:                              ; preds = %288
   %.1436 = add nsw i32 %385, 1
   %418 = sext i32 %417 to i64
   %.not467.not = icmp slt i64 %indvars.iv553, %418
-  br i1 %.not467.not, label %382, label %.loopexit498, !llvm.loop !12
+  br i1 %.not467.not, label %382, label %.loopexit498, !llvm.loop !14
 
 .loopexit498:                                     ; preds = %416, %375, %.loopexit499
   %419 = load double, ptr %29, align 8, !tbaa !7
@@ -910,7 +910,7 @@ thread-pre-split486:                              ; preds = %288
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next559 to i32
   %exitcond561.not = icmp eq i32 %442, %lftr.wideiv
-  br i1 %exitcond561.not, label %._crit_edge528, label %.lr.ph527, !llvm.loop !13
+  br i1 %exitcond561.not, label %._crit_edge528, label %.lr.ph527, !llvm.loop !15
 
 ._crit_edge528:                                   ; preds = %.lr.ph527
   %.not472 = icmp eq i32 %.1432, 0
@@ -953,7 +953,7 @@ thread-pre-split486:                              ; preds = %288
   %464 = sext i32 %463 to i64
   %.not470.not = icmp slt i64 %indvars.iv562, %464
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
-  br i1 %.not470.not, label %.lr.ph540, label %.loopexit, !llvm.loop !14
+  br i1 %.not470.not, label %.lr.ph540, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge528.thread, %433, %430, %426
   store double %127, ptr %16, align 8, !tbaa !7
@@ -1050,9 +1050,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

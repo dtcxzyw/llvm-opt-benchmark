@@ -762,7 +762,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !70
+  %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -988,6 +988,7 @@ attributes #23 = { builtin allocsize(0) }
 !65 = !{!63, !64, i64 8}
 !66 = !{!67, !9, i64 0}
 !67 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!63, !64, i64 16}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!63, !64, i64 16}

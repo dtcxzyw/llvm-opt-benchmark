@@ -1109,7 +1109,7 @@ open_walfile.exit.i.i:                            ; preds = %449, %426
 490:                                              ; preds = %479, %478, %466
   %.153.i.i = phi i32 [ 0, %479 ], [ 0, %478 ], [ %470, %466 ]
   %.not66.i.i = icmp eq i32 %468, 0
-  br i1 %.not66.i.i, label %ProcessXLogDataMsg.exit.i, label %358, !llvm.loop !8
+  br i1 %.not66.i.i, label %ProcessXLogDataMsg.exit.i, label %358, !llvm.loop !9
 
 ProcessXLogDataMsg.exit.i:                        ; preds = %490, %355
   %.5.ph89.i = phi i64 [ %340, %355 ], [ %469, %490 ]
@@ -1571,6 +1571,7 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

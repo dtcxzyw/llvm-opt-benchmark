@@ -230,7 +230,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %91 = add nuw i32 %.1141.i.i, 1
   %92 = zext i32 %.1141.i.i to i64
   %93 = getelementptr inbounds nuw i16, ptr %0, i64 %92
-  store i16 %90, ptr %93, align 2, !tbaa !10
+  store i16 %90, ptr %93, align 2, !tbaa !11
   %94 = icmp ne i32 %87, 0
   %95 = icmp slt i32 %.2163.i.i, %.0158.i.i
   br i1 %95, label %96, label %103
@@ -282,7 +282,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %.8.i.i = phi ptr [ %109, %._crit_edge37 ], [ %33, %111 ]
   %.val.i = load i32, ptr %.8.i.i, align 1, !tbaa !3
   %116 = lshr i32 %.val.i, %.9.i.i
-  br label %35
+  br label %35, !llvm.loop !13
 
 .thread19:                                        ; preds = %103, %96, %._crit_edge
   %.1162.i.i = phi i32 [ %.0161.i.i, %._crit_edge ], [ %.2163.i.i, %96 ], [ %.2163.i.i, %103 ]
@@ -497,7 +497,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %87 = add nuw i32 %.1141.i, 1
   %88 = zext i32 %.1141.i to i64
   %89 = getelementptr inbounds nuw i16, ptr %0, i64 %88
-  store i16 %86, ptr %89, align 2, !tbaa !10
+  store i16 %86, ptr %89, align 2, !tbaa !11
   %90 = icmp ne i32 %83, 0
   %91 = icmp slt i32 %.2163.i, %.0158.i
   br i1 %91, label %92, label %99
@@ -549,7 +549,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %.8.i = phi ptr [ %105, %._crit_edge30 ], [ %29, %107 ]
   %.val.i6 = load i32, ptr %.8.i, align 1, !tbaa !3
   %112 = lshr i32 %.val.i6, %.9.i
-  br label %31
+  br label %31, !llvm.loop !13
 
 .thread12:                                        ; preds = %99, %92, %._crit_edge
   %.1162.i = phi i32 [ %.0161.i, %._crit_edge ], [ %.2163.i, %92 ], [ %.2163.i, %99 ]
@@ -617,7 +617,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   br i1 %.not.i.i, label %_ZN11duckdb_zstdL26HUF_readStats_body_defaultEPhmPjS1_S1_PKvmPvm.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = load i8, ptr %5, align 1, !tbaa !12
+  %16 = load i8, ptr %5, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
   %18 = icmp slt i8 %16, 0
   br i1 %18, label %19, label %34
@@ -650,17 +650,17 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %26 = lshr exact i64 %indvars.iv.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !12
+  %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = lshr i8 %28, 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %29, ptr %30, align 1, !tbaa !12
-  %31 = load i8, ptr %27, align 1, !tbaa !12
+  store i8 %29, ptr %30, align 1, !tbaa !14
+  %31 = load i8, ptr %27, align 1, !tbaa !14
   %32 = and i8 %31, 15
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i8 %32, ptr %gep.i, align 1, !tbaa !12
+  store i8 %32, ptr %gep.i, align 1, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %33 = icmp ult i64 %indvars.iv.next.i, %20
-  br i1 %33, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
+  br i1 %33, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !15
 
 34:                                               ; preds = %15
   %.not87.i.i = icmp ugt i64 %6, %17
@@ -685,7 +685,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   %.072.i12.i = phi i32 [ %53, %44 ], [ 0, %.loopexit.i ]
   %.075.i11.i = phi i32 [ %54, %44 ], [ 0, %.loopexit.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !12
+  %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = icmp ugt i8 %42, 12
   br i1 %43, label %_ZN11duckdb_zstdL26HUF_readStats_body_defaultEPhmPjS1_S1_PKvmPvm.exit, label %44
 
@@ -695,7 +695,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !3
-  %49 = load i8, ptr %41, align 1, !tbaa !12
+  %49 = load i8, ptr %41, align 1, !tbaa !14
   %50 = zext nneg i8 %49 to i32
   %51 = shl nuw i32 1, %50
   %52 = ashr i32 %51, 1
@@ -703,7 +703,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   %54 = add i32 %.075.i11.i, 1
   %55 = zext i32 %54 to i64
   %.not91.i.i = icmp ugt i64 %.074.i.i, %55
-  br i1 %.not91.i.i, label %.lr.ph13.i, label %.critedge.i.i, !llvm.loop !14
+  br i1 %.not91.i.i, label %.lr.ph13.i, label %.critedge.i.i, !llvm.loop !16
 
 .critedge.i.i:                                    ; preds = %44
   %.old.i.i = icmp eq i32 %53, 0
@@ -730,7 +730,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   %68 = sub nuw nsw i32 32, %64
   %69 = trunc nuw nsw i32 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i.i
-  store i8 %69, ptr %70, align 1, !tbaa !12
+  store i8 %69, ptr %70, align 1, !tbaa !14
   %71 = zext nneg i32 %68 to i64
   %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !3
@@ -765,7 +765,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   br i1 %.not.i, label %_ZN11duckdb_zstdL18HUF_readStats_bodyEPhmPjS1_S1_PKvmPvmi.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr %5, align 1, !tbaa !12
+  %11 = load i8, ptr %5, align 1, !tbaa !14
   %12 = zext i8 %11 to i64
   %13 = icmp slt i8 %11, 0
   br i1 %13, label %14, label %30
@@ -799,18 +799,18 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = lshr exact i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !12
+  %24 = load i8, ptr %23, align 1, !tbaa !14
   %25 = lshr i8 %24, 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %25, ptr %26, align 1, !tbaa !12
-  %27 = load i8, ptr %23, align 1, !tbaa !12
+  store i8 %25, ptr %26, align 1, !tbaa !14
+  %27 = load i8, ptr %23, align 1, !tbaa !14
   %28 = and i8 %27, 15
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %28, ptr %gep, align 1, !tbaa !12
+  store i8 %28, ptr %gep, align 1, !tbaa !14
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
   %29 = icmp ugt i32 %21, %indvars
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 30:                                               ; preds = %10
   %.not87.i = icmp ugt i64 %6, %12
@@ -835,7 +835,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   %.072.i12 = phi i32 [ %49, %40 ], [ 0, %.loopexit ]
   %.075.i11 = phi i32 [ %50, %40 ], [ 0, %.loopexit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !12
+  %38 = load i8, ptr %37, align 1, !tbaa !14
   %39 = icmp ugt i8 %38, 12
   br i1 %39, label %_ZN11duckdb_zstdL18HUF_readStats_bodyEPhmPjS1_S1_PKvmPvmi.exit, label %40
 
@@ -845,7 +845,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   %43 = load i32, ptr %42, align 4, !tbaa !3
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !3
-  %45 = load i8, ptr %37, align 1, !tbaa !12
+  %45 = load i8, ptr %37, align 1, !tbaa !14
   %46 = zext nneg i8 %45 to i32
   %47 = shl nuw i32 1, %46
   %48 = ashr i32 %47, 1
@@ -853,7 +853,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   %50 = add i32 %.075.i11, 1
   %51 = zext i32 %50 to i64
   %.not91.i = icmp ugt i64 %.074.i, %51
-  br i1 %.not91.i, label %.lr.ph13, label %.critedge.i, !llvm.loop !14
+  br i1 %.not91.i, label %.lr.ph13, label %.critedge.i, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %40
   %.old.i = icmp eq i32 %49, 0
@@ -880,7 +880,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   %64 = sub nuw nsw i32 32, %60
   %65 = trunc nuw nsw i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i
-  store i8 %65, ptr %66, align 1, !tbaa !12
+  store i8 %65, ptr %66, align 1, !tbaa !14
   %67 = zext nneg i32 %64 to i64
   %68 = getelementptr inbounds nuw i32, ptr %2, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !3
@@ -944,10 +944,12 @@ attributes #10 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"short", !5, i64 0}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"short", !5, i64 0}
+!13 = distinct !{!13, !10}
+!14 = !{!5, !5, i64 0}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

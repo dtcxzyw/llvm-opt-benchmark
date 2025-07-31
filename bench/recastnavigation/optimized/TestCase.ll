@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %35 ], [ %.01526.i, %33 ], [ %38, %37 ]
   %43 = icmp uge ptr %32, %25
   %.not22.i = select i1 %.117.i, i1 true, i1 %43
-  br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %42
   %44 = sext i32 %.1.i to i64
@@ -214,7 +214,7 @@ _ZL8parseRowPcS_S_i.exit:                         ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %54 = load i8, ptr %53, align 1
   %.not.i67 = icmp eq i8 %54, 0
-  br i1 %.not.i67, label %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit, label %.lr.ph.i66, !llvm.loop !8
+  br i1 %.not.i67, label %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit, label %.lr.ph.i66, !llvm.loop !9
 
 _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; preds = %.lr.ph.i66, %52, %47
   %.0.lcssa.i68 = phi ptr [ %27, %47 ], [ %.08.i, %.lr.ph.i66 ], [ %53, %52 ]
@@ -238,7 +238,7 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; pre
   %62 = getelementptr inbounds nuw i8, ptr %.08.i71, i64 1
   %63 = load i8, ptr %62, align 1
   %.not.i73 = icmp eq i8 %63, 0
-  br i1 %.not.i73, label %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75, label %.lr.ph.i70, !llvm.loop !8
+  br i1 %.not.i73, label %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75, label %.lr.ph.i70, !llvm.loop !9
 
 _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; preds = %.lr.ph.i70, %61, %56
   %.0.lcssa.i74 = phi ptr [ %27, %56 ], [ %.08.i71, %.lr.ph.i70 ], [ %62, %61 ]
@@ -309,7 +309,7 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; p
 
 104:                                              ; preds = %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75, %85, %88, %69, %_ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
   %105 = icmp ult ptr %32, %25
-  br i1 %105, label %30, label %._crit_edge, !llvm.loop !9
+  br i1 %105, label %30, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %104, %24
   call void @_ZdaPv(ptr noundef nonnull %20) #15
@@ -370,7 +370,7 @@ define dso_local void @_ZN8TestCase10resetTimesEv(ptr noundef nonnull readonly a
   %6 = getelementptr inbounds nuw i8, ptr %.08, i64 104
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -414,7 +414,7 @@ _ZN8TestCase10resetTimesEv.exit.thread:           ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 104
   %.0.i = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN8TestCase10resetTimesEv.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %_ZN8TestCase10resetTimesEv.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %.0106.pre = load ptr, ptr %17, align 8
@@ -669,7 +669,7 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %179 = getelementptr inbounds nuw i8, ptr %.0108, i64 104
   %.0 = load ptr, ptr %179, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %178, %_ZN8TestCase10resetTimesEv.exit.thread, %_ZN8TestCase10resetTimesEv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -711,7 +711,7 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %208 = getelementptr inbounds nuw i8, ptr %.090113, i64 104
   %.090 = load ptr, ptr %208, align 8
   %.not100 = icmp eq ptr %.090, null
-  br i1 %.not100, label %.loopexit, label %.lr.ph115, !llvm.loop !12
+  br i1 %.not100, label %.loopexit, label %.lr.ph115, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph115, %._crit_edge, %3
   ret void
@@ -959,13 +959,13 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr noundef nonnull readonly
   %156 = add nsw i32 %155, -1
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %138, label %._crit_edge, !llvm.loop !13
+  br i1 %158, label %138, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %138, %133
   %159 = getelementptr inbounds nuw i8, ptr %.08794, i64 104
   %.087 = load ptr, ptr %159, align 8
   %.not = icmp eq ptr %.087, null
-  br i1 %.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !14
+  br i1 %.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !15
 
 ._crit_edge97:                                    ; preds = %._crit_edge, %1
   tail call void @glEnd()
@@ -1112,7 +1112,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase19handleRenderOverlayEPdS0_Pi(p
   %96 = getelementptr inbounds nuw i8, ptr %.03564, i64 104
   %.035 = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %94, %4
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1184,7 +1184,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase19handleRenderOverlayEPdS0_Pi(p
   %142 = getelementptr inbounds nuw i8, ptr %.03468, i64 104
   %.034 = load ptr, ptr %142, align 8
   %.not37 = icmp eq ptr %.034, null
-  br i1 %.not37, label %._crit_edge71, label %.lr.ph70, !llvm.loop !16
+  br i1 %.not37, label %._crit_edge71, label %.lr.ph70, !llvm.loop !17
 
 ._crit_edge71:                                    ; preds = %140, %._crit_edge
   call void @_Z18imguiEndScrollAreav()
@@ -1248,15 +1248,16 @@ attributes #17 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}

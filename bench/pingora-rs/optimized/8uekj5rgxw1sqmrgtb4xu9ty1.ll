@@ -44,7 +44,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 14:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4
   %.not = icmp eq ptr %11, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -76,31 +76,31 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.410)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.410, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr %1, ptr %7, align 8, !noalias !11
-  store ptr %.sroa.4.013, ptr %13, align 8, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !11
+  store ptr %1, ptr %7, align 8, !noalias !13
+  store ptr %.sroa.4.013, ptr %13, align 8, !noalias !13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %19 = load i64, ptr %6, align 8, !range !17, !alias.scope !18, !noalias !20, !noundef !3
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %19 = load i64, ptr %6, align 8, !range !19, !alias.scope !20, !noalias !22, !noundef !3
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.i", label %21
 
 21:                                               ; preds = %15
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.thread.i" unwind label %25, !noalias !11
+          to label %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.thread.i" unwind label %25, !noalias !13
 
 "_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.thread.i": ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !13
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E.exit"
 
 "_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.i": ; preds = %15
-  %.sroa.0.0.copyload1.i = load i64, ptr %14, align 8, !alias.scope !21, !noalias !11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !11
+  %.sroa.0.0.copyload1.i = load i64, ptr %14, align 8, !alias.scope !23, !noalias !13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !13
   %.not.i = icmp eq i64 %.sroa.0.0.copyload1.i, -9223372036854775807
   br i1 %.not.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E.exit", label %22
 
 22:                                               ; preds = %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.i"
-  store i64 %.sroa.0.0.copyload1.i, ptr %.sroa.4.013, align 8, !noalias !11
+  store i64 %.sroa.0.0.copyload1.i, ptr %.sroa.4.013, align 8, !noalias !13
   %.sroa.65.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.013, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.65.16..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.410.32..sroa_idx, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.4.013, i64 24
@@ -115,12 +115,12 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$rustls_pki_types..CertificateDer$GT$$GT$17h9fb163e54296b15aE"(ptr noalias noundef align 8 dereferenceable(16) %7) #6
-          to label %24 unwind label %27, !noalias !11
+          to label %24 unwind label %27, !noalias !13
 
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #7, !noalias !11
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #7, !noalias !13
   unreachable
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E.exit": ; preds = %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.thread.i", %"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E.exit.i", %22
@@ -130,7 +130,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.410)
   %.not = icmp eq ptr %29, %30
-  br i1 %.not, label %._crit_edge, label %15
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E.exit", %5
   %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %.pn9.i, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E.exit" ]
@@ -141,7 +141,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
-  %2 = load i64, ptr %0, align 8, !range !17, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %2, label %4 [
     i64 0, label %5
@@ -186,7 +186,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pem
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$rustls_pki_types..CertificateDer$GT$$GT$17h9fb163e54296b15aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load ptr, ptr %0, align 8, !alias.scope !22, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !alias.scope !25, !noundef !3
   %3 = tail call noundef i64 @"_ZN5alloc3vec13in_place_drop20InPlaceDrop$LT$T$GT$3len17h92a84b76dcca3f18E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   br label %4
 
@@ -199,7 +199,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_plac
   %7 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %2, i64 %.sroa.0.0.i.i
   %8 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-          to label %4 unwind label %11
+          to label %4 unwind label %11, !llvm.loop !28
 
 9:                                                ; preds = %13, %11
   %.sroa.0.1.i.i = phi i64 [ %8, %11 ], [ %15, %13 ]
@@ -215,7 +215,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_plac
   %14 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %2, i64 %.sroa.0.1.i.i
   %15 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #6
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !29
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -263,7 +263,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   %15 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %4, i64 %.sroa.0.0.i
   %16 = add nuw nsw i64 %.sroa.0.0.i, 1
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE"(ptr noalias noundef align 8 dereferenceable(32) %15)
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !30
 
 17:                                               ; preds = %21, %19
   %.sroa.0.1.i = phi i64 [ %16, %19 ], [ %23, %21 ]
@@ -279,7 +279,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   %22 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %4, i64 %.sroa.0.1.i
   %23 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE"(ptr noalias noundef align 8 dereferenceable(32) %22) #6
-          to label %17 unwind label %25
+          to label %17 unwind label %25, !llvm.loop !31
 
 24:                                               ; preds = %17
   resume { ptr, i32 } %20
@@ -365,17 +365,24 @@ attributes #7 = { cold noreturn nounwind }
 !8 = distinct !{!8, !6, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h677ca0040f41b05eE: argument 2"}
 !9 = !{!5, !8}
 !10 = !{i64 0, i64 4}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E: argument 0"}
-!13 = distinct !{!13, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E: argument 0"}
-!16 = distinct !{!16, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E"}
-!17 = !{i64 0, i64 7}
-!18 = !{!19}
-!19 = distinct !{!19, !16, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E: argument 1"}
-!20 = !{!15, !12}
-!21 = !{!15, !19}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haac89e3204a0e524E: argument 0"}
-!24 = distinct !{!24, !"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haac89e3204a0e524E"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E: argument 0"}
+!15 = distinct !{!15, !"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e851bc705783159E"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E: argument 0"}
+!18 = distinct !{!18, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E"}
+!19 = !{i64 0, i64 7}
+!20 = !{!21}
+!21 = distinct !{!21, !18, !"_ZN14pingora_rustls24load_certs_and_key_files28_$u7b$$u7b$closure$u7d$$u7d$17h8dfe3a200cc8ed73E: argument 1"}
+!22 = !{!17, !14}
+!23 = !{!17, !21}
+!24 = distinct !{!24, !12}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haac89e3204a0e524E: argument 0"}
+!27 = distinct !{!27, !"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haac89e3204a0e524E"}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}
+!30 = distinct !{!30, !12}
+!31 = distinct !{!31, !12}

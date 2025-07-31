@@ -5166,7 +5166,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %20, ptr %45, align 8, !tbaa !12
   %46 = tail call ptr @lean_array_push(ptr noundef %23, ptr noundef nonnull %40) #6
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5422,7 +5422,7 @@ lean_obj_tag.exit39:                              ; preds = %45, %48
   br i1 %.not, label %53, label %lean_dec.exit22.backedge
 
 lean_dec.exit22.backedge:                         ; preds = %52, %56, %58, %59
-  br label %lean_dec.exit22
+  br label %lean_dec.exit22, !llvm.loop !23
 
 53:                                               ; preds = %52
   %54 = load i32, ptr %16, align 4, !tbaa !8
@@ -5491,7 +5491,7 @@ lean_inc.exit:                                    ; preds = %70, %69, %67, %60
 
 lean_dec.exit:                                    ; preds = %77, %76, %74, %lean_inc.exit
   %78 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.0.ph, ptr noundef %16, ptr noundef %62) #6
-  br label %lean_dec.exit22.outer
+  br label %lean_dec.exit22.outer, !llvm.loop !23
 }
 
 declare ptr @l_Lean_RBNode_find___at_Lean_NameMap_find_x3f___spec__1___rarg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -9608,3 +9608,6 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !19 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !22}

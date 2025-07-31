@@ -115,7 +115,7 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
 
 48:                                               ; preds = %50
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 1, ptr %49, align 4, !tbaa !36
+  store i8 1, ptr %49, align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
@@ -144,14 +144,14 @@ define dso_local void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull
   %60 = fmul float %.sroa.0.4.vec.extract.i, %.sroa.06.4.vec.extract.i
   %61 = fadd float %59, %60
   %62 = call noundef float @b2Atan2(float noundef %57, float noundef %61)
-  store float %62, ptr %34, align 8, !tbaa !38
+  store float %62, ptr %34, align 8, !tbaa !39
   %63 = call i64 @b2CreateWeldJoint(i32 %1, ptr noundef nonnull %10)
   %64 = getelementptr inbounds nuw [7 x %struct.b2JointId], ptr %35, i64 0, i64 %indvars.iv60
   store i64 %63, ptr %64, align 4
   %.sroa.012.0.copyload14 = load i64, ptr %33, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 7
-  br i1 %exitcond63.not, label %48, label %50, !llvm.loop !39
+  br i1 %exitcond63.not, label %48, label %50, !llvm.loop !40
 }
 
 declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #3
@@ -181,7 +181,7 @@ define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(
 
 3:                                                ; preds = %5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %4, align 4, !tbaa !36
+  store i8 0, ptr %4, align 4, !tbaa !37
   ret void
 
 5:                                                ; preds = %1, %5
@@ -194,7 +194,7 @@ define dso_local void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 captures(
   store i64 0, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %3, label %5, !llvm.loop !40
+  br i1 %exitcond.not, label %3, label %5, !llvm.loop !41
 }
 
 declare void @b2DestroyBody(i64) local_unnamed_addr #3
@@ -251,10 +251,11 @@ attributes #7 = { nounwind }
 !31 = !{!28, !6, i64 48}
 !32 = !{!6, !6, i64 0}
 !33 = !{!19, !19, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !18, i64 112}
-!37 = !{!"_ZTS5Donut", !7, i64 0, !7, i64 56, !18, i64 112}
-!38 = !{!28, !6, i64 32}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !18, i64 112}
+!38 = !{!"_ZTS5Donut", !7, i64 0, !7, i64 56, !18, i64 112}
+!39 = !{!28, !6, i64 32}
+!40 = distinct !{!40, !35, !36}
+!41 = distinct !{!41, !35, !36}

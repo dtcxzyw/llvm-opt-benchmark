@@ -845,7 +845,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
 53:                                               ; preds = %50, %45
   %54 = call ptr @list_next(ptr noundef %42) #11
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %.outer._crit_edge.i, label %45, !llvm.loop !11
+  br i1 %.not.i, label %.outer._crit_edge.i, label %45, !llvm.loop !12
 
 55:                                               ; preds = %50
   %56 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.91, i32 noundef 546, ptr noundef nonnull @__func__._load_fed_parts) #11
@@ -919,7 +919,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #11
   %84 = call ptr @list_next(ptr noundef %42) #11
   %.not8.i = icmp eq ptr %84, null
-  br i1 %.not8.i, label %.outer._crit_edge.loopexit24.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not8.i, label %.outer._crit_edge.loopexit24.i, label %.lr.ph.i, !llvm.loop !12
 
 .outer._crit_edge.loopexit24.i:                   ; preds = %.outer.i
   %85 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -957,7 +957,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
 .thread.i:                                        ; preds = %91, %89, %.lr.ph16.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !13
 
 ._crit_edge17.i:                                  ; preds = %.thread.i, %.outer._crit_edge.i, %.outer._crit_edge.thread.i
   call void @slurm_xfree(ptr noundef nonnull %7) #11
@@ -1029,7 +1029,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
   %128 = call ptr @list_next(ptr noundef %94) #11
   store ptr %128, ptr %5, align 8
   %.not76.i = icmp eq ptr %128, null
-  br i1 %.not76.i, label %._crit_edge22.loopexit.i, label %.lr.ph21.i, !llvm.loop !13
+  br i1 %.not76.i, label %._crit_edge22.loopexit.i, label %.lr.ph21.i, !llvm.loop !14
 
 ._crit_edge22.loopexit.i:                         ; preds = %127
   %129 = icmp eq ptr %.1.i, null
@@ -1326,7 +1326,7 @@ _load_cluster_parts.exit:                         ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next, %42
-  br i1 %43, label %30, label %._crit_edge, !llvm.loop !14
+  br i1 %43, label %30, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %44 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.91, i32 noundef 508, ptr noundef nonnull @__func__._load_part_thread) #11
@@ -1419,10 +1419,11 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}

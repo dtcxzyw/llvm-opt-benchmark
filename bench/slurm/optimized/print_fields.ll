@@ -167,7 +167,7 @@ define dso_local void @print_fields_header(ptr noundef %0) local_unnamed_addr #0
   %48 = tail call noundef i32 @putc(i32 noundef 32, ptr noundef %47)
   %49 = tail call ptr @list_next(ptr noundef %7) #11
   %.not32 = icmp eq ptr %49, null
-  br i1 %.not32, label %._crit_edge43, label %.lr.ph42, !llvm.loop !11
+  br i1 %.not32, label %._crit_edge43, label %.lr.ph42, !llvm.loop !12
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
   %.037 = phi i32 [ %52, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
@@ -175,7 +175,7 @@ define dso_local void @print_fields_header(ptr noundef %0) local_unnamed_addr #0
   %51 = tail call noundef i32 @putc(i32 noundef 45, ptr noundef %50)
   %52 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %52, %smax
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !13
 
 ._crit_edge43:                                    ; preds = %._crit_edge40, %.preheader
   tail call void @list_iterator_destroy(ptr noundef %7) #11
@@ -1345,7 +1345,7 @@ _expand_wildcard.exit:                            ; preds = %63, %61, %60, %58, 
   %67 = getelementptr inbounds nuw i8, ptr %.125, i64 1
   %68 = load i8, ptr %67, align 1
   %.not40 = icmp eq i8 %68, 0
-  br i1 %.not40, label %._crit_edge, label %22, !llvm.loop !13
+  br i1 %.not40, label %._crit_edge, label %22, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %66, %14
   %69 = load ptr, ptr %4, align 8
@@ -1402,9 +1402,10 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

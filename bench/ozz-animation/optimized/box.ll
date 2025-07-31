@@ -79,10 +79,10 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull w
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <2 x float> %.sroa.024.0.lcssa, ptr %0, align 4
   %.sroa.827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.sroa.827.0.lcssa, ptr %.sroa.827.0..sroa_idx, align 4, !tbaa !13
+  store float %.sroa.827.0.lcssa, ptr %.sroa.827.0..sroa_idx, align 4, !tbaa !14
   store <2 x float> %.sroa.0.0.lcssa, ptr %29, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !13
+  store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !14
   ret void
 }
 
@@ -94,18 +94,18 @@ define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(pt
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load <4 x float>, ptr %7, align 4
   %9 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> zeroinitializer
-  %10 = load <4 x float>, ptr %1, align 16, !tbaa !14
+  %10 = load <4 x float>, ptr %1, align 16, !tbaa !15
   %11 = fmul <4 x float> %9, %10
   %12 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load <4 x float>, ptr %13, align 16, !tbaa !14
+  %14 = load <4 x float>, ptr %13, align 16, !tbaa !15
   %15 = fmul <4 x float> %12, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %17 = load <4 x float>, ptr %16, align 16, !tbaa !14
+  %17 = load <4 x float>, ptr %16, align 16, !tbaa !15
   %18 = fadd <4 x float> %15, %17
   %19 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> zeroinitializer
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load <4 x float>, ptr %20, align 16, !tbaa !14
+  %21 = load <4 x float>, ptr %20, align 16, !tbaa !15
   %22 = fmul <4 x float> %19, %21
   %23 = fadd <4 x float> %11, %22
   %24 = fadd <4 x float> %18, %23
@@ -125,18 +125,18 @@ define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(pt
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %24, <4 x float> %33)
   %40 = extractelement <4 x float> %39, i64 0
-  store float %40, ptr %0, align 4, !tbaa !14
+  store float %40, ptr %0, align 4, !tbaa !15
   %41 = extractelement <4 x float> %39, i64 1
-  store float %41, ptr %34, align 4, !tbaa !14
+  store float %41, ptr %34, align 4, !tbaa !15
   %42 = extractelement <4 x float> %39, i64 2
-  store float %42, ptr %35, align 4, !tbaa !14
+  store float %42, ptr %35, align 4, !tbaa !15
   %43 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %24, <4 x float> %33)
   %44 = extractelement <4 x float> %43, i64 0
-  store float %44, ptr %36, align 4, !tbaa !14
+  store float %44, ptr %36, align 4, !tbaa !15
   %45 = extractelement <4 x float> %43, i64 1
-  store float %45, ptr %37, align 4, !tbaa !14
+  store float %45, ptr %37, align 4, !tbaa !15
   %46 = extractelement <4 x float> %43, i64 2
-  store float %46, ptr %38, align 4, !tbaa !14
+  store float %46, ptr %38, align 4, !tbaa !15
   ret void
 }
 
@@ -164,7 +164,8 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!5, !6, i64 4}
 !10 = !{!5, !6, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!6, !6, i64 0}
-!14 = !{!7, !7, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!6, !6, i64 0}
+!15 = !{!7, !7, i64 0}

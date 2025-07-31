@@ -5238,7 +5238,7 @@ dissect_mq_addCR_colinfo.exit2582:                ; preds = %270, %278
   %580 = tail call ptr @proto_tree_add_item(ptr noundef %559, i32 noundef %576, ptr noundef %0, i32 noundef %578, i32 noundef 4, i32 noundef %579)
   %581 = add nuw nsw i32 %.024482676, 1
   %exitcond2697.not = icmp eq i32 %581, %551
-  br i1 %exitcond2697.not, label %._crit_edge2679, label %.lr.ph2678, !llvm.loop !10
+  br i1 %exitcond2697.not, label %._crit_edge2679, label %.lr.ph2678, !llvm.loop !11
 
 ._crit_edge2679:                                  ; preds = %.lr.ph2678, %572
   %582 = load i8, ptr %44, align 2
@@ -5280,7 +5280,7 @@ dissect_mq_addCR_colinfo.exit2582:                ; preds = %270, %278
   %599 = add i32 %597, -2001
   %600 = icmp ult i32 %599, -2000
   %or.cond2570 = select i1 %598, i1 %600, i1 false
-  br i1 %or.cond2570, label %.lr.ph2683, label %.critedge, !llvm.loop !11
+  br i1 %or.cond2570, label %.lr.ph2683, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph2683, %.lr.ph2688
   %.02452.lcssa = phi i32 [ %591, %.lr.ph2688 ], [ %597, %.lr.ph2683 ]
@@ -5307,7 +5307,7 @@ dissect_mq_addCR_colinfo.exit2582:                ; preds = %270, %278
 613:                                              ; preds = %608, %610
   %614 = add nuw nsw i32 %.024512686, 1
   %exitcond2698.not = icmp eq i32 %614, %554
-  br i1 %exitcond2698.not, label %._crit_edge2689, label %.lr.ph2688, !llvm.loop !12
+  br i1 %exitcond2698.not, label %._crit_edge2689, label %.lr.ph2688, !llvm.loop !13
 
 ._crit_edge2689:                                  ; preds = %613, %.preheader
   %.not2541 = icmp eq i32 %557, 0
@@ -5934,7 +5934,7 @@ dissect_mq_addCR_colinfo.exit2588:                ; preds = %821, %823
   %1036 = add i32 %.024392673, 20
   %1037 = add nuw nsw i32 %.024362674, 1
   %exitcond2696.not = icmp eq i32 %1037, %1010
-  br i1 %exitcond2696.not, label %._crit_edge, label %.lr.ph2675, !llvm.loop !13
+  br i1 %exitcond2696.not, label %._crit_edge, label %.lr.ph2675, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph2675, %1014
   %1038 = add i32 %1013, %975
@@ -6176,7 +6176,7 @@ thread-pre-split2610:                             ; preds = %1136
   %1172 = add nuw nsw i32 %.024352669, 1
   %exitcond.not = icmp eq i32 %1172, %1162
   %or.cond2726 = select i1 %.not2523, i1 true, i1 %exitcond.not
-  br i1 %or.cond2726, label %thread-pre-split2612, label %.lr.ph, !llvm.loop !14
+  br i1 %or.cond2726, label %thread-pre-split2612, label %.lr.ph, !llvm.loop !15
 
 thread-pre-split2612:                             ; preds = %.lr.ph, %400, %907, %190, %349, %390, %620, %1133, %1157, %1153, %1110, %1107, %899, %361, %344, %318, %401, %542, %404, %978, %934, %1155, %1160
   %.22386.ph = phi ptr [ %1116, %1160 ], [ %1116, %1155 ], [ %944, %978 ], [ %917, %934 ], [ %.12385, %401 ], [ %.12385, %404 ], [ %.62390, %542 ], [ %.12385, %318 ], [ %331, %344 ], [ %.12385, %1107 ], [ %.12385, %1110 ], [ %1116, %1157 ], [ %.102394, %1153 ], [ %1116, %1133 ], [ %833, %899 ], [ %559, %620 ], [ %.42388, %390 ], [ %363, %361 ], [ %351, %349 ], [ %195, %190 ], [ %.12385, %907 ], [ %.12385, %400 ], [ %1116, %.lr.ph ]
@@ -7377,7 +7377,7 @@ thread-pre-split2648:                             ; preds = %1506, %1516
   %1988 = call ptr @proto_tree_add_item(ptr noundef %1982, i32 noundef %1986, ptr noundef %0, i32 noundef %1971, i32 noundef %1969, i32 noundef %1987)
   %1989 = add i32 %1980, %.123782690
   %1990 = icmp slt i32 %1989, %1952
-  br i1 %1990, label %1967, label %.loopexit, !llvm.loop !15
+  br i1 %1990, label %1967, label %.loopexit, !llvm.loop !16
 
 1991:                                             ; preds = %1597
   %1992 = load i32, ptr @hf_mq_head_flags, align 4
@@ -7630,7 +7630,7 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   %23 = add i32 %.02427, 96
   %24 = add nuw nsw i32 %.02328, 1
   %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !17
 
 .loopexit:                                        ; preds = %12, %.preheader, %7, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %8, %.preheader ], [ %8, %12 ]
@@ -7888,7 +7888,7 @@ define internal fastcc i32 @dissect_mq_pmr(ptr noundef %0, ptr noundef %1, i32 n
   %.5 = phi i32 [ %58, %54 ], [ %.4, %53 ]
   %60 = add nuw nsw i32 %.065, 1
   %exitcond.not = icmp eq i32 %60, %3
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !18
 
 .loopexit:                                        ; preds = %59, %.preheader, %21, %7
   %.053 = phi i32 [ 0, %7 ], [ 0, %21 ], [ %22, %.preheader ], [ %22, %59 ]
@@ -8563,13 +8563,14 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

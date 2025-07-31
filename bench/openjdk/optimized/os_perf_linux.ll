@@ -870,7 +870,7 @@ define hidden noundef ptr @_ZN22SystemProcessInterface15SystemProcesses15Process
   %10 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %9)
   %11 = icmp eq i64 %10, 1
   %12 = add i64 %.021, 1
-  br i1 %11, label %.preheader25, label %13, !llvm.loop !8
+  br i1 %11, label %.preheader25, label %13, !llvm.loop !9
 
 13:                                               ; preds = %.preheader25
   %.not24 = icmp eq i64 %.021, 0
@@ -902,7 +902,7 @@ define hidden noundef ptr @_ZN22SystemProcessInterface15SystemProcesses15Process
 25:                                               ; preds = %.preheader, %24
   %26 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %26, %.021
-  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !10
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %15, i64 %.021
@@ -1071,7 +1071,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   %30 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef %29) #18
   store ptr %30, ptr %10, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.sink.split, label %14, !llvm.loop !10
+  br i1 %31, label %.sink.split, label %14, !llvm.loop !11
 
 _ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit: ; preds = %14, %18
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
@@ -1213,7 +1213,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %16, %3
   ret i32 0
@@ -1259,7 +1259,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13Sy
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %.lr.ph.i, label %_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi.exit, !llvm.loop !11
+  br i1 %25, label %.lr.ph.i, label %_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi.exit, !llvm.loop !12
 
 _ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi.exit: ; preds = %17, %3
   ret i32 0
@@ -1584,7 +1584,7 @@ _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit2
   %.1 = phi ptr [ %.01524, %.lr.ph ], [ %.01524, %10 ], [ %36, %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21 ]
   %.014 = load ptr, ptr %.01425, align 8
   %.not17 = icmp eq ptr %.014, null
-  br i1 %.not17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %45
   %.pre = load ptr, ptr %5, align 8
@@ -1740,7 +1740,7 @@ _ZL13open_statfilev.exit:                         ; preds = %1
 8:                                                ; preds = %.preheader
   %9 = call i32 @__isoc99_vsscanf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %2) #18
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %.preheader, !llvm.loop !13
+  br i1 %10, label %11, label %.preheader, !llvm.loop !14
 
 11:                                               ; preds = %8
   %12 = call i32 @fclose(ptr noundef nonnull %4)
@@ -1839,11 +1839,12 @@ attributes #19 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

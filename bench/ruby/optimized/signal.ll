@@ -103,7 +103,7 @@ define dso_local void @ruby_default_signal(i32 noundef %0) local_unnamed_addr #1
   tail call void @rb_malloc_info_show_results() #17
   %3 = tail call ptr @signal(i32 noundef %0, ptr noundef null) #17
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #17
-  %4 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %4 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %7, label %5
 
@@ -112,7 +112,7 @@ define dso_local void @ruby_default_signal(i32 noundef %0) local_unnamed_addr #1
   br label %7
 
 7:                                                ; preds = %5, %1
-  store ptr null, ptr @received_signal, align 8, !tbaa !17
+  store ptr null, ptr @received_signal, align 8, !tbaa !18
   %8 = call i32 @sigemptyset(ptr noundef nonnull %2) #17
   %9 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %0) #17
   %10 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #17
@@ -121,7 +121,7 @@ define dso_local void @ruby_default_signal(i32 noundef %0) local_unnamed_addr #1
 
 11:                                               ; preds = %7
   %12 = call ptr @rb_errno_ptr() #17
-  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   call void @rb_bug_errno(ptr noundef nonnull @.str.24, i32 noundef %13) #19
   unreachable
 
@@ -140,7 +140,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
   %2 = alloca %struct.__sigset_t, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #17
-  %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -149,7 +149,7 @@ define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %4, %1
-  store ptr null, ptr @received_signal, align 8, !tbaa !17
+  store ptr null, ptr @received_signal, align 8, !tbaa !18
   %7 = call i32 @sigemptyset(ptr noundef nonnull %2) #17
   %8 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %0) #17
   %9 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #17
@@ -158,7 +158,7 @@ define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
 
 10:                                               ; preds = %6
   %11 = call ptr @rb_errno_ptr() #17
-  %12 = load i32, ptr %11, align 4, !tbaa !19
+  %12 = load i32, ptr %11, align 4, !tbaa !20
   call void @rb_bug_errno(ptr noundef nonnull @.str.24, i32 noundef %12) #19
   unreachable
 
@@ -185,7 +185,7 @@ define dso_local range(i64 2, 4294967294) i64 @rb_f_kill(i32 noundef %0, ptr nou
   unreachable
 
 rb_check_arity.exit:                              ; preds = %2
-  %9 = load i64, ptr %1, align 8, !tbaa !20
+  %9 = load i64, ptr %1, align 8, !tbaa !21
   %10 = and i64 %9, 1
   %.not62 = icmp eq i64 %10, 0
   br i1 %.not62, label %14, label %11
@@ -196,7 +196,7 @@ rb_check_arity.exit:                              ; preds = %2
   br label %16
 
 14:                                               ; preds = %rb_check_arity.exit
-  store i64 %9, ptr %6, align 8, !tbaa !20
+  store i64 %9, ptr %6, align 8, !tbaa !21
   %15 = call fastcc i32 @signm2signo(ptr noundef %6, i32 noundef 1, i32 noundef 0, ptr noundef null)
   br label %16
 
@@ -214,7 +214,7 @@ rb_check_arity.exit:                              ; preds = %2
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %32
   %indvars.iv107 = phi i64 [ 1, %.lr.ph85.preheader ], [ %indvars.iv.next108, %32 ]
   %19 = getelementptr i64, ptr %1, i64 %indvars.iv107
-  %20 = load i64, ptr %19, align 8, !tbaa !20
+  %20 = load i64, ptr %19, align 8, !tbaa !21
   %21 = and i64 %20, 1
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %24, label %22
@@ -236,23 +236,23 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 
 29:                                               ; preds = %rb_num2int_inline.exit
   %30 = tail call ptr @rb_errno_ptr() #17
-  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %31 = load i32, ptr %30, align 4, !tbaa !20
   tail call void @rb_syserr_fail(i32 noundef %31, ptr noundef null) #19
   unreachable
 
 32:                                               ; preds = %rb_num2int_inline.exit
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph85, !llvm.loop !22
+  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph85, !llvm.loop !23
 
 33:                                               ; preds = %16
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = getelementptr i8, ptr %35, i64 48
-  %.val.i = load ptr, ptr %36, align 8, !tbaa !25
-  %37 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %.val.i = load ptr, ptr %36, align 8, !tbaa !26
+  %37 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !35
+  %39 = load ptr, ptr %38, align 8, !tbaa !36
   %40 = icmp eq ptr %.val.i, %39
   br i1 %40, label %.lr.ph, label %.lr.ph.split.us.preheader
 
@@ -279,7 +279,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %63
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %63 ]
   %53 = getelementptr i64, ptr %1, i64 %indvars.iv
-  %54 = load i64, ptr %53, align 8, !tbaa !20
+  %54 = load i64, ptr %53, align 8, !tbaa !21
   %55 = and i64 %54, 1
   %.not.i51.us = icmp eq i64 %55, 0
   br i1 %.not.i51.us, label %58, label %56
@@ -302,7 +302,7 @@ rb_num2int_inline.exit53.us:                      ; preds = %58, %56
 63:                                               ; preds = %rb_num2int_inline.exit53.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %.039.fr, label %.lr.ph.split.split.preheader [
@@ -330,7 +330,7 @@ rb_num2int_inline.exit53.us:                      ; preds = %58, %56
 65:                                               ; preds = %80, %.lr.ph.split.split.us
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %80 ], [ 1, %.lr.ph.split.split.us ]
   %66 = getelementptr i64, ptr %1, i64 %indvars.iv95
-  %67 = load i64, ptr %66, align 8, !tbaa !20
+  %67 = load i64, ptr %66, align 8, !tbaa !21
   %68 = and i64 %67, 1
   %.not.i51.us75 = icmp eq i64 %68, 0
   br i1 %.not.i51.us75, label %71, label %69
@@ -361,12 +361,12 @@ rb_num2int_inline.exit53.us76:                    ; preds = %71, %69
 80:                                               ; preds = %78, %75
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %65, !llvm.loop !58
+  br i1 %exitcond100.not, label %.loopexit, label %65, !llvm.loop !59
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.outer, %107
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %107 ], [ %indvars.iv101.ph, %.lr.ph.split.split.outer ]
   %81 = getelementptr i64, ptr %1, i64 %indvars.iv101
-  %82 = load i64, ptr %81, align 8, !tbaa !20
+  %82 = load i64, ptr %81, align 8, !tbaa !21
   %83 = and i64 %82, 1
   %.not.i51 = icmp eq i64 %83, 0
   br i1 %.not.i51, label %86, label %84
@@ -389,15 +389,15 @@ rb_num2int_inline.exit53:                         ; preds = %84, %86
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store volatile i64 1296236546, ptr %4, align 16, !tbaa !20
-  store volatile i64 %45, ptr %46, align 8, !tbaa !20
-  store volatile i64 152, ptr %47, align 16, !tbaa !20
-  store volatile i64 0, ptr %48, align 8, !tbaa !20
-  store volatile i64 0, ptr %49, align 16, !tbaa !20
-  store volatile i64 0, ptr %50, align 8, !tbaa !20
-  %91 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #17, !srcloc !59
-  store volatile i64 %91, ptr %5, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8, !tbaa !20
+  store volatile i64 1296236546, ptr %4, align 16, !tbaa !21
+  store volatile i64 %45, ptr %46, align 8, !tbaa !21
+  store volatile i64 152, ptr %47, align 16, !tbaa !21
+  store volatile i64 0, ptr %48, align 8, !tbaa !21
+  store volatile i64 0, ptr %49, align 16, !tbaa !21
+  store volatile i64 0, ptr %50, align 8, !tbaa !21
+  %91 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #17, !srcloc !60
+  store volatile i64 %91, ptr %5, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #17
   %92 = call i32 @sigaction(i32 noundef range(i32 1, -2147483648) %.039.fr, ptr noundef null, ptr noundef nonnull %3) #17
@@ -409,7 +409,7 @@ signal_ignored.exit.thread:                       ; preds = %90
   br label %.thread118
 
 94:                                               ; preds = %90
-  %95 = load ptr, ptr %3, align 8, !tbaa !60
+  %95 = load ptr, ptr %3, align 8, !tbaa !61
   %96 = icmp eq ptr %95, inttoptr (i64 1 to ptr)
   br i1 %96, label %.thread, label %signal_ignored.exit
 
@@ -429,7 +429,7 @@ signal_ignored.exit:                              ; preds = %94
 
 99:                                               ; preds = %97
   %100 = call ptr @rb_errno_ptr() #17
-  %101 = load i32, ptr %100, align 4, !tbaa !19
+  %101 = load i32, ptr %100, align 4, !tbaa !20
   call void @rb_syserr_fail(i32 noundef %101, ptr noundef null) #19
   unreachable
 
@@ -440,29 +440,29 @@ signal_ignored.exit:                              ; preds = %94
 
 .split.us:                                        ; preds = %rb_num2int_inline.exit53.us, %75, %102
   %105 = call ptr @rb_errno_ptr() #17
-  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %106 = load i32, ptr %105, align 4, !tbaa !20
   call void @rb_syserr_fail(i32 noundef %106, ptr noundef null) #19
   unreachable
 
 107:                                              ; preds = %.thread, %97, %102
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !61
+  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !62
 
 .thread118:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
   %108 = atomicrmw volatile add ptr %52, i32 1 seq_cst, align 4
   %109 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   %indvars.iv.next102120 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not121 = icmp eq i64 %indvars.iv.next102120, %wide.trip.count105
-  br i1 %exitcond106.not121, label %._crit_edge.thread123, label %.lr.ph.split.split.outer, !llvm.loop !61
+  br i1 %exitcond106.not121, label %._crit_edge.thread123, label %.lr.ph.split.split.outer, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %107
   br i1 %64, label %.loopexit, label %._crit_edge.thread123
 
 ._crit_edge.thread123:                            ; preds = %.thread118, %._crit_edge
-  %110 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %110 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %112 = load ptr, ptr %111, align 8, !tbaa !35
+  %112 = load ptr, ptr %111, align 8, !tbaa !36
   call void @rb_threadptr_check_signal(ptr noundef %112) #17
   br label %.loopexit
 
@@ -482,7 +482,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @signm2signo(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
-  %5 = load i64, ptr %0, align 8, !tbaa !20
+  %5 = load i64, ptr %0, align 8, !tbaa !21
   %6 = and i64 %5, 255
   %7 = icmp eq i64 %6, 12
   br i1 %7, label %RB_SYMBOL_P.exit.thread, label %8
@@ -496,7 +496,7 @@ define internal fastcc i32 @signm2signo(ptr noundef nonnull captures(none) %0, i
 
 RB_SYMBOL_P.exit:                                 ; preds = %8
   %13 = inttoptr i64 %5 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !62
+  %14 = load i64, ptr %13, align 8, !tbaa !63
   %15 = and i64 %14, 31
   %16 = icmp eq i64 %15, 20
   br i1 %16, label %RB_SYMBOL_P.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
@@ -507,7 +507,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %4, %RB_SYMBOL_P.exi
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RB_SYMBOL_P.exit
   %18 = inttoptr i64 %5 to ptr
-  %19 = load i64, ptr %18, align 8, !tbaa !62
+  %19 = load i64, ptr %18, align 8, !tbaa !63
   %20 = and i64 %19, 31
   %21 = icmp eq i64 %20, 5
   br i1 %21, label %27, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -518,21 +518,21 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %8, %rbimpl_RB_TYPE_
   br i1 %23, label %24, label %.sink.split
 
 24:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %25 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %25 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   %26 = tail call ptr @rb_obj_classname(i64 noundef %5) #17
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.20, ptr noundef %26) #19
   unreachable
 
 .sink.split:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %RB_SYMBOL_P.exit.thread
   %.sink = phi i64 [ %17, %RB_SYMBOL_P.exit.thread ], [ %22, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
-  store i64 %.sink, ptr %0, align 8, !tbaa !20
+  store i64 %.sink, ptr %0, align 8, !tbaa !21
   br label %27
 
 27:                                               ; preds = %.sink.split, %rbimpl_RB_TYPE_P_fastpath.exit
   %.060 = phi i64 [ %5, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %.sink, %.sink.split ]
   tail call void @rb_must_asciicompat(i64 noundef %.060) #17
   %28 = inttoptr i64 %.060 to ptr
-  %29 = load i64, ptr %28, align 8, !tbaa !62, !noalias !64
+  %29 = load i64, ptr %28, align 8, !tbaa !63, !noalias !65
   %30 = and i64 %29, 8192
   %.not.i = icmp eq i64 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -545,13 +545,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %8, %rbimpl_RB_TYPE_
 rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   %.sroa.5.0 = phi ptr [ %.sroa.5.0.copyload, %32 ], [ %31, %27 ]
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !tbaa !20
+  %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !tbaa !21
   %33 = tail call ptr @memchr(ptr noundef %.sroa.5.0, i32 noundef 0, i64 noundef %.sroa.3.0) #25
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %36, label %34
 
 34:                                               ; preds = %rbimpl_rstring_getmem.exit
-  %35 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %35 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef nonnull @.str.21) #19
   unreachable
 
@@ -560,7 +560,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %36
-  %39 = load i8, ptr %.sroa.5.0, align 1, !tbaa !60
+  %39 = load i8, ptr %.sroa.5.0, align 1, !tbaa !61
   %40 = icmp eq i8 %39, 45
   br i1 %40, label %41, label %44
 
@@ -569,7 +569,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %.not67, label %42, label %44
 
 42:                                               ; preds = %41
-  %43 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %43 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.22, i64 noundef %.060) #19
   unreachable
 
@@ -600,7 +600,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %.not70, label %55, label %54
 
 54:                                               ; preds = %53
-  store i32 %.1, ptr %3, align 4, !tbaa !19
+  store i32 %.1, ptr %3, align 4, !tbaa !20
   br label %55
 
 55:                                               ; preds = %54, %53
@@ -624,7 +624,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 
 65:                                               ; preds = %.lr.ph
   %66 = getelementptr [8 x i8], ptr %.05877, i64 0, i64 %56
-  %67 = load i8, ptr %66, align 1, !tbaa !60
+  %67 = load i8, ptr %66, align 1, !tbaa !61
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %69, label %74
 
@@ -638,7 +638,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 74:                                               ; preds = %.lr.ph, %65
   %75 = getelementptr i8, ptr %.05877, i64 12
   %76 = icmp ult ptr %75, getelementptr inbounds nuw (i8, ptr @siglist, i64 408)
-  br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !67
+  br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %74, %59, %55, %51
   %77 = icmp eq i32 %.1, 3
@@ -657,7 +657,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 81:                                               ; preds = %.sink.split80, %.loopexit
   %.161 = phi i64 [ %.060, %.loopexit ], [ %80, %.sink.split80 ]
   %.2 = phi i32 [ 0, %.loopexit ], [ %.2.ph, %.sink.split80 ]
-  %82 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %82 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.161) #19
   unreachable
 }
@@ -687,7 +687,7 @@ declare i64 @rb_thread_current() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noalias nonnull ptr @rb_allocate_sigaltstack() local_unnamed_addr #1 {
-  %1 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  %1 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !20
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %7
 
@@ -698,7 +698,7 @@ define hidden noalias nonnull ptr @rb_allocate_sigaltstack() local_unnamed_addr 
   %6 = trunc i64 %5 to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
   %.1.i = tail call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i, i32 16384)
-  store i32 %.1.i, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  store i32 %.1.i, ptr @rb_sigaltstack_size_value, align 4, !tbaa !20
   br label %7
 
 7:                                                ; preds = %2, %0
@@ -728,15 +728,15 @@ define hidden ptr @rb_register_sigaltstack(ptr noundef %0) local_unnamed_addr #1
   %3 = alloca %struct.stack_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
-  %4 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  %4 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !20
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %5, ptr %6, align 8, !tbaa !68
-  store ptr %0, ptr %2, align 8, !tbaa !70
+  store i64 %5, ptr %6, align 8, !tbaa !69
+  store ptr %0, ptr %2, align 8, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %7, align 8, !tbaa !71
+  store i32 0, ptr %7, align 8, !tbaa !72
   %8 = call i32 @sigaltstack(ptr noundef nonnull %2, ptr noundef nonnull %3) #17
-  %9 = load ptr, ptr %2, align 8, !tbaa !70
+  %9 = load ptr, ptr %2, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   ret ptr %9
@@ -757,9 +757,9 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
   %8 = call i32 @sigemptyset(ptr noundef nonnull %7) #17
   %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
   %spec.select.i = select i1 %switch.i, i32 0, i32 4
-  store ptr %1, ptr %3, align 8, !tbaa !60
+  store ptr %1, ptr %3, align 8, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 %spec.select.i, ptr %9, align 8, !tbaa !72
+  store i32 %spec.select.i, ptr %9, align 8, !tbaa !73
   switch i32 %0, label %12 [
     i32 11, label %10
     i32 7, label %10
@@ -767,27 +767,27 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
 
 10:                                               ; preds = %2, %2
   %11 = or disjoint i32 %spec.select.i, 134217728
-  store i32 %11, ptr %9, align 8, !tbaa !72
+  store i32 %11, ptr %9, align 8, !tbaa !73
   br label %12
 
 12:                                               ; preds = %10, %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store volatile i64 1296236546, ptr %5, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %5, align 16, !tbaa !21
   %13 = ptrtoint ptr %4 to i64
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store volatile i64 %13, ptr %14, align 8, !tbaa !20
+  store volatile i64 %13, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store volatile i64 152, ptr %15, align 16, !tbaa !20
+  store volatile i64 152, ptr %15, align 16, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store volatile i64 0, ptr %16, align 8, !tbaa !20
+  store volatile i64 0, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store volatile i64 0, ptr %17, align 16, !tbaa !20
+  store volatile i64 0, ptr %17, align 16, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store volatile i64 0, ptr %18, align 8, !tbaa !20
-  %19 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #17, !srcloc !74
-  store volatile i64 %19, ptr %6, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !20
+  store volatile i64 0, ptr %18, align 8, !tbaa !21
+  %19 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #17, !srcloc !75
+  store volatile i64 %19, ptr %6, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i = load volatile i64, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #17
   %20 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
@@ -795,7 +795,7 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
   br i1 %21, label %ruby_signal.exit, label %22
 
 22:                                               ; preds = %12
-  %.010.i = load ptr, ptr %4, align 8, !tbaa !60
+  %.010.i = load ptr, ptr %4, align 8, !tbaa !61
   %23 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %23)
   br label %ruby_signal.exit
@@ -809,20 +809,20 @@ ruby_signal.exit:                                 ; preds = %12, %22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @rb_signal_buff_size() local_unnamed_addr #8 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), align 4, !tbaa !75
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), align 4, !tbaa !76
   ret i32 %1
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, argmem: none) uwtable
 define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #9 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), align 4, !tbaa !75
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), align 4, !tbaa !76
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 1, %0 ]
   %2 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %indvars.iv
-  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !20
   %.not7 = icmp eq i32 %3, 0
   br i1 %.not7, label %9, label %4
 
@@ -836,7 +836,7 @@ define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #9 {
 9:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !78
 
 .loopexit:                                        ; preds = %9, %4, %0
   %.0 = phi i32 [ %6, %4 ], [ 0, %0 ], [ 0, %9 ]
@@ -846,12 +846,12 @@ define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #9 {
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_vm_trap_exit(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %3 = load i64, ptr %2, align 8, !tbaa !20
+  %3 = load i64, ptr %2, align 8, !tbaa !21
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  store i64 0, ptr %2, align 8, !tbaa !20
+  store i64 0, ptr %2, align 8, !tbaa !21
   %5 = tail call fastcc i32 @signal_exec(i64 noundef %3, i32 noundef 0)
   br label %6
 
@@ -865,58 +865,58 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   %4 = alloca ptr, align 8
   %5 = alloca %struct.rb_vm_tag, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !78
-  store volatile i32 %9, ptr %3, align 4, !tbaa !19
+  %9 = load i32, ptr %8, align 4, !tbaa !79
+  store volatile i32 %9, ptr %3, align 4, !tbaa !20
   %10 = and i64 %0, 7
   %.not22 = icmp eq i64 %10, 0
   br i1 %.not22, label %11, label %51
 
 11:                                               ; preds = %2
   %12 = or i32 %9, 8
-  store i32 %12, ptr %8, align 4, !tbaa !78
+  store i32 %12, ptr %8, align 4, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %7, ptr %4, align 8, !tbaa !23
+  store ptr %7, ptr %4, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i32 0, ptr %13, align 8, !tbaa !79
-  store i64 36, ptr %5, align 8, !tbaa !81
+  store i32 0, ptr %13, align 8, !tbaa !80
+  store i64 36, ptr %5, align 8, !tbaa !82
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !83
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %15, ptr %16, align 8, !tbaa !83
+  store ptr %15, ptr %16, align 8, !tbaa !84
   %17 = getelementptr i8, ptr %7, i64 48
-  %.0.1.val = load ptr, ptr %17, align 8, !tbaa !25
+  %.0.1.val = load ptr, ptr %17, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %.0.1.val, null
   br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !84
+  %20 = load ptr, ptr %19, align 8, !tbaa !85
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %22 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !97
+  %23 = load ptr, ptr %22, align 8, !tbaa !98
   br label %rb_ec_ractor_ptr.exit.i
 
 rb_ec_ractor_ptr.exit.i:                          ; preds = %18, %11
   %.in.i = phi ptr [ %21, %18 ], [ inttoptr (i64 88 to ptr), %11 ]
   %.0.i2.i = phi ptr [ %20, %18 ], [ null, %11 ]
   %.0.i6.i = phi ptr [ %23, %18 ], [ null, %11 ]
-  %24 = load ptr, ptr %.in.i, align 8, !tbaa !98
+  %24 = load ptr, ptr %.in.i, align 8, !tbaa !99
   %.not.i = icmp eq ptr %24, %.0.i6.i
   br i1 %.not.i, label %25, label %rb_ec_vm_lock_rec.exit
 
 25:                                               ; preds = %rb_ec_ractor_ptr.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
-  %27 = load i32, ptr %26, align 8, !tbaa !99
+  %27 = load i32, ptr %26, align 8, !tbaa !100
   br label %rb_ec_vm_lock_rec.exit
 
 rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %25
   %.0.i = phi i32 [ %27, %25 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  store i32 %.0.i, ptr %28, align 4, !tbaa !100
+  store i32 %.0.i, ptr %28, align 4, !tbaa !101
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = tail call ptr @llvm.frameaddress.p0(i32 0)
   store ptr %30, ptr %29, align 8
@@ -925,42 +925,42 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   store ptr %31, ptr %32, align 8
   %33 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %29)
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %.thread19, label %42, !prof !101
+  br i1 %.not, label %.thread19, label %42, !prof !102
 
 .thread19:                                        ; preds = %rb_ec_vm_lock_rec.exit
-  store ptr %5, ptr %14, align 8, !tbaa !82
+  store ptr %5, ptr %14, align 8, !tbaa !83
   %34 = sext i32 %1 to i64
   %35 = shl nsw i64 %34, 1
   %36 = or disjoint i64 %35, 1
   %37 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %36) #17
   %38 = call i64 @rb_eval_cmd_kw(i64 noundef %0, i64 noundef %37, i32 noundef 0) #17
-  %39 = load ptr, ptr %16, align 8, !tbaa !83
-  store ptr %39, ptr %14, align 8, !tbaa !82
+  %39 = load ptr, ptr %16, align 8, !tbaa !84
+  store ptr %39, ptr %14, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %40 = load ptr, ptr %6, align 8, !tbaa !23
-  %.0..0..0..0.721 = load volatile i32, ptr %3, align 4, !tbaa !19
+  %40 = load ptr, ptr %6, align 8, !tbaa !24
+  %.0..0..0..0.721 = load volatile i32, ptr %3, align 4, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
-  store i32 %.0..0..0..0.721, ptr %41, align 4, !tbaa !78
+  store i32 %.0..0..0..0.721, ptr %41, align 4, !tbaa !79
   br label %51
 
 42:                                               ; preds = %rb_ec_vm_lock_rec.exit
-  %.0..0..0..0.2 = load volatile ptr, ptr %4, align 8, !tbaa !23
+  %.0..0..0..0.2 = load volatile ptr, ptr %4, align 8, !tbaa !24
   %43 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.2)
-  %44 = load ptr, ptr %16, align 8, !tbaa !83
-  %.0..0..0..0.4 = load ptr, ptr %4, align 8, !tbaa !23
+  %44 = load ptr, ptr %16, align 8, !tbaa !84
+  %.0..0..0..0.4 = load ptr, ptr %4, align 8, !tbaa !24
   %45 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.4, i64 24
-  store ptr %44, ptr %45, align 8, !tbaa !82
+  store ptr %44, ptr %45, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %46 = load ptr, ptr %6, align 8, !tbaa !23
-  %.0..0..0..0.7 = load volatile i32, ptr %3, align 4, !tbaa !19
+  %46 = load ptr, ptr %6, align 8, !tbaa !24
+  %.0..0..0..0.7 = load volatile i32, ptr %3, align 4, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  store i32 %.0..0..0..0.7, ptr %47, align 4, !tbaa !78
+  store i32 %.0..0..0..0.7, ptr %47, align 4, !tbaa !79
   %48 = getelementptr i8, ptr %46, i64 24
-  %.val = load ptr, ptr %48, align 8, !tbaa !82
+  %.val = load ptr, ptr %48, align 8, !tbaa !83
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i32 %43, ptr %49, align 8, !tbaa !79
+  store i32 %43, ptr %49, align 8, !tbaa !80
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   call void @llvm.eh.sjlj.longjmp(ptr nonnull %50)
   unreachable
@@ -973,11 +973,11 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = sext i32 %1 to i64
   %6 = getelementptr [65 x i64], ptr %4, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !20
+  %7 = load i64, ptr %6, align 8, !tbaa !21
   switch i64 %7, label %12 [
     i64 0, label %8
     i64 36, label %11
@@ -1036,26 +1036,26 @@ define dso_local void @ruby_sig_finalize() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #17
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #17
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8, !tbaa !60
+  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store i32 0, ptr %11, align 8, !tbaa !72
+  store i32 0, ptr %11, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store volatile i64 1296236546, ptr %7, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %7, align 16, !tbaa !21
   %12 = ptrtoint ptr %6 to i64
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store volatile i64 %12, ptr %13, align 8, !tbaa !20
+  store volatile i64 %12, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store volatile i64 152, ptr %14, align 16, !tbaa !20
+  store volatile i64 152, ptr %14, align 16, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store volatile i64 0, ptr %15, align 8, !tbaa !20
+  store volatile i64 0, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store volatile i64 0, ptr %16, align 16, !tbaa !20
+  store volatile i64 0, ptr %16, align 16, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store volatile i64 0, ptr %17, align 8, !tbaa !20
-  %18 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #17, !srcloc !74
-  store volatile i64 %18, ptr %8, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i = load volatile i64, ptr %8, align 8, !tbaa !20
+  store volatile i64 0, ptr %17, align 8, !tbaa !21
+  %18 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #17, !srcloc !75
+  store volatile i64 %18, ptr %8, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i = load volatile i64, ptr %8, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #17
   %19 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
@@ -1063,7 +1063,7 @@ define dso_local void @ruby_sig_finalize() local_unnamed_addr #1 {
   br i1 %20, label %ruby_signal.exit, label %21
 
 21:                                               ; preds = %0
-  %.010.i = load ptr, ptr %6, align 8, !tbaa !60
+  %.010.i = load ptr, ptr %6, align 8, !tbaa !61
   %22 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %22)
   br label %ruby_signal.exit
@@ -1080,26 +1080,26 @@ ruby_signal.exit:                                 ; preds = %0, %21
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = call i32 @sigemptyset(ptr noundef nonnull %25) #17
-  store ptr null, ptr %1, align 8, !tbaa !60
+  store ptr null, ptr %1, align 8, !tbaa !61
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 0, ptr %27, align 8, !tbaa !72
+  store i32 0, ptr %27, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store volatile i64 1296236546, ptr %3, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %3, align 16, !tbaa !21
   %28 = ptrtoint ptr %2 to i64
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store volatile i64 %28, ptr %29, align 8, !tbaa !20
+  store volatile i64 %28, ptr %29, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store volatile i64 152, ptr %30, align 16, !tbaa !20
+  store volatile i64 152, ptr %30, align 16, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store volatile i64 0, ptr %31, align 8, !tbaa !20
+  store volatile i64 0, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store volatile i64 0, ptr %32, align 16, !tbaa !20
+  store volatile i64 0, ptr %32, align 16, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store volatile i64 0, ptr %33, align 8, !tbaa !20
-  %34 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #17, !srcloc !74
-  store volatile i64 %34, ptr %4, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i1 = load volatile i64, ptr %4, align 8, !tbaa !20
+  store volatile i64 0, ptr %33, align 8, !tbaa !21
+  %34 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #17, !srcloc !75
+  store volatile i64 %34, ptr %4, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i1 = load volatile i64, ptr %4, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #17
   %35 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %2) #17
@@ -1107,7 +1107,7 @@ ruby_signal.exit:                                 ; preds = %0, %21
   br i1 %36, label %ruby_signal.exit4, label %37
 
 37:                                               ; preds = %24
-  %.010.i2 = load ptr, ptr %2, align 8, !tbaa !60
+  %.010.i2 = load ptr, ptr %2, align 8, !tbaa !61
   %38 = icmp ne ptr %.010.i2, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %38)
   br label %ruby_signal.exit4
@@ -1124,14 +1124,14 @@ ruby_signal.exit4:                                ; preds = %24, %37
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sighandler(i32 noundef %0) #1 {
   %2 = tail call ptr @rb_errno_ptr() #17
-  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !20
   %4 = sext i32 %0 to i64
   %5 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %4
   %6 = atomicrmw volatile add ptr %5, i32 1 seq_cst, align 4
   %7 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   tail call void @rb_thread_wakeup_timer_thread(i32 noundef %0) #17
   %8 = tail call ptr @rb_errno_ptr() #17
-  store i32 %3, ptr %8, align 4, !tbaa !19
+  store i32 %3, ptr %8, align 4, !tbaa !20
   ret void
 }
 
@@ -1158,15 +1158,15 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   tail call void @rb_define_module_function(i64 noundef %17, ptr noundef nonnull @.str.1, ptr noundef nonnull @sig_trap, i32 noundef -1) #17
   tail call void @rb_define_module_function(i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @sig_list, i32 noundef 0) #17
   tail call void @rb_define_module_function(i64 noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull @sig_signame, i32 noundef 1) #17
-  %18 = load i64, ptr @rb_eSignal, align 8, !tbaa !20
+  %18 = load i64, ptr @rb_eSignal, align 8, !tbaa !21
   tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.4, ptr noundef nonnull @esignal_init, i32 noundef -1) #17
-  %19 = load i64, ptr @rb_eSignal, align 8, !tbaa !20
+  %19 = load i64, ptr @rb_eSignal, align 8, !tbaa !21
   tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.5, ptr noundef nonnull @esignal_signo, i32 noundef 0) #17
-  %20 = load i64, ptr @rb_eSignal, align 8, !tbaa !20
+  %20 = load i64, ptr @rb_eSignal, align 8, !tbaa !21
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 5) #17
   %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 7) #17
   tail call void @rb_alias(i64 noundef %20, i64 noundef %21, i64 noundef %22) #17
-  %23 = load i64, ptr @rb_eInterrupt, align 8, !tbaa !20
+  %23 = load i64, ptr @rb_eInterrupt, align 8, !tbaa !21
   tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.4, ptr noundef nonnull @interrupt_init, i32 noundef -1) #17
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #17
   %24 = call i32 @sigfillset(ptr noundef nonnull %16) #17
@@ -1235,7 +1235,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br label %46
 
 46:                                               ; preds = %43, %45
-  %47 = load i32, ptr @ruby_enable_coredump, align 4, !tbaa !19
+  %47 = load i32, ptr @ruby_enable_coredump, align 4, !tbaa !20
   %.not16 = icmp eq i32 %47, 0
   br i1 %.not16, label %48, label %118
 
@@ -1245,27 +1245,27 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %50 = call i32 @sigemptyset(ptr noundef nonnull %49) #17
   %switch.i.i = icmp ult ptr @sigbus, inttoptr (i64 2 to ptr)
-  store ptr @sigbus, ptr %12, align 8, !tbaa !60
+  store ptr @sigbus, ptr %12, align 8, !tbaa !61
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %52 = select i1 %switch.i.i, i32 134217728, i32 134217732
-  store i32 %52, ptr %51, align 8, !tbaa !72
+  store i32 %52, ptr %51, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store volatile i64 1296236546, ptr %14, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %14, align 16, !tbaa !21
   %53 = ptrtoint ptr %13 to i64
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store volatile i64 %53, ptr %54, align 8, !tbaa !20
+  store volatile i64 %53, ptr %54, align 8, !tbaa !21
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store volatile i64 152, ptr %55, align 16, !tbaa !20
+  store volatile i64 152, ptr %55, align 16, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store volatile i64 0, ptr %56, align 8, !tbaa !20
+  store volatile i64 0, ptr %56, align 8, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store volatile i64 0, ptr %57, align 16, !tbaa !20
+  store volatile i64 0, ptr %57, align 16, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store volatile i64 0, ptr %58, align 8, !tbaa !20
-  %59 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #17, !srcloc !74
-  store volatile i64 %59, ptr %15, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %15, align 8, !tbaa !20
+  store volatile i64 0, ptr %58, align 8, !tbaa !21
+  %59 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #17, !srcloc !75
+  store volatile i64 %59, ptr %15, align 8, !tbaa !21
+  %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %15, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #17
   %60 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %12, ptr noundef nonnull %13) #17
@@ -1279,40 +1279,40 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   unreachable
 
 63:                                               ; preds = %48
-  %.010.i.i = load ptr, ptr %13, align 8, !tbaa !60
+  %.010.i.i = load ptr, ptr %13, align 8, !tbaa !61
   %64 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %64)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %13) #17
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12) #17
   %65 = icmp eq ptr %.010.i.i, inttoptr (i64 1 to ptr)
   %66 = select i1 %65, ptr null, ptr %.010.i.i
-  store ptr %66, ptr @default_sigbus_handler, align 8, !tbaa !102
+  store ptr %66, ptr @default_sigbus_handler, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #17
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9) #17
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = call i32 @sigemptyset(ptr noundef nonnull %67) #17
   %switch.i.i30 = icmp ult ptr @sigill, inttoptr (i64 2 to ptr)
   %spec.select.i.i31 = select i1 %switch.i.i30, i32 0, i32 4
-  store ptr @sigill, ptr %8, align 8, !tbaa !60
+  store ptr @sigill, ptr %8, align 8, !tbaa !61
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 %spec.select.i.i31, ptr %69, align 8, !tbaa !72
+  store i32 %spec.select.i.i31, ptr %69, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store volatile i64 1296236546, ptr %10, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %10, align 16, !tbaa !21
   %70 = ptrtoint ptr %9 to i64
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store volatile i64 %70, ptr %71, align 8, !tbaa !20
+  store volatile i64 %70, ptr %71, align 8, !tbaa !21
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store volatile i64 152, ptr %72, align 16, !tbaa !20
+  store volatile i64 152, ptr %72, align 16, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store volatile i64 0, ptr %73, align 8, !tbaa !20
+  store volatile i64 0, ptr %73, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store volatile i64 0, ptr %74, align 16, !tbaa !20
+  store volatile i64 0, ptr %74, align 16, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store volatile i64 0, ptr %75, align 8, !tbaa !20
-  %76 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !74
-  store volatile i64 %76, ptr %11, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i32 = load volatile i64, ptr %11, align 8, !tbaa !20
+  store volatile i64 0, ptr %75, align 8, !tbaa !21
+  %76 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !75
+  store volatile i64 %76, ptr %11, align 8, !tbaa !21
+  %.0..0..0..0..0..0..0..0..i.i32 = load volatile i64, ptr %11, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #17
   %77 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9) #17
@@ -1326,15 +1326,15 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   unreachable
 
 80:                                               ; preds = %63
-  %.010.i.i33 = load ptr, ptr %9, align 8, !tbaa !60
+  %.010.i.i33 = load ptr, ptr %9, align 8, !tbaa !61
   %81 = icmp ne ptr %.010.i.i33, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %81)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #17
   %82 = icmp eq ptr %.010.i.i33, inttoptr (i64 1 to ptr)
   %83 = select i1 %82, ptr null, ptr %.010.i.i33
-  store ptr %83, ptr @default_sigill_handler, align 8, !tbaa !102
-  %84 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  store ptr %83, ptr @default_sigill_handler, align 8, !tbaa !103
+  %84 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !20
   %.not.i = icmp eq i32 %84, 0
   br i1 %.not.i, label %85, label %90
 
@@ -1345,7 +1345,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   %89 = trunc i64 %88 to i32
   %spec.select.i.i38 = call i32 @llvm.smax.i32(i32 %87, i32 %89)
   %.1.i.i = call range(i32 16384, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i38, i32 16384)
-  store i32 %.1.i.i, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  store i32 %.1.i.i, ptr @rb_sigaltstack_size_value, align 4, !tbaa !20
   br label %90
 
 90:                                               ; preds = %85, %80
@@ -1363,43 +1363,43 @@ rb_allocate_sigaltstack.exit:                     ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %92, ptr %95, align 8, !tbaa !68
-  store ptr %93, ptr %6, align 8, !tbaa !70
+  store i64 %92, ptr %95, align 8, !tbaa !69
+  store ptr %93, ptr %6, align 8, !tbaa !71
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %96, align 8, !tbaa !71
+  store i32 0, ptr %96, align 8, !tbaa !72
   %97 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #17
-  %98 = load ptr, ptr %6, align 8, !tbaa !70
+  %98 = load ptr, ptr %6, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  %99 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %99 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 472
-  store ptr %98, ptr %100, align 8, !tbaa !103
+  store ptr %98, ptr %100, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #17
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #17
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %102 = call i32 @sigemptyset(ptr noundef nonnull %101) #17
   %switch.i.i39 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
-  store ptr @sigsegv, ptr %2, align 8, !tbaa !60
+  store ptr @sigsegv, ptr %2, align 8, !tbaa !61
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %104 = select i1 %switch.i.i39, i32 134217728, i32 134217732
-  store i32 %104, ptr %103, align 8, !tbaa !72
+  store i32 %104, ptr %103, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store volatile i64 1296236546, ptr %4, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %4, align 16, !tbaa !21
   %105 = ptrtoint ptr %3 to i64
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store volatile i64 %105, ptr %106, align 8, !tbaa !20
+  store volatile i64 %105, ptr %106, align 8, !tbaa !21
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store volatile i64 152, ptr %107, align 16, !tbaa !20
+  store volatile i64 152, ptr %107, align 16, !tbaa !21
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store volatile i64 0, ptr %108, align 8, !tbaa !20
+  store volatile i64 0, ptr %108, align 8, !tbaa !21
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store volatile i64 0, ptr %109, align 16, !tbaa !20
+  store volatile i64 0, ptr %109, align 16, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store volatile i64 0, ptr %110, align 8, !tbaa !20
-  %111 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #17, !srcloc !74
-  store volatile i64 %111, ptr %5, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i41 = load volatile i64, ptr %5, align 8, !tbaa !20
+  store volatile i64 0, ptr %110, align 8, !tbaa !21
+  %111 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #17, !srcloc !75
+  store volatile i64 %111, ptr %5, align 8, !tbaa !21
+  %.0..0..0..0..0..0..0..0..i.i41 = load volatile i64, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #17
   %112 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
@@ -1407,14 +1407,14 @@ rb_allocate_sigaltstack.exit:                     ; preds = %90
   br i1 %113, label %117, label %install_sighandler_core.exit45.thread
 
 install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigaltstack.exit
-  %.010.i.i42 = load ptr, ptr %3, align 8, !tbaa !60
+  %.010.i.i42 = load ptr, ptr %3, align 8, !tbaa !61
   %114 = icmp ne ptr %.010.i.i42, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %114)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #17
   %115 = icmp eq ptr %.010.i.i42, inttoptr (i64 1 to ptr)
   %116 = select i1 %115, ptr null, ptr %.010.i.i42
-  store ptr %116, ptr @default_sigsegv_handler, align 8, !tbaa !102
+  store ptr %116, ptr @default_sigsegv_handler, align 8, !tbaa !103
   br label %118
 
 117:                                              ; preds = %rb_allocate_sigaltstack.exit
@@ -1479,9 +1479,9 @@ define internal i64 @sig_trap(i32 noundef %0, ptr noundef readonly captures(none
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %12 = load i64, ptr %1, align 8, !tbaa !20
+  %12 = load i64, ptr %1, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i64 %12, ptr %9, align 8, !tbaa !20
+  store i64 %12, ptr %9, align 8, !tbaa !21
   %13 = and i64 %12, 1
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %19, label %14
@@ -1493,7 +1493,7 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %or.cond.i, label %17, label %trap_signm.exit
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %18 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.27, i32 noundef %16) #19
   unreachable
 
@@ -1528,12 +1528,12 @@ reserved_signal_p.exit:                           ; preds = %reserved_signal_p.e
   br i1 %26, label %reserved_signal_p.exit, label %28, !llvm.loop !12
 
 signo2signm.exit:                                 ; preds = %reserved_signal_p.exit
-  %27 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %27 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.25, ptr noundef nonnull %.06.i) #19
   unreachable
 
 28:                                               ; preds = %24
-  %29 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %29 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.26, i32 noundef %.0.i) #19
   unreachable
 
@@ -1547,14 +1547,14 @@ signo2signm.exit:                                 ; preds = %reserved_signal_p.e
 
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %1, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !20
+  %36 = load i64, ptr %35, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   %37 = icmp eq i64 %36, 4
   br i1 %37, label %trap_handler.exit, label %38
 
 38:                                               ; preds = %34
   %39 = tail call i64 @rb_check_string_type(i64 noundef %36) #17
-  store i64 %39, ptr %8, align 8, !tbaa !20
+  store i64 %39, ptr %8, align 8, !tbaa !21
   %40 = icmp eq i64 %39, 4
   br i1 %40, label %41, label %.thread.i
 
@@ -1572,29 +1572,29 @@ signo2signm.exit:                                 ; preds = %reserved_signal_p.e
 
 RB_SYMBOL_P.exit.i:                               ; preds = %44
   %49 = inttoptr i64 %36 to ptr
-  %50 = load i64, ptr %49, align 8, !tbaa !62
+  %50 = load i64, ptr %49, align 8, !tbaa !63
   %51 = and i64 %50, 31
   %52 = icmp eq i64 %51, 20
   br i1 %52, label %RB_SYMBOL_P.exit.thread.i, label %trap_handler.exit
 
 RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i, %41
   %53 = tail call i64 @rb_sym2str(i64 noundef %36) #17
-  store i64 %53, ptr %8, align 8, !tbaa !20
+  store i64 %53, ptr %8, align 8, !tbaa !21
   switch i64 %53, label %.thread.i [
     i64 0, label %54
     i64 4, label %trap_handler.exit
   ]
 
 54:                                               ; preds = %RB_SYMBOL_P.exit.thread.i
-  %55 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %55 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %55, ptr noundef nonnull @.str.28) #19
   unreachable
 
 .thread.i:                                        ; preds = %RB_SYMBOL_P.exit.thread.i, %38
   %56 = call i64 @rb_string_value(ptr noundef nonnull %8) #17
-  %57 = load i64, ptr %8, align 8, !tbaa !20
+  %57 = load i64, ptr %8, align 8, !tbaa !21
   %58 = inttoptr i64 %57 to ptr
-  %59 = load i64, ptr %58, align 8, !tbaa !62, !noalias !104
+  %59 = load i64, ptr %58, align 8, !tbaa !63, !noalias !105
   %60 = and i64 %59, 8192
   %.not.i.i = icmp eq i64 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -1607,7 +1607,7 @@ RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i,
 rbimpl_rstring_getmem.exit.i:                     ; preds = %62, %.thread.i
   %.sroa.5.0.i = phi ptr [ %.sroa.5.0.copyload.i, %62 ], [ %61, %.thread.i ]
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !tbaa !20
+  %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !tbaa !21
   switch i64 %.sroa.3.0.i, label %trap_handler.exit [
     i64 0, label %thread-pre-split.thread.sink.split.i
     i64 14, label %65
@@ -1684,7 +1684,7 @@ rb_ractor_main_p.exit:                            ; preds = %77
 
 86:                                               ; preds = %81
   %87 = inttoptr i64 %.026 to ptr
-  %88 = load i64, ptr %87, align 8, !tbaa !62
+  %88 = load i64, ptr %87, align 8, !tbaa !63
   %89 = and i64 %88, 256
   %.not.i18 = icmp eq i64 %89, 0
   br i1 %.not.i18, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
@@ -1699,7 +1699,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %86
 
 rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_ractor_shareable_p.exit, %rb_ractor_main_p.exit, %77
   %.1 = phi i64 [ %.026, %77 ], [ %.026, %rb_ractor_main_p.exit ], [ %.026, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.026, %81 ], [ %.026, %86 ]
-  %93 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %93 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %94 = icmp eq i32 %.0.i, 0
   br i1 %94, label %116, label %95
 
@@ -1710,9 +1710,9 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
   %97 = call i32 @sigemptyset(ptr noundef nonnull %96) #17
   %switch.i.i = icmp ult ptr %.0, inttoptr (i64 2 to ptr)
   %spec.select.i.i = select i1 %switch.i.i, i32 0, i32 4
-  store ptr %.0, ptr %4, align 8, !tbaa !60
+  store ptr %.0, ptr %4, align 8, !tbaa !61
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 %spec.select.i.i, ptr %98, align 8, !tbaa !72
+  store i32 %spec.select.i.i, ptr %98, align 8, !tbaa !73
   switch i32 %.0.i, label %101 [
     i32 11, label %99
     i32 7, label %99
@@ -1720,27 +1720,27 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
 
 99:                                               ; preds = %95, %95
   %100 = or disjoint i32 %spec.select.i.i, 134217728
-  store i32 %100, ptr %98, align 8, !tbaa !72
+  store i32 %100, ptr %98, align 8, !tbaa !73
   br label %101
 
 101:                                              ; preds = %99, %95
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store volatile i64 1296236546, ptr %6, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %6, align 16, !tbaa !21
   %102 = ptrtoint ptr %5 to i64
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile i64 %102, ptr %103, align 8, !tbaa !20
+  store volatile i64 %102, ptr %103, align 8, !tbaa !21
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile i64 152, ptr %104, align 16, !tbaa !20
+  store volatile i64 152, ptr %104, align 16, !tbaa !21
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store volatile i64 0, ptr %105, align 8, !tbaa !20
+  store volatile i64 0, ptr %105, align 8, !tbaa !21
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store volatile i64 0, ptr %106, align 16, !tbaa !20
+  store volatile i64 0, ptr %106, align 16, !tbaa !21
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store volatile i64 0, ptr %107, align 8, !tbaa !20
-  %108 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #17, !srcloc !74
-  store volatile i64 %108, ptr %7, align 8, !tbaa !20
-  %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %7, align 8, !tbaa !20
+  store volatile i64 0, ptr %107, align 8, !tbaa !21
+  %108 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #17, !srcloc !75
+  store volatile i64 %108, ptr %7, align 8, !tbaa !21
+  %.0..0..0..0..0..0..0..0..i.i = load volatile i64, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
   %109 = call i32 @sigaction(i32 noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
@@ -1748,7 +1748,7 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
   br i1 %110, label %112, label %ruby_signal.exit.i
 
 ruby_signal.exit.i:                               ; preds = %101
-  %.010.i.i = load ptr, ptr %5, align 8, !tbaa !60
+  %.010.i.i = load ptr, ptr %5, align 8, !tbaa !61
   %111 = icmp ne ptr %.010.i.i, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %111)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #17
@@ -1759,7 +1759,7 @@ ruby_signal.exit.i:                               ; preds = %101
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #17
   %113 = call ptr @rb_errno_ptr() #17
-  %114 = load i32, ptr %113, align 4, !tbaa !19
+  %114 = load i32, ptr %113, align 4, !tbaa !20
   %115 = call fastcc i64 @rb_signo2signm(i32 noundef %.0.i)
   call void @rb_syserr_fail_str(i32 noundef %114, i64 noundef %115) #19
   unreachable
@@ -1769,7 +1769,7 @@ ruby_signal.exit.i:                               ; preds = %101
   %117 = getelementptr inbounds nuw i8, ptr %93, i64 664
   %118 = sext i32 %.0.i to i64
   %119 = getelementptr [65 x i64], ptr %117, i64 0, i64 %118
-  %120 = load i64, ptr %119, align 8, !tbaa !20
+  %120 = load i64, ptr %119, align 8, !tbaa !21
   switch i64 %120, label %trap.exit [
     i64 0, label %121
     i64 20, label %121
@@ -1805,7 +1805,7 @@ ruby_signal.exit.i:                               ; preds = %101
 
 trap.exit:                                        ; preds = %116, %122, %124, %126, %128, %130
   %.015.i = phi i64 [ %120, %116 ], [ %123, %122 ], [ %125, %124 ], [ %129, %128 ], [ %131, %130 ], [ 4, %126 ]
-  store volatile i64 %.1, ptr %119, align 8, !tbaa !20
+  store volatile i64 %.1, ptr %119, align 8, !tbaa !21
   ret i64 %.015.i
 }
 
@@ -1827,7 +1827,7 @@ define internal i64 @sig_list(i64 %0) #1 {
   %10 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %4, i64 noundef %9) #17
   %11 = getelementptr i8, ptr %.05, i64 12
   %12 = icmp ult ptr %11, getelementptr inbounds nuw (i8, ptr @siglist, i64 408)
-  br i1 %12, label %3, label %13, !llvm.loop !107
+  br i1 %12, label %3, label %13, !llvm.loop !108
 
 13:                                               ; preds = %3
   ret i64 %2
@@ -1884,7 +1884,7 @@ define internal noundef i64 @esignal_init(i32 noundef %0, ptr noundef readonly c
   br i1 %6, label %7, label %.critedge.thread
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr %1, align 8, !tbaa !20
+  %8 = load i64, ptr %1, align 8, !tbaa !21
   %9 = tail call i64 @rb_check_to_integer(i64 noundef %8, ptr noundef nonnull @.str.37) #17
   %10 = icmp eq i64 %9, 4
   br i1 %10, label %35, label %11
@@ -1917,7 +1917,7 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
   br i1 %or.cond, label %20, label %22
 
 20:                                               ; preds = %rb_num2int_inline.exit
-  %21 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
+  %21 = load i64, ptr @rb_eArgError, align 8, !tbaa !21
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.27, i32 noundef %19) #19
   unreachable
 
@@ -1927,8 +1927,8 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 
 23:                                               ; preds = %22
   %24 = getelementptr i8, ptr %1, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !20
-  store i64 %25, ptr %4, align 8, !tbaa !20
+  %25 = load i64, ptr %24, align 8, !tbaa !21
+  store i64 %25, ptr %4, align 8, !tbaa !21
   br label %44
 
 .preheader:                                       ; preds = %22, %29
@@ -1953,12 +1953,12 @@ signo2signm.exit.i:                               ; preds = %.preheader
 
 rb_signo2signm.exit:                              ; preds = %signo2signm.exit.i, %33
   %.0.i17 = phi i64 [ %32, %signo2signm.exit.i ], [ %34, %33 ]
-  store i64 %.0.i17, ptr %4, align 8, !tbaa !20
+  store i64 %.0.i17, ptr %4, align 8, !tbaa !21
   br label %44
 
 35:                                               ; preds = %7
-  %36 = load i64, ptr %1, align 8, !tbaa !20
-  store i64 %36, ptr %4, align 8, !tbaa !20
+  %36 = load i64, ptr %1, align 8, !tbaa !21
+  store i64 %36, ptr %4, align 8, !tbaa !21
   %.not20 = icmp eq i32 %0, 1
   br i1 %.not20, label %rb_check_arity.exit18, label %.critedge.thread
 
@@ -1969,15 +1969,15 @@ rb_signo2signm.exit:                              ; preds = %signo2signm.exit.i,
 rb_check_arity.exit18:                            ; preds = %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   %37 = call fastcc i32 @signm2signo(ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5)
-  %38 = load i32, ptr %5, align 4, !tbaa !19
+  %38 = load i32, ptr %5, align 4, !tbaa !20
   %.not = icmp eq i32 %38, 3
   br i1 %.not, label %43, label %39
 
 39:                                               ; preds = %rb_check_arity.exit18
   %40 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.38, i64 noundef 3) #17
-  %41 = load i64, ptr %4, align 8, !tbaa !20
+  %41 = load i64, ptr %4, align 8, !tbaa !21
   %42 = call i64 @rb_str_append(i64 noundef %40, i64 noundef %41) #17
-  store i64 %42, ptr %4, align 8, !tbaa !20
+  store i64 %42, ptr %4, align 8, !tbaa !21
   br label %43
 
 43:                                               ; preds = %39, %rb_check_arity.exit18
@@ -1987,7 +1987,7 @@ rb_check_arity.exit18:                            ; preds = %35
 44:                                               ; preds = %23, %rb_signo2signm.exit, %43
   %.0 = phi i32 [ %19, %23 ], [ %19, %rb_signo2signm.exit ], [ %37, %43 ]
   %45 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %4) #17
-  %46 = load i64, ptr @ruby_static_id_signo, align 8, !tbaa !20
+  %46 = load i64, ptr @ruby_static_id_signo, align 8, !tbaa !21
   %47 = sext i32 %.0 to i64
   %48 = shl nsw i64 %47, 1
   %49 = or disjoint i64 %48, 1
@@ -1998,7 +1998,7 @@ rb_check_arity.exit18:                            ; preds = %35
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @esignal_signo(i64 noundef %0) #1 {
-  %2 = load i64, ptr @ruby_static_id_signo, align 8, !tbaa !20
+  %2 = load i64, ptr @ruby_static_id_signo, align 8, !tbaa !21
   %3 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %2) #17
   ret i64 %3
 }
@@ -2009,7 +2009,7 @@ declare void @rb_alias(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 define internal i64 @interrupt_init(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  store i64 5, ptr %4, align 16, !tbaa !20
+  store i64 5, ptr %4, align 16, !tbaa !21
   %or.cond.not = icmp ult i32 %0, 2
   br i1 %or.cond.not, label %rb_check_arity.exit, label %5
 
@@ -2022,13 +2022,13 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %rb_check_arity.exit
-  %7 = load i64, ptr %1, align 8, !tbaa !20
+  %7 = load i64, ptr %1, align 8, !tbaa !21
   br label %8
 
 8:                                                ; preds = %rb_check_arity.exit, %6
   %9 = phi i64 [ %7, %6 ], [ 4, %rb_check_arity.exit ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %9, ptr %10, align 8, !tbaa !20
+  store i64 %9, ptr %10, align 8, !tbaa !21
   %11 = call i64 @rb_call_super(i32 noundef 2, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   ret i64 %11
@@ -2050,9 +2050,9 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
   %13 = call i32 @sigemptyset(ptr noundef nonnull %12) #17
   %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
   %spec.select.i = select i1 %switch.i, i32 0, i32 4
-  store ptr %1, ptr %8, align 8, !tbaa !60
+  store ptr %1, ptr %8, align 8, !tbaa !61
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 %spec.select.i, ptr %14, align 8, !tbaa !72
+  store i32 %spec.select.i, ptr %14, align 8, !tbaa !73
   switch i32 %0, label %17 [
     i32 11, label %15
     i32 7, label %15
@@ -2060,27 +2060,27 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
 
 15:                                               ; preds = %3, %3
   %16 = or disjoint i32 %spec.select.i, 134217728
-  store i32 %16, ptr %14, align 8, !tbaa !72
+  store i32 %16, ptr %14, align 8, !tbaa !73
   br label %17
 
 17:                                               ; preds = %15, %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store volatile i64 1296236546, ptr %10, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %10, align 16, !tbaa !21
   %18 = ptrtoint ptr %9 to i64
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store volatile i64 %18, ptr %19, align 8, !tbaa !20
+  store volatile i64 %18, ptr %19, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store volatile i64 152, ptr %20, align 16, !tbaa !20
+  store volatile i64 152, ptr %20, align 16, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store volatile i64 0, ptr %21, align 8, !tbaa !20
+  store volatile i64 0, ptr %21, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store volatile i64 0, ptr %22, align 16, !tbaa !20
+  store volatile i64 0, ptr %22, align 16, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store volatile i64 0, ptr %23, align 8, !tbaa !20
-  %24 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !74
-  store volatile i64 %24, ptr %11, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i = load volatile i64, ptr %11, align 8, !tbaa !20
+  store volatile i64 0, ptr %23, align 8, !tbaa !21
+  %24 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !75
+  store volatile i64 %24, ptr %11, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i = load volatile i64, ptr %11, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #17
   %25 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #17
@@ -2093,7 +2093,7 @@ ruby_signal.exit.thread:                          ; preds = %17
   br label %51
 
 27:                                               ; preds = %17
-  %.010.i = load ptr, ptr %9, align 8, !tbaa !60
+  %.010.i = load ptr, ptr %9, align 8, !tbaa !61
   %28 = icmp ne ptr %.010.i, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9) #17
@@ -2104,7 +2104,7 @@ ruby_signal.exit.thread:                          ; preds = %17
 29:                                               ; preds = %27
   %30 = icmp eq ptr %.010.i, inttoptr (i64 1 to ptr)
   %31 = select i1 %30, ptr null, ptr %.010.i
-  store ptr %31, ptr %2, align 8, !tbaa !102
+  store ptr %31, ptr %2, align 8, !tbaa !103
   br label %51
 
 32:                                               ; preds = %27
@@ -2118,9 +2118,9 @@ ruby_signal.exit.thread:                          ; preds = %17
   %35 = call i32 @sigemptyset(ptr noundef nonnull %34) #17
   %switch.i15 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
   %spec.select.i16 = select i1 %switch.i15, i32 0, i32 4
-  store ptr %.010.i, ptr %4, align 8, !tbaa !60
+  store ptr %.010.i, ptr %4, align 8, !tbaa !61
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 %spec.select.i16, ptr %36, align 8, !tbaa !72
+  store i32 %spec.select.i16, ptr %36, align 8, !tbaa !73
   switch i32 %0, label %39 [
     i32 11, label %37
     i32 7, label %37
@@ -2128,27 +2128,27 @@ ruby_signal.exit.thread:                          ; preds = %17
 
 37:                                               ; preds = %33, %33
   %38 = or disjoint i32 %spec.select.i16, 134217728
-  store i32 %38, ptr %36, align 8, !tbaa !72
+  store i32 %38, ptr %36, align 8, !tbaa !73
   br label %39
 
 39:                                               ; preds = %37, %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store volatile i64 1296236546, ptr %6, align 16, !tbaa !20
+  store volatile i64 1296236546, ptr %6, align 16, !tbaa !21
   %40 = ptrtoint ptr %5 to i64
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile i64 %40, ptr %41, align 8, !tbaa !20
+  store volatile i64 %40, ptr %41, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile i64 152, ptr %42, align 16, !tbaa !20
+  store volatile i64 152, ptr %42, align 16, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store volatile i64 0, ptr %43, align 8, !tbaa !20
+  store volatile i64 0, ptr %43, align 8, !tbaa !21
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store volatile i64 0, ptr %44, align 16, !tbaa !20
+  store volatile i64 0, ptr %44, align 16, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store volatile i64 0, ptr %45, align 8, !tbaa !20
-  %46 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #17, !srcloc !74
-  store volatile i64 %46, ptr %7, align 8, !tbaa !20
-  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %7, align 8, !tbaa !20
+  store volatile i64 0, ptr %45, align 8, !tbaa !21
+  %46 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #17, !srcloc !75
+  store volatile i64 %46, ptr %7, align 8, !tbaa !21
+  %.0..0..0..0..0..0..i17 = load volatile i64, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
   %47 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
@@ -2156,7 +2156,7 @@ ruby_signal.exit.thread:                          ; preds = %17
   br i1 %48, label %ruby_signal.exit20, label %49
 
 49:                                               ; preds = %39
-  %.010.i18 = load ptr, ptr %5, align 8, !tbaa !60
+  %.010.i18 = load ptr, ptr %5, align 8, !tbaa !61
   %50 = icmp ne ptr %.010.i18, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %50)
   br label %ruby_signal.exit20
@@ -2181,16 +2181,16 @@ declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
 define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #11 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.39, i64 noundef 3, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !108
+  %5 = load i32, ptr %4, align 8, !tbaa !109
   %6 = icmp eq i32 %5, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br i1 %6, label %check_stack_overflow.exit, label %7
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %.pre to i64
   %9 = getelementptr i8, ptr %2, i64 160
-  %.val7 = load i64, ptr %9, align 8, !tbaa !110
+  %.val7 = load i64, ptr %9, align 8, !tbaa !111
   %10 = lshr i64 %.val7, 12
   %11 = lshr i64 %8, 12
   %12 = icmp eq i64 %10, %11
@@ -2201,7 +2201,7 @@ define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none)
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %2, i64 120
-  %.val = load i64, ptr %16, align 8, !tbaa !110
+  %.val = load i64, ptr %16, align 8, !tbaa !111
   %17 = lshr i64 %.val, 12
   %.not.i = icmp samesign ugt i64 %10, %11
   %.not26.i = icmp samesign ugt i64 %11, %17
@@ -2210,9 +2210,9 @@ define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none)
 
 18:                                               ; preds = %15, %7
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !82
+  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 16
   %23 = ptrtoint ptr %22 to i64
   %24 = lshr i64 %23, 12
@@ -2223,7 +2223,7 @@ define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none)
   %.02.i = phi i32 [ %28, %30 ], [ 28, %18 ]
   %25 = phi ptr [ %27, %30 ], [ %.promoted.i, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !84
   %.not28.i = icmp eq ptr %27, null
   %28 = add nsw i32 %.02.i, -1
   %.not29.i = icmp eq i32 %28, 0
@@ -2231,12 +2231,12 @@ define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none)
   br i1 %29, label %._crit_edge.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  store ptr %27, ptr %21, align 8, !tbaa !82
+  store ptr %27, ptr %21, align 8, !tbaa !83
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = ptrtoint ptr %31 to i64
   %33 = lshr i64 %32, 12
   %.not27.i = icmp samesign ugt i64 %33, %13
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !111
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %30, %.lr.ph.i, %18
   %.123.i = phi i32 [ 0, %18 ], [ 0, %30 ], [ 1, %.lr.ph.i ]
@@ -2245,7 +2245,7 @@ define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none)
   unreachable
 
 check_stack_overflow.exit:                        ; preds = %3, %15
-  %34 = load ptr, ptr @default_sigbus_handler, align 8, !tbaa !102
+  %34 = load ptr, ptr @default_sigbus_handler, align 8, !tbaa !103
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %34, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef %.pre) #19
   unreachable
 }
@@ -2254,16 +2254,16 @@ check_stack_overflow.exit:                        ; preds = %3, %15
 define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #11 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.41, i64 noundef 3, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !108
+  %5 = load i32, ptr %4, align 8, !tbaa !109
   %6 = icmp eq i32 %5, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br i1 %6, label %check_stack_overflow.exit, label %7
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %.pre to i64
   %9 = getelementptr i8, ptr %2, i64 160
-  %.val7 = load i64, ptr %9, align 8, !tbaa !110
+  %.val7 = load i64, ptr %9, align 8, !tbaa !111
   %10 = lshr i64 %.val7, 12
   %11 = lshr i64 %8, 12
   %12 = icmp eq i64 %10, %11
@@ -2274,7 +2274,7 @@ define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none)
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %2, i64 120
-  %.val = load i64, ptr %16, align 8, !tbaa !110
+  %.val = load i64, ptr %16, align 8, !tbaa !111
   %17 = lshr i64 %.val, 12
   %.not.i = icmp samesign ugt i64 %10, %11
   %.not26.i = icmp samesign ugt i64 %11, %17
@@ -2283,9 +2283,9 @@ define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none)
 
 18:                                               ; preds = %15, %7
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !82
+  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 16
   %23 = ptrtoint ptr %22 to i64
   %24 = lshr i64 %23, 12
@@ -2296,7 +2296,7 @@ define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none)
   %.02.i = phi i32 [ %28, %30 ], [ 28, %18 ]
   %25 = phi ptr [ %27, %30 ], [ %.promoted.i, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !84
   %.not28.i = icmp eq ptr %27, null
   %28 = add nsw i32 %.02.i, -1
   %.not29.i = icmp eq i32 %28, 0
@@ -2304,12 +2304,12 @@ define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none)
   br i1 %29, label %._crit_edge.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  store ptr %27, ptr %21, align 8, !tbaa !82
+  store ptr %27, ptr %21, align 8, !tbaa !83
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = ptrtoint ptr %31 to i64
   %33 = lshr i64 %32, 12
   %.not27.i = icmp samesign ugt i64 %33, %13
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !111
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %30, %.lr.ph.i, %18
   %.123.i = phi i32 [ 0, %18 ], [ 0, %30 ], [ 1, %.lr.ph.i ]
@@ -2318,7 +2318,7 @@ define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none)
   unreachable
 
 check_stack_overflow.exit:                        ; preds = %3, %15
-  %34 = load ptr, ptr @default_sigill_handler, align 8, !tbaa !102
+  %34 = load ptr, ptr @default_sigill_handler, align 8, !tbaa !103
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %34, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef %.pre) #19
   unreachable
 }
@@ -2327,16 +2327,16 @@ check_stack_overflow.exit:                        ; preds = %3, %15
 define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #11 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.43, i64 noundef 4, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !108
+  %5 = load i32, ptr %4, align 8, !tbaa !109
   %6 = icmp eq i32 %5, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br i1 %6, label %check_stack_overflow.exit, label %7
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %.pre to i64
   %9 = getelementptr i8, ptr %2, i64 160
-  %.val7 = load i64, ptr %9, align 8, !tbaa !110
+  %.val7 = load i64, ptr %9, align 8, !tbaa !111
   %10 = lshr i64 %.val7, 12
   %11 = lshr i64 %8, 12
   %12 = icmp eq i64 %10, %11
@@ -2347,7 +2347,7 @@ define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %2, i64 120
-  %.val = load i64, ptr %16, align 8, !tbaa !110
+  %.val = load i64, ptr %16, align 8, !tbaa !111
   %17 = lshr i64 %.val, 12
   %.not.i = icmp samesign ugt i64 %10, %11
   %.not26.i = icmp samesign ugt i64 %11, %17
@@ -2356,9 +2356,9 @@ define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none
 
 18:                                               ; preds = %15, %7
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !82
+  %.promoted.i = load ptr, ptr %21, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 16
   %23 = ptrtoint ptr %22 to i64
   %24 = lshr i64 %23, 12
@@ -2369,7 +2369,7 @@ define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none
   %.02.i = phi i32 [ %28, %30 ], [ 28, %18 ]
   %25 = phi ptr [ %27, %30 ], [ %.promoted.i, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !84
   %.not28.i = icmp eq ptr %27, null
   %28 = add nsw i32 %.02.i, -1
   %.not29.i = icmp eq i32 %28, 0
@@ -2377,12 +2377,12 @@ define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none
   br i1 %29, label %._crit_edge.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  store ptr %27, ptr %21, align 8, !tbaa !82
+  store ptr %27, ptr %21, align 8, !tbaa !83
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = ptrtoint ptr %31 to i64
   %33 = lshr i64 %32, 12
   %.not27.i = icmp samesign ugt i64 %33, %13
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !111
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %30, %.lr.ph.i, %18
   %.123.i = phi i32 [ 0, %18 ], [ 0, %30 ], [ 1, %.lr.ph.i ]
@@ -2391,7 +2391,7 @@ define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none
   unreachable
 
 check_stack_overflow.exit:                        ; preds = %3, %15
-  %34 = load ptr, ptr @default_sigsegv_handler, align 8, !tbaa !102
+  %34 = load ptr, ptr @default_sigsegv_handler, align 8, !tbaa !103
   tail call void (ptr, i32, ptr, ptr, ...) @rb_bug_for_fatal_signal(ptr noundef %34, i32 noundef %0, ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %.pre) #19
   unreachable
 }
@@ -2462,36 +2462,36 @@ declare i32 @llvm.eh.sjlj.setjmp(ptr) #17
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
 define internal fastcc range(i32 1, 9) i32 @rb_ec_tag_state(ptr noundef %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i32, ptr %4, align 8, !tbaa !79
-  store i32 0, ptr %4, align 8, !tbaa !79
+  %5 = load i32, ptr %4, align 8, !tbaa !80
+  store i32 0, ptr %4, align 8, !tbaa !80
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %7 = load i32, ptr %6, align 4, !tbaa !100
+  %7 = load i32, ptr %6, align 4, !tbaa !101
   %8 = getelementptr i8, ptr %0, i64 48
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !25
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !26
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !84
+  %11 = load ptr, ptr %10, align 8, !tbaa !85
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !97
+  %14 = load ptr, ptr %13, align 8, !tbaa !98
   br label %rb_ec_ractor_ptr.exit.i.i
 
 rb_ec_ractor_ptr.exit.i.i:                        ; preds = %9, %1
   %.in.i.i = phi ptr [ %12, %9 ], [ inttoptr (i64 88 to ptr), %1 ]
   %.0.i2.i.i = phi ptr [ %11, %9 ], [ null, %1 ]
   %.0.i6.i.i = phi ptr [ %14, %9 ], [ null, %1 ]
-  %15 = load ptr, ptr %.in.i.i, align 8, !tbaa !98
+  %15 = load ptr, ptr %.in.i.i, align 8, !tbaa !99
   %.not.i.i = icmp eq ptr %15, %.0.i6.i.i
   br i1 %.not.i.i, label %16, label %rb_ec_vm_lock_rec.exit.i
 
 16:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i, i64 96
-  %18 = load i32, ptr %17, align 8, !tbaa !99
+  %18 = load i32, ptr %17, align 8, !tbaa !100
   br label %rb_ec_vm_lock_rec.exit.i
 
 rb_ec_vm_lock_rec.exit.i:                         ; preds = %16, %rb_ec_ractor_ptr.exit.i.i
@@ -2642,28 +2642,28 @@ define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef 
   %8 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %9 = tail call ptr @ruby_posix_signal(i32 noundef %2, ptr noundef null)
-  store ptr %0, ptr %4, align 16, !tbaa !102
+  store ptr %0, ptr %4, align 16, !tbaa !103
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !20
+  store i64 %1, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @check_reserved_signal_.msg1, ptr %10, align 16, !tbaa !102
+  store ptr @check_reserved_signal_.msg1, ptr %10, align 16, !tbaa !103
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 13, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !20
+  store i64 13, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
-  store ptr %8, ptr %11, align 16, !tbaa !102
+  store ptr %8, ptr %11, align 16, !tbaa !103
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %12, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !20
+  store i64 %12, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @check_reserved_signal_.msg2, ptr %13, align 16, !tbaa !102
+  store ptr @check_reserved_signal_.msg2, ptr %13, align 16, !tbaa !103
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 9, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
+  store i64 9, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
   %14 = call i64 @writev(i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #17
   call fastcc void @ruby_abort() #29
   unreachable
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %16 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !15
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %19, label %17
 
@@ -2745,103 +2745,104 @@ attributes #29 = { noreturn }
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!"int", !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS12rb_vm_struct", !16, i64 0}
-!16 = !{!"any pointer", !9, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 omnipotent char", !16, i64 0}
-!19 = !{!11, !11, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !9, i64 0}
-!22 = distinct !{!22, !13}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS27rb_execution_context_struct", !16, i64 0}
-!25 = !{!26, !31, i64 48}
-!26 = !{!"rb_execution_context_struct", !27, i64 0, !21, i64 8, !28, i64 16, !29, i64 24, !11, i64 32, !11, i64 36, !30, i64 40, !31, i64 48, !32, i64 56, !21, i64 64, !21, i64 72, !21, i64 80, !27, i64 88, !21, i64 96, !33, i64 104, !21, i64 112, !21, i64 120, !9, i64 128, !11, i64 129, !21, i64 136, !34, i64 144}
-!27 = !{!"p1 long", !16, i64 0}
-!28 = !{!"p1 _ZTS23rb_control_frame_struct", !16, i64 0}
-!29 = !{!"p1 _ZTS9rb_vm_tag", !16, i64 0}
-!30 = !{!"p1 _ZTS15rb_fiber_struct", !16, i64 0}
-!31 = !{!"p1 _ZTS16rb_thread_struct", !16, i64 0}
-!32 = !{!"p1 _ZTS11rb_id_table", !16, i64 0}
-!33 = !{!"p1 _ZTS19rb_trace_arg_struct", !16, i64 0}
-!34 = !{!"", !27, i64 0, !27, i64 8, !21, i64 16, !9, i64 24}
-!35 = !{!36, !31, i64 40}
-!36 = !{!"rb_vm_struct", !21, i64 0, !37, i64 8, !16, i64 472, !45, i64 480, !38, i64 488, !11, i64 504, !11, i64 508, !11, i64 508, !11, i64 508, !11, i64 508, !21, i64 512, !46, i64 520, !9, i64 528, !21, i64 568, !21, i64 576, !21, i64 584, !21, i64 592, !21, i64 600, !21, i64 608, !21, i64 616, !21, i64 624, !21, i64 632, !47, i64 640, !47, i64 648, !47, i64 656, !48, i64 664, !49, i64 1184, !11, i64 1192, !38, i64 1200, !9, i64 1216, !21, i64 1256, !21, i64 1264, !21, i64 1272, !21, i64 1280, !11, i64 1288, !50, i64 1296, !53, i64 1312, !47, i64 1320, !54, i64 1328, !47, i64 1336, !32, i64 1344, !47, i64 1352, !47, i64 1360, !32, i64 1368, !21, i64 1376, !9, i64 1384, !55, i64 9568}
-!37 = !{!"", !38, i64 0, !11, i64 16, !11, i64 20, !41, i64 24, !31, i64 32, !42, i64 40, !44, i64 152}
-!38 = !{!"ccan_list_head", !39, i64 0}
-!39 = !{!"ccan_list_node", !40, i64 0, !40, i64 8}
-!40 = !{!"p1 _ZTS14ccan_list_node", !16, i64 0}
-!41 = !{!"p1 _ZTS16rb_ractor_struct", !16, i64 0}
-!42 = !{!"", !9, i64 0, !41, i64 40, !11, i64 48, !9, i64 56, !43, i64 104}
-!43 = !{!"_Bool", !9, i64 0}
-!44 = !{!"", !9, i64 0, !41, i64 40, !43, i64 48, !9, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !38, i64 120, !11, i64 136, !38, i64 144, !38, i64 160, !38, i64 176, !43, i64 192, !9, i64 200, !9, i64 248, !43, i64 296, !11, i64 300, !11, i64 304}
-!45 = !{!"long long", !9, i64 0}
-!46 = !{!"p1 _ZTS18global_object_list", !16, i64 0}
-!47 = !{!"p1 _ZTS8st_table", !16, i64 0}
-!48 = !{!"", !9, i64 0}
-!49 = !{!"p1 _ZTS22rb_postponed_job_queue", !16, i64 0}
-!50 = !{!"", !51, i64 0, !52, i64 8}
-!51 = !{!"p1 _ZTS11rb_objspace", !16, i64 0}
-!52 = !{!"p1 _ZTS24gc_mark_func_data_struct", !16, i64 0}
-!53 = !{!"p1 _ZTS15rb_at_exit_list", !16, i64 0}
-!54 = !{!"p1 _ZTS19rb_builtin_function", !16, i64 0}
-!55 = !{!"", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
-!56 = distinct !{!56, !13, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !13, !57}
-!59 = !{i64 2151942941, i64 2151942977, i64 2151943045}
-!60 = !{!9, !9, i64 0}
-!61 = distinct !{!61, !13}
-!62 = !{!63, !21, i64 0}
-!63 = !{!"RBasic", !21, i64 0, !21, i64 8}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"rbimpl_rstring_getmem: argument 0"}
-!66 = distinct !{!66, !"rbimpl_rstring_getmem"}
-!67 = distinct !{!67, !13}
-!68 = !{!69, !21, i64 16}
-!69 = !{!"", !16, i64 0, !11, i64 8, !21, i64 16}
-!70 = !{!69, !16, i64 0}
-!71 = !{!69, !11, i64 8}
-!72 = !{!73, !11, i64 136}
-!73 = !{!"sigaction", !9, i64 0, !48, i64 8, !11, i64 136, !16, i64 144}
-!74 = !{i64 2151941190, i64 2151941226, i64 2151941294}
-!75 = !{!76, !11, i64 260}
-!76 = !{!"", !9, i64 0, !11, i64 260}
-!77 = distinct !{!77, !13}
-!78 = !{!26, !11, i64 36}
-!79 = !{!80, !11, i64 64}
-!80 = !{!"rb_vm_tag", !21, i64 0, !21, i64 8, !9, i64 16, !29, i64 56, !11, i64 64, !11, i64 68}
-!81 = !{!80, !21, i64 0}
-!82 = !{!26, !29, i64 24}
-!83 = !{!80, !29, i64 56}
-!84 = !{!85, !15, i64 32}
-!85 = !{!"rb_thread_struct", !39, i64 0, !21, i64 16, !41, i64 24, !15, i64 32, !86, i64 40, !24, i64 48, !87, i64 56, !43, i64 200, !11, i64 204, !21, i64 208, !92, i64 216, !21, i64 224, !21, i64 232, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !9, i64 241, !11, i64 244, !16, i64 248, !21, i64 256, !21, i64 264, !21, i64 272, !21, i64 280, !9, i64 288, !93, i64 328, !21, i64 344, !94, i64 352, !38, i64 360, !95, i64 376, !9, i64 384, !11, i64 408, !21, i64 416, !30, i64 424, !21, i64 432, !11, i64 440, !21, i64 448, !16, i64 456, !96, i64 464}
-!86 = !{!"p1 _ZTS16rb_native_thread", !16, i64 0}
-!87 = !{!"rb_thread_sched_item", !88, i64 0, !89, i64 80, !43, i64 120, !43, i64 121, !16, i64 128, !91, i64 136}
-!88 = !{!"", !39, i64 0, !39, i64 16, !39, i64 32, !39, i64 48, !39, i64 64}
-!89 = !{!"rb_thread_sched_waiting", !11, i64 0, !90, i64 8, !39, i64 24}
-!90 = !{!"", !21, i64 0, !11, i64 8, !11, i64 12}
-!91 = !{!"p1 _ZTS17coroutine_context", !16, i64 0}
-!92 = !{!"p1 _ZTS15rb_calling_info", !16, i64 0}
-!93 = !{!"rb_unblock_callback", !16, i64 0, !16, i64 8}
-!94 = !{!"p1 _ZTS15rb_mutex_struct", !16, i64 0}
-!95 = !{!"p1 _ZTS15rb_waiting_list", !16, i64 0}
-!96 = !{!"rb_ext_config", !43, i64 0}
-!97 = !{!85, !41, i64 24}
-!98 = !{!36, !41, i64 88}
-!99 = !{!36, !11, i64 96}
-!100 = !{!80, !11, i64 68}
-!101 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!102 = !{!16, !16, i64 0}
-!103 = !{!36, !16, i64 472}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"rbimpl_rstring_getmem: argument 0"}
-!106 = distinct !{!106, !"rbimpl_rstring_getmem"}
-!107 = distinct !{!107, !13}
-!108 = !{!109, !11, i64 8}
-!109 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !9, i64 16}
-!110 = !{!45, !45, i64 0}
-!111 = distinct !{!111, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS12rb_vm_struct", !17, i64 0}
+!17 = !{!"any pointer", !9, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !17, i64 0}
+!20 = !{!11, !11, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !9, i64 0}
+!23 = distinct !{!23, !13, !14}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS27rb_execution_context_struct", !17, i64 0}
+!26 = !{!27, !32, i64 48}
+!27 = !{!"rb_execution_context_struct", !28, i64 0, !22, i64 8, !29, i64 16, !30, i64 24, !11, i64 32, !11, i64 36, !31, i64 40, !32, i64 48, !33, i64 56, !22, i64 64, !22, i64 72, !22, i64 80, !28, i64 88, !22, i64 96, !34, i64 104, !22, i64 112, !22, i64 120, !9, i64 128, !11, i64 129, !22, i64 136, !35, i64 144}
+!28 = !{!"p1 long", !17, i64 0}
+!29 = !{!"p1 _ZTS23rb_control_frame_struct", !17, i64 0}
+!30 = !{!"p1 _ZTS9rb_vm_tag", !17, i64 0}
+!31 = !{!"p1 _ZTS15rb_fiber_struct", !17, i64 0}
+!32 = !{!"p1 _ZTS16rb_thread_struct", !17, i64 0}
+!33 = !{!"p1 _ZTS11rb_id_table", !17, i64 0}
+!34 = !{!"p1 _ZTS19rb_trace_arg_struct", !17, i64 0}
+!35 = !{!"", !28, i64 0, !28, i64 8, !22, i64 16, !9, i64 24}
+!36 = !{!37, !32, i64 40}
+!37 = !{!"rb_vm_struct", !22, i64 0, !38, i64 8, !17, i64 472, !46, i64 480, !39, i64 488, !11, i64 504, !11, i64 508, !11, i64 508, !11, i64 508, !11, i64 508, !22, i64 512, !47, i64 520, !9, i64 528, !22, i64 568, !22, i64 576, !22, i64 584, !22, i64 592, !22, i64 600, !22, i64 608, !22, i64 616, !22, i64 624, !22, i64 632, !48, i64 640, !48, i64 648, !48, i64 656, !49, i64 664, !50, i64 1184, !11, i64 1192, !39, i64 1200, !9, i64 1216, !22, i64 1256, !22, i64 1264, !22, i64 1272, !22, i64 1280, !11, i64 1288, !51, i64 1296, !54, i64 1312, !48, i64 1320, !55, i64 1328, !48, i64 1336, !33, i64 1344, !48, i64 1352, !48, i64 1360, !33, i64 1368, !22, i64 1376, !9, i64 1384, !56, i64 9568}
+!38 = !{!"", !39, i64 0, !11, i64 16, !11, i64 20, !42, i64 24, !32, i64 32, !43, i64 40, !45, i64 152}
+!39 = !{!"ccan_list_head", !40, i64 0}
+!40 = !{!"ccan_list_node", !41, i64 0, !41, i64 8}
+!41 = !{!"p1 _ZTS14ccan_list_node", !17, i64 0}
+!42 = !{!"p1 _ZTS16rb_ractor_struct", !17, i64 0}
+!43 = !{!"", !9, i64 0, !42, i64 40, !11, i64 48, !9, i64 56, !44, i64 104}
+!44 = !{!"_Bool", !9, i64 0}
+!45 = !{!"", !9, i64 0, !42, i64 40, !44, i64 48, !9, i64 56, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !39, i64 120, !11, i64 136, !39, i64 144, !39, i64 160, !39, i64 176, !44, i64 192, !9, i64 200, !9, i64 248, !44, i64 296, !11, i64 300, !11, i64 304}
+!46 = !{!"long long", !9, i64 0}
+!47 = !{!"p1 _ZTS18global_object_list", !17, i64 0}
+!48 = !{!"p1 _ZTS8st_table", !17, i64 0}
+!49 = !{!"", !9, i64 0}
+!50 = !{!"p1 _ZTS22rb_postponed_job_queue", !17, i64 0}
+!51 = !{!"", !52, i64 0, !53, i64 8}
+!52 = !{!"p1 _ZTS11rb_objspace", !17, i64 0}
+!53 = !{!"p1 _ZTS24gc_mark_func_data_struct", !17, i64 0}
+!54 = !{!"p1 _ZTS15rb_at_exit_list", !17, i64 0}
+!55 = !{!"p1 _ZTS19rb_builtin_function", !17, i64 0}
+!56 = !{!"", !22, i64 0, !22, i64 8, !22, i64 16, !22, i64 24}
+!57 = distinct !{!57, !13, !14, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !13, !14, !58}
+!60 = !{i64 2151942941, i64 2151942977, i64 2151943045}
+!61 = !{!9, !9, i64 0}
+!62 = distinct !{!62, !13, !14}
+!63 = !{!64, !22, i64 0}
+!64 = !{!"RBasic", !22, i64 0, !22, i64 8}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"rbimpl_rstring_getmem: argument 0"}
+!67 = distinct !{!67, !"rbimpl_rstring_getmem"}
+!68 = distinct !{!68, !13, !14}
+!69 = !{!70, !22, i64 16}
+!70 = !{!"", !17, i64 0, !11, i64 8, !22, i64 16}
+!71 = !{!70, !17, i64 0}
+!72 = !{!70, !11, i64 8}
+!73 = !{!74, !11, i64 136}
+!74 = !{!"sigaction", !9, i64 0, !49, i64 8, !11, i64 136, !17, i64 144}
+!75 = !{i64 2151941190, i64 2151941226, i64 2151941294}
+!76 = !{!77, !11, i64 260}
+!77 = !{!"", !9, i64 0, !11, i64 260}
+!78 = distinct !{!78, !13, !14}
+!79 = !{!27, !11, i64 36}
+!80 = !{!81, !11, i64 64}
+!81 = !{!"rb_vm_tag", !22, i64 0, !22, i64 8, !9, i64 16, !30, i64 56, !11, i64 64, !11, i64 68}
+!82 = !{!81, !22, i64 0}
+!83 = !{!27, !30, i64 24}
+!84 = !{!81, !30, i64 56}
+!85 = !{!86, !16, i64 32}
+!86 = !{!"rb_thread_struct", !40, i64 0, !22, i64 16, !42, i64 24, !16, i64 32, !87, i64 40, !25, i64 48, !88, i64 56, !44, i64 200, !11, i64 204, !22, i64 208, !93, i64 216, !22, i64 224, !22, i64 232, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !11, i64 240, !9, i64 241, !11, i64 244, !17, i64 248, !22, i64 256, !22, i64 264, !22, i64 272, !22, i64 280, !9, i64 288, !94, i64 328, !22, i64 344, !95, i64 352, !39, i64 360, !96, i64 376, !9, i64 384, !11, i64 408, !22, i64 416, !31, i64 424, !22, i64 432, !11, i64 440, !22, i64 448, !17, i64 456, !97, i64 464}
+!87 = !{!"p1 _ZTS16rb_native_thread", !17, i64 0}
+!88 = !{!"rb_thread_sched_item", !89, i64 0, !90, i64 80, !44, i64 120, !44, i64 121, !17, i64 128, !92, i64 136}
+!89 = !{!"", !40, i64 0, !40, i64 16, !40, i64 32, !40, i64 48, !40, i64 64}
+!90 = !{!"rb_thread_sched_waiting", !11, i64 0, !91, i64 8, !40, i64 24}
+!91 = !{!"", !22, i64 0, !11, i64 8, !11, i64 12}
+!92 = !{!"p1 _ZTS17coroutine_context", !17, i64 0}
+!93 = !{!"p1 _ZTS15rb_calling_info", !17, i64 0}
+!94 = !{!"rb_unblock_callback", !17, i64 0, !17, i64 8}
+!95 = !{!"p1 _ZTS15rb_mutex_struct", !17, i64 0}
+!96 = !{!"p1 _ZTS15rb_waiting_list", !17, i64 0}
+!97 = !{!"rb_ext_config", !44, i64 0}
+!98 = !{!86, !42, i64 24}
+!99 = !{!37, !42, i64 88}
+!100 = !{!37, !11, i64 96}
+!101 = !{!81, !11, i64 68}
+!102 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!103 = !{!17, !17, i64 0}
+!104 = !{!37, !17, i64 472}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"rbimpl_rstring_getmem: argument 0"}
+!107 = distinct !{!107, !"rbimpl_rstring_getmem"}
+!108 = distinct !{!108, !13, !14}
+!109 = !{!110, !11, i64 8}
+!110 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !9, i64 16}
+!111 = !{!46, !46, i64 0}
+!112 = distinct !{!112, !13, !14}

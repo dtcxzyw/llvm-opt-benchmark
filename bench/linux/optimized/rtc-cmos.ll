@@ -698,7 +698,7 @@ define internal noundef i32 @cmos_nvram_write(ptr noundef readonly captures(none
   %34 = add i64 %13, -1
   %35 = add i32 %14, 1
   %36 = icmp eq i64 %34, 0
-  br i1 %36, label %37, label %11, !llvm.loop !12
+  br i1 %36, label %37, label %11, !llvm.loop !13
 
 37:                                               ; preds = %32
   %38 = trunc i64 %3 to i32
@@ -959,7 +959,7 @@ declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @cmos_read_time(ptr noundef %0, ptr noundef %1) #3 align 16 {
-  %3 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !13
+  %3 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !14
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %12
 
@@ -995,7 +995,7 @@ define internal noundef range(i32 -110, 1) i32 @cmos_read_alarm(ptr noundef read
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %6, align 8, !annotation !14
+  store i64 0, ptr %6, align 8, !annotation !15
   store ptr %5, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1115,7 +1115,7 @@ define internal noundef range(i32 -110, 1) i32 @cmos_set_alarm(ptr noundef %0, p
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %9, align 8, !annotation !14
+  store i64 0, ptr %9, align 8, !annotation !15
   store ptr %8, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 9
@@ -1132,8 +1132,8 @@ define internal noundef range(i32 -110, 1) i32 @cmos_set_alarm(ptr noundef %0, p
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false), !annotation !14
-  %20 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false), !annotation !15
+  %20 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !14
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %29
 
@@ -1678,13 +1678,13 @@ declare dso_local i32 @acpi_install_fixed_event_handler(i32 noundef, ptr noundef
 define internal noundef i32 @rtc_handler(ptr noundef %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = load i8, ptr @use_acpi_alarm, align 1, !range !5, !noundef !13
+  %4 = load i8, ptr @use_acpi_alarm, align 1, !range !5, !noundef !14
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
-  %8 = tail call i32 @cmos_interrupt(i32 noundef 0, ptr noundef %7), !range !15
+  %8 = tail call i32 @cmos_interrupt(i32 noundef 0, ptr noundef %7), !range !16
   br label %23
 
 9:                                                ; preds = %1
@@ -1780,7 +1780,7 @@ define internal void @cmos_pnp_shutdown(ptr noundef %0) #3 align 16 {
 
 6:                                                ; preds = %1
   %7 = tail call i32 @cmos_suspend(ptr noundef %0)
-  %8 = tail call fastcc i32 @cmos_aie_poweroff(ptr noundef %0), !range !16
+  %8 = tail call fastcc i32 @cmos_aie_poweroff(ptr noundef %0), !range !17
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %16
 
@@ -1882,7 +1882,7 @@ define internal fastcc range(i32 -110, 1) i32 @cmos_aie_poweroff(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -1897,7 +1897,7 @@ define internal fastcc range(i32 -110, 1) i32 @cmos_aie_poweroff(ptr noundef %0)
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %9
-  %14 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !13
+  %14 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !14
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %23
 
@@ -1924,12 +1924,12 @@ define internal fastcc range(i32 -110, 1) i32 @cmos_aie_poweroff(ptr noundef %0)
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !15
   %29 = add i64 %24, -1
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @rtc_time64_to_tm(i64 noundef %29, ptr noundef nonnull %30) #9
   store i8 0, ptr %3, align 4
-  %31 = call i32 @cmos_set_alarm(ptr noundef %0, ptr noundef nonnull %3), !range !16
+  %31 = call i32 @cmos_set_alarm(ptr noundef %0, ptr noundef nonnull %3), !range !17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #9
   br label %35
 
@@ -2043,7 +2043,7 @@ define internal noundef i32 @cmos_suspend(ptr noundef %0) #3 align 16 {
 65:                                               ; preds = %61, %60, %48
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false)
-  %67 = tail call i32 @cmos_read_alarm(ptr noundef %0, ptr noundef nonnull %66), !range !16
+  %67 = tail call i32 @cmos_read_alarm(ptr noundef %0, ptr noundef nonnull %66), !range !17
   ret i32 0
 }
 
@@ -2093,7 +2093,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   %24 = phi ptr [ %.pre, %22 ], [ %6, %1 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false), !annotation !15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 57
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 32
@@ -2101,7 +2101,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   br i1 %28, label %64, label %29
 
 29:                                               ; preds = %23
-  %30 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !13
+  %30 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !5, !noundef !14
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %39
 
@@ -2130,15 +2130,15 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %39
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !18
   %48 = load ptr, ptr %24, align 8
-  %49 = call i32 @cmos_interrupt(i32 noundef 0, ptr noundef %48), !range !15
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !18
+  %49 = call i32 @cmos_interrupt(i32 noundef 0, ptr noundef %48), !range !16
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !19
   br label %64
 
 50:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  %51 = call i32 @cmos_read_alarm(ptr noundef %0, ptr noundef nonnull %3), !range !16
+  %51 = call i32 @cmos_read_alarm(ptr noundef %0, ptr noundef nonnull %3), !range !17
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %53 = call i64 @rtc_tm_to_time64(ptr noundef nonnull %52) #9
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -2154,7 +2154,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %58, %50
-  %63 = call i32 @cmos_set_alarm(ptr noundef %0, ptr noundef nonnull %54), !range !16
+  %63 = call i32 @cmos_set_alarm(ptr noundef %0, ptr noundef nonnull %54), !range !17
   br label %64
 
 64:                                               ; preds = %62, %58, %47, %23
@@ -2238,7 +2238,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   %114 = call i32 @hpet_mask_rtc_irq_bit(i64 noundef 32) #9
   %115 = and i8 %100, 32
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %117, label %88, !llvm.loop !19
+  br i1 %116, label %117, label %88, !llvm.loop !20
 
 117:                                              ; preds = %111, %106, %._crit_edge
   %118 = phi i8 [ %89, %._crit_edge ], [ %89, %106 ], [ %87, %111 ]
@@ -2249,7 +2249,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
 121:                                              ; preds = %117
   %122 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  store i32 0, ptr %2, align 4, !annotation !14
+  store i32 0, ptr %2, align 4, !annotation !15
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %124 = and i32 %123, 64
   %125 = icmp eq i32 %124, 0
@@ -2309,7 +2309,7 @@ define internal void @cmos_platform_shutdown(ptr noundef %0) #3 align 16 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call i32 @cmos_suspend(ptr noundef nonnull %7)
-  %9 = tail call fastcc i32 @cmos_aie_poweroff(ptr noundef nonnull %7), !range !16
+  %9 = tail call fastcc i32 @cmos_aie_poweroff(ptr noundef nonnull %7), !range !17
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %17
 
@@ -2359,14 +2359,15 @@ attributes #11 = { nounwind willreturn memory(none) }
 !6 = !{i64 2147823721, i64 2147823760, i64 2147823781, i64 2147823818, i64 2147823841, i64 2147823711}
 !7 = !{i64 2154316623}
 !8 = !{i64 2154316819}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{}
-!14 = !{!"auto-init"}
-!15 = !{i32 0, i32 2}
-!16 = !{i32 -110, i32 1}
-!17 = !{i64 1943796}
-!18 = !{i64 1943888}
-!19 = distinct !{!19, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}
+!14 = !{}
+!15 = !{!"auto-init"}
+!16 = !{i32 0, i32 2}
+!17 = !{i32 -110, i32 1}
+!18 = !{i64 1943796}
+!19 = !{i64 1943888}
+!20 = distinct !{!20, !10, !11, !12}

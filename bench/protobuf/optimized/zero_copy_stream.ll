@@ -402,7 +402,7 @@ if.else.i.i43:                                    ; preds = %while.end
 
 do.cond:                                          ; preds = %if.else.i.i43, %if.then.i.i39
   %cmp25 = icmp sgt i32 %conv3.i37, 0
-  br i1 %cmp25, label %do.body, label %do.end, !llvm.loop !13
+  br i1 %cmp25, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond
   %56 = load ptr, ptr %cord.addr, align 8
@@ -576,9 +576,9 @@ if.then.i4:                                       ; preds = %_ZN4absl12lts_20230
   %add.i.i.i.i.i = add nsw i64 %len.addr.0.i.i.i, -1
   %sub.i.i.i.i.i = add nuw nsw i64 %add.i.i.i.i.i, %conv.i.i.i.i
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, %conv.i.neg.i.i.i
-  %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #18, !noalias !14
+  %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #18, !noalias !15
   %18 = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 8
-  store i64 4, ptr %18, align 8, !noalias !14
+  store i64 4, ptr %18, align 8, !noalias !15
   %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
@@ -586,8 +586,8 @@ if.then.i4:                                       ; preds = %_ZN4absl12lts_20230
   %sub.i.i5.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i, %.sink.i.i.i.i.i
   %conv.i.i.i.i.i = trunc nuw nsw i64 %sub.i.i5.i.i.i to i8
   %tag.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 12
-  store i8 %conv.i.i.i.i.i, ptr %tag.i.i.i, align 4, !noalias !14
-  store i64 0, ptr %call4.i.i.i, align 8, !noalias !14
+  store i8 %conv.i.i.i.i.i, ptr %tag.i.i.i, align 4, !noalias !15
+  store i64 0, ptr %call4.i.i.i, align 8, !noalias !15
   br label %_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm.exit
 
 _ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm.exit: ; preds = %_ZN4absl12lts_2023080210CordBufferD2Ev.exit, %if.then.i4
@@ -742,7 +742,7 @@ while.body:                                       ; preds = %while.cond
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 16
   %9 = load ptr, ptr %vfn13, align 8
   %call14 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %buffer, ptr noundef nonnull %buffer_size)
-  br i1 %call14, label %while.cond, label %return, !llvm.loop !17
+  br i1 %call14, label %while.cond, label %return, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %fragment.sroa.7.0, i64 %fragment.sroa.0.0, i1 false)
@@ -756,7 +756,7 @@ while.end:                                        ; preds = %while.cond
   %call22 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %__begin2)
   %12 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not = icmp eq i64 %12, 0
-  br i1 %cmp.i.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.i.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %while.end, %if.end4
   %13 = load i32, ptr %buffer_size, align 4
@@ -837,7 +837,7 @@ if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %conv.i.i.i.i.i = zext i8 %10 to i64
   %cmp5.i.i.i.i = icmp eq i64 %add.i.i.i.i, %conv.i.i.i.i.i
   %indvars.iv.next24.i.i.i.i = add nuw i32 %indvars.iv23.i.i.i.i, 1
-  br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !18
+  br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !20
 
 do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i
   %arrayidx3.i.i.i.i.le = getelementptr inbounds nuw [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
@@ -862,7 +862,7 @@ do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, 
   %arrayidx20.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i
   store i8 %13, ptr %arrayidx20.i.i.i.i, align 1
   %cmp22.i.i.i.i = icmp sgt i64 %indvars.iv26.i.i.i.i, 1
-  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %cond.end.sink.split.i.loopexit.i.i, !llvm.loop !19
+  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %cond.end.sink.split.i.loopexit.i.i, !llvm.loop !21
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %inc.i.i.i = add i8 %6, 1
@@ -1100,7 +1100,7 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
   %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !20
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !22
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i
   %index.0.lcssa.i.i.i.i = phi i64 [ %index.020.i.i.i.i, %if.then.i ], [ %index.0.i.i.i.i, %while.body.i.i.i.i ]
@@ -1283,13 +1283,15 @@ attributes #21 = { noreturn nounwind }
 !8 = distinct !{!8, !9, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
 !9 = distinct !{!9, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
 !10 = !{!8, !5}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
-!16 = distinct !{!16, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm: %agg.result"}
+!17 = distinct !{!17, !"_ZN4absl12lts_2023080210CordBuffer22CreateWithDefaultLimitEm"}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}

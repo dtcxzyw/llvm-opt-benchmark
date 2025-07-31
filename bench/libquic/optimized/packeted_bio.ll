@@ -132,7 +132,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci(ptr nou
   %18 = zext nneg i32 %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %18
   %20 = sub i64 %.015.i, %18
-  br i1 %17, label %12, label %21
+  br i1 %17, label %12, label %21, !llvm.loop !19
 
 21:                                               ; preds = %13
   call void @BIO_copy_next_retry(ptr noundef nonnull %0)
@@ -165,7 +165,7 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit:       ; preds = %12
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %.017.i47, i64 %31
   %33 = sub i64 %.015.i48, %31
-  br i1 %30, label %25, label %34
+  br i1 %30, label %25, label %34, !llvm.loop !19
 
 34:                                               ; preds = %26
   call void @BIO_copy_next_retry(ptr noundef nonnull %0)
@@ -214,9 +214,9 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit52:     ; preds = %25
   %74 = load ptr, ptr %73, align 8, !tbaa !6
   %75 = urem i64 %72, 1000000
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %75, ptr %76, align 8, !tbaa !19
+  store i64 %75, ptr %76, align 8, !tbaa !21
   %77 = udiv i64 %67, 1000000000
-  store i64 %77, ptr %74, align 8, !tbaa !21
+  store i64 %77, ptr %74, align 8, !tbaa !23
   %78 = load ptr, ptr %7, align 8, !tbaa !17
   %79 = call i32 @BIO_write(ptr noundef %78, ptr noundef nonnull @_ZN12_GLOBAL__N_117kOpcodeTimeoutAckE, i32 noundef 1)
   %80 = icmp slt i32 %79, 1
@@ -233,7 +233,7 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit52:     ; preds = %25
 
 83:                                               ; preds = %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit
   %84 = zext i8 %22 to i32
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !24
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.1, i32 noundef %84) #11
   br label %135
 
@@ -257,7 +257,7 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit52:     ; preds = %25
   %95 = zext nneg i32 %93 to i64
   %96 = getelementptr inbounds nuw i8, ptr %.017.i53, i64 %95
   %97 = sub i64 %.015.i54, %95
-  br i1 %94, label %89, label %98
+  br i1 %94, label %89, label %98, !llvm.loop !19
 
 98:                                               ; preds = %90
   call void @BIO_copy_next_retry(ptr noundef nonnull %0)
@@ -305,10 +305,10 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit58:     ; preds = %89
   %127 = zext nneg i32 %125 to i64
   %128 = getelementptr inbounds nuw i8, ptr %.017.i59, i64 %127
   %129 = sub i64 %.015.i60, %127
-  br i1 %126, label %121, label %130
+  br i1 %126, label %121, label %130, !llvm.loop !19
 
 130:                                              ; preds = %122
-  %131 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %131 = load ptr, ptr @stderr, align 8, !tbaa !24
   %132 = call i64 @fwrite(ptr nonnull @.str.2, i64 27, i64 1, ptr %131) #13
   br label %134
 
@@ -358,7 +358,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLOBAL__N_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr noundef writeonly captures(none) initializes((24, 28)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %2, align 8, !tbaa !24
+  store i32 1, ptr %2, align 8, !tbaa !26
   ret i32 1
 }
 
@@ -369,7 +369,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_112PacketedFreeEP6b
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %4, align 8, !tbaa !24
+  store i32 0, ptr %4, align 8, !tbaa !26
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -463,9 +463,11 @@ attributes #13 = { cold }
 !16 = !{!14, !14, i64 0}
 !17 = !{!7, !14, i64 56}
 !18 = !{!10, !10, i64 0}
-!19 = !{!20, !15, i64 8}
-!20 = !{!"_ZTS7timeval", !15, i64 0, !15, i64 8}
-!21 = !{!20, !15, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!24 = !{!7, !13, i64 24}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !15, i64 8}
+!22 = !{!"_ZTS7timeval", !15, i64 0, !15, i64 8}
+!23 = !{!22, !15, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!26 = !{!7, !13, i64 24}

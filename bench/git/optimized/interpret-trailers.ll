@@ -347,7 +347,7 @@ define dso_local noundef i32 @cmd_interpret_trailers(i32 noundef %0, ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 139:                                              ; preds = %135
-  %140 = load i32, ptr %5, align 8, !tbaa !32
+  %140 = load i32, ptr %5, align 8, !tbaa !33
   %.not11 = icmp eq i32 %140, 0
   br i1 %.not11, label %143, label %141
 
@@ -375,7 +375,7 @@ define dso_local noundef i32 @cmd_interpret_trailers(i32 noundef %0, ptr noundef
   store ptr %.09.i, ptr %.0.val10.i, align 8, !tbaa !4
   call void @free(ptr noundef %.012.i) #12
   %.not.i = icmp eq ptr %.09.i, %6
-  br i1 %.not.i, label %new_trailers_clear.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %new_trailers_clear.exit, label %.lr.ph.i, !llvm.loop !34
 
 new_trailers_clear.exit:                          ; preds = %.lr.ph.i, %.loopexit
   call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %7) #12
@@ -419,11 +419,11 @@ define internal noundef i32 @parse_opt_parse(ptr noundef readonly captures(none)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %6, align 8, !tbaa !34
+  store i32 1, ptr %6, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 1, ptr %8, align 8, !tbaa !35
+  store i32 1, ptr %8, align 8, !tbaa !36
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %10, label %9
 
@@ -465,7 +465,7 @@ define internal range(i32 -1, 1) i32 @option_parse_trailer(ptr noundef readonly 
   store ptr %.09.i, ptr %.0.val10.i, align 8, !tbaa !4
   tail call void @free(ptr noundef %.012.i) #12
   %.not.i = icmp eq ptr %.09.i, %5
-  br i1 %.not.i, label %new_trailers_clear.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %new_trailers_clear.exit, label %.lr.ph.i, !llvm.loop !34
 
 10:                                               ; preds = %3
   %.not12 = icmp eq ptr %1, null
@@ -474,16 +474,16 @@ define internal range(i32 -1, 1) i32 @option_parse_trailer(ptr noundef readonly 
 11:                                               ; preds = %10
   %12 = tail call ptr @xmalloc(i64 noundef 40) #12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %1, ptr %13, align 8, !tbaa !36
-  %14 = load i32, ptr @where, align 4, !tbaa !38
+  store ptr %1, ptr %13, align 8, !tbaa !37
+  %14 = load i32, ptr @where, align 4, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %14, ptr %15, align 8, !tbaa !39
-  %16 = load i32, ptr @if_exists, align 4, !tbaa !38
+  store i32 %14, ptr %15, align 8, !tbaa !40
+  %16 = load i32, ptr @if_exists, align 4, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 %16, ptr %17, align 4, !tbaa !40
-  %18 = load i32, ptr @if_missing, align 4, !tbaa !38
+  store i32 %16, ptr %17, align 4, !tbaa !41
+  %18 = load i32, ptr @if_missing, align 4, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 %18, ptr %19, align 8, !tbaa !41
+  store i32 %18, ptr %19, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   store ptr %12, ptr %21, align 8, !tbaa !4
@@ -507,12 +507,12 @@ declare void @usage_msg_opt(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !42
+  %2 = load i8, ptr %0, align 1, !tbaa !43
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !38
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -542,7 +542,7 @@ define internal fastcc void @interpret_trailers(ptr noundef nonnull %0, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_in_place_tempfile.filename_template, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_in_place_tempfile.filename_template, i64 24, i1 false)
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !44
   call void @trailer_config_init() #12
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %18, label %13
@@ -558,7 +558,7 @@ define internal fastcc void @interpret_trailers(ptr noundef nonnull %0, ptr noun
   unreachable
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr @stdin, align 8, !tbaa !43
+  %19 = load ptr, ptr @stdin, align 8, !tbaa !44
   %20 = call i32 @fileno(ptr noundef %19) #12
   %21 = call i64 @strbuf_read(ptr noundef nonnull %7, i32 noundef %20, i64 noundef 0) #12
   %22 = icmp slt i64 %21, 0
@@ -571,21 +571,21 @@ define internal fastcc void @interpret_trailers(ptr noundef nonnull %0, ptr noun
 
 25:                                               ; preds = %18, %13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !45
+  %27 = load i64, ptr %26, align 8, !tbaa !46
   %.not.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i, label %read_input_file.exit, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !47
+  %30 = load ptr, ptr %29, align 8, !tbaa !48
   %31 = getelementptr i8, ptr %30, i64 %27
   %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !42
+  %33 = load i8, ptr %32, align 1, !tbaa !43
   %.not6.i.i.i = icmp eq i8 %33, 10
   br i1 %.not6.i.i.i, label %read_input_file.exit, label %34
 
 34:                                               ; preds = %28
-  %35 = load i64, ptr %7, align 8, !tbaa !48
+  %35 = load i64, ptr %7, align 8, !tbaa !49
   %.not.i.i.i.i.i = icmp eq i64 %35, 0
   %.neg.i.i.i.i = add i64 %27, 1
   %.not.i.i.i.i = icmp eq i64 %35, %.neg.i.i.i.i
@@ -594,26 +594,26 @@ define internal fastcc void @interpret_trailers(ptr noundef nonnull %0, ptr noun
 
 strbuf_avail.exit.thread.i.i.i.i:                 ; preds = %34
   call void @strbuf_grow(ptr noundef nonnull %7, i64 noundef 1) #12
-  %.pre.i.i.i.i = load i64, ptr %26, align 8, !tbaa !45
+  %.pre.i.i.i.i = load i64, ptr %26, align 8, !tbaa !46
   %.pre7.i.i.i.i = add i64 %.pre.i.i.i.i, 1
-  %.pre.i.i.i = load ptr, ptr %29, align 8, !tbaa !47
+  %.pre.i.i.i = load ptr, ptr %29, align 8, !tbaa !48
   br label %strbuf_addch.exit.i.i.i
 
 strbuf_addch.exit.i.i.i:                          ; preds = %strbuf_avail.exit.thread.i.i.i.i, %34
   %36 = phi ptr [ %.pre.i.i.i, %strbuf_avail.exit.thread.i.i.i.i ], [ %30, %34 ]
   %.pre-phi.i.i.i.i = phi i64 [ %.pre7.i.i.i.i, %strbuf_avail.exit.thread.i.i.i.i ], [ %.neg.i.i.i.i, %34 ]
   %37 = phi i64 [ %.pre.i.i.i.i, %strbuf_avail.exit.thread.i.i.i.i ], [ %27, %34 ]
-  store i64 %.pre-phi.i.i.i.i, ptr %26, align 8, !tbaa !45
+  store i64 %.pre-phi.i.i.i.i, ptr %26, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
-  store i8 10, ptr %38, align 1, !tbaa !42
-  %39 = load ptr, ptr %29, align 8, !tbaa !47
-  %40 = load i64, ptr %26, align 8, !tbaa !45
+  store i8 10, ptr %38, align 1, !tbaa !43
+  %39 = load ptr, ptr %29, align 8, !tbaa !48
+  %40 = load i64, ptr %26, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
-  store i8 0, ptr %41, align 1, !tbaa !42
+  store i8 0, ptr %41, align 1, !tbaa !43
   br label %read_input_file.exit
 
 read_input_file.exit:                             ; preds = %25, %28, %strbuf_addch.exit.i.i.i
-  %42 = load i32, ptr %0, align 8, !tbaa !32
+  %42 = load i32, ptr %0, align 8, !tbaa !33
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %72, label %43
 
@@ -632,7 +632,7 @@ read_input_file.exit:                             ; preds = %25, %28, %strbuf_ad
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !49
+  %49 = load i32, ptr %48, align 8, !tbaa !50
   %50 = and i32 %49, 61440
   %51 = icmp eq i32 %50, 32768
   br i1 %51, label %54, label %52
@@ -668,11 +668,11 @@ read_input_file.exit:                             ; preds = %25, %28, %strbuf_ad
 64:                                               ; preds = %60, %58
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, i64 noundef 29) #12
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !47
+  %66 = load ptr, ptr %65, align 8, !tbaa !48
   %67 = call ptr @xmks_tempfile_m(ptr noundef %66, i32 noundef %49) #12
-  store ptr %67, ptr @trailers_tempfile, align 8, !tbaa !52
+  store ptr %67, ptr @trailers_tempfile, align 8, !tbaa !53
   call void @strbuf_release(ptr noundef nonnull %5) #12
-  %68 = load ptr, ptr @trailers_tempfile, align 8, !tbaa !52
+  %68 = load ptr, ptr @trailers_tempfile, align 8, !tbaa !53
   %69 = call ptr @fdopen_tempfile(ptr noundef %68, ptr noundef nonnull @.str.39) #12
   %.not14.i = icmp eq ptr %69, null
   br i1 %.not14.i, label %70, label %create_in_place_tempfile.exit
@@ -690,18 +690,18 @@ create_in_place_tempfile.exit:                    ; preds = %64
 72:                                               ; preds = %create_in_place_tempfile.exit, %read_input_file.exit
   %.0 = phi ptr [ %69, %create_in_place_tempfile.exit ], [ %12, %read_input_file.exit ]
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !47
+  %74 = load ptr, ptr %73, align 8, !tbaa !48
   %75 = call ptr @parse_trailers(ptr noundef nonnull %0, ptr noundef %74, ptr noundef nonnull %6) #12
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load i32, ptr %76, align 8, !tbaa !34
+  %77 = load i32, ptr %76, align 8, !tbaa !35
   %.not22 = icmp eq i32 %77, 0
   br i1 %.not22, label %78, label %.thread
 
 78:                                               ; preds = %72
-  %79 = load ptr, ptr %73, align 8, !tbaa !47
+  %79 = load ptr, ptr %73, align 8, !tbaa !48
   %80 = call i64 @trailer_block_start(ptr noundef %75) #12
   %81 = call i64 @fwrite(ptr noundef %79, i64 noundef 1, i64 noundef %80, ptr noundef %.0)
-  %.pr = load i32, ptr %76, align 8, !tbaa !34
+  %.pr = load i32, ptr %76, align 8, !tbaa !35
   %.not23 = icmp eq i32 %.pr, 0
   br i1 %.not23, label %82, label %.thread
 
@@ -757,20 +757,20 @@ list_splice.exit:                                 ; preds = %87, %91
   call void @format_trailers(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %8) #12
   call void @free_trailers(ptr noundef nonnull %6) #12
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !47
+  %99 = load ptr, ptr %98, align 8, !tbaa !48
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !45
+  %101 = load i64, ptr %100, align 8, !tbaa !46
   %102 = call i64 @fwrite(ptr noundef %99, i64 noundef 1, i64 noundef %101, ptr noundef %.0)
   call void @strbuf_release(ptr noundef nonnull %8) #12
-  %103 = load i32, ptr %76, align 8, !tbaa !34
+  %103 = load i32, ptr %76, align 8, !tbaa !35
   %.not26 = icmp eq i32 %103, 0
   br i1 %.not26, label %104, label %112
 
 104:                                              ; preds = %97
-  %105 = load ptr, ptr %73, align 8, !tbaa !47
+  %105 = load ptr, ptr %73, align 8, !tbaa !48
   %106 = call i64 @trailer_block_end(ptr noundef %75) #12
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 %106
-  %108 = load i64, ptr %26, align 8, !tbaa !45
+  %108 = load i64, ptr %26, align 8, !tbaa !46
   %109 = call i64 @trailer_block_end(ptr noundef %75) #12
   %110 = sub i64 %108, %109
   %111 = call i64 @fwrite(ptr noundef %107, i64 noundef 1, i64 noundef %110, ptr noundef %.0)
@@ -778,7 +778,7 @@ list_splice.exit:                                 ; preds = %87, %91
 
 112:                                              ; preds = %104, %97
   call void @trailer_block_release(ptr noundef %75) #12
-  %113 = load i32, ptr %0, align 8, !tbaa !32
+  %113 = load i32, ptr %0, align 8, !tbaa !33
   %.not27 = icmp eq i32 %113, 0
   br i1 %.not27, label %118, label %114
 
@@ -932,27 +932,28 @@ attributes #14 = { nounwind willreturn memory(read) }
 !27 = !{!"process_trailer_options", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !28, i64 32, !28, i64 40, !7, i64 48, !7, i64 56}
 !28 = !{!"p1 _ZTS6strbuf", !7, i64 0}
 !29 = !{!14, !14, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!27, !13, i64 0}
-!33 = distinct !{!33, !31}
-!34 = !{!27, !13, i64 8}
-!35 = !{!27, !13, i64 16}
-!36 = !{!37, !14, i64 16}
-!37 = !{!"new_trailer_item", !5, i64 0, !14, i64 16, !13, i64 24, !13, i64 28, !13, i64 32}
-!38 = !{!13, !13, i64 0}
-!39 = !{!37, !13, i64 24}
-!40 = !{!37, !13, i64 28}
-!41 = !{!37, !13, i64 32}
-!42 = !{!8, !8, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!45 = !{!46, !15, i64 8}
-!46 = !{!"strbuf", !15, i64 0, !15, i64 8, !14, i64 16}
-!47 = !{!46, !14, i64 16}
-!48 = !{!46, !15, i64 0}
-!49 = !{!50, !13, i64 24}
-!50 = !{!"stat", !15, i64 0, !15, i64 8, !15, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !51, i64 72, !51, i64 88, !51, i64 104, !8, i64 120}
-!51 = !{!"timespec", !15, i64 0, !15, i64 8}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS8tempfile", !7, i64 0}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!27, !13, i64 0}
+!34 = distinct !{!34, !31, !32}
+!35 = !{!27, !13, i64 8}
+!36 = !{!27, !13, i64 16}
+!37 = !{!38, !14, i64 16}
+!38 = !{!"new_trailer_item", !5, i64 0, !14, i64 16, !13, i64 24, !13, i64 28, !13, i64 32}
+!39 = !{!13, !13, i64 0}
+!40 = !{!38, !13, i64 24}
+!41 = !{!38, !13, i64 28}
+!42 = !{!38, !13, i64 32}
+!43 = !{!8, !8, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!46 = !{!47, !15, i64 8}
+!47 = !{!"strbuf", !15, i64 0, !15, i64 8, !14, i64 16}
+!48 = !{!47, !14, i64 16}
+!49 = !{!47, !15, i64 0}
+!50 = !{!51, !13, i64 24}
+!51 = !{!"stat", !15, i64 0, !15, i64 8, !15, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !52, i64 72, !52, i64 88, !52, i64 104, !8, i64 120}
+!52 = !{!"timespec", !15, i64 0, !15, i64 8}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8tempfile", !7, i64 0}

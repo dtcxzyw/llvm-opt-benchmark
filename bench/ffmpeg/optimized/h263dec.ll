@@ -752,7 +752,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 278:                                              ; preds = %275
   %279 = getelementptr inbounds nuw i8, ptr %8, i64 4408
-  %280 = load ptr, ptr %279, align 8, !tbaa !124
+  %280 = load ptr, ptr %279, align 8, !tbaa !125
   %281 = getelementptr inbounds nuw i8, ptr %8, i64 564
   %282 = load i32, ptr %281, align 4, !tbaa !99
   %283 = sext i32 %282 to i64
@@ -780,7 +780,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 293:                                              ; preds = %291
   %294 = getelementptr inbounds nuw i8, ptr %292, i64 56
-  %295 = load ptr, ptr %294, align 8, !tbaa !125
+  %295 = load ptr, ptr %294, align 8, !tbaa !126
   %296 = tail call i32 %295(ptr noundef nonnull %0) #6
   %297 = icmp slt i32 %296, 0
   br i1 %297, label %353, label %298
@@ -808,7 +808,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 309:                                              ; preds = %307, %303
   %310 = getelementptr inbounds nuw i8, ptr %8, i64 1208
-  %311 = load ptr, ptr %310, align 8, !tbaa !126
+  %311 = load ptr, ptr %310, align 8, !tbaa !127
   %312 = load ptr, ptr %311, align 8, !tbaa !82
   %313 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %312) #6
   %314 = icmp slt i32 %313, 0
@@ -827,9 +827,9 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 321:                                              ; preds = %317, %309
   %.sink.in = phi ptr [ %310, %309 ], [ %169, %317 ]
-  %.sink302 = load ptr, ptr %.sink.in, align 8, !tbaa !127
+  %.sink302 = load ptr, ptr %.sink.in, align 8, !tbaa !128
   tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink302, ptr noundef %1) #6
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !127
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !128
   %322 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %.sink, i32 noundef 0) #6
   %.pr = load ptr, ptr %169, align 8, !tbaa !106
   %.not268 = icmp eq ptr %.pr, null
@@ -842,13 +842,13 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 323:                                              ; preds = %.thread284, %321
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %325 = load i32, ptr %324, align 4, !tbaa !128
+  %325 = load i32, ptr %324, align 4, !tbaa !129
   %326 = icmp eq i32 %325, 0
   br i1 %326, label %327, label %.loopexit
 
 327:                                              ; preds = %323
   %328 = getelementptr inbounds nuw i8, ptr %8, i64 528
-  %329 = load i32, ptr %328, align 8, !tbaa !133
+  %329 = load i32, ptr %328, align 8, !tbaa !134
   switch i32 %329, label %.loopexit [
     i32 1448035655, label %330
     i32 1481590087, label %330
@@ -861,7 +861,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 333:                                              ; preds = %330, %333
   %indvars.iv = phi i64 [ 0, %330 ], [ %indvars.iv.next, %333 ]
-  %334 = load i32, ptr %332, align 4, !tbaa !134
+  %334 = load i32, ptr %332, align 4, !tbaa !135
   %335 = icmp ne i64 %indvars.iv, 0
   %336 = zext i1 %335 to i32
   %337 = add i32 %334, -1
@@ -870,15 +870,15 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
   %340 = load i32, ptr %339, align 4, !tbaa !85
   %341 = mul nsw i32 %338, %340
   %342 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
-  %343 = load ptr, ptr %342, align 8, !tbaa !135
+  %343 = load ptr, ptr %342, align 8, !tbaa !136
   %344 = sext i32 %341 to i64
   %345 = getelementptr inbounds i8, ptr %343, i64 %344
-  store ptr %345, ptr %342, align 8, !tbaa !135
+  store ptr %345, ptr %342, align 8, !tbaa !136
   %346 = sub nsw i32 0, %340
   store i32 %346, ptr %339, align 4, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %333, !llvm.loop !136
+  br i1 %exitcond.not, label %.loopexit, label %333, !llvm.loop !137
 
 .loopexit:                                        ; preds = %333, %327, %323
   store i32 1, ptr %2, align 4, !tbaa !85
@@ -890,7 +890,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 348:                                              ; preds = %.thread284.thread
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %350 = load i32, ptr %349, align 8, !tbaa !137
+  %350 = load i32, ptr %349, align 8, !tbaa !138
   %351 = and i32 %350, 8
   %.not270 = icmp eq i32 %351, 0
   br i1 %.not270, label %352, label %353
@@ -942,29 +942,29 @@ declare i32 @ff_wmv2_decode_secondary_picture_header(ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4100
-  %3 = load i32, ptr %2, align 4, !tbaa !138
+  %3 = load i32, ptr %2, align 4, !tbaa !139
   %.not = icmp eq i32 %3, 0
   %4 = select i1 %.not, i32 127, i32 18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 724
-  %8 = load i32, ptr %7, align 4, !tbaa !139
+  %8 = load i32, ptr %7, align 4, !tbaa !140
   %9 = lshr i32 16, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3968
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !140
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !tbaa.struct !141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4140
-  store i32 1, ptr %12, align 4, !tbaa !141
+  store i32 1, ptr %12, align 4, !tbaa !142
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %14 = load i32, ptr %13, align 4, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3960
-  store i32 %14, ptr %15, align 8, !tbaa !142
+  store i32 %14, ptr %15, align 8, !tbaa !143
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %17 = load i32, ptr %16, align 8, !tbaa !117
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3964
-  store i32 %17, ptr %18, align 4, !tbaa !143
+  store i32 %17, ptr %18, align 4, !tbaa !144
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %20 = load i32, ptr %19, align 8, !tbaa !144
+  %20 = load i32, ptr %19, align 8, !tbaa !145
   tail call void @ff_set_qscale(ptr noundef %0, i32 noundef %20) #6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4044
   %22 = load i32, ptr %21, align 4, !tbaa !100
@@ -994,7 +994,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !145
+  %40 = load ptr, ptr %39, align 8, !tbaa !146
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4168
   %42 = load ptr, ptr %41, align 8, !tbaa !115
   %43 = ptrtoint ptr %42 to i64
@@ -1008,12 +1008,12 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   br label %.thread298
 
 50:                                               ; preds = %29
-  %51 = load i32, ptr %2, align 4, !tbaa !138
+  %51 = load i32, ptr %2, align 4, !tbaa !139
   %.not237 = icmp eq i32 %51, 0
   br i1 %.not237, label %64, label %52
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr %19, align 8, !tbaa !144
+  %53 = load i32, ptr %19, align 8, !tbaa !145
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %55 = load i32, ptr %54, align 4, !tbaa !94
   %56 = icmp eq i32 %55, 12
@@ -1027,10 +1027,10 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   br i1 %61, label %.thread298, label %.thread
 
 .thread:                                          ; preds = %52, %57
-  store i32 1, ptr %12, align 4, !tbaa !141
-  %62 = load i32, ptr %15, align 8, !tbaa !142
+  store i32 1, ptr %12, align 4, !tbaa !142
+  %62 = load i32, ptr %15, align 8, !tbaa !143
   store i32 %62, ptr %13, align 4, !tbaa !116
-  %63 = load i32, ptr %18, align 4, !tbaa !143
+  %63 = load i32, ptr %18, align 4, !tbaa !144
   store i32 %63, ptr %16, align 8, !tbaa !117
   tail call void @ff_set_qscale(ptr noundef nonnull %0, i32 noundef %53) #6
   br label %64
@@ -1083,14 +1083,14 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   br i1 %.not254, label %.thread297, label %103
 
 103:                                              ; preds = %100
-  %104 = load i32, ptr %18, align 4, !tbaa !143
+  %104 = load i32, ptr %18, align 4, !tbaa !144
   %105 = load i32, ptr %70, align 8, !tbaa !119
   %106 = add nsw i32 %105, %104
   %107 = icmp eq i32 %106, %101
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %103
-  %109 = load i32, ptr %15, align 8, !tbaa !142
+  %109 = load i32, ptr %15, align 8, !tbaa !143
   %110 = load i32, ptr %13, align 4, !tbaa !116
   %111 = add nsw i32 %110, -1
   tail call void @ff_er_add_slice(ptr noundef nonnull %96, i32 noundef %109, i32 noundef %104, i32 noundef %111, i32 noundef %101, i32 noundef 112) #6
@@ -1119,8 +1119,8 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 652
   %121 = load i32, ptr %120, align 4, !tbaa !76
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 724
-  %123 = load i32, ptr %122, align 4, !tbaa !139
-  %124 = load i32, ptr %75, align 8, !tbaa !146
+  %123 = load i32, ptr %122, align 4, !tbaa !140
+  %124 = load i32, ptr %75, align 8, !tbaa !147
   %125 = icmp sgt i32 %121, 8
   %126 = select i1 %125, i32 16, i32 8
   %127 = lshr i32 %126, %123
@@ -1143,58 +1143,58 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %81, align 4, !tbaa !85
   %140 = shl nuw nsw i32 %127, 1
-  %141 = load ptr, ptr %82, align 8, !tbaa !135
+  %141 = load ptr, ptr %82, align 8, !tbaa !136
   %142 = zext nneg i32 %140 to i64
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 %142
-  store ptr %143, ptr %82, align 8, !tbaa !135
+  store ptr %143, ptr %82, align 8, !tbaa !136
   %144 = lshr i32 2, %124
   %145 = mul nuw nsw i32 %144, %127
-  %146 = load ptr, ptr %83, align 8, !tbaa !135
+  %146 = load ptr, ptr %83, align 8, !tbaa !136
   %147 = zext nneg i32 %145 to i64
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 %147
-  store ptr %148, ptr %83, align 8, !tbaa !135
-  %149 = load ptr, ptr %84, align 8, !tbaa !135
+  store ptr %148, ptr %83, align 8, !tbaa !136
+  %149 = load ptr, ptr %84, align 8, !tbaa !136
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %147
-  store ptr %150, ptr %84, align 8, !tbaa !135
-  %151 = load i32, ptr %15, align 8, !tbaa !142
+  store ptr %150, ptr %84, align 8, !tbaa !136
+  %151 = load i32, ptr %15, align 8, !tbaa !143
   %152 = icmp eq i32 %151, %118
   br i1 %152, label %153, label %159
 
 153:                                              ; preds = %.lr.ph
-  %154 = load i32, ptr %18, align 4, !tbaa !143
+  %154 = load i32, ptr %18, align 4, !tbaa !144
   %155 = add nsw i32 %154, 1
   %156 = load i32, ptr %16, align 8, !tbaa !117
   %157 = icmp eq i32 %155, %156
   br i1 %157, label %158, label %159
 
 158:                                              ; preds = %153
-  store i32 0, ptr %12, align 4, !tbaa !141
+  store i32 0, ptr %12, align 4, !tbaa !142
   br label %159
 
 159:                                              ; preds = %158, %153, %.lr.ph
-  store i32 1, ptr %85, align 8, !tbaa !147
-  store i32 0, ptr %86, align 4, !tbaa !148
+  store i32 1, ptr %85, align 8, !tbaa !148
+  store i32 0, ptr %86, align 4, !tbaa !149
   %160 = load ptr, ptr %87, align 8, !tbaa !50
-  %161 = load ptr, ptr %88, align 8, !tbaa !149
+  %161 = load ptr, ptr %88, align 8, !tbaa !150
   %162 = tail call i32 %160(ptr noundef nonnull %0, ptr noundef %161) #6
   %163 = load i32, ptr %89, align 4, !tbaa !67
   %.not255 = icmp eq i32 %163, 0
   br i1 %.not255, label %164, label %166
 
 164:                                              ; preds = %159
-  %165 = load i32, ptr %90, align 4, !tbaa !150
+  %165 = load i32, ptr %90, align 4, !tbaa !151
   %.not256 = icmp eq i32 %165, 0
   br i1 %.not256, label %180, label %166
 
 166:                                              ; preds = %164, %159
   %167 = load i32, ptr %16, align 8, !tbaa !117
-  %168 = load i32, ptr %91, align 4, !tbaa !151
+  %168 = load i32, ptr %91, align 4, !tbaa !152
   %169 = mul nsw i32 %168, %167
   %170 = load i32, ptr %13, align 4, !tbaa !116
   %171 = add nsw i32 %169, %170
-  %172 = load i32, ptr %92, align 8, !tbaa !152
+  %172 = load i32, ptr %92, align 8, !tbaa !153
   %.not257 = icmp eq i32 %172, 0
-  %173 = load ptr, ptr %93, align 8, !tbaa !153
+  %173 = load ptr, ptr %93, align 8, !tbaa !154
   %174 = sext i32 %171 to i64
   %175 = getelementptr inbounds i8, ptr %173, i64 %174
   br i1 %.not257, label %176, label %179
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 185:                                              ; preds = %183
   %186 = load i32, ptr %13, align 4, !tbaa !116
   %187 = load i32, ptr %16, align 8, !tbaa !117
-  %188 = load i32, ptr %91, align 4, !tbaa !151
+  %188 = load i32, ptr %91, align 4, !tbaa !152
   %189 = mul nsw i32 %188, %187
   %190 = add nsw i32 %189, %186
   switch i32 %162, label %220 [
@@ -1237,9 +1237,9 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   ]
 
 191:                                              ; preds = %185
-  %192 = load ptr, ptr %88, align 8, !tbaa !149
+  %192 = load ptr, ptr %88, align 8, !tbaa !150
   tail call void @ff_mpv_reconstruct_mb(ptr noundef nonnull %0, ptr noundef %192) #6
-  %193 = load i32, ptr %95, align 4, !tbaa !154
+  %193 = load i32, ptr %95, align 4, !tbaa !155
   %.not262 = icmp eq i32 %193, 0
   br i1 %.not262, label %195, label %194
 
@@ -1248,16 +1248,16 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   br label %195
 
 195:                                              ; preds = %194, %191
-  %196 = load i32, ptr %15, align 8, !tbaa !142
-  %197 = load i32, ptr %18, align 4, !tbaa !143
+  %196 = load i32, ptr %15, align 8, !tbaa !143
+  %197 = load i32, ptr %18, align 4, !tbaa !144
   %198 = load i32, ptr %13, align 4, !tbaa !116
   %199 = load i32, ptr %16, align 8, !tbaa !117
   %200 = and i32 %4, 112
   tail call void @ff_er_add_slice(ptr noundef nonnull %96, i32 noundef %196, i32 noundef %197, i32 noundef %198, i32 noundef %199, i32 noundef %200) #6
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %202 = load i32, ptr %201, align 8, !tbaa !155
+  %202 = load i32, ptr %201, align 8, !tbaa !156
   %203 = add nsw i32 %202, -1
-  store i32 %203, ptr %201, align 8, !tbaa !155
+  store i32 %203, ptr %201, align 8, !tbaa !156
   %204 = load i32, ptr %13, align 4, !tbaa !116
   %205 = add nsw i32 %204, 1
   store i32 %205, ptr %13, align 4, !tbaa !116
@@ -1279,8 +1279,8 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 212:                                              ; preds = %185
   %213 = load ptr, ptr %5, align 8, !tbaa !95
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %213, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %190) #6
-  %214 = load i32, ptr %15, align 8, !tbaa !142
-  %215 = load i32, ptr %18, align 4, !tbaa !143
+  %214 = load i32, ptr %15, align 8, !tbaa !143
+  %215 = load i32, ptr %18, align 4, !tbaa !144
   %216 = load i32, ptr %13, align 4, !tbaa !116
   %217 = add nsw i32 %216, 1
   %218 = load i32, ptr %16, align 8, !tbaa !117
@@ -1291,14 +1291,14 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 220:                                              ; preds = %185
   %221 = load ptr, ptr %5, align 8, !tbaa !95
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %221, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %190) #6
-  %222 = load i32, ptr %15, align 8, !tbaa !142
-  %223 = load i32, ptr %18, align 4, !tbaa !143
+  %222 = load i32, ptr %15, align 8, !tbaa !143
+  %223 = load i32, ptr %18, align 4, !tbaa !144
   %224 = load i32, ptr %13, align 4, !tbaa !116
   %225 = load i32, ptr %16, align 8, !tbaa !117
   tail call void @ff_er_add_slice(ptr noundef nonnull %96, i32 noundef %222, i32 noundef %223, i32 noundef %224, i32 noundef %225, i32 noundef %97) #6
   %226 = load ptr, ptr %5, align 8, !tbaa !95
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 528
-  %228 = load i32, ptr %227, align 8, !tbaa !137
+  %228 = load i32, ptr %227, align 8, !tbaa !138
   %229 = and i32 %228, 32768
   %.not261 = icmp eq i32 %229, 0
   br i1 %.not261, label %.thread298, label %230
@@ -1310,9 +1310,9 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   br i1 %231, label %236, label %.thread298
 
 232:                                              ; preds = %183
-  %233 = load ptr, ptr %88, align 8, !tbaa !149
+  %233 = load ptr, ptr %88, align 8, !tbaa !150
   tail call void @ff_mpv_reconstruct_mb(ptr noundef nonnull %0, ptr noundef %233) #6
-  %234 = load i32, ptr %95, align 4, !tbaa !154
+  %234 = load i32, ptr %95, align 4, !tbaa !155
   %.not260 = icmp eq i32 %234, 0
   br i1 %.not260, label %236, label %235
 
@@ -1326,7 +1326,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   store i32 %238, ptr %13, align 4, !tbaa !116
   %239 = load i32, ptr %74, align 4, !tbaa !120
   %240 = icmp slt i32 %238, %239
-  br i1 %240, label %.lr.ph, label %._crit_edge, !llvm.loop !156
+  br i1 %240, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %236, %.thread297
   %241 = load i32, ptr %16, align 8, !tbaa !117
@@ -1339,14 +1339,14 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   store i32 %244, ptr %16, align 8, !tbaa !117
   %245 = load i32, ptr %65, align 8, !tbaa !118
   %246 = icmp slt i32 %244, %245
-  br i1 %246, label %100, label %._crit_edge330, !llvm.loop !157
+  br i1 %246, label %100, label %._crit_edge330, !llvm.loop !158
 
 ._crit_edge330:                                   ; preds = %._crit_edge, %64
   %.lcssa323 = phi i32 [ %66, %64 ], [ %244, %._crit_edge ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %248 = load i32, ptr %247, align 4, !tbaa !94
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !158
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !159
   %.pre339 = and i32 %.pre, 1
   %249 = icmp eq i32 %.pre339, 0
   switch i32 %248, label %.thread307 [
@@ -1381,15 +1381,15 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 
 265:                                              ; preds = %256
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %267 = load i32, ptr %266, align 8, !tbaa !159
+  %267 = load i32, ptr %266, align 8, !tbaa !160
   %.not239 = icmp eq i32 %267, 0
   br i1 %.not239, label %268, label %272
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %270 = load i32, ptr %269, align 8, !tbaa !155
+  %270 = load i32, ptr %269, align 8, !tbaa !156
   %271 = add nsw i32 %270, 32
-  store i32 %271, ptr %269, align 8, !tbaa !155
+  store i32 %271, ptr %269, align 8, !tbaa !156
   br label %272
 
 272:                                              ; preds = %268, %265, %256, %251
@@ -1403,7 +1403,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 
 276:                                              ; preds = %272
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %278 = load i32, ptr %277, align 8, !tbaa !159
+  %278 = load i32, ptr %277, align 8, !tbaa !160
   %.not241 = icmp eq i32 %278, 0
   br i1 %.not241, label %279, label %.thread307.thread
 
@@ -1479,15 +1479,15 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 
 320:                                              ; preds = %311
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %322 = load i32, ptr %321, align 8, !tbaa !159
+  %322 = load i32, ptr %321, align 8, !tbaa !160
   %.not244 = icmp eq i32 %322, 0
   br i1 %.not244, label %323, label %327
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %325 = load i32, ptr %324, align 8, !tbaa !155
+  %325 = load i32, ptr %324, align 8, !tbaa !156
   %326 = add nsw i32 %325, 32
-  store i32 %326, ptr %324, align 8, !tbaa !155
+  store i32 %326, ptr %324, align 8, !tbaa !156
   br label %327
 
 327:                                              ; preds = %323, %320, %311, %307, %303
@@ -1510,9 +1510,9 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 .thread307.thread.sink.split:                     ; preds = %332, %297, %282, %279, %301
   %.sink372 = phi i32 [ 1, %301 ], [ 16, %279 ], [ -1, %282 ], [ 4, %297 ], [ 32, %332 ]
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %339 = load i32, ptr %338, align 8, !tbaa !155
+  %339 = load i32, ptr %338, align 8, !tbaa !156
   %340 = add nsw i32 %339, %.sink372
-  store i32 %340, ptr %338, align 8, !tbaa !155
+  store i32 %340, ptr %338, align 8, !tbaa !156
   br label %.thread307.thread
 
 .thread307:                                       ; preds = %._crit_edge330
@@ -1521,13 +1521,13 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 .thread307.thread:                                ; preds = %327, %332, %281, %276, %272, %.thread307.thread.sink.split, %.thread307
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %343 = load i32, ptr %342, align 8, !tbaa !155
+  %343 = load i32, ptr %342, align 8, !tbaa !156
   %344 = icmp sgt i32 %343, -2
   br i1 %344, label %345, label %350
 
 345:                                              ; preds = %.thread307.thread
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %347 = load i32, ptr %346, align 8, !tbaa !159
+  %347 = load i32, ptr %346, align 8, !tbaa !160
   %.not247 = icmp eq i32 %347, 0
   br i1 %.not247, label %348, label %350
 
@@ -1541,7 +1541,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 
 .thread307.thread348.sink.split:                  ; preds = %350, %348
   %.sink = phi i32 [ %349, %348 ], [ %351, %350 ]
-  store i32 %.sink, ptr %341, align 4, !tbaa !158
+  store i32 %.sink, ptr %341, align 4, !tbaa !159
   br label %.thread307.thread348
 
 .thread307.thread348:                             ; preds = %.thread307.thread348.sink.split, %302, %250, %.thread307
@@ -1585,7 +1585,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %.pre-phi341355 = phi i32 [ %356, %.thread350 ], [ %.pre340, %360 ]
   %369 = load ptr, ptr %5, align 8, !tbaa !95
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 528
-  %371 = load i32, ptr %370, align 8, !tbaa !137
+  %371 = load i32, ptr %370, align 8, !tbaa !138
   %372 = and i32 %371, 262148
   %.not252 = icmp eq i32 %372, 0
   br i1 %.not252, label %375, label %373
@@ -1636,8 +1636,8 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
 
 396:                                              ; preds = %391
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 4336
-  %398 = load i32, ptr %15, align 8, !tbaa !142
-  %399 = load i32, ptr %18, align 4, !tbaa !143
+  %398 = load i32, ptr %15, align 8, !tbaa !143
+  %399 = load i32, ptr %18, align 4, !tbaa !144
   %400 = load i32, ptr %13, align 4, !tbaa !116
   %401 = add nsw i32 %400, -1
   tail call void @ff_er_add_slice(ptr noundef nonnull %397, i32 noundef %398, i32 noundef %399, i32 noundef %401, i32 noundef %.lcssa323, i32 noundef 112) #6
@@ -1660,11 +1660,11 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #3 {
   %413 = shl i32 %411, %412
   %414 = lshr i32 %413, 8
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 4112
-  %416 = load i32, ptr %415, align 8, !tbaa !155
+  %416 = load i32, ptr %415, align 8, !tbaa !156
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %403, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %406, i32 noundef %414, i32 noundef %416) #6
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 4336
-  %418 = load i32, ptr %15, align 8, !tbaa !142
-  %419 = load i32, ptr %18, align 4, !tbaa !143
+  %418 = load i32, ptr %15, align 8, !tbaa !143
+  %419 = load i32, ptr %18, align 4, !tbaa !144
   %420 = load i32, ptr %13, align 4, !tbaa !116
   %421 = load i32, ptr %16, align 8, !tbaa !117
   %422 = and i32 %4, 112
@@ -1858,41 +1858,42 @@ attributes #6 = { nounwind }
 !119 = !{!28, !10, i64 4136}
 !120 = !{!28, !10, i64 540}
 !121 = !{!28, !10, i64 4404}
-!122 = distinct !{!122, !123}
+!122 = distinct !{!122, !123, !124}
 !123 = !{!"llvm.loop.mustprogress"}
-!124 = !{!28, !14, i64 4408}
-!125 = !{!112, !7, i64 56}
-!126 = !{!28, !34, i64 1208}
-!127 = !{!34, !34, i64 0}
-!128 = !{!129, !10, i64 116}
-!129 = !{!"AVFrame", !8, i64 0, !8, i64 64, !130, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !131, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !132, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!130 = !{!"p2 omnipotent char", !26, i64 0}
-!131 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!132 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!133 = !{!28, !10, i64 528}
-!134 = !{!129, !10, i64 108}
-!135 = !{!14, !14, i64 0}
-!136 = distinct !{!136, !123}
-!137 = !{!5, !10, i64 528}
-!138 = !{!28, !10, i64 4100}
-!139 = !{!5, !10, i64 724}
-!140 = !{i64 0, i64 8, !135, i64 8, i64 8, !135, i64 16, i64 4, !85, i64 20, i64 4, !85, i64 24, i64 4, !85}
-!141 = !{!28, !10, i64 4140}
-!142 = !{!28, !10, i64 3960}
-!143 = !{!28, !10, i64 3964}
-!144 = !{!28, !10, i64 1472}
-!145 = !{!112, !7, i64 48}
-!146 = !{!28, !10, i64 4256}
-!147 = !{!28, !10, i64 2968}
-!148 = !{!28, !10, i64 2972}
-!149 = !{!28, !17, i64 4288}
-!150 = !{!28, !10, i64 68}
-!151 = !{!28, !10, i64 548}
-!152 = !{!28, !10, i64 3360}
-!153 = !{!28, !14, i64 1416}
-!154 = !{!28, !10, i64 4036}
-!155 = !{!28, !10, i64 4112}
-!156 = distinct !{!156, !123}
-!157 = distinct !{!157, !123}
-!158 = !{!28, !10, i64 524}
-!159 = !{!28, !10, i64 4096}
+!124 = !{!"llvm.loop.estimated_trip_count"}
+!125 = !{!28, !14, i64 4408}
+!126 = !{!112, !7, i64 56}
+!127 = !{!28, !34, i64 1208}
+!128 = !{!34, !34, i64 0}
+!129 = !{!130, !10, i64 116}
+!130 = !{!"AVFrame", !8, i64 0, !8, i64 64, !131, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !132, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !133, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!131 = !{!"p2 omnipotent char", !26, i64 0}
+!132 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!133 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!134 = !{!28, !10, i64 528}
+!135 = !{!130, !10, i64 108}
+!136 = !{!14, !14, i64 0}
+!137 = distinct !{!137, !123, !124}
+!138 = !{!5, !10, i64 528}
+!139 = !{!28, !10, i64 4100}
+!140 = !{!5, !10, i64 724}
+!141 = !{i64 0, i64 8, !136, i64 8, i64 8, !136, i64 16, i64 4, !85, i64 20, i64 4, !85, i64 24, i64 4, !85}
+!142 = !{!28, !10, i64 4140}
+!143 = !{!28, !10, i64 3960}
+!144 = !{!28, !10, i64 3964}
+!145 = !{!28, !10, i64 1472}
+!146 = !{!112, !7, i64 48}
+!147 = !{!28, !10, i64 4256}
+!148 = !{!28, !10, i64 2968}
+!149 = !{!28, !10, i64 2972}
+!150 = !{!28, !17, i64 4288}
+!151 = !{!28, !10, i64 68}
+!152 = !{!28, !10, i64 548}
+!153 = !{!28, !10, i64 3360}
+!154 = !{!28, !14, i64 1416}
+!155 = !{!28, !10, i64 4036}
+!156 = !{!28, !10, i64 4112}
+!157 = distinct !{!157, !123, !124}
+!158 = distinct !{!158, !123, !124}
+!159 = !{!28, !10, i64 524}
+!160 = !{!28, !10, i64 4096}

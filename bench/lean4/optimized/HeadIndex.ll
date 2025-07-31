@@ -1769,7 +1769,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 .outer.backedge:                                  ; preds = %21, %25, %34, %33, %31
   %.012.ph.be = phi ptr [ %28, %31 ], [ %28, %33 ], [ %28, %34 ], [ %26, %25 ], [ %24, %21 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !16
 
 25:                                               ; preds = %17
   %26 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %19) #3
@@ -1801,7 +1801,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %.sink = phi i64 [ 32, %35 ], [ 16, %lean_obj_tag.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   %.0.be = load ptr, ptr %36, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !16
 
 37:                                               ; preds = %lean_obj_tag.exit
   ret ptr %.012.ph
@@ -1887,7 +1887,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
 
 .outer.i.backedge:                                ; preds = %34, %33, %31, %25, %21
   %.012.ph.i.be = phi ptr [ %28, %31 ], [ %28, %33 ], [ %28, %34 ], [ %26, %25 ], [ %24, %21 ]
-  br label %.outer.i
+  br label %.outer.i, !llvm.loop !16
 
 35:                                               ; preds = %lean_obj_tag.exit.i
   br label %.backedge.i
@@ -1896,7 +1896,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %.sink.i = phi i64 [ 32, %35 ], [ 16, %lean_obj_tag.exit.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.sink.i
   %.0.be.i = load ptr, ptr %36, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !16
 
 l_Lean_Expr_headNumArgs_go.exit:                  ; preds = %lean_obj_tag.exit.i
   %37 = ptrtoint ptr %0 to i64
@@ -2006,7 +2006,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 
 .outer.i.backedge:                                ; preds = %33, %32, %30, %24, %20
   %.012.ph.i.be = phi ptr [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %24 ], [ %23, %20 ]
-  br label %.outer.i
+  br label %.outer.i, !llvm.loop !16
 
 34:                                               ; preds = %lean_obj_tag.exit.i
   br label %.backedge.i
@@ -2015,7 +2015,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.sink.i = phi i64 [ 32, %34 ], [ 16, %lean_obj_tag.exit.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.sink.i
   %.0.be.i = load ptr, ptr %35, align 8, !tbaa !4
-  br label %2
+  br label %2, !llvm.loop !16
 
 l_Lean_Expr_headNumArgs_go.exit:                  ; preds = %lean_obj_tag.exit.i
   ret ptr %.012.ph.i
@@ -2101,7 +2101,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %8, %5
 
 .outer.i.i.backedge:                              ; preds = %33, %32, %30, %24, %20
   %.012.ph.i.i.be = phi ptr [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %24 ], [ %23, %20 ]
-  br label %.outer.i.i
+  br label %.outer.i.i, !llvm.loop !16
 
 34:                                               ; preds = %lean_obj_tag.exit.i.i
   br label %.backedge.i.i
@@ -2110,7 +2110,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %8, %5
   %.sink.i.i = phi i64 [ 32, %34 ], [ 16, %lean_obj_tag.exit.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink.i.i
   %.0.be.i.i = load ptr, ptr %35, align 8, !tbaa !4
-  br label %2
+  br label %2, !llvm.loop !16
 
 l_Lean_Expr_headNumArgs.exit:                     ; preds = %lean_obj_tag.exit.i.i
   %36 = ptrtoint ptr %0 to i64
@@ -2366,7 +2366,7 @@ lean_alloc_ctor.exit69:                           ; preds = %lean_alloc_ctor.exi
   %.sink = phi i64 [ 8, %76 ], [ 16, %103 ], [ 32, %lean_obj_tag.exit ]
   %77 = getelementptr inbounds nuw i8, ptr %.051, i64 %.sink
   %.051.be = load ptr, ptr %77, align 8, !tbaa !4
-  br label %2
+  br label %2, !llvm.loop !18
 
 78:                                               ; preds = %lean_obj_tag.exit
   %79 = load ptr, ptr @l___private_Lean_HeadIndex_0__Lean_Expr_toHeadIndexQuick_x3f___closed__2, align 8, !tbaa !4
@@ -3151,7 +3151,7 @@ lean_inc.exit78:                                  ; preds = %208, %207, %205, %1
 
 .backedge.backedge:                               ; preds = %lean_inc.exit78, %212, %214, %215, %lean_dec.exit67, %171, %173, %174, %lean_inc.exit82, %112, %114, %115
   %.063.be = phi ptr [ %100, %115 ], [ %100, %114 ], [ %100, %112 ], [ %100, %lean_inc.exit82 ], [ %160, %174 ], [ %160, %173 ], [ %160, %171 ], [ %160, %lean_dec.exit67 ], [ %200, %215 ], [ %200, %214 ], [ %200, %212 ], [ %200, %lean_inc.exit78 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !19
 
 209:                                              ; preds = %lean_inc.exit78
   %210 = load i32, ptr %.063, align 4, !tbaa !9
@@ -3454,9 +3454,9 @@ _init_l_Lean_instBEqHeadIndex___closed__1.exit:   ; preds = %_init_l_Lean_instIn
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @l_Lean_beqHeadIndex____x40_Lean_HeadIndex___hyg_69____boxed, ptr %28, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i16 2, ptr %29, align 8, !tbaa !16
+  store i16 2, ptr %29, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 18
-  store i16 0, ptr %30, align 2, !tbaa !16
+  store i16 0, ptr %30, align 2, !tbaa !20
   store ptr %24, ptr @l_Lean_instBEqHeadIndex___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %24) #3
   %31 = load ptr, ptr @l_Lean_instBEqHeadIndex___closed__1, align 8, !tbaa !4
@@ -3990,9 +3990,9 @@ _init_l_Lean_instReprHeadIndex___closed__1.exit:  ; preds = %_init_l___private_L
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store ptr @l___private_Lean_HeadIndex_0__Lean_reprHeadIndex____x40_Lean_HeadIndex___hyg_288____boxed, ptr %211, align 8, !tbaa !4
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  store i16 2, ptr %212, align 8, !tbaa !16
+  store i16 2, ptr %212, align 8, !tbaa !20
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 18
-  store i16 0, ptr %213, align 2, !tbaa !16
+  store i16 0, ptr %213, align 2, !tbaa !20
   store ptr %207, ptr @l_Lean_instReprHeadIndex___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %207) #3
   %214 = load ptr, ptr @l_Lean_instReprHeadIndex___closed__1, align 8, !tbaa !4
@@ -4014,9 +4014,9 @@ _init_l_Lean_instHashableHeadIndex___closed__1.exit: ; preds = %_init_l_Lean_ins
   %219 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store ptr @l_Lean_HeadIndex_hash___boxed, ptr %219, align 8, !tbaa !4
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  store i16 1, ptr %220, align 8, !tbaa !16
+  store i16 1, ptr %220, align 8, !tbaa !20
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 18
-  store i16 0, ptr %221, align 2, !tbaa !16
+  store i16 0, ptr %221, align 2, !tbaa !20
   store ptr %215, ptr @l_Lean_instHashableHeadIndex___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %215) #3
   %222 = load ptr, ptr @l_Lean_instHashableHeadIndex___closed__1, align 8, !tbaa !4
@@ -4166,5 +4166,9 @@ attributes #4 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !6, i64 0}

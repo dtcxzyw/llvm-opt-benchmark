@@ -148,7 +148,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
 
 32:                                               ; preds = %27
   %33 = icmp sgt i32 %.1119, 0
-  br i1 %33, label %11, label %.loopexit186, !llvm.loop !11
+  br i1 %33, label %11, label %.loopexit186, !llvm.loop !12
 
 34:                                               ; preds = %6
   %35 = icmp slt i32 %3, %1
@@ -207,7 +207,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %62 = shl nuw i64 1, %61
   %63 = and i64 %62, 448
   %.not = icmp eq i64 %63, 0
-  br i1 %.not, label %.critedge, label %37, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %37, !llvm.loop !13
 
 .critedge:                                        ; preds = %57, %.thread
   %64 = phi i1 [ false, %57 ], [ true, %.thread ]
@@ -225,10 +225,10 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %70 = getelementptr inbounds nuw i8, ptr %.3124, i64 2
   store i16 %69, ptr %.3124, align 2, !tbaa !7
   %71 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %71, label %67, label %72, !llvm.loop !13
+  br i1 %71, label %67, label %72, !llvm.loop !14
 
 72:                                               ; preds = %67
-  br i1 %64, label %36, label %.loopexit186, !llvm.loop !14
+  br i1 %64, label %36, label %.loopexit186, !llvm.loop !15
 
 73:                                               ; preds = %6
   %74 = and i32 %7, 8
@@ -253,7 +253,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %.2143 = add nuw nsw i32 %.1142, %83
   %84 = add nsw i32 %.0120, -1
   %85 = icmp sgt i32 %.0120, 1
-  br i1 %85, label %.preheader187, label %86, !llvm.loop !15
+  br i1 %85, label %.preheader187, label %86, !llvm.loop !16
 
 86:                                               ; preds = %.preheader187
   %87 = sext i32 %1 to i64
@@ -357,7 +357,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %.7136 = phi i32 [ %127, %122 ], [ %142, %138 ], [ %127, %132 ]
   %.12 = phi i32 [ %123, %122 ], [ %139, %138 ], [ %123, %132 ]
   %.old4 = icmp sgt i32 %.12, 0
-  br i1 %.old4, label %.preheader, label %.critedge3
+  br i1 %.old4, label %.preheader, label %.critedge3, !llvm.loop !17
 
 .critedge3:                                       ; preds = %130, %.preheader, %143, %115
   %.4133 = phi i32 [ %.3132, %115 ], [ %127, %130 ], [ %.5134, %.preheader ], [ %.7136, %143 ]
@@ -427,12 +427,12 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %174 = getelementptr inbounds nuw i8, ptr %.7128199, i64 2
   store i16 %173, ptr %.7128199, align 2, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %169, %144
   %.5126 = phi ptr [ %.4125, %144 ], [ %.6127, %169 ], [ %174, %.lr.ph ]
   %175 = icmp sgt i32 %.9, 0
-  br i1 %175, label %95, label %.loopexit186, !llvm.loop !17
+  br i1 %175, label %95, label %.loopexit186, !llvm.loop !19
 
 .loopexit186.sink.split:                          ; preds = %90, %34, %9
   %.0116.ph = phi i32 [ %1, %9 ], [ %1, %34 ], [ %.0141, %90 ]
@@ -469,13 +469,13 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = icmp eq ptr %16, null
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !34
+  %20 = load i32, ptr %19, align 4, !tbaa !36
   %21 = or i32 %20, %2
   %or.cond.not = icmp sgt i32 %21, -1
   br i1 %or.cond.not, label %22, label %25
@@ -507,7 +507,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !35
+  %34 = load i32, ptr %33, align 8, !tbaa !37
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i16, ptr %16, i64 %35
   %37 = icmp ult ptr %1, %36
@@ -533,7 +533,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %49 = load i32, ptr %48, align 8, !tbaa !36
+  %49 = load i32, ptr %48, align 8, !tbaa !38
   %50 = and i32 %49, 1
   %.not237 = icmp eq i32 %50, 0
   %51 = and i16 %3, -13
@@ -544,7 +544,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %54 = or disjoint i16 %51, 8
   %.1212 = select i1 %.not238, i16 %.0211, i16 %54
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %56 = load i32, ptr %55, align 4, !tbaa !37
+  %56 = load i32, ptr %55, align 4, !tbaa !39
   %.off = add i32 %56, -3
   %switch = icmp ult i32 %.off, 4
   %57 = and i16 %.1212, -5
@@ -573,10 +573,10 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0218325 = phi i32 [ 0, %.lr.ph328 ], [ %79, %75 ]
   %65 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %.0218325, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %66 = icmp eq i32 %65, 0
-  %67 = load i32, ptr %6, align 4, !tbaa !38
+  %67 = load i32, ptr %6, align 4, !tbaa !40
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i16, ptr %16, i64 %68
-  %70 = load i32, ptr %7, align 4, !tbaa !38
+  %70 = load i32, ptr %7, align 4, !tbaa !40
   br i1 %66, label %71, label %73
 
 71:                                               ; preds = %64
@@ -589,7 +589,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 75:                                               ; preds = %73, %71
   %storemerge = phi i32 [ %74, %73 ], [ %72, %71 ]
-  store i32 %storemerge, ptr %7, align 4, !tbaa !38
+  store i32 %storemerge, ptr %7, align 4, !tbaa !40
   %.not245 = icmp eq ptr %.0195327, null
   %76 = sext i32 %storemerge to i64
   %77 = getelementptr inbounds i16, ptr %.0195327, i64 %76
@@ -597,11 +597,11 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %78 = sub nsw i32 %.0196326, %storemerge
   %79 = add nuw nsw i32 %.0218325, 1
   %exitcond336.not = icmp eq i32 %79, %44
-  br i1 %exitcond336.not, label %.loopexit, label %64, !llvm.loop !39
+  br i1 %exitcond336.not, label %.loopexit, label %64, !llvm.loop !41
 
 80:                                               ; preds = %61
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %82 = load ptr, ptr %81, align 8, !tbaa !40
+  %82 = load ptr, ptr %81, align 8, !tbaa !42
   %invariant.gep316 = getelementptr i8, ptr %82, i64 -1
   %83 = icmp sgt i32 %44, 0
   br i1 %83, label %.lr.ph323, label %.loopexit
@@ -619,15 +619,15 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.1197321 = phi i32 [ %2, %.lr.ph323 ], [ %.4200, %180 ]
   %88 = trunc nuw nsw i64 %indvars.iv to i32
   %89 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %90 = load i32, ptr %6, align 4, !tbaa !38
+  %90 = load i32, ptr %6, align 4, !tbaa !40
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i16, ptr %16, i64 %91
-  %93 = load ptr, ptr %84, align 8, !tbaa !41
+  %93 = load ptr, ptr %84, align 8, !tbaa !43
   %94 = getelementptr inbounds nuw %struct.Run, ptr %93, i64 %indvars.iv, i32 2
-  %95 = load i32, ptr %94, align 4, !tbaa !42
+  %95 = load i32, ptr %94, align 4, !tbaa !44
   %spec.store.select = call i32 @llvm.smax.i32(i32 %95, i32 0)
   %96 = icmp eq i32 %89, 0
-  %97 = load i8, ptr %85, align 8, !tbaa !44
+  %97 = load i8, ptr %85, align 8, !tbaa !46
   %.not257 = icmp eq i8 %97, 0
   br i1 %96, label %98, label %136
 
@@ -636,7 +636,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %82, i64 %91
-  %101 = load i8, ptr %100, align 1, !tbaa !45
+  %101 = load i8, ptr %100, align 1, !tbaa !47
   %.not258 = icmp ne i8 %101, 0
   %102 = zext i1 %.not258 to i32
   %spec.select = or i32 %spec.store.select, %102
@@ -671,26 +671,26 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 112:                                              ; preds = %110, %105
   %.2198 = phi i32 [ %111, %110 ], [ %.1197321, %105 ]
   %.3 = phi ptr [ %.4, %110 ], [ %.2322, %105 ]
-  %113 = load i32, ptr %7, align 4, !tbaa !38
+  %113 = load i32, ptr %7, align 4, !tbaa !40
   %114 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %92, i32 noundef %113, ptr noundef %.3, i32 noundef %.2198, i16 noundef zeroext %86, ptr noundef %4)
-  store i32 %114, ptr %7, align 4, !tbaa !38
+  store i32 %114, ptr %7, align 4, !tbaa !40
   %.not262 = icmp eq ptr %.3, null
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i16, ptr %.3, i64 %115
   %.5 = select i1 %.not262, ptr null, ptr %116
   %117 = sub nsw i32 %.2198, %114
-  %118 = load i8, ptr %85, align 8, !tbaa !44
+  %118 = load i8, ptr %85, align 8, !tbaa !46
   %119 = icmp ne i8 %118, 0
   %120 = icmp sgt i32 %114, 0
   %or.cond5 = and i1 %120, %119
   br i1 %or.cond5, label %121, label %127
 
 121:                                              ; preds = %112
-  %122 = load i32, ptr %6, align 4, !tbaa !38
+  %122 = load i32, ptr %6, align 4, !tbaa !40
   %123 = add nsw i32 %122, %114
   %124 = sext i32 %123 to i64
   %gep319 = getelementptr i8, ptr %invariant.gep316, i64 %124
-  %125 = load i8, ptr %gep319, align 1, !tbaa !45
+  %125 = load i8, ptr %gep319, align 1, !tbaa !47
   %.not263 = icmp eq i8 %125, 0
   %126 = or i32 %.0207, 2
   %spec.select279 = select i1 %.not263, i32 %.0207, i32 %126
@@ -726,11 +726,11 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not257, label %146, label %137
 
 137:                                              ; preds = %136
-  %138 = load i32, ptr %7, align 4, !tbaa !38
+  %138 = load i32, ptr %7, align 4, !tbaa !40
   %139 = add nsw i32 %138, %90
   %140 = sext i32 %139 to i64
   %gep317 = getelementptr i8, ptr %invariant.gep316, i64 %140
-  %141 = load i8, ptr %gep317, align 1, !tbaa !45
+  %141 = load i8, ptr %gep317, align 1, !tbaa !47
   %142 = zext nneg i8 %141 to i64
   %143 = shl nuw i64 1, %142
   %144 = and i64 %143, 8194
@@ -768,23 +768,23 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 155:                                              ; preds = %153, %148
   %.3199 = phi i32 [ %154, %153 ], [ %.1197321, %148 ]
   %.7 = phi ptr [ %.8, %153 ], [ %.2322, %148 ]
-  %156 = load i32, ptr %7, align 4, !tbaa !38
+  %156 = load i32, ptr %7, align 4, !tbaa !40
   %157 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %92, i32 noundef %156, ptr noundef %.7, i32 noundef %.3199, i16 noundef zeroext %spec.select288, ptr noundef %4)
-  store i32 %157, ptr %7, align 4, !tbaa !38
+  store i32 %157, ptr %7, align 4, !tbaa !40
   %.not251 = icmp eq ptr %.7, null
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i16, ptr %.7, i64 %158
   %.9 = select i1 %.not251, ptr null, ptr %159
   %160 = sub nsw i32 %.3199, %157
-  %161 = load i8, ptr %85, align 8, !tbaa !44
+  %161 = load i8, ptr %85, align 8, !tbaa !46
   %.not252 = icmp eq i8 %161, 0
   br i1 %.not252, label %171, label %162
 
 162:                                              ; preds = %155
-  %163 = load i32, ptr %6, align 4, !tbaa !38
+  %163 = load i32, ptr %6, align 4, !tbaa !40
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %82, i64 %164
-  %166 = load i8, ptr %165, align 1, !tbaa !45
+  %166 = load i8, ptr %165, align 1, !tbaa !47
   %167 = zext nneg i8 %166 to i64
   %168 = shl nuw i64 1, %167
   %169 = and i64 %168, 8194
@@ -824,7 +824,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.11 = phi ptr [ %.6, %134 ], [ %.5, %129 ], [ %.10, %178 ], [ %.9, %173 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !48
 
 181:                                              ; preds = %47
   br i1 %.not244, label %.preheader305, label %201
@@ -844,10 +844,10 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %185 = add nsw i32 %.in330, -1
   %186 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %185, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %187 = icmp eq i32 %186, 0
-  %188 = load i32, ptr %6, align 4, !tbaa !38
+  %188 = load i32, ptr %6, align 4, !tbaa !40
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i16, ptr %16, i64 %189
-  %191 = load i32, ptr %7, align 4, !tbaa !38
+  %191 = load i32, ptr %7, align 4, !tbaa !40
   br i1 %187, label %192, label %194
 
 192:                                              ; preds = %184
@@ -860,18 +860,18 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 196:                                              ; preds = %194, %192
   %storemerge268 = phi i32 [ %195, %194 ], [ %193, %192 ]
-  store i32 %storemerge268, ptr %7, align 4, !tbaa !38
+  store i32 %storemerge268, ptr %7, align 4, !tbaa !40
   %.not269 = icmp eq ptr %.12313, null
   %197 = sext i32 %storemerge268 to i64
   %198 = getelementptr inbounds i16, ptr %.12313, i64 %197
   %.13 = select i1 %.not269, ptr null, ptr %198
   %199 = sub nsw i32 %.6202312, %storemerge268
   %200 = icmp samesign ugt i32 %.in330, 1
-  br i1 %200, label %184, label %.loopexit, !llvm.loop !47
+  br i1 %200, label %184, label %.loopexit, !llvm.loop !49
 
 201:                                              ; preds = %181
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %203 = load ptr, ptr %202, align 8, !tbaa !40
+  %203 = load ptr, ptr %202, align 8, !tbaa !42
   %invariant.gep = getelementptr i8, ptr %203, i64 -1
   %204 = icmp sgt i32 %44, 0
   br i1 %204, label %.lr.ph, label %.loopexit
@@ -886,18 +886,18 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.7203310 = phi i32 [ %2, %.lr.ph ], [ %.9205, %272 ]
   %207 = add nsw i32 %.in, -1
   %208 = call i32 @ubidi_getVisualRun_77(ptr noundef nonnull %0, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %209 = load i32, ptr %6, align 4, !tbaa !38
+  %209 = load i32, ptr %6, align 4, !tbaa !40
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i16, ptr %16, i64 %210
   %212 = icmp eq i32 %208, 0
   br i1 %212, label %213, label %239
 
 213:                                              ; preds = %206
-  %214 = load i32, ptr %7, align 4, !tbaa !38
+  %214 = load i32, ptr %7, align 4, !tbaa !40
   %215 = add nsw i32 %214, %209
   %216 = sext i32 %215 to i64
   %gep309 = getelementptr i8, ptr %invariant.gep, i64 %216
-  %217 = load i8, ptr %gep309, align 1, !tbaa !45
+  %217 = load i8, ptr %gep309, align 1, !tbaa !47
   %.not273 = icmp eq i8 %217, 0
   br i1 %.not273, label %224, label %218
 
@@ -919,16 +919,16 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.8204 = phi i32 [ %223, %222 ], [ %.7203310, %213 ]
   %.15 = phi ptr [ %.16, %222 ], [ %.14311, %213 ]
   %225 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %211, i32 noundef %214, ptr noundef %.15, i32 noundef %.8204, i16 noundef zeroext %205, ptr noundef %4)
-  store i32 %225, ptr %7, align 4, !tbaa !38
+  store i32 %225, ptr %7, align 4, !tbaa !40
   %.not274 = icmp eq ptr %.15, null
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds i16, ptr %.15, i64 %226
   %.17 = select i1 %.not274, ptr null, ptr %227
   %228 = sub nsw i32 %.8204, %225
-  %229 = load i32, ptr %6, align 4, !tbaa !38
+  %229 = load i32, ptr %6, align 4, !tbaa !40
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds i8, ptr %203, i64 %230
-  %232 = load i8, ptr %231, align 1, !tbaa !45
+  %232 = load i8, ptr %231, align 1, !tbaa !47
   %.not275 = icmp eq i8 %232, 0
   br i1 %.not275, label %272, label %233
 
@@ -948,7 +948,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 239:                                              ; preds = %206
   %240 = getelementptr inbounds i8, ptr %203, i64 %210
-  %241 = load i8, ptr %240, align 1, !tbaa !45
+  %241 = load i8, ptr %240, align 1, !tbaa !47
   %242 = zext nneg i8 %241 to i64
   %243 = shl nuw i64 1, %242
   %244 = and i64 %243, 8194
@@ -972,9 +972,9 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 251:                                              ; preds = %249, %239
   %.10206 = phi i32 [ %.7203310, %239 ], [ %250, %249 ]
   %.20 = phi ptr [ %.14311, %239 ], [ %.21, %249 ]
-  %252 = load i32, ptr %7, align 4, !tbaa !38
+  %252 = load i32, ptr %7, align 4, !tbaa !40
   %253 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %211, i32 noundef %252, ptr noundef %.20, i32 noundef %.10206, i16 noundef zeroext %spec.select288, ptr noundef %4)
-  store i32 %253, ptr %7, align 4, !tbaa !38
+  store i32 %253, ptr %7, align 4, !tbaa !40
   %.not271 = icmp eq ptr %.20, null
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds i16, ptr %.20, i64 %254
@@ -984,11 +984,11 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %257, label %258, label %272
 
 258:                                              ; preds = %251
-  %259 = load i32, ptr %6, align 4, !tbaa !38
+  %259 = load i32, ptr %6, align 4, !tbaa !40
   %260 = add nsw i32 %259, %253
   %261 = sext i32 %260 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %261
-  %262 = load i8, ptr %gep, align 1, !tbaa !45
+  %262 = load i8, ptr %gep, align 1, !tbaa !47
   %263 = zext nneg i8 %262 to i64
   %264 = shl nuw i64 1, %263
   %265 = and i64 %264, 8194
@@ -1013,7 +1013,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.9205 = phi i32 [ %238, %237 ], [ %228, %224 ], [ %256, %258 ], [ %271, %270 ], [ %256, %251 ]
   %.19 = phi ptr [ %.18, %237 ], [ %.17, %224 ], [ %.22, %258 ], [ %.23, %270 ], [ %.22, %251 ]
   %273 = icmp samesign ugt i32 %.in, 1
-  br i1 %273, label %206, label %.loopexit, !llvm.loop !48
+  br i1 %273, label %206, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %272, %196, %180, %75, %201, %.preheader305, %80, %.preheader
   %.5201 = phi i32 [ %2, %.preheader ], [ %2, %80 ], [ %2, %.preheader305 ], [ %2, %201 ], [ %78, %75 ], [ %.4200, %180 ], [ %199, %196 ], [ %.9205, %272 ]
@@ -1061,7 +1061,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   store i16 %13, ptr %.0133, align 2, !tbaa !7
   %15 = add nsw i32 %.0128, -1
   %16 = icmp sgt i32 %.0128, 1
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !49
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !51
 
 17:                                               ; preds = %6
   %18 = icmp slt i32 %3, %1
@@ -1134,7 +1134,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
 58:                                               ; preds = %42, %47
   %.1124 = phi i32 [ %44, %42 ], [ %56, %47 ]
   %59 = icmp slt i32 %.2127, %1
-  br i1 %59, label %.preheader175, label %.loopexit, !llvm.loop !50
+  br i1 %59, label %.preheader175, label %.loopexit, !llvm.loop !52
 
 .preheader178:                                    ; preds = %6, %82
   %.1134 = phi ptr [ %.2135, %82 ], [ %2, %6 ]
@@ -1189,7 +1189,7 @@ switch.early.test:                                ; preds = %.preheader178
   %78 = sext i1 %or.cond156.not to i32
   %.2114 = add nsw i32 %.1113195, %78
   %79 = icmp samesign ugt i32 %.1130193, 2
-  br i1 %79, label %.lr.ph197, label %.loopexit177, !llvm.loop !51
+  br i1 %79, label %.lr.ph197, label %.loopexit177, !llvm.loop !53
 
 80:                                               ; preds = %64
   %81 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
@@ -1201,7 +1201,7 @@ switch.early.test:                                ; preds = %.preheader178
   %.3115 = phi i32 [ %.0112, %switch.early.test ], [ %65, %80 ], [ %.0112, %.preheader178 ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ]
   %83 = add nsw i32 %.0129, -1
   %84 = icmp sgt i32 %.0129, 1
-  br i1 %84, label %.preheader178, label %.loopexit177, !llvm.loop !52
+  br i1 %84, label %.preheader178, label %.loopexit177, !llvm.loop !54
 
 .loopexit177:                                     ; preds = %82, %.lr.ph197, %67
   %.3115.pn = phi i32 [ %65, %67 ], [ %.2114, %.lr.ph197 ], [ %.3115, %82 ]
@@ -1282,7 +1282,7 @@ switch.early.test:                                ; preds = %.preheader178
   %.2110 = add nsw i32 %.1109192, %122
   %123 = add nsw i32 %.3132190, -1
   %124 = icmp samesign ugt i32 %.3132190, 1
-  br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %112
   %.1109.lcssa = phi i32 [ %110, %112 ], [ %.2110, %.lr.ph ]
@@ -1321,7 +1321,7 @@ switch.early.test:                                ; preds = %.preheader178
   %.3111 = phi i32 [ %.0108, %99 ], [ %110, %129 ], [ %110, %134 ]
   %.1105 = phi i32 [ %.0104, %99 ], [ %131, %129 ], [ %143, %134 ]
   %146 = icmp sgt i32 %102, 0
-  br i1 %146, label %.preheader180, label %.loopexit, !llvm.loop !54
+  br i1 %146, label %.preheader180, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %145, %58, %.preheader, %._crit_edge, %19, %11, %.loopexit177
   %.1 = phi i32 [ %.3, %.loopexit177 ], [ %1, %11 ], [ %1, %19 ], [ %125, %._crit_edge ], [ %1, %.preheader ], [ %1, %58 ], [ %.1105, %145 ]
@@ -1352,49 +1352,51 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"char16_t", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = !{!19, !22, i64 8}
-!19 = !{!"_ZTS5UBiDi", !20, i64 0, !22, i64 8, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !23, i64 48, !24, i64 56, !24, i64 64, !25, i64 72, !26, i64 80, !27, i64 88, !28, i64 96, !5, i64 104, !5, i64 105, !24, i64 112, !24, i64 120, !5, i64 128, !29, i64 132, !23, i64 136, !5, i64 140, !5, i64 141, !5, i64 142, !22, i64 144, !23, i64 152, !22, i64 160, !23, i64 168, !30, i64 176, !31, i64 184, !23, i64 188, !23, i64 192, !23, i64 196, !23, i64 200, !26, i64 208, !5, i64 216, !23, i64 296, !27, i64 304, !5, i64 312, !23, i64 324, !28, i64 328, !5, i64 336, !32, i64 416, !23, i64 440, !21, i64 448, !21, i64 456}
-!20 = !{!"p1 _ZTS5UBiDi", !21, i64 0}
-!21 = !{!"any pointer", !5, i64 0}
-!22 = !{!"p1 char16_t", !21, i64 0}
-!23 = !{!"int", !5, i64 0}
-!24 = !{!"p1 omnipotent char", !21, i64 0}
-!25 = !{!"p1 _ZTS7Opening", !21, i64 0}
-!26 = !{!"p1 _ZTS4Para", !21, i64 0}
-!27 = !{!"p1 _ZTS3Run", !21, i64 0}
-!28 = !{!"p1 _ZTS7Isolate", !21, i64 0}
-!29 = !{!"_ZTS19UBiDiReorderingMode", !5, i64 0}
-!30 = !{!"p1 _ZTS10ImpTabPair", !21, i64 0}
-!31 = !{!"_ZTS14UBiDiDirection", !5, i64 0}
-!32 = !{!"_ZTS12InsertPoints", !23, i64 0, !23, i64 4, !23, i64 8, !4, i64 12, !33, i64 16}
-!33 = !{!"p1 _ZTS5Point", !21, i64 0}
-!34 = !{!19, !23, i64 20}
-!35 = !{!19, !23, i64 16}
-!36 = !{!19, !23, i64 136}
-!37 = !{!19, !29, i64 132}
-!38 = !{!23, !23, i64 0}
-!39 = distinct !{!39, !10}
-!40 = !{!19, !24, i64 112}
-!41 = !{!19, !27, i64 304}
-!42 = !{!43, !23, i64 8}
-!43 = !{!"_ZTS3Run", !23, i64 0, !23, i64 4, !23, i64 8}
-!44 = !{!19, !5, i64 128}
-!45 = !{!5, !5, i64 0}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10}
-!51 = distinct !{!51, !10}
-!52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = !{!21, !24, i64 8}
+!21 = !{!"_ZTS5UBiDi", !22, i64 0, !24, i64 8, !25, i64 16, !25, i64 20, !25, i64 24, !25, i64 28, !25, i64 32, !25, i64 36, !25, i64 40, !25, i64 44, !25, i64 48, !26, i64 56, !26, i64 64, !27, i64 72, !28, i64 80, !29, i64 88, !30, i64 96, !5, i64 104, !5, i64 105, !26, i64 112, !26, i64 120, !5, i64 128, !31, i64 132, !25, i64 136, !5, i64 140, !5, i64 141, !5, i64 142, !24, i64 144, !25, i64 152, !24, i64 160, !25, i64 168, !32, i64 176, !33, i64 184, !25, i64 188, !25, i64 192, !25, i64 196, !25, i64 200, !28, i64 208, !5, i64 216, !25, i64 296, !29, i64 304, !5, i64 312, !25, i64 324, !30, i64 328, !5, i64 336, !34, i64 416, !25, i64 440, !23, i64 448, !23, i64 456}
+!22 = !{!"p1 _ZTS5UBiDi", !23, i64 0}
+!23 = !{!"any pointer", !5, i64 0}
+!24 = !{!"p1 char16_t", !23, i64 0}
+!25 = !{!"int", !5, i64 0}
+!26 = !{!"p1 omnipotent char", !23, i64 0}
+!27 = !{!"p1 _ZTS7Opening", !23, i64 0}
+!28 = !{!"p1 _ZTS4Para", !23, i64 0}
+!29 = !{!"p1 _ZTS3Run", !23, i64 0}
+!30 = !{!"p1 _ZTS7Isolate", !23, i64 0}
+!31 = !{!"_ZTS19UBiDiReorderingMode", !5, i64 0}
+!32 = !{!"p1 _ZTS10ImpTabPair", !23, i64 0}
+!33 = !{!"_ZTS14UBiDiDirection", !5, i64 0}
+!34 = !{!"_ZTS12InsertPoints", !25, i64 0, !25, i64 4, !25, i64 8, !4, i64 12, !35, i64 16}
+!35 = !{!"p1 _ZTS5Point", !23, i64 0}
+!36 = !{!21, !25, i64 20}
+!37 = !{!21, !25, i64 16}
+!38 = !{!21, !25, i64 136}
+!39 = !{!21, !31, i64 132}
+!40 = !{!25, !25, i64 0}
+!41 = distinct !{!41, !10, !11}
+!42 = !{!21, !26, i64 112}
+!43 = !{!21, !29, i64 304}
+!44 = !{!45, !25, i64 8}
+!45 = !{!"_ZTS3Run", !25, i64 0, !25, i64 4, !25, i64 8}
+!46 = !{!21, !5, i64 128}
+!47 = !{!5, !5, i64 0}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = distinct !{!51, !10, !11}
+!52 = distinct !{!52, !10, !11}
+!53 = distinct !{!53, !10, !11}
+!54 = distinct !{!54, !10, !11}
+!55 = distinct !{!55, !10, !11}
+!56 = distinct !{!56, !10, !11}

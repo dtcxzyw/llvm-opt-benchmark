@@ -366,7 +366,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   %253 = lshr i32 %250, 15
   %254 = xor i32 %252, %253
   %.wide = icmp ugt i64 %211, 2
-  br i1 %.wide, label %193, label %._crit_edge, !llvm.loop !23
+  br i1 %.wide, label %193, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %193
   %255 = trunc nuw nsw i64 %211 to i32
@@ -478,7 +478,7 @@ define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not17, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %13, label %.critedge, !llvm.loop !24
+  br i1 %or.cond.not, label %13, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %13, %.preheader, %3, %8
   %.014 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %.preheader ], [ %.not17, %13 ]
@@ -495,25 +495,25 @@ define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polyno
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %2, ptr %8, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %9, align 8, !tbaa !25
+  store i32 %2, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %10, align 4, !tbaa !27
+  store i32 %3, ptr %10, align 4, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %11, align 8, !tbaa !28
+  store ptr %4, ptr %11, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !25
+  %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !27
+  %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = shl i32 %6, 2
   %8 = load i32, ptr %1, align 8, !tbaa !3
   %9 = or i32 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %11)
   %13 = add i32 %9, %12
   %14 = sub i32 %4, %13
@@ -565,25 +565,25 @@ define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr no
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %9 = load i32, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !25
+  %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !27
+  %15 = load i32, ptr %14, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !27
+  %17 = load i32, ptr %16, align 4, !tbaa !28
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %21 = load ptr, ptr %20, align 8, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = icmp eq ptr %21, %23
   br label %25
 
@@ -596,9 +596,9 @@ define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr no
 define internal void @_GLOBAL__sub_I_nlsat_types.cpp() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
-  store i32 0, ptr @_ZN5nlsatL12true_literalE, align 4, !tbaa !29
+  store i32 0, ptr @_ZN5nlsatL12true_literalE, align 4, !tbaa !30
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL12true_literalE)
-  store i32 1, ptr @_ZN5nlsatL13false_literalE, align 4, !tbaa !29
+  store i32 1, ptr @_ZN5nlsatL13false_literalE, align 4, !tbaa !30
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL13false_literalE)
   ret void
 }
@@ -638,13 +638,14 @@ attributes #9 = { nounwind }
 !18 = !{!"bool", !6, i64 0}
 !19 = !{i8 0, i8 2}
 !20 = !{}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = !{!26, !8, i64 16}
-!26 = !{!"_ZTSN5nlsat9root_atomE", !4, i64 0, !8, i64 16, !8, i64 20, !15, i64 24}
-!27 = !{!26, !8, i64 20}
-!28 = !{!26, !15, i64 24}
-!29 = !{!30, !8, i64 0}
-!30 = !{!"_ZTSN3sat7literalE", !8, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !22, !23}
+!25 = distinct !{!25, !22, !23}
+!26 = !{!27, !8, i64 16}
+!27 = !{!"_ZTSN5nlsat9root_atomE", !4, i64 0, !8, i64 16, !8, i64 20, !15, i64 24}
+!28 = !{!27, !8, i64 20}
+!29 = !{!27, !15, i64 24}
+!30 = !{!31, !8, i64 0}
+!31 = !{!"_ZTSN3sat7literalE", !8, i64 0}

@@ -164,7 +164,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 43:                                               ; preds = %38
   invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %35, ptr align 1 %1)
-          to label %30 unwind label %36
+          to label %30 unwind label %36, !llvm.loop !4
 
 44:                                               ; preds = %40
   call void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %42, ptr align 1 %1)
@@ -281,7 +281,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 43:                                               ; preds = %38
   invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %35, ptr align 8 %1)
-          to label %30 unwind label %36
+          to label %30 unwind label %36, !llvm.loop !6
 
 44:                                               ; preds = %40
   call void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %42, ptr align 8 %1)
@@ -395,7 +395,7 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
 .backedge8:                                       ; preds = %24, %46, %72, %75
   %.pre = load ptr, ptr %5, align 8
   %.pre9 = load ptr, ptr %9, align 8
-  br label %12
+  br label %12, !llvm.loop !7
 
 default.unreachable:                              ; preds = %24
   unreachable
@@ -451,7 +451,7 @@ default.unreachable:                              ; preds = %24
 .backedge:                                        ; preds = %.invoke, %47
   %.pre10 = load ptr, ptr %4, align 8
   %.pre11 = load ptr, ptr %11, align 8
-  br label %36
+  br label %36, !llvm.loop !8
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -499,7 +499,7 @@ default.unreachable:                              ; preds = %24
 
 71:                                               ; preds = %68
   invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hfdb2139c3465b7acE(ptr nonnull align 8 %65, ptr align 8 %1)
-          to label %60 unwind label %66
+          to label %60 unwind label %66, !llvm.loop !9
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -569,7 +569,7 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
 .backedge8:                                       ; preds = %24, %46, %72, %75
   %.pre = load ptr, ptr %5, align 8
   %.pre9 = load ptr, ptr %9, align 8
-  br label %12
+  br label %12, !llvm.loop !10
 
 default.unreachable:                              ; preds = %24
   unreachable
@@ -625,7 +625,7 @@ default.unreachable:                              ; preds = %24
 .backedge:                                        ; preds = %.invoke, %47
   %.pre10 = load ptr, ptr %4, align 8
   %.pre11 = load ptr, ptr %11, align 8
-  br label %36
+  br label %36, !llvm.loop !11
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -673,7 +673,7 @@ default.unreachable:                              ; preds = %24
 
 71:                                               ; preds = %68
   invoke void @_ZN13logos_codegen6parser11type_params13traverse_type17hbd599f2f5600100eE(ptr nonnull align 8 %65, ptr align 1 %1)
-          to label %60 unwind label %66
+          to label %60 unwind label %66, !llvm.loop !12
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -777,3 +777,12 @@ attributes #7 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
 !3 = !{}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

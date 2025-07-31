@@ -100,5 +100,6 @@ attributes #2 = { nounwind }
 !10 = !{!"BIT_STRING_BITNAME_st", !5, i64 0, !11, i64 8, !11, i64 16}
 !11 = !{!"p1 omnipotent char", !8, i64 0}
 !12 = !{!10, !5, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}

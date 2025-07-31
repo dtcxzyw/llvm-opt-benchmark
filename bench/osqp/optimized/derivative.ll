@@ -151,10 +151,10 @@ define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %53
-  %59 = load ptr, ptr %47, align 8, !tbaa !45
+  %59 = load ptr, ptr %47, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw double, ptr %19, i64 %.06576
   %61 = getelementptr inbounds nuw double, ptr %43, i64 %.06576
-  %62 = load ptr, ptr %48, align 8, !tbaa !46
+  %62 = load ptr, ptr %48, align 8, !tbaa !47
   br label %63
 
 63:                                               ; preds = %.lr.ph, %63
@@ -162,19 +162,19 @@ define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_
   %64 = getelementptr inbounds i64, ptr %59, i64 %.072
   %65 = load i64, ptr %64, align 8, !tbaa !42
   %66 = getelementptr inbounds double, ptr %43, i64 %65
-  %67 = load double, ptr %66, align 8, !tbaa !47
-  %68 = load double, ptr %60, align 8, !tbaa !47
-  %69 = load double, ptr %61, align 8, !tbaa !47
+  %67 = load double, ptr %66, align 8, !tbaa !48
+  %68 = load double, ptr %60, align 8, !tbaa !48
+  %69 = load double, ptr %61, align 8, !tbaa !48
   %70 = getelementptr inbounds double, ptr %19, i64 %65
-  %71 = load double, ptr %70, align 8, !tbaa !47
+  %71 = load double, ptr %70, align 8, !tbaa !48
   %72 = fmul double %69, %71
   %73 = tail call double @llvm.fmuladd.f64(double %67, double %68, double %72)
   %74 = fmul double %73, 5.000000e-01
   %75 = getelementptr inbounds double, ptr %62, i64 %.072
-  store double %74, ptr %75, align 8, !tbaa !47
+  store double %74, ptr %75, align 8, !tbaa !48
   %76 = add nsw i64 %.072, 1
   %exitcond.not = icmp eq i64 %76, %57
-  br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %63, %53
   %77 = getelementptr inbounds nuw i64, ptr %50, i64 %.06576
@@ -185,10 +185,10 @@ define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_
   br i1 %81, label %.lr.ph75, label %.loopexit
 
 .lr.ph75:                                         ; preds = %._crit_edge
-  %82 = load ptr, ptr %51, align 8, !tbaa !45
+  %82 = load ptr, ptr %51, align 8, !tbaa !46
   %83 = getelementptr inbounds nuw double, ptr %43, i64 %.06576
   %84 = getelementptr inbounds nuw double, ptr %19, i64 %.06576
-  %85 = load ptr, ptr %52, align 8, !tbaa !46
+  %85 = load ptr, ptr %52, align 8, !tbaa !47
   br label %86
 
 86:                                               ; preds = %.lr.ph75, %86
@@ -196,24 +196,24 @@ define i64 @adjoint_derivative_get_mat(ptr noundef readonly captures(address_is_
   %87 = getelementptr inbounds i64, ptr %82, i64 %.173
   %88 = load i64, ptr %87, align 8, !tbaa !42
   %89 = getelementptr inbounds double, ptr %22, i64 %88
-  %90 = load double, ptr %89, align 8, !tbaa !47
+  %90 = load double, ptr %89, align 8, !tbaa !48
   %91 = getelementptr inbounds double, ptr %25, i64 %88
-  %92 = load double, ptr %91, align 8, !tbaa !47
+  %92 = load double, ptr %91, align 8, !tbaa !48
   %93 = fsub double %90, %92
-  %94 = load double, ptr %83, align 8, !tbaa !47
+  %94 = load double, ptr %83, align 8, !tbaa !48
   %95 = getelementptr inbounds double, ptr %28, i64 %88
-  %96 = load double, ptr %95, align 8, !tbaa !47
+  %96 = load double, ptr %95, align 8, !tbaa !48
   %97 = getelementptr inbounds double, ptr %31, i64 %88
-  %98 = load double, ptr %97, align 8, !tbaa !47
+  %98 = load double, ptr %97, align 8, !tbaa !48
   %99 = fsub double %96, %98
-  %100 = load double, ptr %84, align 8, !tbaa !47
+  %100 = load double, ptr %84, align 8, !tbaa !48
   %101 = fmul double %99, %100
   %102 = tail call double @llvm.fmuladd.f64(double %93, double %94, double %101)
   %103 = getelementptr inbounds double, ptr %85, i64 %.173
-  store double %102, ptr %103, align 8, !tbaa !47
+  store double %102, ptr %103, align 8, !tbaa !48
   %104 = add nsw i64 %.173, 1
   %exitcond80.not = icmp eq i64 %104, %80
-  br i1 %exitcond80.not, label %.loopexit, label %86, !llvm.loop !49
+  br i1 %exitcond80.not, label %.loopexit, label %86, !llvm.loop !50
 
 ._crit_edge79:                                    ; preds = %.loopexit, %12
   tail call void @OSQPVectorf_view_free(ptr noundef %42) #6
@@ -290,14 +290,14 @@ define i64 @adjoint_derivative_get_vec(ptr noundef readonly captures(address_is_
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.02632 = phi i64 [ %37, %.lr.ph ], [ 0, %13 ]
   %34 = getelementptr inbounds nuw double, ptr %3, i64 %.02632
-  %35 = load double, ptr %34, align 8, !tbaa !47
+  %35 = load double, ptr %34, align 8, !tbaa !48
   %36 = fneg double %35
-  store double %36, ptr %34, align 8, !tbaa !47
+  store double %36, ptr %34, align 8, !tbaa !48
   %37 = add nuw nsw i64 %.02632, 1
   %38 = load ptr, ptr %29, align 8, !tbaa !33
   %39 = tail call i64 @OSQPVectorf_length(ptr noundef %38) #6
   %40 = icmp slt i64 %37, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   tail call void @OSQPVectorf_view_free(ptr noundef %26) #6
@@ -336,25 +336,25 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
 13:                                               ; preds = %8
   %14 = load ptr, ptr %7, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !51
+  %16 = load i64, ptr %15, align 8, !tbaa !52
   %17 = load i64, ptr %14, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = tail call ptr @OSQPMatrix_copy_new(ptr noundef %19) #6
   %21 = load ptr, ptr %6, align 8, !tbaa !3
   %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !54
   %25 = tail call ptr @OSQPMatrix_copy_new(ptr noundef %24) #6
   %26 = load ptr, ptr %6, align 8, !tbaa !3
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = tail call ptr @OSQPVectorf_copy_new(ptr noundef %29) #6
   %31 = load ptr, ptr %6, align 8, !tbaa !3
   %32 = load ptr, ptr %31, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %34 = load ptr, ptr %33, align 8, !tbaa !56
   %35 = tail call ptr @OSQPVectorf_copy_new(ptr noundef %34) #6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !26
@@ -362,11 +362,11 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %39 = tail call ptr @OSQPVectorf_new(ptr noundef %38, i64 noundef %17) #6
   %40 = load ptr, ptr %36, align 8, !tbaa !26
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !56
+  %42 = load ptr, ptr %41, align 8, !tbaa !57
   %43 = tail call ptr @OSQPVectorf_new(ptr noundef %42, i64 noundef %16) #6
-  %44 = load ptr, ptr %0, align 8, !tbaa !57
+  %44 = load ptr, ptr %0, align 8, !tbaa !58
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %46 = load i64, ptr %45, align 8, !tbaa !58
+  %46 = load i64, ptr %45, align 8, !tbaa !59
   %.not325 = icmp eq i64 %46, 0
   br i1 %.not325, label %.thread, label %47
 
@@ -401,9 +401,9 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8, !tbaa !19
   tail call void @OSQPMatrix_rmult_diag(ptr noundef %25, ptr noundef %72) #6
-  %.pre = load ptr, ptr %0, align 8, !tbaa !57
+  %.pre = load ptr, ptr %0, align 8, !tbaa !58
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre363 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !58
+  %.pre363 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !59
   %73 = icmp eq i64 %.pre363, 0
   br i1 %73, label %.thread, label %74
 
@@ -445,9 +445,9 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %.0311329 = phi i64 [ %.1312, %129 ], [ 0, %.thread ]
   %.0313328 = phi i64 [ %130, %129 ], [ 0, %.thread ]
   %99 = getelementptr inbounds nuw double, ptr %85, i64 %.0313328
-  %100 = load double, ptr %99, align 8, !tbaa !47
+  %100 = load double, ptr %99, align 8, !tbaa !48
   %101 = getelementptr inbounds nuw double, ptr %86, i64 %.0313328
-  %102 = load double, ptr %101, align 8, !tbaa !47
+  %102 = load double, ptr %101, align 8, !tbaa !48
   %103 = fcmp olt double %100, %102
   br i1 %103, label %104, label %119
 
@@ -494,7 +494,7 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %123 = getelementptr inbounds nuw i64, ptr %90, i64 %.0313328
   store i64 0, ptr %123, align 8, !tbaa !42
   %124 = getelementptr inbounds nuw double, ptr %87, i64 %.0313328
-  %125 = load double, ptr %124, align 8, !tbaa !47
+  %125 = load double, ptr %124, align 8, !tbaa !48
   %126 = fcmp ult double %125, 0.000000e+00
   %.sink362 = select i1 %126, i64 -1, i64 1
   %127 = getelementptr inbounds i64, ptr %95, i64 %.0311329
@@ -508,7 +508,7 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %.2 = phi i64 [ %.1, %113 ], [ %.1, %117 ], [ %.0308331, %119 ]
   %130 = add nuw nsw i64 %.0313328, 1
   %exitcond.not = icmp eq i64 %130, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %129, %.thread
   %.0311.lcssa = phi i64 [ 0, %.thread ], [ %.1312, %129 ]
@@ -602,27 +602,27 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %170 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
   %171 = load i64, ptr %170, align 8, !tbaa !42
   %172 = getelementptr inbounds double, ptr %3, i64 %171
-  %173 = load double, ptr %172, align 8, !tbaa !47
+  %173 = load double, ptr %172, align 8, !tbaa !48
   br label %.sink.split
 
 174:                                              ; preds = %.lr.ph336
   %175 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
   %176 = load i64, ptr %175, align 8, !tbaa !42
   %177 = getelementptr inbounds double, ptr %2, i64 %176
-  %178 = load double, ptr %177, align 8, !tbaa !47
+  %178 = load double, ptr %177, align 8, !tbaa !48
   %179 = fneg double %178
   br label %.sink.split
 
 .sink.split:                                      ; preds = %174, %169
   %.sink365 = phi double [ %173, %169 ], [ %179, %174 ]
   %180 = getelementptr inbounds nuw double, ptr %165, i64 %.1314334
-  store double %.sink365, ptr %180, align 8, !tbaa !47
+  store double %.sink365, ptr %180, align 8, !tbaa !48
   br label %181
 
 181:                                              ; preds = %.sink.split, %.lr.ph336
   %182 = add nuw nsw i64 %.1314334, 1
   %exitcond358.not = icmp eq i64 %182, %.0311.lcssa
-  br i1 %exitcond358.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !62
+  br i1 %exitcond358.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !63
 
 ._crit_edge337:                                   ; preds = %181, %._crit_edge
   tail call void @OSQPVectorf_subvector_assign(ptr noundef %159, ptr noundef %165, i64 noundef %163, i64 noundef %.0311.lcssa, double noundef -1.000000e+00) #6
@@ -631,7 +631,7 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   tail call void @OSQPVectorf_subvector_assign_scalar(ptr noundef %159, double noundef 0.000000e+00, i64 noundef %183, i64 noundef %183) #6
   %184 = tail call ptr @OSQPMatrix_triu_to_symm(ptr noundef %20) #6
   tail call void @OSQPMatrix_free(ptr noundef %20) #6
-  %185 = load ptr, ptr %0, align 8, !tbaa !57
+  %185 = load ptr, ptr %0, align 8, !tbaa !58
   %186 = tail call i64 @adjoint_derivative_linsys_solver(ptr noundef null, ptr noundef %185, ptr noundef %184, ptr noundef %137, ptr noundef %139, ptr noundef %155, ptr noundef %154, ptr noundef %159) #6
   tail call void @OSQPMatrix_free(ptr noundef %184) #6
   tail call void @OSQPMatrix_free(ptr noundef %137) #6
@@ -644,8 +644,8 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   br i1 %98, label %.lr.ph342.preheader, label %._crit_edge343
 
 .lr.ph342.preheader:                              ; preds = %._crit_edge337
-  tail call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 %88, i1 false), !tbaa !47
-  tail call void @llvm.memset.p0.i64(ptr align 8 %189, i8 0, i64 %88, i1 false), !tbaa !47
+  tail call void @llvm.memset.p0.i64(ptr align 8 %188, i8 0, i64 %88, i1 false), !tbaa !48
+  tail call void @llvm.memset.p0.i64(ptr align 8 %189, i8 0, i64 %88, i1 false), !tbaa !48
   br label %._crit_edge343
 
 ._crit_edge343:                                   ; preds = %._crit_edge337, %.lr.ph342.preheader
@@ -661,15 +661,15 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
 194:                                              ; preds = %.lr.ph346, %194
   %.4344 = phi i64 [ 0, %.lr.ph346 ], [ %201, %194 ]
   %195 = getelementptr double, ptr %193, i64 %.4344
-  %196 = load double, ptr %195, align 8, !tbaa !47
+  %196 = load double, ptr %195, align 8, !tbaa !48
   %197 = fneg double %196
   %198 = getelementptr inbounds nuw i64, ptr %93, i64 %.4344
   %199 = load i64, ptr %198, align 8, !tbaa !42
   %200 = getelementptr inbounds double, ptr %188, i64 %199
-  store double %197, ptr %200, align 8, !tbaa !47
+  store double %197, ptr %200, align 8, !tbaa !48
   %201 = add nuw nsw i64 %.4344, 1
   %exitcond359.not = icmp eq i64 %201, %191
-  br i1 %exitcond359.not, label %._crit_edge347, label %194, !llvm.loop !63
+  br i1 %exitcond359.not, label %._crit_edge347, label %194, !llvm.loop !64
 
 ._crit_edge347:                                   ; preds = %194, %._crit_edge343
   tail call void @free(ptr noundef %93) #6
@@ -685,14 +685,14 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
 206:                                              ; preds = %.lr.ph351, %206
   %.5349 = phi i64 [ 0, %.lr.ph351 ], [ %212, %206 ]
   %207 = getelementptr double, ptr %205, i64 %.5349
-  %208 = load double, ptr %207, align 8, !tbaa !47
+  %208 = load double, ptr %207, align 8, !tbaa !48
   %209 = getelementptr inbounds nuw i64, ptr %94, i64 %.5349
   %210 = load i64, ptr %209, align 8, !tbaa !42
   %211 = getelementptr inbounds double, ptr %189, i64 %210
-  store double %208, ptr %211, align 8, !tbaa !47
+  store double %208, ptr %211, align 8, !tbaa !48
   %212 = add nuw nsw i64 %.5349, 1
   %exitcond360.not = icmp eq i64 %212, %203
-  br i1 %exitcond360.not, label %._crit_edge352, label %206, !llvm.loop !64
+  br i1 %exitcond360.not, label %._crit_edge352, label %206, !llvm.loop !65
 
 ._crit_edge352:                                   ; preds = %206, %._crit_edge347
   tail call void @free(ptr noundef %94) #6
@@ -716,35 +716,35 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %222 = getelementptr inbounds nuw i64, ptr %92, i64 %.6354
   %223 = load i64, ptr %222, align 8, !tbaa !42
   %224 = getelementptr inbounds double, ptr %188, i64 %223
-  store double 0.000000e+00, ptr %224, align 8, !tbaa !47
+  store double 0.000000e+00, ptr %224, align 8, !tbaa !48
   %225 = getelementptr double, ptr %216, i64 %.6354
-  %226 = load double, ptr %225, align 8, !tbaa !47
+  %226 = load double, ptr %225, align 8, !tbaa !48
   %227 = getelementptr inbounds double, ptr %87, i64 %223
-  %228 = load double, ptr %227, align 8, !tbaa !47
+  %228 = load double, ptr %227, align 8, !tbaa !48
   %229 = fdiv double %226, %228
   br label %240
 
 230:                                              ; preds = %217
   %231 = getelementptr double, ptr %216, i64 %.6354
-  %232 = load double, ptr %231, align 8, !tbaa !47
+  %232 = load double, ptr %231, align 8, !tbaa !48
   %233 = fneg double %232
   %234 = getelementptr inbounds nuw i64, ptr %92, i64 %.6354
   %235 = load i64, ptr %234, align 8, !tbaa !42
   %236 = getelementptr inbounds double, ptr %87, i64 %235
-  %237 = load double, ptr %236, align 8, !tbaa !47
+  %237 = load double, ptr %236, align 8, !tbaa !48
   %238 = fdiv double %233, %237
   %239 = getelementptr inbounds double, ptr %188, i64 %235
-  store double %238, ptr %239, align 8, !tbaa !47
+  store double %238, ptr %239, align 8, !tbaa !48
   br label %240
 
 240:                                              ; preds = %221, %230
   %.sink369 = phi i64 [ %223, %221 ], [ %235, %230 ]
   %.sink367 = phi double [ %229, %221 ], [ 0.000000e+00, %230 ]
   %241 = getelementptr inbounds double, ptr %189, i64 %.sink369
-  store double %.sink367, ptr %241, align 8, !tbaa !47
+  store double %.sink367, ptr %241, align 8, !tbaa !48
   %242 = add nuw nsw i64 %.6354, 1
   %exitcond361.not = icmp eq i64 %242, %213
-  br i1 %exitcond361.not, label %._crit_edge357, label %217, !llvm.loop !65
+  br i1 %exitcond361.not, label %._crit_edge357, label %217, !llvm.loop !66
 
 ._crit_edge357:                                   ; preds = %240, %._crit_edge352
   tail call void @free(ptr noundef %95) #6
@@ -876,26 +876,27 @@ attributes #7 = { nounwind allocsize(0) }
 !40 = !{!"", !16, i64 0, !16, i64 8, !41, i64 16, !41, i64 24, !29, i64 32, !16, i64 40, !16, i64 48}
 !41 = !{!"p1 long long", !5, i64 0}
 !42 = !{!16, !16, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!40, !41, i64 24}
-!46 = !{!40, !29, i64 32}
-!47 = !{!14, !14, i64 0}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44}
-!51 = !{!24, !16, i64 8}
-!52 = !{!24, !25, i64 16}
-!53 = !{!24, !25, i64 24}
-!54 = !{!24, !12, i64 40}
-!55 = !{!24, !12, i64 48}
-!56 = !{!28, !29, i64 8}
-!57 = !{!4, !5, i64 0}
-!58 = !{!59, !16, i64 48}
-!59 = !{!"", !16, i64 0, !60, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !14, i64 64, !16, i64 72, !14, i64 80, !14, i64 88, !16, i64 96, !16, i64 104, !14, i64 112, !60, i64 120, !16, i64 128, !16, i64 136, !14, i64 144, !14, i64 152, !16, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !14, i64 224, !14, i64 232, !16, i64 240}
-!60 = !{!"int", !6, i64 0}
-!61 = distinct !{!61, !44}
-!62 = distinct !{!62, !44}
-!63 = distinct !{!63, !44}
-!64 = distinct !{!64, !44}
-!65 = distinct !{!65, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!40, !41, i64 24}
+!47 = !{!40, !29, i64 32}
+!48 = !{!14, !14, i64 0}
+!49 = distinct !{!49, !44, !45}
+!50 = distinct !{!50, !44, !45}
+!51 = distinct !{!51, !44, !45}
+!52 = !{!24, !16, i64 8}
+!53 = !{!24, !25, i64 16}
+!54 = !{!24, !25, i64 24}
+!55 = !{!24, !12, i64 40}
+!56 = !{!24, !12, i64 48}
+!57 = !{!28, !29, i64 8}
+!58 = !{!4, !5, i64 0}
+!59 = !{!60, !16, i64 48}
+!60 = !{!"", !16, i64 0, !61, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !14, i64 64, !16, i64 72, !14, i64 80, !14, i64 88, !16, i64 96, !16, i64 104, !14, i64 112, !61, i64 120, !16, i64 128, !16, i64 136, !14, i64 144, !14, i64 152, !16, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !14, i64 224, !14, i64 232, !16, i64 240}
+!61 = !{!"int", !6, i64 0}
+!62 = distinct !{!62, !44, !45}
+!63 = distinct !{!63, !44, !45}
+!64 = distinct !{!64, !44, !45}
+!65 = distinct !{!65, !44, !45}
+!66 = distinct !{!66, !44, !45}

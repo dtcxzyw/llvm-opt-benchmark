@@ -804,7 +804,7 @@ define i32 @EC_KEY_check_key(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %7
   %13 = load ptr, ptr %5, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 336
-  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %15 = load ptr, ptr %14, align 8, !tbaa !47
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -873,7 +873,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %5, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !47
+  %31 = load ptr, ptr %30, align 8, !tbaa !48
   %32 = tail call i32 @BN_cmp(ptr noundef %15, ptr noundef %31) #7
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %50, label %34
@@ -886,7 +886,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %5, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = load ptr, ptr %38, align 8, !tbaa !47
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
   %40 = tail call i32 @BN_cmp(ptr noundef nonnull %16, ptr noundef %39) #7
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %50, label %51
@@ -959,7 +959,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef readonly captur
 14:                                               ; preds = %10
   %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  %17 = load ptr, ptr %16, align 8, !tbaa !49
   %18 = tail call i32 @BN_is_zero(ptr noundef %17) #7
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %19, label %.sink.split
@@ -1029,7 +1029,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly captu
   %16 = load ptr, ptr %8, align 8, !tbaa !32
   %17 = load ptr, ptr %4, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = tail call i32 @BN_cmp(ptr noundef %16, ptr noundef %19) #7
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %.sink.split, label %22
@@ -1275,7 +1275,7 @@ declare i32 @EC_POINT_get_affine_coordinates(ptr noundef, ptr noundef, ptr nound
 define range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
@@ -1438,7 +1438,7 @@ define range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr noundef %0, ptr noundef %
   %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 320
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %.not33 = icmp eq ptr %18, null
   br i1 %.not33, label %22, label %19
 
@@ -1450,7 +1450,7 @@ define range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr noundef %0, ptr noundef %
 22:                                               ; preds = %19, %14
   %23 = load ptr, ptr %0, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
+  %25 = load ptr, ptr %24, align 8, !tbaa !52
   %.not34 = icmp eq ptr %25, null
   br i1 %.not34, label %29, label %26
 
@@ -1631,7 +1631,7 @@ define i32 @EC_KEY_decoded_from_explicit_params(ptr noundef readonly captures(ad
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !52
+  %9 = load i32, ptr %8, align 8, !tbaa !53
   br label %10
 
 10:                                               ; preds = %1, %3, %7
@@ -1708,13 +1708,13 @@ define range(i32 0, 2) i32 @EC_KEY_oct2key(ptr noundef captures(address_is_null)
   store i64 %24, ptr %22, align 8, !tbaa !41
   %25 = load ptr, ptr %7, align 8, !tbaa !3
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = load i32, ptr %26, align 8, !tbaa !53
+  %27 = load i32, ptr %26, align 8, !tbaa !54
   %28 = and i32 %27, 2
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %21
-  %31 = load i8, ptr %1, align 1, !tbaa !54
+  %31 = load i8, ptr %1, align 1, !tbaa !55
   %32 = and i8 %31, -2
   %33 = zext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1742,7 +1742,7 @@ define i64 @EC_KEY_priv2oct(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 304
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -1816,7 +1816,7 @@ define i32 @EC_KEY_oct2priv(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
@@ -1903,7 +1903,7 @@ define i64 @EC_KEY_priv2buf(ptr noundef %0, ptr noundef writeonly captures(none)
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 304
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %EC_KEY_priv2oct.exit
 
@@ -1935,7 +1935,7 @@ EC_KEY_priv2oct.exit:                             ; preds = %9
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 304
-  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %EC_KEY_priv2oct.exit15
 
@@ -1955,7 +1955,7 @@ EC_KEY_priv2oct.exit15.thread:                    ; preds = %19, %22, %29, %EC_K
   br label %EC_KEY_priv2oct.exit.thread
 
 32:                                               ; preds = %EC_KEY_priv2oct.exit15
-  store ptr %17, ptr %1, align 8, !tbaa !57
+  store ptr %17, ptr %1, align 8, !tbaa !58
   br label %EC_KEY_priv2oct.exit.thread
 
 EC_KEY_priv2oct.exit.thread:                      ; preds = %2, %6, %13, %16, %EC_KEY_priv2oct.exit, %32, %EC_KEY_priv2oct.exit15.thread
@@ -1978,7 +1978,7 @@ define range(i32 0, 2) i32 @EC_KEY_can_sign(ptr noundef readonly captures(none) 
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %6, align 8, !tbaa !53
+  %9 = load i32, ptr %6, align 8, !tbaa !54
   %10 = lshr i32 %9, 2
   %.lobit = and i32 %10, 1
   %spec.select = xor i32 %.lobit, 1
@@ -2064,17 +2064,18 @@ attributes #7 = { nounwind }
 !41 = !{!4, !19, i64 96}
 !42 = !{!22, !6, i64 64}
 !43 = !{!30, !6, i64 328}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!30, !6, i64 336}
-!47 = !{!26, !13, i64 64}
-!48 = !{!26, !13, i64 16}
-!49 = !{!22, !6, i64 56}
-!50 = !{!30, !6, i64 320}
-!51 = !{!22, !6, i64 48}
-!52 = !{!26, !10, i64 40}
-!53 = !{!30, !10, i64 0}
-!54 = !{!7, !7, i64 0}
-!55 = !{!30, !6, i64 304}
-!56 = !{!30, !6, i64 312}
-!57 = !{!18, !18, i64 0}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!30, !6, i64 336}
+!48 = !{!26, !13, i64 64}
+!49 = !{!26, !13, i64 16}
+!50 = !{!22, !6, i64 56}
+!51 = !{!30, !6, i64 320}
+!52 = !{!22, !6, i64 48}
+!53 = !{!26, !10, i64 40}
+!54 = !{!30, !10, i64 0}
+!55 = !{!7, !7, i64 0}
+!56 = !{!30, !6, i64 304}
+!57 = !{!30, !6, i64 312}
+!58 = !{!18, !18, i64 0}

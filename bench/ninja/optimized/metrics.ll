@@ -183,12 +183,12 @@ define dso_local void @_ZN7Metrics6ReportEv(ptr noundef nonnull readonly align 8
   %20 = load i32, ptr %19, align 8, !tbaa !12
   %21 = sitofp i32 %20 to double
   %22 = fdiv double %17, %21
-  %23 = load ptr, ptr %13, align 8, !tbaa !32
+  %23 = load ptr, ptr %13, align 8, !tbaa !33
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa, ptr noundef %23, i32 noundef %20, double noundef %22, double noundef %18)
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.025, i64 8
   %26 = load ptr, ptr %3, align 8, !tbaa !29
   %.not20 = icmp eq ptr %25, %26
-  br i1 %.not20, label %._crit_edge28, label %.lr.ph27, !llvm.loop !33
+  br i1 %.not20, label %._crit_edge28, label %.lr.ph27, !llvm.loop !34
 }
 
 ; Function Attrs: nofree nounwind
@@ -197,7 +197,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef double @_ZNK9Stopwatch7ElapsedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
-  %3 = load i64, ptr %0, align 8, !tbaa !34
+  %3 = load i64, ptr %0, align 8, !tbaa !35
   %4 = sub i64 %2, %3
   %5 = uitofp i64 %4 to double
   %6 = fdiv double %5, 1.000000e+03
@@ -295,9 +295,10 @@ attributes #15 = { builtin nounwind }
 !27 = !{!6, !6, i64 0}
 !28 = !{!23, !24, i64 0}
 !29 = !{!24, !24, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!14, !16, i64 0}
-!33 = distinct !{!33, !31}
-!34 = !{!35, !10, i64 0}
-!35 = !{!"_ZTS9Stopwatch", !10, i64 0}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!14, !16, i64 0}
+!34 = distinct !{!34, !31, !32}
+!35 = !{!36, !10, i64 0}
+!36 = !{!"_ZTS9Stopwatch", !10, i64 0}

@@ -73,7 +73,7 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
 26:                                               ; preds = %.lr.ph39
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = icmp sgt i64 %indvars.iv, 1
-  br i1 %27, label %.lr.ph39, label %.critedge2, !llvm.loop !6
+  br i1 %27, label %.lr.ph39, label %.critedge2, !llvm.loop !7
 
 .critedge2.loopexit.split.loop.exit60:            ; preds = %.lr.ph39
   %28 = trunc nuw nsw i64 %indvars.iv to i32
@@ -167,7 +167,7 @@ define internal fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %1) unnamed
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11
   store i64 %15, ptr %6, align 8
@@ -1635,7 +1635,7 @@ define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr noundef nonnull re
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -1687,7 +1687,7 @@ define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr noundef nonnull
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre65.pre67.pre.pre = load ptr, ptr %0, align 8
@@ -1736,7 +1736,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %36 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %33
   %37 = sub i64 %.02125.i26, %33
   %.not.i29 = icmp eq i64 %37, 0
-  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31.loopexit:                     ; preds = %31
   %.pre65.pre.pre = load ptr, ptr %0, align 8
@@ -1790,7 +1790,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   %54 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %51
   %55 = sub i64 %.02125.i35, %51
   %.not.i38 = icmp eq i64 %55, 0
-  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit40.loopexit:                     ; preds = %49
   %.pre.pre = load ptr, ptr %0, align 8
@@ -1831,7 +1831,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   %69 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %66
   %70 = sub i64 %.02125.i43, %66
   %.not.i46 = icmp eq i64 %70, 0
-  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit48:                              ; preds = %64
   store i64 %68, ptr %60, align 8
@@ -1861,7 +1861,7 @@ AppendJumble.exit48:                              ; preds = %64
   %81 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %78
   %82 = sub i64 %.02125.i51, %78
   %.not.i54 = icmp eq i64 %82, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !8
 
 AppendJumble.exit56:                              ; preds = %76
   store i64 %80, ptr %60, align 8
@@ -1901,7 +1901,7 @@ define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr noundef nonnul
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -1961,7 +1961,7 @@ define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr noundef nonnu
   %23 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %20
   %24 = sub i64 %.02125.i, %20
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %18, %9
   %.022.lcssa.i = phi i64 [ %14, %9 ], [ %22, %18 ]
@@ -2000,7 +2000,7 @@ AppendJumble.exit:                                ; preds = %18, %9
   %40 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %37
   %41 = sub i64 %.02125.i23, %37
   %.not.i26 = icmp eq i64 %41, 0
-  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !7
+  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %35
   store i64 %39, ptr %30, align 8
@@ -2038,7 +2038,7 @@ AppendJumble.exit28:                              ; preds = %35
   %55 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %52
   %56 = sub i64 %.02125.i32, %52
   %.not.i35 = icmp eq i64 %56, 0
-  br i1 %.not.i35, label %AppendJumble.exit37.loopexit, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37.loopexit, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37.loopexit:                     ; preds = %50
   %.pre.pre = load ptr, ptr %0, align 8
@@ -2078,7 +2078,7 @@ AppendJumble.exit37:                              ; preds = %AppendJumble.exit37
   %69 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 %66
   %70 = sub i64 %.02125.i40, %66
   %.not.i43 = icmp eq i64 %70, 0
-  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !7
+  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !8
 
 AppendJumble.exit45:                              ; preds = %64
   store i64 %68, ptr %30, align 8
@@ -2115,7 +2115,7 @@ define internal fastcc void @_jumbleVar(ptr noundef captures(none) %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2145,7 +2145,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
   %28 = sub i64 %.02125.i11, %24
   %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -2175,7 +2175,7 @@ AppendJumble.exit15:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %36
   %40 = sub i64 %.02125.i18, %36
   %.not.i21 = icmp eq i64 %40, 0
-  br i1 %.not.i21, label %AppendJumble.exit22, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit22, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit22:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -2205,7 +2205,7 @@ AppendJumble.exit22:                              ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %48
   %52 = sub i64 %.02125.i25, %48
   %.not.i28 = icmp eq i64 %52, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -2242,7 +2242,7 @@ define internal fastcc void @_jumbleConst(ptr noundef captures(none) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2327,7 +2327,7 @@ define internal fastcc void @_jumbleParam(ptr noundef captures(none) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2357,7 +2357,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
   %28 = sub i64 %.02125.i9, %24
   %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -2387,7 +2387,7 @@ AppendJumble.exit13:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i15, i64 %36
   %40 = sub i64 %.02125.i16, %36
   %.not.i19 = icmp eq i64 %40, 0
-  br i1 %.not.i19, label %AppendJumble.exit20, label %.lr.ph.i14, !llvm.loop !7
+  br i1 %.not.i19, label %AppendJumble.exit20, label %.lr.ph.i14, !llvm.loop !8
 
 AppendJumble.exit20:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -2424,7 +2424,7 @@ define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2479,7 +2479,7 @@ define internal fastcc void @_jumbleGroupingFunc(ptr noundef %0, ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -2516,7 +2516,7 @@ define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2553,7 +2553,7 @@ AppendJumble.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %27
   store i64 %31, ptr %5, align 8
@@ -2590,7 +2590,7 @@ define internal fastcc void @_jumbleWindowFuncRunCondition(ptr noundef %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2620,7 +2620,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
   %28 = sub i64 %.02125.i9, %24
   %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -2660,7 +2660,7 @@ define internal fastcc void @_jumbleMergeSupportFunc(ptr noundef captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2690,7 +2690,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i6, i64 %24
   %28 = sub i64 %.02125.i7, %24
   %.not.i10 = icmp eq i64 %28, 0
-  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !8
 
 AppendJumble.exit11:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -2744,7 +2744,7 @@ define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr noundef nonnull
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2787,7 +2787,7 @@ define internal fastcc void @_jumbleNamedArgExpr(ptr noundef %0, ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -2824,7 +2824,7 @@ define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2864,7 +2864,7 @@ define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2904,7 +2904,7 @@ define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2944,7 +2944,7 @@ define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -2974,7 +2974,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
   %28 = sub i64 %.02125.i9, %24
   %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -3014,7 +3014,7 @@ define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr noundef nonnull
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3054,7 +3054,7 @@ define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3084,7 +3084,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
   %28 = sub i64 %.02125.i11, %24
   %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -3130,7 +3130,7 @@ define internal fastcc void @_jumbleFieldSelect(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3181,7 +3181,7 @@ define internal fastcc void @_jumbleRelabelType(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3221,7 +3221,7 @@ define internal fastcc void @_jumbleCoerceViaIO(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3264,7 +3264,7 @@ define internal fastcc void @_jumbleArrayCoerceExpr(ptr noundef %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -3304,7 +3304,7 @@ define internal fastcc void @_jumbleConvertRowtypeExpr(ptr noundef %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3344,7 +3344,7 @@ define internal fastcc void @_jumbleCollateExpr(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3406,7 +3406,7 @@ define internal fastcc void @_jumbleCaseTestExpr(ptr noundef captures(none) %0, 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3443,7 +3443,7 @@ define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3486,7 +3486,7 @@ define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3526,7 +3526,7 @@ define internal fastcc void @_jumbleSQLValueFunction(ptr noundef captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3556,7 +3556,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i6, i64 %24
   %28 = sub i64 %.02125.i7, %24
   %.not.i10 = icmp eq i64 %28, 0
-  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !8
 
 AppendJumble.exit11:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -3593,7 +3593,7 @@ define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3630,7 +3630,7 @@ AppendJumble.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %27
   store i64 %31, ptr %5, align 8
@@ -3667,7 +3667,7 @@ define internal fastcc void @_jumbleJsonFormat(ptr noundef captures(none) %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3697,7 +3697,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i6, i64 %24
   %28 = sub i64 %.02125.i7, %24
   %.not.i10 = icmp eq i64 %28, 0
-  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !8
 
 AppendJumble.exit11:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -3737,7 +3737,7 @@ define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -3767,7 +3767,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -3818,7 +3818,7 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -3861,7 +3861,7 @@ AppendJumble.exit:                                ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %33
   %37 = sub i64 %.02125.i17, %33
   %.not.i20 = icmp eq i64 %37, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %31
   store i64 %35, ptr %5, align 8
@@ -3891,7 +3891,7 @@ AppendJumble.exit21:                              ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %45
   %49 = sub i64 %.02125.i24, %45
   %.not.i27 = icmp eq i64 %49, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %43
   store i64 %47, ptr %5, align 8
@@ -3934,7 +3934,7 @@ define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -3964,7 +3964,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -4001,7 +4001,7 @@ define internal fastcc void @_jumbleJsonBehavior(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4035,7 +4035,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %27
   %31 = sub i64 %.02125.i9, %27
   %.not.i12 = icmp eq i64 %31, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %25
   store i64 %29, ptr %5, align 8
@@ -4072,7 +4072,7 @@ define internal fastcc void @_jumbleJsonExpr(ptr noundef %0, ptr noundef nonnull
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4110,7 +4110,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %28
   %32 = sub i64 %.02125.i35, %28
   %.not.i38 = icmp eq i64 %32, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit39:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -4169,7 +4169,7 @@ AppendJumble.exit39:                              ; preds = %26, %19
   %61 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %58
   %62 = sub i64 %.02125.i42, %58
   %.not.i45 = icmp eq i64 %62, 0
-  br i1 %.not.i45, label %AppendJumble.exit47, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %.not.i45, label %AppendJumble.exit47, label %.lr.ph.i40, !llvm.loop !8
 
 AppendJumble.exit47:                              ; preds = %56
   store i64 %60, ptr %5, align 8
@@ -4199,7 +4199,7 @@ AppendJumble.exit47:                              ; preds = %56
   %73 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %70
   %74 = sub i64 %.02125.i50, %70
   %.not.i53 = icmp eq i64 %74, 0
-  br i1 %.not.i53, label %AppendJumble.exit55, label %.lr.ph.i48, !llvm.loop !7
+  br i1 %.not.i53, label %AppendJumble.exit55, label %.lr.ph.i48, !llvm.loop !8
 
 AppendJumble.exit55:                              ; preds = %68
   store i64 %72, ptr %5, align 8
@@ -4229,7 +4229,7 @@ AppendJumble.exit55:                              ; preds = %68
   %85 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %82
   %86 = sub i64 %.02125.i58, %82
   %.not.i61 = icmp eq i64 %86, 0
-  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !7
+  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !8
 
 AppendJumble.exit63:                              ; preds = %80
   store i64 %84, ptr %5, align 8
@@ -4259,7 +4259,7 @@ AppendJumble.exit63:                              ; preds = %80
   %97 = getelementptr inbounds nuw i8, ptr %.026.i65, i64 %94
   %98 = sub i64 %.02125.i66, %94
   %.not.i69 = icmp eq i64 %98, 0
-  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !7
+  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !8
 
 AppendJumble.exit71:                              ; preds = %92
   store i64 %96, ptr %5, align 8
@@ -4289,7 +4289,7 @@ AppendJumble.exit71:                              ; preds = %92
   %109 = getelementptr inbounds nuw i8, ptr %.026.i73, i64 %106
   %110 = sub i64 %.02125.i74, %106
   %.not.i77 = icmp eq i64 %110, 0
-  br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !7
+  br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !8
 
 AppendJumble.exit79:                              ; preds = %104
   store i64 %108, ptr %5, align 8
@@ -4337,7 +4337,7 @@ define internal fastcc void @_jumbleJsonTablePath(ptr noundef %0, ptr noundef no
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -4381,7 +4381,7 @@ define internal fastcc void @_jumbleJsonTablePathScan(ptr noundef %0, ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -4415,7 +4415,7 @@ AppendJumble.exit:                                ; preds = %12
   %32 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %29
   %33 = sub i64 %.02125.i13, %29
   %.not.i16 = icmp eq i64 %33, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %27
   store i64 %31, ptr %7, align 8
@@ -4445,7 +4445,7 @@ AppendJumble.exit17:                              ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %41
   %45 = sub i64 %.02125.i20, %41
   %.not.i23 = icmp eq i64 %45, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %39
   store i64 %43, ptr %7, align 8
@@ -4496,7 +4496,7 @@ define internal fastcc void @_jumbleNullTest(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -4536,7 +4536,7 @@ define internal fastcc void @_jumbleBooleanTest(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -4573,7 +4573,7 @@ define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr noundef nonn
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4603,7 +4603,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
   %28 = sub i64 %.02125.i11, %24
   %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -4649,7 +4649,7 @@ define internal fastcc void @_jumbleCoerceToDomain(ptr noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -4686,7 +4686,7 @@ define internal fastcc void @_jumbleCoerceToDomainValue(ptr noundef captures(non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4723,7 +4723,7 @@ define internal fastcc void @_jumbleSetToDefault(ptr noundef captures(none) %0, 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4760,7 +4760,7 @@ define internal fastcc void @_jumbleCurrentOfExpr(ptr noundef captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4798,7 +4798,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %27
   %31 = sub i64 %.02125.i11, %27
   %.not.i14 = icmp eq i64 %31, 0
-  br i1 %.not.i14, label %AppendJumble.exit15.loopexit, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15.loopexit, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15.loopexit:                     ; preds = %25
   %.pre.pre = load ptr, ptr %0, align 8
@@ -4838,7 +4838,7 @@ AppendJumble.exit15:                              ; preds = %AppendJumble.exit15
   %44 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %41
   %45 = sub i64 %.02125.i18, %41
   %.not.i21 = icmp eq i64 %45, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %39
   store i64 %43, ptr %5, align 8
@@ -4875,7 +4875,7 @@ define internal fastcc void @_jumbleNextValueExpr(ptr noundef captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -4905,7 +4905,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i6, i64 %24
   %28 = sub i64 %.02125.i7, %24
   %.not.i10 = icmp eq i64 %28, 0
-  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i10, label %AppendJumble.exit11, label %.lr.ph.i5, !llvm.loop !8
 
 AppendJumble.exit11:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -4945,7 +4945,7 @@ define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -4975,7 +4975,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -5012,7 +5012,7 @@ define internal fastcc void @_jumbleReturningExpr(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5042,7 +5042,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
   %28 = sub i64 %.02125.i9, %24
   %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -5085,7 +5085,7 @@ define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -5115,7 +5115,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -5152,7 +5152,7 @@ define internal fastcc void @_jumbleRangeTblRef(ptr noundef captures(none) %0, p
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5189,7 +5189,7 @@ define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr noundef nonnull
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5219,7 +5219,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %24
   %28 = sub i64 %.02125.i15, %24
   %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -5259,7 +5259,7 @@ AppendJumble.exit19:                              ; preds = %22
   %46 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %43
   %47 = sub i64 %.02125.i22, %43
   %.not.i25 = icmp eq i64 %47, 0
-  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !7
+  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !8
 
 AppendJumble.exit26:                              ; preds = %41
   store i64 %45, ptr %5, align 8
@@ -5307,7 +5307,7 @@ define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5344,7 +5344,7 @@ AppendJumble.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %29
   %33 = sub i64 %.02125.i19, %29
   %.not.i22 = icmp eq i64 %33, 0
-  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %27
   store i64 %31, ptr %5, align 8
@@ -5381,7 +5381,7 @@ AppendJumble.exit23:                              ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %46
   %50 = sub i64 %.02125.i26, %46
   %.not.i29 = icmp eq i64 %50, 0
-  br i1 %.not.i29, label %AppendJumble.exit30, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit30, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit30:                              ; preds = %44
   store i64 %48, ptr %5, align 8
@@ -5421,7 +5421,7 @@ define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr noundef nonnull re
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5482,7 +5482,7 @@ AppendJumble.exit:                                ; preds = %10
   %48 = getelementptr inbounds nuw i8, ptr %.026.i46, i64 %45
   %49 = sub i64 %.02125.i47, %45
   %.not.i50 = icmp eq i64 %49, 0
-  br i1 %.not.i50, label %AppendJumble.exit51, label %.lr.ph.i45, !llvm.loop !7
+  br i1 %.not.i50, label %AppendJumble.exit51, label %.lr.ph.i45, !llvm.loop !8
 
 AppendJumble.exit51:                              ; preds = %43
   store i64 %47, ptr %5, align 8
@@ -5534,7 +5534,7 @@ AppendJumble.exit51:                              ; preds = %43
   %75 = getelementptr inbounds nuw i8, ptr %.026.i53, i64 %72
   %76 = sub i64 %.02125.i54, %72
   %.not.i57 = icmp eq i64 %76, 0
-  br i1 %.not.i57, label %AppendJumble.exit58, label %.lr.ph.i52, !llvm.loop !7
+  br i1 %.not.i57, label %AppendJumble.exit58, label %.lr.ph.i52, !llvm.loop !8
 
 AppendJumble.exit58:                              ; preds = %70
   store i64 %74, ptr %5, align 8
@@ -5580,7 +5580,7 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -5610,7 +5610,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %26
   %30 = sub i64 %.02125.i17, %26
   %.not.i20 = icmp eq i64 %30, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -5640,7 +5640,7 @@ AppendJumble.exit21:                              ; preds = %24
   %41 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %38
   %42 = sub i64 %.02125.i24, %38
   %.not.i27 = icmp eq i64 %42, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %36
   store i64 %40, ptr %7, align 8
@@ -5674,7 +5674,7 @@ AppendJumble.exit28:                              ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %53
   %57 = sub i64 %.02125.i31, %53
   %.not.i34 = icmp eq i64 %57, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
+  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !8
 
 AppendJumble.exit35:                              ; preds = %51
   store i64 %55, ptr %7, align 8
@@ -5714,7 +5714,7 @@ define internal fastcc void @_jumbleParamRef(ptr noundef captures(none) %0, ptr 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5751,7 +5751,7 @@ define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -5797,11 +5797,11 @@ define internal fastcc void @_jumbleA_Const(ptr noundef captures(none) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %17 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %114, label %19
 
@@ -5832,7 +5832,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %27
   %31 = sub i64 %.02125.i30, %27
   %.not.i33 = icmp eq i64 %31, 0
-  br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !7
+  br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !8
 
 AppendJumble.exit34:                              ; preds = %25
   store i64 %29, ptr %5, align 8
@@ -5872,7 +5872,7 @@ AppendJumble.exit34:                              ; preds = %25
   %44 = getelementptr inbounds nuw i8, ptr %.026.i36, i64 %41
   %45 = sub i64 %.02125.i37, %41
   %.not.i40 = icmp eq i64 %45, 0
-  br i1 %.not.i40, label %.sink.split, label %.lr.ph.i35, !llvm.loop !7
+  br i1 %.not.i40, label %.sink.split, label %.lr.ph.i35, !llvm.loop !8
 
 46:                                               ; preds = %AppendJumble.exit34
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5909,7 +5909,7 @@ AppendJumble.exit34:                              ; preds = %25
   %61 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %58
   %62 = sub i64 %.02125.i44, %58
   %.not.i47 = icmp eq i64 %62, 0
-  br i1 %.not.i47, label %.sink.split, label %.lr.ph.i42, !llvm.loop !7
+  br i1 %.not.i47, label %.sink.split, label %.lr.ph.i42, !llvm.loop !8
 
 63:                                               ; preds = %AppendJumble.exit34
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5938,7 +5938,7 @@ AppendJumble.exit34:                              ; preds = %25
   %74 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %71
   %75 = sub i64 %.02125.i51, %71
   %.not.i54 = icmp eq i64 %75, 0
-  br i1 %.not.i54, label %.sink.split, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i54, label %.sink.split, label %.lr.ph.i49, !llvm.loop !8
 
 76:                                               ; preds = %AppendJumble.exit34
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5975,7 +5975,7 @@ AppendJumble.exit34:                              ; preds = %25
   %91 = getelementptr inbounds nuw i8, ptr %.026.i59, i64 %88
   %92 = sub i64 %.02125.i60, %88
   %.not.i63 = icmp eq i64 %92, 0
-  br i1 %.not.i63, label %.sink.split, label %.lr.ph.i58, !llvm.loop !7
+  br i1 %.not.i63, label %.sink.split, label %.lr.ph.i58, !llvm.loop !8
 
 93:                                               ; preds = %AppendJumble.exit34
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6012,7 +6012,7 @@ AppendJumble.exit34:                              ; preds = %25
   %108 = getelementptr inbounds nuw i8, ptr %.026.i68, i64 %105
   %109 = sub i64 %.02125.i69, %105
   %.not.i72 = icmp eq i64 %109, 0
-  br i1 %.not.i72, label %.sink.split, label %.lr.ph.i67, !llvm.loop !7
+  br i1 %.not.i72, label %.sink.split, label %.lr.ph.i67, !llvm.loop !8
 
 110:                                              ; preds = %AppendJumble.exit34
   %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -6083,7 +6083,7 @@ define internal fastcc void @_jumbleRoleSpec(ptr noundef captures(none) %0, ptr 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -6121,7 +6121,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %28
   %32 = sub i64 %.02125.i9, %28
   %.not.i12 = icmp eq i64 %32, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -6177,7 +6177,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull
   %25 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %22
   %26 = sub i64 %.02125.i, %22
   %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %20
   store i64 %24, ptr %15, align 8
@@ -6207,7 +6207,7 @@ AppendJumble.exit:                                ; preds = %20
   %37 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %34
   %38 = sub i64 %.02125.i23, %34
   %.not.i26 = icmp eq i64 %38, 0
-  br i1 %.not.i26, label %AppendJumble.exit27, label %.lr.ph.i21, !llvm.loop !7
+  br i1 %.not.i26, label %AppendJumble.exit27, label %.lr.ph.i21, !llvm.loop !8
 
 AppendJumble.exit27:                              ; preds = %32
   store i64 %36, ptr %15, align 8
@@ -6237,7 +6237,7 @@ AppendJumble.exit27:                              ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %46
   %50 = sub i64 %.02125.i30, %46
   %.not.i33 = icmp eq i64 %50, 0
-  br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !7
+  br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !8
 
 AppendJumble.exit34:                              ; preds = %44
   store i64 %48, ptr %15, align 8
@@ -6267,7 +6267,7 @@ AppendJumble.exit34:                              ; preds = %44
   %61 = getelementptr inbounds nuw i8, ptr %.026.i36, i64 %58
   %62 = sub i64 %.02125.i37, %58
   %.not.i40 = icmp eq i64 %62, 0
-  br i1 %.not.i40, label %AppendJumble.exit41, label %.lr.ph.i35, !llvm.loop !7
+  br i1 %.not.i40, label %AppendJumble.exit41, label %.lr.ph.i35, !llvm.loop !8
 
 AppendJumble.exit41:                              ; preds = %56
   store i64 %60, ptr %15, align 8
@@ -6297,7 +6297,7 @@ AppendJumble.exit41:                              ; preds = %56
   %73 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %70
   %74 = sub i64 %.02125.i44, %70
   %.not.i47 = icmp eq i64 %74, 0
-  br i1 %.not.i47, label %AppendJumble.exit48, label %.lr.ph.i42, !llvm.loop !7
+  br i1 %.not.i47, label %AppendJumble.exit48, label %.lr.ph.i42, !llvm.loop !8
 
 AppendJumble.exit48:                              ; preds = %68
   store i64 %72, ptr %15, align 8
@@ -6334,7 +6334,7 @@ define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr noundef nonnul
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -6396,7 +6396,7 @@ define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -6446,7 +6446,7 @@ define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -6476,7 +6476,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -6516,7 +6516,7 @@ define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr noundef nonnull r
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -6546,7 +6546,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %26
   %30 = sub i64 %.02125.i11, %26
   %.not.i14 = icmp eq i64 %30, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -6594,7 +6594,7 @@ define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -6638,7 +6638,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %35
   %39 = sub i64 %.02125.i24, %35
   %.not.i27 = icmp eq i64 %39, 0
-  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %33, %24
   %.022.lcssa.i28 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -6680,7 +6680,7 @@ AppendJumble.exit29:                              ; preds = %33, %24
   %57 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %54
   %58 = sub i64 %.02125.i32, %54
   %.not.i35 = icmp eq i64 %58, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %52
   store i64 %56, ptr %47, align 8
@@ -6723,7 +6723,7 @@ define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -6766,7 +6766,7 @@ define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -6796,7 +6796,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %24
   %28 = sub i64 %.02125.i15, %24
   %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -6826,7 +6826,7 @@ AppendJumble.exit19:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %36
   %40 = sub i64 %.02125.i22, %36
   %.not.i25 = icmp eq i64 %40, 0
-  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !7
+  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !8
 
 AppendJumble.exit26:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -6872,7 +6872,7 @@ define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -6932,7 +6932,7 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -6971,7 +6971,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %36 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %33
   %37 = sub i64 %.02125.i17, %33
   %.not.i20 = icmp eq i64 %37, 0
-  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit22:                              ; preds = %31
   store i64 %35, ptr %26, align 8
@@ -7001,7 +7001,7 @@ AppendJumble.exit22:                              ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %45
   %49 = sub i64 %.02125.i25, %45
   %.not.i28 = icmp eq i64 %49, 0
-  br i1 %.not.i28, label %AppendJumble.exit30, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit30, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit30:                              ; preds = %43
   store i64 %47, ptr %26, align 8
@@ -7069,7 +7069,7 @@ define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -7121,7 +7121,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %39 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %36
   %40 = sub i64 %.02125.i50, %36
   %.not.i53 = icmp eq i64 %40, 0
-  br i1 %.not.i53, label %AppendJumble.exit55.loopexit, label %.lr.ph.i48, !llvm.loop !7
+  br i1 %.not.i53, label %AppendJumble.exit55.loopexit, label %.lr.ph.i48, !llvm.loop !8
 
 AppendJumble.exit55.loopexit:                     ; preds = %34
   %.pre.pre = load ptr, ptr %0, align 8
@@ -7162,7 +7162,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %54 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %51
   %55 = sub i64 %.02125.i58, %51
   %.not.i61 = icmp eq i64 %55, 0
-  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !7
+  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !8
 
 AppendJumble.exit63:                              ; preds = %49
   store i64 %53, ptr %45, align 8
@@ -7192,7 +7192,7 @@ AppendJumble.exit63:                              ; preds = %49
   %66 = getelementptr inbounds nuw i8, ptr %.026.i65, i64 %63
   %67 = sub i64 %.02125.i66, %63
   %.not.i69 = icmp eq i64 %67, 0
-  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !7
+  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !8
 
 AppendJumble.exit71:                              ; preds = %61
   store i64 %65, ptr %45, align 8
@@ -7222,7 +7222,7 @@ AppendJumble.exit71:                              ; preds = %61
   %78 = getelementptr inbounds nuw i8, ptr %.026.i73, i64 %75
   %79 = sub i64 %.02125.i74, %75
   %.not.i77 = icmp eq i64 %79, 0
-  br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !7
+  br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !8
 
 AppendJumble.exit79:                              ; preds = %73
   store i64 %77, ptr %45, align 8
@@ -7252,7 +7252,7 @@ AppendJumble.exit79:                              ; preds = %73
   %90 = getelementptr inbounds nuw i8, ptr %.026.i81, i64 %87
   %91 = sub i64 %.02125.i82, %87
   %.not.i85 = icmp eq i64 %91, 0
-  br i1 %.not.i85, label %AppendJumble.exit87, label %.lr.ph.i80, !llvm.loop !7
+  br i1 %.not.i85, label %AppendJumble.exit87, label %.lr.ph.i80, !llvm.loop !8
 
 AppendJumble.exit87:                              ; preds = %85
   store i64 %89, ptr %45, align 8
@@ -7282,7 +7282,7 @@ AppendJumble.exit87:                              ; preds = %85
   %102 = getelementptr inbounds nuw i8, ptr %.026.i89, i64 %99
   %103 = sub i64 %.02125.i90, %99
   %.not.i93 = icmp eq i64 %103, 0
-  br i1 %.not.i93, label %AppendJumble.exit95, label %.lr.ph.i88, !llvm.loop !7
+  br i1 %.not.i93, label %AppendJumble.exit95, label %.lr.ph.i88, !llvm.loop !8
 
 AppendJumble.exit95:                              ; preds = %97
   store i64 %101, ptr %45, align 8
@@ -7320,7 +7320,7 @@ AppendJumble.exit95:                              ; preds = %97
   %118 = getelementptr inbounds nuw i8, ptr %.026.i98, i64 %115
   %119 = sub i64 %.02125.i99, %115
   %.not.i102 = icmp eq i64 %119, 0
-  br i1 %.not.i102, label %AppendJumble.exit104, label %.lr.ph.i97, !llvm.loop !7
+  br i1 %.not.i102, label %AppendJumble.exit104, label %.lr.ph.i97, !llvm.loop !8
 
 AppendJumble.exit104:                             ; preds = %113, %106
   %.022.lcssa.i103 = phi i64 [ %101, %106 ], [ %117, %113 ]
@@ -7361,7 +7361,7 @@ AppendJumble.exit104:                             ; preds = %113, %106
   %136 = getelementptr inbounds nuw i8, ptr %.026.i106, i64 %133
   %137 = sub i64 %.02125.i107, %133
   %.not.i110 = icmp eq i64 %137, 0
-  br i1 %.not.i110, label %AppendJumble.exit112, label %.lr.ph.i105, !llvm.loop !7
+  br i1 %.not.i110, label %AppendJumble.exit112, label %.lr.ph.i105, !llvm.loop !8
 
 AppendJumble.exit112:                             ; preds = %131
   store i64 %135, ptr %45, align 8
@@ -7395,7 +7395,7 @@ AppendJumble.exit112:                             ; preds = %131
   %151 = getelementptr inbounds nuw i8, ptr %.026.i114, i64 %148
   %152 = sub i64 %.02125.i115, %148
   %.not.i118 = icmp eq i64 %152, 0
-  br i1 %.not.i118, label %AppendJumble.exit120, label %.lr.ph.i113, !llvm.loop !7
+  br i1 %.not.i118, label %AppendJumble.exit120, label %.lr.ph.i113, !llvm.loop !8
 
 AppendJumble.exit120:                             ; preds = %146
   store i64 %150, ptr %45, align 8
@@ -7429,7 +7429,7 @@ AppendJumble.exit120:                             ; preds = %146
   %166 = getelementptr inbounds nuw i8, ptr %.026.i122, i64 %163
   %167 = sub i64 %.02125.i123, %163
   %.not.i126 = icmp eq i64 %167, 0
-  br i1 %.not.i126, label %AppendJumble.exit128, label %.lr.ph.i121, !llvm.loop !7
+  br i1 %.not.i126, label %AppendJumble.exit128, label %.lr.ph.i121, !llvm.loop !8
 
 AppendJumble.exit128:                             ; preds = %161
   store i64 %165, ptr %45, align 8
@@ -7475,7 +7475,7 @@ define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -7505,7 +7505,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -7550,7 +7550,7 @@ define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -7597,7 +7597,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %40 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %37
   %41 = sub i64 %.02125.i26, %37
   %.not.i29 = icmp eq i64 %41, 0
-  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31:                              ; preds = %35, %26
   %.022.lcssa.i30 = phi i64 [ %31, %26 ], [ %39, %35 ]
@@ -7642,7 +7642,7 @@ AppendJumble.exit31:                              ; preds = %35, %26
   %61 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 %58
   %62 = sub i64 %.02125.i34, %58
   %.not.i37 = icmp eq i64 %62, 0
-  br i1 %.not.i37, label %AppendJumble.exit39, label %.lr.ph.i32, !llvm.loop !7
+  br i1 %.not.i37, label %AppendJumble.exit39, label %.lr.ph.i32, !llvm.loop !8
 
 AppendJumble.exit39:                              ; preds = %56
   store i64 %60, ptr %51, align 8
@@ -7672,7 +7672,7 @@ AppendJumble.exit39:                              ; preds = %56
   %73 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %70
   %74 = sub i64 %.02125.i42, %70
   %.not.i45 = icmp eq i64 %74, 0
-  br i1 %.not.i45, label %AppendJumble.exit47, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %.not.i45, label %AppendJumble.exit47, label %.lr.ph.i40, !llvm.loop !8
 
 AppendJumble.exit47:                              ; preds = %68
   store i64 %72, ptr %51, align 8
@@ -7717,7 +7717,7 @@ define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr noundef nonnull 
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -7761,7 +7761,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %35
   %39 = sub i64 %.02125.i18, %35
   %.not.i21 = icmp eq i64 %39, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %33, %24
   %.022.lcssa.i22 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -7800,7 +7800,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
   %55 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %52
   %56 = sub i64 %.02125.i26, %52
   %.not.i29 = icmp eq i64 %56, 0
-  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31:                              ; preds = %50
   store i64 %54, ptr %45, align 8
@@ -7840,7 +7840,7 @@ define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -7870,7 +7870,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -7907,7 +7907,7 @@ define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -7944,7 +7944,7 @@ AppendJumble.exit:                                ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %27
   store i64 %31, ptr %5, align 8
@@ -7989,7 +7989,7 @@ define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -8039,7 +8039,7 @@ define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8079,7 +8079,7 @@ define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8109,7 +8109,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
   %28 = sub i64 %.02125.i17, %24
   %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -8139,7 +8139,7 @@ AppendJumble.exit21:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %36
   %40 = sub i64 %.02125.i24, %36
   %.not.i27 = icmp eq i64 %40, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -8169,7 +8169,7 @@ AppendJumble.exit28:                              ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %48
   %52 = sub i64 %.02125.i31, %48
   %.not.i34 = icmp eq i64 %52, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
+  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !8
 
 AppendJumble.exit35:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -8215,7 +8215,7 @@ define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8261,7 +8261,7 @@ define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -8298,7 +8298,7 @@ define internal fastcc void @_jumbleRangeTblEntry(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8328,7 +8328,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %24
   %28 = sub i64 %.02125.i35, %24
   %.not.i38 = icmp eq i64 %28, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit39:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -8358,7 +8358,7 @@ AppendJumble.exit39:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %36
   %40 = sub i64 %.02125.i42, %36
   %.not.i45 = icmp eq i64 %40, 0
-  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !8
 
 AppendJumble.exit46:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -8395,7 +8395,7 @@ AppendJumble.exit46:                              ; preds = %34
   %56 = getelementptr inbounds nuw i8, ptr %.026.i48, i64 %53
   %57 = sub i64 %.02125.i49, %53
   %.not.i52 = icmp eq i64 %57, 0
-  br i1 %.not.i52, label %AppendJumble.exit53, label %.lr.ph.i47, !llvm.loop !7
+  br i1 %.not.i52, label %AppendJumble.exit53, label %.lr.ph.i47, !llvm.loop !8
 
 AppendJumble.exit53:                              ; preds = %51
   store i64 %55, ptr %5, align 8
@@ -8429,7 +8429,7 @@ AppendJumble.exit53:                              ; preds = %51
   %71 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %68
   %72 = sub i64 %.02125.i56, %68
   %.not.i59 = icmp eq i64 %72, 0
-  br i1 %.not.i59, label %AppendJumble.exit60, label %.lr.ph.i54, !llvm.loop !7
+  br i1 %.not.i59, label %AppendJumble.exit60, label %.lr.ph.i54, !llvm.loop !8
 
 AppendJumble.exit60:                              ; preds = %66
   store i64 %70, ptr %5, align 8
@@ -8474,7 +8474,7 @@ AppendJumble.exit60:                              ; preds = %66
   %90 = getelementptr inbounds nuw i8, ptr %.026.i62, i64 %87
   %91 = sub i64 %.02125.i63, %87
   %.not.i66 = icmp eq i64 %91, 0
-  br i1 %.not.i66, label %AppendJumble.exit67.loopexit, label %.lr.ph.i61, !llvm.loop !7
+  br i1 %.not.i66, label %AppendJumble.exit67.loopexit, label %.lr.ph.i61, !llvm.loop !8
 
 AppendJumble.exit67.loopexit:                     ; preds = %85
   %.pre.pre = load ptr, ptr %0, align 8
@@ -8514,7 +8514,7 @@ AppendJumble.exit67:                              ; preds = %AppendJumble.exit67
   %104 = getelementptr inbounds nuw i8, ptr %.026.i69, i64 %101
   %105 = sub i64 %.02125.i70, %101
   %.not.i73 = icmp eq i64 %105, 0
-  br i1 %.not.i73, label %AppendJumble.exit75, label %.lr.ph.i68, !llvm.loop !7
+  br i1 %.not.i73, label %AppendJumble.exit75, label %.lr.ph.i68, !llvm.loop !8
 
 AppendJumble.exit75:                              ; preds = %99
   store i64 %103, ptr %5, align 8
@@ -8552,7 +8552,7 @@ AppendJumble.exit75:                              ; preds = %99
   %120 = getelementptr inbounds nuw i8, ptr %.026.i78, i64 %117
   %121 = sub i64 %.02125.i79, %117
   %.not.i82 = icmp eq i64 %121, 0
-  br i1 %.not.i82, label %AppendJumble.exit84, label %.lr.ph.i77, !llvm.loop !7
+  br i1 %.not.i82, label %AppendJumble.exit84, label %.lr.ph.i77, !llvm.loop !8
 
 AppendJumble.exit84:                              ; preds = %115, %108
   %.022.lcssa.i83 = phi i64 [ %103, %108 ], [ %119, %115 ]
@@ -8593,7 +8593,7 @@ define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8623,7 +8623,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
   %28 = sub i64 %.02125.i17, %24
   %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -8653,7 +8653,7 @@ AppendJumble.exit21:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %36
   %40 = sub i64 %.02125.i24, %36
   %.not.i27 = icmp eq i64 %40, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -8683,7 +8683,7 @@ AppendJumble.exit28:                              ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %48
   %52 = sub i64 %.02125.i31, %48
   %.not.i34 = icmp eq i64 %52, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
+  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !8
 
 AppendJumble.exit35:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -8729,7 +8729,7 @@ define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8772,7 +8772,7 @@ define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8810,7 +8810,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %28
   %32 = sub i64 %.02125.i19, %28
   %.not.i22 = icmp eq i64 %32, 0
-  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -8853,7 +8853,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   %49 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %46
   %50 = sub i64 %.02125.i27, %46
   %.not.i30 = icmp eq i64 %50, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %44, %37
   %.022.lcssa.i31 = phi i64 [ %34, %37 ], [ %48, %44 ]
@@ -8891,7 +8891,7 @@ AppendJumble.exit32:                              ; preds = %44, %37
   %65 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %62
   %66 = sub i64 %.02125.i35, %62
   %.not.i38 = icmp eq i64 %66, 0
-  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit40:                              ; preds = %60
   store i64 %64, ptr %5, align 8
@@ -8928,7 +8928,7 @@ define internal fastcc void @_jumbleSortGroupClause(ptr noundef captures(none) %
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -8958,7 +8958,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %24
   %28 = sub i64 %.02125.i13, %24
   %.not.i16 = icmp eq i64 %28, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -8988,7 +8988,7 @@ AppendJumble.exit17:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %36
   %40 = sub i64 %.02125.i20, %36
   %.not.i23 = icmp eq i64 %40, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -9018,7 +9018,7 @@ AppendJumble.exit24:                              ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %48
   %52 = sub i64 %.02125.i27, %48
   %.not.i30 = icmp eq i64 %52, 0
-  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit31:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -9048,7 +9048,7 @@ AppendJumble.exit31:                              ; preds = %46
   %63 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 %60
   %64 = sub i64 %.02125.i34, %60
   %.not.i37 = icmp eq i64 %64, 0
-  br i1 %.not.i37, label %AppendJumble.exit38, label %.lr.ph.i32, !llvm.loop !7
+  br i1 %.not.i37, label %AppendJumble.exit38, label %.lr.ph.i32, !llvm.loop !8
 
 AppendJumble.exit38:                              ; preds = %58
   store i64 %62, ptr %5, align 8
@@ -9091,7 +9091,7 @@ define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -9128,7 +9128,7 @@ AppendJumble.exit:                                ; preds = %14
   %36 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %33
   %37 = sub i64 %.02125.i15, %33
   %.not.i18 = icmp eq i64 %37, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %31
   store i64 %35, ptr %9, align 8
@@ -9165,7 +9165,7 @@ define internal fastcc void @_jumbleRowMarkClause(ptr noundef captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -9195,7 +9195,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
   %28 = sub i64 %.02125.i11, %24
   %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -9225,7 +9225,7 @@ AppendJumble.exit15:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %36
   %40 = sub i64 %.02125.i18, %36
   %.not.i21 = icmp eq i64 %40, 0
-  br i1 %.not.i21, label %AppendJumble.exit22, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit22, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit22:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -9255,7 +9255,7 @@ AppendJumble.exit22:                              ; preds = %34
   %51 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %48
   %52 = sub i64 %.02125.i25, %48
   %.not.i28 = icmp eq i64 %52, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -9295,7 +9295,7 @@ define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr noundef nonnu
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -9346,7 +9346,7 @@ define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr noundef nonn
   %23 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %20
   %24 = sub i64 %.02125.i, %20
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %18, %9
   %.022.lcssa.i = phi i64 [ %14, %9 ], [ %22, %18 ]
@@ -9387,7 +9387,7 @@ define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -9436,7 +9436,7 @@ define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -9474,7 +9474,7 @@ AppendJumble.exit:                                ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
   %34 = sub i64 %.02125.i11, %30
   %.not.i14 = icmp eq i64 %34, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %28, %21
   %.022.lcssa.i = phi i64 [ %16, %21 ], [ %32, %28 ]
@@ -9526,7 +9526,7 @@ define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr noundef n
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -9581,7 +9581,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   %43 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %40
   %44 = sub i64 %.02125.i28, %40
   %.not.i31 = icmp eq i64 %44, 0
-  br i1 %.not.i31, label %AppendJumble.exit33.loopexit, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit33.loopexit, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit33.loopexit:                     ; preds = %38
   %.pre.pre = load ptr, ptr %0, align 8
@@ -9622,7 +9622,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   %58 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %55
   %59 = sub i64 %.02125.i36, %55
   %.not.i39 = icmp eq i64 %59, 0
-  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
+  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !8
 
 AppendJumble.exit41:                              ; preds = %53
   store i64 %57, ptr %49, align 8
@@ -9652,7 +9652,7 @@ AppendJumble.exit41:                              ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %67
   %71 = sub i64 %.02125.i44, %67
   %.not.i47 = icmp eq i64 %71, 0
-  br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !7
+  br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !8
 
 AppendJumble.exit49:                              ; preds = %65
   store i64 %69, ptr %49, align 8
@@ -9682,7 +9682,7 @@ AppendJumble.exit49:                              ; preds = %65
   %82 = getelementptr inbounds nuw i8, ptr %.026.i51, i64 %79
   %83 = sub i64 %.02125.i52, %79
   %.not.i55 = icmp eq i64 %83, 0
-  br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !7
+  br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !8
 
 AppendJumble.exit57:                              ; preds = %77
   store i64 %81, ptr %49, align 8
@@ -9712,7 +9712,7 @@ AppendJumble.exit57:                              ; preds = %77
   %94 = getelementptr inbounds nuw i8, ptr %.026.i59, i64 %91
   %95 = sub i64 %.02125.i60, %91
   %.not.i63 = icmp eq i64 %95, 0
-  br i1 %.not.i63, label %AppendJumble.exit65, label %.lr.ph.i58, !llvm.loop !7
+  br i1 %.not.i63, label %AppendJumble.exit65, label %.lr.ph.i58, !llvm.loop !8
 
 AppendJumble.exit65:                              ; preds = %89
   store i64 %93, ptr %49, align 8
@@ -9762,7 +9762,7 @@ define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -9802,7 +9802,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9843,7 +9843,7 @@ define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -9873,7 +9873,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %24
   %28 = sub i64 %.02125.i15, %24
   %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -9903,7 +9903,7 @@ AppendJumble.exit19:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %36
   %40 = sub i64 %.02125.i22, %36
   %.not.i25 = icmp eq i64 %40, 0
-  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !7
+  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !8
 
 AppendJumble.exit26:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -9949,7 +9949,7 @@ define internal fastcc void @_jumbleReturningOption(ptr noundef captures(none) %
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -9987,7 +9987,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %28
   %32 = sub i64 %.02125.i9, %28
   %.not.i12 = icmp eq i64 %32, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -10052,7 +10052,7 @@ define internal fastcc void @_jumbleTriggerTransition(ptr noundef captures(none)
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -10093,7 +10093,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
   %34 = sub i64 %.02125.i11, %30
   %.not.i14 = icmp eq i64 %34, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %28
   store i64 %32, ptr %24, align 8
@@ -10123,7 +10123,7 @@ AppendJumble.exit16:                              ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %42
   %46 = sub i64 %.02125.i19, %42
   %.not.i22 = icmp eq i64 %46, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %40
   store i64 %44, ptr %24, align 8
@@ -10182,7 +10182,7 @@ define internal fastcc void @_jumbleJsonArgument(ptr noundef %0, ptr noundef non
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -10223,7 +10223,7 @@ define internal fastcc void @_jumbleJsonFuncExpr(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -10261,7 +10261,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %28
   %32 = sub i64 %.02125.i25, %28
   %.not.i28 = icmp eq i64 %32, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -10314,7 +10314,7 @@ AppendJumble.exit29:                              ; preds = %26, %19
   %57 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %54
   %58 = sub i64 %.02125.i32, %54
   %.not.i35 = icmp eq i64 %58, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %52
   store i64 %56, ptr %5, align 8
@@ -10344,7 +10344,7 @@ AppendJumble.exit37:                              ; preds = %52
   %69 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 %66
   %70 = sub i64 %.02125.i40, %66
   %.not.i43 = icmp eq i64 %70, 0
-  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !7
+  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !8
 
 AppendJumble.exit45:                              ; preds = %64
   store i64 %68, ptr %5, align 8
@@ -10392,7 +10392,7 @@ define internal fastcc void @_jumbleJsonTablePathSpec(ptr noundef %0, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -10451,7 +10451,7 @@ define internal fastcc void @_jumbleJsonTable(ptr noundef %0, ptr noundef nonnul
   %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %24
   %28 = sub i64 %.02125.i, %24
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %22
   store i64 %26, ptr %17, align 8
@@ -10488,7 +10488,7 @@ define internal fastcc void @_jumbleJsonTableColumn(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -10526,7 +10526,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %28
   %32 = sub i64 %.02125.i25, %28
   %.not.i28 = icmp eq i64 %32, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -10570,7 +10570,7 @@ AppendJumble.exit29:                              ; preds = %26, %19
   %51 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %48
   %52 = sub i64 %.02125.i32, %48
   %.not.i35 = icmp eq i64 %52, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -10600,7 +10600,7 @@ AppendJumble.exit37:                              ; preds = %46
   %63 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 %60
   %64 = sub i64 %.02125.i40, %60
   %.not.i43 = icmp eq i64 %64, 0
-  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !7
+  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !8
 
 AppendJumble.exit45:                              ; preds = %58
   store i64 %62, ptr %5, align 8
@@ -10663,7 +10663,7 @@ define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -10728,7 +10728,7 @@ define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -10758,7 +10758,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -10801,7 +10801,7 @@ define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -10847,7 +10847,7 @@ define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, pt
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
@@ -10907,7 +10907,7 @@ define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -10937,7 +10937,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -10980,7 +10980,7 @@ define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -11035,7 +11035,7 @@ define internal fastcc void @_jumbleInsertStmt(ptr noundef %0, ptr noundef nonnu
   %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %24
   %28 = sub i64 %.02125.i, %24
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %22
   store i64 %26, ptr %17, align 8
@@ -11156,7 +11156,7 @@ define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr noundef nonnu
   %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %24
   %28 = sub i64 %.02125.i, %24
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %22
   store i64 %26, ptr %17, align 8
@@ -11205,7 +11205,7 @@ AppendJumble.exit:                                ; preds = %22
   %52 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %49
   %53 = sub i64 %.02125.i43, %49
   %.not.i46 = icmp eq i64 %53, 0
-  br i1 %.not.i46, label %AppendJumble.exit47, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit47, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit47:                              ; preds = %47
   store i64 %51, ptr %17, align 8
@@ -11242,7 +11242,7 @@ AppendJumble.exit47:                              ; preds = %47
   %69 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %66
   %70 = sub i64 %.02125.i50, %66
   %.not.i53 = icmp eq i64 %70, 0
-  br i1 %.not.i53, label %AppendJumble.exit54, label %.lr.ph.i48, !llvm.loop !7
+  br i1 %.not.i53, label %AppendJumble.exit54, label %.lr.ph.i48, !llvm.loop !8
 
 AppendJumble.exit54:                              ; preds = %64
   store i64 %68, ptr %17, align 8
@@ -11272,7 +11272,7 @@ AppendJumble.exit54:                              ; preds = %64
   %81 = getelementptr inbounds nuw i8, ptr %.026.i56, i64 %78
   %82 = sub i64 %.02125.i57, %78
   %.not.i60 = icmp eq i64 %82, 0
-  br i1 %.not.i60, label %AppendJumble.exit61, label %.lr.ph.i55, !llvm.loop !7
+  br i1 %.not.i60, label %AppendJumble.exit61, label %.lr.ph.i55, !llvm.loop !8
 
 AppendJumble.exit61:                              ; preds = %76
   store i64 %80, ptr %17, align 8
@@ -11315,7 +11315,7 @@ define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -11345,7 +11345,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
   %28 = sub i64 %.02125.i11, %24
   %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -11396,7 +11396,7 @@ define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -11435,7 +11435,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %36 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %33
   %37 = sub i64 %.02125.i13, %33
   %.not.i16 = icmp eq i64 %37, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %31
   store i64 %35, ptr %26, align 8
@@ -11483,7 +11483,7 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -11525,7 +11525,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %35
   %39 = sub i64 %.02125.i13, %35
   %.not.i16 = icmp eq i64 %39, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %33
   store i64 %37, ptr %28, align 8
@@ -11568,7 +11568,7 @@ define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr noundef n
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -11598,7 +11598,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -11635,7 +11635,7 @@ define internal fastcc void @_jumbleReplicaIdentityStmt(ptr noundef captures(non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -11673,7 +11673,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %28
   %32 = sub i64 %.02125.i9, %28
   %.not.i12 = icmp eq i64 %32, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -11714,7 +11714,7 @@ define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -11752,7 +11752,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %27
   %31 = sub i64 %.02125.i21, %27
   %.not.i24 = icmp eq i64 %31, 0
-  br i1 %.not.i24, label %AppendJumble.exit25.loopexit, label %.lr.ph.i19, !llvm.loop !7
+  br i1 %.not.i24, label %AppendJumble.exit25.loopexit, label %.lr.ph.i19, !llvm.loop !8
 
 AppendJumble.exit25.loopexit:                     ; preds = %25
   %.pre.pre = load ptr, ptr %0, align 8
@@ -11792,7 +11792,7 @@ AppendJumble.exit25:                              ; preds = %AppendJumble.exit25
   %44 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %41
   %45 = sub i64 %.02125.i28, %41
   %.not.i31 = icmp eq i64 %45, 0
-  br i1 %.not.i31, label %AppendJumble.exit33, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit33, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit33:                              ; preds = %39
   store i64 %43, ptr %5, align 8
@@ -11829,7 +11829,7 @@ AppendJumble.exit33:                              ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %58
   %62 = sub i64 %.02125.i36, %58
   %.not.i39 = icmp eq i64 %62, 0
-  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
+  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !8
 
 AppendJumble.exit41:                              ; preds = %56
   store i64 %60, ptr %5, align 8
@@ -11859,7 +11859,7 @@ AppendJumble.exit41:                              ; preds = %56
   %73 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %70
   %74 = sub i64 %.02125.i44, %70
   %.not.i47 = icmp eq i64 %74, 0
-  br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !7
+  br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !8
 
 AppendJumble.exit49:                              ; preds = %68
   store i64 %72, ptr %5, align 8
@@ -11889,7 +11889,7 @@ AppendJumble.exit49:                              ; preds = %68
   %85 = getelementptr inbounds nuw i8, ptr %.026.i51, i64 %82
   %86 = sub i64 %.02125.i52, %82
   %.not.i55 = icmp eq i64 %86, 0
-  br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !7
+  br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !8
 
 AppendJumble.exit57:                              ; preds = %80
   store i64 %84, ptr %5, align 8
@@ -11926,7 +11926,7 @@ define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -11968,7 +11968,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %31
   %35 = sub i64 %.02125.i17, %31
   %.not.i20 = icmp eq i64 %35, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %29, %21
   %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
@@ -12006,7 +12006,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
   %50 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %47
   %51 = sub i64 %.02125.i24, %47
   %.not.i27 = icmp eq i64 %51, 0
-  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %45
   store i64 %49, ptr %5, align 8
@@ -12036,7 +12036,7 @@ AppendJumble.exit29:                              ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %59
   %63 = sub i64 %.02125.i32, %59
   %.not.i35 = icmp eq i64 %63, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %57
   store i64 %61, ptr %5, align 8
@@ -12073,7 +12073,7 @@ define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr noundef nonnul
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -12103,7 +12103,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %24
   %28 = sub i64 %.02125.i21, %24
   %.not.i24 = icmp eq i64 %28, 0
-  br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !7
+  br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !8
 
 AppendJumble.exit25:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -12133,7 +12133,7 @@ AppendJumble.exit25:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %36
   %40 = sub i64 %.02125.i28, %36
   %.not.i31 = icmp eq i64 %40, 0
-  br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %34
   store i64 %38, ptr %5, align 8
@@ -12173,7 +12173,7 @@ AppendJumble.exit32:                              ; preds = %34
   %58 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %55
   %59 = sub i64 %.02125.i35, %55
   %.not.i38 = icmp eq i64 %59, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit39:                              ; preds = %53
   store i64 %57, ptr %5, align 8
@@ -12207,7 +12207,7 @@ AppendJumble.exit39:                              ; preds = %53
   %73 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %70
   %74 = sub i64 %.02125.i42, %70
   %.not.i45 = icmp eq i64 %74, 0
-  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !8
 
 AppendJumble.exit46:                              ; preds = %68
   store i64 %72, ptr %5, align 8
@@ -12253,7 +12253,7 @@ define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr noundef n
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
@@ -12298,7 +12298,7 @@ define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -12348,7 +12348,7 @@ define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -12385,7 +12385,7 @@ AppendJumble.exit:                                ; preds = %14
   %36 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %33
   %37 = sub i64 %.02125.i15, %33
   %.not.i18 = icmp eq i64 %37, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %31
   store i64 %35, ptr %9, align 8
@@ -12442,7 +12442,7 @@ define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr noundef nonnull
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
@@ -12472,7 +12472,7 @@ AppendJumble.exit:                                ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %30
   %34 = sub i64 %.02125.i21, %30
   %.not.i24 = icmp eq i64 %34, 0
-  br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !7
+  br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !8
 
 AppendJumble.exit25:                              ; preds = %28
   store i64 %32, ptr %11, align 8
@@ -12510,7 +12510,7 @@ AppendJumble.exit25:                              ; preds = %28
   %49 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %46
   %50 = sub i64 %.02125.i28, %46
   %.not.i31 = icmp eq i64 %50, 0
-  br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %44, %37
   %.022.lcssa.i = phi i64 [ %32, %37 ], [ %48, %44 ]
@@ -12557,7 +12557,7 @@ define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -12595,7 +12595,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i15, i64 %28
   %32 = sub i64 %.02125.i16, %28
   %.not.i19 = icmp eq i64 %32, 0
-  br i1 %.not.i19, label %AppendJumble.exit20, label %.lr.ph.i14, !llvm.loop !7
+  br i1 %.not.i19, label %AppendJumble.exit20, label %.lr.ph.i14, !llvm.loop !8
 
 AppendJumble.exit20:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -12605,7 +12605,7 @@ AppendJumble.exit20:                              ; preds = %26, %19
 33:                                               ; preds = %AppendJumble.exit20, %AppendJumble.exit
   %34 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit20 ], [ %14, %AppendJumble.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load i8, ptr %35, align 8, !range !8, !noundef !9
+  %36 = load i8, ptr %35, align 8, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %41
 
@@ -12644,7 +12644,7 @@ AppendJumble.exit20:                              ; preds = %26, %19
   %53 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %50
   %54 = sub i64 %.02125.i23, %50
   %.not.i26 = icmp eq i64 %54, 0
-  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !7
+  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %48
   store i64 %52, ptr %5, align 8
@@ -12735,7 +12735,7 @@ define internal fastcc void @_jumbleVariableShowStmt(ptr noundef captures(none) 
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -12803,7 +12803,7 @@ define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr noundef nonnu
   %33 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %30
   %34 = sub i64 %.02125.i, %30
   %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %28
   store i64 %32, ptr %23, align 8
@@ -12841,7 +12841,7 @@ AppendJumble.exit:                                ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %45
   %49 = sub i64 %.02125.i35, %45
   %.not.i38 = icmp eq i64 %49, 0
-  br i1 %.not.i38, label %AppendJumble.exit39.loopexit, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit39.loopexit, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit39.loopexit:                     ; preds = %43
   %.pre63.pre.pre = load ptr, ptr %0, align 8
@@ -12889,7 +12889,7 @@ AppendJumble.exit39:                              ; preds = %AppendJumble.exit39
   %65 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %62
   %66 = sub i64 %.02125.i43, %62
   %.not.i46 = icmp eq i64 %66, 0
-  br i1 %.not.i46, label %AppendJumble.exit48.loopexit, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit48.loopexit, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit48.loopexit:                     ; preds = %60
   %.pre.pre = load ptr, ptr %0, align 8
@@ -12929,7 +12929,7 @@ AppendJumble.exit48:                              ; preds = %AppendJumble.exit48
   %79 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %76
   %80 = sub i64 %.02125.i51, %76
   %.not.i54 = icmp eq i64 %80, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !8
 
 AppendJumble.exit56:                              ; preds = %74
   store i64 %78, ptr %23, align 8
@@ -12966,7 +12966,7 @@ define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -13004,7 +13004,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i88, i64 %27
   %31 = sub i64 %.02125.i89, %27
   %.not.i92 = icmp eq i64 %31, 0
-  br i1 %.not.i92, label %AppendJumble.exit93.loopexit, label %.lr.ph.i87, !llvm.loop !7
+  br i1 %.not.i92, label %AppendJumble.exit93.loopexit, label %.lr.ph.i87, !llvm.loop !8
 
 AppendJumble.exit93.loopexit:                     ; preds = %25
   %.pre.pre = load ptr, ptr %0, align 8
@@ -13044,7 +13044,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   %44 = getelementptr inbounds nuw i8, ptr %.026.i95, i64 %41
   %45 = sub i64 %.02125.i96, %41
   %.not.i99 = icmp eq i64 %45, 0
-  br i1 %.not.i99, label %AppendJumble.exit101, label %.lr.ph.i94, !llvm.loop !7
+  br i1 %.not.i99, label %AppendJumble.exit101, label %.lr.ph.i94, !llvm.loop !8
 
 AppendJumble.exit101:                             ; preds = %39
   store i64 %43, ptr %5, align 8
@@ -13074,7 +13074,7 @@ AppendJumble.exit101:                             ; preds = %39
   %56 = getelementptr inbounds nuw i8, ptr %.026.i103, i64 %53
   %57 = sub i64 %.02125.i104, %53
   %.not.i107 = icmp eq i64 %57, 0
-  br i1 %.not.i107, label %AppendJumble.exit109, label %.lr.ph.i102, !llvm.loop !7
+  br i1 %.not.i107, label %AppendJumble.exit109, label %.lr.ph.i102, !llvm.loop !8
 
 AppendJumble.exit109:                             ; preds = %51
   store i64 %55, ptr %5, align 8
@@ -13104,7 +13104,7 @@ AppendJumble.exit109:                             ; preds = %51
   %68 = getelementptr inbounds nuw i8, ptr %.026.i111, i64 %65
   %69 = sub i64 %.02125.i112, %65
   %.not.i115 = icmp eq i64 %69, 0
-  br i1 %.not.i115, label %AppendJumble.exit117, label %.lr.ph.i110, !llvm.loop !7
+  br i1 %.not.i115, label %AppendJumble.exit117, label %.lr.ph.i110, !llvm.loop !8
 
 AppendJumble.exit117:                             ; preds = %63
   store i64 %67, ptr %5, align 8
@@ -13134,7 +13134,7 @@ AppendJumble.exit117:                             ; preds = %63
   %80 = getelementptr inbounds nuw i8, ptr %.026.i119, i64 %77
   %81 = sub i64 %.02125.i120, %77
   %.not.i123 = icmp eq i64 %81, 0
-  br i1 %.not.i123, label %AppendJumble.exit125, label %.lr.ph.i118, !llvm.loop !7
+  br i1 %.not.i123, label %AppendJumble.exit125, label %.lr.ph.i118, !llvm.loop !8
 
 AppendJumble.exit125:                             ; preds = %75
   store i64 %79, ptr %5, align 8
@@ -13164,7 +13164,7 @@ AppendJumble.exit125:                             ; preds = %75
   %92 = getelementptr inbounds nuw i8, ptr %.026.i127, i64 %89
   %93 = sub i64 %.02125.i128, %89
   %.not.i131 = icmp eq i64 %93, 0
-  br i1 %.not.i131, label %AppendJumble.exit133, label %.lr.ph.i126, !llvm.loop !7
+  br i1 %.not.i131, label %AppendJumble.exit133, label %.lr.ph.i126, !llvm.loop !8
 
 AppendJumble.exit133:                             ; preds = %87
   store i64 %91, ptr %5, align 8
@@ -13194,7 +13194,7 @@ AppendJumble.exit133:                             ; preds = %87
   %104 = getelementptr inbounds nuw i8, ptr %.026.i135, i64 %101
   %105 = sub i64 %.02125.i136, %101
   %.not.i139 = icmp eq i64 %105, 0
-  br i1 %.not.i139, label %AppendJumble.exit141, label %.lr.ph.i134, !llvm.loop !7
+  br i1 %.not.i139, label %AppendJumble.exit141, label %.lr.ph.i134, !llvm.loop !8
 
 AppendJumble.exit141:                             ; preds = %99
   store i64 %103, ptr %5, align 8
@@ -13236,7 +13236,7 @@ AppendJumble.exit141:                             ; preds = %99
   %121 = getelementptr inbounds nuw i8, ptr %.026.i144, i64 %118
   %122 = sub i64 %.02125.i145, %118
   %.not.i148 = icmp eq i64 %122, 0
-  br i1 %.not.i148, label %AppendJumble.exit150.loopexit, label %.lr.ph.i143, !llvm.loop !7
+  br i1 %.not.i148, label %AppendJumble.exit150.loopexit, label %.lr.ph.i143, !llvm.loop !8
 
 AppendJumble.exit150.loopexit:                    ; preds = %116
   %.pre311.pre = load ptr, ptr %0, align 8
@@ -13276,7 +13276,7 @@ AppendJumble.exit150:                             ; preds = %AppendJumble.exit15
   %135 = getelementptr inbounds nuw i8, ptr %.026.i152, i64 %132
   %136 = sub i64 %.02125.i153, %132
   %.not.i156 = icmp eq i64 %136, 0
-  br i1 %.not.i156, label %AppendJumble.exit158, label %.lr.ph.i151, !llvm.loop !7
+  br i1 %.not.i156, label %AppendJumble.exit158, label %.lr.ph.i151, !llvm.loop !8
 
 AppendJumble.exit158:                             ; preds = %130
   store i64 %134, ptr %5, align 8
@@ -13306,7 +13306,7 @@ AppendJumble.exit158:                             ; preds = %130
   %147 = getelementptr inbounds nuw i8, ptr %.026.i160, i64 %144
   %148 = sub i64 %.02125.i161, %144
   %.not.i164 = icmp eq i64 %148, 0
-  br i1 %.not.i164, label %AppendJumble.exit166, label %.lr.ph.i159, !llvm.loop !7
+  br i1 %.not.i164, label %AppendJumble.exit166, label %.lr.ph.i159, !llvm.loop !8
 
 AppendJumble.exit166:                             ; preds = %142
   store i64 %146, ptr %5, align 8
@@ -13336,7 +13336,7 @@ AppendJumble.exit166:                             ; preds = %142
   %159 = getelementptr inbounds nuw i8, ptr %.026.i168, i64 %156
   %160 = sub i64 %.02125.i169, %156
   %.not.i172 = icmp eq i64 %160, 0
-  br i1 %.not.i172, label %AppendJumble.exit174, label %.lr.ph.i167, !llvm.loop !7
+  br i1 %.not.i172, label %AppendJumble.exit174, label %.lr.ph.i167, !llvm.loop !8
 
 AppendJumble.exit174:                             ; preds = %154
   store i64 %158, ptr %5, align 8
@@ -13370,7 +13370,7 @@ AppendJumble.exit174:                             ; preds = %154
   %174 = getelementptr inbounds nuw i8, ptr %.026.i176, i64 %171
   %175 = sub i64 %.02125.i177, %171
   %.not.i180 = icmp eq i64 %175, 0
-  br i1 %.not.i180, label %AppendJumble.exit182, label %.lr.ph.i175, !llvm.loop !7
+  br i1 %.not.i180, label %AppendJumble.exit182, label %.lr.ph.i175, !llvm.loop !8
 
 AppendJumble.exit182:                             ; preds = %169
   store i64 %173, ptr %5, align 8
@@ -13418,7 +13418,7 @@ AppendJumble.exit182:                             ; preds = %169
   %195 = getelementptr inbounds nuw i8, ptr %.026.i185, i64 %192
   %196 = sub i64 %.02125.i186, %192
   %.not.i189 = icmp eq i64 %196, 0
-  br i1 %.not.i189, label %AppendJumble.exit191.loopexit, label %.lr.ph.i184, !llvm.loop !7
+  br i1 %.not.i189, label %AppendJumble.exit191.loopexit, label %.lr.ph.i184, !llvm.loop !8
 
 AppendJumble.exit191.loopexit:                    ; preds = %190
   %.pre315.pre.pre = load ptr, ptr %0, align 8
@@ -13466,7 +13466,7 @@ AppendJumble.exit191:                             ; preds = %AppendJumble.exit19
   %211 = getelementptr inbounds nuw i8, ptr %.026.i194, i64 %208
   %212 = sub i64 %.02125.i195, %208
   %.not.i198 = icmp eq i64 %212, 0
-  br i1 %.not.i198, label %AppendJumble.exit200.loopexit, label %.lr.ph.i193, !llvm.loop !7
+  br i1 %.not.i198, label %AppendJumble.exit200.loopexit, label %.lr.ph.i193, !llvm.loop !8
 
 AppendJumble.exit200.loopexit:                    ; preds = %206
   %.pre314.pre = load ptr, ptr %0, align 8
@@ -13506,7 +13506,7 @@ AppendJumble.exit200:                             ; preds = %AppendJumble.exit20
   %225 = getelementptr inbounds nuw i8, ptr %.026.i202, i64 %222
   %226 = sub i64 %.02125.i203, %222
   %.not.i206 = icmp eq i64 %226, 0
-  br i1 %.not.i206, label %AppendJumble.exit208, label %.lr.ph.i201, !llvm.loop !7
+  br i1 %.not.i206, label %AppendJumble.exit208, label %.lr.ph.i201, !llvm.loop !8
 
 AppendJumble.exit208:                             ; preds = %220
   store i64 %224, ptr %5, align 8
@@ -13544,7 +13544,7 @@ AppendJumble.exit208:                             ; preds = %220
   %241 = getelementptr inbounds nuw i8, ptr %.026.i211, i64 %238
   %242 = sub i64 %.02125.i212, %238
   %.not.i215 = icmp eq i64 %242, 0
-  br i1 %.not.i215, label %AppendJumble.exit217, label %.lr.ph.i210, !llvm.loop !7
+  br i1 %.not.i215, label %AppendJumble.exit217, label %.lr.ph.i210, !llvm.loop !8
 
 AppendJumble.exit217:                             ; preds = %236, %229
   %.022.lcssa.i216 = phi i64 [ %224, %229 ], [ %240, %236 ]
@@ -13591,7 +13591,7 @@ AppendJumble.exit217:                             ; preds = %236, %229
   %263 = getelementptr inbounds nuw i8, ptr %.026.i219, i64 %260
   %264 = sub i64 %.02125.i220, %260
   %.not.i223 = icmp eq i64 %264, 0
-  br i1 %.not.i223, label %AppendJumble.exit225, label %.lr.ph.i218, !llvm.loop !7
+  br i1 %.not.i223, label %AppendJumble.exit225, label %.lr.ph.i218, !llvm.loop !8
 
 AppendJumble.exit225:                             ; preds = %258
   store i64 %262, ptr %5, align 8
@@ -13621,7 +13621,7 @@ AppendJumble.exit225:                             ; preds = %258
   %275 = getelementptr inbounds nuw i8, ptr %.026.i227, i64 %272
   %276 = sub i64 %.02125.i228, %272
   %.not.i231 = icmp eq i64 %276, 0
-  br i1 %.not.i231, label %AppendJumble.exit233, label %.lr.ph.i226, !llvm.loop !7
+  br i1 %.not.i231, label %AppendJumble.exit233, label %.lr.ph.i226, !llvm.loop !8
 
 AppendJumble.exit233:                             ; preds = %270
   store i64 %274, ptr %5, align 8
@@ -13651,7 +13651,7 @@ AppendJumble.exit233:                             ; preds = %270
   %287 = getelementptr inbounds nuw i8, ptr %.026.i235, i64 %284
   %288 = sub i64 %.02125.i236, %284
   %.not.i239 = icmp eq i64 %288, 0
-  br i1 %.not.i239, label %AppendJumble.exit241, label %.lr.ph.i234, !llvm.loop !7
+  br i1 %.not.i239, label %AppendJumble.exit241, label %.lr.ph.i234, !llvm.loop !8
 
 AppendJumble.exit241:                             ; preds = %282
   store i64 %286, ptr %5, align 8
@@ -13681,7 +13681,7 @@ AppendJumble.exit241:                             ; preds = %282
   %299 = getelementptr inbounds nuw i8, ptr %.026.i243, i64 %296
   %300 = sub i64 %.02125.i244, %296
   %.not.i247 = icmp eq i64 %300, 0
-  br i1 %.not.i247, label %AppendJumble.exit249, label %.lr.ph.i242, !llvm.loop !7
+  br i1 %.not.i247, label %AppendJumble.exit249, label %.lr.ph.i242, !llvm.loop !8
 
 AppendJumble.exit249:                             ; preds = %294
   store i64 %298, ptr %5, align 8
@@ -13711,7 +13711,7 @@ AppendJumble.exit249:                             ; preds = %294
   %311 = getelementptr inbounds nuw i8, ptr %.026.i251, i64 %308
   %312 = sub i64 %.02125.i252, %308
   %.not.i255 = icmp eq i64 %312, 0
-  br i1 %.not.i255, label %AppendJumble.exit257, label %.lr.ph.i250, !llvm.loop !7
+  br i1 %.not.i255, label %AppendJumble.exit257, label %.lr.ph.i250, !llvm.loop !8
 
 AppendJumble.exit257:                             ; preds = %306
   store i64 %310, ptr %5, align 8
@@ -13748,7 +13748,7 @@ AppendJumble.exit257:                             ; preds = %306
   %328 = getelementptr inbounds nuw i8, ptr %.026.i259, i64 %325
   %329 = sub i64 %.02125.i260, %325
   %.not.i263 = icmp eq i64 %329, 0
-  br i1 %.not.i263, label %AppendJumble.exit265, label %.lr.ph.i258, !llvm.loop !7
+  br i1 %.not.i263, label %AppendJumble.exit265, label %.lr.ph.i258, !llvm.loop !8
 
 AppendJumble.exit265:                             ; preds = %323
   store i64 %327, ptr %5, align 8
@@ -13793,7 +13793,7 @@ define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -13840,7 +13840,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %40 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %37
   %41 = sub i64 %.02125.i18, %37
   %.not.i21 = icmp eq i64 %41, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %35, %26
   %.022.lcssa.i22 = phi i64 [ %31, %26 ], [ %39, %35 ]
@@ -13897,7 +13897,7 @@ define internal fastcc void @_jumbleDropTableSpaceStmt(ptr noundef captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -13937,7 +13937,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %29
   %33 = sub i64 %.02125.i9, %29
   %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit14:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13983,7 +13983,7 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -14022,7 +14022,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %36 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %33
   %37 = sub i64 %.02125.i11, %33
   %.not.i14 = icmp eq i64 %37, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %31
   store i64 %35, ptr %26, align 8
@@ -14072,7 +14072,7 @@ define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr no
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -14113,7 +14113,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %33 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %30
   %34 = sub i64 %.02125.i19, %30
   %.not.i22 = icmp eq i64 %34, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %28
   store i64 %32, ptr %24, align 8
@@ -14155,7 +14155,7 @@ AppendJumble.exit24:                              ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %47
   %51 = sub i64 %.02125.i28, %47
   %.not.i31 = icmp eq i64 %51, 0
-  br i1 %.not.i31, label %AppendJumble.exit33.loopexit, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit33.loopexit, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit33.loopexit:                     ; preds = %45
   %.pre50.pre = load ptr, ptr %0, align 8
@@ -14195,7 +14195,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   %64 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %61
   %65 = sub i64 %.02125.i36, %61
   %.not.i39 = icmp eq i64 %65, 0
-  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
+  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !8
 
 AppendJumble.exit41:                              ; preds = %59
   store i64 %63, ptr %24, align 8
@@ -14245,7 +14245,7 @@ define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -14285,7 +14285,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14334,7 +14334,7 @@ define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -14391,7 +14391,7 @@ define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, p
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -14432,7 +14432,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %33 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %30
   %34 = sub i64 %.02125.i13, %30
   %.not.i16 = icmp eq i64 %34, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %28
   store i64 %32, ptr %24, align 8
@@ -14462,7 +14462,7 @@ AppendJumble.exit18:                              ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %42
   %46 = sub i64 %.02125.i21, %42
   %.not.i24 = icmp eq i64 %46, 0
-  br i1 %.not.i24, label %AppendJumble.exit26, label %.lr.ph.i19, !llvm.loop !7
+  br i1 %.not.i24, label %AppendJumble.exit26, label %.lr.ph.i19, !llvm.loop !8
 
 AppendJumble.exit26:                              ; preds = %40
   store i64 %44, ptr %24, align 8
@@ -14510,7 +14510,7 @@ define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -14565,7 +14565,7 @@ define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -14620,7 +14620,7 @@ define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre70.pre72.pre75.pre.pre = load ptr, ptr %0, align 8
@@ -14669,7 +14669,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %36 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %33
   %37 = sub i64 %.02125.i30, %33
   %.not.i33 = icmp eq i64 %37, 0
-  br i1 %.not.i33, label %AppendJumble.exit35.loopexit, label %.lr.ph.i28, !llvm.loop !7
+  br i1 %.not.i33, label %AppendJumble.exit35.loopexit, label %.lr.ph.i28, !llvm.loop !8
 
 AppendJumble.exit35.loopexit:                     ; preds = %31
   %.pre70.pre72.pre.pre = load ptr, ptr %0, align 8
@@ -14718,7 +14718,7 @@ AppendJumble.exit35:                              ; preds = %AppendJumble.exit35
   %54 = getelementptr inbounds nuw i8, ptr %.026.i38, i64 %51
   %55 = sub i64 %.02125.i39, %51
   %.not.i42 = icmp eq i64 %55, 0
-  br i1 %.not.i42, label %AppendJumble.exit44.loopexit, label %.lr.ph.i37, !llvm.loop !7
+  br i1 %.not.i42, label %AppendJumble.exit44.loopexit, label %.lr.ph.i37, !llvm.loop !8
 
 AppendJumble.exit44.loopexit:                     ; preds = %49
   %.pre70.pre.pre = load ptr, ptr %0, align 8
@@ -14772,7 +14772,7 @@ AppendJumble.exit44:                              ; preds = %AppendJumble.exit44
   %72 = getelementptr inbounds nuw i8, ptr %.026.i47, i64 %69
   %73 = sub i64 %.02125.i48, %69
   %.not.i51 = icmp eq i64 %73, 0
-  br i1 %.not.i51, label %AppendJumble.exit53.loopexit, label %.lr.ph.i46, !llvm.loop !7
+  br i1 %.not.i51, label %AppendJumble.exit53.loopexit, label %.lr.ph.i46, !llvm.loop !8
 
 AppendJumble.exit53.loopexit:                     ; preds = %67
   %.pre.pre = load ptr, ptr %0, align 8
@@ -14812,7 +14812,7 @@ AppendJumble.exit53:                              ; preds = %AppendJumble.exit53
   %86 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %83
   %87 = sub i64 %.02125.i56, %83
   %.not.i59 = icmp eq i64 %87, 0
-  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !7
+  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !8
 
 AppendJumble.exit61:                              ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14861,7 +14861,7 @@ define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr n
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -14905,7 +14905,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %35
   %39 = sub i64 %.02125.i18, %35
   %.not.i21 = icmp eq i64 %39, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %33, %24
   %.022.lcssa.i22 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -14944,7 +14944,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
   %55 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %52
   %56 = sub i64 %.02125.i26, %52
   %.not.i29 = icmp eq i64 %56, 0
-  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31:                              ; preds = %50
   store i64 %54, ptr %45, align 8
@@ -15008,7 +15008,7 @@ define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr n
   %33 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %30
   %34 = sub i64 %.02125.i, %30
   %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %28
   store i64 %32, ptr %23, align 8
@@ -15046,7 +15046,7 @@ AppendJumble.exit:                                ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %45
   %49 = sub i64 %.02125.i43, %45
   %.not.i46 = icmp eq i64 %49, 0
-  br i1 %.not.i46, label %AppendJumble.exit47.loopexit, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit47.loopexit, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit47.loopexit:                     ; preds = %43
   %.pre82.pre.pre = load ptr, ptr %0, align 8
@@ -15094,7 +15094,7 @@ AppendJumble.exit47:                              ; preds = %AppendJumble.exit47
   %65 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %62
   %66 = sub i64 %.02125.i51, %62
   %.not.i54 = icmp eq i64 %66, 0
-  br i1 %.not.i54, label %AppendJumble.exit56.loopexit, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i54, label %AppendJumble.exit56.loopexit, label %.lr.ph.i49, !llvm.loop !8
 
 AppendJumble.exit56.loopexit:                     ; preds = %60
   %.pre.pre = load ptr, ptr %0, align 8
@@ -15134,7 +15134,7 @@ AppendJumble.exit56:                              ; preds = %AppendJumble.exit56
   %79 = getelementptr inbounds nuw i8, ptr %.026.i58, i64 %76
   %80 = sub i64 %.02125.i59, %76
   %.not.i62 = icmp eq i64 %80, 0
-  br i1 %.not.i62, label %AppendJumble.exit64, label %.lr.ph.i57, !llvm.loop !7
+  br i1 %.not.i62, label %AppendJumble.exit64, label %.lr.ph.i57, !llvm.loop !8
 
 AppendJumble.exit64:                              ; preds = %74
   store i64 %78, ptr %23, align 8
@@ -15172,7 +15172,7 @@ AppendJumble.exit64:                              ; preds = %74
   %95 = getelementptr inbounds nuw i8, ptr %.026.i67, i64 %92
   %96 = sub i64 %.02125.i68, %92
   %.not.i71 = icmp eq i64 %96, 0
-  br i1 %.not.i71, label %AppendJumble.exit73, label %.lr.ph.i66, !llvm.loop !7
+  br i1 %.not.i71, label %AppendJumble.exit73, label %.lr.ph.i66, !llvm.loop !8
 
 AppendJumble.exit73:                              ; preds = %90, %83
   %.022.lcssa.i72 = phi i64 [ %78, %83 ], [ %94, %90 ]
@@ -15232,7 +15232,7 @@ define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %17
   %21 = sub i64 %.02125.i, %17
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %15
   %.pre.pre = load ptr, ptr %0, align 8
@@ -15272,7 +15272,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
   %35 = sub i64 %.02125.i13, %31
   %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15324,7 +15324,7 @@ define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -15384,7 +15384,7 @@ define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %17
   %21 = sub i64 %.02125.i, %17
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %15
   %.pre.pre = load ptr, ptr %0, align 8
@@ -15424,7 +15424,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %34 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %31
   %35 = sub i64 %.02125.i11, %31
   %.not.i14 = icmp eq i64 %35, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15470,7 +15470,7 @@ define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre55.pre57.pre.pre = load ptr, ptr %0, align 8
@@ -15519,7 +15519,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %36 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %33
   %37 = sub i64 %.02125.i26, %33
   %.not.i29 = icmp eq i64 %37, 0
-  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31.loopexit:                     ; preds = %31
   %.pre55.pre.pre = load ptr, ptr %0, align 8
@@ -15573,7 +15573,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   %54 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %51
   %55 = sub i64 %.02125.i35, %51
   %.not.i38 = icmp eq i64 %55, 0
-  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit40.loopexit:                     ; preds = %49
   %.pre.pre = load ptr, ptr %0, align 8
@@ -15613,7 +15613,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   %68 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %65
   %69 = sub i64 %.02125.i43, %65
   %.not.i46 = icmp eq i64 %69, 0
-  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit48:                              ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15665,7 +15665,7 @@ define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -15717,7 +15717,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %39 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %36
   %40 = sub i64 %.02125.i24, %36
   %.not.i27 = icmp eq i64 %40, 0
-  br i1 %.not.i27, label %AppendJumble.exit29.loopexit, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit29.loopexit, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit29.loopexit:                     ; preds = %34
   %.pre.pre = load ptr, ptr %0, align 8
@@ -15757,7 +15757,7 @@ AppendJumble.exit29:                              ; preds = %AppendJumble.exit29
   %53 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %50
   %54 = sub i64 %.02125.i32, %50
   %.not.i35 = icmp eq i64 %54, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15812,7 +15812,7 @@ define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -15873,7 +15873,7 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -15912,7 +15912,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %36 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %33
   %37 = sub i64 %.02125.i11, %33
   %.not.i14 = icmp eq i64 %37, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %31
   store i64 %35, ptr %26, align 8
@@ -15949,7 +15949,7 @@ define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -15979,7 +15979,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %24
   %28 = sub i64 %.02125.i35, %24
   %.not.i38 = icmp eq i64 %28, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit39:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -16017,7 +16017,7 @@ AppendJumble.exit39:                              ; preds = %22
   %43 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %40
   %44 = sub i64 %.02125.i42, %40
   %.not.i45 = icmp eq i64 %44, 0
-  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
+  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !8
 
 AppendJumble.exit46:                              ; preds = %38, %31
   %.022.lcssa.i = phi i64 [ %26, %31 ], [ %42, %38 ]
@@ -16061,7 +16061,7 @@ AppendJumble.exit46:                              ; preds = %38, %31
   %63 = getelementptr inbounds nuw i8, ptr %.026.i48, i64 %60
   %64 = sub i64 %.02125.i49, %60
   %.not.i52 = icmp eq i64 %64, 0
-  br i1 %.not.i52, label %AppendJumble.exit54, label %.lr.ph.i47, !llvm.loop !7
+  br i1 %.not.i52, label %AppendJumble.exit54, label %.lr.ph.i47, !llvm.loop !8
 
 AppendJumble.exit54:                              ; preds = %58
   store i64 %62, ptr %5, align 8
@@ -16091,7 +16091,7 @@ AppendJumble.exit54:                              ; preds = %58
   %75 = getelementptr inbounds nuw i8, ptr %.026.i56, i64 %72
   %76 = sub i64 %.02125.i57, %72
   %.not.i60 = icmp eq i64 %76, 0
-  br i1 %.not.i60, label %AppendJumble.exit62, label %.lr.ph.i55, !llvm.loop !7
+  br i1 %.not.i60, label %AppendJumble.exit62, label %.lr.ph.i55, !llvm.loop !8
 
 AppendJumble.exit62:                              ; preds = %70
   store i64 %74, ptr %5, align 8
@@ -16121,7 +16121,7 @@ AppendJumble.exit62:                              ; preds = %70
   %87 = getelementptr inbounds nuw i8, ptr %.026.i64, i64 %84
   %88 = sub i64 %.02125.i65, %84
   %.not.i68 = icmp eq i64 %88, 0
-  br i1 %.not.i68, label %AppendJumble.exit70, label %.lr.ph.i63, !llvm.loop !7
+  br i1 %.not.i68, label %AppendJumble.exit70, label %.lr.ph.i63, !llvm.loop !8
 
 AppendJumble.exit70:                              ; preds = %82
   store i64 %86, ptr %5, align 8
@@ -16161,7 +16161,7 @@ AppendJumble.exit70:                              ; preds = %82
   %106 = getelementptr inbounds nuw i8, ptr %.026.i72, i64 %103
   %107 = sub i64 %.02125.i73, %103
   %.not.i76 = icmp eq i64 %107, 0
-  br i1 %.not.i76, label %AppendJumble.exit78, label %.lr.ph.i71, !llvm.loop !7
+  br i1 %.not.i76, label %AppendJumble.exit78, label %.lr.ph.i71, !llvm.loop !8
 
 AppendJumble.exit78:                              ; preds = %101
   store i64 %105, ptr %5, align 8
@@ -16191,7 +16191,7 @@ AppendJumble.exit78:                              ; preds = %101
   %118 = getelementptr inbounds nuw i8, ptr %.026.i80, i64 %115
   %119 = sub i64 %.02125.i81, %115
   %.not.i84 = icmp eq i64 %119, 0
-  br i1 %.not.i84, label %AppendJumble.exit86, label %.lr.ph.i79, !llvm.loop !7
+  br i1 %.not.i84, label %AppendJumble.exit86, label %.lr.ph.i79, !llvm.loop !8
 
 AppendJumble.exit86:                              ; preds = %113
   store i64 %117, ptr %5, align 8
@@ -16239,7 +16239,7 @@ define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr noun
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -16283,7 +16283,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %35
   %39 = sub i64 %.02125.i18, %35
   %.not.i21 = icmp eq i64 %39, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %33, %24
   %.022.lcssa.i22 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -16343,7 +16343,7 @@ define internal fastcc void @_jumbleAlterEventTrigStmt(ptr noundef captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -16383,7 +16383,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %29
   %33 = sub i64 %.02125.i9, %29
   %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit14:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16421,7 +16421,7 @@ define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -16459,7 +16459,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %28
   %32 = sub i64 %.02125.i17, %28
   %.not.i20 = icmp eq i64 %32, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -16503,7 +16503,7 @@ AppendJumble.exit21:                              ; preds = %26, %19
   %51 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %48
   %52 = sub i64 %.02125.i24, %48
   %.not.i27 = icmp eq i64 %52, 0
-  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %46
   store i64 %50, ptr %5, align 8
@@ -16540,7 +16540,7 @@ define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -16578,7 +16578,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -16628,7 +16628,7 @@ define internal fastcc void @_jumbleAlterRoleStmt(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -16676,7 +16676,7 @@ define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -16723,7 +16723,7 @@ define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -16766,7 +16766,7 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -16796,7 +16796,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %28
   %32 = sub i64 %.02125.i13, %28
   %.not.i16 = icmp eq i64 %32, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -16826,7 +16826,7 @@ AppendJumble.exit17:                              ; preds = %26
   %43 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %40
   %44 = sub i64 %.02125.i20, %40
   %.not.i23 = icmp eq i64 %44, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %38
   store i64 %42, ptr %9, align 8
@@ -16869,7 +16869,7 @@ define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -16899,7 +16899,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -16936,7 +16936,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -16966,7 +16966,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
   %28 = sub i64 %.02125.i17, %24
   %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -17006,7 +17006,7 @@ AppendJumble.exit21:                              ; preds = %22
   %46 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %43
   %47 = sub i64 %.02125.i24, %43
   %.not.i27 = icmp eq i64 %47, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %41
   store i64 %45, ptr %5, align 8
@@ -17036,7 +17036,7 @@ AppendJumble.exit28:                              ; preds = %41
   %58 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %55
   %59 = sub i64 %.02125.i31, %55
   %.not.i34 = icmp eq i64 %59, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
+  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !8
 
 AppendJumble.exit35:                              ; preds = %53
   store i64 %57, ptr %5, align 8
@@ -17104,7 +17104,7 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nounde
   %23 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %20
   %24 = sub i64 %.02125.i, %20
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %18, %9
   %.022.lcssa.i = phi i64 [ %14, %9 ], [ %22, %18 ]
@@ -17146,7 +17146,7 @@ AppendJumble.exit:                                ; preds = %18, %9
   %42 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %39
   %43 = sub i64 %.02125.i17, %39
   %.not.i20 = icmp eq i64 %43, 0
-  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit22:                              ; preds = %37
   store i64 %41, ptr %32, align 8
@@ -17183,7 +17183,7 @@ define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -17217,7 +17217,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %27
   %31 = sub i64 %.02125.i15, %27
   %.not.i18 = icmp eq i64 %31, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %25
   store i64 %29, ptr %5, align 8
@@ -17274,7 +17274,7 @@ define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nound
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -17331,7 +17331,7 @@ define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %17
   %21 = sub i64 %.02125.i, %17
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %15
   %.pre.pre = load ptr, ptr %0, align 8
@@ -17371,7 +17371,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
   %35 = sub i64 %.02125.i13, %31
   %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17415,7 +17415,7 @@ define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -17445,7 +17445,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %26
   %30 = sub i64 %.02125.i13, %26
   %.not.i16 = icmp eq i64 %30, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -17475,7 +17475,7 @@ AppendJumble.exit17:                              ; preds = %24
   %41 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %38
   %42 = sub i64 %.02125.i20, %38
   %.not.i23 = icmp eq i64 %42, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %36
   store i64 %40, ptr %7, align 8
@@ -17505,7 +17505,7 @@ AppendJumble.exit24:                              ; preds = %36
   %53 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %50
   %54 = sub i64 %.02125.i27, %50
   %.not.i30 = icmp eq i64 %54, 0
-  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit31:                              ; preds = %48
   store i64 %52, ptr %7, align 8
@@ -17545,7 +17545,7 @@ define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -17575,7 +17575,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -17612,7 +17612,7 @@ define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr noundef nonn
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -17654,7 +17654,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %31
   %35 = sub i64 %.02125.i11, %31
   %.not.i14 = icmp eq i64 %35, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %29, %21
   %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
@@ -17695,7 +17695,7 @@ define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -17737,7 +17737,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %31
   %35 = sub i64 %.02125.i17, %31
   %.not.i20 = icmp eq i64 %35, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %29, %21
   %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
@@ -17780,7 +17780,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
   %52 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %49
   %53 = sub i64 %.02125.i25, %49
   %.not.i28 = icmp eq i64 %53, 0
-  br i1 %.not.i28, label %AppendJumble.exit30, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit30, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit30:                              ; preds = %47, %39
   %.022.lcssa.i29 = phi i64 [ %43, %39 ], [ %51, %47 ]
@@ -17834,7 +17834,7 @@ define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nounde
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -17874,7 +17874,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17921,7 +17921,7 @@ define internal fastcc void @_jumbleClosePortalStmt(ptr noundef captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -17962,7 +17962,7 @@ define internal fastcc void @_jumbleFetchStmt(ptr noundef captures(none) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -17992,7 +17992,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %24
   %28 = sub i64 %.02125.i13, %24
   %.not.i16 = icmp eq i64 %28, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -18030,7 +18030,7 @@ AppendJumble.exit17:                              ; preds = %22
   %42 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %39
   %43 = sub i64 %.02125.i20, %39
   %.not.i23 = icmp eq i64 %43, 0
-  br i1 %.not.i23, label %AppendJumble.exit24.loopexit, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24.loopexit, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24.loopexit:                     ; preds = %37
   %.pre.pre = load ptr, ptr %0, align 8
@@ -18070,7 +18070,7 @@ AppendJumble.exit24:                              ; preds = %AppendJumble.exit24
   %56 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %53
   %57 = sub i64 %.02125.i27, %53
   %.not.i30 = icmp eq i64 %57, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %51
   store i64 %55, ptr %5, align 8
@@ -18115,7 +18115,7 @@ define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -18162,7 +18162,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %40 = getelementptr inbounds nuw i8, ptr %.026.i67, i64 %37
   %41 = sub i64 %.02125.i68, %37
   %.not.i71 = icmp eq i64 %41, 0
-  br i1 %.not.i71, label %AppendJumble.exit73, label %.lr.ph.i66, !llvm.loop !7
+  br i1 %.not.i71, label %AppendJumble.exit73, label %.lr.ph.i66, !llvm.loop !8
 
 AppendJumble.exit73:                              ; preds = %35, %26
   %.022.lcssa.i72 = phi i64 [ %31, %26 ], [ %39, %35 ]
@@ -18206,7 +18206,7 @@ AppendJumble.exit73:                              ; preds = %35, %26
   %59 = getelementptr inbounds nuw i8, ptr %.026.i76, i64 %56
   %60 = sub i64 %.02125.i77, %56
   %.not.i80 = icmp eq i64 %60, 0
-  br i1 %.not.i80, label %AppendJumble.exit82, label %.lr.ph.i75, !llvm.loop !7
+  br i1 %.not.i80, label %AppendJumble.exit82, label %.lr.ph.i75, !llvm.loop !8
 
 AppendJumble.exit82:                              ; preds = %54, %45
   %.022.lcssa.i81 = phi i64 [ %50, %45 ], [ %58, %54 ]
@@ -18270,7 +18270,7 @@ AppendJumble.exit82:                              ; preds = %54, %45
   %87 = getelementptr inbounds nuw i8, ptr %.026.i85, i64 %84
   %88 = sub i64 %.02125.i86, %84
   %.not.i89 = icmp eq i64 %88, 0
-  br i1 %.not.i89, label %AppendJumble.exit91.loopexit, label %.lr.ph.i84, !llvm.loop !7
+  br i1 %.not.i89, label %AppendJumble.exit91.loopexit, label %.lr.ph.i84, !llvm.loop !8
 
 AppendJumble.exit91.loopexit:                     ; preds = %82
   %.pre.pre = load ptr, ptr %0, align 8
@@ -18311,7 +18311,7 @@ AppendJumble.exit91:                              ; preds = %AppendJumble.exit91
   %102 = getelementptr inbounds nuw i8, ptr %.026.i93, i64 %99
   %103 = sub i64 %.02125.i94, %99
   %.not.i97 = icmp eq i64 %103, 0
-  br i1 %.not.i97, label %AppendJumble.exit99, label %.lr.ph.i92, !llvm.loop !7
+  br i1 %.not.i97, label %AppendJumble.exit99, label %.lr.ph.i92, !llvm.loop !8
 
 AppendJumble.exit99:                              ; preds = %97
   store i64 %101, ptr %93, align 8
@@ -18341,7 +18341,7 @@ AppendJumble.exit99:                              ; preds = %97
   %114 = getelementptr inbounds nuw i8, ptr %.026.i101, i64 %111
   %115 = sub i64 %.02125.i102, %111
   %.not.i105 = icmp eq i64 %115, 0
-  br i1 %.not.i105, label %AppendJumble.exit107, label %.lr.ph.i100, !llvm.loop !7
+  br i1 %.not.i105, label %AppendJumble.exit107, label %.lr.ph.i100, !llvm.loop !8
 
 AppendJumble.exit107:                             ; preds = %109
   store i64 %113, ptr %93, align 8
@@ -18371,7 +18371,7 @@ AppendJumble.exit107:                             ; preds = %109
   %126 = getelementptr inbounds nuw i8, ptr %.026.i109, i64 %123
   %127 = sub i64 %.02125.i110, %123
   %.not.i113 = icmp eq i64 %127, 0
-  br i1 %.not.i113, label %AppendJumble.exit115, label %.lr.ph.i108, !llvm.loop !7
+  br i1 %.not.i113, label %AppendJumble.exit115, label %.lr.ph.i108, !llvm.loop !8
 
 AppendJumble.exit115:                             ; preds = %121
   store i64 %125, ptr %93, align 8
@@ -18401,7 +18401,7 @@ AppendJumble.exit115:                             ; preds = %121
   %138 = getelementptr inbounds nuw i8, ptr %.026.i117, i64 %135
   %139 = sub i64 %.02125.i118, %135
   %.not.i121 = icmp eq i64 %139, 0
-  br i1 %.not.i121, label %AppendJumble.exit123, label %.lr.ph.i116, !llvm.loop !7
+  br i1 %.not.i121, label %AppendJumble.exit123, label %.lr.ph.i116, !llvm.loop !8
 
 AppendJumble.exit123:                             ; preds = %133
   store i64 %137, ptr %93, align 8
@@ -18431,7 +18431,7 @@ AppendJumble.exit123:                             ; preds = %133
   %150 = getelementptr inbounds nuw i8, ptr %.026.i125, i64 %147
   %151 = sub i64 %.02125.i126, %147
   %.not.i129 = icmp eq i64 %151, 0
-  br i1 %.not.i129, label %AppendJumble.exit131, label %.lr.ph.i124, !llvm.loop !7
+  br i1 %.not.i129, label %AppendJumble.exit131, label %.lr.ph.i124, !llvm.loop !8
 
 AppendJumble.exit131:                             ; preds = %145
   store i64 %149, ptr %93, align 8
@@ -18461,7 +18461,7 @@ AppendJumble.exit131:                             ; preds = %145
   %162 = getelementptr inbounds nuw i8, ptr %.026.i133, i64 %159
   %163 = sub i64 %.02125.i134, %159
   %.not.i137 = icmp eq i64 %163, 0
-  br i1 %.not.i137, label %AppendJumble.exit139, label %.lr.ph.i132, !llvm.loop !7
+  br i1 %.not.i137, label %AppendJumble.exit139, label %.lr.ph.i132, !llvm.loop !8
 
 AppendJumble.exit139:                             ; preds = %157
   store i64 %161, ptr %93, align 8
@@ -18491,7 +18491,7 @@ AppendJumble.exit139:                             ; preds = %157
   %174 = getelementptr inbounds nuw i8, ptr %.026.i141, i64 %171
   %175 = sub i64 %.02125.i142, %171
   %.not.i145 = icmp eq i64 %175, 0
-  br i1 %.not.i145, label %AppendJumble.exit147, label %.lr.ph.i140, !llvm.loop !7
+  br i1 %.not.i145, label %AppendJumble.exit147, label %.lr.ph.i140, !llvm.loop !8
 
 AppendJumble.exit147:                             ; preds = %169
   store i64 %173, ptr %93, align 8
@@ -18521,7 +18521,7 @@ AppendJumble.exit147:                             ; preds = %169
   %186 = getelementptr inbounds nuw i8, ptr %.026.i149, i64 %183
   %187 = sub i64 %.02125.i150, %183
   %.not.i153 = icmp eq i64 %187, 0
-  br i1 %.not.i153, label %AppendJumble.exit155, label %.lr.ph.i148, !llvm.loop !7
+  br i1 %.not.i153, label %AppendJumble.exit155, label %.lr.ph.i148, !llvm.loop !8
 
 AppendJumble.exit155:                             ; preds = %181
   store i64 %185, ptr %93, align 8
@@ -18551,7 +18551,7 @@ AppendJumble.exit155:                             ; preds = %181
   %198 = getelementptr inbounds nuw i8, ptr %.026.i157, i64 %195
   %199 = sub i64 %.02125.i158, %195
   %.not.i161 = icmp eq i64 %199, 0
-  br i1 %.not.i161, label %AppendJumble.exit163, label %.lr.ph.i156, !llvm.loop !7
+  br i1 %.not.i161, label %AppendJumble.exit163, label %.lr.ph.i156, !llvm.loop !8
 
 AppendJumble.exit163:                             ; preds = %193
   store i64 %197, ptr %93, align 8
@@ -18581,7 +18581,7 @@ AppendJumble.exit163:                             ; preds = %193
   %210 = getelementptr inbounds nuw i8, ptr %.026.i165, i64 %207
   %211 = sub i64 %.02125.i166, %207
   %.not.i169 = icmp eq i64 %211, 0
-  br i1 %.not.i169, label %AppendJumble.exit171, label %.lr.ph.i164, !llvm.loop !7
+  br i1 %.not.i169, label %AppendJumble.exit171, label %.lr.ph.i164, !llvm.loop !8
 
 AppendJumble.exit171:                             ; preds = %205
   store i64 %209, ptr %93, align 8
@@ -18611,7 +18611,7 @@ AppendJumble.exit171:                             ; preds = %205
   %222 = getelementptr inbounds nuw i8, ptr %.026.i173, i64 %219
   %223 = sub i64 %.02125.i174, %219
   %.not.i177 = icmp eq i64 %223, 0
-  br i1 %.not.i177, label %AppendJumble.exit179, label %.lr.ph.i172, !llvm.loop !7
+  br i1 %.not.i177, label %AppendJumble.exit179, label %.lr.ph.i172, !llvm.loop !8
 
 AppendJumble.exit179:                             ; preds = %217
   store i64 %221, ptr %93, align 8
@@ -18641,7 +18641,7 @@ AppendJumble.exit179:                             ; preds = %217
   %234 = getelementptr inbounds nuw i8, ptr %.026.i181, i64 %231
   %235 = sub i64 %.02125.i182, %231
   %.not.i185 = icmp eq i64 %235, 0
-  br i1 %.not.i185, label %AppendJumble.exit187, label %.lr.ph.i180, !llvm.loop !7
+  br i1 %.not.i185, label %AppendJumble.exit187, label %.lr.ph.i180, !llvm.loop !8
 
 AppendJumble.exit187:                             ; preds = %229
   store i64 %233, ptr %93, align 8
@@ -18671,7 +18671,7 @@ AppendJumble.exit187:                             ; preds = %229
   %246 = getelementptr inbounds nuw i8, ptr %.026.i189, i64 %243
   %247 = sub i64 %.02125.i190, %243
   %.not.i193 = icmp eq i64 %247, 0
-  br i1 %.not.i193, label %AppendJumble.exit195, label %.lr.ph.i188, !llvm.loop !7
+  br i1 %.not.i193, label %AppendJumble.exit195, label %.lr.ph.i188, !llvm.loop !8
 
 AppendJumble.exit195:                             ; preds = %241
   store i64 %245, ptr %93, align 8
@@ -18701,7 +18701,7 @@ AppendJumble.exit195:                             ; preds = %241
   %258 = getelementptr inbounds nuw i8, ptr %.026.i197, i64 %255
   %259 = sub i64 %.02125.i198, %255
   %.not.i201 = icmp eq i64 %259, 0
-  br i1 %.not.i201, label %AppendJumble.exit203, label %.lr.ph.i196, !llvm.loop !7
+  br i1 %.not.i201, label %AppendJumble.exit203, label %.lr.ph.i196, !llvm.loop !8
 
 AppendJumble.exit203:                             ; preds = %253
   store i64 %257, ptr %93, align 8
@@ -18731,7 +18731,7 @@ AppendJumble.exit203:                             ; preds = %253
   %270 = getelementptr inbounds nuw i8, ptr %.026.i205, i64 %267
   %271 = sub i64 %.02125.i206, %267
   %.not.i209 = icmp eq i64 %271, 0
-  br i1 %.not.i209, label %AppendJumble.exit211, label %.lr.ph.i204, !llvm.loop !7
+  br i1 %.not.i209, label %AppendJumble.exit211, label %.lr.ph.i204, !llvm.loop !8
 
 AppendJumble.exit211:                             ; preds = %265
   store i64 %269, ptr %93, align 8
@@ -18793,7 +18793,7 @@ define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %23
   %27 = sub i64 %.02125.i, %23
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %21
   %.pre.pre = load ptr, ptr %0, align 8
@@ -18834,7 +18834,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %41 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %38
   %42 = sub i64 %.02125.i19, %38
   %.not.i22 = icmp eq i64 %42, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %36
   store i64 %40, ptr %32, align 8
@@ -18864,7 +18864,7 @@ AppendJumble.exit24:                              ; preds = %36
   %53 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %50
   %54 = sub i64 %.02125.i27, %50
   %.not.i30 = icmp eq i64 %54, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %48
   store i64 %52, ptr %32, align 8
@@ -18909,7 +18909,7 @@ define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr noundef nonnul
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -18959,7 +18959,7 @@ define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr noundef n
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -18996,7 +18996,7 @@ define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19026,7 +19026,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
   %28 = sub i64 %.02125.i17, %24
   %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -19086,7 +19086,7 @@ define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -19125,7 +19125,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %36 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %33
   %37 = sub i64 %.02125.i13, %33
   %.not.i16 = icmp eq i64 %37, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %31
   store i64 %35, ptr %26, align 8
@@ -19165,7 +19165,7 @@ define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19219,7 +19219,7 @@ define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19249,7 +19249,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %24
   %28 = sub i64 %.02125.i25, %24
   %.not.i28 = icmp eq i64 %28, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
+  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !8
 
 AppendJumble.exit29:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -19294,7 +19294,7 @@ AppendJumble.exit29:                              ; preds = %22
   %46 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %43
   %47 = sub i64 %.02125.i32, %43
   %.not.i35 = icmp eq i64 %47, 0
-  br i1 %.not.i35, label %AppendJumble.exit36.loopexit, label %.lr.ph.i30, !llvm.loop !7
+  br i1 %.not.i35, label %AppendJumble.exit36.loopexit, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit36.loopexit:                     ; preds = %41
   %.pre72.pre.pre = load ptr, ptr %0, align 8
@@ -19342,7 +19342,7 @@ AppendJumble.exit36:                              ; preds = %AppendJumble.exit36
   %62 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 %59
   %63 = sub i64 %.02125.i40, %59
   %.not.i43 = icmp eq i64 %63, 0
-  br i1 %.not.i43, label %AppendJumble.exit45.loopexit, label %.lr.ph.i38, !llvm.loop !7
+  br i1 %.not.i43, label %AppendJumble.exit45.loopexit, label %.lr.ph.i38, !llvm.loop !8
 
 AppendJumble.exit45.loopexit:                     ; preds = %57
   %.pre.pre = load ptr, ptr %0, align 8
@@ -19382,7 +19382,7 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
   %76 = getelementptr inbounds nuw i8, ptr %.026.i47, i64 %73
   %77 = sub i64 %.02125.i48, %73
   %.not.i51 = icmp eq i64 %77, 0
-  br i1 %.not.i51, label %AppendJumble.exit53, label %.lr.ph.i46, !llvm.loop !7
+  br i1 %.not.i51, label %AppendJumble.exit53, label %.lr.ph.i46, !llvm.loop !8
 
 AppendJumble.exit53:                              ; preds = %71
   store i64 %75, ptr %5, align 8
@@ -19412,7 +19412,7 @@ AppendJumble.exit53:                              ; preds = %71
   %88 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %85
   %89 = sub i64 %.02125.i56, %85
   %.not.i59 = icmp eq i64 %89, 0
-  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !7
+  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !8
 
 AppendJumble.exit61:                              ; preds = %83
   store i64 %87, ptr %5, align 8
@@ -19449,7 +19449,7 @@ define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19489,7 +19489,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
   %35 = sub i64 %.02125.i13, %31
   %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %29
   store i64 %33, ptr %5, align 8
@@ -19526,7 +19526,7 @@ define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19571,7 +19571,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %31
   %35 = sub i64 %.02125.i15, %31
   %.not.i18 = icmp eq i64 %35, 0
-  br i1 %.not.i18, label %AppendJumble.exit19.loopexit, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19.loopexit, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19.loopexit:                     ; preds = %29
   %.pre.pre = load ptr, ptr %0, align 8
@@ -19611,7 +19611,7 @@ AppendJumble.exit19:                              ; preds = %AppendJumble.exit19
   %48 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %45
   %49 = sub i64 %.02125.i22, %45
   %.not.i25 = icmp eq i64 %49, 0
-  br i1 %.not.i25, label %AppendJumble.exit27, label %.lr.ph.i20, !llvm.loop !7
+  br i1 %.not.i25, label %AppendJumble.exit27, label %.lr.ph.i20, !llvm.loop !8
 
 AppendJumble.exit27:                              ; preds = %43
   store i64 %47, ptr %5, align 8
@@ -19648,7 +19648,7 @@ define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -19727,7 +19727,7 @@ define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr noundef nonnull
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -19766,7 +19766,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   %38 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %35
   %39 = sub i64 %.02125.i19, %35
   %.not.i22 = icmp eq i64 %39, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %33
   store i64 %37, ptr %28, align 8
@@ -19796,7 +19796,7 @@ AppendJumble.exit24:                              ; preds = %33
   %50 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %47
   %51 = sub i64 %.02125.i27, %47
   %.not.i30 = icmp eq i64 %51, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %45
   store i64 %49, ptr %28, align 8
@@ -19830,7 +19830,7 @@ AppendJumble.exit32:                              ; preds = %45
   %65 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %62
   %66 = sub i64 %.02125.i35, %62
   %.not.i38 = icmp eq i64 %66, 0
-  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit40:                              ; preds = %60
   store i64 %64, ptr %28, align 8
@@ -19875,7 +19875,7 @@ define internal fastcc void @_jumbleNotifyStmt(ptr noundef captures(none) %0, pt
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -19919,7 +19919,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i13, i64 %35
   %39 = sub i64 %.02125.i14, %35
   %.not.i17 = icmp eq i64 %39, 0
-  br i1 %.not.i17, label %AppendJumble.exit19, label %.lr.ph.i12, !llvm.loop !7
+  br i1 %.not.i17, label %AppendJumble.exit19, label %.lr.ph.i12, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %33, %24
   %.022.lcssa.i18 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -19966,7 +19966,7 @@ define internal fastcc void @_jumbleListenStmt(ptr noundef captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -20013,7 +20013,7 @@ define internal fastcc void @_jumbleUnlistenStmt(ptr noundef captures(none) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -20054,7 +20054,7 @@ define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -20088,7 +20088,7 @@ AppendJumble.exit:                                ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %27
   %31 = sub i64 %.02125.i11, %27
   %.not.i14 = icmp eq i64 %31, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %25
   store i64 %29, ptr %5, align 8
@@ -20217,7 +20217,7 @@ define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr noundef no
   %20 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %17
   %21 = sub i64 %.02125.i, %17
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %15
   %.pre65.pre67.pre.pre = load ptr, ptr %0, align 8
@@ -20266,7 +20266,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %38 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %35
   %39 = sub i64 %.02125.i26, %35
   %.not.i29 = icmp eq i64 %39, 0
-  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !7
+  br i1 %.not.i29, label %AppendJumble.exit31.loopexit, label %.lr.ph.i24, !llvm.loop !8
 
 AppendJumble.exit31.loopexit:                     ; preds = %33
   %.pre65.pre.pre = load ptr, ptr %0, align 8
@@ -20320,7 +20320,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   %56 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %53
   %57 = sub i64 %.02125.i35, %53
   %.not.i38 = icmp eq i64 %57, 0
-  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %AppendJumble.exit40.loopexit, label %.lr.ph.i33, !llvm.loop !8
 
 AppendJumble.exit40.loopexit:                     ; preds = %51
   %.pre.pre = load ptr, ptr %0, align 8
@@ -20361,7 +20361,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   %71 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %68
   %72 = sub i64 %.02125.i43, %68
   %.not.i46 = icmp eq i64 %72, 0
-  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !7
+  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit48:                              ; preds = %66
   store i64 %70, ptr %62, align 8
@@ -20391,7 +20391,7 @@ AppendJumble.exit48:                              ; preds = %66
   %83 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %80
   %84 = sub i64 %.02125.i51, %80
   %.not.i54 = icmp eq i64 %84, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !8
 
 AppendJumble.exit56:                              ; preds = %78
   store i64 %82, ptr %62, align 8
@@ -20437,7 +20437,7 @@ define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr noundef nonnull
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
@@ -20471,7 +20471,7 @@ AppendJumble.exit:                                ; preds = %16
   %36 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %33
   %37 = sub i64 %.02125.i15, %33
   %.not.i18 = icmp eq i64 %37, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %31
   store i64 %35, ptr %11, align 8
@@ -20514,7 +20514,7 @@ define internal fastcc void @_jumbleLoadStmt(ptr noundef captures(none) %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -20563,7 +20563,7 @@ define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr noundef non
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -20615,7 +20615,7 @@ define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -20665,7 +20665,7 @@ define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef cap
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -20714,7 +20714,7 @@ define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -20771,7 +20771,7 @@ define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr noundef nonnu
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -20811,7 +20811,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
   %33 = sub i64 %.02125.i11, %29
   %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20863,7 +20863,7 @@ define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr noundef nonn
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -20913,7 +20913,7 @@ define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -20953,7 +20953,7 @@ define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -21010,7 +21010,7 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
@@ -21040,7 +21040,7 @@ AppendJumble.exit:                                ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %28
   %32 = sub i64 %.02125.i13, %28
   %.not.i16 = icmp eq i64 %32, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %26
   store i64 %30, ptr %9, align 8
@@ -21070,7 +21070,7 @@ AppendJumble.exit17:                              ; preds = %26
   %43 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %40
   %44 = sub i64 %.02125.i20, %40
   %.not.i23 = icmp eq i64 %44, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %38
   store i64 %42, ptr %9, align 8
@@ -21107,7 +21107,7 @@ define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -21137,7 +21137,7 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
   %28 = sub i64 %.02125.i9, %24
   %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
@@ -21177,7 +21177,7 @@ define internal fastcc void @_jumbleDiscardStmt(ptr noundef captures(none) %0, p
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -21217,7 +21217,7 @@ define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -21247,7 +21247,7 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
   %30 = sub i64 %.02125.i9, %26
   %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
+  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit13:                              ; preds = %24
   store i64 %28, ptr %7, align 8
@@ -21287,7 +21287,7 @@ define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -21324,7 +21324,7 @@ define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr noundef nonn
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -21366,7 +21366,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
   %35 = sub i64 %.02125.i13, %31
   %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %29, %21
   %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
@@ -21421,7 +21421,7 @@ define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16, %7
   %.022.lcssa.i = phi i64 [ %12, %7 ], [ %20, %16 ]
@@ -21465,7 +21465,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   %40 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %37
   %41 = sub i64 %.02125.i20, %37
   %.not.i23 = icmp eq i64 %41, 0
-  br i1 %.not.i23, label %AppendJumble.exit25, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %AppendJumble.exit25, label %.lr.ph.i18, !llvm.loop !8
 
 AppendJumble.exit25:                              ; preds = %35, %26
   %.022.lcssa.i24 = phi i64 [ %31, %26 ], [ %39, %35 ]
@@ -21504,7 +21504,7 @@ AppendJumble.exit25:                              ; preds = %35, %26
   %57 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %54
   %58 = sub i64 %.02125.i28, %54
   %.not.i31 = icmp eq i64 %58, 0
-  br i1 %.not.i31, label %AppendJumble.exit33, label %.lr.ph.i26, !llvm.loop !7
+  br i1 %.not.i31, label %AppendJumble.exit33, label %.lr.ph.i26, !llvm.loop !8
 
 AppendJumble.exit33:                              ; preds = %52
   store i64 %56, ptr %47, align 8
@@ -21550,7 +21550,7 @@ define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr noundef n
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
@@ -21580,7 +21580,7 @@ AppendJumble.exit:                                ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %30
   %34 = sub i64 %.02125.i13, %30
   %.not.i16 = icmp eq i64 %34, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit17:                              ; preds = %28
   store i64 %32, ptr %11, align 8
@@ -21617,7 +21617,7 @@ define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -21659,7 +21659,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %31
   %35 = sub i64 %.02125.i15, %31
   %.not.i18 = icmp eq i64 %35, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit19:                              ; preds = %29, %21
   %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
@@ -21714,7 +21714,7 @@ define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr noundef nonn
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -21769,7 +21769,7 @@ define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr noundef nonn
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -21813,7 +21813,7 @@ define internal fastcc void @_jumbleDeallocateStmt(ptr noundef captures(none) %0
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -21901,7 +21901,7 @@ define internal fastcc void @_jumbleDropOwnedStmt(ptr noundef %0, ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
@@ -21960,7 +21960,7 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -22000,7 +22000,7 @@ AppendJumble.exit:                                ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %31
   %35 = sub i64 %.02125.i17, %31
   %.not.i20 = icmp eq i64 %35, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !8
 
 AppendJumble.exit21:                              ; preds = %29
   store i64 %33, ptr %5, align 8
@@ -22030,7 +22030,7 @@ AppendJumble.exit21:                              ; preds = %29
   %46 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %43
   %47 = sub i64 %.02125.i24, %43
   %.not.i27 = icmp eq i64 %47, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %41
   store i64 %45, ptr %5, align 8
@@ -22060,7 +22060,7 @@ AppendJumble.exit28:                              ; preds = %41
   %58 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %55
   %59 = sub i64 %.02125.i31, %55
   %.not.i34 = icmp eq i64 %59, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
+  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !8
 
 AppendJumble.exit35:                              ; preds = %53
   store i64 %57, ptr %5, align 8
@@ -22111,7 +22111,7 @@ define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -22149,7 +22149,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
   %32 = sub i64 %.02125.i11, %28
   %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit15:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -22201,7 +22201,7 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -22243,7 +22243,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %35
   %39 = sub i64 %.02125.i13, %35
   %.not.i16 = icmp eq i64 %39, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %33
   store i64 %37, ptr %28, align 8
@@ -22288,7 +22288,7 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -22330,7 +22330,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %35
   %39 = sub i64 %.02125.i15, %35
   %.not.i18 = icmp eq i64 %39, 0
-  br i1 %.not.i18, label %AppendJumble.exit20, label %.lr.ph.i13, !llvm.loop !7
+  br i1 %.not.i18, label %AppendJumble.exit20, label %.lr.ph.i13, !llvm.loop !8
 
 AppendJumble.exit20:                              ; preds = %33
   store i64 %37, ptr %28, align 8
@@ -22360,7 +22360,7 @@ AppendJumble.exit20:                              ; preds = %33
   %50 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %47
   %51 = sub i64 %.02125.i23, %47
   %.not.i26 = icmp eq i64 %51, 0
-  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !7
+  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !8
 
 AppendJumble.exit28:                              ; preds = %45
   store i64 %49, ptr %28, align 8
@@ -22405,7 +22405,7 @@ define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr n
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
@@ -22449,7 +22449,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %38 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %35
   %39 = sub i64 %.02125.i18, %35
   %.not.i21 = icmp eq i64 %39, 0
-  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %AppendJumble.exit23, label %.lr.ph.i16, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %33, %24
   %.022.lcssa.i22 = phi i64 [ %29, %24 ], [ %37, %33 ]
@@ -22496,7 +22496,7 @@ define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -22534,7 +22534,7 @@ AppendJumble.exit:                                ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %28
   %32 = sub i64 %.02125.i19, %28
   %.not.i22 = icmp eq i64 %32, 0
-  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit23, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit23:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
@@ -22577,7 +22577,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   %49 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %46
   %50 = sub i64 %.02125.i27, %46
   %.not.i30 = icmp eq i64 %50, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
+  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !8
 
 AppendJumble.exit32:                              ; preds = %44, %37
   %.022.lcssa.i31 = phi i64 [ %34, %37 ], [ %48, %44 ]
@@ -22637,7 +22637,7 @@ define internal fastcc void @_jumbleDropSubscriptionStmt(ptr noundef captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %15
   %19 = sub i64 %.02125.i, %15
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit.loopexit:                       ; preds = %13
   %.pre.pre = load ptr, ptr %0, align 8
@@ -22678,7 +22678,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
   %34 = sub i64 %.02125.i11, %30
   %.not.i14 = icmp eq i64 %34, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %28
   store i64 %32, ptr %24, align 8
@@ -22708,7 +22708,7 @@ AppendJumble.exit16:                              ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %42
   %46 = sub i64 %.02125.i19, %42
   %.not.i22 = icmp eq i64 %46, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !8
 
 AppendJumble.exit24:                              ; preds = %40
   store i64 %44, ptr %24, align 8
@@ -22762,7 +22762,7 @@ define internal fastcc void @_jumbleExtensibleNode(ptr noundef captures(none) %0
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -22803,7 +22803,7 @@ define internal fastcc void @_jumbleInteger(ptr noundef captures(none) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -22846,7 +22846,7 @@ define internal fastcc void @_jumbleFloat(ptr noundef captures(none) %0, ptr rea
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -22887,7 +22887,7 @@ define internal fastcc void @_jumbleBoolean(ptr noundef captures(none) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
@@ -22930,7 +22930,7 @@ define internal fastcc void @_jumbleString(ptr noundef captures(none) %0, ptr re
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -22977,7 +22977,7 @@ define internal fastcc void @_jumbleBitString(ptr noundef captures(none) %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
   %17 = sub i64 %.02125.i, %13
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %11, %2
   %.022.lcssa.i = phi i64 [ %7, %2 ], [ %15, %11 ]
@@ -23054,7 +23054,7 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr noundef nonnull rea
   %23 = load i32, ptr %16, align 4
   %24 = sext i32 %23 to i64
   %.not45 = icmp slt i64 %indvars.iv.next98, %24
-  br i1 %.not45, label %19, label %.critedge, !llvm.loop !10
+  br i1 %.not45, label %19, label %.critedge, !llvm.loop !11
 
 25:                                               ; preds = %.lr.ph81, %AppendJumble.exit
   %26 = phi i64 [ %.pre101, %.lr.ph81 ], [ %37, %AppendJumble.exit ]
@@ -23086,7 +23086,7 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr noundef nonnull rea
   %38 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %35
   %39 = sub i64 %.02125.i, %35
   %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !8
 
 AppendJumble.exit:                                ; preds = %33
   store i64 %37, ptr %15, align 8
@@ -23094,7 +23094,7 @@ AppendJumble.exit:                                ; preds = %33
   %40 = load i32, ptr %12, align 4
   %41 = sext i32 %40 to i64
   %.not43 = icmp slt i64 %indvars.iv.next95, %41
-  br i1 %.not43, label %25, label %.critedge, !llvm.loop !11
+  br i1 %.not43, label %25, label %.critedge, !llvm.loop !12
 
 42:                                               ; preds = %.lr.ph78, %AppendJumble.exit58
   %43 = phi i64 [ %.pre100, %.lr.ph78 ], [ %54, %AppendJumble.exit58 ]
@@ -23126,7 +23126,7 @@ AppendJumble.exit:                                ; preds = %33
   %55 = getelementptr inbounds nuw i8, ptr %.026.i53, i64 %52
   %56 = sub i64 %.02125.i54, %52
   %.not.i57 = icmp eq i64 %56, 0
-  br i1 %.not.i57, label %AppendJumble.exit58, label %.lr.ph.i52, !llvm.loop !7
+  br i1 %.not.i57, label %AppendJumble.exit58, label %.lr.ph.i52, !llvm.loop !8
 
 AppendJumble.exit58:                              ; preds = %50
   store i64 %54, ptr %11, align 8
@@ -23134,7 +23134,7 @@ AppendJumble.exit58:                              ; preds = %50
   %57 = load i32, ptr %8, align 4
   %58 = sext i32 %57 to i64
   %.not41 = icmp slt i64 %indvars.iv.next92, %58
-  br i1 %.not41, label %42, label %.critedge, !llvm.loop !12
+  br i1 %.not41, label %42, label %.critedge, !llvm.loop !13
 
 59:                                               ; preds = %.lr.ph, %AppendJumble.exit65
   %60 = phi i64 [ %.pre, %.lr.ph ], [ %71, %AppendJumble.exit65 ]
@@ -23166,7 +23166,7 @@ AppendJumble.exit58:                              ; preds = %50
   %72 = getelementptr inbounds nuw i8, ptr %.026.i60, i64 %69
   %73 = sub i64 %.02125.i61, %69
   %.not.i64 = icmp eq i64 %73, 0
-  br i1 %.not.i64, label %AppendJumble.exit65, label %.lr.ph.i59, !llvm.loop !7
+  br i1 %.not.i64, label %AppendJumble.exit65, label %.lr.ph.i59, !llvm.loop !8
 
 AppendJumble.exit65:                              ; preds = %67
   store i64 %71, ptr %7, align 8
@@ -23174,7 +23174,7 @@ AppendJumble.exit65:                              ; preds = %67
   %74 = load i32, ptr %4, align 4
   %75 = sext i32 %74 to i64
   %.not = icmp slt i64 %indvars.iv.next, %75
-  br i1 %.not, label %59, label %.critedge, !llvm.loop !13
+  br i1 %.not, label %59, label %.critedge, !llvm.loop !14
 
 76:                                               ; preds = %2
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -23226,13 +23226,14 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

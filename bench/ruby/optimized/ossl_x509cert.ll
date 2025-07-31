@@ -1135,7 +1135,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %2
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 7
-  br i1 %10, label %Check_Type.exit.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !34
+  br i1 %10, label %Check_Type.exit.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !35
 
 Check_Type.exit.preheader:                        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1154,7 +1154,7 @@ Check_Type.exit:                                  ; preds = %Check_Type.exit.pre
   br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %Check_Type.exit
-  %15 = load i64, ptr %11, align 8, !tbaa !35
+  %15 = load i64, ptr %11, align 8, !tbaa !36
   %16 = icmp slt i64 %.0, %15
   br i1 %16, label %20, label %38
 
@@ -1165,7 +1165,7 @@ rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
   br i1 %19, label %rb_array_const_ptr.exit, label %38
 
 20:                                               ; preds = %rb_array_len.exit
-  %21 = load ptr, ptr %12, align 8, !tbaa !35
+  %21 = load ptr, ptr %12, align 8, !tbaa !36
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %20
@@ -1185,7 +1185,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   br i1 %.not.i26, label %30, label %rb_array_const_ptr.exit28
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %12, align 8, !tbaa !35
+  %31 = load ptr, ptr %12, align 8, !tbaa !36
   br label %rb_array_const_ptr.exit28
 
 rb_array_const_ptr.exit28:                        ; preds = %27, %30
@@ -1199,7 +1199,7 @@ rb_array_const_ptr.exit28:                        ; preds = %27, %30
 
 36:                                               ; preds = %rb_array_const_ptr.exit
   %37 = add nuw nsw i64 %.0, 1
-  br label %Check_Type.exit, !llvm.loop !36
+  br label %Check_Type.exit, !llvm.loop !37
 
 38:                                               ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
   %39 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509_type) #5
@@ -1226,7 +1226,7 @@ rb_array_const_ptr.exit28:                        ; preds = %27, %30
   tail call void @X509_EXTENSION_free(ptr noundef %46) #5
   %47 = add nsw i64 %.139, -1
   %48 = icmp samesign ugt i64 %.139, 1
-  br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !37
+  br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !38
 
 .preheader.preheader:                             ; preds = %.lr.ph, %42
   br label %.preheader
@@ -1239,7 +1239,7 @@ rb_array_const_ptr.exit28:                        ; preds = %27, %30
   br i1 %.not.i29, label %rb_array_len.exit31, label %rb_array_len.exit31.thread
 
 rb_array_len.exit31:                              ; preds = %.preheader
-  %51 = load i64, ptr %11, align 8, !tbaa !35
+  %51 = load i64, ptr %11, align 8, !tbaa !36
   %52 = icmp slt i64 %.2, %51
   br i1 %52, label %56, label %65
 
@@ -1250,7 +1250,7 @@ rb_array_len.exit31.thread:                       ; preds = %.preheader
   br i1 %55, label %rb_array_const_ptr.exit34, label %65
 
 56:                                               ; preds = %rb_array_len.exit31
-  %57 = load ptr, ptr %12, align 8, !tbaa !35
+  %57 = load ptr, ptr %12, align 8, !tbaa !36
   br label %rb_array_const_ptr.exit34
 
 rb_array_const_ptr.exit34:                        ; preds = %rb_array_len.exit31.thread, %56
@@ -1261,7 +1261,7 @@ rb_array_const_ptr.exit34:                        ; preds = %rb_array_len.exit31
   %61 = tail call i32 @X509_add_ext(ptr noundef nonnull %39, ptr noundef %60, i32 noundef -1) #5
   %.not22 = icmp eq i32 %61, 0
   %62 = add nuw nsw i64 %.2, 1
-  br i1 %.not22, label %63, label %.preheader, !llvm.loop !38
+  br i1 %.not22, label %63, label %.preheader, !llvm.loop !39
 
 63:                                               ; preds = %rb_array_const_ptr.exit34
   %64 = load i64, ptr @eX509CertError, align 8, !tbaa !6
@@ -1466,7 +1466,7 @@ define internal i64 @ossl_x509_tbs_bytes(i64 noundef %0) #0 {
   %12 = zext nneg i32 %7 to i64
   %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #5, !callees !21
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %14, align 8, !tbaa !16, !noalias !39
+  %15 = load i64, ptr %14, align 8, !tbaa !16, !noalias !40
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1490,7 +1490,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %18
 
 23:                                               ; preds = %RSTRING_PTR.exit
   %24 = load ptr, ptr %2, align 8, !tbaa !25
-  %25 = load i64, ptr %14, align 8, !tbaa !16, !noalias !42
+  %25 = load i64, ptr %14, align 8, !tbaa !16, !noalias !43
   %26 = and i64 %25, 8192
   %.not.i.i12 = icmp eq i64 %26, 0
   br i1 %.not.i.i12, label %RSTRING_PTR.exit15, label %27
@@ -1537,12 +1537,12 @@ load_chained_certificates_DER.exit.thread:        ; preds = %1
 
 load_chained_certificates_DER.exit:               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  store i64 4, ptr %4, align 8, !tbaa !45
+  store i64 4, ptr %4, align 8, !tbaa !46
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %8, align 8, !tbaa !48
+  store ptr %6, ptr %8, align 8, !tbaa !49
   %9 = ptrtoint ptr %4 to i64
   %10 = call i64 @rb_ensure(ptr noundef nonnull @load_chained_certificates_append_push, i64 noundef %9, ptr noundef nonnull @load_chained_certificate_append_ensure, i64 noundef %9) #5
-  %11 = load i64, ptr %4, align 8, !tbaa !45
+  %11 = load i64, ptr %4, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   %.not = icmp eq i64 %11, 4
   br i1 %.not, label %12, label %51
@@ -1580,12 +1580,12 @@ load_chained_certificates_DER.exit:               ; preds = %1
 
 26:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
-  store i64 4, ptr %3, align 8, !tbaa !45
+  store i64 4, ptr %3, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %14, ptr %27, align 8, !tbaa !48
+  store ptr %14, ptr %27, align 8, !tbaa !49
   %28 = ptrtoint ptr %3 to i64
   %29 = call i64 @rb_ensure(ptr noundef nonnull @load_chained_certificates_append_push, i64 noundef %28, ptr noundef nonnull @load_chained_certificate_append_ensure, i64 noundef %28) #5
-  %30 = load i64, ptr %3, align 8, !tbaa !45
+  %30 = load i64, ptr %3, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
   %31 = call ptr @PEM_read_bio_X509(ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %.not17.i = icmp eq ptr %31, null
@@ -1599,13 +1599,13 @@ load_chained_certificates_DER.exit:               ; preds = %1
 34:                                               ; preds = %34, %.lr.ph.i
   %35 = phi ptr [ %31, %.lr.ph.i ], [ %37, %34 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
-  store i64 %30, ptr %2, align 8, !tbaa !45
-  store ptr %35, ptr %32, align 8, !tbaa !48
+  store i64 %30, ptr %2, align 8, !tbaa !46
+  store ptr %35, ptr %32, align 8, !tbaa !49
   %36 = call i64 @rb_ensure(ptr noundef nonnull @load_chained_certificates_append_push, i64 noundef %33, ptr noundef nonnull @load_chained_certificate_append_ensure, i64 noundef %33) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
   %37 = call ptr @PEM_read_bio_X509(ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %._crit_edge.i, label %34, !llvm.loop !49
+  br i1 %.not.i, label %._crit_edge.i, label %34, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %34, %26
   %38 = call i64 @ERR_peek_last_error() #5
@@ -1667,19 +1667,19 @@ declare ptr @d2i_X509_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @load_chained_certificates_append_push(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = load i64, ptr %2, align 8, !tbaa !45
+  %3 = load i64, ptr %2, align 8, !tbaa !46
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = tail call i64 @rb_ary_new() #5
-  store i64 %6, ptr %2, align 8, !tbaa !45
+  store i64 %6, ptr %2, align 8, !tbaa !46
   br label %7
 
 7:                                                ; preds = %5, %1
   %8 = phi i64 [ %6, %5 ], [ %3, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   %11 = load i64, ptr @cX509Cert, align 8, !tbaa !6
   %12 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %11, ptr noundef null, ptr noundef nonnull @ossl_x509_type) #5
   %.not.i = icmp eq ptr %10, null
@@ -1715,7 +1715,7 @@ ossl_x509_new.exit:                               ; preds = %17
 define internal noundef i64 @load_chained_certificate_append_ensure(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
   tail call void @X509_free(ptr noundef %4) #5
   ret i64 4
 }
@@ -1896,21 +1896,22 @@ attributes #7 = { cold noreturn nounwind }
 !29 = distinct !{!29, !"rbimpl_rstring_getmem"}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTS14asn1_object_st", !14, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!35 = !{!8, !8, i64 0}
-!36 = distinct !{!36, !33}
-!37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"rbimpl_rstring_getmem: argument 0"}
-!41 = distinct !{!41, !"rbimpl_rstring_getmem"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"rbimpl_rstring_getmem: argument 0"}
-!44 = distinct !{!44, !"rbimpl_rstring_getmem"}
-!45 = !{!46, !7, i64 0}
-!46 = !{!"load_chained_certificates_arguments", !7, i64 0, !47, i64 8}
-!47 = !{!"p1 _ZTS7x509_st", !14, i64 0}
-!48 = !{!46, !47, i64 8}
-!49 = distinct !{!49, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!36 = !{!8, !8, i64 0}
+!37 = distinct !{!37, !33, !34}
+!38 = distinct !{!38, !33, !34}
+!39 = distinct !{!39, !33, !34}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
+!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
+!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
+!46 = !{!47, !7, i64 0}
+!47 = !{!"load_chained_certificates_arguments", !7, i64 0, !48, i64 8}
+!48 = !{!"p1 _ZTS7x509_st", !14, i64 0}
+!49 = !{!47, !48, i64 8}
+!50 = distinct !{!50, !33, !34}

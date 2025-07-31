@@ -336,7 +336,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit45: 
 49:                                               ; preds = %.lr.ph, %44
   %50 = getelementptr inbounds nuw i8, ptr %.02962, i64 24
   %.not39 = icmp eq ptr %50, %40
-  br i1 %.not39, label %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread, label %.lr.ph
+  br i1 %.not39, label %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread, label %.lr.ph, !llvm.loop !67
 
 _ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread: ; preds = %49, %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit45, %47, %48, %29, %31, %13, %_ZNK4llvm8MCSymbol11getFragmentEb.exit, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.thread48, %7, %2
   %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.thread48 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ null, %13 ], [ null, %31 ], [ null, %29 ], [ %.02962, %48 ], [ %.02962, %47 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit45 ], [ null, %49 ]
@@ -355,11 +355,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr25evaluateAsRelocatab
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !36
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %12, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !68
+  store i32 %12, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !70
   %.not = icmp eq ptr %10, null
   %13 = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i1 true, i1 %13
@@ -533,14 +533,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 3:                                                ; preds = %tailrecurse
   %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   tail call fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE(ptr noundef %5)
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %3
   %.sink = phi i64 [ 24, %3 ], [ 16, %tailrecurse ]
   %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
-  %.tr.be = load ptr, ptr %6, align 8, !tbaa !71
+  %.tr.be = load ptr, ptr %6, align 8, !tbaa !73
   br label %tailrecurse
 
 7:                                                ; preds = %tailrecurse
@@ -585,7 +585,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantE
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !72
+  %18 = load i64, ptr %17, align 8, !tbaa !74
   %19 = load i32, ptr %4, align 8, !tbaa !36
   %switch.i = icmp eq i32 %19, 1
   br i1 %switch.i, label %20, label %23
@@ -603,7 +603,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantE
 
 _ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit:   ; preds = %20, %23
   %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ]
-  store i64 %.0.i, ptr %1, align 8, !tbaa !73
+  store i64 %.0.i, ptr %1, align 8, !tbaa !75
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %2, %11, %7, %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
@@ -686,7 +686,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %16 = load i32, ptr %15, align 4, !tbaa !74
+  %16 = load i32, ptr %15, align 4, !tbaa !76
   %.not.i.i.not.i = icmp ult i32 %14, %16
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !23
 
@@ -727,7 +727,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #13
   %40 = load i32, ptr %34, align 8, !tbaa !61
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !74
+  %42 = load i32, ptr %41, align 4, !tbaa !76
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !23
 
@@ -874,11 +874,13 @@ attributes #14 = { builtin nounwind }
 !64 = !{!"_ZTSN4llvm11MCFixupKindE", !7, i64 0}
 !65 = !{!63, !64, i64 12}
 !66 = !{!52, !52, i64 0}
-!67 = !{!45, !46, i64 8}
-!68 = !{!14, !14, i64 0}
-!69 = !{!70, !34, i64 16}
-!70 = !{!"_ZTSN4llvm12MCBinaryExprE", !25, i64 0, !34, i64 16, !34, i64 24}
-!71 = !{!34, !34, i64 0}
-!72 = !{!45, !20, i64 16}
-!73 = !{!20, !20, i64 0}
-!74 = !{!13, !14, i64 12}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = !{!45, !46, i64 8}
+!70 = !{!14, !14, i64 0}
+!71 = !{!72, !34, i64 16}
+!72 = !{!"_ZTSN4llvm12MCBinaryExprE", !25, i64 0, !34, i64 16, !34, i64 24}
+!73 = !{!34, !34, i64 0}
+!74 = !{!45, !20, i64 16}
+!75 = !{!20, !20, i64 0}
+!76 = !{!13, !14, i64 12}

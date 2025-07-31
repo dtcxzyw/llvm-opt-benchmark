@@ -742,7 +742,7 @@ xstrdup.exit:                                     ; preds = %25
   br label %62
 
 62:                                               ; preds = %61, %47
-  br i1 %3, label %25, label %.loopexit
+  br i1 %3, label %25, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %62, %25, %4, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
@@ -795,7 +795,7 @@ define dso_local noundef zeroext i1 @xstring_is_whitespace(ptr noundef readonly 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !12
 
 8:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
@@ -844,7 +844,7 @@ define dso_local zeroext i1 @xstrtolower(ptr noundef captures(address_is_null) %
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %12 = load i8, ptr %11, align 1
   %.not30 = icmp eq i8 %12, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.0 = phi i1 [ false, %1 ], [ false, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -1025,7 +1025,7 @@ define dso_local ptr @xstrcasestr(ptr noundef readonly captures(address_is_null,
 24:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %25 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1040,7 +1040,7 @@ define dso_local ptr @xstrcasestr(ptr noundef readonly captures(address_is_null,
   %28 = getelementptr inbounds nuw i8, ptr %.04756, i64 1
   %29 = add nuw nsw i32 %.04457, 1
   %exitcond62.not = icmp eq i32 %29, %7
-  br i1 %exitcond62.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond62.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %27, %24, %5, %2
   %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ %.04756, %24 ], [ %.04756, %._crit_edge ], [ null, %27 ]
@@ -1078,7 +1078,7 @@ define dso_local ptr @xbase64_from_base64url(ptr noundef readonly captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %12 = icmp ugt i64 %11, %indvars.iv.next
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %10
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -1102,7 +1102,7 @@ define dso_local ptr @xbase64_from_base64url(ptr noundef readonly captures(none)
   store i8 61, ptr %17, align 1
   %18 = add nsw i32 %.024, -1
   %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %._crit_edge27, label %.lr.ph26, !llvm.loop !16
+  br i1 %.not33, label %._crit_edge27, label %.lr.ph26, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1385,7 +1385,7 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #19 {
   %20 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %.pr = load i8, ptr %20, align 1
   %.not31 = icmp eq i8 %.pr, 0
-  br i1 %.not31, label %21, label %6, !llvm.loop !17
+  br i1 %.not31, label %21, label %6, !llvm.loop !19
 
 21:                                               ; preds = %19
   store i8 0, ptr %0, align 1
@@ -1398,7 +1398,7 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #19 {
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8192
   %.not37 = icmp eq i16 %26, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph57
+  br i1 %.not37, label %._crit_edge, label %.lr.ph57, !llvm.loop !20
 
 .lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %28, %.lr.ph ], [ %12, %.lr.ph.preheader ]
@@ -1408,10 +1408,13 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #19 {
   %.not35 = icmp ne i8 %29, 0
   %.not36 = icmp ugt ptr %28, %.045
   %or.cond = and i1 %.not35, %.not36
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge
+  br i1 %or.cond, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph57, %.lr.ph.preheader, %.critedge.preheader
-  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph57 ], [ %27, %.lr.ph ]
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph57
+  br label %._crit_edge, !llvm.loop !20
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.critedge.preheader
+  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %27, %.._crit_edge.loopexit_crit_edge ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %.not38 = icmp eq i64 %strlen, 0
   br i1 %.not38, label %34, label %30
 
@@ -1454,7 +1457,7 @@ define dso_local ptr @xstring_bytes2hex(ptr noundef readonly captures(none) %0, 
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.13, i32 noundef %9)
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count19
-  br i1 %exitcond20.not, label %.split.us, label %.preheader.split.us, !llvm.loop !18
+  br i1 %exitcond20.not, label %.split.us, label %.preheader.split.us, !llvm.loop !21
 
 .split.us:                                        ; preds = %13, %.preheader.split.us
   %10 = load ptr, ptr %4, align 8
@@ -1477,7 +1480,7 @@ define dso_local ptr @xstring_bytes2hex(ptr noundef readonly captures(none) %0, 
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.13, i32 noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count19
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !23
 
 17:                                               ; preds = %3, %.split.us
   %.09 = phi ptr [ %10, %.split.us ], [ null, %3 ]
@@ -1524,7 +1527,7 @@ define dso_local ptr @xstring_bytes2printable(ptr noundef readonly captures(none
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %.sink)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %9, label %11, !llvm.loop !21
+  br i1 %exitcond.not, label %9, label %11, !llvm.loop !24
 
 21:                                               ; preds = %3, %9
   %.013 = phi ptr [ %10, %9 ], [ null, %3 ]
@@ -1581,17 +1584,20 @@ attributes #25 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
-!13 = distinct !{!13, !11, !9}
-!14 = distinct !{!14, !11, !9}
-!15 = distinct !{!15, !11, !9}
-!16 = distinct !{!16, !11, !9}
-!17 = distinct !{!17, !11, !9}
-!18 = distinct !{!18, !11, !9, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !11, !9}
-!21 = distinct !{!21, !11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !13, !9, !10}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13, !9, !10}
+!15 = distinct !{!15, !13, !9, !10}
+!16 = distinct !{!16, !13, !9, !10}
+!17 = distinct !{!17, !13, !9, !10}
+!18 = distinct !{!18, !13, !9, !10}
+!19 = distinct !{!19, !13, !9, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !13, !9, !10, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !13, !9, !10}
+!24 = distinct !{!24, !13, !9, !10}

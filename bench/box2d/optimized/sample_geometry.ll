@@ -212,13 +212,13 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %4 = alloca %struct.b2Hull, align 4
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !37
+  %6 = load i32, ptr %5, align 8, !tbaa !38
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %6, ptr noundef nonnull @.str.2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %8 = load i32, ptr %7, align 4, !tbaa !38
-  %9 = load i32, ptr %5, align 8, !tbaa !37
+  %8 = load i32, ptr %7, align 4, !tbaa !39
+  %9 = load i32, ptr %5, align 8, !tbaa !38
   %10 = add nsw i32 %9, %8
-  store i32 %10, ptr %5, align 8, !tbaa !37
+  store i32 %10, ptr %5, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %3) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %12 = load i8, ptr %11, align 1, !tbaa !32, !range !13, !noundef !14
@@ -242,9 +242,9 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #12
   %18 = load i32, ptr %15, align 8, !tbaa !34
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %14, i32 noundef %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %3, ptr noundef nonnull align 4 dereferenceable(68) %4, i64 68, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %3, ptr noundef nonnull align 4 dereferenceable(68) %4, i64 68, i1 false), !tbaa.struct !40
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #12
-  %19 = load i32, ptr %16, align 4, !tbaa !41
+  %19 = load i32, ptr %16, align 4, !tbaa !42
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %28, label %21
 
@@ -258,7 +258,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %26 = add nuw nsw i32 %.02231, 1
   %exitcond.not42 = icmp eq i32 %26, 10000
   %or.cond = select i1 %25, i1 true, i1 %exitcond.not42
-  br i1 %or.cond, label %.thread, label %.outer, !llvm.loop !43
+  br i1 %or.cond, label %.thread, label %.outer, !llvm.loop !44
 
 27:                                               ; preds = %21
   store i8 0, ptr %11, align 1, !tbaa !32
@@ -267,7 +267,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 28:                                               ; preds = %17
   %29 = add nuw nsw i32 %.02231, 1
   %exitcond.not = icmp eq i32 %29, 10000
-  br i1 %exitcond.not, label %44, label %17, !llvm.loop !43
+  br i1 %exitcond.not, label %44, label %17, !llvm.loop !44
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -285,7 +285,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %38 = load i32, ptr %37, align 8, !tbaa !34
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %3, ptr noundef nonnull %36, i32 noundef %38)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %40 = load i32, ptr %39, align 4, !tbaa !41
+  %40 = load i32, ptr %39, align 4, !tbaa !42
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.critedge
 
@@ -301,29 +301,29 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   br i1 %.032.ph, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %27, %.thread25, %35, %44
-  %45 = load i32, ptr %5, align 8, !tbaa !37
+  %45 = load i32, ptr %5, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %47 = load i32, ptr %46, align 4, !tbaa !19
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %45, ptr noundef nonnull @.str.3, i32 noundef %47)
   br label %53
 
 .thread:                                          ; preds = %23, %42, %44
-  %48 = load i32, ptr %5, align 8, !tbaa !37
+  %48 = load i32, ptr %5, align 8, !tbaa !38
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %50 = load i32, ptr %49, align 4, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %52 = load i32, ptr %51, align 4, !tbaa !41
+  %52 = load i32, ptr %51, align 4, !tbaa !42
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %48, ptr noundef nonnull @.str.4, i32 noundef %50, i32 noundef %52)
   br label %53
 
 53:                                               ; preds = %.thread, %.critedge
-  %54 = load i32, ptr %7, align 4, !tbaa !38
-  %55 = load i32, ptr %5, align 8, !tbaa !37
+  %54 = load i32, ptr %7, align 4, !tbaa !39
+  %55 = load i32, ptr %5, align 8, !tbaa !38
   %reass.add = shl i32 %54, 1
   %56 = add i32 %55, %reass.add
-  store i32 %56, ptr %5, align 8, !tbaa !37
+  store i32 %56, ptr %5, align 8, !tbaa !38
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %58 = load i32, ptr %57, align 4, !tbaa !41
+  %58 = load i32, ptr %57, align 4, !tbaa !42
   call void @_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, ptr noundef nonnull %3, i32 noundef %58, i32 noundef 8421504)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %60 = load i32, ptr %59, align 8, !tbaa !34
@@ -335,7 +335,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   br label %65
 
 .preheader:                                       ; preds = %65, %53
-  %63 = load i32, ptr %57, align 4, !tbaa !41
+  %63 = load i32, ptr %57, align 4, !tbaa !42
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph35, label %._crit_edge
 
@@ -357,7 +357,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %70 = load i32, ptr %59, align 8, !tbaa !34
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %65, label %.preheader, !llvm.loop !44
+  br i1 %72, label %65, label %.preheader, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %3) #12
@@ -369,10 +369,10 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %.sroa.0.0.copyload = load <2 x float>, ptr %73, align 4
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, float noundef 6.000000e+00, i32 noundef 32768)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %74 = load i32, ptr %57, align 4, !tbaa !41
+  %74 = load i32, ptr %57, align 4, !tbaa !42
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next38, %75
-  br i1 %76, label %.lr.ph35, label %._crit_edge, !llvm.loop !45
+  br i1 %76, label %.lr.ph35, label %._crit_edge, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -490,14 +490,15 @@ attributes #13 = { builtin nounwind }
 !32 = !{!20, !12, i64 321}
 !33 = !{!9, !9, i64 0}
 !34 = !{!20, !9, i64 312}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!21, !9, i64 48}
-!38 = !{!21, !9, i64 68}
-!39 = !{i64 0, i64 64, !40, i64 64, i64 4, !33}
-!40 = !{!10, !10, i64 0}
-!41 = !{!42, !9, i64 64}
-!42 = !{!"_ZTS6b2Hull", !10, i64 0, !9, i64 64}
-!43 = distinct !{!43, !36}
-!44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!21, !9, i64 48}
+!39 = !{!21, !9, i64 68}
+!40 = !{i64 0, i64 64, !41, i64 64, i64 4, !33}
+!41 = !{!10, !10, i64 0}
+!42 = !{!43, !9, i64 64}
+!43 = !{!"_ZTS6b2Hull", !10, i64 0, !9, i64 64}
+!44 = distinct !{!44, !36, !37}
+!45 = distinct !{!45, !36, !37}
+!46 = distinct !{!46, !36, !37}

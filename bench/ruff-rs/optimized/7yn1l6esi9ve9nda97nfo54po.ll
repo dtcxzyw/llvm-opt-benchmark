@@ -1805,7 +1805,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 .backedge:                                        ; preds = %66, %199, %132, %134, %109, %210, %147, %212, %177, %171, %157, %151, %149, %94, %88, %81, %46, %24, %18, %12, %11, %87, %169, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
   %exitcond.not = icmp eq i64 %5, %1
-  br i1 %exitcond.not, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread", label %.lr.ph
+  br i1 %exitcond.not, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread", label %.lr.ph, !llvm.loop !205
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -1815,12 +1815,12 @@ define hidden void @"_ZN77_$LT$ruff_formatter..format_element..Interned$u20$as$u
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = ptrtoint ptr %6 to i64
-  %8 = load i64, ptr %1, align 8, !alias.scope !205, !noundef !3
+  %8 = load i64, ptr %1, align 8, !alias.scope !207, !noundef !3
   %9 = add i64 %8, %7
   %10 = mul i64 %9, -1065810590584100411
   %11 = add i64 %10, %5
   %12 = mul i64 %11, -1065810590584100411
-  store i64 %12, ptr %1, align 8, !alias.scope !208
+  store i64 %12, ptr %1, align 8, !alias.scope !210
   ret void
 }
 
@@ -2266,9 +2266,11 @@ attributes #17 = { noreturn }
 !202 = !{i8 1, i8 0}
 !203 = !{i32 1, i32 0}
 !204 = !{i32 0, i32 3}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
-!207 = distinct !{!207, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
-!210 = distinct !{!210, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}
+!205 = distinct !{!205, !206}
+!206 = !{!"llvm.loop.estimated_trip_count"}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
+!209 = distinct !{!209, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
+!212 = distinct !{!212, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}

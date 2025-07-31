@@ -1223,7 +1223,7 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
 .critedge30.thread51:                             ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread46, %_ZN4llvm5ErrorD2Ev.exit35
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.042.058, i64 40
   %.not53 = icmp eq ptr %49, %19
-  br i1 %.not53, label %.critedge.sink.split, label %.lr.ph
+  br i1 %.not53, label %.critedge.sink.split, label %.lr.ph, !llvm.loop !114
 
 .critedge.sink.split:                             ; preds = %.critedge30.thread51, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread
   %.sink = phi ptr [ %48, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ null, %.critedge30.thread51 ]
@@ -1237,7 +1237,7 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview27DebugInlineeLinesSubsection12addExtraFileENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !114
+  %5 = load ptr, ptr %4, align 8, !tbaa !116
   %6 = tail call noundef i32 @_ZNK4llvm8codeview24DebugChecksumsSubsection17mapChecksumOffsetENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr %1, i64 %2) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !98
@@ -1245,7 +1245,7 @@ define dso_local void @_ZN4llvm8codeview27DebugInlineeLinesSubsection12addExtraF
   %10 = getelementptr inbounds i8, ptr %8, i64 -32
   %11 = load ptr, ptr %10, align 8, !tbaa !99
   %12 = getelementptr inbounds i8, ptr %8, i64 -24
-  %13 = load ptr, ptr %12, align 8, !tbaa !115
+  %13 = load ptr, ptr %12, align 8, !tbaa !117
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %17, label %14
 
@@ -1301,14 +1301,14 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
   store ptr %30, ptr %9, align 8, !tbaa !102
   store ptr %34, ptr %10, align 8, !tbaa !99
   %36 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %30, i64 %28
-  store ptr %36, ptr %12, align 8, !tbaa !115
+  store ptr %36, ptr %12, align 8, !tbaa !117
   br label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit: ; preds = %14, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !116
+  %38 = load i32, ptr %37, align 4, !tbaa !118
   %39 = add i32 %38, 1
-  store i32 %39, ptr %37, align 4, !tbaa !116
+  store i32 %39, ptr %37, align 4, !tbaa !118
   ret void
 }
 
@@ -1320,12 +1320,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview27DebugInlineeLinesSubsection13addInlineSiteENS0_9TypeIndexENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !114
+  %7 = load ptr, ptr %6, align 8, !tbaa !116
   %8 = tail call noundef i32 @_ZNK4llvm8codeview24DebugChecksumsSubsection17mapChecksumOffsetENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %2, i64 %3) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !86
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !117
+  %12 = load ptr, ptr %11, align 8, !tbaa !119
   %.not.i = icmp eq ptr %10, %12
   br i1 %.not.i, label %17, label %13
 
@@ -1374,7 +1374,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionD
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !115
+  %9 = load ptr, ptr %8, align 8, !tbaa !117
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionD
 _ZSt8_DestroyIN4llvm8codeview27DebugInlineeLinesSubsection5EntryEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !118
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !120
 
 _ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4llvm8codeview27DebugInlineeLinesSubsection5EntryEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !87
@@ -1397,7 +1397,7 @@ _ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaI
 
 15:                                               ; preds = %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !117
+  %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1426,7 +1426,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionD
 
 7:                                                ; preds = %.lr.ph.i.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !115
+  %9 = load ptr, ptr %8, align 8, !tbaa !117
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -1436,7 +1436,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionD
 _ZSt8_DestroyIN4llvm8codeview27DebugInlineeLinesSubsection5EntryEEvPT_.exit.i.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !118
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !120
 
 _ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN4llvm8codeview27DebugInlineeLinesSubsection5EntryEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %2, align 8, !tbaa !87
@@ -1449,7 +1449,7 @@ _ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaI
 
 15:                                               ; preds = %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !117
+  %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1745,26 +1745,26 @@ _ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE1
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %21, %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  %24 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !102, !alias.scope !123, !noalias !120
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !102, !alias.scope !120, !noalias !123
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
+  %24 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !102, !alias.scope !125, !noalias !122
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !102, !alias.scope !122, !noalias !125
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !99, !alias.scope !123, !noalias !120
-  store ptr %27, ptr %25, align 8, !tbaa !99, !alias.scope !120, !noalias !123
+  %27 = load ptr, ptr %26, align 8, !tbaa !99, !alias.scope !125, !noalias !122
+  store ptr %27, ptr %25, align 8, !tbaa !99, !alias.scope !122, !noalias !125
   %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !115, !alias.scope !123, !noalias !120
-  store ptr %30, ptr %28, align 8, !tbaa !115, !alias.scope !120, !noalias !123
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !123, !noalias !120
+  %30 = load ptr, ptr %29, align 8, !tbaa !117, !alias.scope !125, !noalias !122
+  store ptr %30, ptr %28, align 8, !tbaa !117, !alias.scope !122, !noalias !125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !125, !noalias !122
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !125, !alias.scope !126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !127, !alias.scope !128
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %33, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !127
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !129
 
 _ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %21, %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
@@ -1775,26 +1775,26 @@ _ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_rel
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i16
   %.012.i.i.i17 = phi ptr [ %46, %.lr.ph.i.i.i16 ], [ %35, %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i18 = phi ptr [ %45, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %36 = load ptr, ptr %.0911.i.i.i18, align 8, !tbaa !102, !alias.scope !131, !noalias !128
-  store ptr %36, ptr %.012.i.i.i17, align 8, !tbaa !102, !alias.scope !128, !noalias !131
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  %36 = load ptr, ptr %.0911.i.i.i18, align 8, !tbaa !102, !alias.scope !133, !noalias !130
+  store ptr %36, ptr %.012.i.i.i17, align 8, !tbaa !102, !alias.scope !130, !noalias !133
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !99, !alias.scope !131, !noalias !128
-  store ptr %39, ptr %37, align 8, !tbaa !99, !alias.scope !128, !noalias !131
+  %39 = load ptr, ptr %38, align 8, !tbaa !99, !alias.scope !133, !noalias !130
+  store ptr %39, ptr %37, align 8, !tbaa !99, !alias.scope !130, !noalias !133
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !115, !alias.scope !131, !noalias !128
-  store ptr %42, ptr %40, align 8, !tbaa !115, !alias.scope !128, !noalias !131
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !131, !noalias !128
+  %42 = load ptr, ptr %41, align 8, !tbaa !117, !alias.scope !133, !noalias !130
+  store ptr %42, ptr %40, align 8, !tbaa !117, !alias.scope !130, !noalias !133
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !133, !noalias !130
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !125, !alias.scope !133
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !127, !alias.scope !135
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 40
   %.not.i.i.i19 = icmp eq ptr %45, %4
-  br i1 %.not.i.i.i19, label %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !127
+  br i1 %.not.i.i.i19, label %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !129
 
 _ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i20 = phi ptr [ %35, %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %46, %.lr.ph.i.i.i16 ]
@@ -1803,7 +1803,7 @@ _ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_rel
   br i1 %.not.i22, label %_ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE13_M_deallocateEPS3_m.exit, label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21
-  %49 = load ptr, ptr %47, align 8, !tbaa !117
+  %49 = load ptr, ptr %47, align 8, !tbaa !119
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %7
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %51) #20
@@ -1813,7 +1813,7 @@ _ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE1
   store ptr %21, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !86
   %52 = getelementptr inbounds nuw %"struct.llvm::codeview::DebugInlineeLinesSubsection::Entry", ptr %21, i64 %15
-  store ptr %52, ptr %47, align 8, !tbaa !117
+  store ptr %52, ptr %47, align 8, !tbaa !119
   ret void
 }
 
@@ -1967,23 +1967,25 @@ attributes #20 = { builtin nounwind }
 !111 = distinct !{!111, !"_ZSt11make_uniqueIN4llvm17BinaryStreamErrorEJNS0_17stream_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !112 = distinct !{!112, !113, !"_ZN4llvm10make_errorINS_17BinaryStreamErrorEJNS_17stream_error_codeEEEENS_5ErrorEDpOT0_: argument 0"}
 !113 = distinct !{!113, !"_ZN4llvm10make_errorINS_17BinaryStreamErrorEJNS_17stream_error_codeEEEENS_5ErrorEDpOT0_"}
-!114 = !{!80, !78, i64 16}
-!115 = !{!100, !101, i64 16}
-!116 = !{!80, !14, i64 28}
-!117 = !{!84, !85, i64 16}
-!118 = distinct !{!118, !119}
-!119 = !{!"llvm.loop.mustprogress"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!122 = distinct !{!122, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_"}
-!123 = !{!124}
-!124 = distinct !{!124, !122, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!125 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12}
-!126 = !{!121, !124}
-!127 = distinct !{!127, !119}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!130 = distinct !{!130, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_"}
-!131 = !{!132}
-!132 = distinct !{!132, !130, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!133 = !{!129, !132}
+!114 = distinct !{!114, !115}
+!115 = !{!"llvm.loop.estimated_trip_count"}
+!116 = !{!80, !78, i64 16}
+!117 = !{!100, !101, i64 16}
+!118 = !{!80, !14, i64 28}
+!119 = !{!84, !85, i64 16}
+!120 = distinct !{!120, !121, !115}
+!121 = !{!"llvm.loop.mustprogress"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!124 = distinct !{!124, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_"}
+!125 = !{!126}
+!126 = distinct !{!126, !124, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!127 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12}
+!128 = !{!123, !126}
+!129 = distinct !{!129, !121, !115}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!132 = distinct !{!132, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_"}
+!133 = !{!134}
+!134 = distinct !{!134, !132, !"_ZSt19__relocate_object_aIN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!135 = !{!131, !134}

@@ -319,7 +319,7 @@ _ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit: ; preds 
   %53 = add i32 %.030, 1
   %54 = zext i32 %53 to i64
   %55 = icmp ugt i64 %6, %54
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
   %56 = load i8, ptr @AlwaysPreTouch, align 1
@@ -387,7 +387,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %26 = getelementptr inbounds nuw i64, ptr %10, i64 %23
   %27 = load i64, ptr %26, align 8
   %.not36.i.i.i = icmp eq i64 %27, -1
-  br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !9
+  br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !10
 
 28:                                               ; preds = %25
   %29 = xor i64 %27, -1
@@ -575,7 +575,7 @@ _ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit: ; preds 
   %.2 = phi i1 [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.1, %53 ], [ false, %23 ], [ false, %44 ]
   %60 = add nuw nsw i64 %.037, 1
   %.not.not = icmp samesign ult i64 %.037, %13
-  br i1 %.not.not, label %18, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !10
+  br i1 %.not.not, label %18, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !11
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit, %4
   %.028.lcssa = phi i64 [ 0, %4 ], [ %.129, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
@@ -714,7 +714,7 @@ _ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %
 _ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread: ; preds = %55, %34, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
   %59 = add nuw nsw i64 %.016, 1
   %.not.not = icmp samesign ult i64 %.016, %12
-  br i1 %.not.not, label %29, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !11
+  br i1 %.not.not, label %29, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !12
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #8
@@ -767,9 +767,10 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

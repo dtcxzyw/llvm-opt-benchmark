@@ -128,7 +128,7 @@ if.end27:                                         ; preds = %if.else23
 if.end34:                                         ; preds = %if.end27, %if.then17, %if.then6, %if.else12
   %target.1 = phi ptr [ %incdec.ptr10, %if.then6 ], [ %incdec.ptr13, %if.else12 ], [ %incdec.ptr21, %if.then17 ], [ %incdec.ptr32, %if.end27 ]
   %cmp = icmp ult ptr %incdec.ptr, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end34, %while.body, %if.else23, %if.end34.us, %while.body.us, %if.else23.us, %if.then3.us, %entry
   %source.0.lcssa = phi ptr [ %0, %entry ], [ %source.025.us, %if.then3.us ], [ %source.025.us, %if.else23.us ], [ %source.025.us, %while.body.us ], [ %incdec.ptr.us, %if.end34.us ], [ %source.025, %if.else23 ], [ %source.025, %while.body ], [ %incdec.ptr, %if.end34 ]
@@ -189,7 +189,7 @@ if.end33.us:                                      ; preds = %if.end30.us
   %incdec.ptr34.us = getelementptr inbounds nuw i8, ptr %target.027.us, i64 4
   store i32 %ch.0.us, ptr %target.027.us, align 4
   %cmp.us = icmp ult ptr %source.2.us, %sourceEnd
-  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !8
+  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !9
 
 while.body.us54:                                  ; preds = %while.body.lr.ph, %if.end33.us76
   %source.028.us55 = phi ptr [ %source.2.us74, %if.end33.us76 ], [ %0, %while.body.lr.ph ]
@@ -231,7 +231,7 @@ if.end33.us76:                                    ; preds = %if.end30.us72
   %incdec.ptr34.us77 = getelementptr inbounds nuw i8, ptr %target.027.us56, i64 4
   store i32 %ch.0.us73, ptr %target.027.us56, align 4
   %cmp.us78 = icmp ult ptr %source.2.us74, %sourceEnd
-  br i1 %cmp.us78, label %while.body.us54, label %while.end, !llvm.loop !9
+  br i1 %cmp.us78, label %while.body.us54, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end33.us, %if.then.us, %if.end30.us, %if.end33.us76, %if.then4.us63, %if.then.us61, %while.body.us54, %if.end30.us72, %entry
   %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.027.us56, %if.end30.us72 ], [ %target.027.us56, %while.body.us54 ], [ %target.027.us56, %if.then.us61 ], [ %target.027.us56, %if.then4.us63 ], [ %incdec.ptr34.us77, %if.end33.us76 ], [ %incdec.ptr34.us, %if.end33.us ], [ %target.027.us, %if.then.us ], [ %target.027.us, %if.end30.us ]
@@ -354,7 +354,7 @@ sw.bb69.us:                                       ; preds = %sw.bb63.us, %if.end
   store i8 %conv72.us, ptr %incdec.ptr73.us, align 1
   %add.ptr76.us = getelementptr inbounds nuw i8, ptr %incdec.ptr73.us, i64 %idx.ext.us
   %cmp.us = icmp ult ptr %source.2.us, %sourceEnd
-  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !10
+  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !11
 
 while.body.us77:                                  ; preds = %while.body.lr.ph, %sw.bb69.us126
   %source.051.us78 = phi ptr [ %source.2.us97, %sw.bb69.us126 ], [ %0, %while.body.lr.ph ]
@@ -458,7 +458,7 @@ sw.bb69.us126:                                    ; preds = %sw.bb63.us120, %if.
   store i8 %conv72.us130, ptr %incdec.ptr73.us131, align 1
   %add.ptr76.us132 = getelementptr inbounds nuw i8, ptr %incdec.ptr73.us131, i64 %idx.ext.us106
   %cmp.us133 = icmp ult ptr %source.2.us97, %sourceEnd
-  br i1 %cmp.us133, label %while.body.us77, label %while.end, !llvm.loop !11
+  br i1 %cmp.us133, label %while.body.us77, label %while.end, !llvm.loop !12
 
 default.unreachable176:                           ; preds = %if.end53.us, %if.end53.us109
   unreachable
@@ -567,7 +567,7 @@ sw.bb44.us:                                       ; preds = %sw.bb38.us, %if.end
   store i8 %conv47.us, ptr %incdec.ptr48.us, align 1
   %add.ptr51.us = getelementptr inbounds nuw i8, ptr %incdec.ptr48.us, i64 %idx.ext.us
   %cmp.us = icmp ult ptr %incdec.ptr.us, %sourceEnd
-  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !12
+  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !13
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.bb44
   %result.038 = phi i32 [ %result.2, %sw.bb44 ], [ 0, %while.body.lr.ph ]
@@ -657,7 +657,7 @@ sw.bb44:                                          ; preds = %sw.bb38, %if.end28
   store i8 %conv47, ptr %incdec.ptr48, align 1
   %add.ptr51 = getelementptr inbounds nuw i8, ptr %incdec.ptr48, i64 %idx.ext
   %cmp = icmp ult ptr %incdec.ptr, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
 
 default.unreachable57:                            ; preds = %if.end28.us, %if.end28
   unreachable
@@ -818,7 +818,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %conv1
   store ptr %add.ptr, ptr %source, align 8
   %cmp.not = icmp eq ptr %add.ptr, %sourceEnd
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !15
 
 return:                                           ; preds = %lor.lhs.false, %while.body, %if.end, %entry
   %retval.0 = phi i8 [ 1, %entry ], [ 1, %if.end ], [ 0, %while.body ], [ 0, %lor.lhs.false ]
@@ -1018,7 +1018,7 @@ if.end80:                                         ; preds = %if.else71
 if.end89:                                         ; preds = %if.else68, %if.end80, %if.else, %if.else54
   %target.1 = phi ptr [ %incdec.ptr52, %if.else ], [ %incdec.ptr56, %if.else54 ], [ %incdec.ptr69, %if.else68 ], [ %incdec.ptr87, %if.end80 ]
   %cmp = icmp ult ptr %source.2, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end89, %while.body, %if.end, %entry, %if.then74, %if.then62, %if.then46, %if.then36
   %target.057 = phi ptr [ %target.070, %if.then36 ], [ %target.070, %if.then46 ], [ %target.070, %if.then62 ], [ %target.070, %if.then74 ], [ %1, %entry ], [ %target.1, %if.end89 ], [ %target.070, %while.body ], [ %target.070, %if.end ]
@@ -1184,7 +1184,7 @@ while.cond.backedge:                              ; preds = %if.then51, %sw.epil
   store i32 %.sink, ptr %target.0103, align 4
   %target.0.be = getelementptr inbounds nuw i8, ptr %target.0103, i64 4
   %cmp = icmp ult ptr %source.0.be, %sourceEnd
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !17
 
 if.end:                                           ; preds = %while.body
   %cmp5.not = icmp ult ptr %target.0103, %targetEnd
@@ -1427,16 +1427,17 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5, !6, !7}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!9 = distinct !{!9, !5, !6, !7}
+!10 = distinct !{!10, !5, !6, !7}
+!11 = distinct !{!11, !5, !6, !7}
+!12 = distinct !{!12, !5, !6, !7}
+!13 = distinct !{!13, !5, !6, !7}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}

@@ -619,7 +619,7 @@ define internal fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef capture
   switch i32 %6, label %.preheader.i [
     i32 -1, label %pbm_getc.exit
     i32 10, label %pbm_getc.exit
-  ]
+  ], !llvm.loop !63
 
 pbm_getc.exit:                                    ; preds = %.preheader.i, %.preheader.i, %.critedge
   %.0.i = phi i32 [ %4, %.critedge ], [ %6, %.preheader.i ], [ %6, %.preheader.i ]
@@ -632,7 +632,7 @@ pbm_getc.exit:                                    ; preds = %.preheader.i, %.pre
   ]
 
 .critedge.backedge:                               ; preds = %pbm_getc.exit, %pbm_getc.exit, %pbm_getc.exit, %pbm_getc.exit
-  br label %.critedge
+  br label %.critedge, !llvm.loop !64
 
 .thread:                                          ; preds = %pbm_getc.exit
   %7 = load ptr, ptr %0, align 8, !tbaa !25
@@ -670,7 +670,7 @@ pbm_getc.exit:                                    ; preds = %.preheader.i, %.pre
   switch i32 %21, label %.preheader.i35 [
     i32 -1, label %pbm_getc.exit36
     i32 10, label %pbm_getc.exit36
-  ]
+  ], !llvm.loop !63
 
 pbm_getc.exit36:                                  ; preds = %.preheader.i35, %.preheader.i35, %18
   %.0.i34 = phi i32 [ %19, %18 ], [ %21, %.preheader.i35 ], [ %21, %.preheader.i35 ]
@@ -693,7 +693,7 @@ pbm_getc.exit36:                                  ; preds = %.preheader.i35, %.p
   br label %.backedge
 
 .backedge:                                        ; preds = %28, %24
-  br label %18, !llvm.loop !62
+  br label %18, !llvm.loop !65
 
 32:                                               ; preds = %pbm_getc.exit36
   ret i32 %.0
@@ -715,7 +715,7 @@ define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr noundef reado
 .lr.ph.preheader:                                 ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !57
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  %13 = load ptr, ptr %12, align 8, !tbaa !66
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -729,7 +729,7 @@ define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr noundef reado
   store i8 %17, ptr %.015, align 1, !tbaa !30
   %19 = add i32 %.01214, -1
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i32 1
@@ -758,7 +758,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
   %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !57
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !4
   %notmask = shl nsw i32 -1, %26
@@ -802,7 +802,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
   %48 = getelementptr inbounds i8, ptr %.0105, i64 %40
   %49 = add i32 %.077104, -1
   %.not88 = icmp eq i32 %49, 0
-  br i1 %.not88, label %.loopexit, label %41, !llvm.loop !65
+  br i1 %.not88, label %.loopexit, label %41, !llvm.loop !68
 
 50:                                               ; preds = %33
   br i1 %.not88103, label %.loopexit, label %.lr.ph102
@@ -828,7 +828,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
   %61 = getelementptr inbounds i8, ptr %.1101, i64 %54
   %62 = add i32 %.178100, -1
   %.not87 = icmp eq i32 %62, 0
-  br i1 %.not87, label %.loopexit, label %55, !llvm.loop !66
+  br i1 %.not87, label %.loopexit, label %55, !llvm.loop !69
 
 63:                                               ; preds = %2
   br i1 %30, label %64, label %84
@@ -866,7 +866,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
   %82 = getelementptr inbounds i8, ptr %.297, i64 %69
   %83 = add i32 %.27996, -1
   %.not85 = icmp eq i32 %83, 0
-  br i1 %.not85, label %.loopexit, label %70, !llvm.loop !67
+  br i1 %.not85, label %.loopexit, label %70, !llvm.loop !70
 
 84:                                               ; preds = %63
   br i1 %.not88103, label %.loopexit, label %.lr.ph
@@ -894,7 +894,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
   %97 = getelementptr inbounds i8, ptr %.394, i64 %88
   %98 = add i32 %.38093, -1
   %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %.loopexit, label %89, !llvm.loop !68
+  br i1 %.not, label %.loopexit, label %89, !llvm.loop !71
 
 .loopexit:                                        ; preds = %89, %70, %55, %41, %84, %64, %50, %34
   ret i32 1
@@ -910,7 +910,7 @@ define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr noundef 
   %8 = load i32, ptr %7, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !57
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %notmask = shl nsw i32 -1, %13
@@ -959,7 +959,7 @@ rgb_to_cmyk.exit:                                 ; preds = %rgb_to_cmyk.exit.lr
   %40 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   %41 = add i32 %.03752, -1
   %.not41 = icmp eq i32 %41, 0
-  br i1 %.not41, label %.loopexit, label %rgb_to_cmyk.exit, !llvm.loop !69
+  br i1 %.not41, label %.loopexit, label %rgb_to_cmyk.exit, !llvm.loop !72
 
 42:                                               ; preds = %2
   br i1 %.not4151, label %.loopexit, label %rgb_to_cmyk.exit46.lr.ph
@@ -1001,7 +1001,7 @@ rgb_to_cmyk.exit46:                               ; preds = %rgb_to_cmyk.exit46.
   %66 = getelementptr inbounds nuw i8, ptr %.150, i64 4
   %67 = add i32 %.13849, -1
   %.not = icmp eq i32 %67, 0
-  br i1 %.not, label %.loopexit, label %rgb_to_cmyk.exit46, !llvm.loop !70
+  br i1 %.not, label %.loopexit, label %rgb_to_cmyk.exit46, !llvm.loop !73
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit46, %rgb_to_cmyk.exit, %42, %18
   ret i32 1
@@ -1030,7 +1030,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
   %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !57
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !4
   %notmask = shl nsw i32 -1, %26
@@ -1078,7 +1078,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
   %52 = getelementptr inbounds i8, ptr %.0133, i64 %40
   %53 = add i32 %.0105132, -1
   %.not116 = icmp eq i32 %53, 0
-  br i1 %.not116, label %.loopexit, label %41, !llvm.loop !71
+  br i1 %.not116, label %.loopexit, label %41, !llvm.loop !74
 
 54:                                               ; preds = %33
   br i1 %.not116131, label %.loopexit, label %.lr.ph130
@@ -1108,7 +1108,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
   %69 = getelementptr inbounds i8, ptr %.1129, i64 %58
   %70 = add i32 %.1106128, -1
   %.not115 = icmp eq i32 %70, 0
-  br i1 %.not115, label %.loopexit, label %59, !llvm.loop !72
+  br i1 %.not115, label %.loopexit, label %59, !llvm.loop !75
 
 71:                                               ; preds = %2
   br i1 %30, label %72, label %100
@@ -1154,7 +1154,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
   %98 = getelementptr inbounds i8, ptr %.2125, i64 %77
   %99 = add i32 %.2107124, -1
   %.not113 = icmp eq i32 %99, 0
-  br i1 %.not113, label %.loopexit, label %78, !llvm.loop !73
+  br i1 %.not113, label %.loopexit, label %78, !llvm.loop !76
 
 100:                                              ; preds = %71
   br i1 %.not116131, label %.loopexit, label %.lr.ph
@@ -1190,7 +1190,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
   %121 = getelementptr inbounds i8, ptr %.3122, i64 %104
   %122 = add i32 %.3108121, -1
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %.loopexit, label %105, !llvm.loop !74
+  br i1 %.not, label %.loopexit, label %105, !llvm.loop !77
 
 .loopexit:                                        ; preds = %105, %78, %59, %41, %100, %72, %54, %34
   ret i32 1
@@ -1206,7 +1206,7 @@ define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr noundef r
   %8 = load i32, ptr %7, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !57
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %notmask = shl nsw i32 -1, %13
@@ -1289,7 +1289,7 @@ rgb_to_cmyk.exit:                                 ; preds = %20, %43
   %67 = getelementptr inbounds nuw i8, ptr %.067, i64 4
   %68 = add i32 %.05166, -1
   %.not55 = icmp eq i32 %68, 0
-  br i1 %.not55, label %.loopexit, label %20, !llvm.loop !75
+  br i1 %.not55, label %.loopexit, label %20, !llvm.loop !78
 
 69:                                               ; preds = %2
   br i1 %.not5565, label %.loopexit, label %.lr.ph
@@ -1369,7 +1369,7 @@ rgb_to_cmyk.exit60:                               ; preds = %71, %100
   %124 = getelementptr inbounds nuw i8, ptr %.164, i64 4
   %125 = add i32 %.15263, -1
   %.not = icmp eq i32 %125, 0
-  br i1 %.not, label %.loopexit, label %71, !llvm.loop !76
+  br i1 %.not, label %.loopexit, label %71, !llvm.loop !79
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit60, %rgb_to_cmyk.exit, %69, %18
   ret i32 1
@@ -1410,7 +1410,7 @@ define internal noundef i32 @get_word_gray_row(ptr noundef %0, ptr noundef reado
   %23 = load ptr, ptr %7, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !57
-  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %26 = load ptr, ptr %25, align 8, !tbaa !66
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
@@ -1444,7 +1444,7 @@ define internal noundef i32 @get_word_gray_row(ptr noundef %0, ptr noundef reado
   store i8 %43, ptr %.030, align 1, !tbaa !30
   %45 = add i32 %.02529, -1
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %40, %20
   ret i32 1
@@ -1499,7 +1499,7 @@ define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr noundef r
   %36 = load ptr, ptr %20, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !57
-  %39 = load ptr, ptr %38, align 8, !tbaa !63
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
   %40 = sext i32 %15 to i64
   %41 = sext i32 %13 to i64
   %42 = sext i32 %11 to i64
@@ -1552,7 +1552,7 @@ define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr noundef r
   %72 = getelementptr inbounds i8, ptr %.047.us, i64 %47
   %73 = add i32 %.04245.us, -1
   %.not.us = icmp eq i32 %73, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !78
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !81
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %87
   %.047 = phi ptr [ %94, %87 ], [ %39, %.lr.ph ]
@@ -1590,7 +1590,7 @@ define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr noundef r
   %94 = getelementptr inbounds i8, ptr %.047, i64 %47
   %95 = add i32 %.04245, -1
   %.not = icmp eq i32 %95, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %87, %61, %33
   ret i32 1
@@ -1631,7 +1631,7 @@ define internal noundef i32 @get_word_gray_cmyk_row(ptr noundef %0, ptr noundef 
   %23 = load ptr, ptr %7, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !57
-  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = sitofp i32 %6 to double
   br label %28
 
@@ -1688,7 +1688,7 @@ rgb_to_cmyk.exit:                                 ; preds = %38, %28
   %63 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   %64 = add i32 %.03438, -1
   %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !81
+  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %rgb_to_cmyk.exit, %20
   ret i32 1
@@ -1752,7 +1752,7 @@ define internal noundef i32 @get_scaled_gray_row(ptr noundef %0, ptr noundef rea
   %21 = load ptr, ptr %5, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !57
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1768,7 +1768,7 @@ define internal noundef i32 @get_scaled_gray_row(ptr noundef %0, ptr noundef rea
   store i8 %29, ptr %.01620, align 1, !tbaa !30
   %31 = add i32 %.021, -1
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   ret i32 1
@@ -1815,7 +1815,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readon
 33:                                               ; preds = %29, %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !57
-  %36 = load ptr, ptr %35, align 8, !tbaa !63
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = load ptr, ptr %20, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8, !tbaa !4
@@ -1861,7 +1861,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readon
   %61 = getelementptr inbounds i8, ptr %.0111, i64 %53
   %62 = add i32 %.080109, -1
   %.not90 = icmp eq i32 %62, 0
-  br i1 %.not90, label %.loopexit, label %54, !llvm.loop !83
+  br i1 %.not90, label %.loopexit, label %54, !llvm.loop !86
 
 63:                                               ; preds = %46
   br i1 %.not90108, label %.loopexit, label %.lr.ph107
@@ -1888,7 +1888,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readon
   %74 = getelementptr inbounds i8, ptr %.1106, i64 %67
   %75 = add i32 %.181104, -1
   %.not89 = icmp eq i32 %75, 0
-  br i1 %.not89, label %.loopexit, label %68, !llvm.loop !84
+  br i1 %.not89, label %.loopexit, label %68, !llvm.loop !87
 
 76:                                               ; preds = %33
   br i1 %43, label %77, label %98
@@ -1928,7 +1928,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readon
   %96 = getelementptr inbounds i8, ptr %.2101, i64 %82
   %97 = add i32 %.28299, -1
   %.not87 = icmp eq i32 %97, 0
-  br i1 %.not87, label %.loopexit, label %83, !llvm.loop !85
+  br i1 %.not87, label %.loopexit, label %83, !llvm.loop !88
 
 98:                                               ; preds = %76
   br i1 %.not90108, label %.loopexit, label %.lr.ph
@@ -1958,7 +1958,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readon
   %112 = getelementptr inbounds i8, ptr %.397, i64 %102
   %113 = add i32 %.38395, -1
   %.not = icmp eq i32 %113, 0
-  br i1 %.not, label %.loopexit, label %103, !llvm.loop !86
+  br i1 %.not, label %.loopexit, label %103, !llvm.loop !89
 
 .loopexit:                                        ; preds = %103, %83, %68, %54, %98, %77, %63, %47
   ret i32 1
@@ -1992,7 +1992,7 @@ define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr noundef reado
 20:                                               ; preds = %16, %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !57
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = load ptr, ptr %7, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !4
@@ -2043,7 +2043,7 @@ rgb_to_cmyk.exit:                                 ; preds = %rgb_to_cmyk.exit.lr
   %53 = getelementptr inbounds nuw i8, ptr %.060, i64 4
   %54 = add i32 %.04258, -1
   %.not46 = icmp eq i32 %54, 0
-  br i1 %.not46, label %.loopexit, label %rgb_to_cmyk.exit, !llvm.loop !87
+  br i1 %.not46, label %.loopexit, label %rgb_to_cmyk.exit, !llvm.loop !90
 
 55:                                               ; preds = %20
   br i1 %.not4657, label %.loopexit, label %rgb_to_cmyk.exit51.lr.ph
@@ -2087,7 +2087,7 @@ rgb_to_cmyk.exit51:                               ; preds = %rgb_to_cmyk.exit51.
   %80 = getelementptr inbounds nuw i8, ptr %.156, i64 4
   %81 = add i32 %.14354, -1
   %.not = icmp eq i32 %81, 0
-  br i1 %.not, label %.loopexit, label %rgb_to_cmyk.exit51, !llvm.loop !88
+  br i1 %.not, label %.loopexit, label %rgb_to_cmyk.exit51, !llvm.loop !91
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit51, %rgb_to_cmyk.exit, %55, %31
   ret i32 1
@@ -2142,7 +2142,7 @@ define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr noundef readon
   %36 = load ptr, ptr %20, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !57
-  %39 = load ptr, ptr %38, align 8, !tbaa !63
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
   %40 = sext i32 %11 to i64
   %41 = sext i32 %13 to i64
   %42 = sext i32 %15 to i64
@@ -2241,7 +2241,7 @@ define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr noundef readon
   %106 = getelementptr inbounds i8, ptr %.067.us, i64 %47
   %107 = add i32 %.06265.us, -1
   %.not.us = icmp eq i32 %107, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !89
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !92
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %157
   %.067 = phi ptr [ %162, %157 ], [ %39, %.lr.ph ]
@@ -2325,7 +2325,7 @@ define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr noundef readon
   %162 = getelementptr inbounds i8, ptr %.067, i64 %47
   %163 = add i32 %.06265, -1
   %.not = icmp eq i32 %163, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %157, %97, %33
   ret i32 1
@@ -2366,7 +2366,7 @@ define internal noundef i32 @get_word_rgb_cmyk_row(ptr noundef %0, ptr noundef r
   %23 = load ptr, ptr %7, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !57
-  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = sitofp i32 %6 to double
   br label %28
 
@@ -2499,7 +2499,7 @@ rgb_to_cmyk.exit:                                 ; preds = %70, %96
   %120 = getelementptr inbounds nuw i8, ptr %.055, i64 4
   %121 = add i32 %.05054, -1
   %.not = icmp eq i32 %121, 0
-  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %rgb_to_cmyk.exit, %20
   ret i32 1
@@ -2546,7 +2546,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly ca
 33:                                               ; preds = %29, %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !57
-  %36 = load ptr, ptr %35, align 8, !tbaa !63
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = load ptr, ptr %20, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8, !tbaa !4
@@ -2596,7 +2596,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly ca
   %65 = getelementptr inbounds i8, ptr %.0123, i64 %53
   %66 = add i32 %.092121, -1
   %.not102 = icmp eq i32 %66, 0
-  br i1 %.not102, label %.loopexit, label %54, !llvm.loop !92
+  br i1 %.not102, label %.loopexit, label %54, !llvm.loop !95
 
 67:                                               ; preds = %46
   br i1 %.not102120, label %.loopexit, label %.lr.ph119
@@ -2627,7 +2627,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly ca
   %82 = getelementptr inbounds i8, ptr %.1118, i64 %71
   %83 = add i32 %.193116, -1
   %.not101 = icmp eq i32 %83, 0
-  br i1 %.not101, label %.loopexit, label %72, !llvm.loop !93
+  br i1 %.not101, label %.loopexit, label %72, !llvm.loop !96
 
 84:                                               ; preds = %33
   br i1 %43, label %85, label %116
@@ -2677,7 +2677,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly ca
   %114 = getelementptr inbounds i8, ptr %.2113, i64 %90
   %115 = add i32 %.294111, -1
   %.not99 = icmp eq i32 %115, 0
-  br i1 %.not99, label %.loopexit, label %91, !llvm.loop !94
+  br i1 %.not99, label %.loopexit, label %91, !llvm.loop !97
 
 116:                                              ; preds = %84
   br i1 %.not102120, label %.loopexit, label %.lr.ph
@@ -2717,7 +2717,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly ca
   %140 = getelementptr inbounds i8, ptr %.3109, i64 %120
   %141 = add i32 %.395107, -1
   %.not = icmp eq i32 %141, 0
-  br i1 %.not, label %.loopexit, label %121, !llvm.loop !95
+  br i1 %.not, label %.loopexit, label %121, !llvm.loop !98
 
 .loopexit:                                        ; preds = %121, %91, %72, %54, %116, %85, %67, %47
   ret i32 1
@@ -2751,7 +2751,7 @@ define internal noundef i32 @get_rgb_cmyk_row(ptr noundef %0, ptr noundef readon
 20:                                               ; preds = %16, %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !57
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = load ptr, ptr %7, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !4
@@ -2836,7 +2836,7 @@ rgb_to_cmyk.exit:                                 ; preds = %33, %56
   %80 = getelementptr inbounds nuw i8, ptr %.066, i64 4
   %81 = add i32 %.04864, -1
   %.not52 = icmp eq i32 %81, 0
-  br i1 %.not52, label %.loopexit, label %33, !llvm.loop !96
+  br i1 %.not52, label %.loopexit, label %33, !llvm.loop !99
 
 82:                                               ; preds = %20
   br i1 %.not5263, label %.loopexit, label %.lr.ph
@@ -2920,7 +2920,7 @@ rgb_to_cmyk.exit57:                               ; preds = %84, %116
   %140 = getelementptr inbounds nuw i8, ptr %.162, i64 4
   %141 = add i32 %.14960, -1
   %.not = icmp eq i32 %141, 0
-  br i1 %.not, label %.loopexit, label %84, !llvm.loop !97
+  br i1 %.not, label %.loopexit, label %84, !llvm.loop !100
 
 .loopexit:                                        ; preds = %rgb_to_cmyk.exit57, %rgb_to_cmyk.exit, %82, %31
   ret i32 1
@@ -3008,41 +3008,44 @@ attributes #6 = { nounwind }
 !57 = !{!36, !29, i64 32}
 !58 = !{!36, !12, i64 56}
 !59 = !{!36, !40, i64 88}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = distinct !{!62, !61}
-!63 = !{!40, !40, i64 0}
-!64 = distinct !{!64, !61}
-!65 = distinct !{!65, !61}
-!66 = distinct !{!66, !61}
-!67 = distinct !{!67, !61}
-!68 = distinct !{!68, !61}
-!69 = distinct !{!69, !61}
-!70 = distinct !{!70, !61}
-!71 = distinct !{!71, !61}
-!72 = distinct !{!72, !61}
-!73 = distinct !{!73, !61}
-!74 = distinct !{!74, !61}
-!75 = distinct !{!75, !61}
-!76 = distinct !{!76, !61}
-!77 = distinct !{!77, !61}
-!78 = distinct !{!78, !61, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !61}
-!81 = distinct !{!81, !61}
-!82 = distinct !{!82, !61}
-!83 = distinct !{!83, !61}
-!84 = distinct !{!84, !61}
-!85 = distinct !{!85, !61}
-!86 = distinct !{!86, !61}
-!87 = distinct !{!87, !61}
-!88 = distinct !{!88, !61}
-!89 = distinct !{!89, !61, !79}
-!90 = distinct !{!90, !61}
-!91 = distinct !{!91, !61}
-!92 = distinct !{!92, !61}
-!93 = distinct !{!93, !61}
-!94 = distinct !{!94, !61}
-!95 = distinct !{!95, !61}
-!96 = distinct !{!96, !61}
-!97 = distinct !{!97, !61}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = distinct !{!63, !62}
+!64 = distinct !{!64, !62}
+!65 = distinct !{!65, !61, !62}
+!66 = !{!40, !40, i64 0}
+!67 = distinct !{!67, !61, !62}
+!68 = distinct !{!68, !61, !62}
+!69 = distinct !{!69, !61, !62}
+!70 = distinct !{!70, !61, !62}
+!71 = distinct !{!71, !61, !62}
+!72 = distinct !{!72, !61, !62}
+!73 = distinct !{!73, !61, !62}
+!74 = distinct !{!74, !61, !62}
+!75 = distinct !{!75, !61, !62}
+!76 = distinct !{!76, !61, !62}
+!77 = distinct !{!77, !61, !62}
+!78 = distinct !{!78, !61, !62}
+!79 = distinct !{!79, !61, !62}
+!80 = distinct !{!80, !61, !62}
+!81 = distinct !{!81, !61, !62, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = distinct !{!83, !61, !62}
+!84 = distinct !{!84, !61, !62}
+!85 = distinct !{!85, !61, !62}
+!86 = distinct !{!86, !61, !62}
+!87 = distinct !{!87, !61, !62}
+!88 = distinct !{!88, !61, !62}
+!89 = distinct !{!89, !61, !62}
+!90 = distinct !{!90, !61, !62}
+!91 = distinct !{!91, !61, !62}
+!92 = distinct !{!92, !61, !62, !82}
+!93 = distinct !{!93, !61, !62}
+!94 = distinct !{!94, !61, !62}
+!95 = distinct !{!95, !61, !62}
+!96 = distinct !{!96, !61, !62}
+!97 = distinct !{!97, !61, !62}
+!98 = distinct !{!98, !61, !62}
+!99 = distinct !{!99, !61, !62}
+!100 = distinct !{!100, !61, !62}

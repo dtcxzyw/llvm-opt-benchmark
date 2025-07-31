@@ -170,7 +170,7 @@ _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i: ; preds = %_ZNSt8_R
 
 14:                                               ; preds = %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   br label %_ZN4base19PersistentSampleMap21GetSampleCountStorageEi.exit
 
 _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.thread.i: ; preds = %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %2
@@ -194,7 +194,7 @@ _ZN4base19PersistentSampleMap21GetSampleCountStorageEi.exit: ; preds = %14, %_ZN
   store i32 0, ptr %23, align 4, !tbaa !32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr %23, ptr %25, align 8, !tbaa !39
+  store ptr %23, ptr %25, align 8, !tbaa !40
   br label %28
 
 26:                                               ; preds = %18
@@ -243,7 +243,7 @@ _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i: ; preds = %_ZNSt8_R
 
 13:                                               ; preds = %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   br label %_ZN4base19PersistentSampleMap21GetSampleCountStorageEi.exit
 
 _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.thread.i: ; preds = %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %2
@@ -300,7 +300,7 @@ _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit: ; preds = %_ZNSt8_Rb_
 
 13:                                               ; preds = %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit
   %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   br label %17
 
 _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE4findERS4_.exit
@@ -332,12 +332,12 @@ define noundef i32 @_ZNK4base19PersistentSampleMap10TotalCountEv(ptr noundef non
   %.010 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %.sroa.05.09 = phi ptr [ %10, %.lr.ph ], [ %4, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = load i32, ptr %7, align 4, !tbaa !32
   %9 = add nsw i32 %8, %.010
   %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.09) #16
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -351,8 +351,8 @@ define noundef ptr @_ZN4base19PersistentSampleMap13ImportSamplesEib(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !40
-  %11 = load i64, ptr %10, align 8, !tbaa !41
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %11 = load i64, ptr %10, align 8, !tbaa !43
   %12 = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %8, i64 noundef %11, ptr noundef nonnull align 8 dereferenceable(104) %0)
   store ptr %12, ptr %4, align 8, !tbaa !31
   br label %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
@@ -372,11 +372,11 @@ _ZN4base19PersistentSampleMap10GetRecordsEv.exit: ; preds = %3, %6
 
 .lr.ph:                                           ; preds = %.outer, %38
   %18 = phi i32 [ %39, %38 ], [ %17, %.outer ]
-  %.val = load ptr, ptr %13, align 8, !tbaa !42
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !49
+  %.val = load ptr, ptr %13, align 8, !tbaa !44
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !51
   %19 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, i32 noundef range(i32 1, 0) %18, i32 noundef -1880709472, i32 noundef 16)
   %.not17 = icmp eq ptr %19, null
-  br i1 %.not17, label %38, label %20, !llvm.loop !62
+  br i1 %.not17, label %38, label %20, !llvm.loop !64
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -399,7 +399,7 @@ _ZN4base19PersistentSampleMap10GetRecordsEv.exit: ; preds = %3, %6
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !33
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %24, !llvm.loop !63
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %24, !llvm.loop !65
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %24
   %28 = icmp eq ptr %.19.i.i.i.i, %16
@@ -414,8 +414,8 @@ _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit:
 _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread: ; preds = %20, %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(4) %21)
-  store ptr %31, ptr %32, align 8, !tbaa !39
-  %.pre = load i32, ptr %21, align 8, !tbaa !64
+  store ptr %31, ptr %32, align 8, !tbaa !40
+  %.pre = load i32, ptr %21, align 8, !tbaa !66
   br label %33
 
 33:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread
@@ -427,12 +427,12 @@ _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.
   %.not18 = icmp eq ptr %.014.ph, null
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %spec.select = select i1 %.not18, ptr %37, ptr %.014.ph
-  br i1 %2, label %.outer, label %.loopexit
+  br i1 %2, label %.outer, label %.loopexit, !llvm.loop !68
 
 38:                                               ; preds = %33, %.lr.ph
   %39 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %36, %.outer, %38
   %.1 = phi ptr [ %.014.ph, %38 ], [ %spec.select, %36 ], [ %.014.ph, %.outer ]
@@ -455,16 +455,16 @@ define void @_ZNK4base19PersistentSampleMap8IteratorEv(ptr dead_on_unwind noalia
   br i1 %10, label %_ZNSt10unique_ptrIN4base12_GLOBAL__N_127PersistentSampleMapIteratorESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.noexc4.i
-  %11 = load ptr, ptr %5, align 8, !tbaa !66
+  %11 = load ptr, ptr %5, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = load i32, ptr %13, align 4, !tbaa !32
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZNSt10unique_ptrIN4base12_GLOBAL__N_127PersistentSampleMapIteratorESt14default_deleteIS2_EED2Ev.exit
 
 16:                                               ; preds = %.lr.ph.i.i
   %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %11) #16
-  store ptr %17, ptr %5, align 8, !tbaa !66
+  store ptr %17, ptr %5, align 8, !tbaa !69
   %18 = load ptr, ptr %4, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -472,7 +472,7 @@ define void @_ZNK4base19PersistentSampleMap8IteratorEv(ptr dead_on_unwind noalia
           to label %.noexc4.i unwind label %.body
 
 .noexc4.i:                                        ; preds = %16
-  br i1 %21, label %_ZNSt10unique_ptrIN4base12_GLOBAL__N_127PersistentSampleMapIteratorESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !68
+  br i1 %21, label %_ZNSt10unique_ptrIN4base12_GLOBAL__N_127PersistentSampleMapIteratorESt14default_deleteIS2_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !71
 
 .body:                                            ; preds = %16
   %22 = landingpad { ptr, i32 }
@@ -482,7 +482,7 @@ define void @_ZNK4base19PersistentSampleMap8IteratorEv(ptr dead_on_unwind noalia
   resume { ptr, i32 } %22
 
 _ZNSt10unique_ptrIN4base12_GLOBAL__N_127PersistentSampleMapIteratorESt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i, %.noexc4.i, %2
-  store ptr %4, ptr %0, align 8, !tbaa !69
+  store ptr %4, ptr %0, align 8, !tbaa !72
   ret void
 }
 
@@ -492,14 +492,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1880709472)
-  %.val = load ptr, ptr %0, align 8, !tbaa !72
+  %.val = load ptr, ptr %0, align 8, !tbaa !75
   %4 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val, i32 noundef %3, i32 noundef -1880709472, i32 noundef 16)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %4, align 8, !tbaa !73
-  store i64 %6, ptr %1, align 8, !tbaa !74
+  %6 = load i64, ptr %4, align 8, !tbaa !76
+  store i64 %6, ptr %1, align 8, !tbaa !77
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -517,11 +517,11 @@ define noundef i32 @_ZN4base19PersistentSampleMap22CreatePersistentRecordEPNS_25
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  store i64 %1, ptr %5, align 8, !tbaa !73
+  store i64 %1, ptr %5, align 8, !tbaa !76
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %7, align 8, !tbaa !64
+  store i32 %2, ptr %7, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %8, align 4, !tbaa !75
+  store i32 0, ptr %8, align 4, !tbaa !78
   tail call void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %4)
   br label %9
 
@@ -572,7 +572,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %23 = add nsw i32 %22, 1
   %24 = load i32, ptr %5, align 4, !tbaa !32
   %.not.us = icmp eq i32 %23, %24
-  br i1 %.not.us, label %.lr.ph12, label %._crit_edge, !llvm.loop !76
+  br i1 %.not.us, label %.lr.ph12, label %._crit_edge, !llvm.loop !79
 
 .lr.ph12:                                         ; preds = %.lr.ph.split.us, %18
   %25 = phi i32 [ %22, %18 ], [ %15, %.lr.ph.split.us ]
@@ -589,7 +589,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %36, label %._crit_edge, label %18, !llvm.loop !76
+  br i1 %36, label %._crit_edge, label %18, !llvm.loop !79
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not.us11, label %.lr.ph9, label %._crit_edge
@@ -603,7 +603,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %42 = add nsw i32 %41, 1
   %43 = load i32, ptr %5, align 4, !tbaa !32
   %.not = icmp eq i32 %42, %43
-  br i1 %.not, label %.lr.ph9, label %._crit_edge, !llvm.loop !78
+  br i1 %.not, label %.lr.ph9, label %._crit_edge, !llvm.loop !81
 
 .lr.ph9:                                          ; preds = %.lr.ph.split, %37
   %44 = phi i32 [ %41, %37 ], [ %15, %.lr.ph.split ]
@@ -620,7 +620,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %55, label %._crit_edge, label %37, !llvm.loop !78
+  br i1 %55, label %._crit_edge, label %37, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph9, %18, %.lr.ph12, %.lr.ph.split.us, %.lr.ph.split, %3
   %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ %36, %.lr.ph12 ], [ %36, %18 ], [ %55, %.lr.ph9 ], [ %55, %37 ]
@@ -668,9 +668,9 @@ _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE11lower_boundERS4_.exit: ; preds = %.l
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE11lower_boundERS4_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %.pre, ptr %15, align 8, !tbaa !79
+  store i32 %.pre, ptr %15, align 8, !tbaa !82
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr null, ptr %16, align 8, !tbaa !36
+  store ptr null, ptr %16, align 8, !tbaa !37
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %18 unwind label %_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE10_Auto_nodeD2Ev.exit.i
 
@@ -729,8 +729,8 @@ define noundef ptr @_ZN4base19PersistentSampleMap10GetRecordsEv(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
-  %9 = load i64, ptr %8, align 8, !tbaa !41
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator19UseSampleMapRecordsEmPKv(ptr noundef nonnull align 8 dereferenceable(132) %6, i64 noundef %9, ptr noundef nonnull %0)
   store ptr %10, ptr %2, align 8, !tbaa !31
   br label %11
@@ -760,13 +760,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4les
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %6 = load ptr, ptr %5, align 8, !tbaa !84
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #14
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -786,8 +786,8 @@ define internal void @_ZN4base12_GLOBAL__N_127PersistentSampleMapIteratorD0Ev(pt
 define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %2, align 8, !tbaa !66
-  %5 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %2, align 8, !tbaa !69
+  %5 = load ptr, ptr %3, align 8, !tbaa !69
   %6 = icmp eq ptr %4, %5
   ret i1 %6
 }
@@ -795,9 +795,9 @@ define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_127PersistentSampleMap
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %3) #16
-  store ptr %4, ptr %2, align 8, !tbaa !66
+  store ptr %4, ptr %2, align 8, !tbaa !69
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -805,21 +805,21 @@ define internal void @_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator4NextEv
   br i1 %8, label %_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %14
-  %9 = load ptr, ptr %2, align 8, !tbaa !66
+  %9 = load ptr, ptr %2, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit
 
 14:                                               ; preds = %.lr.ph.i
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %9) #16
-  store ptr %15, ptr %2, align 8, !tbaa !66
+  store ptr %15, ptr %2, align 8, !tbaa !69
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  br i1 %19, label %_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %19, label %_ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit, label %.lr.ph.i, !llvm.loop !71
 
 _ZN4base12_GLOBAL__N_127PersistentSampleMapIterator16SkipEmptyBucketsEv.exit: ; preds = %.lr.ph.i, %14, %1
   ret void
@@ -832,9 +832,9 @@ define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEP
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !79
+  %9 = load i32, ptr %8, align 8, !tbaa !82
   store i32 %9, ptr %1, align 4, !tbaa !32
   br label %10
 
@@ -844,9 +844,9 @@ define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEP
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !66
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !79
+  %15 = load i32, ptr %14, align 8, !tbaa !82
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %2, align 4, !tbaa !32
   br label %17
@@ -857,9 +857,9 @@ define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEP
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = load i32, ptr %22, align 4, !tbaa !32
   store i32 %23, ptr %3, align 4, !tbaa !32
   br label %24
@@ -915,7 +915,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !33
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !83
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !86
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -966,7 +966,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !80
+  %48 = load ptr, ptr %47, align 8, !tbaa !83
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -987,7 +987,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !33
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !83
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !86
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -1031,7 +1031,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !80
+  %74 = load ptr, ptr %73, align 8, !tbaa !83
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -1052,7 +1052,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !33
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !83
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !86
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -1150,53 +1150,56 @@ attributes #16 = { nounwind willreturn memory(read) }
 !31 = !{!19, !30, i64 96}
 !32 = !{!22, !22, i64 0}
 !33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !38, i64 8}
-!37 = !{!"_ZTSSt4pairIKiPiE", !22, i64 0, !38, i64 8}
-!38 = !{!"p1 int", !12, i64 0}
-!39 = !{!38, !38, i64 0}
-!40 = !{!20, !23, i64 32}
-!41 = !{!21, !13, i64 0}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"_ZTSN4base26PersistentSampleMapRecordsE", !44, i64 0, !13, i64 8, !12, i64 16, !13, i64 24, !45, i64 32, !45, i64 56}
-!44 = !{!"p1 _ZTSN4base36PersistentSparseHistogramDataManagerE", !12, i64 0}
-!45 = !{!"_ZTSSt6vectorIjSaIjEE", !46, i64 0}
-!46 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !47, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTSN4base36PersistentSparseHistogramDataManagerE", !51, i64 0, !52, i64 8, !55, i64 24, !60, i64 72}
-!51 = !{!"p1 _ZTSN4base25PersistentMemoryAllocatorE", !12, i64 0}
-!52 = !{!"_ZTSN4base25PersistentMemoryAllocator8IteratorE", !51, i64 0, !53, i64 8, !53, i64 12}
-!53 = !{!"_ZTSSt6atomicIjE", !54, i64 0}
-!54 = !{!"_ZTSSt13__atomic_baseIjE", !22, i64 0}
-!55 = !{!"_ZTSSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE", !56, i64 0}
-!56 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE", !57, i64 0}
-!57 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !58, i64 0, !7, i64 8}
-!58 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !59, i64 0}
-!59 = !{!"_ZTSSt4lessImE"}
-!60 = !{!"_ZTSN4base4LockE", !61, i64 0}
-!61 = !{!"_ZTSN4base8internal8LockImplE", !10, i64 0}
-!62 = distinct !{!62, !35}
-!63 = distinct !{!63, !35}
-!64 = !{!65, !22, i64 8}
-!65 = !{!"_ZTSN4base12_GLOBAL__N_112SampleRecordE", !13, i64 0, !22, i64 8, !22, i64 12}
-!66 = !{!67, !11, i64 0}
-!67 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKiPiEE", !11, i64 0}
-!68 = distinct !{!68, !35}
-!69 = !{!70, !71, i64 0}
-!70 = !{!"_ZTSSt10_Head_baseILm0EPN4base19SampleCountIteratorELb0EE", !71, i64 0}
-!71 = !{!"p1 _ZTSN4base19SampleCountIteratorE", !12, i64 0}
-!72 = !{!52, !51, i64 0}
-!73 = !{!65, !13, i64 0}
-!74 = !{!13, !13, i64 0}
-!75 = !{!65, !22, i64 12}
-!76 = distinct !{!76, !35, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !35}
-!79 = !{!37, !22, i64 0}
-!80 = !{!8, !11, i64 24}
-!81 = !{!8, !11, i64 16}
-!82 = distinct !{!82, !35}
-!83 = distinct !{!83, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !39, i64 8}
+!38 = !{!"_ZTSSt4pairIKiPiE", !22, i64 0, !39, i64 8}
+!39 = !{!"p1 int", !12, i64 0}
+!40 = !{!39, !39, i64 0}
+!41 = distinct !{!41, !36}
+!42 = !{!20, !23, i64 32}
+!43 = !{!21, !13, i64 0}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN4base26PersistentSampleMapRecordsE", !46, i64 0, !13, i64 8, !12, i64 16, !13, i64 24, !47, i64 32, !47, i64 56}
+!46 = !{!"p1 _ZTSN4base36PersistentSparseHistogramDataManagerE", !12, i64 0}
+!47 = !{!"_ZTSSt6vectorIjSaIjEE", !48, i64 0}
+!48 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"_ZTSN4base36PersistentSparseHistogramDataManagerE", !53, i64 0, !54, i64 8, !57, i64 24, !62, i64 72}
+!53 = !{!"p1 _ZTSN4base25PersistentMemoryAllocatorE", !12, i64 0}
+!54 = !{!"_ZTSN4base25PersistentMemoryAllocator8IteratorE", !53, i64 0, !55, i64 8, !55, i64 12}
+!55 = !{!"_ZTSSt6atomicIjE", !56, i64 0}
+!56 = !{!"_ZTSSt13__atomic_baseIjE", !22, i64 0}
+!57 = !{!"_ZTSSt3mapImSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE", !58, i64 0}
+!58 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE", !59, i64 0}
+!59 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4base26PersistentSampleMapRecordsESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !60, i64 0, !7, i64 8}
+!60 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !61, i64 0}
+!61 = !{!"_ZTSSt4lessImE"}
+!62 = !{!"_ZTSN4base4LockE", !63, i64 0}
+!63 = !{!"_ZTSN4base8internal8LockImplE", !10, i64 0}
+!64 = distinct !{!64, !35}
+!65 = distinct !{!65, !35, !36}
+!66 = !{!67, !22, i64 8}
+!67 = !{!"_ZTSN4base12_GLOBAL__N_112SampleRecordE", !13, i64 0, !22, i64 8, !22, i64 12}
+!68 = distinct !{!68, !36}
+!69 = !{!70, !11, i64 0}
+!70 = !{!"_ZTSSt23_Rb_tree_const_iteratorISt4pairIKiPiEE", !11, i64 0}
+!71 = distinct !{!71, !35, !36}
+!72 = !{!73, !74, i64 0}
+!73 = !{!"_ZTSSt10_Head_baseILm0EPN4base19SampleCountIteratorELb0EE", !74, i64 0}
+!74 = !{!"p1 _ZTSN4base19SampleCountIteratorE", !12, i64 0}
+!75 = !{!54, !53, i64 0}
+!76 = !{!67, !13, i64 0}
+!77 = !{!13, !13, i64 0}
+!78 = !{!67, !22, i64 12}
+!79 = distinct !{!79, !35, !36, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !35, !36}
+!82 = !{!38, !22, i64 0}
+!83 = !{!8, !11, i64 24}
+!84 = !{!8, !11, i64 16}
+!85 = distinct !{!85, !35, !36}
+!86 = distinct !{!86, !35, !36}

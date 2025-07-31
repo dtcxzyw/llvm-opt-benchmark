@@ -550,7 +550,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
   store i8 %119, ptr %118, align 1, !tbaa !16
   %121 = add nuw nsw i64 %.298, 1
   %exitcond.not = icmp eq i64 %121, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader96, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.preheader96, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader96, %.preheader, %67, %13
   %.0 = phi i32 [ 0, %13 ], [ 0, %67 ], [ 1, %.preheader ], [ 1, %.preheader96 ]
@@ -598,6 +598,7 @@ attributes #6 = { nounwind }
 !14 = !{!11, !7, i64 72}
 !15 = !{!11, !7, i64 64}
 !16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}

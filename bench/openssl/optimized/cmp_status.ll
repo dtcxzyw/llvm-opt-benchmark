@@ -315,7 +315,7 @@ CMP_PKIFAILUREINFO_to_string.exit:                ; preds = %27, %36
   %.2 = phi ptr [ %37, %36 ], [ %.1149, %27 ]
   %39 = add nuw nsw i32 %.0102146, 1
   %exitcond.not = icmp eq i32 %39, 27
-  br i1 %exitcond.not, label %.loopexit138.loopexit, label %27, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit138.loopexit, label %27, !llvm.loop !16
 
 .loopexit138.loopexit:                            ; preds = %CMP_PKIFAILUREINFO_to_string.exit
   %40 = icmp eq i32 %.295, 0
@@ -392,7 +392,7 @@ CMP_PKIFAILUREINFO_to_string.exit:                ; preds = %27, %36
   %74 = sub nuw i64 %.4101150, %71
   %75 = add nuw nsw i32 %.096151, 1
   %exitcond158.not = icmp eq i32 %75, %51
-  br i1 %exitcond158.not, label %.loopexit, label %62, !llvm.loop !16
+  br i1 %exitcond158.not, label %.loopexit, label %62, !llvm.loop !17
 
 .loopexit:                                        ; preds = %switch.lookup161, %34, %70, %62, %72, %ossl_cmp_PKIStatus_to_string.exit, %50, %53, %57, %42, %45, %19, %22, %switch.lookup, %13, %5
   %.092 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %5 ], [ null, %13 ], [ null, %switch.lookup ], [ null, %22 ], [ null, %19 ], [ null, %45 ], [ null, %42 ], [ null, %57 ], [ null, %53 ], [ %3, %50 ], [ null, %70 ], [ null, %62 ], [ %3, %72 ], [ null, %34 ], [ null, %switch.lookup161 ]
@@ -500,7 +500,7 @@ define ptr @OSSL_CMP_STATUSINFO_new(i32 noundef %0, i32 noundef %1, ptr noundef 
 36:                                               ; preds = %24, %33
   %37 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %37, 27
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !18
 
 .loopexit31:                                      ; preds = %33, %30, %20, %16, %11, %14, %6, %3
   %.020 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %20 ], [ %12, %14 ], [ null, %6 ], [ null, %30 ], [ null, %33 ]
@@ -563,8 +563,9 @@ attributes #3 = { nounwind }
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !11 = !{!4, !9, i64 8}
 !12 = !{!4, !5, i64 16}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}

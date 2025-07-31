@@ -15439,7 +15439,7 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @wmem_array_get_count(ptr noundef %51)
   %53 = icmp ult i32 %48, %52
-  br i1 %53, label %.lr.ph.i, label %dissect_ngap_RAT_Information.exit, !llvm.loop !10
+  br i1 %53, label %.lr.ph.i, label %dissect_ngap_RAT_Information.exit, !llvm.loop !11
 
 dissect_ngap_RAT_Information.exit:                ; preds = %.lr.ph.i, %ngap_get_private_data.exit.i, %23, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -24378,7 +24378,7 @@ sub_1:                                            ; preds = %sub_0
 86:                                               ; preds = %.lr.ph
   %87 = add nuw nsw i32 %.0120172, 1
   %exitcond.not = icmp eq i32 %87, %84
-  br i1 %exitcond.not, label %.thread167, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread167, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %83, %86
   %.0120172 = phi i32 [ %87, %86 ], [ 0, %83 ]
@@ -33834,7 +33834,8 @@ attributes #17 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

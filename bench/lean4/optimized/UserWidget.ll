@@ -85763,7 +85763,7 @@ lean_inc.exit23:                                  ; preds = %41, %40, %38, %35
   br i1 %.not.i31, label %42, label %lean_dec.exit26.backedge
 
 lean_dec.exit26.backedge:                         ; preds = %lean_inc.exit23, %45, %47, %48
-  br label %lean_dec.exit26
+  br label %lean_dec.exit26, !llvm.loop !19
 
 42:                                               ; preds = %lean_inc.exit23
   %43 = load i32, ptr %.0, align 4, !tbaa !8
@@ -85874,7 +85874,7 @@ lean_inc.exit:                                    ; preds = %72, %71, %69, %lean
 
 lean_dec.exit:                                    ; preds = %79, %78, %76, %lean_inc.exit
   %80 = tail call ptr @lean_array_push(ptr noundef %.020.ph, ptr noundef %64) #6
-  br label %lean_dec.exit26.outer
+  br label %lean_dec.exit26.outer, !llvm.loop !19
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -85986,7 +85986,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #6
-  br label %3
+  br label %3, !llvm.loop !21
 }
 
 declare ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -86337,7 +86337,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit48
   %.042.be = phi ptr [ %.0, %lean_inc.exit48 ], [ %114, %lean_alloc_ctor.exit ]
-  br label %12
+  br label %12, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -86469,7 +86469,7 @@ lean_inc.exit149:                                 ; preds = %44, %43, %41, %lean
   %.sink = phi ptr [ %117, %142 ], [ %117, %141 ], [ %117, %139 ], [ %117, %lean_inc.exit147 ], [ %26, %51 ], [ %26, %50 ], [ %26, %48 ], [ %26, %lean_inc.exit149 ]
   %.0130.be = phi ptr [ %127, %142 ], [ %127, %141 ], [ %127, %139 ], [ %127, %lean_inc.exit147 ], [ %36, %51 ], [ %36, %50 ], [ %36, %48 ], [ %36, %lean_inc.exit149 ]
   %52 = tail call ptr @l_Lean_Elab_PartialContextInfo_mergeIntoOuter_x3f(ptr noundef %.sink, ptr noundef %.0129) #6
-  br label %5
+  br label %5, !llvm.loop !23
 
 53:                                               ; preds = %lean_obj_tag.exit209
   br i1 %.not.i206, label %54, label %lean_dec.exit167
@@ -88145,13 +88145,13 @@ lean_inc.exit88:                                  ; preds = %113, %112, %110, %l
   br label %lean_dec.exit106
 
 lean_dec.exit106:                                 ; preds = %122, %121, %119, %lean_inc.exit88
-  br i1 %.not223, label %127, label %123, !prof !19
+  br i1 %.not223, label %127, label %123, !prof !24
 
 123:                                              ; preds = %lean_dec.exit106
   %124 = ptrtoint ptr %1 to i64
   %125 = and i64 %124, 1
   %.not225 = icmp eq i64 %125, 0
-  br i1 %.not225, label %lean_nat_le.exit.thread203, label %lean_nat_le.exit.thread, !prof !19
+  br i1 %.not225, label %lean_nat_le.exit.thread203, label %lean_nat_le.exit.thread, !prof !24
 
 lean_nat_le.exit.thread203:                       ; preds = %123
   %126 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %105, ptr noundef %1) #6
@@ -88308,10 +88308,10 @@ lean_dec.exit101:                                 ; preds = %181, %180, %178, %l
   %182 = ptrtoint ptr %1 to i64
   %183 = and i64 %182, 1
   %.not230 = icmp eq i64 %183, 0
-  br i1 %.not230, label %lean_nat_le.exit156, label %184, !prof !19
+  br i1 %.not230, label %lean_nat_le.exit156, label %184, !prof !24
 
 184:                                              ; preds = %lean_dec.exit101
-  br i1 %.not228, label %lean_nat_le.exit156.thread205, label %lean_nat_le.exit156.thread, !prof !19
+  br i1 %.not228, label %lean_nat_le.exit156.thread205, label %lean_nat_le.exit156.thread, !prof !24
 
 lean_nat_le.exit156.thread205:                    ; preds = %184
   %185 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1, ptr noundef %164) #6
@@ -88526,13 +88526,13 @@ lean_inc.exit83:                                  ; preds = %252, %251, %249, %l
   br label %lean_dec.exit97
 
 lean_dec.exit97:                                  ; preds = %261, %260, %258, %lean_inc.exit83
-  br i1 %.not215, label %266, label %262, !prof !19
+  br i1 %.not215, label %266, label %262, !prof !24
 
 262:                                              ; preds = %lean_dec.exit97
   %263 = ptrtoint ptr %1 to i64
   %264 = and i64 %263, 1
   %.not217 = icmp eq i64 %264, 0
-  br i1 %.not217, label %lean_nat_le.exit159.thread207, label %lean_nat_le.exit159.thread, !prof !19
+  br i1 %.not217, label %lean_nat_le.exit159.thread207, label %lean_nat_le.exit159.thread, !prof !24
 
 lean_nat_le.exit159.thread207:                    ; preds = %262
   %265 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %244, ptr noundef %1) #6
@@ -88682,10 +88682,10 @@ lean_dec.exit92:                                  ; preds = %316, %315, %313, %l
   %317 = ptrtoint ptr %1 to i64
   %318 = and i64 %317, 1
   %.not220 = icmp eq i64 %318, 0
-  br i1 %.not220, label %lean_nat_le.exit162, label %319, !prof !19
+  br i1 %.not220, label %lean_nat_le.exit162, label %319, !prof !24
 
 319:                                              ; preds = %lean_dec.exit92
-  br i1 %.not218, label %lean_nat_le.exit162.thread209, label %lean_nat_le.exit162.thread, !prof !19
+  br i1 %.not218, label %lean_nat_le.exit162.thread209, label %lean_nat_le.exit162.thread, !prof !24
 
 lean_nat_le.exit162.thread209:                    ; preds = %319
   %320 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1, ptr noundef %299) #6
@@ -109261,4 +109261,9 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}

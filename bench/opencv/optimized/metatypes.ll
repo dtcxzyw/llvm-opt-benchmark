@@ -918,16 +918,16 @@ _ZNSt6vectorISt10shared_ptrIN3ade11IDataBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN3ade11IDataBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %46, %.lr.ph.i.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrIN3ade11IDataBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %45, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3ade11IDataBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %41 = load ptr, ptr %.0911.i.i.i.i19, align 8, !tbaa !54, !alias.scope !73, !noalias !70
-  store ptr %41, ptr %.012.i.i.i.i18, align 8, !tbaa !54, !alias.scope !70, !noalias !73
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  %41 = load ptr, ptr %.0911.i.i.i.i19, align 8, !tbaa !54, !alias.scope !74, !noalias !71
+  store ptr %41, ptr %.012.i.i.i.i18, align 8, !tbaa !54, !alias.scope !71, !noalias !74
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !33, !alias.scope !73, !noalias !70
-  store ptr null, ptr %43, align 8, !tbaa !33, !alias.scope !73, !noalias !70
-  store ptr %44, ptr %42, align 8, !tbaa !33, !alias.scope !70, !noalias !73
-  store ptr null, ptr %.0911.i.i.i.i19, align 8, !tbaa !54, !alias.scope !73, !noalias !70
+  %44 = load ptr, ptr %43, align 8, !tbaa !33, !alias.scope !74, !noalias !71
+  store ptr null, ptr %43, align 8, !tbaa !33, !alias.scope !74, !noalias !71
+  store ptr %44, ptr %42, align 8, !tbaa !33, !alias.scope !71, !noalias !74
+  store ptr null, ptr %.0911.i.i.i.i19, align 8, !tbaa !54, !alias.scope !74, !noalias !71
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 16
   %.not.i.i.i.i20 = icmp eq ptr %45, %5
@@ -1064,10 +1064,11 @@ attributes #19 = { noreturn }
 !65 = distinct !{!65, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_"}
 !66 = !{!67}
 !67 = distinct !{!67, !65, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!68 = distinct !{!68, !69}
+!68 = distinct !{!68, !69, !70}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!72 = distinct !{!72, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_"}
-!73 = !{!74}
-!74 = distinct !{!74, !72, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!70 = !{!"llvm.loop.estimated_trip_count"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!73 = distinct !{!73, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_"}
+!74 = !{!75}
+!75 = distinct !{!75, !73, !"_ZSt19__relocate_object_aISt10shared_ptrIN3ade11IDataBufferEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}

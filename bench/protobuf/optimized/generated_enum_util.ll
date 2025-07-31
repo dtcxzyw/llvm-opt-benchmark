@@ -143,7 +143,7 @@ while.body.i.i:                                   ; preds = %entry, %.thread
   %3 = phi i64 [ %shr.i.i, %while.body.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
   %4 = phi ptr [ %__first.addr.06.i.i, %while.body.i.i ], [ %spec.select21, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
   %cmp.i.i = icmp sgt i64 %3, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !6
+  br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !7
 
 "_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit": ; preds = %.thread, %entry
   %__first.addr.0.lcssa.i.i = phi ptr [ %sorted_indices, %entry ], [ %4, %.thread ]
@@ -217,7 +217,7 @@ _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcS
   call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull %arrayidx)
   %inc = add nuw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %size
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE9ConstructIJRKSt17basic_string_viewIcS6_EEEEvDpOT_.exit, %entry
   ret i1 true
@@ -282,7 +282,7 @@ if.end32.i:                                       ; preds = %while.body.i
   %cond.i = select i1 %cmp33.i, i64 1, i64 2
   %add35.i = add nuw i64 %cond.i, %mul.i
   %cmp28.i = icmp ult i64 %add35.i, %conv23.i
-  br i1 %cmp28.i, label %while.body.i, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, !llvm.loop !8
+  br i1 %cmp28.i, label %while.body.i, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, !llvm.loop !9
 
 _ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit: ; preds = %while.body.i, %if.end32.i, %if.end20.i, %entry, %if.then15.i
   %retval.i.0 = phi i1 [ %cmp19.i, %if.then15.i ], [ true, %entry ], [ false, %if.end20.i ], [ %cmp30.i, %if.end32.i ], [ %cmp30.i, %while.body.i ]
@@ -540,7 +540,7 @@ invoke.cont49:                                    ; preds = %invoke.cont41, %inv
   store i32 %or.i51, ptr %add.ptr.i.i50, align 4
   %incdec.ptr.i52 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0392, i64 4
   %cmp.i44.not = icmp eq ptr %incdec.ptr.i52, %fallback_values_after_bitmap.sroa.13.0401
-  br i1 %cmp.i44.not, label %for.end, label %invoke.cont49
+  br i1 %cmp.i44.not, label %for.end, label %invoke.cont49, !llvm.loop !10
 
 for.end:                                          ; preds = %invoke.cont49, %invoke.cont41
   %rem.i56 = and i32 %sub4.i, 31
@@ -616,7 +616,7 @@ for.inc56:                                        ; preds = %_ZNSt6vectorIiSaIiE
   %fallback_values_too_large.sroa.0.1 = phi ptr [ %fallback_values_too_large.sroa.0.0405, %if.then12 ], [ %fallback_values_too_large.sroa.0.0405, %while.end ], [ %fallback_values_too_large.sroa.0.0405, %for.end ], [ %fallback_values_too_large.sroa.0.0405, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.0.0405, %if.then.i ], [ %call5.i.i.i.i.i23, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.0.0405, %if.then.i64 ], [ %fallback_values_too_large.sroa.0.0405, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i85 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.0406, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end57, label %for.body
+  br i1 %cmp.not, label %for.end57, label %for.body, !llvm.loop !11
 
 for.end57:                                        ; preds = %for.inc56
   %15 = trunc nuw i8 %start_sequence.sroa.5.1 to i1
@@ -696,7 +696,7 @@ while.body.i.i:                                   ; preds = %invoke.cont70, %whi
   %cmp.i.i.i133 = icmp ne ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.1
   %cmp.i4.i.i = icmp ne ptr %__first2.sroa.0.1.i.i, %fallback_values_after_bitmap.sroa.13.1
   %or.cond.i.i = select i1 %cmp.i.i.i133, i1 %cmp.i4.i.i, i1 false
-  br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.1.i.i to i64
@@ -1041,9 +1041,12 @@ attributes #20 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !5, !6}

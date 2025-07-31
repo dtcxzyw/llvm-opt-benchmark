@@ -494,7 +494,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
 
 98:                                               ; preds = %95
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %6)
-          to label %92 unwind label %.loopexit
+          to label %92 unwind label %.loopexit, !llvm.loop !5
 
 99:                                               ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -689,3 +689,5 @@ attributes #10 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 0, i64 -9223372036854775807}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

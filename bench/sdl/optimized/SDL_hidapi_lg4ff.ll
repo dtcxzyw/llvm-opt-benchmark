@@ -282,7 +282,7 @@ define internal zeroext i1 @HIDAPI_DriverLg4ff_InitDevice(ptr noundef %0) #0 {
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %HIDAPI_DriverLg4ff_GetDeviceName.exit, label %14, !llvm.loop !5
+  br i1 %exitcond.i, label %HIDAPI_DriverLg4ff_GetDeviceName.exit, label %14, !llvm.loop !6
 
 14:                                               ; preds = %13, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %13 ]
@@ -311,7 +311,7 @@ HIDAPI_DriverLg4ff_GetDeviceName.exit:            ; preds = %13, %18
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %26, i8 0, i64 6, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  %28 = load i8, ptr %27, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr %27, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
@@ -621,7 +621,7 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, 
   %.4.i = phi i1 [ true, %118 ], [ %.3212.i, %.lr.ph.i ]
   %121 = add nuw nsw i32 %.0165211.i, 1
   %exitcond.not.i = icmp eq i32 %121, %.0161.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 122:                                              ; preds = %._crit_edge.i
   %123 = load i16, ptr %28, align 4
@@ -937,7 +937,7 @@ HIDAPI_DriverLg4ff_HandleState.exit:              ; preds = %._crit_edge.i, %144
   br i1 %.9.i, label %299, label %342
 
 299:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit.thread, %HIDAPI_DriverLg4ff_HandleState.exit
-  %300 = load i8, ptr %34, align 2, !range !6, !noundef !7
+  %300 = load i8, ptr %34, align 2, !range !7, !noundef !8
   %301 = trunc nuw i8 %300 to i1
   br i1 %301, label %342, label %302
 
@@ -1030,7 +1030,7 @@ HIDAPI_DriverLg4ff_SetRange.exit:                 ; preds = %HIDAPI_DriverLg4ff_
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %42, i8 0, i64 6, i1 false)
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 33
-  %337 = load i8, ptr %336, align 1, !range !6, !noundef !7
+  %337 = load i8, ptr %336, align 1, !range !7, !noundef !8
   %338 = trunc nuw i8 %337 to i1
   br i1 %338, label %339, label %HIDAPI_DriverLg4ff_SetAutoCenter.exit
 
@@ -1048,7 +1048,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_
 
 342:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit, %299, %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %50
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %.loopexit, label %43, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %43, !llvm.loop !10
 
 .loopexit:                                        ; preds = %342, %1, %10, %47
   %.0 = phi i1 [ false, %47 ], [ false, %10 ], [ false, %1 ], [ true, %342 ]
@@ -1312,10 +1312,11 @@ attributes #8 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}

@@ -930,7 +930,7 @@ define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(
   %7 = add i32 %.068.i.i, 24
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7)
   %.not.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   %.0.lcssa.i.i = phi i32 [ 0, %4 ], [ %6, %.lr.ph.i.i ]
@@ -986,7 +986,7 @@ get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   %44 = add nuw i32 %.01416.i.i.i, 1
   %45 = tail call i32 @wmem_array_get_count(ptr noundef %22)
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph.i.i.i, label %.thread.i.i.i, !llvm.loop !8
+  br i1 %46, label %.lr.ph.i.i.i, label %.thread.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i:                                     ; preds = %21, %43
   %.01416.i.i.i = phi i32 [ %44, %43 ], [ 0, %21 ]
@@ -1023,7 +1023,7 @@ dissect_rpcrdma_read_chunk.exit.i:                ; preds = %.thread.i.i.i, %54
   %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %63)
   %65 = add i32 %.026.i, 28
   %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
+  br i1 %.not.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_rpcrdma_read_list.exit:                   ; preds = %dissect_rpcrdma_read_chunk.exit.i, %get_read_list_chunk_count.exit.i
   %.lcssa23.i = phi i32 [ %14, %get_read_list_chunk_count.exit.i ], [ %65, %dissect_rpcrdma_read_chunk.exit.i ]
@@ -1047,7 +1047,7 @@ dissect_rpcrdma_read_list.exit:                   ; preds = %dissect_rpcrdma_rea
   %75 = add i32 %73, %69
   %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %75)
   %.not.i.i12 = icmp eq i32 %76, 0
-  br i1 %.not.i.i12, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11
+  br i1 %.not.i.i12, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11, !llvm.loop !13
 
 get_write_list_chunk_count.exit.i:                ; preds = %.lr.ph.i.i11, %dissect_rpcrdma_read_list.exit
   %.010.lcssa.i.i = phi i32 [ 0, %dissect_rpcrdma_read_list.exit ], [ %74, %.lr.ph.i.i11 ]
@@ -1082,7 +1082,7 @@ get_write_list_chunk_count.exit.i:                ; preds = %.lr.ph.i.i11, %diss
   %94 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %93)
   %95 = add i32 %93, 4
   %.not.i14 = icmp eq i32 %94, 0
-  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %84
+  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %84, !llvm.loop !14
 
 dissect_rpcrdma_write_list.exit:                  ; preds = %91, %get_write_list_chunk_count.exit.i
   %.lcssa.i = phi i32 [ %82, %get_write_list_chunk_count.exit.i ], [ %95, %91 ]
@@ -1232,14 +1232,14 @@ find_segment_info.exit.thread:                    ; preds = %26, %23, %.lr.ph, %
   %36 = load ptr, ptr %13, align 8
   %37 = tail call i32 @wmem_array_get_count(ptr noundef %36)
   %38 = icmp ult i32 %35, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %find_segment_info.exit.thread, %.lr.ph45
   %.2.lcssa = phi i32 [ %.142, %.lr.ph45 ], [ %.3, %find_segment_info.exit.thread ]
   %39 = add nuw i32 %.02743, 1
   %40 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0)
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph45, label %._crit_edge46, !llvm.loop !11
+  br i1 %41, label %.lr.ph45, label %._crit_edge46, !llvm.loop !16
 
 ._crit_edge46:                                    ; preds = %._crit_edge
   %.not34 = icmp eq i32 %.2.lcssa, 0
@@ -1331,7 +1331,7 @@ define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly 
   %19 = add i32 %11, %.12711.i
   %20 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.02512.i)
   %.not31.i = icmp eq ptr %20, null
-  br i1 %.not31.i, label %is_reassembly_done.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not31.i, label %is_reassembly_done.exit, label %.lr.ph.i, !llvm.loop !17
 
 is_reassembly_done.exit:                          ; preds = %15
   %21 = icmp ne i32 %17, 0
@@ -1463,7 +1463,7 @@ define internal fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %0, ptr noun
   %40 = add i32 %.029, 16
   %41 = add nuw i32 %.02728, 1
   %exitcond.not = icmp eq i32 %41, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %6, %5 ], [ %40, %.lr.ph ]
@@ -1726,7 +1726,7 @@ find_segment_info.exit:                           ; preds = %47
   %86 = load ptr, ptr %29, align 8
   %87 = tail call i32 @wmem_array_get_count(ptr noundef %86)
   %88 = icmp ult i32 %85, %87
-  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %81, %28
   %.1153.lcssa = phi i32 [ %.0152178, %28 ], [ %.2154, %81 ]
@@ -1782,7 +1782,7 @@ find_segment_info.exit:                           ; preds = %47
   %113 = add nuw i32 %.0137184, 1
   %114 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
   %115 = icmp ult i32 %113, %114
-  br i1 %115, label %10, label %._crit_edge192.loopexit, !llvm.loop !15
+  br i1 %115, label %10, label %._crit_edge192.loopexit, !llvm.loop !20
 
 ._crit_edge192.loopexit:                          ; preds = %112
   %116 = icmp eq ptr %.1139, null
@@ -2412,7 +2412,7 @@ define internal fastcc i32 @get_chunk_lists_size(ptr noundef %0, i32 noundef ran
 9:                                                ; preds = %8
   %10 = add i32 %.012.i, 24
   %11 = icmp ugt i32 %10, %1
-  br i1 %11, label %get_read_list_size.exit.thread, label %4
+  br i1 %11, label %get_read_list_size.exit.thread, label %4, !llvm.loop !21
 
 get_read_list_size.exit:                          ; preds = %8
   %.not = icmp eq i32 %6, %2
@@ -2429,7 +2429,7 @@ get_read_list_size.exit:                          ; preds = %8
   %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17)
   %19 = add i32 %17, 4
   %20 = icmp ugt i32 %19, %1
-  br i1 %20, label %get_read_list_size.exit.thread, label %.lr.ph.i
+  br i1 %20, label %get_read_list_size.exit.thread, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %12, %16
   %21 = phi i32 [ %19, %16 ], [ %14, %12 ]
@@ -2602,7 +2602,7 @@ find_segment_info.exit:                           ; preds = %41
   %75 = add i32 %74, %.27091
   %76 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06792)
   %.not81 = icmp eq ptr %76, null
-  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %61
   %.169 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %75, %.lr.ph ]
@@ -2706,11 +2706,18 @@ attributes #14 = { allocsize(1) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!15 = distinct !{!15, !11, !9}
+!16 = distinct !{!16, !11, !9}
+!17 = distinct !{!17, !11, !9}
+!18 = distinct !{!18, !11, !9}
+!19 = distinct !{!19, !11, !9}
+!20 = distinct !{!20, !11, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !11, !9}

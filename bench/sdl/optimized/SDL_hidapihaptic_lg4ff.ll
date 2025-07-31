@@ -138,7 +138,7 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
   store i8 0, ptr %35, align 8
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 4
-  br i1 %exitcond.not.i37, label %37, label %29, !llvm.loop !5
+  br i1 %exitcond.not.i37, label %37, label %29, !llvm.loop !6
 
 .loopexit:                                        ; preds = %29, %17
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
@@ -275,7 +275,7 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
   store i32 0, ptr %gep.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %6, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %6, !llvm.loop !7
 
 SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %6
   %8 = load ptr, ptr %4, align 8
@@ -330,14 +330,14 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %15 ]
   %12 = mul nuw nsw i64 %indvars.iv, 152
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %12
-  %13 = load i8, ptr %gep, align 4, !range !7, !noundef !8
+  %13 = load i8, ptr %gep, align 4, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %16, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %16, label %11, !llvm.loop !10
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %9, align 8
@@ -427,7 +427,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %3
   %9 = zext nneg i32 %narrow.i to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 148
-  %12 = load i8, ptr %11, align 4, !range !7, !noundef !8
+  %12 = load i8, ptr %11, align 4, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %16, label %lg4ff_effect_slot_valid_active.exit.thread
 
@@ -507,7 +507,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %3
   %9 = zext nneg i32 %narrow.i to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 148
-  %12 = load i8, ptr %11, align 4, !range !7, !noundef !8
+  %12 = load i8, ptr %11, align 4, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %16, label %lg4ff_effect_slot_valid_active.exit.thread
 
@@ -585,7 +585,7 @@ lg4ff_effect_slot_valid_active.exit.i:            ; preds = %2
   %8 = zext nneg i32 %narrow.i.i to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 148
-  %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 4, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %15, label %lg4ff_effect_slot_valid_active.exit.thread.i
 
@@ -637,7 +637,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
   %8 = zext nneg i32 %narrow.i to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 148
-  %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 4, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %lg4ff_effect_slot_valid_active.exit.thread
 
@@ -672,7 +672,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
   %8 = zext nneg i32 %narrow.i to i64
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 148
-  %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 4, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %lg4ff_effect_slot_valid_active.exit.thread
 
@@ -717,7 +717,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_SetAutocenter(p
   %7 = load ptr, ptr %6, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %7) #8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2952
-  %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %25
 
@@ -869,7 +869,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
   store i32 0, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %8, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %8, label %6, !llvm.loop !7
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %4, align 8
@@ -912,7 +912,7 @@ declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef,
 define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr noundef %0) #0 {
   %2 = alloca [4 x %struct.lg4ff_effect_parameters], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2672
-  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -2069,7 +2069,7 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
   %628 = icmp samesign ult i64 %indvars.iv.i, 15
   %629 = icmp ne i32 %.1.i, 0
   %or.cond.i = select i1 %628, i1 %629, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %or.cond.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %lg4ff_update_state.exit.i
   store i32 %626, ptr %11, align 4
@@ -2137,7 +2137,7 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
   %669 = add i32 %668, %.067114.i
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next133.i, 4
-  br i1 %exitcond.not.i, label %670, label %649, !llvm.loop !11
+  br i1 %exitcond.not.i, label %670, label %649, !llvm.loop !12
 
 670:                                              ; preds = %649
   %671 = load i32, ptr %25, align 8
@@ -2157,7 +2157,7 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
   %676 = getelementptr inbounds nuw [4 x %struct.lg4ff_effect_parameters], ptr %2, i64 0, i64 %indvars.iv135.i
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %675, ptr noundef %676)
   %677 = getelementptr inbounds nuw i8, ptr %675, i64 40
-  %678 = load i8, ptr %677, align 4, !range !7, !noundef !8
+  %678 = load i8, ptr %677, align 4, !range !8, !noundef !9
   %679 = trunc nuw i8 %678 to i1
   br i1 %679, label %680, label %684
 
@@ -2171,16 +2171,16 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
 684:                                              ; preds = %680, %674
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %exitcond138.not.i = icmp eq i64 %indvars.iv.next136.i, 4
-  br i1 %exitcond138.not.i, label %lg4ff_timer.exit, label %674, !llvm.loop !12
+  br i1 %exitcond138.not.i, label %lg4ff_timer.exit, label %674, !llvm.loop !13
 
 lg4ff_timer.exit:                                 ; preds = %684
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #8
   %685 = load ptr, ptr %6, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %685) #8
   tail call void @SDL_Delay_REAL(i32 noundef 2) #8
-  %686 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %686 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %687 = trunc nuw i8 %686 to i1
-  br i1 %687, label %._crit_edge, label %28
+  br i1 %687, label %._crit_edge, label %28, !llvm.loop !14
 }
 
 declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -2496,13 +2496,15 @@ attributes #8 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !5}

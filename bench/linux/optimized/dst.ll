@@ -337,7 +337,7 @@ define dso_local noalias noundef ptr @dst_destroy(ptr noundef %0) #0 align 16 {
   br label %59
 
 59:                                               ; preds = %56, %51
-  br i1 %52, label %2, label %60
+  br i1 %52, label %2, label %60, !llvm.loop !16
 
 60:                                               ; preds = %59, %42
   ret ptr null
@@ -571,7 +571,7 @@ define dso_local ptr @dst_cow_metrics_generic(ptr noundef %0, i64 noundef %1) #0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef align 4 dereferenceable(68) %8, i64 68, i1 false)
   %10 = ptrtoint ptr %4 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 %10, i64 %1, ptr nonnull elementtype(i64) %11) #13, !srcloc !16
+  %12 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 %10, i64 %1, ptr nonnull elementtype(i64) %11) #13, !srcloc !18
   %13 = icmp eq i64 %12, %1
   br i1 %13, label %20, label %14
 
@@ -591,7 +591,7 @@ define dso_local ptr @dst_cow_metrics_generic(ptr noundef %0, i64 noundef %1) #0
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 -1, ptr nonnull elementtype(i32) %24) #13, !srcloc !17
+  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 -1, ptr nonnull elementtype(i32) %24) #13, !srcloc !19
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %30, label %27
 
@@ -604,7 +604,7 @@ define dso_local ptr @dst_cow_metrics_generic(ptr noundef %0, i64 noundef %1) #0
   br label %.thread
 
 30:                                               ; preds = %23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
   tail call void @kfree(ptr noundef %8) #13
   br label %.thread
 
@@ -623,7 +623,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 define dso_local void @__dst_destroy_metrics_generic(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = or disjoint i64 ptrtoint (ptr @dst_default_metrics to i64), 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %3, i64 %1, ptr nonnull elementtype(i64) %4) #13, !srcloc !19
+  %5 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %3, i64 %1, ptr nonnull elementtype(i64) %4) #13, !srcloc !21
   %6 = icmp eq i64 %5, %1
   br i1 %6, label %7, label %10
 
@@ -764,7 +764,7 @@ define dso_local ptr @metadata_dst_alloc_percpu(i8 noundef zeroext %0, i32 nound
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %16) #16, !srcloc !20
+  %19 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %16) #16, !srcloc !22
   %20 = and i64 %19, 4294967232
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %.thread
@@ -815,7 +815,7 @@ define dso_local ptr @metadata_dst_alloc_percpu(i8 noundef zeroext %0, i32 nound
   %46 = add nuw nsw i64 %19, 1
   %47 = and i64 %46, 127
   %48 = icmp samesign ugt i64 %47, 63
-  br i1 %48, label %.thread, label %12, !prof !21, !llvm.loop !22
+  br i1 %48, label %.thread, label %12, !prof !23, !llvm.loop !24
 
 .thread:                                          ; preds = %12, %22, %18, %3
   ret ptr %6
@@ -838,7 +838,7 @@ define dso_local void @metadata_dst_free_percpu(ptr noundef %0) #0 align 16 {
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %7) #16, !srcloc !20
+  %10 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %7) #16, !srcloc !22
   %11 = and i64 %10, 4294967232
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %.thread
@@ -912,7 +912,7 @@ define dso_local void @metadata_dst_free_percpu(ptr noundef %0) #0 align 16 {
   %50 = add nuw nsw i64 %10, 1
   %51 = and i64 %50, 127
   %52 = icmp samesign ugt i64 %51, 63
-  br i1 %52, label %.thread, label %3, !prof !21, !llvm.loop !25
+  br i1 %52, label %.thread, label %3, !prof !23, !llvm.loop !27
 
 .thread:                                          ; preds = %3, %49, %9
   tail call void @free_percpu(ptr noundef %0) #13
@@ -995,13 +995,15 @@ attributes #16 = { nounwind memory(read) }
 !13 = !{i64 2156597423}
 !14 = !{i64 2149629268, i64 2149629361}
 !15 = !{i64 2156597605}
-!16 = !{i64 2159728443, i64 2159728482, i64 2159728503, i64 2159728540, i64 2159728563, i64 2159728572}
-!17 = !{i64 2148857514, i64 2148857553, i64 2148857574, i64 2148857611, i64 2148857634, i64 2148857643}
-!18 = !{i64 2150608985}
-!19 = !{i64 2159734509, i64 2159734548, i64 2159734569, i64 2159734606, i64 2159734629, i64 2159734638}
-!20 = !{i64 252106}
-!21 = !{!"branch_weights", i32 1, i32 1999}
-!22 = distinct !{!22, !23, !24}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.unroll.disable"}
-!25 = distinct !{!25, !23, !24}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{i64 2159728443, i64 2159728482, i64 2159728503, i64 2159728540, i64 2159728563, i64 2159728572}
+!19 = !{i64 2148857514, i64 2148857553, i64 2148857574, i64 2148857611, i64 2148857634, i64 2148857643}
+!20 = !{i64 2150608985}
+!21 = !{i64 2159734509, i64 2159734548, i64 2159734569, i64 2159734606, i64 2159734629, i64 2159734638}
+!22 = !{i64 252106}
+!23 = !{!"branch_weights", i32 1, i32 1999}
+!24 = distinct !{!24, !25, !26, !17}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!"llvm.loop.unroll.disable"}
+!27 = distinct !{!27, !25, !26, !17}

@@ -84,13 +84,13 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !12
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !13
   %19 = icmp sgt i32 %18, 3
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %17
   %21 = tail call ptr @__errno_location() #12
-  %22 = load i32, ptr %21, align 4, !tbaa !41
+  %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = tail call ptr @strerror(i32 noundef %22) #11
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str, ptr noundef %23) #11
   br label %24
@@ -100,8 +100,8 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %12
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !42
-  %27 = load i32, ptr @job_comp_pipe, align 4, !tbaa !41
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 88), align 8, !tbaa !43
+  %27 = load i32, ptr @job_comp_pipe, align 4, !tbaa !42
   %28 = tail call i32 @aeCreateFileEvent(ptr noundef %26, i32 noundef %27, i32 noundef 1, ptr noundef nonnull @bioPipeReadJobCompList, ptr noundef null) #11
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %31
@@ -114,7 +114,7 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
 31:                                               ; preds = %25
   %32 = call i32 @pthread_attr_init(ptr noundef nonnull %1) #11
   %33 = call i32 @pthread_attr_getstacksize(ptr noundef nonnull %1, ptr noundef nonnull %3) #11
-  %34 = load i64, ptr %3, align 8, !tbaa !43
+  %34 = load i64, ptr %3, align 8, !tbaa !44
   %.not = icmp eq i64 %34, 0
   br i1 %.not, label %.lr.ph.preheader, label %35
 
@@ -130,10 +130,10 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
   %37 = phi i64 [ %38, %.lr.ph ], [ %.ph, %.lr.ph.preheader ]
   %38 = shl nuw nsw i64 %37, 1
   %39 = icmp samesign ult i64 %37, 2097152
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i64 %38, ptr %3, align 8, !tbaa !43
+  store i64 %38, ptr %3, align 8, !tbaa !44
   br label %40
 
 40:                                               ; preds = %._crit_edge, %35
@@ -149,13 +149,13 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
   br i1 %.not11, label %53, label %45
 
 45:                                               ; preds = %42
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !12
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !13
   %47 = icmp sgt i32 %46, 3
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %45
   %49 = tail call ptr @__errno_location() #12
-  %50 = load i32, ptr %49, align 4, !tbaa !41
+  %50 = load i32, ptr %49, align 4, !tbaa !42
   %51 = call ptr @strerror(i32 noundef %50) #11
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.3, ptr noundef %51) #11
   br label %52
@@ -165,12 +165,12 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
   unreachable
 
 53:                                               ; preds = %42
-  %54 = load i64, ptr %2, align 8, !tbaa !43
+  %54 = load i64, ptr %2, align 8, !tbaa !44
   %55 = getelementptr inbounds nuw [3 x i64], ptr @bio_threads, i64 0, i64 %.114
-  store i64 %54, ptr %55, align 8, !tbaa !43
+  store i64 %54, ptr %55, align 8, !tbaa !44
   %56 = add nuw nsw i64 %.114, 1
   %exitcond16.not = icmp eq i64 %56, 3
-  br i1 %exitcond16.not, label %57, label %42, !llvm.loop !45
+  br i1 %exitcond16.not, label %57, label %42, !llvm.loop !46
 
 57:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
@@ -214,13 +214,13 @@ define dso_local void @bioPipeReadJobCompList(ptr readnone captures(none) %0, i3
 6:                                                ; preds = %6, %4
   %7 = call i64 @read(i32 noundef %1, ptr noundef nonnull %5, i64 noundef 128) #11
   %8 = icmp eq i64 %7, 128
-  br i1 %8, label %6, label %9, !llvm.loop !46
+  br i1 %8, label %6, label %9, !llvm.loop !47
 
 9:                                                ; preds = %6
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
   %11 = load ptr, ptr @bio_comp_list, align 8, !tbaa !5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %13 = load i64, ptr %12, align 8, !tbaa !47
+  %13 = load i64, ptr %12, align 8, !tbaa !48
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.thread, label %15
 
@@ -232,25 +232,25 @@ define dso_local void @bioPipeReadJobCompList(ptr readnone captures(none) %0, i3
   %16 = tail call ptr @listCreate() #11
   store ptr %16, ptr @bio_comp_list, align 8, !tbaa !5
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex_comp) #11
-  %18 = load i64, ptr %12, align 8, !tbaa !47
+  %18 = load i64, ptr %12, align 8, !tbaa !48
   %.not1215 = icmp eq i64 %18, 0
   br i1 %.not1215, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %19 = load ptr, ptr %11, align 8, !tbaa !50
+  %19 = load ptr, ptr %11, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
   tail call void @listDelNode(ptr noundef nonnull %11, ptr noundef %19) #11
-  %22 = load ptr, ptr %21, align 8, !tbaa !53
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !55
+  %24 = load i64, ptr %23, align 8, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !56
+  %26 = load ptr, ptr %25, align 8, !tbaa !57
   tail call void %22(i64 noundef %24, ptr noundef %26) #11
   tail call void @zfree(ptr noundef nonnull %21) #11
-  %27 = load i64, ptr %12, align 8, !tbaa !47
+  %27 = load i64, ptr %12, align 8, !tbaa !48
   %.not12 = icmp eq i64 %27, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   tail call void @listRelease(ptr noundef nonnull %11) #11
@@ -284,7 +284,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   %3 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #11
   %4 = icmp ult ptr %0, inttoptr (i64 3 to ptr)
-  br i1 %4, label %6, label %5, !prof !58
+  br i1 %4, label %6, label %5, !prof !59
 
 5:                                                ; preds = %1
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 262) #11
@@ -294,9 +294,9 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 6:                                                ; preds = %1
   %7 = tail call i64 @pthread_self() #12
   %8 = getelementptr inbounds nuw [3 x ptr], ptr @bio_worker_title, i64 0, i64 %3
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = tail call i32 @pthread_setname_np(i64 noundef %7, ptr noundef %9) #11
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8296), align 8, !tbaa !60
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8296), align 8, !tbaa !61
   tail call void @redisSetCpuAffinity(ptr noundef %11) #11
   tail call void @makeThreadKillable() #11
   %12 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %3
@@ -312,7 +312,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 20:                                               ; preds = %6
   %21 = tail call ptr @__errno_location() #12
-  %22 = load i32, ptr %21, align 4, !tbaa !41
+  %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = call ptr @strerror(i32 noundef %22) #11
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef %23) #11
   br label %24
@@ -325,7 +325,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 27:                                               ; preds = %.backedge, %24
   %28 = load ptr, ptr %25, align 8, !tbaa !5
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !47
+  %30 = load i64, ptr %29, align 8, !tbaa !48
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %34
 
@@ -334,11 +334,11 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br label %.backedge
 
 34:                                               ; preds = %27
-  %35 = load ptr, ptr %28, align 8, !tbaa !50
+  %35 = load ptr, ptr %28, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !51
+  %37 = load ptr, ptr %36, align 8, !tbaa !52
   %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #11
-  %39 = load i32, ptr %37, align 8, !tbaa !61
+  %39 = load i32, ptr %37, align 8, !tbaa !62
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %77
 
@@ -351,14 +351,14 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !61
+  %47 = load i32, ptr %46, align 4, !tbaa !62
   %48 = call i32 @fdatasync(i32 noundef %47) #11
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %45
   %51 = tail call ptr @__errno_location() #12
-  %52 = load i32, ptr %51, align 4, !tbaa !41
+  %52 = load i32, ptr %51, align 4, !tbaa !42
   %.not70 = icmp eq i32 %52, 9
   br i1 %.not70, label %59, label %53
 
@@ -382,7 +382,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !61
+  %64 = load i32, ptr %63, align 4, !tbaa !62
   %65 = call i32 @reclaimFilePageCache(i32 noundef %64, i64 noundef 0, i64 noundef 0) #11
   %66 = icmp ne i32 %65, -1
   %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
@@ -392,14 +392,14 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 69:                                               ; preds = %62
   %70 = tail call ptr @__errno_location() #12
-  %71 = load i32, ptr %70, align 4, !tbaa !41
+  %71 = load i32, ptr %70, align 4, !tbaa !42
   %72 = call ptr @strerror(i32 noundef %71) #11
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef %72) #11
   br label %73
 
 73:                                               ; preds = %62, %69, %59
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !61
+  %75 = load i32, ptr %74, align 4, !tbaa !62
   %76 = call i32 @close(i32 noundef %75) #11
   br label %137
 
@@ -416,14 +416,14 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 79:                                               ; preds = %77, %77
   %80 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %81 = load i32, ptr %80, align 4, !tbaa !61
+  %81 = load i32, ptr %80, align 4, !tbaa !62
   %82 = call i32 @fdatasync(i32 noundef %81) #11
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %95
 
 84:                                               ; preds = %79
   %85 = tail call ptr @__errno_location() #12
-  %86 = load i32, ptr %85, align 4, !tbaa !41
+  %86 = load i32, ptr %85, align 4, !tbaa !42
   switch i32 %86, label %87 [
     i32 9, label %95
     i32 22, label %95
@@ -432,7 +432,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 87:                                               ; preds = %84
   %88 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6696) monotonic, align 8
   store atomic i32 -1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6696) monotonic, align 8
-  %89 = load i32, ptr %85, align 4, !tbaa !41
+  %89 = load i32, ptr %85, align 4, !tbaa !42
   store atomic i32 %89, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6700) monotonic, align 4
   %90 = icmp ne i32 %88, 0
   %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
@@ -448,7 +448,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 95:                                               ; preds = %84, %84, %79
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6696) monotonic, align 8
   %96 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %97 = load i64, ptr %96, align 8, !tbaa !61
+  %97 = load i64, ptr %96, align 8, !tbaa !62
   store atomic i64 %97, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7080) monotonic, align 8
   br label %98
 
@@ -460,7 +460,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br i1 %.not68, label %112, label %102
 
 102:                                              ; preds = %98
-  %103 = load i32, ptr %80, align 4, !tbaa !61
+  %103 = load i32, ptr %80, align 4, !tbaa !62
   %104 = call i32 @reclaimFilePageCache(i32 noundef %103, i64 noundef 0, i64 noundef 0) #11
   %105 = icmp ne i32 %104, -1
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
@@ -470,7 +470,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 108:                                              ; preds = %102
   %109 = tail call ptr @__errno_location() #12
-  %110 = load i32, ptr %109, align 4, !tbaa !41
+  %110 = load i32, ptr %109, align 4, !tbaa !42
   %111 = call ptr @strerror(i32 noundef %110) #11
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef %111) #11
   br label %112
@@ -479,13 +479,13 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br i1 %78, label %113, label %137
 
 113:                                              ; preds = %112
-  %114 = load i32, ptr %80, align 4, !tbaa !61
+  %114 = load i32, ptr %80, align 4, !tbaa !62
   %115 = call i32 @close(i32 noundef %114) #11
   br label %137
 
 116:                                              ; preds = %77
   %117 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !61
+  %118 = load ptr, ptr %117, align 8, !tbaa !62
   %119 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void %118(ptr noundef nonnull %119) #11
   br label %137
@@ -493,21 +493,21 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 120:                                              ; preds = %77, %77, %77
   %121 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #15
   %122 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !61
-  store ptr %123, ptr %121, align 8, !tbaa !53
+  %123 = load ptr, ptr %122, align 8, !tbaa !62
+  store ptr %123, ptr %121, align 8, !tbaa !54
   %124 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %125 = load i64, ptr %124, align 8, !tbaa !61
+  %125 = load i64, ptr %124, align 8, !tbaa !62
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store i64 %125, ptr %126, align 8, !tbaa !55
+  store i64 %125, ptr %126, align 8, !tbaa !56
   %127 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !61
+  %128 = load ptr, ptr %127, align 8, !tbaa !62
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr %128, ptr %129, align 8, !tbaa !56
+  store ptr %128, ptr %129, align 8, !tbaa !57
   %130 = call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex_comp) #11
   %131 = load ptr, ptr @bio_comp_list, align 8, !tbaa !5
   %132 = call ptr @listAddNodeTail(ptr noundef %131, ptr noundef nonnull %121) #11
   %133 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex_comp) #11
-  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_comp_pipe, i64 4), align 4, !tbaa !41
+  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_comp_pipe, i64 4), align 4, !tbaa !42
   %135 = call i64 @write(i32 noundef %134, ptr noundef nonnull @.str.9, i64 noundef 1) #11
   br label %137
 
@@ -523,14 +523,14 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   call void @listDelNode(ptr noundef %139, ptr noundef nonnull %35) #11
   %140 = zext nneg i32 %39 to i64
   %141 = getelementptr inbounds nuw [7 x i64], ptr @bio_jobs_counter, i64 0, i64 %140
-  %142 = load i64, ptr %141, align 8, !tbaa !43
+  %142 = load i64, ptr %141, align 8, !tbaa !44
   %143 = add i64 %142, -1
-  store i64 %143, ptr %141, align 8, !tbaa !43
+  store i64 %143, ptr %141, align 8, !tbaa !44
   %144 = call i32 @pthread_cond_signal(ptr noundef nonnull %26) #11
   br label %.backedge
 
 .backedge:                                        ; preds = %137, %32
-  br label %27
+  br label %27, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -538,10 +538,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bioSubmitJob(i32 noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
-  store i32 %0, ptr %1, align 8, !tbaa !61
+  store i32 %0, ptr %1, align 8, !tbaa !62
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [7 x i32], ptr @bio_job_to_worker, i64 0, i64 %3
-  %5 = load i32, ptr %4, align 4, !tbaa !41
+  %5 = load i32, ptr %4, align 4, !tbaa !42
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #11
@@ -549,9 +549,9 @@ define dso_local void @bioSubmitJob(i32 noundef %0, ptr noundef initializes((0, 
   %10 = load ptr, ptr %9, align 8, !tbaa !5
   %11 = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef nonnull %1) #11
   %12 = getelementptr inbounds [7 x i64], ptr @bio_jobs_counter, i64 0, i64 %3
-  %13 = load i64, ptr %12, align 8, !tbaa !43
+  %13 = load i64, ptr %12, align 8, !tbaa !44
   %14 = add i64 %13, 1
-  store i64 %14, ptr %12, align 8, !tbaa !43
+  store i64 %14, ptr %12, align 8, !tbaa !44
   %15 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %6
   %16 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %15) #11
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #11
@@ -578,7 +578,7 @@ define dso_local void @bioCreateLazyFreeJob(ptr noundef %0, i32 noundef %1, ...)
   %6 = add nsw i64 %5, 32
   %7 = tail call noalias ptr @zmalloc(i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %0, ptr %8, align 8, !tbaa !61
+  store ptr %0, ptr %8, align 8, !tbaa !62
   call void @llvm.va_start.p0(ptr nonnull %3)
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -595,13 +595,13 @@ define dso_local void @bioCreateLazyFreeJob(ptr noundef %0, i32 noundef %1, ...)
 
 ._crit_edge:                                      ; preds = %31, %2
   call void @llvm.va_end.p0(ptr nonnull %3)
-  store i32 2, ptr %7, align 8, !tbaa !61
+  store i32 2, ptr %7, align 8, !tbaa !62
   %14 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 80)) #11
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 16), align 16, !tbaa !5
   %16 = call ptr @listAddNodeTail(ptr noundef %15, ptr noundef nonnull %7) #11
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 16), align 16, !tbaa !43
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 16), align 16, !tbaa !44
   %18 = add i64 %17, 1
-  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 16), align 16, !tbaa !43
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 16), align 16, !tbaa !44
   %19 = call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 96)) #11
   %20 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 80)) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
@@ -630,12 +630,12 @@ define dso_local void @bioCreateLazyFreeJob(ptr noundef %0, i32 noundef %1, ...)
   %32 = phi ptr [ %22, %25 ], [ %30, %29 ]
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
-  %35 = load ptr, ptr %34, align 8, !tbaa !62
+  %35 = load ptr, ptr %34, align 8, !tbaa !64
   %36 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
-  store ptr %35, ptr %36, align 8, !tbaa !61
+  store ptr %35, ptr %36, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !65
 }
 
 ; Function Attrs: allocsize(0)
@@ -661,15 +661,15 @@ switch.lookup:                                    ; preds = %4
   %switch.offset = or disjoint i32 %0, 4
   %7 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !61
+  store ptr %1, ptr %8, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %2, ptr %9, align 8, !tbaa !61
+  store i64 %2, ptr %9, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %3, ptr %10, align 8, !tbaa !61
-  store i32 %switch.offset, ptr %7, align 8, !tbaa !61
+  store ptr %3, ptr %10, align 8, !tbaa !62
+  store i32 %switch.offset, ptr %7, align 8, !tbaa !62
   %11 = zext nneg i32 %switch.offset to i64
   %12 = getelementptr inbounds nuw [7 x i32], ptr @bio_job_to_worker, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !41
+  %13 = load i32, ptr %12, align 4, !tbaa !42
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %14
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #11
@@ -677,9 +677,9 @@ switch.lookup:                                    ; preds = %4
   %18 = load ptr, ptr %17, align 8, !tbaa !5
   %19 = tail call ptr @listAddNodeTail(ptr noundef %18, ptr noundef nonnull %7) #11
   %20 = getelementptr inbounds nuw [7 x i64], ptr @bio_jobs_counter, i64 0, i64 %11
-  %21 = load i64, ptr %20, align 8, !tbaa !43
+  %21 = load i64, ptr %20, align 8, !tbaa !44
   %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8, !tbaa !43
+  store i64 %22, ptr %20, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %14
   %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #11
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #11
@@ -690,7 +690,7 @@ switch.lookup:                                    ; preds = %4
 define dso_local void @bioCreateCloseJob(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %0, ptr %5, align 4, !tbaa !61
+  store i32 %0, ptr %5, align 4, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = trunc i32 %1 to i8
   %8 = load i8, ptr %6, align 8
@@ -702,13 +702,13 @@ define dso_local void @bioCreateCloseJob(i32 noundef %0, i32 noundef %1, i32 nou
   %14 = or disjoint i8 %13, %9
   %15 = or disjoint i8 %14, %10
   store i8 %15, ptr %6, align 8
-  store i32 0, ptr %4, align 8, !tbaa !61
+  store i32 0, ptr %4, align 8, !tbaa !62
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @bio_mutex) #11
   %17 = load ptr, ptr @bio_jobs, align 16, !tbaa !5
   %18 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef nonnull %4) #11
-  %19 = load i64, ptr @bio_jobs_counter, align 16, !tbaa !43
+  %19 = load i64, ptr @bio_jobs_counter, align 16, !tbaa !44
   %20 = add i64 %19, 1
-  store i64 %20, ptr @bio_jobs_counter, align 16, !tbaa !43
+  store i64 %20, ptr @bio_jobs_counter, align 16, !tbaa !44
   %21 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @bio_newjob_cond) #11
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @bio_mutex) #11
   ret void
@@ -718,9 +718,9 @@ define dso_local void @bioCreateCloseJob(i32 noundef %0, i32 noundef %1, i32 nou
 define dso_local void @bioCreateCloseAofJob(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %0, ptr %5, align 4, !tbaa !61
+  store i32 %0, ptr %5, align 4, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %6, align 8, !tbaa !61
+  store i64 %1, ptr %6, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i32 %2 to i8
@@ -730,13 +730,13 @@ define dso_local void @bioCreateCloseAofJob(i32 noundef %0, i64 noundef %1, i32 
   %13 = or disjoint i8 %11, %12
   %14 = or disjoint i8 %13, 1
   store i8 %14, ptr %7, align 8
-  store i32 3, ptr %4, align 8, !tbaa !61
+  store i32 3, ptr %4, align 8, !tbaa !62
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #11
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 8), align 8, !tbaa !5
   %17 = tail call ptr @listAddNodeTail(ptr noundef %16, ptr noundef nonnull %4) #11
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 24), align 8, !tbaa !43
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 24), align 8, !tbaa !44
   %19 = add i64 %18, 1
-  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 24), align 8, !tbaa !43
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 24), align 8, !tbaa !44
   %20 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 48)) #11
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #11
   ret void
@@ -746,9 +746,9 @@ define dso_local void @bioCreateCloseAofJob(i32 noundef %0, i64 noundef %1, i32 
 define dso_local void @bioCreateFsyncJob(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %0, ptr %5, align 4, !tbaa !61
+  store i32 %0, ptr %5, align 4, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %6, align 8, !tbaa !61
+  store i64 %1, ptr %6, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = trunc i32 %2 to i8
   %9 = load i8, ptr %7, align 8
@@ -757,13 +757,13 @@ define dso_local void @bioCreateFsyncJob(i32 noundef %0, i64 noundef %1, i32 nou
   %12 = and i8 %9, -3
   %13 = or disjoint i8 %12, %11
   store i8 %13, ptr %7, align 8
-  store i32 1, ptr %4, align 8, !tbaa !61
+  store i32 1, ptr %4, align 8, !tbaa !62
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #11
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 8), align 8, !tbaa !5
   %16 = tail call ptr @listAddNodeTail(ptr noundef %15, ptr noundef nonnull %4) #11
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 8), align 8, !tbaa !43
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 8), align 8, !tbaa !44
   %18 = add i64 %17, 1
-  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 8), align 8, !tbaa !43
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs_counter, i64 8), align 8, !tbaa !44
   %19 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 48)) #11
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #11
   ret void
@@ -809,12 +809,12 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local i64 @bioPendingJobsOfType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [7 x i32], ptr @bio_job_to_worker, i64 0, i64 %2
-  %4 = load i32, ptr %3, align 4, !tbaa !41
+  %4 = load i32, ptr %3, align 4, !tbaa !42
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %5
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #11
   %8 = getelementptr inbounds [7 x i64], ptr @bio_jobs_counter, i64 0, i64 %2
-  %9 = load i64, ptr %8, align 8, !tbaa !43
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #11
   ret i64 %9
 }
@@ -823,14 +823,14 @@ define dso_local i64 @bioPendingJobsOfType(i32 noundef %0) local_unnamed_addr #0
 define dso_local void @bioDrainWorker(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [7 x i32], ptr @bio_job_to_worker, i64 0, i64 %2
-  %4 = load i32, ptr %3, align 4, !tbaa !41
+  %4 = load i32, ptr %3, align 4, !tbaa !42
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %5
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #11
   %8 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !47
+  %11 = load i64, ptr %10, align 8, !tbaa !48
   %.not6 = icmp eq i64 %11, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -842,9 +842,9 @@ define dso_local void @bioDrainWorker(i32 noundef %0) local_unnamed_addr #0 {
   %14 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %12, ptr noundef nonnull %6) #11
   %15 = load ptr, ptr %8, align 8, !tbaa !5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !47
+  %17 = load i64, ptr %16, align 8, !tbaa !48
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %13, %1
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #11
@@ -859,7 +859,7 @@ define dso_local void @bioKillThreads() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %19
   %.012 = phi i64 [ 0, %0 ], [ %20, %19 ]
   %3 = getelementptr inbounds nuw [3 x i64], ptr @bio_threads, i64 0, i64 %.012
-  %4 = load i64, ptr %3, align 8, !tbaa !43
+  %4 = load i64, ptr %3, align 8, !tbaa !44
   %5 = icmp eq i64 %4, %1
   %.not = icmp eq i64 %4, 0
   %or.cond = or i1 %.not, %5
@@ -871,10 +871,10 @@ define dso_local void @bioKillThreads() local_unnamed_addr #0 {
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr %3, align 8, !tbaa !43
+  %10 = load i64, ptr %3, align 8, !tbaa !44
   %11 = tail call i32 @pthread_join(i64 noundef %10, ptr noundef null) #11
   %.not11 = icmp eq i32 %11, 0
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !12
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !13
   %13 = icmp sgt i32 %12, 3
   br i1 %.not11, label %17, label %14
 
@@ -896,7 +896,7 @@ define dso_local void @bioKillThreads() local_unnamed_addr #0 {
 19:                                               ; preds = %6, %18, %17, %15, %14, %2
   %20 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %20, 3
-  br i1 %exitcond.not, label %21, label %2, !llvm.loop !65
+  br i1 %exitcond.not, label %21, label %2, !llvm.loop !67
 
 21:                                               ; preds = %19
   ret void
@@ -940,59 +940,61 @@ attributes #15 = { nounwind allocsize(0) }
 !7 = !{!"any pointer", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !14, i64 6288}
-!13 = !{!"redisServer", !14, i64 0, !15, i64 8, !16, i64 16, !16, i64 24, !17, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !18, i64 64, !19, i64 72, !19, i64 80, !20, i64 88, !21, i64 96, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !22, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !14, i64 140, !16, i64 144, !14, i64 152, !14, i64 156, !8, i64 160, !14, i64 204, !15, i64 208, !14, i64 216, !14, i64 220, !14, i64 224, !16, i64 232, !16, i64 240, !14, i64 248, !14, i64 252, !15, i64 256, !19, i64 264, !19, i64 272, !19, i64 280, !6, i64 288, !8, i64 296, !14, i64 304, !14, i64 308, !8, i64 312, !14, i64 316, !14, i64 320, !14, i64 324, !8, i64 328, !14, i64 456, !16, i64 464, !16, i64 472, !14, i64 480, !8, i64 488, !14, i64 1320, !23, i64 1328, !6, i64 1432, !6, i64 1440, !6, i64 1448, !6, i64 1456, !6, i64 1464, !6, i64 1472, !25, i64 1480, !25, i64 1488, !7, i64 1496, !21, i64 1504, !14, i64 1512, !21, i64 1520, !14, i64 1528, !6, i64 1536, !8, i64 1544, !8, i64 1592, !19, i64 1848, !8, i64 1856, !14, i64 1864, !14, i64 1868, !8, i64 1872, !14, i64 2384, !14, i64 2388, !22, i64 2392, !14, i64 2400, !14, i64 2404, !14, i64 2408, !14, i64 2412, !14, i64 2416, !15, i64 2424, !15, i64 2432, !15, i64 2440, !15, i64 2448, !15, i64 2456, !15, i64 2464, !22, i64 2472, !22, i64 2480, !22, i64 2488, !22, i64 2496, !26, i64 2504, !22, i64 2512, !22, i64 2520, !22, i64 2528, !22, i64 2536, !22, i64 2544, !22, i64 2552, !15, i64 2560, !22, i64 2568, !22, i64 2576, !22, i64 2584, !22, i64 2592, !22, i64 2600, !22, i64 2608, !22, i64 2616, !22, i64 2624, !15, i64 2632, !15, i64 2640, !22, i64 2648, !22, i64 2656, !22, i64 2664, !22, i64 2672, !26, i64 2680, !22, i64 2688, !22, i64 2696, !22, i64 2704, !22, i64 2712, !22, i64 2720, !6, i64 2728, !22, i64 2736, !22, i64 2744, !15, i64 2752, !27, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !15, i64 2880, !15, i64 2888, !15, i64 2896, !15, i64 2904, !15, i64 2912, !15, i64 2920, !15, i64 2928, !15, i64 2936, !26, i64 2944, !8, i64 2952, !15, i64 2984, !22, i64 2992, !22, i64 3000, !22, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !22, i64 5072, !8, i64 5080, !22, i64 6144, !22, i64 6152, !15, i64 6160, !22, i64 6168, !22, i64 6176, !15, i64 6184, !8, i64 6192, !14, i64 6288, !14, i64 6292, !14, i64 6296, !14, i64 6300, !14, i64 6304, !14, i64 6308, !14, i64 6312, !14, i64 6316, !14, i64 6320, !14, i64 6324, !14, i64 6328, !14, i64 6332, !15, i64 6336, !14, i64 6344, !14, i64 6348, !14, i64 6352, !14, i64 6356, !15, i64 6360, !15, i64 6368, !14, i64 6376, !14, i64 6380, !14, i64 6384, !14, i64 6388, !14, i64 6392, !16, i64 6400, !8, i64 6408, !14, i64 6480, !14, i64 6484, !14, i64 6488, !28, i64 6496, !14, i64 6504, !14, i64 6508, !14, i64 6512, !14, i64 6516, !14, i64 6520, !14, i64 6524, !16, i64 6528, !16, i64 6536, !14, i64 6544, !14, i64 6548, !15, i64 6552, !15, i64 6560, !15, i64 6568, !15, i64 6576, !15, i64 6584, !14, i64 6592, !14, i64 6596, !16, i64 6600, !14, i64 6608, !14, i64 6612, !22, i64 6616, !22, i64 6624, !15, i64 6632, !15, i64 6640, !15, i64 6648, !14, i64 6656, !14, i64 6660, !15, i64 6664, !14, i64 6672, !14, i64 6676, !14, i64 6680, !14, i64 6684, !14, i64 6688, !14, i64 6692, !8, i64 6696, !8, i64 6700, !7, i64 6704, !14, i64 6712, !22, i64 6720, !22, i64 6728, !22, i64 6736, !22, i64 6744, !14, i64 6752, !29, i64 6760, !14, i64 6768, !16, i64 6776, !14, i64 6784, !14, i64 6788, !14, i64 6792, !15, i64 6800, !15, i64 6808, !15, i64 6816, !15, i64 6824, !14, i64 6832, !14, i64 6836, !14, i64 6840, !14, i64 6844, !14, i64 6848, !14, i64 6852, !30, i64 6856, !14, i64 6864, !14, i64 6868, !16, i64 6872, !14, i64 6880, !14, i64 6884, !14, i64 6888, !8, i64 6892, !14, i64 6900, !31, i64 6904, !14, i64 6920, !16, i64 6928, !14, i64 6936, !16, i64 6944, !14, i64 6952, !14, i64 6956, !14, i64 6960, !14, i64 6964, !14, i64 6968, !14, i64 6972, !14, i64 6976, !8, i64 6980, !8, i64 7021, !22, i64 7064, !22, i64 7072, !8, i64 7080, !22, i64 7088, !14, i64 7096, !14, i64 7100, !33, i64 7104, !22, i64 7112, !22, i64 7120, !34, i64 7128, !15, i64 7168, !15, i64 7176, !14, i64 7184, !14, i64 7188, !14, i64 7192, !14, i64 7196, !14, i64 7200, !14, i64 7204, !14, i64 7208, !14, i64 7212, !14, i64 7216, !15, i64 7224, !6, i64 7232, !15, i64 7240, !16, i64 7248, !16, i64 7256, !16, i64 7264, !14, i64 7272, !14, i64 7276, !25, i64 7280, !25, i64 7288, !14, i64 7296, !14, i64 7300, !14, i64 7304, !15, i64 7312, !15, i64 7320, !15, i64 7328, !15, i64 7336, !35, i64 7344, !35, i64 7352, !14, i64 7360, !16, i64 7368, !15, i64 7376, !14, i64 7384, !14, i64 7388, !14, i64 7392, !15, i64 7400, !14, i64 7408, !14, i64 7412, !14, i64 7416, !14, i64 7420, !16, i64 7424, !14, i64 7432, !14, i64 7436, !8, i64 7440, !22, i64 7488, !14, i64 7496, !6, i64 7504, !14, i64 7512, !14, i64 7516, !22, i64 7520, !15, i64 7528, !14, i64 7536, !14, i64 7540, !14, i64 7544, !14, i64 7548, !14, i64 7552, !22, i64 7560, !8, i64 7568, !14, i64 7580, !14, i64 7584, !14, i64 7588, !8, i64 7592, !6, i64 7632, !6, i64 7640, !14, i64 7648, !15, i64 7656, !6, i64 7664, !6, i64 7672, !14, i64 7680, !14, i64 7684, !14, i64 7688, !14, i64 7692, !15, i64 7696, !15, i64 7704, !15, i64 7712, !15, i64 7720, !15, i64 7728, !15, i64 7736, !15, i64 7744, !15, i64 7752, !15, i64 7760, !22, i64 7768, !14, i64 7776, !14, i64 7780, !8, i64 7784, !15, i64 7792, !8, i64 7800, !22, i64 7808, !22, i64 7816, !22, i64 7824, !15, i64 7832, !22, i64 7840, !36, i64 7848, !19, i64 7856, !14, i64 7864, !36, i64 7872, !14, i64 7880, !14, i64 7884, !14, i64 7888, !14, i64 7892, !22, i64 7896, !22, i64 7904, !16, i64 7912, !37, i64 7920, !14, i64 7928, !14, i64 7932, !14, i64 7936, !14, i64 7940, !14, i64 7944, !16, i64 7952, !16, i64 7960, !16, i64 7968, !14, i64 7976, !14, i64 7980, !14, i64 7984, !14, i64 7988, !14, i64 7992, !14, i64 7996, !14, i64 8000, !22, i64 8008, !14, i64 8016, !14, i64 8020, !22, i64 8024, !14, i64 8032, !14, i64 8036, !14, i64 8040, !14, i64 8044, !14, i64 8048, !14, i64 8052, !14, i64 8056, !22, i64 8064, !19, i64 8072, !16, i64 8080, !15, i64 8088, !16, i64 8096, !14, i64 8104, !38, i64 8112, !14, i64 8144, !15, i64 8152, !14, i64 8160, !14, i64 8164, !14, i64 8168, !39, i64 8176, !16, i64 8288, !16, i64 8296, !16, i64 8304, !16, i64 8312, !40, i64 8320, !22, i64 8328, !14, i64 8336, !16, i64 8344, !14, i64 8352, !14, i64 8356, !14, i64 8360, !15, i64 8368, !14, i64 8376, !16, i64 8384}
-!14 = !{!"int", !8, i64 0}
-!15 = !{!"long", !8, i64 0}
-!16 = !{!"p1 omnipotent char", !7, i64 0}
-!17 = !{!"p2 omnipotent char", !7, i64 0}
-!18 = !{!"p1 _ZTS7redisDb", !7, i64 0}
-!19 = !{!"p1 _ZTS4dict", !7, i64 0}
-!20 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
-!21 = !{!"p1 _ZTS3rax", !7, i64 0}
-!22 = !{!"long long", !8, i64 0}
-!23 = !{!"connListener", !8, i64 0, !14, i64 64, !17, i64 72, !14, i64 80, !14, i64 84, !24, i64 88, !7, i64 96}
-!24 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
-!25 = !{!"p1 _ZTS6client", !7, i64 0}
-!26 = !{!"double", !8, i64 0}
-!27 = !{!"malloc_stats", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80}
-!28 = !{!"p1 double", !7, i64 0}
-!29 = !{!"p1 _ZTS9saveparam", !7, i64 0}
-!30 = !{!"p2 _ZTS10connection", !7, i64 0}
-!31 = !{!"redisOpArray", !32, i64 0, !14, i64 8, !14, i64 12}
-!32 = !{!"p1 _ZTS7redisOp", !7, i64 0}
-!33 = !{!"p1 _ZTS11replBacklog", !7, i64 0}
-!34 = !{!"replDataBuf", !6, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32}
-!35 = !{!"p1 _ZTS10connection", !7, i64 0}
-!36 = !{!"p1 _ZTS8_kvstore", !7, i64 0}
-!37 = !{!"p1 _ZTS12clusterState", !7, i64 0}
-!38 = !{!"aclInfo", !22, i64 0, !22, i64 8, !22, i64 16, !22, i64 24}
-!39 = !{!"redisTLSContextConfig", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108}
-!40 = !{!"p1 _ZTS14sentinelConfig", !7, i64 0}
-!41 = !{!14, !14, i64 0}
-!42 = !{!13, !20, i64 88}
-!43 = !{!15, !15, i64 0}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11}
-!47 = !{!48, !15, i64 40}
-!48 = !{!"list", !49, i64 0, !49, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !15, i64 40}
-!49 = !{!"p1 _ZTS8listNode", !7, i64 0}
-!50 = !{!48, !49, i64 0}
-!51 = !{!52, !7, i64 16}
-!52 = !{!"listNode", !49, i64 0, !49, i64 8, !7, i64 16}
-!53 = !{!54, !7, i64 0}
-!54 = !{!"bio_comp_item", !7, i64 0, !15, i64 8, !7, i64 16}
-!55 = !{!54, !15, i64 8}
-!56 = !{!54, !7, i64 16}
-!57 = distinct !{!57, !11}
-!58 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!59 = !{!16, !16, i64 0}
-!60 = !{!13, !16, i64 8296}
-!61 = !{!8, !8, i64 0}
-!62 = !{!7, !7, i64 0}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11}
-!65 = distinct !{!65, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !15, i64 6288}
+!14 = !{!"redisServer", !15, i64 0, !16, i64 8, !17, i64 16, !17, i64 24, !18, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !19, i64 64, !20, i64 72, !20, i64 80, !21, i64 88, !22, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !23, i64 120, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !17, i64 144, !15, i64 152, !15, i64 156, !8, i64 160, !15, i64 204, !16, i64 208, !15, i64 216, !15, i64 220, !15, i64 224, !17, i64 232, !17, i64 240, !15, i64 248, !15, i64 252, !16, i64 256, !20, i64 264, !20, i64 272, !20, i64 280, !6, i64 288, !8, i64 296, !15, i64 304, !15, i64 308, !8, i64 312, !15, i64 316, !15, i64 320, !15, i64 324, !8, i64 328, !15, i64 456, !17, i64 464, !17, i64 472, !15, i64 480, !8, i64 488, !15, i64 1320, !24, i64 1328, !6, i64 1432, !6, i64 1440, !6, i64 1448, !6, i64 1456, !6, i64 1464, !6, i64 1472, !26, i64 1480, !26, i64 1488, !7, i64 1496, !22, i64 1504, !15, i64 1512, !22, i64 1520, !15, i64 1528, !6, i64 1536, !8, i64 1544, !8, i64 1592, !20, i64 1848, !8, i64 1856, !15, i64 1864, !15, i64 1868, !8, i64 1872, !15, i64 2384, !15, i64 2388, !23, i64 2392, !15, i64 2400, !15, i64 2404, !15, i64 2408, !15, i64 2412, !15, i64 2416, !16, i64 2424, !16, i64 2432, !16, i64 2440, !16, i64 2448, !16, i64 2456, !16, i64 2464, !23, i64 2472, !23, i64 2480, !23, i64 2488, !23, i64 2496, !27, i64 2504, !23, i64 2512, !23, i64 2520, !23, i64 2528, !23, i64 2536, !23, i64 2544, !23, i64 2552, !16, i64 2560, !23, i64 2568, !23, i64 2576, !23, i64 2584, !23, i64 2592, !23, i64 2600, !23, i64 2608, !23, i64 2616, !23, i64 2624, !16, i64 2632, !16, i64 2640, !23, i64 2648, !23, i64 2656, !23, i64 2664, !23, i64 2672, !27, i64 2680, !23, i64 2688, !23, i64 2696, !23, i64 2704, !23, i64 2712, !23, i64 2720, !6, i64 2728, !23, i64 2736, !23, i64 2744, !16, i64 2752, !28, i64 2760, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !16, i64 2880, !16, i64 2888, !16, i64 2896, !16, i64 2904, !16, i64 2912, !16, i64 2920, !16, i64 2928, !16, i64 2936, !27, i64 2944, !8, i64 2952, !16, i64 2984, !23, i64 2992, !23, i64 3000, !23, i64 3008, !8, i64 3016, !8, i64 4040, !8, i64 5064, !23, i64 5072, !8, i64 5080, !23, i64 6144, !23, i64 6152, !16, i64 6160, !23, i64 6168, !23, i64 6176, !16, i64 6184, !8, i64 6192, !15, i64 6288, !15, i64 6292, !15, i64 6296, !15, i64 6300, !15, i64 6304, !15, i64 6308, !15, i64 6312, !15, i64 6316, !15, i64 6320, !15, i64 6324, !15, i64 6328, !15, i64 6332, !16, i64 6336, !15, i64 6344, !15, i64 6348, !15, i64 6352, !15, i64 6356, !16, i64 6360, !16, i64 6368, !15, i64 6376, !15, i64 6380, !15, i64 6384, !15, i64 6388, !15, i64 6392, !17, i64 6400, !8, i64 6408, !15, i64 6480, !15, i64 6484, !15, i64 6488, !29, i64 6496, !15, i64 6504, !15, i64 6508, !15, i64 6512, !15, i64 6516, !15, i64 6520, !15, i64 6524, !17, i64 6528, !17, i64 6536, !15, i64 6544, !15, i64 6548, !16, i64 6552, !16, i64 6560, !16, i64 6568, !16, i64 6576, !16, i64 6584, !15, i64 6592, !15, i64 6596, !17, i64 6600, !15, i64 6608, !15, i64 6612, !23, i64 6616, !23, i64 6624, !16, i64 6632, !16, i64 6640, !16, i64 6648, !15, i64 6656, !15, i64 6660, !16, i64 6664, !15, i64 6672, !15, i64 6676, !15, i64 6680, !15, i64 6684, !15, i64 6688, !15, i64 6692, !8, i64 6696, !8, i64 6700, !7, i64 6704, !15, i64 6712, !23, i64 6720, !23, i64 6728, !23, i64 6736, !23, i64 6744, !15, i64 6752, !30, i64 6760, !15, i64 6768, !17, i64 6776, !15, i64 6784, !15, i64 6788, !15, i64 6792, !16, i64 6800, !16, i64 6808, !16, i64 6816, !16, i64 6824, !15, i64 6832, !15, i64 6836, !15, i64 6840, !15, i64 6844, !15, i64 6848, !15, i64 6852, !31, i64 6856, !15, i64 6864, !15, i64 6868, !17, i64 6872, !15, i64 6880, !15, i64 6884, !15, i64 6888, !8, i64 6892, !15, i64 6900, !32, i64 6904, !15, i64 6920, !17, i64 6928, !15, i64 6936, !17, i64 6944, !15, i64 6952, !15, i64 6956, !15, i64 6960, !15, i64 6964, !15, i64 6968, !15, i64 6972, !15, i64 6976, !8, i64 6980, !8, i64 7021, !23, i64 7064, !23, i64 7072, !8, i64 7080, !23, i64 7088, !15, i64 7096, !15, i64 7100, !34, i64 7104, !23, i64 7112, !23, i64 7120, !35, i64 7128, !16, i64 7168, !16, i64 7176, !15, i64 7184, !15, i64 7188, !15, i64 7192, !15, i64 7196, !15, i64 7200, !15, i64 7204, !15, i64 7208, !15, i64 7212, !15, i64 7216, !16, i64 7224, !6, i64 7232, !16, i64 7240, !17, i64 7248, !17, i64 7256, !17, i64 7264, !15, i64 7272, !15, i64 7276, !26, i64 7280, !26, i64 7288, !15, i64 7296, !15, i64 7300, !15, i64 7304, !16, i64 7312, !16, i64 7320, !16, i64 7328, !16, i64 7336, !36, i64 7344, !36, i64 7352, !15, i64 7360, !17, i64 7368, !16, i64 7376, !15, i64 7384, !15, i64 7388, !15, i64 7392, !16, i64 7400, !15, i64 7408, !15, i64 7412, !15, i64 7416, !15, i64 7420, !17, i64 7424, !15, i64 7432, !15, i64 7436, !8, i64 7440, !23, i64 7488, !15, i64 7496, !6, i64 7504, !15, i64 7512, !15, i64 7516, !23, i64 7520, !16, i64 7528, !15, i64 7536, !15, i64 7540, !15, i64 7544, !15, i64 7548, !15, i64 7552, !23, i64 7560, !8, i64 7568, !15, i64 7580, !15, i64 7584, !15, i64 7588, !8, i64 7592, !6, i64 7632, !6, i64 7640, !15, i64 7648, !16, i64 7656, !6, i64 7664, !6, i64 7672, !15, i64 7680, !15, i64 7684, !15, i64 7688, !15, i64 7692, !16, i64 7696, !16, i64 7704, !16, i64 7712, !16, i64 7720, !16, i64 7728, !16, i64 7736, !16, i64 7744, !16, i64 7752, !16, i64 7760, !23, i64 7768, !15, i64 7776, !15, i64 7780, !8, i64 7784, !16, i64 7792, !8, i64 7800, !23, i64 7808, !23, i64 7816, !23, i64 7824, !16, i64 7832, !23, i64 7840, !37, i64 7848, !20, i64 7856, !15, i64 7864, !37, i64 7872, !15, i64 7880, !15, i64 7884, !15, i64 7888, !15, i64 7892, !23, i64 7896, !23, i64 7904, !17, i64 7912, !38, i64 7920, !15, i64 7928, !15, i64 7932, !15, i64 7936, !15, i64 7940, !15, i64 7944, !17, i64 7952, !17, i64 7960, !17, i64 7968, !15, i64 7976, !15, i64 7980, !15, i64 7984, !15, i64 7988, !15, i64 7992, !15, i64 7996, !15, i64 8000, !23, i64 8008, !15, i64 8016, !15, i64 8020, !23, i64 8024, !15, i64 8032, !15, i64 8036, !15, i64 8040, !15, i64 8044, !15, i64 8048, !15, i64 8052, !15, i64 8056, !23, i64 8064, !20, i64 8072, !17, i64 8080, !16, i64 8088, !17, i64 8096, !15, i64 8104, !39, i64 8112, !15, i64 8144, !16, i64 8152, !15, i64 8160, !15, i64 8164, !15, i64 8168, !40, i64 8176, !17, i64 8288, !17, i64 8296, !17, i64 8304, !17, i64 8312, !41, i64 8320, !23, i64 8328, !15, i64 8336, !17, i64 8344, !15, i64 8352, !15, i64 8356, !15, i64 8360, !16, i64 8368, !15, i64 8376, !17, i64 8384}
+!15 = !{!"int", !8, i64 0}
+!16 = !{!"long", !8, i64 0}
+!17 = !{!"p1 omnipotent char", !7, i64 0}
+!18 = !{!"p2 omnipotent char", !7, i64 0}
+!19 = !{!"p1 _ZTS7redisDb", !7, i64 0}
+!20 = !{!"p1 _ZTS4dict", !7, i64 0}
+!21 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
+!22 = !{!"p1 _ZTS3rax", !7, i64 0}
+!23 = !{!"long long", !8, i64 0}
+!24 = !{!"connListener", !8, i64 0, !15, i64 64, !18, i64 72, !15, i64 80, !15, i64 84, !25, i64 88, !7, i64 96}
+!25 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
+!26 = !{!"p1 _ZTS6client", !7, i64 0}
+!27 = !{!"double", !8, i64 0}
+!28 = !{!"malloc_stats", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80}
+!29 = !{!"p1 double", !7, i64 0}
+!30 = !{!"p1 _ZTS9saveparam", !7, i64 0}
+!31 = !{!"p2 _ZTS10connection", !7, i64 0}
+!32 = !{!"redisOpArray", !33, i64 0, !15, i64 8, !15, i64 12}
+!33 = !{!"p1 _ZTS7redisOp", !7, i64 0}
+!34 = !{!"p1 _ZTS11replBacklog", !7, i64 0}
+!35 = !{!"replDataBuf", !6, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32}
+!36 = !{!"p1 _ZTS10connection", !7, i64 0}
+!37 = !{!"p1 _ZTS8_kvstore", !7, i64 0}
+!38 = !{!"p1 _ZTS12clusterState", !7, i64 0}
+!39 = !{!"aclInfo", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
+!40 = !{!"redisTLSContextConfig", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108}
+!41 = !{!"p1 _ZTS14sentinelConfig", !7, i64 0}
+!42 = !{!15, !15, i64 0}
+!43 = !{!14, !21, i64 88}
+!44 = !{!16, !16, i64 0}
+!45 = distinct !{!45, !11, !12}
+!46 = distinct !{!46, !11, !12}
+!47 = distinct !{!47, !11, !12}
+!48 = !{!49, !16, i64 40}
+!49 = !{!"list", !50, i64 0, !50, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !16, i64 40}
+!50 = !{!"p1 _ZTS8listNode", !7, i64 0}
+!51 = !{!49, !50, i64 0}
+!52 = !{!53, !7, i64 16}
+!53 = !{!"listNode", !50, i64 0, !50, i64 8, !7, i64 16}
+!54 = !{!55, !7, i64 0}
+!55 = !{!"bio_comp_item", !7, i64 0, !16, i64 8, !7, i64 16}
+!56 = !{!55, !16, i64 8}
+!57 = !{!55, !7, i64 16}
+!58 = distinct !{!58, !11, !12}
+!59 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!60 = !{!17, !17, i64 0}
+!61 = !{!14, !17, i64 8296}
+!62 = !{!8, !8, i64 0}
+!63 = distinct !{!63, !12}
+!64 = !{!7, !7, i64 0}
+!65 = distinct !{!65, !11, !12}
+!66 = distinct !{!66, !11, !12}
+!67 = distinct !{!67, !11, !12}

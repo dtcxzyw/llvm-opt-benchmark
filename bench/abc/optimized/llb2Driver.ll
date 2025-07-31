@@ -160,8 +160,8 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   ]
 
 Saig_ObjIsPi.exit:                                ; preds = %35
-  %.val3.i = load i32, ptr %30, align 8, !tbaa !37
-  %.val4.i = load i32, ptr %17, align 4, !tbaa !38
+  %.val3.i = load i32, ptr %30, align 8, !tbaa !38
+  %.val4.i = load i32, ptr %17, align 4, !tbaa !39
   %.not39 = icmp slt i32 %.val3.i, %.val4.i
   br i1 %.not39, label %38, label %.thread
 
@@ -263,7 +263,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %79 = add nuw nsw i32 %.041, 1
   %.val = load i32, ptr %3, align 8, !tbaa !27
   %80 = icmp slt i32 %79, %.val
-  br i1 %80, label %18, label %.critedge, !llvm.loop !39
+  br i1 %80, label %18, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %Vec_IntAlloc.exit
   ret ptr %4
@@ -304,8 +304,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
 15:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
   %16 = phi ptr [ %10, %.lr.ph ], [ %.pre.i16, %Vec_IntPush.exit ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %45, %Vec_IntPush.exit ]
-  %17 = load ptr, ptr %13, align 8, !tbaa !40
-  %.val12 = load i32, ptr %14, align 4, !tbaa !38
+  %17 = load ptr, ptr %13, align 8, !tbaa !41
+  %.val12 = load i32, ptr %14, align 4, !tbaa !39
   %18 = add nsw i32 %.val12, %.014
   %19 = getelementptr i8, ptr %17, i64 8
   %.val9 = load ptr, ptr %19, align 8, !tbaa !29
@@ -367,7 +367,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %45 = add nuw nsw i32 %.014, 1
   %.val = load i32, ptr %2, align 8, !tbaa !27
   %46 = icmp slt i32 %45, %.val
-  br i1 %46, label %15, label %.critedge, !llvm.loop !41
+  br i1 %46, label %15, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %Vec_IntAlloc.exit
   ret ptr %3
@@ -376,8 +376,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Llb_DriverPhaseCube(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 752
-  %5 = load i64, ptr %4, align 8, !tbaa !42
-  store i64 0, ptr %4, align 8, !tbaa !42
+  %5 = load i64, ptr %4, align 8, !tbaa !43
+  store i64 0, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @Cudd_ReadOne(ptr noundef %2) #8
   tail call void @Cudd_Ref(ptr noundef %6) #8
   %7 = getelementptr i8, ptr %0, i64 104
@@ -455,12 +455,12 @@ Aig_ObjFaninId0.exit33:                           ; preds = %33, %34
   %.1 = phi ptr [ %.036, %Aig_ObjFaninId0.exit ], [ %41, %Aig_ObjFaninId0.exit33 ], [ %.036, %30 ]
   %43 = add nuw nsw i32 %.02435, 1
   %44 = icmp slt i32 %43, %.val
-  br i1 %44, label %12, label %.critedge, !llvm.loop !56
+  br i1 %44, label %12, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %42, %3
   %.0.lcssa = phi ptr [ %6, %3 ], [ %.1, %42 ]
   tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #8
-  store i64 %5, ptr %4, align 8, !tbaa !42
+  store i64 %5, ptr %4, align 8, !tbaa !43
   ret ptr %.0.lcssa
 }
 
@@ -485,7 +485,7 @@ define noundef ptr @Llb_DriverLastPartition(ptr noundef readonly captures(none) 
   %6 = tail call ptr @Cudd_Init(i32 noundef %.val.val, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #8
   tail call void @Cudd_AutodynEnable(ptr noundef %6, i32 noundef 6) #8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  store i64 %2, ptr %7, align 8, !tbaa !42
+  store i64 %2, ptr %7, align 8, !tbaa !43
   %8 = tail call ptr @Cudd_ReadOne(ptr noundef %6) #8
   tail call void @Cudd_Ref(ptr noundef %8) #8
   %9 = getelementptr i8, ptr %1, i64 4
@@ -526,7 +526,7 @@ Aig_ManObj.exit:                                  ; preds = %13, %14
   br i1 %.not.i57, label %Saig_ObjIsLi.exit, label %Saig_ObjIsLi.exit.thread
 
 Saig_ObjIsLi.exit:                                ; preds = %Aig_ManObj.exit
-  %.val3.i = load i32, ptr %21, align 8, !tbaa !37
+  %.val3.i = load i32, ptr %21, align 8, !tbaa !38
   %.val.i58 = load i32, ptr %12, align 8, !tbaa !30
   %.not61 = icmp slt i32 %.val3.i, %.val.i58
   br i1 %.not61, label %Saig_ObjIsLi.exit.thread, label %24
@@ -598,14 +598,14 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = sext i32 %.val55 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %13, label %.critedge, !llvm.loop !57
+  br i1 %54, label %13, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %Saig_ObjIsLi.exit.thread, %3
   %.046.lcssa = phi ptr [ %8, %3 ], [ %.1, %Saig_ObjIsLi.exit.thread ]
   tail call void @Cudd_AutodynDisable(ptr noundef %6) #8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 736
-  store ptr %.046.lcssa, ptr %55, align 8, !tbaa !58
-  store i64 0, ptr %7, align 8, !tbaa !42
+  store ptr %.046.lcssa, ptr %55, align 8, !tbaa !59
+  store i64 0, ptr %7, align 8, !tbaa !43
   br label %56
 
 56:                                               ; preds = %.critedge, %51
@@ -677,27 +677,28 @@ attributes #8 = { nounwind }
 !32 = !{!11, !10, i64 8}
 !33 = !{!11, !12, i64 36}
 !34 = !{!12, !12, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!7, !7, i64 0}
-!38 = !{!4, !12, i64 108}
-!39 = distinct !{!39, !36}
-!40 = !{!4, !9, i64 16}
-!41 = distinct !{!41, !36}
-!42 = !{!43, !20, i64 752}
-!43 = !{!"DdManager", !44, i64 0, !45, i64 40, !45, i64 48, !45, i64 56, !45, i64 64, !45, i64 72, !46, i64 80, !46, i64 88, !12, i64 96, !12, i64 100, !47, i64 104, !47, i64 112, !47, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !12, i64 148, !48, i64 152, !48, i64 160, !49, i64 168, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !47, i64 256, !12, i64 264, !12, i64 268, !12, i64 272, !50, i64 280, !20, i64 288, !47, i64 296, !12, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !50, i64 344, !14, i64 352, !50, i64 360, !12, i64 368, !51, i64 376, !51, i64 384, !50, i64 392, !45, i64 400, !5, i64 408, !50, i64 416, !12, i64 424, !12, i64 428, !12, i64 432, !47, i64 440, !12, i64 448, !12, i64 452, !12, i64 456, !12, i64 460, !47, i64 464, !47, i64 472, !12, i64 480, !12, i64 484, !12, i64 488, !12, i64 492, !12, i64 496, !12, i64 500, !12, i64 504, !12, i64 508, !12, i64 512, !52, i64 520, !52, i64 528, !12, i64 536, !12, i64 540, !12, i64 544, !12, i64 548, !12, i64 552, !12, i64 556, !53, i64 560, !5, i64 568, !54, i64 576, !54, i64 584, !54, i64 592, !54, i64 600, !55, i64 608, !55, i64 616, !12, i64 624, !20, i64 632, !20, i64 640, !20, i64 648, !12, i64 656, !20, i64 664, !20, i64 672, !47, i64 680, !47, i64 688, !47, i64 696, !47, i64 704, !47, i64 712, !47, i64 720, !12, i64 728, !45, i64 736, !45, i64 744, !20, i64 752}
-!44 = !{!"DdNode", !12, i64 0, !12, i64 4, !45, i64 8, !7, i64 16, !20, i64 32}
-!45 = !{!"p1 _ZTS6DdNode", !6, i64 0}
-!46 = !{!"p1 _ZTS7DdCache", !6, i64 0}
-!47 = !{!"double", !7, i64 0}
-!48 = !{!"p1 _ZTS10DdSubtable", !6, i64 0}
-!49 = !{!"DdSubtable", !50, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48}
-!50 = !{!"p2 _ZTS6DdNode", !6, i64 0}
-!51 = !{!"p1 long", !6, i64 0}
-!52 = !{!"p1 _ZTS7MtrNode", !6, i64 0}
-!53 = !{!"p1 _ZTS12DdLocalCache", !6, i64 0}
-!54 = !{!"p1 _ZTS6DdHook", !6, i64 0}
-!55 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!56 = distinct !{!56, !36}
-!57 = distinct !{!57, !36}
-!58 = !{!43, !45, i64 736}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!7, !7, i64 0}
+!39 = !{!4, !12, i64 108}
+!40 = distinct !{!40, !36, !37}
+!41 = !{!4, !9, i64 16}
+!42 = distinct !{!42, !36, !37}
+!43 = !{!44, !20, i64 752}
+!44 = !{!"DdManager", !45, i64 0, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64, !46, i64 72, !47, i64 80, !47, i64 88, !12, i64 96, !12, i64 100, !48, i64 104, !48, i64 112, !48, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !12, i64 148, !49, i64 152, !49, i64 160, !50, i64 168, !12, i64 224, !12, i64 228, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !48, i64 256, !12, i64 264, !12, i64 268, !12, i64 272, !51, i64 280, !20, i64 288, !48, i64 296, !12, i64 304, !14, i64 312, !14, i64 320, !14, i64 328, !14, i64 336, !51, i64 344, !14, i64 352, !51, i64 360, !12, i64 368, !52, i64 376, !52, i64 384, !51, i64 392, !46, i64 400, !5, i64 408, !51, i64 416, !12, i64 424, !12, i64 428, !12, i64 432, !48, i64 440, !12, i64 448, !12, i64 452, !12, i64 456, !12, i64 460, !48, i64 464, !48, i64 472, !12, i64 480, !12, i64 484, !12, i64 488, !12, i64 492, !12, i64 496, !12, i64 500, !12, i64 504, !12, i64 508, !12, i64 512, !53, i64 520, !53, i64 528, !12, i64 536, !12, i64 540, !12, i64 544, !12, i64 548, !12, i64 552, !12, i64 556, !54, i64 560, !5, i64 568, !55, i64 576, !55, i64 584, !55, i64 592, !55, i64 600, !56, i64 608, !56, i64 616, !12, i64 624, !20, i64 632, !20, i64 640, !20, i64 648, !12, i64 656, !20, i64 664, !20, i64 672, !48, i64 680, !48, i64 688, !48, i64 696, !48, i64 704, !48, i64 712, !48, i64 720, !12, i64 728, !46, i64 736, !46, i64 744, !20, i64 752}
+!45 = !{!"DdNode", !12, i64 0, !12, i64 4, !46, i64 8, !7, i64 16, !20, i64 32}
+!46 = !{!"p1 _ZTS6DdNode", !6, i64 0}
+!47 = !{!"p1 _ZTS7DdCache", !6, i64 0}
+!48 = !{!"double", !7, i64 0}
+!49 = !{!"p1 _ZTS10DdSubtable", !6, i64 0}
+!50 = !{!"DdSubtable", !51, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48}
+!51 = !{!"p2 _ZTS6DdNode", !6, i64 0}
+!52 = !{!"p1 long", !6, i64 0}
+!53 = !{!"p1 _ZTS7MtrNode", !6, i64 0}
+!54 = !{!"p1 _ZTS12DdLocalCache", !6, i64 0}
+!55 = !{!"p1 _ZTS6DdHook", !6, i64 0}
+!56 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!57 = distinct !{!57, !36, !37}
+!58 = distinct !{!58, !36, !37}
+!59 = !{!44, !46, i64 736}

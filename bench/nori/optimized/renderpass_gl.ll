@@ -189,7 +189,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
   store float %61, ptr %62, align 4
   %63 = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i4.i.i.i.i.i.i.i.i = icmp eq i64 %63, 4
-  br i1 %exitcond.not.i4.i.i.i.i.i.i.i.i, label %64, label %56, !llvm.loop !7
+  br i1 %exitcond.not.i4.i.i.i.i.i.i.i.i, label %64, label %56, !llvm.loop !8
 
 64:                                               ; preds = %56
   %.fca.0.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %10, align 8
@@ -203,7 +203,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
   %65 = add i64 %.01012.i.i.i.i.i, -1
   %66 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, label %52, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, label %52, !llvm.loop !9
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %64, %_ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i
   %67 = phi ptr [ %46, %_ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %49, %64 ]
@@ -398,7 +398,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %121
   store float %129, ptr %130, align 4
   %131 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %131, 4
-  br i1 %exitcond.not.i4.i, label %132, label %124, !llvm.loop !7
+  br i1 %exitcond.not.i4.i, label %132, label %124, !llvm.loop !8
 
 132:                                              ; preds = %124
   %.fca.0.load.i.i = load <2 x float>, ptr %7, align 8
@@ -419,7 +419,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %121
   %140 = sub i64 %138, %139
   %141 = ashr exact i64 %140, 3
   %142 = icmp ult i64 %135, %141
-  br i1 %142, label %104, label %._crit_edge, !llvm.loop !9
+  br i1 %142, label %104, label %._crit_edge, !llvm.loop !10
 
 143:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %27
   %144 = landingpad { ptr, i32 }
@@ -703,7 +703,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %167, %_ZNSt6vectorI
   %251 = sub i64 %249, %250
   %252 = ashr exact i64 %251, 3
   %253 = icmp ult i64 %246, %252
-  br i1 %253, label %.lr.ph164, label %._crit_edge165, !llvm.loop !10
+  br i1 %253, label %.lr.ph164, label %._crit_edge165, !llvm.loop !11
 
 ._crit_edge165:                                   ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %254 = xor i1 %.150, true
@@ -976,7 +976,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN7nanogui3refINS0_6ObjectEEESaIS3_
 _ZSt8_DestroyIN7nanogui3refINS0_6ObjectEEEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %7, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN7nanogui3refINS0_6ObjectEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1046,7 +1046,7 @@ _ZNSt6vectorIN7nanogui5ColorESaIS1_EED2Ev.exit:   ; preds = %_ZN7nanogui3refINS_
 _ZSt8_DestroyIN7nanogui3refINS0_6ObjectEEEEvPT_.exit.i.i.i.i: ; preds = %15, %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %16, %13
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPN7nanogui3refINS0_6ObjectEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7nanogui3refINS0_6ObjectEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %10, align 8
@@ -1203,7 +1203,7 @@ define hidden void @_ZN7nanogui10RenderPass5beginEv(ptr noundef nonnull align 8 
   %64 = sub i64 %62, %63
   %65 = ashr exact i64 %64, 3
   %66 = icmp ult i64 %59, %65
-  br i1 %66, label %40, label %.loopexit, !llvm.loop !12
+  br i1 %66, label %40, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1272,7 +1272,7 @@ define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp eq i32 %28, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
-  br i1 %or.cond.i, label %26, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !13
+  br i1 %or.cond.i, label %26, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !14
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1287,7 +1287,7 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
   %33 = load i32, ptr %32, align 4
   %.not.i6 = icmp eq i32 %31, %33
   %or.cond.i7 = and i1 %.not8.i4, %.not.i6
-  br i1 %or.cond.i7, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8, !llvm.loop !13
+  br i1 %or.cond.i7, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8, !llvm.loop !14
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit8:          ; preds = %.preheader
   br i1 %.not.i6, label %34, label %.critedge
@@ -1731,7 +1731,7 @@ define hidden void @_ZN7nanogui10RenderPass6resizeERKNS_5ArrayIiLm2EEE(ptr nound
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
   %22 = icmp ult i64 %17, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.thread, %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1969,13 +1969,14 @@ attributes #23 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

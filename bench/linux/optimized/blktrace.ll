@@ -2892,7 +2892,7 @@ define internal fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext %1
 17:                                               ; preds = %2
   %18 = icmp eq i32 %11, 0
   %19 = select i1 %18, ptr @.str.18, ptr @.str.17
-  tail call void %12(ptr noundef %0, ptr noundef nonnull %19, i1 noundef zeroext %14) #21, !callees !76
+  tail call void %12(ptr noundef %0, ptr noundef nonnull %19, i1 noundef zeroext %14) #21, !callees !77
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr i8, ptr %20, i64 48
   %22 = lshr exact i32 %13, 5
@@ -2924,7 +2924,7 @@ define internal fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext %1
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr [2 x ptr], ptr %37, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  tail call void %12(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %14) #21, !callees !76
+  tail call void %12(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %14) #21, !callees !77
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %5, align 8
@@ -3461,7 +3461,7 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
 21:                                               ; preds = %.preheader
   %22 = add nsw i32 %16, -1
   %23 = icmp sgt i32 %16, 0
-  br i1 %23, label %.preheader, label %24, !llvm.loop !77
+  br i1 %23, label %.preheader, label %24, !llvm.loop !78
 
 24:                                               ; preds = %21, %.preheader
   %25 = phi i32 [ -1, %21 ], [ %16, %.preheader ]
@@ -3483,12 +3483,12 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %32, i32 noundef %35) #21
   %36 = add nuw nsw i64 %30, 1
   %37 = icmp eq i64 %36, %29
-  br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !78
+  br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !79
 
 38:                                               ; preds = %.split
   %39 = add nuw nsw i64 %41, 1
   %40 = icmp eq i64 %39, %29
-  br i1 %40, label %.loopexit, label %.split, !llvm.loop !80
+  br i1 %40, label %.loopexit, label %.split, !llvm.loop !81
 
 .split:                                           ; preds = %24, %38
   %41 = phi i64 [ %39, %38 ], [ 0, %24 ]
@@ -3661,7 +3661,7 @@ define internal i64 @sysfs_blk_trace_attr_show(ptr noundef readonly captures(non
   %40 = phi ptr [ %38, %31 ], [ %26, %24 ]
   %41 = add nuw nsw i64 %25, 1
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %43, label %24, !llvm.loop !81
+  br i1 %42, label %43, label %24, !llvm.loop !82
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %40, i64 1
@@ -3766,7 +3766,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
 29:                                               ; preds = %26
   %30 = load i8, ptr %27, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %26, label %.preheader, !llvm.loop !82
+  br i1 %31, label %26, label %.preheader, !llvm.loop !83
 
 .preheader:                                       ; preds = %29, %43
   %32 = phi i64 [ %44, %43 ], [ 0, %29 ]
@@ -3782,12 +3782,12 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %40 = or i32 %39, %25
   %41 = and i64 %32, 4294967295
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %.thread10, label %24, !llvm.loop !82
+  br i1 %42, label %.thread10, label %24, !llvm.loop !84
 
 43:                                               ; preds = %.preheader
   %44 = add nuw nsw i64 %32, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !83
+  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !85
 
 .thread10:                                        ; preds = %38, %43
   call void @kfree(ptr noundef nonnull %20) #21
@@ -3863,7 +3863,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   store i64 %.sink, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i64 %82, ptr %84, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !86
   store volatile ptr %64, ptr %53, align 8
   call fastcc void @get_probe_ref()
   br label %.thread14
@@ -3953,7 +3953,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   store i64 %.sink34, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store i64 %125, ptr %127, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !86
   store volatile ptr %106, ptr %101, align 8
   call fastcc void @get_probe_ref()
   %128 = load ptr, ptr %101, align 8
@@ -4148,15 +4148,17 @@ attributes #26 = { nounwind allocsize(0) }
 !70 = !{i64 2158943443, i64 2158943472, i64 2158943518, i64 2158943576, i64 2158943630, i64 2158943684, i64 2158943739, i64 2158943770, i64 2158944078, i64 2158944084, i64 2158944131, i64 2158944154, i64 2158944180}
 !71 = !{i64 2158944637, i64 2158944448, i64 2158944498, i64 2158944544, i64 2158944572}
 !72 = !{i64 2149163544, i64 2149163583, i64 2149163604, i64 2149163641, i64 2149163664, i64 2149163534}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74, !75, !76}
 !74 = !{!"llvm.loop.mustprogress"}
 !75 = !{!"llvm.loop.unroll.disable"}
-!76 = !{ptr @blk_log_action, ptr @blk_log_action_classic}
-!77 = distinct !{!77, !74, !75}
-!78 = distinct !{!78, !74, !75, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !74, !75}
-!81 = distinct !{!81, !74, !75}
-!82 = distinct !{!82, !75}
-!83 = distinct !{!83, !74, !75}
-!84 = !{i64 2158968009}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{ptr @blk_log_action, ptr @blk_log_action_classic}
+!78 = distinct !{!78, !74, !75, !76}
+!79 = distinct !{!79, !74, !75, !76, !80}
+!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!81 = distinct !{!81, !74, !75, !76}
+!82 = distinct !{!82, !74, !75, !76}
+!83 = distinct !{!83, !75, !76}
+!84 = distinct !{!84, !75, !76}
+!85 = distinct !{!85, !74, !75, !76}
+!86 = !{i64 2158968009}

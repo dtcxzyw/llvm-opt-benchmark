@@ -49,14 +49,14 @@ define void @lv_canvas_set_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !23
 
 6:                                                ; preds = %5
   %.not22 = icmp eq ptr %1, null
   br i1 %.not22, label %.preheader24, label %7
 
 .preheader24:                                     ; preds = %6, %.preheader24
-  br label %.preheader24
+  br label %.preheader24, !llvm.loop !25
 
 7:                                                ; preds = %6
   %8 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %2, i32 noundef %4) #5
@@ -97,14 +97,14 @@ define void @lv_canvas_set_draw_buf(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !26
 
 3:                                                ; preds = %2
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %.preheader15, label %4
 
 .preheader15:                                     ; preds = %3, %.preheader15
-  br label %.preheader15
+  br label %.preheader15, !llvm.loop !27
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -134,7 +134,7 @@ define void @lv_canvas_set_px(ptr noundef %0, i32 noundef %1, i32 noundef %2, i2
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !28
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -174,7 +174,7 @@ define void @lv_canvas_set_px(ptr noundef %0, i32 noundef %1, i32 noundef %2, i2
   br label %27
 
 .critedge:                                        ; preds = %15
-  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !23
+  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !29
   br label %69
 
 default.unreachable:                              ; preds = %15
@@ -189,7 +189,7 @@ default.unreachable:                              ; preds = %15
   %31 = xor i32 %30, 255
   %32 = zext i24 %3 to i32
   %33 = and i32 %31, %32
-  %34 = load i8, ptr %13, align 1, !tbaa !23
+  %34 = load i8, ptr %13, align 1, !tbaa !29
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %31, %.0
   %37 = xor i32 %36, -1
@@ -197,7 +197,7 @@ default.unreachable:                              ; preds = %15
   %39 = shl nuw nsw i32 %33, %.0
   %40 = or i32 %38, %39
   %41 = trunc i32 %40 to i8
-  store i8 %41, ptr %13, align 1, !tbaa !23
+  store i8 %41, ptr %13, align 1, !tbaa !29
   br label %68
 
 42:                                               ; preds = %6
@@ -214,11 +214,11 @@ default.unreachable:                              ; preds = %15
 
 43:                                               ; preds = %42
   %44 = tail call zeroext i8 @lv_color_luminance(i24 %3) #5
-  store i8 %44, ptr %13, align 1, !tbaa !23
+  store i8 %44, ptr %13, align 1, !tbaa !29
   br label %68
 
 45:                                               ; preds = %42
-  store i8 %4, ptr %13, align 1, !tbaa !23
+  store i8 %4, ptr %13, align 1, !tbaa !29
   br label %68
 
 46:                                               ; preds = %42
@@ -236,37 +236,37 @@ default.unreachable:                              ; preds = %15
 
 54:                                               ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i8 %.sroa.12.0.extract.trunc, ptr %55, align 1, !tbaa !23
+  store i8 %.sroa.12.0.extract.trunc, ptr %55, align 1, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %.sroa.8.0.extract.trunc, ptr %56, align 1, !tbaa !23
-  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !23
+  store i8 %.sroa.8.0.extract.trunc, ptr %56, align 1, !tbaa !29
+  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !29
   br label %68
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i8 %.sroa.12.0.extract.trunc, ptr %58, align 1, !tbaa !23
+  store i8 %.sroa.12.0.extract.trunc, ptr %58, align 1, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %.sroa.8.0.extract.trunc, ptr %59, align 1, !tbaa !23
-  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !23
+  store i8 %.sroa.8.0.extract.trunc, ptr %59, align 1, !tbaa !29
+  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !29
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  store i8 -1, ptr %60, align 1, !tbaa !23
+  store i8 -1, ptr %60, align 1, !tbaa !29
   br label %68
 
 61:                                               ; preds = %42
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i8 %.sroa.12.0.extract.trunc, ptr %62, align 1, !tbaa !24
+  store i8 %.sroa.12.0.extract.trunc, ptr %62, align 1, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %.sroa.8.0.extract.trunc, ptr %63, align 1, !tbaa !26
-  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !27
+  store i8 %.sroa.8.0.extract.trunc, ptr %63, align 1, !tbaa !32
+  store i8 %.sroa.0.0.extract.trunc, ptr %13, align 1, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  store i8 %4, ptr %64, align 1, !tbaa !28
+  store i8 %4, ptr %64, align 1, !tbaa !34
   br label %68
 
 65:                                               ; preds = %42
   %66 = tail call zeroext i8 @lv_color_luminance(i24 %3) #5
-  store i8 %66, ptr %13, align 1, !tbaa !29
+  store i8 %66, ptr %13, align 1, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 -1, ptr %67, align 1, !tbaa !31
+  store i8 -1, ptr %67, align 1, !tbaa !37
   br label %68
 
 68:                                               ; preds = %42, %27, %43, %46, %57, %65, %61, %54, %45
@@ -291,7 +291,7 @@ define void @lv_canvas_set_palette(ptr noundef %0, i8 noundef zeroext %1, i32 %2
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !38
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -309,7 +309,7 @@ define ptr @lv_canvas_get_draw_buf(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !39
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -324,7 +324,7 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !40
 
 5:                                                ; preds = %3
   store i32 0, ptr %4, align 4
@@ -354,17 +354,17 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 15:                                               ; preds = %9, %9
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %17 = load i8, ptr %16, align 1, !tbaa !23
+  %17 = load i8, ptr %16, align 1, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %17, ptr %18, align 2, !tbaa !24
+  store i8 %17, ptr %18, align 2, !tbaa !30
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !23
+  %20 = load i8, ptr %19, align 1, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %20, ptr %21, align 1, !tbaa !26
-  %22 = load i8, ptr %10, align 1, !tbaa !23
-  store i8 %22, ptr %4, align 4, !tbaa !27
+  store i8 %20, ptr %21, align 1, !tbaa !32
+  %22 = load i8, ptr %10, align 1, !tbaa !29
+  store i8 %22, ptr %4, align 4, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 -1, ptr %23, align 1, !tbaa !28
+  store i8 -1, ptr %23, align 1, !tbaa !34
   br label %54
 
 24:                                               ; preds = %9
@@ -376,21 +376,21 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %29 = lshr i16 %narrow, 8
   %30 = trunc nuw i16 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %30, ptr %31, align 2, !tbaa !24
+  store i8 %30, ptr %31, align 2, !tbaa !30
   %32 = lshr i16 %27, 5
   %33 = and i16 %32, 63
   %narrow24 = mul nuw i16 %33, 1037
   %34 = lshr i16 %narrow24, 8
   %35 = trunc nuw i16 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %35, ptr %36, align 1, !tbaa !26
+  store i8 %35, ptr %36, align 1, !tbaa !32
   %37 = and i16 %27, 31
   %narrow25 = mul nuw i16 %37, 2106
   %38 = lshr i16 %narrow25, 8
   %39 = trunc nuw i16 %38 to i8
-  store i8 %39, ptr %4, align 4, !tbaa !27
+  store i8 %39, ptr %4, align 4, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 -1, ptr %40, align 1, !tbaa !28
+  store i8 -1, ptr %40, align 1, !tbaa !34
   br label %54
 
 41:                                               ; preds = %9
@@ -402,24 +402,24 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %.sroa.5.0.extract.shift27 = lshr i64 %43, 16
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift27 to i8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %.sroa.5.0.extract.trunc, ptr %44, align 2, !tbaa !24
+  store i8 %.sroa.5.0.extract.trunc, ptr %44, align 2, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %.sroa.4.0.extract.trunc, ptr %45, align 1, !tbaa !26
-  store i8 %.sroa.0.0.extract.trunc, ptr %4, align 4, !tbaa !27
-  %46 = load i8, ptr %10, align 1, !tbaa !23
+  store i8 %.sroa.4.0.extract.trunc, ptr %45, align 1, !tbaa !32
+  store i8 %.sroa.0.0.extract.trunc, ptr %4, align 4, !tbaa !33
+  %46 = load i8, ptr %10, align 1, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %46, ptr %47, align 1, !tbaa !28
+  store i8 %46, ptr %47, align 1, !tbaa !34
   br label %54
 
 48:                                               ; preds = %9
-  %49 = load i8, ptr %10, align 1, !tbaa !23
+  %49 = load i8, ptr %10, align 1, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %49, ptr %50, align 2, !tbaa !24
+  store i8 %49, ptr %50, align 2, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %49, ptr %51, align 1, !tbaa !26
-  store i8 %49, ptr %4, align 4, !tbaa !27
+  store i8 %49, ptr %51, align 1, !tbaa !32
+  store i8 %49, ptr %4, align 4, !tbaa !33
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 -1, ptr %52, align 1, !tbaa !28
+  store i8 -1, ptr %52, align 1, !tbaa !34
   br label %54
 
 53:                                               ; preds = %9
@@ -437,7 +437,7 @@ define ptr @lv_canvas_get_image(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !41
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -451,7 +451,7 @@ define ptr @lv_canvas_get_buf(ptr noundef readonly captures(address_is_null) %0)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !42
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -461,7 +461,7 @@ define ptr @lv_canvas_get_buf(ptr noundef readonly captures(address_is_null) %0)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -475,7 +475,7 @@ define void @lv_canvas_copy_buf(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !44
 
 5:                                                ; preds = %4
   %6 = icmp ne ptr %1, null
@@ -484,7 +484,7 @@ define void @lv_canvas_copy_buf(ptr noundef readonly captures(address_is_null) %
   br i1 %or.cond, label %8, label %.preheader16
 
 .preheader16:                                     ; preds = %5, %.preheader16
-  br label %.preheader16
+  br label %.preheader16, !llvm.loop !45
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -501,7 +501,7 @@ define void @lv_canvas_copy_buf(ptr noundef readonly captures(address_is_null) %
   br i1 %17, label %18, label %.preheader15
 
 .preheader15:                                     ; preds = %12, %.preheader15
-  br label %.preheader15
+  br label %.preheader15, !llvm.loop !46
 
 18:                                               ; preds = %12
   tail call void @lv_draw_buf_copy(ptr noundef nonnull %10, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #5
@@ -524,7 +524,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !47
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -537,7 +537,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 65535
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !48
   %14 = load i64, ptr %6, align 4
   %15 = lshr i64 %14, 8
   %trunc = trunc i64 %15 to i8
@@ -584,20 +584,20 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 .lr.ph187:                                        ; preds = %.lr.ph191, %.lr.ph187
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph187 ], [ 0, %.lr.ph191 ]
   %25 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv235
-  store i16 %18, ptr %25, align 2, !tbaa !34
+  store i16 %18, ptr %25, align 2, !tbaa !49
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %26 = load i64, ptr %6, align 4
   %27 = lshr i64 %26, 32
   %28 = and i64 %27, 65535
   %29 = icmp samesign ult i64 %indvars.iv.next236, %28
-  br i1 %29, label %.lr.ph187, label %._crit_edge188, !llvm.loop !35
+  br i1 %29, label %.lr.ph187, label %._crit_edge188, !llvm.loop !50
 
 ._crit_edge188:                                   ; preds = %.lr.ph187, %.lr.ph191
   %30 = phi i64 [ %21, %.lr.ph191 ], [ %26, %.lr.ph187 ]
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %31 = lshr i64 %30, 48
   %32 = icmp samesign ult i64 %indvars.iv.next239, %31
-  br i1 %32, label %.lr.ph191, label %.loopexit, !llvm.loop !37
+  br i1 %32, label %.lr.ph191, label %.loopexit, !llvm.loop !52
 
 33:                                               ; preds = %8, %8
   %34 = tail call i32 @lv_color_to_u32(i24 %1) #5
@@ -628,20 +628,20 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 .lr.ph180:                                        ; preds = %.lr.ph184, %.lr.ph180
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %.lr.ph180 ], [ 0, %.lr.ph184 ]
   %47 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv229
-  store i32 %.0149, ptr %47, align 4, !tbaa !38
+  store i32 %.0149, ptr %47, align 4, !tbaa !53
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %48 = load i64, ptr %6, align 4
   %49 = lshr i64 %48, 32
   %50 = and i64 %49, 65535
   %51 = icmp samesign ult i64 %indvars.iv.next230, %50
-  br i1 %51, label %.lr.ph180, label %._crit_edge181, !llvm.loop !39
+  br i1 %51, label %.lr.ph180, label %._crit_edge181, !llvm.loop !54
 
 ._crit_edge181:                                   ; preds = %.lr.ph180, %.lr.ph184
   %52 = phi i64 [ %43, %.lr.ph184 ], [ %48, %.lr.ph180 ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %53 = lshr i64 %52, 48
   %54 = icmp samesign ult i64 %indvars.iv.next233, %53
-  br i1 %54, label %.lr.ph184, label %.loopexit, !llvm.loop !40
+  br i1 %54, label %.lr.ph184, label %.loopexit, !llvm.loop !55
 
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %._crit_edge175
   %55 = phi i64 [ %14, %.lr.ph177.preheader ], [ %67, %._crit_edge175 ]
@@ -655,25 +655,25 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 .lr.ph174:                                        ; preds = %.lr.ph177, %.lr.ph174
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %.lr.ph174 ], [ 0, %.lr.ph177 ]
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv223
-  store i8 %.sroa.098.0.extract.trunc, ptr %59, align 1, !tbaa !23
+  store i8 %.sroa.098.0.extract.trunc, ptr %59, align 1, !tbaa !29
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  store i8 %.sroa.7.0.extract.trunc, ptr %60, align 1, !tbaa !23
+  store i8 %.sroa.7.0.extract.trunc, ptr %60, align 1, !tbaa !29
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 2
-  store i8 %.sroa.8.0.extract.trunc, ptr %61, align 1, !tbaa !23
+  store i8 %.sroa.8.0.extract.trunc, ptr %61, align 1, !tbaa !29
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 3
   %62 = load i64, ptr %6, align 4
   %63 = lshr i64 %62, 32
   %64 = and i64 %63, 65535
   %65 = mul nuw nsw i64 %64, 3
   %66 = icmp samesign ult i64 %indvars.iv.next224, %65
-  br i1 %66, label %.lr.ph174, label %._crit_edge175, !llvm.loop !41
+  br i1 %66, label %.lr.ph174, label %._crit_edge175, !llvm.loop !56
 
 ._crit_edge175:                                   ; preds = %.lr.ph174, %.lr.ph177
   %67 = phi i64 [ %55, %.lr.ph177 ], [ %62, %.lr.ph174 ]
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %68 = lshr i64 %67, 48
   %69 = icmp samesign ult i64 %indvars.iv.next227, %68
-  br i1 %69, label %.lr.ph177, label %.loopexit, !llvm.loop !42
+  br i1 %69, label %.lr.ph177, label %.loopexit, !llvm.loop !57
 
 70:                                               ; preds = %8
   %71 = tail call zeroext i8 @lv_color_luminance(i24 %1) #5
@@ -697,20 +697,20 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 .lr.ph167:                                        ; preds = %.lr.ph171, %.lr.ph167
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph167 ], [ 0, %.lr.ph171 ]
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv217
-  store i8 %71, ptr %78, align 1, !tbaa !23
+  store i8 %71, ptr %78, align 1, !tbaa !29
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %79 = load i64, ptr %6, align 4
   %80 = lshr i64 %79, 32
   %81 = and i64 %80, 65535
   %82 = icmp samesign ult i64 %indvars.iv.next218, %81
-  br i1 %82, label %.lr.ph167, label %._crit_edge168, !llvm.loop !43
+  br i1 %82, label %.lr.ph167, label %._crit_edge168, !llvm.loop !58
 
 ._crit_edge168:                                   ; preds = %.lr.ph167, %.lr.ph171
   %83 = phi i64 [ %74, %.lr.ph171 ], [ %79, %.lr.ph167 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %84 = lshr i64 %83, 48
   %85 = icmp samesign ult i64 %indvars.iv.next221, %84
-  br i1 %85, label %.lr.ph171, label %.loopexit, !llvm.loop !44
+  br i1 %85, label %.lr.ph171, label %.loopexit, !llvm.loop !59
 
 86:                                               ; preds = %8
   %87 = tail call zeroext i8 @lv_color_luminance(i24 %1) #5
@@ -734,22 +734,22 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 .lr.ph:                                           ; preds = %.lr.ph164, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph164 ]
   %94 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %92, i64 %indvars.iv
-  store i8 %87, ptr %94, align 1, !tbaa !23
+  store i8 %87, ptr %94, align 1, !tbaa !29
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store i8 -1, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !23
+  store i8 -1, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i64, ptr %6, align 4
   %96 = lshr i64 %95, 32
   %97 = and i64 %96, 65535
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph164
   %99 = phi i64 [ %90, %.lr.ph164 ], [ %95, %.lr.ph ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %100 = lshr i64 %99, 48
   %101 = icmp samesign ult i64 %indvars.iv.next215, %100
-  br i1 %101, label %.lr.ph164, label %.loopexit, !llvm.loop !46
+  br i1 %101, label %.lr.ph164, label %.loopexit, !llvm.loop !61
 
 .preheader153:                                    ; preds = %.preheader154, %._crit_edge194
   %102 = phi i64 [ %110, %._crit_edge194 ], [ %14, %.preheader154 ]
@@ -767,7 +767,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   %107 = trunc nuw i64 %106 to i32
   %108 = and i32 %107, 65535
   %109 = icmp samesign ult i32 %104, %108
-  br i1 %109, label %.lr.ph193, label %._crit_edge194, !llvm.loop !47
+  br i1 %109, label %.lr.ph193, label %._crit_edge194, !llvm.loop !62
 
 ._crit_edge194:                                   ; preds = %.lr.ph193, %.preheader153
   %110 = phi i64 [ %102, %.preheader153 ], [ %105, %.lr.ph193 ]
@@ -775,7 +775,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   %112 = lshr i64 %110, 48
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = icmp samesign ult i32 %111, %113
-  br i1 %114, label %.preheader153, label %.loopexit, !llvm.loop !48
+  br i1 %114, label %.preheader153, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge168, %._crit_edge175, %._crit_edge181, %._crit_edge188, %._crit_edge194, %86, %70, %.preheader157, %33, %17, %.preheader154
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
@@ -795,14 +795,14 @@ define void @lv_canvas_init_layer(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !64
 
 3:                                                ; preds = %2
   %.not31 = icmp eq ptr %1, null
   br i1 %.not31, label %.preheader32, label %4
 
 .preheader32:                                     ; preds = %3, %.preheader32
-  br label %.preheader32
+  br label %.preheader32, !llvm.loop !65
 
 4:                                                ; preds = %3
   tail call void @lv_layer_init(ptr noundef nonnull %1) #5
@@ -820,37 +820,37 @@ define void @lv_canvas_init_layer(ptr noundef readonly captures(address_is_null)
   %14 = lshr i64 %9, 48
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = add nsw i32 %15, -1
-  store ptr %6, ptr %1, align 8, !tbaa !49
+  store ptr %6, ptr %1, align 8, !tbaa !66
   %17 = load i64, ptr %6, align 4
   %18 = trunc i64 %17 to i32
   %19 = lshr i32 %18, 8
   %20 = and i32 %19, 255
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %20, ptr %21, align 8, !tbaa !54
+  store i32 %20, ptr %21, align 8, !tbaa !71
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %22, align 8, !tbaa !38
+  store i32 0, ptr %22, align 8, !tbaa !53
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !38
+  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !53
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %13, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !38
+  store i32 %13, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !53
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %16, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !38
+  store i32 %16, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !53
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %23, align 4, !tbaa !38
+  store i32 0, ptr %23, align 4, !tbaa !53
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %.sroa.6.0..sroa_idx3, align 4, !tbaa !38
+  store i32 0, ptr %.sroa.6.0..sroa_idx3, align 4, !tbaa !53
   %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %13, ptr %.sroa.7.0..sroa_idx7, align 4, !tbaa !38
+  store i32 %13, ptr %.sroa.7.0..sroa_idx7, align 4, !tbaa !53
   %.sroa.8.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %16, ptr %.sroa.8.0..sroa_idx11, align 4, !tbaa !38
+  store i32 %16, ptr %.sroa.8.0..sroa_idx11, align 4, !tbaa !53
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 0, ptr %24, align 4, !tbaa !38
+  store i32 0, ptr %24, align 4, !tbaa !53
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 0, ptr %.sroa.6.0..sroa_idx5, align 4, !tbaa !38
+  store i32 0, ptr %.sroa.6.0..sroa_idx5, align 4, !tbaa !53
   %.sroa.7.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 %13, ptr %.sroa.7.0..sroa_idx9, align 4, !tbaa !38
+  store i32 %13, ptr %.sroa.7.0..sroa_idx9, align 4, !tbaa !53
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %16, ptr %.sroa.8.0..sroa_idx13, align 4, !tbaa !38
+  store i32 %16, ptr %.sroa.8.0..sroa_idx13, align 4, !tbaa !53
   br label %25
 
 25:                                               ; preds = %4, %8
@@ -862,7 +862,7 @@ declare void @lv_layer_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @lv_canvas_finish_layer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !72
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %.preheader
 
@@ -878,9 +878,9 @@ define void @lv_canvas_finish_layer(ptr noundef %0, ptr noundef %1) local_unname
   br label %9
 
 9:                                                ; preds = %8, %.preheader
-  %.pr = load ptr, ptr %3, align 8, !tbaa !55
+  %.pr = load ptr, ptr %3, align 8, !tbaa !72
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %10, label %.preheader, !llvm.loop !56
+  br i1 %.not, label %10, label %.preheader, !llvm.loop !73
 
 10:                                               ; preds = %9
   tail call void @lv_obj_invalidate(ptr noundef %0) #5
@@ -952,37 +952,54 @@ attributes #5 = { nounwind }
 !20 = !{!"", !15, i64 0, !15, i64 1, !15, i64 2, !15, i64 4, !15, i64 6, !15, i64 8, !15, i64 10}
 !21 = !{!"p1 omnipotent char", !8, i64 0}
 !22 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !8, i64 0}
-!23 = !{!9, !9, i64 0}
-!24 = !{!25, !9, i64 2}
-!25 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 3}
-!26 = !{!25, !9, i64 1}
-!27 = !{!25, !9, i64 0}
-!28 = !{!25, !9, i64 3}
-!29 = !{!30, !9, i64 0}
-!30 = !{!"", !9, i64 0, !9, i64 1}
-!31 = !{!30, !9, i64 1}
-!32 = !{!19, !8, i64 24}
-!33 = !{!19, !21, i64 16}
-!34 = !{!16, !16, i64 0}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = !{!15, !15, i64 0}
-!39 = distinct !{!39, !36}
-!40 = distinct !{!40, !36}
-!41 = distinct !{!41, !36}
-!42 = distinct !{!42, !36}
-!43 = distinct !{!43, !36}
-!44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36}
-!46 = distinct !{!46, !36}
-!47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36}
-!49 = !{!50, !18, i64 0}
-!50 = !{!"_lv_layer_t", !18, i64 0, !14, i64 8, !15, i64 24, !14, i64 28, !14, i64 44, !9, i64 60, !15, i64 64, !51, i64 72, !52, i64 80, !52, i64 88, !53, i64 96, !8, i64 104}
-!51 = !{!"p1 _ZTS15_lv_draw_task_t", !8, i64 0}
-!52 = !{!"p1 _ZTS11_lv_layer_t", !8, i64 0}
-!53 = !{!"_Bool", !9, i64 0}
-!54 = !{!50, !15, i64 24}
-!55 = !{!50, !51, i64 72}
-!56 = distinct !{!56, !36}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
+!28 = distinct !{!28, !24}
+!29 = !{!9, !9, i64 0}
+!30 = !{!31, !9, i64 2}
+!31 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 3}
+!32 = !{!31, !9, i64 1}
+!33 = !{!31, !9, i64 0}
+!34 = !{!31, !9, i64 3}
+!35 = !{!36, !9, i64 0}
+!36 = !{!"", !9, i64 0, !9, i64 1}
+!37 = !{!36, !9, i64 1}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}
+!40 = distinct !{!40, !24}
+!41 = distinct !{!41, !24}
+!42 = distinct !{!42, !24}
+!43 = !{!19, !8, i64 24}
+!44 = distinct !{!44, !24}
+!45 = distinct !{!45, !24}
+!46 = distinct !{!46, !24}
+!47 = distinct !{!47, !24}
+!48 = !{!19, !21, i64 16}
+!49 = !{!16, !16, i64 0}
+!50 = distinct !{!50, !51, !24}
+!51 = !{!"llvm.loop.mustprogress"}
+!52 = distinct !{!52, !51, !24}
+!53 = !{!15, !15, i64 0}
+!54 = distinct !{!54, !51, !24}
+!55 = distinct !{!55, !51, !24}
+!56 = distinct !{!56, !51, !24}
+!57 = distinct !{!57, !51, !24}
+!58 = distinct !{!58, !51, !24}
+!59 = distinct !{!59, !51, !24}
+!60 = distinct !{!60, !51, !24}
+!61 = distinct !{!61, !51, !24}
+!62 = distinct !{!62, !51, !24}
+!63 = distinct !{!63, !51, !24}
+!64 = distinct !{!64, !24}
+!65 = distinct !{!65, !24}
+!66 = !{!67, !18, i64 0}
+!67 = !{!"_lv_layer_t", !18, i64 0, !14, i64 8, !15, i64 24, !14, i64 28, !14, i64 44, !9, i64 60, !15, i64 64, !68, i64 72, !69, i64 80, !69, i64 88, !70, i64 96, !8, i64 104}
+!68 = !{!"p1 _ZTS15_lv_draw_task_t", !8, i64 0}
+!69 = !{!"p1 _ZTS11_lv_layer_t", !8, i64 0}
+!70 = !{!"_Bool", !9, i64 0}
+!71 = !{!67, !15, i64 24}
+!72 = !{!67, !68, i64 72}
+!73 = distinct !{!73, !51, !24}

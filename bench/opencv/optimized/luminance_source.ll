@@ -419,7 +419,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %110, %108
   %137 = add nuw nsw i32 %.01475, 1
   %138 = load i32, ptr %9, align 8, !tbaa !12
   %139 = icmp slt i32 %137, %138
-  br i1 %139, label %42, label %._crit_edge77, !llvm.loop !53
+  br i1 %139, label %42, label %._crit_edge77, !llvm.loop !54
 
 _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %37, %24
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %6, align 8, !tbaa !8
@@ -716,6 +716,7 @@ attributes #14 = { builtin nounwind }
 !48 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !16, i64 0}
 !49 = !{!50, !25, i64 0}
 !50 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !25, i64 0, !25, i64 8, !25, i64 16}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !52, !53}

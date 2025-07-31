@@ -222,7 +222,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %.1.i = phi double [ %25, %22 ], [ %.053.i, %.lr.ph.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.045.051.i, i64 96
   %.not48.i = icmp eq ptr %28, %5
-  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %17
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 165) #14
@@ -265,7 +265,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %.135.i = phi double [ %.2.i, %38 ], [ %.03458.i, %.lr.ph60.i ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.056.i, i64 96
   %.not49.i = icmp eq ptr %49, %5
-  br i1 %.not49.i, label %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, label %.lr.ph60.i
+  br i1 %.not49.i, label %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, label %.lr.ph60.i, !llvm.loop !49
 
 _ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit: ; preds = %48
   %50 = fadd double %.137.i, %.135.i
@@ -293,14 +293,14 @@ _ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %65 = load i8, ptr %64, align 8, !tbaa !47, !range !27, !noundef !28
+  %65 = load i8, ptr %64, align 8, !tbaa !50, !range !27, !noundef !28
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %9, align 8, !tbaa !38
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef %68, double noundef %2) #12
-  store i8 1, ptr %64, align 8, !tbaa !47
+  store i8 1, ptr %64, align 8, !tbaa !50
   br label %70
 
 70:                                               ; preds = %63, %67, %60
@@ -327,9 +327,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %79
 
 79:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
-  %80 = load ptr, ptr %6, align 8, !tbaa !48
+  %80 = load ptr, ptr %6, align 8, !tbaa !51
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !48
+  %82 = load ptr, ptr %81, align 8, !tbaa !51
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %80 to i64
   %85 = sub i64 %83, %84
@@ -376,30 +376,30 @@ define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((0, 17), (32, 33), (40, 57)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !51
+  %4 = load i64, ptr %3, align 8, !tbaa !54
   store i64 %4, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !53
+  %6 = load double, ptr %5, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %6, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i8, ptr %8, align 4, !tbaa !54, !range !27, !noundef !28
+  %9 = load i8, ptr %8, align 4, !tbaa !57, !range !27, !noundef !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %9, ptr %10, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %12 = load i8, ptr %11, align 1, !tbaa !55, !range !27, !noundef !28
+  %12 = load i8, ptr %11, align 1, !tbaa !58, !range !27, !noundef !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %12, ptr %13, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load double, ptr %14, align 8, !tbaa !56
+  %15 = load double, ptr %14, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %15, ptr %16, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load double, ptr %17, align 8, !tbaa !57
+  %18 = load double, ptr %17, align 8, !tbaa !60
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %18, ptr %19, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %20, align 8, !tbaa !47
+  store i8 0, ptr %20, align 8, !tbaa !50
   ret void
 }
 
@@ -407,27 +407,27 @@ define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHisto
 define void @_ZNK3gmx13HistogramSize10storeStateEPNS_19AwhBiasStateHistoryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef writeonly captures(none) initializes((12, 14), (16, 48)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %3, ptr %4, align 8, !tbaa !51
+  store i64 %3, ptr %4, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %6, ptr %7, align 8, !tbaa !53
+  store double %6, ptr %7, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8, !tbaa !23, !range !27, !noundef !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %9, ptr %10, align 4, !tbaa !54
+  store i8 %9, ptr %10, align 4, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8, !tbaa !29, !range !27, !noundef !28
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %12, ptr %13, align 1, !tbaa !55
+  store i8 %12, ptr %13, align 1, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load double, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %15, ptr %16, align 8, !tbaa !56
+  store double %15, ptr %16, align 8, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load double, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double %18, ptr %19, align 8, !tbaa !57
+  store double %18, ptr %19, align 8, !tbaa !60
   ret void
 }
 
@@ -502,14 +502,17 @@ attributes #14 = { noreturn }
 !44 = !{!45, !9, i64 16}
 !45 = !{!"_ZTSN3gmx10PointStateE", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !6, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88}
 !46 = !{!45, !9, i64 40}
-!47 = !{!5, !10, i64 56}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSN3gmx12ArrayRefIterIdEE", !50, i64 0}
-!50 = !{!"p1 double", !19, i64 0}
-!51 = !{!52, !6, i64 40}
-!52 = !{!"_ZTSN3gmx19AwhBiasStateHistoryE", !22, i64 0, !22, i64 4, !22, i64 8, !10, i64 12, !10, i64 13, !9, i64 16, !9, i64 24, !9, i64 32, !6, i64 40}
-!53 = !{!52, !9, i64 16}
-!54 = !{!52, !10, i64 12}
-!55 = !{!52, !10, i64 13}
-!56 = !{!52, !9, i64 24}
-!57 = !{!52, !9, i64 32}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !48}
+!50 = !{!5, !10, i64 56}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"_ZTSN3gmx12ArrayRefIterIdEE", !53, i64 0}
+!53 = !{!"p1 double", !19, i64 0}
+!54 = !{!55, !6, i64 40}
+!55 = !{!"_ZTSN3gmx19AwhBiasStateHistoryE", !22, i64 0, !22, i64 4, !22, i64 8, !10, i64 12, !10, i64 13, !9, i64 16, !9, i64 24, !9, i64 32, !6, i64 40}
+!56 = !{!55, !9, i64 16}
+!57 = !{!55, !10, i64 12}
+!58 = !{!55, !10, i64 13}
+!59 = !{!55, !9, i64 24}
+!60 = !{!55, !9, i64 32}

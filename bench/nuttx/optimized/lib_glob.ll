@@ -80,7 +80,7 @@ define range(i32 0, 4) i32 @glob(ptr noundef readonly captures(none) %0, i32 nou
   %28 = load ptr, ptr %27, align 8
   %29 = add i64 %.060100, 1
   %.not73 = icmp eq ptr %28, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store ptr null, ptr %6, align 8
@@ -173,7 +173,7 @@ append.exit.thread:                               ; preds = %31
   store ptr null, ptr %61, align 8
   %62 = add nuw i64 %.061102, 1
   %exitcond.not = icmp eq i64 %62, %13
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph103, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph103, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph103, %.preheader, %50
   %.064 = phi i64 [ %52, %50 ], [ 0, %.preheader ], [ %13, %.lr.ph103 ]
@@ -191,7 +191,7 @@ append.exit.thread:                               ; preds = %31
   store ptr %66, ptr %69, align 8
   %70 = add nuw i64 %.162106, 1
   %exitcond114.not = icmp eq i64 %70, %.1
-  br i1 %exitcond114.not, label %71, label %64, !llvm.loop !10
+  br i1 %exitcond114.not, label %71, label %64, !llvm.loop !11
 
 71:                                               ; preds = %64
   %72 = load ptr, ptr %63, align 8
@@ -254,7 +254,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   store i8 47, ptr %20, align 1
   %21 = add i64 %15, 1
   %exitcond.not = icmp eq i64 %21, 256
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %18, %7
   %.0139.lcssa = phi ptr [ %3, %7 ], [ %19, %18 ], [ %.0139266, %.lr.ph ]
@@ -379,7 +379,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   %.1154 = phi i32 [ %.0153, %54 ], [ 1, %59 ], [ 1, %.thread289.thread ]
   %.2149 = phi i64 [ %56, %54 ], [ %.0147, %59 ], [ %.0147, %.thread289.thread ]
   %60 = add nsw i64 %.2146228, 1
-  br label %23, !llvm.loop !12
+  br label %23, !llvm.loop !13
 
 .critedge3:                                       ; preds = %26, %23, %23, %32, %28
   %.2141 = phi ptr [ %24, %28 ], [ %.1140, %32 ], [ %.1140, %23 ], [ %.1140, %23 ], [ %.1140, %26 ]
@@ -492,7 +492,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   %107 = getelementptr inbounds i8, ptr %.0143, i64 -1
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 92
-  br i1 %109, label %.preheader, label %.critedge9, !llvm.loop !13
+  br i1 %109, label %.preheader, label %.critedge9, !llvm.loop !14
 
 .critedge9:                                       ; preds = %.preheader, %106
   %110 = ptrtoint ptr %104 to i64
@@ -562,7 +562,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   store i32 0, ptr %137, align 4
   %138 = tail call ptr @readdir(ptr noundef nonnull %116) #13
   %.not194 = icmp eq ptr %138, null
-  br i1 %.not194, label %._crit_edge, label %130, !llvm.loop !14
+  br i1 %.not194, label %._crit_edge, label %130, !llvm.loop !15
 
 .thread249:                                       ; preds = %130
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 1
@@ -683,7 +683,7 @@ define void @globfree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %12 = add nuw i64 %.08, 1
   %13 = load i64, ptr %0, align 8
   %14 = icmp ult i64 %12, %13
-  br i1 %14, label %5, label %._crit_edge, !llvm.loop !15
+  br i1 %14, label %5, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %5, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -751,13 +751,14 @@ attributes #15 = { allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !7, !8}

@@ -1410,7 +1410,7 @@ _ZL19ucbuf_isCharNewLineDs.exit73:                ; preds = %_ZL19ucbuf_isCharNe
     i16 133, label %_ZL19ucbuf_isCharNewLineDs.exit73.thread
     i16 8232, label %_ZL19ucbuf_isCharNewLineDs.exit73.thread
     i16 8233, label %_ZL19ucbuf_isCharNewLineDs.exit73.thread
-  ], !llvm.loop !35
+  ], !llvm.loop !36
 
 _ZL19ucbuf_isCharNewLineDs.exit73.thread:         ; preds = %63, %63, %63, %63, %63, %63, %62
   %64 = ptrtoint ptr %49 to i64
@@ -1509,6 +1509,7 @@ attributes #19 = { nounwind willreturn memory(read) }
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !32 = !{!17, !9, i64 32}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}

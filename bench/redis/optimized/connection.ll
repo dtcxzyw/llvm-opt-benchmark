@@ -85,7 +85,7 @@ define dso_local range(i32 -1, 1) i32 @connTypeRegister(ptr noundef %0) local_un
   %22 = getelementptr inbounds nuw [8 x ptr], ptr @connTypes, i64 0, i64 %21
   store ptr %0, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !43
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   %.not16 = icmp eq ptr %24, null
   br i1 %.not16, label %26, label %25
 
@@ -107,7 +107,7 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 define dso_local noundef i32 @connTypeInitialize() local_unnamed_addr #0 {
   %1 = tail call i32 @RedisRegisterConnectionTypeSocket() #4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %4, label %3, !prof !44
+  br i1 %2, label %4, label %3, !prof !45
 
 3:                                                ; preds = %0
   tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 62) #4
@@ -117,7 +117,7 @@ define dso_local noundef i32 @connTypeInitialize() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = tail call i32 @RedisRegisterConnectionTypeUnix() #4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %8, label %7, !prof !44
+  br i1 %6, label %8, label %7, !prof !45
 
 7:                                                ; preds = %4
   tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 65) #4
@@ -147,7 +147,7 @@ define dso_local ptr @connectionByType(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !45
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !46
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -186,7 +186,7 @@ define dso_local nonnull ptr @connectionTypeTcp() local_unnamed_addr #0 {
 2:                                                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %9, label %.preheader, !llvm.loop !45
+  br i1 %exitcond.not.i, label %9, label %.preheader, !llvm.loop !46
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %0 ]
@@ -242,7 +242,7 @@ define dso_local ptr @connectionTypeTls() local_unnamed_addr #0 {
 2:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %3, !llvm.loop !45
+  br i1 %exitcond.not.i, label %10, label %3, !llvm.loop !46
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
@@ -286,7 +286,7 @@ define dso_local ptr @connectionTypeUnix() local_unnamed_addr #0 {
 2:                                                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %9, label %.preheader, !llvm.loop !45
+  br i1 %exitcond.not.i, label %9, label %.preheader, !llvm.loop !46
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %0 ]
@@ -342,7 +342,7 @@ define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr noundef readonl
 9:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !46
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !47
 
 .split.loop.exit17:                               ; preds = %5
   %10 = trunc nuw nsw i64 %indvars.iv to i32
@@ -366,7 +366,7 @@ define dso_local void @connTypeCleanupAll() local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !48
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %8, label %7
 
@@ -377,7 +377,7 @@ define dso_local void @connTypeCleanupAll() local_unnamed_addr #0 {
 8:                                                ; preds = %4, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %9, label %1, !llvm.loop !48
+  br i1 %exitcond.not, label %9, label %1, !llvm.loop !49
 
 9:                                                ; preds = %1, %8
   ret void
@@ -396,7 +396,7 @@ define dso_local i32 @connTypeHasPendingData(ptr noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %10, label %8
 
@@ -408,7 +408,7 @@ define dso_local i32 @connTypeHasPendingData(ptr noundef %0) local_unnamed_addr 
 10:                                               ; preds = %2, %5, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %11, label %2, !llvm.loop !50
+  br i1 %exitcond.not, label %11, label %2, !llvm.loop !51
 
 11:                                               ; preds = %10, %8
   %.010 = phi i32 [ %9, %8 ], [ 0, %10 ]
@@ -429,7 +429,7 @@ define dso_local i32 @connTypeProcessPendingData(ptr noundef %0) local_unnamed_a
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %11, label %8
 
@@ -442,7 +442,7 @@ define dso_local i32 @connTypeProcessPendingData(ptr noundef %0) local_unnamed_a
   %.1 = phi i32 [ %10, %8 ], [ %.013, %5 ], [ %.013, %2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %12, label %2, !llvm.loop !52
+  br i1 %exitcond.not, label %12, label %2, !llvm.loop !53
 
 12:                                               ; preds = %11
   ret i32 %.1
@@ -460,7 +460,7 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
   %.01724 = phi ptr [ %0, %1 ], [ %.1, %31 ]
   %4 = getelementptr inbounds nuw [8 x %struct.connListener], ptr getelementptr inbounds nuw (i8, ptr @server, i64 488), i64 0, i64 %indvars.iv26
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %6 = load ptr, ptr %5, align 8, !tbaa !53
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = icmp eq ptr %6, null
   br i1 %7, label %31, label %8
 
@@ -470,7 +470,7 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
   %11 = trunc nuw nsw i64 %indvars.iv26 to i32
   %12 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.01724, ptr noundef nonnull @.str.10, i32 noundef %11, ptr noundef %10) #4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !54
+  %14 = load i32, ptr %13, align 8, !tbaa !55
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -481,22 +481,22 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
 ._crit_edge:                                      ; preds = %19, %8
   %.2.lcssa = phi ptr [ %12, %8 ], [ %23, %19 ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %18 = load i32, ptr %17, align 4, !tbaa !55
+  %18 = load i32, ptr %17, align 4, !tbaa !56
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %29, label %27
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.221 = phi ptr [ %12, %.lr.ph ], [ %23, %19 ]
-  %20 = load ptr, ptr %16, align 8, !tbaa !56
+  %20 = load ptr, ptr %16, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.221, ptr noundef nonnull @.str.11, ptr noundef %22) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %13, align 8, !tbaa !54
+  %24 = load i32, ptr %13, align 8, !tbaa !55
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %19, label %._crit_edge, !llvm.loop !58
+  br i1 %26, label %19, label %._crit_edge, !llvm.loop !59
 
 27:                                               ; preds = %._crit_edge
   %28 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.2.lcssa, ptr noundef nonnull @.str.12, i32 noundef %18) #4
@@ -511,7 +511,7 @@ define dso_local ptr @getListensInfoString(ptr noundef %0) local_unnamed_addr #0
   %.1 = phi ptr [ %30, %29 ], [ %.01724, %3 ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next27, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !59
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !60
 }
 
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -567,22 +567,23 @@ attributes #6 = { noreturn nounwind }
 !38 = !{!"aclInfo", !22, i64 0, !22, i64 8, !22, i64 16, !22, i64 24}
 !39 = !{!"redisTLSContextConfig", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108}
 !40 = !{!"p1 _ZTS14sentinelConfig", !7, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!6, !7, i64 8}
-!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!45 = distinct !{!45, !42}
-!46 = distinct !{!46, !42}
-!47 = !{!6, !7, i64 16}
-!48 = distinct !{!48, !42}
-!49 = !{!6, !7, i64 216}
-!50 = distinct !{!50, !42}
-!51 = !{!6, !7, i64 224}
-!52 = distinct !{!52, !42}
-!53 = !{!24, !11, i64 88}
-!54 = !{!24, !14, i64 64}
-!55 = !{!24, !14, i64 84}
-!56 = !{!24, !17, i64 72}
-!57 = !{!16, !16, i64 0}
-!58 = distinct !{!58, !42}
-!59 = distinct !{!59, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!6, !7, i64 8}
+!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!46 = distinct !{!46, !42, !43}
+!47 = distinct !{!47, !42, !43}
+!48 = !{!6, !7, i64 16}
+!49 = distinct !{!49, !42, !43}
+!50 = !{!6, !7, i64 216}
+!51 = distinct !{!51, !42, !43}
+!52 = !{!6, !7, i64 224}
+!53 = distinct !{!53, !42, !43}
+!54 = !{!24, !11, i64 88}
+!55 = !{!24, !14, i64 64}
+!56 = !{!24, !14, i64 84}
+!57 = !{!24, !17, i64 72}
+!58 = !{!16, !16, i64 0}
+!59 = distinct !{!59, !42, !43}
+!60 = distinct !{!60, !42, !43}

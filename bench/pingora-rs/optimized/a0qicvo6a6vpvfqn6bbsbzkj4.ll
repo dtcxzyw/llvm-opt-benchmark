@@ -365,7 +365,7 @@ define noundef zeroext i1 @_ZN11pingora_lru11linked_list10LinkedList15exist_near
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !3
   %31 = icmp eq i64 %30, %1
-  br i1 %31, label %20, label %9
+  br i1 %31, label %20, label %9, !llvm.loop !38
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -373,21 +373,21 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
   %4 = icmp ne i64 %2, 1
   %5 = icmp ne i64 %2, %1
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %7, label %6, !prof !38
+  br i1 %or.cond, label %7, label %6, !prof !40
 
 6:                                                ; preds = %3
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.10, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.11) #13
   unreachable
 
 7:                                                ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %cond = icmp eq i64 %2, 0
   br i1 %cond, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add i64 %2, -2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !alias.scope !39, !noalias !42, !noundef !3
+  %11 = load i64, ptr %10, align 8, !alias.scope !41, !noalias !44, !noundef !3
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %15, label %19
 
@@ -397,12 +397,12 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !alias.scope !39, !noalias !42, !nonnull !3, !noundef !3
+  %17 = load ptr, ptr %16, align 8, !alias.scope !41, !noalias !44, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %17, i64 %9
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
 19:                                               ; preds = %8
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %9, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.12) #13, !noalias !39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %9, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.12) #13, !noalias !41
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %13, %15
@@ -410,7 +410,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !3
   store i64 %1, ptr %20, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   switch i64 %1, label %22 [
     i64 0, label %27
     i64 1, label %29
@@ -419,7 +419,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 22:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
   %23 = add i64 %1, -2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !alias.scope !44, !noalias !47, !noundef !3
+  %25 = load i64, ptr %24, align 8, !alias.scope !46, !noalias !49, !noundef !3
   %26 = icmp ult i64 %23, %25
   br i1 %26, label %31, label %35
 
@@ -433,12 +433,12 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !alias.scope !44, !noalias !47, !nonnull !3, !noundef !3
+  %33 = load ptr, ptr %32, align 8, !alias.scope !46, !noalias !49, !nonnull !3, !noundef !3
   %34 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %33, i64 %23
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
 
 35:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !44
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !46
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3": ; preds = %27, %29, %31
@@ -446,7 +446,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2, i64 8
   store i64 %21, ptr %36, align 8
   store i64 %2, ptr %.sroa.0.0.i2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   switch i64 %21, label %37 [
     i64 0, label %42
     i64 1, label %44
@@ -455,7 +455,7 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 37:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
   %38 = add i64 %21, -2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load i64, ptr %39, align 8, !alias.scope !49, !noalias !52, !noundef !3
+  %40 = load i64, ptr %39, align 8, !alias.scope !51, !noalias !54, !noundef !3
   %41 = icmp ult i64 %38, %40
   br i1 %41, label %46, label %50
 
@@ -469,12 +469,12 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !alias.scope !49, !noalias !52, !nonnull !3, !noundef !3
+  %48 = load ptr, ptr %47, align 8, !alias.scope !51, !noalias !54, !nonnull !3, !noundef !3
   %49 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %48, i64 %38
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5"
 
 50:                                               ; preds = %37
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %38, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %38, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !51
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5": ; preds = %42, %44, %46
@@ -486,12 +486,12 @@ define internal fastcc void @_ZN11pingora_lru11linked_list10LinkedList12insert_a
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9push_head17h04d575a5d0e1beecE(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList8new_node17h845800ae292db2c0E(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %5, !prof !57
+  br i1 %.not, label %4, label %5, !prof !59
 
 4:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.10, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.11) #13, !noalias !54
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.10, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.11) #13, !noalias !56
   unreachable
 
 5:                                                ; preds = %2
@@ -499,14 +499,14 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !3
   store i64 %3, ptr %7, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %cond = icmp eq i64 %3, 1
   br i1 %cond, label %14, label %9
 
 9:                                                ; preds = %5
   %10 = add i64 %3, -2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !61, !noalias !62, !noundef !3
+  %12 = load i64, ptr %11, align 8, !alias.scope !63, !noalias !64, !noundef !3
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %16, label %20
 
@@ -516,12 +516,12 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !61, !noalias !62, !nonnull !3, !noundef !3
+  %18 = load ptr, ptr %17, align 8, !alias.scope !63, !noalias !64, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %18, i64 %10
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
 
 20:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !61
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !63
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i": ; preds = %16, %14
@@ -529,7 +529,7 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2.i, i64 8
   store i64 %8, ptr %21, align 8
   store i64 0, ptr %.sroa.0.0.i2.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   switch i64 %8, label %22 [
     i64 0, label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
     i64 1, label %27
@@ -538,7 +538,7 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
 22:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
   %23 = add i64 %8, -2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !alias.scope !67, !noalias !68, !noundef !3
+  %25 = load i64, ptr %24, align 8, !alias.scope !69, !noalias !70, !noundef !3
   %26 = icmp ult i64 %23, %25
   br i1 %26, label %29, label %33
 
@@ -548,12 +548,12 @@ define noundef range(i64 1, 0) i64 @_ZN11pingora_lru11linked_list10LinkedList9pu
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !67, !noalias !68, !nonnull !3, !noundef !3
+  %31 = load ptr, ptr %30, align 8, !alias.scope !69, !noalias !70, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %31, i64 %23
   br label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
 
 33:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !67
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !69
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit: ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i", %27, %29
@@ -574,23 +574,23 @@ define noundef i64 @_ZN11pingora_lru11linked_list10LinkedList9push_tail17h495c43
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4lift17h9cfc25bfb63107f1E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %switch = icmp ult i64 %1, 2
-  br i1 %switch, label %3, label %4, !prof !57
+  br i1 %switch, label %3, label %4, !prof !59
 
 3:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.15, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.16) #13
   unreachable
 
 4:                                                ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %5 = add i64 %1, -2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !alias.scope !70, !noalias !73, !noundef !3
+  %7 = load i64, ptr %6, align 8, !alias.scope !72, !noalias !75, !noundef !3
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit", label %17
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !70, !noalias !73, !nonnull !3, !noundef !3
+  %10 = load ptr, ptr %9, align 8, !alias.scope !72, !noalias !75, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %5
   %12 = load i64, ptr %11, align 8, !noundef !3
   store i64 -1, ptr %11, align 8
@@ -600,10 +600,10 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   %15 = icmp ne i64 %12, -1
   %16 = icmp ne i64 %14, -1
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %19, label %18, !prof !38
+  br i1 %or.cond, label %19, label %18, !prof !40
 
 17:                                               ; preds = %4
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %5, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.17) #13, !noalias !70
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %5, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.17) #13, !noalias !72
   unreachable
 
 18:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
@@ -636,14 +636,14 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
 
 31:                                               ; preds = %22
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.20) #13, !noalias !75
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %23, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.20) #13, !noalias !77
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3": ; preds = %25, %27, %29
   %.sroa.0.0.i2 = phi ptr [ %30, %29 ], [ %26, %25 ], [ %28, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2, i64 8
   store i64 %14, ptr %32, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   switch i64 %14, label %33 [
     i64 0, label %37
     i64 1, label %39
@@ -651,7 +651,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
 
 33:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3"
   %34 = add i64 %14, -2
-  %35 = load i64, ptr %6, align 8, !alias.scope !78, !noalias !81, !noundef !3
+  %35 = load i64, ptr %6, align 8, !alias.scope !80, !noalias !83, !noundef !3
   %36 = icmp ult i64 %34, %35
   br i1 %36, label %41, label %43
 
@@ -668,7 +668,7 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5"
 
 43:                                               ; preds = %33
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %34, i64 noundef %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.21) #13, !noalias !78
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %34, i64 noundef %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.21) #13, !noalias !80
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit5": ; preds = %37, %39, %41
@@ -681,8 +681,8 @@ define internal fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4li
 define noundef i64 @_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i64, ptr %4, align 8, !alias.scope !83, !noundef !3
-  %6 = load i64, ptr %3, align 8, !range !10, !alias.scope !83, !noundef !3
+  %5 = load i64, ptr %4, align 8, !alias.scope !85, !noundef !3
+  %6 = load i64, ptr %3, align 8, !range !10, !alias.scope !85, !noundef !3
   %7 = icmp eq i64 %5, %6
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E.exit"
 
@@ -692,11 +692,11 @@ define noundef i64 @_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a16
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E.exit": ; preds = %2, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8, !alias.scope !83, !nonnull !3, !noundef !3
+  %10 = load ptr, ptr %9, align 8, !alias.scope !85, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i64, ptr %10, i64 %5
   store i64 %1, ptr %11, align 8
   %12 = add i64 %5, 1
-  store i64 %12, ptr %4, align 8, !alias.scope !83
+  store i64 %12, ptr %4, align 8, !alias.scope !85
   %13 = tail call fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4lift17h9cfc25bfb63107f1E(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1)
   ret i64 %13
 }
@@ -711,8 +711,8 @@ define { i64, i64 } @_ZN11pingora_lru11linked_list10LinkedList8pop_tail17he3d1e4
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load i64, ptr %7, align 8, !alias.scope !86, !noundef !3
-  %9 = load i64, ptr %6, align 8, !range !10, !alias.scope !86, !noundef !3
+  %8 = load i64, ptr %7, align 8, !alias.scope !88, !noundef !3
+  %9 = load i64, ptr %6, align 8, !range !10, !alias.scope !88, !noundef !3
   %10 = icmp eq i64 %8, %9
   br i1 %10, label %11, label %_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE.exit
 
@@ -722,11 +722,11 @@ define { i64, i64 } @_ZN11pingora_lru11linked_list10LinkedList8pop_tail17he3d1e4
 
 _ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE.exit: ; preds = %5, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8, !alias.scope !86, !nonnull !3, !noundef !3
+  %13 = load ptr, ptr %12, align 8, !alias.scope !88, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i64, ptr %13, i64 %8
   store i64 %3, ptr %14, align 8
   %15 = add i64 %8, 1
-  store i64 %15, ptr %7, align 8, !alias.scope !86
+  store i64 %15, ptr %7, align 8, !alias.scope !88
   %16 = tail call fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4lift17h9cfc25bfb63107f1E(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %3)
   br label %17
 
@@ -748,25 +748,25 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 
 7:                                                ; preds = %2
   %8 = tail call fastcc noundef i64 @_ZN11pingora_lru11linked_list10LinkedList4lift17h9cfc25bfb63107f1E(ptr noalias noundef align 8 dereferenceable(96) %0, i64 noundef %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %9, label %10, !prof !57
+  br i1 %.not, label %9, label %10, !prof !59
 
 9:                                                ; preds = %7
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.10, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.11) #13, !noalias !91
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ff2e992120c34a933ceff030207ecd38.10, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.11) #13, !noalias !93
   unreachable
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %4, align 8, !noundef !3
   store i64 %1, ptr %4, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %cond = icmp eq i64 %1, 1
   br i1 %cond, label %17, label %12
 
 12:                                               ; preds = %10
   %13 = add i64 %1, -2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !97, !noalias !98, !noundef !3
+  %15 = load i64, ptr %14, align 8, !alias.scope !99, !noalias !100, !noundef !3
   %16 = icmp ult i64 %13, %15
   br i1 %16, label %19, label %23
 
@@ -776,12 +776,12 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !alias.scope !97, !noalias !98, !nonnull !3, !noundef !3
+  %21 = load ptr, ptr %20, align 8, !alias.scope !99, !noalias !100, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %21, i64 %13
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
 
 23:                                               ; preds = %12
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %13, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !97
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %13, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.13) #13, !noalias !99
   unreachable
 
 "_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i": ; preds = %19, %17
@@ -789,7 +789,7 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2.i, i64 8
   store i64 %11, ptr %24, align 8
   store i64 0, ptr %.sroa.0.0.i2.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   switch i64 %11, label %25 [
     i64 0, label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
     i64 1, label %30
@@ -798,7 +798,7 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 25:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i"
   %26 = add i64 %11, -2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !alias.scope !103, !noalias !104, !noundef !3
+  %28 = load i64, ptr %27, align 8, !alias.scope !105, !noalias !106, !noundef !3
   %29 = icmp ult i64 %26, %28
   br i1 %29, label %32, label %36
 
@@ -808,12 +808,12 @@ define void @_ZN11pingora_lru11linked_list10LinkedList7promote17h23a1d629fade9c4
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !alias.scope !103, !noalias !104, !nonnull !3, !noundef !3
+  %34 = load ptr, ptr %33, align 8, !alias.scope !105, !noalias !106, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %34, i64 %26
   br label %_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit
 
 36:                                               ; preds = %25
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !103
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.14) #13, !noalias !105
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E.exit: ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit3.i", %30, %32
@@ -850,11 +850,11 @@ define { i64, i64 } @_ZN11pingora_lru11linked_list10LinkedList4tail17hb4957a9c09
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @_ZN11pingora_lru11linked_list10LinkedList4iter17h47d2c2ccedf53a94E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val.i = load i64, ptr %3, align 8, !alias.scope !106, !noundef !3
+  %.val.i = load i64, ptr %3, align 8, !alias.scope !108, !noundef !3
   %4 = icmp ult i64 %.val.i, 384307168202282326
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %6 = load i64, ptr %5, align 8, !alias.scope !106, !noundef !3
+  %6 = load i64, ptr %5, align 8, !alias.scope !108, !noundef !3
   %7 = icmp ult i64 %6, 1152921504606846976
   tail call void @llvm.assume(i1 %7)
   %8 = sub nsw i64 %.val.i, %6
@@ -870,11 +870,11 @@ define void @_ZN11pingora_lru11linked_list10LinkedList4iter17h47d2c2ccedf53a94E(
 
 ; Function Attrs: nonlazybind uwtable
 define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$pingora_lru..linked_list..LinkedListIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h59f770d198cf9088E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !109, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !111, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   switch i64 %4, label %5 [
     i64 0, label %10
     i64 1, label %12
@@ -883,7 +883,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$pingora_lru..l
 5:                                                ; preds = %1
   %6 = add i64 %4, -2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = load i64, ptr %7, align 8, !alias.scope !116, !noalias !117, !noundef !3
+  %8 = load i64, ptr %7, align 8, !alias.scope !118, !noalias !119, !noundef !3
   %9 = icmp ult i64 %6, %8
   br i1 %9, label %14, label %18
 
@@ -897,12 +897,12 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN99_$LT$pingora_lru..l
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !116, !noalias !117, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %15, align 8, !alias.scope !118, !noalias !119, !nonnull !3, !noundef !3
   %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %6
   br label %_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit
 
 18:                                               ; preds = %5
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.23) #13, !noalias !116
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.23) #13, !noalias !118
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit: ; preds = %10, %12, %14
@@ -920,15 +920,15 @@ _ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit: ; preds
   %23 = load i64, ptr %22, align 8, !noundef !3
   %24 = add i64 %23, -1
   store i64 %24, ptr %22, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %cond = icmp eq i64 %20, 0
   br i1 %cond, label %30, label %25
 
 25:                                               ; preds = %21
   %26 = add i64 %20, -2
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load i64, ptr %27, align 8, !alias.scope !125, !noalias !126, !noundef !3
+  %28 = load i64, ptr %27, align 8, !alias.scope !127, !noalias !128, !noundef !3
   %29 = icmp ult i64 %26, %28
   br i1 %29, label %32, label %36
 
@@ -938,12 +938,12 @@ _ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E.exit: ; preds
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load ptr, ptr %33, align 8, !alias.scope !125, !noalias !126, !nonnull !3, !noundef !3
+  %34 = load ptr, ptr %33, align 8, !alias.scope !127, !noalias !128, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %34, i64 %26
   br label %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
 
 36:                                               ; preds = %25
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.7) #13, !noalias !125
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.7) #13, !noalias !127
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit: ; preds = %30, %32
@@ -970,11 +970,11 @@ define void @"_ZN99_$LT$pingora_lru..linked_list..LinkedListIter$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..linked_list..LinkedListIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf5667da6dc14675aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !109, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !111, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   switch i64 %4, label %5 [
     i64 0, label %10
     i64 1, label %12
@@ -983,7 +983,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..
 5:                                                ; preds = %1
   %6 = add i64 %4, -2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = load i64, ptr %7, align 8, !alias.scope !134, !noalias !135, !noundef !3
+  %8 = load i64, ptr %7, align 8, !alias.scope !136, !noalias !137, !noundef !3
   %9 = icmp ult i64 %6, %8
   br i1 %9, label %14, label %18
 
@@ -997,12 +997,12 @@ define noundef align 8 dereferenceable_or_null(8) ptr @"_ZN114_$LT$pingora_lru..
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !134, !noalias !135, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %15, align 8, !alias.scope !136, !noalias !137, !nonnull !3, !noundef !3
   %17 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %16, i64 %6
   br label %_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit
 
 18:                                               ; preds = %5
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.24) #13, !noalias !134
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.24) #13, !noalias !136
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds = %10, %12, %14
@@ -1019,15 +1019,15 @@ _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds
   %22 = load i64, ptr %21, align 8, !noundef !3
   %23 = add i64 %22, -1
   store i64 %23, ptr %21, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %cond = icmp eq i64 %19, 1
   br i1 %cond, label %29, label %24
 
 24:                                               ; preds = %20
   %25 = add i64 %19, -2
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i64, ptr %26, align 8, !alias.scope !143, !noalias !144, !noundef !3
+  %27 = load i64, ptr %26, align 8, !alias.scope !145, !noalias !146, !noundef !3
   %28 = icmp ult i64 %25, %27
   br i1 %28, label %31, label %35
 
@@ -1037,12 +1037,12 @@ _ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E.exit: ; preds
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load ptr, ptr %32, align 8, !alias.scope !143, !noalias !144, !nonnull !3, !noundef !3
+  %33 = load ptr, ptr %32, align 8, !alias.scope !145, !noalias !146, !nonnull !3, !noundef !3
   %34 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %33, i64 %25
   br label %_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit
 
 35:                                               ; preds = %24
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %25, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.7) #13, !noalias !143
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %25, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.7) #13, !noalias !145
   unreachable
 
 _ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E.exit: ; preds = %29, %31
@@ -1150,111 +1150,113 @@ attributes #13 = { noreturn }
 !35 = !{!36}
 !36 = distinct !{!36, !37, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
 !37 = distinct !{!37, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
-!38 = !{!"branch_weights", i32 4000000, i32 4001}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!41 = distinct !{!41, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!42 = !{!43}
-!43 = distinct !{!43, !41, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!"branch_weights", i32 4000000, i32 4001}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!43 = distinct !{!43, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!46 = distinct !{!46, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!47 = !{!48}
-!48 = distinct !{!48, !46, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!45 = distinct !{!45, !43, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!48 = distinct !{!48, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!51 = distinct !{!51, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!50 = distinct !{!50, !48, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!53 = distinct !{!53, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E: argument 0"}
-!56 = distinct !{!56, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E"}
-!57 = !{!"branch_weights", i32 4001, i32 4000000}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!60 = distinct !{!60, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!61 = !{!59, !55}
-!62 = !{!63}
-!63 = distinct !{!63, !60, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!55 = distinct !{!55, !53, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E: argument 0"}
+!58 = distinct !{!58, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E"}
+!59 = !{!"branch_weights", i32 4001, i32 4000000}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!62 = distinct !{!62, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
+!63 = !{!61, !57}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!66 = distinct !{!66, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!67 = !{!65, !55}
-!68 = !{!69}
-!69 = distinct !{!69, !66, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!65 = distinct !{!65, !62, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!68 = distinct !{!68, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
+!69 = !{!67, !57}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!72 = distinct !{!72, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!73 = !{!74}
-!74 = distinct !{!74, !72, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!71 = distinct !{!71, !68, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!74 = distinct !{!74, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!77 = distinct !{!77, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!80 = distinct !{!80, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!81 = !{!82}
-!82 = distinct !{!82, !80, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!76 = distinct !{!76, !74, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!79 = distinct !{!79, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!82 = distinct !{!82, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E: argument 0"}
-!85 = distinct !{!85, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E"}
-!86 = !{!87, !89}
-!87 = distinct !{!87, !88, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E: argument 0"}
-!88 = distinct !{!88, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E"}
-!89 = distinct !{!89, !90, !"_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE: argument 0"}
-!90 = distinct !{!90, !"_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E: argument 0"}
-!93 = distinct !{!93, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!96 = distinct !{!96, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!97 = !{!95, !92}
-!98 = !{!99}
-!99 = distinct !{!99, !96, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!84 = distinct !{!84, !82, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E: argument 0"}
+!87 = distinct !{!87, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E"}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E: argument 0"}
+!90 = distinct !{!90, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb3fdc24df5ae83f4E"}
+!91 = distinct !{!91, !92, !"_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE: argument 0"}
+!92 = distinct !{!92, !"_ZN11pingora_lru11linked_list10LinkedList6remove17h15aec5a1675ef4deE"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E: argument 0"}
+!95 = distinct !{!95, !"_ZN11pingora_lru11linked_list10LinkedList12insert_after17hda7005b7d100d336E"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!98 = distinct !{!98, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
+!99 = !{!97, !94}
 !100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
-!102 = distinct !{!102, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
-!103 = !{!101, !92}
-!104 = !{!105}
-!105 = distinct !{!105, !102, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!101 = distinct !{!101, !98, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 0"}
+!104 = distinct !{!104, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E"}
+!105 = !{!103, !94}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN11pingora_lru11linked_list10LinkedList3len17h23f1ccb9fb71a218E: argument 0"}
-!108 = distinct !{!108, !"_ZN11pingora_lru11linked_list10LinkedList3len17h23f1ccb9fb71a218E"}
-!109 = !{i64 8}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E: argument 0"}
-!112 = distinct !{!112, !"_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
-!115 = distinct !{!115, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
-!116 = !{!114, !111}
-!117 = !{!118}
-!118 = distinct !{!118, !115, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!107 = distinct !{!107, !104, !"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E: argument 1"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN11pingora_lru11linked_list10LinkedList3len17h23f1ccb9fb71a218E: argument 0"}
+!110 = distinct !{!110, !"_ZN11pingora_lru11linked_list10LinkedList3len17h23f1ccb9fb71a218E"}
+!111 = !{i64 8}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E: argument 0"}
+!114 = distinct !{!114, !"_ZN11pingora_lru11linked_list10LinkedList4next17h3f4ce9b2dc32f464E"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
+!117 = distinct !{!117, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
+!118 = !{!116, !113}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E: argument 0"}
-!121 = distinct !{!121, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
-!124 = distinct !{!124, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
-!125 = !{!123, !120}
-!126 = !{!127}
-!127 = distinct !{!127, !124, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!120 = distinct !{!120, !117, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E: argument 0"}
+!123 = distinct !{!123, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E"}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
+!126 = distinct !{!126, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
+!127 = !{!125, !122}
 !128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E: argument 0"}
-!130 = distinct !{!130, !"_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
-!133 = distinct !{!133, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
-!134 = !{!132, !129}
-!135 = !{!136}
-!136 = distinct !{!136, !133, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!129 = distinct !{!129, !126, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E: argument 0"}
+!132 = distinct !{!132, !"_ZN11pingora_lru11linked_list10LinkedList4prev17h76d1d0a7460fe3a0E"}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
+!135 = distinct !{!135, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
+!136 = !{!134, !131}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E: argument 0"}
-!139 = distinct !{!139, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
-!142 = distinct !{!142, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
-!143 = !{!141, !138}
-!144 = !{!145}
-!145 = distinct !{!145, !142, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!138 = distinct !{!138, !135, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E: argument 0"}
+!141 = distinct !{!141, !"_ZN11pingora_lru11linked_list10LinkedList14peek_unchecked17he9fe19f6eb715385E"}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 0"}
+!144 = distinct !{!144, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E"}
+!145 = !{!143, !140}
+!146 = !{!147}
+!147 = distinct !{!147, !144, !"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E: argument 1"}

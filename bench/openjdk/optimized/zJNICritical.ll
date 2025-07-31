@@ -107,11 +107,11 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %3, %5
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %13, %._crit_edge, %15
-  br label %.backedge, !llvm.loop !9
+  br label %.backedge, !llvm.loop !10
 
 15:                                               ; preds = %.backedge
   %16 = xor i64 %1, -1
-  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %16, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not = icmp eq i64 %17, %1
   br i1 %.not, label %18, label %.backedge.backedge
 
@@ -140,7 +140,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9:       ; preds = %19, %21
   %26 = load volatile i64, ptr @_ZN12ZJNICritical6_countE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %.not6 = icmp eq i64 %26, -1
-  br i1 %.not6, label %._crit_edge15, label %.lr.ph14, !llvm.loop !11
+  br i1 %.not6, label %._crit_edge15, label %.lr.ph14, !llvm.loop !12
 
 ._crit_edge15:                                    ; preds = %.lr.ph14, %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9
   br i1 %.not.i8, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit11, label %27
@@ -239,7 +239,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %14, %23
   %29 = load volatile i64, ptr @_ZN12ZJNICritical6_countE, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %30 = icmp slt i64 %29, 0
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %31
@@ -250,7 +250,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %14, %23
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %._crit_edge, %31
   store volatile i32 6, ptr %8, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %33 = load volatile i64, ptr %9, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
@@ -303,11 +303,11 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN7ZLocke
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, %54
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge, !llvm.loop !15
 
 54:                                               ; preds = %.backedge
   %55 = add nuw nsw i64 %12, 1
-  %56 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %55, i64 %12, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %56 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %55, i64 %12, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not = icmp eq i64 %56, %12
   br i1 %.not, label %57, label %.backedge.backedge
 
@@ -346,16 +346,16 @@ define hidden void @_ZN12ZJNICritical10exit_innerEv() local_unnamed_addr #1 alig
 
 3:                                                ; preds = %.backedge
   %4 = add nsw i64 %1, -1
-  %5 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %5 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not8 = icmp eq i64 %5, %1
   br i1 %.not8, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %3, %6
-  br label %.backedge, !llvm.loop !15
+  br label %.backedge, !llvm.loop !16
 
 6:                                                ; preds = %.backedge
   %7 = add nsw i64 %1, 1
-  %8 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %8 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %1, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not = icmp eq i64 %8, %1
   br i1 %.not, label %9, label %.backedge.backedge
 
@@ -401,18 +401,18 @@ define hidden void @_ZN12ZJNICritical4exitEP10JavaThread(ptr noundef captures(no
 
 8:                                                ; preds = %.preheader
   %9 = add nsw i64 %6, -1
-  %10 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %6, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %10 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %6, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not8.i = icmp eq i64 %10, %6
   br i1 %.not8.i, label %_ZN12ZJNICritical10exit_innerEv.exit, label %.preheader.backedge
 
 11:                                               ; preds = %.preheader
   %12 = add nsw i64 %6, 1
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %6, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !10
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %6, ptr nonnull @_ZN12ZJNICritical6_countE) #6, !srcloc !11
   %.not.i = icmp eq i64 %13, %6
   br i1 %.not.i, label %14, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %11, %8
-  br label %.preheader, !llvm.loop !15
+  br label %.preheader, !llvm.loop !16
 
 14:                                               ; preds = %11
   %15 = icmp eq i64 %6, -2
@@ -583,12 +583,13 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 2145412694}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{i64 2145392998}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = !{i64 2145412694}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{i64 2145392998}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !8, !9}

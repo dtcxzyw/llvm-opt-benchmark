@@ -330,7 +330,7 @@ define void @BUF_reverse(ptr noundef captures(none) %0, ptr noundef readonly cap
   store i8 %12, ptr %.129, align 1, !tbaa !13
   %15 = add nuw nsw i64 %.11927, 1
   %exitcond34.not = icmp eq i64 %15, %10
-  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph30, !llvm.loop !16
+  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph30, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %4, %9
   ret void
@@ -364,6 +364,7 @@ attributes #5 = { nounwind }
 !11 = !{!4, !5, i64 16}
 !12 = !{!4, !5, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

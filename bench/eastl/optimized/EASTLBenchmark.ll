@@ -1476,7 +1476,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5.i.i.i: ; preds = %if.then.i.i3.i
 _ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i.i.i, %if.then.i.i3.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5.i.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05) #16
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIS2_EE.exit, %entry
   ret void
@@ -1757,7 +1757,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
-  br i1 %13, label %for.body, label %if.end38, !llvm.loop !8
+  br i1 %13, label %for.body, label %if.end38, !llvm.loop !9
 
 if.end38:                                         ; preds = %for.inc, %if.then
   %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
@@ -2180,7 +2180,7 @@ _ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EE
   %pCurrent.1.in = getelementptr inbounds nuw i8, ptr %pCurrent.049, i64 %pCurrent.1.in.idx
   %pCurrent.0 = load ptr, ptr %pCurrent.1.in, align 8
   %tobool.not = icmp eq ptr %pCurrent.0, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit
   br i1 %cmp.i.i.i.i, label %if.then7, label %if.end16
@@ -2477,8 +2477,9 @@ attributes #19 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

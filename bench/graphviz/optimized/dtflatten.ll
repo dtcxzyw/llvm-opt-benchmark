@@ -68,7 +68,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %.3 = phi ptr [ %.2, %24 ], [ %.04472, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %.04373, i64 8
   %27 = icmp ult ptr %26, %16
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102,7 +102,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %.not61 = icmp eq ptr %37, null
-  br i1 %.not61, label %.lr.ph82.preheader, label %.lr.ph76, !llvm.loop !22
+  br i1 %.not61, label %.lr.ph82.preheader, label %.lr.ph76, !llvm.loop !23
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %45
   %.15081 = phi ptr [ %.150, %45 ], [ %.1507888, %.lr.ph82.preheader ]
@@ -122,7 +122,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %42 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %.not64 = icmp eq ptr %43, null
-  br i1 %.not64, label %44, label %.preheader, !llvm.loop !23
+  br i1 %.not64, label %44, label %.preheader, !llvm.loop !24
 
 44:                                               ; preds = %.preheader
   store ptr %.053, ptr %.480, align 8, !tbaa !17
@@ -132,7 +132,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %.352 = phi ptr [ %.053, %44 ], [ %.15081, %.lr.ph82 ]
   %.150 = load ptr, ptr %.352, align 8, !tbaa !17
   %.not62 = icmp eq ptr %.150, null
-  br i1 %.not62, label %.loopexit, label %.lr.ph82, !llvm.loop !24
+  br i1 %.not62, label %.loopexit, label %.lr.ph82, !llvm.loop !25
 
 .loopexit:                                        ; preds = %25, %45, %10, %.preheader68, %28
   %.348 = phi ptr [ null, %28 ], [ %30, %.preheader68 ], [ null, %10 ], [ %.049.lcssa89, %45 ], [ %.247, %25 ]
@@ -171,9 +171,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !16 = !{!11, !11, i64 0}
 !17 = !{!18, !11, i64 0}
 !18 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}

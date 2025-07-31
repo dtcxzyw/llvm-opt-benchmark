@@ -343,7 +343,7 @@ if.end131:                                        ; preds = %cond.true123, %_ZN7
   %cmp65 = fcmp olt double %ax.3, %xTo
   %cmp67 = fcmp olt double %bx.3, %xTo
   %17 = select i1 %cmp65, i1 true, i1 %cmp67
-  br i1 %17, label %while.body69, label %while.end132, !llvm.loop !7
+  br i1 %17, label %while.body69, label %while.end132, !llvm.loop !8
 
 while.end132:                                     ; preds = %if.end131, %while.cond64.preheader
   %bInside.2.lcssa = phi i8 [ %bInside.0.lcssa, %while.cond64.preheader ], [ %bInside.3, %if.end131 ]
@@ -396,7 +396,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07, i64 16
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
-  br i1 %cmp.i.not, label %if.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.i.not, label %if.end, label %for.body, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
   ret void
@@ -452,7 +452,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %5
-  br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !9
 
 _ZN7msdfgen8Scanline10preprocessEv.exit:          ; preds = %for.body.i, %entry, %if.then.i
   ret void
@@ -620,7 +620,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %9
-  br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !9
 
 _ZN7msdfgen8Scanline10preprocessEv.exit:          ; preds = %for.body.i, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EEaSEOS4_.exit, %if.then.i
   ret void
@@ -665,7 +665,7 @@ if.end9:                                          ; preds = %do.body
   %add.ptr.i11 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17
   %5 = load double, ptr %add.ptr.i11, align 8
   %cmp14 = fcmp olt double %x, %5
-  br i1 %cmp14, label %do.body, label %if.end24.loopexit, !llvm.loop !9
+  br i1 %cmp14, label %do.body, label %if.end24.loopexit, !llvm.loop !10
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
   %indvars.iv = phi i64 [ %conv, %while.cond.preheader ], [ %indvars.iv.next, %land.rhs ]
@@ -677,7 +677,7 @@ land.rhs:                                         ; preds = %while.cond
   %add.ptr.i12 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next
   %6 = load double, ptr %add.ptr.i12, align 8
   %cmp23 = fcmp ult double %x, %6
-  br i1 %cmp23, label %if.end24.loopexit19.split.loop.exit20, label %while.cond, !llvm.loop !10
+  br i1 %cmp23, label %if.end24.loopexit19.split.loop.exit20, label %while.cond, !llvm.loop !11
 
 if.end24.loopexit:                                ; preds = %if.end9
   %7 = trunc nsw i64 %indvars.iv.next17 to i32
@@ -737,7 +737,7 @@ if.end9.i:                                        ; preds = %do.body.i
   %add.ptr.i11.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i
   %5 = load double, ptr %add.ptr.i11.i, align 8
   %cmp14.i = fcmp olt double %x, %5
-  br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !9
+  br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !10
 
 while.cond.i:                                     ; preds = %land.rhs.i, %while.cond.preheader.i
   %indvars.iv.i = phi i64 [ %conv.i, %while.cond.preheader.i ], [ %indvars.iv.next.i, %land.rhs.i ]
@@ -749,7 +749,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
-  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
+  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !11
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
   %7 = trunc nsw i64 %indvars.iv.next17.i to i32
@@ -814,7 +814,7 @@ if.end9.i:                                        ; preds = %do.body.i
   %add.ptr.i11.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i
   %5 = load double, ptr %add.ptr.i11.i, align 8
   %cmp14.i = fcmp olt double %x, %5
-  br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !9
+  br i1 %cmp14.i, label %do.body.i, label %if.end24.loopexit.i, !llvm.loop !10
 
 while.cond.i:                                     ; preds = %land.rhs.i, %while.cond.preheader.i
   %indvars.iv.i = phi i64 [ %conv.i, %while.cond.preheader.i ], [ %indvars.iv.next.i, %land.rhs.i ]
@@ -826,7 +826,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %add.ptr.i12.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i
   %6 = load double, ptr %add.ptr.i12.i, align 8
   %cmp23.i = fcmp ult double %x, %6
-  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !10
+  br i1 %cmp23.i, label %if.end24.loopexit19.split.loop.exit20.i, label %while.cond.i, !llvm.loop !11
 
 if.end24.loopexit.i:                              ; preds = %if.end9.i
   %7 = trunc nsw i64 %indvars.iv.next17.i to i32
@@ -896,7 +896,7 @@ if.end9.i.i:                                      ; preds = %do.body.i.i
   %add.ptr.i11.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next17.i.i
   %5 = load double, ptr %add.ptr.i11.i.i, align 8
   %cmp14.i.i = fcmp olt double %x, %5
-  br i1 %cmp14.i.i, label %do.body.i.i, label %if.end24.loopexit.i.i, !llvm.loop !9
+  br i1 %cmp14.i.i, label %do.body.i.i, label %if.end24.loopexit.i.i, !llvm.loop !10
 
 while.cond.i.i:                                   ; preds = %land.rhs.i.i, %while.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %conv.i.i, %while.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %land.rhs.i.i ]
@@ -908,7 +908,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %add.ptr.i12.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %indvars.iv.next.i.i
   %6 = load double, ptr %add.ptr.i12.i.i, align 8
   %cmp23.i.i = fcmp ult double %x, %6
-  br i1 %cmp23.i.i, label %if.end24.loopexit19.split.loop.exit20.i.i, label %while.cond.i.i, !llvm.loop !10
+  br i1 %cmp23.i.i, label %if.end24.loopexit19.split.loop.exit20.i.i, label %while.cond.i.i, !llvm.loop !11
 
 if.end24.loopexit.i.i:                            ; preds = %if.end9.i.i
   %7 = trunc nsw i64 %indvars.iv.next17.i.i to i32
@@ -1010,9 +1010,10 @@ attributes #17 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}

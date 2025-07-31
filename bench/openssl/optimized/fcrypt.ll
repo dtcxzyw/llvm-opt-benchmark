@@ -87,11 +87,11 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
 ._crit_edge:                                      ; preds = %32, %.lr.ph.preheader, %36
   call void @DES_set_key_unchecked(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   call void @fcrypt_body(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef %17, i32 noundef %29) #4
-  %38 = load i32, ptr %4, align 4, !tbaa !8
+  %38 = load i32, ptr %4, align 4, !tbaa !9
   store i32 %38, ptr %7, align 4
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !8
+  %41 = load i32, ptr %40, align 4, !tbaa !9
   store i32 %41, ptr %39, align 4
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %42, align 4, !tbaa !3
@@ -123,7 +123,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   %.2 = select i1 %.not74, i8 -128, i8 %50
   %52 = add nuw nsw i32 %.06878, 1
   %exitcond89.not = icmp eq i32 %52, 6
-  br i1 %exitcond89.not, label %53, label %43, !llvm.loop !10
+  br i1 %exitcond89.not, label %53, label %43, !llvm.loop !11
 
 53:                                               ; preds = %43
   %54 = zext i8 %spec.select to i64
@@ -133,7 +133,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %56, ptr %57, align 1, !tbaa !3
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next91, 13
-  br i1 %exitcond92.not, label %58, label %.preheader, !llvm.loop !11
+  br i1 %exitcond92.not, label %58, label %.preheader, !llvm.loop !12
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 13
@@ -176,9 +176,10 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !4, i64 0}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

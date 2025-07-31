@@ -47,7 +47,7 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %.268 = phi i32 [ 0, %17 ], [ %15, %.preheader ]
   %.265 = phi i32 [ %26, %17 ], [ %.16491, %.preheader ]
   %.not86 = icmp eq i32 %10, 0
-  br i1 %.not86, label %.loopexit.loopexit, label %.preheader
+  br i1 %.not86, label %.loopexit.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %27
   %28 = add nsw i32 %9, -1
@@ -84,7 +84,7 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %45 = add i32 %44, -430675100
   %46 = getelementptr inbounds nuw i8, ptr %.27893, i64 4
   %47 = icmp ult ptr %46, %34
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %.278.lcssa = phi ptr [ %.076, %.loopexit ], [ %46, %.lr.ph ]
@@ -125,7 +125,7 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %.470 = phi i32 [ 0, %56 ], [ %54, %.lr.ph102 ]
   %.5 = phi i32 [ %65, %56 ], [ %.4100, %.lr.ph102 ]
   %.not87 = icmp eq i32 %49, 0
-  br i1 %.not87, label %._crit_edge103, label %.lr.ph102
+  br i1 %.not87, label %._crit_edge103, label %.lr.ph102, !llvm.loop !12
 
 ._crit_edge103:                                   ; preds = %66, %._crit_edge
   %.374.lcssa = phi i32 [ %.071, %._crit_edge ], [ %.475, %66 ]
@@ -188,3 +188,7 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

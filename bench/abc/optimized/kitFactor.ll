@@ -216,7 +216,7 @@ common.ret:                                       ; preds = %._crit_edge
   %.3 = phi i32 [ %22, %21 ], [ %.246, %.lr.ph49 ]
   %24 = add i32 %.147, 1
   %exitcond54.not = icmp eq i32 %24, %3
-  br i1 %exitcond54.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !19
+  br i1 %exitcond54.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !20
 
 common.ret59:                                     ; preds = %._crit_edge50, %common.ret
   %common.ret59.op = phi i32 [ %15, %common.ret ], [ %27, %._crit_edge50 ]
@@ -268,9 +268,9 @@ define void @Kit_FactorTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %5 = getelementptr i8, ptr %calloc.i, i64 4
   %.val12 = load i32, ptr %5, align 4, !tbaa !3
   %6 = getelementptr i8, ptr %4, i64 4
-  %.val13 = load i32, ptr %6, align 4, !tbaa !20
+  %.val13 = load i32, ptr %6, align 4, !tbaa !21
   %7 = getelementptr i8, ptr %4, i64 8
-  %.val14 = load i32, ptr %7, align 8, !tbaa !24
+  %.val14 = load i32, ptr %7, align 8, !tbaa !25
   %8 = sub nsw i32 %.val14, %.val13
   %9 = getelementptr i8, ptr %calloc.i15, i64 4
   %.val = load i32, ptr %9, align 4, !tbaa !3
@@ -402,11 +402,12 @@ attributes #10 = { nounwind allocsize(0) }
 !14 = !{!15, !5, i64 4}
 !15 = !{!"Kit_Sop_t_", !5, i64 0, !5, i64 4, !8, i64 8}
 !16 = !{!15, !8, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!21, !5, i64 4}
-!21 = !{!"Kit_Graph_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !22, i64 16, !23, i64 24}
-!22 = !{!"p1 _ZTS11Kit_Node_t_", !9, i64 0}
-!23 = !{!"Kit_Edge_t_", !5, i64 0, !5, i64 0}
-!24 = !{!21, !5, i64 8}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!22, !5, i64 4}
+!22 = !{!"Kit_Graph_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !23, i64 16, !24, i64 24}
+!23 = !{!"p1 _ZTS11Kit_Node_t_", !9, i64 0}
+!24 = !{!"Kit_Edge_t_", !5, i64 0, !5, i64 0}
+!25 = !{!22, !5, i64 8}

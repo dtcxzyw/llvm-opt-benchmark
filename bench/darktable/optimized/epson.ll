@@ -157,7 +157,7 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   %90 = sub nsw i32 %84, %89
   %91 = sdiv i32 %90, 2
   %92 = trunc i32 %91 to i16
-  store i16 %92, ptr %31, align 2, !tbaa !82
+  store i16 %92, ptr %31, align 2, !tbaa !83
   %93 = load i16, ptr %33, align 2, !tbaa !80
   %94 = zext i16 %93 to i32
   %95 = load i16, ptr %34, align 2, !tbaa !80
@@ -168,7 +168,7 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   %100 = sub nsw i32 %94, %99
   %101 = sdiv i32 %100, 2
   %102 = trunc i32 %101 to i16
-  store i16 %102, ptr %36, align 8, !tbaa !83
+  store i16 %102, ptr %36, align 8, !tbaa !84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   br label %103
 
@@ -189,9 +189,9 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8
   %111 = call noundef i64 %110(ptr noundef nonnull align 8 dereferenceable(8) %107)
-  store i64 %111, ptr %41, align 8, !tbaa !84
+  store i64 %111, ptr %41, align 8, !tbaa !85
   %112 = load i32, ptr %7, align 4, !tbaa !74
-  store i32 %112, ptr %42, align 8, !tbaa !85
+  store i32 %112, ptr %42, align 8, !tbaa !86
   br label %.loopexit
 
 .preheader:                                       ; preds = %104, %.preheader
@@ -204,7 +204,7 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   store i32 %113, ptr %117, align 4, !tbaa !74
   %indvars.iv.next34 = add nuw nsw i32 %indvars.iv33, 1
   %exitcond36.not = icmp eq i32 %indvars.iv.next34, 4
-  br i1 %exitcond36.not, label %.loopexit, label %.preheader, !llvm.loop !86
+  br i1 %exitcond36.not, label %.loopexit, label %.preheader, !llvm.loop !87
 
 118:                                              ; preds = %104
   %119 = load ptr, ptr %10, align 8, !tbaa !71
@@ -216,12 +216,12 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   %125 = uitofp i16 %124 to double
   %126 = fmul reassoc nsz arcp contract afn double %125, 0x3F81B80000000000
   %127 = fptrunc reassoc nsz arcp contract afn double %126 to float
-  store float %127, ptr %38, align 8, !tbaa !87
+  store float %127, ptr %38, align 8, !tbaa !88
   %128 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %129 = uitofp i16 %128 to double
   %130 = fmul reassoc nsz arcp contract afn double %129, 0x3F7AF00000000000
   %131 = fptrunc reassoc nsz arcp contract afn double %130 to float
-  store float %131, ptr %39, align 8, !tbaa !87
+  store float %131, ptr %39, align 8, !tbaa !88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %58, %106, %118, %103, %104, %54
@@ -233,7 +233,7 @@ define void @_ZN6LibRaw19parseEpsonMakernoteEiij(ptr noundef nonnull align 8 der
   %137 = load ptr, ptr %136, align 8
   %138 = call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(8) %132, i64 noundef %134, i32 noundef 0)
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %43
+  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.loopexit, %25
   store i16 %12, ptr %11, align 8, !tbaa !6
@@ -347,10 +347,12 @@ attributes #3 = { nounwind }
 !78 = !{!"_ZTS23libraw_raw_inset_crop_t", !14, i64 0, !14, i64 2, !14, i64 4, !14, i64 6}
 !79 = !{!78, !14, i64 6}
 !80 = !{!14, !14, i64 0}
-!81 = distinct !{!81, !76}
-!82 = !{!78, !14, i64 0}
-!83 = !{!78, !14, i64 2}
-!84 = !{!7, !24, i64 381456}
-!85 = !{!7, !15, i64 193360}
-!86 = distinct !{!86, !76}
-!87 = !{!20, !20, i64 0}
+!81 = distinct !{!81, !76, !82}
+!82 = !{!"llvm.loop.estimated_trip_count"}
+!83 = !{!78, !14, i64 0}
+!84 = !{!78, !14, i64 2}
+!85 = !{!7, !24, i64 381456}
+!86 = !{!7, !15, i64 193360}
+!87 = distinct !{!87, !76, !82}
+!88 = !{!20, !20, i64 0}
+!89 = distinct !{!89, !82}

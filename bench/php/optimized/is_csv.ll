@@ -99,7 +99,7 @@ eatquote.exit.i:                                  ; preds = %21, %36, %34, %23, 
   %.119.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %23 ], [ %.02034.i, %34 ], [ %.01835.i, %36 ], [ %.01835.i, %21 ]
   %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %.036.i, %23 ], [ %26, %34 ], [ %26, %36 ], [ %.036.i, %21 ]
   %37 = icmp ult ptr %.124.i, %9
-  br i1 %37, label %.lr.ph.i, label %csv_parse.exit
+  br i1 %37, label %.lr.ph.i, label %csv_parse.exit, !llvm.loop !23
 
 csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %select.unfold.i.i
   %.147.i = phi i64 [ %.036.i, %select.unfold.i.i ], [ %.1.i, %eatquote.exit.i ], [ %.036.i, %17 ]
@@ -166,3 +166,5 @@ attributes #2 = { nounwind }
 !20 = !{!"short", !7, i64 0}
 !21 = !{!"", !19, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
 !22 = !{!7, !7, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}

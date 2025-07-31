@@ -545,7 +545,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %49, %50
 
 53:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %52
   tail call void @_ZN23NativeHeapTrimmerThread20execute_trim_and_logEd(ptr noundef nonnull align 8 dereferenceable(944) %0, double noundef %.1)
-  br label %10, !llvm.loop !8
+  br label %10, !llvm.loop !9
 
 .critedge29:                                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %44
   br i1 %.not.i.i30, label %_ZN13MonitorLockerD2Ev.exit36, label %54
@@ -876,6 +876,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

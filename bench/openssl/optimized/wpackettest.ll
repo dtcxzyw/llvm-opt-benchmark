@@ -1408,11 +1408,11 @@ define internal range(i32 0, 2) i32 @test_WPACKET_allocate_bytes() #0 {
   br i1 %.not1, label %.sink.split, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8, !tbaa !16
-  store i8 -2, ptr %15, align 1, !tbaa !17
-  %16 = load ptr, ptr %3, align 8, !tbaa !16
+  %15 = load ptr, ptr %3, align 8, !tbaa !17
+  store i8 -2, ptr %15, align 1, !tbaa !18
+  %16 = load ptr, ptr %3, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store i8 -1, ptr %17, align 1, !tbaa !17
+  store i8 -1, ptr %17, align 1, !tbaa !18
   %18 = call i32 @WPACKET_finish(ptr noundef nonnull %1) #4
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -1455,11 +1455,11 @@ define internal range(i32 0, 2) i32 @test_WPACKET_allocate_bytes() #0 {
   br i1 %.not6, label %.sink.split, label %44
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %3, align 8, !tbaa !16
-  store i8 -2, ptr %45, align 1, !tbaa !17
-  %46 = load ptr, ptr %3, align 8, !tbaa !16
+  %45 = load ptr, ptr %3, align 8, !tbaa !17
+  store i8 -2, ptr %45, align 1, !tbaa !18
+  %46 = load ptr, ptr %3, align 8, !tbaa !17
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store i8 -1, ptr %47, align 1, !tbaa !17
+  store i8 -1, ptr %47, align 1, !tbaa !18
   %48 = call i32 @WPACKET_finish(ptr noundef nonnull %1) #4
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -1751,7 +1751,7 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init_der() #0 {
   br i1 %.not21, label %.loopexit, label %.preheader
 
 86:                                               ; preds = %118
-  br i1 %87, label %.preheader, label %124, !llvm.loop !18
+  br i1 %87, label %.preheader, label %124, !llvm.loop !19
 
 .preheader:                                       ; preds = %82, %86
   %87 = phi i1 [ false, %86 ], [ true, %82 ]
@@ -2243,14 +2243,14 @@ define internal range(i32 0, 2) i32 @test_WPACKET_quic() #0 {
   br i1 %.not46, label %421, label %250
 
 250:                                              ; preds = %245
-  %251 = load ptr, ptr %4, align 8, !tbaa !16
-  store i8 85, ptr %251, align 1, !tbaa !17
-  %252 = load ptr, ptr %4, align 8, !tbaa !16
+  %251 = load ptr, ptr %4, align 8, !tbaa !17
+  store i8 85, ptr %251, align 1, !tbaa !18
+  %252 = load ptr, ptr %4, align 8, !tbaa !17
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  store i8 102, ptr %253, align 1, !tbaa !17
-  %254 = load ptr, ptr %4, align 8, !tbaa !16
+  store i8 102, ptr %253, align 1, !tbaa !18
+  %254 = load ptr, ptr %4, align 8, !tbaa !17
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 2
-  store i8 119, ptr %255, align 1, !tbaa !17
+  store i8 119, ptr %255, align 1, !tbaa !18
   %256 = call i32 @WPACKET_finish(ptr noundef nonnull %1) #4
   %257 = icmp ne i32 %256, 0
   %258 = zext i1 %257 to i32
@@ -2552,7 +2552,7 @@ define internal range(i32 0, 2) i32 @test_WPACKET_quic_vlint_random() #0 {
 
 switch.lookup:                                    ; preds = %5
   %.0.copyload = load i64, ptr %2, align 8
-  %8 = load i8, ptr %4, align 8, !tbaa !17
+  %8 = load i8, ptr %4, align 8, !tbaa !18
   %9 = and i8 %8, 3
   %10 = zext nneg i8 %9 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.test_WPACKET_quic_vlint_random, i64 0, i64 %10
@@ -2600,7 +2600,7 @@ PACKET_buf_init.exit:                             ; preds = %22
   br i1 %34, label %PACKET_get_quic_vlint.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = load i8, ptr %.sroa.0.1, align 1, !tbaa !17
+  %36 = load i8, ptr %.sroa.0.1, align 1, !tbaa !18
   %37 = lshr i8 %36, 6
   %38 = zext nneg i8 %37 to i32
   %39 = shl nuw nsw i32 1, %38
@@ -2632,7 +2632,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %33, %35, %42
   call void @WPACKET_cleanup(ptr noundef nonnull %3) #4
   %50 = add nuw nsw i64 %.0924, 1
   %exitcond.not = icmp eq i64 %50, 10000
-  br i1 %exitcond.not, label %51, label %5, !llvm.loop !19
+  br i1 %exitcond.not, label %51, label %5, !llvm.loop !20
 
 51:                                               ; preds = %49, %PACKET_buf_init.exit, %PACKET_get_quic_vlint.exit, %47, %switch.lookup, %17, %22, %5
   %.010 = phi i32 [ 0, %5 ], [ 0, %22 ], [ 0, %17 ], [ 0, %switch.lookup ], [ 0, %47 ], [ 0, %PACKET_get_quic_vlint.exit ], [ 0, %PACKET_buf_init.exit ], [ 1, %49 ]
@@ -2751,9 +2751,10 @@ attributes #4 = { nounwind }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!"p1 omnipotent char", !6, i64 0}
 !13 = !{!11, !11, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!12, !12, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!12, !12, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}

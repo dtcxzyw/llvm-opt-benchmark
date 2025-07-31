@@ -328,7 +328,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @dss_read_packet(ptr noun
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 42
   store i8 0, ptr %63, align 1, !tbaa !11
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !55
+  %65 = load i32, ptr %64, align 4, !tbaa !56
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 %66, ptr %67, align 1, !tbaa !11
@@ -339,7 +339,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @dss_read_packet(ptr noun
   %70 = load i8, ptr %69, align 1, !tbaa !11
   %71 = zext i8 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %71, ptr %72, align 4, !tbaa !55
+  store i32 %71, ptr %72, align 4, !tbaa !56
   br label %dss_sp_byte_swap.exit.i
 
 dss_sp_byte_swap.exit.i:                          ; preds = %68, %62
@@ -349,7 +349,7 @@ dss_sp_byte_swap.exit.i:                          ; preds = %68, %62
   %75 = xor i32 %74, 1
   store i32 %75, ptr %20, align 4, !tbaa !48
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %77 = load i32, ptr %76, align 4, !tbaa !55
+  %77 = load i32, ptr %76, align 4, !tbaa !56
   %78 = icmp slt i32 %77, 0
   %.50.i = select i1 %78, i32 -11, i32 0
   br label %dss_sp_read_packet.exit
@@ -362,8 +362,8 @@ dss_sp_byte_swap.exit.i:                          ; preds = %68, %62
 
 82:                                               ; preds = %2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %84 = load ptr, ptr %83, align 8, !tbaa !56
-  %85 = load ptr, ptr %84, align 8, !tbaa !57
+  %84 = load ptr, ptr %83, align 8, !tbaa !57
+  %85 = load ptr, ptr %84, align 8, !tbaa !58
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8, !tbaa !27
   %88 = tail call i64 @avio_seek(ptr noundef %87, i64 noundef 0, i32 noundef 1) #7
@@ -395,7 +395,7 @@ dss_sp_byte_swap.exit.i:                          ; preds = %68, %62
   %105 = load i8, ptr %104, align 1, !tbaa !11
   %106 = zext i8 %105 to i32
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %106, ptr %107, align 4, !tbaa !59
+  store i32 %106, ptr %107, align 4, !tbaa !60
   %108 = load i32, ptr %89, align 4, !tbaa !47
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %89, align 4, !tbaa !47
@@ -500,7 +500,7 @@ define internal i32 @dss_read_seek(ptr noundef readonly captures(none) %0, i32 %
 13:                                               ; preds = %4
   %14 = sdiv i64 %2, 240
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = load i32, ptr %15, align 4, !tbaa !59
+  %16 = load i32, ptr %15, align 4, !tbaa !60
   %17 = sext i32 %16 to i64
   %18 = mul nsw i64 %14, %17
   br label %19
@@ -563,7 +563,7 @@ define internal i32 @dss_read_seek(ptr noundef readonly captures(none) %0, i32 %
 
 55:                                               ; preds = %48, %44
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 -1, ptr %56, align 4, !tbaa !55
+  store i32 -1, ptr %56, align 4, !tbaa !56
   br label %57
 
 57:                                               ; preds = %30, %55, %28
@@ -676,10 +676,11 @@ attributes #7 = { nounwind }
 !50 = !{!36, !22, i64 72}
 !51 = !{!36, !10, i64 36}
 !52 = !{!36, !6, i64 24}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!29, !10, i64 12}
-!56 = !{!13, !18, i64 48}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!59 = !{!29, !10, i64 16}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!29, !10, i64 12}
+!57 = !{!13, !18, i64 48}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!60 = !{!29, !10, i64 16}

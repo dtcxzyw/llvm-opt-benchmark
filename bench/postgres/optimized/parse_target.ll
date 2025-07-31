@@ -1633,7 +1633,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly ca
   %92 = load i32, ptr %5, align 4
   %93 = sext i32 %92 to i64
   %.not = icmp slt i64 %indvars.iv.next, %93
-  br i1 %.not, label %42, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %42, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %89, %41, %.preheader, %9
   %.2 = phi ptr [ null, %9 ], [ %1, %.preheader ], [ %.1, %41 ], [ %1, %89 ]
@@ -1752,7 +1752,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   call void @TupleDescInitEntryCollation(ptr noundef %29, i16 noundef signext %.089, i32 noundef %61) #8
   %62 = add i16 %.089, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split, !llvm.loop !9
+  br label %list_length.exit.split, !llvm.loop !10
 
 63:                                               ; preds = %tailrecurse
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1810,7 +1810,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %91 = load ptr, ptr %.083131, align 8
   %92 = add nuw i32 %.085130, 1
   %exitcond.not = icmp eq i32 %92, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %89
   %.083.lcssa = phi ptr [ %0, %89 ], [ %91, %.lr.ph ]
@@ -1898,7 +1898,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %143 = load ptr, ptr %.184132, align 8
   %144 = add nuw i32 %.0133, 1
   %exitcond156.not = icmp eq i32 %144, %142
-  br i1 %exitcond156.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !11
+  br i1 %exitcond156.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !12
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %138
   %.184.lcssa = phi ptr [ %0, %138 ], [ %143, %.lr.ph135 ]
@@ -2421,7 +2421,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   %.1.us = phi ptr [ %.04247.us, %.lr.ph.split.us ], [ %86, %64 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph ]
@@ -2465,7 +2465,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   %.1 = phi ptr [ %.04247, %.lr.ph.split ], [ %111, %95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
-  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !15
 
 ExpandSingleTable.exit:                           ; preds = %112, %87, %.lr.ph30.i, %53, %.lr.ph.i, %34, %19
   %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %26, %.lr.ph30.i ], [ %.1.us, %87 ], [ %.1, %112 ]
@@ -2522,12 +2522,13 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}

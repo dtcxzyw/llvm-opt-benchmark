@@ -1461,7 +1461,7 @@ define internal noundef i32 @test_repeated_simple_init() #4 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %7 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %7, 5
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !20
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1502,7 +1502,7 @@ define internal noundef i32 @test_repeated_init_and_subinterpreters() #0 {
   %5 = tail call i32 @PyGILState_Ensure() #20
   %6 = tail call ptr @PyThreadState_Get() #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #20
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %6 to i64
@@ -1517,7 +1517,7 @@ define internal noundef i32 @test_repeated_init_and_subinterpreters() #0 {
   %18 = tail call ptr @PyThreadState_Swap(ptr noundef %4) #20
   %19 = tail call ptr @PyThreadState_Get() #20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = tail call i64 @PyInterpreterState_GetID(ptr noundef %21) #20
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -1530,14 +1530,14 @@ define internal noundef i32 @test_repeated_init_and_subinterpreters() #0 {
   tail call void @Py_Finalize() #20
   %29 = add nuw nsw i32 %.0911, 1
   %exitcond12.not = icmp eq i32 %29, 5
-  br i1 %exitcond12.not, label %1, label %2, !llvm.loop !33
+  br i1 %exitcond12.not, label %1, label %2, !llvm.loop !34
 
 30:                                               ; preds = %2, %30
   %.010 = phi i32 [ 0, %2 ], [ %42, %30 ]
   %31 = tail call ptr @Py_NewInterpreter() #20
   %32 = tail call ptr @PyThreadState_Get() #20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = tail call i64 @PyInterpreterState_GetID(ptr noundef %34) #20
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %32 to i64
@@ -1548,7 +1548,7 @@ define internal noundef i32 @test_repeated_init_and_subinterpreters() #0 {
   tail call void @Py_EndInterpreter(ptr noundef %31) #20
   %42 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %42, 3
-  br i1 %exitcond.not, label %17, label %30, !llvm.loop !34
+  br i1 %exitcond.not, label %17, label %30, !llvm.loop !35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1563,7 +1563,7 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
 6:                                                ; preds = %init_from_config_clear.exit
   %7 = add nuw nsw i32 %.01014, 1
   %exitcond = icmp eq i32 %7, 5
-  br i1 %exitcond, label %.loopexit, label %8, !llvm.loop !35
+  br i1 %exitcond, label %.loopexit, label %8, !llvm.loop !36
 
 8:                                                ; preds = %0, %6
   %.01014 = phi i32 [ 1, %0 ], [ %7, %6 ]
@@ -1582,7 +1582,7 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_audit_run_command.argv, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
-  store i32 1, ptr %5, align 4, !tbaa !36
+  store i32 1, ptr %5, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, i64 noundef 3, ptr noundef nonnull %3) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -1750,7 +1750,7 @@ define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
   %2 = tail call i32 @putenv(ptr noundef nonnull @.str.90) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
   %3 = tail call ptr @PyThread_allocate_lock() #20
-  store ptr %3, ptr %1, align 8, !tbaa !41
+  store ptr %3, ptr %1, align 8, !tbaa !42
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
@@ -1769,13 +1769,13 @@ define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
   br label %16
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !41
+  %10 = load ptr, ptr %1, align 8, !tbaa !42
   %11 = call i32 @PyThread_acquire_lock(ptr noundef %10, i32 noundef 1) #20
   %12 = call ptr @PyEval_SaveThread() #20
-  %13 = load ptr, ptr %1, align 8, !tbaa !41
+  %13 = load ptr, ptr %1, align 8, !tbaa !42
   %14 = call i32 @PyThread_acquire_lock(ptr noundef %13, i32 noundef 1) #20
   call void @PyEval_RestoreThread(ptr noundef %12) #20
-  %15 = load ptr, ptr %1, align 8, !tbaa !41
+  %15 = load ptr, ptr %1, align 8, !tbaa !42
   call void @PyThread_free_lock(ptr noundef %15) #20
   call void @Py_Finalize() #20
   br label %16
@@ -1876,11 +1876,11 @@ define internal noundef i32 @test_init_from_config() #0 {
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %11) #20
   %17 = call i32 @putenv(ptr noundef nonnull @.str.132) #20
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i32 3, ptr %18, align 4, !tbaa !42
+  store i32 3, ptr %18, align 4, !tbaa !43
   %19 = call i32 @putenv(ptr noundef nonnull @.str.124) #20
   store i32 0, ptr @Py_UTF8Mode, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store i32 1, ptr %20, align 4, !tbaa !44
+  store i32 1, ptr %20, align 4, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %11) #20
   %21 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #20
@@ -1895,29 +1895,29 @@ define internal noundef i32 @test_init_from_config() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %13) #20
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %13) #20
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %24, align 8, !tbaa !45
+  store i32 0, ptr %24, align 8, !tbaa !46
   %25 = call i32 @putenv(ptr noundef nonnull @.str.133) #20
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i32 1, ptr %26, align 4, !tbaa !46
+  store i32 1, ptr %26, align 4, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 123, ptr %27, align 8, !tbaa !47
+  store i64 123, ptr %27, align 8, !tbaa !48
   %28 = call i32 @putenv(ptr noundef nonnull @.str.134) #20
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 1, ptr %29, align 8, !tbaa !48
+  store i32 1, ptr %29, align 8, !tbaa !49
   %30 = call i32 @putenv(ptr noundef nonnull @.str.135) #20
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 2, ptr %31, align 4, !tbaa !49
+  store i32 2, ptr %31, align 4, !tbaa !50
   %32 = call i32 @putenv(ptr noundef nonnull @.str.136) #20
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  store i32 1, ptr %33, align 4, !tbaa !50
+  store i32 1, ptr %33, align 4, !tbaa !51
   %34 = call i32 @putenv(ptr noundef nonnull @.str.137) #20
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i32 0, ptr %35, align 8, !tbaa !51
+  store i32 0, ptr %35, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 52
-  store i32 1, ptr %36, align 4, !tbaa !52
+  store i32 1, ptr %36, align 4, !tbaa !53
   %37 = call i32 @putenv(ptr noundef nonnull @.str.138) #20
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i32 1, ptr %38, align 8, !tbaa !53
+  store i32 1, ptr %38, align 8, !tbaa !54
   %39 = call i32 @putenv(ptr noundef nonnull @.str.139) #20
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #20
@@ -1964,7 +1964,7 @@ config_set_string.exit2:                          ; preds = %config_set_string.e
 config_set_argv.exit:                             ; preds = %config_set_string.exit2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store i32 1, ptr %48, align 8, !tbaa !54
+  store i32 1, ptr %48, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_from_config.xoptions, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -2015,37 +2015,37 @@ config_set_string.exit8:                          ; preds = %config_set_wide_str
   %59 = call i32 @putenv(ptr noundef nonnull @.str.130) #20
   store i32 0, ptr @Py_VerboseFlag, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  store i32 1, ptr %60, align 8, !tbaa !55
+  store i32 1, ptr %60, align 8, !tbaa !56
   store i32 0, ptr @Py_NoSiteFlag, align 4, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  store i32 0, ptr %61, align 8, !tbaa !56
+  store i32 0, ptr %61, align 8, !tbaa !57
   store i32 0, ptr @Py_BytesWarningFlag, align 4, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 180
-  store i32 1, ptr %62, align 4, !tbaa !57
+  store i32 1, ptr %62, align 4, !tbaa !58
   %63 = call i32 @putenv(ptr noundef nonnull @.str.126) #20
   store i32 0, ptr @Py_InspectFlag, align 4, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 188
-  store i32 1, ptr %64, align 4, !tbaa !58
+  store i32 1, ptr %64, align 4, !tbaa !59
   store i32 0, ptr @Py_InteractiveFlag, align 4, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  store i32 1, ptr %65, align 8, !tbaa !59
+  store i32 1, ptr %65, align 8, !tbaa !60
   %66 = call i32 @putenv(ptr noundef nonnull @.str.127) #20
   store i32 1, ptr @Py_OptimizeFlag, align 4, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 196
-  store i32 2, ptr %67, align 4, !tbaa !60
+  store i32 2, ptr %67, align 4, !tbaa !61
   %68 = call i32 @putenv(ptr noundef nonnull @.str.129) #20
   store i32 0, ptr @Py_DontWriteBytecodeFlag, align 4, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 204
-  store i32 0, ptr %69, align 4, !tbaa !61
+  store i32 0, ptr %69, align 4, !tbaa !62
   store i32 0, ptr @Py_QuietFlag, align 4, !tbaa !4
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 212
-  store i32 1, ptr %70, align 4, !tbaa !62
+  store i32 1, ptr %70, align 4, !tbaa !63
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 220
-  store i32 1, ptr %71, align 4, !tbaa !63
+  store i32 1, ptr %71, align 4, !tbaa !64
   %72 = call i32 @putenv(ptr noundef nonnull @.str.131) #20
   store i32 0, ptr @Py_UnbufferedStdioFlag, align 4, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 224
-  store i32 0, ptr %73, align 8, !tbaa !64
+  store i32 0, ptr %73, align 8, !tbaa !65
   %74 = call i32 @putenv(ptr noundef nonnull @.str.153) #20
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
@@ -2078,7 +2078,7 @@ config_set_string.exit12:                         ; preds = %config_set_string.e
   %81 = call i32 @putenv(ptr noundef nonnull @.str.154) #20
   store i32 0, ptr @Py_NoUserSiteDirectory, align 4, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 216
-  store i32 0, ptr %82, align 8, !tbaa !65
+  store i32 0, ptr %82, align 8, !tbaa !66
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %13, ptr noundef nonnull %83, ptr noundef nonnull @.str.155) #20
@@ -2095,14 +2095,14 @@ config_set_string.exit14:                         ; preds = %config_set_string.e
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   store i32 0, ptr @Py_FrozenFlag, align 4, !tbaa !4
   %86 = getelementptr inbounds nuw i8, ptr %13, i64 272
-  store i32 0, ptr %86, align 8, !tbaa !66
+  store i32 0, ptr %86, align 8, !tbaa !67
   %87 = getelementptr inbounds nuw i8, ptr %13, i64 260
-  store i32 1, ptr %87, align 4, !tbaa !67
+  store i32 1, ptr %87, align 4, !tbaa !68
   %88 = call i32 @putenv(ptr noundef nonnull @.str.156) #20
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 264
-  store i32 31337, ptr %89, align 8, !tbaa !68
+  store i32 31337, ptr %89, align 8, !tbaa !69
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 268
-  store i32 4321, ptr %90, align 4, !tbaa !69
+  store i32 4321, ptr %90, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %13) #20
   call void @PyConfig_Clear(ptr noundef nonnull %13) #20
@@ -2225,11 +2225,11 @@ define internal noundef i32 @test_init_dont_configure_locale() #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %6, align 4, !tbaa !70
+  store i32 0, ptr %6, align 4, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 1, ptr %7, align 4, !tbaa !71
+  store i32 1, ptr %7, align 4, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 1, ptr %8, align 4, !tbaa !72
+  store i32 1, ptr %8, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
@@ -2288,7 +2288,7 @@ define internal noundef i32 @test_init_dev_mode() #0 {
   %4 = call i32 @putenv(ptr noundef nonnull @.str.134) #20
   %5 = call i32 @putenv(ptr noundef nonnull @.str.90) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4, !tbaa !73
+  store i32 1, ptr %6, align 4, !tbaa !74
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull @.str.68) #20
@@ -2331,13 +2331,13 @@ define internal noundef i32 @test_init_isolated_flag() #0 {
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %3) #20
   store i32 0, ptr @Py_IsolatedFlag, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %4, align 4, !tbaa !36
+  store i32 1, ptr %4, align 4, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 260
-  store i32 0, ptr %5, align 4, !tbaa !67
+  store i32 0, ptr %5, align 4, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %6, align 8, !tbaa !74
+  store i32 1, ptr %6, align 8, !tbaa !75
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 1, ptr %7, align 8, !tbaa !65
+  store i32 1, ptr %7, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull @.str.68) #20
@@ -2406,7 +2406,7 @@ define internal noundef i32 @test_preinit_isolated1() #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %6, align 4, !tbaa !75
+  store i32 1, ptr %6, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
@@ -2466,7 +2466,7 @@ define internal noundef i32 @test_preinit_isolated2() #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %3) #20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %6, align 4, !tbaa !75
+  store i32 0, ptr %6, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   call void @Py_PreInitialize(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %4, ptr noundef nonnull %3) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
@@ -2482,7 +2482,7 @@ define internal noundef i32 @test_preinit_isolated2() #0 {
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %5) #20
   store i32 0, ptr @Py_IsolatedFlag, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 1, ptr %10, align 4, !tbaa !36
+  store i32 1, ptr %10, align 4, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull @.str.68) #20
@@ -2589,7 +2589,7 @@ define internal noundef i32 @test_preinit_dont_parse_argv() #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %4) #20
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %8, align 4, !tbaa !75
+  store i32 0, ptr %8, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, ptr noundef nonnull align 16 dereferenceable(72) @__const.test_preinit_dont_parse_argv.argv, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
@@ -2606,7 +2606,7 @@ define internal noundef i32 @test_preinit_dont_parse_argv() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %7) #20
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %7) #20
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %12, align 4, !tbaa !36
+  store i32 0, ptr %12, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %7, i64 noundef 9, ptr noundef nonnull %5) #20
   %13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
@@ -2691,7 +2691,7 @@ config_set_string.exit:                           ; preds = %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 320
   call void @PyWideStringList_Insert(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %13, i64 noundef 1, ptr noundef nonnull @.str.191) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
   %14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not1 = icmp eq i32 %14, 0
@@ -2700,7 +2700,7 @@ config_set_string.exit:                           ; preds = %0
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %13, ptr noundef nonnull @.str.192) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   %16 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %4) #20
   %.not2 = icmp eq i32 %16, 0
@@ -2758,7 +2758,7 @@ define internal i32 @test_init_run_main() #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @__const.configure_init_main.argv, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 1, ptr %6, align 8, !tbaa !54
+  store i32 1, ptr %6, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %4) #20
   %7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %3) #20
@@ -2835,7 +2835,7 @@ define internal noundef i32 @test_init_sys_add() #0 {
 config_set_argv.exit:                             ; preds = %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 1, ptr %10, align 8, !tbaa !54
+  store i32 1, ptr %10, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %6, ptr noundef nonnull %11, ptr noundef nonnull @.str.200) #20
@@ -2847,7 +2847,7 @@ config_set_argv.exit:                             ; preds = %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 160
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %14, ptr noundef nonnull @.str.201) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   %15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %6) #20
   %.not1 = icmp eq i32 %15, 0
@@ -3115,7 +3115,7 @@ config_set_string.exit:                           ; preds = %config_set_program_
   call void @PyMem_RawFree(ptr noundef nonnull %9) #20
   %19 = call i32 @putenv(ptr noundef nonnull @.str.211) #20
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 440
-  store i32 2147483647, ptr %20, align 8, !tbaa !77
+  store i32 2147483647, ptr %20, align 8, !tbaa !78
   %21 = call ptr @getenv(ptr noundef nonnull @.str.212) #20
   %.not10 = icmp eq ptr %21, null
   br i1 %.not10, label %26, label %sub_0
@@ -3132,7 +3132,7 @@ sub_0:                                            ; preds = %config_set_string.e
   br i1 %25, label %26, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  store i32 -2147483648, ptr %20, align 8, !tbaa !77
+  store i32 -2147483648, ptr %20, align 8, !tbaa !78
   br label %26
 
 26:                                               ; preds = %.tail.thread, %.tail, %config_set_string.exit
@@ -3150,7 +3150,7 @@ sub_0:                                            ; preds = %config_set_string.e
 init_from_config_clear.exit:                      ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   call void @Py_Finalize() #20
-  store i32 -1, ptr %20, align 8, !tbaa !77
+  store i32 -1, ptr %20, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %1, ptr noundef nonnull %5) #20
   call void @PyConfig_Clear(ptr noundef nonnull %5) #20
@@ -3191,9 +3191,9 @@ define internal noundef i32 @test_init_warnoptions() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 1, ptr %11, align 4, !tbaa !73
+  store i32 1, ptr %11, align 4, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 180
-  store i32 1, ptr %12, align 4, !tbaa !57
+  store i32 1, ptr %12, align 4, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   call void @PyConfig_SetString(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %13, ptr noundef nonnull @.str.68) #20
@@ -3236,10 +3236,10 @@ config_set_program_name.exit:                     ; preds = %0
 config_set_argv.exit:                             ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 1, ptr %22, align 8, !tbaa !54
+  store i32 1, ptr %22, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
   call void @PyConfig_Read(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %7, ptr noundef nonnull %4) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   %23 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not1 = icmp eq i32 %23, 0
@@ -3252,7 +3252,7 @@ config_set_argv.exit:                             ; preds = %19
 25:                                               ; preds = %config_set_argv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
   call void @PyWideStringList_Append(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %8, ptr noundef nonnull %16, ptr noundef nonnull @.str.220) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
   %26 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not2 = icmp eq i32 %26, 0
@@ -3265,7 +3265,7 @@ config_set_argv.exit:                             ; preds = %19
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #20
   call void @PyWideStringList_Insert(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %9, ptr noundef nonnull %16, i64 noundef 0, ptr noundef nonnull @.str.221) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #20
   %29 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %5) #20
   %.not3 = icmp eq i32 %29, 0
@@ -3431,7 +3431,7 @@ define internal range(i32 0, 2) i32 @test_initconfig_get_api() #0 {
   unreachable
 
 33:                                               ; preds = %29
-  %34 = load i64, ptr %8, align 8, !tbaa !78
+  %34 = load i64, ptr %8, align 8, !tbaa !79
   %35 = add i64 %34, 2147483648
   %or.cond.i = icmp ult i64 %35, 4294967296
   br i1 %or.cond.i, label %initconfig_getint.exit, label %36
@@ -3469,7 +3469,7 @@ initconfig_getint.exit:                           ; preds = %33
   unreachable
 
 47:                                               ; preds = %43
-  %48 = load i64, ptr %7, align 8, !tbaa !78
+  %48 = load i64, ptr %7, align 8, !tbaa !79
   %49 = add i64 %48, 2147483648
   %or.cond.i24 = icmp ult i64 %49, 4294967296
   br i1 %or.cond.i24, label %initconfig_getint.exit25, label %50
@@ -3498,7 +3498,7 @@ initconfig_getint.exit25:                         ; preds = %47
   unreachable
 
 57:                                               ; preds = %53
-  %58 = load i64, ptr %6, align 8, !tbaa !78
+  %58 = load i64, ptr %6, align 8, !tbaa !79
   %59 = add i64 %58, 2147483648
   %or.cond.i26 = icmp ult i64 %59, 4294967296
   br i1 %or.cond.i26, label %initconfig_getint.exit27, label %60
@@ -3536,7 +3536,7 @@ initconfig_getint.exit27:                         ; preds = %57
   unreachable
 
 71:                                               ; preds = %67
-  %72 = load i64, ptr %5, align 8, !tbaa !78
+  %72 = load i64, ptr %5, align 8, !tbaa !79
   %73 = add i64 %72, 2147483648
   %or.cond.i28 = icmp ult i64 %73, 4294967296
   br i1 %or.cond.i28, label %initconfig_getint.exit29, label %74
@@ -3614,7 +3614,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 102:                                              ; preds = %98
-  %103 = load i64, ptr %10, align 8, !tbaa !78
+  %103 = load i64, ptr %10, align 8, !tbaa !79
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %106, label %105
 
@@ -3643,7 +3643,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 114:                                              ; preds = %110
-  %115 = load i64, ptr %10, align 8, !tbaa !78
+  %115 = load i64, ptr %10, align 8, !tbaa !79
   %116 = icmp eq i64 %115, 1
   br i1 %116, label %118, label %117
 
@@ -3674,7 +3674,7 @@ initconfig_getint.exit29:                         ; preds = %71
   unreachable
 
 128:                                              ; preds = %124
-  %129 = load i64, ptr %4, align 8, !tbaa !78
+  %129 = load i64, ptr %4, align 8, !tbaa !79
   %130 = add i64 %129, 2147483648
   %or.cond.i30 = icmp ult i64 %130, 4294967296
   br i1 %or.cond.i30, label %initconfig_getint.exit31, label %131
@@ -3712,7 +3712,7 @@ initconfig_getint.exit31:                         ; preds = %128
   unreachable
 
 142:                                              ; preds = %138
-  %143 = load i64, ptr %3, align 8, !tbaa !78
+  %143 = load i64, ptr %3, align 8, !tbaa !79
   %144 = add i64 %143, 2147483648
   %or.cond.i32 = icmp ult i64 %144, 4294967296
   br i1 %or.cond.i32, label %initconfig_getint.exit33, label %145
@@ -3741,7 +3741,7 @@ initconfig_getint.exit33:                         ; preds = %142
   unreachable
 
 152:                                              ; preds = %148
-  %153 = load i64, ptr %2, align 8, !tbaa !78
+  %153 = load i64, ptr %2, align 8, !tbaa !79
   %154 = add i64 %153, 2147483648
   %or.cond.i34 = icmp ult i64 %154, 4294967296
   br i1 %or.cond.i34, label %initconfig_getint.exit35, label %155
@@ -3781,7 +3781,7 @@ initconfig_getint.exit35:                         ; preds = %152
   unreachable
 
 166:                                              ; preds = %162
-  %167 = load i64, ptr %1, align 8, !tbaa !78
+  %167 = load i64, ptr %1, align 8, !tbaa !79
   %168 = add i64 %167, 2147483648
   %or.cond.i36 = icmp ult i64 %168, 4294967296
   br i1 %or.cond.i36, label %initconfig_getint.exit37, label %169
@@ -4028,7 +4028,7 @@ define internal i32 @test_run_main_loop() #0 {
   %3 = add nuw nsw i32 %.0911, 1
   %exitcond = icmp eq i32 %3, 5
   %or.cond = select i1 %.not, i1 true, i1 %exitcond
-  br i1 %or.cond, label %4, label %1, !llvm.loop !79
+  br i1 %or.cond, label %4, label %1, !llvm.loop !80
 
 4:                                                ; preds = %1
   ret i32 %2
@@ -4110,7 +4110,7 @@ init_from_config_clear.exit:                      ; preds = %16
   br i1 %22, label %.lr.ph.preheader, label %23
 
 .lr.ph.preheader:                                 ; preds = %init_from_config_clear.exit
-  %.pre = load ptr, ptr %8, align 8, !tbaa !80
+  %.pre = load ptr, ptr %8, align 8, !tbaa !81
   br label %.lr.ph
 
 23:                                               ; preds = %init_from_config_clear.exit
@@ -4122,7 +4122,7 @@ init_from_config_clear.exit:                      ; preds = %16
   %25 = load i32, ptr %7, align 4, !tbaa !4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !81
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %24
   call void @Py_Finalize() #20
@@ -4139,14 +4139,14 @@ init_from_config_clear.exit:                      ; preds = %16
   %28 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %33, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %29 = getelementptr ptr, ptr %28, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %30 = load ptr, ptr %29, align 8, !tbaa !83
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.286, i32 noundef %31, ptr noundef %30)
-  %33 = load ptr, ptr %8, align 8, !tbaa !80
+  %33 = load ptr, ptr %8, align 8, !tbaa !81
   %34 = getelementptr ptr, ptr %33, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
+  %35 = load ptr, ptr %34, align 8, !tbaa !83
   %36 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8, !tbaa !82
+  %37 = load ptr, ptr %36, align 8, !tbaa !83
   %38 = call i32 @wcscmp(ptr noundef %35, ptr noundef %37) #19
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %24, label %40
@@ -4185,17 +4185,17 @@ define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 1, ptr %15, align 8, !tbaa !54
+  store i32 1, ptr %15, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #20
-  store ptr @.str.157, ptr %5, align 16, !tbaa !82
+  store ptr @.str.157, ptr %5, align 16, !tbaa !83
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @.str.145, ptr %16, align 8, !tbaa !82
+  store ptr @.str.145, ptr %16, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %17, align 16, !tbaa !82
+  store ptr %3, ptr %17, align 16, !tbaa !83
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @.str.88, ptr %18, align 8, !tbaa !82
+  store ptr @.str.88, ptr %18, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr @.str.89, ptr %19, align 16, !tbaa !82
+  store ptr @.str.89, ptr %19, align 16, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @PyConfig_SetArgv(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %4, i64 noundef 5, ptr noundef nonnull %5) #20
   %20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %2) #20
@@ -4254,7 +4254,7 @@ define internal i32 @test_init_in_background_thread() #0 {
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %0
-  %6 = load i64, ptr %1, align 8, !tbaa !78
+  %6 = load i64, ptr %1, align 8, !tbaa !79
   %7 = call i32 @PyThread_join_thread(i64 noundef %6) #20
   br label %8
 
@@ -4304,13 +4304,13 @@ define internal i32 @test_open_code_hook() #0 {
 
 10:                                               ; preds = %7
   %11 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %8) #20
-  %12 = load i32, ptr %8, align 8, !tbaa !83
+  %12 = load i32, ptr %8, align 8, !tbaa !84
   %.not.i = icmp sgt i32 %12, -1
   br i1 %.not.i, label %13, label %Py_DECREF.exit
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %12, -1
-  store i32 %14, ptr %8, align 8, !tbaa !83
+  store i32 %14, ptr %8, align 8, !tbaa !84
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %Py_DECREF.exit
 
@@ -4349,13 +4349,13 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
 
 23:                                               ; preds = %21
   %24 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %22) #20
-  %25 = load i32, ptr %22, align 8, !tbaa !83
+  %25 = load i32, ptr %22, align 8, !tbaa !84
   %.not.i25 = icmp sgt i32 %25, -1
   br i1 %.not.i25, label %26, label %Py_DECREF.exit26
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %25, -1
-  store i32 %27, ptr %22, align 8, !tbaa !83
+  store i32 %27, ptr %22, align 8, !tbaa !84
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %Py_DECREF.exit26
 
@@ -4381,13 +4381,13 @@ Py_DECREF.exit26:                                 ; preds = %23, %26, %29
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread33.sink.split, %Py_DECREF.exit26
-  %32 = load i32, ptr %20, align 8, !tbaa !83
+  %32 = load i32, ptr %20, align 8, !tbaa !84
   %.not.i.i = icmp sgt i32 %32, -1
   br i1 %.not.i.i, label %33, label %Py_XDECREF.exit
 
 33:                                               ; preds = %.thread33
   %34 = add nsw i32 %32, -1
-  store i32 %34, ptr %20, align 8, !tbaa !83
+  store i32 %34, ptr %20, align 8, !tbaa !84
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %Py_XDECREF.exit
 
@@ -4410,7 +4410,7 @@ Py_XDECREF.exit:                                  ; preds = %9, %17, %36, %33, %
 define internal range(i32 4096, 7) i32 @test_audit() #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
-  store i64 0, ptr %1, align 8, !tbaa !78
+  store i64 0, ptr %1, align 8, !tbaa !79
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4, !tbaa !4
   %2 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %1) #20
   call fastcc void @_testembed_Py_InitializeFromConfig()
@@ -4462,7 +4462,7 @@ define internal range(i32 4096, 7) i32 @test_audit() #0 {
   br label %_test_audit.exit
 
 23:                                               ; preds = %19
-  %24 = load i64, ptr %1, align 8, !tbaa !78
+  %24 = load i64, ptr %1, align 8, !tbaa !79
   %.not5.i = icmp eq i64 %24, 42
   br i1 %.not5.i, label %_test_audit.exit, label %25
 
@@ -4485,7 +4485,7 @@ _test_audit.exit:                                 ; preds = %5, %9, %13, %17, %2
 define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
-  store i64 0, ptr %1, align 8, !tbaa !78
+  store i64 0, ptr %1, align 8, !tbaa !79
   %2 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %1) #20
   call fastcc void @_testembed_Py_InitializeFromConfig()
   %3 = call ptr @PyErr_Occurred() #20
@@ -4520,7 +4520,7 @@ define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
   br label %57
 
 18:                                               ; preds = %14
-  %19 = load i64, ptr %1, align 8, !tbaa !78
+  %19 = load i64, ptr %1, align 8, !tbaa !79
   %20 = icmp eq i64 %19, 444
   br i1 %20, label %23, label %21
 
@@ -4529,13 +4529,13 @@ define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
   br label %57
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr %7, align 8, !tbaa !83
+  %24 = load i32, ptr %7, align 8, !tbaa !84
   %.not.i = icmp sgt i32 %24, -1
   br i1 %.not.i, label %25, label %Py_DECREF.exit
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %24, -1
-  store i32 %26, ptr %7, align 8, !tbaa !83
+  store i32 %26, ptr %7, align 8, !tbaa !84
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Py_DECREF.exit
 
@@ -4558,7 +4558,7 @@ Py_DECREF.exit:                                   ; preds = %23, %25, %28
   br label %57
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !84
+  %37 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !85
   %38 = call i32 @PyErr_ExceptionMatches(ptr noundef %37) #20
   %.not9 = icmp eq i32 %38, 0
   br i1 %.not9, label %39, label %41
@@ -4569,13 +4569,13 @@ Py_DECREF.exit:                                   ; preds = %23, %25, %28
 
 41:                                               ; preds = %36
   call void @PyErr_Clear() #20
-  %42 = load i32, ptr %29, align 8, !tbaa !83
+  %42 = load i32, ptr %29, align 8, !tbaa !84
   %.not.i11 = icmp sgt i32 %42, -1
   br i1 %.not.i11, label %43, label %Py_DECREF.exit12
 
 43:                                               ; preds = %41
   %44 = add nsw i32 %42, -1
-  store i32 %44, ptr %29, align 8, !tbaa !83
+  store i32 %44, ptr %29, align 8, !tbaa !84
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %Py_DECREF.exit12
 
@@ -4687,21 +4687,21 @@ define internal i32 @test_audit_run_interactivehook() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i64 1, ptr %5, align 8, !tbaa !85
+  store i64 1, ptr %5, align 8, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %4, ptr %6, align 8, !tbaa !86
+  store ptr %4, ptr %6, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 1, ptr %7, align 8, !tbaa !54
+  store i32 1, ptr %7, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store ptr @.str.68, ptr %8, align 8, !tbaa !87
+  store ptr @.str.68, ptr %8, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i32 1, ptr %9, align 8, !tbaa !59
+  store i32 1, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !36
+  store i32 0, ptr %10, align 4, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %11, align 8, !tbaa !74
+  store i32 1, ptr %11, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  store i32 1, ptr %12, align 4, !tbaa !62
+  store i32 1, ptr %12, align 4, !tbaa !63
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
@@ -4735,21 +4735,21 @@ define internal i32 @test_audit_run_startup() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i64 1, ptr %5, align 8, !tbaa !85
+  store i64 1, ptr %5, align 8, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %4, ptr %6, align 8, !tbaa !86
+  store ptr %4, ptr %6, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 1, ptr %7, align 8, !tbaa !54
+  store i32 1, ptr %7, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store ptr @.str.68, ptr %8, align 8, !tbaa !87
+  store ptr @.str.68, ptr %8, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i32 1, ptr %9, align 8, !tbaa !59
+  store i32 1, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !36
+  store i32 0, ptr %10, align 4, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %11, align 8, !tbaa !74
+  store i32 1, ptr %11, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  store i32 1, ptr %12, align 4, !tbaa !62
+  store i32 1, ptr %12, align 4, !tbaa !63
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
@@ -4783,21 +4783,21 @@ define internal i32 @test_audit_run_stdin() #0 {
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %1) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i64 1, ptr %5, align 8, !tbaa !85
+  store i64 1, ptr %5, align 8, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %4, ptr %6, align 8, !tbaa !86
+  store ptr %4, ptr %6, align 8, !tbaa !87
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 1, ptr %7, align 8, !tbaa !54
+  store i32 1, ptr %7, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store ptr @.str.68, ptr %8, align 8, !tbaa !87
+  store ptr @.str.68, ptr %8, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i32 1, ptr %9, align 8, !tbaa !59
+  store i32 1, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %10, align 4, !tbaa !36
+  store i32 0, ptr %10, align 4, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %11, align 8, !tbaa !74
+  store i32 1, ptr %11, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  store i32 1, ptr %12, align 4, !tbaa !62
+  store i32 1, ptr %12, align 4, !tbaa !63
   %13 = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   call void @Py_InitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %2, ptr noundef nonnull %1) #20
@@ -4839,7 +4839,7 @@ define internal noundef i32 @test_unicode_id_init() #0 {
   unreachable
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %3, align 8, !tbaa !83
+  %6 = load i32, ptr %3, align 8, !tbaa !84
   %.not9 = icmp sgt i32 %6, -1
   br i1 %.not9, label %7, label %8
 
@@ -4866,13 +4866,13 @@ define internal noundef i32 @test_unicode_id_init() #0 {
   unreachable
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %9, align 8, !tbaa !83
+  %16 = load i32, ptr %9, align 8, !tbaa !84
   %.not.i = icmp sgt i32 %16, -1
   br i1 %.not.i, label %17, label %Py_DECREF.exit
 
 17:                                               ; preds = %15
   %18 = add nsw i32 %16, -1
-  store i32 %18, ptr %9, align 8, !tbaa !83
+  store i32 %18, ptr %9, align 8, !tbaa !84
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %Py_DECREF.exit
 
@@ -4884,7 +4884,7 @@ Py_DECREF.exit:                                   ; preds = %15, %17, %20
   tail call void @Py_Finalize() #20
   %21 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %21, 3
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !88
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !89
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4892,7 +4892,7 @@ define internal i32 @test_frozenmain() #0 {
   %1 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_frozenmain.argv, i64 32, i1 false)
-  store ptr @test_frozenmain.frozen_modules, ptr @PyImport_FrozenModules, align 8, !tbaa !89
+  store ptr @test_frozenmain.frozen_modules, ptr @PyImport_FrozenModules, align 8, !tbaa !90
   %2 = call i32 @Py_FrozenMain(i32 noundef 4, ptr noundef nonnull %1) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #20
   ret i32 %2
@@ -4906,15 +4906,15 @@ define internal i32 @test_get_incomplete_frame() #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
   call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull %2) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #20
-  store ptr %2, ptr %1, align 8, !tbaa !91
+  store ptr %2, ptr %1, align 8, !tbaa !92
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @malloc_wrapper, ptr %3, align 8, !tbaa !93
+  store ptr @malloc_wrapper, ptr %3, align 8, !tbaa !94
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @calloc_wrapper, ptr %4, align 8, !tbaa !94
+  store ptr @calloc_wrapper, ptr %4, align 8, !tbaa !95
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr @realloc_wrapper, ptr %5, align 8, !tbaa !95
+  store ptr @realloc_wrapper, ptr %5, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr @free_wrapper, ptr %6, align 8, !tbaa !96
+  store ptr @free_wrapper, ptr %6, align 8, !tbaa !97
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %1) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #20
   %7 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.339, ptr noundef null) #20
@@ -5176,7 +5176,7 @@ declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @bpo20891_thread(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !41
+  %2 = load ptr, ptr %0, align 8, !tbaa !42
   %3 = tail call i32 @PyGILState_Ensure() #20
   %4 = tail call i32 @PyGILState_Check() #20
   %.not = icmp eq i32 %4, 0
@@ -5287,7 +5287,7 @@ define internal fastcc void @check_init_parse_argv(i32 noundef range(i32 0, 2) %
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %4) #20
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %4) #20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %0, ptr %6, align 8, !tbaa !54
+  store i32 %0, ptr %6, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 16 dereferenceable(56) @__const.check_init_parse_argv.argv, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
@@ -5391,7 +5391,7 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   unreachable
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !75
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !76
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %14, label %13
 
@@ -5400,7 +5400,7 @@ define internal fastcc void @check_preinit_isolated_config(i32 noundef range(i32
   unreachable
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10444), align 4, !tbaa !97
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10444), align 4, !tbaa !98
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %18, label %17
 
@@ -5442,7 +5442,7 @@ config_set_program_name.exit:                     ; preds = %19
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !75
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !76
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %28, label %27
 
@@ -5451,7 +5451,7 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
   unreachable
 
 28:                                               ; preds = %init_from_config_clear.exit
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10444), align 4, !tbaa !97
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10444), align 4, !tbaa !98
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %32, label %31
 
@@ -5677,7 +5677,7 @@ define internal range(i32 -1, 1) i32 @_audit_hook(ptr noundef readonly captures(
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %5, align 8, !tbaa !98
+  %.val = load ptr, ptr %5, align 8, !tbaa !99
   %.not10 = icmp eq ptr %.val, @PyTuple_Type
   br i1 %.not10, label %7, label %6
 
@@ -5691,7 +5691,7 @@ define internal range(i32 -1, 1) i32 @_audit_hook(ptr noundef readonly captures(
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !84
+  %11 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !85
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.316) #20
   br label %23
 
@@ -5759,14 +5759,14 @@ define internal noundef i32 @_audit_subinterpreter_hook(ptr noundef readonly cap
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_audit_hook_run(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !101
+  %4 = load ptr, ptr %2, align 8, !tbaa !102
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %22
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !103
+  %8 = load i32, ptr %7, align 8, !tbaa !104
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %19, label %9
 
@@ -5778,13 +5778,13 @@ define internal range(i32 -1, 1) i32 @_audit_hook_run(ptr noundef %0, ptr nounde
 11:                                               ; preds = %9
   %12 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %10) #20
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %12)
-  %13 = load i32, ptr %10, align 8, !tbaa !83
+  %13 = load i32, ptr %10, align 8, !tbaa !84
   %.not.i = icmp sgt i32 %13, -1
   br i1 %.not.i, label %14, label %Py_DECREF.exit
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %13, -1
-  store i32 %15, ptr %10, align 8, !tbaa !83
+  store i32 %15, ptr %10, align 8, !tbaa !84
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %Py_DECREF.exit
 
@@ -5793,12 +5793,12 @@ define internal range(i32 -1, 1) i32 @_audit_hook_run(ptr noundef %0, ptr nounde
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %17, %14, %11, %9
-  %18 = load i32, ptr %7, align 8, !tbaa !103
+  %18 = load i32, ptr %7, align 8, !tbaa !104
   tail call void @exit(i32 noundef %18) #24
   unreachable
 
 19:                                               ; preds = %6
-  %20 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !84
+  %20 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !85
   %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.324, ptr noundef nonnull %0, ptr noundef %1) #20
   br label %22
 
@@ -5830,20 +5830,20 @@ define internal ptr @malloc_wrapper(ptr noundef %0, i64 noundef %1) #0 {
   %4 = tail call ptr @PyEval_GetFrame() #20
   tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %0) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
-  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %0, ptr %3, align 8, !tbaa !92
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @malloc_wrapper, ptr %5, align 8, !tbaa !93
+  store ptr @malloc_wrapper, ptr %5, align 8, !tbaa !94
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @calloc_wrapper, ptr %6, align 8, !tbaa !94
+  store ptr @calloc_wrapper, ptr %6, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @realloc_wrapper, ptr %7, align 8, !tbaa !95
+  store ptr @realloc_wrapper, ptr %7, align 8, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @free_wrapper, ptr %8, align 8, !tbaa !96
+  store ptr @free_wrapper, ptr %8, align 8, !tbaa !97
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !93
-  %11 = load ptr, ptr %0, align 8, !tbaa !91
+  %10 = load ptr, ptr %9, align 8, !tbaa !94
+  %11 = load ptr, ptr %0, align 8, !tbaa !92
   %12 = call ptr %10(ptr noundef %11, i64 noundef %1) #20
   ret ptr %12
 }
@@ -5851,8 +5851,8 @@ define internal ptr @malloc_wrapper(ptr noundef %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @calloc_wrapper(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
-  %6 = load ptr, ptr %0, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
+  %6 = load ptr, ptr %0, align 8, !tbaa !92
   %7 = tail call ptr %5(ptr noundef %6, i64 noundef %1, i64 noundef %2) #20
   ret ptr %7
 }
@@ -5860,8 +5860,8 @@ define internal ptr @calloc_wrapper(ptr noundef readonly captures(none) %0, i64 
 ; Function Attrs: nounwind uwtable
 define internal ptr @realloc_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !95
-  %6 = load ptr, ptr %0, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
+  %6 = load ptr, ptr %0, align 8, !tbaa !92
   %7 = tail call ptr %5(ptr noundef %6, ptr noundef %1, i64 noundef %2) #20
   ret ptr %7
 }
@@ -5869,8 +5869,8 @@ define internal ptr @realloc_wrapper(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal void @free_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !96
-  %5 = load ptr, ptr %0, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
+  %5 = load ptr, ptr %0, align 8, !tbaa !92
   tail call void %4(ptr noundef %5, ptr noundef %1) #20
   ret void
 }
@@ -5935,89 +5935,90 @@ attributes #25 = { nounwind allocsize(0,1) }
 !15 = !{!14, !10, i64 8}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!22, !24, i64 16}
-!22 = !{!"_ts", !23, i64 0, !23, i64 8, !24, i64 16, !25, i64 24, !26, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !27, i64 72, !10, i64 80, !10, i64 88, !28, i64 96, !28, i64 104, !28, i64 112, !29, i64 120, !28, i64 128, !5, i64 136, !28, i64 144, !25, i64 152, !25, i64 160, !28, i64 168, !25, i64 176, !5, i64 184, !28, i64 192, !28, i64 200, !28, i64 208, !25, i64 216, !25, i64 224, !30, i64 232, !31, i64 240, !31, i64 248, !32, i64 256, !28, i64 272, !25, i64 280, !28, i64 288, !28, i64 296}
-!23 = !{!"p1 _ZTS3_ts", !10, i64 0}
-!24 = !{!"p1 _ZTS3_is", !10, i64 0}
-!25 = !{!"long", !6, i64 0}
-!26 = !{!"", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1}
-!27 = !{!"p1 _ZTS19_PyInterpreterFrame", !10, i64 0}
-!28 = !{!"p1 _ZTS7_object", !10, i64 0}
-!29 = !{!"p1 _ZTS14_err_stackitem", !10, i64 0}
-!30 = !{!"p1 _ZTS12_stack_chunk", !10, i64 0}
-!31 = !{!"p2 _ZTS7_object", !10, i64 0}
-!32 = !{!"_err_stackitem", !28, i64 0, !29, i64 8}
-!33 = distinct !{!33, !19}
-!34 = distinct !{!34, !19}
-!35 = distinct !{!35, !19}
-!36 = !{!37, !5, i64 4}
-!37 = !{!"PyConfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !25, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !38, i64 64, !5, i64 72, !38, i64 80, !38, i64 88, !38, i64 96, !5, i64 104, !39, i64 112, !39, i64 128, !39, i64 144, !39, i64 160, !5, i64 176, !5, i64 180, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !5, i64 216, !5, i64 220, !5, i64 224, !38, i64 232, !38, i64 240, !38, i64 248, !5, i64 256, !5, i64 260, !5, i64 264, !5, i64 268, !5, i64 272, !38, i64 280, !38, i64 288, !38, i64 296, !38, i64 304, !5, i64 312, !39, i64 320, !38, i64 336, !38, i64 344, !38, i64 352, !38, i64 360, !38, i64 368, !38, i64 376, !38, i64 384, !5, i64 392, !38, i64 400, !38, i64 408, !38, i64 416, !38, i64 424, !5, i64 432, !5, i64 436, !5, i64 440}
-!38 = !{!"p1 int", !10, i64 0}
-!39 = !{!"", !25, i64 0, !40, i64 8}
-!40 = !{!"p2 int", !10, i64 0}
-!41 = !{!10, !10, i64 0}
-!42 = !{!43, !5, i64 36}
-!43 = !{!"PyPreConfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
-!44 = !{!43, !5, i64 28}
-!45 = !{!37, !5, i64 16}
-!46 = !{!37, !5, i64 20}
-!47 = !{!37, !25, i64 24}
-!48 = !{!37, !5, i64 32}
-!49 = !{!37, !5, i64 36}
-!50 = !{!37, !5, i64 44}
-!51 = !{!37, !5, i64 48}
-!52 = !{!37, !5, i64 52}
-!53 = !{!37, !5, i64 72}
-!54 = !{!37, !5, i64 104}
-!55 = !{!37, !5, i64 208}
-!56 = !{!37, !5, i64 176}
-!57 = !{!37, !5, i64 180}
-!58 = !{!37, !5, i64 188}
-!59 = !{!37, !5, i64 192}
-!60 = !{!37, !5, i64 196}
-!61 = !{!37, !5, i64 204}
-!62 = !{!37, !5, i64 212}
-!63 = !{!37, !5, i64 220}
-!64 = !{!37, !5, i64 224}
-!65 = !{!37, !5, i64 216}
-!66 = !{!37, !5, i64 272}
-!67 = !{!37, !5, i64 260}
-!68 = !{!37, !5, i64 264}
-!69 = !{!37, !5, i64 268}
-!70 = !{!43, !5, i64 16}
-!71 = !{!43, !5, i64 20}
-!72 = !{!43, !5, i64 24}
-!73 = !{!37, !5, i64 12}
-!74 = !{!37, !5, i64 8}
-!75 = !{!43, !5, i64 8}
-!76 = !{i64 0, i64 4, !4, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 4, !4}
-!77 = !{!37, !5, i64 440}
-!78 = !{!25, !25, i64 0}
-!79 = distinct !{!79, !19}
-!80 = !{!40, !40, i64 0}
-!81 = distinct !{!81, !19}
-!82 = !{!38, !38, i64 0}
-!83 = !{!6, !6, i64 0}
-!84 = !{!28, !28, i64 0}
-!85 = !{!37, !25, i64 128}
-!86 = !{!37, !40, i64 136}
-!87 = !{!37, !38, i64 280}
-!88 = distinct !{!88, !19}
-!89 = !{!90, !90, i64 0}
-!90 = !{!"p1 _ZTS7_frozen", !10, i64 0}
-!91 = !{!92, !10, i64 0}
-!92 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32}
-!93 = !{!92, !10, i64 8}
-!94 = !{!92, !10, i64 16}
-!95 = !{!92, !10, i64 24}
-!96 = !{!92, !10, i64 32}
-!97 = !{!43, !5, i64 12}
-!98 = !{!99, !100, i64 8}
-!99 = !{!"_object", !6, i64 0, !100, i64 8}
-!100 = !{!"p1 _ZTS11_typeobject", !10, i64 0}
-!101 = !{!102, !12, i64 0}
-!102 = !{!"", !12, i64 0, !5, i64 8}
-!103 = !{!102, !5, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = !{!23, !25, i64 16}
+!23 = !{!"_ts", !24, i64 0, !24, i64 8, !25, i64 16, !26, i64 24, !27, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !28, i64 72, !10, i64 80, !10, i64 88, !29, i64 96, !29, i64 104, !29, i64 112, !30, i64 120, !29, i64 128, !5, i64 136, !29, i64 144, !26, i64 152, !26, i64 160, !29, i64 168, !26, i64 176, !5, i64 184, !29, i64 192, !29, i64 200, !29, i64 208, !26, i64 216, !26, i64 224, !31, i64 232, !32, i64 240, !32, i64 248, !33, i64 256, !29, i64 272, !26, i64 280, !29, i64 288, !29, i64 296}
+!24 = !{!"p1 _ZTS3_ts", !10, i64 0}
+!25 = !{!"p1 _ZTS3_is", !10, i64 0}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1}
+!28 = !{!"p1 _ZTS19_PyInterpreterFrame", !10, i64 0}
+!29 = !{!"p1 _ZTS7_object", !10, i64 0}
+!30 = !{!"p1 _ZTS14_err_stackitem", !10, i64 0}
+!31 = !{!"p1 _ZTS12_stack_chunk", !10, i64 0}
+!32 = !{!"p2 _ZTS7_object", !10, i64 0}
+!33 = !{!"_err_stackitem", !29, i64 0, !30, i64 8}
+!34 = distinct !{!34, !19, !20}
+!35 = distinct !{!35, !19, !20}
+!36 = distinct !{!36, !19, !20}
+!37 = !{!38, !5, i64 4}
+!38 = !{!"PyConfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !26, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !39, i64 64, !5, i64 72, !39, i64 80, !39, i64 88, !39, i64 96, !5, i64 104, !40, i64 112, !40, i64 128, !40, i64 144, !40, i64 160, !5, i64 176, !5, i64 180, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !5, i64 216, !5, i64 220, !5, i64 224, !39, i64 232, !39, i64 240, !39, i64 248, !5, i64 256, !5, i64 260, !5, i64 264, !5, i64 268, !5, i64 272, !39, i64 280, !39, i64 288, !39, i64 296, !39, i64 304, !5, i64 312, !40, i64 320, !39, i64 336, !39, i64 344, !39, i64 352, !39, i64 360, !39, i64 368, !39, i64 376, !39, i64 384, !5, i64 392, !39, i64 400, !39, i64 408, !39, i64 416, !39, i64 424, !5, i64 432, !5, i64 436, !5, i64 440}
+!39 = !{!"p1 int", !10, i64 0}
+!40 = !{!"", !26, i64 0, !41, i64 8}
+!41 = !{!"p2 int", !10, i64 0}
+!42 = !{!10, !10, i64 0}
+!43 = !{!44, !5, i64 36}
+!44 = !{!"PyPreConfig", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
+!45 = !{!44, !5, i64 28}
+!46 = !{!38, !5, i64 16}
+!47 = !{!38, !5, i64 20}
+!48 = !{!38, !26, i64 24}
+!49 = !{!38, !5, i64 32}
+!50 = !{!38, !5, i64 36}
+!51 = !{!38, !5, i64 44}
+!52 = !{!38, !5, i64 48}
+!53 = !{!38, !5, i64 52}
+!54 = !{!38, !5, i64 72}
+!55 = !{!38, !5, i64 104}
+!56 = !{!38, !5, i64 208}
+!57 = !{!38, !5, i64 176}
+!58 = !{!38, !5, i64 180}
+!59 = !{!38, !5, i64 188}
+!60 = !{!38, !5, i64 192}
+!61 = !{!38, !5, i64 196}
+!62 = !{!38, !5, i64 204}
+!63 = !{!38, !5, i64 212}
+!64 = !{!38, !5, i64 220}
+!65 = !{!38, !5, i64 224}
+!66 = !{!38, !5, i64 216}
+!67 = !{!38, !5, i64 272}
+!68 = !{!38, !5, i64 260}
+!69 = !{!38, !5, i64 264}
+!70 = !{!38, !5, i64 268}
+!71 = !{!44, !5, i64 16}
+!72 = !{!44, !5, i64 20}
+!73 = !{!44, !5, i64 24}
+!74 = !{!38, !5, i64 12}
+!75 = !{!38, !5, i64 8}
+!76 = !{!44, !5, i64 8}
+!77 = !{i64 0, i64 4, !4, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 4, !4}
+!78 = !{!38, !5, i64 440}
+!79 = !{!26, !26, i64 0}
+!80 = distinct !{!80, !19, !20}
+!81 = !{!41, !41, i64 0}
+!82 = distinct !{!82, !19, !20}
+!83 = !{!39, !39, i64 0}
+!84 = !{!6, !6, i64 0}
+!85 = !{!29, !29, i64 0}
+!86 = !{!38, !26, i64 128}
+!87 = !{!38, !41, i64 136}
+!88 = !{!38, !39, i64 280}
+!89 = distinct !{!89, !19, !20}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTS7_frozen", !10, i64 0}
+!92 = !{!93, !10, i64 0}
+!93 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32}
+!94 = !{!93, !10, i64 8}
+!95 = !{!93, !10, i64 16}
+!96 = !{!93, !10, i64 24}
+!97 = !{!93, !10, i64 32}
+!98 = !{!44, !5, i64 12}
+!99 = !{!100, !101, i64 8}
+!100 = !{!"_object", !6, i64 0, !101, i64 8}
+!101 = !{!"p1 _ZTS11_typeobject", !10, i64 0}
+!102 = !{!103, !12, i64 0}
+!103 = !{!"", !12, i64 0, !5, i64 8}
+!104 = !{!103, !5, i64 8}

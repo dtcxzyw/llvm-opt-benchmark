@@ -452,7 +452,7 @@ define dso_local void @DeleteSharedComments(i32 noundef %0, i32 noundef %1) loca
   call void @CatalogTupleDelete(ptr noundef %7, ptr noundef nonnull %11) #6
   %12 = call ptr @systable_getnext(ptr noundef %8) #6
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @systable_endscan(ptr noundef %8) #6
@@ -514,7 +514,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %35 = zext nneg i32 %28 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 78
-  %38 = load i8, ptr %37, align 2, !range !7, !noundef !8
+  %38 = load i8, ptr %37, align 2, !range !8, !noundef !9
   %39 = trunc nuw i8 %38 to i1
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 76
   %41 = load i16, ptr %40, align 4
@@ -576,7 +576,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 heap_getattr.exit:                                ; preds = %16
   %67 = call i64 @getmissingattr(ptr noundef %13, i32 noundef 4, ptr noundef nonnull %5) #6
-  %.pre = load i8, ptr %5, align 1, !range !7
+  %.pre = load i8, ptr %5, align 1, !range !8
   %68 = trunc nuw i8 %.pre to i1
   br i1 %68, label %heap_getattr.exit.thread14, label %heap_getattr.exit.thread
 
@@ -628,8 +628,9 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}

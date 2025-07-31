@@ -543,7 +543,7 @@ define internal fastcc range(i32 0, 2) i32 @BMK_benchFileTable(ptr noundef reado
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %UTIL_getFileSize.exit.i ]
   %.067.i = phi i64 [ 0, %6 ], [ %25, %UTIL_getFileSize.exit.i ]
   %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #19
   %19 = call i32 @stat(ptr noundef readonly %18, ptr noundef nonnull %9) #19
   %.not.i.i = icmp eq i32 %19, 0
@@ -563,7 +563,7 @@ UTIL_getFileSize.exit.i:                          ; preds = %20, %16
   %25 = add i64 %.0.i.i, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
-  br i1 %exitcond.not.i, label %UTIL_getTotalFileSize.exit, label %16, !llvm.loop !21
+  br i1 %exitcond.not.i, label %UTIL_getTotalFileSize.exit, label %16, !llvm.loop !22
 
 UTIL_getTotalFileSize.exit:                       ; preds = %UTIL_getFileSize.exit.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #19
@@ -712,7 +712,7 @@ UTIL_getTotalFileSize.exit:                       ; preds = %UTIL_getFileSize.ex
   %.04290.i = phi i64 [ 0, %83 ], [ %.143.i, %166 ]
   %.04588.i = phi i64 [ 0, %83 ], [ %.146.i, %166 ]
   %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i53
-  %89 = load ptr, ptr %88, align 8, !tbaa !19
+  %89 = load ptr, ptr %88, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #19
   %90 = call i32 @stat(ptr noundef readonly %89, ptr noundef nonnull %8) #19
   %.not.i.i54 = icmp eq i32 %90, 0
@@ -729,7 +729,7 @@ UTIL_getTotalFileSize.exit:                       ; preds = %UTIL_getFileSize.ex
 UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   %.0.i.i56 = phi i64 [ 0, %87 ], [ %spec.select92.i, %91 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
-  %96 = load ptr, ptr %88, align 8, !tbaa !19
+  %96 = load ptr, ptr %88, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #19
   %97 = call i32 @stat(ptr noundef readonly %96, ptr noundef nonnull %7) #19
   %.not.i64.i = icmp ne i32 %97, 0
@@ -747,7 +747,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %106 = load ptr, ptr %88, align 8, !tbaa !19
+  %106 = load ptr, ptr %88, align 8, !tbaa !20
   %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.46, ptr noundef %106) #17
   br label %108
 
@@ -757,7 +757,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   br label %166
 
 110:                                              ; preds = %UTIL_getFileSize.exit.i55
-  %111 = load ptr, ptr %88, align 8, !tbaa !19
+  %111 = load ptr, ptr %88, align 8, !tbaa !20
   %112 = tail call noalias ptr @fopen(ptr noundef %111, ptr noundef nonnull @.str.9)
   %113 = icmp eq ptr %112, null
   %114 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
@@ -776,7 +776,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
 
 119:                                              ; preds = %116
   %120 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %121 = load ptr, ptr %88, align 8, !tbaa !19
+  %121 = load ptr, ptr %88, align 8, !tbaa !20
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.47, ptr noundef %121) #17
   %.pr67.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %.not61.i = icmp eq i32 %.pr67.i, 0
@@ -809,7 +809,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   %135 = tail call i64 @clock() #19
   store i64 %135, ptr @g_time, align 8, !tbaa !11
   %136 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %137 = load ptr, ptr %88, align 8, !tbaa !19
+  %137 = load ptr, ptr %88, align 8, !tbaa !20
   %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.48, ptr noundef %137) #17
   %139 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %140 = icmp ugt i32 %139, 3
@@ -842,7 +842,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %155 = load ptr, ptr %88, align 8, !tbaa !19
+  %155 = load ptr, ptr %88, align 8, !tbaa !20
   %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.49, ptr noundef %155) #17
   %.pr73.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %.not57.i = icmp eq i32 %.pr73.i, 0
@@ -875,7 +875,7 @@ UTIL_getFileSize.exit.i55:                        ; preds = %91, %87
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i53, 1
   %167 = zext i32 %.1.i57 to i64
   %168 = icmp samesign ult i64 %indvars.iv.next.i58, %167
-  br i1 %168, label %87, label %169, !llvm.loop !22
+  br i1 %168, label %87, label %169, !llvm.loop !23
 
 169:                                              ; preds = %166
   %170 = icmp eq i64 %.146.i, 0
@@ -915,7 +915,7 @@ BMK_loadFiles.exit:                               ; preds = %169
   br i1 %182, label %185, label %183
 
 183:                                              ; preds = %BMK_loadFiles.exit
-  %184 = load ptr, ptr %0, align 8, !tbaa !19
+  %184 = load ptr, ptr %0, align 8, !tbaa !20
   br label %185
 
 185:                                              ; preds = %BMK_loadFiles.exit, %183
@@ -1069,9 +1069,9 @@ define internal fastcc range(i32 0, 2) i32 @BMK_benchCLevel(ptr noundef nonnull 
   %85 = icmp ugt i64 %84, 17
   %gep = getelementptr i8, ptr %invariant.gep, i64 %84
   %.0.i = select i1 %85, ptr %gep, ptr %spec.select
-  store i32 %.02459, ptr %10, align 8, !tbaa !23
-  store ptr %7, ptr %33, align 8, !tbaa !27
-  store i32 %8, ptr %34, align 8, !tbaa !28
+  store i32 %.02459, ptr %10, align 8, !tbaa !24
+  store ptr %7, ptr %33, align 8, !tbaa !28
+  store i32 %8, ptr %34, align 8, !tbaa !29
   br i1 %.not.i.i, label %90, label %86
 
 86:                                               ; preds = %83
@@ -1079,38 +1079,38 @@ define internal fastcc range(i32 0, 2) i32 @BMK_benchCLevel(ptr noundef nonnull 
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86
-  store ptr @LZ4_compressInitStream, ptr %37, align 8, !tbaa !29
-  store ptr @LZ4_compressResetStream, ptr %35, align 8, !tbaa !30
-  store ptr @LZ4_compressBlockStream, ptr %38, align 8, !tbaa !31
-  store ptr @LZ4_compressCleanupStream, ptr %36, align 8, !tbaa !32
+  store ptr @LZ4_compressInitStream, ptr %37, align 8, !tbaa !30
+  store ptr @LZ4_compressResetStream, ptr %35, align 8, !tbaa !31
+  store ptr @LZ4_compressBlockStream, ptr %38, align 8, !tbaa !32
+  store ptr @LZ4_compressCleanupStream, ptr %36, align 8, !tbaa !33
   br label %LZ4_buildCompressionParameters.exit.i
 
 89:                                               ; preds = %86
-  store ptr @LZ4_compressInitStreamHC, ptr %37, align 8, !tbaa !29
-  store ptr @LZ4_compressResetStreamHC, ptr %35, align 8, !tbaa !30
-  store ptr @LZ4_compressBlockStreamHC, ptr %38, align 8, !tbaa !31
-  store ptr @LZ4_compressCleanupStreamHC, ptr %36, align 8, !tbaa !32
+  store ptr @LZ4_compressInitStreamHC, ptr %37, align 8, !tbaa !30
+  store ptr @LZ4_compressResetStreamHC, ptr %35, align 8, !tbaa !31
+  store ptr @LZ4_compressBlockStreamHC, ptr %38, align 8, !tbaa !32
+  store ptr @LZ4_compressCleanupStreamHC, ptr %36, align 8, !tbaa !33
   br label %LZ4_buildCompressionParameters.exit.i
 
 90:                                               ; preds = %83
-  store ptr @LZ4_compressInitNoStream, ptr %37, align 8, !tbaa !29
-  store ptr @LZ4_compressResetNoStream, ptr %35, align 8, !tbaa !30
-  store ptr @LZ4_compressCleanupNoStream, ptr %36, align 8, !tbaa !32
+  store ptr @LZ4_compressInitNoStream, ptr %37, align 8, !tbaa !30
+  store ptr @LZ4_compressResetNoStream, ptr %35, align 8, !tbaa !31
+  store ptr @LZ4_compressCleanupNoStream, ptr %36, align 8, !tbaa !33
   %91 = icmp slt i32 %.02459, 2
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %90
-  store ptr @LZ4_compressBlockNoStream, ptr %38, align 8, !tbaa !31
+  store ptr @LZ4_compressBlockNoStream, ptr %38, align 8, !tbaa !32
   br label %LZ4_buildCompressionParameters.exit.i
 
 93:                                               ; preds = %90
-  store ptr @LZ4_compressBlockNoStreamHC, ptr %38, align 8, !tbaa !31
+  store ptr @LZ4_compressBlockNoStreamHC, ptr %38, align 8, !tbaa !32
   br label %LZ4_buildCompressionParameters.exit.i
 
 LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %94 = phi ptr [ @LZ4_compressInitStream, %88 ], [ @LZ4_compressInitStreamHC, %89 ], [ @LZ4_compressInitNoStream, %92 ], [ @LZ4_compressInitNoStream, %93 ]
   call void %94(ptr noundef nonnull %10) #19
-  %95 = load ptr, ptr @g_dctx, align 8, !tbaa !33
+  %95 = load ptr, ptr @g_dctx, align 8, !tbaa !34
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %.preheader
 
@@ -1119,7 +1119,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 
 97:                                               ; preds = %LZ4_buildCompressionParameters.exit.i
   %98 = call i64 @LZ4F_createDecompressionContext(ptr noundef nonnull @g_dctx, i32 noundef 100) #19
-  %99 = load ptr, ptr @g_dctx, align 8, !tbaa !33
+  %99 = load ptr, ptr @g_dctx, align 8, !tbaa !34
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %.preheader
 
@@ -1182,25 +1182,25 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %123 = icmp ult i64 %121, %65
   %124 = select i1 %123, i64 %122, i64 2113929216
   %125 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv.i
-  store ptr %.1285419.i, ptr %125, align 8, !tbaa !35
+  store ptr %.1285419.i, ptr %125, align 8, !tbaa !36
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  store ptr %.1289418.i, ptr %126, align 8, !tbaa !37
+  store ptr %.1289418.i, ptr %126, align 8, !tbaa !38
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store ptr %.1292417.i, ptr %127, align 8, !tbaa !38
+  store ptr %.1292417.i, ptr %127, align 8, !tbaa !39
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store i64 %121, ptr %128, align 8, !tbaa !39
+  store i64 %121, ptr %128, align 8, !tbaa !40
   %129 = trunc i64 %121 to i32
   %130 = call i32 @LZ4_compressBound(i32 noundef %129) #19
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  store i64 %131, ptr %132, align 8, !tbaa !40
+  store i64 %131, ptr %132, align 8, !tbaa !41
   %133 = getelementptr inbounds nuw i8, ptr %.1285419.i, i64 %121
   %134 = getelementptr inbounds nuw i8, ptr %.1289418.i, i64 %131
   %135 = getelementptr inbounds nuw i8, ptr %.1292417.i, i64 %124
   %136 = sub i64 %.0296416.i, %121
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %137 = icmp samesign ult i64 %indvars.iv.next.i, %120
-  br i1 %137, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !41
+  br i1 %137, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !42
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %138 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -1213,7 +1213,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %.1283.lcssa.i = phi i32 [ %.0282428.i, %111 ], [ %138, %._crit_edge.loopexit.i ]
   %indvars.iv.next529.i = add nuw nsw i64 %indvars.iv528.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next529.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %139, label %111, !llvm.loop !42
+  br i1 %exitcond.not.i, label %139, label %111, !llvm.loop !43
 
 139:                                              ; preds = %._crit_edge.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %62, i8 32, i64 %61, i1 false)
@@ -1231,16 +1231,16 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv531.i = phi i64 [ 0, %.lr.ph430.preheader.i ], [ %indvars.iv.next532.i, %.lr.ph430.i ]
   %142 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv531.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %144 = load ptr, ptr %143, align 8, !tbaa !37
-  %145 = load ptr, ptr %142, align 8, !tbaa !35
+  %144 = load ptr, ptr %143, align 8, !tbaa !38
+  %145 = load ptr, ptr %142, align 8, !tbaa !36
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %147 = load i64, ptr %146, align 8, !tbaa !39
+  %147 = load i64, ptr %146, align 8, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 1 %145, i64 %147, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store i64 %147, ptr %148, align 8, !tbaa !43
+  store i64 %147, ptr %148, align 8, !tbaa !44
   %indvars.iv.next532.i = add nuw nsw i64 %indvars.iv531.i, 1
   %exitcond536.not.i = icmp eq i64 %indvars.iv.next532.i, %wide.trip.count535.i
-  br i1 %exitcond536.not.i, label %.loopexit406.i, label %.lr.ph430.i, !llvm.loop !44
+  br i1 %exitcond536.not.i, label %.loopexit406.i, label %.lr.ph430.i, !llvm.loop !45
 
 .loopexit406.i:                                   ; preds = %.lr.ph430.i, %139
   %149 = call i64 @XXH64(ptr noundef nonnull %0, i64 noundef range(i64 0, 2113929217) %1, i64 noundef 0) #19
@@ -1320,7 +1320,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %188 = load ptr, ptr @stderr, align 8, !tbaa !8
   %189 = zext nneg i32 %.0335465.i to i64
   %190 = getelementptr inbounds nuw [4 x ptr], ptr @__const.BMK_benchMem.marks, i64 0, i64 %189
-  %191 = load ptr, ptr %190, align 8, !tbaa !19
+  %191 = load ptr, ptr %190, align 8, !tbaa !20
   %192 = trunc i64 %.0328467.i to i32
   %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.27, ptr noundef %191, ptr noundef %.0.i, i32 noundef %192) #17
   br label %194
@@ -1335,15 +1335,15 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 .lr.ph433.i:                                      ; preds = %195, %.lr.ph433.i
   %indvars.iv537.i = phi i64 [ %indvars.iv.next538.i, %.lr.ph433.i ], [ 0, %195 ]
   %196 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv537.i, i32 4
-  store i64 0, ptr %196, align 8, !tbaa !43
+  store i64 0, ptr %196, align 8, !tbaa !44
   %indvars.iv.next538.i = add nuw nsw i64 %indvars.iv537.i, 1
   %exitcond542.not.i = icmp eq i64 %indvars.iv.next538.i, %wide.trip.count541.i
-  br i1 %exitcond542.not.i, label %._crit_edge434.i, label %.lr.ph433.i, !llvm.loop !45
+  br i1 %exitcond542.not.i, label %._crit_edge434.i, label %.lr.ph433.i, !llvm.loop !46
 
 ._crit_edge434.i:                                 ; preds = %.lr.ph433.i, %195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
-  store i64 0, ptr %11, align 8, !tbaa !46
-  store i64 1000000, ptr %40, align 8, !tbaa !47
+  store i64 0, ptr %11, align 8, !tbaa !47
+  store i64 1000000, ptr %40, align 8, !tbaa !48
   %197 = call i32 @nanosleep(ptr noundef nonnull %11, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
   call void @TIME_waitForNextTick() #19
@@ -1357,23 +1357,23 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 .lr.ph438.us.i:                                   ; preds = %.lr.ph444.i, %._crit_edge439.us.i
   %.3442.us.i = phi i32 [ %.5.us.i, %._crit_edge439.us.i ], [ %.0280477.i, %.lr.ph444.i ]
   %.0320441.us.i = phi i32 [ %221, %._crit_edge439.us.i ], [ 0, %.lr.ph444.i ]
-  %199 = load ptr, ptr %35, align 8, !tbaa !30
+  %199 = load ptr, ptr %35, align 8, !tbaa !31
   call void %199(ptr noundef nonnull %10) #19
   br label %200
 
 200:                                              ; preds = %219, %.lr.ph438.us.i
   %indvars.iv543.i = phi i64 [ 0, %.lr.ph438.us.i ], [ %indvars.iv.next544.i, %219 ]
   %.4436.us.i = phi i32 [ %.3442.us.i, %.lr.ph438.us.i ], [ %.5.us.i, %219 ]
-  %201 = load ptr, ptr %38, align 8, !tbaa !31
+  %201 = load ptr, ptr %38, align 8, !tbaa !32
   %202 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv543.i
-  %203 = load ptr, ptr %202, align 8, !tbaa !35
+  %203 = load ptr, ptr %202, align 8, !tbaa !36
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %205 = load ptr, ptr %204, align 8, !tbaa !37
+  %205 = load ptr, ptr %204, align 8, !tbaa !38
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %207 = load i64, ptr %206, align 8, !tbaa !39
+  %207 = load i64, ptr %206, align 8, !tbaa !40
   %208 = trunc i64 %207 to i32
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %210 = load i64, ptr %209, align 8, !tbaa !40
+  %210 = load i64, ptr %209, align 8, !tbaa !41
   %211 = trunc i64 %210 to i32
   %212 = call i32 %201(ptr noundef nonnull %10, ptr noundef %203, ptr noundef %205, i32 noundef %208, i32 noundef %211) #19
   %213 = sext i32 %212 to i64
@@ -1389,23 +1389,23 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 219:                                              ; preds = %215, %200
   %.5.us.i = phi i32 [ 1, %215 ], [ %.4436.us.i, %200 ]
   %220 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  store i64 %213, ptr %220, align 8, !tbaa !43
+  store i64 %213, ptr %220, align 8, !tbaa !44
   %indvars.iv.next544.i = add nuw nsw i64 %indvars.iv543.i, 1
   %exitcond548.not.i = icmp eq i64 %indvars.iv.next544.i, %wide.trip.count541.i
-  br i1 %exitcond548.not.i, label %._crit_edge439.us.i, label %200, !llvm.loop !48
+  br i1 %exitcond548.not.i, label %._crit_edge439.us.i, label %200, !llvm.loop !49
 
 ._crit_edge439.us.i:                              ; preds = %219
   %221 = add nuw i32 %.0320441.us.i, 1
   %exitcond549.not.i = icmp eq i32 %221, %.1312472.i
-  br i1 %exitcond549.not.i, label %._crit_edge445.i, label %.lr.ph438.us.i, !llvm.loop !49
+  br i1 %exitcond549.not.i, label %._crit_edge445.i, label %.lr.ph438.us.i, !llvm.loop !50
 
 .lr.ph444.split.i:                                ; preds = %.lr.ph444.i, %.lr.ph444.split.i
   %.0320441.i = phi i32 [ %223, %.lr.ph444.split.i ], [ 0, %.lr.ph444.i ]
-  %222 = load ptr, ptr %35, align 8, !tbaa !30
+  %222 = load ptr, ptr %35, align 8, !tbaa !31
   call void %222(ptr noundef nonnull %10) #19
   %223 = add nuw i32 %.0320441.i, 1
   %exitcond550.not.i = icmp eq i32 %223, %.1312472.i
-  br i1 %exitcond550.not.i, label %._crit_edge445.i, label %.lr.ph444.split.i, !llvm.loop !51
+  br i1 %exitcond550.not.i, label %._crit_edge445.i, label %.lr.ph444.split.i, !llvm.loop !52
 
 ._crit_edge445.i:                                 ; preds = %._crit_edge439.us.i, %.lr.ph444.split.i, %._crit_edge434.i
   %.3.lcssa.i = phi i32 [ %.0280477.i, %._crit_edge434.i ], [ %.0280477.i, %.lr.ph444.split.i ], [ %.5.us.i, %._crit_edge439.us.i ]
@@ -1445,11 +1445,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv551.i = phi i64 [ %indvars.iv.next552.i, %.lr.ph450.i ], [ 0, %237 ]
   %.3334447.i = phi i64 [ %242, %.lr.ph450.i ], [ 0, %237 ]
   %240 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv551.i, i32 4
-  %241 = load i64, ptr %240, align 8, !tbaa !43
+  %241 = load i64, ptr %240, align 8, !tbaa !44
   %242 = add i64 %241, %.3334447.i
   %indvars.iv.next552.i = add nuw nsw i64 %indvars.iv551.i, 1
   %exitcond556.not.i = icmp eq i64 %indvars.iv.next552.i, %wide.trip.count541.i
-  br i1 %exitcond556.not.i, label %._crit_edge451.loopexit.i, label %.lr.ph450.i, !llvm.loop !52
+  br i1 %exitcond556.not.i, label %._crit_edge451.loopexit.i, label %.lr.ph450.i, !llvm.loop !53
 
 ._crit_edge451.loopexit.i:                        ; preds = %.lr.ph450.i
   %243 = call i64 @llvm.umax.i64(i64 %242, i64 1)
@@ -1470,7 +1470,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %252 = load ptr, ptr @stdout, align 8, !tbaa !8
   %253 = zext nneg i32 %245 to i64
   %254 = getelementptr inbounds nuw [4 x ptr], ptr @__const.BMK_benchMem.marks, i64 0, i64 %253
-  %255 = load ptr, ptr %254, align 8, !tbaa !19
+  %255 = load ptr, ptr %254, align 8, !tbaa !20
   %256 = trunc i64 %.0328467.i to i32
   %257 = trunc i64 %.3334.lcssa.i to i32
   %258 = uitofp i64 %.4304.i to double
@@ -1485,8 +1485,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 
 .critedge.i:                                      ; preds = %194
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
-  store i64 0, ptr %11, align 8, !tbaa !46
-  store i64 1000000, ptr %40, align 8, !tbaa !47
+  store i64 0, ptr %11, align 8, !tbaa !47
+  store i64 1000000, ptr %40, align 8, !tbaa !48
   %264 = call i32 @nanosleep(ptr noundef nonnull %11, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
   call void @TIME_waitForNextTick() #19
@@ -1505,8 +1505,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 266:                                              ; preds = %265
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %69, i8 -42, i64 range(i64 0, 2113929217) %1, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #19
-  store i64 0, ptr %12, align 8, !tbaa !46
-  store i64 5000000, ptr %41, align 8, !tbaa !47
+  store i64 0, ptr %12, align 8, !tbaa !47
+  store i64 5000000, ptr %41, align 8, !tbaa !48
   %267 = call i32 @nanosleep(ptr noundef nonnull %12, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
   call void @TIME_waitForNextTick() #19
@@ -1528,29 +1528,29 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv557.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next558.i, %289 ]
   %273 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv557.i
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %275 = load i64, ptr %274, align 8, !tbaa !39
+  %275 = load i64, ptr %274, align 8, !tbaa !40
   %276 = icmp ult i64 %275, %171
   %277 = mul i64 %275, %64
   %278 = trunc i64 %277 to i32
   %279 = select i1 %276, i32 %278, i32 2147483647
   %280 = getelementptr inbounds nuw i8, ptr %273, i64 16
-  %281 = load ptr, ptr %280, align 8, !tbaa !37
+  %281 = load ptr, ptr %280, align 8, !tbaa !38
   %282 = getelementptr inbounds nuw i8, ptr %273, i64 40
-  %283 = load ptr, ptr %282, align 8, !tbaa !38
+  %283 = load ptr, ptr %282, align 8, !tbaa !39
   %284 = getelementptr inbounds nuw i8, ptr %273, i64 32
-  %285 = load i64, ptr %284, align 8, !tbaa !43
+  %285 = load i64, ptr %284, align 8, !tbaa !44
   %286 = trunc i64 %285 to i32
-  %287 = call i32 %269(ptr noundef %281, ptr noundef %283, i32 noundef %286, i32 noundef %279, ptr noundef %7, i32 noundef range(i32 0, 65537) %8) #19, !callees !53
+  %287 = call i32 %269(ptr noundef %281, ptr noundef %283, i32 noundef %286, i32 noundef %279, ptr noundef %7, i32 noundef range(i32 0, 65537) %8) #19, !callees !54
   %288 = icmp slt i32 %287, 0
   br i1 %288, label %292, label %289
 
 289:                                              ; preds = %272
   %290 = zext nneg i32 %287 to i64
   %291 = getelementptr inbounds nuw i8, ptr %273, i64 48
-  store i64 %290, ptr %291, align 8, !tbaa !54
+  store i64 %290, ptr %291, align 8, !tbaa !55
   %indvars.iv.next558.i = add nuw nsw i64 %indvars.iv557.i, 1
   %exitcond562.not.i = icmp eq i64 %indvars.iv.next558.i, %wide.trip.count541.i
-  br i1 %exitcond562.not.i, label %.thread393.us.i, label %272, !llvm.loop !55
+  br i1 %exitcond562.not.i, label %.thread393.us.i, label %272, !llvm.loop !56
 
 292:                                              ; preds = %272
   %293 = trunc nuw i64 %indvars.iv557.i to i32
@@ -1570,7 +1570,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %.9.us.i = phi i32 [ 1, %298 ], [ 1, %292 ], [ %.7456.us.i, %289 ]
   %301 = add nuw i32 %.0299455.us.i, 1
   %exitcond563.not.i = icmp eq i32 %301, %.1316470.i
-  br i1 %exitcond563.not.i, label %._crit_edge457.i, label %.preheader.us.i, !llvm.loop !56
+  br i1 %exitcond563.not.i, label %._crit_edge457.i, label %.preheader.us.i, !llvm.loop !57
 
 ._crit_edge457.i:                                 ; preds = %.thread393.us.i, %266
   %.7.lcssa.i = phi i32 [ %.2.i, %266 ], [ %.9.us.i, %.thread393.us.i ]
@@ -1608,8 +1608,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 
 .critedge378.i:                                   ; preds = %265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #19
-  store i64 0, ptr %12, align 8, !tbaa !46
-  store i64 5000000, ptr %41, align 8, !tbaa !47
+  store i64 0, ptr %12, align 8, !tbaa !47
+  store i64 5000000, ptr %41, align 8, !tbaa !48
   %318 = call i32 @nanosleep(ptr noundef nonnull %12, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
   call void @TIME_waitForNextTick() #19
@@ -1631,11 +1631,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv564.i = phi i64 [ %indvars.iv.next565.i, %.lr.ph462.i ], [ 0, %319 ]
   %.2330460.i = phi i64 [ %323, %.lr.ph462.i ], [ 0, %319 ]
   %321 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv564.i, i32 6
-  %322 = load i64, ptr %321, align 8, !tbaa !54
+  %322 = load i64, ptr %321, align 8, !tbaa !55
   %323 = add i64 %322, %.2330460.i
   %indvars.iv.next565.i = add nuw nsw i64 %indvars.iv564.i, 1
   %exitcond569.not.i = icmp eq i64 %indvars.iv.next565.i, %wide.trip.count541.i
-  br i1 %exitcond569.not.i, label %.loopexit.i, label %.lr.ph462.i, !llvm.loop !57
+  br i1 %exitcond569.not.i, label %.loopexit.i, label %.lr.ph462.i, !llvm.loop !58
 
 .loopexit.i:                                      ; preds = %.lr.ph462.i, %319
   %.1329.i = phi i64 [ %.0328467.mux.i, %319 ], [ %323, %.lr.ph462.i ]
@@ -1652,7 +1652,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %332 = load ptr, ptr @stdout, align 8, !tbaa !8
   %333 = zext nneg i32 %325 to i64
   %334 = getelementptr inbounds nuw [4 x ptr], ptr @__const.BMK_benchMem.marks, i64 0, i64 %333
-  %335 = load ptr, ptr %334, align 8, !tbaa !19
+  %335 = load ptr, ptr %334, align 8, !tbaa !20
   %336 = trunc i64 %.1329.i to i32
   %337 = trunc i64 %.2333.i to i32
   %338 = uitofp i64 %.2302.i to double
@@ -1685,9 +1685,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 .lr.ph482.i:                                      ; preds = %350, %379
   %.0287480.i = phi i64 [ %380, %379 ], [ 0, %350 ]
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 %.0287480.i
-  %356 = load i8, ptr %355, align 1, !tbaa !58
+  %356 = load i8, ptr %355, align 1, !tbaa !59
   %357 = getelementptr inbounds nuw i8, ptr %69, i64 %.0287480.i
-  %358 = load i8, ptr %357, align 1, !tbaa !58
+  %358 = load i8, ptr %357, align 1, !tbaa !59
   %.not369.i = icmp eq i8 %356, %358
   br i1 %.not369.i, label %374, label %359
 
@@ -1701,7 +1701,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   %indvars.iv571.i = phi i64 [ %indvars.iv.next572.i, %367 ], [ 0, %359 ]
   %.0281484.i = phi i64 [ %365, %367 ], [ 0, %359 ]
   %363 = getelementptr inbounds nuw %struct.blockParam_t, ptr %56, i64 %indvars.iv571.i, i32 1
-  %364 = load i64, ptr %363, align 8, !tbaa !39
+  %364 = load i64, ptr %363, align 8, !tbaa !40
   %365 = add i64 %364, %.0281484.i
   %366 = icmp ugt i64 %365, %.0287480.i
   br i1 %366, label %._crit_edge487.loopexit.split.loop.exit.i, label %367
@@ -1709,7 +1709,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 367:                                              ; preds = %.lr.ph486.i
   %indvars.iv.next572.i = add nuw nsw i64 %indvars.iv571.i, 1
   %exitcond576.not.i = icmp eq i64 %indvars.iv.next572.i, %wide.trip.count541.i
-  br i1 %exitcond576.not.i, label %._crit_edge487.i, label %.lr.ph486.i, !llvm.loop !59
+  br i1 %exitcond576.not.i, label %._crit_edge487.i, label %.lr.ph486.i, !llvm.loop !60
 
 ._crit_edge487.loopexit.split.loop.exit.i:        ; preds = %.lr.ph486.i
   %368 = trunc nuw i64 %indvars.iv571.i to i32
@@ -1737,11 +1737,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
 379:                                              ; preds = %376, %374
   %380 = add nuw nsw i64 %.0287480.i, 1
   %exitcond570.not.i = icmp eq i64 %380, %1
-  br i1 %exitcond570.not.i, label %.thread398.i, label %.lr.ph482.i, !llvm.loop !60
+  br i1 %exitcond570.not.i, label %.thread398.i, label %.lr.ph482.i, !llvm.loop !61
 
 381:                                              ; preds = %348, %345
   %382 = select i1 %.1340.i, i1 true, i1 %.1338.i
-  br i1 %382, label %172, label %.thread398.i, !llvm.loop !61
+  br i1 %382, label %172, label %.thread398.i, !llvm.loop !62
 
 .thread398.i:                                     ; preds = %381, %379, %._crit_edge487.i, %350
   %.1.i = phi i32 [ 1, %._crit_edge487.i ], [ 1, %350 ], [ 1, %379 ], [ %.6.i, %381 ]
@@ -1785,7 +1785,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   br label %BMK_benchMem.exit
 
 BMK_benchMem.exit:                                ; preds = %388, %405
-  %407 = load ptr, ptr %36, align 8, !tbaa !32
+  %407 = load ptr, ptr %36, align 8, !tbaa !33
   call void %407(ptr noundef nonnull %10) #19
   call void @free(ptr noundef %56) #19
   call void @free(ptr noundef %62) #19
@@ -1794,7 +1794,7 @@ BMK_benchMem.exit:                                ; preds = %388, %405
   %408 = or i32 %.1.i, %.02360
   %409 = add i32 %.02459, 1
   %exitcond.not = icmp eq i32 %.02459, %spec.select32
-  br i1 %exitcond.not, label %410, label %43, !llvm.loop !62
+  br i1 %exitcond.not, label %410, label %43, !llvm.loop !63
 
 410:                                              ; preds = %BMK_benchMem.exit
   ret i32 %408
@@ -1849,8 +1849,8 @@ define internal i32 @LZ4F_decompress_binding(ptr noundef %0, ptr noundef %1, i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) @__const.LZ4F_decompress_binding.dOpt, i64 16, i1 false)
   %12 = load i32, ptr @g_skipChecksums, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !63
-  %14 = load ptr, ptr @g_dctx, align 8, !tbaa !33
+  store i32 %12, ptr %13, align 4, !tbaa !64
+  %14 = load ptr, ptr @g_dctx, align 8, !tbaa !34
   %15 = call i64 @LZ4F_decompress(ptr noundef %14, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %16 = icmp eq i64 %15, 0
   %17 = load i64, ptr %8, align 8
@@ -1872,16 +1872,16 @@ declare i32 @LZ4_decompress_safe_usingDict(ptr noundef, ptr noundef, i32 noundef
 define internal void @LZ4_compressInitStream(ptr noundef captures(none) initializes((24, 56)) %0) #3 {
   %2 = tail call ptr @LZ4_createStream() #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %3, align 8, !tbaa !65
+  store ptr %2, ptr %3, align 8, !tbaa !66
   %4 = tail call ptr @LZ4_createStream() #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %5, align 8, !tbaa !66
+  store ptr %4, ptr %5, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !28
+  %10 = load i32, ptr %9, align 8, !tbaa !29
   %11 = tail call i32 @LZ4_loadDictSlow(ptr noundef %4, ptr noundef %8, i32 noundef %10) #19
   ret void
 }
@@ -1889,29 +1889,29 @@ define internal void @LZ4_compressInitStream(ptr noundef captures(none) initiali
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressResetStream(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
   tail call void @LZ4_resetStream_fast(ptr noundef %3) #19
-  %4 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = load ptr, ptr %2, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   tail call void @LZ4_attach_dictionary(ptr noundef %4, ptr noundef %6) #19
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LZ4_compressBlockStream(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = load i32, ptr %0, align 8, !tbaa !23
+  %6 = load i32, ptr %0, align 8, !tbaa !24
   %7 = icmp slt i32 %6, 0
   %8 = sub i32 1, %6
   %spec.select = select i1 %7, i32 %8, i32 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !65
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
   tail call void @LZ4_resetStream_fast(ptr noundef %10) #19
-  %11 = load ptr, ptr %9, align 8, !tbaa !65
+  %11 = load ptr, ptr %9, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !66
+  %13 = load ptr, ptr %12, align 8, !tbaa !67
   tail call void @LZ4_attach_dictionary(ptr noundef %11, ptr noundef %13) #19
-  %14 = load ptr, ptr %9, align 8, !tbaa !65
+  %14 = load ptr, ptr %9, align 8, !tbaa !66
   %15 = tail call i32 @LZ4_compress_fast_continue(ptr noundef %14, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select) #19
   ret i32 %15
 }
@@ -1919,10 +1919,10 @@ define internal i32 @LZ4_compressBlockStream(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressCleanupStream(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = tail call i32 @LZ4_freeStream(ptr noundef %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = tail call i32 @LZ4_freeStream(ptr noundef %6) #19
   ret void
 }
@@ -1933,17 +1933,17 @@ define internal void @LZ4_compressInitStreamHC(ptr noundef captures(none) initia
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call ptr @LZ4_createStreamHC() #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %3, ptr %4, align 8, !tbaa !67
+  store ptr %3, ptr %4, align 8, !tbaa !68
   %5 = tail call ptr @LZ4_createStreamHC() #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %5, ptr %6, align 8, !tbaa !68
-  %7 = load i32, ptr %0, align 8, !tbaa !23
+  store ptr %5, ptr %6, align 8, !tbaa !69
+  %7 = load i32, ptr %0, align 8, !tbaa !24
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %5, i32 noundef %7) #19
-  %8 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = load ptr, ptr %6, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !28
+  %12 = load i32, ptr %11, align 8, !tbaa !29
   %13 = tail call i32 @LZ4_loadDictHC(ptr noundef %8, ptr noundef %10, i32 noundef %12) #19
   ret void
 }
@@ -1951,12 +1951,12 @@ define internal void @LZ4_compressInitStreamHC(ptr noundef captures(none) initia
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressResetStreamHC(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
-  %4 = load i32, ptr %0, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %4 = load i32, ptr %0, align 8, !tbaa !24
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %3, i32 noundef %4) #19
-  %5 = load ptr, ptr %2, align 8, !tbaa !67
+  %5 = load ptr, ptr %2, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   tail call void @LZ4_attach_HC_dictionary(ptr noundef %5, ptr noundef %7) #19
   ret void
 }
@@ -1964,14 +1964,14 @@ define internal void @LZ4_compressResetStreamHC(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define internal i32 @LZ4_compressBlockStreamHC(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !67
-  %8 = load i32, ptr %0, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = load i32, ptr %0, align 8, !tbaa !24
   tail call void @LZ4_resetStreamHC_fast(ptr noundef %7, i32 noundef %8) #19
-  %9 = load ptr, ptr %6, align 8, !tbaa !67
+  %9 = load ptr, ptr %6, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %11 = load ptr, ptr %10, align 8, !tbaa !69
   tail call void @LZ4_attach_HC_dictionary(ptr noundef %9, ptr noundef %11) #19
-  %12 = load ptr, ptr %6, align 8, !tbaa !67
+  %12 = load ptr, ptr %6, align 8, !tbaa !68
   %13 = tail call i32 @LZ4_compress_HC_continue(ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #19
   ret i32 %13
 }
@@ -1979,10 +1979,10 @@ define internal i32 @LZ4_compressBlockStreamHC(ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define internal void @LZ4_compressCleanupStreamHC(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
   %4 = tail call i32 @LZ4_freeStreamHC(ptr noundef %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = tail call i32 @LZ4_freeStreamHC(ptr noundef %6) #19
   ret void
 }
@@ -2006,7 +2006,7 @@ define internal void @LZ4_compressCleanupNoStream(ptr readnone captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LZ4_compressBlockNoStream(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = load i32, ptr %0, align 8, !tbaa !23
+  %6 = load i32, ptr %0, align 8, !tbaa !24
   %7 = icmp slt i32 %6, 0
   %8 = sub i32 1, %6
   %spec.select = select i1 %7, i32 %8, i32 1
@@ -2016,7 +2016,7 @@ define internal i32 @LZ4_compressBlockNoStream(ptr noundef readonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LZ4_compressBlockNoStreamHC(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = load i32, ptr %0, align 8, !tbaa !23
+  %6 = load i32, ptr %0, align 8, !tbaa !24
   %7 = tail call i32 @LZ4_compress_HC(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %6) #19
   ret i32 %7
 }
@@ -2118,55 +2118,56 @@ attributes #22 = { nounwind willreturn memory(read) }
 !14 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !15, i64 72, !15, i64 88, !15, i64 104, !6, i64 120}
 !15 = !{!"timespec", !12, i64 0, !12, i64 8}
 !16 = !{!14, !12, i64 48}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 omnipotent char", !10, i64 0}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = !{!24, !5, i64 0}
-!24 = !{!"compressionParameters", !5, i64 0, !20, i64 8, !5, i64 16, !25, i64 24, !25, i64 32, !26, i64 40, !26, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80}
-!25 = !{!"p1 _ZTS12LZ4_stream_u", !10, i64 0}
-!26 = !{!"p1 _ZTS14LZ4_streamHC_u", !10, i64 0}
-!27 = !{!24, !20, i64 8}
-!28 = !{!24, !5, i64 16}
-!29 = !{!24, !10, i64 56}
-!30 = !{!24, !10, i64 64}
-!31 = !{!24, !10, i64 72}
-!32 = !{!24, !10, i64 80}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS11LZ4F_dctx_s", !10, i64 0}
-!35 = !{!36, !20, i64 0}
-!36 = !{!"", !20, i64 0, !12, i64 8, !20, i64 16, !12, i64 24, !12, i64 32, !20, i64 40, !12, i64 48}
-!37 = !{!36, !20, i64 16}
-!38 = !{!36, !20, i64 40}
-!39 = !{!36, !12, i64 8}
-!40 = !{!36, !12, i64 24}
-!41 = distinct !{!41, !18}
-!42 = distinct !{!42, !18}
-!43 = !{!36, !12, i64 32}
-!44 = distinct !{!44, !18}
-!45 = distinct !{!45, !18}
-!46 = !{!15, !12, i64 0}
-!47 = !{!15, !12, i64 8}
-!48 = distinct !{!48, !18}
-!49 = distinct !{!49, !18, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !18}
-!52 = distinct !{!52, !18}
-!53 = !{ptr @LZ4F_decompress_binding, ptr @LZ4_decompress_safe_usingDict}
-!54 = !{!36, !12, i64 48}
-!55 = distinct !{!55, !18}
-!56 = distinct !{!56, !18, !50}
-!57 = distinct !{!57, !18}
-!58 = !{!6, !6, i64 0}
-!59 = distinct !{!59, !18}
-!60 = distinct !{!60, !18}
-!61 = distinct !{!61, !18}
-!62 = distinct !{!62, !18}
-!63 = !{!64, !5, i64 4}
-!64 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!65 = !{!24, !25, i64 24}
-!66 = !{!24, !25, i64 32}
-!67 = !{!24, !26, i64 40}
-!68 = !{!24, !26, i64 48}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 omnipotent char", !10, i64 0}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = !{!25, !5, i64 0}
+!25 = !{!"compressionParameters", !5, i64 0, !21, i64 8, !5, i64 16, !26, i64 24, !26, i64 32, !27, i64 40, !27, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80}
+!26 = !{!"p1 _ZTS12LZ4_stream_u", !10, i64 0}
+!27 = !{!"p1 _ZTS14LZ4_streamHC_u", !10, i64 0}
+!28 = !{!25, !21, i64 8}
+!29 = !{!25, !5, i64 16}
+!30 = !{!25, !10, i64 56}
+!31 = !{!25, !10, i64 64}
+!32 = !{!25, !10, i64 72}
+!33 = !{!25, !10, i64 80}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS11LZ4F_dctx_s", !10, i64 0}
+!36 = !{!37, !21, i64 0}
+!37 = !{!"", !21, i64 0, !12, i64 8, !21, i64 16, !12, i64 24, !12, i64 32, !21, i64 40, !12, i64 48}
+!38 = !{!37, !21, i64 16}
+!39 = !{!37, !21, i64 40}
+!40 = !{!37, !12, i64 8}
+!41 = !{!37, !12, i64 24}
+!42 = distinct !{!42, !18, !19}
+!43 = distinct !{!43, !18, !19}
+!44 = !{!37, !12, i64 32}
+!45 = distinct !{!45, !18, !19}
+!46 = distinct !{!46, !18, !19}
+!47 = !{!15, !12, i64 0}
+!48 = !{!15, !12, i64 8}
+!49 = distinct !{!49, !18, !19}
+!50 = distinct !{!50, !18, !19, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !18, !19}
+!53 = distinct !{!53, !18, !19}
+!54 = !{ptr @LZ4F_decompress_binding, ptr @LZ4_decompress_safe_usingDict}
+!55 = !{!37, !12, i64 48}
+!56 = distinct !{!56, !18, !19}
+!57 = distinct !{!57, !18, !19, !51}
+!58 = distinct !{!58, !18, !19}
+!59 = !{!6, !6, i64 0}
+!60 = distinct !{!60, !18, !19}
+!61 = distinct !{!61, !18, !19}
+!62 = distinct !{!62, !18, !19}
+!63 = distinct !{!63, !18, !19}
+!64 = !{!65, !5, i64 4}
+!65 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!66 = !{!25, !26, i64 24}
+!67 = !{!25, !26, i64 32}
+!68 = !{!25, !27, i64 40}
+!69 = !{!25, !27, i64 48}

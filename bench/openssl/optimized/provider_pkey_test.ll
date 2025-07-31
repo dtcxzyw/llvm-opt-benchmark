@@ -491,7 +491,7 @@ define internal range(i32 0, 2) i32 @test_pkey_store(i32 noundef %0) #0 {
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %20) #3
   %29 = tail call i32 @OSSL_STORE_eof(ptr noundef %17) #3
   %.not24 = icmp eq i32 %29, 0
-  br i1 %.not24, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %.not24, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %28, %.lr.ph, %.preheader
   %.1.lcssa = phi ptr [ null, %.preheader ], [ %.128, %.lr.ph ], [ %.2, %28 ]
@@ -575,7 +575,7 @@ define internal range(i32 0, 2) i32 @test_pkey_delete() #0 {
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %17) #3
   %26 = tail call i32 @OSSL_STORE_eof(ptr noundef %14) #3
   %.not29 = icmp eq i32 %26, 0
-  br i1 %.not29, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %.not29, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %25, %.lr.ph, %.preheader37
   %.022.lcssa = phi ptr [ null, %.preheader37 ], [ %.02239, %.lr.ph ], [ %.1, %25 ]
@@ -619,7 +619,7 @@ define internal range(i32 0, 2) i32 @test_pkey_delete() #0 {
   %44 = tail call ptr @OSSL_STORE_load(ptr noundef %40) #3
   %45 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.6, i32 noundef 349, ptr noundef nonnull @.str.56, ptr noundef %44) #3
   %.not36 = icmp eq i32 %45, 0
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %43, %38, %35, %31, %.critedge, %28, %12, %8, %4, %0
   %.024 = phi ptr [ %6, %38 ], [ %6, %35 ], [ %6, %31 ], [ %6, %28 ], [ %6, %.critedge ], [ %6, %12 ], [ %6, %8 ], [ %6, %4 ], [ null, %0 ], [ %6, %43 ], [ %6, %.preheader ]
@@ -873,8 +873,9 @@ attributes #3 = { nounwind }
 !10 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}

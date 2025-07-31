@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %68 = getelementptr inbounds nuw i8, ptr %.070112, i64 1
   %69 = load i8, ptr %68, align 1
   %.not86 = icmp eq i8 %69, 0
-  br i1 %.not86, label %._crit_edge, label %62, !llvm.loop !11
+  br i1 %.not86, label %._crit_edge, label %62, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %65
   %70 = srem i32 %15, %spec.select96
@@ -310,7 +310,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %76 = icmp ne i8 %75, 0
   %77 = icmp ne i32 %spec.select97, 0
   %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.lr.ph117, label %._crit_edge118.loopexit, !llvm.loop !12
+  br i1 %78, label %.lr.ph117, label %._crit_edge118.loopexit, !llvm.loop !13
 
 ._crit_edge118.loopexit:                          ; preds = %.lr.ph117
   %79 = icmp eq i8 %75, 0
@@ -348,7 +348,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %85 = getelementptr inbounds nuw i8, ptr %.275, i64 1
   %86 = getelementptr inbounds nuw i8, ptr %.272, i64 1
   store i8 %81, ptr %.272, align 1
-  br label %.loopexit, !llvm.loop !13
+  br label %.loopexit, !llvm.loop !14
 
 .critedge:                                        ; preds = %.loopexit, %.loopexit, %82
   store i8 0, ptr %.272, align 1
@@ -510,7 +510,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %.053.i = getelementptr inbounds i8, ptr %.05385.i, i64 -1
   %.not59.i = icmp ult ptr %.053.i, %.050.i.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not59.i, label %_str_to_memset.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not59.i, label %_str_to_memset.exit, label %.lr.ph.i, !llvm.loop !15
 
 _str_to_memset.exit:                              ; preds = %155, %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
@@ -741,12 +741,12 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
 46:                                               ; preds = %40, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %47, label %40, !llvm.loop !15
+  br i1 %exitcond.not, label %47, label %40, !llvm.loop !16
 
 47:                                               ; preds = %46
   %48 = add nuw i32 %.02637, 1
   %exitcond39.not = icmp eq i32 %.02637, %20
-  br i1 %exitcond39.not, label %._crit_edge, label %31, !llvm.loop !16
+  br i1 %exitcond39.not, label %._crit_edge, label %31, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %.preheader34
   call void @numa_bitmask_free(ptr noundef nonnull %24) #8
@@ -812,12 +812,13 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}

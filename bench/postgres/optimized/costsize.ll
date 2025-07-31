@@ -3454,7 +3454,7 @@ define dso_local void @cost_append(ptr noundef captures(none) initializes((40, 5
   %96 = load i32, ptr %20, align 4
   %97 = sext i32 %96 to i64
   %.not = icmp slt i64 %indvars.iv.next, %97
-  br i1 %.not, label %53, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %53, label %.critedge, !llvm.loop !9
 
 98:                                               ; preds = %12
   %99 = getelementptr i8, ptr %0, i64 36
@@ -3607,7 +3607,7 @@ get_parallel_divisor.exit..critedge105_crit_edge: ; preds = %get_parallel_diviso
   %.362.us.i = select i1 %165, i32 %166, i32 %.261117.us.i
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next152.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %159, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %159, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %159
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
@@ -3680,7 +3680,7 @@ get_parallel_divisor.exit..critedge105_crit_edge: ; preds = %get_parallel_diviso
   %.164.i = select i1 %193, i32 %194, i32 %.063135.i
   %indvars.iv.next155.i = add nuw nsw i64 %indvars.iv154.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next155.i, %wide.trip.count157.i
-  br i1 %exitcond158.not.i, label %._crit_edge.loopexit.i, label %.lr.ph137.i, !llvm.loop !10
+  br i1 %exitcond158.not.i, label %._crit_edge.loopexit.i, label %.lr.ph137.i, !llvm.loop !11
 
 append_nonpartial_cost.exit:                      ; preds = %.critedge105, %._crit_edge.i
   %.pre156 = phi double [ %.pre156.pre, %._crit_edge.i ], [ %.pre156158, %.critedge105 ]
@@ -3776,7 +3776,7 @@ clamp_row_est.exit:                               ; preds = %228, %236, %238
   %240 = load i32, ptr %107, align 4
   %241 = sext i32 %240 to i64
   %242 = icmp slt i64 %indvars.iv.next146, %241
-  br i1 %242, label %113, label %.critedge105, !llvm.loop !11
+  br i1 %242, label %113, label %.critedge105, !llvm.loop !12
 
 .critedge:                                        ; preds = %80, %.lr.ph122, %.preheader, %27, %append_nonpartial_cost.exit
   %243 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %27 ], [ %196, %append_nonpartial_cost.exit ], [ %49, %.lr.ph122 ], [ %95, %80 ]
@@ -7428,7 +7428,7 @@ define internal fastcc void @set_rel_width(ptr noundef %0, ptr noundef readonly 
   %149 = add i64 %.1114, %148
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond = icmp eq i64 %indvars.iv.next119, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %144, !llvm.loop !12
+  br i1 %exitcond, label %.loopexit, label %144, !llvm.loop !13
 
 .loopexit:                                        ; preds = %144, %.preheader, %133
   %.080 = phi i64 [ %143, %133 ], [ 24, %.preheader ], [ %149, %144 ]
@@ -7625,7 +7625,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
 64:                                               ; preds = %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %59
-  br i1 %exitcond.not, label %.critedge125.i, label %60, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge125.i, label %60, !llvm.loop !14
 
 .critedge123.i:                                   ; preds = %.critedge125.i, %44
   %.0102.lcssa.i = phi ptr [ %.0102142.i, %44 ], [ %.1103.i, %.critedge125.i ]
@@ -7665,7 +7665,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next168.i, %78
-  br i1 %79, label %.lr.ph.splitthread-pre-split.i, label %.critedge125.i, !llvm.loop !15
+  br i1 %79, label %.lr.ph.splitthread-pre-split.i, label %.critedge125.i, !llvm.loop !16
 
 .split.us.i:                                      ; preds = %60, %72, %68
   %80 = add i32 %.sroa.7.0140.i, -1
@@ -7680,7 +7680,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   %.498.i = phi ptr [ %81, %.split.us.i ], [ %.397144.i, %48 ], [ %.397144.i, %76 ], [ %.397144.i, %64 ]
   %83 = add i32 %.sroa.7.1.i, 1
   %.not116.i = icmp eq ptr %.sroa.0.1.i, null
-  br i1 %.not116.i, label %.critedge123.i, label %44, !llvm.loop !17
+  br i1 %.not116.i, label %.critedge123.i, label %44, !llvm.loop !18
 
 list_length.exit.i:                               ; preds = %.critedge123.i
   %84 = getelementptr inbounds nuw i8, ptr %.0102.lcssa.i, i64 4
@@ -7768,7 +7768,7 @@ list_length.exit.i:                               ; preds = %.critedge123.i
   %129 = load i32, ptr %41, align 4
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next171.i, %130
-  br i1 %131, label %113, label %.loopexit.i, !llvm.loop !18
+  br i1 %131, label %113, label %.loopexit.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %128, %.preheader.i, %106, %.critedge123.thread.i, %34, %31, %27
   %.195.i = phi ptr [ %94, %.critedge123.thread.i ], [ %.094156.i11, %31 ], [ %.094156.i11, %27 ], [ %.094156.i11, %34 ], [ %.397.lcssa.i, %106 ], [ %.397.lcssa.i, %.preheader.i ], [ %.397.lcssa.i, %128 ]
@@ -9086,16 +9086,17 @@ attributes #18 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

@@ -103,7 +103,7 @@ define internal i32 @test_fips_version(i32 noundef %0) #1 {
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %6 = load ptr, ptr @libctx, align 8, !tbaa !7
   %7 = tail call i32 @fips_provider_version_match(ptr noundef %6, ptr noundef %3) #3
   %8 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 41, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef %7, i32 noundef 1) #3
   br label %9
@@ -115,9 +115,9 @@ define internal i32 @test_fips_version(i32 noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @libprov, align 8, !tbaa !11
+  %1 = load ptr, ptr @libprov, align 8, !tbaa !12
   %2 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %1) #3
-  %3 = load ptr, ptr @libctx, align 8, !tbaa !6
+  %3 = load ptr, ptr @libctx, align 8, !tbaa !7
   tail call void @OSSL_LIB_CTX_free(ptr noundef %3) #3
   ret void
 }
@@ -145,12 +145,13 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}

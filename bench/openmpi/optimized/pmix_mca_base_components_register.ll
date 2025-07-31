@@ -185,7 +185,7 @@ pmix_obj_update.exit.i:                           ; preds = %.thread81.thread.i
 
 pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %76
   %85 = getelementptr inbounds nuw i8, ptr %.06588.i, i64 96
-  %86 = load ptr, ptr %85, align 8, !tbaa !39
+  %86 = load ptr, ptr %85, align 8, !tbaa !40
   %.not72.i = icmp eq ptr %86, null
   br i1 %.not72.i, label %89, label %87
 
@@ -217,7 +217,7 @@ pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %76
 
 .thread78.thread.i:                               ; preds = %95, %92, %.thread78.i, %89, %87, %pmix_obj_update.exit.i, %.thread.i
   %.not.i = icmp eq ptr %.06690.i, %19
-  br i1 %.not.i, label %register_components.exit, label %25, !llvm.loop !40
+  br i1 %.not.i, label %register_components.exit, label %25, !llvm.loop !41
 
 register_components.exit:                         ; preds = %.thread78.thread.i, %18, %2
   %.0 = phi i32 [ %6, %2 ], [ 0, %18 ], [ 0, %.thread78.thread.i ]
@@ -299,7 +299,8 @@ attributes #10 = { noreturn nounwind }
 !34 = !{!35, !6, i64 48}
 !35 = !{!"pmix_class_t", !5, i64 0, !13, i64 8, !6, i64 16, !6, i64 24, !9, i64 32, !9, i64 36, !6, i64 40, !6, i64 48, !17, i64 56}
 !36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!12, !6, i64 96}
-!40 = distinct !{!40, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!12, !6, i64 96}
+!41 = distinct !{!41, !38, !39}

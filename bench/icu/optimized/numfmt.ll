@@ -4506,9 +4506,9 @@ define linkonce_odr void @_ZNK6icu_7712UnifiedCache3getINS_18SharedNumberFormatE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22
   store i32 0, ptr %5, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  store ptr null, ptr %6, align 8, !tbaa !101
+  store ptr null, ptr %6, align 8, !tbaa !102
   call void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedObjectEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %10 = load ptr, ptr %6, align 8, !tbaa !101
+  %10 = load ptr, ptr %6, align 8, !tbaa !102
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit.i, label %13
@@ -4652,9 +4652,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7714LocaleCacheKeyINS_18SharedN
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !104
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !103
+  %14 = load ptr, ptr %13, align 8, !tbaa !104
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_778CacheKeyINS_18SharedNumberFormatEE6equalsERKNS_12CacheKeyBaseE.exit.thread, label %16
 
@@ -4828,9 +4828,10 @@ attributes #24 = { noreturn nounwind }
 !96 = !{!"_ZTSN6icu_7720DecimalFormatSymbolsE", !20, i64 0, !7, i64 8, !21, i64 1864, !9, i64 1928, !82, i64 1936, !27, i64 2160, !27, i64 2168, !62, i64 2176, !7, i64 2184, !7, i64 2376, !7, i64 2568, !7, i64 2569, !7, i64 2570}
 !97 = !{!98, !9, i64 56}
 !98 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!99 = distinct !{!99, !100}
+!99 = distinct !{!99, !100, !101}
 !100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!102, !102, i64 0}
-!102 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}
-!103 = !{!104, !5, i64 8}
-!104 = !{!"_ZTSSt9type_info", !5, i64 8}
+!101 = !{!"llvm.loop.estimated_trip_count"}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}
+!104 = !{!105, !5, i64 8}
+!105 = !{!"_ZTSSt9type_info", !5, i64 8}

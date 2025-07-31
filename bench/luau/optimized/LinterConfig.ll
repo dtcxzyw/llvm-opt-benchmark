@@ -1376,16 +1376,16 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10HotCommentESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !16
+  %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %.not3840 = icmp eq ptr %2, %4
   br i1 %.not3840, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %24
   %.01842 = phi i64 [ %.220.ph, %24 ], [ 0, %1 ]
   %.sroa.029.041 = phi ptr [ %25, %24 ], [ %2, %1 ]
-  %5 = load i8, ptr %.sroa.029.041, align 8, !tbaa !18, !range !25, !noundef !26
+  %5 = load i8, ptr %.sroa.029.041, align 8, !tbaa !19, !range !26, !noundef !27
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %24
 
@@ -1403,7 +1403,7 @@ define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10H
   ]
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %8, align 8, !tbaa !27
+  %13 = load ptr, ptr %8, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %11
   br label %15
 
@@ -1434,7 +1434,7 @@ _ZN4Luau11LintWarning9parseNameEPKc.exit.thread:  ; preds = %20, %_ZN4Luau11Lint
   %.220.ph = phi i64 [ %23, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01842, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread ], [ %.01842, %7 ], [ %.01842, %.lr.ph ], [ %.01842, %10 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 56
   %.not38 = icmp eq ptr %25, %4
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %24, %10, %1
   %spec.select = phi i64 [ 0, %1 ], [ %11, %10 ], [ %.220.ph, %24 ]
@@ -1476,17 +1476,19 @@ attributes #10 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTSN4Luau10HotCommentE", !13, i64 0}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"_ZTSN4Luau10HotCommentE", !20, i64 0, !21, i64 4, !23, i64 24}
-!20 = !{!"bool", !6, i64 0}
-!21 = !{!"_ZTSN4Luau8LocationE", !22, i64 0, !22, i64 8}
-!22 = !{!"_ZTSN4Luau8PositionE", !5, i64 0, !5, i64 4}
-!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !24, i64 0, !10, i64 8, !6, i64 16}
-!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !12, i64 0}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = !{!23, !12, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTSN4Luau10HotCommentE", !13, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSN4Luau10HotCommentE", !21, i64 0, !22, i64 4, !24, i64 24}
+!21 = !{!"bool", !6, i64 0}
+!22 = !{!"_ZTSN4Luau8LocationE", !23, i64 0, !23, i64 8}
+!23 = !{!"_ZTSN4Luau8PositionE", !5, i64 0, !5, i64 4}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !25, i64 0, !10, i64 8, !6, i64 16}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !12, i64 0}
+!26 = !{i8 0, i8 2}
+!27 = !{}
+!28 = !{!24, !12, i64 0}
+!29 = distinct !{!29, !16}

@@ -449,7 +449,7 @@ lean_obj_tag.exit65:                              ; preds = %33, %36
 .backedge.backedge:                               ; preds = %40, %63
   %.049.be = phi ptr [ %46, %40 ], [ %71, %63 ]
   %.046.be = phi ptr [ %42, %40 ], [ %67, %63 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !12
 
 51:                                               ; preds = %lean_obj_tag.exit65
   %52 = tail call zeroext i8 @lean_expr_eqv(ptr noundef %.046, ptr noundef %.049) #4
@@ -985,7 +985,7 @@ lean_dec.exit209:                                 ; preds = %144, %143, %141, %l
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit209, %153, %155, %156
-  br i1 %.not366, label %166, label %157, !prof !12
+  br i1 %.not366, label %166, label %157, !prof !14
 
 157:                                              ; preds = %lean_array_fget.exit
   %158 = add nuw i64 %145, 1
@@ -1173,7 +1173,7 @@ lean_dec.exit204:                                 ; preds = %214, %213, %211, %2
   br label %lean_array_fget.exit294
 
 lean_array_fget.exit294:                          ; preds = %lean_dec.exit204, %223, %225, %226
-  br i1 %.not366, label %236, label %227, !prof !12
+  br i1 %.not366, label %236, label %227, !prof !14
 
 227:                                              ; preds = %lean_array_fget.exit294
   %228 = add nuw i64 %215, 1
@@ -1715,7 +1715,7 @@ lean_dec_ref.exit271:                             ; preds = %414, %413, %411, %l
   br label %lean_array_fget.exit324
 
 lean_array_fget.exit324:                          ; preds = %lean_dec_ref.exit271, %423, %425, %426
-  br i1 %.not354, label %436, label %427, !prof !12
+  br i1 %.not354, label %436, label %427, !prof !14
 
 427:                                              ; preds = %lean_array_fget.exit324
   %428 = add nuw i64 %415, 1
@@ -1931,10 +1931,10 @@ define noundef zeroext i8 @l_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___lambda__1(pt
 define ptr @l_Lean_Compiler_LCNF_AlphaEqv_eqvTypes(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 lean_dec.exit46:
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val60 = load i64, ptr %3, align 8, !tbaa !13
+  %.val60 = load i64, ptr %3, align 8, !tbaa !15
   %4 = shl i64 %.val60, 1
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val59 = load i64, ptr %5, align 8, !tbaa !13
+  %.val59 = load i64, ptr %5, align 8, !tbaa !15
   %6 = shl i64 %.val59, 1
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %25, label %lean_dec.exit45
@@ -2008,7 +2008,7 @@ lean_alloc_ctor.exit:                             ; preds = %25
   store ptr inttoptr (i64 1 to ptr), ptr %33, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %28, ptr %34, align 8, !tbaa !4
-  %.val = load i64, ptr %3, align 8, !tbaa !13
+  %.val = load i64, ptr %3, align 8, !tbaa !15
   %35 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___spec__1(ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, i64 noundef %.val, i64 noundef 0, ptr noundef nonnull %29, ptr noundef %2)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !4
@@ -2166,7 +2166,7 @@ declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %9, align 8, !tbaa !13
+  %.val = load i64, ptr %9, align 8, !tbaa !15
   %10 = ptrtoint ptr %4 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -2192,7 +2192,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvTyp
 
 lean_dec.exit20:                                  ; preds = %18, %17, %15, %8
   %19 = getelementptr i8, ptr %5, i64 8
-  %.val31 = load i64, ptr %19, align 8, !tbaa !13
+  %.val31 = load i64, ptr %19, align 8, !tbaa !15
   %20 = ptrtoint ptr %5 to i64
   %21 = and i64 %20, 1
   %.not32 = icmp eq i64 %21, 0
@@ -3082,7 +3082,7 @@ lean_dec.exit209:                                 ; preds = %144, %143, %141, %l
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit209, %153, %155, %156
-  br i1 %.not403, label %166, label %157, !prof !12
+  br i1 %.not403, label %166, label %157, !prof !14
 
 157:                                              ; preds = %lean_array_fget.exit
   %158 = add nuw i64 %145, 1
@@ -3365,7 +3365,7 @@ lean_dec.exit204:                                 ; preds = %255, %254, %252, %2
   br label %lean_array_fget.exit297
 
 lean_array_fget.exit297:                          ; preds = %lean_dec.exit204, %264, %266, %267
-  br i1 %.not403, label %277, label %268, !prof !12
+  br i1 %.not403, label %277, label %268, !prof !14
 
 268:                                              ; preds = %lean_array_fget.exit297
   %269 = add nuw i64 %256, 1
@@ -4002,7 +4002,7 @@ lean_dec_ref.exit271:                             ; preds = %496, %495, %493, %l
   br label %lean_array_fget.exit344
 
 lean_array_fget.exit344:                          ; preds = %lean_dec_ref.exit271, %505, %507, %508
-  br i1 %.not391, label %518, label %509, !prof !12
+  br i1 %.not391, label %518, label %509, !prof !14
 
 509:                                              ; preds = %lean_array_fget.exit344
   %510 = add nuw i64 %497, 1
@@ -4308,10 +4308,10 @@ lean_dec.exit217:                                 ; preds = %lean_inc.exit188, %
 define zeroext i8 @l_Lean_Compiler_LCNF_AlphaEqv_eqvArgs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 lean_dec.exit41:
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val53 = load i64, ptr %3, align 8, !tbaa !13
+  %.val53 = load i64, ptr %3, align 8, !tbaa !15
   %4 = shl i64 %.val53, 1
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val52 = load i64, ptr %5, align 8, !tbaa !13
+  %.val52 = load i64, ptr %5, align 8, !tbaa !15
   %6 = shl i64 %.val52, 1
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %16, label %lean_dec.exit40
@@ -4361,7 +4361,7 @@ lean_alloc_ctor.exit:                             ; preds = %16
   store ptr inttoptr (i64 1 to ptr), ptr %24, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %19, ptr %25, align 8, !tbaa !4
-  %.val = load i64, ptr %3, align 8, !tbaa !13
+  %.val = load i64, ptr %3, align 8, !tbaa !15
   %26 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvArgs___spec__1(ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, i64 noundef %.val, i64 noundef 0, ptr noundef nonnull %20, ptr noundef %2)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
@@ -4509,7 +4509,7 @@ lean_dec.exit39:                                  ; preds = %lean_dec.exit37, %7
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvArgs___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %4, i64 8
-  %.val31 = load i64, ptr %9, align 8, !tbaa !13
+  %.val31 = load i64, ptr %9, align 8, !tbaa !15
   %10 = ptrtoint ptr %4 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -4535,7 +4535,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvArg
 
 lean_dec.exit20:                                  ; preds = %18, %17, %15, %8
   %19 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %19, align 8, !tbaa !13
+  %.val = load i64, ptr %19, align 8, !tbaa !15
   %20 = ptrtoint ptr %5 to i64
   %21 = and i64 %20, 1
   %.not32 = icmp eq i64 %21, 0
@@ -5077,10 +5077,10 @@ lean_dec.exit121:                                 ; preds = %129, %128, %126, %1
   %138 = ptrtoint ptr %73 to i64
   %139 = and i64 %138, 1
   %.not239 = icmp eq i64 %139, 0
-  br i1 %.not239, label %lean_nat_eq.exit, label %140, !prof !12
+  br i1 %.not239, label %lean_nat_eq.exit, label %140, !prof !14
 
 140:                                              ; preds = %137
-  br i1 %.not236, label %lean_nat_eq.exit.thread224, label %lean_nat_eq.exit.thread, !prof !12
+  br i1 %.not236, label %lean_nat_eq.exit.thread224, label %lean_nat_eq.exit.thread, !prof !14
 
 lean_nat_eq.exit.thread224:                       ; preds = %140
   %141 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %73, ptr noundef %87) #4
@@ -5696,9 +5696,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Compiler_LCNF_AlphaEqv_withFVar___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !15
+  store i16 4, ptr %7, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !17
   ret ptr %2
 }
 
@@ -5807,7 +5807,7 @@ lean_dec.exit19:                                  ; preds = %46, %45, %43, %lean
   %47 = ptrtoint ptr %2 to i64
   %48 = and i64 %47, 1
   %.not33 = icmp eq i64 %48, 0
-  br i1 %.not33, label %.critedge.i, label %49, !prof !12
+  br i1 %.not33, label %.critedge.i, label %49, !prof !14
 
 49:                                               ; preds = %lean_dec.exit19
   %50 = lshr i64 %47, 1
@@ -5863,14 +5863,14 @@ lean_dec.exit:                                    ; preds = %70, %69, %67, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Compiler_LCNF_AlphaEqv_withParams_go(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !13
+  %.val = load i64, ptr %7, align 8, !tbaa !15
   %8 = shl i64 %.val, 1
   %9 = or disjoint i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %4 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %lean_dec.exit43, label %13, !prof !12
+  br i1 %.not, label %lean_dec.exit43, label %13, !prof !14
 
 13:                                               ; preds = %6
   %14 = icmp ult ptr %4, %10
@@ -6323,9 +6323,9 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 define ptr @l_Lean_Compiler_LCNF_AlphaEqv_withParams(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
 lean_dec.exit18:
   %4 = getelementptr i8, ptr %1, i64 8
-  %.val26 = load i64, ptr %4, align 8, !tbaa !13
+  %.val26 = load i64, ptr %4, align 8, !tbaa !15
   %5 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !13
+  %.val = load i64, ptr %5, align 8, !tbaa !15
   %.unshifted = xor i64 %.val, %.val26
   %.mask = and i64 %.unshifted, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
@@ -6391,9 +6391,9 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit17, %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Compiler_LCNF_AlphaEqv_withParams___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val26.i = load i64, ptr %5, align 8, !tbaa !13
+  %.val26.i = load i64, ptr %5, align 8, !tbaa !15
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %6, align 8, !tbaa !13
+  %.val.i = load i64, ptr %6, align 8, !tbaa !15
   %.unshifted.i = xor i64 %.val.i, %.val26.i
   %.mask.i = and i64 %.unshifted.i, 9223372036854775807
   %.not.i10 = icmp eq i64 %.mask.i, 0
@@ -6577,10 +6577,10 @@ lean_dec.exit45:                                  ; preds = %lean_dec.exit45.bac
   %9 = ptrtoint ptr %.035 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %lean_nat_lt.exit.thread80, label %11, !prof !12
+  br i1 %.not, label %lean_nat_lt.exit.thread80, label %11, !prof !14
 
 11:                                               ; preds = %lean_dec.exit45
-  br i1 %.not86, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !12
+  br i1 %.not86, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !14
 
 lean_nat_lt.exit:                                 ; preds = %11
   %12 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.035, ptr noundef %3) #4
@@ -6718,10 +6718,10 @@ lean_inc.exit:                                    ; preds = %52, %51, %49, %lean
   br label %lean_dec.exit44
 
 lean_dec.exit44:                                  ; preds = %61, %60, %58, %lean_inc.exit
-  br i1 %.not86, label %lean_nat_le.exit, label %62, !prof !12
+  br i1 %.not86, label %lean_nat_le.exit, label %62, !prof !14
 
 62:                                               ; preds = %lean_dec.exit44
-  br i1 %.not88, label %lean_nat_le.exit.thread83, label %lean_nat_le.exit.thread, !prof !12
+  br i1 %.not88, label %lean_nat_le.exit.thread83, label %lean_nat_le.exit.thread, !prof !14
 
 lean_nat_le.exit:                                 ; preds = %lean_dec.exit44
   %63 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %3, ptr noundef %34) #4
@@ -6745,7 +6745,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !17
+  br i1 %.not88, label %80, label %69, !prof !19
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -6842,7 +6842,7 @@ declare ptr @l_Array_qpartition___rarg(ptr noundef, ptr noundef, ptr noundef, pt
 define ptr @l_Lean_Compiler_LCNF_AlphaEqv_sortAlts(ptr noundef %0) local_unnamed_addr #0 {
 lean_nat_eq.exit:
   %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %1, align 8, !tbaa !13
+  %.val = load i64, ptr %1, align 8, !tbaa !15
   %2 = shl i64 %.val, 1
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %lean_dec.exit30, label %lean_nat_le.exit
@@ -7127,7 +7127,7 @@ lean_dec.exit21:                                  ; preds = %49, %48, %46, %lean
   %50 = ptrtoint ptr %2 to i64
   %51 = and i64 %50, 1
   %.not35 = icmp eq i64 %51, 0
-  br i1 %.not35, label %.critedge.i, label %52, !prof !12
+  br i1 %.not35, label %.critedge.i, label %52, !prof !14
 
 52:                                               ; preds = %lean_dec.exit21
   %53 = lshr i64 %50, 1
@@ -7183,14 +7183,14 @@ lean_dec.exit:                                    ; preds = %73, %72, %70, %lean
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @l_Lean_Compiler_LCNF_AlphaEqv_withParams_go___at_Lean_Compiler_LCNF_AlphaEqv_eqvAlts___spec__1(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %10, align 8, !tbaa !13
+  %.val = load i64, ptr %10, align 8, !tbaa !15
   %11 = shl i64 %.val, 1
   %12 = or disjoint i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
   %14 = ptrtoint ptr %7 to i64
   %15 = and i64 %14, 1
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %lean_dec.exit48, label %16, !prof !12
+  br i1 %.not, label %lean_dec.exit48, label %16, !prof !14
 
 16:                                               ; preds = %9
   %17 = icmp ult ptr %7, %13
@@ -8681,9 +8681,9 @@ lean_inc.exit411:                                 ; preds = %432, %431, %429, %4
 
 lean_dec.exit521:                                 ; preds = %439, %441, %442
   %443 = getelementptr i8, ptr %434, i64 8
-  %.val805 = load i64, ptr %443, align 8, !tbaa !13
+  %.val805 = load i64, ptr %443, align 8, !tbaa !15
   %444 = getelementptr i8, ptr %424, i64 8
-  %.val804 = load i64, ptr %444, align 8, !tbaa !13
+  %.val804 = load i64, ptr %444, align 8, !tbaa !15
   %.unshifted1077 = xor i64 %.val804, %.val805
   %.mask1078 = and i64 %.unshifted1077, 9223372036854775807
   %.not1079 = icmp eq i64 %.mask1078, 0
@@ -8691,9 +8691,9 @@ lean_dec.exit521:                                 ; preds = %439, %441, %442
 
 lean_dec.exit521.thread:                          ; preds = %lean_inc.exit411
   %445 = getelementptr i8, ptr %434, i64 8
-  %.val8051372 = load i64, ptr %445, align 8, !tbaa !13
+  %.val8051372 = load i64, ptr %445, align 8, !tbaa !15
   %446 = getelementptr i8, ptr %424, i64 8
-  %.val8041373 = load i64, ptr %446, align 8, !tbaa !13
+  %.val8041373 = load i64, ptr %446, align 8, !tbaa !15
   %.unshifted10771374 = xor i64 %.val8041373, %.val8051372
   %.mask10781375 = and i64 %.unshifted10771374, 9223372036854775807
   %.not10791376 = icmp eq i64 %.mask10781375, 0
@@ -9656,9 +9656,9 @@ lean_inc.exit398:                                 ; preds = %780, %779, %777, %7
 
 lean_dec.exit491:                                 ; preds = %787, %789, %790
   %791 = getelementptr i8, ptr %782, i64 8
-  %.val803 = load i64, ptr %791, align 8, !tbaa !13
+  %.val803 = load i64, ptr %791, align 8, !tbaa !15
   %792 = getelementptr i8, ptr %772, i64 8
-  %.val = load i64, ptr %792, align 8, !tbaa !13
+  %.val = load i64, ptr %792, align 8, !tbaa !15
   %.unshifted = xor i64 %.val, %.val803
   %.mask = and i64 %.unshifted, 9223372036854775807
   %.not1058 = icmp eq i64 %.mask, 0
@@ -9666,9 +9666,9 @@ lean_dec.exit491:                                 ; preds = %787, %789, %790
 
 lean_dec.exit491.thread:                          ; preds = %lean_inc.exit398
   %793 = getelementptr i8, ptr %782, i64 8
-  %.val8031377 = load i64, ptr %793, align 8, !tbaa !13
+  %.val8031377 = load i64, ptr %793, align 8, !tbaa !15
   %794 = getelementptr i8, ptr %772, i64 8
-  %.val1378 = load i64, ptr %794, align 8, !tbaa !13
+  %.val1378 = load i64, ptr %794, align 8, !tbaa !15
   %.unshifted1379 = xor i64 %.val1378, %.val8031377
   %.mask1380 = and i64 %.unshifted1379, 9223372036854775807
   %.not10581381 = icmp eq i64 %.mask1380, 0
@@ -11703,9 +11703,9 @@ lean_dec.exit532:                                 ; preds = %lean_dec.exit478, %
 define noundef nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvAlts___spec__2___lambda__1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
 lean_dec.exit46:
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val60 = load i64, ptr %8, align 8, !tbaa !13
+  %.val60 = load i64, ptr %8, align 8, !tbaa !15
   %9 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %9, align 8, !tbaa !13
+  %.val = load i64, ptr %9, align 8, !tbaa !15
   %.unshifted = xor i64 %.val, %.val60
   %.mask = and i64 %.unshifted, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
@@ -12377,7 +12377,7 @@ lean_dec.exit601:                                 ; preds = %162, %161, %159, %l
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit601, %171, %173, %174
-  br i1 %.not1124, label %184, label %175, !prof !12
+  br i1 %.not1124, label %184, label %175, !prof !14
 
 175:                                              ; preds = %lean_array_fget.exit
   %176 = add nuw i64 %163, 1
@@ -13500,7 +13500,7 @@ lean_dec.exit571:                                 ; preds = %562, %561, %559, %5
   br label %lean_array_fget.exit898
 
 lean_array_fget.exit898:                          ; preds = %lean_dec.exit571, %571, %573, %574
-  br i1 %.not1124, label %584, label %575, !prof !12
+  br i1 %.not1124, label %584, label %575, !prof !14
 
 575:                                              ; preds = %lean_array_fget.exit898
   %576 = add nuw i64 %563, 1
@@ -15001,7 +15001,7 @@ lean_dec_ref.exit821:                             ; preds = %1099, %1098, %1096,
   br label %lean_array_fget.exit983
 
 lean_array_fget.exit983:                          ; preds = %lean_dec_ref.exit821, %1108, %1110, %1111
-  br i1 %.not1086, label %1121, label %1112, !prof !12
+  br i1 %.not1086, label %1121, label %1112, !prof !14
 
 1112:                                             ; preds = %lean_array_fget.exit983
   %1113 = add nuw i64 %1100, 1
@@ -16196,9 +16196,9 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #1
 define zeroext i8 @l_Lean_Compiler_LCNF_AlphaEqv_eqvAlts(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 lean_dec.exit49:
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val69 = load i64, ptr %3, align 8, !tbaa !13
+  %.val69 = load i64, ptr %3, align 8, !tbaa !15
   %4 = getelementptr i8, ptr %1, i64 8
-  %.val68 = load i64, ptr %4, align 8, !tbaa !13
+  %.val68 = load i64, ptr %4, align 8, !tbaa !15
   %.unshifted = xor i64 %.val68, %.val69
   %.mask = and i64 %.unshifted, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
@@ -16290,7 +16290,7 @@ lean_nat_le.exit.i:                               ; preds = %33
   %39 = or disjoint i64 %34, 1
   %40 = inttoptr i64 %39 to ptr
   %41 = tail call ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1(ptr noundef nonnull %40, ptr noundef nonnull %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.1.i.i, ptr nonnull poison, ptr nonnull poison)
-  %.val.i71.pre = load i64, ptr %4, align 8, !tbaa !13
+  %.val.i71.pre = load i64, ptr %4, align 8, !tbaa !15
   br label %l_Lean_Compiler_LCNF_AlphaEqv_sortAlts.exit
 
 l_Lean_Compiler_LCNF_AlphaEqv_sortAlts.exit:      ; preds = %33, %lean_nat_le.exit.i
@@ -16310,7 +16310,7 @@ lean_nat_le.exit.i73:                             ; preds = %l_Lean_Compiler_LCN
   %48 = inttoptr i64 %47 to ptr
   %49 = tail call ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1(ptr noundef nonnull %48, ptr noundef nonnull %1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.1.i.i74, ptr nonnull poison, ptr nonnull poison)
   %.phi.trans.insert = getelementptr i8, ptr %49, i64 8
-  %.val67.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
+  %.val67.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   %.pre = shl i64 %.val67.pre, 1
   %50 = or disjoint i64 %.pre, 1
   br label %l_Lean_Compiler_LCNF_AlphaEqv_sortAlts.exit76
@@ -16338,7 +16338,7 @@ lean_alloc_ctor.exit:                             ; preds = %l_Lean_Compiler_LCN
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %52, ptr %58, align 8, !tbaa !4
   %59 = getelementptr i8, ptr %.1.i, i64 8
-  %.val = load i64, ptr %59, align 8, !tbaa !13
+  %.val = load i64, ptr %59, align 8, !tbaa !15
   %60 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvAlts___spec__2(ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.1.i, i64 noundef %.val, i64 noundef 0, ptr noundef nonnull %53, ptr noundef %2)
   %61 = ptrtoint ptr %.1.i to i64
   %62 = and i64 %61, 1
@@ -16612,7 +16612,7 @@ lean_dec.exit19:                                  ; preds = %47, %46, %44, %lean
   %48 = ptrtoint ptr %2 to i64
   %49 = and i64 %48, 1
   %.not33 = icmp eq i64 %49, 0
-  br i1 %.not33, label %.critedge.i, label %50, !prof !12
+  br i1 %.not33, label %.critedge.i, label %50, !prof !14
 
 50:                                               ; preds = %lean_dec.exit19
   %51 = lshr i64 %48, 1
@@ -16720,14 +16720,14 @@ lean_inc.exit49:                                  ; preds = %17, %16, %14, %7
 
 lean_inc.exit48:                                  ; preds = %27, %26, %24, %lean_inc.exit49
   %28 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %28, align 8, !tbaa !13
+  %.val = load i64, ptr %28, align 8, !tbaa !15
   %29 = shl i64 %.val, 1
   %30 = or disjoint i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
   %32 = ptrtoint ptr %5 to i64
   %33 = and i64 %32, 1
   %.not98 = icmp eq i64 %33, 0
-  br i1 %.not98, label %lean_dec.exit60, label %34, !prof !12
+  br i1 %.not98, label %lean_dec.exit60, label %34, !prof !14
 
 34:                                               ; preds = %lean_inc.exit48
   %35 = icmp ult ptr %5, %31
@@ -17215,7 +17215,7 @@ lean_dec.exit19:                                  ; preds = %47, %46, %44, %lean
   %48 = ptrtoint ptr %2 to i64
   %49 = and i64 %48, 1
   %.not33 = icmp eq i64 %49, 0
-  br i1 %.not33, label %.critedge.i, label %50, !prof !12
+  br i1 %.not33, label %.critedge.i, label %50, !prof !14
 
 50:                                               ; preds = %lean_dec.exit19
   %51 = lshr i64 %48, 1
@@ -17323,14 +17323,14 @@ lean_inc.exit49:                                  ; preds = %17, %16, %14, %7
 
 lean_inc.exit48:                                  ; preds = %27, %26, %24, %lean_inc.exit49
   %28 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %28, align 8, !tbaa !13
+  %.val = load i64, ptr %28, align 8, !tbaa !15
   %29 = shl i64 %.val, 1
   %30 = or disjoint i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
   %32 = ptrtoint ptr %5 to i64
   %33 = and i64 %32, 1
   %.not98 = icmp eq i64 %33, 0
-  br i1 %.not98, label %lean_dec.exit60, label %34, !prof !12
+  br i1 %.not98, label %lean_dec.exit60, label %34, !prof !14
 
 34:                                               ; preds = %lean_inc.exit48
   %35 = icmp ult ptr %5, %31
@@ -18078,7 +18078,7 @@ lean_dec.exit:                                    ; preds = %36, %35, %33, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvAlts___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %4, i64 8
-  %.val27 = load i64, ptr %9, align 8, !tbaa !13
+  %.val27 = load i64, ptr %9, align 8, !tbaa !15
   %10 = ptrtoint ptr %4 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -18104,7 +18104,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_AlphaEqv_eqvAlt
 
 lean_dec.exit18:                                  ; preds = %18, %17, %15, %8
   %19 = getelementptr i8, ptr %5, i64 8
-  %.val = load i64, ptr %19, align 8, !tbaa !13
+  %.val = load i64, ptr %19, align 8, !tbaa !15
   %20 = ptrtoint ptr %5 to i64
   %21 = and i64 %20, 1
   %.not28 = icmp eq i64 %21, 0
@@ -18693,9 +18693,9 @@ _init_l_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___closed__1.exit: ; preds = %_init_
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___lambda__1___boxed, ptr %27, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 2, ptr %28, align 8, !tbaa !15
+  store i16 2, ptr %28, align 8, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 0, ptr %29, align 2, !tbaa !15
+  store i16 0, ptr %29, align 2, !tbaa !17
   store ptr %23, ptr @l_Lean_Compiler_LCNF_AlphaEqv_eqvTypes___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %23) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18714,9 +18714,9 @@ _init_l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1___c
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1___lambda__1___boxed, ptr %34, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i16 2, ptr %35, align 8, !tbaa !15
+  store i16 2, ptr %35, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 18
-  store i16 0, ptr %36, align 2, !tbaa !15
+  store i16 0, ptr %36, align 2, !tbaa !17
   store ptr %30, ptr @l_Array_qsort_sort___at_Lean_Compiler_LCNF_AlphaEqv_sortAlts___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %30) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18790,9 +18790,11 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !6, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}

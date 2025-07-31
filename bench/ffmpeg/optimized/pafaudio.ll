@@ -97,12 +97,12 @@ define internal i32 @paf_audio_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   store i16 %30, ptr %.12734, align 2, !tbaa !40
   %32 = add nuw nsw i32 %.135, 1
   %exitcond41.not = icmp eq i32 %32, 4410
-  br i1 %exitcond41.not, label %33, label %25, !llvm.loop !44
+  br i1 %exitcond41.not, label %33, label %25, !llvm.loop !45
 
 33:                                               ; preds = %25
   %34 = add nuw nsw i32 %.038, 1
   %exitcond42.not = icmp eq i32 %34, %10
-  br i1 %exitcond42.not, label %._crit_edge, label %.preheader, !llvm.loop !45
+  br i1 %exitcond42.not, label %._crit_edge, label %.preheader, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %33
   store i32 1, ptr %2, align 4, !tbaa !27
@@ -177,7 +177,8 @@ attributes #4 = { nounwind }
 !39 = !{!14, !14, i64 0}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"short", !8, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
-!45 = distinct !{!45, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44}
+!46 = distinct !{!46, !43, !44}

@@ -1419,7 +1419,7 @@ h1_tunnel_go_state.exit188.thread.i:              ; preds = %h1_tunnel_go_state.
   call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %91) #5
   %607 = getelementptr inbounds nuw i8, ptr %1, i64 5048
-  store i32 0, ptr %607, align 8, !tbaa !132
+  store i32 0, ptr %607, align 8, !tbaa !133
   %608 = load ptr, ptr @Curl_cfree, align 8, !tbaa !103
   %609 = load ptr, ptr %104, align 8, !tbaa !124
   call void %608(ptr noundef %609) #5
@@ -1427,7 +1427,7 @@ h1_tunnel_go_state.exit188.thread.i:              ; preds = %h1_tunnel_go_state.
   br label %h1_tunnel_go_state.exit190.i
 
 h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
-  %610 = load i32, ptr %96, align 8, !tbaa !133
+  %610 = load i32, ptr %96, align 8, !tbaa !134
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i32 noundef %610) #5
   br label %.critedge
 
@@ -1501,7 +1501,7 @@ h1_tunnel_go_state.exit190.i:                     ; preds = %606, %587
   call void @Curl_dyn_reset(ptr noundef nonnull %.05984) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %91) #5
   %641 = getelementptr inbounds nuw i8, ptr %1, i64 5048
-  store i32 0, ptr %641, align 8, !tbaa !132
+  store i32 0, ptr %641, align 8, !tbaa !133
   %642 = load ptr, ptr @Curl_cfree, align 8, !tbaa !103
   %643 = load ptr, ptr %104, align 8, !tbaa !124
   call void %642(ptr noundef %643) #5
@@ -1672,7 +1672,7 @@ h1_tunnel_go_state.exit:                          ; preds = %50, %28, %.thread
 59:                                               ; preds = %h1_tunnel_go_state.exit
   %60 = load ptr, ptr %58, align 8, !tbaa !77
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !134
+  %62 = load ptr, ptr %61, align 8, !tbaa !135
   tail call void %62(ptr noundef nonnull %58, ptr noundef %1) #5
   br label %63
 
@@ -1744,7 +1744,7 @@ define hidden i32 @Curl_cf_h1_proxy_insert_after(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !135
+  %6 = load ptr, ptr %3, align 8, !tbaa !136
   call void @Curl_conn_cf_insert_after(ptr noundef %0, ptr noundef %6) #5
   br label %7
 
@@ -1822,7 +1822,7 @@ define internal fastcc void @tunnel_free(ptr noundef %0, ptr noundef %1) unnamed
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @Curl_dyn_reset(ptr noundef nonnull %29) #5
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 5048
-  store i32 0, ptr %30, align 8, !tbaa !132
+  store i32 0, ptr %30, align 8, !tbaa !133
   %31 = load ptr, ptr @Curl_cfree, align 8, !tbaa !103
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5008
   %33 = load ptr, ptr %32, align 8, !tbaa !124
@@ -2160,7 +2160,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @Curl_dyn_reset(ptr noundef nonnull %153) #5
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 5048
-  store i32 0, ptr %154, align 8, !tbaa !132
+  store i32 0, ptr %154, align 8, !tbaa !133
   %155 = load ptr, ptr @Curl_cfree, align 8, !tbaa !103
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 5008
   %157 = load ptr, ptr %156, align 8, !tbaa !124
@@ -2400,8 +2400,9 @@ attributes #6 = { nounwind willreturn memory(read) }
 !128 = !{!105, !8, i64 72}
 !129 = !{!22, !5, i64 72}
 !130 = !{!4, !5, i64 5052}
-!131 = distinct !{!131, !126}
-!132 = !{!4, !5, i64 5048}
-!133 = !{!4, !5, i64 312}
-!134 = !{!82, !10, i64 32}
-!135 = !{!80, !80, i64 0}
+!131 = distinct !{!131, !126, !132}
+!132 = !{!"llvm.loop.estimated_trip_count"}
+!133 = !{!4, !5, i64 5048}
+!134 = !{!4, !5, i64 312}
+!135 = !{!82, !10, i64 32}
+!136 = !{!80, !80, i64 0}

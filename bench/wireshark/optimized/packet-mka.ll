@@ -857,7 +857,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %366 = and i32 %365, 65535
   %367 = add nuw nsw i32 %366, 10
   %.not115.i = icmp samesign ugt i32 %367, %326
-  br i1 %.not115.i, label %.loopexit.i, label %344, !llvm.loop !8
+  br i1 %.not115.i, label %.loopexit.i, label %344, !llvm.loop !9
 
 368:                                              ; preds = %342, %342, %342
   %369 = add i32 %321, %320
@@ -876,7 +876,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %277, %274, %271, %c
   %.1.i63 = phi i32 [ %321, %329 ], [ %327, %373 ], [ %327, %368 ], [ %327, %.preheader.i ], [ %327, %344 ]
   %377 = add i32 %.1.i63, 2
   %.not.i64 = icmp sgt i32 %377, %311
-  br i1 %.not.i64, label %.thread.i, label %.lr.ph124.i
+  br i1 %.not.i64, label %.thread.i, label %.lr.ph124.i, !llvm.loop !10
 
 .thread.i:                                        ; preds = %.loopexit.i, %.lr.ph124.i, %306
   %378 = add i32 %320, %311
@@ -968,7 +968,7 @@ dissect_peer_list.exit:                           ; preds = %442, %423, %380, %.
   %447 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.186)
   %448 = zext nneg i16 %.1 to i32
   %449 = icmp sgt i32 %447, %448
-  br i1 %449, label %92, label %._crit_edge, !llvm.loop !9
+  br i1 %449, label %92, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_peer_list.exit, %dissect_basic_paramset.exit
   %.085.lcssa = phi i32 [ %.0.i, %dissect_basic_paramset.exit ], [ %.186, %dissect_peer_list.exit ]
@@ -1158,7 +1158,7 @@ ckn_info_reset_cb.exit:                           ; preds = %0, %2
   %9 = load i32, ptr @num_mka_ckn_uat_data, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ckn_info_reset_cb.exit
   ret void
@@ -1309,7 +1309,7 @@ define internal i32 @ckn_key_hash_func(ptr noundef readonly captures(none) %0) #
   %12 = xor i32 %11, %.0910
   %13 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %13, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.09.lcssa = phi i32 [ 0, %1 ], [ %12, %.lr.ph ]
@@ -1368,9 +1368,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

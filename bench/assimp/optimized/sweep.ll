@@ -168,7 +168,7 @@ define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef n
   %28 = sub i64 %26, %27
   %29 = ashr exact i64 %28, 3
   %30 = icmp ult i64 %23, %29
-  br i1 %30, label %13, label %._crit_edge75, !llvm.loop !5
+  br i1 %30, label %13, label %._crit_edge75, !llvm.loop !6
 
 31:                                               ; preds = %.lr.ph71, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
   %.sroa.036.070 = phi ptr [ %17, %.lr.ph71 ], [ %550, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
@@ -203,7 +203,7 @@ define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef n
   br label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 _ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_.exit.i: ; preds = %31
-  %50 = load i8, ptr %12, align 8, !range !6, !noundef !7
+  %50 = load i8, ptr %12, align 8, !range !7, !noundef !8
   %51 = trunc nuw i8 %50 to i1
   %52 = load ptr, ptr %32, align 8
   %53 = load double, ptr %52, align 8
@@ -556,7 +556,7 @@ _ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.e
   %293 = load ptr, ptr %292, align 8
   %294 = load double, ptr %293, align 8
   %295 = fcmp olt double %294, %289
-  br i1 %295, label %.lr.ph.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !8
+  br i1 %295, label %.lr.ph.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !9
 
 296:                                              ; preds = %_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_.exit.i
   %297 = load ptr, ptr %21, align 8
@@ -908,7 +908,7 @@ _ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.ex
   %544 = load ptr, ptr %543, align 8
   %545 = load double, ptr %544, align 8
   %546 = fcmp ogt double %545, %540
-  br i1 %546, label %.lr.ph.i8.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !9
+  br i1 %546, label %.lr.ph.i8.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !10
 
 _ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %54, %296
   %547 = phi ptr [ %52, %54 ], [ %52, %296 ], [ %.pre.i.i118, %_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ], [ %.pre.i11.i105, %_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
@@ -920,7 +920,7 @@ _ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; pre
 _ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %44, %49, %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
   %550 = getelementptr inbounds nuw i8, ptr %.sroa.036.070, i64 8
   %.not = icmp eq ptr %550, %19
-  br i1 %.not, label %._crit_edge, label %31
+  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1257,7 +1257,7 @@ define hidden void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4No
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %.031)
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %7, %9, %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1280,7 +1280,7 @@ define hidden void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4No
   tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %.136)
   %.1 = load ptr, ptr %11, align 8
   %.not25 = icmp eq ptr %.1, null
-  br i1 %.not25, label %.critedge2, label %.lr.ph37, !llvm.loop !11
+  br i1 %.not25, label %.critedge2, label %.lr.ph37, !llvm.loop !13
 
 .critedge2:                                       ; preds = %.lr.ph37, %13, %15, %.critedge
   %16 = load ptr, ptr %4, align 8
@@ -1342,7 +1342,7 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8Trian
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load ptr, ptr %2, align 8
   %9 = load double, ptr %8, align 8
@@ -1399,7 +1399,7 @@ define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPN
   %44 = load ptr, ptr %43, align 8
   %45 = load double, ptr %44, align 8
   %46 = fcmp olt double %45, %40
-  br i1 %46, label %17, label %_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !8
+  br i1 %46, label %17, label %_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !9
 
 47:                                               ; preds = %4
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1453,7 +1453,7 @@ define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPN
   %82 = load ptr, ptr %81, align 8
   %83 = load double, ptr %82, align 8
   %84 = fcmp ogt double %83, %78
-  br i1 %84, label %54, label %_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !9
+  br i1 %84, label %54, label %_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !10
 
 _ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %77, %39, %47, %10
   ret void
@@ -1850,7 +1850,7 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_
 7:                                                ; preds = %3, %.thread65
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread65 ]
   %8 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.thread65, label %11
 
@@ -1867,14 +1867,14 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_
   %18 = tail call noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef %17)
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [3 x i8], ptr %13, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 3
   %25 = getelementptr inbounds [3 x i8], ptr %24, i64 0, i64 %19
-  %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %26 = load i8, ptr %25, align 1, !range !7, !noundef !8
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
 
@@ -1962,7 +1962,7 @@ _ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit: ; preds = %50
 .thread65:                                        ; preds = %50, %30, %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit, %11, %28, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread65, %81
   %82 = phi i1 [ true, %81 ], [ false, %.thread65 ]
@@ -2172,7 +2172,7 @@ define hidden void @_ZN3p2t5Sweep9FillBasinERNS_12SweepContextERNS_4NodeE(ptr no
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load double, ptr %37, align 8
   %39 = fcmp ult double %35, %38
-  br i1 %39, label %.critedge, label %29, !llvm.loop !13
+  br i1 %39, label %.critedge, label %29, !llvm.loop !15
 
 .critedge:                                        ; preds = %29, %32
   %40 = icmp eq ptr %storemerge, %.sink
@@ -2198,7 +2198,7 @@ define hidden void @_ZN3p2t5Sweep9FillBasinERNS_12SweepContextERNS_4NodeE(ptr no
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load double, ptr %51, align 8
   %53 = fcmp olt double %49, %52
-  br i1 %53, label %43, label %.critedge2, !llvm.loop !14
+  br i1 %53, label %43, label %.critedge2, !llvm.loop !16
 
 .critedge2:                                       ; preds = %43, %46
   %54 = icmp eq ptr %storemerge39, %storemerge
@@ -2507,7 +2507,7 @@ declare void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull align 8 der
 define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i8, ptr %4, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2613,7 +2613,7 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
 .thread37:                                        ; preds = %55, %31, %77
   %86 = phi double [ %.pre, %77 ], [ %41, %31 ], [ %65, %55 ]
   %.2 = phi ptr [ %., %77 ], [ %27, %31 ], [ %23, %55 ]
-  %87 = load i8, ptr %4, align 8, !range !6, !noundef !7
+  %87 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %88 = trunc nuw i8 %87 to i1
   %..i = select i1 %88, i64 24, i64 40
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
@@ -2633,7 +2633,7 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t5Sweep9IsShallowERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %5 = load i8, ptr %4, align 8, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2705,7 +2705,7 @@ define hidden void @_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPN
   %40 = load ptr, ptr %39, align 8
   %41 = load double, ptr %40, align 8
   %42 = fcmp olt double %41, %36
-  br i1 %42, label %13, label %._crit_edge, !llvm.loop !8
+  br i1 %42, label %13, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %35, %4
   ret void
@@ -2766,7 +2766,7 @@ define hidden void @_ZN3p2t5Sweep22FillLeftAboveEdgeEventERNS_12SweepContextEPNS
   %41 = load ptr, ptr %40, align 8
   %42 = load double, ptr %41, align 8
   %43 = fcmp ogt double %42, %37
-  br i1 %43, label %13, label %._crit_edge, !llvm.loop !9
+  br i1 %43, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %36, %4
   ret void
@@ -3614,7 +3614,7 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EED2Ev.exit:       ; preds = %._crit_edge, %6
 15:                                               ; preds = %14, %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %16, %4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3666,15 +3666,18 @@ attributes #21 = { noreturn }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !5}

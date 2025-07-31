@@ -374,7 +374,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   store i8 %51, ptr %52, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre.pre = load i8, ptr %3, align 1
@@ -473,15 +473,15 @@ define internal fastcc ptr @network_send(ptr noundef readonly captures(none) %0,
   %9 = select i1 %.not, ptr %8, ptr %7
   %10 = load i8, ptr %9, align 1
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %11 = load ptr, ptr %3, align 8, !alias.scope !7
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  %11 = load ptr, ptr %3, align 8, !alias.scope !8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i32, ptr %12, align 8, !alias.scope !7
+  %13 = load i32, ptr %12, align 8, !alias.scope !8
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  store i8 %10, ptr %15, align 1, !noalias !7
+  store i8 %10, ptr %15, align 1, !noalias !8
   %16 = add i32 %13, 1
-  store i32 %16, ptr %12, align 8, !alias.scope !7
+  store i32 %16, ptr %12, align 8, !alias.scope !8
   %17 = load i8, ptr %0, align 1
   %18 = and i8 %17, 1
   %.not19 = icmp eq i8 %18, 0
@@ -489,23 +489,23 @@ define internal fastcc ptr @network_send(ptr noundef readonly captures(none) %0,
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %22 = load ptr, ptr %3, align 8, !alias.scope !10
-  %23 = load i32, ptr %12, align 8, !alias.scope !10
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  %22 = load ptr, ptr %3, align 8, !alias.scope !11
+  %23 = load i32, ptr %12, align 8, !alias.scope !11
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  store i8 %21, ptr %25, align 1, !noalias !10
+  store i8 %21, ptr %25, align 1, !noalias !11
   %26 = add i32 %23, 1
-  store i32 %26, ptr %12, align 8, !alias.scope !10
+  store i32 %26, ptr %12, align 8, !alias.scope !11
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %27 = load ptr, ptr %3, align 8, !alias.scope !13
-  %28 = load i32, ptr %12, align 8, !alias.scope !13
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  %27 = load ptr, ptr %3, align 8, !alias.scope !14
+  %28 = load i32, ptr %12, align 8, !alias.scope !14
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  store i8 %4, ptr %30, align 1, !noalias !13
+  store i8 %4, ptr %30, align 1, !noalias !14
   %31 = add i32 %28, 1
-  store i32 %31, ptr %12, align 8, !alias.scope !13
+  store i32 %31, ptr %12, align 8, !alias.scope !14
   %32 = load i8, ptr %0, align 1
   %33 = and i8 %32, 1
   %.not20 = icmp eq i8 %33, 0
@@ -515,14 +515,14 @@ define internal fastcc ptr @network_send(ptr noundef readonly captures(none) %0,
   %37 = select i1 %36, i32 4, i32 16
   %38 = trunc nuw nsw i32 %37 to i8
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %39 = load ptr, ptr %3, align 8, !alias.scope !16
-  %40 = load i32, ptr %12, align 8, !alias.scope !16
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %39 = load ptr, ptr %3, align 8, !alias.scope !17
+  %40 = load i32, ptr %12, align 8, !alias.scope !17
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
-  store i8 %38, ptr %42, align 1, !noalias !16
+  store i8 %38, ptr %42, align 1, !noalias !17
   %43 = add i32 %40, 1
-  store i32 %43, ptr %12, align 8, !alias.scope !16
+  store i32 %43, ptr %12, align 8, !alias.scope !17
   %44 = load i8, ptr %0, align 1
   %45 = and i8 %44, 1
   %.not21 = icmp eq i8 %45, 0
@@ -536,17 +536,17 @@ define internal fastcc ptr @network_send(ptr noundef readonly captures(none) %0,
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #14
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %51 = load ptr, ptr %3, align 8, !alias.scope !19
-  %52 = load i32, ptr %12, align 8, !alias.scope !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %51 = load ptr, ptr %3, align 8, !alias.scope !20
+  %52 = load i32, ptr %12, align 8, !alias.scope !20
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %51, i64 %53
-  store i8 %50, ptr %54, align 1, !noalias !19
+  store i8 %50, ptr %54, align 1, !noalias !20
   %55 = add i32 %52, 1
-  store i32 %55, ptr %12, align 8, !alias.scope !19
+  store i32 %55, ptr %12, align 8, !alias.scope !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %56, label %48, !llvm.loop !22
+  br i1 %exitcond.not, label %56, label %48, !llvm.loop !23
 
 56:                                               ; preds = %48
   %57 = call ptr @pq_endtypsend(ptr noundef nonnull %3) #14
@@ -1094,7 +1094,7 @@ define internal fastcc i32 @network_cmp_internal(ptr noundef readonly captures(n
   %35 = shl i32 %.02027.i, 1
   %36 = add nsw i32 %.028.i, -1
   %37 = icmp sgt i32 %.028.i, 1
-  br i1 %37, label %.lr.ph.i, label %.loopexit, !llvm.loop !23
+  br i1 %37, label %.lr.ph.i, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %33, %22
   %38 = zext i8 %16 to i32
@@ -1130,7 +1130,7 @@ define dso_local noundef i64 @network_sortsupport(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %8 = load i8, ptr %7, align 8, !range !24, !noundef !25
+  %8 = load i8, ptr %7, align 8, !range !25, !noundef !26
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %19
 
@@ -1254,7 +1254,7 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr noundef readonly
   %47 = add i64 %46, 1
   store i64 %47, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load i8, ptr %48, align 8, !range !24, !noundef !25
+  %49 = load i8, ptr %48, align 8, !range !25, !noundef !26
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %57
 
@@ -1285,7 +1285,7 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr nou
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i8, ptr %10, align 8, !range !24, !noundef !25
+  %11 = load i8, ptr %10, align 8, !range !25, !noundef !26
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %49
 
@@ -1296,7 +1296,7 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr nou
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = load i8, ptr @trace_sort, align 1, !range !24, !noundef !25
+  %18 = load i8, ptr @trace_sort, align 1, !range !25, !noundef !26
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %25
 
@@ -1320,7 +1320,7 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr nou
   %29 = fdiv double %28, 2.000000e+03
   %30 = fadd double %29, 5.000000e-01
   %31 = fcmp olt double %15, %30
-  %32 = load i8, ptr @trace_sort, align 1, !range !24, !noundef !25
+  %32 = load i8, ptr @trace_sort, align 1, !range !25, !noundef !26
   %33 = trunc nuw i8 %32 to i1
   br i1 %31, label %34, label %43
 
@@ -1598,7 +1598,7 @@ define dso_local range(i64 0, 2) i64 @network_sub(ptr noundef readonly captures(
   %42 = shl i32 %.02027.i, 1
   %43 = add nsw i32 %.028.i, -1
   %44 = icmp sgt i32 %.028.i, 1
-  br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !23
+  br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
 
 bitncmp.exit:                                     ; preds = %.lr.ph.i, %40, %19, %25, %30, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 1, %30 ], [ 0, %25 ], [ 0, %.lr.ph.i ], [ 1, %40 ]
@@ -1646,7 +1646,7 @@ define dso_local i32 @bitncmp(ptr noundef readonly captures(none) %0, ptr nounde
   %21 = shl i32 %.02027, 1
   %22 = add nsw i32 %.028, -1
   %23 = icmp sgt i32 %.028, 1
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %19, %18, %3, %8
   %.019 = phi i32 [ 0, %8 ], [ %7, %3 ], [ %., %18 ], [ 0, %19 ]
@@ -1724,7 +1724,7 @@ define dso_local range(i64 0, 2) i64 @network_subeq(ptr noundef readonly capture
   %41 = shl i32 %.02027.i, 1
   %42 = add nsw i32 %.028.i, -1
   %43 = icmp sgt i32 %.028.i, 1
-  br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !23
+  br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
 
 bitncmp.exit:                                     ; preds = %.lr.ph.i, %39, %19, %24, %29, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 1, %29 ], [ 0, %24 ], [ 0, %.lr.ph.i ], [ 1, %39 ]
@@ -1802,7 +1802,7 @@ define dso_local range(i64 0, 2) i64 @network_sup(ptr noundef readonly captures(
   %42 = shl i32 %.02027.i, 1
   %43 = add nsw i32 %.028.i, -1
   %44 = icmp sgt i32 %.028.i, 1
-  br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !23
+  br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
 
 bitncmp.exit:                                     ; preds = %.lr.ph.i, %40, %19, %25, %30, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 1, %30 ], [ 0, %25 ], [ 0, %.lr.ph.i ], [ 1, %40 ]
@@ -1880,7 +1880,7 @@ define dso_local range(i64 0, 2) i64 @network_supeq(ptr noundef readonly capture
   %41 = shl i32 %.02027.i, 1
   %42 = add nsw i32 %.028.i, -1
   %43 = icmp sgt i32 %.028.i, 1
-  br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !23
+  br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
 
 bitncmp.exit:                                     ; preds = %.lr.ph.i, %39, %19, %24, %29, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 1, %29 ], [ 0, %24 ], [ 0, %.lr.ph.i ], [ 1, %39 ]
@@ -1955,7 +1955,7 @@ define dso_local range(i64 0, 2) i64 @network_overlap(ptr noundef readonly captu
   %40 = shl i32 %.02027.i, 1
   %41 = add nsw i32 %.028.i, -1
   %42 = icmp sgt i32 %.028.i, 1
-  br i1 %42, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !23
+  br i1 %42, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
 
 bitncmp.exit:                                     ; preds = %38, %.lr.ph.i, %28, %19, %1
   %.0 = phi i64 [ 0, %1 ], [ 1, %28 ], [ 0, %19 ], [ 0, %.lr.ph.i ], [ 1, %38 ]
@@ -2385,7 +2385,7 @@ define dso_local noundef i64 @network_broadcast(ptr noundef readonly captures(no
   store i8 %36, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %38, label %24, !llvm.loop !26
+  br i1 %exitcond.not, label %38, label %24, !llvm.loop !27
 
 38:                                               ; preds = %33
   %39 = load i8, ptr %5, align 1
@@ -2766,7 +2766,7 @@ define dso_local noundef i64 @inet_merge(ptr noundef readonly captures(none) %0)
 37:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %37, %22
   %.0.lcssa.i = phi i32 [ 0, %22 ], [ %32, %37 ]
@@ -2795,7 +2795,7 @@ define dso_local noundef i64 @inet_merge(ptr noundef readonly captures(none) %0)
   %48 = lshr i32 %45, %47
   %.not19.i = icmp eq i32 %48, 0
   %49 = add i32 %.2.i, -1
-  br i1 %.not19.i, label %bitncommon.exit, label %46, !llvm.loop !28
+  br i1 %.not19.i, label %bitncommon.exit, label %46, !llvm.loop !29
 
 bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
   %.025.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.024.i, %46 ]
@@ -2894,7 +2894,7 @@ define dso_local i32 @bitncommon(ptr noundef readonly captures(none) %0, ptr nou
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %11, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %11 ]
@@ -2923,7 +2923,7 @@ define dso_local i32 @bitncommon(ptr noundef readonly captures(none) %0, ptr nou
   %22 = lshr i32 %19, %21
   %.not19 = icmp eq i32 %22, 0
   %23 = add i32 %.2, -1
-  br i1 %.not19, label %.loopexit, label %20, !llvm.loop !28
+  br i1 %.not19, label %.loopexit, label %20, !llvm.loop !29
 
 .loopexit:                                        ; preds = %20, %._crit_edge
   %.025 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.024, %20 ]
@@ -2967,7 +2967,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %19 = fadd double %15, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !30
 
 20:                                               ; preds = %3
   %21 = inttoptr i64 %0 to ptr
@@ -3360,7 +3360,7 @@ define dso_local noundef i64 @inetnot(ptr noundef readonly captures(none) %0) lo
   store i8 %23, ptr %24, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not43 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre39 = load i8, ptr %5, align 1
@@ -3453,7 +3453,7 @@ define dso_local i64 @inetand(ptr noundef readonly captures(none) %0) local_unna
   store i8 %41, ptr %42, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not73 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre67 = load i8, ptr %10, align 1
@@ -3553,7 +3553,7 @@ define dso_local i64 @inetor(ptr noundef readonly captures(none) %0) local_unnam
   store i8 %41, ptr %42, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not73 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre67 = load i8, ptr %10, align 1
@@ -3646,7 +3646,7 @@ define internal fastcc noundef ptr @internal_inetpl(ptr noundef readonly capture
   %28 = ashr i64 %.04352, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not59 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = icmp ult i64 %.04352, 256
@@ -3805,7 +3805,7 @@ define dso_local i64 @inetmi(ptr noundef readonly captures(none) %0) local_unnam
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %52
   %54 = icmp samesign ult i32 %36, 256
@@ -3863,7 +3863,7 @@ define internal fastcc ptr @match_network_subset(ptr noundef %0, ptr noundef rea
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i8, ptr %8, align 8, !range !24, !noundef !25
+  %9 = load i8, ptr %8, align 8, !range !25, !noundef !26
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %43, label %11
 
@@ -3982,34 +3982,35 @@ attributes #16 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"pq_writeint8: argument 0"}
-!9 = distinct !{!9, !"pq_writeint8"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"pq_writeint8: argument 0"}
-!12 = distinct !{!12, !"pq_writeint8"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"pq_writeint8: argument 0"}
-!15 = distinct !{!15, !"pq_writeint8"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pq_writeint8: argument 0"}
-!18 = distinct !{!18, !"pq_writeint8"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"pq_writeint8: argument 0"}
-!21 = distinct !{!21, !"pq_writeint8"}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"pq_writeint8: argument 0"}
+!10 = distinct !{!10, !"pq_writeint8"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"pq_writeint8: argument 0"}
+!13 = distinct !{!13, !"pq_writeint8"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint8: argument 0"}
+!16 = distinct !{!16, !"pq_writeint8"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pq_writeint8: argument 0"}
+!19 = distinct !{!19, !"pq_writeint8"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"pq_writeint8: argument 0"}
+!22 = distinct !{!22, !"pq_writeint8"}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}

@@ -244,7 +244,7 @@ yy_find_shift_action.exit:                        ; preds = %12, %22, %25
 yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %49 = phi ptr [ %43, %.lr.ph.i ], [ %.pre.i, %46 ]
   %50 = icmp ugt ptr %49, %40
-  br i1 %50, label %.lr.ph.i, label %.thread, !llvm.loop !8
+  br i1 %50, label %.lr.ph.i, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %yy_pop_parser_stack.exit.i, %39
   store ptr %.pre158, ptr %5, align 8
@@ -499,7 +499,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %132 = load ptr, ptr %131, align 8
   tail call void @g_free(ptr noundef %132)
   %133 = getelementptr i8, ptr %52, i64 -8
-  %134 = load i8, ptr %133, align 8, !range !9, !noundef !10
+  %134 = load i8, ptr %133, align 8, !range !10, !noundef !11
   %135 = getelementptr inbounds nuw i8, ptr %53, i64 136
   store i8 %134, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -512,7 +512,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %140 = load ptr, ptr %139, align 8
   tail call void @g_free(ptr noundef %140)
   %141 = getelementptr i8, ptr %52, i64 -8
-  %142 = load i8, ptr %141, align 8, !range !9, !noundef !10
+  %142 = load i8, ptr %141, align 8, !range !10, !noundef !11
   %143 = getelementptr inbounds nuw i8, ptr %53, i64 137
   store i8 %142, ptr %143, align 1
   %144 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -525,7 +525,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %148 = load ptr, ptr %147, align 8
   tail call void @g_free(ptr noundef %148)
   %149 = getelementptr i8, ptr %52, i64 -8
-  %150 = load i8, ptr %149, align 8, !range !9, !noundef !10
+  %150 = load i8, ptr %149, align 8, !range !10, !noundef !11
   %151 = getelementptr inbounds nuw i8, ptr %53, i64 138
   store i8 %150, ptr %151, align 2
   %152 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -577,7 +577,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %180 = load ptr, ptr %179, align 8
   tail call void @g_free(ptr noundef %180)
   %181 = getelementptr i8, ptr %52, i64 -8
-  %182 = load i8, ptr %181, align 8, !range !9, !noundef !10
+  %182 = load i8, ptr %181, align 8, !range !10, !noundef !11
   %183 = getelementptr inbounds nuw i8, ptr %53, i64 173
   store i8 %182, ptr %183, align 1
   %184 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -603,7 +603,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %196 = load ptr, ptr %195, align 8
   tail call void @g_free(ptr noundef %196)
   %197 = getelementptr i8, ptr %52, i64 -8
-  %198 = load i8, ptr %197, align 8, !range !9, !noundef !10
+  %198 = load i8, ptr %197, align 8, !range !10, !noundef !11
   %199 = getelementptr inbounds nuw i8, ptr %53, i64 172
   store i8 %198, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -629,7 +629,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %212 = load ptr, ptr %211, align 8
   tail call void @g_free(ptr noundef %212)
   %213 = getelementptr i8, ptr %52, i64 -8
-  %214 = load i8, ptr %213, align 8, !range !9, !noundef !10
+  %214 = load i8, ptr %213, align 8, !range !10, !noundef !11
   %215 = getelementptr inbounds nuw i8, ptr %53, i64 184
   store i8 %214, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -668,7 +668,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %232 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
   %.0.i42 = load ptr, ptr %232, align 8
   %.not768.i = icmp eq ptr %.0.i42, null
-  br i1 %.not768.i, label %._crit_edge15.i, label %.lr.ph14.i, !llvm.loop !11
+  br i1 %.not768.i, label %._crit_edge15.i, label %.lr.ph14.i, !llvm.loop !12
 
 ._crit_edge15.i:                                  ; preds = %.lr.ph14.i
   %.pre.i43 = load ptr, ptr %229, align 8
@@ -710,7 +710,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %250 = getelementptr inbounds nuw i8, ptr %.0742.i, i64 40
   %251 = load ptr, ptr %250, align 8
   %.not766.i = icmp eq ptr %251, null
-  br i1 %.not766.i, label %252, label %249, !llvm.loop !12
+  br i1 %.not766.i, label %252, label %249, !llvm.loop !13
 
 252:                                              ; preds = %249
   %253 = getelementptr inbounds nuw i8, ptr %.0742.i, i64 40
@@ -867,15 +867,15 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %337 = getelementptr inbounds nuw i8, ptr %327, i64 36
   store i32 %336, ptr %337, align 4
   %338 = getelementptr i8, ptr %52, i64 -24
-  %339 = load i8, ptr %338, align 8, !range !9, !noundef !10
+  %339 = load i8, ptr %338, align 8, !range !10, !noundef !11
   %340 = getelementptr inbounds nuw i8, ptr %327, i64 73
   store i8 %339, ptr %340, align 1
   %341 = getelementptr i8, ptr %52, i64 -40
-  %342 = load i8, ptr %341, align 8, !range !9, !noundef !10
+  %342 = load i8, ptr %341, align 8, !range !10, !noundef !11
   %343 = getelementptr inbounds nuw i8, ptr %327, i64 72
   store i8 %342, ptr %343, align 8
   %344 = getelementptr i8, ptr %52, i64 -56
-  %345 = load i8, ptr %344, align 8, !range !9, !noundef !10
+  %345 = load i8, ptr %344, align 8, !range !10, !noundef !11
   %346 = getelementptr inbounds nuw i8, ptr %327, i64 74
   store i8 %345, ptr %346, align 2
   %347 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -901,7 +901,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   %360 = load i32, ptr %359, align 8
   %.not763.i = icmp eq i32 %360, 0
-  br i1 %.not763.i, label %._crit_edge.i, label %.lr.ph.i41, !llvm.loop !13
+  br i1 %.not763.i, label %._crit_edge.i, label %.lr.ph.i41, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i41, %332
   %.lcssa2.i = phi ptr [ %353, %332 ], [ %358, %.lr.ph.i41 ]
@@ -966,7 +966,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 396:                                              ; preds = %386
   tail call void @g_free(ptr noundef nonnull %.07436.i)
   %.not765.i = icmp eq ptr %388, null
-  br i1 %.not765.i, label %._crit_edge9.i, label %386, !llvm.loop !14
+  br i1 %.not765.i, label %._crit_edge9.i, label %386, !llvm.loop !15
 
 ._crit_edge9.i:                                   ; preds = %396, %379
   %397 = getelementptr i8, ptr %52, i64 -200
@@ -1098,7 +1098,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %468 = load ptr, ptr %467, align 8
   tail call void @g_free(ptr noundef %468)
   %469 = getelementptr i8, ptr %52, i64 -8
-  %470 = load i8, ptr %469, align 8, !range !9, !noundef !10
+  %470 = load i8, ptr %469, align 8, !range !10, !noundef !11
   store i8 %470, ptr %467, align 8
   %471 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %472 = load ptr, ptr %471, align 8
@@ -1107,7 +1107,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 
 473:                                              ; preds = %51
   %474 = getelementptr inbounds nuw i8, ptr %53, i64 137
-  %475 = load i8, ptr %474, align 1, !range !9, !noundef !10
+  %475 = load i8, ptr %474, align 1, !range !10, !noundef !11
   %476 = getelementptr i8, ptr %52, i64 24
   store i8 %475, ptr %476, align 8
   br label %991
@@ -1117,7 +1117,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %479 = load ptr, ptr %478, align 8
   tail call void @g_free(ptr noundef %479)
   %480 = getelementptr i8, ptr %52, i64 -8
-  %481 = load i8, ptr %480, align 8, !range !9, !noundef !10
+  %481 = load i8, ptr %480, align 8, !range !10, !noundef !11
   store i8 %481, ptr %478, align 8
   %482 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %483 = load ptr, ptr %482, align 8
@@ -1126,7 +1126,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 
 484:                                              ; preds = %51
   %485 = getelementptr inbounds nuw i8, ptr %53, i64 138
-  %486 = load i8, ptr %485, align 2, !range !9, !noundef !10
+  %486 = load i8, ptr %485, align 2, !range !10, !noundef !11
   %487 = getelementptr i8, ptr %52, i64 24
   store i8 %486, ptr %487, align 8
   br label %991
@@ -1136,7 +1136,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %490 = load ptr, ptr %489, align 8
   tail call void @g_free(ptr noundef %490)
   %491 = getelementptr i8, ptr %52, i64 -8
-  %492 = load i8, ptr %491, align 8, !range !9, !noundef !10
+  %492 = load i8, ptr %491, align 8, !range !10, !noundef !11
   store i8 %492, ptr %489, align 8
   %493 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %494 = load ptr, ptr %493, align 8
@@ -1145,7 +1145,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 
 495:                                              ; preds = %51
   %496 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %497 = load i8, ptr %496, align 8, !range !9, !noundef !10
+  %497 = load i8, ptr %496, align 8, !range !10, !noundef !11
   %498 = getelementptr i8, ptr %52, i64 24
   store i8 %497, ptr %498, align 8
   br label %991
@@ -1243,11 +1243,11 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %556 = getelementptr inbounds nuw i8, ptr %545, i64 40
   store ptr %555, ptr %556, align 8
   %557 = getelementptr i8, ptr %52, i64 -56
-  %558 = load i8, ptr %557, align 8, !range !9, !noundef !10
+  %558 = load i8, ptr %557, align 8, !range !10, !noundef !11
   %559 = getelementptr inbounds nuw i8, ptr %545, i64 96
   store i8 %558, ptr %559, align 8
   %560 = getelementptr i8, ptr %52, i64 -24
-  %561 = load i8, ptr %560, align 8, !range !9, !noundef !10
+  %561 = load i8, ptr %560, align 8, !range !10, !noundef !11
   %562 = getelementptr inbounds nuw i8, ptr %545, i64 104
   store i8 %561, ptr %562, align 8
   %563 = getelementptr i8, ptr %52, i64 -40
@@ -1304,7 +1304,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 
 599:                                              ; preds = %51
   %600 = getelementptr inbounds nuw i8, ptr %53, i64 173
-  %601 = load i8, ptr %600, align 1, !range !9, !noundef !10
+  %601 = load i8, ptr %600, align 1, !range !10, !noundef !11
   %602 = getelementptr i8, ptr %52, i64 24
   store i8 %601, ptr %602, align 8
   br label %991
@@ -1362,7 +1362,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %632 = load ptr, ptr %631, align 8
   tail call void @g_free(ptr noundef %632)
   %633 = getelementptr i8, ptr %52, i64 -8
-  %634 = load i8, ptr %633, align 8, !range !9, !noundef !10
+  %634 = load i8, ptr %633, align 8, !range !10, !noundef !11
   store i8 %634, ptr %631, align 8
   %635 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %636 = load ptr, ptr %635, align 8
@@ -1371,7 +1371,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
 
 637:                                              ; preds = %51
   %638 = getelementptr inbounds nuw i8, ptr %53, i64 172
-  %639 = load i8, ptr %638, align 4, !range !9, !noundef !10
+  %639 = load i8, ptr %638, align 4, !range !10, !noundef !11
   %640 = getelementptr i8, ptr %52, i64 24
   store i8 %639, ptr %640, align 8
   br label %991
@@ -1523,7 +1523,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %721 = getelementptr inbounds nuw i8, ptr %709, i64 32
   store ptr %720, ptr %721, align 8
   %722 = getelementptr i8, ptr %52, i64 -24
-  %723 = load i8, ptr %722, align 8, !range !9, !noundef !10
+  %723 = load i8, ptr %722, align 8, !range !10, !noundef !11
   %724 = getelementptr inbounds nuw i8, ptr %709, i64 60
   store i8 %723, ptr %724, align 4
   %725 = getelementptr inbounds nuw i8, ptr %709, i64 40
@@ -1914,7 +1914,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %937 = getelementptr ptr, ptr %904, i64 %936
   %938 = load ptr, ptr %937, align 8
   %.not.i51 = icmp eq ptr %938, null
-  br i1 %.not.i51, label %recolonize.exit, label %.lr.ph.i50, !llvm.loop !15
+  br i1 %.not.i51, label %recolonize.exit, label %.lr.ph.i50, !llvm.loop !16
 
 recolonize.exit:                                  ; preds = %934, %900
   tail call void @g_strfreev(ptr noundef %904)
@@ -2026,7 +2026,7 @@ recolonize.exit:                                  ; preds = %934, %900
   store i16 %1004, ptr %1005, align 8
   %1006 = getelementptr i8, ptr %995, i64 18
   store i8 %993, ptr %1006, align 2
-  br label %12
+  br label %12, !llvm.loop !17
 
 1007:                                             ; preds = %yy_find_shift_action.exit
   %1008 = icmp samesign ult i16 %.0.i, 436
@@ -2067,7 +2067,7 @@ recolonize.exit:                                  ; preds = %934, %900
 yy_pop_parser_stack.exit.i.i:                     ; preds = %1022, %.lr.ph.i.i
   %1025 = phi ptr [ %1019, %.lr.ph.i.i ], [ %.pre.i.i, %1022 ]
   %1026 = icmp ugt ptr %1025, %1016
-  br i1 %1026, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !8
+  br i1 %1026, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !9
 
 yyStackOverflow.exit.i:                           ; preds = %yy_pop_parser_stack.exit.i.i, %1014
   store ptr %1015, ptr %5, align 8
@@ -2162,7 +2162,7 @@ yy_destructor.exit:                               ; preds = %1049, %1050
 yy_pop_parser_stack.exit.i48:                     ; preds = %1060, %.lr.ph.i45
   %1063 = phi ptr [ %1057, %.lr.ph.i45 ], [ %.pre.i49, %1060 ]
   %1064 = icmp ugt ptr %1063, %1053
-  br i1 %1064, label %.lr.ph.i45, label %._crit_edge.i44, !llvm.loop !16
+  br i1 %1064, label %.lr.ph.i45, label %._crit_edge.i44, !llvm.loop !18
 
 ._crit_edge.i44:                                  ; preds = %yy_pop_parser_stack.exit.i48, %1051
   tail call void (ptr, ptr, ...) @configuration_error(ptr noundef %1052, ptr noundef nonnull @.str.22) #17
@@ -2228,7 +2228,7 @@ define internal void @configuration_error(ptr noundef readonly captures(none) %0
   %21 = load i32, ptr %20, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %18, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.13..str.14, ptr noundef %19, i32 noundef %21)
   %.not = icmp eq i32 %indvars, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %11, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2381,15 +2381,17 @@ attributes #19 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

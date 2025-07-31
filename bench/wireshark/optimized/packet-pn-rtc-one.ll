@@ -332,7 +332,7 @@ define hidden i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef %1, ptr n
 
 51:                                               ; preds = %.loopexit619
   tail call void @pn_find_dcp_station_info(ptr noundef nonnull %50, ptr noundef nonnull %24)
-  %52 = load i8, ptr @pnio_ps_selection, align 1, !range !8, !noundef !9
+  %52 = load i8, ptr @pnio_ps_selection, align 1, !range !9, !noundef !10
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56
 
@@ -481,7 +481,7 @@ addresses_equal.exit553:                          ; preds = %143, %135, %129, %1
   br i1 %.1466, label %150, label %.thread
 
 150:                                              ; preds = %addresses_equal.exit553
-  %151 = load i8, ptr @pnio_ps_selection, align 1, !range !8, !noundef !9
+  %151 = load i8, ptr @pnio_ps_selection, align 1, !range !9, !noundef !10
   %152 = trunc nuw i8 %151 to i1
   %153 = load i32, ptr @hf_pn_io_frame_info_type, align 4
   br i1 %152, label %154, label %156
@@ -517,13 +517,13 @@ addresses_equal.exit553:                          ; preds = %143, %135, %129, %1
 
 169:                                              ; preds = %166, %163
   %170 = getelementptr inbounds nuw i8, ptr %50, i64 29
-  %171 = load i8, ptr %170, align 1, !range !8, !noundef !9
+  %171 = load i8, ptr %170, align 1, !range !9, !noundef !10
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %195
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %50, i64 28
-  %175 = load i8, ptr %174, align 4, !range !8, !noundef !9
+  %175 = load i8, ptr %174, align 4, !range !9, !noundef !10
   %176 = trunc nuw i8 %175 to i1
   %177 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %178 = load ptr, ptr %177, align 8
@@ -648,7 +648,7 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
 235:                                              ; preds = %224
   %236 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0434631)
   %.not534 = icmp eq ptr %236, null
-  br i1 %.not534, label %.loopexit616, label %224, !llvm.loop !10
+  br i1 %.not534, label %.loopexit616, label %224, !llvm.loop !11
 
 .loopexit616:                                     ; preds = %235, %216, %229
   %237 = load i32, ptr @hf_pn_io_io_data_object_info_moduleidentnumber, align 4
@@ -660,9 +660,9 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
   %243 = load i32, ptr %242, align 4
   %244 = call ptr @proto_tree_add_uint(ptr noundef %220, i32 noundef %241, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %243)
   %245 = getelementptr inbounds nuw i8, ptr %212, i64 88
-  %246 = load i8, ptr %245, align 8, !range !8, !noundef !9
+  %246 = load i8, ptr %245, align 8, !range !9, !noundef !10
   %247 = trunc nuw i8 %246 to i1
-  %248 = load i8, ptr @pnio_ps_selection, align 1, !range !8
+  %248 = load i8, ptr @pnio_ps_selection, align 1, !range !9
   %249 = trunc nuw i8 %248 to i1
   %or.cond540 = select i1 %247, i1 %249, i1 false
   br i1 %or.cond540, label %250, label %323
@@ -684,7 +684,7 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
   %258 = zext i16 %257 to i32
   %259 = call ptr @proto_tree_add_uint(ptr noundef %220, i32 noundef %255, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %258)
   %260 = getelementptr inbounds nuw i8, ptr %212, i64 34
-  %261 = load i8, ptr %260, align 2, !range !8, !noundef !9
+  %261 = load i8, ptr %260, align 2, !range !9, !noundef !10
   %262 = icmp eq i8 %261, 0
   %263 = getelementptr inbounds nuw i8, ptr %212, i64 18
   %264 = load i16, ptr %263, align 2
@@ -818,7 +818,7 @@ dissect_pn_io_ps_SB.exit:                         ; preds = %proto_item_set_hidd
   %.4471 = phi i8 [ %.3470, %dissect_pn_io_ps_SB.exit ], [ %.2469634, %330 ], [ %.2469634, %332 ]
   %.4 = phi i32 [ %321, %dissect_pn_io_ps_SB.exit ], [ %331, %330 ], [ %333, %332 ]
   %335 = getelementptr inbounds nuw i8, ptr %212, i64 89
-  %336 = load i8, ptr %335, align 1, !range !8, !noundef !9
+  %336 = load i8, ptr %335, align 1, !range !9, !noundef !10
   %337 = icmp eq i8 %336, 0
   br i1 %337, label %338, label %352
 
@@ -879,7 +879,7 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
   %368 = load ptr, ptr %203, align 8
   %.str.16..str.17 = select i1 %367, ptr @.str.16, ptr @.str.17
   %369 = call noalias ptr @wmem_strbuf_new(ptr noundef %368, ptr noundef nonnull %.str.16..str.17)
-  %370 = load i8, ptr %245, align 8, !range !8, !noundef !9
+  %370 = load i8, ptr %245, align 8, !range !9, !noundef !10
   %371 = trunc nuw i8 %370 to i1
   %372 = getelementptr inbounds nuw i8, ptr %212, i64 18
   %373 = load i16, ptr %372, align 2
@@ -899,9 +899,9 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
 379:                                              ; preds = %._crit_edge690, %365
   %380 = phi ptr [ %.pre, %._crit_edge690 ], [ %377, %365 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %218, ptr noundef nonnull @.str.20, ptr noundef %380)
-  %381 = load i8, ptr %245, align 8, !range !8, !noundef !9
+  %381 = load i8, ptr %245, align 8, !range !9, !noundef !10
   %382 = trunc nuw i8 %381 to i1
-  %383 = load i8, ptr @pnio_ps_selection, align 1, !range !8
+  %383 = load i8, ptr @pnio_ps_selection, align 1, !range !9
   %384 = trunc nuw i8 %383 to i1
   %or.cond542 = select i1 %382, i1 %384, i1 false
   br i1 %or.cond542, label %385, label %386
@@ -914,7 +914,7 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
   %387 = getelementptr inbounds nuw i8, ptr %212, i64 18
   %388 = load i16, ptr %387, align 2
   %389 = add i16 %388, %.2453635
-  %390 = load i8, ptr %335, align 1, !range !8, !noundef !9
+  %390 = load i8, ptr %335, align 1, !range !9, !noundef !10
   %391 = xor i8 %390, 1
   %392 = zext nneg i8 %391 to i16
   %spec.select = add i16 %389, %392
@@ -926,7 +926,7 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
   %.6 = phi i32 [ %.2449636, %.lr.ph638 ], [ %.5, %386 ]
   %394 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0435637)
   %.not532 = icmp eq ptr %394, null
-  br i1 %.not532, label %._crit_edge, label %.lr.ph638, !llvm.loop !11
+  br i1 %.not532, label %._crit_edge, label %.lr.ph638, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %393, %208
   %.2469.lcssa = phi i8 [ %.0467646, %208 ], [ %.5472, %393 ]
@@ -974,13 +974,13 @@ dissect_PNIO_IOCS.exit:                           ; preds = %401, %402
 417:                                              ; preds = %.lr.ph644
   %418 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1436642)
   %.not533 = icmp eq ptr %418, null
-  br i1 %.not533, label %.loopexit617, label %.lr.ph644, !llvm.loop !12
+  br i1 %.not533, label %.loopexit617, label %.lr.ph644, !llvm.loop !13
 
 .loopexit617:                                     ; preds = %417, %._crit_edge, %dissect_PNIO_IOCS.exit
   %.4455 = phi i16 [ %416, %dissect_PNIO_IOCS.exit ], [ %.2453.lcssa, %._crit_edge ], [ %.2453.lcssa, %417 ]
   %.7 = phi i32 [ %415, %dissect_PNIO_IOCS.exit ], [ %.2449.lcssa, %._crit_edge ], [ %.2449.lcssa, %417 ]
   %.not531 = icmp eq i32 %209, 0
-  br i1 %.not531, label %._crit_edge650, label %208, !llvm.loop !13
+  br i1 %.not531, label %._crit_edge650, label %208, !llvm.loop !14
 
 ._crit_edge650:                                   ; preds = %.loopexit617, %.preheader618
   %.0447.lcssa = phi i32 [ %1, %.preheader618 ], [ %.7, %.loopexit617 ]
@@ -995,7 +995,7 @@ dissect_PNIO_IOCS.exit:                           ; preds = %401, %402
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %423 to i32
   %427 = zext i16 %425 to i32
-  %428 = load i8, ptr @pnio_ps_selection, align 1, !range !8, !noundef !9
+  %428 = load i8, ptr @pnio_ps_selection, align 1, !range !9, !noundef !10
   %429 = trunc nuw i8 %428 to i1
   %430 = load i32, ptr @hf_pn_io_frame_info_type, align 4
   br i1 %429, label %431, label %433
@@ -1031,13 +1031,13 @@ dissect_PNIO_IOCS.exit:                           ; preds = %401, %402
 
 446:                                              ; preds = %443, %440
   %447 = getelementptr inbounds nuw i8, ptr %50, i64 29
-  %448 = load i8, ptr %447, align 1, !range !8, !noundef !9
+  %448 = load i8, ptr %447, align 1, !range !9, !noundef !10
   %449 = trunc nuw i8 %448 to i1
   br i1 %449, label %450, label %472
 
 450:                                              ; preds = %446
   %451 = getelementptr inbounds nuw i8, ptr %50, i64 28
-  %452 = load i8, ptr %451, align 4, !range !8, !noundef !9
+  %452 = load i8, ptr %451, align 4, !range !9, !noundef !10
   %453 = trunc nuw i8 %452 to i1
   %454 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %455 = load ptr, ptr %454, align 8
@@ -1166,7 +1166,7 @@ proto_item_set_generated.exit570:                 ; preds = %463, %460, %457, %4
 513:                                              ; preds = %502
   %514 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1654)
   %.not521 = icmp eq ptr %514, null
-  br i1 %.not521, label %.loopexit, label %502, !llvm.loop !14
+  br i1 %.not521, label %.loopexit, label %502, !llvm.loop !15
 
 .loopexit:                                        ; preds = %513, %494, %507
   %515 = load i32, ptr @hf_pn_io_io_data_object_info_moduleidentnumber, align 4
@@ -1178,9 +1178,9 @@ proto_item_set_generated.exit570:                 ; preds = %463, %460, %457, %4
   %521 = load i32, ptr %520, align 4
   %522 = call ptr @proto_tree_add_uint(ptr noundef %498, i32 noundef %519, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %521)
   %523 = getelementptr inbounds nuw i8, ptr %489, i64 88
-  %524 = load i8, ptr %523, align 8, !range !8, !noundef !9
+  %524 = load i8, ptr %523, align 8, !range !9, !noundef !10
   %525 = trunc nuw i8 %524 to i1
-  %526 = load i8, ptr @pnio_ps_selection, align 1, !range !8
+  %526 = load i8, ptr @pnio_ps_selection, align 1, !range !9
   %527 = trunc nuw i8 %526 to i1
   %or.cond544 = select i1 %525, i1 %527, i1 false
   br i1 %or.cond544, label %528, label %603
@@ -1202,7 +1202,7 @@ proto_item_set_generated.exit570:                 ; preds = %463, %460, %457, %4
   %536 = zext i16 %535 to i32
   %537 = call ptr @proto_tree_add_uint(ptr noundef %498, i32 noundef %533, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %536)
   %538 = getelementptr inbounds nuw i8, ptr %489, i64 34
-  %539 = load i8, ptr %538, align 2, !range !8, !noundef !9
+  %539 = load i8, ptr %538, align 2, !range !9, !noundef !10
   %540 = icmp eq i8 %539, 0
   %541 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %542 = load i16, ptr %541, align 2
@@ -1346,7 +1346,7 @@ dissect_pn_io_ps_CB.exit:                         ; preds = %proto_item_set_hidd
   %.10477 = phi i8 [ %.9476, %dissect_pn_io_ps_CB.exit ], [ %.8475658, %610 ], [ %.8475658, %612 ]
   %.13 = phi i32 [ %601, %dissect_pn_io_ps_CB.exit ], [ %611, %610 ], [ %613, %612 ]
   %615 = getelementptr inbounds nuw i8, ptr %489, i64 89
-  %616 = load i8, ptr %615, align 1, !range !8, !noundef !9
+  %616 = load i8, ptr %615, align 1, !range !9, !noundef !10
   %617 = icmp eq i8 %616, 0
   br i1 %617, label %618, label %632
 
@@ -1407,7 +1407,7 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
   %648 = load ptr, ptr %480, align 8
   %.str.16..str.17711 = select i1 %647, ptr @.str.16, ptr @.str.17
   %649 = call noalias ptr @wmem_strbuf_new(ptr noundef %648, ptr noundef nonnull %.str.16..str.17711)
-  %650 = load i8, ptr %523, align 8, !range !8, !noundef !9
+  %650 = load i8, ptr %523, align 8, !range !9, !noundef !10
   %651 = trunc nuw i8 %650 to i1
   %652 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %653 = load i16, ptr %652, align 2
@@ -1427,9 +1427,9 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
 659:                                              ; preds = %._crit_edge691, %645
   %660 = phi ptr [ %.pre693, %._crit_edge691 ], [ %657, %645 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %496, ptr noundef nonnull @.str.20, ptr noundef %660)
-  %661 = load i8, ptr %523, align 8, !range !8, !noundef !9
+  %661 = load i8, ptr %523, align 8, !range !9, !noundef !10
   %662 = trunc nuw i8 %661 to i1
-  %663 = load i8, ptr @pnio_ps_selection, align 1, !range !8
+  %663 = load i8, ptr @pnio_ps_selection, align 1, !range !9
   %664 = trunc nuw i8 %663 to i1
   %or.cond546 = select i1 %662, i1 %664, i1 false
   br i1 %or.cond546, label %665, label %666
@@ -1442,7 +1442,7 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
   %667 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %668 = load i16, ptr %667, align 2
   %669 = add i16 %668, %.7458659
-  %670 = load i8, ptr %615, align 1, !range !8, !noundef !9
+  %670 = load i8, ptr %615, align 1, !range !9, !noundef !10
   %671 = xor i8 %670, 1
   %672 = zext nneg i8 %671 to i16
   %spec.select547 = add i16 %669, %672
@@ -1454,7 +1454,7 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %618, %619
   %.15 = phi i32 [ %.11660, %490 ], [ %.11660, %.lr.ph663 ], [ %.14, %666 ]
   %674 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.2661)
   %.not518 = icmp eq ptr %674, null
-  br i1 %.not518, label %._crit_edge664, label %.lr.ph663, !llvm.loop !15
+  br i1 %.not518, label %._crit_edge664, label %.lr.ph663, !llvm.loop !16
 
 ._crit_edge664:                                   ; preds = %673, %485
   %.8475.lcssa = phi i8 [ %.6473673, %485 ], [ %.11478, %673 ]
@@ -1502,13 +1502,13 @@ dissect_PNIO_IOCS.exit588:                        ; preds = %681, %682
 697:                                              ; preds = %.lr.ph671
   %698 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.3669)
   %.not519 = icmp eq ptr %698, null
-  br i1 %.not519, label %.loopexit615, label %.lr.ph671, !llvm.loop !16
+  br i1 %.not519, label %.loopexit615, label %.lr.ph671, !llvm.loop !17
 
 .loopexit615:                                     ; preds = %697, %._crit_edge664, %dissect_PNIO_IOCS.exit588
   %.9460 = phi i16 [ %696, %dissect_PNIO_IOCS.exit588 ], [ %.7458.lcssa, %._crit_edge664 ], [ %.7458.lcssa, %697 ]
   %.16 = phi i32 [ %695, %dissect_PNIO_IOCS.exit588 ], [ %.11.lcssa, %._crit_edge664 ], [ %.11.lcssa, %697 ]
   %.not517 = icmp eq i32 %486, 0
-  br i1 %.not517, label %._crit_edge677, label %485, !llvm.loop !17
+  br i1 %.not517, label %._crit_edge677, label %485, !llvm.loop !18
 
 ._crit_edge677:                                   ; preds = %.loopexit615, %.preheader
   %.9.lcssa = phi i32 [ %1, %.preheader ], [ %.16, %.loopexit615 ]
@@ -1880,15 +1880,16 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

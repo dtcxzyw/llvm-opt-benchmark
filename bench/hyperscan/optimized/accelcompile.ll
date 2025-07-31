@@ -51,7 +51,7 @@ define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pair
   %26 = and i8 %.02942, %25
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.034.041, i64 2
   %.not37 = icmp eq ptr %27, %7
-  br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 28:                                               ; preds = %._crit_edge
   %.not32 = icmp eq ptr %1, null
@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN3ue213buildAccelAuxERKNS_9AccelInfoEP8Accel
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %4, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %4, label %_ZNK3ue29CharReach4noneEv.exit, !llvm.loop !21
 
 _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %4
   br i1 %.not13.i.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread17, label %9
@@ -158,11 +158,11 @@ _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %11
   store i8 3, ptr %1, align 16
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %37, ptr %42, align 1
-  %43 = load ptr, ptr %27, align 8, !noalias !19
+  %43 = load ptr, ptr %27, align 8, !noalias !22
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %44, ptr %45, align 2
-  %46 = load ptr, ptr %27, align 8, !noalias !26
+  %46 = load ptr, ptr %27, align 8, !noalias !29
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -186,7 +186,7 @@ _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %11
 55:                                               ; preds = %59
   %.sroa.03.011.add.i.i = add nuw nsw i64 %.sroa.03.011.idx.i.i, 2
   %.not9.i.i = icmp eq i64 %.sroa.03.011.add.i.i, 8
-  br i1 %.not9.i.i, label %_ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.i, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %.not9.i.i, label %_ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.i, label %.lr.ph.i.i, !llvm.loop !36
 
 .lr.ph.i.i:                                       ; preds = %55, %.lr.ph.preheader.i.i
   %.sroa.03.011.idx.i.i = phi i64 [ %.sroa.03.011.add.i.i, %55 ], [ 0, %.lr.ph.preheader.i.i ]
@@ -209,12 +209,12 @@ _ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.
   store i8 4, ptr %1, align 16
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %37, ptr %64, align 1
-  %65 = load ptr, ptr %27, align 8, !noalias !35
+  %65 = load ptr, ptr %27, align 8, !noalias !38
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, -33
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %67, ptr %68, align 2
-  %69 = load ptr, ptr %27, align 8, !noalias !42
+  %69 = load ptr, ptr %27, align 8, !noalias !45
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, -33
@@ -258,18 +258,18 @@ _ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.
   %91 = and i8 %.02942.i.i, %90
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.034.041.i.i, i64 2
   %.not37.i.i = icmp eq ptr %92, %74
-  br i1 %.not37.i.i, label %._crit_edge.i.i, label %.lr.ph.i53.i
+  br i1 %.not37.i.i, label %._crit_edge.i.i, label %.lr.ph.i53.i, !llvm.loop !19
 
 93:                                               ; preds = %._crit_edge.i.i
   store i8 17, ptr %1, align 16
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %37, ptr %94, align 1
-  %95 = load ptr, ptr %27, align 8, !noalias !49
+  %95 = load ptr, ptr %27, align 8, !noalias !52
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, %75
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %97, ptr %98, align 2
-  %99 = load ptr, ptr %27, align 8, !noalias !56
+  %99 = load ptr, ptr %27, align 8, !noalias !59
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = and i8 %101, %76
@@ -313,7 +313,7 @@ _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader: ;
 116:                                              ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40
   %117 = add nuw nsw i64 %.0813.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %117, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40, !llvm.loop !63
+  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40, !llvm.loop !66
 
 _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40: ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader, %116
   %.0813.i.i.i = phi i64 [ %117, %116 ], [ 0, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader ]
@@ -377,7 +377,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %_ZNK3ue29CharReach3
 148:                                              ; preds = %140
   %149 = add nuw nsw i64 %.0710.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %149, 4
-  br i1 %exitcond.i.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit.i, label %140, !llvm.loop !64
+  br i1 %exitcond.i.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit.i, label %140, !llvm.loop !67
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %148, %143
   %spec.select.i.i.i = phi i8 [ %147, %143 ], [ 0, %148 ]
@@ -414,7 +414,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %148, %143
 165:                                              ; preds = %156
   %166 = add nuw nsw i64 %.0710.i.i29.i, 1
   %exitcond.i.i32.i = icmp eq i64 %166, 4
-  br i1 %exitcond.i.i32.i, label %_ZNK3ue29CharReach10find_firstEv.exit33.i, label %156, !llvm.loop !64
+  br i1 %exitcond.i.i32.i, label %_ZNK3ue29CharReach10find_firstEv.exit33.i, label %156, !llvm.loop !67
 
 _ZNK3ue29CharReach10find_firstEv.exit33.i:        ; preds = %165, %159
   %spec.select.i.i31.i = phi i8 [ %164, %159 ], [ 0, %165 ]
@@ -525,49 +525,52 @@ attributes #8 = { noreturn }
 !16 = distinct !{!16, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE4cendEv"}
 !17 = distinct !{!17, !18, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE3endEv: argument 0"}
 !18 = distinct !{!18, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE3endEv"}
-!19 = !{!20, !22, !24}
-!20 = distinct !{!20, !21, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!22 = distinct !{!22, !23, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!24 = distinct !{!24, !25, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!26 = !{!27, !29, !31}
-!27 = distinct !{!27, !28, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!28 = distinct !{!28, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!29 = distinct !{!29, !30, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!30 = distinct !{!30, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!31 = distinct !{!31, !32, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!32 = distinct !{!32, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !38, !40}
-!36 = distinct !{!36, !37, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!38 = distinct !{!38, !39, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!39 = distinct !{!39, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!40 = distinct !{!40, !41, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!41 = distinct !{!41, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!42 = !{!43, !45, !47}
-!43 = distinct !{!43, !44, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!45 = distinct !{!45, !46, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!46 = distinct !{!46, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!47 = distinct !{!47, !48, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!48 = distinct !{!48, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!49 = !{!50, !52, !54}
-!50 = distinct !{!50, !51, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!51 = distinct !{!51, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!52 = distinct !{!52, !53, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!53 = distinct !{!53, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!54 = distinct !{!54, !55, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!56 = !{!57, !59, !61}
-!57 = distinct !{!57, !58, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
-!58 = distinct !{!58, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
-!59 = distinct !{!59, !60, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
-!60 = distinct !{!60, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
-!61 = distinct !{!61, !62, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
-!62 = distinct !{!62, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
-!63 = distinct !{!63, !34}
-!64 = distinct !{!64, !34}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = !{!23, !25, !27}
+!23 = distinct !{!23, !24, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!24 = distinct !{!24, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!25 = distinct !{!25, !26, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!27 = distinct !{!27, !28, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!28 = distinct !{!28, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!29 = !{!30, !32, !34}
+!30 = distinct !{!30, !31, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!31 = distinct !{!31, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!32 = distinct !{!32, !33, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!33 = distinct !{!33, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!34 = distinct !{!34, !35, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!35 = distinct !{!35, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!36 = distinct !{!36, !37, !20}
+!37 = !{!"llvm.loop.mustprogress"}
+!38 = !{!39, !41, !43}
+!39 = distinct !{!39, !40, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!40 = distinct !{!40, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!41 = distinct !{!41, !42, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!42 = distinct !{!42, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!43 = distinct !{!43, !44, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!44 = distinct !{!44, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!45 = !{!46, !48, !50}
+!46 = distinct !{!46, !47, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!48 = distinct !{!48, !49, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!49 = distinct !{!49, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!50 = distinct !{!50, !51, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!51 = distinct !{!51, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!52 = !{!53, !55, !57}
+!53 = distinct !{!53, !54, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!54 = distinct !{!54, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!55 = distinct !{!55, !56, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!56 = distinct !{!56, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!57 = distinct !{!57, !58, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!58 = distinct !{!58, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!59 = !{!60, !62, !64}
+!60 = distinct !{!60, !61, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv: argument 0"}
+!61 = distinct !{!61, !"_ZNK5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6cbeginEv"}
+!62 = distinct !{!62, !63, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv: argument 0"}
+!63 = distinct !{!63, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE6cbeginEv"}
+!64 = distinct !{!64, !65, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv: argument 0"}
+!65 = distinct !{!65, !"_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE5beginEv"}
+!66 = distinct !{!66, !37, !20}
+!67 = distinct !{!67, !37, !20}

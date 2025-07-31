@@ -744,7 +744,7 @@ define hidden void @handleMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = icmp ugt i64 %11, 15
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %14 = load ptr, ptr %13, align 8, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %13, align 8, !nonnull !9, !noundef !9
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %9
@@ -881,7 +881,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %38 = phi i32 [ %.pre, %36 ], [ %31, %30 ]
   %39 = and i32 %38, 32768
   %.not50.us = icmp eq i32 %39, 0
-  br i1 %.not50.us, label %.split67.us, label %.split.us, !llvm.loop !9
+  br i1 %.not50.us, label %.split67.us, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %7, %72
   %40 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #12
@@ -974,7 +974,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %.2 = phi i64 [ %.19196, %.thread93 ], [ %.040, %47 ]
   %74 = and i32 %73, 32768
   %.not50 = icmp eq i32 %74, 0
-  br i1 %.not50, label %.split67.us, label %.split, !llvm.loop !11
+  br i1 %.not50, label %.split67.us, label %.split, !llvm.loop !12
 
 .split67.us:                                      ; preds = %37, %72
   %.us-phi68 = phi i64 [ %.2, %72 ], [ %.040.us, %37 ]
@@ -1149,9 +1149,10 @@ attributes #14 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}

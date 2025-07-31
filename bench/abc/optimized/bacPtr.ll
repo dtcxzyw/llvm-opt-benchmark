@@ -185,7 +185,7 @@ Vec_PtrFree.exit.i28:                             ; preds = %42, %39
 Vec_VecFree.exit32:                               ; preds = %.critedge.i20, %48
   tail call void @free(ptr noundef nonnull %32) #14
   %49 = getelementptr i8, ptr %0, i64 4
-  %.val14 = load i32, ptr %49, align 4, !tbaa !15
+  %.val14 = load i32, ptr %49, align 4, !tbaa !16
   %50 = icmp sgt i32 %.val14, 5
   br i1 %50, label %51, label %.thread
 
@@ -194,7 +194,7 @@ Vec_VecFree.exit32:                               ; preds = %.critedge.i20, %48
   %52 = getelementptr inbounds nuw i8, ptr %.val12, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !9
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !16
+  %55 = load ptr, ptr %54, align 8, !tbaa !17
   %.not.i33 = icmp eq ptr %55, null
   br i1 %.not.i33, label %57, label %56
 
@@ -204,7 +204,7 @@ Vec_VecFree.exit32:                               ; preds = %.critedge.i20, %48
 
 57:                                               ; preds = %56, %51
   tail call void @free(ptr noundef nonnull %53) #14
-  %.val15.pr = load i32, ptr %49, align 4, !tbaa !15
+  %.val15.pr = load i32, ptr %49, align 4, !tbaa !16
   %58 = icmp sgt i32 %.val15.pr, 6
   br i1 %58, label %59, label %.thread
 
@@ -213,7 +213,7 @@ Vec_VecFree.exit32:                               ; preds = %.critedge.i20, %48
   %60 = getelementptr inbounds nuw i8, ptr %.val13, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !9
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !16
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
   %.not.i34 = icmp eq ptr %63, null
   br i1 %.not.i34, label %Vec_FltFree.exit35, label %64
 
@@ -246,7 +246,7 @@ define void @Bac_PtrFree(ptr noundef captures(address_is_null) %0) local_unnamed
 
 .preheader:                                       ; preds = %1
   %2 = getelementptr i8, ptr %0, i64 4
-  %.val89 = load i32, ptr %2, align 4, !tbaa !15
+  %.val89 = load i32, ptr %2, align 4, !tbaa !16
   %3 = icmp sgt i32 %.val89, 1
   br i1 %3, label %.lr.ph, label %.critedge
 
@@ -261,10 +261,10 @@ define void @Bac_PtrFree(ptr noundef captures(address_is_null) %0) local_unnamed
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   tail call void @Bac_PtrFreeNtk(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val8 = load i32, ptr %2, align 4, !tbaa !15
+  %.val8 = load i32, ptr %2, align 4, !tbaa !16
   %8 = sext i32 %.val8 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %5, label %.critedge, !llvm.loop !19
+  br i1 %9, label %5, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %5, %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -290,7 +290,7 @@ define i32 @Bac_PtrMemoryArray(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !20
+  %3 = load i32, ptr %0, align 8, !tbaa !21
   %4 = sext i32 %3 to i64
   %5 = uitofp i64 %4 to double
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 8.000000e+00, double 1.600000e+01)
@@ -305,7 +305,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Bac_PtrMemoryArrayArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 4
-  %.val8 = load i32, ptr %2, align 4, !tbaa !15
+  %.val8 = load i32, ptr %2, align 4, !tbaa !16
   %3 = icmp sgt i32 %.val8, 0
   br i1 %3, label %.lr.ph, label %.critedge
 
@@ -324,7 +324,7 @@ define i32 @Bac_PtrMemoryArrayArray(ptr noundef readonly captures(none) %0) loca
   br i1 %.not.i.i, label %Bac_PtrMemoryArray.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %7, align 8, !tbaa !20
+  %9 = load i32, ptr %7, align 8, !tbaa !21
   %10 = sext i32 %9 to i64
   %11 = uitofp i64 %10 to double
   %12 = tail call double @llvm.fmuladd.f64(double %11, double 8.000000e+00, double 1.600000e+01)
@@ -336,7 +336,7 @@ Bac_PtrMemoryArray.exit:                          ; preds = %5, %8
   %15 = add nsw i32 %14, %.010
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %5, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %5, !llvm.loop !22
 
 .critedge:                                        ; preds = %Bac_PtrMemoryArray.exit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %15, %Bac_PtrMemoryArray.exit ]
@@ -349,7 +349,7 @@ define i32 @Bac_PtrMemoryNtk(ptr noundef readonly captures(address_is_null) %0) 
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !20
+  %3 = load i32, ptr %0, align 8, !tbaa !21
   %4 = sext i32 %3 to i64
   %5 = uitofp i64 %4 to double
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 8.000000e+00, double 1.600000e+01)
@@ -366,7 +366,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
   br i1 %.not.i.i, label %Bac_PtrMemoryArray.exit, label %12
 
 12:                                               ; preds = %Vec_PtrMemory.exit
-  %13 = load i32, ptr %11, align 8, !tbaa !20
+  %13 = load i32, ptr %11, align 8, !tbaa !21
   %14 = sext i32 %13 to i64
   %15 = uitofp i64 %14 to double
   %16 = tail call double @llvm.fmuladd.f64(double %15, double 8.000000e+00, double 1.600000e+01)
@@ -381,7 +381,7 @@ Bac_PtrMemoryArray.exit:                          ; preds = %Vec_PtrMemory.exit,
   br i1 %.not.i.i12, label %Bac_PtrMemoryArray.exit13, label %21
 
 21:                                               ; preds = %Bac_PtrMemoryArray.exit
-  %22 = load i32, ptr %20, align 8, !tbaa !20
+  %22 = load i32, ptr %20, align 8, !tbaa !21
   %23 = sext i32 %22 to i64
   %24 = uitofp i64 %23 to double
   %25 = tail call double @llvm.fmuladd.f64(double %24, double 8.000000e+00, double 1.600000e+01)
@@ -393,7 +393,7 @@ Bac_PtrMemoryArray.exit13:                        ; preds = %Bac_PtrMemoryArray.
   %28 = getelementptr inbounds nuw i8, ptr %.val11, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = getelementptr i8, ptr %29, i64 4
-  %.val8.i = load i32, ptr %30, align 4, !tbaa !15
+  %.val8.i = load i32, ptr %30, align 4, !tbaa !16
   %31 = icmp sgt i32 %.val8.i, 0
   br i1 %31, label %.lr.ph.i, label %Bac_PtrMemoryArrayArray.exit
 
@@ -412,7 +412,7 @@ Bac_PtrMemoryArray.exit13:                        ; preds = %Bac_PtrMemoryArray.
   br i1 %.not.i.i.i, label %Bac_PtrMemoryArray.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr %35, align 8, !tbaa !20
+  %37 = load i32, ptr %35, align 8, !tbaa !21
   %38 = sext i32 %37 to i64
   %39 = uitofp i64 %38 to double
   %40 = tail call double @llvm.fmuladd.f64(double %39, double 8.000000e+00, double 1.600000e+01)
@@ -424,14 +424,14 @@ Bac_PtrMemoryArray.exit.i:                        ; preds = %36, %33
   %43 = add nsw i32 %42, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Bac_PtrMemoryArrayArray.exit, label %33, !llvm.loop !21
+  br i1 %exitcond.not.i, label %Bac_PtrMemoryArrayArray.exit, label %33, !llvm.loop !22
 
 Bac_PtrMemoryArrayArray.exit:                     ; preds = %Bac_PtrMemoryArray.exit.i, %Bac_PtrMemoryArray.exit13
   %.0.lcssa.i = phi i32 [ 0, %Bac_PtrMemoryArray.exit13 ], [ %43, %Bac_PtrMemoryArray.exit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.val11, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !9
   %46 = getelementptr i8, ptr %45, i64 4
-  %.val8.i14 = load i32, ptr %46, align 4, !tbaa !15
+  %.val8.i14 = load i32, ptr %46, align 4, !tbaa !16
   %47 = icmp sgt i32 %.val8.i14, 0
   br i1 %47, label %.lr.ph.i16, label %Bac_PtrMemoryArrayArray.exit25
 
@@ -450,7 +450,7 @@ Bac_PtrMemoryArrayArray.exit:                     ; preds = %Bac_PtrMemoryArray.
   br i1 %.not.i.i.i21, label %Bac_PtrMemoryArray.exit.i22, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %51, align 8, !tbaa !20
+  %53 = load i32, ptr %51, align 8, !tbaa !21
   %54 = sext i32 %53 to i64
   %55 = uitofp i64 %54 to double
   %56 = tail call double @llvm.fmuladd.f64(double %55, double 8.000000e+00, double 1.600000e+01)
@@ -462,7 +462,7 @@ Bac_PtrMemoryArray.exit.i22:                      ; preds = %52, %49
   %59 = add nsw i32 %58, %.010.i20
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i18
-  br i1 %exitcond.not.i24, label %Bac_PtrMemoryArrayArray.exit25, label %49, !llvm.loop !21
+  br i1 %exitcond.not.i24, label %Bac_PtrMemoryArrayArray.exit25, label %49, !llvm.loop !22
 
 Bac_PtrMemoryArrayArray.exit25:                   ; preds = %Bac_PtrMemoryArray.exit.i22, %Bac_PtrMemoryArrayArray.exit
   %.0.lcssa.i15 = phi i32 [ 0, %Bac_PtrMemoryArrayArray.exit ], [ %59, %Bac_PtrMemoryArray.exit.i22 ]
@@ -479,7 +479,7 @@ define i32 @Bac_PtrMemory(ptr noundef readonly captures(address_is_null) %0) loc
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !20
+  %3 = load i32, ptr %0, align 8, !tbaa !21
   %4 = sext i32 %3 to i64
   %5 = uitofp i64 %4 to double
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 8.000000e+00, double 1.600000e+01)
@@ -489,7 +489,7 @@ define i32 @Bac_PtrMemory(ptr noundef readonly captures(address_is_null) %0) loc
 Vec_PtrMemory.exit:                               ; preds = %1, %2
   %8 = phi i32 [ %7, %2 ], [ 0, %1 ]
   %9 = getelementptr i8, ptr %0, i64 4
-  %.val9 = load i32, ptr %9, align 4, !tbaa !15
+  %.val9 = load i32, ptr %9, align 4, !tbaa !16
   %10 = icmp sgt i32 %.val9, 1
   br i1 %10, label %.lr.ph, label %.critedge
 
@@ -508,7 +508,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
   %16 = add nsw i32 %15, %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !23
 
 .critedge:                                        ; preds = %12, %Vec_PtrMemory.exit
   %.0.lcssa = phi i32 [ %8, %Vec_PtrMemory.exit ], [ %16, %12 ]
@@ -518,7 +518,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
 ; Function Attrs: nofree nounwind uwtable
 define void @Bac_PtrDumpSignalsBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 4
-  %.val67 = load i32, ptr %4, align 4, !tbaa !15
+  %.val67 = load i32, ptr %4, align 4, !tbaa !16
   %5 = icmp sgt i32 %.val67, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -533,10 +533,10 @@ define void @Bac_PtrDumpSignalsBlif(ptr noundef captures(none) %0, ptr noundef r
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %9) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val6 = load i32, ptr %4, align 4, !tbaa !15
+  %.val6 = load i32, ptr %4, align 4, !tbaa !16
   %11 = sext i32 %.val6 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %7, label %.critedge, !llvm.loop !23
+  br i1 %12, label %7, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %7, %3
   ret void
@@ -553,7 +553,7 @@ define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef reado
   %5 = load ptr, ptr %.val14, align 8, !tbaa !9
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %5) #14
   %7 = getelementptr i8, ptr %1, i64 4
-  %.val1516 = load i32, ptr %7, align 4, !tbaa !15
+  %.val1516 = load i32, ptr %7, align 4, !tbaa !16
   %8 = icmp sgt i32 %.val1516, 2
   br i1 %8, label %.lr.ph, label %.critedge
 
@@ -566,10 +566,10 @@ define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef reado
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.val15 = load i32, ptr %7, align 4, !tbaa !15
+  %.val15 = load i32, ptr %7, align 4, !tbaa !16
   %14 = trunc nuw i64 %indvars.iv.next to i32
   %15 = icmp sgt i32 %.val15, %14
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !24
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -579,7 +579,7 @@ define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef reado
 ; Function Attrs: nofree nounwind uwtable
 define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val67 = load i32, ptr %3, align 4, !tbaa !15
+  %.val67 = load i32, ptr %3, align 4, !tbaa !16
   %4 = icmp sgt i32 %.val67, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -598,7 +598,7 @@ define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef rea
   %11 = load ptr, ptr %.val14.i, align 8, !tbaa !9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %11) #14
   %13 = getelementptr i8, ptr %8, i64 4
-  %.val1516.i = load i32, ptr %13, align 4, !tbaa !15
+  %.val1516.i = load i32, ptr %13, align 4, !tbaa !16
   %14 = icmp sgt i32 %.val1516.i, 2
   br i1 %14, label %.lr.ph.i, label %Bac_PtrDumpBoxBlif.exit
 
@@ -611,18 +611,18 @@ define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef rea
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef %18) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %.val15.i = load i32, ptr %13, align 4, !tbaa !15
+  %.val15.i = load i32, ptr %13, align 4, !tbaa !16
   %20 = trunc nuw i64 %indvars.iv.next.i to i32
   %21 = icmp sgt i32 %.val15.i, %20
-  br i1 %21, label %.lr.ph.i, label %Bac_PtrDumpBoxBlif.exit, !llvm.loop !24
+  br i1 %21, label %.lr.ph.i, label %Bac_PtrDumpBoxBlif.exit, !llvm.loop !25
 
 Bac_PtrDumpBoxBlif.exit:                          ; preds = %.lr.ph.i, %6
   %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val6 = load i32, ptr %3, align 4, !tbaa !15
+  %.val6 = load i32, ptr %3, align 4, !tbaa !16
   %22 = sext i32 %.val6 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %6, label %.critedge, !llvm.loop !25
+  br i1 %23, label %6, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %Bac_PtrDumpBoxBlif.exit, %2
   ret void
@@ -639,7 +639,7 @@ define void @Bac_PtrDumpModuleBlif(ptr noundef captures(none) %0, ptr noundef re
   %7 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr i8, ptr %8, i64 4
-  %.val67.i = load i32, ptr %9, align 4, !tbaa !15
+  %.val67.i = load i32, ptr %9, align 4, !tbaa !16
   %10 = icmp sgt i32 %.val67.i, 0
   br i1 %10, label %.lr.ph.i, label %Bac_PtrDumpSignalsBlif.exit
 
@@ -654,10 +654,10 @@ define void @Bac_PtrDumpModuleBlif(ptr noundef captures(none) %0, ptr noundef re
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %14) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val6.i = load i32, ptr %9, align 4, !tbaa !15
+  %.val6.i = load i32, ptr %9, align 4, !tbaa !16
   %16 = sext i32 %.val6.i to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %12, label %Bac_PtrDumpSignalsBlif.exit, !llvm.loop !23
+  br i1 %17, label %12, label %Bac_PtrDumpSignalsBlif.exit, !llvm.loop !24
 
 Bac_PtrDumpSignalsBlif.exit:                      ; preds = %12, %2
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -666,7 +666,7 @@ Bac_PtrDumpSignalsBlif.exit:                      ; preds = %12, %2
   %19 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = getelementptr i8, ptr %20, i64 4
-  %.val67.i17 = load i32, ptr %21, align 4, !tbaa !15
+  %.val67.i17 = load i32, ptr %21, align 4, !tbaa !16
   %22 = icmp sgt i32 %.val67.i17, 0
   br i1 %22, label %.lr.ph.i18, label %Bac_PtrDumpSignalsBlif.exit23
 
@@ -681,10 +681,10 @@ Bac_PtrDumpSignalsBlif.exit:                      ; preds = %12, %2
   %26 = load ptr, ptr %25, align 8, !tbaa !9
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %26) #14
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
-  %.val6.i22 = load i32, ptr %21, align 4, !tbaa !15
+  %.val6.i22 = load i32, ptr %21, align 4, !tbaa !16
   %28 = sext i32 %.val6.i22 to i64
   %29 = icmp slt i64 %indvars.iv.next.i21, %28
-  br i1 %29, label %24, label %Bac_PtrDumpSignalsBlif.exit23, !llvm.loop !23
+  br i1 %29, label %24, label %Bac_PtrDumpSignalsBlif.exit23, !llvm.loop !24
 
 Bac_PtrDumpSignalsBlif.exit23:                    ; preds = %24, %Bac_PtrDumpSignalsBlif.exit
   %fputc13 = tail call i32 @fputc(i32 10, ptr %0)
@@ -713,7 +713,7 @@ define void @Bac_PtrDumpBlif(ptr noundef %0, ptr noundef readonly captures(none)
   %10 = tail call ptr (...) @Extra_TimeStamp() #14
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %9, ptr noundef %10) #14
   %12 = getelementptr i8, ptr %1, i64 4
-  %.val1415 = load i32, ptr %12, align 4, !tbaa !15
+  %.val1415 = load i32, ptr %12, align 4, !tbaa !16
   %13 = icmp sgt i32 %.val1415, 1
   br i1 %13, label %.lr.ph, label %.critedge
 
@@ -724,10 +724,10 @@ define void @Bac_PtrDumpBlif(ptr noundef %0, ptr noundef readonly captures(none)
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   tail call void @Bac_PtrDumpModuleBlif(ptr noundef nonnull %3, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val14 = load i32, ptr %12, align 4, !tbaa !15
+  %.val14 = load i32, ptr %12, align 4, !tbaa !16
   %16 = sext i32 %.val14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !26
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %7
   %18 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -751,7 +751,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind uwtable
 define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 4
-  %.val1011 = load i32, ptr %4, align 4, !tbaa !15
+  %.val1011 = load i32, ptr %4, align 4, !tbaa !16
   %5 = icmp sgt i32 %.val1011, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -772,10 +772,10 @@ define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr nounde
   %12 = select i1 %11, ptr @.str.12, ptr @.str.13
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef nonnull %12) #14
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %.val10.us = load i32, ptr %4, align 4, !tbaa !15
+  %.val10.us = load i32, ptr %4, align 4, !tbaa !16
   %14 = sext i32 %.val10.us to i64
   %15 = icmp slt i64 %indvars.iv.next17, %14
-  br i1 %15, label %.lr.ph.split.us, label %.critedge, !llvm.loop !27
+  br i1 %15, label %.lr.ph.split.us, label %.critedge, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -784,10 +784,10 @@ define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr nounde
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef nonnull @.str.12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val10 = load i32, ptr %4, align 4, !tbaa !15
+  %.val10 = load i32, ptr %4, align 4, !tbaa !16
   %19 = sext i32 %.val10 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph.split, label %.critedge, !llvm.loop !29
+  br i1 %20, label %.lr.ph.split, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret void
@@ -804,7 +804,7 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %7) #14
   %9 = getelementptr i8, ptr %1, i64 4
-  %.val2021 = load i32, ptr %9, align 4, !tbaa !15
+  %.val2021 = load i32, ptr %9, align 4, !tbaa !16
   %10 = icmp sgt i32 %.val2021, 2
   br i1 %10, label %.lr.ph, label %.critedge
 
@@ -822,10 +822,10 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
   %18 = select i1 %17, ptr @.str.17, ptr @.str.13
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %18) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %.val20 = load i32, ptr %9, align 4, !tbaa !15
+  %.val20 = load i32, ptr %9, align 4, !tbaa !16
   %20 = trunc nuw i64 %indvars.iv.next to i32
   %21 = icmp sgt i32 %.val20, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %22 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
@@ -835,7 +835,7 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
 ; Function Attrs: nofree nounwind uwtable
 define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val67 = load i32, ptr %3, align 4, !tbaa !15
+  %.val67 = load i32, ptr %3, align 4, !tbaa !16
   %4 = icmp sgt i32 %.val67, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -857,7 +857,7 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %13) #14
   %15 = getelementptr i8, ptr %8, i64 4
-  %.val2021.i = load i32, ptr %15, align 4, !tbaa !15
+  %.val2021.i = load i32, ptr %15, align 4, !tbaa !16
   %16 = icmp sgt i32 %.val2021.i, 2
   br i1 %16, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit
 
@@ -875,18 +875,18 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
   %24 = select i1 %23, ptr @.str.17, ptr @.str.13
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %18, ptr noundef %20, ptr noundef nonnull %24) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %.val20.i = load i32, ptr %15, align 4, !tbaa !15
+  %.val20.i = load i32, ptr %15, align 4, !tbaa !16
   %26 = trunc nuw i64 %indvars.iv.next.i to i32
   %27 = icmp sgt i32 %.val20.i, %26
-  br i1 %27, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit, !llvm.loop !30
+  br i1 %27, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit, !llvm.loop !31
 
 Bac_PtrDumpBoxVerilog.exit:                       ; preds = %.lr.ph.i, %6
   %28 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val6 = load i32, ptr %3, align 4, !tbaa !15
+  %.val6 = load i32, ptr %3, align 4, !tbaa !16
   %29 = sext i32 %.val6 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %6, label %.critedge, !llvm.loop !31
+  br i1 %30, label %6, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %Bac_PtrDumpBoxVerilog.exit, %2
   ret void
@@ -902,7 +902,7 @@ define void @Bac_PtrDumpModuleVerilog(ptr noundef captures(none) %0, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %.val21, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = getelementptr i8, ptr %7, i64 4
-  %.val1011.i = load i32, ptr %8, align 4, !tbaa !15
+  %.val1011.i = load i32, ptr %8, align 4, !tbaa !16
   %9 = icmp sgt i32 %.val1011.i, 0
   br i1 %9, label %.lr.ph.i, label %Bac_PtrDumpSignalsVerilog.exit
 
@@ -917,10 +917,10 @@ define void @Bac_PtrDumpModuleVerilog(ptr noundef captures(none) %0, ptr noundef
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef nonnull @.str.12) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val10.i = load i32, ptr %8, align 4, !tbaa !15
+  %.val10.i = load i32, ptr %8, align 4, !tbaa !16
   %14 = sext i32 %.val10.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.lr.ph.split.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !29
+  br i1 %15, label %.lr.ph.split.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !30
 
 Bac_PtrDumpSignalsVerilog.exit.loopexit:          ; preds = %.lr.ph.split.i
   %.val20.pre = load ptr, ptr %3, align 8, !tbaa !3
@@ -931,7 +931,7 @@ Bac_PtrDumpSignalsVerilog.exit:                   ; preds = %Bac_PtrDumpSignalsV
   %16 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = getelementptr i8, ptr %17, i64 4
-  %.val1011.i23 = load i32, ptr %18, align 4, !tbaa !15
+  %.val1011.i23 = load i32, ptr %18, align 4, !tbaa !16
   %19 = icmp sgt i32 %.val1011.i23, 0
   br i1 %19, label %.lr.ph.i24, label %Bac_PtrDumpSignalsVerilog.exit25
 
@@ -951,10 +951,10 @@ Bac_PtrDumpSignalsVerilog.exit:                   ; preds = %Bac_PtrDumpSignalsV
   %26 = select i1 %25, ptr @.str.12, ptr @.str.13
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %22, ptr noundef nonnull %26) #14
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %.val10.us.i = load i32, ptr %18, align 4, !tbaa !15
+  %.val10.us.i = load i32, ptr %18, align 4, !tbaa !16
   %28 = sext i32 %.val10.us.i to i64
   %29 = icmp slt i64 %indvars.iv.next17.i, %28
-  br i1 %29, label %.lr.ph.split.us.i, label %Bac_PtrDumpSignalsVerilog.exit25, !llvm.loop !27
+  br i1 %29, label %.lr.ph.split.us.i, label %Bac_PtrDumpSignalsVerilog.exit25, !llvm.loop !28
 
 Bac_PtrDumpSignalsVerilog.exit25:                 ; preds = %.lr.ph.split.us.i, %Bac_PtrDumpSignalsVerilog.exit
   %30 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %0)
@@ -963,7 +963,7 @@ Bac_PtrDumpSignalsVerilog.exit25:                 ; preds = %.lr.ph.split.us.i, 
   %32 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = getelementptr i8, ptr %33, i64 4
-  %.val1011.i26 = load i32, ptr %34, align 4, !tbaa !15
+  %.val1011.i26 = load i32, ptr %34, align 4, !tbaa !16
   %35 = icmp sgt i32 %.val1011.i26, 0
   br i1 %35, label %.lr.ph.i27, label %Bac_PtrDumpSignalsVerilog.exit34
 
@@ -983,10 +983,10 @@ Bac_PtrDumpSignalsVerilog.exit25:                 ; preds = %.lr.ph.split.us.i, 
   %42 = select i1 %41, ptr @.str.12, ptr @.str.13
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %38, ptr noundef nonnull %42) #14
   %indvars.iv.next17.i32 = add nuw nsw i64 %indvars.iv16.i29, 1
-  %.val10.us.i33 = load i32, ptr %34, align 4, !tbaa !15
+  %.val10.us.i33 = load i32, ptr %34, align 4, !tbaa !16
   %44 = sext i32 %.val10.us.i33 to i64
   %45 = icmp slt i64 %indvars.iv.next17.i32, %44
-  br i1 %45, label %.lr.ph.split.us.i28, label %Bac_PtrDumpSignalsVerilog.exit34, !llvm.loop !27
+  br i1 %45, label %.lr.ph.split.us.i28, label %Bac_PtrDumpSignalsVerilog.exit34, !llvm.loop !28
 
 Bac_PtrDumpSignalsVerilog.exit34:                 ; preds = %.lr.ph.split.us.i28, %Bac_PtrDumpSignalsVerilog.exit25
   %46 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
@@ -995,7 +995,7 @@ Bac_PtrDumpSignalsVerilog.exit34:                 ; preds = %.lr.ph.split.us.i28
   %48 = getelementptr inbounds nuw i8, ptr %.val18, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !9
   %50 = getelementptr i8, ptr %49, i64 4
-  %.val1011.i35 = load i32, ptr %50, align 4, !tbaa !15
+  %.val1011.i35 = load i32, ptr %50, align 4, !tbaa !16
   %51 = icmp sgt i32 %.val1011.i35, 0
   br i1 %51, label %.lr.ph.i36, label %Bac_PtrDumpSignalsVerilog.exit43
 
@@ -1015,10 +1015,10 @@ Bac_PtrDumpSignalsVerilog.exit34:                 ; preds = %.lr.ph.split.us.i28
   %58 = select i1 %57, ptr @.str.12, ptr @.str.13
   %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %54, ptr noundef nonnull %58) #14
   %indvars.iv.next17.i41 = add nuw nsw i64 %indvars.iv16.i38, 1
-  %.val10.us.i42 = load i32, ptr %50, align 4, !tbaa !15
+  %.val10.us.i42 = load i32, ptr %50, align 4, !tbaa !16
   %60 = sext i32 %.val10.us.i42 to i64
   %61 = icmp slt i64 %indvars.iv.next17.i41, %60
-  br i1 %61, label %.lr.ph.split.us.i37, label %Bac_PtrDumpSignalsVerilog.exit43, !llvm.loop !27
+  br i1 %61, label %.lr.ph.split.us.i37, label %Bac_PtrDumpSignalsVerilog.exit43, !llvm.loop !28
 
 Bac_PtrDumpSignalsVerilog.exit43:                 ; preds = %.lr.ph.split.us.i37, %Bac_PtrDumpSignalsVerilog.exit34
   %62 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
@@ -1047,7 +1047,7 @@ define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr noundef readonly captures(no
   %10 = tail call ptr (...) @Extra_TimeStamp() #14
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %9, ptr noundef %10) #14
   %12 = getelementptr i8, ptr %1, i64 4
-  %.val1415 = load i32, ptr %12, align 4, !tbaa !15
+  %.val1415 = load i32, ptr %12, align 4, !tbaa !16
   %13 = icmp sgt i32 %.val1415, 1
   br i1 %13, label %.lr.ph, label %.critedge
 
@@ -1058,10 +1058,10 @@ define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr noundef readonly captures(no
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   tail call void @Bac_PtrDumpModuleVerilog(ptr noundef nonnull %3, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val14 = load i32, ptr %12, align 4, !tbaa !15
+  %.val14 = load i32, ptr %12, align 4, !tbaa !16
   %16 = sext i32 %.val14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !32
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %7
   %18 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -1098,11 +1098,11 @@ declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #5
 define noalias noundef ptr @Bac_ManCollectGateNamesByTruth(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 11, ptr %2, align 8, !tbaa !20
+  store i32 11, ptr %2, align 8, !tbaa !21
   %calloc.i = tail call dereferenceable_or_null(88) ptr @calloc(i64 1, i64 88)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %calloc.i, ptr %4, align 8, !tbaa !3
-  store i32 11, ptr %3, align 4, !tbaa !15
+  store i32 11, ptr %3, align 4, !tbaa !16
   %5 = tail call ptr @Mio_LibraryReadGateByTruth(ptr noundef %0, i64 noundef 0) #14
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %Bac_ManCollectGateNameOne.exit, label %6
@@ -1346,7 +1346,7 @@ Abc_UtilStrsav.exit82:                            ; preds = %45, %47
   store ptr %52, ptr %53, align 8, !tbaa !9
   %54 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04787) #14
   %.not62 = icmp eq ptr %54, null
-  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %Abc_UtilStrsav.exit82
   %55 = shl nuw i64 %indvars.iv.next, 1
@@ -1398,11 +1398,11 @@ declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Bac_PtrTransformSigs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
-  %.val9 = load i32, ptr %2, align 4, !tbaa !15
+  %.val9 = load i32, ptr %2, align 4, !tbaa !16
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %4, align 4, !tbaa !15
-  store i32 %.val9, ptr %3, align 8, !tbaa !20
+  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 %.val9, ptr %3, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.val9, 0
   br i1 %.not.i, label %Vec_PtrAllocExact.exit.thread, label %Vec_PtrAllocExact.exit
 
@@ -1499,14 +1499,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   store ptr %21, ptr %44, align 8, !tbaa !9
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %.val8 = load i32, ptr %2, align 4, !tbaa !15
+  %.val8 = load i32, ptr %2, align 4, !tbaa !16
   %45 = sext i32 %.val8 to i64
   %46 = icmp slt i64 %indvars.iv.next17, %45
-  br i1 %46, label %12, label %..critedge_crit_edge, !llvm.loop !34
+  br i1 %46, label %12, label %..critedge_crit_edge, !llvm.loop !35
 
 ..critedge_crit_edge:                             ; preds = %Vec_PtrPush.exit
   %47 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %47, ptr %4, align 4, !tbaa !15
+  store i32 %47, ptr %4, align 4, !tbaa !16
   store i32 %42, ptr %3, align 8
   br label %.critedge
 
@@ -1517,11 +1517,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Bac_PtrTransformBox(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
-  %.val13 = load i32, ptr %3, align 4, !tbaa !15
+  %.val13 = load i32, ptr %3, align 4, !tbaa !16
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %5, align 4, !tbaa !15
-  store i32 %.val13, ptr %4, align 8, !tbaa !20
+  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 %.val13, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.val13, 0
   br i1 %.not.i, label %Vec_PtrAllocExact.exit.thread, label %Vec_PtrAllocExact.exit
 
@@ -1618,14 +1618,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   store ptr %22, ptr %45, align 8, !tbaa !9
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %.val12 = load i32, ptr %3, align 4, !tbaa !15
+  %.val12 = load i32, ptr %3, align 4, !tbaa !16
   %46 = sext i32 %.val12 to i64
   %47 = icmp slt i64 %indvars.iv.next21, %46
-  br i1 %47, label %13, label %..critedge_crit_edge, !llvm.loop !35
+  br i1 %47, label %13, label %..critedge_crit_edge, !llvm.loop !36
 
 ..critedge_crit_edge:                             ; preds = %Vec_PtrPush.exit
   %48 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %48, ptr %5, align 4, !tbaa !15
+  store i32 %48, ptr %5, align 4, !tbaa !16
   store i32 %43, ptr %4, align 8
   br label %.critedge
 
@@ -1644,11 +1644,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
-  %.val10 = load i32, ptr %3, align 4, !tbaa !15
+  %.val10 = load i32, ptr %3, align 4, !tbaa !16
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %5, align 4, !tbaa !15
-  store i32 %.val10, ptr %4, align 8, !tbaa !20
+  store i32 0, ptr %5, align 4, !tbaa !16
+  store i32 %.val10, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.val10, 0
   br i1 %.not.i, label %Vec_PtrAllocExact.exit.thread, label %Vec_PtrAllocExact.exit
 
@@ -1705,7 +1705,7 @@ Vec_PtrAllocExact.exit:                           ; preds = %2
 Vec_PtrGrow.exit.i:                               ; preds = %26, %24
   %28 = phi ptr [ %25, %24 ], [ %27, %26 ]
   store ptr %28, ptr %10, align 8, !tbaa !3
-  store i32 16, ptr %4, align 8, !tbaa !20
+  store i32 16, ptr %4, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 29:                                               ; preds = %20
@@ -1727,22 +1727,22 @@ Vec_PtrGrow.exit.i:                               ; preds = %26, %24
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %10, align 8, !tbaa !3
-  store i32 %30, ptr %4, align 8, !tbaa !20
+  store i32 %30, ptr %4, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %38
   %40 = phi i32 [ %14, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %30, %38 ], [ 16, %Vec_PtrGrow.exit.i ]
   %41 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %39, %38 ], [ %28, %Vec_PtrGrow.exit.i ]
   %42 = add nuw nsw i32 %15, 1
-  store i32 %42, ptr %5, align 4, !tbaa !15
+  store i32 %42, ptr %5, align 4, !tbaa !16
   %43 = zext nneg i32 %15 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
   store ptr %18, ptr %44, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val9 = load i32, ptr %3, align 4, !tbaa !15
+  %.val9 = load i32, ptr %3, align 4, !tbaa !16
   %45 = sext i32 %.val9 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %13, label %.critedge, !llvm.loop !36
+  br i1 %46, label %13, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %Vec_PtrAllocExact.exit.thread, %Vec_PtrAllocExact.exit
   ret ptr %4
@@ -1760,10 +1760,10 @@ define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(no
   %9 = getelementptr inbounds nuw i8, ptr %.val18, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr i8, ptr %0, i64 4
-  %.val19 = load i32, ptr %11, align 4, !tbaa !15
+  %.val19 = load i32, ptr %11, align 4, !tbaa !16
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %.val19, ptr %12, align 8, !tbaa !20
+  store i32 %.val19, ptr %12, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.val19, 0
   br i1 %.not.i, label %Vec_PtrAllocExact.exit, label %14
 
@@ -1806,13 +1806,13 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrAllocExact.e
 Vec_PtrGrow.exit.i:                               ; preds = %29, %27
   %31 = phi ptr [ %28, %27 ], [ %30, %29 ]
   store ptr %31, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
+  store i32 16, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %Abc_UtilStrsav.exit, %Vec_PtrGrow.exit.i
   %32 = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %.val19, %Abc_UtilStrsav.exit ]
   %33 = phi ptr [ %31, %Vec_PtrGrow.exit.i ], [ %18, %Abc_UtilStrsav.exit ]
-  store i32 1, ptr %13, align 4, !tbaa !15
+  store i32 1, ptr %13, align 4, !tbaa !16
   store ptr %25, ptr %33, align 8, !tbaa !9
   %34 = tail call ptr @Bac_PtrTransformSigs(ptr noundef %6)
   %35 = icmp eq i32 %32, 1
@@ -1834,7 +1834,7 @@ Vec_PtrPush.exit:                                 ; preds = %Abc_UtilStrsav.exit
 Vec_PtrGrow.exit.i26:                             ; preds = %40, %38
   %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %42, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
+  store i32 16, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit27
 
 Vec_PtrPush.exit27:                               ; preds = %Vec_PtrPush.exit, %Vec_PtrGrow.exit.i26
@@ -1862,7 +1862,7 @@ Vec_PtrPush.exit27:                               ; preds = %Vec_PtrPush.exit, %
 Vec_PtrGrow.exit.i33:                             ; preds = %52, %50
   %54 = phi ptr [ %51, %50 ], [ %53, %52 ]
   store ptr %54, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
+  store i32 16, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit34
 
 Vec_PtrPush.exit34:                               ; preds = %Vec_PtrPush.exit27, %Vec_PtrGrow.exit.i33
@@ -1890,8 +1890,8 @@ Vec_PtrPush.exit34:                               ; preds = %Vec_PtrPush.exit27,
 Vec_PtrPush.exit41.thread:                        ; preds = %61, %63
   %65 = phi ptr [ %62, %61 ], [ %64, %63 ]
   store ptr %65, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
-  store i32 4, ptr %13, align 4, !tbaa !15
+  store i32 16, ptr %12, align 8, !tbaa !21
+  store i32 4, ptr %13, align 4, !tbaa !16
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %calloc, ptr %66, align 8, !tbaa !9
   %67 = tail call ptr @Bac_PtrTransformBoxes(ptr noundef %10, ptr noundef %1)
@@ -1925,13 +1925,13 @@ Vec_PtrPush.exit41:                               ; preds = %Vec_PtrPush.exit34
 Vec_PtrGrow.exit.i47:                             ; preds = %76, %74
   %78 = phi ptr [ %75, %74 ], [ %77, %76 ]
   store ptr %78, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
+  store i32 16, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit48
 
 Vec_PtrPush.exit48:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i42, %Vec_PtrGrow.exit.i47
   %79 = phi ptr [ %71, %.Vec_PtrGrow.exit11_crit_edge.i42 ], [ %70, %Vec_PtrGrow.exit.i47 ]
   %80 = phi ptr [ %.pre.i44, %.Vec_PtrGrow.exit11_crit_edge.i42 ], [ %78, %Vec_PtrGrow.exit.i47 ]
-  store i32 5, ptr %13, align 4, !tbaa !15
+  store i32 5, ptr %13, align 4, !tbaa !16
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %79, ptr %81, align 8, !tbaa !9
   ret ptr %12
@@ -1960,10 +1960,10 @@ define noalias noundef ptr @Bac_PtrTransformTest(ptr noundef readonly captures(n
 9:                                                ; preds = %5
   %10 = tail call ptr @Bac_ManCollectGateNamesByTruth(ptr noundef nonnull %6)
   %11 = getelementptr i8, ptr %0, i64 4
-  %.val22 = load i32, ptr %11, align 4, !tbaa !15
+  %.val22 = load i32, ptr %11, align 4, !tbaa !16
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %.val22, ptr %12, align 8, !tbaa !20
+  store i32 %.val22, ptr %12, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.val22, 0
   br i1 %.not.i, label %Vec_PtrAllocExact.exit, label %14
 
@@ -2009,13 +2009,13 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrAllocExact.e
 Vec_PtrPush.exit.thread:                          ; preds = %29, %31
   %33 = phi ptr [ %30, %29 ], [ %32, %31 ]
   store ptr %33, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
-  store i32 1, ptr %13, align 4, !tbaa !15
+  store i32 16, ptr %12, align 8, !tbaa !21
+  store i32 1, ptr %13, align 4, !tbaa !16
   store ptr %27, ptr %33, align 8, !tbaa !9
   br label %.critedge
 
 Vec_PtrPush.exit:                                 ; preds = %Abc_UtilStrsav.exit
-  store i32 1, ptr %13, align 4, !tbaa !15
+  store i32 1, ptr %13, align 4, !tbaa !16
   store ptr %27, ptr %18, align 8, !tbaa !9
   %34 = icmp sgt i32 %.val22, 1
   br i1 %34, label %.lr.ph, label %.critedge
@@ -2055,7 +2055,7 @@ Vec_PtrPush.exit:                                 ; preds = %Abc_UtilStrsav.exit
 Vec_PtrGrow.exit.i29:                             ; preds = %47, %45
   %49 = phi ptr [ %46, %45 ], [ %48, %47 ]
   store ptr %49, ptr %19, align 8, !tbaa !3
-  store i32 16, ptr %12, align 8, !tbaa !20
+  store i32 16, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit30
 
 50:                                               ; preds = %41
@@ -2077,22 +2077,22 @@ Vec_PtrGrow.exit.i29:                             ; preds = %47, %45
 59:                                               ; preds = %57, %55
   %60 = phi ptr [ %56, %55 ], [ %58, %57 ]
   store ptr %60, ptr %19, align 8, !tbaa !3
-  store i32 %51, ptr %12, align 8, !tbaa !20
+  store i32 %51, ptr %12, align 8, !tbaa !21
   br label %Vec_PtrPush.exit30
 
 Vec_PtrPush.exit30:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i24, %Vec_PtrGrow.exit.i29, %59
   %61 = phi i32 [ %35, %.Vec_PtrGrow.exit11_crit_edge.i24 ], [ %51, %59 ], [ 16, %Vec_PtrGrow.exit.i29 ]
   %62 = phi ptr [ %.pre.i26, %.Vec_PtrGrow.exit11_crit_edge.i24 ], [ %60, %59 ], [ %49, %Vec_PtrGrow.exit.i29 ]
   %63 = add nuw nsw i32 %36, 1
-  store i32 %63, ptr %13, align 4, !tbaa !15
+  store i32 %63, ptr %13, align 4, !tbaa !16
   %64 = zext nneg i32 %36 to i64
   %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
   store ptr %39, ptr %65, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val21 = load i32, ptr %11, align 4, !tbaa !15
+  %.val21 = load i32, ptr %11, align 4, !tbaa !16
   %66 = sext i32 %.val21 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit30, %Vec_PtrPush.exit.thread, %Vec_PtrPush.exit
   tail call void @Bac_PtrDumpBlif(ptr noundef nonnull @.str.38, ptr noundef nonnull %12)
@@ -2127,7 +2127,7 @@ define void @Bac_PtrTransformTestTest() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %0
   %5 = getelementptr i8, ptr %3, i64 4
-  %.val89.i = load i32, ptr %5, align 4, !tbaa !15
+  %.val89.i = load i32, ptr %5, align 4, !tbaa !16
   %6 = icmp sgt i32 %.val89.i, 1
   br i1 %6, label %.lr.ph.i, label %.critedge.i
 
@@ -2142,10 +2142,10 @@ define void @Bac_PtrTransformTestTest() local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   tail call void @Bac_PtrFreeNtk(ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val8.i = load i32, ptr %5, align 4, !tbaa !15
+  %.val8.i = load i32, ptr %5, align 4, !tbaa !16
   %11 = sext i32 %.val8.i to i64
   %12 = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %12, label %8, label %.critedge.i, !llvm.loop !19
+  br i1 %12, label %8, label %.critedge.i, !llvm.loop !20
 
 .critedge.i:                                      ; preds = %8, %.preheader.i
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2167,7 +2167,7 @@ Bac_PtrFree.exit:                                 ; preds = %0, %Vec_PtrFree.exi
 
 .preheader.i7:                                    ; preds = %Bac_PtrFree.exit
   %16 = getelementptr i8, ptr %4, i64 4
-  %.val89.i8 = load i32, ptr %16, align 4, !tbaa !15
+  %.val89.i8 = load i32, ptr %16, align 4, !tbaa !16
   %17 = icmp sgt i32 %.val89.i8, 1
   %18 = getelementptr i8, ptr %4, i64 8
   %.val.i14 = load ptr, ptr %18, align 8, !tbaa !3
@@ -2184,7 +2184,7 @@ Bac_PtrFree.exit:                                 ; preds = %0, %Vec_PtrFree.exi
   tail call void @Bac_PtrFreeNtk(ptr noundef %22)
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i15, %19
-  br i1 %exitcond.not, label %.critedge.i9.thread, label %20, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge.i9.thread, label %20, !llvm.loop !20
 
 .critedge.i9:                                     ; preds = %.preheader.i7
   %.not.i.i10 = icmp eq ptr %.val.i14, null
@@ -2269,28 +2269,29 @@ attributes #17 = { nounwind allocsize(1) }
 !10 = !{!11, !5, i64 4}
 !11 = !{!"Vec_Vec_t_", !5, i64 0, !5, i64 4, !8, i64 8}
 !12 = !{!11, !8, i64 8}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!4, !5, i64 4}
-!16 = !{!17, !18, i64 8}
-!17 = !{!"Vec_Flt_t_", !5, i64 0, !5, i64 4, !18, i64 8}
-!18 = !{!"p1 float", !8, i64 0}
-!19 = distinct !{!19, !14}
-!20 = !{!4, !5, i64 0}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!4, !5, i64 4}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"Vec_Flt_t_", !5, i64 0, !5, i64 4, !19, i64 8}
+!19 = !{!"p1 float", !8, i64 0}
+!20 = distinct !{!20, !14, !15}
+!21 = !{!4, !5, i64 0}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !14, !15}
+!31 = distinct !{!31, !14, !15}
+!32 = distinct !{!32, !14, !15}
+!33 = distinct !{!33, !14, !15}
+!34 = distinct !{!34, !14, !15}
+!35 = distinct !{!35, !14, !15}
+!36 = distinct !{!36, !14, !15}
+!37 = distinct !{!37, !14, !15}
+!38 = distinct !{!38, !14, !15}

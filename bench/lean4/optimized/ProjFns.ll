@@ -969,7 +969,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %20, ptr %45, align 8, !tbaa !4
   %46 = tail call ptr @lean_array_push(ptr noundef %23, ptr noundef nonnull %40) #3
-  br label %3
+  br label %3, !llvm.loop !15
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1906,9 +1906,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l_Lean_isProjectionFn___rarg___lambda__1, ptr %37, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 3, ptr %38, align 8, !tbaa !15
+  store i16 3, ptr %38, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 2, ptr %39, align 2, !tbaa !15
+  store i16 2, ptr %39, align 2, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %1, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -1937,9 +1937,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_isProjectionFn___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !15
+  store i16 3, ptr %7, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !17
   ret ptr %2
 }
 
@@ -2143,9 +2143,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l_Lean_getProjectionFnInfo_x3f___rarg___lambda__1, ptr %37, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 3, ptr %38, align 8, !tbaa !15
+  store i16 3, ptr %38, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 2, ptr %39, align 2, !tbaa !15
+  store i16 2, ptr %39, align 2, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %1, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -2172,9 +2172,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_getProjectionFnInfo_x3f___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !15
+  store i16 3, ptr %7, align 8, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !15
+  store i16 0, ptr %8, align 2, !tbaa !17
   ret ptr %2
 }
 
@@ -2503,9 +2503,9 @@ _init_l_Lean_instReprProjectionFunctionInfo___closed__1.exit: ; preds = %_init_l
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr @l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____boxed, ptr %114, align 8, !tbaa !4
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store i16 2, ptr %115, align 8, !tbaa !15
+  store i16 2, ptr %115, align 8, !tbaa !17
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 18
-  store i16 0, ptr %116, align 2, !tbaa !15
+  store i16 0, ptr %116, align 2, !tbaa !17
   store ptr %110, ptr @l_Lean_instReprProjectionFunctionInfo___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %110) #3
   %117 = load ptr, ptr @l_Lean_instReprProjectionFunctionInfo___closed__1, align 8, !tbaa !4
@@ -2541,9 +2541,9 @@ _init_l_Lean_initFn____x40_Lean_ProjFns___hyg_193____closed__4.exit: ; preds = %
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr @l_Lean_RBMap_toArray___at_Lean_initFn____x40_Lean_ProjFns___hyg_193____spec__1___boxed, ptr %128, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store i16 1, ptr %129, align 8, !tbaa !15
+  store i16 1, ptr %129, align 8, !tbaa !17
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 18
-  store i16 0, ptr %130, align 2, !tbaa !15
+  store i16 0, ptr %130, align 2, !tbaa !17
   store ptr %124, ptr @l_Lean_initFn____x40_Lean_ProjFns___hyg_193____closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %124) #3
   %.not = icmp eq i8 %0, 0
@@ -2656,5 +2656,7 @@ attributes #4 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}

@@ -407,5 +407,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !10 = !{!"long", !7, i64 0}
 !11 = !{ptr @d2i_X509, ptr @d2i_X509_AUX}
 !12 = !{ptr @i2d_X509, ptr @i2d_X509_AUX}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}

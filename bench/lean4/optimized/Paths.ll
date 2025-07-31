@@ -341,7 +341,7 @@ lean_inc.exit13:                                  ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit13
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #4
-  br label %3
+  br label %3, !llvm.loop !14
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -3021,9 +3021,9 @@ _init_l_Lean_instToJsonLeanPaths___closed__1.exit: ; preds = %lean_dec_ref.exit1
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l___private_Lean_Util_Paths_0__Lean_toJsonLeanPaths____x40_Lean_Util_Paths___hyg_55_, ptr %37, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 1, ptr %38, align 8, !tbaa !14
+  store i16 1, ptr %38, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 0, ptr %39, align 2, !tbaa !14
+  store i16 0, ptr %39, align 2, !tbaa !16
   store ptr %33, ptr @l_Lean_instToJsonLeanPaths___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %33) #4
   %40 = load ptr, ptr @l_Lean_instToJsonLeanPaths___closed__1, align 8, !tbaa !4
@@ -3062,9 +3062,9 @@ _init_l___private_Lean_Util_Paths_0__Lean_fromJsonLeanPaths____x40_Lean_Util_Pat
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr @l___private_Lean_Util_Paths_0__Lean_fromJsonLeanPaths____x40_Lean_Util_Paths___hyg_135____lambda__1___boxed, ptr %52, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i16 1, ptr %53, align 8, !tbaa !14
+  store i16 1, ptr %53, align 8, !tbaa !16
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 18
-  store i16 0, ptr %54, align 2, !tbaa !14
+  store i16 0, ptr %54, align 2, !tbaa !16
   store ptr %48, ptr @l___private_Lean_Util_Paths_0__Lean_fromJsonLeanPaths____x40_Lean_Util_Paths___hyg_135____closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %48) #4
   %55 = load ptr, ptr @l___private_Lean_Util_Paths_0__Lean_fromJsonLeanPaths____x40_Lean_Util_Paths___hyg_135____closed__3, align 8, !tbaa !4
@@ -3175,9 +3175,9 @@ _init_l_Lean_instFromJsonLeanPaths___closed__1.exit: ; preds = %_init_l___privat
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr @l___private_Lean_Util_Paths_0__Lean_fromJsonLeanPaths____x40_Lean_Util_Paths___hyg_135_, ptr %111, align 8, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i16 1, ptr %112, align 8, !tbaa !14
+  store i16 1, ptr %112, align 8, !tbaa !16
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 18
-  store i16 0, ptr %113, align 2, !tbaa !14
+  store i16 0, ptr %113, align 2, !tbaa !16
   store ptr %107, ptr @l_Lean_instFromJsonLeanPaths___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %107) #4
   %114 = load ptr, ptr @l_Lean_instFromJsonLeanPaths___closed__1, align 8, !tbaa !4
@@ -3258,5 +3258,7 @@ attributes #5 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !6, i64 0}

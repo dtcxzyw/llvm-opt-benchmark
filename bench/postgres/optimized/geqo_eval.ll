@@ -110,7 +110,7 @@ list_length.exit:                                 ; preds = %._crit_edge
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next57, %28
-  br i1 %29, label %22, label %.critedge, !llvm.loop !6
+  br i1 %29, label %22, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %22
   %.not.i37 = icmp eq ptr %26, null
@@ -179,7 +179,7 @@ tailrecurse.us:                                   ; preds = %.split105.us.us, %1
   tail call void @pfree(ptr noundef nonnull %.tr89150.us) #2
   %16 = tail call ptr @list_delete_nth_cell(ptr noundef nonnull %.tr88148.us, i32 noundef %27) #2
   %cond.us = icmp eq ptr %16, null
-  br i1 %cond.us, label %.loopexit, label %.lr.ph.us, !llvm.loop !7
+  br i1 %cond.us, label %.loopexit, label %.lr.ph.us, !llvm.loop !8
 
 desirable_join.exit.thread.us.us:                 ; preds = %.lr.ph.us, %23
   %indvars.iv19117 = phi i64 [ %indvars.iv.next192, %23 ], [ 0, %.lr.ph.us ]
@@ -310,7 +310,7 @@ list_length.exit.preheader:                       ; preds = %.split.us
 list_length.exit:                                 ; preds = %70
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !10
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %70
   %76 = trunc nuw nsw i64 %indvars.iv194 to i32
@@ -358,9 +358,10 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6}

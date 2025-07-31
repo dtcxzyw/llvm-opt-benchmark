@@ -139,27 +139,27 @@ define void @Msat_SolverPrintStats(ptr noundef readonly captures(none) %0) local
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %8) #8
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %6, i32 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = load i64, ptr %11, align 8, !tbaa !32
+  %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = trunc i64 %12 to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %16 = load i64, ptr %15, align 8, !tbaa !33
+  %16 = load i64, ptr %15, align 8, !tbaa !34
   %17 = trunc i64 %16 to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %20 = load i64, ptr %19, align 8, !tbaa !34
+  %20 = load i64, ptr %19, align 8, !tbaa !35
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %21)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %24 = load i64, ptr %23, align 8, !tbaa !35
+  %24 = load i64, ptr %23, align 8, !tbaa !36
   %25 = trunc i64 %24 to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %25)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %28 = load i64, ptr %27, align 8, !tbaa !36
+  %28 = load i64, ptr %27, align 8, !tbaa !37
   %29 = trunc i64 %28 to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %29)
   ret void
@@ -183,10 +183,10 @@ define i32 @Msat_SolverSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %9, label %Abc_Clock.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = load i64, ptr %6, align 8, !tbaa !37
+  %11 = load i64, ptr %6, align 8, !tbaa !38
   %.neg59 = mul i64 %11, -1000000
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !39
+  %13 = load i64, ptr %12, align 8, !tbaa !40
   %.neg = sdiv i64 %13, -1000
   %.neg60 = add i64 %.neg, %.neg59
   br label %Abc_Clock.exit
@@ -210,7 +210,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 17:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
@@ -227,7 +227,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 23:                                               ; preds = %21, %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load ptr, ptr %24, align 8, !tbaa !41
+  %25 = load ptr, ptr %24, align 8, !tbaa !42
   call void @Msat_QueueClear(ptr noundef %25) #8
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
   br label %99
@@ -235,21 +235,21 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 .critedge:                                        ; preds = %17, %14, %Abc_Clock.exit
   %26 = call i32 @Msat_SolverReadDecisionLevel(ptr noundef %0) #8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %26, ptr %27, align 8, !tbaa !42
+  store i32 %26, ptr %27, align 8, !tbaa !43
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = call i32 @Msat_ClauseVecReadSize(ptr noundef %29) #8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %30, ptr %31, align 8, !tbaa !43
+  store i32 %30, ptr %31, align 8, !tbaa !44
   %32 = load ptr, ptr %28, align 8, !tbaa !27
   %33 = call i32 @Msat_ClauseVecReadSize(ptr noundef %32) #8
   %34 = sdiv i32 %33, 3
   %35 = sitofp i32 %34 to double
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %37 = load i64, ptr %36, align 8, !tbaa !33
+  %37 = load i64, ptr %36, align 8, !tbaa !34
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store i32 %38, ptr %39, align 4, !tbaa !44
+  store i32 %38, ptr %39, align 4, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = icmp sgt i32 %2, 0
@@ -262,14 +262,14 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 .critedge.split.us:                               ; preds = %.critedge, %Abc_Clock.exit58.us
   %.04564.us = phi double [ %53, %Abc_Clock.exit58.us ], [ 1.000000e+02, %.critedge ]
   %.04663.us = phi double [ %54, %Abc_Clock.exit58.us ], [ %35, %.critedge ]
-  %47 = load i32, ptr %40, align 8, !tbaa !45
+  %47 = load i32, ptr %40, align 8, !tbaa !46
   %.not55.us = icmp eq i32 %47, 0
   %.pre = fptosi double %.04564.us to i32
   %.pre75 = fptosi double %.04663.us to i32
   br i1 %.not55.us, label %.critedge.split.us._crit_edge, label %48
 
 48:                                               ; preds = %.critedge.split.us
-  %49 = load double, ptr %41, align 8, !tbaa !46
+  %49 = load double, ptr %41, align 8, !tbaa !47
   %50 = fmul double %49, 1.000000e+02
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre, i32 noundef %.pre75, double noundef %50)
   br label %.critedge.split.us._crit_edge
@@ -281,9 +281,9 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %42, label %55, label %61
 
 55:                                               ; preds = %.critedge.split.us._crit_edge
-  %56 = load i64, ptr %36, align 8, !tbaa !33
+  %56 = load i64, ptr %36, align 8, !tbaa !34
   %57 = trunc i64 %56 to i32
-  %58 = load i32, ptr %39, align 4, !tbaa !44
+  %58 = load i32, ptr %39, align 4, !tbaa !45
   %59 = sub nsw i32 %57, %58
   %60 = icmp sgt i32 %59, %2
   br i1 %60, label %.split.us, label %61
@@ -295,9 +295,9 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %63, label %Abc_Clock.exit58.us, label %64
 
 64:                                               ; preds = %61
-  %65 = load i64, ptr %5, align 8, !tbaa !37
+  %65 = load i64, ptr %5, align 8, !tbaa !38
   %66 = mul nsw i64 %65, 1000000
-  %67 = load i64, ptr %44, align 8, !tbaa !39
+  %67 = load i64, ptr %44, align 8, !tbaa !40
   %68 = sdiv i64 %67, 1000
   %69 = add nsw i64 %68, %66
   br label %Abc_Clock.exit58.us
@@ -309,7 +309,7 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   %.not56.us = icmp slt i64 %70, %46
   %71 = icmp eq i32 %52, 0
   %or.cond = select i1 %.not56.us, i1 %71, i1 false
-  br i1 %or.cond, label %.critedge.split.us, label %.split.us, !llvm.loop !47
+  br i1 %or.cond, label %.critedge.split.us, label %.split.us, !llvm.loop !48
 
 .critedge.split:                                  ; preds = %.critedge
   br i1 %42, label %.critedge.split.split.us, label %.critedge.split.split
@@ -317,14 +317,14 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
 .critedge.split.split.us:                         ; preds = %.critedge.split, %.critedge.split.split.us._crit_edge
   %.04564.us65 = phi double [ %78, %.critedge.split.split.us._crit_edge ], [ 1.000000e+02, %.critedge.split ]
   %.04663.us66 = phi double [ %79, %.critedge.split.split.us._crit_edge ], [ %35, %.critedge.split ]
-  %72 = load i32, ptr %40, align 8, !tbaa !45
+  %72 = load i32, ptr %40, align 8, !tbaa !46
   %.not55.us67 = icmp eq i32 %72, 0
   %.pre77 = fptosi double %.04564.us65 to i32
   %.pre79 = fptosi double %.04663.us66 to i32
   br i1 %.not55.us67, label %.critedge.split.split.us._crit_edge, label %73
 
 73:                                               ; preds = %.critedge.split.split.us
-  %74 = load double, ptr %41, align 8, !tbaa !46
+  %74 = load double, ptr %41, align 8, !tbaa !47
   %75 = fmul double %74, 1.000000e+02
   %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre77, i32 noundef %.pre79, double noundef %75)
   br label %.critedge.split.split.us._crit_edge
@@ -333,26 +333,26 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   %77 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre77, i32 noundef %.pre79, i32 noundef %2, ptr noundef nonnull %7) #8
   %78 = fmul double %.04564.us65, 1.500000e+00
   %79 = fmul double %.04663.us66, 1.100000e+00
-  %80 = load i64, ptr %36, align 8, !tbaa !33
+  %80 = load i64, ptr %36, align 8, !tbaa !34
   %81 = trunc i64 %80 to i32
-  %82 = load i32, ptr %39, align 4, !tbaa !44
+  %82 = load i32, ptr %39, align 4, !tbaa !45
   %83 = sub nsw i32 %81, %82
   %84 = icmp sle i32 %83, %2
   %85 = icmp eq i32 %77, 0
   %or.cond69 = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond69, label %.critedge.split.split.us, label %.split.us, !llvm.loop !49
+  br i1 %or.cond69, label %.critedge.split.split.us, label %.split.us, !llvm.loop !50
 
 .critedge.split.split:                            ; preds = %.critedge.split, %.critedge.split.split._crit_edge
   %.04564 = phi double [ %92, %.critedge.split.split._crit_edge ], [ 1.000000e+02, %.critedge.split ]
   %.04663 = phi double [ %93, %.critedge.split.split._crit_edge ], [ %35, %.critedge.split ]
-  %86 = load i32, ptr %40, align 8, !tbaa !45
+  %86 = load i32, ptr %40, align 8, !tbaa !46
   %.not55 = icmp eq i32 %86, 0
   %.pre81 = fptosi double %.04564 to i32
   %.pre83 = fptosi double %.04663 to i32
   br i1 %.not55, label %.critedge.split.split._crit_edge, label %87
 
 87:                                               ; preds = %.critedge.split.split
-  %88 = load double, ptr %41, align 8, !tbaa !46
+  %88 = load double, ptr %41, align 8, !tbaa !47
   %89 = fmul double %88, 1.000000e+02
   %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre81, i32 noundef %.pre83, double noundef %89)
   br label %.critedge.split.split._crit_edge
@@ -362,16 +362,16 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   %92 = fmul double %.04564, 1.500000e+00
   %93 = fmul double %.04663, 1.100000e+00
   %94 = icmp eq i32 %91, 0
-  br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !50
+  br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !51
 
 .split.us:                                        ; preds = %.critedge.split.split._crit_edge, %.critedge.split.split.us._crit_edge, %55, %Abc_Clock.exit58.us
   %.us-phi = phi i32 [ %52, %Abc_Clock.exit58.us ], [ %52, %55 ], [ %77, %.critedge.split.split.us._crit_edge ], [ %91, %.critedge.split.split._crit_edge ]
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
-  %95 = load i64, ptr %36, align 8, !tbaa !33
+  %95 = load i64, ptr %36, align 8, !tbaa !34
   %96 = trunc i64 %95 to i32
-  %97 = load i32, ptr %39, align 4, !tbaa !44
+  %97 = load i32, ptr %39, align 4, !tbaa !45
   %98 = sub nsw i32 %96, %97
-  store i32 %98, ptr %39, align 4, !tbaa !44
+  store i32 %98, ptr %39, align 4, !tbaa !45
   br label %99
 
 99:                                               ; preds = %23, %.split.us
@@ -443,25 +443,26 @@ attributes #8 = { nounwind }
 !26 = !{!"p1 _ZTS14Msat_Clause_t_", !9, i64 0}
 !27 = !{!4, !8, i64 8}
 !28 = !{!4, !16, i64 104}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!4, !8, i64 16}
-!32 = !{!4, !21, i64 256}
-!33 = !{!4, !21, i64 288}
-!34 = !{!4, !21, i64 264}
-!35 = !{!4, !21, i64 272}
-!36 = !{!4, !21, i64 280}
-!37 = !{!38, !21, i64 0}
-!38 = !{!"timespec", !21, i64 0, !21, i64 8}
-!39 = !{!38, !21, i64 8}
-!40 = distinct !{!40, !30}
-!41 = !{!4, !15, i64 88}
-!42 = !{!4, !5, i64 152}
-!43 = !{!4, !5, i64 312}
-!44 = !{!4, !5, i64 324}
-!45 = !{!4, !5, i64 168}
-!46 = !{!4, !10, i64 176}
-!47 = distinct !{!47, !30, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !30, !48}
-!50 = distinct !{!50, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!4, !8, i64 16}
+!33 = !{!4, !21, i64 256}
+!34 = !{!4, !21, i64 288}
+!35 = !{!4, !21, i64 264}
+!36 = !{!4, !21, i64 272}
+!37 = !{!4, !21, i64 280}
+!38 = !{!39, !21, i64 0}
+!39 = !{!"timespec", !21, i64 0, !21, i64 8}
+!40 = !{!39, !21, i64 8}
+!41 = distinct !{!41, !30, !31}
+!42 = !{!4, !15, i64 88}
+!43 = !{!4, !5, i64 152}
+!44 = !{!4, !5, i64 312}
+!45 = !{!4, !5, i64 324}
+!46 = !{!4, !5, i64 168}
+!47 = !{!4, !10, i64 176}
+!48 = distinct !{!48, !30, !31, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !30, !31, !49}
+!51 = distinct !{!51, !30, !31}

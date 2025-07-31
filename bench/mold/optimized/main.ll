@@ -206,7 +206,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %11, %_ZN3tbb6detail
   %.0..0..0..0..0..0..i.i = load i8, ptr %1, align 1, !tbaa !8, !range !10, !noundef !11
   %15 = trunc nuw i8 %.0..0..0..0..0..0..i.i to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  br i1 %15, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit, !llvm.loop !14
+  br i1 %15, label %.lr.ph.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit, !llvm.loop !15
 
 _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit:    ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %0
   %16 = load atomic i8, ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationDoneE seq_cst, align 1
@@ -231,7 +231,7 @@ _ZN3tbb6detail2r114__TBB_InitOnce7add_refEv.exit: ; preds = %18, %21
 23:                                               ; preds = %_ZN3tbb6detail2r114__TBB_InitOnce7add_refEv.exit
   %24 = tail call i64 @strspn(ptr noundef nonnull %22, ptr noundef nonnull @.str.9) #13
   %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !15
+  %26 = load i8, ptr %25, align 1, !tbaa !16
   %.not14.i = icmp eq i8 %26, 49
   br i1 %.not14.i, label %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit, label %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread
 
@@ -239,7 +239,7 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit: ; preds = %23
   %27 = getelementptr i8, ptr %25, i64 1
   %28 = tail call i64 @strspn(ptr noundef nonnull %27, ptr noundef nonnull @.str.9) #13
   %29 = getelementptr i8, ptr %27, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !15
+  %30 = load i8, ptr %29, align 1, !tbaa !16
   %.not15.i = icmp eq i8 %30, 0
   br i1 %.not15.i, label %31, label %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread
 
@@ -256,7 +256,7 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3t
   tail call void @_ZN3tbb6detail2r18governor22initialize_rml_factoryEv()
   %34 = load atomic i8, ptr @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads acquire, align 8
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit, !prof !16
+  br i1 %35, label %36, label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit, !prof !17
 
 36:                                               ; preds = %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread
   %37 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #8
@@ -268,7 +268,7 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3t
           to label %40 unwind label %41
 
 40:                                               ; preds = %38
-  store i32 %39, ptr @_ZZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads, align 4, !tbaa !17
+  store i32 %39, ptr @_ZZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads, align 4, !tbaa !18
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor19default_num_threadsEvE11num_threads) #8
   br label %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit
 
@@ -286,7 +286,7 @@ common.resume:                                    ; preds = %50, %41
 _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread, %36, %40
   %43 = load atomic i8, ptr @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size acquire, align 8
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit, !prof !16
+  br i1 %44, label %45, label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit, !prof !17
 
 45:                                               ; preds = %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit
   %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #8
@@ -298,7 +298,7 @@ _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %_ZN3tbb6detai
           to label %49 unwind label %50
 
 49:                                               ; preds = %47
-  store i64 %48, ptr @_ZZN3tbb6detail2r18governor17default_page_sizeEvE9page_size, align 8, !tbaa !18
+  store i64 %48, ptr @_ZZN3tbb6detail2r18governor17default_page_sizeEvE9page_size, align 8, !tbaa !19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tbb6detail2r18governor17default_page_sizeEvE9page_size) #8
   br label %_ZN3tbb6detail2r18governor17default_page_sizeEv.exit
 
@@ -376,8 +376,8 @@ declare noundef i64 @_ZN3tbb6detail2r121DefaultSystemPageSizeEv() local_unnamed_
 
 ; Function Attrs: sspstrong uwtable
 define internal void @_GLOBAL__sub_I_main.cpp() #11 section ".text.startup" {
-  store i8 0, ptr @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE, align 1, !tbaa !20
-  store i8 0, ptr @_ZN3tbb6detail2r135the_context_state_propagation_mutexE, align 1, !tbaa !20
+  store i8 0, ptr @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE, align 1, !tbaa !21
+  store i8 0, ptr @_ZN3tbb6detail2r135the_context_state_propagation_mutexE, align 1, !tbaa !21
   %1 = atomicrmw add ptr @_ZN3tbb6detail2r114__TBB_InitOnce5countE, i32 1 seq_cst, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %__cxx_global_var_init.2.exit
@@ -421,13 +421,14 @@ attributes #13 = { nounwind willreturn memory(read) }
 !9 = !{!"bool", !6, i64 0}
 !10 = !{i8 0, i8 2}
 !11 = !{}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!6, !6, i64 0}
-!16 = !{!"branch_weights", i32 1, i32 1048575}
-!17 = !{!5, !5, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"_ZTSSt13__atomic_baseIbE", !9, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!6, !6, i64 0}
+!17 = !{!"branch_weights", i32 1, i32 1048575}
+!18 = !{!5, !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!22, !9, i64 0}
+!22 = !{!"_ZTSSt13__atomic_baseIbE", !9, i64 0}

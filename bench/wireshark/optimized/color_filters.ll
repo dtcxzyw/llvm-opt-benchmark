@@ -251,7 +251,7 @@ define noundef zeroext i1 @color_filters_reset_tmp(ptr noundef writeonly capture
 2:                                                ; preds = %4
   %3 = add nuw nsw i8 %.06, 1
   %exitcond = icmp eq i8 %3, 11
-  br i1 %exitcond, label %6, label %4, !llvm.loop !10
+  br i1 %exitcond, label %6, label %4, !llvm.loop !11
 
 4:                                                ; preds = %1, %2
   %.06 = phi i8 [ 1, %1 ], [ %3, %2 ]
@@ -379,7 +379,7 @@ define internal fastcc noundef zeroext i1 @color_filters_get(ptr noundef writeon
   tail call void @g_free(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.not.i, label %color_filters_add_tmp.exit, label %7, !llvm.loop !11
+  br i1 %exitcond.not.i, label %color_filters_add_tmp.exit, label %7, !llvm.loop !12
 
 color_filters_add_tmp.exit:                       ; preds = %7
   tail call void @g_strfreev(ptr noundef %4)
@@ -775,7 +775,7 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
   %16 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
   %.011.pr = load ptr, ptr %16, align 8
   %.not13 = icmp eq ptr %.011.pr, null
-  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %15, %13, %1
   %.0 = phi ptr [ null, %1 ], [ null, %15 ], [ %6, %13 ]
@@ -889,7 +889,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnul
   %19 = load ptr, ptr %15, align 8
   %20 = load ptr, ptr %16, align 8
   %.not.i = icmp ult ptr %19, %20
-  br i1 %.not.i, label %23, label %21, !prof !13
+  br i1 %.not.i, label %23, label %21, !prof !14
 
 21:                                               ; preds = %.preheader106
   %22 = call i32 @__uflow(ptr noundef nonnull %1)
@@ -907,7 +907,7 @@ getc_unlocked.exit:                               ; preds = %21, %23
   switch i32 %27, label %.preheader106 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit108
-  ]
+  ], !llvm.loop !15
 
 .loopexit108:                                     ; preds = %getc_unlocked.exit, %.backedge
   %.173 = phi i8 [ %.072, %.backedge ], [ 0, %getc_unlocked.exit ]
@@ -917,7 +917,7 @@ getc_unlocked.exit:                               ; preds = %21, %23
   %29 = load ptr, ptr %15, align 8
   %30 = load ptr, ptr %16, align 8
   %.not.i95 = icmp ult ptr %29, %30
-  br i1 %.not.i95, label %getc_unlocked.exit96.thread, label %getc_unlocked.exit96, !prof !13
+  br i1 %.not.i95, label %getc_unlocked.exit96.thread, label %getc_unlocked.exit96, !prof !14
 
 getc_unlocked.exit96.thread:                      ; preds = %28
   %31 = getelementptr i8, ptr %29, i64 1
@@ -939,7 +939,7 @@ getc_unlocked.exit96:                             ; preds = %28
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 256
   %.not90 = icmp eq i16 %41, 0
-  br i1 %.not90, label %.critedge, label %28, !llvm.loop !14
+  br i1 %.not90, label %.critedge, label %28, !llvm.loop !16
 
 .critedge:                                        ; preds = %35
   switch i32 %36, label %42 [
@@ -953,7 +953,7 @@ getc_unlocked.exit96:                             ; preds = %28
 .backedge.backedge:                               ; preds = %42, %.critedge
   %.072.be = phi i8 [ %.173, %42 ], [ 1, %.critedge ]
   %.070.be = phi i1 [ true, %42 ], [ false, %.critedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !17
 
 .preheader105:                                    ; preds = %.critedge, %58
   %.182 = phi i32 [ %.283, %58 ], [ %.081.ph, %.critedge ]
@@ -962,7 +962,7 @@ getc_unlocked.exit96:                             ; preds = %28
   %43 = load ptr, ptr %15, align 8
   %44 = load ptr, ptr %16, align 8
   %.not.i97 = icmp ult ptr %43, %44
-  br i1 %.not.i97, label %47, label %45, !prof !13
+  br i1 %.not.i97, label %47, label %45, !prof !14
 
 45:                                               ; preds = %.preheader105
   %46 = call i32 @__uflow(ptr noundef nonnull %1)
@@ -1001,7 +1001,7 @@ getc_unlocked.exit98:                             ; preds = %45, %47
   %61 = zext i32 %.076 to i64
   %62 = getelementptr i8, ptr %.3, i64 %61
   store i8 %59, ptr %62, align 1
-  br label %.preheader105
+  br label %.preheader105, !llvm.loop !18
 
 63:                                               ; preds = %getc_unlocked.exit98, %getc_unlocked.exit98
   %64 = icmp eq i32 %51, -1
@@ -1012,7 +1012,7 @@ getc_unlocked.exit98:                             ; preds = %45, %47
 
 67:                                               ; preds = %63
   %68 = icmp eq i32 %.076, 0
-  br i1 %68, label %.outer, label %.preheader
+  br i1 %68, label %.outer, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %67, %84
   %.179 = phi i32 [ %.280, %84 ], [ %.078.ph.ph, %67 ]
@@ -1021,7 +1021,7 @@ getc_unlocked.exit98:                             ; preds = %45, %47
   %69 = load ptr, ptr %15, align 8
   %70 = load ptr, ptr %16, align 8
   %.not.i99 = icmp ult ptr %69, %70
-  br i1 %.not.i99, label %73, label %71, !prof !13
+  br i1 %.not.i99, label %73, label %71, !prof !14
 
 71:                                               ; preds = %.preheader
   %72 = call i32 @__uflow(ptr noundef nonnull %1)
@@ -1060,7 +1060,7 @@ getc_unlocked.exit100:                            ; preds = %71, %73
   %87 = zext i32 %.177 to i64
   %88 = getelementptr i8, ptr %.368, i64 %87
   store i8 %85, ptr %88, align 1
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 89:                                               ; preds = %getc_unlocked.exit100, %getc_unlocked.exit100
   %90 = icmp eq i32 %77, -1
@@ -1080,7 +1080,7 @@ getc_unlocked.exit100:                            ; preds = %71, %73
 
 .outer.outer.backedge:                            ; preds = %95, %126, %93
   %.072.ph.ph.be = phi i8 [ %.173, %95 ], [ %.375, %126 ], [ %.173, %93 ]
-  br label %.outer.outer
+  br label %.outer.outer, !llvm.loop !17
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
@@ -1458,10 +1458,15 @@ attributes #15 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}

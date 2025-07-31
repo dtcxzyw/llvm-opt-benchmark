@@ -45,7 +45,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4find17hfb946e760bba3078E(ptr
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e330ff53e6a1100E"(ptr nonnull sret([12 x i8]) align 4 %8, ptr nonnull align 4 %7)
   %18 = load i8, ptr %14, align 4
   %.not2.i = icmp eq i8 %18, 90
-  br i1 %.not2.i, label %15, label %19
+  br i1 %.not2.i, label %15, label %19, !llvm.loop !3
 
 19:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
@@ -107,7 +107,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17ha7c0d19357631b26E(ptr
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbfc3c723da1f032E"(ptr nonnull sret([12 x i8]) align 4 %7, ptr align 8 %1)
   %13 = load i8, ptr %9, align 4
   %.not = icmp eq i8 %13, 90
-  br i1 %.not, label %._crit_edge, label %12
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %12, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
@@ -143,7 +143,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5032aa252
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = trunc nuw i64 %18 to i1
-  br i1 %20, label %21, label %11
+  br i1 %20, label %21, label %11, !llvm.loop !6
 
 21:                                               ; preds = %13
   %22 = call { i64, i64 } @"_ZN185_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..ops..control_flow..ControlFlow$LT$B$C$core..convert..Infallible$GT$$GT$$GT$13from_residual17ha5a3c36c15170285E"(i64 %19)
@@ -183,7 +183,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h73f0d5482aaedcb7E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e330ff53e6a1100E"(ptr nonnull sret([12 x i8]) align 4 %7, ptr nonnull align 4 %6)
   %15 = load i8, ptr %11, align 4
   %.not2 = icmp eq i8 %15, 90
-  br i1 %.not2, label %12, label %16
+  br i1 %.not2, label %12, label %16, !llvm.loop !7
 
 16:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
@@ -221,7 +221,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2e39b79341d5279E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e330ff53e6a1100E"(ptr nonnull sret([12 x i8]) align 4 %7, ptr nonnull align 4 %6)
   %14 = load i8, ptr %10, align 4
   %.not2 = icmp eq i8 %14, 90
-  br i1 %.not2, label %11, label %15
+  br i1 %.not2, label %11, label %15, !llvm.loop !8
 
 15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
@@ -263,7 +263,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hdf565a0ea0ee4fd0E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1e330ff53e6a1100E"(ptr nonnull sret([12 x i8]) align 4 %8, ptr nonnull align 4 %7)
   %17 = load i8, ptr %13, align 4
   %.not2 = icmp eq i8 %17, 90
-  br i1 %.not2, label %14, label %18
+  br i1 %.not2, label %14, label %18, !llvm.loop !3
 
 18:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
@@ -487,3 +487,9 @@ attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

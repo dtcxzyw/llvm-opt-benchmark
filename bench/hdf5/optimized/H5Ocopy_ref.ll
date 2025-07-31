@@ -332,7 +332,7 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   %145 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %2, i64 %.03339.i
   %146 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %5, i64 %.03339.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
-  store ptr null, ptr %14, align 8, !tbaa !25
+  store ptr null, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
@@ -358,8 +358,8 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   br label %190
 
 158:                                              ; preds = %150
-  %159 = load ptr, ptr %14, align 8, !tbaa !25
-  store ptr %159, ptr %16, align 8, !tbaa !25
+  %159 = load ptr, ptr %14, align 8, !tbaa !26
+  store ptr %159, ptr %16, align 8, !tbaa !26
   %160 = load ptr, ptr %22, align 8, !tbaa !12
   call void @H5F_addr_decode(ptr noundef %160, ptr noundef nonnull %16, ptr noundef nonnull %142) #8
   %161 = load i64, ptr %142, align 8, !tbaa !22
@@ -369,7 +369,7 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   ]
 
 162:                                              ; preds = %158, %158
-  %163 = load ptr, ptr %14, align 8, !tbaa !25
+  %163 = load ptr, ptr %14, align 8, !tbaa !26
   call void @free(ptr noundef %163) #8
   %164 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %165 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
@@ -380,7 +380,7 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   store i64 -1, ptr %143, align 8, !tbaa !22
   %168 = call fastcc i32 @H5O__copy_obj_by_ref(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %6)
   %169 = icmp slt i32 %168, 0
-  %170 = load ptr, ptr %14, align 8, !tbaa !25
+  %170 = load ptr, ptr %14, align 8, !tbaa !26
   br i1 %169, label %171, label %175
 
 171:                                              ; preds = %167
@@ -391,16 +391,16 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   br label %190
 
 175:                                              ; preds = %167
-  store ptr %170, ptr %17, align 8, !tbaa !25
+  store ptr %170, ptr %17, align 8, !tbaa !26
   %176 = load ptr, ptr %21, align 8, !tbaa !12
   %177 = load i64, ptr %143, align 8, !tbaa !22
   call void @H5F_addr_encode(ptr noundef %176, ptr noundef nonnull %17, i64 noundef %177) #8
   %178 = load ptr, ptr %21, align 8, !tbaa !12
-  %179 = load ptr, ptr %14, align 8, !tbaa !25
+  %179 = load ptr, ptr %14, align 8, !tbaa !26
   %180 = load i64, ptr %15, align 8, !tbaa !10
   %181 = call i32 @H5R__encode_heap(ptr noundef %178, ptr noundef %146, ptr noundef nonnull %13, ptr noundef %179, i64 noundef %180) #8
   %182 = icmp slt i32 %181, 0
-  %183 = load ptr, ptr %14, align 8, !tbaa !25
+  %183 = load ptr, ptr %14, align 8, !tbaa !26
   call void @free(ptr noundef %183) #8
   br i1 %182, label %184, label %188
 
@@ -417,7 +417,7 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
   %189 = add nuw i64 %.03339.i, 1
   %exitcond.not.i32 = icmp eq i64 %189, %60
-  br i1 %exitcond.not.i32, label %H5O__copy_expand_ref_region1.exit.thread, label %144, !llvm.loop !27
+  br i1 %exitcond.not.i32, label %H5O__copy_expand_ref_region1.exit.thread, label %144, !llvm.loop !28
 
 H5O__copy_expand_ref_region1.exit.thread:         ; preds = %188, %134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
@@ -661,7 +661,7 @@ H5O__copy_expand_ref_object2.exit.thread39:       ; preds = %194
 323:                                              ; preds = %321, %271
   %324 = add nuw i64 %.0104206.i, 1
   %exitcond.not.i35 = icmp eq i64 %324, %60
-  br i1 %exitcond.not.i35, label %._crit_edge.i, label %271, !llvm.loop !28
+  br i1 %exitcond.not.i35, label %._crit_edge.i, label %271, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %323, %.preheader.i
   %325 = call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_type_conv_blk_free_list, i64 noundef %246) #8
@@ -896,7 +896,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr 
   store i64 %31, ptr %32, align 8, !tbaa !22
   %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.14, i64 noundef %31) #8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %35 = load i64, ptr %34, align 8, !tbaa !29
+  %35 = load i64, ptr %34, align 8, !tbaa !30
   %36 = call i32 @H5L_link(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef %35) #8
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %42
@@ -1025,15 +1025,16 @@ attributes #8 = { nounwind }
 !20 = !{!17, !19, i64 8}
 !21 = !{!"branch_weights", i32 2000, i32 2002}
 !22 = !{!13, !11, i64 8}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !15, i64 0}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = !{!30, !11, i64 88}
-!30 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !31, i64 8, !32, i64 16, !32, i64 20, !33, i64 24, !33, i64 32, !4, i64 40, !34, i64 48, !14, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !11, i64 88}
-!31 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !15, i64 0}
-!32 = !{!"int", !5, i64 0}
-!33 = !{!"p1 _ZTS6H5SL_t", !15, i64 0}
-!34 = !{!"p1 _ZTS5H5O_t", !15, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !15, i64 0}
+!28 = distinct !{!28, !24, !25}
+!29 = distinct !{!29, !24, !25}
+!30 = !{!31, !11, i64 88}
+!31 = !{!"H5O_copy_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !32, i64 8, !33, i64 16, !33, i64 20, !34, i64 24, !34, i64 32, !4, i64 40, !35, i64 48, !14, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !11, i64 88}
+!32 = !{!"p1 _ZTS27H5O_copy_dtype_merge_list_t", !15, i64 0}
+!33 = !{!"int", !5, i64 0}
+!34 = !{!"p1 _ZTS6H5SL_t", !15, i64 0}
+!35 = !{!"p1 _ZTS5H5O_t", !15, i64 0}

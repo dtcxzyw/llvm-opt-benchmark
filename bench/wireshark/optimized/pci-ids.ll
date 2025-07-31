@@ -37056,7 +37056,7 @@ bsearch.exit:                                     ; preds = %11
   %42 = getelementptr i8, ptr %.024, i64 16
   %43 = add nuw nsw i32 %.01523, 1
   %exitcond.not = icmp eq i32 %43, %21
-  br i1 %exitcond.not, label %bsearch.exit.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %bsearch.exit.thread, label %.lr.ph, !llvm.loop !9
 
 bsearch.exit.thread:                              ; preds = %14, %41, %18, %bsearch.exit, %38
   %.014 = phi ptr [ %40, %38 ], [ @.str, %bsearch.exit ], [ @.str, %18 ], [ @.str, %41 ], [ @.str, %14 ]
@@ -37073,6 +37073,7 @@ attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstro
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

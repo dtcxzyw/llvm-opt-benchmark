@@ -324,9 +324,9 @@ pushsig.exit:                                     ; preds = %14
 
 17:                                               ; preds = %pushsig.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @tty_new, ptr noundef nonnull align 4 dereferenceable(60) @tty_orig, i64 60, i1 false)
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tty_new, i64 12), align 4, !tbaa !21
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tty_new, i64 12), align 4, !tbaa !22
   %19 = and i32 %18, -9
-  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @tty_new, i64 12), align 4, !tbaa !21
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @tty_new, i64 12), align 4, !tbaa !22
   %.b.i = load i1, ptr @is_a_tty, align 4
   br i1 %.b.i, label %20, label %noecho_console.exit
 
@@ -392,7 +392,7 @@ read_till_nl.exit.thread:                         ; preds = %41
 43:                                               ; preds = %41
   %44 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #17
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %41, label %read_till_nl.exit, !llvm.loop !23
+  br i1 %45, label %41, label %read_till_nl.exit, !llvm.loop !24
 
 read_till_nl.exit:                                ; preds = %43
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #15
@@ -460,7 +460,7 @@ echo_console.exit:                                ; preds = %echo_console.exitth
 68:                                               ; preds = %65, %.preheader, %.preheader
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 32
-  br i1 %exitcond.not.i27, label %popsig.exit, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not.i27, label %popsig.exit, label %.preheader, !llvm.loop !25
 
 popsig.exit:                                      ; preds = %68, %echo_console.exit
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 8192) #15
@@ -571,9 +571,10 @@ attributes #17 = { nounwind willreturn memory(read) }
 !16 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !17 = !{!14, !14, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !14, i64 12}
-!22 = !{!"termios", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !6, i64 16, !6, i64 17, !14, i64 52, !14, i64 56}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23, !14, i64 12}
+!23 = !{!"termios", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !6, i64 16, !6, i64 17, !14, i64 52, !14, i64 56}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}

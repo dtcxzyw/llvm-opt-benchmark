@@ -627,7 +627,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.17, i32 noundef 29) #8
@@ -1288,7 +1288,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %331 = load i8, ptr %321, align 8
   %332 = zext i8 %331 to i32
   %333 = icmp samesign ult i32 %330, %332
-  br i1 %333, label %.lr.ph.i.i.i, label %llvm_process_parameter_value.exit.i.i, !llvm.loop !7
+  br i1 %333, label %.lr.ph.i.i.i, label %llvm_process_parameter_value.exit.i.i, !llvm.loop !9
 
 334:                                              ; preds = %193
   %335 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -1371,7 +1371,7 @@ llvm_process_parameter_value.exit.i.i:            ; preds = %.lr.ph.i.i.i, %374,
 llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_parameter_value.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %193, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit.i, label %193, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %llvm_emit_func_parameter.exit.i, %189, %186, %.critedge146.i
   %384 = load ptr, ptr %129, align 8
@@ -1390,7 +1390,7 @@ llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_
   %391 = load i32, ptr %390, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %389) #7
   %.not136.i = icmp eq i32 %391, 0
-  br i1 %.not136.i, label %._crit_edge.i, label %.lr.ph151.i, !llvm.loop !10
+  br i1 %.not136.i, label %._crit_edge.i, label %.lr.ph151.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph151.i, %.loopexit.i
   %392 = load ptr, ptr %145, align 8
@@ -1465,7 +1465,7 @@ llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_
   %.1.i33 = phi ptr [ %.0119152.i, %.lr.ph155.i ], [ %413, %415 ]
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count163.i
-  br i1 %exitcond164.not.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !11
+  br i1 %exitcond164.not.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !13
 
 ._crit_edge156.i:                                 ; preds = %416, %409, %.critedge.thread.i
   %417 = call ptr @LLVMGetInstructionParent(ptr noundef %153) #7
@@ -1640,7 +1640,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
   store ptr %60, ptr %82, align 8
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
-  br i1 %exitcond236.not, label %._crit_edge228, label %34, !llvm.loop !12
+  br i1 %exitcond236.not, label %._crit_edge228, label %34, !llvm.loop !14
 
 ._crit_edge228:                                   ; preds = %77, %17
   %.0190.lcssa = phi ptr [ %30, %17 ], [ %80, %77 ]
@@ -1887,7 +1887,7 @@ expand_.exit216:                                  ; preds = %128, %132
   %231 = call ptr @LLVMBuildStore(ptr noundef %163, ptr noundef %190, ptr noundef %219) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %173, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %173, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %203, %158
   %232 = call ptr @LLVMBuildRet(ptr noundef %163, ptr noundef null) #7
@@ -2161,7 +2161,7 @@ tailrecurse:                                      ; preds = %37, %5
   %18 = add nuw i32 %.04657, 1
   %19 = load i32, ptr %11, align 8
   %20 = icmp ult i32 %18, %19
-  br i1 %20, label %14, label %.loopexit, !llvm.loop !14
+  br i1 %20, label %14, label %.loopexit, !llvm.loop !16
 
 21:                                               ; preds = %tailrecurse
   %22 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %.tr49) #7
@@ -2194,7 +2194,7 @@ tailrecurse:                                      ; preds = %37, %5
   call fastcc void @llvm_expand_from_args(ptr noundef %0, ptr noundef %35, ptr noundef %31, ptr noundef %3, i32 noundef %36)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 37:                                               ; preds = %tailrecurse
   %38 = tail call ptr @type_find_largest_union_element(ptr noundef nonnull %.tr49) #7
@@ -2258,11 +2258,13 @@ attributes #8 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
+!13 = distinct !{!13, !10, !8}
+!14 = distinct !{!14, !10, !8}
+!15 = distinct !{!15, !10, !8}
+!16 = distinct !{!16, !10, !8}
+!17 = distinct !{!17, !10, !8}

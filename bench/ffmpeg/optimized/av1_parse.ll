@@ -120,20 +120,20 @@ parse_obu_header.exit:                            ; preds = %62
 
 70:                                               ; preds = %parse_obu_header.exit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %15, ptr %71, align 8, !tbaa !9
+  store i32 %15, ptr %71, align 8, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.024, ptr %72, align 4, !tbaa !14
+  store i32 %.024, ptr %72, align 4, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.0, ptr %73, align 8, !tbaa !15
+  store i32 %.0, ptr %73, align 8, !tbaa !16
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 %64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %74, ptr %75, align 8, !tbaa !16
+  store ptr %74, ptr %75, align 8, !tbaa !17
   %76 = trunc i64 %60 to i32
-  store i32 %76, ptr %0, align 8, !tbaa !17
+  store i32 %76, ptr %0, align 8, !tbaa !18
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %77, align 8, !tbaa !18
+  store ptr %1, ptr %77, align 8, !tbaa !19
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %68, ptr %78, align 4, !tbaa !19
+  store i32 %68, ptr %78, align 4, !tbaa !20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %15, i32 noundef %.024, i32 noundef %.0, i32 noundef %76) #6
   br label %parse_obu_header.exit.thread
 
@@ -164,7 +164,7 @@ bytestream2_init.exit:                            ; preds = %4
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %9, align 8, !tbaa !20
+  store i32 0, ptr %9, align 8, !tbaa !21
   %10 = ptrtoint ptr %8 to i64
   %.not78 = icmp eq i32 %2, 0
   br i1 %.not78, label %.thread65, label %.lr.ph
@@ -178,8 +178,8 @@ bytestream2_init.exit:                            ; preds = %4
   %14 = phi i32 [ %2, %.lr.ph ], [ %78, %75 ]
   %15 = phi i64 [ %7, %.lr.ph ], [ %77, %75 ]
   %.sroa.0.071 = phi ptr [ %1, %.lr.ph ], [ %38, %75 ]
-  %16 = load i32, ptr %11, align 4, !tbaa !23
-  %17 = load i32, ptr %9, align 8, !tbaa !20
+  %16 = load i32, ptr %11, align 4, !tbaa !24
+  %17 = load i32, ptr %9, align 8, !tbaa !21
   %.not = icmp sgt i32 %16, %17
   br i1 %.not, label %29, label %18
 
@@ -189,7 +189,7 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %20, label %.thread65, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %0, align 8, !tbaa !24
+  %22 = load ptr, ptr %0, align 8, !tbaa !25
   %narrow = mul nuw nsw i32 %19, 48
   %23 = zext nneg i32 %narrow to i64
   %24 = tail call ptr @av_fast_realloc(ptr noundef %22, ptr noundef nonnull %12, i64 noundef %23) #6
@@ -197,18 +197,18 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %.not46, label %.thread65, label %25
 
 25:                                               ; preds = %21
-  store ptr %24, ptr %0, align 8, !tbaa !24
-  %26 = load i32, ptr %11, align 4, !tbaa !23
+  store ptr %24, ptr %0, align 8, !tbaa !25
+  %26 = load i32, ptr %11, align 4, !tbaa !24
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.AV1OBU, ptr %24, i64 %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, i8 0, i64 48, i1 false)
-  store i32 %19, ptr %11, align 4, !tbaa !23
-  %.pre = load i32, ptr %9, align 8, !tbaa !20
+  store i32 %19, ptr %11, align 4, !tbaa !24
+  %.pre = load i32, ptr %9, align 8, !tbaa !21
   br label %29
 
 29:                                               ; preds = %25, %13
   %30 = phi i32 [ %.pre, %25 ], [ %17, %13 ]
-  %31 = load ptr, ptr %0, align 8, !tbaa !24
+  %31 = load ptr, ptr %0, align 8, !tbaa !25
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %struct.AV1OBU, ptr %31, i64 %32
   %34 = tail call i32 @ff_av1_extract_obu(ptr noundef %33, ptr noundef %.sroa.0.071, i32 noundef %14, ptr noundef %3)
@@ -220,10 +220,10 @@ bytestream2_init.exit:                            ; preds = %4
   %..i = tail call i64 @llvm.smin.i64(i64 %15, i64 %37)
   %38 = getelementptr inbounds i8, ptr %.sroa.0.071, i64 %..i
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !16
-  %41 = load i32, ptr %33, align 8, !tbaa !17
+  %40 = load ptr, ptr %39, align 8, !tbaa !17
+  %41 = load i32, ptr %33, align 8, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %43 = load i32, ptr %42, align 8, !tbaa !9
+  %43 = load i32, ptr %42, align 8, !tbaa !10
   switch i32 %43, label %.preheader.i [
     i32 8, label %45
     i32 6, label %45
@@ -251,7 +251,7 @@ bytestream2_init.exit:                            ; preds = %4
 51:                                               ; preds = %.lr.ph.i
   %52 = add nsw i32 %.02129.i, -1
   %53 = icmp sgt i32 %.02129.i, 1
-  br i1 %53, label %.lr.ph.i, label %.thread62, !llvm.loop !25
+  br i1 %53, label %.lr.ph.i, label %.thread62, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not.i = icmp eq i32 %41, 0
@@ -284,18 +284,18 @@ bytestream2_init.exit:                            ; preds = %4
 
 get_obu_bit_length.exit.thread:                   ; preds = %55, %45
   %64 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 -34, ptr %64, align 8, !tbaa !26
+  store i32 -34, ptr %64, align 8, !tbaa !27
   br label %71
 
 .thread62:                                        ; preds = %51, %.critedge.i
   %65 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 0, ptr %65, align 8, !tbaa !26
+  store i32 0, ptr %65, align 8, !tbaa !27
   br label %70
 
 get_obu_bit_length.exit:                          ; preds = %45, %57, %60
   %.0.i = phi i32 [ %63, %60 ], [ %59, %57 ], [ %47, %45 ]
   %66 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 %.0.i, ptr %66, align 8, !tbaa !26
+  store i32 %.0.i, ptr %66, align 8, !tbaa !27
   %67 = icmp slt i32 %.0.i, 0
   br i1 %67, label %71, label %68
 
@@ -311,12 +311,12 @@ get_obu_bit_length.exit:                          ; preds = %45, %57, %60
 
 71:                                               ; preds = %get_obu_bit_length.exit.thread, %70, %get_obu_bit_length.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %43) #6
-  br label %75, !llvm.loop !27
+  br label %75, !llvm.loop !28
 
 72:                                               ; preds = %70, %70, %68
-  %73 = load i32, ptr %9, align 8, !tbaa !20
+  %73 = load i32, ptr %9, align 8, !tbaa !21
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %9, align 8, !tbaa !20
+  store i32 %74, ptr %9, align 8, !tbaa !21
   br label %75
 
 75:                                               ; preds = %72, %71
@@ -340,9 +340,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @ff_av1_packet_uninit(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @av_freep(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 8, !tbaa !28
+  store i32 0, ptr %2, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %3, align 4, !tbaa !23
+  store i32 0, ptr %3, align 4, !tbaa !24
   ret void
 }
 
@@ -417,25 +417,26 @@ attributes #7 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !11, i64 32}
-!10 = !{!"AV1OBU", !11, i64 0, !12, i64 8, !11, i64 16, !11, i64 20, !12, i64 24, !11, i64 32, !11, i64 36, !11, i64 40}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!10, !11, i64 36}
-!15 = !{!10, !11, i64 40}
-!16 = !{!10, !12, i64 8}
-!17 = !{!10, !11, i64 0}
-!18 = !{!10, !12, i64 24}
-!19 = !{!10, !11, i64 20}
-!20 = !{!21, !11, i64 8}
-!21 = !{!"AV1Packet", !22, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!22 = !{!"p1 _ZTS6AV1OBU", !13, i64 0}
-!23 = !{!21, !11, i64 12}
-!24 = !{!21, !22, i64 0}
-!25 = distinct !{!25, !8}
-!26 = !{!10, !11, i64 16}
-!27 = distinct !{!27, !8}
-!28 = !{!21, !11, i64 16}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !12, i64 32}
+!11 = !{!"AV1OBU", !12, i64 0, !13, i64 8, !12, i64 16, !12, i64 20, !13, i64 24, !12, i64 32, !12, i64 36, !12, i64 40}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!11, !12, i64 36}
+!16 = !{!11, !12, i64 40}
+!17 = !{!11, !13, i64 8}
+!18 = !{!11, !12, i64 0}
+!19 = !{!11, !13, i64 24}
+!20 = !{!11, !12, i64 20}
+!21 = !{!22, !12, i64 8}
+!22 = !{!"AV1Packet", !23, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!23 = !{!"p1 _ZTS6AV1OBU", !14, i64 0}
+!24 = !{!22, !12, i64 12}
+!25 = !{!22, !23, i64 0}
+!26 = distinct !{!26, !8, !9}
+!27 = !{!11, !12, i64 16}
+!28 = distinct !{!28, !8}
+!29 = !{!22, !12, i64 16}

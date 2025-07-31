@@ -992,7 +992,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr noundef readonly captu
   %34 = icmp ne ptr %.1.i, null
   %35 = icmp sgt i64 %14, %indvars.iv.next.i
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %33, label %spl_ptr_llist_offset.exit
+  br i1 %36, label %33, label %spl_ptr_llist_offset.exit, !llvm.loop !68
 
 spl_ptr_llist_offset.exit:                        ; preds = %33, %26
   %.1.lcssa.i = phi ptr [ %.111.i, %26 ], [ %.1.i, %33 ]
@@ -1066,7 +1066,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr noundef readonly captu
   %6 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
-  store i8 1, ptr %4, align 1, !tbaa !68
+  store i8 1, ptr %4, align 1, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
@@ -1084,7 +1084,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds i8, ptr %16, i64 -72
-  %18 = load i8, ptr %4, align 1, !tbaa !68, !range !69, !noundef !70
+  %18 = load i8, ptr %4, align 1, !tbaa !70, !range !71, !noundef !72
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %44
 
@@ -1184,7 +1184,7 @@ spl_ptr_llist_push.exit:                          ; preds = %38, %40
   %64 = icmp ne ptr %.1.i, null
   %65 = icmp sgt i64 %45, %indvars.iv.next.i
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %63, label %spl_ptr_llist_offset.exit
+  br i1 %66, label %63, label %spl_ptr_llist_offset.exit, !llvm.loop !68
 
 spl_ptr_llist_offset.exit:                        ; preds = %63, %56
   %.1.lcssa.i = phi ptr [ %.111.i, %56 ], [ %.1.i, %63 ]
@@ -1306,7 +1306,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr noundef readonly cap
   %34 = icmp ne ptr %.1.i, null
   %35 = icmp sgt i64 %16, %indvars.iv.next.i
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %33, label %spl_ptr_llist_offset.exit
+  br i1 %36, label %33, label %spl_ptr_llist_offset.exit, !llvm.loop !68
 
 spl_ptr_llist_offset.exit:                        ; preds = %33, %26
   %.1.lcssa.i = phi ptr [ %.111.i, %26 ], [ %.1.i, %33 ]
@@ -1357,7 +1357,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %33, %26
   %53 = add nsw i32 %20, -1
   store i32 %53, ptr %19, align 8, !tbaa !58
   %54 = getelementptr inbounds i8, ptr %13, i64 -64
-  %55 = load ptr, ptr %54, align 8, !tbaa !71
+  %55 = load ptr, ptr %54, align 8, !tbaa !73
   %56 = icmp eq ptr %55, %.1.lcssa.i
   br i1 %56, label %57, label %63
 
@@ -1374,7 +1374,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %33, %26
   br label %62
 
 62:                                               ; preds = %61, %57
-  store ptr null, ptr %54, align 8, !tbaa !71
+  store ptr null, ptr %54, align 8, !tbaa !73
   br label %63
 
 63:                                               ; preds = %62, %52
@@ -1426,7 +1426,7 @@ define hidden void @zim_SplDoublyLinkedList_key(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
-  %11 = load i32, ptr %10, align 8, !tbaa !72
+  %11 = load i32, ptr %10, align 8, !tbaa !74
   %12 = sext i32 %11 to i64
   store i64 %12, ptr %1, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1484,9 +1484,9 @@ define internal fastcc void @spl_dllist_it_helper_move_forward(ptr noundef captu
 10:                                               ; preds = %8
   %11 = load ptr, ptr %7, align 8, !tbaa !53
   store ptr %11, ptr %0, align 8, !tbaa !67
-  %12 = load i32, ptr %1, align 4, !tbaa !73
+  %12 = load i32, ptr %1, align 4, !tbaa !75
   %13 = add nsw i32 %12, -1
-  store i32 %13, ptr %1, align 4, !tbaa !73
+  store i32 %13, ptr %1, align 4, !tbaa !75
   %14 = and i32 %3, 1
   %.not19 = icmp eq i32 %14, 0
   br i1 %.not19, label %70, label %15
@@ -1614,9 +1614,9 @@ spl_ptr_llist_shift.exit:                         ; preds = %46, %54, %66
   br label %70
 
 67:                                               ; preds = %39
-  %68 = load i32, ptr %1, align 4, !tbaa !73
+  %68 = load i32, ptr %1, align 4, !tbaa !75
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %1, align 4, !tbaa !73
+  store i32 %69, ptr %1, align 4, !tbaa !75
   br label %70
 
 70:                                               ; preds = %spl_ptr_llist_shift.exit, %67, %10, %spl_ptr_llist_pop.exit
@@ -1695,7 +1695,7 @@ define hidden void @zim_SplDoublyLinkedList_valid(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %9, i64 -64
-  %11 = load ptr, ptr %10, align 8, !tbaa !71
+  %11 = load ptr, ptr %10, align 8, !tbaa !73
   %.not4 = icmp eq ptr %11, null
   %12 = select i1 %.not4, i32 2, i32 3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1761,7 +1761,7 @@ define hidden void @zim_SplDoublyLinkedList_rewind(ptr noundef readonly captures
 30:                                               ; preds = %25, %23
   %.sink.i = phi i32 [ %28, %25 ], [ 0, %23 ]
   %storemerge.in.i = phi ptr [ %29, %25 ], [ %13, %23 ]
-  store i32 %.sink.i, ptr %12, align 4, !tbaa !73
+  store i32 %.sink.i, ptr %12, align 4, !tbaa !75
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !tbaa !67
   store ptr %storemerge.i, ptr %11, align 8, !tbaa !67
   %.not15.i = icmp eq ptr %storemerge.i, null
@@ -1783,7 +1783,7 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr noundef readonly capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %4, i64 -64
-  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %6 = load ptr, ptr %5, align 8, !tbaa !73
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %.not = icmp eq i32 %8, 0
@@ -1886,7 +1886,7 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr noundef readonly captu
 
 .critedge:                                        ; preds = %2
   %16 = tail call ptr @php_var_serialize_init() #13
-  store ptr %16, ptr %5, align 8, !tbaa !74
+  store ptr %16, ptr %5, align 8, !tbaa !76
   %17 = getelementptr inbounds i8, ptr %7, i64 -52
   %18 = load i32, ptr %17, align 4, !tbaa !66
   %19 = sext i32 %18 to i64
@@ -1903,22 +1903,22 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr noundef readonly captu
 
 22:                                               ; preds = %38, %.lr.ph
   %.034 = phi ptr [ %10, %.lr.ph ], [ %37, %38 ]
-  %23 = load ptr, ptr %3, align 8, !tbaa !76
+  %23 = load ptr, ptr %3, align 8, !tbaa !78
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %29, label %24, !prof !61
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !78
+  %26 = load i64, ptr %25, align 8, !tbaa !80
   %27 = add i64 %26, 1
-  %28 = load i64, ptr %21, align 8, !tbaa !80
+  %28 = load i64, ptr %21, align 8, !tbaa !82
   %.not12.i = icmp ult i64 %27, %28
   br i1 %.not12.i, label %smart_str_alloc.exit, label %29, !prof !59
 
 29:                                               ; preds = %24, %22
   %.0.i = phi i64 [ 1, %22 ], [ %27, %24 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i) #13
-  %.pre = load ptr, ptr %3, align 8, !tbaa !76
+  %.pre = load ptr, ptr %3, align 8, !tbaa !78
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %24, %29
@@ -1928,9 +1928,9 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   %32 = add i64 %.1.i, -1
   %33 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %32
   store i8 58, ptr %33, align 1, !tbaa !4
-  %34 = load ptr, ptr %3, align 8, !tbaa !76
+  %34 = load ptr, ptr %3, align 8, !tbaa !78
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i64 %.1.i, ptr %35, align 8, !tbaa !78
+  store i64 %.1.i, ptr %35, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %.not22 = icmp eq ptr %37, null
@@ -1947,7 +1947,7 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   %44 = add i32 %43, -1
   store i32 %44, ptr %39, align 4, !tbaa !4
   %.not23 = icmp eq i32 %44, 0
-  br i1 %.not23, label %45, label %22
+  br i1 %.not23, label %45, label %22, !llvm.loop !83
 
 45:                                               ; preds = %38
   call void @_efree(ptr noundef nonnull %37) #13
@@ -1959,27 +1959,27 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge, %45
-  %47 = load ptr, ptr %5, align 8, !tbaa !74
+  %47 = load ptr, ptr %5, align 8, !tbaa !76
   call void @php_var_serialize_destroy(ptr noundef %47) #13
-  %48 = load ptr, ptr %3, align 8, !tbaa !76
+  %48 = load ptr, ptr %3, align 8, !tbaa !78
   %.not.i27 = icmp eq ptr %48, null
   br i1 %.not.i27, label %93, label %smart_str_0.exit
 
 smart_str_0.exit:                                 ; preds = %.loopexit
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !78
+  %51 = load i64, ptr %50, align 8, !tbaa !80
   %52 = getelementptr inbounds nuw [1 x i8], ptr %49, i64 0, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !4
-  %53 = load ptr, ptr %3, align 8, !tbaa !76
+  %53 = load ptr, ptr %3, align 8, !tbaa !78
   %.not.i30 = icmp eq ptr %53, null
   br i1 %.not.i30, label %smart_str_trim_to_size_ex.exit, label %54
 
 54:                                               ; preds = %smart_str_0.exit
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !80
+  %56 = load i64, ptr %55, align 8, !tbaa !82
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !78
+  %58 = load i64, ptr %57, align 8, !tbaa !80
   %59 = icmp ugt i64 %56, %58
   br i1 %59, label %60, label %smart_str_trim_to_size_ex.exit
 
@@ -2000,9 +2000,9 @@ smart_str_0.exit:                                 ; preds = %.loopexit
   %69 = add i64 %68, 32
   %70 = call ptr @_erealloc(ptr noundef nonnull %53, i64 noundef %69) #14
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i64 %58, ptr %71, align 8, !tbaa !78
+  store i64 %58, ptr %71, align 8, !tbaa !80
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 0, ptr %72, align 8, !tbaa !81
+  store i64 0, ptr %72, align 8, !tbaa !84
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = and i32 %74, -513
@@ -2017,12 +2017,12 @@ zend_string_alloc.exit:                           ; preds = %60, %64
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 22, ptr %79, align 4, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i64 0, ptr %80, align 8, !tbaa !81
+  store i64 0, ptr %80, align 8, !tbaa !84
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store i64 %58, ptr %81, align 8, !tbaa !78
+  store i64 %58, ptr %81, align 8, !tbaa !80
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %84 = load i64, ptr %57, align 8, !tbaa !78
+  %84 = load i64, ptr %57, align 8, !tbaa !80
   %..i = call i64 @llvm.umin.i64(i64 %58, i64 %84)
   %85 = add nuw i64 %..i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(1) %83, i64 %85, i1 false)
@@ -2041,16 +2041,16 @@ zend_string_alloc.exit:                           ; preds = %60, %64
 
 zend_string_realloc.exit:                         ; preds = %67, %zend_string_alloc.exit, %88
   %.0.i32 = phi ptr [ %70, %67 ], [ %78, %88 ], [ %78, %zend_string_alloc.exit ]
-  store i64 %58, ptr %55, align 8, !tbaa !80
+  store i64 %58, ptr %55, align 8, !tbaa !82
   br label %smart_str_trim_to_size_ex.exit
 
 smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %54, %zend_string_realloc.exit
   %92 = phi ptr [ null, %smart_str_0.exit ], [ %53, %54 ], [ %.0.i32, %zend_string_realloc.exit ]
-  store ptr null, ptr %3, align 8, !tbaa !76
+  store ptr null, ptr %3, align 8, !tbaa !78
   br label %smart_str_extract_ex.exit
 
 93:                                               ; preds = %.loopexit
-  %94 = load ptr, ptr @zend_empty_string, align 8, !tbaa !82
+  %94 = load ptr, ptr @zend_empty_string, align 8, !tbaa !85
   br label %smart_str_extract_ex.exit
 
 smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_size_ex.exit, %93
@@ -2181,13 +2181,13 @@ spl_ptr_llist_pop.exit:                           ; preds = %32, %38, %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !58
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %26, label %._crit_edge
+  br i1 %52, label %26, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %spl_ptr_llist_pop.exit, %.preheader
-  %53 = load ptr, ptr %3, align 8, !tbaa !83
-  store ptr %53, ptr %5, align 8, !tbaa !83
+  %53 = load ptr, ptr %3, align 8, !tbaa !87
+  store ptr %53, ptr %5, align 8, !tbaa !87
   %54 = call ptr @php_var_unserialize_init() #13
-  store ptr %54, ptr %6, align 8, !tbaa !84
+  store ptr %54, ptr %6, align 8, !tbaa !88
   %55 = call ptr @var_tmp_var(ptr noundef nonnull %6) #13
   %56 = load i64, ptr %4, align 8, !tbaa !65
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
@@ -2209,7 +2209,7 @@ spl_ptr_llist_pop.exit:                           ; preds = %32, %38, %48
   br label %66
 
 66:                                               ; preds = %spl_ptr_llist_push.exit, %62
-  %67 = load ptr, ptr %5, align 8, !tbaa !83
+  %67 = load ptr, ptr %5, align 8, !tbaa !87
   %68 = load i8, ptr %67, align 1, !tbaa !4
   switch i8 %68, label %.loopexit [
     i8 58, label %69
@@ -2218,7 +2218,7 @@ spl_ptr_llist_pop.exit:                           ; preds = %32, %38, %48
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %70, ptr %5, align 8, !tbaa !83
+  store ptr %70, ptr %5, align 8, !tbaa !87
   %71 = call ptr @var_tmp_var(ptr noundef nonnull %6) #13
   %72 = load i64, ptr %4, align 8, !tbaa !65
   %73 = getelementptr inbounds nuw i8, ptr %53, i64 %72
@@ -2273,19 +2273,19 @@ spl_ptr_llist_push.exit:                          ; preds = %92, %94
   %96 = load i32, ptr %95, align 8, !tbaa !58
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %95, align 8, !tbaa !58
-  br label %66
+  br label %66, !llvm.loop !90
 
 98:                                               ; preds = %66
-  %99 = load ptr, ptr %6, align 8, !tbaa !84
+  %99 = load ptr, ptr %6, align 8, !tbaa !88
   call void @php_var_unserialize_destroy(ptr noundef %99) #13
   br label %111
 
 .loopexit:                                        ; preds = %66, %69, %._crit_edge, %59
-  %100 = load ptr, ptr %6, align 8, !tbaa !84
+  %100 = load ptr, ptr %6, align 8, !tbaa !88
   call void @php_var_unserialize_destroy(ptr noundef %100) #13
   %101 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !60
-  %102 = load ptr, ptr %5, align 8, !tbaa !83
-  %103 = load ptr, ptr %3, align 8, !tbaa !83
+  %102 = load ptr, ptr %5, align 8, !tbaa !87
+  %103 = load ptr, ptr %3, align 8, !tbaa !87
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
@@ -2379,7 +2379,7 @@ define hidden void @zim_SplDoublyLinkedList___serialize(ptr noundef readonly cap
   %35 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !55
   %.not31 = icmp eq ptr %36, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %34, %.critedge
   %37 = load ptr, ptr %1, align 8, !tbaa !4
@@ -2427,11 +2427,11 @@ define hidden void @zim_SplDoublyLinkedList___unserialize(ptr noundef readonly c
   br label %84
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8, !tbaa !86
+  %15 = load ptr, ptr %3, align 8, !tbaa !92
   %16 = call ptr @zend_hash_index_find(ptr noundef %15, i64 noundef 0) #13
-  %17 = load ptr, ptr %3, align 8, !tbaa !86
+  %17 = load ptr, ptr %3, align 8, !tbaa !92
   %18 = call ptr @zend_hash_index_find(ptr noundef %17, i64 noundef 1) #13
-  %19 = load ptr, ptr %3, align 8, !tbaa !86
+  %19 = load ptr, ptr %3, align 8, !tbaa !92
   %20 = call ptr @zend_hash_index_find(ptr noundef %19, i64 noundef 2) #13
   %21 = icmp ne ptr %16, null
   %22 = icmp ne ptr %18, null
@@ -2473,7 +2473,7 @@ define hidden void @zim_SplDoublyLinkedList___unserialize(ptr noundef readonly c
   store i32 %40, ptr %41, align 4, !tbaa !66
   %42 = load ptr, ptr %18, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !87
+  %44 = load i32, ptr %43, align 8, !tbaa !93
   %.not3233 = icmp eq i32 %44, 0
   br i1 %.not3233, label %._crit_edge, label %.lr.ph
 
@@ -2548,7 +2548,7 @@ spl_ptr_llist_push.exit:                          ; preds = %73, %75
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = add i32 %.02634, -1
   %.not32 = icmp eq i32 %82, 0
-  br i1 %.not32, label %._crit_edge, label %53
+  br i1 %.not32, label %._crit_edge, label %53, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %79, %38
   %83 = load ptr, ptr %20, align 8, !tbaa !4
@@ -2686,7 +2686,7 @@ spl_ptr_llist_push.exit:                          ; preds = %47, %49
   %63 = icmp ne ptr %.1.i, null
   %64 = icmp sgt i64 %55, %indvars.iv.next.i
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %62, label %spl_ptr_llist_offset.exit
+  br i1 %65, label %62, label %spl_ptr_llist_offset.exit, !llvm.loop !68
 
 spl_ptr_llist_offset.exit:                        ; preds = %62, %52
   %.1.lcssa.i = phi ptr [ %.111.i, %52 ], [ %.1.i, %62 ]
@@ -2770,7 +2770,7 @@ define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !88
+  %16 = load i32, ptr %15, align 4, !tbaa !95
   %17 = icmp ugt i32 %16, 1073741823
   br i1 %17, label %18, label %20, !prof !61
 
@@ -2780,7 +2780,7 @@ define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr noundef readonly cap
 
 20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !89
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %23, label %zend_std_get_properties_ex.exit.i
 
@@ -2791,7 +2791,7 @@ define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr noundef readonly cap
 zend_std_get_properties_ex.exit.i:                ; preds = %23, %20, %18
   %.0.i.i = phi ptr [ %19, %18 ], [ %24, %23 ], [ %22, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
-  %26 = load i32, ptr %25, align 4, !tbaa !90
+  %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = add i32 %26, 2
   %28 = tail call ptr @_zend_new_array(i32 noundef %27) #13
   tail call void @zend_hash_copy(ptr noundef %28, ptr noundef %.0.i.i, ptr noundef nonnull @zval_add_ref) #13
@@ -2833,7 +2833,7 @@ zend_std_get_properties_ex.exit.i:                ; preds = %23, %20, %18
 47:                                               ; preds = %43, %.lr.ph.i
   %48 = add i64 %.02226.i, 1
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %spl_dllist_object_get_debug_info.exit, label %.lr.ph.i
+  br i1 %.not.i, label %spl_dllist_object_get_debug_info.exit, label %.lr.ph.i, !llvm.loop !98
 
 spl_dllist_object_get_debug_info.exit:            ; preds = %47, %zend_std_get_properties_ex.exit.i
   %49 = load ptr, ptr @spl_ce_SplDoublyLinkedList, align 8, !tbaa !60
@@ -2872,12 +2872,12 @@ define hidden noundef i32 @zm_startup_spl_dllist(i32 noundef %0, i32 noundef %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %5, i8 0, i64 520, i1 false)
-  %18 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %18 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %19 = tail call ptr %18(ptr noundef nonnull @.str.17, i64 noundef 19, i1 noundef zeroext true) #13
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !92
+  store ptr %19, ptr %20, align 8, !tbaa !100
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store ptr @std_object_handlers, ptr %21, align 8, !tbaa !102
+  store ptr @std_object_handlers, ptr %21, align 8, !tbaa !110
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store ptr @class_SplDoublyLinkedList_methods, ptr %22, align 8, !tbaa !4
   %23 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %5, ptr noundef null, i32 noundef 0) #13
@@ -2886,11 +2886,11 @@ define hidden noundef i32 @zm_startup_spl_dllist(i32 noundef %0, i32 noundef %1)
   store i64 2, ptr %6, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %24, align 8, !tbaa !4
-  %25 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %25 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %26 = call ptr %25(ptr noundef nonnull @.str.18, i64 noundef 12, i1 noundef zeroext true) #13
-  store ptr null, ptr %7, align 8, !tbaa !103
+  store ptr null, ptr %7, align 8, !tbaa !111
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 16, ptr %27, align 8, !tbaa !105
+  store i32 16, ptr %27, align 8, !tbaa !113
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %28, align 4
   %29 = call ptr @zend_declare_typed_class_constant(ptr noundef %23, ptr noundef %26, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #13
@@ -2927,11 +2927,11 @@ zend_string_release.exit.i:                       ; preds = %41, %40, %33, %2
   store i64 0, ptr %8, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %42, align 8, !tbaa !4
-  %43 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %43 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %44 = call ptr %43(ptr noundef nonnull @.str.19, i64 noundef 12, i1 noundef zeroext true) #13
-  store ptr null, ptr %9, align 8, !tbaa !103
+  store ptr null, ptr %9, align 8, !tbaa !111
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 16, ptr %45, align 8, !tbaa !105
+  store i32 16, ptr %45, align 8, !tbaa !113
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %46, align 4
   %47 = call ptr @zend_declare_typed_class_constant(ptr noundef %23, ptr noundef %44, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #13
@@ -2968,11 +2968,11 @@ zend_string_release.exit28.i:                     ; preds = %59, %58, %51, %zend
   store i64 1, ptr %10, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %60, align 8, !tbaa !4
-  %61 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %61 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %62 = call ptr %61(ptr noundef nonnull @.str.20, i64 noundef 14, i1 noundef zeroext true) #13
-  store ptr null, ptr %11, align 8, !tbaa !103
+  store ptr null, ptr %11, align 8, !tbaa !111
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 16, ptr %63, align 8, !tbaa !105
+  store i32 16, ptr %63, align 8, !tbaa !113
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 0, ptr %64, align 4
   %65 = call ptr @zend_declare_typed_class_constant(ptr noundef %23, ptr noundef %62, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %11) #13
@@ -3009,11 +3009,11 @@ zend_string_release.exit31.i:                     ; preds = %77, %76, %69, %zend
   store i64 0, ptr %12, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %78, align 8, !tbaa !4
-  %79 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %79 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %80 = call ptr %79(ptr noundef nonnull @.str.21, i64 noundef 12, i1 noundef zeroext true) #13
-  store ptr null, ptr %13, align 8, !tbaa !103
+  store ptr null, ptr %13, align 8, !tbaa !111
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 16, ptr %81, align 8, !tbaa !105
+  store i32 16, ptr %81, align 8, !tbaa !113
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %82, align 4
   %83 = call ptr @zend_declare_typed_class_constant(ptr noundef %23, ptr noundef %80, ptr noundef nonnull %12, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %13) #13
@@ -3059,23 +3059,23 @@ register_class_SplDoublyLinkedList.exit:          ; preds = %zend_string_release
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 384
   store ptr @spl_dllist_object_new, ptr %96, align 8, !tbaa !4
   %97 = getelementptr inbounds nuw i8, ptr %23, i64 360
-  store ptr @spl_handler_SplDoublyLinkedList, ptr %97, align 8, !tbaa !102
+  store ptr @spl_handler_SplDoublyLinkedList, ptr %97, align 8, !tbaa !110
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 392
-  store ptr @spl_dllist_get_iterator, ptr %98, align 8, !tbaa !106
+  store ptr @spl_dllist_get_iterator, ptr %98, align 8, !tbaa !114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplDoublyLinkedList, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store i32 72, ptr @spl_handler_SplDoublyLinkedList, align 8, !tbaa !107
-  store ptr @spl_dllist_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 24), align 8, !tbaa !109
-  store ptr @spl_dllist_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 144), align 8, !tbaa !110
-  store ptr @spl_dllist_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 168), align 8, !tbaa !111
-  store ptr @spl_dllist_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 8), align 8, !tbaa !112
+  store i32 72, ptr @spl_handler_SplDoublyLinkedList, align 8, !tbaa !115
+  store ptr @spl_dllist_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 24), align 8, !tbaa !117
+  store ptr @spl_dllist_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 144), align 8, !tbaa !118
+  store ptr @spl_dllist_object_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 168), align 8, !tbaa !119
+  store ptr @spl_dllist_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplDoublyLinkedList, i64 8), align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %4, i8 0, i64 520, i1 false)
-  %99 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %99 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %100 = call ptr %99(ptr noundef nonnull @.str.71, i64 noundef 8, i1 noundef zeroext true) #13
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %100, ptr %101, align 8, !tbaa !92
+  store ptr %100, ptr %101, align 8, !tbaa !100
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  store ptr @std_object_handlers, ptr %102, align 8, !tbaa !102
+  store ptr @std_object_handlers, ptr %102, align 8, !tbaa !110
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store ptr @class_SplQueue_methods, ptr %103, align 8, !tbaa !4
   %104 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %4, ptr noundef %23, i32 noundef 0) #13
@@ -3084,16 +3084,16 @@ register_class_SplDoublyLinkedList.exit:          ; preds = %zend_string_release
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 384
   store ptr @spl_dllist_object_new, ptr %105, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 392
-  store ptr @spl_dllist_get_iterator, ptr %106, align 8, !tbaa !106
+  store ptr @spl_dllist_get_iterator, ptr %106, align 8, !tbaa !114
   %107 = load ptr, ptr @spl_ce_SplDoublyLinkedList, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
-  %108 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !91
+  %108 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !99
   %109 = call ptr %108(ptr noundef nonnull @.str.74, i64 noundef 8, i1 noundef zeroext true) #13
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %109, ptr %110, align 8, !tbaa !92
+  store ptr %109, ptr %110, align 8, !tbaa !100
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  store ptr @std_object_handlers, ptr %111, align 8, !tbaa !102
+  store ptr @std_object_handlers, ptr %111, align 8, !tbaa !110
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr null, ptr %112, align 8, !tbaa !4
   %113 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef %107, i32 noundef 0) #13
@@ -3102,7 +3102,7 @@ register_class_SplDoublyLinkedList.exit:          ; preds = %zend_string_release
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 384
   store ptr @spl_dllist_object_new, ptr %114, align 8, !tbaa !4
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 392
-  store ptr @spl_dllist_get_iterator, ptr %115, align 8, !tbaa !106
+  store ptr @spl_dllist_get_iterator, ptr %115, align 8, !tbaa !114
   ret i32 0
 }
 
@@ -3134,20 +3134,20 @@ define internal noundef ptr @spl_dllist_get_iterator(ptr readnone captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 776, ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @spl_dllist_it_funcs, ptr %13, align 8, !tbaa !113
+  store ptr @spl_dllist_it_funcs, ptr %13, align 8, !tbaa !121
   %14 = getelementptr inbounds i8, ptr %6, i64 -56
-  %15 = load i32, ptr %14, align 8, !tbaa !72
+  %15 = load i32, ptr %14, align 8, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i32 %15, ptr %16, align 8, !tbaa !117
+  store i32 %15, ptr %16, align 8, !tbaa !125
   %17 = getelementptr inbounds i8, ptr %6, i64 -64
-  %18 = load ptr, ptr %17, align 8, !tbaa !71
+  %18 = load ptr, ptr %17, align 8, !tbaa !73
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr %18, ptr %19, align 8, !tbaa !118
+  store ptr %18, ptr %19, align 8, !tbaa !126
   %20 = getelementptr inbounds i8, ptr %6, i64 -52
   %21 = load i32, ptr %20, align 4, !tbaa !66
   %22 = and i32 %21, 3
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  store i32 %22, ptr %23, align 4, !tbaa !119
+  store i32 %22, ptr %23, align 4, !tbaa !127
   %.not20 = icmp eq ptr %18, null
   br i1 %.not20, label %28, label %24
 
@@ -3169,7 +3169,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_dllist_object_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !120
+  %3 = load ptr, ptr %2, align 8, !tbaa !128
   %4 = tail call fastcc ptr @spl_dllist_object_new_ex(ptr noundef %3, ptr noundef %0, i32 noundef 1)
   tail call void @zend_objects_clone_members(ptr noundef nonnull %4, ptr noundef %0) #13
   ret ptr %4
@@ -3198,14 +3198,14 @@ define internal ptr @spl_dllist_object_get_gc(ptr noundef %0, ptr noundef writeo
   br i1 %.not.i, label %zend_get_gc_buffer_add_zval.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %5, align 8, !tbaa !121
-  %15 = load ptr, ptr %7, align 8, !tbaa !122
+  %14 = load ptr, ptr %5, align 8, !tbaa !129
+  %15 = load ptr, ptr %7, align 8, !tbaa !130
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %17, label %18, !prof !61
 
 17:                                               ; preds = %13
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %5) #13
-  %.pre = load ptr, ptr %5, align 8, !tbaa !121
+  %.pre = load ptr, ptr %5, align 8, !tbaa !129
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -3215,28 +3215,28 @@ define internal ptr @spl_dllist_object_get_gc(ptr noundef %0, ptr noundef writeo
   store ptr %20, ptr %19, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %21, ptr %22, align 8, !tbaa !4
-  %23 = load ptr, ptr %5, align 8, !tbaa !121
+  %23 = load ptr, ptr %5, align 8, !tbaa !129
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %24, ptr %5, align 8, !tbaa !121
+  store ptr %24, ptr %5, align 8, !tbaa !129
   br label %zend_get_gc_buffer_add_zval.exit
 
 zend_get_gc_buffer_add_zval.exit:                 ; preds = %8, %18
   %25 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.0 = load ptr, ptr %25, align 8, !tbaa !67
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %8
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %zend_get_gc_buffer_add_zval.exit, %3
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !123
+  %27 = load ptr, ptr %26, align 8, !tbaa !132
   store ptr %27, ptr %1, align 8, !tbaa !50
-  %28 = load ptr, ptr %5, align 8, !tbaa !121
+  %28 = load ptr, ptr %5, align 8, !tbaa !129
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %27 to i64
   %31 = sub i64 %29, %30
   %32 = lshr exact i64 %31, 4
   %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %2, align 4, !tbaa !73
+  store i32 %33, ptr %2, align 4, !tbaa !75
   %34 = tail call ptr @zend_std_get_properties(ptr noundef %0) #13
   ret ptr %34
 }
@@ -3317,7 +3317,7 @@ spl_ptr_llist_pop.exit:                           ; preds = %16, %22, %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !58
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %9, label %._crit_edge
+  br i1 %35, label %9, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %spl_ptr_llist_pop.exit, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %32, %spl_ptr_llist_pop.exit ]
@@ -3344,7 +3344,7 @@ spl_ptr_llist_pop.exit:                           ; preds = %16, %22, %31
 
 44:                                               ; preds = %43, %.lr.ph.i
   %.not.i11 = icmp eq ptr %38, null
-  br i1 %.not.i11, label %spl_ptr_llist_destroy.exit, label %.lr.ph.i
+  br i1 %.not.i11, label %spl_ptr_llist_destroy.exit, label %.lr.ph.i, !llvm.loop !134
 
 spl_ptr_llist_destroy.exit:                       ; preds = %44, %._crit_edge
   call void @_efree(ptr noundef nonnull %.lcssa) #13
@@ -3352,7 +3352,7 @@ spl_ptr_llist_destroy.exit:                       ; preds = %44, %._crit_edge
 
 45:                                               ; preds = %spl_ptr_llist_destroy.exit, %1
   %46 = getelementptr inbounds i8, ptr %0, i64 -64
-  %47 = load ptr, ptr %46, align 8, !tbaa !71
+  %47 = load ptr, ptr %46, align 8, !tbaa !73
   %.not9 = icmp eq ptr %47, null
   br i1 %.not9, label %54, label %48
 
@@ -3365,7 +3365,7 @@ spl_ptr_llist_destroy.exit:                       ; preds = %44, %._crit_edge
   br i1 %.not10, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %46, align 8, !tbaa !71
+  %53 = load ptr, ptr %46, align 8, !tbaa !73
   call void @_efree(ptr noundef %53) #13
   br label %54
 
@@ -3414,9 +3414,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !124
+  %5 = load i32, ptr %4, align 8, !tbaa !135
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !125
+  %7 = load i32, ptr %6, align 4, !tbaa !136
   %8 = lshr i32 %7, 11
   %.lobit.i = and i32 %8, 1
   %9 = xor i32 %.lobit.i, 1
@@ -3432,16 +3432,16 @@ define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %16, align 4, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !72
+  store i32 0, ptr %17, align 8, !tbaa !74
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %18
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %1, i64 -72
   %20 = getelementptr inbounds i8, ptr %1, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !126
+  %21 = load ptr, ptr %20, align 8, !tbaa !137
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr %21, ptr %22, align 8, !tbaa !126
+  store ptr %21, ptr %22, align 8, !tbaa !137
   %.not73 = icmp eq i32 %2, 0
   br i1 %.not73, label %57, label %23
 
@@ -3456,7 +3456,7 @@ define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef
 
 spl_ptr_llist_copy.exit.thread:                   ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %26, align 8, !tbaa !71
+  store ptr null, ptr %26, align 8, !tbaa !73
   br label %.thread106
 
 .lr.ph.i:                                         ; preds = %23
@@ -3512,13 +3512,13 @@ spl_ptr_llist_push.exit.i:                        ; preds = %49, %47
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %28, align 8, !tbaa !58
   %.not.i92 = icmp eq ptr %31, null
-  br i1 %.not.i92, label %spl_ptr_llist_copy.exit, label %29
+  br i1 %.not.i92, label %spl_ptr_llist_copy.exit, label %29, !llvm.loop !138
 
 spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.exit.i
   %.pre = load ptr, ptr %14, align 8, !tbaa !43
   %.pre103 = load ptr, ptr %.pre, align 8, !tbaa !57
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.pre103, ptr %52, align 8, !tbaa !71
+  store ptr %.pre103, ptr %52, align 8, !tbaa !73
   %.not75 = icmp eq ptr %.pre103, null
   br i1 %.not75, label %69, label %53
 
@@ -3534,7 +3534,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %58, ptr %14, align 8, !tbaa !43
   %59 = load ptr, ptr %58, align 8, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %59, ptr %60, align 8, !tbaa !71
+  store ptr %59, ptr %60, align 8, !tbaa !73
   %.not74 = icmp eq ptr %59, null
   br i1 %.not74, label %.thread106, label %61
 
@@ -3550,7 +3550,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %65, i8 0, i64 20, i1 false)
   store ptr %65, ptr %14, align 8, !tbaa !43
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %66, align 8, !tbaa !71
+  store ptr null, ptr %66, align 8, !tbaa !73
   br label %.lr.ph
 
 .thread106:                                       ; preds = %61, %57, %spl_ptr_llist_copy.exit.thread
@@ -3596,7 +3596,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.094, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %85 = load ptr, ptr %84, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %75
 
 ._crit_edge:                                      ; preds = %81
@@ -3609,13 +3609,13 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %89
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %88, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %90 = load ptr, ptr %88, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %zend_hash_str_find_ptr.exit
 
 zend_hash_str_find_ptr.exit:                      ; preds = %86, %89
   %.0.i = phi ptr [ %90, %89 ], [ null, %86 ]
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.0.i, ptr %91, align 8, !tbaa !127
+  store ptr %.0.i, ptr %91, align 8, !tbaa !139
   %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !4
   %94 = icmp eq ptr %93, %74
@@ -3626,13 +3626,13 @@ zend_hash_str_find_ptr.exit:                      ; preds = %86, %89
   br i1 %.not.i81, label %zend_hash_str_find_ptr.exit83, label %96
 
 96:                                               ; preds = %zend_hash_str_find_ptr.exit
-  %97 = load ptr, ptr %95, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %97 = load ptr, ptr %95, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %zend_hash_str_find_ptr.exit83
 
 zend_hash_str_find_ptr.exit83:                    ; preds = %zend_hash_str_find_ptr.exit, %96
   %.0.i82 = phi ptr [ %97, %96 ], [ null, %zend_hash_str_find_ptr.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %.0.i82, ptr %98, align 8, !tbaa !128
+  store ptr %.0.i82, ptr %98, align 8, !tbaa !140
   %99 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %101 = icmp eq ptr %100, %74
@@ -3643,13 +3643,13 @@ zend_hash_str_find_ptr.exit83:                    ; preds = %zend_hash_str_find_
   br i1 %.not.i84, label %zend_hash_str_find_ptr.exit86, label %103
 
 103:                                              ; preds = %zend_hash_str_find_ptr.exit83
-  %104 = load ptr, ptr %102, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %104 = load ptr, ptr %102, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %zend_hash_str_find_ptr.exit86
 
 zend_hash_str_find_ptr.exit86:                    ; preds = %zend_hash_str_find_ptr.exit83, %103
   %.0.i85 = phi ptr [ %104, %103 ], [ null, %zend_hash_str_find_ptr.exit83 ]
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %.0.i85, ptr %105, align 8, !tbaa !129
+  store ptr %.0.i85, ptr %105, align 8, !tbaa !141
   %106 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !4
   %108 = icmp eq ptr %107, %74
@@ -3660,27 +3660,27 @@ zend_hash_str_find_ptr.exit86:                    ; preds = %zend_hash_str_find_
   br i1 %.not.i87, label %zend_hash_str_find_ptr.exit89, label %110
 
 110:                                              ; preds = %zend_hash_str_find_ptr.exit86
-  %111 = load ptr, ptr %109, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %111 = load ptr, ptr %109, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %zend_hash_str_find_ptr.exit89
 
 zend_hash_str_find_ptr.exit89:                    ; preds = %zend_hash_str_find_ptr.exit86, %110
   %.0.i88 = phi ptr [ %111, %110 ], [ null, %zend_hash_str_find_ptr.exit86 ]
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %.0.i88, ptr %112, align 8, !tbaa !130
+  store ptr %.0.i88, ptr %112, align 8, !tbaa !142
   %113 = getelementptr inbounds nuw i8, ptr %.0.i88, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !4
   %115 = icmp eq ptr %114, %74
   %spec.store.select80 = select i1 %115, ptr null, ptr %.0.i88
   store ptr %spec.store.select80, ptr %112, align 8
-  %116 = load ptr, ptr @zend_known_strings, align 8, !tbaa !131
+  %116 = load ptr, ptr @zend_known_strings, align 8, !tbaa !143
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 576
-  %118 = load ptr, ptr %117, align 8, !tbaa !82
+  %118 = load ptr, ptr %117, align 8, !tbaa !85
   %119 = tail call ptr @zend_hash_find(ptr noundef nonnull %87, ptr noundef %118) #13
   %.not.i90 = icmp eq ptr %119, null
   br i1 %.not.i90, label %zend_hash_find_ptr.exit, label %120
 
 120:                                              ; preds = %zend_hash_str_find_ptr.exit89
-  %121 = load ptr, ptr %119, align 8, !tbaa !4, !nonnull !70, !noundef !70
+  %121 = load ptr, ptr %119, align 8, !tbaa !4, !nonnull !72, !noundef !72
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit89, %120
@@ -3713,7 +3713,7 @@ declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @spl_dllist_it_dtor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8, !tbaa !126
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
@@ -3726,7 +3726,7 @@ define internal void @spl_dllist_it_dtor(ptr noundef %0) #0 {
   br i1 %.not5, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %2, align 8, !tbaa !118
+  %9 = load ptr, ptr %2, align 8, !tbaa !126
   tail call void @_efree(ptr noundef %9) #13
   br label %10
 
@@ -3739,7 +3739,7 @@ define internal void @spl_dllist_it_dtor(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8, !tbaa !126
   %.not = icmp eq ptr %3, null
   %4 = sext i1 %.not to i32
   ret i32 %4
@@ -3748,7 +3748,7 @@ define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr noundef readonly c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @spl_dllist_it_get_current_data(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8, !tbaa !126
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
@@ -3768,7 +3768,7 @@ define internal ptr @spl_dllist_it_get_current_data(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @spl_dllist_it_get_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i32, ptr %3, align 8, !tbaa !117
+  %4 = load i32, ptr %3, align 8, !tbaa !125
   %5 = sext i32 %4 to i64
   store i64 %5, ptr %1, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3785,7 +3785,7 @@ define internal void @spl_dllist_it_move_forward(ptr noundef captures(none) %0) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %4, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %9 = load i32, ptr %8, align 4, !tbaa !119
+  %9 = load i32, ptr %8, align 4, !tbaa !127
   tail call fastcc void @spl_dllist_it_helper_move_forward(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %7, i32 noundef %9)
   ret void
 }
@@ -3799,7 +3799,7 @@ define internal void @spl_dllist_it_rewind(ptr noundef captures(none) initialize
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %9 = load i32, ptr %8, align 4, !tbaa !119
+  %9 = load i32, ptr %8, align 4, !tbaa !127
   %10 = load ptr, ptr %6, align 8, !tbaa !67
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %17, label %11
@@ -3832,7 +3832,7 @@ define internal void @spl_dllist_it_rewind(ptr noundef captures(none) initialize
 24:                                               ; preds = %19, %17
   %.sink.i = phi i32 [ %22, %19 ], [ 0, %17 ]
   %storemerge.in.i = phi ptr [ %23, %19 ], [ %5, %17 ]
-  store i32 %.sink.i, ptr %7, align 4, !tbaa !73
+  store i32 %.sink.i, ptr %7, align 4, !tbaa !75
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !tbaa !67
   store ptr %storemerge.i, ptr %6, align 8, !tbaa !67
   %.not15.i = icmp eq ptr %storemerge.i, null
@@ -3947,68 +3947,80 @@ attributes #15 = { nounwind allocsize(0) }
 !65 = !{!15, !15, i64 0}
 !66 = !{!44, !14, i64 20}
 !67 = !{!46, !46, i64 0}
-!68 = !{!17, !17, i64 0}
-!69 = !{i8 0, i8 2}
-!70 = !{}
-!71 = !{!44, !46, i64 8}
-!72 = !{!44, !14, i64 16}
-!73 = !{!14, !14, i64 0}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTS18php_serialize_data", !11, i64 0}
-!76 = !{!77, !38, i64 0}
-!77 = !{!"", !38, i64 0, !15, i64 8}
-!78 = !{!79, !15, i64 16}
-!79 = !{!"_zend_string", !13, i64 0, !15, i64 8, !15, i64 16, !5, i64 24}
-!80 = !{!77, !15, i64 8}
-!81 = !{!79, !15, i64 8}
-!82 = !{!38, !38, i64 0}
-!83 = !{!42, !42, i64 0}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS20php_unserialize_data", !11, i64 0}
-!86 = !{!18, !18, i64 0}
-!87 = !{!12, !14, i64 24}
-!88 = !{!48, !14, i64 12}
-!89 = !{!48, !18, i64 32}
-!90 = !{!12, !14, i64 28}
-!91 = !{!11, !11, i64 0}
-!92 = !{!93, !38, i64 8}
-!93 = !{!"_zend_class_entry", !5, i64 0, !38, i64 8, !5, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !19, i64 40, !19, i64 48, !19, i64 56, !12, i64 64, !12, i64 120, !12, i64 176, !94, i64 232, !95, i64 240, !96, i64 248, !47, i64 256, !47, i64 264, !47, i64 272, !47, i64 280, !47, i64 288, !47, i64 296, !47, i64 304, !47, i64 312, !47, i64 320, !47, i64 328, !47, i64 336, !47, i64 344, !47, i64 352, !49, i64 360, !97, i64 368, !98, i64 376, !5, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !14, i64 424, !14, i64 428, !14, i64 432, !14, i64 436, !5, i64 440, !99, i64 448, !100, i64 456, !101, i64 464, !18, i64 472, !14, i64 480, !18, i64 488, !38, i64 496, !5, i64 504}
-!94 = !{!"p1 _ZTS24_zend_class_mutable_data", !11, i64 0}
-!95 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !11, i64 0}
-!96 = !{!"p2 _ZTS19_zend_property_info", !11, i64 0}
-!97 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !11, i64 0}
-!98 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !11, i64 0}
-!99 = !{!"p1 _ZTS16_zend_class_name", !11, i64 0}
-!100 = !{!"p2 _ZTS17_zend_trait_alias", !11, i64 0}
-!101 = !{!"p2 _ZTS22_zend_trait_precedence", !11, i64 0}
-!102 = !{!93, !49, i64 360}
-!103 = !{!104, !11, i64 0}
-!104 = !{!"", !11, i64 0, !14, i64 8}
-!105 = !{!104, !14, i64 8}
-!106 = !{!93, !11, i64 392}
-!107 = !{!108, !14, i64 0}
-!108 = !{!"_zend_object_handlers", !14, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192}
-!109 = !{!108, !11, i64 24}
-!110 = !{!108, !11, i64 144}
-!111 = !{!108, !11, i64 168}
-!112 = !{!108, !11, i64 8}
-!113 = !{!114, !116, i64 72}
-!114 = !{!"_spl_dllist_it", !115, i64 0, !46, i64 88, !14, i64 96, !14, i64 100}
-!115 = !{!"_zend_object_iterator", !48, i64 0, !9, i64 56, !116, i64 72, !15, i64 80}
-!116 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !11, i64 0}
-!117 = !{!114, !14, i64 96}
-!118 = !{!114, !46, i64 88}
-!119 = !{!114, !14, i64 100}
-!120 = !{!48, !22, i64 16}
-!121 = !{!34, !19, i64 0}
-!122 = !{!34, !19, i64 8}
-!123 = !{!34, !19, i64 16}
-!124 = !{!93, !14, i64 32}
-!125 = !{!93, !14, i64 28}
-!126 = !{!44, !22, i64 64}
-!127 = !{!44, !47, i64 24}
-!128 = !{!44, !47, i64 32}
-!129 = !{!44, !47, i64 40}
-!130 = !{!44, !47, i64 48}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"p2 _ZTS12_zend_string", !11, i64 0}
+!68 = distinct !{!68, !69}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = !{!17, !17, i64 0}
+!71 = !{i8 0, i8 2}
+!72 = !{}
+!73 = !{!44, !46, i64 8}
+!74 = !{!44, !14, i64 16}
+!75 = !{!14, !14, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS18php_serialize_data", !11, i64 0}
+!78 = !{!79, !38, i64 0}
+!79 = !{!"", !38, i64 0, !15, i64 8}
+!80 = !{!81, !15, i64 16}
+!81 = !{!"_zend_string", !13, i64 0, !15, i64 8, !15, i64 16, !5, i64 24}
+!82 = !{!79, !15, i64 8}
+!83 = distinct !{!83, !69}
+!84 = !{!81, !15, i64 8}
+!85 = !{!38, !38, i64 0}
+!86 = distinct !{!86, !69}
+!87 = !{!42, !42, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS20php_unserialize_data", !11, i64 0}
+!90 = distinct !{!90, !69}
+!91 = distinct !{!91, !69}
+!92 = !{!18, !18, i64 0}
+!93 = !{!12, !14, i64 24}
+!94 = distinct !{!94, !69}
+!95 = !{!48, !14, i64 12}
+!96 = !{!48, !18, i64 32}
+!97 = !{!12, !14, i64 28}
+!98 = distinct !{!98, !69}
+!99 = !{!11, !11, i64 0}
+!100 = !{!101, !38, i64 8}
+!101 = !{!"_zend_class_entry", !5, i64 0, !38, i64 8, !5, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !19, i64 40, !19, i64 48, !19, i64 56, !12, i64 64, !12, i64 120, !12, i64 176, !102, i64 232, !103, i64 240, !104, i64 248, !47, i64 256, !47, i64 264, !47, i64 272, !47, i64 280, !47, i64 288, !47, i64 296, !47, i64 304, !47, i64 312, !47, i64 320, !47, i64 328, !47, i64 336, !47, i64 344, !47, i64 352, !49, i64 360, !105, i64 368, !106, i64 376, !5, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !14, i64 424, !14, i64 428, !14, i64 432, !14, i64 436, !5, i64 440, !107, i64 448, !108, i64 456, !109, i64 464, !18, i64 472, !14, i64 480, !18, i64 488, !38, i64 496, !5, i64 504}
+!102 = !{!"p1 _ZTS24_zend_class_mutable_data", !11, i64 0}
+!103 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !11, i64 0}
+!104 = !{!"p2 _ZTS19_zend_property_info", !11, i64 0}
+!105 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !11, i64 0}
+!106 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !11, i64 0}
+!107 = !{!"p1 _ZTS16_zend_class_name", !11, i64 0}
+!108 = !{!"p2 _ZTS17_zend_trait_alias", !11, i64 0}
+!109 = !{!"p2 _ZTS22_zend_trait_precedence", !11, i64 0}
+!110 = !{!101, !49, i64 360}
+!111 = !{!112, !11, i64 0}
+!112 = !{!"", !11, i64 0, !14, i64 8}
+!113 = !{!112, !14, i64 8}
+!114 = !{!101, !11, i64 392}
+!115 = !{!116, !14, i64 0}
+!116 = !{!"_zend_object_handlers", !14, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192}
+!117 = !{!116, !11, i64 24}
+!118 = !{!116, !11, i64 144}
+!119 = !{!116, !11, i64 168}
+!120 = !{!116, !11, i64 8}
+!121 = !{!122, !124, i64 72}
+!122 = !{!"_spl_dllist_it", !123, i64 0, !46, i64 88, !14, i64 96, !14, i64 100}
+!123 = !{!"_zend_object_iterator", !48, i64 0, !9, i64 56, !124, i64 72, !15, i64 80}
+!124 = !{!"p1 _ZTS27_zend_object_iterator_funcs", !11, i64 0}
+!125 = !{!122, !14, i64 96}
+!126 = !{!122, !46, i64 88}
+!127 = !{!122, !14, i64 100}
+!128 = !{!48, !22, i64 16}
+!129 = !{!34, !19, i64 0}
+!130 = !{!34, !19, i64 8}
+!131 = distinct !{!131, !69}
+!132 = !{!34, !19, i64 16}
+!133 = distinct !{!133, !69}
+!134 = distinct !{!134, !69}
+!135 = !{!101, !14, i64 32}
+!136 = !{!101, !14, i64 28}
+!137 = !{!44, !22, i64 64}
+!138 = distinct !{!138, !69}
+!139 = !{!44, !47, i64 24}
+!140 = !{!44, !47, i64 32}
+!141 = !{!44, !47, i64 40}
+!142 = !{!44, !47, i64 48}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p2 _ZTS12_zend_string", !11, i64 0}

@@ -250,7 +250,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN20ClassLoaderDat
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %72, %73
   store volatile i32 6, ptr %6, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %74 = load volatile i64, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
@@ -376,7 +376,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13Monit
   %114 = call noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr noundef nonnull align 8 dereferenceable(126) %113) #5
   %115 = add nuw nsw i32 %.sroa.0.07.i, 1
   %.not.i = icmp eq i32 %115, 15
-  br i1 %.not.i, label %_ZL19cleanup_oopstoragesv.exit, label %.preheader
+  br i1 %.not.i, label %_ZL19cleanup_oopstoragesv.exit, label %.preheader, !llvm.loop !11
 
 _ZL19cleanup_oopstoragesv.exit:                   ; preds = %.preheader, %112
   br i1 %50, label %116, label %117
@@ -407,7 +407,7 @@ _ZL19cleanup_oopstoragesv.exit:                   ; preds = %.preheader, %112
   br label %.backedge
 
 .backedge:                                        ; preds = %122, %121
-  br label %10, !llvm.loop !10
+  br label %10, !llvm.loop !12
 
 123:                                              ; preds = %104, %101
   ret void
@@ -843,7 +843,9 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392998}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145392998}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}

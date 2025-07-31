@@ -353,7 +353,7 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   %.not51.i = icmp eq i32 %114, 3
-  br i1 %.not51.i, label %115, label %117, !llvm.loop !6
+  br i1 %.not51.i, label %115, label %117, !llvm.loop !7
 
 115:                                              ; preds = %parse_filename_for_nontemp_relation.exit69
   %116 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #9
@@ -363,7 +363,7 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
   %118 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #9
   %.not42.i = icmp eq ptr %118, null
-  br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %117, %68
   %119 = call i32 @FreeDir(ptr noundef %71) #9
@@ -481,7 +481,7 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %.not105 = icmp eq i32 %165, 3
-  br i1 %.not105, label %180, label %166, !llvm.loop !7
+  br i1 %.not105, label %180, label %166, !llvm.loop !9
 
 166:                                              ; preds = %parse_filename_for_nontemp_relation.exit53
   %167 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null) #9
@@ -515,7 +515,7 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   %181 = call ptr @ReadDir(ptr noundef %122, ptr noundef nonnull %18) #9
   %.not43.i = icmp eq ptr %181, null
-  br i1 %.not43.i, label %._crit_edge67.i, label %.lr.ph66.i
+  br i1 %.not43.i, label %._crit_edge67.i, label %.lr.ph66.i, !llvm.loop !10
 
 ._crit_edge67.i:                                  ; preds = %180, %121
   %182 = call i32 @FreeDir(ptr noundef %122) #9
@@ -629,7 +629,7 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   %.not50.i = icmp eq i32 %227, 3
-  br i1 %.not50.i, label %228, label %240, !llvm.loop !8
+  br i1 %.not50.i, label %228, label %240, !llvm.loop !11
 
 228:                                              ; preds = %parse_filename_for_nontemp_relation.exit37
   %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %186) #9
@@ -662,7 +662,7 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %15) #9
   %241 = call ptr @ReadDir(ptr noundef %183, ptr noundef nonnull %18) #9
   %.not47.i = icmp eq ptr %241, null
-  br i1 %.not47.i, label %._crit_edge71.i, label %.lr.ph70.i
+  br i1 %.not47.i, label %._crit_edge71.i, label %.lr.ph70.i, !llvm.loop !12
 
 ._crit_edge71.i:                                  ; preds = %240, %.thread92
   %242 = call i32 @FreeDir(ptr noundef %183) #9
@@ -770,7 +770,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %284
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   %.not49.i = icmp eq i32 %287, 3
-  br i1 %.not49.i, label %288, label %295, !llvm.loop !9
+  br i1 %.not49.i, label %288, label %295, !llvm.loop !13
 
 288:                                              ; preds = %parse_filename_for_nontemp_relation.exit
   %289 = icmp eq i32 %.036.i, 0
@@ -792,7 +792,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %284
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %17) #9
   %296 = call ptr @ReadDir(ptr noundef %243, ptr noundef nonnull %18) #9
   %.not48.i = icmp eq ptr %296, null
-  br i1 %.not48.i, label %._crit_edge75.i, label %.lr.ph74.i
+  br i1 %.not48.i, label %._crit_edge75.i, label %.lr.ph74.i, !llvm.loop !14
 
 ._crit_edge75.i:                                  ; preds = %295, %._crit_edge71.i
   %297 = call i32 @FreeDir(ptr noundef %243) #9
@@ -806,7 +806,7 @@ ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread107, %.threa
 .backedge:                                        ; preds = %ResetUnloggedRelationsInDbspaceDir.exit, %41
   %298 = call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #9
   %.not = icmp eq ptr %298, null
-  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.backedge, %34
   %299 = call i32 @FreeDir(ptr noundef %23) #9
@@ -991,10 +991,15 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !5, !6}

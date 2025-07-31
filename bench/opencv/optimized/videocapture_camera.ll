@@ -1177,7 +1177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   switch i32 %411, label %_ZNSolsEPFRSoS_E.exit147 [
     i32 27, label %_ZNSolsEPFRSoS_E.exit97
     i32 32, label %413
-  ]
+  ], !llvm.loop !46
 
 .loopexit299.loopexit:                            ; preds = %410
   %lpad.loopexit474 = landingpad { ptr, i32 }
@@ -1249,7 +1249,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i271: ; preds = %.noexc274, %
 
 .noexc276:                                        ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i271
   %435 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %434)
-          to label %_ZNSolsEPFRSoS_E.exit147.outer unwind label %.loopexit299.loopexit.split-lp
+          to label %_ZNSolsEPFRSoS_E.exit147.outer unwind label %.loopexit299.loopexit.split-lp, !llvm.loop !46
 
 _ZNSolsEPFRSoS_E.exit97:                          ; preds = %412, %.noexc254
   %.153 = phi i64 [ %.052, %.noexc254 ], [ %259, %412 ]
@@ -1465,3 +1465,5 @@ attributes #12 = { builtin nounwind }
 !43 = !{!44, !17, i64 0}
 !44 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !15, i64 8, !41, i64 16}
 !45 = !{!44, !15, i64 8}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.estimated_trip_count"}

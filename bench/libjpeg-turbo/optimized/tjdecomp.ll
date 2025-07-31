@@ -359,10 +359,10 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 131:                                              ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
   %132 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %127, i64 %indvars.iv
-  %133 = load i32, ptr %132, align 4, !tbaa !15
+  %133 = load i32, ptr %132, align 4, !tbaa !16
   %134 = sitofp i32 %133 to double
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %136 = load i32, ptr %135, align 4, !tbaa !17
+  %136 = load i32, ptr %135, align 4, !tbaa !18
   %137 = sitofp i32 %136 to double
   %138 = fdiv double %134, %137
   %139 = fcmp oeq double %126, %138
@@ -391,7 +391,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.1 = phi i32 [ %109, %.thread ], [ %72, %71 ], [ %55, %61 ], [ %32, %51 ], [ %55, %54 ], [ %.0405665, %67 ], [ %.0405665, %65 ], [ %79, %78 ], [ %91, %90 ], [ %.0405665, %100 ], [ %.0405665, %102 ], [ %.0405665, %104 ]
   %142 = add nsw i32 %.1, 1
   %143 = icmp slt i32 %142, %0
-  br i1 %143, label %24, label %._crit_edge668, !llvm.loop !18
+  br i1 %143, label %24, label %._crit_edge668, !llvm.loop !19
 
 ._crit_edge668:                                   ; preds = %141, %106, %18
   %.0421.lcssa = phi ptr [ null, %18 ], [ %.0421656, %106 ], [ %.1422, %141 ]
@@ -656,7 +656,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 307:                                              ; preds = %299
   %308 = load ptr, ptr %5, align 8, !tbaa !4
-  %309 = load i64, ptr %4, align 8, !tbaa !19
+  %309 = load i64, ptr %4, align 8, !tbaa !20
   %310 = call i64 @fwrite(ptr noundef %308, i64 noundef %309, i64 noundef 1, ptr noundef nonnull %300)
   %311 = icmp eq i64 %310, 0
   br i1 %311, label %312, label %317
@@ -723,7 +723,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %344 = mul nsw i32 %284, %.sroa.0.0.lcssa
   %345 = add i32 %341, %344
   %346 = sdiv i32 %345, %.sroa.8.0.lcssa
-  %347 = load i32, ptr %3, align 8, !tbaa !21
+  %347 = load i32, ptr %3, align 8, !tbaa !22
   %348 = icmp ne i32 %347, 0
   %349 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %350 = load i32, ptr %349, align 4
@@ -756,9 +756,9 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %367 = sdiv i32 %366, %.sroa.8.0.lcssa
   %368 = srem i32 %347, %367
   %369 = sub nsw i32 %347, %368
-  store i32 %369, ptr %3, align 8, !tbaa !21
+  store i32 %369, ptr %3, align 8, !tbaa !22
   %370 = add nsw i32 %368, %353
-  store i32 %370, ptr %352, align 8, !tbaa !23
+  store i32 %370, ptr %352, align 8, !tbaa !24
   %371 = load i64, ptr %3, align 8
   %372 = load i64, ptr %352, align 8
   %373 = call i32 @tj3SetCroppingRegion(ptr noundef %148, i64 %371, i64 %372) #16
@@ -777,8 +777,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %or.cond49.not, label %.thread551, label %.thread571
 
 .thread551:                                       ; preds = %361, %375
-  %383 = load i32, ptr %352, align 8, !tbaa !23
-  %384 = load i32, ptr %355, align 4, !tbaa !24
+  %383 = load i32, ptr %352, align 8, !tbaa !24
+  %384 = load i32, ptr %355, align 4, !tbaa !25
   br label %385
 
 385:                                              ; preds = %.thread551, %339, %326
@@ -1036,9 +1036,9 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #7 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %1 ]
   %6 = load ptr, ptr @scalingFactors, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %6, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !15
+  %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !17
+  %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %8, i32 noundef %10)
   %12 = load i32, ptr @numScalingFactors, align 4, !tbaa !11
   %13 = icmp ne i32 %12, 2
@@ -1089,7 +1089,7 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #7 {
   %34 = load i32, ptr @numScalingFactors, align 4, !tbaa !11
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %33, %1
   %puts47 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.36)
@@ -1206,16 +1206,17 @@ attributes #20 = { cold noreturn nounwind }
 !10 = !{!7, !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !12, i64 0}
-!16 = !{!"", !12, i64 0, !12, i64 4}
-!17 = !{!16, !12, i64 4}
-!18 = distinct !{!18, !14}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
-!21 = !{!22, !12, i64 0}
-!22 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
-!23 = !{!22, !12, i64 8}
-!24 = !{!22, !12, i64 12}
-!25 = distinct !{!25, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !12, i64 0}
+!17 = !{!"", !12, i64 0, !12, i64 4}
+!18 = !{!17, !12, i64 4}
+!19 = distinct !{!19, !14, !15}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!23, !12, i64 0}
+!23 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
+!24 = !{!23, !12, i64 8}
+!25 = !{!23, !12, i64 12}
+!26 = distinct !{!26, !14, !15}

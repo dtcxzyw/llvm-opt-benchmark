@@ -170,10 +170,10 @@ _ZN5draco12_GLOBAL__N_126GetFileReaderOpenFunctionsB5cxx11Ev.exit: ; preds = %2,
 _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 8
   %.not = icmp eq ptr %18, %15
-  br i1 %.not, label %.critedge.thread, label %.lr.ph
+  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !17
 
 .critedge.thread:                                 ; preds = %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit, %_ZN5draco12_GLOBAL__N_126GetFileReaderOpenFunctionsB5cxx11Ev.exit
-  store ptr null, ptr %0, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !19
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.thread
@@ -250,5 +250,7 @@ attributes #14 = { builtin nounwind }
 !14 = !{!7, !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSN5draco19FileReaderInterfaceE", !7, i64 0}
-!17 = !{!18, !16, i64 0}
-!18 = !{!"_ZTSSt10_Head_baseILm0EPN5draco19FileReaderInterfaceELb0EE", !16, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !16, i64 0}
+!20 = !{!"_ZTSSt10_Head_baseILm0EPN5draco19FileReaderInterfaceELb0EE", !16, i64 0}

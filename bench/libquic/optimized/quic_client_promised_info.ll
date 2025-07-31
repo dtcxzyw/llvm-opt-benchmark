@@ -356,7 +356,7 @@ define void @_ZN3net22QuicClientPromisedInfo16OnPromiseHeadersERKNS_15SpdyHeader
 22:                                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader
   %23 = load ptr, ptr %15, align 8, !tbaa !239
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !tbaa !242
+  %.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !tbaa !243
   br label %24
 
 24:                                               ; preds = %30, %22
@@ -379,10 +379,10 @@ _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
 30:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.thread.i.i.i.i.i.i
   %31 = load i64, ptr %10, align 8, !tbaa !236
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %33 = load i64, ptr %32, align 8, !tbaa !242
+  %33 = load i64, ptr %32, align 8, !tbaa !243
   %34 = urem i64 %33, %31
   %.not19.i.i.i.i.i.i = icmp eq i64 %34, %12
-  br i1 %.not19.i.i.i.i.i.i, label %24, label %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread.i.i, !llvm.loop !244
+  br i1 %.not19.i.i.i.i.i.i, label %24, label %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread.i.i, !llvm.loop !245
 
 _ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i.i.i.i.i
   %35 = load ptr, ptr %.015.i.i.i.i.i.i, align 8, !tbaa !239
@@ -396,7 +396,7 @@ _ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11ch
 _ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread6.i.i: ; preds = %19, %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.i.i
   %.sroa.07.1.i.i8.i.i = phi ptr [ %35, %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.i.i ], [ %.sroa.07.0.i.i.i.i, %19 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i8.i.i, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !245
+  %39 = load ptr, ptr %38, align 8, !tbaa !246
   br label %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
 
 _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit: ; preds = %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread.i.i, %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread6.i.i
@@ -404,17 +404,17 @@ _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_strin
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  store ptr @.str.1, ptr %4, align 8, !tbaa !247
+  store ptr @.str.1, ptr %4, align 8, !tbaa !248
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 3, ptr %41, align 8, !tbaa !249
+  store i64 3, ptr %41, align 8, !tbaa !250
   %42 = call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  store ptr @.str.2, ptr %5, align 8, !tbaa !247
+  store ptr @.str.2, ptr %5, align 8, !tbaa !248
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 4, ptr %44, align 8, !tbaa !249
+  store i64 4, ptr %44, align 8, !tbaa !250
   %45 = call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
@@ -1107,13 +1107,14 @@ attributes #14 = { builtin allocsize(0) }
 !237 = !{!235, !90, i64 0}
 !238 = !{!92, !92, i64 0}
 !239 = !{!91, !92, i64 0}
-!240 = distinct !{!240, !241}
+!240 = distinct !{!240, !241, !242}
 !241 = !{!"llvm.loop.mustprogress"}
-!242 = !{!243, !16, i64 0}
-!243 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !16, i64 0}
-!244 = distinct !{!244, !241}
-!245 = !{!246, !158, i64 0}
-!246 = !{!"_ZTSSt14_List_iteratorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_EE", !158, i64 0}
-!247 = !{!248, !15, i64 0}
-!248 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !15, i64 0, !16, i64 8}
-!249 = !{!248, !16, i64 8}
+!242 = !{!"llvm.loop.estimated_trip_count"}
+!243 = !{!244, !16, i64 0}
+!244 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !16, i64 0}
+!245 = distinct !{!245, !241, !242}
+!246 = !{!247, !158, i64 0}
+!247 = !{!"_ZTSSt14_List_iteratorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_EE", !158, i64 0}
+!248 = !{!249, !15, i64 0}
+!249 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !15, i64 0, !16, i64 8}
+!250 = !{!249, !16, i64 8}

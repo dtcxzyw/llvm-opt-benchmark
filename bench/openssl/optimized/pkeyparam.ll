@@ -78,7 +78,7 @@ define dso_local range(i32 0, 2) i32 @pkeyparam_main(i32 noundef %0, ptr noundef
   br label %4, !llvm.loop !4
 
 .loopexit:                                        ; preds = %4, %21
-  %6 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %6 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.26, ptr noundef %3) #2
   br label %.loopexit59
 
@@ -131,9 +131,9 @@ define dso_local range(i32 0, 2) i32 @pkeyparam_main(i32 noundef %0, ptr noundef
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %32 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.27) #2
-  %34 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %34 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %34) #2
   br label %.loopexit59
 
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @pkeyparam_main(i32 noundef %0, ptr noundef
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %50 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %50) #2
   br label %.loopexit59
 
@@ -180,9 +180,9 @@ define dso_local range(i32 0, 2) i32 @pkeyparam_main(i32 noundef %0, ptr noundef
   br label %60
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %57 = load ptr, ptr @bio_err, align 8, !tbaa !7
   %58 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %57, ptr noundef nonnull @.str.29) #2
-  %59 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %59 = load ptr, ptr @bio_err, align 8, !tbaa !7
   tail call void @ERR_print_errors(ptr noundef %59) #2
   br label %.loopexit59
 
@@ -273,10 +273,11 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}

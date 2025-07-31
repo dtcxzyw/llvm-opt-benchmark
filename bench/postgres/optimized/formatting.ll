@@ -509,7 +509,7 @@ define dso_local noundef ptr @str_toupper(ptr noundef %0, i64 noundef %1, i32 no
   %20 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not12.i = icmp eq i8 %21, 0
-  br i1 %.not12.i, label %asc_toupper.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not12.i, label %asc_toupper.exit, label %.lr.ph.i, !llvm.loop !9
 
 22:                                               ; preds = %10
   %23 = add i64 %1, 1
@@ -548,7 +548,7 @@ define dso_local noundef ptr @asc_toupper(ptr noundef %0, i64 noundef %1) local_
   %8 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %9 = load i8, ptr %8, align 1
   %.not12 = icmp eq i8 %9, 0
-  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %2
   %.09 = phi ptr [ null, %2 ], [ %4, %3 ], [ %4, %.lr.ph ]
@@ -615,7 +615,7 @@ define dso_local noundef ptr @str_initcap(ptr noundef %0, i64 noundef %1, i32 no
   %29 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 1
   %30 = load i8, ptr %29, align 1
   %.not28.i = icmp eq i8 %30, 0
-  br i1 %.not28.i, label %asc_initcap.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not28.i, label %asc_initcap.exit, label %.lr.ph.i, !llvm.loop !10
 
 31:                                               ; preds = %10
   %32 = add i64 %1, 1
@@ -673,7 +673,7 @@ define dso_local noundef ptr @asc_initcap(ptr noundef %0, i64 noundef %1) local_
   %17 = getelementptr inbounds nuw i8, ptr %.02435, i64 1
   %18 = load i8, ptr %17, align 1
   %.not28 = icmp eq i8 %18, 0
-  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %11, %3, %2
   %.025 = phi ptr [ null, %2 ], [ %4, %3 ], [ %4, %11 ]
@@ -1519,7 +1519,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
   %110 = add i32 %.2310544.i, 1
   %111 = load i8, ptr %109, align 1
   %.not331.i = icmp eq i8 %111, 0
-  br i1 %.not331.i, label %.critedge3.i, label %100, !llvm.loop !10
+  br i1 %.not331.i, label %.critedge3.i, label %100, !llvm.loop !11
 
 .critedge3.i:                                     ; preds = %108, %100, %97, %90
   %112 = phi i8 [ %89, %90 ], [ %89, %97 ], [ %101, %100 ], [ 0, %108 ]
@@ -3360,7 +3360,7 @@ from_char_set_int.exit509.i:                      ; preds = %987
   %1057 = add i32 %.4549.i, 1
   %1058 = load i8, ptr %1056, align 1
   %.not433.i = icmp eq i8 %1058, 0
-  br i1 %.not433.i, label %.critedge5.i, label %1047, !llvm.loop !11
+  br i1 %.not433.i, label %.critedge5.i, label %1047, !llvm.loop !12
 
 .critedge5.i:                                     ; preds = %1055, %1047, %.preheader524.i, %.thread629.i, %193, %.critedge5.critedge.i, %156, %154, %146, %144, %137, %119
   %.3.i = phi i32 [ %.1309.i, %119 ], [ %.1309.i, %146 ], [ %.1309.i, %144 ], [ %155, %154 ], [ %.1309.i, %156 ], [ %.1309511.i, %.thread629.i ], [ %.1309.i, %.critedge5.critedge.i ], [ %138, %137 ], [ %.1309511.i, %193 ], [ 0, %.preheader524.i ], [ %1057, %1055 ], [ %.4549.i, %1047 ]
@@ -3368,7 +3368,7 @@ from_char_set_int.exit509.i:                      ; preds = %987
   %1059 = getelementptr inbounds nuw i8, ptr %.0557.i, i64 16
   %1060 = load i8, ptr %1059, align 8
   %.not.i = icmp eq i8 %1060, 1
-  br i1 %.not.i, label %.critedge.i, label %86, !llvm.loop !12
+  br i1 %.not.i, label %.critedge.i, label %86, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.critedge5.i, %56
   br i1 %3, label %.preheader.i, label %DCH_from_char.exit
@@ -3412,7 +3412,7 @@ from_char_set_int.exit509.i:                      ; preds = %987
   store ptr %1077, ptr %11, align 8
   %1078 = load i8, ptr %1077, align 1
   %.not326.i = icmp eq i8 %1078, 0
-  br i1 %.not326.i, label %DCH_from_char.exit, label %1068, !llvm.loop !13
+  br i1 %.not326.i, label %DCH_from_char.exit, label %1068, !llvm.loop !14
 
 .critedge7.i:                                     ; preds = %1068
   %1079 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #18
@@ -3936,7 +3936,7 @@ thread-pre-split:                                 ; preds = %1198, %1201
 1325:                                             ; preds = %1322
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.split.loop.exit390, label %1322, !llvm.loop !14
+  br i1 %exitcond.not, label %.split.loop.exit390, label %1322, !llvm.loop !15
 
 .split.loop.exit:                                 ; preds = %1322
   %1326 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4623,7 +4623,7 @@ define internal fastcc void @parse_format(ptr noundef captures(none) %0, ptr nou
   %33 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %suff_search.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %suff_search.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 suff_search.exit:                                 ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 12
@@ -4683,7 +4683,7 @@ suff_search.exit.thread:                          ; preds = %32, %suff_search.ex
 58:                                               ; preds = %55
   %59 = load i8, ptr %57, align 1
   %60 = icmp eq i8 %39, %59
-  br i1 %60, label %48, label %.loopexit, !llvm.loop !16
+  br i1 %60, label %48, label %.loopexit, !llvm.loop !17
 
 61:                                               ; preds = %48
   %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
@@ -5146,7 +5146,7 @@ NUMDesc_prepare.exit:                             ; preds = %238, %61
   %261 = getelementptr inbounds nuw i8, ptr %.013.i130, i64 24
   %262 = load ptr, ptr %261, align 8
   %.not.i132 = icmp eq ptr %262, null
-  br i1 %.not.i132, label %suff_search.exit134.thread, label %.lr.ph.i129, !llvm.loop !15
+  br i1 %.not.i132, label %suff_search.exit134.thread, label %.lr.ph.i129, !llvm.loop !16
 
 suff_search.exit134:                              ; preds = %254
   %263 = getelementptr inbounds nuw i8, ptr %.013.i130, i64 8
@@ -5264,7 +5264,7 @@ suff_search.exit134.thread:                       ; preds = %260, %249, %suff_se
   store i8 0, ptr %311, align 2
   %312 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %313 = getelementptr inbounds i8, ptr %.7, i64 %308
-  br label %298, !llvm.loop !17
+  br label %298, !llvm.loop !18
 
 314:                                              ; preds = %295
   %315 = getelementptr inbounds nuw i8, ptr %.193141, i64 1
@@ -5322,7 +5322,7 @@ is_separator_char.exit.thread:                    ; preds = %320, %318
   %.1.ph = phi ptr [ %.091207, %suff_search.exit.thread ], [ %337, %332 ], [ %.3, %300 ], [ %293, %287 ], [ %273, %suff_search.exit134.thread ]
   %.pr247 = load i8, ptr %.4.ph, align 1
   %.not = icmp eq i8 %.pr247, 0
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit, %.thread149, %298, %7
   %.091.lcssa = phi ptr [ %0, %7 ], [ %.3, %298 ], [ %.091207, %.loopexit ], [ %.1.ph, %.thread149 ]
@@ -5361,7 +5361,7 @@ define internal fastcc ptr @DCH_cache_fetch(ptr noundef %0, i1 noundef zeroext %
   store i32 %10, ptr %8, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 DCH_prevent_counter_overflow.exit.i:              ; preds = %._crit_edge.i.i, %2
   %11 = phi i32 [ %3, %2 ], [ 1073741823, %._crit_edge.i.i ]
@@ -5397,7 +5397,7 @@ DCH_prevent_counter_overflow.exit.i:              ; preds = %._crit_edge.i.i, %2
 27:                                               ; preds = %23, %19, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %30, label %13, !llvm.loop !20
+  br i1 %exitcond.not.i, label %30, label %13, !llvm.loop !21
 
 DCH_cache_search.exit:                            ; preds = %23
   %28 = add i32 %11, 1
@@ -5424,7 +5424,7 @@ DCH_cache_search.exit:                            ; preds = %23
   store i32 %36, ptr %34, align 4
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, %wide.trip.count.i
-  br i1 %exitcond.not.i.i22, label %._crit_edge.i.i16, label %.lr.ph.i.i19, !llvm.loop !19
+  br i1 %exitcond.not.i.i22, label %._crit_edge.i.i16, label %.lr.ph.i.i19, !llvm.loop !20
 
 DCH_prevent_counter_overflow.exit.i10:            ; preds = %._crit_edge.i.i16, %30
   %37 = icmp sgt i32 %.pre.i, 19
@@ -5456,7 +5456,7 @@ DCH_prevent_counter_overflow.exit.i10:            ; preds = %._crit_edge.i.i16, 
   %spec.select.i12 = select i1 %53, ptr %44, ptr %.123.i
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 20
-  br i1 %exitcond.not.i14, label %.loopexit.i, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond.not.i14, label %.loopexit.i, label %.preheader.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %48, %.preheader.i, %38
   %.021.i = phi ptr [ %39, %38 ], [ %spec.select.i12, %48 ], [ %44, %.preheader.i ]
@@ -5613,7 +5613,7 @@ define internal fastcc range(i32 0, 8) i32 @DCH_datetime_type(ptr noundef readon
 15:                                               ; preds = %2, %4, %9, %11, %13
   %.1 = phi i32 [ %.0, %4 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %.0, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %.08, i64 16
-  br label %2, !llvm.loop !22
+  br label %2, !llvm.loop !23
 
 17:                                               ; preds = %2
   ret i32 %.0
@@ -5821,7 +5821,7 @@ define internal fastcc ptr @NUM_cache(i32 noundef range(i32 1, 268435455) %0, pt
   store i32 %20, ptr %18, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 NUM_prevent_counter_overflow.exit.i.i:            ; preds = %._crit_edge.i.i.i, %12
   %21 = phi i32 [ %13, %12 ], [ 1073741823, %._crit_edge.i.i.i ]
@@ -5850,7 +5850,7 @@ NUM_prevent_counter_overflow.exit.i.i:            ; preds = %._crit_edge.i.i.i, 
 31:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %34, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %34, label %.lr.ph.i.i, !llvm.loop !25
 
 NUM_cache_search.exit.i:                          ; preds = %27
   %32 = add i32 %21, 1
@@ -5877,7 +5877,7 @@ NUM_cache_search.exit.i:                          ; preds = %27
   store i32 %40, ptr %38, align 4
   %indvars.iv.next.i.i29.i = add nuw nsw i64 %indvars.iv.i.i28.i, 1
   %exitcond.not.i.i30.i = icmp eq i64 %indvars.iv.next.i.i29.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i30.i, label %._crit_edge.i.i24.i, label %.lr.ph.i.i27.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i30.i, label %._crit_edge.i.i24.i, label %.lr.ph.i.i27.i, !llvm.loop !24
 
 NUM_prevent_counter_overflow.exit.i18.i:          ; preds = %._crit_edge.i.i24.i, %34
   %41 = icmp sgt i32 %.pre.i.i, 19
@@ -5909,7 +5909,7 @@ NUM_prevent_counter_overflow.exit.i18.i:          ; preds = %._crit_edge.i.i24.i
   %spec.select.i20.i = select i1 %57, ptr %48, ptr %.121.i.i
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, 20
-  br i1 %exitcond.not.i22.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i22.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !26
 
 .loopexit.i.i:                                    ; preds = %52, %.preheader.i.i, %42
   %.019.i.i = phi ptr [ %43, %42 ], [ %48, %.preheader.i.i ], [ %spec.select.i20.i, %52 ]
@@ -6111,10 +6111,10 @@ define internal fastcc void @NUM_processor(ptr noundef readonly captures(none) %
   switch i8 %57, label %58 [
     i8 0, label %get_last_relevant_decnum.exit
     i8 48, label %.preheader.i
-  ], !llvm.loop !26
+  ], !llvm.loop !27
 
 58:                                               ; preds = %.preheader.i
-  br label %.preheader.i.outer, !llvm.loop !26
+  br label %.preheader.i.outer, !llvm.loop !27
 
 get_last_relevant_decnum.exit:                    ; preds = %.preheader.i
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -7046,7 +7046,7 @@ NUM_prepare_locale.exit:                          ; preds = %79, %113, %115
   %476 = sext i32 %475 to i64
   %477 = getelementptr inbounds i8, ptr %.sroa.140.13, i64 %476
   %478 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %478, label %.lr.ph.i, label %NUM_numpart_to_char.exit, !llvm.loop !27
+  br i1 %478, label %.lr.ph.i, label %NUM_numpart_to_char.exit, !llvm.loop !28
 
 479:                                              ; preds = %153, %153
   br i1 %7, label %480, label %500
@@ -7117,7 +7117,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
 508:                                              ; preds = %502
   %509 = getelementptr inbounds nuw i8, ptr %.sroa.140.17, i64 1
   %.not.i334 = icmp ult ptr %509, %129
-  br i1 %.not.i334, label %502, label %.critedge.i328.preheader, !llvm.loop !28
+  br i1 %.not.i334, label %502, label %.critedge.i328.preheader, !llvm.loop !29
 
 .critedge.i328.preheader:                         ; preds = %508, %502, %500
   %.ph = phi ptr [ %.sroa.140.0, %500 ], [ %.sroa.140.17, %502 ], [ %509, %508 ]
@@ -7169,7 +7169,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
   %517 = getelementptr inbounds nuw i8, ptr %510, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.lr.ph220.i, label %.critedge.i328, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.lr.ph220.i, label %.critedge.i328, !llvm.loop !30
 
 .critedge4.i:                                     ; preds = %511, %.critedge.i328
   %518 = icmp eq i64 %indvars.iv.i, 0
@@ -7351,7 +7351,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
   %.2117.i = add i32 %.pn202.i, %.0115219.i
   %583 = add nsw i32 %.1129.i, 1
   %.not180.i = icmp slt i32 %583, %.0121.lcssa250253.i
-  br i1 %.not180.i, label %521, label %roman_to_int.exit, !llvm.loop !30
+  br i1 %.not180.i, label %521, label %roman_to_int.exit, !llvm.loop !31
 
 roman_to_int.exit.thread:                         ; preds = %.critedge4.i, %555, %554, %579, %559, %562, %565, %557, %553, %556, %527, %530, %533, %521
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %10) #18
@@ -7426,7 +7426,7 @@ roman_to_int.exit:                                ; preds = %582
   %612 = sext i32 %611 to i64
   %613 = getelementptr inbounds i8, ptr %.sroa.140.18, i64 %612
   %614 = icmp samesign ugt i32 %.in.i337, 1
-  br i1 %614, label %.preheader, label %NUM_numpart_to_char.exit, !llvm.loop !27
+  br i1 %614, label %.preheader, label %NUM_numpart_to_char.exit, !llvm.loop !28
 
 615:                                              ; preds = %153
   %616 = load i32, ptr %16, align 4
@@ -7474,7 +7474,7 @@ roman_to_int.exit:                                ; preds = %582
   %635 = sext i32 %634 to i64
   %636 = getelementptr inbounds i8, ptr %.sroa.140.19, i64 %635
   %637 = icmp samesign ugt i32 %.in.i346, 1
-  br i1 %637, label %.preheader3, label %NUM_numpart_to_char.exit, !llvm.loop !27
+  br i1 %637, label %.preheader3, label %NUM_numpart_to_char.exit, !llvm.loop !28
 
 638:                                              ; preds = %153
   br i1 %7, label %639, label %645
@@ -7647,7 +7647,7 @@ NUM_numpart_to_char.exit:                         ; preds = %633, %628, %.prehea
   %703 = getelementptr inbounds nuw i8, ptr %.0241411, i64 16
   %704 = load i8, ptr %703, align 8
   %.not263 = icmp eq i8 %704, 1
-  br i1 %.not263, label %._crit_edge, label %147, !llvm.loop !31
+  br i1 %.not263, label %._crit_edge, label %147, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %NUM_numpart_to_char.exit, %NUM_prepare_locale.exit
   %.sroa.79.1 = phi i32 [ 0, %NUM_prepare_locale.exit ], [ %.sroa.79.2, %NUM_numpart_to_char.exit ]
@@ -8000,7 +8000,7 @@ define internal fastcc noundef ptr @int_to_roman(i32 noundef %0) unnamed_addr #0
   %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
   store i16 77, ptr %endptr, align 1
   %16 = icmp sgt i32 %.02328, 0
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 17:                                               ; preds = %14
   br label %.loopexit.sink.split
@@ -8021,7 +8021,7 @@ define internal fastcc noundef ptr @int_to_roman(i32 noundef %0) unnamed_addr #0
   %24 = add i32 %.02430, -1
   %25 = load i8, ptr %23, align 1
   %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %.loopexit27, label %.lr.ph32, !llvm.loop !33
+  br i1 %.not, label %.loopexit27, label %.lr.ph32, !llvm.loop !34
 
 .loopexit27:                                      ; preds = %.loopexit, %7, %5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #18
@@ -9633,7 +9633,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %364 = getelementptr inbounds nuw i8, ptr %.014.i.i855, i64 1
   %365 = load i8, ptr %364, align 1
   %.not12.i.i856 = icmp eq i8 %365, 0
-  br i1 %.not12.i.i856, label %asc_toupper_z.exit, label %.lr.ph.i.i854, !llvm.loop !8
+  br i1 %.not12.i.i856, label %asc_toupper_z.exit, label %.lr.ph.i.i854, !llvm.loop !9
 
 asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i854, %352
   %366 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.54, i32 noundef %354, ptr noundef nonnull %360) #18
@@ -9852,7 +9852,7 @@ asc_tolower_z.exit861:                            ; preds = %.lr.ph.i.i858, %441
   %494 = getelementptr inbounds nuw i8, ptr %.014.i.i864, i64 1
   %495 = load i8, ptr %494, align 1
   %.not12.i.i865 = icmp eq i8 %495, 0
-  br i1 %.not12.i.i865, label %asc_toupper_z.exit866, label %.lr.ph.i.i863, !llvm.loop !8
+  br i1 %.not12.i.i865, label %asc_toupper_z.exit866, label %.lr.ph.i.i863, !llvm.loop !9
 
 asc_toupper_z.exit866:                            ; preds = %.lr.ph.i.i863, %486, %470
   %.sink = phi ptr [ %474, %470 ], [ %490, %486 ], [ %490, %.lr.ph.i.i863 ]
@@ -10092,7 +10092,7 @@ asc_tolower_z.exit871:                            ; preds = %.lr.ph.i.i868, %562
   %635 = getelementptr inbounds nuw i8, ptr %.014.i.i874, i64 1
   %636 = load i8, ptr %635, align 1
   %.not12.i.i875 = icmp eq i8 %636, 0
-  br i1 %.not12.i.i875, label %asc_toupper_z.exit876, label %.lr.ph.i.i873, !llvm.loop !8
+  br i1 %.not12.i.i875, label %asc_toupper_z.exit876, label %.lr.ph.i.i873, !llvm.loop !9
 
 asc_toupper_z.exit876:                            ; preds = %.lr.ph.i.i873, %623
   %637 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.54, i32 noundef %625, ptr noundef nonnull %631) #18
@@ -10296,7 +10296,7 @@ asc_tolower_z.exit881:                            ; preds = %.lr.ph.i.i878, %708
   %759 = getelementptr inbounds nuw i8, ptr %.014.i.i884, i64 1
   %760 = load i8, ptr %759, align 1
   %.not12.i.i885 = icmp eq i8 %760, 0
-  br i1 %.not12.i.i885, label %asc_toupper_z.exit886, label %.lr.ph.i.i883, !llvm.loop !8
+  br i1 %.not12.i.i885, label %asc_toupper_z.exit886, label %.lr.ph.i.i883, !llvm.loop !9
 
 asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i883, %751, %735
   %.sink1009 = phi ptr [ %739, %735 ], [ %755, %751 ], [ %755, %.lr.ph.i.i883 ]
@@ -11035,7 +11035,7 @@ asc_tolower_z.exit891:                            ; preds = %.lr.ph.i.i888, %823
 1210:                                             ; preds = %.sink.split, %21, %204, %221, %258, %325, %373, %414, %462, %503, %538, %941, %1159
   %.1 = phi ptr [ %.0641, %21 ], [ %.0641, %204 ], [ %.0641, %221 ], [ %271, %258 ], [ %.0641, %325 ], [ %.0641, %373 ], [ %.0641, %414 ], [ %.0641, %462 ], [ %.0641, %503 ], [ %.0641, %538 ], [ %.0641, %941 ], [ %.0641, %1159 ], [ %1209, %.sink.split ]
   %1211 = getelementptr inbounds nuw i8, ptr %.0640, i64 16
-  br label %16, !llvm.loop !34
+  br label %16, !llvm.loop !35
 
 1212:                                             ; preds = %16
   store i8 0, ptr %.0641, align 1
@@ -11208,7 +11208,7 @@ define internal fastcc noundef zeroext i1 @from_char_seq_search(ptr noundef nonn
   %28 = load i8, ptr %.0.i, align 1
   %29 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %28) #18
   %.not30.i = icmp eq i8 %27, %29
-  br i1 %.not30.i, label %20, label %.loopexit.i
+  br i1 %.not30.i, label %20, label %.loopexit.i, !llvm.loop !36
 
 30:                                               ; preds = %20
   %31 = ptrtoint ptr %.0.i to i64
@@ -11220,7 +11220,7 @@ define internal fastcc noundef zeroext i1 @from_char_seq_search(ptr noundef nonn
   %34 = getelementptr inbounds nuw i8, ptr %.02439.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not28.i = icmp eq ptr %35, null
-  br i1 %.not28.i, label %seq_search_ascii.exit.thread, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not28.i, label %seq_search_ascii.exit.thread, label %.lr.ph.i, !llvm.loop !37
 
 36:                                               ; preds = %7
   br i1 %.not.i, label %seq_search_ascii.exit.thread, label %.preheader.i
@@ -11244,7 +11244,7 @@ define internal fastcc noundef zeroext i1 @from_char_seq_search(ptr noundef nonn
   %43 = getelementptr inbounds nuw i8, ptr %.04564.i, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not51.i = icmp eq ptr %44, null
-  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i25, !llvm.loop !36
+  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i25, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %42, %.preheader.i
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
@@ -11280,7 +11280,7 @@ define internal fastcc noundef zeroext i1 @from_char_seq_search(ptr noundef nonn
   %59 = getelementptr inbounds nuw i8, ptr %.14666.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not52.i = icmp eq ptr %60, null
-  br i1 %.not52.i, label %._crit_edge69.i, label %.lr.ph68.i, !llvm.loop !37
+  br i1 %.not52.i, label %._crit_edge69.i, label %.lr.ph68.i, !llvm.loop !39
 
 ._crit_edge69.i:                                  ; preds = %58, %._crit_edge.i
   tail call void @pfree(ptr noundef %48) #18
@@ -11325,7 +11325,7 @@ seq_search_ascii.exit:                            ; preds = %.lr.ph.i25, %.threa
   %73 = getelementptr inbounds nuw i8, ptr %.02141, i64 1
   %74 = load i8, ptr %73, align 1
   %.not = icmp eq i8 %74, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %72, %65, %71
   %75 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #18
@@ -11385,7 +11385,7 @@ define internal fastcc i32 @from_char_parse_int_len(ptr noundef captures(address
   %21 = add i32 %.08.i, 1
   %22 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %strspace_len.exit.loopexit, label %13, !llvm.loop !39
+  br i1 %.not.i, label %strspace_len.exit.loopexit, label %13, !llvm.loop !41
 
 strspace_len.exit.loopexit:                       ; preds = %19, %13
   %.0.lcssa.i.ph = phi i32 [ %21, %19 ], [ %.08.i, %13 ]
@@ -11688,37 +11688,39 @@ attributes #20 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}

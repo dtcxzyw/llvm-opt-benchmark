@@ -257,12 +257,12 @@ pgstat_tracks_io_op.exit.thread:                  ; preds = %30, %27, %26, %29, 
 61:                                               ; preds = %60
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 5
-  br i1 %exitcond52.not, label %62, label %.preheader, !llvm.loop !6
+  br i1 %exitcond52.not, label %62, label %.preheader, !llvm.loop !7
 
 62:                                               ; preds = %61
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56 = icmp eq i64 %indvars.iv.next54, 3
-  br i1 %exitcond56, label %.loopexit, label %.preheader38, !llvm.loop !7
+  br i1 %exitcond56, label %.loopexit, label %.preheader38, !llvm.loop !8
 
 .loopexit:                                        ; preds = %62, %54, %pgstat_tracks_io_op.exit.thread
   %63 = phi i1 [ false, %pgstat_tracks_io_op.exit.thread ], [ false, %54 ], [ true, %62 ]
@@ -509,7 +509,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.timespec, align 8
-  %8 = load i8, ptr @track_io_timing, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr @track_io_timing, align 1, !range !9, !noundef !10
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %._crit_edge
 
@@ -699,12 +699,12 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
 30:                                               ; preds = %31
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
-  br i1 %exitcond47.not, label %23, label %.preheader35, !llvm.loop !10
+  br i1 %exitcond47.not, label %23, label %.preheader35, !llvm.loop !11
 
 31:                                               ; preds = %32
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 5
-  br i1 %exitcond43.not, label %30, label %.preheader, !llvm.loop !11
+  br i1 %exitcond43.not, label %30, label %.preheader, !llvm.loop !12
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
@@ -729,7 +729,7 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
   store i64 %47, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %31, label %32, !llvm.loop !12
+  br i1 %exitcond.not, label %31, label %32, !llvm.loop !13
 
 48:                                               ; preds = %12, %1, %23
   %.0 = phi i1 [ false, %23 ], [ false, %1 ], [ true, %12 ]
@@ -803,7 +803,7 @@ define dso_local void @pgstat_io_init_shmem_cb(ptr noundef %0) local_unnamed_add
   tail call void @LWLockInitialize(ptr noundef %4, i32 noundef 79) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !14
 }
 
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -837,7 +837,7 @@ define dso_local void @pgstat_io_reset_all_cb(i64 noundef %0) local_unnamed_addr
   tail call void @LWLockRelease(ptr noundef nonnull %6) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !14
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -871,7 +871,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #3 {
   tail call void @LWLockRelease(ptr noundef nonnull %5) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !15
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -986,15 +986,16 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}

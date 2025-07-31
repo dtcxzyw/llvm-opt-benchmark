@@ -66,7 +66,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -96,20 +96,20 @@ define void @_ZN4LIEF3ELF23SymbolVersionDefinitionC2ERKNS0_7details12Elf64_Verde
   tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF3ELF23SymbolVersionDefinitionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i16, ptr %1, align 1, !tbaa !17
-  store i16 %4, ptr %3, align 8, !tbaa !21
+  %4 = load i16, ptr %1, align 1, !tbaa !18
+  store i16 %4, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %7 = load i16, ptr %6, align 1, !tbaa !27
-  store i16 %7, ptr %5, align 2, !tbaa !28
+  %7 = load i16, ptr %6, align 1, !tbaa !28
+  store i16 %7, ptr %5, align 2, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i16, ptr %9, align 1, !tbaa !29
-  store i16 %10, ptr %8, align 4, !tbaa !30
+  %10 = load i16, ptr %9, align 1, !tbaa !30
+  store i16 %10, ptr %8, align 4, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 1, !tbaa !31
-  store i32 %13, ptr %11, align 8, !tbaa !32
+  %13 = load i32, ptr %12, align 1, !tbaa !32
+  store i32 %13, ptr %11, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   ret void
@@ -122,20 +122,20 @@ define void @_ZN4LIEF3ELF23SymbolVersionDefinitionC2ERKNS0_7details12Elf32_Verde
   tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF3ELF23SymbolVersionDefinitionE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i16, ptr %1, align 1, !tbaa !33
-  store i16 %4, ptr %3, align 8, !tbaa !21
+  %4 = load i16, ptr %1, align 1, !tbaa !34
+  store i16 %4, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %7 = load i16, ptr %6, align 1, !tbaa !35
-  store i16 %7, ptr %5, align 2, !tbaa !28
+  %7 = load i16, ptr %6, align 1, !tbaa !36
+  store i16 %7, ptr %5, align 2, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i16, ptr %9, align 1, !tbaa !36
-  store i16 %10, ptr %8, align 4, !tbaa !30
+  %10 = load i16, ptr %9, align 1, !tbaa !37
+  store i16 %10, ptr %8, align 4, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 1, !tbaa !37
-  store i32 %13, ptr %11, align 8, !tbaa !32
+  %13 = load i32, ptr %12, align 1, !tbaa !38
+  store i32 %13, ptr %11, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   ret void
@@ -148,20 +148,20 @@ define void @_ZN4LIEF3ELF23SymbolVersionDefinitionC2ERKS1_(ptr noundef nonnull a
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF3ELF23SymbolVersionDefinitionE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i16, ptr %5, align 8, !tbaa !21
-  store i16 %6, ptr %4, align 8, !tbaa !21
+  %6 = load i16, ptr %5, align 8, !tbaa !22
+  store i16 %6, ptr %4, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %9 = load i16, ptr %8, align 2, !tbaa !28
-  store i16 %9, ptr %7, align 2, !tbaa !28
+  %9 = load i16, ptr %8, align 2, !tbaa !29
+  store i16 %9, ptr %7, align 2, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i16, ptr %11, align 4, !tbaa !30
-  store i16 %12, ptr %10, align 4, !tbaa !30
+  %12 = load i16, ptr %11, align 4, !tbaa !31
+  store i16 %12, ptr %10, align 4, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !32
-  store i32 %15, ptr %13, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 8, !tbaa !33
+  store i32 %15, ptr %13, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -189,9 +189,9 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_dele
   store ptr %29, ptr %16, align 8, !tbaa !6
   store ptr %29, ptr %28, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %23
-  store ptr %30, ptr %27, align 8, !tbaa !16
-  %.pre = load ptr, ptr %17, align 8, !tbaa !38
-  %.pre17 = load ptr, ptr %18, align 8, !tbaa !38
+  store ptr %30, ptr %27, align 8, !tbaa !17
+  %.pre = load ptr, ptr %17, align 8, !tbaa !39
+  %.pre17 = load ptr, ptr %18, align 8, !tbaa !39
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit: ; preds = %26, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
@@ -216,20 +216,20 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %39, ptr %37, align 8, !tbaa !39
-  %40 = load ptr, ptr %38, align 8, !tbaa !42
+  store ptr %39, ptr %37, align 8, !tbaa !40
+  %40 = load ptr, ptr %38, align 8, !tbaa !43
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !45
+  %42 = load i64, ptr %41, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store i64 %42, ptr %3, align 8, !tbaa !46
+  store i64 %42, ptr %3, align 8, !tbaa !47
   %43 = icmp ugt i64 %42, 15
   br i1 %43, label %44, label %._crit_edge.i.i.i
 
 44:                                               ; preds = %34
   %45 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #13
-  store ptr %45, ptr %37, align 8, !tbaa !42
-  %46 = load i64, ptr %3, align 8, !tbaa !46
-  store i64 %46, ptr %39, align 8, !tbaa !47
+  store ptr %45, ptr %37, align 8, !tbaa !43
+  %46 = load i64, ptr %3, align 8, !tbaa !47
+  store i64 %46, ptr %39, align 8, !tbaa !48
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %44, %34
@@ -240,8 +240,8 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
   ]
 
 48:                                               ; preds = %._crit_edge.i.i.i
-  %49 = load i8, ptr %40, align 1, !tbaa !47
-  store i8 %49, ptr %47, align 1, !tbaa !47
+  %49 = load i8, ptr %40, align 1, !tbaa !48
+  store i8 %49, ptr %47, align 1, !tbaa !48
   br label %_ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_.exit
 
 50:                                               ; preds = %._crit_edge.i.i.i
@@ -249,15 +249,15 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
   br label %_ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_.exit
 
 _ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_.exit:      ; preds = %._crit_edge.i.i.i, %48, %50
-  %51 = load i64, ptr %3, align 8, !tbaa !46
+  %51 = load i64, ptr %3, align 8, !tbaa !47
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 %51, ptr %52, align 8, !tbaa !45
-  %53 = load ptr, ptr %37, align 8, !tbaa !42
+  store i64 %51, ptr %52, align 8, !tbaa !46
+  %53 = load ptr, ptr %37, align 8, !tbaa !43
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
-  store i8 0, ptr %54, align 1, !tbaa !47
+  store i8 0, ptr %54, align 1, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   %55 = load ptr, ptr %33, align 8, !tbaa !11
-  %56 = load ptr, ptr %27, align 8, !tbaa !16
+  %56 = load ptr, ptr %27, align 8, !tbaa !17
   %.not.i = icmp eq ptr %55, %56
   br i1 %.not.i, label %59, label %57
 
@@ -298,15 +298,15 @@ _ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %72, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i ], [ %60, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %74 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !51, !noalias !48
-  store i64 %74, ptr %.012.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !48, !noalias !51
-  store ptr null, ptr %.0911.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !51, !noalias !48
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  %74 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !52, !noalias !49
+  store i64 %74, ptr %.012.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !49, !noalias !52
+  store ptr null, ptr %.0911.i.i.i.i.i, align 8, !tbaa !12, !alias.scope !52, !noalias !49
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %75, %55
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !53
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !54
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %72, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i ], [ %76, %.lr.ph.i.i.i.i.i ]
@@ -322,13 +322,13 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
   store ptr %72, ptr %16, align 8, !tbaa !6
   store ptr %77, ptr %33, align 8, !tbaa !11
   %79 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %72, i64 %70
-  store ptr %79, ptr %27, align 8, !tbaa !16
+  store ptr %79, ptr %27, align 8, !tbaa !17
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPS3_EEERS6_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPS3_EEERS6_DpOT_.exit: ; preds = %57, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPS3_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
   %.not = icmp eq ptr %80, %31
-  br i1 %.not, label %._crit_edge, label %34
+  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !55
 }
 
 declare void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -346,46 +346,46 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF23SymbolVersionDefinitionaSES1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i16, ptr %3, align 8, !tbaa !54
-  %6 = load i16, ptr %4, align 2, !tbaa !54
-  store i16 %6, ptr %3, align 8, !tbaa !54
-  store i16 %5, ptr %4, align 2, !tbaa !54
+  %5 = load i16, ptr %3, align 8, !tbaa !56
+  %6 = load i16, ptr %4, align 2, !tbaa !56
+  store i16 %6, ptr %3, align 8, !tbaa !56
+  store i16 %5, ptr %4, align 2, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %9 = load i16, ptr %7, align 2, !tbaa !54
-  %10 = load i16, ptr %8, align 2, !tbaa !54
-  store i16 %10, ptr %7, align 2, !tbaa !54
-  store i16 %9, ptr %8, align 2, !tbaa !54
+  %9 = load i16, ptr %7, align 2, !tbaa !56
+  %10 = load i16, ptr %8, align 2, !tbaa !56
+  store i16 %10, ptr %7, align 2, !tbaa !56
+  store i16 %9, ptr %8, align 2, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = load i16, ptr %11, align 4, !tbaa !54
-  %14 = load i16, ptr %12, align 2, !tbaa !54
-  store i16 %14, ptr %11, align 4, !tbaa !54
-  store i16 %13, ptr %12, align 2, !tbaa !54
+  %13 = load i16, ptr %11, align 4, !tbaa !56
+  %14 = load i16, ptr %12, align 2, !tbaa !56
+  store i16 %14, ptr %11, align 4, !tbaa !56
+  store i16 %13, ptr %12, align 2, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %15, align 8, !tbaa !55
-  %18 = load i32, ptr %16, align 4, !tbaa !55
-  store i32 %18, ptr %15, align 8, !tbaa !55
-  store i32 %17, ptr %16, align 4, !tbaa !55
+  %17 = load i32, ptr %15, align 8, !tbaa !57
+  %18 = load i32, ptr %16, align 4, !tbaa !57
+  store i32 %18, ptr %15, align 8, !tbaa !57
+  store i32 %17, ptr %16, align 4, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %19, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !16
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   %26 = load ptr, ptr %20, align 8, !tbaa !6
   store ptr %26, ptr %19, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   store ptr %28, ptr %22, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !16
-  store ptr %30, ptr %24, align 8, !tbaa !16
+  %30 = load ptr, ptr %29, align 8, !tbaa !17
+  store ptr %30, ptr %24, align 8, !tbaa !17
   store ptr %21, ptr %20, align 8, !tbaa !6
   store ptr %23, ptr %27, align 8, !tbaa !11
-  store ptr %25, ptr %29, align 8, !tbaa !16
+  store ptr %25, ptr %29, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -393,46 +393,46 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF23SymbolVers
 define void @_ZN4LIEF3ELF23SymbolVersionDefinition4swapERS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i16, ptr %3, align 8, !tbaa !54
-  %6 = load i16, ptr %4, align 8, !tbaa !54
-  store i16 %6, ptr %3, align 8, !tbaa !54
-  store i16 %5, ptr %4, align 8, !tbaa !54
+  %5 = load i16, ptr %3, align 8, !tbaa !56
+  %6 = load i16, ptr %4, align 8, !tbaa !56
+  store i16 %6, ptr %3, align 8, !tbaa !56
+  store i16 %5, ptr %4, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %9 = load i16, ptr %7, align 2, !tbaa !54
-  %10 = load i16, ptr %8, align 2, !tbaa !54
-  store i16 %10, ptr %7, align 2, !tbaa !54
-  store i16 %9, ptr %8, align 2, !tbaa !54
+  %9 = load i16, ptr %7, align 2, !tbaa !56
+  %10 = load i16, ptr %8, align 2, !tbaa !56
+  store i16 %10, ptr %7, align 2, !tbaa !56
+  store i16 %9, ptr %8, align 2, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = load i16, ptr %11, align 4, !tbaa !54
-  %14 = load i16, ptr %12, align 4, !tbaa !54
-  store i16 %14, ptr %11, align 4, !tbaa !54
-  store i16 %13, ptr %12, align 4, !tbaa !54
+  %13 = load i16, ptr %11, align 4, !tbaa !56
+  %14 = load i16, ptr %12, align 4, !tbaa !56
+  store i16 %14, ptr %11, align 4, !tbaa !56
+  store i16 %13, ptr %12, align 4, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i32, ptr %15, align 8, !tbaa !55
-  %18 = load i32, ptr %16, align 8, !tbaa !55
-  store i32 %18, ptr %15, align 8, !tbaa !55
-  store i32 %17, ptr %16, align 8, !tbaa !55
+  %17 = load i32, ptr %15, align 8, !tbaa !57
+  %18 = load i32, ptr %16, align 8, !tbaa !57
+  store i32 %18, ptr %15, align 8, !tbaa !57
+  store i32 %17, ptr %16, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %19, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !16
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   %26 = load ptr, ptr %20, align 8, !tbaa !6
   store ptr %26, ptr %19, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   store ptr %28, ptr %22, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !16
-  store ptr %30, ptr %24, align 8, !tbaa !16
+  %30 = load ptr, ptr %29, align 8, !tbaa !17
+  store ptr %30, ptr %24, align 8, !tbaa !17
   store ptr %21, ptr %20, align 8, !tbaa !6
   store ptr %23, ptr %27, align 8, !tbaa !11
-  store ptr %25, ptr %29, align 8, !tbaa !16
+  store ptr %25, ptr %29, align 8, !tbaa !17
   ret void
 }
 
@@ -452,23 +452,23 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_2
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !56
+  %8 = load i32, ptr %7, align 8, !tbaa !58
   %9 = and i32 %8, -75
   %10 = or disjoint i32 %9, 8
-  store i32 %10, ptr %7, align 4, !tbaa !65
+  store i32 %10, ptr %7, align 4, !tbaa !67
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !56
+  %14 = load i32, ptr %13, align 8, !tbaa !58
   %15 = and i32 %14, -177
   %16 = or disjoint i32 %15, 32
-  store i32 %16, ptr %13, align 4, !tbaa !65
+  store i32 %16, ptr %13, align 4, !tbaa !67
   %17 = load i64, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 10, ptr %19, align 8, !tbaa !66
+  store i64 10, ptr %19, align 8, !tbaa !68
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i16, ptr %20, align 8, !tbaa !21
+  %21 = load i16, ptr %20, align 8, !tbaa !22
   %22 = zext i16 %21 to i64
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %22) #13
   %24 = load ptr, ptr %0, align 8, !tbaa !3
@@ -476,9 +476,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_2
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 10, ptr %28, align 8, !tbaa !66
+  store i64 10, ptr %28, align 8, !tbaa !68
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %30 = load i16, ptr %29, align 2, !tbaa !28
+  %30 = load i16, ptr %29, align 2, !tbaa !29
   %31 = zext i16 %30 to i64
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %31) #13
   %33 = load ptr, ptr %0, align 8, !tbaa !3
@@ -486,9 +486,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_2
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 10, ptr %37, align 8, !tbaa !66
+  store i64 10, ptr %37, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %39 = load i16, ptr %38, align 4, !tbaa !30
+  %39 = load i16, ptr %38, align 4, !tbaa !31
   %40 = zext i16 %39 to i64
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %40) #13
   %42 = load ptr, ptr %0, align 8, !tbaa !3
@@ -496,9 +496,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_2
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i64 10, ptr %46, align 8, !tbaa !66
+  store i64 10, ptr %46, align 8, !tbaa !68
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !32
+  %48 = load i32, ptr %47, align 8, !tbaa !33
   %49 = zext i32 %48 to i64
   %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %49) #13
   ret ptr %0
@@ -574,56 +574,58 @@ attributes #16 = { builtin nounwind allocsize(0) }
 !11 = !{!7, !8, i64 8}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTSN4LIEF3ELF16SymbolVersionAuxE", !9, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!7, !8, i64 16}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"_ZTSN4LIEF3ELF7details12Elf64_VerdefE", !19, i64 0, !19, i64 2, !19, i64 4, !19, i64 6, !20, i64 8, !20, i64 12, !20, i64 16}
-!19 = !{!"short", !10, i64 0}
-!20 = !{!"int", !10, i64 0}
-!21 = !{!22, !19, i64 8}
-!22 = !{!"_ZTSN4LIEF3ELF23SymbolVersionDefinitionE", !23, i64 0, !19, i64 8, !19, i64 10, !19, i64 12, !20, i64 16, !24, i64 24}
-!23 = !{!"_ZTSN4LIEF6ObjectE"}
-!24 = !{!"_ZTSSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE", !25, i64 0}
-!25 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE", !26, i64 0}
-!26 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_Vector_implE", !7, i64 0}
-!27 = !{!18, !19, i64 2}
-!28 = !{!22, !19, i64 10}
-!29 = !{!18, !19, i64 4}
-!30 = !{!22, !19, i64 12}
-!31 = !{!18, !20, i64 8}
-!32 = !{!22, !20, i64 16}
-!33 = !{!34, !19, i64 0}
-!34 = !{!"_ZTSN4LIEF3ELF7details12Elf32_VerdefE", !19, i64 0, !19, i64 2, !19, i64 4, !19, i64 6, !20, i64 8, !20, i64 12, !20, i64 16}
-!35 = !{!34, !19, i64 2}
-!36 = !{!34, !19, i64 4}
-!37 = !{!34, !20, i64 8}
-!38 = !{!8, !8, i64 0}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !41, i64 0}
-!41 = !{!"p1 omnipotent char", !9, i64 0}
-!42 = !{!43, !41, i64 0}
-!43 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !44, i64 8, !10, i64 16}
-!44 = !{!"long", !10, i64 0}
-!45 = !{!43, !44, i64 8}
-!46 = !{!44, !44, i64 0}
-!47 = !{!10, !10, i64 0}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!50 = distinct !{!50, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!51 = !{!52}
-!52 = distinct !{!52, !50, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!53 = distinct !{!53, !15}
-!54 = !{!19, !19, i64 0}
-!55 = !{!20, !20, i64 0}
-!56 = !{!57, !58, i64 24}
-!57 = !{!"_ZTSSt8ios_base", !44, i64 8, !44, i64 16, !58, i64 24, !59, i64 28, !59, i64 32, !60, i64 40, !61, i64 48, !10, i64 64, !20, i64 192, !62, i64 200, !63, i64 208}
-!58 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!59 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!60 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
-!61 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !44, i64 8}
-!62 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
-!63 = !{!"_ZTSSt6locale", !64, i64 0}
-!64 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!65 = !{!58, !58, i64 0}
-!66 = !{!57, !44, i64 16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!7, !8, i64 16}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTSN4LIEF3ELF7details12Elf64_VerdefE", !20, i64 0, !20, i64 2, !20, i64 4, !20, i64 6, !21, i64 8, !21, i64 12, !21, i64 16}
+!20 = !{!"short", !10, i64 0}
+!21 = !{!"int", !10, i64 0}
+!22 = !{!23, !20, i64 8}
+!23 = !{!"_ZTSN4LIEF3ELF23SymbolVersionDefinitionE", !24, i64 0, !20, i64 8, !20, i64 10, !20, i64 12, !21, i64 16, !25, i64 24}
+!24 = !{!"_ZTSN4LIEF6ObjectE"}
+!25 = !{!"_ZTSSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE", !26, i64 0}
+!26 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE", !27, i64 0}
+!27 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE12_Vector_implE", !7, i64 0}
+!28 = !{!19, !20, i64 2}
+!29 = !{!23, !20, i64 10}
+!30 = !{!19, !20, i64 4}
+!31 = !{!23, !20, i64 12}
+!32 = !{!19, !21, i64 8}
+!33 = !{!23, !21, i64 16}
+!34 = !{!35, !20, i64 0}
+!35 = !{!"_ZTSN4LIEF3ELF7details12Elf32_VerdefE", !20, i64 0, !20, i64 2, !20, i64 4, !20, i64 6, !21, i64 8, !21, i64 12, !21, i64 16}
+!36 = !{!35, !20, i64 2}
+!37 = !{!35, !20, i64 4}
+!38 = !{!35, !21, i64 8}
+!39 = !{!8, !8, i64 0}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !42, i64 0}
+!42 = !{!"p1 omnipotent char", !9, i64 0}
+!43 = !{!44, !42, i64 0}
+!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !41, i64 0, !45, i64 8, !10, i64 16}
+!45 = !{!"long", !10, i64 0}
+!46 = !{!44, !45, i64 8}
+!47 = !{!45, !45, i64 0}
+!48 = !{!10, !10, i64 0}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!51 = distinct !{!51, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!52 = !{!53}
+!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!54 = distinct !{!54, !15, !16}
+!55 = distinct !{!55, !16}
+!56 = !{!20, !20, i64 0}
+!57 = !{!21, !21, i64 0}
+!58 = !{!59, !60, i64 24}
+!59 = !{!"_ZTSSt8ios_base", !45, i64 8, !45, i64 16, !60, i64 24, !61, i64 28, !61, i64 32, !62, i64 40, !63, i64 48, !10, i64 64, !21, i64 192, !64, i64 200, !65, i64 208}
+!60 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!61 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!62 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
+!63 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !45, i64 8}
+!64 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
+!65 = !{!"_ZTSSt6locale", !66, i64 0}
+!66 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!67 = !{!60, !60, i64 0}
+!68 = !{!59, !45, i64 16}

@@ -77,7 +77,7 @@ define internal void @CollectHistogram_SSE41(ptr noalias noundef %0, ptr noalias
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
-  br i1 %exitcond28.not, label %._crit_edge, label %11, !llvm.loop !14
+  br i1 %exitcond28.not, label %._crit_edge, label %11, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %33, %5
   call void @VP8SetHistogramData(ptr noundef nonnull %6, ptr noundef %4) #11
@@ -490,9 +490,9 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noalias noundef r
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2) #4 {
-  %.val4.i = load <8 x i16>, ptr %2, align 1, !tbaa !9, !alias.scope !15, !noalias !18
+  %.val4.i = load <8 x i16>, ptr %2, align 1, !tbaa !9, !alias.scope !16, !noalias !19
   %4 = getelementptr i8, ptr %2, i64 16
-  %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !9, !alias.scope !15, !noalias !18
+  %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !9, !alias.scope !16, !noalias !19
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %110
@@ -507,24 +507,24 @@ define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none
   %.118 = phi i32 [ %.01320, %.preheader ], [ %108, %5 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %gep17 = getelementptr inbounds nuw i8, ptr %invariant.gep16, i64 %indvars.iv
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %6 = load <4 x i32>, ptr %gep, align 1, !tbaa !9, !alias.scope !21, !noalias !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %6 = load <4 x i32>, ptr %gep, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %7 = getelementptr inbounds nuw i8, ptr %gep, i64 32
-  %8 = load <4 x i32>, ptr %7, align 1, !tbaa !9, !alias.scope !21, !noalias !23
+  %8 = load <4 x i32>, ptr %7, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %9 = getelementptr inbounds nuw i8, ptr %gep, i64 64
-  %10 = load <4 x i32>, ptr %9, align 1, !tbaa !9, !alias.scope !21, !noalias !23
+  %10 = load <4 x i32>, ptr %9, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %11 = getelementptr inbounds nuw i8, ptr %gep, i64 96
-  %12 = load i64, ptr %11, align 1, !tbaa !9, !alias.scope !21, !noalias !23
+  %12 = load i64, ptr %11, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %13 = insertelement <2 x i64> poison, i64 %12, i64 0
-  %14 = load <4 x i32>, ptr %gep17, align 1, !tbaa !9, !alias.scope !22, !noalias !24
+  %14 = load <4 x i32>, ptr %gep17, align 1, !tbaa !9, !alias.scope !23, !noalias !25
   %15 = getelementptr inbounds nuw i8, ptr %gep17, i64 32
-  %16 = load <4 x i32>, ptr %15, align 1, !tbaa !9, !alias.scope !22, !noalias !24
+  %16 = load <4 x i32>, ptr %15, align 1, !tbaa !9, !alias.scope !23, !noalias !25
   %17 = getelementptr inbounds nuw i8, ptr %gep17, i64 64
-  %18 = load <4 x i32>, ptr %17, align 1, !tbaa !9, !alias.scope !22, !noalias !24
+  %18 = load <4 x i32>, ptr %17, align 1, !tbaa !9, !alias.scope !23, !noalias !25
   %19 = getelementptr inbounds nuw i8, ptr %gep17, i64 96
-  %20 = load i64, ptr %19, align 1, !tbaa !9, !alias.scope !22, !noalias !24
+  %20 = load i64, ptr %19, align 1, !tbaa !9, !alias.scope !23, !noalias !25
   %21 = insertelement <2 x i64> poison, i64 %20, i64 0
   %22 = shufflevector <4 x i32> %6, <4 x i32> %14, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %23 = shufflevector <4 x i32> %8, <4 x i32> %16, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
@@ -619,12 +619,12 @@ define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none
   %108 = add nsw i32 %107, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %109 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %109, label %5, label %110, !llvm.loop !25
+  br i1 %109, label %5, label %110, !llvm.loop !26
 
 110:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
   %111 = icmp samesign ult i64 %indvars.iv23, 384
-  br i1 %111, label %.preheader, label %112, !llvm.loop !26
+  br i1 %111, label %.preheader, label %112, !llvm.loop !27
 
 112:                                              ; preds = %110
   ret i32 %108
@@ -695,18 +695,19 @@ attributes #11 = { nounwind }
 !9 = !{!5, !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"Disto4x4_SSE41: argument 2"}
-!17 = distinct !{!17, !"Disto4x4_SSE41"}
-!18 = !{!19, !20}
-!19 = distinct !{!19, !17, !"Disto4x4_SSE41: argument 0"}
-!20 = distinct !{!20, !17, !"Disto4x4_SSE41: argument 1"}
-!21 = !{!19}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"Disto4x4_SSE41: argument 2"}
+!18 = distinct !{!18, !"Disto4x4_SSE41"}
+!19 = !{!20, !21}
+!20 = distinct !{!20, !18, !"Disto4x4_SSE41: argument 0"}
+!21 = distinct !{!21, !18, !"Disto4x4_SSE41: argument 1"}
 !22 = !{!20}
-!23 = !{!20, !16}
-!24 = !{!19, !16}
-!25 = distinct !{!25, !13}
-!26 = distinct !{!26, !13}
+!23 = !{!21}
+!24 = !{!21, !17}
+!25 = !{!20, !17}
+!26 = distinct !{!26, !13, !14}
+!27 = distinct !{!27, !13, !14}

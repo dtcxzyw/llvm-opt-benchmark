@@ -199,5 +199,6 @@ attributes #8 = { cold }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.estimated_trip_count"}

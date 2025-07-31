@@ -98,26 +98,26 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
   %54 = load i32, ptr %53, align 8, !tbaa !39
   %55 = trunc i32 %54 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  %57 = load ptr, ptr %56, align 8, !tbaa !46
+  %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = shl nsw i32 %9, 2
   %59 = sext i32 %58 to i64
   %60 = getelementptr i8, ptr %57, i64 %59
   %61 = getelementptr i8, ptr %60, i64 1
-  store i8 %55, ptr %61, align 1, !tbaa !47
-  %62 = load ptr, ptr %56, align 8, !tbaa !46
+  store i8 %55, ptr %61, align 1, !tbaa !48
+  %62 = load ptr, ptr %56, align 8, !tbaa !47
   %63 = getelementptr inbounds i8, ptr %62, i64 %59
-  store i8 %55, ptr %63, align 1, !tbaa !47
+  store i8 %55, ptr %63, align 1, !tbaa !48
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 3044
   %65 = load i32, ptr %64, align 4, !tbaa !39
   %66 = trunc i32 %65 to i8
-  %67 = load ptr, ptr %56, align 8, !tbaa !46
+  %67 = load ptr, ptr %56, align 8, !tbaa !47
   %68 = getelementptr i8, ptr %67, i64 %59
   %69 = getelementptr i8, ptr %68, i64 3
-  store i8 %66, ptr %69, align 1, !tbaa !47
-  %70 = load ptr, ptr %56, align 8, !tbaa !46
+  store i8 %66, ptr %69, align 1, !tbaa !48
+  %70 = load ptr, ptr %56, align 8, !tbaa !47
   %71 = getelementptr i8, ptr %70, i64 %59
   %72 = getelementptr i8, ptr %71, i64 2
-  store i8 %66, ptr %72, align 1, !tbaa !47
+  store i8 %66, ptr %72, align 1, !tbaa !48
   br label %73
 
 73:                                               ; preds = %16, %23, %47
@@ -159,10 +159,10 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: nounwind uwtable
 define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %3 = load i64, ptr %2, align 8, !tbaa !48
+  %3 = load i64, ptr %2, align 8, !tbaa !49
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %6 = load i64, ptr %5, align 8, !tbaa !49
+  %6 = load i64, ptr %5, align 8, !tbaa !50
   %7 = trunc i64 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %9 = load i32, ptr %8, align 8, !tbaa !4
@@ -173,13 +173,13 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   %14 = load i32, ptr %13, align 4, !tbaa !37
   %15 = add nsw i32 %12, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3416
-  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %17 = load ptr, ptr %16, align 8, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3424
-  %19 = load ptr, ptr %18, align 8, !tbaa !46
+  %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3432
-  %21 = load ptr, ptr %20, align 8, !tbaa !46
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %23 = load ptr, ptr %22, align 8, !tbaa !50
+  %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = sext i32 %15 to i64
   %25 = getelementptr inbounds i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !39
@@ -189,14 +189,14 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 28:                                               ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %30 = load i32, ptr %29, align 8, !tbaa !51
+  %30 = load i32, ptr %29, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
   %33 = shl nsw i32 %4, 3
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %17, i64 %34
   tail call void %32(ptr noundef %35, i32 noundef %4, i32 noundef %30) #6
-  %36 = load ptr, ptr %31, align 8, !tbaa !52
+  %36 = load ptr, ptr %31, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   tail call void %36(ptr noundef nonnull %37, i32 noundef %4, i32 noundef %30) #6
   %.pre = load i32, ptr %8, align 8, !tbaa !4
@@ -209,7 +209,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not127, label %.thread140.thread, label %40
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr %22, align 8, !tbaa !50
+  %41 = load ptr, ptr %22, align 8, !tbaa !51
   %42 = load i32, ptr %10, align 4, !tbaa !36
   %43 = sub nsw i32 %15, %42
   %44 = sext i32 %43 to i64
@@ -221,9 +221,9 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %50 = load ptr, ptr %49, align 8, !tbaa !53
+  %50 = load ptr, ptr %49, align 8, !tbaa !54
   %51 = getelementptr inbounds i8, ptr %50, i64 %44
-  %52 = load i8, ptr %51, align 1, !tbaa !47
+  %52 = load i8, ptr %51, align 1, !tbaa !48
   %53 = sext i8 %52 to i32
   br label %54
 
@@ -236,20 +236,20 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %57 = load ptr, ptr %56, align 8, !tbaa !54
+  %57 = load ptr, ptr %56, align 8, !tbaa !55
   %58 = sext i32 %.0125..0 to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !47
+  %60 = load i8, ptr %59, align 1, !tbaa !48
   %61 = zext i8 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %63 = load ptr, ptr %62, align 8, !tbaa !52
+  %63 = load ptr, ptr %62, align 8, !tbaa !53
   tail call void %63(ptr noundef %17, i32 noundef %4, i32 noundef %.0125..0) #6
-  %64 = load ptr, ptr %62, align 8, !tbaa !52
+  %64 = load ptr, ptr %62, align 8, !tbaa !53
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void %64(ptr noundef nonnull %65, i32 noundef %4, i32 noundef %.0125..0) #6
-  %66 = load ptr, ptr %62, align 8, !tbaa !52
+  %66 = load ptr, ptr %62, align 8, !tbaa !53
   tail call void %66(ptr noundef %19, i32 noundef %7, i32 noundef %61) #6
-  %67 = load ptr, ptr %62, align 8, !tbaa !52
+  %67 = load ptr, ptr %62, align 8, !tbaa !53
   tail call void %67(ptr noundef %21, i32 noundef %7, i32 noundef %61) #6
   br label %68
 
@@ -264,7 +264,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 .thread:                                          ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  %72 = load ptr, ptr %71, align 8, !tbaa !55
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = shl nsw i32 %4, 3
   %74 = sext i32 %73 to i64
   %75 = sub nsw i64 0, %74
@@ -276,7 +276,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not132139, label %.thread140.thread, label %.thread140
 
 79:                                               ; preds = %69
-  %80 = load ptr, ptr %22, align 8, !tbaa !50
+  %80 = load ptr, ptr %22, align 8, !tbaa !51
   %81 = load i32, ptr %10, align 4, !tbaa !36
   %82 = xor i32 %81, -1
   %83 = add i32 %15, %82
@@ -289,9 +289,9 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 88:                                               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %90 = load ptr, ptr %89, align 8, !tbaa !53
+  %90 = load ptr, ptr %89, align 8, !tbaa !54
   %91 = getelementptr inbounds i8, ptr %90, i64 %84
-  %92 = load i8, ptr %91, align 1, !tbaa !47
+  %92 = load i8, ptr %91, align 1, !tbaa !48
   %93 = sext i8 %92 to i32
   br label %.thread140
 
@@ -302,25 +302,25 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 94:                                               ; preds = %.thread140
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %96 = load ptr, ptr %95, align 8, !tbaa !54
+  %96 = load ptr, ptr %95, align 8, !tbaa !55
   %97 = sext i32 %.0124 to i64
   %98 = getelementptr inbounds i8, ptr %96, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !47
+  %99 = load i8, ptr %98, align 1, !tbaa !48
   %100 = zext i8 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  %102 = load ptr, ptr %101, align 8, !tbaa !55
+  %102 = load ptr, ptr %101, align 8, !tbaa !56
   %103 = shl nsw i32 %4, 3
   %104 = sext i32 %103 to i64
   %105 = sub nsw i64 0, %104
   %106 = getelementptr inbounds i8, ptr %17, i64 %105
   tail call void %102(ptr noundef %106, i32 noundef %4, i32 noundef %.0124) #6
-  %107 = load ptr, ptr %101, align 8, !tbaa !55
+  %107 = load ptr, ptr %101, align 8, !tbaa !56
   %108 = shl nsw i32 %7, 3
   %109 = sext i32 %108 to i64
   %110 = sub nsw i64 0, %109
   %111 = getelementptr inbounds i8, ptr %19, i64 %110
   tail call void %107(ptr noundef %111, i32 noundef %7, i32 noundef %100) #6
-  %112 = load ptr, ptr %101, align 8, !tbaa !55
+  %112 = load ptr, ptr %101, align 8, !tbaa !56
   %113 = getelementptr inbounds i8, ptr %21, i64 %110
   tail call void %112(ptr noundef %113, i32 noundef %7, i32 noundef %100) #6
   br label %.thread140.thread
@@ -331,18 +331,18 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 114:                                              ; preds = %.thread140.thread
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  %116 = load ptr, ptr %115, align 8, !tbaa !55
+  %116 = load ptr, ptr %115, align 8, !tbaa !56
   %117 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void %116(ptr noundef nonnull %117, i32 noundef %4, i32 noundef %.0) #6
   %118 = load i32, ptr %8, align 8, !tbaa !4
   %119 = add nsw i32 %118, 1
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %121 = load i32, ptr %120, align 8, !tbaa !56
+  %121 = load i32, ptr %120, align 8, !tbaa !57
   %122 = icmp eq i32 %119, %121
   br i1 %122, label %123, label %129
 
 123:                                              ; preds = %114
-  %124 = load ptr, ptr %115, align 8, !tbaa !55
+  %124 = load ptr, ptr %115, align 8, !tbaa !56
   %125 = shl nsw i32 %4, 3
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i8, ptr %17, i64 %126
@@ -361,7 +361,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not136142, label %.thread144, label %.thread143
 
 .thread143:                                       ; preds = %.thread141
-  %132 = load ptr, ptr %22, align 8, !tbaa !50
+  %132 = load ptr, ptr %22, align 8, !tbaa !51
   %133 = add nsw i32 %15, -1
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %132, i64 %134
@@ -372,9 +372,9 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 
 138:                                              ; preds = %.thread143
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %140 = load ptr, ptr %139, align 8, !tbaa !53
+  %140 = load ptr, ptr %139, align 8, !tbaa !54
   %141 = getelementptr inbounds i8, ptr %140, i64 %134
-  %142 = load i8, ptr %141, align 1, !tbaa !47
+  %142 = load i8, ptr %141, align 1, !tbaa !48
   %143 = sext i8 %142 to i32
   %.not138 = icmp eq i8 %142, 0
   br i1 %.not138, label %.thread144, label %.thread147
@@ -382,30 +382,30 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
 .thread147:                                       ; preds = %129, %138
   %.0123150 = phi i32 [ %143, %138 ], [ %.0, %129 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  %145 = load ptr, ptr %144, align 8, !tbaa !55
+  %145 = load ptr, ptr %144, align 8, !tbaa !56
   tail call void %145(ptr noundef %17, i32 noundef %4, i32 noundef %.0123150) #6
   %146 = load i32, ptr %8, align 8, !tbaa !4
   %147 = add nsw i32 %146, 1
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %149 = load i32, ptr %148, align 8, !tbaa !56
+  %149 = load i32, ptr %148, align 8, !tbaa !57
   %150 = icmp eq i32 %147, %149
   br i1 %150, label %151, label %.thread144
 
 151:                                              ; preds = %.thread147
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %153 = load ptr, ptr %152, align 8, !tbaa !54
+  %153 = load ptr, ptr %152, align 8, !tbaa !55
   %154 = sext i32 %.0123150 to i64
   %155 = getelementptr inbounds i8, ptr %153, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !47
+  %156 = load i8, ptr %155, align 1, !tbaa !48
   %157 = zext i8 %156 to i32
-  %158 = load ptr, ptr %144, align 8, !tbaa !55
+  %158 = load ptr, ptr %144, align 8, !tbaa !56
   %159 = shl nsw i32 %4, 3
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i8, ptr %17, i64 %160
   tail call void %158(ptr noundef %161, i32 noundef %4, i32 noundef %.0123150) #6
-  %162 = load ptr, ptr %144, align 8, !tbaa !55
+  %162 = load ptr, ptr %144, align 8, !tbaa !56
   tail call void %162(ptr noundef %19, i32 noundef %7, i32 noundef %157) #6
-  %163 = load ptr, ptr %144, align 8, !tbaa !55
+  %163 = load ptr, ptr %144, align 8, !tbaa !56
   tail call void %163(ptr noundef %21, i32 noundef %7, i32 noundef %157) #6
   br label %.thread144
 
@@ -429,7 +429,7 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   %17 = getelementptr inbounds [2 x i16], ptr %11, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4140
-  %20 = load i32, ptr %19, align 4, !tbaa !57
+  %20 = load i32, ptr %19, align 4, !tbaa !58
   %21 = icmp ne i32 %20, 0
   %22 = icmp slt i32 %1, 3
   %or.cond = and i1 %22, %21
@@ -445,7 +445,7 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %26 = load i32, ptr %25, align 4, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3960
-  %28 = load i32, ptr %27, align 8, !tbaa !58
+  %28 = load i32, ptr %27, align 8, !tbaa !59
   %29 = icmp eq i32 %26, %28
   br i1 %29, label %30, label %31
 
@@ -461,7 +461,7 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  %36 = load i32, ptr %35, align 4, !tbaa !59
+  %36 = load i32, ptr %35, align 4, !tbaa !60
   %.not84 = icmp eq i32 %36, 0
   br i1 %.not84, label %77, label %37
 
@@ -556,13 +556,13 @@ mid_pred.exit88:                                  ; preds = %70, %72, %74, %76
   %85 = load i32, ptr %84, align 4, !tbaa !37
   %86 = add nsw i32 %85, 1
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3960
-  %88 = load i32, ptr %87, align 8, !tbaa !58
+  %88 = load i32, ptr %87, align 8, !tbaa !59
   %89 = icmp eq i32 %86, %88
   br i1 %89, label %90, label %125
 
 90:                                               ; preds = %83
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  %92 = load i32, ptr %91, align 4, !tbaa !59
+  %92 = load i32, ptr %91, align 4, !tbaa !60
   %.not = icmp eq i32 %92, 0
   br i1 %.not, label %125, label %93
 
@@ -650,7 +650,7 @@ mid_pred.exit96:                                  ; preds = %118, %120, %122, %1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %141 = load i32, ptr %140, align 4, !tbaa !37
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 3960
-  %143 = load i32, ptr %142, align 8, !tbaa !58
+  %143 = load i32, ptr %142, align 8, !tbaa !59
   %144 = icmp eq i32 %141, %143
   br i1 %144, label %145, label %._crit_edge
 
@@ -865,19 +865,20 @@ attributes #6 = { nounwind }
 !41 = !{!5, !10, i64 3360}
 !42 = !{!20, !20, i64 0}
 !43 = !{!30, !30, i64 0}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!12, !12, i64 0}
-!47 = !{!8, !8, i64 0}
-!48 = !{!5, !14, i64 568}
-!49 = !{!5, !14, i64 576}
-!50 = !{!5, !19, i64 1240}
-!51 = !{!5, !10, i64 1472}
-!52 = !{!5, !7, i64 2920}
-!53 = !{!5, !12, i64 1216}
-!54 = !{!5, !12, i64 1344}
-!55 = !{!5, !7, i64 2912}
-!56 = !{!5, !10, i64 544}
-!57 = !{!5, !10, i64 4140}
-!58 = !{!5, !10, i64 3960}
-!59 = !{!5, !10, i64 500}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = !{!12, !12, i64 0}
+!48 = !{!8, !8, i64 0}
+!49 = !{!5, !14, i64 568}
+!50 = !{!5, !14, i64 576}
+!51 = !{!5, !19, i64 1240}
+!52 = !{!5, !10, i64 1472}
+!53 = !{!5, !7, i64 2920}
+!54 = !{!5, !12, i64 1216}
+!55 = !{!5, !12, i64 1344}
+!56 = !{!5, !7, i64 2912}
+!57 = !{!5, !10, i64 544}
+!58 = !{!5, !10, i64 4140}
+!59 = !{!5, !10, i64 3960}
+!60 = !{!5, !10, i64 500}

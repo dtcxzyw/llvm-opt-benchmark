@@ -52,22 +52,22 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %alloc_node.exit
 
 7:                                                ; preds = %1
-  store i32 1024, ptr %5, align 8, !tbaa !42
+  store i32 1024, ptr %5, align 8, !tbaa !43
   %8 = tail call ptr @xmalloc(i64 noundef 40960) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !43
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   %.not27.i = icmp slt i32 %11, %13
   br i1 %.not27.i, label %._crit_edge.i, label %14
 
@@ -82,7 +82,7 @@ define dso_local noundef ptr @alloc_blob_node(ptr noundef readonly captures(none
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
   %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
-  store i32 %..i, ptr %12, align 4, !tbaa !44
+  store i32 %..i, ptr %12, align 4, !tbaa !45
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
@@ -97,7 +97,7 @@ st_mult.exit.i:                                   ; preds = %14
   %24 = shl nuw nsw i64 %19, 3
   %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !44
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
   br label %26
 
@@ -110,17 +110,17 @@ st_mult.exit.i:                                   ; preds = %14
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
-  %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
+  %.pre31.i = load i32, ptr %5, align 8, !tbaa !43
   br label %alloc_node.exit
 
 alloc_node.exit:                                  ; preds = %1, %26
   %33 = phi i32 [ %.pre31.i, %26 ], [ %6, %1 ]
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %5, align 8, !tbaa !42
+  store i32 %34, ptr %5, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr %37, ptr %35, align 8, !tbaa !43
+  store ptr %37, ptr %35, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %38, i8 0, i64 36, i1 false)
   store i32 6, ptr %36, align 4
@@ -130,22 +130,22 @@ alloc_node.exit:                                  ; preds = %1, %26
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %alloc_node.exit
 
 7:                                                ; preds = %1
-  store i32 1024, ptr %5, align 8, !tbaa !42
+  store i32 1024, ptr %5, align 8, !tbaa !43
   %8 = tail call ptr @xmalloc(i64 noundef 57344) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !43
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   %.not27.i = icmp slt i32 %11, %13
   br i1 %.not27.i, label %._crit_edge.i, label %14
 
@@ -160,7 +160,7 @@ define dso_local noundef ptr @alloc_tree_node(ptr noundef readonly captures(none
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
   %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
-  store i32 %..i, ptr %12, align 4, !tbaa !44
+  store i32 %..i, ptr %12, align 4, !tbaa !45
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
@@ -175,7 +175,7 @@ st_mult.exit.i:                                   ; preds = %14
   %24 = shl nuw nsw i64 %19, 3
   %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !44
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
   br label %26
 
@@ -188,17 +188,17 @@ st_mult.exit.i:                                   ; preds = %14
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
-  %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
+  %.pre31.i = load i32, ptr %5, align 8, !tbaa !43
   br label %alloc_node.exit
 
 alloc_node.exit:                                  ; preds = %1, %26
   %33 = phi i32 [ %.pre31.i, %26 ], [ %6, %1 ]
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %5, align 8, !tbaa !42
+  store i32 %34, ptr %5, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store ptr %37, ptr %35, align 8, !tbaa !43
+  store ptr %37, ptr %35, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %38, i8 0, i64 52, i1 false)
   store i32 4, ptr %36, align 8
@@ -208,22 +208,22 @@ alloc_node.exit:                                  ; preds = %1, %26
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %alloc_node.exit
 
 7:                                                ; preds = %1
-  store i32 1024, ptr %5, align 8, !tbaa !42
+  store i32 1024, ptr %5, align 8, !tbaa !43
   %8 = tail call ptr @xmalloc(i64 noundef 65536) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !43
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   %.not27.i = icmp slt i32 %11, %13
   br i1 %.not27.i, label %._crit_edge.i, label %14
 
@@ -238,7 +238,7 @@ define dso_local noundef ptr @alloc_tag_node(ptr noundef readonly captures(none)
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
   %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
-  store i32 %..i, ptr %12, align 4, !tbaa !44
+  store i32 %..i, ptr %12, align 4, !tbaa !45
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
@@ -253,7 +253,7 @@ st_mult.exit.i:                                   ; preds = %14
   %24 = shl nuw nsw i64 %19, 3
   %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !44
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
   br label %26
 
@@ -266,17 +266,17 @@ st_mult.exit.i:                                   ; preds = %14
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
-  %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
+  %.pre31.i = load i32, ptr %5, align 8, !tbaa !43
   br label %alloc_node.exit
 
 alloc_node.exit:                                  ; preds = %1, %26
   %33 = phi i32 [ %.pre31.i, %26 ], [ %6, %1 ]
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %5, align 8, !tbaa !42
+  store i32 %34, ptr %5, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %37, ptr %35, align 8, !tbaa !43
+  store ptr %37, ptr %35, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %38, i8 0, i64 60, i1 false)
   store i32 8, ptr %36, align 8
@@ -286,22 +286,22 @@ alloc_node.exit:                                  ; preds = %1, %26
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %alloc_node.exit
 
 7:                                                ; preds = %1
-  store i32 1024, ptr %5, align 8, !tbaa !42
+  store i32 1024, ptr %5, align 8, !tbaa !43
   %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !43
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   %.not27.i = icmp slt i32 %11, %13
   br i1 %.not27.i, label %._crit_edge.i, label %14
 
@@ -316,7 +316,7 @@ define dso_local noundef ptr @alloc_object_node(ptr noundef readonly captures(no
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
   %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
-  store i32 %..i, ptr %12, align 4, !tbaa !44
+  store i32 %..i, ptr %12, align 4, !tbaa !45
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
@@ -331,7 +331,7 @@ st_mult.exit.i:                                   ; preds = %14
   %24 = shl nuw nsw i64 %19, 3
   %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !44
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
   br label %26
 
@@ -344,17 +344,17 @@ st_mult.exit.i:                                   ; preds = %14
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
-  %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
+  %.pre31.i = load i32, ptr %5, align 8, !tbaa !43
   br label %alloc_node.exit
 
 alloc_node.exit:                                  ; preds = %1, %26
   %33 = phi i32 [ %.pre31.i, %26 ], [ %6, %1 ]
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %5, align 8, !tbaa !42
+  store i32 %34, ptr %5, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  store ptr %37, ptr %35, align 8, !tbaa !43
+  store ptr %37, ptr %35, align 8, !tbaa !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %36, i8 0, i64 72, i1 false)
   ret ptr %36
 }
@@ -365,33 +365,33 @@ define dso_local void @init_commit_node(ptr noundef captures(none) initializes((
   %3 = and i32 %2, -15
   %4 = or disjoint i32 %3, 2
   store i32 %4, ptr %0, align 8
-  %5 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  %5 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !49
   %6 = add i32 %5, 1
-  store i32 %6, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  store i32 %6, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %5, ptr %7, align 8, !tbaa !49
+  store i32 %5, ptr %7, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
-  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %6 = load i32, ptr %5, align 8, !tbaa !43
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %alloc_node.exit
 
 7:                                                ; preds = %1
-  store i32 1024, ptr %5, align 8, !tbaa !42
+  store i32 1024, ptr %5, align 8, !tbaa !43
   %8 = tail call ptr @xmalloc(i64 noundef 73728) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !43
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   %.not27.i = icmp slt i32 %11, %13
   br i1 %.not27.i, label %._crit_edge.i, label %14
 
@@ -406,7 +406,7 @@ define dso_local noundef ptr @alloc_commit_node(ptr noundef readonly captures(no
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
   %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
-  store i32 %..i, ptr %12, align 4, !tbaa !44
+  store i32 %..i, ptr %12, align 4, !tbaa !45
   %19 = sext i32 %..i to i64
   %20 = icmp slt i32 %..i, 0
   br i1 %20, label %21, label %st_mult.exit.i
@@ -421,7 +421,7 @@ st_mult.exit.i:                                   ; preds = %14
   %24 = shl nuw nsw i64 %19, 3
   %25 = tail call ptr @xrealloc(ptr noundef %23, i64 noundef %24) #7
   store ptr %25, ptr %22, align 8, !tbaa !10
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !44
   %.pre30.i = load i32, ptr %10, align 8, !tbaa !4
   br label %26
 
@@ -434,25 +434,25 @@ st_mult.exit.i:                                   ; preds = %14
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
-  %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
+  %.pre31.i = load i32, ptr %5, align 8, !tbaa !43
   br label %alloc_node.exit
 
 alloc_node.exit:                                  ; preds = %1, %26
   %33 = phi i32 [ %.pre31.i, %26 ], [ %6, %1 ]
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %5, align 8, !tbaa !42
+  store i32 %34, ptr %5, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  store ptr %37, ptr %35, align 8, !tbaa !43
+  store ptr %37, ptr %35, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %38, i8 0, i64 68, i1 false)
   store i32 2, ptr %36, align 8
-  %39 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  %39 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !49
   %40 = add i32 %39, 1
-  store i32 %40, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  store i32 %40, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store i32 %39, ptr %41, align 8, !tbaa !49
+  store i32 %39, ptr %41, align 8, !tbaa !50
   ret ptr %36
 }
 
@@ -493,47 +493,48 @@ attributes #8 = { noreturn nounwind }
 !9 = !{!"any pointer", !7, i64 0}
 !10 = !{!5, !9, i64 16}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !18, i64 24}
-!15 = !{!"repository", !16, i64 0, !16, i64 8, !17, i64 16, !18, i64 24, !19, i64 32, !20, i64 40, !20, i64 104, !24, i64 168, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !25, i64 256, !28, i64 368, !29, i64 376, !30, i64 384, !31, i64 392, !32, i64 400, !32, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !16, i64 432, !33, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
-!16 = !{!"p1 omnipotent char", !9, i64 0}
-!17 = !{!"p1 _ZTS16raw_object_store", !9, i64 0}
-!18 = !{!"p1 _ZTS18parsed_object_pool", !9, i64 0}
-!19 = !{!"p1 _ZTS9ref_store", !9, i64 0}
-!20 = !{!"strmap", !21, i64 0, !23, i64 48, !6, i64 56}
-!21 = !{!"hashmap", !22, i64 0, !9, i64 8, !9, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
-!22 = !{!"p2 _ZTS13hashmap_entry", !9, i64 0}
-!23 = !{!"p1 _ZTS8mem_pool", !9, i64 0}
-!24 = !{!"repo_path_cache", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48}
-!25 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !26, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !27, i64 88, !27, i64 96, !27, i64 104}
-!26 = !{!"p1 _ZTS18fsmonitor_settings", !9, i64 0}
-!27 = !{!"long", !7, i64 0}
-!28 = !{!"p1 _ZTS10config_set", !9, i64 0}
-!29 = !{!"p1 _ZTS15submodule_cache", !9, i64 0}
-!30 = !{!"p1 _ZTS11index_state", !9, i64 0}
-!31 = !{!"p1 _ZTS12remote_state", !9, i64 0}
-!32 = !{!"p1 _ZTS13git_hash_algo", !9, i64 0}
-!33 = !{!"p1 _ZTS22promisor_remote_config", !9, i64 0}
-!34 = !{!35, !38, i64 24}
-!35 = !{!"parsed_object_pool", !36, i64 0, !37, i64 8, !6, i64 16, !6, i64 20, !38, i64 24, !38, i64 32, !38, i64 40, !38, i64 48, !38, i64 56, !39, i64 64, !6, i64 72, !6, i64 76, !6, i64 80, !40, i64 88, !16, i64 96, !6, i64 104, !6, i64 108, !41, i64 112}
-!36 = !{!"p1 _ZTS10repository", !9, i64 0}
-!37 = !{!"p2 _ZTS6object", !9, i64 0}
-!38 = !{!"p1 _ZTS11alloc_state", !9, i64 0}
-!39 = !{!"p2 _ZTS12commit_graft", !9, i64 0}
-!40 = !{!"p1 _ZTS13stat_validity", !9, i64 0}
-!41 = !{!"p1 _ZTS11buffer_slab", !9, i64 0}
-!42 = !{!5, !6, i64 0}
-!43 = !{!5, !9, i64 8}
-!44 = !{!5, !6, i64 28}
-!45 = !{!35, !38, i64 32}
-!46 = !{!35, !38, i64 48}
-!47 = !{!35, !38, i64 56}
-!48 = !{!6, !6, i64 0}
-!49 = !{!50, !6, i64 64}
-!50 = !{!"commit", !51, i64 0, !27, i64 40, !53, i64 48, !54, i64 56, !6, i64 64}
-!51 = !{!"object", !6, i64 0, !6, i64 0, !6, i64 0, !52, i64 4}
-!52 = !{!"object_id", !7, i64 0, !6, i64 32}
-!53 = !{!"p1 _ZTS11commit_list", !9, i64 0}
-!54 = !{!"p1 _ZTS4tree", !9, i64 0}
-!55 = !{!35, !38, i64 40}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !19, i64 24}
+!16 = !{!"repository", !17, i64 0, !17, i64 8, !18, i64 16, !19, i64 24, !20, i64 32, !21, i64 40, !21, i64 104, !25, i64 168, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !26, i64 256, !29, i64 368, !30, i64 376, !31, i64 384, !32, i64 392, !33, i64 400, !33, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !17, i64 432, !34, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
+!17 = !{!"p1 omnipotent char", !9, i64 0}
+!18 = !{!"p1 _ZTS16raw_object_store", !9, i64 0}
+!19 = !{!"p1 _ZTS18parsed_object_pool", !9, i64 0}
+!20 = !{!"p1 _ZTS9ref_store", !9, i64 0}
+!21 = !{!"strmap", !22, i64 0, !24, i64 48, !6, i64 56}
+!22 = !{!"hashmap", !23, i64 0, !9, i64 8, !9, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!23 = !{!"p2 _ZTS13hashmap_entry", !9, i64 0}
+!24 = !{!"p1 _ZTS8mem_pool", !9, i64 0}
+!25 = !{!"repo_path_cache", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48}
+!26 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !27, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !28, i64 88, !28, i64 96, !28, i64 104}
+!27 = !{!"p1 _ZTS18fsmonitor_settings", !9, i64 0}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!"p1 _ZTS10config_set", !9, i64 0}
+!30 = !{!"p1 _ZTS15submodule_cache", !9, i64 0}
+!31 = !{!"p1 _ZTS11index_state", !9, i64 0}
+!32 = !{!"p1 _ZTS12remote_state", !9, i64 0}
+!33 = !{!"p1 _ZTS13git_hash_algo", !9, i64 0}
+!34 = !{!"p1 _ZTS22promisor_remote_config", !9, i64 0}
+!35 = !{!36, !39, i64 24}
+!36 = !{!"parsed_object_pool", !37, i64 0, !38, i64 8, !6, i64 16, !6, i64 20, !39, i64 24, !39, i64 32, !39, i64 40, !39, i64 48, !39, i64 56, !40, i64 64, !6, i64 72, !6, i64 76, !6, i64 80, !41, i64 88, !17, i64 96, !6, i64 104, !6, i64 108, !42, i64 112}
+!37 = !{!"p1 _ZTS10repository", !9, i64 0}
+!38 = !{!"p2 _ZTS6object", !9, i64 0}
+!39 = !{!"p1 _ZTS11alloc_state", !9, i64 0}
+!40 = !{!"p2 _ZTS12commit_graft", !9, i64 0}
+!41 = !{!"p1 _ZTS13stat_validity", !9, i64 0}
+!42 = !{!"p1 _ZTS11buffer_slab", !9, i64 0}
+!43 = !{!5, !6, i64 0}
+!44 = !{!5, !9, i64 8}
+!45 = !{!5, !6, i64 28}
+!46 = !{!36, !39, i64 32}
+!47 = !{!36, !39, i64 48}
+!48 = !{!36, !39, i64 56}
+!49 = !{!6, !6, i64 0}
+!50 = !{!51, !6, i64 64}
+!51 = !{!"commit", !52, i64 0, !28, i64 40, !54, i64 48, !55, i64 56, !6, i64 64}
+!52 = !{!"object", !6, i64 0, !6, i64 0, !6, i64 0, !53, i64 4}
+!53 = !{!"object_id", !7, i64 0, !6, i64 32}
+!54 = !{!"p1 _ZTS11commit_list", !9, i64 0}
+!55 = !{!"p1 _ZTS4tree", !9, i64 0}
+!56 = !{!36, !39, i64 40}

@@ -79,13 +79,13 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl14turning_numberIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENT_6ScalarERKNS1_10MatrixBaseIS4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !21
+  %3 = load i64, ptr %2, align 8, !tbaa !22
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !tbaa !23, !noalias !24
+  %6 = load ptr, ptr %0, align 8, !tbaa !24, !noalias !25
   %7 = and i64 %3, 2147483647
   br label %9
 
@@ -134,7 +134,7 @@ define weak_odr dso_local noundef double @_ZN3igl14turning_numberIN5Eigen6Matrix
   %37 = tail call double @atan2(double noundef %34, double noundef %36) #3, !tbaa !17
   %38 = fadd double %.093, %37
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !28
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -165,12 +165,13 @@ attributes #3 = { nounwind }
 !16 = !{!"double", !8, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"int", !8, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !10, i64 8}
-!22 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !6, i64 0, !10, i64 8, !10, i64 16}
-!23 = !{!22, !6, i64 0}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!26 = distinct !{!26, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!27 = distinct !{!27, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!23, !10, i64 8}
+!23 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !6, i64 0, !10, i64 8, !10, i64 16}
+!24 = !{!23, !6, i64 0}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!27 = distinct !{!27, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!28 = distinct !{!28, !20, !21}

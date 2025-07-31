@@ -313,20 +313,20 @@ _ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE5clea
 
 18:                                               ; preds = %.lr.ph, %18
   %.02 = phi i32 [ 0, %.lr.ph ], [ %20, %18 ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !36
+  %19 = load ptr, ptr %0, align 8, !tbaa !37
   tail call void @_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %20 = add nuw i32 %.02, 1
   %21 = load i32, ptr %2, align 8, !tbaa !9
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %18, label %._crit_edge, !llvm.loop !37
+  br i1 %22, label %18, label %._crit_edge, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %36, label %7
 
@@ -344,7 +344,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTe
 14:                                               ; preds = %7
   %15 = sdiv exact i64 %13, 40
   %16 = icmp ugt i64 %15, 230584300921369395
-  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE8allocateERS2_m.exit.i.i.i.i.i.i, !prof !42
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE8allocateERS2_m.exit.i.i.i.i.i.i, !prof !43
 
 .noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -362,8 +362,8 @@ _ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirement
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %13
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !32
-  %23 = load ptr, ptr %1, align 8, !tbaa !43
-  %24 = load ptr, ptr %8, align 8, !tbaa !43
+  %23 = load ptr, ptr %1, align 8, !tbaa !44
+  %24 = load ptr, ptr %8, align 8, !tbaa !44
   %25 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN18cmCTestTestHandler30cmCTestTestResourceRequirementESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %23, ptr %24, ptr noundef %19)
           to label %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %26
 
@@ -387,9 +387,9 @@ _ZNSt12_Vector_baseIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_
 
 _ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %18
   store ptr %25, ptr %20, align 8, !tbaa !31
-  %34 = load ptr, ptr %3, align 8, !tbaa !38
+  %34 = load ptr, ptr %3, align 8, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %35, ptr %3, align 8, !tbaa !38
+  store ptr %35, ptr %3, align 8, !tbaa !39
   br label %37
 
 36:                                               ; preds = %2
@@ -499,48 +499,48 @@ _ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirement
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %57, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %56, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %40, ptr %.012.i.i.i, align 8, !tbaa !21, !alias.scope !44, !noalias !47
-  %41 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !47, !noalias !44
+  store ptr %40, ptr %.012.i.i.i, align 8, !tbaa !21, !alias.scope !45, !noalias !48
+  %41 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !48, !noalias !45
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %44, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 44:                                               ; preds = %.lr.ph.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !22, !alias.scope !47, !noalias !44
+  %46 = load i64, ptr %45, align 8, !tbaa !22, !alias.scope !48, !noalias !45
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %42, i64 %48, i1 false), !alias.scope !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %42, i64 %48, i1 false), !alias.scope !50
   br label %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %41, ptr %.012.i.i.i, align 8, !tbaa !24, !alias.scope !44, !noalias !47
-  %49 = load i64, ptr %42, align 8, !tbaa !23, !alias.scope !47, !noalias !44
-  store i64 %49, ptr %40, align 8, !tbaa !23, !alias.scope !44, !noalias !47
+  store ptr %41, ptr %.012.i.i.i, align 8, !tbaa !24, !alias.scope !45, !noalias !48
+  %49 = load i64, ptr %42, align 8, !tbaa !23, !alias.scope !48, !noalias !45
+  store i64 %49, ptr %40, align 8, !tbaa !23, !alias.scope !45, !noalias !48
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !22, !alias.scope !47, !noalias !44
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !22, !alias.scope !48, !noalias !45
   br label %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !22, !alias.scope !44, !noalias !47
-  store ptr %42, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !47, !noalias !44
-  store i64 0, ptr %51, align 8, !tbaa !22, !alias.scope !47, !noalias !44
-  store i8 0, ptr %42, align 1, !tbaa !23, !alias.scope !47, !noalias !44
+  store i64 %50, ptr %52, align 8, !tbaa !22, !alias.scope !45, !noalias !48
+  store ptr %42, ptr %.0911.i.i.i, align 8, !tbaa !24, !alias.scope !48, !noalias !45
+  store i64 0, ptr %51, align 8, !tbaa !22, !alias.scope !48, !noalias !45
+  store i8 0, ptr %42, align 1, !tbaa !23, !alias.scope !48, !noalias !45
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
-  %55 = load i64, ptr %54, align 8, !alias.scope !47, !noalias !44
-  store i64 %55, ptr %53, align 8, !alias.scope !44, !noalias !47
+  %55 = load i64, ptr %54, align 8, !alias.scope !48, !noalias !45
+  store i64 %55, ptr %53, align 8, !alias.scope !45, !noalias !48
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %56, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !50
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %57, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -551,48 +551,48 @@ _ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
   %.012.i.i.i18 = phi ptr [ %76, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %58, %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %75, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %1, %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  store ptr %59, ptr %.012.i.i.i18, align 8, !tbaa !21, !alias.scope !51, !noalias !54
-  %60 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !54, !noalias !51
+  store ptr %59, ptr %.012.i.i.i18, align 8, !tbaa !21, !alias.scope !52, !noalias !55
+  %60 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !55, !noalias !52
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i20
 
 63:                                               ; preds = %.lr.ph.i.i.i17
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !22, !alias.scope !54, !noalias !51
+  %65 = load i64, ptr %64, align 8, !tbaa !22, !alias.scope !55, !noalias !52
   %66 = icmp ult i64 %65, 16
   tail call void @llvm.assume(i1 %66)
   %67 = add nuw nsw i64 %65, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %59, ptr noundef nonnull align 8 dereferenceable(1) %61, i64 %67, i1 false), !alias.scope !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %59, ptr noundef nonnull align 8 dereferenceable(1) %61, i64 %67, i1 false), !alias.scope !57
   br label %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i20: ; preds = %.lr.ph.i.i.i17
-  store ptr %60, ptr %.012.i.i.i18, align 8, !tbaa !24, !alias.scope !51, !noalias !54
-  %68 = load i64, ptr %61, align 8, !tbaa !23, !alias.scope !54, !noalias !51
-  store i64 %68, ptr %59, align 8, !tbaa !23, !alias.scope !51, !noalias !54
+  store ptr %60, ptr %.012.i.i.i18, align 8, !tbaa !24, !alias.scope !52, !noalias !55
+  %68 = load i64, ptr %61, align 8, !tbaa !23, !alias.scope !55, !noalias !52
+  store i64 %68, ptr %59, align 8, !tbaa !23, !alias.scope !52, !noalias !55
   %.phi.trans.insert.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !22, !alias.scope !54, !noalias !51
+  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !22, !alias.scope !55, !noalias !52
   br label %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i20, %63
   %69 = phi i64 [ %65, %63 ], [ %.pre.i.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i20 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  store i64 %69, ptr %71, align 8, !tbaa !22, !alias.scope !51, !noalias !54
-  store ptr %61, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !54, !noalias !51
-  store i64 0, ptr %70, align 8, !tbaa !22, !alias.scope !54, !noalias !51
-  store i8 0, ptr %61, align 1, !tbaa !23, !alias.scope !54, !noalias !51
+  store i64 %69, ptr %71, align 8, !tbaa !22, !alias.scope !52, !noalias !55
+  store ptr %61, ptr %.0911.i.i.i19, align 8, !tbaa !24, !alias.scope !55, !noalias !52
+  store i64 0, ptr %70, align 8, !tbaa !22, !alias.scope !55, !noalias !52
+  store i8 0, ptr %61, align 1, !tbaa !23, !alias.scope !55, !noalias !52
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
-  %74 = load i64, ptr %73, align 8, !alias.scope !54, !noalias !51
-  store i64 %74, ptr %72, align 8, !alias.scope !51, !noalias !54
+  %74 = load i64, ptr %73, align 8, !alias.scope !55, !noalias !52
+  store i64 %74, ptr %72, align 8, !alias.scope !52, !noalias !55
   %75 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
   %.not.i.i.i24 = icmp eq ptr %75, %5
-  br i1 %.not.i.i.i24, label %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !50
+  br i1 %.not.i.i.i24, label %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !51
 
 _ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ; preds = %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23, %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i25 = phi ptr [ %58, %_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %76, %_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i23 ]
@@ -627,8 +627,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
-  %6 = load ptr, ptr %0, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -666,7 +666,7 @@ _ZNKSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EES
 28:                                               ; preds = %_ZNKSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
   %29 = sdiv exact i64 %27, 40
   %30 = icmp ugt i64 %29, 230584300921369395
-  br i1 %30, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE8allocateERS2_m.exit.i.i.i.i.i.i, !prof !42
+  br i1 %30, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE8allocateERS2_m.exit.i.i.i.i.i.i, !prof !43
 
 .noexc.i.i.i.i:                                   ; preds = %28
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -713,23 +713,23 @@ _ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirement
 .lr.ph.i.i.i:                                     ; preds = %45, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %20, %45 ]
   %.0911.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %6, %45 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  %46 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !33, !alias.scope !61, !noalias !58
-  store ptr %46, ptr %.012.i.i.i, align 8, !tbaa !33, !alias.scope !58, !noalias !61
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %46 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !33, !alias.scope !62, !noalias !59
+  store ptr %46, ptr %.012.i.i.i, align 8, !tbaa !33, !alias.scope !59, !noalias !62
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !31, !alias.scope !61, !noalias !58
-  store ptr %49, ptr %47, align 8, !tbaa !31, !alias.scope !58, !noalias !61
+  %49 = load ptr, ptr %48, align 8, !tbaa !31, !alias.scope !62, !noalias !59
+  store ptr %49, ptr %47, align 8, !tbaa !31, !alias.scope !59, !noalias !62
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !32, !alias.scope !61, !noalias !58
-  store ptr %52, ptr %50, align 8, !tbaa !32, !alias.scope !58, !noalias !61
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !61, !noalias !58
+  %52 = load ptr, ptr %51, align 8, !tbaa !32, !alias.scope !62, !noalias !59
+  store ptr %52, ptr %50, align 8, !tbaa !32, !alias.scope !59, !noalias !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %53, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !63
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %45
   %.0.lcssa.i.i.i = phi ptr [ %20, %45 ], [ %54, %.lr.ph.i.i.i ]
@@ -740,23 +740,23 @@ _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESa
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i28
   %.012.i.i.i29 = phi ptr [ %64, %.lr.ph.i.i.i28 ], [ %55, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i30 = phi ptr [ %63, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %56 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !33, !alias.scope !67, !noalias !64
-  store ptr %56, ptr %.012.i.i.i29, align 8, !tbaa !33, !alias.scope !64, !noalias !67
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %56 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !33, !alias.scope !68, !noalias !65
+  store ptr %56, ptr %.012.i.i.i29, align 8, !tbaa !33, !alias.scope !65, !noalias !68
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !31, !alias.scope !67, !noalias !64
-  store ptr %59, ptr %57, align 8, !tbaa !31, !alias.scope !64, !noalias !67
+  %59 = load ptr, ptr %58, align 8, !tbaa !31, !alias.scope !68, !noalias !65
+  store ptr %59, ptr %57, align 8, !tbaa !31, !alias.scope !65, !noalias !68
   %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !32, !alias.scope !67, !noalias !64
-  store ptr %62, ptr %60, align 8, !tbaa !32, !alias.scope !64, !noalias !67
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i30, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
+  %62 = load ptr, ptr %61, align 8, !tbaa !32, !alias.scope !68, !noalias !65
+  store ptr %62, ptr %60, align 8, !tbaa !32, !alias.scope !65, !noalias !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i30, i8 0, i64 24, i1 false), !alias.scope !68, !noalias !65
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 24
   %.not.i.i.i31 = icmp eq ptr %63, %5
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !63
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !64
 
 _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33: ; preds = %.lr.ph.i.i.i28, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i32 = phi ptr [ %55, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %64, %.lr.ph.i.i.i28 ]
@@ -765,17 +765,17 @@ _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESa
   br i1 %.not.i34, label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %66
 
 66:                                               ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33
-  %67 = load ptr, ptr %65, align 8, !tbaa !41
+  %67 = load ptr, ptr %65, align 8, !tbaa !42
   %68 = ptrtoint ptr %67 to i64
   %69 = sub i64 %68, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %69) #19
   br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %66
-  store ptr %20, ptr %0, align 8, !tbaa !57
-  store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !38
+  store ptr %20, ptr %0, align 8, !tbaa !58
+  store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
-  store ptr %70, ptr %65, align 8, !tbaa !41
+  store ptr %70, ptr %65, align 8, !tbaa !42
   ret void
 
 71:                                               ; preds = %_ZNSt16allocator_traitsISaIN18cmCTestTestHandler30cmCTestTestResourceRequirementEEE8allocateERS2_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
@@ -871,7 +871,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %.014, i64 40
   %.not = icmp eq ptr %24, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 26:                                               ; preds = %.noexc.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -1029,39 +1029,40 @@ attributes #22 = { noreturn nounwind }
 !31 = !{!19, !20, i64 8}
 !32 = !{!19, !20, i64 16}
 !33 = !{!19, !20, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!10, !5, i64 0}
-!37 = distinct !{!37, !35}
-!38 = !{!39, !40, i64 8}
-!39 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE17_Vector_impl_dataE", !40, i64 0, !40, i64 8, !40, i64 16}
-!40 = !{!"p1 _ZTSSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE", !6, i64 0}
-!41 = !{!39, !40, i64 16}
-!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!43 = !{!20, !20, i64 0}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_"}
-!47 = !{!48}
-!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!49 = !{!45, !48}
-!50 = distinct !{!50, !35}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!53 = distinct !{!53, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_"}
-!54 = !{!55}
-!55 = distinct !{!55, !53, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!56 = !{!52, !55}
-!57 = !{!39, !40, i64 0}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!60 = distinct !{!60, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
-!61 = !{!62}
-!62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!63 = distinct !{!63, !35}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!66 = distinct !{!66, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
-!67 = !{!68}
-!68 = distinct !{!68, !66, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!69 = distinct !{!69, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!10, !5, i64 0}
+!38 = distinct !{!38, !35, !36}
+!39 = !{!40, !41, i64 8}
+!40 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p1 _ZTSSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EE", !6, i64 0}
+!42 = !{!40, !41, i64 16}
+!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!44 = !{!20, !20, i64 0}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_"}
+!48 = !{!49}
+!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!50 = !{!46, !49}
+!51 = distinct !{!51, !35, !36}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!54 = distinct !{!54, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_"}
+!55 = !{!56}
+!56 = distinct !{!56, !54, !"_ZSt19__relocate_object_aIN18cmCTestTestHandler30cmCTestTestResourceRequirementES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!57 = !{!53, !56}
+!58 = !{!40, !41, i64 0}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
+!62 = !{!63}
+!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!64 = distinct !{!64, !35, !36}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!67 = distinct !{!67, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
+!68 = !{!69}
+!69 = distinct !{!69, !67, !"_ZSt19__relocate_object_aISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!70 = distinct !{!70, !35, !36}

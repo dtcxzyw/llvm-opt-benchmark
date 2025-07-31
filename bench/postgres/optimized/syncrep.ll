@@ -234,7 +234,7 @@ SyncRepQueueInsert.exit:                          ; preds = %39, %dlist_push_hea
   %99 = call i32 @WaitLatch(ptr noundef %98, i32 noundef 17, i64 noundef -1, i32 noundef 134217780) #10
   %100 = and i32 %99, 16
   %.not14 = icmp eq i32 %100, 0
-  br i1 %.not14, label %62, label %101
+  br i1 %.not14, label %62, label %101, !llvm.loop !9
 
 101:                                              ; preds = %97
   store volatile i32 1, ptr @ProcDiePending, align 4
@@ -271,7 +271,7 @@ SyncRepQueueInsert.exit:                          ; preds = %39, %dlist_push_hea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %.loopexit.sink.split
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %115 = load ptr, ptr @MyProc, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 160
   store i32 0, ptr %116, align 8
@@ -414,7 +414,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4
   %.not14.not.i = icmp sgt i32 %24, %27
-  br i1 %.not14.not.i, label %SyncRepGetStandbyPriority.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not14.not.i, label %SyncRepGetStandbyPriority.exit, label %.lr.ph.i, !llvm.loop !11
 
 28:                                               ; preds = %.tail.i, %.lr.ph.i
   %29 = load ptr, ptr @SyncRepConfig, align 8
@@ -434,7 +434,7 @@ SyncRepGetStandbyPriority.exit:                   ; preds = %.tail.thread.i, %0,
 
 37:                                               ; preds = %SyncRepGetStandbyPriority.exit
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 76
-  %39 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %38, i8 1, ptr nonnull elementtype(i8) %38) #10, !srcloc !10
+  %39 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %38, i8 1, ptr nonnull elementtype(i8) %38) #10, !srcloc !12
   %.not3 = icmp eq i8 %39, 0
   br i1 %.not3, label %44, label %40
 
@@ -448,7 +448,7 @@ SyncRepGetStandbyPriority.exit:                   ; preds = %.tail.thread.i, %0,
   %45 = load ptr, ptr @MyWalSnd, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store i32 %.011.i, ptr %46, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %47 = load ptr, ptr @MyWalSnd, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 76
   store i8 0, ptr %48, align 4
@@ -522,7 +522,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 24:                                               ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SyncRepGetSyncRecPtr.exit, label %25, !llvm.loop !12
+  br i1 %exitcond.not.i, label %SyncRepGetSyncRecPtr.exit, label %25, !llvm.loop !14
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
@@ -570,7 +570,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %.2 = select i1 %or.cond27.not.i.i, i64 %.164, i64 %46
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %SyncRepGetSyncRecPtr.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %SyncRepGetSyncRecPtr.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 .lr.ph.preheader.i22.i:                           ; preds = %33
   %50 = shl nuw nsw i64 %wide.trip.count.i, 3
@@ -596,7 +596,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   store i64 %62, ptr %63, align 8
   %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
   %exitcond.not.i27.i = icmp eq i64 %indvars.iv.next.i26.i, %wide.trip.count.i
-  br i1 %exitcond.not.i27.i, label %SyncRepGetNthLatestSyncRecPtr.exit.i, label %.lr.ph.i24.i, !llvm.loop !14
+  br i1 %exitcond.not.i27.i, label %SyncRepGetNthLatestSyncRecPtr.exit.i, label %.lr.ph.i24.i, !llvm.loop !16
 
 SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
   tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %wide.trip.count.i, i64 noundef 8, ptr noundef nonnull @cmp_lsn) #10
@@ -713,14 +713,14 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.
   %115 = load ptr, ptr %.sroa.0.029.i, align 8
   store ptr %115, ptr %.sroa.8.031.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %116 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -8
   store i32 2, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -132
   tail call void @SetLatch(ptr noundef nonnull %117) #10
   %118 = add i32 %.01930.i, 1
   %.not22.i = icmp eq ptr %.sroa.8.031.i, %104
-  br i1 %.not22.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i, !llvm.loop !16
+  br i1 %.not22.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 SyncRepWakeQueue.exit:                            ; preds = %112, %.lr.ph.split.i, %103, %99
   %.0 = phi i32 [ 0, %99 ], [ 0, %103 ], [ %118, %112 ], [ %.01930.i, %.lr.ph.split.i ]
@@ -759,14 +759,14 @@ SyncRepWakeQueue.exit:                            ; preds = %112, %.lr.ph.split.
   %135 = load ptr, ptr %.sroa.0.029.i29, align 8
   store ptr %135, ptr %.sroa.8.031.i27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i29, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %136 = getelementptr inbounds i8, ptr %.sroa.0.029.i29, i64 -8
   store i32 2, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %.sroa.0.029.i29, i64 -132
   tail call void @SetLatch(ptr noundef nonnull %137) #10
   %138 = add i32 %.01930.i28, 1
   %.not22.i32 = icmp eq ptr %.sroa.8.031.i27, %124
-  br i1 %.not22.i32, label %SyncRepWakeQueue.exit34, label %.lr.ph.split.i26, !llvm.loop !16
+  br i1 %.not22.i32, label %SyncRepWakeQueue.exit34, label %.lr.ph.split.i26, !llvm.loop !18
 
 SyncRepWakeQueue.exit34:                          ; preds = %132, %.lr.ph.split.i26, %122, %SyncRepWakeQueue.exit
   %.012 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %122 ], [ %138, %132 ], [ %.01930.i28, %.lr.ph.split.i26 ]
@@ -805,14 +805,14 @@ SyncRepWakeQueue.exit34:                          ; preds = %132, %.lr.ph.split.
   %155 = load ptr, ptr %.sroa.0.029.i44, align 8
   store ptr %155, ptr %.sroa.8.031.i42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i44, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %156 = getelementptr inbounds i8, ptr %.sroa.0.029.i44, i64 -8
   store i32 2, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %.sroa.0.029.i44, i64 -132
   tail call void @SetLatch(ptr noundef nonnull %157) #10
   %158 = add i32 %.01930.i43, 1
   %.not22.i47 = icmp eq ptr %.sroa.8.031.i42, %144
-  br i1 %.not22.i47, label %SyncRepWakeQueue.exit49, label %.lr.ph.split.i41, !llvm.loop !16
+  br i1 %.not22.i47, label %SyncRepWakeQueue.exit49, label %.lr.ph.split.i41, !llvm.loop !18
 
 SyncRepWakeQueue.exit49:                          ; preds = %152, %.lr.ph.split.i41, %142, %SyncRepWakeQueue.exit34
   %.013 = phi i32 [ 0, %SyncRepWakeQueue.exit34 ], [ 0, %142 ], [ %158, %152 ], [ %.01930.i43, %.lr.ph.split.i41 ]
@@ -866,7 +866,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   %14 = sext i32 %.03638 to i64
   %15 = getelementptr inbounds %struct.SyncRepStandbyData, ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 76
-  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #10, !srcloc !10
+  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #10, !srcloc !12
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %20, label %18
 
@@ -895,7 +895,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   %34 = load volatile i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 %34, ptr %35, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
   store volatile i8 0, ptr %16, align 4
   %36 = load i32, ptr %15, align 8
   %37 = icmp eq i32 %36, 0
@@ -932,7 +932,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   %54 = load i32, ptr @max_wal_senders, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %53
   %.pre = load ptr, ptr @SyncRepConfig, align 8
@@ -1043,18 +1043,18 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
   %21 = load ptr, ptr %.sroa.0.029.us.i, align 8
   store ptr %21, ptr %.sroa.8.031.us.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.us.i, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %22 = getelementptr inbounds i8, ptr %.sroa.0.029.us.i, i64 -8
   store i32 2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %.sroa.0.029.us.i, i64 -132
   tail call void @SetLatch(ptr noundef nonnull %23) #10
   %.not22.us.i = icmp eq ptr %.sroa.8.031.us.i, %16
-  br i1 %.not22.us.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.us.i, !llvm.loop !19
+  br i1 %.not22.us.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.us.i, !llvm.loop !21
 
 SyncRepWakeQueue.exit:                            ; preds = %.lr.ph.split.us.i, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %SyncRepWakeQueue.exit, %11
   %24 = load ptr, ptr @WalSndCtl, align 8
@@ -1256,19 +1256,21 @@ attributes #12 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2150841474}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2592286, i64 2592302}
-!11 = !{i64 2150845073}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i64 2150857635}
-!16 = distinct !{!16, !7}
-!17 = !{i64 2150853638}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = !{i64 2150841474}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2592286, i64 2592302}
+!13 = !{i64 2150845073}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{i64 2150857635}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i64 2150853638}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7, !8}

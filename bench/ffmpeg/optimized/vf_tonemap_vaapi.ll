@@ -391,7 +391,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %spec.select112113.i = tail call i64 @llvm.smin.i64(i64 %100, i64 50000)
   %spec.select112.i = trunc i64 %spec.select112113.i to i16
   %101 = getelementptr inbounds nuw i8, ptr %29, i64 220
-  store i16 %spec.select112.i, ptr %101, align 4, !tbaa !79
+  store i16 %spec.select112.i, ptr %101, align 4, !tbaa !80
   %102 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %103 = load i64, ptr %102, align 4
   %.sroa.0.0.extract.trunc.i105.i = trunc i64 %103 to i32
@@ -405,7 +405,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %109 = tail call i64 @llvm.smin.i64(i64 %108, i64 50000)
   %110 = trunc i64 %109 to i16
   %111 = getelementptr inbounds nuw i8, ptr %29, i64 222
-  store i16 %110, ptr %111, align 2, !tbaa !80
+  store i16 %110, ptr %111, align 2, !tbaa !81
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.11) #9
   %112 = load i16, ptr %69, align 8, !tbaa !76
   %113 = zext i16 %112 to i32
@@ -423,9 +423,9 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   %125 = getelementptr inbounds nuw i8, ptr %29, i64 218
   %126 = load i16, ptr %125, align 2, !tbaa !76
   %127 = zext i16 %126 to i32
-  %128 = load i16, ptr %101, align 4, !tbaa !79
+  %128 = load i16, ptr %101, align 4, !tbaa !80
   %129 = zext i16 %128 to i32
-  %130 = load i16, ptr %111, align 2, !tbaa !80
+  %130 = load i16, ptr %111, align 2, !tbaa !81
   %131 = zext i16 %130 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.12, i32 noundef %113, i32 noundef %115, i32 noundef %118, i32 noundef %121, i32 noundef %124, i32 noundef %127, i32 noundef %129, i32 noundef %131) #9
   br label %133
@@ -437,7 +437,7 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
 133:                                              ; preds = %93, %66
   %134 = tail call ptr @av_frame_get_side_data(ptr noundef nonnull %1, i32 noundef 14) #9
   %135 = getelementptr inbounds nuw i8, ptr %29, i64 336
-  store ptr %134, ptr %135, align 8, !tbaa !81
+  store ptr %134, ptr %135, align 8, !tbaa !82
   %.not79.i = icmp eq ptr %134, null
   br i1 %.not79.i, label %152, label %136
 
@@ -452,19 +452,19 @@ define internal i32 @tonemap_vaapi_filter_frame(ptr noundef readonly captures(no
   br label %tonemap_vaapi_save_metadata.exit.thread
 
 140:                                              ; preds = %136
-  %141 = load i32, ptr %138, align 4, !tbaa !82
+  %141 = load i32, ptr %138, align 4, !tbaa !83
   %142 = trunc i32 %141 to i16
   %143 = getelementptr inbounds nuw i8, ptr %29, i64 232
-  store i16 %142, ptr %143, align 8, !tbaa !84
+  store i16 %142, ptr %143, align 8, !tbaa !85
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !85
+  %145 = load i32, ptr %144, align 4, !tbaa !86
   %146 = trunc i32 %145 to i16
   %147 = getelementptr inbounds nuw i8, ptr %29, i64 234
-  store i16 %146, ptr %147, align 2, !tbaa !86
+  store i16 %146, ptr %147, align 2, !tbaa !87
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.15) #9
-  %148 = load i16, ptr %143, align 8, !tbaa !84
+  %148 = load i16, ptr %143, align 8, !tbaa !85
   %149 = zext i16 %148 to i32
-  %150 = load i16, ptr %147, align 2, !tbaa !86
+  %150 = load i16, ptr %147, align 2, !tbaa !87
   %151 = zext i16 %150 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.16, i32 noundef %149, i32 noundef %151) #9
   br label %tonemap_vaapi_save_metadata.exit
@@ -477,8 +477,8 @@ tonemap_vaapi_save_metadata.exit:                 ; preds = %152, %140
   %153 = load ptr, ptr %13, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !87
-  %156 = load ptr, ptr %155, align 8, !tbaa !88
+  %155 = load ptr, ptr %154, align 8, !tbaa !88
+  %156 = load ptr, ptr %155, align 8, !tbaa !89
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 76
   %158 = load i32, ptr %157, align 4, !tbaa !75
   %159 = call i32 @vaMapBuffer(ptr noundef %156, i32 noundef %158, ptr noundef nonnull %3) #9
@@ -492,13 +492,13 @@ tonemap_vaapi_save_metadata.exit:                 ; preds = %152, %140
   br label %tonemap_vaapi_set_filter_params.exit.thread
 
 163:                                              ; preds = %tonemap_vaapi_save_metadata.exit
-  %164 = load ptr, ptr %3, align 8, !tbaa !90
+  %164 = load ptr, ptr %3, align 8, !tbaa !91
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %166 = load ptr, ptr %165, align 8, !tbaa !92
+  %166 = load ptr, ptr %165, align 8, !tbaa !93
   %167 = getelementptr inbounds nuw i8, ptr %153, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %166, ptr noundef nonnull align 8 dereferenceable(60) %167, i64 60, i1 false)
-  %168 = load ptr, ptr %154, align 8, !tbaa !87
-  %169 = load ptr, ptr %168, align 8, !tbaa !88
+  %168 = load ptr, ptr %154, align 8, !tbaa !88
+  %169 = load ptr, ptr %168, align 8, !tbaa !89
   %170 = load i32, ptr %157, align 4, !tbaa !75
   %171 = call i32 @vaUnmapBuffer(ptr noundef %169, i32 noundef %170) #9
   %.not18.i = icmp eq i32 %171, 0
@@ -517,14 +517,14 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %175 = load ptr, ptr %4, align 8, !tbaa !42
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
-  %177 = load ptr, ptr %176, align 8, !tbaa !95
+  %177 = load ptr, ptr %176, align 8, !tbaa !96
   %178 = ptrtoint ptr %177 to i64
   %179 = trunc i64 %178 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %179) #9
   %180 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  %181 = load i32, ptr %180, align 4, !tbaa !96
+  %181 = load i32, ptr %180, align 4, !tbaa !97
   %182 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %183 = load i32, ptr %182, align 8, !tbaa !97
+  %183 = load i32, ptr %182, align 8, !tbaa !98
   %184 = call ptr @ff_get_video_buffer(ptr noundef %12, i32 noundef %181, i32 noundef %183) #9
   store ptr %184, ptr %5, align 8, !tbaa !42
   %.not = icmp eq ptr %184, null
@@ -532,7 +532,7 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
 
 185:                                              ; preds = %174
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %187 = load ptr, ptr %186, align 8, !tbaa !95
+  %187 = load ptr, ptr %186, align 8, !tbaa !96
   %188 = ptrtoint ptr %187 to i64
   %189 = trunc i64 %188 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %189) #9
@@ -552,11 +552,11 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %184, i64 284
-  store i32 1, ptr %197, align 4, !tbaa !98
+  store i32 1, ptr %197, align 4, !tbaa !99
   %198 = getelementptr inbounds nuw i8, ptr %184, i64 288
   store i32 1, ptr %198, align 8, !tbaa !66
   %199 = getelementptr inbounds nuw i8, ptr %184, i64 292
-  store i32 1, ptr %199, align 4, !tbaa !99
+  store i32 1, ptr %199, align 4, !tbaa !100
   br label %200
 
 200:                                              ; preds = %196, %193
@@ -567,7 +567,7 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
 
 203:                                              ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %184, i64 284
-  store i32 %202, ptr %204, align 4, !tbaa !98
+  store i32 %202, ptr %204, align 4, !tbaa !99
   br label %205
 
 205:                                              ; preds = %203, %200
@@ -589,7 +589,7 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
 
 213:                                              ; preds = %210
   %214 = getelementptr inbounds nuw i8, ptr %184, i64 292
-  store i32 %212, ptr %214, align 4, !tbaa !99
+  store i32 %212, ptr %214, align 4, !tbaa !100
   br label %215
 
 215:                                              ; preds = %213, %210
@@ -617,49 +617,49 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
   %229 = zext i16 %228 to i32
   %230 = sext i32 %226 to i64
   %231 = getelementptr inbounds [3 x [2 x %struct.AVRational]], ptr %221, i64 0, i64 %230
-  store i32 %229, ptr %231, align 4, !tbaa !100
+  store i32 %229, ptr %231, align 4, !tbaa !101
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
-  store i32 50000, ptr %232, align 4, !tbaa !101
+  store i32 50000, ptr %232, align 4, !tbaa !102
   %233 = getelementptr inbounds nuw [3 x i16], ptr %223, i64 0, i64 %indvars.iv.i61
   %234 = load i16, ptr %233, align 2, !tbaa !76
   %235 = zext i16 %234 to i32
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store i32 %235, ptr %236, align 4, !tbaa !100
+  store i32 %235, ptr %236, align 4, !tbaa !101
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 12
-  store i32 50000, ptr %237, align 4, !tbaa !101
+  store i32 50000, ptr %237, align 4, !tbaa !102
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
-  br i1 %exitcond.not.i63, label %238, label %224, !llvm.loop !102
+  br i1 %exitcond.not.i63, label %238, label %224, !llvm.loop !103
 
 238:                                              ; preds = %224
   %239 = getelementptr inbounds nuw i8, ptr %217, i64 280
-  %240 = load i16, ptr %239, align 4, !tbaa !103
+  %240 = load i16, ptr %239, align 4, !tbaa !104
   %241 = zext i16 %240 to i32
   %242 = getelementptr inbounds nuw i8, ptr %221, i64 48
-  store i32 %241, ptr %242, align 4, !tbaa !100
+  store i32 %241, ptr %242, align 4, !tbaa !101
   %243 = getelementptr inbounds nuw i8, ptr %221, i64 52
-  store i32 50000, ptr %243, align 4, !tbaa !101
+  store i32 50000, ptr %243, align 4, !tbaa !102
   %244 = getelementptr inbounds nuw i8, ptr %217, i64 282
-  %245 = load i16, ptr %244, align 2, !tbaa !104
+  %245 = load i16, ptr %244, align 2, !tbaa !105
   %246 = zext i16 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %221, i64 56
-  store i32 %246, ptr %247, align 4, !tbaa !100
+  store i32 %246, ptr %247, align 4, !tbaa !101
   %248 = getelementptr inbounds nuw i8, ptr %221, i64 60
-  store i32 50000, ptr %248, align 4, !tbaa !101
+  store i32 50000, ptr %248, align 4, !tbaa !102
   %249 = getelementptr inbounds nuw i8, ptr %221, i64 80
   store i32 1, ptr %249, align 4, !tbaa !74
   %250 = getelementptr inbounds nuw i8, ptr %217, i64 284
-  %251 = load i32, ptr %250, align 4, !tbaa !105
+  %251 = load i32, ptr %250, align 4, !tbaa !106
   %252 = getelementptr inbounds nuw i8, ptr %221, i64 72
-  store i32 %251, ptr %252, align 4, !tbaa !106
+  store i32 %251, ptr %252, align 4, !tbaa !107
   %253 = getelementptr inbounds nuw i8, ptr %221, i64 76
-  store i32 10000, ptr %253, align 4, !tbaa !107
+  store i32 10000, ptr %253, align 4, !tbaa !108
   %254 = getelementptr inbounds nuw i8, ptr %217, i64 288
-  %255 = load i32, ptr %254, align 4, !tbaa !108
+  %255 = load i32, ptr %254, align 4, !tbaa !109
   %256 = getelementptr inbounds nuw i8, ptr %221, i64 64
-  store i32 %255, ptr %256, align 4, !tbaa !109
+  store i32 %255, ptr %256, align 4, !tbaa !110
   %257 = getelementptr inbounds nuw i8, ptr %221, i64 68
-  store i32 10000, ptr %257, align 4, !tbaa !110
+  store i32 10000, ptr %257, align 4, !tbaa !111
   %258 = getelementptr inbounds nuw i8, ptr %221, i64 84
   store i32 1, ptr %258, align 4, !tbaa !70
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.20) #9
@@ -679,13 +679,13 @@ tonemap_vaapi_set_filter_params.exit.thread:      ; preds = %160, %172
   %272 = getelementptr inbounds nuw i8, ptr %217, i64 278
   %273 = load i16, ptr %272, align 2, !tbaa !76
   %274 = zext i16 %273 to i32
-  %275 = load i16, ptr %239, align 4, !tbaa !103
+  %275 = load i16, ptr %239, align 4, !tbaa !104
   %276 = zext i16 %275 to i32
-  %277 = load i16, ptr %244, align 2, !tbaa !104
+  %277 = load i16, ptr %244, align 2, !tbaa !105
   %278 = zext i16 %277 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.12, i32 noundef %260, i32 noundef %262, i32 noundef %265, i32 noundef %268, i32 noundef %271, i32 noundef %274, i32 noundef %276, i32 noundef %278) #9
-  %279 = load i32, ptr %250, align 4, !tbaa !105
-  %280 = load i32, ptr %254, align 4, !tbaa !108
+  %279 = load i32, ptr %250, align 4, !tbaa !106
+  %280 = load i32, ptr %254, align 4, !tbaa !109
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.21, i32 noundef %279, i32 noundef %280) #9
   %281 = call ptr @av_frame_new_side_data(ptr noundef nonnull %184, i32 noundef 14, i64 noundef 8) #9
   %.not62.i = icmp eq ptr %281, null
@@ -697,12 +697,12 @@ tonemap_vaapi_update_sidedata.exit:               ; preds = %238
   %284 = getelementptr inbounds nuw i8, ptr %217, i64 292
   %285 = load i16, ptr %284, align 4, !tbaa !40
   %286 = zext i16 %285 to i32
-  store i32 %286, ptr %283, align 4, !tbaa !82
+  store i32 %286, ptr %283, align 4, !tbaa !83
   %287 = getelementptr inbounds nuw i8, ptr %217, i64 294
   %288 = load i16, ptr %287, align 2, !tbaa !41
   %289 = zext i16 %288 to i32
   %290 = getelementptr inbounds nuw i8, ptr %283, i64 4
-  store i32 %289, ptr %290, align 4, !tbaa !85
+  store i32 %289, ptr %290, align 4, !tbaa !86
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.22) #9
   %291 = load i16, ptr %284, align 4, !tbaa !40
   %292 = zext i16 %291 to i32
@@ -723,28 +723,28 @@ tonemap_vaapi_update_sidedata.exit:               ; preds = %238
   br i1 %.not56, label %306, label %301
 
 301:                                              ; preds = %299
-  store i32 1, ptr %7, align 8, !tbaa !111
+  store i32 1, ptr %7, align 8, !tbaa !112
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 268
   %303 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %302, ptr %303, align 8, !tbaa !112
+  store ptr %302, ptr %303, align 8, !tbaa !113
   %304 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 60, ptr %304, align 8, !tbaa !113
+  store i32 60, ptr %304, align 8, !tbaa !114
   %305 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  store ptr %7, ptr %305, align 8, !tbaa !114
+  store ptr %7, ptr %305, align 8, !tbaa !115
   br label %306
 
 306:                                              ; preds = %301, %299
   %307 = getelementptr inbounds nuw i8, ptr %14, i64 116
-  %308 = load i32, ptr %307, align 4, !tbaa !121
+  %308 = load i32, ptr %307, align 4, !tbaa !122
   %.not57 = icmp eq i32 %308, 0
   br i1 %.not57, label %313, label %309
 
 309:                                              ; preds = %306
   %310 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %311 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %310, ptr %311, align 8, !tbaa !122
+  store ptr %310, ptr %311, align 8, !tbaa !123
   %312 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 %308, ptr %312, align 8, !tbaa !123
+  store i32 %308, ptr %312, align 8, !tbaa !124
   br label %313
 
 313:                                              ; preds = %309, %306
@@ -847,8 +847,8 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 0, i64 60, i1 false)
   store i32 2, ptr %4, align 4, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !87
-  %10 = load ptr, ptr %9, align 8, !tbaa !88
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !65
   %13 = call i32 @vaQueryVideoProcFilterCaps(ptr noundef %10, i32 noundef %12, i32 noundef 8, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
@@ -872,12 +872,12 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw [2 x %struct._VAProcFilterCapHighDynamicRange], ptr %3, i64 0, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 8, !tbaa !125
+  %20 = load i32, ptr %19, align 8, !tbaa !126
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %18, label %21
 
@@ -894,12 +894,12 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 24:                                               ; preds = %.lr.ph44
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !127
+  br i1 %exitcond55.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !128
 
 .lr.ph44:                                         ; preds = %21, %24
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %24 ], [ 0, %21 ]
   %25 = getelementptr inbounds nuw [2 x %struct._VAProcFilterCapHighDynamicRange], ptr %3, i64 0, i64 %indvars.iv51, i32 1
-  %26 = load i16, ptr %25, align 4, !tbaa !128
+  %26 = load i16, ptr %25, align 4, !tbaa !129
   %27 = and i16 %26, 1
   %.not34 = icmp eq i16 %27, 0
   br i1 %.not34, label %24, label %.thread36
@@ -911,12 +911,12 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 28:                                               ; preds = %.lr.ph47
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond60.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !129
+  br i1 %exitcond60.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !130
 
 .lr.ph47:                                         ; preds = %21, %28
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %28 ], [ 0, %21 ]
   %29 = getelementptr inbounds nuw [2 x %struct._VAProcFilterCapHighDynamicRange], ptr %3, i64 0, i64 %indvars.iv56, i32 1
-  %30 = load i16, ptr %29, align 4, !tbaa !128
+  %30 = load i16, ptr %29, align 4, !tbaa !129
   %31 = and i16 %30, 2
   %.not32 = icmp eq i16 %31, 0
   br i1 %.not32, label %28, label %.thread36
@@ -926,13 +926,13 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
   br label %36
 
 .thread36:                                        ; preds = %.lr.ph44, %.lr.ph47
-  store i32 8, ptr %2, align 8, !tbaa !130
+  store i32 8, ptr %2, align 8, !tbaa !131
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %32, align 8, !tbaa !131
+  store i32 1, ptr %32, align 8, !tbaa !132
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %7, ptr %33, align 8, !tbaa !92
+  store ptr %7, ptr %33, align 8, !tbaa !93
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 60, ptr %34, align 8, !tbaa !132
+  store i32 60, ptr %34, align 8, !tbaa !133
   %35 = call i32 @ff_vaapi_vpp_make_param_buffers(ptr noundef %0, i32 noundef 42, ptr noundef nonnull %2, i64 noundef 112, i32 noundef 1) #9
   br label %36
 
@@ -1054,59 +1054,60 @@ attributes #9 = { nounwind }
 !74 = !{!71, !15, i64 80}
 !75 = !{!15, !15, i64 0}
 !76 = !{!25, !25, i64 0}
-!77 = distinct !{!77, !78}
+!77 = distinct !{!77, !78, !79}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!28, !25, i64 220}
-!80 = !{!28, !25, i64 222}
-!81 = !{!28, !30, i64 336}
-!82 = !{!83, !15, i64 0}
-!83 = !{!"AVContentLightMetadata", !15, i64 0, !15, i64 4}
-!84 = !{!28, !25, i64 232}
-!85 = !{!83, !15, i64 4}
-!86 = !{!28, !25, i64 234}
-!87 = !{!21, !22, i64 8}
-!88 = !{!89, !7, i64 0}
-!89 = !{!"AVVAAPIDeviceContext", !7, i64 0, !15, i64 8}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 _ZTS42_VAProcFilterParameterBufferHDRToneMapping", !7, i64 0}
-!92 = !{!93, !7, i64 16}
-!93 = !{!"_VAProcFilterParameterBufferHDRToneMapping", !15, i64 0, !94, i64 8, !8, i64 48}
-!94 = !{!"_VAHdrMetaData", !15, i64 0, !7, i64 8, !15, i64 16, !8, i64 20}
-!95 = !{!11, !11, i64 0}
-!96 = !{!21, !15, i64 68}
-!97 = !{!21, !15, i64 72}
-!98 = !{!57, !15, i64 284}
-!99 = !{!57, !15, i64 292}
-!100 = !{!47, !15, i64 0}
-!101 = !{!47, !15, i64 4}
-!102 = distinct !{!102, !78}
-!103 = !{!28, !25, i64 280}
-!104 = !{!28, !25, i64 282}
-!105 = !{!28, !15, i64 284}
-!106 = !{!71, !15, i64 72}
-!107 = !{!71, !15, i64 76}
-!108 = !{!28, !15, i64 288}
-!109 = !{!71, !15, i64 64}
-!110 = !{!71, !15, i64 68}
-!111 = !{!94, !15, i64 0}
-!112 = !{!94, !7, i64 8}
-!113 = !{!94, !15, i64 16}
-!114 = !{!115, !120, i64 152}
-!115 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !116, i64 8, !15, i64 16, !116, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !117, i64 48, !15, i64 56, !117, i64 64, !15, i64 72, !117, i64 80, !15, i64 88, !15, i64 92, !118, i64 96, !15, i64 104, !117, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !119, i64 132, !119, i64 140, !15, i64 148, !120, i64 152, !8, i64 160}
-!116 = !{!"p1 _ZTS12_VARectangle", !7, i64 0}
-!117 = !{!"p1 int", !7, i64 0}
-!118 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
-!119 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
-!120 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
-!121 = !{!21, !15, i64 116}
-!122 = !{!115, !117, i64 48}
-!123 = !{!115, !15, i64 56}
-!124 = distinct !{!124, !78}
-!125 = !{!126, !15, i64 0}
-!126 = !{!"_VAProcFilterCapHighDynamicRange", !15, i64 0, !25, i64 4, !8, i64 6}
-!127 = distinct !{!127, !78}
-!128 = !{!126, !25, i64 4}
-!129 = distinct !{!129, !78}
-!130 = !{!93, !15, i64 0}
-!131 = !{!93, !15, i64 8}
-!132 = !{!93, !15, i64 24}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = !{!28, !25, i64 220}
+!81 = !{!28, !25, i64 222}
+!82 = !{!28, !30, i64 336}
+!83 = !{!84, !15, i64 0}
+!84 = !{!"AVContentLightMetadata", !15, i64 0, !15, i64 4}
+!85 = !{!28, !25, i64 232}
+!86 = !{!84, !15, i64 4}
+!87 = !{!28, !25, i64 234}
+!88 = !{!21, !22, i64 8}
+!89 = !{!90, !7, i64 0}
+!90 = !{!"AVVAAPIDeviceContext", !7, i64 0, !15, i64 8}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTS42_VAProcFilterParameterBufferHDRToneMapping", !7, i64 0}
+!93 = !{!94, !7, i64 16}
+!94 = !{!"_VAProcFilterParameterBufferHDRToneMapping", !15, i64 0, !95, i64 8, !8, i64 48}
+!95 = !{!"_VAHdrMetaData", !15, i64 0, !7, i64 8, !15, i64 16, !8, i64 20}
+!96 = !{!11, !11, i64 0}
+!97 = !{!21, !15, i64 68}
+!98 = !{!21, !15, i64 72}
+!99 = !{!57, !15, i64 284}
+!100 = !{!57, !15, i64 292}
+!101 = !{!47, !15, i64 0}
+!102 = !{!47, !15, i64 4}
+!103 = distinct !{!103, !78, !79}
+!104 = !{!28, !25, i64 280}
+!105 = !{!28, !25, i64 282}
+!106 = !{!28, !15, i64 284}
+!107 = !{!71, !15, i64 72}
+!108 = !{!71, !15, i64 76}
+!109 = !{!28, !15, i64 288}
+!110 = !{!71, !15, i64 64}
+!111 = !{!71, !15, i64 68}
+!112 = !{!95, !15, i64 0}
+!113 = !{!95, !7, i64 8}
+!114 = !{!95, !15, i64 16}
+!115 = !{!116, !121, i64 152}
+!116 = !{!"_VAProcPipelineParameterBuffer", !15, i64 0, !117, i64 8, !15, i64 16, !117, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !118, i64 48, !15, i64 56, !118, i64 64, !15, i64 72, !118, i64 80, !15, i64 88, !15, i64 92, !119, i64 96, !15, i64 104, !118, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !120, i64 132, !120, i64 140, !15, i64 148, !121, i64 152, !8, i64 160}
+!117 = !{!"p1 _ZTS12_VARectangle", !7, i64 0}
+!118 = !{!"p1 int", !7, i64 0}
+!119 = !{!"p1 _ZTS13_VABlendState", !7, i64 0}
+!120 = !{!"_VAProcColorProperties", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5}
+!121 = !{!"p1 _ZTS14_VAHdrMetaData", !7, i64 0}
+!122 = !{!21, !15, i64 116}
+!123 = !{!116, !118, i64 48}
+!124 = !{!116, !15, i64 56}
+!125 = distinct !{!125, !78, !79}
+!126 = !{!127, !15, i64 0}
+!127 = !{!"_VAProcFilterCapHighDynamicRange", !15, i64 0, !25, i64 4, !8, i64 6}
+!128 = distinct !{!128, !78, !79}
+!129 = !{!127, !25, i64 4}
+!130 = distinct !{!130, !78, !79}
+!131 = !{!94, !15, i64 0}
+!132 = !{!94, !15, i64 8}
+!133 = !{!94, !15, i64 24}

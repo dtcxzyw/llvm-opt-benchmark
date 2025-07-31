@@ -377,7 +377,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV6Decompressor10decompressEv(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !117
   %19 = icmp slt i32 %15, %18
-  br i1 %19, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !120
+  br i1 %19, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !121
 
 _ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit: ; preds = %.lr.ph.i1, %.lr.ph.i, %14, %8
   ret void
@@ -530,7 +530,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %5 = alloca %"struct.std::array.48", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !121
+  %8 = load i32, ptr %7, align 8, !tbaa !122
   %9 = srem i32 %8, 14
   %10 = icmp eq i32 %9, 0
   tail call void @llvm.assume(i1 %10)
@@ -541,7 +541,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %15 = zext i32 %12 to i64
   %16 = add nuw nsw i64 %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !19, !noalias !122
+  %18 = load i32, ptr %17, align 8, !tbaa !19, !noalias !123
   %19 = zext i32 %18 to i64
   %.not.i.i = icmp samesign ugt i64 %16, %19
   br i1 %.not.i.i, label %20, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
 
 _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !15, !noalias !122, !nonnull !108, !noundef !108
+  %22 = load ptr, ptr %21, align 8, !tbaa !15, !noalias !123, !nonnull !108, !noundef !108
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %13, %12
@@ -571,16 +571,16 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
 
 .lr.ph:                                           ; preds = %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 560
-  %31 = load ptr, ptr %30, align 8, !tbaa !125, !noalias !126, !nonnull !108, !noundef !108
+  %31 = load ptr, ptr %30, align 8, !tbaa !126, !noalias !127, !nonnull !108, !noundef !108
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %33 = load i32, ptr %32, align 8, !tbaa !29, !noalias !126
+  %33 = load i32, ptr %32, align 8, !tbaa !29, !noalias !127
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 600
-  %35 = load i32, ptr %34, align 8, !tbaa !129, !noalias !126
+  %35 = load i32, ptr %34, align 8, !tbaa !130, !noalias !127
   %36 = mul nsw i32 %35, %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 604
-  %38 = load i32, ptr %37, align 4, !tbaa !130, !noalias !126
+  %38 = load i32, ptr %37, align 4, !tbaa !131, !noalias !127
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !131, !noalias !126
+  %40 = load i32, ptr %39, align 8, !tbaa !132, !noalias !127
   %41 = ashr i32 %40, 1
   %42 = mul nuw nsw i32 %41, %38
   %43 = icmp sgt i32 %36, -1
@@ -647,64 +647,64 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %.sroa.0.0..sroa.0.0..i.i.i = load i32, ptr %78, align 1
   %79 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i to i16
   %80 = and i16 %79, 255
-  store i16 %80, ptr %51, align 2, !tbaa !132
+  store i16 %80, ptr %51, align 2, !tbaa !133
   %81 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i, 16
   %82 = lshr i16 %79, 8
-  store i16 %82, ptr %52, align 2, !tbaa !132
+  store i16 %82, ptr %52, align 2, !tbaa !133
   %83 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i, 24
   %84 = trunc nuw i32 %81 to i16
   %85 = and i16 %84, 255
-  store i16 %85, ptr %53, align 2, !tbaa !132
+  store i16 %85, ptr %53, align 2, !tbaa !133
   %86 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i, 26
   %87 = trunc nuw nsw i32 %83 to i16
   %88 = and i16 %87, 3
-  store i16 %88, ptr %54, align 2, !tbaa !132
+  store i16 %88, ptr %54, align 2, !tbaa !133
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %.sroa.0.0..sroa.0.0..i.i.i49.i = load i32, ptr %89, align 1
   %90 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 6
   %.masked.i = and i32 %90, 192
   %91 = or disjoint i32 %.masked.i, %86
   %92 = trunc nuw nsw i32 %91 to i16
-  store i16 %92, ptr %55, align 2, !tbaa !132
+  store i16 %92, ptr %55, align 2, !tbaa !133
   %93 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 10
   %94 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i49.i to i16
   %95 = lshr i16 %94, 2
   %96 = and i16 %95, 255
-  store i16 %96, ptr %56, align 2, !tbaa !132
+  store i16 %96, ptr %56, align 2, !tbaa !133
   %97 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 18
   %98 = trunc i32 %93 to i16
   %99 = and i16 %98, 255
-  store i16 %99, ptr %57, align 2, !tbaa !132
+  store i16 %99, ptr %57, align 2, !tbaa !133
   %100 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 20
   %101 = trunc nuw nsw i32 %97 to i16
   %102 = and i16 %101, 3
-  store i16 %102, ptr %58, align 2, !tbaa !132
+  store i16 %102, ptr %58, align 2, !tbaa !133
   %103 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i49.i, 28
   %104 = trunc nuw nsw i32 %100 to i16
   %105 = and i16 %104, 255
-  store i16 %105, ptr %59, align 2, !tbaa !132
+  store i16 %105, ptr %59, align 2, !tbaa !133
   %106 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.sroa.0.0..sroa.0.0..i.i.i109.i = load i32, ptr %106, align 1
   %107 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 4
   %.masked331.i = and i32 %107, 240
   %108 = or disjoint i32 %.masked331.i, %103
   %109 = trunc nuw nsw i32 %108 to i16
-  store i16 %109, ptr %60, align 2, !tbaa !132
+  store i16 %109, ptr %60, align 2, !tbaa !133
   %110 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i109.i to i16
   %111 = lshr i16 %110, 4
   %112 = and i16 %111, 255
-  store i16 %112, ptr %61, align 2, !tbaa !132
+  store i16 %112, ptr %61, align 2, !tbaa !133
   %113 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 14
   %114 = lshr i16 %110, 12
   %115 = and i16 %114, 3
-  store i16 %115, ptr %62, align 2, !tbaa !132
+  store i16 %115, ptr %62, align 2, !tbaa !133
   %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 22
   %117 = trunc i32 %113 to i16
   %118 = and i16 %117, 255
-  store i16 %118, ptr %63, align 2, !tbaa !132
+  store i16 %118, ptr %63, align 2, !tbaa !133
   %119 = trunc nuw nsw i32 %116 to i16
   %120 = and i16 %119, 255
-  store i16 %120, ptr %64, align 2, !tbaa !132
+  store i16 %120, ptr %64, align 2, !tbaa !133
   %121 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %122 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i109.i, 30
   %.sroa.0.0..sroa.0.0..i.i.i169.i = load i32, ptr %121, align 1
@@ -712,18 +712,18 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %.masked332.i = and i32 %123, 252
   %124 = or disjoint i32 %.masked332.i, %122
   %125 = trunc nuw nsw i32 %124 to i16
-  store i16 %125, ptr %65, align 2, !tbaa !132
+  store i16 %125, ptr %65, align 2, !tbaa !133
   %126 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i169.i, 8
   %127 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i169.i to i16
   %128 = lshr i16 %127, 6
   %129 = and i16 %128, 3
-  store i16 %129, ptr %66, align 2, !tbaa !132
+  store i16 %129, ptr %66, align 2, !tbaa !133
   %130 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i169.i, 20
   %131 = trunc i32 %126 to i16
   %132 = and i16 %131, 4095
-  store i16 %132, ptr %67, align 2, !tbaa !132
+  store i16 %132, ptr %67, align 2, !tbaa !133
   %133 = trunc nuw nsw i32 %130 to i16
-  store i16 %133, ptr %3, align 2, !tbaa !132
+  store i16 %133, ptr %3, align 2, !tbaa !133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -747,7 +747,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
 138:                                              ; preds = %134
   %139 = zext i8 %135 to i64
   %140 = getelementptr inbounds nuw [18 x i16], ptr %3, i64 0, i64 %139
-  %141 = load i16, ptr %140, align 2, !tbaa !132
+  %141 = load i16, ptr %140, align 2, !tbaa !133
   %142 = add i8 %135, 1
   %143 = icmp eq i16 %141, 3
   %spec.store.select.i = select i1 %143, i16 4, i16 %141
@@ -762,7 +762,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %.136.i = phi i32 [ %146, %138 ], [ %.035.i78, %134 ]
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw [18 x i16], ptr %3, i64 0, i64 %149
-  %151 = load i16, ptr %150, align 2, !tbaa !132
+  %151 = load i16, ptr %150, align 2, !tbaa !133
   %152 = add i8 %148, 1
   %153 = and i32 %.037.i77, 1
   %154 = zext nneg i32 %153 to i64
@@ -821,11 +821,11 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %182 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv83
   %183 = trunc nuw nsw i32 %179 to i16
   %.sink = select i1 %180, i16 %183, i16 0
-  store i16 %.sink, ptr %182, align 2, !tbaa !132
+  store i16 %.sink, ptr %182, align 2, !tbaa !133
   %184 = add nuw nsw i32 %.037.i77, 1
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i32 %184, 14
-  br i1 %exitcond.not, label %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_14TwelveBitBlockEEEEvRNS_10ByteStreamEii.exit, label %134, !llvm.loop !134
+  br i1 %exitcond.not, label %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_14TwelveBitBlockEEEEvRNS_10ByteStreamEii.exit, label %134, !llvm.loop !135
 
 185:                                              ; preds = %77
   %186 = landingpad { ptr, i32 }
@@ -842,7 +842,7 @@ _ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_14TwelveBitBlockE
   %188 = add nuw nsw i32 %.01081, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 14
   %exitcond91.not = icmp eq i32 %188, %11
-  br i1 %exitcond91.not, label %._crit_edge, label %76, !llvm.loop !135
+  br i1 %exitcond91.not, label %._crit_edge, label %76, !llvm.loop !136
 
 189:                                              ; preds = %20
   %190 = landingpad { ptr, i32 }
@@ -859,7 +859,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %5 = alloca %"struct.std::array.48", align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !121
+  %8 = load i32, ptr %7, align 8, !tbaa !122
   %9 = srem i32 %8, 11
   %10 = icmp eq i32 %9, 0
   tail call void @llvm.assume(i1 %10)
@@ -870,7 +870,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %15 = zext i32 %12 to i64
   %16 = add nuw nsw i64 %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !19, !noalias !136
+  %18 = load i32, ptr %17, align 8, !tbaa !19, !noalias !137
   %19 = zext i32 %18 to i64
   %.not.i.i = icmp samesign ugt i64 %16, %19
   br i1 %.not.i.i, label %20, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
@@ -884,7 +884,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
 
 _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !15, !noalias !136, !nonnull !108, !noundef !108
+  %22 = load ptr, ptr %21, align 8, !tbaa !15, !noalias !137, !nonnull !108, !noundef !108
   %23 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %23)
   %24 = add nuw nsw i32 %13, %12
@@ -900,16 +900,16 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
 
 .lr.ph:                                           ; preds = %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 560
-  %31 = load ptr, ptr %30, align 8, !tbaa !125, !noalias !139, !nonnull !108, !noundef !108
+  %31 = load ptr, ptr %30, align 8, !tbaa !126, !noalias !140, !nonnull !108, !noundef !108
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 584
-  %33 = load i32, ptr %32, align 8, !tbaa !29, !noalias !139
+  %33 = load i32, ptr %32, align 8, !tbaa !29, !noalias !140
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 600
-  %35 = load i32, ptr %34, align 8, !tbaa !129, !noalias !139
+  %35 = load i32, ptr %34, align 8, !tbaa !130, !noalias !140
   %36 = mul nsw i32 %35, %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 604
-  %38 = load i32, ptr %37, align 4, !tbaa !130, !noalias !139
+  %38 = load i32, ptr %37, align 4, !tbaa !131, !noalias !140
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !131, !noalias !139
+  %40 = load i32, ptr %39, align 8, !tbaa !132, !noalias !140
   %41 = ashr i32 %40, 1
   %42 = mul nuw nsw i32 %41, %38
   %43 = icmp sgt i32 %36, -1
@@ -974,48 +974,48 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %76 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i to i16
   %77 = lshr i16 %76, 4
   %78 = and i16 %77, 1023
-  store i16 %78, ptr %51, align 2, !tbaa !132
+  store i16 %78, ptr %51, align 2, !tbaa !133
   %79 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i, 24
   %80 = trunc i32 %75 to i16
   %81 = and i16 %80, 1023
-  store i16 %81, ptr %52, align 2, !tbaa !132
+  store i16 %81, ptr %52, align 2, !tbaa !133
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %.sroa.0.0..sroa.0.0..i.i.i25.i = load i32, ptr %82, align 1
   %83 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 8
   %.masked.i = and i32 %83, 768
   %84 = or disjoint i32 %.masked.i, %79
   %85 = trunc nuw nsw i32 %84 to i16
-  store i16 %85, ptr %53, align 2, !tbaa !132
+  store i16 %85, ptr %53, align 2, !tbaa !133
   %86 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i25.i to i16
   %87 = lshr i16 %86, 2
   %88 = and i16 %87, 3
-  store i16 %88, ptr %54, align 2, !tbaa !132
+  store i16 %88, ptr %54, align 2, !tbaa !133
   %89 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 14
   %90 = lshr i16 %86, 4
   %91 = and i16 %90, 1023
-  store i16 %91, ptr %55, align 2, !tbaa !132
+  store i16 %91, ptr %55, align 2, !tbaa !133
   %92 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i25.i, 24
   %93 = trunc i32 %89 to i16
   %94 = and i16 %93, 1023
-  store i16 %94, ptr %56, align 2, !tbaa !132
+  store i16 %94, ptr %56, align 2, !tbaa !133
   %95 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sroa.0.0..sroa.0.0..i.i.i73.i = load i32, ptr %95, align 1
   %96 = shl i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 8
   %.masked264.i = and i32 %96, 768
   %97 = or disjoint i32 %.masked264.i, %92
   %98 = trunc nuw nsw i32 %97 to i16
-  store i16 %98, ptr %57, align 2, !tbaa !132
+  store i16 %98, ptr %57, align 2, !tbaa !133
   %99 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i73.i to i16
   %100 = lshr i16 %99, 2
   %101 = and i16 %100, 3
-  store i16 %101, ptr %58, align 2, !tbaa !132
+  store i16 %101, ptr %58, align 2, !tbaa !133
   %102 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 14
   %103 = lshr i16 %99, 4
   %104 = and i16 %103, 1023
-  store i16 %104, ptr %59, align 2, !tbaa !132
+  store i16 %104, ptr %59, align 2, !tbaa !133
   %105 = trunc i32 %102 to i16
   %106 = and i16 %105, 1023
-  store i16 %106, ptr %60, align 2, !tbaa !132
+  store i16 %106, ptr %60, align 2, !tbaa !133
   %107 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %108 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i73.i, 24
   %.sroa.0.0..sroa.0.0..i.i.i121.i = load i32, ptr %107, align 1
@@ -1023,18 +1023,18 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %.masked265.i = and i32 %109, 768
   %110 = or disjoint i32 %.masked265.i, %108
   %111 = trunc nuw nsw i32 %110 to i16
-  store i16 %111, ptr %61, align 2, !tbaa !132
+  store i16 %111, ptr %61, align 2, !tbaa !133
   %112 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i121.i, 4
   %113 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i121.i to i16
   %114 = lshr i16 %113, 2
   %115 = and i16 %114, 3
-  store i16 %115, ptr %62, align 2, !tbaa !132
+  store i16 %115, ptr %62, align 2, !tbaa !133
   %116 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i121.i, 18
   %117 = trunc i32 %112 to i16
   %118 = and i16 %117, 16383
-  store i16 %118, ptr %63, align 2, !tbaa !132
+  store i16 %118, ptr %63, align 2, !tbaa !133
   %119 = trunc nuw nsw i32 %116 to i16
-  store i16 %119, ptr %3, align 2, !tbaa !132
+  store i16 %119, ptr %3, align 2, !tbaa !133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -1058,7 +1058,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 124:                                              ; preds = %120
   %125 = zext i8 %121 to i64
   %126 = getelementptr inbounds nuw [14 x i16], ptr %3, i64 0, i64 %125
-  %127 = load i16, ptr %126, align 2, !tbaa !132
+  %127 = load i16, ptr %126, align 2, !tbaa !133
   %128 = add i8 %121, 1
   %129 = icmp eq i16 %127, 3
   %spec.store.select.i = select i1 %129, i16 4, i16 %127
@@ -1073,7 +1073,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %.136.i = phi i32 [ %132, %124 ], [ %.035.i73, %120 ]
   %135 = zext i8 %134 to i64
   %136 = getelementptr inbounds nuw [14 x i16], ptr %3, i64 0, i64 %135
-  %137 = load i16, ptr %136, align 2, !tbaa !132
+  %137 = load i16, ptr %136, align 2, !tbaa !133
   %138 = add i8 %134, 1
   %139 = and i32 %.037.i72, 1
   %140 = zext nneg i32 %139 to i64
@@ -1131,11 +1131,11 @@ _ZNK8rawspeed10Array2DRefItEclEii.exit.i:         ; preds = %162, %161, %155
   %166 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv78
   %.sink87 = tail call i32 @llvm.umin.i32(i32 %164, i32 65536)
   %.sink = trunc i32 %.sink87 to i16
-  store i16 %.sink, ptr %166, align 2, !tbaa !132
+  store i16 %.sink, ptr %166, align 2, !tbaa !133
   %167 = add nuw nsw i32 %.037.i72, 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i32 %167, 11
-  br i1 %exitcond.not, label %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit, label %120, !llvm.loop !142
+  br i1 %exitcond.not, label %_ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBlockEEEEvRNS_10ByteStreamEii.exit, label %120, !llvm.loop !143
 
 168:                                              ; preds = %73
   %169 = landingpad { ptr, i32 }
@@ -1152,7 +1152,7 @@ _ZNK8rawspeed23PanasonicV6Decompressor15decompressBlockIL_ZNS0_16FourteenBitBloc
   %171 = add nuw nsw i32 %.01076, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 11
   %exitcond86.not = icmp eq i32 %171, %11
-  br i1 %exitcond86.not, label %._crit_edge, label %72, !llvm.loop !143
+  br i1 %exitcond86.not, label %._crit_edge, label %72, !llvm.loop !144
 
 172:                                              ; preds = %20
   %173 = landingpad { ptr, i32 }
@@ -1312,29 +1312,30 @@ attributes #21 = { noreturn nounwind }
 !115 = !{!18, !18, i64 0}
 !116 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !117 = !{!30, !18, i64 44}
-!118 = distinct !{!118, !119}
+!118 = distinct !{!118, !119, !120}
 !119 = !{!"llvm.loop.mustprogress"}
-!120 = distinct !{!120, !119}
-!121 = !{!30, !18, i64 40}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
-!124 = distinct !{!124, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
-!125 = !{!87, !17, i64 0}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!128 = distinct !{!128, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!129 = !{!30, !18, i64 600}
-!130 = !{!30, !18, i64 604}
-!131 = !{!30, !18, i64 48}
-!132 = !{!133, !133, i64 0}
-!133 = !{!"short", !10, i64 0}
-!134 = distinct !{!134, !119}
-!135 = distinct !{!135, !119}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
-!138 = distinct !{!138, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!141 = distinct !{!141, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!142 = distinct !{!142, !119}
-!143 = distinct !{!143, !119}
+!120 = !{!"llvm.loop.estimated_trip_count"}
+!121 = distinct !{!121, !119, !120}
+!122 = !{!30, !18, i64 40}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
+!125 = distinct !{!125, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
+!126 = !{!87, !17, i64 0}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!129 = distinct !{!129, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!130 = !{!30, !18, i64 600}
+!131 = !{!30, !18, i64 604}
+!132 = !{!30, !18, i64 48}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"short", !10, i64 0}
+!135 = distinct !{!135, !119, !120}
+!136 = distinct !{!136, !119, !120}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
+!139 = distinct !{!139, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!142 = distinct !{!142, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!143 = distinct !{!143, !119, !120}
+!144 = distinct !{!144, !119, !120}

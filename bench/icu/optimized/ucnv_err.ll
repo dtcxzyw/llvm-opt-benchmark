@@ -413,7 +413,7 @@ define void @UCNV_FROM_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(addres
   %67 = call i32 @uprv_itou_77(ptr noundef nonnull %62, i32 noundef %63, i32 noundef %66, i32 noundef 16, i32 noundef 4)
   %68 = add nsw i32 %67, %58
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 69:                                               ; preds = %51
   store i16 92, ptr %8, align 16, !tbaa !17
@@ -541,11 +541,11 @@ define void @UCNV_FROM_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(addres
   %138 = call i32 @uprv_itou_77(ptr noundef nonnull %133, i32 noundef %134, i32 noundef %137, i32 noundef 16, i32 noundef 4)
   %139 = add nsw i32 %138, %129
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph177, !llvm.loop !22
+  br i1 %exitcond192.not, label %.loopexit, label %.lr.ph177, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph177, %.lr.ph181, %.preheader171, %.preheader169, %.preheader, %88, %101, %114, %119, %76, %73
   %.1157 = phi i32 [ %75, %73 ], [ %80, %76 ], [ %90, %88 ], [ %103, %101 ], [ %116, %114 ], [ %123, %119 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ %50, %.lr.ph181 ], [ %139, %.lr.ph177 ], [ %68, %.lr.ph ]
-  store ptr %8, ptr %9, align 8, !tbaa !23
+  store ptr %8, ptr %9, align 8, !tbaa !24
   store i32 0, ptr %6, align 4, !tbaa !3
   %140 = sext i32 %.1157 to i64
   %141 = getelementptr inbounds i16, ptr %8, i64 %140
@@ -677,7 +677,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %24 = call i32 @uprv_itou_77(ptr noundef nonnull %19, i32 noundef %20, i32 noundef %23, i32 noundef 16, i32 noundef 2)
   %25 = add nsw i32 %24, %15
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.loopexit, label %.lr.ph84, !llvm.loop !24
+  br i1 %exitcond118.not, label %.loopexit, label %.lr.ph84, !llvm.loop !25
 
 26:                                               ; preds = %9
   %27 = load i8, ptr %0, align 1, !tbaa !7
@@ -745,7 +745,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %48 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %47
   store i16 59, ptr %48, align 2, !tbaa !17
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph76, !llvm.loop !25
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph76, !llvm.loop !26
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv95 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next96, %.lr.ph72 ]
@@ -776,7 +776,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %68 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %67
   store i16 59, ptr %68, align 2, !tbaa !17
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph72, !llvm.loop !26
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph72, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -799,7 +799,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %81 = call i32 @uprv_itou_77(ptr noundef nonnull %76, i32 noundef %77, i32 noundef %80, i32 noundef 16, i32 noundef 2)
   %82 = add nsw i32 %81, %72
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv107 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next108, %.lr.ph80 ]
@@ -819,7 +819,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %91 = call i32 @uprv_itou_77(ptr noundef nonnull %gep, i32 noundef %90, i32 noundef %88, i32 noundef 16, i32 noundef 2)
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
   %exitcond113.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count112
-  br i1 %exitcond113.not, label %.loopexit.loopexit86, label %.lr.ph80, !llvm.loop !28
+  br i1 %exitcond113.not, label %.loopexit.loopexit86, label %.lr.ph80, !llvm.loop !29
 
 .loopexit.loopexit86:                             ; preds = %.lr.ph80
   %92 = trunc nuw i64 %indvars.iv.next108 to i32
@@ -867,13 +867,14 @@ attributes #6 = { nounwind }
 !16 = !{!"p1 int", !9, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"char16_t", !5, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = !{!14, !14, i64 0}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = !{!14, !14, i64 0}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}

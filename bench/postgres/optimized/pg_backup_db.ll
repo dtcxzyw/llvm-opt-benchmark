@@ -671,7 +671,7 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %ExecuteSimpleCommands.exit
 
@@ -790,7 +790,7 @@ ExecuteSqlCommand.exit.i:                         ; preds = %50, %49, %43, %43, 
   ]
 
 56:                                               ; preds = %55
-  %57 = load i8, ptr %29, align 4, !range !6, !noundef !7
+  %57 = load i8, ptr %29, align 4, !range !7, !noundef !8
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %66, label %59
 
@@ -799,12 +799,12 @@ ExecuteSqlCommand.exit.i:                         ; preds = %50, %49, %43, %43, 
   br label %70
 
 60:                                               ; preds = %55
-  %61 = load i8, ptr %28, align 4, !range !6, !noundef !7
+  %61 = load i8, ptr %28, align 4, !range !7, !noundef !8
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = load i8, ptr %29, align 4, !range !6, !noundef !7
+  %64 = load i8, ptr %29, align 4, !range !7, !noundef !8
   %65 = xor i8 %64, 1
   store i8 %65, ptr %29, align 4
   br label %70
@@ -824,7 +824,7 @@ ExecuteSqlCommand.exit.i:                         ; preds = %50, %49, %43, %43, 
 70:                                               ; preds = %69, %67, %66, %63, %59, %54, %53, %ExecuteSqlCommand.exit.i, %42, %40
   %71 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
   %72 = icmp ult ptr %71, %20
-  br i1 %72, label %32, label %ExecuteSimpleCommands.exit, !llvm.loop !8
+  br i1 %72, label %32, label %ExecuteSimpleCommands.exit, !llvm.loop !9
 
 73:                                               ; preds = %3
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 %2
@@ -905,7 +905,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %4 = load i8, ptr %3, align 8, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %25
 
@@ -1044,7 +1044,7 @@ define dso_local void @IssueCommandPerBlob(ptr noundef %0, ptr noundef readonly 
   %17 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %.027.us, ptr noundef %3) #11
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 10) #14
   %.not.us = icmp eq ptr %18, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %19 = phi ptr [ %46, %45 ], [ %8, %.lr.ph ]
@@ -1124,7 +1124,7 @@ StartTransaction.exit:                            ; preds = %CommitTransaction.e
 45:                                               ; preds = %24, %44, %.lr.ph.split
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #14
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph.split.us, %4
   %47 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef %0, ptr noundef nonnull @.str.25) #11
@@ -1184,7 +1184,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
 
 18:                                               ; preds = %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %.027, i64 1
-  br label %14, !llvm.loop !12
+  br label %14, !llvm.loop !13
 
 20:                                               ; preds = %17
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.027, ptr noundef nonnull dereferenceable(14) @.str.27, i64 noundef 13) #14
@@ -1213,7 +1213,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %35 = and i16 %34, 2048
   %.not37 = icmp eq i16 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %.128, i64 1
-  br i1 %.not37, label %.loopexit, label %30, !llvm.loop !13
+  br i1 %.not37, label %.loopexit, label %30, !llvm.loop !14
 
 37:                                               ; preds = %20
   %38 = icmp eq i8 %15, 59
@@ -1235,7 +1235,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 8192
   %.not36 = icmp eq i16 %47, 0
-  br i1 %.not36, label %.loopexit, label %42, !llvm.loop !14
+  br i1 %.not36, label %.loopexit, label %42, !llvm.loop !15
 
 .thread44:                                        ; preds = %.thread, %37
   %48 = getelementptr inbounds nuw i8, ptr %.027, i64 1
@@ -1245,7 +1245,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %.132 = phi ptr [ %.031.ph, %.thread44 ], [ %.031.ph, %30 ], [ %.3, %42 ]
   %.130 = phi ptr [ %.029.ph, %.thread44 ], [ %.128, %30 ], [ null, %42 ]
   %.2 = phi ptr [ %48, %.thread44 ], [ %.128, %30 ], [ %.3, %42 ]
-  br label %.outer, !llvm.loop !12
+  br label %.outer, !llvm.loop !13
 
 49:                                               ; preds = %14
   tail call void @pg_free(ptr noundef %13) #11
@@ -1304,14 +1304,15 @@ attributes #15 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}

@@ -118,25 +118,25 @@ return:                                           ; preds = %if.else, %entry
   store ptr null, ptr %pass, align 8
   %2 = load ptr, ptr %this, align 8
   %call13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14
-  %call.i9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !6
+  %call.i9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !7
   %3 = ptrtoint ptr %0 to i64
   %name.i.i.i10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %retval.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %name.i.i.i10, align 8, !noalias !6
+  %retval.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %name.i.i.i10, align 8, !noalias !7
   %retval.sroa.2.0.name.sroa_idx.i.i.i12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %retval.sroa.2.0.copyload.i.i.i13 = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12, align 8, !noalias !6
+  %retval.sroa.2.0.copyload.i.i.i13 = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12, align 8, !noalias !7
   %kind.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call.i9, i64 8
-  store i32 %.sink37, ptr %kind.i.i.i.i14, align 8, !noalias !6
+  store i32 %.sink37, ptr %kind.i.i.i.i14, align 8, !noalias !7
   %name2.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i9, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i11, ptr %name2.i.i.i.i15, align 8, !noalias !6
+  store ptr %retval.sroa.0.0.copyload.i.i.i11, ptr %name2.i.i.i.i15, align 8, !noalias !7
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i9, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16, align 8, !noalias !6
-  store ptr %.sink33, ptr %call.i9, align 8, !noalias !6
+  store i64 %retval.sroa.2.0.copyload.i.i.i13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16, align 8, !noalias !7
+  store ptr %.sink33, ptr %call.i9, align 8, !noalias !7
   %cgSettings_.i.i17 = getelementptr inbounds nuw i8, ptr %call.i9, i64 32
-  store ptr %2, ptr %cgSettings_.i.i17, align 8, !noalias !6
+  store ptr %2, ptr %cgSettings_.i.i17, align 8, !noalias !7
   %outs_.i.i18 = getelementptr inbounds nuw i8, ptr %call.i9, i64 40
-  store ptr %call13, ptr %outs_.i.i18, align 8, !noalias !6
+  store ptr %call13, ptr %outs_.i.i18, align 8, !noalias !7
   %pass_.i.i19 = getelementptr inbounds nuw i8, ptr %call.i9, i64 48
-  store i64 %3, ptr %pass_.i.i19, align 8, !noalias !6
+  store i64 %3, ptr %pass_.i.i19, align 8, !noalias !7
   store ptr %call.i9, ptr %agg.result, align 8
   ret void
 }
@@ -213,7 +213,7 @@ if.then:                                          ; preds = %_ZN6hermes12_GLOBAL
   %13 = inttoptr i64 %12 to ptr
   store ptr null, ptr %P, align 8
   %kind.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load i32, ptr %kind.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  %14 = load i32, ptr %kind.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %14, 1
   %tobool.not28.i = icmp eq i64 %12, 0
   %tobool.not.i = or i1 %tobool.not28.i, %cmp.i.i.i.i.i.i.i.i
@@ -225,32 +225,32 @@ if.else.i:                                        ; preds = %if.then
   br i1 %tobool8.not.i, label %if.else15.i, label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
 
 if.else15.i:                                      ; preds = %if.else.i
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #16, !noalias !7
+  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #16, !noalias !8
   unreachable
 
 _ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.else.i, %if.then
   %.sink37.i = phi i32 [ 1, %if.then ], [ 0, %if.else.i ]
   %.sink33.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %if.then ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else.i ]
-  %15 = load ptr, ptr %this, align 8, !noalias !7
-  %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !7
-  %call.i9.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !7
+  %15 = load ptr, ptr %this, align 8, !noalias !8
+  %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !8
+  %call.i9.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !8
   %name.i.i.i10.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %retval.sroa.0.0.copyload.i.i.i11.i = load ptr, ptr %name.i.i.i10.i, align 8, !noalias !7
+  %retval.sroa.0.0.copyload.i.i.i11.i = load ptr, ptr %name.i.i.i10.i, align 8, !noalias !8
   %retval.sroa.2.0.name.sroa_idx.i.i.i12.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %retval.sroa.2.0.copyload.i.i.i13.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12.i, align 8, !noalias !7
+  %retval.sroa.2.0.copyload.i.i.i13.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12.i, align 8, !noalias !8
   %kind.i.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 8
-  store i32 %.sink37.i, ptr %kind.i.i.i.i14.i, align 8, !noalias !7
+  store i32 %.sink37.i, ptr %kind.i.i.i.i14.i, align 8, !noalias !8
   %name2.i.i.i.i15.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i11.i, ptr %name2.i.i.i.i15.i, align 8, !noalias !7
+  store ptr %retval.sroa.0.0.copyload.i.i.i11.i, ptr %name2.i.i.i.i15.i, align 8, !noalias !8
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i13.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i, align 8, !noalias !7
-  store ptr %.sink33.i, ptr %call.i9.i, align 8, !noalias !7
+  store i64 %retval.sroa.2.0.copyload.i.i.i13.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i, align 8, !noalias !8
+  store ptr %.sink33.i, ptr %call.i9.i, align 8, !noalias !8
   %cgSettings_.i.i17.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 32
-  store ptr %15, ptr %cgSettings_.i.i17.i, align 8, !noalias !7
+  store ptr %15, ptr %cgSettings_.i.i17.i, align 8, !noalias !8
   %outs_.i.i18.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 40
-  store ptr %call13.i, ptr %outs_.i.i18.i, align 8, !noalias !7
+  store ptr %call13.i, ptr %outs_.i.i18.i, align 8, !noalias !8
   %pass_.i.i19.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 48
-  store i64 %12, ptr %pass_.i.i19.i, align 8, !noalias !7
+  store i64 %12, ptr %pass_.i.i19.i, align 8, !noalias !8
   %16 = load ptr, ptr %P, align 8
   store ptr %call.i9.i, ptr %P, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %16, null
@@ -314,15 +314,15 @@ _ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %22, %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %25 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
-  store i64 %25, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !10, !noalias !13
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  %25 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
+  store i64 %25, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !11, !noalias !14
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !14, !noalias !11
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %18
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !16
 
 _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -370,7 +370,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %call11 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %F) #14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.07, i64 8
   %cmp.i3.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i3.not, label %for.end, label %for.body
+  br i1 %cmp.i3.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %if.end, %entry
   ret void
@@ -431,7 +431,7 @@ for.inc:                                          ; preds = %for.body23, %do.end
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.038, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i15.not = icmp eq ptr %__begin3.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i15.not, label %for.inc45, label %for.body23
+  br i1 %cmp.i15.not, label %for.inc45, label %for.body23, !llvm.loop !18
 
 if.end33:                                         ; preds = %cond.end
   %cmp.i.i.i.i.i.i.i18 = icmp eq i32 %3, 1
@@ -445,7 +445,7 @@ if.end33:                                         ; preds = %cond.end
 for.inc45:                                        ; preds = %for.inc, %do.end, %if.end33
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.040, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN6hermes10TimerGroupESt14default_deleteIS1_EED2Ev.exit, label %cond.end
+  br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN6hermes10TimerGroupESt14default_deleteIS1_EED2Ev.exit, label %cond.end, !llvm.loop !19
 
 _ZNSt10unique_ptrIN6hermes10TimerGroupESt14default_deleteIS1_EED2Ev.exit: ; preds = %for.inc45
   %.pre = load ptr, ptr %timers, align 8
@@ -531,7 +531,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us: ; preds = %_ZN4
   %spec.select.us = select i1 %or.cond.not.us, ptr %add.ptr.us, ptr %FoundTombstone.0.us
   %inc.us = add i32 %ProbeAmt.0.us, 1
   %add.us = add i32 %BucketNo.0.us, %ProbeAmt.0.us
-  br label %while.body.us, !llvm.loop !16
+  br label %while.body.us, !llvm.loop !20
 
 if.end.split:                                     ; preds = %if.end
   br i1 %cmp18.i, label %while.body.us54, label %if.end.split.split
@@ -575,7 +575,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us72: ; preds = %_Z
   %spec.select.us76 = select i1 %or.cond.not.us75, ptr %add.ptr.us60, ptr %FoundTombstone.0.us57
   %inc.us77 = add i32 %ProbeAmt.0.us55, 1
   %add.us78 = add i32 %BucketNo.0.us58, %ProbeAmt.0.us55
-  br label %while.body.us54, !llvm.loop !18
+  br label %while.body.us54, !llvm.loop !22
 
 if.end.split.split:                               ; preds = %if.end.split
   br i1 %cmp7.i, label %while.body.us87, label %while.body
@@ -616,7 +616,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us106: ; preds = %w
   %spec.select.us110 = select i1 %or.cond.not.us109, ptr %add.ptr.us93, ptr %FoundTombstone.0.us90
   %inc.us111 = add i32 %ProbeAmt.0.us88, 1
   %add.us112 = add i32 %BucketNo.0.us91, %ProbeAmt.0.us88
-  br label %while.body.us87, !llvm.loop !19
+  br label %while.body.us87, !llvm.loop !23
 
 while.body:                                       ; preds = %if.end.split.split, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44
   %ProbeAmt.0 = phi i32 [ %inc, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44 ], [ 1, %if.end.split.split ]
@@ -658,7 +658,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44: ; preds = %_ZN4llv
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
   %inc = add i32 %ProbeAmt.0, 1
   %add = add i32 %BucketNo.0, %ProbeAmt.0
-  br label %while.body, !llvm.loop !20
+  br label %while.body, !llvm.loop !24
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us102, %while.body.us87, %while.body.us54, %if.then.i.us64, %land.rhs.i.i.us69, %if.then.i.us, %if.then13.i.us, %if.end19.i.us, %entry, %if.then15
   %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then13.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us60, %land.rhs.i.i.us69 ], [ %add.ptr.us60, %if.then.i.us64 ], [ %add.ptr.us60, %while.body.us54 ], [ %add.ptr.us93, %while.body.us87 ], [ %add.ptr.us93, %land.rhs.i.i.us102 ], [ %add.ptr, %land.rhs.i.i ]
@@ -947,7 +947,7 @@ for.inc:                                          ; preds = %_ZN6hermes12_GLOBAL
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.058, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i49.not = icmp eq ptr %__begin4.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i49.not, label %if.end26, label %for.body
+  br i1 %cmp.i49.not, label %if.end26, label %for.body, !llvm.loop !25
 
 if.end26:                                         ; preds = %for.inc, %if.else, %if.then13, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
   ret void
@@ -1260,20 +1260,25 @@ attributes #17 = { builtin nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE: %agg.result"}
-!9 = distinct !{!9, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!12 = distinct !{!12, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!13 = !{!14}
-!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !5, !17}
-!19 = distinct !{!19, !5, !17}
-!20 = distinct !{!20, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE: %agg.result"}
+!10 = distinct !{!10, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!13 = distinct !{!13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!14 = !{!15}
+!15 = distinct !{!15, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !5, !6, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !5, !6, !21}
+!23 = distinct !{!23, !5, !6, !21}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !6}

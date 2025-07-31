@@ -190,7 +190,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_webp(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 74:                                               ; preds = %.lr.ph, %74
   %.091 = phi i64 [ 0, %.lr.ph ], [ %80, %74 ]
@@ -199,10 +199,10 @@ define range(i32 0, 9) i32 @dt_imageio_open_webp(ptr noundef %0, ptr noundef %1,
   %77 = uitofp i8 %76 to float
   %78 = fmul reassoc nsz arcp contract afn float %77, 0x3F70101020000000
   %79 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.091
-  store float %78, ptr %79, align 4, !tbaa !43
+  store float %78, ptr %79, align 4, !tbaa !45
   %80 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %80, 3
-  br i1 %exitcond.not, label %72, label %74
+  br i1 %exitcond.not, label %72, label %74, !llvm.loop !46
 
 81:                                               ; preds = %._crit_edge, %61
   %.5 = phi i32 [ 0, %._crit_edge ], [ 8, %61 ]
@@ -337,4 +337,7 @@ attributes #10 = { nounwind allocsize(0) }
 !40 = distinct !{!40, !41, !"copy_pixel_nontemporal: argument 0"}
 !41 = distinct !{!41, !"copy_pixel_nontemporal"}
 !42 = !{i32 1}
-!43 = !{!18, !18, i64 0}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!18, !18, i64 0}
+!46 = distinct !{!46, !44}

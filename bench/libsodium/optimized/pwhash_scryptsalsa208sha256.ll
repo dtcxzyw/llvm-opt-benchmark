@@ -131,7 +131,7 @@ define dso_local i32 @crypto_pwhash_scryptsalsa208sha256(ptr noundef nonnull %0,
 24:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 63
-  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %22, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %22, !llvm.loop !7
 
 .split.loop.exit.i:                               ; preds = %22
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -231,7 +231,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_pwhash_scryptsalsa208sha256_str(pt
 19:                                               ; preds = %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 63
-  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %17, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %17, !llvm.loop !7
 
 .split.loop.exit.i:                               ; preds = %17
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -312,7 +312,7 @@ define dso_local i32 @crypto_pwhash_scryptsalsa208sha256_str_verify(ptr noundef 
 9:                                                ; preds = %6
   %10 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %10, 102
-  br i1 %exitcond.not.i, label %sodium_strnlen.exit.thread, label %6, !llvm.loop !7
+  br i1 %exitcond.not.i, label %sodium_strnlen.exit.thread, label %6, !llvm.loop !8
 
 sodium_strnlen.exit:                              ; preds = %6
   %.not = icmp eq i64 %.05.i, 101
@@ -387,7 +387,7 @@ define dso_local range(i32 -1, 2) i32 @crypto_pwhash_scryptsalsa208sha256_str_ne
 17:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 63
-  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %15, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %15, !llvm.loop !7
 
 .split.loop.exit.i:                               ; preds = %15
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -423,7 +423,7 @@ pickparams.exit:                                  ; preds = %14, %.loopexit.spli
 28:                                               ; preds = %25
   %29 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i7 = icmp eq i64 %29, 102
-  br i1 %exitcond.not.i7, label %sodium_strnlen.exit.thread, label %25, !llvm.loop !7
+  br i1 %exitcond.not.i7, label %sodium_strnlen.exit.thread, label %25, !llvm.loop !8
 
 sodium_strnlen.exit:                              ; preds = %25
   %.not = icmp eq i64 %.05.i, 101
@@ -493,7 +493,8 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

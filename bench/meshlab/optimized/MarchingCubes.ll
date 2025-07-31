@@ -1029,7 +1029,7 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Squar
   %71 = getelementptr inbounds nuw [5 x i32], ptr %21, i64 0, i64 %indvars.iv.next48
   %72 = load i32, ptr %71, align 4
   %.not31 = icmp eq i32 %72, -1
-  br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %73 = trunc nuw i64 %indvars.iv.next50 to i32
@@ -1171,7 +1171,7 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext 
   %14 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.next26
   %15 = load i32, ptr %14, align 4
   %.not17 = icmp eq i32 %15, -1
-  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %.preheader18, %2, %2
   %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader18 ], [ %13, %.preheader ]
@@ -1226,7 +1226,7 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEPKddPi(ptr noundef read
   %28 = getelementptr inbounds nuw [5 x i32], ptr %19, i64 0, i64 %indvars.iv.next26.i
   %29 = load i32, ptr %28, align 4
   %.not17.i = icmp eq i32 %29, -1
-  br i1 %.not17.i, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %.not17.i, label %_ZN15MarchingSquares14AddEdgeIndicesEhPi.exit, label %.preheader.i, !llvm.loop !9
 
 _ZN15MarchingSquares14AddEdgeIndicesEhPi.exit:    ; preds = %.preheader.i, %3, %3, %.preheader18.i
   %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader18.i ], [ %27, %.preheader.i ]
@@ -1651,7 +1651,7 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   %95 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
@@ -1679,7 +1679,7 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   %110 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv.next51
   %111 = load i32, ptr %110, align 4
   %.not35 = icmp eq i32 %111, -1
-  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %112 = trunc nuw i64 %indvars.iv.next53 to i32
@@ -1841,7 +1841,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr noundef re
   store i32 %41, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %43, label %38, !llvm.loop !11
+  br i1 %exitcond.not, label %43, label %38, !llvm.loop !12
 
 43:                                               ; preds = %38
   %44 = add nuw nsw i32 %.01723, 1
@@ -1849,7 +1849,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr noundef re
   %45 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %indvars.iv.next28
   %46 = load i32, ptr %45, align 4
   %.not19 = icmp eq i32 %46, -1
-  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %43, %.preheader20, %3
   %.018 = phi i32 [ 0, %3 ], [ 0, %.preheader20 ], [ %44, %43 ]
@@ -2134,7 +2134,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %19 = and i32 %18, %9
   %20 = getelementptr inbounds nuw i8, ptr %indvars.iv191.sroa.phi, i64 4
   store i32 %19, ptr %20, align 4
-  br i1 %10, label %.preheader, label %.thread111, !llvm.loop !13
+  br i1 %10, label %.preheader, label %.thread111, !llvm.loop !14
 
 .preheader114:                                    ; preds = %.preheader115, %.preheader114
   %21 = phi i1 [ true, %.preheader115 ], [ false, %.preheader114 ]
@@ -2153,7 +2153,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %31 = and i32 %30, %8
   %32 = getelementptr inbounds nuw i8, ptr %indvars.iv184.sroa.phi, i64 4
   store i32 %31, ptr %32, align 4
-  br i1 %21, label %.preheader114, label %.thread111, !llvm.loop !14
+  br i1 %21, label %.preheader114, label %.thread111, !llvm.loop !15
 
 .preheader117:                                    ; preds = %.preheader118, %.preheader117
   %33 = phi i1 [ true, %.preheader118 ], [ false, %.preheader117 ]
@@ -2171,7 +2171,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %42 = and i32 %41, %7
   %43 = getelementptr inbounds nuw i8, ptr %indvars.iv177.sroa.phi, i64 4
   store i32 %42, ptr %43, align 4
-  br i1 %33, label %.preheader117, label %.thread111, !llvm.loop !15
+  br i1 %33, label %.preheader117, label %.thread111, !llvm.loop !16
 
 .preheader120:                                    ; preds = %.preheader121, %.preheader120
   %44 = phi i1 [ true, %.preheader121 ], [ false, %.preheader120 ]
@@ -2190,7 +2190,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %54 = and i32 %53, %6
   %55 = getelementptr inbounds nuw i8, ptr %indvars.iv170.sroa.phi, i64 4
   store i32 %54, ptr %55, align 4
-  br i1 %44, label %.preheader120, label %.thread111, !llvm.loop !16
+  br i1 %44, label %.preheader120, label %.thread111, !llvm.loop !17
 
 .preheader123:                                    ; preds = %.preheader124, %.preheader123
   %56 = phi i1 [ true, %.preheader124 ], [ false, %.preheader123 ]
@@ -2209,7 +2209,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %66 = and i32 %65, %5
   %67 = getelementptr inbounds nuw i8, ptr %indvars.iv162.sroa.phi, i64 4
   store i32 %66, ptr %67, align 4
-  br i1 %56, label %.preheader123, label %.thread111, !llvm.loop !17
+  br i1 %56, label %.preheader123, label %.thread111, !llvm.loop !18
 
 .preheader126:                                    ; preds = %.preheader127, %.preheader126
   %68 = phi i1 [ true, %.preheader127 ], [ false, %.preheader126 ]
@@ -2228,7 +2228,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %78 = and i32 %77, %4
   %79 = getelementptr inbounds nuw i8, ptr %indvars.iv154.sroa.phi, i64 4
   store i32 %78, ptr %79, align 4
-  br i1 %68, label %.preheader126, label %.thread111, !llvm.loop !18
+  br i1 %68, label %.preheader126, label %.thread111, !llvm.loop !19
 
 .thread111:                                       ; preds = %.preheader126, %.preheader123, %.preheader120, %.preheader117, %.preheader114, %.preheader, %2
   %80 = load i32, ptr %3, align 16
@@ -2539,7 +2539,7 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
   %98 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader37, label %40, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
@@ -2567,7 +2567,7 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
   %113 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv.next51
   %114 = load i32, ptr %113, align 4
   %.not35 = icmp eq i32 %114, -1
-  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %115 = trunc nuw i64 %indvars.iv.next53 to i32
@@ -2733,7 +2733,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   store i32 %40, ptr %41, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %42, label %37, !llvm.loop !21
+  br i1 %exitcond.not.i, label %42, label %37, !llvm.loop !22
 
 42:                                               ; preds = %37
   %43 = add nuw nsw i32 %.01521.i, 1
@@ -2741,7 +2741,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   %44 = getelementptr inbounds nuw [16 x i32], ptr %35, i64 0, i64 %indvars.iv.next26.i
   %45 = load i32, ptr %44, align 4
   %.not17.i = icmp eq i32 %45, -1
-  br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !23
 
 _ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %42, %3, %3, %.preheader18.i
   %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader18.i ], [ %43, %42 ]
@@ -2776,7 +2776,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, p
   store i32 %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %11, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %11, label %6, !llvm.loop !22
 
 11:                                               ; preds = %6
   %12 = add nuw nsw i32 %.01521, 1
@@ -2784,7 +2784,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, p
   %13 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.next26
   %14 = load i32, ptr %13, align 4
   %.not17 = icmp eq i32 %14, -1
-  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %11, %.preheader18, %2, %2
   %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader18 ], [ %12, %11 ]
@@ -2814,21 +2814,22 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}

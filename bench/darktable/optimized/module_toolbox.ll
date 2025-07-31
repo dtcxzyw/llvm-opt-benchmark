@@ -157,7 +157,7 @@ define void @view_enter(ptr noundef readonly captures(none) %0, ptr noundef read
   %.0.in = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !85
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 }
 
 declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -280,3 +280,5 @@ attributes #10 = { nounwind willreturn memory(none) }
 !85 = !{!20, !20, i64 0}
 !86 = !{!87, !13, i64 0}
 !87 = !{!"_GList", !13, i64 0, !20, i64 8, !20, i64 16}
+!88 = distinct !{!88, !89}
+!89 = !{!"llvm.loop.estimated_trip_count"}

@@ -120,7 +120,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !19
+  %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %.thread
 
@@ -140,10 +140,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
   %22 = tail call ptr @__errno_location() #13
   %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %18, label %.loopexit, !llvm.loop !21
+  br i1 %24, label %18, label %.loopexit, !llvm.loop !22
 
 25:                                               ; preds = %18
-  %26 = load i64, ptr %4, align 8, !tbaa !22
+  %26 = load i64, ptr %4, align 8, !tbaa !23
   switch i64 %26, label %27 [
     i64 16914836, label %.loopexit
     i64 2508478710, label %.loopexit
@@ -168,16 +168,16 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
 
 .thread18:                                        ; preds = %.thread, %28
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !25
+  %30 = load i64, ptr %29, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !26
+  %32 = load i64, ptr %31, align 8, !tbaa !27
   %33 = mul i64 %32, %30
   br label %34
 
 34:                                               ; preds = %28, %.thread18
   %35 = phi i1 [ false, %.thread18 ], [ true, %28 ]
   %36 = phi i64 [ %33, %.thread18 ], [ 9223372036854775807, %28 ]
-  store i64 %36, ptr %1, align 8, !tbaa !27
+  store i64 %36, ptr %1, align 8, !tbaa !28
   br label %37
 
 37:                                               ; preds = %34, %.loopexit
@@ -194,13 +194,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116GetDiskSpaceInfoER
 
 .thread21:                                        ; preds = %.thread19, %39
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !26
+  %41 = load i64, ptr %40, align 8, !tbaa !27
   %42 = mul i64 %41, %15
   br label %43
 
 43:                                               ; preds = %39, %.thread21
   %44 = phi i64 [ %42, %.thread21 ], [ 9223372036854775807, %39 ]
-  store i64 %44, ptr %2, align 8, !tbaa !27
+  store i64 %44, ptr %2, align 8, !tbaa !28
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %6, %9, %.thread19, %37, %43
@@ -231,27 +231,27 @@ define void @_ZN4base7SysInfo19OperatingSystemNameB5cxx11Ev(ptr dead_on_unwind n
   %4 = call i32 @uname(ptr noundef nonnull %3) #12
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !28
+  store ptr %6, ptr %0, align 8, !tbaa !29
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !29
-  store i8 0, ptr %6, align 8, !tbaa !30
+  store i64 0, ptr %8, align 8, !tbaa !30
+  store i8 0, ptr %6, align 8, !tbaa !31
   br label %23
 
 9:                                                ; preds = %1
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 %10, ptr %2, align 8, !tbaa !27
+  store i64 %10, ptr %2, align 8, !tbaa !28
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %9
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %12, ptr %0, align 8, !tbaa !11
-  %13 = load i64, ptr %2, align 8, !tbaa !27
-  store i64 %13, ptr %6, align 8, !tbaa !30
+  %13 = load i64, ptr %2, align 8, !tbaa !28
+  store i64 %13, ptr %6, align 8, !tbaa !31
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %9
@@ -262,8 +262,8 @@ define void @_ZN4base7SysInfo19OperatingSystemNameB5cxx11Ev(ptr dead_on_unwind n
   ]
 
 15:                                               ; preds = %._crit_edge.i.i
-  %16 = load i8, ptr %3, align 1, !tbaa !30
-  store i8 %16, ptr %14, align 1, !tbaa !30
+  %16 = load i8, ptr %3, align 1, !tbaa !31
+  store i8 %16, ptr %14, align 1, !tbaa !31
   br label %18
 
 17:                                               ; preds = %._crit_edge.i.i
@@ -271,12 +271,12 @@ define void @_ZN4base7SysInfo19OperatingSystemNameB5cxx11Ev(ptr dead_on_unwind n
   br label %18
 
 18:                                               ; preds = %17, %15, %._crit_edge.i.i
-  %19 = load i64, ptr %2, align 8, !tbaa !27
+  %19 = load i64, ptr %2, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !29
+  store i64 %19, ptr %20, align 8, !tbaa !30
   %21 = load ptr, ptr %0, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
-  store i8 0, ptr %22, align 1, !tbaa !30
+  store i8 0, ptr %22, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   br label %23
 
@@ -301,27 +301,27 @@ define void @_ZN4base7SysInfo22OperatingSystemVersionB5cxx11Ev(ptr dead_on_unwin
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !28
+  store ptr %7, ptr %0, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !29
-  store i8 0, ptr %7, align 8, !tbaa !30
+  store i64 0, ptr %8, align 8, !tbaa !30
+  store i8 0, ptr %7, align 8, !tbaa !31
   br label %25
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 130
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !28
+  store ptr %11, ptr %0, align 8, !tbaa !29
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 %12, ptr %2, align 8, !tbaa !27
+  store i64 %12, ptr %2, align 8, !tbaa !28
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %9
   %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %14, ptr %0, align 8, !tbaa !11
-  %15 = load i64, ptr %2, align 8, !tbaa !27
-  store i64 %15, ptr %11, align 8, !tbaa !30
+  %15 = load i64, ptr %2, align 8, !tbaa !28
+  store i64 %15, ptr %11, align 8, !tbaa !31
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %9
@@ -332,8 +332,8 @@ define void @_ZN4base7SysInfo22OperatingSystemVersionB5cxx11Ev(ptr dead_on_unwin
   ]
 
 17:                                               ; preds = %._crit_edge.i.i
-  %18 = load i8, ptr %10, align 1, !tbaa !30
-  store i8 %18, ptr %16, align 1, !tbaa !30
+  %18 = load i8, ptr %10, align 1, !tbaa !31
+  store i8 %18, ptr %16, align 1, !tbaa !31
   br label %20
 
 19:                                               ; preds = %._crit_edge.i.i
@@ -341,12 +341,12 @@ define void @_ZN4base7SysInfo22OperatingSystemVersionB5cxx11Ev(ptr dead_on_unwin
   br label %20
 
 20:                                               ; preds = %19, %17, %._crit_edge.i.i
-  %21 = load i64, ptr %2, align 8, !tbaa !27
+  %21 = load i64, ptr %2, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !29
+  store i64 %21, ptr %22, align 8, !tbaa !30
   %23 = load ptr, ptr %0, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  store i8 0, ptr %24, align 1, !tbaa !30
+  store i8 0, ptr %24, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   br label %25
 
@@ -366,27 +366,27 @@ define void @_ZN4base7SysInfo27OperatingSystemArchitectureB5cxx11Ev(ptr dead_on_
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !28
+  store ptr %7, ptr %0, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !29
-  store i8 0, ptr %7, align 8, !tbaa !30
+  store i64 0, ptr %8, align 8, !tbaa !30
+  store i8 0, ptr %7, align 8, !tbaa !31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 260
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !28
+  store ptr %11, ptr %0, align 8, !tbaa !29
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 %12, ptr %2, align 8, !tbaa !27
+  store i64 %12, ptr %2, align 8, !tbaa !28
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %9
   %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %14, ptr %0, align 8, !tbaa !11
-  %15 = load i64, ptr %2, align 8, !tbaa !27
-  store i64 %15, ptr %11, align 8, !tbaa !30
+  %15 = load i64, ptr %2, align 8, !tbaa !28
+  store i64 %15, ptr %11, align 8, !tbaa !31
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %9
@@ -397,8 +397,8 @@ define void @_ZN4base7SysInfo27OperatingSystemArchitectureB5cxx11Ev(ptr dead_on_
   ]
 
 17:                                               ; preds = %._crit_edge.i.i
-  %18 = load i8, ptr %10, align 1, !tbaa !30
-  store i8 %18, ptr %16, align 1, !tbaa !30
+  %18 = load i8, ptr %10, align 1, !tbaa !31
+  store i8 %18, ptr %16, align 1, !tbaa !31
   br label %20
 
 19:                                               ; preds = %._crit_edge.i.i
@@ -406,12 +406,12 @@ define void @_ZN4base7SysInfo27OperatingSystemArchitectureB5cxx11Ev(ptr dead_on_
   br label %20
 
 20:                                               ; preds = %19, %17, %._crit_edge.i.i
-  %21 = load i64, ptr %2, align 8, !tbaa !27
+  %21 = load i64, ptr %2, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !29
+  store i64 %21, ptr %22, align 8, !tbaa !30
   %23 = load ptr, ptr %0, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  store i8 0, ptr %24, align 1, !tbaa !30
+  store i8 0, ptr %24, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   %25 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str) #12
   %26 = icmp eq i32 %25, 0
@@ -433,7 +433,7 @@ define void @_ZN4base7SysInfo27OperatingSystemArchitectureB5cxx11Ev(ptr dead_on_
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %33, %30, %27, %20
-  %37 = load i64, ptr %22, align 8, !tbaa !29
+  %37 = load i64, ptr %22, align 8, !tbaa !30
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %37, ptr noundef nonnull @.str.4, i64 noundef 3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %39
 
@@ -445,7 +445,7 @@ define void @_ZN4base7SysInfo27OperatingSystemArchitectureB5cxx11Ev(ptr dead_on_
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %39
-  %43 = load i64, ptr %22, align 8, !tbaa !29
+  %43 = load i64, ptr %22, align 8, !tbaa !30
   %44 = icmp ult i64 %43, 16
   call void @llvm.assume(i1 %44)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -558,17 +558,18 @@ attributes #14 = { builtin nounwind }
 !14 = !{!"p1 omnipotent char", !15, i64 0}
 !15 = !{!"any pointer", !6, i64 0}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !10, i64 16}
-!20 = !{!"_ZTS7statvfs", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !6, i64 88}
-!21 = distinct !{!21, !18}
-!22 = !{!23, !10, i64 0}
-!23 = !{!"_ZTS6statfs", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !24, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !6, i64 88}
-!24 = !{!"_ZTS8__fsid_t", !6, i64 0}
-!25 = !{!20, !10, i64 32}
-!26 = !{!20, !10, i64 8}
-!27 = !{!10, !10, i64 0}
-!28 = !{!13, !14, i64 0}
-!29 = !{!12, !10, i64 8}
-!30 = !{!6, !6, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !10, i64 16}
+!21 = !{!"_ZTS7statvfs", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !6, i64 88}
+!22 = distinct !{!22, !18, !19}
+!23 = !{!24, !10, i64 0}
+!24 = !{!"_ZTS6statfs", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !25, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !6, i64 88}
+!25 = !{!"_ZTS8__fsid_t", !6, i64 0}
+!26 = !{!21, !10, i64 32}
+!27 = !{!21, !10, i64 8}
+!28 = !{!10, !10, i64 0}
+!29 = !{!13, !14, i64 0}
+!30 = !{!12, !10, i64 8}
+!31 = !{!6, !6, i64 0}

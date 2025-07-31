@@ -121,7 +121,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
   %53 = getelementptr i8, ptr %6, i64 1
   store i8 %52, ptr %6, align 1
   %54 = icmp eq i64 %7, 0
-  br i1 %54, label %.critedge, label %.lr.ph
+  br i1 %54, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %48, %27, %.lr.ph, %3
   %55 = phi i32 [ 0, %3 ], [ -22, %.lr.ph ], [ -22, %27 ], [ 0, %48 ]
@@ -154,7 +154,7 @@ define dso_local noundef ptr @bin2hex(ptr noundef writeonly captures(ret: addres
   %21 = getelementptr i8, ptr %7, i64 2
   store i8 %20, ptr %16, align 1
   %22 = icmp eq i64 %8, 0
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %3
   %23 = phi ptr [ %0, %3 ], [ %21, %.preheader ]
@@ -172,7 +172,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
 
 13:                                               ; preds = %7
   %14 = sext i32 %3 to i64
-  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %14), !range !9
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %14), !range !11
   %16 = icmp samesign ult i64 %15, 2
   br label %17
 
@@ -249,7 +249,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i64 noundef %61) #9
   %63 = sext i32 %62 to i64
   %64 = icmp ugt i64 %59, %63
-  br i1 %64, label %.preheader16, label %.loopexit18, !llvm.loop !10
+  br i1 %64, label %.preheader16, label %.loopexit18, !llvm.loop !12
 
 .preheader16:                                     ; preds = %51, %56
   %65 = phi i32 [ %62, %56 ], [ %53, %51 ]
@@ -258,7 +258,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %68 = add i32 %66, %65
   %69 = add nuw nsw i64 %67, 1
   %70 = icmp samesign ult i64 %69, %27
-  br i1 %70, label %56, label %.loopexit17, !llvm.loop !10
+  br i1 %70, label %56, label %.loopexit17, !llvm.loop !13
 
 71:                                               ; preds = %.preheader19
   %72 = sext i32 %83 to i64
@@ -269,7 +269,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %77 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %73, i64 noundef %74, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef %76) #9
   %78 = sext i32 %77 to i64
   %79 = icmp ugt i64 %74, %78
-  br i1 %79, label %.preheader19, label %.loopexit18, !llvm.loop !11
+  br i1 %79, label %.preheader19, label %.loopexit18, !llvm.loop !14
 
 .preheader19:                                     ; preds = %45, %71
   %80 = phi i32 [ %77, %71 ], [ %47, %45 ]
@@ -278,7 +278,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %83 = add i32 %81, %80
   %84 = add nuw nsw i64 %82, 1
   %85 = icmp samesign ult i64 %84, %27
-  br i1 %85, label %71, label %.loopexit17, !llvm.loop !11
+  br i1 %85, label %71, label %.loopexit17, !llvm.loop !15
 
 86:                                               ; preds = %.preheader22
   %87 = sext i32 %99 to i64
@@ -290,7 +290,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %88, i64 noundef %89, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef %92) #9
   %94 = sext i32 %93 to i64
   %95 = icmp ugt i64 %89, %94
-  br i1 %95, label %.preheader22, label %.loopexit18, !llvm.loop !12
+  br i1 %95, label %.preheader22, label %.loopexit18, !llvm.loop !16
 
 .preheader22:                                     ; preds = %38, %86
   %96 = phi i32 [ %93, %86 ], [ %41, %38 ]
@@ -299,7 +299,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %99 = add i32 %97, %96
   %100 = add nuw nsw i64 %98, 1
   %101 = icmp samesign ult i64 %100, %27
-  br i1 %101, label %86, label %.loopexit17, !llvm.loop !12
+  br i1 %101, label %86, label %.loopexit17, !llvm.loop !17
 
 .preheader:                                       ; preds = %36, %132
   %102 = phi i64 [ %135, %132 ], [ 0, %36 ]
@@ -346,7 +346,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %134 = add i32 %104, 1
   %135 = sext i32 %134 to i64
   %136 = icmp ugt i64 %11, %135
-  br i1 %136, label %.preheader, label %137, !llvm.loop !13
+  br i1 %136, label %.preheader, label %137, !llvm.loop !18
 
 137:                                              ; preds = %132
   %138 = icmp ne i32 %134, 0
@@ -380,7 +380,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %155 = getelementptr i8, ptr %4, i64 %148
   store i8 32, ptr %155, align 1
   %156 = icmp eq i64 %154, %146
-  br i1 %156, label %.loopexit56.preheader, label %147, !llvm.loop !14
+  br i1 %156, label %.loopexit56.preheader, label %147, !llvm.loop !19
 
 .loopexit56.preheader:                            ; preds = %153, %142
   %.ph = phi i32 [ %141, %142 ], [ %32, %153 ]
@@ -419,7 +419,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %179 = add i32 %159, 1
   %180 = sext i32 %179 to i64
   %181 = icmp ugt i64 %11, %180
-  br i1 %181, label %.loopexit56, label %.loopexit14, !llvm.loop !15
+  br i1 %181, label %.loopexit56, label %.loopexit14, !llvm.loop !20
 
 .loopexit14:                                      ; preds = %174, %.loopexit17, %34
   %182 = phi i32 [ %141, %.loopexit17 ], [ 0, %34 ], [ %176, %174 ]
@@ -472,7 +472,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(131) %9, i8 0, i64 131, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(131) %9, i8 0, i64 131, i1 false), !annotation !21
   %14 = trunc i64 %6 to i32
   switch i32 %2, label %.split [
     i32 1, label %.split.us
@@ -492,7 +492,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %24 = add i32 %16, %11
   %25 = sext i32 %24 to i64
   %26 = icmp ugt i64 %6, %25
-  br i1 %26, label %.split.us, label %.loopexit, !llvm.loop !17
+  br i1 %26, label %.split.us, label %.loopexit, !llvm.loop !22
 
 .split.us2:                                       ; preds = %13, %.split.us2
   %27 = phi i64 [ %37, %.split.us2 ], [ 0, %13 ]
@@ -507,7 +507,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %36 = add i32 %28, %11
   %37 = sext i32 %36 to i64
   %38 = icmp ugt i64 %6, %37
-  br i1 %38, label %.split.us2, label %.loopexit, !llvm.loop !19
+  br i1 %38, label %.split.us2, label %.loopexit, !llvm.loop !24
 
 .split:                                           ; preds = %13, %.split
   %39 = phi i64 [ %49, %.split ], [ 0, %13 ]
@@ -522,7 +522,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %48 = add i32 %40, %11
   %49 = sext i32 %48 to i64
   %50 = icmp ugt i64 %6, %49
-  br i1 %50, label %.split, label %.loopexit, !llvm.loop !20
+  br i1 %50, label %.split, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.split.us2, %.split.us, %.split, %8
   call void @llvm.lifetime.end.p0(i64 131, ptr nonnull %9) #9
@@ -564,18 +564,23 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 0, i64 65}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{!"auto-init"}
-!17 = distinct !{!17, !7, !8, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !8, !18}
-!20 = distinct !{!20, !7, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !10, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i64 0, i64 65}
+!12 = distinct !{!12, !9, !10, !7}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !7}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10, !7}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10, !7}
+!19 = distinct !{!19, !9, !10, !7}
+!20 = distinct !{!20, !9, !10, !7}
+!21 = !{!"auto-init"}
+!22 = distinct !{!22, !9, !10, !7, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !9, !10, !7, !23}
+!25 = distinct !{!25, !9, !10, !7}

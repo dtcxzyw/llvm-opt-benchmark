@@ -212,7 +212,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %100, align 4, !tbaa !25
+  store i32 0, ptr %100, align 4, !tbaa !26
   store i8 1, ptr %35, align 8, !tbaa !16
   store i64 %.1, ptr %36, align 8, !tbaa !19
   %101 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef 0) #6
@@ -260,22 +260,22 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %126) #6
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next195, 7
-  br i1 %exitcond197.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond197.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 127:                                              ; preds = %98
   %128 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %128, align 4, !tbaa !25
+  store i32 0, ptr %128, align 4, !tbaa !26
   store i64 %.1, ptr %36, align 8, !tbaa !19
   br label %.loopexit
 
 129:                                              ; preds = %98
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 2, ptr %130, align 4, !tbaa !25
+  store i32 2, ptr %130, align 4, !tbaa !26
   br label %.loopexit
 
 131:                                              ; preds = %98
   %132 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 3, ptr %132, align 4, !tbaa !25
+  store i32 3, ptr %132, align 4, !tbaa !26
   br label %.loopexit
 
 133:                                              ; preds = %98
@@ -285,14 +285,14 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 .loopexit:                                        ; preds = %124, %127, %129, %131
-  store i32 1, ptr %17, align 8, !tbaa !27
+  store i32 1, ptr %17, align 8, !tbaa !28
   %137 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store i8 1, ptr %137, align 8, !tbaa !28
+  store i8 1, ptr %137, align 8, !tbaa !29
   br label %.thread164
 
 138:                                              ; preds = %29
   %139 = zext i8 %32 to i32
-  store i32 %139, ptr %17, align 8, !tbaa !27
+  store i32 %139, ptr %17, align 8, !tbaa !28
   %140 = icmp ugt ptr %31, %9
   br i1 %140, label %146, label %141
 
@@ -314,7 +314,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %152 = load i8, ptr %31, align 1, !tbaa !15
   %153 = zext i8 %152 to i32
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %153, ptr %154, align 4, !tbaa !25
+  store i32 %153, ptr %154, align 4, !tbaa !26
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store ptr %155, ptr %7, align 8, !tbaa !3
   %156 = load i8, ptr %151, align 1, !tbaa !15
@@ -393,7 +393,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %207 = or disjoint i64 %203, %206
   %208 = add nuw nsw i64 %.0140180, 1
   %exitcond.not = icmp eq i64 %208, 8
-  br i1 %exitcond.not, label %209, label %200, !llvm.loop !29
+  br i1 %exitcond.not, label %209, label %200, !llvm.loop !30
 
 209:                                              ; preds = %200
   store i64 %207, ptr %198, align 8, !tbaa !19
@@ -500,7 +500,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   store i64 %270, ptr %261, align 8, !tbaa !20
   %271 = add nuw nsw i64 %.0183, 1
   %exitcond190.not = icmp eq i64 %271, 8
-  br i1 %exitcond190.not, label %272, label %263, !llvm.loop !30
+  br i1 %exitcond190.not, label %272, label %263, !llvm.loop !31
 
 272:                                              ; preds = %263
   %273 = getelementptr inbounds nuw i8, ptr %265, i64 7
@@ -620,11 +620,11 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %342) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond192.not, label %.loopexit176, label %.preheader175, !llvm.loop !31
+  br i1 %exitcond192.not, label %.loopexit176, label %.preheader175, !llvm.loop !32
 
 .loopexit176:                                     ; preds = %340, %319
   %343 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store i8 0, ptr %343, align 8, !tbaa !28
+  store i8 0, ptr %343, align 8, !tbaa !29
   br label %.thread164
 
 .thread:                                          ; preds = %25, %146, %171, %234, %290, %315, %336, %50, %133, %103, %120
@@ -648,12 +648,12 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   br i1 %12, label %13, label %.loopexit, !prof !12
 
 13:                                               ; preds = %5
-  %14 = load i32, ptr %4, align 8, !tbaa !27
+  %14 = load i32, ptr %4, align 8, !tbaa !28
   %15 = trunc i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %15, ptr %3, align 1, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !25
+  %18 = load i32, ptr %17, align 4, !tbaa !26
   %19 = trunc i32 %18 to i8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %19, ptr %16, align 1, !tbaa !15
@@ -706,7 +706,7 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   %47 = add nuw nsw i64 %.05055, 1
   %48 = lshr i64 %.05254, 8
   %exitcond.not = icmp eq i64 %47, 8
-  br i1 %exitcond.not, label %.sink.split, label %44, !llvm.loop !32
+  br i1 %exitcond.not, label %.sink.split, label %44, !llvm.loop !33
 
 49:                                               ; preds = %13
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -772,7 +772,7 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   %83 = add nuw nsw i64 %.04558, 1
   %84 = lshr i64 %.04757, 8
   %exitcond61.not = icmp eq i64 %83, 8
-  br i1 %exitcond61.not, label %.sink.split65, label %80, !llvm.loop !33
+  br i1 %exitcond61.not, label %.sink.split65, label %80, !llvm.loop !34
 
 85:                                               ; preds = %58
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -825,7 +825,7 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %113) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond63.not, label %.loopexit, label %110, !llvm.loop !34
+  br i1 %exitcond63.not, label %.loopexit, label %110, !llvm.loop !35
 
 .loopexit:                                        ; preds = %110, %94, %5
   ret i32 0
@@ -858,7 +858,7 @@ define internal noundef ptr @H5O__fsinfo_copy(ptr noundef readonly captures(none
 
 17:                                               ; preds = %10, %9
   %.07 = phi ptr [ %1, %9 ], [ %11, %10 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.07, ptr noundef nonnull align 8 dereferenceable(152) %0, i64 152, i1 false), !tbaa.struct !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.07, ptr noundef nonnull align 8 dereferenceable(152) %0, i64 152, i1 false), !tbaa.struct !36
   br label %18
 
 18:                                               ; preds = %13, %17, %2
@@ -934,7 +934,7 @@ define internal noundef i32 @H5O__fsinfo_debug(ptr readnone captures(none) %0, p
 12:                                               ; preds = %5
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !25
+  %15 = load i32, ptr %14, align 4, !tbaa !26
   %16 = icmp ult i32 %15, 4
   br i1 %16, label %switch.lookup, label %18
 
@@ -980,7 +980,7 @@ switch.lookup:                                    ; preds = %12
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.24, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.30, i64 noundef %43) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !38
 
 .loopexit:                                        ; preds = %40, %18, %5
   ret i32 0
@@ -1025,7 +1025,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
 19:                                               ; preds = %16
   %20 = sext i32 %0 to i64
   %21 = getelementptr inbounds [7 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !36
+  %22 = load i32, ptr %21, align 4, !tbaa !37
   %.not.inv = icmp ugt i32 %0, 1
   %.012 = select i1 %.not.inv, i32 %22, i32 1
   %23 = icmp ult i32 %1, 2
@@ -1034,7 +1034,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
 24:                                               ; preds = %19
   %25 = sext i32 %1 to i64
   %26 = getelementptr inbounds [7 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !36
+  %27 = load i32, ptr %26, align 4, !tbaa !37
   %28 = icmp ugt i32 %.012, %27
   br i1 %28, label %29, label %33
 
@@ -1045,7 +1045,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
   br label %34
 
 33:                                               ; preds = %24
-  store i32 %.012, ptr %2, align 8, !tbaa !27
+  store i32 %.012, ptr %2, align 8, !tbaa !28
   br label %34
 
 34:                                               ; preds = %12, %29, %33, %16
@@ -1100,8 +1100,8 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_check_version(i32 noundef %0, ptr nounde
 20:                                               ; preds = %18
   %21 = sext i32 %0 to i64
   %22 = getelementptr inbounds [7 x i32], ptr @H5O_fsinfo_ver_bounds, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !36
-  %24 = load i32, ptr %1, align 8, !tbaa !27
+  %23 = load i32, ptr %22, align 4, !tbaa !37
+  %24 = load i32, ptr %1, align 8, !tbaa !28
   %25 = icmp ugt i32 %24, %23
   br i1 %25, label %26, label %30
 
@@ -1172,18 +1172,19 @@ attributes #6 = { nounwind }
 !20 = !{!17, !14, i64 24}
 !21 = !{!17, !14, i64 32}
 !22 = !{!17, !14, i64 40}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!17, !18, i64 4}
-!26 = distinct !{!26, !24}
-!27 = !{!17, !18, i64 0}
-!28 = !{!17, !9, i64 144}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
-!35 = !{i64 0, i64 4, !36, i64 4, i64 4, !36, i64 8, i64 1, !8, i64 16, i64 8, !13, i64 24, i64 8, !13, i64 32, i64 8, !13, i64 40, i64 8, !13, i64 48, i64 96, !15, i64 144, i64 1, !8}
-!36 = !{!18, !18, i64 0}
-!37 = distinct !{!37, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!17, !18, i64 4}
+!27 = distinct !{!27, !24, !25}
+!28 = !{!17, !18, i64 0}
+!29 = !{!17, !9, i64 144}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = distinct !{!35, !24, !25}
+!36 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 1, !8, i64 16, i64 8, !13, i64 24, i64 8, !13, i64 32, i64 8, !13, i64 40, i64 8, !13, i64 48, i64 96, !15, i64 144, i64 1, !8}
+!37 = !{!18, !18, i64 0}
+!38 = distinct !{!38, !24, !25}

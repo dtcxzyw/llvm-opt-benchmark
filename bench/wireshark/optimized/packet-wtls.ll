@@ -639,7 +639,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   call void @proto_item_set_len(ptr noundef %107, i32 noundef %.1487.i)
   %173 = sub i32 %.0495514.i, %.1487.i
   %.not503.i = icmp eq i32 %173, 0
-  br i1 %.not503.i, label %._crit_edge.i, label %.lr.ph516.i, !llvm.loop !8
+  br i1 %.not503.i, label %._crit_edge.i, label %.lr.ph516.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %172, %77
   %.0.lcssa.i = phi i32 [ %103, %77 ], [ %.2.i, %172 ]
@@ -754,7 +754,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   call void @proto_item_set_len(ptr noundef %187, i32 noundef %.3489.i)
   %253 = sub i32 %.1496518.i, %.3489.i
   %.not504.i = icmp eq i32 %253, 0
-  br i1 %.not504.i, label %._crit_edge522.i, label %.lr.ph521.i, !llvm.loop !9
+  br i1 %.not504.i, label %._crit_edge522.i, label %.lr.ph521.i, !llvm.loop !10
 
 ._crit_edge522.i:                                 ; preds = %252, %._crit_edge.i
   %.3.lcssa.i = phi i32 [ %183, %._crit_edge.i ], [ %.5.i, %252 ]
@@ -816,7 +816,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   %285 = add i32 %.2497526.i, -2
   %.6.i = add i32 %.6.in527.i, 3
   %.not505.i = icmp eq i32 %285, 0
-  br i1 %.not505.i, label %._crit_edge531.i, label %.lr.ph530.i, !llvm.loop !10
+  br i1 %.not505.i, label %._crit_edge531.i, label %.lr.ph530.i, !llvm.loop !11
 
 ._crit_edge531.i:                                 ; preds = %282, %._crit_edge522.i
   %.6.in.lcssa.i = phi i32 [ %.3.lcssa.i, %._crit_edge522.i ], [ %264, %282 ]
@@ -840,7 +840,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   %296 = add i32 %.7536.i, 1
   %297 = add nsw i32 %.3498535.i, -1
   %.not506.i = icmp eq i32 %297, 0
-  br i1 %.not506.i, label %._crit_edge539.i, label %.lr.ph538.i, !llvm.loop !11
+  br i1 %.not506.i, label %._crit_edge539.i, label %.lr.ph538.i, !llvm.loop !12
 
 ._crit_edge539.i:                                 ; preds = %.lr.ph538.i, %._crit_edge531.i
   %.7.lcssa.i = phi i32 [ %293, %._crit_edge531.i ], [ %296, %.lr.ph538.i ]
@@ -1070,7 +1070,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   call void @proto_item_set_len(ptr noundef %350, i32 noundef %.4490.i)
   %465 = sub i32 %.4499511.i, %.4490.i
   %.not.i = icmp eq i32 %465, 0
-  br i1 %.not.i, label %dissect_wtls_handshake.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %dissect_wtls_handshake.exit, label %.lr.ph.i, !llvm.loop !13
 
 dissect_wtls_handshake.exit:                      ; preds = %464, %62, %._crit_edge539.i, %303, %341
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #4
@@ -1164,7 +1164,7 @@ define internal fastcc noundef i32 @add_session_id(ptr noundef %0, i32 noundef %
   %17 = or disjoint i64 %13, %16
   %18 = add nuw nsw i32 %.02830, 1
   %exitcond.not = icmp eq i32 %18, %7
-  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !14
 
 19:                                               ; preds = %.preheader
   %20 = add nuw nsw i32 %7, 1
@@ -1211,11 +1211,12 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

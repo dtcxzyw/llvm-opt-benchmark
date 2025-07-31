@@ -271,7 +271,7 @@ define hidden void @_ZN9CDSConfig25init_shared_archive_pathsEv() local_unnamed_a
   %17 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 16
   %.07.i.i = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
-  br i1 %.not.i.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread.i, label %.preheader.i.i, !llvm.loop !9
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %11
   %18 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
@@ -326,7 +326,7 @@ _ZN9CDSConfig40check_unsupported_dumping_module_optionsEv.exit: ; preds = %_ZL34
   %39 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %40 = load i8, ptr %39, align 1
   %.not.i = icmp eq i8 %40, 0
-  br i1 %.not.i, label %_ZN9CDSConfig12num_archivesEPKc.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %_ZN9CDSConfig12num_archivesEPKc.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN9CDSConfig12num_archivesEPKc.exit:             ; preds = %.lr.ph.i
   %41 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -596,7 +596,7 @@ define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %.013, i64 1
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.08 = phi i32 [ 0, %1 ], [ 1, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -685,7 +685,7 @@ define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() 
   %10 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 16
   %.07.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.07.i, null
-  br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !9
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %4
   %11 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
@@ -763,7 +763,7 @@ define hidden void @_ZN9CDSConfig27check_incompatible_propertyEPKcS1_(ptr nounde
 3:                                                ; preds = %4
   %.0.add = add nuw nsw i64 %.0.idx9, 8
   %.not = icmp eq i64 %.0.add, 24
-  br i1 %.not, label %.loopexit, label %4
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !11
 
 4:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
@@ -887,7 +887,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig38has_unsupported_runtime_module_
   %11 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 16
   %.07.i = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.07.i, null
-  br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !9
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %5
   %12 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
@@ -1045,7 +1045,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
   %56 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 16
   %.07.i.i = load ptr, ptr %56, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
-  br i1 %.not.i.i, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %.preheader.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %.preheader.i.i, !llvm.loop !9
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %50
   %57 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
@@ -1220,7 +1220,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}

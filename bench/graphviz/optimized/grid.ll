@@ -338,8 +338,8 @@ getCell.exit:                                     ; preds = %2, %21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @ijcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
-  %3 = load i32, ptr %0, align 4, !tbaa !44
-  %4 = load i32, ptr %1, align 4, !tbaa !44
+  %3 = load i32, ptr %0, align 4, !tbaa !45
+  %4 = load i32, ptr %1, align 4, !tbaa !45
   %5 = icmp slt i32 %3, %4
   br i1 %5, label %16, label %6
 
@@ -349,9 +349,9 @@ define internal range(i32 -1, 2) i32 @ijcmpf(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !45
+  %10 = load i32, ptr %9, align 4, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !45
+  %12 = load i32, ptr %11, align 4, !tbaa !46
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %16, label %14
 
@@ -443,7 +443,8 @@ attributes #17 = { cold noreturn nounwind }
 !39 = !{!37, !12, i64 8}
 !40 = !{!5, !5, i64 0}
 !41 = !{!12, !12, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!32, !11, i64 0}
-!45 = !{!32, !11, i64 4}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!32, !11, i64 0}
+!46 = !{!32, !11, i64 4}

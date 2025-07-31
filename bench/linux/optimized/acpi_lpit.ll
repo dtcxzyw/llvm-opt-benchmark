@@ -271,12 +271,12 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 define internal noundef range(i64 -2147483648, 2147483648) i64 @low_power_idle_cpu_residency_us_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @residency_info_ffh, i64 4), align 4
   %5 = trunc i64 %4 to i32
-  %6 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !9
+  %6 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !10
   %7 = extractvalue { i32, i64, i64 } %6, 0
   %8 = extractvalue { i32, i64, i64 } %6, 1
   %9 = extractvalue { i32, i64, i64 } %6, 2
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #7
-          to label %13 [label %10], !srcloc !10
+          to label %13 [label %10], !srcloc !11
 
 10:                                               ; preds = %3
   %11 = shl i64 %9, 32
@@ -335,8 +335,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 988721, i64 988762, i64 988766, i64 2149295628, i64 2149295653, i64 2149295688, i64 2149295905, i64 2149295958, i64 2149295989, i64 2149296020, i64 2149296098, i64 2149296132, i64 2149296170, i64 2149296213, i64 2149296236, i64 2149296274, i64 2149296296, i64 2149296327, i64 2149296412, i64 2149296446, i64 2149296484, i64 2149296527, i64 2149296550, i64 2149296588, i64 2149296610, i64 2149296644, i64 2149296706, i64 2149296729, i64 2149295754, i64 2149296803, i64 2149295865}
-!10 = !{i64 687815, i64 687859, i64 2148174834, i64 2148174855, i64 2148174881, i64 2148174914, i64 2148174948, i64 2148174972}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 988721, i64 988762, i64 988766, i64 2149295628, i64 2149295653, i64 2149295688, i64 2149295905, i64 2149295958, i64 2149295989, i64 2149296020, i64 2149296098, i64 2149296132, i64 2149296170, i64 2149296213, i64 2149296236, i64 2149296274, i64 2149296296, i64 2149296327, i64 2149296412, i64 2149296446, i64 2149296484, i64 2149296527, i64 2149296550, i64 2149296588, i64 2149296610, i64 2149296644, i64 2149296706, i64 2149296729, i64 2149295754, i64 2149296803, i64 2149295865}
+!11 = !{i64 687815, i64 687859, i64 2148174834, i64 2148174855, i64 2148174881, i64 2148174914, i64 2148174948, i64 2148174972}

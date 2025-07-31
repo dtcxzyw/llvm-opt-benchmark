@@ -101,13 +101,13 @@ define hidden ptr @_Py_CalculateSuggestions(ptr noundef readonly captures(none) 
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = load i32, ptr %.24560, align 8, !tbaa !20
+  %39 = load i32, ptr %.24560, align 8, !tbaa !21
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %_Py_XNewRef.exit, label %41
 
 41:                                               ; preds = %38
   %42 = add nuw i32 %39, 1
-  store i32 %42, ptr %.24560, align 8, !tbaa !20
+  store i32 %42, ptr %.24560, align 8, !tbaa !21
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %._crit_edge.thread, %41, %38, %._crit_edge, %.thread66, %14, %7
@@ -149,8 +149,8 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %.095123 = phi i64 [ %15, %13 ], [ %1, %.preheader119 ]
   %.0106122 = phi ptr [ %16, %13 ], [ %2, %.preheader119 ]
   %.0108121 = phi i64 [ %17, %13 ], [ %3, %.preheader119 ]
-  %10 = load i8, ptr %.089124, align 1, !tbaa !20
-  %11 = load i8, ptr %.0106122, align 1, !tbaa !20
+  %10 = load i8, ptr %.089124, align 1, !tbaa !21
+  %11 = load i8, ptr %.0106122, align 1, !tbaa !21
   %12 = icmp eq i8 %10, %11
   br i1 %12, label %13, label %.critedge
 
@@ -162,7 +162,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %18 = icmp ne i64 %15, 0
   %19 = icmp ne i64 %17, 0
   %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !21
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %13, %.preheader119
   %.0108.lcssa = phi i64 [ %3, %.preheader119 ], [ %17, %13 ], [ %.0108121, %.lr.ph ]
@@ -180,9 +180,9 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %.196137 = phi i64 [ %26, %25 ], [ %.095.lcssa, %.critedge ]
   %.1109136 = phi i64 [ %27, %25 ], [ %.0108.lcssa, %.critedge ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.196137
-  %22 = load i8, ptr %gep, align 1, !tbaa !20
+  %22 = load i8, ptr %gep, align 1, !tbaa !21
   %gep134 = getelementptr i8, ptr %invariant.gep133, i64 %.1109136
-  %23 = load i8, ptr %gep134, align 1, !tbaa !20
+  %23 = load i8, ptr %gep134, align 1, !tbaa !21
   %24 = icmp eq i8 %22, %23
   br i1 %24, label %25, label %.critedge6
 
@@ -192,7 +192,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %28 = icmp ne i64 %26, 0
   %29 = icmp ne i64 %27, 0
   %or.cond4 = and i1 %28, %29
-  br i1 %or.cond4, label %.lr.ph138, label %.critedge6, !llvm.loop !22
+  br i1 %or.cond4, label %.lr.ph138, label %.critedge6, !llvm.loop !23
 
 .critedge6:                                       ; preds = %.lr.ph138, %25, %.critedge
   %.1109.lcssa = phi i64 [ %.0108.lcssa, %.critedge ], [ %27, %25 ], [ %.1109136, %.lr.ph138 ]
@@ -245,7 +245,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
 .lr.ph151.us:                                     ; preds = %.lr.ph151.us.preheader, %55
   %.0100155.us = phi i64 [ %56, %55 ], [ 0, %.lr.ph151.us.preheader ]
   %50 = getelementptr i8, ptr %.1107, i64 %.0100155.us
-  %51 = load i8, ptr %50, align 1, !tbaa !20
+  %51 = load i8, ptr %50, align 1, !tbaa !21
   %52 = shl nuw nsw i64 %.0100155.us, 1
   %53 = add i8 %51, -65
   %or.cond.i.us = icmp ult i8 %53, 26
@@ -256,7 +256,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
 55:                                               ; preds = %._crit_edge.us
   %56 = add nuw i64 %.0100155.us, 1
   %exitcond164.not = icmp eq i64 %56, %.2110
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph151.us, !llvm.loop !23
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph151.us, !llvm.loop !24
 
 57:                                               ; preds = %.lr.ph151.us, %substitution_cost.exit.us
   %.091150.us = phi i64 [ 0, %.lr.ph151.us ], [ %75, %substitution_cost.exit.us ]
@@ -264,7 +264,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   %.094148.us = phi i64 [ %52, %.lr.ph151.us ], [ %71, %substitution_cost.exit.us ]
   %.2103147.us = phi i64 [ %52, %.lr.ph151.us ], [ %74, %substitution_cost.exit.us ]
   %58 = getelementptr i8, ptr %.190, i64 %.091150.us
-  %59 = load i8, ptr %58, align 1, !tbaa !20
+  %59 = load i8, ptr %58, align 1, !tbaa !21
   %60 = xor i8 %59, %51
   %61 = and i8 %60, 31
   %.not.i.us = icmp eq i8 %61, 0
@@ -295,7 +295,7 @@ substitution_cost.exit.us:                        ; preds = %64, %62, %57
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %74, i64 %.092149.us)
   %75 = add nuw nsw i64 %.091150.us, 1
   %exitcond163.not = icmp eq i64 %75, %.297
-  br i1 %exitcond163.not, label %._crit_edge.us, label %57, !llvm.loop !25
+  br i1 %exitcond163.not, label %._crit_edge.us, label %57, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %substitution_cost.exit.us
   %.not.us = icmp ugt i64 %spec.select.us, %4
@@ -309,7 +309,7 @@ substitution_cost.exit.us:                        ; preds = %64, %62, %57
   %77 = add i64 %.0105144, 2
   %78 = add nuw nsw i64 %.0104145, 1
   %exitcond.not = icmp eq i64 %78, %.297
-  br i1 %exitcond.not, label %.lr.ph151.us.preheader, label %.lr.ph146, !llvm.loop !26
+  br i1 %exitcond.not, label %.lr.ph151.us.preheader, label %.lr.ph146, !llvm.loop !27
 
 .loopexit:                                        ; preds = %55, %._crit_edge.us, %6, %47, %38, %32
   %.0 = phi i64 [ %34, %32 ], [ %39, %38 ], [ %48, %47 ], [ 0, %6 ], [ %74, %55 ], [ %49, %._crit_edge.us ]
@@ -405,12 +405,13 @@ attributes #5 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTS7_object", !10, i64 0}
 !17 = !{!11, !11, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!7, !7, i64 0}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}

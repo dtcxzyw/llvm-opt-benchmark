@@ -451,7 +451,7 @@ define internal void @_ZN4base12_GLOBAL__N_125SampleCountPickleIteratorD0Ev(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i8, ptr %2, align 4, !tbaa !24, !range !27, !noundef !28
+  %3 = load i8, ptr %2, align 4, !tbaa !24, !range !28, !noundef !29
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -488,13 +488,13 @@ define internal void @_ZN4base12_GLOBAL__N_125SampleCountPickleIterator4NextEv(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !29
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   store i32 %6, ptr %1, align 4, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   store i32 %8, ptr %2, align 4, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !31
+  %10 = load i32, ptr %9, align 8, !tbaa !32
   store i32 %10, ptr %3, align 4, !tbaa !18
   ret void
 }
@@ -553,10 +553,11 @@ attributes #15 = { builtin nounwind }
 !22 = !{!"p1 _ZTSN4base14PickleIteratorE", !13, i64 0}
 !23 = !{!"bool", !10, i64 0}
 !24 = !{!20, !23, i64 28}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{i8 0, i8 2}
-!28 = !{}
-!29 = !{!20, !11, i64 16}
-!30 = !{!20, !11, i64 20}
-!31 = !{!20, !11, i64 24}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = !{!20, !11, i64 16}
+!31 = !{!20, !11, i64 20}
+!32 = !{!20, !11, i64 24}

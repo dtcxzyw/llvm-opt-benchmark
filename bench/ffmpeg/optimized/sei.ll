@@ -140,7 +140,7 @@ bytestream2_init.exit.split.us:                   ; preds = %bytestream2_init.ex
   %87 = zext i8 %86 to i32
   %88 = add nuw nsw i32 %.03155.i.us, %87
   %89 = icmp eq i8 %86, -1
-  br i1 %89, label %.preheader.i.us, label %90, !llvm.loop !16
+  br i1 %89, label %.preheader.i.us, label %90, !llvm.loop !17
 
 90:                                               ; preds = %84
   %91 = ptrtoint ptr %85 to i64
@@ -150,11 +150,11 @@ bytestream2_init.exit.split.us:                   ; preds = %bytestream2_init.ex
   br i1 %94, label %decode_nal_sei_message.exit.thread17, label %bytestream2_init.exit.i.us
 
 bytestream2_init.exit.i.us:                       ; preds = %90
-  store ptr %85, ptr %6, align 8, !tbaa !17
-  store ptr %85, ptr %21, align 8, !tbaa !19
+  store ptr %85, ptr %6, align 8, !tbaa !18
+  store ptr %85, ptr %21, align 8, !tbaa !20
   %95 = zext nneg i32 %88 to i64
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 %95
-  store ptr %96, ptr %22, align 8, !tbaa !20
+  store ptr %96, ptr %22, align 8, !tbaa !21
   %or.cond.i.i.us = icmp samesign ugt i32 %88, 268435455
   %97 = shl nuw nsw i32 %88, 3
   %98 = select i1 %or.cond.i.i.us, i32 -8, i32 %97
@@ -165,10 +165,10 @@ bytestream2_init.exit.i.us:                       ; preds = %90
   store ptr %.017.i.i.i.us, ptr %7, align 8, !tbaa !12
   store i32 %.018.i.i.i.us, ptr %23, align 4, !tbaa !11
   %100 = add nuw nsw i32 %.018.i.i.i.us, 8
-  store i32 %100, ptr %24, align 8, !tbaa !21
+  store i32 %100, ptr %24, align 8, !tbaa !22
   %101 = zext nneg i32 %99 to i64
   %102 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.us, i64 %101
-  store ptr %102, ptr %25, align 8, !tbaa !22
+  store ptr %102, ptr %25, align 8, !tbaa !23
   store i32 0, ptr %26, align 8, !tbaa !4
   switch i32 %78, label %899 [
     i32 256, label %886
@@ -227,7 +227,7 @@ get_ue_golomb.exit.i.i.i.us:                      ; preds = %122, %107
   %.0.i.i48.i.i.us = phi i32 [ %130, %122 ], [ %.1.i.i.i.i.us, %107 ]
   store i32 %.38.i.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %131 = trunc i32 %.0.i.i48.i.i.us to i8
-  store i8 %131, ptr %30, align 2, !tbaa !23
+  store i8 %131, ptr %30, align 2, !tbaa !24
   %132 = and i32 %.0.i.i48.i.i.us, 224
   %.not.i49.i.i.us = icmp eq i32 %132, 0
   br i1 %.not.i49.i.i.us, label %133, label %decode_nal_sei_message.exit.thread17
@@ -247,7 +247,7 @@ get_ue_golomb.exit.i.i.i.us:                      ; preds = %122, %107
   store i32 %spec.select.i.i50.i.i.us, ptr %26, align 8, !tbaa !4
   %144 = and i32 %143, 1
   %145 = trunc nuw nsw i32 %144 to i8
-  store i8 %145, ptr %31, align 1, !tbaa !25
+  store i8 %145, ptr %31, align 1, !tbaa !26
   %.not90.i.i.i.us = icmp eq i32 %144, 0
   br i1 %.not90.i.i.i.us, label %182, label %146
 
@@ -306,7 +306,7 @@ get_ue_golomb.exit109.i.i.i.us:                   ; preds = %170, %155
   %.0.i107.i.i.i.us = phi i32 [ %179, %170 ], [ %.1.i106.i.i.i.us, %155 ]
   store i32 %.38.i105.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %180 = trunc i32 %.0.i107.i.i.i.us to i8
-  store i8 %180, ptr %32, align 2, !tbaa !26
+  store i8 %180, ptr %32, align 2, !tbaa !27
   %181 = and i32 %.0.i107.i.i.i.us, 224
   %.not91.i51.i.i.us = icmp eq i32 %181, 0
   br i1 %.not91.i51.i.i.us, label %182, label %decode_nal_sei_message.exit.thread17
@@ -367,14 +367,14 @@ get_ue_golomb.exit121.i.i.i.us:                   ; preds = %207, %192
   %.0.i119.i.i.i.us = phi i32 [ %216, %207 ], [ %.1.i118.i.i.i.us, %192 ]
   store i32 %.promoted57.i.us, ptr %26, align 8, !tbaa !4
   %217 = trunc i32 %.0.i119.i.i.i.us to i8
-  store i8 %217, ptr %33, align 1, !tbaa !27
+  store i8 %217, ptr %33, align 1, !tbaa !28
   %218 = and i32 %.0.i119.i.i.i.us, 224
   %.not92.i.i.i.us = icmp eq i32 %218, 0
   br i1 %.not92.i.i.i.us, label %219, label %decode_nal_sei_message.exit.thread17
 
 219:                                              ; preds = %get_ue_golomb.exit121.i.i.i.us
   %220 = add nuw nsw i8 %217, 1
-  store i8 %220, ptr %33, align 1, !tbaa !27
+  store i8 %220, ptr %33, align 1, !tbaa !28
   %221 = and i32 %.0.i.i48.i.i.us, 31
   %invariant.op.i.i.i.us = add nsw i32 %221, -31
   %222 = icmp ult i8 %131, 30
@@ -441,7 +441,7 @@ get_ue_golomb.exit133.i.i.i.us:                   ; preds = %249, %234
   store i32 %.38.i129.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %259 = trunc i32 %.0.i131.i.i.i.us to i16
   %260 = getelementptr inbounds nuw [32 x i16], ptr %34, i64 0, i64 %indvars.iv.i52.i.i.us
-  store i16 %259, ptr %260, align 2, !tbaa !28
+  store i16 %259, ptr %260, align 2, !tbaa !29
   %261 = lshr i32 %.38.i129.i.i.sink.i.us, 3
   %262 = zext nneg i32 %261 to i64
   %263 = getelementptr inbounds nuw i8, ptr %85, i64 %262
@@ -497,7 +497,7 @@ get_ue_golomb.exit145.i.i.i.us:                   ; preds = %284, %269
   store i32 %.38.i141.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %294 = trunc i32 %.0.i143.i.i.i.us to i16
   %295 = getelementptr inbounds nuw [32 x i16], ptr %35, i64 0, i64 %indvars.iv.i52.i.i.us
-  store i16 %294, ptr %295, align 2, !tbaa !28
+  store i16 %294, ptr %295, align 2, !tbaa !29
   %296 = lshr i32 %.38.i141.i.i.sink.i.us, 3
   %297 = zext nneg i32 %296 to i64
   %298 = getelementptr inbounds nuw i8, ptr %85, i64 %297
@@ -601,7 +601,7 @@ get_bits_long.exit.i54.i.i.us:                    ; preds = %341, %323, %313, %3
 
 363:                                              ; preds = %349
   %.not95.i.i.i.us = icmp ult i32 %356, 67108864
-  %364 = load i8, ptr %32, align 2, !tbaa !26
+  %364 = load i8, ptr %32, align 2, !tbaa !27
   br i1 %.not95.i.i.i.us, label %370, label %365
 
 365:                                              ; preds = %363
@@ -707,14 +707,14 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   %436 = trunc nuw nsw i32 %433 to i16
   %437 = getelementptr inbounds nuw [32 x i16], ptr %41, i64 0, i64 %indvars.iv.i52.i.i.us
   %438 = add nsw i16 %436, -512
-  store i16 %438, ptr %437, align 2, !tbaa !28
+  store i16 %438, ptr %437, align 2, !tbaa !29
   br label %439
 
 439:                                              ; preds = %425, %410
   %440 = phi i32 [ %435, %425 ], [ %spec.select.i150.i.i.i.us, %410 ]
   %indvars.iv.next.i55.i.i.us = add nuw nsw i64 %indvars.iv.i52.i.i.us, 1
   %exitcond.not.i56.i.i.us = icmp eq i64 %indvars.iv.next.i55.i.i.us, %wide.trip.count.i.i.i.us
-  br i1 %exitcond.not.i56.i.i.us, label %441, label %224, !llvm.loop !30
+  br i1 %exitcond.not.i56.i.i.us, label %441, label %224, !llvm.loop !31
 
 441:                                              ; preds = %439
   %442 = lshr i32 %440, 3
@@ -726,7 +726,7 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   %448 = shl nuw nsw i32 %446, %447
   %449 = trunc i32 %448 to i8
   %450 = lshr i8 %449, 7
-  store i8 %450, ptr %42, align 2, !tbaa !31
+  store i8 %450, ptr %42, align 2, !tbaa !32
   br label %decode_nal_sei_message.exit.thread.us
 
 451:                                              ; preds = %bytestream2_init.exit.i.us
@@ -735,7 +735,7 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   %454 = lshr i32 %453, 30
   store i32 2, ptr %26, align 8, !tbaa !4
   %455 = trunc nuw nsw i32 %454 to i8
-  store i8 %455, ptr %44, align 4, !tbaa !32
+  store i8 %455, ptr %44, align 4, !tbaa !33
   %.not91.i.i.i.us = icmp ult i32 %453, 1073741824
   br i1 %.not91.i.i.i.us, label %decode_nal_sei_timecode.exit.i.i.us, label %.lr.ph.i.i.i.us
 
@@ -848,7 +848,7 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   store i32 %541, ptr %26, align 8, !tbaa !4
   %542 = trunc nuw nsw i32 %539 to i16
   %543 = getelementptr inbounds nuw [3 x i16], ptr %51, i64 0, i64 %indvars.iv.i35.i.i.us
-  store i16 %542, ptr %543, align 2, !tbaa !28
+  store i16 %542, ptr %543, align 2, !tbaa !29
   %.not74.i.i.i.us = icmp sgt i32 %502, -1
   %544 = lshr i32 %541, 3
   %545 = zext nneg i32 %544 to i64
@@ -1044,17 +1044,17 @@ get_bits_long.exit.i.i.i.us:                      ; preds = %679, %661
   %.0.i89.i.i.i.us = phi i32 [ %681, %679 ], [ %678, %661 ]
   store i32 %.sink.i39.i.i.us, ptr %26, align 8, !tbaa !4
   %684 = getelementptr inbounds nuw [3 x i32], ptr %59, i64 0, i64 %indvars.iv.i35.i.i.us
-  store i32 %.0.i89.i.i.i.us, ptr %684, align 4, !tbaa !34
+  store i32 %.0.i89.i.i.i.us, ptr %684, align 4, !tbaa !35
   br label %685
 
 685:                                              ; preds = %get_bits_long.exit.i.i.i.us, %638, %457
   %686 = phi i32 [ %.sink.i39.i.i.us, %get_bits_long.exit.i.i.i.us ], [ %649, %638 ], [ %468, %457 ]
   %indvars.iv.next.i40.i.i.us = add nuw nsw i64 %indvars.iv.i35.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i40.i.i.us, %umax.i.i.us
-  br i1 %exitcond.not.i.i.us, label %decode_nal_sei_timecode.exit.i.i.us, label %457, !llvm.loop !35
+  br i1 %exitcond.not.i.i.us, label %decode_nal_sei_timecode.exit.i.i.us, label %457, !llvm.loop !36
 
 decode_nal_sei_timecode.exit.i.i.us:              ; preds = %685, %451
-  store i32 1, ptr %43, align 4, !tbaa !36
+  store i32 1, ptr %43, align 4, !tbaa !37
   br label %decode_nal_sei_message.exit.thread.us
 
 687:                                              ; preds = %bytestream2_init.exit.i.us
@@ -1230,7 +1230,7 @@ get_ue_golomb_long.exit32.i.i.i.us:               ; preds = %805, %789
   br i1 %808, label %get_ue_golomb_long.exit32.thread.i.i.i, label %809
 
 809:                                              ; preds = %get_ue_golomb_long.exit32.i.i.i.us
-  store i32 %807, ptr %60, align 8, !tbaa !37
+  store i32 %807, ptr %60, align 8, !tbaa !38
   br label %decode_nal_sei_message.exit.thread.us
 
 810:                                              ; preds = %bytestream2_init.exit.i.us
@@ -1296,7 +1296,7 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %839, %814
 
 849:                                              ; preds = %get_se_golomb.exit.i.i.i.us
   %850 = trunc nsw i32 %.0.i.i.i.i.us to i16
-  store i16 %850, ptr %61, align 2, !tbaa !60
+  store i16 %850, ptr %61, align 2, !tbaa !61
   %851 = lshr i32 %.sink.i.us, 3
   %852 = zext nneg i32 %851 to i64
   %853 = getelementptr inbounds nuw i8, ptr %85, i64 %852
@@ -1310,7 +1310,7 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %839, %814
   store i32 %spec.select.i.i.i.i.us, ptr %26, align 8, !tbaa !4
   %860 = trunc i32 %859 to i8
   %861 = lshr i8 %860, 7
-  store i8 %861, ptr %62, align 2, !tbaa !61
+  store i8 %861, ptr %62, align 2, !tbaa !62
   %862 = lshr i32 %spec.select.i.i.i.i.us, 3
   %863 = zext nneg i32 %862 to i64
   %864 = getelementptr inbounds nuw i8, ptr %85, i64 %863
@@ -1320,21 +1320,21 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %839, %814
   %868 = shl nuw nsw i32 %866, %867
   %869 = trunc i32 %868 to i8
   %870 = lshr i8 %869, 7
-  store i8 %870, ptr %63, align 1, !tbaa !62
-  store i8 1, ptr %64, align 2, !tbaa !63
+  store i8 %870, ptr %63, align 1, !tbaa !63
+  store i8 1, ptr %64, align 2, !tbaa !64
   br label %decode_nal_sei_message.exit.thread.us
 
 871:                                              ; preds = %bytestream2_init.exit.i.us
-  %872 = load i32, ptr %60, align 8, !tbaa !37
+  %872 = load i32, ptr %60, align 8, !tbaa !38
   %873 = sext i32 %872 to i64
   %874 = getelementptr inbounds [16 x ptr], ptr %66, i64 0, i64 %873
-  %875 = load ptr, ptr %874, align 8, !tbaa !64
+  %875 = load ptr, ptr %874, align 8, !tbaa !65
   %.not.i.i.i.us = icmp eq ptr %875, null
   br i1 %.not.i.i.i.us, label %decode_nal_sei_message.exit.thread17, label %876
 
 876:                                              ; preds = %871
   %877 = getelementptr inbounds nuw i8, ptr %875, i64 7492
-  %878 = load i32, ptr %877, align 4, !tbaa !66
+  %878 = load i32, ptr %877, align 4, !tbaa !67
   %.not32.i.i.i.us = icmp eq i32 %878, 0
   br i1 %.not32.i.i.i.us, label %decode_nal_sei_message.exit.thread.us, label %879
 
@@ -1342,7 +1342,7 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %839, %814
   %880 = load i32, ptr %85, align 1, !tbaa !13
   %881 = lshr i32 %880, 4
   %882 = and i32 %881, 15
-  store i32 0, ptr %65, align 4, !tbaa !79
+  store i32 0, ptr %65, align 4, !tbaa !80
   %switch.tableidx = add nsw i32 %882, -1
   %883 = icmp ult i32 %switch.tableidx, 12
   %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
@@ -1359,7 +1359,7 @@ switch.lookup:                                    ; preds = %879
   %switch.gep95 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.ff_hevc_decode_nal_sei.4, i64 0, i64 %885
   %switch.load96 = load i32, ptr %switch.gep95, align 4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 48, ptr noundef nonnull %switch.load) #6
-  store i32 %switch.load96, ptr %65, align 4, !tbaa !79
+  store i32 %switch.load96, ptr %65, align 4, !tbaa !80
   br label %decode_nal_sei_message.exit.thread.us
 
 886:                                              ; preds = %bytestream2_init.exit.i.us
@@ -1369,7 +1369,7 @@ switch.lookup:                                    ; preds = %879
 
 bytestream2_get_byte.exit.i.i.i.us:               ; preds = %886
   %889 = getelementptr inbounds nuw i8, ptr %80, i64 2
-  store ptr %889, ptr %6, align 8, !tbaa !80
+  store ptr %889, ptr %6, align 8, !tbaa !81
   %890 = load i8, ptr %85, align 1, !tbaa !13
   %891 = icmp eq i8 %890, 0
   br i1 %891, label %bytestream2_get_byte.exit.split.us.i.i.i.us.preheader, label %decode_nal_sei_message.exit.thread.us
@@ -1381,7 +1381,7 @@ bytestream2_get_byte.exit.split.us.i.i.i.us.preheader: ; preds = %bytestream2_ge
 bytestream2_get_byte.exit.split.us.i.i.i.us:      ; preds = %bytestream2_get_byte.exit.split.us.i.i.i.us.preheader, %bytestream2_get_byte.exit.split.us.i.i.i.us
   %892 = phi ptr [ %898, %bytestream2_get_byte.exit.split.us.i.i.i.us ], [ %.ph, %bytestream2_get_byte.exit.split.us.i.i.i.us.preheader ]
   %indvars.iv.i.i.i.us = phi i64 [ %indvars.iv.next.i.i.i.us, %bytestream2_get_byte.exit.split.us.i.i.i.us ], [ 0, %bytestream2_get_byte.exit.split.us.i.i.i.us.preheader ]
-  store i8 1, ptr %29, align 1, !tbaa !81
+  store i8 1, ptr %29, align 1, !tbaa !82
   %893 = getelementptr inbounds nuw [3 x [16 x i8]], ptr %28, i64 0, i64 %indvars.iv.i.i.i.us
   %894 = ptrtoint ptr %892 to i64
   %895 = sub i64 %887, %894
@@ -1391,7 +1391,7 @@ bytestream2_get_byte.exit.split.us.i.i.i.us:      ; preds = %bytestream2_get_byt
   %898 = getelementptr inbounds nuw i8, ptr %892, i64 %897
   %indvars.iv.next.i.i.i.us = add nuw nsw i64 %indvars.iv.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %indvars.iv.next.i.i.i.us, 3
-  br i1 %exitcond.not.i.i.i.us, label %decode_nal_sei_message.exit.thread.us, label %bytestream2_get_byte.exit.split.us.i.i.i.us, !llvm.loop !82
+  br i1 %exitcond.not.i.i.i.us, label %decode_nal_sei_message.exit.thread.us, label %bytestream2_get_byte.exit.split.us.i.i.i.us, !llvm.loop !83
 
 899:                                              ; preds = %bytestream2_init.exit.i.us
   %900 = call i32 @ff_h2645_sei_message_decode(ptr noundef %2, i32 noundef %78, i32 noundef 173, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %1) #6
@@ -1418,7 +1418,7 @@ decode_nal_sei_message.exit.thread.us:            ; preds = %bytestream2_get_byt
   %906 = sub i64 %20, %905
   %907 = trunc i64 %906 to i32
   %908 = icmp sgt i32 %907, 0
-  br i1 %908, label %bytestream2_init.exit.split.us, label %.loopexit, !llvm.loop !84
+  br i1 %908, label %bytestream2_init.exit.split.us, label %.loopexit, !llvm.loop !85
 
 bytestream2_init.exit.split:                      ; preds = %bytestream2_init.exit, %decode_nal_sei_message.exit.thread
   %.sroa.0.0 = phi ptr [ %938, %decode_nal_sei_message.exit.thread ], [ %17, %bytestream2_init.exit ]
@@ -1461,7 +1461,7 @@ bytestream2_init.exit.split:                      ; preds = %bytestream2_init.ex
   %929 = zext i8 %928 to i32
   %930 = add nuw nsw i32 %.03155.i, %929
   %931 = icmp eq i8 %928, -1
-  br i1 %931, label %.preheader.i, label %932, !llvm.loop !16
+  br i1 %931, label %.preheader.i, label %932, !llvm.loop !17
 
 932:                                              ; preds = %926
   %933 = ptrtoint ptr %927 to i64
@@ -1471,11 +1471,11 @@ bytestream2_init.exit.split:                      ; preds = %bytestream2_init.ex
   br i1 %936, label %decode_nal_sei_message.exit.thread17, label %bytestream2_init.exit.i
 
 bytestream2_init.exit.i:                          ; preds = %932
-  store ptr %927, ptr %6, align 8, !tbaa !17
-  store ptr %927, ptr %21, align 8, !tbaa !19
+  store ptr %927, ptr %6, align 8, !tbaa !18
+  store ptr %927, ptr %21, align 8, !tbaa !20
   %937 = zext nneg i32 %930 to i64
   %938 = getelementptr inbounds nuw i8, ptr %927, i64 %937
-  store ptr %938, ptr %22, align 8, !tbaa !20
+  store ptr %938, ptr %22, align 8, !tbaa !21
   %or.cond.i.i = icmp samesign ugt i32 %930, 268435455
   %939 = shl nuw nsw i32 %930, 3
   %940 = select i1 %or.cond.i.i, i32 -8, i32 %939
@@ -1486,10 +1486,10 @@ bytestream2_init.exit.i:                          ; preds = %932
   store ptr %.017.i.i.i, ptr %7, align 8, !tbaa !12
   store i32 %.018.i.i.i, ptr %23, align 4, !tbaa !11
   %942 = add nuw nsw i32 %.018.i.i.i, 8
-  store i32 %942, ptr %24, align 8, !tbaa !21
+  store i32 %942, ptr %24, align 8, !tbaa !22
   %943 = zext nneg i32 %941 to i64
   %944 = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %943
-  store ptr %944, ptr %25, align 8, !tbaa !22
+  store ptr %944, ptr %25, align 8, !tbaa !23
   store i32 0, ptr %26, align 8, !tbaa !4
   %cond.i.i = icmp eq i32 %920, 132
   br i1 %cond.i.i, label %947, label %960
@@ -1511,7 +1511,7 @@ get_ue_golomb_long.exit32.thread.i.i.i:           ; preds = %747, %get_ue_golomb
 
 bytestream2_get_byte.exit.i.i34.i:                ; preds = %947
   %950 = getelementptr inbounds nuw i8, ptr %922, i64 2
-  store ptr %950, ptr %6, align 8, !tbaa !80
+  store ptr %950, ptr %6, align 8, !tbaa !81
   %951 = load i8, ptr %927, align 1, !tbaa !13
   %952 = icmp eq i8 %951, 0
   br i1 %952, label %bytestream2_get_byte.exit.split.us.i.i36.i.preheader, label %decode_nal_sei_message.exit.thread
@@ -1523,7 +1523,7 @@ bytestream2_get_byte.exit.split.us.i.i36.i.preheader: ; preds = %bytestream2_get
 bytestream2_get_byte.exit.split.us.i.i36.i:       ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i.preheader, %bytestream2_get_byte.exit.split.us.i.i36.i
   %953 = phi ptr [ %959, %bytestream2_get_byte.exit.split.us.i.i36.i ], [ %.ph106, %bytestream2_get_byte.exit.split.us.i.i36.i.preheader ]
   %indvars.iv.i.i37.i = phi i64 [ %indvars.iv.next.i.i38.i, %bytestream2_get_byte.exit.split.us.i.i36.i ], [ 0, %bytestream2_get_byte.exit.split.us.i.i36.i.preheader ]
-  store i8 1, ptr %29, align 1, !tbaa !81
+  store i8 1, ptr %29, align 1, !tbaa !82
   %954 = getelementptr inbounds nuw [3 x [16 x i8]], ptr %28, i64 0, i64 %indvars.iv.i.i37.i
   %955 = ptrtoint ptr %953 to i64
   %956 = sub i64 %948, %955
@@ -1533,7 +1533,7 @@ bytestream2_get_byte.exit.split.us.i.i36.i:       ; preds = %bytestream2_get_byt
   %959 = getelementptr inbounds nuw i8, ptr %953, i64 %958
   %indvars.iv.next.i.i38.i = add nuw nsw i64 %indvars.iv.i.i37.i, 1
   %exitcond.not.i.i39.i = icmp eq i64 %indvars.iv.next.i.i38.i, 3
-  br i1 %exitcond.not.i.i39.i, label %decode_nal_sei_message.exit.thread, label %bytestream2_get_byte.exit.split.us.i.i36.i, !llvm.loop !82
+  br i1 %exitcond.not.i.i39.i, label %decode_nal_sei_message.exit.thread, label %bytestream2_get_byte.exit.split.us.i.i36.i, !llvm.loop !83
 
 960:                                              ; preds = %bytestream2_init.exit.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %920) #6
@@ -1547,7 +1547,7 @@ decode_nal_sei_message.exit.thread:               ; preds = %bytestream2_get_byt
   %961 = sub i64 %20, %.pre-phi
   %962 = trunc i64 %961 to i32
   %963 = icmp sgt i32 %962, 0
-  br i1 %963, label %bytestream2_init.exit.split, label %.loopexit, !llvm.loop !85
+  br i1 %963, label %bytestream2_init.exit.split, label %.loopexit, !llvm.loop !86
 
 decode_nal_sei_message.exit.thread17:             ; preds = %932, %909, %.preheader.i, %871, %get_se_golomb.exit.i.i.i.us, %get_ue_golomb.exit121.i.i.i.us, %get_ue_golomb.exit109.i.i.i.us, %get_ue_golomb.exit.i.i.i.us, %90, %67, %.preheader.i.us, %349, %get_ue_golomb.exit145.i.i.i.us, %get_ue_golomb_long.exit.thread.i.i.i, %get_ue_golomb_long.exit32.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #6
@@ -1615,75 +1615,76 @@ attributes #7 = { noreturn nounwind }
 !11 = !{!5, !10, i64 20}
 !12 = !{!5, !6, i64 0}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!18, !6, i64 0}
-!18 = !{!"GetByteContext", !6, i64 0, !6, i64 8, !6, i64 16}
-!19 = !{!18, !6, i64 16}
-!20 = !{!18, !6, i64 8}
-!21 = !{!5, !10, i64 24}
-!22 = !{!5, !6, i64 8}
-!23 = !{!24, !8, i64 0}
-!24 = !{!"HEVCSEITDRDI", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 68, !8, i64 132, !8, i64 164, !8, i64 196, !8, i64 228, !8, i64 260, !8, i64 292, !8, i64 356}
-!25 = !{!24, !8, i64 1}
-!26 = !{!24, !8, i64 2}
-!27 = !{!24, !8, i64 3}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"short", !8, i64 0}
-!30 = distinct !{!30, !15}
-!31 = !{!24, !8, i64 356}
-!32 = !{!33, !8, i64 4}
-!33 = !{!"HEVCSEITimeCode", !10, i64 0, !8, i64 4, !8, i64 5, !8, i64 8, !8, i64 11, !8, i64 14, !8, i64 17, !8, i64 20, !8, i64 24, !8, i64 30, !8, i64 33, !8, i64 36, !8, i64 39, !8, i64 42, !8, i64 45, !8, i64 48, !8, i64 52}
-!34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !15}
-!36 = !{!33, !10, i64 0}
-!37 = !{!38, !10, i64 296}
-!38 = !{!"HEVCSEI", !39, i64 0, !57, i64 240, !58, i64 292, !10, i64 296, !33, i64 300, !24, i64 364, !59, i64 722}
-!39 = !{!"H2645SEI", !40, i64 0, !42, i64 8, !43, i64 16, !44, i64 24, !45, i64 32, !46, i64 40, !49, i64 56, !50, i64 88, !51, i64 104, !52, i64 112, !53, i64 124, !54, i64 152, !55, i64 160, !56, i64 232}
-!40 = !{!"H2645SEIA53Caption", !41, i64 0}
-!41 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!42 = !{!"H2645SEIAFD", !10, i64 0, !8, i64 4}
-!43 = !{!"HEVCSEIDynamicHDRPlus", !41, i64 0}
-!44 = !{!"HEVCSEIDynamicHDRVivid", !41, i64 0}
-!45 = !{!"HEVCSEILCEVC", !41, i64 0}
-!46 = !{!"H2645SEIUnregistered", !47, i64 0, !10, i64 8, !10, i64 12}
-!47 = !{!"p2 _ZTS11AVBufferRef", !48, i64 0}
-!48 = !{!"any p2 pointer", !7, i64 0}
-!49 = !{!"H2645SEIFramePacking", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
-!50 = !{!"H2645SEIDisplayOrientation", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!51 = !{!"H2645SEIAlternativeTransfer", !10, i64 0, !10, i64 4}
-!52 = !{!"H2645SEIAmbientViewingEnvironment", !10, i64 0, !10, i64 4, !29, i64 8, !29, i64 10}
-!53 = !{!"H2645SEIMasteringDisplay", !10, i64 0, !8, i64 4, !8, i64 16, !10, i64 20, !10, i64 24}
-!54 = !{!"H2645SEIContentLight", !10, i64 0, !29, i64 4, !29, i64 6}
-!55 = !{!"AVFilmGrainAFGS1Params", !10, i64 0, !8, i64 8}
-!56 = !{!"p1 _ZTS32H2645SEIFilmGrainCharacteristics", !7, i64 0}
-!57 = !{!"HEVCSEIPictureHash", !8, i64 0, !8, i64 48}
-!58 = !{!"HEVCSEIPictureTiming", !10, i64 0}
-!59 = !{!"HEVCSEIRecoveryPoint", !29, i64 0, !8, i64 2, !8, i64 3, !8, i64 4}
-!60 = !{!59, !29, i64 0}
-!61 = !{!59, !8, i64 2}
-!62 = !{!59, !8, i64 3}
-!63 = !{!59, !8, i64 4}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS7HEVCSPS", !7, i64 0}
-!66 = !{!67, !10, i64 7492}
-!67 = !{!"HEVCSPS", !10, i64 0, !10, i64 4, !68, i64 8, !68, i64 24, !69, i64 40, !10, i64 7304, !10, i64 7308, !10, i64 7312, !10, i64 7316, !10, i64 7320, !10, i64 7324, !8, i64 7328, !10, i64 7412, !71, i64 7416, !74, i64 7576, !76, i64 7998, !10, i64 9548, !8, i64 9552, !8, i64 18512, !10, i64 18576, !8, i64 18580, !77, i64 18584, !10, i64 18596, !10, i64 18600, !10, i64 18604, !10, i64 18608, !10, i64 18612, !10, i64 18616, !10, i64 18620, !10, i64 18624, !10, i64 18628, !8, i64 18632, !8, i64 18633, !8, i64 18634, !8, i64 18635, !8, i64 18636, !8, i64 18637, !8, i64 18638, !8, i64 18639, !8, i64 18640, !8, i64 18641, !8, i64 18642, !8, i64 18643, !8, i64 18644, !8, i64 18645, !8, i64 18646, !8, i64 18647, !8, i64 18648, !8, i64 18649, !8, i64 18650, !8, i64 18651, !8, i64 18652, !8, i64 18653, !8, i64 18654, !8, i64 18655, !8, i64 18656, !8, i64 18657, !8, i64 18658, !8, i64 18659, !8, i64 18660, !8, i64 18661, !10, i64 18664, !10, i64 18668, !10, i64 18672, !8, i64 18676, !10, i64 20212, !10, i64 20216, !10, i64 20220, !10, i64 20224, !10, i64 20228, !10, i64 20232, !10, i64 20236, !10, i64 20240, !10, i64 20244, !10, i64 20248, !10, i64 20252, !10, i64 20256, !10, i64 20260, !8, i64 20264, !8, i64 20276, !10, i64 20288, !6, i64 20296, !10, i64 20304, !78, i64 20312}
-!68 = !{!"HEVCWindow", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!69 = !{!"HEVCHdrParams", !70, i64 0, !8, i64 3, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 24, !8, i64 40, !8, i64 3652}
-!70 = !{!"HEVCHdrFlagParams", !8, i64 0, !8, i64 1, !8, i64 2}
-!71 = !{!"VUI", !72, i64 0, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !68, i64 84, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156}
-!72 = !{!"H2645VUI", !73, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64}
-!73 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!74 = !{!"PTL", !75, i64 0, !8, i64 51, !8, i64 408, !8, i64 415}
-!75 = !{!"PTLCommon", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 38, !8, i64 39, !8, i64 40, !8, i64 41, !8, i64 42, !8, i64 43, !8, i64 44, !8, i64 45, !8, i64 46, !8, i64 47, !8, i64 48, !8, i64 49, !8, i64 50}
-!76 = !{!"ScalingList", !8, i64 0, !8, i64 1536}
-!77 = !{!"", !8, i64 0, !8, i64 1, !10, i64 4, !10, i64 8}
-!78 = !{!"p1 _ZTS7HEVCVPS", !7, i64 0}
-!79 = !{!58, !10, i64 0}
-!80 = !{!6, !6, i64 0}
-!81 = !{!57, !8, i64 48}
-!82 = distinct !{!82, !15, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !15, !83}
-!85 = distinct !{!85, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!19, !6, i64 0}
+!19 = !{!"GetByteContext", !6, i64 0, !6, i64 8, !6, i64 16}
+!20 = !{!19, !6, i64 16}
+!21 = !{!19, !6, i64 8}
+!22 = !{!5, !10, i64 24}
+!23 = !{!5, !6, i64 8}
+!24 = !{!25, !8, i64 0}
+!25 = !{!"HEVCSEITDRDI", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 68, !8, i64 132, !8, i64 164, !8, i64 196, !8, i64 228, !8, i64 260, !8, i64 292, !8, i64 356}
+!26 = !{!25, !8, i64 1}
+!27 = !{!25, !8, i64 2}
+!28 = !{!25, !8, i64 3}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"short", !8, i64 0}
+!31 = distinct !{!31, !15, !16}
+!32 = !{!25, !8, i64 356}
+!33 = !{!34, !8, i64 4}
+!34 = !{!"HEVCSEITimeCode", !10, i64 0, !8, i64 4, !8, i64 5, !8, i64 8, !8, i64 11, !8, i64 14, !8, i64 17, !8, i64 20, !8, i64 24, !8, i64 30, !8, i64 33, !8, i64 36, !8, i64 39, !8, i64 42, !8, i64 45, !8, i64 48, !8, i64 52}
+!35 = !{!10, !10, i64 0}
+!36 = distinct !{!36, !15, !16}
+!37 = !{!34, !10, i64 0}
+!38 = !{!39, !10, i64 296}
+!39 = !{!"HEVCSEI", !40, i64 0, !58, i64 240, !59, i64 292, !10, i64 296, !34, i64 300, !25, i64 364, !60, i64 722}
+!40 = !{!"H2645SEI", !41, i64 0, !43, i64 8, !44, i64 16, !45, i64 24, !46, i64 32, !47, i64 40, !50, i64 56, !51, i64 88, !52, i64 104, !53, i64 112, !54, i64 124, !55, i64 152, !56, i64 160, !57, i64 232}
+!41 = !{!"H2645SEIA53Caption", !42, i64 0}
+!42 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!43 = !{!"H2645SEIAFD", !10, i64 0, !8, i64 4}
+!44 = !{!"HEVCSEIDynamicHDRPlus", !42, i64 0}
+!45 = !{!"HEVCSEIDynamicHDRVivid", !42, i64 0}
+!46 = !{!"HEVCSEILCEVC", !42, i64 0}
+!47 = !{!"H2645SEIUnregistered", !48, i64 0, !10, i64 8, !10, i64 12}
+!48 = !{!"p2 _ZTS11AVBufferRef", !49, i64 0}
+!49 = !{!"any p2 pointer", !7, i64 0}
+!50 = !{!"H2645SEIFramePacking", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
+!51 = !{!"H2645SEIDisplayOrientation", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!52 = !{!"H2645SEIAlternativeTransfer", !10, i64 0, !10, i64 4}
+!53 = !{!"H2645SEIAmbientViewingEnvironment", !10, i64 0, !10, i64 4, !30, i64 8, !30, i64 10}
+!54 = !{!"H2645SEIMasteringDisplay", !10, i64 0, !8, i64 4, !8, i64 16, !10, i64 20, !10, i64 24}
+!55 = !{!"H2645SEIContentLight", !10, i64 0, !30, i64 4, !30, i64 6}
+!56 = !{!"AVFilmGrainAFGS1Params", !10, i64 0, !8, i64 8}
+!57 = !{!"p1 _ZTS32H2645SEIFilmGrainCharacteristics", !7, i64 0}
+!58 = !{!"HEVCSEIPictureHash", !8, i64 0, !8, i64 48}
+!59 = !{!"HEVCSEIPictureTiming", !10, i64 0}
+!60 = !{!"HEVCSEIRecoveryPoint", !30, i64 0, !8, i64 2, !8, i64 3, !8, i64 4}
+!61 = !{!60, !30, i64 0}
+!62 = !{!60, !8, i64 2}
+!63 = !{!60, !8, i64 3}
+!64 = !{!60, !8, i64 4}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS7HEVCSPS", !7, i64 0}
+!67 = !{!68, !10, i64 7492}
+!68 = !{!"HEVCSPS", !10, i64 0, !10, i64 4, !69, i64 8, !69, i64 24, !70, i64 40, !10, i64 7304, !10, i64 7308, !10, i64 7312, !10, i64 7316, !10, i64 7320, !10, i64 7324, !8, i64 7328, !10, i64 7412, !72, i64 7416, !75, i64 7576, !77, i64 7998, !10, i64 9548, !8, i64 9552, !8, i64 18512, !10, i64 18576, !8, i64 18580, !78, i64 18584, !10, i64 18596, !10, i64 18600, !10, i64 18604, !10, i64 18608, !10, i64 18612, !10, i64 18616, !10, i64 18620, !10, i64 18624, !10, i64 18628, !8, i64 18632, !8, i64 18633, !8, i64 18634, !8, i64 18635, !8, i64 18636, !8, i64 18637, !8, i64 18638, !8, i64 18639, !8, i64 18640, !8, i64 18641, !8, i64 18642, !8, i64 18643, !8, i64 18644, !8, i64 18645, !8, i64 18646, !8, i64 18647, !8, i64 18648, !8, i64 18649, !8, i64 18650, !8, i64 18651, !8, i64 18652, !8, i64 18653, !8, i64 18654, !8, i64 18655, !8, i64 18656, !8, i64 18657, !8, i64 18658, !8, i64 18659, !8, i64 18660, !8, i64 18661, !10, i64 18664, !10, i64 18668, !10, i64 18672, !8, i64 18676, !10, i64 20212, !10, i64 20216, !10, i64 20220, !10, i64 20224, !10, i64 20228, !10, i64 20232, !10, i64 20236, !10, i64 20240, !10, i64 20244, !10, i64 20248, !10, i64 20252, !10, i64 20256, !10, i64 20260, !8, i64 20264, !8, i64 20276, !10, i64 20288, !6, i64 20296, !10, i64 20304, !79, i64 20312}
+!69 = !{!"HEVCWindow", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!70 = !{!"HEVCHdrParams", !71, i64 0, !8, i64 3, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 24, !8, i64 40, !8, i64 3652}
+!71 = !{!"HEVCHdrFlagParams", !8, i64 0, !8, i64 1, !8, i64 2}
+!72 = !{!"VUI", !73, i64 0, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !69, i64 84, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156}
+!73 = !{!"H2645VUI", !74, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64}
+!74 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!75 = !{!"PTL", !76, i64 0, !8, i64 51, !8, i64 408, !8, i64 415}
+!76 = !{!"PTLCommon", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 38, !8, i64 39, !8, i64 40, !8, i64 41, !8, i64 42, !8, i64 43, !8, i64 44, !8, i64 45, !8, i64 46, !8, i64 47, !8, i64 48, !8, i64 49, !8, i64 50}
+!77 = !{!"ScalingList", !8, i64 0, !8, i64 1536}
+!78 = !{!"", !8, i64 0, !8, i64 1, !10, i64 4, !10, i64 8}
+!79 = !{!"p1 _ZTS7HEVCVPS", !7, i64 0}
+!80 = !{!59, !10, i64 0}
+!81 = !{!6, !6, i64 0}
+!82 = !{!58, !8, i64 48}
+!83 = distinct !{!83, !15, !16, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !15, !16, !84}
+!86 = distinct !{!86, !15, !16}

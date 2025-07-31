@@ -226,12 +226,12 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit: ; preds = %26, %36
   %64 = sub nsw i64 0, %63
   %gep.i.i = getelementptr { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %invariant.gep.i.i, i64 %64
   %65 = call noundef zeroext i1 @"_ZN74_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8be7f8af3713d029E.llvm.14508081899341677224"(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %gep.i.i), !noalias !81
-  br i1 %65, label %69, label %53
+  br i1 %65, label %69, label %53, !llvm.loop !84
 
 66:                                               ; preds = %54
   %67 = add i64 %.sroa.9.0.i.i.i, 16
   %68 = add i64 %.sroa.01.0.i.i.i, %67
-  br label %49
+  br label %49, !llvm.loop !86
 
 69:                                               ; preds = %57
   %70 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %.val, i64 %64
@@ -376,3 +376,6 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !81 = !{!82, !77, !79}
 !82 = distinct !{!82, !83, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1bb46267fb3e3558E: argument 0"}
 !83 = distinct !{!83, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1bb46267fb3e3558E"}
+!84 = distinct !{!84, !85}
+!85 = !{!"llvm.loop.estimated_trip_count"}
+!86 = distinct !{!86, !85}

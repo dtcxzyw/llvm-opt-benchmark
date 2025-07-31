@@ -103,7 +103,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %.not146, label %.loopexit159, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %0, align 8, !tbaa !45
+  %27 = load ptr, ptr %0, align 8, !tbaa !46
   %28 = load ptr, ptr %8, align 8, !tbaa !41
   %29 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %27, ptr noundef %28, ptr noundef nonnull @.str.4)
   %.sroa.01.0..sroa.01.0..cast = inttoptr i64 %29 to ptr
@@ -115,10 +115,10 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %32 = add i32 %.1133166, 1
   %33 = zext i32 %32 to i64
   %34 = icmp ugt i64 %30, %33
-  br i1 %34, label %.lr.ph, label %.preheader158, !llvm.loop !46
+  br i1 %34, label %.lr.ph, label %.preheader158, !llvm.loop !47
 
 .preheader158:                                    ; preds = %31, %26
-  %35 = load i8, ptr %.sroa.01.0..sroa.01.0..cast, align 1, !tbaa !47
+  %35 = load i8, ptr %.sroa.01.0..sroa.01.0..cast, align 1, !tbaa !48
   %.not174 = icmp eq i8 %35, 0
   br i1 %.not174, label %.loopexit159, label %.lr.ph169
 
@@ -126,7 +126,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %36 = phi i64 [ %33, %31 ], [ 0, %26 ]
   %.1133166 = phi i32 [ %32, %31 ], [ 0, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.01.0..sroa.01.0..cast, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !47
+  %38 = load i8, ptr %37, align 1, !tbaa !48
   %39 = sext i8 %38 to i32
   %40 = and i32 %39, 255
   %41 = zext nneg i32 %40 to i64
@@ -173,7 +173,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 
 59:                                               ; preds = %61, %54
   %.1131 = phi ptr [ %.0130168, %54 ], [ %62, %61 ]
-  %60 = load i8, ptr %.1131, align 1, !tbaa !47
+  %60 = load i8, ptr %.1131, align 1, !tbaa !48
   switch i8 %60, label %61 [
     i8 0, label %.critedge
     i8 44, label %.critedge
@@ -181,17 +181,17 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %.1131, i64 1
-  br label %59, !llvm.loop !48
+  br label %59, !llvm.loop !49
 
 .critedge:                                        ; preds = %59, %59
   %63 = icmp eq i8 %60, 44
   %spec.select.idx = zext i1 %63 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.1131, i64 %spec.select.idx
-  %64 = load i8, ptr %spec.select, align 1, !tbaa !47
+  %64 = load i8, ptr %spec.select, align 1, !tbaa !48
   %65 = icmp ne i8 %64, 0
   %66 = icmp samesign ult i64 %indvars.iv183, 3
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %.lr.ph169, label %.loopexit159.loopexit, !llvm.loop !49
+  br i1 %67, label %.lr.ph169, label %.loopexit159.loopexit, !llvm.loop !50
 
 .loopexit159.loopexit:                            ; preds = %.critedge
   %68 = trunc nuw nsw i64 %indvars.iv.next184 to i32
@@ -211,7 +211,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 72:                                               ; preds = %.preheader157, %83
   %indvars.iv186 = phi i64 [ 0, %.preheader157 ], [ %indvars.iv.next187, %83 ]
   %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 0, i64 %indvars.iv186
-  %74 = load i8, ptr %73, align 1, !tbaa !47
+  %74 = load i8, ptr %73, align 1, !tbaa !48
   switch i8 %74, label %80 [
     i8 119, label %83
     i8 101, label %75
@@ -251,7 +251,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   store i32 %.sink, ptr %85, align 4, !tbaa !42
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 3
-  br i1 %exitcond189.not, label %.loopexit, label %72, !llvm.loop !50
+  br i1 %exitcond189.not, label %.loopexit, label %72, !llvm.loop !51
 
 .loopexit:                                        ; preds = %83, %.loopexit159
   %.3139 = phi i32 [ %.0136, %.loopexit159 ], [ 3, %83 ]
@@ -282,12 +282,12 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 96:                                               ; preds = %89, %87
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 4
-  br i1 %exitcond193.not, label %97, label %87, !llvm.loop !51
+  br i1 %exitcond193.not, label %97, label %87, !llvm.loop !52
 
 97:                                               ; preds = %96
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next195, 4
-  br i1 %exitcond197.not, label %98, label %.preheader, !llvm.loop !52
+  br i1 %exitcond197.not, label %98, label %.preheader, !llvm.loop !53
 
 98:                                               ; preds = %97
   switch i32 %.3139, label %128 [
@@ -349,26 +349,26 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %.sink209 = phi i64 [ 144, %98 ], [ 128, %106 ], [ 144, %119 ], [ 112, %.thread156 ]
   %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts, %98 ], [ @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts, %106 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %119 ], [ @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts, %.thread156 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink211
-  store ptr %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink, ptr %126, align 8, !tbaa !53
+  store ptr %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink, ptr %126, align 8, !tbaa !54
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink209
-  store ptr %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink, ptr %127, align 8, !tbaa !53
+  store ptr %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink, ptr %127, align 8, !tbaa !54
   br label %128
 
 128:                                              ; preds = %.sink.split, %110, %99, %102, %106, %98, %.thread156
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %130 = load ptr, ptr %129, align 8, !tbaa !54
+  %130 = load ptr, ptr %129, align 8, !tbaa !55
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %142
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %134 = load ptr, ptr %133, align 8, !tbaa !55
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %138 = load ptr, ptr %137, align 8, !tbaa !56
+  %138 = load ptr, ptr %137, align 8, !tbaa !57
   %139 = icmp eq ptr %138, null
   br i1 %139, label %140, label %142
 
@@ -378,7 +378,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %.thread
 
 142:                                              ; preds = %136, %132, %128
-  %143 = load ptr, ptr %0, align 8, !tbaa !45
+  %143 = load ptr, ptr %0, align 8, !tbaa !46
   %144 = load ptr, ptr %8, align 8, !tbaa !41
   %145 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %143, ptr noundef %144, ptr noundef nonnull @.str.10)
   %146 = and i64 %145, 4294967295
@@ -389,13 +389,13 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 %spec.select212, ptr %148, align 8, !tbaa !39
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store i32 1, ptr %149, align 4, !tbaa !57
+  store i32 1, ptr %149, align 4, !tbaa !58
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i32 1, ptr %150, align 8, !tbaa !58
+  store i32 1, ptr %150, align 8, !tbaa !59
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store i32 1, ptr %151, align 4, !tbaa !59
+  store i32 1, ptr %151, align 4, !tbaa !60
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 1, ptr %152, align 8, !tbaa !60
+  store i32 1, ptr %152, align 8, !tbaa !61
   br label %.thread
 
 .thread:                                          ; preds = %52, %44, %142, %140, %94, %80, %16, %4
@@ -443,19 +443,19 @@ define internal void @_ZL22pj_axisswap_forward_4dR8PJ_COORDP8PJconsts(ptr nounde
   %9 = load i32, ptr %8, align 4, !tbaa !42
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %10
-  %12 = load double, ptr %11, align 8, !tbaa !47
+  %12 = load double, ptr %11, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !42
   %15 = sitofp i32 %14 to double
   %16 = fmul double %12, %15
   %17 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %indvars.iv
-  store double %16, ptr %17, align 8, !tbaa !47
+  store double %16, ptr %17, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %7, !llvm.loop !61
+  br i1 %exitcond.not, label %18, label %7, !llvm.loop !62
 
 18:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret void
 }
@@ -472,7 +472,7 @@ define internal void @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts(ptr nounde
 7:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
   %8 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %indvars.iv
-  %9 = load double, ptr %8, align 8, !tbaa !47
+  %9 = load double, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !42
   %12 = sitofp i32 %11 to double
@@ -481,13 +481,13 @@ define internal void @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts(ptr nounde
   %15 = load i32, ptr %14, align 4, !tbaa !42
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %16
-  store double %13, ptr %17, align 8, !tbaa !47
+  store double %13, ptr %17, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %7, !llvm.loop !63
+  br i1 %exitcond.not, label %18, label %7, !llvm.loop !64
 
 18:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret void
 }
@@ -500,16 +500,16 @@ define internal void @_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_u
   %7 = load ptr, ptr %6, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
-  %8 = load double, ptr %1, align 8, !tbaa !64
-  store double %8, ptr %5, align 8, !tbaa !47
+  %8 = load double, ptr %1, align 8, !tbaa !65
+  store double %8, ptr %5, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load double, ptr %9, align 8, !tbaa !66
+  %10 = load double, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %10, ptr %11, align 8, !tbaa !47
+  store double %10, ptr %11, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load double, ptr %12, align 8, !tbaa !67
+  %13 = load double, ptr %12, align 8, !tbaa !68
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %13, ptr %14, align 8, !tbaa !47
+  store double %13, ptr %14, align 8, !tbaa !48
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %16
@@ -520,19 +520,19 @@ define internal void @_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_u
   %18 = load i32, ptr %17, align 4, !tbaa !42
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %19
-  %21 = load double, ptr %20, align 8, !tbaa !47
+  %21 = load double, ptr %20, align 8, !tbaa !48
   %22 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !42
   %24 = sitofp i32 %23 to double
   %25 = fmul double %21, %24
   %26 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
-  store double %25, ptr %26, align 8, !tbaa !47
+  store double %25, ptr %26, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !68
+  br i1 %exitcond.not, label %27, label %16, !llvm.loop !69
 
 27:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   ret void
@@ -547,23 +547,23 @@ define internal void @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_u
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
-  %8 = load double, ptr %1, align 8, !tbaa !71
-  store double %8, ptr %4, align 8, !tbaa !47
+  %8 = load double, ptr %1, align 8, !tbaa !72
+  store double %8, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load double, ptr %9, align 8, !tbaa !73
+  %10 = load double, ptr %9, align 8, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %10, ptr %11, align 8, !tbaa !47
+  store double %10, ptr %11, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load double, ptr %12, align 8, !tbaa !74
+  %13 = load double, ptr %12, align 8, !tbaa !75
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double %13, ptr %14, align 8, !tbaa !47
+  store double %13, ptr %14, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %16
 
 16:                                               ; preds = %3, %16
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %16 ]
   %17 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8, !tbaa !47
+  %18 = load double, ptr %17, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = sitofp i32 %20 to double
@@ -572,13 +572,13 @@ define internal void @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_u
   %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %25
-  store double %22, ptr %26, align 8, !tbaa !47
+  store double %22, ptr %26, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !75
+  br i1 %exitcond.not, label %27, label %16, !llvm.loop !76
 
 27:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   ret void
@@ -587,10 +587,10 @@ define internal void @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load double, ptr %0, align 8, !tbaa !70
-  %5 = load double, ptr %3, align 8, !tbaa !70
-  store double %5, ptr %0, align 8, !tbaa !70
-  store double %4, ptr %3, align 8, !tbaa !70
+  %4 = load double, ptr %0, align 8, !tbaa !71
+  %5 = load double, ptr %3, align 8, !tbaa !71
+  store double %5, ptr %0, align 8, !tbaa !71
+  store double %4, ptr %3, align 8, !tbaa !71
   ret void
 }
 
@@ -600,13 +600,13 @@ define internal { double, double } @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts(
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  store double %0, ptr %4, align 16, !tbaa !70
+  store double %0, ptr %4, align 16, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %1, ptr %7, align 8, !tbaa !70
+  store double %1, ptr %7, align 8, !tbaa !71
   %8 = load i32, ptr %6, align 4, !tbaa !42
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %9
-  %11 = load double, ptr %10, align 8, !tbaa !70
+  %11 = load double, ptr %10, align 8, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !42
   %14 = sitofp i32 %13 to double
@@ -615,7 +615,7 @@ define internal { double, double } @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts(
   %17 = load i32, ptr %16, align 4, !tbaa !42
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %18
-  %20 = load double, ptr %19, align 8, !tbaa !70
+  %20 = load double, ptr %19, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = sitofp i32 %22 to double
@@ -643,7 +643,7 @@ define internal { double, double } @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts(
   %12 = load i32, ptr %11, align 4, !tbaa !42
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %13
-  store double %10, ptr %14, align 8, !tbaa !47
+  store double %10, ptr %14, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 1
   %16 = load i32, ptr %15, align 4, !tbaa !42
   %17 = sitofp i32 %16 to double
@@ -652,10 +652,10 @@ define internal { double, double } @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts(
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %21
-  store double %18, ptr %22, align 8, !tbaa !47
-  %.sroa.07.0.copyload = load double, ptr %3, align 8, !tbaa !70
+  store double %18, ptr %22, align 8, !tbaa !48
+  %.sroa.07.0.copyload = load double, ptr %3, align 8, !tbaa !71
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.28.0.copyload = load double, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !70
+  %.sroa.28.0.copyload = load double, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.07.0.copyload, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.28.0.copyload, 1
@@ -730,36 +730,37 @@ attributes #13 = { nounwind }
 !40 = !{!4, !6, i64 88}
 !41 = !{!4, !10, i64 24}
 !42 = !{!13, !13, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!4, !5, i64 0}
-!46 = distinct !{!46, !44}
-!47 = !{!7, !7, i64 0}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44}
-!51 = distinct !{!51, !44}
-!52 = distinct !{!52, !44}
-!53 = !{!6, !6, i64 0}
-!54 = !{!4, !6, i64 136}
-!55 = !{!4, !6, i64 120}
-!56 = !{!4, !6, i64 104}
-!57 = !{!4, !13, i64 364}
-!58 = !{!4, !13, i64 368}
-!59 = !{!4, !13, i64 372}
-!60 = !{!4, !13, i64 376}
-!61 = distinct !{!61, !44}
-!62 = !{i64 0, i64 32, !47}
-!63 = distinct !{!63, !44}
-!64 = !{!65, !14, i64 0}
-!65 = !{!"_ZTS6PJ_LPZ", !14, i64 0, !14, i64 8, !14, i64 16}
-!66 = !{!65, !14, i64 8}
-!67 = !{!65, !14, i64 16}
-!68 = distinct !{!68, !44}
-!69 = !{i64 0, i64 8, !70, i64 8, i64 8, !70, i64 16, i64 8, !70}
-!70 = !{!14, !14, i64 0}
-!71 = !{!72, !14, i64 0}
-!72 = !{!"_ZTS6PJ_XYZ", !14, i64 0, !14, i64 8, !14, i64 16}
-!73 = !{!72, !14, i64 8}
-!74 = !{!72, !14, i64 16}
-!75 = distinct !{!75, !44}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!4, !5, i64 0}
+!47 = distinct !{!47, !44, !45}
+!48 = !{!7, !7, i64 0}
+!49 = distinct !{!49, !44, !45}
+!50 = distinct !{!50, !44, !45}
+!51 = distinct !{!51, !44, !45}
+!52 = distinct !{!52, !44, !45}
+!53 = distinct !{!53, !44, !45}
+!54 = !{!6, !6, i64 0}
+!55 = !{!4, !6, i64 136}
+!56 = !{!4, !6, i64 120}
+!57 = !{!4, !6, i64 104}
+!58 = !{!4, !13, i64 364}
+!59 = !{!4, !13, i64 368}
+!60 = !{!4, !13, i64 372}
+!61 = !{!4, !13, i64 376}
+!62 = distinct !{!62, !44, !45}
+!63 = !{i64 0, i64 32, !48}
+!64 = distinct !{!64, !44, !45}
+!65 = !{!66, !14, i64 0}
+!66 = !{!"_ZTS6PJ_LPZ", !14, i64 0, !14, i64 8, !14, i64 16}
+!67 = !{!66, !14, i64 8}
+!68 = !{!66, !14, i64 16}
+!69 = distinct !{!69, !44, !45}
+!70 = !{i64 0, i64 8, !71, i64 8, i64 8, !71, i64 16, i64 8, !71}
+!71 = !{!14, !14, i64 0}
+!72 = !{!73, !14, i64 0}
+!73 = !{!"_ZTS6PJ_XYZ", !14, i64 0, !14, i64 8, !14, i64 16}
+!74 = !{!73, !14, i64 8}
+!75 = !{!73, !14, i64 16}
+!76 = distinct !{!76, !44, !45}

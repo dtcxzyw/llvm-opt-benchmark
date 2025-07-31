@@ -244,7 +244,7 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
   store i8 %40, ptr %42, align 1, !tbaa !19
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge61, label %37, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge61, label %37, !llvm.loop !23
 
 ._crit_edge61:                                    ; preds = %37, %.preheader51, %.thread
   %.138.lcssa = phi i32 [ 0, %.thread ], [ 0, %.preheader51 ], [ %spec.store.select85, %37 ]
@@ -273,12 +273,12 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
   %53 = load i8, ptr %52, align 1, !tbaa !19
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw i16, ptr %.pre80, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !23
+  %56 = load i16, ptr %55, align 2, !tbaa !24
   %57 = add i16 %56, 1
-  store i16 %57, ptr %55, align 2, !tbaa !23
+  store i16 %57, ptr %55, align 2, !tbaa !24
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.preheader.preheader, label %51, !llvm.loop !25
+  br i1 %exitcond74.not, label %.preheader.preheader, label %51, !llvm.loop !26
 
 .preheader.preheader:                             ; preds = %51, %44
   br label %.preheader
@@ -286,12 +286,12 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
 58:                                               ; preds = %.preheader
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 160
-  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %.preheader.preheader, %58
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %58 ], [ 128, %.preheader.preheader ]
   %59 = getelementptr inbounds nuw i16, ptr %.pre80, i64 %indvars.iv75
-  %60 = load i16, ptr %59, align 2, !tbaa !23
+  %60 = load i16, ptr %59, align 2, !tbaa !24
   %.not42 = icmp eq i16 %60, 0
   br i1 %.not42, label %58, label %61
 
@@ -350,10 +350,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !17 = !{!4, !5, i64 40}
 !18 = !{!4, !9, i64 48}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"short", !7, i64 0}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"short", !7, i64 0}
+!26 = distinct !{!26, !21, !22}
+!27 = distinct !{!27, !21, !22}

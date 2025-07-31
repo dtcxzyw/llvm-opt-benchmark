@@ -762,7 +762,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %376 = call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %374, ptr noundef %0, i32 noundef %375, i32 noundef 1, i32 noundef 0)
   %377 = add nuw nsw i32 %.042.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %377, %368
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %378 = add nsw i32 %371, %368
@@ -792,7 +792,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %389 = add i32 %.2.i, 16
   %390 = add nuw nsw i32 %.143.i.i, 1
   %exitcond49.not.i.i = icmp eq i32 %390, %368
-  br i1 %exitcond49.not.i.i, label %dissect_shimopts.exit, label %.lr.ph45.i.i, !llvm.loop !10
+  br i1 %exitcond49.not.i.i, label %dissect_shimopts.exit, label %.lr.ph45.i.i, !llvm.loop !11
 
 391:                                              ; preds = %proto_item_set_generated.exit.i
   %392 = add nsw i32 %322, %325
@@ -845,7 +845,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %419 = add i32 %.4.i, %398
   %420 = add i32 %.041.us.i.i, 1
   %421 = icmp slt i32 %419, %393
-  br i1 %421, label %.lr.ph.split.us.i.i, label %dissect_shim6_opt_loc_pref.exit.i, !llvm.loop !11
+  br i1 %421, label %.lr.ph.split.us.i.i, label %dissect_shim6_opt_loc_pref.exit.i, !llvm.loop !12
 
 .thread.i78.i:                                    ; preds = %.lr.ph.i76.i, %.thread.i78.i
   %.3.i = phi i32 [ %426, %.thread.i78.i ], [ %405, %.lr.ph.i76.i ]
@@ -857,7 +857,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %426 = add nsw i32 %.3.i, %398
   %427 = add i32 %.041.i.i, 1
   %428 = icmp slt i32 %426, %393
-  br i1 %428, label %.thread.i78.i, label %dissect_shim6_opt_loc_pref.exit.i, !llvm.loop !12
+  br i1 %428, label %.thread.i78.i, label %dissect_shim6_opt_loc_pref.exit.i, !llvm.loop !13
 
 dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i78.i, %.thread.us.i.i, %404, %402
   %.5.i = phi i32 [ %396, %402 ], [ %405, %404 ], [ %419, %.thread.us.i.i ], [ %426, %.thread.i78.i ]
@@ -923,7 +923,7 @@ dissect_shim6_opt_loclist.exit.critedge.i:        ; preds = %363
 dissect_shimopts.exit:                            ; preds = %.lr.ph45.i.i, %proto_item_set_generated.exit.i, %355, %359, %dissect_shim6_opt_loc_pref.exit.i, %430, %433, %437, %441, %445, %449, %458, %dissect_shim6_opt_loclist.exit.critedge.i
   %466 = add nuw nsw i32 %330, %.090
   %467 = icmp samesign ult i32 %466, %11
-  br i1 %467, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
+  br i1 %467, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %dissect_shimopts.exit, %dissect_shimopts.exit.us, %dissect_shimctrl.exit, %54
   %468 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %11)
@@ -1038,7 +1038,7 @@ define internal fastcc void @dissect_shim6_probes(ptr noundef %0, ptr noundef %1
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %1, i32 noundef %20, i32 noundef 4, i32 noundef 0)
   %23 = add nuw nsw i32 %.03233, 40
   %exitcond.not = icmp eq i32 %10, %4
-  br i1 %exitcond.not, label %24, label %9, !llvm.loop !14
+  br i1 %exitcond.not, label %24, label %9, !llvm.loop !15
 
 24:                                               ; preds = %9
   ret void
@@ -1072,12 +1072,13 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8}
 !11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

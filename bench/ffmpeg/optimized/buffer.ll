@@ -862,9 +862,9 @@ define ptr @av_buffer_pool_get(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %20, ptr %4, align 8, !tbaa !38
   store ptr null, ptr %19, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %22 = load i32, ptr %21, align 4, !tbaa !47
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   %23 = or i32 %22, 2
-  store i32 %23, ptr %21, align 4, !tbaa !47
+  store i32 %23, ptr %21, align 4, !tbaa !48
   br label %70
 
 24:                                               ; preds = %1
@@ -955,7 +955,7 @@ define ptr @av_buffer_pool_get(ptr noundef %0) local_unnamed_addr #0 {
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %67, ptr %68, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %0, ptr %69, align 8, !tbaa !48
+  store ptr %0, ptr %69, align 8, !tbaa !49
   store ptr %44, ptr %63, align 8, !tbaa !14
   store ptr @pool_release_buffer, ptr %66, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -978,7 +978,7 @@ define internal void @pool_release_buffer(ptr noundef initializes((32, 40)) %0, 
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef %6) #10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !38
@@ -1129,7 +1129,8 @@ attributes #11 = { noreturn nounwind }
 !42 = !{!41, !7, i64 16}
 !43 = !{!41, !7, i64 8}
 !44 = !{!41, !6, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!41, !11, i64 84}
-!48 = !{!41, !37, i64 24}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!41, !11, i64 84}
+!49 = !{!41, !37, i64 24}

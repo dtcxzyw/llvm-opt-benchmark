@@ -120,7 +120,7 @@ index2pdut.exit:                                  ; preds = %.lr.ph98, %34, %36
   store ptr %40, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %42, label %.lr.ph98, label %._crit_edge99, !llvm.loop !9
+  br i1 %42, label %.lr.ph98, label %._crit_edge99, !llvm.loop !10
 
 ._crit_edge99:                                    ; preds = %index2pdut.exit, %._crit_edge
   %43 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.3, ptr noundef %5, ptr noundef %.0, i32 noundef 0, ptr noundef nonnull @wspstat_reset, ptr noundef nonnull @wspstat_packet, ptr noundef nonnull @wspstat_draw, ptr noundef null)
@@ -194,7 +194,7 @@ define internal void @wspstat_reset(ptr noundef readonly captures(none) %0) #0 {
   %9 = add i32 %.07, 1
   %10 = load i32, ptr %2, align 8
   %.not = icmp ugt i32 %9, %10
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %5, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -338,7 +338,7 @@ define internal void @wspstat_draw(ptr noundef readonly captures(none) %0) #0 {
   %36 = lshr i32 %35, 1
   %37 = zext nneg i32 %36 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %37
-  br i1 %.not.not, label %10, label %._crit_edge, !llvm.loop !11
+  br i1 %.not.not, label %10, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %33, %1
   %38 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.14)
@@ -430,8 +430,9 @@ attributes #9 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

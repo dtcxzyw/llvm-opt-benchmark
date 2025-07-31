@@ -77,7 +77,7 @@ pm_regexp_char_accept.exit.i:                     ; preds = %28
   %32 = getelementptr i8, ptr %.val.i.i, i64 1
   store ptr %32, ptr %12, align 8, !tbaa !16
   %.not.i = icmp ult ptr %32, %.val13.i.i
-  br i1 %.not.i, label %.lr.ph.i, label %pm_regexp_parse_pattern.exit, !llvm.loop !49
+  br i1 %.not.i, label %.lr.ph.i, label %pm_regexp_parse_pattern.exit, !llvm.loop !50
 
 pm_regexp_parse_pattern.exit:                     ; preds = %.lr.ph.i, %pm_regexp_char_accept.exit.i, %.preheader.i.i, %28, %30, %8
   ret void
@@ -217,7 +217,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %47 = load i8, ptr %46, align 8, !tbaa !50, !range !37, !noundef !38
+  %47 = load i8, ptr %46, align 8, !tbaa !51, !range !37, !noundef !38
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %.lr.ph117, label %73
 
@@ -238,7 +238,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
 
 56:                                               ; preds = %51, %.lr.ph117
   %57 = load ptr, ptr %44, align 8, !tbaa !41
-  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  %58 = load ptr, ptr %57, align 8, !tbaa !53
   %59 = ptrtoint ptr %49 to i64
   %60 = ptrtoint ptr %50 to i64
   %61 = sub i64 %59, %60
@@ -265,7 +265,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   store ptr %70, ptr %4, align 8, !tbaa !16
   %71 = load ptr, ptr %23, align 8, !tbaa !17
   %72 = icmp ult ptr %70, %71
-  br i1 %72, label %.lr.ph117, label %pm_regexp_parse_group.exit.thread, !llvm.loop !53
+  br i1 %72, label %.lr.ph117, label %pm_regexp_parse_group.exit.thread, !llvm.loop !54
 
 73:                                               ; preds = %43, %39
   %74 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
@@ -289,7 +289,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
 
 83:                                               ; preds = %80
   %84 = tail call fastcc zeroext i1 @pm_regexp_char_find(ptr noundef nonnull %0, i8 noundef zeroext 41)
-  br i1 %84, label %76, label %pm_regexp_parse_group.exit.thread, !llvm.loop !54
+  br i1 %84, label %76, label %pm_regexp_parse_group.exit.thread, !llvm.loop !55
 
 85:                                               ; preds = %32, %32, %32, %32, %32
   %86 = getelementptr i8, ptr %5, i64 3
@@ -408,7 +408,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   %133 = getelementptr i8, ptr %.val146.i101103, i64 1
   store ptr %133, ptr %4, align 8, !tbaa !16
   %exitcond.not = icmp eq ptr %133, %.val4.i60
-  br i1 %exitcond.not, label %pm_regexp_parse_group.exit.thread, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %pm_regexp_parse_group.exit.thread, label %.lr.ph, !llvm.loop !56
 
 134:                                              ; preds = %.lr.ph
   %.val166.i = load i8, ptr %20, align 1, !tbaa !46
@@ -460,7 +460,7 @@ pm_regexp_options_remove.exit:                    ; preds = %143, %143, %143
   %storemerge.i = getelementptr i8, ptr %storemerge.i111, i64 1
   store ptr %storemerge.i, ptr %4, align 8, !tbaa !16
   %exitcond152.not = icmp eq ptr %storemerge.i, %.val4.i60
-  br i1 %exitcond152.not, label %pm_regexp_parse_group.exit.thread, label %.lr.ph112, !llvm.loop !56
+  br i1 %exitcond152.not, label %pm_regexp_parse_group.exit.thread, label %.lr.ph112, !llvm.loop !57
 
 147:                                              ; preds = %.lr.ph112
   %.val167.i = load i8, ptr %20, align 1, !tbaa !46
@@ -531,7 +531,7 @@ pm_regexp_char_accept.exit63.thread:              ; preds = %.lr.ph, %.lr.ph112,
 163:                                              ; preds = %pm_regexp_char_accept.exit
   %164 = load i8, ptr %.val.i, align 1, !tbaa !46
   %.not135.i = icmp eq i8 %164, 41
-  br i1 %.not135.i, label %.critedge8.i, label %.lr.ph132, !llvm.loop !57
+  br i1 %.not135.i, label %.critedge8.i, label %.lr.ph132, !llvm.loop !58
 
 .lr.ph132:                                        ; preds = %.lr.ph124.split, %163
   %165 = tail call fastcc zeroext i1 @pm_regexp_parse_item(ptr noundef nonnull %0, i16 noundef zeroext %160)
@@ -576,7 +576,7 @@ pm_regexp_char_accept.exit63.thread:              ; preds = %.lr.ph, %.lr.ph112,
 pm_regexp_char_accept.exit:                       ; preds = %.preheader, %170, %174
   %.val.i = phi ptr [ %175, %174 ], [ %.val.i55, %170 ], [ %.val.i55, %.preheader ]
   %.not77 = icmp ult ptr %.val.i, %.val13.i
-  br i1 %.not77, label %163, label %.critedge8.i, !llvm.loop !57
+  br i1 %.not77, label %163, label %.critedge8.i, !llvm.loop !58
 
 .critedge8.i:                                     ; preds = %pm_regexp_char_accept.exit, %163, %.lr.ph124.split.us, %.lr.ph124.split, %159
   %176 = phi ptr [ %.val.i119, %159 ], [ %.val.i119, %.lr.ph124.split.us ], [ %.val.i119, %.lr.ph124.split ], [ %.val.i, %163 ], [ %.val.i, %pm_regexp_char_accept.exit ]
@@ -703,7 +703,7 @@ pm_regexp_char_find.exit:                         ; preds = %202
 226:                                              ; preds = %215
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %228 = load ptr, ptr %227, align 8, !tbaa !41
-  %229 = load ptr, ptr %228, align 8, !tbaa !52
+  %229 = load ptr, ptr %228, align 8, !tbaa !53
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %231 = load ptr, ptr %230, align 8, !tbaa !17
   %232 = ptrtoint ptr %231 to i64
@@ -849,13 +849,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %24 = getelementptr i8, ptr %10, i64 1
   store ptr %24, ptr %2, align 8, !tbaa !16
   %exitcond.not = icmp eq ptr %24, %scevgep19
-  br i1 %exitcond.not, label %pm_regexp_parse_range_quantifier.exit, label %.lr.ph.i
+  br i1 %exitcond.not, label %pm_regexp_parse_range_quantifier.exit, label %.lr.ph.i, !llvm.loop !59
 
 pm_regexp_parse_range_quantifier.exit:            ; preds = %23, %19, %18, %14, %12, %switch.hole_check, %20, %16, %7, %5
   %storemerge = phi ptr [ %6, %5 ], [ %21, %20 ], [ %17, %16 ], [ %8, %7 ], [ %8, %switch.hole_check ], [ %8, %12 ], [ %8, %14 ], [ %8, %18 ], [ %8, %19 ], [ %8, %23 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !16
   %.not = icmp ult ptr %storemerge, %.val6
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %pm_regexp_parse_range_quantifier.exit, %1
   ret void
@@ -1046,7 +1046,7 @@ pm_regexp_char_accept.exit:                       ; preds = %63, %64, %67
   %.val10.i = phi ptr [ %.val10.i47, %78 ], [ %.val10.i47, %77 ], [ %.val10.i.pre, %75 ], [ %.val10.i47, %72 ]
   %.val9.i = phi ptr [ %79, %78 ], [ %73, %77 ], [ %.val9.i.pre, %75 ], [ %73, %72 ]
   %.not = icmp ult ptr %.val9.i, %.val10.i
-  br i1 %.not, label %70, label %pm_regexp_parse_character_set.exit, !llvm.loop !59
+  br i1 %.not, label %70, label %pm_regexp_parse_character_set.exit, !llvm.loop !61
 
 pm_regexp_parse_character_set.exit:               ; preds = %70, %80
   %.val9.i.lcssa.ph = phi ptr [ %.val9.i38, %70 ], [ %.val9.i, %80 ]
@@ -1187,16 +1187,18 @@ attributes #5 = { nounwind }
 !44 = !{!8, !10, i64 64}
 !45 = !{!8, !10, i64 72}
 !46 = !{!11, !11, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
-!50 = !{!51, !14, i64 40}
-!51 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !13, i64 32, !14, i64 40}
-!52 = !{!51, !10, i64 0}
-!53 = distinct !{!53, !48}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = distinct !{!56, !48}
-!57 = distinct !{!57, !48}
-!58 = distinct !{!58, !48}
-!59 = distinct !{!59, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = distinct !{!50, !48, !49}
+!51 = !{!52, !14, i64 40}
+!52 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !13, i64 32, !14, i64 40}
+!53 = !{!52, !10, i64 0}
+!54 = distinct !{!54, !48, !49}
+!55 = distinct !{!55, !48, !49}
+!56 = distinct !{!56, !48, !49}
+!57 = distinct !{!57, !48, !49}
+!58 = distinct !{!58, !48, !49}
+!59 = distinct !{!59, !49}
+!60 = distinct !{!60, !48, !49}
+!61 = distinct !{!61, !48, !49}

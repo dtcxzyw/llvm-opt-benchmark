@@ -184,7 +184,7 @@ define internal fastcc i32 @req_flush(ptr noundef %0) unnamed_addr #2 {
 
 31:                                               ; preds = %28
   %32 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  br i1 %32, label %17, label %req_send_buffer_flush.exit.thread59
+  br i1 %32, label %17, label %req_send_buffer_flush.exit.thread59, !llvm.loop !83
 
 req_send_buffer_flush.exit:                       ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -262,13 +262,13 @@ req_send_buffer_flush.exit.thread59:              ; preds = %31, %28, %14
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %60 = load ptr, ptr %59, align 8, !tbaa !83
+  %60 = load ptr, ptr %59, align 8, !tbaa !85
   %.not53 = icmp eq ptr %60, null
   br i1 %.not53, label %65, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !84
+  %63 = load i32, ptr %62, align 8, !tbaa !86
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %65, label %.thread73
 
@@ -277,7 +277,7 @@ req_send_buffer_flush.exit.thread59:              ; preds = %31, %28, %14
   br label %.thread73
 
 66:                                               ; preds = %49
-  %.pre71 = load i8, ptr %7, align 1, !range !86
+  %.pre71 = load i8, ptr %7, align 1, !range !88
   %67 = trunc nuw i8 %.pre71 to i1
   br i1 %67, label %.thread73, label %68
 
@@ -304,16 +304,16 @@ declare void @Curl_doh_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_req_hard_reset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !87
+  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   tail call void %3(ptr noundef %5) #6
-  store ptr null, ptr %4, align 8, !tbaa !88
-  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !87
+  store ptr null, ptr %4, align 8, !tbaa !90
+  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !89
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %8 = load ptr, ptr %7, align 8, !tbaa !91
   tail call void %6(ptr noundef %8) #6
-  store ptr null, ptr %7, align 8, !tbaa !89
+  store ptr null, ptr %7, align 8, !tbaa !91
   tail call void @Curl_client_reset(ptr noundef %1) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 217
   %10 = load i32, ptr %9, align 1
@@ -331,10 +331,10 @@ define hidden void @Curl_req_hard_reset(ptr noundef %0, ptr noundef %1) local_un
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 -1, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %16, align 4, !tbaa !90
+  store i32 0, ptr %16, align 4, !tbaa !92
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i8 0, ptr %18, align 8, !tbaa !91
+  store i8 0, ptr %18, align 8, !tbaa !93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   %19 = load i32, ptr %9, align 1
@@ -353,16 +353,16 @@ define hidden void @Curl_req_hard_reset(ptr noundef %0, ptr noundef %1) local_un
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_req_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !87
+  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   tail call void %3(ptr noundef %5) #6
-  store ptr null, ptr %4, align 8, !tbaa !88
-  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !87
+  store ptr null, ptr %4, align 8, !tbaa !90
+  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !89
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %8 = load ptr, ptr %7, align 8, !tbaa !91
   tail call void %6(ptr noundef %8) #6
-  store ptr null, ptr %7, align 8, !tbaa !89
+  store ptr null, ptr %7, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 217
   %10 = load i32, ptr %9, align 1
   %11 = and i32 %10, 524288
@@ -401,7 +401,7 @@ define hidden i32 @Curl_req_send(ptr noundef %0, ptr noundef %1, i8 noundef zero
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i8 %2, ptr %11, align 8, !tbaa !92
+  store i8 %2, ptr %11, align 8, !tbaa !94
   %12 = tail call ptr @Curl_dyn_ptr(ptr noundef %1) #6
   %13 = tail call i64 @Curl_dyn_len(ptr noundef %1) #6
   %14 = tail call i64 @Curl_creader_total_length(ptr noundef nonnull %0) #6
@@ -461,7 +461,7 @@ req_send_buffer_add.exit:                         ; preds = %25
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %39 = load i32, ptr %38, align 4, !tbaa !93
+  %39 = load i32, ptr %38, align 4, !tbaa !95
   %40 = and i32 %39, 32
   %.not13.i = icmp eq i32 %40, 0
   br i1 %.not13.i, label %41, label %48
@@ -505,7 +505,7 @@ declare i64 @Curl_creader_total_length(ptr noundef) local_unnamed_addr #4
 define internal fastcc i32 @xfer_send(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull initializes((0, 8)) %4) unnamed_addr #2 {
   store i64 0, ptr %4, align 8, !tbaa !78
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %7 = load i64, ptr %6, align 8, !tbaa !94
+  %7 = load i64, ptr %6, align 8, !tbaa !96
   %.not = icmp eq i64 %7, 0
   %8 = sub i64 %2, %3
   %9 = icmp sgt i64 %8, %7
@@ -578,9 +578,9 @@ thread-pre-split:                                 ; preds = %26, %20
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %3
   tail call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %38, i64 noundef %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %40 = load i64, ptr %39, align 8, !tbaa !95
+  %40 = load i64, ptr %39, align 8, !tbaa !97
   %41 = add i64 %40, %37
-  store i64 %41, ptr %39, align 8, !tbaa !95
+  store i64 %41, ptr %39, align 8, !tbaa !97
   tail call void @Curl_pgrsSetUploadCounter(ptr noundef nonnull %0, i64 noundef %41) #6
   br label %42
 
@@ -601,7 +601,7 @@ define hidden i32 @Curl_req_send_more(ptr noundef %0) local_unnamed_addr #2 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %8 = load i32, ptr %7, align 4, !tbaa !93
+  %8 = load i32, ptr %7, align 4, !tbaa !95
   %9 = and i32 %8, 32
   %.not13 = icmp eq i32 %9, 0
   br i1 %.not13, label %10, label %18
@@ -661,7 +661,7 @@ define hidden zeroext i1 @Curl_req_want_send(ptr noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %7 = load i32, ptr %6, align 4, !tbaa !93
+  %7 = load i32, ptr %6, align 4, !tbaa !95
   %8 = and i32 %7, 42
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %15, label %10
@@ -702,7 +702,7 @@ define hidden zeroext i1 @Curl_req_done_sending(ptr noundef %0) local_unnamed_ad
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %9 = load i32, ptr %8, align 4, !tbaa !93
+  %9 = load i32, ptr %8, align 4, !tbaa !95
   %10 = and i32 %9, 42
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %Curl_req_want_send.exit, label %12
@@ -743,7 +743,7 @@ define internal i64 @add_from_client(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not, label %8, label %17
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr %6, align 1, !tbaa !96, !range !86, !noundef !98
+  %9 = load i8, ptr %6, align 1, !tbaa !98, !range !88, !noundef !100
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %15
 
@@ -780,9 +780,9 @@ define hidden i32 @Curl_req_abort_sending(ptr noundef %0) local_unnamed_addr #2 
   %8 = or i32 %7, 512
   store i32 %8, ptr %2, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %10 = load i32, ptr %9, align 4, !tbaa !93
+  %10 = load i32, ptr %9, align 4, !tbaa !95
   %11 = and i32 %10, -43
-  store i32 %11, ptr %9, align 4, !tbaa !93
+  store i32 %11, ptr %9, align 4, !tbaa !95
   %12 = tail call fastcc i32 @req_set_upload_done(ptr noundef nonnull %0)
   br label %13
 
@@ -798,9 +798,9 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
   %4 = or i32 %3, 256
   store i32 %4, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %6 = load i32, ptr %5, align 4, !tbaa !93
+  %6 = load i32, ptr %5, align 4, !tbaa !95
   %7 = and i32 %6, -67
-  store i32 %7, ptr %5, align 4, !tbaa !93
+  store i32 %7, ptr %5, align 4, !tbaa !95
   %8 = tail call { i64, i32 } @Curl_pgrsTime(ptr noundef %0, i32 noundef 9) #6
   %9 = load i32, ptr %2, align 1
   %10 = lshr i32 %9, 9
@@ -815,7 +815,7 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @Curl_bufq_reset(ptr noundef nonnull %15) #6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %17 = load i64, ptr %16, align 8, !tbaa !95
+  %17 = load i64, ptr %16, align 8, !tbaa !97
   %.not46 = icmp eq i64 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %19 = load i64, ptr %18, align 2
@@ -828,13 +828,13 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %24 = load ptr, ptr %23, align 8, !tbaa !83
+  %24 = load ptr, ptr %23, align 8, !tbaa !85
   %.not52 = icmp eq ptr %24, null
   br i1 %.not52, label %29, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !84
+  %27 = load i32, ptr %26, align 8, !tbaa !86
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %71
 
@@ -847,13 +847,13 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %33 = load ptr, ptr %32, align 8, !tbaa !83
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
   %.not49 = icmp eq ptr %33, null
   br i1 %.not49, label %38, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !84
+  %36 = load i32, ptr %35, align 8, !tbaa !86
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %71
 
@@ -863,7 +863,7 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 
 39:                                               ; preds = %1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %41 = load i64, ptr %40, align 8, !tbaa !95
+  %41 = load i64, ptr %40, align 8, !tbaa !97
   %.not39 = icmp eq i64 %41, 0
   br i1 %.not39, label %54, label %42
 
@@ -876,13 +876,13 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %48 = load ptr, ptr %47, align 8, !tbaa !83
+  %48 = load ptr, ptr %47, align 8, !tbaa !85
   %.not45 = icmp eq ptr %48, null
   br i1 %.not45, label %53, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !84
+  %51 = load i32, ptr %50, align 8, !tbaa !86
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %71
 
@@ -904,13 +904,13 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %63 = load ptr, ptr %62, align 8, !tbaa !83
+  %63 = load ptr, ptr %62, align 8, !tbaa !85
   %.not41 = icmp eq ptr %63, null
   br i1 %.not41, label %68, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !84
+  %66 = load i32, ptr %65, align 8, !tbaa !86
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %71
 
@@ -929,9 +929,9 @@ define internal fastcc i32 @req_set_upload_done(ptr noundef %0) unnamed_addr #2 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_req_stop_send_recv(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %3 = load i32, ptr %2, align 4, !tbaa !93
+  %3 = load i32, ptr %2, align 4, !tbaa !95
   %4 = and i32 %3, -44
-  store i32 %4, ptr %2, align 4, !tbaa !93
+  store i32 %4, ptr %2, align 4, !tbaa !95
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 457
   %6 = load i32, ptr %5, align 1
   %7 = and i32 %6, 256
@@ -944,9 +944,9 @@ define hidden i32 @Curl_req_stop_send_recv(ptr noundef %0) local_unnamed_addr #2
   %10 = load i32, ptr %5, align 1
   %11 = or i32 %10, 512
   store i32 %11, ptr %5, align 1
-  %12 = load i32, ptr %2, align 4, !tbaa !93
+  %12 = load i32, ptr %2, align 4, !tbaa !95
   %13 = and i32 %12, -43
-  store i32 %13, ptr %2, align 4, !tbaa !93
+  store i32 %13, ptr %2, align 4, !tbaa !95
   %14 = tail call fastcc i32 @req_set_upload_done(ptr noundef nonnull %0)
   br label %Curl_req_abort_sending.exit
 
@@ -1079,19 +1079,21 @@ attributes #6 = { nounwind }
 !80 = !{!20, !21, i64 24}
 !81 = !{!20, !5, i64 408}
 !82 = !{!16, !16, i64 0}
-!83 = !{!20, !68, i64 4864}
-!84 = !{!85, !9, i64 8}
-!85 = !{!"curl_trc_feat", !16, i64 0, !9, i64 8}
-!86 = !{i8 0, i8 2}
-!87 = !{!11, !11, i64 0}
-!88 = !{!6, !6, i64 0}
-!89 = !{!4, !16, i64 192}
-!90 = !{!4, !9, i64 84}
-!91 = !{!4, !6, i64 216}
-!92 = !{!20, !6, i64 320}
-!93 = !{!20, !9, i64 316}
-!94 = !{!20, !5, i64 792}
-!95 = !{!20, !5, i64 264}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"_Bool", !6, i64 0}
-!98 = !{}
+!83 = distinct !{!83, !84}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = !{!20, !68, i64 4864}
+!86 = !{!87, !9, i64 8}
+!87 = !{!"curl_trc_feat", !16, i64 0, !9, i64 8}
+!88 = !{i8 0, i8 2}
+!89 = !{!11, !11, i64 0}
+!90 = !{!6, !6, i64 0}
+!91 = !{!4, !16, i64 192}
+!92 = !{!4, !9, i64 84}
+!93 = !{!4, !6, i64 216}
+!94 = !{!20, !6, i64 320}
+!95 = !{!20, !9, i64 316}
+!96 = !{!20, !5, i64 792}
+!97 = !{!20, !5, i64 264}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"_Bool", !6, i64 0}
+!100 = !{}

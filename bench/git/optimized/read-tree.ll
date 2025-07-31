@@ -632,8 +632,8 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   unreachable
 
 272:                                              ; preds = %269, %268
-  %273 = load i32, ptr %132, align 8, !tbaa !73
-  %274 = load i32, ptr %110, align 4, !tbaa !74
+  %273 = load i32, ptr %132, align 8, !tbaa !74
+  %274 = load i32, ptr %110, align 4, !tbaa !75
   %275 = add i32 %274, %273
   %276 = icmp ugt i32 %275, 1
   br i1 %276, label %277, label %278
@@ -664,7 +664,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
 
 288:                                              ; preds = %285
   %289 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 0, ptr %289, align 8, !tbaa !75
+  store i32 0, ptr %289, align 8, !tbaa !76
   br label %290
 
 290:                                              ; preds = %288, %285
@@ -678,7 +678,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   br label %294
 
 294:                                              ; preds = %293, %290
-  %295 = load i32, ptr %156, align 4, !tbaa !76
+  %295 = load i32, ptr %156, align 4, !tbaa !77
   %.not72 = icmp eq i32 %295, 0
   br i1 %.not72, label %300, label %296
 
@@ -710,23 +710,23 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   %.not74 = icmp eq ptr %305, null
   %306 = select i1 %.not74, ptr @oneway_merge, ptr @bind_merge
   %307 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr %306, ptr %307, align 8, !tbaa !77
+  store ptr %306, ptr %307, align 8, !tbaa !78
   br label %.sink.split
 
 308:                                              ; preds = %302
   %309 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @twoway_merge, ptr %309, align 8, !tbaa !77
+  store ptr @twoway_merge, ptr %309, align 8, !tbaa !78
   %310 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 384
   %312 = load ptr, ptr %311, align 8, !tbaa !46
   %313 = call i32 @is_index_unborn(ptr noundef %312) #11
   %314 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 %313, ptr %314, align 4, !tbaa !78
+  store i32 %313, ptr %314, align 4, !tbaa !79
   br label %.sink.split
 
 315:                                              ; preds = %302
   %316 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @threeway_merge, ptr %316, align 8, !tbaa !77
+  store ptr @threeway_merge, ptr %316, align 8, !tbaa !78
   %317 = call i32 @llvm.umax.i32(i32 %.165.lcssa, i32 3)
   %spec.select = add nsw i32 %317, -2
   br label %.sink.split
@@ -737,13 +737,13 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   br label %318
 
 318:                                              ; preds = %.sink.split, %300
-  %319 = load i32, ptr %168, align 8, !tbaa !79
+  %319 = load i32, ptr %168, align 8, !tbaa !80
   %.not75 = icmp eq i32 %319, 0
   br i1 %.not75, label %322, label %320
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @debug_merge, ptr %321, align 8, !tbaa !77
+  store ptr @debug_merge, ptr %321, align 8, !tbaa !78
   br label %322
 
 322:                                              ; preds = %320, %318
@@ -756,7 +756,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
 
 327:                                              ; preds = %322
   %328 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store i32 1, ptr %328, align 4, !tbaa !80
+  store i32 1, ptr %328, align 4, !tbaa !81
   br label %329
 
 329:                                              ; preds = %327, %322
@@ -781,15 +781,15 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   %341 = getelementptr inbounds nuw %struct.tree_desc, ptr %6, i64 %indvars.iv101
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %343 = getelementptr inbounds nuw i8, ptr %337, i64 40
-  %344 = load ptr, ptr %343, align 8, !tbaa !81
+  %344 = load ptr, ptr %343, align 8, !tbaa !82
   %345 = getelementptr inbounds nuw i8, ptr %337, i64 48
-  %346 = load i64, ptr %345, align 8, !tbaa !84
+  %346 = load i64, ptr %345, align 8, !tbaa !85
   call void @init_tree_desc(ptr noundef nonnull %341, ptr noundef nonnull %342, ptr noundef %344, i64 noundef %346) #11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %347 = load i32, ptr @nr_trees, align 4, !tbaa !67
   %348 = sext i32 %347 to i64
   %349 = icmp slt i64 %indvars.iv.next102, %348
-  br i1 %349, label %.lr.ph91, label %._crit_edge92, !llvm.loop !85
+  br i1 %349, label %.lr.ph91, label %._crit_edge92, !llvm.loop !86
 
 ._crit_edge92:                                    ; preds = %340, %329
   %.lcssa = phi i32 [ %334, %329 ], [ %347, %340 ]
@@ -798,7 +798,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   br i1 %.not76, label %351, label %.critedge
 
 351:                                              ; preds = %._crit_edge92
-  %352 = load i32, ptr %168, align 8, !tbaa !79
+  %352 = load i32, ptr %168, align 8, !tbaa !80
   %353 = icmp ne i32 %352, 0
   %354 = load i32, ptr %144, align 8
   %355 = icmp ne i32 %354, 0
@@ -876,7 +876,7 @@ define internal noundef i32 @exclude_per_directory_cb(ptr noundef readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !74
+  %9 = load i32, ptr %8, align 4, !tbaa !75
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %10, label %11
 
@@ -971,9 +971,9 @@ declare i32 @threeway_merge(ptr noundef, ptr noundef) #3
 define internal noundef i32 @debug_merge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [24 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  %5 = load i32, ptr %4, align 4, !tbaa !86
+  %5 = load i32, ptr %4, align 4, !tbaa !87
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %5)
-  %7 = load ptr, ptr %0, align 8, !tbaa !87
+  %7 = load ptr, ptr %0, align 8, !tbaa !88
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull @.str.59)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %9, label %10
@@ -984,7 +984,7 @@ define internal noundef i32 @debug_merge(ptr noundef readonly captures(none) %0,
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
   %13 = icmp eq ptr %7, %12
   br i1 %13, label %14, label %15
 
@@ -1006,7 +1006,7 @@ define internal noundef i32 @debug_merge(ptr noundef readonly captures(none) %0,
   br label %debug_stage.exit
 
 debug_stage.exit:                                 ; preds = %9, %14, %15
-  %26 = load i32, ptr %4, align 4, !tbaa !86
+  %26 = load i32, ptr %4, align 4, !tbaa !87
   %.not13 = icmp slt i32 %26, 1
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -1020,7 +1020,7 @@ debug_stage.exit:                                 ; preds = %9, %14, %15
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %3, i64 noundef 24, ptr noundef nonnull @.str.60, i32 noundef %29) #11
   %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8, !tbaa !87
+  %32 = load ptr, ptr %31, align 8, !tbaa !88
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull %3)
   %.not.i9 = icmp eq ptr %32, null
   br i1 %.not.i9, label %34, label %35
@@ -1030,7 +1030,7 @@ debug_stage.exit:                                 ; preds = %9, %14, %15
   br label %debug_stage.exit12
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr %27, align 8, !tbaa !88
+  %36 = load ptr, ptr %27, align 8, !tbaa !89
   %37 = icmp eq ptr %32, %36
   br i1 %37, label %38, label %39
 
@@ -1054,10 +1054,10 @@ debug_stage.exit:                                 ; preds = %9, %14, %15
 debug_stage.exit12:                               ; preds = %34, %38, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %4, align 4, !tbaa !86
+  %50 = load i32, ptr %4, align 4, !tbaa !87
   %51 = sext i32 %50 to i64
   %.not.not = icmp slt i64 %indvars.iv, %51
-  br i1 %.not.not, label %28, label %._crit_edge, !llvm.loop !89
+  br i1 %.not.not, label %28, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %debug_stage.exit12, %debug_stage.exit
   ret i32 0
@@ -1195,22 +1195,23 @@ attributes #13 = { nounwind willreturn memory(read) }
 !68 = !{!9, !9, i64 0}
 !69 = !{!70, !70, i64 0}
 !70 = !{!"p1 _ZTS4tree", !10, i64 0}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!21, !6, i64 16}
-!74 = !{!21, !6, i64 4}
-!75 = !{!21, !6, i64 8}
-!76 = !{!21, !6, i64 44}
-!77 = !{!21, !10, i64 96}
-!78 = !{!21, !6, i64 36}
-!79 = !{!21, !6, i64 232}
-!80 = !{!21, !6, i64 60}
-!81 = !{!82, !10, i64 40}
-!82 = !{!"tree", !83, i64 0, !10, i64 40, !11, i64 48}
-!83 = !{!"object", !6, i64 0, !6, i64 0, !6, i64 0, !26, i64 4}
-!84 = !{!82, !11, i64 48}
-!85 = distinct !{!85, !72}
-!86 = !{!21, !6, i64 236}
-!87 = !{!23, !23, i64 0}
-!88 = !{!21, !23, i64 112}
-!89 = distinct !{!89, !72}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{!21, !6, i64 16}
+!75 = !{!21, !6, i64 4}
+!76 = !{!21, !6, i64 8}
+!77 = !{!21, !6, i64 44}
+!78 = !{!21, !10, i64 96}
+!79 = !{!21, !6, i64 36}
+!80 = !{!21, !6, i64 232}
+!81 = !{!21, !6, i64 60}
+!82 = !{!83, !10, i64 40}
+!83 = !{!"tree", !84, i64 0, !10, i64 40, !11, i64 48}
+!84 = !{!"object", !6, i64 0, !6, i64 0, !6, i64 0, !26, i64 4}
+!85 = !{!83, !11, i64 48}
+!86 = distinct !{!86, !72, !73}
+!87 = !{!21, !6, i64 236}
+!88 = !{!23, !23, i64 0}
+!89 = !{!21, !23, i64 112}
+!90 = distinct !{!90, !72, !73}

@@ -247,7 +247,7 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %109 = add nuw nsw i32 %.1113162.us.i, 1
   %110 = lshr i16 %.3108163.us.i, 1
   %exitcond215.not.i = icmp eq i32 %109, 4
-  br i1 %exitcond215.not.i, label %94, label %98, !llvm.loop !49
+  br i1 %exitcond215.not.i, label %94, label %98, !llvm.loop !50
 
 111:                                              ; preds = %79
   %112 = add nsw i32 %.1116175.us.i, 4
@@ -272,7 +272,7 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %125 = sub nsw i32 %124, %47
   %126 = add nuw nsw i32 %.0119171.us.i, 1
   %exitcond220.not.i = icmp eq i32 %126, 4
-  br i1 %exitcond220.not.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !50
+  br i1 %exitcond220.not.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !51
 
 127:                                              ; preds = %.preheader.us.i, %127
   %indvars.iv217.i = phi i64 [ %142, %.preheader.us.i ], [ %indvars.iv.next218.i, %127 ]
@@ -289,7 +289,7 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %134 = add nuw nsw i32 %.0112168.us.i, 1
   %135 = lshr i16 %.1106169.us.i, 1
   %exitcond219.not.i = icmp eq i32 %134, 4
-  br i1 %exitcond219.not.i, label %123, label %127, !llvm.loop !51
+  br i1 %exitcond219.not.i, label %123, label %127, !llvm.loop !52
 
 136:                                              ; preds = %76
   %137 = shl nuw nsw i32 %73, 8
@@ -304,7 +304,7 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %.2111.us.i = add nsw i32 %.1110176.us.i, -1
   %140 = add nsw i32 %.0122174.us.i, -1
   %141 = icmp sgt i32 %.0122174.us.i, 1
-  br i1 %141, label %57, label %._crit_edge.us.i, !llvm.loop !52
+  br i1 %141, label %57, label %._crit_edge.us.i, !llvm.loop !53
 
 .preheader.us.i:                                  ; preds = %123, %114
   %.099173.us.i = phi i32 [ %.0178.us.i, %114 ], [ %125, %123 ]
@@ -331,12 +331,12 @@ define internal i32 @msvideo1_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %147 = sub i32 %.4161.us.i, %40
   %148 = add nuw nsw i32 %.2121160.us.i, 1
   %exitcond.not.i = icmp eq i32 %148, 4
-  br i1 %exitcond.not.i, label %.loopexit.us.i, label %.preheader133.us.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %.loopexit.us.i, label %.preheader133.us.i, !llvm.loop !54
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
   %149 = add nsw i32 %.0123181.us.i, -1
   %150 = icmp sgt i32 %.0123181.us.i, 1
-  br i1 %150, label %.lr.ph.us.i, label %._crit_edge187.loopexit.i, !llvm.loop !54
+  br i1 %150, label %.lr.ph.us.i, label %._crit_edge187.loopexit.i, !llvm.loop !55
 
 .split.us.i:                                      ; preds = %60
   %151 = load ptr, ptr %12, align 8, !tbaa !27
@@ -467,7 +467,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   br i1 %212, label %224, label %216
 
 216:                                              ; preds = %211
-  store i16 %215, ptr %5, align 16, !tbaa !56
+  store i16 %215, ptr %5, align 16, !tbaa !57
   br label %.preheader146.us.i
 
 217:                                              ; preds = %221
@@ -475,17 +475,17 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %219 = sub nsw i32 %218, %173
   %220 = add nuw nsw i32 %.2133176.us.i, 1
   %exitcond232.not.i = icmp eq i32 %220, 4
-  br i1 %exitcond232.not.i, label %.loopexit.us.i33, label %.preheader146.us.i, !llvm.loop !58
+  br i1 %exitcond232.not.i, label %.loopexit.us.i33, label %.preheader146.us.i, !llvm.loop !59
 
 221:                                              ; preds = %.preheader146.us.i, %221
   %indvars.iv.i38 = phi i64 [ %290, %.preheader146.us.i ], [ %indvars.iv.next.i39, %221 ]
   %.2126174.us.i = phi i32 [ 0, %.preheader146.us.i ], [ %223, %221 ]
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i38, 1
   %222 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv.i38
-  store i16 %215, ptr %222, align 2, !tbaa !56
+  store i16 %215, ptr %222, align 2, !tbaa !57
   %223 = add nuw nsw i32 %.2126174.us.i, 1
   %exitcond.not.i40 = icmp eq i32 %223, 4
-  br i1 %exitcond.not.i40, label %217, label %221, !llvm.loop !59
+  br i1 %exitcond.not.i40, label %217, label %221, !llvm.loop !60
 
 224:                                              ; preds = %211
   %225 = add nsw i32 %.1128191.us.i, 6
@@ -496,10 +496,10 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %228 = sext i32 %193 to i64
   %229 = getelementptr inbounds i8, ptr %197, i64 %228
   %230 = load i16, ptr %229, align 1, !tbaa !46
-  store i16 %230, ptr %5, align 16, !tbaa !56
+  store i16 %230, ptr %5, align 16, !tbaa !57
   %231 = getelementptr i8, ptr %199, i64 4
   %232 = load i16, ptr %231, align 1, !tbaa !46
-  store i16 %232, ptr %176, align 2, !tbaa !56
+  store i16 %232, ptr %176, align 2, !tbaa !57
   %.not144.us.i = icmp sgt i16 %230, -1
   br i1 %.not144.us.i, label %.preheader.us.i41, label %233
 
@@ -512,22 +512,22 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %237 = sext i32 %225 to i64
   %238 = getelementptr inbounds i8, ptr %197, i64 %237
   %239 = load i16, ptr %238, align 1, !tbaa !46
-  store i16 %239, ptr %177, align 4, !tbaa !56
+  store i16 %239, ptr %177, align 4, !tbaa !57
   %240 = getelementptr i8, ptr %199, i64 8
   %241 = load i16, ptr %240, align 1, !tbaa !46
-  store i16 %241, ptr %178, align 2, !tbaa !56
+  store i16 %241, ptr %178, align 2, !tbaa !57
   %242 = getelementptr i8, ptr %199, i64 10
   %243 = load i16, ptr %242, align 1, !tbaa !46
-  store i16 %243, ptr %179, align 8, !tbaa !56
+  store i16 %243, ptr %179, align 8, !tbaa !57
   %244 = getelementptr i8, ptr %199, i64 12
   %245 = load i16, ptr %244, align 1, !tbaa !46
-  store i16 %245, ptr %180, align 2, !tbaa !56
+  store i16 %245, ptr %180, align 2, !tbaa !57
   %246 = getelementptr i8, ptr %199, i64 14
   %247 = load i16, ptr %246, align 1, !tbaa !46
-  store i16 %247, ptr %181, align 4, !tbaa !56
+  store i16 %247, ptr %181, align 4, !tbaa !57
   %248 = getelementptr i8, ptr %199, i64 16
   %249 = load i16, ptr %248, align 1, !tbaa !46
-  store i16 %249, ptr %182, align 2, !tbaa !56
+  store i16 %249, ptr %182, align 2, !tbaa !57
   br label %.preheader145.us.i
 
 250:                                              ; preds = %254
@@ -535,7 +535,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %252 = sub nsw i32 %251, %173
   %253 = add nuw nsw i32 %.0131181.us.i, 1
   %exitcond236.not.i = icmp eq i32 %253, 4
-  br i1 %exitcond236.not.i, label %.loopexit.us.i33, label %.preheader145.us.i, !llvm.loop !60
+  br i1 %exitcond236.not.i, label %.loopexit.us.i33, label %.preheader145.us.i, !llvm.loop !61
 
 254:                                              ; preds = %.preheader145.us.i, %254
   %indvars.iv233.i = phi i64 [ %289, %.preheader145.us.i ], [ %indvars.iv.next234.i, %254 ]
@@ -549,21 +549,21 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %260 = xor i32 %259, 1
   %261 = zext nneg i32 %260 to i64
   %262 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 0, i64 %261
-  %263 = load i16, ptr %262, align 2, !tbaa !56
+  %263 = load i16, ptr %262, align 2, !tbaa !57
   %indvars.iv.next234.i = add nsw i64 %indvars.iv233.i, 1
   %264 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv233.i
-  store i16 %263, ptr %264, align 2, !tbaa !56
+  store i16 %263, ptr %264, align 2, !tbaa !57
   %265 = add nuw nsw i32 %.0124178.us.i, 1
   %266 = lshr i16 %.1118179.us.i, 1
   %exitcond235.not.i = icmp eq i32 %265, 4
-  br i1 %exitcond235.not.i, label %250, label %254, !llvm.loop !61
+  br i1 %exitcond235.not.i, label %250, label %254, !llvm.loop !62
 
 267:                                              ; preds = %271
   %268 = trunc nsw i64 %indvars.iv.next238.i to i32
   %269 = sub nsw i32 %268, %173
   %270 = add nuw nsw i32 %.1132187.us.i, 1
   %exitcond240.not.i = icmp eq i32 %270, 4
-  br i1 %exitcond240.not.i, label %.loopexit.us.i33, label %.preheader.us.i41, !llvm.loop !62
+  br i1 %exitcond240.not.i, label %.loopexit.us.i33, label %.preheader.us.i41, !llvm.loop !63
 
 271:                                              ; preds = %.preheader.us.i41, %271
   %indvars.iv237.i = phi i64 [ %286, %.preheader.us.i41 ], [ %indvars.iv.next238.i, %271 ]
@@ -573,14 +573,14 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %273 = xor i16 %272, 1
   %274 = zext nneg i16 %273 to i64
   %275 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 0, i64 %274
-  %276 = load i16, ptr %275, align 2, !tbaa !56
+  %276 = load i16, ptr %275, align 2, !tbaa !57
   %indvars.iv.next238.i = add nsw i64 %indvars.iv237.i, 1
   %277 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv237.i
-  store i16 %276, ptr %277, align 2, !tbaa !56
+  store i16 %276, ptr %277, align 2, !tbaa !57
   %278 = add nuw nsw i32 %.1125184.us.i, 1
   %279 = lshr i16 %.3120185.us.i, 1
   %exitcond239.not.i = icmp eq i32 %278, 4
-  br i1 %exitcond239.not.i, label %267, label %271, !llvm.loop !63
+  br i1 %exitcond239.not.i, label %267, label %271, !llvm.loop !64
 
 280:                                              ; preds = %208
   %281 = shl nuw nsw i32 %205, 8
@@ -595,7 +595,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
   %.2123.us.i = add nsw i32 %.1122192.us.i, -1
   %284 = add nsw i32 %.0134190.us.i, -1
   %285 = icmp sgt i32 %.0134190.us.i, 1
-  br i1 %285, label %189, label %._crit_edge.us.i35, !llvm.loop !64
+  br i1 %285, label %189, label %._crit_edge.us.i35, !llvm.loop !65
 
 .preheader.us.i41:                                ; preds = %227, %267
   %.2189.us.i = phi i32 [ %269, %267 ], [ %.0194.us.i, %227 ]
@@ -622,7 +622,7 @@ msvideo1_decode_8bit.exit:                        ; preds = %64, %.split.us.i, %
 ._crit_edge.us.i35:                               ; preds = %.loopexit.us.i33
   %291 = add nsw i32 %.0135197.us.i, -1
   %292 = icmp sgt i32 %.0135197.us.i, 1
-  br i1 %292, label %.lr.ph.us.i31, label %msvideo1_decode_16bit.exit, !llvm.loop !65
+  br i1 %292, label %.lr.ph.us.i31, label %msvideo1_decode_16bit.exit, !llvm.loop !66
 
 msvideo1_decode_16bit.exit.sink.split:            ; preds = %233, %224, %192
   %.sink = phi i32 [ %193, %192 ], [ %225, %224 ], [ %234, %233 ]
@@ -738,22 +738,23 @@ attributes #6 = { nounwind }
 !44 = !{!14, !14, i64 0}
 !45 = !{!10, !10, i64 0}
 !46 = !{!8, !8, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
-!50 = distinct !{!50, !48}
-!51 = distinct !{!51, !48}
-!52 = distinct !{!52, !48}
-!53 = distinct !{!53, !48}
-!54 = distinct !{!54, !48, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"short", !8, i64 0}
-!58 = distinct !{!58, !48}
-!59 = distinct !{!59, !48}
-!60 = distinct !{!60, !48}
-!61 = distinct !{!61, !48}
-!62 = distinct !{!62, !48}
-!63 = distinct !{!63, !48}
-!64 = distinct !{!64, !48}
-!65 = distinct !{!65, !48, !55}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = distinct !{!50, !48, !49}
+!51 = distinct !{!51, !48, !49}
+!52 = distinct !{!52, !48, !49}
+!53 = distinct !{!53, !48, !49}
+!54 = distinct !{!54, !48, !49}
+!55 = distinct !{!55, !48, !49, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"short", !8, i64 0}
+!59 = distinct !{!59, !48, !49}
+!60 = distinct !{!60, !48, !49}
+!61 = distinct !{!61, !48, !49}
+!62 = distinct !{!62, !48, !49}
+!63 = distinct !{!63, !48, !49}
+!64 = distinct !{!64, !48, !49}
+!65 = distinct !{!65, !48, !49}
+!66 = distinct !{!66, !48, !49, !56}

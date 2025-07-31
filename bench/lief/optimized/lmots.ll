@@ -348,7 +348,7 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
   %96 = call i32 @psa_hash_abort(ptr noundef nonnull %13) #10
   %97 = add nuw nsw i32 %.0344.i, 1
   %exitcond.not.i = icmp eq i32 %97, 255
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %77, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %77, !llvm.loop !17
 
 ._crit_edge.loopexit.i:                           ; preds = %95
   %.pre.i = load i32, ptr %23, align 4, !tbaa !12
@@ -367,7 +367,7 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %105 = icmp samesign ult i64 %indvars.iv.i, 33
   %106 = select i1 %101, i1 %105, i1 false
-  br i1 %106, label %69, label %hash_digit_array.exit, !llvm.loop !17
+  br i1 %106, label %69, label %hash_digit_array.exit, !llvm.loop !18
 
 hash_digit_array.exit:                            ; preds = %._crit_edge.i, %77, %79, %81, %83, %85, %88, %93, %63
   %.2.i = phi i32 [ -151, %63 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %87, %85 ], [ %92, %88 ], [ %94, %93 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -553,7 +553,8 @@ attributes #10 = { nounwind }
 !11 = !{!"long", !6, i64 0}
 !12 = !{!5, !8, i64 20}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = distinct !{!18, !15, !16}

@@ -864,7 +864,7 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #5
   %137 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i)
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph.i52, label %dissect_bmp_peer_header.exit, !llvm.loop !10
+  br i1 %138, label %.lr.ph.i52, label %dissect_bmp_peer_header.exit, !llvm.loop !11
 
 139:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #5
@@ -1053,7 +1053,7 @@ switch.lookup:                                    ; preds = %4
   %.1.i.i = phi i32 [ %254, %251 ], [ %158, %155 ], [ %162, %159 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %190, %187 ], [ %200, %191 ], [ %210, %201 ], [ %214, %211 ], [ %218, %215 ], [ %222, %219 ], [ %226, %223 ], [ %230, %227 ], [ %240, %231 ], [ %250, %241 ]
   %256 = add nuw i32 %.0127128.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %256, %140
-  br i1 %exitcond.not.i.i, label %dissect_bmp_stat_report.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %dissect_bmp_stat_report.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 dissect_bmp_stat_report.exit.i:                   ; preds = %255, %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
@@ -1209,7 +1209,7 @@ switch.lookup63:                                  ; preds = %.lr.ph.i105.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
   %348 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i.i)
   %349 = icmp sgt i32 %348, 0
-  br i1 %349, label %.lr.ph.i105.i, label %dissect_bmp_peer_header.exit, !llvm.loop !12
+  br i1 %349, label %.lr.ph.i105.i, label %dissect_bmp_peer_header.exit, !llvm.loop !13
 
 350:                                              ; preds = %98
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.359, i32 noundef 1187) #6
@@ -1477,7 +1477,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %347, %136, %.prehea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
   %.not133.i.i = icmp eq i32 %528, 0
-  br i1 %.not133.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58, !llvm.loop !13
+  br i1 %.not133.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i58, %486
   %.3.lcssa.i.i = phi i32 [ %492, %486 ], [ %526, %.lr.ph.i.i58 ]
@@ -1535,7 +1535,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %347, %136, %.prehea
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %.not.i.i56 = icmp eq i32 %.pr.i.i, 0
-  br i1 %.not.i.i56, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i, !llvm.loop !14
+  br i1 %.not.i.i56, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i, !llvm.loop !15
 
 dissect_bmp_route_policy_event.exit.i:            ; preds = %559, %394
   %.0.lcssa.i.i = phi i32 [ %427, %394 ], [ %.1.i.i55, %559 ]
@@ -1544,7 +1544,7 @@ dissect_bmp_route_policy_event.exit.i:            ; preds = %559, %394
   %561 = add i32 %560, -1
   store i32 %561, ptr %13, align 4
   %.not42.i = icmp eq i32 %561, 0
-  br i1 %.not42.i, label %dissect_bmp_route_policy.exit, label %394, !llvm.loop !15
+  br i1 %.not42.i, label %dissect_bmp_route_policy.exit, label %394, !llvm.loop !16
 
 dissect_bmp_route_policy.exit:                    ; preds = %dissect_bmp_route_policy_event.exit.i, %386
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
@@ -1683,7 +1683,7 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   %45 = add i32 %.183, 2
   %46 = add nuw nsw i32 %.084, 1
   %exitcond.not = icmp eq i32 %46, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 47:                                               ; preds = %bmpv4_dissect_tlv_hdr.exit
   %48 = load i32, ptr @hf_bmpv4_tlv_value_string, align 4
@@ -1751,7 +1751,7 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   %.2 = phi i32 [ %.0.i, %bmpv4_dissect_tlv_hdr.exit ], [ %51, %53 ], [ %51, %47 ], [ %64, %61 ], [ %60, %55 ], [ %75, %72 ], [ %85, %76 ], [ %35, %32 ], [ %45, %.lr.ph ]
   %86 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
   %87 = icmp sgt i32 %86, 3
-  br i1 %87, label %11, label %._crit_edge, !llvm.loop !17
+  br i1 %87, label %11, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   ret void
@@ -1811,13 +1811,14 @@ attributes #6 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

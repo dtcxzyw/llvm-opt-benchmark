@@ -98,11 +98,11 @@ define dso_local void @_ZN4llvm20circular_raw_ostream21flushBufferWithBannerEv(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %10 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %8, i64 noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load i8, ptr %11, align 8, !tbaa !18, !range !22, !noundef !23
+  %12 = load i8, ptr %11, align 8, !tbaa !18, !range !23, !noundef !24
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %_ZN4llvm20circular_raw_ostream11flushBufferEv.exit
 
@@ -144,11 +144,11 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20circular_raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm20circular_raw_ostreamE, i64 16), ptr %0, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm20circular_raw_ostreamE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %_ZN4llvm11raw_ostream5flushEv.exit, label %6
 
@@ -166,11 +166,11 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %1, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
   %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %13, i64 noundef %14) #7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %17 = load i8, ptr %16, align 8, !tbaa !18, !range !22, !noundef !23
+  %17 = load i8, ptr %16, align 8, !tbaa !18, !range !23, !noundef !24
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %_ZN4llvm20circular_raw_ostream11flushBufferEv.exit.i
 
@@ -208,13 +208,13 @@ _ZN4llvm20circular_raw_ostream21flushBufferWithBannerEv.exit: ; preds = %_ZN4llv
   %42 = load ptr, ptr %41, align 8, !tbaa !17
   %.not.i2 = icmp ne ptr %42, null
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %44 = load i8, ptr %43, align 8, !range !22
+  %44 = load i8, ptr %43, align 8, !range !23
   %45 = trunc nuw i8 %44 to i1
   %or.cond.i = select i1 %.not.i2, i1 %45, i1 false
   br i1 %or.cond.i, label %46, label %_ZN4llvm20circular_raw_ostream13releaseStreamEv.exit
 
 46:                                               ; preds = %_ZN4llvm20circular_raw_ostream21flushBufferWithBannerEv.exit
-  %47 = load ptr, ptr %42, align 8, !tbaa !24
+  %47 = load ptr, ptr %42, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(48) %42) #7
@@ -257,7 +257,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream12
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20circular_raw_ostream12is_displayedEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
@@ -266,7 +266,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20circular_raw_ostream12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
@@ -277,7 +277,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_color
 define linkonce_odr hidden void @_ZN4llvm11raw_ostream13enable_colorsEb(ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %3, ptr %4, align 8, !tbaa !28
+  store i8 %3, ptr %4, align 8, !tbaa !29
   ret void
 }
 
@@ -285,21 +285,21 @@ define linkonce_odr hidden void @_ZN4llvm11raw_ostream13enable_colorsEb(ptr noun
 define linkonce_odr hidden noundef i64 @_ZNK4llvm20circular_raw_ostream11current_posEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(48) %3) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = ptrtoint ptr %9 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %.neg = add i64 %7, %12
@@ -359,13 +359,14 @@ attributes #9 = { builtin nounwind }
 !16 = !{!4, !9, i64 72}
 !17 = !{!4, !13, i64 48}
 !18 = !{!4, !11, i64 88}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!4, !9, i64 96}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"vtable pointer", !8, i64 0}
-!26 = !{!5, !9, i64 32}
-!27 = !{!5, !9, i64 16}
-!28 = !{!5, !11, i64 40}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!4, !9, i64 96}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"vtable pointer", !8, i64 0}
+!27 = !{!5, !9, i64 32}
+!28 = !{!5, !9, i64 16}
+!29 = !{!5, !11, i64 40}

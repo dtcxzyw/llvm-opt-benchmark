@@ -258,7 +258,7 @@ define internal i32 @test_bi_ige_garble1() #0 {
   %spec.select = add i64 %.09, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10240
-  br i1 %exitcond.not, label %20, label %13, !llvm.loop !9
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !10
 
 20:                                               ; preds = %13
   %21 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 376, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
@@ -307,7 +307,7 @@ define internal i32 @test_bi_ige_garble2() #0 {
   %spec.select = add i64 %.09, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10240
-  br i1 %exitcond.not, label %20, label %13, !llvm.loop !10
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !11
 
 20:                                               ; preds = %13
   %21 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 407, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
@@ -355,7 +355,7 @@ define internal i32 @test_bi_ige_garble3() #0 {
   %spec.select = add i64 %.09, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10240
-  br i1 %exitcond.not, label %19, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %19, label %12, !llvm.loop !12
 
 19:                                               ; preds = %12
   %20 = call i32 @test_size_t_le(ptr noundef nonnull @.str.10, i32 noundef 438, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, i64 noundef %spec.select, i64 noundef 102) #4
@@ -385,7 +385,7 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %10 = load i32, ptr %9, align 8, !tbaa !12
+  %10 = load i32, ptr %9, align 8, !tbaa !13
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %14
 
@@ -449,7 +449,7 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %8 = load i64, ptr %7, align 8, !tbaa !16
+  %8 = load i64, ptr %7, align 8, !tbaa !17
   %9 = trunc i64 %8 to i32
   %10 = tail call i32 @test_int_le(ptr noundef nonnull @.str.10, i32 noundef 198, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef %9, i32 noundef 64) #4
   %.not = icmp eq i32 %10, 0
@@ -457,7 +457,7 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %13 = load i64, ptr %12, align 8, !tbaa !19
   %.tr24 = trunc i64 %13 to i32
   %14 = shl i32 %.tr24, 3
   %15 = call i32 @AES_set_encrypt_key(ptr noundef nonnull %6, i32 noundef %14, ptr noundef nonnull %2) #4
@@ -530,15 +530,16 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13, !15, i64 184}
-!13 = !{!"ige_test", !5, i64 0, !5, i64 16, !5, i64 48, !5, i64 112, !14, i64 176, !15, i64 184}
-!14 = !{!"long", !5, i64 0}
-!15 = !{!"int", !5, i64 0}
-!16 = !{!17, !14, i64 264}
-!17 = !{!"bi_ige_test", !5, i64 0, !5, i64 32, !5, i64 64, !5, i64 128, !5, i64 192, !14, i64 256, !14, i64 264, !15, i64 272}
-!18 = !{!17, !14, i64 256}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = !{!14, !16, i64 184}
+!14 = !{!"ige_test", !5, i64 0, !5, i64 16, !5, i64 48, !5, i64 112, !15, i64 176, !16, i64 184}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!18, !15, i64 264}
+!18 = !{!"bi_ige_test", !5, i64 0, !5, i64 32, !5, i64 64, !5, i64 128, !5, i64 192, !15, i64 256, !15, i64 264, !16, i64 272}
+!19 = !{!18, !15, i64 256}

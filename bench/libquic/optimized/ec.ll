@@ -480,7 +480,7 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
 
 3:                                                ; preds = %.lr.ph
   %4 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %4, align 16, !tbaa !27
+  %5 = load i32, ptr %4, align 16, !tbaa !28
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
@@ -497,9 +497,9 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
 
 10:                                               ; preds = %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !31
+  %14 = load i8, ptr %13, align 8, !tbaa !32
   %15 = zext i8 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 10
   %17 = zext i8 %14 to i64
@@ -528,7 +528,7 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
   %.not86.i = icmp eq ptr %30, null
   br i1 %.not86.i, label %40, label %31
 
@@ -625,7 +625,7 @@ EC_POINT_new.exit.i:                              ; preds = %48
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 9
-  %75 = load i8, ptr %74, align 1, !tbaa !31
+  %75 = load i8, ptr %74, align 1, !tbaa !32
   %76 = zext i8 %75 to i64
   %77 = tail call i32 @BN_set_word(ptr noundef nonnull %73, i64 noundef %76) #11
   %.not92.i = icmp eq i32 %77, 0
@@ -637,15 +637,15 @@ EC_POINT_new.exit.i:                              ; preds = %48
 
 79:                                               ; preds = %72
   tail call void @CRYPTO_once(ptr noundef nonnull @built_in_curve_scalar_field_monts_once, ptr noundef nonnull @built_in_curve_scalar_field_monts_init) #11
-  %80 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %80 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !34
   %.not93.i = icmp eq ptr %80, null
   br i1 %.not93.i, label %85, label %81
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.lcssa
-  %83 = load ptr, ptr %82, align 8, !tbaa !35
+  %83 = load ptr, ptr %82, align 8, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
-  store ptr %83, ptr %84, align 8, !tbaa !36
+  store ptr %83, ptr %84, align 8, !tbaa !37
   br label %85
 
 85:                                               ; preds = %81, %79
@@ -733,7 +733,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #0
 define hidden i32 @ec_group_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -756,9 +756,9 @@ define hidden i32 @ec_group_copy(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %15, ptr %16, align 8, !tbaa !36
+  store ptr %15, ptr %16, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %.not27 = icmp eq ptr %18, null
@@ -853,7 +853,7 @@ EC_POINT_copy.exit.thread37:                      ; preds = %34, %EC_POINT_copy.
   store i32 %48, ptr %49, align 8, !tbaa !22
   %50 = load ptr, ptr %0, align 8, !tbaa !11
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %52 = load ptr, ptr %51, align 8, !tbaa !38
   %53 = tail call i32 %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   br label %54
 
@@ -880,7 +880,7 @@ define hidden void @EC_POINT_clear_free(ptr noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @ec_group_get_mont_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   ret ptr %3
 }
 
@@ -1226,12 +1226,12 @@ define hidden i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %1, ptr nou
 6:                                                ; preds = %8
   %7 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !39
 
 8:                                                ; preds = %.lr.ph, %6
   %.012 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.012
-  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not = icmp eq ptr %5, %11
   br i1 %.not, label %6, label %12
@@ -1255,7 +1255,7 @@ declare i32 @ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr noun
 define hidden i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -1398,7 +1398,7 @@ define hidden i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 18:                                               ; preds = %15, %14
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
   %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #11
   br label %22
 
@@ -1475,16 +1475,16 @@ define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %3 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 16, !tbaa !30
-  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 16, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %6, ptr %8, align 8, !tbaa !44
-  %9 = load i32, ptr %3, align 16, !tbaa !27
-  store i32 %9, ptr %7, align 8, !tbaa !46
+  store ptr %6, ptr %8, align 8, !tbaa !45
+  %9 = load i32, ptr %3, align 16, !tbaa !28
+  store i32 %9, ptr %7, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %umin
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   ret i64 4
@@ -1499,7 +1499,7 @@ declare void @CRYPTO_once(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal void @built_in_curve_scalar_field_monts_init() #1 {
   %1 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
-  store ptr %1, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  store ptr %1, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !34
   %2 = icmp eq ptr %1, null
   br i1 %2, label %26, label %3
 
@@ -1514,9 +1514,9 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
 .lr.ph:                                           ; preds = %3, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv, i32 3
-  %9 = load ptr, ptr %8, align 16, !tbaa !30
+  %9 = load ptr, ptr %8, align 16, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !31
+  %11 = load i8, ptr %10, align 8, !tbaa !32
   %12 = tail call ptr @BN_MONT_CTX_new() #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -1536,19 +1536,19 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
   br i1 %.not32, label %.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %23 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  store ptr %12, ptr %24, align 8, !tbaa !35
+  store ptr %12, ptr %24, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .thread:                                          ; preds = %14, %20, %.lr.ph, %3
   %.026 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %12, %20 ], [ %12, %14 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.026) #11
-  %25 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %25 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !34
   tail call void @free(ptr noundef %25) #11
-  store ptr null, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  store ptr null, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.thread
@@ -1616,27 +1616,28 @@ attributes #13 = { noreturn nounwind }
 !22 = !{!12, !17, i64 64}
 !23 = !{!24, !13, i64 0}
 !24 = !{!"ec_point_st", !13, i64 0, !15, i64 8, !15, i64 32, !15, i64 56}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !17, i64 0}
-!28 = !{!"built_in_curve", !17, i64 0, !9, i64 4, !9, i64 12, !29, i64 16, !8, i64 24}
-!29 = !{!"p1 _ZTS10curve_data", !8, i64 0}
-!30 = !{!28, !29, i64 16}
-!31 = !{!9, !9, i64 0}
-!32 = !{!28, !8, i64 24}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p2 _ZTS14bn_mont_ctx_st", !8, i64 0}
-!35 = !{!18, !18, i64 0}
-!36 = !{!12, !18, i64 72}
-!37 = !{!7, !8, i64 16}
-!38 = distinct !{!38, !26}
-!39 = !{!14, !14, i64 0}
-!40 = !{!7, !8, i64 32}
-!41 = !{!7, !8, i64 40}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 omnipotent char", !8, i64 0}
-!44 = !{!45, !43, i64 8}
-!45 = !{!"", !17, i64 0, !43, i64 8}
-!46 = !{!45, !17, i64 0}
-!47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29, !17, i64 0}
+!29 = !{!"built_in_curve", !17, i64 0, !9, i64 4, !9, i64 12, !30, i64 16, !8, i64 24}
+!30 = !{!"p1 _ZTS10curve_data", !8, i64 0}
+!31 = !{!29, !30, i64 16}
+!32 = !{!9, !9, i64 0}
+!33 = !{!29, !8, i64 24}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p2 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!36 = !{!18, !18, i64 0}
+!37 = !{!12, !18, i64 72}
+!38 = !{!7, !8, i64 16}
+!39 = distinct !{!39, !26, !27}
+!40 = !{!14, !14, i64 0}
+!41 = !{!7, !8, i64 32}
+!42 = !{!7, !8, i64 40}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 omnipotent char", !8, i64 0}
+!45 = !{!46, !44, i64 8}
+!46 = !{!"", !17, i64 0, !44, i64 8}
+!47 = !{!46, !17, i64 0}
+!48 = distinct !{!48, !26, !27}
+!49 = distinct !{!49, !26, !27}

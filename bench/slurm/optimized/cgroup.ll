@@ -909,7 +909,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_state(i32 noundef %0) local_
   br label %.lr.ph79.split.backedge
 
 .lr.ph79.split.backedge:                          ; preds = %50, %47
-  br label %.lr.ph79.split, !llvm.loop !13
+  br label %.lr.ph79.split, !llvm.loop !14
 
 .thread:                                          ; preds = %.split81.us, %.split84.us, %43, %.split67.us, %24, %.outer60._crit_edge
   %.0 = phi i32 [ 0, %.outer60._crit_edge ], [ -1, %24 ], [ -1, %.split67.us ], [ -1, %43 ], [ -1, %.split84.us ], [ 0, %.split81.us ]
@@ -1048,7 +1048,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %46, %43
-  br label %.lr.ph, !llvm.loop !14
+  br label %.lr.ph, !llvm.loop !15
 
 .outer63._crit_edge:                              ; preds = %.split77.us
   %47 = load i32, ptr %2, align 4
@@ -1175,7 +1175,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
   br label %.lr.ph105.backedge
 
 .lr.ph105.backedge:                               ; preds = %90, %87
-  br label %.lr.ph105, !llvm.loop !15
+  br label %.lr.ph105, !llvm.loop !16
 
 .thread:                                          ; preds = %.split110.us, %.split113.us, %83, %73, %68, %.split80.us, %39, %29, %24, %.outer63._crit_edge
   %.0 = phi i32 [ 0, %.outer63._crit_edge ], [ -1, %24 ], [ -1, %29 ], [ -1, %39 ], [ -1, %.split80.us ], [ -1, %68 ], [ -1, %73 ], [ -1, %83 ], [ -1, %.split113.us ], [ 0, %.split110.us ]
@@ -1259,7 +1259,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_u
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %27, %24
-  br label %.lr.ph.split, !llvm.loop !16
+  br label %.lr.ph.split, !llvm.loop !17
 
 .outer58._crit_edge:                              ; preds = %.split.us
   %.not4991 = icmp eq i32 %9, 0
@@ -1324,7 +1324,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_u
   br label %.lr.ph77.split.backedge
 
 .lr.ph77.split.backedge:                          ; preds = %49, %46
-  br label %.lr.ph77.split, !llvm.loop !17
+  br label %.lr.ph77.split, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.split80.us, %.outer58._crit_edge
   %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
@@ -1445,7 +1445,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %35, %32
-  br label %.lr.ph, !llvm.loop !18
+  br label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %1, %.lr.ph.backedge
   %.049.ph126 = phi i64 [ %31, %.lr.ph.backedge ], [ 4, %1 ]
@@ -1624,7 +1624,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   br label %.lr.ph129.backedge
 
 .lr.ph129.backedge:                               ; preds = %102, %99
-  br label %.lr.ph129, !llvm.loop !19
+  br label %.lr.ph129, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.split135.us, %.outer87._crit_edge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
@@ -2455,13 +2455,14 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}
+!18 = distinct !{!18, !11, !12, !13}
+!19 = distinct !{!19, !11, !12, !13}
+!20 = distinct !{!20, !11, !12, !13}

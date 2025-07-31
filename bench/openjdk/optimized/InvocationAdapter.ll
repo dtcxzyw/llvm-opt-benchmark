@@ -485,7 +485,7 @@ define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, pt
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %splitPathList.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %.not.i, label %splitPathList.exit, label %.preheader.i, !llvm.loop !9
 
 splitPathList.exit:                               ; preds = %16, %20, %7
   %indvars.iv.i.lcssa.sink = phi i64 [ %indvars.iv.i, %7 ], [ %indvars.iv.next.i, %20 ], [ %indvars.iv.next.i, %16 ]
@@ -588,7 +588,7 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %.039.be.i = phi i32 [ %64, %60 ], [ %93, %.split.loop.exit.i ], [ 37, %.backedge.loopexit.i ]
   %.038.be.i = phi ptr [ %58, %60 ], [ %88, %.split.loop.exit.i ], [ %88, %.backedge.loopexit.i ]
   %66 = icmp slt i32 %.042.be.i, %39
-  br i1 %66, label %54, label %._crit_edge.i, !llvm.loop !9
+  br i1 %66, label %54, label %._crit_edge.i, !llvm.loop !10
 
 .preheader.i87:                                   ; preds = %89, %.preheader.preheader.i
   %indvars.iv.i88 = phi i64 [ %55, %.preheader.preheader.i ], [ %indvars.iv.next.i89, %89 ]
@@ -654,7 +654,7 @@ decodeByte.exit.i:                                ; preds = %82, %80, %decodeNib
   %90 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.next.i89
   %91 = load i8, ptr %90, align 1
   %.not51.i = icmp eq i8 %91, 37
-  br i1 %.not51.i, label %.preheader.i87, label %.split.loop.exit.i
+  br i1 %.not51.i, label %.preheader.i87, label %.split.loop.exit.i, !llvm.loop !11
 
 .split.loop.exit.i:                               ; preds = %89
   %92 = trunc nsw i64 %indvars.iv.next.i89 to i32
@@ -798,7 +798,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
   %.1 = phi ptr [ %.022, %decodePath.exit.thread ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv.i.lcssa.sink
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %148
   %149 = icmp ne i32 %.161, 0
@@ -1374,8 +1374,10 @@ attributes #21 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !7, !8}

@@ -153,7 +153,7 @@ is_inside.exit:                                   ; preds = %37
 
 61:                                               ; preds = %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %63 = load ptr, ptr %62, align 8, !tbaa !47
+  %63 = load ptr, ptr %62, align 8, !tbaa !48
   %64 = load i32, ptr %32, align 8, !tbaa !39
   %65 = load i32, ptr %34, align 4, !tbaa !42
   %66 = call i32 %63(ptr noundef nonnull %1, i32 noundef %64, i32 noundef %65, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49) #7
@@ -164,18 +164,18 @@ is_inside.exit:                                   ; preds = %37
   %68 = load i32, ptr %32, align 8, !tbaa !39
   %69 = trunc i32 %68 to i16
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %71 = load ptr, ptr %70, align 8, !tbaa !48
+  %71 = load ptr, ptr %70, align 8, !tbaa !49
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %73 = load i32, ptr %72, align 8, !tbaa !49
+  %73 = load i32, ptr %72, align 8, !tbaa !50
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds %struct.Points, ptr %71, i64 %74
-  store i16 %69, ptr %75, align 2, !tbaa !50
+  store i16 %69, ptr %75, align 2, !tbaa !51
   %76 = load i32, ptr %34, align 4, !tbaa !42
   %77 = trunc i32 %76 to i16
   %78 = getelementptr inbounds %struct.Points, ptr %71, i64 %74, i32 1
-  store i16 %77, ptr %78, align 2, !tbaa !53
+  store i16 %77, ptr %78, align 2, !tbaa !54
   %79 = add nsw i32 %73, 1
-  store i32 %79, ptr %72, align 8, !tbaa !49
+  store i32 %79, ptr %72, align 8, !tbaa !50
   br label %80
 
 80:                                               ; preds = %67, %61
@@ -186,8 +186,8 @@ is_inside.exit:                                   ; preds = %37
 .preheader:                                       ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 68
-  %84 = load i32, ptr %82, align 8, !tbaa !49
-  %85 = load i32, ptr %83, align 4, !tbaa !54
+  %84 = load i32, ptr %82, align 8, !tbaa !50
+  %85 = load i32, ptr %83, align 4, !tbaa !55
   %86 = icmp sgt i32 %84, %85
   br i1 %86, label %.lr.ph142, label %is_inside.exit.thread
 
@@ -203,16 +203,16 @@ is_inside.exit:                                   ; preds = %37
 90:                                               ; preds = %.lr.ph142, %is_inside.exit126.thread
   %91 = phi i32 [ %84, %.lr.ph142 ], [ %147, %is_inside.exit126.thread ]
   %92 = add nsw i32 %91, -1
-  store i32 %92, ptr %82, align 8, !tbaa !49
-  %93 = load ptr, ptr %87, align 8, !tbaa !48
+  store i32 %92, ptr %82, align 8, !tbaa !50
+  %93 = load ptr, ptr %87, align 8, !tbaa !49
   %94 = sext i32 %92 to i64
   %95 = getelementptr inbounds %struct.Points, ptr %93, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !50
+  %96 = load i16, ptr %95, align 2, !tbaa !51
   %97 = zext i16 %96 to i32
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  %99 = load i16, ptr %98, align 2, !tbaa !53
+  %99 = load i16, ptr %98, align 2, !tbaa !54
   %100 = zext i16 %99 to i32
-  %101 = load ptr, ptr %62, align 8, !tbaa !47
+  %101 = load ptr, ptr %62, align 8, !tbaa !48
   %102 = load ptr, ptr %3, align 8, !tbaa !20
   %103 = load i32, ptr %4, align 4, !tbaa !31
   %104 = load i32, ptr %5, align 4, !tbaa !31
@@ -223,11 +223,11 @@ is_inside.exit:                                   ; preds = %37
   br i1 %.not106, label %.is_inside.exit126.thread_crit_edge, label %108
 
 .is_inside.exit126.thread_crit_edge:              ; preds = %90
-  %.pre = load i32, ptr %82, align 8, !tbaa !49
+  %.pre = load i32, ptr %82, align 8, !tbaa !50
   br label %is_inside.exit126.thread
 
 108:                                              ; preds = %90
-  %109 = load ptr, ptr %88, align 8, !tbaa !55
+  %109 = load ptr, ptr %88, align 8, !tbaa !56
   %110 = load ptr, ptr %3, align 8, !tbaa !20
   call void %109(ptr noundef %110, i32 noundef %97, i32 noundef %100, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %19) #7
   %111 = add nuw nsw i32 %97, 1
@@ -238,15 +238,15 @@ is_inside.exit:                                   ; preds = %37
 
 is_inside.exit114:                                ; preds = %108
   %114 = trunc i32 %111 to i16
-  %115 = load ptr, ptr %87, align 8, !tbaa !48
-  %116 = load i32, ptr %82, align 8, !tbaa !49
+  %115 = load ptr, ptr %87, align 8, !tbaa !49
+  %116 = load i32, ptr %82, align 8, !tbaa !50
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds %struct.Points, ptr %115, i64 %117
-  store i16 %114, ptr %118, align 2, !tbaa !50
+  store i16 %114, ptr %118, align 2, !tbaa !51
   %119 = add nsw i32 %116, 1
-  store i32 %119, ptr %82, align 8, !tbaa !49
+  store i32 %119, ptr %82, align 8, !tbaa !50
   %120 = getelementptr inbounds %struct.Points, ptr %115, i64 %117, i32 1
-  store i16 %99, ptr %120, align 2, !tbaa !53
+  store i16 %99, ptr %120, align 2, !tbaa !54
   br label %is_inside.exit114.thread
 
 is_inside.exit114.thread:                         ; preds = %108, %is_inside.exit114
@@ -255,24 +255,24 @@ is_inside.exit114.thread:                         ; preds = %108, %is_inside.exi
   br i1 %.not, label %is_inside.exit114.thread.is_inside.exit118.thread_crit_edge, label %122
 
 is_inside.exit114.thread.is_inside.exit118.thread_crit_edge: ; preds = %is_inside.exit114.thread
-  %.pre144.pre.pre = load i32, ptr %82, align 8, !tbaa !49
+  %.pre144.pre.pre = load i32, ptr %82, align 8, !tbaa !50
   br label %is_inside.exit118.thread
 
 122:                                              ; preds = %is_inside.exit114.thread
   %123 = icmp sge i32 %29, %97
   %or.cond10.i117 = and i1 %123, %113
-  %.pre144.pre.pre146 = load i32, ptr %82, align 8, !tbaa !49
+  %.pre144.pre.pre146 = load i32, ptr %82, align 8, !tbaa !50
   br i1 %or.cond10.i117, label %is_inside.exit118, label %is_inside.exit118.thread
 
 is_inside.exit118:                                ; preds = %122
-  %124 = load ptr, ptr %87, align 8, !tbaa !48
+  %124 = load ptr, ptr %87, align 8, !tbaa !49
   %125 = sext i32 %.pre144.pre.pre146 to i64
   %126 = getelementptr inbounds %struct.Points, ptr %124, i64 %125
-  store i16 %121, ptr %126, align 2, !tbaa !50
+  store i16 %121, ptr %126, align 2, !tbaa !51
   %127 = add nsw i32 %.pre144.pre.pre146, 1
-  store i32 %127, ptr %82, align 8, !tbaa !49
+  store i32 %127, ptr %82, align 8, !tbaa !50
   %128 = getelementptr inbounds %struct.Points, ptr %124, i64 %125, i32 1
-  store i16 %99, ptr %128, align 2, !tbaa !53
+  store i16 %99, ptr %128, align 2, !tbaa !54
   br label %is_inside.exit118.thread
 
 is_inside.exit118.thread:                         ; preds = %is_inside.exit114.thread.is_inside.exit118.thread_crit_edge, %122, %is_inside.exit118
@@ -284,15 +284,15 @@ is_inside.exit118.thread:                         ; preds = %is_inside.exit114.t
   br i1 %or.cond10.i121, label %is_inside.exit122, label %is_inside.exit122.thread
 
 is_inside.exit122:                                ; preds = %is_inside.exit118.thread
-  %132 = load ptr, ptr %87, align 8, !tbaa !48
+  %132 = load ptr, ptr %87, align 8, !tbaa !49
   %133 = sext i32 %.pre144.pre to i64
   %134 = getelementptr inbounds %struct.Points, ptr %132, i64 %133
-  store i16 %96, ptr %134, align 2, !tbaa !50
+  store i16 %96, ptr %134, align 2, !tbaa !51
   %135 = trunc i32 %129 to i16
   %136 = add nsw i32 %.pre144.pre, 1
-  store i32 %136, ptr %82, align 8, !tbaa !49
+  store i32 %136, ptr %82, align 8, !tbaa !50
   %137 = getelementptr inbounds %struct.Points, ptr %132, i64 %133, i32 1
-  store i16 %135, ptr %137, align 2, !tbaa !53
+  store i16 %135, ptr %137, align 2, !tbaa !54
   br label %is_inside.exit122.thread
 
 is_inside.exit122.thread:                         ; preds = %is_inside.exit118.thread, %is_inside.exit122
@@ -305,26 +305,26 @@ is_inside.exit122.thread:                         ; preds = %is_inside.exit118.t
 
 is_inside.exit126:                                ; preds = %is_inside.exit122.thread
   %141 = add i16 %99, -1
-  %142 = load ptr, ptr %87, align 8, !tbaa !48
+  %142 = load ptr, ptr %87, align 8, !tbaa !49
   %143 = sext i32 %.pre144 to i64
   %144 = getelementptr inbounds %struct.Points, ptr %142, i64 %143
-  store i16 %96, ptr %144, align 2, !tbaa !50
+  store i16 %96, ptr %144, align 2, !tbaa !51
   %145 = add nsw i32 %.pre144, 1
-  store i32 %145, ptr %82, align 8, !tbaa !49
+  store i32 %145, ptr %82, align 8, !tbaa !50
   %146 = getelementptr inbounds %struct.Points, ptr %142, i64 %143, i32 1
-  store i16 %141, ptr %146, align 2, !tbaa !53
+  store i16 %141, ptr %146, align 2, !tbaa !54
   br label %is_inside.exit126.thread
 
 is_inside.exit126.thread:                         ; preds = %.is_inside.exit126.thread_crit_edge, %is_inside.exit122.thread, %is_inside.exit126
   %147 = phi i32 [ %.pre, %.is_inside.exit126.thread_crit_edge ], [ %.pre144, %is_inside.exit122.thread ], [ %145, %is_inside.exit126 ]
-  %148 = load i32, ptr %83, align 4, !tbaa !54
+  %148 = load i32, ptr %83, align 4, !tbaa !55
   %149 = icmp sgt i32 %147, %148
-  br i1 %149, label %90, label %is_inside.exit.thread, !llvm.loop !56
+  br i1 %149, label %90, label %is_inside.exit.thread, !llvm.loop !57
 
 is_inside.exit.thread:                            ; preds = %58, %is_inside.exit126.thread, %.preheader, %37, %2, %._crit_edge
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %151 = load ptr, ptr %150, align 8, !tbaa !57
-  %152 = load ptr, ptr %151, align 8, !tbaa !58
+  %151 = load ptr, ptr %150, align 8, !tbaa !58
+  %152 = load ptr, ptr %151, align 8, !tbaa !59
   %153 = load ptr, ptr %3, align 8, !tbaa !20
   %154 = call i32 @ff_filter_frame(ptr noundef %152, ptr noundef %153) #7
   br label %155
@@ -341,18 +341,18 @@ is_inside.exit.thread:                            ; preds = %58, %is_inside.exit
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %3 = load i32, ptr %2, align 4, !tbaa !60
+  %3 = load i32, ptr %2, align 4, !tbaa !61
   %4 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !4
-  %9 = load i32, ptr %2, align 4, !tbaa !60
+  %9 = load i32, ptr %2, align 4, !tbaa !61
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %10, ptr %11, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !61
+  %13 = load i32, ptr %12, align 8, !tbaa !62
   %14 = icmp eq i32 %13, 8
   br i1 %14, label %15, label %18
 
@@ -387,27 +387,27 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %is_same1_16.sink = phi ptr [ @is_same3_16, %19 ], [ @is_same4_16, %20 ], [ @is_same3, %16 ], [ @is_same4, %17 ], [ @is_same1, %15 ], [ @is_same1_16, %18 ]
   %pick_pixel1_16.sink = phi ptr [ @pick_pixel3_16, %19 ], [ @pick_pixel4_16, %20 ], [ @pick_pixel3, %16 ], [ @pick_pixel4, %17 ], [ @pick_pixel1, %15 ], [ @pick_pixel1_16, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store ptr %set_pixel1_16.sink, ptr %21, align 8, !tbaa !55
+  store ptr %set_pixel1_16.sink, ptr %21, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr %is_same1_16.sink, ptr %22, align 8, !tbaa !47
+  store ptr %is_same1_16.sink, ptr %22, align 8, !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %pick_pixel1_16.sink, ptr %23, align 8, !tbaa !43
   br label %24
 
 24:                                               ; preds = %.sink.split, %18, %15
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 0, ptr %25, align 4, !tbaa !54
+  store i32 0, ptr %25, align 4, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 0, ptr %26, align 8, !tbaa !49
+  store i32 0, ptr %26, align 8, !tbaa !50
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !63
+  %28 = load i32, ptr %27, align 8, !tbaa !64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !64
+  %30 = load i32, ptr %29, align 4, !tbaa !65
   %31 = mul nsw i32 %30, %28
   %32 = sext i32 %31 to i64
   %33 = tail call noalias ptr @av_calloc(i64 noundef %32, i64 noundef 16) #7
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %33, ptr %34, align 8, !tbaa !48
+  store ptr %33, ptr %34, align 8, !tbaa !49
   %.not = icmp eq ptr %33, null
   %. = select i1 %.not, i32 -12, i32 0
   ret i32 %.
@@ -432,27 +432,27 @@ declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
   %8 = trunc i32 %3 to i8
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
   %13 = add nsw i32 %12, %1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %9, i64 %14
-  store i8 %8, ptr %15, align 1, !tbaa !66
+  store i8 %8, ptr %15, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same1(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
   %12 = add nsw i32 %11, %1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !66
+  %15 = load i8, ptr %14, align 1, !tbaa !67
   %16 = zext i8 %15 to i32
   %17 = icmp eq i32 %3, %16
   %. = zext i1 %17 to i32
@@ -466,14 +466,14 @@ define internal void @pick_pixel1(ptr noundef readonly captures(none) %0, i32 no
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !66
+  %18 = load i8, ptr %17, align 1, !tbaa !67
   %19 = zext i8 %18 to i32
   store i32 %19, ptr %3, align 4, !tbaa !31
   br label %20
@@ -485,71 +485,71 @@ define internal void @pick_pixel1(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
   %8 = trunc i32 %3 to i8
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
   %13 = add nsw i32 %12, %1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %9, i64 %14
-  store i8 %8, ptr %15, align 1, !tbaa !66
+  store i8 %8, ptr %15, align 1, !tbaa !67
   %16 = trunc i32 %4 to i8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !65
+  %18 = load ptr, ptr %17, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4, !tbaa !31
   %21 = mul nsw i32 %20, %2
   %22 = add nsw i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
-  store i8 %16, ptr %24, align 1, !tbaa !66
+  store i8 %16, ptr %24, align 1, !tbaa !67
   %25 = trunc i32 %5 to i8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !65
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8, !tbaa !31
   %30 = mul nsw i32 %29, %2
   %31 = add nsw i32 %30, %1
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %27, i64 %32
-  store i8 %25, ptr %33, align 1, !tbaa !66
+  store i8 %25, ptr %33, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same3(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
   %12 = add nsw i32 %11, %1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !66
+  %15 = load i8, ptr %14, align 1, !tbaa !67
   %16 = zext i8 %15 to i32
   %17 = icmp eq i32 %3, %16
   br i1 %17, label %18, label %41
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !31
   %23 = mul nsw i32 %22, %2
   %24 = add nsw i32 %23, %1
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %20, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !66
+  %27 = load i8, ptr %26, align 1, !tbaa !67
   %28 = zext i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !65
+  %30 = load ptr, ptr %29, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %32 = load i32, ptr %31, align 4, !tbaa !31
   %33 = mul nsw i32 %32, %2
   %34 = add nsw i32 %33, %1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !66
+  %37 = load i8, ptr %36, align 1, !tbaa !67
   %38 = zext i8 %37 to i32
   %39 = icmp eq i32 %4, %38
   %40 = icmp eq i32 %5, %28
@@ -571,14 +571,14 @@ define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 no
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !66
+  %18 = load i8, ptr %17, align 1, !tbaa !67
   %19 = zext i8 %18 to i32
   store i32 %19, ptr %3, align 4, !tbaa !31
   br label %20
@@ -590,14 +590,14 @@ define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 no
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !65
+  %25 = load ptr, ptr %24, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %27 = load i32, ptr %26, align 4, !tbaa !31
   %28 = mul nsw i32 %27, %2
   %29 = add nsw i32 %28, %1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %25, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !66
+  %32 = load i8, ptr %31, align 1, !tbaa !67
   %33 = zext i8 %32 to i32
   store i32 %33, ptr %4, align 4, !tbaa !31
   br label %34
@@ -609,14 +609,14 @@ define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 no
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !65
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !31
   %42 = mul nsw i32 %41, %2
   %43 = add nsw i32 %42, %1
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %39, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !66
+  %46 = load i8, ptr %45, align 1, !tbaa !67
   %47 = zext i8 %46 to i32
   store i32 %47, ptr %5, align 4, !tbaa !31
   br label %48
@@ -628,91 +628,91 @@ define internal void @pick_pixel3(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
   %8 = trunc i32 %3 to i8
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
   %13 = add nsw i32 %12, %1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %9, i64 %14
-  store i8 %8, ptr %15, align 1, !tbaa !66
+  store i8 %8, ptr %15, align 1, !tbaa !67
   %16 = trunc i32 %4 to i8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !65
+  %18 = load ptr, ptr %17, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4, !tbaa !31
   %21 = mul nsw i32 %20, %2
   %22 = add nsw i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
-  store i8 %16, ptr %24, align 1, !tbaa !66
+  store i8 %16, ptr %24, align 1, !tbaa !67
   %25 = trunc i32 %5 to i8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !65
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8, !tbaa !31
   %30 = mul nsw i32 %29, %2
   %31 = add nsw i32 %30, %1
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %27, i64 %32
-  store i8 %25, ptr %33, align 1, !tbaa !66
+  store i8 %25, ptr %33, align 1, !tbaa !67
   %34 = trunc i32 %6 to i8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !65
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %38 = load i32, ptr %37, align 4, !tbaa !31
   %39 = mul nsw i32 %38, %2
   %40 = add nsw i32 %39, %1
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %36, i64 %41
-  store i8 %34, ptr %42, align 1, !tbaa !66
+  store i8 %34, ptr %42, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same4(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
   %12 = add nsw i32 %11, %1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !66
+  %15 = load i8, ptr %14, align 1, !tbaa !67
   %16 = zext i8 %15 to i32
   %17 = icmp eq i32 %3, %16
   br i1 %17, label %18, label %52
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = mul nsw i32 %22, %2
   %24 = add nsw i32 %23, %1
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %20, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !66
+  %27 = load i8, ptr %26, align 1, !tbaa !67
   %28 = zext i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !65
+  %30 = load ptr, ptr %29, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8, !tbaa !31
   %33 = mul nsw i32 %32, %2
   %34 = add nsw i32 %33, %1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !66
+  %37 = load i8, ptr %36, align 1, !tbaa !67
   %38 = zext i8 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !65
+  %40 = load ptr, ptr %39, align 8, !tbaa !66
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %42 = load i32, ptr %41, align 4, !tbaa !31
   %43 = mul nsw i32 %42, %2
   %44 = add nsw i32 %43, %1
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %40, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !66
+  %47 = load i8, ptr %46, align 1, !tbaa !67
   %48 = zext i8 %47 to i32
   %49 = icmp eq i32 %4, %48
   %50 = icmp eq i32 %5, %38
@@ -736,14 +736,14 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !66
+  %18 = load i8, ptr %17, align 1, !tbaa !67
   %19 = zext i8 %18 to i32
   store i32 %19, ptr %3, align 4, !tbaa !31
   br label %20
@@ -755,14 +755,14 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !65
+  %25 = load ptr, ptr %24, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %27 = load i32, ptr %26, align 4, !tbaa !31
   %28 = mul nsw i32 %27, %2
   %29 = add nsw i32 %28, %1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %25, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !66
+  %32 = load i8, ptr %31, align 1, !tbaa !67
   %33 = zext i8 %32 to i32
   store i32 %33, ptr %4, align 4, !tbaa !31
   br label %34
@@ -774,14 +774,14 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !65
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !31
   %42 = mul nsw i32 %41, %2
   %43 = add nsw i32 %42, %1
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %39, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !66
+  %46 = load i8, ptr %45, align 1, !tbaa !67
   %47 = zext i8 %46 to i32
   store i32 %47, ptr %5, align 4, !tbaa !31
   br label %48
@@ -793,14 +793,14 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !65
+  %53 = load ptr, ptr %52, align 8, !tbaa !66
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %55 = load i32, ptr %54, align 4, !tbaa !31
   %56 = mul nsw i32 %55, %2
   %57 = add nsw i32 %56, %1
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %53, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !66
+  %60 = load i8, ptr %59, align 1, !tbaa !67
   %61 = zext i8 %60 to i32
   store i32 %61, ptr %6, align 4, !tbaa !31
   br label %62
@@ -812,7 +812,7 @@ define internal void @pick_pixel4(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #4 {
   %8 = trunc i32 %3 to i16
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
@@ -821,13 +821,13 @@ define internal void @set_pixel1_16(ptr noundef readonly captures(none) %0, i32 
   %15 = shl nsw i32 %1, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i16 %8, ptr %17, align 1, !tbaa !66
+  store i16 %8, ptr %17, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same1_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
@@ -836,7 +836,7 @@ define internal range(i32 0, 2) i32 @is_same1_16(ptr noundef readonly captures(n
   %14 = shl nsw i32 %1, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 1, !tbaa !66
+  %17 = load i16, ptr %16, align 1, !tbaa !67
   %18 = zext i16 %17 to i32
   %19 = icmp eq i32 %3, %18
   %. = zext i1 %19 to i32
@@ -850,7 +850,7 @@ define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
@@ -859,7 +859,7 @@ define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32
   %17 = shl nsw i32 %1, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  %20 = load i16, ptr %19, align 1, !tbaa !66
+  %20 = load i16, ptr %19, align 1, !tbaa !67
   %21 = zext i16 %20 to i32
   store i32 %21, ptr %3, align 4, !tbaa !31
   br label %22
@@ -871,7 +871,7 @@ define internal void @pick_pixel1_16(ptr noundef readonly captures(none) %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #4 {
   %8 = trunc i32 %3 to i16
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
@@ -880,33 +880,33 @@ define internal void @set_pixel3_16(ptr noundef readonly captures(none) %0, i32 
   %15 = shl nsw i32 %1, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i16 %8, ptr %17, align 1, !tbaa !66
+  store i16 %8, ptr %17, align 1, !tbaa !67
   %18 = trunc i32 %4 to i16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = mul nsw i32 %22, %2
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 %16
-  store i16 %18, ptr %26, align 1, !tbaa !66
+  store i16 %18, ptr %26, align 1, !tbaa !67
   %27 = trunc i32 %5 to i16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load i32, ptr %30, align 8, !tbaa !31
   %32 = mul nsw i32 %31, %2
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %29, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 %16
-  store i16 %27, ptr %35, align 1, !tbaa !66
+  store i16 %27, ptr %35, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same3_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
@@ -915,31 +915,31 @@ define internal range(i32 0, 2) i32 @is_same3_16(ptr noundef readonly captures(n
   %14 = shl nsw i32 %1, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 1, !tbaa !66
+  %17 = load i16, ptr %16, align 1, !tbaa !67
   %18 = zext i16 %17 to i32
   %19 = icmp eq i32 %3, %18
   br i1 %19, label %20, label %43
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load i32, ptr %23, align 8, !tbaa !31
   %25 = mul nsw i32 %24, %2
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 %15
-  %29 = load i16, ptr %28, align 1, !tbaa !66
+  %29 = load i16, ptr %28, align 1, !tbaa !67
   %30 = zext i16 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !65
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %34 = load i32, ptr %33, align 4, !tbaa !31
   %35 = mul nsw i32 %34, %2
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %32, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 %15
-  %39 = load i16, ptr %38, align 1, !tbaa !66
+  %39 = load i16, ptr %38, align 1, !tbaa !67
   %40 = zext i16 %39 to i32
   %41 = icmp eq i32 %4, %40
   %42 = icmp eq i32 %5, %30
@@ -961,7 +961,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
@@ -970,7 +970,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
   %17 = shl nsw i32 %1, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  %20 = load i16, ptr %19, align 1, !tbaa !66
+  %20 = load i16, ptr %19, align 1, !tbaa !67
   %21 = zext i16 %20 to i32
   store i32 %21, ptr %3, align 4, !tbaa !31
   br label %22
@@ -982,7 +982,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !65
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %29 = load i32, ptr %28, align 4, !tbaa !31
   %30 = mul nsw i32 %29, %2
@@ -991,7 +991,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
   %33 = shl nsw i32 %1, 1
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
-  %36 = load i16, ptr %35, align 1, !tbaa !66
+  %36 = load i16, ptr %35, align 1, !tbaa !67
   %37 = zext i16 %36 to i32
   store i32 %37, ptr %4, align 4, !tbaa !31
   br label %38
@@ -1003,7 +1003,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !65
+  %43 = load ptr, ptr %42, align 8, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i32, ptr %44, align 8, !tbaa !31
   %46 = mul nsw i32 %45, %2
@@ -1012,7 +1012,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
   %49 = shl nsw i32 %1, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = load i16, ptr %51, align 1, !tbaa !66
+  %52 = load i16, ptr %51, align 1, !tbaa !67
   %53 = zext i16 %52 to i32
   store i32 %53, ptr %5, align 4, !tbaa !31
   br label %54
@@ -1024,7 +1024,7 @@ define internal void @pick_pixel3_16(ptr noundef readonly captures(none) %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @set_pixel4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #4 {
   %8 = trunc i32 %3 to i16
-  %9 = load ptr, ptr %0, align 8, !tbaa !65
+  %9 = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = mul nsw i32 %11, %2
@@ -1033,43 +1033,43 @@ define internal void @set_pixel4_16(ptr noundef readonly captures(none) %0, i32 
   %15 = shl nsw i32 %1, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i16 %8, ptr %17, align 1, !tbaa !66
+  store i16 %8, ptr %17, align 1, !tbaa !67
   %18 = trunc i32 %4 to i16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !65
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = mul nsw i32 %22, %2
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 %16
-  store i16 %18, ptr %26, align 1, !tbaa !66
+  store i16 %18, ptr %26, align 1, !tbaa !67
   %27 = trunc i32 %5 to i16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load i32, ptr %30, align 8, !tbaa !31
   %32 = mul nsw i32 %31, %2
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %29, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 %16
-  store i16 %27, ptr %35, align 1, !tbaa !66
+  store i16 %27, ptr %35, align 1, !tbaa !67
   %36 = trunc i32 %6 to i16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !65
+  %38 = load ptr, ptr %37, align 8, !tbaa !66
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %40 = load i32, ptr %39, align 4, !tbaa !31
   %41 = mul nsw i32 %40, %2
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %38, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 %16
-  store i16 %36, ptr %44, align 1, !tbaa !66
+  store i16 %36, ptr %44, align 1, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @is_same4_16(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !65
+  %8 = load ptr, ptr %0, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = mul nsw i32 %10, %2
@@ -1078,41 +1078,41 @@ define internal range(i32 0, 2) i32 @is_same4_16(ptr noundef readonly captures(n
   %14 = shl nsw i32 %1, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 1, !tbaa !66
+  %17 = load i16, ptr %16, align 1, !tbaa !67
   %18 = zext i16 %17 to i32
   %19 = icmp eq i32 %3, %18
   br i1 %19, label %20, label %54
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %24 = load i32, ptr %23, align 4, !tbaa !31
   %25 = mul nsw i32 %24, %2
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 %15
-  %29 = load i16, ptr %28, align 1, !tbaa !66
+  %29 = load i16, ptr %28, align 1, !tbaa !67
   %30 = zext i16 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !65
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i32, ptr %33, align 8, !tbaa !31
   %35 = mul nsw i32 %34, %2
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %32, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 %15
-  %39 = load i16, ptr %38, align 1, !tbaa !66
+  %39 = load i16, ptr %38, align 1, !tbaa !67
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !65
+  %42 = load ptr, ptr %41, align 8, !tbaa !66
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %44 = load i32, ptr %43, align 4, !tbaa !31
   %45 = mul nsw i32 %44, %2
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %42, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 %15
-  %49 = load i16, ptr %48, align 1, !tbaa !66
+  %49 = load i16, ptr %48, align 1, !tbaa !67
   %50 = zext i16 %49 to i32
   %51 = icmp eq i32 %4, %50
   %52 = icmp eq i32 %5, %40
@@ -1136,7 +1136,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %0, align 8, !tbaa !65
+  %11 = load ptr, ptr %0, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = mul nsw i32 %13, %2
@@ -1145,7 +1145,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   %17 = shl nsw i32 %1, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
-  %20 = load i16, ptr %19, align 1, !tbaa !66
+  %20 = load i16, ptr %19, align 1, !tbaa !67
   %21 = zext i16 %20 to i32
   store i32 %21, ptr %3, align 4, !tbaa !31
   br label %22
@@ -1157,7 +1157,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !65
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %29 = load i32, ptr %28, align 4, !tbaa !31
   %30 = mul nsw i32 %29, %2
@@ -1166,7 +1166,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   %33 = shl nsw i32 %1, 1
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
-  %36 = load i16, ptr %35, align 1, !tbaa !66
+  %36 = load i16, ptr %35, align 1, !tbaa !67
   %37 = zext i16 %36 to i32
   store i32 %37, ptr %4, align 4, !tbaa !31
   br label %38
@@ -1178,7 +1178,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !65
+  %43 = load ptr, ptr %42, align 8, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i32, ptr %44, align 8, !tbaa !31
   %46 = mul nsw i32 %45, %2
@@ -1187,7 +1187,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   %49 = shl nsw i32 %1, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = load i16, ptr %51, align 1, !tbaa !66
+  %52 = load i16, ptr %51, align 1, !tbaa !67
   %53 = zext i16 %52 to i32
   store i32 %53, ptr %5, align 4, !tbaa !31
   br label %54
@@ -1199,7 +1199,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !65
+  %59 = load ptr, ptr %58, align 8, !tbaa !66
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %61 = load i32, ptr %60, align 4, !tbaa !31
   %62 = mul nsw i32 %61, %2
@@ -1208,7 +1208,7 @@ define internal void @pick_pixel4_16(ptr noundef readonly captures(none) %0, i32
   %65 = shl nsw i32 %1, 1
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %64, i64 %66
-  %68 = load i16, ptr %67, align 1, !tbaa !66
+  %68 = load i16, ptr %67, align 1, !tbaa !67
   %69 = zext i16 %68 to i32
   store i32 %69, ptr %6, align 4, !tbaa !31
   br label %70
@@ -1279,25 +1279,26 @@ attributes #7 = { nounwind }
 !42 = !{!40, !15, i64 12}
 !43 = !{!40, !7, i64 104}
 !44 = !{!40, !15, i64 64}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!40, !7, i64 88}
-!48 = !{!40, !41, i64 80}
-!49 = !{!40, !15, i64 72}
-!50 = !{!51, !52, i64 0}
-!51 = !{!"Points", !52, i64 0, !52, i64 2}
-!52 = !{!"short", !8, i64 0}
-!53 = !{!51, !52, i64 2}
-!54 = !{!40, !15, i64 68}
-!55 = !{!40, !7, i64 96}
-!56 = distinct !{!56, !46}
-!57 = !{!5, !13, i64 56}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!60 = !{!23, !15, i64 36}
-!61 = !{!62, !15, i64 16}
-!62 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
-!63 = !{!23, !15, i64 40}
-!64 = !{!23, !15, i64 44}
-!65 = !{!11, !11, i64 0}
-!66 = !{!8, !8, i64 0}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!40, !7, i64 88}
+!49 = !{!40, !41, i64 80}
+!50 = !{!40, !15, i64 72}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"Points", !53, i64 0, !53, i64 2}
+!53 = !{!"short", !8, i64 0}
+!54 = !{!52, !53, i64 2}
+!55 = !{!40, !15, i64 68}
+!56 = !{!40, !7, i64 96}
+!57 = distinct !{!57, !46, !47}
+!58 = !{!5, !13, i64 56}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!61 = !{!23, !15, i64 36}
+!62 = !{!63, !15, i64 16}
+!63 = !{!"AVComponentDescriptor", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16}
+!64 = !{!23, !15, i64 40}
+!65 = !{!23, !15, i64 44}
+!66 = !{!11, !11, i64 0}
+!67 = !{!8, !8, i64 0}

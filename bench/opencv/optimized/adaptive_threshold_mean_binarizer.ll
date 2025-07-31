@@ -568,18 +568,18 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit:
 110:                                              ; preds = %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #11
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %111, align 8, !tbaa !58
+  store i32 0, ptr %111, align 8, !tbaa !59
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %112, align 4, !tbaa !60
-  store i32 16842752, ptr %9, align 8, !tbaa !61
+  store i32 0, ptr %112, align 4, !tbaa !61
+  store i32 16842752, ptr %9, align 8, !tbaa !62
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %6, ptr %113, align 8, !tbaa !63
+  store ptr %6, ptr %113, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #11
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %115, align 8
-  store i32 33619968, ptr %10, align 8, !tbaa !61
-  store ptr %8, ptr %114, align 8, !tbaa !63
+  store i32 33619968, ptr %10, align 8, !tbaa !62
+  store ptr %8, ptr %114, align 8, !tbaa !64
   invoke void @_ZN2cv17adaptiveThresholdERKNS_11_InputArrayERKNS_12_OutputArrayEdiiid(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, double noundef 2.550000e+02, i32 noundef 1, i32 noundef 0, i32 noundef %99, double noundef 1.000000e+01)
           to label %116 unwind label %156
 
@@ -591,11 +591,11 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit:
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %119 = load i32, ptr %118, align 4, !tbaa !64
-  store i32 %119, ptr %13, align 4, !tbaa !65
+  %119 = load i32, ptr %118, align 4, !tbaa !65
+  store i32 %119, ptr %13, align 4, !tbaa !66
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %121 = load i32, ptr %120, align 8, !tbaa !66
-  store i32 %121, ptr %17, align 8, !tbaa !65
+  %121 = load i32, ptr %120, align 8, !tbaa !67
+  store i32 %121, ptr %17, align 8, !tbaa !66
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph23.i, label %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exit
 
@@ -622,7 +622,7 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit:
   br label %137
 
 ._crit_edge.loopexit.i:                           ; preds = %137
-  %.pre.i = load i32, ptr %17, align 8, !tbaa !65
+  %.pre.i = load i32, ptr %17, align 8, !tbaa !66
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph23.split.i
@@ -630,27 +630,27 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransBufferToMatEPhRN2cv3MatEii.exit:
   %134 = phi i32 [ %148, %._crit_edge.loopexit.i ], [ %127, %.lr.ph23.split.i ]
   %135 = add nuw nsw i32 %.021.i, 1
   %136 = icmp slt i32 %135, %133
-  br i1 %136, label %.lr.ph23.split.i, label %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exit, !llvm.loop !67
+  br i1 %136, label %.lr.ph23.split.i, label %_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exit, !llvm.loop !68
 
 137:                                              ; preds = %137, %.lr.ph.i46
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i46 ], [ %indvars.iv.next.i48, %137 ]
-  %138 = load i32, ptr %17, align 8, !tbaa !65
+  %138 = load i32, ptr %17, align 8, !tbaa !66
   %139 = add i32 %138, %132
   %140 = load i64, ptr %.pre55, align 8, !tbaa !54
   %141 = sext i32 %139 to i64
   %142 = mul i64 %140, %141
   %143 = getelementptr inbounds nuw i8, ptr %.pre54, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv.i47
-  %145 = load i8, ptr %144, align 1, !tbaa !69
+  %145 = load i8, ptr %144, align 1, !tbaa !70
   %146 = icmp ult i8 %145, 121
   %spec.select.i = zext i1 %146 to i8
   %147 = getelementptr inbounds nuw i8, ptr %130, i64 %indvars.iv.i47
-  store i8 %spec.select.i, ptr %147, align 1, !tbaa !69
+  store i8 %spec.select.i, ptr %147, align 1, !tbaa !70
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
-  %148 = load i32, ptr %13, align 4, !tbaa !65
+  %148 = load i32, ptr %13, align 4, !tbaa !66
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next.i48, %149
-  br i1 %150, label %137, label %._crit_edge.loopexit.i, !llvm.loop !70
+  br i1 %150, label %137, label %._crit_edge.loopexit.i, !llvm.loop !71
 
 _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exit: ; preds = %._crit_edge.i, %.lr.ph23.i, %117
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
@@ -949,18 +949,18 @@ declare void @_ZN2cv17adaptiveThresholdERKNS_11_InputArrayERKNS_12_OutputArrayEd
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !64
-  store i32 %7, ptr %3, align 4, !tbaa !65
+  %7 = load i32, ptr %6, align 4, !tbaa !65
+  store i32 %7, ptr %3, align 4, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !66
-  store i32 %9, ptr %4, align 4, !tbaa !65
+  %9 = load i32, ptr %8, align 8, !tbaa !67
+  store i32 %9, ptr %4, align 4, !tbaa !66
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph23, label %._crit_edge24
 
 .lr.ph23:                                         ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %13 = load i32, ptr %3, align 4, !tbaa !65
+  %13 = load i32, ptr %3, align 4, !tbaa !66
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph23.split, label %._crit_edge24
 
@@ -982,7 +982,7 @@ define hidden noundef i32 @_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatTo
   br label %26
 
 ._crit_edge.loopexit:                             ; preds = %26
-  %.pre = load i32, ptr %4, align 4, !tbaa !65
+  %.pre = load i32, ptr %4, align 4, !tbaa !66
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph23.split
@@ -990,11 +990,11 @@ define hidden noundef i32 @_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatTo
   %23 = phi i32 [ %39, %._crit_edge.loopexit ], [ %16, %.lr.ph23.split ]
   %24 = add nuw nsw i32 %.021, 1
   %25 = icmp slt i32 %24, %22
-  br i1 %25, label %.lr.ph23.split, label %._crit_edge24, !llvm.loop !67
+  br i1 %25, label %.lr.ph23.split, label %._crit_edge24, !llvm.loop !68
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = load i32, ptr %4, align 4, !tbaa !65
+  %27 = load i32, ptr %4, align 4, !tbaa !66
   %28 = add i32 %27, %21
   %29 = load ptr, ptr %11, align 8, !tbaa !52
   %30 = load ptr, ptr %12, align 8, !tbaa !53
@@ -1003,16 +1003,16 @@ define hidden noundef i32 @_ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatTo
   %33 = mul i64 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
-  %36 = load i8, ptr %35, align 1, !tbaa !69
+  %36 = load i8, ptr %35, align 1, !tbaa !70
   %37 = icmp ult i8 %36, 121
   %spec.select = zext i1 %37 to i8
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
-  store i8 %spec.select, ptr %38, align 1, !tbaa !69
+  store i8 %spec.select, ptr %38, align 1, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %3, align 4, !tbaa !65
+  %39 = load i32, ptr %3, align 4, !tbaa !66
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %26, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %41, label %26, label %._crit_edge.loopexit, !llvm.loop !71
 }
 
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
@@ -1168,18 +1168,19 @@ attributes #13 = { builtin allocsize(0) }
 !53 = !{!41, !47, i64 72}
 !54 = !{!55, !55, i64 0}
 !55 = !{!"long", !7, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!59, !11, i64 0}
-!59 = !{!"_ZTSN2cv5Size_IiEE", !11, i64 0, !11, i64 4}
-!60 = !{!59, !11, i64 4}
-!61 = !{!62, !11, i64 0}
-!62 = !{!"_ZTSN2cv11_InputArrayE", !11, i64 0, !6, i64 8, !59, i64 16}
-!63 = !{!62, !6, i64 8}
-!64 = !{!41, !11, i64 12}
-!65 = !{!11, !11, i64 0}
-!66 = !{!41, !11, i64 8}
-!67 = distinct !{!67, !57, !68}
-!68 = !{!"llvm.loop.unswitch.partial.disable"}
-!69 = !{!7, !7, i64 0}
-!70 = distinct !{!70, !57}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = !{!60, !11, i64 0}
+!60 = !{!"_ZTSN2cv5Size_IiEE", !11, i64 0, !11, i64 4}
+!61 = !{!60, !11, i64 4}
+!62 = !{!63, !11, i64 0}
+!63 = !{!"_ZTSN2cv11_InputArrayE", !11, i64 0, !6, i64 8, !60, i64 16}
+!64 = !{!63, !6, i64 8}
+!65 = !{!41, !11, i64 12}
+!66 = !{!11, !11, i64 0}
+!67 = !{!41, !11, i64 8}
+!68 = distinct !{!68, !57, !58, !69}
+!69 = !{!"llvm.loop.unswitch.partial.disable"}
+!70 = !{!7, !7, i64 0}
+!71 = distinct !{!71, !57, !58}

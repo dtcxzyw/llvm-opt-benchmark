@@ -118,7 +118,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 66:                                               ; preds = %61
   %67 = getelementptr i8, ptr %59, i64 8
-  %.val39 = load ptr, ptr %67, align 8, !tbaa !40
+  %.val39 = load ptr, ptr %67, align 8, !tbaa !41
   %68 = ptrtoint ptr %.val39 to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
@@ -129,7 +129,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %75 = trunc i64 %68 to i32
   %76 = xor i32 %74, %75
   %77 = getelementptr i8, ptr %59, i64 16
-  %.val41 = load ptr, ptr %77, align 8, !tbaa !41
+  %.val41 = load ptr, ptr %77, align 8, !tbaa !42
   %78 = ptrtoint ptr %.val41 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
@@ -158,7 +158,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val35 = load i32, ptr %96, align 4, !tbaa !31
   %97 = sext i32 %.val35 to i64
   %98 = icmp slt i64 %indvars.iv.next56, %97
-  br i1 %98, label %.lr.ph53, label %.critedge2, !llvm.loop !42
+  br i1 %98, label %.lr.ph53, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.not = icmp eq ptr %2, null
@@ -166,9 +166,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 99:                                               ; preds = %.critedge2
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %101 = load ptr, ptr %100, align 8, !tbaa !43
+  %101 = load ptr, ptr %100, align 8, !tbaa !44
   %102 = call i32 @Ssw_ClassesRefineConst1(ptr noundef %101, i32 noundef 0) #9
-  %103 = load ptr, ptr %100, align 8, !tbaa !43
+  %103 = load ptr, ptr %100, align 8, !tbaa !44
   %104 = call i32 @Ssw_ClassesRefine(ptr noundef %103, i32 noundef 0) #9
   %105 = getelementptr i8, ptr %2, i64 24
   %.val43 = load i64, ptr %105, align 8
@@ -209,9 +209,9 @@ Abc_Clock.exit45:                                 ; preds = %111, %114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   %121 = add i64 %.0.i44, %.0.i.neg
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %123 = load i64, ptr %122, align 8, !tbaa !44
+  %123 = load i64, ptr %122, align 8, !tbaa !45
   %124 = add nsw i64 %121, %123
-  store i64 %124, ptr %122, align 8, !tbaa !44
+  store i64 %124, ptr %122, align 8, !tbaa !45
   ret void
 }
 
@@ -239,7 +239,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !45
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !46
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #9
@@ -247,7 +247,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !45, !noalias !47
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !46, !noalias !48
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #9
   br label %17
 
@@ -285,16 +285,16 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.0.i.neg = phi i64 [ %.neg12, %9 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %14 = load ptr, ptr %13, align 8, !tbaa !50
+  %14 = load ptr, ptr %13, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   call void @Ssw_SmlAssignDist1Plus(ptr noundef %14, ptr noundef %16) #9
-  %17 = load ptr, ptr %13, align 8, !tbaa !50
+  %17 = load ptr, ptr %13, align 8, !tbaa !51
   call void @Ssw_SmlSimulateOne(ptr noundef %17) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !43
+  %19 = load ptr, ptr %18, align 8, !tbaa !44
   %20 = call i32 @Ssw_ClassesRefineConst1(ptr noundef %19, i32 noundef 1) #9
-  %21 = load ptr, ptr %18, align 8, !tbaa !43
+  %21 = load ptr, ptr %18, align 8, !tbaa !44
   %22 = call i32 @Ssw_ClassesRefine(ptr noundef %21, i32 noundef 1) #9
   %23 = getelementptr i8, ptr %2, i64 24
   %.val = load i64, ptr %23, align 8
@@ -335,9 +335,9 @@ Abc_Clock.exit10:                                 ; preds = %29, %32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   %39 = add i64 %.0.i9, %.0.i.neg
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %41 = load i64, ptr %40, align 8, !tbaa !44
+  %41 = load i64, ptr %40, align 8, !tbaa !45
   %42 = add nsw i64 %39, %41
-  store i64 %42, ptr %40, align 8, !tbaa !44
+  store i64 %42, ptr %40, align 8, !tbaa !45
   ret void
 }
 
@@ -421,16 +421,17 @@ attributes #10 = { nounwind willreturn memory(read) }
 !35 = !{!12, !12, i64 0}
 !36 = !{!10, !20, i64 248}
 !37 = !{!13, !13, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!26, !25, i64 8}
-!41 = !{!26, !25, i64 16}
-!42 = distinct !{!42, !39}
-!43 = !{!10, !16, i64 40}
-!44 = !{!10, !5, i64 368}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"vprintf: argument 0"}
-!49 = distinct !{!49, !"vprintf"}
-!50 = !{!10, !21, i64 200}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!26, !25, i64 8}
+!42 = !{!26, !25, i64 16}
+!43 = distinct !{!43, !39, !40}
+!44 = !{!10, !16, i64 40}
+!45 = !{!10, !5, i64 368}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"vprintf: argument 0"}
+!50 = distinct !{!50, !"vprintf"}
+!51 = !{!10, !21, i64 200}

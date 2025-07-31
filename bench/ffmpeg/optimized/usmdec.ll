@@ -572,8 +572,8 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 237:                                              ; preds = %236
   %238 = trunc i64 %.082.i.i to i32
-  store i32 %238, ptr %136, align 8, !tbaa !39
-  store i32 1, ptr %137, align 4, !tbaa !40
+  store i32 %238, ptr %136, align 8, !tbaa !40
+  store i32 1, ptr %137, align 4, !tbaa !41
   br label %273
 
 239:                                              ; preds = %236
@@ -583,7 +583,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 240:                                              ; preds = %239
   %241 = trunc i64 %.082.i.i to i32
-  store i32 %241, ptr %135, align 8, !tbaa !41
+  store i32 %241, ptr %135, align 8, !tbaa !42
   br label %273
 
 242:                                              ; preds = %239
@@ -592,7 +592,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   br i1 %.not110.i.i, label %243, label %244
 
 243:                                              ; preds = %242
-  store i64 %.082.i.i, ptr %134, align 8, !tbaa !42
+  store i64 %.082.i.i, ptr %134, align 8, !tbaa !43
   br label %273
 
 244:                                              ; preds = %242
@@ -607,11 +607,11 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   ]
 
 246:                                              ; preds = %245
-  store i32 69641, ptr %130, align 4, !tbaa !43
+  store i32 69641, ptr %130, align 4, !tbaa !44
   br label %273
 
 247:                                              ; preds = %245
-  store i32 86109, ptr %130, align 4, !tbaa !43
+  store i32 86109, ptr %130, align 4, !tbaa !44
   br label %273
 
 248:                                              ; preds = %245
@@ -629,7 +629,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 252:                                              ; preds = %251
   %253 = trunc i64 %.082.i.i to i32
-  store i32 %253, ptr %133, align 8, !tbaa !44
+  store i32 %253, ptr %133, align 8, !tbaa !45
   br label %273
 
 254:                                              ; preds = %251
@@ -639,7 +639,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 255:                                              ; preds = %254
   %256 = trunc i64 %.082.i.i to i32
-  store i32 %256, ptr %132, align 4, !tbaa !45
+  store i32 %256, ptr %132, align 4, !tbaa !46
   br label %273
 
 257:                                              ; preds = %254
@@ -649,7 +649,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 258:                                              ; preds = %257
   %259 = trunc i64 %.082.i.i to i32
-  store i32 %259, ptr %131, align 4, !tbaa !46
+  store i32 %259, ptr %131, align 4, !tbaa !47
   br label %273
 
 260:                                              ; preds = %257
@@ -683,15 +683,15 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   ]
 
 268:                                              ; preds = %267
-  store i32 1, ptr %130, align 4, !tbaa !43
+  store i32 1, ptr %130, align 4, !tbaa !44
   br label %273
 
 269:                                              ; preds = %267
-  store i32 27, ptr %130, align 4, !tbaa !43
+  store i32 27, ptr %130, align 4, !tbaa !44
   br label %273
 
 270:                                              ; preds = %267
-  store i32 167, ptr %130, align 4, !tbaa !43
+  store i32 167, ptr %130, align 4, !tbaa !44
   br label %273
 
 271:                                              ; preds = %267
@@ -705,7 +705,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #8
   %274 = add nuw nsw i32 %.084328.i.i, 1
   %exitcond335.not.i.i = icmp eq i32 %274, %.0.i128.i.i
-  br i1 %exitcond335.not.i.i, label %._crit_edge.i.i, label %141, !llvm.loop !47
+  br i1 %exitcond335.not.i.i, label %._crit_edge.i.i, label %141, !llvm.loop !48
 
 275:                                              ; preds = %._crit_edge.i.i
   store i32 %.sroa.0.1.i.i, ptr %136, align 8, !tbaa !34
@@ -734,16 +734,16 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 289:                                              ; preds = %287
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 16
-  %291 = load ptr, ptr %290, align 8, !tbaa !48
+  %291 = load ptr, ptr %290, align 8, !tbaa !49
   %292 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %293 = load i32, ptr %292, align 8, !tbaa !32
-  store i32 %293, ptr %291, align 8, !tbaa !54
+  store i32 %293, ptr %291, align 8, !tbaa !55
   %294 = getelementptr inbounds nuw i8, ptr %280, i64 12
-  %295 = load i32, ptr %294, align 4, !tbaa !43
+  %295 = load i32, ptr %294, align 4, !tbaa !44
   %296 = getelementptr inbounds nuw i8, ptr %291, i64 4
-  store i32 %295, ptr %296, align 4, !tbaa !57
+  store i32 %295, ptr %296, align 4, !tbaa !58
   %297 = getelementptr inbounds nuw i8, ptr %288, i64 40
-  store i64 0, ptr %297, align 8, !tbaa !58
+  store i64 0, ptr %297, align 8, !tbaa !59
   switch i32 %293, label %318 [
     i32 0, label %298
     i32 1, label %308
@@ -751,50 +751,50 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 298:                                              ; preds = %289
   %299 = getelementptr inbounds nuw i8, ptr %280, i64 32
-  %300 = load i32, ptr %299, align 8, !tbaa !44
+  %300 = load i32, ptr %299, align 8, !tbaa !45
   %301 = getelementptr inbounds nuw i8, ptr %291, i64 72
-  store i32 %300, ptr %301, align 8, !tbaa !59
+  store i32 %300, ptr %301, align 8, !tbaa !60
   %302 = getelementptr inbounds nuw i8, ptr %280, i64 36
-  %303 = load i32, ptr %302, align 4, !tbaa !45
+  %303 = load i32, ptr %302, align 4, !tbaa !46
   %304 = getelementptr inbounds nuw i8, ptr %291, i64 76
-  store i32 %303, ptr %304, align 4, !tbaa !60
+  store i32 %303, ptr %304, align 4, !tbaa !61
   %305 = getelementptr inbounds nuw i8, ptr %280, i64 20
-  %306 = load i32, ptr %305, align 4, !tbaa !46
+  %306 = load i32, ptr %305, align 4, !tbaa !47
   %307 = sext i32 %306 to i64
   br label %.sink.split.i
 
 308:                                              ; preds = %289
   %309 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %310 = load i32, ptr %309, align 8, !tbaa !39
+  %310 = load i32, ptr %309, align 8, !tbaa !40
   %311 = getelementptr inbounds nuw i8, ptr %291, i64 152
-  store i32 %310, ptr %311, align 8, !tbaa !61
+  store i32 %310, ptr %311, align 8, !tbaa !62
   %312 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  %313 = load i32, ptr %312, align 8, !tbaa !41
+  %313 = load i32, ptr %312, align 8, !tbaa !42
   %314 = getelementptr inbounds nuw i8, ptr %291, i64 132
-  store i32 %313, ptr %314, align 4, !tbaa !62
+  store i32 %313, ptr %314, align 4, !tbaa !63
   %315 = getelementptr inbounds nuw i8, ptr %280, i64 40
-  %316 = load i64, ptr %315, align 8, !tbaa !42
+  %316 = load i64, ptr %315, align 8, !tbaa !43
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %308, %298
   %.sink192.i = phi i64 [ 48, %308 ], [ 56, %298 ]
   %.sink190.i = phi i64 [ %316, %308 ], [ %307, %298 ]
   %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink192.i
-  store i64 %.sink190.i, ptr %317, align 8, !tbaa !63
+  store i64 %.sink190.i, ptr %317, align 8, !tbaa !64
   br label %318
 
 318:                                              ; preds = %.sink.split.i, %289
   %319 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  %320 = load i32, ptr %319, align 8, !tbaa !64
+  %320 = load i32, ptr %319, align 8, !tbaa !65
   store i32 %320, ptr %280, align 8, !tbaa !33
   %321 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %322 = load i32, ptr %321, align 8, !tbaa !39
+  %322 = load i32, ptr %321, align 8, !tbaa !40
   %.not170.i = icmp eq i32 %322, 0
   br i1 %.not170.i, label %326, label %323
 
 323:                                              ; preds = %318
   %324 = getelementptr inbounds nuw i8, ptr %280, i64 28
-  %325 = load i32, ptr %324, align 4, !tbaa !40
+  %325 = load i32, ptr %324, align 4, !tbaa !41
   %.not171.i = icmp eq i32 %325, 0
   br i1 %.not171.i, label %326, label %327
 
@@ -809,12 +809,12 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   %329 = phi i32 [ 100, %326 ], [ %325, %323 ]
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %288, i32 noundef 64, i32 noundef %329, i32 noundef %328) #8
   %330 = getelementptr inbounds nuw i8, ptr %288, i64 808
-  store i32 3, ptr %330, align 8, !tbaa !65
-  %331 = load i32, ptr %294, align 4, !tbaa !43
+  store i32 3, ptr %330, align 8, !tbaa !66
+  %331 = load i32, ptr %294, align 4, !tbaa !44
   %332 = icmp ne i32 %331, 69641
   %333 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef 0, i32 noundef 1) #8
   %334 = getelementptr inbounds nuw i8, ptr %280, i64 48
-  store i64 %333, ptr %334, align 8, !tbaa !77
+  store i64 %333, ptr %334, align 8, !tbaa !78
   br label %335
 
 335:                                              ; preds = %327, %284
@@ -835,7 +835,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 344:                                              ; preds = %338
   %345 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 16
-  %346 = load ptr, ptr %345, align 8, !tbaa !48
+  %346 = load ptr, ptr %345, align 8, !tbaa !49
   %347 = tail call i32 @ff_get_extradata(ptr noundef nonnull %0, ptr noundef %346, ptr noundef %5, i32 noundef %343) #8
   %348 = sext i32 %347 to i64
   %349 = icmp slt i32 %347, 0
@@ -843,13 +843,13 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 350:                                              ; preds = %338
   %351 = getelementptr inbounds nuw i8, ptr %280, i64 48
-  %352 = load i64, ptr %351, align 8, !tbaa !77
+  %352 = load i64, ptr %351, align 8, !tbaa !78
   %353 = icmp eq i64 %336, %352
   br i1 %353, label %354, label %361
 
 354:                                              ; preds = %350
   %355 = getelementptr inbounds nuw i8, ptr %280, i64 12
-  %356 = load i32, ptr %355, align 4, !tbaa !43
+  %356 = load i32, ptr %355, align 4, !tbaa !44
   %357 = icmp eq i32 %356, 69641
   br i1 %357, label %358, label %361
 
@@ -866,7 +866,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 365:                                              ; preds = %361
   %366 = load i32, ptr %280, align 8, !tbaa !33
-  store i32 %366, ptr %8, align 4, !tbaa !78
+  store i32 %366, ptr %8, align 4, !tbaa !79
   br label %367
 
 367:                                              ; preds = %365, %358, %344
@@ -901,7 +901,7 @@ parse_utf.exit.i:                                 ; preds = %367, %276, %50, %27
 
 379:                                              ; preds = %377
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %12, ptr %380, align 8, !tbaa !79
+  store i64 %12, ptr %380, align 8, !tbaa !80
   br label %.thread46
 
 381:                                              ; preds = %.thread, %377
@@ -926,7 +926,7 @@ define internal noundef i32 @usm_read_close(ptr noundef readonly captures(none) 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 57360
   tail call void @av_freep(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 57368
-  store i32 0, ptr %5, align 8, !tbaa !80
+  store i32 0, ptr %5, align 8, !tbaa !81
   ret i32 0
 }
 
@@ -1038,47 +1038,48 @@ attributes #9 = { noreturn nounwind }
 !34 = !{!10, !10, i64 0}
 !35 = !{!36, !6, i64 57360}
 !36 = !{!"USMDemuxContext", !8, i64 0, !8, i64 57344, !6, i64 57360, !10, i64 57368}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!30, !10, i64 24}
-!40 = !{!30, !10, i64 28}
-!41 = !{!30, !10, i64 16}
-!42 = !{!30, !22, i64 40}
-!43 = !{!30, !10, i64 12}
-!44 = !{!30, !10, i64 32}
-!45 = !{!30, !10, i64 36}
-!46 = !{!30, !10, i64 20}
-!47 = distinct !{!47, !38}
-!48 = !{!49, !50, i64 16}
-!49 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !50, i64 16, !7, i64 24, !31, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !31, i64 72, !24, i64 80, !31, i64 88, !51, i64 96, !10, i64 200, !31, i64 204, !10, i64 212}
-!50 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!51 = !{!"AVPacket", !52, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !53, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !52, i64 88, !31, i64 96}
-!52 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!53 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!54 = !{!55, !10, i64 0}
-!55 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !53, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !31, i64 80, !31, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !56, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!56 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!57 = !{!55, !10, i64 4}
-!58 = !{!49, !22, i64 40}
-!59 = !{!55, !10, i64 72}
-!60 = !{!55, !10, i64 76}
-!61 = !{!55, !10, i64 152}
-!62 = !{!55, !10, i64 132}
-!63 = !{!22, !22, i64 0}
-!64 = !{!49, !10, i64 8}
-!65 = !{!66, !10, i64 808}
-!66 = !{!"FFStream", !49, i64 0, !67, i64 216, !10, i64 224, !68, i64 232, !10, i64 240, !69, i64 248, !10, i64 256, !70, i64 264, !10, i64 280, !10, i64 284, !71, i64 288, !72, i64 312, !73, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !31, i64 740, !5, i64 752, !74, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !75, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !76, i64 848, !31, i64 856}
-!67 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!68 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!69 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
-!70 = !{!"", !68, i64 0, !10, i64 8}
-!71 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
-!72 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
-!73 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
-!74 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!75 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
-!76 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!77 = !{!30, !22, i64 48}
-!78 = !{!51, !10, i64 36}
-!79 = !{!51, !22, i64 72}
-!80 = !{!36, !10, i64 57368}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!30, !10, i64 24}
+!41 = !{!30, !10, i64 28}
+!42 = !{!30, !10, i64 16}
+!43 = !{!30, !22, i64 40}
+!44 = !{!30, !10, i64 12}
+!45 = !{!30, !10, i64 32}
+!46 = !{!30, !10, i64 36}
+!47 = !{!30, !10, i64 20}
+!48 = distinct !{!48, !38, !39}
+!49 = !{!50, !51, i64 16}
+!50 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !51, i64 16, !7, i64 24, !31, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !31, i64 72, !24, i64 80, !31, i64 88, !52, i64 96, !10, i64 200, !31, i64 204, !10, i64 212}
+!51 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!52 = !{!"AVPacket", !53, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !54, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !53, i64 88, !31, i64 96}
+!53 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!54 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!55 = !{!56, !10, i64 0}
+!56 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !54, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !31, i64 80, !31, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !57, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!57 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!58 = !{!56, !10, i64 4}
+!59 = !{!50, !22, i64 40}
+!60 = !{!56, !10, i64 72}
+!61 = !{!56, !10, i64 76}
+!62 = !{!56, !10, i64 152}
+!63 = !{!56, !10, i64 132}
+!64 = !{!22, !22, i64 0}
+!65 = !{!50, !10, i64 8}
+!66 = !{!67, !10, i64 808}
+!67 = !{!"FFStream", !50, i64 0, !68, i64 216, !10, i64 224, !69, i64 232, !10, i64 240, !70, i64 248, !10, i64 256, !71, i64 264, !10, i64 280, !10, i64 284, !72, i64 288, !73, i64 312, !74, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !31, i64 740, !5, i64 752, !75, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !76, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !77, i64 848, !31, i64 856}
+!68 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!69 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!70 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
+!71 = !{!"", !69, i64 0, !10, i64 8}
+!72 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
+!73 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
+!74 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
+!75 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!76 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
+!77 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!78 = !{!30, !22, i64 48}
+!79 = !{!52, !10, i64 36}
+!80 = !{!52, !22, i64 72}
+!81 = !{!36, !10, i64 57368}

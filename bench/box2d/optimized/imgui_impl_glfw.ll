@@ -1332,7 +1332,7 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
 29:                                               ; preds = %21, %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit
   %30 = call double @glfwGetTime()
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %32 = load double, ptr %31, align 8, !tbaa !55
+  %32 = load double, ptr %31, align 8, !tbaa !56
   %33 = fcmp ugt double %30, %32
   %34 = fadd double %32, 0x3EE4F8B580000000
   %.0 = select i1 %33, double %30, double %34
@@ -1341,8 +1341,8 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %37 = fptrunc double %36 to float
   %38 = select i1 %35, float %37, float 0x3F91111120000000
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store float %38, ptr %39, align 8, !tbaa !56
-  store double %.0, ptr %31, align 8, !tbaa !55
+  store float %38, ptr %39, align 8, !tbaa !57
+  store double %.0, ptr %31, align 8, !tbaa !56
   %40 = call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i, label %41
@@ -1363,16 +1363,16 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i:       ; preds = %41, %29
 
 49:                                               ; preds = %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 171
-  %51 = load i8, ptr %50, align 1, !tbaa !57, !range !27, !noundef !28
+  %51 = load i8, ptr %50, align 1, !tbaa !58, !range !27, !noundef !28
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 216
-  %55 = load float, ptr %54, align 8, !tbaa !58
+  %55 = load float, ptr %54, align 8, !tbaa !59
   %56 = fpext float %55 to double
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 220
-  %58 = load float, ptr %57, align 4, !tbaa !59
+  %58 = load float, ptr %57, align 4, !tbaa !60
   %59 = fpext float %58 to double
   call void @glfwSetCursorPos(ptr noundef %47, double noundef %56, double noundef %59)
   br label %60
@@ -1387,9 +1387,9 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i:       ; preds = %41, %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call void @glfwGetCursorPos(ptr noundef %47, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  %65 = load double, ptr %1, align 8, !tbaa !60
+  %65 = load double, ptr %1, align 8, !tbaa !61
   %66 = fptrunc double %65 to float
-  %67 = load double, ptr %2, align 8, !tbaa !60
+  %67 = load double, ptr %2, align 8, !tbaa !61
   %68 = fptrunc double %67 to float
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store float %66, ptr %69, align 8
@@ -1414,7 +1414,7 @@ _ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit:        ; preds = %_ZL29ImGui_ImplGlfw
 
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i19:     ; preds = %72, %_ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit
   %76 = phi ptr [ %75, %72 ], [ null, %_ZL30ImGui_ImplGlfw_UpdateMouseDatav.exit ]
-  %77 = load i32, ptr %70, align 8, !tbaa !61
+  %77 = load i32, ptr %70, align 8, !tbaa !62
   %78 = and i32 %77, 32
   %.not.i20 = icmp eq i32 %78, 0
   br i1 %.not.i20, label %79, label %_ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit
@@ -1433,7 +1433,7 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i19:     ; preds = %72, %_ZL30ImGui_Imp
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  %89 = load i8, ptr %88, align 8, !tbaa !62, !range !27, !noundef !28
+  %89 = load i8, ptr %88, align 8, !tbaa !63, !range !27, !noundef !28
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %.sink.split.i, label %91
 
@@ -1461,7 +1461,7 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i19:     ; preds = %72, %_ZL30ImGui_Imp
 
 _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i19, %79, %.sink.split.i
   %100 = call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
-  %101 = load i32, ptr %100, align 8, !tbaa !61
+  %101 = load i32, ptr %100, align 8, !tbaa !62
   %102 = and i32 %101, 2
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %_ZL29ImGui_ImplGlfw_UpdateGamepadsv.exit, label %104
@@ -1529,7 +1529,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   call void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 642, i1 noundef zeroext %146)
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %149 = load float, ptr %148, align 4, !tbaa !63
+  %149 = load float, ptr %148, align 4, !tbaa !64
   %150 = fadd float %149, 7.500000e-01
   %151 = fdiv float %150, 1.750000e+00
   %152 = fcmp ogt float %151, 0x3FB99999A0000000
@@ -1539,7 +1539,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %156 = select i1 %153, float 0.000000e+00, float %155
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 643, i1 noundef zeroext %152, float noundef %156)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %158 = load float, ptr %157, align 4, !tbaa !63
+  %158 = load float, ptr %157, align 4, !tbaa !64
   %159 = fadd float %158, 7.500000e-01
   %160 = fdiv float %159, 1.750000e+00
   %161 = fcmp ogt float %160, 0x3FB99999A0000000
@@ -1556,7 +1556,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %170 = load i8, ptr %169, align 2, !tbaa !32
   %171 = icmp ne i8 %170, 0
   call void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 646, i1 noundef zeroext %171)
-  %172 = load float, ptr %147, align 4, !tbaa !63
+  %172 = load float, ptr %147, align 4, !tbaa !64
   %173 = fadd float %172, 2.500000e-01
   %174 = fdiv float %173, -7.500000e-01
   %175 = fcmp ogt float %174, 0x3FB99999A0000000
@@ -1565,7 +1565,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %178 = select i1 %177, float 1.000000e+00, float %174
   %179 = select i1 %176, float 0.000000e+00, float %178
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 647, i1 noundef zeroext %175, float noundef %179)
-  %180 = load float, ptr %147, align 4, !tbaa !63
+  %180 = load float, ptr %147, align 4, !tbaa !64
   %181 = fadd float %180, -2.500000e-01
   %182 = fdiv float %181, 7.500000e-01
   %183 = fcmp ogt float %182, 0x3FB99999A0000000
@@ -1575,7 +1575,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %187 = select i1 %184, float 0.000000e+00, float %186
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 648, i1 noundef zeroext %183, float noundef %187)
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %189 = load float, ptr %188, align 4, !tbaa !63
+  %189 = load float, ptr %188, align 4, !tbaa !64
   %190 = fadd float %189, 2.500000e-01
   %191 = fdiv float %190, -7.500000e-01
   %192 = fcmp ogt float %191, 0x3FB99999A0000000
@@ -1584,7 +1584,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %195 = select i1 %194, float 1.000000e+00, float %191
   %196 = select i1 %193, float 0.000000e+00, float %195
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 649, i1 noundef zeroext %192, float noundef %196)
-  %197 = load float, ptr %188, align 4, !tbaa !63
+  %197 = load float, ptr %188, align 4, !tbaa !64
   %198 = fadd float %197, -2.500000e-01
   %199 = fdiv float %198, 7.500000e-01
   %200 = fcmp ogt float %199, 0x3FB99999A0000000
@@ -1594,7 +1594,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %204 = select i1 %201, float 0.000000e+00, float %203
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 650, i1 noundef zeroext %200, float noundef %204)
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %206 = load float, ptr %205, align 4, !tbaa !63
+  %206 = load float, ptr %205, align 4, !tbaa !64
   %207 = fadd float %206, 2.500000e-01
   %208 = fdiv float %207, -7.500000e-01
   %209 = fcmp ogt float %208, 0x3FB99999A0000000
@@ -1603,7 +1603,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %212 = select i1 %211, float 1.000000e+00, float %208
   %213 = select i1 %210, float 0.000000e+00, float %212
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 651, i1 noundef zeroext %209, float noundef %213)
-  %214 = load float, ptr %205, align 4, !tbaa !63
+  %214 = load float, ptr %205, align 4, !tbaa !64
   %215 = fadd float %214, -2.500000e-01
   %216 = fdiv float %215, 7.500000e-01
   %217 = fcmp ogt float %216, 0x3FB99999A0000000
@@ -1613,7 +1613,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %221 = select i1 %218, float 0.000000e+00, float %220
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 652, i1 noundef zeroext %217, float noundef %221)
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %223 = load float, ptr %222, align 4, !tbaa !63
+  %223 = load float, ptr %222, align 4, !tbaa !64
   %224 = fadd float %223, 2.500000e-01
   %225 = fdiv float %224, -7.500000e-01
   %226 = fcmp ogt float %225, 0x3FB99999A0000000
@@ -1622,7 +1622,7 @@ _ZL32ImGui_ImplGlfw_UpdateMouseCursorv.exit:      ; preds = %_ZL29ImGui_ImplGlfw
   %229 = select i1 %228, float 1.000000e+00, float %225
   %230 = select i1 %227, float 0.000000e+00, float %229
   call void @_ZN7ImGuiIO17AddKeyAnalogEventE8ImGuiKeybf(ptr noundef nonnull align 8 dereferenceable(2944) %100, i32 noundef 653, i1 noundef zeroext %226, float noundef %230)
-  %231 = load float, ptr %222, align 4, !tbaa !63
+  %231 = load float, ptr %222, align 4, !tbaa !64
   %232 = fadd float %231, -2.500000e-01
   %233 = fdiv float %232, 7.500000e-01
   %234 = fcmp ogt float %233, 0x3FB99999A0000000
@@ -1794,14 +1794,15 @@ attributes #10 = { nounwind willreturn memory(read) }
 !50 = !{!51, !12, i64 40}
 !51 = !{!"_ZTS13ImGuiViewport", !6, i64 0, !6, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !12, i64 40, !12, i64 48}
 !52 = !{!22, !24, i64 8}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!22, !25, i64 16}
-!56 = !{!5, !10, i64 16}
-!57 = !{!5, !14, i64 171}
-!58 = !{!5, !10, i64 216}
-!59 = !{!5, !10, i64 220}
-!60 = !{!25, !25, i64 0}
-!61 = !{!5, !6, i64 0}
-!62 = !{!5, !14, i64 80}
-!63 = !{!10, !10, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!22, !25, i64 16}
+!57 = !{!5, !10, i64 16}
+!58 = !{!5, !14, i64 171}
+!59 = !{!5, !10, i64 216}
+!60 = !{!5, !10, i64 220}
+!61 = !{!25, !25, i64 0}
+!62 = !{!5, !6, i64 0}
+!63 = !{!5, !14, i64 80}
+!64 = !{!10, !10, i64 0}

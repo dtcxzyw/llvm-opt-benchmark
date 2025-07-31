@@ -47,29 +47,29 @@ define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %0, ptr nounde
   %.04894 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %21 = tail call ptr %3(i64 noundef 0, ptr noundef %1) #4
   %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %.04894
-  %23 = load i8, ptr %22, align 1, !tbaa !35
+  %23 = load i8, ptr %22, align 1, !tbaa !36
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
   %26 = or disjoint i64 %.04894, 1
   %27 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %28 = load i8, ptr %27, align 1, !tbaa !36
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %25, %29
   %31 = tail call ptr %3(i64 noundef %10, ptr noundef %1) #4
   %32 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %.04894
-  %33 = load i8, ptr %32, align 1, !tbaa !35
+  %33 = load i8, ptr %32, align 1, !tbaa !36
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
   %36 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %26
-  %37 = load i8, ptr %36, align 1, !tbaa !35
+  %37 = load i8, ptr %36, align 1, !tbaa !36
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
   %40 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %.04894
-  %41 = load i8, ptr %40, align 1, !tbaa !35
+  %41 = load i8, ptr %40, align 1, !tbaa !36
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 8
   %44 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %26
-  %45 = load i8, ptr %44, align 1, !tbaa !35
+  %45 = load i8, ptr %44, align 1, !tbaa !36
   %46 = zext i8 %45 to i32
   %47 = or disjoint i32 %43, %46
   %48 = icmp samesign ult i32 %47, %30
@@ -133,7 +133,7 @@ index_pos_to_insert_pos.exit:                     ; preds = %51
   %74 = lshr i64 %73, 1
   %75 = add i64 %74, %.254
   %76 = icmp ult i64 %.254, %.251
-  br i1 %76, label %.thread, label %77, !llvm.loop !36
+  br i1 %76, label %.thread, label %77, !llvm.loop !37
 
 77:                                               ; preds = %70
   %78 = icmp ugt i64 %.254, 2147483647
@@ -159,11 +159,11 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
 git_bswap32.exit:
-  %5 = load i8, ptr %0, align 1, !tbaa !35
+  %5 = load i8, ptr %0, align 1, !tbaa !36
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %6
-  %8 = load i32, ptr %7, align 4, !tbaa !37
-  %9 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !38
+  %8 = load i32, ptr %7, align 4, !tbaa !38
+  %9 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !39
   %10 = icmp eq i8 %5, 0
   br i1 %10, label %git_bswap32.exit39, label %11
 
@@ -171,8 +171,8 @@ git_bswap32.exit:
   %12 = add nuw nsw i64 %6, 4294967295
   %13 = and i64 %12, 4294967295
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !37
-  %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #7, !srcloc !38
+  %15 = load i32, ptr %14, align 4, !tbaa !38
+  %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #7, !srcloc !39
   br label %git_bswap32.exit39
 
 git_bswap32.exit39:                               ; preds = %11, %git_bswap32.exit
@@ -213,7 +213,7 @@ git_bswap32.exit39:                               ; preds = %11, %git_bswap32.ex
   %.231 = select i1 %34, i32 %.02943, i32 %35
   %.228 = select i1 %34, i32 %27, i32 %.02644
   %36 = icmp ult i32 %.231, %.228
-  br i1 %36, label %24, label %._crit_edge, !llvm.loop !39
+  br i1 %36, label %24, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %33, %git_bswap32.exit39
   %.029.lcssa = phi i32 [ %17, %git_bswap32.exit39 ], [ %.231, %33 ]
@@ -223,7 +223,7 @@ git_bswap32.exit39:                               ; preds = %11, %git_bswap32.ex
 .thread.sink.split:                               ; preds = %._crit_edge, %32
   %.lcssa.sink = phi i32 [ %27, %32 ], [ %.029.lcssa, %._crit_edge ]
   %.2.ph = phi i32 [ 1, %32 ], [ 0, %._crit_edge ]
-  store i32 %.lcssa.sink, ptr %4, align 4, !tbaa !37
+  store i32 %.lcssa.sink, ptr %4, align 4, !tbaa !38
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %32, %._crit_edge
@@ -281,10 +281,11 @@ attributes #7 = { nounwind memory(none) }
 !30 = !{!31, !23, i64 16}
 !31 = !{!"git_hash_algo", !11, i64 0, !18, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !32, i64 80, !32, i64 88, !32, i64 96, !28, i64 104}
 !32 = !{!"p1 _ZTS9object_id", !6, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!7, !7, i64 0}
-!36 = distinct !{!36, !34}
-!37 = !{!18, !18, i64 0}
-!38 = !{i64 3458846}
-!39 = distinct !{!39, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!7, !7, i64 0}
+!37 = distinct !{!37, !34, !35}
+!38 = !{!18, !18, i64 0}
+!39 = !{i64 3458846}
+!40 = distinct !{!40, !34, !35}

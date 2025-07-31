@@ -6392,7 +6392,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.027.be = phi ptr [ %.0, %21 ], [ %48, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !16
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -12845,7 +12845,7 @@ lean_dec.exit13:                                  ; preds = %22, %21, %19, %lean
 27:                                               ; preds = %lean_dec.exit13
   %28 = lshr i64 %25, 1
   %29 = getelementptr i8, ptr %23, i64 8
-  %.val.i18 = load i64, ptr %29, align 8, !tbaa !16
+  %.val.i18 = load i64, ptr %29, align 8, !tbaa !18
   %30 = icmp ult i64 %28, %.val.i18
   br i1 %30, label %31, label %lean_array_uget.exit.i
 
@@ -13805,7 +13805,7 @@ lean_dec.exit29:                                  ; preds = %50, %49, %47, %lean
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 1
   %.not55 = icmp eq i64 %54, 0
-  br i1 %.not55, label %.critedge.i, label %55, !prof !18
+  br i1 %.not55, label %.critedge.i, label %55, !prof !20
 
 55:                                               ; preds = %lean_dec.exit29
   %56 = icmp eq ptr %52, inttoptr (i64 1 to ptr)
@@ -14869,7 +14869,7 @@ lean_dec.exit232:                                 ; preds = %64, %63, %61, %lean
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, 1
   %.not442 = icmp eq i64 %69, 0
-  br i1 %.not442, label %71, label %lean_nat_eq.exit.thread, !prof !18
+  br i1 %.not442, label %71, label %lean_nat_eq.exit.thread, !prof !20
 
 lean_nat_eq.exit.thread:                          ; preds = %66
   %70 = icmp eq ptr %67, inttoptr (i64 3 to ptr)
@@ -17191,6 +17191,8 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"short", !7, i64 0}
 !14 = !{!7, !7, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}

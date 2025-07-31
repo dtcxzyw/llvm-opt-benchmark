@@ -92,7 +92,7 @@ define void @dt_cache_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %.0 = load ptr, ptr %19, align 8, !tbaa !19
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %9
+  br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !27
 }
 
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
@@ -144,14 +144,14 @@ define i32 @dt_cache_for_all(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %6, align 8, !tbaa !27
-  %14 = load ptr, ptr %5, align 8, !tbaa !27
+  %13 = load ptr, ptr %6, align 8, !tbaa !29
+  %14 = load ptr, ptr %5, align 8, !tbaa !29
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %13, align 8, !tbaa !24
   %18 = call i32 %1(i32 noundef %16, ptr noundef %17, ptr noundef %2) #8
   %.not12 = icmp eq i32 %18, 0
-  br i1 %.not12, label %10, label %.thread
+  br i1 %.not12, label %10, label %.thread, !llvm.loop !30
 
 .thread:                                          ; preds = %10, %12
   %.2 = phi i32 [ %18, %12 ], [ 0, %10 ]
@@ -175,18 +175,18 @@ define ptr @dt_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef signext 
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !31
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %dt_get_debug_wtime.exit, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %11 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #8
-  %12 = load i64, ptr %6, align 8, !tbaa !63
+  %12 = load i64, ptr %6, align 8, !tbaa !66
   %13 = add nsw i64 %12, -1290608000
   %14 = sitofp i64 %13 to double
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !65
+  %16 = load i64, ptr %15, align 8, !tbaa !68
   %17 = sitofp i64 %16 to double
   %18 = fmul reassoc nsz arcp contract afn double %17, 0x3EB0C6F7A0B5ED8D
   %19 = fadd reassoc nsz arcp contract afn double %18, %14
@@ -205,7 +205,7 @@ dt_get_debug_wtime.exit:                          ; preds = %3, %10
   br i1 %.not, label %64, label %27
 
 27:                                               ; preds = %dt_get_debug_wtime.exit
-  %28 = load ptr, ptr %8, align 8, !tbaa !27
+  %28 = load ptr, ptr %8, align 8, !tbaa !29
   %29 = sext i8 %2 to i32
   %30 = icmp eq i8 %2, 119
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -232,25 +232,25 @@ dt_get_debug_wtime.exit:                          ; preds = %3, %10
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load ptr, ptr %41, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !66
+  %44 = load ptr, ptr %43, align 8, !tbaa !69
   %45 = call ptr @g_list_remove_link(ptr noundef %42, ptr noundef %44) #8
   store ptr %45, ptr %41, align 8, !tbaa !15
-  %46 = load ptr, ptr %43, align 8, !tbaa !66
+  %46 = load ptr, ptr %43, align 8, !tbaa !69
   %47 = call ptr @g_list_concat(ptr noundef %45, ptr noundef %46) #8
   store ptr %47, ptr %41, align 8, !tbaa !15
   %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #8
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !31
   %.not.i31 = icmp eq i32 %49, 0
   br i1 %.not.i31, label %dt_get_debug_wtime.exit32, label %50
 
 50:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %51 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
-  %52 = load i64, ptr %5, align 8, !tbaa !63
+  %52 = load i64, ptr %5, align 8, !tbaa !66
   %53 = add nsw i64 %52, -1290608000
   %54 = sitofp i64 %53 to double
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !65
+  %56 = load i64, ptr %55, align 8, !tbaa !68
   %57 = sitofp i64 %56 to double
   %58 = fmul reassoc nsz arcp contract afn double %57, 0x3EB0C6F7A0B5ED8D
   %59 = fadd reassoc nsz arcp contract afn double %58, %54
@@ -269,18 +269,18 @@ dt_get_debug_wtime.exit32:                        ; preds = %40, %50
 
 64:                                               ; preds = %dt_get_debug_wtime.exit
   %65 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #8
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !31
   %.not.i33 = icmp eq i32 %66, 0
   br i1 %.not.i33, label %dt_get_debug_wtime.exit34, label %67
 
 67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   %68 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
-  %69 = load i64, ptr %4, align 8, !tbaa !63
+  %69 = load i64, ptr %4, align 8, !tbaa !66
   %70 = add nsw i64 %69, -1290608000
   %71 = sitofp i64 %70 to double
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !65
+  %73 = load i64, ptr %72, align 8, !tbaa !68
   %74 = sitofp i64 %73 to double
   %75 = fmul reassoc nsz arcp contract afn double %74, 0x3EB0C6F7A0B5ED8D
   %76 = fadd reassoc nsz arcp contract afn double %75, %71
@@ -320,18 +320,18 @@ define ptr @dt_cache_get_with_caller(ptr noundef %0, i32 noundef %1, i8 noundef 
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !31
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %dt_get_debug_wtime.exit, label %11
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   %12 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #8
-  %13 = load i64, ptr %7, align 8, !tbaa !63
+  %13 = load i64, ptr %7, align 8, !tbaa !66
   %14 = add nsw i64 %13, -1290608000
   %15 = sitofp i64 %14 to double
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !65
+  %17 = load i64, ptr %16, align 8, !tbaa !68
   %18 = sitofp i64 %17 to double
   %19 = fmul reassoc nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
   %20 = fadd reassoc nsz arcp contract afn double %19, %15
@@ -354,7 +354,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br i1 %28, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %29 = load ptr, ptr %9, align 8, !tbaa !27
+  %29 = load ptr, ptr %9, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = call i32 @pthread_rwlock_trywrlock(ptr noundef nonnull %30) #8
   %.not74.not.us = icmp eq i32 %31, 0
@@ -367,10 +367,10 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %35 = load ptr, ptr %23, align 8, !tbaa !18
   %36 = call i32 @g_hash_table_lookup_extended(ptr noundef %35, ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %.not.us = icmp eq i32 %36, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !67
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
-  %37 = load ptr, ptr %9, align 8, !tbaa !27
+  %37 = load ptr, ptr %9, align 8, !tbaa !29
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = call i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull %38) #8
   %.not74.not = icmp eq i32 %39, 0
@@ -381,10 +381,10 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !66
+  %43 = load ptr, ptr %42, align 8, !tbaa !69
   %44 = call ptr @g_list_remove_link(ptr noundef %41, ptr noundef %43) #8
   store ptr %44, ptr %40, align 8, !tbaa !15
-  %45 = load ptr, ptr %42, align 8, !tbaa !66
+  %45 = load ptr, ptr %42, align 8, !tbaa !69
   %46 = call ptr @g_list_concat(ptr noundef %44, ptr noundef %45) #8
   store ptr %46, ptr %40, align 8, !tbaa !15
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #8
@@ -397,7 +397,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %51 = load ptr, ptr %23, align 8, !tbaa !18
   %52 = call i32 @g_hash_table_lookup_extended(ptr noundef %51, ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %48, %32, %dt_get_debug_wtime.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -430,31 +430,31 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i64, ptr %68, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %69, ptr %70, align 8, !tbaa !69
+  store i64 %69, ptr %70, align 8, !tbaa !73
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i64 1, ptr %71, align 8, !tbaa !70
+  store i64 1, ptr %71, align 8, !tbaa !74
   %72 = call ptr @g_list_append(ptr noundef null, ptr noundef nonnull %63) #8
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !66
+  store ptr %72, ptr %73, align 8, !tbaa !69
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 92
-  store i32 %1, ptr %74, align 4, !tbaa !71
+  store i32 %1, ptr %74, align 4, !tbaa !75
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 88
-  store i32 0, ptr %75, align 8, !tbaa !72
+  store i32 0, ptr %75, align 8, !tbaa !76
   %76 = load ptr, ptr %23, align 8, !tbaa !18
   %77 = call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef %26, ptr noundef nonnull %63) #8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %79 = load ptr, ptr %78, align 8, !tbaa !73
+  %79 = load ptr, ptr %78, align 8, !tbaa !77
   %.not73 = icmp eq ptr %79, null
   br i1 %.not73, label %83, label %80
 
 80:                                               ; preds = %67
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %82 = load ptr, ptr %81, align 8, !tbaa !74
+  %82 = load ptr, ptr %81, align 8, !tbaa !78
   call void %79(ptr noundef %82, ptr noundef nonnull %63) #8
   br label %86
 
 83:                                               ; preds = %67
-  %84 = load i64, ptr %70, align 8, !tbaa !69
+  %84 = load i64, ptr %70, align 8, !tbaa !73
   %85 = call ptr @dt_alloc_aligned(i64 noundef %84) #8
   store ptr %85, ptr %63, align 8, !tbaa !24
   br label %86
@@ -464,7 +464,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr %78, align 8, !tbaa !73
+  %89 = load ptr, ptr %78, align 8, !tbaa !77
   %.not78 = icmp eq ptr %89, null
   br i1 %.not78, label %91, label %.critedge
 
@@ -477,28 +477,28 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br label %93
 
 93:                                               ; preds = %91, %.critedge
-  %94 = load i64, ptr %71, align 8, !tbaa !70
+  %94 = load i64, ptr %71, align 8, !tbaa !74
   %95 = load i64, ptr %53, align 8, !tbaa !6
   %96 = add i64 %95, %94
   store i64 %96, ptr %53, align 8, !tbaa !6
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = load ptr, ptr %97, align 8, !tbaa !15
-  %99 = load ptr, ptr %73, align 8, !tbaa !66
+  %99 = load ptr, ptr %73, align 8, !tbaa !69
   %100 = call ptr @g_list_concat(ptr noundef %98, ptr noundef %99) #8
   store ptr %100, ptr %97, align 8, !tbaa !15
   %101 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #8
-  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !31
   %.not.i75 = icmp eq i32 %102, 0
   br i1 %.not.i75, label %dt_get_debug_wtime.exit76, label %103
 
 103:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %104 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #8
-  %105 = load i64, ptr %6, align 8, !tbaa !63
+  %105 = load i64, ptr %6, align 8, !tbaa !66
   %106 = add nsw i64 %105, -1290608000
   %107 = sitofp i64 %106 to double
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %109 = load i64, ptr %108, align 8, !tbaa !65
+  %109 = load i64, ptr %108, align 8, !tbaa !68
   %110 = sitofp i64 %109 to double
   %111 = fmul reassoc nsz arcp contract afn double %110, 0x3EB0C6F7A0B5ED8D
   %112 = fadd reassoc nsz arcp contract afn double %111, %107
@@ -543,7 +543,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
   %.02635 = phi ptr [ %4, %.lr.ph ], [ %13, %51 ]
   %11 = load ptr, ptr %.02635, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %.02635, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %13 = load ptr, ptr %12, align 8, !tbaa !79
   %14 = load i64, ptr %5, align 8, !tbaa !6
   %15 = uitofp i64 %14 to float
   %16 = load i64, ptr %6, align 8, !tbaa !17
@@ -560,7 +560,7 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %25 = load i32, ptr %24, align 8, !tbaa !72
+  %25 = load i32, ptr %24, align 8, !tbaa !76
   %.not29 = icmp eq i32 %25, 0
   br i1 %.not29, label %28, label %26
 
@@ -571,17 +571,17 @@ define void @dt_cache_gc(ptr noundef captures(none) %0, float noundef %1) local_
 28:                                               ; preds = %23
   %29 = load ptr, ptr %7, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  %31 = load i32, ptr %30, align 4, !tbaa !71
+  %31 = load i32, ptr %30, align 4, !tbaa !75
   %32 = zext i32 %31 to i64
   %33 = inttoptr i64 %32 to ptr
   %34 = tail call i32 @g_hash_table_remove(ptr noundef %29, ptr noundef %33) #8
   %35 = load ptr, ptr %3, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !66
+  %37 = load ptr, ptr %36, align 8, !tbaa !69
   %38 = tail call ptr @g_list_delete_link(ptr noundef %35, ptr noundef %37) #8
   store ptr %38, ptr %3, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !70
+  %40 = load i64, ptr %39, align 8, !tbaa !74
   %41 = load i64, ptr %5, align 8, !tbaa !6
   %42 = sub i64 %41, %40
   store i64 %42, ptr %5, align 8, !tbaa !6
@@ -638,7 +638,7 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  %11 = load ptr, ptr %4, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = call i32 @pthread_rwlock_trywrlock(ptr noundef nonnull %12) #8
   %.not28 = icmp eq i32 %13, 0
@@ -651,11 +651,11 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
   %16 = load ptr, ptr %6, align 8, !tbaa !18
   %17 = call i32 @g_hash_table_lookup_extended(ptr noundef %16, ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %20 = load i32, ptr %19, align 8, !tbaa !72
+  %20 = load i32, ptr %19, align 8, !tbaa !76
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %23, label %21
 
@@ -669,7 +669,7 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !66
+  %29 = load ptr, ptr %28, align 8, !tbaa !69
   %30 = call ptr @g_list_delete_link(ptr noundef %27, ptr noundef %29) #8
   store ptr %30, ptr %26, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @dt_cache_remove(ptr noundef %0, i32 noundef %1) loca
   %39 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #8
   %40 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull %12) #8
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !70
+  %42 = load i64, ptr %41, align 8, !tbaa !74
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i64, ptr %43, align 8, !tbaa !6
   %45 = sub i64 %44, %42
@@ -798,52 +798,57 @@ attributes #9 = { nounwind allocsize(0) }
 !24 = !{!25, !13, i64 0}
 !25 = !{!"dt_cache_entry_t", !13, i64 0, !11, i64 8, !11, i64 16, !14, i64 24, !9, i64 32, !26, i64 88, !26, i64 92}
 !26 = !{!"int", !9, i64 0}
-!27 = !{!13, !13, i64 0}
-!28 = !{!29, !26, i64 8}
-!29 = !{!"darktable_t", !30, i64 0, !26, i64 4, !26, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !31, i64 48, !32, i64 56, !33, i64 64, !34, i64 72, !35, i64 80, !36, i64 88, !37, i64 96, !38, i64 104, !39, i64 112, !40, i64 120, !41, i64 128, !42, i64 136, !43, i64 144, !44, i64 152, !45, i64 160, !46, i64 168, !47, i64 176, !48, i64 184, !49, i64 192, !50, i64 200, !51, i64 208, !52, i64 216, !53, i64 224, !9, i64 232, !8, i64 2792, !8, i64 2832, !8, i64 2872, !8, i64 2912, !8, i64 2952, !54, i64 2992, !54, i64 3000, !54, i64 3008, !54, i64 3016, !54, i64 3024, !54, i64 3032, !54, i64 3040, !54, i64 3048, !54, i64 3056, !54, i64 3064, !54, i64 3072, !54, i64 3080, !54, i64 3088, !55, i64 3096, !14, i64 3104, !56, i64 3112, !14, i64 3120, !26, i64 3128, !9, i64 3132, !26, i64 3320, !26, i64 3324, !57, i64 3328, !58, i64 3336, !59, i64 3344, !61, i64 3384, !62, i64 3416}
-!30 = !{!"dt_codepath_t", !26, i64 0}
-!31 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
-!32 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
-!33 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
-!34 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
-!35 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
-!36 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
-!37 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
-!38 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
-!39 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
-!40 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
-!41 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
-!42 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
-!43 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
-!44 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
-!45 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
-!46 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
-!47 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
-!48 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
-!49 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
-!50 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
-!51 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
-!52 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
-!53 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
-!54 = !{!"p1 omnipotent char", !13, i64 0}
-!55 = !{!"", !26, i64 0}
-!56 = !{!"double", !9, i64 0}
-!57 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
-!58 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
-!59 = !{!"dt_sys_resources_t", !11, i64 0, !11, i64 8, !60, i64 16, !60, i64 24, !26, i64 32}
-!60 = !{!"p1 int", !13, i64 0}
-!61 = !{!"dt_backthumb_t", !56, i64 0, !56, i64 8, !26, i64 16, !26, i64 20, !26, i64 24, !26, i64 28}
-!62 = !{!"dt_gimp_t", !26, i64 0, !54, i64 8, !54, i64 16, !26, i64 24, !26, i64 28}
-!63 = !{!64, !11, i64 0}
-!64 = !{!"timeval", !11, i64 0, !11, i64 8}
-!65 = !{!64, !11, i64 8}
-!66 = !{!25, !14, i64 24}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = !{!25, !11, i64 8}
-!70 = !{!25, !11, i64 16}
-!71 = !{!25, !26, i64 92}
-!72 = !{!25, !26, i64 88}
-!73 = !{!7, !13, i64 80}
-!74 = !{!7, !13, i64 96}
-!75 = !{!21, !14, i64 8}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!13, !13, i64 0}
+!30 = distinct !{!30, !28}
+!31 = !{!32, !26, i64 8}
+!32 = !{!"darktable_t", !33, i64 0, !26, i64 4, !26, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !34, i64 48, !35, i64 56, !36, i64 64, !37, i64 72, !38, i64 80, !39, i64 88, !40, i64 96, !41, i64 104, !42, i64 112, !43, i64 120, !44, i64 128, !45, i64 136, !46, i64 144, !47, i64 152, !48, i64 160, !49, i64 168, !50, i64 176, !51, i64 184, !52, i64 192, !53, i64 200, !54, i64 208, !55, i64 216, !56, i64 224, !9, i64 232, !8, i64 2792, !8, i64 2832, !8, i64 2872, !8, i64 2912, !8, i64 2952, !57, i64 2992, !57, i64 3000, !57, i64 3008, !57, i64 3016, !57, i64 3024, !57, i64 3032, !57, i64 3040, !57, i64 3048, !57, i64 3056, !57, i64 3064, !57, i64 3072, !57, i64 3080, !57, i64 3088, !58, i64 3096, !14, i64 3104, !59, i64 3112, !14, i64 3120, !26, i64 3128, !9, i64 3132, !26, i64 3320, !26, i64 3324, !60, i64 3328, !61, i64 3336, !62, i64 3344, !64, i64 3384, !65, i64 3416}
+!33 = !{!"dt_codepath_t", !26, i64 0}
+!34 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
+!35 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
+!36 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
+!37 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
+!38 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
+!39 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
+!40 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
+!41 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
+!42 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
+!43 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
+!44 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
+!45 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
+!46 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
+!47 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
+!48 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
+!49 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
+!50 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
+!51 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
+!52 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
+!53 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
+!54 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
+!55 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
+!56 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
+!57 = !{!"p1 omnipotent char", !13, i64 0}
+!58 = !{!"", !26, i64 0}
+!59 = !{!"double", !9, i64 0}
+!60 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
+!61 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
+!62 = !{!"dt_sys_resources_t", !11, i64 0, !11, i64 8, !63, i64 16, !63, i64 24, !26, i64 32}
+!63 = !{!"p1 int", !13, i64 0}
+!64 = !{!"dt_backthumb_t", !59, i64 0, !59, i64 8, !26, i64 16, !26, i64 20, !26, i64 24, !26, i64 28}
+!65 = !{!"dt_gimp_t", !26, i64 0, !57, i64 8, !57, i64 16, !26, i64 24, !26, i64 28}
+!66 = !{!67, !11, i64 0}
+!67 = !{!"timeval", !11, i64 0, !11, i64 8}
+!68 = !{!67, !11, i64 8}
+!69 = !{!25, !14, i64 24}
+!70 = distinct !{!70, !28, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !28}
+!73 = !{!25, !11, i64 8}
+!74 = !{!25, !11, i64 16}
+!75 = !{!25, !26, i64 92}
+!76 = !{!25, !26, i64 88}
+!77 = !{!7, !13, i64 80}
+!78 = !{!7, !13, i64 96}
+!79 = !{!21, !14, i64 8}
+!80 = distinct !{!80, !28}

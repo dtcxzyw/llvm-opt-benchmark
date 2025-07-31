@@ -578,7 +578,7 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
   %indvars.iv = phi i32 [ 0, %1 ], [ 2, %18 ]
   %4 = or disjoint i32 %indvars.iv, 1
   %5 = tail call ptr @lj_lib_checkfunc(ptr noundef %0, i32 noundef %4) #10
-  store ptr %5, ptr %indvars.iv.sroa.phi41, align 8, !tbaa !31
+  store ptr %5, ptr %indvars.iv.sroa.phi41, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %7 = load i8, ptr %6, align 2, !tbaa !15
   %8 = icmp eq i8 %7, 0
@@ -606,14 +606,14 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %19, i64 0, i64 %20
-  store ptr %21, ptr %indvars.iv.sroa.phi, align 8, !tbaa !33
-  br i1 %3, label %2, label %22, !llvm.loop !35
+  store ptr %21, ptr %indvars.iv.sroa.phi, align 8, !tbaa !34
+  br i1 %3, label %2, label %22, !llvm.loop !36
 
 22:                                               ; preds = %18
-  %.sroa.4.0..sroa.4.8. = load ptr, ptr %.sroa.4, align 8, !tbaa !33
-  %23 = load i64, ptr %.sroa.4.0..sroa.4.8., align 8, !tbaa !36
-  %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !33
-  store i64 %23, ptr %.sroa.0.0..sroa.0.0., align 8, !tbaa !36
+  %.sroa.4.0..sroa.4.8. = load ptr, ptr %.sroa.4, align 8, !tbaa !34
+  %23 = load i64, ptr %.sroa.4.0..sroa.4.8., align 8, !tbaa !37
+  %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !34
+  store i64 %23, ptr %.sroa.0.0..sroa.0.0., align 8, !tbaa !37
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i8, ptr %25, align 8, !tbaa !15
@@ -622,7 +622,7 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
   br i1 %.not, label %36, label %28
 
 28:                                               ; preds = %22
-  %.sroa.043.0..sroa.043.0. = load ptr, ptr %.sroa.043, align 16, !tbaa !31
+  %.sroa.043.0..sroa.043.0. = load ptr, ptr %.sroa.043, align 16, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.043.0..sroa.043.0., i64 8
   %30 = load i8, ptr %29, align 8, !tbaa !15
   %31 = and i8 %30, 4
@@ -784,9 +784,9 @@ unmakemask.exit:                                  ; preds = %21, %23
 define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
   %2 = alloca [250 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #10
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !38
   %4 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %3) #13
-  %5 = load ptr, ptr @stdin, align 8, !tbaa !37
+  %5 = load ptr, ptr @stdin, align 8, !tbaa !38
   %6 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 250, ptr noundef %5)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %._crit_edge, label %.lr.ph
@@ -811,9 +811,9 @@ define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
   %15 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
   %.not8 = icmp eq ptr %15, null
   %16 = select i1 %.not8, ptr @.str.27, ptr %15
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !38
   %18 = call i32 @fputs(ptr noundef nonnull %16, ptr noundef %17) #13
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !38
   %fputc = call i32 @fputc(i32 10, ptr %19)
   br label %20
 
@@ -821,12 +821,12 @@ define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
   call void @lua_settop(ptr noundef %0, i32 noundef 0) #10
   call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #10
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !38
   %22 = call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %21) #13
-  %23 = load ptr, ptr @stdin, align 8, !tbaa !37
+  %23 = load ptr, ptr @stdin, align 8, !tbaa !38
   %24 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 250, ptr noundef %23)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #10
@@ -979,13 +979,13 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %1, align 8, !tbaa !39
+  %9 = load i32, ptr %1, align 8, !tbaa !41
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %12 = load ptr, ptr %11, align 8, !tbaa !43
   tail call void @lua_pushstring(ptr noundef nonnull %0, ptr noundef %12) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !42
+  %14 = load i32, ptr %13, align 8, !tbaa !44
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %18
 
@@ -1101,17 +1101,19 @@ attributes #13 = { cold }
 !26 = !{!18, !13, i64 124}
 !27 = !{!18, !19, i64 8}
 !28 = !{!18, !19, i64 16}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS6GCfunc", !12, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS5GCRef", !12, i64 0}
-!35 = distinct !{!35, !30}
-!36 = !{!6, !7, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!39 = !{!40, !13, i64 0}
-!40 = !{!"lua_Debug", !13, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !13, i64 52, !8, i64 56, !13, i64 116}
-!41 = !{!19, !19, i64 0}
-!42 = !{!40, !13, i64 40}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS6GCfunc", !12, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS5GCRef", !12, i64 0}
+!36 = distinct !{!36, !30, !31}
+!37 = !{!6, !7, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!40 = distinct !{!40, !31}
+!41 = !{!42, !13, i64 0}
+!42 = !{!"lua_Debug", !13, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !13, i64 52, !8, i64 56, !13, i64 116}
+!43 = !{!19, !19, i64 0}
+!44 = !{!42, !13, i64 40}

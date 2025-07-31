@@ -232,13 +232,13 @@ define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly captu
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073676200) #8, !srcloc !8
+  %7 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073676200) #8, !srcloc !9
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = shl i64 %9, 32
   %11 = or i64 %10, %8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #8
-          to label %13 [label %12], !srcloc !9
+          to label %13 [label %12], !srcloc !10
 
 12:                                               ; preds = %6
   tail call void @do_trace_read_msr(i32 noundef -1073676200, i64 noundef %11, i32 noundef 0) #8
@@ -294,7 +294,7 @@ define dso_local range(i32 0, 16) i32 @amd_get_subcaches(i32 noundef %0) local_u
   br i1 %21, label %33, label %22
 
 22:                                               ; preds = %1
-  store i32 0, ptr %2, align 4, !annotation !10
+  store i32 0, ptr %2, align 4, !annotation !11
   %23 = call i32 @pci_read_config_dword(ptr noundef %18, i32 noundef 468, ptr noundef nonnull %2) #8
   %24 = load i32, ptr %2, align 4
   %25 = load i64, ptr %4, align 8
@@ -359,7 +359,7 @@ define dso_local noundef range(i32 -22, 1) i32 @amd_set_subcaches(i32 noundef %0
   br label %35
 
 35:                                               ; preds = %26, %23
-  store i32 0, ptr %3, align 4, !annotation !10
+  store i32 0, ptr %3, align 4, !annotation !11
   %36 = icmp eq i64 %1, 15
   br i1 %36, label %45, label %37
 
@@ -455,13 +455,13 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %22 = load i16, ptr @amd_northbridges.0, align 8
   %23 = zext i16 %22 to i64
   %24 = icmp samesign ult i64 %21, %23
-  br i1 %24, label %.preheader5, label %10, !llvm.loop !11
+  br i1 %24, label %.preheader5, label %10, !llvm.loop !12
 
 .preheader3:                                      ; preds = %10, %.loopexit
   %25 = phi i16 [ %51, %.loopexit ], [ %22, %10 ]
   %26 = phi i64 [ %50, %.loopexit ], [ 0, %10 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
-  store i32 0, ptr %1, align 4, !annotation !10
+  store i32 0, ptr %1, align 4, !annotation !11
   %27 = zext i16 %25 to i64
   %28 = icmp samesign ult i64 %26, %27
   %29 = load ptr, ptr @amd_northbridges.2, align 8
@@ -476,7 +476,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   br i1 %37, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader3, %.preheader
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %38 = load i16, ptr @amd_northbridges.0, align 8
   %39 = zext i16 %38 to i64
   %40 = icmp samesign ult i64 %26, %39
@@ -489,7 +489,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %47 = load i32, ptr %1, align 4
   %48 = and i32 %47, 1
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %.preheader3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
@@ -497,7 +497,7 @@ define dso_local void @amd_flush_garts() #1 align 16 {
   %51 = load i16, ptr @amd_northbridges.0, align 8
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %50, %52
-  br i1 %53, label %.preheader3, label %.loopexit4, !llvm.loop !14
+  br i1 %53, label %.preheader3, label %.loopexit4, !llvm.loop !15
 
 .loopexit4:                                       ; preds = %.loopexit, %10
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @amd_flush_garts.gart_lock, i64 noundef %6) #8
@@ -539,11 +539,11 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 14:                                               ; preds = %10
   %15 = tail call ptr @pci_match_id(ptr noundef nonnull %6, ptr noundef nonnull %12) #8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %10, label %17, !llvm.loop !15
+  br i1 %16, label %10, label %17, !llvm.loop !16
 
 17:                                               ; preds = %14
   %18 = add i16 %9, 1
-  br label %7, !llvm.loop !16
+  br label %7, !llvm.loop !17
 
 19:                                               ; preds = %10
   %20 = select i1 %5, ptr @hygon_nb_link_ids, ptr @amd_nb_link_ids
@@ -565,11 +565,11 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 29:                                               ; preds = %25
   %30 = tail call ptr @pci_match_id(ptr noundef nonnull %21, ptr noundef nonnull %27) #8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %25, label %32, !llvm.loop !15
+  br i1 %31, label %25, label %32, !llvm.loop !18
 
 32:                                               ; preds = %29
   %33 = add i16 %24, 1
-  br label %.preheader15, !llvm.loop !17
+  br label %.preheader15, !llvm.loop !19
 
 34:                                               ; preds = %25
   %35 = icmp eq i16 %24, 0
@@ -619,7 +619,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 61:                                               ; preds = %57
   %62 = tail call ptr @pci_match_id(ptr noundef nonnull %21, ptr noundef nonnull %59) #8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %57, label %64, !llvm.loop !15
+  br i1 %63, label %57, label %64, !llvm.loop !20
 
 64:                                               ; preds = %61, %57
   %65 = load i16, ptr @amd_northbridges.0, align 8
@@ -640,7 +640,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 75:                                               ; preds = %71
   %76 = tail call ptr @pci_match_id(ptr noundef nonnull %6, ptr noundef nonnull %73) #8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %71, label %78, !llvm.loop !15
+  br i1 %77, label %71, label %78, !llvm.loop !21
 
 78:                                               ; preds = %75, %71
   %79 = load i16, ptr @amd_northbridges.0, align 8
@@ -662,7 +662,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 90:                                               ; preds = %86
   %91 = tail call ptr @pci_match_id(ptr noundef nonnull %20, ptr noundef nonnull %88) #8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %86, label %93, !llvm.loop !15
+  br i1 %92, label %86, label %93, !llvm.loop !22
 
 93:                                               ; preds = %90, %86
   %94 = load i16, ptr @amd_northbridges.0, align 8
@@ -689,12 +689,12 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
 107:                                              ; preds = %103
   %108 = tail call ptr @pci_match_id(ptr noundef nonnull %21, ptr noundef nonnull %105) #8
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %103, label %110, !llvm.loop !15
+  br i1 %109, label %103, label %110, !llvm.loop !23
 
 110:                                              ; preds = %107, %103
   %111 = add nuw i16 %101, 1
   %112 = icmp eq i16 %111, %45
-  br i1 %112, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !18
+  br i1 %112, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !24
 
 .loopexit14.loopexit:                             ; preds = %110
   %.pre = load i16, ptr @amd_northbridges.0, align 8
@@ -706,7 +706,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   %113 = phi ptr [ %105, %.loopexit14.loopexit ], [ %59, %93 ]
   %114 = add nuw nsw i64 %53, 1
   %115 = icmp samesign ult i64 %114, %.pre-phi
-  br i1 %115, label %52, label %116, !llvm.loop !19
+  br i1 %115, label %52, label %116, !llvm.loop !25
 
 116:                                              ; preds = %.loopexit14
   %117 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
@@ -733,7 +733,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   br label %131
 
 131:                                              ; preds = %128, %123, %116
-  %132 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483642, i32 0) #8, !srcloc !20
+  %132 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483642, i32 0) #8, !srcloc !26
   %133 = extractvalue { i32, i32, i32, i32 } %132, 3
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.thread, label %135
@@ -812,7 +812,7 @@ define internal noundef i32 @init_amd_nbs() #6 section ".init.text" align 16 {
   %182 = add i16 %171, 1
   %183 = load i16, ptr @amd_northbridges.0, align 8
   %184 = icmp eq i16 %182, %183
-  br i1 %184, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %184, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %166, %163, %.thread
   tail call fastcc void @fix_erratum_688() #11
@@ -850,7 +850,7 @@ define internal fastcc void @fix_erratum_688() unnamed_addr #6 section ".init.te
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %7
-  store i32 0, ptr %1, align 4, !annotation !10
+  store i32 0, ptr %1, align 4, !annotation !11
   %13 = call i32 @pci_read_config_dword(ptr noundef nonnull %10, i32 noundef 356, ptr noundef nonnull %1) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %21
@@ -913,20 +913,26 @@ attributes #11 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 1163686, i64 1163707, i64 2149397372, i64 2149397416, i64 2149397439, i64 2149397472, i64 2149397503, i64 2149397542}
-!9 = !{i64 603655, i64 603699, i64 2148090674, i64 2148090695, i64 2148090721, i64 2148090754, i64 2148090788, i64 2148090812}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i64 1960570}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = !{i64 1151699}
-!21 = distinct !{!21, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 1163686, i64 1163707, i64 2149397372, i64 2149397416, i64 2149397439, i64 2149397472, i64 2149397503, i64 2149397542}
+!10 = !{i64 603655, i64 603699, i64 2148090674, i64 2148090695, i64 2148090721, i64 2148090754, i64 2148090788, i64 2148090812}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{i64 1960570}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = !{i64 1151699}
+!27 = distinct !{!27, !6, !7, !8}

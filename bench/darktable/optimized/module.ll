@@ -72,7 +72,7 @@ define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef r
 .backedge.us:                                     ; preds = %14, %11
   %28 = call ptr @g_dir_read_name(ptr noundef nonnull %8) #7
   %.not33.us = icmp eq ptr %28, null
-  br i1 %.not33.us, label %.outer._crit_edge, label %11
+  br i1 %.not33.us, label %.outer._crit_edge, label %11, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %29 = phi ptr [ %47, %.outer ], [ %9, %.lr.ph.lr.ph ]
@@ -88,7 +88,7 @@ define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef r
 .backedge:                                        ; preds = %30, %34
   %33 = call ptr @g_dir_read_name(ptr noundef nonnull %8) #7
   %.not33 = icmp eq ptr %33, null
-  br i1 %.not33, label %.outer._crit_edge, label %30
+  br i1 %.not33, label %.outer._crit_edge, label %30, !llvm.loop !9
 
 34:                                               ; preds = %30
   %35 = call i32 @g_str_has_suffix(ptr noundef nonnull %31, ptr noundef nonnull @.str.1) #7
@@ -121,7 +121,7 @@ define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef r
   %.1 = phi ptr [ %.028.ph43, %44 ], [ %46, %45 ]
   %47 = call ptr @g_dir_read_name(ptr noundef nonnull %8) #7
   %.not3340 = icmp eq ptr %47, null
-  br i1 %.not3340, label %.outer._crit_edge, label %.lr.ph
+  br i1 %.not3340, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us, %.preheader
   %.028.ph.lcssa = phi ptr [ null, %.preheader ], [ %.028.ph43.us, %.backedge.us ], [ %.1.us, %.outer.us ], [ %.028.ph43, %.backedge ], [ %.1, %.outer ]
@@ -206,5 +206,7 @@ attributes #9 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}

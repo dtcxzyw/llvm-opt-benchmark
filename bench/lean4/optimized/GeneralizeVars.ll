@@ -531,7 +531,7 @@ lean_dec.exit167:                                 ; preds = %lean_obj_tag.exit21
 
 lean_dec.exit168.backedge:                        ; preds = %lean_dec.exit167, %144, %146, %147, %310, %333, %lean_inc.exit159, %lean_alloc_ctor.exit236, %lean_alloc_ctor.exit235
   %.0140.be = phi ptr [ %80, %lean_dec.exit167 ], [ %80, %144 ], [ %80, %146 ], [ %80, %147 ], [ %.0138, %310 ], [ %.0, %333 ], [ %80, %lean_inc.exit159 ], [ %210, %lean_alloc_ctor.exit236 ], [ %191, %lean_alloc_ctor.exit235 ]
-  br label %lean_dec.exit168
+  br label %lean_dec.exit168, !llvm.loop !12
 
 141:                                              ; preds = %lean_dec.exit167
   %142 = load i32, ptr %42, align 4, !tbaa !8
@@ -1474,7 +1474,7 @@ lean_dec.exit170:                                 ; preds = %lean_obj_tag.exit21
 
 lean_dec.exit169.backedge:                        ; preds = %lean_dec.exit170, %143, %145, %146, %309, %332, %lean_inc.exit158, %lean_alloc_ctor.exit235, %lean_alloc_ctor.exit234
   %.0139.be = phi ptr [ %79, %lean_dec.exit170 ], [ %79, %143 ], [ %79, %145 ], [ %79, %146 ], [ %.0137, %309 ], [ %.0, %332 ], [ %79, %lean_inc.exit158 ], [ %209, %lean_alloc_ctor.exit235 ], [ %190, %lean_alloc_ctor.exit234 ]
-  br label %lean_dec.exit169
+  br label %lean_dec.exit169, !llvm.loop !14
 
 140:                                              ; preds = %lean_dec.exit170
   %141 = load i32, ptr %41, align 4, !tbaa !8
@@ -5670,7 +5670,7 @@ lean_alloc_ctor.exit110:                          ; preds = %lean_alloc_ctor.exi
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %9, ptr %22, align 8, !tbaa !4
   %23 = getelementptr i8, ptr %0, i64 8
-  %.val109 = load i64, ptr %23, align 8, !tbaa !12
+  %.val109 = load i64, ptr %23, align 8, !tbaa !15
   %24 = ptrtoint ptr %5 to i64
   %25 = and i64 %24, 1
   %.not = icmp eq i64 %25, 0
@@ -6239,7 +6239,7 @@ declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_mkGeneralizationForbiddenSet___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = getelementptr i8, ptr %3, i64 8
-  %.val = load i64, ptr %12, align 8, !tbaa !12
+  %.val = load i64, ptr %12, align 8, !tbaa !15
   %13 = ptrtoint ptr %3 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -6265,7 +6265,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_mkGeneralizationForbidde
 
 lean_dec.exit21:                                  ; preds = %21, %20, %18, %11
   %22 = getelementptr i8, ptr %4, i64 8
-  %.val30 = load i64, ptr %22, align 8, !tbaa !12
+  %.val30 = load i64, ptr %22, align 8, !tbaa !15
   %23 = ptrtoint ptr %4 to i64
   %24 = and i64 %23, 1
   %.not31 = icmp eq i64 %24, 0
@@ -6877,7 +6877,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -7367,7 +7367,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -8169,7 +8169,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -11489,7 +11489,7 @@ lean_inc.exit36:                                  ; preds = %11, %10, %8, %3
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !14
+  br i1 %25, label %26, label %28, !prof !17
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -14816,7 +14816,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -15306,7 +15306,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -16104,7 +16104,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -19410,7 +19410,7 @@ lean_inc.exit36:                                  ; preds = %11, %10, %8, %3
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !14
+  br i1 %25, label %26, label %28, !prof !17
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -22737,7 +22737,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -23227,7 +23227,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -24025,7 +24025,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -27376,7 +27376,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -27866,7 +27866,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -28664,7 +28664,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -32015,7 +32015,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -32505,7 +32505,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -33303,7 +33303,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -36609,7 +36609,7 @@ lean_inc.exit36:                                  ; preds = %11, %10, %8, %3
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !14
+  br i1 %25, label %26, label %28, !prof !17
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -39936,7 +39936,7 @@ lean_inc.exit38:                                  ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !14
+  br i1 %26, label %27, label %29, !prof !17
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -40426,7 +40426,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val59 = load i64, ptr %15, align 8, !tbaa !12
+  %.val59 = load i64, ptr %15, align 8, !tbaa !15
   %.mask67 = and i64 %.val59, 9223372036854775807
   %.not66 = icmp eq i64 %.mask67, 0
   br i1 %12, label %lean_nat_lt.exit, label %lean_nat_lt.exit58
@@ -41224,7 +41224,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val = load i64, ptr %26, align 8, !tbaa !12
+  %.val = load i64, ptr %26, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not49 = icmp eq i64 %.mask, 0
   br i1 %.not49, label %lean_dec.exit32, label %lean_dec.exit29
@@ -44530,7 +44530,7 @@ lean_inc.exit36:                                  ; preds = %11, %10, %8, %3
 23:                                               ; preds = %22, %19
   %24 = phi i32 [ %.pr, %22 ], [ %20, %19 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !14
+  br i1 %25, label %26, label %28, !prof !17
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -48539,7 +48539,7 @@ lean_alloc_ctor.exit:                             ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %29, align 8, !tbaa !4
   %30 = getelementptr i8, ptr %22, i64 8
-  %.val180 = load i64, ptr %30, align 8, !tbaa !12
+  %.val180 = load i64, ptr %30, align 8, !tbaa !15
   %31 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__63(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %23, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !4
@@ -48975,7 +48975,7 @@ lean_alloc_ctor.exit207:                          ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %190, align 8, !tbaa !4
   %191 = getelementptr i8, ptr %22, i64 8
-  %.val179 = load i64, ptr %191, align 8, !tbaa !12
+  %.val179 = load i64, ptr %191, align 8, !tbaa !15
   %192 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__64(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val179, i64 noundef 0, ptr noundef nonnull %23, ptr poison, ptr noundef %7, ptr poison, ptr poison, ptr noundef %10)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !4
@@ -66281,7 +66281,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_dec.exit138
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %154, ptr %177, align 8, !tbaa !4
   %178 = getelementptr i8, ptr %171, i64 8
-  %.val180 = load i64, ptr %178, align 8, !tbaa !12
+  %.val180 = load i64, ptr %178, align 8, !tbaa !15
   %179 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__65(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr nonnull poison, ptr poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %171, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %172, ptr poison, ptr noundef %6, ptr poison, ptr poison, ptr noundef %135)
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !4
@@ -67935,7 +67935,7 @@ lean_alloc_ctor.exit:                             ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %29, align 8, !tbaa !4
   %30 = getelementptr i8, ptr %22, i64 8
-  %.val180 = load i64, ptr %30, align 8, !tbaa !12
+  %.val180 = load i64, ptr %30, align 8, !tbaa !15
   %31 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__68(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %23, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !4
@@ -68371,7 +68371,7 @@ lean_alloc_ctor.exit207:                          ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %190, align 8, !tbaa !4
   %191 = getelementptr i8, ptr %22, i64 8
-  %.val179 = load i64, ptr %191, align 8, !tbaa !12
+  %.val179 = load i64, ptr %191, align 8, !tbaa !15
   %192 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__69(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val179, i64 noundef 0, ptr noundef nonnull %23, ptr poison, ptr noundef %7, ptr poison, ptr poison, ptr noundef %10)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !4
@@ -85600,7 +85600,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_dec.exit138
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %154, ptr %177, align 8, !tbaa !4
   %178 = getelementptr i8, ptr %171, i64 8
-  %.val180 = load i64, ptr %178, align 8, !tbaa !12
+  %.val180 = load i64, ptr %178, align 8, !tbaa !15
   %179 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__70(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr nonnull poison, ptr poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %171, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %172, ptr poison, ptr noundef %6, ptr poison, ptr poison, ptr noundef %135)
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !4
@@ -87361,7 +87361,7 @@ lean_alloc_ctor.exit:                             ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %29, align 8, !tbaa !4
   %30 = getelementptr i8, ptr %22, i64 8
-  %.val180 = load i64, ptr %30, align 8, !tbaa !12
+  %.val180 = load i64, ptr %30, align 8, !tbaa !15
   %31 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__74(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %23, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !4
@@ -87797,7 +87797,7 @@ lean_alloc_ctor.exit207:                          ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %5, ptr %190, align 8, !tbaa !4
   %191 = getelementptr i8, ptr %22, i64 8
-  %.val179 = load i64, ptr %191, align 8, !tbaa !12
+  %.val179 = load i64, ptr %191, align 8, !tbaa !15
   %192 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__75(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr poison, ptr nonnull poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %22, i64 noundef %.val179, i64 noundef 0, ptr noundef nonnull %23, ptr poison, ptr noundef %7, ptr poison, ptr poison, ptr noundef %10)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !4
@@ -105026,7 +105026,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_dec.exit138
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %154, ptr %177, align 8, !tbaa !4
   %178 = getelementptr i8, ptr %171, i64 8
-  %.val180 = load i64, ptr %178, align 8, !tbaa !12
+  %.val180 = load i64, ptr %178, align 8, !tbaa !15
   %179 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize___spec__76(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr nonnull poison, ptr poison, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %171, i64 noundef %.val180, i64 noundef 0, ptr noundef nonnull %172, ptr poison, ptr noundef %6, ptr poison, ptr poison, ptr noundef %135)
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !4
@@ -105521,7 +105521,7 @@ lean_alloc_ctor.exit235:                          ; preds = %lean_dec.exit
 define ptr @l_Lean_Meta_getFVarSetToGeneralize(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val167 = load i64, ptr %8, align 8, !tbaa !12
+  %.val167 = load i64, ptr %8, align 8, !tbaa !15
   %.mask = and i64 %.val167, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -105965,7 +105965,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_dec.exit
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__6___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -105991,7 +105991,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106051,7 +106051,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__7___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106077,7 +106077,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106171,7 +106171,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__8___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106197,7 +106197,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106291,7 +106291,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__17___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106317,7 +106317,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106377,7 +106377,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__18___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106403,7 +106403,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106497,7 +106497,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__19___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106523,7 +106523,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106617,7 +106617,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__28___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106643,7 +106643,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106703,7 +106703,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__29___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106729,7 +106729,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106823,7 +106823,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__30___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106849,7 +106849,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -106943,7 +106943,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__36___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -106969,7 +106969,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107029,7 +107029,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__37___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107055,7 +107055,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107149,7 +107149,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__38___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107175,7 +107175,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107269,7 +107269,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__44___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107295,7 +107295,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107355,7 +107355,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__45___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107381,7 +107381,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107475,7 +107475,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__46___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107501,7 +107501,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107595,7 +107595,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__55___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107621,7 +107621,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107681,7 +107681,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__56___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107707,7 +107707,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107801,7 +107801,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize___spec__57___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %6, align 8, !tbaa !12
+  %.val17 = load i64, ptr %6, align 8, !tbaa !15
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -107827,7 +107827,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_Meta_getFVarSetToGeneralize
 
 lean_dec.exit12:                                  ; preds = %15, %14, %12, %5
   %16 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !12
+  %.val = load i64, ptr %16, align 8, !tbaa !15
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, 1
   %.not18 = icmp eq i64 %18, 0
@@ -107947,7 +107947,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize__
 
 lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
   %28 = getelementptr i8, ptr %8, i64 8
-  %.val64 = load i64, ptr %28, align 8, !tbaa !12
+  %.val64 = load i64, ptr %28, align 8, !tbaa !15
   %29 = ptrtoint ptr %8 to i64
   %30 = and i64 %29, 1
   %.not65 = icmp eq i64 %30, 0
@@ -107973,7 +107973,7 @@ lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
 
 lean_dec.exit40:                                  ; preds = %37, %36, %34, %lean_dec.exit41
   %38 = getelementptr i8, ptr %9, i64 8
-  %.val = load i64, ptr %38, align 8, !tbaa !12
+  %.val = load i64, ptr %38, align 8, !tbaa !15
   %39 = ptrtoint ptr %9 to i64
   %40 = and i64 %39, 1
   %.not66 = icmp eq i64 %40, 0
@@ -108247,7 +108247,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -108273,7 +108273,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -108880,7 +108880,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -108906,7 +108906,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -109474,7 +109474,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize__
 
 lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
   %28 = getelementptr i8, ptr %8, i64 8
-  %.val64 = load i64, ptr %28, align 8, !tbaa !12
+  %.val64 = load i64, ptr %28, align 8, !tbaa !15
   %29 = ptrtoint ptr %8 to i64
   %30 = and i64 %29, 1
   %.not65 = icmp eq i64 %30, 0
@@ -109500,7 +109500,7 @@ lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
 
 lean_dec.exit40:                                  ; preds = %37, %36, %34, %lean_dec.exit41
   %38 = getelementptr i8, ptr %9, i64 8
-  %.val = load i64, ptr %38, align 8, !tbaa !12
+  %.val = load i64, ptr %38, align 8, !tbaa !15
   %39 = ptrtoint ptr %9 to i64
   %40 = and i64 %39, 1
   %.not66 = icmp eq i64 %40, 0
@@ -109774,7 +109774,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -109800,7 +109800,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -110250,7 +110250,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -110276,7 +110276,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -110676,7 +110676,7 @@ lean_dec.exit:                                    ; preds = %76, %75, %73, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_getFVarSetToGeneralize___spec__71___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val15 = load i64, ptr %5, align 8, !tbaa !12
+  %.val15 = load i64, ptr %5, align 8, !tbaa !15
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -110702,7 +110702,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_getFVarSetToGeneralize___sp
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !12
+  %.val = load i64, ptr %15, align 8, !tbaa !15
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not16 = icmp eq i64 %17, 0
@@ -110784,7 +110784,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGeneralize__
 
 lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
   %28 = getelementptr i8, ptr %8, i64 8
-  %.val64 = load i64, ptr %28, align 8, !tbaa !12
+  %.val64 = load i64, ptr %28, align 8, !tbaa !15
   %29 = ptrtoint ptr %8 to i64
   %30 = and i64 %29, 1
   %.not65 = icmp eq i64 %30, 0
@@ -110810,7 +110810,7 @@ lean_dec.exit41:                                  ; preds = %27, %26, %24, %16
 
 lean_dec.exit40:                                  ; preds = %37, %36, %34, %lean_dec.exit41
   %38 = getelementptr i8, ptr %9, i64 8
-  %.val = load i64, ptr %38, align 8, !tbaa !12
+  %.val = load i64, ptr %38, align 8, !tbaa !15
   %39 = ptrtoint ptr %9 to i64
   %40 = and i64 %39, 1
   %.not66 = icmp eq i64 %40, 0
@@ -111084,7 +111084,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -111110,7 +111110,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -111560,7 +111560,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_getFVarSetToGene
 
 lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
   %27 = getelementptr i8, ptr %7, i64 8
-  %.val59 = load i64, ptr %27, align 8, !tbaa !12
+  %.val59 = load i64, ptr %27, align 8, !tbaa !15
   %28 = ptrtoint ptr %7 to i64
   %29 = and i64 %28, 1
   %.not60 = icmp eq i64 %29, 0
@@ -111586,7 +111586,7 @@ lean_dec.exit38:                                  ; preds = %26, %25, %23, %15
 
 lean_dec.exit37:                                  ; preds = %36, %35, %33, %lean_dec.exit38
   %37 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !12
+  %.val = load i64, ptr %37, align 8, !tbaa !15
   %38 = ptrtoint ptr %8 to i64
   %39 = and i64 %38, 1
   %.not61 = icmp eq i64 %39, 0
@@ -112292,7 +112292,7 @@ lean_inc.exit:                                    ; preds = %44, %43, %41, %lean
 lean_dec.exit:                                    ; preds = %51, %50, %48, %lean_inc.exit
   %52 = tail call ptr @l_Lean_RBNode_fold___at_Lean_Meta_getFVarsToGeneralize___spec__2(ptr noundef %.0, ptr noundef %16)
   %53 = tail call ptr @lean_array_push(ptr noundef %52, ptr noundef %26) #4
-  br label %3
+  br label %3, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -113042,9 +113042,9 @@ _init_l___private_Lean_MetavarContext_0__Lean_DependsOn_dep_visitMain___at_Lean_
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr @l_Lean_Name_quickCmp___boxed, ptr %52, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i16 2, ptr %53, align 8, !tbaa !15
+  store i16 2, ptr %53, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 18
-  store i16 0, ptr %54, align 2, !tbaa !15
+  store i16 0, ptr %54, align 2, !tbaa !19
   store ptr %48, ptr @l___private_Lean_MetavarContext_0__Lean_DependsOn_dep_visitMain___at_Lean_Meta_getFVarSetToGeneralize___spec__2___at_Lean_Meta_getFVarSetToGeneralize___spec__10___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %48) #4
   tail call void @lean_inc_heartbeat() #4
@@ -113137,8 +113137,12 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!18 = distinct !{!18, !13}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}
